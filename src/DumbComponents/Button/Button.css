@@ -1,0 +1,3 @@
+.button {
+  composes: pure-button from "pure-css/lib/buttons.css";
+}
