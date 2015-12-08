@@ -1,7 +1,6 @@
-import React from 'react';
 import Style from './List.css';
 
-export default (props) => (
+export default (React) => (props) => (
   <ul>
     {
       React.Children.map(

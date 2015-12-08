@@ -1,0 +1,29 @@
+@value colors: "../colors.css";
+@value primary from colors;
+
+.Container {
+  position: relative;
+}
+
+.Progress {
+  position: absolute;
+  background-color: primary;
+  background-position: 0% 0%;
+  opacity: 0.25;
+  height: 100%;
+  width: 0%;
+}
+
+.PollOption {
+  composes: pure-u-1 from "pure-css/lib/grids.css";
+  composes: pure-button from "pure-css/lib/buttons.css";
+  background-color: rgba(0, 0, 0, 0.1);
+  position: relative;
+  white-space: normal;
+  text-align: left;
+}
+
+.ActivePollOption {
+  composes: PollOption;
+  composes: pure-button-active from "pure-css/lib/buttons.css";
+}

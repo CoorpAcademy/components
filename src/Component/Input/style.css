@@ -1,5 +1,5 @@
 @value colors: "../colors.css";
-@value primary, secondary from colors;
+@value primary from colors;
 
 .Input {
   composes: pure-input-1 from "pure-css/lib/forms.css";

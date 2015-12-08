@@ -4,8 +4,6 @@ import Form from '../Form';
 import ControlGroup from '../ControlGroup';
 import { TextInput, SubmitInput, ResetInput } from '../Input';
 
-const { object, func, string } = React.PropTypes;
-
 const PollForm = ({ poll, onChange = _.noop, legend, onSubmit = _.noop, onReset = _.noop, action, method }) => {
   const { title, options } = poll;
 
@@ -39,7 +37,7 @@ const PollForm = ({ poll, onChange = _.noop, legend, onSubmit = _.noop, onReset 
       onSubmit= { handleSubmit }
     >
       <ControlGroup>
-        <TextInput placeholder="Enter yout question" value={ title } onChange={ handleChangeTitle }/>
+        <TextInput placeholder="Enter your question" value={ title } onChange={ handleChangeTitle }/>
       </ControlGroup>
       <ControlGroup>
         { options.map((option, index) => (
@@ -52,13 +50,6 @@ const PollForm = ({ poll, onChange = _.noop, legend, onSubmit = _.noop, onReset 
       </ControlGroup>
     </Form>
   );
-};
-
-PollForm.propTypes = {
-  poll: object.isRequired,
-  legend: string,
-  onChange: func,
-  onSubmit: func
 };
 
 export default PollForm;

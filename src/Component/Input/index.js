@@ -1,7 +1,24 @@
-import { TextInput, SubmitInput, ResetInput } from './Input';
+import _ from 'lodash';
+import Style from './style.css';
 
-export {
-  TextInput,
-  SubmitInput,
-  ResetInput
+const createInputFactory = (type, CustomStyle) => {
+  return (React) => {
+    return ({ children, name, placeholder, value, onChange = _.noop }) => {
+      const handleChange = (e) => onChange(e.target.value);
+
+      return (
+        <input
+          {...{type, placeholder, value}}
+          className={ `${Style.Input} ${CustomStyle}` }
+          onChange={ handleChange }
+        >
+          { children }
+        </input>
+      );
+    };
+  }
 };
+
+export const createSubmitInput = createInputFactory('submit', Style.SubmitInput);
+export const createResetInput = createInputFactory('reset', Style.ResetInput);
+export const createTextInput = createInputFactory('text');
