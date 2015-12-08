@@ -1,0 +1,15 @@
+@value colors: "../colors.css";
+@value primary, secondary from colors;
+
+.Input {
+  composes: pure-input-1 from "pure-css/lib/forms.css";
+}
+
+.SubmitInput {
+  composes: pure-button pure-button-primary from "pure-css/lib/buttons.css";
+  background-color: primary;
+}
+
+.ResetInput {
+  composes: pure-button from "pure-css/lib/buttons.css";
+}

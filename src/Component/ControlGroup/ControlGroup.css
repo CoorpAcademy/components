@@ -1,0 +1,3 @@
+.ControlGroup {
+  composes: pure-group from "pure-css/lib/forms.css";
+}
