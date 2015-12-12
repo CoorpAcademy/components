@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import noop from 'lodash.noop';
 import createForm from '../Form';
 import createControlGroup from '../ControlGroup';
 import { createTextInput, createSubmitInput, createResetInput } from '../Input';
@@ -10,7 +10,7 @@ export default (React) => {
   const SubmitInput = createSubmitInput(React);
   const ResetInput = createResetInput(React);
 
-  return ({ poll, onChange = _.noop, legend, onSubmit = _.noop, onReset = _.noop, action, method }) => {
+  return ({ poll, onChange = noop, legend, onSubmit = noop, onReset = noop, action, method }) => {
     const { title, options } = poll;
 
     const handleChangeTitle = (title) => {

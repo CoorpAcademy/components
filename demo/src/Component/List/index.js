@@ -1,3 +1,12 @@
-import List from './List';
+import Style from './style.css';
 
-export default List;
+export default (React) => (props) => (
+  <ul>
+    {
+      React.Children.map(
+        props.children,
+        child => ( <li className={ Style.item }>{ child }</li> )
+      )
+    }
+  </ul>
+)

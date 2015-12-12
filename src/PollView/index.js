@@ -1,5 +1,3 @@
-import _ from 'lodash';
-
 export default (React) => ({ poll }) => {
   const { title, options } = poll;
 

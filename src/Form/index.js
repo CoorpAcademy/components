@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import noop from 'lodash.noop';
 import Style from './style.css';
 
 const createLegend = (React) => ({ children }) => {
@@ -12,7 +12,7 @@ const createLegend = (React) => ({ children }) => {
 export default (React) => {
   const Legend = createLegend(React);
 
-  return ({ children, title, action, method, onSubmit = _.noop, onReset = _.noop }) => {
+  return ({ children, title, action, method, onSubmit = noop, onReset = noop }) => {
     const head = title ? (<Legend>{ title }</Legend>) : null;
 
     const handleSubmit = (e) => {

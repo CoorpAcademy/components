@@ -1,10 +1,9 @@
-import _ from 'lodash';
-import React from 'react';
+import noop from 'lodash.noop';
 import Form from '../Form';
 import ControlGroup from '../ControlGroup';
 import { TextInput, SubmitInput, ResetInput } from '../Input';
 
-const PollForm = ({ poll, onChange = _.noop, legend, onSubmit = _.noop, onReset = _.noop, action, method }) => {
+const PollForm = ({ poll, onChange = noop, legend, onSubmit = noop, onReset = noop, action, method }) => {
   const { title, options } = poll;
 
   const handleChangeTitle = (title) => {

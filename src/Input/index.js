@@ -1,9 +1,9 @@
-import _ from 'lodash';
+import noop from 'lodash.noop';
 import Style from './style.css';
 
 const createInputFactory = (type, CustomStyle) => {
   return (React) => {
-    return ({ children, name, placeholder, value, onChange = _.noop }) => {
+    return ({ children, name, placeholder, value, onChange = noop }) => {
       const handleChange = (e) => onChange(e.target.value);
 
       return (

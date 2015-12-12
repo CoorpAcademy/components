@@ -1,13 +1,11 @@
-import _ from 'lodash';
+import last from 'lodash.last';
 import React from 'react';
 
-import createList from './Component/List';
-import createPollForm from '../../src/Component/PollForm';
-import createPollOption from '../../src/Component/PollOption';
+import createDemoComponents from './Component';
+import createComponents from '../../src';
 
-const List = createList(React);
-const PollForm = createPollForm(React);
-const PollOption = createPollOption(React);
+const { List } = createDemoComponents(React);
+const { PollForm, PollOption } = createComponents(React);
 
 export default React.createClass({
   getInitialState: function() {
@@ -31,10 +29,10 @@ export default React.createClass({
   },
 
   handleChange: function(poll) {
-    poll = _.assign({}, poll);
+    poll = { ...poll };
 
-    if (!!_.last(poll.options).title) {
-      poll.options = [].concat(poll.options, [{ id: poll.options.length, title: '', count: 1 }]);
+    if (!!last(poll.options).title) {
+      poll.options = [...poll.options, { id: poll.options.length, title: '', count: 1 }];
     }
 
     this.setState(poll);
@@ -42,10 +40,8 @@ export default React.createClass({
 
   handleOption: function(index) {
     return (option) => {
-      const poll = _.assign({}, this.state);
-      poll.options[index] = _.assign({}, option, {
-        active: !option.active
-      });
+      const poll = {...this.state};
+      poll.options[index] = { ...option, active: !option.active };
 
       this.handleChange(poll);
     };
