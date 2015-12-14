@@ -1,6 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
-var colorFunction = require('postcss-color-function')
+var colorFunction = require('postcss-color-function');
 
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
@@ -9,7 +9,7 @@ module.exports = {
   devtool: 'source-map',
 
   entry: [
-    path.join(__dirname, './src')
+    path.join(__dirname, 'src')
   ],
 
   output: {
@@ -19,7 +19,7 @@ module.exports = {
 
   module: {
     loaders: [
-      { test: /\.js$/, loader: 'babel', include: [path.join(__dirname, './src'), path.join(__dirname, '../src')] },
+      { test: /\.js$/, loader: 'babel', include: [path.join(__dirname, 'src'), path.join(__dirname, '..', 'src')] },
       { test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss') }
     ]
   },
