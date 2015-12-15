@@ -1,7 +1,5 @@
-import createPollForm from './PollForm';
-import createPollOption from './PollOption';
+import createSlide from './Slide';
 
 export default (React) => ({
-  PollForm: createPollForm(React),
-  PollOption: createPollOption(React)
+  Slide: createSlide(React)
 });

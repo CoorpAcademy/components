@@ -1,0 +1,60 @@
+@value colors: "../colors.css";
+@value primary from colors;
+
+.Container {
+  text-align: center;
+  font-family: "Open Sans";
+}
+
+.Title {
+  color: #261E1B;
+  font-size: 1.875rem;
+  font-weight: normal;
+  line-height: 2.25rem;
+}
+
+.SubTitle {
+  color: #7F8C8D;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2rem;
+  margin: 0px 0px 50px;
+}
+
+.TextArea {
+  font-size: 1.125rem;
+  font-weight: 600;
+  vertical-align: middle;
+  line-height: 1.35rem;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #D0D0D0;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+  color: #191919;
+}
+
+.Button {
+  background: primary none repeat scroll 0% 0%;
+  color: #FFF;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  line-height: 1.125rem;
+  padding: 15px 20px;
+  text-decoration: none;
+  border-radius: 3px;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border: 0px none;
+  margin-top: 60px;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/opensans/v13/cJZKeOuBrn4kERxqtaUH3VtXRa8TVwTICgirnJhmVJw.woff2) format('woff2');
+}
