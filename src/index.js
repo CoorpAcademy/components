@@ -1,5 +1,3 @@
-import createSlide from './Slide';
+import slide from './Slide';
 
-export default (React) => ({
-  Slide: createSlide(React)
-});
+export const Slide = slide;
