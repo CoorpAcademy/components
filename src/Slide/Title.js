@@ -1,7 +1,11 @@
-import h from 'virtual-dom/h';
+import h from '../h';
 
 import style from './style.css';
 
-export default (props, children) =>
-  h(`h1.${style.Title}`, {}, children)
-;
+export default (props, children) => (
+  <h1
+    className={style.Title}
+  >
+    {children}
+  </h1>
+);

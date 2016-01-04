@@ -1,24 +1,30 @@
-import diff from 'virtual-dom/diff';
-import patch from 'virtual-dom/patch';
-import createElement from 'virtual-dom/create-element';
+var h = require('../../src/h').default;
+var diff = require('virtual-dom/diff');
+var patch = require('virtual-dom/patch');
+var createElement = require('virtual-dom/create-element');
 
-import App from './App';
+// 1: Create a function that declares what the DOM should look like
+function render(state)  {
+  var App = require('./App').default;
+  return <App {...state}/>;
+}
 
-let state = {
+// 2: Initialise the document
+var state = {
   question: {
     title: 'Quel réseau social se distingue par ses messages instantanés limités à 140 signes ?'
   }
 };
 
-const render = (state) => App(state);
-
-let tree = render(state);               // We need an initial tree
-let rootNode = createElement(tree);     // Create an initial root DOM node ...
+var tree = render(state);               // We need an initial tree
+var rootNode = createElement(tree);     // Create an initial root DOM node ...
 document.body.appendChild(rootNode);    // ... and it should be in the document
 
-setInterval(() => {
-  const newTree = render(state);
-  const patches = diff(tree, newTree);
-  rootNode = patch(rootNode, patches);
-  tree = newTree;
-}, 1000);
+if(module.hot) {
+    module.hot.accept("./App.js", function() {
+      var newTree = render(state);
+      var patches = diff(tree, newTree);
+      rootNode = patch(rootNode, patches);
+      tree = newTree;
+    });
+}

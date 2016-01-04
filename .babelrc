@@ -3,6 +3,7 @@
   "env": {
     "development": {
       "plugins": [
+        ["transform-react-jsx", { "pragma": "h" }]
       ]
     }
   }
