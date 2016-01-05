@@ -1,19 +1,12 @@
 @value colors: "../colors.css";
 @value primary from colors;
 
-.Container {
+.container {
   text-align: center;
   font-family: "Open Sans";
 }
 
-.Title {
-  color: #261E1B;
-  font-size: 1.875rem;
-  font-weight: normal;
-  line-height: 2.25rem;
-}
-
-.SubTitle {
+.subTitle {
   color: #7F8C8D;
   font-size: 1rem;
   font-weight: 600;
@@ -21,7 +14,7 @@
   margin: 0px 0px 50px;
 }
 
-.TextArea {
+.textArea {
   font-size: 1.125rem;
   font-weight: 600;
   vertical-align: middle;
@@ -37,7 +30,7 @@
   color: #191919;
 }
 
-.Button {
+.button {
   background: primary none repeat scroll 0% 0%;
   color: #FFF;
   font-weight: 600;

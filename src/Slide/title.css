@@ -1,0 +1,12 @@
+@value defaultColor: #F0F;
+
+.normal {
+  font-size: 1.875rem;
+  font-weight: normal;
+  line-height: 2.25rem;
+}
+
+.disabled {
+  composes: normal;
+  opacity: 0.5;
+}

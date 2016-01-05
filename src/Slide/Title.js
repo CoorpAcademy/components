@@ -1,11 +1,15 @@
-import h from '../h';
+import style from './title.css';
 
-import style from './style.css';
+export default (h, {skin}) => (props, children) => {
+  var disabled = props && props.disabled;
 
-export default (props, children) => (
-  <h1
-    className={style.Title}
-  >
-    {children}
-  </h1>
-);
+  return (
+    <h1
+      className={disabled ? style.disabled : style.normal}
+      style={{
+          color: skin.primary || style.defaultColor
+      }}
+    >
+      {children}
+    </h1>
+)};
