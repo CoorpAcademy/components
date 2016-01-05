@@ -6,7 +6,7 @@ export default (h, {skin}) => (props) => {
 
   return (
     <article
-      className={style.Container}
+      className={style.container}
     >
       <Title
         disabled
@@ -14,16 +14,16 @@ export default (h, {skin}) => (props) => {
         {props.title}
       </Title>
       <p
-        className={style.SubTitle}
+        className={style.subTitle}
       >
         Saisissez votre réponse
       </p>
       <form>
         <textarea
-          className={style.TextArea}
+          className={style.textArea}
         />
         <button
-          className={style.Button}
+          className={style.button}
         >
           Vérifier la réponse
         </button>
