@@ -1,6 +1,5 @@
-console.log('[sandbox]');
 import h from '../../src/h';
-import { createSlide } from '../../src/index';
+import { createSlide } from '../../src';
 
 const skin = {
   primary: '#0F0'

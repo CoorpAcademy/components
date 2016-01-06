@@ -1,2 +1,5 @@
-import * as components from './index';
-export default components;
+import * from './';
+
+export {
+    createSlide
+};
