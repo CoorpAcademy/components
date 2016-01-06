@@ -1,10 +1,11 @@
+console.log('[sandbox]');
 import h from '../../src/h';
-import components from '../../src/bundle';
+import { createSlide } from '../../src/index';
 
 const skin = {
   primary: '#0F0'
 };
 
-const Slide = components.createSlide(h, {skin});
+const Slide = createSlide(h, {skin});
 
 export default state => <Slide {...state.question}/>

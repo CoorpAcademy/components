@@ -1,12 +1,7 @@
-// ---------------------------------
-// injecting deps
-// import App from './App';
-// ---------------------------------
-// not using deps
-import App from './app-no-deps';
-// ---------------------------------
-
 import h from '../../src/h';
+import App from './App';
+// import App from '../../example/app-using-virtual-dom';
+// import App from '../../example/app-no-deps';
 
 var diff = require('virtual-dom/diff');
 var patch = require('virtual-dom/patch');

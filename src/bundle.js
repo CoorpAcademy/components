@@ -1,2 +1,2 @@
-import components from './index';
-export default components(false);
+import * as components from './index';
+export default components;

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node demo/index.js",
+    "start": "node sandbox/index.js",
     "build": "npm run build:commonjs & npm run build:browser & wait",
     "build:commonjs": "npm run clean:commonjs && babel src --out-dir lib -s",
     "build:browser": "npm run clean:browser && webpack",
