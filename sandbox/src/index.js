@@ -1,11 +1,14 @@
-var h = require('../../src/h').default;
+import h from '../../src/h';
+import App from './App';
+// import App from '../../example/app-using-virtual-dom';
+// import App from '../../example/app-no-deps';
+
 var diff = require('virtual-dom/diff');
 var patch = require('virtual-dom/patch');
 var createElement = require('virtual-dom/create-element');
 
 // 1: Create a function that declares what the DOM should look like
 function render(state)  {
-  var App = require('./App').default;
   return <App {...state}/>;
 }
 

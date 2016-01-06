@@ -1,5 +1,5 @@
 import h from '../../src/h';
-import createSlide from '../../src/Slide';
+import { createSlide } from '../../src';
 
 const skin = {
   primary: '#0F0'

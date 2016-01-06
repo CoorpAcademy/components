@@ -1,3 +1,5 @@
-import createComponents from './index';
+import * from './';
 
-export default createComponents;
+export {
+    createSlide
+};

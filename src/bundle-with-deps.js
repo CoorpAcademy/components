@@ -1,3 +1,9 @@
-import createComponents from './index';
+import partial from 'lodash.partial';
+import mapValues from 'lodash.mapvalues';
 
-export default createComponents(React);
+import h from './h';
+import * as components from './';
+
+export const {
+  createSlide
+} = mapValues(components, (component) => partial(component, h));

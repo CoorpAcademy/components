@@ -1,3 +1,5 @@
-import slide from './Slide';
+import createSlide from './Slide';
 
-export const Slide = slide;
+export {
+    createSlide
+};
