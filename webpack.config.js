@@ -11,7 +11,8 @@ module.exports = {
 
   entry: {
     'bundle': path.join(__dirname, 'src', 'bundle'),
-    'bundle-with-deps': path.join(__dirname, 'src', 'bundle-with-deps')
+    'bundle-with-react': path.join(__dirname, 'src', 'bundle-with-react'),
+    'bundle-with-virtual-dom': path.join(__dirname, 'src', 'bundle-with-virtual-dom')
   },
 
   output: {

@@ -1,5 +1,9 @@
-import * from './';
+import {
+    createSlide,
+    createTitle
+} from './';
 
 export {
-    createSlide
+    createSlide,
+    createTitle
 };
