@@ -1,11 +1,19 @@
-var h = require('../../src/h').default;
+// ---------------------------------
+// injecting deps
+// import App from './App';
+// ---------------------------------
+// not using deps
+import App from './app-no-deps';
+// ---------------------------------
+
+import h from '../../src/h';
+
 var diff = require('virtual-dom/diff');
 var patch = require('virtual-dom/patch');
 var createElement = require('virtual-dom/create-element');
 
 // 1: Create a function that declares what the DOM should look like
 function render(state)  {
-  var App = require('./App').default;
   return <App {...state}/>;
 }
 

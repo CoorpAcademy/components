@@ -1,3 +1,2 @@
-import createComponents from './index';
-
-export default createComponents(React);
+import components from './index';
+export default components(true);

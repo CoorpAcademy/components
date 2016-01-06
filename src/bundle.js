@@ -1,3 +1,2 @@
-import createComponents from './index';
-
-export default createComponents;
+import components from './index';
+export default components(false);
