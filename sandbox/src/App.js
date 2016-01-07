@@ -1,7 +1,7 @@
 import { createSlide } from '../../src/bundle-with-virtual-dom';
 
 const skin = {
-  primary: '#0F0'
+  primary: '#F0F'
 };
 
 const Slide = createSlide({skin});

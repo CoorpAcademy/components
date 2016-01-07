@@ -1,4 +1,7 @@
-@value defaultColor: #F0F;
+@value colors: "../colors.css";
+@value primary from colors;
+
+@value defaultColor: primary;
 
 .normal {
   font-size: 1.875rem;

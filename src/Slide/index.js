@@ -4,6 +4,10 @@ import style from './style.css';
 export default (h, {skin}) => (props) => {
   const Title = createTitle(h, {skin});
 
+  const buttonStyle = {
+    backgroundColor: skin.primary || style.defaultColor
+  }
+
   return (
     <article
       className={style.container}
@@ -24,6 +28,7 @@ export default (h, {skin}) => (props) => {
         />
         <button
           className={style.button}
+          style={buttonStyle}
         >
           Vérifier la réponse
         </button>
