@@ -1,10 +1,9 @@
-import h from '../../src/h';
-import { createSlide } from '../../src';
+import { createSlide } from '../../src/bundle-with-virtual-dom';
 
 const skin = {
   primary: '#0F0'
 };
 
-const Slide = createSlide(h, {skin});
+const Slide = createSlide({skin});
 
-export default state => <Slide {...state.question}/>
+export default state => Slide(state.question)

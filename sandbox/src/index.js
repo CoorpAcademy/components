@@ -1,4 +1,3 @@
-import h from '../../src/h';
 import App from './App';
 // import App from '../../example/app-using-virtual-dom';
 // import App from '../../example/app-no-deps';
@@ -9,7 +8,7 @@ var createElement = require('virtual-dom/create-element');
 
 // 1: Create a function that declares what the DOM should look like
 function render(state)  {
-  return <App {...state}/>;
+  return App(state);
 }
 
 // 2: Initialise the document
