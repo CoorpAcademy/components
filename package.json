@@ -14,7 +14,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "example:angular": "node example/angular/index.js"
   },
-  "author": "",
+  "contributors": [
+    "Arthur Weber <arthur.weber@coorpacademy.com>",
+    "Jeroen Engels <jengels@coorpacademy.com>",
+    "Christophe Dugne-Esquevin <christophe.dugne@coorpacademy.com>"
+  ],
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
