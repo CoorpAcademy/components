@@ -1,7 +1,7 @@
 {
-  "name": "coorpacademy-components",
-  "version": "1.0.0",
-  "description": "",
+  "name": "@coorpacademy/components",
+  "version": "0.0.1",
+  "description": "Component library for web front ends",
   "main": "index.js",
   "scripts": {
     "start": "node sandbox/index.js",
@@ -20,6 +20,10 @@
     "Christophe Dugne-Esquevin <christophe.dugne@coorpacademy.com>"
   ],
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/coorpacademy/components/issues"
+  },
+  "homepage": "https://github.com/coorpacademy/components#readme",
   "dependencies": {},
   "devDependencies": {
     "angular": "^1.4.8",
