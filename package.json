@@ -24,7 +24,8 @@
     "url": "https://github.com/coorpacademy/components/issues"
   },
   "homepage": "https://github.com/coorpacademy/components#readme",
-  "dependencies": {},
+  "dependencies": {
+  },
   "devDependencies": {
     "angular": "^1.4.8",
     "babel-cli": "^6.3.17",
