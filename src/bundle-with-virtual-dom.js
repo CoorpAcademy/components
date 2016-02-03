@@ -6,7 +6,10 @@ import h from 'virtual-dom/h';
 import * as components from './';
 
 const _h = (tag, props, ...children) => {
-  if (isFunction(tag)) return tag(props, children);
+  if (isFunction(tag)) return tag({
+    ...props,
+    children
+  });
   return h(tag, props, children);
 }
 

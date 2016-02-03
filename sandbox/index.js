@@ -13,8 +13,12 @@ app.use(require('webpack-dev-middleware')(compiler, {
 
 app.use(require('webpack-hot-middleware')(compiler));
 
-app.get('*', function(req, res) {
-  res.sendFile(path.join(__dirname, 'index.html'));
+app.get('/react', function(req, res) {
+  res.sendFile(path.join(__dirname, 'react.html'));
+});
+
+app.get('/virtual-dom', function(req, res) {
+  res.sendFile(path.join(__dirname, 'virtual-dom.html'));
 });
 
 app.listen(3000, 'localhost', function(err) {
