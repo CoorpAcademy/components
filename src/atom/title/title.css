@@ -1,6 +1,5 @@
-@value colors: "../colors.css";
+@value colors: "../../style/colors.css";
 @value primary from colors;
-
 @value defaultColor: primary;
 
 .normal {

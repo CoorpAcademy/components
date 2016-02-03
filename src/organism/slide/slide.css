@@ -1,5 +1,6 @@
-@value colors: "../colors.css";
-@value primary from colors;
+@value colors: "../../style/colors.css";
+@value secondary from colors;
+@value defaultColor: secondary;
 
 .container {
   text-align: center;
@@ -31,7 +32,7 @@
 }
 
 .button {
-  background: primary none repeat scroll 0% 0%;
+  background: none repeat scroll 0% 0%;
   color: #FFF;
   font-weight: 600;
   font-size: 0.9375rem;

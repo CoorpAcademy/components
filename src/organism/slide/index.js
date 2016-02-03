@@ -1,12 +1,10 @@
-import createTitle from './Title';
-import style from './style.css';
+import createTitle from '../../atom/title';
+import style from './slide.css';
+import applyColorPrimary from '../../behaviour/color/primary';
 
 export default (h, {skin}) => (props) => {
   const Title = createTitle(h, {skin});
-
-  const buttonStyle = {
-    backgroundColor: skin.primary || style.defaultColor
-  }
+  const ColorPrimary = applyColorPrimary(h, {skin});
 
   return (
     <article
@@ -26,12 +24,19 @@ export default (h, {skin}) => (props) => {
         <textarea
           className={style.textArea}
         />
-        <button
-          className={style.button}
-          style={buttonStyle}
+
+        <ColorPrimary
+          on={{
+            backgroundColor: style.defaultColor
+          }}
         >
-          Vérifier la réponse
-        </button>
+          <button
+            className={style.button}
+          >
+            Vérifier la réponse
+          </button>
+        </ColorPrimary>
+
       </form>
     </article>
   );
