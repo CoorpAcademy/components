@@ -1,12 +1,12 @@
-const App = components => state => {
-  console.log(components);
-  const createSlide = components.createSlide;
-  const skin = {
-    primary: '#F0F'
-  };
+import { createSlide } from '../../src';
 
-  const Slide = createSlide({skin});
+const state = {
+  question: {
+    title: 'Quel réseau social se distingue par ses messages instantanés limités à 140 signes ?'
+  }
+};
+
+export default (h, {skin}) => (props) => {
+  const Slide = createSlide(h, {skin});
   return Slide(state.question);
 }
-
-export default components => App(components);
