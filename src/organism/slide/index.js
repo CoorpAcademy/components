@@ -2,9 +2,10 @@ import createTitle from '../../atom/title';
 import style from './slide.css';
 import applyColorPrimary from '../../behaviour/color/primary';
 
-export default (h, options) => (props) => {
-  const Title = createTitle(h, options);
-  const ColorPrimary = applyColorPrimary(h, options);
+export default (options, skin) => (props) => {
+  const {h} = options;
+  const Title = createTitle(options, skin);
+  const ColorPrimary = applyColorPrimary(options, skin);
 
   return (
     <article

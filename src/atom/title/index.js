@@ -1,9 +1,10 @@
 import style from './title.css';
 import applyColorPrimary from '../../behaviour/color/primary';
 
-export default (h, options) => (props) => {
+export default (options, skin) => (props) => {
+  const {h} = options;
   var disabled = props && props.disabled;
-  const ColorPrimary = applyColorPrimary(h, options);
+  const ColorPrimary = applyColorPrimary(options, skin);
 
   return (
       <ColorPrimary
