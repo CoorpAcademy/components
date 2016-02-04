@@ -1,9 +1,3 @@
-import { createSlide } from '../../src/bundle-with-react';
-
-const skin = {
-  primary: '#F0F'
-};
-
-const Slide = createSlide({skin});
-
-export default state => Slide(state.question);
+// import * as components from '../../src/bundle-with-react';
+// import App from './App';
+// export default App(components);

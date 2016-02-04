@@ -1,9 +1,12 @@
-import { createSlide } from '../../src/bundle-with-virtual-dom';
+const App = components => state => {
+  console.log(components);
+  const createSlide = components.createSlide;
+  const skin = {
+    primary: '#F0F'
+  };
 
-const skin = {
-  primary: '#F0F'
-};
+  const Slide = createSlide({skin});
+  return Slide(state.question);
+}
 
-const Slide = createSlide({skin});
-
-export default state => Slide(state.question)
+export default components => App(components);
