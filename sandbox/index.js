@@ -21,6 +21,15 @@ app.get('/virtual-dom', function(req, res) {
   res.sendFile(path.join(__dirname, 'virtual-dom.html'));
 });
 
+app.get('*', function(req, res) {
+  res.send([
+    '<ul>',
+      '<li><a href="/react">react</a></li>',
+      '<li><a href="/virtual-dom">virtual-dom</a></li>',
+    '</ul>'
+  ].join(''));
+});
+
 app.listen(3000, 'localhost', function(err) {
   if (err) {
     console.log(err);
