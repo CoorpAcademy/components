@@ -14,7 +14,7 @@ export default (h, {skin}) => (props) => {
         <h1
           className={disabled ? style.disabled : style.normal}
         >
-          {props.children}ssddd
+          {props.children}
         </h1>
       </ColorPrimary>
   )

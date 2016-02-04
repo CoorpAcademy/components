@@ -1,20 +1,15 @@
 import { render } from 'react-dom';
+import { createElement } from 'react';
 
-import App from './app-react';
-
-const state = {
-  question: {
-    title: 'Quel réseau social se distingue par ses messages instantanés limités à 140 signes ?'
-  }
-};
-
-render(App(state), document.getElementById('app'));
+import createApp from './App';
+const App = createApp(createElement);
+render(App(), document.getElementById('app'));
 
 
 if(module.hot) {
-  module.hot.accept("./app-react.js", () => {
-    const App = require('./app-react').default;
-    const newTree = App(state);
-    render(App(state), document.getElementById('app'));
+  module.hot.accept('./App.js', () => {
+    const createApp = require('./App').default;
+    const App = createApp(createElement);
+    render(App(), document.getElementById('app'));
   });
 }

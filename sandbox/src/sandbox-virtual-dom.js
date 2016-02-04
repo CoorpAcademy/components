@@ -2,25 +2,20 @@
 import diff from 'virtual-dom/diff';
 import patch from 'virtual-dom/patch';
 import createElement from 'virtual-dom/create-element';
+import { _h as h } from '../../src/bundle-with-virtual-dom';
 
-import App from './App';
-import { _h } from '../../src/bundle-with-virtual-dom';
+import createApp from './App';
+const App = createApp(h);
 
-const skin = {
-  primary: '#F0F'
-};
-
-const sandbox = App(_h, {skin});
-
-let tree = sandbox();
+let tree = App();
 const rootNode = createElement(tree);
 document.getElementById('app').appendChild(rootNode);
 
 if(module.hot) {
-  module.hot.accept("../../src/", () => {
-    const App = require('./App').default;
-    const sandbox = App(_h, {skin});
-    const newTree = sandbox();
+  module.hot.accept('./App.js', () => {
+    const createApp = require('./App').default;
+    const App = createApp(h);
+    const newTree = App();
 
     const patches = diff(tree, newTree);
     patch(rootNode, patches);
