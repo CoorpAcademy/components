@@ -4,17 +4,29 @@ var colorFunction = require('postcss-color-function');
 
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+function entries(names){
+  var entries = {};
+  names.forEach(function(name){
+    entries[name] = [
+      'webpack-hot-middleware/client',
+      path.join(__dirname, 'src', name)
+    ];
+  });
+
+  return entries;
+}
+
 module.exports = {
   context: __dirname,
   devtool: 'cheap-module-eval-source-map',
 
-  entry: [
-    'webpack-hot-middleware/client',
-    path.join(__dirname, 'src')
-  ],
+  entry: entries([
+    'sandbox-react',
+    'sandbox-virtual-dom'
+  ]),
 
   output: {
-    filename: 'bundle.js',
+    filename: '[name].js',
     path: path.join(__dirname, 'dist'),
     publicPath: '/dist/'
   },
