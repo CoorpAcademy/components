@@ -1,4 +1,4 @@
-@value colors: "../../style/colors.css";
+@value colors: "../../variables/colors.css";
 @value primary from colors;
 @value defaultColor: primary;
 
