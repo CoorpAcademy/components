@@ -1,5 +1,5 @@
-import createSlide from './organism/slide';
-import createTitle from './atom/title';
+import createSlide from './design/organism/slide';
+import createTitle from './design/atom/title';
 
 export {
     createSlide,

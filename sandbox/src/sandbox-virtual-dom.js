@@ -1,7 +1,7 @@
 import diff from 'virtual-dom/diff';
 import patch from 'virtual-dom/patch';
 import createElement from 'virtual-dom/create-element';
-import virtualDomOptions from '../../src/util/virtual-dom';
+import virtualDomOptions from '../../src/renderer/virtual-dom';
 
 import createApp from './App';
 const App = createApp(virtualDomOptions);

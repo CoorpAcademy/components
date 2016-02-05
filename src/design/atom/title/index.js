@@ -1,5 +1,5 @@
 import style from './title.css';
-import applyColorPrimary from '../../behaviour/color/primary';
+import applyColorPrimary from '../../../behaviour/color/primary';
 
 export default (options, skin) => (props) => {
   const {h} = options;

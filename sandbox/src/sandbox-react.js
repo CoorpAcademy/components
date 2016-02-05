@@ -1,5 +1,5 @@
 import { render } from 'react-dom';
-import reactOptions from '../../src/util/react';
+import reactOptions from '../../src/renderer/react';
 
 import createApp from './App';
 const App = createApp(reactOptions);

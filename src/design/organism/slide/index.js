@@ -1,6 +1,6 @@
 import createTitle from '../../atom/title';
 import style from './slide.css';
-import applyColorPrimary from '../../behaviour/color/primary';
+import applyColorPrimary from '../../../behaviour/color/primary';
 
 export default (options, skin) => (props) => {
   const {h} = options;

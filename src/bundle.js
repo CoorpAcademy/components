@@ -1,9 +1,4 @@
-import {
-    createSlide,
-    createTitle
-} from './';
-
 export {
-    createSlide,
-    createTitle
-};
+  createSlide,
+  createTitle
+} from './';
