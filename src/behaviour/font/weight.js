@@ -1,18 +1,12 @@
-import mapValues from 'lodash.mapvalues';
+import behaviour from '../behaviour';
 
-const fontBehaviour = {
+const specialFont = (renderer, skin) => props => ({
   style: {
     fontWeight: 'bold',
-    fontSize: '50px'
+    fontSize: '55px',
+    maxWidth: '850px',
+    margin: '0 auto'
   }
-};
+});
 
-const weight = ({h, map, clone}, skin) => (props) => {
-  if(!map || !clone) return props.children;
-
-  return map(props.children, (child) => {
-    return clone(child, fontBehaviour);
-  }).pop();
-};
-
-export default weight;
+export default behaviour(specialFont);
