@@ -1,7 +1,7 @@
 import style from './title.css';
 
-export default (options, skin) => (props) => {
-  const {h} = options;
+export default (renderer, skin) => (props) => {
+  const {h} = renderer;
   var disabled = props && props.disabled;
 
   return (

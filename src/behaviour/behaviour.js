@@ -1,5 +1,5 @@
 const behaviour = createProperties => (renderer, skin) => (props) => {
-  let {h, map, clone} = renderer;
+  const {h, map, clone} = renderer;
   if(!map || !clone) return props.children;
 
   const properties = createProperties(renderer, skin)(props);

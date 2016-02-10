@@ -10,7 +10,7 @@ const skin = {
   primary: '#F0F'
 };
 
-export default (options) => (props) => {
-  const Slide = createSlide(options, skin);
+export default (renderer) => (props) => {
+  const Slide = createSlide(renderer, skin);
   return Slide(state.question);
 }

@@ -3,13 +3,13 @@ import style from './slide.css';
 import applyColorPrimary from '../../../behaviour/color/primary';
 import applyFontWeight from '../../../behaviour/font/weight';
 
-export default (options, skin) => (props) => {
-  const {h} = options;
+export default (renderer, skin) => (props) => {
+  const {h} = renderer;
 
-  const ColorPrimary = applyColorPrimary(options, skin);
-  const FontWeight = applyFontWeight(options, skin);
+  const ColorPrimary = applyColorPrimary(renderer, skin);
+  const FontWeight = applyFontWeight(renderer, skin);
 
-  const Title = createTitle(options, skin);
+  const Title = createTitle(renderer, skin);
 
   return (
     <article
