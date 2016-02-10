@@ -1,21 +1,35 @@
 import createTitle from '../../atom/title';
 import style from './slide.css';
 import applyColorPrimary from '../../../behaviour/color/primary';
+import applyFontWeight from '../../../behaviour/font/weight';
 
 export default (options, skin) => (props) => {
   const {h} = options;
-  const Title = createTitle(options, skin);
+
   const ColorPrimary = applyColorPrimary(options, skin);
+  const FontWeight = applyFontWeight(options, skin);
+
+  const Title = createTitle(options, skin);
 
   return (
     <article
       className={style.container}
     >
-      <Title
-        disabled
-      >
-        {props.title}
-      </Title>
+
+      <FontWeight>
+        <ColorPrimary
+          on={{
+            color: style.defaultColor
+          }}
+        >
+          <Title
+            disabled
+          >
+            {props.title}
+          </Title>
+        </ColorPrimary>
+      </FontWeight>
+
       <p
         className={style.subTitle}
       >
@@ -26,17 +40,11 @@ export default (options, skin) => (props) => {
           className={style.textArea}
         />
 
-        <ColorPrimary
-          on={{
-            backgroundColor: style.defaultColor
-          }}
-        >
           <button
             className={style.button}
           >
             Vérifier la réponse
           </button>
-        </ColorPrimary>
 
       </form>
     </article>
