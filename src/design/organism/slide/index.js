@@ -1,33 +1,52 @@
 import createTitle from '../../atom/title';
 import style from './slide.css';
-import applyColorPrimary from '../../../behaviour/color/primary';
-import applyFontWeight from '../../../behaviour/font/weight';
+import ColorPrimaryBehaviour from '../../../behaviour/color/primary';
+import FontWeightBehaviour from '../../../behaviour/font/weight';
 
 export default (renderer, skin) => (props) => {
   const {h} = renderer;
 
-  const ColorPrimary = applyColorPrimary(renderer, skin);
-  const FontWeight = applyFontWeight(renderer, skin);
+  const ColorPrimary = ColorPrimaryBehaviour.createComponent(renderer, skin);
+  const FontWeight = FontWeightBehaviour.createComponent(renderer, skin);
 
   const Title = createTitle(renderer, skin);
+  const BigTitle = FontWeightBehaviour.on(Title)(renderer, skin);
+  const ColoredTitle = ColorPrimaryBehaviour.on(Title, {on:{color:'#666'}})(renderer, skin);
+  const ColoredBigTitle = FontWeightBehaviour.on(ColoredTitle)(renderer, skin);
 
   return (
     <article
       className={style.container}
     >
 
-      <FontWeight>
-        <ColorPrimary
-          on={{
-            color: style.defaultColor
-          }}
-        >
-          <Title
-            disabled
-          >
-            {props.title}
+      <ColoredTitle>
+        Colored Title
+      </ColoredTitle>
+
+      <BigTitle>
+        BigTitle
+      </BigTitle>
+
+      <ColoredBigTitle>
+        ColoredBigTitle
+      </ColoredBigTitle>
+
+      <ColorPrimary
+        on={{
+          color: style.defaultColor
+        }}
+      >
+        <FontWeight>
+          <Title>
+            color-primary + font-weight wrappers on title
           </Title>
-        </ColorPrimary>
+        </FontWeight>
+      </ColorPrimary>
+
+      <FontWeight>
+        <Title>
+            font-weight wrapper on title
+        </Title>
       </FontWeight>
 
       <p
