@@ -6,49 +6,37 @@ import FontWeightBehaviour from '../../../behaviour/font/weight';
 export default (renderer, skin) => (props) => {
   const {h} = renderer;
 
-  const ColorPrimary = ColorPrimaryBehaviour.createComponent(renderer, skin);
-  const FontWeight = FontWeightBehaviour.createComponent(renderer, skin);
-
   const Title = createTitle(renderer, skin);
-  const BigTitle = FontWeightBehaviour.on(Title)(renderer, skin);
-  const ColoredTitle = ColorPrimaryBehaviour.on(Title, {on:{color:'#666'}})(renderer, skin);
-  const ColoredBigTitle = FontWeightBehaviour.on(ColoredTitle)(renderer, skin);
+
+  const Color = (props) => {
+    const vTree = renderer.map(props.children, renderer.resolve).pop();
+    return renderer.clone(vTree, {
+      style: {
+        color: 'pink'
+      }
+    });
+  };
+
+  const Font = (props) => {
+    const vTree = renderer.map(props.children, renderer.resolve).pop();
+    return renderer.clone(vTree, {
+      style: {
+        fontSize: '2em'
+      }
+    });
+  };
 
   return (
     <article
       className={style.container}
     >
-
-      <ColoredTitle>
-        Colored Title
-      </ColoredTitle>
-
-      <BigTitle>
-        BigTitle
-      </BigTitle>
-
-      <ColoredBigTitle>
-        ColoredBigTitle
-      </ColoredBigTitle>
-
-      <ColorPrimary
-        on={{
-          color: style.defaultColor
-        }}
-      >
-        <FontWeight>
+      <Font>
+        <Color>
           <Title>
-            color-primary + font-weight wrappers on title
+            Yolo
           </Title>
-        </FontWeight>
-      </ColorPrimary>
-
-      <FontWeight>
-        <Title>
-            font-weight wrapper on title
-        </Title>
-      </FontWeight>
-
+        </Color>
+      </Font>
       <p
         className={style.subTitle}
       >
