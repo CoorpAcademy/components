@@ -7,14 +7,14 @@ export default (renderer, skin) => (props) => {
   const {h} = renderer;
 
   const ColorPrimaryBehaviour = ColorPrimaryFactory(renderer, skin);
-  const ColorPrimary = ColorPrimaryBehaviour.asComponent();
+  const ColorPrimary = ColorPrimaryBehaviour.component;
 
   const FontWeightBehaviour = FontWeightFactory(renderer, skin);
-  const FontWeight = FontWeightBehaviour.asComponent();
+  const FontWeight = FontWeightBehaviour.component;
 
   const Title = createTitle(renderer, skin);
   const BigTitle = FontWeightBehaviour()(Title);
-  const ColoredTitle = ColorPrimaryBehaviour({on:{color:'#666'}})(Title);
+  const ColoredTitle = ColorPrimaryBehaviour({options:{color:'#666'}})(Title);
   const ColoredBigTitle = FontWeightBehaviour()(ColoredTitle);
 
   return (
@@ -35,7 +35,7 @@ export default (renderer, skin) => (props) => {
       </ColoredBigTitle>
 
       <ColorPrimary
-        on={{
+        options={{
           color: style.defaultColor
         }}
       >
