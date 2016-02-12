@@ -9,20 +9,20 @@ const createComponent = createProperties => (renderer, skin) => (props) => {
   }).pop();
 };
 
-const createBehaviour = createProperties => (renderer, skin) => {
+const applyBehaviour = (renderer, Behaviour) => Element => props => {
   const {h} = renderer;
-  const Behaviour = createComponent(createProperties)(renderer, skin);
+  return  <Behaviour>
+            <Element>
+              {props.children}
+            </Element>
+          </Behaviour>;
+};
 
-  const enhanceComponent = options => Element => props => {
-    return  <Behaviour {...options}>
-              <Element>
-                {props.children}
-              </Element>
-            </Behaviour>;
-  };
-
-  enhanceComponent.component = Behaviour;
-  return enhanceComponent;
+const createBehaviour = createProperties => (renderer, skin) => {
+  const wrapper = createComponent(createProperties)(renderer, skin);
+  const behaviour = applyBehaviour(renderer, wrapper);
+  behaviour.component = wrapper;
+  return behaviour;
 }
 
 const factory = createProperties => (renderer, skin) => createBehaviour(createProperties)(renderer, skin);

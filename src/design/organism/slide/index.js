@@ -13,9 +13,9 @@ export default (renderer, skin) => (props) => {
   const FontWeight = FontWeightBehaviour.component;
 
   const Title = createTitle(renderer, skin);
-  const BigTitle = FontWeightBehaviour()(Title);
-  const ColoredTitle = ColorPrimaryBehaviour({options:{color:'#666'}})(Title);
-  const ColoredBigTitle = FontWeightBehaviour()(ColoredTitle);
+  const BigTitle = FontWeightBehaviour(Title);
+  const ColoredTitle = ColorPrimaryBehaviour(Title);
+  const ColoredBigTitle = FontWeightBehaviour(ColoredTitle);
 
   return (
     <article
@@ -34,11 +34,7 @@ export default (renderer, skin) => (props) => {
         ColoredBigTitle
       </ColoredBigTitle>
 
-      <ColorPrimary
-        options={{
-          color: style.defaultColor
-        }}
-      >
+      <ColorPrimary>
         <FontWeight>
           <Title>
             color-primary + font-weight wrappers on title
