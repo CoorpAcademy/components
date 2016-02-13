@@ -25,6 +25,7 @@ const resolve = (vTree) => {
     ...vTree.properties,
     children: vTree.children
   }));
+  console.log('resolving', vTree);
   return vTree;
 };
 

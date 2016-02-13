@@ -1,12 +1,10 @@
 import createTitle from '../../atom/title';
 import style from './slide.css';
-import ColorPrimaryBehaviour from '../../../behaviour/color/primary';
-import FontWeightBehaviour from '../../../behaviour/font/weight';
+import FontWeightFactory from '../../../behaviour/font/weight';
+import ColorPrimaryFactory from '../../../behaviour/color/primary';
 
 export default (renderer, skin) => (props) => {
   const {h} = renderer;
-
-  const Title = createTitle(renderer, skin);
 
   const Color = (props) => {
     const vTree = renderer.map(props.children, renderer.resolve).pop();
@@ -26,6 +24,17 @@ export default (renderer, skin) => (props) => {
     });
   };
 
+  const ColorPrimaryBehaviour = ColorPrimaryFactory(renderer, skin);
+  const ColorPrimary = ColorPrimaryBehaviour.component;
+
+  const FontWeightBehaviour = FontWeightFactory(renderer, skin);
+  const FontWeight = FontWeightBehaviour.component;
+
+  const Title = createTitle(renderer, skin);
+  const BigTitle = FontWeightBehaviour(Title);
+  const ColoredTitle = ColorPrimaryBehaviour(Title);
+  const ColoredBigTitle = FontWeightBehaviour(ColoredTitle);
+
   return (
     <article
       className={style.container}
@@ -37,6 +46,27 @@ export default (renderer, skin) => (props) => {
           </Title>
         </Color>
       </Font>
+
+      <ColoredTitle>
+        Colored Title
+      </ColoredTitle>
+
+      <BigTitle>
+        BigTitle
+      </BigTitle>
+
+      <ColoredBigTitle>
+        ColoredBigTitle
+      </ColoredBigTitle>
+
+      <ColorPrimary>
+        <FontWeight>
+          <Title>
+            ColorPrimary + FontWeight wrapped title
+          </Title>
+        </FontWeight>
+      </ColorPrimary>
+
       <p
         className={style.subTitle}
       >

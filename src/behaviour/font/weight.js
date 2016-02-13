@@ -1,4 +1,4 @@
-import behaviour from '../behaviour';
+import behaviourFactory from '../behaviour-factory';
 
 const specialFont = (renderer, skin) => props => ({
   style: {
@@ -9,4 +9,4 @@ const specialFont = (renderer, skin) => props => ({
   }
 });
 
-export default behaviour(specialFont);
+export default behaviourFactory(specialFont);
