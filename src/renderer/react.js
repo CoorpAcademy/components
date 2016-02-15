@@ -4,15 +4,13 @@ import partial from 'lodash.partial';
 import React, { createElement, cloneElement } from 'react';
 
 const clone = (child, properties, children) => {
-  if (isString(child)) return child;
-  const vTree = isFunction(child.type) ? child.type(child.props) : child;
-  return cloneElement(vTree, {
+  return cloneElement(child, {
     ...properties,
     style: {
-      ...(vTree.props && vTree.props.style),
+      ...(child.props && child.props.style),
       ...properties.style
     }
-  }, children || vTree.props &&  vTree.props.children);
+  }, children || child.props &&  child.props.children);
 };;
 
 const map = (children, fun) => {
@@ -20,7 +18,7 @@ const map = (children, fun) => {
 };
 
 const resolve = (vTree) => {
-  if (isFunction(vTree.tagName)) return resolve(vTree.tagName(vTree.props));
+  if (isFunction(vTree.type)) return resolve(vTree.type(vTree.props));
   return vTree;
 };
 

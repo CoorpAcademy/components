@@ -13,7 +13,6 @@ const _h = (tag, props, ...children) => {
 const map = (arr, fun) => arr.map(fun);
 
 const clone = (child, properties, children) => {
-  if (isString(child)) return child;
   return defaultsDeep({
     properties,
     children: children || child.children
@@ -25,7 +24,6 @@ const resolve = (vTree) => {
     ...vTree.properties,
     children: vTree.children
   }));
-  console.log('resolving', vTree);
   return vTree;
 };
 

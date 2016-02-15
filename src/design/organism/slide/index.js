@@ -24,10 +24,11 @@ export default (renderer, skin) => (props) => {
     });
   };
 
+  const Title = createTitle(renderer, skin);
+
   const ColorPrimary = ColorPrimaryBehaviour(renderer, skin);
   const FontWeight = FontWeightBehaviour(renderer, skin);
 
-  const Title = createTitle(renderer, skin);
   const BigTitle = FontWeight.decorate(Title);
   const ColoredTitle = ColorPrimary.decorate(Title);
   const ColoredBigTitle = FontWeight.decorate(ColoredTitle);
@@ -36,33 +37,18 @@ export default (renderer, skin) => (props) => {
     <article
       className={style.container}
     >
-      <Font>
-        <Color>
-          <Title>
-            Yolo
-          </Title>
-        </Color>
-      </Font>
-
-      <ColoredTitle>
-        Colored Title
-      </ColoredTitle>
-
-      <BigTitle>
-        BigTitle
-      </BigTitle>
 
       <ColoredBigTitle>
         ColoredBigTitle
       </ColoredBigTitle>
 
-      <ColorPrimary>
-        <FontWeight>
+      <FontWeight>
+        <ColorPrimary>
           <Title>
             ColorPrimary + FontWeight wrapped title
           </Title>
-        </FontWeight>
-      </ColorPrimary>
+        </ColorPrimary>
+      </FontWeight>
 
       <p
         className={style.subTitle}
