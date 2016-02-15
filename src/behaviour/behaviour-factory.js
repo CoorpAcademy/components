@@ -4,7 +4,7 @@ const createComponent = createProperties => (renderer, skin) => (props) => {
 
   const properties = createProperties(renderer, skin)(props);
 
-  const vTree = map(props.children, resolve).pop();
+  const vTree = map(resolve, props.children).pop();
   return clone(vTree, properties);
 };
 
