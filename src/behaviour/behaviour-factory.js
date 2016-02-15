@@ -8,7 +8,10 @@ const createComponent = createProperties => (renderer, skin) => (props) => {
   return clone(vTree, properties);
 };
 
-const applyBehaviour = ({h}, Behaviour) => Element => props => {
+const createDecorator = (renderer, skin, createProperties) => Element => props => {
+  const {h} = renderer;
+  const Behaviour = createComponent(createProperties)(renderer, skin);
+
   return  <Behaviour>
             <Element>
               {props.children}
@@ -18,9 +21,9 @@ const applyBehaviour = ({h}, Behaviour) => Element => props => {
 
 const createBehaviour = createProperties => (renderer, skin) => {
   const wrapper = createComponent(createProperties)(renderer, skin);
-  const behaviour = applyBehaviour(renderer, wrapper);
-  behaviour.component = wrapper;
-  return behaviour;
+  const decorate = createDecorator(renderer, skin, createProperties);
+  wrapper.decorate = decorate;
+  return wrapper;
 }
 
 const factory = createProperties => (renderer, skin) => createBehaviour(createProperties)(renderer, skin);

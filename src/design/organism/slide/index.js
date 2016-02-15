@@ -1,7 +1,7 @@
 import createTitle from '../../atom/title';
 import style from './slide.css';
-import FontWeightFactory from '../../../behaviour/font/weight';
-import ColorPrimaryFactory from '../../../behaviour/color/primary';
+import FontWeightBehaviour from '../../../behaviour/font/weight';
+import ColorPrimaryBehaviour from '../../../behaviour/color/primary';
 
 export default (renderer, skin) => (props) => {
   const {h} = renderer;
@@ -24,16 +24,13 @@ export default (renderer, skin) => (props) => {
     });
   };
 
-  const ColorPrimaryBehaviour = ColorPrimaryFactory(renderer, skin);
-  const ColorPrimary = ColorPrimaryBehaviour.component;
-
-  const FontWeightBehaviour = FontWeightFactory(renderer, skin);
-  const FontWeight = FontWeightBehaviour.component;
+  const ColorPrimary = ColorPrimaryBehaviour(renderer, skin);
+  const FontWeight = FontWeightBehaviour(renderer, skin);
 
   const Title = createTitle(renderer, skin);
-  const BigTitle = FontWeightBehaviour(Title);
-  const ColoredTitle = ColorPrimaryBehaviour(Title);
-  const ColoredBigTitle = FontWeightBehaviour(ColoredTitle);
+  const BigTitle = FontWeight.decorate(Title);
+  const ColoredTitle = ColorPrimary.decorate(Title);
+  const ColoredBigTitle = FontWeight.decorate(ColoredTitle);
 
   return (
     <article
