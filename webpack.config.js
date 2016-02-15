@@ -3,7 +3,7 @@ var webpack = require('webpack');
 var colorFunction = require('postcss-color-function');
 
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var CompressionPlugin = require("compression-webpack-plugin");
+var CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = {
   context: __dirname,
@@ -32,7 +32,7 @@ module.exports = {
   ],
 
   plugins: [
-    new ExtractTextPlugin("styles.css"),
+    new ExtractTextPlugin('styles.css'),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
@@ -46,11 +46,11 @@ module.exports = {
       }
     }),
     new CompressionPlugin({
-        asset: "{file}.gz",
-        algorithm: "gzip",
-        regExp: /\.js$|\.css$/,
-        threshold: 10240,
-        minRatio: 0.9
+      asset: '{file}.gz',
+      algorithm: 'gzip',
+      regExp: /\.js$|\.css$/,
+      threshold: 10240,
+      minRatio: 0.9
     })
   ]
 };

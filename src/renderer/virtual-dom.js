@@ -1,5 +1,4 @@
 import isFunction from 'lodash.isfunction';
-import isString from 'lodash.isstring';
 import partial from 'lodash.partial';
 import defaultsDeep from 'lodash.defaultsdeep';
 import h from 'virtual-dom/h';

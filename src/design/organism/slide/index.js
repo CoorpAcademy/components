@@ -69,4 +69,4 @@ export default (renderer, skin) => (props) => {
       </form>
     </article>
   );
-}
+};

@@ -1,5 +1,4 @@
 import isFunction from 'lodash.isfunction';
-import isString from 'lodash.isstring';
 import partial from 'lodash.partial';
 import React, { createElement, cloneElement } from 'react';
 
@@ -10,8 +9,8 @@ const clone = (child, properties, children) => {
       ...(child.props && child.props.style),
       ...properties.style
     }
-  }, children || child.props &&  child.props.children);
-};;
+  }, children || child.props && child.props.children);
+};
 
 const map = (children, fun) => {
   return React.Children.map(children, fun);
