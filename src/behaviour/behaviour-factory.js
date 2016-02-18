@@ -1,29 +1,28 @@
 const createComponent = createProperties => (renderer, skin) => (props) => {
-  const {h, map, clone} = renderer;
+  const {map, clone, resolve} = renderer;
   if(!map || !clone) return props.children;
 
   const properties = createProperties(renderer, skin)(props);
 
-  return map(props.children, (child) => {
-    return clone(child, properties);
-  }).pop();
+  const vTree = map(resolve, props.children).pop();
+  return clone(vTree, properties);
 };
 
-const applyBehaviour = (renderer, Behaviour) => Element => props => {
-  const {h} = renderer;
-  return  <Behaviour>
-            <Element>
-              {props.children}
-            </Element>
-          </Behaviour>;
+const createDecorator = ({h}, Behaviour) => Element => props => {
+  return  (
+    <Behaviour>
+      <Element>
+        {props.children}
+      </Element>
+    </Behaviour>
+  );
 };
 
 const createBehaviour = createProperties => (renderer, skin) => {
-  const wrapper = createComponent(createProperties)(renderer, skin);
-  const behaviour = applyBehaviour(renderer, wrapper);
-  behaviour.component = wrapper;
+  const behaviour = createComponent(createProperties)(renderer, skin);
+  behaviour.decorate = (Element) => createDecorator(renderer, behaviour)(Element);
   return behaviour;
-}
+};
 
 const factory = createProperties => (renderer, skin) => createBehaviour(createProperties)(renderer, skin);
 export default factory;
