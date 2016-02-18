@@ -1,20 +1,20 @@
 import diff from 'virtual-dom/diff';
 import patch from 'virtual-dom/patch';
 import createElement from 'virtual-dom/create-element';
-import virtualDomOptions from '../../src/renderer/virtual-dom';
+import renderer from '../../src/renderer/virtual-dom';
 
-import createApp from './App';
-const App = createApp(virtualDomOptions);
-let tree = App();
+import createApp from './app';
+const App = createApp(renderer);
+let tree = renderer.walker(renderer.resolve, App());
 
 const rootNode = createElement(tree);
 document.getElementById('app').appendChild(rootNode);
 
 if(module.hot) {
-  module.hot.accept('./App.js', () => {
-    const createApp = require('./App').default;
-    const App = createApp(virtualDomOptions);
-    const newTree = App();
+  module.hot.accept('./app.js', () => {
+    const createApp = require('./app.js').default;
+    const App = createApp(renderer);
+    let newTree = renderer.walker(renderer.resolve, App());
 
     const patches = diff(tree, newTree);
     patch(rootNode, patches);

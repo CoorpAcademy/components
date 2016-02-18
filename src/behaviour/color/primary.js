@@ -1,13 +1,7 @@
-import mapValues from 'lodash.mapvalues';
+import behaviourFactory from '../behaviour-factory';
 
-const primary = ({h, map, clone}, skin) => (props) => {
-  if(!map || !clone) return props.children;
+const primary = (renderer, skin) => props => ({
+  style: {color: skin && skin.primary || props.value}
+});
 
-  return map(props.children, (child) => {
-    return clone(child, {
-      style: mapValues(props.on, (value) => skin && skin.primary || value)
-    });
-  });
-};
-
-export default primary;
+export default behaviourFactory(primary);

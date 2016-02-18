@@ -1,21 +1,41 @@
 import createTitle from '../../atom/title';
 import style from './slide.css';
-import applyColorPrimary from '../../../behaviour/color/primary';
+import FontWeightBehaviour from '../../../behaviour/font/weight';
+import ColorPrimaryBehaviour from '../../../behaviour/color/primary';
 
-export default (options, skin) => (props) => {
-  const {h} = options;
-  const Title = createTitle(options, skin);
-  const ColorPrimary = applyColorPrimary(options, skin);
+export default (renderer, skin) => (props) => {
+  const {h} = renderer;
+
+  const Title = createTitle(renderer, skin);
+
+  const ColorPrimary = ColorPrimaryBehaviour(renderer, skin);
+  const FontWeight = FontWeightBehaviour(renderer, skin);
+
+  const BigTitle = FontWeight.decorate(Title);
+  const ColoredTitle = ColorPrimary.decorate(Title);
+  const ColoredBigTitle = FontWeight.decorate(ColoredTitle);
 
   return (
     <article
       className={style.container}
     >
-      <Title
-        disabled
-      >
-        {props.title}
-      </Title>
+
+      <ColoredBigTitle>
+        ColoredBigTitle
+      </ColoredBigTitle>
+
+      <BigTitle>
+        BigTitle
+      </BigTitle>
+
+      <FontWeight>
+        <ColorPrimary>
+          <Title>
+            ColorPrimary + FontWeight wrapped title
+          </Title>
+        </ColorPrimary>
+      </FontWeight>
+
       <p
         className={style.subTitle}
       >
@@ -26,19 +46,13 @@ export default (options, skin) => (props) => {
           className={style.textArea}
         />
 
-        <ColorPrimary
-          on={{
-            backgroundColor: style.defaultColor
-          }}
-        >
           <button
             className={style.button}
           >
             Vérifier la réponse
           </button>
-        </ColorPrimary>
 
       </form>
     </article>
   );
-}
+};

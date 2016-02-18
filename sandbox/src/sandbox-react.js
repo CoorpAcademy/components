@@ -1,14 +1,15 @@
 import { render } from 'react-dom';
-import reactOptions from '../../src/renderer/react';
+import renderer from '../../src/renderer/react';
 
-import createApp from './App';
-const App = createApp(reactOptions);
-render(App(), document.getElementById('app'));
+import createApp from './app';
+const App = createApp(renderer);
+const tree = App();
+render(tree, document.getElementById('app'));
 
 if(module.hot) {
-  module.hot.accept('./App.js', () => {
-    const createApp = require('./App').default;
-    const App = createApp(reactOptions);
+  module.hot.accept('./app.js', () => {
+    const createApp = require('./app').default;
+    const App = createApp(renderer);
     render(App(), document.getElementById('app'));
   });
 }
