@@ -1,21 +1,28 @@
 import isFunction from 'lodash.isfunction';
 import partial from 'lodash.partial';
 import defaultsDeep from 'lodash.defaultsdeep';
+import omit from 'lodash.omit';
 import h from 'virtual-dom/h';
+import isVirtualNode from 'virtual-dom/vnode/is-vnode';
 
 const _h = (tag, props, ...children) => {
-  const vTree = h(tag, props, children);
+  const vTree = h(
+    isFunction(tag) ? 'div' : tag,
+    omit(props, 'children'),
+    props && props.children || children
+  );
   if (isFunction(tag)) vTree.tagName = tag;
   return vTree;
 };
 
-const map = (arr, fun) => arr.map(fun);
+const map = (fun, children) => (children || []).map(fun);
 
 const clone = (child, properties, children) => {
-  return defaultsDeep({
-    properties,
-    children: children || child.children
-  }, child);
+  return h(
+    child.tagName,
+    defaultsDeep({}, child.properties, properties),
+    children || child.children
+  );
 };
 
 const resolve = (vTree) => {
@@ -27,9 +34,9 @@ const resolve = (vTree) => {
 };
 
 const walker = (fun, vTree) => {
-  vTree = fun(vTree);
+  vTree = isVirtualNode(vTree) ? fun(vTree) : vTree;
   if (!vTree.children) return vTree;
-  return clone(vTree, {}, map(vTree.children, partial(walker, fun)));
+  return clone(vTree, {}, map(partial(walker, fun), vTree.children));
 };
 
 export default {

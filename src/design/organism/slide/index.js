@@ -7,7 +7,7 @@ export default (renderer, skin) => (props) => {
   const {h} = renderer;
 
   const Color = (props) => {
-    const vTree = renderer.map(props.children, renderer.resolve).pop();
+    const vTree = renderer.map(renderer.resolve, props.children).pop();
     return renderer.clone(vTree, {
       style: {
         color: 'pink'
@@ -16,7 +16,7 @@ export default (renderer, skin) => (props) => {
   };
 
   const Font = (props) => {
-    const vTree = renderer.map(props.children, renderer.resolve).pop();
+    const vTree = renderer.map(renderer.resolve, props.children).pop();
     return renderer.clone(vTree, {
       style: {
         fontSize: '2em'

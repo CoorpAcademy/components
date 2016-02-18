@@ -1,18 +1,18 @@
 import isFunction from 'lodash.isfunction';
+import isString from 'lodash.isstring';
 import partial from 'lodash.partial';
-import React, { createElement, cloneElement } from 'react';
+import defaultsDeep from 'lodash.defaultsdeep';
+import React, { createElement } from 'react';
 
 const clone = (child, properties, children) => {
-  return cloneElement(child, {
-    ...properties,
-    style: {
-      ...(child.props && child.props.style),
-      ...properties.style
-    }
-  }, children || child.props && child.props.children);
+  return createElement(
+    child.type,
+    defaultsDeep({}, child.props, properties),
+    children || child.props.children
+  );
 };
 
-const map = (children, fun) => {
+const map = (fun, children) => {
   return React.Children.map(children, fun);
 };
 
@@ -22,9 +22,9 @@ const resolve = (vTree) => {
 };
 
 const walker = (fun, vTree) => {
-  vTree = fun(vTree);
+  vTree = isString(vTree) ? vTree : fun(vTree);
   if (!vTree.props || !vTree.props.children) return vTree;
-  return clone(vTree, {}, map(vTree.props.children, partial(walker, fun)));
+  return clone(vTree, {}, map(partial(walker, fun), vTree.props.children));
 };
 
 export default {

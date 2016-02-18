@@ -13,11 +13,12 @@
     },
     "sourceType": "module"
   },
-  "plugins": ["jsx"],
+  "plugins": ["jsx", "ava"],
   "rules": {
     "jsx/uses-factory": [1, {"pragma": "h"}],
     "jsx/factory-in-scope": [1, {"pragma": "h"}],
     "jsx/mark-used-vars": 1,
+    "ava/test-ended": 2,
     "jsx/no-undef": 1,
     "indent": [2, 2],
     "linebreak-style": [2, "unix"],
