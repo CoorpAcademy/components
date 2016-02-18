@@ -1,10 +1,8 @@
 const createComponent = createProperties => (renderer, skin) => (props) => {
-  const {map, clone, resolve} = renderer;
-  if(!map || !clone) return props.children;
+  const {clone} = renderer;
+  if(!clone) return props.children;
 
-  const properties = createProperties(renderer, skin)(props);
-
-  const vTree = map(resolve, props.children).pop();
+  const { properties, vTree } = createProperties(renderer, skin)(props);
   return clone(vTree, properties);
 };
 
