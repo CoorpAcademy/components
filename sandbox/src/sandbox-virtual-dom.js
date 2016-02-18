@@ -12,9 +12,9 @@ document.getElementById('app').appendChild(rootNode);
 
 if(module.hot) {
   module.hot.accept('./app.js', () => {
-    const createApp = require('./app').default;
+    const createApp = require('./app.js').default;
     const App = createApp(renderer);
-    const newTree = App();
+    let newTree = renderer.walker(renderer.resolve, App());
 
     const patches = diff(tree, newTree);
     patch(rootNode, patches);

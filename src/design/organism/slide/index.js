@@ -6,24 +6,6 @@ import ColorPrimaryBehaviour from '../../../behaviour/color/primary';
 export default (renderer, skin) => (props) => {
   const {h} = renderer;
 
-  const Color = (props) => {
-    const vTree = renderer.map(renderer.resolve, props.children).pop();
-    return renderer.clone(vTree, {
-      style: {
-        color: 'pink'
-      }
-    });
-  };
-
-  const Font = (props) => {
-    const vTree = renderer.map(renderer.resolve, props.children).pop();
-    return renderer.clone(vTree, {
-      style: {
-        fontSize: '2em'
-      }
-    });
-  };
-
   const Title = createTitle(renderer, skin);
 
   const ColorPrimary = ColorPrimaryBehaviour(renderer, skin);
@@ -41,6 +23,10 @@ export default (renderer, skin) => (props) => {
       <ColoredBigTitle>
         ColoredBigTitle
       </ColoredBigTitle>
+
+      <BigTitle>
+        BigTitle
+      </BigTitle>
 
       <FontWeight>
         <ColorPrimary>
