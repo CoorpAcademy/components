@@ -1,8 +1,7 @@
-import mapValues from 'lodash.mapvalues';
-import behaviour from '../behaviour';
+import behaviourFactory from '../behaviour-factory';
 
 const primary = (renderer, skin) => props => ({
-  style: mapValues(props.on, value => skin && skin.primary || value)
-})
+  style: {color: skin && skin.primary || props.value}
+});
 
-export default behaviour(primary);
+export default behaviourFactory(primary);

@@ -13,4 +13,4 @@ const skin = {
 export default (renderer) => (props) => {
   const Slide = createSlide(renderer, skin);
   return Slide(state.question);
-}
+};

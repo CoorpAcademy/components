@@ -1,31 +1,37 @@
 import createTitle from '../../atom/title';
 import style from './slide.css';
-import applyColorPrimary from '../../../behaviour/color/primary';
-import applyFontWeight from '../../../behaviour/font/weight';
+import FontWeightBehaviour from '../../../behaviour/font/weight';
+import ColorPrimaryBehaviour from '../../../behaviour/color/primary';
 
 export default (renderer, skin) => (props) => {
   const {h} = renderer;
 
-  const ColorPrimary = applyColorPrimary(renderer, skin);
-  const FontWeight = applyFontWeight(renderer, skin);
-
   const Title = createTitle(renderer, skin);
+
+  const ColorPrimary = ColorPrimaryBehaviour(renderer, skin);
+  const FontWeight = FontWeightBehaviour(renderer, skin);
+
+  const BigTitle = FontWeight.decorate(Title);
+  const ColoredTitle = ColorPrimary.decorate(Title);
+  const ColoredBigTitle = FontWeight.decorate(ColoredTitle);
 
   return (
     <article
       className={style.container}
     >
 
+      <ColoredBigTitle>
+        ColoredBigTitle
+      </ColoredBigTitle>
+
+      <BigTitle>
+        BigTitle
+      </BigTitle>
+
       <FontWeight>
-        <ColorPrimary
-          on={{
-            color: style.defaultColor
-          }}
-        >
-          <Title
-            disabled
-          >
-            {props.title}
+        <ColorPrimary>
+          <Title>
+            ColorPrimary + FontWeight wrapped title
           </Title>
         </ColorPrimary>
       </FontWeight>
@@ -49,4 +55,4 @@ export default (renderer, skin) => (props) => {
       </form>
     </article>
   );
-}
+};
