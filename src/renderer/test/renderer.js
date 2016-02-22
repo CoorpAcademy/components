@@ -1,12 +1,9 @@
 import test from 'ava';
-
 import mapValues from 'lodash.mapvalues';
-
 import react from '../react';
 import virtualDom from '../virtual-dom';
 
-
-const doTest = ({h, clone, map, resolve, walker, toString}, name) => {
+const rendererTest = ({h, clone, map, resolve, walker, toString}, name) => {
   test(`${name}: h`, t => {
     const style = {color:'pink'};
     const log = () => true;
@@ -67,6 +64,6 @@ const doTest = ({h, clone, map, resolve, walker, toString}, name) => {
 };
 
 mapValues({
-  react: react,
+  'react': react,
   'virtual-dom': virtualDom
-}, doTest);
+}, rendererTest);
