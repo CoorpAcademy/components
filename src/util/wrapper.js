@@ -13,7 +13,7 @@ const createComponent = createProperties => (renderer, skin) => (props) => {
 
 const createWrapper = createProperties => (renderer, skin) => {
   const wrapper = createComponent(createProperties)(renderer, skin);
-  wrapper.decorate = createDecorator(renderer, wrapper);
+  wrapper.decorate = createDecorator(renderer)(wrapper);
   return wrapper;
 };
 

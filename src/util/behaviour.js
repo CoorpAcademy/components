@@ -14,7 +14,7 @@ const createBehaviour = createProperties => (renderer, skin) => {
     return wrapper(render(props));
   };
 
-  behaviour.decorate = createDecorator(renderer, behaviour);
+  behaviour.decorate = createDecorator(renderer)(behaviour);
 
   return behaviour;
 };
