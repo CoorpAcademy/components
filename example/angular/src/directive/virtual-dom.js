@@ -15,12 +15,12 @@ export default (app) => app.directive('vdomTitle', function() {
       element.empty();
 
       return function link(scope, element, attrs) {
-        var linkedTree = Title({}, attrs.value);
+        var linkedTree = Title({children: [attrs.value]});
         var aNode = createElement(linkedTree);
         element[0].appendChild(aNode);
 
         function watchAction() {
-          var newTree = Title({}, attrs.value);
+          var newTree = Title({children: [attrs.value]});
           var changes = diff(linkedTree, newTree);
           aNode = patch(aNode, changes);
           linkedTree = newTree;
@@ -37,7 +37,7 @@ export default (app) => app.directive('vdomTitle', function() {
     },
     restrict: 'E',
     scope: {
-      value: "@"
+      value: '@'
     }
   };
 });

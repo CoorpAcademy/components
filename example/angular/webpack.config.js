@@ -1,8 +1,5 @@
 var path = require('path');
 var webpack = require('webpack');
-var colorFunction = require('postcss-color-function');
-
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   context: __dirname,
