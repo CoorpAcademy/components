@@ -1,9 +1,6 @@
-import behaviourFactory from '../behaviour-factory';
+import createBehaviour from '../../util/behaviour';
 
 const specialFont = (renderer, skin) => props => {
-  const {render} = renderer;
-  const vTree = render(props.children);
-
   const properties = {
     style: {
       fontWeight: 'bold',
@@ -13,7 +10,7 @@ const specialFont = (renderer, skin) => props => {
     }
   };
 
-  return { vTree, properties };
+  return properties;
 };
 
-export default behaviourFactory(specialFont);
+export default createBehaviour(specialFont);

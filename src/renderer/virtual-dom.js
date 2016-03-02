@@ -18,7 +18,7 @@ const _h = (tag, props, ...children) => {
 const map = (fun, children) => (children || []).map(fun);
 
 const clone = (child, properties, children) => {
-  return h(
+  return _h(
     child.tagName,
     defaultsDeep({}, child.properties, properties),
     children || child.children
@@ -39,15 +39,10 @@ const walker = (fun, vTree) => {
   return clone(vTree, {}, map(partial(walker, fun), vTree.children));
 };
 
-const render = (children) => {
-  return map(resolve, children).pop();
-}
-
 export default {
   h: _h,
   map: map,
   clone: clone,
   resolve: resolve,
-  walker: walker,
-  render: render
+  walker: walker
 };

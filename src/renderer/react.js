@@ -27,15 +27,10 @@ const walker = (fun, vTree) => {
   return clone(vTree, {}, map(partial(walker, fun), vTree.props.children));
 };
 
-const render = (children) => {
-  return map(resolve, children).pop();
-}
-
 export default {
   h: createElement,
   map: map,
   clone: clone,
   resolve: resolve,
-  walker: walker,
-  render: render
+  walker: walker
 };

@@ -19,6 +19,9 @@ export default (renderer, skin) => (props) => {
     <article
       className={style.container}
     >
+      <ColoredTitle>
+        ColoredTitle
+      </ColoredTitle>
 
       <ColoredBigTitle>
         ColoredBigTitle

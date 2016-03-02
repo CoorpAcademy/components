@@ -1,16 +1,13 @@
-import behaviourFactory from '../behaviour-factory';
+import createBehaviour from '../../util/behaviour';
 
 const primary = (renderer, skin) => props => {
-  const {render} = renderer;
-  const vTree = render(props.children);
-
   const properties = {
     style: {
-      color: skin && skin.primary || props.value
+      color: props.value || skin && skin.primary
     }
   };
 
-  return { vTree, properties };
+  return properties;
 };
 
-export default behaviourFactory(primary);
+export default createBehaviour(primary);
