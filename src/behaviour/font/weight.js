@@ -1,12 +1,16 @@
-import behaviourFactory from '../behaviour-factory';
+import createBehaviour from '../../util/behaviour';
 
-const specialFont = (renderer, skin) => props => ({
-  style: {
-    fontWeight: 'bold',
-    fontSize: '55px',
-    maxWidth: '850px',
-    margin: '0 auto'
-  }
-});
+const specialFont = (renderer, skin) => props => {
+  const properties = {
+    style: {
+      fontWeight: 'bold',
+      fontSize: '55px',
+      maxWidth: '850px',
+      margin: '0 auto'
+    }
+  };
 
-export default behaviourFactory(specialFont);
+  return properties;
+};
+
+export default createBehaviour(specialFont);

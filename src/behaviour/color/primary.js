@@ -1,7 +1,13 @@
-import behaviourFactory from '../behaviour-factory';
+import createBehaviour from '../../util/behaviour';
 
-const primary = (renderer, skin) => props => ({
-  style: {color: skin && skin.primary || props.value}
-});
+const primary = (renderer, skin) => props => {
+  const properties = {
+    style: {
+      color: props.value || skin && skin.primary
+    }
+  };
 
-export default behaviourFactory(primary);
+  return properties;
+};
+
+export default createBehaviour(primary);

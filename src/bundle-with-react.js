@@ -1,10 +1,11 @@
 import partial from 'lodash.partial';
 import mapValues from 'lodash.mapvalues';
 
-import reactOptions from './util/react';
+import renderer from './renderer/react';
+
 import * as components from './';
 
 export const {
   createSlide,
   createTitle
-} = mapValues(components, (component) => partial(component, reactOptions));
+} = mapValues(components, (component) => partial(component, renderer));

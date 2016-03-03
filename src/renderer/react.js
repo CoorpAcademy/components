@@ -1,19 +1,35 @@
 import isFunction from 'lodash.isfunction';
 import isString from 'lodash.isstring';
 import partial from 'lodash.partial';
+import omit from 'lodash.omit';
+import flatten from 'lodash.flatten';
+import compact from 'lodash.compact';
 import defaultsDeep from 'lodash.defaultsdeep';
 import React, { createElement } from 'react';
+
+const h = (tag, props, ...children) => {
+  const _children = compact(flatten(props && props.children || children || []));
+
+  return createElement(
+    tag,
+    omit(props, 'children'),
+    _children.length > 0 ? _children : undefined
+  );
+};
 
 const clone = (child, properties, children) => {
   return createElement(
     child.type,
-    defaultsDeep({}, child.props, properties),
-    children || child.props.children
+    defaultsDeep({}, properties, child.props),
+    children || child.props.children || []
   );
 };
 
 const map = (fun, children) => {
-  return React.Children.map(children, fun);
+  return React.Children.map(children, fun).map(child => {
+    if (!isString(child)) child = clone(child, {key: undefined});
+    return child;
+  });
 };
 
 const resolve = (vTree) => {
@@ -24,13 +40,13 @@ const resolve = (vTree) => {
 const walker = (fun, vTree) => {
   vTree = isString(vTree) ? vTree : fun(vTree);
   if (!vTree.props || !vTree.props.children) return vTree;
-  return clone(vTree, {}, map(partial(walker, fun), vTree.props.children));
+  return clone(vTree, null, map(partial(walker, fun), vTree.props.children || []));
 };
 
 export default {
-  h: createElement,
-  map: map,
-  clone: clone,
-  resolve: resolve,
-  walker: walker
+  h,
+  map,
+  clone,
+  resolve,
+  walker
 };
