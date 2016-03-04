@@ -8,12 +8,14 @@ import defaultsDeep from 'lodash.defaultsdeep';
 import React, { createElement } from 'react';
 
 const h = (tag, props, ...children) => {
-  const _children = compact(flatten(props && props.children || children || []));
+  const _props = omit(props, 'children');
+  let _children = compact(flatten(props && props.children || children || []));
+  _children = _children.length > 0 ? _children : undefined;
 
   return createElement(
     tag,
-    omit(props, 'children'),
-    _children.length > 0 ? _children : undefined
+    _props,
+    _children
   );
 };
 

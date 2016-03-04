@@ -1,19 +1,31 @@
 import isFunction from 'lodash.isfunction';
 import partial from 'lodash.partial';
 import defaultsDeep from 'lodash.defaultsdeep';
+import mapKeys from 'lodash.mapkeys';
 import omit from 'lodash.omit';
 import flatten from 'lodash.flatten';
 import compact from 'lodash.compact';
 import _h from 'virtual-dom/h';
 import isVirtualNode from 'virtual-dom/vnode/is-vnode';
 
+const event = /^on[A-Z].+/;
+const transformProps = (props) => mapKeys(props, (value, key) => {
+  if(event.test(key)) return key.toLowerCase();
+  return key;
+});
+
 const h = (tag, props, ...children) => {
+  const _tag = isFunction(tag) ? 'div' : tag;
+  const _props = omit(isFunction(tag) ? props : transformProps(props), 'children');
+  const _children = compact(flatten(props && props.children || children || []));
+
   const vTree = _h(
-    isFunction(tag) ? 'div' : tag,
-    omit(props, 'children'),
-    compact(flatten(props && props.children || children || []))
+    _tag,
+    _props,
+    _children
   );
   if (isFunction(tag)) vTree.tagName = tag;
+
   return vTree;
 };
 
