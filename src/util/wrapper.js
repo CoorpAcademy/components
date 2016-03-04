@@ -5,8 +5,7 @@ const createComponent = createProperties => (renderer, skin) => (props) => {
   if(!clone || !map) return props.children;
 
   const properties = createProperties(renderer, skin)(props);
-
-  const child = map(child => child, props.children).pop();
+  const child = props.children[0];
 
   return clone(child, properties);
 };
