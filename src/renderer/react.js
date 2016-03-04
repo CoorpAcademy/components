@@ -26,10 +26,7 @@ const clone = (child, properties, children) => {
 };
 
 const map = (fun, children) => {
-  return React.Children.map(children, fun).map(child => {
-    if (!isString(child)) child = clone(child, {key: undefined});
-    return child;
-  });
+  return React.Children.toArray(children).map(fun);
 };
 
 const resolve = (vTree) => {
