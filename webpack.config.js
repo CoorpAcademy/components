@@ -16,6 +16,7 @@ module.exports = {
   },
 
   output: {
+    library: 'Components',
     filename: '[name].js',
     path: path.join(__dirname, 'dist')
   },
