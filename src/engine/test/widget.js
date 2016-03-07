@@ -8,29 +8,21 @@ global.window = document.defaultView;
 forEachEngine((name, {h, render, widget}) => {
   test(`${name}: should create widget without options`, t => {
     const Widget = widget();
+    const update = render(document.createElement('div'));
+    const root = update(<Widget/>);
 
-    const root = document.createElement('div');
-    const update = render(root);
-
-    update(<Widget/>);
-
-    t.is(root.children.length, 1);
-    t.is(root.firstElementChild.tagName, 'DIV');
-    t.is(root.firstElementChild.namespaceURI, 'http://www.w3.org/1999/xhtml');
+    t.is(root.tagName, 'DIV');
+    t.is(root.namespaceURI, 'http://www.w3.org/1999/xhtml');
   });
 
   test(`${name}: should create widget with specified tagName`, t => {
     const Widget = widget({
       tagName: 'span'
     });
+    const update = render(document.createElement('div'));
+    const root = update(<Widget/>);
 
-    const root = document.createElement('div');
-    const update = render(root);
-
-    update(<Widget/>);
-
-    t.is(root.children.length, 1);
-    t.is(root.firstElementChild.tagName, 'SPAN');
+    t.is(root.tagName, 'SPAN');
   });
 
   test(`${name}: should create widget with specified namespace`, t => {
@@ -38,15 +30,11 @@ forEachEngine((name, {h, render, widget}) => {
       tagName: 'svg',
       namespaceURI: 'http://www.w3.org/2000/svg'
     });
+    const update = render(document.createElement('div'));
+    const root = update(<Widget/>);
 
-    const root = document.createElement('div');
-    const update = render(root);
-
-    update(<Widget/>);
-
-    t.is(root.children.length, 1);
-    t.is(root.firstElementChild.tagName, 'svg');
-    t.is(root.firstElementChild.namespaceURI, 'http://www.w3.org/2000/svg');
+    t.is(root.tagName, 'svg');
+    t.is(root.namespaceURI, 'http://www.w3.org/2000/svg');
   });
 
   test(`${name}: should implement initiation`, t => {
@@ -58,14 +46,13 @@ forEachEngine((name, {h, render, widget}) => {
         el.classList.add('foo');
       }
     });
-
-    const root = document.createElement('div');
-    const update = render(root);
-
-    update(<Widget/>);
+    const update = render(document.createElement('div'));
     update(<Widget/>);
 
-    t.truthy(root.firstElementChild.classList.contains('foo'));
+    update(<Widget/>);
+    const root = update(<Widget/>);
+
+    t.truthy(root.classList.contains('foo'));
   });
 
   test(`${name}: should pass (props, el) on init`, t => {
@@ -78,12 +65,9 @@ forEachEngine((name, {h, render, widget}) => {
         elWidget = el;
       }
     });
-
-    const root = document.createElement('div');
-    const update = render(root);
-
-    update(<Widget foo="foo"/>);
-    t.is(root.firstElementChild, elWidget);
+    const update = render(document.createElement('div'));
+    const root = update(<Widget foo="foo"/>);
+    t.is(root, elWidget);
   });
 
   test(`${name}: should have default destroy`, t => {

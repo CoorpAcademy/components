@@ -4,6 +4,7 @@ import spread from 'lodash/fp/spread';
 import map from 'lodash/fp/map';
 
 import react from '../engine/react';
+import snabbdom from '../engine/snabbdom';
 import virtualDom from '../engine/virtual-dom';
 
 export default fn => pipe(
@@ -11,5 +12,6 @@ export default fn => pipe(
   map(spread(fn))
 )({
   react,
+  snabbdom,
   'virtual-dom': virtualDom
 });
