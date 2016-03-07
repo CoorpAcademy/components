@@ -65,7 +65,7 @@
   },
   "ava": {
     "files": [
-      "**/test/**/*.js",
+      "src/**/test/**/*.js",
       "!node_module/**/*"
     ],
     "require": [
