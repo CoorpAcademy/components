@@ -19,6 +19,7 @@ const rendererTest = (renderer, name) => {
       ])
     );
     t.same(resolve(tree), resolve(h(Title, {color: 'blue'}, ['foo'])));
+    t.same(resolve(tree), h('h1', {style: {color: 'blue'}}, ['foo']));
   });
 };
 
