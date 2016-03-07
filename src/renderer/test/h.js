@@ -1,10 +1,7 @@
 import test from 'ava';
-import mapValues from 'lodash.mapvalues';
+import mapRenderer from '../../util/map-renderer';
 
-import react from '../react';
-import virtualDom from '../virtual-dom';
-
-const rendererTest = ({h, resolve}, name) => {
+mapRenderer(({h, resolve}, name) => {
   test(`${name}: should create element`, t => {
     const node1 = h('div');
     const node2 = h('div');
@@ -87,9 +84,4 @@ const rendererTest = ({h, resolve}, name) => {
 
     t.same(resolve(node1), node2);
   });
-};
-
-mapValues({
-  'react': react,
-  'virtual-dom': virtualDom
-}, rendererTest);
+});

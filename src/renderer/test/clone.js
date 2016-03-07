@@ -1,10 +1,7 @@
 import test from 'ava';
-import mapValues from 'lodash.mapvalues';
+import mapRenderer from '../../util/map-renderer';
 
-import react from '../react';
-import virtualDom from '../virtual-dom';
-
-const rendererTest = ({h, clone}, name) => {
+mapRenderer(({h, clone}, name) => {
   test(`${name}: should clone element`, t => {
     const node = h('foo', {bar: 'baz'}, ['qux']);
     const cloneNode = clone(node);
@@ -56,9 +53,4 @@ const rendererTest = ({h, clone}, name) => {
 
     t.same(cloneNode, h('foo', {bar: 'baz'}, ['quux']));
   });
-};
-
-mapValues({
-  'react': react,
-  'virtual-dom': virtualDom
-}, rendererTest);
+});

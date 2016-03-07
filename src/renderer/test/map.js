@@ -1,10 +1,7 @@
 import test from 'ava';
-import mapValues from 'lodash.mapvalues';
+import mapRenderer from '../../util/map-renderer';
 
-import react from '../react';
-import virtualDom from '../virtual-dom';
-
-const rendererTest = ({h, map, resolve}, name) => {
+mapRenderer(({h, map, resolve}, name) => {
   test(`${name}: should travel each children`, t => {
     const Component = (props) => h(
       'h1',
@@ -42,9 +39,4 @@ const rendererTest = ({h, map, resolve}, name) => {
       '1'
     ]));
   });
-};
-
-mapValues({
-  'react': react,
-  'virtual-dom': virtualDom
-}, rendererTest);
+});

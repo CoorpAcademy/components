@@ -1,9 +1,7 @@
 import test from 'ava';
-import mapValues from 'lodash.mapvalues';
-import react from '../react';
-import virtualDom from '../virtual-dom';
+import mapRenderer from '../../util/map-renderer';
 
-const rendererTest = ({h, walker, resolve}, name) => {
+mapRenderer(({h, walker, resolve}, name) => {
   test(`${name}: should travel each tree's nodes`, t => {
     const tree = h('header', null, [
       h('foo', null, 'foo'),
@@ -29,6 +27,7 @@ const rendererTest = ({h, walker, resolve}, name) => {
       ])
     ]);
 
+
     t.same(walker(resolve, tree), (
       h('header', null, [
         h('foo', null, ['foo']),
@@ -38,9 +37,4 @@ const rendererTest = ({h, walker, resolve}, name) => {
       ]))
     );
   });
-};
-
-mapValues({
-  'react': react,
-  'virtual-dom': virtualDom
-}, rendererTest);
+});

@@ -1,10 +1,7 @@
 import test from 'ava';
-import mapValues from 'lodash.mapvalues';
+import mapRenderer from '../../util/map-renderer';
 
-import react from '../react';
-import virtualDom from '../virtual-dom';
-
-const rendererTest = ({h, resolve}, name) => {
+mapRenderer(({h, resolve}, name) => {
   test(`${name}: should resolve component node`, t => {
     const Component = props => h('h1');
     const tree = h(Component);
@@ -25,9 +22,4 @@ const rendererTest = ({h, resolve}, name) => {
 
     t.same(resolve(tree), h('h1', {foo: 'bar'}, ['baz']));
   });
-};
-
-mapValues({
-  'react': react,
-  'virtual-dom': virtualDom
-}, rendererTest);
+});
