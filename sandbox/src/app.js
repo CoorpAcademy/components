@@ -12,5 +12,9 @@ const skin = {
 
 export default (renderer) => {
   const Slide = createSlide(renderer, skin);
-  return (props) => Slide(state.question);
+  return (props) => Slide({
+    ...state.question,
+    onChange: value => console.log(value),
+    onValidate: value => console.log('validate')
+  });
 };

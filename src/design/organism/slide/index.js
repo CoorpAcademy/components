@@ -44,16 +44,20 @@ export default (renderer, skin) => (props) => {
       >
         Saisissez votre réponse
       </p>
-      <form>
+      <form
+        onSubmit={e => props.onValidate() && false}
+      >
         <textarea
           className={style.textArea}
+          onChange={e => props.onChange(e.target.value)}
         />
 
-          <button
+          <input
+            type="button"
             className={style.button}
-          >
-            Vérifier la réponse
-          </button>
+            onClick={e => props.onValidate()}
+            value="Vérifier la réponse"
+          />
 
       </form>
     </article>
