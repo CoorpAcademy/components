@@ -1,2 +1,2 @@
 import * as bundle from './';
-export default bundle;
+module.exports = bundle;

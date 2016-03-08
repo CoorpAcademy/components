@@ -6,7 +6,6 @@ import flatten from 'lodash.flatten';
 import compact from 'lodash.compact';
 import defaultsDeep from 'lodash.defaultsdeep';
 import React, { createElement } from 'react';
-import { render, unmountComponentAtNode } from 'react-dom';
 
 const h = (tag, props, ...children) => {
   const _props = omit(props, 'children');
@@ -43,23 +42,10 @@ const walker = (fun, vTree) => {
   return clone(vTree, null, map(partial(walker, fun), vTree.props.children || []));
 };
 
-const angularLink = (options) => {
-    const {component, scope, element, attrs} = options;
-
-    scope.$watch('value', function(value) {
-      render(component({children: [attrs.value]}), element[0]);
-    });
-
-    element.on('$destroy', function() {
-      unmountComponentAtNode(element[0]);
-    });
-};
-
 export default {
   h,
   map,
   clone,
   resolve,
-  walker,
-  angularLink
+  walker
 };
