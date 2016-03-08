@@ -4,7 +4,7 @@ This library provide sharable components for web applications, either :
 - as CommonJS components
 - as a minified library
 
-## Goal
+### Goal
 
 - edit a component once, share it across all our platforms
 - provide a documentation referencing every component with its
@@ -12,9 +12,34 @@ This library provide sharable components for web applications, either :
   - skinable properties
 - provide the smallest lib
 
+### Styleguide / component list
+
+sitejekyll.coorpacademy.com
+
+# Development
+
+### Scripts
+`@todo` list `npm run` scripts
+
+### Live sandbox
+
+```
+npm install
+npm start
+```
+
+Then open `http://localhost:3000`
+
+### Locally use `/lib` in a project
+- use `npm link` to create a local `@coorpacademy/components` package
+- use `npm link @coorpacademy/components` in your project.
+
+### Unit Tests with ava
+`@todo` example + howto
+
 # Technical details
 
-## Renderers
+### Renderers
 
 - each virtual dom library has its own [renderer](./src/renderer)
 - the renderer implements the `hyperscript` function, the cloning, and the vtree resolving.
@@ -35,7 +60,10 @@ export default ({h}) => (props) => (
 )
 ```
 
-## Applying custom behaviours
+### Shallow/resolved vTree
+`@todo` explain `renderer.resolve` and `renderer.walker(renderer.resolve)`
+
+### Applying custom behaviours
 
 It's possible to enhance a `Component` by applying a specific behaviour on it.
 
@@ -52,9 +80,9 @@ const CustomBehaviour = createCustomBehaviour(renderer)
 </CustomBehaviour>
 ```
 
-##### Wrappers
+###### Wrappers
 
-`Wrappers` allow modify the child's props.
+`Wrappers` allow to modify the child's props.
 
 ```jsx
 <ForceColor {color: 'red'}>
@@ -65,10 +93,10 @@ const CustomBehaviour = createCustomBehaviour(renderer)
 
 With this kind of `Wrapper`, the `Component` will have its `blue` props.color overriden by the `red` value.
 
-##### Behaviours
+###### Behaviours
 
 `Behaviours` allow to modify a child's behaviour, like its style
-It's the same job as `wrappers` but applying the modification directly on the final vTree.
+It's the same job as `wrappers` but applying the modification directly on the *resolved* vTree.
 
 With a `Behaviour` the previous example would become :
 
@@ -85,7 +113,7 @@ const RedColor = createRedColor(renderer)
 
 Here the `Component` `props.style.color` will be set by the `Behaviour`.
 
-##### Decorators
+###### Decorators
 
 Both `Wrappers` and `Behaviours` may be used as decorator to allow smaller, readable `jsx`:
 
@@ -100,18 +128,3 @@ const RedComponent = RedColor.decorate(Component);
 ```
 
 Here the `RedComponent` is exactly the same as the previous example for `Behaviour`.
-
-## Testing on Sandbox
-
-```
-npm install
-npm start
-```
-
-Then open `http://localhost:3000`
-
-## Unit Tests with ava
-
-## Styleguide / component list
-
-sitejekyll.coorpacademy.com
