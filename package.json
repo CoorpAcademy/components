@@ -8,6 +8,7 @@
     "build": "npm run build:commonjs & npm run build:browser & wait",
     "build:commonjs": "npm run clean:commonjs && babel src --out-dir lib -s",
     "build:browser": "npm run clean:browser && webpack",
+    "prepublish": "npm run build:browser",
     "clean": "npm run clean:commonjs & npm run clean:browser & wait",
     "clean:commonjs": "rm -rf lib",
     "clean:browser": "rm -rf dist",
