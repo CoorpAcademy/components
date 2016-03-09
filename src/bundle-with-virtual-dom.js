@@ -1,11 +1,17 @@
-import partial from 'lodash.partial';
-import mapValues from 'lodash.mapvalues';
-
 import renderer from './renderer/virtual-dom';
+import bundler from './bundler';
+import diff from 'virtual-dom/diff';
+import patch from 'virtual-dom/patch';
+import createElement from 'virtual-dom/create-element';
 
-import * as components from './';
+const bundle = bundler(renderer);
 
-export const {
-  createSlide,
-  createTitle
-} = mapValues(components, (component) => partial(component, renderer));
+module.exports = {
+  ...bundle,
+  virtualDOM: {
+    diff,
+    patch,
+    createElement
+  },
+  renderer: renderer
+};

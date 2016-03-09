@@ -1,11 +1,11 @@
-import partial from 'lodash.partial';
-import mapValues from 'lodash.mapvalues';
-
 import renderer from './renderer/react';
+import bundler from './bundler';
+import reactDOM from 'react-dom';
 
-import * as components from './';
+const bundle = bundler(renderer);
 
-export const {
-  createSlide,
-  createTitle
-} = mapValues(components, (component) => partial(component, renderer));
+module.exports = {
+  ...bundle,
+  reactDOM,
+  renderer: renderer
+};

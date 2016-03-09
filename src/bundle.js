@@ -1,4 +1,2 @@
-export {
-  createSlide,
-  createTitle
-} from './';
+import * as bundle from './';
+module.exports = bundle;
