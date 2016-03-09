@@ -1,0 +1,6 @@
+lib/
+example/
+src/
+sandbox/
+.*
+webpack.config.js
