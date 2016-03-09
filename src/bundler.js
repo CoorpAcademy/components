@@ -6,4 +6,4 @@ export default (renderer) => {
   const useRenderer = (component) => partial(component, renderer);
   const bundle = mapValues(components, useRenderer);
   return {...bundle};
-}
+};
