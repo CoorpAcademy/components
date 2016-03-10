@@ -1,12 +1,9 @@
 import test from 'ava';
-import mapValues from 'lodash.mapvalues';
+import forEachRenderer from '../for-each-renderer';
 
 import createDecorator from '../decorator';
 
-import react from '../../renderer/react';
-import virtualDom from '../../renderer/virtual-dom';
-
-const rendererTest = (renderer, name) => {
+forEachRenderer((renderer, name) => {
   const {h, resolve, walker} = renderer;
 
   test(`${name}: should decorate element`, t => {
@@ -38,9 +35,4 @@ const rendererTest = (renderer, name) => {
       ])
     ]));
   });
-};
-
-mapValues({
-  'react': react,
-  'virtual-dom': virtualDom
-}, rendererTest);
+});

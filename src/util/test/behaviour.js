@@ -1,12 +1,9 @@
 import test from 'ava';
-import mapValues from 'lodash.mapvalues';
+import forEachRenderer from '../for-each-renderer';
 
 import createBehaviour from '../behaviour';
 
-import react from '../../renderer/react';
-import virtualDom from '../../renderer/virtual-dom';
-
-const rendererTest = (renderer, name) => {
+forEachRenderer((renderer, name) => {
   const {h, resolve} = renderer;
 
   test(`${name}: should extend children properties`, t => {
@@ -36,9 +33,4 @@ const rendererTest = (renderer, name) => {
     t.same(resolve(pinkTitle), h('h1', {style: {color: 'pink'}}, ['foo']));
     t.same(resolve(blueTitle), h('h1', {style: {color: 'blue'}}, ['foo']));
   });
-};
-
-mapValues({
-  'react': react,
-  'virtual-dom': virtualDom
-}, rendererTest);
+});
