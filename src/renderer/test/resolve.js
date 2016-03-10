@@ -1,7 +1,7 @@
 import test from 'ava';
-import mapRenderer from '../../util/map-renderer';
+import forEachRenderer from '../../util/for-each-renderer';
 
-mapRenderer(({h, resolve}, name) => {
+forEachRenderer(({h, resolve}, name) => {
   test(`${name}: should resolve component node`, t => {
     const Component = props => h('h1');
     const tree = h(Component);

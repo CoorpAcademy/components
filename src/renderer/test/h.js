@@ -1,7 +1,7 @@
 import test from 'ava';
-import mapRenderer from '../../util/map-renderer';
+import forEachRenderer from '../../util/for-each-renderer';
 
-mapRenderer(({h, resolve}, name) => {
+forEachRenderer(({h, resolve}, name) => {
   test(`${name}: should create element`, t => {
     const node1 = h('div');
     const node2 = h('div');

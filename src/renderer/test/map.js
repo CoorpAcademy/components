@@ -1,7 +1,7 @@
 import test from 'ava';
-import mapRenderer from '../../util/map-renderer';
+import forEachRenderer from '../../util/for-each-renderer';
 
-mapRenderer(({h, map, resolve}, name) => {
+forEachRenderer(({h, map, resolve}, name) => {
   test(`${name}: should travel each children`, t => {
     const Component = (props) => h(
       'h1',

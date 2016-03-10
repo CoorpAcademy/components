@@ -1,7 +1,7 @@
 import test from 'ava';
-import mapRenderer from '../../util/map-renderer';
+import forEachRenderer from '../../util/for-each-renderer';
 
-mapRenderer(({h, clone}, name) => {
+forEachRenderer(({h, clone}, name) => {
   test(`${name}: should clone element`, t => {
     const node = h('foo', {bar: 'baz'}, ['qux']);
     const cloneNode = clone(node);

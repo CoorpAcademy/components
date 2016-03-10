@@ -1,7 +1,7 @@
 import test from 'ava';
-import mapRenderer from '../../util/map-renderer';
+import forEachRenderer from '../../util/for-each-renderer';
 
-mapRenderer(({h, walker, resolve}, name) => {
+forEachRenderer(({h, walker, resolve}, name) => {
   test(`${name}: should travel each tree's nodes`, t => {
     const tree = h('header', null, [
       h('foo', null, 'foo'),

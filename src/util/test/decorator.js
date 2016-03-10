@@ -1,9 +1,9 @@
 import test from 'ava';
-import mapRenderer from '../map-renderer';
+import forEachRenderer from '../for-each-renderer';
 
 import createDecorator from '../decorator';
 
-mapRenderer((renderer, name) => {
+forEachRenderer((renderer, name) => {
   const {h, resolve, walker} = renderer;
 
   test(`${name}: should decorate element`, t => {

@@ -1,9 +1,9 @@
 import test from 'ava';
-import mapRenderer from '../map-renderer';
+import forEachRenderer from '../for-each-renderer';
 
 import createWrapper from '../wrapper';
 
-mapRenderer((renderer, name) => {
+forEachRenderer((renderer, name) => {
   const {h, resolve} = renderer;
 
   test(`${name}: should extend children properties`, t => {
