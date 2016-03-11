@@ -7,15 +7,15 @@ forEachRenderer((renderer, name) => {
   const {h, resolve} = renderer;
 
   test(`${name}: should extend children properties`, t => {
-    const Title = props => h('h1', {style: {color: props.color}}, props.children);
+    const Title = props => <h1 style={{color: props.color}}>{props.children}</h1>;
     const Color = createWrapper(() => props => ({color: props.color}))(renderer);
 
     const tree = (
-      h(Color, {color: 'blue'}, [
-        h(Title, null, ['foo'])
-      ])
+      <Color color="blue">
+        <Title>foo</Title>
+      </Color>
     );
-    t.same(resolve(tree), resolve(h(Title, {color: 'blue'}, ['foo'])));
-    t.same(resolve(tree), h('h1', {style: {color: 'blue'}}, ['foo']));
+    t.same(resolve(tree), resolve(<Title color="blue">foo</Title>));
+    t.same(resolve(tree), <h1 style={{color: 'blue'}}>foo</h1>);
   });
 });

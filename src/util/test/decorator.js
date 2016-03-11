@@ -7,32 +7,32 @@ forEachRenderer((renderer, name) => {
   const {h, resolve, walker} = renderer;
 
   test(`${name}: should decorate element`, t => {
-    const List = props => h('ul', props, props.children);
-    const ItemList = props => h('li', props, props.children);
+    const List = props => <ul {...props}>{props.children}</ul>;
+    const ItemList = props => <li {...props}>{props.children}</li>;
 
     const CompleteList = createDecorator(renderer)(List)(ItemList);
 
-    const tree = h(CompleteList, null, ['foo']);
+    const tree = <CompleteList>foo</CompleteList>;
 
-    t.same(walker(resolve, tree), h('ul', null, [
-      h('li', null, [
-        'foo'
-      ])
-    ]));
+    t.same(walker(resolve, tree), (
+      <ul>
+        <li>foo</li>
+      </ul>
+    ));
   });
 
   test(`${name}: should pass properties to composite components`, t => {
-    const List = props => h('ul', props, props.children);
-    const ItemList = props => h('li', props, props.children);
+    const List = props => <ul {...props}>{props.children}</ul>;
+    const ItemList = props => <li {...props}>{props.children}</li>;
 
     const CompleteList = createDecorator(renderer)(List, {foo: 'foo'})(ItemList, {bar: 'bar'});
 
-    const tree = h(CompleteList, null, ['foo']);
+    const tree = <CompleteList>foo</CompleteList>;
 
-    t.same(walker(resolve, tree), h('ul', {foo: 'foo'}, [
-      h('li', {bar: 'bar'}, [
-        'foo'
-      ])
-    ]));
+    t.same(walker(resolve, tree), (
+      <ul foo="foo">
+        <li bar="bar">foo</li>
+      </ul>
+    ));
   });
 });
