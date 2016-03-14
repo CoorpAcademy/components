@@ -1,24 +1,31 @@
-import createTitle from '../../atom/title';
 import style from './slide.css';
-import FontWeightBehaviour from '../../../behaviour/font/weight';
+
+import createTitle from '../../atom/title';
+import createModuleBubble from '../../molecule/module-bubble';
+
+import FontNormalBehaviour from '../../../behaviour/font/normal';
 import ColorPrimaryBehaviour from '../../../behaviour/color/primary';
 
 export default (renderer, skin) => (props) => {
   const {h} = renderer;
 
   const Title = createTitle(renderer, skin);
+  const ModuleBubble = createModuleBubble(renderer, skin);
 
   const ColorPrimary = ColorPrimaryBehaviour(renderer, skin);
-  const FontWeight = FontWeightBehaviour(renderer, skin);
+  const FontNormal = FontNormalBehaviour(renderer, skin);
 
-  const BigTitle = FontWeight.decorate(Title);
+  const BigTitle = FontNormal.decorate(Title);
   const ColoredTitle = ColorPrimary.decorate(Title);
-  const ColoredBigTitle = FontWeight.decorate(ColoredTitle);
+  const ColoredBigTitle = FontNormal.decorate(ColoredTitle);
 
   return (
     <article
       className={style.container}
     >
+      <ModuleBubble>
+      </ModuleBubble>
+
       <ColoredTitle>
         ColoredTitle
       </ColoredTitle>
@@ -31,13 +38,13 @@ export default (renderer, skin) => (props) => {
         BigTitle
       </BigTitle>
 
-      <FontWeight>
+      <FontNormal>
         <ColorPrimary>
           <Title>
-            ColorPrimary + FontWeight wrapped title
+            ColorPrimary + FontNormal wrapped title
           </Title>
         </ColorPrimary>
-      </FontWeight>
+      </FontNormal>
 
       <p
         className={style.subTitle}

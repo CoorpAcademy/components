@@ -1,0 +1,49 @@
+
+.default {
+  border: 2px solid rgba(255,255,255,0.95);
+  box-sizing: content-box;
+}
+
+.default:before {
+  display: inline-block;
+  font-family: 'icons-default';
+  line-height: 35px;
+  width: 100%;
+  text-align: center;
+}
+
+.default:hover {
+  box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.30);
+}
+
+.isValid,
+.isStarted,
+.isActive,
+.isRestarted,
+.isLocked,
+.isPaying {
+  composes: default;
+}
+
+.isValid:hover,
+.isStarted:hover,
+.isActive:hover,
+.isRestarted:hover,
+.isLocked:hover,
+.isPaying:hover {
+  filter: grayscale(70%)
+}
+
+.isValid:active,
+.isStarted:active,
+.isActive:active,
+.isRestarted:active,
+.isLocked:active,
+.isPaying:active {
+  filter: grayscale(20%)
+}
+
+.isValid:before {
+  content: _icon-success
+  color white
+}
