@@ -7,30 +7,30 @@ forEachRenderer((renderer, name) => {
   const {h, resolve} = renderer;
 
   test(`${name}: should extend children properties`, t => {
-    const Title = props => h('h1', null, props.children);
+    const Title = props => <h1>{props.children}</h1>;
     const Color = createBehaviour(() => props => ({style: {color: props.color}}))(renderer);
 
     const tree = (
-      h(Color, {color: 'blue'}, [
-        h(Title, null, ['foo'])
-      ])
+      <Color color="blue">
+        <Title>foo</Title>
+      </Color>
     );
-    t.same(resolve(tree), h('h1', {style: {color: 'blue'}}, ['foo']));
+    t.same(resolve(tree), <h1 style={{color: 'blue'}}>foo</h1>);
   });
 
   test(`${name}: should override children properties`, t => {
-    const Title = props => h('h1', {style: {color: props.color}}, props.children);
+    const Title = props => <h1 style={{color: props.color}}>{props.children}</h1>;
     const Color = createBehaviour(() => props => ({style: {color: props.color}}))(renderer);
 
-    const pinkTitle = h(Title, {color: 'pink'}, ['foo']);
+    const pinkTitle = <Title color="pink">foo</Title>;
 
     const blueTitle = (
-      h(Color, {color: 'blue'}, [
-        pinkTitle
-      ])
+      <Color color="blue">
+        {pinkTitle}
+      </Color>
     );
 
-    t.same(resolve(pinkTitle), h('h1', {style: {color: 'pink'}}, ['foo']));
-    t.same(resolve(blueTitle), h('h1', {style: {color: 'blue'}}, ['foo']));
+    t.same(resolve(pinkTitle), <h1 style={{color: 'pink'}}>foo</h1>);
+    t.same(resolve(blueTitle), <h1 style={{color: 'blue'}}>foo</h1>);
   });
 });

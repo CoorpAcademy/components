@@ -3,54 +3,46 @@ import forEachRenderer from '../../util/for-each-renderer';
 
 forEachRenderer(({h, clone}, name) => {
   test(`${name}: should clone element`, t => {
-    const node = h('foo', {bar: 'baz'}, ['qux']);
+    const node = <span bar="baz">qux</span>;
     const cloneNode = clone(node);
 
     t.not(cloneNode, node);
-    t.same(cloneNode, h('foo', {bar: 'baz'}, ['qux']));
+    t.same(cloneNode, <span bar="baz">qux</span>);
   });
 
   test(`${name}: should clone element and replace property`, t => {
-    const node = h('foo', {bar: 'baz'}, ['qux']);
+    const node = <span bar="baz">qux</span>;
     const cloneNode = clone(node, {bar: 'qux'});
 
-    t.same(cloneNode, h('foo', {bar: 'qux'}, ['qux']));
+    t.same(cloneNode, <span bar="qux">qux</span>);
   });
 
   test(`${name}: should clone element and replace deep property`, t => {
-    const node = h('h1', {style:{color:'grey'}}, ['qux']);
+    const node = <h1 style={{color:'grey'}}>qux</h1>;
     const pink = {style:{color:'pink'}};
     const cloneNode = clone(node, pink);
 
-    t.same(cloneNode, h('h1', pink, ['qux']));
+    t.same(cloneNode, <h1 {...pink}>qux</h1>);
   });
 
   test(`${name}: should clone element and add property`, t => {
-    const node = h('foo', {bar: 'baz'}, ['qux']);
+    const node = <span bar="baz">qux</span>;
     const cloneNode = clone(node, {baz: 'baz'});
 
-    t.same(cloneNode, h('foo', {
-      bar: 'baz',
-      baz: 'baz'
-    }, ['qux']));
+    t.same(cloneNode, <span bar="baz" baz="baz">qux</span>);
   });
 
   test(`${name}: should clone element and add deep property`, t => {
-    const node = h('foo', {bar: {baz: 'baz'}}, ['qux']);
+    const node = <span bar={{baz: 'baz'}}>qux</span>;
     const cloneNode = clone(node, {bar: {qux: 'qux'}});
 
-    t.same(cloneNode, h('foo', {
-      bar: {
-        baz: 'baz',
-        qux: 'qux'
-      }
-    }, ['qux']));
+    t.same(cloneNode, <span bar={{baz: 'baz', qux: 'qux'}}>qux</span>);
   });
 
   test(`${name}: should clone element and replace children`, t => {
-    const node = h('foo', {bar: 'baz'}, ['qux']);
+    const node = <span bar={{baz: 'baz'}}>qux</span>;
     const cloneNode = clone(node, null, ['quux']);
 
-    t.same(cloneNode, h('foo', {bar: 'baz'}, ['quux']));
+    t.same(cloneNode, <span bar={{baz: 'baz'}}>quux</span>);
   });
 });
