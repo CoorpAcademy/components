@@ -5,6 +5,8 @@ import ColorTextNormalBehaviour from '../../../behaviour/color/text-normal';
 export default (renderer, skin) => (props) => {
   const {h} = renderer;
 
+  const Label = createLabel(renderer, skin);
+
   const FontNormal = FontNormalBehaviour(renderer, skin);
   const ColorTextNormal = ColorTextNormalBehaviour(renderer, skin);
 
