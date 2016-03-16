@@ -17,6 +17,6 @@ export default (renderer, skin) => (props) => {
           {props.children}
         </Label>
       </ColorTextNormal>
-    <FontNormal>
+    </FontNormal>
   );
 };

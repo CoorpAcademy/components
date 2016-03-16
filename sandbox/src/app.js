@@ -21,9 +21,8 @@ export default (renderer) => {
   const Slide = createSlide(renderer, skin);
 
   return (props) => (
-    <disciplineCard>
+    <DisciplineCard>
       plop
-    </disciplineCard>
-
+    </DisciplineCard>
   );
 };

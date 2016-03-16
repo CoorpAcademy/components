@@ -1,4 +1,4 @@
-import style from './module-bubble.css'
+import style from './module-bubble.css';
 import createLabelModName from '../../atom/label-mod-name';
 
 export default (renderer, skin) => (props) => {
@@ -10,12 +10,8 @@ export default (renderer, skin) => (props) => {
   const inverted = props.inverted === 'true';
   const className = inverted ? style.inverted : style.default;
 
-  console.log('---> ', props);
-
   return (
-    <div
-      onClick={e => props.click()}
-    >
+    <div>
       <span className={className}
             attributes={{
               'data-icon': iconCode
@@ -23,6 +19,7 @@ export default (renderer, skin) => (props) => {
             style={{
               background: skin && skin.mod[props.status]
             }}
+            onClick={e => props.onClick(e)}
       >
       </span>
       <LabelModName>
