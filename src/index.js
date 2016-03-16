@@ -1,7 +1,7 @@
 import createSlide from './design/organism/slide';
-import createTitle from './design/atom/title';
+import createModuleBubble from './design/molecule/module-bubble';
 
 export {
-    createSlide,
-    createTitle
+  createSlide,
+  createModuleBubble
 };

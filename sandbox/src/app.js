@@ -1,3 +1,4 @@
+import { createDisciplineCard } from '../../src';
 import { createSlide } from '../../src';
 
 const state = {
@@ -7,14 +8,21 @@ const state = {
 };
 
 const skin = {
-  primary: '#F0F'
+  primary: '#F0F',
+  module: {
+    isActive: '#0F0',
+    isLocked: '#F00'
+  }
 };
 
 export default (renderer) => {
+  const {h} = renderer;
+  const DisciplineCard = createDisciplineCard(renderer, skin);
   const Slide = createSlide(renderer, skin);
-  return (props) => Slide({
-    ...state.question,
-    onChange: value => console.log(value),
-    onValidate: value => console.log('validate')
-  });
+
+  return (props) => (
+    <DisciplineCard>
+      plop
+    </DisciplineCard>
+  );
 };

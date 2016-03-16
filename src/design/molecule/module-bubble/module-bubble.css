@@ -1,0 +1,63 @@
+
+.default {
+  display: inline-block;
+  position: relative;
+  transition-property: all;
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
+  border: 2px solid rgba(255,255,255,0.95);
+  z-index: 10;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+  width: 38px;
+  height: 38px;
+  box-sizing: content-box;
+}
+
+.disabled .default {
+  transform: scale3d(.9, .9, .9);
+  border-color: #3f4447;
+  cursor: default;
+  opacity: 0.2;
+}
+
+.default:before {
+  display: inline-block;
+  font-family: 'icons-default';
+  font-size: 18px;
+  line-height: 35px;
+  width: 100%;
+  text-align: center;
+  padding-top: 2px;
+}
+
+.default:hover {
+  box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.3), inset 0px 1px 100px 100px rgba(0,0,0,0.20);
+}
+
+.default:active {
+  box-shadow: inset 0px 1px 100px 100px rgba(0,0,0,0.40);
+}
+
+.default:before {
+  content: attr(data-icon);
+  color: white;
+}
+
+.inverted {
+  composes: default;
+}
+
+.inverted:hover {
+  border: 2px solid rgba(255,255,255,1);
+}
+
+.inverted:hover:before {
+  color: #fff;
+}
+
+.inverted:before {
+  content: attr(data-icon);
+  color: #adadad;
+}
