@@ -37,6 +37,15 @@ Then open `http://localhost:3000`
 ### Unit Tests with ava
 `@todo` example + howto
 
+### Publish
+```
+git checkout master
+git pull origin master
+npm version patch
+git push origin master
+git push --tags
+```
+
 # Technical details
 
 ### Renderers
