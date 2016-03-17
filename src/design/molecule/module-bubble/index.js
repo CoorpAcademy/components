@@ -1,7 +1,7 @@
 import style from './module-bubble.css';
 import createLabelModName from '../../atom/label-mod-name';
 
-export default (engine, skin) => (props) => {
+export default (engine, skin, translate) => (props) => {
   const {h} = engine;
 
   const LabelModName = createLabelModName(engine, skin);
@@ -9,6 +9,7 @@ export default (engine, skin) => (props) => {
   const iconCode = String.fromCharCode(skin.icons[props.status]);
   const inverted = props.inverted === 'true';
   const className = inverted ? style.inverted : style.default;
+  const label = translate ? translate(props.label) : props.label;
 
   return (
     <div>
@@ -23,7 +24,7 @@ export default (engine, skin) => (props) => {
       >
       </span>
       <LabelModName>
-        {props.label}
+
       </LabelModName>
     </div>
   );

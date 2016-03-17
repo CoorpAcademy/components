@@ -1,28 +1,13 @@
-import { createDisciplineCard } from '../../src';
-import { createSlide } from '../../src';
-
-const state = {
-  question: {
-    title: 'Quel réseau social se distingue par ses messages instantanés limités à 140 signes ?'
-  }
-};
-
-const skin = {
-  primary: '#F0F',
-  module: {
-    isActive: '#0F0',
-    isLocked: '#F00'
-  }
-};
+import { createDisciplineCards } from '../../src';
+import disciplines from '../assets/disciplines';
+import skin from '../assets/skin';
 
 export default (engine) => {
   const {h} = engine;
-  const DisciplineCard = createDisciplineCard(engine, skin);
-  const Slide = createSlide(engine, skin);
+  const DisciplineCards = createDisciplineCards(engine, skin);
 
   return (props) => (
-    <DisciplineCard>
-      plop
-    </DisciplineCard>
+    <DisciplineCards disciplines={disciplines}>
+    </DisciplineCards>
   );
 };
