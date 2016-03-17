@@ -1,0 +1,2371 @@
+[
+  {
+    "name": {},
+    "modules": [
+      {
+        "level": "base",
+        "status": "init",
+        "statusClass": "isActive",
+        "ref": "mod_NJlLQCK~s",
+        "chapters": [
+          {
+            "ref": "cha_4yWIXCFbo",
+            "name": "cha_4yWIXCFbo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549854",
+            "isConditional": false,
+            "time": 8,
+            "$$hashKey": "061"
+          },
+          {
+            "ref": "cha_VyfIX0YZo",
+            "name": "cha_VyfIX0YZo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549853",
+            "isConditional": false,
+            "time": 8,
+            "$$hashKey": "062"
+          },
+          {
+            "ref": "cha_Nym8mRFbo",
+            "name": "cha_Nym8mRFbo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549852",
+            "isConditional": false,
+            "time": 8,
+            "$$hashKey": "063"
+          }
+        ]
+      },
+      {
+        "level": "advanced",
+        "status": "lock",
+        "statusClass": "isLocked",
+        "ref": "mod_4yE87CtZi",
+        "chapters": [
+          {
+            "ref": "cha_4JS87CFbj",
+            "name": "cha_4JS87CFbj.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549850",
+            "isConditional": false,
+            "time": 8,
+            "$$hashKey": "069"
+          },
+          {
+            "ref": "cha_4k8Lm0t~s",
+            "name": "cha_4k8Lm0t~s.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e9281954984f",
+            "isConditional": false,
+            "time": 8,
+            "$$hashKey": "06A"
+          },
+          {
+            "ref": "cha_N1P8XRYbo",
+            "name": "cha_N1P8XRYbo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e9281954984e",
+            "isConditional": false,
+            "time": 8,
+            "$$hashKey": "06B"
+          },
+          {
+            "ref": "cha_V1-8mCK~i",
+            "name": "cha_V1-8mCK~i.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e9281954984d",
+            "isConditional": false,
+            "time": 8,
+            "$$hashKey": "06C"
+          },
+          {
+            "ref": "cha_4JtLQCtbo",
+            "name": "cha_4JtLQCtbo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e9281954984c",
+            "isConditional": false,
+            "time": 8,
+            "$$hashKey": "06D"
+          }
+        ]
+      },
+      {
+        "level": "coach",
+        "status": "lock",
+        "statusClass": "isLocked",
+        "ref": "mod_4JcIXAFbo",
+        "chapters": [
+          {
+            "ref": "cha_Nyi8XAYbi",
+            "name": "cha_Nyi8XAYbi.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e9281954984a",
+            "isConditional": false,
+            "time": 8,
+            "$$hashKey": "06L"
+          },
+          {
+            "ref": "cha_4k2L7RKbo",
+            "name": "cha_4k2L7RKbo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549849",
+            "isConditional": false,
+            "time": 8,
+            "$$hashKey": "06M"
+          },
+          {
+            "ref": "cha_Vy6IXRYbi",
+            "name": "cha_Vy6IXRYbi.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549848",
+            "isConditional": false,
+            "time": 8,
+            "$$hashKey": "06N"
+          },
+          {
+            "ref": "cha_EJCImRtWo",
+            "name": "cha_EJCImRtWo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549847",
+            "isConditional": false,
+            "time": 8,
+            "$$hashKey": "06O"
+          },
+          {
+            "ref": "cha_NJ1l8XCtbj",
+            "name": "cha_NJ1l8XCtbj.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549846",
+            "isConditional": false,
+            "time": 8,
+            "$$hashKey": "06P"
+          },
+          {
+            "ref": "cha_EkggLX0t~o",
+            "name": "cha_EkggLX0t~o.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549845",
+            "isConditional": false,
+            "time": 8,
+            "$$hashKey": "06Q"
+          },
+          {
+            "ref": "cha_NJ~g8QCKbi",
+            "name": "cha_NJ~g8QCKbi.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549844",
+            "isConditional": false,
+            "time": 8,
+            "$$hashKey": "06R"
+          }
+        ]
+      }
+    ],
+    "ref": "dis_41LQRYbi",
+    "defaultModuleLevel": "base",
+    "accessible": "unlocked",
+    "course": "cou_N1~Uul4qg",
+    "courseName": "course_1",
+    "stars": 0
+  },
+  {
+    "name": {},
+    "modules": [
+      {
+        "level": "base",
+        "status": "init",
+        "statusClass": "isActive",
+        "ref": "mod_4kJS8QAFbi",
+        "chapters": [
+          {
+            "ref": "cha_EklBLXCK~j",
+            "name": "cha_EklBLXCK~j.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497fa",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_VyWBLXAKWj",
+            "name": "cha_VyWBLXAKWj.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497f9",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_EyMrImAFZj",
+            "name": "cha_EyMrImAFZj.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497f8",
+            "isConditional": false,
+            "time": 8
+          }
+        ]
+      },
+      {
+        "level": "advanced",
+        "status": "lock",
+        "statusClass": "isLocked",
+        "ref": "mod_N1QrI7AFbo",
+        "chapters": [
+          {
+            "ref": "cha_E1VrUmAFZi",
+            "name": "cha_E1VrUmAFZi.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497f6",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_4yrBUmCK~o",
+            "name": "cha_4yrBUmCK~o.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497f5",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_EkIrUmCKWi",
+            "name": "cha_EkIrUmCKWi.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497f4",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_VkDHUm0Fbi",
+            "name": "cha_VkDHUm0Fbi.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497f3",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_VkdrL7RKbi",
+            "name": "cha_VkdrL7RKbi.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497f2",
+            "isConditional": false,
+            "time": 8
+          }
+        ]
+      },
+      {
+        "level": "coach",
+        "status": "lock",
+        "statusClass": "isLocked",
+        "ref": "mod_NytSUXCtWs",
+        "chapters": [
+          {
+            "ref": "cha_VJ5BUX0tZo",
+            "name": "cha_VJ5BUX0tZo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497f0",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_N1iHUXAKbo",
+            "name": "cha_N1iHUXAKbo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497ef",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_E12SLmCYbj",
+            "name": "cha_E12SLmCYbj.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497ee",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_NJ6SLXAYWj",
+            "name": "cha_NJ6SLXAYWj.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497ed",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_V1Rr8X0YZs",
+            "name": "cha_V1Rr8X0YZs.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497ec",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_EykLUQAY~i",
+            "name": "cha_EykLUQAY~i.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497eb",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_NyxUIQAF~j",
+            "name": "cha_NyxUIQAF~j.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497ea",
+            "isConditional": false,
+            "time": 8
+          }
+        ]
+      }
+    ],
+    "ref": "dis_N1A4Im0FWi",
+    "defaultModuleLevel": "base",
+    "accessible": "unlocked",
+    "course": "cou_N1~Uul4qg",
+    "courseName": "course_1",
+    "stars": 0
+  },
+  {
+    "name": {},
+    "modules": [
+      {
+        "level": "base",
+        "status": "started",
+        "statusClass": "isStarted",
+        "ref": "mod_E1WnLXCKWo",
+        "chapters": [
+          {
+            "ref": "cha_EJGhI7RFWs",
+            "name": "cha_EJGhI7RFWs.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497e8",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_NkX3UXCFbj",
+            "name": "cha_NkX3UXCFbj.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497e7",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_4yV3I7AtWi",
+            "name": "cha_4yV3I7AtWi.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497e6",
+            "isConditional": false,
+            "time": 8
+          }
+        ]
+      },
+      {
+        "level": "advanced",
+        "status": "lock",
+        "statusClass": "isLocked",
+        "ref": "mod_EJB2UXCYZj",
+        "chapters": [
+          {
+            "ref": "cha_EyL3UQRK~i",
+            "name": "cha_EyL3UQRK~i.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497e4",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_NkDnUm0t~j",
+            "name": "cha_NkDnUm0t~j.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497e3",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_4ku2I70Fbi",
+            "name": "cha_4ku2I70Fbi.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497e2",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_N1Yh8Q0F~i",
+            "name": "cha_N1Yh8Q0F~i.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497e1",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_4kcnLmRKWs",
+            "name": "cha_4kcnLmRKWs.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497e0",
+            "isConditional": false,
+            "time": 8
+          }
+        ]
+      },
+      {
+        "level": "coach",
+        "status": "lock",
+        "statusClass": "isLocked",
+        "ref": "mod_VkshUmAKbi",
+        "chapters": [
+          {
+            "ref": "cha_E132I7AYWs",
+            "name": "cha_E132I7AYWs.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497de",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_Eya2L7CtWj",
+            "name": "cha_Eya2L7CtWj.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497dd",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_NyA3IXCYZo",
+            "name": "cha_NyA3IXCYZo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497dc",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_411T8XRFZi",
+            "name": "cha_411T8XRFZi.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497db",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_NJlpL7CYZo",
+            "name": "cha_NJlpL7CYZo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497da",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_4yWT8QCYbo",
+            "name": "cha_4yWT8QCYbo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497d9",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_V1fa87Ct~s",
+            "name": "cha_V1fa87Ct~s.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497d8",
+            "isConditional": false,
+            "time": 8
+          }
+        ]
+      }
+    ],
+    "ref": "dis_41gnIXAYWj",
+    "defaultModuleLevel": "base",
+    "accessible": "unlocked",
+    "course": "cou_N1~Uul4qg",
+    "courseName": "course_1",
+    "stars": 0,
+    "lastModulePlayed": {
+      "ref": "mod_E1WnLXCKWo",
+      "level": "base",
+      "timeAlloted": 15,
+      "_id": "56e6914b51c9e928195497e5",
+      "rewards": [],
+      "creditsToAccess": 0,
+      "infiniteLives": false,
+      "data": [],
+      "stats": {
+        "userTriesCount": 0,
+        "userDoneCount": 0
+      },
+      "chapters": [
+        {
+          "ref": "cha_EJGhI7RFWs",
+          "name": "cha_EJGhI7RFWs.name",
+          "stars": 20,
+          "_id": "56e6914b51c9e928195497e8",
+          "isConditional": false,
+          "time": 8
+        },
+        {
+          "ref": "cha_NkX3UXCFbj",
+          "name": "cha_NkX3UXCFbj.name",
+          "stars": 20,
+          "_id": "56e6914b51c9e928195497e7",
+          "isConditional": false,
+          "time": 8
+        },
+        {
+          "ref": "cha_4yV3I7AtWi",
+          "name": "cha_4yV3I7AtWi.name",
+          "stars": 20,
+          "_id": "56e6914b51c9e928195497e6",
+          "isConditional": false,
+          "time": 8
+        }
+      ],
+      "acquiredSkills": [
+        "mod_E1WnLXCKWo.skill1",
+        "mod_E1WnLXCKWo.skill2"
+      ],
+      "external_refs": [],
+      "accessible": true
+    }
+  },
+  {
+    "name": {},
+    "modules": [
+      {
+        "level": "base",
+        "status": "started",
+        "statusClass": "isStarted",
+        "ref": "mod_NJR5L70t~s",
+        "chapters": [
+          {
+            "ref": "cha_NJyjLmAtbo",
+            "name": "cha_NJyjLmAtbo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549a89",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_VJgjL7Ctbi",
+            "name": "cha_VJgjL7Ctbi.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549a88",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_VybiUmAKbj",
+            "name": "cha_VybiUmAKbj.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549a87",
+            "isConditional": false,
+            "time": 8
+          }
+        ]
+      },
+      {
+        "level": "advanced",
+        "status": "lock",
+        "statusClass": "isLocked",
+        "ref": "mod_4kfoUmRYbo",
+        "chapters": [
+          {
+            "ref": "cha_E1Qi8QAY~i",
+            "name": "cha_E1Qi8QAY~i.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549a85",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_NkVi8mCYbj",
+            "name": "cha_NkVi8mCYbj.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549a84",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_VJHoUmCY~s",
+            "name": "cha_VJHoUmCY~s.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549a83",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_41IiImRYZj",
+            "name": "cha_41IiImRYZj.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549a82",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_E1wsUmRtbo",
+            "name": "cha_E1wsUmRtbo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549a81",
+            "isConditional": false,
+            "time": 8
+          }
+        ]
+      },
+      {
+        "level": "coach",
+        "status": "lock",
+        "statusClass": "isLocked",
+        "ref": "mod_V1diUQ0FZj",
+        "chapters": [
+          {
+            "ref": "cha_NJtsI70YZi",
+            "name": "cha_NJtsI70YZi.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549a7f",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_415oI7RtZs",
+            "name": "cha_415oI7RtZs.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549a7e",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_VJsi8QRY~s",
+            "name": "cha_VJsi8QRY~s.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549a7d",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_4yhiLm0FWo",
+            "name": "cha_4yhiLm0FWo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549a7c",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_N1ao8XAKWj",
+            "name": "cha_N1ao8XAKWj.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549a7b",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_N1Ro8XCF~j",
+            "name": "cha_N1Ro8XCF~j.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549a7a",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_EJ1hIQRYWs",
+            "name": "cha_EJ1hIQRYWs.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549a79",
+            "isConditional": false,
+            "time": 8
+          }
+        ]
+      }
+    ],
+    "ref": "dis_N1pcI7CFZj",
+    "defaultModuleLevel": "base",
+    "accessible": "unlocked",
+    "course": "cou_N1~Uul4qg",
+    "courseName": "course_1",
+    "stars": 0,
+    "lastModulePlayed": {
+      "ref": "mod_NJR5L70t~s",
+      "level": "base",
+      "timeAlloted": 15,
+      "_id": "56e6914b51c9e92819549a86",
+      "rewards": [],
+      "creditsToAccess": 0,
+      "infiniteLives": false,
+      "data": [],
+      "stats": {
+        "userTriesCount": 0,
+        "userDoneCount": 0
+      },
+      "chapters": [
+        {
+          "ref": "cha_NJyjLmAtbo",
+          "name": "cha_NJyjLmAtbo.name",
+          "stars": 20,
+          "_id": "56e6914b51c9e92819549a89",
+          "isConditional": false,
+          "time": 8
+        },
+        {
+          "ref": "cha_VJgjL7Ctbi",
+          "name": "cha_VJgjL7Ctbi.name",
+          "stars": 20,
+          "_id": "56e6914b51c9e92819549a88",
+          "isConditional": false,
+          "time": 8
+        },
+        {
+          "ref": "cha_VybiUmAKbj",
+          "name": "cha_VybiUmAKbj.name",
+          "stars": 20,
+          "_id": "56e6914b51c9e92819549a87",
+          "isConditional": false,
+          "time": 8
+        }
+      ],
+      "acquiredSkills": [
+        "mod_NJR5L70t~s.skill1",
+        "mod_NJR5L70t~s.skill2",
+        "mod_NJR5L70t~s.skill3"
+      ],
+      "external_refs": [],
+      "accessible": true
+    }
+  },
+  {
+    "name": {},
+    "modules": [
+      {
+        "level": "base",
+        "status": "init",
+        "statusClass": "isActive",
+        "ref": "mod_VJmxIm0Fbs",
+        "chapters": [
+          {
+            "ref": "cha_EJNgU7CF~j",
+            "name": "cha_EJNgU7CF~j.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e9281954980c",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_4JHg8X0K~j",
+            "name": "cha_4JHg8X0K~j.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e9281954980b",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_E1UlLQCKbi",
+            "name": "cha_E1UlLQCKbi.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e9281954980a",
+            "isConditional": false,
+            "time": 8
+          }
+        ]
+      },
+      {
+        "level": "advanced",
+        "status": "lock",
+        "statusClass": "isLocked",
+        "ref": "mod_Nywl8mRYWs",
+        "chapters": [
+          {
+            "ref": "cha_4JOlUQCKZs",
+            "name": "cha_4JOlUQCKZs.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549808",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_41KxLQAt~i",
+            "name": "cha_41KxLQAt~i.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549807",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_Vyqx87RYWo",
+            "name": "cha_Vyqx87RYWo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549806",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_4yslLm0K~o",
+            "name": "cha_4yslLm0K~o.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549805",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_E13e8XRFWs",
+            "name": "cha_E13e8XRFWs.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549804",
+            "isConditional": false,
+            "time": 8
+          }
+        ]
+      },
+      {
+        "level": "coach",
+        "status": "lock",
+        "statusClass": "isLocked",
+        "ref": "mod_EkaeUmAFbj",
+        "chapters": [
+          {
+            "ref": "cha_EJ0xUXAF~j",
+            "name": "cha_EJ0xUXAF~j.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549802",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_VJJ~Lm0Y~j",
+            "name": "cha_VJJ~Lm0Y~j.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549801",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_4kg~IQRY~j",
+            "name": "cha_4kg~IQRY~j.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549800",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_EkZZLX0Kbj",
+            "name": "cha_EkZZLX0Kbj.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497ff",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_VJMbUmCFbj",
+            "name": "cha_VJMbUmCFbj.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497fe",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_417bI7AtZo",
+            "name": "cha_417bI7AtZo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497fd",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_VyNZLmCt~s",
+            "name": "cha_VyNZLmCt~s.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497fc",
+            "isConditional": false,
+            "time": 8
+          }
+        ]
+      }
+    ],
+    "ref": "dis_V1Me8mAKbo",
+    "defaultModuleLevel": "base",
+    "accessible": "unlocked",
+    "course": "cou_EkXoceV5e",
+    "courseName": "course_2",
+    "stars": 0
+  },
+  {
+    "name": {},
+    "modules": [
+      {
+        "level": "base",
+        "status": "init",
+        "statusClass": "isActive",
+        "ref": "mod_VJn7870tWi",
+        "chapters": [
+          {
+            "ref": "cha_Vyp78mAFZo",
+            "name": "cha_Vyp78mAFZo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549866",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_Nk07UQCKZs",
+            "name": "cha_Nk07UQCKZs.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549865",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_EJJEI7RYbs",
+            "name": "cha_EJJEI7RYbs.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549864",
+            "isConditional": false,
+            "time": 8
+          }
+        ]
+      },
+      {
+        "level": "advanced",
+        "status": "lock",
+        "statusClass": "isLocked",
+        "ref": "mod_V1gNIQRFZs",
+        "chapters": [
+          {
+            "ref": "cha_41bVUQAFZo",
+            "name": "cha_41bVUQAFZo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549862",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_Vyz4LQRtZi",
+            "name": "cha_Vyz4LQRtZi.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549861",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_NkmV8QRYbs",
+            "name": "cha_NkmV8QRYbs.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549860",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_VkVNLQCF~i",
+            "name": "cha_VkVNLQCF~i.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e9281954985f",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_VkBVImRKZo",
+            "name": "cha_VkBVImRKZo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e9281954985e",
+            "isConditional": false,
+            "time": 8
+          }
+        ]
+      },
+      {
+        "level": "coach",
+        "status": "lock",
+        "statusClass": "isLocked",
+        "ref": "mod_Ny8V87CKWs",
+        "chapters": [
+          {
+            "ref": "cha_4yPEUQ0F~o",
+            "name": "cha_4yPEUQ0F~o.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e9281954985c",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_NJO4UmCF~j",
+            "name": "cha_NJO4UmCF~j.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e9281954985b",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_V1KNImCYbi",
+            "name": "cha_V1KNImCYbi.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e9281954985a",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_4k5NL7CFZj",
+            "name": "cha_4k5NL7CFZj.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549859",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_VJsNIQRtbj",
+            "name": "cha_VJsNIQRtbj.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549858",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_413NU70YWj",
+            "name": "cha_413NU70YWj.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549857",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_Ek6VLQ0YWs",
+            "name": "cha_Ek6VLQ0YWs.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549856",
+            "isConditional": false,
+            "time": 8
+          }
+        ]
+      }
+    ],
+    "ref": "dis_N1sXLmAYZs",
+    "defaultModuleLevel": "base",
+    "accessible": "unlocked",
+    "course": "cou_EkXoceV5e",
+    "courseName": "course_2",
+    "stars": 0
+  },
+  {
+    "name": {},
+    "modules": [
+      {
+        "level": "base",
+        "status": "init",
+        "statusClass": "isActive",
+        "ref": "mod_EJIbImRFbj",
+        "chapters": [
+          {
+            "ref": "cha_4JD~8mAtZs",
+            "name": "cha_4JD~8mAtZs.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497b2",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_E1dWImAF~o",
+            "name": "cha_E1dWImAF~o.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497b1",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_V1Y~I7Ctbo",
+            "name": "cha_V1Y~I7Ctbo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497b0",
+            "isConditional": false,
+            "time": 8
+          }
+        ]
+      },
+      {
+        "level": "advanced",
+        "status": "lock",
+        "statusClass": "isLocked",
+        "ref": "mod_NkqWUmCK~s",
+        "chapters": [
+          {
+            "ref": "cha_VJjWL7RFWo",
+            "name": "cha_VJjWL7RFWo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497ae",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_412ZLmAYWi",
+            "name": "cha_412ZLmAYWi.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497ad",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_VJTZ8mAF~o",
+            "name": "cha_VJTZ8mAF~o.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497ac",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_EyAZUmRYbj",
+            "name": "cha_EyAZUmRYbj.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497ab",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_4yyzIQRtZj",
+            "name": "cha_4yyzIQRtZj.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497aa",
+            "isConditional": false,
+            "time": 8
+          }
+        ]
+      },
+      {
+        "level": "coach",
+        "status": "lock",
+        "statusClass": "isLocked",
+        "ref": "mod_V1lfU70FWj",
+        "chapters": [
+          {
+            "ref": "cha_Nk~fUQAt~o",
+            "name": "cha_Nk~fUQAt~o.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497a8",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_41MzUXAtbi",
+            "name": "cha_41MzUXAtbi.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497a7",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_EymML70KWj",
+            "name": "cha_EymML70KWj.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497a6",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_41VML70t~i",
+            "name": "cha_41VML70t~i.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497a5",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_4krMUXRtWo",
+            "name": "cha_4krMUXRtWo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497a4",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_VkIG8XRKWs",
+            "name": "cha_VkIG8XRKWs.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497a3",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_VkDf8mRKZs",
+            "name": "cha_VkDf8mRKZs.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497a2",
+            "isConditional": false,
+            "time": 8
+          }
+        ]
+      }
+    ],
+    "ref": "dis_4yBWIX0KZs",
+    "defaultModuleLevel": "base",
+    "accessible": "unlocked",
+    "course": "cou_EkXoceV5e",
+    "courseName": "course_2",
+    "stars": 0
+  },
+  {
+    "name": {},
+    "modules": [
+      {
+        "level": "base",
+        "status": "init",
+        "statusClass": "isActive",
+        "ref": "mod_NkrPImCKZo",
+        "chapters": [
+          {
+            "ref": "cha_VkLw8m0Y~j",
+            "name": "cha_VkLw8m0Y~j.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549842",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_VyDvUm0Ybs",
+            "name": "cha_VyDvUm0Ybs.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549841",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_VkdP8mCFbs",
+            "name": "cha_VkdP8mCFbs.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549840",
+            "isConditional": false,
+            "time": 8
+          }
+        ]
+      },
+      {
+        "level": "advanced",
+        "status": "lock",
+        "statusClass": "isLocked",
+        "ref": "mod_V1KP87CtZs",
+        "chapters": [
+          {
+            "ref": "cha_Ey5wUQRtZj",
+            "name": "cha_Ey5wUQRtZj.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e9281954983e",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_41iPImCFWs",
+            "name": "cha_41iPImCFWs.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e9281954983d",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_Vk3wImAKbo",
+            "name": "cha_Vk3wImAKbo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e9281954983c",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_NkTv8m0Fbo",
+            "name": "cha_NkTv8m0Fbo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e9281954983b",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_NJRwI7Ctbo",
+            "name": "cha_NJRwI7Ctbo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e9281954983a",
+            "isConditional": false,
+            "time": 8
+          }
+        ]
+      },
+      {
+        "level": "coach",
+        "status": "lock",
+        "statusClass": "isLocked",
+        "ref": "mod_Nky-8XRFWj",
+        "chapters": [
+          {
+            "ref": "cha_Vye-8XCtbo",
+            "name": "cha_Vye-8XCtbo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549838",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_EkZ-8XRK~s",
+            "name": "cha_EkZ-8XRK~s.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549837",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_EJGd8mCKWs",
+            "name": "cha_EJGd8mCKWs.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549836",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_NyXd8QCKbs",
+            "name": "cha_NyXd8QCKbs.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549835",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_NJVuI70KWs",
+            "name": "cha_NJVuI70KWs.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549834",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_41rdLXAYbi",
+            "name": "cha_41rdLXAYbi.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549833",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_NkL-8XRYZo",
+            "name": "cha_NkL-8XRYZo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549832",
+            "isConditional": false,
+            "time": 8
+          }
+        ]
+      }
+    ],
+    "ref": "dis_VkEwIQRK~j",
+    "defaultModuleLevel": "base",
+    "accessible": "unlocked",
+    "course": "cou_EkXoceV5e",
+    "courseName": "course_2",
+    "stars": 0
+  },
+  {
+    "name": {},
+    "modules": [
+      {
+        "level": "base",
+        "status": "init",
+        "statusClass": "isActive",
+        "ref": "mod_N1qs~xDo",
+        "chapters": [
+          {
+            "ref": "cha_NyRa~xPj",
+            "name": "cha_NyRa~xPj.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549aa5",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_Vk1kzlwo",
+            "name": "cha_Vk1kzlwo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549aa4",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_VJCkfxPi",
+            "name": "cha_VJCkfxPi.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549aa3",
+            "isConditional": false,
+            "time": 8
+          }
+        ]
+      },
+      {
+        "level": "advanced",
+        "status": "lock",
+        "statusClass": "isLocked",
+        "ref": "mod_VkmVAOQyg",
+        "chapters": [
+          {
+            "ref": "cha_V13jCuXyl",
+            "name": "cha_V13jCuXyl.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549aa1",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_EJbh0-Xkx",
+            "name": "cha_EJbh0-Xkx.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549aa0",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_4JfhRuQJx",
+            "name": "cha_4JfhRuQJx.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549a9f",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_EyWGhRdXyl",
+            "name": "cha_EyWGhRdXyl.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549a9e",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_EyxM20O7yg",
+            "name": "cha_EyxM20O7yg.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549a9d",
+            "isConditional": false,
+            "time": 8
+          }
+        ]
+      }
+    ],
+    "ref": "dis_V1fYbxPs",
+    "defaultModuleLevel": "base",
+    "accessible": "unlocked",
+    "course": "cou_VkhgulN9g",
+    "courseName": "course_3",
+    "stars": 0
+  },
+  {
+    "name": {},
+    "modules": [
+      {
+        "level": "base",
+        "status": "init",
+        "statusClass": "isActive",
+        "ref": "mod_4JotIQRFWj",
+        "chapters": [
+          {
+            "ref": "cha_V12FL7AF~i",
+            "name": "cha_V12FL7AF~i.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549830",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_Vk6KIQAFZo",
+            "name": "cha_Vk6KIQAFZo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e9281954982f",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_Vy0FImAYWo",
+            "name": "cha_Vy0FImAYWo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e9281954982e",
+            "isConditional": false,
+            "time": 8
+          }
+        ]
+      },
+      {
+        "level": "advanced",
+        "status": "lock",
+        "statusClass": "isLocked",
+        "ref": "mod_EJJ98mAY~o",
+        "chapters": [
+          {
+            "ref": "cha_4kg5LmCYWj",
+            "name": "cha_4kg5LmCYWj.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e9281954982c",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_4y~q8X0tZi",
+            "name": "cha_4y~q8X0tZi.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e9281954982b",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_VyzqImCFZi",
+            "name": "cha_VyzqImCFZi.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e9281954982a",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_4yQ9I70YZs",
+            "name": "cha_4yQ9I70YZs.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549829",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_Ey4qLm0t~j",
+            "name": "cha_Ey4qLm0t~j.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549828",
+            "isConditional": false,
+            "time": 8
+          }
+        ]
+      },
+      {
+        "level": "coach",
+        "status": "lock",
+        "statusClass": "isLocked",
+        "ref": "mod_4yH9IQCFZs",
+        "chapters": [
+          {
+            "ref": "cha_418cImAFWj",
+            "name": "cha_418cImAFWj.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549826",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_NkvcU7CKZs",
+            "name": "cha_NkvcU7CKZs.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549825",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_VJ-5UQRt~s",
+            "name": "cha_VJ-5UQRt~s.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549824",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_EkK98mCYbi",
+            "name": "cha_EkK98mCYbi.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549823",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_Ey59LXRt~j",
+            "name": "cha_Ey59LXRt~j.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549822",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_Eyi58mAYbs",
+            "name": "cha_Eyi58mAYbs.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549821",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_4y2q8Q0K~o",
+            "name": "cha_4y2q8Q0K~o.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549820",
+            "isConditional": false,
+            "time": 8
+          }
+        ]
+      }
+    ],
+    "ref": "dis_NJ9KIQ0F~j",
+    "defaultModuleLevel": "base",
+    "accessible": "unlocked",
+    "course": "cou_VkhgulN9g",
+    "courseName": "course_3",
+    "stars": 0
+  },
+  {
+    "name": {},
+    "modules": [
+      {
+        "level": "base",
+        "status": "init",
+        "statusClass": "isActive",
+        "ref": "mod_VJDAU7Rt~s",
+        "chapters": [
+          {
+            "ref": "cha_V1O0UXAKbs",
+            "name": "cha_V1O0UXAKbs.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e9281954981e",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_VyKCL7CYWs",
+            "name": "cha_VyKCL7CYWs.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e9281954981d",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_Ny9CLQ0FZi",
+            "name": "cha_Ny9CLQ0FZi.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e9281954981c",
+            "isConditional": false,
+            "time": 8
+          }
+        ]
+      },
+      {
+        "level": "advanced",
+        "status": "lock",
+        "statusClass": "isLocked",
+        "ref": "mod_V1sALX0YWj",
+        "chapters": [
+          {
+            "ref": "cha_Vyh0LQ0KWo",
+            "name": "cha_Vyh0LQ0KWo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e9281954981a",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_V1aAIQCFWs",
+            "name": "cha_V1aAIQCFWs.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549819",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_VJR0U70tbj",
+            "name": "cha_VJR0U70tbj.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549818",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_NyJyx87CFZs",
+            "name": "cha_NyJyx87CFZs.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549817",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_NJeJlLmRtbs",
+            "name": "cha_NJeJlLmRtbs.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549816",
+            "isConditional": false,
+            "time": 8
+          }
+        ]
+      },
+      {
+        "level": "coach",
+        "status": "lock",
+        "statusClass": "isLocked",
+        "ref": "mod_4kWyxI70KWj",
+        "chapters": [
+          {
+            "ref": "cha_EkMklImRFZs",
+            "name": "cha_EkMklImRFZs.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549814",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_E1mJgI7AtWj",
+            "name": "cha_E1mJgI7AtWj.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549813",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_NyEylImRKZi",
+            "name": "cha_NyEylImRKZi.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549812",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_VkHkeU70Ybo",
+            "name": "cha_VkHkeU70Ybo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549811",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_Ek8JlUm0KWo",
+            "name": "cha_Ek8JlUm0KWo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549810",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_N1v1gLXCtZo",
+            "name": "cha_N1v1gLXCtZo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e9281954980f",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_NJ-1x8XAKbi",
+            "name": "cha_NJ-1x8XAKbi.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e9281954980e",
+            "isConditional": false,
+            "time": 8
+          }
+        ]
+      }
+    ],
+    "ref": "dis_41URIXRtWo",
+    "defaultModuleLevel": "base",
+    "accessible": "unlocked",
+    "course": "cou_VkhgulN9g",
+    "courseName": "course_3",
+    "stars": 0
+  },
+  {
+    "name": {},
+    "modules": [
+      {
+        "level": "base",
+        "status": "init",
+        "statusClass": "isActive",
+        "ref": "mod_EJGUL70KWi",
+        "chapters": [
+          {
+            "ref": "cha_NkXL8XAKWi",
+            "name": "cha_NkXL8XAKWi.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549a9b",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_E1N88XAK~j",
+            "name": "cha_E1N88XAK~j.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549a9a",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_V1BI87CtWs",
+            "name": "cha_V1BI87CtWs.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549a99",
+            "isConditional": false,
+            "time": 8
+          }
+        ]
+      },
+      {
+        "level": "advanced",
+        "status": "lock",
+        "statusClass": "isLocked",
+        "ref": "mod_4k8LU7RKZj",
+        "chapters": [
+          {
+            "ref": "cha_N1w88m0tWi",
+            "name": "cha_N1w88m0tWi.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549a97",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_Ey-IL70tbo",
+            "name": "cha_Ey-IL70tbo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549a96",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_VytILQRYWi",
+            "name": "cha_VytILQRYWi.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549a95",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_4y5LUmAYbo",
+            "name": "cha_4y5LUmAYbo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549a94",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_4ksI8mCYZo",
+            "name": "cha_4ksI8mCYZo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549a93",
+            "isConditional": false,
+            "time": 8
+          }
+        ]
+      },
+      {
+        "level": "coach",
+        "status": "lock",
+        "statusClass": "isLocked",
+        "ref": "mod_V13II7RFbi",
+        "chapters": [
+          {
+            "ref": "cha_NJa8U7AFZj",
+            "name": "cha_NJa8U7AFZj.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549a91",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_N1C8UQAYbs",
+            "name": "cha_N1C8UQAYbs.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549a90",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_4yyPUmAYZo",
+            "name": "cha_4yyPUmAYZo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549a8f",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_EJlDL7CYbo",
+            "name": "cha_EJlDL7CYbo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549a8e",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_NkWw87AYZj",
+            "name": "cha_NkWw87AYZj.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549a8d",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_4yMDIXRFZs",
+            "name": "cha_4yMDIXRFZs.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549a8c",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_VkQD8XCYZo",
+            "name": "cha_VkQD8XCYZo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549a8b",
+            "isConditional": false,
+            "time": 8
+          }
+        ]
+      }
+    ],
+    "ref": "dis_EkZI870tbs",
+    "defaultModuleLevel": "base",
+    "accessible": "unlocked",
+    "course": "cou_VkhgulN9g",
+    "courseName": "course_3",
+    "stars": 0
+  },
+  {
+    "name": {},
+    "modules": [
+      {
+        "level": "base",
+        "status": "init",
+        "statusClass": "isActive",
+        "ref": "mod_N1VpImRFWs",
+        "chapters": [
+          {
+            "ref": "cha_E1S6U7AtZj",
+            "name": "cha_E1S6U7AtZj.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549878",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_E1UaLQCF~i",
+            "name": "cha_E1UaLQCF~i.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549877",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_EkDaU7RFbi",
+            "name": "cha_EkDaU7RFbi.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549876",
+            "isConditional": false,
+            "time": 8
+          }
+        ]
+      },
+      {
+        "level": "advanced",
+        "status": "lock",
+        "statusClass": "isLocked",
+        "ref": "mod_41OTU7Rt~o",
+        "chapters": [
+          {
+            "ref": "cha_41tpLX0t~j",
+            "name": "cha_41tpLX0t~j.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549874",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_4J5a8mAK~s",
+            "name": "cha_4J5a8mAK~s.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549873",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_VkoTLQCKWi",
+            "name": "cha_VkoTLQCKWi.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549872",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_NJ3a8m0FWo",
+            "name": "cha_NJ3a8m0FWo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549871",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_NkTTI7Atbs",
+            "name": "cha_NkTTI7Atbs.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549870",
+            "isConditional": false,
+            "time": 8
+          }
+        ]
+      },
+      {
+        "level": "coach",
+        "status": "lock",
+        "statusClass": "isLocked",
+        "ref": "mod_4kAaI7RY~o",
+        "chapters": [
+          {
+            "ref": "cha_NykCLXAKbj",
+            "name": "cha_NykCLXAKbj.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e9281954986e",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_NJx08XAtWi",
+            "name": "cha_NJx08XAtWi.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e9281954986d",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_NJbAIQCFWs",
+            "name": "cha_NJbAIQCFWs.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e9281954986c",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_N1M08QAt~o",
+            "name": "cha_N1M08QAt~o.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e9281954986b",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_4kQRIX0tZo",
+            "name": "cha_4kQRIX0tZo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e9281954986a",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_NJ4CUmCt~o",
+            "name": "cha_NJ4CUmCt~o.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549869",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_N1S0UmAYbs",
+            "name": "cha_N1S0UmAYbs.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e92819549868",
+            "isConditional": false,
+            "time": 8
+          }
+        ]
+      }
+    ],
+    "ref": "dis_V1XT8m0Y~j",
+    "defaultModuleLevel": "base",
+    "accessible": "unlocked",
+    "course": "cou_VkCzulV9g",
+    "courseName": "course_4",
+    "stars": 0
+  },
+  {
+    "name": {},
+    "modules": [
+      {
+        "level": "base",
+        "status": "init",
+        "statusClass": "isActive",
+        "ref": "mod_41tGLQCKbj",
+        "chapters": [
+          {
+            "ref": "cha_VJ9zL7RYbo",
+            "name": "cha_VJ9zL7RYbo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497c4",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_VyoGUQRK~o",
+            "name": "cha_VyoGUQRK~o.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497c3",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_4knM8mAYbo",
+            "name": "cha_4knM8mAYbo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497c2",
+            "isConditional": false,
+            "time": 8
+          }
+        ]
+      },
+      {
+        "level": "advanced",
+        "status": "lock",
+        "statusClass": "isLocked",
+        "ref": "mod_41TfLXCtZi",
+        "chapters": [
+          {
+            "ref": "cha_EkRzU7CYZj",
+            "name": "cha_EkRzU7CYZj.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497c0",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_4ky7L70K~j",
+            "name": "cha_4ky7L70K~j.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497bf",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_Nkx787CK~o",
+            "name": "cha_Nkx787CK~o.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497be",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_NybQImRFWj",
+            "name": "cha_NybQImRFWj.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497bd",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_VJzQI70FWo",
+            "name": "cha_VJzQI70FWo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497bc",
+            "isConditional": false,
+            "time": 8
+          }
+        ]
+      },
+      {
+        "level": "coach",
+        "status": "lock",
+        "statusClass": "isLocked",
+        "ref": "mod_N1QXImAtbs",
+        "chapters": [
+          {
+            "ref": "cha_VJ47UmCKZo",
+            "name": "cha_VJ47UmCKZo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497ba",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_EJrQLX0KZj",
+            "name": "cha_EJrQLX0KZj.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497b9",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_VkLmImRFWo",
+            "name": "cha_VkLmImRFWo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497b8",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_EJvmImCtbj",
+            "name": "cha_EJvmImCtbj.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497b7",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_Nyu7UQCKWo",
+            "name": "cha_Nyu7UQCKWo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497b6",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_N1YmLXCYWi",
+            "name": "cha_N1YmLXCYWi.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497b5",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_V15QL70Y~i",
+            "name": "cha_V15QL70Y~i.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497b4",
+            "isConditional": false,
+            "time": 8
+          }
+        ]
+      }
+    ],
+    "ref": "dis_NJufU70KZi",
+    "defaultModuleLevel": "base",
+    "accessible": "unlocked",
+    "course": "cou_VkCzulV9g",
+    "courseName": "course_4",
+    "stars": 0
+  },
+  {
+    "name": {},
+    "modules": [
+      {
+        "level": "base",
+        "status": "init",
+        "statusClass": "isActive",
+        "ref": "mod_VkOuUXRFWo",
+        "chapters": [
+          {
+            "ref": "cha_Ektu8QRFZi",
+            "name": "cha_Ektu8QRFZi.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497d6",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_Ekc-I7RtWs",
+            "name": "cha_Ekc-I7RtWs.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497d5",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_EJoO8mAtWj",
+            "name": "cha_EJoO8mAtWj.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497d4",
+            "isConditional": false,
+            "time": 8
+          }
+        ]
+      },
+      {
+        "level": "advanced",
+        "status": "lock",
+        "statusClass": "isLocked",
+        "ref": "mod_4k3u8QCtbo",
+        "chapters": [
+          {
+            "ref": "cha_V1pO87CFZj",
+            "name": "cha_V1pO87CFZj.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497d2",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_NJ0uLmRYbi",
+            "name": "cha_NJ0uLmRYbi.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497d1",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_4kJtIQRtZs",
+            "name": "cha_4kJtIQRtZs.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497d0",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_4klYImAYbo",
+            "name": "cha_4klYImAYbo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497cf",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_N1bYUX0tZo",
+            "name": "cha_N1bYUX0tZo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497ce",
+            "isConditional": false,
+            "time": 8
+          }
+        ]
+      },
+      {
+        "level": "coach",
+        "status": "lock",
+        "statusClass": "isLocked",
+        "ref": "mod_E1zY8X0Y~o",
+        "chapters": [
+          {
+            "ref": "cha_N1XYLXCK~s",
+            "name": "cha_N1XYLXCK~s.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497cc",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_N1NFLXRFZs",
+            "name": "cha_N1NFLXRFZs.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497cb",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_4JHFI7RFWs",
+            "name": "cha_4JHFI7RFWs.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497ca",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_VJUtU7CY~i",
+            "name": "cha_VJUtU7CY~i.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497c9",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_4JvY8QCK~o",
+            "name": "cha_4JvY8QCK~o.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497c8",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_V1uF8QCKZi",
+            "name": "cha_V1uF8QCKZi.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497c7",
+            "isConditional": false,
+            "time": 8
+          },
+          {
+            "ref": "cha_EJYYL70KWo",
+            "name": "cha_EJYYL70KWo.name",
+            "stars": 20,
+            "_id": "56e6914b51c9e928195497c6",
+            "isConditional": false,
+            "time": 8
+          }
+        ]
+      }
+    ],
+    "ref": "dis_VkP-8QCtWj",
+    "defaultModuleLevel": "base",
+    "accessible": "unlocked",
+    "course": "cou_VkCzulV9g",
+    "courseName": "course_4",
+    "stars": 0
+  }
+]
