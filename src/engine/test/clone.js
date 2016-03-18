@@ -1,7 +1,7 @@
 import test from 'ava';
-import forEachRenderer from '../../util/for-each-renderer';
+import forEachEngine from '../../util/for-each-engine';
 
-forEachRenderer(({h, clone}, name) => {
+forEachEngine(({h, clone}, name) => {
   test(`${name}: should clone element`, t => {
     const node = <span bar="baz">qux</span>;
     const cloneNode = clone(node);

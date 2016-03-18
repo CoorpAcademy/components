@@ -1,14 +1,14 @@
 import test from 'ava';
-import forEachRenderer from '../for-each-renderer';
+import forEachEngine from '../for-each-engine';
 
 import createBehaviour from '../behaviour';
 
-forEachRenderer((renderer, name) => {
-  const {h, resolve} = renderer;
+forEachEngine((engine, name) => {
+  const {h, resolve} = engine;
 
   test(`${name}: should extend children properties`, t => {
     const Title = props => <h1>{props.children}</h1>;
-    const Color = createBehaviour(() => props => ({style: {color: props.color}}))(renderer);
+    const Color = createBehaviour(() => props => ({style: {color: props.color}}))(engine);
 
     const tree = (
       <Color color="blue">
@@ -20,7 +20,7 @@ forEachRenderer((renderer, name) => {
 
   test(`${name}: should override children properties`, t => {
     const Title = props => <h1 style={{color: props.color}}>{props.children}</h1>;
-    const Color = createBehaviour(() => props => ({style: {color: props.color}}))(renderer);
+    const Color = createBehaviour(() => props => ({style: {color: props.color}}))(engine);
 
     const pinkTitle = <Title color="pink">foo</Title>;
 

@@ -1,6 +1,6 @@
 import createBehaviour from '../../util/behaviour';
 
-const tiny = (renderer, skin) => props => {
+const tiny = (engine, skin) => props => {
   const properties = {
     style: {
       'fontSize': '9px'

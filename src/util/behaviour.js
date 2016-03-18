@@ -1,9 +1,9 @@
 import createDecorator from './decorator';
 import createWrapper from './wrapper';
 
-const createBehaviour = createProperties => (renderer, skin) => {
-  const {map, resolve} = renderer;
-  const wrapper = createWrapper(createProperties)(renderer, skin);
+const createBehaviour = createProperties => (engine, skin) => {
+  const {map, resolve} = engine;
+  const wrapper = createWrapper(createProperties)(engine, skin);
 
   const render = (props) => ({
     ...props,
@@ -14,7 +14,7 @@ const createBehaviour = createProperties => (renderer, skin) => {
     return wrapper(render(props));
   };
 
-  behaviour.decorate = createDecorator(renderer)(behaviour);
+  behaviour.decorate = createDecorator(engine)(behaviour);
 
   return behaviour;
 };

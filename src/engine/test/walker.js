@@ -1,7 +1,7 @@
 import test from 'ava';
-import forEachRenderer from '../../util/for-each-renderer';
+import forEachEngine from '../../util/for-each-engine';
 
-forEachRenderer(({h, walker, resolve}, name) => {
+forEachEngine(({h, walker, resolve}, name) => {
   test(`${name}: should travel each tree's nodes`, t => {
     const tree = (
       <header>

@@ -1,10 +1,10 @@
 import style from './module-bubble.css';
 import createLabelModName from '../../atom/label-mod-name';
 
-export default (renderer, skin) => (props) => {
-  const {h} = renderer;
+export default (engine, skin) => (props) => {
+  const {h} = engine;
 
-  const LabelModName = createLabelModName(renderer, skin);
+  const LabelModName = createLabelModName(engine, skin);
 
   const iconCode = String.fromCharCode(skin.icons[props.status]);
   const inverted = props.inverted === 'true';

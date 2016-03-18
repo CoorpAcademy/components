@@ -1,7 +1,7 @@
 import mapValues from 'lodash.mapvalues';
 
-import react from '../renderer/react';
-import virtualDom from '../renderer/virtual-dom';
+import react from '../engine/react';
+import virtualDom from '../engine/virtual-dom';
 
 export default (fn) => mapValues({
   'react': react,

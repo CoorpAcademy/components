@@ -7,6 +7,9 @@ import flatten from 'lodash.flatten';
 import compact from 'lodash.compact';
 import _h from 'virtual-dom/h';
 import isVirtualNode from 'virtual-dom/vnode/is-vnode';
+import createElement from 'virtual-dom/create-element';
+import diff from 'virtual-dom/diff';
+import patch from 'virtual-dom/patch';
 
 const event = /^on[A-Z].+/;
 const transformProps = (props) => mapKeys(props, (value, key) => {
@@ -53,10 +56,32 @@ const walker = (fun, vTree) => {
   return clone(vTree, null, map(partial(walker, fun), vTree.children));
 };
 
+const render = el => {
+  let rootNode;
+  let currentTree;
+  return vTree => {
+    vTree = walker(resolve, vTree);
+
+    if(!rootNode) {
+      rootNode = createElement(vTree, {
+        document: global.document
+      });
+      el.appendChild(rootNode);
+      currentTree = vTree;
+      return;
+    }
+
+    const patches = diff(currentTree, vTree);
+    patch(rootNode, patches);
+    currentTree = vTree;
+  };
+};
+
 export default {
   h,
   map,
   clone,
   resolve,
-  walker
+  walker,
+  render
 };

@@ -3,14 +3,14 @@ import FontTinyBehaviour from '../../../behaviour/font/tiny';
 import FontUppercaseBehaviour from '../../../behaviour/font/uppercase';
 import ColorTextInvertedBehaviour from '../../../behaviour/color/text-inverted';
 
-export default (renderer, skin) => (props) => {
-  const {h} = renderer;
+export default (engine, skin) => (props) => {
+  const {h} = engine;
 
-  const Label = createLabel(renderer, skin);
+  const Label = createLabel(engine, skin);
 
-  const FontUppercase = FontUppercaseBehaviour(renderer, skin);
-  const FontTiny = FontTinyBehaviour(renderer, skin);
-  const ColorTextInverted = ColorTextInvertedBehaviour(renderer, skin);
+  const FontUppercase = FontUppercaseBehaviour(engine, skin);
+  const FontTiny = FontTinyBehaviour(engine, skin);
+  const ColorTextInverted = ColorTextInvertedBehaviour(engine, skin);
 
   return (
     <FontUppercase>

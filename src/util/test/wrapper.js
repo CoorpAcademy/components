@@ -1,14 +1,14 @@
 import test from 'ava';
-import forEachRenderer from '../for-each-renderer';
+import forEachEngine from '../for-each-engine';
 
 import createWrapper from '../wrapper';
 
-forEachRenderer((renderer, name) => {
-  const {h, resolve} = renderer;
+forEachEngine((engine, name) => {
+  const {h, resolve} = engine;
 
   test(`${name}: should extend children properties`, t => {
     const Title = props => <h1 style={{color: props.color}}>{props.children}</h1>;
-    const Color = createWrapper(() => props => ({color: props.color}))(renderer);
+    const Color = createWrapper(() => props => ({color: props.color}))(engine);
 
     const tree = (
       <Color color="blue">

@@ -45,6 +45,7 @@
     "eslint-plugin-jsx": "0.0.2",
     "express": "^4.13.3",
     "extract-text-webpack-plugin": "^1.0.1",
+    "jsdom": "^8.1.0",
     "lodash.compact": "^3.0.1",
     "lodash.defaultsdeep": "^4.3.2",
     "lodash.flatten": "^4.1.0",

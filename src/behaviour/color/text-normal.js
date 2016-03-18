@@ -1,6 +1,6 @@
 import createBehaviour from '../../util/behaviour';
 
-const textNormal = (renderer, skin) => props => {
+const textNormal = (engine, skin) => props => {
   const properties = {
     style: {
       color: props.value || skin && skin.texts.normal

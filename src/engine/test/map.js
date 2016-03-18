@@ -1,7 +1,7 @@
 import test from 'ava';
-import forEachRenderer from '../../util/for-each-renderer';
+import forEachEngine from '../../util/for-each-engine';
 
-forEachRenderer(({h, map, resolve}, name) => {
+forEachEngine(({h, map, resolve}, name) => {
   test(`${name}: should travel each children`, t => {
     const Component = (props) => (
       <h1>
