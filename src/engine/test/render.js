@@ -5,7 +5,7 @@ import jsdom from 'jsdom';
 global.document = jsdom.jsdom('<!doctype html><html><body></body></html>');
 global.window = document.defaultView;
 
-forEachEngine(({h, render}, name) => {
+forEachEngine((name, {h, render}) => {
   test(`${name}: should render vTree`, t => {
     const root = document.createElement('div');
     render(root)(<h1>foo</h1>);

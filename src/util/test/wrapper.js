@@ -3,7 +3,7 @@ import forEachEngine from '../for-each-engine';
 
 import createWrapper from '../wrapper';
 
-forEachEngine((engine, name) => {
+forEachEngine((name, engine) => {
   const {h, resolve} = engine;
 
   test(`${name}: should extend children properties`, t => {

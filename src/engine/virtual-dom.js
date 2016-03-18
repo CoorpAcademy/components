@@ -1,10 +1,9 @@
-import isFunction from 'lodash.isfunction';
-import partial from 'lodash.partial';
-import defaultsDeep from 'lodash.defaultsdeep';
-import mapKeys from 'lodash.mapkeys';
-import omit from 'lodash.omit';
-import flatten from 'lodash.flatten';
-import compact from 'lodash.compact';
+import isFunction from 'lodash/fp/isFunction';
+import defaultsDeep from 'lodash/fp/defaultsDeep';
+import mapKeys from 'lodash/fp/mapKeys';
+import omit from 'lodash/fp/omit';
+import flatten from 'lodash/fp/flatten';
+import compact from 'lodash/fp/compact';
 import _h from 'virtual-dom/h';
 import isVirtualNode from 'virtual-dom/vnode/is-vnode';
 import createElement from 'virtual-dom/create-element';
@@ -12,14 +11,16 @@ import diff from 'virtual-dom/diff';
 import patch from 'virtual-dom/patch';
 
 const event = /^on[A-Z].+/;
-const transformProps = (props) => mapKeys(props, (value, key) => {
+const transformProps = (props) => mapKeys(key => {
   if(event.test(key)) return key.toLowerCase();
   return key;
-});
+}, props);
+
+const omitChildren = omit(['children']);
 
 const h = (tag, props, ...children) => {
   const _tag = isFunction(tag) ? 'div' : tag;
-  const _props = omit(isFunction(tag) ? props : transformProps(props), 'children');
+  const _props = omitChildren(isFunction(tag) ? props : transformProps(props));
   const _children = compact(flatten(props && props.children || children || []));
 
   const vTree = _h(
@@ -37,7 +38,7 @@ const map = (fun, children) => (children || []).map(fun);
 const clone = (child, properties, children) => {
   return h(
     child.tagName,
-    defaultsDeep({}, properties, child.properties),
+    defaultsDeep(child.properties, properties),
     children || child.children
   );
 };
@@ -53,7 +54,7 @@ const resolve = (vTree) => {
 const walker = (fun, vTree) => {
   vTree = isVirtualNode(vTree) ? fun(vTree) : vTree;
   if (!vTree.children) return vTree;
-  return clone(vTree, null, map(partial(walker, fun), vTree.children));
+  return clone(vTree, null, map(child => walker(fun, child), vTree.children));
 };
 
 const render = el => {

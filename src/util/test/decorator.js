@@ -3,7 +3,7 @@ import forEachEngine from '../for-each-engine';
 
 import createDecorator from '../decorator';
 
-forEachEngine((engine, name) => {
+forEachEngine((name, engine) => {
   const {h, resolve, walker} = engine;
 
   test(`${name}: should decorate element`, t => {

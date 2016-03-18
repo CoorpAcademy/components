@@ -1,7 +1,7 @@
 import test from 'ava';
 import forEachEngine from '../../util/for-each-engine';
 
-forEachEngine(({h, resolve}, name) => {
+forEachEngine((name, {h, resolve}) => {
   test(`${name}: should create element`, t => {
     const node1 = h('div');
     const node2 = <div/>;

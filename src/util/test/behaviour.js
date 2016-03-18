@@ -3,7 +3,7 @@ import forEachEngine from '../for-each-engine';
 
 import createBehaviour from '../behaviour';
 
-forEachEngine((engine, name) => {
+forEachEngine((name, engine) => {
   const {h, resolve} = engine;
 
   test(`${name}: should extend children properties`, t => {

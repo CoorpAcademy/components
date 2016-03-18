@@ -1,7 +1,7 @@
 import test from 'ava';
 import forEachEngine from '../../util/for-each-engine';
 
-forEachEngine(({h, resolve}, name) => {
+forEachEngine((name, {h, resolve}) => {
   test(`${name}: should resolve component node`, t => {
     const Component = props => <h1/>;
     const tree = <Component/>;
