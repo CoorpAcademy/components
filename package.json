@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/coorpacademy/components#readme",
   "devDependencies": {
-    "angular": "^1.4.8",
+    "angular": "^1.5.2",
     "autoprefixer": "^6.3.3",
     "ava": "^0.13.0",
     "babel-cli": "^6.6.5",
