@@ -1,11 +1,11 @@
 import test from 'ava';
-import forEachRenderer from '../../util/for-each-renderer';
+import forEachEngine from '../../util/for-each-engine';
 
-forEachRenderer(({h, walker, resolve}, name) => {
+forEachEngine((name, {h, walker, resolve}) => {
   test(`${name}: should travel each tree's nodes`, t => {
     const tree = (
       <header>
-        <footer>foo</footer>,
+        <footer>foo</footer>
         <section>
           <article>baz</article>
         </section>
@@ -24,7 +24,7 @@ forEachRenderer(({h, walker, resolve}, name) => {
 
     const tree = (
       <Header>
-        <Footer>foo</Footer>,
+        <Footer>foo</Footer>
         <Section>
           <Article>baz</Article>
         </Section>
@@ -34,7 +34,7 @@ forEachRenderer(({h, walker, resolve}, name) => {
 
     t.same(walker(resolve, tree), (
       <header>
-        <footer>foo</footer>,
+        <footer>foo</footer>
         <section>
           <article>baz</article>
         </section>

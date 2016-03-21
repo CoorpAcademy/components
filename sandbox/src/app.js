@@ -15,10 +15,10 @@ const skin = {
   }
 };
 
-export default (renderer) => {
-  const {h} = renderer;
-  const DisciplineCard = createDisciplineCard(renderer, skin);
-  const Slide = createSlide(renderer, skin);
+export default (engine) => {
+  const {h} = engine;
+  const DisciplineCard = createDisciplineCard(engine, skin);
+  const Slide = createSlide(engine, skin);
 
   return (props) => (
     <DisciplineCard>

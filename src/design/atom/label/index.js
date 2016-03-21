@@ -1,5 +1,5 @@
-export default (renderer, skin) => (props) => {
-  const {h} = renderer;
+export default (engine, skin) => (props) => {
+  const {h} = engine;
 
   return (
     <span>
