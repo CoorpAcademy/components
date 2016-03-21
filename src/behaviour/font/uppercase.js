@@ -1,6 +1,6 @@
 import createBehaviour from '../../util/behaviour';
 
-const uppercase = (renderer, skin) => props => {
+const uppercase = (engine, skin) => props => {
   const properties = {
     style: {
       'textTransform': 'uppercase'

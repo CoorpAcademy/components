@@ -1,6 +1,6 @@
 import createBehaviour from '../../util/behaviour';
 
-const normal = (renderer, skin) => props => {
+const normal = (engine, skin) => props => {
   const properties = {
     style: {
       'fontSize': '12px',

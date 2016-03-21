@@ -1,18 +1,18 @@
 import createDecorator from './decorator';
 
-const createComponent = createProperties => (renderer, skin) => (props) => {
-  const {clone, map} = renderer;
+const createComponent = createProperties => (engine, skin) => (props) => {
+  const {clone, map} = engine;
   if(!clone || !map) return props.children;
 
-  const properties = createProperties(renderer, skin)(props);
+  const properties = createProperties(engine, skin)(props);
   const child = props.children[0];
 
   return clone(child, properties);
 };
 
-const createWrapper = createProperties => (renderer, skin) => {
-  const wrapper = createComponent(createProperties)(renderer, skin);
-  wrapper.decorate = createDecorator(renderer)(wrapper);
+const createWrapper = createProperties => (engine, skin) => {
+  const wrapper = createComponent(createProperties)(engine, skin);
+  wrapper.decorate = createDecorator(engine)(wrapper);
   return wrapper;
 };
 

@@ -1,15 +1,16 @@
-import { render } from 'react-dom';
-import renderer from '../../src/renderer/react';
+import engine from '../../src/engine/react';
+const update = engine.render(document.getElementById('app'));
 
 import createApp from './app';
-const App = createApp(renderer);
+const App = createApp(engine);
 const tree = App();
-render(tree, document.getElementById('app'));
+update(tree);
 
 if(module.hot) {
   module.hot.accept('./app.js', () => {
     const createApp = require('./app').default;
-    const App = createApp(renderer);
-    render(App(), document.getElementById('app'));
+    const App = createApp(engine);
+    const tree = App();
+    update(tree);
   });
 }

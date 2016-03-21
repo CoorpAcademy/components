@@ -1,7 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
-var colorFunction = require('postcss-color-function');
 
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CompressionPlugin = require('compression-webpack-plugin');
@@ -30,7 +29,6 @@ module.exports = {
   },
 
   postcss: [
-    colorFunction(),
     autoprefixer({ browsers: ['last 2 versions'] })
   ],
 

@@ -1,0 +1,24 @@
+import test from 'ava';
+import forEachEngine from '../../util/for-each-engine';
+
+forEachEngine((name, {h, map, resolve}) => {
+  test(`${name}: should travel each children`, t => {
+    const Component = (props) => (
+      <h1>
+        {map(child => t.pass() || child, props.children)}
+      </h1>
+    );
+
+    const tree = (
+      <Component>
+        foo
+        <span>
+          bar
+        </span>
+      </Component>
+    );
+
+    t.plan(2);
+    resolve(tree);
+  });
+});

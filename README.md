@@ -48,16 +48,16 @@ git push --tags
 
 # Technical details
 
-### Renderers
+### Engines
 
-- each virtual dom library has its own [renderer](./src/renderer)
-- the renderer implements the `hyperscript` function, the cloning, and the vtree resolving.
-- every component is built as a function to be called with the selected renderer
+- each virtual dom library has its own [engine](./src/engine)
+- the engine implements the `hyperscript` function, the cloning, and the vtree resolving.
+- every component is built as a function to be called with the selected engine
 
 ```js
-import renderer from '../../src/renderer/react';
+import engine from '../../src/engine/react';
 import createElement from './element';
-const Element = createElement(renderer);
+const Element = createElement(engine);
 ```
 
 `Element` being something like:
@@ -70,17 +70,17 @@ export default ({h}) => (props) => (
 ```
 
 ### Shallow/resolved vTree
-`@todo` explain `renderer.resolve` and `renderer.walker(renderer.resolve)`
+`@todo` explain `engine.resolve` and `engine.walker(engine.resolve)`
 
 ### Applying custom behaviours
 
 It's possible to enhance a `Component` by applying a specific behaviour on it.
 
-Alike every `Component`, this behaviour is a kind of `MetaComponent`, created with the `renderer` and 'wrapped' around the `Component` to enhance.
+Alike every `Component`, this behaviour is a kind of `MetaComponent`, created with the `engine` and 'wrapped' around the `Component` to enhance.
 
 ```js
-const Component = createComponent(renderer)
-const CustomBehaviour = createCustomBehaviour(renderer)
+const Component = createComponent(engine)
+const CustomBehaviour = createCustomBehaviour(engine)
 ```
 ```jsx
 <CustomBehaviour>
@@ -110,8 +110,8 @@ It's the same job as `wrappers` but applying the modification directly on the *r
 With a `Behaviour` the previous example would become :
 
 ```js
-const Component = createComponent(renderer)
-const RedColor = createRedColor(renderer)
+const Component = createComponent(engine)
+const RedColor = createRedColor(engine)
 ```
 ```jsx
 <RedColor>
@@ -127,8 +127,8 @@ Here the `Component` `props.style.color` will be set by the `Behaviour`.
 Both `Wrappers` and `Behaviours` may be used as decorator to allow smaller, readable `jsx`:
 
 ```js
-const Component = createComponent(renderer)
-const RedColor = createRedColor(renderer)
+const Component = createComponent(engine)
+const RedColor = createRedColor(engine)
 const RedComponent = RedColor.decorate(Component);
 ```
 ```jsx

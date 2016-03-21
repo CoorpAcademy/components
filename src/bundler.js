@@ -1,9 +1,8 @@
-import partial from 'lodash.partial';
-import mapValues from 'lodash.mapvalues';
+import mapValues from 'lodash/fp/mapValues';
 import * as components from './';
 
-export default (renderer) => {
-  const useRenderer = (component) => partial(component, renderer);
-  const bundle = mapValues(components, useRenderer);
+export default (engine) => {
+  const useEngine = (component) => (...args) => component(engine, ...args);
+  const bundle = mapValues(components, useEngine);
   return {...bundle};
 };
