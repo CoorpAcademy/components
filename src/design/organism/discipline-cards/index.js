@@ -9,12 +9,12 @@ export default (renderer, skin) => (props) => {
     return (
       <DisciplineCard discipline={discipline}>
       </DisciplineCard>
-    )
+    );
   });
 
   return (
     <div>
       {disciplines}
     </div>
-  )
+  );
 };

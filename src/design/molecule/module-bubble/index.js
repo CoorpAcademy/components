@@ -8,7 +8,8 @@ export default (engine, skin, translate) => (props) => {
 
   const iconCode = String.fromCharCode(skin.icons[props.status]);
   const inverted = props.inverted === 'true';
-  const className = inverted ? style.inverted : style.default;
+  const disabled = props.disabled === 'true';
+  const className = disabled ? style.disabled : (inverted ? style.inverted : style.default);
   const label = translate ? translate(props.label) : props.label;
 
   return (
@@ -24,7 +25,7 @@ export default (engine, skin, translate) => (props) => {
       >
       </span>
       <LabelModName>
-
+        {label}
       </LabelModName>
     </div>
   );

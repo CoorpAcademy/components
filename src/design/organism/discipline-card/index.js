@@ -9,7 +9,7 @@ export default (engine, skin) => (props) => {
     return (
       <ModuleBubble module={module}>
       </ModuleBubble>
-    )
+    );
   });
 
   return  (
