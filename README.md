@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.com/CoorpAcademy/components.svg?token=tpTZr2AKsFCqAwZ7nAEf&branch=master)](https://travis-ci.com/CoorpAcademy/components)
+[![Coverage Status](https://coveralls.io/repos/github/CoorpAcademy/components/badge.svg?branch=master&t=15or4z)](https://coveralls.io/github/CoorpAcademy/components?branch=master)
+
 # Coorpacademy components
 
 This library provide sharable components for web applications, either :
