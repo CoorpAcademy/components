@@ -5,6 +5,7 @@ import omit from 'lodash/fp/omit';
 import flatten from 'lodash/fp/flatten';
 import compact from 'lodash/fp/compact';
 import defaultsDeep from 'lodash/fp/defaultsDeep';
+import partial from 'lodash/fp/partial';
 import React, { createElement } from 'react';
 import { render as _render } from 'react-dom';
 
@@ -42,7 +43,7 @@ const resolve = vTree => {
 const walker = (fun, vTree) => {
   vTree = isString(vTree) ? vTree : fun(vTree);
   if (!vTree.props || !vTree.props.children) return vTree;
-  return clone(vTree, null, map(child => walker(fun, child), vTree.props.children || []));
+  return clone(vTree, null, map(partial(walker, [fun]), vTree.props.children || []));
 };
 
 const render = el => {

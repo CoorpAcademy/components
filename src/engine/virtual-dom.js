@@ -4,6 +4,7 @@ import mapKeys from 'lodash/fp/mapKeys';
 import omit from 'lodash/fp/omit';
 import flatten from 'lodash/fp/flatten';
 import compact from 'lodash/fp/compact';
+import partial from 'lodash/fp/partial';
 import _h from 'virtual-dom/h';
 import isVirtualNode from 'virtual-dom/vnode/is-vnode';
 import createElement from 'virtual-dom/create-element';
@@ -54,7 +55,7 @@ const resolve = (vTree) => {
 const walker = (fun, vTree) => {
   vTree = isVirtualNode(vTree) ? fun(vTree) : vTree;
   if (!vTree.children) return vTree;
-  return clone(vTree, null, map(child => walker(fun, child), vTree.children));
+  return clone(vTree, null, map(partial(walker, [fun]), vTree.children));
 };
 
 const render = el => {
