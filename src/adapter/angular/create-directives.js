@@ -3,11 +3,11 @@
 import createShallowTree from './create-shallow-tree';
 import mapKeys from 'lodash/fp/mapKeys';
 
-const linkWithEngine = (engine) => (component, $rootScope, scope, element, attrs, children) => {
+const linkWithEngine = (engine) => (component, $rootScope, scope, element, props) => {
   const update = engine.render(element[0]);
 
   const refresh = () => {
-    const shallowTree = createShallowTree(component, scope, attrs, children);
+    const shallowTree = createShallowTree(component, scope, props);
     update(shallowTree);
   };
 
@@ -15,11 +15,7 @@ const linkWithEngine = (engine) => (component, $rootScope, scope, element, attrs
     refresh();
   });
 
-  scope.$watch('label', function() {
-    refresh();
-  });
-
-  scope.$watch('status', function() {
+  scope.$watch('props', function() {
     refresh();
   });
 
@@ -37,7 +33,7 @@ const createDirective = (app, engine, componentName, createComponent) => {
     const component = createComponent(engine, config.skin, $i18next);
 
     const link = (scope, element, attrs) => {
-      linkWithEngine(engine)(component, $rootScope, scope, element, attrs, [attrs.value]);
+      linkWithEngine(engine)(component, $rootScope, scope, element, attrs.props);
     };
 
     return {
