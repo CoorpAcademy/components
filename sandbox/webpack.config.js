@@ -31,6 +31,7 @@ module.exports = {
 
   module: {
     loaders: [
+      { test: /\.json$/, loader: 'json' },
       { test: /\.js$/, loader: 'babel', include: [path.join(__dirname, 'src'), path.join(__dirname, '../src'), path.join(__dirname, '../example')] },
       { test: /\.css$/, loader: 'style!css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss' }
     ]
