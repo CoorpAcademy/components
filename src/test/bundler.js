@@ -7,6 +7,6 @@ test('should partial component with engin', t => {
     createComponent: (engine) => (props) => engine
   };
   const bundle = bundler(engine, components);
-  const component = bundle.components.createComponent();
+  const component = bundle.createComponent();
   t.is(component(), engine);
 });

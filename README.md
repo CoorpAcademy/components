@@ -39,10 +39,7 @@ Then open `http://localhost:3000`
 
 ### Publish
 ```
-git checkout master
-git pull origin master
-npm version patch
-git push origin master
+npm version patch|minor|major
 git push --tags
 ```
 

@@ -34,7 +34,7 @@ const lowerFirstLetter = (string) => {
 
 const createDirective = (app, engine, componentName, createComponent) => {
   const directive = (config, $rootScope, $i18next) => {
-    const component = createComponent(config.skin, $i18next);
+    const component = createComponent(engine, config.skin, $i18next);
 
     const link = (scope, element, attrs) => {
       linkWithEngine(engine)(component, $rootScope, scope, element, attrs, [attrs.value]);

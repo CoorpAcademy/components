@@ -1,11 +1,9 @@
 'use strict';
 
 const createShallowTree = (component, scope, attrs, children) => {
-  const translate = window.i18n;
   const props = {
     ...attrs,
-    children,
-    translate
+    children
   };
 
   props.onClick = function() {
