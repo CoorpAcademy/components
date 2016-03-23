@@ -30,7 +30,12 @@ const lowerFirstLetter = (string) => {
 
 const createDirective = (app, engine, componentName, createComponent) => {
   const directive = (config, $rootScope, $i18next) => {
-    const component = createComponent(engine, config.skin, $i18next);
+    const options = {
+      skin: config.skin,
+      translate: $i18next
+    };
+
+    const component = createComponent(engine, options);
 
     const link = (scope, element, attrs) => {
       linkWithEngine(engine)(component, $rootScope, scope, element, attrs.props);
