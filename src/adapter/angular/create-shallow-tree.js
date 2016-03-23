@@ -1,10 +1,7 @@
 'use strict';
 
-const createShallowTree = (component, scope, attrs, children) => {
-  const props = {
-    ...attrs,
-    children
-  };
+const createShallowTree = (component, scope, props) => {
+  props = scope.$eval(props);
 
   props.onClick = function() {
     scope.$apply(scope.onClick).apply(null, arguments);

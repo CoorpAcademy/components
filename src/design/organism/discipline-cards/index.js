@@ -7,7 +7,7 @@ export default (renderer, skin) => (props) => {
 
   const disciplines = props.disciplines.map(function(discipline){
     return (
-      <DisciplineCard discipline={discipline}>
+      <DisciplineCard {...discipline}>
       </DisciplineCard>
     );
   });
