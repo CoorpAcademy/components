@@ -2,13 +2,13 @@ import createLabel from '../label';
 import FontNormalBehaviour from '../../../behaviour/font/normal';
 import ColorTextNormalBehaviour from '../../../behaviour/color/text-normal';
 
-export default (engine, skin) => (props) => {
+export default (engine, options) => (props) => {
   const {h} = engine;
 
-  const Label = createLabel(engine, skin);
+  const Label = createLabel(engine, options);
 
-  const FontNormal = FontNormalBehaviour(engine, skin);
-  const ColorTextNormal = ColorTextNormalBehaviour(engine, skin);
+  const FontNormal = FontNormalBehaviour(engine, options);
+  const ColorTextNormal = ColorTextNormalBehaviour(engine, options);
 
   return (
     <FontNormal>

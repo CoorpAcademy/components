@@ -1,9 +1,9 @@
 import createDecorator from './decorator';
 import createWrapper from './wrapper';
 
-const createBehaviour = createProperties => (engine, skin) => {
+const createBehaviour = createProperties => (engine, options) => {
   const {map, resolve} = engine;
-  const wrapper = createWrapper(createProperties)(engine, skin);
+  const wrapper = createWrapper(createProperties)(engine, options);
 
   const render = (props) => ({
     ...props,
