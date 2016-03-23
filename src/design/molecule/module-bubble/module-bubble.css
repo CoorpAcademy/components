@@ -1,4 +1,7 @@
-
+.modulewrapper {
+  display: inline-block;
+  width: 50px;
+}
 .default {
   display: inline-block;
   position: relative;

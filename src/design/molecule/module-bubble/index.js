@@ -13,7 +13,7 @@ export default (engine, skin, translate) => (props) => {
   const label = translate ? translate(props.label) : props.label;
 
   return (
-    <div>
+    <div className={style.modulewrapper}>
       <span className={className}
             attributes={{
               'data-icon': iconCode
