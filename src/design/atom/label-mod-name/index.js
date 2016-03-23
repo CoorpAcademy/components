@@ -13,16 +13,16 @@ export default (engine, skin) => (props) => {
   const ColorTextNormal = ColorTextNormalBehaviour(engine, skin);
 
   return (
-    <FontUppercase>
-      <FontTiny>
-        <ColorTextNormal value={
-          skin.texts['mod-tree-label']
-        }>
-          <Label>
-            {props.children}
-          </Label>
-        </ColorTextNormal>
-      </FontTiny>
-    </FontUppercase>
+      <FontUppercase>
+        <FontTiny>
+          <ColorTextNormal value={
+            skin.texts['mod-tree-label']
+          }>
+            <Label>
+              {props.children}
+            </Label>
+          </ColorTextNormal>
+        </FontTiny>
+      </FontUppercase>
   );
 };
