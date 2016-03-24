@@ -2,11 +2,12 @@
   "presets": ["es2015", "stage-1"],
   "env": {
     "development": {
-      "plugins": [
-        ["transform-react-jsx", { "pragma": "h" }]
-      ]
+      "sourceMaps": "inline"
     }
   },
+  "plugins": [
+    ["transform-react-jsx", { "pragma": "h" }]
+  ],
   "ignore": [
     "node_modules/**/*",
   ]
