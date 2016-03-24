@@ -22,7 +22,10 @@ export default (engine, options) => (props) => {
             style={{
               background: skin && skin.mod[props.status]
             }}
-            onClick={e => props.onClick(e)}
+            onClick={e => {
+              e.stopPropagation();
+              props.onClick(e);
+            }}
       >
       </span>
       <LabelModName>

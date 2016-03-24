@@ -1,13 +1,13 @@
 'use strict';
 
-import createShallowTree from './create-shallow-tree';
 import mapKeys from 'lodash/fp/mapKeys';
 
-const linkWithEngine = (engine) => (component, $rootScope, scope, element, props) => {
+const linkWithEngine = (engine) => (component, $rootScope, scope, element) => {
   const update = engine.render(element[0]);
 
   const refresh = () => {
-    const shallowTree = createShallowTree(component, scope, props);
+    const props = scope.props();
+    const shallowTree = component(props);
     update(shallowTree);
   };
 
@@ -15,6 +15,7 @@ const linkWithEngine = (engine) => (component, $rootScope, scope, element, props
     refresh();
   });
 
+  // broken since props is now a function
   scope.$watch('props', function() {
     refresh();
   });
@@ -38,17 +39,14 @@ const createDirective = (app, engine, componentName, createComponent) => {
     const component = createComponent(engine, options);
 
     const link = (scope, element, attrs) => {
-      linkWithEngine(engine)(component, $rootScope, scope, element, attrs.props);
+      linkWithEngine(engine)(component, $rootScope, scope, element);
     };
 
     return {
       restrict: 'E',
       link: link,
       scope: {
-        value: '@',
-        label: '@',
-        status: '@',
-        onClick: '&'
+        props: '&'
       }
     };
   };

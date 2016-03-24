@@ -19,7 +19,9 @@ export default (engine, options) => (props) => {
   const label = translate ? translate(props.label) : props.label;
 
   return  (
-    <div className={style.default}>
+    <div className={style.default}
+         onClick={e => props.onClick(e, label)}
+    >
       <CenteredText>
         <p className={style.headerModule}>
           {label}
