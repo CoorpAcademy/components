@@ -1,3 +1,4 @@
+import style from './discipline-cards.css';
 import createDisciplineCard from '../discipline-card';
 
 export default (engine, options) => (props) => {
@@ -13,7 +14,7 @@ export default (engine, options) => (props) => {
   });
 
   return (
-    <div>
+    <div className={style.default}>
       {disciplines}
     </div>
   );
