@@ -1,7 +1,0 @@
-@value colors: "../../variables/colors.css";
-@value secondary from colors;
-@value defaultColor: secondary;
-
-.card {
-  color: red;
-}
