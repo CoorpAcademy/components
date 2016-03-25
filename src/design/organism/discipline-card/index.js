@@ -10,6 +10,8 @@ export default (engine, options) => (props) => {
   const CenteredText = CenteredTextBehaviour(engine, options);
 
   const modules = props.modules.map(function(module){
+    module.onClick = props.onModuleClick;
+
     return (
       <ModuleBubble {...module}>
       </ModuleBubble>
@@ -20,7 +22,7 @@ export default (engine, options) => (props) => {
 
   return  (
     <div className={style.default}
-         onClick={e => props.onClick(e, label)}
+         onClick={e => props.onClick(props)}
     >
       <CenteredText>
         <p className={style.headerModule}>

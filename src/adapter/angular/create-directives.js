@@ -15,10 +15,9 @@ const linkWithEngine = (engine) => (component, $rootScope, scope, element) => {
     refresh();
   });
 
-  // broken since props is now a function
-  scope.$watch('props', function() {
+  scope.$watch('watch', function() {
     refresh();
-  });
+  }, true);
 
   scope.$on('$destroy', function() {
     window.angular.element(element).remove();
@@ -46,6 +45,7 @@ const createDirective = (app, engine, componentName, createComponent) => {
       restrict: 'E',
       link: link,
       scope: {
+        watch: '=',
         props: '&'
       }
     };

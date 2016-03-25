@@ -24,7 +24,7 @@ export default (engine, options) => (props) => {
             }}
             onClick={e => {
               e.stopPropagation();
-              props.onClick(e);
+              props.onClick(props);
             }}
       >
       </span>
