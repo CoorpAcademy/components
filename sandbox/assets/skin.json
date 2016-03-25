@@ -5,9 +5,11 @@
     "filter3": "#e23e57",
     "filter4": "#ff855a"
   },
-  "primary": "#3498db",
-  "good": "#24b694",
-  "bad": "#ed1c24",
+  "theme": {
+    "primary": "#3498db",
+    "good": "#24b694",
+    "bad": "#ed1c24"
+  },
   "texts": {
     "normal": "#191919",
     "inverted": "#fff",
