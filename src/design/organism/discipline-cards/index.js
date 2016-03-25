@@ -1,13 +1,13 @@
 import createDisciplineCard from '../discipline-card';
 
-export default (renderer, skin) => (props) => {
-  const {h} = renderer;
+export default (engine, options) => (props) => {
+  const {h} = engine;
 
-  const DisciplineCard = createDisciplineCard(renderer, skin);
+  const DisciplineCard = createDisciplineCard(engine, options);
 
   const disciplines = props.disciplines.map(function(discipline){
     return (
-      <DisciplineCard discipline={discipline}>
+      <DisciplineCard {...discipline}>
       </DisciplineCard>
     );
   });

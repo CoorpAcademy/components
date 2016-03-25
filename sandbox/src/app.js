@@ -5,7 +5,7 @@ import skin from '../assets/skin';
 
 export default (engine) => {
   const {h} = engine;
-  const DisciplineCards = createDisciplineCards(engine, skin);
+  const DisciplineCards = createDisciplineCards(engine, options);
 
   return (props) => (
     <div className={style.learningTreeDefault}>

@@ -3,14 +3,15 @@ import FontTinyBehaviour from '../../../behaviour/font/tiny';
 import FontUppercaseBehaviour from '../../../behaviour/font/uppercase';
 import ColorTextNormalBehaviour from '../../../behaviour/color/text-normal';
 
-export default (engine, skin) => (props) => {
+export default (engine, options) => (props) => {
   const {h} = engine;
+  const {skin} = options;
 
-  const Label = createLabel(engine, skin);
+  const Label = createLabel(engine, options);
 
-  const FontUppercase = FontUppercaseBehaviour(engine, skin);
-  const FontTiny = FontTinyBehaviour(engine, skin);
-  const ColorTextNormal = ColorTextNormalBehaviour(engine, skin);
+  const FontUppercase = FontUppercaseBehaviour(engine, options);
+  const FontTiny = FontTinyBehaviour(engine, options);
+  const ColorTextNormal = ColorTextNormalBehaviour(engine, options);
 
   return (
       <FontUppercase>
