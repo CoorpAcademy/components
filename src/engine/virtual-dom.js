@@ -3,6 +3,7 @@ import defaultsDeep from 'lodash/fp/defaultsDeep';
 import mapKeys from 'lodash/fp/mapKeys';
 import omit from 'lodash/fp/omit';
 import flatten from 'lodash/fp/flatten';
+import assign from 'lodash/fp/assign';
 import compact from 'lodash/fp/compact';
 import partial from 'lodash/fp/partial';
 import _h from 'virtual-dom/h';
@@ -79,11 +80,45 @@ const render = el => {
   };
 };
 
+const createWidget = (widgetOptions, options) => {
+  widgetOptions = assign({
+    tagName: 'div',
+    namespaceURI: 'http://www.w3.org/1999/xhtml',
+    update: () => {},
+    destroy: () => {}
+  }, widgetOptions);
+
+  const Widget = function(props) {
+    this.props = props;
+  };
+
+  Widget.prototype.type = 'Widget';
+
+  Widget.prototype.init = function() {
+    const el = document.createElementNS(widgetOptions.namespaceURI, widgetOptions.tagName);
+    setTimeout(() => this.update(null, el), 0);
+    return el;
+  };
+
+  Widget.prototype.update = function(prev, el) {
+    return widgetOptions.update(this.props, prev, el);
+  };
+
+  Widget.prototype.destroy = function(el) {
+    return widgetOptions.destroy(el);
+  };
+
+  return (props) => {
+    return new Widget(props);
+  };
+};
+
 export default {
   h,
   map,
   clone,
   resolve,
   walker,
-  render
+  render,
+  createWidget
 };

@@ -16,7 +16,7 @@ function entries(names){
 
 module.exports = {
   context: __dirname,
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'source-map',
 
   entry: entries([
     'sandbox-react',
