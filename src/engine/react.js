@@ -53,29 +53,29 @@ const render = el => {
   };
 };
 
-const createWidget = (widgetOptions, options) => {
-  widgetOptions = assign({
+const widget = options => {
+  options = assign({
     tagName: 'div',
     update: () => {},
     destroy: () => {}
-  }, widgetOptions);
+  }, options);
 
   return React.createClass({
     componentDidMount: function() {
       const el = findDOMNode(this);
-      widgetOptions.update(this.props, null, el);
+      options.init(this.props,el);
     },
 
     componentDidUpdate: function(prev) {
       const el = findDOMNode(this);
-      widgetOptions.update(this.props, prev, el);
+      options.update(this.props, prev, el);
     },
 
     componentWillUnmount: function() {
     },
 
     render: function() {
-      return React.createElement(widgetOptions.tagName);
+      return React.createElement(options.tagName);
     }
   });
 };
@@ -88,5 +88,5 @@ export default {
   resolve,
   walker,
   render,
-  createWidget
+  widget
 };

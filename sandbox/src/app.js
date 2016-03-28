@@ -1,6 +1,6 @@
 import style from './main.css';
 import { createDisciplineCards } from '../../src';
-import createPie from './pie';
+import createPie from '../../src/design/atom/pie-chart';
 import disciplines from '../assets/disciplines';
 import skin from '../assets/skin';
 

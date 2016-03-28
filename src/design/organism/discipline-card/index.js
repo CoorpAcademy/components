@@ -21,7 +21,7 @@ export default (engine, options) => (props) => {
 
   return  (
     <div className={style.default}
-         onClick={e => modules.onClick(modules)}
+         onClick={e => discipline.onClick(discipline)}
     >
       <CenteredText>
         <p className={style.headerModule}>

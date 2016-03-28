@@ -80,13 +80,14 @@ const render = el => {
   };
 };
 
-const createWidget = (widgetOptions, options) => {
-  widgetOptions = assign({
+const widget = options => {
+  options = assign({
     tagName: 'div',
     namespaceURI: 'http://www.w3.org/1999/xhtml',
+    init: () => {},
     update: () => {},
     destroy: () => {}
-  }, widgetOptions);
+  }, options);
 
   const Widget = function(props) {
     this.props = props;
@@ -95,17 +96,17 @@ const createWidget = (widgetOptions, options) => {
   Widget.prototype.type = 'Widget';
 
   Widget.prototype.init = function() {
-    const el = document.createElementNS(widgetOptions.namespaceURI, widgetOptions.tagName);
-    setTimeout(() => this.update(null, el), 0);
+    const el = document.createElementNS(options.namespaceURI, options.tagName);
+    options.init(this.props, el);
     return el;
   };
 
   Widget.prototype.update = function(prev, el) {
-    return widgetOptions.update(this.props, prev, el);
+    return options.update(this.props, prev, el);
   };
 
   Widget.prototype.destroy = function(el) {
-    return widgetOptions.destroy(el);
+    return options.destroy(el);
   };
 
   return (props) => {
@@ -120,5 +121,5 @@ export default {
   resolve,
   walker,
   render,
-  createWidget
+  widget
 };
