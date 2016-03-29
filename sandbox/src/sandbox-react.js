@@ -2,15 +2,15 @@ import engine from '../../src/engine/react';
 const update = engine.render(document.getElementById('app'));
 
 import createApp from './app';
-const App = createApp(engine);
-const tree = App();
-update(tree);
+let App = createApp(engine);
 
-if(module.hot) {
+if (module.hot)
   module.hot.accept('./app.js', () => {
     const createApp = require('./app').default;
-    const App = createApp(engine);
-    const tree = App();
-    update(tree);
+    App = createApp(engine);
+    update(App());
   });
-}
+
+
+update(App());
+setInterval(() => update(App()), 1000);

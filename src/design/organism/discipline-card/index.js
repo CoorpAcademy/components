@@ -5,24 +5,23 @@ import CenteredTextBehaviour from '../../../behaviour/align/centered';
 export default (engine, options) => (props) => {
   const {h} = engine;
   const {translate} = options;
+  const {discipline} = props;
 
   const ModuleBubble = createModuleBubble(engine, options);
   const CenteredText = CenteredTextBehaviour(engine, options);
 
-  const modules = props.modules.map(function(module){
-    module.onClick = props.onModuleClick;
-
+  const modules = discipline.modules.map(function(module){
     return (
-      <ModuleBubble {...module}>
+      <ModuleBubble module={{...module, onClick: discipline.onModuleClick}}>
       </ModuleBubble>
     );
   });
 
-  const label = translate ? translate(props.label) : props.label;
+  const label = translate ? translate(discipline.label) : discipline.label;
 
   return  (
     <div className={style.default}
-         onClick={e => props.onClick(props)}
+         onClick={e => discipline.onClick(discipline)}
     >
       <CenteredText>
         <p className={style.headerModule}>

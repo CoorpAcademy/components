@@ -8,10 +8,9 @@ export default (engine, options) => (props) => {
   const DisciplineCard = createDisciplineCard(engine, options);
 
   const disciplines = props.disciplines.map(function(discipline){
-    discipline.onClick = props.onDisciplineClick;
-    discipline.onModuleClick = props.onModuleClick;
+    const {onModuleClick, onDisciplineClick} = props;
     return (
-      <DisciplineCard {...discipline}>
+      <DisciplineCard discipline={{...discipline, onModuleClick, onClick: onDisciplineClick}}>
       </DisciplineCard>
     );
   });
