@@ -1,6 +1,6 @@
 import style from './label.css';
 
-export default (engine, skin) => (props) => {
+export default (engine, options) => (props) => {
   const {h} = engine;
 
   return (

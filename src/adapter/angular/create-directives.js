@@ -1,13 +1,13 @@
 'use strict';
 
-import createShallowTree from './create-shallow-tree';
 import mapKeys from 'lodash/fp/mapKeys';
 
-const linkWithEngine = (engine) => (component, $rootScope, scope, element, props) => {
+const linkWithEngine = (engine) => (component, $rootScope, scope, element) => {
   const update = engine.render(element[0]);
 
   const refresh = () => {
-    const shallowTree = createShallowTree(component, scope, props);
+    const props = scope.props();
+    const shallowTree = component(props);
     update(shallowTree);
   };
 
@@ -15,9 +15,9 @@ const linkWithEngine = (engine) => (component, $rootScope, scope, element, props
     refresh();
   });
 
-  scope.$watch('props', function() {
+  scope.$watch('watch', function() {
     refresh();
-  });
+  }, true);
 
   scope.$on('$destroy', function() {
     window.angular.element(element).remove();
@@ -30,20 +30,23 @@ const lowerFirstLetter = (string) => {
 
 const createDirective = (app, engine, componentName, createComponent) => {
   const directive = (config, $rootScope, $i18next) => {
-    const component = createComponent(engine, config.skin, $i18next);
+    const options = {
+      skin: config.skin,
+      translate: $i18next
+    };
+
+    const component = createComponent(engine, options);
 
     const link = (scope, element, attrs) => {
-      linkWithEngine(engine)(component, $rootScope, scope, element, attrs.props);
+      linkWithEngine(engine)(component, $rootScope, scope, element);
     };
 
     return {
       restrict: 'E',
       link: link,
       scope: {
-        value: '@',
-        label: '@',
-        status: '@',
-        onClick: '&'
+        watch: '=',
+        props: '&'
       }
     };
   };

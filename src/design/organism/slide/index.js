@@ -6,14 +6,14 @@ import createModuleBubble from '../../molecule/module-bubble';
 import FontNormalBehaviour from '../../../behaviour/font/normal';
 import ColorPrimaryBehaviour from '../../../behaviour/color/primary';
 
-export default (engine, skin) => (props) => {
+export default (engine, options) => (props) => {
   const {h} = engine;
 
-  const Title = createTitle(engine, skin);
-  const ModuleBubble = createModuleBubble(engine, skin);
+  const Title = createTitle(engine, options);
+  const ModuleBubble = createModuleBubble(engine, options);
 
-  const ColorPrimary = ColorPrimaryBehaviour(engine, skin);
-  const FontNormal = FontNormalBehaviour(engine, skin);
+  const ColorPrimary = ColorPrimaryBehaviour(engine, options);
+  const FontNormal = FontNormalBehaviour(engine, options);
 
   const BigTitle = FontNormal.decorate(Title);
   const ColoredTitle = ColorPrimary.decorate(Title);

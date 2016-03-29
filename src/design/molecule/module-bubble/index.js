@@ -1,10 +1,11 @@
 import style from './module-bubble.css';
 import createLabelModName from '../../atom/label-mod-name';
 
-export default (engine, skin, translate) => (props) => {
+export default (engine, options) => (props) => {
   const {h} = engine;
+  const {skin, translate} = options;
 
-  const LabelModName = createLabelModName(engine, skin);
+  const LabelModName = createLabelModName(engine, options);
 
   const iconCode = String.fromCharCode(skin.icons[props.status]);
   const inverted = props.inverted === 'true';
@@ -21,7 +22,10 @@ export default (engine, skin, translate) => (props) => {
             style={{
               background: skin && skin.mod[props.status]
             }}
-            onClick={e => props.onClick(e)}
+            onClick={e => {
+              e.stopPropagation();
+              props.onClick(props);
+            }}
       >
       </span>
       <LabelModName>

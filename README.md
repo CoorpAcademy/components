@@ -57,7 +57,7 @@ git push --tags
 ```js
 import engine from '../../src/engine/react';
 import createElement from './element';
-const Element = createElement(engine);
+const Element = createElement(engine, options);
 ```
 
 `Element` being something like:
@@ -79,8 +79,8 @@ It's possible to enhance a `Component` by applying a specific behaviour on it.
 Alike every `Component`, this behaviour is a kind of `MetaComponent`, created with the `engine` and 'wrapped' around the `Component` to enhance.
 
 ```js
-const Component = createComponent(engine)
-const CustomBehaviour = createCustomBehaviour(engine)
+const Component = createComponent(engine, options)
+const CustomBehaviour = createCustomBehaviour(engine, options)
 ```
 ```jsx
 <CustomBehaviour>
@@ -110,8 +110,8 @@ It's the same job as `wrappers` but applying the modification directly on the *r
 With a `Behaviour` the previous example would become :
 
 ```js
-const Component = createComponent(engine)
-const RedColor = createRedColor(engine)
+const Component = createComponent(engine, options)
+const RedColor = createRedColor(engine, options)
 ```
 ```jsx
 <RedColor>
@@ -127,8 +127,8 @@ Here the `Component` `props.style.color` will be set by the `Behaviour`.
 Both `Wrappers` and `Behaviours` may be used as decorator to allow smaller, readable `jsx`:
 
 ```js
-const Component = createComponent(engine)
-const RedColor = createRedColor(engine)
+const Component = createComponent(engine, options)
+const RedColor = createRedColor(engine, options)
 const RedComponent = RedColor.decorate(Component);
 ```
 ```jsx

@@ -1,6 +1,6 @@
 import createBehaviour from '../../util/behaviour';
 
-const centered = (renderer, skin) => props => {
+const centered = (engine, options) => props => {
   const properties = {
     style: {
       'textAlign': 'center'
