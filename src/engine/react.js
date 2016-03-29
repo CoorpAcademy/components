@@ -56,6 +56,7 @@ const render = el => {
 const widget = options => {
   options = assign({
     tagName: 'div',
+    init: () => {},
     update: () => {},
     destroy: () => {}
   }, options);
@@ -63,7 +64,7 @@ const widget = options => {
   return React.createClass({
     componentDidMount: function() {
       const el = findDOMNode(this);
-      options.init(this.props,el);
+      options.init(this.props, el);
     },
 
     componentDidUpdate: function(prev) {
@@ -72,6 +73,8 @@ const widget = options => {
     },
 
     componentWillUnmount: function() {
+      const el = findDOMNode(this);
+      options.destroy(el);
     },
 
     render: function() {
