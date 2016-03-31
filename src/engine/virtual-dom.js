@@ -102,7 +102,7 @@ const widget = options => {
   };
 
   Widget.prototype.update = function(prev, el) {
-    return options.update(this.props, prev, el);
+    return options.update(this.props, prev.props, el);
   };
 
   Widget.prototype.destroy = function(el) {
