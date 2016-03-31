@@ -9,9 +9,8 @@ export default (engine, options) => (props) => {
   const LabelModName = createLabelModName(engine, options);
 
   const iconCode = String.fromCharCode(skin.icons[module.status]);
-  const inverted = module.inverted === 'true';
-  const disabled = module.disabled === 'true';
-  const className = disabled ? style.disabled : (inverted ? style.inverted : style.default);
+  const disabled = module.disabled;
+  const className = disabled ? style.disabled : style.default;
   const label = translate ? translate(module.label) : module.label;
 
   return (
@@ -27,7 +26,6 @@ export default (engine, options) => (props) => {
               e.stopPropagation();
               module.onClick(module);
             }}
-            onClick={e => module.onClick(e)}
       >
       </span>
       <LabelModName>

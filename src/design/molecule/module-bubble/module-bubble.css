@@ -18,14 +18,6 @@
   box-sizing: content-box;
 }
 
-.disabled {
-  composes: default;
-  transform: scale3d(.9, .9, .9);
-  border-color: #3f4447;
-  cursor: default;
-  opacity: 0.2;
-}
-
 .default:before {
   display: inline-block;
   font-family: 'icons-default';
@@ -49,19 +41,13 @@
   color: white;
 }
 
-.inverted {
+.disabled {
   composes: default;
+  cursor: default;
+  opacity: 0.5;
 }
 
-.inverted:hover {
-  border: 2px solid rgba(255,255,255,1);
-}
-
-.inverted:hover:before {
-  color: #fff;
-}
-
-.inverted:before {
+.disabled:before {
   content: attr(data-icon);
-  color: #adadad;
+  color: #888;
 }

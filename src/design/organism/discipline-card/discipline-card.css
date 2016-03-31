@@ -12,14 +12,27 @@
     display: block;
     padding-top: 10px;
     width: 100%;
-    height: 65px;
+    height: 80px;
     background: rgba(255, 255, 255, .7);
 }
 
-.headerModule {
-    display: block;
-    padding-top: 30px;
-    height: 45px;
-    margin: 0;
+.area {
+    position: relative;
     background: white;
+    height: 60px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.text {
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    display: table;
+}
+
+.headerModule {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
 }
