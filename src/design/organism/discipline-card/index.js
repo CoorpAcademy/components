@@ -10,9 +10,18 @@ export default (engine, options) => (props) => {
   const ModuleBubble = createModuleBubble(engine, options);
   const CenteredText = CenteredTextBehaviour(engine, options);
 
-  const modules = discipline.modules.map(function(module){
+  const duration = (Math.floor(Math.random() * 7) + 3) * .2;
+  const animationDuration = duration +'s';
+
+  const modules = discipline.modules.map(function(module, index){
     return (
-      <ModuleBubble module={{...module, onClick: discipline.onModuleClick}}>
+      <ModuleBubble module={{
+        ...module,
+        onClick:
+        discipline.onModuleClick,
+        delay: index,
+        after: duration
+      }}>
       </ModuleBubble>
     );
   });
@@ -22,12 +31,17 @@ export default (engine, options) => (props) => {
   return  (
     <div className={style.default}
          onClick={e => discipline.onClick(discipline)}
+         style={{
+           animationDuration
+         }}
     >
-      <CenteredText>
-        <p className={style.headerModule}>
-          {label}
-        </p>
-      </CenteredText>
+      <div className={style.area}>
+        <div className={style.text}>
+          <p className={style.headerModule}>
+            {label}
+          </p>
+        </div>
+      </div>
       <CenteredText>
         <div className={style.moduleProgressionWrapper}>
           {modules}

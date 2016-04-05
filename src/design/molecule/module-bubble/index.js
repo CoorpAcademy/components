@@ -9,13 +9,18 @@ export default (engine, options) => (props) => {
   const LabelModName = createLabelModName(engine, options);
 
   const iconCode = String.fromCharCode(skin.icons[module.status]);
-  const inverted = module.inverted === 'true';
-  const disabled = module.disabled === 'true';
-  const className = disabled ? style.disabled : (inverted ? style.inverted : style.default);
+  const filtered = module.filtered;
+  const disabled = module.disabled;
+  const className = filtered || disabled ? style.disabled : style.default;
   const label = translate ? translate(module.label) : module.label;
 
+  const delay = (module.delay * 0.15 + module.after * 0.8) + 's';
+
   return (
-    <div className={style.modulewrapper}>
+    <div className={style.modulewrapper}
+          style={{
+            animationDelay: delay
+          }}>
       <span className={className}
             attributes={{
               'data-icon': iconCode
@@ -27,7 +32,6 @@ export default (engine, options) => (props) => {
               e.stopPropagation();
               module.onClick(module);
             }}
-            onClick={e => module.onClick(e)}
       >
       </span>
       <LabelModName>

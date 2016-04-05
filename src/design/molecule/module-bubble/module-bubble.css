@@ -1,7 +1,3 @@
-.modulewrapper {
-  display: inline-block;
-  width: 50px;
-}
 .default {
   display: inline-block;
   position: relative;
@@ -9,21 +5,12 @@
   transition-duration: 0.5s;
   transition-timing-function: ease;
   border: 2px solid rgba(255,255,255,0.95);
-  z-index: 10;
   border-radius: 50%;
   background: pink;
   cursor: pointer;
   width: 38px;
   height: 38px;
   box-sizing: content-box;
-}
-
-.disabled {
-  composes: default;
-  transform: scale3d(.9, .9, .9);
-  border-color: #3f4447;
-  cursor: default;
-  opacity: 0.2;
 }
 
 .default:before {
@@ -49,19 +36,39 @@
   color: white;
 }
 
-.inverted {
+.disabled {
   composes: default;
+  cursor: default;
+  opacity: 0.5;
 }
 
-.inverted:hover {
-  border: 2px solid rgba(255,255,255,1);
-}
-
-.inverted:hover:before {
-  color: #fff;
-}
-
-.inverted:before {
+.disabled:before {
   content: attr(data-icon);
-  color: #adadad;
+  color: #888;
+}
+
+.disabled:hover {
+  box-shadow: none;
+}
+
+.modulewrapper {
+  display: inline-block;
+  width: 50px;
+  animation-name: bubbleFadeIn;
+  animation-timing-function: ease;
+  animation-duration: 0.25s;
+}
+
+@keyframes bubbleFadeIn {
+  0% {
+    transform: scale(1);
+  }
+
+  60% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
