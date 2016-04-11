@@ -4,13 +4,17 @@ import createDisciplineCard from '../discipline-card';
 export default (engine, options) => (props) => {
   const {h} = engine;
   const {skin} = options;
+  const {onModuleClick, onDisciplineClick} = props;
 
   const DisciplineCard = createDisciplineCard(engine, options);
 
   const disciplines = props.disciplines.map(function(discipline){
-    const {onModuleClick, onDisciplineClick} = props;
     return (
-      <DisciplineCard discipline={{...discipline, onModuleClick, onClick: onDisciplineClick}}>
+      <DisciplineCard
+        discipline    = {discipline}
+        onClick       = {onDisciplineClick}
+        onModuleClick = {onModuleClick}
+      >
       </DisciplineCard>
     );
   });

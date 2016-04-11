@@ -5,7 +5,7 @@ import CenteredTextBehaviour from '../../../behaviour/align/centered';
 export default (engine, options) => (props) => {
   const {h} = engine;
   const {translate} = options;
-  const {discipline} = props;
+  const {discipline, onClick, onModuleClick} = props;
 
   const ModuleBubble = createModuleBubble(engine, options);
   const CenteredText = CenteredTextBehaviour(engine, options);
@@ -15,13 +15,12 @@ export default (engine, options) => (props) => {
 
   const modules = discipline.modules.map(function(module, index){
     return (
-      <ModuleBubble module={{
-        ...module,
-        onClick:
-        discipline.onModuleClick,
-        delay: index,
-        after: duration
-      }}>
+      <ModuleBubble
+        module  = {module}
+        onClick = {onModuleClick}
+        delay   = {index}
+        after   = {duration}
+      >
       </ModuleBubble>
     );
   });
@@ -30,7 +29,7 @@ export default (engine, options) => (props) => {
 
   return  (
     <div className={style.default}
-         onClick={e => discipline.onClick(discipline)}
+         onClick={e => onClick(discipline)}
          style={{
            animationDuration
          }}

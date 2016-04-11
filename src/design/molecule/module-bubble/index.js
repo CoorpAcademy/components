@@ -4,7 +4,7 @@ import createLabelModName from '../../atom/label-mod-name';
 export default (engine, options) => (props) => {
   const {h} = engine;
   const {skin, translate} = options;
-  const {module} = props;
+  const {module, onClick, delay, after} = props;
 
   const LabelModName = createLabelModName(engine, options);
 
@@ -14,12 +14,12 @@ export default (engine, options) => (props) => {
   const className = filtered || disabled ? style.disabled : style.default;
   const label = translate ? translate(module.label) : module.label;
 
-  const delay = (module.delay * 0.15 + module.after * 0.8) + 's';
+  const animationDelay = ((delay || 0) * 0.08 + (after || 0) * 0.8) + 's';
 
   return (
     <div className={style.modulewrapper}
           style={{
-            animationDelay: delay
+            animationDelay: animationDelay
           }}>
       <span className={className}
             attributes={{
@@ -30,7 +30,7 @@ export default (engine, options) => (props) => {
             }}
             onClick={e => {
               e.stopPropagation();
-              module.onClick(module);
+              onClick(module);
             }}
       >
       </span>
