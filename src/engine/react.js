@@ -2,9 +2,7 @@ import isFunction from 'lodash/fp/isFunction';
 import isString from 'lodash/fp/isString';
 import _map from 'lodash/fp/map';
 import omit from 'lodash/fp/omit';
-import flatten from 'lodash/fp/flatten';
 import assign from 'lodash/fp/assign';
-import compact from 'lodash/fp/compact';
 import defaultsDeep from 'lodash/fp/defaultsDeep';
 import partial from 'lodash/fp/partial';
 import React, { createElement } from 'react';
@@ -14,13 +12,10 @@ const omitChildren = omit(['children']);
 
 const h = (tag, props, ...children) => {
   const _props = omitChildren(props);
-  let _children = compact(flatten(props && props.children || children || []));
-  _children = _children.length > 0 ? _children : undefined;
-
   return createElement(
     tag,
     _props,
-    _children
+    ...(props && props.children || children || [])
   );
 };
 
