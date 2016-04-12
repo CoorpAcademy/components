@@ -29,7 +29,7 @@ export default (engine, options) => {
       <div
         className={style.default}
         style={{
-          background: bg
+          backgroundImage: bg
         }}
       >
         {disciplines}
