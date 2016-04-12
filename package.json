@@ -14,7 +14,7 @@
     "clean:commonjs": "rm -rf lib",
     "clean:browser": "rm -rf dist",
     "clean:cov": "rm -rf .nyc_output coverage",
-    "test": "npm run lint && npm run nyc",
+    "test": "npm run nyc",
     "example:angular": "node example/angular/index.js",
     "lint": "eslint src/",
     "ava": "ava",

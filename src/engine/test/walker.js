@@ -31,7 +31,6 @@ forEachEngine((name, {h, walker, resolve}) => {
       </Header>
     );
 
-
     t.same(walker(resolve, tree), (
       <header>
         <footer>foo</footer>

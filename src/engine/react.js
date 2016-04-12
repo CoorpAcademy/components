@@ -5,6 +5,7 @@ import omit from 'lodash/fp/omit';
 import assign from 'lodash/fp/assign';
 import defaultsDeep from 'lodash/fp/defaultsDeep';
 import partial from 'lodash/fp/partial';
+import compact from 'lodash/fp/compact';
 import React, { createElement } from 'react';
 import { render as _render, findDOMNode } from 'react-dom';
 
@@ -12,10 +13,13 @@ const omitChildren = omit(['children']);
 
 const h = (tag, props, ...children) => {
   const _props = omitChildren(props);
+  if (props && props.children)
+    return createElement(tag, props, props.children);
+
   return createElement(
     tag,
     _props,
-    ...(props && props.children || children || [])
+    ...(compact(children).length > 0 ? children : [[]])
   );
 };
 
@@ -23,7 +27,7 @@ const clone = (child, properties, children) => {
   return createElement(
     child.type,
     defaultsDeep(child.props, properties),
-    children || child.props.children || []
+    ...(children || child.props.children && map(c => c, child.props.children) || [])
   );
 };
 

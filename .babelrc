@@ -9,6 +9,6 @@
     ["transform-react-jsx", { "pragma": "h" }]
   ],
   "ignore": [
-    "node_modules/**/*",
+    "node_modules/**/*"
   ]
 }
