@@ -1,5 +1,5 @@
 import style from './main.css';
-import { createDisciplineCards } from '../../src';
+import { createDisciplineCards, createSelectBox } from '../../src';
 import createPie from '../../src/design/atom/pie-chart';
 import disciplines from '../assets/disciplines';
 import skin from '../assets/skin';
@@ -10,16 +10,20 @@ export default (engine) => {
     skin
   };
 
+  const boxOptions = [
+    'plop', 'plup', 'ploup'
+  ];
+
+  const SelectBox = createSelectBox(engine, options);
   const DisciplineCards = createDisciplineCards(engine, options);
   const Pie = createPie(engine, options);
 
   return (props) => (
     <div>
+      <SelectBox options={boxOptions}></SelectBox>
       <div className={style.learningTreeDefault}>
         <DisciplineCards disciplines={disciplines}/>
       </div>
-      <Pie height="350px" width="50%" data={exampleData()}/>
-      <Pie height="350px" width="50%" data={exampleData()}/>
     </div>
   );
 };
