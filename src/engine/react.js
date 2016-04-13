@@ -2,11 +2,10 @@ import isFunction from 'lodash/fp/isFunction';
 import isString from 'lodash/fp/isString';
 import _map from 'lodash/fp/map';
 import omit from 'lodash/fp/omit';
-import flatten from 'lodash/fp/flatten';
 import assign from 'lodash/fp/assign';
-import compact from 'lodash/fp/compact';
 import defaultsDeep from 'lodash/fp/defaultsDeep';
 import partial from 'lodash/fp/partial';
+import compact from 'lodash/fp/compact';
 import React, { createElement } from 'react';
 import { render as _render, findDOMNode } from 'react-dom';
 
@@ -14,13 +13,13 @@ const omitChildren = omit(['children']);
 
 const h = (tag, props, ...children) => {
   const _props = omitChildren(props);
-  let _children = compact(flatten(props && props.children || children || []));
-  _children = _children.length > 0 ? _children : undefined;
+  if (props && props.children)
+    return createElement(tag, props, props.children);
 
   return createElement(
     tag,
     _props,
-    _children
+    ...(compact(children).length > 0 ? children : [[]])
   );
 };
 
@@ -28,7 +27,7 @@ const clone = (child, properties, children) => {
   return createElement(
     child.type,
     defaultsDeep(child.props, properties),
-    children || child.props.children || []
+    ...(children || child.props.children && map(c => c, child.props.children) || [])
   );
 };
 

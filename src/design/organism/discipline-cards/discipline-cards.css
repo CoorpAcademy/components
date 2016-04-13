@@ -1,4 +1,6 @@
 .default {
   padding: 75px 10px;
   text-align: center;
+  background: no-repeat scroll left center;
+  background-size: cover;
 }

@@ -7,7 +7,7 @@ var CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = {
   context: __dirname,
-  devtool: 'source-map',
+  devtool: 'inline',
 
   entry: {
     'bundle': path.join(__dirname, 'src', 'bundle'),

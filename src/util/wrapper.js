@@ -5,7 +5,7 @@ const createComponent = createProperties => (engine, options) => (props) => {
   if(!clone || !map) return props.children;
 
   const properties = createProperties(engine, options)(props);
-  const child = props.children[0];
+  const child = map(c => c, props.children)[0];
 
   return clone(child, properties);
 };

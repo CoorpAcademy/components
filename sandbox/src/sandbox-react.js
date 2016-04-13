@@ -13,4 +13,4 @@ if (module.hot)
 
 
 update(App());
-setInterval(() => update(App()), 1000);
+setInterval(() => update(App()), 5000);

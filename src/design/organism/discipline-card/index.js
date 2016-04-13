@@ -2,51 +2,53 @@ import style from './discipline-card.css';
 import createModuleBubble from '../../molecule/module-bubble';
 import CenteredTextBehaviour from '../../../behaviour/align/centered';
 
-export default (engine, options) => (props) => {
-  const {h} = engine;
-  const {translate} = options;
-  const {discipline} = props;
-
+export default (engine, options) => {
   const ModuleBubble = createModuleBubble(engine, options);
   const CenteredText = CenteredTextBehaviour(engine, options);
 
-  const duration = (Math.floor(Math.random() * 7) + 3) * .2;
-  const animationDuration = duration +'s';
+  return (props) => {
+    const {h} = engine;
+    const {translate} = options;
+    const {discipline, onClick, onModuleClick} = props;
 
-  const modules = discipline.modules.map(function(module, index){
-    return (
-      <ModuleBubble module={{
-        ...module,
-        onClick:
-        discipline.onModuleClick,
-        delay: index,
-        after: duration
-      }}>
-      </ModuleBubble>
-    );
-  });
+    const duration = (Math.floor(Math.random() * 7) + 3) * .2;
+    const animationDuration = duration +'s';
 
-  const label = translate ? translate(discipline.label) : discipline.label;
+    const modules = discipline.modules.map(function(module, index){
+      return (
+        <ModuleBubble
+          module  = {module}
+          onClick = {onModuleClick}
+          delay   = {index}
+          after   = {duration}
+          key     = {module.ref}
+        >
+        </ModuleBubble>
+      );
+    });
 
-  return  (
-    <div className={style.default}
-         onClick={e => discipline.onClick(discipline)}
-         style={{
-           animationDuration
-         }}
-    >
-      <div className={style.area}>
-        <div className={style.text}>
-          <p className={style.headerModule}>
-            {label}
-          </p>
+    const label = translate ? translate(discipline.label) : discipline.label;
+
+    return  (
+      <div className={style.default}
+           onClick={e => onClick(discipline)}
+           style={{
+             animationDuration
+           }}
+      >
+        <div className={style.area}>
+          <div className={style.text}>
+            <p className={style.headerModule}>
+              {label}
+            </p>
+          </div>
         </div>
+        <CenteredText>
+          <div className={style.moduleProgressionWrapper}>
+            {modules}
+          </div>
+        </CenteredText>
       </div>
-      <CenteredText>
-        <div className={style.moduleProgressionWrapper}>
-          {modules}
-        </div>
-      </CenteredText>
-    </div>
-  );
+    );
+  };
 };

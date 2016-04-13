@@ -1,7 +1,7 @@
 import test from 'ava';
 import forEachEngine from '../../util/for-each-engine';
 
-forEachEngine((name, {h, resolve}) => {
+forEachEngine((name, {h, resolve, map}) => {
   test(`${name}: should create element`, t => {
     const node1 = h('div');
     const node2 = <div/>;
@@ -81,18 +81,18 @@ forEachEngine((name, {h, resolve}) => {
   });
 
   test(`${name}: should create component with children`, t => {
-    const Component = ({foo, bar, children}) => h('h1', null, [
+    const Component = ({foo, bar, children}) => h('h1', null,
       foo,
-      h('h2', null, [bar]),
-      ...children
-    ]);
+      h('h2', null, bar),
+      ...map(c => c, children)
+    );
 
-    const node1 = h('h1', null, [
+    const node1 = h('h1', null,
       'foo',
-      h('h2', null, ['bar']),
+      h('h2', null, 'bar'),
       'baz'
-    ]);
-    const node2 = h(Component, {foo: 'foo', bar: 'bar'}, ['baz']);
+    );
+    const node2 = h(Component, {foo: 'foo', bar: 'bar'}, 'baz');
     const node3 = <Component foo="foo" bar="bar">baz</Component>;
 
     t.same(resolve(node2), node1);
