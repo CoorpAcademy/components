@@ -13,11 +13,14 @@ deploy:
     secure: rtuJzt+TZwjW2gd5mVz0iwogYQ4kZtziMC8PINLJpYpiOWpqQNt1ZMkQOA8CXA/SNFLG48JKusf+gfaRYS1cd6hC5PhpFTKSHDggbyveJNJbObD2Jq5Wcke7j5wjK7XjXk5XdxHfXejCrjMC1rayXTr1Ygk24ymwyIi3bpWz28VRPQ3BhrDLViiDZ27Fyn3kF2lUS8xdOZYuCPc9kSVFpdIzy/sZAdXJyPJ5z/gRYGKd317ds+CJ35wnXzeVLyR/RcxwWtdTeyt1zonkl6yEhz6eZ3NQLtG4Qq1hodx9OEGYNWquESyX2KySxQVSdJwSVZJKc8V2/bX38uTPBMH9zn7AKdpuTCMGgW7w27438dSQIxsifqTprEwXwYYND/geJeKU8jT7AuNhQ/3NreeCwMcaKzOomzbJNkE26KjBlkDfx/WLkRXGf3JfMVmVKpiPhCBg75XAVihniKSOirRp4vwy/WD0J8OcQKVGsTj7Hs7BPW02oB5GgGr129YGu+pW6qfQZEb8GNonlC4ycfafhat1vZc65UfltNLrFeUQv0JZyaGEJhuDM1tdxPjhz1/m0PPRpxDw91ERCc8mS6AeMd7Bhg3pTx31c64qCXvdq5M55ZpzfgjviRlrwptYIDzCaDKhsFv/mjFdLx0JCBjG1v+qm2f6xwYT5LqUMmIR450=
   on:
     tags: true
+compiler: clang-3.6
 env:
-  - CXX=g++-4.8
+  - CXX=clang-3.6
 addons:
   apt:
     sources:
+      - llvm-toolchain-precise-3.6
       - ubuntu-toolchain-r-test
     packages:
+      - clang-3.6
       - g++-4.8
