@@ -10,9 +10,26 @@ export default (engine) => {
     skin
   };
 
-  const boxOptions = [
-    'plop', 'plup', 'ploup'
-  ];
+  let choices = [{
+    label: 'plop',
+    checked: false
+  },{
+    label: 'plup',
+    checked: true
+  },{
+    label: 'ploup',
+    checked: true
+  }];
+
+  const onToggle = (toggledChoice) => {
+    console.log('onToggle', toggledChoice.label);
+    choices = choices.map(function(choice){
+      if(choice.label === toggledChoice.label){
+        choice.checked = !choice.checked;
+      }
+      return choice;
+    });
+  }
 
   const SelectBox = createSelectBox(engine, options);
   const DisciplineCards = createDisciplineCards(engine, options);
@@ -20,7 +37,11 @@ export default (engine) => {
 
   return (props) => (
     <div>
-      <SelectBox options={boxOptions}></SelectBox>
+      <SelectBox
+        choices={choices}
+        onToggle={onToggle}
+      >
+      </SelectBox>
       <div className={style.learningTreeDefault}>
         <DisciplineCards disciplines={disciplines}/>
       </div>

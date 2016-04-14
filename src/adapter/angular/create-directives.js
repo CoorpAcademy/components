@@ -6,7 +6,7 @@ const linkWithEngine = (engine) => (component, $rootScope, scope, element) => {
   const update = engine.render(element[0]);
 
   const refresh = () => {
-    const props = scope.props();
+    const props = scope.props || scope.buildProps();
     const shallowTree = component(props);
     update(shallowTree);
   };
@@ -16,6 +16,10 @@ const linkWithEngine = (engine) => (component, $rootScope, scope, element) => {
   });
 
   scope.$watch('watch', function() {
+    refresh();
+  }, true);
+
+  scope.$watch('props', function() {
     refresh();
   }, true);
 
@@ -46,7 +50,8 @@ const createDirective = (app, engine, componentName, createComponent) => {
       link: link,
       scope: {
         watch: '=',
-        props: '&'
+        props: '=',
+        buildProps: '&'
       }
     };
   };
