@@ -1,5 +1,5 @@
 import style from './main.css';
-import { createDisciplineCards } from '../../src';
+import { createDisciplineCards, createSelectBox } from '../../src';
 import createPie from '../../src/design/atom/pie-chart';
 import disciplines from '../assets/disciplines';
 import skin from '../assets/skin';
@@ -10,16 +10,41 @@ export default (engine) => {
     skin
   };
 
+  let choices = [{
+    label: 'plop',
+    checked: false
+  },{
+    label: 'plup',
+    checked: true
+  },{
+    label: 'ploup',
+    checked: true
+  }];
+
+  const onToggle = (toggledChoice) => {
+    console.log('onToggle', toggledChoice.label);
+    choices = choices.map(function(choice){
+      if(choice.label === toggledChoice.label){
+        choice.checked = !choice.checked;
+      }
+      return choice;
+    });
+  }
+
+  const SelectBox = createSelectBox(engine, options);
   const DisciplineCards = createDisciplineCards(engine, options);
   const Pie = createPie(engine, options);
 
   return (props) => (
     <div>
+      <SelectBox
+        choices={choices}
+        onToggle={onToggle}
+      >
+      </SelectBox>
       <div className={style.learningTreeDefault}>
         <DisciplineCards disciplines={disciplines}/>
       </div>
-      <Pie height="350px" width="50%" data={exampleData()}/>
-      <Pie height="350px" width="50%" data={exampleData()}/>
     </div>
   );
 };

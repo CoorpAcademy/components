@@ -1,0 +1,8 @@
+.default {
+  line-height: 25px;
+}
+
+.box {
+  margin-right: 20px;
+  float: right;
+}
