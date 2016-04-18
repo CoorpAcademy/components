@@ -14,7 +14,7 @@ forEachEngine((name, engine) => {
 
     const tree = <CompleteList>foo</CompleteList>;
 
-    t.same(walker(resolve, tree), (
+    t.deepEqual(walker(resolve, tree), (
       <ul>
         <li>foo</li>
       </ul>
@@ -29,7 +29,7 @@ forEachEngine((name, engine) => {
 
     const tree = <CompleteList>foo</CompleteList>;
 
-    t.same(walker(resolve, tree), (
+    t.deepEqual(walker(resolve, tree), (
       <ul foo="foo">
         <li bar="bar">foo</li>
       </ul>

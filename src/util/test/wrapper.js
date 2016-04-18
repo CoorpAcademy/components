@@ -15,7 +15,7 @@ forEachEngine((name, engine) => {
         <Title>foo</Title>
       </Color>
     );
-    t.same(resolve(tree), resolve(<Title color="blue">foo</Title>));
-    t.same(resolve(tree), <h1 style={{color: 'blue'}}>foo</h1>);
+    t.deepEqual(resolve(tree), resolve(<Title color="blue">foo</Title>));
+    t.deepEqual(resolve(tree), <h1 style={{color: 'blue'}}>foo</h1>);
   });
 });

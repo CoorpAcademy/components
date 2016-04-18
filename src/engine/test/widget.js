@@ -65,7 +65,7 @@ forEachEngine((name, {h, render, widget}) => {
     update(<Widget/>);
     update(<Widget/>);
 
-    t.ok(root.firstElementChild.classList.contains('foo'));
+    t.truthy(root.firstElementChild.classList.contains('foo'));
   });
 
   test(`${name}: should pass (props, el) on init`, t => {
@@ -74,7 +74,7 @@ forEachEngine((name, {h, render, widget}) => {
     let elWidget;
     const Widget = widget({
       init: (props, el) => {
-        t.same(props.foo, 'foo');
+        t.deepEqual(props.foo, 'foo');
         elWidget = el;
       }
     });
@@ -143,8 +143,8 @@ forEachEngine((name, {h, render, widget}) => {
     let elWidget;
     const Widget = widget({
       update: (props, prev, el) => {
-        t.same(props.foo, 'bar');
-        t.same(prev.foo, 'foo');
+        t.deepEqual(props.foo, 'bar');
+        t.deepEqual(prev.foo, 'foo');
         elWidget = el;
       }
     });

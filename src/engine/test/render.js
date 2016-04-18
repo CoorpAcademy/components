@@ -31,7 +31,7 @@ forEachEngine((name, {h, render}) => {
         color: 'blue'
       },
       assert: (t, el) => {
-        t.same(el.style.color, 'blue');
+        t.deepEqual(el.style.color, 'blue');
       }
     },
     className: 'foo',
@@ -46,7 +46,7 @@ forEachEngine((name, {h, render}) => {
     const tagName = props[key] && props[key].tagName || 'div';
     const value = props[key] && props[key].value || props[key];
     const assert = props[key].assert || ((t, el) => {
-      t.same(el[key], value);
+      t.deepEqual(el[key], value);
     });
 
     test(`${name}: should render ${key} attribute`, t => {
