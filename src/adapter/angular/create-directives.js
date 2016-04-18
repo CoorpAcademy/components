@@ -5,22 +5,17 @@ import mapKeys from 'lodash/fp/mapKeys';
 const linkWithEngine = (engine) => (component, $rootScope, scope, element) => {
   const update = engine.render(element[0]);
 
-  const refresh = () => {
-    const props = scope.props || scope.buildProps();
-    const shallowTree = component(props);
-    update(shallowTree);
+  const refresh = (props) => {
+    const vTree = component(props);
+    update(vTree);
   };
 
   $rootScope.$on('i18nLanguageChange', function() {
-    refresh();
+    refresh(scope.props);
   });
 
-  scope.$watch('watch', function() {
-    refresh();
-  }, true);
-
   scope.$watch('props', function() {
-    refresh();
+    refresh(scope.props);
   }, true);
 
   scope.$on('$destroy', function() {
@@ -49,9 +44,7 @@ const createDirective = (app, engine, componentName, createComponent) => {
       restrict: 'E',
       link: link,
       scope: {
-        watch: '=',
-        props: '=',
-        buildProps: '&'
+        props: '='
       }
     };
   };

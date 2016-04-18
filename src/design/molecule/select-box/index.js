@@ -1,28 +1,36 @@
 import style from './select-box.css';
-import createTitledCheckbox from '../titled-checkbox';
 
 export default (engine, options) => {
   const {h} = engine;
-  const TitledCheckbox = createTitledCheckbox(engine, options);
+  const {skin} = options;
 
   return (props) => {
-    const {choices, onToggle} = props;
-    const lines = choices.map(function(choice){
+    const {list, current, onChange} = props;
+    const iconCode = String.fromCharCode(skin.icons.select);
+
+    const selectOptions = list.map(function(item){
       return (
-        <li className={style.line}>
-          <TitledCheckbox
-            state={choice}
-            onToggle={onToggle}
-          >
-          </TitledCheckbox>
-        </li>
+        <option
+          className={style.option}
+          value={item}
+          selected={item === current}
+        >
+          {item}
+        </option>
       );
     });
 
     return (
-      <ul className={style.default}>
-        {lines}
-      </ul>
+      <span className={style.default}
+            attributes={{
+              'data-icon': iconCode
+            }}>
+        <select className={style.selector}
+                onChange={onChange}
+        >
+          {selectOptions}
+        </select>
+      </span>
     );
   };
 };

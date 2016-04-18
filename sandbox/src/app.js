@@ -21,14 +21,10 @@ export default (engine) => {
     checked: true
   }];
 
-  const onToggle = (toggledChoice) => {
-    console.log('onToggle', toggledChoice.label);
-    choices = choices.map(function(choice){
-      if(choice.label === toggledChoice.label){
-        choice.checked = !choice.checked;
-      }
-      return choice;
-    });
+
+  let populations = ['plop', 'plup', 'ploup'];
+
+  const onToggle = () => {
   }
 
   const SelectBox = createSelectBox(engine, options);
@@ -38,8 +34,9 @@ export default (engine) => {
   return (props) => (
     <div>
       <SelectBox
-        choices={choices}
-        onToggle={onToggle}
+        list={populations}
+        current={'plup'}
+        onChange={onToggle}
       >
       </SelectBox>
       <div className={style.learningTreeDefault}>
