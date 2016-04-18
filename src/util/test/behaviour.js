@@ -15,7 +15,7 @@ forEachEngine((name, engine) => {
         <Title>foo</Title>
       </Color>
     );
-    t.same(resolve(tree), <h1 style={{color: 'blue'}}>foo</h1>);
+    t.deepEqual(resolve(tree), <h1 style={{color: 'blue'}}>foo</h1>);
   });
 
   test(`${name}: should override children properties`, t => {
@@ -30,7 +30,7 @@ forEachEngine((name, engine) => {
       </Color>
     );
 
-    t.same(resolve(pinkTitle), <h1 style={{color: 'pink'}}>foo</h1>);
-    t.same(resolve(blueTitle), <h1 style={{color: 'blue'}}>foo</h1>);
+    t.deepEqual(resolve(pinkTitle), <h1 style={{color: 'pink'}}>foo</h1>);
+    t.deepEqual(resolve(blueTitle), <h1 style={{color: 'blue'}}>foo</h1>);
   });
 });

@@ -7,14 +7,14 @@ forEachEngine((name, {h, resolve, map}) => {
     const node2 = <div/>;
 
     t.not(node1, node2);
-    t.same(node1, node2);
+    t.deepEqual(node1, node2);
   });
 
   test(`${name}: should create element with properties`, t => {
     const node1 = h('div', {style: {color: 'blue'}, name: 'test'});
     const node2 = <div style={{color: 'blue'}} name="test"/>;
 
-    t.same(node1, node2);
+    t.deepEqual(node1, node2);
   });
 
   test(`${name}: should create element with null properties`, t => {
@@ -22,8 +22,8 @@ forEachEngine((name, {h, resolve, map}) => {
     const node2 = h('div', null);
     const node3 = <div/>;
 
-    t.same(node1, node2);
-    t.same(node1, node3);
+    t.deepEqual(node1, node2);
+    t.deepEqual(node1, node3);
   });
 
   test(`${name}: should create element with empty children`, t => {
@@ -31,8 +31,8 @@ forEachEngine((name, {h, resolve, map}) => {
     const node2 = h('div', {}, []);
     const node3 = <div>{[]}</div>;
 
-    t.same(node1, node2);
-    t.same(node1, node3);
+    t.deepEqual(node1, node2);
+    t.deepEqual(node1, node3);
   });
 
   test(`${name}: should create element with null children`, t => {
@@ -40,8 +40,8 @@ forEachEngine((name, {h, resolve, map}) => {
     const node2 = h('div', {}, null);
     const node3 = <div></div>;
 
-    t.same(node1, node2);
-    t.same(node1, node3);
+    t.deepEqual(node1, node2);
+    t.deepEqual(node1, node3);
   });
 
   test(`${name}: should create element with children`, t => {
@@ -54,8 +54,8 @@ forEachEngine((name, {h, resolve, map}) => {
     const node2 = h('div', null, children);
     const node3 = <div>{children}</div>;
 
-    t.same(node1, node2);
-    t.same(node1, node3);
+    t.deepEqual(node1, node2);
+    t.deepEqual(node1, node3);
   });
 
   test(`${name}: should create component`, t => {
@@ -65,8 +65,8 @@ forEachEngine((name, {h, resolve, map}) => {
     const node2 = h(Component);
     const node3 = <Component/>;
 
-    t.same(resolve(node2), node1);
-    t.same(resolve(node3), node1);
+    t.deepEqual(resolve(node2), node1);
+    t.deepEqual(resolve(node3), node1);
   });
 
   test(`${name}: should create component with props`, t => {
@@ -76,8 +76,8 @@ forEachEngine((name, {h, resolve, map}) => {
     const node2 = h(Component, {name: 'foo'});
     const node3 = <Component name="foo"/>;
 
-    t.same(resolve(node2), node1);
-    t.same(resolve(node3), node1);
+    t.deepEqual(resolve(node2), node1);
+    t.deepEqual(resolve(node3), node1);
   });
 
   test(`${name}: should create component with children`, t => {
@@ -95,7 +95,7 @@ forEachEngine((name, {h, resolve, map}) => {
     const node2 = h(Component, {foo: 'foo', bar: 'bar'}, 'baz');
     const node3 = <Component foo="foo" bar="bar">baz</Component>;
 
-    t.same(resolve(node2), node1);
-    t.same(resolve(node3), node1);
+    t.deepEqual(resolve(node2), node1);
+    t.deepEqual(resolve(node3), node1);
   });
 });
