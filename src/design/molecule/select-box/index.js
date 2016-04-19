@@ -1,31 +1,26 @@
 import style from './select-box.css';
 
 const spanInline = (theme, skin) => {
-  let color;
-
-  switch(theme){
-  case 'plain':
-    color = skin && skin.theme.lock;
-    break;
-  default:
-    color = skin && skin.texts.inverted;
-  }
+  const color = {
+    plain: skin && skin.theme.lock,
+    default: skin && skin.texts.inverted
+  };
 
   return {
-    borderColor: color
+    borderColor: color[theme]
   };
 };
 
 const selectInline = (theme, skin) => {
-  switch(theme){
-  case 'plain':
-    return {
+  const inline = {
+    plain: {
       color: skin && skin.texts.normal,
       backgroundColor: skin && skin.backgrounds.input
-    };
-  default:
-    return {};
-  }
+    },
+    default: {}
+  };
+
+  return inline[theme];
 };
 
 export default (engine, options) => {
