@@ -1,10 +1,55 @@
 .default {
-  background: rgba(255, 255, 255, 0.55);
-  padding: 8px 12px;
-  border-radius: 5px;
+  position: relative;
+  display: inline-block;
+  height: 35px;
+  padding: 0;
+  margin: 0;
+  border: 1px solid;
+  border-radius: 3px;
+  overflow: hidden;
+  background-color: transparent;
+  vertical-align: middle;
+  z-index: 0;
 }
 
-.line {
-  list-style: none;
-  color: black;
+.default:after {
+  font-family: 'icons-default';
+  content: attr(data-icon);
+  color: #e5e5e5;
+  position: absolute;
+  right: 10px;
+  top: 0;
+  line-height: 35px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.default select {
+  width: 100%;
+  height: 35px;
+  padding: 6px 30px 6px 10px;
+  border: 0;
+  box-shadow: none;
+  background-color: transparent;
+  background-image: none;
+  appearance: none;
+}
+
+.default select:focus {
+  outline: 0;
+}
+
+.plain {
+  composes: default;
+  float: right;
+  border-radius: 6px;
+}
+
+.plain:after {
+  color: #000;
+  z-index: 1;
+}
+
+.plain select{
+  width: 150px;
 }
