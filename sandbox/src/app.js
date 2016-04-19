@@ -34,6 +34,7 @@ export default (engine) => {
   return (props) => (
     <div>
       <SelectBox
+        theme='plain'
         list={populations}
         current={'plup'}
         onChange={onToggle}

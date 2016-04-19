@@ -1,9 +1,10 @@
 import style from './select-box.css';
+import get from 'lodash/fp/get';
 
 const spanInline = (theme, skin) => {
   const color = {
-    plain: skin && skin.theme.lock,
-    default: skin && skin.texts.inverted
+    plain: get('theme.lock', skin),
+    default: get('texts.inverted', skin)
   };
 
   return {
@@ -14,8 +15,8 @@ const spanInline = (theme, skin) => {
 const selectInline = (theme, skin) => {
   const inline = {
     plain: {
-      color: skin && skin.texts.normal,
-      backgroundColor: skin && skin.backgrounds.input
+      color: get('texts.normal', skin),
+      backgroundColor: get('backgrounds.input', skin)
     },
     default: {}
   };
