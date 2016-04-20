@@ -110,6 +110,7 @@ const widget = options => {
 };
 
 export default {
+  name:'virtual-dom',
   h,
   map,
   clone,

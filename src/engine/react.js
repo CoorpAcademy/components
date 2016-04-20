@@ -90,6 +90,7 @@ const widget = options => {
 };
 
 export default {
+  name:'react',
   h,
   map,
   clone,
