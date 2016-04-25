@@ -29,17 +29,17 @@ export default (engine, options) => {
   const {skin} = options;
 
   return (props) => {
-    const {list, current, onChange, theme = 'default'} = props;
+    const {list, onChange, theme = 'default'} = props;
     const iconCode = String.fromCharCode(skin.icons.select);
 
     const selectOptions = list.map(function(item){
       return (
         <option
           className={style.option}
-          value={item}
-          selected={item === current}
+          value={item.value}
+          selected={item.selected}
         >
-          {item}
+          {item.name}
         </option>
       );
     });
