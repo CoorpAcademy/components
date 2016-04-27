@@ -10,6 +10,7 @@ import isVirtualNode from 'virtual-dom/vnode/is-vnode';
 import createElement from 'virtual-dom/create-element';
 import diff from 'virtual-dom/diff';
 import patch from 'virtual-dom/patch';
+import { validate } from '../util/proptypes-checker';
 
 const event = /^on[A-Z].+/;
 const transformProps = props => mapKeys(key => {
