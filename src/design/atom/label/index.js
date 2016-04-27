@@ -1,11 +1,20 @@
 import style from './label.css';
+import { spec, validate } from '../../../util/proptypes-checker';
 
-export default (engine, options) => (props, children) => {
+const propTypes = spec({
+  children: 'string'
+});
+
+export default (engine, options) => {
   const {h} = engine;
 
-  return (
-    <span className={style.default}>
-      {children}
-    </span>
-  );
+  return (props, children) => {
+    validate(props, propTypes);
+
+    return (
+      <span className={style.default}>
+        {children}
+      </span>
+    );
+  };
 };
