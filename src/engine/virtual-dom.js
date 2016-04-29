@@ -23,7 +23,7 @@ const omitChildren = omit(['children']);
 const h = (tag, props, ...children) => {
   const _tag = isFunction(tag) ? 'div' : tag;
   const _props = omitChildren(isFunction(tag) ? props : transformProps(props));
-  const _children = compact(flatten(props && props.children || children || []));
+  const _children = compact(flatten(props && props.children || children));
 
   const vTree = _h(
     _tag,

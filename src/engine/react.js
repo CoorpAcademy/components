@@ -27,7 +27,7 @@ const clone = (child, properties, children) => {
   return createElement(
     child.type,
     defaultsDeep(child.props, properties),
-    ...(children || child.props.children && map(c => c, child.props.children) || [])
+    ...(children || child.props.children && map(c => c, child.props.children) || [null])
   );
 };
 
@@ -43,7 +43,7 @@ const resolve = vTree => {
 const walker = (fun, vTree) => {
   vTree = isString(vTree) ? vTree : fun(vTree);
   if (!vTree.props || !vTree.props.children) return vTree;
-  return clone(vTree, null, map(partial(walker, [fun]), vTree.props.children || []));
+  return clone(vTree, null, map(partial(walker, [fun]), vTree.props.children));
 };
 
 const render = el => {

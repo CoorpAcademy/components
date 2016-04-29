@@ -21,4 +21,9 @@ forEachEngine((name, {h, map, resolve}) => {
     t.plan(2);
     resolve(tree);
   });
+
+  test(`${name}: shouldn't process if there is no child`, t => {
+    t.plan(0);
+    map(() => t.pass());
+  });
 });
