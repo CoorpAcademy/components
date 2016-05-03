@@ -10,6 +10,14 @@ forEachEngine((name, {h, clone}) => {
     t.deepEqual(cloneNode, <span bar="baz">qux</span>);
   });
 
+  test(`${name}: should clone simple element`, t => {
+    const node = <span/>;
+    const cloneNode = clone(node);
+
+    t.not(cloneNode, node);
+    t.deepEqual(cloneNode, <span/>);
+  });
+
   test(`${name}: should clone element and replace property`, t => {
     const node = <span bar="baz">qux</span>;
     const cloneNode = clone(node, {bar: 'qux'});

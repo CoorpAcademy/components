@@ -86,6 +86,16 @@ forEachEngine((name, {h, render, widget}) => {
     t.is(root.firstElementChild, elWidget);
   });
 
+  test(`${name}: should have default destroy`, t => {
+    const Widget = widget();
+
+    const root = document.createElement('div');
+    const update = render(root);
+
+    update(<Widget/>);
+    update(<span/>);
+  });
+
   test(`${name}: should implement destroy`, t => {
     t.plan(1);
 
