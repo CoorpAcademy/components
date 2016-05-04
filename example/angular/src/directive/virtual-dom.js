@@ -1,7 +1,6 @@
 import diff from 'virtual-dom/diff';
 import patch from 'virtual-dom/patch';
 import createElement from 'virtual-dom/create-element';
-import { createTitle } from '../../../../src/bundle-with-virtual-dom';
 
 const Title = createTitle({
   skin: {
