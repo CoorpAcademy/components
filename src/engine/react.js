@@ -9,7 +9,6 @@ import defaultsDeep from 'lodash/fp/defaultsDeep';
 import partial from 'lodash/fp/partial';
 import React, { createElement, createClass } from 'react';
 import { render as _render, findDOMNode } from 'react-dom';
-import { validate } from '../util/proptypes-checker';
 
 const omitChildren = omit(['children']);
 
@@ -91,7 +90,6 @@ const widget = options => {
 };
 
 export default {
-  name:'react',
   h,
   map,
   clone,

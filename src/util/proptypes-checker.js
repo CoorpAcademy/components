@@ -1,19 +1,17 @@
 import apiCheck from 'api-check';
-import mapValues from 'lodash/fp/mapValues';
 
 const check = apiCheck();
 
-const spec = (propTypes) => {
-  const validator = (type) => check[type];
-  const p = mapValues(validator, propTypes);
-  return check.shape(p);
+const spec = (types) => {
+  return check.shape(types);
 };
 
-const validate = (o, propTypes) => {
-  check.warn(propTypes, o);
+const validate = (propTypes) => (props) => {
+  check.throw(propTypes, props);
 };
 
 export {
   spec,
-  validate
+  validate,
+  check
 };

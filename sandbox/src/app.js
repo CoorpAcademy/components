@@ -23,7 +23,7 @@ export default engine => {
   const Checkboxes = createCheckboxes(engine, options);
   const DisciplineCard = createDisciplineCard(engine, options);
 
-  return props => (
+  return (props, children) => (
     <div>
       <Checkboxes
         title='Pick me'
