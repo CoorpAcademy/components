@@ -7,7 +7,7 @@ forEachEngine((name, engine) => {
   const {h, resolve} = engine;
 
   test(`${name}: should extend children properties`, t => {
-    const Title = props => <h1>{props.children}</h1>;
+    const Title = (props, children) => <h1>{children}</h1>;
     const Color = createBehaviour(() => props => ({style: {color: props.color}}))(engine);
 
     const tree = (
@@ -15,11 +15,12 @@ forEachEngine((name, engine) => {
         <Title>foo</Title>
       </Color>
     );
+
     t.deepEqual(resolve(tree), <h1 style={{color: 'blue'}}>foo</h1>);
   });
 
   test(`${name}: should override children properties`, t => {
-    const Title = props => <h1 style={{color: props.color}}>{props.children}</h1>;
+    const Title = (props, children) => <h1 style={{color: props.color}}>{children}</h1>;
     const Color = createBehaviour(() => props => ({style: {color: props.color}}))(engine);
 
     const pinkTitle = <Title color="pink">foo</Title>;

@@ -55,16 +55,16 @@ git push --tags
 - every component is built as a function to be called with the selected engine
 
 ```js
-import engine from '../../src/engine/react';
+import engine from '../../src/engine/virtual-dom';
 import createElement from './element';
 const Element = createElement(engine, options);
 ```
 
 `Element` being something like:
 ```js
-export default ({h}) => (props) => (
+export default ({h}) => (props, children) => (
   <p>
-    {props.children}
+    {children}
   </p>
 )
 ```

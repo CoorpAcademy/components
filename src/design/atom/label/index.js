@@ -1,11 +1,11 @@
 import style from './label.css';
 
-export default (engine, options) => props => {
+export default (engine, options) => (props, children) => {
   const {h} = engine;
 
   return (
     <span className={style.default}>
-      {props.children}
+      {children}
     </span>
   );
 };

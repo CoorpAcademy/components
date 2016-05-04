@@ -1,8 +1,8 @@
-const createDecorator = ({h}) => (Wrapper, wrapperProps) => (Element, elementProps) => props => {
+const createDecorator = ({h}) => (Wrapper, wrapperProps) => (Element, elementProps) => (props, children) => {
   return (
     <Wrapper {...wrapperProps}>
       <Element {...elementProps}>
-        {props.children}
+        {children}
       </Element>
     </Wrapper>
   );

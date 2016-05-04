@@ -7,7 +7,7 @@ forEachEngine((name, engine) => {
   const {h, resolve} = engine;
 
   test(`${name}: should extend children properties`, t => {
-    const Title = props => <h1 style={{color: props.color}}>{props.children}</h1>;
+    const Title = (props, children) => <h1 style={{color: props.color}}>{children}</h1>;
     const Color = createWrapper(() => props => ({color: props.color}))(engine);
 
     const tree = (

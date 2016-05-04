@@ -17,10 +17,10 @@ forEachEngine((name, {h, walker, resolve}) => {
   });
 
   test(`${name}: should resolve each nodes`, t => {
-    const Header = props => <header {...props}>{props.children}</header>;
-    const Footer = props => <footer {...props}>{props.children}</footer>;
-    const Section = props => <section {...props}>{props.children}</section>;
-    const Article = props => <article {...props}>{props.children}</article>;
+    const Header = (props, children) => <header {...props}>{children}</header>;
+    const Footer = (props, children) => <footer {...props}>{children}</footer>;
+    const Section = (props, children) => <section {...props}>{children}</section>;
+    const Article = (props, children) => <article {...props}>{children}</article>;
 
     const tree = (
       <Header>

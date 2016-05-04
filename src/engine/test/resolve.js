@@ -6,20 +6,23 @@ forEachEngine((name, {h, resolve}) => {
     const Component = props => <h1/>;
     const tree = <Component/>;
 
-    t.deepEqual(resolve(tree), <h1/>);
+    const expected = <h1/>;
+    t.deepEqual(resolve(tree), expected);
   });
 
   test(`${name}: should resolve component node with properties`, t => {
     const Component = props => <h1 {...props}/>;
     const tree = <Component foo="bar"/>;
 
-    t.deepEqual(resolve(tree), <h1 foo="bar"/>);
+    const expected = <h1 foo="bar"/>;
+    t.deepEqual(resolve(tree), expected);
   });
 
   test(`${name}: should resolve component node with children`, t => {
-    const Component = props => <h1 {...props}>{props.children}</h1>;
+    const Component = (props, children) => <h1 {...props}>{children}</h1>;
     const tree = <Component foo="bar">baz</Component>;
 
-    t.deepEqual(resolve(tree), <h1 foo="bar">baz</h1>);
+    const expected = <h1 foo="bar">baz</h1>;
+    t.deepEqual(resolve(tree), expected);
   });
 });
