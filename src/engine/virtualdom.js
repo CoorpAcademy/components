@@ -10,7 +10,6 @@ import isVirtualNode from 'virtual-dom/vnode/is-vnode';
 import createElement from 'virtual-dom/create-element';
 import diff from 'virtual-dom/diff';
 import patch from 'virtual-dom/patch';
-import { validate } from '../util/proptypes-checker';
 
 const event = /^on[A-Z].+/;
 const transformProps = props => mapKeys(key => {
@@ -27,7 +26,14 @@ const h = (tag, props, children) => {
     _props,
     flatten(children)
   );
-  if (isFunction(tag)) vTree.tagName = tag;
+
+  if (isFunction(tag)){
+    vTree.tagName = tag;
+
+    if(__DEV__ && tag.validate){
+      tag.validate(props);
+    }
+  }
 
   return vTree;
 };
@@ -111,7 +117,6 @@ const widget = options => {
 };
 
 export default {
-  name:'virtual-dom',
   h,
   map,
   clone,
