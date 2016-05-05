@@ -1,5 +1,6 @@
 import style from './discipline-cards.css';
 import createDisciplineCard from '../discipline-card';
+import get from 'lodash/fp/get';
 
 export default (engine, options) => {
   const DisciplineCard = createDisciplineCard(engine, options);
@@ -21,8 +22,8 @@ export default (engine, options) => {
       );
     });
 
-    const skinBackgroundUrl = skin && skin.images && skin.images.tree;
-    const skinBG = (skin && skin.theme && skin.theme.background) || '#123';
+    const skinBackgroundUrl = get('images.tree', skin);
+    const skinBG = get('theme.background', skin) || '#123';
     const bg = skinBackgroundUrl ? 'url(' + skinBackgroundUrl + ')' : skinBG;
 
     return (

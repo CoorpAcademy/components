@@ -9,7 +9,9 @@
     "angular": true
   },
   "extends": [
-    "plugin:@coorpacademy/coorpacademy/core"
+    "plugin:@coorpacademy/coorpacademy/core",
+    "plugin:@coorpacademy/coorpacademy/ava",
+    "plugin:@coorpacademy/coorpacademy/lodash-fp"
   ],
   "parser": "babel-eslint",
   "parserOptions": {
