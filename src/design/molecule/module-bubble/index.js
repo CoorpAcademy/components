@@ -14,13 +14,12 @@ export default (engine, options) => {
     const className = filtered || disabled ? style.disabled : style.default;
     const label = translate ? translate(module.label) : module.label;
 
-    const animationDelay = ((delay || 0) * 0.08 + (after || 0) * 0.8) + 's';
+    const animationDelayNumber = (delay || 0) * 0.08 + (after || 0) * 0.8;
+    const animationDelay = `${delay}s`;
 
     return (
       <div className={style.modulewrapper}
-            style={{
-              animationDelay: animationDelay
-            }}>
+            style={{ animationDelay }}>
         <span className={className}
               attributes={{
                 'data-icon': iconCode

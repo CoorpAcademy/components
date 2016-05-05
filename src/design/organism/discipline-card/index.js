@@ -12,7 +12,7 @@ export default (engine, options) => {
     const {discipline, onClick, onModuleClick} = props;
 
     const duration = (Math.floor(Math.random() * 7) + 3) * .2;
-    const animationDuration = duration + 's';
+    const animationDuration = `${duration}s`;
 
     const modules = discipline.modules.map(function(module, index) {
       return (

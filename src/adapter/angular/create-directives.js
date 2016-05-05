@@ -42,7 +42,7 @@ const createDirective = (app, engine, componentName, createComponent) => {
 
     return {
       restrict: 'E',
-      link: link,
+      link,
       scope: {
         props: '='
       }

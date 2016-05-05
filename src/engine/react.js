@@ -61,22 +61,22 @@ const widget = options => {
   }, options);
 
   return React.createClass({
-    componentDidMount: function() {
+    componentDidMount() {
       const el = findDOMNode(this);
       options.init(this.props, el);
     },
 
-    componentDidUpdate: function(prev) {
+    componentDidUpdate(prev) {
       const el = findDOMNode(this);
       options.update(this.props, prev, el);
     },
 
-    componentWillUnmount: function() {
+    componentWillUnmount() {
       const el = findDOMNode(this);
       options.destroy(el);
     },
 
-    render: function() {
+    render() {
       return React.createElement(options.tagName);
     }
   });

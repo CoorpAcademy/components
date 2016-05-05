@@ -10,6 +10,6 @@ export default fn => pipe(
   toPairs,
   map(spread(fn))
 )({
-  react: react,
+  react,
   'virtual-dom': virtualDom
 });

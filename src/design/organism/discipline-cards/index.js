@@ -24,7 +24,7 @@ export default (engine, options) => {
 
     const skinBackgroundUrl = get('images.tree', skin);
     const skinBG = get('theme.background', skin) || '#123';
-    const bg = skinBackgroundUrl ? 'url(' + skinBackgroundUrl + ')' : skinBG;
+    const bg = skinBackgroundUrl ? `url(${skinBackgroundUrl})` : skinBG;
 
     return (
       <div
