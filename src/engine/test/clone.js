@@ -26,8 +26,8 @@ forEachEngine((name, {h, clone}) => {
   });
 
   test(`${name}: should clone element and replace deep property`, t => {
-    const node = <h1 style={{color:'grey'}}>qux</h1>;
-    const pink = {style:{color:'pink'}};
+    const node = <h1 style={{color: 'grey'}}>qux</h1>;
+    const pink = {style: {color: 'pink'}};
     const cloneNode = clone(node, pink);
 
     t.deepEqual(cloneNode, <h1 {...pink}>qux</h1>);

@@ -60,7 +60,6 @@ forEachEngine((name, {h, render}) => {
     });
   });
 
-
   const events = {
     click: 'onClick'
   };
@@ -74,12 +73,12 @@ forEachEngine((name, {h, render}) => {
 
       const root = document.createElement('div');
       window.document.body.appendChild(root);
-      const onEvent = (e) => {
+      const onEvent = e => {
         t.pass();
         t.end();
       };
 
-      render(root)(<div {...{[attribute]:onEvent}}/>);
+      render(root)(<div {...{[attribute]: onEvent}}/>);
       const event = document.createEvent('Event');
       event.initEvent(eventName, true, true);
       root.firstElementChild.dispatchEvent(event);

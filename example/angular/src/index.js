@@ -8,7 +8,7 @@ const app = angular.module('app', []);
 reactDirective(app);
 vdomDirective(app);
 
-app.controller('main', ($scope) => {
+app.controller('main', $scope => {
   $scope.user = {
     username: 'godu'
   };

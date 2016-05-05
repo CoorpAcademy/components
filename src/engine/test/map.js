@@ -3,7 +3,7 @@ import forEachEngine from '../../util/for-each-engine';
 
 forEachEngine((name, {h, map, resolve}) => {
   test(`${name}: should travel each children`, t => {
-    const Component = (props) => (
+    const Component = props => (
       <h1>
         {map(child => t.pass() || child, props.children)}
       </h1>

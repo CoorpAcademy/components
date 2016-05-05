@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 var path = require('path');
 var express = require('express');
 var webpack = require('webpack');
@@ -24,8 +26,8 @@ app.get('/virtual-dom', function(req, res) {
 app.get('*', function(req, res) {
   res.send([
     '<ul>',
-      '<li><a href="/react">react</a></li>',
-      '<li><a href="/virtual-dom">virtual-dom</a></li>',
+    '  <li><a href="/react">react</a></li>',
+    '  <li><a href="/virtual-dom">virtual-dom</a></li>',
     '</ul>'
   ].join(''));
 });

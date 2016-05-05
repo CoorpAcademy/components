@@ -3,7 +3,7 @@ import createBehaviour from '../../util/behaviour';
 const tiny = (engine, options) => props => {
   const properties = {
     style: {
-      'fontSize': '9px'
+      fontSize: '9px'
     }
   };
 

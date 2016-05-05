@@ -28,11 +28,11 @@ export default (engine, options) => {
   const {h} = engine;
   const {skin} = options;
 
-  return (props) => {
+  return props => {
     const {list, onChange, theme = 'default'} = props;
     const iconCode = String.fromCharCode(skin.icons.select);
 
-    const selectOptions = list.map(function(item){
+    const selectOptions = list.map(function(item) {
       return (
         <option
           className={style.option}

@@ -82,7 +82,6 @@ const widget = options => {
   });
 };
 
-
 export default {
   h,
   map,

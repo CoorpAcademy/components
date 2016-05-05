@@ -6,7 +6,7 @@ export default (engine, options) => {
   const {skin, translate} = options;
   const LabelModName = createLabelModName(engine, options);
 
-  return (props) => {
+  return props => {
     const {module, onClick, delay, after} = props;
     const iconCode = String.fromCharCode(skin.icons[module.status]);
     const filtered = module.filtered;

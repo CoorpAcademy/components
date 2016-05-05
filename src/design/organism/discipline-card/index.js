@@ -6,22 +6,22 @@ export default (engine, options) => {
   const ModuleBubble = createModuleBubble(engine, options);
   const CenteredText = CenteredTextBehaviour(engine, options);
 
-  return (props) => {
+  return props => {
     const {h} = engine;
     const {translate} = options;
     const {discipline, onClick, onModuleClick} = props;
 
     const duration = (Math.floor(Math.random() * 7) + 3) * .2;
-    const animationDuration = duration +'s';
+    const animationDuration = duration + 's';
 
-    const modules = discipline.modules.map(function(module, index){
+    const modules = discipline.modules.map(function(module, index) {
       return (
         <ModuleBubble
-          module  = {module}
+          module = {module}
           onClick = {onModuleClick}
-          delay   = {index}
-          after   = {duration}
-          key     = {module.ref}
+          delay = {index}
+          after = {duration}
+          key = {module.ref}
         >
         </ModuleBubble>
       );
@@ -29,7 +29,7 @@ export default (engine, options) => {
 
     const label = translate ? translate(discipline.label) : discipline.label;
 
-    return  (
+    return (
       <div className={style.default}
            onClick={e => onClick(discipline)}
            style={{

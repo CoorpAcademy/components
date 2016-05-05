@@ -3,7 +3,7 @@ import FontTinyBehaviour from '../../../behaviour/font/tiny';
 import FontUppercaseBehaviour from '../../../behaviour/font/uppercase';
 import ColorTextNormalBehaviour from '../../../behaviour/color/text-normal';
 
-export default (engine, options) => (props) => {
+export default (engine, options) => props => {
   const {h} = engine;
   const {skin} = options;
 

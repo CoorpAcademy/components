@@ -1,6 +1,6 @@
 import createDecorator from './decorator';
 
-const createComponent = createProperties => (engine, options) => (props) => {
+const createComponent = createProperties => (engine, options) => props => {
   const {clone, map} = engine;
 
   const properties = createProperties(engine, options)(props);

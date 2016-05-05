@@ -7,7 +7,7 @@ const Title = createTitle({
   }
 });
 
-export default (app) => app.directive('reactTitle', function() {
+export default app => app.directive('reactTitle', function() {
   function link(scope, element, attrs) {
     scope.$watch('value', function(value) {
       render(Title({children: [attrs.value]}), element[0]);
@@ -22,7 +22,7 @@ export default (app) => app.directive('reactTitle', function() {
     restrict: 'E',
     link: link,
     scope: {
-      value: "@"
+      value: '@'
     }
   };
 });
