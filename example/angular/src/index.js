@@ -1,13 +1,30 @@
 import angular from 'angular';
+import createDirectives from '../../../src/adapter/angular/create-directives';
 
-import vdomDirective from './directive/virtual-dom';
+import react from '../../../src/engine/react';
+import virtualDom from '../../../src/engine/virtual-dom';
+
+const createTitle = ({h}) => ({value} = {}) => (
+  <h1>
+    {value}
+  </h1>
+);
 
 const app = angular.module('app', []);
 
-vdomDirective(app);
+app
+  .value('config', {})
+  .value('$i18next', () => {});
+
+createDirectives(app, react, {
+  createreactTitle: createTitle
+});
+createDirectives(app, virtualDom, {
+  createvdomTitle: createTitle
+});
 
 app.controller('main', $scope => {
-  $scope.user = {
-    username: 'godu'
+  $scope.props = {
+    value: 'godu'
   };
 });
