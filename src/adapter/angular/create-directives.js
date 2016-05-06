@@ -10,17 +10,11 @@ const linkWithEngine = engine => (component, $rootScope, scope, element) => {
     update(vTree);
   };
 
-  $rootScope.$on('i18nLanguageChange', function() {
-    refresh(scope.props);
-  });
+  $rootScope.$on('i18nLanguageChange', () => refresh(scope.props));
 
-  scope.$watch('props', function() {
-    refresh(scope.props);
-  }, true);
+  scope.$watch('props', () => refresh(scope.props), true);
 
-  scope.$on('$destroy', function() {
-    window.angular.element(element).remove();
-  });
+  scope.$on('$destroy', () => window.angular.element(element).remove());
 };
 
 const lowerFirstLetter = string => {
