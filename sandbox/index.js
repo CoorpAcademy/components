@@ -15,6 +15,10 @@ app.use(require('webpack-dev-middleware')(compiler, {
 
 app.use(require('webpack-hot-middleware')(compiler));
 
+app.get('/react', function(req, res) {
+  res.sendFile(path.join(__dirname, 'react.html'));
+});
+
 app.get('/virtual-dom', function(req, res) {
   res.sendFile(path.join(__dirname, 'virtual-dom.html'));
 });
@@ -22,6 +26,7 @@ app.get('/virtual-dom', function(req, res) {
 app.get('*', function(req, res) {
   res.send([
     '<ul>',
+    '  <li><a href="/react">react</a></li>',
     '  <li><a href="/virtual-dom">virtual-dom</a></li>',
     '</ul>'
   ].join(''));

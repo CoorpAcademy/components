@@ -19,6 +19,7 @@ module.exports = {
   devtool: 'source-map',
 
   entry: entries([
+    'sandbox-react',
     'sandbox-virtual-dom'
   ]),
 

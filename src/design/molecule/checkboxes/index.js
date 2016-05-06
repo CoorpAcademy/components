@@ -7,17 +7,15 @@ export default (engine, options) => {
 
   return props => {
     const {choices, onToggle} = props;
-    const lines = choices.map(function(choice) {
-      return (
-        <li className={style.line}>
-          <TitledCheckbox
-            state={choice}
-            onToggle={onToggle}
-          >
-          </TitledCheckbox>
-        </li>
-      );
-    });
+    const lines = choices.map(choice => (
+      <li className={style.line}>
+        <TitledCheckbox
+          state={choice}
+          onToggle={onToggle}
+        >
+        </TitledCheckbox>
+      </li>
+    ));
 
     return (
       <ul className={style.default}>

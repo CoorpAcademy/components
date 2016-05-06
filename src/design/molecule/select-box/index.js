@@ -32,17 +32,15 @@ export default (engine, options) => {
     const {list, onChange, theme = 'default'} = props;
     const iconCode = String.fromCharCode(skin.icons.select);
 
-    const selectOptions = list.map(function(item) {
-      return (
-        <option
-          className={style.option}
-          value={item.value}
-          selected={item.selected}
-        >
-          {item.name}
-        </option>
-      );
-    });
+    const selectOptions = list.map(item => (
+      <option
+        className={style.option}
+        value={item.value}
+        selected={item.selected}
+      >
+        {item.name}
+      </option>
+    ));
 
     return (
       <span

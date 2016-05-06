@@ -1,4 +1,4 @@
-import engine from '../../src/engine/virtual-dom';
+import engine from '../../src/engine/react';
 const update = engine.render(document.getElementById('app'));
 
 import createApp from './app';
