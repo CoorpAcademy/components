@@ -4,7 +4,7 @@ export default (engine, options) => {
   const {h} = engine;
   const {translate} = options;
 
-  return (props) => {
+  return props => {
     const {state, onToggle} = props;
     const label = translate ? translate(state.label) : state.label;
 

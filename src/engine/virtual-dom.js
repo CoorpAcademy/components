@@ -13,8 +13,8 @@ import diff from 'virtual-dom/diff';
 import patch from 'virtual-dom/patch';
 
 const event = /^on[A-Z].+/;
-const transformProps = (props) => mapKeys(key => {
-  if(event.test(key)) return key.toLowerCase();
+const transformProps = props => mapKeys(key => {
+  if (event.test(key)) return key.toLowerCase();
   return key;
 }, props);
 
@@ -45,7 +45,7 @@ const clone = (child, properties, children) => {
   );
 };
 
-const resolve = (vTree) => {
+const resolve = vTree => {
   if (isFunction(vTree.tagName)) return resolve(vTree.tagName({
     ...vTree.properties,
     children: vTree.children
@@ -65,7 +65,7 @@ const render = el => {
   return vTree => {
     vTree = walker(resolve, vTree);
 
-    if(!rootNode) {
+    if (!rootNode) {
       rootNode = createElement(vTree, {
         document: global.document
       });
@@ -109,7 +109,7 @@ const widget = options => {
     return options.destroy(el);
   };
 
-  return (props) => {
+  return props => {
     return new Widget(props);
   };
 };

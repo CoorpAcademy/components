@@ -21,7 +21,7 @@ const createNVD3Widget = createChart => (engine, options) => {
     return el;
   };
 
-  const destroy = (el) => {};
+  const destroy = el => {};
 
   return createWidget(engine)({
     tagName: 'svg',

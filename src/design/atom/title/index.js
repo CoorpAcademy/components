@@ -1,4 +1,4 @@
-export default (engine, options) => (props) => {
+export default (engine, options) => props => {
   const {h} = engine;
 
   return (

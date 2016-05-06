@@ -5,9 +5,9 @@ export default (engine, options) => {
   const {h} = engine;
   const TitledCheckbox = createTitledCheckbox(engine, options);
 
-  return (props) => {
+  return props => {
     const {choices, onToggle} = props;
-    const lines = choices.map(function(choice){
+    const lines = choices.map(function(choice) {
       return (
         <li className={style.line}>
           <TitledCheckbox

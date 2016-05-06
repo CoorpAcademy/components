@@ -3,8 +3,8 @@ import createBehaviour from '../../util/behaviour';
 const normal = (engine, options) => props => {
   const properties = {
     style: {
-      'fontSize': '12px',
-      'fontWeight': 'normal'
+      fontSize: '12px',
+      fontWeight: 'normal'
     }
   };
 

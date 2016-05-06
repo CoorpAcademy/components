@@ -9,7 +9,7 @@ const Title = createTitle({
   }
 });
 
-export default (app) => app.directive('vdomTitle', function() {
+export default app => app.directive('vdomTitle', function() {
   return {
     compile: function(element) {
       element.empty();

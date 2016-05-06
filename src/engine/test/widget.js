@@ -100,7 +100,7 @@ forEachEngine((name, {h, render, widget}) => {
     t.plan(1);
 
     const Widget = widget({
-      destroy: (el) => {
+      destroy: el => {
         t.pass();
       }
     });
@@ -117,7 +117,7 @@ forEachEngine((name, {h, render, widget}) => {
     t.plan(1);
 
     const Widget = widget({
-      destroy: (el) => {
+      destroy: el => {
         t.is(elWidget, el);
       }
     });

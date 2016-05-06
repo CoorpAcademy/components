@@ -2,10 +2,10 @@
 
 import mapKeys from 'lodash/fp/mapKeys';
 
-const linkWithEngine = (engine) => (component, $rootScope, scope, element) => {
+const linkWithEngine = engine => (component, $rootScope, scope, element) => {
   const update = engine.render(element[0]);
 
-  const refresh = (props) => {
+  const refresh = props => {
     const vTree = component(props);
     update(vTree);
   };
@@ -23,7 +23,7 @@ const linkWithEngine = (engine) => (component, $rootScope, scope, element) => {
   });
 };
 
-const lowerFirstLetter = (string) => {
+const lowerFirstLetter = string => {
   return string[0].toLowerCase() + string.slice(-(string.length - 1));
 };
 
@@ -42,7 +42,7 @@ const createDirective = (app, engine, componentName, createComponent) => {
 
     return {
       restrict: 'E',
-      link: link,
+      link,
       scope: {
         props: '='
       }
@@ -63,7 +63,7 @@ const createDirective = (app, engine, componentName, createComponent) => {
  * <module-bubble value="modData()"></module-bubble>
  */
 const createDirectives = (app, engine, components) => {
-  const toDirective = (key) => {
+  const toDirective = key => {
     const isFactory = key.split('create')[1];
     if (!isFactory) return;
 
