@@ -3,7 +3,7 @@ import nv from 'nvd3';
 
 export default createD3Widget(options => (
   nv.models.pieChart()
-    .x(function(d) { return d.label; })
-    .y(function(d) { return d.value; })
+    .x(d => d.label)
+    .y(d => d.value)
     .showLabels(true)
 ));
