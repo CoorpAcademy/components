@@ -2,10 +2,10 @@ import createDecorator from './decorator';
 import {head} from 'lodash/fp';
 
 const createComponent = createProperties => (engine, options) => (props, children) => {
-  const {clone} = engine;
+  const {clone, map} = engine;
 
   const properties = createProperties(engine, options)(props, children);
-  const child = head(children);
+  const child = head(map(c => c, children));
 
   return clone(child, properties);
 };

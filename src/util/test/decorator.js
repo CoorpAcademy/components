@@ -13,12 +13,12 @@ forEachEngine((name, engine) => {
     const CompleteList = createDecorator(engine)(List)(ItemList);
 
     const tree = <CompleteList>foo</CompleteList>;
-
-    t.deepEqual(walker(resolve, tree), (
+    const expected = (
       <ul>
         <li>foo</li>
       </ul>
-    ));
+    );
+    t.deepEqual(walker(resolve, tree), expected);
   });
 
   test(`${name}: should pass properties to composite components`, t => {
@@ -28,11 +28,11 @@ forEachEngine((name, engine) => {
     const CompleteList = createDecorator(engine)(List, {foo: 'foo'})(ItemList, {bar: 'bar'});
 
     const tree = <CompleteList>foo</CompleteList>;
-
-    t.deepEqual(walker(resolve, tree), (
+    const expected = (
       <ul foo="foo">
         <li bar="bar">foo</li>
       </ul>
-    ));
+    );
+    t.deepEqual(walker(resolve, tree), expected);
   });
 });

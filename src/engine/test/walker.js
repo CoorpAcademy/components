@@ -30,14 +30,14 @@ forEachEngine((name, {h, walker, resolve}) => {
         </Section>
       </Header>
     );
-
-    t.deepEqual(walker(resolve, tree), (
+    const expected = (
       <header>
         <footer>foo</footer>
         <section>
           <article>baz</article>
         </section>
       </header>
-    ));
+    );
+    t.deepEqual(walker(resolve, tree), expected);
   });
 });

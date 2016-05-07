@@ -9,7 +9,6 @@ forEachEngine((name, {h, render}) => {
   test(`${name}: should render vTree`, t => {
     const root = document.createElement('div');
     render(root)(<h1>foo</h1>);
-
     t.is(root.children.length, 1);
     t.is(root.firstElementChild.tagName, 'H1');
     t.is(root.firstElementChild.textContent, 'foo');
@@ -19,7 +18,6 @@ forEachEngine((name, {h, render}) => {
     const Component = props => <h1>foo</h1>;
     const root = document.createElement('div');
     render(root)(Component());
-
     t.is(root.children.length, 1);
     t.is(root.firstElementChild.tagName, 'H1');
     t.is(root.firstElementChild.textContent, 'foo');
