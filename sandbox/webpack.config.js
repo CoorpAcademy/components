@@ -20,7 +20,8 @@ module.exports = {
 
   entry: entries([
     'sandbox-react',
-    'sandbox-virtual-dom'
+    'sandbox-virtual-dom',
+    'sandbox-snabbdom'
   ]),
 
   output: {

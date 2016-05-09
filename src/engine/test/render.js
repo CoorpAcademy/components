@@ -7,20 +7,16 @@ global.window = document.defaultView;
 
 forEachEngine((name, {h, render}) => {
   test(`${name}: should render vTree`, t => {
-    const root = document.createElement('div');
-    render(root)(<h1>foo</h1>);
-    t.is(root.children.length, 1);
-    t.is(root.firstElementChild.tagName, 'H1');
-    t.is(root.firstElementChild.textContent, 'foo');
+    const root = render(document.createElement('div'))(<h1>foo</h1>);
+    t.is(root.tagName, 'H1');
+    t.is(root.textContent, 'foo');
   });
 
   test(`${name}: should render vTree with Components`, t => {
     const Component = props => <h1>foo</h1>;
-    const root = document.createElement('div');
-    render(root)(Component());
-    t.is(root.children.length, 1);
-    t.is(root.firstElementChild.tagName, 'H1');
-    t.is(root.firstElementChild.textContent, 'foo');
+    const root = render(document.createElement('div'))(Component());
+    t.is(root.tagName, 'H1');
+    t.is(root.textContent, 'foo');
   });
 
   const props = {
@@ -48,13 +44,11 @@ forEachEngine((name, {h, render}) => {
     });
 
     test(`${name}: should render ${key} attribute`, t => {
-      const root = document.createElement('div');
-      render(root)(h(tagName, {
+      const root = render(document.createElement('div'))(h(tagName, {
         [key]: value
       }));
 
-      t.is(root.children.length, 1);
-      assert(t, root.firstElementChild);
+      assert(t, root);
     });
   });
 
@@ -67,19 +61,15 @@ forEachEngine((name, {h, render}) => {
 
     test.cb(`${name}: should attach ${eventName} listener`, t => {
       t.plan(1);
-      setTimeout(t.end, 1000);
-
-      const root = document.createElement('div');
-      window.document.body.appendChild(root);
       const onEvent = e => {
         t.pass();
         t.end();
       };
-
-      render(root)(<div {...{[attribute]: onEvent}}/>);
+      const root = render(document.createElement('div'))(<div {...{[attribute]: onEvent}}/>);
+      window.document.body.appendChild(root);
       const event = document.createEvent('Event');
       event.initEvent(eventName, true, true);
-      root.firstElementChild.dispatchEvent(event);
+      root.dispatchEvent(event);
     });
   });
 });

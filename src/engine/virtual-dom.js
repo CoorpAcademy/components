@@ -65,12 +65,13 @@ const render = el => {
       });
       el.appendChild(rootNode);
       currentTree = vTree;
-      return;
+      return rootNode;
     }
 
     const patches = diff(currentTree, vTree);
     patch(rootNode, patches);
     currentTree = vTree;
+    return rootNode;
   };
 };
 

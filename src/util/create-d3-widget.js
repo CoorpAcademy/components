@@ -2,7 +2,7 @@ import createWidget from './create-widget';
 import d3 from 'd3';
 global.d3 = d3;
 
-const createNVD3Widget = createChart => (engine, options) => {
+const createD3Widget = createChart => (engine, options) => {
   const init = (props, el) => {
     setTimeout(() => update(props, null, el));
   };
@@ -32,4 +32,4 @@ const createNVD3Widget = createChart => (engine, options) => {
   });
 };
 
-export default createNVD3Widget;
+export default createD3Widget;

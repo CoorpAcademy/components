@@ -19,6 +19,10 @@ app.get('/react', function(req, res) {
   res.sendFile(path.join(__dirname, 'react.html'));
 });
 
+app.get('/snabbdom', function(req, res) {
+  res.sendFile(path.join(__dirname, 'snabbdom.html'));
+});
+
 app.get('/virtual-dom', function(req, res) {
   res.sendFile(path.join(__dirname, 'virtual-dom.html'));
 });
@@ -28,6 +32,7 @@ app.get('*', function(req, res) {
     '<ul>',
     '  <li><a href="/react">react</a></li>',
     '  <li><a href="/virtual-dom">virtual-dom</a></li>',
+    '  <li><a href="/snabbdom">snabbdom</a></li>',
     '</ul>'
   ].join(''));
 });

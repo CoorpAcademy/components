@@ -53,6 +53,7 @@ const walker = (fun, vTree) => {
 const render = el => {
   return vTree => {
     _render(walker(resolve, vTree), el);
+    return el.firstChild;
   };
 };
 

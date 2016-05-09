@@ -43,6 +43,7 @@ export default (engine) => {
       <div className={style.learningTreeDefault}>
         <DisciplineCards disciplines={disciplines}/>
       </div>
+      <Pie data={exampleData()}/>
     </div>
   );
 };

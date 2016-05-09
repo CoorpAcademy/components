@@ -2,6 +2,7 @@ import angular from 'angular';
 import createDirectives from '../../../src/adapter/angular/create-directives';
 
 import react from '../../../src/engine/react';
+import snabbdom from '../../../src/engine/snabbdom';
 import virtualDom from '../../../src/engine/virtual-dom';
 
 const createTitle = ({h}) => ({value} = {}) => (
@@ -18,6 +19,9 @@ app
 
 createDirectives(app, react, {
   createreactTitle: createTitle
+});
+createDirectives(app, snabbdom, {
+  createsnabbdomTitle: createTitle
 });
 createDirectives(app, virtualDom, {
   createvdomTitle: createTitle
