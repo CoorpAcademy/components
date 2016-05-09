@@ -1,3 +1,12 @@
 body {
   background: #345;
 }
+
+@font-face {
+  font-family: 'icons-default';
+  src:url('../assets/fonts/icons-default.eot');
+  src:url('../assets/fonts/icons-default.eot?#iefixulqsyy') format('embedded-opentype'),
+  url('../assets/fonts/icons-default.woff') format('woff'),
+  url('../assets/fonts/icons-default.ttf') format('truetype'),
+  url('../assets/fonts/icons-default.svg') format('svg');
+}

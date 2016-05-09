@@ -1,21 +1,29 @@
 import style from './titled-checkbox.css';
-import createIconSuccess from '../../atom/icon/success';
 
 export default (engine, options) => {
   const {h} = engine;
   const {translate, skin} = options;
-  const IconSuccess = createIconSuccess(engine, options);
 
   return props => {
     const {state, onToggle} = props;
     const label = translate ? translate(state.label) : state.label;
+    const icon = state.checked ? String.fromCharCode(skin.icons.success) : '';
 
     return (
       <div className={style.default}>
-        <label className={style.label}
+        <label className={style.box}
+               style={{
+                 background: '#654'
+               }}
         >
-          <div><IconSuccess/></div>
-
+          <span
+            className={style.icon}
+            style={{
+              color: 'white'
+            }}
+          >
+            {icon}
+          </span>
           <input type="checkbox"
                  className={style.input}
                  checked={state.checked}

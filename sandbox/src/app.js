@@ -24,11 +24,5 @@ export default (engine) => {
 
   const Checkboxes = createCheckboxes(engine, options);
 
-  return (props) => (
-    <Checkboxes
-      choices={choices}
-      onToggle={onToggle}
-    >
-    </Checkboxes>
-  );
+  return props => <Checkboxes choices={choices} onToggle={onToggle} />;
 };
