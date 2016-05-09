@@ -29,7 +29,7 @@ forEachEngine((name, {h, resolve, map}) => {
   test(`${name}: should create element with empty children`, t => {
     const node1 = h('div', null, []);
     const node2 = h('div', {}, []);
-    const node3 = <div>{[]}</div>;
+    const node3 = <div></div>;
 
     t.deepEqual(node1, node2);
     t.deepEqual(node1, node3);
@@ -47,7 +47,7 @@ forEachEngine((name, {h, resolve, map}) => {
   test(`${name}: should create element with children`, t => {
     const children = [
       'title',
-      h('span', null, 'sub-title')
+      h('span', null, ['sub-title'])
     ];
 
     const node1 = h('div', null, children);
