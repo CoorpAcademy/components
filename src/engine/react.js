@@ -3,6 +3,7 @@ import isArray from 'lodash/fp/isArray';
 import isString from 'lodash/fp/isString';
 import _map from 'lodash/fp/map';
 import omit from 'lodash/fp/omit';
+import flatten from 'lodash/fp/flatten';
 import assign from 'lodash/fp/assign';
 import defaultsDeep from 'lodash/fp/defaultsDeep';
 import partial from 'lodash/fp/partial';
@@ -16,7 +17,7 @@ const h = (tag, props, children) => {
   return createElement(
     tag,
     props || null,
-    ...children
+    ...flatten(children)
   );
 };
 
