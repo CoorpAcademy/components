@@ -1,7 +1,7 @@
 import isFunction from 'lodash/fp/isFunction';
 import defaultsDeep from 'lodash/fp/defaultsDeep';
 import mapKeys from 'lodash/fp/mapKeys';
-import _map from 'lodash/fp/map';
+import map from 'lodash/fp/map';
 import assign from 'lodash/fp/assign';
 import partial from 'lodash/fp/partial';
 import flatten from 'lodash/fp/flatten';
@@ -30,8 +30,6 @@ const h = (tag, props, children) => {
 
   return vTree;
 };
-
-const map = (fun, children) => _map(fun, children || []);
 
 const clone = (child, properties, children) => {
   return h(
