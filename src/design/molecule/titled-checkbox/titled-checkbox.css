@@ -2,7 +2,23 @@
   line-height: 25px;
 }
 
-.box {
+.label {
   margin-right: 20px;
   float: right;
+}
+
+.label:before {
+  content: attr(data-icon);
+  font-family: 'icons-default';
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-radius: 3px;
+  background-color: #e5e5e5;
+  cursor: pointer;
+}
+
+.input {
+  position: absolute;
+  left: -9999px;
 }

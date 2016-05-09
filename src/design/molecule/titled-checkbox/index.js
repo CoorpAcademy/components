@@ -1,8 +1,10 @@
 import style from './titled-checkbox.css';
+import createIconSuccess from '../../atom/icon/success';
 
 export default (engine, options) => {
   const {h} = engine;
-  const {translate} = options;
+  const {translate, skin} = options;
+  const IconSuccess = createIconSuccess(engine, options);
 
   return props => {
     const {state, onToggle} = props;
@@ -10,12 +12,17 @@ export default (engine, options) => {
 
     return (
       <div className={style.default}>
+        <label className={style.label}
+        >
+          <div><IconSuccess/></div>
+
+          <input type="checkbox"
+                 className={style.input}
+                 checked={state.checked}
+                 onChange={() => onToggle(state)}
+          />
+        </label>
         <span>{label}</span>
-        <input type="checkbox"
-               className={style.box}
-               checked={state.checked}
-               onChange={() => onToggle(state)}
-        />
       </div>
     );
   };
