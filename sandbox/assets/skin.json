@@ -17,9 +17,10 @@
     "mod-tree-label": "black"
   },
   "courses": [
-    "#3498db",
-    "#191919",
-    "#d0d0d0"
+    "#0070b2",
+    "#3fc1c9",
+    "#e23e57",
+    "#ff855a"
   ],
   "icons": {
     "certification": "0xe600",

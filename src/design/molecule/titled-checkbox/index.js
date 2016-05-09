@@ -5,7 +5,7 @@ export default (engine, options) => {
   const {translate, skin} = options;
 
   return props => {
-    const {state, onToggle} = props;
+    const {state, background, onToggle} = props;
     const label = translate ? translate(state.label) : state.label;
     const icon = state.checked ? String.fromCharCode(skin.icons.success) : '';
 
@@ -13,7 +13,7 @@ export default (engine, options) => {
       <div className={style.default}>
         <label className={style.box}
                style={{
-                 background: '#654'
+                 background: background || '#3d3d3d'
                }}
         >
           <span

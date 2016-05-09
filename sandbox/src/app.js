@@ -24,5 +24,12 @@ export default (engine) => {
 
   const Checkboxes = createCheckboxes(engine, options);
 
-  return props => <Checkboxes choices={choices} onToggle={onToggle} />;
+  return props => (
+    <Checkboxes
+      theme='courses'
+      choices={choices}
+      onToggle={onToggle}
+    />
+  );
+
 };
