@@ -1,47 +1,55 @@
-/* eslint-disable no-console */
+import path from 'path';
+import express from 'express';
+import webpack from 'webpack';
+import webpackDevMiddleware from 'webpack-dev-middleware';
+import webpackHotMiddleware from 'webpack-hot-middleware';
+import keys from 'lodash/fp/keys';
+import config from './webpack.config';
 
-var path = require('path');
-var express = require('express');
-var webpack = require('webpack');
-var config = require('./webpack.config');
+import forEachEngines from '../src/util/for-each-engine';
 
-var app = express();
-var compiler = webpack(config);
+const app = express();
 
-app.use(require('webpack-dev-middleware')(compiler, {
-  noInfo: true,
-  publicPath: config.output.publicPath
-}));
+const compiler = webpack(config);
+app.use(
+  webpackDevMiddleware(compiler, {
+    noInfo: true,
+    publicPath: config.output.publicPath
+  }),
+  webpackHotMiddleware(compiler)
+);
 
-app.use(require('webpack-hot-middleware')(compiler));
-
-app.get('/react', function(req, res) {
-  res.sendFile(path.join(__dirname, 'react.html'));
+app.get('/angular', (req, res) => {
+  res.send(`
+    <body ng-app="app" ng-controller="main">
+      <input ng-model="props.value"/>
+      ${forEachEngines(name => `
+        <${name}-title props="props"></${name}-title>
+      `).join('')}
+      <script type="text/javascript" src="/dist/angular.js"></script>
+    </body>
+  `);
 });
 
-app.get('/snabbdom', function(req, res) {
-  res.sendFile(path.join(__dirname, 'snabbdom.html'));
+app.get('/:engine', (req, res) => {
+  res.send(`
+    <div id="app"></div>
+    <script>window.engine = '${req.params.engine}'</script>
+    <script type="text/javascript" src="/dist/main.js"></script>
+  `);
 });
 
-app.get('/virtual-dom', function(req, res) {
-  res.sendFile(path.join(__dirname, 'virtual-dom.html'));
+app.get('/', (req, res) => {
+  res.send(`
+    <h1>Sandbox</h1>
+    <ul>
+      ${forEachEngines(name => `<li><a href="/${name}">${name}</a></li>`).join('')}
+    </ul>
+    <h2>Adapteur</h2>
+    <ul>
+      <li><a href="/angular">angular</a></li>
+    </lu>
+  `);
 });
 
-app.get('*', function(req, res) {
-  res.send([
-    '<ul>',
-    '  <li><a href="/react">react</a></li>',
-    '  <li><a href="/virtual-dom">virtual-dom</a></li>',
-    '  <li><a href="/snabbdom">snabbdom</a></li>',
-    '</ul>'
-  ].join(''));
-});
-
-app.listen(3003, 'localhost', function(err) {
-  if (err) {
-    console.log(err);
-    return;
-  }
-
-  console.log('Listening at http://localhost:3003');
-});
+app.listen(3003);

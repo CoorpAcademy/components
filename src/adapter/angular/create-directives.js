@@ -1,5 +1,3 @@
-'use strict';
-
 import mapKeys from 'lodash/fp/mapKeys';
 
 const linkWithEngine = engine => (component, $rootScope, scope, element) => {

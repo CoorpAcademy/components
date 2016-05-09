@@ -8,6 +8,7 @@ import map from 'lodash/fp/map';
 import isFunction from 'lodash/fp/isFunction';
 import omit from 'lodash/fp/omit';
 import set from 'lodash/fp/set';
+import split from 'lodash/fp/split';
 import _h from 'snabbdom/h';
 import {init} from 'snabbdom';
 import classModule from 'snabbdom/modules/class';
@@ -40,7 +41,7 @@ const transformProps = props => {
       if (key === 'className')
         return reduce((data, className) => {
           return set(`class.${className}`, true, data);
-        }, data, value.split(' '));
+        }, data, split(' ', value));
 
       if (key === 'style')
         return set('style', value, data);
