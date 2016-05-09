@@ -9,7 +9,6 @@ forEachEngine((name, {h, render}) => {
   test(`${name}: should render vTree`, t => {
     const root = document.createElement('div');
     render(root)(<h1>foo</h1>);
-
     t.is(root.children.length, 1);
     t.is(root.firstElementChild.tagName, 'H1');
     t.is(root.firstElementChild.textContent, 'foo');
@@ -19,7 +18,6 @@ forEachEngine((name, {h, render}) => {
     const Component = props => <h1>foo</h1>;
     const root = document.createElement('div');
     render(root)(Component());
-
     t.is(root.children.length, 1);
     t.is(root.firstElementChild.tagName, 'H1');
     t.is(root.firstElementChild.textContent, 'foo');
@@ -42,7 +40,7 @@ forEachEngine((name, {h, render}) => {
     }
   };
 
-  Object.keys(props).forEach(function(key) {
+  Object.keys(props).forEach(key => {
     const tagName = props[key] && props[key].tagName || 'div';
     const value = props[key] && props[key].value || props[key];
     const assert = props[key].assert || ((t, el) => {
@@ -64,7 +62,7 @@ forEachEngine((name, {h, render}) => {
     click: 'onClick'
   };
 
-  Object.keys(events).forEach(function(eventName) {
+  Object.keys(events).forEach(eventName => {
     const attribute = events[eventName];
 
     test.cb(`${name}: should attach ${eventName} listener`, t => {

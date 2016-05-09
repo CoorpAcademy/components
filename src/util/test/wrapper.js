@@ -7,7 +7,7 @@ forEachEngine((name, engine) => {
   const {h, resolve} = engine;
 
   test(`${name}: should extend children properties`, t => {
-    const Title = props => <h1 style={{color: props.color}}>{props.children}</h1>;
+    const Title = (props, children) => <h1 style={{color: props.color}}>{children}</h1>;
     const Color = createWrapper(() => props => ({color: props.color}))(engine);
 
     const tree = (
@@ -15,6 +15,7 @@ forEachEngine((name, engine) => {
         <Title>foo</Title>
       </Color>
     );
+
     t.deepEqual(resolve(tree), resolve(<Title color="blue">foo</Title>));
     t.deepEqual(resolve(tree), <h1 style={{color: 'blue'}}>foo</h1>);
   });

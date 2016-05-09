@@ -10,17 +10,15 @@ export default (engine, options) => {
     const {skin} = options;
     const {onModuleClick, onDisciplineClick} = props;
 
-    const disciplines = props.disciplines.map(function(discipline) {
-      return (
-        <DisciplineCard
-          discipline = {discipline}
-          onClick = {onDisciplineClick}
-          onModuleClick = {onModuleClick}
-          key = {discipline.ref}
-        >
-        </DisciplineCard>
-      );
-    });
+    const disciplines = props.disciplines.map(discipline => (
+      <DisciplineCard
+        discipline = {discipline}
+        onClick = {onDisciplineClick}
+        onModuleClick = {onModuleClick}
+        key = {discipline.ref}
+      >
+      </DisciplineCard>
+    ));
 
     const skinBackgroundUrl = get('images.tree', skin);
     const skinBG = get('theme.background', skin) || '#123';

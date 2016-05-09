@@ -1,33 +1,30 @@
 import isFunction from 'lodash/fp/isFunction';
+import isArray from 'lodash/fp/isArray';
 import isString from 'lodash/fp/isString';
 import _map from 'lodash/fp/map';
 import omit from 'lodash/fp/omit';
 import assign from 'lodash/fp/assign';
 import defaultsDeep from 'lodash/fp/defaultsDeep';
 import partial from 'lodash/fp/partial';
-import React, { createElement } from 'react';
+import React, { createElement, createClass } from 'react';
 import { render as _render, findDOMNode } from 'react-dom';
 
 const omitChildren = omit(['children']);
 
-const h = (tag, props, children, ...rest) => {
-  const _props = omitChildren(props);
-  if (props && props.children)
-    return createElement(tag, _props, props.children);
-
+const h = (tag, props, children) => {
+  if (!isArray(children)) children = [];
   return createElement(
     tag,
-    _props,
-    children,
-    ...rest
+    props || null,
+    ...children
   );
 };
 
 const clone = (child, properties, children) => {
-  return createElement(
+  return h(
     child.type,
     defaultsDeep(child.props, properties),
-    ...(children || child.props.children && map(c => c, child.props.children) || [null])
+    children || child.props.children && map(c => c, child.props.children) || []
   );
 };
 
@@ -36,7 +33,13 @@ const map = (fun, children) => {
 };
 
 const resolve = vTree => {
-  if (isFunction(vTree.type)) return resolve(vTree.type(vTree.props));
+  if (isFunction(vTree.type) && vTree.type.resolve !== false)
+    return resolve(
+      vTree.type(
+        omitChildren(vTree.props),
+        vTree.props.children
+      )
+    );
   return vTree;
 };
 
@@ -48,7 +51,7 @@ const walker = (fun, vTree) => {
 
 const render = el => {
   return vTree => {
-    _render(vTree, el);
+    _render(walker(resolve, vTree), el);
   };
 };
 
@@ -60,7 +63,7 @@ const widget = options => {
     destroy: () => {}
   }, options);
 
-  return React.createClass({
+  const _widget = createClass({
     componentDidMount() {
       const el = findDOMNode(this);
       options.init(this.props, el);
@@ -77,9 +80,11 @@ const widget = options => {
     },
 
     render() {
-      return React.createElement(options.tagName);
+      return h(options.tagName);
     }
   });
+  _widget.resolve = false;
+  return _widget;
 };
 
 export default {

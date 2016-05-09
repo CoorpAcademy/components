@@ -7,7 +7,7 @@ forEachEngine((name, engine) => {
   const {h, resolve} = engine;
 
   test(`${name}: should extend children properties`, t => {
-    const Title = props => <h1>{props.children}</h1>;
+    const Title = (props, children) => <h1>{children}</h1>;
     const Color = createBehaviour(() => props => ({style: {color: props.color}}))(engine);
 
     const tree = (
@@ -15,11 +15,13 @@ forEachEngine((name, engine) => {
         <Title>foo</Title>
       </Color>
     );
-    t.deepEqual(resolve(tree), <h1 style={{color: 'blue'}}>foo</h1>);
+
+    const expected = <h1 style={{color: 'blue'}}>foo</h1>;
+    t.deepEqual(resolve(tree), expected);
   });
 
   test(`${name}: should override children properties`, t => {
-    const Title = props => <h1 style={{color: props.color}}>{props.children}</h1>;
+    const Title = (props, children) => <h1 style={{color: props.color}}>{children}</h1>;
     const Color = createBehaviour(() => props => ({style: {color: props.color}}))(engine);
 
     const pinkTitle = <Title color="pink">foo</Title>;
@@ -30,7 +32,9 @@ forEachEngine((name, engine) => {
       </Color>
     );
 
-    t.deepEqual(resolve(pinkTitle), <h1 style={{color: 'pink'}}>foo</h1>);
-    t.deepEqual(resolve(blueTitle), <h1 style={{color: 'blue'}}>foo</h1>);
+    const pinkExpected = <h1 style={{color: 'pink'}}>foo</h1>;
+    t.deepEqual(resolve(pinkTitle), pinkExpected);
+    const blueExpected = <h1 style={{color: 'blue'}}>foo</h1>;
+    t.deepEqual(resolve(blueTitle), blueExpected);
   });
 });

@@ -1,11 +1,10 @@
 import isFunction from 'lodash/fp/isFunction';
 import defaultsDeep from 'lodash/fp/defaultsDeep';
 import mapKeys from 'lodash/fp/mapKeys';
-import omit from 'lodash/fp/omit';
-import flatten from 'lodash/fp/flatten';
+import _map from 'lodash/fp/map';
 import assign from 'lodash/fp/assign';
-import compact from 'lodash/fp/compact';
 import partial from 'lodash/fp/partial';
+import flatten from 'lodash/fp/flatten';
 import _h from 'virtual-dom/h';
 import isVirtualNode from 'virtual-dom/vnode/is-vnode';
 import createElement from 'virtual-dom/create-element';
@@ -18,24 +17,21 @@ const transformProps = props => mapKeys(key => {
   return key;
 }, props);
 
-const omitChildren = omit(['children']);
-
-const h = (tag, props, ...children) => {
+const h = (tag, props, children) => {
   const _tag = isFunction(tag) ? 'div' : tag;
-  const _props = omitChildren(isFunction(tag) ? props : transformProps(props));
-  const _children = compact(flatten(props && props.children || children));
+  const _props = isFunction(tag) ? props : transformProps(props);
 
   const vTree = _h(
     _tag,
     _props,
-    _children
+    flatten(children)
   );
   if (isFunction(tag)) vTree.tagName = tag;
 
   return vTree;
 };
 
-const map = (fun, children) => (children || []).map(fun);
+const map = (fun, children) => _map(fun, children || []);
 
 const clone = (child, properties, children) => {
   return h(
@@ -46,10 +42,10 @@ const clone = (child, properties, children) => {
 };
 
 const resolve = vTree => {
-  if (isFunction(vTree.tagName)) return resolve(vTree.tagName({
-    ...vTree.properties,
-    children: vTree.children
-  }));
+  if (isFunction(vTree.tagName)) return resolve(vTree.tagName(
+    vTree.properties,
+    vTree.children
+  ));
   return vTree;
 };
 

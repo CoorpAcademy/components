@@ -5,9 +5,9 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body ng-controller="main">
-  <input ng-model="user.username"/>
-  <react-title value="{{user.username}}"></react-title>
-  <vdom-title value="{{user.username}}"></vdom-title>
+  <input ng-model="props.value"/>
+  <react-title props="props"></react-title>
+  <vdom-title props="props"></vdom-title>
   <script type="text/javascript" src="dist/bundle.js"></script>
 </body>
 </html>

@@ -2,6 +2,6 @@ example/
 src/
 sandbox/
 .*
-webpack.config.js
+webpack*.config.js
 .nyc_output
 coverage

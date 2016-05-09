@@ -1,9 +1,9 @@
-export default (engine, options) => props => {
+export default (engine, options) => (props, children) => {
   const {h} = engine;
 
   return (
     <h1>
-      {props.children}
+      {children}
     </h1>
   );
 };

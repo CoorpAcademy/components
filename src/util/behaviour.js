@@ -5,14 +5,8 @@ const createBehaviour = createProperties => (engine, options) => {
   const {map, resolve} = engine;
   const wrapper = createWrapper(createProperties)(engine, options);
 
-  const render = props => ({
-    ...props,
-    children: map(resolve, props.children)
-  });
-
-  const behaviour = props => {
-    return wrapper(render(props));
-  };
+  const render = children => map(resolve, children);
+  const behaviour = (props, children) => wrapper(props, render(children));
 
   behaviour.decorate = createDecorator(engine)(behaviour);
 
