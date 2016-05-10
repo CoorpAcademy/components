@@ -1,21 +1,35 @@
-var path = require('path');
+require('babel-register');
+
+const path = require('path');
+var assign = require('lodash/fp/assign');
+var reduce = require('lodash/fp/reduce');
+var keys = require('lodash/fp/keys');
+var map = require('lodash/fp/map');
+var set = require('lodash/fp/set');
+var pipe = require('lodash/fp/pipe');
+
 var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
-
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CompressionPlugin = require('compression-webpack-plugin');
+
+var engines = require('./src/engines').default;
 
 module.exports = {
   context: __dirname,
   devtool: 'inline',
 
-  entry: {
-    'bundle': path.join(__dirname, 'src', 'bundle'),
-    'bundle-with-react': path.join(__dirname, 'src', 'bundle-with-react'),
-    'bundle-with-snabbdom': path.join(__dirname, 'src', 'bundle-with-snabbdom'),
-    'bundle-with-virtual-dom': path.join(__dirname, 'src', 'bundle-with-virtual-dom'),
-    'bundle-mooc': path.join(__dirname, 'src', 'bundle-mooc')
-  },
+  entry: pipe(
+    keys,
+    map(function(name) {
+      var entry = ['bundle', 'with', name].join('-');
+      return set(entry, path.join(__dirname, 'src', entry), {});
+    }),
+    reduce(assign, {
+      'bundle': path.join(__dirname, 'src', 'bundle'),
+      'bundle-mooc': path.join(__dirname, 'src', 'bundle-mooc')
+    })
+  )(engines),
 
   output: {
     library: 'Components',
@@ -24,10 +38,14 @@ module.exports = {
   },
 
   module: {
-    loaders: [
-      { test: /\.js$/, loader: 'babel', include: [path.join(__dirname, 'src')] },
-      { test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss') }
-    ]
+    loaders: [{
+      test: /\.js$/,
+      loader: 'babel',
+      include: [path.join(__dirname, 'src')]
+    }, {
+      test: /\.css$/,
+      loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss')
+    }]
   },
 
   postcss: [

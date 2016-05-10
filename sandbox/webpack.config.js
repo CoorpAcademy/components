@@ -1,28 +1,21 @@
-var path = require('path');
-var webpack = require('webpack');
-var autoprefixer = require('autoprefixer');
+import path from 'path';
+import webpack from 'webpack';
+import autoprefixer from 'autoprefixer';
 
-function entries(names){
-  var entries = {};
-  names.forEach(function(name){
-    entries[name] = [
-      'webpack-hot-middleware/client',
-      path.join(__dirname, 'src', name)
-    ];
-  });
-
-  return entries;
-}
-
-module.exports = {
+module.exports = ({
   context: __dirname,
   devtool: 'source-map',
 
-  entry: entries([
-    'sandbox-react',
-    'sandbox-virtual-dom',
-    'sandbox-snabbdom'
-  ]),
+  entry: {
+    main: [
+      'webpack-hot-middleware/client',
+      path.join(__dirname, 'src/main')
+    ],
+    angular: [
+      'webpack-hot-middleware/client',
+      path.join(__dirname, 'angular/main')
+    ]
+  },
 
   output: {
     filename: '[name].js',
@@ -31,11 +24,21 @@ module.exports = {
   },
 
   module: {
-    loaders: [
-      { test: /\.json$/, loader: 'json' },
-      { test: /\.js$/, loader: 'babel', include: [path.join(__dirname, 'src'), path.join(__dirname, '../src'), path.join(__dirname, '../example')] },
-      { test: /\.css$/, loader: 'style!css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss' }
-    ]
+    loaders: [{
+      test: /\.json$/,
+      loader: 'json'
+    }, {
+      test: /\.js$/,
+      loader: 'babel',
+      include: [
+        path.join(__dirname, 'src'),
+        path.join(__dirname, 'angular'),
+        path.join(__dirname, '../src')
+      ]
+    }, {
+      test: /\.css$/,
+      loader: 'style!css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss'
+    }]
   },
 
   postcss: [
@@ -46,4 +49,4 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
   ]
-};
+});
