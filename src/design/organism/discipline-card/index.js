@@ -11,7 +11,9 @@ export default (engine, options) => {
     const {translate} = options;
     const {discipline, onClick, onModuleClick} = props;
 
-    const duration = (Math.floor(Math.random() * 7) + 3) * .2;
+    const disciplineClass = discipline.visible ? style.default : style.hidden;
+    const rand = (Math.floor(Math.random() * 7) + 3) * .2;
+    const duration = discipline.visible ? rand : 1;
     const animationDuration = `${duration}s`;
 
     const modules = discipline.modules.map((module, index) => (
@@ -28,7 +30,7 @@ export default (engine, options) => {
     const label = translate ? translate(discipline.label) : discipline.label;
 
     return (
-      <div className={style.default}
+      <div className={disciplineClass}
            onClick={e => onClick(discipline)}
            style={{
              animationDuration

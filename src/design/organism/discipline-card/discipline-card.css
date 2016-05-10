@@ -1,15 +1,29 @@
+@value cardWidth: 205px;
+@value cardHeight: 150px;
+
 .default {
   display: inline-block;
-  width: 205px;
-  height: 150px;
+  width: cardWidth;
+  height: cardHeight;
   border-radius: 5px;
   margin-right: 30px;
   margin-bottom: 32px;
   overflow: hidden;
+  transition: all 0.1s linear;
+  transition-delay: 0s;
 
   animation-name: disciplineCardFadeIn;
   animation-timing-function: ease-in-out;
   animation-delay: 0s;
+}
+
+.hidden {
+  composes: default;
+  height: 0;
+  width: 0;
+  margin: 0;
+  transition-delay: 1s;
+  animation-name: disciplineCardFadeOut;
 }
 
 .moduleProgressionWrapper {
@@ -44,10 +58,31 @@
 @keyframes disciplineCardFadeIn {
   0% {
     transform: scale3d(0, 0, 0);
+    width: cardWidth;
     opacity: 0;
+    height:0;
   }
   100% {
     transform: scale3d(1, 1, 1);
     opacity: 1;
+    height: cardHeight;
+  }
+}
+
+@keyframes disciplineCardFadeOut {
+  0% {
+    transform: scale3d(1, 1, 1);
+    opacity: 1;
+    width: cardWidth;
+    height: cardHeight;
+  }
+  99.999% {
+    width: cardWidth;
+  }
+  100% {
+    transform: scale3d(0, 0, 0);
+    opacity: 0;
+    width: 0;
+    height: 0;
   }
 }
