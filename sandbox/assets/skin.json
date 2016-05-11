@@ -1,10 +1,4 @@
 {
-  "tree": {
-    "filter1": "#0070b2",
-    "filter2": "#3fc1c9",
-    "filter3": "#e23e57",
-    "filter4": "#ff855a"
-  },
   "theme": {
     "primary": "#3498db",
     "good": "#24b694",

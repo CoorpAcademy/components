@@ -42,6 +42,10 @@
   cursor: pointer;
 }
 
+.coloredBar {
+  height: 5px;
+}
+
 .text {
   position: absolute;
   width: 100%;

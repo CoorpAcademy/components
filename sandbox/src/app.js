@@ -1,5 +1,6 @@
-import { createCheckboxes } from '../../src';
+import { createCheckboxes, createDisciplineCard } from '../../src';
 import skin from '../assets/skin';
+import disciplines from '../assets/disciplines';
 import sandbox from './sandbox.css';
 
 export default (engine) => {
@@ -23,13 +24,17 @@ export default (engine) => {
   };
 
   const Checkboxes = createCheckboxes(engine, options);
+  const DisciplineCard = createDisciplineCard(engine, options);
 
   return props => (
-    <Checkboxes
-      theme='courses'
-      choices={choices}
-      onToggle={onToggle}
-    />
+    <div>
+      <Checkboxes
+        theme='courses'
+        choices={choices}
+        onToggle={onToggle}
+      />
+      <DisciplineCard discipline={disciplines[0]}/>
+    </div>
   );
 
 };

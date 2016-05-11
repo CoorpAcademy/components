@@ -8,7 +8,7 @@ export default (engine, options) => {
 
   return props => {
     const {h} = engine;
-    const {translate} = options;
+    const {translate, skin} = options;
     const {discipline, onClick, onModuleClick} = props;
 
     const disciplineClass = discipline.visible ? style.default : style.hidden;
@@ -28,6 +28,8 @@ export default (engine, options) => {
     ));
 
     const label = translate ? translate(discipline.label) : discipline.label;
+    const requireColoredBarBG = discipline.courseNum !== 'undefined' && skin && skin.courses;
+    const coloredBarBG = requireColoredBarBG && skin.courses[discipline.courseNum];
 
     return (
       <div className={disciplineClass}
@@ -43,6 +45,14 @@ export default (engine, options) => {
             </p>
           </div>
         </div>
+
+        <div
+          style={{
+            background: coloredBarBG,
+            height: coloredBarBG ? '5px' : '0'
+          }}
+        />
+
         <CenteredText>
           <div className={style.moduleProgressionWrapper}>
             {modules}
