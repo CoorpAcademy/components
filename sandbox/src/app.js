@@ -3,25 +3,22 @@ import skin from '../assets/skin';
 import disciplines from '../assets/disciplines';
 import sandbox from './sandbox.css';
 
-export default (engine) => {
+export default engine => {
   const {h} = engine;
   const options = {
     skin
   };
 
-  let choices = [{
+  const choices = [{
     label: 'plop',
     checked: false
-  },{
+  }, {
     label: 'plup',
-    checked: true
-  },{
+    checked: false
+  }, {
     label: 'ploup',
     checked: true
   }];
-
-  const onToggle = () => {
-  };
 
   const Checkboxes = createCheckboxes(engine, options);
   const DisciplineCard = createDisciplineCard(engine, options);
@@ -29,12 +26,13 @@ export default (engine) => {
   return props => (
     <div>
       <Checkboxes
+        title='Pick me'
         theme='courses'
+        mode='closable'
+        status='closed'
         choices={choices}
-        onToggle={onToggle}
       />
       <DisciplineCard discipline={disciplines[0]}/>
     </div>
   );
-
 };
