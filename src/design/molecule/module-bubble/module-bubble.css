@@ -1,9 +1,6 @@
 .default {
   display: inline-block;
   position: relative;
-  transition-property: all;
-  transition-duration: 0.5s;
-  transition-timing-function: ease;
   border: 2px solid rgba(255,255,255,0.95);
   border-radius: 50%;
   background: pink;
@@ -54,21 +51,4 @@
 .modulewrapper {
   display: inline-block;
   width: 50px;
-  animation-name: bubbleFadeIn;
-  animation-timing-function: ease;
-  animation-duration: 0.25s;
-}
-
-@keyframes bubbleFadeIn {
-  0% {
-    transform: scale(1);
-  }
-
-  60% {
-    transform: scale(1.1);
-  }
-
-  100% {
-    transform: scale(1);
-  }
 }

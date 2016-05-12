@@ -16,12 +16,10 @@ export default (engine, options) => {
     const duration = discipline.visible ? rand : 1;
     const animationDuration = `${duration}s`;
 
-    const modules = discipline.modules.map((module, index) => (
+    const modules = discipline.modules.map(module => (
       <ModuleBubble
         module = {module}
         onClick = {onModuleClick}
-        delay = {index}
-        after = {duration}
         key = {module.ref}
       >
       </ModuleBubble>

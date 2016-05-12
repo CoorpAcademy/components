@@ -7,19 +7,15 @@ export default (engine, options) => {
   const LabelModName = createLabelModName(engine, options);
 
   return props => {
-    const {module, onClick, delay, after} = props;
+    const {module, onClick} = props;
     const iconCode = String.fromCharCode(skin.icons[module.status]);
     const filtered = module.filtered;
     const disabled = module.disabled;
     const className = filtered || disabled ? style.disabled : style.default;
     const label = translate ? translate(module.label) : module.label;
 
-    const animationDelayNumber = (delay || 0) * 0.08 + (after || 0) * 0.8;
-    const animationDelay = `${delay}s`;
-
     return (
-      <div className={style.modulewrapper}
-            style={{ animationDelay }}>
+      <div className={style.modulewrapper}>
         <span className={className}
               attributes={{
                 'data-icon': iconCode
