@@ -1,90 +1,38 @@
-import style from './main.css';
-import { createDisciplineCards, createSelectBox } from '../../src';
-import createPie from '../../src/design/atom/pie-chart';
-import disciplines from '../assets/disciplines';
+import { createCheckboxes, createDisciplineCard } from '../../src';
 import skin from '../assets/skin';
+import disciplines from '../assets/disciplines';
+import sandbox from './sandbox.css';
 
-export default (engine) => {
+export default engine => {
   const {h} = engine;
   const options = {
     skin
   };
 
-  let choices = [{
+  const choices = [{
     label: 'plop',
     checked: false
-  },{
+  }, {
     label: 'plup',
-    checked: true
-  },{
+    checked: false
+  }, {
     label: 'ploup',
     checked: true
   }];
 
+  const Checkboxes = createCheckboxes(engine, options);
+  const DisciplineCard = createDisciplineCard(engine, options);
 
-  let populations = ['plop', 'plup', 'ploup'];
-
-  const onToggle = () => {
-  }
-
-  const SelectBox = createSelectBox(engine, options);
-  const DisciplineCards = createDisciplineCards(engine, options);
-  const Pie = createPie(engine, options);
-
-  return (props) => (
+  return props => (
     <div>
-      <SelectBox
-        theme='plain'
-        list={populations}
-        current={'plup'}
-        onChange={onToggle}
-      >
-      </SelectBox>
-      <div className={style.learningTreeDefault}>
-        <DisciplineCards disciplines={disciplines}/>
-      </div>
-      <Pie data={exampleData()}/>
+      <Checkboxes
+        title='Pick me'
+        theme='courses'
+        mode='closable'
+        status='closed'
+        choices={choices}
+      />
+      <DisciplineCard discipline={disciplines[0]}/>
     </div>
   );
 };
-
-function rand() {
-  return Math.round(Math.random()*100);
-}
-
-function exampleData() {
-  return  [
-    {
-      'label': 'One',
-      'value' : rand()
-    } ,
-    {
-      'label': 'Two',
-      'value' : rand()
-    } ,
-    {
-      'label': 'Three',
-      'value' : rand()
-    } ,
-    {
-      'label': 'Four',
-      'value' : rand()
-    } ,
-    {
-      'label': 'Five',
-      'value' : rand()
-    } ,
-    {
-      'label': 'Six',
-      'value' : rand()
-    } ,
-    {
-      'label': 'Seven',
-      'value' : rand()
-    } ,
-    {
-      'label': 'Eight',
-      'value' : rand()
-    }
-  ];
-}

@@ -8,27 +8,29 @@ export default (engine, options) => {
 
   return props => {
     const {h} = engine;
-    const {translate} = options;
+    const {translate, skin} = options;
     const {discipline, onClick, onModuleClick} = props;
 
-    const duration = (Math.floor(Math.random() * 7) + 3) * .2;
+    const disciplineClass = discipline.visible ? style.default : style.hidden;
+    const rand = (Math.floor(Math.random() * 7) + 3) * .2;
+    const duration = discipline.visible ? rand : 1;
     const animationDuration = `${duration}s`;
 
-    const modules = discipline.modules.map((module, index) => (
+    const modules = discipline.modules.map(module => (
       <ModuleBubble
         module = {module}
         onClick = {onModuleClick}
-        delay = {index}
-        after = {duration}
         key = {module.ref}
       >
       </ModuleBubble>
     ));
 
     const label = translate ? translate(discipline.label) : discipline.label;
+    const requireColoredBarBG = discipline.courseNum !== 'undefined' && skin && skin.courses;
+    const coloredBarBG = requireColoredBarBG && skin.courses[discipline.courseNum];
 
     return (
-      <div className={style.default}
+      <div className={disciplineClass}
            onClick={e => onClick(discipline)}
            style={{
              animationDuration
@@ -41,6 +43,14 @@ export default (engine, options) => {
             </p>
           </div>
         </div>
+
+        <div
+          style={{
+            background: coloredBarBG,
+            height: coloredBarBG ? '5px' : '0'
+          }}
+        />
+
         <CenteredText>
           <div className={style.moduleProgressionWrapper}>
             {modules}

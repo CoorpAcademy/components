@@ -1,11 +1,14 @@
 [
   {
     "name": {},
+    "visible": true,
+    "courseNum": 1,
+    "label": "Plop!",
     "modules": [
       {
         "level": "base",
-        "status": "init",
-        "statusClass": "isActive",
+        "label": "BASE",
+        "status": "isActive",
         "ref": "mod_NJlLQCK~s",
         "chapters": [
           {
@@ -39,8 +42,8 @@
       },
       {
         "level": "advanced",
-        "status": "lock",
-        "statusClass": "isLocked",
+        "label": "ADVANCED",
+        "status": "isLocked",
         "ref": "mod_4yE87CtZi",
         "chapters": [
           {
@@ -92,8 +95,8 @@
       },
       {
         "level": "coach",
-        "status": "lock",
-        "statusClass": "isLocked",
+        "label": "COACH",
+        "status": "isLocked",
         "ref": "mod_4JcIXAFbo",
         "chapters": [
           {
@@ -174,8 +177,8 @@
     "modules": [
       {
         "level": "base",
-        "status": "init",
-        "statusClass": "isActive",
+        "label": "BASE",
+        "status": "isActive",
         "ref": "mod_4kJS8QAFbi",
         "chapters": [
           {
@@ -206,8 +209,8 @@
       },
       {
         "level": "advanced",
-        "status": "lock",
-        "statusClass": "isLocked",
+        "label": "ADVANCED",
+        "status": "isLocked",
         "ref": "mod_N1QrI7AFbo",
         "chapters": [
           {
@@ -254,8 +257,8 @@
       },
       {
         "level": "coach",
-        "status": "lock",
-        "statusClass": "isLocked",
+        "label": "COACH",
+        "status": "isLocked",
         "ref": "mod_NytSUXCtWs",
         "chapters": [
           {

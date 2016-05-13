@@ -3,4 +3,6 @@
   text-align: center;
   background: no-repeat scroll left center;
   background-size: cover;
+  width: 100%;
+  min-height: 778px;
 }
