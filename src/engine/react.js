@@ -10,10 +10,16 @@ import partial from 'lodash/fp/partial';
 import React, { createElement, createClass } from 'react';
 import { render as _render, findDOMNode } from 'react-dom';
 
+const __DEV__ = __DEV__ || null;
 const omitChildren = omit(['children']);
 
 const h = (tag, props, children) => {
   if (!isArray(children)) children = [];
+
+  if (__DEV__ && isFunction(tag) && tag.validate) {
+    tag.validate(props);
+  }
+
   return createElement(
     tag,
     props || null,

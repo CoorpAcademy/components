@@ -1,13 +1,15 @@
 import style from './titled-checkbox.css';
 
-export default (engine, options) => {
+export default (engine, options = {}) => {
   const {h} = engine;
   const {translate, skin} = options;
+  const icons = skin && skin.icons;
+  const iconSuccess = icons && String.fromCharCode(icons.success);
 
   return props => {
     const {state, background, onToggle} = props;
     const label = translate ? translate(state.label) : state.label;
-    const icon = state.checked ? String.fromCharCode(skin.icons.success) : '';
+    const icon = state.checked ? iconSuccess : '';
 
     return (
       <div className={style.default}>

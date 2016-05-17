@@ -1,4 +1,9 @@
-import { createCheckboxes, createDisciplineCard } from '../../src';
+import {
+  createLabelModName,
+  createCheckboxes,
+  createDisciplineCard
+} from '../../src';
+
 import skin from '../assets/skin';
 import disciplines from '../assets/disciplines';
 import sandbox from './sandbox.css';
@@ -20,11 +25,13 @@ export default engine => {
     checked: true
   }];
 
+  const LabelModName = createLabelModName(engine, options);
   const Checkboxes = createCheckboxes(engine, options);
   const DisciplineCard = createDisciplineCard(engine, options);
 
   return (props, children) => (
     <div>
+      <LabelModName>pop</LabelModName>
       <Checkboxes
         title='Pick me'
         theme='courses'

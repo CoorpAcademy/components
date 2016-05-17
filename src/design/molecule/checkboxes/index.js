@@ -7,12 +7,17 @@ const CLOSABLE = 'closable';
 const OPEN = 'open';
 const CLOSED = 'closed';
 
-export default (engine, options) => {
+export default (engine, options = {}) => {
   const {h} = engine;
   const {skin, translate} = options;
   const TitledCheckbox = createTitledCheckbox(engine, options);
-  const cross = skin && String.fromCharCode(skin.icons.close) || 'x';
-  const arrow = skin && String.fromCharCode(skin.icons['arrow-bottom']) || 'v';
+
+  const icons = skin && skin.icons;
+  const iconCross = icons && String.fromCharCode(icons.close);
+  const iconArrow = icons && String.fromCharCode(icons['arrow-bottom']);
+
+  const cross = iconCross || 'x';
+  const arrow = iconArrow || 'v';
 
   const closedHeader = options => (
     <div className={style.closedHeader}>
@@ -59,7 +64,7 @@ export default (engine, options) => {
    *  - closed (default)
    *  - open
    */
-  return props => {
+  return (props, children) => {
     const {
       title,
       close,
