@@ -2,11 +2,11 @@ import apiCheck from 'api-check';
 
 const check = apiCheck();
 
-const spec = (types) => {
+const spec = types => {
   return check.shape(types);
 };
 
-const validate = (propTypes) => (props) => {
+const validate = propTypes => props => {
   check.throw(propTypes, props);
 };
 

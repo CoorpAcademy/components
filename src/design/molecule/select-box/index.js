@@ -24,7 +24,7 @@ const selectInline = (theme, skin) => {
   return inline[theme];
 };
 
-export default (engine, options) => {
+export default (engine, options = {}) => {
   const {h} = engine;
   const {skin} = options;
 

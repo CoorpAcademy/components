@@ -1,14 +1,16 @@
 import style from './module-bubble.css';
 import createLabelModName from '../../atom/label-mod-name';
 
-export default (engine, options) => {
+export default (engine, options = {}) => {
   const {h} = engine;
   const {skin, translate} = options;
+
+  const icons = skin && skin.icons;
   const LabelModName = createLabelModName(engine, options);
 
   return props => {
     const {module, onClick} = props;
-    const icon = String.fromCharCode(skin.icons[module.status]);
+    const icon = icons && String.fromCharCode(icons[module.status]);
     const filtered = module.filtered;
     const disabled = module.disabled;
     const label = translate ? translate(module.label) : module.label;

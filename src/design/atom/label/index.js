@@ -1,4 +1,4 @@
-import style from './label.css';
+// import style from './label.css';
 import { spec, validate, check } from '../../../util/proptypes-checker';
 
 const propTypes = spec({
@@ -10,7 +10,8 @@ export default (engine, options) => {
 
   const Label = (props, children) => {
     return (
-      <span className={style.default}>
+      // <span className={style.default}>
+      <span>
         {children}
       </span>
     );
