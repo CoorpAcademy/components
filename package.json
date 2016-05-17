@@ -59,7 +59,7 @@
     "postcss-loader": "^0.9.1",
     "react": "^15.0.2",
     "react-dom": "^15.0.2",
-    "snabbdom": "^0.4.0",
+    "snabbdom": "^0.5.0",
     "style-loader": "^0.13.0",
     "virtual-dom": "^2.1.1",
     "webpack": "^1.12.14",
