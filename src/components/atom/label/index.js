@@ -2,7 +2,6 @@ import style from './label.css';
 import { spec, validate, check } from '../../../util/proptypes-checker';
 
 const propTypes = spec({
-  plup: check.string
 });
 
 export default (engine, options) => {

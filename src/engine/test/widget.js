@@ -150,4 +150,7 @@ forEachEngine((name, {h, render, widget}) => {
     update(<Widget foo="bar"/>);
     t.is(root.firstElementChild, elWidget);
   });
+
+  test(`${name}: should execute validation`, t => {
+  });
 });

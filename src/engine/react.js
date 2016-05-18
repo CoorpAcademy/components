@@ -68,7 +68,8 @@ const widget = options => {
     tagName: 'div',
     init: () => {},
     update: () => {},
-    destroy: () => {}
+    destroy: () => {},
+    validate: null
   }, options);
 
   const _widget = createClass({
@@ -92,6 +93,7 @@ const widget = options => {
     }
   });
   _widget.resolve = false;
+  _widget.validate = options.validate;
   return _widget;
 };
 

@@ -2,7 +2,7 @@ import createLabel from '../label';
 import FontNormalBehaviour from '../../../behaviour/font/normal';
 import ColorTextNormalBehaviour from '../../../behaviour/color/text-normal';
 
-export default (engine, options) => (props, children) => {
+export default (engine, options) => {
   const {h} = engine;
 
   const Label = createLabel(engine, options);
@@ -10,7 +10,7 @@ export default (engine, options) => (props, children) => {
   const FontNormal = FontNormalBehaviour(engine, options);
   const ColorTextNormal = ColorTextNormalBehaviour(engine, options);
 
-  return (
+  const LabelNormal = (props, children) => (
     <FontNormal>
       <ColorTextNormal>
         <Label>
@@ -19,4 +19,8 @@ export default (engine, options) => (props, children) => {
       </ColorTextNormal>
     </FontNormal>
   );
+
+  LabelNormal.validate = 'plop';
+
+  return LabelNormal;
 };

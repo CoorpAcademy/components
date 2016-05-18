@@ -116,10 +116,11 @@ const widget = options => {
     init: () => {},
     update: () => {},
     destroy: () => {},
+    validate: null,
     ...options
   };
 
-  return props => {
+  const Widget = props => {
     return _h(
       options.tagName,
       {
@@ -132,6 +133,10 @@ const widget = options => {
       }
     );
   };
+
+  Widget.validate = options.validate;
+
+  return Widget;
 };
 
 export default {
