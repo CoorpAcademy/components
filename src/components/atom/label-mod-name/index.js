@@ -1,9 +1,9 @@
 import { spec, validate, check } from '../../../util/proptypes-checker';
 import createLabel from '../label';
-import FontTinyBehaviour from '../../../behaviour/font/tiny';
-import FontUppercaseBehaviour from '../../../behaviour/font/uppercase';
-import EllipsisBehaviour from '../../../behaviour/font/ellipsis';
-import ColorTextNormalBehaviour from '../../../behaviour/color/text-normal';
+import FontTinyBehaviour from '../../behaviour/font/tiny';
+import FontUppercaseBehaviour from '../../behaviour/font/uppercase';
+import EllipsisBehaviour from '../../behaviour/font/ellipsis';
+import ColorTextNormalBehaviour from '../../behaviour/color/text-normal';
 
 const propTypes = spec({
 });

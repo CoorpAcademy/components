@@ -1,6 +1,6 @@
 import createLabel from '../label';
-import FontNormalBehaviour from '../../../behaviour/font/normal';
-import ColorTextNormalBehaviour from '../../../behaviour/color/text-normal';
+import FontNormalBehaviour from '../../behaviour/font/normal';
+import ColorTextNormalBehaviour from '../../behaviour/color/text-normal';
 
 export default (engine, options) => {
   const {h} = engine;

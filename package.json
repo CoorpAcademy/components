@@ -2,7 +2,7 @@
   "name": "@coorpacademy/components",
   "version": "0.3.3",
   "description": "Component library for web front ends",
-  "main": "lib/index.js",
+  "main": "lib/components/index.js",
   "scripts": {
     "start": "babel-node sandbox/index.js",
     "build": "npm run build:commonjs & npm run build:browser & wait",
