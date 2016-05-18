@@ -1,7 +1,7 @@
 import style from './discipline-card.css';
 import { spec, validate, check } from '../../../util/proptypes-checker';
 import createModuleBubble from '../../molecule/module-bubble';
-import CenteredTextBehaviour from '../../../behaviour/align/centered';
+import CenteredTextBehaviour from '../../behaviour/align/centered';
 
 const propTypes = spec({
   // discipline, onClick, onModuleClick
