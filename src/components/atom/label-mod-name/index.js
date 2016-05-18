@@ -4,7 +4,7 @@ import FontUppercaseBehaviour from '../../../behaviour/font/uppercase';
 import EllipsisBehaviour from '../../../behaviour/font/ellipsis';
 import ColorTextNormalBehaviour from '../../../behaviour/color/text-normal';
 
-export default (engine, options) => (props, children) => {
+export default (engine, options = {}) => {
   const {h} = engine;
   const {skin} = options;
 
@@ -15,19 +15,23 @@ export default (engine, options) => (props, children) => {
   const Ellipsis = EllipsisBehaviour(engine, options);
   const ColorTextNormal = ColorTextNormalBehaviour(engine, options);
 
-  return (
-      <FontUppercase>
-        <FontTiny>
-          <Ellipsis value={'50px'}>
-            <ColorTextNormal value={
-              skin.texts['mod-tree-label']
-            }>
-              <Label>
-                {children}
-              </Label>
-            </ColorTextNormal>
-          </Ellipsis>
-        </FontTiny>
-      </FontUppercase>
+  const LabelModName = (props, children) => (
+    <FontUppercase>
+      <FontTiny>
+        <Ellipsis value={'50px'}>
+          <ColorTextNormal value={
+            skin.texts['mod-tree-label']
+          }>
+            <Label>
+              {children}
+            </Label>
+          </ColorTextNormal>
+        </Ellipsis>
+      </FontTiny>
+    </FontUppercase>
   );
+
+  LabelModName.validate = 'plop';
+
+  return LabelModName;
 };
