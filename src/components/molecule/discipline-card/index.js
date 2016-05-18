@@ -1,12 +1,17 @@
 import style from './discipline-card.css';
+import { spec, validate, check } from '../../../util/proptypes-checker';
 import createModuleBubble from '../../molecule/module-bubble';
 import CenteredTextBehaviour from '../../../behaviour/align/centered';
+
+const propTypes = spec({
+  // discipline, onClick, onModuleClick
+});
 
 export default (engine, options) => {
   const ModuleBubble = createModuleBubble(engine, options);
   const CenteredText = CenteredTextBehaviour(engine, options);
 
-  return props => {
+  const DisciplineCard = (props, children) => {
     const {h} = engine;
     const {translate, skin} = options;
     const {discipline, onClick, onModuleClick} = props;
@@ -70,4 +75,7 @@ export default (engine, options) => {
       </div>
     );
   };
+
+  DisciplineCard.validate = validate(propTypes);
+  return DisciplineCard;
 };

@@ -1,4 +1,9 @@
 import style from './titled-checkbox.css';
+import { spec, validate, check } from '../../../util/proptypes-checker';
+
+const propTypes = spec({
+  // state, background, onToggle
+});
 
 export default (engine, options = {}) => {
   const {h} = engine;
@@ -6,7 +11,7 @@ export default (engine, options = {}) => {
   const icons = skin && skin.icons;
   const iconSuccess = icons && String.fromCharCode(icons.success);
 
-  return props => {
+  const TitledCheckbox = (props, children) => {
     const {state, background, onToggle} = props;
     const label = translate ? translate(state.label) : state.label;
     const icon = state.checked ? iconSuccess : '';
@@ -36,4 +41,7 @@ export default (engine, options = {}) => {
       </div>
     );
   };
+
+  TitledCheckbox.validate = validate(propTypes);
+  return TitledCheckbox;
 };

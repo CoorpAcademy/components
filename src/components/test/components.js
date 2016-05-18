@@ -20,15 +20,15 @@ const performTests = (name, engine) => (factoryName, factory) => {
     t.pass();
   });
 
-  // test(`${name} > ${componentName} with a skin`, t => {
-  //   const Component = factory(engine, options);
-  //   t.pass();
-  // });
+  test(`${name} > ${componentName} with a skin`, t => {
+    const Component = factory(engine, options);
+    t.pass();
+  });
 
-  // test(`${name} > ${componentName} should have a validate function`, t => {
-  //   const Component = factory(engine, options);
-  //   t.truthy(Component.validate);
-  // });
+  test(`${name} > ${componentName} should have a validate function`, t => {
+    const Component = factory(engine, options);
+    t.truthy(Component.validate);
+  });
 };
 
 forEachEngine((name, engine) => {

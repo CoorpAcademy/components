@@ -1,5 +1,10 @@
 import style from './select-box.css';
+import { spec, validate, check } from '../../../util/proptypes-checker';
 import get from 'lodash/fp/get';
+
+const propTypes = spec({
+  // list, onChange, theme = 'default'
+});
 
 const spanInline = (theme, skin) => {
   const color = {
@@ -28,7 +33,7 @@ export default (engine, options = {}) => {
   const {h} = engine;
   const {skin} = options;
 
-  return props => {
+  const SelectBox = (props, children) => {
     const {list, onChange, theme = 'default'} = props;
     const iconCode = String.fromCharCode(skin.icons.select);
 
@@ -59,4 +64,7 @@ export default (engine, options = {}) => {
       </span>
     );
   };
+
+  SelectBox.validate = validate(propTypes);
+  return SelectBox;
 };

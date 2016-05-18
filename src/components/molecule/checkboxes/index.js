@@ -1,3 +1,4 @@
+import { spec, validate, check } from '../../../util/proptypes-checker';
 import style from './checkboxes.css';
 import createTitledCheckbox from '../titled-checkbox';
 
@@ -6,6 +7,17 @@ const NORMAL = 'normal';
 const CLOSABLE = 'closable';
 const OPEN = 'open';
 const CLOSED = 'closed';
+
+const propTypes = spec({
+  title: check.string
+  // choices,
+  // onToggle,
+  // onClose,
+  // onOpen,
+  // theme = DEFAULT,
+  // mode = NORMAL,
+  // status = CLOSED
+});
 
 export default (engine, options = {}) => {
   const {h} = engine;
@@ -64,7 +76,7 @@ export default (engine, options = {}) => {
    *  - closed (default)
    *  - open
    */
-  return (props, children) => {
+  const Checkboxes = (props, children) => {
     const {
       title,
       close,
@@ -114,4 +126,7 @@ export default (engine, options = {}) => {
       </div>
     );
   };
+
+  Checkboxes.validate = validate(propTypes);
+  return Checkboxes;
 };

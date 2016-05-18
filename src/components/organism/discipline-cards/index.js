@@ -1,11 +1,16 @@
 import style from './discipline-cards.css';
-import createDisciplineCard from '../discipline-card';
+import { spec, validate, check } from '../../../util/proptypes-checker';
+import createDisciplineCard from '../../molecule/discipline-card';
 import get from 'lodash/fp/get';
+
+const propTypes = spec({
+  // onModuleClick, onDisciplineClick
+});
 
 export default (engine, options) => {
   const DisciplineCard = createDisciplineCard(engine, options);
 
-  return props => {
+  const DisciplineCards = (props, children) => {
     const {h} = engine;
     const {skin} = options;
     const {onModuleClick, onDisciplineClick} = props;
@@ -37,4 +42,7 @@ export default (engine, options) => {
       </div>
     );
   };
+
+  DisciplineCards.validate = validate(propTypes);
+  return DisciplineCards;
 };

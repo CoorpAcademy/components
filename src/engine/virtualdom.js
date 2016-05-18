@@ -91,7 +91,8 @@ const widget = options => {
     namespaceURI: 'http://www.w3.org/1999/xhtml',
     init: () => {},
     update: () => {},
-    destroy: () => {}
+    destroy: () => {},
+    validate: null
   }, options);
 
   const Widget = function(props) {
@@ -114,9 +115,12 @@ const widget = options => {
     return options.destroy(el);
   };
 
-  return props => {
+  const component = props => {
     return new Widget(props);
   };
+
+  component.validate = options.validate;
+  return component;
 };
 
 export default {

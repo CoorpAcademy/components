@@ -1,9 +1,13 @@
+import { spec, validate, check } from '../../../util/proptypes-checker';
 import createLabel from '../label';
 import FontTinyBehaviour from '../../../behaviour/font/tiny';
 import FontUppercaseBehaviour from '../../../behaviour/font/uppercase';
 import FontEmbossedBehaviour from '../../../behaviour/font/embossed';
 import EllipsisBehaviour from '../../../behaviour/font/ellipsis';
 import ColorTextNormalBehaviour from '../../../behaviour/color/text-normal';
+
+const propTypes = spec({
+});
 
 export default (engine, options = {}) => {
   const {h} = engine;
@@ -35,7 +39,6 @@ export default (engine, options = {}) => {
     </FontEmbossed>
   );
 
-  LabelModName.validate = 'plop';
-
+  LabelModName.validate = validate(propTypes);
   return LabelModName;
 };

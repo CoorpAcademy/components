@@ -1,5 +1,10 @@
 import style from './module-bubble.css';
+import { spec, validate, check } from '../../../util/proptypes-checker';
 import createLabelModName from '../../atom/label-mod-name';
+
+const propTypes = spec({
+  // module, onClick
+});
 
 export default (engine, options = {}) => {
   const {h} = engine;
@@ -8,7 +13,7 @@ export default (engine, options = {}) => {
   const icons = skin && skin.icons;
   const LabelModName = createLabelModName(engine, options);
 
-  return props => {
+  const ModuleBubble = (props, children) => {
     const {module, onClick} = props;
     const icon = icons && String.fromCharCode(icons[module.status]);
     const filtered = module.filtered;
@@ -55,4 +60,7 @@ export default (engine, options = {}) => {
       </div>
     );
   };
+
+  ModuleBubble.validate = validate(propTypes);
+  return ModuleBubble;
 };

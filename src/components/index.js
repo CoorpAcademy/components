@@ -6,10 +6,10 @@ import createLabel from './atom/label';
 import createPieChart from './atom/pie-chart';
 import createTitle from './atom/title';
 import createCheckboxes from './molecule/checkboxes';
+import createDisciplineCard from './molecule/discipline-card';
 import createModuleBubble from './molecule/module-bubble';
 import createSelectBox from './molecule/select-box';
 import createTitledCheckbox from './molecule/titled-checkbox';
-import createDisciplineCard from './organism/discipline-card';
 import createDisciplineCards from './organism/discipline-cards';
 
 export {
@@ -19,9 +19,9 @@ export {
   createPieChart,
   createTitle,
   createCheckboxes,
+  createDisciplineCard,
   createModuleBubble,
   createSelectBox,
   createTitledCheckbox,
-  createDisciplineCard,
   createDisciplineCards
 };
