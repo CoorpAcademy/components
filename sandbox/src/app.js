@@ -2,7 +2,7 @@ import {
   createLabelModName,
   createCheckboxes,
   createDisciplineCard
-} from '../../src';
+} from '../../src/components';
 
 import skin from '../assets/skin';
 import disciplines from '../assets/disciplines';

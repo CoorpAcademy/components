@@ -5,7 +5,7 @@ import FontEmbossedBehaviour from '../../../behaviour/font/embossed';
 import EllipsisBehaviour from '../../../behaviour/font/ellipsis';
 import ColorTextNormalBehaviour from '../../../behaviour/color/text-normal';
 
-export default (engine, options) => (props, children) => {
+export default (engine, options = {}) => {
   const {h} = engine;
   const {skin} = options;
 
@@ -17,7 +17,7 @@ export default (engine, options) => (props, children) => {
   const Ellipsis = EllipsisBehaviour(engine, options);
   const ColorTextNormal = ColorTextNormalBehaviour(engine, options);
 
-  return (
+  const LabelModName = (props, children) => (
     <FontEmbossed>
       <FontUppercase>
         <FontTiny>
@@ -34,4 +34,8 @@ export default (engine, options) => (props, children) => {
       </FontUppercase>
     </FontEmbossed>
   );
+
+  LabelModName.validate = 'plop';
+
+  return LabelModName;
 };

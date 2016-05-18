@@ -1,2 +1,2 @@
-import * as bundle from './';
+import * as bundle from './components';
 module.exports = bundle;
