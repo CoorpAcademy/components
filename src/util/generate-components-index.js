@@ -9,7 +9,7 @@ function reset(index) {
 }
 
 function extractElements() {
-  const components = '../components/{atom,molecule,organism}/**/*.js';
+  const components = '../components/{atom,molecule,organism}/**/index.js';
   const files = glob.sync(path.join(__dirname, components));
   const elements = files.map(function(file) {
     const splinters = file.split('/');

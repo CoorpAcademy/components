@@ -1,4 +1,4 @@
-import style from './titled-checkbox.css';
+import style from './style.css';
 import { spec, validate, check } from '../../../util/proptypes-checker';
 
 const propTypes = spec({
