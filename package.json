@@ -6,7 +6,7 @@
   "scripts": {
     "start": "babel-node sandbox/index.js",
     "build": "npm run build:commonjs & npm run build:browser & wait",
-    "build:commonjs": "npm run clean:commonjs && babel src --out-dir lib -s",
+    "build:commonjs": "npm run clean:commonjs && BABEL_ENV=production babel src --out-dir lib -s",
     "build:browser": "npm run clean:browser && webpack",
     "build:dev-mooc": "npm run clean:browser && webpack --config webpack-dev-mooc.config.js",
     "prepublish": "npm run build",
