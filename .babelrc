@@ -3,13 +3,17 @@
   "env": {
     "development": {
       "sourceMaps": "inline"
+    },
+    "production": {
+      "plugins": [
+        ["css-modules-transform", {
+            "generateScopedName": "[name]__[local]___[hash:base64:5]"
+        }]
+      ]
     }
   },
   "plugins": [
-    ["transform-h-jsx", { "pragma": "h" }],
-    ["css-modules-transform", {
-        "generateScopedName": "[name]__[local]___[hash:base64:5]"
-    }]
+    ["transform-h-jsx", { "pragma": "h" }]
   ],
   "ignore": [
     "node_modules/**/*"
