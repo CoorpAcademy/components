@@ -1,8 +1,11 @@
 import style from './label.css';
 import { spec, validate, check } from '../../../util/proptypes-checker';
 
-const propTypes = spec({
-});
+const conditions = {
+  props: null,
+  children: spec({
+  })
+};
 
 export default (engine, options) => {
   const {h} = engine;
@@ -13,7 +16,9 @@ export default (engine, options) => {
     </span>
   );
 
-  Label.validate = validate(propTypes);
+  if (process.env.NODE_ENV !== 'production') {
+    Label.validate = validate(conditions);
+  }
 
   return Label;
 };

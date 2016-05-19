@@ -3,9 +3,11 @@ import { spec, validate, check } from '../../../util/proptypes-checker';
 import createModuleBubble from '../../molecule/module-bubble';
 import CenteredTextBehaviour from '../../behaviour/align/centered';
 
-const propTypes = spec({
-  // discipline, onClick, onModuleClick
-});
+const conditions = {
+  props: null, // discipline, onClick, onModuleClick
+  children: spec({
+  })
+};
 
 export default (engine, options) => {
   const ModuleBubble = createModuleBubble(engine, options);
@@ -76,6 +78,9 @@ export default (engine, options) => {
     );
   };
 
-  DisciplineCard.validate = validate(propTypes);
+  if (process.env.NODE_ENV !== 'production') {
+    DisciplineCard.validate = validate(conditions);
+  }
+
   return DisciplineCard;
 };

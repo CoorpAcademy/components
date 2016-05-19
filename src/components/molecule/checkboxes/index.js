@@ -8,16 +8,20 @@ const CLOSABLE = 'closable';
 const OPEN = 'open';
 const CLOSED = 'closed';
 
-const propTypes = spec({
-  title: check.string
-  // choices,
-  // onToggle,
-  // onClose,
-  // onOpen,
-  // theme = DEFAULT,
-  // mode = NORMAL,
-  // status = CLOSED
-});
+const conditions = {
+  props: spec({
+      title: check.string
+    // choices,
+    // onToggle,
+    // onClose,
+    // onOpen,
+    // theme = DEFAULT,
+    // mode = NORMAL,
+    // status = CLOSED
+  }),
+  children: spec({
+  })
+};
 
 export default (engine, options = {}) => {
   const {h} = engine;
@@ -127,6 +131,9 @@ export default (engine, options = {}) => {
     );
   };
 
-  Checkboxes.validate = validate(propTypes);
+  if (process.env.NODE_ENV !== 'production') {
+    Checkboxes.validate = validate(conditions);
+  }
+
   return Checkboxes;
 };

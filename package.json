@@ -16,10 +16,10 @@
     "clean:cov": "rm -rf .nyc_output coverage",
     "test": "npm run lint && npm run nyc",
     "lint": "eslint src/",
-    "ava": "ava",
-    "nyc": "nyc ava",
-    "nyc:lcov": "nyc ava --reporter=text --reporter=lcov",
-    "coveralls": "nyc report --reporter=text-lcov | coveralls"
+    "ava": "BABEL_ENV=test ava",
+    "nyc": "BABEL_ENV=test nyc ava",
+    "nyc:lcov": "BABEL_ENV=test nyc ava --reporter=text --reporter=lcov",
+    "coveralls": "BABEL_ENV=test nyc report --reporter=text-lcov | coveralls"
   },
   "contributors": [
     "Arthur Weber <arthur.weber@coorpacademy.com>",

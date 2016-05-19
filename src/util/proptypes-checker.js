@@ -6,8 +6,14 @@ const spec = types => {
   return check.shape(types);
 };
 
-const validate = propTypes => props => {
-  check.throw(propTypes, props);
+const validate = conditions => {
+  const validation = (props, children) => {
+    if (conditions.props) check.throw(conditions.props, props);
+    if (conditions.children) check.throw(conditions.children, children);
+  };
+
+  validation.conditions = conditions;
+  return validation;
 };
 
 export {
