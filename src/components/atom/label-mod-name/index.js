@@ -5,8 +5,11 @@ import FontUppercaseBehaviour from '../../behaviour/font/uppercase';
 import EllipsisBehaviour from '../../behaviour/font/ellipsis';
 import ColorTextNormalBehaviour from '../../behaviour/color/text-normal';
 
-const propTypes = spec({
-});
+const conditions = {
+  props: null,
+  children: spec({
+  })
+};
 
 export default (engine, options = {}) => {
   const {h} = engine;
@@ -35,6 +38,9 @@ export default (engine, options = {}) => {
     </FontUppercase>
   );
 
-  LabelModName.validate = validate(propTypes);
+  if (process.env.NODE_ENV !== 'production') {
+    LabelModName.validate = validate(conditions);
+  }
+
   return LabelModName;
 };

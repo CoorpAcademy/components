@@ -3,9 +3,11 @@ import { spec, validate, check } from '../../../util/proptypes-checker';
 import createDisciplineCard from '../../molecule/discipline-card';
 import get from 'lodash/fp/get';
 
-const propTypes = spec({
-  // onModuleClick, onDisciplineClick
-});
+const conditions = {
+  props: null,
+  children: spec({
+  })
+};
 
 export default (engine, options) => {
   const DisciplineCard = createDisciplineCard(engine, options);
@@ -43,6 +45,9 @@ export default (engine, options) => {
     );
   };
 
-  DisciplineCards.validate = validate(propTypes);
+  if (process.env.NODE_ENV !== 'production') {
+    DisciplineCards.validate = validate(conditions);
+  }
+
   return DisciplineCards;
 };

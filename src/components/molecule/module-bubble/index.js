@@ -2,9 +2,11 @@ import style from './module-bubble.css';
 import { spec, validate, check } from '../../../util/proptypes-checker';
 import createLabelModName from '../../atom/label-mod-name';
 
-const propTypes = spec({
-  // module, onClick
-});
+const conditions = {
+  props: null,
+  children: spec({
+  })
+};
 
 export default (engine, options = {}) => {
   const {h} = engine;
@@ -47,6 +49,9 @@ export default (engine, options = {}) => {
     );
   };
 
-  ModuleBubble.validate = validate(propTypes);
+  if (process.env.NODE_ENV !== 'production') {
+    ModuleBubble.validate = validate(conditions);
+  }
+
   return ModuleBubble;
 };

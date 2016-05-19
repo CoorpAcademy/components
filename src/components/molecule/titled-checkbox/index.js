@@ -1,9 +1,11 @@
 import style from './style.css';
 import { spec, validate, check } from '../../../util/proptypes-checker';
 
-const propTypes = spec({
-  // state, background, onToggle
-});
+const conditions = {
+  props: null,
+  children: spec({
+  })
+};
 
 export default (engine, options = {}) => {
   const {h} = engine;
@@ -42,6 +44,9 @@ export default (engine, options = {}) => {
     );
   };
 
-  TitledCheckbox.validate = validate(propTypes);
+  if (process.env.NODE_ENV !== 'production') {
+    TitledCheckbox.validate = validate(conditions);
+  }
+
   return TitledCheckbox;
 };

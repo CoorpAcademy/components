@@ -1,6 +1,13 @@
+import { spec, validate, check } from '../../../util/proptypes-checker';
 import createLabel from '../label';
 import FontNormalBehaviour from '../../behaviour/font/normal';
 import ColorTextNormalBehaviour from '../../behaviour/color/text-normal';
+
+const conditions = {
+  props: null,
+  children: spec({
+  })
+};
 
 export default (engine, options) => {
   const {h} = engine;
@@ -20,7 +27,9 @@ export default (engine, options) => {
     </FontNormal>
   );
 
-  LabelNormal.validate = 'plop';
+  if (process.env.NODE_ENV !== 'production') {
+    LabelNormal.validate = validate(conditions);
+  }
 
   return LabelNormal;
 };

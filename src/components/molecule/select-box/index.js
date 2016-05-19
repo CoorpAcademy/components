@@ -2,9 +2,11 @@ import style from './select-box.css';
 import { spec, validate, check } from '../../../util/proptypes-checker';
 import get from 'lodash/fp/get';
 
-const propTypes = spec({
-  // list, onChange, theme = 'default'
-});
+const conditions = {
+  props: null,
+  children: spec({
+  })
+};
 
 const spanInline = (theme, skin) => {
   const color = {
@@ -65,6 +67,9 @@ export default (engine, options = {}) => {
     );
   };
 
-  SelectBox.validate = validate(propTypes);
+  if (process.env.NODE_ENV !== 'production') {
+    SelectBox.validate = validate(conditions);
+  }
+
   return SelectBox;
 };
