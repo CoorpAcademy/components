@@ -1,7 +1,8 @@
-import style from './discipline-cards.css';
-import { spec, validate, check } from '../../../util/proptypes-checker';
-import createDisciplineCard from '../../molecule/discipline-card';
 import get from 'lodash/fp/get';
+import { spec, validate, check } from '../../../util/proptypes-checker';
+import style from './discipline-cards.css';
+import fixtures from './fixtures';
+import createDisciplineCard from '../../molecule/discipline-card';
 
 const conditions = {
   props: null,
@@ -47,6 +48,7 @@ export default (engine, options) => {
 
   if (process.env.NODE_ENV !== 'production') {
     DisciplineCards.validate = validate(conditions);
+    DisciplineCards.fixtures = fixtures;
   }
 
   return DisciplineCards;

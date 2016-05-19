@@ -1,4 +1,5 @@
 import { spec, validate, check } from '../../../util/proptypes-checker';
+import fixtures from './fixtures';
 import createLabel from '../label';
 import FontNormalBehaviour from '../../behaviour/font/normal';
 import ColorTextNormalBehaviour from '../../behaviour/color/text-normal';
@@ -29,6 +30,7 @@ export default (engine, options) => {
 
   if (process.env.NODE_ENV !== 'production') {
     LabelNormal.validate = validate(conditions);
+    LabelNormal.fixtures = fixtures;
   }
 
   return LabelNormal;

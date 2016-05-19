@@ -2,7 +2,7 @@ import test from 'ava';
 import forEachEngine from '../../util/for-each-engine';
 
 forEachEngine((name, {h, resolve}) => {
-  test(`${name}: should resolve component node`, t => {
+  test(`${name} › should resolve component node`, t => {
     const Component = props => <h1/>;
     const tree = <Component/>;
 
@@ -10,7 +10,7 @@ forEachEngine((name, {h, resolve}) => {
     t.deepEqual(resolve(tree), expected);
   });
 
-  test(`${name}: should resolve component node with properties`, t => {
+  test(`${name} › should resolve component node with properties`, t => {
     const Component = props => <h1 {...props}/>;
     const tree = <Component foo="bar"/>;
 
@@ -18,7 +18,7 @@ forEachEngine((name, {h, resolve}) => {
     t.deepEqual(resolve(tree), expected);
   });
 
-  test(`${name}: should resolve component node with children`, t => {
+  test(`${name} › should resolve component node with children`, t => {
     const Component = (props, children) => <h1 {...props}>{children}</h1>;
     const tree = <Component foo="bar">baz</Component>;
 

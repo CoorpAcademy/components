@@ -1,5 +1,6 @@
 import { spec, validate, check } from '../../../util/proptypes-checker';
 import style from './checkboxes.css';
+import fixtures from './fixtures';
 import createTitledCheckbox from '../titled-checkbox';
 
 const DEFAULT = 'default';
@@ -10,7 +11,7 @@ const CLOSED = 'closed';
 
 const conditions = {
   props: spec({
-      title: check.string
+    title: check.string
     // choices,
     // onToggle,
     // onClose,
@@ -133,6 +134,7 @@ export default (engine, options = {}) => {
 
   if (process.env.NODE_ENV !== 'production') {
     Checkboxes.validate = validate(conditions);
+    Checkboxes.fixtures = fixtures;
   }
 
   return Checkboxes;

@@ -2,7 +2,7 @@ import test from 'ava';
 import forEachEngine from '../../util/for-each-engine';
 
 forEachEngine((name, {h, map, resolve}) => {
-  test(`${name}: should travel each children`, t => {
+  test(`${name} › should travel each children`, t => {
     const Component = (props, children) => (
       <h1>
         {
@@ -24,7 +24,7 @@ forEachEngine((name, {h, map, resolve}) => {
     resolve(tree);
   });
 
-  test(`${name}: shouldn't process if there is no child`, t => {
+  test(`${name} › shouldn't process if there is no child`, t => {
     t.plan(0);
     map(() => t.pass());
   });

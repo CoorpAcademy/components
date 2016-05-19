@@ -6,7 +6,7 @@ import createWrapper from '../wrapper';
 forEachEngine((name, engine) => {
   const {h, resolve} = engine;
 
-  test(`${name}: should extend children properties`, t => {
+  test(`${name} › should extend children properties`, t => {
     const Title = (props, children) => <h1 style={{color: props.color}}>{children}</h1>;
     const Color = createWrapper(() => props => ({color: props.color}))(engine);
 
@@ -20,7 +20,7 @@ forEachEngine((name, engine) => {
     t.deepEqual(resolve(tree), <h1 style={{color: 'blue'}}>foo</h1>);
   });
 
-  test(`${name}: should override or use default children properties`, t => {
+  test(`${name} › should override or use default children properties`, t => {
     const Title = props => <h1 foo={props.foo}><strong bar={props.bar}>{props.baz}</strong></h1>;
     const Wrapper = createWrapper(() => props => props)(engine);
 

@@ -1,6 +1,7 @@
-import style from './select-box.css';
-import { spec, validate, check } from '../../../util/proptypes-checker';
 import get from 'lodash/fp/get';
+import { spec, validate, check } from '../../../util/proptypes-checker';
+import style from './select-box.css';
+import fixtures from './fixtures';
 
 const conditions = {
   props: null,
@@ -69,6 +70,7 @@ export default (engine, options = {}) => {
 
   if (process.env.NODE_ENV !== 'production') {
     SelectBox.validate = validate(conditions);
+    SelectBox.fixtures = fixtures;
   }
 
   return SelectBox;

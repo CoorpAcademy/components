@@ -6,7 +6,7 @@ import createDecorator from '../decorator';
 forEachEngine((name, engine) => {
   const {h, resolve, walker} = engine;
 
-  test(`${name}: should decorate element`, t => {
+  test(`${name} › should decorate element`, t => {
     const List = (props, children) => <ul {...props}>{children}</ul>;
     const ItemList = (props, children) => <li {...props}>{children}</li>;
 
@@ -21,7 +21,7 @@ forEachEngine((name, engine) => {
     t.deepEqual(walker(resolve, tree), expected);
   });
 
-  test(`${name}: should pass properties to composite components`, t => {
+  test(`${name} › should pass properties to composite components`, t => {
     const List = (props, children) => <ul {...props}>{children}</ul>;
     const ItemList = (props, children) => <li {...props}>{children}</li>;
 

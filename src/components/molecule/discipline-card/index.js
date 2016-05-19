@@ -1,5 +1,6 @@
-import style from './discipline-card.css';
 import { spec, validate, check } from '../../../util/proptypes-checker';
+import style from './discipline-card.css';
+import fixtures from './fixtures';
 import createModuleBubble from '../../molecule/module-bubble';
 import CenteredTextBehaviour from '../../behaviour/align/centered';
 
@@ -80,6 +81,7 @@ export default (engine, options) => {
 
   if (process.env.NODE_ENV !== 'production') {
     DisciplineCard.validate = validate(conditions);
+    DisciplineCard.fixtures = fixtures;
   }
 
   return DisciplineCard;

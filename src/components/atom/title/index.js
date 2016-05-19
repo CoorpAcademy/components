@@ -1,4 +1,5 @@
 import { spec, validate, check } from '../../../util/proptypes-checker';
+import fixtures from './fixtures';
 
 const conditions = {
   props: null,
@@ -16,6 +17,7 @@ export default (engine, options) => {
 
   if (process.env.NODE_ENV !== 'production') {
     Title.validate = validate(conditions);
+    Title.fixtures = fixtures;
   }
 
   return Title;
