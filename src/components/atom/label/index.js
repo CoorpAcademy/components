@@ -1,5 +1,6 @@
-import style from './label.css';
 import { spec, validate, check } from '../../../util/proptypes-checker';
+import style from './label.css';
+import fixtures from './fixtures';
 
 const conditions = {
   props: null,
@@ -18,6 +19,7 @@ export default (engine, options) => {
 
   if (process.env.NODE_ENV !== 'production') {
     Label.validate = validate(conditions);
+    Label.fixtures = fixtures;
   }
 
   return Label;

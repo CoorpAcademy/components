@@ -1,4 +1,5 @@
 import { spec, validate, check } from '../../../util/proptypes-checker';
+import fixtures from './fixtures';
 import createLabel from '../label';
 import FontTinyBehaviour from '../../behaviour/font/tiny';
 import FontUppercaseBehaviour from '../../behaviour/font/uppercase';
@@ -40,6 +41,7 @@ export default (engine, options = {}) => {
 
   if (process.env.NODE_ENV !== 'production') {
     LabelModName.validate = validate(conditions);
+    LabelModName.fixtures = fixtures;
   }
 
   return LabelModName;

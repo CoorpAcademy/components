@@ -1,5 +1,6 @@
-import style from './module-bubble.css';
 import { spec, validate, check } from '../../../util/proptypes-checker';
+import style from './module-bubble.css';
+import fixtures from './fixtures';
 import createLabelModName from '../../atom/label-mod-name';
 
 const conditions = {
@@ -51,6 +52,7 @@ export default (engine, options = {}) => {
 
   if (process.env.NODE_ENV !== 'production') {
     ModuleBubble.validate = validate(conditions);
+    ModuleBubble.fixtures = fixtures;
   }
 
   return ModuleBubble;
