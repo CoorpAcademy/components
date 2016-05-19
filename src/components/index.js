@@ -3,7 +3,6 @@
 import createLabelModName from './atom/label-mod-name';
 import createLabelNormal from './atom/label-normal';
 import createLabel from './atom/label';
-import createPieChart from './atom/pie-chart';
 import createTitle from './atom/title';
 import createCheckboxes from './molecule/checkboxes';
 import createDisciplineCard from './molecule/discipline-card';
@@ -16,7 +15,6 @@ export {
   createLabelModName,
   createLabelNormal,
   createLabel,
-  createPieChart,
   createTitle,
   createCheckboxes,
   createDisciplineCard,
