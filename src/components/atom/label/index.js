@@ -1,4 +1,4 @@
-import { validate, checker } from '../../../util/validation';
+import { checker, createValidate } from '../../../util/validation';
 import style from './label.css';
 import fixtures from './fixtures';
 
@@ -16,10 +16,6 @@ export default (engine, options) => {
     </span>
   );
 
-  if (process.env.NODE_ENV !== 'production') {
-    Label.validate = validate(conditions);
-    Label.fixtures = fixtures;
-  }
-
+  Label.validate = createValidate(conditions);
   return Label;
 };

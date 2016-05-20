@@ -3,13 +3,13 @@ import isArray from 'lodash/fp/isArray';
 
 const checker = apiCheck();
 
-const validate = conditions => {
-  const componentValidate = (props, children) => {
+const createValidate = conditions => {
+  const validate = (props, children) => {
     checker.throw(conditions, {props, children});
   };
 
-  componentValidate.conditions = conditions;
-  return componentValidate;
+  validate.conditions = conditions;
+  return validate;
 };
 
 checker.none = (val, name, location) => {
@@ -43,6 +43,6 @@ checker.color = (val, name, location) => {
 };
 
 export {
-  validate,
+  createValidate,
   checker
 };

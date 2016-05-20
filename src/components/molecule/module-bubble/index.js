@@ -1,4 +1,4 @@
-import { validate, checker } from '../../../util/validation';
+import { checker, createValidate } from '../../../util/validation';
 import style from './module-bubble.css';
 import fixtures from './fixtures';
 import createLabelModName from '../../atom/label-mod-name';
@@ -57,10 +57,6 @@ export default (engine, options = {}) => {
     );
   };
 
-  if (process.env.NODE_ENV !== 'production') {
-    ModuleBubble.validate = validate(conditions);
-    ModuleBubble.fixtures = fixtures;
-  }
-
+  ModuleBubble.validate = createValidate(conditions);
   return ModuleBubble;
 };

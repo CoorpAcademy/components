@@ -1,4 +1,4 @@
-import { validate, checker } from '../../../util/validation';
+import { checker, createValidate } from '../../../util/validation';
 import createD3Widget from '../../../util/create-d3-widget';
 import nv from 'nvd3';
 
@@ -9,4 +9,4 @@ export default createD3Widget(options => (
     .x(d => d.label)
     .y(d => d.value)
     .showLabels(true)
-), validate(propTypes));
+), createValidate(propTypes));

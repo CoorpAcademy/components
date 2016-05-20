@@ -49,10 +49,6 @@ export default (engine, options) => {
     );
   };
 
-  if (process.env.NODE_ENV !== 'production') {
-    DisciplineCards.validate = validate(conditions);
-    DisciplineCards.fixtures = fixtures;
-  }
-
+  DisciplineCards.validate = createValidate(conditions);
   return DisciplineCards;
 };

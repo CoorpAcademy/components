@@ -1,4 +1,4 @@
-import { validate, checker } from '../../../util/validation';
+import { checker, createValidate } from '../../../util/validation';
 import style from './discipline-card.css';
 import fixtures from './fixtures';
 import createModuleBubble from '../../molecule/module-bubble';
@@ -84,10 +84,6 @@ export default (engine, options) => {
     );
   };
 
-  if (process.env.NODE_ENV !== 'production') {
-    DisciplineCard.validate = validate(conditions);
-    DisciplineCard.fixtures = fixtures;
-  }
-
+  DisciplineCard.validate = createValidate(conditions);
   return DisciplineCard;
 };
