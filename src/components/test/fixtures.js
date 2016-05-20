@@ -22,11 +22,20 @@ const fixturesTests = (name, engine) => (factoryName, factory) => {
     t.true(Component.fixtures.length > 0);
   });
 
-  test(`${it} › should have props and children in every fixture`, t => {
+  test(`${it} › should have props or children in every fixture`, t => {
     const Component = factory(engine, options);
     Component.fixtures.forEach(function(fixture) {
-      t.true(undefined !== fixture.props);
-      t.true(undefined !== fixture.children);
+      t.true(undefined !== fixture.props || undefined !== fixture.children);
+    });
+  });
+
+  test(`${it} › should be instanciated as shallow Component`, t => {
+    const Component = factory(engine, options);
+    Component.fixtures.forEach(function(fixture) {
+      const p = <Component {...fixture.props}>
+        {fixture.children}
+      </Component>;
+      t.pass();
     });
   });
 };

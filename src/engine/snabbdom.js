@@ -16,8 +16,6 @@ import propsModule from 'snabbdom/modules/props';
 import styleModule from 'snabbdom/modules/style';
 import eventListenersModule from 'snabbdom/modules/eventlisteners';
 
-const __DEV__ = __DEV__ || null;
-
 const patch = init([
   classModule,
   propsModule,
@@ -57,9 +55,15 @@ const transformProps = props => {
 
 const h = (tag, props, children) => {
   const isComponent = isFunction(tag);
+  const _children = pipe(compact, flatten)(children);
+
+  if (process.env.NODE_ENV !== 'production' && isComponent && tag.validate) {
+    tag.validate(props, _children);
+  }
+
   const _tag = isComponent ? 'div' : tag;
   const _props = isComponent ? props : transformProps(props);
-  const _children = pipe(compact, flatten)(props && props.children || children || []);
+
   const vTree = _h(
     _tag,
     _props || {},
@@ -68,10 +72,6 @@ const h = (tag, props, children) => {
 
   if (isComponent) {
     vTree.sel = tag;
-
-    if (__DEV__ && tag.validate) {
-      tag.validate(props);
-    }
   }
 
   return vTree;

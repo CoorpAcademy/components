@@ -1,4 +1,5 @@
 export default [{
-  props: null,
-  children: null
+  props: {
+    title: 'foo'
+  }
 }];

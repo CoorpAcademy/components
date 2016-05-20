@@ -1,13 +1,20 @@
-import { spec, validate, check } from '../../../util/proptypes-checker';
+import { validate, checker } from '../../../util/validation';
 import style from './module-bubble.css';
 import fixtures from './fixtures';
 import createLabelModName from '../../atom/label-mod-name';
 
-const conditions = {
-  props: null,
-  children: spec({
-  })
-};
+const conditions = checker.shape({
+  props: checker.shape({
+    module: checker.shape({
+      disabled: checker.bool.optional,
+      filtered: checker.bool.optional,
+      label: checker.string,
+      status: checker.string
+    }),
+    onClick: checker.func
+  }),
+  children: checker.none
+});
 
 export default (engine, options = {}) => {
   const {h} = engine;

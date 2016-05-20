@@ -1,4 +1,3 @@
 export default [{
-  props: null,
-  children: null
+  children: 'foo'
 }];

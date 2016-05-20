@@ -23,7 +23,8 @@ const validationTests = (name, engine) => (factoryName, factory) => {
   test(`${it} › should have well formed conditions`, t => {
     const Component = factory(engine, options);
     const conditions = Component.validate.conditions;
-    t.true(isFunction(conditions.props || conditions.children));
+    t.true(isFunction(conditions));
+    t.true(conditions.name === 'requiredChecker');
   });
 };
 

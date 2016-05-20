@@ -5,7 +5,7 @@ const textNormal = (engine, options) => props => {
 
   const properties = {
     style: {
-      color: props.value || skin && skin.texts.normal
+      color: props.color || skin && skin.texts.normal
     }
   };
 

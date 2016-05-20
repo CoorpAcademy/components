@@ -1,14 +1,20 @@
-import { spec, validate, check } from '../../../util/proptypes-checker';
+import { validate, checker } from '../../../util/validation';
 import style from './discipline-card.css';
 import fixtures from './fixtures';
 import createModuleBubble from '../../molecule/module-bubble';
 import CenteredTextBehaviour from '../../behaviour/align/centered';
 
-const conditions = {
-  props: null, // discipline, onClick, onModuleClick
-  children: spec({
-  })
-};
+const conditions = checker.shape({
+  props: checker.shape({
+    discipline: checker.shape({
+      visible: checker.bool.optional,
+      modules: checker.array
+    }),
+    onClick: checker.func,
+    onModuleClick: checker.func
+  }),
+  children: checker.none
+});
 
 export default (engine, options) => {
   const ModuleBubble = createModuleBubble(engine, options);

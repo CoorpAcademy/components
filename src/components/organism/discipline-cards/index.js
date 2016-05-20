@@ -1,14 +1,17 @@
 import get from 'lodash/fp/get';
-import { spec, validate, check } from '../../../util/proptypes-checker';
+import { validate, checker } from '../../../util/validation';
 import style from './discipline-cards.css';
 import fixtures from './fixtures';
 import createDisciplineCard from '../../molecule/discipline-card';
 
-const conditions = {
-  props: null,
-  children: spec({
-  })
-};
+const conditions = checker.shape({
+  props: checker.shape({
+    disciplines: checker.array,
+    onModuleClick: checker.func,
+    onDisciplineClick: checker.func
+  }),
+  children: checker.none
+});
 
 export default (engine, options) => {
   const DisciplineCard = createDisciplineCard(engine, options);
