@@ -1,12 +1,18 @@
-import { spec, validate, check } from '../../../util/proptypes-checker';
+import { validate, checker } from '../../../util/validation';
 import style from './style.css';
 import fixtures from './fixtures';
 
-const conditions = {
-  props: null,
-  children: spec({
-  })
-};
+const conditions = checker.shape({
+  props: checker.shape({
+    state: checker.shape({
+      checked: checker.bool.optional,
+      label: checker.string
+    }),
+    background: checker.color,
+    onToggle: checker.func
+  }),
+  children: checker.none
+});
 
 export default (engine, options = {}) => {
   const {h} = engine;

@@ -1,13 +1,16 @@
 import get from 'lodash/fp/get';
-import { spec, validate, check } from '../../../util/proptypes-checker';
+import { validate, checker } from '../../../util/validation';
 import style from './select-box.css';
 import fixtures from './fixtures';
 
-const conditions = {
-  props: null,
-  children: spec({
-  })
-};
+const conditions = checker.shape({
+  props: checker.shape({
+    list: checker.array,
+    theme: checker.oneOf(['default', 'plain']).optional,
+    onChange: checker.func
+  }),
+  children: checker.none
+});
 
 const spanInline = (theme, skin) => {
   const color = {

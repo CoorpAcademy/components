@@ -1,4 +1,4 @@
-import { spec, validate, check } from '../../../util/proptypes-checker';
+import { validate, checker } from '../../../util/validation';
 import style from './checkboxes.css';
 import fixtures from './fixtures';
 import createTitledCheckbox from '../titled-checkbox';
@@ -9,20 +9,12 @@ const CLOSABLE = 'closable';
 const OPEN = 'open';
 const CLOSED = 'closed';
 
-const conditions = {
-  props: spec({
-    title: check.string
-    // choices,
-    // onToggle,
-    // onClose,
-    // onOpen,
-    // theme = DEFAULT,
-    // mode = NORMAL,
-    // status = CLOSED
+const conditions = checker.shape({
+  props: checker.shape({
+    title: checker.string
   }),
-  children: spec({
-  })
-};
+  children: checker.none
+});
 
 export default (engine, options = {}) => {
   const {h} = engine;

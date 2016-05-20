@@ -1,10 +1,12 @@
-export default [{
+const fixture1 = {
   props: {
+    background: '#765',
     state: {
-      label: 'plop',
       checked: true,
-      onToggle: () => null
-    }
-  },
-  children: null
-}];
+      label: 'foo'
+    },
+    onToggle: () => null
+  }
+};
+
+export default [fixture1];

@@ -10,20 +10,20 @@ import partial from 'lodash/fp/partial';
 import React, { createElement, createClass } from 'react';
 import { render as _render, findDOMNode } from 'react-dom';
 
-const __DEV__ = __DEV__ || null;
 const omitChildren = omit(['children']);
 
 const h = (tag, props, children) => {
   if (!isArray(children)) children = [];
+  const _children = flatten(children);
 
-  if (__DEV__ && isFunction(tag) && tag.validate) {
-    tag.validate(props);
+  if (process.env.NODE_ENV !== 'production' && isFunction(tag) && tag.validate) {
+    tag.validate(props, _children);
   }
 
   return createElement(
     tag,
     props || null,
-    ...flatten(children)
+    ..._children
   );
 };
 

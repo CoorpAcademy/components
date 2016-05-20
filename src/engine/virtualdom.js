@@ -11,8 +11,6 @@ import createElement from 'virtual-dom/create-element';
 import diff from 'virtual-dom/diff';
 import patch from 'virtual-dom/patch';
 
-const __DEV__ = __DEV__ || null;
-
 const event = /^on[A-Z].+/;
 const transformProps = props => mapKeys(key => {
   if (event.test(key)) return key.toLowerCase();
@@ -21,21 +19,23 @@ const transformProps = props => mapKeys(key => {
 
 const h = (tag, props, children) => {
   const isComponent = isFunction(tag);
+  const _children = flatten(children);
+
+  if (process.env.NODE_ENV !== 'production' && isComponent && tag.validate) {
+    tag.validate(props, _children);
+  }
+
   const _tag = isComponent ? 'div' : tag;
   const _props = isComponent ? props : transformProps(props);
 
   const vTree = _h(
     _tag,
     _props,
-    flatten(children)
+    _children
   );
 
   if (isComponent) {
     vTree.tagName = tag;
-
-    if (__DEV__ && tag.validate) {
-      tag.validate(props);
-    }
   }
 
   return vTree;
