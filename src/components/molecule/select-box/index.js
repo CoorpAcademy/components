@@ -1,5 +1,5 @@
 import get from 'lodash/fp/get';
-import { validate, checker } from '../../../util/validation';
+import { checker, validate } from '../../../util/validation';
 import style from './select-box.css';
 import fixtures from './fixtures';
 
@@ -71,10 +71,6 @@ export default (engine, options = {}) => {
     );
   };
 
-  if (process.env.NODE_ENV !== 'production') {
-    SelectBox.validate = validate(conditions);
-    SelectBox.fixtures = fixtures;
-  }
-
+  SelectBox.validate = createValidate(conditions);
   return SelectBox;
 };

@@ -1,4 +1,4 @@
-import { validate, checker } from '../../../util/validation';
+import { checker, createValidate } from '../../../util/validation';
 import fixtures from './fixtures';
 import createLabel from '../label';
 import FontTinyBehaviour from '../../../behaviour/font/tiny';
@@ -45,10 +45,6 @@ export default (engine, options = {}) => {
     </FontEmbossed>
   );
 
-  if (process.env.NODE_ENV !== 'production') {
-    LabelModName.validate = validate(conditions);
-    LabelModName.fixtures = fixtures;
-  }
-
+  LabelModName.validate = createValidate(conditions);
   return LabelModName;
 };

@@ -1,4 +1,4 @@
-import { validate, checker } from '../../../util/validation';
+import { checker, createValidate } from '../../../util/validation';
 import fixtures from './fixtures';
 import createLabel from '../label';
 import FontNormalBehaviour from '../../behaviour/font/normal';
@@ -27,10 +27,6 @@ export default (engine, options) => {
     </FontNormal>
   );
 
-  if (process.env.NODE_ENV !== 'production') {
-    LabelNormal.validate = validate(conditions);
-    LabelNormal.fixtures = fixtures;
-  }
-
+  LabelNormal.validate = createValidate(conditions);
   return LabelNormal;
 };

@@ -1,4 +1,4 @@
-import { validate, checker } from '../../../util/validation';
+import { checker, createValidate } from '../../../util/validation';
 import fixtures from './fixtures';
 
 const conditions = checker.shape({
@@ -14,10 +14,6 @@ export default (engine, options) => {
     </h1>
   );
 
-  if (process.env.NODE_ENV !== 'production') {
-    Title.validate = validate(conditions);
-    Title.fixtures = fixtures;
-  }
-
+  Title.validate = createValidate(conditions);
   return Title;
 };

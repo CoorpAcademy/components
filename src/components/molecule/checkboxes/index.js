@@ -1,4 +1,4 @@
-import { validate, checker } from '../../../util/validation';
+import { checker, createValidate } from '../../../util/validation';
 import style from './checkboxes.css';
 import fixtures from './fixtures';
 import createTitledCheckbox from '../titled-checkbox';
@@ -124,10 +124,6 @@ export default (engine, options = {}) => {
     );
   };
 
-  if (process.env.NODE_ENV !== 'production') {
-    Checkboxes.validate = validate(conditions);
-    Checkboxes.fixtures = fixtures;
-  }
-
+  Checkboxes.validate = createValidate(conditions);
   return Checkboxes;
 };
