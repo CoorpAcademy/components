@@ -1,6 +1,7 @@
 import createLabel from '../label';
 import FontTinyBehaviour from '../../../behaviour/font/tiny';
 import FontUppercaseBehaviour from '../../../behaviour/font/uppercase';
+import EllipsisBehaviour from '../../../behaviour/font/ellipsis';
 import ColorTextNormalBehaviour from '../../../behaviour/color/text-normal';
 
 export default (engine, options) => (props, children) => {
@@ -11,18 +12,21 @@ export default (engine, options) => (props, children) => {
 
   const FontUppercase = FontUppercaseBehaviour(engine, options);
   const FontTiny = FontTinyBehaviour(engine, options);
+  const Ellipsis = EllipsisBehaviour(engine, options);
   const ColorTextNormal = ColorTextNormalBehaviour(engine, options);
-
+ 
   return (
       <FontUppercase>
         <FontTiny>
-          <ColorTextNormal value={
-            skin.texts['mod-tree-label']
-          }>
-            <Label>
-              {children}
-            </Label>
-          </ColorTextNormal>
+          <Ellipsis value={'50px'}>
+            <ColorTextNormal value={
+              skin.texts['mod-tree-label']
+            }>
+              <Label>
+                {children}
+              </Label>
+            </ColorTextNormal>
+          </Ellipsis>
         </FontTiny>
       </FontUppercase>
   );
