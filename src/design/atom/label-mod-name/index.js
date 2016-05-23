@@ -14,7 +14,7 @@ export default (engine, options) => (props, children) => {
   const FontTiny = FontTinyBehaviour(engine, options);
   const Ellipsis = EllipsisBehaviour(engine, options);
   const ColorTextNormal = ColorTextNormalBehaviour(engine, options);
- 
+
   return (
       <FontUppercase>
         <FontTiny>
