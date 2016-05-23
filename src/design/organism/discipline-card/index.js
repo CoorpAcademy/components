@@ -11,7 +11,7 @@ export default (engine, options) => {
     const {translate, skin} = options;
     const {discipline, onClick, onModuleClick} = props;
 
-    const disciplineClass = discipline.visible ? style.default : style.hidden;
+    const disciplineClass = discipline.visible === false ? style.hidden : style.default;
     const rand = (Math.floor(Math.random() * 7) + 3) * .2;
     const duration = discipline.visible ? rand : 1;
     const animationDuration = `${duration}s`;
