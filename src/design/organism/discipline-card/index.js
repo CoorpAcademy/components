@@ -29,8 +29,23 @@ export default (engine, options) => {
     const requireColoredBarBG = discipline.courseNum !== 'undefined' && skin && skin.courses;
     const coloredBarBG = requireColoredBarBG && skin.courses[discipline.courseNum];
 
+    let bar;
+
+    if (coloredBarBG) {
+      bar =
+        <div
+          style={{
+            background: coloredBarBG,
+            height: '5px'
+          }}
+        />;
+    }
+
     return (
       <div className={disciplineClass}
+           attributes={{
+             'data-name': 'discipline-card'
+           }}
            onClick={e => onClick(discipline)}
            style={{
              animationDuration
@@ -44,12 +59,7 @@ export default (engine, options) => {
           </div>
         </div>
 
-        <div
-          style={{
-            background: coloredBarBG,
-            height: coloredBarBG ? '5px' : '0'
-          }}
-        />
+        {bar}
 
         <CenteredText>
           <div className={style.moduleProgressionWrapper}>

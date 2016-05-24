@@ -15,7 +15,11 @@ export default (engine, options) => {
     const label = translate ? translate(module.label) : module.label;
 
     return (
-      <div className={style.modulewrapper}>
+      <div className={style.modulewrapper}
+            attributes={{
+              'data-name': 'module-bubble'
+            }}
+      >
         <span className={className}
               attributes={{
                 'data-icon': iconCode
