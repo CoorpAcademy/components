@@ -1,8 +1,18 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value small from breakpoints;
+
 .default {
   padding: 75px 10px;
   text-align: center;
   background: no-repeat scroll left center;
   background-size: cover;
   width: 100%;
-  min-height: 778px;
+  height: 100%;
+  position: absolute;
+}
+
+@media small {
+  .default {
+    position: inherit;
+  }
 }

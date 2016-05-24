@@ -28,6 +28,11 @@ export default (engine, options) => {
   const openHeader = options => (
     <div className={style.openHeader}>
       <span
+        className={style.closeText}
+      >
+        {options.close}
+      </span>
+      <span
         className={style.close}
         onClick={options.onClose}
       >
@@ -57,6 +62,7 @@ export default (engine, options) => {
   return props => {
     const {
       title,
+      close,
       choices,
       onToggle,
       onClose,
@@ -72,6 +78,7 @@ export default (engine, options) => {
     if (mode === CLOSABLE) {
       header = createHeader({
         title: translate ? translate(title) : title,
+        close: translate ? translate(close) : close,
         status,
         onClose,
         onOpen
