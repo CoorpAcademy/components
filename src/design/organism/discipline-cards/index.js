@@ -21,15 +21,17 @@ export default (engine, options) => {
     ));
 
     const skinBackgroundUrl = get('images.tree', skin);
+    const backgroundImage = { backgroundImage: `url(${skinBackgroundUrl})` };
+
     const skinBG = get('theme.background', skin) || '#123';
-    const bg = skinBackgroundUrl ? `url(${skinBackgroundUrl})` : skinBG;
+    const background = {background: skinBG };
+
+    const bg = skinBackgroundUrl ? backgroundImage : background;
 
     return (
       <div
         className={style.default}
-        style={{
-          backgroundImage: bg
-        }}
+        style={bg}
       >
         {disciplines}
       </div>
