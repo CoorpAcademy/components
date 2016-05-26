@@ -1,6 +1,5 @@
 import { checker, createValidate } from '../../../util/validation';
 import style from './discipline-card.css';
-import fixtures from './fixtures';
 import createModuleBubble from '../../molecule/module-bubble';
 import CenteredTextBehaviour from '../../behaviour/align/centered';
 

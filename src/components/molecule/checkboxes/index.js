@@ -1,6 +1,5 @@
 import { checker, createValidate } from '../../../util/validation';
 import style from './checkboxes.css';
-import fixtures from './fixtures';
 import createTitledCheckbox from '../titled-checkbox';
 
 const DEFAULT = 'default';

@@ -1,5 +1,5 @@
-export default [{
+export default {
   props: {
     title: 'foo'
   }
-}];
+};

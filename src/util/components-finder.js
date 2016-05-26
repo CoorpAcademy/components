@@ -16,25 +16,31 @@ const fixtures = (type, component) => {
   const fixtures = fixturesFiles.map(function(file) {
     const splinters = file.split('/');
     const fixture = splinters[splinters.length - 1];
-    return `./${path.join(type, component, 'fixtures', fixture)}`;
+    return {
+      path: `./${path.join(type, component, 'test/fixtures', fixture)}`,
+      name: fixture
+    };
   });
 
   return fixtures;
 };
 
-const extract = () => {
-  const components = `'../components/${includes}/**/index.js'`;
+const extract = skipFixtures => {
+  const components = `../components/${includes}/**/index.js`;
   const files = glob.sync(path.join(__dirname, components));
 
   const elements = files.map(function(file) {
     const splinters = file.split('/');
-    const type = splinters[splinters.length - 3];
     const component = splinters[splinters.length - 2];
+    const type = splinters[splinters.length - 3];
+    const name = pascalCase(component);
 
     return {
-      factory: `create${pascalCase(component)}`,
+      type,
+      name,
+      factory: `create${name}`,
       path: `./${path.join(type, component)}`,
-      fixtures: fixtures(type, component)
+      fixtures: !skipFixtures && fixtures(type, component)
     };
   });
 
@@ -53,7 +59,7 @@ const _imports = elements => {
 
 const generate = () => {
   const index = path.join(__dirname, '../components/index.js');
-  const elements = extract();
+  const elements = extract(true);
 
   reset(index);
   fs.appendFileSync(index, `${_imports(elements)}\n`);

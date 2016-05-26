@@ -1,7 +1,6 @@
 import get from 'lodash/fp/get';
-import { checker, validate } from '../../../util/validation';
+import { checker, createValidate } from '../../../util/validation';
 import style from './select-box.css';
-import fixtures from './fixtures';
 
 const conditions = checker.shape({
   props: checker.shape({

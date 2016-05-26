@@ -1,4 +1,4 @@
-const fixture1 = {
+export default {
   props: {
     background: '#765',
     state: {
@@ -8,5 +8,3 @@ const fixture1 = {
     onToggle: () => null
   }
 };
-
-export default [fixture1];
