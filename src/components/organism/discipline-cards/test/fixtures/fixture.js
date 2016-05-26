@@ -1,9 +1,7 @@
-const fixture1 = {
+export default {
   props: {
     disciplines: [],
     onModuleClick: () => null,
     onDisciplineClick: () => null
   }
 };
-
-export default [fixture1];

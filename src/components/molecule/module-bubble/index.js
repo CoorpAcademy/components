@@ -1,6 +1,5 @@
 import { checker, createValidate } from '../../../util/validation';
 import style from './module-bubble.css';
-import fixtures from './fixtures';
 import createLabelModName from '../../atom/label-mod-name';
 
 const conditions = checker.shape({

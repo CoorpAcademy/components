@@ -1,7 +1,9 @@
+import path from 'path';
 import test from 'ava';
-import isArray from 'lodash/fp/isArray';
-import isFunction from 'lodash/fp/isFunction';
-import run from '../../util/run-tests-on-components';
+import run from '../../util/for-each-engine';
+import { extract } from '../../util/components-finder';
+
+const _require = file => require(path.join('..', file)).default;
 
 const options = {
   skin: {
@@ -11,33 +13,40 @@ const options = {
   }
 };
 
-const fixturesTests = (name, engine) => (factoryName, factory) => {
-  const {h, resolve} = engine;
-  const componentName = factoryName.split('create')[1];
-  const it = `${name} › ${componentName}`;
+const testFixture = (it, component, engine) => _fixture => {
+  const {h} = engine;
+  const factory = _require(component.path);
+  const fixture = _require(_fixture.path);
+  const Component = factory(engine, options);
+  const name = _fixture.name.split('.')[0];
 
-  test(`${it} › should have at least one fixture`, t => {
-    const Component = factory(engine, options);
-    t.true(isArray(Component.fixtures));
-    t.true(Component.fixtures.length > 0);
-  });
+  it = `${it} › ${name} `;
 
   test(`${it} › should have props or children in every fixture`, t => {
-    const Component = factory(engine, options);
-    Component.fixtures.forEach(function(fixture) {
-      t.true(undefined !== fixture.props || undefined !== fixture.children);
-    });
+    t.true(undefined !== fixture.props || undefined !== fixture.children);
   });
 
   test(`${it} › should be instanciated as shallow Component`, t => {
-    const Component = factory(engine, options);
-    Component.fixtures.forEach(function(fixture) {
-      const p = <Component {...fixture.props}>
-        {fixture.children}
-      </Component>;
-      t.pass();
-    });
+    <Component {...fixture.props}>
+      {fixture.children}
+    </Component>;
+    t.pass();
   });
+};
+
+const testComponent = (engineName, engine) => component => {
+  const it = `${engineName} › [${component.type}] ${component.name}`;
+
+  test(`${it} › should have at least one fixture`, t => {
+    t.true(component.fixtures.length > 0);
+  });
+
+  component.fixtures.forEach(testFixture(it, component, engine));
+};
+
+const fixturesTests = (name, engine) => {
+  const components = extract();
+  components.forEach(testComponent(name, engine));
 };
 
 run(fixturesTests);

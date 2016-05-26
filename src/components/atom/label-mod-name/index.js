@@ -1,5 +1,4 @@
 import { checker, createValidate } from '../../../util/validation';
-import fixtures from './fixtures';
 import createLabel from '../label';
 import FontTinyBehaviour from '../../behaviour/font/tiny';
 import FontUppercaseBehaviour from '../../behaviour/font/uppercase';

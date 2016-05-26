@@ -1,11 +1,5 @@
 import test from 'ava';
 import run from '../../util/run-tests-on-components';
-import { extract } from '../../util/components-finder';
-
-const result = extract();
-console.log('----------------');
-console.log(result);
-console.log('----------------');
 
 const factoryTests = (name, engine) => (factoryName, factory) => {
   const componentName = factoryName.split('create')[1];

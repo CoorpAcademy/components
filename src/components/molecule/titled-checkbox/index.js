@@ -1,6 +1,5 @@
 import { checker, createValidate } from '../../../util/validation';
 import style from './style.css';
-import fixtures from './fixtures';
 
 const conditions = checker.shape({
   props: checker.shape({
