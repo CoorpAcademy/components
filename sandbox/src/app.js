@@ -38,8 +38,13 @@ export default engine => {
         mode='closable'
         status='closed'
         choices={choices}
+        onToggle={(...argz) => console.log(...argz)}
       />
-      <DisciplineCard discipline={disciplines[0]}/>
+      <DisciplineCard
+        discipline={disciplines[0]}
+        onClick={(...argz) => console.log(...argz)}
+        onModuleClick={(...argz) => console.log(...argz)}
+      />
     </div>
   );
 };

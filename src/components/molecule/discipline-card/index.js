@@ -1,4 +1,6 @@
 import getOr from 'lodash/fp/getOr';
+import partial from 'lodash/fp/partial';
+import unary from 'lodash/fp/unary';
 import { checker, createValidate } from '../../../util/validation';
 import style from './discipline-card.css';
 import createModuleBubble from '../../molecule/module-bubble';
@@ -57,6 +59,7 @@ export default (engine, options = {}) => {
            attributes={{
              'data-name': 'discipline-card'
            }}
+           onClick={partial(unary(onClick), discipline)}
            style={{
              animationDuration
            }}

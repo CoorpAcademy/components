@@ -87,12 +87,15 @@
       "src/**"
     ],
     "exclude": [
+      "src/bundle*",
+      "src/components/widget*",
+      "src/util/generation-bundle.js",
       "src/**/test/**"
     ],
     "require": [
       "babel-core/register"
     ],
-    "all": false
+    "all": true
   },
   "dependencies": {
     "d3": "^3.5.16",
