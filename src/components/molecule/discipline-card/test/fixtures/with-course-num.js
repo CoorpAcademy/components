@@ -1,7 +1,7 @@
 export default {
   props: {
     discipline: {
-      visible: true,
+      courseNum: 1,
       modules: []
     },
     onClick: () => null,

@@ -1,3 +1,4 @@
+import getOr from 'lodash/fp/getOr';
 import { checker, createValidate } from '../../../util/validation';
 import style from './style.css';
 
@@ -16,8 +17,7 @@ const conditions = checker.shape({
 export default (engine, options = {}) => {
   const {h} = engine;
   const {translate, skin} = options;
-  const icons = skin && skin.icons;
-  const iconSuccess = icons && String.fromCharCode(icons.success);
+  const iconSuccess = String.fromCharCode(getOr('v', 'icons.success', skin));
 
   const TitledCheckbox = (props, children) => {
     const {state, background, onToggle} = props;

@@ -1,3 +1,4 @@
+import getOr from 'lodash/fp/getOr';
 import { checker, createValidate } from '../../../util/validation';
 import style from './discipline-card.css';
 import createModuleBubble from '../../molecule/module-bubble';
@@ -15,7 +16,7 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-export default (engine, options) => {
+export default (engine, options = {}) => {
   const ModuleBubble = createModuleBubble(engine, options);
   const CenteredText = CenteredTextBehaviour(engine, options);
 
@@ -24,9 +25,10 @@ export default (engine, options) => {
     const {translate, skin} = options;
     const {discipline, onClick, onModuleClick} = props;
 
-    const disciplineClass = discipline.visible === false ? style.hidden : style.default;
+    const hidden = discipline.visible === false;
+    const disciplineClass = hidden ? style.hidden : style.default;
     const rand = (Math.floor(Math.random() * 7) + 3) * .2;
-    const duration = discipline.visible ? rand : 1;
+    const duration = hidden ? 1 : rand;
     const animationDuration = `${duration}s`;
 
     const modules = discipline.modules.map(module => (
@@ -39,20 +41,16 @@ export default (engine, options) => {
     ));
 
     const label = translate ? translate(discipline.label) : discipline.label;
-    const requireColoredBarBG = discipline.courseNum !== 'undefined' && skin && skin.courses;
-    const coloredBarBG = requireColoredBarBG && skin.courses[discipline.courseNum];
+    const hasCourse = discipline.courseNum !== 'undefined';
 
-    let bar;
-
-    if (coloredBarBG) {
-      bar =
-        <div
-          style={{
-            background: coloredBarBG,
-            height: '5px'
-          }}
-        />;
-    }
+    const bg = getOr('#fff', `courses[${discipline.courseNum}]`, skin);
+    const bar =
+      <div
+        style={{
+          background: bg,
+          height: '5px'
+        }}
+      />;
 
     return (
       <div className={disciplineClass}
@@ -73,7 +71,7 @@ export default (engine, options) => {
           </div>
         </div>
 
-        {bar}
+        {hasCourse && bar}
 
         <CenteredText>
           <div className={style.moduleProgressionWrapper}>

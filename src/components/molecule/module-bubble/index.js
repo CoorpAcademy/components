@@ -1,3 +1,4 @@
+import getOr from 'lodash/fp/getOr';
 import { checker, createValidate } from '../../../util/validation';
 import style from './module-bubble.css';
 import createLabelModName from '../../atom/label-mod-name';
@@ -19,15 +20,18 @@ export default (engine, options = {}) => {
   const {h} = engine;
   const {skin, translate} = options;
 
-  const icons = skin && skin.icons;
   const LabelModName = createLabelModName(engine, options);
 
   const ModuleBubble = (props, children) => {
     const {module, onClick} = props;
-    const icon = icons && String.fromCharCode(icons[module.status]);
+    const code = getOr('', `icons[${module.status}]`, skin);
+    const icon = String.fromCharCode(code);
+
     const filtered = module.filtered;
     const disabled = module.disabled;
     const label = translate ? translate(module.label) : module.label;
+
+    const background = getOr('#fff', `mod[${module.status}]`, skin);
 
     return (
       <div className={style.modulewrapper}
