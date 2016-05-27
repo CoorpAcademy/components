@@ -1,5 +1,6 @@
 export default {
   props: {
-    title: 'foo'
+    title: 'foo',
+    choices: []
   }
 };

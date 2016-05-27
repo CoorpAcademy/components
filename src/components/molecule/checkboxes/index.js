@@ -1,3 +1,4 @@
+import getOr from 'lodash/fp/getOr';
 import { checker, createValidate } from '../../../util/validation';
 import style from './checkboxes.css';
 import createTitledCheckbox from '../titled-checkbox';
@@ -10,7 +11,8 @@ const CLOSED = 'closed';
 
 const conditions = checker.shape({
   props: checker.shape({
-    title: checker.string
+    title: checker.string,
+    choices: checker.array
   }),
   children: checker.none
 });
@@ -20,12 +22,8 @@ export default (engine, options = {}) => {
   const {skin, translate} = options;
   const TitledCheckbox = createTitledCheckbox(engine, options);
 
-  const icons = skin && skin.icons;
-  const iconCross = icons && String.fromCharCode(icons.close);
-  const iconArrow = icons && String.fromCharCode(icons['arrow-bottom']);
-
-  const cross = iconCross || 'x';
-  const arrow = iconArrow || 'v';
+  const cross = String.fromCharCode(getOr('x', 'icons.close', skin));
+  const arrow = String.fromCharCode(getOr('v', 'icons["arrow-bottom"]', skin));
 
   const closedHeader = options => (
     <div className={style.closedHeader}>
@@ -85,7 +83,7 @@ export default (engine, options = {}) => {
       status = CLOSED
     } = props;
 
-    const courses = theme === 'courses';
+    const isCourses = theme === 'courses';
     let header = null;
 
     if (mode === CLOSABLE) {
@@ -99,7 +97,7 @@ export default (engine, options = {}) => {
     }
 
     const lines = choices.map((choice, i) => {
-      const background = courses ? skin.courses && skin.courses[i - 1] : null;
+      const background = isCourses && getOr('#fff', `courses${[i - 1]}`, skin);
 
       return (
         <li className={style.line}>

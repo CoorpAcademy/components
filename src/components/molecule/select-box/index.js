@@ -1,4 +1,5 @@
 import get from 'lodash/fp/get';
+import getOr from 'lodash/fp/getOr';
 import { checker, createValidate } from '../../../util/validation';
 import style from './select-box.css';
 
@@ -37,10 +38,11 @@ const selectInline = (theme, skin) => {
 export default (engine, options = {}) => {
   const {h} = engine;
   const {skin} = options;
+  const code = getOr('', 'icons.select', skin);
+  const iconCode = String.fromCharCode(code);
 
   const SelectBox = (props, children) => {
     const {list, onChange, theme = 'default'} = props;
-    const iconCode = String.fromCharCode(skin.icons.select);
 
     const selectOptions = list.map(item => (
       <option

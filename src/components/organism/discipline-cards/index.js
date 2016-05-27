@@ -1,4 +1,5 @@
 import get from 'lodash/fp/get';
+import getOr from 'lodash/fp/getOr';
 import { checker, createValidate } from '../../../util/validation';
 import style from './discipline-cards.css';
 import createDisciplineCard from '../../molecule/discipline-card';
@@ -12,7 +13,7 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-export default (engine, options) => {
+export default (engine, options = {}) => {
   const DisciplineCard = createDisciplineCard(engine, options);
 
   const DisciplineCards = (props, children) => {
@@ -33,8 +34,8 @@ export default (engine, options) => {
     const skinBackgroundUrl = get('images.tree', skin);
     const backgroundImage = { backgroundImage: `url(${skinBackgroundUrl})` };
 
-    const skinBG = get('theme.background', skin) || '#123';
-    const background = {background: skinBG };
+    const skinBG = getOr('#123', 'theme.background', skin);
+    const background = { background: skinBG };
 
     const bg = skinBackgroundUrl ? backgroundImage : background;
 

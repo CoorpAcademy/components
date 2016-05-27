@@ -2,7 +2,7 @@ export default {
   props: {
     module: {
       filtered: false,
-      disabled: false,
+      disabled: true,
       label: 'foo',
       status: 'success'
     },
