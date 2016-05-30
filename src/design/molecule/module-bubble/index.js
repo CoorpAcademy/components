@@ -8,10 +8,9 @@ export default (engine, options) => {
 
   return props => {
     const {module, onClick} = props;
-    const iconCode = String.fromCharCode(skin.icons[module.status]);
+    const icon = String.fromCharCode(skin.icons[module.status]);
     const filtered = module.filtered;
     const disabled = module.disabled;
-    const className = filtered || disabled ? style.disabled : style.default;
     const label = translate ? translate(module.label) : module.label;
 
     return (
@@ -20,19 +19,34 @@ export default (engine, options) => {
               'data-name': 'module-bubble'
             }}
       >
-        <span className={className}
-              attributes={{
-                'data-icon': iconCode
-              }}
-              style={{
-                background: skin && skin.mod[module.status]
-              }}
-              onClick={e => {
-                e.stopPropagation();
-                onClick(module);
-              }}
+        <div
+          className={style.bubble}
+          style={{
+            cursor: disabled ? 'default' : 'pointer'
+          }}
+          onClick={e => {
+            e.stopPropagation();
+            if (!disabled) {
+              onClick(module);
+            }
+          }}
         >
-        </span>
+          <span
+            className={style.bubbleBG}
+            style={{
+              background: skin && skin.mod[module.status]
+            }}
+          >
+          </span>
+          <span
+            className={disabled ? style.iconDisabled : style.icon}
+            style={{
+              color: disabled ? skin.theme.lock : 'white'
+            }}
+          >
+              {icon}
+          </span>
+        </div>
         <LabelModName>
           {label}
         </LabelModName>
