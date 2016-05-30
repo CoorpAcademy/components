@@ -1,5 +1,7 @@
 import apiCheck from 'api-check';
 import isArray from 'lodash/fp/isArray';
+import isEmpty from 'lodash/fp/isEmpty';
+import isBoolean from 'lodash/fp/isBoolean';
 
 const checker = apiCheck();
 
@@ -13,7 +15,7 @@ const createValidate = conditions => {
 };
 
 checker.none = (val, name, location) => {
-  if (val && val[0] !== undefined && val[0] !== null) {
+  if (isBoolean(val) || !isEmpty(val) || (val && val[0] !== undefined && val[0] !== null)) {
     return checker.utils.getError(name, location, 'null or undefined');
   }
 };

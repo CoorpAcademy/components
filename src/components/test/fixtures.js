@@ -37,7 +37,7 @@ const testFixture = (_it, component, engine) => _fixture => {
     t.pass();
   });
 
-  test(`${it} › should be instanciated and resolved with no options`, t => {
+  test(`${it} › instanciated and resolved | no options`, t => {
     const Component = factory(engine);
     t.pass();
 
@@ -50,7 +50,7 @@ const testFixture = (_it, component, engine) => _fixture => {
     t.pass();
   });
 
-  test(`${it} › should be instanciated and resolved with {skin, translate}`, t => {
+  test(`${it} › instanciated and resolved | options = {skin, translate}`, t => {
     const Component = factory(engine, fullOptions);
     t.pass();
 
