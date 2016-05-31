@@ -46,12 +46,13 @@ export default (engine, options) => {
            attributes={{
              'data-name': 'discipline-card'
            }}
-           onClick={e => onClick(discipline)}
            style={{
              animationDuration
            }}
       >
-        <div className={style.area}>
+        <div className={style.area}
+             onClick={e => onClick(discipline)}
+        >
           <div className={style.text}>
             <p className={style.headerModule}>
               {label}

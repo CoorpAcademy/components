@@ -1,54 +1,51 @@
-.default {
-  display: inline-block;
-  position: relative;
-  border: 2px solid rgba(255,255,255,0.95);
-  border-radius: 50%;
-  background: pink;
+.bubble {
+  height: 46px;
   cursor: pointer;
-  width: 38px;
-  height: 38px;
-  box-sizing: content-box;
 }
 
-.default:before {
+.bubbleBG {
+  display: inline-block;
+  position: absolute;
+  border: 2px solid rgba(255,255,255,0.95);
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  margin: 0 -20px;
+  transition-duration: 0.5s;
+}
+
+.icon {
+  position: absolute;
   display: inline-block;
   font-family: 'icons-default';
   font-size: 18px;
-  line-height: 35px;
-  width: 100%;
+  line-height: 38px;
   text-align: center;
-  padding-top: 2px;
+  width: 38px;
+  height: 38px;
+  margin: 0 -20px;
+  transition-duration: 0.5s;
 }
 
-.default:hover {
+.bubble:hover .bubbleBG {
   box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.3), inset 0px 1px 100px 100px rgba(0,0,0,0.20);
 }
 
-.default:active {
+.bubble:active .bubbleBG {
   box-shadow: inset 0px 1px 100px 100px rgba(0,0,0,0.40);
 }
 
-.default:before {
-  content: attr(data-icon);
-  color: white;
+.iconDisabled {
+  composes: icon;
 }
 
-.disabled {
-  composes: default;
-  cursor: default;
-  opacity: 0.5;
-}
-
-.disabled:before {
-  content: attr(data-icon);
-  color: #888;
-}
-
-.disabled:hover {
-  box-shadow: none;
+.bubble:hover .iconDisabled {
+  color: white!important;
 }
 
 .modulewrapper {
+  position: relative;
   display: inline-block;
   width: 50px;
+  margin: 3px 0;
 }
