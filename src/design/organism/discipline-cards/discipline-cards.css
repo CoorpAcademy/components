@@ -1,6 +1,3 @@
-@value breakpoints: "../../variables/breakpoints.css";
-@value small from breakpoints;
-
 .default {
   padding: 75px 10px;
   text-align: center;
@@ -9,10 +6,5 @@
   width: 100%;
   height: 100%;
   position: absolute;
-}
-
-@media small {
-  .default {
-    position: inherit;
-  }
+  overflow-y: auto;
 }
