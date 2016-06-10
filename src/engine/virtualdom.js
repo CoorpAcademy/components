@@ -4,6 +4,10 @@ import mapKeys from 'lodash/fp/mapKeys';
 import map from 'lodash/fp/map';
 import assign from 'lodash/fp/assign';
 import partial from 'lodash/fp/partial';
+import set from 'lodash/fp/set';
+import pipe from 'lodash/fp/pipe';
+import keys from 'lodash/fp/keys';
+import reduce from 'lodash/fp/reduce';
 import flatten from 'lodash/fp/flatten';
 import _h from 'virtual-dom/h';
 import isVirtualNode from 'virtual-dom/vnode/is-vnode';
@@ -11,11 +15,27 @@ import createElement from 'virtual-dom/create-element';
 import diff from 'virtual-dom/diff';
 import patch from 'virtual-dom/patch';
 
-const event = /^on[A-Z].+/;
-const transformProps = props => mapKeys(key => {
-  if (event.test(key)) return key.toLowerCase();
-  return key;
-}, props);
+const events = /^on([A-Z].+)/;
+const datas = /^data-.+/;
+
+const transformProps = props => {
+  if (!props) return props;
+  const data = pipe(
+    keys,
+    reduce((data, key) => {
+      const value = props[key];
+
+      // Events
+      const isEvent = key.match(events);
+      if (isEvent)
+        return set(key.toLowerCase(), value, data);
+
+      return set(key, value, data);
+    }, {})
+  )(props);
+
+  return data;
+};
 
 const h = (tag, props, children) => {
   const _tag = isFunction(tag) ? 'div' : tag;

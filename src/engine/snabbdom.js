@@ -13,17 +13,20 @@ import _h from 'snabbdom/h';
 import {init} from 'snabbdom';
 import classModule from 'snabbdom/modules/class';
 import propsModule from 'snabbdom/modules/props';
+import attrsModule from 'snabbdom/modules/attributes';
 import styleModule from 'snabbdom/modules/style';
 import eventListenersModule from 'snabbdom/modules/eventlisteners';
 
 const patch = init([
   classModule,
   propsModule,
+  attrsModule,
   styleModule,
   eventListenersModule
 ]);
 
-const event = /^on([A-Z].+)/;
+const events = /^on([A-Z].+)/;
+const datas = /^data-.+/;
 
 const transformProps = props => {
   if (!props) return props;
@@ -33,9 +36,14 @@ const transformProps = props => {
       const value = props[key];
 
       // Events
-      const match = key.match(event);
-      if (match)
-        return set(`on.${match[1].toLowerCase()}`, value, data);
+      const isEvent = key.match(events);
+      if (isEvent)
+        return set(`on.${isEvent[1].toLowerCase()}`, value, data);
+
+      // Datas
+      const isData = key.match(datas);
+      if (isData)
+        return set(`attrs.${key}`, value, data);
 
       // ClassName
       if (key === 'className')
