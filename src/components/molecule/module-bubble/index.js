@@ -54,14 +54,14 @@ export default (engine, options = {}) => {
           <span
             className={style.bubbleBG}
             style={{
-              background: skin && skin.mod[module.status]
+              background
             }}
           >
           </span>
           <span
             className={disabled ? style.iconDisabled : style.icon}
             style={{
-              color: disabled ? skin.theme.lock : 'white'
+              color: disabled ? getOr('#fff', 'theme.lock', skin) : '#fff'
             }}
           >
               {icon}
