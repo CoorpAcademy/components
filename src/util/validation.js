@@ -15,7 +15,13 @@ const createValidate = conditions => {
 };
 
 checker.none = (val, name, location) => {
-  if (isBoolean(val) || !isEmpty(val) || (val && val[0] !== undefined && val[0] !== null)) {
+  const arrayOfOne = isArray(val) && val.length === 1;
+  const arrayNotEmpty = arrayOfOne && val[0] !== undefined && val[0] !== null;
+  const objectNotEmpty = !isArray(val) && !isEmpty(val);
+  const notEmpty = arrayNotEmpty || objectNotEmpty;
+  const arrayOfMoreThanOne = isArray(val) && val.length > 1;
+
+  if (isBoolean(val) || notEmpty || arrayOfMoreThanOne) {
     return checker.utils.getError(name, location, 'null or undefined');
   }
 };
