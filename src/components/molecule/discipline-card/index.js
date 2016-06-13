@@ -42,6 +42,7 @@ export default (engine, options = {}) => {
       </ModuleBubble>
     ));
 
+    const click = partial(unary(onClick), [discipline]);
     const label = translate ? translate(discipline.label) : discipline.label;
     const hasCourse = discipline.courseNum !== 'undefined';
 
@@ -59,14 +60,12 @@ export default (engine, options = {}) => {
            attributes={{
              'data-name': 'discipline-card'
            }}
-           onClick={partial(unary(onClick), discipline)}
+           onClick={click}
            style={{
              animationDuration
            }}
       >
-        <div className={style.area}
-             onClick={e => onClick(discipline)}
-        >
+        <div className={style.area}>
           <div className={style.text}>
             <p className={style.headerModule}>
               {label}

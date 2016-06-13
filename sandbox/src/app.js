@@ -42,8 +42,8 @@ export default engine => {
       />
       <DisciplineCard
         discipline={disciplines[0]}
-        onClick={(...argz) => console.log(...argz)}
-        onModuleClick={(...argz) => console.log(...argz)}
+        onClick={(...argz) => console.log('click card', ...argz)}
+        onModuleClick={(...argz) => console.log('click module', ...argz)}
       />
     </div>
   );
