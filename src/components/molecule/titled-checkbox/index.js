@@ -10,7 +10,7 @@ const conditions = checker.shape({
       checked: checker.bool.optional,
       label: checker.string
     }),
-    background: checker.color,
+    background: checker.color.optional,
     onToggle: checker.func
   }),
   children: checker.none

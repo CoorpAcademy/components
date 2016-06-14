@@ -1,9 +1,14 @@
+import path from 'path';
 import test from 'ava';
-import run from '../../util/run-tests-on-components';
+import run from '../../util/for-each-engine';
+import { extract } from '../../util/components-finder';
 
-const factoryTests = (name, engine) => (factoryName, factory) => {
-  const componentName = factoryName.split('create')[1];
-  const it = `${name} › ${componentName}`;
+const _require = file => require(path.join('..', file)).default;
+const components = extract();
+
+const testComponent = (engineName, engine) => component => {
+  const it = `${engineName} › [${component.type}] ${component.name}`;
+  const factory = _require(component.path);
 
   test(`${it} › should be created with no option`, t => {
     factory(engine);
@@ -22,6 +27,10 @@ const factoryTests = (name, engine) => (factoryName, factory) => {
     factory(engine, options);
     t.pass();
   });
+};
+
+const factoryTests = (name, engine) => {
+  components.forEach(testComponent(name, engine));
 };
 
 run(factoryTests);

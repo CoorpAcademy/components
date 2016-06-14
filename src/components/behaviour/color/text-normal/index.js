@@ -1,4 +1,5 @@
-import createBehaviour from '../../../util/behaviour';
+import createBehaviour from '../../../../util/behaviour';
+
 import getOr from 'lodash/fp/getOr';
 
 const textNormal = (engine, options = {}) => props => {

@@ -1,4 +1,4 @@
-import createBehaviour from '../../../util/behaviour';
+import createBehaviour from '../../../../util/behaviour';
 
 const centered = (engine, options) => props => {
   const properties = {

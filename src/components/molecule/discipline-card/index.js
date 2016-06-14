@@ -4,7 +4,7 @@ import unary from 'lodash/fp/unary';
 import { checker, createValidate } from '../../../util/validation';
 import style from './discipline-card.css';
 import createModuleBubble from '../../molecule/module-bubble';
-import CenteredTextBehaviour from '../../behaviour/align/centered';
+import CenteredTextBehaviour from '../../behaviour/align/centered/';
 
 const conditions = checker.shape({
   props: checker.shape({

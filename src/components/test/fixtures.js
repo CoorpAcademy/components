@@ -1,10 +1,13 @@
 import path from 'path';
 import test from 'ava';
 import identity from 'lodash/fp/identity';
+import isArray from 'lodash/fp/isArray';
+import map from 'lodash/fp/map';
 import run from '../../util/for-each-engine';
 import { extract } from '../../util/components-finder';
 
 const _require = file => require(path.join('..', file)).default;
+const components = extract();
 
 const fullOptions = {
   skin: {
@@ -21,18 +24,34 @@ const testFixture = (_it, component, engine) => _fixture => {
   const fixture = _require(_fixture.path);
   const name = _fixture.name.split('.')[0];
 
+  const createChildren = fixture => {
+    return map(child => {
+      const {tag, props, children} = child;
+      return h(tag, props, children);
+    }, fixture.children);
+  };
+
   const it = `${_it} › ${name} `;
 
-  test(`${it} › should have props or children in every fixture`, t => {
-    t.true(undefined !== fixture.props || undefined !== fixture.children);
-  });
+  if (component.type === 'behaviour') {
+    test(`${it} › should have children in every fixture`, t => {
+      t.true(undefined !== fixture.children);
+    });
+  }
+  else {
+    test(`${it} › should have props or children in every fixture`, t => {
+      t.true(undefined !== fixture.props || undefined !== fixture.children);
+    });
+  }
+
+  const children = createChildren(fixture);
 
   test(`${it} › should be instanciated as shallowTree`, t => {
     const Component = factory(engine, {skin: {}});
     t.pass();
 
     const component = <Component {...fixture.props}>
-      {fixture.children}
+      {children}
     </Component>;
     t.pass();
   });
@@ -42,7 +61,7 @@ const testFixture = (_it, component, engine) => _fixture => {
     t.pass();
 
     const component = <Component {...fixture.props}>
-      {fixture.children}
+      {children}
     </Component>;
     t.pass();
 
@@ -55,7 +74,7 @@ const testFixture = (_it, component, engine) => _fixture => {
     t.pass();
 
     const component = <Component {...fixture.props}>
-      {fixture.children}
+      {children}
     </Component>;
     t.pass();
 
@@ -75,7 +94,6 @@ const testComponent = (engineName, engine) => component => {
 };
 
 const fixturesTests = (name, engine) => {
-  const components = extract();
   components.forEach(testComponent(name, engine));
 };
 

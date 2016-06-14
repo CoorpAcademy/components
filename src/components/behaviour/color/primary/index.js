@@ -1,6 +1,6 @@
-import createBehaviour from '../../../util/behaviour';
+import createBehaviour from '../../../../util/behaviour';
 
-const primary = (engine, options) => props => {
+const primary = (engine, options = {}) => props => {
   const {skin} = options;
 
   const properties = {

@@ -1,3 +1,6 @@
 export default {
-  children: 'foo'
+  children: [{
+    tag: 'h1',
+    children: 'foo'
+  }]
 };

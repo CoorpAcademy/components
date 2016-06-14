@@ -97,7 +97,9 @@ export default (engine, options = {}) => {
     }
 
     const lines = choices.map((choice, i) => {
-      const background = isCourses && getOr('#fff', `courses${[i - 1]}`, skin);
+      const defaultBG = '#fff';
+      const coursesBG = getOr(defaultBG, `courses${[i - 1]}`, skin);
+      const background = isCourses ? coursesBG : defaultBG;
 
       return (
         <li className={style.line}>

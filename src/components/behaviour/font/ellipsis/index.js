@@ -1,4 +1,4 @@
-import createBehaviour from '../../../util/behaviour';
+import createBehaviour from '../../../../util/behaviour';
 
 const ellipsis = (engine, options) => props => {
   const properties = {
