@@ -1,4 +1,6 @@
 import getOr from 'lodash/fp/getOr';
+import partial from 'lodash/fp/partial';
+import unary from 'lodash/fp/unary';
 import { checker, createValidate } from '../../../util/validation';
 import style from './style.css';
 
@@ -42,7 +44,7 @@ export default (engine, options = {}) => {
           <input type="checkbox"
                  className={style.input}
                  checked={state.checked}
-                 onChange={() => onToggle(state)}
+                 onChange={partial(unary(onToggle), [state])}
           />
         </label>
         <span>{label}</span>
