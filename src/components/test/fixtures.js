@@ -25,9 +25,8 @@ const testFixture = (_it, component, engine) => _fixture => {
   const name = _fixture.name.split('.')[0];
 
   const createChildren = fixture => {
-    return map(child => {
-      const {tag, props, children} = child;
-      return h(tag, props, children);
+    return map(createChild => {
+      return createChild(engine);
     }, fixture.children);
   };
 
@@ -48,38 +47,25 @@ const testFixture = (_it, component, engine) => _fixture => {
 
   test(`${it} › should be instanciated as shallowTree`, t => {
     const Component = factory(engine, {skin: {}});
-    t.pass();
-
     const component = <Component {...fixture.props}>
       {children}
     </Component>;
-    t.pass();
   });
 
   test(`${it} › instanciated and resolved | no options`, t => {
     const Component = factory(engine);
-    t.pass();
-
     const component = <Component {...fixture.props}>
       {children}
     </Component>;
-    t.pass();
-
     resolve(component);
-    t.pass();
   });
 
   test(`${it} › instanciated and resolved | options = {skin, translate}`, t => {
     const Component = factory(engine, fullOptions);
-    t.pass();
-
     const component = <Component {...fixture.props}>
       {children}
     </Component>;
-    t.pass();
-
     resolve(component);
-    t.pass();
   });
 };
 

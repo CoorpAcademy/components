@@ -1,6 +1,8 @@
+const child = (engine, options) => {
+  const {h} = engine;
+  return <h1>foo</h1>;
+};
+
 export default {
-  children: [{
-    tag: 'h1',
-    children: 'foo'
-  }]
+  children: [child]
 };
