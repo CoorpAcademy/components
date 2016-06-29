@@ -94,7 +94,7 @@
     "require": [
       "babel-core/register"
     ],
-    "all": true
+    "all": false
   },
   "dependencies": {
     "d3": "^3.5.16",

@@ -9,6 +9,8 @@ const conditions = checker.shape({
 const validationSucceed = createSuccess(conditions);
 const props = null;
 
+/* eslint-disable */
 test('with children === [false]', validationSucceed, props, [false]);
 test('with [{}]', validationSucceed, props, [{}]);
 test('with ["foo"]', validationSucceed, props, ['foo']);
+/* eslint-enable */

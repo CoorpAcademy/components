@@ -8,7 +8,10 @@ const conditions = checker.shape({
 const props = null;
 
 const validationFails = createFailure(conditions);
+
+/* eslint-disable */
 test('with no child', validationFails, props, null);
 test('with empty array', validationFails, props, []);
 test('with undefined children', validationFails);
 test('with many children', validationFails, props, ['foo', 'bar']);
+/* eslint-enable */
