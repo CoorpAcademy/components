@@ -4,10 +4,9 @@ import identity from 'lodash/fp/identity';
 import isArray from 'lodash/fp/isArray';
 import map from 'lodash/fp/map';
 import run from '../../util/for-each-engine';
-import { extract } from '../../util/components-finder';
+import { extractComponents } from '../../util/components-finder';
 
 const _require = file => require(path.join('..', file)).default;
-const components = extract();
 
 const fullOptions = {
   skin: {
@@ -80,6 +79,7 @@ const testComponent = (engineName, engine) => component => {
 };
 
 const fixturesTests = (name, engine) => {
+  const components = extractComponents();
   components.forEach(testComponent(name, engine));
 };
 
