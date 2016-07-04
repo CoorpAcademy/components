@@ -2,7 +2,7 @@ import createWidget from './create-widget';
 import d3 from 'd3';
 global.d3 = d3;
 
-const createD3Widget = createChart => (engine, options) => {
+const createD3Widget = (createChart, validate) => (engine, options) => {
   const init = (props, el) => {
     setTimeout(() => update(props, null, el));
   };
@@ -28,7 +28,8 @@ const createD3Widget = createChart => (engine, options) => {
     namespaceURI: 'http://www.w3.org/2000/svg',
     init,
     update,
-    destroy
+    destroy,
+    validate
   });
 };
 

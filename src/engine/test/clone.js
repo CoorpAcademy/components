@@ -2,7 +2,7 @@ import test from 'ava';
 import forEachEngine from '../../util/for-each-engine';
 
 forEachEngine((name, {h, clone}) => {
-  test(`${name}: should clone element`, t => {
+  test(`${name} › should clone element`, t => {
     const node = <span bar="baz">qux</span>;
     const cloneNode = clone(node);
 
@@ -11,7 +11,7 @@ forEachEngine((name, {h, clone}) => {
     t.deepEqual(cloneNode, expected);
   });
 
-  test(`${name}: should clone simple element`, t => {
+  test(`${name} › should clone simple element`, t => {
     const node = <span/>;
     const cloneNode = clone(node);
 
@@ -20,7 +20,7 @@ forEachEngine((name, {h, clone}) => {
     t.deepEqual(cloneNode, expected);
   });
 
-  test(`${name}: should clone element and replace property`, t => {
+  test(`${name} › should clone element and replace property`, t => {
     const node = <span bar="baz">qux</span>;
     const cloneNode = clone(node, {bar: 'qux'});
 
@@ -28,7 +28,7 @@ forEachEngine((name, {h, clone}) => {
     t.deepEqual(cloneNode, expected);
   });
 
-  test(`${name}: should clone element and replace deep property`, t => {
+  test(`${name} › should clone element and replace deep property`, t => {
     const node = <h1 style={{color: 'grey'}}>qux</h1>;
     const pink = {style: {color: 'pink'}};
     const cloneNode = clone(node, pink);
@@ -37,7 +37,7 @@ forEachEngine((name, {h, clone}) => {
     t.deepEqual(cloneNode, expected);
   });
 
-  test(`${name}: should clone element and add property`, t => {
+  test(`${name} › should clone element and add property`, t => {
     const node = <span bar="baz">qux</span>;
     const cloneNode = clone(node, {baz: 'baz'});
 
@@ -45,7 +45,7 @@ forEachEngine((name, {h, clone}) => {
     t.deepEqual(cloneNode, expected);
   });
 
-  test(`${name}: should clone element and add deep property`, t => {
+  test(`${name} › should clone element and add deep property`, t => {
     const node = <span bar={{baz: 'baz'}}>qux</span>;
     const cloneNode = clone(node, {bar: {qux: 'qux'}});
 
@@ -53,7 +53,7 @@ forEachEngine((name, {h, clone}) => {
     t.deepEqual(cloneNode, expected);
   });
 
-  test(`${name}: should clone element and replace children`, t => {
+  test(`${name} › should clone element and replace children`, t => {
     const node = <span bar={{baz: 'baz'}}>qux</span>;
     const cloneNode = clone(node, null, ['quux']);
 

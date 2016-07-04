@@ -3,6 +3,20 @@
   "env": {
     "development": {
       "sourceMaps": "inline"
+    },
+    "test": {
+      "plugins": [
+        ["css-modules-transform", {
+            "generateScopedName": "[name]__[local]___[hash:base64:5]"
+        }]
+      ]
+    },
+    "production": {
+      "plugins": [
+        ["css-modules-transform", {
+            "generateScopedName": "[name]__[local]___[hash:base64:5]"
+        }]
+      ]
     }
   },
   "plugins": [

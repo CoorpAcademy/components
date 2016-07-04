@@ -6,7 +6,7 @@ import createBehaviour from '../behaviour';
 forEachEngine((name, engine) => {
   const {h, resolve} = engine;
 
-  test(`${name}: should extend children properties`, t => {
+  test(`${name} › should extend children properties`, t => {
     const Title = (props, children) => <h1>{children}</h1>;
     const Color = createBehaviour(() => props => ({style: {color: props.color}}))(engine);
 
@@ -20,7 +20,7 @@ forEachEngine((name, engine) => {
     t.deepEqual(resolve(tree), expected);
   });
 
-  test(`${name}: should override children properties`, t => {
+  test(`${name} › should override children properties`, t => {
     const Title = (props, children) => <h1 style={{color: props.color}}>{children}</h1>;
     const Color = createBehaviour(() => props => ({style: {color: props.color}}))(engine);
 

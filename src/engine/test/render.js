@@ -6,13 +6,13 @@ global.document = jsdom.jsdom('<!doctype html><html><body></body></html>');
 global.window = document.defaultView;
 
 forEachEngine((name, {h, render}) => {
-  test(`${name}: should render vTree`, t => {
+  test(`${name} › should render vTree`, t => {
     const root = render(document.createElement('div'))(<h1>foo</h1>);
     t.is(root.tagName, 'H1');
     t.is(root.textContent, 'foo');
   });
 
-  test(`${name}: should render vTree with Components`, t => {
+  test(`${name} › should render vTree with Components`, t => {
     const Component = props => <h1>foo</h1>;
     const root = render(document.createElement('div'))(Component());
     t.is(root.tagName, 'H1');
@@ -43,7 +43,7 @@ forEachEngine((name, {h, render}) => {
       t.deepEqual(el[key], value);
     });
 
-    test(`${name}: should render ${key} attribute`, t => {
+    test(`${name} › should render ${key} attribute`, t => {
       const root = render(document.createElement('div'))(h(tagName, {
         [key]: value
       }));
@@ -59,7 +59,7 @@ forEachEngine((name, {h, render}) => {
   Object.keys(events).forEach(eventName => {
     const attribute = events[eventName];
 
-    test.cb(`${name}: should attach ${eventName} listener`, t => {
+    test.cb(`${name} › should attach ${eventName} listener`, t => {
       t.plan(1);
       const onEvent = e => {
         t.pass();

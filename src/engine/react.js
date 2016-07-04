@@ -14,10 +14,16 @@ const omitChildren = omit(['children']);
 
 const h = (tag, props, children) => {
   if (!isArray(children)) children = [];
+  const _children = flatten(children);
+
+  if (process.env.NODE_ENV !== 'production' && isFunction(tag) && tag.validate) {
+    tag.validate(props, _children);
+  }
+
   return createElement(
     tag,
     props || null,
-    ...flatten(children)
+    ..._children
   );
 };
 
@@ -62,7 +68,8 @@ const widget = options => {
     tagName: 'div',
     init: () => {},
     update: () => {},
-    destroy: () => {}
+    destroy: () => {},
+    validate: null
   }, options);
 
   const _widget = createClass({
@@ -86,6 +93,7 @@ const widget = options => {
     }
   });
   _widget.resolve = false;
+  _widget.validate = options.validate;
   return _widget;
 };
 

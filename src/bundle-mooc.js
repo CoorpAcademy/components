@@ -1,6 +1,6 @@
 import engine from './engine/virtualdom';
 import createDirectives from './adapter/angular/create-directives';
-import * as components from './';
+import * as components from './components';
 
 const setup = app => {
   createDirectives(app, engine, components);

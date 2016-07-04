@@ -1,4 +1,9 @@
-import { createCheckboxes, createDisciplineCard } from '../../src';
+import {
+  createLabelModName,
+  createCheckboxes,
+  createDisciplineCard
+} from '../../src/components';
+
 import skin from '../assets/skin';
 import disciplines from '../assets/disciplines';
 import sandbox from './sandbox.css';
@@ -20,19 +25,26 @@ export default engine => {
     checked: true
   }];
 
+  const LabelModName = createLabelModName(engine, options);
   const Checkboxes = createCheckboxes(engine, options);
   const DisciplineCard = createDisciplineCard(engine, options);
 
-  return props => (
+  return (props, children) => (
     <div>
+      <LabelModName>pop</LabelModName>
       <Checkboxes
         title='Pick me'
         theme='courses'
         mode='closable'
         status='closed'
         choices={choices}
+        onToggle={(...argz) => console.log(...argz)}
       />
-      <DisciplineCard discipline={disciplines[0]}/>
+      <DisciplineCard
+        discipline={disciplines[0]}
+        onClick={(...argz) => console.log('click card', ...argz)}
+        onModuleClick={(...argz) => console.log('click module', ...argz)}
+      />
     </div>
   );
 };

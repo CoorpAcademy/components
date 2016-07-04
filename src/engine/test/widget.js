@@ -6,7 +6,7 @@ global.document = jsdom.jsdom('<!doctype html><html><body></body></html>');
 global.window = document.defaultView;
 
 forEachEngine((name, {h, render, widget}) => {
-  test(`${name}: should create widget without options`, t => {
+  test(`${name} › should create widget without options`, t => {
     const Widget = widget();
     const update = render(document.createElement('div'));
     const root = update(<Widget/>);
@@ -15,7 +15,7 @@ forEachEngine((name, {h, render, widget}) => {
     t.is(root.namespaceURI, 'http://www.w3.org/1999/xhtml');
   });
 
-  test(`${name}: should create widget with specified tagName`, t => {
+  test(`${name} › should create widget with specified tagName`, t => {
     const Widget = widget({
       tagName: 'span'
     });
@@ -25,7 +25,7 @@ forEachEngine((name, {h, render, widget}) => {
     t.is(root.tagName, 'SPAN');
   });
 
-  test(`${name}: should create widget with specified namespace`, t => {
+  test(`${name} › should create widget with specified namespace`, t => {
     const Widget = widget({
       tagName: 'svg',
       namespaceURI: 'http://www.w3.org/2000/svg'
@@ -37,7 +37,7 @@ forEachEngine((name, {h, render, widget}) => {
     t.is(root.namespaceURI, 'http://www.w3.org/2000/svg');
   });
 
-  test(`${name}: should implement initiation`, t => {
+  test(`${name} › should implement initiation`, t => {
     t.plan(2);
 
     const Widget = widget({
@@ -55,7 +55,7 @@ forEachEngine((name, {h, render, widget}) => {
     t.truthy(root.classList.contains('foo'));
   });
 
-  test(`${name}: should pass (props, el) on init`, t => {
+  test(`${name} › should pass (props, el) on init`, t => {
     t.plan(2);
 
     let elWidget;
@@ -70,7 +70,7 @@ forEachEngine((name, {h, render, widget}) => {
     t.is(root, elWidget);
   });
 
-  test(`${name}: should have default destroy`, t => {
+  test(`${name} › should have default destroy`, t => {
     const Widget = widget();
 
     const root = document.createElement('div');
@@ -80,7 +80,7 @@ forEachEngine((name, {h, render, widget}) => {
     update(<span/>);
   });
 
-  test(`${name}: should implement destroy`, t => {
+  test(`${name} › should implement destroy`, t => {
     t.plan(1);
 
     const Widget = widget({
@@ -97,7 +97,7 @@ forEachEngine((name, {h, render, widget}) => {
     update(<span/>);
   });
 
-  test(`${name}: should pass (el) on destroy`, t => {
+  test(`${name} › should pass (el) on destroy`, t => {
     t.plan(1);
 
     const Widget = widget({
@@ -114,7 +114,7 @@ forEachEngine((name, {h, render, widget}) => {
     update(<span/>);
   });
 
-  test(`${name}: should implement update`, t => {
+  test(`${name} › should implement update`, t => {
     t.plan(2);
 
     const Widget = widget({
@@ -131,7 +131,7 @@ forEachEngine((name, {h, render, widget}) => {
     update(<Widget/>);
   });
 
-  test(`${name}: should pass (props, prev, el) on update`, t => {
+  test(`${name} › should pass (props, prev, el) on update`, t => {
     t.plan(3);
 
     let elWidget;
@@ -149,5 +149,8 @@ forEachEngine((name, {h, render, widget}) => {
     update(<Widget foo="foo"/>);
     update(<Widget foo="bar"/>);
     t.is(root.firstElementChild, elWidget);
+  });
+
+  test(`${name} › should execute validation`, t => {
   });
 });

@@ -54,15 +54,25 @@ const transformProps = props => {
 };
 
 const h = (tag, props, children) => {
-  const _tag = isFunction(tag) ? 'div' : tag;
-  const _props = isFunction(tag) ? props : transformProps(props);
-  const _children = pipe(compact, flatten)(props && props.children || children || []);
+  const isComponent = isFunction(tag);
+  const _children = pipe(compact, flatten)(children);
+
+  if (process.env.NODE_ENV !== 'production' && isComponent && tag.validate) {
+    tag.validate(props, _children);
+  }
+
+  const _tag = isComponent ? 'div' : tag;
+  const _props = isComponent ? props : transformProps(props);
+
   const vTree = _h(
     _tag,
     _props || {},
     _children
   );
-  if (isFunction(tag)) vTree.sel = tag;
+
+  if (isComponent) {
+    vTree.sel = tag;
+  }
 
   return vTree;
 };
@@ -106,10 +116,11 @@ const widget = options => {
     init: () => {},
     update: () => {},
     destroy: () => {},
+    validate: null,
     ...options
   };
 
-  return props => {
+  const Widget = props => {
     return _h(
       options.tagName,
       {
@@ -122,6 +133,10 @@ const widget = options => {
       }
     );
   };
+
+  Widget.validate = options.validate;
+
+  return Widget;
 };
 
 export default {

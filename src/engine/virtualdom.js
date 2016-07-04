@@ -18,15 +18,25 @@ const transformProps = props => mapKeys(key => {
 }, props);
 
 const h = (tag, props, children) => {
-  const _tag = isFunction(tag) ? 'div' : tag;
-  const _props = isFunction(tag) ? props : transformProps(props);
+  const isComponent = isFunction(tag);
+  const _children = flatten(children);
+
+  if (process.env.NODE_ENV !== 'production' && isComponent && tag.validate) {
+    tag.validate(props, _children);
+  }
+
+  const _tag = isComponent ? 'div' : tag;
+  const _props = isComponent ? props : transformProps(props);
 
   const vTree = _h(
     _tag,
     _props,
-    flatten(children)
+    _children
   );
-  if (isFunction(tag)) vTree.tagName = tag;
+
+  if (isComponent) {
+    vTree.tagName = tag;
+  }
 
   return vTree;
 };
@@ -81,7 +91,8 @@ const widget = options => {
     namespaceURI: 'http://www.w3.org/1999/xhtml',
     init: () => {},
     update: () => {},
-    destroy: () => {}
+    destroy: () => {},
+    validate: null
   }, options);
 
   const Widget = function(props) {
@@ -104,9 +115,12 @@ const widget = options => {
     return options.destroy(el);
   };
 
-  return props => {
+  const component = props => {
     return new Widget(props);
   };
+
+  component.validate = options.validate;
+  return component;
 };
 
 export default {
