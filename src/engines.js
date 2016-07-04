@@ -3,7 +3,7 @@ import snabbdom from './engine/snabbdom';
 import virtualdom from './engine/virtualdom';
 
 export default {
-  react,
-  snabbdom,
+  // react,
+  // snabbdom,
   virtualdom
 };

@@ -3,6 +3,12 @@ import isArray from 'lodash/fp/isArray';
 import isString from 'lodash/fp/isString';
 import _map from 'lodash/fp/map';
 import omit from 'lodash/fp/omit';
+import camelCase from 'lodash/fp/camelCase';
+import pipe from 'lodash/fp/pipe';
+import set from 'lodash/fp/set';
+import reduce from 'lodash/fp/reduce';
+import keys from 'lodash/fp/keys';
+import split from 'lodash/fp/split';
 import flatten from 'lodash/fp/flatten';
 import assign from 'lodash/fp/assign';
 import defaultsDeep from 'lodash/fp/defaultsDeep';
@@ -10,13 +16,27 @@ import partial from 'lodash/fp/partial';
 import React, { createElement, createClass } from 'react';
 import { render as _render, findDOMNode } from 'react-dom';
 
+const transformProps = props => {
+  if (!props) return props;
+  const data = pipe(
+    keys,
+    reduce((data, key) => {
+      const value = props[key];
+      return set(key, value, data);
+    }, {})
+  )(props);
+
+  return data;
+};
+
 const omitChildren = omit(['children']);
 
 const h = (tag, props, children) => {
   if (!isArray(children)) children = [];
+  const _props = isFunction(tag) ? props : transformProps(props);
   return createElement(
     tag,
-    props || null,
+    _props,
     ...flatten(children)
   );
 };
@@ -24,7 +44,7 @@ const h = (tag, props, children) => {
 const clone = (child, properties, children) => {
   return h(
     child.type,
-    defaultsDeep(child.props, properties),
+    defaultsDeep(child.props, isFunction(child.type) ? properties : transformProps(properties)),
     children || child.props.children && map(c => c, child.props.children) || []
   );
 };

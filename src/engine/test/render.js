@@ -1,4 +1,7 @@
 import test from 'ava';
+import get from 'lodash/fp/get';
+import getOr from 'lodash/fp/getOr';
+import keys from 'lodash/fp/keys';
 import forEachEngine from '../../util/for-each-engine';
 import jsdom from 'jsdom';
 
@@ -20,33 +23,35 @@ forEachEngine((name, {h, render}) => {
   });
 
   const props = {
-    style: {
-      value: {
-        color: 'blue'
-      },
-      assert: (t, el) => {
-        t.deepEqual(el.style.color, 'blue');
-      }
-    },
-    className: 'foo',
-    id: 'foo',
-    type: {
-      tagName: 'input',
-      value: 'text'
-    }
+    // style: {
+    //   value: {
+    //     color: 'blue'
+    //   },
+    //   assert: (t, el) => {
+    //     t.deepEqual(el.style.color, 'blue');
+    //   }
+    // },
+    // className: 'foo',
+    // id: 'foo',
+    // type: {
+    //   tagName: 'input',
+    //   value: 'text'
+    // },
+    'data-foo': 'bar'
   };
 
-  Object.keys(props).forEach(key => {
-    const tagName = props[key] && props[key].tagName || 'div';
-    const value = props[key] && props[key].value || props[key];
-    const assert = props[key].assert || ((t, el) => {
-      t.deepEqual(el[key], value);
-    });
+  keys(props).forEach(key => {
+    const tagName = getOr('div', `${key}.tagName`, props);
+    const value = getOr(get(key, props), `${key}.value`, props);
+    const assert = getOr((t, el) => {
+      t.deepEqual(el.attributes.getNamedItem(key).value, value);
+    }, `${key}.assert`, props);
 
-    test(`${name}: should render ${key} attribute`, t => {
-      const root = render(document.createElement('div'))(h(tagName, {
+    test.only(`${name}: should render ${key} attribute`, t => {
+      const vTree = h(tagName, {
         [key]: value
-      }));
+      });
+      const root = render(document.createElement('div'))(vTree);
 
       assert(t, root);
     });
