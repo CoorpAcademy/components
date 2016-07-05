@@ -61,11 +61,7 @@
     "nyc": "^6.4.2",
     "pascal-case": "^1.1.2",
     "postcss-loader": "^0.9.1",
-    "react": "^15.0.2",
-    "react-dom": "^15.0.2",
-    "snabbdom": "^0.5.0",
     "style-loader": "^0.13.0",
-    "virtual-dom": "^2.1.1",
     "webpack": "^1.12.14",
     "webpack-dev-middleware": "^1.4.0",
     "webpack-hot-middleware": "^2.10.0"
@@ -98,6 +94,10 @@
   "dependencies": {
     "api-check": "^7.5.5",
     "d3": "^3.5.16",
+    "react": "^15.0.2",
+    "react-dom": "^15.0.2",
+    "snabbdom": "^0.5.0",
+    "virtual-dom": "^2.1.1",
     "nvd3": "^1.8.2"
   }
 }
