@@ -24,11 +24,10 @@ const generate = () => {
   fs.appendFileSync(index, _exports);
 };
 
-if (require.main === module) {
+module.exports = {
+  generate
+};
+
+if (!module.parent) {
   generate();
-}
-else {
-  module.exports = {
-    generate
-  };
 }
