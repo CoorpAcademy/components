@@ -34,7 +34,6 @@
   "devDependencies": {
     "@coorpacademy/eslint-plugin-coorpacademy": "^1.1.1",
     "angular": "^1.5.2",
-    "api-check": "^7.5.5",
     "autoprefixer": "^6.3.3",
     "ava": "^0.15.2",
     "babel-cli": "^6.6.5",
@@ -97,6 +96,7 @@
     "all": false
   },
   "dependencies": {
+    "api-check": "^7.5.5",
     "d3": "^3.5.16",
     "nvd3": "^1.8.2"
   }
