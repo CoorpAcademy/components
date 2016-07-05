@@ -61,8 +61,11 @@ const writeImports = elements => {
   return `${lines.join(';\n')};`;
 };
 
-const extractComponents = skipFixtures => {
-  const includes = '{atom,behaviour,molecule,organism}';
+const extractAllComponents = () => {
+  return extractComponents('{atom,behaviour,molecule,organism}', false);
+};
+
+const extractComponents = (includes, skipFixtures) => {
   const paths = `../components/${includes}/**/index.js`;
   return extractPaths(paths, skipFixtures);
 };
@@ -71,5 +74,6 @@ export {
   writeImports,
   writeExports,
   extractComponents,
+  extractAllComponents,
   extractPaths
 };

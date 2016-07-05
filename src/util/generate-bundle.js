@@ -13,7 +13,8 @@ const reset = index => {
 
 const generate = () => {
   const index = path.join(__dirname, '../components/index.js');
-  const elements = extractComponents(true);
+  const includes = '{behaviour,molecule,organism}';
+  const elements = extractComponents(includes, true);
 
   const _imports = `${writeImports(elements)}\n`;
   const _exports = `\nexport {\n${writeExports(elements)}\n};\n`;
