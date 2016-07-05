@@ -4,7 +4,7 @@ import identity from 'lodash/fp/identity';
 import isArray from 'lodash/fp/isArray';
 import map from 'lodash/fp/map';
 import run from '../../util/for-each-engine';
-import { extractComponents } from '../../util/components-finder';
+import { extractAllComponents } from '../../util/components-finder';
 
 const _require = file => require(path.join('..', file)).default;
 
@@ -79,7 +79,7 @@ const testComponent = (engineName, engine) => component => {
 };
 
 const fixturesTests = (name, engine) => {
-  const components = extractComponents();
+  const components = extractAllComponents();
   components.forEach(testComponent(name, engine));
 };
 

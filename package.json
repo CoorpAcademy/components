@@ -5,7 +5,7 @@
   "main": "lib/components/index.js",
   "scripts": {
     "start": "babel-node sandbox/index.js",
-    "build": "npm run build:commonjs & npm run build:browser & wait",
+    "build": "npm run build:commonjs && npm run build:browser",
     "build:commonjs": "npm run build:bundle && npm run clean:commonjs && BABEL_ENV=production babel src --out-dir lib -s",
     "build:browser": "npm run build:bundle && npm run clean:browser && webpack",
     "build:dev-mooc": "npm run build:bundle && npm run clean:browser && webpack --config webpack-dev-mooc.config.js",

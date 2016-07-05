@@ -1,7 +1,7 @@
 import path from 'path';
 import test from 'ava';
 import run from '../../util/for-each-engine';
-import { extractComponents } from '../../util/components-finder';
+import { extractAllComponents } from '../../util/components-finder';
 
 const _require = file => require(path.join('..', file)).default;
 
@@ -29,7 +29,7 @@ const testComponent = (engineName, engine) => component => {
 };
 
 const factoryTests = (name, engine) => {
-  const components = extractComponents();
+  const components = extractAllComponents();
   components.forEach(testComponent(name, engine));
 };
 
