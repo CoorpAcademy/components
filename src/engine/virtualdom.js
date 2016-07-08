@@ -79,7 +79,7 @@ const render = el => {
     }
 
     const patches = diff(currentTree, vTree);
-    patch(rootNode, patches);
+    rootNode = patch(rootNode, patches);
     currentTree = vTree;
     return rootNode;
   };
