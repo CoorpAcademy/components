@@ -1,0 +1,35 @@
+.hero {
+  height: 400px;
+  position: relative;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.cta {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 220px;
+  height: 220px;
+  border: 3px dashed #fff;
+  color: #fff;
+  border-radius: 50%;
+}
+
+.label {
+  line-height: 220px;
+}
+
+.label span {
+  line-height: normal;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 24px;
+  padding: 6px;
+  text-align: center;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
