@@ -19,6 +19,10 @@
   border-radius: 50%;
 }
 
+.cta:before {
+  background: rgba(0, 0, 0, .2);
+}
+
 .label {
   line-height: 220px;
 }
