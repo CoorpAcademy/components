@@ -17,6 +17,16 @@ const transformProps = props => mapKeys(key => {
   return key;
 }, props);
 
+const mergeClassNames = (child, properties) => {
+  if (!child.properties || !child.properties.className)
+    return;
+
+  if (!properties || !properties.className)
+    return;
+
+  properties.className = `${child.properties.className} ${properties.className}`;
+};
+
 const h = (tag, props, children) => {
   const isComponent = isFunction(tag);
   const _children = flatten(children);
@@ -42,6 +52,7 @@ const h = (tag, props, children) => {
 };
 
 const clone = (child, properties, children) => {
+  mergeClassNames(child, properties);
   return h(
     child.tagName,
     defaultsDeep(child.properties, properties),
