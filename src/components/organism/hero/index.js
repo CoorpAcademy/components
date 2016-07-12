@@ -6,7 +6,6 @@ import RadialFocusBehaviour from '../../behaviour/effects/radial-focus';
 const conditions = checker.shape({
   props: checker.shape({
     url: checker.string,
-    theme: checker.string.optional,
     title: checker.string
   }),
   children: checker.none
@@ -18,17 +17,16 @@ export default (engine, options = {}) => {
   const Hero = (props, children) => {
     const {h} = engine;
     const {skin, translate} = options;
-    const {url, theme, title} = props;
+    const {url, title} = props;
     const text = translate ? translate(title) : title;
 
-    const defaultBG = get('images.tree', skin);
-    const themeBG = theme && get('images.dashboard[theme]', skin);
+    const bg = get('images.hero', skin);
 
     return (
       <div
         className={style.hero}
         style={{
-          backgroundImage: `url(${themeBG || defaultBG})`
+          backgroundImage: `url(${bg})`
         }}
       >
         <RadialFocus>

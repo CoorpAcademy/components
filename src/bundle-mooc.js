@@ -1,4 +1,4 @@
-import engine from './engine/snabbdom';
+import engine from './engine/virtualdom';
 import createDirectives from './adapter/angular/create-directives';
 import * as components from './components';
 
