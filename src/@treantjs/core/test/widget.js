@@ -8,8 +8,8 @@ import walker from '../walker';
 import resolve from '../resolve';
 
 test('should create Widget', t => {
-    const widget = new Widget();
-    t.truthy(isWidget(widget));
+  const widget = new Widget();
+  t.truthy(isWidget(widget));
 });
 
 ['init', 'update', 'destroy'].forEach(hookName =>

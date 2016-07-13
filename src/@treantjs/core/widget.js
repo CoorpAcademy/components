@@ -10,7 +10,6 @@ const Widget = function({
   destroy = noop,
   validate
 } = {}) {
-  console.log(tagName, namespaceURI, init, update, destroy, validate);
   this.tagName = tagName;
   this.namespaceURI = namespaceURI;
 
@@ -19,7 +18,6 @@ const Widget = function({
   this.destroy = destroy;
 
   this.validate = validate;
-  console.log(this);
 };
 
 Widget.prototype.type = TYPE;
