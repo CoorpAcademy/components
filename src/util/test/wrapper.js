@@ -30,4 +30,17 @@ forEachEngine((name, engine) => {
 
     t.deepEqual(resolve(wrapper), expectedTitle);
   });
+
+  test(`${name} › should use children attributes`, t => {
+    t.plan(1);
+    const title = <h1/>;
+
+    const Wrapper = createWrapper(() => (props, child) => {
+      t.deepEqual(child, title);
+      return {};
+    })(engine);
+
+    const component = <Wrapper>{title}</Wrapper>;
+    resolve(component);
+  });
 });
