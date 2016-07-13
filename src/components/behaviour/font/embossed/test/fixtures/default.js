@@ -1,8 +1,4 @@
-const child = (engine, options) => {
-  const {h} = engine;
-  return <p>foo</p>;
-};
-
+const child = ({h}, options) => (<p>foo</p>);
 export default {
   children: [child]
 };

@@ -7,4 +7,5 @@
   height: 100%;
   position: absolute;
   overflow-y: auto;
+  transition: background 1s ease-out;
 }

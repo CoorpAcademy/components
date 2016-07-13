@@ -3,9 +3,7 @@
   position: relative;
   background-size: cover;
   background-position: 50% 50%;
-
-  transition: background 1s linear;
-  animation-name: heroFadeIn;
+  transition: background 1s ease-out;
 }
 
 .cta {
@@ -39,13 +37,4 @@
   text-align: center;
   text-transform: uppercase;
   vertical-align: middle;
-}
-
-@keyframes heroFadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
 }
