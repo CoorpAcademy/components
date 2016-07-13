@@ -4,8 +4,8 @@ import head from 'lodash/fp/head';
 const createComponent = createProperties => (engine, options) => (props, children) => {
   const {clone, map} = engine;
 
-  const properties = createProperties(engine, options)(props, children);
   const child = head(map(c => c, children));
+  const properties = createProperties(engine, options)(props, child);
 
   return clone(child, properties);
 };

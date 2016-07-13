@@ -60,13 +60,4 @@ forEachEngine((name, {h, clone}) => {
     const expected = <span bar={{baz: 'baz'}}>quux</span>;
     t.deepEqual(cloneNode, expected);
   });
-
-  test(`${name} › should clone element and merge classNames`, t => {
-    const node = <span className={'foo'}></span>;
-    const wrapperProperties = {className: 'bar'};
-    const cloneNode = clone(node, wrapperProperties);
-
-    const expected = <span className={'foo bar'}></span>;
-    t.deepEqual(cloneNode, expected);
-  });
 });

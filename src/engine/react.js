@@ -12,16 +12,6 @@ import { render as _render, findDOMNode } from 'react-dom';
 
 const omitChildren = omit(['children']);
 
-const mergeClassNames = (child, properties) => {
-  if (!child.props || !child.props.className)
-    return;
-
-  if (!properties || !properties.className)
-    return;
-
-  properties.className = `${child.props.className} ${properties.className}`;
-};
-
 const h = (tag, props, children) => {
   if (!isArray(children)) children = [];
   const _children = flatten(children);
@@ -38,7 +28,6 @@ const h = (tag, props, children) => {
 };
 
 const clone = (child, properties, children) => {
-  mergeClassNames(child, properties);
   return h(
     child.type,
     defaultsDeep(child.props, properties),

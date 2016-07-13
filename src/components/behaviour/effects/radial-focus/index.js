@@ -1,12 +1,9 @@
+import addClassName from '../../../../util/add-class-name';
 import createBehaviour from '../../../../util/behaviour';
 import style from './radial-focus.css';
 
-const centered = (engine, options) => props => {
-  const properties = {
-    className: style.focus
-  };
+const radialFocus = (engine, options) => (props, child) => ({
+  className: addClassName(style.focus)(child)
+});
 
-  return properties;
-};
-
-export default createBehaviour(centered);
+export default createBehaviour(radialFocus);
