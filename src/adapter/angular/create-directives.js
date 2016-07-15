@@ -4,6 +4,9 @@ const linkWithEngine = engine => ($i18next, $rootScope, scope, element, createCo
   const update = engine.render(element[0]);
 
   const refresh = props => {
+    if (props === undefined)
+      return;
+
     const options = {
       skin: $rootScope.skin,
       translate: $i18next
