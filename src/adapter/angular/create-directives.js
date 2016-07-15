@@ -1,16 +1,23 @@
 import mapKeys from 'lodash/fp/mapKeys';
 
-const linkWithEngine = engine => (component, $rootScope, scope, element) => {
+const linkWithEngine = engine => ($i18next, $rootScope, scope, element, createComponent) => {
   const update = engine.render(element[0]);
 
   const refresh = props => {
+    const options = {
+      skin: $rootScope.skin,
+      translate: $i18next
+    };
+
+    const component = createComponent(engine, options);
     const vTree = component(props);
     update(vTree);
   };
 
   $rootScope.$on('i18nLanguageChange', () => refresh(scope.props));
 
-  scope.$watch('props', () => refresh(scope.props), true);
+  $rootScope.$watch('skin', () => refresh(scope.props, $rootScope.skin), true);
+  scope.$watch('props', () => refresh(scope.props, $rootScope.skin), true);
 
   scope.$on('$destroy', () => window.angular.element(element).remove());
 };
@@ -20,16 +27,9 @@ const lowerFirstLetter = string => {
 };
 
 const createDirective = (app, engine, componentName, createComponent) => {
-  const directive = (config, $rootScope, $i18next) => {
-    const options = {
-      skin: config.skin,
-      translate: $i18next
-    };
-
-    const component = createComponent(engine, options);
-
+  const directive = ($rootScope, $i18next) => {
     const link = (scope, element, attrs) => {
-      linkWithEngine(engine)(component, $rootScope, scope, element);
+      linkWithEngine(engine)($i18next, $rootScope, scope, element, createComponent);
     };
 
     return {
@@ -42,7 +42,6 @@ const createDirective = (app, engine, componentName, createComponent) => {
   };
 
   app.directive(componentName, [
-    'config',
     '$rootScope',
     '$i18next',
     directive

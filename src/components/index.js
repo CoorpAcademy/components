@@ -4,6 +4,7 @@ import CenteredBehaviour from './behaviour/align/centered/';
 import PrimaryBehaviour from './behaviour/color/primary/';
 import TextInvertedBehaviour from './behaviour/color/text-inverted/';
 import TextNormalBehaviour from './behaviour/color/text-normal/';
+import RadialFocusBehaviour from './behaviour/effects/radial-focus/';
 import EllipsisBehaviour from './behaviour/font/ellipsis/';
 import EmbossedBehaviour from './behaviour/font/embossed/';
 import NormalBehaviour from './behaviour/font/normal/';
@@ -15,12 +16,14 @@ import createModuleBubble from './molecule/module-bubble/';
 import createSelectBox from './molecule/select-box/';
 import createTitledCheckbox from './molecule/titled-checkbox/';
 import createDisciplineCards from './organism/discipline-cards/';
+import createHero from './organism/hero/';
 
 export {
   CenteredBehaviour,
   PrimaryBehaviour,
   TextInvertedBehaviour,
   TextNormalBehaviour,
+  RadialFocusBehaviour,
   EllipsisBehaviour,
   EmbossedBehaviour,
   NormalBehaviour,
@@ -31,5 +34,6 @@ export {
   createModuleBubble,
   createSelectBox,
   createTitledCheckbox,
-  createDisciplineCards
+  createDisciplineCards,
+  createHero
 };
