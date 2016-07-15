@@ -2,7 +2,7 @@ import test from 'ava';
 
 import isVNode from '../is-vnode';
 import VNode from '../vnode';
-import Widget from '../widget';
+import createWidget from '../create-widget';
 
 test('should returns true on VNode', t => {
   const node = new VNode('div', {}, []);
@@ -14,6 +14,6 @@ test('should returns false on String', t => {
 });
 
 test('should returns false on widget', t => {
-  const widget = new Widget();
-  t.falsy(isVNode(widget));
+  const Widget = createWidget();
+  t.falsy(isVNode(new Widget()));
 });

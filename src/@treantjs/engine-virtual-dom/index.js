@@ -1,3 +1,4 @@
+import assign from 'lodash/fp/assign';
 import isString from 'lodash/fp/isString';
 import mapKeys from 'lodash/fp/mapKeys';
 
@@ -22,25 +23,21 @@ const transformProps = props => mapKeys(key => {
 
 const transform = vNode => {
   if (isString(vNode)) return vNode;
-  if (isWidget(vNode)) vNode = createWidget(vNode);
-
   vNode = resolver(vNode);
-  return h(vNode.tagName, transformProps(vNode.properties), map(transform, vNode.children));
+  if (isWidget(vNode)) return createWidget(vNode);
+  return h(
+    vNode.tagName,
+    transformProps(vNode.properties),
+    map(transform, vNode.children)
+  );
 };
 
 const createWidget = widget => {
-  widget = assign({
-    tagName: 'div',
-    namespaceURI: 'http://www.w3.org/1999/xhtml',
-    init: () => {},
-    update: () => {},
-    destroy: () => {},
-    validate: null
-  }, widget);
-
-  const Widget = function(props) {
-    this.props = props;
-  };
+  function Widget() {
+    this.props = widget.properties;
+    this.name = 'Widget';
+    this.id = widget.id;
+  }
 
   Widget.prototype.type = 'Widget';
 
@@ -58,12 +55,7 @@ const createWidget = widget => {
     return widget.destroy(el);
   };
 
-  const component = () => {
-    return new Widget(widget.properties);
-  };
-
-  component.validate = widget.validate;
-  return component;
+  return new Widget();
 };
 
 const render = el => {
@@ -71,7 +63,6 @@ const render = el => {
   let currentTree;
   return vTree => {
     vTree = transform(vTree);
-
     if (!rootNode) {
       rootNode = createElement(vTree, {
         document: global.document
