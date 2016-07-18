@@ -23,6 +23,7 @@
     "@coorpacademy/coorpacademy"
   ],
   "rules": {
-    "no-unused-vars": 'off'
+    "no-unused-vars": "off",
+    "ava/no-skip-test": "off"
   }
 }
