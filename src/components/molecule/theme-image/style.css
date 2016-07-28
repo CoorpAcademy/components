@@ -1,0 +1,6 @@
+.default {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: all 0.5s ease-out;
+}
