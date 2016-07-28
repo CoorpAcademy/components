@@ -10,46 +10,77 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-export default (engine, options) => {
+const imageSetup = (image, skin) => {
+  const desktop = get(`images[${image}]`, skin);
+  const retina = getOr(desktop, `images[${image}-retina]`, skin);
+  const mobile = getOr(desktop, `images[${image}-mobile]`, skin);
+
+  const height = get(`sizes[${image}].height`, skin);
+  const margin = get(`sizes[${image}].margin`, skin);
+
+  const heightRetina = get(`sizes[${image}-retina].height`, skin);
+  const marginRetina = get(`sizes[${image}-retina].margin`, skin);
+
+  const heightMobile = get(`sizes[${image}-mobile].height`, skin);
+  const marginMobile = get(`sizes[${image}-mobile].margin`, skin);
+
+  const desktopStyle = {
+    backgroundImage: `url(${desktop})`,
+    height,
+    margin
+  };
+
+  const retinaStyle = {
+    backgroundImage: `url(${retina})`,
+    height: heightRetina,
+    margin: marginRetina
+  };
+
+  const mobileStyle = {
+    backgroundImage: `url(${mobile})`,
+    height: heightMobile,
+    margin: marginMobile
+  };
+
+  return {
+    desktop,
+    retina,
+    mobile,
+    desktopStyle,
+    mobileStyle,
+    retinaStyle
+  };
+};
+
+export default (engine, options = {}) => {
   const {h} = engine;
   const {skin} = options;
 
   const ThemeImage = props => {
-    const desktop = get(`images[${props.image}]`, skin);
-    const retina = getOr(desktop, `images[${props.image}-retina]`, skin);
-    const mobile = getOr(desktop, `images[${props.image}-mobile]`, skin);
-    const height = get(`sizes[${props.image}].height`, skin);
-    const margin = get(`sizes[${props.image}].margin`, skin);
-
-    const styleOptions = {
-      height,
-      margin
-    };
+    const {
+      desktop,
+      retina,
+      mobile,
+      desktopStyle,
+      mobileStyle,
+      retinaStyle
+    } = imageSetup(props.image, skin);
 
     return (
       <div>
         <div
           className={style.desktop}
-          style={{
-            backgroundImage: `url(${desktop})`,
-            ...styleOptions
-          }}
+          style={desktopStyle}
         />
 
         <div
           className={style.mobile}
-          style={{
-            backgroundImage: `url(${mobile})`,
-            ...styleOptions
-          }}
+          style={mobileStyle}
         />
 
         <div
           className={style.retina}
-          style={{
-            backgroundImage: `url(${retina})`,
-            ...styleOptions
-          }}
+          style={retinaStyle}
         />
       </div>
     );
