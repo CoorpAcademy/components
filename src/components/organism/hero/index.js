@@ -13,14 +13,13 @@ const conditions = checker.shape({
 
 export default (engine, options = {}) => {
   const RadialFocus = RadialFocusBehaviour(engine, options);
+  const {h} = engine;
+  const {skin, translate} = options;
+  const bg = get('images.hero', skin);
 
   const Hero = (props, children) => {
-    const {h} = engine;
-    const {skin, translate} = options;
     const {url, title} = props;
     const text = translate ? translate(title) : title;
-
-    const bg = get('images.hero', skin);
 
     return (
       <div
