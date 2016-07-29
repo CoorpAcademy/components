@@ -9,9 +9,11 @@ const extractImage = (image, skin, defaultImage) => {
     backgroundImage: `url(${url})`
   };
 
+  const props = url === defaultUrl ? defaultImage : image;
+
   mapKeys(key => {
-    style[key] = get(`properties[${image}][${key}]`, skin);
-  }, get(`properties[${image}]`, skin));
+    style[key] = get(`properties[${props}][${key}]`, skin);
+  }, get(`properties[${props}]`, skin));
 
   return style;
 };
