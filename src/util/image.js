@@ -1,10 +1,9 @@
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
-import mapKeys from 'lodash/fp/mapKeys';
 
 const extractImage = (image, skin, defaultImage) => {
-  const defaultUrl = get(`images[${defaultImage}]`, skin);
-  const url = getOr(defaultUrl, `images[${image}]`, skin);
+  const defaultUrl = get(['images', defaultImage], skin);
+  const url = getOr(defaultUrl, ['images', image], skin);
 
   const defaultProperties = get(['properties', defaultImage], skin);
   const properties = getOr(defaultProperties, ['properties', image], skin);
