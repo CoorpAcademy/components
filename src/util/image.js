@@ -5,15 +5,14 @@ import mapKeys from 'lodash/fp/mapKeys';
 const extractImage = (image, skin, defaultImage) => {
   const defaultUrl = get(`images[${defaultImage}]`, skin);
   const url = getOr(defaultUrl, `images[${image}]`, skin);
+
+  const defaultProperties = get(['properties', defaultImage], skin);
+  const properties = getOr(defaultProperties, ['properties', image], skin);
+
   const style = {
-    backgroundImage: `url(${url})`
+    backgroundImage: `url(${url})`,
+    ...properties
   };
-
-  const props = url === defaultUrl ? defaultImage : image;
-
-  mapKeys(key => {
-    style[key] = get(`properties[${props}][${key}]`, skin);
-  }, get(`properties[${props}]`, skin));
 
   return style;
 };
