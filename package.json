@@ -33,7 +33,7 @@
   "homepage": "https://github.com/coorpacademy/components#readme",
   "devDependencies": {
     "@coorpacademy/eslint-plugin-coorpacademy": "^1.1.1",
-    "angular": "^1.5.2",
+    "angular": "^1.5.8",
     "autoprefixer": "^6.3.3",
     "ava": "^0.15.2",
     "babel-cli": "^6.11.4",
