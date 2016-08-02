@@ -8,8 +8,8 @@
     "test": "npm run lint && npm run nyc",
     "lint": "eslint src/",
     "ava": "BABEL_ENV=test ava",
-    "nyc": "BABEL_ENV=test nyc ava --reporter=text --reporter=lcov",
-    "coveralls": "BABEL_ENV=test nyc report --reporter=text-lcov | coveralls"
+    "nyc": "nyc npm run ava",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls"
   },
   "contributors": [
     "Arthur Weber <arthur.weber@coorpacademy.com>",
@@ -69,6 +69,10 @@
   "nyc": {
     "include": [
       "src/**"
+    ],
+    "reporter": [
+      "lcov",
+      "text"
     ],
     "exclude": [
       "src/bundle*",

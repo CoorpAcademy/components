@@ -3,8 +3,8 @@ import test from 'ava';
 import identity from 'lodash/fp/identity';
 import isArray from 'lodash/fp/isArray';
 import map from 'lodash/fp/map';
-import run from '../../util/for-each-engine';
-import { extractAllComponents } from '../../util/components-finder';
+import * as treant from '../../../@treantjs/core';
+import { extractAllComponents } from '../util/components-finder';
 
 const _require = file => require(path.join('..', file)).default;
 
@@ -17,15 +17,15 @@ const fullOptions = {
   translate: identity
 };
 
-const testFixture = (_it, component, engine) => _fixture => {
-  const { h, resolve } = engine;
+const testFixture = (_it, component, treant) => _fixture => {
+  const { h, resolve } = treant;
   const factory = _require(component.path);
   const fixture = _require(_fixture.path);
   const name = _fixture.name.split('.')[0];
 
   const createChildren = fixture => {
     return map(createChild => {
-      return createChild(engine);
+      return createChild(treant);
     }, fixture.children);
   };
 
@@ -45,14 +45,14 @@ const testFixture = (_it, component, engine) => _fixture => {
   const children = createChildren(fixture);
 
   test(`${it} › should be instanciated as shallowTree`, t => {
-    const Component = factory(engine, {skin: {}});
+    const Component = factory(treant, {skin: {}});
     const component = <Component {...fixture.props}>
       {children}
     </Component>;
   });
 
   test(`${it} › instanciated and resolved | no options`, t => {
-    const Component = factory(engine);
+    const Component = factory(treant);
     const component = <Component {...fixture.props}>
       {children}
     </Component>;
@@ -60,7 +60,7 @@ const testFixture = (_it, component, engine) => _fixture => {
   });
 
   test(`${it} › instanciated and resolved | options = {skin, translate}`, t => {
-    const Component = factory(engine, fullOptions);
+    const Component = factory(treant, fullOptions);
     const component = <Component {...fixture.props}>
       {children}
     </Component>;
@@ -68,19 +68,15 @@ const testFixture = (_it, component, engine) => _fixture => {
   });
 };
 
-const testComponent = (engineName, engine) => component => {
-  const it = `${engineName} › [${component.type}] ${component.name}`;
+const testComponent = treant => component => {
+  const it = `[${component.type}] ${component.name}`;
 
   test(`${it} › should have at least one fixture`, t => {
     t.true(component.fixtures.length > 0);
   });
 
-  component.fixtures.forEach(testFixture(it, component, engine));
+  component.fixtures.forEach(testFixture(it, component, treant));
 };
 
-const fixturesTests = (name, engine) => {
-  const components = extractAllComponents();
-  components.forEach(testComponent(name, engine));
-};
-
-run(fixturesTests);
+const components = extractAllComponents();
+components.forEach(testComponent(treant));

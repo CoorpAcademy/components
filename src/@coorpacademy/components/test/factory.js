@@ -1,16 +1,16 @@
 import path from 'path';
 import test from 'ava';
-import run from '../../util/for-each-engine';
-import { extractAllComponents } from '../../util/components-finder';
+import * as treant from '../../../@treantjs/core';
+import { extractAllComponents } from '../util/components-finder';
 
 const _require = file => require(path.join('..', file)).default;
 
-const testComponent = (engineName, engine) => component => {
-  const it = `${engineName} › [${component.type}] ${component.name}`;
+const testComponent = treant => component => {
+  const it = `[${component.type}] ${component.name}`;
   const factory = _require(component.path);
 
   test(`${it} › should be created with no option`, t => {
-    factory(engine);
+    factory(treant);
     t.pass();
   });
 
@@ -23,14 +23,10 @@ const testComponent = (engineName, engine) => component => {
       }
     };
 
-    factory(engine, options);
+    factory(treant, options);
     t.pass();
   });
 };
 
-const factoryTests = (name, engine) => {
-  const components = extractAllComponents();
-  components.forEach(testComponent(name, engine));
-};
-
-run(factoryTests);
+const components = extractAllComponents();
+components.forEach(testComponent(treant));

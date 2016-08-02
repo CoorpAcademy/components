@@ -1,40 +1,38 @@
 import test from 'ava';
-import forEachEngine from '../for-each-engine';
+import * as treant from '../../../../@treantjs/core';
 
 import createBehaviour from '../behaviour';
 
-forEachEngine((name, engine) => {
-  const {h, resolve} = engine;
+const {h, resolve} = treant;
 
-  test(`${name} › should extend children properties`, t => {
-    const Title = (props, children) => <h1>{children}</h1>;
-    const Color = createBehaviour(() => props => ({style: {color: props.color}}))(engine);
+test('should extend children properties', t => {
+  const Title = (props, children) => <h1>{children}</h1>;
+  const Color = createBehaviour(() => props => ({style: {color: props.color}}))(treant);
 
-    const tree = (
-      <Color color="blue">
-        <Title>foo</Title>
-      </Color>
-    );
+  const tree = (
+    <Color color="blue">
+      <Title>foo</Title>
+    </Color>
+  );
 
-    const expected = <h1 style={{color: 'blue'}}>foo</h1>;
-    t.deepEqual(resolve(tree), expected);
-  });
+  const expected = <h1 style={{color: 'blue'}}>foo</h1>;
+  t.deepEqual(resolve(tree), expected);
+});
 
-  test(`${name} › should override children properties`, t => {
-    const Title = (props, children) => <h1 style={{color: props.color}}>{children}</h1>;
-    const Color = createBehaviour(() => props => ({style: {color: props.color}}))(engine);
+test('should override children properties', t => {
+  const Title = (props, children) => <h1 style={{color: props.color}}>{children}</h1>;
+  const Color = createBehaviour(() => props => ({style: {color: props.color}}))(treant);
 
-    const pinkTitle = <Title color="pink">foo</Title>;
+  const pinkTitle = <Title color="pink">foo</Title>;
 
-    const blueTitle = (
-      <Color color="blue">
-        {pinkTitle}
-      </Color>
-    );
+  const blueTitle = (
+    <Color color="blue">
+      {pinkTitle}
+    </Color>
+  );
 
-    const pinkExpected = <h1 style={{color: 'pink'}}>foo</h1>;
-    t.deepEqual(resolve(pinkTitle), pinkExpected);
-    const blueExpected = <h1 style={{color: 'blue'}}>foo</h1>;
-    t.deepEqual(resolve(blueTitle), blueExpected);
-  });
+  const pinkExpected = <h1 style={{color: 'pink'}}>foo</h1>;
+  t.deepEqual(resolve(pinkTitle), pinkExpected);
+  const blueExpected = <h1 style={{color: 'blue'}}>foo</h1>;
+  t.deepEqual(resolve(blueTitle), blueExpected);
 });
