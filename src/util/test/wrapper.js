@@ -31,7 +31,7 @@ forEachEngine((name, engine) => {
     t.deepEqual(resolve(wrapper), expectedTitle);
   });
 
-  test.skip(`${name} › should use children attributes`, t => {
+  test(`${name} › should use children attributes`, t => {
     t.plan(1);
     const title = <h1/>;
 

@@ -20,7 +20,7 @@ test('should init classNames', t => {
 });
 
 forEachEngine((name, {h}) => {
-  test.skip(`${name} › should add a className`, t => {
+  test(`${name} › should add a className`, t => {
     const node = <h1 className={'foo'}></h1>;
     const className = addClassName('bar')(node);
     t.is(className, 'foo bar');
