@@ -1,5 +1,5 @@
 import { checker, createValidate } from '../../../util/validation';
-import { extractImage } from '../../../util/image';
+import { extractor } from '../../../util/image';
 import style from './style.css';
 
 const conditions = checker.shape({
@@ -9,15 +9,14 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-export default (engine, options = {}) => {
-  const {h} = engine;
-  const {skin} = options;
+export default ({h}, {skin} = {}) => {
+  const ThemeImage = ({image}) => {
+    let extract = extractor(skin);
+    const desktopStyle = extract(image);
 
-  const ThemeImage = props => {
-    const image = props.image;
-    const desktopStyle = extractImage(image, skin);
-    const mobileStyle = extractImage(`${image}-mobile`, skin, image);
-    const retinaStyle = extractImage(`${image}-retina`, skin, image);
+    extract = extractor(skin, image);
+    const mobileStyle = extract(`${image}-mobile`);
+    const retinaStyle = extract(`${image}-retina`);
 
     return (
       <div>
