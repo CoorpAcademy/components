@@ -1,6 +1,6 @@
 import mapKeys from 'lodash/fp/mapKeys';
 
-const linkWithEngine = engine => ($i18next, $rootScope, scope, element, createComponent) => {
+const linkWithEngine = (treant, engine) => ($i18next, $rootScope, scope, element, createComponent) => {
   const update = engine.render(element[0]);
 
   const refresh = props => {
@@ -12,7 +12,7 @@ const linkWithEngine = engine => ($i18next, $rootScope, scope, element, createCo
       translate: $i18next
     };
 
-    const component = createComponent(engine, options);
+    const component = createComponent(treant, options);
     const vTree = component(props);
     update(vTree);
   };
@@ -29,10 +29,10 @@ const lowerFirstLetter = string => {
   return string[0].toLowerCase() + string.slice(-(string.length - 1));
 };
 
-const createDirective = (app, engine, componentName, createComponent) => {
+const createDirective = (app, treant, engine, componentName, createComponent) => {
   const directive = ($rootScope, $i18next) => {
     const link = (scope, element, attrs) => {
-      linkWithEngine(engine)($i18next, $rootScope, scope, element, createComponent);
+      linkWithEngine(treant, engine)($i18next, $rootScope, scope, element, createComponent);
     };
 
     return {
@@ -56,14 +56,14 @@ const createDirective = (app, engine, componentName, createComponent) => {
  * <slide value="slideContent"></slide>
  * <module-bubble value="modData()"></module-bubble>
  */
-const createDirectives = (app, engine, components) => {
+const createDirectives = (app, treant, engine, components) => {
   const toDirective = key => {
     const isFactory = key.split('create')[1];
     if (!isFactory) return;
 
     const componentName = lowerFirstLetter(isFactory);
     const createComponent = components[key];
-    createDirective(app, engine, componentName, createComponent);
+    createDirective(app, treant, engine, componentName, createComponent);
   };
 
   mapKeys(toDirective, components);

@@ -8,9 +8,9 @@ import map from 'lodash/fp/map';
 import config from './webpack.config';
 
 const engines = [
-  'VirtualDom',
+  'Virtualdom',
   'React',
-  'SnabbDom'
+  'Snabbdom'
 ];
 
 const app = express();
@@ -24,17 +24,17 @@ app.use(
   webpackHotMiddleware(compiler)
 );
 
-// app.get('/angular', (req, res) => {
-//   res.send(`
-//     <body ng-app="app" ng-controller="main">
-//       <input ng-model="props.value"/>
-//       ${map((name => `
-//         <${name}-title props="props"></${name}-title>
-//       `).join('')}
-//       <script type="text/javascript" src="/dist/angular.js"></script>
-//     </body>
-//   `);
-// });
+app.get('/angular', (req, res) => {
+  res.send(`
+    <body ng-app="app" ng-controller="main">
+      <input ng-model="props.value"/>
+      ${map(name => `
+        <${name}-title props="props"></${name}-title>
+      `, engines).join('')}
+      <script type="text/javascript" src="/dist/angular.js"></script>
+    </body>
+  `);
+});
 
 app.get('/:engine', (req, res) => {
   res.send(`

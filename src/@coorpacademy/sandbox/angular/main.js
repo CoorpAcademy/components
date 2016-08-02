@@ -1,28 +1,40 @@
+import entries from 'lodash/fp/entries';
+import map from 'lodash/fp/map';
+import spread from 'lodash/fp/spread';
 import angular from 'angular';
-// import createDirectives from '../../src/adapter/angular/create-directives';
 
-// import forEachEngine from '../../src/util/for-each-engine';
+import createDirectives from '../../../@treantjs/adapter-angular';
+import * as treant from '../../../@treantjs/core';
+import * as Virtualdom from '../../../@treantjs/engine-virtual-dom';
+import * as React from '../../../@treantjs/engine-react';
+import * as Snabbdom from '../../../@treantjs/engine-snabbdom';
 
-// const createTitle = ({h}) => ({value} = {}) => (
-//   <h1>
-//     {value}
-//   </h1>
-// );
+const engines = {
+  Virtualdom,
+  React,
+  Snabbdom
+};
 
-// const app = angular.module('app', []);
+const createTitle = ({h}) => ({value} = {}) => (
+  <h1>
+    {value}
+  </h1>
+);
 
-// app
-//   .value('config', {})
-//   .value('$i18next', () => {});
+const app = angular.module('app', []);
 
-// forEachEngine((name, engine) =>
-//   createDirectives(app, engine, {
-//     [`create${name}Title`]: createTitle
-//   })
-// );
+app
+  .value('config', {})
+  .value('$i18next', () => {});
 
-// app.controller('main', $scope => {
-//   $scope.props = {
-//     value: 'godu'
-//   };
-// });
+map(spread((name, engine) =>
+  createDirectives(app, treant, engine, {
+    [`create${name}Title`]: createTitle
+  })
+), entries(engines));
+
+app.controller('main', $scope => {
+  $scope.props = {
+    value: '@treanjs'
+  };
+});
