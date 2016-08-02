@@ -10,8 +10,9 @@ const conditions = checker.shape({
 });
 
 export default ({h}, {skin} = {}) => {
+  let extract = extractor(skin);
+
   const ThemeImage = ({image}) => {
-    let extract = extractor(skin);
     const desktopStyle = extract(image);
 
     extract = extractor(skin, image);
