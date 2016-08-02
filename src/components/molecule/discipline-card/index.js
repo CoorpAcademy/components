@@ -46,7 +46,7 @@ export default (engine, options = {}) => {
     const label = translate ? translate(discipline.label) : discipline.label;
     const hasCourse = discipline.courseNum !== 'undefined';
 
-    const bg = getOr('#fff', `courses[${discipline.courseNum}]`, skin);
+    const bg = getOr('#fff', ['courses', discipline.courseNum], skin);
     const bar =
       <div
         style={{

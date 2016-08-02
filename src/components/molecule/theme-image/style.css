@@ -1,0 +1,41 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value small from breakpoints;
+@value retina from breakpoints;
+
+.default {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: all 0.5s ease-out;
+  display: none;
+}
+
+.retina,
+.mobile {
+  composes: default;
+}
+
+.desktop {
+  composes: default;
+  display: block;
+}
+
+@media retina {
+  .retina {
+    display: block;
+  }
+
+  .desktop {
+    display: none;
+  }
+}
+
+@media small {
+  .mobile {
+    display: block;
+  }
+
+  .desktop {
+    display: none;
+  }
+}

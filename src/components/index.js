@@ -14,6 +14,7 @@ import createCheckboxes from './molecule/checkboxes/';
 import createDisciplineCard from './molecule/discipline-card/';
 import createModuleBubble from './molecule/module-bubble/';
 import createSelectBox from './molecule/select-box/';
+import createThemeImage from './molecule/theme-image/';
 import createTitledCheckbox from './molecule/titled-checkbox/';
 import createDisciplineCards from './organism/discipline-cards/';
 import createHero from './organism/hero/';
@@ -33,6 +34,7 @@ export {
   createDisciplineCard,
   createModuleBubble,
   createSelectBox,
+  createThemeImage,
   createTitledCheckbox,
   createDisciplineCards,
   createHero

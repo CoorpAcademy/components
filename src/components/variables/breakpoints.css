@@ -1,3 +1,4 @@
 @value small: (max-width: 599px);
 @value medium: (min-width: 600px) and (max-width: 959px);
 @value large: (min-width: 960px);
+@value retina: (min-width: 960px) and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi);
