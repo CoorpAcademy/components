@@ -14,7 +14,6 @@ import split from 'lodash/fp/split';
 import walker from '../../@treantjs/core/walker';
 import resolve from '../../@treantjs/core/resolve';
 import map from '../../@treantjs/core/map';
-import isWidget from '../../@treantjs/core/is-widget';
 
 import h from 'snabbdom/h';
 import {init} from 'snabbdom';
@@ -62,26 +61,10 @@ const transformProps = props => {
 const transform = vNode => {
   if (isString(vNode)) return vNode;
   vNode = resolver(vNode);
-  if (isWidget(vNode)) return createWidget(vNode);
   return h(
     vNode.tagName,
     transformProps(vNode.properties),
     map(transform, vNode.children)
-  );
-};
-
-const createWidget = widget => {
-  return h(
-    widget.tagName,
-    {
-      key: widget.id,
-      props: widget.properties,
-      hook: {
-        insert: vNode => widget.init(vNode.data.props, vNode.elm),
-        update: (oldVNode, vNode) => widget.update(vNode.data.props, oldVNode.data.props, vNode.elm),
-        destroy: vNode => widget.destroy(vNode.elm)
-      }
-    }
   );
 };
 

@@ -1,12 +1,12 @@
 import test from 'ava';
 
 import isWidget from '../is-widget';
-import createWidget from '../create-widget';
+import Widget from '../widget';
 import VNode from '../vnode';
 
 test('should returns true on widget', t => {
-  const Widget = createWidget();
-  t.truthy(isWidget(new Widget()));
+  const widget = new Widget();
+  t.truthy(isWidget(widget));
 });
 
 test('should returns false on String', t => {
