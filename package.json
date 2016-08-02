@@ -5,6 +5,10 @@
   "main": "lib/components/index.js",
   "scripts": {
     "start": "babel-node src/@coorpacademy/sandbox/index.js",
+    "clean": "npm run clean:commonjs & npm run clean:browser & npm run clean:cov & wait",
+    "clean:commonjs": "rm -rf lib",
+    "clean:browser": "rm -rf dist",
+    "clean:cov": "rm -rf .nyc_output coverage",
     "test": "npm run lint && npm run nyc",
     "lint": "eslint src/",
     "ava": "BABEL_ENV=test ava",
