@@ -8,7 +8,7 @@ const VNode = function(tagName, properties, children) {
   this.tagName = tagName;
   this.properties = assign({}, properties);
   this.children = flatten(compact(children));
-};
+}
 
 VNode.prototype.type = TYPE;
 
