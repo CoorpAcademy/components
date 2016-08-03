@@ -49,3 +49,8 @@
   width: 50px;
   margin: 3px 0;
 }
+
+.filtered {
+  composes: modulewrapper;
+  opacity: 0.5;
+}

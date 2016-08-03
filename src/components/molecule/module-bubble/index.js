@@ -43,7 +43,7 @@ export default (engine, options = {}) => {
     const background = getOr('#fff', `mod[${module.status}]`, skin);
 
     return (
-      <div className={style.modulewrapper}
+      <div className={filtered ? style.filtered : style.modulewrapper}
             attributes={{
               'data-name': 'module-bubble'
             }}
