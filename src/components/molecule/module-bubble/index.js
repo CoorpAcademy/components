@@ -50,9 +50,6 @@ export default (engine, options = {}) => {
       >
         <div
           className={style.bubble}
-          style={{
-            cursor: disabled ? 'default' : 'pointer'
-          }}
           onClick={click}
         >
           <span
@@ -65,7 +62,7 @@ export default (engine, options = {}) => {
           <span
             className={disabled ? style.iconDisabled : style.icon}
             style={{
-              color: disabled ? getOr('#fff', 'theme.lock', skin) : '#fff'
+              color: getOr('#fff', ['mod', 'icon', module.status], skin)
             }}
           >
               {icon}
