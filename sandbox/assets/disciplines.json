@@ -174,11 +174,13 @@
   },
   {
     "name": {},
+    "courseNum": 2,
+    "label": "Plup!",
     "modules": [
       {
         "level": "base",
         "label": "BASE",
-        "status": "isActive",
+        "status": "isValid",
         "ref": "mod_4kJS8QAFbi",
         "chapters": [
           {
@@ -210,7 +212,7 @@
       {
         "level": "advanced",
         "label": "ADVANCED",
-        "status": "isLocked",
+        "status": "isActive",
         "ref": "mod_N1QrI7AFbo",
         "chapters": [
           {
