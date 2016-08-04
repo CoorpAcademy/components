@@ -4,7 +4,7 @@
   "description": "Component library for web front ends",
   "main": "lib/components/index.js",
   "scripts": {
-    "start": "babel-node sandbox/index.js",
+    "start": "npm run build:bundle && babel-node sandbox/index.js",
     "build": "npm run build:commonjs && npm run build:browser",
     "build:commonjs": "npm run build:bundle && npm run clean:commonjs && BABEL_ENV=production babel src --out-dir lib -s",
     "build:browser": "npm run build:bundle && npm run clean:browser && webpack",
