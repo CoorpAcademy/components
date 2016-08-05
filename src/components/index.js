@@ -10,12 +10,14 @@ import EmbossedBehaviour from './behaviour/font/embossed/';
 import NormalBehaviour from './behaviour/font/normal/';
 import TinyBehaviour from './behaviour/font/tiny/';
 import UppercaseBehaviour from './behaviour/font/uppercase/';
+import createCatalogueCard from './molecule/catalogue-card/';
 import createCheckboxes from './molecule/checkboxes/';
 import createDisciplineCard from './molecule/discipline-card/';
 import createModuleBubble from './molecule/module-bubble/';
 import createSelectBox from './molecule/select-box/';
 import createThemeImage from './molecule/theme-image/';
 import createTitledCheckbox from './molecule/titled-checkbox/';
+import createCatalogueCards from './organism/catalogue-cards/';
 import createDisciplineCards from './organism/discipline-cards/';
 import createHero from './organism/hero/';
 
@@ -30,12 +32,14 @@ export {
   NormalBehaviour,
   TinyBehaviour,
   UppercaseBehaviour,
+  createCatalogueCard,
   createCheckboxes,
   createDisciplineCard,
   createModuleBubble,
   createSelectBox,
   createThemeImage,
   createTitledCheckbox,
+  createCatalogueCards,
   createDisciplineCards,
   createHero
 };
