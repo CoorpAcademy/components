@@ -1,0 +1,44 @@
+.category-list {
+    display: block;
+    margin: 15px 0;
+    list-style-type: none;
+}
+.wrapper-category li {
+    border-bottom: solid 1px #CFD8DC;
+    font-family: OpenSans;
+    font-size: 14px;
+    color: #37474F;
+    letter-spacing: -0.22px;
+    line-height: 44px;
+    text-transform: uppercase;
+}
+.wrapper-category li a {
+    font-family: OpenSans;
+    font-size: 14px;
+    color: #37474F;
+}
+.wrapper-category li a:hover,
+.wrapper-category li a:visited {
+    font-family: OpenSans-Extrabold;
+    font-size: 14px;
+    color: #00B0FF;
+}
+.category-title {
+    font-family: OpenSans-Bold;
+    margin-bottom: 25px;
+    font-size: 15px;
+    color: #546E7A;
+    letter-spacing: 0.15px;
+    line-height: 10px;
+    text-transform: uppercase;
+}
+.products-list-item{
+    display: inline-block;
+    margin: 1%;
+    width: 31%;
+    vertical-align: top;
+    border: solid 1px #E3E3E3;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    overflow: hidden;
+}
