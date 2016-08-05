@@ -1,5 +1,13 @@
 import createCatalogueCard from '../../molecule/catalogue-card';
+import { checker, createValidate } from '../../../util/validation';
 import style from './catalogue-cards.css';
+
+const conditions = checker.shape({
+  props: checker.shape({
+    products: checker.array
+  }),
+  children: checker.none
+});
 
 export default (engine, options) => {
   const {h} = engine;
@@ -20,5 +28,6 @@ export default (engine, options) => {
     );
   };
 
+  CatalogueCards.validate = createValidate(conditions);
   return CatalogueCards;
 };
