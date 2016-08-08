@@ -35,7 +35,7 @@
     "@coorpacademy/eslint-plugin-coorpacademy": "^1.1.1",
     "angular": "^1.5.8",
     "autoprefixer": "^6.3.3",
-    "ava": "^0.15.2",
+    "ava": "^0.16.0",
     "babel-cli": "^6.11.4",
     "babel-core": "^6.11.4",
     "babel-eslint": "^6.0.0",
