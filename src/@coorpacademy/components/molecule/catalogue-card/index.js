@@ -18,13 +18,13 @@ export default (treant, options = {}) => {
       <li className={style['products-list-item']}>
         <div className={style['image-wrapper']}>
           <img src={product.images[0] && product.images[0].url.https} />
-          <div className={style['overlay']}>
+          <div className={style.overlay}>
             <a href="#">En savoir <span>plus</span></a>
           </div>
         </div>
         <div className={style['info-wrapper']}>
-          <div className={style['title']}><a href="#">Cursus Stratégie Digitale</a></div>
-          <div className={style['subtitle']}>by Coorpacademy</div>
+          <div className={style.title}><a href="#">Cursus Stratégie Digitale</a></div>
+          <div className={style.subtitle}>by Coorpacademy</div>
           <div className={style['star-rating']}>
             <span>★</span>
             <span>★</span>
