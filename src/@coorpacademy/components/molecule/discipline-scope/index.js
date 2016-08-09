@@ -1,14 +1,14 @@
-import { checker, createValidate } from '../../../util/validation';
+import { checker, createValidate } from '../../util/validation';
 import style from './discipline-scope.css';
 
-// const conditions = checker.shape({
-//   props: checker.shape({
-//     product: checker.shape({
-//       images: checker.array
-//     })
-//   }),
-//   children: checker.none
-// });
+const conditions = checker.shape({
+  props: checker.shape({
+    product: checker.shape({
+      images: checker.array
+    })
+  }),
+  children: checker.none
+});
 
 export default (engine, options = {}) => {
   const DisciplineScope = (props, children) => {
@@ -22,7 +22,9 @@ export default (engine, options = {}) => {
                 <li className={style.tabs}>Coach</li>
             </ul>
             <div className={style.desc}>
-                <div className={style.desctitle}>BASE / <span className={style.desctitlecontent}>Stratégie Digitale</span></div>
+                <div className={style.desctitle}>
+                    BASE / <span className={style.desctitlecontent}>Stratégie Digitale</span>
+                </div>
                 <div className={style.leftscope}>
                     <div className={style.lstitle}>À L'ISSUE DE CE NIVEAU, VOUS SEREZ CAPABLE DE :</div>
                     <ul className={style.leftscopelist}>
@@ -57,6 +59,6 @@ export default (engine, options = {}) => {
     );
   };
 
-  //DisciplineScope.validate = createValidate(conditions);
+  DisciplineScope.validate = createValidate(conditions);
   return DisciplineScope;
 };
