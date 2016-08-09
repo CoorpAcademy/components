@@ -48,6 +48,10 @@
   border-radius: 2px;
 }
 
+.overlay a:before {
+  background-color: #e6ac00
+}
+
 .overlay a span {
   font-family: OpenSans-Extrabold;
 }
