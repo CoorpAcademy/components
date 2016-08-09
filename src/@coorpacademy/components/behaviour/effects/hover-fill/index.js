@@ -1,5 +1,5 @@
-import addClassName from '../../../../util/add-class-name';
-import createBehaviour from '../../../../util/behaviour';
+import addClassName from '../../../util/add-class-name';
+import createBehaviour from '../../../util/behaviour';
 import style from './hover-fill.css';
 
 const hoverFill = (engine, options) => (props, child) => ({
