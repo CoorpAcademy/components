@@ -6,6 +6,8 @@
   "scripts": {
     "start": "babel-node src/@coorpacademy/sandbox/index.js",
     "build:dev-mooc": "npm run clean:browser && webpack --config webpack-dev-mooc.config.js",
+    "build": "npm run clean && webpack --config webpack.config.js",
+    "prepublish": "npm run build",
     "clean": "npm run clean:commonjs & npm run clean:browser & npm run clean:cov & wait",
     "clean:commonjs": "rm -rf lib",
     "clean:browser": "rm -rf dist",

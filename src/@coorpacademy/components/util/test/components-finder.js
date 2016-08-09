@@ -1,9 +1,6 @@
-import path from 'path';
 import test from 'ava';
 
 import {
-  writeImports,
-  writeExports,
   extractComponents
 } from '../components-finder';
 
