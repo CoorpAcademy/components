@@ -1,4 +1,5 @@
 import { checker, createValidate } from '../../util/validation';
+import HoverFillBehaviour from '../../behaviour/effects/hover-fill';
 import style from './catalogue-card.css';
 
 const conditions = checker.shape({
@@ -11,6 +12,8 @@ const conditions = checker.shape({
 });
 
 export default (treant, options = {}) => {
+  const HoverFill = HoverFillBehaviour(treant, options);
+
   const CatalogueCard = (props, children) => {
     const {h} = treant;
     const {product} = props;
@@ -19,7 +22,9 @@ export default (treant, options = {}) => {
         <div className={style['image-wrapper']}>
           <img src={product.images[0] && product.images[0].url.https} />
           <div className={style.overlay}>
-            <a href="#">En savoir <span>plus</span></a>
+            <HoverFill>
+              <a href="#">En savoir <span>plus</span></a>
+            </HoverFill>
           </div>
         </div>
         <div className={style['info-wrapper']}>
