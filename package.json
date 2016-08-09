@@ -4,12 +4,9 @@
   "description": "Component library for web front ends",
   "main": "lib/components/index.js",
   "scripts": {
-    "start": "npm run build:bundle && babel-node sandbox/index.js",
-    "build": "npm run build:commonjs && npm run build:browser",
-    "build:commonjs": "npm run build:bundle && npm run clean:commonjs && BABEL_ENV=production babel src --out-dir lib -s",
-    "build:browser": "npm run build:bundle && npm run clean:browser && webpack",
-    "build:dev-mooc": "npm run build:bundle && npm run clean:browser && webpack --config webpack-dev-mooc.config.js",
-    "build:bundle": "babel-node src/util/generate-bundle.js",
+    "start": "babel-node src/@coorpacademy/sandbox/index.js",
+    "build:dev-mooc": "npm run clean:browser && webpack --config webpack-dev-mooc.config.js",
+    "build": "npm run clean && webpack --config webpack.config.js",
     "prepublish": "npm run build",
     "clean": "npm run clean:commonjs & npm run clean:browser & npm run clean:cov & wait",
     "clean:commonjs": "rm -rf lib",
@@ -18,8 +15,8 @@
     "test": "npm run lint && npm run nyc",
     "lint": "eslint src/",
     "ava": "BABEL_ENV=test ava",
-    "nyc": "BABEL_ENV=test nyc ava --reporter=text --reporter=lcov",
-    "coveralls": "BABEL_ENV=test nyc report --reporter=text-lcov | coveralls"
+    "nyc": "nyc npm run ava",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls"
   },
   "contributors": [
     "Arthur Weber <arthur.weber@coorpacademy.com>",
@@ -80,6 +77,10 @@
     "include": [
       "src/**"
     ],
+    "reporter": [
+      "lcov",
+      "text"
+    ],
     "exclude": [
       "src/bundle*",
       "src/components/widget*",
@@ -93,11 +94,9 @@
   },
   "dependencies": {
     "api-check": "^7.5.5",
-    "d3": "^3.5.16",
     "react": "^15.0.2",
     "react-dom": "^15.3.0",
     "snabbdom": "^0.5.1",
-    "virtual-dom": "^2.1.1",
-    "nvd3": "^1.8.2"
+    "virtual-dom": "^2.1.1"
   }
 }
