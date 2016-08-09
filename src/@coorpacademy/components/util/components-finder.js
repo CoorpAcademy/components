@@ -51,16 +51,6 @@ const extractPaths = (paths, skipFixtures) => {
   return elements;
 };
 
-// const writeExports = elements => {
-//   const factories = elements.map(element => element.factory);
-//   return `  ${factories.join(',\n  ')}`;
-// };
-
-// const writeImports = elements => {
-//   const lines = elements.map(e => `import ${e.factory} from '${e.path}'`);
-//   return `${lines.join(';\n')};`;
-// };
-
 const extractAllComponents = () => {
   return extractComponents('{atom,behaviour,molecule,organism}', false);
 };
@@ -71,8 +61,6 @@ const extractComponents = (includes, skipFixtures) => {
 };
 
 export {
-  // writeImports,
-  // writeExports,
   extractComponents,
   extractAllComponents,
   extractPaths
