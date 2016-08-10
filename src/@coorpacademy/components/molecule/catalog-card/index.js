@@ -1,6 +1,6 @@
 import { checker, createValidate } from '../../util/validation';
 import HoverFillBehaviour from '../../behaviour/effects/hover-fill';
-import style from './catalogue-card.css';
+import style from './catalog-card.css';
 
 const conditions = checker.shape({
   props: checker.shape({
@@ -14,11 +14,11 @@ const conditions = checker.shape({
 export default (treant, options = {}) => {
   const HoverFill = HoverFillBehaviour(treant, options);
 
-  const CatalogueCard = (props, children) => {
+  const CatalogCard = (props, children) => {
     const {h} = treant;
     const {product} = props;
     return (
-      <li className={style['products-list-item']}>
+      <li className={style['catalog-list-item']}>
         <div className={style['image-wrapper']}>
           <img src={product.images[0] && product.images[0].url.https} />
           <div className={style.overlay}>
@@ -42,6 +42,6 @@ export default (treant, options = {}) => {
     );
   };
 
-  CatalogueCard.validate = createValidate(conditions);
-  return CatalogueCard;
+  CatalogCard.validate = createValidate(conditions);
+  return CatalogCard;
 };
