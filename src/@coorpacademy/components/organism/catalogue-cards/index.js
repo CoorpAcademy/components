@@ -1,6 +1,6 @@
-import createCatalogueCard from '../../molecule/catalogue-card';
+import createCatalogCard from '../../molecule/catalog-card';
 import { checker, createValidate } from '../../util/validation';
-import style from './catalogue-cards.css';
+import style from './catalog-cards.css';
 
 const conditions = checker.shape({
   props: checker.shape({
@@ -11,14 +11,14 @@ const conditions = checker.shape({
 
 export default (treant, options) => {
   const {h} = treant;
-  const CatalogueCard = createCatalogueCard(treant, options);
+  const CatalogCard = createCatalogCard(treant, options);
 
-  const CatalogueCards = (props, children) => {
+  const CatalogCards = (props, children) => {
     const products = props.products.map(product => (
-      <CatalogueCard
+      <CatalogCard
         product = {product}
       >
-      </CatalogueCard>
+      </CatalogCard>
     ));
 
     return (
@@ -28,6 +28,6 @@ export default (treant, options) => {
     );
   };
 
-  CatalogueCards.validate = createValidate(conditions);
-  return CatalogueCards;
+  CatalogCards.validate = createValidate(conditions);
+  return CatalogCards;
 };

@@ -1,5 +1,5 @@
 import {
-  createCatalogueCards
+  createCatalogCards
 } from '../../components';
 
 import products from '../assets/products';
@@ -7,10 +7,10 @@ import sandbox from './sandbox.css';
 
 export default treant => {
   const {h} = treant;
-  const CatalogueCards = createCatalogueCards(treant);
+  const CatalogCards = createCatalogCards(treant);
 
   return (props, children) => (
-    <CatalogueCards
+    <CatalogCards
       products={products}
     />
   );
