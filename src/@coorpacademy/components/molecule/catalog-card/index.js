@@ -28,8 +28,8 @@ export default (treant, options = {}) => {
           </div>
         </div>
         <div className={style['info-wrapper']}>
-          <div className={style.title}><a href="#">Cursus Stratégie Digitale</a></div>
-          <div className={style.subtitle}>by Coorpacademy</div>
+          <div className={style.title}><a href={product.href}>{product.title}</a></div>
+          <div className={style.subtitle}>by {product.author}</div>
           <div className={style['star-rating']}>
             <span>★</span>
             <span>★</span>
