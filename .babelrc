@@ -22,7 +22,7 @@
   "plugins": [
     ["transform-h-jsx", { "pragma": "h" }]
   ],
-  "ignore": [
-    "node_modules/**/*"
+  "only": [
+    "src"
   ]
 }

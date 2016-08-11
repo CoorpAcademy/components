@@ -1,27 +1,54 @@
 import get from 'lodash/fp/get';
+import {createStore} from 'redux';
+import {createHistory, useBasename} from 'history';
+
 import * as treant from '../../../@treantjs/core';
 import * as Virtualdom from '../../../@treantjs/engine-virtual-dom';
 import * as React from '../../../@treantjs/engine-react';
 import * as Snabbdom from '../../../@treantjs/engine-snabbdom';
 import createApp from './app';
+import {createReducer} from './reducers';
+import {createMiddlewares} from './middlewares';
+import {navigate, connectHistory} from '../../redux-tools/redux-history';
+
+const history = useBasename(createHistory)({
+  basename: `/${window.engine}`
+});
+
+const store = createStore(
+  createReducer(),
+  createMiddlewares()
+);
+connectHistory(history, store);
+
+store.dispatch(navigate(history.getCurrentLocation()));
 
 const {h} = treant;
+const options = {
+  dispatch: store.dispatch,
+  history
+};
 
 const engines = {
   Virtualdom,
   React,
   Snabbdom
 };
+
 const engine = get(window.engine, engines);
 const update = engine.render(document.getElementById('app'));
 
-let App = createApp(treant);
+const App = createApp(treant, options);
+
+update(App(store.getState()));
+
+store.subscribe(() => {
+  update(App(store.getState()));
+});
 
 if (module.hot)
   module.hot.accept('./app.js', () => {
     const createApp = require('./app').default;
-    App = createApp(treant);
-    update(App());
+    const App = createApp(treant, options);
+    update(App(store.getState()));
   });
-
-update(App());
