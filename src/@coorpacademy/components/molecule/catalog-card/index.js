@@ -23,7 +23,7 @@ export default (treant, options = {}) => {
           <img src={product.images[0] && product.images[0].url.https} />
           <div className={style.overlay}>
             <HoverFill>
-              <a href="#">En savoir <span>plus</span></a>
+              <a href={product.href}>En savoir <span>plus</span></a>
             </HoverFill>
           </div>
         </div>
