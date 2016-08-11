@@ -20,9 +20,7 @@ export default (treant, options = {}) => {
     return (
       <li className={style['catalog-list-item']}>
         <div className={style['image-wrapper']}>
-          <a href={product.href}>
             <img src={product.images[0] && product.images[0].url.https} />
-          </a>
           <div className={style.overlay}>
             <HoverFill>
               <a href={product.href}>En savoir <span>plus</span></a>
