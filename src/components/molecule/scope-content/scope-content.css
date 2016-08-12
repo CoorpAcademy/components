@@ -1,0 +1,120 @@
+.desctitle {
+    display: inline-block;
+    width: 80%;
+    margin: 30px 0 43px 30px;
+    font-family: OpenSans-Extrabold;
+    font-size: 20px;
+    color: #546E7A;
+    letter-spacing: -0.25px;
+    line-height: 18px;
+}
+
+.time {
+    display: inline-block;
+    width: auto;
+    padding: 3px 13px;
+    background: #546E7A;
+    border-radius: 15px;
+    font-family: OpenSans-Extrabold;
+    font-size: 10px;
+    color: #FFFFFF;
+}
+
+.desctitlecontent {
+    font-family: OpenSans;
+    //font-weight: bold;
+    font-size: 20px;
+    color: #546E7A;
+    letter-spacing: -0.25px;
+    line-height: 18px;
+    padding-left: 10px;
+}
+
+.desc {
+    display: block;
+    width: 96%;
+    padding: 15px;
+    border-left: solid 1px #E3E3E3;
+    border-right: solid 1px #E3E3E3;
+}
+
+.leftscope {
+    display: inline-block;
+    vertical-align: top;
+    width: 46%;
+    padding: 0 0 0 30px;
+    min-height: 150px;
+    font-family: OpenSans;
+    font-size: 12px;
+}
+
+.leftscopelist {
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style-position: inside;
+}
+
+.leftscope li {
+    line-height: 26px;
+    font-size: 14px;
+}
+
+.rightscope {
+    display: inline-block;
+    vertical-align: top;
+    width: 46%;
+    padding:  0 0 0 30px;
+    min-height: 150px;
+    font-family: OpenSans;
+    font-size: 12px;
+}
+
+.lstitle, .rstitle {
+    font-family: OpenSans-Extrabold;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    font-size: 10px;
+    color: #455A64;
+    letter-spacing: 0px;
+    line-height: 8px;
+    border-bottom: solid 1px #E3E3E3;
+    vertical-align: top;
+}
+
+.rightscopelist{
+    list-style-type: none;
+    list-style-position: inside;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+.rightscopelist:before {
+    display: block;
+    position: absolute;
+    border-left: dashed 1px black;
+    content: '';
+    z-index: 0;
+    width: 10px;
+    height: 56%;
+    top: 17px;
+    left: 5px;
+}
+
+.rightscopelist li {
+    line-height: 26px;
+    font-size: 13px;
+}
+.rightscopelist li:before {
+    display: inline-block;
+    position: relative;
+    z-index: 2px;
+    margin-right: 10px;
+    border-radius: 50%;
+    border: 3px solid black;
+    background: white;
+    width: 7px;
+    height: 7px;
+    content: '';
+}

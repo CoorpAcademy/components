@@ -1,6 +1,7 @@
 import {
   createDisciplineHeader,
-  createDisciplineScope
+  createDisciplineScope,
+  createDisciplineRightaside
 } from '../../src/components';
 
 import products from '../assets/products';
@@ -10,12 +11,25 @@ export default engine => {
   const {h} = engine;
   const DisciplineHeader = createDisciplineHeader(engine);
   const DisciplineScope = createDisciplineScope(engine);
+  const DisciplineRightaside = createDisciplineRightaside(engine);
+
 
   return (props, children) => (
     <div>
-      <DisciplineHeader
-      />
-      <DisciplineScope
+      <div style='width:873px;display:inline-block;vertical-align:top;'>
+        <DisciplineHeader
+          product={products[2]}
+        />
+        <DisciplineScope
+          product={products[2]}
+          onClick={id => console.log(id)}
+          selected={1}
+        >
+        </DisciplineScope>
+      </div>
+      
+      <DisciplineRightaside
+        product={products[2]}
       />
     </div>
   );

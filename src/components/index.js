@@ -13,12 +13,18 @@ import UppercaseBehaviour from './behaviour/font/uppercase/';
 import createCatalogueCard from './molecule/catalogue-card/';
 import createCheckboxes from './molecule/checkboxes/';
 import createDisciplineCard from './molecule/discipline-card/';
+import createDisciplineHeader from './molecule/discipline-header/';
+import createDisciplineScope from './molecule/discipline-scope/';
 import createModuleBubble from './molecule/module-bubble/';
+import createScopeContent from './molecule/scope-content/';
+import createScopeTabs from './molecule/scope-tabs/';
 import createSelectBox from './molecule/select-box/';
 import createThemeImage from './molecule/theme-image/';
 import createTitledCheckbox from './molecule/titled-checkbox/';
 import createCatalogueCards from './organism/catalogue-cards/';
 import createDisciplineCards from './organism/discipline-cards/';
+import createDisciplineLeftSide from './organism/discipline-leftSide/';
+import createDisciplineRightaside from './organism/discipline-rightaside/';
 import createHero from './organism/hero/';
 
 export {
@@ -35,11 +41,17 @@ export {
   createCatalogueCard,
   createCheckboxes,
   createDisciplineCard,
+  createDisciplineHeader,
+  createDisciplineScope,
   createModuleBubble,
+  createScopeContent,
+  createScopeTabs,
   createSelectBox,
   createThemeImage,
   createTitledCheckbox,
   createCatalogueCards,
   createDisciplineCards,
+  createDisciplineLeftSide,
+  createDisciplineRightaside,
   createHero
 };
