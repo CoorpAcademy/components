@@ -1,4 +1,5 @@
 import { checker, createValidate } from '../../util/validation';
+import fill from 'lodash/fp/fill';
 import createStarRating from '../star-rating';
 import HoverFillBehaviour from '../../behaviour/effects/hover-fill';
 import style from './catalog-card.css';
@@ -14,13 +15,15 @@ const conditions = checker.shape({
 
 export default (treant, options = {}) => {
   const HoverFill = HoverFillBehaviour(treant, options);
-
-  const popularity = [true, true, false, false, false];
   const StarRating = createStarRating(treant, options);
 
   const CatalogCard = (props, children) => {
     const {h} = treant;
     const {product} = props;
+
+    const popularity = [false, false, false, false, false];
+    fill(true, 0, product.popularity, popularity);
+
     return (
       <li className={style.catalogListItem}>
         <div className={style.imageWrapper}>
