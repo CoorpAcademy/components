@@ -1,7 +1,6 @@
 .wrapper {
     display: block;
-    //width: 100%;
-    width: 803px;
+    width: 100%;
 }
 .course-wrapper-img {
     display: inline-block;
