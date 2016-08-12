@@ -1,5 +1,4 @@
 import { checker, createValidate } from '../../util/validation';
-import fill from 'lodash/fp/fill';
 import createStarRating from '../star-rating';
 import HoverFillBehaviour from '../../behaviour/effects/hover-fill';
 import style from './catalog-card.css';
@@ -20,9 +19,7 @@ export default (treant, options = {}) => {
   const CatalogCard = (props, children) => {
     const {h} = treant;
     const {product} = props;
-
-    const popularity = [false, false, false, false, false];
-    fill(true, 0, product.popularity, popularity);
+    const total = 5;
 
     return (
       <li className={style.catalogListItem}>
@@ -37,7 +34,10 @@ export default (treant, options = {}) => {
         <div className={style.infoWrapper}>
           <div className={style.title}><a href={product.href}>{product.title}</a></div>
           <div className={style.subtitle}>by {product.author}</div>
-          <StarRating popularity = {popularity} />
+          <StarRating
+            rating={product.popularity}
+            total={total}
+          />
         </div>
       </li>
     );

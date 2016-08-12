@@ -1,5 +1,6 @@
 export default {
   props: {
-    popularity: [true, false, true, true]
+    rating: 3,
+    total: 5
   }
 };
