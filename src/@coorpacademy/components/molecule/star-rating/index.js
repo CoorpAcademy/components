@@ -3,19 +3,21 @@ import createStar from '../../atom/star';
 import style from './star-rating.css';
 
 const conditions = checker.shape({
-  props: checker.none,
+  props: checker.shape({
+    popularity: checker.array
+  }),
   children: checker.none
 });
 
 export default (treant, options = {}) => {
   const StarRating = (props, children) => {
     const {h} = treant;
-    const {stars} = props;
+    const {popularity} = props;
 
     const Star = createStar(treant, options);
 
-    const Stars = stars.map(star => (
-      <Star favorite = {star} />
+    const Stars = popularity.map(popular => (
+      <Star popular = {popular} />
     ));
 
     return (

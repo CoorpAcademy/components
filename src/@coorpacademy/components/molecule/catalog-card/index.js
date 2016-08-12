@@ -15,7 +15,7 @@ const conditions = checker.shape({
 export default (treant, options = {}) => {
   const HoverFill = HoverFillBehaviour(treant, options);
 
-  const stars = [true, true, false, false, false];
+  const popularity = [true, true, false, false, false];
   const StarRating = createStarRating(treant, options);
 
   const CatalogCard = (props, children) => {
@@ -34,7 +34,7 @@ export default (treant, options = {}) => {
         <div className={style.infoWrapper}>
           <div className={style.title}><a href={product.href}>{product.title}</a></div>
           <div className={style.subtitle}>by {product.author}</div>
-          <StarRating stars = {stars} />
+          <StarRating popularity = {popularity} />
         </div>
       </li>
     );
