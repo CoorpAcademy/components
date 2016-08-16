@@ -1,4 +1,4 @@
-.catalog-list-item {
+.catalogListItem {
   display: inline-block;
   margin: 10px;
   width: 270px;
@@ -7,20 +7,21 @@
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   overflow: hidden;
+  min-height: 306px;
 }
 
-.image-wrapper {
+.imageWrapper {
   position: relative;
   height: 180px;
   width: 100%;
   overflow: hidden;
 }
 
-.image-wrapper:hover .overlay {
+.imageWrapper:hover .overlay {
   display: block;
 }
 
-.image-wrapper img {
+.imageWrapper img {
   width: 100%
 }
 
@@ -56,7 +57,7 @@
   font-family: OpenSans-Extrabold;
 }
 
-.info-wrapper {
+.infoWrapper {
   width: 100%;
   box-sizing: border-box;
   padding: 10px 20px;
@@ -83,9 +84,4 @@
   color: #78909C;
   font-style: italic;
   margin: 10px 0;
-}
-
-.star-rating span {
-  color: #B0BEC5;
-  margin-left: 2px;
 }
