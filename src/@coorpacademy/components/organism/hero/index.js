@@ -1,7 +1,10 @@
 import get from 'lodash/fp/get';
 import { checker, createValidate } from '../../util/validation';
-import style from './hero.css';
+
+import createLink from '../../atom/link';
 import RadialFocusBehaviour from '../../behaviour/effects/radial-focus';
+
+import style from './hero.css';
 
 const conditions = checker.shape({
   props: checker.shape({
@@ -12,6 +15,7 @@ const conditions = checker.shape({
 });
 
 export default (treant, options = {}) => {
+  const Link = createLink(treant, options);
   const RadialFocus = RadialFocusBehaviour(treant, options);
   const {h} = treant;
   const {skin, translate} = options;
@@ -29,14 +33,14 @@ export default (treant, options = {}) => {
         }}
       >
         <RadialFocus>
-          <a
+          <Link
             href={url}
             className={style.cta}
           >
             <div className={style.label}>
               <span>{text}</span>
             </div>
-          </a>
+          </Link>
         </RadialFocus>
       </div>
     );
