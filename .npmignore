@@ -1,6 +1,3 @@
-example/
-src/
-sandbox/
 .*
 webpack*.config.js
 .nyc_output

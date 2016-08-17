@@ -1,13 +1,6 @@
 require('babel-register');
 
 const path = require('path');
-const assign = require('lodash/fp/assign');
-const reduce = require('lodash/fp/reduce');
-const keys = require('lodash/fp/keys');
-const map = require('lodash/fp/map');
-const set = require('lodash/fp/set');
-const pipe = require('lodash/fp/pipe');
-
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -15,23 +8,13 @@ const CompressionPlugin = require('compression-webpack-plugin');
 
 const hash = '[name]__[local]___[hash:base64:5]';
 
-const engines = require('./src/engines').default;
-
 module.exports = {
   context: __dirname,
   devtool: 'inline',
 
-  entry: pipe(
-    keys,
-    map(function(name) {
-      const entry = ['bundle', 'with', name].join('-');
-      return set(entry, path.join(__dirname, 'src', entry), {});
-    }),
-    reduce(assign, {
-      bundle: path.join(__dirname, 'src', 'bundle'),
-      'bundle-mooc': path.join(__dirname, 'src', 'bundle-mooc')
-    })
-  )(engines),
+  entry: {
+    'bundle-mooc': path.join(__dirname, 'src', 'bundle-mooc')
+  },
 
   output: {
     library: 'Coorponents',

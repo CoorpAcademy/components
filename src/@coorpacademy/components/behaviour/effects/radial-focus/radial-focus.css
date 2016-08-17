@@ -1,0 +1,39 @@
+.focus {
+    display: inline-block;
+    vertical-align: middle;
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    backface-visibility: hidden;
+    overflow: hidden;
+    transition-property: color;
+    transition-duration: .5s;
+}
+
+.focus:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity:0;
+    border-radius: 100%;
+    transform: scale(0);
+    transition-property: transform;
+    transition-duration: .3s;
+    transition-timing-function: ease-out;
+}
+
+.focus:hover,
+.focus:focus,
+.focus:active {
+    color: #fefefe
+}
+
+.focus:hover:before,
+.focus:focus:before,
+.focus:active:before {
+    transform: scale(1);
+    opacity:1;
+}
