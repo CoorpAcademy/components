@@ -1,5 +1,6 @@
 import { checker, createValidate } from '../../util/validation';
 import createStarRating from '../star-rating';
+import createLink from '../../atom/link';
 import HoverFillBehaviour from '../../behaviour/effects/hover-fill';
 import style from './catalog-card.css';
 
@@ -15,6 +16,7 @@ const conditions = checker.shape({
 export default (treant, options = {}) => {
   const HoverFill = HoverFillBehaviour(treant, options);
   const StarRating = createStarRating(treant, options);
+  const Link = createLink(treant, options);
 
   const CatalogCard = (props, children) => {
     const {h} = treant;
@@ -27,12 +29,12 @@ export default (treant, options = {}) => {
           <img src={product.images[0] && product.images[0].url.https} />
           <div className={style.overlay}>
             <HoverFill>
-              <a href={product.href}>En savoir <span>plus</span></a>
+              <Link href={product.href}>En savoir <span>plus</span></Link>
             </HoverFill>
           </div>
         </div>
         <div className={style.infoWrapper}>
-          <div className={style.title}><a href={product.href}>{product.title}</a></div>
+          <div className={style.title}><Link href={product.href}>{product.title}</Link></div>
           <div className={style.subtitle}>by {product.author}</div>
           <StarRating
             rating={product.popularity}

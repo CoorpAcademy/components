@@ -1,6 +1,4 @@
-import {
-  createCatalogCards
-} from '../../components';
+import createCatalogCards from '../../components/organism/catalogue-cards';
 
 import products from '../assets/products';
 import sandbox from './sandbox.css';
