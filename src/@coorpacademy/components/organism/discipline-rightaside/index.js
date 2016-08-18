@@ -1,29 +1,39 @@
 import style from './discipline-rightaside.css';
+import createStarRating from '../../molecule/star-rating';
+import createLink from '../../atom/link';
+import HoverFillBehaviour from '../../behaviour/effects/hover-fill';
 
-export default ({h}, options) => {
-  const DisciplineRightaside = ({product}) => {
+export default (treant, options = {}) => {
+  const {h} = treant;
+  const StarRating = createStarRating(treant, options);
+  const Link = createLink(treant, options);
+  const HoverFill = HoverFillBehaviour(treant, options);
+
+  const DisciplineRightaside = (props, children) => {
+    const product = props.product
+
+    const rating = product.popularity;
+    const total = 5;
+
+    const linkTry = "#";
+    const linkBuy = "https://store-staging.coorpacademy.com/checkout/cart/" + product.sku;
+
     return (
         <div className={style.col}>
           <div className={style.head}>
-            <div className={style.price}>{product.price.value}</div>
-            <div className={style[`popularity${product.popularity}`]}>
-              <span className={style.pop1}>★</span>
-              <span className={style.pop2}>★</span>
-              <span className={style.pop3}>★</span>
-              <span className={style.pop4}>★</span>
-              <span className={style.pop5}>★</span>
-            </div>
-            <div className={style.category}>
-              {product.category.value}
+            <div className={style.starRating}>
+              <StarRating
+                rating={rating}
+                total={total}
+              />
             </div>
           </div>
-          <a href="https://store-staging.coorpacademy.com/checkout/cart/{product.sku}" className={style.buyall}>
-            <span>acheter</span> ce cours
-          </a>
-          <a href="#" className={style.buysample}>
-            obtenir un <span>essai</span> pour 1.99€
-          </a>
-
+          <HoverFill>
+            <Link className={style.try} href={linkTry}>Commencer à <span>apprendre</span></Link>
+          </HoverFill>
+          <HoverFill>
+            <Link className={style.buy} href={linkBuy}>Coorpacademy <span>premium</span></Link>
+          </HoverFill>
           <div className={style.author}>
             auteur
           </div>
