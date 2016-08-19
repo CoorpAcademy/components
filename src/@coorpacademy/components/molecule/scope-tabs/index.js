@@ -5,12 +5,13 @@ export default (treant, options = {}) => {
   const ScopeTabs = props => {
     const {h} = treant;
     const {onClick, selected} = props;
+
     return (
-      <ul className={style.title}>
+      <ul className={style.tabs}>
         {['Base', 'Avancé', 'Coach'].map((title, index) => (
           <li
             onClick={() => onClick(index)}
-            className={selected === index ? style.tabscurrent : style.tabs}
+            className={selected === index ? style.currentTab : style.tab}
           >
             {title}
           </li>

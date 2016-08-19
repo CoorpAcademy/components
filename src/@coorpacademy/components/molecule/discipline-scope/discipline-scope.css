@@ -1,72 +1,70 @@
 .scope {
-    display: block;
-    width: 100%;
-    margin: 35px 0 40px 0;
+  display: block;
+  width: 100%;
+  margin: 35px 0 40px 0;
 }
 
-.wrapper-scope {
-    display: block;
-    width: 100%;
-    margin-bottom: 30px;
+.wrapperScope {
+  display: block;
+  width: 100%;
+  margin-bottom: 30px;
 }
-
-
 
 .asset {
-    display: block;
-    width: 99%;
-    padding-right: 4px;
-    border: solid 1px #E3E3E3;
+  display: block;
+  width: 99%;
+  padding-right: 4px;
+  border: solid 1px #E3E3E3;
 }
 
-.assettitle{
-    display: inline-block;
-    width: 55px;
-    height: 15px;
-    font-family: OpenSans-Extrabold;
-    font-size: 12px;
-    text-transform: uppercase;
-    color: #546E7A;
-    padding: 20px;
-    letter-spacing: 0.1px;
-    border-right: solid 1px #E3E3E3;
-    vertical-align: top;
+.assetTitle {
+  display: inline-block;
+  width: 55px;
+  height: 15px;
+  font-family: OpenSans-Extrabold;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #546E7A;
+  padding: 20px;
+  letter-spacing: 0.1px;
+  border-right: solid 1px #E3E3E3;
+  vertical-align: top;
 }
 
-.assetdesc {
-    display: inline-block;
-    width: auto;
-    font-family: OpenSans-Extrabold;
-    font-size: 12px;
-    text-transform: uppercase;
-    color: #546E7A;
-    padding: 20px;
+.assetDesc {
+  display: inline-block;
+  width: auto;
+  font-family: OpenSans-Extrabold;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #546E7A;
+  padding: 20px;
 }
 
-.assetdesc ul {
-    margin: 0;
+.assetDesc ul {
+  margin: 0;
 }
 
-.assetdesc ul li {
-    list-style: none;
-    display: inline-block;
-    margin: 0;
-    padding-right: 20px;
+.assetDesc ul li {
+  list-style: none;
+  display: inline-block;
+  margin: 0;
+  padding-right: 20px;
 }
 
-.assetdesc ul li span {
-    font-weight: bold;
+.assetDesc ul li span {
+  font-weight: bold;
 }
 
-.coursescope ul {
-    margin: 0;
-    padding: 0;
+.courseScope ul {
+  margin: 0;
+  padding: 0;
 }
 
-.coursescope ul li {
-    font-family: OpenSans;
+.courseScope ul li {
+  font-family: OpenSans;
 }
 
-.coursescope ul li span{
-    font-family: OpenSans-Extrabold;
+.courseScope ul li span{
+  font-family: OpenSans-Extrabold;
 }

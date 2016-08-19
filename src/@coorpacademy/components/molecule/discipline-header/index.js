@@ -14,19 +14,19 @@ export default (treant, options = {}) => {
   const DisciplineHeader = (props, children) => {
     const {h} = treant;
     const {product} = props;
+    
     return (
       <div className={style.wrapper}>
-        <div className={style['course-wrapper-img']}>
+        <div className={style.imgWrapper}>
           <img
-            className={style['course-img']}
             src={product.images[0] && product.images[0].url.https}
           />
         </div>
-        <div className={style['course-wrapper']}>
-            <div className={style['course-title']}>
+        <div className={style.courseWrapper}>
+            <div className={style.title}>
               {product.title}
             </div>
-            <div className={style['course-desc']}>
+            <div className={style.desc}>
               {product.description}
             </div>
         </div>
