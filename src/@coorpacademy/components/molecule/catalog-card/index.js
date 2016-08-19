@@ -1,3 +1,5 @@
+import identity from 'lodash/fp/identity';
+import getOr from 'lodash/fp/getOr';
 import { checker, createValidate } from '../../util/validation';
 import createStarRating from '../star-rating';
 import createLink from '../../atom/link';
@@ -13,33 +15,41 @@ const conditions = checker.shape({
   children: checker.none
 });
 
+const getOrBlank = getOr('');
+
 export default (treant, options = {}) => {
   const HoverFill = HoverFillBehaviour(treant, options);
   const StarRating = createStarRating(treant, options);
   const Link = createLink(treant, options);
 
-  const {translate} = options;
+  const {translate = identity} = options;
 
   const CatalogCard = (props, children) => {
     const {h} = treant;
     const {product} = props;
     const total = 5;
 
+    const {href = ''} = product;
+
     return (
       <li className={style.catalogListItem}>
         <div className={style.imageWrapper}>
-          <img src={product.images[0] && product.images[0].url.https} />
+          <img src={getOrBlank('images.0.url.https', product)} />
           <div className={style.overlay}>
             <HoverFill>
-              <Link href={product.href}>En savoir <span>plus</span></Link>
+              <Link href={href}>En savoir <span>plus</span></Link>
             </HoverFill>
           </div>
         </div>
         <div className={style.infoWrapper}>
-          <div className={style.title}><Link href={product.href}>{product.title}</Link></div>
+          <div className={style.title}>
+            <Link href={href}>
+              {getOrBlank('title', product)}
+            </Link>
+          </div>
           <div className={style.subtitle}>{translate('by {{author}}', product)}</div>
           <StarRating
-            rating={product.popularity}
+            rating={getOr(0, 'popularity', product)}
             total={total}
           />
         </div>

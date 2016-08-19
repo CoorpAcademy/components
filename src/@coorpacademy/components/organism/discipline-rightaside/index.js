@@ -1,4 +1,5 @@
 import { checker, createValidate } from '../../util/validation';
+import getOr from 'lodash/fp/getOr';
 import style from './discipline-rightaside.css';
 import createStarRating from '../../molecule/star-rating';
 import createLink from '../../atom/link';
@@ -12,6 +13,9 @@ const conditions = checker.shape({
   }),
   children: checker.none
 });
+
+const getOrBlank = getOr('');
+
 export default (treant, options = {}) => {
   const {h} = treant;
   const StarRating = createStarRating(treant, options);
@@ -19,13 +23,12 @@ export default (treant, options = {}) => {
   const HoverFill = HoverFillBehaviour(treant, options);
 
   const DisciplineRightaside = (props, children) => {
-    const product = props.product;
+    const {product} = props;
 
-    const rating = product.popularity;
+    const rating = getOr(0, 'popularity', product);
     const total = 5;
-
     const linkTry = '#';
-    const linkBuy = `https://store-staging.coorpacademy.com/checkout/cart/${product.sku}`;
+    const linkBuy = `https://store-staging.coorpacademy.com/checkout/cart/${getOrBlank('sku', product)}`;
 
     return (
         <div className={style.col}>
@@ -38,7 +41,9 @@ export default (treant, options = {}) => {
             </div>
           </div>
           <HoverFill>
-            <Link className={style.try} href={linkTry}>Commencer à <span>apprendre</span></Link>
+            <Link className={style.try} href={linkTry}>
+              Commencer à <span>apprendre</span>
+            </Link>
           </HoverFill>
           <HoverFill>
             <Link className={style.buy} href={linkBuy}>Coorpacademy <span>premium</span></Link>
@@ -47,7 +52,7 @@ export default (treant, options = {}) => {
             auteur
           </div>
           <div className={style.title}>
-            {product.author}
+            {getOrBlank('author', product)}
           </div>
         </div>
       );

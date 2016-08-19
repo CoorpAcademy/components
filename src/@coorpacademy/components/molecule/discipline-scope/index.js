@@ -1,3 +1,4 @@
+import getOr from 'lodash/fp/getOr';
 import { checker, createValidate } from '../../util/validation';
 import style from './discipline-scope.css';
 
@@ -14,6 +15,8 @@ const conditions = checker.shape({
   }),
   children: checker.none
 });
+
+const getOrBlank = getOr('');
 
 export default (treant, options = {}) => {
   const ScopeTabs = createScopeTabs(treant, options);
@@ -36,7 +39,7 @@ export default (treant, options = {}) => {
           <div className={style.assetTitle}>assets</div>
           <div className={style.assetDesc}>
             <div className={style.courseScope}>
-              {product.coursescope}
+              {getOrBlank('coursescope', product)}
             </div>
           </div>
         </div>
