@@ -94,6 +94,7 @@
   },
   "dependencies": {
     "api-check": "^7.5.5",
+    "json-loader": "^0.5.4",
     "react": "^15.0.2",
     "react-dom": "^15.3.0",
     "snabbdom": "^0.5.1",
