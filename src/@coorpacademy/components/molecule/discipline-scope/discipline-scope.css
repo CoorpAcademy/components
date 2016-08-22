@@ -4,15 +4,10 @@
   margin: 35px 0 40px 0;
 }
 
-.wrapperScope {
+.asset {
+  box-sizing: border-box;
   display: block;
   width: 100%;
-  margin-bottom: 30px;
-}
-
-.asset {
-  display: block;
-  width: 99%;
   padding-right: 4px;
   border: solid 1px #E3E3E3;
 }

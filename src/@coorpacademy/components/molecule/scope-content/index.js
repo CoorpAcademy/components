@@ -7,6 +7,7 @@ export default (treant, options = {}) => {
     const {selected} = props;
     const {product = ""} = props;
 
+    const title = "Leadership au féminin : la pratique";
     const time = "2h20";
     const lstitle = "À L'ISSUE DE CE NIVEAU, VOUS SEREZ CAPABLE DE :";
 
@@ -14,7 +15,7 @@ export default (treant, options = {}) => {
       <div className={style.desc}>
         <div className={style.infos}>
           <div className={style.title}>
-            title 0
+            {title}
           </div>
           <div className={style.time}>{time}</div>
         </div>

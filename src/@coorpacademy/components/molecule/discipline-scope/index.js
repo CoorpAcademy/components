@@ -14,22 +14,22 @@ export default (treant, options = {}) => {
 
     return (
       <div className={style.scope}>
-            <ScopeTabs
-                onClick={onClick}
-                selected={selected}
-            />
-                <ScopeContent
-                    selected={selected}
-                />
-            <div className={style.asset}>
-                <div className={style.assetTitle}>assets</div>
-                <div className={style.assetDesc}>
-                    <div className={style.courseScope}>
-                      {product.coursescope}
-                    </div>
-                </div>
+        <ScopeTabs
+            onClick={onClick}
+            selected={selected}
+        />
+        <ScopeContent
+            selected={selected}
+        />
+        <div className={style.asset}>
+          <div className={style.assetTitle}>assets</div>
+          <div className={style.assetDesc}>
+            <div className={style.courseScope}>
+              {product.coursescope}
             </div>
+          </div>
         </div>
+    </div>
     );
   };
 
