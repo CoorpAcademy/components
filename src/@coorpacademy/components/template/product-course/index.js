@@ -25,17 +25,18 @@ export default (treant, options) => {
           <DisciplineHeader
             product={products[2]}
           />
+        </div>
+          <DisciplineRightaside
+            product={products[2]}
+          />
+          <div className={style.container}>
+
           <DisciplineScope
             product={products[2]}
             onClick={id => console.log(id)} // eslint-disable-line no-console
             selected={1}
-          >
-          </DisciplineScope>
+          />
         </div>
-
-        <DisciplineRightaside
-          product={products[2]}
-        />
       </div>
     )
   };
