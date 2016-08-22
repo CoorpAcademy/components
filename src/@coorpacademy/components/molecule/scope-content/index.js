@@ -5,11 +5,11 @@ export default (treant, options = {}) => {
   const ScopeContent = (props, children) => {
     const {h} = treant;
     const {selected} = props;
-    const {product = ""} = props;
+    const {product = ''} = props;
 
-    const title = "Leadership au féminin : la pratique";
-    const time = "2h20";
-    const lstitle = "À L'ISSUE DE CE NIVEAU, VOUS SEREZ CAPABLE DE :";
+    const title = 'Leadership au féminin : la pratique';
+    const time = '2h20';
+    const lstitle = 'À L\'ISSUE DE CE NIVEAU, VOUS SEREZ CAPABLE DE :';
 
     return (
       <div className={style.desc}>

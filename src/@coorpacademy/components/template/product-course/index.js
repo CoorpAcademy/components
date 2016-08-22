@@ -39,7 +39,7 @@ export default (treant, options) => {
           />
         </div>
       </div>
-    )
+    );
   };
 
   ProductCourse.validate = createValidate(conditions);

@@ -10,13 +10,13 @@ export default (treant, options = {}) => {
   const HoverFill = HoverFillBehaviour(treant, options);
 
   const DisciplineRightaside = (props, children) => {
-    const product = props.product
+    const product = props.product;
 
     const rating = product.popularity;
     const total = 5;
 
-    const linkTry = "#";
-    const linkBuy = "https://store-staging.coorpacademy.com/checkout/cart/" + product.sku;
+    const linkTry = '#';
+    const linkBuy = `https://store-staging.coorpacademy.com/checkout/cart/${product.sku}`;
 
     return (
         <div className={style.col}>
