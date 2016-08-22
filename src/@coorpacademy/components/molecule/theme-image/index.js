@@ -13,27 +13,33 @@ export default ({h}, {skin} = {}) => {
   const extract = extractor(skin);
 
   const ThemeImage = ({image}) => {
-    const desktopStyle = extract(image);
+    const defaultStyle = extract(image);
 
     const extractWithDefault = extractor(skin, image);
     const mobileStyle = extractWithDefault(`${image}-mobile`);
-    const retinaStyle = extractWithDefault(`${image}-retina`);
+    const tabletStyle = extractWithDefault(`${image}-tablet`);
+    const desktopStyle = extractWithDefault(`${image}-desktop`);
 
     return (
       <div>
+        <div
+          className={style.default}
+          style={defaultStyle}
+        />
+
         <div
           className={style.desktop}
           style={desktopStyle}
         />
 
         <div
-          className={style.mobile}
-          style={mobileStyle}
+          className={style.tablet}
+          style={tabletStyle}
         />
 
         <div
-          className={style.retina}
-          style={retinaStyle}
+          className={style.mobile}
+          style={mobileStyle}
         />
       </div>
     );
