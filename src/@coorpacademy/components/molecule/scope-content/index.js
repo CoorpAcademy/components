@@ -1,6 +1,13 @@
 import { checker, createValidate } from '../../util/validation';
 import style from './scope-content.css';
 
+const conditions = checker.shape({
+  props: checker.shape({
+    selected: checker.bool
+  }),
+  children: checker.none
+});
+
 export default (treant, options = {}) => {
   const ScopeContent = (props, children) => {
     const {h} = treant;
@@ -44,5 +51,6 @@ export default (treant, options = {}) => {
     );
   };
 
+  ScopeContent.validate = createValidate(conditions);
   return ScopeContent;
 };

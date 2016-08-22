@@ -4,6 +4,17 @@ import style from './discipline-scope.css';
 import createScopeTabs from '../scope-tabs';
 import createScopeContent from '../scope-content';
 
+const conditions = checker.shape({
+  props: checker.shape({
+    product: checker.shape({
+      coursescope: checker.string
+    }),
+    selected: checker.bool,
+    onClick: checker.func
+  }),
+  children: checker.none
+});
+
 export default (treant, options = {}) => {
   const ScopeTabs = createScopeTabs(treant, options);
   const ScopeContent = createScopeContent(treant, options);
@@ -33,5 +44,6 @@ export default (treant, options = {}) => {
     );
   };
 
+  DisciplineScope.validate = createValidate(conditions);
   return DisciplineScope;
 };

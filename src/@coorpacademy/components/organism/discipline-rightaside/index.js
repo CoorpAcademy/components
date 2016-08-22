@@ -1,8 +1,17 @@
+import { checker, createValidate } from '../../util/validation';
 import style from './discipline-rightaside.css';
 import createStarRating from '../../molecule/star-rating';
 import createLink from '../../atom/link';
 import HoverFillBehaviour from '../../behaviour/effects/hover-fill';
 
+const conditions = checker.shape({
+  props: checker.shape({
+    product: checker.shape({
+      author: checker.string
+    })
+  }),
+  children: checker.none
+});
 export default (treant, options = {}) => {
   const {h} = treant;
   const StarRating = createStarRating(treant, options);
@@ -44,5 +53,6 @@ export default (treant, options = {}) => {
       );
   };
 
+  DisciplineRightaside.validate = createValidate(conditions);
   return DisciplineRightaside;
 };
