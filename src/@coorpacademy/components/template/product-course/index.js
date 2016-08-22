@@ -26,11 +26,12 @@ export default (treant, options) => {
             product={products[2]}
           />
         </div>
+        <div className={style.colContainer}>
           <DisciplineRightaside
             product={products[2]}
           />
-          <div className={style.container}>
-
+        </div>
+        <div className={style.container}>
           <DisciplineScope
             product={products[2]}
             onClick={id => console.log(id)} // eslint-disable-line no-console
