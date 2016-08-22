@@ -1,4 +1,5 @@
 import createProductCourse from '../../components/template/product-course';
+
 import products from '../assets/products';
 import style from './sandbox.css';
 

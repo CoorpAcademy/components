@@ -1,41 +1,59 @@
 @value breakpoints: "../../variables/breakpoints.css";
-@value small from breakpoints;
-@value retina from breakpoints;
+@value mobile from breakpoints;
+@value tablet from breakpoints;
+@value desktop from breakpoints;
 
-.default {
+.background {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
   transition: all 0.5s ease-out;
-  display: none;
 }
 
-.retina,
-.mobile {
-  composes: default;
-}
-
-.desktop {
-  composes: default;
+.default {
+  composes: background;
   display: block;
 }
 
-@media retina {
-  .retina {
+.desktop,
+.tablet,
+.mobile {
+  composes: background;
+  display: none;
+}
+
+@media desktop {
+  .desktop {
     display: block;
   }
 
-  .desktop {
+  .default,
+  .tablet,
+  .mobile {
     display: none;
   }
 }
 
-@media small {
+@media tablet {
+  .tablet {
+    display: block;
+  }
+
+  .default,
+  .desktop,
+  .mobile {
+    display: none;
+  }
+}
+
+@media mobile {
   .mobile {
     display: block;
   }
 
-  .desktop {
+  .default,
+  .desktop,
+  .tablet {
     display: none;
   }
 }
