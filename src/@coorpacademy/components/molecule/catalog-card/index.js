@@ -18,6 +18,8 @@ export default (treant, options = {}) => {
   const StarRating = createStarRating(treant, options);
   const Link = createLink(treant, options);
 
+  const {translate} = options;
+
   const CatalogCard = (props, children) => {
     const {h} = treant;
     const {product} = props;
@@ -35,7 +37,7 @@ export default (treant, options = {}) => {
         </div>
         <div className={style.infoWrapper}>
           <div className={style.title}><Link href={product.href}>{product.title}</Link></div>
-          <div className={style.subtitle}>by {product.author}</div>
+          <div className={style.subtitle}>{translate('by {{author}}', product)}</div>
           <StarRating
             rating={product.popularity}
             total={total}
