@@ -4,4 +4,4 @@ host = https://www.transifex.com
 [components.global]
 source_lang=en
 type=KEYVALUEJSON
-file_filter=src/@coorpacademy/components/locales/<lang>.json
+file_filter=src/@coorpacademy/components/locales/<lang>/global.json

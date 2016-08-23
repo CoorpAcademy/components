@@ -1,5 +1,5 @@
-import en from './locales/en';
-import fr from './locales/fr';
+import en from './locales/en/global';
+import fr from './locales/fr/global';
 
 export {
   en,
