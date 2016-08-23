@@ -51,5 +51,16 @@ img {
 }
 
 @media mobile {
-  
+  .wrapper {
+    flex-direction: column;
+  }
+
+  .imgWrapper {
+    flex: none;
+  }
+
+  .courseWrapper {
+    margin-top: 20px;
+    padding-left: 0;
+  }
 }

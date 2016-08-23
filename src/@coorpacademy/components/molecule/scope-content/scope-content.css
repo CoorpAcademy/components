@@ -1,3 +1,8 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value tablet from breakpoints;
+@value desktop from breakpoints;
+
 .desc {
   display: block;
   box-sizing: border-box;
@@ -102,6 +107,7 @@
   line-height: 26px;
   font-size: 13px;
 }
+
 .roundedlist li:before {
   display: inline-block;
   position: relative;
@@ -113,4 +119,36 @@
   width: 8px;
   height: 8px;
   content: '';
+}
+
+@media desktop {
+
+}
+
+@media tablet {
+
+}
+
+@media mobile {
+  .infos {
+    display: block;
+  }
+
+  .title {
+    font-size: 16px;
+    display: block;
+  }
+
+  .time {
+    display: inline-block;
+    margin-left: 20px;
+    margin-top: 20px;
+  }
+
+  .column {
+    display: block;
+    width: 100%;
+    padding-right: 0;
+    margin-bottom: 20px;
+  }
 }

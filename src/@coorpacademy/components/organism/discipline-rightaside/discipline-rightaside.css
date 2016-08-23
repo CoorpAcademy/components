@@ -100,5 +100,18 @@ a span {
 }
 
 @media mobile {
+  .col {
+    display: block;
+  }
 
+  .head {
+    flex: none;
+    text-align: center;
+  }
+
+  .colAuthor {
+    flex: none;
+    display: block;
+    padding-left: 0;
+  }
 }

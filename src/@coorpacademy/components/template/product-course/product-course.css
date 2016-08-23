@@ -50,5 +50,9 @@
 }
 
 @media mobile {
-
+  .wrapper {
+    max-width: auto;
+    width: 100%;
+    padding: 0 20px;
+  }
 }

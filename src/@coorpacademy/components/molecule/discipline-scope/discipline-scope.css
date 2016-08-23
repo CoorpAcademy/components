@@ -1,3 +1,8 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value tablet from breakpoints;
+@value desktop from breakpoints;
+
 .scope {
   display: block;
   width: 100%;
@@ -60,6 +65,18 @@
   font-family: OpenSans;
 }
 
-.courseScope ul li span{
+.courseScope ul li span {
   font-family: OpenSans-Extrabold;
+}
+
+@media desktop {
+
+}
+
+@media tablet {
+
+}
+
+@media mobile {
+  
 }

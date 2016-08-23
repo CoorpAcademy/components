@@ -30,7 +30,7 @@ export default (treant, options = {}) => {
               {getOrBlank('title', product)}
             </div>
             <div className={style.desc}>
-              {getOrBlank('desciption', product)}
+              {getOrBlank('description', product)}
             </div>
         </div>
       </div>
