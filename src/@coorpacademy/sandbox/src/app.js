@@ -1,5 +1,6 @@
-import createProductCourse from '../../components/template/product-course';
+import createCatalog from '../../components/template/catalog';
 import products from '../assets/products';
+import categories from '../assets/categories';
 import style from './sandbox.css';
 
 import createTranslate from '../../components/util/translate';
@@ -11,9 +12,12 @@ const options = {
 
 export default treant => {
   const {h} = treant;
-  const ProductCourse = createProductCourse(treant);
+  const Catalog = createCatalog(treant);
 
   return (props, children) => (
-    <ProductCourse product = { products[1] } />
+    <Catalog
+      products = { products }
+      categories = { categories }
+    />
   );
 };

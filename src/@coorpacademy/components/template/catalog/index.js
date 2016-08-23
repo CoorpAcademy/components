@@ -1,19 +1,39 @@
+import { checker, createValidate } from '../../util/validation';
 import style from './style.css';
+import createCategories from '../../molecule/categories';
+import createCatalogueCards from '../../organism/catalogue-cards';
 
-export default ({h}, options = {}) => {
+const conditions = checker.shape({
+  props: checker.shape({
+    products: checker.array,
+    categories: checker.array
+  }),
+  children: checker.none
+});
+
+export default (treant, options = {}) => {
+  const {h} = treant;
+  const Categories = createCategories(treant, options);
+  const CatalogueCards = createCatalogueCards(treant, options);
+
   const Catalog = ({title, categories, products}, children) => (
     <div className={style.wrapper}>
       <h1 className={style.title}>{title}</h1>
       <div className={style.catalogWrapper}>
         <div className={style.categoriesWrapper}>
-          {categories}
+          <Categories
+            categories={categories}
+          />
         </div>
         <div className={style.productsWrapper}>
-          {products}
+          <CatalogueCards
+            products={products}
+          />
         </div>
       </div>
     </div>
   );
 
+  Catalog.validate = createValidate(conditions);
   return Catalog;
 };
