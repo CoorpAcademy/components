@@ -23,7 +23,7 @@ export default (treant, options) => {
       <div className={style.wrapper}>
         <div className={style.container}>
           <DisciplineHeader
-            product={products[2]}
+            {...props}
           />
         </div>
         <div className={style.colContainer}>
@@ -33,7 +33,7 @@ export default (treant, options) => {
         </div>
         <div className={style.container}>
           <DisciplineScope
-            product={products[2]}
+            {...props}
             onClick={id => console.log(id)} // eslint-disable-line no-console
             selected={1}
           />

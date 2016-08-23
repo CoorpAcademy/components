@@ -20,22 +20,25 @@ module.exports = {
   },
 
   module: {
-    loaders: [
-      {
-        test: /\.js$/,
-        loader: 'babel',
-        include: [
-          path.join(__dirname, 'src')
-        ]
-      },
-      {
-        test: /\.css$/,
-        loader: ExtractTextPlugin.extract(
-          'style',
-          `css?modules&importLoaders=1&localIdentName=${hash}!postcss`
-        )
-      }
-    ]
+    loaders: [{
+      test: /\.js$/,
+      loader: 'babel',
+      include: [
+        path.join(__dirname, 'src')
+      ]
+    }, {
+      test: /\.css$/,
+      loader: ExtractTextPlugin.extract(
+        'style',
+        `css?modules&importLoaders=1&localIdentName=${hash}!postcss`
+      )
+    }, {
+      test: /\.json$/,
+      loader: 'json',
+      include: [
+        path.join(__dirname, 'src')
+      ]
+    }]
   },
 
   postcss: [

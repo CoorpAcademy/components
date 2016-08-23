@@ -1,3 +1,4 @@
+import getOr from 'lodash/fp/getOr';
 import { checker, createValidate } from '../../util/validation';
 import style from './discipline-header.css';
 
@@ -10,6 +11,8 @@ const conditions = checker.shape({
   children: checker.none
 });
 
+const getOrBlank = getOr('');
+
 export default (treant, options = {}) => {
   const DisciplineHeader = (props, children) => {
     const {h} = treant;
@@ -19,15 +22,15 @@ export default (treant, options = {}) => {
       <div className={style.wrapper}>
         <div className={style.imgWrapper}>
           <img
-            src={product.images[0] && product.images[0].url.https}
+            src={getOrBlank('images.0.url.https', product)}
           />
         </div>
         <div className={style.courseWrapper}>
             <div className={style.title}>
-              {product.title}
+              {getOrBlank('title', product)}
             </div>
             <div className={style.desc}>
-              {product.description}
+              {getOrBlank('desciption', product)}
             </div>
         </div>
       </div>

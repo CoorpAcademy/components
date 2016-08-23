@@ -1,0 +1,43 @@
+import test from 'ava';
+import map from 'lodash/fp/map';
+import createTranslate from '../translate';
+
+test('should create translate function', t => {
+  const translate = createTranslate({
+    'f{{oo}}': 'b{{ar}}'
+  });
+
+  t.deepEqual(
+    translate('f{{oo}}', {ar: 'ar'}),
+    'bar'
+  );
+});
+
+test('should use key if any locales match', t => {
+  const translate = createTranslate({});
+
+  t.deepEqual(
+    translate('f{{oo}}', {oo: 'oo'}),
+    'foo'
+  );
+});
+
+test('shouldn\'t replace if any data match', t => {
+  const translate = createTranslate({});
+
+  t.deepEqual(
+    translate('f{{oo}}'),
+    'f{{oo}}'
+  );
+});
+
+test('should trim token', t => {
+  const translate = createTranslate({
+    'f{{oo}}': 'f{{oo}}'
+  });
+
+  t.deepEqual(
+    translate('f{{ oo }}', {oo: 'oo'}),
+    'foo'
+  );
+});
