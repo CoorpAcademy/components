@@ -29,7 +29,12 @@ export default ({h}, options = {}) => {
 
     return (
       <div className={style.categories}>
-        {categories}
+        <div className={style.mobileToggler}>
+          toggler
+        </div>
+        <div>
+          {categories}
+        </div>
       </div>
     );
   };
