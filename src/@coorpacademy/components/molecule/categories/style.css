@@ -1,0 +1,45 @@
+.categories {
+  width: 230px;
+}
+
+.category {
+  margin-bottom: 50px;
+}
+
+.category h2 {
+  font-family: OpenSans-Bold;
+  font-size: 15px;
+  color: #546E7A;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.filters {
+  list-style-type: none;
+  width: 100%;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+}
+
+.filter {
+  border-bottom: 1px solid #CFD8DC;
+  height: 40px;
+}
+
+.filter a {
+  font-family: OpenSans;
+  font-size: 14px;
+  color: #37474F;
+  line-height: 40px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.filter a:hover {
+  color: #00B0FF;
+}
+
+.filter a.selected {
+  font-family: OpenSans-Extrabold;
+}

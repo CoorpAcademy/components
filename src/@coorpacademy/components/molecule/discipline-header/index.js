@@ -10,18 +10,25 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-export default (engine, options = {}) => {
+export default (treant, options = {}) => {
   const DisciplineHeader = (props, children) => {
-    const {h} = engine;
+    const {h} = treant;
     const {product} = props;
+
     return (
       <div className={style.wrapper}>
-        <div className={style['course-wrapper-img']}>
-          <img src='http://lorempixel.com/400/400/business' className={style['course-img']} />
+        <div className={style.imgWrapper}>
+          <img
+            src={product.images[0] && product.images[0].url.https}
+          />
         </div>
-        <div className={style['course-wrapper']}>
-            <div className={style['course-title']}>Stratégie digitale</div>
-            <div className={style['course-desc']}>Le raz-de-marée du mobile, </div>
+        <div className={style.courseWrapper}>
+            <div className={style.title}>
+              {product.title}
+            </div>
+            <div className={style.desc}>
+              {product.description}
+            </div>
         </div>
       </div>
     );

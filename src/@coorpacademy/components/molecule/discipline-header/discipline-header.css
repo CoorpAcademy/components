@@ -1,34 +1,39 @@
 .wrapper {
-    display: block;
-    //width: 100%;
-    width: 803px;
-}
-.course-wrapper-img {
-    display: inline-block;
-    width: 373px;
-    height: 250px;
-    vertical-align: top;
-    overflow: hidden;
+  display: block;
+  width: 100%;
 }
 
-.course-wrapper {
-    display: inline-block;
-    width: 45%;
-    vertical-align: top;
-    padding-left: 30px;
+.imgWrapper {
+  display: inline-block;
+  width: 373px;
+  height: 250px;
+  vertical-align: top;
+  overflow: hidden;
 }
 
-.course-wrapper .course-title {
-    display: block;
-    font-family: OpenSans-Bold;
-    font-size: 20px;
-    color: #546E7A;
-    margin-bottom: 25px;
+img {
+  width: 100%;
 }
-.course-wrapper .course-desc {
-    font-family: OpenSans;
-    font-size: 15px;
-    color: #263238;
-    letter-spacing: 0px;
-    line-height: 22px;
+
+.courseWrapper {
+  display: inline-block;
+  width: 45%;
+  vertical-align: top;
+  padding-left: 30px;
+}
+
+.title {
+  display: block;
+  font-family: OpenSans-Bold;
+  font-size: 20px;
+  color: #546E7A;
+  margin-bottom: 20px;
+}
+
+.desc {
+  font-family: OpenSans;
+  font-size: 15px;
+  color: #263238;
+  letter-spacing: 0px;
+  line-height: 22px;
 }

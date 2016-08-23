@@ -1,0 +1,69 @@
+.col {
+  width: 100%;
+  height: auto;
+}
+
+.head {
+  display: block;
+  width: 100%;
+}
+
+.starRating {
+  display: inline-block;
+  margin-bottom: 30px;
+}
+
+a {
+  display: block;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-family: OpenSans-Semibold;
+  font-size: 13px;
+  text-decoration: none;
+  line-height: 52px;
+  width: 100%;
+  text-align: center;
+  border-radius: 2px;
+  margin-bottom: 15px;
+}
+
+a span {
+  font-family: OpenSans-Extrabold;
+}
+
+.buy {
+  background-color: #66BB6A;
+}
+
+.buy:before {
+  background-color: #66BB6A;
+}
+
+.try {
+  background-color: #00B0FF;
+}
+
+.try:before {
+  background-color: #00B0FF;
+}
+
+
+.author {
+  font-family: OpenSans-Extrabold;
+  font-size: 10px;
+  color: #546E7A;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  line-height: 10px;
+  border-bottom: 1px solid #E0E0E0;
+  text-transform: uppercase;
+}
+
+.title {
+  font-family: OpenSans-Semibold;
+  color: #455A64;
+  border: 1px solid #E3E3E3;
+  padding: 20px;
+  text-align: left;
+}

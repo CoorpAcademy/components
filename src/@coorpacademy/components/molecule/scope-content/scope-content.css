@@ -1,0 +1,116 @@
+.desc {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 30px;
+  border-left: solid 1px #E3E3E3;
+  border-right: solid 1px #E3E3E3;
+}
+
+.infos {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.title {
+  display: inline-block;
+  font-family: OpenSans-Semibold;
+  font-size: 20px;
+  color: #546E7A;
+}
+
+.time {
+  display: inline-block;
+  width: auto;
+  padding: 3px 13px;
+  background: #546E7A;
+  border-radius: 15px;
+  font-family: OpenSans-Extrabold;
+  font-size: 10px;
+  color: #FFFFFF;
+}
+
+.column {
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: top;
+  width: 50%;
+  font-family: OpenSans;
+  font-size: 12px;
+  padding-right: 40px;
+  color: #607D8B;
+}
+
+.coltitle {
+  font-family: OpenSans-Extrabold;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  font-size: 10px;
+  color: #455A64;
+  border-bottom: solid 1px #E3E3E3;
+  vertical-align: top;
+}
+
+.dottedlist {
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style-position: inside;
+}
+
+.dottedlist li {
+  line-height: 26px;
+  font-size: 14px;
+}
+
+.dotscontainer {
+  position: relative;
+}
+
+.dots {
+  position: absolute;
+  height: 100%;
+  width: 10px;
+  box-sizing: border-box;
+  padding: 15px 0;
+  left: 5px;
+}
+
+.dots:before {
+  display: block;
+  position: relative;
+  border-left: dashed 1px black;
+  content: '';
+  z-index: 0;
+  width: 10px;
+  height: 100%;
+}
+
+.roundedlist {
+  list-style-type: none;
+  list-style-position: inside;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.roundedlist li {
+  line-height: 26px;
+  font-size: 13px;
+}
+.roundedlist li:before {
+  display: inline-block;
+  position: relative;
+  z-index: 2px;
+  margin-right: 10px;
+  border-radius: 50%;
+  border: 2px solid black;
+  background: white;
+  width: 8px;
+  height: 8px;
+  content: '';
+}

@@ -1,0 +1,52 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value tablet from breakpoints;
+@value desktop from breakpoints;
+
+.wrapper {
+  box-sizing: border-box;
+  max-width: 1280px;
+  padding: 0 20px;
+  margin: auto;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.container {
+  width: 840px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.colContainer {
+  width: 280px;
+  margin-left: 20px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+@media desktop {
+  .wrapper {
+    max-width: auto;
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  .colContainer {
+    width: 100%;
+  }
+}
+
+@media tablet {
+
+}
+
+@media mobile {
+
+}
