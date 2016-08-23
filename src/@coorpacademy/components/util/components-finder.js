@@ -52,7 +52,7 @@ const extractPaths = (paths, skipFixtures) => {
 };
 
 const extractAllComponents = () => {
-  return extractComponents('{atom,behaviour,molecule,organism}', false);
+  return extractComponents('{atom,behaviour,molecule,organism,template}', false);
 };
 
 const extractComponents = (includes, skipFixtures) => {
