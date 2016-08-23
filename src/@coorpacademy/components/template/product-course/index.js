@@ -20,7 +20,7 @@ export default (treant, options) => {
     const products = props.products;
 
     return (
-      <div>
+      <div className={style.wrapper}>
         <div className={style.container}>
           <DisciplineHeader
             product={products[2]}

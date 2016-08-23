@@ -1,9 +1,6 @@
 .col {
-  display: inline-block;
-  width: 281px;
-  margin-left: 97px;
+  width: 100%;
   height: auto;
-  vertical-align: top;
 }
 
 .head {
