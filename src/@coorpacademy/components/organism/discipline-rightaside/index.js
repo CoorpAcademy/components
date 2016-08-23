@@ -31,14 +31,13 @@ export default (treant, options = {}) => {
     const linkBuy = `https://store-staging.coorpacademy.com/checkout/cart/${getOrBlank('sku', product)}`;
 
     return (
-        <div className={style.col}>
-          <div className={style.head}>
-            <div className={style.starRating}>
-              <StarRating
-                rating={rating}
-                total={total}
-              />
-            </div>
+      <div className={style.col}>
+        <div className={style.head}>
+          <div className={style.starRating}>
+            <StarRating
+              rating={rating}
+              total={total}
+            />
           </div>
           <HoverFill>
             <Link className={style.try} href={linkTry}>
@@ -48,6 +47,8 @@ export default (treant, options = {}) => {
           <HoverFill>
             <Link className={style.buy} href={linkBuy}>Coorpacademy <span>premium</span></Link>
           </HoverFill>
+        </div>
+        <div className={style.colAuthor}>
           <div className={style.author}>
             auteur
           </div>
@@ -55,7 +56,8 @@ export default (treant, options = {}) => {
             {getOrBlank('author', product)}
           </div>
         </div>
-      );
+      </div>
+    );
   };
 
   DisciplineRightaside.validate = createValidate(conditions);

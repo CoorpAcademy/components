@@ -1,5 +1,5 @@
 .tabs {
-  display: block;
+  display: flex;
   width: 100%;
   list-style: none;
   list-style-position: outside;
@@ -8,10 +8,10 @@
 }
 
 .tab {
+  flex-grow: 1;
   position: relative;
   box-sizing: border-box;
   display: inline-block;
-  width: 280px;
   text-align: center;
   font-family: OpenSans;
   font-size: 16px;
