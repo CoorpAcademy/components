@@ -48,11 +48,18 @@
 }
 
 .mobileToggler {
+  text-align: center;
   display: none;
+  width: 90px;
+  height: 30px;
+  line-height: 30px;
+  background: #123;
+  color: #fff;
+  margin: 0 auto;
 }
 
 @media mobile {
-  .category {
+  .closed .category {
     display: none;
   }
 

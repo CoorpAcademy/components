@@ -16,23 +16,37 @@ export default (treant, options = {}) => {
   const Categories = createCategories(treant, options);
   const CatalogueCards = createCatalogueCards(treant, options);
 
-  const Catalog = ({title, categories, products}, children) => (
-    <div className={style.wrapper}>
-      <h1 className={style.title}>{title}</h1>
-      <div className={style.catalogWrapper}>
-        <div className={style.categoriesWrapper}>
-          <Categories
-            categories={categories}
-          />
+  const Catalog = (props, children) => {
+    const {
+      title,
+      categories,
+      products,
+      onClose,
+      onOpen,
+      status
+    } = props;
+
+    return (
+        <div className={style.wrapper}>
+          <h1 className={style.title}>{title}</h1>
+          <div className={style.catalogWrapper}>
+            <div className={style.categoriesWrapper}>
+              <Categories
+                categories={categories}
+                onClose = {onClose}
+                onOpen = {onOpen}
+                status = {status}
+              />
+            </div>
+            <div className={style.productsWrapper}>
+              <CatalogueCards
+                products={products}
+              />
+            </div>
+          </div>
         </div>
-        <div className={style.productsWrapper}>
-          <CatalogueCards
-            products={products}
-          />
-        </div>
-      </div>
-    </div>
-  );
+      );
+  };
 
   Catalog.validate = createValidate(conditions);
   return Catalog;

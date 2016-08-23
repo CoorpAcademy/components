@@ -46,6 +46,20 @@ store.subscribe(() => {
   update(App(store.getState()));
 });
 
+const props = {
+  status: 'closed'
+};
+
+props.onClose = () => {
+  props.status = 'closed';
+  update(App(props));
+};
+
+props.onOpen = () => {
+  props.status = 'open';
+  update(App(props));
+};
+
 if (module.hot)
   module.hot.accept('./app.js', () => {
     const createApp = require('./app').default;
