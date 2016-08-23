@@ -1,6 +1,14 @@
 import { checker, createValidate } from '../../util/validation';
 import style from './scope-tabs.css';
 
+const conditions = checker.shape({
+  props: checker.shape({
+    selected: checker.bool,
+    onClick: checker.func
+  }),
+  children: checker.none
+});
+
 export default (treant, options = {}) => {
   const ScopeTabs = props => {
     const {h} = treant;
@@ -20,5 +28,6 @@ export default (treant, options = {}) => {
     );
   };
 
+  ScopeTabs.validate = createValidate(conditions);
   return ScopeTabs;
 };

@@ -1,5 +1,7 @@
 export default {
   props: {
-    products: []
+    product: {
+      author: 'plop'
+    }
   }
 };

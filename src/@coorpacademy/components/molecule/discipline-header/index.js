@@ -14,7 +14,7 @@ export default (treant, options = {}) => {
   const DisciplineHeader = (props, children) => {
     const {h} = treant;
     const {product} = props;
-    
+
     return (
       <div className={style.wrapper}>
         <div className={style.imgWrapper}>

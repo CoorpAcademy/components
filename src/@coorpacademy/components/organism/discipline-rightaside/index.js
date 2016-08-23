@@ -1,8 +1,17 @@
+import { checker, createValidate } from '../../util/validation';
 import style from './discipline-rightaside.css';
 import createStarRating from '../../molecule/star-rating';
 import createLink from '../../atom/link';
 import HoverFillBehaviour from '../../behaviour/effects/hover-fill';
 
+const conditions = checker.shape({
+  props: checker.shape({
+    product: checker.shape({
+      author: checker.string
+    })
+  }),
+  children: checker.none
+});
 export default (treant, options = {}) => {
   const {h} = treant;
   const StarRating = createStarRating(treant, options);
@@ -10,13 +19,13 @@ export default (treant, options = {}) => {
   const HoverFill = HoverFillBehaviour(treant, options);
 
   const DisciplineRightaside = (props, children) => {
-    const product = props.product
+    const product = props.product;
 
     const rating = product.popularity;
     const total = 5;
 
-    const linkTry = "#";
-    const linkBuy = "https://store-staging.coorpacademy.com/checkout/cart/" + product.sku;
+    const linkTry = '#';
+    const linkBuy = `https://store-staging.coorpacademy.com/checkout/cart/${product.sku}`;
 
     return (
         <div className={style.col}>
@@ -44,5 +53,6 @@ export default (treant, options = {}) => {
       );
   };
 
+  DisciplineRightaside.validate = createValidate(conditions);
   return DisciplineRightaside;
 };

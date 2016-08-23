@@ -1,4 +1,12 @@
+import { checker, createValidate } from '../../util/validation';
 import style from './style.css';
+
+const conditions = checker.shape({
+  props: checker.shape({
+    categories: checker.array
+  }),
+  children: checker.none
+});
 
 export default ({h}, options = {}) => {
   const Categories = (props, children) => {
@@ -26,5 +34,6 @@ export default ({h}, options = {}) => {
     );
   };
 
+  Categories.validate = createValidate(conditions);
   return Categories;
 };
