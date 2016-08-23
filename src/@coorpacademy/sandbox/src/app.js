@@ -7,6 +7,6 @@ export default treant => {
   const ProductCourse = createProductCourse(treant);
 
   return (props, children) => (
-    <ProductCourse products = { products } />
+    <ProductCourse product = { products[1] } />
   );
 };
