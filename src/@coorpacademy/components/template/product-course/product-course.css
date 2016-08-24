@@ -31,7 +31,7 @@
 
 @media desktop {
   .wrapper {
-    max-width: auto;
+    max-width: 840px;
   }
 
   .container {

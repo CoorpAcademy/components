@@ -19,7 +19,6 @@
 
 .assetTitle {
   display: inline-block;
-  width: 55px;
   height: 15px;
   font-family: OpenSans-Extrabold;
   font-size: 12px;
@@ -34,10 +33,9 @@
 .assetDesc {
   display: inline-block;
   width: auto;
-  font-family: OpenSans-Extrabold;
+  font-family: OpenSans;
   font-size: 12px;
-  text-transform: uppercase;
-  color: #546E7A;
+  color: #607D8B;
   padding: 20px;
 }
 
@@ -78,5 +76,7 @@
 }
 
 @media mobile {
-  
+  .assetTitle {
+    display: none;
+  }
 }
