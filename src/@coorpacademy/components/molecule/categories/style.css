@@ -31,6 +31,7 @@
 }
 
 .filter a {
+  display: inline-block;
   font-family: OpenSans;
   font-size: 14px;
   color: #37474F;
