@@ -1,5 +1,6 @@
+import noop from 'lodash/fp/noop';
 import { checker, createValidate } from '../../util/validation';
-import {push} from '../../util/navigation';
+import {createNavigationHandler} from '../../util/navigation';
 
 const conditions = checker.shape({
   props: checker.none,
@@ -8,11 +9,14 @@ const conditions = checker.shape({
 
 export default (treant, options = {}) => {
   const {h} = treant;
+  const {dispatch = noop} = options;
+
+  const onClick = createNavigationHandler(options);
 
   const Link = (props, children) => (
     <a
       {...props}
-      onClick={push(options, props)}
+      onClick={onClick}
     >
       {children}
     </a>
