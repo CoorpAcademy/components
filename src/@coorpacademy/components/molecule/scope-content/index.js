@@ -3,7 +3,11 @@ import style from './scope-content.css';
 
 const conditions = checker.shape({
   props: checker.shape({
-    selected: checker.bool
+    content: checker.shape({
+      level: checker.string,
+      achievements: checker.array,
+      chapters: checker.array
+    })
   }),
   children: checker.none
 });
@@ -11,12 +15,19 @@ const conditions = checker.shape({
 export default (treant, options = {}) => {
   const ScopeContent = (props, children) => {
     const {h} = treant;
-    const {selected} = props;
+    const {title, content} = props;
     const {product = ''} = props;
 
-    const title = 'Leadership au féminin : la pratique';
     const time = '2h20';
     const lstitle = 'À L\'ISSUE DE CE NIVEAU, VOUS SEREZ CAPABLE DE :';
+
+    const achievements = content.achievements.map(achievement => (
+      <li>{achievement}</li>
+    ));
+
+    const chapters = content.chapters.map(chapter => (
+      <li>{chapter}</li>
+    ));
 
     return (
       <div className={style.desc}>
@@ -31,9 +42,7 @@ export default (treant, options = {}) => {
             {lstitle}
           </div>
           <ul className={style.dottedlist}>
-            <li>Duis mollis, est non commodo luctus</li>
-            <li>Duis mollis, est non commodo luctus</li>
-            <li>Duis mollis, est non commodo luctus</li>
+            {achievements}
           </ul>
         </div>
         <div className={style.column}>
@@ -41,9 +50,7 @@ export default (treant, options = {}) => {
           <div className={style.dotscontainer}>
             <div className={style.dots}></div>
             <ul className={style.roundedlist}>
-              <li>Duis mollis</li>
-              <li>Duis mollis</li>
-              <li>Duis mollis</li>
+              {chapters}
             </ul>
           </div>
         </div>
