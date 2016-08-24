@@ -1,3 +1,8 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value tablet from breakpoints;
+@value desktop from breakpoints;
+
 .col {
   width: 100%;
   height: auto;
@@ -47,6 +52,9 @@ a span {
   background-color: #00B0FF;
 }
 
+.colAuthor {
+
+}
 
 .author {
   font-family: OpenSans-Extrabold;
@@ -66,4 +74,44 @@ a span {
   border: 1px solid #E3E3E3;
   padding: 20px;
   text-align: left;
+}
+
+@media desktop {
+  .col {
+    display: flex;
+  }
+
+  .head {
+    display: inline-block;
+    flex: 0 0 380px;
+    vertical-align: top;
+  }
+
+  .colAuthor {
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 30px;
+    flex-grow: 1;
+  }
+}
+
+@media tablet {
+
+}
+
+@media mobile {
+  .col {
+    display: block;
+  }
+
+  .head {
+    flex: none;
+    text-align: center;
+  }
+
+  .colAuthor {
+    flex: none;
+    display: block;
+    padding-left: 0;
+  }
 }

@@ -17,7 +17,7 @@ export default (treant, options) => {
   const DisciplineRightaside = createDisciplineRightaside(treant, options);
 
   const ProductCourse = (props, children) => {
-    const products = props.products;
+    const product = props.product;
 
     return (
       <div className={style.wrapper}>
@@ -28,7 +28,7 @@ export default (treant, options) => {
         </div>
         <div className={style.colContainer}>
           <DisciplineRightaside
-            product={products[2]}
+            product={product}
           />
         </div>
         <div className={style.container}>
