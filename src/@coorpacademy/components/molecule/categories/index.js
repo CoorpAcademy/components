@@ -29,8 +29,18 @@ export default ({h}, options = {}) => {
 
     return (
       <div className={style.categories}>
-        <input type='checkbox' id='toggler' checked='false' className={style.mobileToggler}/>
-        <label htmlFor='toggler' className={style.togglerDisplay}></label>
+        <input
+          type='checkbox'
+          id='toggler'
+          checked='false'
+          className={style.mobileToggler}
+        />
+        <label
+          htmlFor='toggler'
+          className={style.togglerDisplay}
+        >
+          <span>Toutes les formations</span>
+        </label>
         {categoriesDiv}
       </div>
     );

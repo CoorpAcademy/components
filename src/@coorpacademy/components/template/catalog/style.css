@@ -83,6 +83,9 @@
 
   .categoriesWrapper {
     float: none;
+    background-color: #E1E1E1;
+    margin: 0 auto;
+    padding: 0 20px;
   }
 
   .productsWrapper {

@@ -52,14 +52,21 @@
 }
 
 .togglerDisplay {
-  text-align: center;
   display: none;
-  width: 90px;
-  height: 30px;
-  line-height: 30px;
-  background: #123;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  background: #546E7A;
+  padding: 0 22px;
+  border-radius: 2px;
   color: #fff;
   margin: 0 auto;
+}
+
+.togglerDisplay span {
+  font-size: 14px;
+  color: #FFFFFF;
+  text-transform: uppercase;
 }
 
 @media mobile {
