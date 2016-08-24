@@ -30,6 +30,7 @@ export default ({h}, options = {}) => {
         >
           <span>Toutes les formations</span>
         </label>
+        <span className={style.arrow}></span>
         <div className={style.category}>
           <h2>Filtres</h2>
           <ul className={style.filters}>

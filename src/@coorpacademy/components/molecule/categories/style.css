@@ -54,6 +54,7 @@
 
 .togglerDisplay {
   display: none;
+  box-sizing: border-box;
   width: 100%;
   height: 60px;
   line-height: 60px;
@@ -62,17 +63,72 @@
   border-radius: 2px;
   color: #fff;
   margin: 0 auto;
+  cursor: pointer;
 }
 
 .togglerDisplay span {
+  font-family: OpenSans-Extrabold;
+  letter-spacing: 0.4px;
   font-size: 14px;
   color: #FFFFFF;
   text-transform: uppercase;
 }
 
 @media mobile {
-  .togglerDisplay{
+  .categories {
+    width: 280px;
+    margin: 0 auto 20px;
+    position: relative;
+  }
+
+  .category {
+    margin-top: 10px;
+    margin-bottom: 0px;
+    border-radius: 5px;
+    border: 1px solid #F0F0F0;
+  }
+
+  .category h2 {
+    display: none;
+  }
+
+  .filter {
+    border-bottom: 1px solid #F0F0F0;
+  }
+
+  .filter:last-child {
+    border-bottom: none;
+  }
+
+  .filter a {
+    font-family: OpenSans-Bold;
+    color: #546E7A;
+    font-size: 12px;
+    text-transform: none;
     display: block;
+    padding: 0 15px;
+  }
+
+  .arrow {
+    color: #ffffff;
+    border-right: 4px solid;
+    border-bottom: 4px solid;
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    transform: rotate(-135deg);
+    cursor: pointer;
+  }
+
+  .togglerDisplay {
+    display: block;
+  }
+
+  .mobileToggler:checked ~ .arrow {
+    transform: rotate(45deg);
+    top: 20px;
   }
 
   .mobileToggler:checked ~ .category {

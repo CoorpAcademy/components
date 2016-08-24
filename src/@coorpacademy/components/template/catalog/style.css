@@ -74,18 +74,24 @@
   .title {
     margin-left: 0px;
     text-align: center;
+    margin-bottom: 20px;
+    display: inline-block;
   }
 
   .wrapper {
     max-width: 670px;
     position: relative;
+    text-align: center;
+  }
+
+  .catalogWrapper {
+    text-align: left;
   }
 
   .categoriesWrapper {
+    width: 100%;
     float: none;
-    background-color: #E1E1E1;
     margin: 0 auto;
-    padding: 0 20px;
   }
 
   .productsWrapper {

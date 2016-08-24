@@ -18,7 +18,7 @@
   margin-bottom: 30px;
 }
 
-a {
+.head a {
   display: block;
   text-transform: uppercase;
   color: #ffffff;
@@ -32,7 +32,7 @@ a {
   margin-bottom: 15px;
 }
 
-a span {
+.head a span {
   font-family: OpenSans-Extrabold;
 }
 

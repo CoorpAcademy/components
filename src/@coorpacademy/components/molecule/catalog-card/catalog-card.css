@@ -8,6 +8,7 @@
   border-top-right-radius: 10px;
   overflow: hidden;
   min-height: 306px;
+  text-align: left;
 }
 
 .imageWrapper {
