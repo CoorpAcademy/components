@@ -14,13 +14,13 @@ const translate = createTranslate(locales.fr);
 export default (treant, {dispatch, history}) => {
   const {h} = treant;
   const ProductCourse = createProductCourse(treant);
+  const Catalog = createCatalog(treant);
 
   return (props, children) => (
     <div>
       {/* <Header
         onSelectComponent={value => dispatch(navigate(history.createLocation(value)))}
       /> */}
-      <ProductCourse product = { products[1] } />
       <Catalog
         title='__Catalog'
         products={products}

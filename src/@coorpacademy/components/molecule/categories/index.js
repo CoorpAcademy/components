@@ -10,22 +10,11 @@ const conditions = checker.shape({
 
 export default ({h}, options = {}) => {
   const Categories = ({categories}, children) => {
-    const categoriesDiv = categories.map(category => {
-      const filters = category.filters.map(filter => (
-          <li className={style.filter}>
-            <a href={filter.path}>{filter.name}</a>
-          </li>
-      ));
-
-      return (
-        <div className={style.category}>
-          <h2>{category.title}</h2>
-          <ul className={style.filters}>
-            {filters}
-          </ul>
-        </div>
-      );
-    });
+    const CategoriesDiv = categories.map(category => (
+      <li className={style.filter}>
+        <a href={category.href}>{category.name}</a>
+      </li>
+    ));
 
     return (
       <div className={style.categories}>
@@ -41,7 +30,12 @@ export default ({h}, options = {}) => {
         >
           <span>Toutes les formations</span>
         </label>
-        {categoriesDiv}
+        <div className={style.category}>
+          <h2>Filtres</h2>
+          <ul className={style.filters}>
+            {CategoriesDiv}
+          </ul>
+        </div>
       </div>
     );
   };

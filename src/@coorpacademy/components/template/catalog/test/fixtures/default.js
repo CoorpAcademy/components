@@ -2,29 +2,21 @@ export default {
   props: {
     title: 'catalog-fixture',
     categories: [{
-      title: 'Masterclass',
-      filters: [{
-        name: 'Ere du temps',
-        path: '/products/ere-du-temps'
-      }, {
-        name: 'Digital',
-        path: '/products/digital'
-      }]
+      name: 'Toutes les formations',
+      href: '#'
     }, {
-      title: 'Cursus',
-      filters: [{
-        name: 'E-commerce',
-        path: '/products/e-commerce'
-      }, {
-        name: 'Réseaux sociaux',
-        path: '/products/reseaux-sociaux'
-      }, {
-        name: 'Stratégie digitale',
-        path: '/products/stategie-digitale'
-      }, {
-        name: 'Management',
-        path: '/products/management'
-      }]
+      name: 'Les plus consultés',
+      href: '#popular'
+    }, {
+      name: 'Les nouveautés',
+      href: '#news',
+      selected: true
+    }, {
+      name: 'Esprit du temps',
+      href: '#esprit-du-temps'
+    }, {
+      name: 'Digital',
+      href: '#digital'
     }],
     products: [
       {
