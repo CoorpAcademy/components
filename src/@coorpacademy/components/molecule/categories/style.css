@@ -48,6 +48,10 @@
 }
 
 .mobileToggler {
+  display: none;
+}
+
+.togglerDisplay {
   text-align: center;
   display: none;
   width: 90px;
@@ -59,11 +63,11 @@
 }
 
 @media mobile {
-  .closed .category {
-    display: none;
+  .togglerDisplay{
+    display: block;
   }
 
-  .mobileToggler {
-    display: block;
+  .mobileToggler:checked ~ .category {
+    display: none;
   }
 }

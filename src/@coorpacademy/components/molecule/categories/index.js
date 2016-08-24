@@ -3,14 +3,13 @@ import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({
-    categories: checker.array,
-    toggleCategories: checker.func
+    categories: checker.array
   }),
   children: checker.none
 });
 
 export default ({h}, options = {}) => {
-  const Categories = ({categories, status, onOpen, onClose}, children) => {
+  const Categories = ({categories}, children) => {
     const categoriesDiv = categories.map(category => {
       const filters = category.filters.map(filter => (
           <li className={style.filter}>
@@ -30,17 +29,9 @@ export default ({h}, options = {}) => {
 
     return (
       <div className={style.categories}>
-        <div
-          className={style.mobileToggler}
-          onClick={status === 'open' ? onClose : onOpen}
-        >
-          <span>{status}</span>
-        </div>
-        <div
-          className={style[status]}
-        >
-          {categoriesDiv}
-        </div>
+        <input type='checkbox' id='toggler' checked='false' className={style.mobileToggler}/>
+        <label htmlFor='toggler' className={style.togglerDisplay}></label>
+        {categoriesDiv}
       </div>
     );
   };
