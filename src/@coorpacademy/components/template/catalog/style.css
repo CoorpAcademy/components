@@ -1,3 +1,8 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value tablet from breakpoints;
+@value desktop from breakpoints;
+
 .wrapper {
   width: 100%;
   box-sizing: border-box;
@@ -45,13 +50,13 @@
   width: 100%
 }
 
-@media only screen and (max-width : 1250px) {
+@media desktop {
   .wrapper {
     max-width: 960px;
   }
 }
 
-@media only screen and (max-width : 960px) {
+@media tablet {
   .wrapper {
     max-width: 670px;
   }
@@ -65,14 +70,27 @@
   }
 }
 
-@media only screen and (max-width : 640px) {
+@media mobile {
+  .title {
+    margin-left: 0px;
+    text-align: center;
+  }
+
   .wrapper {
     max-width: 670px;
+    position: relative;
   }
-}
 
-@media only screen and (max-width : 320px) {
-  .wrapper {
-    width: 320px;
+  .categoriesWrapper {
+    float: none;
+    background-color: #E1E1E1;
+    margin: 0 auto;
+    padding: 0 20px;
   }
+
+  .productsWrapper {
+    padding-left: 0px;
+    text-align: center;
+  }
+
 }

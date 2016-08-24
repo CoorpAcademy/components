@@ -1,3 +1,6 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+
 .categories {
   width: 230px;
 }
@@ -42,4 +45,36 @@
 
 .filter a.selected {
   font-family: OpenSans-Extrabold;
+}
+
+.mobileToggler {
+  display: none;
+}
+
+.togglerDisplay {
+  display: none;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  background: #546E7A;
+  padding: 0 22px;
+  border-radius: 2px;
+  color: #fff;
+  margin: 0 auto;
+}
+
+.togglerDisplay span {
+  font-size: 14px;
+  color: #FFFFFF;
+  text-transform: uppercase;
+}
+
+@media mobile {
+  .togglerDisplay{
+    display: block;
+  }
+
+  .mobileToggler:checked ~ .category {
+    display: none;
+  }
 }

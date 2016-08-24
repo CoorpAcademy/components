@@ -9,8 +9,8 @@ const conditions = checker.shape({
 });
 
 export default ({h}, options = {}) => {
-  const Categories = (props, children) => {
-    const categories = props.categories.map(category => {
+  const Categories = ({categories}, children) => {
+    const categoriesDiv = categories.map(category => {
       const filters = category.filters.map(filter => (
           <li className={style.filter}>
             <a href={filter.path}>{filter.name}</a>
@@ -29,7 +29,19 @@ export default ({h}, options = {}) => {
 
     return (
       <div className={style.categories}>
-        {categories}
+        <input
+          type='checkbox'
+          id='toggler'
+          checked='false'
+          className={style.mobileToggler}
+        />
+        <label
+          htmlFor='toggler'
+          className={style.togglerDisplay}
+        >
+          <span>Toutes les formations</span>
+        </label>
+        {categoriesDiv}
       </div>
     );
   };
