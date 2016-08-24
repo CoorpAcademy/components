@@ -1,7 +1,6 @@
 [{
   "title": "Leadership au féminin : la pratique",
   "levels": [{
-    "level": "Base",
     "achievements": [
       "1a - Duis mollis, est non commodo luctus",
       "1b - Duis mollis, est non commodo luctus",
@@ -14,7 +13,6 @@
     ]
   },
   {
-    "level": "Avancé",
     "achievements": [
       "2a - Duis mollis, est non commodo luctus",
       "2b - Duis mollis, est non commodo luctus"
@@ -28,7 +26,6 @@
     ]
   },
   {
-    "level": "Coach",
     "achievements": [
       "3a - Duis mollis, est non commodo luctus",
       "3b - Duis mollis, est non commodo luctus",
