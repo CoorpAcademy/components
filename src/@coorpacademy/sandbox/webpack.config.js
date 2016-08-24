@@ -1,4 +1,4 @@
-import path from 'path';
+import {join} from 'path';
 import webpack from 'webpack';
 import autoprefixer from 'autoprefixer';
 
@@ -9,17 +9,17 @@ module.exports = ({
   entry: {
     main: [
       'webpack-hot-middleware/client',
-      path.join(__dirname, 'src/main')
+      join(__dirname, 'src/main')
     ],
     angular: [
       'webpack-hot-middleware/client',
-      path.join(__dirname, 'angular/main')
+      join(__dirname, 'angular/main')
     ]
   },
 
   output: {
     filename: '[name].js',
-    path: path.join(__dirname, 'dist'),
+    path: join(__dirname, 'dist'),
     publicPath: '/dist/'
   },
 
@@ -31,7 +31,7 @@ module.exports = ({
       test: /\.js$/,
       loader: 'babel',
       include: [
-        path.join(__dirname, '../../..')
+        join(__dirname, '../..')
       ]
     }, {
       test: /\.css$/,

@@ -36,7 +36,7 @@ app.get('/angular', (req, res) => {
   `);
 });
 
-app.get('/:engine', (req, res) => {
+app.get('/:engine*', (req, res) => {
   res.send(`
     <div id="app"></div>
     <script>window.engine = '${req.params.engine}'</script>
@@ -48,7 +48,7 @@ app.get('/', (req, res) => {
   res.send(`
     <h1>Sandbox</h1>
     <ul>
-      ${map(name => `<li><a href="/${name}">${name}</a></li>`, engines).join('')}
+      ${map(name => `<li><a href="/${name}/">${name}</a></li>`, engines).join('')}
     </ul>
     <h2>Adapteur</h2>
     <ul>
