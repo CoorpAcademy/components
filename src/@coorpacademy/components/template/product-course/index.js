@@ -19,7 +19,7 @@ export default (treant, options) => {
   const DisciplineRightaside = createDisciplineRightaside(treant, options);
 
   const ProductCourse = (props, children) => {
-    const product = props.product;
+    const {product, changeLevel} = props;
 
     return (
       <div className={style.wrapper}>
@@ -36,8 +36,7 @@ export default (treant, options) => {
         <div className={style.container}>
           <DisciplineScope
             {...props}
-            onClick={id => console.log(id)} // eslint-disable-line no-console
-            selected={1}
+            onClick={changeLevel}
           />
         </div>
       </div>

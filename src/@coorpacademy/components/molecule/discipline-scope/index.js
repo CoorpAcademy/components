@@ -24,7 +24,7 @@ export default (treant, options = {}) => {
 
   const DisciplineScope = (props, children) => {
     const {h} = treant;
-    const {product, onClick, selected} = props;
+    const {title, product, onClick, selected, content} = props;
 
     return (
       <div className={style.scope}>
@@ -33,7 +33,8 @@ export default (treant, options = {}) => {
             selected={selected}
         />
         <ScopeContent
-            selected={selected}
+            title={title}
+            content={content}
         />
         <div className={style.asset}>
           <div className={style.assetTitle}>assets</div>

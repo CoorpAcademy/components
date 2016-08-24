@@ -1,5 +1,6 @@
 export default {
   props: {
-    selected: true
+    selected: true,
+    onClick: () => true
   }
 };

@@ -11,6 +11,9 @@ import {createReducer} from './reducers';
 import {createMiddlewares} from './middlewares';
 import {navigate, connectHistory} from '../../redux-tools/redux-history';
 
+import products from '../assets/products';
+import contents from '../assets/contents';
+
 const history = useBasename(createHistory)({
   basename: `/${window.engine}`
 });
@@ -40,7 +43,20 @@ const update = engine.render(document.getElementById('app'));
 
 const App = createApp(treant, options);
 
-update(App(store.getState()));
+const props = {
+  selected: 0,
+  product: products[0],
+  title: contents[0].title,
+  content: contents[0].levels[0]
+};
+
+props.changeLevel = level => {
+  props.selected = level;
+  props.content = contents[0].levels[level];
+  update(App(props));
+};
+
+update(App(props));
 
 store.subscribe(() => {
   update(App(store.getState()));
