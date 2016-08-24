@@ -1,6 +1,7 @@
 export default {
   props: {
-    selected: true,
+    levels: ['Base', 'Avancé', 'Coach'],
+    selected: 0,
     onClick: () => true
   }
 };

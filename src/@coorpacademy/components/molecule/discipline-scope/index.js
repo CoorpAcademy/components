@@ -24,13 +24,14 @@ export default (treant, options = {}) => {
 
   const DisciplineScope = (props, children) => {
     const {h} = treant;
-    const {title, product, onClick, selected, content} = props;
+    const {title, product, onClick, selected, content, levels} = props;
 
     return (
       <div className={style.scope}>
         <ScopeTabs
             onClick={onClick}
             selected={selected}
+            levels={levels}
         />
         <ScopeContent
             title={title}

@@ -6,7 +6,12 @@ import createDisciplineRightaside from '../../organism/discipline-rightaside';
 
 const conditions = checker.shape({
   props: checker.shape({
-    product: checker.object
+    title: checker.string,
+    product: checker.object,
+    onClick: checker.func,
+    selected: checker.number,
+    content: checker.object,
+    levels: checker.arrayOf(checker.string)
   }),
   children: checker.none
 });

@@ -14,16 +14,17 @@ const translate = createTranslate(locales.fr);
 const selected = 2;
 const _props = {
   selected,
+  levels: ['Base', 'Avancé', 'Coach'],
   product: products[0],
   title: contents[0].title,
   content: contents[0].levels[selected],
   changeLevel: level => {
-    console.log(level);
   }
 };
 
 export default (treant, {dispatch, history}) => {
   const {h} = treant;
+  const ProductCourse = createProductCourse(treant);
 
   return (props, children) => (
     <div>
