@@ -1,3 +1,4 @@
+import createLink from '../../atom/link';
 import { checker, createValidate } from '../../util/validation';
 import style from './style.css';
 
@@ -8,11 +9,19 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-export default ({h}, options = {}) => {
+export default (treant, options = {}) => {
+  const {h} = treant;
+
+  const Link = createLink(treant, options);
+
   const Categories = ({categories}, children) => {
     const CategoriesDiv = categories.map(category => (
       <li className={style.filter}>
-        <a href={category.href}>{category.name}</a>
+        <Link
+          href={category.href}
+        >
+          {category.name}
+        </Link>
       </li>
     ));
 
