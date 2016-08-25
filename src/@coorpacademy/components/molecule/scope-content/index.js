@@ -15,25 +15,28 @@ const conditions = checker.shape({
 export default (treant, options = {}) => {
   const ScopeContent = (props, children) => {
     const {h} = treant;
-    const {title, content} = props;
+    const {content} = props;
     const {product = ''} = props;
 
-    const time = '2h20';
+    const time = content.time;
+    const title = content.category[0].title;
+    const assets = content.course_scope;
+
     const lstitle = 'À L\'ISSUE DE CE NIVEAU, VOUS SEREZ CAPABLE DE :';
 
-    const achievements = content.achievements.map(achievement => (
-      <li>{achievement}</li>
+    const skills = content.skills.map(skill => (
+      <li>{skill}</li>
     ));
 
     const chapters = content.chapters.map(chapter => (
-      <li>{chapter}</li>
+      <li>{chapter.name}</li>
     ));
 
     return (
       <div className={style.desc}>
         <div className={style.infos}>
           <div className={style.title}>
-            {title}
+            {title} {assets}
           </div>
           <div className={style.time}>{time}</div>
         </div>
@@ -42,7 +45,7 @@ export default (treant, options = {}) => {
             {lstitle}
           </div>
           <ul className={style.dottedlist}>
-            {achievements}
+            {skills}
           </ul>
         </div>
         <div className={style.column}>
