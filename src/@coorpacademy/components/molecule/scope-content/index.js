@@ -4,10 +4,11 @@ import style from './scope-content.css';
 const conditions = checker.shape({
   props: checker.shape({
     content: checker.shape({
-      level: checker.string,
-      achievements: checker.array,
-      chapters: checker.array,
-      course_scope: checker.array
+      title: checker.string,
+      time: checker.string,
+      skills: checker.arrayOf(checker.string),
+      chapters: checker.arrayOf(checker.object),
+      course_scope: checker.arrayOf(checker.string)
     })
   }),
   children: checker.none

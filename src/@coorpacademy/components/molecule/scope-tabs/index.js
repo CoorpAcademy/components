@@ -5,7 +5,7 @@ const conditions = checker.shape({
   props: checker.shape({
     selected: checker.bool,
     onClick: checker.func,
-    levels: checker.arrayOf(checker.string)
+    levels: checker.arrayOf(checker.object)
   }),
   children: checker.none
 });

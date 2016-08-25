@@ -7,9 +7,8 @@ import createScopeContent from '../scope-content';
 
 const conditions = checker.shape({
   props: checker.shape({
-    product: checker.shape({
-      coursescope: checker.string
-    }),
+    product: checker.object,
+    levels: checker.object,
     selected: checker.bool,
     onClick: checker.func
   }),
