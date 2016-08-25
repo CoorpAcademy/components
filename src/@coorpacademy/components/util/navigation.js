@@ -5,6 +5,9 @@ const isLeftClickEvent = event => event.button === 0;
 const isModifiedEvent = event => !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
 
 export const createNavigationHandler = curry(({dispatch, history}, event) => {
+  if (!dispatch || !history)
+    return;
+
   if (event.defaultPrevented)
     return;
 
