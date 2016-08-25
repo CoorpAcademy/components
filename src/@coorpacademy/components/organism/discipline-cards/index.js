@@ -18,7 +18,7 @@ export default (treant, options = {}) => {
   const {skin} = options;
   const DisciplineCard = createDisciplineCard(treant, options);
 
-  const bgColor = getOr('transparent', 'theme.background', skin);
+  const bgColor = getOr('transparent', 'common.background', skin);
 
   const DisciplineCards = (props, children) => {
     const {onModuleClick, onDisciplineClick} = props;

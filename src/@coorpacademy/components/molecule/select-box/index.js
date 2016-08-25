@@ -14,9 +14,9 @@ const conditions = checker.shape({
 
 const spanInline = (theme, skin) => {
   const color = {
-    plain: get('theme.lock', skin),
+    plain: get('common.lock', skin),
     default: get('texts.inverted', skin),
-    disabled: get('theme.common.disabled', skin)
+    disabled: get('common.disabled', skin)
   };
 
   return {
@@ -32,7 +32,7 @@ const selectInline = (theme, skin) => {
       backgroundColor: get('backgrounds.input', skin)
     },
     disabled: {
-      color: get('theme.common.disabled', skin),
+      color: get('common.disabled', skin),
       backgroundColor: get('backgrounds.input', skin)
     },
     default: {}
