@@ -37,15 +37,7 @@ export default (treant, options = {}) => {
             title={title}
             content={levels[selected]}
         />
-        <div className={style.asset}>
-          <div className={style.assetTitle}>assets</div>
-          <div className={style.assetDesc}>
-            <div className={style.courseScope}>
-              {getOrBlank('coursescope', product)}
-            </div>
-          </div>
-        </div>
-    </div>
+      </div>
     );
   };
 
