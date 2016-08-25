@@ -9,64 +9,6 @@
   margin: 35px 0 40px 0;
 }
 
-.asset {
-  box-sizing: border-box;
-  display: block;
-  width: 100%;
-  padding-right: 4px;
-  border: solid 1px #E3E3E3;
-}
-
-.assetTitle {
-  display: inline-block;
-  height: 15px;
-  font-family: OpenSans-Extrabold;
-  font-size: 12px;
-  text-transform: uppercase;
-  color: #546E7A;
-  padding: 20px;
-  letter-spacing: 0.1px;
-  border-right: solid 1px #E3E3E3;
-  vertical-align: top;
-}
-
-.assetDesc {
-  display: inline-block;
-  width: auto;
-  font-family: OpenSans;
-  font-size: 12px;
-  color: #607D8B;
-  padding: 20px;
-}
-
-.assetDesc ul {
-  margin: 0;
-}
-
-.assetDesc ul li {
-  list-style: none;
-  display: inline-block;
-  margin: 0;
-  padding-right: 20px;
-}
-
-.assetDesc ul li span {
-  font-weight: bold;
-}
-
-.courseScope ul {
-  margin: 0;
-  padding: 0;
-}
-
-.courseScope ul li {
-  font-family: OpenSans;
-}
-
-.courseScope ul li span {
-  font-family: OpenSans-Extrabold;
-}
-
 @media desktop {
 
 }
@@ -76,7 +18,5 @@
 }
 
 @media mobile {
-  .assetTitle {
-    display: none;
-  }
+  
 }

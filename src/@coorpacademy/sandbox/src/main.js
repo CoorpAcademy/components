@@ -39,7 +39,6 @@ const engine = get(window.engine, engines);
 const update = engine.render(document.getElementById('app'));
 
 const App = createApp(treant, options);
-
 update(App(store.getState()));
 
 store.subscribe(() => {

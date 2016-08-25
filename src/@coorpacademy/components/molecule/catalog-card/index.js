@@ -9,7 +9,7 @@ import style from './catalog-card.css';
 const conditions = checker.shape({
   props: checker.shape({
     product: checker.shape({
-      images: checker.array
+      images: checker.object
     })
   }),
   children: checker.none
@@ -29,7 +29,7 @@ export default (treant, options = {}) => {
     const {product} = props;
     const total = 5;
 
-    const {href = ''} = product;
+    const href = getOr('', 'href', product);
 
     return (
       <li className={style.catalogListItem}>

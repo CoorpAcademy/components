@@ -1,7 +1,5 @@
+import createProductCourse from '../../components/template/product-course';
 import createCatalog from '../../components/template/catalog';
-import categories from '../assets/categories';
-
-import products from '../assets/products';
 import style from './sandbox.css';
 
 import {navigate} from '../../redux-tools/redux-history';
@@ -9,10 +7,22 @@ import {navigate} from '../../redux-tools/redux-history';
 import createTranslate from '../../components/util/translate';
 import * as locales from '../../components/locales';
 
+import fixture from '../../components/template/product-course/test/fixtures/default';
+
 const translate = createTranslate(locales.fr);
+
+const selected = 1;
+
+const _props = {
+  // ...fixture.props,
+  selected,
+  changeLevel: level => {
+  }
+};
 
 export default (treant, {dispatch, history}) => {
   const {h} = treant;
+  const ProductCourse = createProductCourse(treant);
   const Catalog = createCatalog(treant);
 
   return (props, children) => (
@@ -20,11 +30,7 @@ export default (treant, {dispatch, history}) => {
       {/* <Header
         onSelectComponent={value => dispatch(navigate(history.createLocation(value)))}
       /> */}
-      <Catalog
-        title='__Catalog'
-        products={products}
-        categories={categories}
-      />
+      <ProductCourse {..._props} />
     </div>
   );
 };

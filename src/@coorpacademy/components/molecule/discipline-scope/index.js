@@ -7,9 +7,8 @@ import createScopeContent from '../scope-content';
 
 const conditions = checker.shape({
   props: checker.shape({
-    product: checker.shape({
-      coursescope: checker.string
-    }),
+    product: checker.object,
+    levels: checker.array,
     selected: checker.bool,
     onClick: checker.func
   }),
@@ -24,26 +23,20 @@ export default (treant, options = {}) => {
 
   const DisciplineScope = (props, children) => {
     const {h} = treant;
-    const {product, onClick, selected} = props;
+    const {title, product, onClick, selected, levels} = props;
 
     return (
       <div className={style.scope}>
         <ScopeTabs
             onClick={onClick}
             selected={selected}
+            levels={levels}
         />
         <ScopeContent
-            selected={selected}
+            title={title}
+            content={levels && levels[selected]}
         />
-        <div className={style.asset}>
-          <div className={style.assetTitle}>assets</div>
-          <div className={style.assetDesc}>
-            <div className={style.courseScope}>
-              {getOrBlank('coursescope', product)}
-            </div>
-          </div>
-        </div>
-    </div>
+      </div>
     );
   };
 

@@ -1,0 +1,45 @@
+[{
+  "title": "Leadership au féminin : la pratique",
+  "levels": [{
+    "achievements": [
+      "1a - Duis mollis, est non commodo luctus",
+      "1b - Duis mollis, est non commodo luctus",
+      "1c - Duis mollis, est non commodo luctus"
+    ],
+    "chapters": [
+      "1a - Duis mollis",
+      "1b - Duis mollis",
+      "1c - Duis mollis"
+    ]
+  },
+  {
+    "achievements": [
+      "2a - Duis mollis, est non commodo luctus",
+      "2b - Duis mollis, est non commodo luctus"
+    ],
+    "chapters": [
+      "2a - Duis mollis",
+      "2b - Duis mollis",
+      "2c - Duis mollis",
+      "2d - Duis mollis",
+      "2e - Duis mollis"
+    ]
+  },
+  {
+    "achievements": [
+      "3a - Duis mollis, est non commodo luctus",
+      "3b - Duis mollis, est non commodo luctus",
+      "3c - Duis mollis, est non commodo luctus",
+      "3d - Duis mollis, est non commodo luctus"
+    ],
+    "chapters": [
+      "3a - Duis mollis",
+      "3b - Duis mollis",
+      "3b - Duis mollis",
+      "3b - Duis mollis",
+      "3b - Duis mollis",
+      "3b - Duis mollis",
+      "3c - Duis mollis"
+    ]
+  }]
+}]

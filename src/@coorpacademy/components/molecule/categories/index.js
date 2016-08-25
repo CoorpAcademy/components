@@ -14,7 +14,7 @@ export default (treant, options = {}) => {
 
   const Link = createLink(treant, options);
 
-  const Categories = ({categories}, children) => {
+  const Categories = ({categories = []}, children) => {
     const CategoriesDiv = categories.map(category => (
       <li className={style.filter}>
         <Link

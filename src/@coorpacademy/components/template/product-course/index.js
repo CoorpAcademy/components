@@ -6,7 +6,11 @@ import createDisciplineRightaside from '../../organism/discipline-rightaside';
 
 const conditions = checker.shape({
   props: checker.shape({
-    product: checker.object
+    title: checker.string,
+    product: checker.object,
+    onClick: checker.func,
+    selected: checker.number,
+    levels: checker.arrayOf(checker.object)
   }),
   children: checker.none
 });
@@ -19,7 +23,7 @@ export default (treant, options) => {
   const DisciplineRightaside = createDisciplineRightaside(treant, options);
 
   const ProductCourse = (props, children) => {
-    const product = props.product;
+    const {product, changeLevel} = props;
 
     return (
       <div className={style.wrapper}>
@@ -36,8 +40,7 @@ export default (treant, options) => {
         <div className={style.container}>
           <DisciplineScope
             {...props}
-            onClick={id => console.log(id)} // eslint-disable-line no-console
-            selected={1}
+            onClick={changeLevel}
           />
         </div>
       </div>
