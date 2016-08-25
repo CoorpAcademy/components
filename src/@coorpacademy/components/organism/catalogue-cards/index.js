@@ -4,7 +4,7 @@ import style from './catalog-cards.css';
 
 const conditions = checker.shape({
   props: checker.shape({
-    products: checker.array
+    products: checker.arrayOf(checker.object)
   }),
   children: checker.none
 });

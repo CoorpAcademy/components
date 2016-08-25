@@ -5,8 +5,8 @@ import createCatalogueCards from '../../organism/catalogue-cards';
 
 const conditions = checker.shape({
   props: checker.shape({
-    products: checker.array,
-    categories: checker.array
+    products: checker.arrayOf(checker.object),
+    categories: checker.arrayOf(checker.object)
   }),
   children: checker.none
 });

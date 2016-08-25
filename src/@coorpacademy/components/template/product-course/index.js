@@ -5,7 +5,9 @@ import createDisciplineScope from '../../molecule/discipline-scope';
 import createDisciplineRightaside from '../../organism/discipline-rightaside';
 
 const conditions = checker.shape({
-  props: checker.none,
+  props: checker.shape({
+    product: checker.object
+  }),
   children: checker.none
 });
 
@@ -45,3 +47,4 @@ export default (treant, options) => {
   ProductCourse.validate = createValidate(conditions);
   return ProductCourse;
 };
+
