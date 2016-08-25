@@ -18,13 +18,7 @@ export default (treant, options = {}) => {
   const {skin} = options;
   const DisciplineCard = createDisciplineCard(treant, options);
 
-  const skinBackgroundUrl = get('images.tree', skin);
-  const backgroundImage = { backgroundImage: `url(${skinBackgroundUrl})` };
-
-  const skinBG = getOr('#123', 'theme.background', skin);
-  const background = { background: skinBG };
-
-  const bg = skinBackgroundUrl ? backgroundImage : background;
+  const bgColor = getOr('transparent', 'theme.background', skin);
 
   const DisciplineCards = (props, children) => {
     const {onModuleClick, onDisciplineClick} = props;
@@ -42,7 +36,7 @@ export default (treant, options = {}) => {
     return (
       <div
         className={style.default}
-        style={bg}
+        style={{ background: bgColor }}
       >
         {disciplines}
       </div>

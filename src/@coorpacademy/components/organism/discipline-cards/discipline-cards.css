@@ -1,11 +1,8 @@
 .default {
   padding: 75px 10px;
   text-align: center;
-  background: no-repeat scroll left center;
-  background-size: cover;
   width: 100%;
   height: 100%;
   position: absolute;
   overflow-y: auto;
-  transition: background 1s ease-out;
 }
