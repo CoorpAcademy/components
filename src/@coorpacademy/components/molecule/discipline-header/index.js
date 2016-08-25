@@ -20,7 +20,6 @@ export default (treant, options = {}) => {
 
     const image = product.images.discipline_full_retina.url.https;
 
-    debugger;
     return (
       <div className={style.wrapper}>
         <div className={style.imgWrapper}>
