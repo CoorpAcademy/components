@@ -13,7 +13,7 @@ const conditions = checker.shape({
 export default (treant, options = {}) => {
   const ScopeTabs = props => {
     const {h} = treant;
-    const {onClick, selected, levels = []} = props;
+    const {onClick, selected = 0, levels = []} = props;
 
     return (
       <ul className={style.tabs}>
