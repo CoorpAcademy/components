@@ -16,7 +16,7 @@ const spanInline = (theme, skin) => {
   const color = {
     plain: get('theme.lock', skin),
     default: get('texts.inverted', skin),
-    disabled: get('theme.tertiary', skin)
+    disabled: get('theme.color.disabled', skin)
   };
 
   return {
@@ -32,7 +32,7 @@ const selectInline = (theme, skin) => {
       backgroundColor: get('backgrounds.input', skin)
     },
     disabled: {
-      color: get('theme.tertiary', skin),
+      color: get('theme.color.disabled', skin),
       backgroundColor: get('backgrounds.input', skin)
     },
     default: {}
