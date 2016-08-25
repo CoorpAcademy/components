@@ -1,6 +1,7 @@
 {
   "theme": {
     "primary": "#f0f",
+    "tertiary":  "#d0d0d0 ",
     "good": "#24b694",
     "bad": "#ed1c24"
   },

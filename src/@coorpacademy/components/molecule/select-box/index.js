@@ -15,11 +15,13 @@ const conditions = checker.shape({
 const spanInline = (theme, skin) => {
   const color = {
     plain: get('theme.lock', skin),
-    default: get('texts.inverted', skin)
+    default: get('texts.inverted', skin),
+    disabled: get('theme.common.disabled', skin)
   };
 
   return {
-    borderColor: color[theme]
+    borderColor: color[theme],
+    color: color[theme]
   };
 };
 
@@ -27,6 +29,10 @@ const selectInline = (theme, skin) => {
   const inline = {
     plain: {
       color: get('texts.normal', skin),
+      backgroundColor: get('backgrounds.input', skin)
+    },
+    disabled: {
+      color: get('theme.common.disabled', skin),
       backgroundColor: get('backgrounds.input', skin)
     },
     default: {}
@@ -40,10 +46,9 @@ export default (treant, options = {}) => {
   const {skin} = options;
   const code = getOr('', 'icons.select', skin);
   const iconCode = String.fromCharCode(code);
-
   const SelectBox = (props, children) => {
-    const {list, onChange, theme = 'default'} = props;
-
+    const {list, onChange, enabled = true} = props;
+    const theme = enabled ? (props.theme || 'default') : 'disabled';
     const selectOptions = list.map(item => (
       <option
         className={style.option}
@@ -63,6 +68,7 @@ export default (treant, options = {}) => {
         }}
       >
         <select
+          disabled={!enabled || undefined}
           onChange={onChange}
           style={selectInline(theme, skin)}
         >
