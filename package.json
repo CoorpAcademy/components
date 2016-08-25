@@ -44,7 +44,7 @@
     "babel-register": "^6.11.6",
     "compression-webpack-plugin": "^0.3.1",
     "coveralls": "^2.11.12",
-    "css-loader": "^0.23.0",
+    "css-loader": "^0.24.0",
     "eslint": "^3.2.0",
     "eslint-plugin-ava": "^3.0.0",
     "eslint-plugin-lodash-fp": "^2.0.0",
