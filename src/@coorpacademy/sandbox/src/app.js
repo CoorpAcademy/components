@@ -6,18 +6,15 @@ import {navigate} from '../../redux-tools/redux-history';
 import createTranslate from '../../components/util/translate';
 import * as locales from '../../components/locales';
 
-import products from '../assets/products';
-import contents from '../assets/contents';
+import fixture from '../../components/template/product-course/test/fixtures/default';
 
 const translate = createTranslate(locales.fr);
 
 const selected = 2;
+
 const _props = {
+  ...fixture.props,
   selected,
-  levels: ['Base', 'Avancé', 'Coach'],
-  product: products[0],
-  title: contents[0].title,
-  content: contents[0].levels[selected],
   changeLevel: level => {
   }
 };

@@ -10,8 +10,7 @@ const conditions = checker.shape({
     product: checker.object,
     onClick: checker.func,
     selected: checker.number,
-    content: checker.object,
-    levels: checker.arrayOf(checker.string)
+    levels: checker.arrayOf(checker.object)
   }),
   children: checker.none
 });
