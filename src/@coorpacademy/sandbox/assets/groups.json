@@ -1,0 +1,26 @@
+{
+  "list": [
+    {
+      "name": "Toutes les thématiques",
+      "value": "ALL",
+      "selected": true
+    },
+    {
+      "name": "Thématiques n°1",
+      "value": "Theme1",
+      "selected": false
+    },
+    {
+      "name": "Thématiques n°2",
+      "value": "Theme2",
+      "selected": false
+    },
+    {
+      "name": "Thématiques n°3",
+      "value": "Theme3",
+      "selected": false
+    }
+  ],
+  "enabled": false,
+  "theme": "plain"
+}
