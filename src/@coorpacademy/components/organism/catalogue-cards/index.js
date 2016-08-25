@@ -13,8 +13,8 @@ export default (treant, options) => {
   const {h} = treant;
   const CatalogCard = createCatalogCard(treant, options);
 
-  const CatalogCards = ({_products = []}, children) => {
-    const products = _products.map(product => (
+  const CatalogCards = ({products = []}, children) => {
+    const productViews = products.map(product => (
       <CatalogCard
         product = {product}
       >
@@ -23,7 +23,7 @@ export default (treant, options) => {
 
     return (
       <ul className={style['category-list']}>
-        {products}
+        {productViews}
       </ul>
     );
   };
