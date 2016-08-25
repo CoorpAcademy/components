@@ -10,7 +10,7 @@ import fixture from '../../components/template/product-course/test/fixtures/defa
 
 const translate = createTranslate(locales.fr);
 
-const selected = 2;
+const selected = 1;
 
 const _props = {
   ...fixture.props,

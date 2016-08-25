@@ -22,7 +22,7 @@ export default (treant, options = {}) => {
             onClick={() => onClick(index)}
             className={selected === index ? style.currentTab : style.tab}
           >
-            {level}
+            {level.category[0].title}
           </li>
         ))}
       </ul>
