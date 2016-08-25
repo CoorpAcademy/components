@@ -18,11 +18,13 @@ export default (treant, options = {}) => {
     const {h} = treant;
     const {product} = props;
 
+    const image = product.images.discipline_full_retina.url.https;
+
     return (
       <div className={style.wrapper}>
         <div className={style.imgWrapper}>
           <img
-            src={getOrBlank('images.0.url.https', product)}
+            src={image}
           />
         </div>
         <div className={style.courseWrapper}>

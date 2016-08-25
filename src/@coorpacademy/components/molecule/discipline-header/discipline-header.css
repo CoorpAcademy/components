@@ -57,6 +57,7 @@ img {
 
   .imgWrapper {
     flex: none;
+    height: auto;
   }
 
   .courseWrapper {
