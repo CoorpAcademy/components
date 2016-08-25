@@ -9,7 +9,7 @@ import style from './catalog-card.css';
 const conditions = checker.shape({
   props: checker.shape({
     product: checker.shape({
-      images: checker.array
+      images: checker.object
     })
   }),
   children: checker.none
