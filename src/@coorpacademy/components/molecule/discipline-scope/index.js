@@ -23,7 +23,7 @@ export default (treant, options = {}) => {
 
   const DisciplineScope = (props, children) => {
     const {h} = treant;
-    const {title, product, onClick, selected, levels} = props;
+    const {title, product, onClick, selected = 0, levels} = props;
 
     return (
       <div className={style.scope}>
