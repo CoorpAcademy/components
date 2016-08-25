@@ -18,7 +18,7 @@ export default (treant, options = {}) => {
     const {h} = treant;
     const {product} = props;
 
-    const image = product.images.discipline_full_retina.url.https;
+    const image = getOr(null, 'images.discipline_full_retina.url.https', product);
 
     return (
       <div className={style.wrapper}>

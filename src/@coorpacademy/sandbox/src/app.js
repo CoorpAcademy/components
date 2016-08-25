@@ -30,10 +30,7 @@ export default (treant, {dispatch, history}) => {
       {/* <Header
         onSelectComponent={value => dispatch(navigate(history.createLocation(value)))}
       /> */}
-
-      {/* <ProductCourse {..._props} /> */ }
-
-      <Catalog/>
+      <ProductCourse {..._props} />
     </div>
   );
 };
