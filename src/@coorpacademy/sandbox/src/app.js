@@ -1,6 +1,6 @@
-import createProductCourse from '../../components/template/product-course';
 import createCatalog from '../../components/template/catalog';
 import categories from '../assets/categories';
+
 import products from '../assets/products';
 import style from './sandbox.css';
 
@@ -13,7 +13,6 @@ const translate = createTranslate(locales.fr);
 
 export default (treant, {dispatch, history}) => {
   const {h} = treant;
-  const ProductCourse = createProductCourse(treant);
   const Catalog = createCatalog(treant);
 
   return (props, children) => (
