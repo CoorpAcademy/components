@@ -1,3 +1,4 @@
+import getOr from 'lodash/fp/getOr';
 import { checker, createValidate } from '../../util/validation';
 import style from './scope-content.css';
 
@@ -20,20 +21,23 @@ export default (treant, options = {}) => {
     const {content} = props;
     const {product = ''} = props;
 
-    const time = content.time;
-    const title = content.category[0].title;
+    const time = getOr('', 'time', content);
+    const title = getOr('', 'title', content);
+    const _skills = getOr([], 'skills', content);
+    const _chapters = getOr([], 'chapters', content);
+    const _assets = getOr([], 'course_scope', content);
 
     const lstitle = 'À L\'ISSUE DE CE NIVEAU, VOUS SEREZ CAPABLE DE :';
 
-    const skills = content.skills.map(skill => (
+    const skills = _skills.map(skill => (
       <li>{skill}</li>
     ));
 
-    const chapters = content.chapters.map(chapter => (
+    const chapters = _chapters.map(chapter => (
       <li>{chapter.name}</li>
     ));
 
-    const assets = content.course_scope.map(asset => (
+    const assets = _assets.map(asset => (
       <span>{asset}</span>
     ));
 

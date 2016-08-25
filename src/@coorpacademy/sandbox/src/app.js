@@ -13,7 +13,7 @@ const translate = createTranslate(locales.fr);
 const selected = 1;
 
 const _props = {
-  ...fixture.props,
+  // ...fixture.props,
   selected,
   changeLevel: level => {
   }

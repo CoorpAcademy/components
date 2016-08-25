@@ -8,7 +8,7 @@ import createScopeContent from '../scope-content';
 const conditions = checker.shape({
   props: checker.shape({
     product: checker.object,
-    levels: checker.object,
+    levels: checker.array,
     selected: checker.bool,
     onClick: checker.func
   }),
@@ -34,7 +34,7 @@ export default (treant, options = {}) => {
         />
         <ScopeContent
             title={title}
-            content={levels[selected]}
+            content={levels && levels[selected]}
         />
       </div>
     );

@@ -29,7 +29,7 @@ export default (treant, options = {}) => {
     const {product} = props;
     const total = 5;
 
-    const {href = ''} = product;
+    const href = getOr('', 'href', product);
 
     return (
       <li className={style.catalogListItem}>
