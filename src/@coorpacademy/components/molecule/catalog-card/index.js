@@ -30,11 +30,12 @@ export default (treant, options = {}) => {
     const total = 5;
 
     const href = getOr('', 'href', product);
+    const image = getOr(null, 'images.discipline_thumb_retina.url.https', product);
 
     return (
       <li className={style.catalogListItem}>
         <div className={style.imageWrapper}>
-          <img src={getOrBlank('images.0.url.https', product)} />
+          <img src={image} />
           <div className={style.overlay}>
             <HoverFill>
               <Link href={href}>En savoir <span>plus</span></Link>
