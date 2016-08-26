@@ -16,8 +16,10 @@ const conditions = checker.shape({
 });
 
 export default (treant, options = {}) => {
+  const {h} = treant;
+  const {translate} = options;
+
   const ScopeContent = (props, children) => {
-    const {h} = treant;
     const {content} = props;
     const {product = ''} = props;
 
@@ -27,7 +29,9 @@ export default (treant, options = {}) => {
     const _chapters = getOr([], 'chapters', content);
     const _assets = getOr([], 'course_scope', content);
 
-    const lstitle = 'À L\'ISSUE DE CE NIVEAU, VOUS SEREZ CAPABLE DE :';
+    const lstitle = translate('At the end of this level, you will be able to:');
+    const chaptersTitle = translate('chapters');
+    const assetsTitle = translate('assets');
 
     const skills = _skills.map(skill => (
       <li>{skill}</li>
@@ -59,7 +63,7 @@ export default (treant, options = {}) => {
             </ul>
           </div>
           <div className={style.column}>
-            <div className={style.coltitle}>chapitres</div>
+            <div className={style.coltitle}>{chaptersTitle}</div>
             <div className={style.dotscontainer}>
               <div className={style.dots}></div>
               <ul className={style.roundedlist}>
@@ -69,7 +73,7 @@ export default (treant, options = {}) => {
           </div>
         </div>
         <div className={style.asset}>
-          <div className={style.assetTitle}>assets</div>
+          <div className={style.assetTitle}>{assetsTitle}</div>
           <div className={style.assetDesc}>
             <div className={style.courseScope}>
               {assets}

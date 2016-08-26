@@ -1,6 +1,9 @@
 {
-  "by {{author}}": "by {{author}}",
+  "assets": "assets",
+  "At the end of this level, you will be able to:": "At the end of this level, you will be able to:",
   "author": "author",
-  "Start <span>learning</span>": "Start <span>learning</span>",
-  "Coorpacademy <span>premium</span>": "Coorpacademy <span>premium</span>"
+  "by {{author}}": "by {{author}}",
+  "chapters": "chapters",
+  "Coorpacademy <span>premium</span>": "Coorpacademy <span>premium</span>",
+  "Start <span>learning</span>": "Start <span>learning</span>"
 }
