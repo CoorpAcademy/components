@@ -10,7 +10,8 @@
 }
 
 .category h2 {
-  font-family: OpenSans-Bold;
+  font-family: OpenSans;
+  font-weight: 700;
   font-size: 15px;
   color: #546E7A;
   text-transform: uppercase;
@@ -45,7 +46,8 @@
 }
 
 .filter a.selected {
-  font-family: OpenSans-Extrabold;
+  font-family: OpenSans;
+  font-weight: 800;
 }
 
 .mobileToggler {
@@ -67,7 +69,8 @@
 }
 
 .togglerDisplay span {
-  font-family: OpenSans-Extrabold;
+  font-family: OpenSans;
+  font-weight: 800;
   letter-spacing: 0.4px;
   font-size: 14px;
   color: #FFFFFF;
@@ -101,7 +104,8 @@
   }
 
   .filter a {
-    font-family: OpenSans-Bold;
+    font-family: OpenSans;
+    font-weight: 700;
     color: #546E7A;
     font-size: 12px;
     text-transform: none;
