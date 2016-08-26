@@ -1,3 +1,6 @@
 {
-  "by {{author}}": "par {{author}}"
+  "by {{author}}": "par {{author}}",
+  "author": "auteur",
+  "Start <span>learning</span>": "Commencer à <span>apprendre</span>",
+  "Coorpacademy <span>premium</span>": "Coorpacademy <span>premium</span>"
 }

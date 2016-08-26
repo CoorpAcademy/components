@@ -10,7 +10,7 @@ import * as locales from '../../components/locales';
 import fixture from '../../components/template/product-course/test/fixtures/default';
 
 const translate = createTranslate(locales.fr);
-
+const options = {translate};
 const selected = 1;
 
 const _props = {
@@ -22,8 +22,8 @@ const _props = {
 
 export default (treant, {dispatch, history}) => {
   const {h} = treant;
-  const ProductCourse = createProductCourse(treant);
-  const Catalog = createCatalog(treant);
+  const ProductCourse = createProductCourse(treant, options);
+  const Catalog = createCatalog(treant, options);
 
   return (props, children) => (
     <div>

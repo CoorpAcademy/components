@@ -33,7 +33,7 @@
   margin-bottom: 15px;
 }
 
-.head a span {
+.head a span span {
   font-family: OpenSans;
   font-weight: 800;
 }

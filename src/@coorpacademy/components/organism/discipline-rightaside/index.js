@@ -1,6 +1,7 @@
 import { checker, createValidate } from '../../util/validation';
 import getOr from 'lodash/fp/getOr';
 import style from './discipline-rightaside.css';
+import hyperx from 'hyperx';
 import createStarRating from '../../molecule/star-rating';
 import createLink from '../../atom/link';
 import HoverFillBehaviour from '../../behaviour/effects/hover-fill';
@@ -18,6 +19,8 @@ const getOrBlank = getOr('');
 
 export default (treant, options = {}) => {
   const {h} = treant;
+  const hx = hyperx(h);
+  const {translate} = options;
   const StarRating = createStarRating(treant, options);
   const Link = createLink(treant, options);
   const HoverFill = HoverFillBehaviour(treant, options);
@@ -30,6 +33,10 @@ export default (treant, options = {}) => {
     const linkTry = '#';
     const linkBuy = `https://store-staging.coorpacademy.com/checkout/cart/${getOrBlank('sku', product)}`;
 
+    const author = translate('author');
+    const startLearning = hx(`<span>${translate('Start <span>learning</span>')}</span>`);
+    const premium = hx(`<span>${translate('Coorpacademy <span>premium</span>')}</span>`);
+
     return (
       <div className={style.col}>
         <div className={style.head}>
@@ -41,16 +48,18 @@ export default (treant, options = {}) => {
           </div>
           <HoverFill>
             <Link className={style.try} href={linkTry}>
-              Commencer à <span>apprendre</span>
+              {startLearning}
             </Link>
           </HoverFill>
           <HoverFill>
-            <Link className={style.buy} href={linkBuy}>Coorpacademy <span>premium</span></Link>
+            <Link className={style.buy} href={linkBuy}>
+              {premium}
+            </Link>
           </HoverFill>
         </div>
         <div className={style.colAuthor}>
           <div className={style.author}>
-            auteur
+            {author}
           </div>
           <div className={style.title}>
             {getOrBlank('author', product)}
