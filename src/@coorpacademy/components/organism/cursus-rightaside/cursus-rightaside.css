@@ -1,0 +1,25 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value tablet from breakpoints;
+@value desktop from breakpoints;
+
+.col {
+  width: 100%;
+  height: auto;
+}
+
+@media desktop {
+  .col {
+    display: flex;
+  }
+}
+
+@media tablet {
+
+}
+
+@media mobile {
+  .col {
+    display: block;
+  }
+}

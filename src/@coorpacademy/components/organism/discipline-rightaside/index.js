@@ -3,6 +3,7 @@ import getOr from 'lodash/fp/getOr';
 import style from './discipline-rightaside.css';
 import hyperx from 'hyperx';
 import createStarRating from '../../molecule/star-rating';
+import createCatalogCTA from '../../molecule/catalog-cta';
 import createLink from '../../atom/link';
 import HoverFillBehaviour from '../../behaviour/effects/hover-fill';
 
@@ -19,48 +20,24 @@ const getOrBlank = getOr('');
 
 export default (treant, options = {}) => {
   const {h} = treant;
-  const hx = hyperx(h);
   const {translate} = options;
-  const StarRating = createStarRating(treant, options);
-  const Link = createLink(treant, options);
-  const HoverFill = HoverFillBehaviour(treant, options);
+  const CatalogCTA = createCatalogCTA(treant, options);
 
   const t = stuff => {
     return translate ? translate(stuff) : stuff;
   };
 
   const author = t('author');
-  const startLearning = hx(`<span>${t('Start <span>learning</span>')}</span>`);
-  const premium = hx(`<span>${t('Coorpacademy <span>premium</span>')}</span>`);
 
   const DisciplineRightaside = (props, children) => {
     const {product} = props;
 
-    const rating = getOr(0, 'popularity', product);
-    const total = 5;
-    const linkTry = '#';
-    const linkBuy = `https://store-staging.coorpacademy.com/checkout/cart/${getOrBlank('sku', product)}`;
-
     return (
       <div className={style.col}>
-        <div className={style.head}>
-          <div className={style.starRating}>
-            <StarRating
-              rating={rating}
-              total={total}
-            />
-          </div>
-          <HoverFill>
-            <Link className={style.try} href={linkTry}>
-              {startLearning}
-            </Link>
-          </HoverFill>
-          <HoverFill>
-            <Link className={style.buy} href={linkBuy}>
-              {premium}
-            </Link>
-          </HoverFill>
-        </div>
+        <CatalogCTA
+          content={product}
+        >
+        </CatalogCTA>
         <div className={style.colAuthor}>
           <div className={style.author}>
             {author}

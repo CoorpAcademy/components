@@ -63,7 +63,7 @@ export default {
           name: 'discipline_full_retina'
         }
       },
-      popularity: 5,
+      popularity: 4,
       course_scope: [
         '24 QUESTIONS',
         '3 VIDÉOS'

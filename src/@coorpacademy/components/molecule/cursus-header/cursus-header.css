@@ -47,7 +47,7 @@
   color: #263238;
   letter-spacing: 0px;
   line-height: 22px;
-  margin-top: 21px;
+  margin-top:;
 }
 
 @media desktop {
@@ -64,8 +64,18 @@
   }
 
   .imgWrapper {
+    height: 215px;
     flex: none;
+  }
+
+  .title {
+    line-height: 215px;
+    font-size: 25px;
+  }
+
+  .imgWrapper img {
     height: auto;
+    width: auto;
   }
 
   .courseWrapper {

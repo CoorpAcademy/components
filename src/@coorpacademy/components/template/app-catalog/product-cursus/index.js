@@ -2,6 +2,7 @@ import { checker, createValidate } from '../../../util/validation';
 import layout from '../layout.css';
 
 import createCursusHeader from '../../../molecule/cursus-header';
+import createCursusRightaside from '../../../organism/cursus-rightaside';
 
 const conditions = checker.shape({
   props: checker.shape({
@@ -13,17 +14,21 @@ export default (treant, options) => {
   const {h} = treant;
 
   const CursusHeader = createCursusHeader(treant, options);
-  // const CursusScope = createCursusScope(treant, options);
-  // const CursusRightaside = createCursusRightaside(treant, options);
+  const CursusRightaside = createCursusRightaside(treant, options);
 
   const ProductCursus = (props, children) => {
-    const {product, changeLevel} = props;
+    const {cursus} = props;
 
     return (
       <div className={layout.wrapper}>
         <div className={layout.container}>
           <CursusHeader
             {...props}
+          />
+        </div>
+        <div className={layout.colContainer}>
+          <CursusRightaside
+            cursus={cursus}
           />
         </div>
       </div>
@@ -33,17 +38,3 @@ export default (treant, options) => {
   ProductCursus.validate = createValidate(conditions);
   return ProductCursus;
 };
-
-/*
-        <div className={style.colContainer}>
-          <CursusRightaside
-            product={product}
-          />
-        </div>
-        <div className={style.container}>
-          <CursusScope
-            {...props}
-            onClick={changeLevel}
-          />
-        </div>
- */
