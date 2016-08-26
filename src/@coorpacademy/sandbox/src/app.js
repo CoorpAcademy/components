@@ -11,12 +11,13 @@ import fixture from '../../components/template/app-catalog/product-cursus/test/f
 import fixture2 from '../../components/template/app-catalog/product-course/test/fixtures/default';
 
 const translate = createTranslate(locales.fr);
+const options = {translate};
 const selected = 1;
 
 export default (treant, {dispatch, history}) => {
   const {h} = treant;
-  const ProductCursus = createProductCursus(treant);
-  const ProductCourse = createProductCourse(treant);
+  const ProductCursus = createProductCursus(treant, options);
+  const ProductCourse = createProductCourse(treant, options);
 
   return (props, children) => (
     <div>
