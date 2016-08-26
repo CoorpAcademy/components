@@ -22,7 +22,8 @@
 
 .title {
   display: inline-block;
-  font-family: OpenSans-Semibold;
+  font-family: OpenSans;
+  font-weight: 600;
   font-size: 20px;
   color: #546E7A;
 }
@@ -33,7 +34,8 @@
   padding: 3px 13px;
   background: #546E7A;
   border-radius: 15px;
-  font-family: OpenSans-Extrabold;
+  font-family: OpenSans;
+  font-weight: 800;
   font-size: 10px;
   color: #FFFFFF;
 }
@@ -50,7 +52,8 @@
 }
 
 .coltitle {
-  font-family: OpenSans-Extrabold;
+  font-family: OpenSans;
+  font-weight: 800;
   text-transform: uppercase;
   margin-bottom: 15px;
   padding-bottom: 10px;
@@ -132,7 +135,8 @@
 .assetTitle {
   display: inline-block;
   height: 15px;
-  font-family: OpenSans-Extrabold;
+  font-family: OpenSans;
+  font-weight: 800;
   font-size: 12px;
   text-transform: uppercase;
   color: #546E7A;

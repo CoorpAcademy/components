@@ -13,7 +13,8 @@
 
 .title {
   position: relative;
-  font-family: OpenSans-Bold;
+  font-family: OpenSans;
+  font-weight: 700;
   font-size: 28px;
   color: #546E7A;
   margin-bottom: 50px;

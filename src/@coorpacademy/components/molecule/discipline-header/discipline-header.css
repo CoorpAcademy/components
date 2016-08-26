@@ -28,7 +28,8 @@ img {
 
 .title {
   display: block;
-  font-family: OpenSans-Bold;
+  font-family: OpenSans;
+  font-weight: 700;
   font-size: 20px;
   color: #546E7A;
   margin-bottom: 20px;
