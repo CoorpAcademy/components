@@ -8,13 +8,14 @@ import createTranslate from '../../components/util/translate';
 import * as locales from '../../components/locales';
 
 import fixture from '../../components/template/product-course/test/fixtures/default';
+import fixtureCatalog from '../../components/template/catalog/test/fixtures/default';
 
 const translate = createTranslate(locales.fr);
 const options = {translate};
 const selected = 1;
 
 const _props = {
-  // ...fixture.props,
+  ...fixture.props,
   selected,
   changeLevel: level => {
   }
@@ -31,6 +32,7 @@ export default (treant, {dispatch, history}) => {
         onSelectComponent={value => dispatch(navigate(history.createLocation(value)))}
       /> */}
       <ProductCourse {..._props} />
+      <Catalog {...fixtureCatalog.props} />
     </div>
   );
 };

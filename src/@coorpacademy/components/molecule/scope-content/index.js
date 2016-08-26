@@ -18,6 +18,13 @@ const conditions = checker.shape({
 export default (treant, options = {}) => {
   const {h} = treant;
   const {translate} = options;
+  const t = stuff => {
+    return translate ? translate(stuff) : stuff;
+  };
+
+  const lstitle = t('At the end of this level, you will be able to:');
+  const chaptersTitle = t('chapters');
+  const assetsTitle = t('assets');
 
   const ScopeContent = (props, children) => {
     const {content} = props;
@@ -28,10 +35,6 @@ export default (treant, options = {}) => {
     const _skills = getOr([], 'skills', content);
     const _chapters = getOr([], 'chapters', content);
     const _assets = getOr([], 'course_scope', content);
-
-    const lstitle = translate('At the end of this level, you will be able to:');
-    const chaptersTitle = translate('chapters');
-    const assetsTitle = translate('assets');
 
     const skills = _skills.map(skill => (
       <li>{skill}</li>

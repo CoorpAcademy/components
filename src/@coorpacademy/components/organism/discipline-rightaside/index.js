@@ -25,6 +25,14 @@ export default (treant, options = {}) => {
   const Link = createLink(treant, options);
   const HoverFill = HoverFillBehaviour(treant, options);
 
+  const t = stuff => {
+    return translate ? translate(stuff) : stuff;
+  };
+
+  const author = t('author');
+  const startLearning = hx(`<span>${t('Start <span>learning</span>')}</span>`);
+  const premium = hx(`<span>${t('Coorpacademy <span>premium</span>')}</span>`);
+
   const DisciplineRightaside = (props, children) => {
     const {product} = props;
 
@@ -32,10 +40,6 @@ export default (treant, options = {}) => {
     const total = 5;
     const linkTry = '#';
     const linkBuy = `https://store-staging.coorpacademy.com/checkout/cart/${getOrBlank('sku', product)}`;
-
-    const author = translate('author');
-    const startLearning = hx(`<span>${translate('Start <span>learning</span>')}</span>`);
-    const premium = hx(`<span>${translate('Coorpacademy <span>premium</span>')}</span>`);
 
     return (
       <div className={style.col}>
