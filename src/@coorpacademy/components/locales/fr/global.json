@@ -1,3 +1,10 @@
 {
-  "by {{author}}": "par {{author}}"
+  "assets": "assets",
+  "At the end of this level, you will be able to:": "À l'issue de ce niveau, vous serez capable de:",
+  "author": "auteur",
+  "by {{author}}": "par {{author}}",
+  "chapters": "chapitres",
+  "Coorpacademy <span>premium</span>": "Coorpacademy <span>premium</span>",
+  "filters": "filtres",
+  "Start <span>learning</span>": "Commencer à <span>apprendre</span>"
 }

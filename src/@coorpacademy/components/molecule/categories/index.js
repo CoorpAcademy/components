@@ -11,6 +11,8 @@ const conditions = checker.shape({
 
 export default (treant, options = {}) => {
   const {h} = treant;
+  const {translate} = options;
+  const filtersTitle = translate ? translate('filters') : 'filters';
 
   const Link = createLink(treant, options);
 
@@ -41,7 +43,7 @@ export default (treant, options = {}) => {
         </label>
         <span className={style.arrow}></span>
         <div className={style.category}>
-          <h2>Filtres</h2>
+          <h2>{filtersTitle}</h2>
           <ul className={style.filters}>
             {CategoriesDiv}
           </ul>
