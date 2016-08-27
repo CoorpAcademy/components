@@ -3,6 +3,7 @@ require('babel-register');
 const path = require('path');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
+const nested = require('postcss-nested');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 
@@ -37,7 +38,8 @@ module.exports = {
   },
 
   postcss: [
-    autoprefixer({ browsers: ['last 2 versions'] })
+    autoprefixer({ browsers: ['last 2 versions'] }),
+    nested
   ],
 
   plugins: [

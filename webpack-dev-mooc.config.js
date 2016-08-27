@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
+const nested = require('postcss-nested');
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const hash = '[name]__[local]___[hash:base64:5]';
@@ -42,7 +43,8 @@ module.exports = {
   },
 
   postcss: [
-    autoprefixer({ browsers: ['last 2 versions'] })
+    autoprefixer({ browsers: ['last 2 versions'] }),
+    nested
   ],
 
   plugins: [
