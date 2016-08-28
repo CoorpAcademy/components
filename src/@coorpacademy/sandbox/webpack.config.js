@@ -1,10 +1,15 @@
+import {inspect} from 'util';
 import {join} from 'path';
 import webpack from 'webpack';
-import autoprefixer from 'autoprefixer';
+import merge from 'webpack-merge';
 
-module.exports = ({
-  context: __dirname,
-  devtool: 'source-map',
+import defaultConfig from '../../../webpack.config.default';
+import styleConfig from '../../../webpack.config.style';
+
+const sandboxConfig = ({
+  output: {
+    publicPath: '/dist'
+  },
 
   entry: {
     main: [
@@ -17,42 +22,14 @@ module.exports = ({
     ]
   },
 
-  output: {
-    filename: '[name].js',
-    path: join(__dirname, 'dist'),
-    publicPath: '/dist/'
-  },
-
-  module: {
-    loaders: [{
-      test: /\.json$/,
-      loader: 'json'
-    }, {
-      test: /\.js$/,
-      loader: 'babel',
-      include: [
-        join(__dirname, '../..')
-      ]
-    }, {
-      test: /\.css$/,
-      loader: 'style!css?modules&importLoaders=1&localIdentName=[folder]__[local]___[hash:base64:5]!postcss'
-    }, {
-      test: /\.(ttf|otf|eot|svg|woff)$/,
-      loader: 'file-loader'
-    }]
-  },
-
-  postcss: [
-    autoprefixer({ browsers: ['last 2 versions'] })
-  ],
-
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('development')
-      }
-    })
+    new webpack.NoErrorsPlugin()
   ]
 });
+
+export default merge.smart(
+  styleConfig,
+  defaultConfig,
+  sandboxConfig
+);

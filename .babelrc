@@ -1,28 +1,9 @@
 {
-  "presets": ["es2015", "stage-1"],
-  "env": {
-    "development": {
-      "sourceMaps": "inline"
-    },
-    "test": {
-      "plugins": [
-        ["css-modules-transform", {
-            "generateScopedName": "[folder]__[local]___[hash:base64:5]"
-        }]
-      ]
-    },
-    "production": {
-      "plugins": [
-        ["css-modules-transform", {
-            "generateScopedName": "[folder]__[local]___[hash:base64:5]"
-        }]
-      ]
-    }
-  },
+  "extends": "./.babelrc.default",
+  "presets": ["es2015"],
   "plugins": [
-    ["transform-h-jsx", { "pragma": "h" }]
-  ],
-  "only": [
-    "src"
+    ["css-modules-transform", {
+      "generateScopedName": "[name]__[local]___[hash:base64:5]"
+    }]
   ]
 }

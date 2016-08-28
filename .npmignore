@@ -1,5 +1,4 @@
-.*
-webpack*.config.js
 .nyc_output
 coverage
 doc
+README.md
