@@ -1,4 +1,4 @@
-import { checker, createValidate } from '../../util/validation';
+import {checker, createValidate} from '../../util/validation';
 import style from './scope-tabs.css';
 
 const conditions = checker.shape({

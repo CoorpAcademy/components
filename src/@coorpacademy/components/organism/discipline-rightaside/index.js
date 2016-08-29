@@ -1,4 +1,4 @@
-import { checker, createValidate } from '../../util/validation';
+import {checker, createValidate} from '../../util/validation';
 import getOr from 'lodash/fp/getOr';
 import style from './discipline-rightaside.css';
 import hyperx from 'hyperx';

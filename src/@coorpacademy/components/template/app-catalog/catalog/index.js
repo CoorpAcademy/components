@@ -1,13 +1,8 @@
-import { checker, createValidate } from '../../../util/validation';
+import {checker, createValidate} from '../../../util/validation';
 import style from './style.css';
-<<<<<<< 4b911a13bfbaebbb78bff3c589e9a88701b31232:src/@coorpacademy/components/template/app-catalog/catalog/index.js
+import createSpinner from '../../../atom/spinner';
 import createCategories from '../../../molecule/categories';
 import createCatalogCards from '../../../organism/catalog-cards';
-=======
-import createSpinner from '../../atom/spinner';
-import createCategories from '../../molecule/categories';
-import createCatalogueCards from '../../organism/catalogue-cards';
->>>>>>> Adds catalog's loading and empty states:src/@coorpacademy/components/template/catalog/index.js
 
 const conditions = checker.shape({
   props: checker.shape({

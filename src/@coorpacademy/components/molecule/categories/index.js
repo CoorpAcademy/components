@@ -2,7 +2,7 @@ import pipe from 'lodash/fp/pipe';
 import find from 'lodash/fp/find';
 
 import createLink from '../../atom/link';
-import { checker, createValidate } from '../../util/validation';
+import {checker, createValidate} from '../../util/validation';
 import style from './style.css';
 
 const conditions = checker.shape({

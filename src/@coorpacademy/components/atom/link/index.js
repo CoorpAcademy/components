@@ -1,4 +1,4 @@
-import { checker, createValidate } from '../../util/validation';
+import {checker, createValidate} from '../../util/validation';
 import {createNavigationHandler} from '../../util/navigation';
 
 const conditions = checker.shape({

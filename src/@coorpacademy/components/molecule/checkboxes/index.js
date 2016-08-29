@@ -1,5 +1,5 @@
 import getOr from 'lodash/fp/getOr';
-import { checker, createValidate } from '../../util/validation';
+import {checker, createValidate} from '../../util/validation';
 import style from './checkboxes.css';
 import createTitledCheckbox from '../titled-checkbox';
 

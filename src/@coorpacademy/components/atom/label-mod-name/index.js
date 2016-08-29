@@ -1,5 +1,5 @@
 import getOr from 'lodash/fp/getOr';
-import { checker, createValidate } from '../../util/validation';
+import {checker, createValidate} from '../../util/validation';
 import createLabel from '../label';
 import FontTinyBehaviour from '../../behaviour/font/tiny';
 import FontUppercaseBehaviour from '../../behaviour/font/uppercase';

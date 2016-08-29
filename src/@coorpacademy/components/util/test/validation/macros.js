@@ -1,5 +1,5 @@
 import test from 'ava';
-import { checker, createValidate } from '../../validation';
+import {checker, createValidate} from '../../validation';
 
 const createFailure = conditions => {
   const validate = createValidate(conditions);

@@ -1,4 +1,4 @@
-import { checker, createValidate } from '../../util/validation';
+import {checker, createValidate} from '../../util/validation';
 import style from './label.css';
 
 const conditions = checker.shape({

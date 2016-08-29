@@ -1,5 +1,5 @@
 import getOr from 'lodash/fp/getOr';
-import { checker, createValidate } from '../../util/validation';
+import {checker, createValidate} from '../../util/validation';
 import style from './discipline-header.css';
 
 const conditions = checker.shape({
