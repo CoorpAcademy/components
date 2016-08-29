@@ -14,7 +14,7 @@ import componentList from '../components';
 
 const route = Route();
 
-import {border} from './style.css';
+import {header} from './style.css';
 
 export default (treant, options) => {
   const {h} = treant;
@@ -22,9 +22,10 @@ export default (treant, options) => {
 
   return (props, children) => {
     const {
-      onSelectComponent = noop
+      onSelectComponent = noop,
+      onSelectFixture = noop
     } = props;
-    const pathname = get('location.pathname', props);
+    const pathname = get('state.route.pathname', props);
 
     const {
       folder,
@@ -32,10 +33,10 @@ export default (treant, options) => {
       fixture
     } = extractFromPath(pathname);
 
-    const componentSelected = get(`${folder}.${component}.factory`, componentList);
-    const fixtureSelected = get(`${folder}.${component}.fixtures.${fixture}`, componentList);
-
-    const options = pipe(
+    const componentSelected = get(`${folder}.${component}`, componentList);
+    const factorySelected = get('factory', componentSelected);
+    const fixtureSelected = get(`fixtures.${fixture}`, componentSelected);
+    const componentOptions = pipe(
       toPairs,
       map(([folderName, folder]) => ([
         folderName,
@@ -43,7 +44,7 @@ export default (treant, options) => {
           toPairs,
           map(([componentName, {factory}]) => ({
             value: `/${folderName}/${componentName}`,
-            selected: factory === componentSelected,
+            selected: factory === factorySelected,
             label: componentName
           }))
         )(folder)
@@ -51,17 +52,51 @@ export default (treant, options) => {
       fromPairs
     )(componentList);
 
+    const fixtureOptions = pipe(
+      get('fixtures'),
+      toPairs,
+      map(([name, fixture]) => ({
+        value: `/${folder}/${component}/${name}`,
+        selected: fixture === fixtureSelected,
+        label: name
+      }))
+    )(componentSelected);
+
     return (
-      <div
-        className={border}
-      >
-        <Select
-          options={options}
-          onChange={value => onSelectComponent(value)}
-        />
+      <div>
+        <div
+          className={header}
+        >
+          <Select
+            options={componentOptions}
+            onChange={value => onSelectComponent(value)}
+          />
+          <Select
+            options={fixtureOptions}
+            onChange={value => onSelectFixture(value)}
+          />
+        </div>
+        <div>
+          {
+            buildComponent(treant, options)(factorySelected, fixtureSelected)
+          }
+        </div>
       </div>
     );
   };
+};
+
+const buildComponent = (treant, options) => (factory, {props, children} = {}) => {
+  const {h} = treant;
+  const Component = factory(treant, options);
+  return (
+    <Component {...props}>
+      {map(
+        child => child(treant, options),
+        children
+      )}
+    </Component>
+  );
 };
 
 const getFirstKey = pipe(keys, head);

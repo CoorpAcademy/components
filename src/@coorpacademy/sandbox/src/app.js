@@ -1,28 +1,27 @@
-import createProductCursus from '../../components/template/app-catalog/product-cursus';
-import createProductCourse from '../../components/template/app-catalog/product-course';
-import style from './sandbox.css';
+import createHeader from './components/header';
+import style from './style.css';
 
 import {navigate} from '../../redux-tools/redux-history';
 
 import createTranslate from '../../components/util/translate';
 import * as locales from '../../components/locales';
 
-import fixture from '../../components/template/app-catalog/product-cursus/test/fixtures/default';
-import fixture2 from '../../components/template/app-catalog/product-course/test/fixtures/default';
-
 const translate = createTranslate(locales.fr);
 const options = {translate};
-const selected = 1;
 
 export default (treant, {dispatch, history}) => {
   const {h} = treant;
-  const ProductCursus = createProductCursus(treant, options);
-  const ProductCourse = createProductCourse(treant, options);
+  const Header = createHeader(treant, options);
+
+  const onNavigate = href => history.push(href);
 
   return (props, children) => (
     <div>
-      <ProductCursus/>
-      <ProductCourse {...fixture2.props} />
+      <Header
+        onSelectComponent={onNavigate}
+        onSelectFixture={onNavigate}
+        state={props}
+      />
     </div>
   );
 };
