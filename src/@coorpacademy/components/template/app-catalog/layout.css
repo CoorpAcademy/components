@@ -29,6 +29,15 @@
   vertical-align: top;
 }
 
+.cardsTitle {
+  position: relative;
+  font-family: OpenSans;
+  font-size: 20px;
+  color: #37474F;
+  letter-spacing: 0px;
+  line-height: 20px;
+}
+
 @media desktop {
   .wrapper {
     max-width: 840px;
