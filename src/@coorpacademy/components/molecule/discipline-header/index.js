@@ -4,9 +4,9 @@ import style from './discipline-header.css';
 
 const conditions = checker.shape({
   props: checker.shape({
-    product: checker.shape({
-      images: checker.array
-    })
+    image: checker.string,
+    title: checker.string,
+    description: checker.string
   }),
   children: checker.none
 });
@@ -16,9 +16,7 @@ const getOrBlank = getOr('');
 export default (treant, options = {}) => {
   const DisciplineHeader = (props, children) => {
     const {h} = treant;
-    const {product} = props;
-
-    const image = getOr(null, 'images.discipline_full_retina.url.https', product);
+    const {image, title, description} = props;
 
     return (
       <div className={style.wrapper}>
@@ -29,10 +27,10 @@ export default (treant, options = {}) => {
         </div>
         <div className={style.courseWrapper}>
             <div className={style.title}>
-              {getOrBlank('title', product)}
+              {title}
             </div>
             <div className={style.desc}>
-              {getOrBlank('description', product)}
+              {description}
             </div>
         </div>
       </div>

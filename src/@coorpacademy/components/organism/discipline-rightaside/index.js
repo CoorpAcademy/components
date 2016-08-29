@@ -9,9 +9,10 @@ import HoverFillBehaviour from '../../behaviour/effects/hover-fill';
 
 const conditions = checker.shape({
   props: checker.shape({
-    product: checker.shape({
-      author: checker.string
-    })
+    rating: checker.number,
+    maxRating: checker.number,
+    linkBuy: checker.string,
+    author: checker.string
   }),
   children: checker.none
 });
@@ -27,23 +28,25 @@ export default (treant, options = {}) => {
     return translate ? translate(stuff) : stuff;
   };
 
-  const author = t('author');
+  const authorLabel = t('author');
 
   const DisciplineRightaside = (props, children) => {
-    const {product} = props;
+    const {rating, maxRating, linkBuy, author} = props;
 
     return (
       <div className={style.col}>
         <CatalogCTA
-          content={product}
+          rating={rating}
+          maxRating={maxRating}
+          linkBuy={linkBuy}
         >
         </CatalogCTA>
         <div className={style.colAuthor}>
           <div className={style.author}>
-            {author}
+            {authorLabel}
           </div>
           <div className={style.title}>
-            {getOrBlank('author', product)}
+            {author}
           </div>
         </div>
       </div>
