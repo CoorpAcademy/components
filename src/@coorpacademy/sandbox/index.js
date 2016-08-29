@@ -38,6 +38,13 @@ app.get('/angular', (req, res) => {
 
 app.get('/:engine*', (req, res) => {
   res.send(`
+    <style>
+      h1 {
+        line-height: 200px;
+        color: red;
+        background: black;
+      }
+    </style>
     <div id="app"></div>
     <script>window.engine = '${req.params.engine}'</script>
     <script type="text/javascript" src="/dist/main.js"></script>
