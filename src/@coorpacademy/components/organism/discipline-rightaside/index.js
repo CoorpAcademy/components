@@ -39,8 +39,7 @@ export default (treant, options = {}) => {
           rating={rating}
           maxRating={maxRating}
           linkBuy={linkBuy}
-        >
-        </CatalogCTA>
+        />
         <div className={style.colDetails}>
           <div className={style.detailTitle}>
             {authorLabel}

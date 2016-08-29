@@ -10,7 +10,6 @@ const getOrBlank = getOr('');
 
 const conditions = checker.shape({
   props: checker.shape({
-    title: checker.string,
     product: checker.object,
     onClick: checker.func,
     selected: checker.number,
