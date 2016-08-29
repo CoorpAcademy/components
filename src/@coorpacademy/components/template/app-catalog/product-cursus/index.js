@@ -29,6 +29,8 @@ export default (treant, options) => {
     const title = getOrBlank('title', cursus);
     const description = getOrBlank('description', cursus);
 
+    const badge = get('images.certification_full_retina.url.https', cursus);
+    const assets = get('course_scope', cursus);
     const linkBuy = get('linkBuy', cursus);
     const rating = getOr(0, 'popularity', cursus);
     const maxRating = getOr(0, 'maxPopularity', cursus);
@@ -44,6 +46,8 @@ export default (treant, options) => {
         </div>
         <div className={layout.colContainer}>
           <CursusRightaside
+            badge={badge}
+            assets={assets}
             rating={rating}
             maxRating={maxRating}
             linkBuy={linkBuy}

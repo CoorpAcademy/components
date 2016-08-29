@@ -8,11 +8,11 @@
   height: auto;
 }
 
-.colAuthor {
+.colDetails {
 
 }
 
-.author {
+.detailTitle {
   font-family: OpenSans;
   font-weight: 800;
   font-size: 10px;
@@ -39,7 +39,7 @@
     display: flex;
   }
 
-  .colAuthor {
+  .colDetails {
     display: inline-block;
     vertical-align: top;
     padding-left: 30px;
@@ -56,7 +56,7 @@
     display: block;
   }
 
-  .colAuthor {
+  .colDetails {
     flex: none;
     display: block;
     padding-left: 0;

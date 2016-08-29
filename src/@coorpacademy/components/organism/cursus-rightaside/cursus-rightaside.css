@@ -1,25 +1,14 @@
-@value breakpoints: "../../variables/breakpoints.css";
-@value mobile from breakpoints;
-@value tablet from breakpoints;
-@value desktop from breakpoints;
-
-.col {
-  width: 100%;
-  height: auto;
+.assets {
+  list-style-type: none;
+  padding: 0;
 }
 
-@media desktop {
-  .col {
-    display: flex;
-  }
-}
-
-@media tablet {
-
-}
-
-@media mobile {
-  .col {
-    display: block;
-  }
+.asset {
+  font-family: OpenSans;
+  font-weight: 800;
+  font-size: 10px;
+  color: #546E7A;
+  padding-bottom: 10px;
+  line-height: 10px;
+  text-transform: uppercase;
 }

@@ -41,8 +41,8 @@ export default (treant, options = {}) => {
           linkBuy={linkBuy}
         >
         </CatalogCTA>
-        <div className={style.colAuthor}>
-          <div className={style.author}>
+        <div className={style.colDetails}>
+          <div className={style.detailTitle}>
             {authorLabel}
           </div>
           <div className={style.title}>
