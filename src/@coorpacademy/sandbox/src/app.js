@@ -21,9 +21,6 @@ export default (treant, {dispatch, history}) => {
 
   return (props, children) => (
     <div>
-      {/* <Header
-        onSelectComponent={value => dispatch(navigate(history.createLocation(value)))}
-      /> */}
       <ProductCursus/>
       <ProductCourse {...fixture2.props} />
     </div>
