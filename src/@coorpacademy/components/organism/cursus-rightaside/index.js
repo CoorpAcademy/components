@@ -8,7 +8,9 @@ const conditions = checker.shape({
   props: checker.shape({
     rating: checker.number,
     maxRating: checker.number,
-    linkBuy: checker.string
+    linkBuy: checker.string,
+    assets: checker.array,
+    badge: checker.url
   }),
   children: checker.none
 });
