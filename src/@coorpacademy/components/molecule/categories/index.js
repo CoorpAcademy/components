@@ -1,3 +1,6 @@
+import pipe from 'lodash/fp/pipe';
+import find from 'lodash/fp/find';
+
 import createLink from '../../atom/link';
 import { checker, createValidate } from '../../util/validation';
 import style from './style.css';
@@ -17,15 +20,28 @@ export default (treant, options = {}) => {
   const Link = createLink(treant, options);
 
   const Categories = ({categories = []}, children) => {
-    const CategoriesDiv = categories.map(category => (
-      <li className={style.filter}>
-        <Link
-          href={category.href}
-        >
-          {category.name}
-        </Link>
-      </li>
-    ));
+    const CategoriesDiv = categories.map(category => {
+      const {name, href, selected} = category;
+
+      const linkProps = selected ? {
+        className: style.selected
+      } : {};
+
+      return (
+        <li className={style.filter}>
+          <Link
+            {...linkProps}
+            href={href}
+          >
+            {name}
+          </Link>
+        </li>
+      );
+    });
+
+    const selectedCategory = find({
+      selected: true
+    }, categories);
 
     return (
       <div className={style.categories}>
@@ -39,7 +55,7 @@ export default (treant, options = {}) => {
           htmlFor='toggler'
           className={style.togglerDisplay}
         >
-          <span>Toutes les formations</span>
+          <span>{selectedCategory.name}</span>
         </label>
         <span className={style.arrow}></span>
         <div className={style.category}>
