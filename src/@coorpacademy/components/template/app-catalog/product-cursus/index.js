@@ -23,13 +23,15 @@ export default (treant, options) => {
   const CursusRightaside = createCursusRightaside(treant, options);
 
   const ProductCursus = (props, children) => {
-    const {cursus, linkBuy} = props;
+    const {cursus} = props;
 
     const image = get('images.cursus_full_retina.url.https', cursus);
     const title = getOrBlank('title', cursus);
     const description = getOrBlank('description', cursus);
 
+    const linkBuy = get('linkBuy', cursus);
     const rating = getOr(0, 'popularity', cursus);
+    const maxRating = getOr(0, 'maxPopularity', cursus);
 
     return (
       <div className={layout.wrapper}>
@@ -43,7 +45,7 @@ export default (treant, options) => {
         <div className={layout.colContainer}>
           <CursusRightaside
             rating={rating}
-            maxRating={5}
+            maxRating={maxRating}
             linkBuy={linkBuy}
           />
         </div>

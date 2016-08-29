@@ -8,6 +8,7 @@ export default {
       created_at: '2016-08-09 13:25:57',
       updated_at: '2016-08-26 14:52:40',
       sku: 'P9',
+      linkBuy: 'https://store-staging.coorpacademy.com/checkout/cart/P9',
       title: 'Innovations & Technologies',
       slug: 'P9',
       category: [
@@ -118,7 +119,8 @@ export default {
         }
       },
       author: 'N/A',
-      popularity: 5,
+      popularity: 3,
+      maxPopularity: 5,
       related_products: 'P8,P10',
       course_scope: [
         '2 DISCIPLINES',
