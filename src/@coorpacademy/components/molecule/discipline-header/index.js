@@ -1,6 +1,6 @@
 import getOr from 'lodash/fp/getOr';
 import {checker, createValidate} from '../../util/validation';
-import style from './discipline-header.css';
+import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({

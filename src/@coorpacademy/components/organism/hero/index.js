@@ -4,7 +4,7 @@ import {checker, createValidate} from '../../util/validation';
 import createLink from '../../atom/link';
 import RadialFocusBehaviour from '../../behaviour/effects/radial-focus';
 
-import style from './hero.css';
+import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({

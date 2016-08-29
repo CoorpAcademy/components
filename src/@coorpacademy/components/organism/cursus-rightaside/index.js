@@ -1,7 +1,7 @@
-import { checker, createValidate } from '../../util/validation';
+import {checker, createValidate} from '../../util/validation';
 import getOr from 'lodash/fp/getOr';
-import style from './cursus-rightaside.css';
-import layout from '../discipline-rightaside/discipline-rightaside.css';
+import style from './style.css';
+import layout from '../discipline-rightaside/style.css';
 import createCatalogCTA from '../../molecule/catalog-cta';
 
 const conditions = checker.shape({

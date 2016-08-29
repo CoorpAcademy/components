@@ -7,7 +7,7 @@ import createCenteredText from '../../atom/centered-text';
 import createSpinner from '../../atom/spinner';
 import createCatalogCard from '../../molecule/catalog-card';
 import {checker, createValidate} from '../../util/validation';
-import style from './catalog-cards.css';
+import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({
