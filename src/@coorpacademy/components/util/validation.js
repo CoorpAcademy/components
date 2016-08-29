@@ -27,6 +27,13 @@ checker.none = (val, name, location) => {
 };
 checker.none.type = 'checker.none';
 
+checker.url = (val, name, location) => {
+  if (!val || !/(http(s)?:\/\/.)[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)$/.test(val)) {
+    return checker.utils.getError(name, location, 'a URL');
+  }
+};
+checker.url.type = 'checker.url';
+
 checker.one = (val, name, location) => {
   if (!isArray(val) || val.length !== 1) {
     return checker.utils.getError(name, location, 'an Array with one value');

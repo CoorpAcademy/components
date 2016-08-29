@@ -5,25 +5,26 @@ import createCatalogCTA from '../../molecule/catalog-cta';
 
 const conditions = checker.shape({
   props: checker.shape({
-    cursus: checker.shape({
-    })
+    rating: checker.number,
+    maxRating: checker.number,
+    linkBuy: checker.string
   }),
   children: checker.none
 });
-
-const getOrBlank = getOr('');
 
 export default (treant, options = {}) => {
   const {h} = treant;
   const CatalogCTA = createCatalogCTA(treant, options);
 
   const CursusRightaside = (props, children) => {
-    const {cursus} = props;
+    const {rating, maxRating, linkBuy} = props;
 
     return (
       <div className={style.col}>
         <CatalogCTA
-          content={cursus}
+          rating={rating}
+          maxRating={maxRating}
+          linkBuy={linkBuy}
         >
         </CatalogCTA>
       </div>

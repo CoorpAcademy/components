@@ -1,24 +1,19 @@
-import getOr from 'lodash/fp/getOr';
 import { checker, createValidate } from '../../util/validation';
 import style from './cursus-header.css';
 
 const conditions = checker.shape({
   props: checker.shape({
-    cursus: checker.shape({
-      images: checker.array
-    })
+    image: checker.string,
+    title: checker.string,
+    description: checker.string
   }),
   children: checker.none
 });
 
-const getOrBlank = getOr('');
-
 export default (treant, options = {}) => {
   const CursusHeader = (props, children) => {
     const {h} = treant;
-    const {cursus} = props;
-
-    const image = getOr(null, 'images.discipline_full_retina.url.https', cursus);
+    const {image, title, description} = props;
 
     return (
       <div>
@@ -27,12 +22,12 @@ export default (treant, options = {}) => {
             src={image}
           />
           <div className={style.title}>
-            {getOrBlank('title', cursus)}
+            {title}
           </div>
         </div>
         <div className={style.courseWrapper}>
             <div className={style.desc}>
-              {getOrBlank('description', cursus)}
+              {description}
             </div>
         </div>
       </div>

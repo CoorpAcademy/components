@@ -3,71 +3,129 @@
 export default {
   props: {
     cursus: {
-      title: 'Les nouveaux business',
-      description: 'La révolution numérique a tout accéléré : les communications, la récupération des données, la propagation de l’information et des innovations… On peut presque tout savoir instantanément : les bonnes pratiques d’une entreprise comme les mauvaises ; les goûts et les comportements de ses clients… Pour ne pas rater le coche, il faut être au fait des tendances et des changements qui se profilent. C’est ce que propose cette discipline nourrie d’exemples concrets.',
-      images: {
-        discipline_thumb_retina: {
-          id: 1319423834507444200,
-          url: {
-            http: 'http://commercecdn.com/982563378880840279/84bf792c-7ed7-457a-8211-743a7bb11cf2.png',
-            https: 'https://commercecdn.com/982563378880840279/84bf792c-7ed7-457a-8211-743a7bb11cf2.png'
-          },
-          details: {
-            type: 'image',
-            size: 202953,
-            width: 540,
-            height: 360
-          },
-          name: 'discipline_thumb_retina'
-        },
-        discipline_thumb_sd: {
-          id: 1319423832796168200,
-          url: {
-            http: 'http://commercecdn.com/982563378880840279/f4c44385-0ad9-4219-9f6d-404c7aa4921b.png',
-            https: 'https://commercecdn.com/982563378880840279/f4c44385-0ad9-4219-9f6d-404c7aa4921b.png'
-          },
-          details: {
-            type: 'image',
-            size: 65898,
-            width: 270,
-            height: 180
-          },
-          name: 'discipline_thumb_sd'
-        },
-        discipline_full_sd: {
-          id: 1319423792363077600,
-          url: {
-            http: 'http://commercecdn.com/982563378880840279/a4548e99-2c6c-47bd-87c8-3fcb3b65efb9.png',
-            https: 'https://commercecdn.com/982563378880840279/a4548e99-2c6c-47bd-87c8-3fcb3b65efb9.png'
-          },
-          details: {
-            type: 'image',
-            size: 114928,
-            width: 370,
-            height: 250
-          },
-          name: 'discipline_full_sd'
-        },
-        discipline_full_retina: {
-          id: 1319423791314501600,
-          url: {
-            http: 'http://commercecdn.com/982563378880840279/40dd5939-4bf3-43bf-a788-273fba83d27e.png',
-            https: 'https://commercecdn.com/982563378880840279/40dd5939-4bf3-43bf-a788-273fba83d27e.png'
-          },
-          details: {
-            type: 'image',
-            size: 323120,
-            width: 740,
-            height: 500
-          },
-          name: 'discipline_full_retina'
+      id: '1313061557105591191',
+      order: null,
+      created_at: '2016-08-09 13:25:57',
+      updated_at: '2016-08-26 14:52:40',
+      sku: 'P9',
+      title: 'Innovations & Technologies',
+      slug: 'P9',
+      category: [
+        {
+          id: '1307259615582356165',
+          order: 4,
+          created_at: '2016-08-01 13:18:31',
+          updated_at: '2016-08-22 13:21:15',
+          slug: 'Cursus',
+          status: 'Live',
+          title: 'Cursus',
+          description: 'Cursus',
+          type: 'cursus'
+        }
+      ],
+      description: 'Biotechnologies, robots, intelligence artificielle… Chaque jour, de nouvelles innovations émergent et bouleversent nos modes de vie. Qu’en sera-t-il de demain ? Comment comprendre ce monde qui change ? Le cursus Innovations & Technologies vous aide à appréhender ces évolutions.\r',
+      brand: null,
+      tax_band: {
+        value: 'Default',
+        data: {
+          id: '983977113654657517',
+          title: 'Default',
+          description: null,
+          rate: 0,
+          created_at: null,
+          updated_at: null
         }
       },
-      popularity: 4,
+      ref: 'dis_EyUXetE2l,dis_N16Vxt4nl',
+      filter: ' ',
+      video_sample_embed: '',
+      price: {
+        value: '0.00€',
+        data: {
+          formatted: {
+            with_tax: '0.00€',
+            without_tax: '0.00€',
+            tax: '0.00€'
+          },
+          rounded: {
+            with_tax: 0,
+            without_tax: 0,
+            tax: 0
+          },
+          raw: {
+            with_tax: 0,
+            without_tax: 0,
+            tax: 0
+          }
+        }
+      },
+      images: {
+        certification_full_sd: {
+          id: 1319412326159352600,
+          url: {
+            http: 'http://commercecdn.com/982559645665067606/16b2a314-dfbc-4cc1-997c-fd6f57931e81.png',
+            https: 'https://commercecdn.com/982559645665067606/16b2a314-dfbc-4cc1-997c-fd6f57931e81.png'
+          },
+          details: {
+            type: 'image',
+            size: 21161,
+            width: 175,
+            height: 175
+          },
+          name: 'certification_full_sd'
+        },
+        cursus_full_sd: {
+          id: 1324638924156436700,
+          url: {
+            http: 'http://commercecdn.com/982559645665067606/5984c0c7-1536-4544-9d71-58ba7eab6829.png',
+            https: 'https://commercecdn.com/982559645665067606/5984c0c7-1536-4544-9d71-58ba7eab6829.png'
+          },
+          details: {
+            type: 'image',
+            size: 299363,
+            width: 800,
+            height: 300
+          },
+          name: 'cursus_full_sd'
+        },
+        certification_full_retina: {
+          id: 1319412326369067800,
+          url: {
+            http: 'http://commercecdn.com/982559645665067606/186891d1-9a10-4ea0-8f9b-57f1cbe90f9f.png',
+            https: 'https://commercecdn.com/982559645665067606/186891d1-9a10-4ea0-8f9b-57f1cbe90f9f.png'
+          },
+          details: {
+            type: 'image',
+            size: 48440,
+            width: 350,
+            height: 350
+          },
+          name: 'certification_full_retina'
+        },
+        cursus_full_retina: {
+          id: 1324638903008756000,
+          url: {
+            http: 'http://commercecdn.com/982559645665067606/cd3258b6-7b49-4d6f-b275-ad1a58551312.png',
+            https: 'https://commercecdn.com/982559645665067606/cd3258b6-7b49-4d6f-b275-ad1a58551312.png'
+          },
+          details: {
+            type: 'image',
+            size: 1195231,
+            width: 1600,
+            height: 600
+          },
+          name: 'cursus_full_retina'
+        }
+      },
+      author: 'N/A',
+      popularity: 5,
+      related_products: 'P8,P10',
       course_scope: [
-        '24 QUESTIONS',
-        '3 VIDÉOS'
-      ]
+        '2 DISCIPLINES',
+        '144 QUESTIONS',
+        '18 VIDÉOS'
+      ],
+      parent_sku: ''
     }
   }
 };

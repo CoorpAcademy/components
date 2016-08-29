@@ -8,8 +8,9 @@ import HoverFillBehaviour from '../../behaviour/effects/hover-fill';
 
 const conditions = checker.shape({
   props: checker.shape({
-    content: checker.shape({
-    })
+    rating: checker.number,
+    maxRating: checker.number,
+    linkBuy: checker.string
   }),
   children: checker.none
 });
@@ -32,20 +33,16 @@ export default (treant, options = {}) => {
   const Link = createLink(treant, options);
   const HoverFill = HoverFillBehaviour(treant, options);
 
-  const CursusRightaside = (props, children) => {
-    const {content} = props;
-
-    const rating = getOr(0, 'popularity', content);
-    const total = 5;
+  const CatalogCTA = (props, children) => {
+    const {rating, maxRating, linkBuy} = props;
     const linkTry = '#';
-    const linkBuy = `https://store-staging.coorpacademy.com/checkout/cart/${getOrBlank('sku', content)}`;
 
     return (
       <div className={style.head}>
         <div className={style.starRating}>
           <StarRating
             rating={rating}
-            total={total}
+            total={maxRating}
           />
         </div>
         <HoverFill>
@@ -62,6 +59,6 @@ export default (treant, options = {}) => {
     );
   };
 
-  CursusRightaside.validate = createValidate(conditions);
-  return CursusRightaside;
+  CatalogCTA.validate = createValidate(conditions);
+  return CatalogCTA;
 };
