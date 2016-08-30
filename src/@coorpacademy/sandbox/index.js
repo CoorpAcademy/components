@@ -39,7 +39,7 @@ app.get('/angular', (req, res) => {
 app.get('/:engine*', (req, res) => {
   res.send(`
     <style>
-      h1 {
+      #app h1 {
         line-height: 200px;
         color: red;
         background: black;

@@ -12,7 +12,6 @@
 }
 
 .title {
-  composes: h1 from "../../reset.css";
   position: relative;
   font-family: OpenSans;
   font-weight: 700;
