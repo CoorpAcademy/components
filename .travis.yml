@@ -15,6 +15,8 @@ deploy:
     tags: true
 env:
   - CXX=g++-4.8
+before_install:
+- npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
 addons:
   apt:
     sources:

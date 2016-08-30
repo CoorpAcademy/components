@@ -3,6 +3,7 @@ require('babel-register');
 const path = require('path');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
+const CSSWrapper = require('@coorpacademy/webpack-css-wrapper-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 
@@ -42,6 +43,7 @@ module.exports = {
 
   plugins: [
     new ExtractTextPlugin('styles.css'),
+    new CSSWrapper('styles.css', '#app'),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.DefinePlugin({
       'process.env': {

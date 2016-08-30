@@ -33,6 +33,7 @@
   "homepage": "https://github.com/coorpacademy/components#readme",
   "devDependencies": {
     "@coorpacademy/eslint-plugin-coorpacademy": "^1.1.1",
+    "@coorpacademy/webpack-css-wrapper-plugin": "^1.0.2",
     "angular": "^1.5.8",
     "autoprefixer": "^6.3.3",
     "ava": "^0.16.0",
