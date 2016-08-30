@@ -2,22 +2,23 @@
 @value mobile from breakpoints;
 @value tablet from breakpoints;
 @value desktop from breakpoints;
-
-.wrapper {
-  display: flex;
-  width: 100%;
-}
+@value imgHeight: 302px;
 
 .imgWrapper {
-  flex: 0 0 380px;
+  position: relative;
   display: inline-block;
-  height: 250px;
+  width: 100%;
+  height: imgHeight;
   vertical-align: top;
   overflow: hidden;
+  background-image: linear-gradient(-180deg, rgba(0,0,0,0.00) 48%, #000000 100%);
 }
 
-img {
-  width: 100%;
+.imgWrapper img {
+  position: absolute;
+  height: 100%;
+  width: auto;
+  z-index: -1;
 }
 
 .courseWrapper {
@@ -27,11 +28,17 @@ img {
 }
 
 .title {
+  position: absolute;
   display: block;
   font-family: OpenSans;
   font-weight: 700;
-  font-size: 20px;
-  color: #546E7A;
+  font-size: 50px;
+  color: #FFFFFF;
+  position: absolute;
+  top: 0;
+  text-align: center;
+  width: 100%;
+  line-height: imgHeight;
 }
 
 .desc {
@@ -40,6 +47,7 @@ img {
   color: #263238;
   letter-spacing: 0px;
   line-height: 22px;
+  margin-top: 20px;
 }
 
 @media desktop {
@@ -56,8 +64,13 @@ img {
   }
 
   .imgWrapper {
+    height: 215px;
     flex: none;
-    height: auto;
+  }
+
+  .title {
+    line-height: 215px;
+    font-size: 25px;
   }
 
   .courseWrapper {

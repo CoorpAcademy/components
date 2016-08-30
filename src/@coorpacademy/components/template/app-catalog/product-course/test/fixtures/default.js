@@ -2,6 +2,7 @@
 
 export default {
   props: {
+    selected: 2,
     product: {
       id: '1314547392468484697',
       order: null,
@@ -121,6 +122,7 @@ export default {
         created_at: '2016-08-11 14:38:03',
         updated_at: '2016-08-25 08:06:58',
         sku: '27.A',
+        linkBuy: 'https://store-staging.coorpacademy.com/checkout/cart/27.A',
         title: 'Les nouveaux business',
         slug: '27.A',
         category: [
@@ -175,6 +177,7 @@ export default {
         images: {},
         author: 'Eléphant',
         popularity: 0,
+        maxPopularity: 5,
         related_products: '',
         course_scope: [
           '24 QUESTIONS',
@@ -198,6 +201,7 @@ export default {
         created_at: '2016-08-11 14:38:00',
         updated_at: '2016-08-25 08:06:59',
         sku: '27.C',
+        linkBuy: 'https://store-staging.coorpacademy.com/checkout/cart/27.C',
         title: 'Les nouveaux business',
         slug: '27.C',
         category: [
@@ -252,6 +256,7 @@ export default {
         images: {},
         author: 'Eléphant',
         popularity: 0,
+        maxPopularity: 5,
         related_products: '',
         course_scope: [
           '24 QUESTIONS',
@@ -275,6 +280,7 @@ export default {
         created_at: '2016-08-11 14:37:58',
         updated_at: '2016-08-25 08:06:58',
         sku: '27.B',
+        linkBuy: 'https://store-staging.coorpacademy.com/checkout/cart/27.B',
         title: 'Les nouveaux business',
         slug: '27.B',
         category: [
@@ -328,7 +334,8 @@ export default {
         },
         images: {},
         author: 'Eléphant',
-        popularity: 0,
+        popularity: 2,
+        maxPopularity: 5,
         related_products: '',
         course_scope: [
           '24 QUESTIONS',
@@ -344,7 +351,6 @@ export default {
             {name: 'Les types de coûts en publicité'},
             {name: 'Le display à la performance'}
         ],
-
         parent_sku: '27'
       }
     ]

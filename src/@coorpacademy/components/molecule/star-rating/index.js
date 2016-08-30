@@ -20,8 +20,8 @@ export default (treant, options = {}) => {
     const Star = createStar(treant, options);
 
     const popularity = pipe(
-      fill(false, 0, total),
-      fill(true, 0, rating)
+      fill(0, total, false),
+      fill(0, rating, true)
     )(new Array(total));
 
     const Stars = popularity.map(popular => (

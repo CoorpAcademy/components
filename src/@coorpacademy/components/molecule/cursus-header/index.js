@@ -1,6 +1,5 @@
-import getOr from 'lodash/fp/getOr';
 import { checker, createValidate } from '../../util/validation';
-import style from './discipline-header.css';
+import style from './cursus-header.css';
 
 const conditions = checker.shape({
   props: checker.shape({
@@ -11,24 +10,22 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-const getOrBlank = getOr('');
-
 export default (treant, options = {}) => {
-  const DisciplineHeader = (props, children) => {
+  const CursusHeader = (props, children) => {
     const {h} = treant;
     const {image, title, description} = props;
 
     return (
-      <div className={style.wrapper}>
+      <div>
         <div className={style.imgWrapper}>
           <img
             src={image}
           />
+          <div className={style.title}>
+            {title}
+          </div>
         </div>
         <div className={style.courseWrapper}>
-            <div className={style.title}>
-              {title}
-            </div>
             <div className={style.desc}>
               {description}
             </div>
@@ -37,6 +34,6 @@ export default (treant, options = {}) => {
     );
   };
 
-  DisciplineHeader.validate = createValidate(conditions);
-  return DisciplineHeader;
+  CursusHeader.validate = createValidate(conditions);
+  return CursusHeader;
 };

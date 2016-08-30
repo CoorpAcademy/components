@@ -1,0 +1,14 @@
+.assets {
+  list-style-type: none;
+  padding: 0;
+}
+
+.asset {
+  font-family: OpenSans;
+  font-weight: 800;
+  font-size: 10px;
+  color: #546E7A;
+  padding-bottom: 10px;
+  line-height: 10px;
+  text-transform: uppercase;
+}

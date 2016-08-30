@@ -1,7 +1,7 @@
-import { checker, createValidate } from '../../util/validation';
+import { checker, createValidate } from '../../../util/validation';
 import style from './style.css';
-import createCategories from '../../molecule/categories';
-import createCatalogueCards from '../../organism/catalogue-cards';
+import createCategories from '../../../molecule/categories';
+import createCatalogCards from '../../../organism/catalog-cards';
 
 const conditions = checker.shape({
   props: checker.shape({
@@ -14,7 +14,7 @@ const conditions = checker.shape({
 export default (treant, options = {}) => {
   const {h} = treant;
   const Categories = createCategories(treant, options);
-  const CatalogueCards = createCatalogueCards(treant, options);
+  const CatalogCards = createCatalogCards(treant, options);
 
   const Catalog = ({title, categories, products}, children) => (
     <div className={style.wrapper}>
@@ -26,7 +26,7 @@ export default (treant, options = {}) => {
           />
         </div>
         <div className={style.productsWrapper}>
-          <CatalogueCards
+          <CatalogCards
             products={products}
           />
         </div>

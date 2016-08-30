@@ -8,57 +8,11 @@
   height: auto;
 }
 
-.head {
-  display: block;
-  width: 100%;
-}
-
-.starRating {
-  display: inline-block;
-  margin-bottom: 30px;
-}
-
-.head a {
-  display: block;
-  text-transform: uppercase;
-  color: #ffffff;
-  font-family: OpenSans;
-  font-weight: 600;
-  font-size: 13px;
-  text-decoration: none;
-  line-height: 52px;
-  width: 100%;
-  text-align: center;
-  border-radius: 2px;
-  margin-bottom: 15px;
-}
-
-.head a span span {
-  font-family: OpenSans;
-  font-weight: 800;
-}
-
-.buy {
-  background-color: #66BB6A;
-}
-
-.buy:before {
-  background-color: #66BB6A;
-}
-
-.try {
-  background-color: #00B0FF;
-}
-
-.try:before {
-  background-color: #00B0FF;
-}
-
-.colAuthor {
+.colDetails {
 
 }
 
-.author {
+.detailTitle {
   font-family: OpenSans;
   font-weight: 800;
   font-size: 10px;
@@ -85,13 +39,7 @@
     display: flex;
   }
 
-  .head {
-    display: inline-block;
-    flex: 0 0 380px;
-    vertical-align: top;
-  }
-
-  .colAuthor {
+  .colDetails {
     display: inline-block;
     vertical-align: top;
     padding-left: 30px;
@@ -108,12 +56,7 @@
     display: block;
   }
 
-  .head {
-    flex: none;
-    text-align: center;
-  }
-
-  .colAuthor {
+  .colDetails {
     flex: none;
     display: block;
     padding-left: 0;
