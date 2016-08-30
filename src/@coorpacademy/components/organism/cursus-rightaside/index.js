@@ -1,7 +1,6 @@
 import {checker, createValidate} from '../../util/validation';
 import getOr from 'lodash/fp/getOr';
 import style from './style.css';
-import layout from '../discipline-rightaside/style.css';
 import createCatalogCTA from '../../molecule/catalog-cta';
 
 const conditions = checker.shape({
@@ -35,22 +34,24 @@ export default (treant, options = {}) => {
     ));
 
     return (
-      <div className={layout.col}>
+      <div className={style.col}>
         <CatalogCTA
           rating={rating}
           maxRating={maxRating}
           linkBuy={linkBuy}
         />
 
-        <div className={layout.colDetails}>
-          <div className={layout.detailTitle}>
+        <div className={style.colDetails}>
+          <div className={style.detailTitle}>
             {certificationLabel}
           </div>
           <img
             src={badge}
           />
+        </div>
 
-          <div className={layout.detailTitle}>
+        <div className={style.colDetails}>
+          <div className={style.detailTitle}>
             {assetsLabel}
           </div>
           <ul className={style.assets}>
