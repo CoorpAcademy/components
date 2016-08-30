@@ -1,0 +1,24 @@
+@value breakpoints: "../../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value tablet from breakpoints;
+@value desktop from breakpoints;
+
+.productsWrapper {
+  margin-top: 10px;
+  box-sizing: border-box;
+  width: 100%
+}
+
+@media desktop {
+}
+
+@media tablet {
+  .productsWrapper {
+  }
+}
+
+@media mobile {
+  .productsWrapper {
+    text-align: center;
+  }
+}

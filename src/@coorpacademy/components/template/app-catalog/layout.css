@@ -29,9 +29,18 @@
   vertical-align: top;
 }
 
+.cardsTitle {
+  position: relative;
+  font-family: OpenSans;
+  font-size: 20px;
+  color: #37474F;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
 @media desktop {
   .wrapper {
-    max-width: 840px;
+    max-width: 880px;
   }
 
   .container {

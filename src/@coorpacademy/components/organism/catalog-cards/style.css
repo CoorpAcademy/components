@@ -1,6 +1,41 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value tablet from breakpoints;
+@value desktop from breakpoints;
+
 .category-list {
-    display: block;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
     margin: 0;
+    margin-top: 20px;
     padding: 0;
     list-style-type: none;
+}
+
+.category-list li {
+  margin: 0 10px 20px 0;
+}
+
+
+@media desktop {
+  .category-list {
+
+  }
+}
+
+@media tablet {
+  .category-list {
+    justify-content: space-between;
+  }
+}
+
+@media mobile {
+  .category-list {
+    flex-direction: column;
+  }
+
+  .category-list li {
+    margin: 0 auto 20px;
+  }
 }

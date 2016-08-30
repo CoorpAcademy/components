@@ -1,0 +1,3 @@
+.productsWrapper {
+  composes: productsWrapper from '../product-cursus/style.css';
+}

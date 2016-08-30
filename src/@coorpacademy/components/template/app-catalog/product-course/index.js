@@ -2,9 +2,11 @@ import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import {checker, createValidate} from '../../../util/validation';
 import layout from '../layout.css';
+import style from './style.css';
 import createDisciplineHeader from '../../../molecule/discipline-header';
 import createDisciplineScope from '../../../molecule/discipline-scope';
 import createDisciplineRightaside from '../../../organism/discipline-rightaside';
+import createCatalogCards from '../../../organism/catalog-cards';
 
 const getOrBlank = getOr('');
 
@@ -18,15 +20,22 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-export default (treant, options) => {
+export default (treant, options = {}) => {
   const {h} = treant;
+  const {translate} = options;
+
+  const t = stuff => {
+    return translate ? translate(stuff) : stuff;
+  };
 
   const DisciplineHeader = createDisciplineHeader(treant, options);
   const DisciplineScope = createDisciplineScope(treant, options);
   const DisciplineRightaside = createDisciplineRightaside(treant, options);
+  const CatalogCards = createCatalogCards(treant, options);
+  const cardsTitle = t('They also liked:');
 
   const ProductCourse = (props, children) => {
-    const {selected, product, levels, changeLevel} = props;
+    const {selected, product, levels, changeLevel, disciplines} = props;
 
     const image = get('images.discipline_full_retina.url.https', product);
     const title = getOrBlank('title', product);
@@ -62,6 +71,14 @@ export default (treant, options) => {
             onClick={changeLevel}
           />
         </div>
+        <div className={layout.container}>
+          <span className={layout.cardsTitle}>
+            {cardsTitle}
+          </span>
+          <CatalogCards
+            products={disciplines}
+          />
+        </div>
       </div>
     );
   };
@@ -69,4 +86,3 @@ export default (treant, options) => {
   ProductCourse.validate = createValidate(conditions);
   return ProductCourse;
 };
-
