@@ -52,7 +52,8 @@
 @media desktop {
   .head {
     display: inline-block;
-    flex: 0 0 380px;
+    flex-shrink: 0;
+    flex-grow: 0;
     vertical-align: top;
   }
 }

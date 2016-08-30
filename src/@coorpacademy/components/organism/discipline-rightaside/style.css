@@ -8,6 +8,10 @@
   height: auto;
 }
 
+.ctaWrapper {
+
+}
+
 .colDetails {
 
 }
@@ -39,6 +43,10 @@
     display: flex;
   }
 
+  .ctaWrapper {
+    width: 380px;
+  }
+
   .colDetails {
     display: inline-block;
     vertical-align: top;
@@ -48,12 +56,16 @@
 }
 
 @media tablet {
-
+  
 }
 
 @media mobile {
   .col {
     display: block;
+  }
+
+  .ctaWrapper {
+    width: 100%;
   }
 
   .colDetails {

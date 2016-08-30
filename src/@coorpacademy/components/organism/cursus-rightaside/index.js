@@ -35,11 +35,13 @@ export default (treant, options = {}) => {
 
     return (
       <div className={style.col}>
-        <CatalogCTA
-          rating={rating}
-          maxRating={maxRating}
-          linkBuy={linkBuy}
-        />
+        <div className={style.ctaWrapper}>
+          <CatalogCTA
+            rating={rating}
+            maxRating={maxRating}
+            linkBuy={linkBuy}
+          />
+        </div>
 
         <div className={style.colDetails}>
           <div className={style.detailTitle}>

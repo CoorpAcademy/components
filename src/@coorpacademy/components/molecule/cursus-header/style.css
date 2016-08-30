@@ -15,8 +15,8 @@
 }
 
 .imgWrapper img {
-  position: absolute;
-  width: 100%;
+  max-width: 100%;
+  height: auto;
   z-index: -1;
 }
 
@@ -26,6 +26,8 @@
 }
 
 .title {
+  position: absolute;
+  box-sizing: border-box;
   display: inline-block;
   font-family: OpenSans;
   font-weight: 700;
@@ -33,6 +35,7 @@
   color: #FFFFFF;
   text-align: center;
   width: 100%;
+  padding: 0 20px;
 }
 
 .desc {
@@ -49,7 +52,13 @@
 }
 
 @media tablet {
+  .imgWrapper {
+    height: auto;
+  }
 
+  .imgWrapper img {
+    /*width: 100%;*/
+  }
 }
 
 @media mobile {
@@ -58,12 +67,10 @@
   }
 
   .imgWrapper {
-    height: 215px;
     flex: none;
   }
 
   .title {
-    line-height: 215px;
     font-size: 25px;
   }
 
