@@ -1,6 +1,6 @@
 import {checker, createValidate} from '../../util/validation';
 import getOr from 'lodash/fp/getOr';
-import style from './discipline-rightaside.css';
+import style from './style.css';
 import hyperx from 'hyperx';
 import createStarRating from '../../molecule/star-rating';
 import createCatalogCTA from '../../molecule/catalog-cta';

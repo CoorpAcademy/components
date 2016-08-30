@@ -17,7 +17,7 @@ This library provide sharable components for web applications, either :
 
 ### Styleguide / component list
 
-sitejekyll.coorpacademy.com
+![Components diagram](/doc/components.png)
 
 # Development
 
@@ -31,7 +31,7 @@ npm install
 npm start
 ```
 
-Then open `http://localhost:3000`
+Then open `http://localhost:3003`
 
 ### Locally use `/lib` in a project
 - use `npm link` to create a local `@coorpacademy/components` package

@@ -1,7 +1,7 @@
 import { checker, createValidate } from '../../util/validation';
 import getOr from 'lodash/fp/getOr';
 import hyperx from 'hyperx';
-import style from './catalog-cta.css';
+import style from './style.css';
 import createStarRating from '../../molecule/star-rating';
 import createLink from '../../atom/link';
 import HoverFillBehaviour from '../../behaviour/effects/hover-fill';

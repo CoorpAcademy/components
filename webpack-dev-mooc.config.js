@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const hash = '[name]__[local]___[hash:base64:5]';
+const hash = '[folder]__[local]___[hash:base64:5]';
 
 module.exports = {
   context: __dirname,

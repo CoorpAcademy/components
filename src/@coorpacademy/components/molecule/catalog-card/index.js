@@ -4,7 +4,7 @@ import {checker, createValidate} from '../../util/validation';
 import createStarRating from '../star-rating';
 import createLink from '../../atom/link';
 import HoverFillBehaviour from '../../behaviour/effects/hover-fill';
-import style from './catalog-card.css';
+import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({

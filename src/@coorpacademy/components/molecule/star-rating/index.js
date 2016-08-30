@@ -2,7 +2,7 @@ import {checker, createValidate} from '../../util/validation';
 import fill from 'lodash/fp/fill';
 import pipe from 'lodash/fp/pipe';
 import createStar from '../../atom/star';
-import style from './star-rating.css';
+import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({

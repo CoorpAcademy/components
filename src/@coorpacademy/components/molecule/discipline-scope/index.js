@@ -1,6 +1,6 @@
 import getOr from 'lodash/fp/getOr';
 import {checker, createValidate} from '../../util/validation';
-import style from './discipline-scope.css';
+import style from './style.css';
 
 import createScopeTabs from '../scope-tabs';
 import createScopeContent from '../scope-content';
