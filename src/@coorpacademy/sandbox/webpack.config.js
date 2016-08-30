@@ -35,7 +35,7 @@ module.exports = ({
       ]
     }, {
       test: /\.css$/,
-      loader: 'style!css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss'
+      loader: 'style!css?modules&importLoaders=1&localIdentName=[folder]__[local]___[hash:base64:5]!postcss'
     }, {
       test: /\.(ttf|otf|eot|svg|woff)$/,
       loader: 'file-loader'
