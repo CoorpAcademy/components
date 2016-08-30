@@ -1,4 +1,4 @@
-import { checker, createValidate } from '../../util/validation';
+import {checker, createValidate} from '../../util/validation';
 
 const conditions = checker.shape({
   props: checker.none,

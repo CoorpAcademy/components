@@ -2,7 +2,7 @@ import getOr from 'lodash/fp/getOr';
 import pipe from 'lodash/fp/pipe';
 import partial from 'lodash/fp/partial';
 import unary from 'lodash/fp/unary';
-import { checker, createValidate } from '../../util/validation';
+import {checker, createValidate} from '../../util/validation';
 import style from './module-bubble.css';
 import createLabelModName from '../../atom/label-mod-name';
 import { stopPropagation } from '../../util/bubbling';

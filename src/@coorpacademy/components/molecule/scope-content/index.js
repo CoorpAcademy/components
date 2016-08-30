@@ -1,5 +1,5 @@
 import getOr from 'lodash/fp/getOr';
-import { checker, createValidate } from '../../util/validation';
+import {checker, createValidate} from '../../util/validation';
 import style from './scope-content.css';
 
 const conditions = checker.shape({

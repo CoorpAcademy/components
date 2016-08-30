@@ -1,5 +1,5 @@
 import get from 'lodash/fp/get';
-import { checker, createValidate } from '../../util/validation';
+import {checker, createValidate} from '../../util/validation';
 
 import createLink from '../../atom/link';
 import RadialFocusBehaviour from '../../behaviour/effects/radial-focus';

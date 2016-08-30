@@ -1,5 +1,5 @@
 import test from 'ava';
-import { checker, createValidate } from '../../validation';
+import {checker, createValidate} from '../../validation';
 
 test('should provide a validate function', t => {
   const conditions = checker.shape({});

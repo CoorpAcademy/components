@@ -1,4 +1,4 @@
-import { checker, createValidate } from '../../util/validation';
+import {checker, createValidate} from '../../util/validation';
 import fill from 'lodash/fp/fill';
 import pipe from 'lodash/fp/pipe';
 import createStar from '../../atom/star';

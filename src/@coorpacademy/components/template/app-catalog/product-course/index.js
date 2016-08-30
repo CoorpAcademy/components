@@ -1,6 +1,6 @@
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
-import { checker, createValidate } from '../../../util/validation';
+import {checker, createValidate} from '../../../util/validation';
 import layout from '../layout.css';
 import createDisciplineHeader from '../../../molecule/discipline-header';
 import createDisciplineScope from '../../../molecule/discipline-scope';
