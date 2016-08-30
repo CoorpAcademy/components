@@ -1,6 +1,6 @@
 .catalogListItem {
   display: inline-block;
-  margin: 10px;
+  box-sizing: border-box;
   width: 270px;
   vertical-align: top;
   border: 1px solid #E3E3E3;

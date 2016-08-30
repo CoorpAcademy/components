@@ -71,7 +71,7 @@ export default (treant, options = {}) => {
             onClick={changeLevel}
           />
         </div>
-        <div className={style.productsWrapper}>
+        <div className={layout.container}>
           <span className={layout.cardsTitle}>
             {cardsTitle}
           </span>
@@ -86,4 +86,3 @@ export default (treant, options = {}) => {
   ProductCourse.validate = createValidate(conditions);
   return ProductCourse;
 };
-
