@@ -1,0 +1,53 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+
+.cursuses {
+  width: 230px;
+}
+
+.title {
+  font-family: OpenSans;
+  font-weight: 700;
+  font-size: 15px;
+  color: #546E7A;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.list {
+  list-style-type: none;
+  width: 100%;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+}
+
+.cursus {
+  border-bottom: 1px solid #CFD8DC;
+  height: 40px;
+}
+
+.cursus a {
+  display: inline-block;
+  font-family: OpenSans;
+  font-size: 14px;
+  color: #37474F;
+  line-height: 40px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.cursus a:hover {
+  color: #00B0FF;
+}
+
+.cursus a.selected {
+  font-family: OpenSans;
+  font-weight: 800;
+}
+
+@media mobile {
+  .cursuses {
+    display: none;
+  }
+}
