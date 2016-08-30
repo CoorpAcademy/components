@@ -17,7 +17,7 @@
   display: block;
   text-transform: uppercase;
   color: #ffffff;
-  font-family: OpenSans;
+  font-family: "Open Sans";
   font-weight: 600;
   font-size: 13px;
   text-decoration: none;
@@ -29,7 +29,7 @@
 }
 
 .head a span {
-  font-family: OpenSans;
+  font-family: "Open Sans";
   font-weight: 800;
 }
 

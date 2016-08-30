@@ -22,7 +22,7 @@
 
 .title {
   display: inline-block;
-  font-family: OpenSans;
+  font-family: "Open Sans";
   font-weight: 600;
   font-size: 20px;
   color: #546E7A;
@@ -34,7 +34,7 @@
   padding: 3px 13px;
   background: #546E7A;
   border-radius: 15px;
-  font-family: OpenSans;
+  font-family: "Open Sans";
   font-weight: 800;
   font-size: 10px;
   color: #FFFFFF;
@@ -45,14 +45,14 @@
   display: inline-block;
   vertical-align: top;
   width: 50%;
-  font-family: OpenSans;
+  font-family: "Open Sans";
   font-size: 12px;
   padding-right: 40px;
   color: #607D8B;
 }
 
 .coltitle {
-  font-family: OpenSans;
+  font-family: "Open Sans";
   font-weight: 800;
   text-transform: uppercase;
   margin-bottom: 15px;
@@ -135,7 +135,7 @@
 .assetTitle {
   display: inline-block;
   height: 15px;
-  font-family: OpenSans;
+  font-family: "Open Sans";
   font-weight: 800;
   font-size: 12px;
   text-transform: uppercase;
@@ -149,7 +149,7 @@
 .assetDesc {
   display: inline-block;
   width: auto;
-  font-family: OpenSans;
+  font-family: "Open Sans";
   font-size: 12px;
   color: #607D8B;
   padding: 20px;

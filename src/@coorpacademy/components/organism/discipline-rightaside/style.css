@@ -17,7 +17,7 @@
 }
 
 .detailTitle {
-  font-family: OpenSans;
+  font-family: "Open Sans";
   font-weight: 800;
   font-size: 10px;
   color: #546E7A;
@@ -30,7 +30,7 @@
 }
 
 .title {
-  font-family: OpenSans;
+  font-family: "Open Sans";
   font-weight: 600;
   color: #455A64;
   border: 1px solid #E3E3E3;

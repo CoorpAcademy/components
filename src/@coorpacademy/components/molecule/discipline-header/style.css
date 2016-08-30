@@ -28,14 +28,14 @@ img {
 
 .title {
   display: block;
-  font-family: OpenSans;
+  font-family: "Open Sans";
   font-weight: 700;
   font-size: 20px;
   color: #546E7A;
 }
 
 .desc {
-  font-family: OpenSans;
+  font-family: "Open Sans";
   font-size: 15px;
   color: #263238;
   letter-spacing: 0px;

@@ -38,6 +38,8 @@ app.get('/angular', (req, res) => {
 
 app.get('/:engine*', (req, res) => {
   res.send(`
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans%3A300%2C300italic%2Cregular%2Citalic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic&amp;ver=4.5.2"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans&amp;ver=4.5.2"/>
     <div id="app"></div>
     <script>window.engine = '${req.params.engine}'</script>
     <script type="text/javascript" src="/dist/main.js"></script>
