@@ -1,14 +1,88 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value tablet from breakpoints;
+@value desktop from breakpoints;
+
+.col {
+  composes: col from "../discipline-rightaside/style.css";
+}
+
+.ctaWrapper {
+
+}
+
+.colDetails {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.colDetails img {
+  width: 200px;
+  height: 200px;
+  text-align: center;
+}
+
+.detailTitle {
+  composes: detailTitle from "../discipline-rightaside/style.css";
+  text-align: left;
+  margin-top: 0;
+}
+
+
 .assets {
+  text-align: left;
   list-style-type: none;
   padding: 0;
+  margin: 0;
 }
 
 .asset {
   font-family: OpenSans;
-  font-weight: 800;
+  font-weight: 400;
   font-size: 10px;
-  color: #546E7A;
+  color: #607D8B;
   padding-bottom: 10px;
   line-height: 10px;
   text-transform: uppercase;
+}
+
+
+@media desktop {
+  .col {
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: flex-start;
+  }
+
+  .ctaWrapper {
+    width: 380px;
+  }
+
+  .colDetails {
+    width: 280px;
+    margin-top: 0;
+    flex-shrink: 0;
+  }
+}
+
+@media tablet {
+  .ctaWrapper {
+    width: 300px;
+  }
+
+  .colDetails {
+
+  }
+}
+
+@media mobile {
+  .ctaWrapper {
+    width: 100%;
+  }
+
+  .colDetails {
+    margin-top: 20px;
+    width: 100%;
+  }
 }
