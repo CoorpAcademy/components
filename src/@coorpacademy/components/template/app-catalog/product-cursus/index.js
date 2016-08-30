@@ -2,6 +2,7 @@ import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import { checker, createValidate } from '../../../util/validation';
 import layout from '../layout.css';
+import style from './style.css';
 
 import createCursusHeader from '../../../molecule/cursus-header';
 import createCursusRightaside from '../../../organism/cursus-rightaside';
@@ -17,7 +18,7 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-export default (treant, options) => {
+export default (treant, options = {}) => {
   const {h} = treant;
   const {translate} = options;
 
@@ -65,9 +66,12 @@ export default (treant, options) => {
           <span className={layout.cardsTitle}>
             {cardsTitle}
           </span>
-          <CatalogCards
-            products={disciplines}
-          />
+
+          <div className={style.productsWrapper}>
+            <CatalogCards
+              products={disciplines}
+            />
+          </div>
         </div>
       </div>
     );
