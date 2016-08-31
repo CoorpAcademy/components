@@ -6,12 +6,16 @@
 }
 
 .title {
-  font-family: OpenSans;
+  font-family: Open Sans;
   font-weight: 700;
   font-size: 15px;
-  color: #546E7A;
+  color: #B0BEC5;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  background-color: #F0F0F0;
+  line-height: 50px;
+  margin: 0;
+  padding: 0 20px;
+  border-radius: 2px 2px 0 0;
 }
 
 .list {
@@ -20,30 +24,37 @@
   text-align: left;
   margin: 0;
   padding: 0;
-  border: 1px solid #CFD8DC;
+  border: 1px solid #F0F0F0;
+  box-sizing: border-box;
+  border-radius: 0 0 2px 2px;
+}
+
+.list:last-child {
+  border-bottom: none;
 }
 
 .cursus {
-  border-bottom: 1px solid #CFD8DC;
-  padding: 5px 20px;
-  height: 40px;
+  border-bottom: 1px solid #F0F0F0;
+  padding: 0 20px;
 }
 
 .cursus:hover {
-  background-color: #123;
+  background-color: #B0BEC5;;
   cursor: pointer;
 }
 
 .cursus a {
-  font-family: OpenSans;
+  font-family: Open Sans;
   font-size: 14px;
-  color: #37474F;
+  color: #B0BEC5;
   text-decoration: none;
-
+  height: 50px;
+  display: table-cell;
+  vertical-align: middle;
 }
 
 .cursus:hover a {
-  color: #00B0FF;
+  color: #FFFFFF;
 }
 
 @media mobile {
