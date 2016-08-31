@@ -16,7 +16,7 @@ const conditions = checker.shape({
     onClick: checker.func,
     selected: checker.number,
     levels: checker.arrayOf(checker.string),
-    disciplineDetails: checker.object
+    discipline: checker.object
   }),
   children: checker.none
 });
@@ -39,7 +39,7 @@ export default (treant, options = {}) => {
     const {
       selected,
       product,
-      disciplineDetails,
+      discipline,
       levels,
       changeLevel,
       linkBuy,
@@ -72,7 +72,7 @@ export default (treant, options = {}) => {
         </div>
         <div className={layout.container}>
           <DisciplineScope
-            content={disciplineDetails}
+            content={discipline}
             levels={levels}
             selected={selected}
             onClick={changeLevel}

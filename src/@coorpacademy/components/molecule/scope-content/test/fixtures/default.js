@@ -2,7 +2,6 @@ export default {
   props: {
     content: {
       title: 'Les nouveaux business',
-      images: {},
       course_scope: [
         '24 QUESTIONS',
         '3 VIDÉOS'

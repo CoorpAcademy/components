@@ -256,7 +256,7 @@ export default {
       course_scope: null,
       parent_sku: 'T2'
     }],
-    disciplineDetails: content,
+    discipline: content,
     levels
   }
 };
