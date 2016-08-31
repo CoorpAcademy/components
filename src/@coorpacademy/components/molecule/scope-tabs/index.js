@@ -5,7 +5,7 @@ const conditions = checker.shape({
   props: checker.shape({
     selected: checker.bool,
     onClick: checker.func,
-    levels: checker.arrayOf(checker.object)
+    levels: checker.arrayOf(checker.string)
   }),
   children: checker.none
 });
@@ -22,7 +22,7 @@ export default (treant, options = {}) => {
             onClick={() => onClick(index)}
             className={selected === index ? style.currentTab : style.tab}
           >
-            {level.category[0].title}
+            {level}
           </li>
         ))}
       </ul>

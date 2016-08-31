@@ -15,7 +15,8 @@ const conditions = checker.shape({
     product: checker.object,
     onClick: checker.func,
     selected: checker.number,
-    levels: checker.arrayOf(checker.object)
+    levels: checker.arrayOf(checker.string),
+    disciplineDetails: checker.object
   }),
   children: checker.none
 });
@@ -35,16 +36,22 @@ export default (treant, options = {}) => {
   const cardsTitle = t('They also liked:');
 
   const ProductCourse = (props, children) => {
-    const {selected, product, levels, changeLevel, disciplines} = props;
+    const {
+      selected,
+      product,
+      disciplineDetails,
+      levels,
+      changeLevel,
+      linkBuy,
+      maxRating,
+      disciplines
+    } = props;
 
-    const image = get('images.discipline_full_retina.url.https', product);
+    const image = get('image', product);
     const title = getOrBlank('title', product);
     const author = getOrBlank('author', product);
     const description = getOrBlank('description', product);
-
-    const linkBuy = get('linkBuy', levels[selected]);
-    const rating = getOr(0, 'popularity', levels[selected]);
-    const maxRating = getOr(0, 'maxPopularity', levels[selected]);
+    const rating = getOr(0, 'popularity', product);
 
     return (
       <div className={layout.wrapper}>
@@ -65,8 +72,8 @@ export default (treant, options = {}) => {
         </div>
         <div className={layout.container}>
           <DisciplineScope
-            title={title}
-            product={product}
+            content={disciplineDetails}
+            levels={levels}
             selected={selected}
             onClick={changeLevel}
           />
