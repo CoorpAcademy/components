@@ -13,7 +13,8 @@ const getOrBlank = getOr('');
 const conditions = checker.shape({
   props: checker.shape({
     cursus: checker.object,
-    linkBuy: checker.url
+    linkBuy: checker.url,
+    maxRating: checker.number
   }),
   children: checker.none
 });
@@ -32,7 +33,7 @@ export default (treant, options = {}) => {
   const cardsTitle = t('This course contains:');
 
   const ProductCursus = (props, children) => {
-    const {cursus, disciplines} = props;
+    const {cursus, disciplines, maxRating} = props;
 
     const image = get('images.cursus_full_retina.url.https', cursus);
     const title = getOrBlank('title', cursus);
@@ -42,7 +43,6 @@ export default (treant, options = {}) => {
     const assets = get('course_scope', cursus);
     const linkBuy = get('linkBuy', cursus);
     const rating = getOr(0, 'popularity', cursus);
-    const maxRating = getOr(0, 'maxPopularity', cursus);
 
     return (
       <div className={layout.wrapper}>

@@ -14,7 +14,7 @@ export const createNavigationHandler = curry(({dispatch, history}, event) => {
   if (isModifiedEvent(event) || !isLeftClickEvent(event))
     return;
 
-  if (event.target.target)
+  if (event.target.target || !event.target.href)
     return;
 
   event.preventDefault();
