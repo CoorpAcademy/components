@@ -42,7 +42,7 @@ export default (treant, options = {}) => {
 
     const selectedCategory = find({
       selected: true
-    }, categories);
+    }, categories) || {};
 
     return (
       <div className={style.categories}>
