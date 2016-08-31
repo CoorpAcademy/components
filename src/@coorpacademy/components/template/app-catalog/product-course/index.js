@@ -44,7 +44,7 @@ export default (treant, options = {}) => {
       changeLevel,
       linkBuy,
       maxRating,
-      disciplines
+      relatedDisciplines
     } = props;
 
     const image = get('image', product);
@@ -83,7 +83,7 @@ export default (treant, options = {}) => {
             {cardsTitle}
           </span>
           <CatalogCards
-            products={disciplines}
+            products={relatedDisciplines}
           />
         </div>
       </div>

@@ -8,9 +8,12 @@ import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({
-    product: checker.shape({
-      images: checker.object
-    })
+    rating: checker.number,
+    maxRating: checker.number,
+    title: checker.string,
+    image: checker.string,
+    author: checker.string,
+    href: checker.string
   }),
   children: checker.none
 });
@@ -26,11 +29,10 @@ export default (treant, options = {}) => {
 
   const CatalogCard = (props, children) => {
     const {h} = treant;
-    const {product} = props;
-    const total = 5;
+    const {maxRating} = props;
 
-    const href = getOr('', 'href', product);
-    const image = getOr(null, 'images.discipline_thumb_retina.url.https', product);
+    const href = getOr('', 'href', props);
+    const image = getOr(null, 'image', props);
 
     return (
       <li className={style.catalogListItem}>
@@ -45,13 +47,13 @@ export default (treant, options = {}) => {
         <div className={style.infoWrapper}>
           <div className={style.title}>
             <Link href={href}>
-              {getOrBlank('title', product)}
+              {getOrBlank('title', props)}
             </Link>
           </div>
-          <div className={style.subtitle}>{translate('by {{author}}', product)}</div>
+          <div className={style.subtitle}>{translate('by {{author}}', props)}</div>
           <StarRating
-            rating={getOr(0, 'popularity', product)}
-            total={total}
+            rating={getOr(0, 'rating', props)}
+            total={maxRating}
           />
         </div>
       </li>
