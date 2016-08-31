@@ -51,6 +51,10 @@
   width: 100%
 }
 
+.cursusesWrapper {
+  width: 230px;
+}
+
 @media desktop {
   .wrapper {
     max-width: 960px;

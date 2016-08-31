@@ -48,6 +48,7 @@
 .filter a.selected {
   font-family: "Open Sans";
   font-weight: 800;
+  color: #00B0FF;
 }
 
 .mobileToggler {
