@@ -38,20 +38,19 @@ export default (treant, options = {}) => {
   const ProductCourse = (props, children) => {
     const {
       selected,
-      product,
-      discipline,
+      level,
       levels,
       changeLevel,
       linkBuy,
-      maxRating,
+      maxPopularity,
       relatedDisciplines
     } = props;
 
-    const image = get('image', product);
-    const title = getOrBlank('title', product);
-    const author = getOrBlank('author', product);
-    const description = getOrBlank('description', product);
-    const rating = getOr(0, 'popularity', product);
+    const image = get('image', props);
+    const title = getOrBlank('title', props);
+    const author = getOrBlank('author', props);
+    const description = getOrBlank('description', props);
+    const rating = getOr(0, 'popularity', props);
 
     return (
       <div className={layout.wrapper}>
@@ -67,12 +66,12 @@ export default (treant, options = {}) => {
             linkBuy={linkBuy}
             author={author}
             rating={rating}
-            maxRating={maxRating}
+            maxRating={maxPopularity}
           />
         </div>
         <div className={layout.container}>
           <DisciplineScope
-            content={discipline}
+            content={level}
             levels={levels}
             selected={selected}
             onClick={changeLevel}

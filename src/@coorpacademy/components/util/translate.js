@@ -13,7 +13,7 @@ const createTranslate = locales => (token, data) => {
       const _value = trim(value);
       return has(_value, data) ?
         get(_value, data) :
-        data;
+        token;
     }
   );
 };
