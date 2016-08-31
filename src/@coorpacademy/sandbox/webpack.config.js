@@ -1,6 +1,7 @@
 import {join} from 'path';
 import webpack from 'webpack';
 import autoprefixer from 'autoprefixer';
+import nested from 'postcss-nested';
 
 module.exports = ({
   context: __dirname,
@@ -43,7 +44,8 @@ module.exports = ({
   },
 
   postcss: [
-    autoprefixer({ browsers: ['last 2 versions'] })
+    autoprefixer({ browsers: ['last 2 versions'] }),
+    nested
   ],
 
   plugins: [
