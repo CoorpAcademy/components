@@ -3,6 +3,7 @@ import express from 'express';
 import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
+import join from 'lodash/fp/join';
 import keys from 'lodash/fp/keys';
 import map from 'lodash/fp/map';
 import config from './webpack.config';
@@ -43,7 +44,7 @@ const fonts = [
 
 app.get('/:engine*', (req, res) => {
   res.send(`
-    ${map(font => `<link rel="stylesheet" href="${font}"/>`, fonts)}
+    ${join('', map(font => `<link rel="stylesheet" href="${font}"/>`, fonts))}
     <div id="app"></div>
     <script>window.engine = '${req.params.engine}'</script>
     <script type="text/javascript" src="/dist/main.js"></script>

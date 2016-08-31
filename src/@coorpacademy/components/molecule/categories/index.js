@@ -1,5 +1,6 @@
-import pipe from 'lodash/fp/pipe';
 import find from 'lodash/fp/find';
+import getOr from 'lodash/fp/getOr';
+import pipe from 'lodash/fp/pipe';
 
 import createLink from '../../atom/link';
 import {checker, createValidate} from '../../util/validation';
@@ -55,7 +56,7 @@ export default (treant, options = {}) => {
           htmlFor='toggler'
           className={style.togglerDisplay}
         >
-          <span>{selectedCategory.name}</span>
+          <span>{getOr('', 'name', selectedCategory)}</span>
         </label>
         <span className={style.arrow}></span>
         <div className={style.category}>

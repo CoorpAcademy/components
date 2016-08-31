@@ -1,3 +1,4 @@
+import identity from 'lodash/fp/identity';
 import {checker, createValidate} from '../../../util/validation';
 import style from './style.css';
 import createSpinner from '../../../atom/spinner';
@@ -15,14 +16,15 @@ const conditions = checker.shape({
 
 export default (treant, options = {}) => {
   const {h} = treant;
+  const {translate = identity} = options;
   const Spinner = createSpinner(treant, options);
   const Categories = createCategories(treant, options);
   const CursusList = createCursusList(treant, options);
   const CatalogCards = createCatalogCards(treant, options);
 
-  const Catalog = ({title, categories, products, cursuses}, children) => (
+  const Catalog = ({categories, products, cursuses}, children) => (
     <div className={style.wrapper}>
-      <h1 className={style.title}>{title}</h1>
+      <h1 className={style.title}>{translate('Catalog')}</h1>
       <div className={style.catalogWrapper}>
         <div className={style.categoriesWrapper}>
           <Categories
