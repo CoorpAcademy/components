@@ -2,7 +2,6 @@
 
 export default {
   props: {
-    title: 'catalog-fixture',
     categories: [{
       name: 'Toutes les formations',
       href: '#'
