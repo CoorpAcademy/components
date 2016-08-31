@@ -15,8 +15,7 @@ export default {
       },
       {
         title: 'Cursus Stratégie Digitale',
-        href: '/plop',
-        selected: true
+        href: '/plop'
       },
       {
         title: 'Cursus Réseaux Sociaux',
