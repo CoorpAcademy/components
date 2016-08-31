@@ -15,7 +15,8 @@ const conditions = checker.shape({
     product: checker.object,
     onClick: checker.func,
     selected: checker.number,
-    levels: checker.arrayOf(checker.object)
+    levels: checker.arrayOf(checker.string),
+    discipline: checker.object
   }),
   children: checker.none
 });
@@ -35,16 +36,21 @@ export default (treant, options = {}) => {
   const cardsTitle = t('They also liked:');
 
   const ProductCourse = (props, children) => {
-    const {selected, product, levels, changeLevel, disciplines} = props;
+    const {
+      selected,
+      level,
+      levels,
+      changeLevel,
+      linkBuy,
+      maxPopularity,
+      relatedDisciplines
+    } = props;
 
-    const image = get('images.discipline_full_retina.url.https', product);
-    const title = getOrBlank('title', product);
-    const author = getOrBlank('author', product);
-    const description = getOrBlank('description', product);
-
-    const linkBuy = get('linkBuy', levels[selected]);
-    const rating = getOr(0, 'popularity', levels[selected]);
-    const maxRating = getOr(0, 'maxPopularity', levels[selected]);
+    const image = get('image', props);
+    const title = getOrBlank('title', props);
+    const author = getOrBlank('author', props);
+    const description = getOrBlank('description', props);
+    const rating = getOr(0, 'popularity', props);
 
     return (
       <div className={layout.wrapper}>
@@ -60,13 +66,13 @@ export default (treant, options = {}) => {
             linkBuy={linkBuy}
             author={author}
             rating={rating}
-            maxRating={maxRating}
+            maxRating={maxPopularity}
           />
         </div>
         <div className={layout.container}>
           <DisciplineScope
-            title={title}
-            product={product}
+            content={level}
+            levels={levels}
             selected={selected}
             onClick={changeLevel}
           />
@@ -76,7 +82,7 @@ export default (treant, options = {}) => {
             {cardsTitle}
           </span>
           <CatalogCards
-            products={disciplines}
+            products={relatedDisciplines}
           />
         </div>
       </div>

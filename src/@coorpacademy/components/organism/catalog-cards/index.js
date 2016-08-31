@@ -1,3 +1,5 @@
+import get from 'lodash/fp/get';
+import getOr from 'lodash/fp/getOr';
 import identity from 'lodash/fp/identity';
 import isEmpty from 'lodash/fp/isEmpty';
 import isNil from 'lodash/fp/isNil';
@@ -40,7 +42,12 @@ export default (treant, options = {}) => {
 
     const productViews = map(product => (
       <CatalogCard
-        product = {product}
+        rating={getOr(0, 'popularity', product)}
+        maxRating={getOr(0, 'maxPopularity', product)}
+        title={get('title', product)}
+        image={get('image', product)}
+        author={get('author', product)}
+        href={get('href', product)}
       >
       </CatalogCard>
     ), products);
