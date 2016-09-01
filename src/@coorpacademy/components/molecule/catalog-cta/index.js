@@ -34,8 +34,12 @@ export default (treant, options = {}) => {
   const HoverFill = HoverFillBehaviour(treant, options);
 
   const CatalogCTA = (props, children) => {
-    const {rating, maxRating, linkBuy} = props;
-    const linkTry = '#';
+    const {
+      rating,
+      maxRating,
+      linkBuy = '#',
+      linkTry = '#'
+    } = props;
 
     return (
       <div className={style.head}>

@@ -67,64 +67,7 @@ export default {
             }
           }
         },
-        images: {
-          discipline_thumb_retina: {
-            id: 1319423834507444200,
-            url: {
-              http: 'http://commercecdn.com/982563378880840279/84bf792c-7ed7-457a-8211-743a7bb11cf2.png',
-              https: 'https://commercecdn.com/982563378880840279/84bf792c-7ed7-457a-8211-743a7bb11cf2.png'
-            },
-            details: {
-              type: 'image',
-              size: 202953,
-              width: 540,
-              height: 360
-            },
-            name: 'discipline_thumb_retina'
-          },
-          discipline_thumb_sd: {
-            id: 1319423832796168200,
-            url: {
-              http: 'http://commercecdn.com/982563378880840279/f4c44385-0ad9-4219-9f6d-404c7aa4921b.png',
-              https: 'https://commercecdn.com/982563378880840279/f4c44385-0ad9-4219-9f6d-404c7aa4921b.png'
-            },
-            details: {
-              type: 'image',
-              size: 65898,
-              width: 270,
-              height: 180
-            },
-            name: 'discipline_thumb_sd'
-          },
-          discipline_full_sd: {
-            id: 1319423792363077600,
-            url: {
-              http: 'http://commercecdn.com/982563378880840279/a4548e99-2c6c-47bd-87c8-3fcb3b65efb9.png',
-              https: 'https://commercecdn.com/982563378880840279/a4548e99-2c6c-47bd-87c8-3fcb3b65efb9.png'
-            },
-            details: {
-              type: 'image',
-              size: 114928,
-              width: 370,
-              height: 250
-            },
-            name: 'discipline_full_sd'
-          },
-          discipline_full_retina: {
-            id: 1319423791314501600,
-            url: {
-              http: 'http://commercecdn.com/982563378880840279/40dd5939-4bf3-43bf-a788-273fba83d27e.png',
-              https: 'https://commercecdn.com/982563378880840279/40dd5939-4bf3-43bf-a788-273fba83d27e.png'
-            },
-            details: {
-              type: 'image',
-              size: 323120,
-              width: 740,
-              height: 500
-            },
-            name: 'discipline_full_retina'
-          }
-        },
+        image: 'https://commercecdn.com/982563378880840279/84bf792c-7ed7-457a-8211-743a7bb11cf2.png',
         author: 'Eléphant',
         popularity: 5,
         related_products: '21,26,29',
@@ -179,64 +122,7 @@ export default {
             }
           }
         },
-        images: {
-          discipline_thumb_retina: {
-            id: 1319633984388333800,
-            url: {
-              http: 'http://commercecdn.com/982563378880840279/a4305a2a-ed50-4138-a01c-cf3c31dd1811.png',
-              https: 'https://commercecdn.com/982563378880840279/a4305a2a-ed50-4138-a01c-cf3c31dd1811.png'
-            },
-            details: {
-              type: 'image',
-              size: 303898,
-              width: 540,
-              height: 360
-            },
-            name: 'discipline_thumb_retina'
-          },
-          discipline_thumb_sd: {
-            id: 1319633981989192000,
-            url: {
-              http: 'http://commercecdn.com/982563378880840279/25629fec-3577-468f-80d7-ea3eee1ba8d7.png',
-              https: 'https://commercecdn.com/982563378880840279/25629fec-3577-468f-80d7-ea3eee1ba8d7.png'
-            },
-            details: {
-              type: 'image',
-              size: 92833,
-              width: 270,
-              height: 180
-            },
-            name: 'discipline_thumb_sd'
-          },
-          discipline_full_retina: {
-            id: 1319633978566639900,
-            url: {
-              http: 'http://commercecdn.com/982563378880840279/24c92848-bab7-4e08-b4f3-c65d5b7682ca.png',
-              https: 'https://commercecdn.com/982563378880840279/24c92848-bab7-4e08-b4f3-c65d5b7682ca.png'
-            },
-            details: {
-              type: 'image',
-              size: 492821,
-              width: 740,
-              height: 500
-            },
-            name: 'discipline_full_retina'
-          },
-          discipline_full_sd: {
-            id: 1319633974766600400,
-            url: {
-              http: 'http://commercecdn.com/982563378880840279/31642d15-ba9d-4b9d-b6c4-14e5fdc956f4.png',
-              https: 'https://commercecdn.com/982563378880840279/31642d15-ba9d-4b9d-b6c4-14e5fdc956f4.png'
-            },
-            details: {
-              type: 'image',
-              size: 166480,
-              width: 370,
-              height: 250
-            },
-            name: 'discipline_full_sd'
-          }
-        },
+        image: 'https://commercecdn.com/982563378880840279/a4305a2a-ed50-4138-a01c-cf3c31dd1811.png',
         author: 'We Demain',
         popularity: 5,
         related_products: '24,25,31',
@@ -291,64 +177,7 @@ export default {
             }
           }
         },
-        images: {
-          discipline_thumb_retina: {
-            id: 1319423884369330200,
-            url: {
-              http: 'http://commercecdn.com/982563378880840279/1eed915d-63cf-4cc6-a421-52d9daed8360.png',
-              https: 'https://commercecdn.com/982563378880840279/1eed915d-63cf-4cc6-a421-52d9daed8360.png'
-            },
-            details: {
-              type: 'image',
-              size: 71985,
-              width: 540,
-              height: 360
-            },
-            name: 'discipline_thumb_retina'
-          },
-          discipline_thumb_sd: {
-            id: 1319423883220091000,
-            url: {
-              http: 'http://commercecdn.com/982563378880840279/f04a39f7-c55a-4c81-8307-05f474b2e69e.png',
-              https: 'https://commercecdn.com/982563378880840279/f04a39f7-c55a-4c81-8307-05f474b2e69e.png'
-            },
-            details: {
-              type: 'image',
-              size: 33033,
-              width: 270,
-              height: 180
-            },
-            name: 'discipline_thumb_sd'
-          },
-          discipline_full_sd: {
-            id: 1319423838945017900,
-            url: {
-              http: 'http://commercecdn.com/982563378880840279/ac2ef37a-5c25-4bdf-b4e3-30b9aadc0442.png',
-              https: 'https://commercecdn.com/982563378880840279/ac2ef37a-5c25-4bdf-b4e3-30b9aadc0442.png'
-            },
-            details: {
-              type: 'image',
-              size: 47729,
-              width: 370,
-              height: 250
-            },
-            name: 'discipline_full_sd'
-          },
-          discipline_full_retina: {
-            id: 1319423838735302700,
-            url: {
-              http: 'http://commercecdn.com/982563378880840279/a8962852-1d5a-4075-8702-49c847876de5.png',
-              https: 'https://commercecdn.com/982563378880840279/a8962852-1d5a-4075-8702-49c847876de5.png'
-            },
-            details: {
-              type: 'image',
-              size: 103011,
-              width: 740,
-              height: 500
-            },
-            name: 'discipline_full_retina'
-          }
-        },
+        image: 'https://commercecdn.com/982563378880840279/1eed915d-63cf-4cc6-a421-52d9daed8360.png',
         author: 'Bocquet',
         popularity: 5,
         related_products: '21,27,28',
@@ -403,64 +232,7 @@ export default {
             }
           }
         },
-        images: {
-          discipline_thumb_retina: {
-            id: 1319633998531527000,
-            url: {
-              http: 'http://commercecdn.com/982563378880840279/fa451959-f70b-4552-a9c7-a85d81ffc914.png',
-              https: 'https://commercecdn.com/982563378880840279/fa451959-f70b-4552-a9c7-a85d81ffc914.png'
-            },
-            details: {
-              type: 'image',
-              size: 255689,
-              width: 540,
-              height: 360
-            },
-            name: 'discipline_thumb_retina'
-          },
-          discipline_thumb_sd: {
-            id: 1319633987886383400,
-            url: {
-              http: 'http://commercecdn.com/982563378880840279/e0a57cad-b114-4c44-b925-98552ffe3f44.png',
-              https: 'https://commercecdn.com/982563378880840279/e0a57cad-b114-4c44-b925-98552ffe3f44.png'
-            },
-            details: {
-              type: 'image',
-              size: 77909,
-              width: 270,
-              height: 180
-            },
-            name: 'discipline_thumb_sd'
-          },
-          discipline_full_retina: {
-            id: 1319633980831564000,
-            url: {
-              http: 'http://commercecdn.com/982563378880840279/7176a4f6-1a9f-44bd-8464-4ed6edb3715b.png',
-              https: 'https://commercecdn.com/982563378880840279/7176a4f6-1a9f-44bd-8464-4ed6edb3715b.png'
-            },
-            details: {
-              type: 'image',
-              size: 429108,
-              width: 740,
-              height: 500
-            },
-            name: 'discipline_full_retina'
-          },
-          discipline_full_sd: {
-            id: 1319633977610338600,
-            url: {
-              http: 'http://commercecdn.com/982563378880840279/c22dd0f4-505d-4d83-a676-ac0128969c1c.png',
-              https: 'https://commercecdn.com/982563378880840279/c22dd0f4-505d-4d83-a676-ac0128969c1c.png'
-            },
-            details: {
-              type: 'image',
-              size: 136255,
-              width: 370,
-              height: 250
-            },
-            name: 'discipline_full_sd'
-          }
-        },
+        image: 'https://commercecdn.com/982563378880840279/fa451959-f70b-4552-a9c7-a85d81ffc914.png',
         author: 'SVP',
         popularity: 5,
         related_products: '24,30,31',
@@ -515,64 +287,7 @@ export default {
             }
           }
         },
-        images: {
-          discipline_thumb_retina: {
-            id: 1319423868456140800,
-            url: {
-              http: 'http://commercecdn.com/982563378880840279/a0549750-4325-44f3-ab39-ed25ccb9e894.png',
-              https: 'https://commercecdn.com/982563378880840279/a0549750-4325-44f3-ab39-ed25ccb9e894.png'
-            },
-            details: {
-              type: 'image',
-              size: 58098,
-              width: 540,
-              height: 360
-            },
-            name: 'discipline_thumb_retina'
-          },
-          discipline_thumb_sd: {
-            id: 1319423862072410000,
-            url: {
-              http: 'http://commercecdn.com/982563378880840279/9df18c80-19fb-41ae-95a3-800b319dd2e5.png',
-              https: 'https://commercecdn.com/982563378880840279/9df18c80-19fb-41ae-95a3-800b319dd2e5.png'
-            },
-            details: {
-              type: 'image',
-              size: 25440,
-              width: 270,
-              height: 180
-            },
-            name: 'discipline_thumb_sd'
-          },
-          discipline_full_sd: {
-            id: 1319423794678333400,
-            url: {
-              http: 'http://commercecdn.com/982563378880840279/f612ad5b-fa5f-4151-a25f-45ee7ce3fdf2.png',
-              https: 'https://commercecdn.com/982563378880840279/f612ad5b-fa5f-4151-a25f-45ee7ce3fdf2.png'
-            },
-            details: {
-              type: 'image',
-              size: 37465,
-              width: 370,
-              height: 250
-            },
-            name: 'discipline_full_sd'
-          },
-          discipline_full_retina: {
-            id: 1319423793763975200,
-            url: {
-              http: 'http://commercecdn.com/982563378880840279/76292bce-4e31-45e9-b271-6aabf2c53751.png',
-              https: 'https://commercecdn.com/982563378880840279/76292bce-4e31-45e9-b271-6aabf2c53751.png'
-            },
-            details: {
-              type: 'image',
-              size: 83735,
-              width: 740,
-              height: 500
-            },
-            name: 'discipline_full_retina'
-          }
-        },
+        image: 'https://commercecdn.com/982563378880840279/a0549750-4325-44f3-ab39-ed25ccb9e894.png',
         author: 'Bocquet',
         popularity: 5,
         related_products: '20,26,29',
@@ -627,64 +342,7 @@ export default {
             }
           }
         },
-        images: {
-          discipline_thumb_retina: {
-            id: 1319423833635029000,
-            url: {
-              http: 'http://commercecdn.com/982563378880840279/5c9b49a7-94de-44dc-bfad-8d40aa6dcf27.png',
-              https: 'https://commercecdn.com/982563378880840279/5c9b49a7-94de-44dc-bfad-8d40aa6dcf27.png'
-            },
-            details: {
-              type: 'image',
-              size: 253552,
-              width: 540,
-              height: 360
-            },
-            name: 'discipline_thumb_retina'
-          },
-          discipline_thumb_sd: {
-            id: 1319423831009394700,
-            url: {
-              http: 'http://commercecdn.com/982563378880840279/56ff6ec8-76a1-4eb5-839a-748d47cf1b1e.png',
-              https: 'https://commercecdn.com/982563378880840279/56ff6ec8-76a1-4eb5-839a-748d47cf1b1e.png'
-            },
-            details: {
-              type: 'image',
-              size: 76581,
-              width: 270,
-              height: 180
-            },
-            name: 'discipline_thumb_sd'
-          },
-          discipline_full_retina: {
-            id: 1319423789200572400,
-            url: {
-              http: 'http://commercecdn.com/982563378880840279/8f140673-bedf-402d-9231-6e4429a67f5b.png',
-              https: 'https://commercecdn.com/982563378880840279/8f140673-bedf-402d-9231-6e4429a67f5b.png'
-            },
-            details: {
-              type: 'image',
-              size: 421416,
-              width: 740,
-              height: 500
-            },
-            name: 'discipline_full_retina'
-          },
-          discipline_full_sd: {
-            id: 1319423788839862300,
-            url: {
-              http: 'http://commercecdn.com/982563378880840279/d2f34429-4383-4026-aacc-44cba48d8e7c.png',
-              https: 'https://commercecdn.com/982563378880840279/d2f34429-4383-4026-aacc-44cba48d8e7c.png'
-            },
-            details: {
-              type: 'image',
-              size: 134897,
-              width: 370,
-              height: 250
-            },
-            name: 'discipline_full_sd'
-          }
-        },
+        image: 'https://commercecdn.com/982563378880840279/5c9b49a7-94de-44dc-bfad-8d40aa6dcf27.png',
         author: 'Eléphant',
         popularity: 5,
         related_products: '20,27,28',
@@ -739,64 +397,7 @@ export default {
             }
           }
         },
-        images: {
-          discipline_thumb_retina: {
-            id: 1319423833089769500,
-            url: {
-              http: 'http://commercecdn.com/982563378880840279/9915c6f4-3503-45be-a5b5-251fe5b8a1ea.png',
-              https: 'https://commercecdn.com/982563378880840279/9915c6f4-3503-45be-a5b5-251fe5b8a1ea.png'
-            },
-            details: {
-              type: 'image',
-              size: 172825,
-              width: 540,
-              height: 360
-            },
-            name: 'discipline_thumb_retina'
-          },
-          discipline_thumb_sd: {
-            id: 1319423829574942700,
-            url: {
-              http: 'http://commercecdn.com/982563378880840279/784cd7f6-d0e9-4136-a467-1428931d4906.png',
-              https: 'https://commercecdn.com/982563378880840279/784cd7f6-d0e9-4136-a467-1428931d4906.png'
-            },
-            details: {
-              type: 'image',
-              size: 52544,
-              width: 270,
-              height: 180
-            },
-            name: 'discipline_thumb_sd'
-          },
-          discipline_full_retina: {
-            id: 1319423784939159600,
-            url: {
-              http: 'http://commercecdn.com/982563378880840279/c715b21d-1571-4dd9-95a7-a9203406c281.png',
-              https: 'https://commercecdn.com/982563378880840279/c715b21d-1571-4dd9-95a7-a9203406c281.png'
-            },
-            details: {
-              type: 'image',
-              size: 270665,
-              width: 740,
-              height: 500
-            },
-            name: 'discipline_full_retina'
-          },
-          discipline_full_sd: {
-            id: 1319423783135608800,
-            url: {
-              http: 'http://commercecdn.com/982563378880840279/d62b8c6d-49cc-4d54-b678-a9f272259315.png',
-              https: 'https://commercecdn.com/982563378880840279/d62b8c6d-49cc-4d54-b678-a9f272259315.png'
-            },
-            details: {
-              type: 'image',
-              size: 94808,
-              width: 370,
-              height: 250
-            },
-            name: 'discipline_full_sd'
-          }
-        },
+        image: 'https://commercecdn.com/982563378880840279/9915c6f4-3503-45be-a5b5-251fe5b8a1ea.png',
         author: 'SVP',
         popularity: 5,
         related_products: '25,30,31',
@@ -851,64 +452,7 @@ export default {
             }
           }
         },
-        images: {
-          discipline_thumb_retina: {
-            id: 1319423876173660200,
-            url: {
-              http: 'http://commercecdn.com/982563378880840279/00c09b7e-36a3-47c6-97c7-88f5cb7499c9.png',
-              https: 'https://commercecdn.com/982563378880840279/00c09b7e-36a3-47c6-97c7-88f5cb7499c9.png'
-            },
-            details: {
-              type: 'image',
-              size: 155815,
-              width: 540,
-              height: 360
-            },
-            name: 'discipline_thumb_retina'
-          },
-          discipline_thumb_sd: {
-            id: 1319423871601868800,
-            url: {
-              http: 'http://commercecdn.com/982563378880840279/11616ed4-c3e9-458e-aa87-d9196864fbfa.png',
-              https: 'https://commercecdn.com/982563378880840279/11616ed4-c3e9-458e-aa87-d9196864fbfa.png'
-            },
-            details: {
-              type: 'image',
-              size: 50399,
-              width: 270,
-              height: 180
-            },
-            name: 'discipline_thumb_sd'
-          },
-          discipline_full_retina: {
-            id: 1319423828912242700,
-            url: {
-              http: 'http://commercecdn.com/982563378880840279/34a88c74-03ce-4edd-919c-ce54213495e4.png',
-              https: 'https://commercecdn.com/982563378880840279/34a88c74-03ce-4edd-919c-ce54213495e4.png'
-            },
-            details: {
-              type: 'image',
-              size: 257091,
-              width: 740,
-              height: 500
-            },
-            name: 'discipline_full_retina'
-          },
-          discipline_full_sd: {
-            id: 1319423822922776600,
-            url: {
-              http: 'http://commercecdn.com/982563378880840279/233e2e51-bf3e-4ef7-a91d-726e7f7047ad.png',
-              https: 'https://commercecdn.com/982563378880840279/233e2e51-bf3e-4ef7-a91d-726e7f7047ad.png'
-            },
-            details: {
-              type: 'image',
-              size: 84929,
-              width: 370,
-              height: 250
-            },
-            name: 'discipline_full_sd'
-          }
-        },
+        image: 'https://commercecdn.com/982563378880840279/00c09b7e-36a3-47c6-97c7-88f5cb7499c9.png',
         author: 'We Demain',
         popularity: 5,
         related_products: '24,25,30',
@@ -963,64 +507,7 @@ export default {
             }
           }
         },
-        images: {
-          discipline_thumb_retina: {
-            id: 1319423813435261000,
-            url: {
-              http: 'http://commercecdn.com/982563378880840279/be5fe1b7-cd7a-467a-ac77-62b702ad6e8f.png',
-              https: 'https://commercecdn.com/982563378880840279/be5fe1b7-cd7a-467a-ac77-62b702ad6e8f.png'
-            },
-            details: {
-              type: 'image',
-              size: 390895,
-              width: 540,
-              height: 360
-            },
-            name: 'discipline_thumb_retina'
-          },
-          discipline_thumb_sd: {
-            id: 1319423808318210000,
-            url: {
-              http: 'http://commercecdn.com/982563378880840279/726a21e6-f146-4b7c-b15d-9ffe0ab08750.png',
-              https: 'https://commercecdn.com/982563378880840279/726a21e6-f146-4b7c-b15d-9ffe0ab08750.png'
-            },
-            details: {
-              type: 'image',
-              size: 101808,
-              width: 270,
-              height: 180
-            },
-            name: 'discipline_thumb_sd'
-          },
-          discipline_full_retina: {
-            id: 1319423734104195000,
-            url: {
-              http: 'http://commercecdn.com/982563378880840279/8767fecf-88b5-4b49-aa83-2ee9ecd3a3f5.png',
-              https: 'https://commercecdn.com/982563378880840279/8767fecf-88b5-4b49-aa83-2ee9ecd3a3f5.png'
-            },
-            details: {
-              type: 'image',
-              size: 720992,
-              width: 740,
-              height: 500
-            },
-            name: 'discipline_full_retina'
-          },
-          discipline_full_sd: {
-            id: 1319423731235291100,
-            url: {
-              http: 'http://commercecdn.com/982563378880840279/5c24c1f8-d45e-4cfa-9f42-b5d3a8f554d0.png',
-              https: 'https://commercecdn.com/982563378880840279/5c24c1f8-d45e-4cfa-9f42-b5d3a8f554d0.png'
-            },
-            details: {
-              type: 'image',
-              size: 189628,
-              width: 370,
-              height: 250
-            },
-            name: 'discipline_full_sd'
-          }
-        },
+        image: 'https://commercecdn.com/982563378880840279/be5fe1b7-cd7a-467a-ac77-62b702ad6e8f.png',
         author: 'Coorpacademy',
         popularity: 5,
         related_products: '2,5,13',
@@ -1080,64 +567,7 @@ export default {
             }
           }
         },
-        images: {
-          discipline_thumb_retina: {
-            id: 1319423807588401200,
-            url: {
-              http: 'http://commercecdn.com/982563378880840279/e365d5e0-f80d-4dbd-9f70-88a1b40e5633.png',
-              https: 'https://commercecdn.com/982563378880840279/e365d5e0-f80d-4dbd-9f70-88a1b40e5633.png'
-            },
-            details: {
-              type: 'image',
-              size: 257577,
-              width: 540,
-              height: 360
-            },
-            name: 'discipline_thumb_retina'
-          },
-          discipline_thumb_sd: {
-            id: 1319423801145950200,
-            url: {
-              http: 'http://commercecdn.com/982563378880840279/5645b420-d67b-4371-b5b8-a1597e3eddad.png',
-              https: 'https://commercecdn.com/982563378880840279/5645b420-d67b-4371-b5b8-a1597e3eddad.png'
-            },
-            details: {
-              type: 'image',
-              size: 73448,
-              width: 270,
-              height: 180
-            },
-            name: 'discipline_thumb_sd'
-          },
-          discipline_full_retina: {
-            id: 1319423722863460400,
-            url: {
-              http: 'http://commercecdn.com/982563378880840279/d2f5edfc-c15e-4a02-aa69-470b2b0f079e.png',
-              https: 'https://commercecdn.com/982563378880840279/d2f5edfc-c15e-4a02-aa69-470b2b0f079e.png'
-            },
-            details: {
-              type: 'image',
-              size: 452894,
-              width: 740,
-              height: 500
-            },
-            name: 'discipline_full_retina'
-          },
-          discipline_full_sd: {
-            id: 1319423722855071700,
-            url: {
-              http: 'http://commercecdn.com/982563378880840279/640cb209-5289-40a3-a3f6-f6b72170efd7.png',
-              https: 'https://commercecdn.com/982563378880840279/640cb209-5289-40a3-a3f6-f6b72170efd7.png'
-            },
-            details: {
-              type: 'image',
-              size: 131958,
-              width: 370,
-              height: 250
-            },
-            name: 'discipline_full_sd'
-          }
-        },
+        image: 'https://commercecdn.com/982563378880840279/e365d5e0-f80d-4dbd-9f70-88a1b40e5633.png',
         author: 'Coorpacademy',
         popularity: 5,
         related_products: '2,5,13',
