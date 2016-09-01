@@ -16,6 +16,7 @@ export default {
     image,
     badge,
     linkBuy,
+    linkTry,
     rating,
     maxRating,
     assets,
