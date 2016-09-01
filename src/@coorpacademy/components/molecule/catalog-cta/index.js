@@ -12,7 +12,7 @@ const conditions = checker.shape({
     maxRating: checker.number,
     linkTry: checker.string,
     linkBuy: checker.string
-  }),
+  }).strict,
   children: checker.none
 });
 

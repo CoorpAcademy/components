@@ -8,9 +8,10 @@ const conditions = checker.shape({
     rating: checker.number,
     maxRating: checker.number,
     linkBuy: checker.string,
+    linkTry: checker.string,
     assets: checker.array,
     badge: checker.url
-  }),
+  }).strict,
   children: checker.none
 });
 

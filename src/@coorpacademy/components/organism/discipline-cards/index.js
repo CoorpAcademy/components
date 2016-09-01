@@ -9,7 +9,7 @@ const conditions = checker.shape({
     disciplines: checker.array,
     onModuleClick: checker.func,
     onDisciplineClick: checker.func
-  }),
+  }).strict,
   children: checker.none
 });
 

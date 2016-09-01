@@ -18,7 +18,7 @@ const conditions = checker.shape({
       name: checker.string,
       socialLinks: checker.array
     })
-  }),
+  }).strict,
   children: checker.none
 });
 

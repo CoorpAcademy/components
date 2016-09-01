@@ -8,7 +8,7 @@ const conditions = checker.shape({
   props: checker.shape({
     rating: checker.number,
     total: checker.number
-  }),
+  }).strict,
   children: checker.none
 });
 

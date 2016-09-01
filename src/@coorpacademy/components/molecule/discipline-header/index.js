@@ -7,7 +7,7 @@ const conditions = checker.shape({
     image: checker.string,
     title: checker.string,
     description: checker.string
-  }),
+  }).strict,
   children: checker.none
 });
 

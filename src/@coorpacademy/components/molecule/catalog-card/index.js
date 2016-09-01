@@ -15,7 +15,7 @@ const conditions = checker.shape({
     image: checker.string,
     author: checker.string,
     href: checker.string
-  }),
+  }).strict,
   children: checker.none
 });
 

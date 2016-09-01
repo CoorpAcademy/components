@@ -13,8 +13,8 @@ import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({
-    products: checker.arrayOf(checker.object)
-  }),
+    products: checker.arrayOf(checker.object).optional
+  }).strict,
   children: checker.none
 });
 

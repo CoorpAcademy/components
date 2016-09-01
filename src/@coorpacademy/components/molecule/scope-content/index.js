@@ -10,8 +10,8 @@ const conditions = checker.shape({
       skills: checker.arrayOf(checker.string),
       chapters: checker.arrayOf(checker.object),
       course_scope: checker.arrayOf(checker.string)
-    })
-  }),
+    }).strict
+  }).strict,
   children: checker.none
 });
 

@@ -11,9 +11,16 @@ const CLOSED = 'closed';
 
 const conditions = checker.shape({
   props: checker.shape({
+    close: checker.func.optional,
+    onToggle: checker.func.optional,
+    onClose: checker.func.optional,
+    onOpen: checker.func.optional,
+    theme: checker.string.optional,
+    mode: checker.string.optional,
+    status: checker.string.optional,
     title: checker.string,
     choices: checker.array
-  }),
+  }).strict,
   children: checker.none
 });
 

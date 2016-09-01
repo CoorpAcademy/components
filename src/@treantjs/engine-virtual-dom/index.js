@@ -1,4 +1,5 @@
 import isString from 'lodash/fp/isString';
+import isFunction from 'lodash/fp/isFunction';
 import mapKeys from 'lodash/fp/mapKeys';
 
 import walker from '../../@treantjs/core/walker';

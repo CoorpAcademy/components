@@ -12,21 +12,23 @@ const getOrBlank = getOr('');
 
 const conditions = checker.shape({
   props: checker.shape({
-    popularity: checker.number,
-    maxPopularity: checker.number,
-    title: checker.string,
-    description: checker.string,
-    image: checker.string,
-    linkBuy: checker.string,
-    linkTry: checker.string,
+    popularity: checker.number.optional,
+    maxPopularity: checker.number.optional,
+    title: checker.string.optional,
+    description: checker.string.optional,
+    image: checker.string.optional,
+    linkBuy: checker.string.optional,
+    linkTry: checker.string.optional,
     author: checker.shape({
       name: checker.string,
       socialLinks: checker.array
-    }),
-    relatedDisciplines: checker.array,
-    level: checker.object,
-    levels: checker.arrayOf(checker.string)
-  }),
+    }).optional,
+    relatedDisciplines: checker.array.optional,
+    level: checker.object.optional,
+    levels: checker.arrayOf(checker.string).optional,
+    selected: checker.number.optional,
+    changeLevel: checker.func.optional
+  }).strict,
   children: checker.none
 });
 

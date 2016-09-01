@@ -8,11 +8,17 @@ import createCatalogCards from '../../../organism/catalog-cards';
 
 const conditions = checker.shape({
   props: checker.shape({
-    cursus: checker.object,
-    linkBuy: checker.url,
-    linkTry: checker.url,
-    maxRating: checker.number
-  }),
+    title: checker.string,
+    description: checker.string,
+    image: checker.url,
+    badge: checker.url,
+    linkBuy: checker.string,
+    linkTry: checker.string,
+    rating: checker.number,
+    maxRating: checker.number,
+    assets: checker.arrayOf(checker.string),
+    disciplines: checker.arrayOf(checker.object)
+  }).strict,
   children: checker.none
 });
 
