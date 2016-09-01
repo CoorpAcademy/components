@@ -4,7 +4,7 @@ import cursusRightAside from '../../../../../organism/cursus-rightaside/test/fix
 import catalogCards from '../../../../../organism/catalog-cards/test/fixtures/default';
 
 const {title, description, image} = cursusHeader.props;
-const {rating, maxRating, linkBuy, linkLearn, assets, badge} = cursusRightAside.props;
+const {rating, maxRating, linkBuy, linkTry, assets, badge} = cursusRightAside.props;
 const {products} = catalogCards.props;
 
 /* eslint-disable max-len */

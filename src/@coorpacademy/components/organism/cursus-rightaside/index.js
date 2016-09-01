@@ -27,7 +27,7 @@ export default (treant, options = {}) => {
   const assetsLabel = t('assets');
 
   const CursusRightaside = (props, children) => {
-    const {rating, maxRating, linkBuy, linkLearn, badge, assets = []} = props;
+    const {rating, maxRating, linkBuy, linkTry, badge, assets = []} = props;
 
     const assetsView = assets.map(asset => (
       <li className={style.asset}>{asset}</li>
@@ -40,7 +40,7 @@ export default (treant, options = {}) => {
             rating={rating}
             maxRating={maxRating}
             linkBuy={linkBuy}
-            linkLearn={linkLearn}
+            linkTry={linkTry}
           />
         </div>
 

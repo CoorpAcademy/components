@@ -18,7 +18,7 @@ const conditions = checker.shape({
     description: checker.string,
     image: checker.string,
     linkBuy: checker.string,
-    linkLearn: checker.string,
+    linkTry: checker.string,
     author: checker.shape({
       name: checker.string,
       socialLinks: checker.array

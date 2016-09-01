@@ -1,12 +1,12 @@
 import catalogCTA from '../../../../molecule/catalog-cta/test/fixtures/default';
-const {rating, maxRating, linkBuy, linkLearn} = catalogCTA.props;
+const {rating, maxRating, linkBuy, linkTry} = catalogCTA.props;
 
 export default {
   props: {
     rating,
     maxRating,
     linkBuy,
-    linkLearn,
+    linkTry,
     assets: [
       '2 DISCIPLINES',
       '144 QUESTIONS',

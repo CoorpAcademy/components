@@ -10,7 +10,7 @@ const conditions = checker.shape({
   props: checker.shape({
     rating: checker.number,
     maxRating: checker.number,
-    linkLearn: checker.string,
+    linkTry: checker.string,
     linkBuy: checker.string
   }),
   children: checker.none
