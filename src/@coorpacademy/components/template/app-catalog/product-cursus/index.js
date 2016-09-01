@@ -1,5 +1,3 @@
-import get from 'lodash/fp/get';
-import getOr from 'lodash/fp/getOr';
 import { checker, createValidate } from '../../../util/validation';
 import layout from '../layout.css';
 import style from './style.css';
@@ -8,12 +6,11 @@ import createCursusHeader from '../../../molecule/cursus-header';
 import createCursusRightaside from '../../../organism/cursus-rightaside';
 import createCatalogCards from '../../../organism/catalog-cards';
 
-const getOrBlank = getOr('');
-
 const conditions = checker.shape({
   props: checker.shape({
     cursus: checker.object,
     linkBuy: checker.url,
+    linkTry: checker.url,
     maxRating: checker.number
   }),
   children: checker.none
@@ -35,17 +32,17 @@ export default (treant, options = {}) => {
   const ProductCursus = (props, children) => {
     const {
       disciplines,
-      maxRating
+      maxRating,
+      image,
+      badge,
+      title = '',
+      author = '',
+      description = '',
+      rating = 0,
+      assets,
+      linkBuy,
+      linkTry
     } = props;
-
-    const image = get('image', props);
-    const badge = get('badge', props);
-    const title = getOrBlank('title', props);
-    const author = getOrBlank('author', props);
-    const description = getOrBlank('description', props);
-    const rating = getOr(0, 'rating', props);
-    const assets = get('assets', props);
-    const linkBuy = get('linkBuy', props);
 
     return (
       <div className={layout.wrapper}>
@@ -63,6 +60,7 @@ export default (treant, options = {}) => {
             rating={rating}
             maxRating={maxRating}
             linkBuy={linkBuy}
+            linkTry={linkTry}
           />
         </div>
         <div className={layout.container}>

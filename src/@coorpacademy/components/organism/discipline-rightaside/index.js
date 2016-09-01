@@ -59,9 +59,6 @@ export default (treant, options = {}) => {
           <div className={style.title}>
             {author.name}
           </div>
-          <div>
-            TODO {socialView}
-          </div>
         </div>
       </div>
     );
