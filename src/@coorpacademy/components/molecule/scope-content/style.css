@@ -73,6 +73,8 @@
 .dottedlist li {
   line-height: 26px;
   font-size: 14px;
+  font-family: "Open Sans";
+  color: #546E7A;
 }
 
 .dotscontainer {
@@ -85,7 +87,7 @@
   width: 10px;
   box-sizing: border-box;
   padding: 15px 0;
-  left: 5px;
+  left: 4px;
 }
 
 .dots:before {
@@ -108,19 +110,21 @@
 
 .roundedlist li {
   line-height: 26px;
-  font-size: 13px;
+  font-size: 14px;
+  font-family: "Open Sans";
+  color: #546E7A;
 }
 
 .roundedlist li:before {
   display: inline-block;
   position: relative;
-  z-index: 2px;
+  z-index: 2;
   margin-right: 10px;
   border-radius: 50%;
   border: 2px solid black;
   background: white;
-  width: 8px;
-  height: 8px;
+  width: 9px;
+  height: 9px;
   content: '';
 }
 
@@ -144,19 +148,21 @@
   letter-spacing: 0.1px;
   border-right: solid 1px #E3E3E3;
   vertical-align: top;
+  height: 100%;
 }
 
 .assetDesc {
   display: inline-block;
   width: auto;
-  font-family: "Open Sans";
-  font-size: 12px;
-  color: #607D8B;
   padding: 20px;
 }
 
 .courseScope span {
   margin-right: 10px;
+  font-size: 12px;
+  font-family: "Open Sans";
+  font-weight: 400;
+  color: #607D8B;
 }
 
 @media desktop {

@@ -15,7 +15,7 @@ const conditions = checker.shape({
 export default (treant, options = {}) => {
   const StarRating = (props, children) => {
     const {h} = treant;
-    const {rating, total} = props;
+    const {rating = 0, total = 5} = props;
 
     const Star = createStar(treant, options);
 

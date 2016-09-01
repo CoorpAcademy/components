@@ -29,7 +29,7 @@ export default (treant, options = {}) => {
 
   const CatalogCard = (props, children) => {
     const {h} = treant;
-    const {maxRating} = props;
+    const {maxRating = 5, rating = 0} = props;
 
     const href = getOr('', 'href', props);
     const image = getOr(null, 'image', props);
@@ -52,7 +52,7 @@ export default (treant, options = {}) => {
           </div>
           <div className={style.subtitle}>{translate('by {{author}}', props)}</div>
           <StarRating
-            rating={getOr(0, 'rating', props)}
+            rating={rating}
             total={maxRating}
           />
         </div>
