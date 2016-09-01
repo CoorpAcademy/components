@@ -12,6 +12,7 @@ const conditions = checker.shape({
     rating: checker.number,
     maxRating: checker.number,
     linkBuy: checker.string,
+    linkTry: checker.string,
     author: checker.string
   }),
   children: checker.none
@@ -31,7 +32,7 @@ export default (treant, options = {}) => {
   const authorLabel = t('author');
 
   const DisciplineRightaside = (props, children) => {
-    const {rating, maxRating, linkBuy, author} = props;
+    const {rating, maxRating, linkBuy, linkTry, author} = props;
 
     return (
       <div className={style.col}>
@@ -40,6 +41,7 @@ export default (treant, options = {}) => {
             rating={rating}
             maxRating={maxRating}
             linkBuy={linkBuy}
+            linkTry={linkTry}
           />
         </div>
         <div className={style.colDetails}>

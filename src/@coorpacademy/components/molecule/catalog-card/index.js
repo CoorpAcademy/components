@@ -1,5 +1,6 @@
 import identity from 'lodash/fp/identity';
 import getOr from 'lodash/fp/getOr';
+import get from 'lodash/fp/get';
 import {checker, createValidate} from '../../util/validation';
 import createStarRating from '../star-rating';
 import createLink from '../../atom/link';
@@ -29,10 +30,13 @@ export default (treant, options = {}) => {
 
   const CatalogCard = (props, children) => {
     const {h} = treant;
-    const {maxRating = 5, rating = 0} = props;
 
-    const href = getOr('', 'href', props);
-    const image = getOr(null, 'image', props);
+    const {
+      maxRating = 5,
+      rating = 0,
+      href = '',
+      image
+    } = props;
 
     return (
       <li className={style.catalogListItem}>

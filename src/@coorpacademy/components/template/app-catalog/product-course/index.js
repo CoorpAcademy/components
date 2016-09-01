@@ -42,6 +42,7 @@ export default (treant, options = {}) => {
       levels,
       changeLevel,
       linkBuy,
+      linkTry,
       maxPopularity,
       relatedDisciplines
     } = props;
@@ -64,6 +65,7 @@ export default (treant, options = {}) => {
         <div className={layout.colContainer}>
           <DisciplineRightaside
             linkBuy={linkBuy}
+            linkTry={linkTry}
             author={author}
             rating={rating}
             maxRating={maxPopularity}
