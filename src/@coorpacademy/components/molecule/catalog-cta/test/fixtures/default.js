@@ -1,7 +1,8 @@
 export default {
   props: {
-    product: {
-      author: 'plop'
-    }
+    rating: 3,
+    maxRating: 5,
+    linkBuy: '/buy',
+    linkLearn: '/learn'
   }
 };

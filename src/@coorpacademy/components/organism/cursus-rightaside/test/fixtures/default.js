@@ -1,8 +1,12 @@
+import catalogCTA from '../../../../molecule/catalog-cta/test/fixtures/default';
+const {rating, maxRating, linkBuy, linkLearn} = catalogCTA.props;
+
 export default {
   props: {
-    rating: 3,
-    maxRating: 5,
-    linkBuy: 'http://plop.com',
+    rating,
+    maxRating,
+    linkBuy,
+    linkLearn,
     assets: ['foo', 'bar', 'baz'],
     badge: 'https://unsplash.it/200/200/?random'
   }

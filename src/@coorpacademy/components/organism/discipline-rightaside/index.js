@@ -13,7 +13,10 @@ const conditions = checker.shape({
     maxRating: checker.number,
     linkBuy: checker.string,
     linkTry: checker.string,
-    author: checker.string
+    author: checker.shape({
+      name: checker.string,
+      socialLinks: checker.array
+    })
   }),
   children: checker.none
 });
@@ -34,6 +37,10 @@ export default (treant, options = {}) => {
   const DisciplineRightaside = (props, children) => {
     const {rating, maxRating, linkBuy, linkTry, author} = props;
 
+    const socialView = author.socialLinks.map(social => (
+      <a className={style.TODO}>{social.ref}{social.link}</a>
+    ));
+
     return (
       <div className={style.col}>
         <div className={style.ctaWrapper}>
@@ -49,7 +56,10 @@ export default (treant, options = {}) => {
             {authorLabel}
           </div>
           <div className={style.title}>
-            {author}
+            {author.name}
+          </div>
+          <div>
+            TODO {socialView}
           </div>
         </div>
       </div>
