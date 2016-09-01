@@ -1,5 +1,6 @@
 import {checker, createValidate} from '../../util/validation';
 import getOr from 'lodash/fp/getOr';
+import map from 'lodash/fp/map';
 import style from './style.css';
 import hyperx from 'hyperx';
 import createStarRating from '../../molecule/star-rating';
@@ -37,9 +38,9 @@ export default (treant, options = {}) => {
   const DisciplineRightaside = (props, children) => {
     const {rating, maxRating, linkBuy, linkTry, author} = props;
 
-    const socialView = author.socialLinks.map(social => (
+    const socialView = map(social => (
       <a className={style.TODO}>{social.ref}{social.link}</a>
-    ));
+    ), author.socialLinks);
 
     return (
       <div className={style.col}>
