@@ -1,6 +1,11 @@
 import take from 'lodash/fp/take';
+import disciplineHeader from '../../../../../molecule/discipline-header/test/fixtures/default';
+import disciplineRightAside from '../../../../../organism/discipline-rightaside/test/fixtures/default';
 import disciplineScope from '../../../../../molecule/discipline-scope/test/fixtures/default';
 import catalogCards from '../../../../../organism/catalog-cards/test/fixtures/default';
+
+const {title, description, image} = disciplineHeader.props;
+const {rating, maxRating, linkBuy, linkTry, author} = disciplineRightAside.props;
 const {content, levels} = disciplineScope.props;
 const {products} = catalogCards.props;
 
@@ -9,14 +14,14 @@ const {products} = catalogCards.props;
 export default {
   props: {
     selected: 2,
-    popularity: 4,
-    maxPopularity: 5,
-    title: 'Les nouveaux business',
-    description: 'La révolution numérique a tout accéléré : les communications, la récupération des données, la propagation de l’information et des innovations… On peut presque tout savoir instantanément : les bonnes pratiques d’une entreprise comme les mauvaises ; les goûts et les comportements de ses clients… Pour ne pas rater le coche, il faut être au fait des tendances et des changements qui se profilent. C’est ce que propose cette discipline nourrie d’exemples concrets.',
-    image: 'https://commercecdn.com/982563378880840279/40dd5939-4bf3-43bf-a788-273fba83d27e.png',
-    author: 'Eléphant',
-    linkBuy: '/buy',
-    linkLearn: '/learn',
+    popularity: rating,
+    maxPopularity: maxRating,
+    title,
+    description,
+    image,
+    linkBuy,
+    linkTry,
+    author,
     changeLevel: () => true,
     relatedDisciplines: take(3, products),
     level: content,

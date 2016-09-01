@@ -33,16 +33,19 @@ export default (treant, options = {}) => {
   const cardsTitle = t('This course contains:');
 
   const ProductCursus = (props, children) => {
-    const {cursus, disciplines, maxRating} = props;
+    const {
+      disciplines,
+      maxRating
+    } = props;
 
-    const image = get('images.cursus_full_retina.url.https', cursus);
-    const title = getOrBlank('title', cursus);
-    const description = getOrBlank('description', cursus);
-
-    const badge = get('images.certification_full_retina.url.https', cursus);
-    const assets = get('course_scope', cursus);
-    const linkBuy = get('linkBuy', cursus);
-    const rating = getOr(0, 'popularity', cursus);
+    const image = get('image', props);
+    const badge = get('badge', props);
+    const title = getOrBlank('title', props);
+    const author = getOrBlank('author', props);
+    const description = getOrBlank('description', props);
+    const rating = getOr(0, 'rating', props);
+    const assets = get('assets', props);
+    const linkBuy = get('linkBuy', props);
 
     return (
       <div className={layout.wrapper}>
