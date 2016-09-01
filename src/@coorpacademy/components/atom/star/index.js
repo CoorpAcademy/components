@@ -4,7 +4,7 @@ import style from './style.css';
 const conditions = checker.shape({
   props: checker.shape({
     popular: checker.bool
-  }),
+  }).strict,
   children: checker.none
 });
 

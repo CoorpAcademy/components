@@ -11,7 +11,7 @@ const conditions = checker.shape({
     selected: checker.number,
     content: checker.object,
     onClick: checker.func
-  }),
+  }).strict,
   children: checker.none
 });
 

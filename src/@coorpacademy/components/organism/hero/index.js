@@ -10,7 +10,7 @@ const conditions = checker.shape({
   props: checker.shape({
     url: checker.string,
     title: checker.string
-  }),
+  }).strict,
   children: checker.none
 });
 

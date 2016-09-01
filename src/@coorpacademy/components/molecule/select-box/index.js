@@ -8,7 +8,7 @@ const conditions = checker.shape({
     list: checker.array,
     theme: checker.oneOf(['default', 'plain']).optional,
     onChange: checker.func
-  }),
+  }).strict,
   children: checker.none
 });
 

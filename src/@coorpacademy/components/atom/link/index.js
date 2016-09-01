@@ -2,7 +2,9 @@ import {checker, createValidate} from '../../util/validation';
 import {createNavigationHandler} from '../../util/navigation';
 
 const conditions = checker.shape({
-  props: checker.none,
+  props: checker.shape({
+    href: checker.string
+  }).strict,
   children: checker.oneOrMore
 });
 
