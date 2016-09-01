@@ -43,8 +43,8 @@ export default (treant, options = {}) => {
     const title = getOrBlank('title', props);
     const author = getOrBlank('author', props);
     const description = getOrBlank('description', props);
-    const rating = getOr(0, 'popularity', props);
-    const assets = get('course_scope', props);
+    const rating = getOr(0, 'rating', props);
+    const assets = get('assets', props);
     const linkBuy = get('linkBuy', props);
 
     return (

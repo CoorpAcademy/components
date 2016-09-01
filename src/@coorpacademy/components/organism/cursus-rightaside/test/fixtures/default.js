@@ -7,7 +7,11 @@ export default {
     maxRating,
     linkBuy,
     linkLearn,
-    assets: ['foo', 'bar', 'baz'],
-    badge: 'https://unsplash.it/200/200/?random'
+    assets: [
+      '2 DISCIPLINES',
+      '144 QUESTIONS',
+      '18 VIDÉOS'
+    ],
+    badge: 'https://unsplash.it/g/500/500?random'
   }
 };
