@@ -28,6 +28,10 @@
   margin-bottom: 15px;
 }
 
+.head a:hover {
+  color: #ffffff;
+}
+
 .head a span span {
   font-family: "Open Sans";
   font-weight: 800;

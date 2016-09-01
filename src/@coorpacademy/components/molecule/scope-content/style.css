@@ -67,6 +67,7 @@
   display: block;
   margin: 0;
   padding: 0;
+  list-style: disc;
   list-style-position: inside;
 }
 
@@ -138,28 +139,27 @@
 
 .assetTitle {
   display: inline-block;
-  height: 15px;
   font-family: "Open Sans";
   font-weight: 800;
   font-size: 12px;
   text-transform: uppercase;
   color: #546E7A;
-  padding: 20px;
-  letter-spacing: 0.1px;
+  padding: 0 20px;
+  line-height: 50px;
   border-right: solid 1px #E3E3E3;
-  vertical-align: top;
-  height: 100%;
 }
 
 .assetDesc {
   display: inline-block;
   width: auto;
-  padding: 20px;
+  padding: 0 20px;
 }
 
 .courseScope span {
+  display: inline-block;
   margin-right: 10px;
   font-size: 12px;
+  line-height: 50px;
   font-family: "Open Sans";
   font-weight: 400;
   color: #607D8B;

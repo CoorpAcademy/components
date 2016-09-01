@@ -51,6 +51,10 @@
   border-radius: 2px;
 }
 
+.overlay a:hover {
+  color: #ffffff;
+}
+
 .overlay a:before {
   background-color: #e6ac00
 }
@@ -80,6 +84,7 @@
 
 .title a:hover {
   text-decoration: underline;
+  color: #546E7A;
 }
 
 .subtitle {
