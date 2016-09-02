@@ -9,7 +9,13 @@ import style from './style.css';
 const conditions = checker.shape({
   props: checker.shape({
     className: checker.string.optional,
-    categories: checker.array
+    categories: checker.arrayOf(
+      checker.shape({
+        name: checker.string,
+        href: checker.string.optional,
+        selected: checker.bool.optional
+      }).strict
+    )
   }).strict,
   children: checker.none
 });

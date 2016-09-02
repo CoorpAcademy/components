@@ -6,7 +6,12 @@ import style from './style.css';
 const conditions = checker.shape({
   props: checker.shape({
     className: checker.string.optional,
-    cursuses: checker.array
+    cursuses: checker.arrayOf(
+      checker.shape({
+        href: checker.string.optional,
+        title: checker.string
+      }).strict
+    )
   }).strict,
   children: checker.none
 });
