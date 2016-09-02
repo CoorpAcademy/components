@@ -7,6 +7,7 @@ import createScopeContent from '../scope-content';
 
 const conditions = checker.shape({
   props: checker.shape({
+    className: checker.string.optional,
     levels: checker.array,
     selected: checker.number,
     content: checker.object,

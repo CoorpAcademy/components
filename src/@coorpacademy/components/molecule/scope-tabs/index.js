@@ -3,6 +3,7 @@ import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({
+    className: checker.string.optional,
     selected: checker.number,
     onClick: checker.func,
     levels: checker.arrayOf(checker.string)

@@ -3,6 +3,7 @@ import {createNavigationHandler} from '../../util/navigation';
 
 const conditions = checker.shape({
   props: checker.shape({
+    className: checker.string.optional,
     href: checker.string
   }).strict,
   children: checker.oneOrMore
