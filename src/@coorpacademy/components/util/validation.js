@@ -7,7 +7,12 @@ const checker = apiCheck();
 
 const createValidate = conditions => {
   const validate = (props, children) => {
-    checker.throw(conditions, {props, children});
+    if (process.env.NODE_ENV === 'test') {
+      checker.throw(conditions, {props, children});
+    }
+    else {
+      checker.warn(conditions, {props, children});
+    }
   };
 
   validate.conditions = conditions;

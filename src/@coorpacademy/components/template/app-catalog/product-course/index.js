@@ -48,21 +48,20 @@ export default (treant, options = {}) => {
 
   const ProductCourse = (props, children) => {
     const {
-      selected,
+      selected = 0,
       level,
       levels,
       changeLevel,
       linkBuy,
       linkTry,
       maxPopularity,
-      relatedDisciplines
+      relatedDisciplines,
+      image = '',
+      title = '',
+      author = {name: '', socialLinks: []},
+      description = '',
+      popularity = 0
     } = props;
-
-    const image = get('image', props);
-    const title = getOrBlank('title', props);
-    const author = getOrBlank('author', props);
-    const description = getOrBlank('description', props);
-    const rating = getOr(0, 'popularity', props);
 
     return (
       <div className={layout.wrapper}>
@@ -78,7 +77,7 @@ export default (treant, options = {}) => {
             linkBuy={linkBuy}
             linkTry={linkTry}
             author={author}
-            rating={rating}
+            rating={popularity}
             maxRating={maxPopularity}
           />
         </div>
