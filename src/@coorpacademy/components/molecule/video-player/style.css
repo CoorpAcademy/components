@@ -1,0 +1,49 @@
+.list {
+  padding: 10px 10px 50px;
+}
+.list .item {
+  padding: 5px;
+  width: 800px;
+  height: 310px;
+  margin: 0 auto;
+  z-index: 160;
+  background: #27ae60;
+}
+
+.checkbox {
+}
+
+.togglerDisplay {
+  display: none;
+  box-sizing: border-box;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  background: #546E7A;
+  padding: 0 22px;
+  border-radius: 2px;
+  color: #fff;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.togglerDisplay span {
+  font-family: "Open Sans";
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  font-size: 14px;
+  color: #FFFFFF;
+  text-transform: uppercase;
+}
+
+.checkbox:checked ~ .iframe {
+  display: block;
+}
+
+.checkbox:checked ~ .image {
+  display: none;
+}
+
+.iframe {
+  display: none;
+}
