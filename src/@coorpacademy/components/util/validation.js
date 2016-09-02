@@ -5,9 +5,9 @@ import isBoolean from 'lodash/fp/isBoolean';
 
 const checker = apiCheck();
 
-const createValidate = (conditions, exception) => {
+const createValidate = conditions => {
   const validate = (props, children) => {
-    if (exception) {
+    if (process.env.NODE_ENV === 'test') {
       checker.throw(conditions, {props, children});
     }
     else {

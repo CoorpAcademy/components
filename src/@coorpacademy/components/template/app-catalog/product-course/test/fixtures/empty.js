@@ -12,18 +12,5 @@ const {products} = catalogCards.props;
 /* eslint-disable max-len */
 
 export default {
-  props: {
-    selected: null,
-    popularity: null,
-    maxPopularity: null,
-    title: null,
-    description: null,
-    image: null,
-    linkBuy: null,
-    linkTry: null,
-    author: null,
-    relatedDisciplines: [],
-    level: null,
-    levels: null
-  }
+  props: {}
 };
