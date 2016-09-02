@@ -6,6 +6,7 @@ import createDisciplineCard from '../../molecule/discipline-card';
 
 const conditions = checker.shape({
   props: checker.shape({
+    className: checker.string.optional,
     disciplines: checker.array,
     onModuleClick: checker.func,
     onDisciplineClick: checker.func

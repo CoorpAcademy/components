@@ -9,6 +9,7 @@ import { stopPropagation } from '../../util/bubbling';
 
 const conditions = checker.shape({
   props: checker.shape({
+    className: checker.string.optional,
     module: checker.shape({
       disabled: checker.bool.optional,
       filtered: checker.bool.optional,
