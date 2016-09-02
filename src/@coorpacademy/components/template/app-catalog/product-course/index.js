@@ -12,7 +12,6 @@ const getOrBlank = getOr('');
 
 const conditions = checker.shape({
   props: checker.shape({
-    className: checker.string.optional,
     popularity: checker.number.optional,
     maxPopularity: checker.number.optional,
     title: checker.string.optional,

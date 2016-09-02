@@ -8,7 +8,6 @@ import createCatalogCards from '../../../organism/catalog-cards';
 
 const conditions = checker.shape({
   props: checker.shape({
-    className: checker.string.optional,
     products: checker.arrayOf(checker.object).optional,
     categories: checker.arrayOf(checker.object),
     cursuses: checker.arrayOf(checker.object).optional

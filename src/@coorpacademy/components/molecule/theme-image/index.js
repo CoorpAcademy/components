@@ -4,7 +4,6 @@ import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({
-    className: checker.string.optional,
     image: checker.string
   }).strict,
   children: checker.none

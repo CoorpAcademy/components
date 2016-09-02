@@ -8,7 +8,6 @@ import CenteredTextBehaviour from '../../behaviour/align/centered/';
 
 const conditions = checker.shape({
   props: checker.shape({
-    className: checker.string.optional,
     discipline: checker.shape({
       visible: checker.bool.optional,
       modules: checker.array

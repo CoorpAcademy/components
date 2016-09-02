@@ -3,7 +3,6 @@ import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({
-    className: checker.string.optional,
     popular: checker.bool
   }).strict,
   children: checker.none
