@@ -10,6 +10,7 @@ import HoverFillBehaviour from '../../behaviour/effects/hover-fill';
 
 const conditions = checker.shape({
   props: checker.shape({
+    className: checker.string.optional,
     rating: checker.number,
     maxRating: checker.number,
     linkBuy: checker.string,

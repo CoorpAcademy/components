@@ -8,6 +8,7 @@ import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({
+    className: checker.string.optional,
     url: checker.string,
     title: checker.string
   }).strict,

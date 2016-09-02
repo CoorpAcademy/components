@@ -4,6 +4,7 @@ import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({
+    className: checker.string.optional,
     content: checker.shape({
       title: checker.string,
       time: checker.string,

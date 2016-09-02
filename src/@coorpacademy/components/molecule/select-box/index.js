@@ -5,6 +5,7 @@ import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({
+    className: checker.string.optional,
     list: checker.array,
     theme: checker.oneOf(['default', 'plain']).optional,
     onChange: checker.func
