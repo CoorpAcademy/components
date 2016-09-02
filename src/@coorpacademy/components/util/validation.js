@@ -5,9 +5,14 @@ import isBoolean from 'lodash/fp/isBoolean';
 
 const checker = apiCheck();
 
-const createValidate = conditions => {
+const createValidate = (conditions, exception) => {
   const validate = (props, children) => {
-    checker.throw(conditions, {props, children});
+    if (exception) {
+      checker.throw(conditions, {props, children});
+    }
+    else {
+      checker.warn(conditions, {props, children});
+    }
   };
 
   validate.conditions = conditions;

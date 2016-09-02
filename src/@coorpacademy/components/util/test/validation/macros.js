@@ -2,7 +2,7 @@ import test from 'ava';
 import {checker, createValidate} from '../../validation';
 
 const createFailure = conditions => {
-  const validate = createValidate(conditions);
+  const validate = createValidate(conditions, true);
   return (t, props, children) => {
     t.plan(1);
 
@@ -16,7 +16,7 @@ const createFailure = conditions => {
 };
 
 const createSuccess = conditions => {
-  const validate = createValidate(conditions);
+  const validate = createValidate(conditions, true);
   return (t, props, children) => validate(props, children);
 };
 
