@@ -1,6 +1,4 @@
-import curry from 'lodash/fp/curry';
 import has from 'lodash/fp/has';
-import {navigate} from '../../redux-tools/redux-history';
 
 const isLeftClickEvent = event => event.button === 0;
 const isModifiedEvent = event => !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);

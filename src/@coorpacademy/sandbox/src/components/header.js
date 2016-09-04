@@ -10,8 +10,6 @@ import Route from 'path-match';
 
 import createSelect from './select';
 
-import componentList from '../components';
-
 const route = Route();
 
 import {header} from './style.css';
@@ -23,17 +21,18 @@ export default (treant, options) => {
   return (props, children) => {
     const {
       onSelectComponent = noop,
-      onSelectFixture = noop
+      onSelectFixture = noop,
+      components,
+      location: {pathname = ''} = {}
     } = props;
-    const pathname = get('state.route.pathname', props);
 
     const {
       folder,
       component,
       fixture
-    } = extractFromPath(pathname);
+    } = extractFromPath(pathname, components);
 
-    const componentSelected = get(`${folder}.${component}`, componentList);
+    const componentSelected = get(`${folder}.${component}`, components);
     const factorySelected = get('factory', componentSelected);
     const fixtureSelected = get(`fixtures.${fixture}`, componentSelected);
     const componentOptions = pipe(
@@ -50,7 +49,7 @@ export default (treant, options) => {
         )(folder)
       ])),
       fromPairs
-    )(componentList);
+    )(components);
 
     const fixtureOptions = pipe(
       get('fixtures'),
@@ -101,7 +100,7 @@ const buildComponent = (treant, options) => (factory, {props, children} = {}) =>
 
 const getFirstKey = pipe(keys, head);
 
-const extractFromPath = pathname => {
+const extractFromPath = (pathname, componentList) => {
   const params = route('/:folder/:component/:fixture')(pathname) ||
     route('/:folder/:component')(pathname) || route('/:folder')(pathname) || {};
 

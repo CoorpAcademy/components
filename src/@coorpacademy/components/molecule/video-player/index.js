@@ -59,7 +59,7 @@ export default (treant, options = {}) => {
             height={height}
             frameborder={0}
             className={style.iframe}
-            allowfullscreen
+            allowfullscreen={true}
           >
           </VideoIframe>
         </div>

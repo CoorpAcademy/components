@@ -1,7 +1,5 @@
 import test from 'ava';
 
-import isVNode from '../is-vnode';
-import VNode from '../vnode';
 import h from '../h';
 import resolve from '../resolve';
 import map from '../map';

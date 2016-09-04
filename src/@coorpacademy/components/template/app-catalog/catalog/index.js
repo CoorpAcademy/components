@@ -1,7 +1,6 @@
 import identity from 'lodash/fp/identity';
 import {checker, createValidate} from '../../../util/validation';
 import style from './style.css';
-import createSpinner from '../../../atom/spinner';
 import createCategories from '../../../molecule/categories';
 import createCursusList from '../../../molecule/cursus-list';
 import createCatalogCards from '../../../organism/catalog-cards';
@@ -18,7 +17,6 @@ const conditions = checker.shape({
 export default (treant, options = {}) => {
   const {h} = treant;
   const {translate = identity} = options;
-  const Spinner = createSpinner(treant, options);
   const Categories = createCategories(treant, options);
   const CursusList = createCursusList(treant, options);
   const CatalogCards = createCatalogCards(treant, options);

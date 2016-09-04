@@ -1,5 +1,4 @@
 import {checker, createValidate} from '../../util/validation';
-import getOr from 'lodash/fp/getOr';
 import style from './style.css';
 import createCatalogCTA from '../../molecule/catalog-cta';
 import createImage from '../../atom/image';

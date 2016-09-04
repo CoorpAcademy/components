@@ -7,8 +7,8 @@ global.document = jsdom.jsdom('<!doctype html><html><body></body></html>');
 global.window = document.defaultView;
 
 const engineSpec = (...argz) => {
-  testRender(...argz);
   testProperties(...argz);
+  testRender(...argz);
 };
 
 export default engineSpec;

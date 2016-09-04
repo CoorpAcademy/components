@@ -1,4 +1,3 @@
-import map from 'lodash/fp/map';
 import {checker, createValidate} from '../../util/validation';
 import style from './style.css';
 

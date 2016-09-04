@@ -1,13 +1,7 @@
 import isString from 'lodash/fp/isString';
-import mapKeys from 'lodash/fp/mapKeys';
-import defaultsDeep from 'lodash/fp/defaultsDeep';
-import compact from 'lodash/fp/compact';
-import flatten from 'lodash/fp/flatten';
 import reduce from 'lodash/fp/reduce';
 import pipe from 'lodash/fp/pipe';
 import keys from 'lodash/fp/keys';
-import isFunction from 'lodash/fp/isFunction';
-import omit from 'lodash/fp/omit';
 import set from 'lodash/fp/set';
 import split from 'lodash/fp/split';
 import contains from 'lodash/fp/contains';
@@ -23,6 +17,8 @@ import propsModule from 'snabbdom/modules/props';
 import attributesModule from 'snabbdom/modules/attributes';
 import styleModule from 'snabbdom/modules/style';
 import eventListenersModule from 'snabbdom/modules/eventlisteners';
+import toHtml from 'snabbdom-to-html';
+import virtualize from 'snabbdom-virtualize';
 
 const patch = init([
   attributesModule,
@@ -84,16 +80,22 @@ const transform = vNode => {
 };
 
 const render = el => {
-  const container = h(el.tagName.toLowerCase());
-  let current = el;
+  if (el.firstChild) el.innerHTML = '<div/>';
+  let current = virtualize(el.firstChild) || el;
   return vTree => {
     const v = transform(vTree);
-    current = patch(current, h(container.sel, container.data, [v]));
-    return current.children[0].elm;
+    current = patch(current, v);
+    return current.elm;
   };
 };
 
+const renderToString = pipe(
+  transform,
+  toHtml
+);
+
 export {
   transform,
-  render
+  render,
+  renderToString
 };

@@ -1,12 +1,13 @@
 import isString from 'lodash/fp/isString';
-import mapKeys from 'lodash/fp/mapKeys';
+import pipe from 'lodash/fp/pipe';
 
 import walker from '../../@treantjs/core/walker';
 import resolve from '../../@treantjs/core/resolve';
 import map from '../../@treantjs/core/map';
 
-import React, { createElement, createClass } from 'react';
-import { render as _render, findDOMNode } from 'react-dom';
+import {createElement} from 'react';
+import {render as _render} from 'react-dom';
+import {renderToStaticMarkup} from 'react-dom/server';
 
 const resolver = walker(resolve);
 
@@ -24,7 +25,14 @@ const render = el => {
   };
 };
 
+const renderToString = pipe(
+  transform,
+  walker(resolve),
+  renderToStaticMarkup
+);
+
 export {
   transform,
-  render
+  render,
+  renderToString
 };

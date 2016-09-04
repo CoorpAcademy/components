@@ -1,10 +1,15 @@
-import {inspect} from 'util';
 import {join} from 'path';
+import concat from 'lodash/fp/concat';
 import webpack from 'webpack';
 import merge from 'webpack-merge';
 
 import defaultConfig from '../../../webpack.config.default';
 import styleConfig from '../../../webpack.config.style';
+
+const addHMR = entries => {
+  if (process.env.NODE_ENV === 'production') return entries;
+  return concat(['webpack-hot-middleware/client'], entries);
+};
 
 const sandboxConfig = ({
   output: {
@@ -12,14 +17,8 @@ const sandboxConfig = ({
   },
 
   entry: {
-    main: [
-      'webpack-hot-middleware/client',
-      join(__dirname, 'src/main')
-    ],
-    angular: [
-      'webpack-hot-middleware/client',
-      join(__dirname, 'angular/main')
-    ]
+    main: addHMR(join(__dirname, 'src/client')),
+    angular: addHMR(join(__dirname, 'angular/main'))
   },
 
   plugins: [

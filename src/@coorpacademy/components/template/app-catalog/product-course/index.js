@@ -1,5 +1,4 @@
 import get from 'lodash/fp/get';
-import getOr from 'lodash/fp/getOr';
 import {checker, createValidate} from '../../../util/validation';
 import layout from '../layout.css';
 import style from './style.css';
@@ -7,8 +6,6 @@ import createDisciplineHeader from '../../../molecule/discipline-header';
 import createDisciplineScope from '../../../molecule/discipline-scope';
 import createDisciplineRightaside from '../../../organism/discipline-rightaside';
 import createCatalogCards from '../../../organism/catalog-cards';
-
-const getOrBlank = getOr('');
 
 const conditions = checker.shape({
   props: checker.shape({

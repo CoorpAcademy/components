@@ -1,9 +1,6 @@
 import test from 'ava';
-import forEach from 'lodash/fp/forEach';
 import noop from 'lodash/fp/noop';
-import {h} from '../../../../@treantjs/core';
-import {createNavigationHandler, pushToHistory} from '../navigation';
-import {NAVIGATE} from '../../../redux-tools/redux-history';
+import {pushToHistory} from '../navigation';
 
 const createEvent = ({href, button = 0, ...props}) => ({
   target: {

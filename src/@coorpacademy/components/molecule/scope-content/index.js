@@ -28,7 +28,6 @@ export default (treant, options = {}) => {
 
   const ScopeContent = (props, children) => {
     const {content} = props;
-    const {product = ''} = props;
 
     const time = getOr('', 'time', content);
     const title = getOr('', 'title', content);

@@ -1,5 +1,3 @@
-import isString from 'lodash/fp/isString';
-
 import VNode from './vnode';
 
 const hyperscript = (tagName, properties, children) =>

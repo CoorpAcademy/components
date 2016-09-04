@@ -3,6 +3,7 @@
   "version": "2.2.11",
   "description": "Component library for web front ends",
   "main": "lib/components/index.js",
+  "jsnext:main": "src/components/index.js",
   "scripts": {
     "start": "babel-node src/@coorpacademy/sandbox/index.js",
     "build": "npm run build:browser & npm run build:commonjs & wait",
@@ -106,6 +107,9 @@
     "redux": "^3.5.2",
     "snabbdom": "^0.5.1",
     "style-loader": "^0.13.0",
+    "snabbdom-to-html": "^3.0.0-beta.1",
+    "snabbdom-virtualize": "^0.6.0",
+    "vdom-to-html": "^2.3.0",
     "virtual-dom": "^2.1.1",
     "webpack": "^2.1.0-beta.21",
     "webpack-merge": "^0.14.1"

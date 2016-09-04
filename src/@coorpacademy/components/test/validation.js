@@ -17,7 +17,6 @@ const options = {
 const testComponent = treant => component => {
   if (component.type === 'behaviour') return;
 
-  const {h, resolve} = treant;
   const it = `[${component.type}] ${component.name}`;
   const factory = _require(component.path);
 
