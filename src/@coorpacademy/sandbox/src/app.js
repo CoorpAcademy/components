@@ -9,7 +9,7 @@ import * as locales from '../../components/locales';
 const translate = createTranslate(locales.fr);
 const options = {translate};
 
-export default (treant, {dispatch, history}) => {
+export default (treant, {history}) => {
   const {h} = treant;
   const Header = createHeader(treant, options);
 
