@@ -9,13 +9,13 @@ import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({
-    rating: checker.number,
-    maxRating: checker.number,
-    title: checker.string,
-    image: checker.string,
-    author: checker.string,
-    href: checker.string
-  }).strict,
+    rating: checker.number.optional,
+    maxRating: checker.number.optional,
+    title: checker.string.optional,
+    image: checker.string.optional,
+    author: checker.string.optional,
+    href: checker.string.optional
+  }),
   children: checker.none
 });
 

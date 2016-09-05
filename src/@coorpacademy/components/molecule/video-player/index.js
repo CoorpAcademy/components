@@ -9,7 +9,7 @@ const conditions = checker.shape({
     image: checker.string.optional,
     width: checker.string.optional,
     height: checker.string.optional,
-    id: checker.string
+    id: checker.string.optional
   }),
   children: checker.none
 });

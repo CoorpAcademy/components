@@ -5,13 +5,13 @@ import createCatalogCTA from '../../molecule/catalog-cta';
 
 const conditions = checker.shape({
   props: checker.shape({
-    rating: checker.number,
-    maxRating: checker.number,
-    linkBuy: checker.string,
-    linkTry: checker.string,
-    assets: checker.array,
+    rating: checker.number.optional,
+    maxRating: checker.number.optional,
+    linkBuy: checker.string.optional,
+    linkTry: checker.string.optional,
+    assets: checker.array.optional,
     badge: checker.url.optional
-  }).strict,
+  }),
   children: checker.none
 });
 

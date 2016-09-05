@@ -4,10 +4,10 @@ import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({
-    selected: checker.number,
-    onClick: checker.func,
-    levels: checker.arrayOf(checker.string)
-  }).strict,
+    selected: checker.number.optional,
+    onClick: checker.func.optional,
+    levels: checker.arrayOf(checker.string).optional
+  }),
   children: checker.none
 });
 

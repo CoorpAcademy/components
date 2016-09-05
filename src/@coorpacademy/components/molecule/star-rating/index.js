@@ -6,9 +6,9 @@ import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({
-    rating: checker.number,
-    total: checker.number
-  }).strict,
+    rating: checker.number.optional,
+    total: checker.number.optional
+  }),
   children: checker.none
 });
 

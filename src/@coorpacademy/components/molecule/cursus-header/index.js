@@ -3,10 +3,10 @@ import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({
-    image: checker.string,
-    title: checker.string,
-    description: checker.string
-  }).strict,
+    image: checker.string.optional,
+    title: checker.string.optional,
+    description: checker.string.optional
+  }),
   children: checker.none
 });
 
@@ -14,13 +14,16 @@ export default (treant, options = {}) => {
   const CursusHeader = (props, children) => {
     const {h} = treant;
     const {image, title, description} = props;
+    const imageView = image && (
+      <img
+        src={image}
+      />
+    );
 
     return (
       <div>
         <div className={style.imgWrapper}>
-          <img
-            src={image}
-          />
+          {imageView}
           <div className={style.title}>
             {title}
           </div>

@@ -5,13 +5,13 @@ import style from './style.css';
 const conditions = checker.shape({
   props: checker.shape({
     content: checker.shape({
-      title: checker.string,
-      time: checker.string,
-      skills: checker.arrayOf(checker.string),
-      chapters: checker.arrayOf(checker.object),
-      course_scope: checker.arrayOf(checker.string)
-    }).strict
-  }).strict,
+      title: checker.string.optional,
+      time: checker.string.optional,
+      skills: checker.arrayOf(checker.string).optional,
+      chapters: checker.arrayOf(checker.object).optional,
+      course_scope: checker.arrayOf(checker.string).optional
+    }).optional
+  }),
   children: checker.none
 });
 
