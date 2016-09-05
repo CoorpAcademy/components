@@ -18,7 +18,7 @@ const conditions = checker.shape({
     maxRating: checker.number,
     assets: checker.arrayOf(checker.string),
     disciplines: checker.arrayOf(checker.object)
-  }).strict,
+  }),
   children: checker.none
 });
 

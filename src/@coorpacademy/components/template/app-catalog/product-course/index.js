@@ -32,7 +32,7 @@ const conditions = checker.shape({
     levels: checker.arrayOf(checker.string).optional,
     selected: checker.number.optional,
     changeLevel: checker.func.optional
-  }).strict,
+  }),
   children: checker.none
 });
 
