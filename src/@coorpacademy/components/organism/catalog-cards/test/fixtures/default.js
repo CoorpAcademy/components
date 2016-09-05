@@ -5,7 +5,7 @@ export default {
     products: [
       {
         title: 'Les nouveaux business',
-        image: 'https://commercecdn.com/982563378880840279/84bf792c-7ed7-457a-8211-743a7bb11cf2.png',
+        image: 'https://unsplash.it/g/268',
         author: 'Eléphant',
         popularity: 3,
         maxPopularity: 5,
@@ -13,7 +13,7 @@ export default {
       },
       {
         title: 'La production d\'énergie',
-        image: 'https://commercecdn.com/982563378880840279/24c92848-bab7-4e08-b4f3-c65d5b7682ca.png',
+        image: 'https://unsplash.it/g/268',
         author: 'We Demain',
         popularity: 4,
         maxPopularity: 5,
@@ -21,7 +21,7 @@ export default {
       },
       {
         title: 'Gestion des conflits',
-        image: 'https://commercecdn.com/982563378880840279/a8962852-1d5a-4075-8702-49c847876de5.png',
+        image: 'https://unsplash.it/g/268',
         author: 'Bocquet',
         popularity: 3,
         maxPopularity: 5,
@@ -29,7 +29,7 @@ export default {
       },
       {
         title: 'RSE : management et innovation',
-        image: 'https://commercecdn.com/982563378880840279/7176a4f6-1a9f-44bd-8464-4ed6edb3715b.png',
+        image: 'https://unsplash.it/g/268',
         author: 'SVP',
         popularity: 2,
         maxPopularity: 5,
@@ -37,7 +37,7 @@ export default {
       },
       {
         title: 'Gestion du stress et des émotions',
-        image: 'https://commercecdn.com/982563378880840279/f612ad5b-fa5f-4151-a25f-45ee7ce3fdf2.png',
+        image: 'https://unsplash.it/g/268',
         author: 'Bocquet',
         popularity: 3,
         maxPopularity: 5,
@@ -45,7 +45,7 @@ export default {
       },
       {
         title: 'Le nouveau management',
-        image: 'https://commercecdn.com/982563378880840279/8f140673-bedf-402d-9231-6e4429a67f5b.png',
+        image: 'https://unsplash.it/g/268',
         author: 'Eléphant',
         popularity: 2,
         maxPopularity: 5,
@@ -53,7 +53,7 @@ export default {
       },
       {
         title: 'Comprendre la RSE',
-        image: 'https://commercecdn.com/982563378880840279/c715b21d-1571-4dd9-95a7-a9203406c281.png',
+        image: 'https://unsplash.it/g/268',
         author: 'SVP',
         popularity: 4,
         maxPopularity: 5,
@@ -61,7 +61,7 @@ export default {
       },
       {
         title: 'L\'éfficacité énergétique',
-        image: 'https://commercecdn.com/982563378880840279/34a88c74-03ce-4edd-919c-ce54213495e4.png',
+        image: 'https://unsplash.it/g/268',
         author: 'We Demain',
         popularity: 2,
         maxPopularity: 5,
@@ -69,7 +69,7 @@ export default {
       },
       {
         title: 'La mutation des business locaux',
-        image: 'https://commercecdn.com/982563378880840279/8767fecf-88b5-4b49-aa83-2ee9ecd3a3f5.png',
+        image: 'https://unsplash.it/g/268',
         author: 'Coorpacademy',
         popularity: 4,
         maxPopularity: 5,
@@ -77,7 +77,7 @@ export default {
       },
       {
         title: 'Commerce en ligne',
-        image: 'https://commercecdn.com/982563378880840279/d2f5edfc-c15e-4a02-aa69-470b2b0f079e.png',
+        image: 'https://unsplash.it/g/268',
         author: 'Coorpacademy',
         popularity: 5,
         maxPopularity: 5,

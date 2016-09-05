@@ -16,10 +16,6 @@
   overflow: hidden;
 }
 
-.imgWrapper img {
-  width: 100%;
-}
-
 .courseWrapper {
   display: inline-block;
   vertical-align: top;

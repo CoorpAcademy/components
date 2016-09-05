@@ -17,6 +17,10 @@ const conditions = checker.shape({
     title: checker.string.optional,
     description: checker.string.optional,
     image: checker.string.optional,
+    video: checker.shape({
+      type: checker.oneOf(['vimeo', 'youtube']),
+      id: checker.string
+    }),
     linkBuy: checker.string.optional,
     linkTry: checker.string.optional,
     author: checker.shape({
@@ -58,6 +62,7 @@ export default (treant, options = {}) => {
       relatedDisciplines,
       image = '',
       title = '',
+      video,
       author = {name: '', socialLinks: []},
       description = '',
       popularity = 0
@@ -68,6 +73,7 @@ export default (treant, options = {}) => {
         <div className={layout.container}>
           <DisciplineHeader
             image={image}
+            video={video}
             title={title}
             description={description}
           />
