@@ -11,15 +11,15 @@ import HoverFillBehaviour from '../../behaviour/effects/hover-fill';
 
 const conditions = checker.shape({
   props: checker.shape({
-    rating: checker.number,
-    maxRating: checker.number,
-    linkBuy: checker.string,
-    linkTry: checker.string,
+    rating: checker.number.optional,
+    maxRating: checker.number.optional,
+    linkBuy: checker.string.optional,
+    linkTry: checker.string.optional,
     author: checker.shape({
-      name: checker.string,
-      socialLinks: checker.array
-    })
-  }).strict,
+      name: checker.string.optional,
+      socialLinks: checker.array.optional
+    }).optional
+  }),
   children: checker.none
 });
 

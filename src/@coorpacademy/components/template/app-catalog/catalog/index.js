@@ -11,7 +11,7 @@ const conditions = checker.shape({
     products: checker.oneOfType([checker.arrayOf(checker.object), checker.null]).optional,
     categories: checker.arrayOf(checker.object),
     cursuses: checker.arrayOf(checker.object).optional
-  }).strict,
+  }),
   children: checker.none
 });
 

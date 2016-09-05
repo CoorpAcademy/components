@@ -6,10 +6,10 @@ const YOUTUBE = 'youtube';
 
 const conditions = checker.shape({
   props: checker.shape({
-    type: checker.oneOf([VIMEO, YOUTUBE]),
+    type: checker.oneOf([VIMEO, YOUTUBE]).optional,
     image: checker.string.optional,
-    width: checker.string.optional,
-    height: checker.string.optional,
+    width: checker.number.optional,
+    height: checker.number.optional,
     id: checker.string.optional
   }),
   children: checker.none

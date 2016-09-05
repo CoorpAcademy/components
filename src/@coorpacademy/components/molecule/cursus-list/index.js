@@ -8,10 +8,10 @@ const conditions = checker.shape({
     cursuses: checker.arrayOf(
       checker.shape({
         href: checker.string.optional,
-        title: checker.string
+        title: checker.string.optional
       })
-    )
-  }).strict,
+    ).optional
+  }),
   children: checker.none
 });
 

@@ -4,10 +4,10 @@ import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({
-    selected: checker.number,
-    onClick: checker.func,
-    levels: checker.arrayOf(checker.string)
-  }).strict,
+    selected: checker.number.optional,
+    onClick: checker.func.optional,
+    levels: checker.arrayOf(checker.string).optional
+  }),
   children: checker.none
 });
 
@@ -18,14 +18,14 @@ export default (treant, options = {}) => {
 
     return (
       <ul className={style.tabs}>
-        {map((level, index) => (
+        {levels.map((level, index) => (
           <li
             onClick={() => onClick(index)}
             className={selected === index ? style.currentTab : style.tab}
           >
             {level}
           </li>
-        ), levels)}
+        ))}
       </ul>
     );
   };

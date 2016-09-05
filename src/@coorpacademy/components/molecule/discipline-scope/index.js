@@ -7,11 +7,11 @@ import createScopeContent from '../scope-content';
 
 const conditions = checker.shape({
   props: checker.shape({
-    levels: checker.array,
-    selected: checker.number,
-    content: checker.object,
-    onClick: checker.func
-  }).strict,
+    levels: checker.array.optional,
+    selected: checker.number.optional,
+    content: checker.object.optional,
+    onClick: checker.func.optional
+  }),
   children: checker.none
 });
 
@@ -23,7 +23,7 @@ export default (treant, options = {}) => {
 
   const DisciplineScope = (props, children) => {
     const {h} = treant;
-    const {onClick, selected = 0, content, levels} = props;
+    const {onClick, selected = 0, content, levels = []} = props;
 
     return (
       <div className={style.scope}>
