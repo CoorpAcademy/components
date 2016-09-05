@@ -9,8 +9,7 @@ const config = {
 
   output: {
     library: 'Coorponents',
-    filename: '[name].js',
-    path: path.join(__dirname, 'dist')
+    filename: '[name].js'
   },
   stats: {
     children: false

@@ -15,7 +15,7 @@
     "clean:cov": "rm -rf .nyc_output coverage",
     "test": "npm run lint && npm run nyc",
     "lint": "eslint src/",
-    "ava": "ava",
+    "ava": "NODE_ENV=test ava",
     "nyc": "nyc npm run ava",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "doc": "npm run doc:svg && npm run doc:png",

@@ -1,7 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
-const nested = require('postcss-nested');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 
@@ -11,9 +10,7 @@ const componentCSS = new ExtractTextPlugin('styles.css');
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
 const config = {
-  postcss: [
-    nested
-  ]
+  postcss: []
 };
 
 if (NODE_ENV === 'production')

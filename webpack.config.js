@@ -7,6 +7,9 @@ const styleConfig = require('./webpack.config.style');
 const moocConfig = {
   entry: {
     'bundle-mooc': path.join(__dirname, 'src', 'bundle-mooc')
+  },
+  output: {
+    path: path.join(__dirname, 'dist')
   }
 };
 
