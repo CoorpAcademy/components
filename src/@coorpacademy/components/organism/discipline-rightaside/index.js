@@ -1,4 +1,5 @@
 import {checker, createValidate} from '../../util/validation';
+import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import map from 'lodash/fp/map';
 import style from './style.css';
@@ -37,10 +38,12 @@ export default (treant, options = {}) => {
 
   const DisciplineRightaside = (props, children) => {
     const {rating, maxRating, linkBuy, linkTry, author} = props;
+    const socialLinks = get('socialLinks', author);
+    const authorName = getOr('', 'name', author);
 
     const socialView = map(social => (
       <a className={style.TODO}>{social.ref}{social.link}</a>
-    ), author.socialLinks);
+    ), socialLinks);
 
     return (
       <div className={style.col}>
@@ -57,7 +60,7 @@ export default (treant, options = {}) => {
             {authorLabel}
           </div>
           <div className={style.title}>
-            {author.name}
+            {authorName}
           </div>
         </div>
       </div>
