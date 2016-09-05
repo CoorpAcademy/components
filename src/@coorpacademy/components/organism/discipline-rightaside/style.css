@@ -8,12 +8,26 @@
   height: auto;
 }
 
-.ctaWrapper {
-
+.links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
 }
 
-.colDetails {
-
+.link {
+  font-family: 'social-icons';
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  width: 20px;
+  padding: 3px;
+  border: 2px solid #455A64;
+  color: #455A64;
+  border-radius: 50%;
+  box-sizing: content-box;
+  text-decoration: none;
+  margin: 20px 3px;
 }
 
 .detailTitle {
@@ -56,7 +70,7 @@
 }
 
 @media tablet {
-  
+
 }
 
 @media mobile {
