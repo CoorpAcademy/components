@@ -17,10 +17,10 @@ const conditions = checker.shape({
 
 const url = (type, id) => {
   switch (type) {
-  case VIMEO:
-    return `https://player.vimeo.com/video/${id}?color=dedede&badge=0&byline=0&title=0&portrait=0`;
-  case YOUTUBE:
-    return `https://www.youtube.com/embed/${id}`;
+    case VIMEO:
+      return `https://player.vimeo.com/video/${id}?color=dedede&badge=0&byline=0&title=0&portrait=0`;
+    case YOUTUBE:
+      return `https://www.youtube.com/embed/${id}`;
   }
 };
 
