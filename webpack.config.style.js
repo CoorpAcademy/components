@@ -20,8 +20,8 @@ const cssLoader = {
   test: /\.css$/,
   loader: NODE_ENV === 'production' ? componentCSS.extract({
     fallbackLoader: 'style',
-    loader: `css?modules&importLoaders=1&localIdentName=${hash}!postcss`
-  }) : `style!css?modules&importLoaders=1&localIdentName=${hash}!postcss`,
+    loader: `css?minimize&modules&importLoaders=1&localIdentName=${hash}!postcss`
+  }) : `style!css?minimize&modules&importLoaders=1&localIdentName=${hash}!postcss`,
   include: path.join(__dirname, 'src')
 };
 
