@@ -18,14 +18,14 @@ export default (treant, options = {}) => {
 
     return (
       <ul className={style.tabs}>
-        {map((level, index) => (
+        {levels.map((level, index) => (
           <li
             onClick={() => onClick(index)}
             className={selected === index ? style.currentTab : style.tab}
           >
             {level}
           </li>
-        ), levels)}
+        ))}
       </ul>
     );
   };
