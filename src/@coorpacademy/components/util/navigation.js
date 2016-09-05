@@ -7,15 +7,14 @@ const isModifiedEvent = event => !!(event.metaKey || event.altKey || event.ctrlK
 
 export const pushToHistory = ({history = {}}) => {
   if (!has('push', history)) {
-    return () => {};
+    return () => () => {};
   }
 
-  return event => {
-    if (!has('target.href', event) || event.defaultPrevented || isModifiedEvent(event) || !isLeftClickEvent(event)) {
+  return ({href} = {}) => event => {
+    if (!href || event.defaultPrevented || isModifiedEvent(event) || !isLeftClickEvent(event)) {
       return;
     }
-
     event.preventDefault();
-    history.push(event.target.href);
+    history.push(href);
   };
 };
