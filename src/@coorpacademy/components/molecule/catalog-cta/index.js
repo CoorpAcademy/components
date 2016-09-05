@@ -51,14 +51,14 @@ export default (treant, options = {}) => {
           />
         </div>
         <HoverFill>
-          <Link className={style.try} href={linkTry}>
+          <a className={style.try} href={linkTry}>
             {startLearning}
-          </Link>
+          </a>
         </HoverFill>
         <HoverFill>
-          <Link className={style.buy} href={linkBuy}>
+          <a className={style.buy} href={linkBuy}>
             {premium}
-          </Link>
+          </a>
         </HoverFill>
       </div>
     );

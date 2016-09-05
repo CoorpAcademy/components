@@ -22,23 +22,23 @@ test('should push to history navigation event', t => {
       push: href => t.is(href, '/foo')
     }
   };
-  const eventOptions = {
+  const props = {
     href: '/foo'
   };
   const onClick = pushToHistory(options);
-  const event = createEvent(eventOptions);
+  const event = createEvent(props);
 
-  onClick(event);
+  onClick(props)(event);
 });
 
 test('should not do anything if history is not in the options', t => {
-  const eventOptions = {
+  const props = {
     href: '/foo'
   };
   const onClick = pushToHistory({});
-  const event = createEvent(eventOptions);
+  const event = createEvent(props);
 
-  onClick(event);
+  onClick(props)(event);
 });
 
 test('should not do anything if event does not contain a target href', t => {
@@ -49,7 +49,7 @@ test('should not do anything if event does not contain a target href', t => {
   };
   const onClick = pushToHistory(options);
 
-  onClick({});
+  onClick({})({});
 });
 
 test('should not do anything if event is prevented', t => {
@@ -59,14 +59,14 @@ test('should not do anything if event is prevented', t => {
     }
   };
 
-  const eventOptions = {
+  const props = {
     href: '/foo',
     defaultPrevented: true
   };
   const onClick = pushToHistory(options);
-  const event = createEvent(eventOptions);
+  const event = createEvent(props);
 
-  onClick(event);
+  onClick(props)(event);
 });
 
 test('should not do anything if event is mouse click but not left click', t => {
@@ -76,14 +76,14 @@ test('should not do anything if event is mouse click but not left click', t => {
     }
   };
 
-  const eventOptions = {
+  const props = {
     href: '/foo',
     button: 1
   };
   const onClick = pushToHistory(options);
-  const event = createEvent(eventOptions);
+  const event = createEvent(props);
 
-  onClick(event);
+  onClick(props)(event);
 });
 
 test('should not do anything if event is mouse click used with keyboard modifiers', t => {
@@ -93,12 +93,16 @@ test('should not do anything if event is mouse click used with keyboard modifier
     }
   };
 
+  const props = {
+    href: '/foo'
+  };
+
   const createEventWithModifier = modifier =>
-    createEvent({href: '/foo', [modifier]: true});
+    createEvent({...props, [modifier]: true});
 
   const onClick = pushToHistory(options);
-  onClick(createEventWithModifier('altKey'));
-  onClick(createEventWithModifier('metaKey'));
-  onClick(createEventWithModifier('ctrlKey'));
-  onClick(createEventWithModifier('shiftKey'));
+  onClick(props)(createEventWithModifier('altKey'));
+  onClick(props)(createEventWithModifier('metaKey'));
+  onClick(props)(createEventWithModifier('ctrlKey'));
+  onClick(props)(createEventWithModifier('shiftKey'));
 });
