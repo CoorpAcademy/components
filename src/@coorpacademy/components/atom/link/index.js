@@ -1,5 +1,5 @@
 import {checker, createValidate} from '../../util/validation';
-import {createNavigationHandler} from '../../util/navigation';
+import {pushToHistory} from '../../util/navigation';
 
 const conditions = checker.shape({
   props: checker.shape({
@@ -11,7 +11,7 @@ const conditions = checker.shape({
 
 export default (treant, options = {}) => {
   const {h} = treant;
-  const onClick = createNavigationHandler(options);
+  const onClick = pushToHistory(options);
 
   const Link = (props, children) => (
     <a
