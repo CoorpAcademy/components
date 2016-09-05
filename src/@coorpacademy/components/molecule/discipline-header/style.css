@@ -16,10 +16,6 @@
   overflow: hidden;
 }
 
-img {
-  width: 100%;
-}
-
 .courseWrapper {
   display: inline-block;
   vertical-align: top;
@@ -31,6 +27,7 @@ img {
   font-family: "Open Sans";
   font-weight: 700;
   font-size: 20px;
+  margin-bottom: 16px;
   color: #546E7A;
 }
 
@@ -58,6 +55,7 @@ img {
   .imgWrapper {
     flex: none;
     height: auto;
+    text-align: center;
   }
 
   .courseWrapper {

@@ -1,3 +1,4 @@
+import map from 'lodash/fp/map';
 import {checker, createValidate} from '../../util/validation';
 import style from './style.css';
 
@@ -17,14 +18,14 @@ export default (treant, options = {}) => {
 
     return (
       <ul className={style.tabs}>
-        {levels.map((level, index) => (
+        {map((level, index) => (
           <li
             onClick={() => onClick(index)}
             className={selected === index ? style.currentTab : style.tab}
           >
             {level}
           </li>
-        ))}
+        ), levels)}
       </ul>
     );
   };

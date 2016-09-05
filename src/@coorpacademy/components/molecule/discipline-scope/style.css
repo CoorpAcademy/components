@@ -6,17 +6,23 @@
 .scope {
   display: block;
   width: 100%;
-  margin: 35px 0 40px 0;
+  margin: 0 0 40px 0;
 }
 
 @media desktop {
-
+  .scope {
+    margin: 25px 0 40px 0;
+  }
 }
 
 @media tablet {
-
+  .scope {
+    margin: 25px 0 40px 0;
+  }
 }
 
 @media mobile {
-
+  .scope {
+    margin: 35px 0 40px 0;
+  }
 }

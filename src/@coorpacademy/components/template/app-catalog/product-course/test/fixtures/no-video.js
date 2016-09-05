@@ -1,10 +1,10 @@
 import take from 'lodash/fp/take';
-import disciplineHeader from '../../../../../molecule/discipline-header/test/fixtures/default';
+import disciplineHeader from '../../../../../molecule/discipline-header/test/fixtures/no-video';
 import disciplineRightAside from '../../../../../organism/discipline-rightaside/test/fixtures/default';
 import disciplineScope from '../../../../../molecule/discipline-scope/test/fixtures/default';
 import catalogCards from '../../../../../organism/catalog-cards/test/fixtures/default';
 
-const {title, description, video} = disciplineHeader.props;
+const {title, description, image} = disciplineHeader.props;
 const {rating, maxRating, linkBuy, linkTry, author} = disciplineRightAside.props;
 const {content, levels} = disciplineScope.props;
 const {products} = catalogCards.props;
@@ -18,7 +18,7 @@ export default {
     maxPopularity: maxRating,
     title,
     description,
-    video,
+    image,
     linkBuy,
     linkTry,
     author,
