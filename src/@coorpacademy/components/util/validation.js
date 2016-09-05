@@ -38,6 +38,7 @@ checker.url = (val, name, location) => {
   }
 };
 checker.url.type = 'checker.url';
+apiCheck.utils.checkerHelpers.addOptional(checker.url);
 
 checker.one = (val, name, location) => {
   if (!isArray(val) || val.length !== 1) {
@@ -45,6 +46,7 @@ checker.one = (val, name, location) => {
   }
 };
 checker.one.type = 'checker.one';
+apiCheck.utils.checkerHelpers.addOptional(checker.one);
 
 checker.oneOrMore = (val, name, location) => {
   if (!isArray(val) || val.length < 1 || val[0] === null) {
@@ -52,6 +54,7 @@ checker.oneOrMore = (val, name, location) => {
   }
 };
 checker.oneOrMore.type = 'checker.oneOrMore';
+apiCheck.utils.checkerHelpers.addOptional(checker.oneOrMore);
 
 checker.many = (val, name, location) => {
   if (!isArray(val) || val.length < 2) {
@@ -59,6 +62,7 @@ checker.many = (val, name, location) => {
   }
 };
 checker.many.type = 'checker.many';
+apiCheck.utils.checkerHelpers.addOptional(checker.many);
 
 checker.color = (val, name, location) => {
   if (!val || !/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(val)) {

@@ -55,7 +55,7 @@ export default (treant, options = {}) => {
       linkBuy,
       linkTry,
       maxPopularity,
-      relatedDisciplines,
+      relatedDisciplines = [],
       image = '',
       title = '',
       author = {name: '', socialLinks: []},

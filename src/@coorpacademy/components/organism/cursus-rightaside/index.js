@@ -10,7 +10,7 @@ const conditions = checker.shape({
     linkBuy: checker.string,
     linkTry: checker.string,
     assets: checker.array,
-    badge: checker.url
+    badge: checker.url.optional
   }).strict,
   children: checker.none
 });

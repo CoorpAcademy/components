@@ -62,7 +62,7 @@ export default (treant, options = {}) => {
         <div className={layout.colContainer}>
           <CursusRightaside
             badge={badge}
-            assets={assets}
+            assets={assets || []}
             rating={rating}
             maxRating={maxRating}
             linkBuy={linkBuy}

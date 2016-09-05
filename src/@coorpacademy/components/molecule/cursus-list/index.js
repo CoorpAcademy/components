@@ -9,7 +9,7 @@ const conditions = checker.shape({
       checker.shape({
         href: checker.string.optional,
         title: checker.string
-      }).strict
+      })
     )
   }).strict,
   children: checker.none
