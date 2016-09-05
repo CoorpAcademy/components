@@ -20,7 +20,7 @@ const conditions = checker.shape({
     video: checker.shape({
       type: checker.oneOf(['vimeo', 'youtube']),
       id: checker.string
-    }),
+    }).optional,
     linkBuy: checker.string.optional,
     linkTry: checker.string.optional,
     author: checker.shape({

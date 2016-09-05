@@ -5,13 +5,13 @@ import createVideoIframe from '../video-iframe';
 
 const conditions = checker.shape({
   props: checker.shape({
-    image: checker.string,
+    image: checker.string.optional,
     title: checker.string,
     description: checker.string,
     video: checker.shape({
       type: checker.oneOf(['vimeo', 'youtube']),
       id: checker.string
-    })
+    }).optional
   }),
   children: checker.none
 });
