@@ -5,28 +5,8 @@ import {navigate} from '../../redux-tools/redux-history';
 const isLeftClickEvent = event => event.button === 0;
 const isModifiedEvent = event => !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
 
-export const createNavigationHandler = curry(({dispatch, history}, event) => {
-  if (!dispatch || !history)
-    return;
-
-  if (event.defaultPrevented)
-    return;
-
-  if (isModifiedEvent(event) || !isLeftClickEvent(event))
-    return;
-
-  if (event.target.target || !event.target.href)
-    return;
-
-  event.preventDefault();
-
-  const location = history.createLocation(event.target.href);
-  const action = navigate(location);
-  dispatch(action);
-});
-
 export const pushToHistory = ({history = {}}) => event => {
-  if (!has(history, 'push') || !has(event, 'target.href')) {
+  if (!has('push', history) || !has('target.href', event)) {
     return;
   }
   event.preventDefault();
