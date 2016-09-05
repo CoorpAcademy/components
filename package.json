@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/components",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "description": "Component library for web front ends",
   "main": "lib/components/index.js",
   "scripts": {
@@ -96,7 +96,6 @@
     "file-loader": "^0.9.0",
     "history": "^3.0.0",
     "hyperx": "^2.0.4",
-    "json-loader": "^0.5.4",
     "json-loader": "^0.5.4",
     "lodash": "^4.14.1",
     "path-match": "^1.2.4",
