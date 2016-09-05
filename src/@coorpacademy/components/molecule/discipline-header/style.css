@@ -16,7 +16,7 @@
   overflow: hidden;
 }
 
-img {
+.imgWrapper img {
   width: 100%;
 }
 
