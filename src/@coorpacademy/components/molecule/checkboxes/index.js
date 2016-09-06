@@ -104,8 +104,8 @@ export default (treant, options = {}) => {
     }
 
     const lines = choices.map((choice, i) => {
-      const defaultBG = '#fff';
-      const coursesBG = getOr(defaultBG, `courses${[i - 1]}`, skin);
+      const defaultBG = '#ededed';
+      const coursesBG = getOr(defaultBG, ['courses', i - 1], skin);
       const background = isCourses ? coursesBG : defaultBG;
 
       return (
