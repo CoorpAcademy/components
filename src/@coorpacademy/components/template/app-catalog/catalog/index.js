@@ -23,7 +23,7 @@ export default (treant, options = {}) => {
   const CursusList = createCursusList(treant, options);
   const CatalogCards = createCatalogCards(treant, options);
 
-  const Catalog = ({categories, products, cursuses}, children) => (
+  const Catalog = ({categories, products = null, cursuses}, children) => (
     <div className={style.wrapper}>
       <h1 className={style.title}>{translate('Catalog')}</h1>
       <div className={style.catalogWrapper}>

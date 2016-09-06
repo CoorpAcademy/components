@@ -12,5 +12,7 @@ const {products} = catalogCards.props;
 /* eslint-disable max-len */
 
 export default {
-  props: {}
+  props: {
+    relatedDisciplines: []
+  }
 };

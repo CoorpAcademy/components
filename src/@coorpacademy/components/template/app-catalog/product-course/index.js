@@ -27,7 +27,7 @@ const conditions = checker.shape({
       name: checker.string,
       socialLinks: checker.array
     }).optional,
-    relatedDisciplines: checker.array.optional,
+    relatedDisciplines: checker.oneOfType([checker.arrayOf(checker.object), checker.null]).optional,
     level: checker.object.optional,
     levels: checker.arrayOf(checker.string).optional,
     selected: checker.number.optional,
@@ -59,7 +59,7 @@ export default (treant, options = {}) => {
       linkBuy,
       linkTry,
       maxPopularity,
-      relatedDisciplines = [],
+      relatedDisciplines = null,
       image = '',
       title = '',
       video,
