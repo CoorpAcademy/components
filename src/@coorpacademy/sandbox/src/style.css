@@ -11,3 +11,10 @@ body {
   url('../assets/fonts/icons-default.ttf') format('truetype'),
   url('../assets/fonts/icons-default.svg') format('svg');
 }
+
+@font-face {
+  font-family: 'social-icons';
+  src:url('../assets/fonts/social-font.woff') format('woff'),
+  url('../assets/fonts/social-font.ttf') format('truetype'),
+  url('../assets/fonts/social-font.svg') format('svg');
+}

@@ -25,6 +25,17 @@ const conditions = checker.shape({
 
 const getOrBlank = getOr('');
 
+const icons = {
+  pinterest: '0xe901',
+  mail: '0xe902',
+  'google-plus': '0xe903',
+  facebook: '0xe904',
+  twitter: '0xe905',
+  linkedin: '0xe906',
+  youtube: '0xe907',
+  vimeo: '0xe908'
+};
+
 export default (treant, options = {}) => {
   const {h} = treant;
   const {translate} = options;
@@ -42,7 +53,12 @@ export default (treant, options = {}) => {
     const authorName = getOr('', 'name', author);
 
     const socialView = map(social => (
-      <a className={style.TODO}>{social.ref}{social.link}</a>
+      <a
+        href={social.link}
+        className={style.link}
+        target={'_blank'}
+      >{String.fromCharCode(icons[social.ref])}
+      </a>
     ), socialLinks);
 
     return (
@@ -61,6 +77,9 @@ export default (treant, options = {}) => {
           </div>
           <div className={style.title}>
             {authorName}
+          </div>
+          <div className={style.links}>
+            {socialView}
           </div>
         </div>
       </div>
