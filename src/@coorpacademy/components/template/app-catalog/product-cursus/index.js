@@ -69,7 +69,7 @@ export default (treant, options = {}) => {
             linkTry={linkTry}
           />
         </div>
-        <div className={layout.container}>
+        <div className={style.productsContainer}>
           <span className={layout.cardsTitle}>
             {cardsTitle}
           </span>

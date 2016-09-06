@@ -9,7 +9,17 @@
   width: 100%
 }
 
+.productsContainer {
+  width: 840px;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: -190px;
+}
+
 @media desktop {
+  .productsContainer {
+    margin-top: 20px;
+  }
 }
 
 @media tablet {
