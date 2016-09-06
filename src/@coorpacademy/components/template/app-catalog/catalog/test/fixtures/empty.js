@@ -18,6 +18,7 @@ export default {
     }, {
       name: 'Digital',
       href: '#digital'
-    }]
+    }],
+    products: []
   }
 };

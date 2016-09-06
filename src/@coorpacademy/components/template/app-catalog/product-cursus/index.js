@@ -17,7 +17,7 @@ const conditions = checker.shape({
     rating: checker.number.optional,
     maxRating: checker.number.optional,
     assets: checker.arrayOf(checker.string).optional,
-    disciplines: checker.arrayOf(checker.object).optional
+    disciplines: checker.oneOfType([checker.arrayOf(checker.object), checker.null]).optional
   }),
   children: checker.none
 });
@@ -37,7 +37,7 @@ export default (treant, options = {}) => {
 
   const ProductCursus = (props, children) => {
     const {
-      disciplines,
+      disciplines = null,
       maxRating,
       image,
       badge,
