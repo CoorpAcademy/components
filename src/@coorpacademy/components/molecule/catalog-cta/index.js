@@ -28,7 +28,7 @@ export default (treant, options = {}) => {
   };
 
   const startLearning = hx(`<span>${t('Start <span>learning</span>')}</span>`);
-  const premium = hx(`<span>${t('Coorpacademy <span>premium</span>')}</span>`);
+  const premium = hx(`<span>${t('Coorpacademy <span>subscription</span>')}</span>`);
 
   const StarRating = createStarRating(treant, options);
   const Link = createLink(treant, options);

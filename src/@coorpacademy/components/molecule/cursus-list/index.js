@@ -1,4 +1,5 @@
 import find from 'lodash/fp/find';
+import identity from 'lodash/fp/identity';
 import createLink from '../../atom/link';
 import {checker, createValidate} from '../../util/validation';
 import style from './style.css';
@@ -17,8 +18,8 @@ const conditions = checker.shape({
 
 export default (treant, options = {}) => {
   const {h} = treant;
-  const {translate} = options;
-  const listTitle = translate ? translate('Cursuses') : 'Cursuses';
+  const {translate = identity} = options;
+  const listTitle = translate('Cursuses');
 
   const Link = createLink(treant, options);
 

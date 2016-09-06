@@ -1,15 +1,19 @@
 {
+  "All training": "Toutes les formations",
   "assets": "éléments",
   "At the end of this level, you will be able to:": "À l'issue de ce niveau, vous serez capable de :",
   "author": "auteur",
   "by {{author}}": "par {{author}}",
-  "This course contains:": "Ce cursus contient :",
-  "They also liked:": "Ils ont aussi apprécié :",
   "Catalog": "Catalogue",
   "certification": "certification",
   "chapters": "chapitres",
-  "Coorpacademy <span>premium</span>": "<span>Abonnement</span> Coorpacademy ",
+  "Coorpacademy <span>subscription</span>": "<span>Abonnement</span> Coorpacademy ",
+  "Cursuses": "Cursus",
   "filters": "filtres",
+  "Most recent": "Les plus récentes",
+  "Most viewed": "Les plus populaires",
   "Sorry there are no results for your search": "Désolé, aucun résultat ne correspond à votre recherche",
-  "Start <span>learning</span>": "Commencer à <span>apprendre</span>"
+  "Start <span>learning</span>": "Commencer à <span>apprendre</span>",
+  "They also liked:": "Ils ont aussi apprécié :",
+  "This course contains:": "Ce cursus contient :"
 }
