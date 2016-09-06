@@ -6,7 +6,7 @@
   transform: translateY(-35%);
 }
 
-/*------------------------------------------------------------ header */
+/*------------------------------------------------------------ list */
 
 .list {
   margin: 0px;
@@ -14,8 +14,7 @@
 }
 
 .closed .list {
-  position: absolute;
-  opacity: 0;
+  display: none;
 }
 
 .line {
