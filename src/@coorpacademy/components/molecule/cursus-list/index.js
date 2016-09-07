@@ -19,7 +19,7 @@ const conditions = checker.shape({
 export default (treant, options = {}) => {
   const {h} = treant;
   const {translate = identity} = options;
-  const listTitle = translate('Cursuses');
+  const listTitle = translate('Training Packages');
 
   const Link = createLink(treant, options);
 
