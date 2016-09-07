@@ -5,8 +5,8 @@ import style from './style.css';
 const conditions = checker.shape({
   props: checker.shape({
     image: checker.shape({
-      url: checker.url.optional,
-      url2x: checker.url.optional
+      x1: checker.url.optional,
+      x2: checker.url.optional
     }).optional
   }),
   children: checker.none
@@ -14,20 +14,20 @@ const conditions = checker.shape({
 
 export default ({h}, options = {}) => {
   const ResponsiveImage = ({image}) => {
-    const url = get('url', image);
-    const url2x = get('url2x', image);
+    const x1 = get('x1', image);
+    const x2 = get('x2', image);
 
-    if (url2x) {
+    if (x2) {
       return (
         <img
-          src={url}
-          srcset={`${url2x} 2x`}
+          src={x1}
+          srcset={`${x2} 2x`}
         />
       );
     }
 
-    if (url) {
-      return <img src={url}/>;
+    if (x1) {
+      return <img src={x1}/>;
     }
 
     return <div className={style.empty}/>;

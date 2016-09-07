@@ -9,8 +9,8 @@ const conditions = checker.shape({
   props: checker.shape({
     type: checker.oneOf([VIMEO, YOUTUBE]).optional,
     image: checker.shape({
-      url: checker.url.optional,
-      url2x: checker.url.optional
+      x1: checker.url.optional,
+      x2: checker.url.optional
     }).optional,
     width: checker.number.optional,
     height: checker.number.optional,

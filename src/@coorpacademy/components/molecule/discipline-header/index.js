@@ -6,8 +6,8 @@ import createVideoIframe from '../video-iframe';
 const conditions = checker.shape({
   props: checker.shape({
     image: checker.shape({
-      url: checker.url.optional,
-      url2x: checker.url.optional
+      x1: checker.url.optional,
+      x2: checker.url.optional
     }).optional,
     title: checker.string.optional,
     description: checker.string.optional,
