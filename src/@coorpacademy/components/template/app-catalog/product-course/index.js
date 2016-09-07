@@ -49,7 +49,6 @@ export default (treant, options = {}) => {
   const DisciplineRightaside = createDisciplineRightaside(treant, options);
   const CatalogCards = createCatalogCards(treant, options);
   const cardsTitle = t('They also liked:');
-
   const ProductCourse = (props, children) => {
     const {
       selected = 0,
@@ -67,6 +66,8 @@ export default (treant, options = {}) => {
       description = '',
       popularity = 0
     } = props;
+
+    const authorLogo = get('logo', author);
 
     return (
       <div className={layout.wrapper}>
@@ -87,7 +88,9 @@ export default (treant, options = {}) => {
             maxRating={maxPopularity}
           />
         </div>
-        <div className={layout.container}>
+        <div
+          className={authorLogo ? style.containerWithLogo : style.containerWithoutLogo}
+        >
           <DisciplineScope
             content={level}
             levels={levels}

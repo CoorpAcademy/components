@@ -3,6 +3,10 @@
 @value tablet from breakpoints;
 @value desktop from breakpoints;
 
+.hide {
+  display: none;
+}
+
 .col {
   width: 100%;
   height: auto;

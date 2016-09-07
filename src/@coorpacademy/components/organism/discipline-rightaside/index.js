@@ -50,7 +50,7 @@ export default (treant, options = {}) => {
   const DisciplineRightaside = (props, children) => {
     const {rating, maxRating, linkBuy, linkTry, author} = props;
     const socialLinks = get('socialLinks', author);
-    const authorLogo = getOr('', 'logo', author);
+    const authorLogo = get('logo', author);
 
     const socialView = map(social => (
       <a
@@ -71,7 +71,7 @@ export default (treant, options = {}) => {
             linkTry={linkTry}
           />
         </div>
-        <div className={style.colDetails}>
+        <div className={authorLogo ? style.colDetails : style.hide}>
           <div className={style.detailTitle}>
             {authorLabel}
           </div>
