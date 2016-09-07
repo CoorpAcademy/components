@@ -26,14 +26,15 @@ const conditions = checker.shape({
 const getOrBlank = getOr('');
 
 const icons = {
-  pinterest: '0xe901',
   mail: '0xe902',
   'google-plus': '0xe903',
   facebook: '0xe904',
   twitter: '0xe905',
   linkedin: '0xe906',
-  youtube: '0xe907',
-  vimeo: '0xe908'
+  instagram: '0xe907',
+  youtube: '0xe908',
+  vimeo: '0xe909',
+  pinterest: '0xe9010'
 };
 
 export default (treant, options = {}) => {
@@ -50,7 +51,7 @@ export default (treant, options = {}) => {
   const DisciplineRightaside = (props, children) => {
     const {rating, maxRating, linkBuy, linkTry, author} = props;
     const socialLinks = get('socialLinks', author);
-    const authorLogo = getOr('', 'logo', author);
+    const authorLogo = get('logo', author);
 
     const socialView = map(social => (
       <a
@@ -71,7 +72,7 @@ export default (treant, options = {}) => {
             linkTry={linkTry}
           />
         </div>
-        <div className={style.colDetails}>
+        <div className={authorLogo ? style.colDetails : style.hide}>
           <div className={style.detailTitle}>
             {authorLabel}
           </div>
