@@ -17,8 +17,8 @@ const conditions = checker.shape({
     title: checker.string.optional,
     description: checker.string.optional,
     image: checker.shape({
-      x1: checker.url.optional,
-      x2: checker.url.optional
+      '1x': checker.url.optional,
+      '2x': checker.url.optional
     }).optional,
     video: checker.shape({
       type: checker.oneOf(['vimeo', 'youtube']),
