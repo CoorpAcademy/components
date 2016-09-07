@@ -1,6 +1,6 @@
 import {checker, createValidate} from '../../util/validation';
 import style from './style.css';
-import createResponsiveImage from '../responsive-image';
+import createImage from '../../atom/image';
 
 const VIMEO = 'vimeo';
 const YOUTUBE = 'youtube';
@@ -29,7 +29,7 @@ const url = (type, id) => {
 };
 
 export default (treant, options = {}) => {
-  const ResponsiveImage = createResponsiveImage(treant, options);
+  const Image = createImage(treant, options);
 
   const VideoIframe = (props, children) => {
     const {h} = treant;
@@ -54,8 +54,8 @@ export default (treant, options = {}) => {
     }
     else {
       return (
-        <ResponsiveImage
-          image={image}
+        <Image
+          src={image}
         />
       );
     }

@@ -5,6 +5,7 @@ import {checker, createValidate} from '../../util/validation';
 import createStarRating from '../star-rating';
 import createLink from '../../atom/link';
 import HoverFillBehaviour from '../../behaviour/effects/hover-fill';
+import createImage from '../../atom/image';
 import style from './style.css';
 
 const conditions = checker.shape({
@@ -25,6 +26,7 @@ export default (treant, options = {}) => {
   const HoverFill = HoverFillBehaviour(treant, options);
   const StarRating = createStarRating(treant, options);
   const Link = createLink(treant, options);
+  const Image = createImage(treant, options);
 
   const {translate = identity} = options;
 
@@ -41,7 +43,7 @@ export default (treant, options = {}) => {
     return (
       <li className={style.catalogListItem}>
         <div className={style.imageWrapper}>
-          <img src={image} />
+          <Image src={image} />
           <div className={style.overlay}>
             <HoverFill>
               <Link href={href}>En savoir <span>plus</span></Link>

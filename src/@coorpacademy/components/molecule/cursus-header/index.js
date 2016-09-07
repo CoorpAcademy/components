@@ -1,4 +1,5 @@
 import { checker, createValidate } from '../../util/validation';
+import createImage from '../../atom/image';
 import style from './style.css';
 
 const conditions = checker.shape({
@@ -11,11 +12,13 @@ const conditions = checker.shape({
 });
 
 export default (treant, options = {}) => {
+  const Image = createImage(treant, options);
+
   const CursusHeader = (props, children) => {
     const {h} = treant;
     const {image, title, description} = props;
     const imageView = image && (
-      <img
+      <Image
         src={image}
       />
     );
