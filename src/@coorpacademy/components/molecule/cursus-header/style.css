@@ -36,6 +36,7 @@
   text-align: center;
   width: 100%;
   padding: 0 20px;
+  left:0; /* firefox/safari */
 }
 
 .desc {
