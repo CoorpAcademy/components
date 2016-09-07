@@ -5,7 +5,10 @@ import createVideoIframe from '../video-iframe';
 
 const conditions = checker.shape({
   props: checker.shape({
-    image: checker.string.optional,
+    image: checker.shape({
+      '1x': checker.url.optional,
+      '2x': checker.url.optional
+    }).optional,
     title: checker.string.optional,
     description: checker.string.optional,
     video: checker.shape({
