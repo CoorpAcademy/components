@@ -9,9 +9,9 @@
 }
 
 .imgWrapper {
-  flex: 0 0 auto;
+  flex: 0 0 380px;
   display: inline-block;
-  height: auto;
+  height: 250px;
   vertical-align: top;
   overflow: hidden;
 }

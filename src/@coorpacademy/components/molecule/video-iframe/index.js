@@ -1,5 +1,6 @@
 import {checker, createValidate} from '../../util/validation';
 import style from './style.css';
+import createResponsiveImage from '../responsive-image';
 
 const VIMEO = 'vimeo';
 const YOUTUBE = 'youtube';
@@ -7,7 +8,10 @@ const YOUTUBE = 'youtube';
 const conditions = checker.shape({
   props: checker.shape({
     type: checker.oneOf([VIMEO, YOUTUBE]).optional,
-    image: checker.string.optional,
+    image: checker.shape({
+      url: checker.url.optional,
+      url2x: checker.url.optional
+    }).optional,
     width: checker.number.optional,
     height: checker.number.optional,
     id: checker.string.optional
@@ -25,6 +29,8 @@ const url = (type, id) => {
 };
 
 export default (treant, options = {}) => {
+  const ResponsiveImage = createResponsiveImage(treant, options);
+
   const VideoIframe = (props, children) => {
     const {h} = treant;
     const {
@@ -48,7 +54,9 @@ export default (treant, options = {}) => {
     }
     else {
       return (
-        <img src={image} className={style.image}/>
+        <ResponsiveImage
+          image={image}
+        />
       );
     }
   };

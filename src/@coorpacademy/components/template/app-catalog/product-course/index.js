@@ -16,7 +16,10 @@ const conditions = checker.shape({
     maxPopularity: checker.number.optional,
     title: checker.string.optional,
     description: checker.string.optional,
-    image: checker.string.optional,
+    image: checker.shape({
+      url: checker.url.optional,
+      url2x: checker.url.optional
+    }).optional,
     video: checker.shape({
       type: checker.oneOf(['vimeo', 'youtube']),
       id: checker.string
@@ -59,7 +62,7 @@ export default (treant, options = {}) => {
       linkTry,
       maxPopularity,
       relatedDisciplines = null,
-      image = '',
+      image,
       title = '',
       video,
       author = {name: '', socialLinks: []},

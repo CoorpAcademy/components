@@ -1,17 +1,21 @@
+import get from 'lodash/fp/get';
 import {checker, createValidate} from '../../util/validation';
 import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({
-    url: checker.url.optional,
-    url2x: checker.url.optional
+    image: checker.shape({
+      url: checker.url.optional,
+      url2x: checker.url.optional
+    }).optional
   }),
   children: checker.none
 });
 
 export default ({h}, options = {}) => {
-  const ResponsiveImage = props => {
-    const {url, url2x} = props;
+  const ResponsiveImage = ({image}) => {
+    const url = get('url', image);
+    const url2x = get('url2x', image);
 
     if (url2x) {
       return (
