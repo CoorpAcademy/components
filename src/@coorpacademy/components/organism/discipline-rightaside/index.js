@@ -33,7 +33,7 @@ const icons = {
   instagram: '0xe907',
   youtube: '0xe908',
   vimeo: '0xe909',
-  pinterest: '0xe9010'
+  pinterest: '0xe910'
 };
 
 export default (treant, options = {}) => {
