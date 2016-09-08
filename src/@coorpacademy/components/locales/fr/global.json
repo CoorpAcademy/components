@@ -8,12 +8,13 @@
   "certification": "certification",
   "chapters": "chapitres",
   "Coorpacademy <span>subscription</span>": "<span>Abonnement</span> Coorpacademy ",
-  "Training Packages": "Cursus",
   "filters": "filtres",
+  "Learn <span>more</span>": "En savoir <span>plus</span>",
   "Most recent": "Les plus récentes",
   "Most viewed": "Les plus populaires",
   "Sorry there are no results for your search": "Désolé, aucun résultat ne correspond à votre recherche",
   "Start <span>learning</span>": "Commencer à <span>apprendre</span>",
   "They also liked:": "Ils ont aussi apprécié :",
-  "This course contains:": "Ce cursus contient :"
+  "This course contains:": "Ce cursus contient :",
+  "Training Packages": "Cursus"
 }

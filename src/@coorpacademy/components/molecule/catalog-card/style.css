@@ -59,7 +59,7 @@
   background-color: #e6ac00
 }
 
-.overlay a span {
+.overlay a span span {
   font-family: "Open Sans";
   font-weight: 800;
 }
