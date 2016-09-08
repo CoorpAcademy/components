@@ -10,7 +10,7 @@
 }
 
 .productsContainer {
-  width: 840px;
+  max-width: 840px;
   display: inline-block;
   vertical-align: top;
   margin-top: -190px;
