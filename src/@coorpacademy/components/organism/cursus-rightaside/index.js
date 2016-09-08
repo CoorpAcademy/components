@@ -2,6 +2,7 @@ import {checker, createValidate} from '../../util/validation';
 import getOr from 'lodash/fp/getOr';
 import style from './style.css';
 import createCatalogCTA from '../../molecule/catalog-cta';
+import createImage from '../../atom/image';
 
 const conditions = checker.shape({
   props: checker.shape({
@@ -19,6 +20,7 @@ export default (treant, options = {}) => {
   const {h} = treant;
   const {translate} = options;
   const CatalogCTA = createCatalogCTA(treant, options);
+  const Image = createImage(treant, options);
 
   const t = stuff => {
     return translate ? translate(stuff) : stuff;
@@ -49,7 +51,7 @@ export default (treant, options = {}) => {
           <div className={style.detailTitle}>
             {certificationLabel}
           </div>
-          <img
+          <Image
             src={badge}
           />
         </div>

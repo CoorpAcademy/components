@@ -17,6 +17,7 @@ export default (treant, options = {}) => {
   const CursusHeader = (props, children) => {
     const {h} = treant;
     const {image, title, description} = props;
+
     const imageView = image && (
       <Image
         src={image}
