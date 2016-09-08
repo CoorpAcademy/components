@@ -7,6 +7,7 @@ import createLink from '../../atom/link';
 import HoverFillBehaviour from '../../behaviour/effects/hover-fill';
 import createImage from '../../atom/image';
 import style from './style.css';
+import hyperx from 'hyperx';
 
 const conditions = checker.shape({
   props: checker.shape({
@@ -32,6 +33,9 @@ export default (treant, options = {}) => {
 
   const CatalogCard = (props, children) => {
     const {h} = treant;
+    const hx = hyperx(h);
+
+    const learnMore = hx(`<span>${translate('Learn <span>more</span>')}</span>`);
 
     const {
       maxRating = 5,
@@ -46,7 +50,9 @@ export default (treant, options = {}) => {
           <Image src={image} />
           <div className={style.overlay}>
             <HoverFill>
-              <Link href={href}>En savoir <span>plus</span></Link>
+              <Link href={href}>
+                {learnMore}
+              </Link>
             </HoverFill>
           </div>
         </div>
