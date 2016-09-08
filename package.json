@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/components",
-  "version": "2.2.10",
+  "version": "2.2.11",
   "description": "Component library for web front ends",
   "main": "lib/components/index.js",
   "scripts": {
