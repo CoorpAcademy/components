@@ -44,6 +44,8 @@ const fonts = [
 
 app.get('/:engine*', (req, res) => {
   res.send(`
+    ${process.env.NODE_ENV === 'production' ?
+      '<link rel="stylesheet" href="/dist/styles.css"/>' : ''}
     ${join('', map(font => `<link rel="stylesheet" href="${font}"/>`, fonts))}
     <div id="app"></div>
     <script>window.engine = '${req.params.engine}'</script>
