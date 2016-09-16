@@ -1,6 +1,5 @@
 import identity from 'lodash/fp/identity';
 import getOr from 'lodash/fp/getOr';
-import get from 'lodash/fp/get';
 import {checker, createValidate} from '../../util/validation';
 import createStarRating from '../star-rating';
 import createLink from '../../atom/link';

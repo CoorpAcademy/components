@@ -1,5 +1,4 @@
 import test from 'ava';
-import map from 'lodash/fp/map';
 import createTranslate from '../translate';
 
 test('should create translate function', t => {

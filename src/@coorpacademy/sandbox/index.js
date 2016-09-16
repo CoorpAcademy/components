@@ -1,12 +1,11 @@
-import path from 'path';
 import express from 'express';
 import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
-import join from 'lodash/fp/join';
-import keys from 'lodash/fp/keys';
 import map from 'lodash/fp/map';
 import config from './webpack.config';
+
+import ssrMiddleware from './src/ssr';
 
 const engines = [
   'Virtualdom',
@@ -37,21 +36,7 @@ app.get('/angular', (req, res) => {
   `);
 });
 
-const fonts = [
-  '//fonts.googleapis.com/css?family=Open+Sans%3A300%2C300italic%2Cregular%2Citalic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic&amp;ver=4.5.2', // eslint-disable-line max-len
-  '//fonts.googleapis.com/css?family=Open+Sans&amp;ver=4.5.2'
-];
-
-app.get('/:engine*', (req, res) => {
-  res.send(`
-    ${process.env.NODE_ENV === 'production' ?
-      '<link rel="stylesheet" href="/dist/styles.css"/>' : ''}
-    ${join('', map(font => `<link rel="stylesheet" href="${font}"/>`, fonts))}
-    <div id="app"></div>
-    <script>window.engine = '${req.params.engine}'</script>
-    <script type="text/javascript" src="/dist/main.js"></script>
-  `);
-});
+app.use('/:engine', ssrMiddleware);
 
 app.get('/', (req, res) => {
   res.send(`

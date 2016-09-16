@@ -9,7 +9,8 @@
     "plugin:@coorpacademy/coorpacademy/core",
     "plugin:@coorpacademy/coorpacademy/ava",
     "plugin:@coorpacademy/coorpacademy/es20XX",
-    "plugin:@coorpacademy/coorpacademy/lodash-fp"
+    "plugin:@coorpacademy/coorpacademy/lodash-fp",
+    "plugin:@coorpacademy/coorpacademy/jsx"
   ],
   "parser": "babel-eslint",
   "parserOptions": {
@@ -21,8 +22,5 @@
   },
   "plugins": [
     "@coorpacademy/coorpacademy"
-  ],
-  "rules": {
-    "no-unused-vars": 'off'
-  }
+  ]
 }

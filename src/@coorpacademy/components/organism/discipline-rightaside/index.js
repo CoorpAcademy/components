@@ -1,12 +1,9 @@
 import {checker, createValidate} from '../../util/validation';
 import get from 'lodash/fp/get';
-import getOr from 'lodash/fp/getOr';
 import map from 'lodash/fp/map';
 import style from './style.css';
-import hyperx from 'hyperx';
 import createCatalogCTA from '../../molecule/catalog-cta';
 import createImage from '../../atom/image';
-import HoverFillBehaviour from '../../behaviour/effects/hover-fill';
 
 const conditions = checker.shape({
   props: checker.shape({
@@ -21,8 +18,6 @@ const conditions = checker.shape({
   }),
   children: checker.none
 });
-
-const getOrBlank = getOr('');
 
 const icons = {
   mail: '0xe902',

@@ -6,7 +6,6 @@ import createTitledCheckbox from '../titled-checkbox';
 const DEFAULT = 'default';
 const NORMAL = 'normal';
 const CLOSABLE = 'closable';
-const OPEN = 'open';
 const CLOSED = 'closed';
 
 const conditions = checker.shape({

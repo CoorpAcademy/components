@@ -1,7 +1,6 @@
 import path from 'path';
 import test from 'ava';
 import identity from 'lodash/fp/identity';
-import isArray from 'lodash/fp/isArray';
 import map from 'lodash/fp/map';
 import * as treant from '../../../@treantjs/core';
 import { extractAllComponents } from '../util/components-finder';
@@ -49,6 +48,7 @@ const testFixture = (_it, component, treant) => _fixture => {
     const component = <Component {...fixture.props}>
       {children}
     </Component>;
+    t.truthy(component);
   });
 
   test(`${it} › instanciated and resolved | no options`, t => {
@@ -56,7 +56,8 @@ const testFixture = (_it, component, treant) => _fixture => {
     const component = <Component {...fixture.props}>
       {children}
     </Component>;
-    resolve(component);
+    const resolved = resolve(component);
+    t.truthy(resolved);
   });
 
   test(`${it} › instanciated and resolved | options = {skin, translate}`, t => {
@@ -64,7 +65,8 @@ const testFixture = (_it, component, treant) => _fixture => {
     const component = <Component {...fixture.props}>
       {children}
     </Component>;
-    resolve(component);
+    const resolved = resolve(component);
+    t.truthy(resolved);
   });
 };
 

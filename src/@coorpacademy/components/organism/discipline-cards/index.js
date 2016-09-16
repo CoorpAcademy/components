@@ -1,4 +1,3 @@
-import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import {checker, createValidate} from '../../util/validation';
 import style from './style.css';

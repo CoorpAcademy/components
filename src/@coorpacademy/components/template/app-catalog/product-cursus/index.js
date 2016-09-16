@@ -42,7 +42,6 @@ export default (treant, options = {}) => {
       image,
       badge,
       title = '',
-      author = '',
       description = '',
       rating = 0,
       assets,

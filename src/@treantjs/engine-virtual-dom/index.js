@@ -1,6 +1,6 @@
 import isString from 'lodash/fp/isString';
-import isFunction from 'lodash/fp/isFunction';
 import mapKeys from 'lodash/fp/mapKeys';
+import pipe from 'lodash/fp/pipe';
 
 import walker from '../../@treantjs/core/walker';
 import resolve from '../../@treantjs/core/resolve';
@@ -10,6 +10,7 @@ import h from 'virtual-dom/h';
 import createElement from 'virtual-dom/create-element';
 import diff from 'virtual-dom/diff';
 import patch from 'virtual-dom/patch';
+import toHtml from 'vdom-to-html';
 
 const resolver = walker(resolve);
 
@@ -40,7 +41,6 @@ const render = el => {
       currentTree = vTree;
       return rootNode;
     }
-
     const patches = diff(currentTree, vTree);
     rootNode = patch(rootNode, patches);
     currentTree = vTree;
@@ -48,7 +48,13 @@ const render = el => {
   };
 };
 
+const renderToString = pipe(
+  transform,
+  toHtml
+);
+
 export {
   transform,
-  render
+  render,
+  renderToString
 };

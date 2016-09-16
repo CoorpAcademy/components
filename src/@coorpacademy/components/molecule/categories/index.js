@@ -1,6 +1,5 @@
 import find from 'lodash/fp/find';
 import getOr from 'lodash/fp/getOr';
-import pipe from 'lodash/fp/pipe';
 
 import createLink from '../../atom/link';
 import {checker, createValidate} from '../../util/validation';

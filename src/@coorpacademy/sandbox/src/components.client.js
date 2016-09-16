@@ -1,6 +1,8 @@
-import {join} from 'path';
-import {pipe, replace, map, reduce, has, set} from 'lodash/fp';
-const FOLDER = '(atom|molecule|organism|template/app-catalog)/([^/]*)';
+import map from 'lodash/fp/map';
+import pipe from 'lodash/fp/pipe';
+import reduce from 'lodash/fp/reduce';
+import replace from 'lodash/fp/replace';
+import set from 'lodash/fp/set';
 
 const components = require.context(
   '../../components',

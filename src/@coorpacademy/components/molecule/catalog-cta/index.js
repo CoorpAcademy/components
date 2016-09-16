@@ -1,9 +1,7 @@
 import { checker, createValidate } from '../../util/validation';
-import getOr from 'lodash/fp/getOr';
 import hyperx from 'hyperx';
 import style from './style.css';
 import createStarRating from '../../molecule/star-rating';
-import createLink from '../../atom/link';
 import HoverFillBehaviour from '../../behaviour/effects/hover-fill';
 
 const conditions = checker.shape({
@@ -15,8 +13,6 @@ const conditions = checker.shape({
   }),
   children: checker.none
 });
-
-const getOrBlank = getOr('');
 
 export default (treant, options = {}) => {
   const {h} = treant;
@@ -31,7 +27,6 @@ export default (treant, options = {}) => {
   const premium = hx(`<span>${t('Coorpacademy <span>subscription</span>')}</span>`);
 
   const StarRating = createStarRating(treant, options);
-  const Link = createLink(treant, options);
   const HoverFill = HoverFillBehaviour(treant, options);
 
   const CatalogCTA = (props, children) => {

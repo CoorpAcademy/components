@@ -1,4 +1,3 @@
-import getOr from 'lodash/fp/getOr';
 import {checker, createValidate} from '../../util/validation';
 import style from './style.css';
 
@@ -14,8 +13,6 @@ const conditions = checker.shape({
   }),
   children: checker.none
 });
-
-const getOrBlank = getOr('');
 
 export default (treant, options = {}) => {
   const ScopeTabs = createScopeTabs(treant, options);

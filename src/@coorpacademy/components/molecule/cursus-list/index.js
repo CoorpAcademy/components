@@ -1,4 +1,3 @@
-import find from 'lodash/fp/find';
 import identity from 'lodash/fp/identity';
 import createLink from '../../atom/link';
 import {checker, createValidate} from '../../util/validation';
@@ -42,10 +41,6 @@ export default (treant, options = {}) => {
         </li>
       );
     });
-
-    const selectedCursus = find({
-      selected: true
-    }, cursuses);
 
     return (
       <div className={style.cursuses}>
