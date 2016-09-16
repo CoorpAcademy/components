@@ -9,6 +9,7 @@ cache:
   - packages/@coorpacademy-redux-history/node_modules
   - packages/@coorpacademy-translate/node_modules
   - packages/@coorpacademy-treantjs-adapter-angular/node_modules
+  - packages/@coorpacademy-treantjs-adapter-dust/node_modules
   - packages/@coorpacademy-treantjs-core/node_modules
   - packages/@coorpacademy-treantjs-engine-react/node_modules
   - packages/@coorpacademy-treantjs-engine-snabbdom/node_modules
