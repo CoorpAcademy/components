@@ -28,9 +28,11 @@ const styles = [
 if (process.env.NODE_ENV === 'production')
   styles.push('/dist/styles.css');
 
-const isAnEngine = includes(['React', 'Virtualdom', 'Snabbdom']);
 export default (req, res, next) => {
-  if (!isAnEngine(req.params.engine)) return next();
+  if (!includes(
+    req.params.engine,
+    ['React', 'Virtualdom', 'Snabbdom']
+  )) return next();
 
   const history = useBasename(createMemoryHistory)({
     basename: `/${req.params.engine}`
