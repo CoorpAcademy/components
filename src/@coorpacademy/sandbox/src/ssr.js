@@ -2,7 +2,6 @@ import get from 'lodash/fp/get';
 import join from 'lodash/fp/join';
 import map from 'lodash/fp/map';
 import includes from 'lodash/fp/includes';
-import negate from 'lodash/fp/negate';
 import {createMemoryHistory, useBasename} from 'history';
 
 import * as treant from '../../../@treantjs/core';
@@ -29,9 +28,9 @@ const styles = [
 if (process.env.NODE_ENV === 'production')
   styles.push('/dist/styles.css');
 
-const isNotAnEngine = negate(includes(['React', 'Virtualdom', 'Snabbdom']));
+const isAnEngine = includes(['React', 'Virtualdom', 'Snabbdom']);
 export default (req, res, next) => {
-  if (isNotAnEngine(req.params.engine)) return next();
+  if (!isAnEngine(req.params.engine)) return next();
 
   const history = useBasename(createMemoryHistory)({
     basename: `/${req.params.engine}`
