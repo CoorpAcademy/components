@@ -24,6 +24,9 @@ export default (treant, options = {}) => {
         ))}
         <div className={style.buttons}>
           <HoverFill>
+            <button className={style.reset}>Annuler</button>
+          </HoverFill>
+          <HoverFill>
             <span className={style.save}>
               <input type="submit" value="Enregistrer"/>
             </span>
