@@ -1,6 +1,5 @@
-//import createImageLink from '../../molecule/image-link';
+import createImageLink from '../../atom/image-link';
 import createMenuList from '../../molecule/menu-list';
-// import createSsMenuList from '../../molecule/ssmenu-list';
 import pipe from 'lodash/fp/pipe';
 import map from 'lodash/fp/map';
 import get from 'lodash/fp/get';
@@ -15,44 +14,40 @@ import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({
-    className: checker.string.optional,
-    href: checker.string,
-    src: checker.oneOfType([
-      checker.string,
-      checker.objectOf(checker.url)
-    ]).optional,
-    menuitem: checker.arrayOf(
+    menuItems: checker.arrayOf(
       checker.shape({
         title: checker.string.optional
       })
+    ).optional,
+    imageLogo: checker.arrayOf(
+     checker.shape({
+        href: checker.string.optional,
+        src: checker.oneOfType([
+          checker.string,
+          checker.objectOf(checker.url)
+        ]).optional
+     })
     ).optional
-  }).strict
+  })
 });
 
 export default (treant, options = {}) => {
   const {h} = treant;
   const {translate} = options;
-  //const ImageLink = createImageLink(treant, options);
+  const ImageLink = createImageLink(treant, options);
   const MenuList = createMenuList(treant, options);
-  //const SsMenuList = createSsMenuList(treant, options);
 
   const Header = (props, children) => {
-    const {href, menuitem, title = []} = props;
+    const {menuItems, imageLogo} = props;
 
     return (
         <div className={style.static}>
-            // <ImageLink
-            //     {...props}
-            //     href={createHref(props.href)}
-            //     onClick={onClick(props)
-            // />
-
-            <MenuList
-                {...menulistProps}>
-                {MenuitemDiv}
-            </MenuList>
-
-            HEADER
+          <div className={style.Logo}>
+            <ImageLink imageLogo={props.imageLogo} />
+          </div>  
+          <div className={style.Navigation}>
+            <MenuList menuItems={menuItems} />
+          </div>
         </div>
     );
   };
@@ -60,3 +55,4 @@ export default (treant, options = {}) => {
   Header.validate = createValidate(conditions);
   return Header;
 };
+

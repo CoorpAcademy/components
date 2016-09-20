@@ -6,7 +6,7 @@ import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({
-    menuitem: checker.arrayOf(
+    items: checker.arrayOf(
       checker.shape({
         href: checker.string.optional,
         title: checker.string.optional
@@ -22,34 +22,31 @@ export default (treant, options = {}) => {
 
   const Link = createLink(treant, options);
 
-  const SsMenuList = ({menuitem = []}, children) => {
-    const MenuitemDiv = menuitem.map(cursus => {
-      const {title, href, selected} = cursus;
+  const SsMenuList = ({items = []}, children) => {
 
-      const linkProps = selected ? {
-        className: style.selected
-      } : {};
 
-      return (
-        <li className={style.item}>
-          <Link
-            {...linkProps}
-            href={href}
-          >
-            {title}
-          </Link>
-        </li>
-      );
+    const itemsView = items.map(cursus => {
+      const {title, href} = cursus;
+
+        return (
+          <li className={style.item}>
+            <Link
+              href={href}
+            >
+              {title}
+            </Link>
+          </li>
+        );        
     });
 
     const selectedCursus = find({
       selected: true
-    }, menuitem);
+    }, items);
 
     return (
-      <div className={style.ssmenuitem}>
+      <div className={style.ssitems}>
         <ul className={style.list}>
-          {MenuitemDiv}
+          {itemsView}
         </ul>
       </div>
     );
