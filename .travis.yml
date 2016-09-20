@@ -5,12 +5,21 @@ node_js:
 cache:
   directories:
   - node_modules
+  - packages/@coorpacademy-components/node_modules
+  - packages/@coorpacademy-redux-history/node_modules
+  - packages/@coorpacademy-translate/node_modules
+  - packages/@coorpacademy-treantjs-adapter-angular/node_modules
+  - packages/@coorpacademy-treantjs-core/node_modules
+  - packages/@coorpacademy-treantjs-engine-react/node_modules
+  - packages/@coorpacademy-treantjs-engine-snabbdom/node_modules
+  - packages/@coorpacademy-treantjs-engine-spec/node_modules
+  - packages/@coorpacademy-treantjs-engine-virtual-dom/node_modules
+before_install:
+- npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
 after_success: npm run coveralls
 deploy:
-  provider: npm
-  email: dev@coorpacademy.com
-  api_key:
-    secure: rtuJzt+TZwjW2gd5mVz0iwogYQ4kZtziMC8PINLJpYpiOWpqQNt1ZMkQOA8CXA/SNFLG48JKusf+gfaRYS1cd6hC5PhpFTKSHDggbyveJNJbObD2Jq5Wcke7j5wjK7XjXk5XdxHfXejCrjMC1rayXTr1Ygk24ymwyIi3bpWz28VRPQ3BhrDLViiDZ27Fyn3kF2lUS8xdOZYuCPc9kSVFpdIzy/sZAdXJyPJ5z/gRYGKd317ds+CJ35wnXzeVLyR/RcxwWtdTeyt1zonkl6yEhz6eZ3NQLtG4Qq1hodx9OEGYNWquESyX2KySxQVSdJwSVZJKc8V2/bX38uTPBMH9zn7AKdpuTCMGgW7w27438dSQIxsifqTprEwXwYYND/geJeKU8jT7AuNhQ/3NreeCwMcaKzOomzbJNkE26KjBlkDfx/WLkRXGf3JfMVmVKpiPhCBg75XAVihniKSOirRp4vwy/WD0J8OcQKVGsTj7Hs7BPW02oB5GgGr129YGu+pW6qfQZEb8GNonlC4ycfafhat1vZc65UfltNLrFeUQv0JZyaGEJhuDM1tdxPjhz1/m0PPRpxDw91ERCc8mS6AeMd7Bhg3pTx31c64qCXvdq5M55ZpzfgjviRlrwptYIDzCaDKhsFv/mjFdLx0JCBjG1v+qm2f6xwYT5LqUMmIR450=
+  provider: script
+  script: npm run publish
   on:
     tags: true
 env:

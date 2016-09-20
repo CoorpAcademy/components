@@ -1,9 +1,0 @@
-{
-  "extends": "./.babelrc.default",
-  "presets": ["es2015"],
-  "plugins": [
-    ["css-modules-transform", {
-      "generateScopedName": "[folder]__[local]___[hash:base64:5]"
-    }]
-  ]
-}

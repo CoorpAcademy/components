@@ -1,0 +1,34 @@
+{
+  "presets": ["stage-1"],
+  "plugins": [
+    ["transform-h-jsx", { "pragma": "h" }]
+  ],
+  "env": {
+    "commonjs": {
+      "presets": [
+        ["es2015", { "loose": true }]
+      ],
+      "plugins": [
+        ["css-modules-transform", {
+          "generateScopedName": "[folder]__[local]___[hash:base64:5]"
+        }]
+      ]
+    },
+    "test": {
+      "presets": [
+        ["es2015", { "loose": true }]
+      ],
+      "plugins": [
+        ["css-modules-transform", {
+          "generateScopedName": "[folder]__[local]___[hash:base64:5]"
+        }],
+        "istanbul"
+      ]
+    },
+    "es": {
+      "presets": [
+        ["es2015", { "loose": true, "modules": false }]
+      ]
+    }
+  }
+}

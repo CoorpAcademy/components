@@ -1,9 +1,0 @@
-{
-  "presets": ["stage-1"],
-  "plugins": [
-    ["transform-h-jsx", { "pragma": "h" }]
-  ],
-  "only": [
-    "src"
-  ]
-}

@@ -1,117 +1,25 @@
 {
-  "name": "@coorpacademy/components",
-  "version": "2.2.11",
-  "description": "Component library for web front ends",
-  "main": "lib/components/index.js",
-  "jsnext:main": "src/components/index.js",
   "scripts": {
-    "start": "babel-node src/@coorpacademy/sandbox/index.js",
-    "build": "npm run build:browser & npm run build:commonjs & wait",
-    "build:browser": "npm run clean:browser && webpack",
-    "build:commonjs": "npm run clean:commonjs && babel src --out-dir lib -s --ignore **/test/** --copy-files",
-    "prepublish": "npm run build --production",
-    "clean": "npm run clean:commonjs & npm run clean:browser & npm run clean:cov & wait",
-    "clean:commonjs": "rm -rf lib/*",
-    "clean:browser": "rm -rf dist/*",
-    "clean:cov": "rm -rf .nyc_output coverage",
-    "test": "npm run lint && npm run nyc",
-    "lint": "eslint src/",
-    "ava": "NODE_ENV=test ava",
-    "nyc": "nyc npm run ava",
-    "coveralls": "nyc report --reporter=text-lcov | coveralls",
-    "doc": "npm run doc:svg && npm run doc:png",
-    "doc:svg": "node scripts/madge.js",
-    "doc:png": "convert doc/components.svg doc/components.png"
+    "postinstall": "npm run bootstrap",
+    "lerna": "lerna",
+    "bootstrap": "lerna bootstrap",
+    "publish": "lerna publish",
+    "publish:canary": "lerna publish --canary",
+    "clean": "lerna run clean && lerna clean --yes",
+    "test": "lerna run test && npm run nyc",
+    "ava": "lerna run ava",
+    "nyc": "rm -rf .nyc_output && mkdir .nyc_output && cp $(ls packages/**/.nyc_output/*.json) .nyc_output && nyc --reporter=text --reporter=lcov report",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls"
   },
-  "contributors": [
-    "Arthur Weber <arthur.weber@coorpacademy.com>",
-    "Jeroen Engels <jengels@coorpacademy.com>",
-    "Christophe Dugne-Esquevin <christophe.dugne@coorpacademy.com>"
-  ],
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/coorpacademy/components/issues"
-  },
-  "homepage": "https://github.com/coorpacademy/components#readme",
   "devDependencies": {
-    "@coorpacademy/eslint-plugin-coorpacademy": "^1.2.1",
-    "angular": "^1.5.8",
-    "ava": "^0.16.0",
-    "babel-eslint": "^6.0.0",
-    "babel-register": "^6.11.6",
-    "coveralls": "^2.11.12",
-    "eslint": "^3.2.0",
-    "eslint-plugin-ava": "^3.0.0",
-    "eslint-plugin-lodash-fp": "^2.0.0",
-    "express": "^4.13.3",
-    "glob": "^7.0.5",
-    "jsdom": "^9.0.0",
-    "madge": "^1.1.0",
-    "nyc": "^8.1.0",
-    "pascal-case": "^2.0.0",
-    "webpack-dev-middleware": "^1.4.0",
-    "webpack-hot-middleware": "^2.12.2"
-  },
-  "ava": {
-    "files": [
-      "src/**/test/**/*.js",
-      "!node_module/**/*"
-    ],
-    "require": [
-      "babel-core/register"
-    ],
-    "babel": "inherit"
+    "coveralls": "^2.11.13",
+    "lerna": "2.0.0-beta.28",
+    "nyc": "^8.3.0"
   },
   "nyc": {
-    "include": [
-      "src/**"
-    ],
     "reporter": [
       "lcov",
-      "text"
-    ],
-    "exclude": [
-      "src/bundle*",
-      "src/components/widget*",
-      "src/util/generation-bundle.js",
-      "src/**/test/**"
-    ],
-    "require": [
-      "babel-core/register"
-    ],
-    "all": false
-  },
-  "dependencies": {
-    "api-check": "^7.5.5",
-    "autoprefixer": "^6.3.3",
-    "babel-cli": "^6.11.4",
-    "babel-core": "^6.11.4",
-    "babel-loader": "^6.2.4",
-    "babel-plugin-css-modules-transform": "^1.0.0",
-    "babel-plugin-transform-h-jsx": "^1.0.0",
-    "babel-preset-es2015": "^6.13.0",
-    "babel-preset-stage-1": "^6.5.0",
-    "compression-webpack-plugin": "^0.3.1",
-    "css-loader": "^0.25.0",
-    "extract-text-webpack-plugin": "^2.0.0-beta.3",
-    "file-loader": "^0.9.0",
-    "history": "^3.0.0",
-    "hyperx": "^2.0.4",
-    "json-loader": "^0.5.4",
-    "lodash": "^4.14.1",
-    "path-match": "^1.2.4",
-    "postcss-loader": "^0.13.0",
-    "postcss-nested": "^1.0.0",
-    "react": "^15.0.2",
-    "react-dom": "^15.3.0",
-    "redux": "^3.5.2",
-    "snabbdom": "^0.5.1",
-    "style-loader": "^0.13.0",
-    "snabbdom-to-html": "^3.0.0-beta.1",
-    "snabbdom-virtualize": "^0.6.0",
-    "vdom-to-html": "^2.3.0",
-    "virtual-dom": "^2.1.1",
-    "webpack": "^2.1.0-beta.21",
-    "webpack-merge": "^0.14.1"
+      "text-summary"
+    ]
   }
 }

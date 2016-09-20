@@ -1,0 +1,24 @@
+{
+  "presets": ["stage-1"],
+  "plugins": [
+    ["transform-h-jsx", { "pragma": "h" }]
+  ],
+  "env": {
+    "commonjs": {
+      "presets": [
+        ["es2015", { "loose": true }]
+      ]
+    },
+    "test": {
+      "presets": [
+        ["es2015", { "loose": true }]
+      ],
+      "plugins": ["istanbul"]
+    },
+    "es": {
+      "presets": [
+        ["es2015", { "loose": true, "modules": false }]
+      ]
+    }
+  }
+}
