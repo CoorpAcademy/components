@@ -1,0 +1,75 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+
+.ssmenuitem {
+  width: 20%;
+}
+
+.list {
+  list-style-type: none;
+  width: 100%;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: solid 2px #eee;
+  position: relative;
+  border-radius: 3px;
+  box-shadow: 0 6px 12px rgba(0,0,0,.175)
+}
+.list:before{
+  display: block;
+  top: -17px;
+  left: 50px;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(0,0,0,0);
+  border-bottom-color: #eee;
+  border-width: 8px;
+  margin-left: -8px;
+}
+
+.list:last-child {
+  //border-bottom: none;
+}
+
+.item {
+  padding: 0 20px;
+  border-bottom: solid 1px #eee;
+}
+
+.item:hover {
+  cursor: pointer;
+}
+
+.item a {
+  font-family: Open Sans;
+  font-size: 14px;
+  color: #B0BEC5;
+  text-decoration: none;
+  height: 40px;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.item:hover a {
+  color: #00b0ff;
+}
+
+.item:last-child{
+  border-bottom: 0;
+}
+
+.item:last-child:hover{
+  border-color: #00b0ff;
+}
+
+@media mobile {
+  .ssmenuitem {
+    display: none;
+  }
+}
