@@ -1,12 +1,12 @@
 export default {
   props: {
-    menuitem: [
+    items: [
       {
-        title: 'Solutions entreprise',
+        title: 'Masterclass Esprit du Temps',
         href: '/plop'
       },
       {
-        title: 'Formations adaptées à vos enjeux',
+        title: 'Masterclass Digital',
         href: '/plop'
       },
       {
@@ -14,7 +14,7 @@ export default {
         href: '/plop'
       },
       {
-        title: 'tarifs entreprise',
+        title: 'Abonnement Coorpacademy',
         href: '/plop'
       }
     ]
