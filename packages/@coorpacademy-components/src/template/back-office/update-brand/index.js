@@ -15,6 +15,11 @@ export default (treant, options = {}) => {
 
     return (
       <div className={style.container}>
+        <div className={style.header}>
+          <h1 className={style.title}>
+            Modification de Brandname
+          </h1>
+        </div>
         <div className={style.card}>
           <Form />
         </div>
