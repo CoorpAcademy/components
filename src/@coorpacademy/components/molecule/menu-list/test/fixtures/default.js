@@ -1,17 +1,24 @@
+import fixtureSolutions from '../../../ssmenu-list/test/fixtures/solutions';
+import fixtureFormations from '../../../ssmenu-list/test/fixtures/formations';
+import fixtureCoorpacademy from '../../../ssmenu-list/test/fixtures/Coorpacademy';
+
 export default {
   props: {
-    menuitem: [
+    menuItems: [
       {
         title: 'Formations',
-        href: '/plop'
+        href: '/plop',
+        subItems: fixtureFormations.props.items
       },
       {
         title: 'Nos Solutions',
-        href: '/plop'
+        href: '/plop',
+        subItems: fixtureSolutions.props.items
       },
       {
         title: 'Coorpacademy',
-        href: '/plop'
+        href: '/plop',
+        subItems: fixtureCoorpacademy.props.items
       },
       {
         title: 'Connexion',
