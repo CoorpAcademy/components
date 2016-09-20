@@ -1,4 +1,5 @@
 import createCenteredText from '../src/atom/centered-text';
+import createInputText from '../src/atom/input-text';
 import createLabelModName from '../src/atom/label-mod-name';
 import createLabelNormal from '../src/atom/label-normal';
 import createLabel from '../src/atom/label';
@@ -27,6 +28,7 @@ import createCursusList from '../src/molecule/cursus-list';
 import createDisciplineCard from '../src/molecule/discipline-card';
 import createDisciplineHeader from '../src/molecule/discipline-header';
 import createDisciplineScope from '../src/molecule/discipline-scope';
+import createFormGroup from '../src/molecule/form-group';
 import createModuleBubble from '../src/molecule/module-bubble';
 import createScopeContent from '../src/molecule/scope-content';
 import createScopeTabs from '../src/molecule/scope-tabs';
@@ -40,10 +42,12 @@ import createCatalogCards from '../src/organism/catalog-cards';
 import createCursusRightaside from '../src/organism/cursus-rightaside';
 import createDisciplineCards from '../src/organism/discipline-cards';
 import createDisciplineRightaside from '../src/organism/discipline-rightaside';
+import createForm from '../src/organism/form';
 import createHero from '../src/organism/hero';
 import createCatalog from '../src/template/app-catalog/catalog';
 import createProductCourse from '../src/template/app-catalog/product-course';
 import createProductCursus from '../src/template/app-catalog/product-cursus';
+import createUpdateBrand from '../src/template/back-office/update-brand';
 import createCenteredTextFixtureDefault from '../src/atom/centered-text/test/fixtures/default';
 import createLabelModNameFixtureFixture from '../src/atom/label-mod-name/test/fixtures/fixture';
 import createLabelNormalFixtureFixture from '../src/atom/label-normal/test/fixtures/fixture';
@@ -132,6 +136,7 @@ import createProductCursusFixtureLoading from '../src/template/app-catalog/produ
 export const components = {
   Atom: {
     CenteredText: createCenteredText,
+    InputText: createInputText,
     LabelModName: createLabelModName,
     LabelNormal: createLabelNormal,
     Label: createLabel,
@@ -170,6 +175,7 @@ export const components = {
     DisciplineCard: createDisciplineCard,
     DisciplineHeader: createDisciplineHeader,
     DisciplineScope: createDisciplineScope,
+    FormGroup: createFormGroup,
     ModuleBubble: createModuleBubble,
     ScopeContent: createScopeContent,
     ScopeTabs: createScopeTabs,
@@ -185,12 +191,16 @@ export const components = {
     CursusRightaside: createCursusRightaside,
     DisciplineCards: createDisciplineCards,
     DisciplineRightaside: createDisciplineRightaside,
+    Form: createForm,
     Hero: createHero
   },
   TemplateAppCatalog: {
     Catalog: createCatalog,
     ProductCourse: createProductCourse,
     ProductCursus: createProductCursus
+  },
+  TemplateBackOffice: {
+    UpdateBrand: createUpdateBrand
   }
 };
 export const fixtures = {

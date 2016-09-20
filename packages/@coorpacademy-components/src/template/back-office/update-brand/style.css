@@ -1,0 +1,14 @@
+.container {
+  background-color: #eeeeee;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 30px;
+}
+
+.card {
+  width: 50%;
+  background-color: #ffffff;
+  margin: auto;
+  padding: 30px;
+  border-radius: 5px;
+}
