@@ -20,7 +20,10 @@
 
 .item {
   display: inline-block;
-  padding: 0 20px;
+  padding: 0 15px;
+  position: relative;
+  z-index: 9;
+  vertical-align: top;
 }
 
 .item:hover {
@@ -29,25 +32,44 @@
 
 .item a {
   font-family: Open Sans;
-  font-size: 14px;
-  color: #B0BEC5;
+  font-size: 12px;
+  padding: 4px;
+  color: #4C616B;
   text-decoration: none;
-  height: 40px;
   display: table-cell;
   vertical-align: middle;
   text-transform: uppercase;
+  line-height: 22px;
 }
 
 .item:hover a {
   color: #00b0ff;
 }
 
-.item:last-child{
-  border: solid 1px #B0BEC5;
+.item:last-child a {
+  border: solid 1px #ffb90d;
+  color: #ffb90d;
 }
 
-.item:last-child:hover{
-  border-color: #00b0ff;
+.item:last-child:hover a {
+  background: #ffb90d;
+  border-color: #ffb90d;
+  color: white;
+}
+
+.SubNav {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  float: left;
+  min-width: 220px;
+}
+
+.item:hover .SubNav {
+  display: block;
+  color: #23527c;
 }
 
 @media mobile {

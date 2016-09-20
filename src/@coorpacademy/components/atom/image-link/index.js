@@ -12,7 +12,6 @@ import {pushToHistory} from '../../util/navigation';
 
 const conditions = checker.shape({
   props: checker.shape({
-    className: checker.string.optional,
     href: checker.string,
     src: checker.oneOfType([
       checker.string,
@@ -39,11 +38,6 @@ export default (treant, options = {}) => {
   const onClick = pushToHistory(options);
 
   const ImageLink = (props) => {
-    if(isNil(props.src)) {
-      return <div
-        className={style.empty}
-      />;
-    }
 
     return (
       <a

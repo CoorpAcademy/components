@@ -1,5 +1,38 @@
 .static {
-    display: block;
+    position: fixed;
+    background-color: #ffffff;
     width: 100%;
+    height: 80px;
+    font-size: 14px;
+    line-height: 48px;
+    padding: 16px 0 16px 0;
+    color: #4C616B;
+    text-transform: uppercase;
+    z-index: 800;
+    height: 48px;
+}
+
+.Navigation {
+    display: inline-block;
+    height: 48px;
+    width: 83%;
+}
+.Navigation ul {
+    text-align: right;
+}
+
+.Navigation ul li {
+    text-align: left;
+}
+
+.Navigation ul li {
+    text-transform: initial;
+    font-size: 12px;
+}
+
+.Logo {
+    display: inline-block;
+    height: 48px;
+    width: 16%;
     background: red;
 }
