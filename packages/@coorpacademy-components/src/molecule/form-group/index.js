@@ -5,25 +5,43 @@ import createInputText from '../../atom/input-text';
 import createSelect from '../../atom/select';
 
 const conditions = checker.shape({
-  props: checker.none,
+  props: checker.shape({
+    group: checker.shape({
+      name: checker.string,
+      fields: checker.array
+    })
+  }),
   children: checker.none
 });
 
 export default (treant, options = {}) => {
+  const {h} = treant;
+
   const FormGroup = (props, children) => {
-    const {h} = treant;
     const InputText = createInputText(treant, options);
     const Select = createSelect(treant, options);
 
-    const fields = [1, 2, 3, 4, 5];
+    const {name, fields} = props.group;
 
     return (
       <fieldset className={style.set}>
-        <legend>Propriétés</legend>
-        <Select />
-        {fields.map((field, index) => (
-          <InputText />
-        ))}
+        <legend>{name}</legend>
+        {fields.map((field, index) => {
+          switch (field.type) {
+            case 'text':
+              return (
+                <InputText field={field}/>
+              );
+            case 'color':
+              break;
+            case 'select':
+              return (
+                <Select />
+              );
+            default:
+              return;
+          }
+        })}
       </fieldset>
     );
   };

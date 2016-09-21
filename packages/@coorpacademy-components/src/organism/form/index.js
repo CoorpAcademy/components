@@ -5,22 +5,27 @@ import HoverFillBehaviour from '../../behaviour/effects/hover-fill';
 import createFormGroup from '../../molecule/form-group';
 
 const conditions = checker.shape({
-  props: checker.none,
+  props: checker.shape({
+    form: checker.shape({
+      groups: checker.array
+    })
+  }),
   children: checker.none
 });
 
 export default (treant, options = {}) => {
+  const {h} = treant;
+
   const Form = (props, children) => {
-    const {h} = treant;
     const FormGroup = createFormGroup(treant, options);
     const HoverFill = HoverFillBehaviour(treant, options);
 
-    const groups = [1, 2, 3];
+    const {groups} = props.form;
 
     return (
       <form className={style.form}>
         {groups.map((group, index) => (
-          <FormGroup />
+          <FormGroup group={group}/>
         ))}
         <div className={style.buttons}>
           <HoverFill>
