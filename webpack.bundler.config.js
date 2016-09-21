@@ -3,17 +3,17 @@ const merge = require('webpack-merge');
 const defaultConfig = require('./webpack.config.default');
 const styleConfig = require('./webpack.config.style');
 
-const config = (factories, dist) => ({
+const config = (bundle, dist) => ({
   entry: {
-    bundle: factories
+    bundle
   },
   output: {
     path: dist
   }
 });
 
-module.exports = (factories, dist) => merge.smart(
+module.exports = (bundle, dist) => merge.smart(
   styleConfig,
   defaultConfig,
-  config(factories, dist)
+  config(bundle, dist)
 );

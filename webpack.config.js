@@ -4,7 +4,7 @@ const merge = require('webpack-merge');
 const defaultConfig = require('./webpack.config.default');
 const styleConfig = require('./webpack.config.style');
 
-const moocConfig = {
+const componentsConfig = {
   entry: {
     components: path.join(__dirname, 'src', 'index')
   },
@@ -16,5 +16,5 @@ const moocConfig = {
 module.exports = merge.smart(
   styleConfig,
   defaultConfig,
-  moocConfig
+  componentsConfig
 );
