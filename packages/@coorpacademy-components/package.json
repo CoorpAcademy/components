@@ -34,11 +34,12 @@
   },
   "devDependencies": {
     "@coorpacademy/eslint-plugin-coorpacademy": "^1.2.1",
+    "@coorpacademy/translate": "^3.0.0-beta.1",
     "@coorpacademy/treantjs-engine-react": "^3.0.0-beta.1",
     "@coorpacademy/treantjs-engine-snabbdom": "^3.0.0-beta.1",
     "@coorpacademy/treantjs-engine-virtual-dom": "^3.0.0-beta.1",
     "api-check": "^7.5.5",
-    "autoprefixer": "^6.3.3",
+    "autoprefixer": "^6.4.1",
     "ava": "^0.16.0",
     "babel-cli": "^6.11.4",
     "babel-core": "^6.11.4",
@@ -61,7 +62,7 @@
     "path-match": "^1.2.4",
     "postcss-loader": "^0.13.0",
     "style-loader": "^0.13.0",
-    "webpack": "^2.1.0-beta.24",
+    "webpack": "^2.1.0-beta.25",
     "webpack-dev-middleware": "^1.4.0",
     "webpack-hot-middleware": "^2.12.2",
     "webpack-merge": "^0.14.1"

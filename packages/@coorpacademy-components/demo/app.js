@@ -1,4 +1,4 @@
-import {createTranslate} from '@coorpacademy/translate';
+import createTranslate from '@coorpacademy/translate';
 
 import createHeader from './components/header';
 

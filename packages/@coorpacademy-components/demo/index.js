@@ -36,4 +36,10 @@ app.get('/', (req, res) => {
   `);
 });
 
-app.listen(3004);
+
+if (!module.parent) {
+  app.listen(3004);
+  console.log('Open your browser: http://localhost:3004');
+}
+
+export default app;

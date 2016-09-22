@@ -76,14 +76,17 @@ module.exports = {
           threshold: 10240,
           minRatio: 0.8
         }),
-        componentCSS,
         new webpack.LoaderOptionsPlugin({
           options: {
             postcss: {
-              plugins: [autoprefixer]
-            }
+              plugins: [autoprefixer({
+                  browsers: ['last 2 versions']
+              })]
+            },
+            context: __dirname
           }
-        })
+        }),
+        componentCSS
       );
     return plugins;
   })()
