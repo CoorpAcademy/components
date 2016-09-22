@@ -1,3 +1,8 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value tablet from breakpoints;
+@value desktop from breakpoints;
+
 .static {
     position: fixed;
     background-color: #ffffff;
@@ -9,16 +14,19 @@
     color: #4C616B;
     text-transform: uppercase;
     z-index: 800;
-    height: 48px;
+    height: 50px;
 }
 
 .Navigation {
     display: inline-block;
-    height: 48px;
-    width: 83%;
+    vertical-align: middle;
+    height: 50px;
+    width: 80%;
 }
 .Navigation ul {
     text-align: right;
+    vertical-align: middle;
+    padding-top: 10px;
 }
 
 .Navigation ul li {
@@ -30,9 +38,268 @@
     font-size: 12px;
 }
 
+.Navigation div ul li:hover div div ul li a {
+    color: #4c616b;
+}
+
+.Navigation div ul li:hover div div ul li:hover a {
+  color: #00b0ff;
+}
+
 .Logo {
     display: inline-block;
-    height: 48px;
+    vertical-align: middle;
+    height: 50px;
     width: 16%;
-    background: red;
+    padding-left: 10px;
+}
+.Logo img {
+    width: 194px;
+    height: 50px;
+}
+
+.mobileNav {
+    display: none;
+}
+
+@media mobile {
+    .Navigation {
+        display: none;
+    }
+    .mobileNav {
+        display: inline-block;
+        width: 60%;
+        margin-left: 50px;
+        padding-right: 20px;
+        float: right;
+        vertical-align: middle;
+    }
+    .mobileburger {
+        display: block;
+    }
+    .mobileburger div {
+        display: none;
+    }
+    .mobileburger:before {
+        display: block;
+        content: "=";
+        font-size: 40px;
+        font-weight: bold;
+        cursor: pointer;
+        width: 40px;
+        float: right;
+    }
+
+    .mobileburger:hover div {
+        display: block;
+    }
+
+    .mobileburger:hover div ul li div {
+        
+    }
+
+    .mobileburger:hover div ul {
+        display: block;
+        padding: 5px 0;
+        text-align: center;
+        width: 32%;
+        float: right;
+        position: relative;
+        top: 45px;
+        left: 34px;
+        border: solid 2px #eee;
+    }
+
+    .mobileburger:hover div ul:before{
+      display: block;
+      top: -17px;
+      left: 120px;
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+      border-color: rgba(0,0,0,0);
+      border-bottom-color: #eee;
+      border-width: 8px;
+      margin-left: -8px;
+    }
+
+    .mobileburger:hover div ul li {
+        display: block;
+        padding: 5px 0;
+        text-align: center;
+        border-bottom: solid 2px #eee;
+        position: relative;
+    }
+
+    .mobileburger:hover div ul li:hover div {
+        display: block;
+    }
+
+    .mobileburger:hover div ul li:last-child {
+        display: block;
+        padding: 5px 0;
+        text-align: center;
+        border-bottom: 0;
+    }
+    .mobileburger:hover div ul li a {
+        width: 80%;
+        margin: 0 auto;
+        display: block;
+        text-align: center;
+    }
+    .mobileburger:hover div ul li a {
+        width: 80%;
+        margin: 0 auto;
+        display: block;
+        text-align: center;
+    }
+    .mobileburger:hover div ul li div {
+        display: none;
+        left: -337px;
+    }
+    .mobileburger:hover div ul li div div ul {
+        float: inherit;
+        width: 100%;
+        top: -48px;
+        left: 95px;
+    }
+    .mobileburger:hover div ul li div div ul:before {
+        float: inherit;
+        width: 100%;
+        top: 13px;
+        left: 236px;
+        border-top: 8px solid transparent;
+        border-bottom: 8px solid transparent;
+        border-left: 8px solid #eee;
+    }
+    .mobileburger:hover div ul li div div ul li a {
+        width: 90%;
+        height: 24px;
+        color: #4c616b;
+    }
+    .mobileburger:hover div ul li div div ul li a:hover {
+        color: #00b0ff;
+    }
+}
+
+@media tablet {
+    .Navigation {
+        display: none;
+    }
+    .mobileNav {
+        display: inline-block;
+        width: 60%;
+        margin-left: 50px;
+        padding-right: 20px;
+        float: right;
+        vertical-align: middle;
+    }
+    .mobileburger {
+        display: block;
+    }
+    .mobileburger div {
+        display: none;
+    }
+    .mobileburger:before {
+        display: block;
+        content: "=";
+        font-size: 40px;
+        font-weight: bold;
+        cursor: pointer;
+        width: 40px;
+        float: right;
+    }
+
+    .mobileburger:hover div {
+        display: block;
+    }
+
+    .mobileburger:hover div ul {
+        display: block;
+        padding: 5px 0;
+        text-align: center;
+        width: 32%;
+        float: right;
+        position: relative;
+        top: 45px;
+        left: 34px;
+        border: solid 2px #eee;
+    }
+
+    .mobileburger:hover div ul:before{
+      display: block;
+      top: -17px;
+      left: 120px;
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+      border-color: rgba(0,0,0,0);
+      border-bottom-color: #eee;
+      border-width: 8px;
+      margin-left: -8px;
+    }
+
+    .mobileburger:hover div ul li {
+        display: block;
+        padding: 5px 0;
+        text-align: center;
+        border-bottom: solid 2px #eee;
+        position: relative;
+    }
+
+    .mobileburger:hover div ul li:hover div {
+        display: block;
+    }
+
+    .mobileburger:hover div ul li:last-child {
+        display: block;
+        padding: 5px 0;
+        text-align: center;
+        border-bottom: 0;
+    }
+    .mobileburger:hover div ul li a {
+        width: 80%;
+        margin: 0 auto;
+        display: block;
+        text-align: center;
+    }
+    .mobileburger:hover div ul li a {
+        width: 80%;
+        margin: 0 auto;
+        display: block;
+        text-align: center;
+    }
+    .mobileburger:hover div ul li div {
+        display: none;
+        left: -337px;
+    }
+    .mobileburger:hover div ul li div div ul {
+        float: inherit;
+        width: 100%;
+        top: -48px;
+        left: 95px;
+    }
+    .mobileburger:hover div ul li div div ul:before {
+        float: inherit;
+        width: 100%;
+        top: 13px;
+        left: 236px;
+        border-top: 8px solid transparent;
+        border-bottom: 8px solid transparent;
+        border-left: 8px solid #eee;
+    }
+    .mobileburger:hover div ul li div div ul li a {
+        width: 90%;
+        height: 24px;
+        color: #4c616b;
+    }
+    .mobileburger:hover div ul li div div ul li a:hover {
+        color: #00b0ff;
+    }
 }
