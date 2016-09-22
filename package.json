@@ -5,7 +5,7 @@
     "postinstall": "npm run bootstrap",
     "lerna": "lerna",
     "bootstrap": "lerna bootstrap",
-    "publish": "lerna publish",
+    "publish:beta": "lerna publish --npm-tag beta",
     "publish:canary": "lerna publish --canary",
     "clean": "lerna run clean && lerna clean --yes",
     "test": "lerna run test && npm run nyc",
