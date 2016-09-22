@@ -6,7 +6,7 @@ const styleConfig = require('./webpack.config.style');
 
 const componentsConfig = {
   entry: {
-    components: path.join(__dirname, 'src', 'index')
+    components: path.join(__dirname, 'src/@coorpacademy/components/', 'index')
   },
   output: {
     path: path.join(__dirname, 'dist')

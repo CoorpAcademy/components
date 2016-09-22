@@ -1,21 +1,27 @@
 import map from 'lodash/fp/map';
-import path from 'path';
+import toPairs from 'lodash/fp/toPairs';
 import * as treant from '../core';
 import {renderToString} from '../engine-virtual-dom';
-import {extractComponents} from '../../@coorpacademy/components/util/components-finder';
+import paramCase from 'param-case';
 
-const _require = file => require(path.join('../../@coorpacademy/components', file)).default;
-const components = extractComponents('{molecule,organism}', false);
+const toHelpers = factories => {
+  const toHelper = ([key, factory]) => {
+    const isFactory = key.split('create')[1];
+    if (!isFactory) return;
 
-const helpers = map(component => (dust, options) => {
-  const createComponent = _require(component.path);
-  const Component = createComponent(treant);
+    const componentName = paramCase(isFactory);
+    const Component = factory(treant);
 
-  dust.helpers[component.nameParamCase] = (chunk, context, bodies, props) => {
-    const vTree = Component(props);
-    const html = renderToString(vTree);
-    chunk.write(html);
+    return (dust, options) => {
+      dust.helpers[componentName] = (chunk, context, bodies, props) => {
+        const vTree = Component(props);
+        const html = renderToString(vTree);
+        chunk.write(html);
+      };
+    };
   };
-}, components);
 
-module.exports = helpers;
+  return map(toHelper, toPairs(factories));
+};
+
+export default toHelpers;
