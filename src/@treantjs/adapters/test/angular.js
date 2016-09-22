@@ -1,11 +1,11 @@
 import test from 'ava';
 import isArray from 'lodash/fp/isArray';
 import contains from 'lodash/fp/contains';
-import createStarRating from '@coorpacademy/components/molecule/star-rating';
-import createCatalogCard from '@coorpacademy/components/molecule/catalog-card';
-import * as treant from '@coorpacademy-treantjs-core';
-import * as engine from '.@coorpacademy-treantjs-engine-virtual-dom';
-import createDirectives from '..';
+import createStarRating from '../../../@coorpacademy/components/molecule/star-rating';
+import createCatalogCard from '../../../@coorpacademy/components/molecule/catalog-card';
+import * as treant from '../../core';
+import * as engine from '../../engine-virtual-dom';
+import createDirectives from '../angular';
 
 test('createDirectives should wrap factories as directive factories', t => {
   const factories = {createStarRating, createCatalogCard};
