@@ -32,12 +32,11 @@ export default (treant, options = {}) => {
               return (
                 <InputText field={field}/>
               );
-            case 'color':
-              break;
             case 'select':
               return (
                 <Select />
               );
+            case 'color':
             default:
               return;
           }

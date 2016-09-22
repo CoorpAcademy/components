@@ -4,6 +4,6 @@ const {form} = Form.props;
 
 export default {
   props: {
-    form: form
+    form
   }
 };
