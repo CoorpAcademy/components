@@ -1,11 +1,12 @@
-import {props as post} from '../../../forum-post/test/fixtures/post';
-import {props as answer} from '../../../forum-post/test/fixtures/answer';
+import Post from '../../../forum-post/test/fixtures/post';
+import Answer from '../../../forum-post/test/fixtures/answer';
+
+const post = Post.props;
+const answer = Answer.props;
 
 export default {
   props: {
-    thread: {
-      post,
-      answers: [answer, answer]
-    }
+    post,
+    answers: [answer, answer]
   }
 };

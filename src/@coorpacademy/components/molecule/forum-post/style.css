@@ -1,0 +1,37 @@
+.post {
+  display: flex;
+  padding: 16px 0;
+}
+
+.answer {
+  composes: post;
+  padding-left: 50px;
+}
+
+.avatar {
+  height: 75px;
+  width: auto;
+  margin-right: 20px;
+}
+
+.author {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.date {
+  color: #b7bbc1;
+  font-size: 11px;
+}
+
+.body {
+  margin: 10px 0;
+}
+
+.footer {
+}
+
+.action {
+  font-size: 12px;
+  margin: 0 14px 0 0;
+}
