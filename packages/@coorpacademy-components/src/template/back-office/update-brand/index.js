@@ -4,14 +4,19 @@ import style from './style.css';
 import createForm from '../../../organism/form';
 
 const conditions = checker.shape({
-  props: checker.none,
+  props: checker.shape({
+    form: checker.object.optional
+  }),
   children: checker.none
 });
 
 export default (treant, options = {}) => {
+  const {h} = treant;
+
   const UpdateBrand = (props, children) => {
-    const {h} = treant;
     const Form = createForm(treant, options);
+
+    const {form} = props;
 
     return (
       <div className={style.container}>
@@ -21,7 +26,7 @@ export default (treant, options = {}) => {
           </h1>
         </div>
         <div className={style.card}>
-          <Form />
+          <Form form={form}/>
         </div>
       </div>
     );
