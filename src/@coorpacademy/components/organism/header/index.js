@@ -48,6 +48,11 @@ export default (treant, options = {}) => {
               href={href}
             />
           </div>
+          <div className={style.mobileNav}>
+            <div className={style.mobileburger}>
+                <MenuList menuItems={menuItems} />
+            </div>
+          </div>
           <div className={style.Navigation}>
             <MenuList menuItems={menuItems} />
           </div>

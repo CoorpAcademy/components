@@ -46,6 +46,17 @@
   color: #00b0ff;
 }
 
+.item:nth-child(4) a {
+  border: solid 1px #4C616B;
+  color: #4C616B;
+}
+
+.item:nth-child(4):hover a {
+  border: solid 1px #4C616B;
+  background-color: #4C616B;
+  color: white;
+}
+
 .item:last-child a {
   border: solid 1px #ffb90d;
   color: #ffb90d;
@@ -64,7 +75,7 @@
   left: 0;
   z-index: 1000;
   float: left;
-  min-width: 220px;
+  min-width: 230px;
 }
 
 .item:hover .SubNav {
