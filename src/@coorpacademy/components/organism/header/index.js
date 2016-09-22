@@ -20,13 +20,13 @@ const conditions = checker.shape({
       })
     ).optional,
     imageLogo: checker.arrayOf(
-     checker.shape({
+      checker.shape({
         href: checker.string.optional,
         src: checker.oneOfType([
           checker.string,
           checker.objectOf(checker.url)
         ]).optional
-     })
+      })
     ).optional
   })
 });
@@ -38,13 +38,16 @@ export default (treant, options = {}) => {
   const MenuList = createMenuList(treant, options);
 
   const Header = (props, children) => {
-    const {menuItems, imageLogo} = props;
+    const {menuItems, src, href} = props;
 
     return (
         <div className={style.static}>
           <div className={style.Logo}>
-            <ImageLink imageLogo={props.imageLogo} />
-          </div>  
+            <ImageLink
+              src={src}
+              href={href}
+            />
+          </div>
           <div className={style.Navigation}>
             <MenuList menuItems={menuItems} />
           </div>
