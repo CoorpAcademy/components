@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/treantjs-adapter-angular",
-  "version": "3.0.0-beta.1",
+  "version": "3.0.0-beta.2",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -33,7 +33,7 @@
     "@coorpacademy/treantjs-core": "^3.0.0-beta.1",
     "@coorpacademy/treantjs-engine-react": "^3.0.0-beta.1",
     "@coorpacademy/treantjs-engine-snabbdom": "^3.0.0-beta.1",
-    "@coorpacademy/treantjs-engine-virtual-dom": "^3.0.0-beta.1",
+    "@coorpacademy/treantjs-engine-virtual-dom": "^3.0.0-beta.2",
     "angular": "^1.5.8",
     "ava": "^0.16.0",
     "babel-cli": "^6.11.4",
