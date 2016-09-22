@@ -17,11 +17,6 @@ cache:
 before_install:
 - npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
 after_success: npm run coveralls
-deploy:
-  provider: script
-  script: npm run publish
-  on:
-    tags: true
 env:
   - CXX=g++-4.8
 addons:
