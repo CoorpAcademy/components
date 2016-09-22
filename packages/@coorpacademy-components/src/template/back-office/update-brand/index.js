@@ -22,7 +22,7 @@ export default (treant, options = {}) => {
       <div className={style.container}>
         <div className={style.header}>
           <h1 className={style.title}>
-            Modification de Brandname
+            {form.name}
           </h1>
         </div>
         <div className={style.card}>

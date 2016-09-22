@@ -7,6 +7,7 @@ import createFormGroup from '../../molecule/form-group';
 const conditions = checker.shape({
   props: checker.shape({
     form: checker.shape({
+      name: checker.string,
       groups: checker.array
     })
   }),

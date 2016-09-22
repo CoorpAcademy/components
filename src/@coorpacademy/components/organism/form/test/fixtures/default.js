@@ -5,6 +5,7 @@ const {group} = FormGroup.props;
 export default {
   props: {
     form: {
+      name: 'Modification Brand',
       groups: [group, group, group]
     }
   }

@@ -7,7 +7,7 @@ const conditions = checker.shape({
       name: checker.string,
       placeholder: checker.string,
       value: checker.string,
-      onChange: checker.string.optional
+      onChange: checker.func.optional
     })
   }),
   children: checker.none
