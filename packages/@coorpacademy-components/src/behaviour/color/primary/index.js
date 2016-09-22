@@ -1,3 +1,5 @@
+import get from 'lodash/fp/get';
+import getOr from 'lodash/fp/getOr';
 import createBehaviour from '../../../util/behaviour';
 
 const primary = (treant, options = {}) => props => {
@@ -5,7 +7,7 @@ const primary = (treant, options = {}) => props => {
 
   const properties = {
     style: {
-      color: props.value || skin && skin.primary
+      color: getOr(get('primary', skin), 'value', props)
     }
   };
 

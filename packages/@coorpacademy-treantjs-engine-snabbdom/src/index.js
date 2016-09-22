@@ -5,9 +5,7 @@ import keys from 'lodash/fp/keys';
 import set from 'lodash/fp/set';
 import split from 'lodash/fp/split';
 import contains from 'lodash/fp/contains';
-
 import {map, resolve, walker} from '@coorpacademy/treantjs-core';
-
 import h from 'snabbdom/h';
 import {init} from 'snabbdom';
 import classModule from 'snabbdom/modules/class';
@@ -28,7 +26,7 @@ const patch = init([
 
 const resolver = walker(resolve);
 
-const event = /^on([A-Z].+)/;
+const eventPattern = /^on([A-Z].+)/;
 const attributes = [
   'allowfullscreen', 'async', 'autofocus', 'autoplay', 'checked', 'compact', 'controls', 'declare',
   'default', 'defaultchecked', 'defaultmuted', 'defaultselected', 'defer', 'disabled', 'draggable',
@@ -45,14 +43,14 @@ const transformProps = props => {
       const value = props[key];
 
       // Events
-      const match = key.match(event);
+      const match = key.match(eventPattern);
       if (match)
         return set(`on.${match[1].toLowerCase()}`, value, data);
 
       // ClassName
       if (key === 'className')
-        return reduce((data, className) => {
-          return set(`class.${className}`, true, data);
+        return reduce((_data, className) => {
+          return set(`class.${className}`, true, _data);
         }, data, split(' ', value));
 
       // Attributes
@@ -69,11 +67,11 @@ const transformProps = props => {
 
 const transform = vNode => {
   if (isString(vNode)) return vNode;
-  vNode = resolver(vNode);
+  const resolvedVNode = resolver(vNode);
   return h(
-    vNode.tagName,
-    transformProps(vNode.properties),
-    map(transform, vNode.children)
+    resolvedVNode.tagName,
+    transformProps(resolvedVNode.properties),
+    map(transform, resolvedVNode.children)
   );
 };
 

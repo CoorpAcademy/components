@@ -1,5 +1,1 @@
-const stopPropagation = e => e.stopPropagation();
-
-export {
-  stopPropagation
-};
+export default e => e.stopPropagation();

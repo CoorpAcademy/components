@@ -1,7 +1,7 @@
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 
-const extractor = (skin, defaultImage) => {
+export default (skin, defaultImage) => {
   const defaultUrl = get(['images', defaultImage], skin);
   const defaultProperties = get(['properties', defaultImage], skin);
 
@@ -16,8 +16,4 @@ const extractor = (skin, defaultImage) => {
 
     return url ? style : null;
   };
-};
-
-export {
-  extractor
 };

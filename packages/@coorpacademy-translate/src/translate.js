@@ -4,8 +4,8 @@ import trim from 'lodash/fp/trim';
 
 const interpolation = /\{\{([\s\S]+?)\}\}/g;
 
-const createTranslate = locales => (token, data) => {
-  const template = locales[token] || token;
+const createTranslate = locales => (key, data) => {
+  const template = locales[key] || key;
 
   return template.replace(
     interpolation,

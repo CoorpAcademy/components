@@ -4,7 +4,6 @@ import identity from 'lodash/fp/identity';
 import isEmpty from 'lodash/fp/isEmpty';
 import isNil from 'lodash/fp/isNil';
 import map from 'lodash/fp/map';
-
 import createCenteredText from '../../atom/centered-text';
 import createSpinner from '../../atom/spinner';
 import createCatalogCard from '../../molecule/catalog-card';

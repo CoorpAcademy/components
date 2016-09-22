@@ -1,9 +1,10 @@
 import get from 'lodash/fp/get';
-export const NAVIGATE = '@@history/NAVIGATE';
 
 const INITAL_STATE = {
   pathname: ''
 };
+
+export const NAVIGATE = '@@history/NAVIGATE';
 
 export const historyReducer = (state = INITAL_STATE, action) => {
   if (action.type === NAVIGATE)
@@ -14,33 +15,33 @@ export const historyReducer = (state = INITAL_STATE, action) => {
   return state;
 };
 
-export const navigate = location => {
+export const navigate = payload => {
   return {
     type: NAVIGATE,
-    payload: location
+    payload
   };
 };
 
-export const connectHistory = (history, store, locationPath = 'route') => {
+export const connectHistory = (_history, store, locationPath = 'route') => {
   const getLocation = get(locationPath);
   const onHistoryChange = nextLocation => {
-    const location = getLocation(store.getState());
+    const _location = getLocation(store.getState());
 
-    if (location.key !== nextLocation.key)
+    if (_location.key !== nextLocation.key)
       store.dispatch(navigate(nextLocation));
   };
 
-  let unsubscribeHistory = history.listen(onHistoryChange);
+  let unsubscribeHistory = _history.listen(onHistoryChange);
 
   const unsubscribeStore = store.subscribe(() => {
-    const location = getLocation(store.getState());
-    const currentLocation = history.getCurrentLocation();
+    const currentLocationFromState = getLocation(store.getState());
+    const currentLocationFromHistory = _history.getCurrentLocation();
 
-    if (location.key !== currentLocation.key) {
-      const method = location.action === 'REPLACE' ? 'replace' : 'push';
+    if (currentLocationFromState.key !== currentLocationFromHistory.key) {
+      const method = currentLocationFromState.action === 'REPLACE' ? 'replace' : 'push';
       unsubscribeHistory();
-      history[method](location);
-      unsubscribeHistory = history.listen(onHistoryChange);
+      _history[method](currentLocationFromState);
+      unsubscribeHistory = _history.listen(onHistoryChange);
     }
   });
 

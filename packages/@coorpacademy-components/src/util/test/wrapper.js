@@ -1,6 +1,5 @@
 import test from 'ava';
 import * as treant from '@coorpacademy/treantjs-core';
-
 import createWrapper from '../wrapper';
 
 const {h, resolve} = treant;

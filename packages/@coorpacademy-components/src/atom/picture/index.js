@@ -32,7 +32,7 @@ const toSrcSet = ({src}) => {
 };
 
 export default ({h}, options = {}) => {
-  const Image = (props = {}) => {
+  const Picture = (props = {}) => {
     if (isNil(props.src)) {
       return <div
         className={style.empty}
@@ -48,6 +48,6 @@ export default ({h}, options = {}) => {
     );
   };
 
-  Image.validate = createValidate(conditions);
-  return Image;
+  Picture.validate = createValidate(conditions);
+  return Picture;
 };

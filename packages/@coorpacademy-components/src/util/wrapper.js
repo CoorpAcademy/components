@@ -1,5 +1,5 @@
-import createDecorator from './decorator';
 import head from 'lodash/fp/head';
+import createDecorator from './decorator';
 
 const createComponent = createProperties => (treant, options) => (props, children) => {
   const {clone, map} = treant;

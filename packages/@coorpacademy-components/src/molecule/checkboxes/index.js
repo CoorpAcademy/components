@@ -1,7 +1,9 @@
+import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
+import identity from 'lodash/fp/identity';
 import {checker, createValidate} from '../../util/validation';
-import style from './style.css';
 import createTitledCheckbox from '../titled-checkbox';
+import style from './style.css';
 
 const DEFAULT = 'default';
 const NORMAL = 'normal';
@@ -25,16 +27,16 @@ const conditions = checker.shape({
 
 export default (treant, options = {}) => {
   const {h} = treant;
-  const {skin, translate} = options;
+  const {skin, translate = identity} = options;
   const TitledCheckbox = createTitledCheckbox(treant, options);
 
   const cross = String.fromCharCode(getOr('x', 'icons.close', skin));
   const arrow = String.fromCharCode(getOr('v', 'icons["arrow-bottom"]', skin));
 
-  const closedHeader = options => (
+  const closedHeader = ({onOpen, title}) => (
     <div className={style.closedHeader}>
-      <span onClick={options.onOpen}>
-        <span>{options.title}</span>
+      <span onClick={onOpen}>
+        <span>{title}</span>
         <span className={style.arrow}>
           {arrow}
         </span>
@@ -42,25 +44,25 @@ export default (treant, options = {}) => {
     </div>
   );
 
-  const openHeader = options => (
+  const openHeader = _options => (
     <div className={style.openHeader}>
       <span
         className={style.closeText}
       >
-        {options.close}
+        {_options.close}
       </span>
       <span
         className={style.close}
-        onClick={options.onClose}
+        onClick={_options.onClose}
       >
         {cross}
       </span>
     </div>
   );
 
-  const createHeader = options => {
-    const {status} = options;
-    return status === CLOSED ? closedHeader(options) : openHeader(options);
+  const createHeader = props => {
+    const _status = get('status', props);
+    return _status === CLOSED ? closedHeader(options) : openHeader(options);
   };
 
   /**
@@ -79,24 +81,25 @@ export default (treant, options = {}) => {
   const Checkboxes = (props, children) => {
     const {
       title,
-      close,
       choices,
       onToggle,
       onClose,
       onOpen,
       theme = DEFAULT,
-      mode = NORMAL,
-      status = CLOSED
+      mode = NORMAL
     } = props;
+
+    const _close = get('close', props);
+    const _status = getOr(CLOSED, 'status', props);
 
     const isCourses = theme === 'courses';
     let header = null;
 
     if (mode === CLOSABLE) {
       header = createHeader({
-        title: translate ? translate(title) : title,
-        close: translate ? translate(close) : close,
-        status,
+        title: translate(title),
+        close: translate(_close),
+        status: _status,
         onClose,
         onOpen
       });
@@ -120,7 +123,7 @@ export default (treant, options = {}) => {
     });
 
     return (
-      <div className={style[status]}>
+      <div className={style[_status]}>
         {header}
         <ul className={style.list}>
           {lines}

@@ -66,7 +66,7 @@ const createDirectives = (app, treant, engine, components) => {
     createDirective(app, treant, engine, componentName, createComponent);
   };
 
-  mapKeys(toDirective, components);
+  return mapKeys(toDirective, components);
 };
 
 export default createDirectives;

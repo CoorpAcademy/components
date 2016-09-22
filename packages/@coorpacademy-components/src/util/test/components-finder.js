@@ -1,5 +1,4 @@
 import test from 'ava';
-
 import {extractComponents} from '../components-finder';
 
 test('should extract components without fixtures', t => {

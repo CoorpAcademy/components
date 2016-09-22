@@ -1,6 +1,6 @@
 import test from 'ava';
-import addClassName from '../add-class-name';
 import {h} from '@coorpacademy/treantjs-core';
+import addClassName from '../add-class-name';
 
 test('should merge classNames', t => {
   const child = {

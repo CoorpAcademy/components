@@ -1,6 +1,6 @@
-import test from 'ava';
 import {readFileSync} from 'fs';
 import {join} from 'path';
+import test from 'ava';
 import generatedContent from '../../scripts/generate-components-index';
 
 test('index should be up to date', t => {

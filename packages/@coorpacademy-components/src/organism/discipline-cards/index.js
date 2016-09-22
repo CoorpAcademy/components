@@ -1,7 +1,7 @@
 import getOr from 'lodash/fp/getOr';
 import {checker, createValidate} from '../../util/validation';
-import style from './style.css';
 import createDisciplineCard from '../../molecule/discipline-card';
+import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({

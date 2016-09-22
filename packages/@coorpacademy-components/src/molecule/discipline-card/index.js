@@ -1,10 +1,11 @@
 import getOr from 'lodash/fp/getOr';
 import partial from 'lodash/fp/partial';
 import unary from 'lodash/fp/unary';
+import identity from 'lodash/fp/identity';
 import {checker, createValidate} from '../../util/validation';
-import style from './style.css';
 import createModuleBubble from '../../molecule/module-bubble';
 import CenteredTextBehaviour from '../../behaviour/align/centered/';
+import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({
@@ -24,7 +25,7 @@ export default (treant, options = {}) => {
 
   const DisciplineCard = (props, children) => {
     const {h} = treant;
-    const {translate, skin} = options;
+    const {translate = identity, skin} = options;
     const {discipline, onClick, onModuleClick} = props;
 
     const hidden = discipline.visible === false;
@@ -33,17 +34,17 @@ export default (treant, options = {}) => {
     const duration = hidden ? 1 : rand;
     const animationDuration = `${duration}s`;
 
-    const modules = discipline.modules.map(module => (
+    const modules = discipline.modules.map(_module => (
       <ModuleBubble
-        module = {module}
+        module = {_module}
         onClick = {onModuleClick}
-        key = {module.ref}
+        key = {_module.ref}
       >
       </ModuleBubble>
     ));
 
-    const click = partial(unary(onClick), [discipline]);
-    const label = translate ? translate(discipline.label) : discipline.label;
+    const click = unary(partial(onClick, [discipline]));
+    const label = translate(discipline.label);
     const hasCourse = discipline.courseNum !== 'undefined';
 
     const bg = getOr('#fff', ['courses', discipline.courseNum], skin);

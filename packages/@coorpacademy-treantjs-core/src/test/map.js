@@ -1,7 +1,5 @@
 import test from 'ava';
-
 import map from '../map';
-
 import h from '../h';
 import resolve from '../resolve';
 

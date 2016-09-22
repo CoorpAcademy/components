@@ -1,5 +1,4 @@
 import test from 'ava';
-
 import h from '../h';
 import clone from '../clone';
 

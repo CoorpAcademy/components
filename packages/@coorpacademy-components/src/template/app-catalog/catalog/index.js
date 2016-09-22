@@ -1,9 +1,9 @@
 import identity from 'lodash/fp/identity';
 import {checker, createValidate} from '../../../util/validation';
-import style from './style.css';
 import createCategories from '../../../molecule/categories';
 import createCursusList from '../../../molecule/cursus-list';
 import createCatalogCards from '../../../organism/catalog-cards';
+import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({

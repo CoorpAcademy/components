@@ -1,6 +1,6 @@
 import test from 'ava';
-import {checker, createValidate} from '../../validation';
 import isFunction from 'lodash/fp/isFunction';
+import {checker, createValidate} from '../../validation';
 
 test('should provide a validate function with warn', t => {
   const conditions = checker.shape({});

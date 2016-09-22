@@ -1,6 +1,5 @@
 import test from 'ava';
 import * as treant from '@coorpacademy/treantjs-core';
-
 import createBehaviour from '../behaviour';
 
 const {h, resolve} = treant;

@@ -1,4 +1,5 @@
 import catalogCTA from '../../../../molecule/catalog-cta/test/fixtures/default';
+
 const {rating, maxRating, linkBuy, linkTry} = catalogCTA.props;
 
 export default {

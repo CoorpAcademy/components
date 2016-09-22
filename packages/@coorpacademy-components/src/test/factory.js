@@ -1,11 +1,11 @@
 import path from 'path';
 import test from 'ava';
 import * as treant from '@coorpacademy/treantjs-core';
-import { extractAllComponents } from '../util/components-finder';
+import {extractAllComponents} from '../util/components-finder';
 
 const _require = file => require(path.join('..', file)).default;
 
-const testComponent = treant => component => {
+const testComponent = component => {
   const it = `[${component.type}] ${component.name}`;
   const factory = _require(component.path);
 
@@ -29,4 +29,4 @@ const testComponent = treant => component => {
 };
 
 const components = extractAllComponents();
-components.forEach(testComponent(treant));
+components.forEach(testComponent);

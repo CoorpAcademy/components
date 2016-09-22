@@ -1,11 +1,12 @@
+import identity from 'lodash/fp/identity';
 import get from 'lodash/fp/get';
 import {checker, createValidate} from '../../../util/validation';
-import layout from '../layout.css';
-import style from './style.css';
 import createDisciplineHeader from '../../../molecule/discipline-header';
 import createDisciplineScope from '../../../molecule/discipline-scope';
 import createDisciplineRightaside from '../../../organism/discipline-rightaside';
 import createCatalogCards from '../../../organism/catalog-cards';
+import layout from '../layout.css';
+import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({
@@ -38,17 +39,13 @@ const conditions = checker.shape({
 
 export default (treant, options = {}) => {
   const {h} = treant;
-  const {translate} = options;
-
-  const t = stuff => {
-    return translate ? translate(stuff) : stuff;
-  };
+  const {translate = identity} = options;
 
   const DisciplineHeader = createDisciplineHeader(treant, options);
   const DisciplineScope = createDisciplineScope(treant, options);
   const DisciplineRightaside = createDisciplineRightaside(treant, options);
   const CatalogCards = createCatalogCards(treant, options);
-  const cardsTitle = t('They also liked:');
+  const cardsTitle = translate('They also liked:');
   const ProductCourse = (props, children) => {
     const {
       selected = 0,

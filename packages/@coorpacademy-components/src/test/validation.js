@@ -2,7 +2,7 @@ import path from 'path';
 import test from 'ava';
 import isFunction from 'lodash/fp/isFunction';
 import * as treant from '@coorpacademy/treantjs-core';
-import { extractAllComponents } from '../util/components-finder';
+import {extractAllComponents} from '../util/components-finder';
 
 const _require = file => require(path.join('..', file)).default;
 
@@ -14,7 +14,7 @@ const options = {
   }
 };
 
-const testComponent = treant => component => {
+const testComponent = component => {
   if (component.type === 'behaviour') return;
 
   const it = `[${component.type}] ${component.name}`;
@@ -34,4 +34,4 @@ const testComponent = treant => component => {
 };
 
 const components = extractAllComponents();
-components.forEach(testComponent(treant));
+components.forEach(testComponent);

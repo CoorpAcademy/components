@@ -24,8 +24,8 @@ const noShape = checker.shape({});
 const success = createSuccess(noShape);
 test('should provide a success macro', success);
 
-const conditions = checker.shape({foo: checker.string});
-const failure = createFailure(conditions);
+const shape = checker.shape({foo: checker.string});
+const failure = createFailure(shape);
 test('should provide a failure macro', failure);
 
 export {

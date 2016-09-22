@@ -1,6 +1,5 @@
-import createBehaviour from '../../../util/behaviour';
-
 import getOr from 'lodash/fp/getOr';
+import createBehaviour from '../../../util/behaviour';
 
 const textNormal = (treant, options = {}) => props => {
   const {skin} = options;

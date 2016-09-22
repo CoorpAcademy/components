@@ -1,5 +1,4 @@
 import test from 'ava';
-
 import VNode from '../vnode';
 
 test('should create vnode instsance', t => {

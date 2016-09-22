@@ -1,6 +1,6 @@
 import {checker, createValidate} from '../../util/validation';
+import createPicture from '../../atom/picture';
 import style from './style.css';
-import createImage from '../../atom/image';
 
 const VIMEO = 'vimeo';
 const YOUTUBE = 'youtube';
@@ -29,7 +29,7 @@ const url = (type, id) => {
 };
 
 export default (treant, options = {}) => {
-  const Image = createImage(treant, options);
+  const Picture = createPicture(treant, options);
 
   const VideoIframe = (props, children) => {
     const {h} = treant;
@@ -55,7 +55,7 @@ export default (treant, options = {}) => {
     }
     else {
       return (
-        <Image
+        <Picture
           src={image}
         />
       );

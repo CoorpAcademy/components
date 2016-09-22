@@ -3,7 +3,7 @@ import test from 'ava';
 import identity from 'lodash/fp/identity';
 import map from 'lodash/fp/map';
 import * as treant from '@coorpacademy/treantjs-core';
-import { extractAllComponents } from '../util/components-finder';
+import {extractAllComponents} from '../util/components-finder';
 
 const _require = file => require(path.join('..', file)).default;
 
@@ -16,19 +16,13 @@ const fullOptions = {
   translate: identity
 };
 
-const testFixture = (_it, component, treant) => _fixture => {
+const testFixture = (_it, component) => _fixture => {
   const { h, resolve } = treant;
   const factory = _require(component.path);
   const fixture = _require(_fixture.path);
-  const name = _fixture.name.split('.')[0];
+  const _name = _fixture.name.split('.')[0];
 
-  const createChildren = fixture => {
-    return map(createChild => {
-      return createChild(treant);
-    }, fixture.children);
-  };
-
-  const it = `${_it} › ${name} `;
+  const it = `${_it} › ${_name} `;
 
   if (component.type === 'behaviour') {
     test(`${it} › should have children in every fixture`, t => {
@@ -41,44 +35,44 @@ const testFixture = (_it, component, treant) => _fixture => {
     });
   }
 
-  const children = createChildren(fixture);
+  const children = map(createChild => createChild(treant), fixture.children);
 
   test(`${it} › should be instanciated as shallowTree`, t => {
     const Component = factory(treant, {skin: {}});
-    const component = <Component {...fixture.props}>
+    const vTree = <Component {...fixture.props}>
       {children}
     </Component>;
-    t.truthy(component);
+    t.truthy(vTree);
   });
 
   test(`${it} › instanciated and resolved | no options`, t => {
     const Component = factory(treant);
-    const component = <Component {...fixture.props}>
+    const vTree = <Component {...fixture.props}>
       {children}
     </Component>;
-    const resolved = resolve(component);
+    const resolved = resolve(vTree);
     t.truthy(resolved);
   });
 
   test(`${it} › instanciated and resolved | options = {skin, translate}`, t => {
     const Component = factory(treant, fullOptions);
-    const component = <Component {...fixture.props}>
+    const vTree = <Component {...fixture.props}>
       {children}
     </Component>;
-    const resolved = resolve(component);
+    const resolved = resolve(vTree);
     t.truthy(resolved);
   });
 };
 
-const testComponent = treant => component => {
+const testComponent = component => {
   const it = `[${component.type}] ${component.name}`;
 
   test(`${it} › should have at least one fixture`, t => {
     t.true(component.fixtures.length > 0);
   });
 
-  component.fixtures.forEach(testFixture(it, component, treant));
+  component.fixtures.forEach(testFixture(it, component));
 };
 
 const components = extractAllComponents();
-components.forEach(testComponent(treant));
+components.forEach(testComponent);

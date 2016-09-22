@@ -1,7 +1,7 @@
 import {checker, createValidate} from '../../util/validation';
-import style from './style.css';
 import createVideoIframe from '../video-iframe';
-import createImage from '../../atom/image';
+import createPicture from '../../atom/picture';
+import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({
@@ -17,7 +17,7 @@ const conditions = checker.shape({
 
 export default (treant, options = {}) => {
   const VideoIframe = createVideoIframe(treant, options);
-  const Image = createImage(treant, options);
+  const Picture = createPicture(treant, options);
 
   const VideoPlayer = (props, children) => {
     const {h} = treant;
@@ -44,7 +44,7 @@ export default (treant, options = {}) => {
             className={style.togglerDisplay}
             onClick={playVideo}
           >
-            <Image
+            <Picture
               src={image}
               className={style.image}
               width={width}

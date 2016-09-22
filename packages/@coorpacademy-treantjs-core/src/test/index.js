@@ -1,6 +1,5 @@
 import test from 'ava';
 import _map from 'lodash/fp/map';
-
 import {
   h,
   clone,
@@ -9,7 +8,7 @@ import {
   walker
 } from '../';
 
-test('should create element', t => {
+test('should create element', t =>
   _map(
     fun => t.truthy(fun),
     [
@@ -19,5 +18,5 @@ test('should create element', t => {
       resolve,
       walker
     ]
-  );
-});
+  )
+);

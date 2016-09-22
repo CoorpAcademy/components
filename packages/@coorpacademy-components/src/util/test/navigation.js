@@ -1,6 +1,6 @@
 import test from 'ava';
 import noop from 'lodash/fp/noop';
-import {pushToHistory} from '../navigation';
+import pushToHistory from '../navigation';
 
 const createEvent = ({href, button = 0, ...props}) => ({
   target: {
@@ -23,9 +23,9 @@ test('should push to history navigation event', t => {
     href: '/foo'
   };
   const onClick = pushToHistory(options);
-  const event = createEvent(props);
+  const customEvent = createEvent(props);
 
-  onClick(props)(event);
+  onClick(props)(customEvent);
 });
 
 test('should not do anything if history is not in the options', t => {
@@ -33,9 +33,9 @@ test('should not do anything if history is not in the options', t => {
     href: '/foo'
   };
   const onClick = pushToHistory({});
-  const event = createEvent(props);
+  const customEvent = createEvent(props);
 
-  onClick(props)(event);
+  onClick(props)(customEvent);
 });
 
 test('should not do anything if event does not contain a target href', t => {
@@ -61,9 +61,9 @@ test('should not do anything if event is prevented', t => {
     defaultPrevented: true
   };
   const onClick = pushToHistory(options);
-  const event = createEvent(props);
+  const customEvent = createEvent(props);
 
-  onClick(props)(event);
+  onClick(props)(customEvent);
 });
 
 test('should not do anything if event is mouse click but not left click', t => {
@@ -78,9 +78,9 @@ test('should not do anything if event is mouse click but not left click', t => {
     button: 1
   };
   const onClick = pushToHistory(options);
-  const event = createEvent(props);
+  const customEvent = createEvent(props);
 
-  onClick(props)(event);
+  onClick(props)(customEvent);
 });
 
 test('should not do anything if event is mouse click used with keyboard modifiers', t => {

@@ -1,5 +1,4 @@
 import test from 'ava';
-
 import isVNode from '../is-vnode';
 import VNode from '../vnode';
 

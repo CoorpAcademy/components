@@ -1,7 +1,7 @@
 import get from 'lodash/fp/get';
 import {checker, createValidate} from '../../util/validation';
-import style from './style.css';
 import createVideoIframe from '../video-iframe';
+import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({

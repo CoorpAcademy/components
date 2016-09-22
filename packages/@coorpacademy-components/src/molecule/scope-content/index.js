@@ -1,4 +1,5 @@
 import getOr from 'lodash/fp/getOr';
+import identity from 'lodash/fp/identity';
 import {checker, createValidate} from '../../util/validation';
 import style from './style.css';
 
@@ -17,14 +18,11 @@ const conditions = checker.shape({
 
 export default (treant, options = {}) => {
   const {h} = treant;
-  const {translate} = options;
-  const t = stuff => {
-    return translate ? translate(stuff) : stuff;
-  };
+  const {translate = identity} = options;
 
-  const lstitle = t('At the end of this level, you will be able to:');
-  const chaptersTitle = t('chapters');
-  const assetsTitle = t('assets');
+  const lstitle = translate('At the end of this level, you will be able to:');
+  const chaptersTitle = translate('chapters');
+  const assetsTitle = translate('assets');
 
   const ScopeContent = (props, children) => {
     const {content} = props;

@@ -1,6 +1,6 @@
-import {checker, createValidate} from '../../util/validation';
 import fill from 'lodash/fp/fill';
 import pipe from 'lodash/fp/pipe';
+import {checker, createValidate} from '../../util/validation';
 import createStar from '../../atom/star';
 import style from './style.css';
 

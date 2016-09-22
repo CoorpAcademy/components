@@ -1,9 +1,10 @@
-import {checker, createValidate} from '../../util/validation';
 import get from 'lodash/fp/get';
 import map from 'lodash/fp/map';
-import style from './style.css';
+import identity from 'lodash/fp/identity';
+import {checker, createValidate} from '../../util/validation';
 import createCatalogCTA from '../../molecule/catalog-cta';
-import createImage from '../../atom/image';
+import createPicture from '../../atom/picture';
+import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({
@@ -33,15 +34,11 @@ const icons = {
 
 export default (treant, options = {}) => {
   const {h} = treant;
-  const {translate} = options;
+  const {translate = identity} = options;
   const CatalogCTA = createCatalogCTA(treant, options);
-  const Image = createImage(treant, options);
+  const Picture = createPicture(treant, options);
 
-  const t = stuff => {
-    return translate ? translate(stuff) : stuff;
-  };
-
-  const authorLabel = t('author');
+  const authorLabel = translate('author');
 
   const DisciplineRightaside = (props, children) => {
     const {rating, maxRating, linkBuy, linkTry, author} = props;
@@ -72,7 +69,7 @@ export default (treant, options = {}) => {
             {authorLabel}
           </div>
           <div className={style.logoContainer}>
-            <Image
+            <Picture
               className={style.logo}
               src={authorLogo}
             />

@@ -20,6 +20,9 @@
     },
     "sourceType": "module"
   },
+  "settings": {
+    "import/ignore": ["node_modules", "\\.css$"]
+  },
   "plugins": [
     "@coorpacademy/coorpacademy"
   ]

@@ -1,6 +1,6 @@
-import find from 'lodash/fp/find';
+import _find from 'lodash/fp/find';
+import identity from 'lodash/fp/identity';
 import getOr from 'lodash/fp/getOr';
-
 import createLink from '../../atom/link';
 import {checker, createValidate} from '../../util/validation';
 import style from './style.css';
@@ -20,14 +20,15 @@ const conditions = checker.shape({
 
 export default (treant, options = {}) => {
   const {h} = treant;
-  const {translate} = options;
-  const filtersTitle = translate ? translate('filters') : 'filters';
+  const {translate = identity} = options;
+  const filtersTitle = translate('filters');
 
   const Link = createLink(treant, options);
 
   const Categories = ({categories = []}, children) => {
     const CategoriesDiv = categories.map(category => {
-      const {name, href, selected} = category;
+      const {href, selected} = category;
+      const _name = getOr('', 'name', category);
 
       const linkProps = selected ? {
         className: style.selected
@@ -39,13 +40,13 @@ export default (treant, options = {}) => {
             {...linkProps}
             href={href}
           >
-            {name}
+            {_name}
           </Link>
         </li>
       );
     });
 
-    const selectedCategory = find({
+    const selectedCategory = _find({
       selected: true
     }, categories) || {};
 

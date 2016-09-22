@@ -1,8 +1,7 @@
 import {checker, createValidate} from '../../util/validation';
-import style from './style.css';
-
 import createScopeTabs from '../scope-tabs';
 import createScopeContent from '../scope-content';
+import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({

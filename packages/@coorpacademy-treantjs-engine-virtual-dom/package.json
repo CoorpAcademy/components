@@ -31,7 +31,7 @@
     "virtual-dom": "^2.1.1"
   },
   "devDependencies": {
-    "@coorpacademy/eslint-plugin-coorpacademy": "^1.2.1",
+    "@coorpacademy/eslint-plugin-coorpacademy": "^2.0.0",
     "@coorpacademy/treantjs-engine-spec": "^3.0.0-beta.1",
     "ava": "^0.16.0",
     "babel-cli": "^6.11.4",

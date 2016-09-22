@@ -1,11 +1,13 @@
+import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import pipe from 'lodash/fp/pipe';
+import identity from 'lodash/fp/identity';
 import partial from 'lodash/fp/partial';
 import unary from 'lodash/fp/unary';
 import {checker, createValidate} from '../../util/validation';
-import style from './style.css';
 import createLabelModName from '../../atom/label-mod-name';
-import { stopPropagation } from '../../util/bubbling';
+import stopPropagation from '../../util/bubbling';
+import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({
@@ -22,28 +24,29 @@ const conditions = checker.shape({
 
 export default (treant, options = {}) => {
   const {h} = treant;
-  const {skin, translate} = options;
+  const {skin, translate = identity} = options;
 
   const LabelModName = createLabelModName(treant, options);
 
   const ModuleBubble = (props, children) => {
-    const {module, onClick} = props;
-    const code = getOr('', `icons[${module.status}]`, skin);
+    const {onClick} = props;
+    const _module = get('module', props);
+    const code = getOr('', `icons[${_module.status}]`, skin);
     const icon = String.fromCharCode(code);
+
+    const filtered = _module.filtered;
+    const disabled = _module.disabled;
 
     const click = !disabled && pipe(
       stopPropagation,
-      partial(unary(onClick), [module])
+      unary(partial(onClick, [_module]))
     );
+    const label = translate(_module.label);
 
-    const filtered = module.filtered;
-    const disabled = module.disabled;
-    const label = translate ? translate(module.label) : module.label;
-
-    const background = getOr('#fff', `mod[${module.status}]`, skin);
+    const background = getOr('#fff', `mod[${_module.status}]`, skin);
 
     return (
-      <div className={filtered ? style.filtered : style.modulewrapper}
+      <div className={filtered ? style.filtered : style._modulewrapper}
             attributes={{
               'data-name': 'module-bubble'
             }}
@@ -62,7 +65,7 @@ export default (treant, options = {}) => {
           <span
             className={disabled ? style.iconDisabled : style.icon}
             style={{
-              color: getOr('#fff', ['mod', 'icon', module.status], skin)
+              color: getOr('#fff', ['mod', 'icon', _module.status], skin)
             }}
           >
               {icon}

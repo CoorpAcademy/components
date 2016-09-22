@@ -1,5 +1,4 @@
 import test from 'ava';
-
 import h from '../h';
 import resolve from '../resolve';
 import map from '../map';
@@ -72,11 +71,11 @@ test('should create component', t => {
 });
 
 test('should create component with props', t => {
-  const Component = ({name}) => h('h1', {name});
+  const Component = ({value}) => h('h1', {value});
 
-  const node1 = h('h1', {name: 'foo'});
-  const node2 = h(Component, {name: 'foo'});
-  const node3 = <Component name="foo"/>;
+  const node1 = h('h1', {value: 'foo'});
+  const node2 = h(Component, {value: 'foo'});
+  const node3 = <Component value="foo"/>;
 
   t.deepEqual(resolve(node2), node1);
   t.deepEqual(resolve(node3), node1);

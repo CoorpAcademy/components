@@ -28,7 +28,7 @@
     "lodash": "^4.14.1"
   },
   "devDependencies": {
-    "@coorpacademy/eslint-plugin-coorpacademy": "^1.2.1",
+    "@coorpacademy/eslint-plugin-coorpacademy": "^2.0.0",
     "ava": "^0.16.0",
     "babel-cli": "^6.11.4",
     "babel-core": "^6.11.4",

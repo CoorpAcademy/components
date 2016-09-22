@@ -2,21 +2,25 @@ import {h} from '@coorpacademy/treantjs-core';
 
 export default (test, {render, transform}) => {
   test('should render vTree', t => {
-    const root = render(document.createElement('div'))(<h1>foo</h1>);
-    t.is(root.tagName, 'H1');
-    t.is(root.textContent, 'foo');
+    const container = document.createElement('div');
+    const update = render(container);
+    const el = update(<h1>foo</h1>);
+    t.is(el.tagName, 'H1');
+    t.is(el.textContent, 'foo');
   });
 
   test('should render vTree with Components', t => {
+    const container = document.createElement('div');
+    const update = render(container);
     const Component = props => <h1>foo</h1>;
-    const root = render(document.createElement('div'))(Component());
-    t.is(root.tagName, 'H1');
-    t.is(root.textContent, 'foo');
+    const el = update(Component());
+    t.is(el.tagName, 'H1');
+    t.is(el.textContent, 'foo');
   });
 
   test('should update rendering', t => {
-    const root = document.createElement('div');
-    const update = render(root);
+    const container = document.createElement('div');
+    const update = render(container);
 
     const h1 = update(<h1/>);
     t.is(h1.tagName, 'H1');

@@ -1,7 +1,8 @@
+import identity from 'lodash/fp/identity';
 import {checker, createValidate} from '../../util/validation';
-import style from './style.css';
 import createCatalogCTA from '../../molecule/catalog-cta';
-import createImage from '../../atom/image';
+import createPicture from '../../atom/picture';
+import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({
@@ -17,16 +18,12 @@ const conditions = checker.shape({
 
 export default (treant, options = {}) => {
   const {h} = treant;
-  const {translate} = options;
+  const {translate = identity} = options;
   const CatalogCTA = createCatalogCTA(treant, options);
-  const Image = createImage(treant, options);
+  const Picture = createPicture(treant, options);
 
-  const t = stuff => {
-    return translate ? translate(stuff) : stuff;
-  };
-
-  const certificationLabel = t('certification');
-  const assetsLabel = t('assets');
+  const certificationLabel = translate('certification');
+  const assetsLabel = translate('assets');
 
   const CursusRightaside = (props, children) => {
     const {rating, maxRating, linkBuy, linkTry, badge, assets = []} = props;
@@ -50,7 +47,7 @@ export default (treant, options = {}) => {
           <div className={style.detailTitle}>
             {certificationLabel}
           </div>
-          <Image
+          <Picture
             src={badge}
           />
         </div>

@@ -1,5 +1,5 @@
 import test from 'ava';
-import { extractor } from '../image';
+import extractor from '../image';
 
 const skin = {
   images: {

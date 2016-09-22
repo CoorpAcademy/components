@@ -1,5 +1,4 @@
 import defaultsDeep from 'lodash/fp/defaultsDeep';
-
 import h from './h';
 
 const clone = (child, properties, children) => {

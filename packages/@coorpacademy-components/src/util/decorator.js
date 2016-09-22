@@ -1,11 +1,9 @@
-const createDecorator = ({h}) => (Wrapper, wrapperProps) => (Element, elementProps) => (props, children) => {
+export default ({h}) => (Wrapper, wrapperProps) => (Component, elementProps) => (props, children) => {
   return (
     <Wrapper {...wrapperProps}>
-      <Element {...elementProps}>
+      <Component {...elementProps}>
         {children}
-      </Element>
+      </Component>
     </Wrapper>
   );
 };
-
-export default createDecorator;

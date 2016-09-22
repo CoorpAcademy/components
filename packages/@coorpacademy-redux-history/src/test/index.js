@@ -1,6 +1,5 @@
 import test from 'ava';
 import isFunction from 'lodash/fp/isFunction';
-
 import {
   navigate,
   historyReducer,

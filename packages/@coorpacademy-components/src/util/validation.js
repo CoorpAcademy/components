@@ -19,7 +19,7 @@ const createValidate = conditions => {
   return validate;
 };
 
-checker.none = (val, name, location) => {
+checker.none = (val, _name, _location) => {
   const arrayOfOne = isArray(val) && val.length === 1;
   const arrayNotEmpty = arrayOfOne && val[0] !== undefined && val[0] !== null;
   const objectNotEmpty = !isArray(val) && !isEmpty(val);
@@ -27,46 +27,46 @@ checker.none = (val, name, location) => {
   const arrayOfMoreThanOne = isArray(val) && val.length > 1;
 
   if (isBoolean(val) || notEmpty || arrayOfMoreThanOne) {
-    return checker.utils.getError(name, location, 'null or undefined');
+    return checker.utils.getError(_name, _location, 'null or undefined');
   }
 };
 checker.none.type = 'checker.none';
 
-checker.url = (val, name, location) => {
+checker.url = (val, _name, _location) => {
   if (!val || !/(http(s)?:\/\/.)[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)$/.test(val)) {
-    return checker.utils.getError(name, location, 'a URL');
+    return checker.utils.getError(_name, _location, 'a URL');
   }
 };
 checker.url.type = 'checker.url';
 apiCheck.utils.checkerHelpers.addOptional(checker.url);
 
-checker.one = (val, name, location) => {
+checker.one = (val, _name, _location) => {
   if (!isArray(val) || val.length !== 1) {
-    return checker.utils.getError(name, location, 'an Array with one value');
+    return checker.utils.getError(_name, _location, 'an Array with one value');
   }
 };
 checker.one.type = 'checker.one';
 apiCheck.utils.checkerHelpers.addOptional(checker.one);
 
-checker.oneOrMore = (val, name, location) => {
+checker.oneOrMore = (val, _name, _location) => {
   if (!isArray(val) || val.length < 1 || val[0] === null) {
-    return checker.utils.getError(name, location, 'an Array with at least one value');
+    return checker.utils.getError(_name, _location, 'an Array with at least one value');
   }
 };
 checker.oneOrMore.type = 'checker.oneOrMore';
 apiCheck.utils.checkerHelpers.addOptional(checker.oneOrMore);
 
-checker.many = (val, name, location) => {
+checker.many = (val, _name, _location) => {
   if (!isArray(val) || val.length < 2) {
-    return checker.utils.getError(name, location, 'an Array with many values');
+    return checker.utils.getError(_name, _location, 'an Array with many values');
   }
 };
 checker.many.type = 'checker.many';
 apiCheck.utils.checkerHelpers.addOptional(checker.many);
 
-checker.color = (val, name, location) => {
+checker.color = (val, _name, _location) => {
   if (!val || !/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(val)) {
-    return checker.utils.getError(name, location, '#123 or #123456');
+    return checker.utils.getError(_name, _location, '#123 or #123456');
   }
 };
 checker.color.type = 'checker.color';

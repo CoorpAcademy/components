@@ -1,5 +1,4 @@
 import {get, getOr} from 'lodash/fp';
-
 import {h} from '@coorpacademy/treantjs-core';
 
 export default (test, {render, transform}) => {
@@ -30,10 +29,14 @@ export default (test, {render, transform}) => {
     }, 'assert', prop);
 
     test(`should render ${key} attribute`, t => {
-      const root = render(document.createElement('div'))(h(tagName, {
+      const container = document.createElement('div');
+      const update = render(container);
+      const vTree = h(tagName, {
         [key]: value
-      }));
-      assert(t, root);
+      });
+
+      const el = update(vTree);
+      assert(t, el);
     });
   });
 
@@ -50,12 +53,15 @@ export default (test, {render, transform}) => {
         t.pass();
         t.end();
       };
+      const container = document.createElement('div');
+      const update = render(container);
+      const vTree = <div {...{[attribute]: onEvent}}/>;
+      const el = update(vTree);
 
-      const root = render(document.createElement('div'))(<div {...{[attribute]: onEvent}}/>);
-      window.document.body.appendChild(root);
-      const event = document.createEvent('Event');
-      event.initEvent(eventName, true, true);
-      root.dispatchEvent(event);
+      document.body.appendChild(el);
+      const customEvent = document.createEvent('Event');
+      customEvent.initEvent(eventName, true, true);
+      el.dispatchEvent(customEvent);
     });
   });
 };

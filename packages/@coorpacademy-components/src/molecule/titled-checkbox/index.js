@@ -1,6 +1,7 @@
 import getOr from 'lodash/fp/getOr';
 import partial from 'lodash/fp/partial';
 import unary from 'lodash/fp/unary';
+import identity from 'lodash/fp/identity';
 import {checker, createValidate} from '../../util/validation';
 import style from './style.css';
 
@@ -18,12 +19,12 @@ const conditions = checker.shape({
 
 export default (treant, options = {}) => {
   const {h} = treant;
-  const {translate, skin} = options;
+  const {translate = identity, skin} = options;
   const iconSuccess = String.fromCharCode(getOr('v', 'icons.success', skin));
 
   const TitledCheckbox = (props, children) => {
     const {state, background, onToggle} = props;
-    const label = translate ? translate(state.label) : state.label;
+    const label = translate(state.label);
     const icon = state.checked ? iconSuccess : '';
 
     return (
@@ -44,7 +45,7 @@ export default (treant, options = {}) => {
           <input type="checkbox"
                  className={style.input}
                  checked={state.checked}
-                 onChange={partial(unary(onToggle), [state])}
+                 onChange={unary(partial(onToggle, [state]))}
           />
         </label>
         <span>{label}</span>

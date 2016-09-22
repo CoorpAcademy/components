@@ -1,8 +1,9 @@
-import { checker, createValidate } from '../../util/validation';
 import hyperx from 'hyperx';
-import style from './style.css';
+import identity from 'lodash/fp/identity';
+import {checker, createValidate} from '../../util/validation';
 import createStarRating from '../../molecule/star-rating';
 import HoverFillBehaviour from '../../behaviour/effects/hover-fill';
+import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({
@@ -17,14 +18,10 @@ const conditions = checker.shape({
 export default (treant, options = {}) => {
   const {h} = treant;
   const hx = hyperx(h);
-  const {translate} = options;
+  const {translate = identity} = options;
 
-  const t = stuff => {
-    return translate ? translate(stuff) : stuff;
-  };
-
-  const startLearning = hx(`<span>${t('Start <span>learning</span>')}</span>`);
-  const premium = hx(`<span>${t('Coorpacademy <span>subscription</span>')}</span>`);
+  const startLearning = hx(`<span>${translate('Start <span>learning</span>')}</span>`);
+  const premium = hx(`<span>${translate('Coorpacademy <span>subscription</span>')}</span>`);
 
   const StarRating = createStarRating(treant, options);
   const HoverFill = HoverFillBehaviour(treant, options);

@@ -1,6 +1,6 @@
 import identity from 'lodash/fp/identity';
 import {checker, createValidate} from '../../util/validation';
-import {pushToHistory} from '../../util/navigation';
+import pushToHistory from '../../util/navigation';
 
 const conditions = checker.shape({
   props: checker.shape({

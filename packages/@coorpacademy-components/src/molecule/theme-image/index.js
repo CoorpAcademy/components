@@ -1,5 +1,5 @@
 import {checker, createValidate} from '../../util/validation';
-import { extractor } from '../../util/image';
+import extractor from '../../util/image';
 import style from './style.css';
 
 const conditions = checker.shape({

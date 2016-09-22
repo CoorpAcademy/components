@@ -1,18 +1,20 @@
+import getOr from 'lodash/fp/getOr';
 import has from 'lodash/fp/has';
 
-const isLeftClickEvent = event => event.button === 0;
-const isModifiedEvent = event => !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
+const isLeftClickEvent = e => e.button === 0;
+const isModifiedEvent = e => !!(e.metaKey || e.altKey || e.ctrlKey || e.shiftKey);
 
-export const pushToHistory = ({history = {}}) => {
-  if (!has('push', history)) {
+export default options => {
+  const _history = getOr({}, 'history', options);
+  if (!has('push', _history)) {
     return () => () => {};
   }
 
-  return ({href} = {}) => event => {
-    if (!href || event.defaultPrevented || isModifiedEvent(event) || !isLeftClickEvent(event)) {
+  return ({href} = {}) => e => {
+    if (!href || e.defaultPrevented || isModifiedEvent(e) || !isLeftClickEvent(e)) {
       return;
     }
-    event.preventDefault();
-    history.push(href);
+    e.preventDefault();
+    _history.push(href);
   };
 };
