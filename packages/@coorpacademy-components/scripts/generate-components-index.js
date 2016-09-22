@@ -1,35 +1,27 @@
-import join from 'lodash/fp/join';
-import camelCase from 'lodash/fp/camelCase';
-import last from 'lodash/fp/last';
+import {relative, join} from 'path';
+import _join from 'lodash/fp/join';
+import sortBy from 'lodash/fp/sortBy';
 import map from 'lodash/fp/map';
 import pipe from 'lodash/fp/pipe';
-import reverse from 'lodash/fp/reverse';
-import slice from 'lodash/fp/slice';
-import sortBy from 'lodash/fp/sortBy';
-import split from 'lodash/fp/split';
-import upperFirst from 'lodash/fp/upperFirst';
-
+import reduce from 'lodash/fp/reduce';
+import assign from 'lodash/fp/assign';
+import values from 'lodash/fp/values';
+import mapValues from 'lodash/fp/mapValues';
+import toPairs from 'lodash/fp/toPairs';
 import components from './list-components';
 
-const pascalCase = pipe(camelCase, upperFirst);
+const targetDir = join(__dirname, '../src');
 
 const _exports = pipe(
-  map(
-    pipe(
-      split('/'),
-      slice(0, -1),
-      reverse
-    )
-  ),
+  values,
+  reduce(assign, {}),
+  mapValues(path => relative(targetDir, path)),
+  toPairs,
   sortBy(0),
-  map(reverse),
-  map(folders => {
-    const name = pipe(last, pascalCase)(folders);
-    const path = join('/', folders);
-    return `export create${name} from './${path}';`
-  }),
-  join('\n'),
-  d => d + '\n'
+  map(([_name, path]) => `export create${_name} from './${path}';`),
+  _join('\n'),
+  d => `${d}
+`
 )(components);
 
 if (!module.parent)

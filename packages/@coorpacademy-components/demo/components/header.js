@@ -7,12 +7,54 @@ import noop from 'lodash/fp/noop';
 import pipe from 'lodash/fp/pipe';
 import toPairs from 'lodash/fp/toPairs';
 import Route from 'path-match';
-
 import createSelect from './select';
+import {header} from './style.css';
 
 const route = Route();
 
-import {header} from './style.css';
+const getFirstKey = pipe(keys, head);
+
+const extractFromPath = (pathname, componentMap, fixturesMap) => {
+  const params = route('/:folder/:component/:fixture')(pathname) ||
+    route('/:folder/:component')(pathname) || route('/:folder')(pathname) || {};
+
+  let {
+    folder,
+    component,
+    fixture
+  } = params;
+
+  const folders = fixturesMap;
+  if (!folder)
+    folder = getFirstKey(folders);
+
+  const components = get(folder, folders);
+  if (!component)
+    component = getFirstKey(components);
+
+  const fixtures = get(`${component}`, components);
+  if (!fixture)
+    fixture = getFirstKey(fixtures);
+
+  return {
+    folder,
+    component,
+    fixture
+  };
+};
+
+const buildComponent = (treant, options) => (factory, {props, children} = {}) => {
+  const {h} = treant;
+  const Component = factory(treant, options);
+  return (
+    <Component {...props}>
+      {map(
+        child => child(treant, options),
+        children
+      )}
+    </Component>
+  );
+};
 
 export default (treant, options) => {
   const {h} = treant;
@@ -23,6 +65,7 @@ export default (treant, options) => {
       onSelectComponent = noop,
       onSelectFixture = noop,
       components,
+      fixtures,
       location: {pathname = ''} = {}
     } = props;
 
@@ -30,36 +73,36 @@ export default (treant, options) => {
       folder,
       component,
       fixture
-    } = extractFromPath(pathname, components);
+    } = extractFromPath(pathname, components, fixtures);
 
-    const componentSelected = get(`${folder}.${component}`, components);
-    const factorySelected = get('factory', componentSelected);
-    const fixtureSelected = get(`fixtures.${fixture}`, componentSelected);
+    const componentSelected = get([folder, component], components);
+    const fixtureSelected = get([folder, component, fixture], fixtures);
+
     const componentOptions = pipe(
       toPairs,
-      map(([folderName, folder]) => ([
+      map(([folderName, _folder]) => ([
         folderName,
         pipe(
           toPairs,
-          map(([componentName, {factory}]) => ({
+          map(([componentName, factory]) => ({
             value: `/${folderName}/${componentName}`,
-            selected: factory === factorySelected,
+            selected: factory === componentSelected,
             label: componentName
           }))
-        )(folder)
+        )(_folder)
       ])),
       fromPairs
     )(components);
 
     const fixtureOptions = pipe(
-      get('fixtures'),
+      get([folder, component]),
       toPairs,
-      map(([name, fixture]) => ({
-        value: `/${folder}/${component}/${name}`,
-        selected: fixture === fixtureSelected,
-        label: name
+      map(([_name, _fixture]) => ({
+        value: `/${folder}/${component}/${_name}`,
+        selected: _fixture === fixtureSelected,
+        label: _name
       }))
-    )(componentSelected);
+    )(fixtures);
 
     return (
       <div>
@@ -77,54 +120,10 @@ export default (treant, options) => {
         </div>
         <div>
           {
-            buildComponent(treant, options)(factorySelected, fixtureSelected)
+            buildComponent(treant, options)(componentSelected, fixtureSelected)
           }
         </div>
       </div>
     );
-  };
-};
-
-const buildComponent = (treant, options) => (factory, {props, children} = {}) => {
-  const {h} = treant;
-  const Component = factory(treant, options);
-  return (
-    <Component {...props}>
-      {map(
-        child => child(treant, options),
-        children
-      )}
-    </Component>
-  );
-};
-
-const getFirstKey = pipe(keys, head);
-
-const extractFromPath = (pathname, componentList) => {
-  const params = route('/:folder/:component/:fixture')(pathname) ||
-    route('/:folder/:component')(pathname) || route('/:folder')(pathname) || {};
-
-  let {
-    folder,
-    component,
-    fixture
-  } = params;
-
-  const folders = componentList;
-  if (!folder)
-    folder = getFirstKey(folders);
-
-  const components = get(folder, folders);
-  if (!component)
-    component = getFirstKey(components);
-
-  const fixtures = get(`${component}.fixtures`, components);
-  if (!fixture)
-    fixture = getFirstKey(fixtures);
-
-  return {
-    folder,
-    component,
-    fixture
   };
 };

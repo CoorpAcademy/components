@@ -7,8 +7,10 @@ import * as React from '@coorpacademy/treantjs-engine-react';
 import * as Snabbdom from '@coorpacademy/treantjs-engine-snabbdom';
 
 import createApp from './app';
-import _components from './components.client';
-let components = _components;
+import {components, fixtures} from './components';
+let _createApp = createApp;
+let _components = components;
+let _fixtures = fixtures;
 
 const history = useBasename(createHistory)({
   basename: `/${window.engine}`
@@ -27,32 +29,37 @@ const engines = {
 const engine = get(window.engine, engines);
 const update = engine.render(document.getElementById('app'));
 
-let App = createApp(treant, options);
+let App = _createApp(treant, options);
 update(App({
-  components,
+  components: _components,
+  fixtures: _fixtures,
   location: history.getCurrentLocation()
 }));
 
 history.listen(location => {
   update(App({
-    components,
+    components: _components,
+    fixtures: _fixtures,
     location
   }));
 });
 
 if (module.hot) {
   module.hot.accept('./app.js', () => {
-    const createApp = require('./app').default;
-    App = createApp(treant, options);
+    const _createApp = require('./app').default;
+    App = _createApp(treant, options);
     update(App({
-      components,
+      components: _components,
+      fixtures: _fixtures,
       location: history.getCurrentLocation()
     }));
   });
-  module.hot.accept('./components.client.js', () => {
-    components = require('./components.client').default;
+  module.hot.accept('./components.js', () => {
+    _components = require('./components').components;
+    _fixtures = require('./components').fixtures;
     update(App({
-      components,
+      components: _components,
+      fixtures: _fixtures,
       location: history.getCurrentLocation()
     }));
   });

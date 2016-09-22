@@ -15,11 +15,12 @@ export default (treant, {history} = {}) => {
 
   const onNavigate = href => history.push(href);
 
-  return ({components, location}, children) => (
+  return ({components, fixtures, location}, children) => (
     <Header
       onSelectComponent={onNavigate}
       onSelectFixture={onNavigate}
       components={components}
+      fixtures={fixtures}
       location={location}
     />
   );

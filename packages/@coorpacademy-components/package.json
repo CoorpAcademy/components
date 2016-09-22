@@ -5,8 +5,9 @@
   "main": "lib/index.js",
   "module": "es/index.js",
   "scripts": {
-    "start": "BABEL_ENV=commonjs babel-node demo/index.js",
-    "generate:index": "babel-node scripts/generate-components-index.js > src/index.js",
+    "start": "npm run generate:demo && BABEL_ENV=commonjs babel-node demo/index.js",
+    "generate:index": "BABEL_ENV=commonjs babel-node scripts/generate-components-index.js > src/index.js",
+    "generate:demo": "BABEL_ENV=commonjs babel-node scripts/generate-demo-index.js > demo/components.js",
     "build": "npm run build:commonjs && npm run build:es && npm run build:browser",
     "build:commonjs": "npm run clean:build:commonjs && BABEL_ENV=commonjs babel src --out-dir lib -s --ignore test --copy-files",
     "build:es": "npm run clean:build:es && BABEL_ENV=es babel src --out-dir es -s --ignore test --copy-files",

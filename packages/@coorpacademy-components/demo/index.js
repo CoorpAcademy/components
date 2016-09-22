@@ -4,7 +4,6 @@ import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import map from 'lodash/fp/map';
 import config from './webpack.config';
-
 import ssrMiddleware from './ssr';
 
 const engines = [

@@ -3,16 +3,16 @@ import join from 'lodash/fp/join';
 import map from 'lodash/fp/map';
 import includes from 'lodash/fp/includes';
 import {createMemoryHistory, useBasename} from 'history';
-
 import * as treant from '@coorpacademy/treantjs-core';
 import * as Virtualdom from '@coorpacademy/treantjs-engine-virtual-dom';
 import * as React from '@coorpacademy/treantjs-engine-react';
 import * as Snabbdom from '@coorpacademy/treantjs-engine-snabbdom';
-
-import _components from './components.server';
 import createApp from './app';
+import {components, fixtures} from './components';
+
 let App = createApp(treant);
-let components = _components;
+let _components = components;
+let _fixtures = fixtures;
 
 const engines = {
   Virtualdom,
@@ -42,7 +42,8 @@ export default (req, res, next) => {
 
   const vTree = App({
     location: history.createLocation(req.url),
-    components
+    components: _components,
+    fixtures: _fixtures
   });
 
   const html = engine.renderToString(vTree);
@@ -60,7 +61,8 @@ if (module.hot) {
     const createApp = require('./app').default;
     App = createApp(treant);
   });
-  module.hot.accept('./components.client.js', () => {
-    components = require('./components.client').default;
+  module.hot.accept('./components.js', () => {
+    _components = require('./components').components;
+    _fixtures = require('./components').fixtures;
   });
 }

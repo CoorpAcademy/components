@@ -3,6 +3,7 @@
     "start:components": "lerna exec --scope @coorpacademy/components -- npm start",
     "start:angular": "lerna exec --scope @coorpacademy/treantjs-adapter-angular -- npm start",
     "postinstall": "npm run bootstrap",
+    "build": "lerna run build",
     "lerna": "lerna",
     "bootstrap": "lerna bootstrap",
     "publish:latest": "lerna publish",

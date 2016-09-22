@@ -1,4 +1,4 @@
-import {join} from 'path';
+import {join, basename} from 'path';
 import glob from 'glob';
 import _join from 'lodash/fp/join';
 import camelCase from 'lodash/fp/camelCase';
@@ -17,27 +17,30 @@ const cwd = join(__dirname, '../src');
 const ignore = ['**/behaviour/**'];
 
 const paths = glob.sync(
-  '**/!(test)/index.js',
+  '**/fixtures/*.js',
   {cwd, ignore}
 );
+
+const removeExt = filename => basename(filename, '.js');
 
 export default pipe(
   map(
     pipe(
       split('/'),
-      slice(0, -1),
       folders => {
-        const title = pipe(last, pascalCase)(folders);
-        const type = pipe(slice(0, -1), _join('-'), pascalCase)(folders);
+        const type = pipe(slice(0, -4), _join('-'), pascalCase)(folders);
+        const title = pipe(slice(slice(0, -4, folders).length, -3), _join('-'), pascalCase)(folders);
+        const fixture = pipe(last, removeExt, pascalCase)(folders);
         const path = join(__dirname, '../src', ...folders);
 
         return {
           title,
           type,
+          fixture,
           path
         };
       }
     )
   ),
-  reduce((acc, {title, type, path}) => set([type, title], path, acc), {})
+  reduce((acc, {title, type, fixture, path}) => set([type, title, fixture], path, acc), {})
 )(paths);
