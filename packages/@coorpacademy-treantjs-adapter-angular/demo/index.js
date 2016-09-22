@@ -15,6 +15,7 @@ const app = express();
 
 const compiler = webpack(config);
 
+process.env.BABEL_ENV='es';
 app.use(
   webpackDevMiddleware(compiler, {
     noInfo: true,

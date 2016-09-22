@@ -26,8 +26,8 @@ const transform = vNode => {
 };
 
 const render = el => {
-  let rootNode;
-  let currentTree;
+  let rootNode = el.firstChild;
+  let currentTree = el.firstChild;
   return vTree => {
     vTree = transform(vTree);
 

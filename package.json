@@ -1,7 +1,7 @@
 {
   "scripts": {
     "start:components": "lerna exec --scope @coorpacademy/components -- npm start",
-    "start:angular": "lerna exec --scope @coorpacademy/-treantjs-adapter-angular -- npm start",
+    "start:angular": "lerna exec --scope @coorpacademy/treantjs-adapter-angular -- npm start",
     "postinstall": "npm run bootstrap",
     "lerna": "lerna",
     "bootstrap": "lerna bootstrap",
