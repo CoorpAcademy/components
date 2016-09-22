@@ -1,6 +1,6 @@
 import fixtureSolutions from '../../../ssmenu-list/test/fixtures/solutions';
 import fixtureFormations from '../../../ssmenu-list/test/fixtures/formations';
-import fixtureCoorpacademy from '../../../ssmenu-list/test/fixtures/Coorpacademy';
+import fixtureCoorpacademy from '../../../ssmenu-list/test/fixtures/coorpacademy';
 
 export default {
   props: {
