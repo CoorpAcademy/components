@@ -5,11 +5,10 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 
 const hash = '[folder]__[local]___[hash:base64:5]';
-const componentCSS = new ExtractTextPlugin('styles.css');
+const componentCSS = new ExtractTextPlugin('bundle.css');
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
-
-module.exports = {
+const config = {
   devtool: NODE_ENV === 'production' ? false : 'eval',
 
   stats: {
@@ -63,6 +62,7 @@ module.exports = {
 
     if (NODE_ENV === 'production')
       plugins.push(
+        componentCSS,
         // new webpack.optimize.UglifyJsPlugin({
         //   compressor: {
         //     warnings: false,
@@ -85,9 +85,10 @@ module.exports = {
             },
             context: __dirname
           }
-        }),
-        componentCSS
+        })
       );
     return plugins;
   })()
 };
+
+module.exports = config;

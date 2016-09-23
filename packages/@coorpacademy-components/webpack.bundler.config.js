@@ -1,11 +1,11 @@
-const createConfig = require('./scripts/create-webpack-config');
+const assign = require('lodash/fp/assign');
+const defaultConfig = require('./webpack.config.js');
 
 module.exports = (bundle, dist) => {
-  const entry = {bundle};
-
-  const output = {
-    path: dist
-  };
-
-  return createConfig(entry, output);
+  return assign(defaultConfig, {
+    entry: {bundle},
+    output: {
+      path: dist
+    }
+  });
 };

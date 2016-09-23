@@ -16,8 +16,14 @@ process.stdout.write(adapter ? `${bundler} adapter: ${adapter}\n` : '');
 process.stdout.write(`${bundler} webpack is running...\n`);
 
 const config = createConfig(input, dist);
+console.log(config);
 
 webpack(config, function(err, stats) {
+  if (err) {
+    process.stderr.write(err.stack);
+    return;
+  }
+
   process.stdout.write(`${bundler} ${stats.toString({
     chunks: false, // Makes the build much quieter
     colors: true
