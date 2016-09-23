@@ -2,12 +2,11 @@ import entries from 'lodash/fp/entries';
 import map from 'lodash/fp/map';
 import spread from 'lodash/fp/spread';
 import angular from 'angular';
-
-import createDirectives from '../';
 import * as treant from '@coorpacademy/treantjs-core';
 import * as Virtualdom from '@coorpacademy/treantjs-engine-virtual-dom';
 import * as React from '@coorpacademy/treantjs-engine-react';
 import * as Snabbdom from '@coorpacademy/treantjs-engine-snabbdom';
+import createDirectives from '../src';
 
 const engines = {
   Virtualdom,

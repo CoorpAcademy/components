@@ -7,11 +7,6 @@
     "commonjs": {
       "presets": [
         ["es2015", { "loose": true }]
-      ],
-      "plugins": [
-        ["css-modules-transform", {
-          "generateScopedName": "[folder]__[local]"
-        }]
       ]
     },
     "test": {
@@ -19,9 +14,6 @@
         ["es2015", { "loose": true }]
       ],
       "plugins": [
-        ["css-modules-transform", {
-          "generateScopedName": "[folder]__[local]"
-        }],
         "istanbul"
       ]
     },
