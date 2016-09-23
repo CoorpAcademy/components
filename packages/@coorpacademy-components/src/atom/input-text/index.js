@@ -15,11 +15,10 @@ const conditions = checker.shape({
 
 export default (treant, options) => {
   const {h} = treant;
-  const {translate} = options;
 
   const InputText = (props, children) => {
     const {
-      name,
+      title,
       placeholder,
       value,
       onChange = ''
@@ -28,9 +27,9 @@ export default (treant, options) => {
     return (
       <div className={style.default}>
         <label>
-          {translate(name)} <input
+          {name} <input
           type='text'
-          name={name}
+          name={title}
           placeholder={placeholder}
           defaultValue={value}
           onInput={onChange}/>

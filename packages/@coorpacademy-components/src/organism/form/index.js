@@ -1,8 +1,7 @@
 import {checker, createValidate} from '../../util/validation';
-import style from './style.css';
-
 import HoverFillBehaviour from '../../behaviour/effects/hover-fill';
 import createFormGroup from '../../molecule/form-group';
+import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({

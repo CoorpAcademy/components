@@ -1,7 +1,6 @@
 import {checker, createValidate} from '../../../util/validation';
-import style from './style.css';
-
 import createForm from '../../../organism/form';
+import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({
@@ -22,7 +21,7 @@ export default (treant, options = {}) => {
       <div className={style.container}>
         <div className={style.header}>
           <h1 className={style.title}>
-            {form.name}
+            {form.title}
           </h1>
         </div>
         <div className={style.card}>

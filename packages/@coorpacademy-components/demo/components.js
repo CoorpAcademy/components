@@ -5,6 +5,7 @@ import createLabelNormal from '../src/atom/label-normal';
 import createLabel from '../src/atom/label';
 import createLink from '../src/atom/link';
 import createPicture from '../src/atom/picture';
+import createSelect from '../src/atom/select';
 import createSpinner from '../src/atom/spinner';
 import createStar from '../src/atom/star';
 import createTitle from '../src/atom/title';
@@ -49,6 +50,7 @@ import createProductCourse from '../src/template/app-catalog/product-course';
 import createProductCursus from '../src/template/app-catalog/product-cursus';
 import createUpdateBrand from '../src/template/back-office/update-brand';
 import createCenteredTextFixtureDefault from '../src/atom/centered-text/test/fixtures/default';
+import createInputTextFixtureDefault from '../src/atom/input-text/test/fixtures/default';
 import createLabelModNameFixtureFixture from '../src/atom/label-mod-name/test/fixtures/fixture';
 import createLabelNormalFixtureFixture from '../src/atom/label-normal/test/fixtures/fixture';
 import createLabelFixtureOneChild from '../src/atom/label/test/fixtures/one-child';
@@ -57,6 +59,7 @@ import createLinkFixtureHref from '../src/atom/link/test/fixtures/href';
 import createPictureFixtureDefault from '../src/atom/picture/test/fixtures/default';
 import createPictureFixtureEmpty from '../src/atom/picture/test/fixtures/empty';
 import createPictureFixtureSimpleSrc from '../src/atom/picture/test/fixtures/simple-src';
+import createSelectFixtureDefault from '../src/atom/select/test/fixtures/default';
 import createSpinnerFixtureDefault from '../src/atom/spinner/test/fixtures/default';
 import createStarFixtureDisable from '../src/atom/star/test/fixtures/disable';
 import createStarFixtureEnable from '../src/atom/star/test/fixtures/enable';
@@ -91,6 +94,7 @@ import createDisciplineHeaderFixtureNoVideoNoImage from '../src/molecule/discipl
 import createDisciplineHeaderFixtureNoVideo from '../src/molecule/discipline-header/test/fixtures/no-video';
 import createDisciplineScopeFixtureDefault from '../src/molecule/discipline-scope/test/fixtures/default';
 import createDisciplineScopeFixtureEmpty from '../src/molecule/discipline-scope/test/fixtures/empty';
+import createFormGroupFixtureDefault from '../src/molecule/form-group/test/fixtures/default';
 import createModuleBubbleFixtureDefault from '../src/molecule/module-bubble/test/fixtures/default';
 import createModuleBubbleFixtureDisabled from '../src/molecule/module-bubble/test/fixtures/disabled';
 import createScopeContentFixtureDefault from '../src/molecule/scope-content/test/fixtures/default';
@@ -121,6 +125,7 @@ import createDisciplineCardsFixtureEmpty from '../src/organism/discipline-cards/
 import createDisciplineCardsFixtureManyDisciplines from '../src/organism/discipline-cards/test/fixtures/many-disciplines';
 import createDisciplineRightasideFixtureDefault from '../src/organism/discipline-rightaside/test/fixtures/default';
 import createDisciplineRightasideFixtureEmpty from '../src/organism/discipline-rightaside/test/fixtures/empty';
+import createFormFixtureDefault from '../src/organism/form/test/fixtures/default';
 import createHeroFixtureDefault from '../src/organism/hero/test/fixtures/default';
 import createCatalogFixtureDefault from '../src/template/app-catalog/catalog/test/fixtures/default';
 import createCatalogFixtureEmpty from '../src/template/app-catalog/catalog/test/fixtures/empty';
@@ -132,6 +137,7 @@ import createProductCourseFixtureNoVideo from '../src/template/app-catalog/produ
 import createProductCursusFixtureDefault from '../src/template/app-catalog/product-cursus/test/fixtures/default';
 import createProductCursusFixtureEmpty from '../src/template/app-catalog/product-cursus/test/fixtures/empty';
 import createProductCursusFixtureLoading from '../src/template/app-catalog/product-cursus/test/fixtures/loading';
+import createUpdateBrandFixtureDefault from '../src/template/back-office/update-brand/test/fixtures/default';
 
 export const components = {
   Atom: {
@@ -142,6 +148,7 @@ export const components = {
     Label: createLabel,
     Link: createLink,
     Picture: createPicture,
+    Select: createSelect,
     Spinner: createSpinner,
     Star: createStar,
     Title: createTitle
@@ -208,6 +215,9 @@ export const fixtures = {
     CenteredText: {
       Default: createCenteredTextFixtureDefault
     },
+    InputText: {
+      Default: createInputTextFixtureDefault
+    },
     LabelModName: {
       Fixture: createLabelModNameFixtureFixture
     },
@@ -225,6 +235,9 @@ export const fixtures = {
       Default: createPictureFixtureDefault,
       Empty: createPictureFixtureEmpty,
       SimpleSrc: createPictureFixtureSimpleSrc
+    },
+    Select: {
+      Default: createSelectFixtureDefault
     },
     Spinner: {
       Default: createSpinnerFixtureDefault
@@ -316,6 +329,9 @@ export const fixtures = {
       Default: createDisciplineScopeFixtureDefault,
       Empty: createDisciplineScopeFixtureEmpty
     },
+    FormGroup: {
+      Default: createFormGroupFixtureDefault
+    },
     ModuleBubble: {
       Default: createModuleBubbleFixtureDefault,
       Disabled: createModuleBubbleFixtureDisabled
@@ -374,6 +390,9 @@ export const fixtures = {
       Default: createDisciplineRightasideFixtureDefault,
       Empty: createDisciplineRightasideFixtureEmpty
     },
+    Form: {
+      Default: createFormFixtureDefault
+    },
     Hero: {
       Default: createHeroFixtureDefault
     }
@@ -394,6 +413,11 @@ export const fixtures = {
       Default: createProductCursusFixtureDefault,
       Empty: createProductCursusFixtureEmpty,
       Loading: createProductCursusFixtureLoading
+    }
+  },
+  TemplateBackOffice: {
+    UpdateBrand: {
+      Default: createUpdateBrandFixtureDefault
     }
   }
 };

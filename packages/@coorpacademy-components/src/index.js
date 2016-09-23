@@ -34,6 +34,7 @@ export createProductCursus from './template/app-catalog/product-cursus';
 export createRadialFocus from './behaviour/effects/radial-focus';
 export createScopeContent from './molecule/scope-content';
 export createScopeTabs from './molecule/scope-tabs';
+export createSelect from './atom/select';
 export createSelectBox from './molecule/select-box';
 export createSpinner from './atom/spinner';
 export createStar from './atom/star';

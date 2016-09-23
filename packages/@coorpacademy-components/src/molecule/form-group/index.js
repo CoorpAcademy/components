@@ -1,8 +1,7 @@
 import {checker, createValidate} from '../../util/validation';
-import style from './style.css';
-
 import createInputText from '../../atom/input-text';
 import createSelect from '../../atom/select';
+import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({
@@ -21,11 +20,11 @@ export default (treant, options = {}) => {
     const InputText = createInputText(treant, options);
     const Select = createSelect(treant, options);
 
-    const {name, fields} = props.group;
+    const {title, fields} = props.group;
 
     return (
       <fieldset className={style.set}>
-        <legend>{name}</legend>
+        <legend>{title}</legend>
         {fields.map((field, index) => {
           switch (field.type) {
             case 'text':
@@ -36,9 +35,10 @@ export default (treant, options = {}) => {
               return (
                 <Select />
               );
-            case 'color':
             default:
-              return;
+              return (
+                <div></div>
+              );
           }
         })}
       </fieldset>
