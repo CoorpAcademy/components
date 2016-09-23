@@ -9,21 +9,15 @@ const componentCSS = new ExtractTextPlugin('styles.css');
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
-module.exports = {
+module.exports = (entry, output) => ({
   devtool: NODE_ENV === 'production' ? false : 'eval',
 
   stats: {
     children: false
   },
 
-  entry: {
-    components: path.join(__dirname, 'src/index')
-  },
-  output: {
-    library: 'Coorponents',
-    filename: '[name].js',
-    path: path.join(__dirname, 'dist')
-  },
+  entry,
+  output,
 
   module: {
     loaders: [{
@@ -90,4 +84,4 @@ module.exports = {
       );
     return plugins;
   })()
-};
+});
