@@ -6,6 +6,7 @@
   "module": "es/index.js",
   "scripts": {
     "start": "npm run generate:demo && BABEL_ENV=commonjs babel-node demo/index.js",
+    "generate": "npm run generate:index && npm run generate:demo",
     "generate:index": "BABEL_ENV=commonjs babel-node scripts/generate-components-index.js > src/index.js",
     "generate:demo": "BABEL_ENV=commonjs babel-node scripts/generate-demo-index.js > demo/components.js",
     "build": "npm run build:commonjs && npm run build:es && npm run build:browser",
@@ -48,6 +49,7 @@
     "babel-plugin-css-modules-transform": "^1.1.0",
     "babel-plugin-istanbul": "^2.0.1",
     "babel-plugin-transform-h-jsx": "^1.0.0",
+    "babel-preset-babili": "0.0.3",
     "babel-preset-es2015": "^6.13.0",
     "babel-preset-stage-1": "^6.5.0",
     "compression-webpack-plugin": "^0.3.1",

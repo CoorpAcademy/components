@@ -7,6 +7,17 @@ import createPicture from '../src/atom/picture';
 import createSpinner from '../src/atom/spinner';
 import createStar from '../src/atom/star';
 import createTitle from '../src/atom/title';
+import createCentered from '../src/behaviour/align/centered';
+import createPrimary from '../src/behaviour/color/primary';
+import createTextInverted from '../src/behaviour/color/text-inverted';
+import createTextNormal from '../src/behaviour/color/text-normal';
+import createHoverFill from '../src/behaviour/effects/hover-fill';
+import createRadialFocus from '../src/behaviour/effects/radial-focus';
+import createEllipsis from '../src/behaviour/font/ellipsis';
+import createEmbossed from '../src/behaviour/font/embossed';
+import createNormal from '../src/behaviour/font/normal';
+import createTiny from '../src/behaviour/font/tiny';
+import createUppercase from '../src/behaviour/font/uppercase';
 import createCatalogCard from '../src/molecule/catalog-card';
 import createCatalogCta from '../src/molecule/catalog-cta';
 import createCategories from '../src/molecule/categories';
@@ -46,6 +57,17 @@ import createSpinnerFixtureDefault from '../src/atom/spinner/test/fixtures/defau
 import createStarFixtureDisable from '../src/atom/star/test/fixtures/disable';
 import createStarFixtureEnable from '../src/atom/star/test/fixtures/enable';
 import createTitleFixtureFixture from '../src/atom/title/test/fixtures/fixture';
+import createCenteredFixtureDefault from '../src/behaviour/align/centered/test/fixtures/default';
+import createPrimaryFixtureDefault from '../src/behaviour/color/primary/test/fixtures/default';
+import createTextInvertedFixtureDefault from '../src/behaviour/color/text-inverted/test/fixtures/default';
+import createTextNormalFixtureDefault from '../src/behaviour/color/text-normal/test/fixtures/default';
+import createHoverFillFixtureDefault from '../src/behaviour/effects/hover-fill/test/fixtures/default';
+import createRadialFocusFixtureDefault from '../src/behaviour/effects/radial-focus/test/fixtures/default';
+import createEllipsisFixtureDefault from '../src/behaviour/font/ellipsis/test/fixtures/default';
+import createEmbossedFixtureDefault from '../src/behaviour/font/embossed/test/fixtures/default';
+import createNormalFixtureDefault from '../src/behaviour/font/normal/test/fixtures/default';
+import createTinyFixtureDefault from '../src/behaviour/font/tiny/test/fixtures/default';
+import createUppercaseFixtureDefault from '../src/behaviour/font/uppercase/test/fixtures/default';
 import createCatalogCardFixtureDefault from '../src/molecule/catalog-card/test/fixtures/default';
 import createCatalogCtaFixtureDefault from '../src/molecule/catalog-cta/test/fixtures/default';
 import createCatalogCtaFixtureEmpty from '../src/molecule/catalog-cta/test/fixtures/empty';
@@ -120,6 +142,25 @@ export const components = {
     Star: createStar,
     Title: createTitle
   },
+  BehaviourAlign: {
+    Centered: createCentered
+  },
+  BehaviourColor: {
+    Primary: createPrimary,
+    TextInverted: createTextInverted,
+    TextNormal: createTextNormal
+  },
+  BehaviourEffects: {
+    HoverFill: createHoverFill,
+    RadialFocus: createRadialFocus
+  },
+  BehaviourFont: {
+    Ellipsis: createEllipsis,
+    Embossed: createEmbossed,
+    Normal: createNormal,
+    Tiny: createTiny,
+    Uppercase: createUppercase
+  },
   Molecule: {
     CatalogCard: createCatalogCard,
     CatalogCta: createCatalogCta,
@@ -185,6 +226,47 @@ export const fixtures = {
     },
     Title: {
       Fixture: createTitleFixtureFixture
+    }
+  },
+  BehaviourAlign: {
+    Centered: {
+      Default: createCenteredFixtureDefault
+    }
+  },
+  BehaviourColor: {
+    Primary: {
+      Default: createPrimaryFixtureDefault
+    },
+    TextInverted: {
+      Default: createTextInvertedFixtureDefault
+    },
+    TextNormal: {
+      Default: createTextNormalFixtureDefault
+    }
+  },
+  BehaviourEffects: {
+    HoverFill: {
+      Default: createHoverFillFixtureDefault
+    },
+    RadialFocus: {
+      Default: createRadialFocusFixtureDefault
+    }
+  },
+  BehaviourFont: {
+    Ellipsis: {
+      Default: createEllipsisFixtureDefault
+    },
+    Embossed: {
+      Default: createEmbossedFixtureDefault
+    },
+    Normal: {
+      Default: createNormalFixtureDefault
+    },
+    Tiny: {
+      Default: createTinyFixtureDefault
+    },
+    Uppercase: {
+      Default: createUppercaseFixtureDefault
     }
   },
   Molecule: {

@@ -13,12 +13,11 @@ import upperFirst from 'lodash/fp/upperFirst';
 
 const pascalCase = pipe(camelCase, upperFirst);
 
-const cwd = join(__dirname, '../src');
-const ignore = ['**/behaviour/**'];
+const cwd = join(__dirname, '..');
 
 const paths = glob.sync(
   '**/!(test)/index.js',
-  {cwd, ignore}
+  {cwd}
 );
 
 export default pipe(
@@ -29,7 +28,7 @@ export default pipe(
       folders => {
         const title = pipe(last, pascalCase)(folders);
         const type = pipe(slice(0, -1), _join('-'), pascalCase)(folders);
-        const path = join(__dirname, '../src', ...folders);
+        const path = join(__dirname, '..', ...folders);
 
         return {
           title,
