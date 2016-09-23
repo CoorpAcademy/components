@@ -1,0 +1,12 @@
+{
+  "presets": ["es2015", "stage-1"],
+  "plugins": [
+    ["transform-h-jsx", { "pragma": "h" }]
+  ],
+  "env": {
+    "test": {
+      "plugins": ["istanbul"]
+    }
+  },
+  "only": ["src"]
+}

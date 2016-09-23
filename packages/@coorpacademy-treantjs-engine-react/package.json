@@ -1,0 +1,74 @@
+{
+  "name": "@coorpacademy/treantjs-engine-react",
+  "version": "3.0.0-beta.3",
+  "description": "",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "scripts": {
+    "build": "npm run build:commonjs && npm run build:es",
+    "build:commonjs": "npm run clean:build:commonjs && BABEL_ENV=commonjs babel src --out-dir lib -s --ignore test --copy-files",
+    "build:es": "npm run clean:build:es && BABEL_ENV=es babel src --out-dir es -s --ignore test --copy-files",
+    "prepublish": "npm run build --production",
+    "clean": "npm run clean:build && npm run clean:cov",
+    "clean:build": "npm run clean:build:commonjs && npm run clean:build:es",
+    "clean:build:commonjs": "rm -rf lib",
+    "clean:build:es": "rm -rf es",
+    "clean:cov": "rm -rf .nyc_output coverage",
+    "test": "npm run lint && npm run nyc",
+    "lint": "eslint src/",
+    "ava": "NODE_ENV=test ava",
+    "nyc": "NODE_ENV=test nyc npm run ava"
+  },
+  "contributors": [
+    "Arthur Weber <arthur.weber@coorpacademy.com>",
+    "Jeroen Engels <jengels@coorpacademy.com>",
+    "Christophe Dugne-Esquevin <christophe.dugne@coorpacademy.com>"
+  ],
+  "dependencies": {
+    "@coorpacademy/treantjs-core": "^3.0.0-beta.3",
+    "lodash": "^4.14.1",
+    "react": "^15.0.2",
+    "react-dom": "^15.3.0"
+  },
+  "devDependencies": {
+    "@coorpacademy/eslint-plugin-coorpacademy": "^2.0.0",
+    "@coorpacademy/treantjs-engine-spec": "^3.0.0-beta.3",
+    "ava": "^0.16.0",
+    "babel-cli": "^6.11.4",
+    "babel-core": "^6.11.4",
+    "babel-plugin-istanbul": "^2.0.1",
+    "babel-preset-es2015": "^6.13.0",
+    "babel-preset-stage-1": "^6.5.0",
+    "eslint": "^3.5.0",
+    "nyc": "^8.1.0"
+  },
+  "ava": {
+    "files": [
+      "src/**/test/**/*.js",
+      "!node_module/**/*"
+    ],
+    "require": [
+      "babel-core/register"
+    ],
+    "babel": "inherit"
+  },
+  "nyc": {
+    "include": [
+      "src/**"
+    ],
+    "reporter": [
+      "lcov",
+      "text"
+    ],
+    "exclude": [
+      "src/**/test/**"
+    ],
+    "require": [
+      "babel-core/register"
+    ],
+    "sourceMap": false,
+    "instrument": false,
+    "all": true
+  },
+  "author": "CoorpAcademy"
+}
