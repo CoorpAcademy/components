@@ -1,17 +1,19 @@
 import test from 'ava';
 import isArray from 'lodash/fp/isArray';
 import contains from 'lodash/fp/contains';
-import createStarRating from '@coorpacademy/components/molecule/star-rating';
-import createCatalogCard from '@coorpacademy/components/molecule/catalog-card';
-import * as treant from '@coorpacademy-treantjs-core';
-import * as engine from '.@coorpacademy-treantjs-engine-virtual-dom';
+import * as treant from '@coorpacademy/treantjs-core';
+import * as engine from '@coorpacademy/treantjs-engine-virtual-dom';
 import createDirectives from '..';
 
 test('createDirectives should wrap factories as directive factories', t => {
-  const factories = {createStarRating, createCatalogCard};
+  const factories = {
+    createStarRating: (_treant, options) => (props, children) => true,
+    createCatalogCard: (_treant, options) => (props, children) => true
+  };
+
   const app = {
     directives: [],
-    directive: (name, options) => app.directives.push(name)
+    directive: (_name, options) => app.directives.push(_name)
   };
 
   createDirectives(app, treant, engine, factories);

@@ -2,8 +2,7 @@ import {join} from 'path';
 import concat from 'lodash/fp/concat';
 import webpack from 'webpack';
 import merge from 'webpack-merge';
-
-import webpackConfig from '../webpack.config'; 
+import webpackConfig from '@coorpacademy/components-bundler/webpack.config';
 
 const addHMR = entries => {
   if (process.env.NODE_ENV === 'production') return entries;
@@ -19,13 +18,26 @@ const sandboxConfig = ({
     components: addHMR(join(__dirname, 'client'))
   },
 
+  module: {
+    loaders: [{
+      test: /\.js$/,
+      loader: 'babel',
+      include: [
+        join(__dirname, '../src'),
+        join(__dirname, './')
+      ]
+    }]
+  },
+
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
   ]
 });
 
-export default merge.smart(
+const config = merge.smart(
   webpackConfig,
   sandboxConfig
 );
+
+export default config;
