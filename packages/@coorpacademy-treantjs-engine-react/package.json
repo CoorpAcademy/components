@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/treantjs-engine-react",
-  "version": "3.0.0-beta.3",
+  "version": "3.0.0-beta.4",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -25,14 +25,14 @@
     "Christophe Dugne-Esquevin <christophe.dugne@coorpacademy.com>"
   ],
   "dependencies": {
-    "@coorpacademy/treantjs-core": "^3.0.0-beta.3",
+    "@coorpacademy/treantjs-core": "^3.0.0-beta.4",
     "lodash": "^4.14.1",
     "react": "^15.0.2",
     "react-dom": "^15.3.0"
   },
   "devDependencies": {
     "@coorpacademy/eslint-plugin-coorpacademy": "^2.0.0",
-    "@coorpacademy/treantjs-engine-spec": "^3.0.0-beta.3",
+    "@coorpacademy/treantjs-engine-spec": "^3.0.0-beta.4",
     "ava": "^0.16.0",
     "babel-cli": "^6.11.4",
     "babel-core": "^6.11.4",
