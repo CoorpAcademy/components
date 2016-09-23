@@ -23,7 +23,10 @@
     "test": "npm run lint && npm run nyc",
     "lint": "eslint src/",
     "ava": "NODE_ENV=test ava",
-    "nyc": "NODE_ENV=test nyc npm run ava"
+    "nyc": "NODE_ENV=test nyc npm run ava",
+    "doc": "npm run doc:svg && npm run doc:png",
+    "doc:svg": "node scripts/madge.js",
+    "doc:png": "convert doc/components.svg doc/components.png"
   },
   "contributors": [
     "Arthur Weber <arthur.weber@coorpacademy.com>",
@@ -61,6 +64,7 @@
     "history": "^3.2.1",
     "hyperx": "^2.0.4",
     "json-loader": "^0.5.4",
+    "madge": "^1.3.0",
     "nyc": "^8.1.0",
     "path-match": "^1.2.4",
     "postcss-loader": "^0.13.0",

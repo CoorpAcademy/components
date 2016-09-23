@@ -7,7 +7,7 @@ const replace = require('lodash/fp/replace');
 const join = require('path').join;
 
 const config = {
-  baseDir: join(__dirname, '../src/@coorpacademy/components/'),
+  baseDir: join(__dirname, '../src'),
   excludeRegExp: [/style/, /test/, /util/, /redux/],
   backgroundColor: '#FFFFFF',
   nodeColor: '#3498DB',
@@ -18,7 +18,7 @@ const config = {
 };
 
 madge(
-  join(__dirname, '../src/@coorpacademy/components/template'),
+  join(__dirname, '../src/template'),
   config
 ).then(res => {
   res.tree = walkerTree(removeIndex)(res.tree);

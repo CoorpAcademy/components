@@ -17,7 +17,7 @@ This library provide sharable components for web applications, either :
 
 ### Styleguide / component list
 
-![Components diagram](/doc/components.png)
+![Components diagram](./packages/@coorpacademy-components/doc/components.png)
 
 # Development
 
