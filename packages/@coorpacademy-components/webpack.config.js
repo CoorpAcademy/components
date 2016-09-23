@@ -8,6 +8,7 @@ const hash = '[folder]__[local]___[hash:base64:5]';
 const componentCSS = new ExtractTextPlugin('bundle.css');
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
+
 const config = {
   devtool: NODE_ENV === 'production' ? false : 'eval',
 
@@ -43,11 +44,7 @@ const config = {
       loader: NODE_ENV === 'production' ? componentCSS.extract({
         fallbackLoader: 'style',
         loader: `css?minimize&modules&importLoaders=1&localIdentName=${hash}!postcss`
-      }) : `style!css?minimize&modules&importLoaders=1&localIdentName=${hash}!postcss`,
-      include: [
-        path.join(__dirname, 'src'),
-        path.join(__dirname, 'demo')
-      ]
+      }) : `style!css?minimize&modules&importLoaders=1&localIdentName=${hash}!postcss`
     }]
   },
 
