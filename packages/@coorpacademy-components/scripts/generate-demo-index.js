@@ -5,8 +5,8 @@ import map from 'lodash/fp/map';
 import pipe from 'lodash/fp/pipe';
 import split from 'lodash/fp/split';
 import toPairs from 'lodash/fp/toPairs';
-import components from './list-components';
-import fixtures from './list-fixtures';
+import components from '../src/util/list-components';
+import fixtures from '../src/util/list-fixtures';
 
 const targetDir = join(__dirname, '../demo');
 const removeExt = path => join(dirname(path), basename(path, '.js'));

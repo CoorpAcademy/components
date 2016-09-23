@@ -8,7 +8,7 @@ import assign from 'lodash/fp/assign';
 import values from 'lodash/fp/values';
 import mapValues from 'lodash/fp/mapValues';
 import toPairs from 'lodash/fp/toPairs';
-import components from './list-components';
+import components from '../src/util/list-components';
 
 const targetDir = join(__dirname, '../src');
 

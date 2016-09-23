@@ -63,12 +63,6 @@ module.exports = {
 
     if (NODE_ENV === 'production')
       plugins.push(
-        // new webpack.optimize.UglifyJsPlugin({
-        //   compressor: {
-        //     warnings: false,
-        //     screw_ie8: true
-        //   }
-        // }),
         new CompressionPlugin({
           asset: '[path].gz',
           algorithm: 'gzip',

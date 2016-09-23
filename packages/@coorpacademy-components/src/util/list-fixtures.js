@@ -13,12 +13,11 @@ import upperFirst from 'lodash/fp/upperFirst';
 
 const pascalCase = pipe(camelCase, upperFirst);
 
-const cwd = join(__dirname, '../src');
-const ignore = ['**/behaviour/**'];
+const cwd = join(__dirname, '..');
 
 const paths = glob.sync(
   '**/fixtures/*.js',
-  {cwd, ignore}
+  {cwd}
 );
 
 const removeExt = filename => basename(filename, '.js');
@@ -31,7 +30,7 @@ export default pipe(
         const type = pipe(slice(0, -4), _join('-'), pascalCase)(folders);
         const title = pipe(slice(slice(0, -4, folders).length, -3), _join('-'), pascalCase)(folders);
         const fixture = pipe(last, removeExt, pascalCase)(folders);
-        const path = join(__dirname, '../src', ...folders);
+        const path = join(__dirname, '..', ...folders);
 
         return {
           title,

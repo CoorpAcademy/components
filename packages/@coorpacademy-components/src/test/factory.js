@@ -1,16 +1,20 @@
-import path from 'path';
+import {relative} from 'path';
 import test from 'ava';
+import map from 'lodash/fp/map';
+import pipe from 'lodash/fp/pipe';
+import toPairs from 'lodash/fp/toPairs';
 import * as treant from '@coorpacademy/treantjs-core';
-import {extractAllComponents} from '../util/components-finder';
+import componentsList from '../util/list-components';
 
-const _require = file => require(path.join('..', file)).default;
+const _require = file => require(relative(__dirname, file)).default;
+const mapObject = fn => pipe(toPairs, map(([key, value]) => fn(value, key)));
 
-const testComponent = component => {
-  const it = `[${component.type}] ${component.name}`;
-  const factory = _require(component.path);
+mapObject((components, componentType) => mapObject((componentPath, componentName) => {
+  const it = `[${componentType}] ${componentName}`;
+  const component = _require(componentPath);
 
   test(`${it} › should be created with no option`, t => {
-    factory(treant);
+    component(treant);
     t.pass();
   });
 
@@ -23,10 +27,7 @@ const testComponent = component => {
       }
     };
 
-    factory(treant, options);
+    component(treant, options);
     t.pass();
   });
-};
-
-const components = extractAllComponents();
-components.forEach(testComponent);
+})(components))(componentsList);
