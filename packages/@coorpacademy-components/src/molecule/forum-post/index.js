@@ -28,21 +28,20 @@ export default (treant, options = {}) => {
 
     return (
       <div className={style[type]}>
-        <Picture
-          src={avatar}
-          className={style.avatar}
-        />
-
+        <div className={style.image}>
+          <Picture
+            src={avatar}
+            className={style.avatar}
+          />
+        </div>
         <div className={style.content}>
           <div className={style.head}>
             <span className={style.author}>{author}</span>
             <span className={style.date}>{date}</span>
           </div>
-
           <div className={style.body}>
             {text}
           </div>
-
           <div className={style.footer}>
             <a className={style.action}>Répondre</a>
             <a className={style.action}>Éditer</a>
