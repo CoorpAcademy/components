@@ -1,6 +1,6 @@
 import {checker, createValidate} from '../../util/validation';
 import style from './style.css';
-import createImage from '../../atom/image';
+import createPicture from '../../atom/picture';
 
 const conditions = checker.shape({
   props: checker.shape({
@@ -15,7 +15,7 @@ const conditions = checker.shape({
 
 export default (treant, options = {}) => {
   const {h} = treant;
-  const Image = createImage(treant, options);
+  const Picture = createPicture(treant, options);
 
   const ForumPost = (props, children) => {
     const {
@@ -28,7 +28,7 @@ export default (treant, options = {}) => {
 
     return (
       <div className={style[type]}>
-        <Image
+        <Picture
           src={avatar}
           className={style.avatar}
         />
