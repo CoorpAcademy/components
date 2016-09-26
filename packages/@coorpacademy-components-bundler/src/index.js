@@ -14,7 +14,7 @@ const createConfig = require('../webpack.bundler.config');
 
 const input = join(process.cwd(), argv._[0]);
 const dist = join(process.cwd(), argv.o);
-const src = argv.s ? join(process.cwd(), argv.s) : 'src/';
+const src = argv.s || 'src/';
 const adapter = argv.a;
 
 process.stdout.write(`${bundler}    input: ${argv._[0]}\n`);
