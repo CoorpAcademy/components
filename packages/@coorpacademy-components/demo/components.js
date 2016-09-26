@@ -1,4 +1,5 @@
 import createCenteredText from '../src/atom/centered-text';
+import createForumComment from '../src/atom/forum-comment';
 import createLabelModName from '../src/atom/label-mod-name';
 import createLabelNormal from '../src/atom/label-normal';
 import createLabel from '../src/atom/label';
@@ -34,6 +35,7 @@ import createCatalog from '../src/template/app-catalog/catalog';
 import createProductCourse from '../src/template/app-catalog/product-course';
 import createProductCursus from '../src/template/app-catalog/product-cursus';
 import createCenteredTextFixtureDefault from '../src/atom/centered-text/test/fixtures/default';
+import createForumCommentFixtureDefault from '../src/atom/forum-comment/test/fixtures/default';
 import createLabelModNameFixtureFixture from '../src/atom/label-mod-name/test/fixtures/fixture';
 import createLabelNormalFixtureFixture from '../src/atom/label-normal/test/fixtures/fixture';
 import createLabelFixtureOneChild from '../src/atom/label/test/fixtures/one-child';
@@ -111,6 +113,7 @@ import createProductCursusFixtureLoading from '../src/template/app-catalog/produ
 export const components = {
   Atom: {
     CenteredText: createCenteredText,
+    ForumComment: createForumComment,
     LabelModName: createLabelModName,
     LabelNormal: createLabelNormal,
     Label: createLabel,
@@ -157,6 +160,9 @@ export const fixtures = {
   Atom: {
     CenteredText: {
       Default: createCenteredTextFixtureDefault
+    },
+    ForumComment: {
+      Default: createForumCommentFixtureDefault
     },
     LabelModName: {
       Fixture: createLabelModNameFixtureFixture
