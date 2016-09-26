@@ -16,6 +16,8 @@ import createCursusList from '../src/molecule/cursus-list';
 import createDisciplineCard from '../src/molecule/discipline-card';
 import createDisciplineHeader from '../src/molecule/discipline-header';
 import createDisciplineScope from '../src/molecule/discipline-scope';
+import createForumPost from '../src/molecule/forum-post';
+import createForumThread from '../src/molecule/forum-thread';
 import createModuleBubble from '../src/molecule/module-bubble';
 import createScopeContent from '../src/molecule/scope-content';
 import createScopeTabs from '../src/molecule/scope-tabs';
@@ -29,6 +31,7 @@ import createCatalogCards from '../src/organism/catalog-cards';
 import createCursusRightaside from '../src/organism/cursus-rightaside';
 import createDisciplineCards from '../src/organism/discipline-cards';
 import createDisciplineRightaside from '../src/organism/discipline-rightaside';
+import createDiscussion from '../src/organism/discussion';
 import createHero from '../src/organism/hero';
 import createCatalog from '../src/template/app-catalog/catalog';
 import createProductCourse from '../src/template/app-catalog/product-course';
@@ -66,6 +69,9 @@ import createDisciplineHeaderFixtureNoVideoNoImage from '../src/molecule/discipl
 import createDisciplineHeaderFixtureNoVideo from '../src/molecule/discipline-header/test/fixtures/no-video';
 import createDisciplineScopeFixtureDefault from '../src/molecule/discipline-scope/test/fixtures/default';
 import createDisciplineScopeFixtureEmpty from '../src/molecule/discipline-scope/test/fixtures/empty';
+import createForumPostFixtureAnswer from '../src/molecule/forum-post/test/fixtures/answer';
+import createForumPostFixturePost from '../src/molecule/forum-post/test/fixtures/post';
+import createForumThreadFixtureDefault from '../src/molecule/forum-thread/test/fixtures/default';
 import createModuleBubbleFixtureDefault from '../src/molecule/module-bubble/test/fixtures/default';
 import createModuleBubbleFixtureDisabled from '../src/molecule/module-bubble/test/fixtures/disabled';
 import createScopeContentFixtureDefault from '../src/molecule/scope-content/test/fixtures/default';
@@ -96,6 +102,7 @@ import createDisciplineCardsFixtureEmpty from '../src/organism/discipline-cards/
 import createDisciplineCardsFixtureManyDisciplines from '../src/organism/discipline-cards/test/fixtures/many-disciplines';
 import createDisciplineRightasideFixtureDefault from '../src/organism/discipline-rightaside/test/fixtures/default';
 import createDisciplineRightasideFixtureEmpty from '../src/organism/discipline-rightaside/test/fixtures/empty';
+import createDiscussionFixtureDefault from '../src/organism/discussion/test/fixtures/default';
 import createHeroFixtureDefault from '../src/organism/hero/test/fixtures/default';
 import createCatalogFixtureDefault from '../src/template/app-catalog/catalog/test/fixtures/default';
 import createCatalogFixtureEmpty from '../src/template/app-catalog/catalog/test/fixtures/empty';
@@ -130,6 +137,8 @@ export const components = {
     DisciplineCard: createDisciplineCard,
     DisciplineHeader: createDisciplineHeader,
     DisciplineScope: createDisciplineScope,
+    ForumPost: createForumPost,
+    ForumThread: createForumThread,
     ModuleBubble: createModuleBubble,
     ScopeContent: createScopeContent,
     ScopeTabs: createScopeTabs,
@@ -145,6 +154,7 @@ export const components = {
     CursusRightaside: createCursusRightaside,
     DisciplineCards: createDisciplineCards,
     DisciplineRightaside: createDisciplineRightaside,
+    Discussion: createDiscussion,
     Hero: createHero
   },
   TemplateAppCatalog: {
@@ -226,6 +236,13 @@ export const fixtures = {
       Default: createDisciplineScopeFixtureDefault,
       Empty: createDisciplineScopeFixtureEmpty
     },
+    ForumPost: {
+      Answer: createForumPostFixtureAnswer,
+      Post: createForumPostFixturePost
+    },
+    ForumThread: {
+      Default: createForumThreadFixtureDefault
+    },
     ModuleBubble: {
       Default: createModuleBubbleFixtureDefault,
       Disabled: createModuleBubbleFixtureDisabled
@@ -283,6 +300,9 @@ export const fixtures = {
     DisciplineRightaside: {
       Default: createDisciplineRightasideFixtureDefault,
       Empty: createDisciplineRightasideFixtureEmpty
+    },
+    Discussion: {
+      Default: createDiscussionFixtureDefault
     },
     Hero: {
       Default: createHeroFixtureDefault
