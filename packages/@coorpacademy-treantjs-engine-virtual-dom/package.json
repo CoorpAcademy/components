@@ -4,6 +4,11 @@
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
+  "files": [
+    "lib",
+    "es",
+    "README.md"
+  ],
   "scripts": {
     "build": "npm run build:commonjs && npm run build:es",
     "build:commonjs": "npm run clean:build:commonjs && BABEL_ENV=commonjs babel src --out-dir lib -s --ignore test --copy-files",

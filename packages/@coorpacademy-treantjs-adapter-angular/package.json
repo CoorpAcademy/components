@@ -4,6 +4,11 @@
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
+  "files": [
+    "lib",
+    "es",
+    "README.md"
+  ],
   "scripts": {
     "start": "BABEL_ENV=commonjs babel-node demo/index.js",
     "build": "npm run build:commonjs && npm run build:es",
