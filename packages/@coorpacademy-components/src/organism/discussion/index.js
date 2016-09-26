@@ -1,6 +1,6 @@
 import {checker, createValidate} from '../../util/validation';
-import style from './style.css';
 import createForumThread from '../../molecule/forum-thread';
+import style from './style.css';
 
 const postConditions = checker.shape({
   type: checker.string.optional,
