@@ -7,13 +7,13 @@ import createDirectives from '..';
 
 test('createDirectives should wrap factories as directive factories', t => {
   const factories = {
-    createStarRating: (treant, options) => (props, children) => true,
-    createCatalogCard: (treant, options) => (props, children) => true
+    createStarRating: (_treant, options) => (props, children) => true,
+    createCatalogCard: (_treant, options) => (props, children) => true
   };
 
   const app = {
     directives: [],
-    directive: (name, options) => app.directives.push(name)
+    directive: (_name, options) => app.directives.push(_name)
   };
 
   createDirectives(app, treant, engine, factories);
