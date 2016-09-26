@@ -17,7 +17,7 @@ const config = {
   },
 
   entry: {
-    components: path.join(__dirname, 'src/index')
+    bundle: path.join(__dirname, 'src/index')
   },
   output: {
     library: 'Coorponents',
@@ -30,8 +30,7 @@ const config = {
       test: /\.js$/,
       loader: 'babel',
       include: [
-        path.join(__dirname, 'src'),
-        path.join(__dirname, 'demo')
+        path.join(__dirname, 'src')
       ]
     }, {
       test: /\.json$/,
