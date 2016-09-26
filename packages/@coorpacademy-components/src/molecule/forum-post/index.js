@@ -1,6 +1,6 @@
 import {checker, createValidate} from '../../util/validation';
-import style from './style.css';
 import createPicture from '../../atom/picture';
+import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({
