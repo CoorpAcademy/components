@@ -19,6 +19,7 @@ export createEllipsis from './behaviour/font/ellipsis';
 export createEmbossed from './behaviour/font/embossed';
 export createForm from './organism/form';
 export createFormGroup from './molecule/form-group';
+export createForumComment from './atom/forum-comment';
 export createHeader from './organism/header';
 export createHero from './organism/hero';
 export createHoverFill from './behaviour/effects/hover-fill';

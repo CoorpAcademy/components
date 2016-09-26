@@ -1,4 +1,5 @@
 import createCenteredText from '../src/atom/centered-text';
+import createForumComment from '../src/atom/forum-comment';
 import createInputColor from '../src/atom/input-color';
 import createInputText from '../src/atom/input-text';
 import createLabelModName from '../src/atom/label-mod-name';
@@ -56,6 +57,7 @@ import createProductCursus from '../src/template/app-catalog/product-cursus';
 import createUpdateBrand from '../src/template/back-office/update-brand';
 import createCoorpHeader from '../src/template/common/coorp-header';
 import createCenteredTextFixtureDefault from '../src/atom/centered-text/test/fixtures/default';
+import createForumCommentFixtureDefault from '../src/atom/forum-comment/test/fixtures/default';
 import createInputColorFixtureDefault from '../src/atom/input-color/test/fixtures/default';
 import createInputColorFixtureEmpty from '../src/atom/input-color/test/fixtures/empty';
 import createInputColorFixtureError from '../src/atom/input-color/test/fixtures/error';
@@ -163,6 +165,7 @@ import createCoorpHeaderFixtureStaging from '../src/template/common/coorp-header
 export const components = {
   Atom: {
     CenteredText: createCenteredText,
+    ForumComment: createForumComment,
     InputColor: createInputColor,
     InputText: createInputText,
     LabelModName: createLabelModName,
@@ -243,6 +246,9 @@ export const fixtures = {
   Atom: {
     CenteredText: {
       Default: createCenteredTextFixtureDefault
+    },
+    ForumComment: {
+      Default: createForumCommentFixtureDefault
     },
     InputColor: {
       Default: createInputColorFixtureDefault,
