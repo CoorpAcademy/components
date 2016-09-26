@@ -49,6 +49,7 @@ export default (req, res, next) => {
   const html = engine.renderToString(vTree);
 
   res.send(`
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     ${join('', map(font => `<link rel="stylesheet" href="${font}"/>`, styles))}
     <div id="app">${html}</div>
     <script>window.engine = '${req.params.engine}'</script>
