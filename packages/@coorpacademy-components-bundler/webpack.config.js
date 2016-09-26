@@ -4,7 +4,7 @@ const autoprefixer = require('autoprefixer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 
-const hash = '[folder]__[local]___[hash:base64:5]';
+const hash = '[folder]__[local]';
 const componentCSS = new ExtractTextPlugin('bundle.css');
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
