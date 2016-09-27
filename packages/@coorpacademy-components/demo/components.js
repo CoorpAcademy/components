@@ -32,6 +32,8 @@ import createDisciplineCard from '../src/molecule/discipline-card';
 import createDisciplineHeader from '../src/molecule/discipline-header';
 import createDisciplineScope from '../src/molecule/discipline-scope';
 import createFormGroup from '../src/molecule/form-group';
+import createForumPost from '../src/molecule/forum-post';
+import createForumThread from '../src/molecule/forum-thread';
 import createMenuList from '../src/molecule/menu-list';
 import createModuleBubble from '../src/molecule/module-bubble';
 import createScopeContent from '../src/molecule/scope-content';
@@ -48,6 +50,7 @@ import createCatalogCards from '../src/organism/catalog-cards';
 import createCursusRightaside from '../src/organism/cursus-rightaside';
 import createDisciplineCards from '../src/organism/discipline-cards';
 import createDisciplineRightaside from '../src/organism/discipline-rightaside';
+import createDiscussion from '../src/organism/discussion';
 import createForm from '../src/organism/form';
 import createHeader from '../src/organism/header';
 import createHero from '../src/organism/hero';
@@ -108,6 +111,9 @@ import createDisciplineHeaderFixtureNoVideo from '../src/molecule/discipline-hea
 import createDisciplineScopeFixtureDefault from '../src/molecule/discipline-scope/test/fixtures/default';
 import createDisciplineScopeFixtureEmpty from '../src/molecule/discipline-scope/test/fixtures/empty';
 import createFormGroupFixtureDefault from '../src/molecule/form-group/test/fixtures/default';
+import createForumPostFixtureAnswer from '../src/molecule/forum-post/test/fixtures/answer';
+import createForumPostFixturePost from '../src/molecule/forum-post/test/fixtures/post';
+import createForumThreadFixtureDefault from '../src/molecule/forum-thread/test/fixtures/default';
 import createMenuListFixtureBuildTransifex from '../src/molecule/menu-list/test/fixtures/build-transifex';
 import createMenuListFixtureDefault from '../src/molecule/menu-list/test/fixtures/default';
 import createModuleBubbleFixtureDefault from '../src/molecule/module-bubble/test/fixtures/default';
@@ -145,6 +151,7 @@ import createDisciplineCardsFixtureEmpty from '../src/organism/discipline-cards/
 import createDisciplineCardsFixtureManyDisciplines from '../src/organism/discipline-cards/test/fixtures/many-disciplines';
 import createDisciplineRightasideFixtureDefault from '../src/organism/discipline-rightaside/test/fixtures/default';
 import createDisciplineRightasideFixtureEmpty from '../src/organism/discipline-rightaside/test/fixtures/empty';
+import createDiscussionFixtureDefault from '../src/organism/discussion/test/fixtures/default';
 import createFormFixtureDefault from '../src/organism/form/test/fixtures/default';
 import createHeaderFixtureDefault from '../src/organism/header/test/fixtures/default';
 import createHeroFixtureDefault from '../src/organism/hero/test/fixtures/default';
@@ -208,6 +215,8 @@ export const components = {
     DisciplineHeader: createDisciplineHeader,
     DisciplineScope: createDisciplineScope,
     FormGroup: createFormGroup,
+    ForumPost: createForumPost,
+    ForumThread: createForumThread,
     MenuList: createMenuList,
     ModuleBubble: createModuleBubble,
     ScopeContent: createScopeContent,
@@ -226,6 +235,7 @@ export const components = {
     CursusRightaside: createCursusRightaside,
     DisciplineCards: createDisciplineCards,
     DisciplineRightaside: createDisciplineRightaside,
+    Discussion: createDiscussion,
     Form: createForm,
     Header: createHeader,
     Hero: createHero
@@ -374,6 +384,13 @@ export const fixtures = {
     FormGroup: {
       Default: createFormGroupFixtureDefault
     },
+    ForumPost: {
+      Answer: createForumPostFixtureAnswer,
+      Post: createForumPostFixturePost
+    },
+    ForumThread: {
+      Default: createForumThreadFixtureDefault
+    },
     MenuList: {
       BuildTransifex: createMenuListFixtureBuildTransifex,
       Default: createMenuListFixtureDefault
@@ -444,6 +461,9 @@ export const fixtures = {
     DisciplineRightaside: {
       Default: createDisciplineRightasideFixtureDefault,
       Empty: createDisciplineRightasideFixtureEmpty
+    },
+    Discussion: {
+      Default: createDiscussionFixtureDefault
     },
     Form: {
       Default: createFormFixtureDefault
