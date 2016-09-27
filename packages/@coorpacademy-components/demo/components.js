@@ -1,5 +1,4 @@
 import createCenteredText from '../src/atom/centered-text';
-import createForumComment from '../src/atom/forum-comment';
 import createInputColor from '../src/atom/input-color';
 import createInputText from '../src/atom/input-text';
 import createLabelModName from '../src/atom/label-mod-name';
@@ -32,6 +31,7 @@ import createDisciplineCard from '../src/molecule/discipline-card';
 import createDisciplineHeader from '../src/molecule/discipline-header';
 import createDisciplineScope from '../src/molecule/discipline-scope';
 import createFormGroup from '../src/molecule/form-group';
+import createForumComment from '../src/molecule/forum-comment';
 import createForumPost from '../src/molecule/forum-post';
 import createForumThread from '../src/molecule/forum-thread';
 import createMenuList from '../src/molecule/menu-list';
@@ -60,7 +60,6 @@ import createProductCursus from '../src/template/app-catalog/product-cursus';
 import createUpdateBrand from '../src/template/back-office/update-brand';
 import createCoorpHeader from '../src/template/common/coorp-header';
 import createCenteredTextFixtureDefault from '../src/atom/centered-text/test/fixtures/default';
-import createForumCommentFixtureDefault from '../src/atom/forum-comment/test/fixtures/default';
 import createInputColorFixtureDefault from '../src/atom/input-color/test/fixtures/default';
 import createInputColorFixtureEmpty from '../src/atom/input-color/test/fixtures/empty';
 import createInputColorFixtureError from '../src/atom/input-color/test/fixtures/error';
@@ -111,6 +110,7 @@ import createDisciplineHeaderFixtureNoVideo from '../src/molecule/discipline-hea
 import createDisciplineScopeFixtureDefault from '../src/molecule/discipline-scope/test/fixtures/default';
 import createDisciplineScopeFixtureEmpty from '../src/molecule/discipline-scope/test/fixtures/empty';
 import createFormGroupFixtureDefault from '../src/molecule/form-group/test/fixtures/default';
+import createForumCommentFixtureDefault from '../src/molecule/forum-comment/test/fixtures/default';
 import createForumPostFixtureAnswer from '../src/molecule/forum-post/test/fixtures/answer';
 import createForumPostFixturePost from '../src/molecule/forum-post/test/fixtures/post';
 import createForumThreadFixtureDefault from '../src/molecule/forum-thread/test/fixtures/default';
@@ -172,7 +172,6 @@ import createCoorpHeaderFixtureStaging from '../src/template/common/coorp-header
 export const components = {
   Atom: {
     CenteredText: createCenteredText,
-    ForumComment: createForumComment,
     InputColor: createInputColor,
     InputText: createInputText,
     LabelModName: createLabelModName,
@@ -215,6 +214,7 @@ export const components = {
     DisciplineHeader: createDisciplineHeader,
     DisciplineScope: createDisciplineScope,
     FormGroup: createFormGroup,
+    ForumComment: createForumComment,
     ForumPost: createForumPost,
     ForumThread: createForumThread,
     MenuList: createMenuList,
@@ -256,9 +256,6 @@ export const fixtures = {
   Atom: {
     CenteredText: {
       Default: createCenteredTextFixtureDefault
-    },
-    ForumComment: {
-      Default: createForumCommentFixtureDefault
     },
     InputColor: {
       Default: createInputColorFixtureDefault,
@@ -383,6 +380,9 @@ export const fixtures = {
     },
     FormGroup: {
       Default: createFormGroupFixtureDefault
+    },
+    ForumComment: {
+      Default: createForumCommentFixtureDefault
     },
     ForumPost: {
       Answer: createForumPostFixtureAnswer,

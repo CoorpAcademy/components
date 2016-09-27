@@ -20,7 +20,7 @@ export createEllipsis from './behaviour/font/ellipsis';
 export createEmbossed from './behaviour/font/embossed';
 export createForm from './organism/form';
 export createFormGroup from './molecule/form-group';
-export createForumComment from './atom/forum-comment';
+export createForumComment from './molecule/forum-comment';
 export createForumPost from './molecule/forum-post';
 export createForumThread from './molecule/forum-thread';
 export createHeader from './organism/header';
