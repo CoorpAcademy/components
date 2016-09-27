@@ -1,6 +1,7 @@
 export default {
   props: {
     discipline: {
+      label: '',
       modules: [{
         label: 'foo',
         status: 'success'

@@ -6,7 +6,7 @@ import replace from 'lodash/fp/replace';
 const interpolation = /\{\{([\s\S]+?)\}\}/g;
 
 const createTranslate = locales => (key, data) => {
-  const template = locales[key] || key;
+  const template = locales[key] || key || '';
 
   return replace(
     interpolation,
