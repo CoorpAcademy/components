@@ -15,7 +15,7 @@ const conditions = checker.shape({
     }),
     onClick: checker.func,
     onModuleClick: checker.func
-  }).strict,
+  }),
   children: checker.none
 });
 
