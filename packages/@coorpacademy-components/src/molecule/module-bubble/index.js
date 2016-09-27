@@ -16,9 +16,9 @@ const conditions = checker.shape({
       filtered: checker.bool.optional,
       label: checker.string,
       status: checker.string
-    }).strict,
+    }),
     onClick: checker.func
-  }).strict,
+  }),
   children: checker.none
 });
 

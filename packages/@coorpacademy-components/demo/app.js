@@ -9,8 +9,9 @@ const locales = {en, fr};
 const translate = createTranslate(locales.fr);
 const options = {translate};
 
-export default (treant, {history} = {}) => {
+export default (treant, options = {}) => {
   const {h} = treant;
+  const {history, skin} = options;
   const Header = createHeader(treant, options);
 
   const onNavigate = href => history.push(href);

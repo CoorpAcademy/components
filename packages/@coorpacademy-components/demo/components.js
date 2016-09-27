@@ -79,7 +79,6 @@ import createCheckboxesFixtureSimple from '../src/molecule/checkboxes/test/fixtu
 import createCursusHeaderFixtureDefault from '../src/molecule/cursus-header/test/fixtures/default';
 import createCursusHeaderFixtureEmpty from '../src/molecule/cursus-header/test/fixtures/empty';
 import createCursusListFixtureDefault from '../src/molecule/cursus-list/test/fixtures/default';
-import createDisciplineCardFixtureDefault from '../src/molecule/discipline-card/test/fixtures/default';
 import createDisciplineCardFixtureHidden from '../src/molecule/discipline-card/test/fixtures/hidden';
 import createDisciplineCardFixtureWithCourseNum from '../src/molecule/discipline-card/test/fixtures/with-course-num';
 import createDisciplineCardFixtureWithModules from '../src/molecule/discipline-card/test/fixtures/with-modules';
@@ -294,7 +293,6 @@ export const fixtures = {
       Default: createCursusListFixtureDefault
     },
     DisciplineCard: {
-      Default: createDisciplineCardFixtureDefault,
       Hidden: createDisciplineCardFixtureHidden,
       WithCourseNum: createDisciplineCardFixtureWithCourseNum,
       WithModules: createDisciplineCardFixtureWithModules
