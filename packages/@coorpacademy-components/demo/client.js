@@ -17,7 +17,15 @@ const history = useBasename(createHistory)({
 });
 
 const options = {
-  history
+  history,
+  skin: {
+    mod: {
+      success: '#123'
+    },
+    courses: [
+      '#d0d'
+    ]
+  }
 };
 
 const engines = {
