@@ -1,5 +1,6 @@
 import {checker, createValidate} from '../../util/validation';
 import createForumThread from '../../molecule/forum-thread';
+import createForumComment from '../../molecule/forum-comment';
 import style from './style.css';
 
 const postConditions = checker.shape({
@@ -25,6 +26,7 @@ const conditions = checker.shape({
 export default (treant, options = {}) => {
   const {h} = treant;
   const Thread = createForumThread(treant, options);
+  const Comment = createForumComment(treant, options);
 
   const ForumThread = ({threads}, children) => {
     const threadsView = threads.map(thread => (
@@ -34,6 +36,7 @@ export default (treant, options = {}) => {
     return (
       <div className={style.thread}>
         <h1>Discussion</h1>
+        <Comment />
         {threadsView}
       </div>
     );
