@@ -1,5 +1,6 @@
 .thread {
-  padding :30px;
+  width: 80%;
+  margin: auto;
 }
 
 .thread h1 {
