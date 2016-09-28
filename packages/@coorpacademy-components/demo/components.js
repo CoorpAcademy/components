@@ -113,6 +113,7 @@ import createFormGroupFixtureDefault from '../src/molecule/form-group/test/fixtu
 import createForumCommentFixtureDefault from '../src/molecule/forum-comment/test/fixtures/default';
 import createForumPostFixtureAnswer from '../src/molecule/forum-post/test/fixtures/answer';
 import createForumPostFixturePost from '../src/molecule/forum-post/test/fixtures/post';
+import createForumThreadFixtureDeepAnswers from '../src/molecule/forum-thread/test/fixtures/deep-answers';
 import createForumThreadFixtureDefault from '../src/molecule/forum-thread/test/fixtures/default';
 import createMenuListFixtureBuildTransifex from '../src/molecule/menu-list/test/fixtures/build-transifex';
 import createMenuListFixtureDefault from '../src/molecule/menu-list/test/fixtures/default';
@@ -389,6 +390,7 @@ export const fixtures = {
       Post: createForumPostFixturePost
     },
     ForumThread: {
+      DeepAnswers: createForumThreadFixtureDeepAnswers,
       Default: createForumThreadFixtureDefault
     },
     MenuList: {

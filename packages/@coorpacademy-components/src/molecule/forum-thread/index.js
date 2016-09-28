@@ -7,13 +7,13 @@ const postConditions = checker.shape({
   author: checker.string.optional,
   date: checker.string.optional,
   text: checker.string.optional,
-  avatar: checker.url.optional
+  avatar: checker.url.optional,
+  answers: checker.array.optional
 }).optional;
 
 const conditions = checker.shape({
   props: checker.shape({
-    post: postConditions,
-    answers: checker.arrayOf(postConditions)
+    post: postConditions
   }),
   children: checker.none
 });
@@ -22,16 +22,19 @@ export default (treant, options = {}) => {
   const {h} = treant;
   const Post = createForumPost(treant, options);
 
-  const ForumThread = (props, children) => {
-    const {post, answers} = props;
+  const ForumThread = ({post}, children) => {
+    const {answers = []} = post;
+
     const answersView = answers.map(answer => (
-      <Post {...answer}/>
+      <ForumThread {...answer}/>
     ));
 
     return (
       <div className={style.thread}>
         <Post {...post}/>
-        {answersView}
+        <div className={style.answers}>
+          {answersView}
+        </div>
       </div>
     );
   };

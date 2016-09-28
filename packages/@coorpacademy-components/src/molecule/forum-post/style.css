@@ -3,11 +3,6 @@
   padding: 16px 0;
 }
 
-.answer {
-  composes: post;
-  padding-left: 50px;
-}
-
 .image {
   margin-right: 10px;
   width: 50px;

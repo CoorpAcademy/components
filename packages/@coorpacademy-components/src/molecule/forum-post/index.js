@@ -4,7 +4,6 @@ import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({
-    type: checker.string.optional,
     author: checker.string.optional,
     date: checker.string.optional,
     text: checker.string.optional,
@@ -19,7 +18,6 @@ export default (treant, options = {}) => {
 
   const ForumPost = (props, children) => {
     const {
-      type,
       author,
       date,
       text,
@@ -27,7 +25,7 @@ export default (treant, options = {}) => {
     } = props;
 
     return (
-      <div className={style[type]}>
+      <div className={style.post}>
         <div className={style.image}>
           <Picture
             src={avatar}
