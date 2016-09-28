@@ -14,7 +14,8 @@ const conditions = checker.shape({
       modules: checker.array
     }),
     onClick: checker.func,
-    onModuleClick: checker.func
+    onModuleClick: checker.func,
+    theme: checker.oneOf(['default', 'circle']).optional
   }),
   children: checker.none
 });
@@ -29,7 +30,7 @@ export default (treant, options = {}) => {
     const {discipline, onClick, onModuleClick} = props;
 
     const hidden = discipline.visible === false;
-    const disciplineClass = hidden ? style.hidden : style.default;
+    const disciplineClass = hidden ? style.hidden : style[(props.theme || 'default')];
     const rand = (Math.floor(Math.random() * 7) + 3) * .2;
     const duration = hidden ? 1 : rand;
     const animationDuration = `${duration}s`;
@@ -50,6 +51,7 @@ export default (treant, options = {}) => {
     const bg = getOr('#fff', ['courses', discipline.courseNum], skin);
     const bar =
       <div
+        className={style.bar}
         style={{
           background: bg,
           height: '5px'
@@ -66,7 +68,11 @@ export default (treant, options = {}) => {
              animationDuration
            }}
       >
-        <div className={style.area}>
+        <div className={style.area}
+             style={{
+               borderColor: bg
+             }}
+        >
           <div className={style.text}>
             <p className={style.headerModule}>
               {label}

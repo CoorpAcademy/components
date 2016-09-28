@@ -137,7 +137,9 @@ import createCursusHeaderFixtureDefault from '../src/molecule/cursus-header/test
 import createCursusHeaderFixtureEmpty from '../src/molecule/cursus-header/test/fixtures/empty';
 import createCursusListFixtureDefault from '../src/molecule/cursus-list/test/fixtures/default';
 import createDisciplineCardFixtureHidden from '../src/molecule/discipline-card/test/fixtures/hidden';
+import createDisciplineCardFixtureWithCourseNumCircle from '../src/molecule/discipline-card/test/fixtures/with-course-num-circle';
 import createDisciplineCardFixtureWithCourseNum from '../src/molecule/discipline-card/test/fixtures/with-course-num';
+import createDisciplineCardFixtureWithModulesCircle from '../src/molecule/discipline-card/test/fixtures/with-modules-circle';
 import createDisciplineCardFixtureWithModules from '../src/molecule/discipline-card/test/fixtures/with-modules';
 import createDisciplineHeaderFixtureDefault from '../src/molecule/discipline-header/test/fixtures/default';
 import createDisciplineHeaderFixtureNoVideoNoImage from '../src/molecule/discipline-header/test/fixtures/no-video-no-image';
@@ -196,6 +198,7 @@ import createCatalogCardsFixtureNoProducts from '../src/organism/catalog-cards/t
 import createCursusRightasideFixtureDefault from '../src/organism/cursus-rightaside/test/fixtures/default';
 import createCursusRightasideFixtureEmpty from '../src/organism/cursus-rightaside/test/fixtures/empty';
 import createDisciplineCardsFixtureEmpty from '../src/organism/discipline-cards/test/fixtures/empty';
+import createDisciplineCardsFixtureManyDisciplinesCircle from '../src/organism/discipline-cards/test/fixtures/many-disciplines-circle';
 import createDisciplineCardsFixtureManyDisciplines from '../src/organism/discipline-cards/test/fixtures/many-disciplines';
 import createDisciplineRightasideFixtureDefault from '../src/organism/discipline-rightaside/test/fixtures/default';
 import createDisciplineRightasideFixtureEmpty from '../src/organism/discipline-rightaside/test/fixtures/empty';
@@ -489,7 +492,9 @@ export const fixtures = {
     },
     DisciplineCard: {
       Hidden: createDisciplineCardFixtureHidden,
+      WithCourseNumCircle: createDisciplineCardFixtureWithCourseNumCircle,
       WithCourseNum: createDisciplineCardFixtureWithCourseNum,
+      WithModulesCircle: createDisciplineCardFixtureWithModulesCircle,
       WithModules: createDisciplineCardFixtureWithModules
     },
     DisciplineHeader: {
@@ -596,6 +601,7 @@ export const fixtures = {
     },
     DisciplineCards: {
       Empty: createDisciplineCardsFixtureEmpty,
+      ManyDisciplinesCircle: createDisciplineCardsFixtureManyDisciplinesCircle,
       ManyDisciplines: createDisciplineCardsFixtureManyDisciplines
     },
     DisciplineRightaside: {

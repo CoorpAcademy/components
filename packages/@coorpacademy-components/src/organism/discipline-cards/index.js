@@ -7,7 +7,8 @@ const conditions = checker.shape({
   props: checker.shape({
     disciplines: checker.array,
     onModuleClick: checker.func,
-    onDisciplineClick: checker.func
+    onDisciplineClick: checker.func,
+    theme: checker.oneOf(['default', 'circle']).optional
   }),
   children: checker.none
 });
@@ -20,13 +21,14 @@ export default (treant, options = {}) => {
   const bgColor = getOr('transparent', 'common.background', skin);
 
   const DisciplineCards = (props, children) => {
-    const {onModuleClick, onDisciplineClick} = props;
+    const {onModuleClick, onDisciplineClick, theme='default' } = props;
 
     const disciplines = props.disciplines.map(discipline => (
       <DisciplineCard
         discipline = {discipline}
         onClick = {onDisciplineClick}
         onModuleClick = {onModuleClick}
+        theme = {theme}
         key = {discipline.ref}
       >
       </DisciplineCard>
