@@ -4,7 +4,7 @@ import style from './style.css';
 const conditions = checker.shape({
   props: checker.shape({
     field: checker.shape({
-      name: checker.string,
+      title: checker.string,
       placeholder: checker.string,
       value: checker.string,
       onChange: checker.func.optional
@@ -27,7 +27,7 @@ export default (treant, options) => {
     return (
       <div className={style.default}>
         <label>
-          {name} <input
+          {title} <input
           type='text'
           name={title}
           placeholder={placeholder}
