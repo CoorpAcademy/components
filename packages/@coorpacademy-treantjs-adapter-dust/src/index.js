@@ -1,6 +1,6 @@
 import map from 'lodash/fp/map';
 import toPairs from 'lodash/fp/toPairs';
-import paramCase from 'param-case';
+import kebabCase from 'lodash/fp/kebabCase';
 import * as treant from '@coorpacademy/treantjs-core';
 import {renderToString} from '@coorpacademy/treantjs-engine-virtual-dom';
 
@@ -9,7 +9,7 @@ const toHelpers = (factories, skin) => {
     const isFactory = key.split('create')[1];
     if (!isFactory) return;
 
-    const componentName = paramCase(isFactory);
+    const componentName = kebabCase(isFactory);
     const Component = factory(treant, {skin});
 
     return (dust, options) => {
