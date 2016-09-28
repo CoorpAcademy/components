@@ -6,7 +6,7 @@ import style from './style.css';
 const conditions = checker.shape({
   props: checker.shape({
     form: checker.shape({
-      name: checker.string,
+      title: checker.string,
       groups: checker.array
     })
   }),
