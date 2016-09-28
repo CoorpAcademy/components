@@ -5,7 +5,6 @@ import identity from 'lodash/fp/identity';
 import partial from 'lodash/fp/partial';
 import unary from 'lodash/fp/unary';
 import {checker, createValidate} from '../../util/validation';
-import createLabelModName from '../../atom/label-mod-name';
 import stopPropagation from '../../util/bubbling';
 import style from './style.css';
 
@@ -25,8 +24,6 @@ const conditions = checker.shape({
 export default (treant, options = {}) => {
   const {h} = treant;
   const {skin, translate = identity} = options;
-
-  const LabelModName = createLabelModName(treant, options);
 
   const ModuleBubble = (props, children) => {
     const {onClick} = props;
