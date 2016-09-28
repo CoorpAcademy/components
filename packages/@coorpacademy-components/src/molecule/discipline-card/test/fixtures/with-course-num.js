@@ -1,8 +1,15 @@
 export default {
   props: {
     discipline: {
-      courseNum: 1,
-      modules: []
+      label: 'Title CourseNum',
+      courseNum: 0,
+      modules: [{
+        label: 'foo',
+        status: 'isRestarted'
+      }, {
+        label: 'bar',
+        status: 'isPaying'
+      }]
     },
     onClick: () => null,
     onModuleClick: () => null

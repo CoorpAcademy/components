@@ -93,7 +93,7 @@
     "isValid": "#8BC34A",
     "isStarted": "#FF9800",
     "isRestarted": "#8BC34A",
-    "isLocked": "#fff",
-    "isPaying": "#fff"
+    "isLocked": "#a0f",
+    "isPaying": "#f0a"
   }
 }

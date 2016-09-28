@@ -1,13 +1,13 @@
 import get from 'lodash/fp/get';
 import {createHistory, useBasename} from 'history';
-
 import * as treant from '@coorpacademy/treantjs-core';
 import * as Virtualdom from '@coorpacademy/treantjs-engine-virtual-dom';
 import * as React from '@coorpacademy/treantjs-engine-react';
 import * as Snabbdom from '@coorpacademy/treantjs-engine-snabbdom';
-
 import createApp from './app';
 import {components, fixtures} from './components';
+import skin from './assets/skin.json';
+
 let _createApp = createApp;
 let _components = components;
 let _fixtures = fixtures;
@@ -17,7 +17,8 @@ const history = useBasename(createHistory)({
 });
 
 const options = {
-  history
+  history,
+  skin
 };
 
 const engines = {

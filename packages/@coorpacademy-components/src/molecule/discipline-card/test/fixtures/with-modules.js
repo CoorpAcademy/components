@@ -1,12 +1,16 @@
 export default {
   props: {
     discipline: {
+      label: 'Digital',
       modules: [{
         label: 'foo',
-        status: 'success'
+        status: 'isActive'
       }, {
         label: 'bar',
-        status: 'locked'
+        status: 'isValid'
+      }, {
+        label: 'baz',
+        status: 'isStarted'
       }]
     },
     onClick: () => null,

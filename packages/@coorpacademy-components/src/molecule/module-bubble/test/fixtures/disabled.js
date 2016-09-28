@@ -4,7 +4,7 @@ export default {
       filtered: false,
       disabled: true,
       label: 'foo',
-      status: 'success'
+      status: 'isValid'
     },
     onClick: () => null
   }

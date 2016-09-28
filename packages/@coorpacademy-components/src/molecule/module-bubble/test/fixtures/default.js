@@ -2,7 +2,7 @@ export default {
   props: {
     module: {
       label: 'foo',
-      status: 'success'
+      status: 'isValid'
     },
     onClick: () => null
   }

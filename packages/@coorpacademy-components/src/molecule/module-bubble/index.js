@@ -5,7 +5,6 @@ import identity from 'lodash/fp/identity';
 import partial from 'lodash/fp/partial';
 import unary from 'lodash/fp/unary';
 import {checker, createValidate} from '../../util/validation';
-import createLabelModName from '../../atom/label-mod-name';
 import stopPropagation from '../../util/bubbling';
 import style from './style.css';
 
@@ -16,17 +15,15 @@ const conditions = checker.shape({
       filtered: checker.bool.optional,
       label: checker.string,
       status: checker.string
-    }).strict,
+    }),
     onClick: checker.func
-  }).strict,
+  }),
   children: checker.none
 });
 
 export default (treant, options = {}) => {
   const {h} = treant;
   const {skin, translate = identity} = options;
-
-  const LabelModName = createLabelModName(treant, options);
 
   const ModuleBubble = (props, children) => {
     const {onClick} = props;
@@ -46,7 +43,7 @@ export default (treant, options = {}) => {
     const background = getOr('#fff', `mod[${_module.status}]`, skin);
 
     return (
-      <div className={filtered ? style.filtered : style._modulewrapper}
+      <div className={filtered ? style.filtered : style.modulewrapper}
             attributes={{
               'data-name': 'module-bubble'
             }}
@@ -71,9 +68,9 @@ export default (treant, options = {}) => {
               {icon}
           </span>
         </div>
-        <LabelModName>
+        <div className={style.label}>
           {label}
-        </LabelModName>
+        </div>
       </div>
     );
   };
