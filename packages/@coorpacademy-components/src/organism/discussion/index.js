@@ -26,7 +26,7 @@ const conditions = checker.shape({
 export default (treant, options = {}) => {
   const {h} = treant;
   const Thread = createForumThread(treant, options);
-  const Comment = createForumComment(treant, options);
+  const ForumComment = createForumComment(treant, options);
 
   const ForumThread = ({threads}, children) => {
     const threadsView = threads.map(thread => (
@@ -36,7 +36,7 @@ export default (treant, options = {}) => {
     return (
       <div className={style.thread}>
         <h1>Discussion</h1>
-        <Comment />
+        <ForumComment />
         {threadsView}
       </div>
     );
