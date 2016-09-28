@@ -1,6 +1,10 @@
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
-@value tablet from breakpoints;
+
+.ssmenuitem {
+  width: 20%;
+  text-align: left;
+}
 
 .list {
   list-style-type: none;
@@ -14,10 +18,8 @@
   border-radius: 3px;
   box-shadow: 0 6px 12px rgba(0,0,0,.175);
   text-transform: initial ;
-  background-color: #ffffff;
 }
-
-.list:before {
+.list:before{
   display: block;
   top: -17px;
   left: 50px;
@@ -34,6 +36,7 @@
 }
 
 .item {
+  padding: 0 20px;
   border-bottom: solid 1px #eee;
 }
 
@@ -46,32 +49,27 @@
   font-size: 12px;
   color: #787878;
   text-decoration: none;
-  line-height: 40px;
-  padding: 0 20px;
-  display: inline-block;;
+  height: 40px;
+  display: table-cell;
   vertical-align: middle;
   text-transform: initial;
-  width: 100%;
-  box-sizing: border-box;
 }
 
 .item:hover a {
   color: #00b0ff;
 }
 
-.item:last-child {
+.item:last-child{
   border-bottom: 0;
 }
 
-.item:last-child:hover {
+.item:last-child:hover{
   border-color: #00b0ff;
 }
 
 
-@media tablet {
-  .list {
-    box-shadow: none;
-    border: none;
-    margin-top: 10px;
+@media mobile {
+  .ssmenuitem {
+    display: none;
   }
 }

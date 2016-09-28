@@ -1,12 +1,14 @@
+import find from 'lodash/fp/find';
+import get from 'lodash/fp/get';
 import isNil from 'lodash/fp/isNil';
+import identity from 'lodash/fp/identity';
+import createLink from '../../atom/link';
 import {checker, createValidate} from '../../util/validation';
-import createSsMenuList from '../ssmenu-list';
-import createTransifexList from '../transifex-list';
 import style from './style.css';
+import createSsMenuList from '../ssmenu-list';
 
 const conditions = checker.shape({
   props: checker.shape({
-    buildTransifexList: checker.bool.optional,
     menuItems: checker.arrayOf(
       checker.shape({
         href: checker.string.optional,
@@ -19,55 +21,50 @@ const conditions = checker.shape({
 
 export default (treant, options = {}) => {
   const {h} = treant;
+  const {translate = identity} = options;
+
+  const Link = createLink(treant, options);
   const SsMenuList = createSsMenuList(treant, options);
-  const TransifexList = createTransifexList(treant, options);
 
   const MenuList = (props, children) => {
-    const {menuItems = [], buildTransifexList} = props;
+    const {menuItems = [], plop} = props;
 
     const MenuitemDiv = menuItems.map(item => {
       const {title, href, subItems} = item;
-
-      const subItemsView = !isNil(subItems) && (
-        <div className={style.subNav}>
-          <SsMenuList
-            items={item.subItems}
-          />
-        </div>
-      );
-
-      return (
-        <li className={style.item}>
-          <a
-            href={href}
-          >
-            {title}
-          </a>
-          {subItemsView}
-        </li>
-      );
-    });
-
-    const TransifexListView = buildTransifexList && <TransifexList/>;
+        if (isNil(subItems)) {
+          return (
+              <li className={style.item}>
+                <Link
+                  href={href}
+                >
+                  {title}
+                </Link>
+              </li>  
+            );
+        }
+        else {
+          return (
+            <li className={style.item}>
+              <Link
+                href={href}
+              >
+                {title}
+              </Link>
+              <div className={style.SubNav}>
+                <SsMenuList
+                  items={item.subItems}
+                />
+              </div>
+            </li>
+          );
+        };
+        
+      });
 
     return (
-      <div className={style.menu}>
-        <input
-          type='checkbox'
-          id='toggle'
-          className={style.toggleBox}
-        />
-        <label
-          htmlFor='toggle'
-          className={style.toggler}
-        >
-          ≡
-        </label>
+      <div className={style.menuItems}>
         <ul className={style.list}>
           {MenuitemDiv}
-          <li id="txlivecoorp" className={style.transifexList}>
-            {TransifexListView}
-          </li>
         </ul>
       </div>
     );

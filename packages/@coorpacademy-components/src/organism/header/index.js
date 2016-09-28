@@ -1,6 +1,15 @@
-import {checker, createValidate} from '../../util/validation';
-import createPicture from '../../atom/picture';
+import createImageLink from '../../atom/image-link';
 import createMenuList from '../../molecule/menu-list';
+import pipe from 'lodash/fp/pipe';
+import map from 'lodash/fp/map';
+import get from 'lodash/fp/get';
+import set from 'lodash/fp/set';
+import toPairs from 'lodash/fp/toPairs';
+import join from 'lodash/fp/join';
+import isObject from 'lodash/fp/isObject';
+import isNil from 'lodash/fp/isNil';
+import {checker, createValidate} from '../../util/validation';
+import getOr from 'lodash/fp/getOr';
 import style from './style.css';
 
 const conditions = checker.shape({
@@ -10,17 +19,22 @@ const conditions = checker.shape({
         title: checker.string.optional
       })
     ).optional,
-    href: checker.string.optional,
-    src: checker.oneOfType([
-      checker.string,
-      checker.objectOf(checker.url)
-    ]).optional
+    imageLogo: checker.arrayOf(
+      checker.shape({
+        href: checker.string.optional,
+        src: checker.oneOfType([
+          checker.string,
+          checker.objectOf(checker.url)
+        ]).optional
+      })
+    ).optional
   })
 });
 
 export default (treant, options = {}) => {
   const {h} = treant;
-  const Picture = createPicture(treant, options);
+  const {translate} = options;
+  const ImageLink = createImageLink(treant, options);
   const MenuList = createMenuList(treant, options);
 
   const Header = (props, children) => {
@@ -28,12 +42,18 @@ export default (treant, options = {}) => {
 
     return (
         <div className={style.static}>
-          <div className={style.logo}>
-            <a href={href}>
-              <Picture src={src} />
-            </a>
+          <div className={style.Logo}>
+            <ImageLink
+              src={src}
+              href={href}
+            />
           </div>
-          <div className={style.navigation}>
+          <div className={style.mobileNav}>
+            <div className={style.mobileburger}>
+                <MenuList menuItems={menuItems} />
+            </div>
+          </div>
+          <div className={style.Navigation}>
             <MenuList menuItems={menuItems} />
           </div>
         </div>
@@ -43,3 +63,4 @@ export default (treant, options = {}) => {
   Header.validate = createValidate(conditions);
   return Header;
 };
+

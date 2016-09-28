@@ -1,180 +1,90 @@
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
-@value tablet from breakpoints;
 
-.toggleBox {
-  position: absolute;
-  left: -99999px;
-  top: -99999px;
-}
-
-.toggler {
-  display: none;
-  content: "≡";
-  font-size: 40px;
-  font-weight: 500;
-  cursor: pointer;
-  margin-right: 10px;
-  background-color: transparent;
-  transition: background-color 0.2s ease-out;
+.menuitem {
+  width: 100%;
 }
 
 .list {
   list-style-type: none;
+  width: 100%;
   text-align: left;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-.item {
-  display: inline-block;
-  position: relative;
-  padding: 15px;
-  z-index: 9;
+.list:last-child {
+  border-bottom: none;
 }
 
-.item:nth-child(5) {
-  padding-right: 0;
+.item {
+  display: inline-block;
+  padding: 0 15px;
+  position: relative;
+  z-index: 9;
+  vertical-align: top;
 }
 
 .item:hover {
   cursor: pointer;
 }
 
-.item > a {
+.item a {
   font-family: Open Sans;
   font-size: 12px;
+  padding: 4px;
   color: #4C616B;
   text-decoration: none;
+  display: table-cell;
+  vertical-align: middle;
   text-transform: uppercase;
   line-height: 22px;
-  display: inline-block;
 }
 
-.item:hover > a {
+.item:hover a {
   color: #00b0ff;
 }
 
-.item:nth-child(4), .item:nth-child(5) {
-  cursor: default;
-}
-
-.item:nth-child(4) > a {
+.item:nth-child(4) a {
   border: solid 1px #4C616B;
   color: #4C616B;
-  padding: 0 4px;
 }
 
-.item:nth-child(4) > a:hover {
+.item:nth-child(4):hover a {
   border: solid 1px #4C616B;
   background-color: #4C616B;
   color: white;
 }
 
-.item:nth-child(5) > a {
+.item:last-child a {
   border: solid 1px #ffb90d;
   color: #ffb90d;
-  padding: 0 4px;
 }
 
-.item:nth-child(5) > a:hover {
+.item:last-child:hover a {
   background: #ffb90d;
   border-color: #ffb90d;
   color: white;
 }
 
-.subNav {
+.SubNav {
   display: none;
   position: absolute;
+  top: 100%;
   left: 0;
-  top: 50px;
   z-index: 1000;
+  float: left;
   min-width: 230px;
 }
 
-.item:hover .subNav {
+.item:hover .SubNav {
   display: block;
+  color: #23527c;
 }
 
-.transifexList {
-  display: inline-flex;
-  list-style: none;
-  text-align: left;
-  padding: 0 20px;
-}
-
-.transifexList:after {
-  position: relative;
-  top: 5px;
-}
-
-@media tablet {
-  .list {
-    position: fixed;
-    height: 100%;
-    width: 275px;
-    top: 0;
-    right: -280px;
-    background-color: #ECEFF1;
-    box-shadow: 1px 0 10px grey;
-    transition: right 0.2s ease-out;
-    overflow: auto;
-    padding: 10px 0;
-  }
-
-  .item {
-    display: block;
-    padding: 5px 0;
-    text-align: center;
-    border-bottom: solid 2px #eee;
-    position: relative;
-  }
-
-  .subNav {
-    display: block;
-    position: relative;
-    top: auto;
-    min-width: auto;
-    left: auto;
-  }
-
-  .item:hover > a {
-    color: inherit;
-  }
-
-  .item:nth-child(4) > a {
-    border: solid 1px #4C616B;
-    color: #4C616B;
-    padding: 0 20px;
-  }
-
-  .item:nth-child(5) > a {
-    border: solid 1px #ffb90d;
-    color: #ffb90d;
-    padding: 0 20px;
-  }
-
-  .toggler {
-    display: block;
-  }
-
-  .toggleBox {
-    display: block;
-  }
-
-  .toggleBox:checked ~ .toggler {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    color: transparent;
-    background-color: rgba(0, 0, 0, 0.2);
-  }
-
-  .toggleBox:checked ~ .list {
-    display: block;
-    right: 0;
+@media mobile {
+  .menuitem {
+    display: none;
   }
 }
