@@ -39,10 +39,12 @@ import createDisciplineCard from '../src/molecule/discipline-card';
 import createDisciplineHeader from '../src/molecule/discipline-header';
 import createDisciplineScope from '../src/molecule/discipline-scope';
 import createFormGroup from '../src/molecule/form-group';
+import createMenuList from '../src/molecule/menu-list';
 import createModuleBubble from '../src/molecule/module-bubble';
 import createScopeContent from '../src/molecule/scope-content';
 import createScopeTabs from '../src/molecule/scope-tabs';
 import createSelectBox from '../src/molecule/select-box';
+import createSsmenuList from '../src/molecule/ssmenu-list';
 import createStarRating from '../src/molecule/star-rating';
 import createThemeImage from '../src/molecule/theme-image';
 import createTitledCheckbox from '../src/molecule/titled-checkbox';
@@ -55,6 +57,7 @@ import createDisciplineCards from '../src/organism/discipline-cards';
 import createDisciplineRightaside from '../src/organism/discipline-rightaside';
 import createForm from '../src/organism/form';
 import createGridList from '../src/organism/grid-list';
+import createHeader from '../src/organism/header';
 import createHero from '../src/organism/hero';
 import createCatalog from '../src/template/app-catalog/catalog';
 import createProductCourse from '../src/template/app-catalog/product-course';
@@ -128,6 +131,7 @@ import createDisciplineHeaderFixtureNoVideo from '../src/molecule/discipline-hea
 import createDisciplineScopeFixtureDefault from '../src/molecule/discipline-scope/test/fixtures/default';
 import createDisciplineScopeFixtureEmpty from '../src/molecule/discipline-scope/test/fixtures/empty';
 import createFormGroupFixtureDefault from '../src/molecule/form-group/test/fixtures/default';
+import createMenuListFixtureDefault from '../src/molecule/menu-list/test/fixtures/default';
 import createModuleBubbleFixtureDefault from '../src/molecule/module-bubble/test/fixtures/default';
 import createModuleBubbleFixtureDisabled from '../src/molecule/module-bubble/test/fixtures/disabled';
 import createScopeContentFixtureDefault from '../src/molecule/scope-content/test/fixtures/default';
@@ -137,6 +141,10 @@ import createScopeTabsFixtureEmpty from '../src/molecule/scope-tabs/test/fixture
 import createSelectBoxFixtureDefaultTheme from '../src/molecule/select-box/test/fixtures/default-theme';
 import createSelectBoxFixturePlainTheme from '../src/molecule/select-box/test/fixtures/plain-theme';
 import createSelectBoxFixtureWithItems from '../src/molecule/select-box/test/fixtures/with-items';
+import createSsmenuListFixtureCoorpacademy from '../src/molecule/ssmenu-list/test/fixtures/coorpacademy';
+import createSsmenuListFixtureEmpty from '../src/molecule/ssmenu-list/test/fixtures/empty';
+import createSsmenuListFixtureFormations from '../src/molecule/ssmenu-list/test/fixtures/formations';
+import createSsmenuListFixtureSolutions from '../src/molecule/ssmenu-list/test/fixtures/solutions';
 import createStarRatingFixtureDefault from '../src/molecule/star-rating/test/fixtures/default';
 import createThemeImageFixtureLogo from '../src/molecule/theme-image/test/fixtures/logo';
 import createTitledCheckboxFixtureChecked from '../src/molecule/titled-checkbox/test/fixtures/checked';
@@ -162,6 +170,7 @@ import createDisciplineCardsFixtureManyDisciplines from '../src/organism/discipl
 import createDisciplineRightasideFixtureDefault from '../src/organism/discipline-rightaside/test/fixtures/default';
 import createDisciplineRightasideFixtureEmpty from '../src/organism/discipline-rightaside/test/fixtures/empty';
 import createFormFixtureDefault from '../src/organism/form/test/fixtures/default';
+import createHeaderFixtureDefault from '../src/organism/header/test/fixtures/default';
 import createHeroFixtureDefault from '../src/organism/hero/test/fixtures/default';
 import createCatalogFixtureDefault from '../src/template/app-catalog/catalog/test/fixtures/default';
 import createCatalogFixtureEmpty from '../src/template/app-catalog/catalog/test/fixtures/empty';
@@ -242,10 +251,12 @@ export const components = {
     DisciplineHeader: createDisciplineHeader,
     DisciplineScope: createDisciplineScope,
     FormGroup: createFormGroup,
+    MenuList: createMenuList,
     ModuleBubble: createModuleBubble,
     ScopeContent: createScopeContent,
     ScopeTabs: createScopeTabs,
     SelectBox: createSelectBox,
+    SsmenuList: createSsmenuList,
     StarRating: createStarRating,
     ThemeImage: createThemeImage,
     TitledCheckbox: createTitledCheckbox,
@@ -260,6 +271,7 @@ export const components = {
     DisciplineRightaside: createDisciplineRightaside,
     Form: createForm,
     GridList: createGridList,
+    Header: createHeader,
     Hero: createHero
   },
   TemplateAppCatalog: {
@@ -433,6 +445,9 @@ export const fixtures = {
     FormGroup: {
       Default: createFormGroupFixtureDefault
     },
+    MenuList: {
+      Default: createMenuListFixtureDefault
+    },
     ModuleBubble: {
       Default: createModuleBubbleFixtureDefault,
       Disabled: createModuleBubbleFixtureDisabled
@@ -449,6 +464,12 @@ export const fixtures = {
       DefaultTheme: createSelectBoxFixtureDefaultTheme,
       PlainTheme: createSelectBoxFixturePlainTheme,
       WithItems: createSelectBoxFixtureWithItems
+    },
+    SsmenuList: {
+      Coorpacademy: createSsmenuListFixtureCoorpacademy,
+      Empty: createSsmenuListFixtureEmpty,
+      Formations: createSsmenuListFixtureFormations,
+      Solutions: createSsmenuListFixtureSolutions
     },
     StarRating: {
       Default: createStarRatingFixtureDefault
@@ -498,6 +519,9 @@ export const fixtures = {
     },
     Form: {
       Default: createFormFixtureDefault
+    },
+    Header: {
+      Default: createHeaderFixtureDefault
     },
     Hero: {
       Default: createHeroFixtureDefault
