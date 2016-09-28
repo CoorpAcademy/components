@@ -1,14 +1,11 @@
 @value cardWidth: 205px;
-@value cardHeight: 150px;
 
 /*-------------------------------------------------- Card */
 
 .default {
   display: inline-block;
   width: cardWidth;
-  height: cardHeight;
-  margin-right: 30px;
-  margin-bottom: 32px;
+  margin: 10px;
   overflow: hidden;
   transition: all 1s linear;
   transition-delay: 0s;
@@ -44,26 +41,30 @@
   position: absolute;
   width: 100%;
   height: 75px;
-  display: table;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .headerModule {
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
+  margin: 0;
 }
 
 /*-------------------------------------------------- Modules */
 
 .moduleProgressionWrapper {
-  display: block;
-  padding-top: 4px;
   box-sizing: border-box;
   width: 100%;
   height: 70px;
   background: rgba(236, 239, 241, 0.2);
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 
 /*-------------------------------------------------- Animation */
