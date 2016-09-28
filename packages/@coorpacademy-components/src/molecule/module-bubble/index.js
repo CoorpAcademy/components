@@ -46,7 +46,7 @@ export default (treant, options = {}) => {
     const background = getOr('#fff', `mod[${_module.status}]`, skin);
 
     return (
-      <div className={filtered ? style.filtered : style._modulewrapper}
+      <div className={filtered ? style.filtered : style.modulewrapper}
             attributes={{
               'data-name': 'module-bubble'
             }}
@@ -71,9 +71,9 @@ export default (treant, options = {}) => {
               {icon}
           </span>
         </div>
-        <LabelModName>
+        <div className={style.label}>
           {label}
-        </LabelModName>
+        </div>
       </div>
     );
   };
