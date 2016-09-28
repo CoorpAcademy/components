@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/treantjs-adapter-dust",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -25,8 +25,8 @@
     "Christophe Dugne-Esquevin <christophe.dugne@coorpacademy.com>"
   ],
   "dependencies": {
-    "@coorpacademy/treantjs-core": "^3.0.0",
-    "@coorpacademy/treantjs-engine-virtual-dom": "^3.0.0",
+    "@coorpacademy/treantjs-core": "^3.0.2",
+    "@coorpacademy/treantjs-engine-virtual-dom": "^3.0.2",
     "lodash": "^4.14.1"
   },
   "devDependencies": {

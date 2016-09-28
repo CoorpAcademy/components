@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/treantjs-engine-spec",
-  "version": "3.0.0",
+  "version": "3.0.2",
   "description": "",
   "main": "lib/index.js",
   "files": [
@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@coorpacademy/eslint-plugin-coorpacademy": "^2.0.0",
-    "@coorpacademy/treantjs-core": "^3.0.0",
+    "@coorpacademy/treantjs-core": "^3.0.2",
     "babel-cli": "^6.11.4",
     "babel-core": "^6.11.4",
     "babel-plugin-istanbul": "^2.0.1",
