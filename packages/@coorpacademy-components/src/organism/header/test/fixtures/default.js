@@ -1,13 +1,13 @@
 import MenuList from '../../../../molecule/menu-list/test/fixtures/default';
-import ImageLink from '../../../../atom/image-link/test/fixtures/simple-src';
+import Picture from '../../../../atom/picture/test/fixtures/simple-src';
 
 const {menuItems} = MenuList.props;
-const {src, href} = ImageLink.props;
+const {src} = Picture.props;
 
 export default {
   props: {
     menuItems,
     src,
-    href
+    href: '/plop'
   }
 };
