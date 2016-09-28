@@ -5,10 +5,10 @@ export default {
       courseNum: 0,
       modules: [{
         label: 'foo',
-        status: 'success'
+        status: 'isRestarted'
       }, {
         label: 'bar',
-        status: 'success'
+        status: 'isPaying'
       }]
     },
     onClick: () => null,

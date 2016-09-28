@@ -1,9 +1,9 @@
 import createTranslate from '@coorpacademy/translate';
-
 import createHeader from './components/header';
-
 import en from '../locales/en/global.json';
 import fr from '../locales/fr/global.json';
+import style from './style.css';
+
 const locales = {en, fr};
 
 const translate = createTranslate(locales.fr);

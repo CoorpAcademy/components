@@ -4,13 +4,13 @@ export default {
       label: 'Digital',
       modules: [{
         label: 'foo',
-        status: 'success'
+        status: 'isActive'
       }, {
         label: 'bar',
-        status: 'success'
+        status: 'isValid'
       }, {
         label: 'baz',
-        status: 'success'
+        status: 'isStarted'
       }]
     },
     onClick: () => null,
