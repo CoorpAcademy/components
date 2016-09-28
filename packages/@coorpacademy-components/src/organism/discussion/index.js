@@ -8,17 +8,15 @@ const postConditions = checker.shape({
   author: checker.string.optional,
   date: checker.string.optional,
   text: checker.string.optional,
-  avatar: checker.url.optional
-}).optional;
-
-const threadConditions = checker.shape({
-  post: postConditions,
-  answers: checker.arrayOf(postConditions)
+  avatar: checker.url.optional,
+  answers: checker.array.optional
 }).optional;
 
 const conditions = checker.shape({
   props: checker.shape({
-    threads: checker.arrayOf(threadConditions).optional
+    threads: checker.arrayOf(checker.shape({
+      post: postConditions
+    })).optional
   }).optional,
   children: checker.none
 });
