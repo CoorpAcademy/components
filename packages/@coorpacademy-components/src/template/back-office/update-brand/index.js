@@ -25,7 +25,7 @@ export default (treant, options = {}) => {
           </h1>
         </div>
         <div className={style.card}>
-          <Form form={form}/>
+          <Form {...form}/>
         </div>
       </div>
     );

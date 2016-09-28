@@ -1,3 +1,4 @@
+import noop from 'lodash/fp/noop';
 import {checker, createValidate} from '../../util/validation';
 import style from './style.css';
 
@@ -6,7 +7,8 @@ const conditions = checker.shape({
     field: checker.shape({
       title: checker.string,
       placeholder: checker.string,
-      value: checker.string,
+      defaultValue: checker.string.optional,
+      value: checker.string.optional,
       onChange: checker.func.optional
     })
   }),
@@ -21,7 +23,8 @@ export default (treant, options) => {
       title,
       placeholder,
       value,
-      onChange = ''
+      defaultValue,
+      onChange = noop
     } = props.field;
 
     return (
@@ -31,8 +34,9 @@ export default (treant, options) => {
           type='text'
           name={title}
           placeholder={placeholder}
-          defaultValue={value}
-          onInput={onChange}/>
+          defaultValue={defaultValue}
+          value={value}
+          onInput={e => onChange(e.target.value)}/>
         </label>
       </div>
     );

@@ -4,9 +4,9 @@ const {group} = FormGroup.props;
 
 export default {
   props: {
-    form: {
-      title: 'Modification Brand',
-      groups: [group, group, group]
-    }
+    title: 'Modification Brand',
+    groups: [group, group, group],
+    onSubmit: () => console.log('submit'), // eslint-disable-line no-console
+    onReset: () => console.log('reset') // eslint-disable-line no-console
   }
 };

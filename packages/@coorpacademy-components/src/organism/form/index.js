@@ -1,3 +1,4 @@
+import noop from 'lodash/fp/noop';
 import {checker, createValidate} from '../../util/validation';
 import HoverFillBehaviour from '../../behaviour/effects/hover-fill';
 import createFormGroup from '../../molecule/form-group';
@@ -5,10 +6,10 @@ import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({
-    form: checker.shape({
-      title: checker.string,
-      groups: checker.array
-    })
+    title: checker.string,
+    groups: checker.array,
+    onSubmit: checker.func.optional,
+    onReset: checker.func.optional
   }),
   children: checker.none
 });
@@ -20,20 +21,40 @@ export default (treant, options = {}) => {
     const FormGroup = createFormGroup(treant, options);
     const HoverFill = HoverFillBehaviour(treant, options);
 
-    const {groups} = props.form;
+    const {
+      groups,
+      onSubmit = noop,
+      onReset = noop
+    } = props;
+
+    const prevent = fun => (e, ...argz) => {
+      e.preventDefault();
+      fun(e, ...argz);
+    };
 
     return (
-      <form className={style.form}>
+      <form
+        className={style.form}
+        onSubmit={prevent(onSubmit)}
+        onReset={prevent(onReset)}
+      >
         {groups.map((group, index) => (
           <FormGroup group={group}/>
         ))}
         <div className={style.buttons}>
           <HoverFill>
-            <button className={style.reset}>Annuler</button>
+            <input
+              type="reset"
+              className={style.reset}
+              value="Annuler"
+            />
           </HoverFill>
           <HoverFill>
             <span className={style.save}>
-              <input type="submit" value="Enregistrer"/>
+              <input
+                type="submit"
+                value="Enregistrer"
+              />
             </span>
           </HoverFill>
         </div>

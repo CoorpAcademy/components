@@ -3,6 +3,13 @@ import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({
+    field: checker.shape({
+      title: checker.string,
+      placeholder: checker.string,
+      type: checker.string,
+      value: checker.string.optional,
+      onChange: checker.func.optional
+    })
   }),
   children: checker.none
 });

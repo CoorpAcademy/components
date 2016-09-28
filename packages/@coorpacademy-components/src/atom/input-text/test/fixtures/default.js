@@ -4,7 +4,8 @@ export default {
       type: 'text',
       title: 'Couleur',
       placeholder: '#2F3487',
-      value: '#FFFFFF'
+      value: '#FFFFFF',
+      onChange: value => console.log(value) // eslint-disable-line no-console
     }
   }
 };
