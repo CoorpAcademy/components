@@ -54,7 +54,6 @@ import createVideoPlayer from '../src/molecule/video-player';
 import createForumComment from '../src/molecule/forum/forum-comment';
 import createForumPost from '../src/molecule/forum/forum-post';
 import createForumThread from '../src/molecule/forum/forum-thread';
-import createBOheader from '../src/organism/BOheader';
 import createBrandContent from '../src/organism/brand-content';
 import createCatalogCards from '../src/organism/catalog-cards';
 import createCursusRightaside from '../src/organism/cursus-rightaside';
@@ -177,7 +176,6 @@ import createForumPostFixtureRejected from '../src/molecule/forum/forum-post/tes
 import createForumThreadFixtureDeepAnswers from '../src/molecule/forum/forum-thread/test/fixtures/deep-answers';
 import createForumThreadFixtureDefault from '../src/molecule/forum/forum-thread/test/fixtures/default';
 import createForumThreadFixtureWithAnswers from '../src/molecule/forum/forum-thread/test/fixtures/with-answers';
-import createBOheaderFixtureDefault from '../src/organism/BOheader/test/fixtures/default';
 import createBrandContentFixtureDefault from '../src/organism/brand-content/test/fixtures/default';
 import createBrandContentFixtureLookandfeel from '../src/organism/brand-content/test/fixtures/lookandfeel';
 import createBrandContentFixtureSso from '../src/organism/brand-content/test/fixtures/sso';
@@ -296,7 +294,6 @@ export const components = {
     ForumThread: createForumThread
   },
   Organism: {
-    BOheader: createBOheader,
     BrandContent: createBrandContent,
     CatalogCards: createCatalogCards,
     CursusRightaside: createCursusRightaside,
@@ -555,9 +552,6 @@ export const fixtures = {
     }
   },
   Organism: {
-    BOheader: {
-      Default: createBOheaderFixtureDefault
-    },
     BrandContent: {
       Default: createBrandContentFixtureDefault,
       Lookandfeel: createBrandContentFixtureLookandfeel,
