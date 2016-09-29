@@ -29,7 +29,7 @@ export default (treant, options = {}) => {
       const {title, href, subItems} = item;
 
       const subItemsView = !isNil(subItems) && (
-        <div className={style.SubNav}>
+        <div className={style.subNav}>
           <SsMenuList
             items={item.subItems}
           />
@@ -49,11 +49,9 @@ export default (treant, options = {}) => {
     });
 
     return (
-      <div className={style.menuItems}>
-        <ul className={style.list}>
-          {MenuitemDiv}
-        </ul>
-      </div>
+      <ul className={style.list}>
+        {MenuitemDiv}
+      </ul>
     );
   };
 
