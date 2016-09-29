@@ -1,0 +1,19 @@
+.set {
+  padding: 30px;
+  border: 1px solid #dce0e0;
+}
+
+.set legend {
+  font-family: "Open Sans";
+  font-size: 14px;
+  font-weight: 600;
+  color: #686868
+}
+
+.set div {
+  margin-bottom: 20px;
+}
+
+.set div:last-child {
+  margin-bottom: 0;
+}

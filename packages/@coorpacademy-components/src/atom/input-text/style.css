@@ -1,0 +1,34 @@
+.default {
+
+}
+
+.error {
+  composes: default;
+}
+
+.default label {
+  font-family: "Open Sans";
+  font-size: 13px;
+  text-transform: none;
+  color: #686868;
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.default input {
+  font-family: "Open Sans";
+  text-transform: none;
+  padding: 0 15px;
+  border: solid 2px #eceff1;
+  height: 50px;
+  border-radius: 2px;
+  font-size: 14px;
+  color: #607d8b;
+  margin-left: 20px;
+  flex-grow: 1;
+}
+
+.error input {
+  border-color: #eb5c41;
+}
