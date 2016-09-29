@@ -30,11 +30,9 @@ export default (treant, options = {}) => {
     ));
 
     return (
-      <div className={style.ssitems}>
         <ul className={style.list}>
           {itemsView}
         </ul>
-      </div>
     );
   };
 
