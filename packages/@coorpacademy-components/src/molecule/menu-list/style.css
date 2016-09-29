@@ -1,90 +1,86 @@
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
 
-.menuitem {
-  width: 100%;
-}
 
 .list {
   list-style-type: none;
-  width: 100%;
   text-align: left;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-.list:last-child {
-  border-bottom: none;
-}
-
 .item {
   display: inline-block;
-  padding: 0 15px;
   position: relative;
+  padding: 15px;
   z-index: 9;
-  vertical-align: top;
+}
+
+.item:last-child {
+  padding-right: 0;
 }
 
 .item:hover {
   cursor: pointer;
 }
 
-.item a {
+.item > a {
   font-family: Open Sans;
   font-size: 12px;
-  padding: 4px;
   color: #4C616B;
   text-decoration: none;
-  display: table-cell;
-  vertical-align: middle;
   text-transform: uppercase;
   line-height: 22px;
+  display: inline-block;
 }
 
-.item:hover a {
+.item:hover > a {
   color: #00b0ff;
 }
 
-.item:nth-child(4) a {
-  border: solid 1px #4C616B;
-  color: #4C616B;
+.item:nth-child(4), .item:last-child {
+  cursor: default;
 }
 
-.item:nth-child(4):hover a {
+.item:nth-child(4) > a {
+  border: solid 1px #4C616B;
+  color: #4C616B;
+  padding: 0 4px;
+}
+
+.item:nth-child(4) > a:hover {
   border: solid 1px #4C616B;
   background-color: #4C616B;
   color: white;
 }
 
-.item:last-child a {
+.item:last-child > a {
   border: solid 1px #ffb90d;
   color: #ffb90d;
+  padding: 0 4px;
 }
 
-.item:last-child:hover a {
+.item:last-child > a:hover {
   background: #ffb90d;
   border-color: #ffb90d;
   color: white;
 }
 
-.SubNav {
+.subNav {
   display: none;
   position: absolute;
-  top: 100%;
   left: 0;
+  top: 50px;
   z-index: 1000;
-  float: left;
   min-width: 230px;
+  background-color: #ffffff;
 }
 
-.item:hover .SubNav {
+.item:hover .subNav {
   display: block;
-  color: #23527c;
 }
 
 @media mobile {
-  .menuitem {
-    display: none;
-  }
+
 }

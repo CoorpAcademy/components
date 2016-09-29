@@ -28,17 +28,12 @@ export default (treant, options = {}) => {
 
     return (
         <div className={style.static}>
-          <div className={style.Logo}>
+          <div className={style.logo}>
             <a href={href}>
               <Picture src={src} />
             </a>
           </div>
-          <div className={style.mobileNav}>
-            <div className={style.mobileburger}>
-                <MenuList menuItems={menuItems} />
-            </div>
-          </div>
-          <div className={style.Navigation}>
+          <div className={style.navigation}>
             <MenuList menuItems={menuItems} />
           </div>
         </div>
@@ -48,4 +43,3 @@ export default (treant, options = {}) => {
   Header.validate = createValidate(conditions);
   return Header;
 };
-

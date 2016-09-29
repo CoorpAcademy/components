@@ -14,7 +14,7 @@ export default {
         href: '/plop'
       },
       {
-        title: 'tarifs entreprise',
+        title: 'Tarifs entreprise',
         href: '/plop'
       }
     ]
