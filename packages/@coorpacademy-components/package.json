@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/components",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -40,18 +40,18 @@
     "Christophe Dugne-Esquevin <christophe.dugne@coorpacademy.com>"
   ],
   "dependencies": {
-    "@coorpacademy/treantjs-core": "^3.0.2",
+    "@coorpacademy/treantjs-core": "^3.0.3",
     "api-check": "^7.5.5",
     "hyperx": "^2.0.4",
     "lodash": "^4.14.1"
   },
   "devDependencies": {
-    "@coorpacademy/components-bundler": "^3.0.2",
+    "@coorpacademy/components-bundler": "^3.0.3",
     "@coorpacademy/eslint-plugin-coorpacademy": "^2.0.0",
-    "@coorpacademy/translate": "^3.0.2",
-    "@coorpacademy/treantjs-engine-react": "^3.0.2",
-    "@coorpacademy/treantjs-engine-snabbdom": "^3.0.2",
-    "@coorpacademy/treantjs-engine-virtual-dom": "^3.0.2",
+    "@coorpacademy/translate": "^3.0.3",
+    "@coorpacademy/treantjs-engine-react": "^3.0.3",
+    "@coorpacademy/treantjs-engine-snabbdom": "^3.0.3",
+    "@coorpacademy/treantjs-engine-virtual-dom": "^3.0.3",
     "autoprefixer": "^6.4.1",
     "ava": "^0.16.0",
     "babel-cli": "^6.11.4",
