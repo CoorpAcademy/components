@@ -4,9 +4,9 @@ import style from './style.css';
 
 const postConditions = checker.shape({
   type: checker.string.optional,
-  author: checker.string.optional,
+  name: checker.string.optional,
   date: checker.string.optional,
-  text: checker.string.optional,
+  message: checker.string.optional,
   avatar: checker.url.optional,
   answers: checker.array.optional
 }).optional;
@@ -22,8 +22,14 @@ export default (treant, options = {}) => {
   const {h} = treant;
   const Post = createForumPost(treant, options);
 
-  const ForumThread = ({post}, children) => {
-    const {answers = []} = post;
+  const ForumThread = (props, children) => {
+    const {
+      name,
+      date,
+      message,
+      avatar,
+      answers = []
+    } = props;
 
     const answersView = answers.map(answer => (
       <ForumThread {...answer}/>
@@ -31,7 +37,12 @@ export default (treant, options = {}) => {
 
     return (
       <div className={style.thread}>
-        <Post {...post}/>
+        <Post
+          name={name}
+          date={date}
+          message={message}
+          avatar={avatar}
+        />
         <div className={style.answers}>
           {answersView}
         </div>

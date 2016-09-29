@@ -4,9 +4,9 @@ import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({
-    author: checker.string.optional,
+    name: checker.string.optional,
     date: checker.string.optional,
-    text: checker.string.optional,
+    message: checker.string.optional,
     avatar: checker.url.optional
   }),
   children: checker.none
@@ -18,9 +18,9 @@ export default (treant, options = {}) => {
 
   const ForumPost = (props, children) => {
     const {
-      author,
+      name,
       date,
-      text,
+      message,
       avatar
     } = props;
 
@@ -34,11 +34,11 @@ export default (treant, options = {}) => {
         </div>
         <div className={style.content}>
           <div className={style.head}>
-            <span className={style.author}>{author}</span>
+            <span className={style.author}>{name}</span>
             <span className={style.date}>{date}</span>
           </div>
           <div className={style.body}>
-            {text}
+            {message}
           </div>
           <div className={style.footer}>
             <a className={style.action}>Répondre</a>

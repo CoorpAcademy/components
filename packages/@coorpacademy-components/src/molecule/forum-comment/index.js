@@ -1,3 +1,5 @@
+import partial from 'lodash/fp/partial';
+import unary from 'lodash/fp/unary';
 import {checker, createValidate} from '../../util/validation';
 import HoverFillBehaviour from '../../behaviour/effects/hover-fill';
 import style from './style.css';
@@ -25,7 +27,11 @@ export default (treant, options = {}) => {
         </div>
         <div className={style.post}>
           <HoverFill>
-            <button>Poster</button>
+            <button
+              onClick={unary(partial(props.onPost))}
+            >
+              Poster
+            </button>
           </HoverFill>
         </div>
       </form>
