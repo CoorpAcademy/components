@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
+const BabiliPlugin = require('babili-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 
@@ -49,7 +50,6 @@ const config = {
 
     if (NODE_ENV === 'production')
       plugins.push(
-        new webpack.optimize.UglifyJsPlugin(),
         new CompressionPlugin({
           asset: '[path].gz',
           algorithm: 'gzip',
@@ -65,7 +65,13 @@ const config = {
               })]
             },
             context: __dirname
-          }
+          },
+          minimize: true,
+          debug: false
+        }),
+        new BabiliPlugin({
+          comments: false,
+          sourceMap: false
         }),
         componentCSS
       );
