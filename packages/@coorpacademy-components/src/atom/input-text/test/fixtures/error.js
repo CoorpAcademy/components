@@ -3,7 +3,8 @@ export default {
     type: 'text',
     title: 'Name',
     placeholder: 'Your name',
-    value: 'Foo',
+    value: '',
+    error: 'Error\'s message',
     onChange: value => console.log(value) // eslint-disable-line no-console
   }
 };

@@ -1,14 +1,14 @@
+import map from 'lodash/fp/map';
 import {checker, createValidate} from '../../util/validation';
 import createInputText from '../../atom/input-text';
+import createInputColor from '../../atom/input-color';
 import createSelect from '../../atom/select';
 import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({
-    group: checker.shape({
-      title: checker.string,
-      fields: checker.array
-    })
+    title: checker.string,
+    fields: checker.array
   }),
   children: checker.none
 });
@@ -16,31 +16,35 @@ const conditions = checker.shape({
 export default (treant, options = {}) => {
   const {h} = treant;
 
+  const InputText = createInputText(treant, options);
+  const InputColor = createInputColor(treant, options);
+  const Select = createSelect(treant, options);
+
+  const buildField = field => {
+    switch (field.type) {
+      case 'color':
+        return (
+          <InputColor {...field}/>
+        );
+      case 'select':
+        return (
+          <Select />
+        );
+      default:
+        return (
+          <InputText {...field}/>
+        );
+    }
+  };
+
+  const buildFields = map(buildField);
+
   const FormGroup = (props, children) => {
-    const InputText = createInputText(treant, options);
-    const Select = createSelect(treant, options);
-
-    const {title, fields} = props.group;
-
+    const {title, fields} = props;
     return (
       <fieldset className={style.set}>
         <legend>{title}</legend>
-        {fields.map((field, index) => {
-          switch (field.type) {
-            case 'text':
-              return (
-                <InputText field={field}/>
-              );
-            case 'select':
-              return (
-                <Select />
-              );
-            default:
-              return (
-                <div></div>
-              );
-          }
-        })}
+        {buildFields(fields)}
       </fieldset>
     );
   };

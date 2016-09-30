@@ -1,4 +1,5 @@
 import createCenteredText from '../src/atom/centered-text';
+import createInputColor from '../src/atom/input-color';
 import createInputText from '../src/atom/input-text';
 import createLabelModName from '../src/atom/label-mod-name';
 import createLabelNormal from '../src/atom/label-normal';
@@ -50,7 +51,12 @@ import createProductCourse from '../src/template/app-catalog/product-course';
 import createProductCursus from '../src/template/app-catalog/product-cursus';
 import createUpdateBrand from '../src/template/back-office/update-brand';
 import createCenteredTextFixtureDefault from '../src/atom/centered-text/test/fixtures/default';
+import createInputColorFixtureDefault from '../src/atom/input-color/test/fixtures/default';
+import createInputColorFixtureEmpty from '../src/atom/input-color/test/fixtures/empty';
+import createInputColorFixtureError from '../src/atom/input-color/test/fixtures/error';
 import createInputTextFixtureDefault from '../src/atom/input-text/test/fixtures/default';
+import createInputTextFixtureEmpty from '../src/atom/input-text/test/fixtures/empty';
+import createInputTextFixtureError from '../src/atom/input-text/test/fixtures/error';
 import createLabelModNameFixtureFixture from '../src/atom/label-mod-name/test/fixtures/fixture';
 import createLabelNormalFixtureFixture from '../src/atom/label-normal/test/fixtures/fixture';
 import createLabelFixtureOneChild from '../src/atom/label/test/fixtures/one-child';
@@ -142,6 +148,7 @@ import createUpdateBrandFixtureDefault from '../src/template/back-office/update-
 export const components = {
   Atom: {
     CenteredText: createCenteredText,
+    InputColor: createInputColor,
     InputText: createInputText,
     LabelModName: createLabelModName,
     LabelNormal: createLabelNormal,
@@ -215,8 +222,15 @@ export const fixtures = {
     CenteredText: {
       Default: createCenteredTextFixtureDefault
     },
+    InputColor: {
+      Default: createInputColorFixtureDefault,
+      Empty: createInputColorFixtureEmpty,
+      Error: createInputColorFixtureError
+    },
     InputText: {
-      Default: createInputTextFixtureDefault
+      Default: createInputTextFixtureDefault,
+      Empty: createInputTextFixtureEmpty,
+      Error: createInputTextFixtureError
     },
     LabelModName: {
       Fixture: createLabelModNameFixtureFixture

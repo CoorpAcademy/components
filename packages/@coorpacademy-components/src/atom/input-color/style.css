@@ -1,0 +1,21 @@
+.default {
+  composes: default from '../input-text/style.css';
+  position: relative;
+}
+
+.error {
+  composes: error from '../input-text/style.css';
+  composes: default;
+}
+
+.preview {
+  z-index: 999;
+  content: '';
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  border-radius: 50%;
+  top: 50%;
+  right: 10px;
+  position: absolute;
+}
