@@ -1,6 +1,7 @@
 import fromPairs from 'lodash/fp/fromPairs';
 import get from 'lodash/fp/get';
 import head from 'lodash/fp/head';
+import isString from 'lodash/fp/isString';
 import keys from 'lodash/fp/keys';
 import map from 'lodash/fp/map';
 import noop from 'lodash/fp/noop';
@@ -49,7 +50,10 @@ const buildComponent = (treant, options) => (factory, {props, children} = {}) =>
   return (
     <Component {...props}>
       {map(
-        child => child(treant, options),
+        child => {
+          if (isString(child)) return child;
+          return child(treant, options);
+        },
         children
       )}
     </Component>
