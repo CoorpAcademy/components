@@ -16,11 +16,10 @@ const conditions = checker.shape({
 
 export default (treant, options = {}) => {
   const {h} = treant;
+  const FormGroup = createFormGroup(treant, options);
+  const HoverFill = HoverFillBehaviour(treant, options);
 
   const Form = (props, children) => {
-    const FormGroup = createFormGroup(treant, options);
-    const HoverFill = HoverFillBehaviour(treant, options);
-
     const {
       groups,
       onSubmit = noop,
@@ -39,7 +38,7 @@ export default (treant, options = {}) => {
         onReset={prevent(onReset)}
       >
         {groups.map((group, index) => (
-          <FormGroup group={group}/>
+          <FormGroup {...group}/>
         ))}
         <div className={style.buttons}>
           <HoverFill>

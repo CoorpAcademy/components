@@ -28,6 +28,9 @@ export default (treant, options) => {
     } = props;
 
     const className = error ? style.error : style.default;
+    const inlineStyle = {
+      backgroundColor: value
+    };
 
     return (
       <div className={className}>
@@ -42,6 +45,10 @@ export default (treant, options) => {
             onInput={e => onChange(e.target.value)}
           />
         </label>
+        <span
+          className={style.preview}
+          style={inlineStyle}
+        />
       </div>
     );
   };

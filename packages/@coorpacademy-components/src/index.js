@@ -20,6 +20,7 @@ export createForm from './organism/form';
 export createFormGroup from './molecule/form-group';
 export createHero from './organism/hero';
 export createHoverFill from './behaviour/effects/hover-fill';
+export createInputColor from './atom/input-color';
 export createInputText from './atom/input-text';
 export createLabel from './atom/label';
 export createLabelModName from './atom/label-mod-name';
