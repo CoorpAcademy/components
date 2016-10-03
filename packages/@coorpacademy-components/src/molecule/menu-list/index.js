@@ -49,9 +49,22 @@ export default (treant, options = {}) => {
     });
 
     return (
-      <ul className={style.list}>
-        {MenuitemDiv}
-      </ul>
+      <div className={style.menu}>
+        <input
+          type='checkbox'
+          id='toggle'
+          className={style.toggleBox}
+        />
+        <label
+          htmlFor='toggle'
+          className={style.toggler}
+        >
+          ≡
+        </label>
+        <ul className={style.list}>
+          {MenuitemDiv}
+        </ul>
+      </div>
     );
   };
 
