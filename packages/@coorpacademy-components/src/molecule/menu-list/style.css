@@ -1,5 +1,6 @@
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
+@value tablet from breakpoints;
 
 .toggleBox {
   position: absolute;
@@ -14,6 +15,7 @@
   font-weight: 500;
   cursor: pointer;
   margin-right: 10px;
+  background-color: transparent;
   transition: background-color 0.2s ease-out;
 }
 
@@ -95,8 +97,7 @@
   display: block;
 }
 
-@media mobile {
-
+@media tablet {
   .list {
     position: fixed;
     height: 100%;
@@ -106,6 +107,8 @@
     background-color: #ECEFF1;
     box-shadow: 1px 0 10px grey;
     transition: right 0.2s ease-out;
+    overflow: auto;
+    padding: 10px 0;
   }
 
   .item {
@@ -114,6 +117,30 @@
     text-align: center;
     border-bottom: solid 2px #eee;
     position: relative;
+  }
+
+  .subNav {
+    display: block;
+    position: relative;
+    top: auto;
+    min-width: auto;
+    left: auto;
+  }
+
+  .item:hover > a {
+    color: inherit;
+  }
+
+  .item:nth-child(4) > a {
+    border: solid 1px #4C616B;
+    color: #4C616B;
+    padding: 0 20px;
+  }
+
+  .item:last-child > a {
+    border: solid 1px #ffb90d;
+    color: #ffb90d;
+    padding: 0 20px;
   }
 
   .toggler {
