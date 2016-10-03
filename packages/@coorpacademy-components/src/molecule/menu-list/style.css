@@ -103,7 +103,7 @@
     height: 100%;
     width: 275px;
     top: 0;
-    right: -275px;
+    right: -280px;
     background-color: #ECEFF1;
     box-shadow: 1px 0 10px grey;
     transition: right 0.2s ease-out;
