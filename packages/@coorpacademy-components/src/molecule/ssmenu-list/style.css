@@ -1,5 +1,6 @@
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
+@value tablet from breakpoints;
 
 .list {
   list-style-type: none;
@@ -67,6 +68,10 @@
 }
 
 
-@media mobile {
-
+@media tablet {
+  .list {
+    box-shadow: none;
+    border: none;
+    margin-top: 10px;
+  }
 }
