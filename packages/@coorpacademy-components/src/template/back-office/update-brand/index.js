@@ -11,10 +11,9 @@ const conditions = checker.shape({
 
 export default (treant, options = {}) => {
   const {h} = treant;
+  const Form = createForm(treant, options);
 
   const UpdateBrand = (props, children) => {
-    const Form = createForm(treant, options);
-
     const {form} = props;
 
     return (

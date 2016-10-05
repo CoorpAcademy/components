@@ -1,5 +1,4 @@
 import isNil from 'lodash/fp/isNil';
-import createLink from '../../atom/link';
 import {checker, createValidate} from '../../util/validation';
 import createSsMenuList from '../ssmenu-list';
 import style from './style.css';
@@ -19,7 +18,6 @@ const conditions = checker.shape({
 export default (treant, options = {}) => {
   const {h} = treant;
 
-  const Link = createLink(treant, options);
   const SsMenuList = createSsMenuList(treant, options);
 
   const MenuList = (props, children) => {
@@ -38,11 +36,11 @@ export default (treant, options = {}) => {
 
       return (
         <li className={style.item}>
-          <Link
+          <a
             href={href}
           >
             {title}
-          </Link>
+          </a>
           {subItemsView}
         </li>
       );
