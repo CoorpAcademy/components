@@ -1,4 +1,3 @@
-import createLink from '../../atom/link';
 import {checker, createValidate} from '../../util/validation';
 import style from './style.css';
 
@@ -16,16 +15,15 @@ const conditions = checker.shape({
 
 export default (treant, options = {}) => {
   const {h} = treant;
-  const Link = createLink(treant, options);
 
   const SsMenuList = ({items = []}, children) => {
     const itemsView = items.map(({title, href}) => (
       <li className={style.item}>
-        <Link
+        <a
           href={href}
         >
           {title}
-        </Link>
+        </a>
       </li>
     ));
 

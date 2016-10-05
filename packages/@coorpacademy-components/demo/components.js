@@ -53,6 +53,7 @@ import createCatalog from '../src/template/app-catalog/catalog';
 import createProductCourse from '../src/template/app-catalog/product-course';
 import createProductCursus from '../src/template/app-catalog/product-cursus';
 import createUpdateBrand from '../src/template/back-office/update-brand';
+import createCoorpHeader from '../src/template/common/coorp-header';
 import createCenteredTextFixtureDefault from '../src/atom/centered-text/test/fixtures/default';
 import createInputColorFixtureDefault from '../src/atom/input-color/test/fixtures/default';
 import createInputColorFixtureEmpty from '../src/atom/input-color/test/fixtures/empty';
@@ -227,6 +228,9 @@ export const components = {
   },
   TemplateBackOffice: {
     UpdateBrand: createUpdateBrand
+  },
+  TemplateCommon: {
+    CoorpHeader: createCoorpHeader
   }
 };
 export const fixtures = {
