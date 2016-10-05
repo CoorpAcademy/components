@@ -15,6 +15,7 @@ export createCategories from './molecule/categories';
 export createCentered from './behaviour/align/centered';
 export createCenteredText from './atom/centered-text';
 export createCheckboxes from './molecule/checkboxes';
+export createCoorpHeader from './template/common/coorp-header';
 export createCursusHeader from './molecule/cursus-header';
 export createCursusList from './molecule/cursus-list';
 export createCursusRightaside from './organism/cursus-rightaside';
