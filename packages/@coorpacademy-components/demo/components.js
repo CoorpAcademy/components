@@ -154,6 +154,9 @@ import createProductCursusFixtureDefault from '../src/template/app-catalog/produ
 import createProductCursusFixtureEmpty from '../src/template/app-catalog/product-cursus/test/fixtures/empty';
 import createProductCursusFixtureLoading from '../src/template/app-catalog/product-cursus/test/fixtures/loading';
 import createUpdateBrandFixtureDefault from '../src/template/back-office/update-brand/test/fixtures/default';
+import createCoorpHeaderFixtureLocalhost from '../src/template/common/coorp-header/test/fixtures/localhost';
+import createCoorpHeaderFixtureProduction from '../src/template/common/coorp-header/test/fixtures/production';
+import createCoorpHeaderFixtureStaging from '../src/template/common/coorp-header/test/fixtures/staging';
 
 export const components = {
   Atom: {
@@ -460,6 +463,13 @@ export const fixtures = {
   TemplateBackOffice: {
     UpdateBrand: {
       Default: createUpdateBrandFixtureDefault
+    }
+  },
+  TemplateCommon: {
+    CoorpHeader: {
+      Localhost: createCoorpHeaderFixtureLocalhost,
+      Production: createCoorpHeaderFixtureProduction,
+      Staging: createCoorpHeaderFixtureStaging
     }
   }
 };
