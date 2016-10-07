@@ -2,15 +2,15 @@ import join from 'lodash/fp/join';
 
 export default (translate, props) => {
   const {
-    rootUrl = '//www.coorpacademy.com',
-    connexionLink = '//www.coorpacademy.com',
-    inscriptionLink = '//www.coorpacademy.com'
+    rootUrl = '/',
+    connexionLink = '/',
+    inscriptionLink = '/'
   } = props;
 
   const url = sub => join('', [rootUrl, sub]);
 
   return {
-    src: '//www.coorpacademy.com/assets/img/logo.svg',
+    src: 'https://www.coorpacademy.com/assets/img/logo.svg',
     href: rootUrl,
     menuItems: [{
       title: translate('Formations'),
