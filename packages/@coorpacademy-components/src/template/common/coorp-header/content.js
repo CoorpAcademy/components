@@ -13,72 +13,68 @@ export default (translate, props) => {
     src: 'https://www.coorpacademy.com/assets/img/logo.svg',
     href: rootUrl,
     menuItems: [{
-      title: translate('Formations'),
-      href: url('/plop'),
+      title: translate('Les formations'),
+      href: url('#'),
       subItems: [
         {
-          title: translate('Masterclass Esprit du Temps'),
-          href: url('/plop')
-        },
-        {
-          title: translate('Masterclass Digital'),
-          href: url('/plop')
+          title: translate('Tous les cursus'),
+          href: url('/home-B2C')
         },
         {
           title: translate('Toutes les formations'),
-          href: url('/plop')
+          href: url('/catalog/trainings')
         },
         {
           title: translate('Abonnement Coorpacademy'),
-          href: url('/plop')
+          href: url('/tarifs-abonnement')
         }
       ]
     },
     {
-      title: translate('Nos Solutions'),
-      href: url('/plop'),
+      title: translate('Nos Solutions Entreprises'),
+      href: url('/solutions'),
       subItems: [
         {
-          title: translate('Masterclass Esprit du Temps'),
-          href: url('/plop')
+          title: translate('Solutions Entreprises'),
+          href: url('/solutions')
         },
         {
-          title: translate('Masterclass Digital'),
-          href: url('/plop')
+          title: translate('Des formations adaptées à vos enjeux'),
+          href: url('/contenu-adapte-enjeux')
         },
         {
           title: translate('Toutes les formations'),
-          href: url('/plop')
+          href: url('/catalog/trainings/')
         },
         {
-          title: translate('Abonnement Coorpacademy'),
-          href: url('/plop')
+          title: translate('Tarifs entreprises'),
+          href: url('/tarifs-entreprises')
         }
       ]
     },
     {
       title: translate('Coorpacademy'),
-      href: url('/plop'),
+      href: url('#'),
       subItems: [
         {
           title: translate('Qui sommes-nous ?'),
-          href: url('/plop')
+          href: url('/qui-sommes-nous')
         },
         {
           title: translate('Pourquoi Coorpacademy ?'),
-          href: url('/plop')
+          href: url('/home-B2B')
         },
         {
           title: translate('Ils nous ont fait confiance'),
-          href: url('/plop')
+          href: url('/clients')
         },
         {
           title: translate('L\'équipe'),
-          href: url('/plop')
+          href: url('/equipe')
         },
         {
           title: translate('Contactez-nous'),
-          href: url('/plop')
+          href: url('/contact')
         }
       ]
     },
