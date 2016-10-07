@@ -16,6 +16,7 @@ cache:
   - packages/@coorpacademy-treantjs-engine-snabbdom/node_modules
   - packages/@coorpacademy-treantjs-engine-spec/node_modules
   - packages/@coorpacademy-treantjs-engine-virtual-dom/node_modules
+  - packages/@coorpacademy-treantjs-engine-plugin-bluebird/node_modules
 before_install:
 - npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
 after_success: npm run coveralls
