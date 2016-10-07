@@ -11,7 +11,6 @@ const toHelpers = (factories, skin) => {
 
     const componentName = kebabCase(isFactory);
     const Component = factory(treant, {skin});
-
     return (dust, options) => {
       dust.helpers[componentName] = (chunk, context, bodies, props) => {
         const vTree = Component(props);
