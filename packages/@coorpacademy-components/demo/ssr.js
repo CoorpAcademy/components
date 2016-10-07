@@ -2,24 +2,31 @@ import get from 'lodash/fp/get';
 import includes from 'lodash/fp/includes';
 import join from 'lodash/fp/join';
 import map from 'lodash/fp/map';
+import mapValues from 'lodash/fp/mapValues';
+import keys from 'lodash/fp/keys';
 import pipe from 'lodash/fp/pipe';
 import {createMemoryHistory, useBasename} from 'history';
 import * as treant from '@coorpacademy/treantjs-core';
 import * as Virtualdom from '@coorpacademy/treantjs-engine-virtual-dom';
 import * as React from '@coorpacademy/treantjs-engine-react';
 import * as Snabbdom from '@coorpacademy/treantjs-engine-snabbdom';
+import {transformP} from '@coorpacademy/treantjs-engine-plugin-bluebird';
 import createApp from './app';
 import {components, fixtures} from './components';
 
 let App = createApp(treant);
-let _components = components;
-let _fixtures = fixtures;
 
 const engines = {
   Virtualdom,
   React,
   Snabbdom
 };
+
+const renders = mapValues(engine => {
+  const {renderToString} = engine;
+  const _transformP = transformP(treant, engine);
+  return vTree => _transformP(vTree).then(renderToString);
+})(engines);
 
 const styles = [
   '//fonts.googleapis.com/css?family=Open+Sans%3A300%2C300italic%2Cregular%2Citalic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic&amp;ver=4.5.2', // eslint-disable-line max-len
@@ -32,42 +39,26 @@ if (process.env.NODE_ENV === 'production')
 export default (req, res, next) => {
   if (!includes(
     req.params.engine,
-    ['React', 'Virtualdom', 'Snabbdom']
+    keys(engines)
   )) return next();
 
   const history = useBasename(createMemoryHistory)({
     basename: `/${req.params.engine}`
   });
 
-  const engine = get(req.params.engine, engines);
+  const render = get(req.params.engine, renders);
 
   const vTree = App({
     location: history.createLocation(req.url),
-    components: _components,
-    fixtures: _fixtures
+    components: components,
+    fixtures: fixtures
   });
 
-  const html = pipe(
-    engine.transform,
-    engine.renderToString
-  )(vTree)
-
-  res.send(`
+  render(vTree).then(html => res.send(`
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     ${join('', map(font => `<link rel="stylesheet" href="${font}"/>`, styles))}
     <div id="app">${html}</div>
     <script>window.engine = '${req.params.engine}'</script>
     <script async type="text/javascript" src="/dist/components.js"></script>
-  `);
+  `), next);
 };
-
-if (module.hot) {
-  module.hot.accept('./app.js', () => {
-    const createApp = require('./app').default;
-    App = createApp(treant);
-  });
-  module.hot.accept('./components.js', () => {
-    _components = require('./components').components;
-    _fixtures = require('./components').fixtures;
-  });
-}
