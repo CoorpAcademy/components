@@ -1,5 +1,5 @@
-const set = require('lodash/fp/set');
 const {join} = require('path');
+const set = require('lodash/fp/set');
 const defaultConfig = require('./webpack.config.js');
 
 module.exports = (src, bundle, dist) => {
