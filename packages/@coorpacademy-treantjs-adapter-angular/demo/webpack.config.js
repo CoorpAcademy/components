@@ -8,6 +8,7 @@ const addHMR = entries => {
 };
 
 const sandboxConfig = ({
+  devtool: 'source-map',
   output: {
     publicPath: '/dist'
   },
@@ -20,6 +21,10 @@ const sandboxConfig = ({
     loaders: [{
       test: /\.js$/,
       loader: 'babel',
+      include: [
+        __dirname,
+        join(__dirname, 'src')
+      ]
     }]
   },
 

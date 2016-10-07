@@ -1,7 +1,8 @@
 import mapKeys from 'lodash/fp/mapKeys';
+import pipe from 'lodash/fp/pipe';
 
-const linkWithEngine = (treant, engine) => ($i18next, $rootScope, scope, element, createComponent) => {
-  const update = engine.render(element[0]);
+const linkWithEngine = (treant, {render, transform}) => ($i18next, $rootScope, scope, element, createComponent) => {
+  const update = render(element[0]);
 
   const refresh = props => {
     if (props === undefined)
@@ -12,9 +13,11 @@ const linkWithEngine = (treant, engine) => ($i18next, $rootScope, scope, element
       translate: $i18next
     };
 
-    const component = createComponent(treant, options);
-    const vTree = component(props);
-    update(vTree);
+    return pipe(
+      createComponent(treant, options),
+      transform,
+      update
+    )(props);
   };
 
   $rootScope.$on('i18nLanguageChange', () => refresh(scope.props));

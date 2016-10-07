@@ -2,7 +2,6 @@ import fill from 'lodash/fp/fill';
 import pipe from 'lodash/fp/pipe';
 import {checker, createValidate} from '../../util/validation';
 import createStar from '../../atom/star';
-import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({
@@ -29,7 +28,7 @@ export default (treant, options = {}) => {
     ));
 
     return (
-      <div className={style.starRating}>
+      <div>
         {Stars}
       </div>
     );

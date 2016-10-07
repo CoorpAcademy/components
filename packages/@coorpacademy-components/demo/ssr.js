@@ -1,7 +1,8 @@
 import get from 'lodash/fp/get';
+import includes from 'lodash/fp/includes';
 import join from 'lodash/fp/join';
 import map from 'lodash/fp/map';
-import includes from 'lodash/fp/includes';
+import pipe from 'lodash/fp/pipe';
 import {createMemoryHistory, useBasename} from 'history';
 import * as treant from '@coorpacademy/treantjs-core';
 import * as Virtualdom from '@coorpacademy/treantjs-engine-virtual-dom';
@@ -46,7 +47,10 @@ export default (req, res, next) => {
     fixtures: _fixtures
   });
 
-  const html = engine.renderToString(vTree);
+  const html = pipe(
+    engine.transform,
+    engine.renderToString
+  )(vTree)
 
   res.send(`
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">

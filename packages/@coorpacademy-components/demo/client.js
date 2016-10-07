@@ -1,4 +1,5 @@
 import get from 'lodash/fp/get';
+import pipe from 'lodash/fp/pipe';
 import {createHistory, useBasename} from 'history';
 import * as treant from '@coorpacademy/treantjs-core';
 import * as Virtualdom from '@coorpacademy/treantjs-engine-virtual-dom';
@@ -28,7 +29,10 @@ const engines = {
 };
 
 const engine = get(window.engine, engines);
-const update = engine.render(document.getElementById('app'));
+const update = pipe(
+  engine.transform,
+  engine.render(document.getElementById('app'))
+);
 
 let App = _createApp(treant, options);
 update(App({
