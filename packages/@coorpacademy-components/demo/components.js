@@ -219,6 +219,7 @@ import createBrandUpdateFixtureLookandfeelSuccess from '../src/template/back-off
 import createBrandUpdateFixtureLookandfeel from '../src/template/back-office/brand-update/test/fixtures/lookandfeel';
 import createBrandUpdateFixtureSsoActivate from '../src/template/back-office/brand-update/test/fixtures/sso-activate';
 import createBrandUpdateFixtureSso from '../src/template/back-office/brand-update/test/fixtures/sso';
+import createCoorpHeaderFixtureLocalhost from '../src/template/common/coorp-header/test/fixtures/localhost';
 import createCoorpHeaderFixtureProduction from '../src/template/common/coorp-header/test/fixtures/production';
 import createCoorpHeaderFixtureStaging from '../src/template/common/coorp-header/test/fixtures/staging';
 
@@ -634,6 +635,7 @@ export const fixtures = {
   },
   TemplateCommon: {
     CoorpHeader: {
+      Localhost: createCoorpHeaderFixtureLocalhost,
       Production: createCoorpHeaderFixtureProduction,
       Staging: createCoorpHeaderFixtureStaging
     }
