@@ -48,6 +48,7 @@ import createSsmenuList from '../src/molecule/ssmenu-list';
 import createStarRating from '../src/molecule/star-rating';
 import createThemeImage from '../src/molecule/theme-image';
 import createTitledCheckbox from '../src/molecule/titled-checkbox';
+import createTransifexList from '../src/molecule/transifex-list';
 import createVideoIframe from '../src/molecule/video-iframe';
 import createVideoPlayer from '../src/molecule/video-player';
 import createBrandContent from '../src/organism/brand-content';
@@ -132,6 +133,7 @@ import createDisciplineHeaderFixtureNoVideo from '../src/molecule/discipline-hea
 import createDisciplineScopeFixtureDefault from '../src/molecule/discipline-scope/test/fixtures/default';
 import createDisciplineScopeFixtureEmpty from '../src/molecule/discipline-scope/test/fixtures/empty';
 import createFormGroupFixtureDefault from '../src/molecule/form-group/test/fixtures/default';
+import createMenuListFixtureBuildTransifex from '../src/molecule/menu-list/test/fixtures/build-transifex';
 import createMenuListFixtureDefault from '../src/molecule/menu-list/test/fixtures/default';
 import createModuleBubbleFixtureDefault from '../src/molecule/module-bubble/test/fixtures/default';
 import createModuleBubbleFixtureDisabled from '../src/molecule/module-bubble/test/fixtures/disabled';
@@ -151,6 +153,7 @@ import createThemeImageFixtureLogo from '../src/molecule/theme-image/test/fixtur
 import createTitledCheckboxFixtureChecked from '../src/molecule/titled-checkbox/test/fixtures/checked';
 import createTitledCheckboxFixtureNoBg from '../src/molecule/titled-checkbox/test/fixtures/no-bg';
 import createTitledCheckboxFixtureNotChecked from '../src/molecule/titled-checkbox/test/fixtures/not-checked';
+import createTransifexListFixtureDefault from '../src/molecule/transifex-list/test/fixtures/default';
 import createVideoIframeFixtureDefault from '../src/molecule/video-iframe/test/fixtures/default';
 import createVideoIframeFixtureEmpty from '../src/molecule/video-iframe/test/fixtures/empty';
 import createVideoIframeFixtureImagePlaceholder from '../src/molecule/video-iframe/test/fixtures/image-placeholder';
@@ -198,7 +201,6 @@ import createBrandUpdateFixtureLookandfeelSuccess from '../src/template/back-off
 import createBrandUpdateFixtureLookandfeel from '../src/template/back-office/brand-update/test/fixtures/lookandfeel';
 import createBrandUpdateFixtureSsoActivate from '../src/template/back-office/brand-update/test/fixtures/sso-activate';
 import createBrandUpdateFixtureSso from '../src/template/back-office/brand-update/test/fixtures/sso';
-import createCoorpHeaderFixtureLocalhost from '../src/template/common/coorp-header/test/fixtures/localhost';
 import createCoorpHeaderFixtureProduction from '../src/template/common/coorp-header/test/fixtures/production';
 import createCoorpHeaderFixtureStaging from '../src/template/common/coorp-header/test/fixtures/staging';
 
@@ -264,6 +266,7 @@ export const components = {
     StarRating: createStarRating,
     ThemeImage: createThemeImage,
     TitledCheckbox: createTitledCheckbox,
+    TransifexList: createTransifexList,
     VideoIframe: createVideoIframe,
     VideoPlayer: createVideoPlayer
   },
@@ -453,6 +456,7 @@ export const fixtures = {
       Default: createFormGroupFixtureDefault
     },
     MenuList: {
+      BuildTransifex: createMenuListFixtureBuildTransifex,
       Default: createMenuListFixtureDefault
     },
     ModuleBubble: {
@@ -488,6 +492,9 @@ export const fixtures = {
       Checked: createTitledCheckboxFixtureChecked,
       NoBg: createTitledCheckboxFixtureNoBg,
       NotChecked: createTitledCheckboxFixtureNotChecked
+    },
+    TransifexList: {
+      Default: createTransifexListFixtureDefault
     },
     VideoIframe: {
       Default: createVideoIframeFixtureDefault,
@@ -577,7 +584,6 @@ export const fixtures = {
   },
   TemplateCommon: {
     CoorpHeader: {
-      Localhost: createCoorpHeaderFixtureLocalhost,
       Production: createCoorpHeaderFixtureProduction,
       Staging: createCoorpHeaderFixtureStaging
     }

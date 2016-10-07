@@ -63,6 +63,7 @@ export createThemeImage from './molecule/theme-image';
 export createTiny from './behaviour/font/tiny';
 export createTitle from './atom/title';
 export createTitledCheckbox from './molecule/titled-checkbox';
+export createTransifexList from './molecule/transifex-list';
 export createUppercase from './behaviour/font/uppercase';
 export createVideoIframe from './molecule/video-iframe';
 export createVideoPlayer from './molecule/video-player';
