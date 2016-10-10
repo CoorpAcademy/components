@@ -4,7 +4,7 @@ import style from './style.css';
 
 const postConditions = checker.shape({
   type: checker.string.optional,
-  name: checker.string.optional,
+  author: checker.string.optional,
   date: checker.string.optional,
   message: checker.string.optional,
   avatar: checker.url.optional,
@@ -24,7 +24,7 @@ export default (treant, options = {}) => {
 
   const ForumThread = (props, children) => {
     const {
-      name,
+      author,
       date,
       message,
       avatar,
@@ -38,7 +38,7 @@ export default (treant, options = {}) => {
     return (
       <div className={style.thread}>
         <Post
-          name={name}
+          name={author}
           date={date}
           message={message}
           avatar={avatar}

@@ -4,7 +4,7 @@ import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({
-    name: checker.string.optional,
+    author: checker.string.optional,
     date: checker.string.optional,
     message: checker.string.optional,
     avatar: checker.url.optional
@@ -18,7 +18,7 @@ export default (treant, options = {}) => {
 
   const ForumPost = (props, children) => {
     const {
-      name,
+      author,
       date,
       message,
       avatar
@@ -34,7 +34,7 @@ export default (treant, options = {}) => {
         </div>
         <div className={style.content}>
           <div className={style.head}>
-            <span className={style.author}>{name}</span>
+            <span className={style.author}>{author}</span>
             <span className={style.date}>{date}</span>
           </div>
           <div className={style.body}>
