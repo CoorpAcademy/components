@@ -6,6 +6,7 @@ const thread2 = ThreadDeep.props;
 
 export default {
   props: {
+    title: 'Sandbox discussion',
     threads: [thread, thread2, thread, thread2]
   }
 };

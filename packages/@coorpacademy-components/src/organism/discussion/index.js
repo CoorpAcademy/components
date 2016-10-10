@@ -27,14 +27,14 @@ export default (treant, options = {}) => {
   const Thread = createForumThread(treant, options);
   const ForumComment = createForumComment(treant, options);
 
-  const Discussion = ({threads, onPost}, children) => {
+  const Discussion = ({threads, title, onPost}, children) => {
     const threadsView = threads.map(thread => (
       <Thread {...thread}/>
     ));
 
     return (
       <div className={style.thread}>
-        <h1>Discussion</h1>
+        <h1>{title}</h1>
         <ForumComment onPost={onPost}/>
         {threadsView}
       </div>
