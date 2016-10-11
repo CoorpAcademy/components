@@ -1,6 +1,5 @@
 export default {
   props: {
-    type: 'answer',
     author: 'Tommy',
     date: 'environ une heure',
     message: 'Awesome !!!',

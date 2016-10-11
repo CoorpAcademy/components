@@ -1,6 +1,5 @@
 export default {
   props: {
-    type: 'post',
     author: 'Bob',
     date: 'environ une heure',
     message: 'Now this is a post guys.',
