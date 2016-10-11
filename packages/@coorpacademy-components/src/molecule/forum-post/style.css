@@ -54,3 +54,16 @@
 .action:hover {
   color: #333;
 }
+
+.answer {
+  display: none;
+  margin: 10px 0;
+}
+
+.answerToggler {
+  display: none;
+}
+
+.answerToggler:checked ~ .answer {
+  display: block;
+}

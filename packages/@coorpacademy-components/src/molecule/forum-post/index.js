@@ -1,5 +1,6 @@
 import {checker, createValidate} from '../../util/validation';
 import createPicture from '../../atom/picture';
+import createForumComment from '../forum-comment';
 import style from './style.css';
 
 const conditions = checker.shape({
@@ -15,6 +16,7 @@ const conditions = checker.shape({
 export default (treant, options = {}) => {
   const {h} = treant;
   const Picture = createPicture(treant, options);
+  const ForumComment = createForumComment(treant, options);
 
   const ForumPost = (props, children) => {
     const {
@@ -41,9 +43,21 @@ export default (treant, options = {}) => {
             {message}
           </div>
           <div className={style.footer}>
-            <a className={style.action}>Répondre</a>
+            <input
+              type='checkbox'
+              id='answerToggler'
+              className={style.answerToggler}/>
+            <label
+              htmlFor='answerToggler'
+              className={style.action}>
+              Répondre
+            </label>
             <a className={style.action}>Éditer</a>
             <a className={style.action}>Supprimer</a>
+            <div className={style.answer}>
+              <ForumComment
+              />
+            </div>
           </div>
         </div>
       </div>
