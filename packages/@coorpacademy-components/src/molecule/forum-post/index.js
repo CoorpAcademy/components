@@ -1,3 +1,4 @@
+import uniqueId from 'lodash/fp/uniqueId';
 import {checker, createValidate} from '../../util/validation';
 import createPicture from '../../atom/picture';
 import createForumComment from '../forum-comment';
@@ -26,6 +27,14 @@ export default (treant, options = {}) => {
       avatar
     } = props;
 
+    const {
+      state,
+      onPost,
+      onChange
+    } = props.answer;
+
+    const id = uniqueId('forum-post-answer-toggler-');
+
     return (
       <div className={style.post}>
         <div className={style.image}>
@@ -45,10 +54,10 @@ export default (treant, options = {}) => {
           <div className={style.footer}>
             <input
               type='checkbox'
-              id='answerToggler'
+              id={id}
               className={style.answerToggler}/>
             <label
-              htmlFor='answerToggler'
+              htmlFor={id}
               className={style.action}>
               Répondre
             </label>
@@ -56,6 +65,10 @@ export default (treant, options = {}) => {
             <a className={style.action}>Supprimer</a>
             <div className={style.answer}>
               <ForumComment
+                avatar={props.answer.avatar}
+                state={state}
+                onPost={onPost}
+                onChange={onChange}
               />
             </div>
           </div>

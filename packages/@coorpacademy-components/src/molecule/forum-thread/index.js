@@ -28,11 +28,12 @@ export default (treant, options = {}) => {
       date,
       message,
       avatar,
+      answer,
       answers = []
     } = props;
 
-    const answersView = answers.map(answer => (
-      <ForumThread {...answer}/>
+    const answersView = answers.map(answerProps => (
+      <ForumThread {...answerProps}/>
     ));
 
     return (
@@ -42,6 +43,7 @@ export default (treant, options = {}) => {
           date={date}
           message={message}
           avatar={avatar}
+          answer={answer}
         />
         <div className={style.answers}>
           {answersView}
