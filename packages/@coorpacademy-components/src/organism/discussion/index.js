@@ -15,7 +15,7 @@ const postConditions = checker.shape({
 const conditions = checker.shape({
   props: checker.shape({
     avatar: checker.url.optional,
-    state: checker.string.optional,
+    message: checker.string.optional,
     onPost: checker.func.optional,
     onChange: checker.func.optional,
     threads: checker.arrayOf(checker.shape({
@@ -31,7 +31,7 @@ export default (treant, options = {}) => {
   const ForumComment = createForumComment(treant, options);
 
   const Discussion = (props, children) => {
-    const {threads, title, avatar, state, onPost, onChange} = props;
+    const {threads, title, avatar, message, onPost, onChange} = props;
 
     const threadsView = threads.map(thread => (
       <Thread {...thread}/>
@@ -42,7 +42,7 @@ export default (treant, options = {}) => {
         <h1>{title}</h1>
         <ForumComment
           avatar={avatar}
-          state={state}
+          message={message}
           onPost={onPost}
           onChange={onChange}
         />

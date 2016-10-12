@@ -28,7 +28,6 @@ export default (treant, options = {}) => {
     } = props;
 
     const {
-      state,
       onPost,
       onChange
     } = props.answer;
@@ -66,8 +65,11 @@ export default (treant, options = {}) => {
             <div className={style.answer}>
               <ForumComment
                 avatar={props.answer.avatar}
-                state={state}
-                onPost={onPost}
+                message={props.answer.message}
+                onPost={() => {
+                  document.getElementById(id).checked = false;
+                  return onPost();
+                }}
                 onChange={onChange}
               />
             </div>

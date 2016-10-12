@@ -10,6 +10,7 @@
   height: 50px;
   overflow: hidden;
   border-radius: 2px;
+  flex-shrink: 0;
 }
 
 .avatar {
@@ -19,6 +20,7 @@
 
 .content {
   font-family: 'Open Sans';
+  width: 100%;
 }
 
 .author {

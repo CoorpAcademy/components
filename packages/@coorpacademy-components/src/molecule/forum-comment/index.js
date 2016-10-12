@@ -4,6 +4,7 @@ import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({
+    message: checker.string.optional,
     avatar: checker.url.optional,
     onChange: checker.func.optional,
     onPost: checker.func.optional
@@ -17,7 +18,7 @@ export default (treant, options = {}) => {
   const HoverFill = HoverFillBehaviour(treant, options);
 
   const ForumComment = (props, children) => {
-    const {avatar, onPost, onChange, state} = props;
+    const {avatar, onPost, onChange, message} = props;
     return (
       <div className={style.container}>
         <div className={style.wrapper}>
@@ -27,7 +28,7 @@ export default (treant, options = {}) => {
           <div className={style.comment}>
             <textarea
               placeholder='Entrez votre texte ici'
-              value={state}
+              value={message}
               oninput={onChange}
             />
           </div>
