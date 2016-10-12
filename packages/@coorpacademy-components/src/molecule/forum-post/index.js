@@ -32,7 +32,8 @@ export default (treant, options = {}) => {
       onChange
     } = props.answer;
 
-    const id = uniqueId('forum-post-answer-toggler-');
+    const idAnswer = uniqueId('forum-post-answer-toggler-');
+    const idEdit = uniqueId('forum-post-edit-toggler-');
 
     return (
       <div className={style.post}>
@@ -48,26 +49,56 @@ export default (treant, options = {}) => {
             <span className={style.date}>{date}</span>
           </div>
           <div className={style.body}>
-            {message}
-          </div>
-          <div className={style.footer}>
             <input
               type='checkbox'
-              id={id}
+              id={idAnswer}
+              onClick={() => {
+                document.getElementById(idEdit).checked = false;
+              }}
               className={style.answerToggler}/>
             <label
-              htmlFor={id}
+              htmlFor={idAnswer}
               className={style.action}>
               Répondre
             </label>
-            <a className={style.action}>Éditer</a>
+
+            <input
+              type='checkbox'
+              id={idEdit}
+              onClick={() => {
+                document.getElementById(idAnswer).checked = false;
+              }}
+              className={style.editionToggler}/>
+            <label
+              htmlFor={idEdit}
+              className={style.action}>
+              Éditer
+            </label>
+
+            <div className={style.message}>
+              {message}
+            </div>
+
             <a className={style.action}>Supprimer</a>
+
+            <div className={style.edition}>
+              <ForumComment
+                hideAvatar={true}
+                message={message}
+                onPost={() => {
+                  document.getElementById(idEdit).checked = false;
+                  return props.edition.onPost();
+                }}
+                onChange={props.edition.onChange}
+              />
+            </div>
+
             <div className={style.answer}>
               <ForumComment
                 avatar={props.answer.avatar}
                 message={props.answer.message}
                 onPost={() => {
-                  document.getElementById(id).checked = false;
+                  document.getElementById(idAnswer).checked = false;
                   return onPost();
                 }}
                 onChange={onChange}
