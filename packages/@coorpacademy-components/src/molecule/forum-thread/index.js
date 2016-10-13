@@ -2,19 +2,23 @@ import {checker, createValidate} from '../../util/validation';
 import createForumPost from '../forum-post';
 import style from './style.css';
 
-const postConditions = checker.shape({
-  type: checker.string.optional,
+const threadConditions = checker.shape({
   author: checker.string.optional,
   date: checker.string.optional,
   message: checker.string.optional,
   avatar: checker.url.optional,
+  answerAvatar: checker.url.optional,
+  answer: checker.string.optional,
+  edition: checker.string.optional,
+  onPostAnswer: checker.func.optional,
+  onPostEdition: checker.func.optional,
+  onChangeAnswer: checker.func.optional,
+  onChangeEdition: checker.func.optional,
   answers: checker.array.optional
 }).optional;
 
 const conditions = checker.shape({
-  props: checker.shape({
-    post: postConditions
-  }),
+  props: threadConditions,
   children: checker.none
 });
 
@@ -28,6 +32,7 @@ export default (treant, options = {}) => {
       date,
       message,
       avatar,
+      answerAvatar,
       answer,
       edition,
       onPostAnswer,
@@ -48,6 +53,7 @@ export default (treant, options = {}) => {
           date={date}
           message={message}
           avatar={avatar}
+          answerAvatar={answerAvatar}
           answer={answer}
           edition={edition}
           onChangeAnswer={onChangeAnswer}
