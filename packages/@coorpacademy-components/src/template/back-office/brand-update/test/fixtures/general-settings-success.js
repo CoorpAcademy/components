@@ -1,77 +1,14 @@
+import defaultsDeep from 'lodash/fp/defaultsDeep';
+import generalSettings from './general-settings';
+
+const {props} = generalSettings;
+
 export default {
-  props: {
-    'notifications': [{
-      'type': 'success',
-      'message': 'Your changes have been saved.'
-    }],
-    'breadcrumbs': [{
-        'icon': '',
-        'title': 'Platform list',
-        'href': '#'
-      },
-      {
-        'icon': '',
-        'title': 'Samsung Settings'
-      }],
-    'links': [{
-        'title': 'Go to Cockpit',
-        'href': '#cockpit',
-        'type': 'primary'
-      },
-      {
-        'title': 'Go to Platform',
-        'href': '#platform',
-        'type': 'secondary'
-      }],
-    'tabs': [{
-        'title': 'General Settings',
-        'href': '#brand/samsung/settings',
-        'selected': true,
-      },
-      {
-        'title': 'Look & Feel',
-        'href': '#brand/samsung/lookandfeel',
-        'selected': false,
-      },
-      {
-        'title': 'SSO',
-        'href': '#brand/samsung/sso',
-        'selected': false,
-      }
-    ],
-    'content': {
-      'groups': [{
-        'title': 'Platform Name',
-        'fields': [{
-          'title': 'Domain name',
-          'value': 'samsung.coorpacademy.com',
-          'type': 'readonly'
-        },
-        {
-          'title': 'Platform name',
-          'value': 'Samsung',
-          'type': 'readonly'
-        }]
-      },
-      {
-        'title': 'Forum',
-        'fields': [{
-          'title': 'Desactivate',
-          'value': true,
-          'type': 'switch',
-          'description': 'Lorem Ipsum dolor sit amet.',
-          'onChange': () => {}
-        }]
-      },
-      {
-        'title': 'Danger Zone',
-        'fields': [{
-          'title': 'Delete Platform',
-          'type': 'doublestep',
-          'description': 'Deleting your platform is irreversible!',
-          'onChange': () => {}
-        }]
-      }]
-    }
-  }
+  props: defaultsDeep(props, {
+    notifications: [{
+      type: 'success',
+      message: 'Your changes have been saved.',
+      onClose: () => {}
+    }]
+  })
 };
