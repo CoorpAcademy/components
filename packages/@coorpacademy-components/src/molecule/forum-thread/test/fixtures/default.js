@@ -1,8 +1,7 @@
-import Post from '../../../forum-post/test/fixtures/post';
-import Answer from '../../../forum-post/test/fixtures/answer';
+import Post from '../../../forum-post/test/fixtures/editable';
 
 const post = Post.props;
-const answer = Answer.props;
+const answer = Post.props;
 
 export default {
   props: {

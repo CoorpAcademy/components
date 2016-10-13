@@ -69,7 +69,8 @@
 }
 
 .editionToggler,
-.answerToggler {
+.answerToggler,
+.rejectionToggler {
   display: none;
 }
 

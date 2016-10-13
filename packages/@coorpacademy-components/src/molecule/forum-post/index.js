@@ -15,7 +15,8 @@ const postConditions = checker.shape({
   onPostAnswer: checker.func.optional,
   onPostEdition: checker.func.optional,
   onChangeAnswer: checker.func.optional,
-  onChangeEdition: checker.func.optional
+  onChangeEdition: checker.func.optional,
+  onDelete: checker.func.optional
 }).optional;
 
 const conditions = checker.shape({
@@ -36,15 +37,23 @@ export default (treant, options = {}) => {
       message,
       answer,
       answerAvatar,
+      editable = false,
+      rejectable = false,
+      rejected = false,
+      deleted = false,
       edition,
       onPostAnswer,
       onPostEdition,
       onChangeAnswer,
-      onChangeEdition
+      onChangeEdition,
+      onToggleRejection,
+      onDelete
     } = props;
 
     const idAnswer = uniqueId('forum-post-answer-toggler-');
     const idEdit = uniqueId('forum-post-edit-toggler-');
+    const idReject = uniqueId('forum-post-reject-toggler-');
+    const infoDeleted = '* This message has been removed. *';
 
     return (
       <div className={style.post}>
@@ -66,10 +75,15 @@ export default (treant, options = {}) => {
               onClick={() => {
                 document.getElementById(idEdit).checked = false;
               }}
-              className={style.answerToggler}/>
+              className={style.answerToggler}
+            />
             <label
               htmlFor={idAnswer}
-              className={style.action}>
+              className={style.action}
+              style={{
+                display: deleted ? 'none' : 'block'
+              }}
+            >
               Répondre
             </label>
 
@@ -79,18 +93,47 @@ export default (treant, options = {}) => {
               onClick={() => {
                 document.getElementById(idAnswer).checked = false;
               }}
-              className={style.editionToggler}/>
+              className={style.editionToggler}
+            />
             <label
               htmlFor={idEdit}
-              className={style.action}>
+              className={style.action}
+              style={{
+                display: editable ? 'block' : 'none'
+              }}
+            >
               Éditer
             </label>
 
-            <div className={style.message}>
-              {message}
-            </div>
+            <span
+              className={style.action}
+              onClick={onDelete}
+              style={{
+                display: editable ? 'block' : 'none'
+              }}
+            >
+              Supprimer
+            </span>
 
-            <a className={style.action}>Supprimer</a>
+            <input
+              type='checkbox'
+              id={idReject}
+              onClick={onToggleRejection}
+              className={style.rejectionToggler}
+            />
+            <label
+              htmlFor={idReject}
+              className={style.action}
+              style={{
+                display: rejectable ? 'block' : 'none'
+              }}
+            >
+              {rejected ? 'Approve' : 'Reject'}
+            </label>
+
+            <div className={style.message}>
+              {deleted ? infoDeleted : message}
+            </div>
 
             <div className={style.edition}>
               <ForumComment
