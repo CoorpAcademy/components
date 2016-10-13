@@ -18,7 +18,7 @@ export default (treant, options = {}) => {
   const HoverFill = HoverFillBehaviour(treant, options);
 
   const ForumComment = (props, children) => {
-    const {avatar, onPost, onChange, message} = props;
+    const {avatar, onPost, onChange, value} = props;
     return (
       <div className={style.container}>
         <div className={style.wrapper}>
@@ -28,7 +28,7 @@ export default (treant, options = {}) => {
           <div className={style.comment}>
             <textarea
               placeholder='Entrez votre texte ici'
-              value={message}
+              value={value}
               oninput={onChange}
             />
           </div>

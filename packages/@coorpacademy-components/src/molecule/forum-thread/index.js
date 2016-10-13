@@ -29,6 +29,11 @@ export default (treant, options = {}) => {
       message,
       avatar,
       answer,
+      edition,
+      onPostAnswer,
+      onPostEdition,
+      onChangeAnswer,
+      onChangeEdition,
       answers = []
     } = props;
 
@@ -44,6 +49,11 @@ export default (treant, options = {}) => {
           message={message}
           avatar={avatar}
           answer={answer}
+          edition={edition}
+          onChangeAnswer={onChangeAnswer}
+          onChangeEdition={onChangeEdition}
+          onPostAnswer={onPostAnswer}
+          onPostEdition={onPostEdition}
         />
         <div className={style.answers}>
           {answersView}

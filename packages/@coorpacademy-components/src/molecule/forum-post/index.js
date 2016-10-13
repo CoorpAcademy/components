@@ -22,15 +22,17 @@ export default (treant, options = {}) => {
   const ForumPost = (props, children) => {
     const {
       author,
+      avatar,
       date,
       message,
-      avatar
+      answer,
+      answerAvatar,
+      edition,
+      onPostAnswer,
+      onPostEdition,
+      onChangeAnswer,
+      onChangeEdition
     } = props;
-
-    const {
-      onPost,
-      onChange
-    } = props.answer;
 
     const idAnswer = uniqueId('forum-post-answer-toggler-');
     const idEdit = uniqueId('forum-post-edit-toggler-');
@@ -84,24 +86,24 @@ export default (treant, options = {}) => {
             <div className={style.edition}>
               <ForumComment
                 hideAvatar={true}
-                message={message}
+                value={edition}
                 onPost={() => {
                   document.getElementById(idEdit).checked = false;
-                  return props.edition.onPost();
+                  return onPostEdition();
                 }}
-                onChange={props.edition.onChange}
+                onChange={onChangeEdition}
               />
             </div>
 
             <div className={style.answer}>
               <ForumComment
-                avatar={props.answer.avatar}
-                message={props.answer.message}
+                avatar={answerAvatar}
+                value={answer}
                 onPost={() => {
                   document.getElementById(idAnswer).checked = false;
-                  return onPost();
+                  return onPostAnswer();
                 }}
-                onChange={onChange}
+                onChange={onChangeAnswer}
               />
             </div>
           </div>
