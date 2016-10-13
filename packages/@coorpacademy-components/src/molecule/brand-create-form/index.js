@@ -1,3 +1,4 @@
+import identity from 'lodash/fp/identity';
 import {checker, createValidate} from '../../util/validation';
 import HoverFillBehaviour from '../../behaviour/effects/hover-fill';
 import style from './style.css';
@@ -9,6 +10,7 @@ const conditions = checker.shape({
 
 export default (treant, options = {}) => {
   const {h} = treant;
+  const {translate = identity} = options;
 
   const HoverFill = HoverFillBehaviour(treant, options);
 
@@ -20,12 +22,12 @@ export default (treant, options = {}) => {
     return (
       <div className={style.wrapper}>
         <div className={style.header}>
-          <h1>Choose a domain name</h1>
+          <h1>{translate('Choose a domain name')}</h1>
         </div>
         <form className={style.content}>
-          <h2>Domain name</h2>
+          <h2>{translate('Domain name')}</h2>
           <div className={style.description}>
-            Nulla vitae elit libero, a pharetra augue. Vestibulum id ligula portra felis.
+            {translate('Nulla vitae elit libero, a pharetra augue. Vestibulum id ligula portra felis.')}
           </div>
           <div className={className}>
             <label>
@@ -34,7 +36,7 @@ export default (treant, options = {}) => {
           </div>
           <HoverFill>
             <div className={style.save}>
-              <input type='submit' value='Create'/>
+              <input type='submit' value={translate('Create')}/>
             </div>
           </HoverFill>
         </form>
