@@ -133,7 +133,7 @@ export default {
         'fields': [{
           'title': 'Hash algorithm:',
           'value': 'SHA-1',
-          'values': ['SHA-1', 'SHA-256']
+          'values': ['SHA-1', 'SHA-256'],
           'type': 'select',
           'description': 'Lorem Ipsum dolor sit amet.',
           'onChange': () => {}
@@ -148,7 +148,7 @@ export default {
         {
           'title': 'Binding:',
           'value': 'HTTP POST',
-          'values': ['HTTP POST', 'HTTP_REDIRECT']
+          'values': ['HTTP POST', 'HTTP_REDIRECT'],
           'type': 'select',
           'description': 'Lorem Ipsum dolor sit amet.',
           'onChange': () => {}

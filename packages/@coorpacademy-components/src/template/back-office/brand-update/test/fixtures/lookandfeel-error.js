@@ -48,7 +48,7 @@ export default {
           'value': '#ececec',
           'placeholder': '#ffffff',
           'type': 'color',
-          'error': 'Color is not valid.'
+          'error': 'Color is not valid.',
           'description': 'Lorem ipsum dolor sit amet.',
           'onChange': () => {}
         },
