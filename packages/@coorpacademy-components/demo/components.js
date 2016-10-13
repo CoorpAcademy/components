@@ -49,6 +49,9 @@ import createHero from '../src/organism/hero';
 import createCatalog from '../src/template/app-catalog/catalog';
 import createProductCourse from '../src/template/app-catalog/product-course';
 import createProductCursus from '../src/template/app-catalog/product-cursus';
+import createBrandCreate from '../src/template/back-office/brand-create';
+import createBrandList from '../src/template/back-office/brand-list';
+import createBrandUpdate from '../src/template/back-office/brand-update';
 import createUpdateBrand from '../src/template/back-office/update-brand';
 import createCenteredTextFixtureDefault from '../src/atom/centered-text/test/fixtures/default';
 import createInputColorFixtureDefault from '../src/atom/input-color/test/fixtures/default';
@@ -143,6 +146,19 @@ import createProductCourseFixtureNoVideo from '../src/template/app-catalog/produ
 import createProductCursusFixtureDefault from '../src/template/app-catalog/product-cursus/test/fixtures/default';
 import createProductCursusFixtureEmpty from '../src/template/app-catalog/product-cursus/test/fixtures/empty';
 import createProductCursusFixtureLoading from '../src/template/app-catalog/product-cursus/test/fixtures/loading';
+import createBrandCreateFixtureDefault from '../src/template/back-office/brand-create/test/fixtures/default';
+import createBrandCreateFixtureLoading from '../src/template/back-office/brand-create/test/fixtures/loading';
+import createBrandListFixtureDefault from '../src/template/back-office/brand-list/test/fixtures/default';
+import createBrandListFixtureLoading from '../src/template/back-office/brand-list/test/fixtures/loading';
+import createBrandUpdateFixtureGeneralSettingsSuccess from '../src/template/back-office/brand-update/test/fixtures/general-settings-success';
+import createBrandUpdateFixtureGeneralSettings from '../src/template/back-office/brand-update/test/fixtures/general-settings';
+import createBrandUpdateFixtureLookandfeelError from '../src/template/back-office/brand-update/test/fixtures/lookandfeel-error';
+import createBrandUpdateFixtureLookandfeelModified from '../src/template/back-office/brand-update/test/fixtures/lookandfeel-modified';
+import createBrandUpdateFixtureLookandfeelPending from '../src/template/back-office/brand-update/test/fixtures/lookandfeel-pending';
+import createBrandUpdateFixtureLookandfeelSuccess from '../src/template/back-office/brand-update/test/fixtures/lookandfeel-success';
+import createBrandUpdateFixtureLookandfeel from '../src/template/back-office/brand-update/test/fixtures/lookandfeel';
+import createBrandUpdateFixtureSsoActivate from '../src/template/back-office/brand-update/test/fixtures/sso-activate';
+import createBrandUpdateFixtureSso from '../src/template/back-office/brand-update/test/fixtures/sso';
 import createUpdateBrandFixtureDefault from '../src/template/back-office/update-brand/test/fixtures/default';
 
 export const components = {
@@ -214,6 +230,9 @@ export const components = {
     ProductCursus: createProductCursus
   },
   TemplateBackOffice: {
+    BrandCreate: createBrandCreate,
+    BrandList: createBrandList,
+    BrandUpdate: createBrandUpdate,
     UpdateBrand: createUpdateBrand
   }
 };
@@ -430,6 +449,25 @@ export const fixtures = {
     }
   },
   TemplateBackOffice: {
+    BrandCreate: {
+      Default: createBrandCreateFixtureDefault,
+      Loading: createBrandCreateFixtureLoading
+    },
+    BrandList: {
+      Default: createBrandListFixtureDefault,
+      Loading: createBrandListFixtureLoading
+    },
+    BrandUpdate: {
+      GeneralSettingsSuccess: createBrandUpdateFixtureGeneralSettingsSuccess,
+      GeneralSettings: createBrandUpdateFixtureGeneralSettings,
+      LookandfeelError: createBrandUpdateFixtureLookandfeelError,
+      LookandfeelModified: createBrandUpdateFixtureLookandfeelModified,
+      LookandfeelPending: createBrandUpdateFixtureLookandfeelPending,
+      LookandfeelSuccess: createBrandUpdateFixtureLookandfeelSuccess,
+      Lookandfeel: createBrandUpdateFixtureLookandfeel,
+      SsoActivate: createBrandUpdateFixtureSsoActivate,
+      Sso: createBrandUpdateFixtureSso
+    },
     UpdateBrand: {
       Default: createUpdateBrandFixtureDefault
     }
