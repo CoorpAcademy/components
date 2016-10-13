@@ -21,6 +21,7 @@ import createEmbossed from '../src/behaviour/font/embossed';
 import createNormal from '../src/behaviour/font/normal';
 import createTiny from '../src/behaviour/font/tiny';
 import createUppercase from '../src/behaviour/font/uppercase';
+import createBrandCreateForm from '../src/molecule/brand-create-form';
 import createCatalogCard from '../src/molecule/catalog-card';
 import createCatalogCta from '../src/molecule/catalog-cta';
 import createCategories from '../src/molecule/categories';
@@ -93,6 +94,7 @@ import createEmbossedFixtureDefault from '../src/behaviour/font/embossed/test/fi
 import createNormalFixtureDefault from '../src/behaviour/font/normal/test/fixtures/default';
 import createTinyFixtureDefault from '../src/behaviour/font/tiny/test/fixtures/default';
 import createUppercaseFixtureDefault from '../src/behaviour/font/uppercase/test/fixtures/default';
+import createBrandCreateFormFixtureDefault from '../src/molecule/brand-create-form/test/fixtures/default';
 import createCatalogCardFixtureDefault from '../src/molecule/catalog-card/test/fixtures/default';
 import createCatalogCtaFixtureDefault from '../src/molecule/catalog-cta/test/fixtures/default';
 import createCatalogCtaFixtureEmpty from '../src/molecule/catalog-cta/test/fixtures/empty';
@@ -227,6 +229,7 @@ export const components = {
     Uppercase: createUppercase
   },
   Molecule: {
+    BrandCreateForm: createBrandCreateForm,
     CatalogCard: createCatalogCard,
     CatalogCta: createCatalogCta,
     Categories: createCategories,
@@ -369,6 +372,9 @@ export const fixtures = {
     }
   },
   Molecule: {
+    BrandCreateForm: {
+      Default: createBrandCreateFormFixtureDefault
+    },
     CatalogCard: {
       Default: createCatalogCardFixtureDefault
     },
