@@ -3,6 +3,7 @@ import createInputColor from '../src/atom/input-color';
 import createInputReadonly from '../src/atom/input-readonly';
 import createInputSwitch from '../src/atom/input-switch';
 import createInputText from '../src/atom/input-text';
+import createInputTextarea from '../src/atom/input-textarea';
 import createLabelModName from '../src/atom/label-mod-name';
 import createLabelNormal from '../src/atom/label-normal';
 import createLabel from '../src/atom/label';
@@ -81,6 +82,9 @@ import createInputSwitchFixtureDefault from '../src/atom/input-switch/test/fixtu
 import createInputTextFixtureDefault from '../src/atom/input-text/test/fixtures/default';
 import createInputTextFixtureEmpty from '../src/atom/input-text/test/fixtures/empty';
 import createInputTextFixtureError from '../src/atom/input-text/test/fixtures/error';
+import createInputTextareaFixtureDefault from '../src/atom/input-textarea/test/fixtures/default';
+import createInputTextareaFixtureEmpty from '../src/atom/input-textarea/test/fixtures/empty';
+import createInputTextareaFixtureError from '../src/atom/input-textarea/test/fixtures/error';
 import createLabelModNameFixtureFixture from '../src/atom/label-mod-name/test/fixtures/fixture';
 import createLabelNormalFixtureFixture from '../src/atom/label-normal/test/fixtures/fixture';
 import createLabelFixtureOneChild from '../src/atom/label/test/fixtures/one-child';
@@ -229,6 +233,7 @@ export const components = {
     InputReadonly: createInputReadonly,
     InputSwitch: createInputSwitch,
     InputText: createInputText,
+    InputTextarea: createInputTextarea,
     LabelModName: createLabelModName,
     LabelNormal: createLabelNormal,
     Label: createLabel,
@@ -340,6 +345,11 @@ export const fixtures = {
       Default: createInputTextFixtureDefault,
       Empty: createInputTextFixtureEmpty,
       Error: createInputTextFixtureError
+    },
+    InputTextarea: {
+      Default: createInputTextareaFixtureDefault,
+      Empty: createInputTextareaFixtureEmpty,
+      Error: createInputTextareaFixtureError
     },
     LabelModName: {
       Fixture: createLabelModNameFixtureFixture
