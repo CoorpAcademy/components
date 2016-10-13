@@ -114,6 +114,8 @@ import createForumCommentFixtureDefault from '../src/molecule/forum-comment/test
 import createForumPostFixtureDeleted from '../src/molecule/forum-post/test/fixtures/deleted';
 import createForumPostFixtureEditable from '../src/molecule/forum-post/test/fixtures/editable';
 import createForumPostFixtureNotEditableNotRejectable from '../src/molecule/forum-post/test/fixtures/not-editable-not-rejectable';
+import createForumPostFixtureRejectable from '../src/molecule/forum-post/test/fixtures/rejectable';
+import createForumPostFixtureRejected from '../src/molecule/forum-post/test/fixtures/rejected';
 import createForumThreadFixtureDeepAnswers from '../src/molecule/forum-thread/test/fixtures/deep-answers';
 import createForumThreadFixtureDefault from '../src/molecule/forum-thread/test/fixtures/default';
 import createMenuListFixtureBuildTransifex from '../src/molecule/menu-list/test/fixtures/build-transifex';
@@ -389,7 +391,9 @@ export const fixtures = {
     ForumPost: {
       Deleted: createForumPostFixtureDeleted,
       Editable: createForumPostFixtureEditable,
-      NotEditableNotRejectable: createForumPostFixtureNotEditableNotRejectable
+      NotEditableNotRejectable: createForumPostFixtureNotEditableNotRejectable,
+      Rejectable: createForumPostFixtureRejectable,
+      Rejected: createForumPostFixtureRejected
     },
     ForumThread: {
       DeepAnswers: createForumThreadFixtureDeepAnswers,

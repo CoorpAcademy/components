@@ -4,6 +4,13 @@
   text-align: left;
 }
 
+.rejected {
+  composes: post;
+  border-left: red 3px solid;
+  padding-left: 10px;
+  background: #ffedd4;
+}
+
 .image {
   margin-right: 10px;
   width: 50px;

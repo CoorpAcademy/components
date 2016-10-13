@@ -55,8 +55,10 @@ export default (treant, options = {}) => {
     const idReject = uniqueId('forum-post-reject-toggler-');
     const infoDeleted = '* This message has been removed. *';
 
+    const answerable = !deleted && !rejected;
+
     return (
-      <div className={style.post}>
+      <div className={rejected ? style.rejected : style.post}>
         <div className={style.image}>
           <Picture
             src={avatar}
@@ -81,7 +83,7 @@ export default (treant, options = {}) => {
               htmlFor={idAnswer}
               className={style.action}
               style={{
-                display: deleted ? 'none' : 'block'
+                display: answerable ? 'block' : 'none'
               }}
             >
               Répondre
@@ -128,7 +130,7 @@ export default (treant, options = {}) => {
                 display: rejectable ? 'block' : 'none'
               }}
             >
-              {rejected ? 'Approve' : 'Reject'}
+              {rejected ? 'Put back' : 'Reject'}
             </label>
 
             <div className={style.message}>
@@ -161,7 +163,7 @@ export default (treant, options = {}) => {
           </div>
         </div>
       </div>
-      );
+    );
   };
 
   ForumPost.validate = createValidate(conditions);
