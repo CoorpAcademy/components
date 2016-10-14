@@ -3,7 +3,6 @@ import HoverFillBehaviour from '../../behaviour/effects/hover-fill';
 import style from './style.css';
 
 const conditions = checker.shape({
-<<<<<<< 5077d766c592ea9d06b17c0b453ba43ac63ef928
   props: checker.shape({
     title: checker.string,
     subtitle: checker.string,
@@ -20,9 +19,6 @@ const conditions = checker.shape({
     isPending: checker.bool.optional,
     isModified: checker.bool.optional
   }),
-=======
-  props: checker.none,
->>>>>>> add template create brand
   children: checker.none
 });
 
