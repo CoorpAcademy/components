@@ -1,4 +1,4 @@
-import Post from '../../../../molecule/forum-thread/test/fixtures/default';
+import Post from '../../../../molecule/forum/forum-thread/test/fixtures/default';
 
 const post = Post.props;
 

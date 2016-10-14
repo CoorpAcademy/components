@@ -1,27 +1,12 @@
 import uniqueId from 'lodash/fp/uniqueId';
-import {checker, createValidate} from '../../util/validation';
-import createPicture from '../../atom/picture';
+import {checker, createValidate} from '../../../util/validation';
+import createPicture from '../../../atom/picture';
+import threadConditions from '../post-conditions';
 import createForumComment from '../forum-comment';
 import style from './style.css';
 
-const postConditions = checker.shape({
-  author: checker.string.optional,
-  date: checker.string.optional,
-  message: checker.string.optional,
-  avatar: checker.url.optional,
-  answerAvatar: checker.url.optional,
-  answer: checker.string.optional,
-  edition: checker.string.optional,
-  onPostAnswer: checker.func.optional,
-  onPostEdition: checker.func.optional,
-  onChangeAnswer: checker.func.optional,
-  onChangeEdition: checker.func.optional,
-  onModerate: checker.func.optional,
-  onDelete: checker.func.optional
-}).optional;
-
 const conditions = checker.shape({
-  props: postConditions,
+  props: threadConditions,
   children: checker.none
 });
 

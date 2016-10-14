@@ -1,5 +1,5 @@
-import {checker, createValidate} from '../../util/validation';
-import HoverFillBehaviour from '../../behaviour/effects/hover-fill';
+import HoverFillBehaviour from '../../../behaviour/effects/hover-fill';
+import {checker, createValidate} from '../../../util/validation';
 import style from './style.css';
 
 const conditions = checker.shape({

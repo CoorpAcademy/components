@@ -1,16 +1,8 @@
 import {checker, createValidate} from '../../util/validation';
-import createForumThread from '../../molecule/forum-thread';
-import createForumComment from '../../molecule/forum-comment';
+import createForumComment from '../../molecule/forum/forum-comment';
+import createForumThread from '../../molecule/forum/forum-thread';
+import postConditions from '../../molecule/forum/post-conditions';
 import style from './style.css';
-
-const postConditions = checker.shape({
-  type: checker.string.optional,
-  author: checker.string.optional,
-  date: checker.string.optional,
-  text: checker.string.optional,
-  avatar: checker.url.optional,
-  answers: checker.array.optional
-}).optional;
 
 const conditions = checker.shape({
   props: checker.shape({
@@ -18,9 +10,7 @@ const conditions = checker.shape({
     value: checker.string.optional,
     onPost: checker.func.optional,
     onChange: checker.func.optional,
-    threads: checker.arrayOf(checker.shape({
-      post: postConditions
-    })).optional
+    threads: checker.arrayOf(postConditions).optional
   }).optional,
   children: checker.none
 });

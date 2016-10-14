@@ -31,9 +31,6 @@ import createDisciplineCard from '../src/molecule/discipline-card';
 import createDisciplineHeader from '../src/molecule/discipline-header';
 import createDisciplineScope from '../src/molecule/discipline-scope';
 import createFormGroup from '../src/molecule/form-group';
-import createForumComment from '../src/molecule/forum-comment';
-import createForumPost from '../src/molecule/forum-post';
-import createForumThread from '../src/molecule/forum-thread';
 import createMenuList from '../src/molecule/menu-list';
 import createModuleBubble from '../src/molecule/module-bubble';
 import createScopeContent from '../src/molecule/scope-content';
@@ -46,6 +43,9 @@ import createTitledCheckbox from '../src/molecule/titled-checkbox';
 import createTransifexList from '../src/molecule/transifex-list';
 import createVideoIframe from '../src/molecule/video-iframe';
 import createVideoPlayer from '../src/molecule/video-player';
+import createForumComment from '../src/molecule/forum/forum-comment';
+import createForumPost from '../src/molecule/forum/forum-post';
+import createForumThread from '../src/molecule/forum/forum-thread';
 import createCatalogCards from '../src/organism/catalog-cards';
 import createCursusRightaside from '../src/organism/cursus-rightaside';
 import createDisciplineCards from '../src/organism/discipline-cards';
@@ -110,16 +110,6 @@ import createDisciplineHeaderFixtureNoVideo from '../src/molecule/discipline-hea
 import createDisciplineScopeFixtureDefault from '../src/molecule/discipline-scope/test/fixtures/default';
 import createDisciplineScopeFixtureEmpty from '../src/molecule/discipline-scope/test/fixtures/empty';
 import createFormGroupFixtureDefault from '../src/molecule/form-group/test/fixtures/default';
-import createForumCommentFixtureDefault from '../src/molecule/forum-comment/test/fixtures/default';
-import createForumPostFixtureDefault from '../src/molecule/forum-post/test/fixtures/default';
-import createForumPostFixtureDeleted from '../src/molecule/forum-post/test/fixtures/deleted';
-import createForumPostFixtureEditable from '../src/molecule/forum-post/test/fixtures/editable';
-import createForumPostFixtureNotEditableNotRejectable from '../src/molecule/forum-post/test/fixtures/not-editable-not-rejectable';
-import createForumPostFixtureRejectable from '../src/molecule/forum-post/test/fixtures/rejectable';
-import createForumPostFixtureRejected from '../src/molecule/forum-post/test/fixtures/rejected';
-import createForumThreadFixtureDeepAnswers from '../src/molecule/forum-thread/test/fixtures/deep-answers';
-import createForumThreadFixtureDefault from '../src/molecule/forum-thread/test/fixtures/default';
-import createForumThreadFixtureWithAnswers from '../src/molecule/forum-thread/test/fixtures/with-answers';
 import createMenuListFixtureBuildTransifex from '../src/molecule/menu-list/test/fixtures/build-transifex';
 import createMenuListFixtureDefault from '../src/molecule/menu-list/test/fixtures/default';
 import createModuleBubbleFixtureDefault from '../src/molecule/module-bubble/test/fixtures/default';
@@ -148,6 +138,16 @@ import createVideoIframeFixtureYoutube from '../src/molecule/video-iframe/test/f
 import createVideoPlayerFixtureDefault from '../src/molecule/video-player/test/fixtures/default';
 import createVideoPlayerFixtureWithImage from '../src/molecule/video-player/test/fixtures/with-image';
 import createVideoPlayerFixtureYoutube from '../src/molecule/video-player/test/fixtures/youtube';
+import createForumCommentFixtureDefault from '../src/molecule/forum/forum-comment/test/fixtures/default';
+import createForumPostFixtureDefault from '../src/molecule/forum/forum-post/test/fixtures/default';
+import createForumPostFixtureDeleted from '../src/molecule/forum/forum-post/test/fixtures/deleted';
+import createForumPostFixtureEditable from '../src/molecule/forum/forum-post/test/fixtures/editable';
+import createForumPostFixtureNotEditableNotRejectable from '../src/molecule/forum/forum-post/test/fixtures/not-editable-not-rejectable';
+import createForumPostFixtureRejectable from '../src/molecule/forum/forum-post/test/fixtures/rejectable';
+import createForumPostFixtureRejected from '../src/molecule/forum/forum-post/test/fixtures/rejected';
+import createForumThreadFixtureDeepAnswers from '../src/molecule/forum/forum-thread/test/fixtures/deep-answers';
+import createForumThreadFixtureDefault from '../src/molecule/forum/forum-thread/test/fixtures/default';
+import createForumThreadFixtureWithAnswers from '../src/molecule/forum/forum-thread/test/fixtures/with-answers';
 import createCatalogCardsFixtureDefault from '../src/organism/catalog-cards/test/fixtures/default';
 import createCatalogCardsFixtureLoading from '../src/organism/catalog-cards/test/fixtures/loading';
 import createCatalogCardsFixtureNoProducts from '../src/organism/catalog-cards/test/fixtures/no-products';
@@ -221,9 +221,6 @@ export const components = {
     DisciplineHeader: createDisciplineHeader,
     DisciplineScope: createDisciplineScope,
     FormGroup: createFormGroup,
-    ForumComment: createForumComment,
-    ForumPost: createForumPost,
-    ForumThread: createForumThread,
     MenuList: createMenuList,
     ModuleBubble: createModuleBubble,
     ScopeContent: createScopeContent,
@@ -236,6 +233,11 @@ export const components = {
     TransifexList: createTransifexList,
     VideoIframe: createVideoIframe,
     VideoPlayer: createVideoPlayer
+  },
+  MoleculeForum: {
+    ForumComment: createForumComment,
+    ForumPost: createForumPost,
+    ForumThread: createForumThread
   },
   Organism: {
     CatalogCards: createCatalogCards,
@@ -388,22 +390,6 @@ export const fixtures = {
     FormGroup: {
       Default: createFormGroupFixtureDefault
     },
-    ForumComment: {
-      Default: createForumCommentFixtureDefault
-    },
-    ForumPost: {
-      Default: createForumPostFixtureDefault,
-      Deleted: createForumPostFixtureDeleted,
-      Editable: createForumPostFixtureEditable,
-      NotEditableNotRejectable: createForumPostFixtureNotEditableNotRejectable,
-      Rejectable: createForumPostFixtureRejectable,
-      Rejected: createForumPostFixtureRejected
-    },
-    ForumThread: {
-      DeepAnswers: createForumThreadFixtureDeepAnswers,
-      Default: createForumThreadFixtureDefault,
-      WithAnswers: createForumThreadFixtureWithAnswers
-    },
     MenuList: {
       BuildTransifex: createMenuListFixtureBuildTransifex,
       Default: createMenuListFixtureDefault
@@ -455,6 +441,24 @@ export const fixtures = {
       Default: createVideoPlayerFixtureDefault,
       WithImage: createVideoPlayerFixtureWithImage,
       Youtube: createVideoPlayerFixtureYoutube
+    }
+  },
+  MoleculeForum: {
+    ForumComment: {
+      Default: createForumCommentFixtureDefault
+    },
+    ForumPost: {
+      Default: createForumPostFixtureDefault,
+      Deleted: createForumPostFixtureDeleted,
+      Editable: createForumPostFixtureEditable,
+      NotEditableNotRejectable: createForumPostFixtureNotEditableNotRejectable,
+      Rejectable: createForumPostFixtureRejectable,
+      Rejected: createForumPostFixtureRejected
+    },
+    ForumThread: {
+      DeepAnswers: createForumThreadFixtureDeepAnswers,
+      Default: createForumThreadFixtureDefault,
+      WithAnswers: createForumThreadFixtureWithAnswers
     }
   },
   Organism: {
