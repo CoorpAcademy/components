@@ -3,7 +3,27 @@ import createBrandCreateForm from '../../../molecule/brand-create-form';
 import style from './style.css';
 
 const conditions = checker.shape({
-  props: checker.none,
+  props: checker.shape({
+    notifications: checker.arrayOf(checker.shape({
+      type: checker.string,
+      message: checker.string,
+      onClose: checker.func.optional
+    })).optional,
+    title: checker.string,
+    subtitle: checker.string,
+    description: checker.string,
+    field: checker.shape({
+      placeholder: checker.string,
+      label: checker.string,
+      onChange: checker.func,
+      error: checker.string.optional,
+      value: checker.string.optional
+    }),
+    onSubmit: checker.func,
+    submitValue: checker.string,
+    isPending: checker.bool.optional,
+    isModified: checker.bool.optional
+  }),
   children: checker.none
 });
 
@@ -16,7 +36,7 @@ export default (treant, options = {}) => {
     return (
       <div className={style.container}>
         <div className={style.wrapper}>
-          <BrandCreateForm />
+          <BrandCreateForm {...props} />
         </div>
       </div>
     );
