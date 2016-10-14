@@ -31,21 +31,25 @@ export default (treant, options = {}) => {
   const ForumComment = createForumComment(treant, options);
 
   const Discussion = (props, children) => {
-    const {threads, title, avatar, value, onPost, onChange} = props;
+    const {threads, title, avatar, value, onPost, onChange, hideComments} = props;
 
     const threadsView = threads.map(thread => (
       <Thread {...thread}/>
     ));
 
+    const commentView = !hideComments && (
+      <ForumComment
+        avatar={avatar}
+        value={value}
+        onPost={onPost}
+        onChange={onChange}
+      />
+    );
+
     return (
       <div className={style.thread}>
         <h1>{title}</h1>
-        <ForumComment
-          avatar={avatar}
-          value={value}
-          onPost={onPost}
-          onChange={onChange}
-        />
+        {commentView}
         {threadsView}
       </div>
     );

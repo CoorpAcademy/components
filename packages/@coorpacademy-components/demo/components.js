@@ -119,6 +119,7 @@ import createForumPostFixtureRejectable from '../src/molecule/forum-post/test/fi
 import createForumPostFixtureRejected from '../src/molecule/forum-post/test/fixtures/rejected';
 import createForumThreadFixtureDeepAnswers from '../src/molecule/forum-thread/test/fixtures/deep-answers';
 import createForumThreadFixtureDefault from '../src/molecule/forum-thread/test/fixtures/default';
+import createForumThreadFixtureWithAnswers from '../src/molecule/forum-thread/test/fixtures/with-answers';
 import createMenuListFixtureBuildTransifex from '../src/molecule/menu-list/test/fixtures/build-transifex';
 import createMenuListFixtureDefault from '../src/molecule/menu-list/test/fixtures/default';
 import createModuleBubbleFixtureDefault from '../src/molecule/module-bubble/test/fixtures/default';
@@ -157,6 +158,7 @@ import createDisciplineCardsFixtureManyDisciplines from '../src/organism/discipl
 import createDisciplineRightasideFixtureDefault from '../src/organism/discipline-rightaside/test/fixtures/default';
 import createDisciplineRightasideFixtureEmpty from '../src/organism/discipline-rightaside/test/fixtures/empty';
 import createDiscussionFixtureDefault from '../src/organism/discussion/test/fixtures/default';
+import createDiscussionFixtureModeration from '../src/organism/discussion/test/fixtures/moderation';
 import createFormFixtureDefault from '../src/organism/form/test/fixtures/default';
 import createHeaderFixtureDefault from '../src/organism/header/test/fixtures/default';
 import createHeroFixtureDefault from '../src/organism/hero/test/fixtures/default';
@@ -399,7 +401,8 @@ export const fixtures = {
     },
     ForumThread: {
       DeepAnswers: createForumThreadFixtureDeepAnswers,
-      Default: createForumThreadFixtureDefault
+      Default: createForumThreadFixtureDefault,
+      WithAnswers: createForumThreadFixtureWithAnswers
     },
     MenuList: {
       BuildTransifex: createMenuListFixtureBuildTransifex,
@@ -473,7 +476,8 @@ export const fixtures = {
       Empty: createDisciplineRightasideFixtureEmpty
     },
     Discussion: {
-      Default: createDiscussionFixtureDefault
+      Default: createDiscussionFixtureDefault,
+      Moderation: createDiscussionFixtureModeration
     },
     Form: {
       Default: createFormFixtureDefault
