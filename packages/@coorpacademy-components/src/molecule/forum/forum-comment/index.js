@@ -1,3 +1,4 @@
+import identity from 'lodash/fp/identity';
 import HoverFillBehaviour from '../../../behaviour/effects/hover-fill';
 import {checker, createValidate} from '../../../util/validation';
 import style from './style.css';
@@ -14,6 +15,7 @@ const conditions = checker.shape({
 
 export default (treant, options = {}) => {
   const {h} = treant;
+  const {translate = identity} = options;
 
   const HoverFill = HoverFillBehaviour(treant, options);
 
@@ -31,7 +33,7 @@ export default (treant, options = {}) => {
           {avatarView}
           <div className={style.comment}>
             <textarea
-              placeholder='Entrez votre texte ici'
+              placeholder={translate('Write something here')}
               value={value}
               oninput={onChange}
             />
@@ -42,7 +44,7 @@ export default (treant, options = {}) => {
             <button
               onClick={onPost}
             >
-              Poster
+              {translate('Post')}
             </button>
           </HoverFill>
         </div>

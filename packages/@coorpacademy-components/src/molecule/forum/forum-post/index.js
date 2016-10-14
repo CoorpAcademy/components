@@ -1,3 +1,4 @@
+import identity from 'lodash/fp/identity';
 import uniqueId from 'lodash/fp/uniqueId';
 import {checker, createValidate} from '../../../util/validation';
 import createPicture from '../../../atom/picture';
@@ -12,6 +13,8 @@ const conditions = checker.shape({
 
 export default (treant, options = {}) => {
   const {h} = treant;
+  const {translate = identity} = options;
+
   const Picture = createPicture(treant, options);
   const ForumComment = createForumComment(treant, options);
 
@@ -40,7 +43,13 @@ export default (treant, options = {}) => {
     const idAnswer = uniqueId('forum-post-answer-toggler-');
     const idEdit = uniqueId('forum-post-edit-toggler-');
     const idReject = uniqueId('forum-post-reject-toggler-');
-    const infoDeleted = '* This message has been removed. *';
+
+    const infoDeleted = translate('* This message has been removed. *');
+    const answerLabel = translate('Answer');
+    const editLabel = translate('Edit');
+    const deleteLabel = translate('Delete');
+    const rejectLabel = translate('Reject');
+    const putBackLabel = translate('Put back');
 
     return (
       <div
@@ -73,7 +82,7 @@ export default (treant, options = {}) => {
                 display: (answerable && !deleted && !rejected) ? 'block' : 'none'
               }}
             >
-              Répondre
+              {answerLabel}
             </label>
 
             <input
@@ -91,7 +100,7 @@ export default (treant, options = {}) => {
                 display: editable ? 'block' : 'none'
               }}
             >
-              Éditer
+              {editLabel}
             </label>
 
             <span
@@ -105,7 +114,7 @@ export default (treant, options = {}) => {
                 display: editable ? 'block' : 'none'
               }}
             >
-              Supprimer
+              {deleteLabel}
             </span>
 
             <input
@@ -121,7 +130,7 @@ export default (treant, options = {}) => {
                 display: rejectable ? 'block' : 'none'
               }}
             >
-              {rejected ? 'Put back' : 'Reject'}
+              {rejected ? putBackLabel : rejectLabel}
             </label>
 
             <div className={style.message}>
