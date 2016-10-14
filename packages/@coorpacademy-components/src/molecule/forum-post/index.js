@@ -38,6 +38,7 @@ export default (treant, options = {}) => {
       message,
       answer,
       answerAvatar,
+      answerable = true,
       editable = false,
       rejectable = false,
       rejected = false,
@@ -55,8 +56,6 @@ export default (treant, options = {}) => {
     const idEdit = uniqueId('forum-post-edit-toggler-');
     const idReject = uniqueId('forum-post-reject-toggler-');
     const infoDeleted = '* This message has been removed. *';
-
-    const answerable = !deleted && !rejected;
 
     return (
       <div
@@ -86,7 +85,7 @@ export default (treant, options = {}) => {
               htmlFor={idAnswer}
               className={style.action}
               style={{
-                display: answerable ? 'block' : 'none'
+                display: (answerable && !deleted && !rejected) ? 'block' : 'none'
               }}
             >
               Répondre
