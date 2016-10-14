@@ -21,6 +21,7 @@ import createEmbossed from '../src/behaviour/font/embossed';
 import createNormal from '../src/behaviour/font/normal';
 import createTiny from '../src/behaviour/font/tiny';
 import createUppercase from '../src/behaviour/font/uppercase';
+import createBrandCard from '../src/molecule/brand-card';
 import createBrandCreateForm from '../src/molecule/brand-create-form';
 import createCatalogCard from '../src/molecule/catalog-card';
 import createCatalogCta from '../src/molecule/catalog-cta';
@@ -46,6 +47,7 @@ import createCursusRightaside from '../src/organism/cursus-rightaside';
 import createDisciplineCards from '../src/organism/discipline-cards';
 import createDisciplineRightaside from '../src/organism/discipline-rightaside';
 import createForm from '../src/organism/form';
+import createGridList from '../src/organism/grid-list';
 import createHero from '../src/organism/hero';
 import createCatalog from '../src/template/app-catalog/catalog';
 import createProductCourse from '../src/template/app-catalog/product-course';
@@ -85,6 +87,7 @@ import createEmbossedFixtureDefault from '../src/behaviour/font/embossed/test/fi
 import createNormalFixtureDefault from '../src/behaviour/font/normal/test/fixtures/default';
 import createTinyFixtureDefault from '../src/behaviour/font/tiny/test/fixtures/default';
 import createUppercaseFixtureDefault from '../src/behaviour/font/uppercase/test/fixtures/default';
+import createBrandCardFixtureDefault from '../src/molecule/brand-card/test/fixtures/default';
 import createBrandCreateFormFixtureDefault from '../src/molecule/brand-create-form/test/fixtures/default';
 import createBrandCreateFormFixtureError from '../src/molecule/brand-create-form/test/fixtures/error';
 import createBrandCreateFormFixtureLoading from '../src/molecule/brand-create-form/test/fixtures/loading';
@@ -203,6 +206,7 @@ export const components = {
     Uppercase: createUppercase
   },
   Molecule: {
+    BrandCard: createBrandCard,
     BrandCreateForm: createBrandCreateForm,
     CatalogCard: createCatalogCard,
     CatalogCta: createCatalogCta,
@@ -230,6 +234,7 @@ export const components = {
     DisciplineCards: createDisciplineCards,
     DisciplineRightaside: createDisciplineRightaside,
     Form: createForm,
+    GridList: createGridList,
     Hero: createHero
   },
   TemplateAppCatalog: {
@@ -333,6 +338,9 @@ export const fixtures = {
     }
   },
   Molecule: {
+    BrandCard: {
+      Default: createBrandCardFixtureDefault
+    },
     BrandCreateForm: {
       Default: createBrandCreateFormFixtureDefault,
       Error: createBrandCreateFormFixtureError,

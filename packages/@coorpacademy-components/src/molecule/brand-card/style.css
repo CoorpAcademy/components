@@ -1,0 +1,78 @@
+.wrapper {
+  width: 300px;
+  height: 300px;
+  box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.09);
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+.image {
+  height: 200px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.image img {
+  width: 100%;
+}
+
+.information {
+
+}
+
+.information h3 {
+  font-family: 'Open Sans';
+  font-weight: 700;
+  font-size: 15px;
+  color: #455A64;
+  width: 100%;
+  display: inline-block;
+  padding: 0 20px;
+  box-sizing: border-box;
+  margin: 0;
+  line-height: 50px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.link {
+  display: inline-block;
+  width: 50%;
+  box-sizing: border-box;
+  border-top: 1px solid #F5F5F5;
+  height: 50px;
+}
+
+.link a {
+  font-family: 'Open Sans';
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  display: inline-block;
+  width: 100%;
+  line-height: 49px;
+  text-align: center;
+}
+
+.link a:hover {
+  text-decoration: underline;
+}
+
+.edit {
+  composes: link;
+  border-right: 1px solid #F5F5F5;
+}
+
+.edit a {
+  color: #FFB90D;
+}
+
+.see {
+  composes: link;
+}
+
+.see a {
+  color: #00B0FF;
+}
