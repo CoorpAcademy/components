@@ -86,6 +86,9 @@ import createNormalFixtureDefault from '../src/behaviour/font/normal/test/fixtur
 import createTinyFixtureDefault from '../src/behaviour/font/tiny/test/fixtures/default';
 import createUppercaseFixtureDefault from '../src/behaviour/font/uppercase/test/fixtures/default';
 import createBrandCreateFormFixtureDefault from '../src/molecule/brand-create-form/test/fixtures/default';
+import createBrandCreateFormFixtureError from '../src/molecule/brand-create-form/test/fixtures/error';
+import createBrandCreateFormFixtureLoading from '../src/molecule/brand-create-form/test/fixtures/loading';
+import createBrandCreateFormFixtureModified from '../src/molecule/brand-create-form/test/fixtures/modified';
 import createCatalogCardFixtureDefault from '../src/molecule/catalog-card/test/fixtures/default';
 import createCatalogCtaFixtureDefault from '../src/molecule/catalog-cta/test/fixtures/default';
 import createCatalogCtaFixtureEmpty from '../src/molecule/catalog-cta/test/fixtures/empty';
@@ -149,7 +152,9 @@ import createProductCursusFixtureDefault from '../src/template/app-catalog/produ
 import createProductCursusFixtureEmpty from '../src/template/app-catalog/product-cursus/test/fixtures/empty';
 import createProductCursusFixtureLoading from '../src/template/app-catalog/product-cursus/test/fixtures/loading';
 import createBrandCreateFixtureDefault from '../src/template/back-office/brand-create/test/fixtures/default';
+import createBrandCreateFixtureError from '../src/template/back-office/brand-create/test/fixtures/error';
 import createBrandCreateFixtureLoading from '../src/template/back-office/brand-create/test/fixtures/loading';
+import createBrandCreateFixtureModified from '../src/template/back-office/brand-create/test/fixtures/modified';
 import createBrandListFixtureDefault from '../src/template/back-office/brand-list/test/fixtures/default';
 import createBrandListFixtureLoading from '../src/template/back-office/brand-list/test/fixtures/loading';
 import createBrandUpdateFixtureGeneralSettingsSuccess from '../src/template/back-office/brand-update/test/fixtures/general-settings-success';
@@ -329,7 +334,10 @@ export const fixtures = {
   },
   Molecule: {
     BrandCreateForm: {
-      Default: createBrandCreateFormFixtureDefault
+      Default: createBrandCreateFormFixtureDefault,
+      Error: createBrandCreateFormFixtureError,
+      Loading: createBrandCreateFormFixtureLoading,
+      Modified: createBrandCreateFormFixtureModified
     },
     CatalogCard: {
       Default: createCatalogCardFixtureDefault
@@ -457,7 +465,9 @@ export const fixtures = {
   TemplateBackOffice: {
     BrandCreate: {
       Default: createBrandCreateFixtureDefault,
-      Loading: createBrandCreateFixtureLoading
+      Error: createBrandCreateFixtureError,
+      Loading: createBrandCreateFixtureLoading,
+      Modified: createBrandCreateFixtureModified
     },
     BrandList: {
       Default: createBrandListFixtureDefault,
