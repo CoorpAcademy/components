@@ -111,6 +111,7 @@ import createDisciplineScopeFixtureDefault from '../src/molecule/discipline-scop
 import createDisciplineScopeFixtureEmpty from '../src/molecule/discipline-scope/test/fixtures/empty';
 import createFormGroupFixtureDefault from '../src/molecule/form-group/test/fixtures/default';
 import createForumCommentFixtureDefault from '../src/molecule/forum-comment/test/fixtures/default';
+import createForumPostFixtureDefault from '../src/molecule/forum-post/test/fixtures/default';
 import createForumPostFixtureDeleted from '../src/molecule/forum-post/test/fixtures/deleted';
 import createForumPostFixtureEditable from '../src/molecule/forum-post/test/fixtures/editable';
 import createForumPostFixtureNotEditableNotRejectable from '../src/molecule/forum-post/test/fixtures/not-editable-not-rejectable';
@@ -389,6 +390,7 @@ export const fixtures = {
       Default: createForumCommentFixtureDefault
     },
     ForumPost: {
+      Default: createForumPostFixtureDefault,
       Deleted: createForumPostFixtureDeleted,
       Editable: createForumPostFixtureEditable,
       NotEditableNotRejectable: createForumPostFixtureNotEditableNotRejectable,
