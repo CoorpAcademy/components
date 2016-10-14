@@ -16,6 +16,7 @@ const postConditions = checker.shape({
   onPostEdition: checker.func.optional,
   onChangeAnswer: checker.func.optional,
   onChangeEdition: checker.func.optional,
+  onModerate: checker.func.optional,
   onDelete: checker.func.optional
 }).optional;
 
@@ -46,7 +47,7 @@ export default (treant, options = {}) => {
       onPostEdition,
       onChangeAnswer,
       onChangeEdition,
-      onToggleRejection,
+      onModerate,
       onDelete
     } = props;
 
@@ -58,7 +59,9 @@ export default (treant, options = {}) => {
     const answerable = !deleted && !rejected;
 
     return (
-      <div className={rejected ? style.rejected : style.post}>
+      <div
+        className={rejected ? style.rejected : style.post}
+      >
         <div className={style.image}>
           <Picture
             src={avatar}
@@ -109,7 +112,11 @@ export default (treant, options = {}) => {
 
             <span
               className={style.action}
-              onClick={onDelete}
+              onClick={() => {
+                document.getElementById(idEdit).checked = false;
+                document.getElementById(idAnswer).checked = false;
+                onDelete();
+              }}
               style={{
                 display: editable ? 'block' : 'none'
               }}
@@ -120,7 +127,7 @@ export default (treant, options = {}) => {
             <input
               type='checkbox'
               id={idReject}
-              onClick={onToggleRejection}
+              onClick={onModerate}
               className={style.rejectionToggler}
             />
             <label

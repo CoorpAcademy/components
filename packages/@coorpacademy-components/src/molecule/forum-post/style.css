@@ -1,12 +1,15 @@
+@value time: 0.3s;
+
 .post {
   display: flex;
   padding: 16px 0;
   text-align: left;
+  transition: all time ease-out;
 }
 
 .rejected {
   composes: post;
-  border-left: red 3px solid;
+  border-left: #ad6262 3px solid;
   padding-left: 10px;
   background: #ffedd4;
 }
@@ -59,7 +62,7 @@
   font-size: 12px;
   margin: 0 14px 0 0;
   color: #b0b0b0;
-  transition: all .2s ease-in-out;
+  transition: all time ease-in-out;
   cursor: pointer;
   order: 1;
 }
@@ -68,29 +71,46 @@
   color: #333;
 }
 
-.answer,
-.edition {
-  display: none;
-  margin: 10px 0;
-  width: 100%;
-}
-
 .editionToggler,
 .answerToggler,
 .rejectionToggler {
   display: none;
 }
 
-.answerToggler:checked ~ .answer {
-  display: block;
+/*----------------------------------------------------------------------------*/
+/* comments */
+
+.comment {
+  overflow: hidden;
+  visibility: hidden;
+  height: 0;
+  width: 100%;
+  transition: all time ease-out;
+  opacity: 0;
+}
+
+.answer {
+  composes: comment;
   order: 2;
 }
 
-.editionToggler:checked ~ .message {
-  display: none;
+.edition {
+  composes: comment;
+  margin-left: 100%;
 }
 
-.editionToggler:checked ~ .edition {
-  display: block;
-  order: 0;
+
+.editionToggler:checked ~ .edition,
+.answerToggler:checked ~ .answer {
+  visibility: visible;
+  margin: 10px 0;
+  height: 100px;
+  opacity: 1;
+}
+
+.editionToggler:checked ~ .message {
+  padding: 0;
+  height: 0;
+  opacity: 0;
+  margin: 0;
 }

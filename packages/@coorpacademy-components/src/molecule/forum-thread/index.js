@@ -15,7 +15,7 @@ const threadConditions = checker.shape({
   onChangeAnswer: checker.func.optional,
   onChangeEdition: checker.func.optional,
   onDelete: checker.func.optional,
-  onToggleRejection: checker.func.optional,
+  onModerate: checker.func.optional,
   answers: checker.array.optional
 }).optional;
 
@@ -46,7 +46,7 @@ export default (treant, options = {}) => {
       onChangeAnswer,
       onChangeEdition,
       onDelete,
-      onToggleRejection,
+      onModerate,
       answers = []
     } = props;
 
@@ -72,7 +72,7 @@ export default (treant, options = {}) => {
           onChangeEdition={onChangeEdition}
           onPostAnswer={onPostAnswer}
           onPostEdition={onPostEdition}
-          onToggleRejection={onToggleRejection}
+          onModerate={onModerate}
           onDelete={onDelete}
         />
         <div className={style.answers}>
