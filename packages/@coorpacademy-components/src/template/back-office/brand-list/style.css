@@ -1,0 +1,36 @@
+@value breakpoints: "../../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value tablet from breakpoints;
+@value desktop from breakpoints;
+
+
+.container {
+  padding: 40px 0 0;
+}
+
+.wrapper {
+  width: 1240px;
+  margin: auto;
+}
+
+.brand {
+  margin: 0 5px 10px;
+}
+
+@media desktop {
+  .wrapper {
+    width: 930px;
+  }
+}
+
+@media tablet {
+  .wrapper {
+    width: 620px;
+  }
+}
+
+@media mobile {
+  .wrapper {
+    width: 300px;
+  }
+}

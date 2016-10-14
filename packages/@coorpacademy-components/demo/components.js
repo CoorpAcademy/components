@@ -21,6 +21,7 @@ import createEmbossed from '../src/behaviour/font/embossed';
 import createNormal from '../src/behaviour/font/normal';
 import createTiny from '../src/behaviour/font/tiny';
 import createUppercase from '../src/behaviour/font/uppercase';
+import createBrandCard from '../src/molecule/brand-card';
 import createBrandCreateForm from '../src/molecule/brand-create-form';
 import createCatalogCard from '../src/molecule/catalog-card';
 import createCatalogCta from '../src/molecule/catalog-cta';
@@ -53,6 +54,7 @@ import createDisciplineCards from '../src/organism/discipline-cards';
 import createDisciplineRightaside from '../src/organism/discipline-rightaside';
 import createDiscussion from '../src/organism/discussion';
 import createForm from '../src/organism/form';
+import createGridList from '../src/organism/grid-list';
 import createHeader from '../src/organism/header';
 import createHero from '../src/organism/hero';
 import createCatalog from '../src/template/app-catalog/catalog';
@@ -61,7 +63,6 @@ import createProductCursus from '../src/template/app-catalog/product-cursus';
 import createBrandCreate from '../src/template/back-office/brand-create';
 import createBrandList from '../src/template/back-office/brand-list';
 import createBrandUpdate from '../src/template/back-office/brand-update';
-import createUpdateBrand from '../src/template/back-office/update-brand';
 import createCoorpHeader from '../src/template/common/coorp-header';
 import createCenteredTextFixtureDefault from '../src/atom/centered-text/test/fixtures/default';
 import createInputColorFixtureDefault from '../src/atom/input-color/test/fixtures/default';
@@ -94,6 +95,7 @@ import createEmbossedFixtureDefault from '../src/behaviour/font/embossed/test/fi
 import createNormalFixtureDefault from '../src/behaviour/font/normal/test/fixtures/default';
 import createTinyFixtureDefault from '../src/behaviour/font/tiny/test/fixtures/default';
 import createUppercaseFixtureDefault from '../src/behaviour/font/uppercase/test/fixtures/default';
+import createBrandCardFixtureDefault from '../src/molecule/brand-card/test/fixtures/default';
 import createBrandCreateFormFixtureDefault from '../src/molecule/brand-create-form/test/fixtures/default';
 import createBrandCreateFormFixtureError from '../src/molecule/brand-create-form/test/fixtures/error';
 import createBrandCreateFormFixtureLoading from '../src/molecule/brand-create-form/test/fixtures/loading';
@@ -195,7 +197,6 @@ import createBrandUpdateFixtureLookandfeelSuccess from '../src/template/back-off
 import createBrandUpdateFixtureLookandfeel from '../src/template/back-office/brand-update/test/fixtures/lookandfeel';
 import createBrandUpdateFixtureSsoActivate from '../src/template/back-office/brand-update/test/fixtures/sso-activate';
 import createBrandUpdateFixtureSso from '../src/template/back-office/brand-update/test/fixtures/sso';
-import createUpdateBrandFixtureDefault from '../src/template/back-office/update-brand/test/fixtures/default';
 import createCoorpHeaderFixtureProduction from '../src/template/common/coorp-header/test/fixtures/production';
 import createCoorpHeaderFixtureStaging from '../src/template/common/coorp-header/test/fixtures/staging';
 
@@ -234,6 +235,7 @@ export const components = {
     Uppercase: createUppercase
   },
   Molecule: {
+    BrandCard: createBrandCard,
     BrandCreateForm: createBrandCreateForm,
     CatalogCard: createCatalogCard,
     CatalogCta: createCatalogCta,
@@ -270,6 +272,7 @@ export const components = {
     DisciplineRightaside: createDisciplineRightaside,
     Discussion: createDiscussion,
     Form: createForm,
+    GridList: createGridList,
     Header: createHeader,
     Hero: createHero
   },
@@ -281,8 +284,7 @@ export const components = {
   TemplateBackOffice: {
     BrandCreate: createBrandCreate,
     BrandList: createBrandList,
-    BrandUpdate: createBrandUpdate,
-    UpdateBrand: createUpdateBrand
+    BrandUpdate: createBrandUpdate
   },
   TemplateCommon: {
     CoorpHeader: createCoorpHeader
@@ -377,6 +379,9 @@ export const fixtures = {
     }
   },
   Molecule: {
+    BrandCard: {
+      Default: createBrandCardFixtureDefault
+    },
     BrandCreateForm: {
       Default: createBrandCreateFormFixtureDefault,
       Error: createBrandCreateFormFixtureError,
@@ -565,9 +570,6 @@ export const fixtures = {
       Lookandfeel: createBrandUpdateFixtureLookandfeel,
       SsoActivate: createBrandUpdateFixtureSsoActivate,
       Sso: createBrandUpdateFixtureSso
-    },
-    UpdateBrand: {
-      Default: createUpdateBrandFixtureDefault
     }
   },
   TemplateCommon: {

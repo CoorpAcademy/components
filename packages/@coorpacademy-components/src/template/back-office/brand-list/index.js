@@ -1,17 +1,49 @@
 import {checker, createValidate} from '../../../util/validation';
+import createGridList from '../../../organism/grid-list';
+import createBrandCard from '../../../molecule/brand-card';
 import style from './style.css';
 
 const conditions = checker.shape({
-  props: checker.none,
+  props: checker.shape({
+    brands: checker.arrayOf(checker.shape({
+      title: checker.string,
+      edit: checker.string,
+      editHref: checker.string,
+      see: checker.string,
+      seeHref: checker.string,
+      image: checker.string
+    })).optional
+  }),
   children: checker.none
 });
 
 export default (treant, options = {}) => {
   const {h} = treant;
 
+  const GridList = createGridList(treant, options);
+  const BrandCard = createBrandCard(treant, options);
+
   const BrandList = (props, children) => {
+    const {
+      brands
+    } = props;
+
+    const brandCards = brands.map(brand => {
+      return (
+        <div className={style.brand}>
+          <BrandCard {...brand}/>
+        </div>
+      );
+    });
+
+
     return (
-      <div>
+      <div className={style.container}>
+        <div className={style.wrapper}>
+          <GridList>
+            {brandCards}
+          </GridList>
+        </div>
       </div>
     );
   };
