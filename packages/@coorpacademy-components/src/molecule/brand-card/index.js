@@ -26,7 +26,6 @@ export default (treant, options = {}) => {
       image
     } = props;
 
-
     return (
       <div className={style.wrapper}>
         <div className={style.image}>

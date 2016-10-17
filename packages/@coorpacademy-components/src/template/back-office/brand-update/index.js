@@ -11,7 +11,7 @@ export default (treant, options = {}) => {
 
   const BrandUpdate = (props, children) => {
     return (
-      <div>
+      <div className={style.wrapper}>
       </div>
     );
   };

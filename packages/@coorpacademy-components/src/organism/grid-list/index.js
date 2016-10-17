@@ -10,7 +10,6 @@ export default (treant, options = {}) => {
   const {h} = treant;
 
   const GridList = (props, children) => {
-
     return (
       <div className={style.wrapper}>
         {children}
