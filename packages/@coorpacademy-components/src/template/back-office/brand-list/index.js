@@ -36,7 +36,6 @@ export default (treant, options = {}) => {
       );
     });
 
-
     return (
       <div className={style.container}>
         <div className={style.wrapper}>

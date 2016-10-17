@@ -1,5 +1,5 @@
-import CreateForm from '../../../../../molecule/brand-create-form/test/fixtures/error';
 import defaultsDeep from 'lodash/fp/defaultsDeep';
+import CreateForm from '../../../../../molecule/brand-create-form/test/fixtures/error';
 
 const {props} = CreateForm;
 

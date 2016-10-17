@@ -33,4 +33,8 @@
   .wrapper {
     width: 300px;
   }
+
+  .brand {
+    margin: 0 0 10px;
+  }
 }

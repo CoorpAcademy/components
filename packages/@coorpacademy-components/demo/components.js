@@ -55,7 +55,6 @@ import createProductCursus from '../src/template/app-catalog/product-cursus';
 import createBrandCreate from '../src/template/back-office/brand-create';
 import createBrandList from '../src/template/back-office/brand-list';
 import createBrandUpdate from '../src/template/back-office/brand-update';
-import createUpdateBrand from '../src/template/back-office/update-brand';
 import createCenteredTextFixtureDefault from '../src/atom/centered-text/test/fixtures/default';
 import createInputColorFixtureDefault from '../src/atom/input-color/test/fixtures/default';
 import createInputColorFixtureEmpty from '../src/atom/input-color/test/fixtures/empty';
@@ -169,7 +168,6 @@ import createBrandUpdateFixtureLookandfeelSuccess from '../src/template/back-off
 import createBrandUpdateFixtureLookandfeel from '../src/template/back-office/brand-update/test/fixtures/lookandfeel';
 import createBrandUpdateFixtureSsoActivate from '../src/template/back-office/brand-update/test/fixtures/sso-activate';
 import createBrandUpdateFixtureSso from '../src/template/back-office/brand-update/test/fixtures/sso';
-import createUpdateBrandFixtureDefault from '../src/template/back-office/update-brand/test/fixtures/default';
 
 export const components = {
   Atom: {
@@ -245,8 +243,7 @@ export const components = {
   TemplateBackOffice: {
     BrandCreate: createBrandCreate,
     BrandList: createBrandList,
-    BrandUpdate: createBrandUpdate,
-    UpdateBrand: createUpdateBrand
+    BrandUpdate: createBrandUpdate
   }
 };
 export const fixtures = {
@@ -491,9 +488,6 @@ export const fixtures = {
       Lookandfeel: createBrandUpdateFixtureLookandfeel,
       SsoActivate: createBrandUpdateFixtureSsoActivate,
       Sso: createBrandUpdateFixtureSso
-    },
-    UpdateBrand: {
-      Default: createUpdateBrandFixtureDefault
     }
   }
 };
