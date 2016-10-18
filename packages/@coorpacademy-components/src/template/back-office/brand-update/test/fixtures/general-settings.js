@@ -1,36 +1,15 @@
+import Breadcrumbs from '../../../../../molecule/breadcrumbs/test/fixtures/default';
+import BrandTabs from '../../../../../molecule/brand-tabs/test/fixtures/default';
+
+const {breadcrumbs, links} = Breadcrumbs.props;
+const {tabs} = BrandTabs.props;
+
 export default {
   props: {
     notifications: [],
-    breadcrumbs: [{
-      icon: '',
-      title: 'Platform list',
-      href: '#'
-    }, {
-      icon: '',
-      title: 'Samsung Settings'
-    }],
-    links: [{
-      title: 'Go to Cockpit',
-      href: '#cockpit',
-      type: 'primary'
-    }, {
-      title: 'Go to Platform',
-      href: '#platform',
-      type: 'secondary'
-    }],
-    tabs: [{
-      title: 'General Settings',
-      href: '#brand/samsung/settings',
-      selected: true
-    }, {
-      title: 'Look & Feel',
-      href: '#brand/samsung/lookandfeel',
-      selected: false
-    }, {
-      title: 'SSO',
-      href: '#brand/samsung/sso',
-      selected: false
-    }],
+    breadcrumbs,
+    links,
+    tabs,
     content: {
       groups: [{
         title: 'Platform Name',
