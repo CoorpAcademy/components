@@ -23,6 +23,8 @@ import createTiny from '../src/behaviour/font/tiny';
 import createUppercase from '../src/behaviour/font/uppercase';
 import createBrandCard from '../src/molecule/brand-card';
 import createBrandCreateForm from '../src/molecule/brand-create-form';
+import createBrandTabs from '../src/molecule/brand-tabs';
+import createBreadcrumbs from '../src/molecule/breadcrumbs';
 import createCatalogCard from '../src/molecule/catalog-card';
 import createCatalogCta from '../src/molecule/catalog-cta';
 import createCategories from '../src/molecule/categories';
@@ -100,6 +102,10 @@ import createBrandCreateFormFixtureDefault from '../src/molecule/brand-create-fo
 import createBrandCreateFormFixtureError from '../src/molecule/brand-create-form/test/fixtures/error';
 import createBrandCreateFormFixtureLoading from '../src/molecule/brand-create-form/test/fixtures/loading';
 import createBrandCreateFormFixtureModified from '../src/molecule/brand-create-form/test/fixtures/modified';
+import createBrandTabsFixtureDefault from '../src/molecule/brand-tabs/test/fixtures/default';
+import createBrandTabsFixtureLookandfeel from '../src/molecule/brand-tabs/test/fixtures/lookandfeel';
+import createBrandTabsFixtureSso from '../src/molecule/brand-tabs/test/fixtures/sso';
+import createBreadcrumbsFixtureDefault from '../src/molecule/breadcrumbs/test/fixtures/default';
 import createCatalogCardFixtureDefault from '../src/molecule/catalog-card/test/fixtures/default';
 import createCatalogCtaFixtureDefault from '../src/molecule/catalog-cta/test/fixtures/default';
 import createCatalogCtaFixtureEmpty from '../src/molecule/catalog-cta/test/fixtures/empty';
@@ -237,6 +243,8 @@ export const components = {
   Molecule: {
     BrandCard: createBrandCard,
     BrandCreateForm: createBrandCreateForm,
+    BrandTabs: createBrandTabs,
+    Breadcrumbs: createBreadcrumbs,
     CatalogCard: createCatalogCard,
     CatalogCta: createCatalogCta,
     Categories: createCategories,
@@ -387,6 +395,14 @@ export const fixtures = {
       Error: createBrandCreateFormFixtureError,
       Loading: createBrandCreateFormFixtureLoading,
       Modified: createBrandCreateFormFixtureModified
+    },
+    BrandTabs: {
+      Default: createBrandTabsFixtureDefault,
+      Lookandfeel: createBrandTabsFixtureLookandfeel,
+      Sso: createBrandTabsFixtureSso
+    },
+    Breadcrumbs: {
+      Default: createBreadcrumbsFixtureDefault
     },
     CatalogCard: {
       Default: createCatalogCardFixtureDefault
