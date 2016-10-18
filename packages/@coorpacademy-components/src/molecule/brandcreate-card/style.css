@@ -26,7 +26,7 @@
   text-decoration: none;
   display: inline-block;
   width: 100%;
-  line-height: 299px;
+  line-height: 380px;
   text-align: center;
 }
 
@@ -38,8 +38,8 @@
   line-height: 50px;
   padding-left: 19px; 
   position: relative;
-  top: 130px;
-  left: 125px;
+  top: 110px;
+  left: 120px;
   border: solid 2px #00B0FF;
   border-radius: 50%;
   width: 31px;

@@ -3,10 +3,8 @@ import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({
-    title: checker.string,
     edit: checker.string,
-    editHref: checker.string,
-    image: checker.string
+    editHref: checker.string
   }),
   children: checker.none
 });
@@ -16,12 +14,8 @@ export default (treant, options = {}) => {
 
   const BrandcreateCard = (props, children) => {
     const {
-      title,
       edit,
-      editHref,
-      see,
-      seeHref,
-      image
+      editHref
     } = props;
 
     return (
