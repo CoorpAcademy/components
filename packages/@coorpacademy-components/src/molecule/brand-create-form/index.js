@@ -48,7 +48,7 @@ export default (treant, options = {}) => {
         <div className={style.header}>
           <h1>{title}</h1>
         </div>
-        <form className={style.content}>
+        <form className={style.content} onSubmit={e => onSubmit(e)}>
           <h2>{subtitle}</h2>
           <div className={style.description}>
             {description}
@@ -68,7 +68,6 @@ export default (treant, options = {}) => {
               <input
                 type='submit'
                 value={submitValue}
-                onSubmit={e => onSubmit(e)}
                 disabled={disabled}
               />
             </div>
