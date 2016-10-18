@@ -41,7 +41,7 @@ export default (treant, options = {}) => {
 
     const wrapperClass = (isModified || isPending || field.error) ? style.modifiedWrapper : style.wrapper;
     const fieldClass = field.error ? style.error : style.default;
-    const disabled = (isModified || field.error) ? '' : 'disabled';
+    const disabled = isModified ? '' : 'disabled';
 
     return (
       <div className={wrapperClass}>
