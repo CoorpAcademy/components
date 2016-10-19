@@ -1,7 +1,3 @@
-.wrapper {
-
-}
-
 .message {
   width: 100%;
   font-family: 'Open Sans';
@@ -12,6 +8,7 @@
   border: 1px solid #455A64;
   border-radius: 2px;
   padding: 10px 20px;
+  box-sizing: border-box;
 }
 
 .message span {
