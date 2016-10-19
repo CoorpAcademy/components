@@ -2,6 +2,7 @@ import {checker, createValidate} from '../../../util/validation';
 import createBreadcrumbs from '../../../molecule/breadcrumbs';
 import createBrandTabs from '../../../molecule/brand-tabs';
 import createBrandContent from '../../../organism/brand-content';
+import createNotification from '../../../atom/notification';
 import style from './style.css';
 
 const conditions = checker.shape({
@@ -57,14 +58,24 @@ export default (treant, options = {}) => {
   const Breadcrumbs = createBreadcrumbs(treant, options);
   const BrandTabs = createBrandTabs(treant, options);
   const BrandContent = createBrandContent(treant, options);
+  const Notification = createNotification(treant, options);
 
   const BrandUpdate = (props, children) => {
     const {
+      notifications,
       links,
       breadcrumbs,
       tabs,
       content
     } = props;
+
+    const notificationsList = notifications.map(notification => {
+      return (
+        <div className={style.notification}>
+          <Notification {...notification} />
+        </div>
+      )
+    });
 
     return (
       <div className={style.container}>
@@ -73,6 +84,9 @@ export default (treant, options = {}) => {
         </div>
         <div className={style.tabsWrapper}>
           <BrandTabs tabs={tabs} />
+        </div>
+        <div className={style.notifications}>
+          {notificationsList}
         </div>
         <div className={style.contentWrapper}>
           <BrandContent {...content} />
