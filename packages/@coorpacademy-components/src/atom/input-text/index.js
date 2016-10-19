@@ -10,7 +10,8 @@ const conditions = checker.shape({
     disabled: checker.bool.optional,
     value: checker.string.optional,
     error: checker.string.optional,
-    onChange: checker.func.optional
+    onChange: checker.func.optional,
+    description: checker.string.optional
   }),
   children: checker.none
 });
@@ -25,7 +26,8 @@ export default (treant, options) => {
       value,
       defaultValue,
       onChange = noop,
-      error
+      error,
+      description
     } = props;
 
     const className = error ? style.error : style.default;
