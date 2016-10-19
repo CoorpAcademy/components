@@ -1,9 +1,15 @@
+<<<<<<< c2b7b6440608d27a28159dba52944f9d12293f4b
 import map from 'lodash/fp/map';
 import {checker, createValidate} from '../../util/validation';
 import createInputText from '../../atom/input-text';
 import createInputColor from '../../atom/input-color';
 import createInputReadonly from '../../atom/input-readonly';
 import createInputSwitch from '../../atom/input-switch';
+=======
+import {checker, createValidate} from '../../util/validation';
+import createInputText from '../../atom/input-text';
+import createInputColor from '../../atom/input-color';
+>>>>>>> add update brand
 import style from './style.css';
 
 const conditions = checker.shape({
@@ -30,8 +36,11 @@ export default (treant, options = {}) => {
 
   const InputText = createInputText(treant, options);
   const InputColor = createInputColor(treant, options);
+<<<<<<< c2b7b6440608d27a28159dba52944f9d12293f4b
   const InputReadonly = createInputReadonly(treant, options);
   const InputSwitch = createInputSwitch(treant, options);
+=======
+>>>>>>> add update brand
 
   const BrandContentGroup = (props, children) => {
     const {
@@ -40,6 +49,7 @@ export default (treant, options = {}) => {
       fields
     } = props;
 
+<<<<<<< c2b7b6440608d27a28159dba52944f9d12293f4b
     const buildInput = field => {
       const {
         type
@@ -74,6 +84,33 @@ export default (treant, options = {}) => {
     }
 
     const fieldsList = map(buildField, fields);
+=======
+    const fieldsList = fields.map(field => {
+      const {
+        type
+      } = field;
+
+      const buildField = field => {
+        switch (type) {
+          case 'color':
+            return (
+              <InputColor {...field} />
+            )
+          default:
+            return (
+              <InputText {...field} />
+            );
+        }
+      };
+
+      return (
+        <div className={style.field}>
+          {buildField(field)}
+        </div>
+      );
+    });
+
+>>>>>>> add update brand
 
     return (
       <div className={style.wrapper}>
