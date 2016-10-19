@@ -22,10 +22,8 @@ export default (treant, options = {}) => {
     const className = type ? style[type] : style.message;
 
     return (
-      <div className={style.wrapper}>
-        <div className={className}>
-          <span>!</span>{message}
-        </div>
+      <div className={className}>
+        <span>!</span>{message}
       </div>
     );
   };

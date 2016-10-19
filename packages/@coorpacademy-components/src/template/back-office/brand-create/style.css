@@ -12,3 +12,15 @@
   max-width: 800px;
   margin: auto;
 }
+
+.notifications {
+  margin-bottom: 20px;
+}
+
+.notification {
+  margin-bottom: 10px;
+}
+
+.notification:last-child {
+  margin-bottom: 0;
+}
