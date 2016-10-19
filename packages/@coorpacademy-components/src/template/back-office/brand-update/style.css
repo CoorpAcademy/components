@@ -10,6 +10,18 @@
 
 }
 
+.notifications {
+  padding: 35px 120px 0;
+}
+
+.notification {
+  margin-bottom: 10px;
+}
+
+.notification:last-child {
+  margin-bottom: 0;
+}
+
 .contentWrapper {
-  
+  padding: 35px 120px 0;
 }

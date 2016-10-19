@@ -16,9 +16,7 @@
   content: '';
   width: 20px;
   height: 20px;
-  margin-top: -10px;
   border-radius: 50%;
-  top: 50%;
   right: 10px;
   position: absolute;
 }
