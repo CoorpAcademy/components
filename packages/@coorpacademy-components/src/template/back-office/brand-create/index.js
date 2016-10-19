@@ -36,7 +36,7 @@ export default (treant, options = {}) => {
 
   const BrandCreate = (props, children) => {
     const {
-      notifications
+      notifications = []
     } = props;
 
     const notificationsList = notifications.map(notification => {
