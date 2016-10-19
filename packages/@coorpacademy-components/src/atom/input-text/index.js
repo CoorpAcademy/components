@@ -7,6 +7,7 @@ const conditions = checker.shape({
     title: checker.string,
     placeholder: checker.string,
     defaultValue: checker.string.optional,
+    disabled: checker.bool.optional,
     value: checker.string.optional,
     error: checker.string.optional,
     onChange: checker.func.optional
@@ -32,7 +33,7 @@ export default (treant, options) => {
     return (
       <div className={className}>
         <label>
-          {`${title} `}
+          <span className={style.title}>{`${title} `}</span>
           <input
             type='text'
             name={title}
@@ -42,6 +43,9 @@ export default (treant, options) => {
             onInput={e => onChange(e.target.value)}
           />
         </label>
+        <div className={style.description}>
+          {description}
+        </div>
       </div>
     );
   };

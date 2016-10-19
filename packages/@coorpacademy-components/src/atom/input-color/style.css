@@ -1,11 +1,14 @@
 .default {
   composes: default from '../input-text/style.css';
-  position: relative;
 }
 
 .error {
   composes: error from '../input-text/style.css';
   composes: default;
+}
+
+.title {
+  composes: title from '../input-text/style.css';
 }
 
 .preview {
@@ -18,4 +21,8 @@
   top: 50%;
   right: 10px;
   position: absolute;
+}
+
+.description {
+  composes: description from '../input-text/style.css';
 }

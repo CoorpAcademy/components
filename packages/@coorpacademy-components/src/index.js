@@ -1,4 +1,7 @@
+export createBOheader from './organism/BOheader';
 export createBrandCard from './molecule/brand-card';
+export createBrandContent from './organism/brand-content';
+export createBrandContentGroup from './molecule/brand-content-group';
 export createBrandCreate from './template/back-office/brand-create';
 export createBrandCreateForm from './molecule/brand-create-form';
 export createBrandList from './template/back-office/brand-list';
