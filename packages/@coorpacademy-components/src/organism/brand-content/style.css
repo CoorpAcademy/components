@@ -1,0 +1,56 @@
+.wrapper {
+  padding: 70px 120px;
+}
+
+.group {
+  width: 100%;
+  border-top: 1px solid #E0E0E0;
+  margin-top: 50px;
+  padding-top: 50px;
+}
+
+.group:first-child {
+  margin-top: 0;
+  border-top: none;
+  padding-top: 0;
+}
+
+.saveGroup {
+  composes: group;
+  text-align: right;
+  border-top: none;
+  padding-top: 0;
+}
+
+.save {
+  border-radius: 2px;
+  width: 200px;
+  display: inline-block;
+  background-color: #FFB90D;
+}
+
+.save:before {
+  background-color: #e6ac00;
+}
+
+.save input {
+  display: inline-block;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: transparent;
+  font-family: Open Sans;
+  font-weight: 600;
+  font-size: 13px;
+  text-decoration: none;
+  line-height: 52px;
+  padding: 0 30px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.save input:disabled {
+  background-color: #CFD8DC;
+  cursor: default;
+}

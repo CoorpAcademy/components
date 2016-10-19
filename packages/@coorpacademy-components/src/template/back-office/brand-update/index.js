@@ -1,6 +1,7 @@
 import {checker, createValidate} from '../../../util/validation';
 import createBreadcrumbs from '../../../molecule/breadcrumbs';
 import createBrandTabs from '../../../molecule/brand-tabs';
+import createBrandContent from '../../../organism/brand-content';
 import style from './style.css';
 
 const conditions = checker.shape({
@@ -32,7 +33,7 @@ const conditions = checker.shape({
         fields: checker.arrayOf(checker.shape({
           type: checker.string,
           title: checker.string,
-          value: checker.string.optional,
+          value: checker.any.optional,
           values: checker.arrayOf(checker.string).optional,
           placeholder: checker.string.optional,
           disabled: checker.bool.optional,
@@ -41,12 +42,11 @@ const conditions = checker.shape({
           onChange: checker.func.optional
         }))
       })),
+      disabled: checker.bool.optional,
+      isModified: checker.bool.optional,
+      isPending: checker.bool.optional,
       onSubmit: checker.func.optional
-    }),
-    disabled: checker.bool.optional,
-    isModifier: checker.bool.optional,
-    isPending: checker.bool.optional,
-    onSubmit: checker.func.optional
+    })
   }),
   children: checker.none
 });
@@ -56,12 +56,14 @@ export default (treant, options = {}) => {
 
   const Breadcrumbs = createBreadcrumbs(treant, options);
   const BrandTabs = createBrandTabs(treant, options);
+  const BrandContent = createBrandContent(treant, options);
 
   const BrandUpdate = (props, children) => {
     const {
       links,
       breadcrumbs,
-      tabs
+      tabs,
+      content
     } = props;
 
     return (
@@ -73,6 +75,7 @@ export default (treant, options = {}) => {
           <BrandTabs tabs={tabs} />
         </div>
         <div className={style.contentWrapper}>
+          <BrandContent {...content} />
         </div>
       </div>
     );
