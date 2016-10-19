@@ -1,5 +1,6 @@
 {
   "All training": "All training",
+  "Answer":"Answer",
   "assets": "assets",
   "At the end of this level, you will be able to:": "At the end of this level, you will be able to:",
   "author": "author",
@@ -8,13 +9,20 @@
   "certification": "certification",
   "chapters": "chapters",
   "Coorpacademy <span>subscription</span>": "Coorpacademy <span>subscription</span>",
+  "Delete":"Delete",
+  "Edit":"Edit",
   "filters": "filters",
   "Learn <span>more</span>": "Learn <span>more</span>",
   "Most recent": "Most recent",
   "Most viewed": "Most viewed",
+  "Put back":"Put back",
+  "Post":"Post",
+  "Reject":"Reject",
   "Sorry there are no results for your search": "Sorry there are no results for your search",
   "Start <span>learning</span>": "Start <span>learning</span>",
   "They also liked:": "They also liked:",
   "This course contains:": "This course contains:",
-  "Training Packages": "Training Packages"
+  "* This message has been removed. *": "* This message has been removed. *",
+  "Training Packages": "Training Packages",
+  "Write something here": "Write something here"
 }
