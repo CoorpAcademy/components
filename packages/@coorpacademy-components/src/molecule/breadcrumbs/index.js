@@ -8,12 +8,12 @@ const conditions = checker.shape({
       icon: checker.string.optional,
       title: checker.string,
       href: checker.string.optional
-    })),
+    })).optional,
     links: checker.arrayOf(checker.shape({
       title: checker.string,
       href: checker.string,
       type: checker.string.optional
-    }))
+    })).optional
   }),
   children: checker.none
 });
@@ -25,8 +25,8 @@ export default (treant, options = {}) => {
 
   const Breadcrumbs = (props, children) => {
     const {
-      breadcrumbs,
-      links
+      breadcrumbs = [],
+      links = []
     } = props;
 
     const breadcrumbsList = breadcrumbs.map(breadcrumb => {
