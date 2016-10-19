@@ -19,6 +19,8 @@
   border-radius: 50%;
   right: 10px;
   position: absolute;
+  top: 50%;
+  margin-top: -10px;
 }
 
 .description {

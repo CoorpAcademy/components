@@ -1,6 +1,7 @@
 import {checker, createValidate} from '../../util/validation';
 import createInputText from '../../atom/input-text';
 import createInputColor from '../../atom/input-color';
+import createInputReadonly from '../../atom/input-readonly';
 import style from './style.css';
 
 const conditions = checker.shape({
@@ -27,6 +28,8 @@ export default (treant, options = {}) => {
 
   const InputText = createInputText(treant, options);
   const InputColor = createInputColor(treant, options);
+  const InputReadonly = createInputReadonly(treant, options);
+
 
   const BrandContentGroup = (props, children) => {
     const {
@@ -45,6 +48,10 @@ export default (treant, options = {}) => {
           case 'color':
             return (
               <InputColor {...field} />
+            )
+          case 'readonly':
+            return (
+              <InputReadonly {...field} />
             )
           default:
             return (

@@ -1,10 +1,12 @@
 import createCenteredText from '../src/atom/centered-text';
 import createInputColor from '../src/atom/input-color';
+import createInputReadonly from '../src/atom/input-readonly';
 import createInputText from '../src/atom/input-text';
 import createLabelModName from '../src/atom/label-mod-name';
 import createLabelNormal from '../src/atom/label-normal';
 import createLabel from '../src/atom/label';
 import createLink from '../src/atom/link';
+import createNotification from '../src/atom/notification';
 import createPicture from '../src/atom/picture';
 import createSelect from '../src/atom/select';
 import createSpinner from '../src/atom/spinner';
@@ -73,6 +75,7 @@ import createCenteredTextFixtureDefault from '../src/atom/centered-text/test/fix
 import createInputColorFixtureDefault from '../src/atom/input-color/test/fixtures/default';
 import createInputColorFixtureEmpty from '../src/atom/input-color/test/fixtures/empty';
 import createInputColorFixtureError from '../src/atom/input-color/test/fixtures/error';
+import createInputReadonlyFixtureDefault from '../src/atom/input-readonly/test/fixtures/default';
 import createInputTextFixtureDefault from '../src/atom/input-text/test/fixtures/default';
 import createInputTextFixtureEmpty from '../src/atom/input-text/test/fixtures/empty';
 import createInputTextFixtureError from '../src/atom/input-text/test/fixtures/error';
@@ -81,6 +84,7 @@ import createLabelNormalFixtureFixture from '../src/atom/label-normal/test/fixtu
 import createLabelFixtureOneChild from '../src/atom/label/test/fixtures/one-child';
 import createLabelFixtureTwoChildren from '../src/atom/label/test/fixtures/two-children';
 import createLinkFixtureHref from '../src/atom/link/test/fixtures/href';
+import createNotificationFixtureDefault from '../src/atom/notification/test/fixtures/default';
 import createPictureFixtureDefault from '../src/atom/picture/test/fixtures/default';
 import createPictureFixtureEmpty from '../src/atom/picture/test/fixtures/empty';
 import createPictureFixtureSimpleSrc from '../src/atom/picture/test/fixtures/simple-src';
@@ -220,11 +224,13 @@ export const components = {
   Atom: {
     CenteredText: createCenteredText,
     InputColor: createInputColor,
+    InputReadonly: createInputReadonly,
     InputText: createInputText,
     LabelModName: createLabelModName,
     LabelNormal: createLabelNormal,
     Label: createLabel,
     Link: createLink,
+    Notification: createNotification,
     Picture: createPicture,
     Select: createSelect,
     Spinner: createSpinner,
@@ -321,6 +327,9 @@ export const fixtures = {
       Empty: createInputColorFixtureEmpty,
       Error: createInputColorFixtureError
     },
+    InputReadonly: {
+      Default: createInputReadonlyFixtureDefault
+    },
     InputText: {
       Default: createInputTextFixtureDefault,
       Empty: createInputTextFixtureEmpty,
@@ -338,6 +347,9 @@ export const fixtures = {
     },
     Link: {
       Href: createLinkFixtureHref
+    },
+    Notification: {
+      Default: createNotificationFixtureDefault
     },
     Picture: {
       Default: createPictureFixtureDefault,
