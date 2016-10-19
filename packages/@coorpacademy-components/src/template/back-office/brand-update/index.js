@@ -32,7 +32,7 @@ const conditions = checker.shape({
         fields: checker.arrayOf(checker.shape({
           type: checker.string,
           title: checker.string,
-          value: checker.string.optional,
+          value: checker.any.optional,
           values: checker.arrayOf(checker.string).optional,
           placeholder: checker.string.optional,
           disabled: checker.bool.optional,
