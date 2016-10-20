@@ -2,6 +2,7 @@ import {checker, createValidate} from '../../util/validation';
 import createInputText from '../../atom/input-text';
 import createInputColor from '../../atom/input-color';
 import createInputReadonly from '../../atom/input-readonly';
+import createInputSwitch from '../../atom/input-switch';
 import style from './style.css';
 
 const conditions = checker.shape({
@@ -29,7 +30,7 @@ export default (treant, options = {}) => {
   const InputText = createInputText(treant, options);
   const InputColor = createInputColor(treant, options);
   const InputReadonly = createInputReadonly(treant, options);
-
+  const InputSwitch = createInputSwitch(treant, options);
 
   const BrandContentGroup = (props, children) => {
     const {
@@ -53,6 +54,10 @@ export default (treant, options = {}) => {
             return (
               <InputReadonly {...field} />
             )
+          case 'switch':
+            return (
+              <InputSwitch {...field} />
+            )
           default:
             return (
               <InputText {...field} />
@@ -66,7 +71,6 @@ export default (treant, options = {}) => {
         </div>
       );
     });
-
 
     return (
       <div className={style.wrapper}>

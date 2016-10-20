@@ -12,6 +12,7 @@ export default (test, {render, transform}) => {
       }
     },
     className: 'foo',
+    htmlFor: 'foo',
     id: 'foo',
     type: {
       tagName: 'input',

@@ -1,6 +1,7 @@
 import createCenteredText from '../src/atom/centered-text';
 import createInputColor from '../src/atom/input-color';
 import createInputReadonly from '../src/atom/input-readonly';
+import createInputSwitch from '../src/atom/input-switch';
 import createInputText from '../src/atom/input-text';
 import createLabelModName from '../src/atom/label-mod-name';
 import createLabelNormal from '../src/atom/label-normal';
@@ -76,6 +77,7 @@ import createInputColorFixtureDefault from '../src/atom/input-color/test/fixture
 import createInputColorFixtureEmpty from '../src/atom/input-color/test/fixtures/empty';
 import createInputColorFixtureError from '../src/atom/input-color/test/fixtures/error';
 import createInputReadonlyFixtureDefault from '../src/atom/input-readonly/test/fixtures/default';
+import createInputSwitchFixtureDefault from '../src/atom/input-switch/test/fixtures/default';
 import createInputTextFixtureDefault from '../src/atom/input-text/test/fixtures/default';
 import createInputTextFixtureEmpty from '../src/atom/input-text/test/fixtures/empty';
 import createInputTextFixtureError from '../src/atom/input-text/test/fixtures/error';
@@ -225,6 +227,7 @@ export const components = {
     CenteredText: createCenteredText,
     InputColor: createInputColor,
     InputReadonly: createInputReadonly,
+    InputSwitch: createInputSwitch,
     InputText: createInputText,
     LabelModName: createLabelModName,
     LabelNormal: createLabelNormal,
@@ -329,6 +332,9 @@ export const fixtures = {
     },
     InputReadonly: {
       Default: createInputReadonlyFixtureDefault
+    },
+    InputSwitch: {
+      Default: createInputSwitchFixtureDefault
     },
     InputText: {
       Default: createInputTextFixtureDefault,
