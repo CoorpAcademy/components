@@ -50,6 +50,7 @@ import createDisciplineRightaside from '../src/organism/discipline-rightaside';
 import createForm from '../src/organism/form';
 import createHeader from '../src/organism/header';
 import createHero from '../src/organism/hero';
+import createSetupHeader from '../src/organism/setup-header';
 import createCatalog from '../src/template/app-catalog/catalog';
 import createProductCourse from '../src/template/app-catalog/product-course';
 import createProductCursus from '../src/template/app-catalog/product-cursus';
@@ -146,6 +147,7 @@ import createDisciplineRightasideFixtureEmpty from '../src/organism/discipline-r
 import createFormFixtureDefault from '../src/organism/form/test/fixtures/default';
 import createHeaderFixtureDefault from '../src/organism/header/test/fixtures/default';
 import createHeroFixtureDefault from '../src/organism/hero/test/fixtures/default';
+import createSetupHeaderFixtureDefault from '../src/organism/setup-header/test/fixtures/default';
 import createCatalogFixtureDefault from '../src/template/app-catalog/catalog/test/fixtures/default';
 import createCatalogFixtureEmpty from '../src/template/app-catalog/catalog/test/fixtures/empty';
 import createCatalogFixtureLoading from '../src/template/app-catalog/catalog/test/fixtures/loading';
@@ -225,7 +227,8 @@ export const components = {
     DisciplineRightaside: createDisciplineRightaside,
     Form: createForm,
     Header: createHeader,
-    Hero: createHero
+    Hero: createHero,
+    SetupHeader: createSetupHeader
   },
   TemplateAppCatalog: {
     Catalog: createCatalog,
@@ -447,6 +450,9 @@ export const fixtures = {
     },
     Hero: {
       Default: createHeroFixtureDefault
+    },
+    SetupHeader: {
+      Default: createSetupHeaderFixtureDefault
     }
   },
   TemplateAppCatalog: {

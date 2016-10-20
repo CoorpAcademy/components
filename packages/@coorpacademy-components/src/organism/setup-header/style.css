@@ -3,74 +3,67 @@
 @value tablet from breakpoints;
 @value desktop from breakpoints;
 
-.static {
+.wrapper {
   position: fixed;
   background-color: #ffffff;
   width: 100%;
   height: 80px;
-  font-size: 14px;
   box-sizing: border-box;
-  color: #4C616B;
-  text-transform: uppercase;
   z-index: 800;
-  padding: 0 15px;
+  padding: 0 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
+.user {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
 .avatar {
   border-radius: 50%;
   overflow: hidden;
-  display: flex;
-  width: 43px;
-  height: 43px;
+  width: 40px;
+  height: 40px;
   background: #efefef;
+  flex-shrink: 0;
 }
 
 .avatar img {
-  width: 50px;
-  height: 50px;
+  width: 100%;
 }
 
 .username {
-  display: flex;
-  padding-left: 15px;
-  line-height: 43px;
-  font-family: 'open sans';
-  font-size: 13px;
-  text-transform: capitalize;
+  margin-left: 15px;
+  font-family: 'Open Sans';
+  font-size: 14px;
+  font-weight: 600;
   color: #2C2C2C;
 }
 
-.deco {
-  padding: 5px;
+.logout {
+  flex-shrink: 0;
+  margin-left: 10px;
+}
+
+.logout a {
+  padding: 0 15px;
+  line-height: 32px;
   color: #78909C;
-  border: solid 1px #CFD8DC;
+  border: 1px solid #CFD8DC;
   border-radius: 2px;
   font-size: 12px;
   text-transform: capitalize;
-  font-family: 'open sans';
-}
-.deco:hover {
-  background: #78909C;
+  font-family: 'Open Sans';
+  text-decoration: none;
+  display: inline-block;
 }
 
-.deco:hover a {
+.logout a:hover {
   color: white;
-} 
-
-.deco a {
-  color: #78909C;
-  text-decoration: none;
-}
-
-.deco a:hover {
-  text-decoration: none;
-}
-
-.user {
-  display: flex;
+  background-color: #78909C;
 }
 
 .logo {
@@ -78,7 +71,7 @@
   height: 45px;
   width: 200px;
   overflow: hidden;
-  flex-shrink: 0;
+  flex-shrink: 1;
 }
 
 .logo a {
@@ -91,23 +84,21 @@
 }
 
 @media mobile {
-  .static {
-    padding: 0 7px;
+  .wrapper {
+    padding: 0 10px;
   }
+
   .logo {
     width: 125px;
   }
 
-  .deco {
-    font-size: 9px;
-  }
   .avatar {
     width: 30px;
     height: 30px;
   }
+
   .username {
-    line-height: 30px;
-    padding-left: 7px;
+    margin-left: 7px;
     font-size: 11px;
   }
 }
