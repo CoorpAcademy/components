@@ -3,6 +3,7 @@ import createInputColor from '../src/atom/input-color';
 import createInputReadonly from '../src/atom/input-readonly';
 import createInputSwitch from '../src/atom/input-switch';
 import createInputText from '../src/atom/input-text';
+import createInputTextarea from '../src/atom/input-textarea';
 import createLabelModName from '../src/atom/label-mod-name';
 import createLabelNormal from '../src/atom/label-normal';
 import createLabel from '../src/atom/label';
@@ -24,6 +25,7 @@ import createEmbossed from '../src/behaviour/font/embossed';
 import createNormal from '../src/behaviour/font/normal';
 import createTiny from '../src/behaviour/font/tiny';
 import createUppercase from '../src/behaviour/font/uppercase';
+import createBrandCardCreate from '../src/molecule/brand-card-create';
 import createBrandCard from '../src/molecule/brand-card';
 import createBrandContentGroup from '../src/molecule/brand-content-group';
 import createBrandCreateForm from '../src/molecule/brand-create-form';
@@ -81,6 +83,9 @@ import createInputSwitchFixtureDefault from '../src/atom/input-switch/test/fixtu
 import createInputTextFixtureDefault from '../src/atom/input-text/test/fixtures/default';
 import createInputTextFixtureEmpty from '../src/atom/input-text/test/fixtures/empty';
 import createInputTextFixtureError from '../src/atom/input-text/test/fixtures/error';
+import createInputTextareaFixtureDefault from '../src/atom/input-textarea/test/fixtures/default';
+import createInputTextareaFixtureEmpty from '../src/atom/input-textarea/test/fixtures/empty';
+import createInputTextareaFixtureError from '../src/atom/input-textarea/test/fixtures/error';
 import createLabelModNameFixtureFixture from '../src/atom/label-mod-name/test/fixtures/fixture';
 import createLabelNormalFixtureFixture from '../src/atom/label-normal/test/fixtures/fixture';
 import createLabelFixtureOneChild from '../src/atom/label/test/fixtures/one-child';
@@ -106,6 +111,7 @@ import createEmbossedFixtureDefault from '../src/behaviour/font/embossed/test/fi
 import createNormalFixtureDefault from '../src/behaviour/font/normal/test/fixtures/default';
 import createTinyFixtureDefault from '../src/behaviour/font/tiny/test/fixtures/default';
 import createUppercaseFixtureDefault from '../src/behaviour/font/uppercase/test/fixtures/default';
+import createBrandCardCreateFixtureDefault from '../src/molecule/brand-card-create/test/fixtures/default';
 import createBrandCardFixtureDefault from '../src/molecule/brand-card/test/fixtures/default';
 import createBrandContentGroupFixtureDefault from '../src/molecule/brand-content-group/test/fixtures/default';
 import createBrandContentGroupFixtureLookandfeel from '../src/molecule/brand-content-group/test/fixtures/lookandfeel';
@@ -229,6 +235,7 @@ export const components = {
     InputReadonly: createInputReadonly,
     InputSwitch: createInputSwitch,
     InputText: createInputText,
+    InputTextarea: createInputTextarea,
     LabelModName: createLabelModName,
     LabelNormal: createLabelNormal,
     Label: createLabel,
@@ -260,6 +267,7 @@ export const components = {
     Uppercase: createUppercase
   },
   Molecule: {
+    BrandCardCreate: createBrandCardCreate,
     BrandCard: createBrandCard,
     BrandContentGroup: createBrandContentGroup,
     BrandCreateForm: createBrandCreateForm,
@@ -341,6 +349,11 @@ export const fixtures = {
       Empty: createInputTextFixtureEmpty,
       Error: createInputTextFixtureError
     },
+    InputTextarea: {
+      Default: createInputTextareaFixtureDefault,
+      Empty: createInputTextareaFixtureEmpty,
+      Error: createInputTextareaFixtureError
+    },
     LabelModName: {
       Fixture: createLabelModNameFixtureFixture
     },
@@ -418,6 +431,9 @@ export const fixtures = {
     }
   },
   Molecule: {
+    BrandCardCreate: {
+      Default: createBrandCardCreateFixtureDefault
+    },
     BrandCard: {
       Default: createBrandCardFixtureDefault
     },

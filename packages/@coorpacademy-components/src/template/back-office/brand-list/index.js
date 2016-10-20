@@ -1,6 +1,7 @@
 import {checker, createValidate} from '../../../util/validation';
 import createGridList from '../../../organism/grid-list';
 import createBrandCard from '../../../molecule/brand-card';
+import createBrandCardCreate from '../../../molecule/brand-card-create';
 import style from './style.css';
 
 const conditions = checker.shape({
@@ -12,7 +13,11 @@ const conditions = checker.shape({
       see: checker.string,
       seeHref: checker.string,
       image: checker.string
-    })).optional
+    })).optional,
+    create: checker.shape({
+      edit: checker.string,
+      editHref: checker.string
+    })
   }),
   children: checker.none
 });
@@ -22,10 +27,12 @@ export default (treant, options = {}) => {
 
   const GridList = createGridList(treant, options);
   const BrandCard = createBrandCard(treant, options);
+  const BrandCardCreate = createBrandCardCreate(treant, options);
 
   const BrandList = (props, children) => {
     const {
-      brands
+      brands,
+      create
     } = props;
 
     const brandCards = brands.map(brand => {
@@ -35,6 +42,14 @@ export default (treant, options = {}) => {
         </div>
       );
     });
+
+    if (create) {
+      brandCards.unshift(
+        <div className={style.brand}>
+          <BrandCardCreate {...create} />
+        </div>
+      );
+    }
 
     return (
       <div className={style.container}>
