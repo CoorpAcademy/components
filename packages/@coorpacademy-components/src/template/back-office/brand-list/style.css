@@ -9,23 +9,23 @@
 }
 
 .wrapper {
-  width: 1240px;
+  width: 1280px;
   margin: auto;
 }
 
 .brand {
-  margin: 0 5px 10px;
+  margin: 0 10px 20px;
 }
 
 @media desktop {
   .wrapper {
-    width: 930px;
+    width: 960px;
   }
 }
 
 @media tablet {
   .wrapper {
-    width: 620px;
+    width: 640px;
   }
 }
 

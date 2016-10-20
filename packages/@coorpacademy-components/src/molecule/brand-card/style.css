@@ -47,6 +47,7 @@
 
 .link a {
   font-family: 'Open Sans';
+  color: #B0BEC5;
   font-weight: 600;
   font-size: 15px;
   text-decoration: none;
@@ -56,16 +57,12 @@
   text-align: center;
 }
 
-.link a:hover {
-  text-decoration: underline;
-}
-
 .edit {
   composes: link;
   border-right: 1px solid #F5F5F5;
 }
 
-.edit a {
+.edit a:hover {
   color: #FFB90D;
 }
 
@@ -73,6 +70,6 @@
   composes: link;
 }
 
-.see a {
+.see a:hover {
   color: #00B0FF;
 }
