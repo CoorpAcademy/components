@@ -13,7 +13,11 @@ const conditions = checker.shape({
       see: checker.string,
       seeHref: checker.string,
       image: checker.string
-    })).optional
+    })).optional,
+    create: checker.shape({
+      edit: checker.string,
+      editHref: checker.string
+    })
   }),
   children: checker.none
 });
@@ -27,7 +31,8 @@ export default (treant, options = {}) => {
 
   const BrandList = (props, children) => {
     const {
-      brands
+      brands,
+      create
     } = props;
 
     const brandCards = brands.map(brand => {
@@ -38,11 +43,13 @@ export default (treant, options = {}) => {
       );
     });
 
-    brandCards.unshift(
-      <div className={style.brand}>
-        <BrandCardCreate />
-      </div>
-    );
+    if (create) {
+      brandCards.unshift(
+        <div className={style.brand}>
+          <BrandCardCreate {...create} />
+        </div>
+      );
+    }
 
     return (
       <div className={style.container}>
