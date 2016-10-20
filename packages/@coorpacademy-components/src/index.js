@@ -40,6 +40,7 @@ export createInputColor from './atom/input-color';
 export createInputReadonly from './atom/input-readonly';
 export createInputSwitch from './atom/input-switch';
 export createInputText from './atom/input-text';
+export createInputTextarea from './atom/input-textarea';
 export createLabel from './atom/label';
 export createLabelModName from './atom/label-mod-name';
 export createLabelNormal from './atom/label-normal';
