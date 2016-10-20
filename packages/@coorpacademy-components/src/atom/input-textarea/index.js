@@ -7,7 +7,6 @@ const conditions = checker.shape({
     title: checker.string,
     type: checker.string,
     placeholder: checker.string,
-    defaultValue: checker.string.optional,
     disabled: checker.bool.optional,
     value: checker.string.optional,
     error: checker.string.optional,
@@ -26,7 +25,6 @@ export default (treant, options) => {
       title,
       placeholder,
       value,
-      defaultValue,
       onChange = noop,
       error,
       description
@@ -38,15 +36,14 @@ export default (treant, options) => {
       <div className={className}>
         <label>
           <span className={style.title}>{`${title} `}</span>
-          <input
-            type='textarea'
+          <textarea
             resize='none'
             name={title}
             placeholder={placeholder}
-            defaultValue={defaultValue}
-            value={value}
             onInput={e => onChange(e.target.value)}
-          />
+          >
+            {value}
+          </textarea>
         </label>
         <div className={style.description}>
           {description}

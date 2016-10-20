@@ -23,10 +23,10 @@
   width: 180px;
 }
 
-.default input {
+.default textarea {
   font-family: "Open Sans";
   text-transform: none;
-  padding: 0 15px;
+  padding: 10px 15px;
   border: solid 2px #eceff1;
   height: 125px;
   border-radius: 2px;
@@ -34,9 +34,10 @@
   color: #607d8b;
   margin-left: 20px;
   width: 500px;
+  resize: none;
 }
 
-.error input {
+.error textarea {
   border-color: #eb5c41;
 }
 

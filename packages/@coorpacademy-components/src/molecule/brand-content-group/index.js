@@ -3,11 +3,8 @@ import {checker, createValidate} from '../../util/validation';
 import createInputText from '../../atom/input-text';
 import createInputColor from '../../atom/input-color';
 import createInputReadonly from '../../atom/input-readonly';
-<<<<<<< 04db5aca50b8b86053b328b2cacfb1999b58cffd
 import createInputSwitch from '../../atom/input-switch';
-=======
 import createInputTextarea from '../../atom/input-textarea';
->>>>>>> ftr(textarea): add component
 import style from './style.css';
 
 const conditions = checker.shape({
