@@ -1,3 +1,4 @@
+import map from 'lodash/fp/map';
 import {checker, createValidate} from '../../../util/validation';
 import createBreadcrumbs from '../../../molecule/breadcrumbs';
 import createBrandTabs from '../../../molecule/brand-tabs';
@@ -69,13 +70,13 @@ export default (treant, options = {}) => {
       content
     } = props;
 
-    const notificationsList = notifications.map(notification => {
+    const notificationsList = map(notification => {
       return (
         <div className={style.notification}>
           <Notification {...notification} />
         </div>
       )
-    });
+    }, notifications);
 
     return (
       <div className={style.container}>
