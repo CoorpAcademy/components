@@ -3,7 +3,11 @@ import {checker, createValidate} from '../../util/validation';
 import createInputText from '../../atom/input-text';
 import createInputColor from '../../atom/input-color';
 import createInputReadonly from '../../atom/input-readonly';
+<<<<<<< 04db5aca50b8b86053b328b2cacfb1999b58cffd
 import createInputSwitch from '../../atom/input-switch';
+=======
+import createInputTextarea from '../../atom/input-textarea';
+>>>>>>> ftr(textarea): add component
 import style from './style.css';
 
 const conditions = checker.shape({
@@ -30,6 +34,7 @@ export default (treant, options = {}) => {
 
   const InputText = createInputText(treant, options);
   const InputColor = createInputColor(treant, options);
+  const InputTextarea = createInputTextarea(treant, options);
   const InputReadonly = createInputReadonly(treant, options);
   const InputSwitch = createInputSwitch(treant, options);
 
@@ -66,6 +71,7 @@ export default (treant, options = {}) => {
 
     const buildField = field => {
       const input = buildInput(field);
+
       return (
         <div className={style.field}>
           {input}
