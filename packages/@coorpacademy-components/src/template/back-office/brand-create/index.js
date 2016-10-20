@@ -1,3 +1,4 @@
+import map from 'lodash/fp/map';
 import {checker, createValidate} from '../../../util/validation';
 import createBrandCreateForm from '../../../molecule/brand-create-form';
 import createNotification from '../../../atom/notification';
@@ -36,16 +37,16 @@ export default (treant, options = {}) => {
 
   const BrandCreate = (props, children) => {
     const {
-      notifications = []
+      notifications
     } = props;
 
-    const notificationsList = notifications.map(notification => {
+    const notificationsList = map(notification => {
       return (
         <div className={style.notification}>
           <Notification {...notification} />
         </div>
-      )
-    });
+      );
+    }, notifications);
 
     return (
       <div className={style.container}>
