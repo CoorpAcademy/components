@@ -12,7 +12,7 @@ const conditions = checker.shape({
 export default (treant, options = {}) => {
   const {h} = treant;
 
-  const BrandcreateCard = (props, children) => {
+  const BrandCardCreate = (props, children) => {
     const {
       edit,
       editHref
@@ -20,15 +20,16 @@ export default (treant, options = {}) => {
 
     return (
       <div className={style.wrapper}>
-        <div className={style.image}>
-          <div className={style.edit}>
-            <a href={editHref}>{edit}</a>
-          </div>
+        <div className={style.circle1}></div>
+        <div className={style.circle2}></div>
+        <div className={style.circle3}></div>
+        <div className={style.edit}>
+          <a href={editHref}><span>{edit}</span></a>
         </div>
       </div>
     );
   };
 
-  BrandcreateCard.validate = createValidate(conditions);
-  return BrandcreateCard;
+  BrandCardCreate.validate = createValidate(conditions);
+  return BrandCardCreate;
 };

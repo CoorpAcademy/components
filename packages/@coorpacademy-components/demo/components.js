@@ -25,6 +25,7 @@ import createEmbossed from '../src/behaviour/font/embossed';
 import createNormal from '../src/behaviour/font/normal';
 import createTiny from '../src/behaviour/font/tiny';
 import createUppercase from '../src/behaviour/font/uppercase';
+import createBrandCardCreate from '../src/molecule/brand-card-create';
 import createBrandCard from '../src/molecule/brand-card';
 import createBrandContentGroup from '../src/molecule/brand-content-group';
 import createBrandCreateForm from '../src/molecule/brand-create-form';
@@ -110,6 +111,7 @@ import createEmbossedFixtureDefault from '../src/behaviour/font/embossed/test/fi
 import createNormalFixtureDefault from '../src/behaviour/font/normal/test/fixtures/default';
 import createTinyFixtureDefault from '../src/behaviour/font/tiny/test/fixtures/default';
 import createUppercaseFixtureDefault from '../src/behaviour/font/uppercase/test/fixtures/default';
+import createBrandCardCreateFixtureDefault from '../src/molecule/brand-card-create/test/fixtures/default';
 import createBrandCardFixtureDefault from '../src/molecule/brand-card/test/fixtures/default';
 import createBrandContentGroupFixtureDefault from '../src/molecule/brand-content-group/test/fixtures/default';
 import createBrandContentGroupFixtureLookandfeel from '../src/molecule/brand-content-group/test/fixtures/lookandfeel';
@@ -265,6 +267,7 @@ export const components = {
     Uppercase: createUppercase
   },
   Molecule: {
+    BrandCardCreate: createBrandCardCreate,
     BrandCard: createBrandCard,
     BrandContentGroup: createBrandContentGroup,
     BrandCreateForm: createBrandCreateForm,
@@ -428,6 +431,9 @@ export const fixtures = {
     }
   },
   Molecule: {
+    BrandCardCreate: {
+      Default: createBrandCardCreateFixtureDefault
+    },
     BrandCard: {
       Default: createBrandCardFixtureDefault
     },
