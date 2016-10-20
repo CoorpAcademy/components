@@ -1,3 +1,4 @@
+import map from 'lodash/fp/map';
 import {checker, createValidate} from '../../util/validation';
 import createHoverFill from '../../behaviour/effects/hover-fill';
 import style from './style.css';
@@ -23,43 +24,46 @@ export default (treant, options = {}) => {
 
   const HoverFill = createHoverFill(treant, options);
 
+  const buildBreadcrumbs = breadcrumb => {
+    const {
+        icon,
+        title,
+        href
+    } = breadcrumb;
+
+    return (
+      <div className={style.breadcrumb}>
+        <a href={href}>{title}</a>
+      </div>
+    );
+  };
+
+  const buildLink = link => {
+    const {
+      title,
+      href,
+      type
+    } = link;
+
+    const className = (type === 'primary') ? style.primary : style.secondary;
+
+    return (
+      <div className={className}>
+        <HoverFill>
+          <a href={href}>{title}</a>
+        </HoverFill>
+      </div>
+    );
+  };
+
   const Breadcrumbs = (props, children) => {
     const {
-      breadcrumbs = [],
+      breadcrumbs,
       links = []
     } = props;
 
-    const breadcrumbsList = breadcrumbs.map(breadcrumb => {
-      const {
-          icon,
-          title,
-          href
-      } = breadcrumb;
-
-      return (
-        <div className={style.breadcrumb}>
-          <a href={href}>{title}</a>
-        </div>
-      );
-    });
-
-    const linksList = links.map(link => {
-      const {
-        title,
-        href,
-        type
-      } = link;
-
-      const className = (type === 'primary') ? style.primary : style.secondary;
-
-      return (
-        <div className={className}>
-          <HoverFill>
-            <a href={href}>{title}</a>
-          </HoverFill>
-        </div>
-      );
-    });
+    const breadcrumbsList = map(buildBreadcrumbs, breadcrumbs);
+    const linksList = map(buildLink, links);
 
     return (
       <div className={style.wrapper}>

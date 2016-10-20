@@ -1,3 +1,4 @@
+import map from 'lodash/fp/map';
 import {checker, createValidate} from '../../util/validation';
 import createInputText from '../../atom/input-text';
 import createInputColor from '../../atom/input-color';
@@ -39,38 +40,40 @@ export default (treant, options = {}) => {
       fields
     } = props;
 
-    const fieldsList = fields.map(field => {
+    const buildInput = field => {
       const {
         type
       } = field;
+      switch (type) {
+        case 'color':
+          return (
+            <InputColor {...field} />
+          );
+        case 'readonly':
+          return (
+            <InputReadonly {...field} />
+          );
+        case 'switch':
+          return (
+            <InputSwitch {...field} />
+          );
+        default:
+          return (
+            <InputText {...field} />
+          );
+      }
+    };
 
-      const buildField = field => {
-        switch (type) {
-          case 'color':
-            return (
-              <InputColor {...field} />
-            )
-          case 'readonly':
-            return (
-              <InputReadonly {...field} />
-            )
-          case 'switch':
-            return (
-              <InputSwitch {...field} />
-            )
-          default:
-            return (
-              <InputText {...field} />
-            );
-        }
-      };
-
+    const buildField = field => {
+      const input = buildInput(field);
       return (
         <div className={style.field}>
-          {buildField(field)}
+          {input}
         </div>
       );
-    });
+    }
+
+    const fieldsList = map(buildField, fields);
 
     return (
       <div className={style.wrapper}>
