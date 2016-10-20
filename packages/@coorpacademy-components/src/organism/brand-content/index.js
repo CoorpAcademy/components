@@ -68,7 +68,7 @@ export default (treant, options = {}) => {
 
     return (
       <div className={style.wrapper}>
-        <form className={style.groups} onSubmit={e => onSubmit(e)}>
+        <form className={style.groups} onSubmit={e => e.preventDefault() || onSubmit(e)}>
           {brandGroups}
           {submitButton}
         </form>
