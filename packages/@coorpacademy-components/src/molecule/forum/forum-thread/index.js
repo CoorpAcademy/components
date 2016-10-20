@@ -41,7 +41,7 @@ export default (treant, options = {}) => {
     return (
       <div className={style.thread}>
         <Post
-          name={author}
+          author={author}
           date={date}
           message={message}
           avatar={avatar}
