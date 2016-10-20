@@ -53,6 +53,7 @@ export createScopeContent from './molecule/scope-content';
 export createScopeTabs from './molecule/scope-tabs';
 export createSelect from './atom/select';
 export createSelectBox from './molecule/select-box';
+export createSetupHeader from './organism/setup-header';
 export createSpinner from './atom/spinner';
 export createSsmenuList from './molecule/ssmenu-list';
 export createStar from './atom/star';
