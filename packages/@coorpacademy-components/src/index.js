@@ -1,4 +1,5 @@
 export createBrandCard from './molecule/brand-card';
+export createBrandCardCreate from './molecule/brand-card-create';
 export createBrandContent from './organism/brand-content';
 export createBrandContentGroup from './molecule/brand-content-group';
 export createBrandCreate from './template/back-office/brand-create';
