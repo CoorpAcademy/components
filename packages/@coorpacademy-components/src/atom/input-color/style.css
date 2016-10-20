@@ -26,3 +26,7 @@
 .description {
   composes: description from '../input-text/style.css';
 }
+
+.description {
+  composes: description from '../input-text/style.css';
+}
