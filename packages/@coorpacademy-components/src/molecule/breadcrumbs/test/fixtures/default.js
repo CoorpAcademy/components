@@ -3,18 +3,18 @@ export default {
     breadcrumbs: [{
       icon: '',
       title: 'Platform list',
-      href: '#'
+      href: '/something'
     }, {
       icon: '',
       title: 'Samsung Settings'
     }],
     links: [{
       title: 'Go to Cockpit',
-      href: '#cockpit',
+      href: '/pouet',
       type: 'primary'
     }, {
       title: 'Go to Platform',
-      href: '#platform',
+      href: '/pouet',
       type: 'secondary'
     }]
   }

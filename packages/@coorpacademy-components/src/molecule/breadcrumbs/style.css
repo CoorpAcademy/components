@@ -26,12 +26,15 @@
   text-decoration: none;
 }
 
-.breadcrumb a:hover {
-  color: #90A4AE;
+.breadcrumb span {
+  font-family: 'Open Sans';
+  font-weight: 700;
+  font-size: 17px;
+  color: #455A64;
 }
 
-.breadcrumb:last-child a {
-  color: #455A64;
+.breadcrumb a:hover {
+  color: #90A4AE;
 }
 
 .breadcrumb:last-child:after {

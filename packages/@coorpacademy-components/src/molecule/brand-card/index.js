@@ -1,4 +1,6 @@
 import {checker, createValidate} from '../../util/validation';
+import createLink from '../../atom/link';
+import createPicture from '../../atom/picture';
 import style from './style.css';
 
 const conditions = checker.shape({
@@ -16,6 +18,9 @@ const conditions = checker.shape({
 export default (treant, options = {}) => {
   const {h} = treant;
 
+  const Link = createLink(treant, options);
+  const Picture = createPicture(treant, options);
+
   const BrandCard = (props, children) => {
     const {
       title,
@@ -29,15 +34,15 @@ export default (treant, options = {}) => {
     return (
       <div className={style.wrapper}>
         <div className={style.image}>
-          <img src={image}/>
+          <Picture className={style.picture} src={image}/>
         </div>
         <div className={style.information}>
           <h3>{title}</h3>
           <div className={style.edit}>
-            <a href={editHref}>{edit}</a>
+            <Link href={editHref}>{edit}</Link>
           </div>
           <div className={style.see}>
-            <a href={seeHref}>{see}</a>
+            <Link href={seeHref}>{see}</Link>
           </div>
         </div>
       </div>

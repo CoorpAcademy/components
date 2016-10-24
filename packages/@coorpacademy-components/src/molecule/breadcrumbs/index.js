@@ -1,5 +1,6 @@
 import map from 'lodash/fp/map';
 import {checker, createValidate} from '../../util/validation';
+import createLink from '../../atom/link';
 import createHoverFill from '../../behaviour/effects/hover-fill';
 import style from './style.css';
 
@@ -22,6 +23,7 @@ const conditions = checker.shape({
 export default (treant, options = {}) => {
   const {h} = treant;
 
+  const Link = createLink(treant, options);
   const HoverFill = createHoverFill(treant, options);
 
   const buildBreadcrumbs = breadcrumb => {
@@ -31,9 +33,17 @@ export default (treant, options = {}) => {
         href
     } = breadcrumb;
 
+    if (!href) {
+      return (
+        <div className={style.breadcrumb}>
+          <span>{title}</span>
+        </div>
+      );
+    }
+
     return (
       <div className={style.breadcrumb}>
-        <a href={href}>{title}</a>
+        <Link href={href}>{title}</Link>
       </div>
     );
   };
@@ -50,7 +60,7 @@ export default (treant, options = {}) => {
     return (
       <div className={className}>
         <HoverFill>
-          <a href={href}>{title}</a>
+          <Link href={href}>{title}</Link>
         </HoverFill>
       </div>
     );
