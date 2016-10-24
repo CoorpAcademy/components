@@ -20,10 +20,25 @@ export default (treant, options = {}) => {
   const HoverFill = HoverFillBehaviour(treant, options);
 
   const ForumComment = (props, children) => {
-    const {avatar, onPost, onChange, value} = props;
+    const {avatar, onPost, onChange, value, textareaDisabled, postDisabled} = props;
     const avatarView = avatar && (
       <div className={style.image}>
         <img src={avatar} />
+      </div>
+    );
+
+    const button = (
+      <div
+        className={style.post}
+      >
+        <HoverFill>
+          <button
+            onClick={onPost}
+            disabled={postDisabled}
+          >
+            {translate('Post')}
+          </button>
+        </HoverFill>
       </div>
     );
 
@@ -36,18 +51,11 @@ export default (treant, options = {}) => {
               placeholder={translate('Write something here')}
               value={value}
               oninput={onChange}
+              disabled={textareaDisabled}
             />
           </div>
         </div>
-        <div className={style.post}>
-          <HoverFill>
-            <button
-              onClick={onPost}
-            >
-              {translate('Post')}
-            </button>
-          </HoverFill>
-        </div>
+       {button}
       </div>
     );
   };

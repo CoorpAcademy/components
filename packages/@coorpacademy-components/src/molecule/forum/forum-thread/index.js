@@ -13,52 +13,14 @@ export default (treant, options = {}) => {
   const Post = createForumPost(treant, options);
 
   const ForumThread = (props, children) => {
-    const {
-      author,
-      date,
-      message,
-      avatar,
-      answerAvatar,
-      editable = false,
-      rejectable = false,
-      rejected = false,
-      deleted = false,
-      answer,
-      edition,
-      onPostAnswer,
-      onPostEdition,
-      onChangeAnswer,
-      onChangeEdition,
-      onDelete,
-      onModerate,
-      answers = []
-    } = props;
-
-    const answersView = answers.map(answerProps => (
+    const {answers} = props;
+    const answersView = answers && answers.map(answerProps => (
       <ForumThread {...answerProps}/>
     ));
 
     return (
       <div className={style.thread}>
-        <Post
-          author={author}
-          date={date}
-          message={message}
-          avatar={avatar}
-          answerAvatar={answerAvatar}
-          editable={editable}
-          rejectable={rejectable}
-          deleted={deleted}
-          rejected={rejected}
-          answer={answer}
-          edition={edition}
-          onChangeAnswer={onChangeAnswer}
-          onChangeEdition={onChangeEdition}
-          onPostAnswer={onPostAnswer}
-          onPostEdition={onPostEdition}
-          onModerate={onModerate}
-          onDelete={onDelete}
-        />
+        <Post {...props}/>
         <div className={style.answers}>
           {answersView}
         </div>

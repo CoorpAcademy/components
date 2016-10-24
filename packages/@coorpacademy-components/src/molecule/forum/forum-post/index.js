@@ -25,6 +25,8 @@ export default (treant, options = {}) => {
       date,
       message,
       answer,
+      answerPostDisabled = false,
+      answerTextareaDisabled = false,
       answerAvatar,
       answerable = true,
       editable = false,
@@ -32,6 +34,8 @@ export default (treant, options = {}) => {
       rejected = false,
       deleted = false,
       edition,
+      editionPostDisabled = false,
+      editionTextareaDisabled = false,
       onPostAnswer,
       onPostEdition,
       onChangeAnswer,
@@ -141,6 +145,8 @@ export default (treant, options = {}) => {
               <ForumComment
                 avatar={null}
                 value={edition}
+                textareaDisabled={editionTextareaDisabled}
+                postDisabled={editionPostDisabled}
                 onPost={() => {
                   document.getElementById(idEdit).checked = false;
                   return onPostEdition();
@@ -152,6 +158,8 @@ export default (treant, options = {}) => {
             <div className={style.answer}>
               <ForumComment
                 avatar={answerAvatar}
+                textareaDisabled={answerTextareaDisabled}
+                postDisabled={answerPostDisabled}
                 value={answer}
                 onPost={() => {
                   document.getElementById(idAnswer).checked = false;
