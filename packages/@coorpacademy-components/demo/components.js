@@ -139,12 +139,16 @@ import createVideoPlayerFixtureDefault from '../src/molecule/video-player/test/f
 import createVideoPlayerFixtureWithImage from '../src/molecule/video-player/test/fixtures/with-image';
 import createVideoPlayerFixtureYoutube from '../src/molecule/video-player/test/fixtures/youtube';
 import createForumCommentFixtureDefault from '../src/molecule/forum/forum-comment/test/fixtures/default';
+import createForumCommentFixturePostDisabled from '../src/molecule/forum/forum-comment/test/fixtures/post-disabled';
+import createForumCommentFixtureTextareaDisabled from '../src/molecule/forum/forum-comment/test/fixtures/textarea-disabled';
 import createForumPostFixtureDefault from '../src/molecule/forum/forum-post/test/fixtures/default';
 import createForumPostFixtureDeleted from '../src/molecule/forum/forum-post/test/fixtures/deleted';
 import createForumPostFixtureEditable from '../src/molecule/forum/forum-post/test/fixtures/editable';
 import createForumPostFixtureNotEditableNotRejectable from '../src/molecule/forum/forum-post/test/fixtures/not-editable-not-rejectable';
+import createForumPostFixturePostsLocked from '../src/molecule/forum/forum-post/test/fixtures/posts-locked';
 import createForumPostFixtureRejectable from '../src/molecule/forum/forum-post/test/fixtures/rejectable';
 import createForumPostFixtureRejected from '../src/molecule/forum/forum-post/test/fixtures/rejected';
+import createForumPostFixtureTextareasLocked from '../src/molecule/forum/forum-post/test/fixtures/textareas-locked';
 import createForumThreadFixtureDeepAnswers from '../src/molecule/forum/forum-thread/test/fixtures/deep-answers';
 import createForumThreadFixtureDefault from '../src/molecule/forum/forum-thread/test/fixtures/default';
 import createForumThreadFixtureWithAnswers from '../src/molecule/forum/forum-thread/test/fixtures/with-answers';
@@ -159,6 +163,7 @@ import createDisciplineRightasideFixtureDefault from '../src/organism/discipline
 import createDisciplineRightasideFixtureEmpty from '../src/organism/discipline-rightaside/test/fixtures/empty';
 import createDiscussionFixtureDefault from '../src/organism/discussion/test/fixtures/default';
 import createDiscussionFixtureModeration from '../src/organism/discussion/test/fixtures/moderation';
+import createDiscussionFixtureNewDiscussion from '../src/organism/discussion/test/fixtures/new-discussion';
 import createFormFixtureDefault from '../src/organism/form/test/fixtures/default';
 import createHeaderFixtureDefault from '../src/organism/header/test/fixtures/default';
 import createHeroFixtureDefault from '../src/organism/hero/test/fixtures/default';
@@ -445,15 +450,19 @@ export const fixtures = {
   },
   MoleculeForum: {
     ForumComment: {
-      Default: createForumCommentFixtureDefault
+      Default: createForumCommentFixtureDefault,
+      PostDisabled: createForumCommentFixturePostDisabled,
+      TextareaDisabled: createForumCommentFixtureTextareaDisabled
     },
     ForumPost: {
       Default: createForumPostFixtureDefault,
       Deleted: createForumPostFixtureDeleted,
       Editable: createForumPostFixtureEditable,
       NotEditableNotRejectable: createForumPostFixtureNotEditableNotRejectable,
+      PostsLocked: createForumPostFixturePostsLocked,
       Rejectable: createForumPostFixtureRejectable,
-      Rejected: createForumPostFixtureRejected
+      Rejected: createForumPostFixtureRejected,
+      TextareasLocked: createForumPostFixtureTextareasLocked
     },
     ForumThread: {
       DeepAnswers: createForumThreadFixtureDeepAnswers,
@@ -481,7 +490,8 @@ export const fixtures = {
     },
     Discussion: {
       Default: createDiscussionFixtureDefault,
-      Moderation: createDiscussionFixtureModeration
+      Moderation: createDiscussionFixtureModeration,
+      NewDiscussion: createDiscussionFixtureNewDiscussion
     },
     Form: {
       Default: createFormFixtureDefault

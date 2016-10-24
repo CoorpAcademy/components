@@ -10,7 +10,9 @@ const conditions = checker.shape({
     value: checker.string.optional,
     onPost: checker.func.optional,
     onChange: checker.func.optional,
-    threads: checker.arrayOf(postConditions).optional
+    threads: checker.arrayOf(postConditions).optional,
+    textareaDisabled: checker.bool.optional,
+    postDisabled: checker.bool.optional
   }).optional,
   children: checker.none
 });
@@ -21,7 +23,17 @@ export default (treant, options = {}) => {
   const ForumComment = createForumComment(treant, options);
 
   const Discussion = (props, children) => {
-    const {threads, title, avatar, value, onPost, onChange, hideComments} = props;
+    const {
+      threads,
+      title,
+      avatar,
+      value,
+      onPost,
+      onChange,
+      hideComments,
+      textareaDisabled,
+      postDisabled
+    } = props;
 
     const threadsView = threads.map(thread => (
       <Thread {...thread}/>
@@ -33,6 +45,8 @@ export default (treant, options = {}) => {
         value={value}
         onPost={onPost}
         onChange={onChange}
+        textareaDisabled={textareaDisabled}
+        postDisabled={postDisabled}
       />
     );
 
