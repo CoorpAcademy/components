@@ -1,3 +1,4 @@
+import isEmpty from 'lodash/fp/isEmpty';
 import isString from 'lodash/fp/isString';
 import reduce from 'lodash/fp/reduce';
 import pipe from 'lodash/fp/pipe';
@@ -5,7 +6,9 @@ import keys from 'lodash/fp/keys';
 import set from 'lodash/fp/set';
 import split from 'lodash/fp/split';
 import contains from 'lodash/fp/contains';
-import {map, resolve, walker} from '@coorpacademy/treantjs-core';
+
+import {map, resolve} from '@coorpacademy/treantjs-core';
+
 import h from 'snabbdom/h';
 import {init} from 'snabbdom';
 import classModule from 'snabbdom/modules/class';
@@ -24,9 +27,7 @@ const patch = init([
   eventListenersModule
 ]);
 
-const resolver = walker(resolve);
-
-const eventPattern = /^on([A-Z].+)/;
+const event = /^on([A-Z].+)/;
 const attributes = [
   'allowfullscreen', 'async', 'autofocus', 'autoplay', 'checked', 'compact', 'controls', 'declare',
   'default', 'defaultchecked', 'defaultmuted', 'defaultselected', 'defer', 'disabled', 'draggable',
@@ -43,14 +44,15 @@ const transformProps = props => {
       const value = props[key];
 
       // Events
-      const match = key.match(eventPattern);
+      const match = key.match(event);
       if (match)
         return set(`on.${match[1].toLowerCase()}`, value, data);
 
       // ClassName
       if (key === 'className')
-        return reduce((_data, className) => {
-          return set(`class.${className}`, true, _data);
+        return reduce((data, className) => {
+          if (isEmpty(className)) return data;
+          return set(`class.${className}`, true, data);
         }, data, split(' ', value));
 
       // Attributes
@@ -67,30 +69,28 @@ const transformProps = props => {
 
 const transform = vNode => {
   if (isString(vNode)) return vNode;
-  const resolvedVNode = resolver(vNode);
+  const {tagName, properties, children} = resolve(vNode);
   return h(
-    resolvedVNode.tagName,
-    transformProps(resolvedVNode.properties),
-    map(transform, resolvedVNode.children)
+    tagName,
+    transformProps(properties),
+    map(transform, children)
   );
 };
 
 const render = el => {
-  if (el.firstChild) el.innerHTML = '<div/>';
+  if (!el.firstChild) el.innerHTML = '<div/>';
   let current = virtualize(el.firstChild) || el;
   return vTree => {
-    const v = transform(vTree);
-    current = patch(current, v);
+    current = patch(current, vTree);
     return current.elm;
   };
 };
 
-const renderToString = pipe(
-  transform,
-  toHtml
-);
+const renderToString = toHtml;
 
 export {
+  h,
+  transformProps,
   transform,
   render,
   renderToString

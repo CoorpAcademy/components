@@ -1,4 +1,6 @@
-import {get, getOr} from 'lodash/fp';
+import get from 'lodash/fp/get';
+import getOr from 'lodash/fp/getOr';
+import pipe from 'lodash/fp/pipe';
 import {h} from '@coorpacademy/treantjs-core';
 
 export default (test, {render, transform}) => {
@@ -7,8 +9,8 @@ export default (test, {render, transform}) => {
       value: {
         color: 'blue'
       },
-      assert: (t, el) => {
-        t.deepEqual(el.style.color, 'blue');
+      assert: (deepEqual, el) => {
+        deepEqual(el.style.color, 'blue');
       }
     },
     className: 'foo',
@@ -24,19 +26,22 @@ export default (test, {render, transform}) => {
 
     const tagName = getOr('div', 'tagName', prop);
     const value = getOr(prop, 'value', prop);
-    const assert = getOr((t, el) => {
-      t.deepEqual(get(key, el), value);
+    const assert = getOr((deepEqual, el) => {
+      deepEqual(get(key, el), value);
     }, 'assert', prop);
 
     test(`should render ${key} attribute`, t => {
-      const container = document.createElement('div');
-      const update = render(container);
-      const vTree = h(tagName, {
+      const update = pipe(
+        transform,
+        render(document.createElement('div'))
+      );
+      const el = update(h(tagName, {
         [key]: value
-      });
-
-      const el = update(vTree);
-      assert(t, el);
+      }));
+      assert(
+        (...argz) => t.deepEqual(...argz),
+        el
+      );
     });
   });
 
@@ -47,21 +52,22 @@ export default (test, {render, transform}) => {
   Object.keys(events).forEach(eventName => {
     const attribute = events[eventName];
 
-    test.cb(`should attch ${eventName} listener`, t => {
+    test.cb(`should attach ${eventName} listener`, t => {
       t.plan(1);
       const onEvent = e => {
         t.pass();
         t.end();
       };
-      const container = document.createElement('div');
-      const update = render(container);
-      const vTree = <div {...{[attribute]: onEvent}}/>;
-      const el = update(vTree);
 
-      document.body.appendChild(el);
-      const customEvent = document.createEvent('Event');
-      customEvent.initEvent(eventName, true, true);
-      el.dispatchEvent(customEvent);
+      const update = pipe(
+        transform,
+        render(document.createElement('div'))
+      );
+      const root = update(<div {...{[attribute]: onEvent}}/>);
+      window.document.body.appendChild(root);
+      const event = document.createEvent('Event');
+      event.initEvent(eventName, true, true);
+      root.dispatchEvent(event);
     });
   });
 };
