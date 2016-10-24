@@ -53,7 +53,12 @@ export default (treant, options = {}) => {
             <button
               id={idButton}
               disabled={!value || value.length === 0}
-              onClick={onPost}
+              onClick={e => {
+                const button = document.getElementById(idButton);
+                if (!button.disabled) {
+                  onPost(e);
+                }
+              }}
             >
               {translate('Post')}
             </button>

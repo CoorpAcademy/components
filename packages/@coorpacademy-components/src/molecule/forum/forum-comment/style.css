@@ -61,7 +61,8 @@
 }
 
 .post button:disabled {
-  display: none;
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .post button:before {
