@@ -1,0 +1,77 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value tablet from breakpoints;
+
+.list {
+  list-style-type: none;
+  width: 100%;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: solid 2px #eee;
+  position: relative;
+  border-radius: 3px;
+  box-shadow: 0 6px 12px rgba(0,0,0,.175);
+  text-transform: initial ;
+  background-color: #ffffff;
+}
+
+.list:before {
+  display: block;
+  top: -17px;
+  left: 50px;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(0,0,0,0);
+  border-bottom-color: #eee;
+  border-width: 8px;
+  margin-left: -8px;
+}
+
+.item {
+  border-bottom: solid 1px #eee;
+}
+
+.item:hover {
+  cursor: pointer;
+}
+
+.item a {
+  font-family: Open Sans;
+  font-size: 12px;
+  color: #787878;
+  text-decoration: none;
+  line-height: 40px;
+  padding: 0 20px;
+  display: inline-block;;
+  vertical-align: middle;
+  text-transform: initial;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.item:hover a {
+  color: #00b0ff;
+}
+
+.item:last-child {
+  border-bottom: 0;
+}
+
+.item:last-child:hover {
+  border-color: #00b0ff;
+}
+
+
+@media tablet {
+  .list {
+    box-shadow: none;
+    border: none;
+    margin-top: 10px;
+  }
+}

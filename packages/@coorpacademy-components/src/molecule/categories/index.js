@@ -1,6 +1,7 @@
 import _find from 'lodash/fp/find';
 import identity from 'lodash/fp/identity';
 import getOr from 'lodash/fp/getOr';
+import map from 'lodash/fp/map';
 import createLink from '../../atom/link';
 import {checker, createValidate} from '../../util/validation';
 import style from './style.css';
@@ -25,26 +26,28 @@ export default (treant, options = {}) => {
 
   const Link = createLink(treant, options);
 
+  const buildCategory = category => {
+    const {href, selected} = category;
+    const _name = getOr('', 'name', category);
+
+    const linkProps = selected ? {
+      className: style.selected
+    } : {};
+
+    return (
+      <li className={style.filter}>
+        <Link
+          {...linkProps}
+          href={href}
+        >
+          {_name}
+        </Link>
+      </li>
+    );
+  };
+
   const Categories = ({categories = []}, children) => {
-    const CategoriesDiv = categories.map(category => {
-      const {href, selected} = category;
-      const _name = getOr('', 'name', category);
-
-      const linkProps = selected ? {
-        className: style.selected
-      } : {};
-
-      return (
-        <li className={style.filter}>
-          <Link
-            {...linkProps}
-            href={href}
-          >
-            {_name}
-          </Link>
-        </li>
-      );
-    });
+    const CategoriesDiv = map(buildCategory, categories);
 
     const selectedCategory = _find({
       selected: true

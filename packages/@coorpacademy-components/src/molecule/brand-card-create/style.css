@@ -1,0 +1,98 @@
+.wrapper {
+  width: 300px;
+  height: 300px;
+  box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.09);
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: #ffffff;
+  position: relative;
+}
+
+.wrapper:hover .circle {
+  border: 1px solid #B3E5FC;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid #F2F2F2;
+  top: 50%;
+  left: 50%;
+  transition: border 0.4s ease-out;
+}
+
+.circle1 {
+  composes: circle;
+  width: 146px;
+  height: 146px;
+  margin-top: -75px;
+  margin-left: -75px;
+  transition-delay: 0.2s;
+}
+
+.circle2 {
+  composes: circle;
+  width: 246px;
+  height: 246px;
+  margin-top: -125px;
+  margin-left: -125px;
+  transition-delay: 0.4s;
+}
+
+.circle3 {
+  composes: circle;
+  width: 346px;
+  height: 346px;
+  margin-top: -175px;
+  margin-left: -175px;
+  transition-delay: 0.6s;
+}
+
+.edit {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 9;
+  border-right: 1px solid #F5F5F5;
+}
+
+.edit:before {
+  display: block;
+  content: '+';
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 46px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -25px;
+  margin-left: -25px;
+  border-radius: 50%;
+  width: 46px;
+  height: 46px;
+  text-align: center;
+  color: #00B0FF;
+  border: solid 2px #00B0FF;
+}
+
+.edit a {
+  font-family: 'Open Sans';
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: #455A64;
+}
+
+.edit a:hover {
+  text-decoration: underline;
+}
+
+.edit a span {
+  display: inline-block;
+  margin-top: 220px;
+}

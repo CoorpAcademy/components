@@ -1,0 +1,26 @@
+@value breakpoints: "../../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value tablet from breakpoints;
+@value desktop from breakpoints;
+
+.container {
+  width: 100%;
+  padding-top: 50px;
+}
+
+.wrapper {
+  max-width: 800px;
+  margin: auto;
+}
+
+.notifications {
+  margin-bottom: 20px;
+}
+
+.notification {
+  margin-bottom: 10px;
+}
+
+.notification:last-child {
+  margin-bottom: 0;
+}

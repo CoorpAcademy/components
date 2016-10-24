@@ -1,10 +1,14 @@
 import createCenteredText from '../src/atom/centered-text';
 import createInputColor from '../src/atom/input-color';
+import createInputReadonly from '../src/atom/input-readonly';
+import createInputSwitch from '../src/atom/input-switch';
 import createInputText from '../src/atom/input-text';
+import createInputTextarea from '../src/atom/input-textarea';
 import createLabelModName from '../src/atom/label-mod-name';
 import createLabelNormal from '../src/atom/label-normal';
 import createLabel from '../src/atom/label';
 import createLink from '../src/atom/link';
+import createNotification from '../src/atom/notification';
 import createPicture from '../src/atom/picture';
 import createSelect from '../src/atom/select';
 import createSpinner from '../src/atom/spinner';
@@ -21,6 +25,12 @@ import createEmbossed from '../src/behaviour/font/embossed';
 import createNormal from '../src/behaviour/font/normal';
 import createTiny from '../src/behaviour/font/tiny';
 import createUppercase from '../src/behaviour/font/uppercase';
+import createBrandCardCreate from '../src/molecule/brand-card-create';
+import createBrandCard from '../src/molecule/brand-card';
+import createBrandContentGroup from '../src/molecule/brand-content-group';
+import createBrandCreateForm from '../src/molecule/brand-create-form';
+import createBrandTabs from '../src/molecule/brand-tabs';
+import createBreadcrumbs from '../src/molecule/breadcrumbs';
 import createCatalogCard from '../src/molecule/catalog-card';
 import createCatalogCta from '../src/molecule/catalog-cta';
 import createCategories from '../src/molecule/categories';
@@ -46,31 +56,42 @@ import createVideoPlayer from '../src/molecule/video-player';
 import createForumComment from '../src/molecule/forum/forum-comment';
 import createForumPost from '../src/molecule/forum/forum-post';
 import createForumThread from '../src/molecule/forum/forum-thread';
+import createBrandContent from '../src/organism/brand-content';
 import createCatalogCards from '../src/organism/catalog-cards';
 import createCursusRightaside from '../src/organism/cursus-rightaside';
 import createDisciplineCards from '../src/organism/discipline-cards';
 import createDisciplineRightaside from '../src/organism/discipline-rightaside';
 import createDiscussion from '../src/organism/discussion';
 import createForm from '../src/organism/form';
+import createGridList from '../src/organism/grid-list';
 import createHeader from '../src/organism/header';
 import createHero from '../src/organism/hero';
+import createSetupHeader from '../src/organism/setup-header';
 import createCatalog from '../src/template/app-catalog/catalog';
 import createProductCourse from '../src/template/app-catalog/product-course';
 import createProductCursus from '../src/template/app-catalog/product-cursus';
-import createUpdateBrand from '../src/template/back-office/update-brand';
+import createBrandCreate from '../src/template/back-office/brand-create';
+import createBrandList from '../src/template/back-office/brand-list';
+import createBrandUpdate from '../src/template/back-office/brand-update';
 import createCoorpHeader from '../src/template/common/coorp-header';
 import createCenteredTextFixtureDefault from '../src/atom/centered-text/test/fixtures/default';
 import createInputColorFixtureDefault from '../src/atom/input-color/test/fixtures/default';
 import createInputColorFixtureEmpty from '../src/atom/input-color/test/fixtures/empty';
 import createInputColorFixtureError from '../src/atom/input-color/test/fixtures/error';
+import createInputReadonlyFixtureDefault from '../src/atom/input-readonly/test/fixtures/default';
+import createInputSwitchFixtureDefault from '../src/atom/input-switch/test/fixtures/default';
 import createInputTextFixtureDefault from '../src/atom/input-text/test/fixtures/default';
 import createInputTextFixtureEmpty from '../src/atom/input-text/test/fixtures/empty';
 import createInputTextFixtureError from '../src/atom/input-text/test/fixtures/error';
+import createInputTextareaFixtureDefault from '../src/atom/input-textarea/test/fixtures/default';
+import createInputTextareaFixtureEmpty from '../src/atom/input-textarea/test/fixtures/empty';
+import createInputTextareaFixtureError from '../src/atom/input-textarea/test/fixtures/error';
 import createLabelModNameFixtureFixture from '../src/atom/label-mod-name/test/fixtures/fixture';
 import createLabelNormalFixtureFixture from '../src/atom/label-normal/test/fixtures/fixture';
 import createLabelFixtureOneChild from '../src/atom/label/test/fixtures/one-child';
 import createLabelFixtureTwoChildren from '../src/atom/label/test/fixtures/two-children';
 import createLinkFixtureHref from '../src/atom/link/test/fixtures/href';
+import createNotificationFixtureDefault from '../src/atom/notification/test/fixtures/default';
 import createPictureFixtureDefault from '../src/atom/picture/test/fixtures/default';
 import createPictureFixtureEmpty from '../src/atom/picture/test/fixtures/empty';
 import createPictureFixtureSimpleSrc from '../src/atom/picture/test/fixtures/simple-src';
@@ -90,6 +111,19 @@ import createEmbossedFixtureDefault from '../src/behaviour/font/embossed/test/fi
 import createNormalFixtureDefault from '../src/behaviour/font/normal/test/fixtures/default';
 import createTinyFixtureDefault from '../src/behaviour/font/tiny/test/fixtures/default';
 import createUppercaseFixtureDefault from '../src/behaviour/font/uppercase/test/fixtures/default';
+import createBrandCardCreateFixtureDefault from '../src/molecule/brand-card-create/test/fixtures/default';
+import createBrandCardFixtureDefault from '../src/molecule/brand-card/test/fixtures/default';
+import createBrandContentGroupFixtureDefault from '../src/molecule/brand-content-group/test/fixtures/default';
+import createBrandContentGroupFixtureLookandfeel from '../src/molecule/brand-content-group/test/fixtures/lookandfeel';
+import createBrandContentGroupFixtureSso from '../src/molecule/brand-content-group/test/fixtures/sso';
+import createBrandCreateFormFixtureDefault from '../src/molecule/brand-create-form/test/fixtures/default';
+import createBrandCreateFormFixtureError from '../src/molecule/brand-create-form/test/fixtures/error';
+import createBrandCreateFormFixtureLoading from '../src/molecule/brand-create-form/test/fixtures/loading';
+import createBrandCreateFormFixtureModified from '../src/molecule/brand-create-form/test/fixtures/modified';
+import createBrandTabsFixtureDefault from '../src/molecule/brand-tabs/test/fixtures/default';
+import createBrandTabsFixtureLookandfeel from '../src/molecule/brand-tabs/test/fixtures/lookandfeel';
+import createBrandTabsFixtureSso from '../src/molecule/brand-tabs/test/fixtures/sso';
+import createBreadcrumbsFixtureDefault from '../src/molecule/breadcrumbs/test/fixtures/default';
 import createCatalogCardFixtureDefault from '../src/molecule/catalog-card/test/fixtures/default';
 import createCatalogCtaFixtureDefault from '../src/molecule/catalog-cta/test/fixtures/default';
 import createCatalogCtaFixtureEmpty from '../src/molecule/catalog-cta/test/fixtures/empty';
@@ -152,6 +186,9 @@ import createForumPostFixtureTextareasLocked from '../src/molecule/forum/forum-p
 import createForumThreadFixtureDeepAnswers from '../src/molecule/forum/forum-thread/test/fixtures/deep-answers';
 import createForumThreadFixtureDefault from '../src/molecule/forum/forum-thread/test/fixtures/default';
 import createForumThreadFixtureWithAnswers from '../src/molecule/forum/forum-thread/test/fixtures/with-answers';
+import createBrandContentFixtureDefault from '../src/organism/brand-content/test/fixtures/default';
+import createBrandContentFixtureLookandfeel from '../src/organism/brand-content/test/fixtures/lookandfeel';
+import createBrandContentFixtureSso from '../src/organism/brand-content/test/fixtures/sso';
 import createCatalogCardsFixtureDefault from '../src/organism/catalog-cards/test/fixtures/default';
 import createCatalogCardsFixtureLoading from '../src/organism/catalog-cards/test/fixtures/loading';
 import createCatalogCardsFixtureNoProducts from '../src/organism/catalog-cards/test/fixtures/no-products';
@@ -167,6 +204,7 @@ import createDiscussionFixtureNewDiscussion from '../src/organism/discussion/tes
 import createFormFixtureDefault from '../src/organism/form/test/fixtures/default';
 import createHeaderFixtureDefault from '../src/organism/header/test/fixtures/default';
 import createHeroFixtureDefault from '../src/organism/hero/test/fixtures/default';
+import createSetupHeaderFixtureDefault from '../src/organism/setup-header/test/fixtures/default';
 import createCatalogFixtureDefault from '../src/template/app-catalog/catalog/test/fixtures/default';
 import createCatalogFixtureEmpty from '../src/template/app-catalog/catalog/test/fixtures/empty';
 import createCatalogFixtureLoading from '../src/template/app-catalog/catalog/test/fixtures/loading';
@@ -177,7 +215,21 @@ import createProductCourseFixtureNoVideo from '../src/template/app-catalog/produ
 import createProductCursusFixtureDefault from '../src/template/app-catalog/product-cursus/test/fixtures/default';
 import createProductCursusFixtureEmpty from '../src/template/app-catalog/product-cursus/test/fixtures/empty';
 import createProductCursusFixtureLoading from '../src/template/app-catalog/product-cursus/test/fixtures/loading';
-import createUpdateBrandFixtureDefault from '../src/template/back-office/update-brand/test/fixtures/default';
+import createBrandCreateFixtureDefault from '../src/template/back-office/brand-create/test/fixtures/default';
+import createBrandCreateFixtureError from '../src/template/back-office/brand-create/test/fixtures/error';
+import createBrandCreateFixtureLoading from '../src/template/back-office/brand-create/test/fixtures/loading';
+import createBrandCreateFixtureModified from '../src/template/back-office/brand-create/test/fixtures/modified';
+import createBrandListFixtureDefault from '../src/template/back-office/brand-list/test/fixtures/default';
+import createBrandListFixtureLoading from '../src/template/back-office/brand-list/test/fixtures/loading';
+import createBrandUpdateFixtureGeneralSettingsSuccess from '../src/template/back-office/brand-update/test/fixtures/general-settings-success';
+import createBrandUpdateFixtureGeneralSettings from '../src/template/back-office/brand-update/test/fixtures/general-settings';
+import createBrandUpdateFixtureLookandfeelError from '../src/template/back-office/brand-update/test/fixtures/lookandfeel-error';
+import createBrandUpdateFixtureLookandfeelModified from '../src/template/back-office/brand-update/test/fixtures/lookandfeel-modified';
+import createBrandUpdateFixtureLookandfeelPending from '../src/template/back-office/brand-update/test/fixtures/lookandfeel-pending';
+import createBrandUpdateFixtureLookandfeelSuccess from '../src/template/back-office/brand-update/test/fixtures/lookandfeel-success';
+import createBrandUpdateFixtureLookandfeel from '../src/template/back-office/brand-update/test/fixtures/lookandfeel';
+import createBrandUpdateFixtureSsoActivate from '../src/template/back-office/brand-update/test/fixtures/sso-activate';
+import createBrandUpdateFixtureSso from '../src/template/back-office/brand-update/test/fixtures/sso';
 import createCoorpHeaderFixtureProduction from '../src/template/common/coorp-header/test/fixtures/production';
 import createCoorpHeaderFixtureStaging from '../src/template/common/coorp-header/test/fixtures/staging';
 
@@ -185,11 +237,15 @@ export const components = {
   Atom: {
     CenteredText: createCenteredText,
     InputColor: createInputColor,
+    InputReadonly: createInputReadonly,
+    InputSwitch: createInputSwitch,
     InputText: createInputText,
+    InputTextarea: createInputTextarea,
     LabelModName: createLabelModName,
     LabelNormal: createLabelNormal,
     Label: createLabel,
     Link: createLink,
+    Notification: createNotification,
     Picture: createPicture,
     Select: createSelect,
     Spinner: createSpinner,
@@ -216,6 +272,12 @@ export const components = {
     Uppercase: createUppercase
   },
   Molecule: {
+    BrandCardCreate: createBrandCardCreate,
+    BrandCard: createBrandCard,
+    BrandContentGroup: createBrandContentGroup,
+    BrandCreateForm: createBrandCreateForm,
+    BrandTabs: createBrandTabs,
+    Breadcrumbs: createBreadcrumbs,
     CatalogCard: createCatalogCard,
     CatalogCta: createCatalogCta,
     Categories: createCategories,
@@ -245,14 +307,17 @@ export const components = {
     ForumThread: createForumThread
   },
   Organism: {
+    BrandContent: createBrandContent,
     CatalogCards: createCatalogCards,
     CursusRightaside: createCursusRightaside,
     DisciplineCards: createDisciplineCards,
     DisciplineRightaside: createDisciplineRightaside,
     Discussion: createDiscussion,
     Form: createForm,
+    GridList: createGridList,
     Header: createHeader,
-    Hero: createHero
+    Hero: createHero,
+    SetupHeader: createSetupHeader
   },
   TemplateAppCatalog: {
     Catalog: createCatalog,
@@ -260,7 +325,9 @@ export const components = {
     ProductCursus: createProductCursus
   },
   TemplateBackOffice: {
-    UpdateBrand: createUpdateBrand
+    BrandCreate: createBrandCreate,
+    BrandList: createBrandList,
+    BrandUpdate: createBrandUpdate
   },
   TemplateCommon: {
     CoorpHeader: createCoorpHeader
@@ -276,10 +343,21 @@ export const fixtures = {
       Empty: createInputColorFixtureEmpty,
       Error: createInputColorFixtureError
     },
+    InputReadonly: {
+      Default: createInputReadonlyFixtureDefault
+    },
+    InputSwitch: {
+      Default: createInputSwitchFixtureDefault
+    },
     InputText: {
       Default: createInputTextFixtureDefault,
       Empty: createInputTextFixtureEmpty,
       Error: createInputTextFixtureError
+    },
+    InputTextarea: {
+      Default: createInputTextareaFixtureDefault,
+      Empty: createInputTextareaFixtureEmpty,
+      Error: createInputTextareaFixtureError
     },
     LabelModName: {
       Fixture: createLabelModNameFixtureFixture
@@ -293,6 +371,9 @@ export const fixtures = {
     },
     Link: {
       Href: createLinkFixtureHref
+    },
+    Notification: {
+      Default: createNotificationFixtureDefault
     },
     Picture: {
       Default: createPictureFixtureDefault,
@@ -355,6 +436,31 @@ export const fixtures = {
     }
   },
   Molecule: {
+    BrandCardCreate: {
+      Default: createBrandCardCreateFixtureDefault
+    },
+    BrandCard: {
+      Default: createBrandCardFixtureDefault
+    },
+    BrandContentGroup: {
+      Default: createBrandContentGroupFixtureDefault,
+      Lookandfeel: createBrandContentGroupFixtureLookandfeel,
+      Sso: createBrandContentGroupFixtureSso
+    },
+    BrandCreateForm: {
+      Default: createBrandCreateFormFixtureDefault,
+      Error: createBrandCreateFormFixtureError,
+      Loading: createBrandCreateFormFixtureLoading,
+      Modified: createBrandCreateFormFixtureModified
+    },
+    BrandTabs: {
+      Default: createBrandTabsFixtureDefault,
+      Lookandfeel: createBrandTabsFixtureLookandfeel,
+      Sso: createBrandTabsFixtureSso
+    },
+    Breadcrumbs: {
+      Default: createBreadcrumbsFixtureDefault
+    },
     CatalogCard: {
       Default: createCatalogCardFixtureDefault
     },
@@ -471,6 +577,11 @@ export const fixtures = {
     }
   },
   Organism: {
+    BrandContent: {
+      Default: createBrandContentFixtureDefault,
+      Lookandfeel: createBrandContentFixtureLookandfeel,
+      Sso: createBrandContentFixtureSso
+    },
     CatalogCards: {
       Default: createCatalogCardsFixtureDefault,
       Loading: createCatalogCardsFixtureLoading,
@@ -501,6 +612,9 @@ export const fixtures = {
     },
     Hero: {
       Default: createHeroFixtureDefault
+    },
+    SetupHeader: {
+      Default: createSetupHeaderFixtureDefault
     }
   },
   TemplateAppCatalog: {
@@ -522,8 +636,26 @@ export const fixtures = {
     }
   },
   TemplateBackOffice: {
-    UpdateBrand: {
-      Default: createUpdateBrandFixtureDefault
+    BrandCreate: {
+      Default: createBrandCreateFixtureDefault,
+      Error: createBrandCreateFixtureError,
+      Loading: createBrandCreateFixtureLoading,
+      Modified: createBrandCreateFixtureModified
+    },
+    BrandList: {
+      Default: createBrandListFixtureDefault,
+      Loading: createBrandListFixtureLoading
+    },
+    BrandUpdate: {
+      GeneralSettingsSuccess: createBrandUpdateFixtureGeneralSettingsSuccess,
+      GeneralSettings: createBrandUpdateFixtureGeneralSettings,
+      LookandfeelError: createBrandUpdateFixtureLookandfeelError,
+      LookandfeelModified: createBrandUpdateFixtureLookandfeelModified,
+      LookandfeelPending: createBrandUpdateFixtureLookandfeelPending,
+      LookandfeelSuccess: createBrandUpdateFixtureLookandfeelSuccess,
+      Lookandfeel: createBrandUpdateFixtureLookandfeel,
+      SsoActivate: createBrandUpdateFixtureSsoActivate,
+      Sso: createBrandUpdateFixtureSso
     }
   },
   TemplateCommon: {

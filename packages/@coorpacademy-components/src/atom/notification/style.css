@@ -1,0 +1,44 @@
+.message {
+  width: 100%;
+  font-family: 'Open Sans';
+  font-weight: 700;
+  font-size: 14px;
+  text-align: center;
+  color: #455A64;
+  border: 1px solid #455A64;
+  border-radius: 2px;
+  padding: 10px 20px;
+  box-sizing: border-box;
+}
+
+.message span {
+  display: inline-block;
+  line-height: 22px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: #455A64;
+  color: #ffffff;
+  text-align: center;
+  margin-right: 10px;
+}
+
+.success {
+  composes: message;
+  color: #3AB63F;
+  border-color: #3AB63F;
+}
+
+.success span {
+  background-color: #3AB63F;
+}
+
+.error {
+  composes: message;
+  color: #eb5c41;
+  border-color: #eb5c41;
+}
+
+.error span {
+  background-color: #eb5c41;
+}

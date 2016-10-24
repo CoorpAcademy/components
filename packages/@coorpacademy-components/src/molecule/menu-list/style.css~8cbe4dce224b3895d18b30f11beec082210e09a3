@@ -1,0 +1,180 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value tablet from breakpoints;
+
+.toggleBox {
+  position: absolute;
+  left: -99999px;
+  top: -99999px;
+}
+
+.toggler {
+  display: none;
+  content: "≡";
+  font-size: 40px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-right: 10px;
+  background-color: transparent;
+  transition: background-color 0.2s ease-out;
+}
+
+.list {
+  list-style-type: none;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.item {
+  display: inline-block;
+  position: relative;
+  padding: 15px;
+  z-index: 9;
+}
+
+.item:nth-child(5) {
+  padding-right: 0;
+}
+
+.item:hover {
+  cursor: pointer;
+}
+
+.item > a {
+  font-family: Open Sans;
+  font-size: 12px;
+  color: #4C616B;
+  text-decoration: none;
+  text-transform: uppercase;
+  line-height: 22px;
+  display: inline-block;
+}
+
+.item:hover > a {
+  color: #00b0ff;
+}
+
+.item:nth-child(4), .item:nth-child(5) {
+  cursor: default;
+}
+
+.item:nth-child(4) > a {
+  border: solid 1px #4C616B;
+  color: #4C616B;
+  padding: 0 4px;
+}
+
+.item:nth-child(4) > a:hover {
+  border: solid 1px #4C616B;
+  background-color: #4C616B;
+  color: white;
+}
+
+.item:nth-child(5) > a {
+  border: solid 1px #ffb90d;
+  color: #ffb90d;
+  padding: 0 4px;
+}
+
+.item:nth-child(5) > a:hover {
+  background: #ffb90d;
+  border-color: #ffb90d;
+  color: white;
+}
+
+.subNav {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 50px;
+  z-index: 1000;
+  min-width: 230px;
+}
+
+.item:hover .subNav {
+  display: block;
+}
+
+.transifexList {
+  display: inline-flex;
+  list-style: none;
+  text-align: left;
+  padding: 0 20px;
+}
+
+.transifexList:after {
+  position: relative;
+  top: 5px;
+}
+
+@media tablet {
+  .list {
+    position: fixed;
+    height: 100%;
+    width: 275px;
+    top: 0;
+    right: -280px;
+    background-color: #ECEFF1;
+    box-shadow: 1px 0 10px grey;
+    transition: right 0.2s ease-out;
+    overflow: auto;
+    padding: 10px 0;
+  }
+
+  .item {
+    display: block;
+    padding: 5px 0;
+    text-align: center;
+    border-bottom: solid 2px #eee;
+    position: relative;
+  }
+
+  .subNav {
+    display: block;
+    position: relative;
+    top: auto;
+    min-width: auto;
+    left: auto;
+  }
+
+  .item:hover > a {
+    color: inherit;
+  }
+
+  .item:nth-child(4) > a {
+    border: solid 1px #4C616B;
+    color: #4C616B;
+    padding: 0 20px;
+  }
+
+  .item:nth-child(5) > a {
+    border: solid 1px #ffb90d;
+    color: #ffb90d;
+    padding: 0 20px;
+  }
+
+  .toggler {
+    display: block;
+  }
+
+  .toggleBox {
+    display: block;
+  }
+
+  .toggleBox:checked ~ .toggler {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: transparent;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  .toggleBox:checked ~ .list {
+    display: block;
+    right: 0;
+  }
+}

@@ -1,6 +1,5 @@
 .default {
   composes: default from '../input-text/style.css';
-  position: relative;
 }
 
 .error {
@@ -8,14 +7,26 @@
   composes: default;
 }
 
+.title {
+  composes: title from '../input-text/style.css';
+}
+
 .preview {
   z-index: 999;
   content: '';
   width: 20px;
   height: 20px;
-  margin-top: -10px;
   border-radius: 50%;
-  top: 50%;
   right: 10px;
   position: absolute;
+  top: 50%;
+  margin-top: -10px;
+}
+
+.description {
+  composes: description from '../input-text/style.css';
+}
+
+.description {
+  composes: description from '../input-text/style.css';
 }
