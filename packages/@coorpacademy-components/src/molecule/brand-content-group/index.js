@@ -38,7 +38,6 @@ export default (treant, options = {}) => {
   const BrandContentGroup = (props, children) => {
     const {
       title,
-      disabled,
       fields
     } = props;
 
@@ -59,6 +58,10 @@ export default (treant, options = {}) => {
           return (
             <InputSwitch {...field} />
           );
+        case 'textarea':
+          return (
+            <InputTextarea {...field} />
+          );
         default:
           return (
             <InputText {...field} />
@@ -74,7 +77,7 @@ export default (treant, options = {}) => {
           {input}
         </div>
       );
-    }
+    };
 
     const fieldsList = map(buildField, fields);
 

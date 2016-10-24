@@ -75,7 +75,7 @@ export default (treant, options = {}) => {
         <div className={style.notification}>
           <Notification {...notification} />
         </div>
-      )
+      );
     }, notifications);
 
     return (

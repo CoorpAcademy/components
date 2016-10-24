@@ -37,9 +37,9 @@ export default (treant, options = {}) => {
   const BrandContent = (props, children) => {
     const {
       groups,
-      disabled,
+      // disabled,
       isModified,
-      isPending,
+      // isPending,
       onSubmit
     } = props;
 

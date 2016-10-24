@@ -28,7 +28,6 @@ export default (treant, options = {}) => {
 
   const buildBreadcrumbs = breadcrumb => {
     const {
-        icon,
         title,
         href
     } = breadcrumb;

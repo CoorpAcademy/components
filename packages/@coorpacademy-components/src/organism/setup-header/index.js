@@ -9,7 +9,7 @@ const conditions = checker.shape({
     href: checker.string.optional,
     user: checker.shape({
       username: checker.string,
-      image: checker.string,
+      image: checker.string
     }),
     logo: checker.string.optional
   })
