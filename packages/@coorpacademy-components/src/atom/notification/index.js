@@ -13,7 +13,7 @@ const conditions = checker.shape({
 export default (treant, options = {}) => {
   const {h} = treant;
 
-  const Notification = (props, children) => {
+  const NotificationComponent = (props, children) => {
     const {
       type,
       message
@@ -28,6 +28,6 @@ export default (treant, options = {}) => {
     );
   };
 
-  Notification.validate = createValidate(conditions);
-  return Notification;
+  NotificationComponent.validate = createValidate(conditions);
+  return NotificationComponent;
 };

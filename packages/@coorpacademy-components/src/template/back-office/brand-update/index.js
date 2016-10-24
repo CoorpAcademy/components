@@ -59,7 +59,7 @@ export default (treant, options = {}) => {
   const Breadcrumbs = createBreadcrumbs(treant, options);
   const BrandTabs = createBrandTabs(treant, options);
   const BrandContent = createBrandContent(treant, options);
-  const Notification = createNotification(treant, options);
+  const NotificationComponent = createNotification(treant, options);
 
   const BrandUpdate = (props, children) => {
     const {
@@ -73,7 +73,7 @@ export default (treant, options = {}) => {
     const notificationsList = map(notification => {
       return (
         <div className={style.notification}>
-          <Notification {...notification} />
+          <NotificationComponent {...notification} />
         </div>
       );
     }, notifications);
