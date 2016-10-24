@@ -26,6 +26,7 @@ export default (treant, options) => {
     } = props;
 
     const checked = value ? 'checked' : '';
+    const isDisabled = disabled ? 'disabled' : '';
 
     return (
       <div className={style.default}>
@@ -36,6 +37,7 @@ export default (treant, options) => {
           name={title}
           onInput={e => onChange(e.target.value)}
           checked={checked}
+          disabled={isDisabled}
           className={style.checkbox}
         />
         <label htmlFor={title}></label>
