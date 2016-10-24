@@ -13,7 +13,7 @@ export default (test, {render, transform}) => {
     },
     className: 'foo',
     htmlFor: {
-      tagName: 'label', 
+      tagName: 'label',
       value: 'foo'
     },
     id: 'foo',
