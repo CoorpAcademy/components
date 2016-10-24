@@ -48,7 +48,7 @@ export default (treant, options = {}) => {
     const idEdit = uniqueId('forum-post-edit-toggler-');
     const idReject = uniqueId('forum-post-reject-toggler-');
 
-    const infoDeleted = translate('* This message has been removed. *');
+    const infoDeleted = translate('This message has been removed.');
     const answerLabel = translate('Answer');
     const editLabel = translate('Edit');
     const deleteLabel = translate('Delete');
@@ -137,7 +137,7 @@ export default (treant, options = {}) => {
               {rejected ? putBackLabel : rejectLabel}
             </label>
 
-            <div className={style.message}>
+            <div className={deleted ? style.deletedMessage : style.message }>
               {deleted ? infoDeleted : message}
             </div>
 
