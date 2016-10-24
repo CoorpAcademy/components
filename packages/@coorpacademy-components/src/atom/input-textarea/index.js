@@ -4,7 +4,6 @@ import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({
-    title: checker.string,
     type: checker.string,
     placeholder: checker.string,
     disabled: checker.bool.optional,
@@ -21,7 +20,6 @@ export default (treant, options) => {
 
   const InputTextarea = (props, children) => {
     const {
-      type,
       title,
       placeholder,
       value,
