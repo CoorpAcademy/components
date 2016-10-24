@@ -58,6 +58,11 @@
   word-wrap: break-word;
 }
 
+.deletedMessage {
+  composes: message;
+  font-style: italic;
+}
+
 .action {
   font-size: 12px;
   margin: 0 14px 0 0;

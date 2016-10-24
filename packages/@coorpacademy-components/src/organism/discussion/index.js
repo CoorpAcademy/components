@@ -35,7 +35,7 @@ export default (treant, options = {}) => {
       postDisabled
     } = props;
 
-    const threadsView = threads.map(thread => (
+    const threadsView = threads && threads.map(thread => (
       <Thread {...thread}/>
     ));
 
