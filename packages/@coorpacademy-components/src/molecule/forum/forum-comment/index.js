@@ -1,4 +1,5 @@
 import identity from 'lodash/fp/identity';
+import uniqueId from 'lodash/fp/uniqueId';
 import HoverFillBehaviour from '../../../behaviour/effects/hover-fill';
 import {checker, createValidate} from '../../../util/validation';
 import style from './style.css';
@@ -27,6 +28,8 @@ export default (treant, options = {}) => {
       </div>
     );
 
+    const idButton = uniqueId('forum-post-button-');
+
     return (
       <div className={style.container}>
         <div className={style.wrapper}>
@@ -35,13 +38,21 @@ export default (treant, options = {}) => {
             <textarea
               placeholder={translate('Write something here')}
               value={value}
-              oninput={onChange}
+              oninput={e => {
+                const button = document.getElementById(idButton);
+                button.disabled = e.currentTarget.value.length === 0;
+                onChange(e);
+              }}
             />
           </div>
         </div>
-        <div className={style.post}>
+        <div
+          className={style.post}
+        >
           <HoverFill>
             <button
+              id={idButton}
+              disabled={!value || value.length === 0}
               onClick={onPost}
             >
               {translate('Post')}

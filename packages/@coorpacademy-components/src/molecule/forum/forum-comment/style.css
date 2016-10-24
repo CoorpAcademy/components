@@ -60,6 +60,10 @@
   color: #fff;
 }
 
+.post button:disabled {
+  display: none;
+}
+
 .post button:before {
   background-color: #455A64;
 }
