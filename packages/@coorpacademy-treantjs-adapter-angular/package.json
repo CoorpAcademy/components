@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/treantjs-adapter-angular",
-  "version": "3.0.3",
+  "version": "3.2.0",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -36,9 +36,9 @@
   "devDependencies": {
     "@coorpacademy/eslint-plugin-coorpacademy": "^2.0.0",
     "@coorpacademy/treantjs-core": "^3.0.3",
-    "@coorpacademy/treantjs-engine-react": "^3.0.3",
-    "@coorpacademy/treantjs-engine-snabbdom": "^3.0.3",
-    "@coorpacademy/treantjs-engine-virtual-dom": "^3.0.3",
+    "@coorpacademy/treantjs-engine-react": "^3.2.0",
+    "@coorpacademy/treantjs-engine-snabbdom": "^3.2.0",
+    "@coorpacademy/treantjs-engine-virtual-dom": "^3.2.0",
     "angular": "^1.5.8",
     "ava": "^0.16.0",
     "babel-cli": "^6.11.4",
