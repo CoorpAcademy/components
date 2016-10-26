@@ -15,6 +15,8 @@ const conditions = checker.shape({
     linkTry: checker.string.optional,
     author: checker.shape({
       name: checker.string.optional,
+      href: checker.string.optional,
+      logo: checker.string.optional,
       socialLinks: checker.array.optional
     }).optional,
     authorTitle: checker.string.optional
@@ -33,6 +35,7 @@ export default (treant, options = {}) => {
     const {rating, maxRating, linkBuy, linkTry, author, authorTitle} = props;
     const socialLinks = get('socialLinks', author);
     const authorLogo = get('logo', author);
+    const authorHref = get('href', author);
 
     const authorLabel = authorTitle || translate('author');
 
@@ -53,19 +56,26 @@ export default (treant, options = {}) => {
       </div>
     );
 
+    const linkView = (
+      <div className={style.authorLink}>
+        <a href={authorHref}>{authorHref}</a>
+      </div>
+    );
+
     return (
       <div className={style.col}>
         {(rating && linkBuy && linkTry) ? ctaView : null}
-        <div className={authorLogo ? style.colDetails : style.hide}>
+        <div className={style.colDetails}>
           <div className={style.detailTitle}>
             {authorLabel}
           </div>
-          <div className={style.logoContainer}>
+          <div className={authorLogo ? style.logoContainer : style.hide}>
             <Picture
               className={style.logo}
               src={authorLogo}
             />
           </div>
+          {authorHref ? linkView : null}
           <div className={style.links}>
             {socialView}
           </div>

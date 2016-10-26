@@ -15,11 +15,11 @@ const conditions = checker.shape({
       '1x': checker.url.optional,
       '2x': checker.url.optional
     }).optional,
-    author: checker.shape({
-      name: checker.string,
+    information: checker.shape({
+      href: checker.string,
       socialLinks: checker.array
     }).optional,
-    relatedDisciplines: checker.oneOfType([checker.arrayOf(checker.object), checker.null]).optional
+    disciplines: checker.oneOfType([checker.arrayOf(checker.object), checker.null]).optional
   }),
   children: checker.none
 });
@@ -35,14 +35,12 @@ export default (treant, options = {}) => {
 
   const Author = (props, children) => {
     const {
-      relatedDisciplines = null,
+      disciplines = null,
       image,
       title = '',
-      author = {name: '', socialLinks: []},
+      information = {name: '', socialLinks: []},
       description = ''
     } = props;
-
-    const authorLogo = get('logo', author);
 
     return (
       <div className={layout.wrapper}>
@@ -55,7 +53,7 @@ export default (treant, options = {}) => {
         </div>
         <div className={layout.colContainer}>
           <DisciplineRightaside
-            author={author}
+            author={information}
             authorTitle={translate('Informations')}
           />
         </div>
@@ -64,7 +62,7 @@ export default (treant, options = {}) => {
             {cardsTitle}
           </span>
           <CatalogCards
-            products={relatedDisciplines}
+            products={disciplines}
           />
         </div>
       </div>

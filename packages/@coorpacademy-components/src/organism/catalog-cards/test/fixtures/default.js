@@ -6,7 +6,10 @@ export default {
       {
         title: 'Les nouveaux business',
         image: 'https://unsplash.it/g/268',
-        author: 'Eléphant',
+        author: {
+          name: 'Eléphant',
+          href: '/smthing'
+        },
         popularity: 3,
         maxPopularity: 5,
         href: '/catalog/trainings/27'
@@ -14,7 +17,10 @@ export default {
       {
         title: 'La production d\'énergie',
         image: 'https://unsplash.it/g/268',
-        author: 'We Demain',
+        author: {
+          name: 'We demain',
+          href: '/smthing'
+        },
         popularity: 4,
         maxPopularity: 5,
         href: '/catalog/trainings/30'
@@ -22,7 +28,10 @@ export default {
       {
         title: 'Gestion des conflits',
         image: 'https://unsplash.it/g/268',
-        author: 'Bocquet',
+        author: {
+          name: 'Bocquet',
+          href: '/smthing'
+        },
         popularity: 3,
         maxPopularity: 5,
         href: '/catalog/trainings/29'
@@ -30,7 +39,10 @@ export default {
       {
         title: 'RSE : management et innovation',
         image: 'https://unsplash.it/g/268',
-        author: 'SVP',
+        author: {
+          name: 'SVP',
+          href: '/smthing'
+        },
         popularity: 2,
         maxPopularity: 5,
         href: '/catalog/trainings/25'
@@ -38,7 +50,10 @@ export default {
       {
         title: 'Gestion du stress et des émotions',
         image: 'https://unsplash.it/g/268',
-        author: 'Bocquet',
+        author: {
+          name: 'Bocquet',
+          href: '/smthing'
+        },
         popularity: 3,
         maxPopularity: 5,
         href: '/catalog/trainings/28'
@@ -46,7 +61,10 @@ export default {
       {
         title: 'Le nouveau management',
         image: 'https://unsplash.it/g/268',
-        author: 'Eléphant',
+        author: {
+          name: 'Eléphant',
+          href: '/smthing'
+        },
         popularity: 2,
         maxPopularity: 5,
         href: '/catalog/trainings/26'
@@ -54,7 +72,10 @@ export default {
       {
         title: 'Comprendre la RSE',
         image: 'https://unsplash.it/g/268',
-        author: 'SVP',
+        author: {
+          name: 'SVP',
+          href: '/smthing'
+        },
         popularity: 4,
         maxPopularity: 5,
         href: '/catalog/trainings/24'
@@ -62,7 +83,10 @@ export default {
       {
         title: 'L\'éfficacité énergétique',
         image: 'https://unsplash.it/g/268',
-        author: 'We Demain',
+        author: {
+          name: 'We Demain',
+          href: '/smthing'
+        },
         popularity: 2,
         maxPopularity: 5,
         href: '/catalog/trainings/31'
@@ -70,7 +94,10 @@ export default {
       {
         title: 'La mutation des business locaux',
         image: 'https://unsplash.it/g/268',
-        author: 'Coorpacademy',
+        author: {
+          name: 'Coorpacademy',
+          href: '/smthing'
+        },
         popularity: 4,
         maxPopularity: 5,
         href: '/catalog/trainings/9'
@@ -78,7 +105,10 @@ export default {
       {
         title: 'Commerce en ligne',
         image: 'https://unsplash.it/g/268',
-        author: 'Coorpacademy',
+        author: {
+          name: 'Coorpacademy',
+          href: '/smthing'
+        },
         popularity: 5,
         maxPopularity: 5,
         href: '/catalog/trainings/6'

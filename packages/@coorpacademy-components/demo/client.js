@@ -5,6 +5,9 @@ import * as Virtualdom from '@coorpacademy/treantjs-engine-virtual-dom';
 import * as React from '@coorpacademy/treantjs-engine-react';
 import * as Snabbdom from '@coorpacademy/treantjs-engine-snabbdom';
 import createApp from './app';
+import createTranslate from '@coorpacademy/translate';
+import en from '../locales/en/global.json';
+import fr from '../locales/fr/global.json';
 import {components, fixtures} from './components';
 import skin from './assets/skin.json';
 
@@ -12,13 +15,17 @@ let _createApp = createApp;
 let _components = components;
 let _fixtures = fixtures;
 
+const locales = {en, fr};
+const translate = createTranslate(locales.fr);
+
 const history = useBasename(createHistory)({
   basename: `/${window.engine}`
 });
 
 const options = {
   history,
-  skin
+  skin,
+  translate
 };
 
 const engines = {
