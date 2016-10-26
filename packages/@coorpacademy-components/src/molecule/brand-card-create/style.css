@@ -74,6 +74,7 @@
   text-align: center;
   color: #00B0FF;
   border: solid 2px #00B0FF;
+  z-index: -1;
 }
 
 .edit a {
