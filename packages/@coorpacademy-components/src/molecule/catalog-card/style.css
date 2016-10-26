@@ -88,10 +88,18 @@
 }
 
 .subtitle {
+  margin: 10px 0;
+}
+
+.subtitle a {
   font-family: "Open Sans";
   font-weight: 600;
   font-size: 13px;
   color: #78909C;
   font-style: italic;
-  margin: 10px 0;
+  text-decoration: none;
+}
+
+.subtitle a:hover {
+  text-decoration: underline;
 }

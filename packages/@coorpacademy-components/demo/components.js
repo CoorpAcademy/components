@@ -201,6 +201,7 @@ import createCursusRightasideFixtureDefault from '../src/organism/cursus-rightas
 import createCursusRightasideFixtureEmpty from '../src/organism/cursus-rightaside/test/fixtures/empty';
 import createDisciplineCardsFixtureEmpty from '../src/organism/discipline-cards/test/fixtures/empty';
 import createDisciplineCardsFixtureManyDisciplines from '../src/organism/discipline-cards/test/fixtures/many-disciplines';
+import createDisciplineRightasideFixtureAuthor from '../src/organism/discipline-rightaside/test/fixtures/author';
 import createDisciplineRightasideFixtureDefault from '../src/organism/discipline-rightaside/test/fixtures/default';
 import createDisciplineRightasideFixtureEmpty from '../src/organism/discipline-rightaside/test/fixtures/empty';
 import createDiscussionFixtureDefault from '../src/organism/discussion/test/fixtures/default';
@@ -610,6 +611,7 @@ export const fixtures = {
       ManyDisciplines: createDisciplineCardsFixtureManyDisciplines
     },
     DisciplineRightaside: {
+      Author: createDisciplineRightasideFixtureAuthor,
       Default: createDisciplineRightasideFixtureDefault,
       Empty: createDisciplineRightasideFixtureEmpty
     },

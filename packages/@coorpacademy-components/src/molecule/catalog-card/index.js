@@ -14,7 +14,10 @@ const conditions = checker.shape({
     maxRating: checker.number.optional,
     title: checker.string.optional,
     image: checker.string.optional,
-    author: checker.string.optional,
+    author: checker.shape({
+      name: checker.string.optional,
+      href: checker.string.optional
+    }).optional,
     href: checker.string.optional
   }),
   children: checker.none
@@ -40,9 +43,10 @@ export default (treant, options = {}) => {
       maxRating = 5,
       rating = 0,
       href = '',
-      image
+      image,
+      author
     } = props;
-
+    
     return (
       <li className={style.catalogListItem}>
         <div className={style.imageWrapper}>
@@ -61,7 +65,11 @@ export default (treant, options = {}) => {
               {getOrBlank('title', props)}
             </Link>
           </div>
-          <div className={style.subtitle}>{translate('by {{author}}', props)}</div>
+          <div className={style.subtitle}>
+            <Link href={author.href}>
+              {translate('by {{name}}', author)}
+            </Link>
+          </div>
           <StarRating
             rating={rating}
             total={maxRating}

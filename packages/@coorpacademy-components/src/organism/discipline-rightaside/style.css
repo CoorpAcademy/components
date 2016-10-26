@@ -32,7 +32,7 @@
   font-weight: 800;
   font-size: 13px;
   color: #546E7A;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   padding: 10px 0;
   line-height: 10px;
   border-bottom: 1px solid #E0E0E0;
@@ -50,6 +50,22 @@
 
 .logo {
   width: 100%;
+}
+
+.authorLink {
+  width: 100%;
+}
+
+.authorLink a {
+  font-family: 'Open Sans';
+  font-weight: 600;
+  font-size: 13px;
+  color: #00B0FF;
+  text-decoration: none;
+}
+
+.authorLink a:hover {
+  text-decoration: underline;
 }
 
 @media desktop {
