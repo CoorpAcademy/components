@@ -20,18 +20,11 @@
 }
 
 .link {
-  font-family: 'social-icons';
-  font-size: 13px;
-  line-height: 19px;
-  text-align: center;
-  width: 19px;
-  padding: 4px;
-  border: 1px solid #455A64;
-  color: #455A64;
-  border-radius: 50%;
-  box-sizing: content-box;
-  text-decoration: none;
   margin: 20px 3px;
+}
+
+.ctaWrapper {
+
 }
 
 .detailTitle {
@@ -39,9 +32,8 @@
   font-weight: 800;
   font-size: 13px;
   color: #546E7A;
-  margin-top: 20px;
   margin-bottom: 30px;
-  padding-bottom: 10px;
+  padding: 10px 0;
   line-height: 10px;
   border-bottom: 1px solid #E0E0E0;
   text-transform: uppercase;
@@ -71,12 +63,14 @@
 
   .ctaWrapper {
     width: 380px;
+    flex-shrink: 1;
+    padding-right: 30px;
   }
 
   .colDetails {
     display: inline-block;
     vertical-align: top;
-    padding-left: 30px;
+    flex-shrink: 3;
     flex-grow: 1;
   }
 }
