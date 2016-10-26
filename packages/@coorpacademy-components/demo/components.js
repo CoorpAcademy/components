@@ -92,6 +92,7 @@ import createLabelFixtureOneChild from '../src/atom/label/test/fixtures/one-chil
 import createLabelFixtureTwoChildren from '../src/atom/label/test/fixtures/two-children';
 import createLinkFixtureHref from '../src/atom/link/test/fixtures/href';
 import createNotificationFixtureDefault from '../src/atom/notification/test/fixtures/default';
+import createNotificationFixtureError from '../src/atom/notification/test/fixtures/error';
 import createPictureFixtureDefault from '../src/atom/picture/test/fixtures/default';
 import createPictureFixtureEmpty from '../src/atom/picture/test/fixtures/empty';
 import createPictureFixtureSimpleSrc from '../src/atom/picture/test/fixtures/simple-src';
@@ -202,6 +203,7 @@ import createDiscussionFixtureDefault from '../src/organism/discussion/test/fixt
 import createDiscussionFixtureModeration from '../src/organism/discussion/test/fixtures/moderation';
 import createDiscussionFixtureNewDiscussion from '../src/organism/discussion/test/fixtures/new-discussion';
 import createFormFixtureDefault from '../src/organism/form/test/fixtures/default';
+import createGridListFixtureDefault from '../src/organism/grid-list/test/fixtures/default';
 import createHeaderFixtureDefault from '../src/organism/header/test/fixtures/default';
 import createHeroFixtureDefault from '../src/organism/hero/test/fixtures/default';
 import createSetupHeaderFixtureDefault from '../src/organism/setup-header/test/fixtures/default';
@@ -373,7 +375,8 @@ export const fixtures = {
       Href: createLinkFixtureHref
     },
     Notification: {
-      Default: createNotificationFixtureDefault
+      Default: createNotificationFixtureDefault,
+      Error: createNotificationFixtureError
     },
     Picture: {
       Default: createPictureFixtureDefault,
@@ -606,6 +609,9 @@ export const fixtures = {
     },
     Form: {
       Default: createFormFixtureDefault
+    },
+    GridList: {
+      Default: createGridListFixtureDefault
     },
     Header: {
       Default: createHeaderFixtureDefault
