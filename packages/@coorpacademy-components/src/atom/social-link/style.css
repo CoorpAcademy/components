@@ -1,0 +1,19 @@
+.link {
+  font-family: 'social-icons';
+  font-size: 13px;
+  line-height: 19px;
+  text-align: center;
+  width: 19px;
+  padding: 4px;
+  border: 1px solid #B0BEC5;
+  color: #B0BEC5;
+  border-radius: 50%;
+  box-sizing: content-box;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.link:hover {
+  border-color: #78909C;
+  color: #78909C;
+}

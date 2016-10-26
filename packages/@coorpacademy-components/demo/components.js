@@ -11,6 +11,7 @@ import createLink from '../src/atom/link';
 import createNotification from '../src/atom/notification';
 import createPicture from '../src/atom/picture';
 import createSelect from '../src/atom/select';
+import createSocialLink from '../src/atom/social-link';
 import createSpinner from '../src/atom/spinner';
 import createStar from '../src/atom/star';
 import createTitle from '../src/atom/title';
@@ -67,6 +68,7 @@ import createGridList from '../src/organism/grid-list';
 import createHeader from '../src/organism/header';
 import createHero from '../src/organism/hero';
 import createSetupHeader from '../src/organism/setup-header';
+import createAuthor from '../src/template/app-catalog/author';
 import createCatalog from '../src/template/app-catalog/catalog';
 import createProductCourse from '../src/template/app-catalog/product-course';
 import createProductCursus from '../src/template/app-catalog/product-cursus';
@@ -97,6 +99,8 @@ import createPictureFixtureDefault from '../src/atom/picture/test/fixtures/defau
 import createPictureFixtureEmpty from '../src/atom/picture/test/fixtures/empty';
 import createPictureFixtureSimpleSrc from '../src/atom/picture/test/fixtures/simple-src';
 import createSelectFixtureDefault from '../src/atom/select/test/fixtures/default';
+import createSocialLinkFixtureFacebook from '../src/atom/social-link/test/fixtures/facebook';
+import createSocialLinkFixtureTwitter from '../src/atom/social-link/test/fixtures/twitter';
 import createSpinnerFixtureDefault from '../src/atom/spinner/test/fixtures/default';
 import createStarFixtureDisable from '../src/atom/star/test/fixtures/disable';
 import createStarFixtureEnable from '../src/atom/star/test/fixtures/enable';
@@ -207,6 +211,7 @@ import createGridListFixtureDefault from '../src/organism/grid-list/test/fixture
 import createHeaderFixtureDefault from '../src/organism/header/test/fixtures/default';
 import createHeroFixtureDefault from '../src/organism/hero/test/fixtures/default';
 import createSetupHeaderFixtureDefault from '../src/organism/setup-header/test/fixtures/default';
+import createAuthorFixtureDefault from '../src/template/app-catalog/author/test/fixtures/default';
 import createCatalogFixtureDefault from '../src/template/app-catalog/catalog/test/fixtures/default';
 import createCatalogFixtureEmpty from '../src/template/app-catalog/catalog/test/fixtures/empty';
 import createCatalogFixtureLoading from '../src/template/app-catalog/catalog/test/fixtures/loading';
@@ -250,6 +255,7 @@ export const components = {
     Notification: createNotification,
     Picture: createPicture,
     Select: createSelect,
+    SocialLink: createSocialLink,
     Spinner: createSpinner,
     Star: createStar,
     Title: createTitle
@@ -322,6 +328,7 @@ export const components = {
     SetupHeader: createSetupHeader
   },
   TemplateAppCatalog: {
+    Author: createAuthor,
     Catalog: createCatalog,
     ProductCourse: createProductCourse,
     ProductCursus: createProductCursus
@@ -385,6 +392,10 @@ export const fixtures = {
     },
     Select: {
       Default: createSelectFixtureDefault
+    },
+    SocialLink: {
+      Facebook: createSocialLinkFixtureFacebook,
+      Twitter: createSocialLinkFixtureTwitter
     },
     Spinner: {
       Default: createSpinnerFixtureDefault
@@ -624,6 +635,9 @@ export const fixtures = {
     }
   },
   TemplateAppCatalog: {
+    Author: {
+      Default: createAuthorFixtureDefault
+    },
     Catalog: {
       Default: createCatalogFixtureDefault,
       Empty: createCatalogFixtureEmpty,

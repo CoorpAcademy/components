@@ -4,6 +4,7 @@ import identity from 'lodash/fp/identity';
 import {checker, createValidate} from '../../util/validation';
 import createCatalogCTA from '../../molecule/catalog-cta';
 import createPicture from '../../atom/picture';
+import createSocialLink from '../../atom/social-link';
 import style from './style.css';
 
 const conditions = checker.shape({
@@ -15,55 +16,46 @@ const conditions = checker.shape({
     author: checker.shape({
       name: checker.string.optional,
       socialLinks: checker.array.optional
-    }).optional
+    }).optional,
+    authorTitle: checker.string.optional
   }),
   children: checker.none
 });
-
-const icons = {
-  mail: '0xe902',
-  'google-plus': '0xe903',
-  facebook: '0xe904',
-  twitter: '0xe905',
-  linkedin: '0xe906',
-  instagram: '0xe907',
-  youtube: '0xe908',
-  vimeo: '0xe909',
-  pinterest: '0xe910'
-};
 
 export default (treant, options = {}) => {
   const {h} = treant;
   const {translate = identity} = options;
   const CatalogCTA = createCatalogCTA(treant, options);
   const Picture = createPicture(treant, options);
-
-  const authorLabel = translate('author');
+  const SocialLink = createSocialLink(treant, options);
 
   const DisciplineRightaside = (props, children) => {
-    const {rating, maxRating, linkBuy, linkTry, author} = props;
+    const {rating, maxRating, linkBuy, linkTry, author, authorTitle} = props;
     const socialLinks = get('socialLinks', author);
     const authorLogo = get('logo', author);
 
+    const authorLabel = authorTitle || translate('author');
+
     const socialView = map(social => (
-      <a
-        href={social.link}
-        className={style.link}
-        target={'_blank'}
-      >{String.fromCharCode(icons[social.ref])}
-      </a>
+      <div className={style.link}>
+        <SocialLink {...social} />
+      </div>
     ), socialLinks);
+
+    const ctaView = (
+      <div className={style.ctaWrapper}>
+        <CatalogCTA
+          rating={rating}
+          maxRating={maxRating}
+          linkBuy={linkBuy}
+          linkTry={linkTry}
+        />
+      </div>
+    );
 
     return (
       <div className={style.col}>
-        <div className={style.ctaWrapper}>
-          <CatalogCTA
-            rating={rating}
-            maxRating={maxRating}
-            linkBuy={linkBuy}
-            linkTry={linkTry}
-          />
-        </div>
+        {(rating && linkBuy && linkTry) ? ctaView : null}
         <div className={authorLogo ? style.colDetails : style.hide}>
           <div className={style.detailTitle}>
             {authorLabel}
