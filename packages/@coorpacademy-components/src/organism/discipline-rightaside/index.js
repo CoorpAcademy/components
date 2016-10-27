@@ -67,6 +67,17 @@ export default (treant, options = {}) => {
       </div>
     );
 
+    const logoView = authorLogo ? (
+      <div className={style.logoContainer}>
+        <Link className={style.logoLink} href={authorLogo.href}>
+          <Picture
+            className={style.logo}
+            src={authorLogo.src}
+          />
+        </Link>
+      </div>
+    ) : null;
+
     return (
       <div className={style.col}>
         {(rating && linkBuy && linkTry) ? ctaView : null}
@@ -74,14 +85,7 @@ export default (treant, options = {}) => {
           <div className={style.detailTitle}>
             {authorLabel}
           </div>
-          <div className={authorLogo ? style.logoContainer : style.hide}>
-            <Link className={style.logoLink} href={authorLogo.href}>
-              <Picture
-                className={style.logo}
-                src={authorLogo.src}
-              />
-            </Link>
-          </div>
+          {logoView}
           {authorHref ? linkView : null}
           <div className={style.links}>
             {socialView}
