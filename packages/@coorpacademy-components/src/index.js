@@ -1,3 +1,4 @@
+export createAuthor from './template/app-catalog/author';
 export createBrandCard from './molecule/brand-card';
 export createBrandCardCreate from './molecule/brand-card-create';
 export createBrandContent from './organism/brand-content';
@@ -60,6 +61,7 @@ export createScopeTabs from './molecule/scope-tabs';
 export createSelect from './atom/select';
 export createSelectBox from './molecule/select-box';
 export createSetupHeader from './organism/setup-header';
+export createSocialLink from './atom/social-link';
 export createSpinner from './atom/spinner';
 export createSsmenuList from './molecule/ssmenu-list';
 export createStar from './atom/star';
