@@ -46,7 +46,7 @@ export default (treant, options = {}) => {
       image,
       author
     } = props;
-    
+
     return (
       <li className={style.catalogListItem}>
         <div className={style.imageWrapper}>
