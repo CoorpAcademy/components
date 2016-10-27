@@ -7,7 +7,7 @@
   "files": [
     "lib",
     "es",
-    "README.md"
+    "locales"
   ],
   "scripts": {
     "start": "npm run generate:demo && BABEL_ENV=commonjs babel-node demo/index.js",
