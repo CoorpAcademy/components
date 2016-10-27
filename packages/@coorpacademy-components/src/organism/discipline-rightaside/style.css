@@ -52,6 +52,10 @@
   width: 100%;
 }
 
+.logoLink {
+  display: block;
+}
+
 .authorLink {
   width: 100%;
 }
