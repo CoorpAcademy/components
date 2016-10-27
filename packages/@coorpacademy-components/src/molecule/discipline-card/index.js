@@ -1,3 +1,4 @@
+import set from 'lodash/fp/set';
 import getOr from 'lodash/fp/getOr';
 import partial from 'lodash/fp/partial';
 import unary from 'lodash/fp/unary';
@@ -15,7 +16,8 @@ const conditions = checker.shape({
     }),
     onClick: checker.func,
     onModuleClick: checker.func,
-    theme: checker.oneOf(['default', 'circle']).optional
+    theme: checker.oneOf(['default', 'circle']).optional,
+    row: checker.bool.optional
   }),
   children: checker.none
 });
@@ -27,13 +29,18 @@ export default (treant, options = {}) => {
   const DisciplineCard = (props, children) => {
     const {h} = treant;
     const {translate = identity, skin} = options;
-    const {discipline, onClick, onModuleClick} = props;
+    const {discipline, onClick, onModuleClick, row} = props;
 
     const hidden = discipline.visible === false;
     const disciplineClass = hidden ? style.hidden : style[(props.theme || 'default')];
     const rand = (Math.floor(Math.random() * 7) + 3) * .2;
     const duration = hidden ? 1 : rand;
     const animationDuration = `${duration}s`;
+
+    let mainStyle = {animationDuration};
+    if(row) {
+      mainStyle = set('width', '100%', mainStyle);
+    }
 
     const modules = discipline.modules.map(_module => (
       <ModuleBubble
@@ -64,9 +71,7 @@ export default (treant, options = {}) => {
              'data-name': 'discipline-card'
            }}
            onClick={click}
-           style={{
-             animationDuration
-           }}
+           style={mainStyle}
       >
         <div className={style.area}
              style={{

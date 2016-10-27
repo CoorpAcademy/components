@@ -13,3 +13,7 @@
   url('./assets/fonts/social-font.ttf') format('truetype'),
   url('./assets/fonts/social-font.svg') format('svg');
 }
+
+body{
+  background-color: #456;
+}

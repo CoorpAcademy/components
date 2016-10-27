@@ -1,5 +1,5 @@
 export default {
   props: {
-    image: 'logo'
+    image: 'bg'
   }
 };

@@ -1,6 +1,7 @@
-import getOr from 'lodash/fp/getOr';
+import set from 'lodash/fp/set';
 import {checker, createValidate} from '../../util/validation';
 import createDisciplineCard from '../../molecule/discipline-card';
+import createThemeImage from '../../molecule/theme-image';
 import style from './style.css';
 
 const conditions = checker.shape({
@@ -8,38 +9,44 @@ const conditions = checker.shape({
     disciplines: checker.array,
     onModuleClick: checker.func,
     onDisciplineClick: checker.func,
-    theme: checker.oneOf(['default', 'circle']).optional
+    theme: checker.oneOf(['default', 'circle']).optional,
+    image: checker.string.optional
   }),
   children: checker.none
 });
 
 export default (treant, options = {}) => {
   const {h} = treant;
-  const {skin} = options;
   const DisciplineCard = createDisciplineCard(treant, options);
-
-  const bgColor = getOr('transparent', 'common.background', skin);
+  const ThemeImage = createThemeImage(treant, options);
 
   const DisciplineCards = (props, children) => {
-    const {onModuleClick, onDisciplineClick, theme='default' } = props;
+    const {onModuleClick, onDisciplineClick, theme = 'default' } = props;
 
-    const disciplines = props.disciplines.map(discipline => (
-      <DisciplineCard
-        discipline = {discipline}
-        onClick = {onDisciplineClick}
-        onModuleClick = {onModuleClick}
-        theme = {theme}
-        key = {discipline.ref}
-      >
-      </DisciplineCard>
-    ));
+    if(props.disciplines.length > 0){
+      props.disciplines = set('[0].row', theme === 'circle', props.disciplines);
+    }
+
+    const disciplines = props.disciplines.map(discipline => {
+      return (
+        <DisciplineCard
+          discipline = {discipline}
+          onClick = {onDisciplineClick}
+          onModuleClick = {onModuleClick}
+          theme = {theme}
+          key = {discipline.ref}
+          row = {discipline.row}
+        >
+        </DisciplineCard>
+      );
+    });
 
     return (
-      <div
-        className={style.default}
-        style={{ background: bgColor }}
-      >
-        {disciplines}
+      <div className={style.default}>
+        <ThemeImage image={props.image} />
+        <div className={style.cardsWrapper}>
+          {disciplines}
+        </div>
       </div>
     );
   };

@@ -6,6 +6,7 @@ const card2 = Card2.props.discipline;
 
 export default {
   props: {
+    image: 'bg',
     disciplines: [card1, card2, card1, card2, card1, card2],
     onModuleClick: () => null,
     onDisciplineClick: () => null

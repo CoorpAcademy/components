@@ -21,7 +21,7 @@ export default ({h}, {skin} = {}) => {
     const desktopStyle = extractWithDefault(`${image}-desktop`);
 
     return (
-      <div>
+      <div className={style.wrapper}>
         <div
           className={style.default}
           style={defaultStyle}

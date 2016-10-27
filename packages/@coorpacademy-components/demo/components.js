@@ -136,6 +136,7 @@ import createCheckboxesFixtureSimple from '../src/molecule/checkboxes/test/fixtu
 import createCursusHeaderFixtureDefault from '../src/molecule/cursus-header/test/fixtures/default';
 import createCursusHeaderFixtureEmpty from '../src/molecule/cursus-header/test/fixtures/empty';
 import createCursusListFixtureDefault from '../src/molecule/cursus-list/test/fixtures/default';
+import createDisciplineCardFixtureAsRow from '../src/molecule/discipline-card/test/fixtures/as-row';
 import createDisciplineCardFixtureHidden from '../src/molecule/discipline-card/test/fixtures/hidden';
 import createDisciplineCardFixtureWithCourseNumCircle from '../src/molecule/discipline-card/test/fixtures/with-course-num-circle';
 import createDisciplineCardFixtureWithCourseNum from '../src/molecule/discipline-card/test/fixtures/with-course-num';
@@ -163,7 +164,7 @@ import createSsmenuListFixtureEmpty from '../src/molecule/ssmenu-list/test/fixtu
 import createSsmenuListFixtureFormations from '../src/molecule/ssmenu-list/test/fixtures/formations';
 import createSsmenuListFixtureSolutions from '../src/molecule/ssmenu-list/test/fixtures/solutions';
 import createStarRatingFixtureDefault from '../src/molecule/star-rating/test/fixtures/default';
-import createThemeImageFixtureLogo from '../src/molecule/theme-image/test/fixtures/logo';
+import createThemeImageFixtureBg from '../src/molecule/theme-image/test/fixtures/bg';
 import createTitledCheckboxFixtureChecked from '../src/molecule/titled-checkbox/test/fixtures/checked';
 import createTitledCheckboxFixtureNoBg from '../src/molecule/titled-checkbox/test/fixtures/no-bg';
 import createTitledCheckboxFixtureNotChecked from '../src/molecule/titled-checkbox/test/fixtures/not-checked';
@@ -491,6 +492,7 @@ export const fixtures = {
       Default: createCursusListFixtureDefault
     },
     DisciplineCard: {
+      AsRow: createDisciplineCardFixtureAsRow,
       Hidden: createDisciplineCardFixtureHidden,
       WithCourseNumCircle: createDisciplineCardFixtureWithCourseNumCircle,
       WithCourseNum: createDisciplineCardFixtureWithCourseNum,
@@ -540,7 +542,7 @@ export const fixtures = {
       Default: createStarRatingFixtureDefault
     },
     ThemeImage: {
-      Logo: createThemeImageFixtureLogo
+      Bg: createThemeImageFixtureBg
     },
     TitledCheckbox: {
       Checked: createTitledCheckboxFixtureChecked,

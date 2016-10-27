@@ -1,3 +1,5 @@
+@value transitionTime: 0.5s;
+@value localTransition: border-radius transitionTime ease, height transitionTime ease;
 @value cardWidth: 205px;
 
 /*-------------------------------------------------- Card */
@@ -7,7 +9,7 @@
   width: cardWidth;
   margin: 10px;
   overflow: hidden;
-  transition: all 1s linear;
+  transition: localTransition;
   transition-delay: 0s;
 
   animation-name: disciplineCardFadeIn;
@@ -24,7 +26,7 @@
   height: 0;
   width: 0;
   margin: 0;
-  transition: all 0.1s linear;
+  transition: localTransition;
   transition-delay: 1s;
   animation-name: disciplineCardFadeOut;
 }
@@ -39,6 +41,7 @@
   cursor: pointer;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+  transition: localTransition;
 }
 
 .text {
@@ -62,7 +65,7 @@
   height: 140px;
   border-radius: 70px;
   margin: auto;
-  transition: all 0.2s linear;
+  transition: localTransition;
   transition-delay: 0s;
   border-width: 3px;
   border-style: solid;
@@ -96,6 +99,12 @@
   justify-content: center;
   align-content: center;
   align-items: center;
+  transition: localTransition;
+
+  animation-duration: 0.3s;
+  animation-name: disciplineCardFadeIn;
+  animation-timing-function: ease-in-out;
+  animation-delay: 0s;
 }
 
 .circle .moduleProgressionWrapper {
@@ -107,14 +116,11 @@
 @keyframes disciplineCardFadeIn {
   0% {
     transform: scale3d(0, 0, 0);
-    width: cardWidth;
     opacity: 0;
-    height:0;
   }
   100% {
     transform: scale3d(1, 1, 1);
     opacity: 1;
-    height: cardHeight;
   }
 }
 
@@ -122,16 +128,9 @@
   0% {
     transform: scale3d(1, 1, 1);
     opacity: 1;
-    width: cardWidth;
-    height: cardHeight;
-  }
-  99.999% {
-    width: cardWidth;
   }
   100% {
     transform: scale3d(0, 0, 0);
     opacity: 0;
-    width: 0;
-    height: 0;
   }
 }
