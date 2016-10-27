@@ -1,4 +1,5 @@
 import get from 'lodash/fp/get';
+import hyperx from 'hyperx';
 import {checker, createValidate} from '../../util/validation';
 import createVideoIframe from '../video-iframe';
 import style from './style.css';
@@ -24,10 +25,16 @@ export default (treant, options = {}) => {
 
   const DisciplineHeader = (props, children) => {
     const {h} = treant;
+    const hx = hyperx(h);
     const {image, title, description, video} = props;
 
     const type = get('type', video);
     const id = get('id', video);
+    const descView = (
+      <div className={style.desc}>
+        {hx(`<div>${description}</div>`)}
+      </div>
+    );
 
     return (
       <div className={style.wrapper}>
@@ -44,9 +51,7 @@ export default (treant, options = {}) => {
             <div className={style.title}>
               {title}
             </div>
-            <div className={style.desc}>
-              {description}
-            </div>
+            {descView}
         </div>
       </div>
     );
