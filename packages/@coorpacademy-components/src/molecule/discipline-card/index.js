@@ -38,8 +38,9 @@ export default (treant, options = {}) => {
     const animationDuration = `${duration}s`;
 
     let mainStyle = {animationDuration};
-    if(row) {
+    if (row) {
       mainStyle = set('width', '100%', mainStyle);
+      mainStyle = set('margin', '10px 0', mainStyle);
     }
 
     const modules = discipline.modules.map(_module => (
@@ -70,15 +71,18 @@ export default (treant, options = {}) => {
            attributes={{
              'data-name': 'discipline-card'
            }}
-           onClick={click}
            style={mainStyle}
       >
-        <div className={style.area}
-             style={{
-               borderColor: bg
-             }}
+        <div
+          className={style.area}
+          style={{
+            borderColor: bg
+          }}
         >
-          <div className={style.text}>
+          <div
+            className={style.text}
+            onClick={click}
+          >
             <p className={style.headerModule}>
               {label}
             </p>

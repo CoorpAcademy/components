@@ -23,7 +23,7 @@ export default (treant, options = {}) => {
   const DisciplineCards = (props, children) => {
     const {onModuleClick, onDisciplineClick, theme = 'default' } = props;
 
-    if(props.disciplines.length > 0){
+    if (props.disciplines.length > 0) {
       props.disciplines = set('[0].row', theme === 'circle', props.disciplines);
     }
 
