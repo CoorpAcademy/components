@@ -4,6 +4,7 @@ import identity from 'lodash/fp/identity';
 import {checker, createValidate} from '../../util/validation';
 import createCatalogCTA from '../../molecule/catalog-cta';
 import createPicture from '../../atom/picture';
+import createLink from '../../atom/link';
 import createSocialLink from '../../atom/social-link';
 import style from './style.css';
 
@@ -16,7 +17,10 @@ const conditions = checker.shape({
     author: checker.shape({
       name: checker.string.optional,
       href: checker.string.optional,
-      logo: checker.string.optional,
+      logo: checker.shape({
+        src: checker.string.optional,
+        href: checker.string.optional
+      }).optional,
       socialLinks: checker.array.optional
     }).optional,
     authorTitle: checker.string.optional
@@ -29,6 +33,7 @@ export default (treant, options = {}) => {
   const {translate = identity} = options;
   const CatalogCTA = createCatalogCTA(treant, options);
   const Picture = createPicture(treant, options);
+  const Link = createLink(treant, options);
   const SocialLink = createSocialLink(treant, options);
 
   const DisciplineRightaside = (props, children) => {
@@ -70,10 +75,12 @@ export default (treant, options = {}) => {
             {authorLabel}
           </div>
           <div className={authorLogo ? style.logoContainer : style.hide}>
-            <Picture
-              className={style.logo}
-              src={authorLogo}
-            />
+            <Link className={style.logoLink} href={authorLogo.href}>
+              <Picture
+                className={style.logo}
+                src={authorLogo.src}
+              />
+            </Link>
           </div>
           {authorHref ? linkView : null}
           <div className={style.links}>

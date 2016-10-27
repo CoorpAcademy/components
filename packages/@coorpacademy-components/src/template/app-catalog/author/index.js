@@ -30,7 +30,7 @@ export default (treant, options = {}) => {
   const DisciplineHeader = createDisciplineHeader(treant, options);
   const DisciplineRightaside = createDisciplineRightaside(treant, options);
   const CatalogCards = createCatalogCards(treant, options);
-  const cardsTitle = translate('They also liked:');
+  const cardsTitle = translate('Their moocs:');
 
   const Author = (props, children) => {
     const {

@@ -10,7 +10,10 @@ export default {
     linkTry,
     author: {
       name: 'Eléphant',
-      logo: 'https://static-staging.coorpacademy.com/upload/up/partners/1472198693277logo_elephant.png',
+      logo: {
+        src: 'https://static-staging.coorpacademy.com/upload/up/partners/1472198693277logo_elephant.png',
+        href: '/elephant'
+      },
       socialLinks: [
         {
           ref: 'facebook',
