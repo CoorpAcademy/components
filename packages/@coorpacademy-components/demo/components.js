@@ -213,6 +213,7 @@ import createHeaderFixtureDefault from '../src/organism/header/test/fixtures/def
 import createHeroFixtureDefault from '../src/organism/hero/test/fixtures/default';
 import createSetupHeaderFixtureDefault from '../src/organism/setup-header/test/fixtures/default';
 import createAuthorFixtureDefault from '../src/template/app-catalog/author/test/fixtures/default';
+import createAuthorFixtureLoading from '../src/template/app-catalog/author/test/fixtures/loading';
 import createCatalogFixtureDefault from '../src/template/app-catalog/catalog/test/fixtures/default';
 import createCatalogFixtureEmpty from '../src/template/app-catalog/catalog/test/fixtures/empty';
 import createCatalogFixtureLoading from '../src/template/app-catalog/catalog/test/fixtures/loading';
@@ -638,7 +639,8 @@ export const fixtures = {
   },
   TemplateAppCatalog: {
     Author: {
-      Default: createAuthorFixtureDefault
+      Default: createAuthorFixtureDefault,
+      Loading: createAuthorFixtureLoading
     },
     Catalog: {
       Default: createCatalogFixtureDefault,
