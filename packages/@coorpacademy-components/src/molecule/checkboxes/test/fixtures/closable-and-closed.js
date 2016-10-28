@@ -10,6 +10,7 @@ export default {
       checked: false,
       label: 'bar'
     }],
-    onToggle: () => true
+    onToggle: () => true,
+    onOpen: () => true
   }
 };

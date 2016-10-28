@@ -1,3 +1,4 @@
+import set from 'lodash/fp/set';
 import getOr from 'lodash/fp/getOr';
 import partial from 'lodash/fp/partial';
 import unary from 'lodash/fp/unary';
@@ -14,7 +15,9 @@ const conditions = checker.shape({
       modules: checker.array
     }),
     onClick: checker.func,
-    onModuleClick: checker.func
+    onModuleClick: checker.func,
+    theme: checker.oneOf(['default', 'circle']).optional,
+    row: checker.bool.optional
   }),
   children: checker.none
 });
@@ -26,13 +29,19 @@ export default (treant, options = {}) => {
   const DisciplineCard = (props, children) => {
     const {h} = treant;
     const {translate = identity, skin} = options;
-    const {discipline, onClick, onModuleClick} = props;
+    const {discipline, onClick, onModuleClick, row} = props;
 
     const hidden = discipline.visible === false;
-    const disciplineClass = hidden ? style.hidden : style.default;
+    const disciplineClass = hidden ? style.hidden : style[(props.theme || 'default')];
     const rand = (Math.floor(Math.random() * 7) + 3) * .2;
     const duration = hidden ? 1 : rand;
     const animationDuration = `${duration}s`;
+
+    let mainStyle = {animationDuration};
+    if (row) {
+      mainStyle = set('width', '100%', mainStyle);
+      mainStyle = set('margin', '10px 0', mainStyle);
+    }
 
     const modules = discipline.modules.map(_module => (
       <ModuleBubble
@@ -50,6 +59,7 @@ export default (treant, options = {}) => {
     const bg = getOr('#fff', ['courses', discipline.courseNum], skin);
     const bar =
       <div
+        className={style.bar}
         style={{
           background: bg,
           height: '5px'
@@ -61,13 +71,18 @@ export default (treant, options = {}) => {
            attributes={{
              'data-name': 'discipline-card'
            }}
-           onClick={click}
-           style={{
-             animationDuration
-           }}
+           style={mainStyle}
       >
-        <div className={style.area}>
-          <div className={style.text}>
+        <div
+          className={style.area}
+          style={{
+            borderColor: bg
+          }}
+        >
+          <div
+            className={style.text}
+            onClick={click}
+          >
             <p className={style.headerModule}>
               {label}
             </p>

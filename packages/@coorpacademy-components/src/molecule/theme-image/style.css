@@ -3,11 +3,20 @@
 @value tablet from breakpoints;
 @value desktop from breakpoints;
 
+.wrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+}
+
 .background {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
   transition: all 0.5s ease-out;
+  width: 100%;
+  height: 100%;
 }
 
 .default {

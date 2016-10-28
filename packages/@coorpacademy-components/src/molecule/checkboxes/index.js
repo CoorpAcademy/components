@@ -60,9 +60,9 @@ export default (treant, options = {}) => {
     </div>
   );
 
-  const createHeader = props => {
-    const _status = get('status', props);
-    return _status === CLOSED ? closedHeader(options) : openHeader(options);
+  const createHeader = _options => {
+    const _status = get('status', _options);
+    return _status === CLOSED ? closedHeader(_options) : openHeader(_options);
   };
 
   /**

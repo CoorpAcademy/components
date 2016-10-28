@@ -5,6 +5,14 @@
     "good": "#24b694",
     "bad": "#ed1c24"
   },
+  "images": {
+    "bg": "'https://placehold.it/1500x1500/123'"
+  },
+  "properties": {
+    "bg": {
+      "backgroundSize": "cover"
+    }
+  },
   "texts": {
     "normal": "#191919",
     "inverted": "#fff",
