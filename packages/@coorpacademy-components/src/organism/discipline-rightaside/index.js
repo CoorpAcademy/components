@@ -63,7 +63,7 @@ export default (treant, options = {}) => {
 
     const linkView = (
       <div className={style.authorLink}>
-        <a href={authorHref}>{authorHref}</a>
+        <a target={'_blank'} href={authorHref}>{authorHref}</a>
       </div>
     );
 
