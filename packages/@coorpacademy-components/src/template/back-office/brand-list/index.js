@@ -44,7 +44,7 @@ export default (treant, options = {}) => {
     });
 
     if (create) {
-      brandCards.unshift(
+      brandCards.push(
         <div className={style.brand}>
           <BrandCardCreate {...create} />
         </div>
