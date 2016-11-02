@@ -2,6 +2,7 @@ import {checker, createValidate} from '../../../util/validation';
 import createGridList from '../../../organism/grid-list';
 import createBrandCard from '../../../molecule/brand-card';
 import createBrandCardCreate from '../../../molecule/brand-card-create';
+import createLayout from '../layout';
 import style from './style.css';
 
 const conditions = checker.shape({
@@ -28,6 +29,7 @@ export default (treant, options = {}) => {
   const GridList = createGridList(treant, options);
   const BrandCard = createBrandCard(treant, options);
   const BrandCardCreate = createBrandCardCreate(treant, options);
+  const Layout = createLayout(treant, options);
 
   const BrandList = (props, children) => {
     const {
@@ -63,5 +65,5 @@ export default (treant, options = {}) => {
   };
 
   BrandList.validate = createValidate(conditions);
-  return BrandList;
+  return Layout(BrandList);
 };
