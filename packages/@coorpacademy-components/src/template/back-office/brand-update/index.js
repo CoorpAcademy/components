@@ -4,6 +4,7 @@ import createBreadcrumbs from '../../../molecule/breadcrumbs';
 import createBrandTabs from '../../../molecule/brand-tabs';
 import createBrandContent from '../../../organism/brand-content';
 import createNotification from '../../../atom/notification';
+import createLayout from '../layout';
 import style from './style.css';
 
 const conditions = checker.shape({
@@ -60,6 +61,7 @@ export default (treant, options = {}) => {
   const BrandTabs = createBrandTabs(treant, options);
   const BrandContent = createBrandContent(treant, options);
   const NotificationComponent = createNotification(treant, options);
+  const Layout = createLayout(treant, options);
 
   const BrandUpdate = (props, children) => {
     const {
@@ -97,5 +99,5 @@ export default (treant, options = {}) => {
   };
 
   BrandUpdate.validate = createValidate(conditions);
-  return BrandUpdate;
+  return Layout(BrandUpdate);
 };
