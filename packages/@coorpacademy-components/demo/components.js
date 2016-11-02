@@ -75,6 +75,7 @@ import createProductCursus from '../src/template/app-catalog/product-cursus';
 import createBrandCreate from '../src/template/back-office/brand-create';
 import createBrandList from '../src/template/back-office/brand-list';
 import createBrandUpdate from '../src/template/back-office/brand-update';
+import createLayout from '../src/template/back-office/layout';
 import createCoorpHeader from '../src/template/common/coorp-header';
 import createCenteredTextFixtureDefault from '../src/atom/centered-text/test/fixtures/default';
 import createInputColorFixtureDefault from '../src/atom/input-color/test/fixtures/default';
@@ -243,6 +244,7 @@ import createBrandUpdateFixtureLookandfeelSuccess from '../src/template/back-off
 import createBrandUpdateFixtureLookandfeel from '../src/template/back-office/brand-update/test/fixtures/lookandfeel';
 import createBrandUpdateFixtureSsoActivate from '../src/template/back-office/brand-update/test/fixtures/sso-activate';
 import createBrandUpdateFixtureSso from '../src/template/back-office/brand-update/test/fixtures/sso';
+import createLayoutFixtureDefault from '../src/template/back-office/layout/test/fixtures/default';
 import createCoorpHeaderFixtureProduction from '../src/template/common/coorp-header/test/fixtures/production';
 import createCoorpHeaderFixtureStaging from '../src/template/common/coorp-header/test/fixtures/staging';
 
@@ -342,7 +344,8 @@ export const components = {
   TemplateBackOffice: {
     BrandCreate: createBrandCreate,
     BrandList: createBrandList,
-    BrandUpdate: createBrandUpdate
+    BrandUpdate: createBrandUpdate,
+    Layout: createLayout
   },
   TemplateCommon: {
     CoorpHeader: createCoorpHeader
@@ -688,6 +691,9 @@ export const fixtures = {
       Lookandfeel: createBrandUpdateFixtureLookandfeel,
       SsoActivate: createBrandUpdateFixtureSsoActivate,
       Sso: createBrandUpdateFixtureSso
+    },
+    Layout: {
+      Default: createLayoutFixtureDefault
     }
   },
   TemplateCommon: {

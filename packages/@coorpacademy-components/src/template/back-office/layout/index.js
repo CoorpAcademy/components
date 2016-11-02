@@ -14,9 +14,11 @@ export default (treant, options) => {
   const Header = createHeader(treant, options);
 
   const Layout = Template => (props, children) => (
-    <div className={style.default}>
+    <div className={style.container}>
       <Header {...props.header}/>
-      <Template {...props}/>
+      <div className={style.contentWrapper}>
+        <Template {...props}/>
+      </div>
     </div>
   );
 

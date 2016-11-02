@@ -2,6 +2,7 @@ import map from 'lodash/fp/map';
 import {checker, createValidate} from '../../../util/validation';
 import createBrandCreateForm from '../../../molecule/brand-create-form';
 import createNotification from '../../../atom/notification';
+import createLayout from '../layout';
 import style from './style.css';
 
 const conditions = checker.shape({
@@ -34,10 +35,11 @@ export default (treant, options = {}) => {
 
   const BrandCreateForm = createBrandCreateForm(treant, options);
   const NotificationComponent = createNotification(treant, options);
+  const Layout = createLayout(treant, options);
 
   const BrandCreate = (props, children) => {
     const {
-      notifications
+      notifications = []
     } = props;
 
     const notificationsList = map(notification => {
@@ -48,12 +50,16 @@ export default (treant, options = {}) => {
       );
     }, notifications);
 
+    const notificationsView = notifications.length > 0 ? (
+      <div className={style.notifications}>
+        {notificationsList}
+      </div>
+    ) : null;
+
     return (
       <div className={style.container}>
         <div className={style.wrapper}>
-          <div className={style.notifications}>
-            {notificationsList}
-          </div>
+          {notificationsView}
           <BrandCreateForm {...props} />
         </div>
       </div>
@@ -61,5 +67,5 @@ export default (treant, options = {}) => {
   };
 
   BrandCreate.validate = createValidate(conditions);
-  return BrandCreate;
+  return Layout(BrandCreate);
 };
