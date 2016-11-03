@@ -37,7 +37,7 @@ export default (treant, options = {}) => {
   const NotificationComponent = createNotification(treant, options);
   const Layout = createLayout(treant, options);
 
-  const BrandCreate = (props, children) => {
+  const BrandCreate = Layout((props, children) => {
     const {
       notifications = []
     } = props;
@@ -64,8 +64,8 @@ export default (treant, options = {}) => {
         </div>
       </div>
     );
-  };
+  });
 
   BrandCreate.validate = createValidate(conditions);
-  return Layout(BrandCreate);
+  return BrandCreate;
 };

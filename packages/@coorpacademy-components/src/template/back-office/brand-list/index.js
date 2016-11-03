@@ -31,7 +31,7 @@ export default (treant, options = {}) => {
   const BrandCardCreate = createBrandCardCreate(treant, options);
   const Layout = createLayout(treant, options);
 
-  const BrandList = (props, children) => {
+  const BrandList = Layout((props, children) => {
     const {
       brands,
       create
@@ -62,8 +62,8 @@ export default (treant, options = {}) => {
         </div>
       </div>
     );
-  };
+  });
 
   BrandList.validate = createValidate(conditions);
-  return Layout(BrandList);
+  return BrandList;
 };

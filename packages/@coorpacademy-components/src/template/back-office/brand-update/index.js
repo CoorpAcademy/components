@@ -63,7 +63,7 @@ export default (treant, options = {}) => {
   const NotificationComponent = createNotification(treant, options);
   const Layout = createLayout(treant, options);
 
-  const BrandUpdate = (props, children) => {
+  const BrandUpdate = Layout((props, children) => {
     const {
       notifications,
       links,
@@ -96,8 +96,8 @@ export default (treant, options = {}) => {
         </div>
       </div>
     );
-  };
+  });
 
   BrandUpdate.validate = createValidate(conditions);
-  return Layout(BrandUpdate);
+  return BrandUpdate;
 };
