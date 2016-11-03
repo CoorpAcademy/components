@@ -20,6 +20,10 @@ export default (test, {render, transform}) => {
     type: {
       tagName: 'input',
       value: 'text'
+    },
+    checked: {
+      tagName: 'input',
+      value: true
     }
   };
 
