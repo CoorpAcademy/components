@@ -35,7 +35,7 @@ export default (treant, options) => {
           type='checkbox'
           id={title}
           name={title}
-          onInput={e => onChange(e.target.value)}
+          onChange={e => onChange(e.target.checked)}
           checked={checked}
           disabled={isDisabled}
           className={style.checkbox}
