@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/treantjs-engine-snabbdom",
-  "version": "3.3.2",
+  "version": "3.4.0",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@coorpacademy/eslint-plugin-coorpacademy": "^2.0.0",
-    "@coorpacademy/treantjs-engine-spec": "^3.3.2",
+    "@coorpacademy/treantjs-engine-spec": "^3.4.0",
     "ava": "^0.16.0",
     "babel-cli": "^6.11.4",
     "babel-core": "^6.11.4",
