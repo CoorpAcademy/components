@@ -46,6 +46,7 @@ export createInputTextarea from './atom/input-textarea';
 export createLabel from './atom/label';
 export createLabelModName from './atom/label-mod-name';
 export createLabelNormal from './atom/label-normal';
+export createLayout from './template/back-office/layout';
 export createLink from './atom/link';
 export createMenuList from './molecule/menu-list';
 export createModuleBubble from './molecule/module-bubble';
