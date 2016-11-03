@@ -1,6 +1,6 @@
 import jsdom from 'jsdom';
 import testRender from './render';
-import testAttributes from './attributes';
+import testProperties from './properties';
 import testEvents from './events';
 
 const engineSpec = (test, engine) => {
@@ -8,7 +8,7 @@ const engineSpec = (test, engine) => {
     global.document = jsdom.jsdom('<!doctype html><html><body></body></html>');
     global.window = document.defaultView;
   });
-  testAttributes(test, engine);
+  testProperties(test, engine);
   testEvents(test, engine);
   testRender(test, engine);
 };

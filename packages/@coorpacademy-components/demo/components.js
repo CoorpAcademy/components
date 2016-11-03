@@ -82,7 +82,8 @@ import createInputColorFixtureDefault from '../src/atom/input-color/test/fixture
 import createInputColorFixtureEmpty from '../src/atom/input-color/test/fixtures/empty';
 import createInputColorFixtureError from '../src/atom/input-color/test/fixtures/error';
 import createInputReadonlyFixtureDefault from '../src/atom/input-readonly/test/fixtures/default';
-import createInputSwitchFixtureDefault from '../src/atom/input-switch/test/fixtures/default';
+import createInputSwitchFixtureChecked from '../src/atom/input-switch/test/fixtures/checked';
+import createInputSwitchFixtureUnchecked from '../src/atom/input-switch/test/fixtures/unchecked';
 import createInputTextFixtureDefault from '../src/atom/input-text/test/fixtures/default';
 import createInputTextFixtureEmpty from '../src/atom/input-text/test/fixtures/empty';
 import createInputTextFixtureError from '../src/atom/input-text/test/fixtures/error';
@@ -365,7 +366,8 @@ export const fixtures = {
       Default: createInputReadonlyFixtureDefault
     },
     InputSwitch: {
-      Default: createInputSwitchFixtureDefault
+      Checked: createInputSwitchFixtureChecked,
+      Unchecked: createInputSwitchFixtureUnchecked
     },
     InputText: {
       Default: createInputTextFixtureDefault,

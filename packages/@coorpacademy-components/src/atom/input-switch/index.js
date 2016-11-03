@@ -25,7 +25,6 @@ export default (treant, options) => {
       description
     } = props;
 
-    const checked = value ? 'checked' : '';
     const isDisabled = disabled ? 'disabled' : '';
 
     return (
@@ -36,7 +35,7 @@ export default (treant, options) => {
           id={title}
           name={title}
           onChange={e => onChange(e.target.checked)}
-          checked={checked}
+          checked={value}
           disabled={isDisabled}
           className={style.checkbox}
         />
