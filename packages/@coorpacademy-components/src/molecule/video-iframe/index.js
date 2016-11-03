@@ -56,6 +56,7 @@ export default (treant, options = {}) => {
     else {
       return (
         <Picture
+          className={style.image}
           src={image}
         />
       );

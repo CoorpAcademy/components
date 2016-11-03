@@ -9,11 +9,15 @@
 }
 
 .imgWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   flex: 0 0 380px;
-  display: inline-block;
   height: 250px;
   vertical-align: top;
   overflow: hidden;
+  border: 1px solid #E3E3E3;
+  background-color: #FCFCFC;
 }
 
 .courseWrapper {
