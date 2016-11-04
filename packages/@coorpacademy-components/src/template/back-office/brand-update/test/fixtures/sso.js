@@ -119,7 +119,8 @@ export default {
           onChange: () => {}
         }]
       }],
-      onSubmit: () => {}
+      onSubmit: () => {},
+      submitValue: 'Save changes'
     }
   }
 };

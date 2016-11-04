@@ -48,7 +48,8 @@ const conditions = checker.shape({
       disabled: checker.bool.optional,
       isModified: checker.bool.optional,
       isPending: checker.bool.optional,
-      onSubmit: checker.func.optional
+      onSubmit: checker.func.optional,
+      submitValue: checker.string.optional
     })
   }),
   children: checker.none

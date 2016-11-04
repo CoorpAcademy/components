@@ -23,7 +23,8 @@ const conditions = checker.shape({
     disabled: checker.bool.optional,
     isModified: checker.bool.optional,
     isPending: checker.bool.optional,
-    onSubmit: checker.func.optional
+    onSubmit: checker.func.optional,
+    submitValue: checker.string.optional
   }),
   children: checker.none
 });
@@ -40,7 +41,8 @@ export default (treant, options = {}) => {
       // disabled,
       isModified,
       // isPending,
-      onSubmit
+      onSubmit,
+      submitValue
     } = props;
 
     const brandGroups = groups.map(group => {
@@ -58,7 +60,7 @@ export default (treant, options = {}) => {
           <div className={style.save}>
             <input
               type='submit'
-              value='Save changes'
+              value={submitValue}
               disabled={disabledSubmit}
             />
           </div>
