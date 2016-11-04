@@ -39,6 +39,7 @@ export createHeader from './organism/header';
 export createHero from './organism/hero';
 export createHoverFill from './behaviour/effects/hover-fill';
 export createInputColor from './atom/input-color';
+export createInputDoublestep from './atom/input-doublestep';
 export createInputReadonly from './atom/input-readonly';
 export createInputSwitch from './atom/input-switch';
 export createInputText from './atom/input-text';
