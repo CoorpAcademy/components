@@ -56,7 +56,9 @@ export default (treant, options = {}) => {
     const label = translate(discipline.label);
     const hasCourse = discipline.courseNum !== 'undefined';
 
-    const bg = getOr('#fff', ['courses', discipline.courseNum], skin);
+    const defaultColor = props.theme === 'circle' ? getOr('#fff', 'common.primary', skin) : '#fff';
+
+    const bg = getOr(defaultColor, ['courses', discipline.courseNum], skin);
     const bar =
       <div
         className={style.bar}
