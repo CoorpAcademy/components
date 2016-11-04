@@ -50,16 +50,12 @@ export default (treant, options = {}) => {
       );
     }, notifications);
 
-    const notificationsView = notifications.length > 0 ? (
-      <div className={style.notifications}>
-        {notificationsList}
-      </div>
-    ) : null;
-
     return (
       <div className={style.container}>
         <div className={style.wrapper}>
-          {notificationsView}
+        <div className={notifications.length > 0 ? style.notifications : style.empty}>
+          {notificationsList}
+        </div>
           <BrandCreateForm {...props} />
         </div>
       </div>
