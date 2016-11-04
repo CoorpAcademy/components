@@ -38,6 +38,7 @@ export default (treant, options) => {
             <span className={style.toggle}>{toggleValue}</span>
             <span className={style.cancel}>{cancelValue}</span>
           </label>
+          <button onClick={onChange} className={style.delete}>{title}</button>
         </div>
         <div className={style.description}>
           {description}

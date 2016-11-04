@@ -1,7 +1,6 @@
 .wrapper {
   display: flex;
-  align-items: center;
-  height: 50px;
+  align-items: flex-start;
   position: relative;
 }
 
@@ -10,19 +9,69 @@
   font-size: 15px;
   font-weight: 700;
   color: #455A64;
-  margin: 0 20px;
-}
-
-.checkbox {
-
+  margin-right: 20px;
 }
 
 .toggle {
+  height: 52px;
+  padding: 0 40px;
+  line-height: 52px;
+  border-radius: 2px;
+  font-family: 'Open Sans';
+  font-size: 15px;
+  color: #ffffff;
+  font-weight: 700px;
+  display: block;
+  background-color: #F4511E;
+  cursor: pointer;
+}
 
+.button {
+  height: 32px;
+  padding: 0 15px;
+  text-transform: uppercase;
+  border-radius: 2px;
+  font-family: 'Open Sans';
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  line-height: 30px;
+  text-align: center;
+  box-sizing: border-box;
 }
 
 .cancel {
+  composes: button;
+  display: none;
+  border: 1px solid #455A64;
+  color: #455A64;
+  background-color: #ffffff;
+  margin-right: 20px;
+  font-weight: 600;
+}
 
+.delete {
+  composes: button;
+  display: none;
+  border: 1px solid #F4511E;
+  color: #F4511E;
+  background-color: #ffffff;
+}
+
+.checkbox {
+  display:none;
+}
+
+.checkbox:checked ~ label .cancel {
+  display: inline-block;
+}
+
+.checkbox:checked ~ label .toggle {
+  display: none;
+}
+
+.checkbox:checked ~ .delete {
+  display: inline-block;
 }
 
 .description {
