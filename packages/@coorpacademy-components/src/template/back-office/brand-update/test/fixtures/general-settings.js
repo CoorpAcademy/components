@@ -37,9 +37,11 @@ export default {
       }, {
         title: 'Danger Zone',
         fields: [{
-          title: 'Delete Platform',
+          title: 'Confirm',
           type: 'doublestep',
-          description: 'Deleting your platform is irreversible!',
+          toggleValue: 'Delete Platform',
+          cancelValue: 'Cancel',
+          description: 'Are you sure you want to delete your platform? Deleting your platform is irreversible!',
           onChange: () => {}
         }]
       }]
