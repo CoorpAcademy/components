@@ -5,6 +5,7 @@ import createInputColor from '../../atom/input-color';
 import createInputReadonly from '../../atom/input-readonly';
 import createInputSwitch from '../../atom/input-switch';
 import createInputTextarea from '../../atom/input-textarea';
+import createInputDoublestep from '../../atom/input-doublestep';
 import style from './style.css';
 
 const conditions = checker.shape({
@@ -34,6 +35,7 @@ export default (treant, options = {}) => {
   const InputTextarea = createInputTextarea(treant, options);
   const InputReadonly = createInputReadonly(treant, options);
   const InputSwitch = createInputSwitch(treant, options);
+  const InputDoublestep = createInputDoublestep(treant, options);
 
   const BrandContentGroup = (props, children) => {
     const {
@@ -61,6 +63,10 @@ export default (treant, options = {}) => {
         case 'textarea':
           return (
             <InputTextarea {...field} />
+          );
+        case 'doublestep':
+          return (
+            <InputDoublestep {...field} />
           );
         default:
           return (

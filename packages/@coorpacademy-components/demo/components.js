@@ -1,5 +1,6 @@
 import createCenteredText from '../src/atom/centered-text';
 import createInputColor from '../src/atom/input-color';
+import createInputDoublestep from '../src/atom/input-doublestep';
 import createInputReadonly from '../src/atom/input-readonly';
 import createInputSwitch from '../src/atom/input-switch';
 import createInputText from '../src/atom/input-text';
@@ -81,6 +82,7 @@ import createCenteredTextFixtureDefault from '../src/atom/centered-text/test/fix
 import createInputColorFixtureDefault from '../src/atom/input-color/test/fixtures/default';
 import createInputColorFixtureEmpty from '../src/atom/input-color/test/fixtures/empty';
 import createInputColorFixtureError from '../src/atom/input-color/test/fixtures/error';
+import createInputDoublestepFixtureDefault from '../src/atom/input-doublestep/test/fixtures/default';
 import createInputReadonlyFixtureDefault from '../src/atom/input-readonly/test/fixtures/default';
 import createInputSwitchFixtureChecked from '../src/atom/input-switch/test/fixtures/checked';
 import createInputSwitchFixtureUnchecked from '../src/atom/input-switch/test/fixtures/unchecked';
@@ -253,6 +255,7 @@ export const components = {
   Atom: {
     CenteredText: createCenteredText,
     InputColor: createInputColor,
+    InputDoublestep: createInputDoublestep,
     InputReadonly: createInputReadonly,
     InputSwitch: createInputSwitch,
     InputText: createInputText,
@@ -361,6 +364,9 @@ export const fixtures = {
       Default: createInputColorFixtureDefault,
       Empty: createInputColorFixtureEmpty,
       Error: createInputColorFixtureError
+    },
+    InputDoublestep: {
+      Default: createInputDoublestepFixtureDefault
     },
     InputReadonly: {
       Default: createInputReadonlyFixtureDefault
