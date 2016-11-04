@@ -21,6 +21,10 @@
   margin-bottom: 20px;
 }
 
+.empty {
+  margin-bottom: 0;
+}
+
 .notification {
   margin-bottom: 10px;
 }
