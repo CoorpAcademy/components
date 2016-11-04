@@ -8,9 +8,9 @@ const conditions = checker.shape({
     logoutValue: checker.string.optional,
     href: checker.string.optional,
     user: checker.shape({
-      username: checker.string,
-      image: checker.string
-    }),
+      username: checker.string.optional,
+      image: checker.string.optional
+    }).optional,
     logo: checker.string.optional,
     logoMobile: checker.string.optional
   })
@@ -21,16 +21,28 @@ export default (treant, options = {}) => {
   const Picture = createPicture(treant, options);
 
   const SetupHeader = (props, children) => {
-    const {logout, logoutValue, href, user, logo, logoMobile} = props;
+    const {
+      logout,
+      logoutValue,
+      href,
+      user = {},
+      logo,
+      logoMobile
+    } = props;
+
+    const {
+      username = '',
+      image = ''
+    } = user;
 
     return (
       <div className={style.wrapper}>
         <div className={style.user}>
           <div className={style.avatar}>
-            <img src={user.image} />
+            <img src={image} />
           </div>
           <div className={style.username}>
-            {user.username}
+            {username}
           </div>
         </div>
         <div className={style.logo}>
