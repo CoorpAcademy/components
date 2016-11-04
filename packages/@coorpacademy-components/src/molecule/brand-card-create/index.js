@@ -1,4 +1,5 @@
 import {checker, createValidate} from '../../util/validation';
+import createLink from '../../atom/link';
 import style from './style.css';
 
 const conditions = checker.shape({
@@ -12,6 +13,8 @@ const conditions = checker.shape({
 export default (treant, options = {}) => {
   const {h} = treant;
 
+  const Link = createLink(treant, options);
+
   const BrandCardCreate = (props, children) => {
     const {
       edit,
@@ -24,7 +27,7 @@ export default (treant, options = {}) => {
         <div className={style.circle2}></div>
         <div className={style.circle3}></div>
         <div className={style.edit}>
-          <a href={editHref}><span>{edit}</span></a>
+          <Link href={editHref}><span>{edit}</span></Link>
         </div>
       </div>
     );
