@@ -7,8 +7,7 @@ const conditions = checker.shape({
     toggleValue: checker.string,
     cancelValue: checker.string,
     description: checker.string.optional,
-    onChange: checker.func,
-
+    onChange: checker.func
   }),
   children: checker.none
 });
