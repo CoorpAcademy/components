@@ -1,5 +1,6 @@
 import {checker, createValidate} from '../../util/validation';
 import createPicture from '../../atom/picture';
+import createLink from '../../atom/link';
 import style from './style.css';
 
 const conditions = checker.shape({
@@ -18,7 +19,9 @@ const conditions = checker.shape({
 
 export default (treant, options = {}) => {
   const {h} = treant;
+
   const Picture = createPicture(treant, options);
+  const Link = createLink(treant, options);
 
   const SetupHeader = (props, children) => {
     const {
@@ -46,15 +49,15 @@ export default (treant, options = {}) => {
           </div>
         </div>
         <div className={style.logo}>
-          <a href={href}>
+          <Link href={href}>
             <Picture className={style.logoDesktop} src={logo} />
             <Picture className={style.logoMobile} src={logoMobile} />
-          </a>
+          </Link>
         </div>
         <div className={style.logout}>
-          <a href={logout}>
+          <Link href={logout}>
             {logoutValue}
-          </a>
+          </Link>
         </div>
       </div>
     );
