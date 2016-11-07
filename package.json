@@ -16,7 +16,7 @@
     "nyc": "rm -rf .nyc_output && mkdir .nyc_output && cp $(ls packages/**/.nyc_output/*.json) .nyc_output && nyc --reporter=text --reporter=lcov report",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "heroku-prebuild": "echo \"//registry.npmjs.org/:_authToken=${NPM_TOKEN}\" > .npmrc",
-    "heroku-postbuild": "cd packages/@coorpacademy-components/ && npm i"
+    "heroku-postbuild": "npm run bootstrap && cd packages/@coorpacademy-components/ && npm i"
   },
   "engines": {
     "node": "6.5.0",
