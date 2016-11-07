@@ -1,1 +1,1 @@
-web: cd packages/@coorpacademy-components/ && npm start
+web: npm run bootstrap && cd packages/@coorpacademy-components/ && npm start

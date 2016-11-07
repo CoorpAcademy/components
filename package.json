@@ -2,7 +2,7 @@
   "scripts": {
     "start:components": "lerna exec --scope @coorpacademy/components -- npm start",
     "start:angular": "lerna exec --scope @coorpacademy/treantjs-adapter-angular -- npm start",
-    "postinstall": "npm run bootstrap",
+    "postinstall": "  ",
     "build": "lerna run build",
     "lerna": "lerna",
     "bootstrap": "lerna bootstrap",
@@ -15,7 +15,7 @@
     "ava": "lerna run ava",
     "nyc": "rm -rf .nyc_output && mkdir .nyc_output && cp $(ls packages/**/.nyc_output/*.json) .nyc_output && nyc --reporter=text --reporter=lcov report",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
-    "heroku-prebuild": "echo \"//registry.npmjs.org/:_authToken=${NPM_TOKEN}\" > .npmrc && cd packages/@coorpacademy-components/",
+    "heroku-prebuild": "echo \"//registry.npmjs.org/:_authToken=${NPM_TOKEN}\" > .npmrc",
     "heroku-postbuild": "cd packages/@coorpacademy-components/ && npm i"
   },
   "engines": {
