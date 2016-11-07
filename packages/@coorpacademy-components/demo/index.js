@@ -37,7 +37,7 @@ app.get('/', (req, res) => {
 
 
 if (!module.parent) {
-  app.listen(3004);
+  app.listen(process.env.PORT);
   console.log('Open your browser: http://localhost:3004');
 }
 
