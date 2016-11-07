@@ -15,7 +15,7 @@
     "ava": "lerna run ava",
     "nyc": "rm -rf .nyc_output && mkdir .nyc_output && cp $(ls packages/**/.nyc_output/*.json) .nyc_output && nyc --reporter=text --reporter=lcov report",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
-    "heroku-prebuild": "echo \"//registry.npmjs.org/:_authToken=${NPM_TOKEN}\" > .npmrc"
+    "heroku-prebuild": "echo \"//registry.npmjs.org/:_authToken=${NPM_TOKEN}\" > .npmrc && cd packages/@coorpacademy-components/ && npm i --only=dev"
   },
   "engines": {
     "node": "6.5.0",

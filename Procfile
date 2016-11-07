@@ -1,0 +1,1 @@
+web: cd packages/@coorpacademy-components/ && npm start
