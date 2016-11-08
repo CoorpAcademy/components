@@ -1,5 +1,5 @@
 import {checker, createValidate} from '../../util/validation';
-import createBrandContentGroup from '../../molecule/brand-content-group';
+import createBrandFormGroup from '../../molecule/brand-form-group';
 import HoverFillBehaviour from '../../behaviour/effects/hover-fill';
 import style from './style.css';
 
@@ -32,10 +32,10 @@ const conditions = checker.shape({
 export default (treant, options = {}) => {
   const {h} = treant;
 
-  const BrandContentGroup = createBrandContentGroup(treant, options);
+  const BrandFormGroup = createBrandFormGroup(treant, options);
   const HoverFill = HoverFillBehaviour(treant, options);
 
-  const BrandContent = (props, children) => {
+  const BrandForm = (props, children) => {
     const {
       groups,
       // disabled,
@@ -48,7 +48,7 @@ export default (treant, options = {}) => {
     const brandGroups = groups.map(group => {
       return (
         <div className={style.group}>
-          <BrandContentGroup {...group} />
+          <BrandFormGroup {...group} />
         </div>
       );
     });
@@ -78,6 +78,6 @@ export default (treant, options = {}) => {
     );
   };
 
-  BrandContent.validate = createValidate(conditions);
-  return BrandContent;
+  BrandForm.validate = createValidate(conditions);
+  return BrandForm;
 };
