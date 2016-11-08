@@ -62,7 +62,7 @@ export default (treant, options = {}) => {
       );
     }, notifications);
 
-    const contentView = cont =>  {
+    const contentView = cont => {
       const {
         type
       } = cont;
@@ -76,7 +76,7 @@ export default (treant, options = {}) => {
           return null;
         default:
           return null;
-      };
+      }
     };
 
     return (
