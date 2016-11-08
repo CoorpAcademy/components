@@ -30,26 +30,7 @@ const conditions = checker.shape({
       selected: checker.bool.optional
     })),
     content: checker.shape({
-      groups: checker.arrayOf(checker.shape({
-        title: checker.string,
-        disabled: checker.bool.optional,
-        fields: checker.arrayOf(checker.shape({
-          type: checker.string,
-          title: checker.string,
-          value: checker.any.optional,
-          values: checker.arrayOf(checker.string).optional,
-          placeholder: checker.string.optional,
-          disabled: checker.bool.optional,
-          description: checker.string.optional,
-          error: checker.string.optional,
-          onChange: checker.func.optional
-        }))
-      })),
-      disabled: checker.bool.optional,
-      isModified: checker.bool.optional,
-      isPending: checker.bool.optional,
-      onSubmit: checker.func.optional,
-      submitValue: checker.string.optional
+      type: checker.oneOf(['form', 'list']).optional
     })
   }),
   children: checker.none
@@ -81,6 +62,23 @@ export default (treant, options = {}) => {
       );
     }, notifications);
 
+    const contentView = cont =>  {
+      const {
+        type
+      } = cont;
+
+      switch (type) {
+        case 'form':
+          return (
+            <BrandContent {...cont} />
+          );
+        case 'list':
+          return null;
+        default:
+          return null;
+      };
+    };
+
     return (
       <div className={style.container}>
         <div className={style.headerWrapper}>
@@ -93,7 +91,7 @@ export default (treant, options = {}) => {
           {notificationsList}
         </div>
         <div className={style.contentWrapper}>
-          <BrandContent {...content} />
+          {contentView(content)}
         </div>
       </div>
     );

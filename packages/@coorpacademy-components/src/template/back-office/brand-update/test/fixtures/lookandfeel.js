@@ -13,6 +13,7 @@ export default {
     links,
     tabs,
     content: {
+      type: 'form',
       groups: [{
         title: 'Platform design',
         fields: [{
