@@ -1,60 +1,20 @@
-import Breadcrumbs from '../../../../../molecule/breadcrumbs/test/fixtures/default';
+import defaultsDeep from 'lodash/fp/defaultsDeep';
+import LookAndFeel from '../../../../../organism/brand-form/test/fixtures/lookandfeel';
 import BrandTabs from '../../../../../molecule/brand-tabs/test/fixtures/lookandfeel';
-import Header from '../../../../../organism/setup-header/test/fixtures/default';
+import Default from './default';
 
-const {breadcrumbs, links} = Breadcrumbs.props;
+const {props} = Default;
+const {groups} = LookAndFeel.props;
 const {tabs} = BrandTabs.props;
 
 export default {
-  props: {
-    header: Header.props,
-    notifications: [],
-    breadcrumbs,
-    links,
+  props: defaultsDeep(props, {
     tabs,
     content: {
       type: 'form',
-      groups: [{
-        title: 'Platform design',
-        fields: [{
-          title: 'Primary color',
-          value: '#ececec',
-          placeholder: '#ffffff',
-          type: 'color',
-          description: 'Lorem ipsum dolor sit amet.',
-          onChange: () => {}
-        }, {
-          title: 'Secondary color',
-          value: '#ececec',
-          placeholder: '#ffffff',
-          type: 'color',
-          description: 'Lorem ipsum dolor sit amet.',
-          onChange: () => {}
-        }, {
-          title: 'Tertirary color',
-          value: '#ececec',
-          placeholder: '#ffffff',
-          type: 'color',
-          description: 'Lorem ipsum dolor sit amet.',
-          onChange: () => {}
-        }, {
-          title: 'Validation color',
-          value: '#ececec',
-          placeholder: '#ffffff',
-          type: 'color',
-          description: 'Lorem ipsum dolor sit amet.',
-          onChange: () => {}
-        }, {
-          title: 'Error color',
-          value: '#ff0000',
-          placeholder: '#ffffff',
-          type: 'color',
-          description: 'Lorem ipsum dolor sit amet.',
-          onChange: () => {}
-        }]
-      }],
+      groups,
       onSubmit: () => {},
       submitValue: 'Save changes'
     }
-  }
+  })
 };
