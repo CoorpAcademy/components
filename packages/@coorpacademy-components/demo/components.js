@@ -132,6 +132,7 @@ import createBrandCreateFormFixtureModified from '../src/molecule/brand-create-f
 import createBrandTabsFixtureDefault from '../src/molecule/brand-tabs/test/fixtures/default';
 import createBrandTabsFixtureLookandfeel from '../src/molecule/brand-tabs/test/fixtures/lookandfeel';
 import createBrandTabsFixtureSso from '../src/molecule/brand-tabs/test/fixtures/sso';
+import createBrandTabsFixtureUsers from '../src/molecule/brand-tabs/test/fixtures/users';
 import createBreadcrumbsFixtureDefault from '../src/molecule/breadcrumbs/test/fixtures/default';
 import createCatalogCardFixtureDefault from '../src/molecule/catalog-card/test/fixtures/default';
 import createCatalogCtaFixtureDefault from '../src/molecule/catalog-cta/test/fixtures/default';
@@ -247,6 +248,9 @@ import createBrandUpdateFixtureLookandfeelSuccess from '../src/template/back-off
 import createBrandUpdateFixtureLookandfeel from '../src/template/back-office/brand-update/test/fixtures/lookandfeel';
 import createBrandUpdateFixtureSsoActivate from '../src/template/back-office/brand-update/test/fixtures/sso-activate';
 import createBrandUpdateFixtureSso from '../src/template/back-office/brand-update/test/fixtures/sso';
+import createBrandUpdateFixtureUsersEdit from '../src/template/back-office/brand-update/test/fixtures/users-edit';
+import createBrandUpdateFixtureUsersImport from '../src/template/back-office/brand-update/test/fixtures/users-import';
+import createBrandUpdateFixtureUsersList from '../src/template/back-office/brand-update/test/fixtures/users-list';
 import createLayoutFixtureDefault from '../src/template/back-office/layout/test/fixtures/default';
 import createCoorpHeaderFixtureProduction from '../src/template/common/coorp-header/test/fixtures/production';
 import createCoorpHeaderFixtureStaging from '../src/template/common/coorp-header/test/fixtures/staging';
@@ -487,7 +491,8 @@ export const fixtures = {
     BrandTabs: {
       Default: createBrandTabsFixtureDefault,
       Lookandfeel: createBrandTabsFixtureLookandfeel,
-      Sso: createBrandTabsFixtureSso
+      Sso: createBrandTabsFixtureSso,
+      Users: createBrandTabsFixtureUsers
     },
     Breadcrumbs: {
       Default: createBreadcrumbsFixtureDefault
@@ -698,7 +703,10 @@ export const fixtures = {
       LookandfeelSuccess: createBrandUpdateFixtureLookandfeelSuccess,
       Lookandfeel: createBrandUpdateFixtureLookandfeel,
       SsoActivate: createBrandUpdateFixtureSsoActivate,
-      Sso: createBrandUpdateFixtureSso
+      Sso: createBrandUpdateFixtureSso,
+      UsersEdit: createBrandUpdateFixtureUsersEdit,
+      UsersImport: createBrandUpdateFixtureUsersImport,
+      UsersList: createBrandUpdateFixtureUsersList
     },
     Layout: {
       Default: createLayoutFixtureDefault
