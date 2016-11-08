@@ -37,7 +37,7 @@ export default (treant, options = {}) => {
   const InputSwitch = createInputSwitch(treant, options);
   const InputDoublestep = createInputDoublestep(treant, options);
 
-  const BrandContentGroup = (props, children) => {
+  const BrandFormGroup = (props, children) => {
     const {
       title,
       fields
@@ -97,6 +97,6 @@ export default (treant, options = {}) => {
     );
   };
 
-  BrandContentGroup.validate = createValidate(conditions);
-  return BrandContentGroup;
+  BrandFormGroup.validate = createValidate(conditions);
+  return BrandFormGroup;
 };
