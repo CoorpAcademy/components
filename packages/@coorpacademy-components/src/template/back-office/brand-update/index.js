@@ -2,7 +2,7 @@ import map from 'lodash/fp/map';
 import {checker, createValidate} from '../../../util/validation';
 import createBreadcrumbs from '../../../molecule/breadcrumbs';
 import createBrandTabs from '../../../molecule/brand-tabs';
-import createBrandContent from '../../../organism/brand-content';
+import createBrandForm from '../../../organism/brand-form';
 import createNotification from '../../../atom/notification';
 import createLayout from '../layout';
 import style from './style.css';
@@ -41,7 +41,7 @@ export default (treant, options = {}) => {
 
   const Breadcrumbs = createBreadcrumbs(treant, options);
   const BrandTabs = createBrandTabs(treant, options);
-  const BrandContent = createBrandContent(treant, options);
+  const BrandForm = createBrandForm(treant, options);
   const NotificationComponent = createNotification(treant, options);
   const Layout = createLayout(treant, options);
 
@@ -70,7 +70,7 @@ export default (treant, options = {}) => {
       switch (type) {
         case 'form':
           return (
-            <BrandContent {...cont} />
+            <BrandForm {...cont} />
           );
         case 'list':
           return null;

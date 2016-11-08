@@ -29,8 +29,8 @@ import createTiny from '../src/behaviour/font/tiny';
 import createUppercase from '../src/behaviour/font/uppercase';
 import createBrandCardCreate from '../src/molecule/brand-card-create';
 import createBrandCard from '../src/molecule/brand-card';
-import createBrandContentGroup from '../src/molecule/brand-content-group';
 import createBrandCreateForm from '../src/molecule/brand-create-form';
+import createBrandFormGroup from '../src/molecule/brand-form-group';
 import createBrandTabs from '../src/molecule/brand-tabs';
 import createBreadcrumbs from '../src/molecule/breadcrumbs';
 import createCatalogCard from '../src/molecule/catalog-card';
@@ -58,7 +58,7 @@ import createVideoPlayer from '../src/molecule/video-player';
 import createForumComment from '../src/molecule/forum/forum-comment';
 import createForumPost from '../src/molecule/forum/forum-post';
 import createForumThread from '../src/molecule/forum/forum-thread';
-import createBrandContent from '../src/organism/brand-content';
+import createBrandForm from '../src/organism/brand-form';
 import createCatalogCards from '../src/organism/catalog-cards';
 import createCursusRightaside from '../src/organism/cursus-rightaside';
 import createDisciplineCards from '../src/organism/discipline-cards';
@@ -122,13 +122,13 @@ import createTinyFixtureDefault from '../src/behaviour/font/tiny/test/fixtures/d
 import createUppercaseFixtureDefault from '../src/behaviour/font/uppercase/test/fixtures/default';
 import createBrandCardCreateFixtureDefault from '../src/molecule/brand-card-create/test/fixtures/default';
 import createBrandCardFixtureDefault from '../src/molecule/brand-card/test/fixtures/default';
-import createBrandContentGroupFixtureDefault from '../src/molecule/brand-content-group/test/fixtures/default';
-import createBrandContentGroupFixtureLookandfeel from '../src/molecule/brand-content-group/test/fixtures/lookandfeel';
-import createBrandContentGroupFixtureSso from '../src/molecule/brand-content-group/test/fixtures/sso';
 import createBrandCreateFormFixtureDefault from '../src/molecule/brand-create-form/test/fixtures/default';
 import createBrandCreateFormFixtureError from '../src/molecule/brand-create-form/test/fixtures/error';
 import createBrandCreateFormFixtureLoading from '../src/molecule/brand-create-form/test/fixtures/loading';
 import createBrandCreateFormFixtureModified from '../src/molecule/brand-create-form/test/fixtures/modified';
+import createBrandFormGroupFixtureDefault from '../src/molecule/brand-form-group/test/fixtures/default';
+import createBrandFormGroupFixtureLookandfeel from '../src/molecule/brand-form-group/test/fixtures/lookandfeel';
+import createBrandFormGroupFixtureSso from '../src/molecule/brand-form-group/test/fixtures/sso';
 import createBrandTabsFixtureDefault from '../src/molecule/brand-tabs/test/fixtures/default';
 import createBrandTabsFixtureLookandfeel from '../src/molecule/brand-tabs/test/fixtures/lookandfeel';
 import createBrandTabsFixtureSso from '../src/molecule/brand-tabs/test/fixtures/sso';
@@ -199,9 +199,9 @@ import createForumPostFixtureTextareasLocked from '../src/molecule/forum/forum-p
 import createForumThreadFixtureDeepAnswers from '../src/molecule/forum/forum-thread/test/fixtures/deep-answers';
 import createForumThreadFixtureDefault from '../src/molecule/forum/forum-thread/test/fixtures/default';
 import createForumThreadFixtureWithAnswers from '../src/molecule/forum/forum-thread/test/fixtures/with-answers';
-import createBrandContentFixtureDefault from '../src/organism/brand-content/test/fixtures/default';
-import createBrandContentFixtureLookandfeel from '../src/organism/brand-content/test/fixtures/lookandfeel';
-import createBrandContentFixtureSso from '../src/organism/brand-content/test/fixtures/sso';
+import createBrandFormFixtureDefault from '../src/organism/brand-form/test/fixtures/default';
+import createBrandFormFixtureLookandfeel from '../src/organism/brand-form/test/fixtures/lookandfeel';
+import createBrandFormFixtureSso from '../src/organism/brand-form/test/fixtures/sso';
 import createCatalogCardsFixtureDefault from '../src/organism/catalog-cards/test/fixtures/default';
 import createCatalogCardsFixtureLoading from '../src/organism/catalog-cards/test/fixtures/loading';
 import createCatalogCardsFixtureNoProducts from '../src/organism/catalog-cards/test/fixtures/no-products';
@@ -298,8 +298,8 @@ export const components = {
   Molecule: {
     BrandCardCreate: createBrandCardCreate,
     BrandCard: createBrandCard,
-    BrandContentGroup: createBrandContentGroup,
     BrandCreateForm: createBrandCreateForm,
+    BrandFormGroup: createBrandFormGroup,
     BrandTabs: createBrandTabs,
     Breadcrumbs: createBreadcrumbs,
     CatalogCard: createCatalogCard,
@@ -331,7 +331,7 @@ export const components = {
     ForumThread: createForumThread
   },
   Organism: {
-    BrandContent: createBrandContent,
+    BrandForm: createBrandForm,
     CatalogCards: createCatalogCards,
     CursusRightaside: createCursusRightaside,
     DisciplineCards: createDisciplineCards,
@@ -477,16 +477,16 @@ export const fixtures = {
     BrandCard: {
       Default: createBrandCardFixtureDefault
     },
-    BrandContentGroup: {
-      Default: createBrandContentGroupFixtureDefault,
-      Lookandfeel: createBrandContentGroupFixtureLookandfeel,
-      Sso: createBrandContentGroupFixtureSso
-    },
     BrandCreateForm: {
       Default: createBrandCreateFormFixtureDefault,
       Error: createBrandCreateFormFixtureError,
       Loading: createBrandCreateFormFixtureLoading,
       Modified: createBrandCreateFormFixtureModified
+    },
+    BrandFormGroup: {
+      Default: createBrandFormGroupFixtureDefault,
+      Lookandfeel: createBrandFormGroupFixtureLookandfeel,
+      Sso: createBrandFormGroupFixtureSso
     },
     BrandTabs: {
       Default: createBrandTabsFixtureDefault,
@@ -616,10 +616,10 @@ export const fixtures = {
     }
   },
   Organism: {
-    BrandContent: {
-      Default: createBrandContentFixtureDefault,
-      Lookandfeel: createBrandContentFixtureLookandfeel,
-      Sso: createBrandContentFixtureSso
+    BrandForm: {
+      Default: createBrandFormFixtureDefault,
+      Lookandfeel: createBrandFormFixtureLookandfeel,
+      Sso: createBrandFormFixtureSso
     },
     CatalogCards: {
       Default: createCatalogCardsFixtureDefault,
