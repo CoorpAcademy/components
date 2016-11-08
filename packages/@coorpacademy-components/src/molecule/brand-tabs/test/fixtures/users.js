@@ -11,11 +11,11 @@ export default {
     }, {
       title: 'SSO',
       href: '#brand/samsung/sso',
-      selected: true
+      selected: false
     }, {
       title: 'Users',
       href: '#brand/samsung/users',
-      selected: false
+      selected: true
     }]
   }
 };
