@@ -22,34 +22,34 @@ export default {
       },
       pagination: {
         value : '',
-        nextHref: '';
+        nextHref: '',
         previousHred: ''
       },
       displayOptions: {
         value: '',
         values: ['', '', ''],
-        onChange: () => {},
-        users: [{
-          fields: ['', '', '', ''],
-          editHref: () => {}
-        }],
-        columns: [{
-          title: '',
-          filtered: false,
-          options: [{
-            values: [{
-              title: 'Sort A -> Z',
-              onChange: () => {},
-              selected: false
-            },
-            {
-              title: 'Sort Z -> A',
-              onChange: () => {},
-              selected: false
-            }]
+        onChange: () => {}
+      },
+      lines: [{
+        fields: ['', '', '', ''],
+        editHref: () => {}
+      }],
+      columns: [{
+        title: '',
+        filtered: false,
+        options: [{
+          values: [{
+            title: 'Sort A -> Z',
+            onChange: () => {},
+            selected: false
+          },
+          {
+            title: 'Sort Z -> A',
+            onChange: () => {},
+            selected: false
           }]
         }]
-      }
+      }]
     }
   }
 };
