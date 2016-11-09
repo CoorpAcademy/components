@@ -3,6 +3,7 @@ import {checker, createValidate} from '../../util/validation';
 import createSelect from '../../atom/select';
 import createInputText from '../../atom/input-text';
 import createInputColor from '../../atom/input-color';
+import createInputCheckbox from '../../atom/input-checkbox';
 import createInputReadonly from '../../atom/input-readonly';
 import createInputSwitch from '../../atom/input-switch';
 import createInputTextarea from '../../atom/input-textarea';
@@ -29,6 +30,7 @@ export default (treant, options = {}) => {
   const InputReadonly = createInputReadonly(treant, options);
   const InputSwitch = createInputSwitch(treant, options);
   const InputDoublestep = createInputDoublestep(treant, options);
+  const InputCheckbox = createInputCheckbox(treant, options);
   const Select = createSelect(treant, options);
 
   const BrandFormGroup = (props, children) => {
@@ -65,6 +67,10 @@ export default (treant, options = {}) => {
         case 'select':
           return (
             <Select {...field} />
+          );
+        case 'checkbox':
+          return (
+            <InputCheckbox {...field} />
           );
         default:
           return (

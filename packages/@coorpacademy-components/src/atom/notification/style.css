@@ -1,11 +1,15 @@
+@value colors: "../../variables/colors.css";
+@value darkGrey from colors;
+@value orange from colors;
+
 .message {
   width: 100%;
   font-family: 'Open Sans';
   font-weight: 700;
   font-size: 14px;
   text-align: center;
-  color: #455A64;
-  border: 1px solid #455A64;
+  color: darkGrey;
+  border: 1px solid darkGrey;
   border-radius: 2px;
   padding: 10px 20px;
   box-sizing: border-box;
@@ -17,7 +21,7 @@
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background-color: #455A64;
+  background-color: darkGrey;
   color: #ffffff;
   text-align: center;
   margin-right: 10px;
@@ -25,20 +29,20 @@
 
 .success {
   composes: message;
-  color: #3AB63F;
-  border-color: #3AB63F;
+  color: green;
+  border-color: green;
 }
 
 .success span {
-  background-color: #3AB63F;
+  background-color: green;
 }
 
 .error {
   composes: message;
-  color: #eb5c41;
-  border-color: #eb5c41;
+  color: orange;
+  border-color: orange;
 }
 
 .error span {
-  background-color: #eb5c41;
+  background-color: orange;
 }
