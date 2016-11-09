@@ -8,17 +8,7 @@ const conditions = checker.shape({
     groups: checker.arrayOf(checker.shape({
       title: checker.string,
       disabled: checker.bool.optional,
-      fields: checker.arrayOf(checker.shape({
-        type: checker.string,
-        title: checker.string,
-        value: checker.any.optional,
-        values: checker.arrayOf(checker.string).optional,
-        placeholder: checker.string.optional,
-        disabled: checker.bool.optional,
-        description: checker.string.optional,
-        error: checker.string.optional,
-        onChange: checker.func.optional
-      }))
+      fields: checker.array
     })),
     disabled: checker.bool.optional,
     isModified: checker.bool.optional,
