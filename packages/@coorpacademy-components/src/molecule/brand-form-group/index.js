@@ -1,5 +1,6 @@
 import map from 'lodash/fp/map';
 import {checker, createValidate} from '../../util/validation';
+import createSelect from '../../atom/select';
 import createInputText from '../../atom/input-text';
 import createInputColor from '../../atom/input-color';
 import createInputReadonly from '../../atom/input-readonly';
@@ -28,6 +29,7 @@ export default (treant, options = {}) => {
   const InputReadonly = createInputReadonly(treant, options);
   const InputSwitch = createInputSwitch(treant, options);
   const InputDoublestep = createInputDoublestep(treant, options);
+  const Select = createSelect(treant, options);
 
   const BrandFormGroup = (props, children) => {
     const {
@@ -59,6 +61,10 @@ export default (treant, options = {}) => {
         case 'doublestep':
           return (
             <InputDoublestep {...field} />
+          );
+        case 'select':
+          return (
+            <Select {...field} />
           );
         default:
           return (

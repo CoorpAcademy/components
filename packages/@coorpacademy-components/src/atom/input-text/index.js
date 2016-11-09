@@ -33,7 +33,7 @@ export default (treant, options) => {
     } = props;
 
     const className = error ? style.error : style.default;
-    const title = `${props.title}${required ? '*' : ''}`;
+    const title = `${props.title}${required ? '*' : ''} :`;
 
     return (
       <div className={className}>

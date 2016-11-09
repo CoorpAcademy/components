@@ -3,13 +3,16 @@ import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({
-    field: checker.shape({
-      title: checker.string,
-      placeholder: checker.string,
-      type: checker.string,
+    title: checker.string,
+    value: checker.string.optional,
+    disabled: checker.bool.optional,
+    required: checker.bool.optional,
+    onChange: checker.func.optional,
+    options: checker.arrayOf(checker.shape({
+      name: checker.string,
       value: checker.string.optional,
-      onChange: checker.func.optional
-    })
+      selected: checker.bool
+    }))
   }),
   children: checker.none
 });
@@ -17,18 +20,37 @@ const conditions = checker.shape({
 export default (treant, options) => {
   const {h} = treant;
 
-  const Select = (props, children) => (
-    <div className={style.default}>
-      <label>
-        Color
-        <select>
-          <option value="pouet">Option</option>
-          <option value="pouet2">Something</option>
-          <option value="pouet3">Something else</option>
-        </select>
-      </label>
-    </div>
-  );
+  const Select = (props, children) => {
+    const {
+      onChange,
+      disabled,
+      required
+    } = props;
+
+    const title = `${props.title}${required ? '*' : ''} :`;
+
+    const optionList = props.options && props.options.map(option => {
+      return (
+        <option
+          value={option.value}
+          selected={option.selected}
+        >
+          {option.name}
+        </option>
+      );
+    });
+
+    return (
+      <div className={style.default}>
+        <label>
+          <span className={style.title}>{title}</span>
+          <select onChange={onChange} disabled={disabled}>
+            {optionList}
+          </select>
+        </label>
+      </div>
+    );
+  };
 
   Select.validate = createValidate(conditions);
   return Select;
