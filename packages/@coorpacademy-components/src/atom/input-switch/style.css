@@ -3,6 +3,10 @@
   min-height: 50px;
 }
 
+.unset {
+  composes: default;
+}
+
 .default label {
   height: 30px;
   position: relative;
@@ -29,6 +33,10 @@
   box-shadow: 0px 3px 3px rgba(0,0,0,0.05);
   content: '';
   transition: all 0.3s ease;
+}
+
+.unset label:after {
+  left: 11.5px;
 }
 
 .checkbox {

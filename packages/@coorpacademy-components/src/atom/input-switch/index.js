@@ -26,9 +26,10 @@ export default (treant, options) => {
     } = props;
 
     const isDisabled = disabled ? 'disabled' : '';
+    const isUnset = value === undefined;
 
     return (
-      <div className={style.default}>
+      <div className={isUnset ? style.unset : style.default}>
         <span className={style.title}>{`${title} `}</span>
         <input
           type='checkbox'

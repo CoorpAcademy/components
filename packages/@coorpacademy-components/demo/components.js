@@ -86,6 +86,7 @@ import createInputDoublestepFixtureDefault from '../src/atom/input-doublestep/te
 import createInputReadonlyFixtureDefault from '../src/atom/input-readonly/test/fixtures/default';
 import createInputSwitchFixtureChecked from '../src/atom/input-switch/test/fixtures/checked';
 import createInputSwitchFixtureUnchecked from '../src/atom/input-switch/test/fixtures/unchecked';
+import createInputSwitchFixtureUnset from '../src/atom/input-switch/test/fixtures/unset';
 import createInputTextFixtureDefault from '../src/atom/input-text/test/fixtures/default';
 import createInputTextFixtureDisabled from '../src/atom/input-text/test/fixtures/disabled';
 import createInputTextFixtureEmpty from '../src/atom/input-text/test/fixtures/empty';
@@ -132,6 +133,7 @@ import createBrandCreateFormFixtureLoading from '../src/molecule/brand-create-fo
 import createBrandCreateFormFixtureModified from '../src/molecule/brand-create-form/test/fixtures/modified';
 import createBrandFormGroupFixtureDefault from '../src/molecule/brand-form-group/test/fixtures/default';
 import createBrandFormGroupFixtureLookandfeel from '../src/molecule/brand-form-group/test/fixtures/lookandfeel';
+import createBrandFormGroupFixtureRoles from '../src/molecule/brand-form-group/test/fixtures/roles';
 import createBrandFormGroupFixtureSso from '../src/molecule/brand-form-group/test/fixtures/sso';
 import createBrandTabsFixtureDefault from '../src/molecule/brand-tabs/test/fixtures/default';
 import createBrandTabsFixtureLookandfeel from '../src/molecule/brand-tabs/test/fixtures/lookandfeel';
@@ -386,7 +388,8 @@ export const fixtures = {
     },
     InputSwitch: {
       Checked: createInputSwitchFixtureChecked,
-      Unchecked: createInputSwitchFixtureUnchecked
+      Unchecked: createInputSwitchFixtureUnchecked,
+      Unset: createInputSwitchFixtureUnset
     },
     InputText: {
       Default: createInputTextFixtureDefault,
@@ -499,6 +502,7 @@ export const fixtures = {
     BrandFormGroup: {
       Default: createBrandFormGroupFixtureDefault,
       Lookandfeel: createBrandFormGroupFixtureLookandfeel,
+      Roles: createBrandFormGroupFixtureRoles,
       Sso: createBrandFormGroupFixtureSso
     },
     BrandTabs: {
