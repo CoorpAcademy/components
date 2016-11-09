@@ -1,19 +1,15 @@
-import Breadcrumbs from '../../../../../molecule/breadcrumbs/test/fixtures/default';
-import BrandTabs from '../../../../../molecule/brand-tabs/test/fixtures/users';
-import Header from '../../../../../organism/setup-header/test/fixtures/default';
+import defaultsDeep from 'lodash/fp/defaultsDeep';
+import UserImport from '../../../../../organism/brand-form/test/fixtures/user-import';
+import Users from './users';
 
-const {breadcrumbs, links} = Breadcrumbs.props;
-const {tabs} = BrandTabs.props;
+const {props} = Users;
+const {groups} = UserImport.props;
 
 export default {
-  props: {
-    header: Header.props,
-    notifications: [],
-    breadcrumbs,
-    links,
-    tabs,
+  props: defaultsDeep(props, {
     content: {
-
+      type: 'form',
+      groups
     }
-  }
+  })
 };

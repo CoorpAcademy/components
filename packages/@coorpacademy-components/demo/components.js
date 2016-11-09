@@ -200,8 +200,11 @@ import createForumThreadFixtureDeepAnswers from '../src/molecule/forum/forum-thr
 import createForumThreadFixtureDefault from '../src/molecule/forum/forum-thread/test/fixtures/default';
 import createForumThreadFixtureWithAnswers from '../src/molecule/forum/forum-thread/test/fixtures/with-answers';
 import createBrandFormFixtureDefault from '../src/organism/brand-form/test/fixtures/default';
+import createBrandFormFixtureGeneralSettings from '../src/organism/brand-form/test/fixtures/general-settings';
 import createBrandFormFixtureLookandfeel from '../src/organism/brand-form/test/fixtures/lookandfeel';
 import createBrandFormFixtureSso from '../src/organism/brand-form/test/fixtures/sso';
+import createBrandFormFixtureUserEdit from '../src/organism/brand-form/test/fixtures/user-edit';
+import createBrandFormFixtureUserImport from '../src/organism/brand-form/test/fixtures/user-import';
 import createCatalogCardsFixtureDefault from '../src/organism/catalog-cards/test/fixtures/default';
 import createCatalogCardsFixtureLoading from '../src/organism/catalog-cards/test/fixtures/loading';
 import createCatalogCardsFixtureNoProducts from '../src/organism/catalog-cards/test/fixtures/no-products';
@@ -239,6 +242,7 @@ import createBrandCreateFixtureLoading from '../src/template/back-office/brand-c
 import createBrandCreateFixtureModified from '../src/template/back-office/brand-create/test/fixtures/modified';
 import createBrandListFixtureDefault from '../src/template/back-office/brand-list/test/fixtures/default';
 import createBrandListFixtureLoading from '../src/template/back-office/brand-list/test/fixtures/loading';
+import createBrandUpdateFixtureDefault from '../src/template/back-office/brand-update/test/fixtures/default';
 import createBrandUpdateFixtureGeneralSettingsSuccess from '../src/template/back-office/brand-update/test/fixtures/general-settings-success';
 import createBrandUpdateFixtureGeneralSettings from '../src/template/back-office/brand-update/test/fixtures/general-settings';
 import createBrandUpdateFixtureLookandfeelError from '../src/template/back-office/brand-update/test/fixtures/lookandfeel-error';
@@ -251,6 +255,7 @@ import createBrandUpdateFixtureSso from '../src/template/back-office/brand-updat
 import createBrandUpdateFixtureUsersEdit from '../src/template/back-office/brand-update/test/fixtures/users-edit';
 import createBrandUpdateFixtureUsersImport from '../src/template/back-office/brand-update/test/fixtures/users-import';
 import createBrandUpdateFixtureUsersList from '../src/template/back-office/brand-update/test/fixtures/users-list';
+import createBrandUpdateFixtureUsers from '../src/template/back-office/brand-update/test/fixtures/users';
 import createLayoutFixtureDefault from '../src/template/back-office/layout/test/fixtures/default';
 import createCoorpHeaderFixtureProduction from '../src/template/common/coorp-header/test/fixtures/production';
 import createCoorpHeaderFixtureStaging from '../src/template/common/coorp-header/test/fixtures/staging';
@@ -618,8 +623,11 @@ export const fixtures = {
   Organism: {
     BrandForm: {
       Default: createBrandFormFixtureDefault,
+      GeneralSettings: createBrandFormFixtureGeneralSettings,
       Lookandfeel: createBrandFormFixtureLookandfeel,
-      Sso: createBrandFormFixtureSso
+      Sso: createBrandFormFixtureSso,
+      UserEdit: createBrandFormFixtureUserEdit,
+      UserImport: createBrandFormFixtureUserImport
     },
     CatalogCards: {
       Default: createCatalogCardsFixtureDefault,
@@ -695,6 +703,7 @@ export const fixtures = {
       Loading: createBrandListFixtureLoading
     },
     BrandUpdate: {
+      Default: createBrandUpdateFixtureDefault,
       GeneralSettingsSuccess: createBrandUpdateFixtureGeneralSettingsSuccess,
       GeneralSettings: createBrandUpdateFixtureGeneralSettings,
       LookandfeelError: createBrandUpdateFixtureLookandfeelError,
@@ -706,7 +715,8 @@ export const fixtures = {
       Sso: createBrandUpdateFixtureSso,
       UsersEdit: createBrandUpdateFixtureUsersEdit,
       UsersImport: createBrandUpdateFixtureUsersImport,
-      UsersList: createBrandUpdateFixtureUsersList
+      UsersList: createBrandUpdateFixtureUsersList,
+      Users: createBrandUpdateFixtureUsers
     },
     Layout: {
       Default: createLayoutFixtureDefault
