@@ -59,29 +59,29 @@ export default {
     {
       title: 'Roles',
       fields: [{
-        type: 'switch',
+        type: 'checkbox',
         title: 'RH',
-        value: true
+        checked: true
       }, {
-        type: 'switch',
+        type: 'checkbox',
         title: 'CMS',
-        value: false
+        checked: false
       }, {
-        type: 'switch',
+        type: 'checkbox',
         title: 'Admin',
-        value: true
+        checked: true
       }, {
-        type: 'switch',
+        type: 'checkbox',
         title: 'Super coach'
       }, {
-        type: 'switch',
+        type: 'checkbox',
         title: 'Moderator'
       }, {
-        type: 'switch',
+        type: 'checkbox',
         title: 'System',
-        value: false
+        checked: false
       }, {
-        type: 'switch',
+        type: 'checkbox',
         title: 'Godmode'
       }]
     },

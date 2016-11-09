@@ -38,6 +38,7 @@ export createGridList from './organism/grid-list';
 export createHeader from './organism/header';
 export createHero from './organism/hero';
 export createHoverFill from './behaviour/effects/hover-fill';
+export createInputCheckbox from './atom/input-checkbox';
 export createInputColor from './atom/input-color';
 export createInputDoublestep from './atom/input-doublestep';
 export createInputReadonly from './atom/input-readonly';

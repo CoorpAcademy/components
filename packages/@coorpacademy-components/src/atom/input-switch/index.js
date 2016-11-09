@@ -5,7 +5,7 @@ import style from './style.css';
 const conditions = checker.shape({
   props: checker.shape({
     title: checker.string,
-    value: checker.bool,
+    value: checker.bool.optional,
     disabled: checker.bool.optional,
     onChange: checker.func.optional,
     description: checker.string.optional

@@ -1,4 +1,5 @@
 import createCenteredText from '../src/atom/centered-text';
+import createInputCheckbox from '../src/atom/input-checkbox';
 import createInputColor from '../src/atom/input-color';
 import createInputDoublestep from '../src/atom/input-doublestep';
 import createInputReadonly from '../src/atom/input-readonly';
@@ -79,6 +80,11 @@ import createBrandUpdate from '../src/template/back-office/brand-update';
 import createLayout from '../src/template/back-office/layout';
 import createCoorpHeader from '../src/template/common/coorp-header';
 import createCenteredTextFixtureDefault from '../src/atom/centered-text/test/fixtures/default';
+import createInputCheckboxFixtureChecked from '../src/atom/input-checkbox/test/fixtures/checked';
+import createInputCheckboxFixtureDefault from '../src/atom/input-checkbox/test/fixtures/default';
+import createInputCheckboxFixtureDisabled from '../src/atom/input-checkbox/test/fixtures/disabled';
+import createInputCheckboxFixtureError from '../src/atom/input-checkbox/test/fixtures/error';
+import createInputCheckboxFixtureRequired from '../src/atom/input-checkbox/test/fixtures/required';
 import createInputColorFixtureDefault from '../src/atom/input-color/test/fixtures/default';
 import createInputColorFixtureEmpty from '../src/atom/input-color/test/fixtures/empty';
 import createInputColorFixtureError from '../src/atom/input-color/test/fixtures/error';
@@ -269,6 +275,7 @@ import createCoorpHeaderFixtureStaging from '../src/template/common/coorp-header
 export const components = {
   Atom: {
     CenteredText: createCenteredText,
+    InputCheckbox: createInputCheckbox,
     InputColor: createInputColor,
     InputDoublestep: createInputDoublestep,
     InputReadonly: createInputReadonly,
@@ -374,6 +381,13 @@ export const fixtures = {
   Atom: {
     CenteredText: {
       Default: createCenteredTextFixtureDefault
+    },
+    InputCheckbox: {
+      Checked: createInputCheckboxFixtureChecked,
+      Default: createInputCheckboxFixtureDefault,
+      Disabled: createInputCheckboxFixtureDisabled,
+      Error: createInputCheckboxFixtureError,
+      Required: createInputCheckboxFixtureRequired
     },
     InputColor: {
       Default: createInputColorFixtureDefault,
