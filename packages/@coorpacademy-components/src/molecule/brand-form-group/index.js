@@ -13,15 +13,7 @@ const conditions = checker.shape({
     title: checker.string,
     disabled: checker.bool.optional,
     fields: checker.arrayOf(checker.shape({
-      type: checker.string,
-      title: checker.string,
-      value: checker.any.optional,
-      values: checker.arrayOf(checker.string).optional,
-      placeholder: checker.string.optional,
-      disabled: checker.bool.optional,
-      description: checker.string.optional,
-      error: checker.string.optional,
-      onChange: checker.func.optional
+      type: checker.string
     }))
   }),
   children: checker.none

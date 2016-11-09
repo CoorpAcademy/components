@@ -5,6 +5,6 @@ const {props} = Default;
 
 export default {
   props: defaultsDeep(props, {
-    error: 'Error\'s message'
+    required: true
   })
 };

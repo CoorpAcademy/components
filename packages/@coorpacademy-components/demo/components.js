@@ -87,8 +87,10 @@ import createInputReadonlyFixtureDefault from '../src/atom/input-readonly/test/f
 import createInputSwitchFixtureChecked from '../src/atom/input-switch/test/fixtures/checked';
 import createInputSwitchFixtureUnchecked from '../src/atom/input-switch/test/fixtures/unchecked';
 import createInputTextFixtureDefault from '../src/atom/input-text/test/fixtures/default';
+import createInputTextFixtureDisabled from '../src/atom/input-text/test/fixtures/disabled';
 import createInputTextFixtureEmpty from '../src/atom/input-text/test/fixtures/empty';
 import createInputTextFixtureError from '../src/atom/input-text/test/fixtures/error';
+import createInputTextFixtureRequired from '../src/atom/input-text/test/fixtures/required';
 import createInputTextareaFixtureDefault from '../src/atom/input-textarea/test/fixtures/default';
 import createInputTextareaFixtureEmpty from '../src/atom/input-textarea/test/fixtures/empty';
 import createInputTextareaFixtureError from '../src/atom/input-textarea/test/fixtures/error';
@@ -386,8 +388,10 @@ export const fixtures = {
     },
     InputText: {
       Default: createInputTextFixtureDefault,
+      Disabled: createInputTextFixtureDisabled,
       Empty: createInputTextFixtureEmpty,
-      Error: createInputTextFixtureError
+      Error: createInputTextFixtureError,
+      Required: createInputTextFixtureRequired
     },
     InputTextarea: {
       Default: createInputTextareaFixtureDefault,
