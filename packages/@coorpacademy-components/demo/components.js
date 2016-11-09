@@ -105,6 +105,8 @@ import createPictureFixtureDefault from '../src/atom/picture/test/fixtures/defau
 import createPictureFixtureEmpty from '../src/atom/picture/test/fixtures/empty';
 import createPictureFixtureSimpleSrc from '../src/atom/picture/test/fixtures/simple-src';
 import createSelectFixtureDefault from '../src/atom/select/test/fixtures/default';
+import createSelectFixtureDisabled from '../src/atom/select/test/fixtures/disabled';
+import createSelectFixtureRequired from '../src/atom/select/test/fixtures/required';
 import createSocialLinkFixtureFacebook from '../src/atom/social-link/test/fixtures/facebook';
 import createSocialLinkFixtureTwitter from '../src/atom/social-link/test/fixtures/twitter';
 import createSpinnerFixtureDefault from '../src/atom/spinner/test/fixtures/default';
@@ -421,7 +423,9 @@ export const fixtures = {
       SimpleSrc: createPictureFixtureSimpleSrc
     },
     Select: {
-      Default: createSelectFixtureDefault
+      Default: createSelectFixtureDefault,
+      Disabled: createSelectFixtureDisabled,
+      Required: createSelectFixtureRequired
     },
     SocialLink: {
       Facebook: createSocialLinkFixtureFacebook,

@@ -18,25 +18,25 @@ export default {
         type: 'readonly',
         description: 'Lorem Ipsum dolor sit amet.'
       }, {
-        title: 'Entrypoint:',
+        title: 'Entrypoint',
         value: '',
         type: 'text',
         description: 'Lorem Ipsum dolor sit amet.',
         onChange: () => {}
       }, {
-        title: 'Callback URL:',
+        title: 'Callback URL',
         value: '',
         type: 'text',
         description: 'Lorem Ipsum dolor sit amet.',
         onChange: () => {}
       }, {
-        title: 'Logout URL:',
+        title: 'Logout URL',
         value: '',
         type: 'text',
         description: 'Lorem Ipsum dolor sit amet.',
         onChange: () => {}
       }, {
-        title: 'Certificat PEM:',
+        title: 'Certificat PEM',
         value: '',
         type: 'text',
         description: 'Lorem Ipsum dolor sit amet.',
@@ -51,31 +51,31 @@ export default {
         type: 'readonly',
         description: 'Lorem Ipsum dolor sit amet.'
       }, {
-        title: 'Login:',
+        title: 'Login',
         value: '',
         type: 'text',
         description: 'Lorem Ipsum dolor sit amet.',
         onChange: () => {}
       }, {
-        title: 'Email:',
+        title: 'Email',
         value: '',
         type: 'text',
         description: 'Lorem Ipsum dolor sit amet.',
         onChange: () => {}
       }, {
-        title: 'Display name:',
+        title: 'Display name',
         value: '',
         type: 'text',
         description: 'Lorem Ipsum dolor sit amet.',
         onChange: () => {}
       }, {
-        title: 'Optional mapping:',
+        title: 'Optional mapping',
         value: '',
         type: 'textarea',
         description: 'Lorem Ipsum dolor sit amet.',
         onChange: () => {}
       }, {
-        title: 'Provider name:',
+        title: 'Provider name',
         value: '',
         type: 'text',
         description: 'Lorem Ipsum dolor sit amet.',
@@ -85,20 +85,20 @@ export default {
       title: 'Advanced Options',
       disabled: true,
       fields: [{
-        title: 'Hash algorithm:',
+        title: 'Hash algorithm',
         value: 'SHA-1',
         values: ['SHA-1', 'SHA-256'],
         type: 'select',
         description: 'Lorem Ipsum dolor sit amet.',
         onChange: () => {}
       }, {
-        title: 'Clock skew:',
+        title: 'Clock skew',
         value: '',
         type: 'text',
         description: 'Lorem Ipsum dolor sit amet.',
         onChange: () => {}
       }, {
-        title: 'Binding:',
+        title: 'Binding',
         value: 'HTTP POST',
         values: ['HTTP POST', 'HTTP_REDIRECT'],
         type: 'select',
