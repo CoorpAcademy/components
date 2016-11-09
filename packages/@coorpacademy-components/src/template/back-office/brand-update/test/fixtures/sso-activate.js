@@ -1,7 +1,7 @@
 import defaultsDeep from 'lodash/fp/defaultsDeep';
-import lookandfeel from './sso';
+import SSO from './sso';
 
-const {props} = lookandfeel;
+const {props} = SSO;
 
 export default {
   props: defaultsDeep(props, {
