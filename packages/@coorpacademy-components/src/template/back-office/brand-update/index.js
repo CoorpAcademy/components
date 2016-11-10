@@ -3,6 +3,7 @@ import {checker, createValidate} from '../../../util/validation';
 import createBreadcrumbs from '../../../molecule/breadcrumbs';
 import createBrandTabs from '../../../molecule/brand-tabs';
 import createBrandForm from '../../../organism/brand-form';
+import createBrandTable from '../../../organism/brand-table';
 import createNotification from '../../../atom/notification';
 import createLayout from '../layout';
 import style from './style.css';
@@ -42,6 +43,7 @@ export default (treant, options = {}) => {
   const Breadcrumbs = createBreadcrumbs(treant, options);
   const BrandTabs = createBrandTabs(treant, options);
   const BrandForm = createBrandForm(treant, options);
+  const BrandTable = createBrandTable(treant, options);
   const NotificationComponent = createNotification(treant, options);
   const Layout = createLayout(treant, options);
 
@@ -73,7 +75,9 @@ export default (treant, options = {}) => {
             <BrandForm {...cont} />
           );
         case 'list':
-          return null;
+          return (
+            <BrandTable {...cont} />
+          );
         default:
           return null;
       }

@@ -51,6 +51,7 @@ import createScopeTabs from '../src/molecule/scope-tabs';
 import createSelectBox from '../src/molecule/select-box';
 import createSsmenuList from '../src/molecule/ssmenu-list';
 import createStarRating from '../src/molecule/star-rating';
+import createTable from '../src/molecule/table';
 import createThemeImage from '../src/molecule/theme-image';
 import createTitledCheckbox from '../src/molecule/titled-checkbox';
 import createTransifexList from '../src/molecule/transifex-list';
@@ -60,6 +61,7 @@ import createForumComment from '../src/molecule/forum/forum-comment';
 import createForumPost from '../src/molecule/forum/forum-post';
 import createForumThread from '../src/molecule/forum/forum-thread';
 import createBrandForm from '../src/organism/brand-form';
+import createBrandTable from '../src/organism/brand-table';
 import createCatalogCards from '../src/organism/catalog-cards';
 import createCursusRightaside from '../src/organism/cursus-rightaside';
 import createDisciplineCards from '../src/organism/discipline-cards';
@@ -185,6 +187,7 @@ import createSsmenuListFixtureEmpty from '../src/molecule/ssmenu-list/test/fixtu
 import createSsmenuListFixtureFormations from '../src/molecule/ssmenu-list/test/fixtures/formations';
 import createSsmenuListFixtureSolutions from '../src/molecule/ssmenu-list/test/fixtures/solutions';
 import createStarRatingFixtureDefault from '../src/molecule/star-rating/test/fixtures/default';
+import createTableFixtureDefault from '../src/molecule/table/test/fixtures/default';
 import createThemeImageFixtureBg from '../src/molecule/theme-image/test/fixtures/bg';
 import createTitledCheckboxFixtureChecked from '../src/molecule/titled-checkbox/test/fixtures/checked';
 import createTitledCheckboxFixtureNoBg from '../src/molecule/titled-checkbox/test/fixtures/no-bg';
@@ -217,6 +220,7 @@ import createBrandFormFixtureLookandfeel from '../src/organism/brand-form/test/f
 import createBrandFormFixtureSso from '../src/organism/brand-form/test/fixtures/sso';
 import createBrandFormFixtureUserEdit from '../src/organism/brand-form/test/fixtures/user-edit';
 import createBrandFormFixtureUserImport from '../src/organism/brand-form/test/fixtures/user-import';
+import createBrandTableFixtureDefault from '../src/organism/brand-table/test/fixtures/default';
 import createCatalogCardsFixtureDefault from '../src/organism/catalog-cards/test/fixtures/default';
 import createCatalogCardsFixtureLoading from '../src/organism/catalog-cards/test/fixtures/loading';
 import createCatalogCardsFixtureNoProducts from '../src/organism/catalog-cards/test/fixtures/no-products';
@@ -337,6 +341,7 @@ export const components = {
     SelectBox: createSelectBox,
     SsmenuList: createSsmenuList,
     StarRating: createStarRating,
+    Table: createTable,
     ThemeImage: createThemeImage,
     TitledCheckbox: createTitledCheckbox,
     TransifexList: createTransifexList,
@@ -350,6 +355,7 @@ export const components = {
   },
   Organism: {
     BrandForm: createBrandForm,
+    BrandTable: createBrandTable,
     CatalogCards: createCatalogCards,
     CursusRightaside: createCursusRightaside,
     DisciplineCards: createDisciplineCards,
@@ -601,6 +607,9 @@ export const fixtures = {
     StarRating: {
       Default: createStarRatingFixtureDefault
     },
+    Table: {
+      Default: createTableFixtureDefault
+    },
     ThemeImage: {
       Bg: createThemeImageFixtureBg
     },
@@ -654,6 +663,9 @@ export const fixtures = {
       Sso: createBrandFormFixtureSso,
       UserEdit: createBrandFormFixtureUserEdit,
       UserImport: createBrandFormFixtureUserImport
+    },
+    BrandTable: {
+      Default: createBrandTableFixtureDefault
     },
     CatalogCards: {
       Default: createCatalogCardsFixtureDefault,
