@@ -1,4 +1,5 @@
 import {checker, createValidate} from '../../util/validation';
+import createButton from '../../atom/button';
 import style from './style.css';
 
 const conditions = checker.shape({
@@ -9,6 +10,7 @@ const conditions = checker.shape({
 
 export default (treant, options = {}) => {
   const {h} = treant;
+  const Button = createButton(treant, options);
 
   const BrandDownloadBox = (props, children) => {
     const {
@@ -20,7 +22,14 @@ export default (treant, options = {}) => {
 
     return (
       <div className={style.wrapper}>
-
+        {warning}
+        {description}
+        <Button
+          onClick={onClick}
+          submitValue={submitValue}
+          background={'#CFD8DC'}
+          color={'#717171'}
+        />
       </div>
     );
   };

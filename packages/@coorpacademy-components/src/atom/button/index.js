@@ -7,6 +7,7 @@ const conditions = checker.shape({
     background: checker.color.optional,
     color: checker.color.optional,
     submitValue: checker.string,
+    centered: checker.bool.optional,
     disabled: checker.bool.optional,
     onClick: checker.func.optional
   }),
@@ -23,16 +24,23 @@ export default (treant, options) => {
       background,
       color,
       submitValue,
+      centered,
       disabled,
       onClick
     } = props;
+
+    const centeredStyle = centered && {
+      margin: '0 auto',
+      display: 'block'
+    };
 
     return (
       <HoverFill>
         <div
           className={style.button}
           style={{
-            background
+            background,
+            ...centeredStyle
           }}
         >
           <input

@@ -89,6 +89,7 @@ import createBrandUpdate from '../src/template/back-office/brand-update';
 import createLayout from '../src/template/back-office/layout';
 import createCoorpHeader from '../src/template/common/coorp-header';
 import createButtonFixtureBlue from '../src/atom/button/test/fixtures/blue';
+import createButtonFixtureCentered from '../src/atom/button/test/fixtures/centered';
 import createButtonFixtureDark from '../src/atom/button/test/fixtures/dark';
 import createButtonFixtureDefault from '../src/atom/button/test/fixtures/default';
 import createButtonFixtureDisabled from '../src/atom/button/test/fixtures/disabled';
@@ -236,7 +237,6 @@ import createBrandFormFixtureGeneralSettings from '../src/organism/brand-form/te
 import createBrandFormFixtureLookandfeel from '../src/organism/brand-form/test/fixtures/lookandfeel';
 import createBrandFormFixtureSso from '../src/organism/brand-form/test/fixtures/sso';
 import createBrandFormFixtureUserEdit from '../src/organism/brand-form/test/fixtures/user-edit';
-import createBrandFormFixtureUserImport from '../src/organism/brand-form/test/fixtures/user-import';
 import createBrandTableFixtureDefault from '../src/organism/brand-table/test/fixtures/default';
 import createBrandUploadFixtureDefault from '../src/organism/brand-upload/test/fixtures/default';
 import createBrandUploadFixtureLoading from '../src/organism/brand-upload/test/fixtures/loading';
@@ -413,6 +413,7 @@ export const fixtures = {
   Atom: {
     Button: {
       Blue: createButtonFixtureBlue,
+      Centered: createButtonFixtureCentered,
       Dark: createButtonFixtureDark,
       Default: createButtonFixtureDefault,
       Disabled: createButtonFixtureDisabled,
@@ -709,8 +710,7 @@ export const fixtures = {
       GeneralSettings: createBrandFormFixtureGeneralSettings,
       Lookandfeel: createBrandFormFixtureLookandfeel,
       Sso: createBrandFormFixtureSso,
-      UserEdit: createBrandFormFixtureUserEdit,
-      UserImport: createBrandFormFixtureUserImport
+      UserEdit: createBrandFormFixtureUserEdit
     },
     BrandTable: {
       Default: createBrandTableFixtureDefault

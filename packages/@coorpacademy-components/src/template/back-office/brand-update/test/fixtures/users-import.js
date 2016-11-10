@@ -1,15 +1,14 @@
 import defaultsDeep from 'lodash/fp/defaultsDeep';
-import UserImport from '../../../../../organism/brand-form/test/fixtures/user-import';
+import BrandUpload from '../../../../../organism/brand-upload/test/fixtures/default';
 import Users from './users';
 
 const {props} = Users;
-const {groups} = UserImport.props;
 
 export default {
   props: defaultsDeep(props, {
     content: {
-      type: 'form',
-      groups
+      type: 'upload',
+      ...BrandUpload.props
     }
   })
 };
