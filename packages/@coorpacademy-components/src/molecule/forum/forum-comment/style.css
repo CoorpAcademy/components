@@ -43,28 +43,6 @@
 }
 
 .post {
-  text-align: right;
+  float: right;
   margin-top: 10px;
-}
-
-.post button {
-  display: inline-block;
-  border: 0;
-  border-radius: 2px;
-  background-color: #546E7A;
-  padding: 0 16px;
-  cursor: pointer;
-  font-size: 13px;
-  line-height: 35px;
-  font-weight: 600;
-  color: #fff;
-}
-
-.post button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.post button:before {
-  background-color: #455A64;
 }

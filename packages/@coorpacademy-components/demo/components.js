@@ -1,3 +1,4 @@
+import createButton from '../src/atom/button';
 import createCenteredText from '../src/atom/centered-text';
 import createInputCheckbox from '../src/atom/input-checkbox';
 import createInputColor from '../src/atom/input-color';
@@ -87,6 +88,11 @@ import createBrandList from '../src/template/back-office/brand-list';
 import createBrandUpdate from '../src/template/back-office/brand-update';
 import createLayout from '../src/template/back-office/layout';
 import createCoorpHeader from '../src/template/common/coorp-header';
+import createButtonFixtureBlue from '../src/atom/button/test/fixtures/blue';
+import createButtonFixtureDark from '../src/atom/button/test/fixtures/dark';
+import createButtonFixtureDefault from '../src/atom/button/test/fixtures/default';
+import createButtonFixtureDisabled from '../src/atom/button/test/fixtures/disabled';
+import createButtonFixtureLight from '../src/atom/button/test/fixtures/light';
 import createCenteredTextFixtureDefault from '../src/atom/centered-text/test/fixtures/default';
 import createInputCheckboxFixtureChecked from '../src/atom/input-checkbox/test/fixtures/checked';
 import createInputCheckboxFixtureDefault from '../src/atom/input-checkbox/test/fixtures/default';
@@ -291,6 +297,7 @@ import createCoorpHeaderFixtureStaging from '../src/template/common/coorp-header
 
 export const components = {
   Atom: {
+    Button: createButton,
     CenteredText: createCenteredText,
     InputCheckbox: createInputCheckbox,
     InputColor: createInputColor,
@@ -404,6 +411,13 @@ export const components = {
 };
 export const fixtures = {
   Atom: {
+    Button: {
+      Blue: createButtonFixtureBlue,
+      Dark: createButtonFixtureDark,
+      Default: createButtonFixtureDefault,
+      Disabled: createButtonFixtureDisabled,
+      Light: createButtonFixtureLight
+    },
     CenteredText: {
       Default: createCenteredTextFixtureDefault
     },

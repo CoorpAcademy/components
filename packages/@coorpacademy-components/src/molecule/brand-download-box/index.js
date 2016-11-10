@@ -1,6 +1,4 @@
 import {checker, createValidate} from '../../util/validation';
-import createLink from '../../atom/link';
-import createPicture from '../../atom/picture';
 import style from './style.css';
 
 const conditions = checker.shape({
@@ -17,12 +15,12 @@ export default (treant, options = {}) => {
       warning,
       description,
       onClick,
-      buttonName
+      submitValue
     } = props;
 
     return (
       <div className={style.wrapper}>
-        download temoppat
+
       </div>
     );
   };
