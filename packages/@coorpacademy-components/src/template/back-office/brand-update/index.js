@@ -4,6 +4,7 @@ import createBreadcrumbs from '../../../molecule/breadcrumbs';
 import createBrandTabs from '../../../molecule/brand-tabs';
 import createBrandForm from '../../../organism/brand-form';
 import createBrandTable from '../../../organism/brand-table';
+import createBrandUpload from '../../../organism/brand-upload';
 import createNotification from '../../../atom/notification';
 import createLayout from '../layout';
 import style from './style.css';
@@ -44,6 +45,7 @@ export default (treant, options = {}) => {
   const BrandTabs = createBrandTabs(treant, options);
   const BrandForm = createBrandForm(treant, options);
   const BrandTable = createBrandTable(treant, options);
+  const BrandUpload = createBrandUpload(treant, options);
   const NotificationComponent = createNotification(treant, options);
   const Layout = createLayout(treant, options);
 
@@ -77,6 +79,10 @@ export default (treant, options = {}) => {
         case 'list':
           return (
             <BrandTable {...cont} />
+          );
+        case 'upload':
+          return (
+            <BrandUpload {...cont} />
           );
         default:
           return null;

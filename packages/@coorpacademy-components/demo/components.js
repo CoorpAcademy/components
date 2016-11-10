@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import createCenteredText from '../src/atom/centered-text';
 import createInputCheckbox from '../src/atom/input-checkbox';
 import createInputColor from '../src/atom/input-color';
@@ -32,8 +31,11 @@ import createUppercase from '../src/behaviour/font/uppercase';
 import createBrandCardCreate from '../src/molecule/brand-card-create';
 import createBrandCard from '../src/molecule/brand-card';
 import createBrandCreateForm from '../src/molecule/brand-create-form';
+import createBrandDownloadBox from '../src/molecule/brand-download-box';
 import createBrandFormGroup from '../src/molecule/brand-form-group';
 import createBrandTabs from '../src/molecule/brand-tabs';
+import createBrandUploadBox from '../src/molecule/brand-upload-box';
+import createBrandUploadLoading from '../src/molecule/brand-upload-loading';
 import createBreadcrumbs from '../src/molecule/breadcrumbs';
 import createCatalogCard from '../src/molecule/catalog-card';
 import createCatalogCta from '../src/molecule/catalog-cta';
@@ -65,6 +67,7 @@ import createForumPost from '../src/molecule/forum/forum-post';
 import createForumThread from '../src/molecule/forum/forum-thread';
 import createBrandForm from '../src/organism/brand-form';
 import createBrandTable from '../src/organism/brand-table';
+import createBrandUpload from '../src/organism/brand-upload';
 import createCatalogCards from '../src/organism/catalog-cards';
 import createCursusRightaside from '../src/organism/cursus-rightaside';
 import createDisciplineCards from '../src/organism/discipline-cards';
@@ -142,6 +145,7 @@ import createBrandCreateFormFixtureDefault from '../src/molecule/brand-create-fo
 import createBrandCreateFormFixtureError from '../src/molecule/brand-create-form/test/fixtures/error';
 import createBrandCreateFormFixtureLoading from '../src/molecule/brand-create-form/test/fixtures/loading';
 import createBrandCreateFormFixtureModified from '../src/molecule/brand-create-form/test/fixtures/modified';
+import createBrandDownloadBoxFixtureDefault from '../src/molecule/brand-download-box/test/fixtures/default';
 import createBrandFormGroupFixtureDefault from '../src/molecule/brand-form-group/test/fixtures/default';
 import createBrandFormGroupFixtureLookandfeel from '../src/molecule/brand-form-group/test/fixtures/lookandfeel';
 import createBrandFormGroupFixtureRoles from '../src/molecule/brand-form-group/test/fixtures/roles';
@@ -150,6 +154,8 @@ import createBrandTabsFixtureDefault from '../src/molecule/brand-tabs/test/fixtu
 import createBrandTabsFixtureLookandfeel from '../src/molecule/brand-tabs/test/fixtures/lookandfeel';
 import createBrandTabsFixtureSso from '../src/molecule/brand-tabs/test/fixtures/sso';
 import createBrandTabsFixtureUsers from '../src/molecule/brand-tabs/test/fixtures/users';
+import createBrandUploadBoxFixtureDefault from '../src/molecule/brand-upload-box/test/fixtures/default';
+import createBrandUploadLoadingFixtureDefault from '../src/molecule/brand-upload-loading/test/fixtures/default';
 import createBreadcrumbsFixtureDefault from '../src/molecule/breadcrumbs/test/fixtures/default';
 import createCatalogCardFixtureDefault from '../src/molecule/catalog-card/test/fixtures/default';
 import createCatalogCtaFixtureDefault from '../src/molecule/catalog-cta/test/fixtures/default';
@@ -226,6 +232,8 @@ import createBrandFormFixtureSso from '../src/organism/brand-form/test/fixtures/
 import createBrandFormFixtureUserEdit from '../src/organism/brand-form/test/fixtures/user-edit';
 import createBrandFormFixtureUserImport from '../src/organism/brand-form/test/fixtures/user-import';
 import createBrandTableFixtureDefault from '../src/organism/brand-table/test/fixtures/default';
+import createBrandUploadFixtureDefault from '../src/organism/brand-upload/test/fixtures/default';
+import createBrandUploadFixtureLoading from '../src/organism/brand-upload/test/fixtures/loading';
 import createCatalogCardsFixtureDefault from '../src/organism/catalog-cards/test/fixtures/default';
 import createCatalogCardsFixtureLoading from '../src/organism/catalog-cards/test/fixtures/loading';
 import createCatalogCardsFixtureNoProducts from '../src/organism/catalog-cards/test/fixtures/no-products';
@@ -326,8 +334,11 @@ export const components = {
     BrandCardCreate: createBrandCardCreate,
     BrandCard: createBrandCard,
     BrandCreateForm: createBrandCreateForm,
+    BrandDownloadBox: createBrandDownloadBox,
     BrandFormGroup: createBrandFormGroup,
     BrandTabs: createBrandTabs,
+    BrandUploadBox: createBrandUploadBox,
+    BrandUploadLoading: createBrandUploadLoading,
     Breadcrumbs: createBreadcrumbs,
     CatalogCard: createCatalogCard,
     CatalogCta: createCatalogCta,
@@ -363,6 +374,7 @@ export const components = {
   Organism: {
     BrandForm: createBrandForm,
     BrandTable: createBrandTable,
+    BrandUpload: createBrandUpload,
     CatalogCards: createCatalogCards,
     CursusRightaside: createCursusRightaside,
     DisciplineCards: createDisciplineCards,
@@ -526,6 +538,9 @@ export const fixtures = {
       Loading: createBrandCreateFormFixtureLoading,
       Modified: createBrandCreateFormFixtureModified
     },
+    BrandDownloadBox: {
+      Default: createBrandDownloadBoxFixtureDefault
+    },
     BrandFormGroup: {
       Default: createBrandFormGroupFixtureDefault,
       Lookandfeel: createBrandFormGroupFixtureLookandfeel,
@@ -537,6 +552,12 @@ export const fixtures = {
       Lookandfeel: createBrandTabsFixtureLookandfeel,
       Sso: createBrandTabsFixtureSso,
       Users: createBrandTabsFixtureUsers
+    },
+    BrandUploadBox: {
+      Default: createBrandUploadBoxFixtureDefault
+    },
+    BrandUploadLoading: {
+      Default: createBrandUploadLoadingFixtureDefault
     },
     Breadcrumbs: {
       Default: createBreadcrumbsFixtureDefault
@@ -679,6 +700,10 @@ export const fixtures = {
     },
     BrandTable: {
       Default: createBrandTableFixtureDefault
+    },
+    BrandUpload: {
+      Default: createBrandUploadFixtureDefault,
+      Loading: createBrandUploadFixtureLoading
     },
     CatalogCards: {
       Default: createCatalogCardsFixtureDefault,
