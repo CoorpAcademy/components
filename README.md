@@ -32,7 +32,7 @@ npm install
 npm start
 ```
 
-Then open `http://localhost:3003`
+Then open `http://localhost:3004`
 
 ### Locally use `/lib` in a project
 - use `npm link` to create a local `@coorpacademy/components` package

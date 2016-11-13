@@ -1,0 +1,1 @@
+web: npm run bootstrap && cd packages/@coorpacademy-components/ && npm start
