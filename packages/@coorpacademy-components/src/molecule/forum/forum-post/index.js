@@ -48,7 +48,7 @@ export default (treant, options = {}) => {
     const idEdit = uniqueId('forum-post-edit-toggler-');
     const idReject = uniqueId('forum-post-reject-toggler-');
 
-    const infoDeleted = translate('This message has been removed.');
+    const infoDeleted = translate('This message has been removed by its author.');
     const answerLabel = translate('Answer');
     const editLabel = translate('Edit');
     const deleteLabel = translate('Delete');
