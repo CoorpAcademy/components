@@ -1,6 +1,7 @@
 import {checker, createValidate} from '../../util/validation';
 import createTable from '../../molecule/table';
 import createPagination from '../../molecule/pagination';
+import createSearch from '../../molecule/search';
 import style from './style.css';
 
 const conditions = checker.shape({
@@ -32,11 +33,13 @@ export default (treant, options = {}) => {
 
   const Table = createTable(treant, options);
   const Pagination = createPagination(treant, options);
+  const Search = createSearch(treant, options);
 
   const BrandTable = (props, children) => {
     const {
       createHref,
       pagination,
+      search,
       rows = [],
       columns = []
     } = props;
@@ -52,6 +55,7 @@ export default (treant, options = {}) => {
             <a href={createHref}>+</a>
           </div>
           <div className={style.search}>
+            {/* <Search {...search} /> */}
           </div>
           <div className={style.pagination}>
             <Pagination {...pagination} />

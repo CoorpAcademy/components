@@ -49,6 +49,7 @@ import createModuleBubble from '../src/molecule/module-bubble';
 import createPagination from '../src/molecule/pagination';
 import createScopeContent from '../src/molecule/scope-content';
 import createScopeTabs from '../src/molecule/scope-tabs';
+import createSearch from '../src/molecule/search';
 import createSelectBox from '../src/molecule/select-box';
 import createSsmenuList from '../src/molecule/ssmenu-list';
 import createStarRating from '../src/molecule/star-rating';
@@ -181,6 +182,7 @@ import createScopeContentFixtureDefault from '../src/molecule/scope-content/test
 import createScopeContentFixtureEmpty from '../src/molecule/scope-content/test/fixtures/empty';
 import createScopeTabsFixtureDefault from '../src/molecule/scope-tabs/test/fixtures/default';
 import createScopeTabsFixtureEmpty from '../src/molecule/scope-tabs/test/fixtures/empty';
+import createSearchFixtureDefault from '../src/molecule/search/test/fixtures/default';
 import createSelectBoxFixtureDefaultTheme from '../src/molecule/select-box/test/fixtures/default-theme';
 import createSelectBoxFixturePlainTheme from '../src/molecule/select-box/test/fixtures/plain-theme';
 import createSelectBoxFixtureWithItems from '../src/molecule/select-box/test/fixtures/with-items';
@@ -341,6 +343,7 @@ export const components = {
     Pagination: createPagination,
     ScopeContent: createScopeContent,
     ScopeTabs: createScopeTabs,
+    Search: createSearch,
     SelectBox: createSelectBox,
     SsmenuList: createSsmenuList,
     StarRating: createStarRating,
@@ -598,6 +601,9 @@ export const fixtures = {
     ScopeTabs: {
       Default: createScopeTabsFixtureDefault,
       Empty: createScopeTabsFixtureEmpty
+    },
+    Search: {
+      Default: createSearchFixtureDefault
     },
     SelectBox: {
       DefaultTheme: createSelectBoxFixtureDefaultTheme,

@@ -7,7 +7,7 @@ export default {
     createHref: '#',
     search: {
       value: '',
-      placeholder: '',
+      placeholder: 'Name, last name…',
       onChange: () => {}
     },
     pagination: {
