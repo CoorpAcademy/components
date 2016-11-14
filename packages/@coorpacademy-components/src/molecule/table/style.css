@@ -1,6 +1,6 @@
 .wrapper {
-  overflow-y: scroll;
-  padding-bottom: 20px;
+  overflow-x: scroll;
+  padding-bottom: 10px;
 }
 
 .table {

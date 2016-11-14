@@ -12,6 +12,7 @@ import createLabel from '../src/atom/label';
 import createLink from '../src/atom/link';
 import createNotification from '../src/atom/notification';
 import createPicture from '../src/atom/picture';
+import createSearch from '../src/atom/search';
 import createSelect from '../src/atom/select';
 import createSocialLink from '../src/atom/social-link';
 import createSpinner from '../src/atom/spinner';
@@ -113,6 +114,7 @@ import createNotificationFixtureError from '../src/atom/notification/test/fixtur
 import createPictureFixtureDefault from '../src/atom/picture/test/fixtures/default';
 import createPictureFixtureEmpty from '../src/atom/picture/test/fixtures/empty';
 import createPictureFixtureSimpleSrc from '../src/atom/picture/test/fixtures/simple-src';
+import createSearchFixtureDefault from '../src/atom/search/test/fixtures/default';
 import createSelectFixtureDefault from '../src/atom/select/test/fixtures/default';
 import createSelectFixtureDisabled from '../src/atom/select/test/fixtures/disabled';
 import createSelectFixtureRequired from '../src/atom/select/test/fixtures/required';
@@ -292,6 +294,7 @@ export const components = {
     Link: createLink,
     Notification: createNotification,
     Picture: createPicture,
+    Search: createSearch,
     Select: createSelect,
     SocialLink: createSocialLink,
     Spinner: createSpinner,
@@ -444,6 +447,9 @@ export const fixtures = {
       Default: createPictureFixtureDefault,
       Empty: createPictureFixtureEmpty,
       SimpleSrc: createPictureFixtureSimpleSrc
+    },
+    Search: {
+      Default: createSearchFixtureDefault
     },
     Select: {
       Default: createSelectFixtureDefault,
