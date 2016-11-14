@@ -1,7 +1,7 @@
 import noop from 'lodash/fp/noop';
 import {checker, createValidate} from '../../util/validation';
-import HoverFillBehaviour from '../../behaviour/effects/hover-fill';
 import createFormGroup from '../../molecule/form-group';
+import createButton from '../../atom/button';
 import style from './style.css';
 
 const conditions = checker.shape({
@@ -17,7 +17,7 @@ const conditions = checker.shape({
 export default (treant, options = {}) => {
   const {h} = treant;
   const FormGroup = createFormGroup(treant, options);
-  const HoverFill = HoverFillBehaviour(treant, options);
+  const Button = createButton(treant, options);
 
   const Form = (props, children) => {
     const {
@@ -41,21 +41,16 @@ export default (treant, options = {}) => {
           <FormGroup {...group}/>
         ))}
         <div className={style.buttons}>
-          <HoverFill>
-            <input
-              type="reset"
-              className={style.reset}
-              value="Annuler"
-            />
-          </HoverFill>
-          <HoverFill>
-            <span className={style.save}>
-              <input
-                type="submit"
-                value="Enregistrer"
-              />
-            </span>
-          </HoverFill>
+          <Button
+            type="reset"
+            submitValue="Annuler"
+            className={style.cancel}
+          />
+          <Button
+            type="submit"
+            submitValue="Enregistrer"
+            className={style.save}
+          />
         </div>
       </form>
     );

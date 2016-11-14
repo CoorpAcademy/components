@@ -22,7 +22,8 @@ const engines = {
 
 const styles = [
   '//fonts.googleapis.com/css?family=Open+Sans%3A300%2C300italic%2Cregular%2Citalic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic&amp;ver=4.5.2', // eslint-disable-line max-len
-  '//fonts.googleapis.com/css?family=Open+Sans&amp;ver=4.5.2'
+  '//fonts.googleapis.com/css?family=Open+Sans&amp;ver=4.5.2',
+  '//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css'
 ];
 
 if (process.env.NODE_ENV === 'production')

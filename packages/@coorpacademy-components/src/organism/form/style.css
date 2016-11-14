@@ -10,50 +10,13 @@
   text-align: right;
 }
 
-.reset {
+.cancel {
   background-color: #FF7043;
-  border-radius: 2px;
-  text-transform: uppercase;
-  color: #fff;
-  font-family: Open Sans;
-  font-weight: 600;
-  font-size: 13px;
-  text-decoration: none;
-  line-height: 52px;
-  padding: 0 30px;
-  text-align: center;
-  border: none;
-  cursor: pointer;
-  vertical-align: top;
-  margin-right: 20px;
-}
-
-.reset:before {
-  background-color: #D03C0E;
+  margin: 0 5px;
+  width: auto;
 }
 
 .save {
   background-color: #66bb6a;
-  border-radius: 2px;
-}
-
-.save:before {
-  background-color: #29AF2F;
-}
-
-.save input {
-  display: inline-block;
-  text-transform: uppercase;
-  color: #fff;
-  background-color: Transparent;
-  background-repeat:no-repeat;
-  font-family: Open Sans;
-  font-weight: 600;
-  font-size: 13px;
-  text-decoration: none;
-  line-height: 52px;
-  padding: 0 30px;
-  text-align: center;
-  border: none;
-  cursor: pointer;
+  width: auto;
 }

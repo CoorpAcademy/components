@@ -1,4 +1,5 @@
 import {checker, createValidate} from '../../util/validation';
+import AddClassBehaviour from '../../behaviour/effects/add-class';
 import HoverFillBehaviour from '../../behaviour/effects/hover-fill';
 import style from './style.css';
 
@@ -18,14 +19,16 @@ export default (treant, options) => {
   const {h} = treant;
 
   const HoverFill = HoverFillBehaviour(treant, options);
+  const AddClass = AddClassBehaviour(treant, options);
 
   const Button = (props, children) => {
     const {
-      background,
+      className,
       color,
       submitValue,
       centered,
       disabled,
+      type = 'submit',
       onClick
     } = props;
 
@@ -34,17 +37,14 @@ export default (treant, options) => {
       display: 'block'
     };
 
-    return (
-      <HoverFill>
+    let button = (
+     <HoverFill>
         <div
           className={style.button}
-          style={{
-            background,
-            ...centeredStyle
-          }}
+          style={centeredStyle}
         >
-          <input
-            type='submit'
+         <input
+            type={type}
             value={submitValue}
             disabled={disabled}
             onClick={onClick}
@@ -55,6 +55,16 @@ export default (treant, options) => {
         </div>
       </HoverFill>
     );
+
+    if (className) {
+      button = (
+        <AddClass className={className}>
+          {button}
+        </AddClass>
+      );
+    }
+
+    return button;
   };
 
   Button.validate = createValidate(conditions);

@@ -13,12 +13,29 @@ export default (treant, options = {}) => {
   const BrandUploadBox = (props, children) => {
     const {
       description,
-      onClick
+      onLoad
     } = props;
 
     return (
       <div className={style.wrapper}>
-        upload
+        <div className={style.drop}>
+          <div className={style.cont}>
+            <i className={style.arrow}></i>
+            <div className={style.tit}>
+              Drag & Drop
+            </div>
+            <div className={style.desc}>
+              {description}
+            </div>
+            <div className={style.browse}>
+              click here to browse
+            </div>
+          </div>
+          <input
+            type='file'
+            onChange={onLoad}
+          />
+        </div>
       </div>
     );
   };

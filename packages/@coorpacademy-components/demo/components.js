@@ -22,6 +22,7 @@ import createCentered from '../src/behaviour/align/centered';
 import createPrimary from '../src/behaviour/color/primary';
 import createTextInverted from '../src/behaviour/color/text-inverted';
 import createTextNormal from '../src/behaviour/color/text-normal';
+import createAddClass from '../src/behaviour/effects/add-class';
 import createHoverFill from '../src/behaviour/effects/hover-fill';
 import createRadialFocus from '../src/behaviour/effects/radial-focus';
 import createEllipsis from '../src/behaviour/font/ellipsis';
@@ -139,6 +140,7 @@ import createCenteredFixtureDefault from '../src/behaviour/align/centered/test/f
 import createPrimaryFixtureDefault from '../src/behaviour/color/primary/test/fixtures/default';
 import createTextInvertedFixtureDefault from '../src/behaviour/color/text-inverted/test/fixtures/default';
 import createTextNormalFixtureDefault from '../src/behaviour/color/text-normal/test/fixtures/default';
+import createAddClassFixtureDefault from '../src/behaviour/effects/add-class/test/fixtures/default';
 import createHoverFillFixtureDefault from '../src/behaviour/effects/hover-fill/test/fixtures/default';
 import createRadialFocusFixtureDefault from '../src/behaviour/effects/radial-focus/test/fixtures/default';
 import createEllipsisFixtureDefault from '../src/behaviour/font/ellipsis/test/fixtures/default';
@@ -327,6 +329,7 @@ export const components = {
     TextNormal: createTextNormal
   },
   BehaviourEffects: {
+    AddClass: createAddClass,
     HoverFill: createHoverFill,
     RadialFocus: createRadialFocus
   },
@@ -516,6 +519,9 @@ export const fixtures = {
     }
   },
   BehaviourEffects: {
+    AddClass: {
+      Default: createAddClassFixtureDefault
+    },
     HoverFill: {
       Default: createHoverFillFixtureDefault
     },
