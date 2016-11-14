@@ -11,7 +11,7 @@ export default {
       onChange: () => {}
     },
     pagination: {
-      value: '',
+      value: '1-10 on 50',
       nextHref: '#',
       previousHref: '#'
     },

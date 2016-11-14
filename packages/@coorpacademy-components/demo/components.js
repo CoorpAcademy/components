@@ -12,7 +12,6 @@ import createLabel from '../src/atom/label';
 import createLink from '../src/atom/link';
 import createNotification from '../src/atom/notification';
 import createPicture from '../src/atom/picture';
-import createSearch from '../src/atom/search';
 import createSelect from '../src/atom/select';
 import createSocialLink from '../src/atom/social-link';
 import createSpinner from '../src/atom/spinner';
@@ -47,6 +46,7 @@ import createDisciplineScope from '../src/molecule/discipline-scope';
 import createFormGroup from '../src/molecule/form-group';
 import createMenuList from '../src/molecule/menu-list';
 import createModuleBubble from '../src/molecule/module-bubble';
+import createPagination from '../src/molecule/pagination';
 import createScopeContent from '../src/molecule/scope-content';
 import createScopeTabs from '../src/molecule/scope-tabs';
 import createSelectBox from '../src/molecule/select-box';
@@ -114,7 +114,6 @@ import createNotificationFixtureError from '../src/atom/notification/test/fixtur
 import createPictureFixtureDefault from '../src/atom/picture/test/fixtures/default';
 import createPictureFixtureEmpty from '../src/atom/picture/test/fixtures/empty';
 import createPictureFixtureSimpleSrc from '../src/atom/picture/test/fixtures/simple-src';
-import createSearchFixtureDefault from '../src/atom/search/test/fixtures/default';
 import createSelectFixtureDefault from '../src/atom/select/test/fixtures/default';
 import createSelectFixtureDisabled from '../src/atom/select/test/fixtures/disabled';
 import createSelectFixtureRequired from '../src/atom/select/test/fixtures/required';
@@ -177,6 +176,7 @@ import createMenuListFixtureBuildTransifex from '../src/molecule/menu-list/test/
 import createMenuListFixtureDefault from '../src/molecule/menu-list/test/fixtures/default';
 import createModuleBubbleFixtureDefault from '../src/molecule/module-bubble/test/fixtures/default';
 import createModuleBubbleFixtureDisabled from '../src/molecule/module-bubble/test/fixtures/disabled';
+import createPaginationFixtureDefault from '../src/molecule/pagination/test/fixtures/default';
 import createScopeContentFixtureDefault from '../src/molecule/scope-content/test/fixtures/default';
 import createScopeContentFixtureEmpty from '../src/molecule/scope-content/test/fixtures/empty';
 import createScopeTabsFixtureDefault from '../src/molecule/scope-tabs/test/fixtures/default';
@@ -294,7 +294,6 @@ export const components = {
     Link: createLink,
     Notification: createNotification,
     Picture: createPicture,
-    Search: createSearch,
     Select: createSelect,
     SocialLink: createSocialLink,
     Spinner: createSpinner,
@@ -339,6 +338,7 @@ export const components = {
     FormGroup: createFormGroup,
     MenuList: createMenuList,
     ModuleBubble: createModuleBubble,
+    Pagination: createPagination,
     ScopeContent: createScopeContent,
     ScopeTabs: createScopeTabs,
     SelectBox: createSelectBox,
@@ -447,9 +447,6 @@ export const fixtures = {
       Default: createPictureFixtureDefault,
       Empty: createPictureFixtureEmpty,
       SimpleSrc: createPictureFixtureSimpleSrc
-    },
-    Search: {
-      Default: createSearchFixtureDefault
     },
     Select: {
       Default: createSelectFixtureDefault,
@@ -590,6 +587,9 @@ export const fixtures = {
     ModuleBubble: {
       Default: createModuleBubbleFixtureDefault,
       Disabled: createModuleBubbleFixtureDisabled
+    },
+    Pagination: {
+      Default: createPaginationFixtureDefault
     },
     ScopeContent: {
       Default: createScopeContentFixtureDefault,
