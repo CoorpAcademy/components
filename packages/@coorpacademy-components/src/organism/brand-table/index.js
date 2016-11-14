@@ -55,7 +55,7 @@ export default (treant, options = {}) => {
             <a href={createHref}>+</a>
           </div>
           <div className={style.search}>
-            {/* <Search {...search} /> */}
+            <Search {...search} />
           </div>
           <div className={style.pagination}>
             <Pagination {...pagination} />
