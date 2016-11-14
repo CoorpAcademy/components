@@ -30,7 +30,20 @@ export default (treant, options = {}) => {
       } = column;
 
       return (
-        <th>{title}</th>
+        <th>
+          <input
+            type='checkbox'
+            id={title}
+            name={title}
+            className={style.checkbox}
+          />
+          <label htmlFor={title}>
+            <span className={style.toggle}>{title}</span>
+          </label>
+          <div className={style.options}>
+
+          </div>
+        </th>
       );
     });
 
