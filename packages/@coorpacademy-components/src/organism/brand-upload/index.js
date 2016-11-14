@@ -36,12 +36,13 @@ export default (treant, options = {}) => {
       uploadView = <UploadBox {...upload}/>;
     }
 
+    // <DownloadBox {...download}/>
+
     return (
       <div className={style.wrapper}>
         <div className={style.title}>
           <h3>{title}</h3>
         </div>
-        <DownloadBox {...download}/>
         {uploadView}
       </div>
     );

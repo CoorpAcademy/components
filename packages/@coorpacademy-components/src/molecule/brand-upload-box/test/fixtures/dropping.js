@@ -1,6 +1,7 @@
 export default {
   props: {
     description: 'Drag here your users list or browse',
-    onLoad: () => true
+    onLoad: () => true,
+    dropping: true
   }
 };

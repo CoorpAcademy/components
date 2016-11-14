@@ -164,6 +164,7 @@ import createBrandTabsFixtureLookandfeel from '../src/molecule/brand-tabs/test/f
 import createBrandTabsFixtureSso from '../src/molecule/brand-tabs/test/fixtures/sso';
 import createBrandTabsFixtureUsers from '../src/molecule/brand-tabs/test/fixtures/users';
 import createBrandUploadBoxFixtureDefault from '../src/molecule/brand-upload-box/test/fixtures/default';
+import createBrandUploadBoxFixtureDropping from '../src/molecule/brand-upload-box/test/fixtures/dropping';
 import createBrandUploadLoadingFixtureDefault from '../src/molecule/brand-upload-loading/test/fixtures/default';
 import createBreadcrumbsFixtureDefault from '../src/molecule/breadcrumbs/test/fixtures/default';
 import createCatalogCardFixtureDefault from '../src/molecule/catalog-card/test/fixtures/default';
@@ -575,7 +576,8 @@ export const fixtures = {
       Users: createBrandTabsFixtureUsers
     },
     BrandUploadBox: {
-      Default: createBrandUploadBoxFixtureDefault
+      Default: createBrandUploadBoxFixtureDefault,
+      Dropping: createBrandUploadBoxFixtureDropping
     },
     BrandUploadLoading: {
       Default: createBrandUploadLoadingFixtureDefault
