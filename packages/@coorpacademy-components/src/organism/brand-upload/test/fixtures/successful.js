@@ -1,5 +1,5 @@
 import defaultsDeep from 'lodash/fp/defaultsDeep';
-import Upload from '../../../../molecule/brand-upload-box/test/fixtures/default';
+import Upload from '../../../../molecule/brand-upload-successful/test/fixtures/default';
 import Default from './default';
 
 const {props} = Default;

@@ -295,7 +295,9 @@ import createBrandUpdateFixtureLookandfeel from '../src/template/back-office/bra
 import createBrandUpdateFixtureSsoActivate from '../src/template/back-office/brand-update/test/fixtures/sso-activate';
 import createBrandUpdateFixtureSso from '../src/template/back-office/brand-update/test/fixtures/sso';
 import createBrandUpdateFixtureUsersEdit from '../src/template/back-office/brand-update/test/fixtures/users-edit';
+import createBrandUpdateFixtureUsersImportDropping from '../src/template/back-office/brand-update/test/fixtures/users-import-dropping';
 import createBrandUpdateFixtureUsersImportLoading from '../src/template/back-office/brand-update/test/fixtures/users-import-loading';
+import createBrandUpdateFixtureUsersImportSuccessful from '../src/template/back-office/brand-update/test/fixtures/users-import-successful';
 import createBrandUpdateFixtureUsersImport from '../src/template/back-office/brand-update/test/fixtures/users-import';
 import createBrandUpdateFixtureUsersList from '../src/template/back-office/brand-update/test/fixtures/users-list';
 import createBrandUpdateFixtureUsers from '../src/template/back-office/brand-update/test/fixtures/users';
@@ -823,7 +825,9 @@ export const fixtures = {
       SsoActivate: createBrandUpdateFixtureSsoActivate,
       Sso: createBrandUpdateFixtureSso,
       UsersEdit: createBrandUpdateFixtureUsersEdit,
+      UsersImportDropping: createBrandUpdateFixtureUsersImportDropping,
       UsersImportLoading: createBrandUpdateFixtureUsersImportLoading,
+      UsersImportSuccessful: createBrandUpdateFixtureUsersImportSuccessful,
       UsersImport: createBrandUpdateFixtureUsersImport,
       UsersList: createBrandUpdateFixtureUsersList,
       Users: createBrandUpdateFixtureUsers
