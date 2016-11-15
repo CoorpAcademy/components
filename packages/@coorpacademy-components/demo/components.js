@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import createCenteredText from '../src/atom/centered-text';
 import createInputCheckbox from '../src/atom/input-checkbox';
 import createInputColor from '../src/atom/input-color';

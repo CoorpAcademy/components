@@ -20,6 +20,9 @@
     },
     "sourceType": "module"
   },
+  "rules": {
+    "no-shadow": ["error", {"builtinGlobals": true, "hoist": "all", "allow": ["Promise", "history", "location"]}]
+  },
   "settings": {
     "import/ignore": ["node_modules", "\\.css$"]
   },

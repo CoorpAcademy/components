@@ -4,12 +4,12 @@ import * as treant from '@coorpacademy/treantjs-core';
 import * as Virtualdom from '@coorpacademy/treantjs-engine-virtual-dom';
 import * as React from '@coorpacademy/treantjs-engine-react';
 import * as Snabbdom from '@coorpacademy/treantjs-engine-snabbdom';
-import createApp from './app';
 import createTranslate from '@coorpacademy/translate';
-import en from '../locales/en/global.json';
-import fr from '../locales/fr/global.json';
+import en from '../locales/en/global';
+import fr from '../locales/fr/global';
+import createApp from './app';
 import {components, fixtures} from './components';
-import skin from './assets/skin.json';
+import skin from './assets/skin';
 
 let _createApp = createApp;
 let _components = components;
@@ -54,7 +54,7 @@ history.listen(location => {
 
 if (module.hot) {
   module.hot.accept('./app.js', () => {
-    const _createApp = require('./app').default;
+    _createApp = require('./app').default;
     App = _createApp(treant, options);
     update(App({
       components: _components,

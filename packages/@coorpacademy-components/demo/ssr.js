@@ -59,8 +59,8 @@ export default (req, res, next) => {
 
 if (module.hot) {
   module.hot.accept('./app.js', () => {
-    const createApp = require('./app').default;
-    App = createApp(treant);
+    const _createApp = require('./app').default;
+    App = _createApp(treant);
   });
   module.hot.accept('./components.js', () => {
     _components = require('./components').components;

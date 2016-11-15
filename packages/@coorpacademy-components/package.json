@@ -27,7 +27,7 @@
     "clean:build:browser": "rm -rf dist/*",
     "clean:cov": "rm -rf .nyc_output coverage",
     "test": "npm run lint && npm run nyc",
-    "lint": "eslint src/ locales/",
+    "lint": "eslint src/ locales/ demo/",
     "ava": "NODE_ENV=test ava",
     "nyc": "NODE_ENV=test nyc npm run ava",
     "doc": "npm run doc:svg && npm run doc:png",

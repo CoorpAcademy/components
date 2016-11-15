@@ -7,7 +7,6 @@ export default (treant, options = {}) => {
   const Header = createHeader(treant, options);
 
   const onNavigate = href => history.push(href);
-
   return ({components, fixtures, location}, children) => (
     <Header
       onSelectComponent={onNavigate}

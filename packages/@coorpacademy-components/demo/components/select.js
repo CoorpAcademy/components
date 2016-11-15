@@ -4,7 +4,7 @@ import pipe from 'lodash/fp/pipe';
 import isArray from 'lodash/fp/isArray';
 import noop from 'lodash/fp/noop';
 
-export default ({h}, options) => {
+export default ({h}) => {
   const buildOptions = map(({value, label, selected}) => (
     <option
       value={value}

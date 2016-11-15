@@ -14,7 +14,7 @@ const engines = [
 
 const app = express();
 
-process.env.BABEL_ENV='es';
+process.env.BABEL_ENV = 'es';
 const compiler = webpack(config);
 app.use(
   webpackDevMiddleware(compiler, {
@@ -30,15 +30,14 @@ app.get('/', (req, res) => {
   res.send(`
     <h1>Sandbox</h1>
     <ul>
-      ${map(name => `<li><a href="/${name}/">${name}</a></li>`, engines).join('')}
+      ${map(engineName => `<li><a href="/${engineName}/">${engineName}</a></li>`, engines).join('')}
     </ul>
   `);
 });
 
-
 if (!module.parent) {
   app.listen(3004);
-  console.log('Open your browser: http://localhost:3004');
+  process.stdout.write('Open your browser: http://localhost:3004\n');
 }
 
 export default app;
