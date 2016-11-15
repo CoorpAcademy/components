@@ -20,7 +20,7 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-export default (treant, options = {}) => {
+export default (treant, opts = {}) => {
   const {h} = treant;
 
   const Table = (props, children) => {
@@ -33,20 +33,19 @@ export default (treant, options = {}) => {
       const {
         title,
         filtered,
-        options
+        options = []
       } = column;
 
-      const createOptionsView = opts => {
-        const optionsView = opts.map(option => {
+      const createOptionsView = _options => {
+        const optionsView = _options.map(option => {
           const {
-            title,
             onChange,
             selected
           } = option;
 
           return (
             <div className={selected ? style.selected : style.option}>
-              <button onClick={onChange}>{title}</button>
+              <button onClick={onChange}>{option.title}</button>
             </div>
           );
         });
@@ -69,15 +68,14 @@ export default (treant, options = {}) => {
           <label className={filtered ? style.filtered : style.toggle} htmlFor={title}>
             {title}
           </label>
-          {options ? createOptionsView(options) : null}
+          {options.length > 0 ? createOptionsView(options) : null}
         </th>
       );
     });
 
     const body = rows.map(row => {
       const {
-        fields,
-        href
+        fields
       } = row;
 
       const tableRows = fields.map(field => {

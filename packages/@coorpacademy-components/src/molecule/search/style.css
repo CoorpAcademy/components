@@ -14,3 +14,8 @@
   margin-left: 20px;
   width: 300px;
 }
+
+/*.wrapper:before {
+  composes: fa from '../../variables/fontawesome.css';
+  composes: fa-search from '../../variables/fontawesome.css';
+}*/
