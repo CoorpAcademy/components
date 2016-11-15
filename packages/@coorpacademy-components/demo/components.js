@@ -11,6 +11,7 @@ import createLabelModName from '../src/atom/label-mod-name';
 import createLabelNormal from '../src/atom/label-normal';
 import createLabel from '../src/atom/label';
 import createLink from '../src/atom/link';
+import createLoader from '../src/atom/loader';
 import createNotification from '../src/atom/notification';
 import createPicture from '../src/atom/picture';
 import createSelect from '../src/atom/select';
@@ -123,6 +124,7 @@ import createLabelNormalFixtureFixture from '../src/atom/label-normal/test/fixtu
 import createLabelFixtureOneChild from '../src/atom/label/test/fixtures/one-child';
 import createLabelFixtureTwoChildren from '../src/atom/label/test/fixtures/two-children';
 import createLinkFixtureHref from '../src/atom/link/test/fixtures/href';
+import createLoaderFixtureDefault from '../src/atom/loader/test/fixtures/default';
 import createNotificationFixtureDefault from '../src/atom/notification/test/fixtures/default';
 import createNotificationFixtureError from '../src/atom/notification/test/fixtures/error';
 import createPictureFixtureDefault from '../src/atom/picture/test/fixtures/default';
@@ -166,6 +168,7 @@ import createBrandTabsFixtureSso from '../src/molecule/brand-tabs/test/fixtures/
 import createBrandTabsFixtureUsers from '../src/molecule/brand-tabs/test/fixtures/users';
 import createBrandUploadBoxFixtureDefault from '../src/molecule/brand-upload-box/test/fixtures/default';
 import createBrandUploadBoxFixtureDropping from '../src/molecule/brand-upload-box/test/fixtures/dropping';
+import createBrandUploadBoxFixtureLoading from '../src/molecule/brand-upload-box/test/fixtures/loading';
 import createBrandUploadLoadingFixtureDefault from '../src/molecule/brand-upload-loading/test/fixtures/default';
 import createBrandUploadSuccessfulFixtureDefault from '../src/molecule/brand-upload-successful/test/fixtures/default';
 import createBreadcrumbsFixtureDefault from '../src/molecule/breadcrumbs/test/fixtures/default';
@@ -320,6 +323,7 @@ export const components = {
     LabelNormal: createLabelNormal,
     Label: createLabel,
     Link: createLink,
+    Loader: createLoader,
     Notification: createNotification,
     Picture: createPicture,
     Select: createSelect,
@@ -482,6 +486,9 @@ export const fixtures = {
     Link: {
       Href: createLinkFixtureHref
     },
+    Loader: {
+      Default: createLoaderFixtureDefault
+    },
     Notification: {
       Default: createNotificationFixtureDefault,
       Error: createNotificationFixtureError
@@ -585,7 +592,8 @@ export const fixtures = {
     },
     BrandUploadBox: {
       Default: createBrandUploadBoxFixtureDefault,
-      Dropping: createBrandUploadBoxFixtureDropping
+      Dropping: createBrandUploadBoxFixtureDropping,
+      Loading: createBrandUploadBoxFixtureLoading
     },
     BrandUploadLoading: {
       Default: createBrandUploadLoadingFixtureDefault

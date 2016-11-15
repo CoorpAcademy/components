@@ -58,6 +58,7 @@ export createLabelModName from './atom/label-mod-name';
 export createLabelNormal from './atom/label-normal';
 export createLayout from './template/back-office/layout';
 export createLink from './atom/link';
+export createLoader from './atom/loader';
 export createMenuList from './molecule/menu-list';
 export createModuleBubble from './molecule/module-bubble';
 export createNormal from './behaviour/font/normal';
