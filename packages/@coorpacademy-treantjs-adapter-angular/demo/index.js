@@ -15,7 +15,7 @@ const app = express();
 
 const compiler = webpack(config);
 
-process.env.BABEL_ENV='es';
+process.env.BABEL_ENV = 'es';
 app.use(
   webpackDevMiddleware(compiler, {
     noInfo: true,
@@ -28,8 +28,8 @@ app.get('*', (req, res) => {
   res.send(`
     <body ng-app="app" ng-controller="main">
       <input ng-model="props.value"/>
-      ${map(name => `
-        <${name}-title props="props"></${name}-title>
+      ${map(engineName => `
+        <${engineName}-title props="props"></${engineName}-title>
       `, engines).join('')}
       <script type="text/javascript" src="/dist/angular.js"></script>
     </body>
@@ -38,7 +38,7 @@ app.get('*', (req, res) => {
 
 if (!module.parent) {
   app.listen(3001);
-  console.log('Open your browser: http://localhost:3001');
+  process.stdout.write('Open your browser: http://localhost:3001\n');
 }
 
 export default app;

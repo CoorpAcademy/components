@@ -15,11 +15,11 @@ const sandboxConfig = ({
   entry: {
     angular: addHMR(join(__dirname, 'app'))
   },
-  
+
   module: {
     loaders: [{
       test: /\.js$/,
-      loader: 'babel',
+      loader: 'babel-loader'
     }]
   },
 

@@ -1,5 +1,5 @@
 import entries from 'lodash/fp/entries';
-import map from 'lodash/fp/map';
+import forEach from 'lodash/fp/forEach';
 import spread from 'lodash/fp/spread';
 import angular from 'angular';
 import * as treant from '@coorpacademy/treantjs-core';
@@ -26,9 +26,9 @@ app
   .value('config', {})
   .value('$i18next', () => {});
 
-map(spread((name, engine) =>
+forEach(spread((engineName, engine) =>
   createDirectives(app, treant, engine, {
-    [`create${name}Title`]: createTitle
+    [`create${engineName}Title`]: createTitle
   })
 ), entries(engines));
 

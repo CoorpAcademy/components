@@ -33,8 +33,9 @@ checker.none = (val, _name, _location) => {
 };
 checker.none.type = 'checker.none';
 
+const URL_REGEXP = /(http(s)?:\/\/.)[-a-zA-Z0-9@:%._\\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*)$/;
 checker.url = (val, _name, _location) => {
-  if (!val || !/(http(s)?:\/\/.)[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)$/.test(val)) {
+  if (!val || !URL_REGEXP.test(val)) {
     return checker.utils.getError(_name, _location, 'a URL');
   }
 };
