@@ -8,7 +8,7 @@ module.exports = (src, bundle, dist) => {
 
   config.module.loaders.push({
     test: /\.js$/,
-    loader: 'babel',
+    loader: 'babel-loader',
     include: join(process.cwd(), src)
   });
 

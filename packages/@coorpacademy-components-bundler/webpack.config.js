@@ -26,16 +26,16 @@ const config = {
   module: {
     loaders: [{
       test: /\.json$/,
-      loader: 'json'
+      loader: 'json-loader'
     }, {
       test: /\.(ttf|otf|eot|svg|woff)$/,
       loader: 'file-loader'
     }, {
       test: /\.css$/,
       loader: NODE_ENV === 'production' ? componentCSS.extract({
-        fallbackLoader: 'style',
-        loader: `css?minimize&modules&importLoaders=1&localIdentName=${hash}!postcss`
-      }) : `style!css?minimize&modules&importLoaders=1&localIdentName=${hash}!postcss`
+        fallbackLoader: 'style-loader',
+        loader: `css-loader?minimize&modules&importLoaders=1&localIdentName=${hash}!postcss-loader`
+      }) : `style-loader!css-loader?minimize&modules&importLoaders=1&localIdentName=${hash}!postcss-loader`
     }]
   },
 
