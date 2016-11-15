@@ -32,7 +32,7 @@ const conditions = checker.shape({
       selected: checker.bool.optional
     })),
     content: checker.shape({
-      type: checker.oneOf(['form', 'list']).optional
+      type: checker.oneOf(['form', 'list', 'upload']).optional
     })
   }),
   children: checker.none

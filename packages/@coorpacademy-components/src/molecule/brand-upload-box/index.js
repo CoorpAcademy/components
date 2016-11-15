@@ -18,6 +18,7 @@ export default (treant, options = {}) => {
 
   const BrandUploadBox = (props, children) => {
     const {
+      title = '',
       description = '',
       dropping,
       onLoad
@@ -29,7 +30,7 @@ export default (treant, options = {}) => {
           <div className={style.cont}>
             <i className={style.arrow}></i>
             <div className={style.tit}>
-              Drag & Drop
+              {title}
             </div>
             <div className={style.desc}>
               {description}

@@ -1,3 +1,4 @@
+export createAddClass from './behaviour/effects/add-class';
 export createAuthor from './template/app-catalog/author';
 export createBrandCard from './molecule/brand-card';
 export createBrandCardCreate from './molecule/brand-card-create';
@@ -13,6 +14,7 @@ export createBrandUpdate from './template/back-office/brand-update';
 export createBrandUpload from './organism/brand-upload';
 export createBrandUploadBox from './molecule/brand-upload-box';
 export createBrandUploadLoading from './molecule/brand-upload-loading';
+export createBrandUploadSuccessful from './molecule/brand-upload-successful';
 export createBreadcrumbs from './molecule/breadcrumbs';
 export createButton from './atom/button';
 export createCatalog from './template/app-catalog/catalog';

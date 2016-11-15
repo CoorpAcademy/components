@@ -3,8 +3,7 @@ import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({
-    title: checker.string.optional,
-    filename: checker.string.optional
+    title: checker.string.optional
   }),
   children: checker.none
 });
@@ -12,20 +11,18 @@ const conditions = checker.shape({
 export default (treant, options = {}) => {
   const {h} = treant;
 
-  const BrandUploadLoading = (props, children) => {
+  const BrandUploadSuccessful = (props, children) => {
     const {
-      title = 'please wait',
-      filename = ''
+      title = 'Success !'
     } = props;
 
     return (
       <div className={style.wrapper}>
-        <p>{title}</p>
-        <p>{filename}</p>
+        {title}
       </div>
     );
   };
 
-  BrandUploadLoading.validate = createValidate(conditions);
-  return BrandUploadLoading;
+  BrandUploadSuccessful.validate = createValidate(conditions);
+  return BrandUploadSuccessful;
 };

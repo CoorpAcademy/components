@@ -1,13 +1,14 @@
 import {checker, createValidate} from '../../util/validation';
 import createUploadBox from '../../molecule/brand-upload-box';
-import createDownloadBox from '../../molecule/brand-download-box';
+// import createDownloadBox from '../../molecule/brand-download-box';
 import createUploadLoading from '../../molecule/brand-upload-loading';
+import createUploadSuccessful from '../../molecule/brand-upload-successful';
 import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({
     title: checker.string.optional,
-    loading: checker.bool.optional,
+    status: checker.string.optional,
     upload: checker.object,
     download: checker.object
   }),
@@ -16,24 +17,31 @@ const conditions = checker.shape({
 
 export default (treant, options = {}) => {
   const {h} = treant;
-  const DownloadBox = createDownloadBox(treant, options);
+  // const DownloadBox = createDownloadBox(treant, options);
   const UploadBox = createUploadBox(treant, options);
   const UploadLoading = createUploadLoading(treant, options);
+  const UploadSuccessful = createUploadSuccessful(treant, options);
 
   const BrandUpload = (props, children) => {
     const {
       title = '',
-      download,
-      upload,
-      loading
+      // download,
+      upload
     } = props;
 
     let uploadView;
-    if (loading) {
-      uploadView = <UploadLoading {...upload}/>;
-    }
-    else {
-      uploadView = <UploadBox {...upload}/>;
+    switch (props.status) {
+      case 'loading':
+        uploadView = <UploadLoading {...upload}/>;
+        break;
+
+      case 'success':
+        uploadView = <UploadSuccessful {...upload}/>;
+        break;
+
+      case 'ready':
+      default:
+        uploadView = <UploadBox {...upload}/>;
     }
 
     // <DownloadBox {...download}/>
