@@ -24,96 +24,84 @@ export default {
       title: 'Name',
       filtered: false,
       options: [{
-        values: [{
-          title: 'Sort A -> Z',
-          onChange: () => {},
-          selected: false
-        },
-        {
-          title: 'Sort Z -> A',
-          onChange: () => {},
-          selected: false
-        }]
+        title: 'Sort A -> Z',
+        onChange: () => {},
+        selected: false
+      },
+      {
+        title: 'Sort Z -> A',
+        onChange: () => {},
+        selected: false
       }]
     },
     {
       title: 'Last name',
       filtered: false,
       options: [{
-        values: [{
-          title: 'Sort A -> Z',
-          onChange: () => {},
-          selected: false
-        },
-        {
-          title: 'Sort Z -> A',
-          onChange: () => {},
-          selected: false
-        }]
+        title: 'Sort A -> Z',
+        onChange: () => {},
+        selected: false
+      },
+      {
+        title: 'Sort Z -> A',
+        onChange: () => {},
+        selected: false
       }]
     },
     {
       title: 'Email',
       filtered: false,
       options: [{
-        values: [{
-          title: 'Sort A -> Z',
-          onChange: () => {},
-          selected: false
-        },
-        {
-          title: 'Sort Z -> A',
-          onChange: () => {},
-          selected: false
-        }]
+        title: 'Sort A -> Z',
+        onChange: () => {},
+        selected: false
+      },
+      {
+        title: 'Sort Z -> A',
+        onChange: () => {},
+        selected: false
       }]
     },
     {
-      title: 'Name',
+      title: 'Provider',
       filtered: false,
       options: [{
-        values: [{
-          title: 'Sort A -> Z',
-          onChange: () => {},
-          selected: false
-        },
-        {
-          title: 'Sort Z -> A',
-          onChange: () => {},
-          selected: false
-        }]
+        title: 'Sort A -> Z',
+        onChange: () => {},
+        selected: false
+      },
+      {
+        title: 'Sort Z -> A',
+        onChange: () => {},
+        selected: false
       }]
     },
     {
-      title: 'Last name',
+      title: 'Something',
       filtered: false,
       options: [{
-        values: [{
-          title: 'Sort A -> Z',
-          onChange: () => {},
-          selected: false
-        },
-        {
-          title: 'Sort Z -> A',
-          onChange: () => {},
-          selected: false
-        }]
+        title: 'Sort A -> Z',
+        onChange: () => {},
+        selected: false
+      },
+      {
+        title: 'Sort Z -> A',
+        onChange: () => {},
+        selected: false
       }]
     },
     {
-      title: 'Email',
+      title: 'Something else',
       filtered: false,
       options: [{
-        values: [{
-          title: 'Sort A -> Z',
-          onChange: () => {},
-          selected: false
-        },
-        {
-          title: 'Sort Z -> A',
-          onChange: () => {},
-          selected: false
-        }]
+        title: 'Sort A -> Z',
+        onChange: () => {},
+        selected: false
+      },
+      {
+        title: 'Sort Z -> A',
+        onChange: () => {},
+        selected: false
       }]
     }]
   }

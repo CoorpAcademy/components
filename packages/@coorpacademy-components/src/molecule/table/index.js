@@ -9,7 +9,12 @@ const conditions = checker.shape({
     })),
     columns: checker.arrayOf(checker.shape({
       title: checker.string,
-      filtered: checker.bool.optional
+      filtered: checker.bool.optional,
+      options: checker.arrayOf(checker.shape({
+        title: checker.string,
+        onChange: checker.func,
+        selected: checker.bool
+      })).optional
     }))
   }),
   children: checker.none
@@ -26,8 +31,32 @@ export default (treant, options = {}) => {
 
     const header = columns.map(column => {
       const {
-        title
+        title,
+        filtered,
+        options
       } = column;
+
+      const createOptionsView = opts => {
+        const optionsView = opts.map(option => {
+          const {
+            title,
+            onChange,
+            selected
+          } = option;
+
+          return (
+            <div className={selected ? style.selected : style.option}>
+              <button onClick={onChange}>{title}</button>
+            </div>
+          );
+        });
+
+        return (
+          <div className={style.options}>
+            {optionsView}
+          </div>
+        );
+      };
 
       return (
         <th>
@@ -37,12 +66,10 @@ export default (treant, options = {}) => {
             name={title}
             className={style.checkbox}
           />
-          <label htmlFor={title}>
-            <span className={style.toggle}>{title}</span>
+          <label className={filtered ? style.filtered : style.toggle} htmlFor={title}>
+            {title}
           </label>
-          <div className={style.options}>
-
-          </div>
+          {options ? createOptionsView(options) : null}
         </th>
       );
     });

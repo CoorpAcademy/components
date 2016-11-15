@@ -18,8 +18,10 @@
   font-size: 15px;
   font-weight: 700;
   color: #90A4AE;
-  line-height: 72px;
-  padding: 0 25px;
+}
+
+.table thead th:hover {
+  color: #455A64;
 }
 
 .table tbody td {
@@ -32,6 +34,7 @@
 .table th {
   border-right: 1px solid #EBECEF;
   border-bottom: 1px solid #EBECEF;
+  position: relative;
 }
 
 .table th:last-child {
@@ -56,8 +59,59 @@
 }
 
 .checkbox {
-
+  display: none;
 }
+
+.checkbox:checked ~ .options{
+  display: block;
+}
+
 .toggle {
-  
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 25px;
+  line-height: 70px;
+  cursor: pointer;
+}
+
+.filtered {
+  composes: toggle;
+}
+
+.options {
+  display: none;
+  position: absolute;
+  top: 72px;
+  left: -1px;
+  width: 300px;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #EBECEF;
+  box-shadow: 0 7px 8px 0 rgba(0,0,0,0.14);
+}
+
+.option {
+}
+
+.option button {
+  cursor: pointer;
+  border: none;
+  outline: 0;
+  padding: 0;
+  background: none;
+  font-family: 'Open Sans';
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 25px;
+  color: #90A4AE;
+}
+
+.option button:hover {
+  color: #455A64;
+}
+
+.selected {
+  composes: option;
+  color: #455A64;
 }
