@@ -22,9 +22,6 @@ This library provide sharable components for web applications, either :
 
 # Development
 
-### Scripts
-`@todo` list `npm run` scripts
-
 ### Live sandbox
 
 ```
@@ -32,7 +29,7 @@ npm install
 npm start
 ```
 
-Then open `http://localhost:3003`
+Then open `http://localhost:3004`
 
 ### Locally use `/lib` in a project
 - use `npm link` to create a local `@coorpacademy/components` package
@@ -46,6 +43,11 @@ Then open `http://localhost:3003`
 npm version patch|minor|major
 git push --tags
 ```
+
+### Troubleshooting
+#### lerna
+Lerna is used to plug and publish all the packages in this repo.
+You may have to reset all `node_modules` : use `lerna clean` before performing `npm i` again.
 
 # Technical details
 

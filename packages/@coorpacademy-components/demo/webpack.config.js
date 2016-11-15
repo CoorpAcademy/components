@@ -25,20 +25,20 @@ export default ({
   module: {
     loaders: [{
       test: /\.json$/,
-      loader: 'json'
+      loader: 'json-loader'
     }, {
       test: /\.(ttf|otf|eot|svg|woff)$/,
-      loader: 'file'
+      loader: 'file-loader'
     }, {
       test: /\.js$/,
-      loader: 'babel',
+      loader: 'babel-loader',
       include: [
         join(__dirname, '../src'),
         join(__dirname, './')
       ]
     }, {
       test: /\.css$/,
-      loader: `style!css?minimize&modules&importLoaders=1&localIdentName=${hash}!postcss`
+      loader: `style-loader!css-loader?minimize&modules&importLoaders=1&localIdentName=${hash}!postcss-loader`
     }]
   },
 
