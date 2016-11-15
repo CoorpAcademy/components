@@ -9,8 +9,8 @@ const conditions = checker.shape({
   props: checker.shape({
     title: checker.string.optional,
     status: checker.string.optional,
-    upload: checker.object,
-    download: checker.object
+    // download: checker.object,
+    upload: checker.object
   }),
   children: checker.none
 });
