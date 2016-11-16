@@ -36,11 +36,11 @@ export default {
     },
     {
       title: 'Last name',
-      filtered: false,
+      filtered: true,
       options: [{
         title: 'Sort A -> Z',
         onChange: () => {},
-        selected: false
+        selected: true
       },
       {
         title: 'Sort Z -> A',
