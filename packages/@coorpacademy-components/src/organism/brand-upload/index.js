@@ -8,7 +8,11 @@ const conditions = checker.shape({
     title: checker.string.optional,
     status: checker.string.optional,
     download: checker.object,
-    upload: checker.object
+    upload: checker.object,
+    notifications: checker.arrayOf(checker.shape({
+      type: checker.string,
+      message: checker.string
+    })).optional
   }),
   children: checker.none
 });
@@ -22,8 +26,15 @@ export default (treant, options = {}) => {
     const {
       title = '',
       download,
-      upload
+      upload,
+      notifications
     } = props;
+
+    const notificationsItems = notifications.map(notif => (
+      <div className={style[notif.type]}>
+        <span>{notif.message}</span>
+      </div>
+    ));
 
     return (
       <div className={style.wrapper}>
@@ -32,6 +43,9 @@ export default (treant, options = {}) => {
         </div>
         <DownloadBox {...download}/>
         <UploadBox {...upload}/>
+        <ul>
+          {notificationsItems}
+        </ul>
       </div>
     );
   };

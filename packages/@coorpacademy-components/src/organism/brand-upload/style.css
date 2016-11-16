@@ -1,3 +1,7 @@
+@value colors: "../../variables/colors.css";
+@value lightRed from colors;
+@value lightGreen from colors;
+
 .wrapper {
   width: 100%;
 }
@@ -12,4 +16,27 @@
   font-weight: 700;
   color: #455A64;
   margin: 0;
+}
+
+.notification {
+  margin: 5px 0;
+  padding: 15px 25px;
+  width: 100%;
+  height: 50px;
+  box-sizing: border-box;
+  border-radius: 3px;
+  font-family: 'Open Sans';
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.error {
+  composes: notification;
+  background-color: lightRed;
+  font-style: italic;
+}
+
+.success {
+  composes: notification;
+  background-color: lightGreen;
 }
