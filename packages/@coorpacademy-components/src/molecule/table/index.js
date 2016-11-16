@@ -59,16 +59,18 @@ export default (treant, opts = {}) => {
 
       return (
         <th>
-          <input
-            type='checkbox'
-            id={title}
-            name={title}
-            className={style.checkbox}
-          />
-          <label className={filtered ? style.filtered : style.toggle} htmlFor={title}>
-            {title}
-          </label>
-          {options.length > 0 ? createOptionsView(options) : null}
+          <div className={filtered ? style.filtered : style.toggle} >
+            <input
+              type='checkbox'
+              id={title}
+              name={title}
+              className={style.checkbox}
+            />
+            <label htmlFor={title}>
+              {title}
+            </label>
+            {options.length > 0 ? createOptionsView(options) : null}
+          </div>
         </th>
       );
     });

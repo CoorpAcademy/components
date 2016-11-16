@@ -13,25 +13,8 @@
   background-color: #F7F7F7;
 }
 
-.table thead th {
-  text-align: left;
-  font-size: 15px;
-  font-weight: 700;
-  color: #90A4AE;
-}
-
-.table thead th:hover {
-  color: #455A64;
-}
-
-.table tbody td {
-  font-weight: 600;
-  color: #455A64;
-  line-height: 42px;
-  padding: 0 25px;
-}
-
 .table th {
+  text-align: left;
   border-right: 1px solid #EBECEF;
   border-bottom: 1px solid #EBECEF;
   position: relative;
@@ -39,6 +22,14 @@
 
 .table th:last-child {
   border-right: 0;
+}
+
+.table tbody td {
+  font-weight: 600;
+  color: #455A64;
+  line-height: 42px;
+  padding: 0 25px;
+  white-space: nowrap;
 }
 
 .table td {
@@ -67,16 +58,42 @@
 }
 
 .toggle {
-  display: inline-block;
   width: 100%;
-  box-sizing: border-box;
-  padding: 0 25px;
-  line-height: 70px;
+  composes: fa from '../../variables/fontawesome.css';
+  composes: fa-caret-down from '../../variables/fontawesome.css';
+}
+
+.toggle:before, .filtered:before {
+  position: absolute;
+  font-size: 18px;
+  top: 50%;
+  margin-top: -9px;
+  right: 15px;
+  color: #CFD8DC;
+}
+
+.toggle label, .filtered label {
+  display: inline-block;
   cursor: pointer;
+  font-family: 'Open Sans';
+  font-size: 15px;
+  font-weight: 700;
+  color: #90A4AE;
+  box-sizing: border-box;
+  line-height: 70px;
+  white-space: nowrap;
+  padding: 0 40px 0 25px;
+  width: 100%;
 }
 
 .filtered {
-  composes: toggle;
+  width: 100%;
+  composes: fa from '../../variables/fontawesome.css';
+  composes: fa-filter from '../../variables/fontawesome.css';
+}
+
+.filtered:before {
+  color: #90A4AE;
 }
 
 .options {
@@ -113,5 +130,8 @@
 
 .selected {
   composes: option;
+}
+
+.selected button {
   color: #455A64;
 }
