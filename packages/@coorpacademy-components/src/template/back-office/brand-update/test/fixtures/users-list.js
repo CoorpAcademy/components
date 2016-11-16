@@ -1,48 +1,14 @@
 import defaultsDeep from 'lodash/fp/defaultsDeep';
+import BrandTable from '../../../../../organism/brand-table/test/fixtures/default';
 import Users from './users';
 
 const {props} = Users;
+const content = BrandTable.props;
 
 export default {
   props: defaultsDeep(props, {
-    content: {
-      type: 'list',
-      createHref: '',
-      search: {
-        value: '',
-        placeholder: '',
-        onChange: () => {}
-      },
-      pagination: {
-        value: '',
-        nextHref: '',
-        previousHred: ''
-      },
-      displayOptions: {
-        value: '',
-        values: ['', '', ''],
-        onChange: () => {}
-      },
-      lines: [{
-        fields: ['', '', '', ''],
-        editHref: () => {}
-      }],
-      columns: [{
-        title: '',
-        filtered: false,
-        options: [{
-          values: [{
-            title: 'Sort A -> Z',
-            onChange: () => {},
-            selected: false
-          },
-          {
-            title: 'Sort Z -> A',
-            onChange: () => {},
-            selected: false
-          }]
-        }]
-      }]
-    }
+    content: defaultsDeep(content, {
+      type: 'list'
+    })
   })
 };

@@ -1,0 +1,21 @@
+.wrapper {
+
+}
+
+.search {
+  font-family: "Open Sans";
+  text-transform: none;
+  padding: 0 15px;
+  border: solid 2px #eceff1;
+  height: 50px;
+  border-radius: 3px;
+  font-size: 15px;
+  color: #90A4AE;
+  margin-left: 20px;
+  width: 300px;
+}
+
+/*.wrapper:before {
+  composes: fa from '../../variables/fontawesome.css';
+  composes: fa-search from '../../variables/fontawesome.css';
+}*/
