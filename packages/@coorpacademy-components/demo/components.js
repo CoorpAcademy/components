@@ -38,8 +38,6 @@ import createBrandDownloadBox from '../src/molecule/brand-download-box';
 import createBrandFormGroup from '../src/molecule/brand-form-group';
 import createBrandTabs from '../src/molecule/brand-tabs';
 import createBrandUploadBox from '../src/molecule/brand-upload-box';
-import createBrandUploadLoading from '../src/molecule/brand-upload-loading';
-import createBrandUploadSuccessful from '../src/molecule/brand-upload-successful';
 import createBreadcrumbs from '../src/molecule/breadcrumbs';
 import createCatalogCard from '../src/molecule/catalog-card';
 import createCatalogCta from '../src/molecule/catalog-cta';
@@ -169,8 +167,6 @@ import createBrandTabsFixtureUsers from '../src/molecule/brand-tabs/test/fixture
 import createBrandUploadBoxFixtureDefault from '../src/molecule/brand-upload-box/test/fixtures/default';
 import createBrandUploadBoxFixtureDropping from '../src/molecule/brand-upload-box/test/fixtures/dropping';
 import createBrandUploadBoxFixtureLoading from '../src/molecule/brand-upload-box/test/fixtures/loading';
-import createBrandUploadLoadingFixtureDefault from '../src/molecule/brand-upload-loading/test/fixtures/default';
-import createBrandUploadSuccessfulFixtureDefault from '../src/molecule/brand-upload-successful/test/fixtures/default';
 import createBreadcrumbsFixtureDefault from '../src/molecule/breadcrumbs/test/fixtures/default';
 import createCatalogCardFixtureDefault from '../src/molecule/catalog-card/test/fixtures/default';
 import createCatalogCtaFixtureDefault from '../src/molecule/catalog-cta/test/fixtures/default';
@@ -249,7 +245,6 @@ import createBrandTableFixtureDefault from '../src/organism/brand-table/test/fix
 import createBrandUploadFixtureDefault from '../src/organism/brand-upload/test/fixtures/default';
 import createBrandUploadFixtureDropping from '../src/organism/brand-upload/test/fixtures/dropping';
 import createBrandUploadFixtureLoading from '../src/organism/brand-upload/test/fixtures/loading';
-import createBrandUploadFixtureSuccessful from '../src/organism/brand-upload/test/fixtures/successful';
 import createCatalogCardsFixtureDefault from '../src/organism/catalog-cards/test/fixtures/default';
 import createCatalogCardsFixtureLoading from '../src/organism/catalog-cards/test/fixtures/loading';
 import createCatalogCardsFixtureNoProducts from '../src/organism/catalog-cards/test/fixtures/no-products';
@@ -360,8 +355,6 @@ export const components = {
     BrandFormGroup: createBrandFormGroup,
     BrandTabs: createBrandTabs,
     BrandUploadBox: createBrandUploadBox,
-    BrandUploadLoading: createBrandUploadLoading,
-    BrandUploadSuccessful: createBrandUploadSuccessful,
     Breadcrumbs: createBreadcrumbs,
     CatalogCard: createCatalogCard,
     CatalogCta: createCatalogCta,
@@ -595,12 +588,6 @@ export const fixtures = {
       Dropping: createBrandUploadBoxFixtureDropping,
       Loading: createBrandUploadBoxFixtureLoading
     },
-    BrandUploadLoading: {
-      Default: createBrandUploadLoadingFixtureDefault
-    },
-    BrandUploadSuccessful: {
-      Default: createBrandUploadSuccessfulFixtureDefault
-    },
     Breadcrumbs: {
       Default: createBreadcrumbsFixtureDefault
     },
@@ -745,8 +732,7 @@ export const fixtures = {
     BrandUpload: {
       Default: createBrandUploadFixtureDefault,
       Dropping: createBrandUploadFixtureDropping,
-      Loading: createBrandUploadFixtureLoading,
-      Successful: createBrandUploadFixtureSuccessful
+      Loading: createBrandUploadFixtureLoading
     },
     CatalogCards: {
       Default: createCatalogCardsFixtureDefault,

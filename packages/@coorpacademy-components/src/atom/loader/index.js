@@ -10,17 +10,14 @@ const conditions = checker.shape({
 
 export default (treant, options) => {
   const {h} = treant;
-  const Loader = (props, children) => {
-    let progress = (
-      <div className={style.container}>
-        <div className={style.dot}></div>
-        <div className={style.dot}></div>
-        <div className={style.dot}></div>
-        <div className={style.dot}></div>
-      </div>
-    );
 
-    return progress;
+  const Loader = (props, children) => {
+    <div className={style.container}>
+      <div className={style.dot}></div>
+      <div className={style.dot}></div>
+      <div className={style.dot}></div>
+      <div className={style.dot}></div>
+    </div>;
   };
 
   Loader.validate = createValidate(conditions);
