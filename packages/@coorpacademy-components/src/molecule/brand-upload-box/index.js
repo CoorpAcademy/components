@@ -7,7 +7,7 @@ const conditions = checker.shape({
   props: checker.shape({
     description: checker.string.optional,
     status: checker.oneOf(['default', 'loading', 'dropping']).optional,
-    onLoad: checker.func
+    onLoad: checker.func.optional
   }),
   children: checker.none
 });
