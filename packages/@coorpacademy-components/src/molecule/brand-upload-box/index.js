@@ -1,3 +1,4 @@
+import uniqueId from 'lodash/fp/uniqueId';
 import {checker, createValidate} from '../../util/validation';
 import createButton from '../../atom/button';
 import createLoader from '../../atom/loader';
@@ -25,6 +26,7 @@ export default (treant, options = {}) => {
       onLoad
     } = props;
 
+    const idBox = uniqueId('drop-box-');
     let content;
 
     switch (props.status) {
@@ -43,7 +45,10 @@ export default (treant, options = {}) => {
 
       default:
         content = (
-          <div className={style[props.status || 'default']}>
+          <div
+            id={idBox}
+            className={style.default}
+          >
             <div className={style.cont}>
               <i className={style.arrow}></i>
               <div className={style.tit}>
@@ -62,10 +67,18 @@ export default (treant, options = {}) => {
               type='file'
               className={style.inputFile}
               onChange={onLoad}
+              onDragenter={() => {
+                document.getElementById(idBox).classList.add(style.dropping);
+              }}
+              onDrop={() => {
+                document.getElementById(idBox).classList.remove(style.dropping);
+              }}
+              onDragleave={() => {
+                document.getElementById(idBox).classList.remove(style.dropping);
+              }}
             />
           </div>
         );
-
     }
 
     return (

@@ -165,7 +165,6 @@ import createBrandTabsFixtureLookandfeel from '../src/molecule/brand-tabs/test/f
 import createBrandTabsFixtureSso from '../src/molecule/brand-tabs/test/fixtures/sso';
 import createBrandTabsFixtureUsers from '../src/molecule/brand-tabs/test/fixtures/users';
 import createBrandUploadBoxFixtureDefault from '../src/molecule/brand-upload-box/test/fixtures/default';
-import createBrandUploadBoxFixtureDropping from '../src/molecule/brand-upload-box/test/fixtures/dropping';
 import createBrandUploadBoxFixtureLoading from '../src/molecule/brand-upload-box/test/fixtures/loading';
 import createBreadcrumbsFixtureDefault from '../src/molecule/breadcrumbs/test/fixtures/default';
 import createCatalogCardFixtureDefault from '../src/molecule/catalog-card/test/fixtures/default';
@@ -243,7 +242,6 @@ import createBrandFormFixtureSso from '../src/organism/brand-form/test/fixtures/
 import createBrandFormFixtureUserEdit from '../src/organism/brand-form/test/fixtures/user-edit';
 import createBrandTableFixtureDefault from '../src/organism/brand-table/test/fixtures/default';
 import createBrandUploadFixtureDefault from '../src/organism/brand-upload/test/fixtures/default';
-import createBrandUploadFixtureDropping from '../src/organism/brand-upload/test/fixtures/dropping';
 import createBrandUploadFixtureLoading from '../src/organism/brand-upload/test/fixtures/loading';
 import createCatalogCardsFixtureDefault from '../src/organism/catalog-cards/test/fixtures/default';
 import createCatalogCardsFixtureLoading from '../src/organism/catalog-cards/test/fixtures/loading';
@@ -293,7 +291,6 @@ import createBrandUpdateFixtureLookandfeel from '../src/template/back-office/bra
 import createBrandUpdateFixtureSsoActivate from '../src/template/back-office/brand-update/test/fixtures/sso-activate';
 import createBrandUpdateFixtureSso from '../src/template/back-office/brand-update/test/fixtures/sso';
 import createBrandUpdateFixtureUsersEdit from '../src/template/back-office/brand-update/test/fixtures/users-edit';
-import createBrandUpdateFixtureUsersImportDropping from '../src/template/back-office/brand-update/test/fixtures/users-import-dropping';
 import createBrandUpdateFixtureUsersImportLoading from '../src/template/back-office/brand-update/test/fixtures/users-import-loading';
 import createBrandUpdateFixtureUsersImportSuccessful from '../src/template/back-office/brand-update/test/fixtures/users-import-successful';
 import createBrandUpdateFixtureUsersImport from '../src/template/back-office/brand-update/test/fixtures/users-import';
@@ -585,7 +582,6 @@ export const fixtures = {
     },
     BrandUploadBox: {
       Default: createBrandUploadBoxFixtureDefault,
-      Dropping: createBrandUploadBoxFixtureDropping,
       Loading: createBrandUploadBoxFixtureLoading
     },
     Breadcrumbs: {
@@ -731,7 +727,6 @@ export const fixtures = {
     },
     BrandUpload: {
       Default: createBrandUploadFixtureDefault,
-      Dropping: createBrandUploadFixtureDropping,
       Loading: createBrandUploadFixtureLoading
     },
     CatalogCards: {
@@ -819,7 +814,6 @@ export const fixtures = {
       SsoActivate: createBrandUpdateFixtureSsoActivate,
       Sso: createBrandUpdateFixtureSso,
       UsersEdit: createBrandUpdateFixtureUsersEdit,
-      UsersImportDropping: createBrandUpdateFixtureUsersImportDropping,
       UsersImportLoading: createBrandUpdateFixtureUsersImportLoading,
       UsersImportSuccessful: createBrandUpdateFixtureUsersImportSuccessful,
       UsersImport: createBrandUpdateFixtureUsersImport,
