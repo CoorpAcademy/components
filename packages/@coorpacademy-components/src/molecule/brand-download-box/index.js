@@ -4,6 +4,10 @@ import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({
+    warning: checker.string.optional,
+    description: checker.string.optional,
+    href: checker.string.optional,
+    submitValue: checker.string.optional
   }),
   children: checker.none
 });
@@ -14,22 +18,27 @@ export default (treant, options = {}) => {
 
   const BrandDownloadBox = (props, children) => {
     const {
-      warning,
-      description,
-      onClick,
-      submitValue
+      warning = '',
+      description = '',
+      href = '',
+      submitValue = ''
     } = props;
 
     return (
       <div className={style.wrapper}>
-        {warning}
-        {description}
-        <Button
-          onClick={onClick}
-          submitValue={submitValue}
-          background={'#CFD8DC'}
-          color={'#717171'}
-        />
+        <div className={style.texts}>
+          <i className={style.icon}></i>
+          <span className={style.warning}>{warning}</span>
+          <p className={style.description}>{description}</p>
+        </div>
+        <div className={style.buttonWrapper}>
+          <Button
+            className={style.button}
+            type='link'
+            href={href}
+            submitValue={submitValue}
+          />
+        </div>
       </div>
     );
   };
