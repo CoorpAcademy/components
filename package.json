@@ -10,7 +10,7 @@
     "publish:beta": "lerna publish --npm-tag beta",
     "publish:canary": "lerna publish --canary --skip-git",
     "clean": "lerna run clean && lerna clean --yes",
-    "test": "lerna run test && npm run nyc",
+    "test": "lerna exec -- npm test && npm run nyc",
     "lint": "lerna run lint",
     "ava": "lerna run ava",
     "nyc": "rm -rf .nyc_output && mkdir .nyc_output && cp $(ls packages/**/.nyc_output/*.json) .nyc_output && nyc --reporter=text --reporter=lcov report",
