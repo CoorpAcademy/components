@@ -1,6 +1,6 @@
 import {checker, createValidate} from '../../util/validation';
 import createBrandFormGroup from '../../molecule/brand-form-group';
-import HoverFillBehaviour from '../../behaviour/effects/hover-fill';
+import createButton from '../../atom/button';
 import style from './style.css';
 
 const conditions = checker.shape({
@@ -23,7 +23,7 @@ export default (treant, options = {}) => {
   const {h} = treant;
 
   const BrandFormGroup = createBrandFormGroup(treant, options);
-  const HoverFill = HoverFillBehaviour(treant, options);
+  const Button = createButton(treant, options);
 
   const BrandForm = (props, children) => {
     const {
@@ -46,15 +46,10 @@ export default (treant, options = {}) => {
     const disabledSubmit = isModified ? '' : 'disabled';
     const submitButton = onSubmit ? (
       <div className={style.saveGroup}>
-        <HoverFill>
-          <div className={style.save}>
-            <input
-              type='submit'
-              value={submitValue}
-              disabled={disabledSubmit}
-            />
-          </div>
-        </HoverFill>
+        <Button
+          disabled={disabledSubmit}
+          submitValue={submitValue}
+        />
       </div>
     ) : null;
 

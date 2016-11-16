@@ -6,6 +6,8 @@ export default {
   props: {
     title: 'Modification Brand',
     groups: [group, group, group],
+    submitValue: 'Enregistrer',
+    resetValue: 'Annuler',
     onSubmit: () => console.log('submit'), // eslint-disable-line no-console
     onReset: () => console.log('reset') // eslint-disable-line no-console
   }

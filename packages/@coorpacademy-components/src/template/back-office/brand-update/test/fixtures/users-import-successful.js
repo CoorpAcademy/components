@@ -6,6 +6,11 @@ const {props} = Users;
 
 export default {
   props: defaultsDeep(props, {
+    notifications: [{
+      type: 'success',
+      message: 'Import successful',
+      onClose: () => {}
+    }],
     content: {
       type: 'upload',
       ...BrandUpload.props

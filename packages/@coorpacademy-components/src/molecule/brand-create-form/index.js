@@ -1,5 +1,5 @@
 import {checker, createValidate} from '../../util/validation';
-import HoverFillBehaviour from '../../behaviour/effects/hover-fill';
+import createButton from '../../atom/button';
 import style from './style.css';
 
 const conditions = checker.shape({
@@ -25,7 +25,7 @@ const conditions = checker.shape({
 export default (treant, options = {}) => {
   const {h} = treant;
 
-  const HoverFill = HoverFillBehaviour(treant, options);
+  const Button = createButton(treant, options);
 
   const BrandCreateForm = (props, children) => {
     const {
@@ -63,15 +63,11 @@ export default (treant, options = {}) => {
               />{field.label}
             </label>
           </div>
-          <HoverFill>
-            <div className={style.save}>
-              <input
-                type='submit'
-                value={submitValue}
-                disabled={disabled}
-              />
-            </div>
-          </HoverFill>
+          <Button
+            disabled={disabled}
+            submitValue={submitValue}
+            centered={true}
+          />
         </form>
       </div>
     );

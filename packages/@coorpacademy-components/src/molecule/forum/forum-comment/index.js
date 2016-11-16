@@ -1,5 +1,5 @@
 import identity from 'lodash/fp/identity';
-import HoverFillBehaviour from '../../../behaviour/effects/hover-fill';
+import createButton from '../../../atom/button';
 import {checker, createValidate} from '../../../util/validation';
 import style from './style.css';
 
@@ -16,8 +16,7 @@ const conditions = checker.shape({
 export default (treant, options = {}) => {
   const {h} = treant;
   const {translate = identity} = options;
-
-  const HoverFill = HoverFillBehaviour(treant, options);
+  const Button = createButton(treant, options);
 
   const ForumComment = (props, children) => {
     const {avatar, onPost, onChange, value, textareaDisabled, postDisabled} = props;
@@ -31,14 +30,12 @@ export default (treant, options = {}) => {
       <div
         className={style.post}
       >
-        <HoverFill>
-          <button
-            onClick={onPost}
-            disabled={postDisabled}
-          >
-            {translate('Post')}
-          </button>
-        </HoverFill>
+        <Button
+          onClick={onPost}
+          disabled={postDisabled}
+          submitValue={translate('Post')}
+          background={'#546E7A'}
+        />
       </div>
     );
 

@@ -1,0 +1,54 @@
+/* from https://codepen.io/alexerlandsson/pen/yOVdvj */
+
+@value colors: "../../variables/colors.css";
+@value green from colors;
+@value red from colors;
+@value blue from colors;
+@value yellow from colors;
+
+.container {
+  position: absolute;
+  width: 90px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: red ;
+  border-radius: 50%;
+  float: left;
+  margin: 0 5px;
+  transform: scale(0);
+  animation: fx 1300ms ease infinite 0ms;
+}
+
+.dot:nth-child(2) {
+  background-color: blue ;
+  animation: fx 1300ms ease infinite 300ms;
+}
+
+.dot:nth-child(3) {
+  background-color: green ;
+  animation: fx 1300ms ease infinite 600ms;
+}
+
+.dot:nth-child(4) {
+  background-color: yellow ;
+  animation: fx 1300ms ease infinite 900ms;
+}
+
+@keyframes fx {
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

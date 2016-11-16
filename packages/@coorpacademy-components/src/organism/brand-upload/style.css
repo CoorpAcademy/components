@@ -1,0 +1,15 @@
+.wrapper {
+  width: 100%;
+}
+
+.title {
+  margin-bottom: 20px;
+}
+
+.title h3 {
+  font-family: 'Open Sans';
+  font-size: 17px;
+  font-weight: 700;
+  color: #455A64;
+  margin: 0;
+}

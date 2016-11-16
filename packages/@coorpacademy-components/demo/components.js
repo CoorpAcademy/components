@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+import createButton from '../src/atom/button';
 import createCenteredText from '../src/atom/centered-text';
 import createInputCheckbox from '../src/atom/input-checkbox';
 import createInputColor from '../src/atom/input-color';
@@ -11,6 +11,7 @@ import createLabelModName from '../src/atom/label-mod-name';
 import createLabelNormal from '../src/atom/label-normal';
 import createLabel from '../src/atom/label';
 import createLink from '../src/atom/link';
+import createLoader from '../src/atom/loader';
 import createNotification from '../src/atom/notification';
 import createPicture from '../src/atom/picture';
 import createSelect from '../src/atom/select';
@@ -22,6 +23,7 @@ import createCentered from '../src/behaviour/align/centered';
 import createPrimary from '../src/behaviour/color/primary';
 import createTextInverted from '../src/behaviour/color/text-inverted';
 import createTextNormal from '../src/behaviour/color/text-normal';
+import createAddClass from '../src/behaviour/effects/add-class';
 import createHoverFill from '../src/behaviour/effects/hover-fill';
 import createRadialFocus from '../src/behaviour/effects/radial-focus';
 import createEllipsis from '../src/behaviour/font/ellipsis';
@@ -32,8 +34,10 @@ import createUppercase from '../src/behaviour/font/uppercase';
 import createBrandCardCreate from '../src/molecule/brand-card-create';
 import createBrandCard from '../src/molecule/brand-card';
 import createBrandCreateForm from '../src/molecule/brand-create-form';
+import createBrandDownloadBox from '../src/molecule/brand-download-box';
 import createBrandFormGroup from '../src/molecule/brand-form-group';
 import createBrandTabs from '../src/molecule/brand-tabs';
+import createBrandUploadBox from '../src/molecule/brand-upload-box';
 import createBreadcrumbs from '../src/molecule/breadcrumbs';
 import createCatalogCard from '../src/molecule/catalog-card';
 import createCatalogCta from '../src/molecule/catalog-cta';
@@ -65,6 +69,7 @@ import createForumPost from '../src/molecule/forum/forum-post';
 import createForumThread from '../src/molecule/forum/forum-thread';
 import createBrandForm from '../src/organism/brand-form';
 import createBrandTable from '../src/organism/brand-table';
+import createBrandUpload from '../src/organism/brand-upload';
 import createCatalogCards from '../src/organism/catalog-cards';
 import createCursusRightaside from '../src/organism/cursus-rightaside';
 import createDisciplineCards from '../src/organism/discipline-cards';
@@ -84,6 +89,12 @@ import createBrandList from '../src/template/back-office/brand-list';
 import createBrandUpdate from '../src/template/back-office/brand-update';
 import createLayout from '../src/template/back-office/layout';
 import createCoorpHeader from '../src/template/common/coorp-header';
+import createButtonFixtureBlue from '../src/atom/button/test/fixtures/blue';
+import createButtonFixtureCentered from '../src/atom/button/test/fixtures/centered';
+import createButtonFixtureDark from '../src/atom/button/test/fixtures/dark';
+import createButtonFixtureDefault from '../src/atom/button/test/fixtures/default';
+import createButtonFixtureDisabled from '../src/atom/button/test/fixtures/disabled';
+import createButtonFixtureLight from '../src/atom/button/test/fixtures/light';
 import createCenteredTextFixtureDefault from '../src/atom/centered-text/test/fixtures/default';
 import createInputCheckboxFixtureChecked from '../src/atom/input-checkbox/test/fixtures/checked';
 import createInputCheckboxFixtureDefault from '../src/atom/input-checkbox/test/fixtures/default';
@@ -111,6 +122,7 @@ import createLabelNormalFixtureFixture from '../src/atom/label-normal/test/fixtu
 import createLabelFixtureOneChild from '../src/atom/label/test/fixtures/one-child';
 import createLabelFixtureTwoChildren from '../src/atom/label/test/fixtures/two-children';
 import createLinkFixtureHref from '../src/atom/link/test/fixtures/href';
+import createLoaderFixtureDefault from '../src/atom/loader/test/fixtures/default';
 import createNotificationFixtureDefault from '../src/atom/notification/test/fixtures/default';
 import createNotificationFixtureError from '../src/atom/notification/test/fixtures/error';
 import createPictureFixtureDefault from '../src/atom/picture/test/fixtures/default';
@@ -129,6 +141,7 @@ import createCenteredFixtureDefault from '../src/behaviour/align/centered/test/f
 import createPrimaryFixtureDefault from '../src/behaviour/color/primary/test/fixtures/default';
 import createTextInvertedFixtureDefault from '../src/behaviour/color/text-inverted/test/fixtures/default';
 import createTextNormalFixtureDefault from '../src/behaviour/color/text-normal/test/fixtures/default';
+import createAddClassFixtureDefault from '../src/behaviour/effects/add-class/test/fixtures/default';
 import createHoverFillFixtureDefault from '../src/behaviour/effects/hover-fill/test/fixtures/default';
 import createRadialFocusFixtureDefault from '../src/behaviour/effects/radial-focus/test/fixtures/default';
 import createEllipsisFixtureDefault from '../src/behaviour/font/ellipsis/test/fixtures/default';
@@ -142,6 +155,7 @@ import createBrandCreateFormFixtureDefault from '../src/molecule/brand-create-fo
 import createBrandCreateFormFixtureError from '../src/molecule/brand-create-form/test/fixtures/error';
 import createBrandCreateFormFixtureLoading from '../src/molecule/brand-create-form/test/fixtures/loading';
 import createBrandCreateFormFixtureModified from '../src/molecule/brand-create-form/test/fixtures/modified';
+import createBrandDownloadBoxFixtureDefault from '../src/molecule/brand-download-box/test/fixtures/default';
 import createBrandFormGroupFixtureDefault from '../src/molecule/brand-form-group/test/fixtures/default';
 import createBrandFormGroupFixtureLookandfeel from '../src/molecule/brand-form-group/test/fixtures/lookandfeel';
 import createBrandFormGroupFixtureRoles from '../src/molecule/brand-form-group/test/fixtures/roles';
@@ -150,6 +164,8 @@ import createBrandTabsFixtureDefault from '../src/molecule/brand-tabs/test/fixtu
 import createBrandTabsFixtureLookandfeel from '../src/molecule/brand-tabs/test/fixtures/lookandfeel';
 import createBrandTabsFixtureSso from '../src/molecule/brand-tabs/test/fixtures/sso';
 import createBrandTabsFixtureUsers from '../src/molecule/brand-tabs/test/fixtures/users';
+import createBrandUploadBoxFixtureDefault from '../src/molecule/brand-upload-box/test/fixtures/default';
+import createBrandUploadBoxFixtureLoading from '../src/molecule/brand-upload-box/test/fixtures/loading';
 import createBreadcrumbsFixtureDefault from '../src/molecule/breadcrumbs/test/fixtures/default';
 import createCatalogCardFixtureDefault from '../src/molecule/catalog-card/test/fixtures/default';
 import createCatalogCtaFixtureDefault from '../src/molecule/catalog-cta/test/fixtures/default';
@@ -224,8 +240,9 @@ import createBrandFormFixtureGeneralSettings from '../src/organism/brand-form/te
 import createBrandFormFixtureLookandfeel from '../src/organism/brand-form/test/fixtures/lookandfeel';
 import createBrandFormFixtureSso from '../src/organism/brand-form/test/fixtures/sso';
 import createBrandFormFixtureUserEdit from '../src/organism/brand-form/test/fixtures/user-edit';
-import createBrandFormFixtureUserImport from '../src/organism/brand-form/test/fixtures/user-import';
 import createBrandTableFixtureDefault from '../src/organism/brand-table/test/fixtures/default';
+import createBrandUploadFixtureDefault from '../src/organism/brand-upload/test/fixtures/default';
+import createBrandUploadFixtureLoading from '../src/organism/brand-upload/test/fixtures/loading';
 import createCatalogCardsFixtureDefault from '../src/organism/catalog-cards/test/fixtures/default';
 import createCatalogCardsFixtureLoading from '../src/organism/catalog-cards/test/fixtures/loading';
 import createCatalogCardsFixtureNoProducts from '../src/organism/catalog-cards/test/fixtures/no-products';
@@ -274,6 +291,8 @@ import createBrandUpdateFixtureLookandfeel from '../src/template/back-office/bra
 import createBrandUpdateFixtureSsoActivate from '../src/template/back-office/brand-update/test/fixtures/sso-activate';
 import createBrandUpdateFixtureSso from '../src/template/back-office/brand-update/test/fixtures/sso';
 import createBrandUpdateFixtureUsersEdit from '../src/template/back-office/brand-update/test/fixtures/users-edit';
+import createBrandUpdateFixtureUsersImportLoading from '../src/template/back-office/brand-update/test/fixtures/users-import-loading';
+import createBrandUpdateFixtureUsersImportSuccessful from '../src/template/back-office/brand-update/test/fixtures/users-import-successful';
 import createBrandUpdateFixtureUsersImport from '../src/template/back-office/brand-update/test/fixtures/users-import';
 import createBrandUpdateFixtureUsersList from '../src/template/back-office/brand-update/test/fixtures/users-list';
 import createBrandUpdateFixtureUsers from '../src/template/back-office/brand-update/test/fixtures/users';
@@ -283,6 +302,7 @@ import createCoorpHeaderFixtureStaging from '../src/template/common/coorp-header
 
 export const components = {
   Atom: {
+    Button: createButton,
     CenteredText: createCenteredText,
     InputCheckbox: createInputCheckbox,
     InputColor: createInputColor,
@@ -295,6 +315,7 @@ export const components = {
     LabelNormal: createLabelNormal,
     Label: createLabel,
     Link: createLink,
+    Loader: createLoader,
     Notification: createNotification,
     Picture: createPicture,
     Select: createSelect,
@@ -312,6 +333,7 @@ export const components = {
     TextNormal: createTextNormal
   },
   BehaviourEffects: {
+    AddClass: createAddClass,
     HoverFill: createHoverFill,
     RadialFocus: createRadialFocus
   },
@@ -326,8 +348,10 @@ export const components = {
     BrandCardCreate: createBrandCardCreate,
     BrandCard: createBrandCard,
     BrandCreateForm: createBrandCreateForm,
+    BrandDownloadBox: createBrandDownloadBox,
     BrandFormGroup: createBrandFormGroup,
     BrandTabs: createBrandTabs,
+    BrandUploadBox: createBrandUploadBox,
     Breadcrumbs: createBreadcrumbs,
     CatalogCard: createCatalogCard,
     CatalogCta: createCatalogCta,
@@ -363,6 +387,7 @@ export const components = {
   Organism: {
     BrandForm: createBrandForm,
     BrandTable: createBrandTable,
+    BrandUpload: createBrandUpload,
     CatalogCards: createCatalogCards,
     CursusRightaside: createCursusRightaside,
     DisciplineCards: createDisciplineCards,
@@ -392,6 +417,14 @@ export const components = {
 };
 export const fixtures = {
   Atom: {
+    Button: {
+      Blue: createButtonFixtureBlue,
+      Centered: createButtonFixtureCentered,
+      Dark: createButtonFixtureDark,
+      Default: createButtonFixtureDefault,
+      Disabled: createButtonFixtureDisabled,
+      Light: createButtonFixtureLight
+    },
     CenteredText: {
       Default: createCenteredTextFixtureDefault
     },
@@ -443,6 +476,9 @@ export const fixtures = {
     Link: {
       Href: createLinkFixtureHref
     },
+    Loader: {
+      Default: createLoaderFixtureDefault
+    },
     Notification: {
       Default: createNotificationFixtureDefault,
       Error: createNotificationFixtureError
@@ -489,6 +525,9 @@ export const fixtures = {
     }
   },
   BehaviourEffects: {
+    AddClass: {
+      Default: createAddClassFixtureDefault
+    },
     HoverFill: {
       Default: createHoverFillFixtureDefault
     },
@@ -526,6 +565,9 @@ export const fixtures = {
       Loading: createBrandCreateFormFixtureLoading,
       Modified: createBrandCreateFormFixtureModified
     },
+    BrandDownloadBox: {
+      Default: createBrandDownloadBoxFixtureDefault
+    },
     BrandFormGroup: {
       Default: createBrandFormGroupFixtureDefault,
       Lookandfeel: createBrandFormGroupFixtureLookandfeel,
@@ -537,6 +579,10 @@ export const fixtures = {
       Lookandfeel: createBrandTabsFixtureLookandfeel,
       Sso: createBrandTabsFixtureSso,
       Users: createBrandTabsFixtureUsers
+    },
+    BrandUploadBox: {
+      Default: createBrandUploadBoxFixtureDefault,
+      Loading: createBrandUploadBoxFixtureLoading
     },
     Breadcrumbs: {
       Default: createBreadcrumbsFixtureDefault
@@ -674,11 +720,14 @@ export const fixtures = {
       GeneralSettings: createBrandFormFixtureGeneralSettings,
       Lookandfeel: createBrandFormFixtureLookandfeel,
       Sso: createBrandFormFixtureSso,
-      UserEdit: createBrandFormFixtureUserEdit,
-      UserImport: createBrandFormFixtureUserImport
+      UserEdit: createBrandFormFixtureUserEdit
     },
     BrandTable: {
       Default: createBrandTableFixtureDefault
+    },
+    BrandUpload: {
+      Default: createBrandUploadFixtureDefault,
+      Loading: createBrandUploadFixtureLoading
     },
     CatalogCards: {
       Default: createCatalogCardsFixtureDefault,
@@ -765,6 +814,8 @@ export const fixtures = {
       SsoActivate: createBrandUpdateFixtureSsoActivate,
       Sso: createBrandUpdateFixtureSso,
       UsersEdit: createBrandUpdateFixtureUsersEdit,
+      UsersImportLoading: createBrandUpdateFixtureUsersImportLoading,
+      UsersImportSuccessful: createBrandUpdateFixtureUsersImportSuccessful,
       UsersImport: createBrandUpdateFixtureUsersImport,
       UsersList: createBrandUpdateFixtureUsersList,
       Users: createBrandUpdateFixtureUsers
