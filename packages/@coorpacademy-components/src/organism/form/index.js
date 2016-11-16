@@ -8,6 +8,8 @@ const conditions = checker.shape({
   props: checker.shape({
     title: checker.string,
     groups: checker.array,
+    submitValue: checker.string.optional,
+    resetValue: checker.string.optional,
     onSubmit: checker.func.optional,
     onReset: checker.func.optional
   }),
@@ -22,6 +24,8 @@ export default (treant, options = {}) => {
   const Form = (props, children) => {
     const {
       groups,
+      submitValue = '',
+      resetValue = '',
       onSubmit = noop,
       onReset = noop
     } = props;
@@ -43,12 +47,12 @@ export default (treant, options = {}) => {
         <div className={style.buttons}>
           <Button
             type="reset"
-            submitValue="Annuler"
+            submitValue={submitValue}
             className={style.cancel}
           />
           <Button
             type="submit"
-            submitValue="Enregistrer"
+            submitValue={resetValue}
             className={style.save}
           />
         </div>
