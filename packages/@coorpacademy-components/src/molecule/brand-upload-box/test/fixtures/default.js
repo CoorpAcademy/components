@@ -1,7 +1,7 @@
 export default {
   props: {
-    title: 'Drag & Drop',
-    description: 'Drag here your users list or browse',
+    description: 'Drag here your users list',
+    browse: 'or browse',
     onLoad: () => true
   }
 };
