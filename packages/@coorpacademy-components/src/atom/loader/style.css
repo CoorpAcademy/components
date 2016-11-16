@@ -1,11 +1,14 @@
 /* from https://codepen.io/alexerlandsson/pen/yOVdvj */
 
 @value colors: "../../variables/colors.css";
-@value darkGrey from colors;
+@value green from colors;
+@value red from colors;
+@value blue from colors;
+@value yellow from colors;
 
 .container {
   position: absolute;
-  width: 75px;
+  width: 90px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -17,20 +20,27 @@
 .dot {
   width: 10px;
   height: 10px;
-  border: 2px solid darkGrey;
+  background-color: red ;
   border-radius: 50%;
   float: left;
   margin: 0 5px;
   transform: scale(0);
-  animation: fx 1000ms ease infinite 0ms;
+  animation: fx 1300ms ease infinite 0ms;
 }
 
 .dot:nth-child(2) {
-  animation: fx 1000ms ease infinite 300ms;
+  background-color: blue ;
+  animation: fx 1300ms ease infinite 300ms;
 }
 
 .dot:nth-child(3) {
-  animation: fx 1000ms ease infinite 600ms;
+  background-color: green ;
+  animation: fx 1300ms ease infinite 600ms;
+}
+
+.dot:nth-child(4) {
+  background-color: yellow ;
+  animation: fx 1300ms ease infinite 900ms;
 }
 
 @keyframes fx {

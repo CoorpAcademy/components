@@ -10,10 +10,6 @@
   position: relative;
 }
 
-.loader div{
-  border-color: green;
-}
-
 .arrow {
   composes: fa from '../../variables/fontawesome.css';
   composes: fa-arrow-up from '../../variables/fontawesome.css';

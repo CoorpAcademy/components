@@ -32,7 +32,7 @@ export default (treant, options = {}) => {
         content = (
           <div className={style.default}>
             <div className={style.cont}>
-              <Loader className={style.loader}/>
+              <Loader/>
               <div className={style.desc}>
                 {title}
               </div>
