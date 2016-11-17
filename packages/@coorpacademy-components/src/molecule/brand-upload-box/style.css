@@ -6,14 +6,17 @@
 
 .wrapper {
   width: 100%;
-  height: 500px;
   position: relative;
+  margin-top: 20px;
 }
 
 .arrow {
   composes: fa from '../../variables/fontawesome.css';
   composes: fa-arrow-up from '../../variables/fontawesome.css';
-  font-size: 30;
+  width: 54px;
+  height: 54px;
+  box-sizing: border-box;
+  font-size: 30px;
   background: blue;
   color: #fff;
   border-radius: 50%;
@@ -27,19 +30,11 @@
 }
 
 .default {
-  width: 96%;
-  height: 96%;
-  border: 3px dashed lightGrey;
-  border-radius: 15px;
+  border: 2px dashed lightGrey;
+  border-radius: 4px;
   overflow: hidden;
   text-align: center;
   background: white;
-  margin: auto;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
   transition: border-color 0.35s ease-out;
 }
 
@@ -55,15 +50,12 @@
 }
 
 .cont {
-  width: 500px;
-  height: 170px;
   color: darkGrey;
-  margin: auto;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .desc {
@@ -74,8 +66,7 @@
 }
 
 .browse {
-  margin: 10px 25%;
-  padding: 8px 16px;
+  margin-top: 10px;
   font-family: 'Open Sans';
   font-weight: 600;
   font-size: 17px;
