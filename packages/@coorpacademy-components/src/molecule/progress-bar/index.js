@@ -36,10 +36,11 @@ export default (treant, options = {}) => {
             style={{
               width: `${percentage}%`
             }}
-          >
+          />
+          <p className={style.texts}>
             <span className={style.description}>{`${value}/${max} ${desc}`}</span>
             <span className={style.percentage}>{text}</span>
-          </div>
+          </p>
         </div>
       </AddClass>
     );

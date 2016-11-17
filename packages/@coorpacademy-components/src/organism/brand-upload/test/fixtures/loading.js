@@ -9,9 +9,9 @@ export default {
     download: null,
     upload: Upload.props,
     progress: {
-      value: 31,
+      value: 4,
       max: 129,
-      desc: 'users'
+      desc: 'records processed'
     }
   })
 };
