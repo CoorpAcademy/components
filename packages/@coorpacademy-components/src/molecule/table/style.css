@@ -20,7 +20,7 @@
   position: relative;
 }
 
-.table th:last-child {
+.table th:last-child {
   border-right: 0;
 }
 
