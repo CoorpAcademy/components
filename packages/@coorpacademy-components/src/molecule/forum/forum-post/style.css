@@ -109,7 +109,7 @@
 .answerToggler:checked ~ .answer {
   visibility: visible;
   margin: 10px 0;
-  height: 100px;
+  height: 110px;
   opacity: 1;
 }
 

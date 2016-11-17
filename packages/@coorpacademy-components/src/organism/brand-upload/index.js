@@ -7,7 +7,7 @@ const conditions = checker.shape({
   props: checker.shape({
     title: checker.string.optional,
     status: checker.string.optional,
-    download: checker.object.optional,
+    download: checker.object.nullOk,
     upload: checker.object,
     notifications: checker.arrayOf(checker.shape({
       type: checker.string,

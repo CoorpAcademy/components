@@ -34,7 +34,7 @@ export default (treant, options = {}) => {
           onClick={onPost}
           disabled={postDisabled}
           submitValue={translate('Post')}
-          background={'#546E7A'}
+          className={style.button}
         />
       </div>
     );
