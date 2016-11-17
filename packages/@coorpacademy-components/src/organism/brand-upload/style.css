@@ -3,6 +3,7 @@
 @value lightGreen from colors;
 @value darkGrey from colors;
 @value blue from colors;
+@value green from colors;
 
 .wrapper {
   width: 100%;
@@ -10,6 +11,7 @@
 
 .wrapper ul{
   margin: 0;
+  padding: 0;
 }
 
 .back {
@@ -76,6 +78,10 @@
 .success {
   composes: notification;
   background-color: lightGreen;
+}
+
+.progress div {
+  background: green;
 }
 
 @keyframes notificationAppear {

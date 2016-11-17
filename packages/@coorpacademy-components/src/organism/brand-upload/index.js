@@ -1,4 +1,5 @@
 import {checker, createValidate} from '../../util/validation';
+import createProgressBar from '../../molecule/progress-bar';
 import createUploadBox from '../../molecule/brand-upload-box';
 import createDownloadBox from '../../molecule/brand-download-box';
 import createLink from '../../atom/link';
@@ -9,6 +10,11 @@ const conditions = checker.shape({
     title: checker.string.optional,
     status: checker.string.optional,
     download: checker.object.nullOk,
+    progress: checker.shape({
+      value: checker.number,
+      max: checker.number,
+      desc: checker.string.optional
+    }).optional,
     upload: checker.object,
     back: checker.shape({
       desc: checker.string.optional,
@@ -25,6 +31,7 @@ const conditions = checker.shape({
 export default (treant, options = {}) => {
   const {h} = treant;
   const DownloadBox = createDownloadBox(treant, options);
+  const ProgressBar = createProgressBar(treant, options);
   const UploadBox = createUploadBox(treant, options);
   const Link = createLink(treant, options);
 
@@ -34,6 +41,7 @@ export default (treant, options = {}) => {
       back,
       download,
       upload,
+      progress,
       notifications
     } = props;
 
@@ -61,8 +69,9 @@ export default (treant, options = {}) => {
         <div className={style.title}>
           <h3>{title}</h3>
         </div>
-        {download ? <DownloadBox {...download}/> : ''}
+        {download && <DownloadBox {...download}/>}
         <UploadBox {...upload}/>
+        {progress && <ProgressBar {...progress} className={style.progress}/>}
         <ul>
           {notificationsItems}
         </ul>

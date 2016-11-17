@@ -1,0 +1,44 @@
+@value colors: "../../variables/colors.css";
+@value lightGrey from colors;
+@value blue from colors;
+
+.background {
+  width: 100%;
+  height: 25px;
+  background-color: lightGrey;
+  border-radius: 5px;
+  position: relative;
+}
+
+.progress {
+  background-color: blue;
+  border-radius: 5px;
+  height: 100%;
+}
+
+.texts {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  top: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.text {
+  font-family: "Open Sans";
+  font-size: 13px;
+  text-transform: none;
+}
+
+.description {
+  composes: text;
+  margin-left: 10px;
+}
+
+.percentage {
+  composes: text;
+  margin-right: 10px;
+}

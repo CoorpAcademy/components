@@ -7,6 +7,11 @@ const {props} = Default;
 export default {
   props: defaultsDeep(props, {
     download: null,
-    upload: Upload.props
+    upload: Upload.props,
+    progress: {
+      value: 4,
+      max: 129,
+      desc: 'records processed'
+    }
   })
 };

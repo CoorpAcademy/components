@@ -52,6 +52,7 @@ import createFormGroup from '../src/molecule/form-group';
 import createMenuList from '../src/molecule/menu-list';
 import createModuleBubble from '../src/molecule/module-bubble';
 import createPagination from '../src/molecule/pagination';
+import createProgressBar from '../src/molecule/progress-bar';
 import createScopeContent from '../src/molecule/scope-content';
 import createScopeTabs from '../src/molecule/scope-tabs';
 import createSearch from '../src/molecule/search';
@@ -198,6 +199,8 @@ import createModuleBubbleFixtureDefault from '../src/molecule/module-bubble/test
 import createModuleBubbleFixtureDisabled from '../src/molecule/module-bubble/test/fixtures/disabled';
 import createPaginationFixtureDefault from '../src/molecule/pagination/test/fixtures/default';
 import createPaginationFixtureDisabled from '../src/molecule/pagination/test/fixtures/disabled';
+import createProgressBarFixtureDefault from '../src/molecule/progress-bar/test/fixtures/default';
+import createProgressBarFixtureMax from '../src/molecule/progress-bar/test/fixtures/max';
 import createScopeContentFixtureDefault from '../src/molecule/scope-content/test/fixtures/default';
 import createScopeContentFixtureEmpty from '../src/molecule/scope-content/test/fixtures/empty';
 import createScopeTabsFixtureDefault from '../src/molecule/scope-tabs/test/fixtures/default';
@@ -371,6 +374,7 @@ export const components = {
     MenuList: createMenuList,
     ModuleBubble: createModuleBubble,
     Pagination: createPagination,
+    ProgressBar: createProgressBar,
     ScopeContent: createScopeContent,
     ScopeTabs: createScopeTabs,
     Search: createSearch,
@@ -648,6 +652,10 @@ export const fixtures = {
     Pagination: {
       Default: createPaginationFixtureDefault,
       Disabled: createPaginationFixtureDisabled
+    },
+    ProgressBar: {
+      Default: createProgressBarFixtureDefault,
+      Max: createProgressBarFixtureMax
     },
     ScopeContent: {
       Default: createScopeContentFixtureDefault,
