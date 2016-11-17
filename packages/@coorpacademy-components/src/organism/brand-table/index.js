@@ -50,19 +50,19 @@ export default (treant, options = {}) => {
       emptyValue
     } = props;
 
-    const tableView = isPending ? (
+    const pendingView = (
       <div className={style.loading}>
         <Loader/>
       </div>
-    ) : (
-      rows.length > 0 ? (
+    );
+
+    const tableView = rows.length > 0 ? (
         <Table rows={rows} columns={columns} />
       ) : (
         <div className={style.empty}>
           {emptyValue}
         </div>
-      )
-    );
+      );
 
     return (
       <div className={style.wrapper}>
@@ -78,7 +78,7 @@ export default (treant, options = {}) => {
           </div>
         </div>
         <div className={style.tableWrapper}>
-          {tableView}
+          {isPending ? pendingView : tableView}
         </div>
         <div className={style.footerWrapper}>
         </div>

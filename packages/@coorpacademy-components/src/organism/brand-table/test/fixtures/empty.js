@@ -1,7 +1,3 @@
-import Table from '../../../../molecule/table/test/fixtures/default';
-
-const {rows, columns} = Table.props;
-
 export default {
   props: {
     createHref: '#',
