@@ -42,7 +42,6 @@
 .disabled {
   composes: button;
   color: #F7F7F7;
-  pointer-events: none;
 }
 
 .disabled:hover {

@@ -20,6 +20,9 @@ export default (treant, options = {}) => {
       {...props}
       href={props.href ? createHref(props.href) : undefined}
       onClick={onClick(props)}
+      style={props.href ? null : {
+        pointerEvents: 'none',
+      }}
     >
       {children}
     </a>
