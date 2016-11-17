@@ -13,6 +13,7 @@
   opacity: 0.15;
 }
 
+.button a,
 .button input {
   display: inline-block;
   text-transform: uppercase;
@@ -23,11 +24,14 @@
   font-size: 13px;
   text-decoration: none;
   line-height: 52px;
-  padding: 0 30px;
   text-align: center;
   border: none;
   cursor: pointer;
   width: 100%;
+}
+
+.button input {
+  padding: 0 30px;
 }
 
 .button input:disabled {

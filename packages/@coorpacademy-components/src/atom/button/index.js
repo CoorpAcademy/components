@@ -1,4 +1,5 @@
 import {checker, createValidate} from '../../util/validation';
+import createLink from '../link';
 import AddClassBehaviour from '../../behaviour/effects/add-class';
 import HoverFillBehaviour from '../../behaviour/effects/hover-fill';
 import style from './style.css';
@@ -10,6 +11,7 @@ const conditions = checker.shape({
     submitValue: checker.string,
     centered: checker.bool.optional,
     disabled: checker.bool.optional,
+    href: checker.string.optional,
     onClick: checker.func.optional
   }),
   children: checker.none
@@ -19,6 +21,7 @@ export default (treant, options) => {
   const {h} = treant;
 
   const HoverFill = HoverFillBehaviour(treant, options);
+  const Link = createLink(treant, options);
   const AddClass = AddClassBehaviour(treant, options);
 
   const Button = (props, children) => {
@@ -28,6 +31,7 @@ export default (treant, options) => {
       submitValue,
       centered,
       disabled,
+      href,
       type = 'submit',
       onClick
     } = props;
@@ -37,13 +41,19 @@ export default (treant, options) => {
       display: 'block'
     };
 
-    let button = (
-     <HoverFill>
-        <div
-          className={style.button}
-          style={centeredStyle}
-        >
-         <input
+    let buttonContent;
+    switch (type) {
+      case 'link':
+        buttonContent = (
+          <Link href={href}>
+            {submitValue}
+          </Link>
+        );
+        break;
+
+      default:
+        buttonContent = (
+          <input
             type={type}
             value={submitValue}
             disabled={disabled}
@@ -52,19 +62,21 @@ export default (treant, options) => {
               color
             }}
           />
-        </div>
-      </HoverFill>
-    );
-
-    if (className) {
-      button = (
-        <AddClass className={className}>
-          {button}
-        </AddClass>
-      );
+        );
     }
 
-    return button;
+    return (
+      <AddClass className={className}>
+        <HoverFill>
+          <div
+            className={style.button}
+            style={centeredStyle}
+          >
+            {buttonContent}
+          </div>
+        </HoverFill>
+      </AddClass>
+    );
   };
 
   Button.validate = createValidate(conditions);

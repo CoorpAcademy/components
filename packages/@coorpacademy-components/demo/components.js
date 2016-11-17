@@ -95,6 +95,7 @@ import createButtonFixtureDark from '../src/atom/button/test/fixtures/dark';
 import createButtonFixtureDefault from '../src/atom/button/test/fixtures/default';
 import createButtonFixtureDisabled from '../src/atom/button/test/fixtures/disabled';
 import createButtonFixtureLight from '../src/atom/button/test/fixtures/light';
+import createButtonFixtureLink from '../src/atom/button/test/fixtures/link';
 import createCenteredTextFixtureDefault from '../src/atom/centered-text/test/fixtures/default';
 import createInputCheckboxFixtureChecked from '../src/atom/input-checkbox/test/fixtures/checked';
 import createInputCheckboxFixtureDefault from '../src/atom/input-checkbox/test/fixtures/default';
@@ -423,7 +424,8 @@ export const fixtures = {
       Dark: createButtonFixtureDark,
       Default: createButtonFixtureDefault,
       Disabled: createButtonFixtureDisabled,
-      Light: createButtonFixtureLight
+      Light: createButtonFixtureLight,
+      Link: createButtonFixtureLink
     },
     CenteredText: {
       Default: createCenteredTextFixtureDefault
