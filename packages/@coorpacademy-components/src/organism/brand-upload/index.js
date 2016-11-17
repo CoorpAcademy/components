@@ -7,7 +7,7 @@ const conditions = checker.shape({
   props: checker.shape({
     title: checker.string.optional,
     status: checker.string.optional,
-    download: checker.object,
+    download: checker.object.optional,
     upload: checker.object,
     notifications: checker.arrayOf(checker.shape({
       type: checker.string,
@@ -41,7 +41,7 @@ export default (treant, options = {}) => {
         <div className={style.title}>
           <h3>{title}</h3>
         </div>
-        <DownloadBox {...download}/>
+        {download ? <DownloadBox {...download}/> : ''}
         <UploadBox {...upload}/>
         <ul>
           {notificationsItems}

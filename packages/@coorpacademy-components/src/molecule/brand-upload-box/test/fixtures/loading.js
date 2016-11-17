@@ -5,7 +5,6 @@ const {props} = Default;
 
 export default {
   props: defaultsDeep(props, {
-    status: 'loading',
-    title: 'Loading'
+    status: 'loading'
   })
 };

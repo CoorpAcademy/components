@@ -6,6 +6,10 @@
   width: 100%;
 }
 
+.wrapper ul{
+  margin: 0;
+}
+
 .title {
   margin-bottom: 20px;
 }
