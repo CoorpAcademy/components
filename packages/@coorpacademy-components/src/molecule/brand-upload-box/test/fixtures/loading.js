@@ -5,6 +5,11 @@ const {props} = Default;
 
 export default {
   props: defaultsDeep(props, {
-    status: 'loading'
+    status: 'loading',
+    progress: {
+      value: 31,
+      max: 51,
+      desc: 'foobar'
+    }
   })
 };
