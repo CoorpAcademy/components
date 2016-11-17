@@ -5,7 +5,7 @@ import pushToHistory from '../../util/navigation';
 const conditions = checker.shape({
   props: checker.shape({
     className: checker.string.optional,
-    href: checker.string
+    href: checker.string.optional
   }).strict,
   children: checker.oneOrMore
 });
@@ -18,8 +18,11 @@ export default (treant, options = {}) => {
   const Link = (props, children) => (
     <a
       {...props}
-      href={createHref(props.href)}
+      href={props.href ? createHref(props.href) : undefined}
       onClick={onClick(props)}
+      style={props.href ? null : {
+        pointerEvents: 'none'
+      }}
     >
       {children}
     </a>
