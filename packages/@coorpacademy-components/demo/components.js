@@ -89,6 +89,7 @@ import createBrandList from '../src/template/back-office/brand-list';
 import createBrandUpdate from '../src/template/back-office/brand-update';
 import createLayout from '../src/template/back-office/layout';
 import createCoorpHeader from '../src/template/common/coorp-header';
+import createButtonFixtureA from '../src/atom/button/test/fixtures/a';
 import createButtonFixtureBlue from '../src/atom/button/test/fixtures/blue';
 import createButtonFixtureCentered from '../src/atom/button/test/fixtures/centered';
 import createButtonFixtureDark from '../src/atom/button/test/fixtures/dark';
@@ -419,6 +420,7 @@ export const components = {
 export const fixtures = {
   Atom: {
     Button: {
+      A: createButtonFixtureA,
       Blue: createButtonFixtureBlue,
       Centered: createButtonFixtureCentered,
       Dark: createButtonFixtureDark,

@@ -12,6 +12,7 @@ const conditions = checker.shape({
     centered: checker.bool.optional,
     disabled: checker.bool.optional,
     href: checker.string.optional,
+    target: checker.oneOf(['_self', '_blank', '_parent', '_top']).optional,
     onClick: checker.func.optional
   }),
   children: checker.none
@@ -33,6 +34,7 @@ export default (treant, options) => {
       disabled,
       href,
       type = 'submit',
+      target = '_blank',
       onClick
     } = props;
 
@@ -48,6 +50,17 @@ export default (treant, options) => {
           <Link href={href}>
             {submitValue}
           </Link>
+        );
+        break;
+
+      case 'a':
+        buttonContent = (
+          <a
+            href={href}
+            target={target}
+          >
+            {submitValue}
+          </a>
         );
         break;
 

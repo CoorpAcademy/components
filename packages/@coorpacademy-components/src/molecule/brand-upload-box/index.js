@@ -20,7 +20,6 @@ export default (treant, options = {}) => {
 
   const BrandUploadBox = (props, children) => {
     const {
-      title = '',
       description = '',
       browse = '',
       onLoad
@@ -32,54 +31,46 @@ export default (treant, options = {}) => {
     switch (props.status) {
       case 'loading':
         content = (
-          <div className={style.default}>
-            <div className={style.cont}>
-              <Loader/>
-              <div className={style.desc}>
-                {title}
-              </div>
-            </div>
+          <div className={style.loading}>
+            <Loader/>
           </div>
         );
         break;
 
       default:
         content = (
-          <div
-            id={idBox}
-            className={style.default}
-          >
-            <div className={style.cont}>
-              <i className={style.arrow}></i>
-              <div className=
-              {style.desc}>
-                {description}
+          <div className={style.wrapper}>
+            <div
+              id={idBox}
+              className={style.default}
+            >
+              <div className={style.cont}>
+                <i className={style.arrow}></i>
+                <div className={style.desc}>
+                  {description}
+                </div>
+                <span className={style.browse}>{browse}</span>
               </div>
-              <span className={style.browse}>{browse}</span>
+              <input
+                type='file'
+                className={style.inputFile}
+                onChange={onLoad}
+                onDragenter={() => {
+                  document.getElementById(idBox).classList.add(style.dropping);
+                }}
+                onDrop={() => {
+                  document.getElementById(idBox).classList.remove(style.dropping);
+                }}
+                onDragleave={() => {
+                  document.getElementById(idBox).classList.remove(style.dropping);
+                }}
+              />
             </div>
-            <input
-              type='file'
-              className={style.inputFile}
-              onChange={onLoad}
-              onDragenter={() => {
-                document.getElementById(idBox).classList.add(style.dropping);
-              }}
-              onDrop={() => {
-                document.getElementById(idBox).classList.remove(style.dropping);
-              }}
-              onDragleave={() => {
-                document.getElementById(idBox).classList.remove(style.dropping);
-              }}
-            />
           </div>
         );
     }
 
-    return (
-      <div className={style.wrapper}>
-        {content}
-      </div>
-    );
+    return content;
   };
 
   BrandUploadBox.validate = createValidate(conditions);

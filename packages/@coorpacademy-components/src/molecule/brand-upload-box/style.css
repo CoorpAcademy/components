@@ -45,6 +45,9 @@
 
 .loading {
   composes: default;
+  height: 80px;
+  border: none;
+  position: relative;
 }
 
 .dropping {

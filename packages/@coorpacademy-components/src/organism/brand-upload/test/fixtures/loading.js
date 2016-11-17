@@ -6,6 +6,7 @@ const {props} = Default;
 
 export default {
   props: defaultsDeep(props, {
+    download: null,
     upload: Upload.props
   })
 };

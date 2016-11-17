@@ -7,8 +7,12 @@ const conditions = checker.shape({
   props: checker.shape({
     title: checker.string.optional,
     status: checker.string.optional,
-    download: checker.object,
-    upload: checker.object
+    download: checker.object.nullOk,
+    upload: checker.object,
+    notifications: checker.arrayOf(checker.shape({
+      type: checker.string,
+      message: checker.string
+    })).optional
   }),
   children: checker.none
 });
@@ -22,16 +26,26 @@ export default (treant, options = {}) => {
     const {
       title = '',
       download,
-      upload
+      upload,
+      notifications
     } = props;
+
+    const notificationsItems = notifications.map(notif => (
+      <div className={style[notif.type]}>
+        <span>{notif.message}</span>
+      </div>
+    ));
 
     return (
       <div className={style.wrapper}>
         <div className={style.title}>
           <h3>{title}</h3>
         </div>
-        <DownloadBox {...download}/>
+        {download ? <DownloadBox {...download}/> : ''}
         <UploadBox {...upload}/>
+        <ul>
+          {notificationsItems}
+        </ul>
       </div>
     );
   };

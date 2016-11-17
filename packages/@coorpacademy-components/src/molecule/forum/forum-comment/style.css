@@ -1,5 +1,4 @@
 .container {
-
 }
 
 .wrapper {
@@ -45,4 +44,8 @@
 .post {
   float: right;
   margin-top: 10px;
+}
+
+.button {
+  background-color: #546E7A;
 }
