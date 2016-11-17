@@ -244,6 +244,8 @@ import createBrandFormFixtureLookandfeel from '../src/organism/brand-form/test/f
 import createBrandFormFixtureSso from '../src/organism/brand-form/test/fixtures/sso';
 import createBrandFormFixtureUserEdit from '../src/organism/brand-form/test/fixtures/user-edit';
 import createBrandTableFixtureDefault from '../src/organism/brand-table/test/fixtures/default';
+import createBrandTableFixtureEmpty from '../src/organism/brand-table/test/fixtures/empty';
+import createBrandTableFixtureLoading from '../src/organism/brand-table/test/fixtures/loading';
 import createBrandUploadFixtureDefault from '../src/organism/brand-upload/test/fixtures/default';
 import createBrandUploadFixtureLoading from '../src/organism/brand-upload/test/fixtures/loading';
 import createCatalogCardsFixtureDefault from '../src/organism/catalog-cards/test/fixtures/default';
@@ -729,7 +731,9 @@ export const fixtures = {
       UserEdit: createBrandFormFixtureUserEdit
     },
     BrandTable: {
-      Default: createBrandTableFixtureDefault
+      Default: createBrandTableFixtureDefault,
+      Empty: createBrandTableFixtureEmpty,
+      Loading: createBrandTableFixtureLoading
     },
     BrandUpload: {
       Default: createBrandUploadFixtureDefault,

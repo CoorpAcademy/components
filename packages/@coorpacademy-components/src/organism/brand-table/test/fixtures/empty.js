@@ -21,8 +21,6 @@ export default {
       onChange: () => {}
     },
     emptyValue: 'There is nothing to display.',
-    isPending: false,
-    rows,
-    columns
+    isPending: false
   }
 };
