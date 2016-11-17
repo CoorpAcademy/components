@@ -1,6 +1,7 @@
 import {checker, createValidate} from '../../util/validation';
 import createUploadBox from '../../molecule/brand-upload-box';
 import createDownloadBox from '../../molecule/brand-download-box';
+import createLink from '../../atom/link';
 import style from './style.css';
 
 const conditions = checker.shape({
@@ -9,6 +10,10 @@ const conditions = checker.shape({
     status: checker.string.optional,
     download: checker.object.nullOk,
     upload: checker.object,
+    back: checker.shape({
+      desc: checker.string.optional,
+      link: checker.string.optional
+    }).optional,
     notifications: checker.arrayOf(checker.shape({
       type: checker.string,
       message: checker.string
@@ -21,10 +26,12 @@ export default (treant, options = {}) => {
   const {h} = treant;
   const DownloadBox = createDownloadBox(treant, options);
   const UploadBox = createUploadBox(treant, options);
+  const Link = createLink(treant, options);
 
   const BrandUpload = (props, children) => {
     const {
       title = '',
+      back,
       download,
       upload,
       notifications
@@ -36,8 +43,21 @@ export default (treant, options = {}) => {
       </div>
     ));
 
+    const backView = back && (
+      <p className={style.back}>
+        <i className={style.arrowBack}/>
+        <Link
+          href={back.link}
+          className={style.backDesc}
+        >
+          {back.desc}
+        </Link>
+      </p>
+    );
+
     return (
       <div className={style.wrapper}>
+        {backView}
         <div className={style.title}>
           <h3>{title}</h3>
         </div>
