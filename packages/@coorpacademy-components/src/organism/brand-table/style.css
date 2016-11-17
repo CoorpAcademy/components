@@ -43,3 +43,19 @@
 .footerWrapper {
 
 }
+
+.loading {
+  position: relative;
+  height: 200px;
+}
+
+.empty {
+  height: 200px;
+  font-family: 'Open Sans';
+  color: #455A64;
+  font-size: 15px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

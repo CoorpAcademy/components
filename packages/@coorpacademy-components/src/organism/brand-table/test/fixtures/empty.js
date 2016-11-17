@@ -1,7 +1,3 @@
-import Table from '../../../../molecule/table/test/fixtures/default';
-
-const {rows, columns} = Table.props;
-
 export default {
   props: {
     createHref: '#',
@@ -21,8 +17,6 @@ export default {
       onChange: () => {}
     },
     emptyValue: 'There is nothing to display.',
-    isPending: false,
-    rows,
-    columns
+    isPending: false
   }
 };

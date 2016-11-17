@@ -2,6 +2,7 @@ import {checker, createValidate} from '../../util/validation';
 import createTable from '../../molecule/table';
 import createPagination from '../../molecule/pagination';
 import createSearch from '../../molecule/search';
+import createLoader from '../../atom/loader';
 import style from './style.css';
 
 const conditions = checker.shape({
@@ -22,6 +23,8 @@ const conditions = checker.shape({
       values: checker.array,
       onChange: checker.func
     }),
+    emptyValue: checker.string,
+    isPending: checker.bool.optional,
     rows: checker.array.optional,
     columns: checker.array.optional
   }),
@@ -34,6 +37,7 @@ export default (treant, options = {}) => {
   const Table = createTable(treant, options);
   const Pagination = createPagination(treant, options);
   const Search = createSearch(treant, options);
+  const Loader = createLoader(treant, options);
 
   const BrandTable = (props, children) => {
     const {
@@ -41,12 +45,24 @@ export default (treant, options = {}) => {
       pagination,
       search,
       rows = [],
-      columns = []
+      columns = [],
+      isPending,
+      emptyValue
     } = props;
 
+    const pendingView = (
+      <div className={style.loading}>
+        <Loader/>
+      </div>
+    );
+
     const tableView = rows.length > 0 ? (
-      <Table rows={rows} columns={columns} />
-    ) : null;
+        <Table rows={rows} columns={columns} />
+      ) : (
+        <div className={style.empty}>
+          {emptyValue}
+        </div>
+      );
 
     return (
       <div className={style.wrapper}>
@@ -62,7 +78,7 @@ export default (treant, options = {}) => {
           </div>
         </div>
         <div className={style.tableWrapper}>
-          {tableView}
+          {isPending ? pendingView : tableView}
         </div>
         <div className={style.footerWrapper}>
         </div>
