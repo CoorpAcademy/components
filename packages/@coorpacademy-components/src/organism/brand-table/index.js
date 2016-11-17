@@ -57,12 +57,12 @@ export default (treant, options = {}) => {
     );
 
     const tableView = rows.length > 0 ? (
-        <Table rows={rows} columns={columns} />
-      ) : (
-        <div className={style.empty}>
-          {emptyValue}
-        </div>
-      );
+      <Table rows={rows} columns={columns} />
+    ) : (
+      <div className={style.empty}>
+        {emptyValue}
+      </div>
+    );
 
     return (
       <div className={style.wrapper}>

@@ -72,7 +72,7 @@ export default (treant, options = {}) => {
         {download && <DownloadBox {...download}/>}
         <UploadBox {...upload}/>
         {progress && <ProgressBar {...progress} className={style.progress}/>}
-        <ul>
+        <ul className={style.notifications}>
           {notificationsItems}
         </ul>
       </div>
