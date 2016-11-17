@@ -1,6 +1,8 @@
 @value colors: "../../variables/colors.css";
 @value lightRed from colors;
 @value lightGreen from colors;
+@value darkGrey from colors;
+@value blue from colors;
 
 .wrapper {
   width: 100%;
@@ -8,6 +10,32 @@
 
 .wrapper ul{
   margin: 0;
+}
+
+.back {
+  margin-bottom: 30px;
+}
+
+.arrowBack {
+  composes: fa from '../../variables/fontawesome.css';
+  composes: fa-arrow-left from '../../variables/fontawesome.css';
+  width: 18px;
+  height: 11px;
+  font-size: 12px;
+  color: blue;
+}
+
+.backDesc {
+  margin-left: 10px;
+  font-family: 'Open Sans';
+  font-size: 15px;
+  font-weight: 700;
+  color: darkGrey;
+  text-decoration: none;
+}
+
+.backDesc:hover {
+  color: blue;
 }
 
 .title {
@@ -18,7 +46,7 @@
   font-family: 'Open Sans';
   font-size: 17px;
   font-weight: 700;
-  color: #455A64;
+  color: darkGrey;
   margin: 0;
 }
 

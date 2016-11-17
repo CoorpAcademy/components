@@ -14,6 +14,10 @@ const error = {
 export default {
   props: {
     title: 'Import users list',
+    back: {
+      desc: 'Back to users list',
+      link: '/TemplateBackOffice/BrandUpdate/UsersList'
+    },
     download: Download.props,
     upload: Upload.props,
     notifications: [
