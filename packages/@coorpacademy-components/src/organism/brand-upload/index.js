@@ -10,7 +10,11 @@ const conditions = checker.shape({
     title: checker.string.optional,
     status: checker.string.optional,
     download: checker.object.nullOk,
-    progress: checker.object.nullOk,
+    progress: checker.shape({
+      value: checker.number,
+      max: checker.number,
+      desc: checker.string.optional
+    }).optional,
     upload: checker.object,
     back: checker.shape({
       desc: checker.string.optional,

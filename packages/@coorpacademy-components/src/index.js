@@ -66,6 +66,7 @@ export createPicture from './atom/picture';
 export createPrimary from './behaviour/color/primary';
 export createProductCourse from './template/app-catalog/product-course';
 export createProductCursus from './template/app-catalog/product-cursus';
+export createProgressBar from './molecule/progress-bar';
 export createRadialFocus from './behaviour/effects/radial-focus';
 export createScopeContent from './molecule/scope-content';
 export createScopeTabs from './molecule/scope-tabs';
