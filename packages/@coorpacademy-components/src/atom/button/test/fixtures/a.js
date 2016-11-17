@@ -5,7 +5,7 @@ const {props} = Default;
 
 export default {
   props: defaultsDeep(props, {
-    type: 'link',
+    type: 'a',
     href: '/plop'
   })
 };

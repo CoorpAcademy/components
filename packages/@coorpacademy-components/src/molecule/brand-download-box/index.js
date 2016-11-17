@@ -34,7 +34,7 @@ export default (treant, options = {}) => {
         <div className={style.buttonWrapper}>
           <Button
             className={style.button}
-            type='link'
+            type='a'
             href={href}
             submitValue={submitValue}
           />

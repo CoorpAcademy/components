@@ -51,6 +51,14 @@ export default (treant, options) => {
         );
         break;
 
+      case 'a':
+        buttonContent = (
+          <a href={href}>
+            {submitValue}
+          </a>
+        );
+        break;
+
       default:
         buttonContent = (
           <input
