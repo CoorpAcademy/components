@@ -41,4 +41,11 @@
 
 .disabled {
   composes: button;
+  color: #F7F7F7;
+  pointer-events: none;
+}
+
+.disabled:hover {
+  color: #f7f7f7;
+  background-color: #ffffff;
 }

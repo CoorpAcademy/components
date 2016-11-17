@@ -196,6 +196,7 @@ import createMenuListFixtureDefault from '../src/molecule/menu-list/test/fixture
 import createModuleBubbleFixtureDefault from '../src/molecule/module-bubble/test/fixtures/default';
 import createModuleBubbleFixtureDisabled from '../src/molecule/module-bubble/test/fixtures/disabled';
 import createPaginationFixtureDefault from '../src/molecule/pagination/test/fixtures/default';
+import createPaginationFixtureDisabled from '../src/molecule/pagination/test/fixtures/disabled';
 import createScopeContentFixtureDefault from '../src/molecule/scope-content/test/fixtures/default';
 import createScopeContentFixtureEmpty from '../src/molecule/scope-content/test/fixtures/empty';
 import createScopeTabsFixtureDefault from '../src/molecule/scope-tabs/test/fixtures/default';
@@ -641,7 +642,8 @@ export const fixtures = {
       Disabled: createModuleBubbleFixtureDisabled
     },
     Pagination: {
-      Default: createPaginationFixtureDefault
+      Default: createPaginationFixtureDefault,
+      Disabled: createPaginationFixtureDisabled
     },
     ScopeContent: {
       Default: createScopeContentFixtureDefault,
