@@ -49,6 +49,20 @@ test('should not do anything if event does not contain a target href', t => {
   onClick({})({});
 });
 
+test('should not do anything if href contain domain name', t => {
+  const props = {
+    href: 'http://foo.bar/baz'
+  };
+  const options = {
+    history: {
+      push: href => t.fail()
+    }
+  };
+  const onClick = pushToHistory(options);
+
+  onClick(props)({});
+});
+
 test('should not do anything if event is prevented', t => {
   const options = {
     history: {

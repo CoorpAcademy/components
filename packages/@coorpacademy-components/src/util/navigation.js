@@ -1,3 +1,4 @@
+import {parse} from 'url';
 import getOr from 'lodash/fp/getOr';
 import has from 'lodash/fp/has';
 
@@ -14,6 +15,7 @@ export default options => {
     if (!href || e.defaultPrevented || isModifiedEvent(e) || !isLeftClickEvent(e)) {
       return;
     }
+    if (parse(href).host) return;
     e.preventDefault();
     _history.push(href);
   };
