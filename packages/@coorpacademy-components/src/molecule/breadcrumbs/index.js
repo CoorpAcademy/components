@@ -59,7 +59,7 @@ export default (treant, options = {}) => {
     return (
       <div className={className}>
         <HoverFill>
-          <Link href={href}>{title}</Link>
+          <Link target='_blank' href={href}>{title}</Link>
         </HoverFill>
       </div>
     );
