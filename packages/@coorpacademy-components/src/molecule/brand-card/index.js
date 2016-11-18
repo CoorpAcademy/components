@@ -42,7 +42,7 @@ export default (treant, options = {}) => {
             <Link href={editHref}>{edit}</Link>
           </div>
           <div className={style.see}>
-            <Link href={seeHref}>{see}</Link>
+            <a target='_blank' href={seeHref}>{see}</a>
           </div>
         </div>
       </div>
