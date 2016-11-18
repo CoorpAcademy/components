@@ -36,7 +36,7 @@ export default (treant, opts = {}) => {
         options = []
       } = column;
 
-      const hasOptions = options.length > 0 ? true : false;
+      const hasOptions = options.length > 0;
 
       const createOptionsView = _options => {
         const optionsView = _options.map(option => {
