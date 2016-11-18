@@ -215,6 +215,7 @@ import createSsmenuListFixtureFormations from '../src/molecule/ssmenu-list/test/
 import createSsmenuListFixtureSolutions from '../src/molecule/ssmenu-list/test/fixtures/solutions';
 import createStarRatingFixtureDefault from '../src/molecule/star-rating/test/fixtures/default';
 import createTableFixtureDefault from '../src/molecule/table/test/fixtures/default';
+import createTableFixtureNoOptions from '../src/molecule/table/test/fixtures/no-options';
 import createThemeImageFixtureBg from '../src/molecule/theme-image/test/fixtures/bg';
 import createTitledCheckboxFixtureChecked from '../src/molecule/titled-checkbox/test/fixtures/checked';
 import createTitledCheckboxFixtureNoBg from '../src/molecule/titled-checkbox/test/fixtures/no-bg';
@@ -683,7 +684,8 @@ export const fixtures = {
       Default: createStarRatingFixtureDefault
     },
     Table: {
-      Default: createTableFixtureDefault
+      Default: createTableFixtureDefault,
+      NoOptions: createTableFixtureNoOptions
     },
     ThemeImage: {
       Bg: createThemeImageFixtureBg
