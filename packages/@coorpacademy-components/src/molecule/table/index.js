@@ -36,6 +36,8 @@ export default (treant, opts = {}) => {
         options = []
       } = column;
 
+      const hasOptions = options.length > 0;
+
       const createOptionsView = _options => {
         const optionsView = _options.map(option => {
           const {
@@ -50,16 +52,18 @@ export default (treant, opts = {}) => {
           );
         });
 
-        return (
+        return hasOptions ? (
           <div className={style.options}>
             {optionsView}
           </div>
-        );
+        ) : null;
       };
+
+      const optionsClassName = hasOptions ? style.toggle : style.noOptions;
 
       return (
         <th>
-          <div className={filtered ? style.filtered : style.toggle} >
+          <div className={filtered ? style.filtered : optionsClassName} >
             <input
               type='checkbox'
               id={title}
