@@ -64,8 +64,6 @@ export default (treant, options = {}) => {
       popularity = 0
     } = props;
 
-    const authorLogo = get('logo', author);
-
     return (
       <div className={style.wrapper}>
         <div className={style.container}>
