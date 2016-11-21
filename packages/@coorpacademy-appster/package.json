@@ -1,0 +1,83 @@
+{
+  "name": "@coorpacademy/appster",
+  "version": "0.0.7",
+  "description": "CoorpAcademy apps core",
+  "main": "lib/index.js",
+  "scripts": {
+    "server": "node src/index.js",
+    "start": "npm run server",
+    "test": "npm run lint && npm run nyc",
+    "lint": "eslint src/ *.js *.json --ext .js,.json",
+    "ava": "BABEL_ENV=test ava",
+    "nyc": "BABEL_ENV=test nyc npm run ava",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls"
+  },
+  "homepage": "https://github.com/CoorpAcademy/app-forum#readme",
+  "devDependencies": {
+    "@coorpacademy/eslint-plugin-coorpacademy": "^2.0.0",
+    "ava": "^0.16.0",
+    "coveralls": "^2.11.13",
+    "eslint": "^3.5.0",
+    "history": "^4.4.0",
+    "nyc": "^8.3.0"
+  },
+  "dependencies": {
+    "@coorpacademy/redux-history": "3.0.3",
+    "@coorpacademy/treantjs-core": "3.0.3",
+    "@coorpacademy/treantjs-engine-virtual-dom": "^3.2.0",
+    "autoprefixer": "^6.4.1",
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "babel-plugin-css-modules-transform": "^1.1.0",
+    "babel-plugin-transform-h-jsx": "^1.0.0",
+    "babel-polyfill": "^6.13.0",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-stage-1": "^6.13.0",
+    "babili-webpack-plugin": "0.0.7",
+    "compression-webpack-plugin": "^0.3.1",
+    "css-loader": "^0.25.0",
+    "express": "^4.14.0",
+    "extract-text-webpack-plugin": "^2.0.0-beta.3",
+    "history": "^3.2.1",
+    "json-loader": "^0.5.4",
+    "lodash": "^4.15.0",
+    "path-match": "^1.2.4",
+    "postcss": "^5.2.2",
+    "postcss-loader": "^1.1.0",
+    "redux": "^3.6.0",
+    "redux-api-middleware": "^2.0.0-beta.1",
+    "rxjs": "^5.0.0-beta.12",
+    "style-loader": "^0.13.1",
+    "validator": "^6.0.0",
+    "webpack": "^2.1.0-beta.25",
+    "webpack-dev-middleware": "^1.4.0",
+    "webpack-hot-middleware": "^2.12.2"
+  },
+  "ava": {
+    "files": [
+      "src/**/test/**/*.js",
+      "!node_module/**/*"
+    ],
+    "require": [
+      "babel-core/register"
+    ],
+    "babel": "inherit"
+  },
+  "nyc": {
+    "reporter": [
+      "lcov",
+      "text"
+    ],
+    "include": [
+      "src/**"
+    ],
+    "exclude": [
+      "public/**/*",
+      "src/**/test/**/*"
+    ],
+    "require": [
+      "babel-core/register"
+    ],
+    "all": true
+  }
+}
