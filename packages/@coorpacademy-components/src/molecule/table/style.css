@@ -140,3 +140,14 @@
 .selected button {
   color: #455A64;
 }
+
+.editLink {
+  composes: fa from '../../variables/fontawesome.css';
+  composes: fa-pencil from '../../variables/fontawesome.css';
+  color: #455A64;
+  text-decoration: none;
+}
+
+.editLink:hover {
+  color: #00B0FF;
+}

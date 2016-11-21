@@ -1,4 +1,5 @@
 import {checker, createValidate} from '../../util/validation';
+import createLink from '../../atom/link';
 import style from './style.css';
 
 const conditions = checker.shape({
@@ -23,13 +24,15 @@ const conditions = checker.shape({
 export default (treant, opts = {}) => {
   const {h} = treant;
 
+  const Link = createLink(treant, opts);
+
   const Table = (props, children) => {
     const {
       rows,
       columns
     } = props;
 
-    const header = columns.map(column => {
+    const headerView = columns.map(column => {
       const {
         title,
         filtered,
@@ -79,9 +82,17 @@ export default (treant, opts = {}) => {
       );
     });
 
-    const body = rows.map(row => {
+    headerView.unshift((
+      <th>
+        <div className={style.noOptions}>
+        </div>
+      </th>
+    ));
+
+    const bodyView = rows.map(row => {
       const {
-        fields
+        fields,
+        editHref
       } = row;
 
       const tableRows = fields.map(field => {
@@ -89,6 +100,12 @@ export default (treant, opts = {}) => {
           <td>{field}</td>
         );
       });
+
+      tableRows.unshift((
+        <td>
+          <Link className={style.editLink} href={editHref}></Link>
+        </td>
+      ));
 
       return (
         <tr>{tableRows}</tr>
@@ -100,11 +117,11 @@ export default (treant, opts = {}) => {
         <table className={style.table}>
           <thead>
             <tr>
-              {header}
+              {headerView}
             </tr>
           </thead>
           <tbody>
-            {body}
+            {bodyView}
           </tbody>
         </table>
       </div>
