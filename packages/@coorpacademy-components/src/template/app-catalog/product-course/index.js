@@ -67,8 +67,8 @@ export default (treant, options = {}) => {
     const authorLogo = get('logo', author);
 
     return (
-      <div className={layout.wrapper}>
-        <div className={layout.container}>
+      <div className={style.wrapper}>
+        <div className={style.container}>
           <DisciplineHeader
             image={image}
             video={video}
@@ -76,7 +76,7 @@ export default (treant, options = {}) => {
             description={description}
           />
         </div>
-        <div className={layout.colContainer}>
+        <div className={style.colContainer}>
           <DisciplineRightaside
             linkBuy={linkBuy}
             linkTry={linkTry}
@@ -86,7 +86,7 @@ export default (treant, options = {}) => {
           />
         </div>
         <div
-          className={authorLogo ? style.containerWithLogo : style.containerWithoutLogo}
+          className={style.contentContainer}
         >
           <DisciplineScope
             content={level}

@@ -3,27 +3,34 @@
 @value tablet from breakpoints;
 @value desktop from breakpoints;
 
-.containerWithLogo,
-.containerWithoutLogo {
+.wrapper {
+  composes: wrapper from '../layout.css';
+  display: block;
+}
+
+.container {
   composes: container from '../layout.css';
+  float: left;
 }
 
-.productsWrapper {
-  composes: productsWrapper from '../product-cursus/style.css';
+.contentContainer {
+  composes: container;
+  margin-top: 30px;
 }
 
-.containerWithLogo {
-  margin-top: -130px;
-}
-
-.containerWithoutLogo {
-  margin-top: 15px;
+.colContainer {
+  composes: colContainer from '../layout.css';
+  float: right;
 }
 
 @media desktop {
-  .containerWithoutLogo,
-  .containerWithLogo {
+  .container {
     margin-top: 0px;
+    float: none;
+  }
+
+  .colContainer {
+    float: none;
   }
 }
 
