@@ -1,5 +1,4 @@
 import identity from 'lodash/fp/identity';
-import get from 'lodash/fp/get';
 import {checker, createValidate} from '../../../util/validation';
 import createDisciplineHeader from '../../../molecule/discipline-header';
 import createDisciplineScope from '../../../molecule/discipline-scope';
