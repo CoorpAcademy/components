@@ -34,20 +34,17 @@
   z-index: 9;
 }
 
-.item:nth-child(5) {
-  padding-right: 0;
-}
-
 .item:hover {
   cursor: pointer;
 }
 
 .item > a {
   font-family: Open Sans;
-  font-size: 12px;
+  font-size: 14px;
   color: #4C616B;
   text-decoration: none;
-  text-transform: uppercase;
+  text-transform: capitalize;
+  font-weight: 700;
   line-height: 22px;
   display: inline-block;
 }
@@ -58,12 +55,27 @@
 
 .item:nth-child(4), .item:nth-child(5) {
   cursor: default;
+  padding: 0 5px;
+}
+
+.item:nth-child(4) {
+  padding-left: 15px;
+}
+
+.item:nth-child(5) {
+  padding-right: 0;
+}
+
+.item:nth-child(4) a, .item:nth-child(5) a {
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 2px;
+  font-weight: 500;
 }
 
 .item:nth-child(4) > a {
   border: solid 1px #4C616B;
   color: #4C616B;
-  padding: 0 4px;
 }
 
 .item:nth-child(4) > a:hover {
@@ -75,7 +87,6 @@
 .item:nth-child(5) > a {
   border: solid 1px #ffb90d;
   color: #ffb90d;
-  padding: 0 4px;
 }
 
 .item:nth-child(5) > a:hover {
@@ -143,16 +154,20 @@
     color: inherit;
   }
 
+  .item:nth-child(4), .item:nth-child(5) {
+    cursor: default;
+    margin: 10px 0;
+    padding: 0 20px;
+  }
+
   .item:nth-child(4) > a {
     border: solid 1px #4C616B;
     color: #4C616B;
-    padding: 0 20px;
   }
 
   .item:nth-child(5) > a {
     border: solid 1px #ffb90d;
     color: #ffb90d;
-    padding: 0 20px;
   }
 
   .toggler {
