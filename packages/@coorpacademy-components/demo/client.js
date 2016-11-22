@@ -1,5 +1,5 @@
 import get from 'lodash/fp/get';
-import {createHistory, useBasename} from 'history';
+import {createBrowserHistory} from '@coorpacademy/history';
 import * as treant from '@coorpacademy/treantjs-core';
 import * as Virtualdom from '@coorpacademy/treantjs-engine-virtual-dom';
 import * as React from '@coorpacademy/treantjs-engine-react';
@@ -18,7 +18,7 @@ let _fixtures = fixtures;
 const locales = {en, fr};
 const translate = createTranslate(locales.fr);
 
-const history = useBasename(createHistory)({
+const history = createBrowserHistory({
   basename: `/${window.engine}`
 });
 
@@ -41,7 +41,7 @@ let App = _createApp(treant, options);
 update(App({
   components: _components,
   fixtures: _fixtures,
-  location: history.getCurrentLocation()
+  location: history.location
 }));
 
 history.listen(location => {
@@ -59,7 +59,7 @@ if (module.hot) {
     update(App({
       components: _components,
       fixtures: _fixtures,
-      location: history.getCurrentLocation()
+      location: history.location
     }));
   });
   module.hot.accept('./components.js', () => {
@@ -68,7 +68,7 @@ if (module.hot) {
     update(App({
       components: _components,
       fixtures: _fixtures,
-      location: history.getCurrentLocation()
+      location: history.location
     }));
   });
 }

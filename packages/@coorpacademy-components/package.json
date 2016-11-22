@@ -49,6 +49,7 @@
   "devDependencies": {
     "@coorpacademy/components-bundler": "^3.5.12",
     "@coorpacademy/eslint-plugin-coorpacademy": "^2.0.2",
+    "@coorpacademy/history": "^3.5.12",
     "@coorpacademy/translate": "^3.5.12",
     "@coorpacademy/treantjs-engine-react": "^3.5.12",
     "@coorpacademy/treantjs-engine-snabbdom": "^3.5.12",
@@ -70,7 +71,6 @@
     "express": "^4.14.0",
     "extract-text-webpack-plugin": "^2.0.0-beta.3",
     "glob": "^7.0.5",
-    "history": "^3.2.1",
     "json-loader": "^0.5.4",
     "madge": "^1.3.0",
     "nyc": "^9.0.1",

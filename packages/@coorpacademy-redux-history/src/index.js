@@ -35,7 +35,7 @@ export const connectHistory = (_history, store, locationPath = 'route') => {
 
   const unsubscribeStore = store.subscribe(() => {
     const currentLocationFromState = getLocation(store.getState());
-    const currentLocationFromHistory = _history.getCurrentLocation();
+    const currentLocationFromHistory = _history.location;
 
     if (currentLocationFromState.key !== currentLocationFromHistory.key) {
       const method = currentLocationFromState.action === 'REPLACE' ? 'replace' : 'push';
