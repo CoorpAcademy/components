@@ -53,45 +53,46 @@
   color: #00b0ff;
 }
 
-.item:nth-child(4), .item:nth-child(5) {
-  cursor: default;
-  padding: 0 5px;
+.button {
+ composes: item;
+ cursor: default;
+ padding: 0 5px;
 }
 
-.item:nth-child(4) {
-  padding-left: 15px;
-}
-
-.item:nth-child(5) {
-  padding-right: 0;
-}
-
-.item:nth-child(4) a, .item:nth-child(5) a {
+.button a {
   cursor: pointer;
   padding: 6px 10px;
   border-radius: 2px;
   font-weight: 500;
 }
 
-.item:nth-child(4) > a {
-  border: solid 1px #4C616B;
-  color: #4C616B;
+.primary {
+  composes: button;
 }
 
-.item:nth-child(4) > a:hover {
-  border: solid 1px #4C616B;
-  background-color: #4C616B;
-  color: white;
-}
-
-.item:nth-child(5) > a {
+.primary a {
   border: solid 1px #ffb90d;
   color: #ffb90d;
 }
 
-.item:nth-child(5) > a:hover {
+.primary a:hover {
   background: #ffb90d;
   border-color: #ffb90d;
+  color: white;
+}
+
+.secondary {
+  composes: button;
+}
+
+.secondary a {
+  border: solid 1px #4C616B;
+  color: #4C616B;
+}
+
+.secondary a:hover {
+  border: solid 1px #4C616B;
+  background-color: #4C616B;
   color: white;
 }
 
@@ -154,18 +155,18 @@
     color: inherit;
   }
 
-  .item:nth-child(4), .item:nth-child(5) {
+  .button {
     cursor: default;
     margin: 10px 0;
     padding: 0 20px;
   }
 
-  .item:nth-child(4) > a {
+  .secondary a {
     border: solid 1px #4C616B;
     color: #4C616B;
   }
 
-  .item:nth-child(5) > a {
+  .primary > a {
     border: solid 1px #ffb90d;
     color: #ffb90d;
   }

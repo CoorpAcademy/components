@@ -79,12 +79,18 @@ export default (translate, props) => {
       ]
     },
     {
+      title: translate('Blog'),
+      href: 'https://blog-fr.coorpacademy.com/'
+    },
+    {
       title: translate('Connexion'),
-      href: connexionLink
+      href: connexionLink,
+      type: 'secondary'
     },
     {
       title: translate('Inscription'),
-      href: inscriptionLink
+      href: inscriptionLink,
+      type: 'primary'
     }]
   };
 };

@@ -10,7 +10,8 @@ const conditions = checker.shape({
     menuItems: checker.arrayOf(
       checker.shape({
         href: checker.string.optional,
-        title: checker.string.optional
+        title: checker.string.optional,
+        type: checker.oneOf(['primary', 'secondary']).optional
       })
     ).optional
   }),
@@ -26,7 +27,7 @@ export default (treant, options = {}) => {
     const {menuItems = [], buildTransifexList} = props;
 
     const MenuitemDiv = menuItems.map(item => {
-      const {title, href, subItems} = item;
+      const {title, href, type, subItems} = item;
 
       const subItemsView = !isNil(subItems) && (
         <div className={style.subNav}>
@@ -37,7 +38,7 @@ export default (treant, options = {}) => {
       );
 
       return (
-        <li className={style.item}>
+        <li className={type ? style[type] : style.item}>
           <a
             href={href}
           >
