@@ -40,11 +40,11 @@
 
 .item > a {
   font-family: Open Sans;
-  font-size: 14px;
+  font-size: 12px;
   color: #4C616B;
   text-decoration: none;
   text-transform: capitalize;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 22px;
   display: inline-block;
 }
