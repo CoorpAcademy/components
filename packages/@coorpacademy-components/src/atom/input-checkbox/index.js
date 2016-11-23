@@ -40,7 +40,7 @@ export default (treant, options) => {
           name={title}
           id={idCheckbox}
           checked={checked}
-          onChange={e => onChange(e.target.value)}
+          onChange={e => onChange(e.target.checked)}
           disabled={disabled}
         />
         <label
