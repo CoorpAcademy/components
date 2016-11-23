@@ -14,7 +14,7 @@ export default (translate, props) => {
     href: rootUrl,
     menuItems: [{
       title: translate('Les formations'),
-      href: url('#'),
+      href: url('/catalog/trainings'),
       subItems: [
         {
           title: translate('Tous les cursus'),
@@ -54,7 +54,7 @@ export default (translate, props) => {
     },
     {
       title: translate('Coorpacademy'),
-      href: url('#'),
+      href: url('/qui-sommes-nous'),
       subItems: [
         {
           title: translate('Qui sommes-nous ?'),

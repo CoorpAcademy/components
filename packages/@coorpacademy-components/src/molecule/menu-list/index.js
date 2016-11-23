@@ -1,12 +1,10 @@
 import isNil from 'lodash/fp/isNil';
 import {checker, createValidate} from '../../util/validation';
 import createSsMenuList from '../ssmenu-list';
-import createTransifexList from '../transifex-list';
 import style from './style.css';
 
 const conditions = checker.shape({
   props: checker.shape({
-    buildTransifexList: checker.bool.optional,
     menuItems: checker.arrayOf(
       checker.shape({
         href: checker.string.optional,
@@ -21,10 +19,9 @@ const conditions = checker.shape({
 export default (treant, options = {}) => {
   const {h} = treant;
   const SsMenuList = createSsMenuList(treant, options);
-  const TransifexList = createTransifexList(treant, options);
 
   const MenuList = (props, children) => {
-    const {menuItems = [], buildTransifexList} = props;
+    const {menuItems = []} = props;
 
     const MenuitemDiv = menuItems.map(item => {
       const {title, href, type, subItems} = item;
@@ -49,8 +46,6 @@ export default (treant, options = {}) => {
       );
     });
 
-    const TransifexListView = buildTransifexList && <TransifexList/>;
-
     return (
       <div className={style.menu}>
         <input
@@ -66,9 +61,6 @@ export default (treant, options = {}) => {
         </label>
         <ul className={style.list}>
           {MenuitemDiv}
-          <li id="txlivecoorp" className={style.transifexList}>
-            {TransifexListView}
-          </li>
         </ul>
       </div>
     );

@@ -1,4 +1,5 @@
 @value breakpoints: "../../variables/breakpoints.css";
+@value desktop from breakpoints;
 @value mobile from breakpoints;
 @value tablet from breakpoints;
 
@@ -25,6 +26,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.list li:last-child {
+  padding-right: 0;
 }
 
 .item {
@@ -159,6 +164,15 @@
     cursor: default;
     margin: 10px 0;
     padding: 0 20px;
+  }
+
+  .button a {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .button a:hover {
+    color: #ffffff;
   }
 
   .secondary a {
