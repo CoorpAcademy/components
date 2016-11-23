@@ -28,9 +28,9 @@ export default (treant, options = {}) => {
   const BrandForm = (props, children) => {
     const {
       groups,
-      // disabled,
+      disabled,
       isModified,
-      // isPending,
+      isPending,
       onSubmit,
       submitValue
     } = props;
@@ -43,7 +43,7 @@ export default (treant, options = {}) => {
       );
     });
 
-    const disabledSubmit = isModified ? '' : 'disabled';
+    const disabledSubmit = disabled || isPending || !isModified;
     const submitButton = onSubmit ? (
       <div className={style.saveGroup}>
         <Button
