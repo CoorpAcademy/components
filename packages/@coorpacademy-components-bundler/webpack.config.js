@@ -4,13 +4,14 @@ const autoprefixer = require('autoprefixer');
 const BabiliPlugin = require('babili-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
+const CSSWrapper = require('@coorpacademy/css-wrapper-webpack-plugin');
 
 const hash = '[folder]__[local]';
 const componentCSS = new ExtractTextPlugin('bundle.css');
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
-const config = {
+const config = cssScope => ({
   devtool: NODE_ENV === 'production' ? false : 'eval',
 
   stats: {
@@ -75,8 +76,15 @@ const config = {
         }),
         componentCSS
       );
+
+    if (cssScope) {
+      plugins.push(
+        new CSSWrapper('bundle.css', cssScope)
+      );
+    }
+
     return plugins;
   })()
-};
+});
 
 module.exports = config;

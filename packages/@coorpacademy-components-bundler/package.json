@@ -44,6 +44,7 @@
     "bundle-components": "./src/index.js"
   },
   "devDependencies": {
+    "@coorpacademy/css-wrapper-webpack-plugin": "^1.0.8",
     "@coorpacademy/eslint-plugin-coorpacademy": "^2.0.0",
     "autoprefixer": "^6.4.1",
     "ava": "^0.16.0",
