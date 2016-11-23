@@ -7,7 +7,7 @@ const conditions = checker.shape({
     className: checker.string.optional,
     href: checker.string.optional
   }),
-  children: checker.oneOrMore
+  children: checker.array.optional
 });
 
 export default (treant, options = {}) => {
