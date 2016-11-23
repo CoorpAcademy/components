@@ -35,6 +35,7 @@ const attributes = [
   'required', 'reversed', 'scoped', 'seamless', 'selected', 'sortable', 'spellcheck', 'translate',
   'truespeed', 'typemustmatch', 'visible'
 ];
+const customAttributePattern = /^.+-.+$/;
 
 const transformProps = props => {
   return pipe(
@@ -54,7 +55,7 @@ const transformProps = props => {
         }, data, split(' ', value));
 
       // Attributes
-      if (contains(key, attributes))
+      if (contains(key, attributes) || customAttributePattern.test(key))
         return set(`attrs.${key}`, value, data);
 
       if (key === 'style')

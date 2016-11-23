@@ -28,4 +28,13 @@ export default (test, {render, transform}) => {
     const h2 = update(<h2/>);
     t.is(h2.tagName, 'H2');
   });
+
+  test('should erase existing node', t => {
+    const container = document.createElement('div');
+    container.innerHTML = '<span>foo</span>';
+    const update = render(container);
+
+    const h1 = update(<h1/>);
+    t.is(h1.tagName, 'H1');
+  });
 };
