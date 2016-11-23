@@ -20,6 +20,9 @@
     },
     "sourceType": "module"
   },
+  "rules": {
+    "no-shadow": ["error", {"builtinGlobals": true, "hoist": "all", "allow": ["history", "location"]}]
+  },
   "plugins": [
     "@coorpacademy/coorpacademy"
   ]

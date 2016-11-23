@@ -10,7 +10,7 @@
     "build:es": "npm run clean:build:es && BABEL_ENV=es babel src --out-dir es -s --ignore test --copy-files",
     "prepublish": "npm run build --production",
     "clean": "npm run clean:build && npm run clean:cov",
-    "clean:build": "npm run clean:build:commonjs && npm run clean:build:es && npm run clean:build:browser",
+    "clean:build": "npm run clean:build:commonjs && npm run clean:build:es",
     "clean:build:commonjs": "rm -rf lib",
     "clean:build:es": "rm -rf es",
     "clean:cov": "rm -rf .nyc_output coverage",
