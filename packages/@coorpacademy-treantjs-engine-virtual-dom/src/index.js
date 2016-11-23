@@ -1,6 +1,8 @@
 import isString from 'lodash/fp/isString';
-import mapKeys from 'lodash/fp/mapKeys';
 import pipe from 'lodash/fp/pipe';
+import reduce from 'lodash/fp/reduce';
+import set from 'lodash/fp/set';
+import toPairs from 'lodash/fp/toPairs';
 import {walker, resolve, map} from '@coorpacademy/treantjs-core';
 import h from 'virtual-dom/h';
 import createElement from 'virtual-dom/create-element';
@@ -11,11 +13,16 @@ import toHtml from 'vdom-to-html';
 const resolver = walker(resolve);
 
 const eventPattern = /^on[A-Z].+/;
+const attributePattern = /^.+-.+$/;
 
-const transformProps = props => mapKeys(key => {
-  if (eventPattern.test(key)) return key.toLowerCase();
-  return key;
-}, props);
+const transformProps = pipe(
+  toPairs,
+  reduce((props, [key, value]) => {
+    if (eventPattern.test(key)) return set(key.toLowerCase(), value, props);
+    if (attributePattern.test(key)) return set(['attributes', key], value, props);
+    return set(key, value, props);
+  }, {})
+);
 
 const transform = vNode => {
   if (isString(vNode)) return vNode;
