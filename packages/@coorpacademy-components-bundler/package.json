@@ -14,8 +14,7 @@
     "clean:build:commonjs": "rm -rf lib",
     "clean:build:es": "rm -rf es",
     "clean:cov": "rm -rf .nyc_output coverage",
-    "test": "npm run lint && npm run nyc",
-    "lint": "eslint src/",
+    "test": "npm run nyc",
     "ava": "NODE_ENV=test ava",
     "nyc": "NODE_ENV=test nyc npm run ava"
   },
@@ -45,11 +44,9 @@
     "bundle-components": "./src/index.js"
   },
   "devDependencies": {
-    "@coorpacademy/eslint-plugin-coorpacademy": "^2.0.0",
     "autoprefixer": "^6.4.1",
     "ava": "^0.16.0",
     "babel-plugin-istanbul": "^3.0.0",
-    "eslint": "^3.5.0",
     "json-loader": "^0.5.4",
     "lodash": "^4.16.2",
     "nyc": "^9.0.1"

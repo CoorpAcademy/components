@@ -20,6 +20,10 @@
     },
     "sourceType": "module"
   },
+  "rules": {
+    "ava/no-ignored-test-files": ["error", {"files": ["**/test/**/*.js"]}],
+    "no-shadow": ["error", {"builtinGlobals": true, "hoist": "all", "allow": ["Promise", "history", "location"]}]
+  },
   "settings": {
     "import/ignore": ["node_modules", "\\.css$"]
   },
