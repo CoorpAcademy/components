@@ -22,3 +22,8 @@
   vertical-align: middle;
   background: #d0d0d0;
 }
+
+.loader {
+  position: relative;
+  height: 100px;
+}

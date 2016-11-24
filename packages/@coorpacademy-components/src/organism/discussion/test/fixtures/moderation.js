@@ -4,7 +4,7 @@ const post = Post.props;
 
 export default {
   props: {
-    title: 'Moderation',
+    title: 'Moderation (posts only)',
     hideComments: true,
     threads: [post, post, post]
   }

@@ -1,10 +1,22 @@
 @value time: 0.3s;
 
 .post {
+  opacity: 0;
   display: flex;
   padding: 16px 0;
   text-align: left;
-  transition: all time ease-out;
+  animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    transform: scale3d(0, 0, 0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale3d(1, 1, 1);
+    opacity: 1;
+  }
 }
 
 .rejected {
