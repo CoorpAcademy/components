@@ -6,8 +6,8 @@ const conditions = checker.shape({
   props: checker.shape({
     className: checker.string.optional,
     href: checker.string.optional
-  }).strict,
-  children: checker.oneOrMore
+  }),
+  children: checker.array.optional
 });
 
 export default (treant, options = {}) => {

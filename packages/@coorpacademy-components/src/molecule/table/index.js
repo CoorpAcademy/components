@@ -5,7 +5,7 @@ import style from './style.css';
 const conditions = checker.shape({
   props: checker.shape({
     rows: checker.arrayOf(checker.shape({
-      fields: checker.arrayOf(checker.string.optional),
+      fields: checker.arrayOf(checker.string.optional).optional,
       editHref: checker.string
     })),
     columns: checker.arrayOf(checker.shape({
@@ -91,7 +91,7 @@ export default (treant, opts = {}) => {
 
     const bodyView = rows.map(row => {
       const {
-        fields,
+        fields = [],
         editHref
       } = row;
 
