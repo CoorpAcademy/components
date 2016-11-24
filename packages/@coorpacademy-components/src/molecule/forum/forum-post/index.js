@@ -58,6 +58,9 @@ export default (treant, options = {}) => {
     return (
       <div
         className={rejected ? style.rejected : style.post}
+        style={{
+          animationDelay: `${0.3 + (Math.random() * 1.2)}s`
+        }}
       >
         <div className={style.image}>
           <Picture

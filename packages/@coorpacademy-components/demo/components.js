@@ -264,6 +264,7 @@ import createDisciplineRightasideFixtureAuthor from '../src/organism/discipline-
 import createDisciplineRightasideFixtureDefault from '../src/organism/discipline-rightaside/test/fixtures/default';
 import createDisciplineRightasideFixtureEmpty from '../src/organism/discipline-rightaside/test/fixtures/empty';
 import createDiscussionFixtureDefault from '../src/organism/discussion/test/fixtures/default';
+import createDiscussionFixtureLoadingMore from '../src/organism/discussion/test/fixtures/loading-more';
 import createDiscussionFixtureModeration from '../src/organism/discussion/test/fixtures/moderation';
 import createDiscussionFixtureNewDiscussion from '../src/organism/discussion/test/fixtures/new-discussion';
 import createFormFixtureDefault from '../src/organism/form/test/fixtures/default';
@@ -770,6 +771,7 @@ export const fixtures = {
     },
     Discussion: {
       Default: createDiscussionFixtureDefault,
+      LoadingMore: createDiscussionFixtureLoadingMore,
       Moderation: createDiscussionFixtureModeration,
       NewDiscussion: createDiscussionFixtureNewDiscussion
     },
