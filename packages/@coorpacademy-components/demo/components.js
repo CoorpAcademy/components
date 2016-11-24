@@ -62,7 +62,6 @@ import createStarRating from '../src/molecule/star-rating';
 import createTable from '../src/molecule/table';
 import createThemeImage from '../src/molecule/theme-image';
 import createTitledCheckbox from '../src/molecule/titled-checkbox';
-import createTransifexList from '../src/molecule/transifex-list';
 import createVideoIframe from '../src/molecule/video-iframe';
 import createVideoPlayer from '../src/molecule/video-player';
 import createForumComment from '../src/molecule/forum/forum-comment';
@@ -220,7 +219,6 @@ import createThemeImageFixtureBg from '../src/molecule/theme-image/test/fixtures
 import createTitledCheckboxFixtureChecked from '../src/molecule/titled-checkbox/test/fixtures/checked';
 import createTitledCheckboxFixtureNoBg from '../src/molecule/titled-checkbox/test/fixtures/no-bg';
 import createTitledCheckboxFixtureNotChecked from '../src/molecule/titled-checkbox/test/fixtures/not-checked';
-import createTransifexListFixtureDefault from '../src/molecule/transifex-list/test/fixtures/default';
 import createVideoIframeFixtureDefault from '../src/molecule/video-iframe/test/fixtures/default';
 import createVideoIframeFixtureEmpty from '../src/molecule/video-iframe/test/fixtures/empty';
 import createVideoIframeFixtureImagePlaceholder from '../src/molecule/video-iframe/test/fixtures/image-placeholder';
@@ -385,7 +383,6 @@ export const components = {
     Table: createTable,
     ThemeImage: createThemeImage,
     TitledCheckbox: createTitledCheckbox,
-    TransifexList: createTransifexList,
     VideoIframe: createVideoIframe,
     VideoPlayer: createVideoPlayer
   },
@@ -694,9 +691,6 @@ export const fixtures = {
       Checked: createTitledCheckboxFixtureChecked,
       NoBg: createTitledCheckboxFixtureNoBg,
       NotChecked: createTitledCheckboxFixtureNotChecked
-    },
-    TransifexList: {
-      Default: createTransifexListFixtureDefault
     },
     VideoIframe: {
       Default: createVideoIframeFixtureDefault,

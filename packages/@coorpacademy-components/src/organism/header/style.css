@@ -44,5 +44,6 @@
 @media mobile {
   .logo {
     width: 125px;
+    height: auto;
   }
 }
