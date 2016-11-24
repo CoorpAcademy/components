@@ -28,7 +28,7 @@
     "clean:cov": "rm -rf .nyc_output coverage",
     "test": "npm run lint && npm run nyc",
     "lint": "eslint src/ locales/ demo/",
-    "ava": "NODE_ENV=test ava",
+    "ava": "NODE_ENV=test ava --tap | tap-min",
     "nyc": "NODE_ENV=test nyc npm run ava",
     "doc": "npm run doc:svg && npm run doc:png",
     "doc:svg": "node scripts/madge.js",
@@ -77,6 +77,7 @@
     "path-match": "^1.2.4",
     "postcss-loader": "^1.1.1",
     "style-loader": "^0.13.0",
+    "tap-min": "^1.1.0",
     "webpack": "^2.1.0-beta.26",
     "webpack-dev-middleware": "^1.4.0",
     "webpack-hot-middleware": "^2.12.2"
