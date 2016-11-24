@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/treantjs-engine-snabbdom",
-  "version": "3.5.9",
+  "version": "3.5.10",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -30,7 +30,7 @@
     "Christophe Dugne-Esquevin <christophe.dugne@coorpacademy.com>"
   ],
   "dependencies": {
-    "@coorpacademy/treantjs-core": "^3.5.9",
+    "@coorpacademy/treantjs-core": "^3.5.10",
     "lodash": "^4.14.1",
     "snabbdom": "^0.5.1",
     "snabbdom-to-html": "^3.0.0",
@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@coorpacademy/eslint-plugin-coorpacademy": "^2.0.0",
-    "@coorpacademy/treantjs-engine-spec": "^3.5.9",
+    "@coorpacademy/treantjs-engine-spec": "^3.5.10",
     "ava": "^0.16.0",
     "babel-cli": "^6.11.4",
     "babel-core": "^6.11.4",
