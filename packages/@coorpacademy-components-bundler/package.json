@@ -9,14 +9,10 @@
     "build:commonjs": "npm run clean:build:commonjs && BABEL_ENV=commonjs babel src --out-dir lib -s --ignore test --copy-files",
     "build:es": "npm run clean:build:es && BABEL_ENV=es babel src --out-dir es -s --ignore test --copy-files",
     "prepublish": "npm run build --production",
-    "clean": "npm run clean:build && npm run clean:cov",
+    "clean": "npm run clean:build",
     "clean:build": "npm run clean:build:commonjs && npm run clean:build:es",
     "clean:build:commonjs": "rm -rf lib",
-    "clean:build:es": "rm -rf es",
-    "clean:cov": "rm -rf .nyc_output coverage",
-    "test": "npm run nyc",
-    "ava": "NODE_ENV=test ava",
-    "nyc": "NODE_ENV=test nyc npm run ava"
+    "clean:build:es": "rm -rf es"
   },
   "contributors": [
     "Arthur Weber <arthur.weber@coorpacademy.com>",
@@ -45,39 +41,12 @@
   },
   "devDependencies": {
     "autoprefixer": "^6.4.1",
-    "ava": "^0.16.0",
     "babel-plugin-istanbul": "^3.0.0",
     "json-loader": "^0.5.4",
-    "lodash": "^4.16.2",
-    "nyc": "^9.0.1"
+    "lodash": "^4.16.2"
   },
-  "ava": {
-    "files": [
-      "src/**/test/**/*.js",
-      "!node_module/**/*"
-    ],
-    "require": [
-      "babel-core/register"
-    ],
-    "babel": "inherit"
-  },
-  "nyc": {
-    "include": [
-      "src/**"
-    ],
-    "reporter": [
-      "lcov",
-      "text"
-    ],
-    "exclude": [
-      "src/**/test/**"
-    ],
-    "require": [
-      "babel-core/register"
-    ],
-    "sourceMap": false,
-    "instrument": false,
-    "all": true
+  "peerDependencies": {
+    "ava": "*"
   },
   "author": "CoorpAcademy"
 }

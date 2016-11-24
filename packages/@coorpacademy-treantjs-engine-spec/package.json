@@ -11,10 +11,8 @@
   "scripts": {
     "build": "npm run clean:build && babel src --out-dir lib -s --ignore **/test/** --copy-files",
     "prepublish": "npm run build --production",
-    "clean": "npm run clean:build && npm run clean:cov",
-    "clean:build": "rm -rf lib",
-    "clean:cov": "rm -rf .nyc_output coverage",
-    "test": "true"
+    "clean": "npm run clean:build",
+    "clean:build": "rm -rf lib"
   },
   "contributors": [
     "Arthur Weber <arthur.weber@coorpacademy.com>",
