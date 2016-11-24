@@ -114,18 +114,6 @@
   display: block;
 }
 
-.transifexList {
-  display: inline-flex;
-  list-style: none;
-  text-align: left;
-  padding: 0 20px;
-}
-
-.transifexList:after {
-  position: relative;
-  top: 5px;
-}
-
 @media tablet {
   .list {
     position: fixed;
