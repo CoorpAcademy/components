@@ -5,6 +5,7 @@ const {props} = defaultPost;
 
 export default {
   props: defaultsDeep(props, {
+    id: '12345356-2',
     deleted: true
   })
 };

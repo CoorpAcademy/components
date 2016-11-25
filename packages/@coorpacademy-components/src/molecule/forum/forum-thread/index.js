@@ -19,7 +19,7 @@ export default (treant, options = {}) => {
     ));
 
     return (
-      <div className={style.thread}>
+      <div>
         <Post {...props}/>
         <div className={style.answers}>
           {answersView}

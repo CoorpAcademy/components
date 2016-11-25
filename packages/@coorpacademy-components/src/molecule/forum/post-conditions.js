@@ -1,6 +1,7 @@
 import {checker} from '../../util/validation';
 
 export default checker.shape({
+  id: checker.string,
   author: checker.string.optional,
   date: checker.string.optional,
   message: checker.string.optional,

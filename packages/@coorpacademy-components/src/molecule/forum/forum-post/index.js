@@ -1,5 +1,5 @@
 import identity from 'lodash/fp/identity';
-import uniqueId from 'lodash/fp/uniqueId';
+import debounce from 'lodash/fp/debounce';
 import {checker, createValidate} from '../../../util/validation';
 import createPicture from '../../../atom/picture';
 import threadConditions from '../post-conditions';
@@ -20,6 +20,7 @@ export default (treant, options = {}) => {
 
   const ForumPost = (props, children) => {
     const {
+      id,
       author,
       avatar,
       date,
@@ -38,15 +39,15 @@ export default (treant, options = {}) => {
       editionTextareaDisabled = false,
       onPostAnswer,
       onPostEdition,
-      onChangeAnswer,
-      onChangeEdition,
+      onChangeAnswer = identity,
+      onChangeEdition = identity,
       onModerate,
       onDelete
     } = props;
 
-    const idAnswer = uniqueId('forum-post-answer-toggler-');
-    const idEdit = uniqueId('forum-post-edit-toggler-');
-    const idReject = uniqueId('forum-post-reject-toggler-');
+    const idAnswer = 'forum-post-answer-toggler-';
+    const idEdit = 'forum-post-edit-toggler-';
+    const idReject = 'forum-post-reject-toggler-';
 
     const infoDeleted = translate('This message has been removed by its author.');
     const answerLabel = translate('Answer');
@@ -56,12 +57,7 @@ export default (treant, options = {}) => {
     const putBackLabel = translate('Put back');
 
     return (
-      <div
-        className={rejected ? style.rejected : style.post}
-        style={{
-          animationDelay: `${0.3 + (Math.random() * 1.2)}s`
-        }}
-      >
+      <div className={rejected ? style.rejected : style.post}>
         <div className={style.image}>
           <Picture
             src={avatar}
@@ -69,21 +65,18 @@ export default (treant, options = {}) => {
           />
         </div>
         <div className={style.content}>
-          <div className={style.head}>
+          <div>
             <span className={style.author}>{author}</span>
             <span className={style.date}>{date}</span>
           </div>
           <div className={style.body}>
             <input
               type='checkbox'
-              id={idAnswer}
-              onClick={() => {
-                document.getElementById(idEdit).checked = false;
-              }}
+              id={`${idAnswer}${id}`}
               className={style.answerToggler}
             />
             <label
-              htmlFor={idAnswer}
+              htmlFor={`${idAnswer}${id}`}
               className={style.action}
               style={{
                 display: (answerable && !deleted && !rejected) ? 'block' : 'none'
@@ -94,14 +87,11 @@ export default (treant, options = {}) => {
 
             <input
               type='checkbox'
-              id={idEdit}
-              onClick={() => {
-                document.getElementById(idAnswer).checked = false;
-              }}
+              id={`${idEdit}${id}`}
               className={style.editionToggler}
             />
             <label
-              htmlFor={idEdit}
+              htmlFor={`${idEdit}${id}`}
               className={style.action}
               style={{
                 display: editable ? 'block' : 'none'
@@ -112,11 +102,7 @@ export default (treant, options = {}) => {
 
             <span
               className={style.action}
-              onClick={() => {
-                document.getElementById(idEdit).checked = false;
-                document.getElementById(idAnswer).checked = false;
-                onDelete();
-              }}
+              onClick={onDelete}
               style={{
                 display: editable ? 'block' : 'none'
               }}
@@ -126,12 +112,12 @@ export default (treant, options = {}) => {
 
             <input
               type='checkbox'
-              id={idReject}
+              id={`${idReject}${id}`}
               onClick={onModerate}
               className={style.rejectionToggler}
             />
             <label
-              htmlFor={idReject}
+              htmlFor={`${idReject}${id}`}
               className={style.action}
               style={{
                 display: rejectable ? 'block' : 'none'
@@ -151,10 +137,11 @@ export default (treant, options = {}) => {
                 textareaDisabled={editionTextareaDisabled}
                 postDisabled={editionPostDisabled}
                 onPost={() => {
-                  document.getElementById(idEdit).checked = false;
-                  return onPostEdition();
+                  document.getElementById(`${idEdit}${id}`).checked = false;
+                  document.getElementById(`${idAnswer}${id}`).checked = false;
+                  onPostEdition();
                 }}
-                onChange={onChangeEdition}
+                onChange={debounce(400, onChangeEdition)}
               />
             </div>
 
@@ -165,10 +152,11 @@ export default (treant, options = {}) => {
                 postDisabled={answerPostDisabled}
                 value={answer}
                 onPost={() => {
-                  document.getElementById(idAnswer).checked = false;
+                  document.getElementById(`${idEdit}${id}`).checked = false;
+                  document.getElementById(`${idAnswer}${id}`).checked = false;
                   return onPostAnswer();
                 }}
-                onChange={onChangeAnswer}
+                onChange={debounce(400, onChangeAnswer)}
               />
             </div>
           </div>

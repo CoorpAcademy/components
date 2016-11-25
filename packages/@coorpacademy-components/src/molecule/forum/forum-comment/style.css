@@ -48,4 +48,6 @@
 
 .button {
   background-color: #546E7A;
+  width: 100px;
+  padding: 0;
 }
