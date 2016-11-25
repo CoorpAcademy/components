@@ -19,7 +19,7 @@ const conditions = checker.shape({
     back: checker.shape({
       desc: checker.string.optional,
       link: checker.string.optional
-    }).optional,
+    }).optional
   }),
   children: checker.none
 });
