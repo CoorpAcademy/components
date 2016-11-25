@@ -26,6 +26,7 @@
     "nyc": "^9.0.1"
   },
   "ava": {
+    "concurrency": 8,
     "files": [
       "packages/**/src/**/test/**/*.js",
       "!**/node_module/**/*"
