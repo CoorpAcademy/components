@@ -1,6 +1,7 @@
 import {checker, createValidate} from '../../util/validation';
 import createBrandFormGroup from '../../molecule/brand-form-group';
 import createButton from '../../atom/button';
+import createLink from '../../atom/link';
 import style from './style.css';
 
 const conditions = checker.shape({
@@ -14,7 +15,11 @@ const conditions = checker.shape({
     isModified: checker.bool.optional,
     isPending: checker.bool.optional,
     onSubmit: checker.func.optional,
-    submitValue: checker.string.optional
+    submitValue: checker.string.optional,
+    back: checker.shape({
+      desc: checker.string.optional,
+      link: checker.string.optional
+    }).optional
   }),
   children: checker.none
 });
@@ -24,6 +29,7 @@ export default (treant, options = {}) => {
 
   const BrandFormGroup = createBrandFormGroup(treant, options);
   const Button = createButton(treant, options);
+  const Link = createLink(treant, options);
 
   const BrandForm = (props, children) => {
     const {
@@ -32,8 +38,21 @@ export default (treant, options = {}) => {
       isModified,
       isPending,
       onSubmit,
-      submitValue
+      submitValue,
+      back
     } = props;
+
+    const backView = back && (
+      <p className={style.back}>
+        <i className={style.arrowBack}/>
+        <Link
+          href={back.link}
+          className={style.backDesc}
+        >
+          {back.desc}
+        </Link>
+      </p>
+    );
 
     const brandGroups = groups.map(group => {
       return (
@@ -55,6 +74,7 @@ export default (treant, options = {}) => {
 
     return (
       <div className={style.wrapper}>
+        {backView}
         <form className={style.groups} onSubmit={e => e.preventDefault() || onSubmit(e)}>
           {brandGroups}
           {submitButton}

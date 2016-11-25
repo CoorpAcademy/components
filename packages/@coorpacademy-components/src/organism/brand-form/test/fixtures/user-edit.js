@@ -101,6 +101,10 @@ export default {
         title: 'Role'
       }]
     }],
+    back: {
+      desc: 'Back to users list',
+      link: '#'
+    },
     onSubmit: () => {},
     submitValue: 'Save changes'
   }
