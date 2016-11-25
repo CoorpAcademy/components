@@ -1,3 +1,7 @@
+@value colors: "../../variables/colors.css";
+@value darkGrey from colors;
+@value blue from colors;
+
 .wrapper {
 
 }
@@ -20,4 +24,30 @@
   text-align: right;
   border-top: none;
   padding-top: 0;
+}
+
+.back {
+  margin-bottom: 30px;
+}
+
+.arrowBack {
+  composes: fa from '../../variables/fontawesome.css';
+  composes: fa-arrow-left from '../../variables/fontawesome.css';
+  width: 18px;
+  height: 11px;
+  font-size: 15px;
+  color: darkGrey;
+}
+
+.backDesc {
+  margin-left: 10px;
+  font-family: 'Open Sans';
+  font-size: 15px;
+  font-weight: 700;
+  color: darkGrey;
+  text-decoration: none;
+}
+
+.backDesc:hover {
+  color: blue;
 }
