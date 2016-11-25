@@ -1,10 +1,10 @@
+const join = require('path').join;
 const madge = require('madge');
 const toPairs = require('lodash/fp/toPairs');
 const map = require('lodash/fp/map');
 const fromPairs = require('lodash/fp/fromPairs');
 const pipe = require('lodash/fp/pipe');
 const replace = require('lodash/fp/replace');
-const join = require('path').join;
 
 const config = {
   baseDir: join(__dirname, '../src'),
@@ -24,11 +24,12 @@ madge(
   res.tree = walkerTree(removeIndex)(res.tree);
   return res;
 }).then(res => res.image(
-    join(__dirname, '../doc/components.svg')
-  )).then(writtenImagePath => {
-    console.log(`Image written to ${writtenImagePath}`);
-  }, err =>
-    console.error(err) || process.exit(1));
+  join(__dirname, '../doc/components.svg')
+)).then(writtenImagePath => {
+  console.log(`Image written to ${writtenImagePath}`);
+}, err =>
+  console.error(err) || process.exit(1)
+);
 
 const walkerTree = fun => pipe(
   toPairs,

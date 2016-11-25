@@ -2,7 +2,7 @@ import get from 'lodash/fp/get';
 import join from 'lodash/fp/join';
 import map from 'lodash/fp/map';
 import includes from 'lodash/fp/includes';
-import {createMemoryHistory, useBasename} from 'history';
+import {createMemoryHistory} from '@coorpacademy/history';
 import * as treant from '@coorpacademy/treantjs-core';
 import * as Virtualdom from '@coorpacademy/treantjs-engine-virtual-dom';
 import * as React from '@coorpacademy/treantjs-engine-react';
@@ -35,14 +35,15 @@ export default (req, res, next) => {
     ['React', 'Virtualdom', 'Snabbdom']
   )) return next();
 
-  const history = useBasename(createMemoryHistory)({
-    basename: `/${req.params.engine}`
+  const history = createMemoryHistory({
+    basename: `/${req.params.engine}`,
+    initialEntries: [req.url]
   });
 
   const engine = get(req.params.engine, engines);
 
   const vTree = App({
-    location: history.createLocation(req.url),
+    location: history.location,
     components: _components,
     fixtures: _fixtures
   });

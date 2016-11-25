@@ -18,11 +18,7 @@
     "clean:build": "npm run clean:build:commonjs && npm run clean:build:es",
     "clean:build:commonjs": "rm -rf lib",
     "clean:build:es": "rm -rf es",
-    "clean:cov": "rm -rf .nyc_output coverage",
-    "test": "npm run lint && npm run nyc",
-    "lint": "eslint src/",
-    "ava": "NODE_ENV=test ava",
-    "nyc": "NODE_ENV=test nyc npm run ava"
+    "clean:cov": "rm -rf .nyc_output coverage"
   },
   "contributors": [
     "Arthur Weber <arthur.weber@coorpacademy.com>",
@@ -36,26 +32,15 @@
     "virtual-dom": "^2.1.1"
   },
   "devDependencies": {
-    "@coorpacademy/eslint-plugin-coorpacademy": "^2.0.0",
     "@coorpacademy/treantjs-engine-spec": "^3.5.12",
-    "ava": "^0.16.0",
     "babel-cli": "^6.11.4",
     "babel-core": "^6.11.4",
     "babel-plugin-istanbul": "^3.0.0",
     "babel-preset-es2015": "^6.13.0",
-    "babel-preset-stage-1": "^6.5.0",
-    "eslint": "^3.5.0",
-    "nyc": "^9.0.1"
+    "babel-preset-stage-1": "^6.5.0"
   },
-  "ava": {
-    "files": [
-      "src/**/test/**/*.js",
-      "!node_module/**/*"
-    ],
-    "require": [
-      "babel-core/register"
-    ],
-    "babel": "inherit"
+  "peerDependencies": {
+    "ava": "*"
   },
   "nyc": {
     "include": [

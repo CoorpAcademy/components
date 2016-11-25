@@ -10,21 +10,48 @@
     "publish:beta": "lerna publish --npm-tag beta",
     "publish:canary": "lerna publish --canary --skip-git",
     "clean": "lerna run clean && lerna clean --yes",
-    "test": "lerna exec -- npm test && npm run nyc",
-    "lint": "lerna run lint",
-    "ava": "lerna run ava",
-    "nyc": "rm -rf .nyc_output && mkdir .nyc_output && cp $(ls packages/**/.nyc_output/*.json) .nyc_output && nyc --reporter=text --reporter=lcov report",
+    "test": "npm run lint && npm run nyc",
+    "lint": "eslint .",
+    "ava": "NODE_ENV=test ava",
+    "nyc": "NODE_ENV=test nyc npm run ava",
     "coveralls": "nyc report --reporter=text-lcov | coveralls"
   },
   "devDependencies": {
+    "@coorpacademy/eslint-plugin-coorpacademy": "^2.0.2",
+    "ava": "^0.17.0",
+    "babel-core": "^6.18.2",
     "coveralls": "^2.11.13",
+    "eslint": "^3.10.2",
     "lerna": "2.0.0-beta.28",
     "nyc": "^9.0.1"
   },
+  "ava": {
+    "concurrency": 8,
+    "files": [
+      "packages/**/src/**/test/**/*.js",
+      "!**/node_module/**/*"
+    ],
+    "require": [
+      "babel-core/register"
+    ],
+    "babel": "inherit"
+  },
   "nyc": {
+    "include": [
+      "packages/**/src/**"
+    ],
     "reporter": [
       "lcov",
       "text-summary"
-    ]
+    ],
+    "exclude": [
+      "packages/**/src/**/test/**"
+    ],
+    "require": [
+      "babel-core/register"
+    ],
+    "sourceMap": false,
+    "instrument": false,
+    "all": true
   }
 }
