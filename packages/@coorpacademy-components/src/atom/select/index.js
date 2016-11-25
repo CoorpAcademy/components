@@ -44,7 +44,7 @@ export default (treant, options) => {
       <div className={style.default}>
         <label>
           <span className={style.title}>{title}</span>
-          <select onChange={onChange} disabled={disabled}>
+          <select onChange={e => onChange(e.target.value)} disabled={disabled}>
             {optionList}
           </select>
         </label>
