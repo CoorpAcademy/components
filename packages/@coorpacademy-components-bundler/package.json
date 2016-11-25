@@ -45,8 +45,5 @@
     "json-loader": "^0.5.4",
     "lodash": "^4.16.2"
   },
-  "peerDependencies": {
-    "ava": "*"
-  },
   "author": "CoorpAcademy"
 }
