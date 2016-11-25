@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/treantjs-engine-virtual-dom",
-  "version": "3.6.0",
+  "version": "3.6.1",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -26,13 +26,13 @@
     "Christophe Dugne-Esquevin <christophe.dugne@coorpacademy.com>"
   ],
   "dependencies": {
-    "@coorpacademy/treantjs-core": "^3.6.0",
+    "@coorpacademy/treantjs-core": "^3.6.1",
     "lodash": "^4.14.1",
     "vdom-to-html": "^2.3.0",
     "virtual-dom": "^2.1.1"
   },
   "devDependencies": {
-    "@coorpacademy/treantjs-engine-spec": "^3.6.0",
+    "@coorpacademy/treantjs-engine-spec": "^3.6.1",
     "babel-cli": "^6.11.4",
     "babel-core": "^6.11.4",
     "babel-plugin-istanbul": "^3.0.0",
