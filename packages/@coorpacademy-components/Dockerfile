@@ -6,11 +6,13 @@ WORKDIR /usr/src/app
 ARG NPM_TOKEN
 RUN echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> .npmrc
 
-ONBUILD ARG NODE_ENV
-ONBUILD ENV NODE_ENV $NODE_ENV
-ONBUILD COPY package.json /usr/src/app/
-ONBUILD RUN npm install
-ONBUILD COPY . /usr/src/app
+ENV PORT 80
+ARG NODE_ENV=production
+ENV NODE_ENV $NODE_ENV
 
+COPY package.json /usr/src/app/
+RUN npm install
+COPY . /usr/src/app
+
+EXPOSE 80
 CMD [ "npm", "start" ]
-
