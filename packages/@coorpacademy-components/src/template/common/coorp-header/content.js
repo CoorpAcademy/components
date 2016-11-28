@@ -65,7 +65,7 @@ export default (translate, props) => {
           href: url('home-B2B')
         },
         {
-          title: translate('Ils nous ont fait confiance'),
+          title: translate('Ils nous font confiance'),
           href: url('clients')
         },
         {
