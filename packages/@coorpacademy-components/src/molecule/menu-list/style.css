@@ -28,7 +28,7 @@
   box-sizing: border-box;
 }
 
-.list li:last-child {
+.item:last-child {
   padding-right: 0;
 }
 
@@ -134,6 +134,10 @@
     text-align: center;
     border-bottom: solid 2px #eee;
     position: relative;
+  }
+
+  .item:last-child {
+    padding: 0 20px;
   }
 
   .subNav {
