@@ -13,6 +13,7 @@ import style from './style.css';
 const conditions = checker.shape({
   props: checker.shape({
     title: checker.string,
+    subtitle: checker.string.optional,
     disabled: checker.bool.optional,
     fields: checker.arrayOf(checker.shape({
       type: checker.string
@@ -36,6 +37,7 @@ export default (treant, options = {}) => {
   const BrandFormGroup = (props, children) => {
     const {
       title,
+      subtitle = '',
       fields
     } = props;
 
@@ -95,6 +97,7 @@ export default (treant, options = {}) => {
       <div className={style.wrapper}>
         <div className={style.title}>
           <h3>{title}</h3>
+          <h4>{subtitle}</h4>
         </div>
         {fieldsList}
       </div>

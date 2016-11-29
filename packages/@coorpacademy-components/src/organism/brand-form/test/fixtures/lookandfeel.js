@@ -2,6 +2,7 @@ export default {
   props: {
     groups: [{
       title: 'Platform design',
+      subtitle: 'Explanation about what Platform design is and why to set stuffs in this form',
       fields: [{
         title: 'Primary color',
         value: '#ececec',
