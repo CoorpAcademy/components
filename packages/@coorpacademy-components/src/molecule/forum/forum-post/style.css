@@ -10,11 +10,9 @@
 
 @keyframes fadeIn {
   0% {
-    transform: scale3d(0, 0, 0);
     opacity: 0;
   }
   100% {
-    transform: scale3d(1, 1, 1);
     opacity: 1;
   }
 }
@@ -88,12 +86,6 @@
   color: #333;
 }
 
-.editionToggler,
-.answerToggler,
-.rejectionToggler {
-  display: none;
-}
-
 /*----------------------------------------------------------------------------*/
 /* comments */
 
@@ -116,16 +108,7 @@
   margin-left: 100%;
 }
 
-
-.editionToggler:checked ~ .edition,
-.answerToggler:checked ~ .answer {
-  visibility: visible;
-  margin: 10px 0;
-  height: 110px;
-  opacity: 1;
-}
-
-.editionToggler:checked ~ .message {
+.hiddenMessage {
   padding: 0;
   height: 0;
   opacity: 0;

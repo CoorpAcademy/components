@@ -1,5 +1,4 @@
 import identity from 'lodash/fp/identity';
-import uniqueId from 'lodash/fp/uniqueId';
 import {checker, createValidate} from '../../../util/validation';
 import createPicture from '../../../atom/picture';
 import threadConditions from '../post-conditions';
@@ -36,17 +35,17 @@ export default (treant, options = {}) => {
       edition,
       editionPostDisabled = false,
       editionTextareaDisabled = false,
-      onPostAnswer,
-      onPostEdition,
-      onChangeAnswer,
-      onChangeEdition,
+      showAnswerBox = false,
+      showEditBox = false,
+      onAnswer = identity,
+      onEdit = identity,
+      onPostAnswer = identity,
+      onPostEdition = identity,
+      onChangeAnswer = identity,
+      onChangeEdition = identity,
       onModerate,
       onDelete
     } = props;
-
-    const idAnswer = uniqueId('forum-post-answer-toggler-');
-    const idEdit = uniqueId('forum-post-edit-toggler-');
-    const idReject = uniqueId('forum-post-reject-toggler-');
 
     const infoDeleted = translate('This message has been removed by its author.');
     const answerLabel = translate('Answer');
@@ -55,13 +54,23 @@ export default (treant, options = {}) => {
     const rejectLabel = translate('Reject');
     const putBackLabel = translate('Put back');
 
+    const visibleBoxStyle = {
+      visibility: 'visible',
+      margin: '10px 0',
+      height: '110px',
+      opacity: 1
+    };
+
+    let messageClassName = style.message;
+    if (deleted) {
+      messageClassName = style.deletedMessage;
+    }
+    else if (showEditBox) {
+      messageClassName = style.hiddenMessage;
+    }
+
     return (
-      <div
-        className={rejected ? style.rejected : style.post}
-        style={{
-          animationDelay: `${0.3 + (Math.random() * 1.2)}s`
-        }}
-      >
+      <div className={rejected ? style.rejected : style.post}>
         <div className={style.image}>
           <Picture
             src={avatar}
@@ -69,54 +78,34 @@ export default (treant, options = {}) => {
           />
         </div>
         <div className={style.content}>
-          <div className={style.head}>
+          <div>
             <span className={style.author}>{author}</span>
             <span className={style.date}>{date}</span>
           </div>
           <div className={style.body}>
-            <input
-              type='checkbox'
-              id={idAnswer}
-              onClick={() => {
-                document.getElementById(idEdit).checked = false;
-              }}
-              className={style.answerToggler}
-            />
-            <label
-              htmlFor={idAnswer}
+            <span
               className={style.action}
+              onClick={onAnswer}
               style={{
                 display: (answerable && !deleted && !rejected) ? 'block' : 'none'
               }}
             >
               {answerLabel}
-            </label>
+            </span>
 
-            <input
-              type='checkbox'
-              id={idEdit}
-              onClick={() => {
-                document.getElementById(idAnswer).checked = false;
-              }}
-              className={style.editionToggler}
-            />
-            <label
-              htmlFor={idEdit}
+            <span
               className={style.action}
+              onClick={onEdit}
               style={{
                 display: editable ? 'block' : 'none'
               }}
             >
               {editLabel}
-            </label>
+            </span>
 
             <span
               className={style.action}
-              onClick={() => {
-                document.getElementById(idEdit).checked = false;
-                document.getElementById(idAnswer).checked = false;
-                onDelete();
-              }}
+              onClick={onDelete}
               style={{
                 display: editable ? 'block' : 'none'
               }}
@@ -124,50 +113,44 @@ export default (treant, options = {}) => {
               {deleteLabel}
             </span>
 
-            <input
-              type='checkbox'
-              id={idReject}
-              onClick={onModerate}
-              className={style.rejectionToggler}
-            />
-            <label
-              htmlFor={idReject}
+            <span
               className={style.action}
+              onClick={onModerate}
               style={{
                 display: rejectable ? 'block' : 'none'
               }}
             >
               {rejected ? putBackLabel : rejectLabel}
-            </label>
+            </span>
 
-            <div className={deleted ? style.deletedMessage : style.message }>
+            <div className={messageClassName}>
               {deleted ? infoDeleted : message}
             </div>
 
-            <div className={style.edition}>
+            <div
+              className={style.edition}
+              style={showEditBox && visibleBoxStyle}
+            >
               <ForumComment
                 avatar={null}
                 value={edition}
                 textareaDisabled={editionTextareaDisabled}
                 postDisabled={editionPostDisabled}
-                onPost={() => {
-                  document.getElementById(idEdit).checked = false;
-                  return onPostEdition();
-                }}
+                onPost={onPostEdition}
                 onChange={onChangeEdition}
               />
             </div>
 
-            <div className={style.answer}>
+            <div
+              className={style.answer}
+              style={showAnswerBox && visibleBoxStyle}
+            >
               <ForumComment
                 avatar={answerAvatar}
                 textareaDisabled={answerTextareaDisabled}
                 postDisabled={answerPostDisabled}
                 value={answer}
-                onPost={() => {
-                  document.getElementById(idAnswer).checked = false;
-                  return onPostAnswer();
-                }}
+                onPost={onPostAnswer}
                 onChange={onChangeAnswer}
               />
             </div>

@@ -1,4 +1,5 @@
 import identity from 'lodash/fp/identity';
+import debounce from 'lodash/fp/debounce';
 import createButton from '../../../atom/button';
 import {checker, createValidate} from '../../../util/validation';
 import style from './style.css';
@@ -47,7 +48,7 @@ export default (treant, options = {}) => {
             <textarea
               placeholder={translate('Write something here')}
               value={value}
-              oninput={onChange}
+              oninput={debounce(400, onChange)}
               disabled={textareaDisabled}
             />
           </div>
