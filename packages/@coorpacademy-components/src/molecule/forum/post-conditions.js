@@ -1,7 +1,6 @@
 import {checker} from '../../util/validation';
 
 export default checker.shape({
-  id: checker.string,
   author: checker.string.optional,
   date: checker.string.optional,
   message: checker.string.optional,
@@ -9,6 +8,10 @@ export default checker.shape({
   answerAvatar: checker.url.optional,
   answer: checker.string.optional,
   edition: checker.string.optional,
+  showAnswerBox: checker.bool.optional,
+  showEditBox: checker.bool.optional,
+  onAnswer: checker.func.optional,
+  onEdit: checker.func.optional,
   onPostAnswer: checker.func.optional,
   onPostEdition: checker.func.optional,
   onChangeAnswer: checker.func.optional,

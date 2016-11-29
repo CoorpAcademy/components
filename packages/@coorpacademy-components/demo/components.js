@@ -236,6 +236,8 @@ import createForumPostFixtureNotEditableNotRejectable from '../src/molecule/foru
 import createForumPostFixturePostsLocked from '../src/molecule/forum/forum-post/test/fixtures/posts-locked';
 import createForumPostFixtureRejectable from '../src/molecule/forum/forum-post/test/fixtures/rejectable';
 import createForumPostFixtureRejected from '../src/molecule/forum/forum-post/test/fixtures/rejected';
+import createForumPostFixtureShowAnswerBox from '../src/molecule/forum/forum-post/test/fixtures/show-answer-box';
+import createForumPostFixtureShowEditBox from '../src/molecule/forum/forum-post/test/fixtures/show-edit-box';
 import createForumPostFixtureTextareasLocked from '../src/molecule/forum/forum-post/test/fixtures/textareas-locked';
 import createForumThreadFixtureDeepAnswers from '../src/molecule/forum/forum-thread/test/fixtures/deep-answers';
 import createForumThreadFixtureDefault from '../src/molecule/forum/forum-thread/test/fixtures/default';
@@ -719,6 +721,8 @@ export const fixtures = {
       PostsLocked: createForumPostFixturePostsLocked,
       Rejectable: createForumPostFixtureRejectable,
       Rejected: createForumPostFixtureRejected,
+      ShowAnswerBox: createForumPostFixtureShowAnswerBox,
+      ShowEditBox: createForumPostFixtureShowEditBox,
       TextareasLocked: createForumPostFixtureTextareasLocked
     },
     ForumThread: {
