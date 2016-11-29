@@ -3,6 +3,7 @@ import createTable from '../../molecule/table';
 import createPagination from '../../molecule/pagination';
 import createSearch from '../../molecule/search';
 import createLoader from '../../atom/loader';
+import createLink from '../../atom/link';
 import style from './style.css';
 
 const conditions = checker.shape({
@@ -38,6 +39,7 @@ export default (treant, options = {}) => {
   const Pagination = createPagination(treant, options);
   const Search = createSearch(treant, options);
   const Loader = createLoader(treant, options);
+  const Link = createLink(treant, options);
 
   const BrandTable = (props, children) => {
     const {
@@ -68,7 +70,7 @@ export default (treant, options = {}) => {
       <div className={style.wrapper}>
         <div className={style.headerWrapper}>
           <div className={style.create}>
-            <a href={createHref}>+</a>
+            <Link href={createHref}>+</Link>
           </div>
           <div className={style.search}>
             <Search {...search} />
