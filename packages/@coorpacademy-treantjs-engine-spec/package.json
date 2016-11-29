@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/treantjs-engine-spec",
-  "version": "3.6.2",
+  "version": "3.6.5",
   "description": "",
   "main": "lib/index.js",
   "files": [
@@ -24,7 +24,7 @@
     "lodash": "^4.14.1"
   },
   "devDependencies": {
-    "@coorpacademy/treantjs-core": "^3.6.2",
+    "@coorpacademy/treantjs-core": "^3.6.5",
     "babel-cli": "^6.11.4",
     "babel-core": "^6.11.4",
     "babel-plugin-istanbul": "^3.0.0",
