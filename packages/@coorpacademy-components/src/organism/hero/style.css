@@ -1,5 +1,8 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+
 .hero {
-  height: 400px;
+  height: 300px;
   position: relative;
   background-size: cover;
   background-position: 50% 50%;
@@ -37,4 +40,10 @@
   text-align: center;
   text-transform: uppercase;
   vertical-align: middle;
+}
+
+@media mobile {
+  .hero {
+    height: 250px;
+  }
 }
