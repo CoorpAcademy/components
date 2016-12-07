@@ -1,5 +1,8 @@
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
+@value colors: "../../variables/colors.css";
+@value blue from colors;
+
 
 .hero {
   height: 300px;
@@ -16,30 +19,34 @@
   bottom: 0;
   left: 0;
   margin: auto;
-  width: 220px;
-  height: 220px;
-  border: 3px dashed #fff;
-  color: #fff;
-  border-radius: 50%;
+  width: 250px;
+  height: 63px;
+  background: white;
+  border-radius: 3px;
 }
 
-.cta:before {
-  background: rgba(0, 0, 0, .2);
+.cta:hover {
+  background: blue;
+}
+.cta:hover .label span {
+  color: white;
 }
 
 .label {
-  line-height: 220px;
+  line-height: 63px;
 }
 
 .label span {
   line-height: normal;
   display: inline-block;
-  font-weight: 700;;
-  font-size: 24px;
+  font-weight: 700;
+  font-size: 17px;
   padding: 6px;
+  width: 100%;
   text-align: center;
   text-transform: uppercase;
   vertical-align: middle;
+  color: blue;
 }
 
 @media mobile {
