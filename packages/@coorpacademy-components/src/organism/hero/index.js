@@ -15,7 +15,6 @@ const conditions = checker.shape({
 
 export default (treant, options = {}) => {
   const Link = createLink(treant, options);
-  const RadialFocus = RadialFocusBehaviour(treant, options);
   const {h} = treant;
   const {skin, translate = identity} = options;
   const bg = get('images.hero', skin);
@@ -31,7 +30,6 @@ export default (treant, options = {}) => {
           backgroundImage: `url(${bg})`
         }}
       >
-        <RadialFocus>
           <Link
             href={url}
             className={style.cta}
@@ -40,7 +38,6 @@ export default (treant, options = {}) => {
               <span>{text}</span>
             </div>
           </Link>
-        </RadialFocus>
       </div>
     );
   };
