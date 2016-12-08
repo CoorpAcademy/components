@@ -46,6 +46,7 @@ const extractFromPath = (pathname, componentMap, fixturesMap) => {
 
 const buildComponent = (treant, options) => (factory, {props, children} = {}) => {
   const {h} = treant;
+  debugger;
   const Component = factory(treant, options);
   return (
     <Component {...props}>

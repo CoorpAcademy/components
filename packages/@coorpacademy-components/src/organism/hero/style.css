@@ -18,7 +18,7 @@
   left: 0;
   margin: auto;
   width: 250px;
-  height: 63px;
+  height: 60px;
   background: white;
   border-radius: 3px;
 }
@@ -31,7 +31,7 @@
 }
 
 .label {
-  line-height: 63px;
+  line-height: 60px;
 }
 
 .label span {

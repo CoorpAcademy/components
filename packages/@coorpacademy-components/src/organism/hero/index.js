@@ -2,7 +2,6 @@ import get from 'lodash/fp/get';
 import identity from 'lodash/fp/identity';
 import {checker, createValidate} from '../../util/validation';
 import createLink from '../../atom/link';
-import RadialFocusBehaviour from '../../behaviour/effects/radial-focus';
 import style from './style.css';
 
 const conditions = checker.shape({
