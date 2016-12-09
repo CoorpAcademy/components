@@ -12,7 +12,7 @@
   transition: background 1s ease-out;
 }
 
-.cta {
+.cta, .ctaHover {
   position: absolute;
   top: 0;
   right: 0;
@@ -23,20 +23,18 @@
   height: 63px;
   background: white;
   border-radius: 3px;
+  transition: opacity .5s ease-out;
 }
 
 .cta:hover {
-  background: blue;
-}
-.cta:hover .label span {
-  color: white;
+  opacity: 0;
 }
 
-.label {
+.label, .labelHover {
   line-height: 63px;
 }
 
-.label span {
+.label span, .labelHover span {
   line-height: normal;
   display: inline-block;
   font-weight: 700;
@@ -46,7 +44,7 @@
   text-align: center;
   text-transform: uppercase;
   vertical-align: middle;
-  color: blue;
+  color: white;
 }
 
 @media mobile {
