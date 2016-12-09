@@ -22,21 +22,23 @@ export default (treant, options = {}) => {
     const {url, title} = props;
     const text = translate(title);
 
+    const bgImage = bg ? 'backgroundImage: `url(${bg})`' : '';
+
     return (
       <div
         className={style.hero}
         style={{
-          backgroundImage: `url(${bg})`
+          bgImage
         }}
       >
-          <Link
-            href={url}
-            className={style.cta}
-          >
-            <div className={style.label}>
-              <span>{text}</span>
-            </div>
-          </Link>
+        <Link
+          href={url}
+          className={style.cta}
+        >
+          <div className={style.label}>
+            <span>{text}</span>
+          </div>
+        </Link>
       </div>
     );
   };

@@ -1,7 +1,6 @@
 @value colors: "../../variables/colors.css";
 @value blue from colors;
 
-
 .hero {
   height: 400px;
   position: relative;
