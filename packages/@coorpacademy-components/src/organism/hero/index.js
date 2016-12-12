@@ -19,7 +19,6 @@ export default (treant, options = {}) => {
   const {skin, translate = identity} = options;
   const bg = get('images.hero', skin);
 
-
   const Hero = (props, children) => {
     const {url, title} = props;
     const text = translate(title);
@@ -33,24 +32,23 @@ export default (treant, options = {}) => {
           bgImage
         }}
       >
-        <div className={style.ctaHover}
-              style={{
-                backgroundColor: getOr('#fff', 'common.primary', skin)
-              }}
-            >
-            <div className={style.labelHover}>
-              <span>{text}</span>
-          </div>
-         </div>
         <Link
           href={url}
           className={style.cta}>
-          <div className={style.label}>
+          <div
+            className={style.label}
+            style={{
+              color: getOr('#00b0ff', 'common.primary', skin)
+            }}
+          >
+            {text}
             <span
+              className={style.bar}
               style={{
-                color: getOr('#00b0ff', 'common.primary', skin)
+                backgroundColor: getOr('#00b0ff', 'common.primary', skin)
               }}
-            >{text}</span>
+              >
+              </span>
           </div>
         </Link>
       </div>

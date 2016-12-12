@@ -8,42 +8,44 @@
   position: relative;
   background-size: cover;
   background-position: 50% 50%;
-  transition: background 1s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: green;
 }
 
-.cta, .ctaHover {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
-  width: 250px;
-  height: 63px;
+.cta {
+  position: relative;
+  box-sizing: border-box;
+  padding: 0 15px;
+  text-align: center;
+  min-width: 250px;
+  height: 60px;
   background: white;
   border-radius: 3px;
-  transition: opacity .5s ease-out;
+  text-decoration: none;
 }
 
-.cta:hover {
-  opacity: 0;
+.bar {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  height: 3px;
+  width: 0;
+  transition: all .2s ease-out;
 }
 
-.label, .labelHover {
-  line-height: 63px;
+.cta:hover .bar {
+  left: 0;
+  width: 100%;
 }
 
-.label span, .labelHover span {
-  line-height: normal;
-  display: inline-block;
+.label {
+  font-family: 'Open Sans';
   font-weight: 700;
   font-size: 17px;
-  padding: 6px;
-  width: 100%;
-  text-align: center;
-  text-transform: uppercase;
-  vertical-align: middle;
   color: white;
+  line-height: 60px;
 }
 
 @media mobile {
