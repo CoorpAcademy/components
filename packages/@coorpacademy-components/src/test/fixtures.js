@@ -12,6 +12,7 @@ import fixturesList from '../util/list-fixtures';
 
 const {h, resolve} = treant;
 
+// eslint-disable-next-line import/no-dynamic-require
 const _require = file => require(relative(__dirname, file)).default;
 const mapObject = fn => pipe(toPairs, map(([key, value]) => fn(value, key)));
 

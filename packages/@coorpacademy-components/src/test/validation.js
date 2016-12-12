@@ -8,6 +8,7 @@ import startsWith from 'lodash/fp/startsWith';
 import * as treant from '@coorpacademy/treantjs-core';
 import componentsList from '../util/list-components';
 
+// eslint-disable-next-line import/no-dynamic-require
 const _require = file => require(relative(__dirname, file)).default;
 const mapObject = fn => pipe(toPairs, map(([key, value]) => fn(value, key)));
 

@@ -17,11 +17,11 @@
     "coveralls": "nyc report --reporter=text-lcov | coveralls"
   },
   "devDependencies": {
-    "@coorpacademy/eslint-plugin-coorpacademy": "^2.0.2",
+    "@coorpacademy/eslint-plugin-coorpacademy": "^3.0.1",
     "ava": "^0.17.0",
     "babel-core": "^6.18.2",
     "coveralls": "^2.11.13",
-    "eslint": "^3.10.2",
+    "eslint": "^3.12.0",
     "lerna": "2.0.0-beta.28",
     "nyc": "^10.0.0"
   },
