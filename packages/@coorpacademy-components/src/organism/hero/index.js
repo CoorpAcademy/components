@@ -22,14 +22,13 @@ export default (treant, options = {}) => {
   const Hero = (props, children) => {
     const {url, title} = props;
     const text = translate(title);
-
-    const bgImage = bg ? 'backgroundImage: `url(${bg})`' : '';
+    const backgroundImage = bg ? `url(${bg})` : '';
 
     return (
       <div
         className={style.hero}
         style={{
-          bgImage
+          backgroundImage
         }}
       >
         <Link
