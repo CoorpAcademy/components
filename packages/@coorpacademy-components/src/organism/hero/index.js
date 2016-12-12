@@ -1,8 +1,8 @@
 import get from 'lodash/fp/get';
 import identity from 'lodash/fp/identity';
+import getOr from 'lodash/fp/getOr';
 import {checker, createValidate} from '../../util/validation';
 import createLink from '../../atom/link';
-import RadialFocusBehaviour from '../../behaviour/effects/radial-focus';
 import style from './style.css';
 
 const conditions = checker.shape({
@@ -15,7 +15,6 @@ const conditions = checker.shape({
 
 export default (treant, options = {}) => {
   const Link = createLink(treant, options);
-  const RadialFocus = RadialFocusBehaviour(treant, options);
   const {h} = treant;
   const {skin, translate = identity} = options;
   const bg = get('images.hero', skin);
@@ -23,24 +22,34 @@ export default (treant, options = {}) => {
   const Hero = (props, children) => {
     const {url, title} = props;
     const text = translate(title);
+    const backgroundImage = bg ? `url(${bg})` : '';
 
     return (
       <div
         className={style.hero}
         style={{
-          backgroundImage: `url(${bg})`
+          backgroundImage
         }}
       >
-        <RadialFocus>
-          <Link
-            href={url}
-            className={style.cta}
+        <Link
+          href={url}
+          className={style.cta}>
+          <div
+            className={style.label}
+            style={{
+              color: getOr('#00b0ff', 'common.primary', skin)
+            }}
           >
-            <div className={style.label}>
-              <span>{text}</span>
-            </div>
-          </Link>
-        </RadialFocus>
+            {text}
+            <span
+              className={style.bar}
+              style={{
+                backgroundColor: getOr('#00b0ff', 'common.primary', skin)
+              }}
+              >
+              </span>
+          </div>
+        </Link>
       </div>
     );
   };

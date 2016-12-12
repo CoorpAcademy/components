@@ -1,45 +1,50 @@
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
+@value colors: "../../variables/colors.css";
+@value blue from colors;
 
 .hero {
   height: 300px;
   position: relative;
   background-size: cover;
   background-position: 50% 50%;
-  transition: background 1s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .cta {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
-  width: 220px;
-  height: 220px;
-  border: 3px dashed #fff;
-  color: #fff;
-  border-radius: 50%;
+  position: relative;
+  box-sizing: border-box;
+  padding: 0 15px;
+  text-align: center;
+  min-width: 250px;
+  height: 60px;
+  background: white;
+  border-radius: 3px;
+  text-decoration: none;
 }
 
-.cta:before {
-  background: rgba(0, 0, 0, .2);
+.bar {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  height: 3px;
+  width: 0;
+  transition: all .2s ease-out;
+}
+
+.cta:hover .bar {
+  left: 0;
+  width: 100%;
 }
 
 .label {
-  line-height: 220px;
-}
-
-.label span {
-  line-height: normal;
-  display: inline-block;
-  font-weight: 700;;
-  font-size: 24px;
-  padding: 6px;
-  text-align: center;
-  text-transform: uppercase;
-  vertical-align: middle;
+  font-family: 'Open Sans';
+  font-weight: 700;
+  font-size: 17px;
+  color: white;
+  line-height: 60px;
 }
 
 @media mobile {
