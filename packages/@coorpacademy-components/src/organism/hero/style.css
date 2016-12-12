@@ -1,15 +1,17 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
 @value colors: "../../variables/colors.css";
 @value blue from colors;
 
 .hero {
-  height: 400px;
+  height: 300px;
   position: relative;
   background-size: cover;
   background-position: 50% 50%;
   transition: background 1s ease-out;
 }
 
-.cta {
+.cta, .ctaHover {
   position: absolute;
   top: 0;
   right: 0;
@@ -17,23 +19,21 @@
   left: 0;
   margin: auto;
   width: 250px;
-  height: 60px;
+  height: 63px;
   background: white;
   border-radius: 3px;
+  transition: opacity .5s ease-out;
 }
 
 .cta:hover {
-  background: blue;
-}
-.cta:hover .label span {
-  color: white;
+  opacity: 0;
 }
 
-.label {
-  line-height: 60px;
+.label, .labelHover {
+  line-height: 63px;
 }
 
-.label span {
+.label span, .labelHover span {
   line-height: normal;
   display: inline-block;
   font-weight: 700;
@@ -43,5 +43,11 @@
   text-align: center;
   text-transform: uppercase;
   vertical-align: middle;
-  color: blue;
+  color: white;
+}
+
+@media mobile {
+  .hero {
+    height: 250px;
+  }
 }

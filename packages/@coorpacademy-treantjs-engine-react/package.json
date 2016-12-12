@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/treantjs-engine-react",
-  "version": "3.6.5",
+  "version": "3.6.7",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -25,13 +25,13 @@
     "Christophe Dugne-Esquevin <christophe.dugne@coorpacademy.com>"
   ],
   "dependencies": {
-    "@coorpacademy/treantjs-core": "^3.6.5",
+    "@coorpacademy/treantjs-core": "^3.6.7",
     "lodash": "^4.14.1",
     "react": "^15.0.2",
     "react-dom": "^15.3.0"
   },
   "devDependencies": {
-    "@coorpacademy/treantjs-engine-spec": "^3.6.5",
+    "@coorpacademy/treantjs-engine-spec": "^3.6.7",
     "babel-cli": "^6.11.4",
     "babel-core": "^6.11.4",
     "babel-plugin-istanbul": "^3.0.0",
