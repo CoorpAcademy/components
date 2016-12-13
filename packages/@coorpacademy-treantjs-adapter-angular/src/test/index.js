@@ -19,6 +19,6 @@ test('createDirectives should wrap factories as directive factories', t => {
   createDirectives(app, treant, engine, factories);
 
   t.true(isArray(app.directives));
-  t.true(contains('coorp-starRating', app.directives));
-  t.true(contains('coorp-catalogCard', app.directives));
+  t.true(contains('coorpStarRating', app.directives));
+  t.true(contains('coorpCatalogCard', app.directives));
 });

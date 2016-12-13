@@ -25,10 +25,6 @@ const linkWithEngine = (treant, engine) => ($i18next, $rootScope, scope, element
   scope.$on('$destroy', () => window.angular.element(element).remove());
 };
 
-const lowerFirstLetter = string => {
-  return string[0].toLowerCase() + string.slice(-(string.length - 1));
-};
-
 const createDirective = (app, treant, engine, componentName, createComponent) => {
   const directive = ($rootScope, $i18next) => {
     const link = (scope, element, attrs) => {
@@ -61,7 +57,7 @@ const createDirectives = (app, treant, engine, components) => {
     const isFactory = key.split('create')[1];
     if (!isFactory) return;
 
-    const componentName = `coorp-${lowerFirstLetter(isFactory)}`;
+    const componentName = `coorp${isFactory}`;
     const createComponent = components[key];
     createDirective(app, treant, engine, componentName, createComponent);
   };
