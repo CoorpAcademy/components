@@ -23,6 +23,7 @@
   background: white;
   border-radius: 3px;
   text-decoration: none;
+  overflow: hidden;
 }
 
 .bar {
