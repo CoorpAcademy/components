@@ -61,7 +61,7 @@ const createDirectives = (app, treant, engine, components) => {
     const isFactory = key.split('create')[1];
     if (!isFactory) return;
 
-    const componentName = lowerFirstLetter(isFactory);
+    const componentName = `coorp-${lowerFirstLetter(isFactory)}`;
     const createComponent = components[key];
     createDirective(app, treant, engine, componentName, createComponent);
   };
