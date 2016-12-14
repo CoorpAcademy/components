@@ -1,3 +1,6 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+
 .default {
   display: flex;
 }
@@ -35,3 +38,48 @@
   margin-left: 20px;
   width: 230px;
 }
+
+.thematiques {
+  composes: default;
+}
+
+.thematiques label {
+  display: flex;
+  align-items: center;
+  height: 37px;
+  position: relative;
+  flex-grow: 0;
+  margin-right: 20px;
+}
+
+.thematiques .title {
+  display: none;
+}
+
+.thematiques select {
+  font-family: "Open Sans";
+  text-transform: none;
+  padding: 0 15px;
+  border: 0;
+  height: 37px;
+  border-radius: 2px;
+  font-size: 15px;
+  color: black;
+  font-weight: normal;
+  margin-left: 20px;
+  width: 230px;
+  background: #e0e0e0;
+}
+
+@media mobile {
+  .thematiques select {
+    height: 100%;
+    width: 100%;
+  }
+  .thematiques select {
+      margin-left: 0;
+      border-radius: 0;
+
+  }
+}
+
