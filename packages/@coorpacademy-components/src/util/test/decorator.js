@@ -1,6 +1,7 @@
+import Inferno from 'inferno';
 import test from 'ava';
 import * as treant from '@coorpacademy/treantjs-core';
-import createDecorator from '../decorator';
+import Decorator from '../decorator';
 
 const {h, resolve, walker} = treant;
 

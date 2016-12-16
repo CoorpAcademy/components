@@ -1,24 +1,14 @@
-import get from 'lodash/fp/get';
 import join from 'lodash/fp/join';
 import map from 'lodash/fp/map';
-import includes from 'lodash/fp/includes';
+import Inferno from 'inferno';
+import InfernoServer from 'inferno-server';
 import {createMemoryHistory} from '@coorpacademy/history';
-import * as treant from '@coorpacademy/treantjs-core';
-import * as Virtualdom from '@coorpacademy/treantjs-engine-virtual-dom';
-import * as React from '@coorpacademy/treantjs-engine-react';
-import * as Snabbdom from '@coorpacademy/treantjs-engine-snabbdom';
-import createApp from './app';
+import App from './app';
 import {components, fixtures} from './components';
 
-let App = createApp(treant);
+let _App = App;
 let _components = components;
 let _fixtures = fixtures;
-
-const engines = {
-  Virtualdom,
-  React,
-  Snabbdom
-};
 
 const styles = [
   '//fonts.googleapis.com/css?family=Open+Sans%3A300%2C300italic%2Cregular%2Citalic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic&amp;ver=4.5.2', // eslint-disable-line max-len
@@ -30,25 +20,17 @@ if (process.env.NODE_ENV === 'production')
   styles.push('/dist/styles.css');
 
 export default (req, res, next) => {
-  if (!includes(
-    req.params.engine,
-    ['React', 'Virtualdom', 'Snabbdom']
-  )) return next();
-
   const history = createMemoryHistory({
-    basename: `/${req.params.engine}`,
     initialEntries: [req.url]
   });
 
-  const engine = get(req.params.engine, engines);
+  // const html = InfernoServer.renderToString(App({
+  //   location: history.location,
+  //   components: _components,
+  //   fixtures: _fixtures
+  // }));
 
-  const vTree = App({
-    location: history.location,
-    components: _components,
-    fixtures: _fixtures
-  });
-
-  const html = engine.renderToString(vTree);
+  const html = '';
 
   res.send(`
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -61,8 +43,7 @@ export default (req, res, next) => {
 
 if (module.hot) {
   module.hot.accept('./app.js', () => {
-    const _createApp = require('./app').default;
-    App = _createApp(treant);
+    _App = require('./app').default;
   });
   module.hot.accept('./components.js', () => {
     _components = require('./components').components;

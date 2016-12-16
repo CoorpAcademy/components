@@ -1,3 +1,4 @@
+import Inferno from 'inferno';
 import {relative} from 'path';
 import test from 'ava';
 import identity from 'lodash/fp/identity';

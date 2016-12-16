@@ -1,8 +1,5 @@
-const child = (treant, options) => {
-  const {h} = treant;
-  return <h1>foo</h1>;
-};
+import Inferno from 'inferno';
 
 export default {
-  children: [child]
+  children: [<h1>foo</h1>]
 };

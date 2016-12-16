@@ -1,9 +1,10 @@
+import Inferno from 'inferno';
 import identity from 'lodash/fp/identity';
 import {checker, createValidate} from '../../../util/validation';
-import createDisciplineHeader from '../../../molecule/discipline-header';
-import createDisciplineScope from '../../../molecule/discipline-scope';
-import createDisciplineRightaside from '../../../organism/discipline-rightaside';
-import createCatalogCards from '../../../organism/catalog-cards';
+import DisciplineHeader from '../../../molecule/discipline-header';
+import DisciplineScope from '../../../molecule/discipline-scope';
+import DisciplineRightaside from '../../../organism/discipline-rightaside';
+import CatalogCards from '../../../organism/catalog-cards';
 import layout from '../layout.css';
 import style from './style.css';
 
@@ -36,74 +37,65 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-export default (treant, options = {}) => {
-  const {h} = treant;
-  const {translate = identity} = options;
-
-  const DisciplineHeader = createDisciplineHeader(treant, options);
-  const DisciplineScope = createDisciplineScope(treant, options);
-  const DisciplineRightaside = createDisciplineRightaside(treant, options);
-  const CatalogCards = createCatalogCards(treant, options);
+const ProductCourse = ({children, ...props}, {translate}) => {
   const cardsTitle = translate('They also liked:');
-  const ProductCourse = (props, children) => {
-    const {
-      selected = 0,
-      level,
-      levels,
-      changeLevel,
-      linkBuy,
-      linkTry,
-      maxPopularity,
-      relatedDisciplines = null,
-      image,
-      title = '',
-      video,
-      author = {name: '', socialLinks: []},
-      description = '',
-      popularity = 0
-    } = props;
+  const {
+    selected = 0,
+    level,
+    levels,
+    changeLevel,
+    linkBuy,
+    linkTry,
+    maxPopularity,
+    relatedDisciplines = null,
+    image,
+    title = '',
+    video,
+    author = {name: '', socialLinks: []},
+    description = '',
+    popularity = 0
+  } = props;
 
-    return (
-      <div className={style.wrapper}>
-        <div className={style.container}>
-          <DisciplineHeader
-            image={image}
-            video={video}
-            title={title}
-            description={description}
-          />
-        </div>
-        <div className={style.colContainer}>
-          <DisciplineRightaside
-            linkBuy={linkBuy}
-            linkTry={linkTry}
-            author={author}
-            rating={popularity}
-            maxRating={maxPopularity}
-          />
-        </div>
-        <div
-          className={style.contentContainer}
-        >
-          <DisciplineScope
-            content={level}
-            levels={levels}
-            selected={selected}
-            onClick={changeLevel}
-          />
-        </div>
-        <div className={layout.container}>
-          <span className={layout.cardsTitle}>
-            {cardsTitle}
-          </span>
-          <CatalogCards
-            products={relatedDisciplines}
-          />
-        </div>
+  return (
+    <div className={style.wrapper}>
+      <div className={style.container}>
+        <DisciplineHeader
+          image={image}
+          video={video}
+          title={title}
+          description={description}
+        />
       </div>
-    );
-  };
-
-  ProductCourse.validate = createValidate(conditions);
-  return ProductCourse;
+      <div className={style.colContainer}>
+        <DisciplineRightaside
+          linkBuy={linkBuy}
+          linkTry={linkTry}
+          author={author}
+          rating={popularity}
+          maxRating={maxPopularity}
+        />
+      </div>
+      <div
+        className={style.contentContainer}
+      >
+        <DisciplineScope
+          content={level}
+          levels={levels}
+          selected={selected}
+          onClick={changeLevel}
+        />
+      </div>
+      <div className={layout.container}>
+        <span className={layout.cardsTitle}>
+          {cardsTitle}
+        </span>
+        <CatalogCards
+          products={relatedDisciplines}
+        />
+      </div>
+    </div>
+  );
 };
+
+ProductCourse.validate = createValidate(conditions);
+export default ProductCourse;

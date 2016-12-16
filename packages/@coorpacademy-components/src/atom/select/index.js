@@ -1,3 +1,4 @@
+import Inferno from 'inferno';
 import {checker, createValidate} from '../../util/validation';
 import style from './style.css';
 
@@ -17,43 +18,39 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-export default (treant, options) => {
-  const {h} = treant;
+const Select = ({children, ...props}) => {
+  const {
+    onChange,
+    disabled,
+    required,
+    theme
+  } = props;
 
-  const Select = (props, children) => {
-    const {
-      onChange,
-      disabled,
-      required,
-      theme
-    } = props;
+  const title = `${props.title}${required ? '*' : ''} :`;
 
-    const title = `${props.title}${required ? '*' : ''} :`;
-
-    const optionList = props.options && props.options.map(option => {
-      return (
-        <option
-          value={option.value}
-          selected={option.selected}
-        >
-          {option.name}
-        </option>
-      );
-    });
-
+  const optionList = props.options && props.options.map(option => {
     return (
-      <div className={theme ? style[theme] : style.default}>
-        <label>
-          <span className={style.title}>{title}</span>
-          <div className={style.arrow}></div>
-          <select onChange={e => onChange(e.target.value)} disabled={disabled}>
-            {optionList}
-          </select>
-        </label>
-      </div>
+      <option
+        value={option.value}
+        selected={option.selected}
+      >
+        {option.name}
+      </option>
     );
-  };
+  });
 
-  Select.validate = createValidate(conditions);
-  return Select;
+  return (
+    <div className={theme ? style[theme] : style.default}>
+      <label>
+        <span className={style.title}>{title}</span>
+        <div className={style.arrow}></div>
+        <select onChange={e => onChange(e.target.value)} disabled={disabled}>
+          {optionList}
+        </select>
+      </label>
+    </div>
+  );
 };
+
+Select.validate = createValidate(conditions);
+export default Select;

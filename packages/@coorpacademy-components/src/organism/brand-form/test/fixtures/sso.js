@@ -85,25 +85,25 @@ export default {
       title: 'Advanced Options',
       disabled: true,
       fields: [{
-        title: 'Hash algorithm',
-        value: 'SHA-1',
-        values: ['SHA-1', 'SHA-256'],
-        type: 'select',
-        description: 'Lorem Ipsum dolor sit amet.',
-        onChange: () => {}
-      }, {
+      //   title: 'Hash algorithm',
+      //   value: 'SHA-1',
+      //   values: ['SHA-1', 'SHA-256'],
+      //   type: 'select',
+      //   description: 'Lorem Ipsum dolor sit amet.',
+      //   onChange: () => {}
+      // }, {
         title: 'Clock skew',
         value: '',
         type: 'text',
         description: 'Lorem Ipsum dolor sit amet.',
         onChange: () => {}
-      }, {
-        title: 'Binding',
-        value: 'HTTP POST',
-        values: ['HTTP POST', 'HTTP_REDIRECT'],
-        type: 'select',
-        description: 'Lorem Ipsum dolor sit amet.',
-        onChange: () => {}
+      // }, {
+      //   title: 'Binding',
+      //   value: 'HTTP POST',
+      //   values: ['HTTP POST', 'HTTP_REDIRECT'],
+      //   type: 'select',
+      //   description: 'Lorem Ipsum dolor sit amet.',
+      //   onChange: () => {}
       }]
     }],
     onSubmit: () => {},

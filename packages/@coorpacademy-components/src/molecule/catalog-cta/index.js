@@ -1,9 +1,13 @@
+import Inferno from 'inferno';
+import hyperscript from 'inferno-hyperscript';
 import hyperx from 'hyperx';
 import identity from 'lodash/fp/identity';
 import {checker, createValidate} from '../../util/validation';
-import createStarRating from '../../molecule/star-rating';
-import HoverFillBehaviour from '../../behaviour/effects/hover-fill';
+import StarRating from '../../molecule/star-rating';
 import style from './style.css';
+import {hoverFill} from '../../atom/button/hover-fill.css';
+
+const hx = hyperx(hyperscript);
 
 const conditions = checker.shape({
   props: checker.shape({
@@ -15,47 +19,34 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-export default (treant, options = {}) => {
-  const {h} = treant;
-  const hx = hyperx(h);
-  const {translate = identity} = options;
+const CatalogCTA = ({children, ...props}, {translate}) => {
+  const {
+    rating,
+    maxRating,
+    linkBuy = '#',
+    linkTry = '#'
+  } = props;
 
   const startLearning = hx(`<span>${translate('Start <span>learning</span>')}</span>`);
   const premium = hx(`<span>${translate('Coorpacademy <span>subscription</span>')}</span>`);
 
-  const StarRating = createStarRating(treant, options);
-  const HoverFill = HoverFillBehaviour(treant, options);
-
-  const CatalogCTA = (props, children) => {
-    const {
-      rating,
-      maxRating,
-      linkBuy = '#',
-      linkTry = '#'
-    } = props;
-
-    return (
-      <div className={style.head}>
-        <div className={style.starRating}>
-          <StarRating
-            rating={rating}
-            total={maxRating}
-          />
-        </div>
-        <HoverFill>
-          <a className={style.try} href={linkTry}>
-            {startLearning}
-          </a>
-        </HoverFill>
-        <HoverFill>
-          <a className={style.buy} href={linkBuy}>
-            {premium}
-          </a>
-        </HoverFill>
+  return (
+    <div className={style.head}>
+      <div className={style.starRating}>
+        <StarRating
+          rating={rating}
+          total={maxRating}
+        />
       </div>
-    );
-  };
-
-  CatalogCTA.validate = createValidate(conditions);
-  return CatalogCTA;
+        <a className={`${style.try} ${hoverFill}`} href={linkTry}>
+          {startLearning}
+        </a>
+        <a className={`${style.buy} ${hoverFill}`} href={linkBuy}>
+          {premium}
+        </a>
+    </div>
+  );
 };
+
+CatalogCTA.validate = createValidate(conditions);
+export default CatalogCTA;

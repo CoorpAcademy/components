@@ -18,7 +18,7 @@ const _exports = pipe(
   mapValues(path => relative(targetDir, path)),
   toPairs,
   sortBy(0),
-  map(([_name, path]) => `export create${_name} from './${path}';`),
+  map(([_name, path]) => `export ${_name} from './${path}';`),
   _join('\n'),
   d => `${d}
 `

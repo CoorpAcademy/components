@@ -1,3 +1,4 @@
+import Inferno from 'inferno';
 import identity from 'lodash/fp/identity';
 import {checker, createValidate} from '../../util/validation';
 import pushToHistory from '../../util/navigation';
@@ -10,12 +11,11 @@ const conditions = checker.shape({
   children: checker.array.optional
 });
 
-export default (treant, options = {}) => {
-  const {h} = treant;
-  const {history: {createHref = identity} = {}} = options;
-  const onClick = pushToHistory(options);
+const Link = ({children, ...props}, context) => {
+  const {history: {createHref = identity} = {}} = context;
+  const onClick = pushToHistory(context);
 
-  const Link = (props, children) => (
+  return (
     <a
       {...props}
       href={props.href ? createHref(props.href) : undefined}
@@ -27,7 +27,7 @@ export default (treant, options = {}) => {
       {children}
     </a>
   );
-
-  Link.validate = createValidate(conditions);
-  return Link;
 };
+
+Link.validate = createValidate(conditions);
+export default Link;

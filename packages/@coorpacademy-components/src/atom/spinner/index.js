@@ -1,3 +1,4 @@
+import Inferno from 'inferno';
 import {checker, createValidate} from '../../util/validation';
 import {spinner, doubleBounce1, doubleBounce2} from './style.css';
 
@@ -6,10 +7,8 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-export default (treant, options) => {
-  const {h} = treant;
-
-  const Spinner = (props, children) => (
+const Spinner = ({children, ...props}) => {
+  return (
     <div
       className={spinner}
     >
@@ -22,7 +21,7 @@ export default (treant, options) => {
       />
     </div>
   );
-
-  Spinner.validate = createValidate(conditions);
-  return Spinner;
 };
+
+Spinner.validate = createValidate(conditions);
+export default Spinner;

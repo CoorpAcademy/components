@@ -1,6 +1,7 @@
+import Inferno from 'inferno';
 import test from 'ava';
 import * as treant from '@coorpacademy/treantjs-core';
-import createBehaviour from '../behaviour';
+import Behaviour from '../behaviour';
 
 const {h, resolve} = treant;
 

@@ -1,6 +1,7 @@
+import Inferno from 'inferno';
 import identity from 'lodash/fp/identity';
 import {checker, createValidate} from '../../../util/validation';
-import createHeader from '../../../organism/header';
+import Header from '../../../organism/header';
 import content from './content';
 
 const conditions = checker.shape({
@@ -12,19 +13,13 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-export default (treant, options = {}) => {
-  const {h} = treant;
-  const {translate = identity} = options;
-  const Header = createHeader(treant, options);
+const CoorpHeader = ({children, ...props}, {translate}) => {
+  const headerProps = content(translate, props);
 
-  const CoorpHeader = (props, children) => {
-    const headerProps = content(translate, props);
-
-    return (
-      <Header {...headerProps}/>
-    );
-  };
-
-  CoorpHeader.validate = createValidate(conditions);
-  return CoorpHeader;
+  return (
+    <Header {...headerProps}/>
+  );
 };
+
+CoorpHeader.validate = createValidate(conditions);
+export default CoorpHeader;

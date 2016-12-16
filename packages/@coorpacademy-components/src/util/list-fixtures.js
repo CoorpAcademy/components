@@ -16,7 +16,7 @@ const pascalCase = pipe(camelCase, upperFirst);
 const cwd = join(__dirname, '..');
 
 const paths = glob.sync(
-  '**/fixtures/*.js',
+  '**/!(behaviour)/**/fixtures/*.js',
   {cwd}
 );
 

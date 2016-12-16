@@ -1,6 +1,7 @@
+import Inferno from 'inferno';
 import {checker, createValidate} from '../../util/validation';
-import createPicture from '../../atom/picture';
-import createMenuList from '../../molecule/menu-list';
+import Picture from '../../atom/picture';
+import MenuList from '../../molecule/menu-list';
 import style from './style.css';
 
 const conditions = checker.shape({
@@ -18,28 +19,22 @@ const conditions = checker.shape({
   })
 });
 
-export default (treant, options = {}) => {
-  const {h} = treant;
-  const Picture = createPicture(treant, options);
-  const MenuList = createMenuList(treant, options);
+const Header = ({children, ...props}) => {
+  const {menuItems, src, href} = props;
 
-  const Header = (props, children) => {
-    const {menuItems, src, href} = props;
-
-    return (
-        <div className={style.static}>
-          <div className={style.logo}>
-            <a href={href}>
-              <Picture src={src} />
-            </a>
-          </div>
-          <div className={style.navigation}>
-            <MenuList menuItems={menuItems} />
-          </div>
+  return (
+      <div className={style.static}>
+        <div className={style.logo}>
+          <a href={href}>
+            <Picture src={src} />
+          </a>
         </div>
-    );
-  };
-
-  Header.validate = createValidate(conditions);
-  return Header;
+        <div className={style.navigation}>
+          <MenuList menuItems={menuItems} />
+        </div>
+      </div>
+  );
 };
+
+Header.validate = createValidate(conditions);
+export default Header;

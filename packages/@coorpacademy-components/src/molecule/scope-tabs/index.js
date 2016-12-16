@@ -1,3 +1,4 @@
+import Inferno from 'inferno';
 import {checker, createValidate} from '../../util/validation';
 import style from './style.css';
 
@@ -10,25 +11,22 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-export default (treant, options = {}) => {
-  const ScopeTabs = props => {
-    const {h} = treant;
-    const {onClick, selected = 0, levels = []} = props;
+const ScopeTabs = props => {
+  const {onClick, selected = 0, levels = []} = props;
 
-    return (
-      <ul className={style.tabs}>
-        {levels.map((level, index) => (
-          <li
-            onClick={() => onClick(index)}
-            className={selected === index ? style.currentTab : style.tab}
-          >
-            {level}
-          </li>
-        ))}
-      </ul>
-    );
-  };
-
-  ScopeTabs.validate = createValidate(conditions);
-  return ScopeTabs;
+  return (
+    <ul className={style.tabs}>
+      {levels.map((level, index) => (
+        <li
+          onClick={() => onClick(index)}
+          className={selected === index ? style.currentTab : style.tab}
+        >
+          {level}
+        </li>
+      ))}
+    </ul>
+  );
 };
+
+ScopeTabs.validate = createValidate(conditions);
+export default ScopeTabs;

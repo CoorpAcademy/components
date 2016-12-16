@@ -1,6 +1,9 @@
+import Inferno from 'inferno';
 import {checker, createValidate} from '../../util/validation';
-import AddClassBehaviour from '../../behaviour/effects/add-class';
+import addClassName from '../../util/add-class-name';
 import style from './style.css';
+
+const addBackgroundClass = addClassName(style.background);
 
 const conditions = checker.shape({
   props: checker.shape({
@@ -12,40 +15,33 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-export default (treant, options = {}) => {
-  const {h} = treant;
-  const AddClass = AddClassBehaviour(treant, options);
+const ProgressBar = ({children, ...props}) => {
+  const {
+    className,
+    value,
+    max,
+    desc = ''
+  } = props;
 
-  const ProgressBar = (props, children) => {
-    const {
-      className,
-      value,
-      max,
-      desc = ''
-    } = props;
+  const ratio = value / max;
+  const percentage = Math.floor(ratio * 100);
+  const text = `${percentage}%`;
 
-    const ratio = value / max;
-    const percentage = Math.floor(ratio * 100);
-    const text = `${percentage}%`;
-
-    return (
-      <AddClass className={className}>
-        <div className={style.background}>
-          <div
-            className={style.progress}
-            style={{
-              width: `${percentage}%`
-            }}
-          />
-          <p className={style.texts}>
-            <span className={style.description}>{`${value}/${max} ${desc}`}</span>
-            <span className={style.percentage}>{text}</span>
-          </p>
-        </div>
-      </AddClass>
-    );
-  };
-
-  ProgressBar.validate = createValidate(conditions);
-  return ProgressBar;
+  return (
+    <div {...addBackgroundClass({className})}>
+      <div
+        className={style.progress}
+        style={{
+          width: `${percentage}%`
+        }}
+      />
+      <p className={style.texts}>
+        <span className={style.description}>{`${value}/${max} ${desc}`}</span>
+        <span className={style.percentage}>{text}</span>
+      </p>
+    </div>
+  );
 };
+
+ProgressBar.validate = createValidate(conditions);
+export default ProgressBar;

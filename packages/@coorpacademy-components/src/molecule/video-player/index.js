@@ -1,6 +1,7 @@
+import Inferno from 'inferno';
 import {checker, createValidate} from '../../util/validation';
-import createVideoIframe from '../video-iframe';
-import createPicture from '../../atom/picture';
+import VideoIframe from '../video-iframe';
+import Picture from '../../atom/picture';
 import style from './style.css';
 
 const conditions = checker.shape({
@@ -15,58 +16,52 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-export default (treant, options = {}) => {
-  const VideoIframe = createVideoIframe(treant, options);
-  const Picture = createPicture(treant, options);
+const VideoPlayer = ({children, ...props}) => {
+  const {
+    type,
+    id,
+    image,
+    playVideo,
+    width = '100%',
+    height = '400px'
+  } = props;
 
-  const VideoPlayer = (props, children) => {
-    const {h} = treant;
-    const {
-      type,
-      id,
-      image,
-      playVideo,
-      width = '100%',
-      height = '400px'
-    } = props;
-
-    return (
-      <div className={style.list}>
-        <div className={style.item}>
-          <input
-            type='checkbox'
-            id='toggler'
-            checked={false}
-            className={style.checkbox}
-          />
-          <label
-            htmlFor={'toggler'}
-            className={style.togglerDisplay}
-            onClick={playVideo}
-          >
-            <Picture
-              src={image}
-              className={style.image}
-              width={width}
-              height={height}
-            />
-          </label>
-
-          <VideoIframe
-            type={type}
-            id={id}
+  return (
+    <div className={style.list}>
+      <div className={style.item}>
+        <input
+          type='checkbox'
+          id='toggler'
+          checked={false}
+          className={style.checkbox}
+        />
+        <label
+          htmlFor={'toggler'}
+          className={style.togglerDisplay}
+          onClick={playVideo}
+        >
+          <Picture
+            src={image}
+            className={style.image}
             width={width}
             height={height}
-            frameborder={0}
-            className={style.iframe}
-            allowfullscreen={true}
-          >
-          </VideoIframe>
-        </div>
-      </div>
-    );
-  };
+          />
+        </label>
 
-  VideoPlayer.validate = createValidate(conditions);
-  return VideoPlayer;
+        <VideoIframe
+          type={type}
+          id={id}
+          width={width}
+          height={height}
+          frameborder={0}
+          className={style.iframe}
+          allowfullscreen={true}
+        >
+        </VideoIframe>
+      </div>
+    </div>
+  );
 };
+
+VideoPlayer.validate = createValidate(conditions);
+export default VideoPlayer;

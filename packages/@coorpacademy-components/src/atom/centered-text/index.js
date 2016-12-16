@@ -1,24 +1,21 @@
+import Inferno from 'inferno';
 import {checker, createValidate} from '../../util/validation';
-import AlignCenterBehaviour from '../../behaviour/align/centered/';
+// import AlignCenterBehaviour from '../../behaviour/align/centered/';
 
 const conditions = checker.shape({
   props: checker.none,
   children: checker.oneOrMore
 });
 
-export default (treant, options = {}) => {
-  const {h} = treant;
+const CenteredText = ({children, ...props}) => {
+  // const AlignCenter = AlignCenterBehaviour(treant, options);
 
-  const AlignCenter = AlignCenterBehaviour(treant, options);
-
-  const CenteredText = ({title, categories, products}, children) => (
-    <AlignCenter>
+  return (
       <div>
         {children}
       </div>
-    </AlignCenter>
   );
-
-  CenteredText.validate = createValidate(conditions);
-  return CenteredText;
 };
+
+CenteredText.validate = createValidate(conditions);
+export default CenteredText;

@@ -1,6 +1,7 @@
+import Inferno from 'inferno';
 import isNil from 'lodash/fp/isNil';
 import {checker, createValidate} from '../../util/validation';
-import createSsMenuList from '../ssmenu-list';
+import SsMenuList from '../ssmenu-list';
 import style from './style.css';
 
 const conditions = checker.shape({
@@ -16,56 +17,51 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-export default (treant, options = {}) => {
-  const {h} = treant;
-  const SsMenuList = createSsMenuList(treant, options);
+const MenuList = ({children, ...props}) => {
+  const {menuItems = []} = props;
 
-  const MenuList = (props, children) => {
-    const {menuItems = []} = props;
+  const MenuitemDiv = menuItems.map(item => {
+    const {title, href, type, subItems} = item;
 
-    const MenuitemDiv = menuItems.map(item => {
-      const {title, href, type, subItems} = item;
-
-      const subItemsView = !isNil(subItems) && (
-        <div className={style.subNav}>
-          <SsMenuList
-            items={item.subItems}
-          />
-        </div>
-      );
-
-      return (
-        <li className={type ? style[type] : style.item}>
-          <a
-            href={href}
-          >
-            {title}
-          </a>
-          {subItemsView}
-        </li>
-      );
-    });
-
-    return (
-      <div className={style.menu}>
-        <input
-          type='checkbox'
-          id='toggle'
-          className={style.toggleBox}
+    const subItemsView = !isNil(subItems) && (
+      <div className={style.subNav}>
+        <SsMenuList
+          items={item.subItems}
         />
-        <label
-          htmlFor='toggle'
-          className={style.toggler}
-        >
-          ≡
-        </label>
-        <ul className={style.list}>
-          {MenuitemDiv}
-        </ul>
       </div>
     );
-  };
 
-  MenuList.validate = createValidate(conditions);
-  return MenuList;
+    return (
+      <li className={type ? style[type] : style.item}>
+        <a
+          href={href}
+        >
+          {title}
+        </a>
+        {subItemsView}
+      </li>
+    );
+  });
+
+  return (
+    <div className={style.menu}>
+      <input
+        type='checkbox'
+        id='toggle'
+        className={style.toggleBox}
+      />
+      <label
+        htmlFor='toggle'
+        className={style.toggler}
+      >
+        ≡
+      </label>
+      <ul className={style.list}>
+        {MenuitemDiv}
+      </ul>
+    </div>
+  );
 };
+
+MenuList.validate = createValidate(conditions);
+export default MenuList;

@@ -1,14 +1,14 @@
+import Inferno from 'inferno';
 import fromPairs from 'lodash/fp/fromPairs';
 import get from 'lodash/fp/get';
 import head from 'lodash/fp/head';
-import isString from 'lodash/fp/isString';
 import keys from 'lodash/fp/keys';
 import map from 'lodash/fp/map';
 import noop from 'lodash/fp/noop';
 import pipe from 'lodash/fp/pipe';
 import toPairs from 'lodash/fp/toPairs';
 import Route from 'path-match';
-import createSelect from './select';
+import Select from './select';
 import {header} from './style.css';
 
 const route = Route();
@@ -44,90 +44,71 @@ const extractFromPath = (pathname, componentMap, fixturesMap) => {
   };
 };
 
-const buildComponent = (treant, options) => (factory, {props, children} = {}) => {
-  const {h} = treant;
-  const Component = factory(treant, options);
+export default ({children, ...props}) => {
+  const {
+    onSelectComponent = noop,
+    onSelectFixture = noop,
+    components,
+    fixtures,
+    location: {pathname = ''} = {}
+  } = props;
+
+  const {
+    folder,
+    component,
+    fixture
+  } = extractFromPath(pathname, components, fixtures);
+
+  const ComponentSelected = get([folder, component], components);
+  const fixtureSelected = get([folder, component, fixture], fixtures);
+
+  const componentOptions = pipe(
+    toPairs,
+    map(([folderName, _folder]) => ([
+      folderName,
+      pipe(
+        toPairs,
+        map(([componentName, factory]) => ({
+          value: `/${folderName}/${componentName}`,
+          selected: factory === ComponentSelected,
+          label: componentName
+        }))
+      )(_folder)
+    ])),
+    fromPairs
+  )(components);
+
+  const fixtureOptions = pipe(
+    get([folder, component]),
+    toPairs,
+    map(([_name, _fixture]) => ({
+      value: `/${folder}/${component}/${_name}`,
+      selected: _fixture === fixtureSelected,
+      label: _name
+    }))
+  )(fixtures);
+
+  console.log({componentOptions, fixtureOptions});
+
   return (
-    <Component {...props}>
-      {map(
-        child => {
-          if (isString(child)) return child;
-          return child(treant, options);
-        },
-        children
-      )}
-    </Component>
-  );
-};
-
-export default (treant, options) => {
-  const {h} = treant;
-  const Select = createSelect(treant);
-
-  return (props, children) => {
-    const {
-      onSelectComponent = noop,
-      onSelectFixture = noop,
-      components,
-      fixtures,
-      location: {pathname = ''} = {}
-    } = props;
-
-    const {
-      folder,
-      component,
-      fixture
-    } = extractFromPath(pathname, components, fixtures);
-
-    const componentSelected = get([folder, component], components);
-    const fixtureSelected = get([folder, component, fixture], fixtures);
-
-    const componentOptions = pipe(
-      toPairs,
-      map(([folderName, _folder]) => ([
-        folderName,
-        pipe(
-          toPairs,
-          map(([componentName, factory]) => ({
-            value: `/${folderName}/${componentName}`,
-            selected: factory === componentSelected,
-            label: componentName
-          }))
-        )(_folder)
-      ])),
-      fromPairs
-    )(components);
-
-    const fixtureOptions = pipe(
-      get([folder, component]),
-      toPairs,
-      map(([_name, _fixture]) => ({
-        value: `/${folder}/${component}/${_name}`,
-        selected: _fixture === fixtureSelected,
-        label: _name
-      }))
-    )(fixtures);
-
-    return (
-      <div>
-        <div
-          className={header}
-        >
-          <Select
-            options={componentOptions}
-            onChange={value => onSelectComponent(value)}
-          />
-          <Select
-            options={fixtureOptions}
-            onChange={value => onSelectFixture(value)}
-          />
-        </div>
-        <div>
-          {
-            buildComponent(treant, options)(componentSelected, fixtureSelected)
-          }
-        </div>
+    <div>
+      <div
+        className={header}
+      >
+        <Select
+          options={componentOptions}
+          onChange={value => onSelectComponent(value)}
+        />
+        <Select
+          options={fixtureOptions}
+          onChange={value => onSelectFixture(value)}
+        />
       </div>
-    );
-  };
+      <div>
+        <ComponentSelected {...fixtureSelected.props}>
+          {fixtureSelected.children}
+        </ComponentSelected>
+      </div>
+    </div>
+  );
 };

@@ -1,3 +1,4 @@
+import Inferno from 'inferno';
 import {checker, createValidate} from '../../util/validation';
 
 const conditions = checker.shape({
@@ -5,14 +6,13 @@ const conditions = checker.shape({
   children: checker.oneOrMore
 });
 
-export default (treant, options) => {
-  const {h} = treant;
-  const Title = (props, children) => (
+const Title = ({children, ...props}) => {
+  return (
     <h1>
       {children}
     </h1>
   );
-
-  Title.validate = createValidate(conditions);
-  return Title;
 };
+
+Title.validate = createValidate(conditions);
+export default Title;

@@ -1,3 +1,4 @@
+import Inferno from 'inferno';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import {checker, createValidate} from '../../util/validation';
@@ -41,43 +42,39 @@ const selectInline = (theme, skin) => {
   return inline[theme];
 };
 
-export default (treant, options = {}) => {
-  const {h} = treant;
-  const {skin} = options;
+const SelectBox = ({children, ...props}, {skin}) => {
   const code = getOr('', 'icons.select', skin);
   const iconCode = String.fromCharCode(code);
-  const SelectBox = (props, children) => {
-    const {list, onChange, enabled = true} = props;
-    const theme = enabled ? (props.theme || 'default') : 'disabled';
-    const selectOptions = list.map(item => (
-      <option
-        className={style.option}
-        value={item.value}
-        selected={item.selected}
-      >
-        {item.name}
-      </option>
-    ));
+  const {list, onChange, enabled = true} = props;
+  const theme = enabled ? (props.theme || 'default') : 'disabled';
+  const selectOptions = list.map(item => (
+    <option
+      className={style.option}
+      value={item.value}
+      selected={item.selected}
+    >
+      {item.name}
+    </option>
+  ));
 
-    return (
-      <span
-        className={style[theme]}
-        style={spanInline(theme, skin)}
-        attributes={{
-          'data-icon': iconCode
-        }}
+  return (
+    <span
+      className={style[theme]}
+      style={spanInline(theme, skin)}
+      attributes={{
+        'data-icon': iconCode
+      }}
+    >
+      <select
+        disabled={!enabled || undefined}
+        onChange={onChange}
+        style={selectInline(theme, skin)}
       >
-        <select
-          disabled={!enabled || undefined}
-          onChange={onChange}
-          style={selectInline(theme, skin)}
-        >
-          {selectOptions}
-        </select>
-      </span>
-    );
-  };
-
-  SelectBox.validate = createValidate(conditions);
-  return SelectBox;
+        {selectOptions}
+      </select>
+    </span>
+  );
 };
+
+SelectBox.validate = createValidate(conditions);
+export default SelectBox;

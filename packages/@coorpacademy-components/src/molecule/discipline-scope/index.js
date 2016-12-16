@@ -1,6 +1,7 @@
+import Inferno from 'inferno';
 import {checker, createValidate} from '../../util/validation';
-import createScopeTabs from '../scope-tabs';
-import createScopeContent from '../scope-content';
+import ScopeTabs from '../scope-tabs';
+import ScopeContent from '../scope-content';
 import style from './style.css';
 
 const conditions = checker.shape({
@@ -13,28 +14,22 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-export default (treant, options = {}) => {
-  const ScopeTabs = createScopeTabs(treant, options);
-  const ScopeContent = createScopeContent(treant, options);
+const DisciplineScope = ({children, ...props}) => {
+  const {onClick, selected = 0, content, levels = []} = props;
 
-  const DisciplineScope = (props, children) => {
-    const {h} = treant;
-    const {onClick, selected = 0, content, levels = []} = props;
-
-    return (
-      <div className={style.scope}>
-        <ScopeTabs
-          onClick={onClick}
-          selected={selected}
-          levels={levels}
-        />
-        <ScopeContent
-          content={content}
-        />
-      </div>
-    );
-  };
-
-  DisciplineScope.validate = createValidate(conditions);
-  return DisciplineScope;
+  return (
+    <div className={style.scope}>
+      <ScopeTabs
+        onClick={onClick}
+        selected={selected}
+        levels={levels}
+      />
+      <ScopeContent
+        content={content}
+      />
+    </div>
+  );
 };
+
+DisciplineScope.validate = createValidate(conditions);
+export default DisciplineScope;

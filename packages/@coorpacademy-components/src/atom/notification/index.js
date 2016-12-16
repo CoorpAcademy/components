@@ -1,3 +1,4 @@
+import Inferno from 'inferno';
 import {checker, createValidate} from '../../util/validation';
 import style from './style.css';
 
@@ -10,24 +11,20 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-export default (treant, options = {}) => {
-  const {h} = treant;
+const NotificationComponent = ({children, ...props}) => {
+  const {
+    type,
+    message
+  } = props;
 
-  const NotificationComponent = (props, children) => {
-    const {
-      type,
-      message
-    } = props;
+  const className = type ? style[type] : style.message;
 
-    const className = type ? style[type] : style.message;
-
-    return (
-      <div className={className}>
-        <span>!</span>{message}
-      </div>
-    );
-  };
-
-  NotificationComponent.validate = createValidate(conditions);
-  return NotificationComponent;
+  return (
+    <div className={className}>
+      <span>!</span>{message}
+    </div>
+  );
 };
+
+NotificationComponent.validate = createValidate(conditions);
+export default NotificationComponent;

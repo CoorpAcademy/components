@@ -1,8 +1,9 @@
+import Inferno from 'inferno';
 import {checker, createValidate} from '../../../util/validation';
-import createGridList from '../../../organism/grid-list';
-import createBrandCard from '../../../molecule/brand-card';
-import createBrandCardCreate from '../../../molecule/brand-card-create';
-import createLayout from '../layout';
+import GridList from '../../../organism/grid-list';
+import BrandCard from '../../../molecule/brand-card';
+import BrandCardCreate from '../../../molecule/brand-card-create';
+import Layout from '../layout';
 import style from './style.css';
 
 const conditions = checker.shape({
@@ -23,47 +24,38 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-export default (treant, options = {}) => {
-  const {h} = treant;
+const BrandList = Layout((props, children) => {
+  const {
+    brands,
+    create
+  } = props;
 
-  const GridList = createGridList(treant, options);
-  const BrandCard = createBrandCard(treant, options);
-  const BrandCardCreate = createBrandCardCreate(treant, options);
-  const Layout = createLayout(treant, options);
-
-  const BrandList = Layout((props, children) => {
-    const {
-      brands,
-      create
-    } = props;
-
-    const brandCards = brands.map(brand => {
-      return (
-        <div className={style.brand}>
-          <BrandCard {...brand}/>
-        </div>
-      );
-    });
-
-    if (create) {
-      brandCards.push(
-        <div className={style.brand}>
-          <BrandCardCreate {...create} />
-        </div>
-      );
-    }
-
+  const brandCards = brands.map(brand => {
     return (
-      <div className={style.container}>
-        <div className={style.wrapper}>
-          <GridList>
-            {brandCards}
-          </GridList>
-        </div>
+      <div className={style.brand}>
+        <BrandCard {...brand}/>
       </div>
     );
   });
 
-  BrandList.validate = createValidate(conditions);
-  return BrandList;
-};
+  if (create) {
+    brandCards.push(
+      <div className={style.brand}>
+        <BrandCardCreate {...create} />
+      </div>
+    );
+  }
+
+  return (
+    <div className={style.container}>
+      <div className={style.wrapper}>
+        <GridList>
+          {brandCards}
+        </GridList>
+      </div>
+    </div>
+  );
+});
+
+BrandList.validate = createValidate(conditions);
+export default BrandList;

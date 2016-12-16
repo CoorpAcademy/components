@@ -1,8 +1,10 @@
+import Inferno from 'inferno';
 import get from 'lodash/fp/get';
+import getOr from 'lodash/fp/getOr';
 import identity from 'lodash/fp/identity';
 import getOr from 'lodash/fp/getOr';
 import {checker, createValidate} from '../../util/validation';
-import createLink from '../../atom/link';
+import Link from '../../atom/link';
 import style from './style.css';
 
 const conditions = checker.shape({
@@ -14,47 +16,42 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-export default (treant, options = {}) => {
-  const Link = createLink(treant, options);
-  const {h} = treant;
-  const {skin, translate = identity} = options;
+const Hero = ({children, ...props}, {translate, skin}) => {
   const bg = get('images.hero', skin);
+  const {url, title, touch = false} = props;
+  const text = translate(title);
+  const backgroundImage = bg ? `url(${bg})` : '';
+  const ctaClass = touch ? 'ctaTouch' : 'ctaNoTouch';
 
-  const Hero = (props, children) => {
-    const {url, title, touch = false} = props;
-    const text = translate(title);
-    const backgroundImage = bg ? `url(${bg})` : '';
-    const ctaClass = touch ? 'ctaTouch' : 'ctaNoTouch';
-    return (
-      <div
-        className={style.hero}
-        style={{
-          backgroundImage
-        }}
-      >
-        <Link
-          href={url}
-          className={style[ctaClass]}>
-          <div
-            className={style.label}
+  return (
+    <div
+      className={style.hero}
+      style={{
+        backgroundImage
+      }}
+    >
+      <Link
+        href={url}
+        className={style[ctaClass]}>
+        <div
+          className={style.label}
+          style={{
+            color: getOr('#00b0ff', 'common.primary', skin)
+          }}
+        >
+          {text}
+          <span
+            className={style.bar}
             style={{
-              color: getOr('#00b0ff', 'common.primary', skin)
+              backgroundColor: getOr('#00b0ff', 'common.primary', skin)
             }}
-          >
-            {text}
-            <span
-              className={style.bar}
-              style={{
-                backgroundColor: getOr('#00b0ff', 'common.primary', skin)
-              }}
-              >
-              </span>
-          </div>
-        </Link>
-      </div>
-    );
-  };
-
-  Hero.validate = createValidate(conditions);
-  return Hero;
+            >
+            </span>
+        </div>
+      </Link>
+    </div>
+  );
 };
+
+Hero.validate = createValidate(conditions);
+export default Hero;

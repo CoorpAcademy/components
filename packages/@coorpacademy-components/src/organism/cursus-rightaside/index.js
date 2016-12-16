@@ -1,7 +1,8 @@
+import Inferno from 'inferno';
 import identity from 'lodash/fp/identity';
 import {checker, createValidate} from '../../util/validation';
-import createCatalogCTA from '../../molecule/catalog-cta';
-import createPicture from '../../atom/picture';
+import CatalogCTA from '../../molecule/catalog-cta';
+import Picture from '../../atom/picture';
 import style from './style.css';
 
 const conditions = checker.shape({
@@ -16,54 +17,46 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-export default (treant, options = {}) => {
-  const {h} = treant;
-  const {translate = identity} = options;
-  const CatalogCTA = createCatalogCTA(treant, options);
-  const Picture = createPicture(treant, options);
-
+const CursusRightaside = ({children, ...props}, {translate}) => {
   const certificationLabel = translate('certification');
   const assetsLabel = translate('assets');
+  const {rating, maxRating, linkBuy, linkTry, badge, assets = []} = props;
 
-  const CursusRightaside = (props, children) => {
-    const {rating, maxRating, linkBuy, linkTry, badge, assets = []} = props;
+  const assetsView = assets.map(asset => (
+    <li className={style.asset}>{asset}</li>
+  ));
 
-    const assetsView = assets.map(asset => (
-      <li className={style.asset}>{asset}</li>
-    ));
-
-    return (
-      <div className={style.col}>
-        <div className={style.ctaWrapper}>
-          <CatalogCTA
-            rating={rating}
-            maxRating={maxRating}
-            linkBuy={linkBuy}
-            linkTry={linkTry}
-          />
-        </div>
-
-        <div className={style.colDetails}>
-          <div className={style.detailTitle}>
-            {certificationLabel}
-          </div>
-          <Picture
-            src={badge}
-          />
-        </div>
-
-        <div className={style.colDetails}>
-          <div className={style.detailTitle}>
-            {assetsLabel}
-          </div>
-          <ul className={style.assets}>
-            {assetsView}
-          </ul>
-        </div>
+  return (
+    <div className={style.col}>
+      <div className={style.ctaWrapper}>
+        <CatalogCTA
+          rating={rating}
+          maxRating={maxRating}
+          linkBuy={linkBuy}
+          linkTry={linkTry}
+        />
       </div>
-    );
-  };
 
-  CursusRightaside.validate = createValidate(conditions);
-  return CursusRightaside;
+      <div className={style.colDetails}>
+        <div className={style.detailTitle}>
+          {certificationLabel}
+        </div>
+        <Picture
+          src={badge}
+        />
+      </div>
+
+      <div className={style.colDetails}>
+        <div className={style.detailTitle}>
+          {assetsLabel}
+        </div>
+        <ul className={style.assets}>
+          {assetsView}
+        </ul>
+      </div>
+    </div>
+  );
 };
+
+CursusRightaside.validate = createValidate(conditions);
+export default CursusRightaside;

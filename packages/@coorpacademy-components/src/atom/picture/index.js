@@ -1,3 +1,4 @@
+import Inferno from 'inferno';
 import pipe from 'lodash/fp/pipe';
 import map from 'lodash/fp/map';
 import get from 'lodash/fp/get';
@@ -31,23 +32,21 @@ const toSrcSet = ({src}) => {
   )({});
 };
 
-export default ({h}, options = {}) => {
-  const Picture = (props = {}) => {
-    if (isNil(props.src)) {
-      return <div
-        className={style.empty}
-      />;
-    }
+const Picture = ({children, ...props}) => {
+  if (isNil(props.src)) {
+    return <div
+      className={style.empty}
+    />;
+  }
 
-    return (
-      <img
-        alt=''
-        {...props}
-        {...toSrcSet(props)}
-      />
-    );
-  };
-
-  Picture.validate = createValidate(conditions);
-  return Picture;
+  return (
+    <img
+      alt=''
+      {...props}
+      {...toSrcSet(props)}
+    />
+  );
 };
+
+Picture.validate = createValidate(conditions);
+export default Picture;

@@ -1,5 +1,6 @@
+import Inferno from 'inferno';
 import {checker, createValidate} from '../../util/validation';
-import createPicture from '../../atom/picture';
+import Picture from '../../atom/picture';
 import style from './style.css';
 
 const conditions = checker.shape({
@@ -11,36 +12,31 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-export default (treant, options = {}) => {
-  const Picture = createPicture(treant, options);
+const CursusHeader = ({children, ...props}) => {
+  const {image, title, description} = props;
 
-  const CursusHeader = (props, children) => {
-    const {h} = treant;
-    const {image, title, description} = props;
+  const imageView = image && (
+    <Picture
+      src={image}
+    />
+  );
 
-    const imageView = image && (
-      <Picture
-        src={image}
-      />
-    );
-
-    return (
-      <div>
-        <div className={style.imgWrapper}>
-          {imageView}
-          <div className={style.title}>
-            {title}
-          </div>
-        </div>
-        <div className={style.courseWrapper}>
-            <div className={style.desc}>
-              {description}
-            </div>
+  return (
+    <div>
+      <div className={style.imgWrapper}>
+        {imageView}
+        <div className={style.title}>
+          {title}
         </div>
       </div>
-    );
-  };
-
-  CursusHeader.validate = createValidate(conditions);
-  return CursusHeader;
+      <div className={style.courseWrapper}>
+          <div className={style.desc}>
+            {description}
+          </div>
+      </div>
+    </div>
+  );
 };
+
+CursusHeader.validate = createValidate(conditions);
+export default CursusHeader;

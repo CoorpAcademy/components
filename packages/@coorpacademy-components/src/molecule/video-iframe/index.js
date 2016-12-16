@@ -1,5 +1,6 @@
+import Inferno from 'inferno';
 import {checker, createValidate} from '../../util/validation';
-import createPicture from '../../atom/picture';
+import Picture from '../../atom/picture';
 import style from './style.css';
 
 const VIMEO = 'vimeo';
@@ -28,41 +29,36 @@ const url = (type, id) => {
   }
 };
 
-export default (treant, options = {}) => {
-  const Picture = createPicture(treant, options);
+const VideoIframe = ({children, ...props}) => {
+  const {
+    type,
+    id,
+    image,
+    width = '100%',
+    height = '400px'
+  } = props;
 
-  const VideoIframe = (props, children) => {
-    const {h} = treant;
-    const {
-      type,
-      id,
-      image,
-      width = '100%',
-      height = '400px'
-    } = props;
-
-    if (id) {
-      return (
-        <iframe src={url(type, id)}
-              width={width}
-              height={height}
-              frameborder={0}
-              className={style.iframe}
-              allowfullscreen={true}
-        >
-        </iframe>
-      );
-    }
-    else {
-      return (
-        <Picture
-          className={style.image}
-          src={image}
-        />
-      );
-    }
-  };
-
-  VideoIframe.validate = createValidate(conditions);
-  return VideoIframe;
+  if (id) {
+    return (
+      <iframe src={url(type, id)}
+            width={width}
+            height={height}
+            frameborder={0}
+            className={style.iframe}
+            allowfullscreen={true}
+      >
+      </iframe>
+    );
+  }
+  else {
+    return (
+      <Picture
+        className={style.image}
+        src={image}
+      />
+    );
+  }
 };
+
+VideoIframe.validate = createValidate(conditions);
+export default VideoIframe;

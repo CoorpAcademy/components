@@ -1,10 +1,8 @@
-const content = (treant, options) => {
-  return 'link';
-};
+import Inferno from 'inferno';
 
 export default {
   props: {
     href: '#'
   },
-  children: [content]
+  children: ['link']
 };

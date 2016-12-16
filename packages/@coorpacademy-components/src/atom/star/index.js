@@ -1,3 +1,4 @@
+import Inferno from 'inferno';
 import {checker, createValidate} from '../../util/validation';
 import style from './style.css';
 
@@ -8,17 +9,13 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-export default (treant, options) => {
-  const {h} = treant;
+const Star = ({children, ...props}) => {
+  const state = props.popular ? style.popular : style.default;
 
-  const Star = (props, children) => {
-    const state = props.popular ? style.popular : style.default;
-
-    return (
-      <span className={state}>★</span>
-    );
-  };
-
-  Star.validate = createValidate(conditions);
-  return Star;
+  return (
+    <span className={state}>★</span>
+  );
 };
+
+Star.validate = createValidate(conditions);
+export default Star;

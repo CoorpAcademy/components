@@ -1,8 +1,9 @@
+import Inferno from 'inferno';
 import {checker, createValidate} from '../../util/validation';
-import createForumComment from '../../molecule/forum/forum-comment';
-import createForumThread from '../../molecule/forum/forum-thread';
+import ForumComment from '../../molecule/forum/forum-comment';
+import ForumThread from '../../molecule/forum/forum-thread';
 import postConditions from '../../molecule/forum/post-conditions';
-import createLoader from '../../atom/loader';
+import Loader from '../../atom/loader';
 import style from './style.css';
 
 const conditions = checker.shape({
@@ -19,57 +20,50 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-export default (treant, options = {}) => {
-  const {h} = treant;
-  const Thread = createForumThread(treant, options);
-  const ForumComment = createForumComment(treant, options);
-  const Loader = createLoader(treant, options);
+const Discussion = ({children, ...props}) => {
+  const {
+    threads,
+    title,
+    avatar,
+    value,
+    loading,
+    onPost,
+    onChange,
+    hideComments,
+    textareaDisabled,
+    postDisabled
+  } = props;
 
-  const Discussion = (props, children) => {
-    const {
-      threads,
-      title,
-      avatar,
-      value,
-      loading,
-      onPost,
-      onChange,
-      hideComments,
-      textareaDisabled,
-      postDisabled
-    } = props;
+  const threadsView = threads && threads.map(thread => (
+    <ForumThread {...thread}/>
+  ));
 
-    const threadsView = threads && threads.map(thread => (
-      <Thread {...thread}/>
-    ));
+  const commentView = !hideComments && (
+    <ForumComment
+      avatar={avatar}
+      value={value}
+      onPost={onPost}
+      onChange={onChange}
+      textareaDisabled={textareaDisabled}
+      postDisabled={postDisabled}
+    />
+  );
 
-    const commentView = !hideComments && (
-      <ForumComment
-        avatar={avatar}
-        value={value}
-        onPost={onPost}
-        onChange={onChange}
-        textareaDisabled={textareaDisabled}
-        postDisabled={postDisabled}
-      />
-    );
+  const loader = loading && (
+    <div className={style.loader}>
+      <Loader/>
+    </div>
+  );
 
-    const loader = loading && (
-      <div className={style.loader}>
-        <Loader/>
-      </div>
-    );
-
-    return (
-      <div className={style.thread}>
-        <h1>{title}</h1>
-        {commentView}
-        {threadsView}
-        {loader}
-      </div>
-    );
-  };
-
-  Discussion.validate = createValidate(conditions);
-  return Discussion;
+  return (
+    <div className={style.thread}>
+      <h1>{title}</h1>
+      {commentView}
+      {threadsView}
+      {loader}
+    </div>
+  );
 };
+
+Discussion.validate = createValidate(conditions);
+export default Discussion;

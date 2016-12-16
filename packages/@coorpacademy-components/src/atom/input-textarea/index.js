@@ -1,3 +1,4 @@
+import Inferno from 'inferno';
 import noop from 'lodash/fp/noop';
 import {checker, createValidate} from '../../util/validation';
 import style from './style.css';
@@ -15,41 +16,37 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-export default (treant, options) => {
-  const {h} = treant;
+const InputTextarea = ({children, ...props}) => {
+  const {
+    title,
+    placeholder,
+    value,
+    onChange = noop,
+    error,
+    description
+  } = props;
 
-  const InputTextarea = (props, children) => {
-    const {
-      title,
-      placeholder,
-      value,
-      onChange = noop,
-      error,
-      description
-    } = props;
+  const className = error ? style.error : style.default;
 
-    const className = error ? style.error : style.default;
-
-    return (
-      <div className={className}>
-        <label>
-          <span className={style.title}>{`${title} `}</span>
-          <textarea
-            resize='none'
-            name={title}
-            placeholder={placeholder}
-            onInput={e => onChange(e.target.value)}
-          >
-            {value}
-          </textarea>
-        </label>
-        <div className={style.description}>
-          {description}
-        </div>
+  return (
+    <div className={className}>
+      <label>
+        <span className={style.title}>{`${title} `}</span>
+        <textarea
+          resize='none'
+          name={title}
+          placeholder={placeholder}
+          onInput={e => onChange(e.target.value)}
+        >
+          {value}
+        </textarea>
+      </label>
+      <div className={style.description}>
+        {description}
       </div>
-    );
-  };
-
-  InputTextarea.validate = createValidate(conditions);
-  return InputTextarea;
+    </div>
+  );
 };
+
+InputTextarea.validate = createValidate(conditions);
+export default InputTextarea;

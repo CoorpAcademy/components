@@ -1,3 +1,4 @@
+import Inferno from 'inferno';
 import {checker, createValidate} from '../../util/validation';
 import style from './style.css';
 
@@ -10,31 +11,27 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-export default (treant, options) => {
-  const {h} = treant;
+const InputReadonly = ({children, ...props}) => {
+  const {
+    title,
+    value,
+    description
+  } = props;
 
-  const InputReadonly = (props, children) => {
-    const {
-      title,
-      value,
-      description
-    } = props;
-
-    return (
-      <div className={style.wrapper}>
-        <div className={style.title}>
-          {title}
-        </div>
-        <div className={style.value}>
-          {value}
-        </div>
-        <div className={style.description}>
-          {description}
-        </div>
+  return (
+    <div className={style.wrapper}>
+      <div className={style.title}>
+        {title}
       </div>
-    );
-  };
-
-  InputReadonly.validate = createValidate(conditions);
-  return InputReadonly;
+      <div className={style.value}>
+        {value}
+      </div>
+      <div className={style.description}>
+        {description}
+      </div>
+    </div>
+  );
 };
+
+InputReadonly.validate = createValidate(conditions);
+export default InputReadonly;

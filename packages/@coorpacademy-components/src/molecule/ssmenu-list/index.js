@@ -1,3 +1,4 @@
+import Inferno from 'inferno';
 import {checker, createValidate} from '../../util/validation';
 import style from './style.css';
 
@@ -13,27 +14,24 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-export default (treant, options = {}) => {
-  const {h} = treant;
+const SsMenuList = ({children, ...props}) => {
+  const {items = []} = props;
+  const itemsView = items.map(({title, href}) => (
+    <li className={style.item}>
+      <a
+        href={href}
+      >
+        {title}
+      </a>
+    </li>
+  ));
 
-  const SsMenuList = ({items = []}, children) => {
-    const itemsView = items.map(({title, href}) => (
-      <li className={style.item}>
-        <a
-          href={href}
-        >
-          {title}
-        </a>
-      </li>
-    ));
-
-    return (
-        <ul className={style.list}>
-          {itemsView}
-        </ul>
-    );
-  };
-
-  SsMenuList.validate = createValidate(conditions);
-  return SsMenuList;
+  return (
+      <ul className={style.list}>
+        {itemsView}
+      </ul>
+  );
 };
+
+SsMenuList.validate = createValidate(conditions);
+export default SsMenuList;

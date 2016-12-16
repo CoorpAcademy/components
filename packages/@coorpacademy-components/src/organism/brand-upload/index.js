@@ -1,8 +1,9 @@
+import Inferno from 'inferno';
 import {checker, createValidate} from '../../util/validation';
-import createProgressBar from '../../molecule/progress-bar';
-import createUploadBox from '../../molecule/brand-upload-box';
-import createDownloadBox from '../../molecule/brand-download-box';
-import createLink from '../../atom/link';
+import ProgressBar from '../../molecule/progress-bar';
+import UploadBox from '../../molecule/brand-upload-box';
+import DownloadBox from '../../molecule/brand-download-box';
+import Link from '../../atom/link';
 import style from './style.css';
 
 const conditions = checker.shape({
@@ -28,57 +29,49 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-export default (treant, options = {}) => {
-  const {h} = treant;
-  const DownloadBox = createDownloadBox(treant, options);
-  const ProgressBar = createProgressBar(treant, options);
-  const UploadBox = createUploadBox(treant, options);
-  const Link = createLink(treant, options);
+const BrandUpload = ({children, ...props}) => {
+  const {
+    title = '',
+    back,
+    download,
+    upload,
+    progress,
+    notifications
+  } = props;
 
-  const BrandUpload = (props, children) => {
-    const {
-      title = '',
-      back,
-      download,
-      upload,
-      progress,
-      notifications
-    } = props;
+  const notificationsItems = notifications.map(notif => (
+    <div className={style[notif.type]}>
+      <span>{notif.message}</span>
+    </div>
+  ));
 
-    const notificationsItems = notifications.map(notif => (
-      <div className={style[notif.type]}>
-        <span>{notif.message}</span>
+  const backView = back && (
+    <p className={style.back}>
+      <i className={style.arrowBack}/>
+      <Link
+        href={back.link}
+        className={style.backDesc}
+      >
+        {back.desc}
+      </Link>
+    </p>
+  );
+
+  return (
+    <div className={style.wrapper}>
+      {backView}
+      <div className={style.title}>
+        <h3>{title}</h3>
       </div>
-    ));
-
-    const backView = back && (
-      <p className={style.back}>
-        <i className={style.arrowBack}/>
-        <Link
-          href={back.link}
-          className={style.backDesc}
-        >
-          {back.desc}
-        </Link>
-      </p>
-    );
-
-    return (
-      <div className={style.wrapper}>
-        {backView}
-        <div className={style.title}>
-          <h3>{title}</h3>
-        </div>
-        {download && <DownloadBox {...download}/>}
-        <UploadBox {...upload}/>
-        {progress && <ProgressBar {...progress} className={style.progress}/>}
-        <ul className={style.notifications}>
-          {notificationsItems}
-        </ul>
-      </div>
-    );
-  };
-
-  BrandUpload.validate = createValidate(conditions);
-  return BrandUpload;
+      {download && <DownloadBox {...download}/>}
+      <UploadBox {...upload}/>
+      {progress && <ProgressBar {...progress} className={style.progress}/>}
+      <ul className={style.notifications}>
+        {notificationsItems}
+      </ul>
+    </div>
+  );
 };
+
+BrandUpload.validate = createValidate(conditions);
+export default BrandUpload;

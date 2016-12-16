@@ -1,3 +1,4 @@
+import Inferno from 'inferno';
 import {checker, createValidate} from '../../util/validation';
 import style from './style.css';
 
@@ -6,15 +7,13 @@ const conditions = checker.shape({
   children: checker.oneOrMore
 });
 
-export default (treant, options) => {
-  const {h} = treant;
-
-  const Label = (props, children) => (
+const Label = ({children, ...props}) => {
+  return (
     <span className={style.default}>
       {children}
     </span>
   );
-
-  Label.validate = createValidate(conditions);
-  return Label;
 };
+
+Label.validate = createValidate(conditions);
+export default Label;

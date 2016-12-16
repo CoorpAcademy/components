@@ -1,7 +1,7 @@
 {
   "presets": ["stage-1"],
   "plugins": [
-    ["transform-h-jsx", { "pragma": "h" }]
+    ["inferno"]
   ],
   "env": {
     "commonjs": {

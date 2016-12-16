@@ -1,19 +1,20 @@
-import createHeader from './components/header';
+import Inferno from 'inferno';
+import Header from './components/header';
+import Provider from './components/provider';
 import './style.css';
 
-export default (treant, options = {}) => {
-  const {h} = treant;
-  const {history} = options;
-  const Header = createHeader(treant, options);
 
-  const onNavigate = href => history.push(href);
-  return ({components, fixtures, location}, children) => (
-    <Header
-      onSelectComponent={onNavigate}
-      onSelectFixture={onNavigate}
-      components={components}
-      fixtures={fixtures}
-      location={location}
-    />
+export default function App({components, fixtures, location, options} = {}) {
+  const onNavigate = href => options.history.push(href);
+  return (
+    <Provider {...options}>
+      <Header
+        onSelectComponent={onNavigate}
+        onSelectFixture={onNavigate}
+        components={components}
+        fixtures={fixtures}
+        location={location}
+      />
+    </Provider>
   );
-};
+}

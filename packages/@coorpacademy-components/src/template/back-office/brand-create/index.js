@@ -1,8 +1,9 @@
+import Inferno from 'inferno';
 import map from 'lodash/fp/map';
 import {checker, createValidate} from '../../../util/validation';
-import createBrandCreateForm from '../../../molecule/brand-create-form';
-import createNotification from '../../../atom/notification';
-import createLayout from '../layout';
+import BrandCreateForm from '../../../molecule/brand-create-form';
+import Notification from '../../../atom/notification';
+import Layout from '../layout';
 import style from './style.css';
 
 const conditions = checker.shape({
@@ -30,38 +31,30 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-export default (treant, options = {}) => {
-  const {h} = treant;
+const BrandCreate = Layout((props, children) => {
+  const {
+    notifications = []
+  } = props;
 
-  const BrandCreateForm = createBrandCreateForm(treant, options);
-  const NotificationComponent = createNotification(treant, options);
-  const Layout = createLayout(treant, options);
-
-  const BrandCreate = Layout((props, children) => {
-    const {
-      notifications = []
-    } = props;
-
-    const notificationsList = map(notification => {
-      return (
-        <div className={style.notification}>
-          <NotificationComponent {...notification} />
-        </div>
-      );
-    }, notifications);
-
+  const notificationsList = map(notification => {
     return (
-      <div className={style.container}>
-        <div className={style.wrapper}>
-        <div className={notifications.length > 0 ? style.notifications : style.empty}>
-          {notificationsList}
-        </div>
-          <BrandCreateForm {...props} />
-        </div>
+      <div className={style.notification}>
+        <Notification {...notification} />
       </div>
     );
-  });
+  }, notifications);
 
-  BrandCreate.validate = createValidate(conditions);
-  return BrandCreate;
-};
+  return (
+    <div className={style.container}>
+      <div className={style.wrapper}>
+      <div className={notifications.length > 0 ? style.notifications : style.empty}>
+        {notificationsList}
+      </div>
+        <BrandCreateForm {...props} />
+      </div>
+    </div>
+  );
+});
+
+BrandCreate.validate = createValidate(conditions);
+export default BrandCreate;

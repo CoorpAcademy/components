@@ -1,9 +1,10 @@
+import Inferno from 'inferno';
 import {checker, createValidate} from '../../util/validation';
-import createTable from '../../molecule/table';
-import createPagination from '../../molecule/pagination';
-import createSearch from '../../molecule/search';
-import createLoader from '../../atom/loader';
-import createLink from '../../atom/link';
+import Table from '../../molecule/table';
+import Pagination from '../../molecule/pagination';
+import Search from '../../molecule/search';
+import Loader from '../../atom/loader';
+import Link from '../../atom/link';
 import style from './style.css';
 
 const conditions = checker.shape({
@@ -32,62 +33,52 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-export default (treant, options = {}) => {
-  const {h} = treant;
+const BrandTable = ({children, ...props}) => {
+  const {
+    createHref,
+    pagination,
+    search,
+    rows = [],
+    columns = [],
+    isPending,
+    emptyValue
+  } = props;
 
-  const Table = createTable(treant, options);
-  const Pagination = createPagination(treant, options);
-  const Search = createSearch(treant, options);
-  const Loader = createLoader(treant, options);
-  const Link = createLink(treant, options);
+  const pendingView = (
+    <div className={style.loading}>
+      <Loader/>
+    </div>
+  );
 
-  const BrandTable = (props, children) => {
-    const {
-      createHref,
-      pagination,
-      search,
-      rows = [],
-      columns = [],
-      isPending,
-      emptyValue
-    } = props;
+  const tableView = rows.length > 0 ? (
+    <Table rows={rows} columns={columns} />
+  ) : (
+    <div className={style.empty}>
+      {emptyValue}
+    </div>
+  );
 
-    const pendingView = (
-      <div className={style.loading}>
-        <Loader/>
-      </div>
-    );
-
-    const tableView = rows.length > 0 ? (
-      <Table rows={rows} columns={columns} />
-    ) : (
-      <div className={style.empty}>
-        {emptyValue}
-      </div>
-    );
-
-    return (
-      <div className={style.wrapper}>
-        <div className={style.headerWrapper}>
-          <div className={style.create}>
-            <Link href={createHref}>+</Link>
-          </div>
-          <div className={style.search}>
-            <Search {...search} />
-          </div>
-          <div className={style.pagination}>
-            <Pagination {...pagination} />
-          </div>
+  return (
+    <div className={style.wrapper}>
+      <div className={style.headerWrapper}>
+        <div className={style.create}>
+          <Link href={createHref}>+</Link>
         </div>
-        <div className={style.tableWrapper}>
-          {isPending ? pendingView : tableView}
+        <div className={style.search}>
+          <Search {...search} />
         </div>
-        <div className={style.footerWrapper}>
+        <div className={style.pagination}>
+          <Pagination {...pagination} />
         </div>
       </div>
-    );
-  };
-
-  BrandTable.validate = createValidate(conditions);
-  return BrandTable;
+      <div className={style.tableWrapper}>
+        {isPending ? pendingView : tableView}
+      </div>
+      <div className={style.footerWrapper}>
+      </div>
+    </div>
+  );
 };
+
+BrandTable.validate = createValidate(conditions);
+export default BrandTable;

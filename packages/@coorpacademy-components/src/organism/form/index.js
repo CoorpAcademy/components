@@ -1,7 +1,8 @@
+import Inferno from 'inferno';
 import noop from 'lodash/fp/noop';
 import {checker, createValidate} from '../../util/validation';
-import createFormGroup from '../../molecule/form-group';
-import createButton from '../../atom/button';
+import FormGroup from '../../molecule/form-group';
+import Button from '../../atom/button';
 import style from './style.css';
 
 const conditions = checker.shape({
@@ -16,50 +17,44 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-export default (treant, options = {}) => {
-  const {h} = treant;
-  const FormGroup = createFormGroup(treant, options);
-  const Button = createButton(treant, options);
+const Form = ({children, ...props}) => {
+  const {
+    groups,
+    submitValue = '',
+    resetValue = '',
+    onSubmit = noop,
+    onReset = noop
+  } = props;
 
-  const Form = (props, children) => {
-    const {
-      groups,
-      submitValue = '',
-      resetValue = '',
-      onSubmit = noop,
-      onReset = noop
-    } = props;
-
-    const prevent = fun => (e, ...argz) => {
-      e.preventDefault();
-      fun(e, ...argz);
-    };
-
-    return (
-      <form
-        className={style.form}
-        onSubmit={prevent(onSubmit)}
-        onReset={prevent(onReset)}
-      >
-        {groups.map((group, index) => (
-          <FormGroup {...group}/>
-        ))}
-        <div className={style.buttons}>
-          <Button
-            type="reset"
-            submitValue={submitValue}
-            className={style.cancel}
-          />
-          <Button
-            type="submit"
-            submitValue={resetValue}
-            className={style.save}
-          />
-        </div>
-      </form>
-    );
+  const prevent = fun => (e, ...argz) => {
+    e.preventDefault();
+    fun(e, ...argz);
   };
 
-  Form.validate = createValidate(conditions);
-  return Form;
+  return (
+    <form
+      className={style.form}
+      onSubmit={prevent(onSubmit)}
+      onReset={prevent(onReset)}
+    >
+      {groups.map((group, index) => (
+        <FormGroup {...group}/>
+      ))}
+      <div className={style.buttons}>
+        <Button
+          type="reset"
+          submitValue={submitValue}
+          className={style.cancel}
+        />
+        <Button
+          type="submit"
+          submitValue={resetValue}
+          className={style.save}
+        />
+      </div>
+    </form>
+  );
 };
+
+Form.validate = createValidate(conditions);
+export default Form;

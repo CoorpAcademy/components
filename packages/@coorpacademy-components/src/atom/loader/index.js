@@ -1,3 +1,4 @@
+import Inferno from 'inferno';
 import {checker, createValidate} from '../../util/validation';
 import style from './style.css';
 
@@ -6,10 +7,8 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-export default (treant, options) => {
-  const {h} = treant;
-
-  const Loader = (props, children) => (
+const Loader = ({children, ...props}) => {
+  return (
     <div className={style.container}>
       <div className={style.dot}></div>
       <div className={style.dot}></div>
@@ -17,7 +16,7 @@ export default (treant, options) => {
       <div className={style.dot}></div>
     </div>
   );
-
-  Loader.validate = createValidate(conditions);
-  return Loader;
 };
+
+Loader.validate = createValidate(conditions);
+export default Loader;

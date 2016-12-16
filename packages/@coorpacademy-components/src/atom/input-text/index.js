@@ -1,3 +1,4 @@
+import Inferno from 'inferno';
 import noop from 'lodash/fp/noop';
 import {checker, createValidate} from '../../util/validation';
 import style from './style.css';
@@ -17,45 +18,41 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-export default (treant, options) => {
-  const {h} = treant;
+const InputText = ({children, ...props}) => {
+  const {
+    placeholder,
+    value,
+    defaultValue,
+    onChange = noop,
+    error,
+    description,
+    disabled,
+    required
+  } = props;
 
-  const InputText = (props, children) => {
-    const {
-      placeholder,
-      value,
-      defaultValue,
-      onChange = noop,
-      error,
-      description,
-      disabled,
-      required
-    } = props;
+  const className = error ? style.error : style.default;
+  const title = `${props.title}${required ? '*' : ''} :`;
 
-    const className = error ? style.error : style.default;
-    const title = `${props.title}${required ? '*' : ''} :`;
-
-    return (
-      <div className={className}>
-        <label>
-          <span className={style.title}>{title}</span>
-          <input
-            type='text'
-            name={title}
-            placeholder={placeholder}
-            defaultValue={defaultValue}
-            value={value}
-            onInput={e => onChange(e.target.value)}
-            disabled={disabled}
-          />
-        </label>
-        <div className={style.description}>
-          {description}
-        </div>
+  return (
+    <div className={className}>
+      <label>
+        <span className={style.title}>{title}</span>
+        <input
+          type='text'
+          name={title}
+          placeholder={placeholder}
+          defaultValue={defaultValue}
+          value={value}
+          onInput={e => onChange(e.target.value)}
+          disabled={disabled}
+        />
+      </label>
+      <div className={style.description}>
+        {description}
       </div>
-    );
-  };
-
-  InputText.validate = createValidate(conditions);
-  return InputText;
+    </div>
+  );
 };
+
+InputText.validate = createValidate(conditions);
+export default InputText;

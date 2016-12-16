@@ -1,16 +1,19 @@
-import pipe from 'lodash/fp/pipe';
-import get from 'lodash/fp/get';
-import concat from 'lodash/fp/concat';
-import reverse from 'lodash/fp/reverse';
 import compact from 'lodash/fp/compact';
+import concat from 'lodash/fp/concat';
 import join from 'lodash/fp/join';
+import map from 'lodash/fp/map';
+import pipe from 'lodash/fp/pipe';
+import reverse from 'lodash/fp/reverse';
+import split from 'lodash/fp/split';
+import update from 'lodash/fp/update';
 
-const addClassName = className => pipe(
-  get('properties.className'),
-  concat(className),
-  compact,
-  reverse,
-  join(' ')
+export default className => update(
+  'className', 
+  pipe(
+    split(' '),
+    concat(className),
+    reverse,
+    compact,
+    join(' ')
+  )
 );
-
-export default addClassName;

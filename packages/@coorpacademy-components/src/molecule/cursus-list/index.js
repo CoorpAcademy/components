@@ -1,5 +1,6 @@
+import Inferno from 'inferno';
 import identity from 'lodash/fp/identity';
-import createLink from '../../atom/link';
+import Link from '../../atom/link';
 import {checker, createValidate} from '../../util/validation';
 import style from './style.css';
 
@@ -15,43 +16,37 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-export default (treant, options = {}) => {
-  const {h} = treant;
-  const {translate = identity} = options;
+const CursusList = ({children, ...props}, {translate}) => {
+  const {cursuses = []} = props;
   const listTitle = translate('Training Packages');
+  const CursusesDiv = cursuses.map(cursus => {
+    const {title, href, selected} = cursus;
 
-  const Link = createLink(treant, options);
-
-  const CursusList = ({cursuses = []}, children) => {
-    const CursusesDiv = cursuses.map(cursus => {
-      const {title, href, selected} = cursus;
-
-      const linkProps = selected ? {
-        className: style.selected
-      } : {};
-
-      return (
-        <li className={style.cursus}>
-          <Link
-            {...linkProps}
-            href={href}
-          >
-            {title}
-          </Link>
-        </li>
-      );
-    });
+    const linkProps = selected ? {
+      className: style.selected
+    } : {};
 
     return (
-      <div className={style.cursuses}>
-        <h2 className={style.title}>{listTitle}</h2>
-        <ul className={style.list}>
-          {CursusesDiv}
-        </ul>
-      </div>
+      <li className={style.cursus}>
+        <Link
+          {...linkProps}
+          href={href}
+        >
+          {title}
+        </Link>
+      </li>
     );
-  };
+  });
 
-  CursusList.validate = createValidate(conditions);
-  return CursusList;
+  return (
+    <div className={style.cursuses}>
+      <h2 className={style.title}>{listTitle}</h2>
+      <ul className={style.list}>
+        {CursusesDiv}
+      </ul>
+    </div>
+  );
 };
+
+CursusList.validate = createValidate(conditions);
+export default CursusList;

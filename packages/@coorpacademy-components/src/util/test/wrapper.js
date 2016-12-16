@@ -1,6 +1,7 @@
+import Inferno from 'inferno';
 import test from 'ava';
 import * as treant from '@coorpacademy/treantjs-core';
-import createWrapper from '../wrapper';
+import Wrapper from '../wrapper';
 
 const {h, resolve} = treant;
 

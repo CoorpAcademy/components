@@ -1,6 +1,7 @@
+import Inferno from 'inferno';
 import {checker, createValidate} from '../../util/validation';
-import createLink from '../../atom/link';
-import createPicture from '../../atom/picture';
+import Link from '../../atom/link';
+import Picture from '../../atom/picture';
 import style from './style.css';
 
 const conditions = checker.shape({
@@ -15,40 +16,33 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-export default (treant, options = {}) => {
-  const {h} = treant;
+const BrandCard = ({children, ...props}) => {
+  const {
+    title,
+    edit,
+    editHref,
+    see,
+    seeHref,
+    image
+  } = props;
 
-  const Link = createLink(treant, options);
-  const Picture = createPicture(treant, options);
-
-  const BrandCard = (props, children) => {
-    const {
-      title,
-      edit,
-      editHref,
-      see,
-      seeHref,
-      image
-    } = props;
-
-    return (
-      <div className={style.wrapper}>
-        <div className={style.image}>
-          <Picture className={style.picture} src={image}/>
+  return (
+    <div className={style.wrapper}>
+      <div className={style.image}>
+        <Picture className={style.picture} src={image}/>
+      </div>
+      <div className={style.information}>
+        <h3>{title}</h3>
+        <div className={style.edit}>
+          <Link href={editHref}>{edit}</Link>
         </div>
-        <div className={style.information}>
-          <h3>{title}</h3>
-          <div className={style.edit}>
-            <Link href={editHref}>{edit}</Link>
-          </div>
-          <div className={style.see}>
-            <Link target='_blank' href={seeHref}>{see}</Link>
-          </div>
+        <div className={style.see}>
+          <Link target='_blank' href={seeHref}>{see}</Link>
         </div>
       </div>
-    );
-  };
-
-  BrandCard.validate = createValidate(conditions);
-  return BrandCard;
+    </div>
+  );
 };
+
+BrandCard.validate = createValidate(conditions);
+export default BrandCard;

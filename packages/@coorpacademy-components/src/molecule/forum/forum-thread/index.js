@@ -1,6 +1,7 @@
+import Inferno from 'inferno';
 import {checker, createValidate} from '../../../util/validation';
 import threadConditions from '../post-conditions';
-import createForumPost from '../forum-post';
+import ForumPost from '../forum-post';
 import style from './style.css';
 
 const conditions = checker.shape({
@@ -8,26 +9,21 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-export default (treant, options = {}) => {
-  const {h} = treant;
-  const Post = createForumPost(treant, options);
+const ForumThread = ({children, ...props}) => {
+  const {answers = []} = props;
+  const answersView = answers.map(answerProps => (
+    <ForumThread {...answerProps}/>
+  ));
 
-  const ForumThread = (props, children) => {
-    const {answers} = props;
-    const answersView = answers && answers.map(answerProps => (
-      <ForumThread {...answerProps}/>
-    ));
-
-    return (
-      <div>
-        <Post {...props}/>
-        <div className={style.answers}>
-          {answersView}
-        </div>
+  return (
+    <div>
+      <ForumPost {...props}/>
+      <div className={style.answers}>
+        {answersView}
       </div>
-    );
-  };
-
-  ForumThread.validate = createValidate(conditions);
-  return ForumThread;
+    </div>
+  );
 };
+
+ForumThread.validate = createValidate(conditions);
+export default ForumThread;
