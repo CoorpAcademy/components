@@ -1,4 +1,4 @@
-import Inferno from 'inferno';
+import React from 'react';
 import Header from './components/header';
 import Provider from './components/provider';
 import './style.css';
@@ -6,8 +6,9 @@ import './style.css';
 
 export default function App({components, fixtures, location, options} = {}) {
   const onNavigate = href => options.history.push(href);
+  const {store, history, skin, translate} = options;
   return (
-    <Provider {...options}>
+    <Provider {...{store, history, skin, translate}}>
       <Header
         onSelectComponent={onNavigate}
         onSelectFixture={onNavigate}

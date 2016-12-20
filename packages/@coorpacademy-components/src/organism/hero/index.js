@@ -1,4 +1,4 @@
-import Inferno from 'inferno';
+import React from 'react';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import identity from 'lodash/fp/identity';
@@ -16,41 +16,49 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-const Hero = ({children, ...props}, {translate, skin}) => {
-  const bg = get('images.hero', skin);
-  const {url, title, touch = false} = props;
-  const text = translate(title);
-  const backgroundImage = bg ? `url(${bg})` : '';
-  const ctaClass = touch ? 'ctaTouch' : 'ctaNoTouch';
+class Hero extends React.Component {
+  render() {
+    const {translate, skin} = this.context;
+    const bg = get('images.hero', skin);
+    const {url, title, touch = false} = this.props;
+    const text = translate(title);
+    const backgroundImage = bg ? `url(${bg})` : '';
+    const ctaClass = touch ? 'ctaTouch' : 'ctaNoTouch';
 
-  return (
-    <div
-      className={style.hero}
-      style={{
-        backgroundImage
-      }}
-    >
-      <Link
-        href={url}
-        className={style[ctaClass]}>
-        <div
-          className={style.label}
-          style={{
-            color: getOr('#00b0ff', 'common.primary', skin)
-          }}
-        >
-          {text}
-          <span
-            className={style.bar}
+    return (
+      <div
+        className={style.hero}
+        style={{
+          backgroundImage
+        }}
+      >
+        <Link
+          href={url}
+          className={style[ctaClass]}>
+          <div
+            className={style.label}
             style={{
-              backgroundColor: getOr('#00b0ff', 'common.primary', skin)
+              color: getOr('#00b0ff', 'common.primary', skin)
             }}
-            >
-            </span>
-        </div>
-      </Link>
-    </div>
-  );
+          >
+            {text}
+            <span
+              className={style.bar}
+              style={{
+                backgroundColor: getOr('#00b0ff', 'common.primary', skin)
+              }}
+              >
+              </span>
+          </div>
+        </Link>
+      </div>
+    );
+  }
+};
+
+Hero.contextTypes = {
+  skin: React.PropTypes.object,
+  translate: React.PropTypes.function
 };
 
 Hero.validate = createValidate(conditions);

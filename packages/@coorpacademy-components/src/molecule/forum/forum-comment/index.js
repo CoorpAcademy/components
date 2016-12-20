@@ -1,4 +1,4 @@
-import Inferno from 'inferno';
+import React from 'react';
 import identity from 'lodash/fp/identity';
 import debounce from 'lodash/fp/debounce';
 import Button from '../../../atom/button';
@@ -15,43 +15,50 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-const ForumComment = ({children, ...props}, {translate}) => {
-  const {avatar, onPost, onChange, value, textareaDisabled, postDisabled} = props;
-  const avatarView = avatar && (
-    <div className={style.image}>
-      <img src={avatar} />
-    </div>
-  );
-
-  const button = (
-    <div
-      className={style.post}
-    >
-      <Button
-        onClick={onPost}
-        disabled={postDisabled}
-        submitValue={translate('Post')}
-        className={style.button}
-      />
-    </div>
-  );
-
-  return (
-    <div className={style.container}>
-      <div className={style.wrapper}>
-        {avatarView}
-        <div className={style.comment}>
-          <textarea
-            placeholder={translate('Write something here')}
-            value={value}
-            oninput={debounce(400, onChange)}
-            disabled={textareaDisabled}
-          />
-        </div>
+class ForumComment extends React.Component {
+  render() {
+    const {translate} = this.context;
+    const {avatar, onPost, onChange, value, textareaDisabled, postDisabled} = this.props;
+    const avatarView = avatar && (
+      <div className={style.image}>
+        <img src={avatar} />
       </div>
-     {button}
-    </div>
-  );
+    );
+
+    const button = (
+      <div
+        className={style.post}
+      >
+        <Button
+          onClick={onPost}
+          disabled={postDisabled}
+          submitValue={translate('Post')}
+          className={style.button}
+        />
+      </div>
+    );
+
+    return (
+      <div className={style.container}>
+        <div className={style.wrapper}>
+          {avatarView}
+          <div className={style.comment}>
+            <textarea
+              placeholder={translate('Write something here')}
+              value={value}
+              oninput={debounce(400, onChange)}
+              disabled={textareaDisabled}
+            />
+          </div>
+        </div>
+      {button}
+      </div>
+    );
+  }
+}
+
+ForumComment.contextTypes = {
+  translate: React.PropTypes.function
 };
 
 ForumComment.validate = createValidate(conditions);

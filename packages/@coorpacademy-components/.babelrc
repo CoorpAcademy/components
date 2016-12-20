@@ -1,8 +1,5 @@
 {
-  "presets": ["stage-1"],
-  "plugins": [
-    ["inferno"]
-  ],
+  "presets": ["stage-1", "react"],
   "env": {
     "commonjs": {
       "presets": [

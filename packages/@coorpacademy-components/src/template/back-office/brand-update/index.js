@@ -1,4 +1,4 @@
-import Inferno from 'inferno';
+import React from 'react';
 import map from 'lodash/fp/map';
 import {checker, createValidate} from '../../../util/validation';
 import Breadcrumbs from '../../../molecule/breadcrumbs';

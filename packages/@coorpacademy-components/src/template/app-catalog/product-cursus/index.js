@@ -1,4 +1,4 @@
-import Inferno from 'inferno';
+import React from 'react';
 import identity from 'lodash/fp/identity';
 import {checker, createValidate} from '../../../util/validation';
 import CursusHeader from '../../../molecule/cursus-header';
@@ -23,53 +23,60 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-const ProductCursus = ({children, ...props}, {translate}) => {
-  const cardsTitle = translate('This course contains:');
-  const {
-    disciplines = null,
-    maxRating,
-    image,
-    badge,
-    title = '',
-    description = '',
-    rating = 0,
-    assets,
-    linkBuy,
-    linkTry
-  } = props;
+class ProductCursus extends React.Component {
+  render() {
+    const {translate} = this.context;
+    const cardsTitle = translate('This course contains:');
+    const {
+      disciplines = null,
+      maxRating,
+      image,
+      badge,
+      title = '',
+      description = '',
+      rating = 0,
+      assets,
+      linkBuy,
+      linkTry
+    } = this.props;
 
-  return (
-    <div className={layout.wrapper}>
-      <div className={layout.container}>
-        <CursusHeader
-          image={image}
-          title={title}
-          description={description}
-        />
-      </div>
-      <div className={layout.colContainer}>
-        <CursusRightaside
-          badge={badge}
-          assets={assets || []}
-          rating={rating}
-          maxRating={maxRating}
-          linkBuy={linkBuy}
-          linkTry={linkTry}
-        />
-      </div>
-      <div className={style.productsContainer}>
-        <span className={layout.cardsTitle}>
-          {cardsTitle}
-        </span>
-
-        <div className={style.productsWrapper}>
-          <CatalogCards
-            products={disciplines}
+    return (
+      <div className={layout.wrapper}>
+        <div className={layout.container}>
+          <CursusHeader
+            image={image}
+            title={title}
+            description={description}
           />
         </div>
+        <div className={layout.colContainer}>
+          <CursusRightaside
+            badge={badge}
+            assets={assets || []}
+            rating={rating}
+            maxRating={maxRating}
+            linkBuy={linkBuy}
+            linkTry={linkTry}
+          />
+        </div>
+        <div className={style.productsContainer}>
+          <span className={layout.cardsTitle}>
+            {cardsTitle}
+          </span>
+
+          <div className={style.productsWrapper}>
+            <CatalogCards
+              products={disciplines}
+            />
+          </div>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
+};
+
+ProductCursus.contextTypes = {
+  translate: React.PropTypes.function
 };
 
 ProductCursus.validate = createValidate(conditions);

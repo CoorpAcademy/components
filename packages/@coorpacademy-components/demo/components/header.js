@@ -1,4 +1,4 @@
-import Inferno from 'inferno';
+import React from 'react';
 import fromPairs from 'lodash/fp/fromPairs';
 import get from 'lodash/fp/get';
 import head from 'lodash/fp/head';

@@ -1,4 +1,4 @@
-import Inferno from 'inferno';
+import React from 'react';
 import identity from 'lodash/fp/identity';
 import {checker, createValidate} from '../../util/validation';
 import pushToHistory from '../../util/navigation';

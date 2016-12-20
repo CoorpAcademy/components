@@ -1,4 +1,4 @@
-import Inferno from 'inferno';
+import React from 'react';
 import fill from 'lodash/fp/fill';
 import pipe from 'lodash/fp/pipe';
 import {checker, createValidate} from '../../util/validation';

@@ -1,4 +1,4 @@
-import Inferno from 'inferno';
+import React from 'react';
 import set from 'lodash/fp/set';
 import getOr from 'lodash/fp/getOr';
 import partial from 'lodash/fp/partial';

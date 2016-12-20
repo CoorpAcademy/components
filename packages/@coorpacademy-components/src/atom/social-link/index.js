@@ -1,4 +1,4 @@
-import Inferno from 'inferno';
+import React from 'react';
 import {checker, createValidate} from '../../util/validation';
 import style from './style.css';
 
@@ -16,7 +16,7 @@ const icons = {
 
 const conditions = checker.shape({
   props: checker.shape({
-    ref: checker.string,
+    type: checker.string,
     link: checker.string
   }).strict,
   children: checker.none
@@ -24,7 +24,7 @@ const conditions = checker.shape({
 
 const SocialLink = ({children, ...props}) => {
   const {
-    ref,
+    type,
     link
   } = props;
 
@@ -33,7 +33,7 @@ const SocialLink = ({children, ...props}) => {
       href={link}
       className={style.link}
       target={'_blank'}
-    >{String.fromCharCode(icons[ref])}
+    >{String.fromCharCode(icons[type])}
     </a>
   );
 };

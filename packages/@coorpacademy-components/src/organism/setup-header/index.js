@@ -1,4 +1,4 @@
-import Inferno from 'inferno';
+import React from 'react';
 import {checker, createValidate} from '../../util/validation';
 import Picture from '../../atom/picture';
 import Link from '../../atom/link';

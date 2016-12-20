@@ -1,6 +1,6 @@
 export default {
   props: {
-    ref: 'twitter',
+    type: 'twitter',
     link: 'http://www.twitter.com/'
   }
 };

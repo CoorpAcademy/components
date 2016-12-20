@@ -1,4 +1,4 @@
-import Inferno from 'inferno';
+import React from 'react';
 import isNil from 'lodash/fp/isNil';
 import {checker, createValidate} from '../../util/validation';
 import SsMenuList from '../ssmenu-list';

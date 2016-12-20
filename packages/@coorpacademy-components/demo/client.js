@@ -1,4 +1,5 @@
-import Inferno from 'inferno';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import get from 'lodash/fp/get';
 import {createBrowserHistory} from '@coorpacademy/history';
 import createTranslate from '@coorpacademy/translate';
@@ -23,7 +24,7 @@ const options = {
   translate
 };
 
-const update = vTree => Inferno.render(vTree, document.getElementById('app'));
+const update = vTree => ReactDOM.render(vTree, document.getElementById('app'));
 
 update(
     <_App {...{

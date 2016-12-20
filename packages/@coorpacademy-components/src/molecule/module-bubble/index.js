@@ -1,4 +1,4 @@
-import Inferno from 'inferno';
+import React from 'react';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import pipe from 'lodash/fp/pipe';
@@ -22,54 +22,62 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-const ModuleBubble = ({children, ...props}, {skin, translate}) => {
-  const {onClick} = props;
-  const _module = get('module', props);
-  const code = getOr('', `icons[${_module.status}]`, skin);
-  const icon = String.fromCharCode(code);
+class ModuleBubble extends React.Component {
+  render() {
+    const {translate, skin} = this.context;
+    const {onClick} = this.props;
+    const _module = get('module', this.props);
+    const code = getOr('', `icons[${_module.status}]`, skin);
+    const icon = String.fromCharCode(code);
 
-  const filtered = _module.filtered;
-  const disabled = _module.disabled;
+    const filtered = _module.filtered;
+    const disabled = _module.disabled;
 
-  const click = !disabled && pipe(
-    stopPropagation,
-    unary(partial(onClick, [_module]))
-  );
-  const label = translate(_module.label);
+    const click = !disabled && pipe(
+      stopPropagation,
+      unary(partial(onClick, [_module]))
+    );
+    const label = translate(_module.label);
 
-  const background = getOr('#fff', `mod[${_module.status}]`, skin);
+    const background = getOr('#fff', `mod[${_module.status}]`, skin);
 
-  return (
-    <div className={filtered ? style.filtered : style.modulewrapper}
-          attributes={{
-            'data-name': 'module-bubble'
-          }}
-    >
-      <div
-        className={style.bubble}
-        onClick={click}
+    return (
+      <div className={filtered ? style.filtered : style.modulewrapper}
+            attributes={{
+              'data-name': 'module-bubble'
+            }}
       >
-        <span
-          className={style.bubbleBG}
-          style={{
-            background
-          }}
+        <div
+          className={style.bubble}
+          onClick={click}
         >
-        </span>
-        <span
-          className={disabled ? style.iconDisabled : style.icon}
-          style={{
-            color: getOr('#fff', ['mod', 'icon', _module.status], skin)
-          }}
-        >
-            {icon}
-        </span>
+          <span
+            className={style.bubbleBG}
+            style={{
+              background
+            }}
+          >
+          </span>
+          <span
+            className={disabled ? style.iconDisabled : style.icon}
+            style={{
+              color: getOr('#fff', ['mod', 'icon', _module.status], skin)
+            }}
+          >
+              {icon}
+          </span>
+        </div>
+        <div className={style.label}>
+          {label}
+        </div>
       </div>
-      <div className={style.label}>
-        {label}
-      </div>
-    </div>
-  );
+    );
+  }
+};
+
+ModuleBubble.contextTypes = {
+  skin: React.PropTypes.object,
+  translate: React.PropTypes.function
 };
 
 ModuleBubble.validate = createValidate(conditions);

@@ -1,4 +1,4 @@
-import Inferno from 'inferno';
+import React from 'react';
 import noop from 'lodash/fp/noop';
 import {checker, createValidate} from '../../util/validation';
 import style from './style.css';

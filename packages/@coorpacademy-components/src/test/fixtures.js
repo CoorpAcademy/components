@@ -1,4 +1,4 @@
-import Inferno from 'inferno';
+import React from 'react';
 import {relative} from 'path';
 import test from 'ava';
 import identity from 'lodash/fp/identity';

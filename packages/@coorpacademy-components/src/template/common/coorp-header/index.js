@@ -1,4 +1,4 @@
-import Inferno from 'inferno';
+import React from 'react';
 import identity from 'lodash/fp/identity';
 import {checker, createValidate} from '../../../util/validation';
 import Header from '../../../organism/header';
@@ -13,12 +13,19 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-const CoorpHeader = ({children, ...props}, {translate}) => {
-  const headerProps = content(translate, props);
+class CoorpHeader extends React.Component {
+  render() {
+    const {translate} = this.context;
+    const headerProps = content(translate, this.props);
 
-  return (
-    <Header {...headerProps}/>
-  );
+    return (
+      <Header {...headerProps}/>
+    );
+  }
+};
+
+CoorpHeader.contextTypes = {
+  translate: React.PropTypes.function
 };
 
 CoorpHeader.validate = createValidate(conditions);

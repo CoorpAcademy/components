@@ -1,4 +1,4 @@
-import Inferno from 'inferno';
+import React from 'react';
 import {checker, createValidate} from '../../util/validation';
 import {spinner, doubleBounce1, doubleBounce2} from './style.css';
 

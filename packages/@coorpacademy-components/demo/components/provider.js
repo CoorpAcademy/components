@@ -1,9 +1,10 @@
-import Component from 'inferno-component';
+import React from 'react';
 
-export default class Provider extends Component {
+class Provider extends React.Component {
   constructor(props, context) {
+    const {store, history, skin, translate} = props;
     super(props, context);
-    this.store = props;
+    this.store = {store, history, skin, translate};
   }
 
   getChildContext() {
@@ -14,3 +15,12 @@ export default class Provider extends Component {
     return this.props.children;
   }
 }
+
+Provider.childContextTypes = {
+  store: React.PropTypes.object,
+  history: React.PropTypes.object,
+  skin: React.PropTypes.object,
+  translate: React.PropTypes.function
+};
+
+export default Provider;

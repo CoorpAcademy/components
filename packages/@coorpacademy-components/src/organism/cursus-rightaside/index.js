@@ -1,4 +1,4 @@
-import Inferno from 'inferno';
+import React from 'react';
 import identity from 'lodash/fp/identity';
 import {checker, createValidate} from '../../util/validation';
 import CatalogCTA from '../../molecule/catalog-cta';
@@ -17,45 +17,52 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-const CursusRightaside = ({children, ...props}, {translate}) => {
-  const certificationLabel = translate('certification');
-  const assetsLabel = translate('assets');
-  const {rating, maxRating, linkBuy, linkTry, badge, assets = []} = props;
+class CursusRightaside extends React.Component {
+  render() {
+    const {translate} = this.context;
+    const certificationLabel = translate('certification');
+    const assetsLabel = translate('assets');
+    const {rating, maxRating, linkBuy, linkTry, badge, assets = []} = this.props;
 
-  const assetsView = assets.map(asset => (
-    <li className={style.asset}>{asset}</li>
-  ));
+    const assetsView = assets.map(asset => (
+      <li className={style.asset}>{asset}</li>
+    ));
 
-  return (
-    <div className={style.col}>
-      <div className={style.ctaWrapper}>
-        <CatalogCTA
-          rating={rating}
-          maxRating={maxRating}
-          linkBuy={linkBuy}
-          linkTry={linkTry}
-        />
-      </div>
-
-      <div className={style.colDetails}>
-        <div className={style.detailTitle}>
-          {certificationLabel}
+    return (
+      <div className={style.col}>
+        <div className={style.ctaWrapper}>
+          <CatalogCTA
+            rating={rating}
+            maxRating={maxRating}
+            linkBuy={linkBuy}
+            linkTry={linkTry}
+          />
         </div>
-        <Picture
-          src={badge}
-        />
-      </div>
 
-      <div className={style.colDetails}>
-        <div className={style.detailTitle}>
-          {assetsLabel}
+        <div className={style.colDetails}>
+          <div className={style.detailTitle}>
+            {certificationLabel}
+          </div>
+          <Picture
+            src={badge}
+          />
         </div>
-        <ul className={style.assets}>
-          {assetsView}
-        </ul>
+
+        <div className={style.colDetails}>
+          <div className={style.detailTitle}>
+            {assetsLabel}
+          </div>
+          <ul className={style.assets}>
+            {assetsView}
+          </ul>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
+}
+
+CursusRightaside.contextTypes = {
+  translate: React.PropTypes.function
 };
 
 CursusRightaside.validate = createValidate(conditions);

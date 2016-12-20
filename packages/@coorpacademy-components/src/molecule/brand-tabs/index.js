@@ -1,4 +1,4 @@
-import Inferno from 'inferno';
+import React from 'react';
 import map from 'lodash/fp/map';
 import Link from '../../atom/link';
 import {checker, createValidate} from '../../util/validation';

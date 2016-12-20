@@ -1,4 +1,4 @@
-import Inferno from 'inferno';
+import React from 'react';
 import identity from 'lodash/fp/identity';
 import {checker, createValidate} from '../../../util/validation';
 import DisciplineHeader from '../../../molecule/discipline-header';
@@ -37,64 +37,71 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-const ProductCourse = ({children, ...props}, {translate}) => {
-  const cardsTitle = translate('They also liked:');
-  const {
-    selected = 0,
-    level,
-    levels,
-    changeLevel,
-    linkBuy,
-    linkTry,
-    maxPopularity,
-    relatedDisciplines = null,
-    image,
-    title = '',
-    video,
-    author = {name: '', socialLinks: []},
-    description = '',
-    popularity = 0
-  } = props;
+class ProductCourse extends React.Component {
+  render() {
+    const {translate} = this.context;
+    const cardsTitle = translate('They also liked:');
+    const {
+      selected = 0,
+      level,
+      levels,
+      changeLevel,
+      linkBuy,
+      linkTry,
+      maxPopularity,
+      relatedDisciplines = null,
+      image,
+      title = '',
+      video,
+      author = {name: '', socialLinks: []},
+      description = '',
+      popularity = 0
+    } = this.props;
 
-  return (
-    <div className={style.wrapper}>
-      <div className={style.container}>
-        <DisciplineHeader
-          image={image}
-          video={video}
-          title={title}
-          description={description}
-        />
+    return (
+      <div className={style.wrapper}>
+        <div className={style.container}>
+          <DisciplineHeader
+            image={image}
+            video={video}
+            title={title}
+            description={description}
+          />
+        </div>
+        <div className={style.colContainer}>
+          <DisciplineRightaside
+            linkBuy={linkBuy}
+            linkTry={linkTry}
+            author={author}
+            rating={popularity}
+            maxRating={maxPopularity}
+          />
+        </div>
+        <div
+          className={style.contentContainer}
+        >
+          <DisciplineScope
+            content={level}
+            levels={levels}
+            selected={selected}
+            onClick={changeLevel}
+          />
+        </div>
+        <div className={layout.container}>
+          <span className={layout.cardsTitle}>
+            {cardsTitle}
+          </span>
+          <CatalogCards
+            products={relatedDisciplines}
+          />
+        </div>
       </div>
-      <div className={style.colContainer}>
-        <DisciplineRightaside
-          linkBuy={linkBuy}
-          linkTry={linkTry}
-          author={author}
-          rating={popularity}
-          maxRating={maxPopularity}
-        />
-      </div>
-      <div
-        className={style.contentContainer}
-      >
-        <DisciplineScope
-          content={level}
-          levels={levels}
-          selected={selected}
-          onClick={changeLevel}
-        />
-      </div>
-      <div className={layout.container}>
-        <span className={layout.cardsTitle}>
-          {cardsTitle}
-        </span>
-        <CatalogCards
-          products={relatedDisciplines}
-        />
-      </div>
-    </div>
-  );
+    );
+  }
+};
+
+ProductCourse.contextTypes = {
+  translate: React.PropTypes.function
 };
 
 ProductCourse.validate = createValidate(conditions);

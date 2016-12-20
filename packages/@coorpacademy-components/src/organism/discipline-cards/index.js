@@ -1,4 +1,4 @@
-import Inferno from 'inferno';
+import React from 'react';
 import set from 'lodash/fp/set';
 import {checker, createValidate} from '../../util/validation';
 import DisciplineCard from '../../molecule/discipline-card';

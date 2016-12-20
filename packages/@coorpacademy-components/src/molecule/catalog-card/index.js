@@ -1,6 +1,4 @@
-import Inferno from 'inferno';
-import hyperscript from 'inferno-hyperscript';
-import hyperx from 'hyperx';
+import React from 'react';
 import identity from 'lodash/fp/identity';
 import getOr from 'lodash/fp/getOr';
 import {checker, createValidate} from '../../util/validation';
@@ -9,8 +7,6 @@ import Link from '../../atom/link';
 import Picture from '../../atom/picture';
 import style from './style.css';
 import {hoverFill} from '../../atom/button/hover-fill.css';
-
-const hx = hyperx(hyperscript);
 
 const conditions = checker.shape({
   props: checker.shape({
@@ -29,46 +25,58 @@ const conditions = checker.shape({
 
 const getOrBlank = getOr('');
 
-const CatalogCard = ({children, ...props}, {translate}) => {
-  const learnMore = hx(`<span>${translate('Learn <span>more</span>')}</span>`);
+class CatalogCard extends React.Component {
+  render() {
+    const {translate} = this.context;
+    const learnMore = (
+      <span
+        dangerouslySetInnerHTML={{
+          __html: translate('Learn <span>more</span>')
+        }}
+      />
+    );
 
-  const {
-    maxRating = 5,
-    rating = 0,
-    href = '',
-    image,
-    author
-  } = props;
+    const {
+      maxRating = 5,
+      rating = 0,
+      href = '',
+      image,
+      author
+    } = this.props;
 
-  return (
-    <li className={style.catalogListItem}>
-      <div className={style.imageWrapper}>
-        <Picture src={image} />
-        <div className={style.overlay}>
-          <Link className={hoverFill} href={href}>
-            {learnMore}
-          </Link>
+    return (
+      <li className={style.catalogListItem}>
+        <div className={style.imageWrapper}>
+          <Picture src={image} />
+          <div className={style.overlay}>
+            <Link className={hoverFill} href={href}>
+              {learnMore}
+            </Link>
+          </div>
         </div>
-      </div>
-      <div className={style.infoWrapper}>
-        <div className={style.title}>
-          <Link href={href}>
-            {getOrBlank('title', props)}
-          </Link>
+        <div className={style.infoWrapper}>
+          <div className={style.title}>
+            <Link href={href}>
+              {getOrBlank('title', this.props)}
+            </Link>
+          </div>
+          <div className={style.subtitle}>
+            <Link href={author.href}>
+              {translate('by {{name}}', author)}
+            </Link>
+          </div>
+          <StarRating
+            rating={rating}
+            total={maxRating}
+          />
         </div>
-        <div className={style.subtitle}>
-          <Link href={author.href}>
-            {translate('by {{name}}', author)}
-          </Link>
-        </div>
-        <StarRating
-          rating={rating}
-          total={maxRating}
-        />
-      </div>
-    </li>
-  );
+      </li>
+    );
+  }
+}
+
+CatalogCard.contextTypes = {
+  translate: React.PropTypes.function
 };
 
-CatalogCard.validate = createValidate(conditions);
 export default CatalogCard;

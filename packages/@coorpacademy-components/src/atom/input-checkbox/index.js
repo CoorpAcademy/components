@@ -1,4 +1,4 @@
-import Inferno from 'inferno';
+import React from 'react';
 import noop from 'lodash/fp/noop';
 import uniqueId from 'lodash/fp/uniqueId';
 import {checker, createValidate} from '../../util/validation';

@@ -1,4 +1,4 @@
-import Inferno from 'inferno';
+import React from 'react';
 import identity from 'lodash/fp/identity';
 import Link from '../../atom/link';
 import {checker, createValidate} from '../../util/validation';
@@ -16,36 +16,43 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-const CursusList = ({children, ...props}, {translate}) => {
-  const {cursuses = []} = props;
-  const listTitle = translate('Training Packages');
-  const CursusesDiv = cursuses.map(cursus => {
-    const {title, href, selected} = cursus;
+class CursusList extends React.Component {
+  render() {
+    const {translate} = this.context;
+    const {cursuses = []} = this.props;
+    const listTitle = translate('Training Packages');
+    const CursusesDiv = cursuses.map(cursus => {
+      const {title, href, selected} = cursus;
 
-    const linkProps = selected ? {
-      className: style.selected
-    } : {};
+      const linkProps = selected ? {
+        className: style.selected
+      } : {};
+
+      return (
+        <li className={style.cursus}>
+          <Link
+            {...linkProps}
+            href={href}
+          >
+            {title}
+          </Link>
+        </li>
+      );
+    });
 
     return (
-      <li className={style.cursus}>
-        <Link
-          {...linkProps}
-          href={href}
-        >
-          {title}
-        </Link>
-      </li>
+      <div className={style.cursuses}>
+        <h2 className={style.title}>{listTitle}</h2>
+        <ul className={style.list}>
+          {CursusesDiv}
+        </ul>
+      </div>
     );
-  });
+  }
+};
 
-  return (
-    <div className={style.cursuses}>
-      <h2 className={style.title}>{listTitle}</h2>
-      <ul className={style.list}>
-        {CursusesDiv}
-      </ul>
-    </div>
-  );
+CursusList.contextTypes = {
+  translate: React.PropTypes.function
 };
 
 CursusList.validate = createValidate(conditions);

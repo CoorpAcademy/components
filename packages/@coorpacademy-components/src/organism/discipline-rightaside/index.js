@@ -1,4 +1,4 @@
-import Inferno from 'inferno';
+import React from 'react';
 import get from 'lodash/fp/get';
 import map from 'lodash/fp/map';
 import identity from 'lodash/fp/identity';
@@ -29,63 +29,70 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-const DisciplineRightaside = ({children, ...props}, {translate}) => {
-  const {rating, maxRating, linkBuy, linkTry, author, authorTitle} = props;
-  const socialLinks = get('socialLinks', author);
-  const authorLogo = get('logo', author);
-  const authorHref = get('href', author);
+class DisciplineRightaside extends React.Component {
+  render() {
+    const {translate} = this.context;
+    const {rating, maxRating, linkBuy, linkTry, author, authorTitle} = this.props;
+    const socialLinks = get('socialLinks', author);
+    const authorLogo = get('logo', author);
+    const authorHref = get('href', author);
 
-  const authorLabel = authorTitle || translate('author');
+    const authorLabel = authorTitle || translate('author');
 
-  const socialView = map(social => (
-    <div className={style.link}>
-      <SocialLink {...social} />
-    </div>
-  ), socialLinks);
+    const socialView = map(social => (
+      <div className={style.link}>
+        <SocialLink {...social} />
+      </div>
+    ), socialLinks);
 
-  const ctaView = (
-    <div className={style.ctaWrapper}>
-      <CatalogCTA
-        rating={rating}
-        maxRating={maxRating}
-        linkBuy={linkBuy}
-        linkTry={linkTry}
-      />
-    </div>
-  );
-
-  const linkView = (
-    <div className={style.authorLink}>
-      <a target={'_blank'} href={authorHref}>{authorHref}</a>
-    </div>
-  );
-
-  const logoView = authorLogo ? (
-    <div className={style.logoContainer}>
-      <Link className={style.logoLink} href={authorLogo.href}>
-        <Picture
-          className={style.logo}
-          src={authorLogo.src}
+    const ctaView = (
+      <div className={style.ctaWrapper}>
+        <CatalogCTA
+          rating={rating}
+          maxRating={maxRating}
+          linkBuy={linkBuy}
+          linkTry={linkTry}
         />
-      </Link>
-    </div>
-  ) : null;
+      </div>
+    );
 
-  return (
-    <div className={style.col}>
-      {(rating && linkBuy && linkTry) ? ctaView : null}
-      <div className={style.colDetails}>
-        <div className={style.detailTitle}>
-          {authorLabel}
-        </div>
-        {logoView}
-        {authorHref ? linkView : null}
-        <div className={style.links}>
-          {socialView}
+    const linkView = (
+      <div className={style.authorLink}>
+        <a target={'_blank'} href={authorHref}>{authorHref}</a>
+      </div>
+    );
+
+    const logoView = authorLogo ? (
+      <div className={style.logoContainer}>
+        <Link className={style.logoLink} href={authorLogo.href}>
+          <Picture
+            className={style.logo}
+            src={authorLogo.src}
+          />
+        </Link>
+      </div>
+    ) : null;
+
+    return (
+      <div className={style.col}>
+        {(rating && linkBuy && linkTry) ? ctaView : null}
+        <div className={style.colDetails}>
+          <div className={style.detailTitle}>
+            {authorLabel}
+          </div>
+          {logoView}
+          {authorHref ? linkView : null}
+          <div className={style.links}>
+            {socialView}
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
+};
+
+DisciplineRightaside.contextTypes = {
+  translate: React.PropTypes.function
 };
 
 DisciplineRightaside.validate = createValidate(conditions);

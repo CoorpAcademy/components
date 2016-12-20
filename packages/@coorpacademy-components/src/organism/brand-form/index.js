@@ -1,4 +1,4 @@
-import Inferno from 'inferno';
+import React from 'react';
 import {checker, createValidate} from '../../util/validation';
 import BrandFormGroup from '../../molecule/brand-form-group';
 import Button from '../../atom/button';

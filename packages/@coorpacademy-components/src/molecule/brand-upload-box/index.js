@@ -1,4 +1,4 @@
-import Inferno from 'inferno';
+import React from 'react';
 import uniqueId from 'lodash/fp/uniqueId';
 import {checker, createValidate} from '../../util/validation';
 import Loader from '../../atom/loader';

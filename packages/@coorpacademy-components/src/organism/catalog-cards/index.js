@@ -1,4 +1,4 @@
-import Inferno from 'inferno';
+import React from 'react';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import identity from 'lodash/fp/identity';
@@ -18,39 +18,46 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-const CatalogCards = ({children, ...props}, {translate}) => {
-  const {products} = props;
-  if (isNil(products))
+class CatalogCards extends React.Component {
+  render() {
+    const {translate} = this.context;
+    const {products} = this.props;
+    if (isNil(products))
+      return (
+        <CenteredText>
+          <Spinner/>
+        </CenteredText>
+      );
+
+    if (isEmpty(products))
+      return (
+        <CenteredText>
+          {translate('Sorry there are no results for your search')}
+        </CenteredText>
+      );
+
+    const productViews = map(product => (
+      <CatalogCard
+        rating={getOr(0, 'popularity', product)}
+        maxRating={getOr(0, 'maxPopularity', product)}
+        title={get('title', product)}
+        image={get('image', product)}
+        author={get('author', product)}
+        href={get('href', product)}
+      >
+      </CatalogCard>
+    ), products);
+
     return (
-      <CenteredText>
-        <Spinner/>
-      </CenteredText>
+      <ul className={style['category-list']}>
+        {productViews}
+      </ul>
     );
+  }
+}
 
-  if (isEmpty(products))
-    return (
-      <CenteredText>
-        {translate('Sorry there are no results for your search')}
-      </CenteredText>
-    );
-
-  const productViews = map(product => (
-    <CatalogCard
-      rating={getOr(0, 'popularity', product)}
-      maxRating={getOr(0, 'maxPopularity', product)}
-      title={get('title', product)}
-      image={get('image', product)}
-      author={get('author', product)}
-      href={get('href', product)}
-    >
-    </CatalogCard>
-  ), products);
-
-  return (
-    <ul className={style['category-list']}>
-      {productViews}
-    </ul>
-  );
+CatalogCards.contextTypes = {
+  translate: React.PropTypes.function
 };
 
 CatalogCards.validate = createValidate(conditions);

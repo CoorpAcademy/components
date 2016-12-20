@@ -1,4 +1,4 @@
-import Inferno from 'inferno';
+import React from 'react';
 import pipe from 'lodash/fp/pipe';
 import map from 'lodash/fp/map';
 import get from 'lodash/fp/get';

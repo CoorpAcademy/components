@@ -114,3 +114,10 @@
   opacity: 0;
   margin: 0;
 }
+
+.visible {
+  visibility: visible;
+  margin: 10px 0;
+  height: 110px;
+  opacity: 1;
+}

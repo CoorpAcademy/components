@@ -1,12 +1,8 @@
-import Inferno from 'inferno';
-import hyperscript from 'inferno-hyperscript';
+import React from 'react';
 import get from 'lodash/fp/get';
-import hyperx from 'hyperx';
 import {checker, createValidate} from '../../util/validation';
 import VideoIframe from '../video-iframe';
 import style from './style.css';
-
-const hx = hyperx(hyperscript);
 
 const conditions = checker.shape({
   props: checker.shape({
@@ -31,7 +27,7 @@ const DisciplineHeader = ({children, ...props}) => {
   const id = get('id', video);
   const descView = (
     <div className={style.desc}>
-      {hx`<div>${description}</div>`}
+      <div dangerouslySetInnerHTML={{__html: description}}/>
     </div>
   );
 

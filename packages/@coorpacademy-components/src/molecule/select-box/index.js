@@ -1,4 +1,4 @@
-import Inferno from 'inferno';
+import React from 'react';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import {checker, createValidate} from '../../util/validation';

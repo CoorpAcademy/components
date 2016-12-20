@@ -1,4 +1,4 @@
-import Inferno from 'inferno';
+import React from 'react';
 import {checker, createValidate} from '../../util/validation';
 import ForumComment from '../../molecule/forum/forum-comment';
 import ForumThread from '../../molecule/forum/forum-thread';

@@ -1,4 +1,4 @@
-import Inferno from 'inferno';
+import React from 'react';
 import identity from 'lodash/fp/identity';
 import {checker, createValidate} from '../../../util/validation';
 import DisciplineHeader from '../../../molecule/discipline-header';
@@ -24,41 +24,48 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-const Author = ({children, ...props}, {translate}) => {
-  const cardsTitle = translate('Their moocs:');
-  const {
-    disciplines = null,
-    image,
-    title = '',
-    information = {name: '', socialLinks: []},
-    description = ''
-  } = props;
+class Author extends React.Component {
+  render() {
+    const {translate} = this.context;
+    const cardsTitle = translate('Their moocs:');
+    const {
+      disciplines = null,
+      image,
+      title = '',
+      information = {name: '', socialLinks: []},
+      description = ''
+    } = this.props;
 
-  return (
-    <div className={layout.wrapper}>
-      <div className={layout.container}>
-        <DisciplineHeader
-          image={image}
-          title={title}
-          description={description}
-        />
+    return (
+      <div className={layout.wrapper}>
+        <div className={layout.container}>
+          <DisciplineHeader
+            image={image}
+            title={title}
+            description={description}
+          />
+        </div>
+        <div className={layout.colContainer}>
+          <DisciplineRightaside
+            author={information}
+            authorTitle={translate('Informations')}
+          />
+        </div>
+        <div className={style.container}>
+          <span className={layout.cardsTitle}>
+            {cardsTitle}
+          </span>
+          <CatalogCards
+            products={disciplines}
+          />
+        </div>
       </div>
-      <div className={layout.colContainer}>
-        <DisciplineRightaside
-          author={information}
-          authorTitle={translate('Informations')}
-        />
-      </div>
-      <div className={style.container}>
-        <span className={layout.cardsTitle}>
-          {cardsTitle}
-        </span>
-        <CatalogCards
-          products={disciplines}
-        />
-      </div>
-    </div>
-  );
+    );
+  }
+};
+
+Author.contextTypes = {
+  translate: React.PropTypes.function
 };
 
 Author.validate = createValidate(conditions);

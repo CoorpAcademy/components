@@ -1,4 +1,4 @@
-import Inferno from 'inferno';
+import React from 'react';
 import toPairs from 'lodash/fp/toPairs';
 import map from 'lodash/fp/map';
 import pipe from 'lodash/fp/pipe';
@@ -18,12 +18,11 @@ const buildOptions = map(({value, label, selected}) => (
 const buildGroups = pipe(
   toPairs,
   map(([label = '', options = []]) => (
-    // <optgroup
-    //   label={label}
-    // >
-    //   {buildOptions(options)}
-    // </optgroup>
-    buildOptions(options)
+    <optgroup
+      label={label}
+    >
+      {buildOptions(options)}
+    </optgroup>
   )),
   flatten
 );

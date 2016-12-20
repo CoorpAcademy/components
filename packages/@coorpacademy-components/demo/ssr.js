@@ -1,7 +1,7 @@
 import join from 'lodash/fp/join';
 import map from 'lodash/fp/map';
-import Inferno from 'inferno';
-import InfernoServer from 'inferno-server';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import {createMemoryHistory} from '@coorpacademy/history';
 import App from './app';
 import {components, fixtures} from './components';
@@ -24,7 +24,7 @@ export default (req, res, next) => {
     initialEntries: [req.url]
   });
 
-  // const html = InfernoServer.renderToString(App({
+  // const html =ReactDOM.renderToString(App({
   //   location: history.location,
   //   components: _components,
   //   fixtures: _fixtures

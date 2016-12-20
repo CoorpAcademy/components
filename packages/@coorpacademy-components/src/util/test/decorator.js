@@ -1,4 +1,4 @@
-import Inferno from 'inferno';
+import React from 'react';
 import test from 'ava';
 import * as treant from '@coorpacademy/treantjs-core';
 import Decorator from '../decorator';

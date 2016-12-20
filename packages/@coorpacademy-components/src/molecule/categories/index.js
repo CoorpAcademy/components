@@ -1,4 +1,4 @@
-import Inferno from 'inferno';
+import React from 'react';
 import _find from 'lodash/fp/find';
 import identity from 'lodash/fp/identity';
 import getOr from 'lodash/fp/getOr';
@@ -40,39 +40,46 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-const Categories = ({children, ...props}, {translate}) => {
-  const {categories = []} = props;
-  const filtersTitle = translate('filters');
+class Categories extends React.Component {
+  render() {
+    const {categories = []} = this.props;
+    const {translate} = this.context;
+    const filtersTitle = translate('filters');
 
-  const CategoriesDiv = map(buildCategory, categories);
-  const selectedCategory = _find({
-    selected: true
-  }, categories) || {};
+    const CategoriesDiv = map(buildCategory, categories);
+    const selectedCategory = _find({
+      selected: true
+    }, categories) || {};
 
-  return (
-    <div className={style.categories}>
-      <input
-        type='checkbox'
-        id='toggler'
-        checked='false'
-        className={style.mobileToggler}
-      />
-      <label
-        htmlFor='toggler'
-        className={style.togglerDisplay}
-      >
-        <span>{getOr('', 'name', selectedCategory)}</span>
-      </label>
-      <span className={style.arrow}></span>
-      <div className={style.category}>
-        <h2>{filtersTitle}</h2>
-        <ul className={style.filters}>
-          {CategoriesDiv}
-        </ul>
+    return (
+      <div className={style.categories}>
+        <input
+          type='checkbox'
+          id='toggler'
+          checked='false'
+          className={style.mobileToggler}
+        />
+        <label
+          htmlFor='toggler'
+          className={style.togglerDisplay}
+        >
+          <span>{getOr('', 'name', selectedCategory)}</span>
+        </label>
+        <span className={style.arrow}></span>
+        <div className={style.category}>
+          <h2>{filtersTitle}</h2>
+          <ul className={style.filters}>
+            {CategoriesDiv}
+          </ul>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
+
+Categories.contextTypes = {
+  translate: React.PropTypes.function
+}
 Categories.validate = createValidate(conditions);
 export default Categories;
