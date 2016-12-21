@@ -18,40 +18,41 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-class TitledCheckbox extends React.Component {
-  render() {
-    const {translate, skin} = this.context;
-    const {state, background, onToggle} = this.props;
-    
-    const iconSuccess = String.fromCharCode(getOr('v', 'icons.success', skin));
-    const label = translate(state.label);
-    const icon = state.checked ? iconSuccess : '';
+const TitledCheckbox = (props, context) => {
+  const {
+    translate = identity,
+    skin
+  } = context;
+  const {state, background, onToggle} = props;
 
-    return (
-      <div className={style.default}>
-        <label className={style.box}
-              style={{
-                background: background || '#3d3d3d'
-              }}
-        >
-          <span
-            className={style.icon}
+  const iconSuccess = String.fromCharCode(getOr('v', 'icons.success', skin));
+  const label = translate(state.label);
+  const icon = state.checked ? iconSuccess : '';
+
+  return (
+    <div className={style.default}>
+      <label className={style.box}
             style={{
-              color: 'white'
+              background: background || '#3d3d3d'
             }}
-          >
-            {icon}
-          </span>
-          <input type="checkbox"
-                className={style.input}
-                checked={state.checked}
-                onChange={unary(partial(onToggle, [state]))}
-          />
-        </label>
-        <span>{label}</span>
-      </div>
-    );
-  }
+      >
+        <span
+          className={style.icon}
+          style={{
+            color: 'white'
+          }}
+        >
+          {icon}
+        </span>
+        <input type="checkbox"
+              className={style.input}
+              checked={state.checked}
+              onChange={unary(partial(onToggle, [state]))}
+        />
+      </label>
+      <span>{label}</span>
+    </div>
+  );
 };
 
 TitledCheckbox.contextTypes = {

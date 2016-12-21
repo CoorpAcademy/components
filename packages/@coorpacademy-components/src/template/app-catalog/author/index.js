@@ -24,44 +24,42 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-class Author extends React.Component {
-  render() {
-    const {translate} = this.context;
-    const cardsTitle = translate('Their moocs:');
-    const {
-      disciplines = null,
-      image,
-      title = '',
-      information = {name: '', socialLinks: []},
-      description = ''
-    } = this.props;
+const Author = (props, context) => {
+  const {translate = identity} = context;
+  const cardsTitle = translate('Their moocs:');
+  const {
+    disciplines = null,
+    image,
+    title = '',
+    information = {name: '', socialLinks: []},
+    description = ''
+  } = props;
 
-    return (
-      <div className={layout.wrapper}>
-        <div className={layout.container}>
-          <DisciplineHeader
-            image={image}
-            title={title}
-            description={description}
-          />
-        </div>
-        <div className={layout.colContainer}>
-          <DisciplineRightaside
-            author={information}
-            authorTitle={translate('Informations')}
-          />
-        </div>
-        <div className={style.container}>
-          <span className={layout.cardsTitle}>
-            {cardsTitle}
-          </span>
-          <CatalogCards
-            products={disciplines}
-          />
-        </div>
+  return (
+    <div className={layout.wrapper}>
+      <div className={layout.container}>
+        <DisciplineHeader
+          image={image}
+          title={title}
+          description={description}
+        />
       </div>
-    );
-  }
+      <div className={layout.colContainer}>
+        <DisciplineRightaside
+          author={information}
+          authorTitle={translate('Informations')}
+        />
+      </div>
+      <div className={style.container}>
+        <span className={layout.cardsTitle}>
+          {cardsTitle}
+        </span>
+        <CatalogCards
+          products={disciplines}
+        />
+      </div>
+    </div>
+  );
 };
 
 Author.contextTypes = {

@@ -23,56 +23,54 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-class ProductCursus extends React.Component {
-  render() {
-    const {translate} = this.context;
-    const cardsTitle = translate('This course contains:');
-    const {
-      disciplines = null,
-      maxRating,
-      image,
-      badge,
-      title = '',
-      description = '',
-      rating = 0,
-      assets,
-      linkBuy,
-      linkTry
-    } = this.props;
+const ProductCursus = (props, context) => {
+  const {translate = identity} = context;
+  const cardsTitle = translate('This course contains:');
+  const {
+    disciplines = null,
+    maxRating,
+    image,
+    badge,
+    title = '',
+    description = '',
+    rating = 0,
+    assets,
+    linkBuy,
+    linkTry
+  } = props;
 
-    return (
-      <div className={layout.wrapper}>
-        <div className={layout.container}>
-          <CursusHeader
-            image={image}
-            title={title}
-            description={description}
-          />
-        </div>
-        <div className={layout.colContainer}>
-          <CursusRightaside
-            badge={badge}
-            assets={assets || []}
-            rating={rating}
-            maxRating={maxRating}
-            linkBuy={linkBuy}
-            linkTry={linkTry}
-          />
-        </div>
-        <div className={style.productsContainer}>
-          <span className={layout.cardsTitle}>
-            {cardsTitle}
-          </span>
+  return (
+    <div className={layout.wrapper}>
+      <div className={layout.container}>
+        <CursusHeader
+          image={image}
+          title={title}
+          description={description}
+        />
+      </div>
+      <div className={layout.colContainer}>
+        <CursusRightaside
+          badge={badge}
+          assets={assets || []}
+          rating={rating}
+          maxRating={maxRating}
+          linkBuy={linkBuy}
+          linkTry={linkTry}
+        />
+      </div>
+      <div className={style.productsContainer}>
+        <span className={layout.cardsTitle}>
+          {cardsTitle}
+        </span>
 
-          <div className={style.productsWrapper}>
-            <CatalogCards
-              products={disciplines}
-            />
-          </div>
+        <div className={style.productsWrapper}>
+          <CatalogCards
+            products={disciplines}
+          />
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 };
 
 ProductCursus.contextTypes = {

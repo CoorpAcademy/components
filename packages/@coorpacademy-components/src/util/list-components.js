@@ -16,7 +16,7 @@ const pascalCase = pipe(camelCase, upperFirst);
 const cwd = join(__dirname, '..');
 
 const paths = glob.sync(
-  '**/!(test)/index.js',
+  '**/**/!(test|layout)/index.js',
   {cwd}
 );
 

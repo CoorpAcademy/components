@@ -27,7 +27,7 @@ const buildGroups = pipe(
   flatten
 );
 
-export default ({options = [], onChange = noop}, children) => (
+const Select = ({options = [], onChange = noop}, children) => (
   <select
     onChange={e => onChange(e.target.value)}
   >
@@ -38,3 +38,5 @@ export default ({options = [], onChange = noop}, children) => (
     }
   </select>
 );
+
+export default Select;

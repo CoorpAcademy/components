@@ -44,7 +44,7 @@ const extractFromPath = (pathname, componentMap, fixturesMap) => {
   };
 };
 
-export default ({children, ...props}) => {
+const Header = ({children, ...props}) => {
   const {
     onSelectComponent = noop,
     onSelectFixture = noop,
@@ -88,8 +88,6 @@ export default ({children, ...props}) => {
     }))
   )(fixtures);
 
-  console.log({componentOptions, fixtureOptions});
-
   return (
     <div>
       <div
@@ -112,3 +110,5 @@ export default ({children, ...props}) => {
     </div>
   );
 };
+
+export default Header;

@@ -22,57 +22,58 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-class ModuleBubble extends React.Component {
-  render() {
-    const {translate, skin} = this.context;
-    const {onClick} = this.props;
-    const _module = get('module', this.props);
-    const code = getOr('', `icons[${_module.status}]`, skin);
-    const icon = String.fromCharCode(code);
+const ModuleBubble = (props, context) => {
+  const {
+    translate = identity,
+    skin
+  } = context;
+  const {onClick} = props;
+  const _module = get('module', props);
+  const code = getOr('', `icons[${_module.status}]`, skin);
+  const icon = String.fromCharCode(code);
 
-    const filtered = _module.filtered;
-    const disabled = _module.disabled;
+  const filtered = _module.filtered;
+  const disabled = _module.disabled;
 
-    const click = !disabled && pipe(
-      stopPropagation,
-      unary(partial(onClick, [_module]))
-    );
-    const label = translate(_module.label);
+  const click = !disabled && pipe(
+    stopPropagation,
+    unary(partial(onClick, [_module]))
+  );
+  const label = translate(_module.label);
 
-    const background = getOr('#fff', `mod[${_module.status}]`, skin);
+  const background = getOr('#fff', `mod[${_module.status}]`, skin);
 
-    return (
-      <div className={filtered ? style.filtered : style.modulewrapper}
-            attributes={{
-              'data-name': 'module-bubble'
-            }}
+  return (
+    <div className={filtered ? style.filtered : style.modulewrapper}
+          attributes={{
+            'data-name': 'module-bubble'
+          }}
+    >
+      <div
+        className={style.bubble}
+        onClick={click}
       >
-        <div
-          className={style.bubble}
-          onClick={click}
+        <span
+          className={style.bubbleBG}
+          style={{
+            background
+          }}
         >
-          <span
-            className={style.bubbleBG}
-            style={{
-              background
-            }}
-          >
-          </span>
-          <span
-            className={disabled ? style.iconDisabled : style.icon}
-            style={{
-              color: getOr('#fff', ['mod', 'icon', _module.status], skin)
-            }}
-          >
-              {icon}
-          </span>
-        </div>
-        <div className={style.label}>
-          {label}
-        </div>
+        </span>
+        <span
+          className={disabled ? style.iconDisabled : style.icon}
+          style={{
+            color: getOr('#fff', ['mod', 'icon', _module.status], skin)
+          }}
+        >
+            {icon}
+        </span>
       </div>
-    );
-  }
+      <div className={style.label}>
+        {label}
+      </div>
+    </div>
+  );
 };
 
 ModuleBubble.contextTypes = {

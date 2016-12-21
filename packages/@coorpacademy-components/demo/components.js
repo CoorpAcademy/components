@@ -73,7 +73,6 @@ import ProductCursus from '../src/template/app-catalog/product-cursus';
 import BrandCreate from '../src/template/back-office/brand-create';
 import BrandList from '../src/template/back-office/brand-list';
 import BrandUpdate from '../src/template/back-office/brand-update';
-import Layout from '../src/template/back-office/layout';
 import CoorpHeader from '../src/template/common/coorp-header';
 import ButtonFixtureA from '../src/atom/button/test/fixtures/a';
 import ButtonFixtureBlue from '../src/atom/button/test/fixtures/blue';
@@ -279,7 +278,6 @@ import BrandUpdateFixtureUsersImportSuccessful from '../src/template/back-office
 import BrandUpdateFixtureUsersImport from '../src/template/back-office/brand-update/test/fixtures/users-import';
 import BrandUpdateFixtureUsersList from '../src/template/back-office/brand-update/test/fixtures/users-list';
 import BrandUpdateFixtureUsers from '../src/template/back-office/brand-update/test/fixtures/users';
-import LayoutFixtureDefault from '../src/template/back-office/layout/test/fixtures/default';
 import CoorpHeaderFixtureProduction from '../src/template/common/coorp-header/test/fixtures/production';
 import CoorpHeaderFixtureStaging from '../src/template/common/coorp-header/test/fixtures/staging';
 
@@ -369,8 +367,7 @@ export const components = {
   TemplateBackOffice: {
     BrandCreate,
     BrandList,
-    BrandUpdate,
-    Layout
+    BrandUpdate
   },
   TemplateCommon: {
     CoorpHeader
@@ -745,9 +742,6 @@ export const fixtures = {
       UsersImport: BrandUpdateFixtureUsersImport,
       UsersList: BrandUpdateFixtureUsersList,
       Users: BrandUpdateFixtureUsers
-    },
-    Layout: {
-      Default: LayoutFixtureDefault
     }
   },
   TemplateCommon: {

@@ -37,67 +37,65 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-class ProductCourse extends React.Component {
-  render() {
-    const {translate} = this.context;
-    const cardsTitle = translate('They also liked:');
-    const {
-      selected = 0,
-      level,
-      levels,
-      changeLevel,
-      linkBuy,
-      linkTry,
-      maxPopularity,
-      relatedDisciplines = null,
-      image,
-      title = '',
-      video,
-      author = {name: '', socialLinks: []},
-      description = '',
-      popularity = 0
-    } = this.props;
+const ProductCourse = (props, context) => {
+  const {translate = identity} = context;
+  const cardsTitle = translate('They also liked:');
+  const {
+    selected = 0,
+    level,
+    levels,
+    changeLevel,
+    linkBuy,
+    linkTry,
+    maxPopularity,
+    relatedDisciplines = null,
+    image,
+    title = '',
+    video,
+    author = {name: '', socialLinks: []},
+    description = '',
+    popularity = 0
+  } = props;
 
-    return (
-      <div className={style.wrapper}>
-        <div className={style.container}>
-          <DisciplineHeader
-            image={image}
-            video={video}
-            title={title}
-            description={description}
-          />
-        </div>
-        <div className={style.colContainer}>
-          <DisciplineRightaside
-            linkBuy={linkBuy}
-            linkTry={linkTry}
-            author={author}
-            rating={popularity}
-            maxRating={maxPopularity}
-          />
-        </div>
-        <div
-          className={style.contentContainer}
-        >
-          <DisciplineScope
-            content={level}
-            levels={levels}
-            selected={selected}
-            onClick={changeLevel}
-          />
-        </div>
-        <div className={layout.container}>
-          <span className={layout.cardsTitle}>
-            {cardsTitle}
-          </span>
-          <CatalogCards
-            products={relatedDisciplines}
-          />
-        </div>
+  return (
+    <div className={style.wrapper}>
+      <div className={style.container}>
+        <DisciplineHeader
+          image={image}
+          video={video}
+          title={title}
+          description={description}
+        />
       </div>
-    );
-  }
+      <div className={style.colContainer}>
+        <DisciplineRightaside
+          linkBuy={linkBuy}
+          linkTry={linkTry}
+          author={author}
+          rating={popularity}
+          maxRating={maxPopularity}
+        />
+      </div>
+      <div
+        className={style.contentContainer}
+      >
+        <DisciplineScope
+          content={level}
+          levels={levels}
+          selected={selected}
+          onClick={changeLevel}
+        />
+      </div>
+      <div className={layout.container}>
+        <span className={layout.cardsTitle}>
+          {cardsTitle}
+        </span>
+        <CatalogCards
+          products={relatedDisciplines}
+        />
+      </div>
+    </div>
+  );
 };
 
 ProductCourse.contextTypes = {

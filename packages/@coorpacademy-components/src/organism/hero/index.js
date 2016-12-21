@@ -16,44 +16,42 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-class Hero extends React.Component {
-  render() {
-    const {translate, skin} = this.context;
-    const bg = get('images.hero', skin);
-    const {url, title, touch = false} = this.props;
-    const text = translate(title);
-    const backgroundImage = bg ? `url(${bg})` : '';
-    const ctaClass = touch ? 'ctaTouch' : 'ctaNoTouch';
+const Hero = (props, context) => {
+  const {translate = identity, skin} = context;
+  const bg = get('images.hero', skin);
+  const {url, title, touch = false} = props;
+  const text = translate(title);
+  const backgroundImage = bg ? `url(${bg})` : '';
+  const ctaClass = touch ? 'ctaTouch' : 'ctaNoTouch';
 
-    return (
-      <div
-        className={style.hero}
-        style={{
-          backgroundImage
-        }}
-      >
-        <Link
-          href={url}
-          className={style[ctaClass]}>
-          <div
-            className={style.label}
+  return (
+    <div
+      className={style.hero}
+      style={{
+        backgroundImage
+      }}
+    >
+      <Link
+        href={url}
+        className={style[ctaClass]}>
+        <div
+          className={style.label}
+          style={{
+            color: getOr('#00b0ff', 'common.primary', skin)
+          }}
+        >
+          {text}
+          <span
+            className={style.bar}
             style={{
-              color: getOr('#00b0ff', 'common.primary', skin)
+              backgroundColor: getOr('#00b0ff', 'common.primary', skin)
             }}
-          >
-            {text}
-            <span
-              className={style.bar}
-              style={{
-                backgroundColor: getOr('#00b0ff', 'common.primary', skin)
-              }}
-              >
-              </span>
-          </div>
-        </Link>
-      </div>
-    );
-  }
+            >
+            </span>
+        </div>
+      </Link>
+    </div>
+  );
 };
 
 Hero.contextTypes = {

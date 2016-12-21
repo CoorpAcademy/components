@@ -15,47 +15,45 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-class ForumComment extends React.Component {
-  render() {
-    const {translate} = this.context;
-    const {avatar, onPost, onChange, value, textareaDisabled, postDisabled} = this.props;
-    const avatarView = avatar && (
-      <div className={style.image}>
-        <img src={avatar} />
-      </div>
-    );
+const ForumComment = (props, context) => {
+  const {translate = identity} = context;
+  const {avatar, onPost, onChange, value, textareaDisabled, postDisabled} = props;
+  const avatarView = avatar && (
+    <div className={style.image}>
+      <img src={avatar} />
+    </div>
+  );
 
-    const button = (
-      <div
-        className={style.post}
-      >
-        <Button
-          onClick={onPost}
-          disabled={postDisabled}
-          submitValue={translate('Post')}
-          className={style.button}
-        />
-      </div>
-    );
+  const button = (
+    <div
+      className={style.post}
+    >
+      <Button
+        onClick={onPost}
+        disabled={postDisabled}
+        submitValue={translate('Post')}
+        className={style.button}
+      />
+    </div>
+  );
 
-    return (
-      <div className={style.container}>
-        <div className={style.wrapper}>
-          {avatarView}
-          <div className={style.comment}>
-            <textarea
-              placeholder={translate('Write something here')}
-              value={value}
-              oninput={debounce(400, onChange)}
-              disabled={textareaDisabled}
-            />
-          </div>
+  return (
+    <div className={style.container}>
+      <div className={style.wrapper}>
+        {avatarView}
+        <div className={style.comment}>
+          <textarea
+            placeholder={translate('Write something here')}
+            value={value}
+            oninput={debounce(400, onChange)}
+            disabled={textareaDisabled}
+          />
         </div>
-      {button}
       </div>
-    );
-  }
-}
+    {button}
+    </div>
+  );
+};
 
 ForumComment.contextTypes = {
   translate: React.PropTypes.function

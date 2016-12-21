@@ -13,15 +13,13 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-class CoorpHeader extends React.Component {
-  render() {
-    const {translate} = this.context;
-    const headerProps = content(translate, this.props);
+const CoorpHeader = (props, context) => {
+  const {translate = identity} = context;
+  const headerProps = content(translate, props);
 
-    return (
-      <Header {...headerProps}/>
-    );
-  }
+  return (
+    <Header {...headerProps}/>
+  );
 };
 
 CoorpHeader.contextTypes = {

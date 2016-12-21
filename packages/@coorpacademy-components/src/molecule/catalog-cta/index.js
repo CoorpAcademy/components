@@ -15,45 +15,45 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-class CatalogCTA extends React.Component {
-  render() {
-    const {
-      rating,
-      maxRating,
-      linkBuy = '#',
-      linkTry = '#'
-    } = this.props;
-    const {translate} = this.context;
+const CatalogCTA = (props, context) => {
+  const {
+    rating,
+    maxRating,
+    linkBuy = '#',
+    linkTry = '#'
+  } = props;
+  const {
+    translate = identity
+  } = context;
 
 
-    const startLearning = (
-      <span
-        dangerouslySetInnerHTML={{__html: translate('Start <span>learning</span>')}}
-      />
-    );
-    const premium = (
-      <span
-      dangerouslySetInnerHTML={{__html: translate('Coorpacademy <span>subscription</span>')}}
-      />
-    );
+  const startLearning = (
+    <span
+      dangerouslySetInnerHTML={{__html: translate('Start <span>learning</span>')}}
+    />
+  );
+  const premium = (
+    <span
+    dangerouslySetInnerHTML={{__html: translate('Coorpacademy <span>subscription</span>')}}
+    />
+  );
 
-    return (
-      <div className={style.head}>
-        <div className={style.starRating}>
-          <StarRating
-            rating={rating}
-            total={maxRating}
-          />
-        </div>
-          <a className={`${style.try} ${hoverFill}`} href={linkTry}>
-            {startLearning}
-          </a>
-          <a className={`${style.buy} ${hoverFill}`} href={linkBuy}>
-            {premium}
-          </a>
+  return (
+    <div className={style.head}>
+      <div className={style.starRating}>
+        <StarRating
+          rating={rating}
+          total={maxRating}
+        />
       </div>
-    );
-  }
+        <a className={`${style.try} ${hoverFill}`} href={linkTry}>
+          {startLearning}
+        </a>
+        <a className={`${style.buy} ${hoverFill}`} href={linkBuy}>
+          {premium}
+        </a>
+    </div>
+  );
 };
 
 CatalogCTA.contextTypes = {

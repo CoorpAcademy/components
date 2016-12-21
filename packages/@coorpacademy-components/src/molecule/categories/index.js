@@ -40,46 +40,44 @@ const conditions = checker.shape({
   children: checker.none
 });
 
-class Categories extends React.Component {
-  render() {
-    const {categories = []} = this.props;
-    const {translate} = this.context;
-    const filtersTitle = translate('filters');
+const Categories = (props, context) => {
+  const {categories = []} = props;
+  const {translate = identity} = context;
+  const filtersTitle = translate('filters');
 
-    const CategoriesDiv = map(buildCategory, categories);
-    const selectedCategory = _find({
-      selected: true
-    }, categories) || {};
+  const CategoriesDiv = map(buildCategory, categories);
+  const selectedCategory = _find({
+    selected: true
+  }, categories) || {};
 
-    return (
-      <div className={style.categories}>
-        <input
-          type='checkbox'
-          id='toggler'
-          checked='false'
-          className={style.mobileToggler}
-        />
-        <label
-          htmlFor='toggler'
-          className={style.togglerDisplay}
-        >
-          <span>{getOr('', 'name', selectedCategory)}</span>
-        </label>
-        <span className={style.arrow}></span>
-        <div className={style.category}>
-          <h2>{filtersTitle}</h2>
-          <ul className={style.filters}>
-            {CategoriesDiv}
-          </ul>
-        </div>
+  return (
+    <div className={style.categories}>
+      <input
+        type='checkbox'
+        id='toggler'
+        checked='false'
+        className={style.mobileToggler}
+      />
+      <label
+        htmlFor='toggler'
+        className={style.togglerDisplay}
+      >
+        <span>{getOr('', 'name', selectedCategory)}</span>
+      </label>
+      <span className={style.arrow}></span>
+      <div className={style.category}>
+        <h2>{filtersTitle}</h2>
+        <ul className={style.filters}>
+          {CategoriesDiv}
+        </ul>
       </div>
-    );
-  }
+    </div>
+  );
 };
-
 
 Categories.contextTypes = {
   translate: React.PropTypes.function
-}
+};
+
 Categories.validate = createValidate(conditions);
 export default Categories;

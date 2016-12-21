@@ -2,7 +2,6 @@ import React from 'react';
 import {checker, createValidate} from '../../util/validation';
 import Link from '../link';
 import addClassName from '../../util/add-class-name';
-// import HoverFillBehaviour from '../../behaviour/effects/hover-fill';
 import style from './style.css';
 import {hoverFill} from './hover-fill.css';
 
