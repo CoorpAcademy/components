@@ -41,6 +41,7 @@
 
 .thematiques {
   composes: default;
+  position: relative;
 }
 
 .thematiques label {
