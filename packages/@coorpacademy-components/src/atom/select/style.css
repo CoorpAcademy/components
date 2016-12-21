@@ -41,10 +41,7 @@
 
 .thematiques {
   composes: default;
-<<<<<<< HEAD
   position: relative;
-=======
->>>>>>> ftr(#9485): look&feel selectbox thematique
 }
 
 .thematiques label {
