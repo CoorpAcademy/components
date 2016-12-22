@@ -42,7 +42,7 @@ export default (treant, options) => {
     });
 
     return (
-      <div className={props.theme ? style[props.theme] : style.default}>
+      <div className={theme ? style[theme] : style.default}>
         <label>
           <span className={style.title}>{title}</span>
           <select onChange={e => onChange(e.target.value)} disabled={disabled}>
