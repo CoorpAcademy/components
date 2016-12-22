@@ -1,26 +1,7 @@
-import React from 'react';
-import {checker, createValidate} from '../../util/validation';
+import React, {PropTypes} from 'react';
+import Checkbox from '../../atom/checkbox';
 import Link from '../../atom/link';
 import style from './style.css';
-
-const conditions = checker.shape({
-  props: checker.shape({
-    rows: checker.arrayOf(checker.shape({
-      fields: checker.arrayOf(checker.string.optional).optional,
-      editHref: checker.string
-    })),
-    columns: checker.arrayOf(checker.shape({
-      title: checker.string,
-      filtered: checker.bool.optional,
-      options: checker.arrayOf(checker.shape({
-        title: checker.string,
-        onChange: checker.func,
-        selected: checker.bool
-      })).optional
-    }))
-  }),
-  children: checker.none
-});
 
 const Table = ({children, ...props}) => {
   const {
@@ -28,7 +9,7 @@ const Table = ({children, ...props}) => {
     columns
   } = props;
 
-  const headerView = columns.map(column => {
+  const headerView = columns.map((column, index) => {
     const {
       title,
       filtered,
@@ -38,14 +19,14 @@ const Table = ({children, ...props}) => {
     const hasOptions = options.length > 0;
 
     const createOptionsView = _options => {
-      const optionsView = _options.map(option => {
+      const optionsView = _options.map((option, index) => {
         const {
           onChange,
           selected
         } = option;
 
         return (
-          <div className={selected ? style.selected : style.option}>
+          <div key={index} className={selected ? style.selected : style.option}>
             <button onClick={onChange}>{option.title}</button>
           </div>
         );
@@ -61,12 +42,12 @@ const Table = ({children, ...props}) => {
     const optionsClassName = hasOptions ? style.toggle : style.noOptions;
 
     return (
-      <th>
+      <th key={index}>
         <div className={filtered ? style.filtered : optionsClassName} >
-          <input
-            type='checkbox'
+          <Checkbox
             id={title}
             name={title}
+            checked={true}
             className={style.checkbox}
           />
           <label htmlFor={title}>
@@ -79,32 +60,32 @@ const Table = ({children, ...props}) => {
   });
 
   headerView.unshift((
-    <th>
+    <th key="header">
       <div className={style.noOptions}>
       </div>
     </th>
   ));
 
-  const bodyView = rows.map(row => {
+  const bodyView = rows.map((row, index) => {
     const {
       fields = [],
       editHref
     } = row;
 
-    const tableRows = fields.map(field => {
+    const tableRows = fields.map((field, index) => {
       return (
-        <td>{field}</td>
+        <td key={index}>{field}</td>
       );
     });
 
     tableRows.unshift((
-      <td>
+      <td key="header">
         <Link className={style.editLink} href={editHref}></Link>
       </td>
     ));
 
     return (
-      <tr>{tableRows}</tr>
+      <tr key={index}>{tableRows}</tr>
     );
   });
 
@@ -124,5 +105,20 @@ const Table = ({children, ...props}) => {
   );
 };
 
-Table.validate = createValidate(conditions);
+Table.propTypes = {
+  rows: PropTypes.arrayOf(PropTypes.shape({
+    fields: PropTypes.arrayOf(PropTypes.string),
+    editHref: PropTypes.string.isRequired
+  })).isRequired,
+  columns: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    filtered: PropTypes.bool,
+    options: PropTypes.arrayOf(PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      onChange: PropTypes.func.isRequired,
+      selected: PropTypes.bool.isRequired
+    }))
+  })).isRequired
+};
+
 export default Table;

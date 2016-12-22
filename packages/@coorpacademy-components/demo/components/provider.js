@@ -20,7 +20,7 @@ Provider.propTypes = {
   store: React.PropTypes.object,
   history: React.PropTypes.object,
   skin: React.PropTypes.object,
-  translate: React.PropTypes.function,
+  translate: React.PropTypes.func,
   children: React.PropTypes.element.isRequired
 };
 
@@ -28,7 +28,7 @@ Provider.childContextTypes = {
   store: React.PropTypes.object,
   history: React.PropTypes.object,
   skin: React.PropTypes.object,
-  translate: React.PropTypes.function
+  translate: React.PropTypes.func
 };
 
 export default Provider;

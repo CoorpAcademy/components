@@ -1,19 +1,8 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import identity from 'lodash/fp/identity';
-import {checker, createValidate} from '../../util/validation';
 import StarRating from '../../molecule/star-rating';
 import style from './style.css';
 import {hoverFill} from '../../atom/button/hover-fill.css';
-
-const conditions = checker.shape({
-  props: checker.shape({
-    rating: checker.number.optional,
-    maxRating: checker.number.optional,
-    linkTry: checker.string.optional,
-    linkBuy: checker.string.optional
-  }),
-  children: checker.none
-});
 
 const CatalogCTA = (props, context) => {
   const {
@@ -57,8 +46,13 @@ const CatalogCTA = (props, context) => {
 };
 
 CatalogCTA.contextTypes = {
-  translate: React.PropTypes.function
+  translate: React.PropTypes.func
 }
 
-CatalogCTA.validate = createValidate(conditions);
+CatalogCTA.propTypes = {
+  rating: PropTypes.number,
+  maxRating: PropTypes.number,
+  linkTry: PropTypes.string,
+  linkBuy: PropTypes.string
+};
 export default CatalogCTA;

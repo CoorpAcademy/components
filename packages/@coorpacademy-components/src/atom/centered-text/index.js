@@ -1,21 +1,22 @@
-import React from 'react';
-import {checker, createValidate} from '../../util/validation';
-// import AlignCenterBehaviour from '../../behaviour/align/centered/';
+import React, {PropTypes} from 'react';
 
-const conditions = checker.shape({
-  props: checker.none,
-  children: checker.oneOrMore
-});
+const CenteredText = ({children}) => (
+  <div>
+    {children}
+  </div>
+);
 
-const CenteredText = ({children, ...props}) => {
-  // const AlignCenter = AlignCenterBehaviour(treant, options);
-
-  return (
-      <div>
-        {children}
-      </div>
-  );
+CenteredText.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element,
+    PropTypes.arrayOf(
+      PropTypes.oneOfType([
+        PropTypes.element,
+        PropTypes.string
+      ])
+    )
+  ])
 };
 
-CenteredText.validate = createValidate(conditions);
 export default CenteredText;

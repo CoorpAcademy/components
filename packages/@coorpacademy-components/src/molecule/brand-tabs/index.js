@@ -1,10 +1,9 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import map from 'lodash/fp/map';
 import Link from '../../atom/link';
-import {checker, createValidate} from '../../util/validation';
 import style from './style.css';
 
-const buildTab = tab => {
+const buildTab = (tab, index) => {
   const {
     title,
     href,
@@ -14,29 +13,18 @@ const buildTab = tab => {
   const className = selected ? style.selected : style.tab;
 
   return (
-    <div className={className}>
+    <div className={className} key={index}>
       <Link href={href}>{title}</Link>
     </div>
   );
 };
-
-const conditions = checker.shape({
-  props: checker.shape({
-    tabs: checker.arrayOf(checker.shape({
-      title: checker.string,
-      href: checker.string,
-      selected: checker.bool.optional
-    })).optional
-  }),
-  children: checker.none
-});
 
 const BrandTabs = ({children, ...props}) => {
   const {
     tabs
   } = props;
 
-  const tabsList = map(buildTab, tabs);
+  const tabsList = tabs.map(buildTab);
 
   return (
     <div className={style.wrapper}>
@@ -45,5 +33,11 @@ const BrandTabs = ({children, ...props}) => {
   );
 };
 
-BrandTabs.validate = createValidate(conditions);
+BrandTabs.propTypes = {
+  tabs: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    href: PropTypes.string.isRequired,
+    selected: PropTypes.bool
+  }))
+};
 export default BrandTabs;

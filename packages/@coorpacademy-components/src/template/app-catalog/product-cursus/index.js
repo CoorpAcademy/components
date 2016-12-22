@@ -1,27 +1,25 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import identity from 'lodash/fp/identity';
-import {checker, createValidate} from '../../../util/validation';
 import CursusHeader from '../../../molecule/cursus-header';
 import CursusRightaside from '../../../organism/cursus-rightaside';
 import CatalogCards from '../../../organism/catalog-cards';
 import layout from '../layout.css';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.shape({
-    title: checker.string.optional,
-    description: checker.string.optional,
-    image: checker.url.optional,
-    badge: checker.url.optional,
-    linkBuy: checker.string.optional,
-    linkTry: checker.string.optional,
-    rating: checker.number.optional,
-    maxRating: checker.number.optional,
-    assets: checker.arrayOf(checker.string).optional,
-    disciplines: checker.oneOfType([checker.arrayOf(checker.object), checker.null]).optional
-  }),
-  children: checker.none
-});
+// const conditions = checker.shape({
+//   props: checker.shape({
+//     title: checker.string.optional,
+//     description: checker.string.optional,
+//     image: checker.url.optional,
+//     badge: checker.url.optional,
+//     linkBuy: checker.string.optional,
+//     linkTry: checker.string.optional,
+//     rating: checker.number.optional,
+//     maxRating: checker.number.optional,
+//     assets: checker.arrayOf(checker.string).optional,
+//     disciplines: checker.oneOfType([checker.arrayOf(checker.object), checker.null]).optional
+//   })
+// });
 
 const ProductCursus = (props, context) => {
   const {translate = identity} = context;
@@ -74,8 +72,8 @@ const ProductCursus = (props, context) => {
 };
 
 ProductCursus.contextTypes = {
-  translate: React.PropTypes.function
+  translate: React.PropTypes.func
 };
 
-ProductCursus.validate = createValidate(conditions);
+// ProductCursus.validate = createValidate(conditions);
 export default ProductCursus;

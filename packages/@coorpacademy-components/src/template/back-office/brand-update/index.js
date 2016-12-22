@@ -1,6 +1,5 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import map from 'lodash/fp/map';
-import {checker, createValidate} from '../../../util/validation';
 import Breadcrumbs from '../../../molecule/breadcrumbs';
 import BrandTabs from '../../../molecule/brand-tabs';
 import BrandForm from '../../../organism/brand-form';
@@ -10,34 +9,33 @@ import Notification from '../../../atom/notification';
 import Layout from '../layout';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.shape({
-    notifications: checker.arrayOf(checker.shape({
-      type: checker.string,
-      message: checker.string,
-      onClose: checker.func.optional
-    })).optional,
-    breadcrumbs: checker.arrayOf(checker.shape({
-      icon: checker.string.optional,
-      title: checker.string,
-      href: checker.string.optional
-    })),
-    links: checker.arrayOf(checker.shape({
-      title: checker.string,
-      href: checker.string,
-      type: checker.string.optional
-    })),
-    tabs: checker.arrayOf(checker.shape({
-      title: checker.string,
-      href: checker.string,
-      selected: checker.bool.optional
-    })),
-    content: checker.shape({
-      type: checker.oneOf(['form', 'list', 'upload']).optional
-    })
-  }),
-  children: checker.none
-});
+// const conditions = checker.shape({
+//   props: checker.shape({
+//     notifications: checker.arrayOf(checker.shape({
+//       type: checker.string,
+//       message: checker.string,
+//       onClose: checker.func.optional
+//     })).optional,
+//     breadcrumbs: checker.arrayOf(checker.shape({
+//       icon: checker.string.optional,
+//       title: checker.string,
+//       href: checker.string.optional
+//     })),
+//     links: checker.arrayOf(checker.shape({
+//       title: checker.string,
+//       href: checker.string,
+//       type: checker.string.optional
+//     })),
+//     tabs: checker.arrayOf(checker.shape({
+//       title: checker.string,
+//       href: checker.string,
+//       selected: checker.bool.optional
+//     })),
+//     content: checker.shape({
+//       type: checker.oneOf(['form', 'list', 'upload']).optional
+//     })
+//   })
+// });
 
 const BrandUpdate = Layout((props, children) => {
   const {
@@ -48,13 +46,13 @@ const BrandUpdate = Layout((props, children) => {
     content
   } = props;
 
-  const notificationsList = map(notification => {
+  const notificationsList = notifications.map((notification, index) => {
     return (
-      <div className={style.notification}>
+      <div className={style.notification} key={index}>
         <Notification {...notification} />
       </div>
     );
-  }, notifications);
+  });
 
   const contentView = cont => {
     const {
@@ -97,5 +95,5 @@ const BrandUpdate = Layout((props, children) => {
   );
 });
 
-BrandUpdate.validate = createValidate(conditions);
+// BrandUpdate.validate = createValidate(conditions);
 export default BrandUpdate;

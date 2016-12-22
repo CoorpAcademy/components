@@ -1,37 +1,10 @@
-import React from 'react';
-import {checker, createValidate} from '../../util/validation';
+import React, {PropTypes} from 'react';
 import Table from '../../molecule/table';
 import Pagination from '../../molecule/pagination';
 import Search from '../../molecule/search';
 import Loader from '../../atom/loader';
 import Link from '../../atom/link';
 import style from './style.css';
-
-const conditions = checker.shape({
-  props: checker.shape({
-    createHref: checker.string,
-    search: checker.shape({
-      value: checker.string.optional,
-      placeholder: checker.string,
-      onChange: checker.func
-    }).optional,
-    pagination: checker.shape({
-      value: checker.string,
-      nextHref: checker.string.optional,
-      previousHref: checker.string.optional
-    }).optional,
-    displayOptions: checker.shape({
-      value: checker.string,
-      values: checker.array,
-      onChange: checker.func
-    }),
-    emptyValue: checker.string,
-    isPending: checker.bool.optional,
-    rows: checker.array.optional,
-    columns: checker.array.optional
-  }),
-  children: checker.none
-});
 
 const BrandTable = ({children, ...props}) => {
   const {
@@ -80,5 +53,27 @@ const BrandTable = ({children, ...props}) => {
   );
 };
 
-BrandTable.validate = createValidate(conditions);
+BrandTable.propTypes = {
+  createHref: PropTypes.string.isRequired,
+  search: PropTypes.shape({
+    value: PropTypes.string,
+    placeholder: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired
+  }),
+  pagination: PropTypes.shape({
+    value: PropTypes.string.isRequired,
+    nextHref: PropTypes.string,
+    previousHref: PropTypes.string
+  }),
+  displayOptions: PropTypes.shape({
+    value: PropTypes.string.isRequired,
+    values: PropTypes.array.isRequired,
+    onChange: PropTypes.func.isRequired
+  }),
+  emptyValue: PropTypes.string.isRequired,
+  isPending: PropTypes.bool,
+  rows: PropTypes.array,
+  columns: PropTypes.array
+};
+
 export default BrandTable;

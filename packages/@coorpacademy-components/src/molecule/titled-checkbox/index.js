@@ -1,22 +1,11 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import getOr from 'lodash/fp/getOr';
 import partial from 'lodash/fp/partial';
 import unary from 'lodash/fp/unary';
 import identity from 'lodash/fp/identity';
-import {checker, createValidate} from '../../util/validation';
+import * as CustomPropTypes from '../../util/proptypes';
+import Checkbox from '../../atom/checkbox';
 import style from './style.css';
-
-const conditions = checker.shape({
-  props: checker.shape({
-    state: checker.shape({
-      checked: checker.bool.optional,
-      label: checker.string
-    }).strict,
-    background: checker.color.optional,
-    onToggle: checker.func
-  }).strict,
-  children: checker.none
-});
 
 const TitledCheckbox = (props, context) => {
   const {
@@ -44,7 +33,7 @@ const TitledCheckbox = (props, context) => {
         >
           {icon}
         </span>
-        <input type="checkbox"
+        <Checkbox
               className={style.input}
               checked={state.checked}
               onChange={unary(partial(onToggle, [state]))}
@@ -57,8 +46,16 @@ const TitledCheckbox = (props, context) => {
 
 TitledCheckbox.contextTypes = {
   skin: React.PropTypes.object,
-  translate: React.PropTypes.function
+  translate: React.PropTypes.func
 };
 
-TitledCheckbox.validate = createValidate(conditions);
+TitledCheckbox.propTypes = {
+  state: PropTypes.shape({
+    checked: PropTypes.bool,
+    label: PropTypes.string.isRequired
+  }).isRequired,
+  background: CustomPropTypes.color,
+  onToggle: PropTypes.func.isRequired
+};
+
 export default TitledCheckbox;

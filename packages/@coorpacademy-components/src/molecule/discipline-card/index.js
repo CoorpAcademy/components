@@ -1,28 +1,13 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import set from 'lodash/fp/set';
 import getOr from 'lodash/fp/getOr';
 import partial from 'lodash/fp/partial';
 import unary from 'lodash/fp/unary';
 import identity from 'lodash/fp/identity';
-import {checker, createValidate} from '../../util/validation';
 import ModuleBubble from '../../molecule/module-bubble';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.shape({
-    discipline: checker.shape({
-      visible: checker.bool.optional,
-      modules: checker.array
-    }),
-    onClick: checker.func,
-    onModuleClick: checker.func,
-    theme: checker.oneOf(['default', 'circle']).optional,
-    row: checker.bool.optional
-  }),
-  children: checker.none
-});
-
-const DisciplineCard = ({children, ...props}, context) => {
+function DisciplineCard({children, ...props}, context) {
   const {translate = identity, skin} = context;
   const {discipline, onClick, onModuleClick, row} = props;
 
@@ -93,7 +78,21 @@ const DisciplineCard = ({children, ...props}, context) => {
       </div>
     </div>
   );
+}
+
+DisciplineCard.propTypes = {
+  discipline: PropTypes.shape({
+    visible: PropTypes.bool,
+    modules: PropTypes.arrayOf(
+      PropTypes.shape({
+        ref: PropTypes.string.isRequired
+      })
+    ).isRequired
+  }).isRequired,
+  onClick: PropTypes.func.isRequired,
+  onModuleClick: PropTypes.func.isRequired,
+  theme: PropTypes.oneOf(['default', 'circle']),
+  row: PropTypes.bool
 };
 
-DisciplineCard.validate = createValidate(conditions);
 export default DisciplineCard;

@@ -1,24 +1,10 @@
-import React from 'react';
-import {checker, createValidate} from '../../util/validation';
+import React, {PropTypes} from 'react';
+import * as CustomPropTypes from '../../util/proptypes';
 import Picture from '../../atom/picture';
 import style from './style.css';
 
 const VIMEO = 'vimeo';
 const YOUTUBE = 'youtube';
-
-const conditions = checker.shape({
-  props: checker.shape({
-    type: checker.oneOf([VIMEO, YOUTUBE]).optional,
-    image: checker.shape({
-      '1x': checker.url.optional,
-      '2x': checker.url.optional
-    }).optional,
-    width: checker.number.optional,
-    height: checker.number.optional,
-    id: checker.string.optional
-  }),
-  children: checker.none
-});
 
 const url = (type, id) => {
   switch (type) {
@@ -60,5 +46,15 @@ const VideoIframe = ({children, ...props}) => {
   }
 };
 
-VideoIframe.validate = createValidate(conditions);
+VideoIframe.propTypes = {
+  type: PropTypes.oneOf([VIMEO, YOUTUBE]),
+  image: PropTypes.shape({
+    '1x': CustomPropTypes.url,
+    '2x': CustomPropTypes.url
+  }),
+  width: PropTypes.string,
+  height: PropTypes.string,
+  id: PropTypes.string
+};
+
 export default VideoIframe;

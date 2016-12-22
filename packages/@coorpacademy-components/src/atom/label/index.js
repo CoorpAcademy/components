@@ -1,13 +1,7 @@
-import React from 'react';
-import {checker, createValidate} from '../../util/validation';
+import React, {PropTypes} from 'react';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.none,
-  children: checker.oneOrMore
-});
-
-const Label = ({children, ...props}) => {
+const Label = ({children}) => {
   return (
     <span className={style.default}>
       {children}
@@ -15,5 +9,17 @@ const Label = ({children, ...props}) => {
   );
 };
 
-Label.validate = createValidate(conditions);
+Label.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element,
+    PropTypes.arrayOf(
+      PropTypes.oneOfType([
+        PropTypes.element,
+        PropTypes.string
+      ])
+    )
+  ])
+};
+
 export default Label;

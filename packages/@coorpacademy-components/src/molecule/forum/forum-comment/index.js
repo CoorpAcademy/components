@@ -1,19 +1,8 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import identity from 'lodash/fp/identity';
-import debounce from 'lodash/fp/debounce';
+import * as CustomPropTypes from '../../../util/proptypes';
 import Button from '../../../atom/button';
-import {checker, createValidate} from '../../../util/validation';
 import style from './style.css';
-
-const conditions = checker.shape({
-  props: checker.shape({
-    value: checker.string.optional,
-    avatar: checker.url.optional,
-    onChange: checker.func.optional,
-    onPost: checker.func.optional
-  }),
-  children: checker.none
-});
 
 const ForumComment = (props, context) => {
   const {translate = identity} = context;
@@ -44,8 +33,8 @@ const ForumComment = (props, context) => {
         <div className={style.comment}>
           <textarea
             placeholder={translate('Write something here')}
-            value={value}
-            oninput={debounce(400, onChange)}
+            defaultValue={value}
+            onInput={onChange}
             disabled={textareaDisabled}
           />
         </div>
@@ -56,8 +45,13 @@ const ForumComment = (props, context) => {
 };
 
 ForumComment.contextTypes = {
-  translate: React.PropTypes.function
+  translate: React.PropTypes.func
 };
 
-ForumComment.validate = createValidate(conditions);
+ForumComment.propTypes = {
+  value: PropTypes.string,
+  avatar: CustomPropTypes.url,
+  onChange: PropTypes.func,
+  onPost: PropTypes.func
+};
 export default ForumComment;

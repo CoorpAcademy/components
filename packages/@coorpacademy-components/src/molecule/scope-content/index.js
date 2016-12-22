@@ -1,21 +1,7 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import getOr from 'lodash/fp/getOr';
 import identity from 'lodash/fp/identity';
-import {checker, createValidate} from '../../util/validation';
 import style from './style.css';
-
-const conditions = checker.shape({
-  props: checker.shape({
-    content: checker.shape({
-      title: checker.string.optional,
-      time: checker.string.optional,
-      skills: checker.arrayOf(checker.string).optional,
-      chapters: checker.arrayOf(checker.object).optional,
-      course_scope: checker.arrayOf(checker.string).optional
-    }).optional
-  }),
-  children: checker.none
-});
 
 const ScopeContent = (props, context) => {
   const {translate = identity} = context;
@@ -31,16 +17,16 @@ const ScopeContent = (props, context) => {
   const _chapters = getOr([], 'chapters', content);
   const _assets = getOr([], 'course_scope', content);
 
-  const skills = _skills.map(skill => (
-    <li>{skill}</li>
+  const skills = _skills.map((skill, index) => (
+    <li key={index}>{skill}</li>
   ));
 
-  const chapters = _chapters.map(chapter => (
-    <li>{chapter.name}</li>
+  const chapters = _chapters.map((chapter, index) => (
+    <li key={index}>{chapter.name}</li>
   ));
 
-  const assets = _assets.map(asset => (
-    <span>{asset}</span>
+  const assets = _assets.map((asset, index) => (
+    <span key={index}>{asset}</span>
   ));
 
   return (
@@ -83,8 +69,17 @@ const ScopeContent = (props, context) => {
 };
 
 ScopeContent.contextTypes = {
-  translate: React.PropTypes.function
+  translate: React.PropTypes.func
 };
 
-ScopeContent.validate = createValidate(conditions);
+ScopeContent.propTypes = {
+  content: PropTypes.shape({
+    title: PropTypes.string,
+    time: PropTypes.string,
+    skills: PropTypes.arrayOf(PropTypes.string),
+    chapters: PropTypes.arrayOf(PropTypes.object),
+    course_scope: PropTypes.arrayOf(PropTypes.string)
+  })
+};
+
 export default ScopeContent;

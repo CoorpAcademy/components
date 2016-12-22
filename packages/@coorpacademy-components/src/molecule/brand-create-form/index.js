@@ -1,29 +1,8 @@
-import React from 'react';
-import {checker, createValidate} from '../../util/validation';
+import React, {PropTypes} from 'react';
 import Button from '../../atom/button';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.shape({
-    title: checker.string,
-    subtitle: checker.string,
-    description: checker.string,
-    field: checker.shape({
-      placeholder: checker.string,
-      label: checker.string,
-      onChange: checker.func,
-      error: checker.string.optional,
-      value: checker.string.optional
-    }),
-    onSubmit: checker.func,
-    submitValue: checker.string,
-    isPending: checker.bool.optional,
-    isModified: checker.bool.optional
-  }),
-  children: checker.none
-});
-
-const BrandCreateForm = ({children, ...props}) => {
+const BrandCreateForm = props => {
   const {
     title,
     subtitle,
@@ -54,7 +33,7 @@ const BrandCreateForm = ({children, ...props}) => {
             <input
               type='text'
               placeholder={field.placeholder}
-              value={field.value}
+              defaultValue={field.value}
               onInput={e => field.onChange(e.target.value)}
             />{field.label}
           </label>
@@ -69,5 +48,21 @@ const BrandCreateForm = ({children, ...props}) => {
   );
 };
 
-BrandCreateForm.validate = createValidate(conditions);
+BrandCreateForm.propTypes = {
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  field: PropTypes.shape({
+    placeholder: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired,
+    error: PropTypes.string,
+    value: PropTypes.string
+  }).isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  submitValue: PropTypes.string.isRequired,
+  isPending: PropTypes.bool,
+  isModified: PropTypes.bool
+};
+
 export default BrandCreateForm;

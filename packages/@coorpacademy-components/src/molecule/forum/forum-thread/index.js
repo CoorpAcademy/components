@@ -1,18 +1,15 @@
 import React from 'react';
-import {checker, createValidate} from '../../../util/validation';
-import threadConditions from '../post-conditions';
+import threadShape from '../post-conditions';
 import ForumPost from '../forum-post';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: threadConditions,
-  children: checker.none
-});
-
 const ForumThread = ({children, ...props}) => {
   const {answers = []} = props;
-  const answersView = answers.map(answerProps => (
-    <ForumThread {...answerProps}/>
+  const answersView = answers.map((answerProps, index) => (
+    <ForumThread
+      key={index}
+      {...answerProps}
+    />
   ));
 
   return (
@@ -25,5 +22,7 @@ const ForumThread = ({children, ...props}) => {
   );
 };
 
-ForumThread.validate = createValidate(conditions);
+ForumThread.propTypes = {
+  ...threadShape
+};
 export default ForumThread;

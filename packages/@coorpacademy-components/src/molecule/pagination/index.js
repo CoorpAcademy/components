@@ -1,16 +1,6 @@
-import React from 'react';
-import {checker, createValidate} from '../../util/validation';
+import React, {PropTypes} from 'react';
 import Link from '../../atom/link';
 import style from './style.css';
-
-const conditions = checker.shape({
-  props: checker.shape({
-    value: checker.string,
-    nextHref: checker.string.optional,
-    previousHref: checker.string.optional
-  }),
-  children: checker.none
-});
 
 const Pagination = ({children, ...props}) => {
   const {
@@ -30,5 +20,10 @@ const Pagination = ({children, ...props}) => {
   );
 };
 
-Pagination.validate = createValidate(conditions);
+Pagination.propTypes = {
+  value: PropTypes.string.isRequired,
+  nextHref: PropTypes.string,
+  previousHref: PropTypes.string
+};
+
 export default Pagination;

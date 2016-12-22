@@ -1,16 +1,6 @@
-import React from 'react';
-import {checker, createValidate} from '../../util/validation';
+import React, {PropTypes} from 'react';
 import Picture from '../../atom/picture';
 import style from './style.css';
-
-const conditions = checker.shape({
-  props: checker.shape({
-    image: checker.string.optional,
-    title: checker.string.optional,
-    description: checker.string.optional
-  }),
-  children: checker.none
-});
 
 const CursusHeader = ({children, ...props}) => {
   const {image, title, description} = props;
@@ -38,5 +28,9 @@ const CursusHeader = ({children, ...props}) => {
   );
 };
 
-CursusHeader.validate = createValidate(conditions);
+CursusHeader.propTypes = {
+  image: PropTypes.string,
+  title: PropTypes.string,
+  description: PropTypes.string
+};
 export default CursusHeader;

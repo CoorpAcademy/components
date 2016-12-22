@@ -1,31 +1,10 @@
-import React from 'react';
-import {checker, createValidate} from '../../util/validation';
+import React, {PropTypes} from 'react';
 import BrandFormGroup from '../../molecule/brand-form-group';
 import Button from '../../atom/button';
 import Link from '../../atom/link';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.shape({
-    groups: checker.arrayOf(checker.shape({
-      title: checker.string,
-      disabled: checker.bool.optional,
-      fields: checker.array
-    })),
-    disabled: checker.bool.optional,
-    isModified: checker.bool.optional,
-    isPending: checker.bool.optional,
-    onSubmit: checker.func.optional,
-    submitValue: checker.string.optional,
-    back: checker.shape({
-      desc: checker.string.optional,
-      link: checker.string.optional
-    }).optional
-  }),
-  children: checker.none
-});
-
-const BrandForm = ({children, ...props}) => {
+function BrandForm({children, ...props}) {
   const {
     groups,
     disabled,
@@ -48,9 +27,9 @@ const BrandForm = ({children, ...props}) => {
     </p>
   );
 
-  const brandGroups = groups.map(group => {
+  const brandGroups = groups.map((group, index) => {
     return (
-      <div className={style.group}>
+      <div className={style.group} key={index}>
         <BrandFormGroup {...group} />
       </div>
     );
@@ -70,12 +49,30 @@ const BrandForm = ({children, ...props}) => {
     <div className={style.wrapper}>
       {backView}
       <form className={style.groups} onSubmit={e => e.preventDefault() || onSubmit(e)}>
-        {brandGroups}
+        <div>
+          {brandGroups}
+        </div>
         {submitButton}
       </form>
     </div>
   );
 };
 
-BrandForm.validate = createValidate(conditions);
+BrandForm.propTypes = {
+  groups: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    disabled: PropTypes.bool,
+    fields: PropTypes.array
+  })).isRequired,
+  disabled: PropTypes.bool,
+  isModified: PropTypes.bool,
+  isPending: PropTypes.bool,
+  onSubmit: PropTypes.func,
+  submitValue: PropTypes.string,
+  back: PropTypes.shape({
+    desc: PropTypes.string,
+    link: PropTypes.string
+  })
+};
+
 export default BrandForm;

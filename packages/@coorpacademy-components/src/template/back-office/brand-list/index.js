@@ -1,38 +1,36 @@
-import React from 'react';
-import {checker, createValidate} from '../../../util/validation';
+import React, {PropTypes} from 'react';
 import GridList from '../../../organism/grid-list';
 import BrandCard from '../../../molecule/brand-card';
 import BrandCardCreate from '../../../molecule/brand-card-create';
 import Layout from '../layout';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.shape({
-    brands: checker.arrayOf(checker.shape({
-      title: checker.string,
-      edit: checker.string,
-      editHref: checker.string,
-      see: checker.string,
-      seeHref: checker.string,
-      image: checker.string
-    })).optional,
-    create: checker.shape({
-      edit: checker.string,
-      editHref: checker.string
-    })
-  }),
-  children: checker.none
-});
+// const conditions = checker.shape({
+//   props: checker.shape({
+//     brands: checker.arrayOf(checker.shape({
+//       title: checker.string,
+//       edit: checker.string,
+//       editHref: checker.string,
+//       see: checker.string,
+//       seeHref: checker.string,
+//       image: checker.string
+//     })).optional,
+//     create: checker.shape({
+//       edit: checker.string,
+//       editHref: checker.string
+//     })
+//   })
+// });
 
 const BrandList = Layout((props, children) => {
   const {
-    brands,
+    brands = [],
     create
   } = props;
 
-  const brandCards = brands.map(brand => {
+  const brandCards = brands.map((brand, index) => {
     return (
-      <div className={style.brand}>
+      <div key={index} className={style.brand}>
         <BrandCard {...brand}/>
       </div>
     );
@@ -40,7 +38,7 @@ const BrandList = Layout((props, children) => {
 
   if (create) {
     brandCards.push(
-      <div className={style.brand}>
+      <div key="new" className={style.brand}>
         <BrandCardCreate {...create} />
       </div>
     );
@@ -57,5 +55,5 @@ const BrandList = Layout((props, children) => {
   );
 });
 
-BrandList.validate = createValidate(conditions);
+// BrandList.validate = createValidate(conditions);
 export default BrandList;

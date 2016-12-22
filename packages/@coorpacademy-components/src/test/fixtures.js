@@ -1,5 +1,6 @@
 import {relative} from 'path';
 import test from 'ava';
+import sinon from 'sinon';
 import React from 'react';
 import ReactDOM from 'react-dom/server';
 import identity from 'lodash/fp/identity';
@@ -23,6 +24,16 @@ const fullOptions = {
   },
   translate: identity
 };
+
+test.before(() => {
+  sinon.stub(console, 'error', warning => {
+    throw new Error(warning);
+  });
+});
+
+test.after(() =>
+  console.error.restore()
+);
 
 mapObject((components, componentType) => mapObject((componentPath, componentName) => {
   const Component = _require(componentPath);

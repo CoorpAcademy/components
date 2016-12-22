@@ -1,15 +1,5 @@
-import React from 'react';
-import {checker, createValidate} from '../../util/validation';
+import React, {PropTypes} from 'react';
 import style from './style.css';
-
-const conditions = checker.shape({
-  props: checker.shape({
-    value: checker.string.optional,
-    placeholder: checker.string,
-    onChange: checker.func
-  }),
-  children: checker.none
-});
 
 const Search = ({children, ...props}) => {
   const {
@@ -32,5 +22,10 @@ const Search = ({children, ...props}) => {
   );
 };
 
-Search.validate = createValidate(conditions);
+Search.propTypes = {
+  value: PropTypes.string,
+  placeholder: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired
+};
+
 export default Search;

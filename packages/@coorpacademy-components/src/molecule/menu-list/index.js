@@ -1,26 +1,12 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import isNil from 'lodash/fp/isNil';
-import {checker, createValidate} from '../../util/validation';
 import SsMenuList from '../ssmenu-list';
 import style from './style.css';
-
-const conditions = checker.shape({
-  props: checker.shape({
-    menuItems: checker.arrayOf(
-      checker.shape({
-        href: checker.string.optional,
-        title: checker.string.optional,
-        type: checker.oneOf(['primary', 'secondary']).optional
-      })
-    ).optional
-  }),
-  children: checker.none
-});
 
 const MenuList = ({children, ...props}) => {
   const {menuItems = []} = props;
 
-  const MenuitemDiv = menuItems.map(item => {
+  const MenuitemDiv = menuItems.map((item, index) => {
     const {title, href, type, subItems} = item;
 
     const subItemsView = !isNil(subItems) && (
@@ -32,7 +18,7 @@ const MenuList = ({children, ...props}) => {
     );
 
     return (
-      <li className={type ? style[type] : style.item}>
+      <li key={index} className={type ? style[type] : style.item}>
         <a
           href={href}
         >
@@ -63,5 +49,12 @@ const MenuList = ({children, ...props}) => {
   );
 };
 
-MenuList.validate = createValidate(conditions);
+MenuList.propTypes = {
+  menuItems: PropTypes.arrayOf(PropTypes.shape({
+    href: PropTypes.string,
+    title: PropTypes.string,
+    type: PropTypes.oneOf(['primary', 'secondary'])
+  }))
+};
+
 export default MenuList;

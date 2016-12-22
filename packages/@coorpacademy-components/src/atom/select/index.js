@@ -1,25 +1,11 @@
-import React from 'react';
-import {checker, createValidate} from '../../util/validation';
+import React, {PropTypes} from 'react';
+import find from 'lodash/fp/find';
+import get from 'lodash/fp/get';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.shape({
-    title: checker.string,
-    value: checker.string.optional,
-    disabled: checker.bool.optional,
-    required: checker.bool.optional,
-    onChange: checker.func.optional,
-    options: checker.arrayOf(checker.shape({
-      name: checker.string,
-      value: checker.string.optional,
-      selected: checker.bool
-    }))
-  }),
-  children: checker.none
-});
-
-const Select = ({children, ...props}) => {
+const Select = props => {
   const {
+    options = [],
     onChange,
     disabled,
     required,
@@ -28,23 +14,29 @@ const Select = ({children, ...props}) => {
 
   const title = `${props.title}${required ? '*' : ''} :`;
 
-  const optionList = props.options && props.options.map(option => {
+  const optionList = options && options.map((option, index) => {
     return (
       <option
+        key={index}
         value={option.value}
-        selected={option.selected}
       >
         {option.name}
       </option>
     );
   });
 
+  const selected = find({selected: true}, options);
+
   return (
     <div className={theme ? style[theme] : style.default}>
       <label>
         <span className={style.title}>{title}</span>
         <div className={style.arrow}></div>
-        <select onChange={e => onChange(e.target.value)} disabled={disabled}>
+        <select
+          onChange={e => onChange(e.target.value)}
+          defaultValue={get('value', selected)}
+          disabled={disabled}
+        >
           {optionList}
         </select>
       </label>
@@ -52,5 +44,16 @@ const Select = ({children, ...props}) => {
   );
 };
 
-Select.validate = createValidate(conditions);
+Select.propTypes = {
+  title: PropTypes.string.isRequired,
+  value: PropTypes.string,
+  disabled: PropTypes.bool,
+  required: PropTypes.bool,
+  onChange: PropTypes.func,
+  options: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    value: PropTypes.string,
+    selected: PropTypes.bool.isRequired
+  }))
+};
 export default Select;

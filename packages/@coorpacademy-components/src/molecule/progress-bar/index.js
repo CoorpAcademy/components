@@ -1,19 +1,8 @@
-import React from 'react';
-import {checker, createValidate} from '../../util/validation';
+import React, {PropTypes} from 'react';
 import addClassName from '../../util/add-class-name';
 import style from './style.css';
 
 const addBackgroundClass = addClassName(style.background);
-
-const conditions = checker.shape({
-  props: checker.shape({
-    className: checker.string.optional,
-    value: checker.number,
-    max: checker.number,
-    desc: checker.string.optional
-  }),
-  children: checker.none
-});
 
 const ProgressBar = ({children, ...props}) => {
   const {
@@ -43,5 +32,11 @@ const ProgressBar = ({children, ...props}) => {
   );
 };
 
-ProgressBar.validate = createValidate(conditions);
+ProgressBar.propTypes = {
+  className: PropTypes.string,
+  value: PropTypes.number.isRequired,
+  max: PropTypes.number.isRequired,
+  desc: PropTypes.string
+};
+
 export default ProgressBar;

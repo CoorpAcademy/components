@@ -1,25 +1,12 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import noop from 'lodash/fp/noop';
-import {checker, createValidate} from '../../util/validation';
 import FormGroup from '../../molecule/form-group';
 import Button from '../../atom/button';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.shape({
-    title: checker.string,
-    groups: checker.array,
-    submitValue: checker.string.optional,
-    resetValue: checker.string.optional,
-    onSubmit: checker.func.optional,
-    onReset: checker.func.optional
-  }),
-  children: checker.none
-});
-
 const Form = ({children, ...props}) => {
   const {
-    groups,
+    groups = [],
     submitValue = '',
     resetValue = '',
     onSubmit = noop,
@@ -38,7 +25,7 @@ const Form = ({children, ...props}) => {
       onReset={prevent(onReset)}
     >
       {groups.map((group, index) => (
-        <FormGroup {...group}/>
+        <FormGroup key={index} {...group}/>
       ))}
       <div className={style.buttons}>
         <Button
@@ -56,5 +43,13 @@ const Form = ({children, ...props}) => {
   );
 };
 
-Form.validate = createValidate(conditions);
+Form.propTypes = {
+  title: PropTypes.string.isRequired,
+  groups: PropTypes.array.isRequired,
+  submitValue: PropTypes.string,
+  resetValue: PropTypes.string,
+  onSubmit: PropTypes.func,
+  onReset: PropTypes.func
+};
+
 export default Form;

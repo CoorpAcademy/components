@@ -1,29 +1,23 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import set from 'lodash/fp/set';
-import {checker, createValidate} from '../../util/validation';
+import map from 'lodash/fp/map';
 import DisciplineCard from '../../molecule/discipline-card';
 import ThemeImage from '../../molecule/theme-image';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.shape({
-    disciplines: checker.array,
-    onModuleClick: checker.func,
-    onDisciplineClick: checker.func,
-    theme: checker.oneOf(['default', 'circle']).optional,
-    image: checker.string.optional
-  }),
-  children: checker.none
-});
-
-const DisciplineCards = ({children, ...props}) => {
-  const {onModuleClick, onDisciplineClick, theme = 'default' } = props;
+function DisciplineCards({children, ...props}) {
+  const {
+    image = 'bg',
+    onModuleClick,
+    onDisciplineClick,
+    theme = 'default'
+  } = props;
 
   if (props.disciplines.length > 0) {
     props.disciplines = set('[0].row', theme === 'circle', props.disciplines);
   }
 
-  const disciplines = props.disciplines.map(discipline => {
+  const disciplineViews = map(discipline => {
     return (
       <DisciplineCard
         discipline = {discipline}
@@ -35,17 +29,24 @@ const DisciplineCards = ({children, ...props}) => {
       >
       </DisciplineCard>
     );
-  });
+  }, props.disciplines);
 
   return (
     <div className={style.default}>
-      <ThemeImage image={props.image} />
+      <ThemeImage image={image} />
       <div className={style.cardsWrapper}>
-        {disciplines}
+        {disciplineViews}
       </div>
     </div>
   );
+}
+
+DisciplineCards.propTypes = {
+  disciplines: PropTypes.array.isRequired,
+  onModuleClick: PropTypes.func.isRequired,
+  onDisciplineClick: PropTypes.func.isRequired,
+  theme: PropTypes.oneOf(['default', 'circle']),
+  image: PropTypes.string
 };
 
-DisciplineCards.validate = createValidate(conditions);
 export default DisciplineCards;

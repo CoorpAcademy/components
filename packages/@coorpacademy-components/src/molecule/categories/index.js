@@ -1,13 +1,14 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import _find from 'lodash/fp/find';
 import identity from 'lodash/fp/identity';
+import noop from 'lodash/fp/noop';
 import getOr from 'lodash/fp/getOr';
 import map from 'lodash/fp/map';
+import Checkbox from '../../atom/checkbox';
 import Link from '../../atom/link';
-import {checker, createValidate} from '../../util/validation';
 import style from './style.css';
 
-const buildCategory = category => {
+const buildCategory = (category, index) => {
   const {href, selected} = category;
   const _name = getOr('', 'name', category);
 
@@ -16,7 +17,7 @@ const buildCategory = category => {
   } : {};
 
   return (
-    <li className={style.filter}>
+    <li className={style.filter} key={index}>
       <Link
         {...linkProps}
         href={href}
@@ -27,35 +28,21 @@ const buildCategory = category => {
   );
 };
 
-const conditions = checker.shape({
-  props: checker.shape({
-    categories: checker.arrayOf(
-      checker.shape({
-        name: checker.string,
-        href: checker.string.optional,
-        selected: checker.bool.optional
-      }).strict
-    )
-  }).strict,
-  children: checker.none
-});
-
 const Categories = (props, context) => {
   const {categories = []} = props;
   const {translate = identity} = context;
   const filtersTitle = translate('filters');
 
-  const CategoriesDiv = map(buildCategory, categories);
+  const CategoriesDiv = categories.map(buildCategory);
   const selectedCategory = _find({
     selected: true
   }, categories) || {};
 
   return (
     <div className={style.categories}>
-      <input
-        type='checkbox'
+      <Checkbox
+        checked={true}
         id='toggler'
-        checked='false'
         className={style.mobileToggler}
       />
       <label
@@ -76,8 +63,16 @@ const Categories = (props, context) => {
 };
 
 Categories.contextTypes = {
-  translate: React.PropTypes.function
+  translate: React.PropTypes.func
 };
 
-Categories.validate = createValidate(conditions);
+Categories.propTypes = {
+  categories: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      href: PropTypes.string,
+      selected: PropTypes.bool
+    }).isRequired
+  ).isRequired
+};
 export default Categories;

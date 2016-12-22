@@ -1,26 +1,12 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import pipe from 'lodash/fp/pipe';
 import identity from 'lodash/fp/identity';
 import partial from 'lodash/fp/partial';
 import unary from 'lodash/fp/unary';
-import {checker, createValidate} from '../../util/validation';
 import stopPropagation from '../../util/bubbling';
 import style from './style.css';
-
-const conditions = checker.shape({
-  props: checker.shape({
-    module: checker.shape({
-      disabled: checker.bool.optional,
-      filtered: checker.bool.optional,
-      label: checker.string,
-      status: checker.string
-    }),
-    onClick: checker.func
-  }),
-  children: checker.none
-});
 
 const ModuleBubble = (props, context) => {
   const {
@@ -78,8 +64,16 @@ const ModuleBubble = (props, context) => {
 
 ModuleBubble.contextTypes = {
   skin: React.PropTypes.object,
-  translate: React.PropTypes.function
+  translate: React.PropTypes.func
 };
 
-ModuleBubble.validate = createValidate(conditions);
+ModuleBubble.propTypes = {
+  module: PropTypes.shape({
+    disabled: PropTypes.bool,
+    filtered: PropTypes.bool,
+    label: PropTypes.string.isRequired,
+    status: PropTypes.string.isRequired
+  }).isRequired,
+  onClick: PropTypes.func.isRequired
+};
 export default ModuleBubble;

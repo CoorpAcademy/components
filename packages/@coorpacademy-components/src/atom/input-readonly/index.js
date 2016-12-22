@@ -1,17 +1,7 @@
-import React from 'react';
-import {checker, createValidate} from '../../util/validation';
+import React, {PropTypes} from 'react';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.shape({
-    title: checker.string,
-    value: checker.string.optional,
-    description: checker.string.optional
-  }),
-  children: checker.none
-});
-
-const InputReadonly = ({children, ...props}) => {
+const InputReadonly = props => {
   const {
     title,
     value,
@@ -33,5 +23,9 @@ const InputReadonly = ({children, ...props}) => {
   );
 };
 
-InputReadonly.validate = createValidate(conditions);
+InputReadonly.propTypes = {
+  title: PropTypes.string.isRequired,
+  value: PropTypes.string,
+  description: PropTypes.string
+};
 export default InputReadonly;

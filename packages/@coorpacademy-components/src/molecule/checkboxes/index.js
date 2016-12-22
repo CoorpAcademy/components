@@ -1,8 +1,7 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import identity from 'lodash/fp/identity';
-import {checker, createValidate} from '../../util/validation';
 import TitledCheckbox from '../titled-checkbox';
 import style from './style.css';
 
@@ -10,21 +9,6 @@ const DEFAULT = 'default';
 const NORMAL = 'normal';
 const CLOSABLE = 'closable';
 const CLOSED = 'closed';
-
-const conditions = checker.shape({
-  props: checker.shape({
-    close: checker.func.optional,
-    onToggle: checker.func.optional,
-    onClose: checker.func.optional,
-    onOpen: checker.func.optional,
-    theme: checker.string.optional,
-    mode: checker.string.optional,
-    status: checker.string.optional,
-    title: checker.string,
-    choices: checker.array
-  }).strict,
-  children: checker.none
-});
 
 /**
  * themes
@@ -111,7 +95,7 @@ const Checkboxes = (props, context) => {
     const background = isCourses ? coursesBG : defaultBG;
 
     return (
-      <li className={style.line}>
+      <li className={style.line} key={i}>
         <TitledCheckbox
           state={choice}
           onToggle={onToggle}
@@ -134,8 +118,18 @@ const Checkboxes = (props, context) => {
 
 Checkboxes.contextTypes = {
   skin: React.PropTypes.object,
-  translate: React.PropTypes.function
+  translate: React.PropTypes.func
 };
 
-Checkboxes.validate = createValidate(conditions);
+Checkboxes.propTypes = {
+  close: PropTypes.func,
+  onToggle: PropTypes.func,
+  onClose: PropTypes.func,
+  onOpen: PropTypes.func,
+  theme: PropTypes.string,
+  mode: PropTypes.string,
+  status: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  choices: PropTypes.array.isRequired
+};
 export default Checkboxes;

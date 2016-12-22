@@ -1,23 +1,9 @@
-import React from 'react';
-import {checker, createValidate} from '../../util/validation';
+import React, {PropTypes} from 'react';
+import * as CustomPropTypes from '../../util/proptypes';
 import Link from '../link';
 import addClassName from '../../util/add-class-name';
 import style from './style.css';
 import {hoverFill} from './hover-fill.css';
-
-const conditions = checker.shape({
-  props: checker.shape({
-    background: checker.color.optional,
-    color: checker.color.optional,
-    submitValue: checker.string,
-    centered: checker.bool.optional,
-    disabled: checker.bool.optional,
-    href: checker.string.optional,
-    target: checker.oneOf(['_self', '_blank', '_parent', '_top']).optional,
-    onClick: checker.func.optional
-  }),
-  children: checker.none
-});
 
 const Button = ({children, ...props}) => {
   const {
@@ -84,5 +70,16 @@ const Button = ({children, ...props}) => {
   );
 };
 
-Button.validate = createValidate(conditions);
+Button.propTypes = {
+  background: CustomPropTypes.color,
+  color: CustomPropTypes.color,
+  submitValue: PropTypes.string,
+  centered: PropTypes.bool,
+  disabled: PropTypes.bool,
+  href: PropTypes.string,
+  target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
+  onClick: PropTypes.func,
+  children: PropTypes.element
+};
+
 export default Button;

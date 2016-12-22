@@ -1,13 +1,7 @@
 import React from 'react';
-import {checker, createValidate} from '../../util/validation';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.none,
-  children: checker.none
-});
-
-const Loader = ({children, ...props}) => {
+const Loader = () => {
   return (
     <div className={style.container}>
       <div className={style.dot}></div>
@@ -18,5 +12,4 @@ const Loader = ({children, ...props}) => {
   );
 };
 
-Loader.validate = createValidate(conditions);
 export default Loader;

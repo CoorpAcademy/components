@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import identity from 'lodash/fp/identity';
@@ -8,15 +8,7 @@ import map from 'lodash/fp/map';
 import CenteredText from '../../atom/centered-text';
 import Spinner from '../../atom/spinner';
 import CatalogCard from '../../molecule/catalog-card';
-import {checker, createValidate} from '../../util/validation';
 import style from './style.css';
-
-const conditions = checker.shape({
-  props: checker.shape({
-    products: checker.oneOfType([checker.arrayOf(checker.object), checker.null]).optional
-  }),
-  children: checker.none
-});
 
 const CatalogCards = (props, context) => {
   const {translate = identity} = context;
@@ -35,8 +27,9 @@ const CatalogCards = (props, context) => {
       </CenteredText>
     );
 
-  const productViews = map(product => (
+  const productViews = products.map((product, index) => (
     <CatalogCard
+      key={index}
       rating={getOr(0, 'popularity', product)}
       maxRating={getOr(0, 'maxPopularity', product)}
       title={get('title', product)}
@@ -45,7 +38,7 @@ const CatalogCards = (props, context) => {
       href={get('href', product)}
     >
     </CatalogCard>
-  ), products);
+  ));
 
   return (
     <ul className={style['category-list']}>
@@ -55,8 +48,13 @@ const CatalogCards = (props, context) => {
 };
 
 CatalogCards.contextTypes = {
-  translate: React.PropTypes.function
+  translate: React.PropTypes.func
 };
 
-CatalogCards.validate = createValidate(conditions);
+CatalogCards.propTypes = {
+  products: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.object),
+    PropTypes.null
+  ])
+};
 export default CatalogCards;

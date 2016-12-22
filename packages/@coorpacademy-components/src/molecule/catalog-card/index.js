@@ -1,27 +1,11 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import identity from 'lodash/fp/identity';
 import getOr from 'lodash/fp/getOr';
-import {checker, createValidate} from '../../util/validation';
 import StarRating from '../star-rating';
 import Link from '../../atom/link';
 import Picture from '../../atom/picture';
 import style from './style.css';
 import {hoverFill} from '../../atom/button/hover-fill.css';
-
-const conditions = checker.shape({
-  props: checker.shape({
-    rating: checker.number.optional,
-    maxRating: checker.number.optional,
-    title: checker.string.optional,
-    image: checker.string.optional,
-    author: checker.shape({
-      name: checker.string.optional,
-      href: checker.string.optional
-    }).optional,
-    href: checker.string.optional
-  }),
-  children: checker.none
-});
 
 const getOrBlank = getOr('');
 
@@ -74,7 +58,19 @@ const CatalogCard = (props, context) => {
 };
 
 CatalogCard.contextTypes = {
-  translate: React.PropTypes.function
+  translate: React.PropTypes.func
+};
+
+CatalogCard.propTypes = {
+  rating: PropTypes.number,
+  maxRating: PropTypes.number,
+  title: PropTypes.string,
+  image: PropTypes.string,
+  author: PropTypes.shape({
+    name: PropTypes.string,
+    href: PropTypes.string
+  }),
+  href: PropTypes.string
 };
 
 export default CatalogCard;

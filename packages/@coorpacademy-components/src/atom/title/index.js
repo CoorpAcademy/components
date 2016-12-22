@@ -1,10 +1,4 @@
-import React from 'react';
-import {checker, createValidate} from '../../util/validation';
-
-const conditions = checker.shape({
-  props: checker.none,
-  children: checker.oneOrMore
-});
+import React, {PropTypes} from 'react';
 
 const Title = ({children, ...props}) => {
   return (
@@ -14,5 +8,16 @@ const Title = ({children, ...props}) => {
   );
 };
 
-Title.validate = createValidate(conditions);
+Title.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element,
+    PropTypes.arrayOf(
+      PropTypes.oneOfType([
+        PropTypes.element,
+        PropTypes.string
+      ])
+    )
+  ])
+};
 export default Title;

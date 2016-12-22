@@ -1,28 +1,14 @@
-import React from 'react';
-import {checker, createValidate} from '../../util/validation';
+import React, {PropTypes} from 'react';
+import * as CustomPropTypes from '../../util/proptypes';
 import ForumComment from '../../molecule/forum/forum-comment';
 import ForumThread from '../../molecule/forum/forum-thread';
 import postConditions from '../../molecule/forum/post-conditions';
 import Loader from '../../atom/loader';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.shape({
-    avatar: checker.url.optional,
-    loading: checker.bool.optional,
-    value: checker.string.optional,
-    onPost: checker.func.optional,
-    onChange: checker.func.optional,
-    threads: checker.arrayOf(postConditions).optional,
-    textareaDisabled: checker.bool.optional,
-    postDisabled: checker.bool.optional
-  }).optional,
-  children: checker.none
-});
-
-const Discussion = ({children, ...props}) => {
+function Discussion({children, ...props}) {
   const {
-    threads,
+    threads = [],
     title,
     avatar,
     value,
@@ -34,8 +20,8 @@ const Discussion = ({children, ...props}) => {
     postDisabled
   } = props;
 
-  const threadsView = threads && threads.map(thread => (
-    <ForumThread {...thread}/>
+  const threadsView = threads.map(thread => (
+    <ForumThread key={thread.id} {...thread}/>
   ));
 
   const commentView = !hideComments && (
@@ -63,7 +49,17 @@ const Discussion = ({children, ...props}) => {
       {loader}
     </div>
   );
+}
+
+Discussion.propTypes = {
+  avatar: CustomPropTypes.url,
+  loading: PropTypes.bool,
+  value: PropTypes.string,
+  onPost: PropTypes.func,
+  onChange: PropTypes.func,
+  threads: PropTypes.arrayOf(PropTypes.shape(postConditions)),
+  textareaDisabled: PropTypes.bool,
+  postDisabled: PropTypes.bool
 };
 
-Discussion.validate = createValidate(conditions);
 export default Discussion;

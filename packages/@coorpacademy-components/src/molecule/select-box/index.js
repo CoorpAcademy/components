@@ -1,17 +1,8 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
+import find from 'lodash/fp/find';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
-import {checker, createValidate} from '../../util/validation';
 import style from './style.css';
-
-const conditions = checker.shape({
-  props: checker.shape({
-    list: checker.array,
-    theme: checker.oneOf(['default', 'plain']).optional,
-    onChange: checker.func
-  }).strict,
-  children: checker.none
-});
 
 const spanInline = (theme, skin) => {
   const color = {
@@ -45,17 +36,21 @@ const selectInline = (theme, skin) => {
 const SelectBox = ({children, ...props}, {skin}) => {
   const code = getOr('', 'icons.select', skin);
   const iconCode = String.fromCharCode(code);
-  const {list, onChange, enabled = true} = props;
+  const {list = [], onChange, enabled = true} = props;
   const theme = enabled ? (props.theme || 'default') : 'disabled';
   const selectOptions = list.map(item => (
     <option
+      key={item.value}
       className={style.option}
       value={item.value}
-      selected={item.selected}
     >
       {item.name}
     </option>
   ));
+
+  const selected = find({
+    selected: true
+  }, list);
 
   return (
     <span
@@ -69,6 +64,7 @@ const SelectBox = ({children, ...props}, {skin}) => {
         disabled={!enabled || undefined}
         onChange={onChange}
         style={selectInline(theme, skin)}
+        defaultValue={get('value', selected)}
       >
         {selectOptions}
       </select>
@@ -76,5 +72,10 @@ const SelectBox = ({children, ...props}, {skin}) => {
   );
 };
 
-SelectBox.validate = createValidate(conditions);
+SelectBox.propTypes = {
+  list: PropTypes.array.isRequired,
+  theme: PropTypes.oneOf(['default', 'plain']),
+  onChange: PropTypes.func.isRequired
+};
+
 export default SelectBox;

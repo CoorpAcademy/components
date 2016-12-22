@@ -1,48 +1,28 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import get from 'lodash/fp/get';
-import map from 'lodash/fp/map';
+import getOr from 'lodash/fp/getOr';
 import identity from 'lodash/fp/identity';
-import {checker, createValidate} from '../../util/validation';
+import map from 'lodash/fp/map';
 import CatalogCTA from '../../molecule/catalog-cta';
 import Picture from '../../atom/picture';
 import Link from '../../atom/link';
 import SocialLink from '../../atom/social-link';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.shape({
-    rating: checker.number.optional,
-    maxRating: checker.number.optional,
-    linkBuy: checker.string.optional,
-    linkTry: checker.string.optional,
-    author: checker.shape({
-      name: checker.string.optional,
-      href: checker.string.optional,
-      logo: checker.shape({
-        src: checker.string.optional,
-        href: checker.string.optional
-      }).optional,
-      socialLinks: checker.array.optional
-    }).optional,
-    authorTitle: checker.string.optional
-  }),
-  children: checker.none
-});
-
 const DisciplineRightaside = (props, context) => {
   const {translate = identity} = context;
   const {rating, maxRating, linkBuy, linkTry, author, authorTitle} = props;
-  const socialLinks = get('socialLinks', author);
+  const socialLinks = getOr([], 'socialLinks', author);
   const authorLogo = get('logo', author);
   const authorHref = get('href', author);
 
   const authorLabel = authorTitle || translate('author');
 
-  const socialView = map(social => (
-    <div className={style.link}>
+  const socialView = socialLinks.map((social, index) => (
+    <div key={index} className={style.link}>
       <SocialLink {...social} />
     </div>
-  ), socialLinks);
+  ));
 
   const ctaView = (
     <div className={style.ctaWrapper}>
@@ -90,8 +70,23 @@ const DisciplineRightaside = (props, context) => {
 };
 
 DisciplineRightaside.contextTypes = {
-  translate: React.PropTypes.function
+  translate: React.PropTypes.func
 };
 
-DisciplineRightaside.validate = createValidate(conditions);
+DisciplineRightaside.propTypes = {
+  rating: PropTypes.number,
+  maxRating: PropTypes.number,
+  linkBuy: PropTypes.string,
+  linkTry: PropTypes.string,
+  author: PropTypes.shape({
+    name: PropTypes.string,
+    href: PropTypes.string,
+    logo: PropTypes.shape({
+      src: PropTypes.string,
+      href: PropTypes.string
+    }),
+    socialLinks: PropTypes.array
+  }),
+  authorTitle: PropTypes.string
+};
 export default DisciplineRightaside;

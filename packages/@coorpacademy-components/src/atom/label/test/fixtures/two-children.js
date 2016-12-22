@@ -1,5 +1,5 @@
 import React from 'react';
 
 export default {
-  children: [<p>foo</p>, <p>bar</p>]
+  children: [<p key="0">foo</p>, <p key="1">bar</p>]
 };

@@ -1,22 +1,7 @@
-import React from 'react';
-import {checker, createValidate} from '../../util/validation';
+import React, {PropTypes} from 'react';
 import Picture from '../../atom/picture';
 import Link from '../../atom/link';
 import style from './style.css';
-
-const conditions = checker.shape({
-  props: checker.shape({
-    logout: checker.string.optional,
-    logoutValue: checker.string.optional,
-    href: checker.string.optional,
-    user: checker.shape({
-      username: checker.string.optional,
-      image: checker.string.optional
-    }).optional,
-    logo: checker.string.optional,
-    logoMobile: checker.string.optional
-  })
-});
 
 const SetupHeader = ({children, ...props}) => {
   const {
@@ -58,5 +43,16 @@ const SetupHeader = ({children, ...props}) => {
   );
 };
 
-SetupHeader.validate = createValidate(conditions);
+SetupHeader.propTypes = {
+  logout: PropTypes.string,
+  logoutValue: PropTypes.string,
+  href: PropTypes.string,
+  user: PropTypes.shape({
+    username: PropTypes.string,
+    image: PropTypes.string
+  }),
+  logo: PropTypes.string,
+  logoMobile: PropTypes.string
+};
+
 export default SetupHeader;

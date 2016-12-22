@@ -1,17 +1,7 @@
-import React from 'react';
-import {checker, createValidate} from '../../util/validation';
+import React, {PropTypes} from 'react';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.shape({
-    type: checker.string,
-    message: checker.string,
-    onClose: checker.func.optional
-  }),
-  children: checker.none
-});
-
-const NotificationComponent = ({children, ...props}) => {
+const NotificationComponent = props => {
   const {
     type,
     message
@@ -26,5 +16,9 @@ const NotificationComponent = ({children, ...props}) => {
   );
 };
 
-NotificationComponent.validate = createValidate(conditions);
+NotificationComponent.propTypes = {
+  type: PropTypes.string.isRequired,
+  message: PropTypes.string.isRequired,
+  onClose: PropTypes.func
+};
 export default NotificationComponent;

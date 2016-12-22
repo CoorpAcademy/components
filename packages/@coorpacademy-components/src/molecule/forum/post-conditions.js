@@ -1,21 +1,22 @@
-import {checker} from '../../util/validation';
+import {PropTypes} from 'react';
+import * as CostumPropTypes from '../../util/proptypes';
 
-export default checker.shape({
-  author: checker.string.optional,
-  date: checker.string.optional,
-  message: checker.string.optional,
-  avatar: checker.url.optional,
-  answerAvatar: checker.url.optional,
-  answer: checker.string.optional,
-  edition: checker.string.optional,
-  showAnswerBox: checker.bool.optional,
-  showEditBox: checker.bool.optional,
-  onAnswer: checker.func.optional,
-  onEdit: checker.func.optional,
-  onPostAnswer: checker.func.optional,
-  onPostEdition: checker.func.optional,
-  onChangeAnswer: checker.func.optional,
-  onChangeEdition: checker.func.optional,
-  onModerate: checker.func.optional,
-  onDelete: checker.func.optional
-}).optional;
+export default {
+  author: PropTypes.string,
+  date: PropTypes.string,
+  message: PropTypes.string,
+  avatar: CostumPropTypes.url,
+  answerAvatar: CostumPropTypes.url,
+  answer: PropTypes.string,
+  edition: PropTypes.string,
+  showAnswerBox: PropTypes.bool,
+  showEditBox: PropTypes.bool,
+  onAnswer: PropTypes.func,
+  onEdit: PropTypes.func,
+  onPostAnswer: PropTypes.func,
+  onPostEdition: PropTypes.func,
+  onChangeAnswer: PropTypes.func,
+  onChangeEdition: PropTypes.func,
+  onModerate: PropTypes.func,
+  onDelete: PropTypes.func
+};

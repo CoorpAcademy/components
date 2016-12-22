@@ -1,5 +1,5 @@
 import React from 'react';
 
 export default {
-  children: [<p>foo</p>]
+  children: <p>foo</p>
 };

@@ -1,22 +1,9 @@
-import React from 'react';
-import {checker, createValidate} from '../../util/validation';
+import React, {PropTypes} from 'react';
 import Link from '../../atom/link';
 import Picture from '../../atom/picture';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.shape({
-    title: checker.string,
-    edit: checker.string,
-    editHref: checker.string,
-    see: checker.string,
-    seeHref: checker.string,
-    image: checker.string
-  }),
-  children: checker.none
-});
-
-const BrandCard = ({children, ...props}) => {
+const BrandCard = props => {
   const {
     title,
     edit,
@@ -44,5 +31,12 @@ const BrandCard = ({children, ...props}) => {
   );
 };
 
-BrandCard.validate = createValidate(conditions);
+BrandCard.propTypes = {
+  title: PropTypes.string.isRequired,
+  edit: PropTypes.string.isRequired,
+  editHref: PropTypes.string.isRequired,
+  see: PropTypes.string.isRequired,
+  seeHref: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired
+};
 export default BrandCard;

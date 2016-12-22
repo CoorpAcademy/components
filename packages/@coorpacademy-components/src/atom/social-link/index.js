@@ -1,5 +1,4 @@
-import React from 'react';
-import {checker, createValidate} from '../../util/validation';
+import React, {PropTypes} from 'react';
 import style from './style.css';
 
 const icons = {
@@ -14,15 +13,7 @@ const icons = {
   pinterest: '0xe910'
 };
 
-const conditions = checker.shape({
-  props: checker.shape({
-    type: checker.string,
-    link: checker.string
-  }).strict,
-  children: checker.none
-});
-
-const SocialLink = ({children, ...props}) => {
+const SocialLink = props => {
   const {
     type,
     link
@@ -38,5 +29,9 @@ const SocialLink = ({children, ...props}) => {
   );
 };
 
-SocialLink.validate = createValidate(conditions);
+SocialLink.propTypes = {
+  type: PropTypes.string.isRequired,
+  link: PropTypes.string.isRequired
+};
+
 export default SocialLink;

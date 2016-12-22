@@ -1,17 +1,6 @@
-import React from 'react';
-import {checker, createValidate} from '../../util/validation';
+import React, {PropTypes} from 'react';
 import Button from '../../atom/button';
 import style from './style.css';
-
-const conditions = checker.shape({
-  props: checker.shape({
-    warning: checker.string.optional,
-    description: checker.string.optional,
-    href: checker.string.optional,
-    submitValue: checker.string.optional
-  }),
-  children: checker.none
-});
 
 const BrandDownloadBox = ({children, ...props}) => {
   const {
@@ -40,5 +29,11 @@ const BrandDownloadBox = ({children, ...props}) => {
   );
 };
 
-BrandDownloadBox.validate = createValidate(conditions);
+BrandDownloadBox.propTypes = {
+  warning: PropTypes.string,
+  description: PropTypes.string,
+  href: PropTypes.string,
+  submitValue: PropTypes.string
+};
+
 export default BrandDownloadBox;

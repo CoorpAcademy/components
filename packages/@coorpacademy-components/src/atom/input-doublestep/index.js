@@ -1,19 +1,7 @@
-import React from 'react';
-import {checker, createValidate} from '../../util/validation';
+import React, {PropTypes} from 'react';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.shape({
-    title: checker.string,
-    toggleValue: checker.string,
-    cancelValue: checker.string,
-    description: checker.string.optional,
-    onChange: checker.func
-  }),
-  children: checker.none
-});
-
-const InputDoublestep = ({children, ...props}) => {
+const InputDoublestep = props => {
   const {
     title,
     toggleValue,
@@ -44,5 +32,11 @@ const InputDoublestep = ({children, ...props}) => {
   );
 };
 
-InputDoublestep.validate = createValidate(conditions);
+InputDoublestep.propTypes = {
+  title: PropTypes.string.isRequired,
+  toggleValue: PropTypes.string.isRequired,
+  cancelValue: PropTypes.string.isRequired,
+  description: PropTypes.string,
+  onChange: PropTypes.func.isRequired
+};
 export default InputDoublestep;

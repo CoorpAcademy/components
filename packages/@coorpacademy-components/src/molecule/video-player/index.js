@@ -1,20 +1,7 @@
-import React from 'react';
-import {checker, createValidate} from '../../util/validation';
+import React, {PropTypes} from 'react';
 import VideoIframe from '../video-iframe';
 import Picture from '../../atom/picture';
 import style from './style.css';
-
-const conditions = checker.shape({
-  props: checker.shape({
-    type: checker.oneOf(['vimeo', 'youtube']),
-    playVideo: checker.func.optional,
-    image: checker.string.optional,
-    width: checker.string.optional,
-    height: checker.string.optional,
-    id: checker.string.optional
-  }),
-  children: checker.none
-});
 
 const VideoPlayer = ({children, ...props}) => {
   const {
@@ -63,5 +50,13 @@ const VideoPlayer = ({children, ...props}) => {
   );
 };
 
-VideoPlayer.validate = createValidate(conditions);
+VideoPlayer.propTypes = {
+  type: PropTypes.oneOf(['vimeo', 'youtube']).isRequired,
+  playVideo: PropTypes.func,
+  image: PropTypes.string,
+  width: PropTypes.string,
+  height: PropTypes.string,
+  id: PropTypes.string
+};
+
 export default VideoPlayer;

@@ -6,37 +6,41 @@ import isArray from 'lodash/fp/isArray';
 import flatten from 'lodash/fp/flatten';
 import noop from 'lodash/fp/noop';
 
-const buildOptions = map(({value, label, selected}) => (
+const buildOption = ({value, label, selected}, index) => (
   <option
+    key={index}
     value={value}
     selected={selected}
   >
     {label}
   </option>
-));
+);
 
 const buildGroups = pipe(
   toPairs,
   map(([label = '', options = []]) => (
     <optgroup
+      key={label}
       label={label}
     >
-      {buildOptions(options)}
+      {options.map(buildOption)}
     </optgroup>
   )),
   flatten
 );
 
-const Select = ({options = [], onChange = noop}, children) => (
-  <select
-    onChange={e => onChange(e.target.value)}
-  >
-    {
-      isArray(options) ?
-        buildOptions(options) :
-        buildGroups(options)
-    }
-  </select>
-);
+const Select = ({options = [], onChange = noop}, children) => {
+  return (
+    <select
+      onChange={e => onChange(e.target.value)}
+    >
+      {
+        isArray(options) ?
+          options.map(buildOption) :
+          buildGroups(options)
+      }
+    </select>
+  );
+};
 
 export default Select;

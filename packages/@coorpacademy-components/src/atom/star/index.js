@@ -1,15 +1,7 @@
-import React from 'react';
-import {checker, createValidate} from '../../util/validation';
+import React, {PropTypes} from 'react';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.shape({
-    popular: checker.bool
-  }).strict,
-  children: checker.none
-});
-
-const Star = ({children, ...props}) => {
+const Star = props => {
   const state = props.popular ? style.popular : style.default;
 
   return (
@@ -17,5 +9,8 @@ const Star = ({children, ...props}) => {
   );
 };
 
-Star.validate = createValidate(conditions);
+Star.propTypes = {
+  popular: PropTypes.bool.isRequired
+};
+
 export default Star;

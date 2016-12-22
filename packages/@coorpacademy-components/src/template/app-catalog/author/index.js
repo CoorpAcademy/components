@@ -1,27 +1,16 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import identity from 'lodash/fp/identity';
-import {checker, createValidate} from '../../../util/validation';
+import * as CustomPropTypes from '../../../util/proptypes';
 import DisciplineHeader from '../../../molecule/discipline-header';
 import DisciplineRightaside from '../../../organism/discipline-rightaside';
 import CatalogCards from '../../../organism/catalog-cards';
 import layout from '../layout.css';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.shape({
-    title: checker.string.optional,
-    description: checker.string.optional,
-    image: checker.shape({
-      '1x': checker.url.optional,
-      '2x': checker.url.optional
-    }).optional,
-    information: checker.shape({
-      href: checker.string,
-      socialLinks: checker.array
-    }).optional,
-    disciplines: checker.oneOfType([checker.arrayOf(checker.object), checker.null]).optional
-  }),
-  children: checker.none
+const conditions = PropTypes.shape({
+  props: PropTypes.shape({
+
+  })
 });
 
 const Author = (props, context) => {
@@ -63,8 +52,22 @@ const Author = (props, context) => {
 };
 
 Author.contextTypes = {
-  translate: React.PropTypes.function
+  translate: React.PropTypes.func
 };
 
-Author.validate = createValidate(conditions);
+Author.propTypes = {
+  title: PropTypes.string,
+  description: PropTypes.string,
+  image: PropTypes.shape({
+    '1x': CustomPropTypes.url,
+    '2x': CustomPropTypes.url
+  }),
+  information: PropTypes.shape({
+    href: PropTypes.string.isRequired,
+    socialLinks: PropTypes.array
+  }),
+  disciplines: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.object)
+  ])
+};
 export default Author;

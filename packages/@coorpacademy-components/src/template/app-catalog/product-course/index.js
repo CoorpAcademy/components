@@ -1,6 +1,5 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import identity from 'lodash/fp/identity';
-import {checker, createValidate} from '../../../util/validation';
 import DisciplineHeader from '../../../molecule/discipline-header';
 import DisciplineScope from '../../../molecule/discipline-scope';
 import DisciplineRightaside from '../../../organism/discipline-rightaside';
@@ -8,34 +7,33 @@ import CatalogCards from '../../../organism/catalog-cards';
 import layout from '../layout.css';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.shape({
-    popularity: checker.number.optional,
-    maxPopularity: checker.number.optional,
-    title: checker.string.optional,
-    description: checker.string.optional,
-    image: checker.shape({
-      '1x': checker.url.optional,
-      '2x': checker.url.optional
-    }).optional,
-    video: checker.shape({
-      type: checker.oneOf(['vimeo', 'youtube']),
-      id: checker.string
-    }).optional,
-    linkBuy: checker.string.optional,
-    linkTry: checker.string.optional,
-    author: checker.shape({
-      name: checker.string,
-      socialLinks: checker.array
-    }).optional,
-    relatedDisciplines: checker.oneOfType([checker.arrayOf(checker.object), checker.null]).optional,
-    level: checker.object.optional,
-    levels: checker.arrayOf(checker.string).optional,
-    selected: checker.number.optional,
-    changeLevel: checker.func.optional
-  }),
-  children: checker.none
-});
+// const conditions = checker.shape({
+//   props: checker.shape({
+//     popularity: checker.number.optional,
+//     maxPopularity: checker.number.optional,
+//     title: checker.string.optional,
+//     description: checker.string.optional,
+//     image: checker.shape({
+//       '1x': checker.url.optional,
+//       '2x': checker.url.optional
+//     }).optional,
+//     video: checker.shape({
+//       type: checker.oneOf(['vimeo', 'youtube']),
+//       id: checker.string
+//     }).optional,
+//     linkBuy: checker.string.optional,
+//     linkTry: checker.string.optional,
+//     author: checker.shape({
+//       name: checker.string,
+//       socialLinks: checker.array
+//     }).optional,
+//     relatedDisciplines: checker.oneOfType([checker.arrayOf(checker.object), checker.null]).optional,
+//     level: checker.object.optional,
+//     levels: checker.arrayOf(checker.string).optional,
+//     selected: checker.number.optional,
+//     changeLevel: checker.func.optional
+//   })
+// });
 
 const ProductCourse = (props, context) => {
   const {translate = identity} = context;
@@ -99,8 +97,8 @@ const ProductCourse = (props, context) => {
 };
 
 ProductCourse.contextTypes = {
-  translate: React.PropTypes.function
+  translate: React.PropTypes.func
 };
 
-ProductCourse.validate = createValidate(conditions);
+// ProductCourse.validate = createValidate(conditions);
 export default ProductCourse;

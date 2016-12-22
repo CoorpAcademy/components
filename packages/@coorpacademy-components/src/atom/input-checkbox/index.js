@@ -1,22 +1,9 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import noop from 'lodash/fp/noop';
 import uniqueId from 'lodash/fp/uniqueId';
-import {checker, createValidate} from '../../util/validation';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.shape({
-    title: checker.string,
-    disabled: checker.bool.optional,
-    required: checker.bool.optional,
-    checked: checker.bool.optional,
-    error: checker.bool.optional,
-    onChange: checker.func.optional
-  }),
-  children: checker.none
-});
-
-const InputText = ({children, ...props}) => {
+const InputText = props => {
   const {
     checked,
     onChange = noop,
@@ -48,5 +35,13 @@ const InputText = ({children, ...props}) => {
   );
 };
 
-InputText.validate = createValidate(conditions);
+InputText.propTypes = {
+  title: PropTypes.string.isRequired,
+  disabled: PropTypes.bool,
+  required: PropTypes.bool,
+  checked: PropTypes.bool,
+  error: PropTypes.bool,
+  onChange: PropTypes.func
+};
+
 export default InputText;

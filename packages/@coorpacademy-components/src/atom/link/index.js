@@ -1,15 +1,6 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import identity from 'lodash/fp/identity';
-import {checker, createValidate} from '../../util/validation';
 import pushToHistory from '../../util/navigation';
-
-const conditions = checker.shape({
-  props: checker.shape({
-    className: checker.string.optional,
-    href: checker.string.optional
-  }),
-  children: checker.array.optional
-});
 
 const Link = ({children, ...props}, context) => {
   const {history: {createHref = identity} = {}} = context;
@@ -29,5 +20,8 @@ const Link = ({children, ...props}, context) => {
   );
 };
 
-Link.validate = createValidate(conditions);
+Link.propTypes = {
+  className: PropTypes.string,
+  href: PropTypes.string
+};
 export default Link;

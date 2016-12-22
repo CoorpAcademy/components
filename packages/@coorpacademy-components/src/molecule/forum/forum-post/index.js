@@ -1,15 +1,9 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import identity from 'lodash/fp/identity';
-import {checker, createValidate} from '../../../util/validation';
 import Picture from '../../../atom/picture';
-import threadConditions from '../post-conditions';
+import threadShape from '../post-conditions';
 import ForumComment from '../forum-comment';
 import style from './style.css';
-
-const conditions = checker.shape({
-  props: threadConditions,
-  children: checker.none
-});
 
 const ForumPost = (props, context) => {
   const {translate = identity} = context;
@@ -147,8 +141,11 @@ const ForumPost = (props, context) => {
 };
 
 ForumPost.contextTypes = {
-  translate: React.PropTypes.function
+  translate: React.PropTypes.func
 };
 
-ForumPost.validate = createValidate(conditions);
+ForumPost.propTypes = {
+  ...threadShape
+};
+
 export default ForumPost;

@@ -1,17 +1,8 @@
-import React from 'react';
-import {checker, createValidate} from '../../util/validation';
+import React, {PropTypes} from 'react';
 import Link from '../../atom/link';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.shape({
-    edit: checker.string,
-    editHref: checker.string
-  }),
-  children: checker.none
-});
-
-const BrandCardCreate = ({children, ...props}) => {
+const BrandCardCreate = props => {
   const {
     edit,
     editHref
@@ -29,5 +20,8 @@ const BrandCardCreate = ({children, ...props}) => {
   );
 };
 
-BrandCardCreate.validate = createValidate(conditions);
+BrandCardCreate.propTypes = {
+  edit: PropTypes.string.isRequired,
+  editHref: PropTypes.string.isRequired
+};
 export default BrandCardCreate;

@@ -1,16 +1,8 @@
-import React from 'react';
-import {checker, createValidate} from '../../util/validation';
+import React, {PropTypes} from 'react';
 import extractor from '../../util/image';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.shape({
-    image: checker.string
-  }).strict,
-  children: checker.none
-});
-
-const ThemeImage = ({image}, {skin}) => {
+function ThemeImage({image}, {skin}) {
   const extract = extractor(skin);
   const defaultStyle = extract(image);
 
@@ -42,7 +34,10 @@ const ThemeImage = ({image}, {skin}) => {
       />
     </div>
   );
+}
+
+ThemeImage.propTypes = {
+  image: PropTypes.string.isRequired
 };
 
-ThemeImage.validate = createValidate(conditions);
 export default ThemeImage;

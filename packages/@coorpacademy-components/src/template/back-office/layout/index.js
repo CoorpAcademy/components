@@ -1,13 +1,12 @@
-import React from 'react';
-import {checker, createValidate} from '../../../util/validation';
+import React, {PropTypes} from 'react';
 import Header from '../../../organism/setup-header';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.shape({
-    header: checker.object
-  })
-});
+// const conditions = checker.shape({
+//   props: checker.shape({
+//     header: checker.object
+//   })
+// });
 
 const Layout = Template => {
   return props => (
@@ -20,5 +19,5 @@ const Layout = Template => {
   );
 };
 
-Layout.validate = createValidate(conditions);
+// Layout.validate = createValidate(conditions);
 export default Layout;

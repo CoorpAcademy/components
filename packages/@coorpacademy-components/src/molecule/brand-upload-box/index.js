@@ -1,18 +1,7 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import uniqueId from 'lodash/fp/uniqueId';
-import {checker, createValidate} from '../../util/validation';
 import Loader from '../../atom/loader';
 import style from './style.css';
-
-const conditions = checker.shape({
-  props: checker.shape({
-    description: checker.string.optional,
-    browse: checker.string.optional,
-    status: checker.oneOf(['default', 'loading', 'dropping']).optional,
-    onLoad: checker.func.optional
-  }),
-  children: checker.none
-});
 
 const BrandUploadBox = ({children, ...props}) => {
   const {
@@ -69,5 +58,10 @@ const BrandUploadBox = ({children, ...props}) => {
   return content;
 };
 
-BrandUploadBox.validate = createValidate(conditions);
+BrandUploadBox.propTypes = {
+  description: PropTypes.string,
+  browse: PropTypes.string,
+  status: PropTypes.oneOf(['default', 'loading', 'dropping']),
+  onLoad: PropTypes.func
+};
 export default BrandUploadBox;

@@ -1,21 +1,9 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import identity from 'lodash/fp/identity';
-import {checker, createValidate} from '../../util/validation';
+import * as CustomPropTypes from '../../util/proptypes';
 import CatalogCTA from '../../molecule/catalog-cta';
 import Picture from '../../atom/picture';
 import style from './style.css';
-
-const conditions = checker.shape({
-  props: checker.shape({
-    rating: checker.number.optional,
-    maxRating: checker.number.optional,
-    linkBuy: checker.string.optional,
-    linkTry: checker.string.optional,
-    assets: checker.array.optional,
-    badge: checker.url.optional
-  }),
-  children: checker.none
-});
 
 const CursusRightaside = (props, context) => {
   const {translate = identity} = context;
@@ -23,8 +11,8 @@ const CursusRightaside = (props, context) => {
   const assetsLabel = translate('assets');
   const {rating, maxRating, linkBuy, linkTry, badge, assets = []} = props;
 
-  const assetsView = assets.map(asset => (
-    <li className={style.asset}>{asset}</li>
+  const assetsView = assets.map((asset, index) => (
+    <li key={index} className={style.asset}>{asset}</li>
   ));
 
   return (
@@ -60,8 +48,15 @@ const CursusRightaside = (props, context) => {
 };
 
 CursusRightaside.contextTypes = {
-  translate: React.PropTypes.function
+  translate: React.PropTypes.func
 };
 
-CursusRightaside.validate = createValidate(conditions);
+CursusRightaside.propTypes = {
+  rating: PropTypes.number,
+  maxRating: PropTypes.number,
+  linkBuy: PropTypes.string,
+  linkTry: PropTypes.string,
+  assets: PropTypes.array,
+  badge: CustomPropTypes.url
+};
 export default CursusRightaside;

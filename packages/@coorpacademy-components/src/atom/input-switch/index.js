@@ -1,20 +1,8 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import noop from 'lodash/fp/noop';
-import {checker, createValidate} from '../../util/validation';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.shape({
-    title: checker.string,
-    value: checker.bool.optional,
-    disabled: checker.bool.optional,
-    onChange: checker.func.optional,
-    description: checker.string.optional
-  }),
-  children: checker.none
-});
-
-const InputSwitch = ({children, ...props}) => {
+const InputSwitch = props => {
   const {
     title,
     value,
@@ -46,5 +34,11 @@ const InputSwitch = ({children, ...props}) => {
   );
 };
 
-InputSwitch.validate = createValidate(conditions);
+InputSwitch.propTypes = {
+  title: PropTypes.string.isRequired,
+  value: PropTypes.bool,
+  disabled: PropTypes.bool,
+  onChange: PropTypes.func,
+  description: PropTypes.string
+};
 export default InputSwitch;

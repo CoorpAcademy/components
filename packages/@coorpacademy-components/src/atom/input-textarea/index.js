@@ -1,22 +1,8 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import noop from 'lodash/fp/noop';
-import {checker, createValidate} from '../../util/validation';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.shape({
-    type: checker.string,
-    placeholder: checker.string,
-    disabled: checker.bool.optional,
-    value: checker.string.optional,
-    error: checker.string.optional,
-    onChange: checker.func.optional,
-    description: checker.string.optional
-  }),
-  children: checker.none
-});
-
-const InputTextarea = ({children, ...props}) => {
+const InputTextarea = props => {
   const {
     title,
     placeholder,
@@ -35,10 +21,10 @@ const InputTextarea = ({children, ...props}) => {
         <textarea
           resize='none'
           name={title}
+          defaultValue={value}
           placeholder={placeholder}
           onInput={e => onChange(e.target.value)}
         >
-          {value}
         </textarea>
       </label>
       <div className={style.description}>
@@ -48,5 +34,13 @@ const InputTextarea = ({children, ...props}) => {
   );
 };
 
-InputTextarea.validate = createValidate(conditions);
+InputTextarea.propTypes = {
+  type: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
+  disabled: PropTypes.bool,
+  value: PropTypes.string,
+  error: PropTypes.string,
+  onChange: PropTypes.func,
+  description: PropTypes.string
+};
 export default InputTextarea;

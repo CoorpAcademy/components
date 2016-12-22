@@ -1,6 +1,5 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import map from 'lodash/fp/map';
-import {checker, createValidate} from '../../util/validation';
 import Select from '../../atom/select';
 import InputText from '../../atom/input-text';
 import InputColor from '../../atom/input-color';
@@ -11,23 +10,11 @@ import InputTextarea from '../../atom/input-textarea';
 import InputDoublestep from '../../atom/input-doublestep';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.shape({
-    title: checker.string,
-    subtitle: checker.string.optional,
-    disabled: checker.bool.optional,
-    fields: checker.arrayOf(checker.shape({
-      type: checker.string
-    }))
-  }),
-  children: checker.none
-});
-
 const BrandFormGroup = ({children, ...props}) => {
   const {
     title,
     subtitle = '',
-    fields
+    fields = []
   } = props;
 
   const buildInput = field => {
@@ -70,17 +57,17 @@ const BrandFormGroup = ({children, ...props}) => {
     }
   };
 
-  const buildField = field => {
+  const buildField = (field, index) => {
     const input = buildInput(field);
 
     return (
-      <div className={style.field}>
+      <div className={style.field} key={index}>
         {input}
       </div>
     );
   };
 
-  const fieldsList = map(buildField, fields);
+  const fieldsList = fields.map(buildField);
 
   return (
     <div className={style.wrapper}>
@@ -93,5 +80,12 @@ const BrandFormGroup = ({children, ...props}) => {
   );
 };
 
-BrandFormGroup.validate = createValidate(conditions);
+BrandFormGroup.propTypes = {
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string,
+  disabled: PropTypes.bool,
+  fields: PropTypes.arrayOf(PropTypes.shape({
+    type: PropTypes.string.isRequired
+  }))
+};
 export default BrandFormGroup;

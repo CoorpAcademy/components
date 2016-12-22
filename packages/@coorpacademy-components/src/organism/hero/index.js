@@ -1,22 +1,12 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
+import * as CustomPropTypes from '../../util/proptypes';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import identity from 'lodash/fp/identity';
-import getOr from 'lodash/fp/getOr';
-import {checker, createValidate} from '../../util/validation';
 import Link from '../../atom/link';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.shape({
-    url: checker.string,
-    title: checker.string,
-    touch: checker.bool.optional
-  }),
-  children: checker.none
-});
-
-const Hero = (props, context) => {
+function Hero(props, context) {
   const {translate = identity, skin} = context;
   const bg = get('images.hero', skin);
   const {url, title, touch = false} = props;
@@ -52,12 +42,19 @@ const Hero = (props, context) => {
       </Link>
     </div>
   );
-};
+}
 
 Hero.contextTypes = {
   skin: React.PropTypes.object,
-  translate: React.PropTypes.function
+  translate: React.PropTypes.func
 };
 
-Hero.validate = createValidate(conditions);
+Hero.propTypes = {
+  url: PropTypes.oneOfType([
+    CustomPropTypes.url,
+    PropTypes.string
+  ]).isRequired,
+  title: PropTypes.string.isRequired
+};
+
 export default Hero;

@@ -1,13 +1,7 @@
-import React from 'react';
-import {checker, createValidate} from '../../util/validation';
+import React, {PropTypes} from 'react';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.none,
-  children: checker.array
-});
-
-const GridList = ({children, ...props}) => {
+const GridList = ({children}) => {
   return (
     <div className={style.wrapper}>
       {children}
@@ -15,5 +9,6 @@ const GridList = ({children, ...props}) => {
   );
 };
 
-GridList.validate = createValidate(conditions);
+GridList.propTypes = {};
+
 export default GridList;

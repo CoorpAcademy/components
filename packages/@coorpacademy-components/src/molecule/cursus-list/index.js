@@ -1,26 +1,13 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import identity from 'lodash/fp/identity';
 import Link from '../../atom/link';
-import {checker, createValidate} from '../../util/validation';
 import style from './style.css';
-
-const conditions = checker.shape({
-  props: checker.shape({
-    cursuses: checker.arrayOf(
-      checker.shape({
-        href: checker.string.optional,
-        title: checker.string.optional
-      })
-    ).optional
-  }),
-  children: checker.none
-});
 
 const CursusList = (props, context) => {
   const {translate = identity} = context;
   const {cursuses = []} = props;
   const listTitle = translate('Training Packages');
-  const CursusesDiv = cursuses.map(cursus => {
+  const CursusesDiv = cursuses.map((cursus, index) => {
     const {title, href, selected} = cursus;
 
     const linkProps = selected ? {
@@ -28,7 +15,7 @@ const CursusList = (props, context) => {
     } : {};
 
     return (
-      <li className={style.cursus}>
+      <li className={style.cursus} key={index}>
         <Link
           {...linkProps}
           href={href}
@@ -50,8 +37,15 @@ const CursusList = (props, context) => {
 };
 
 CursusList.contextTypes = {
-  translate: React.PropTypes.function
+  translate: React.PropTypes.func
 };
 
-CursusList.validate = createValidate(conditions);
+CursusList.propTypes = {
+  cursuses: PropTypes.arrayOf(
+    PropTypes.shape({
+      href: PropTypes.string,
+      title: PropTypes.string
+    })
+  )
+};
 export default CursusList;

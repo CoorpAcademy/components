@@ -1,18 +1,7 @@
-import React from 'react';
-import {checker, createValidate} from '../../util/validation';
+import React, {PropTypes} from 'react';
 import ScopeTabs from '../scope-tabs';
 import ScopeContent from '../scope-content';
 import style from './style.css';
-
-const conditions = checker.shape({
-  props: checker.shape({
-    levels: checker.array.optional,
-    selected: checker.number.optional,
-    content: checker.object.optional,
-    onClick: checker.func.optional
-  }),
-  children: checker.none
-});
 
 const DisciplineScope = ({children, ...props}) => {
   const {onClick, selected = 0, content, levels = []} = props;
@@ -31,5 +20,10 @@ const DisciplineScope = ({children, ...props}) => {
   );
 };
 
-DisciplineScope.validate = createValidate(conditions);
+DisciplineScope.propTypes = {
+  levels: PropTypes.array,
+  selected: PropTypes.number,
+  content: PropTypes.object,
+  onClick: PropTypes.func
+};
 export default DisciplineScope;
