@@ -6,7 +6,7 @@ import Loader from '../../atom/loader';
 import Link from '../../atom/link';
 import style from './style.css';
 
-const BrandTable = ({children, ...props}) => {
+const BrandTable = (props) => {
   const {
     createHref,
     pagination,

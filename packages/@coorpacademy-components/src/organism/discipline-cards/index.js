@@ -5,31 +5,33 @@ import DisciplineCard from '../../molecule/discipline-card';
 import ThemeImage from '../../molecule/theme-image';
 import style from './style.css';
 
-function DisciplineCards({children, ...props}) {
+function DisciplineCards(props) {
   const {
     image = 'bg',
     onModuleClick,
     onDisciplineClick,
-    theme = 'default'
+    theme = 'default',
+    disciplines = []
   } = props;
 
-  if (props.disciplines.length > 0) {
-    props.disciplines = set('[0].row', theme === 'circle', props.disciplines);
-  }
+
+  const fixedDisciplines = disciplines.length > 0 ?
+    set('[0].row', theme === 'circle', props.disciplines) :
+    disciplines;
 
   const disciplineViews = map(discipline => {
     return (
       <DisciplineCard
-        discipline = {discipline}
-        onClick = {onDisciplineClick}
-        onModuleClick = {onModuleClick}
-        theme = {theme}
-        key = {discipline.ref}
-        row = {discipline.row}
+        discipline={discipline}
+        key={discipline.ref}
+        onClick={onDisciplineClick}
+        onModuleClick={onModuleClick}
+        row={discipline.row}
+        theme={theme}
       >
       </DisciplineCard>
     );
-  }, props.disciplines);
+  }, fixedDisciplines);
 
   return (
     <div className={style.default}>
@@ -42,11 +44,11 @@ function DisciplineCards({children, ...props}) {
 }
 
 DisciplineCards.propTypes = {
-  disciplines: PropTypes.array.isRequired,
-  onModuleClick: PropTypes.func.isRequired,
+  disciplines: PropTypes.arrayOf(PropTypes.object),
+  image: PropTypes.string,
   onDisciplineClick: PropTypes.func.isRequired,
-  theme: PropTypes.oneOf(['default', 'circle']),
-  image: PropTypes.string
+  onModuleClick: PropTypes.func.isRequired,
+  theme: PropTypes.oneOf(['default', 'circle'])
 };
 
 export default DisciplineCards;

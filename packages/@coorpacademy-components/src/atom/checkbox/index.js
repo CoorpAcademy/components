@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import noop from 'lodash/fp/noop';
 
 class Checkbox extends React.Component {
@@ -31,6 +31,11 @@ class Checkbox extends React.Component {
 
 Checkbox.defaultProps = {
   onChange: noop
+};
+
+Checkbox.propTypes = {
+  onChange: PropTypes.func,
+  children: PropTypes.node
 };
 
 export default Checkbox;

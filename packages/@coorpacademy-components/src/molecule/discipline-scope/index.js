@@ -3,7 +3,7 @@ import ScopeTabs from '../scope-tabs';
 import ScopeContent from '../scope-content';
 import style from './style.css';
 
-const DisciplineScope = ({children, ...props}) => {
+const DisciplineScope = (props) => {
   const {onClick, selected = 0, content, levels = []} = props;
 
   return (

@@ -4,7 +4,7 @@ import FormGroup from '../../molecule/form-group';
 import Button from '../../atom/button';
 import style from './style.css';
 
-const Form = ({children, ...props}) => {
+const Form = props => {
   const {
     groups = [],
     submitValue = '',

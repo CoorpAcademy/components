@@ -4,7 +4,7 @@ import pipe from 'lodash/fp/pipe';
 import Star from '../../atom/star';
 import style from './style.css';
 
-const StarRating = ({children, ...props}) => {
+const StarRating = props => {
   const {rating = 0, total = 5} = props;
 
   const popularity = pipe(

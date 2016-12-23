@@ -42,7 +42,7 @@ const buildLink = (link, index) => {
   );
 };
 
-const Breadcrumbs = ({children, ...props}) => {
+const Breadcrumbs = props => {
   const {
     breadcrumbs,
     links = []

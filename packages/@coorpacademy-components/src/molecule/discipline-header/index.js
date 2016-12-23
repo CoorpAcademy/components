@@ -4,7 +4,7 @@ import * as CustomPropTypes from '../../util/proptypes';
 import VideoIframe from '../video-iframe';
 import style from './style.css';
 
-function DisciplineHeader({children, ...props}) {
+function DisciplineHeader(props) {
   const {image, title, description, video} = props;
 
   const type = get('type', video);

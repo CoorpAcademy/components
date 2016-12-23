@@ -7,7 +7,7 @@ import identity from 'lodash/fp/identity';
 import ModuleBubble from '../../molecule/module-bubble';
 import style from './style.css';
 
-function DisciplineCard({children, ...props}, context) {
+function DisciplineCard(props, context) {
   const {translate = identity, skin} = context;
   const {discipline, onClick, onModuleClick, row} = props;
 

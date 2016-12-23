@@ -23,7 +23,7 @@ const CLOSED = 'closed';
  *  - closed (default)
  *  - open
  */
-const Checkboxes = (props, context) => {
+ function Checkboxes(props, context) {
   const {
     title,
     choices,
@@ -95,13 +95,15 @@ const Checkboxes = (props, context) => {
     const background = isCourses ? coursesBG : defaultBG;
 
     return (
-      <li className={style.line} key={i}>
+      <li
+        className={style.line}
+        key={i}
+      >
         <TitledCheckbox
-          state={choice}
-          onToggle={onToggle}
           background={background}
-        >
-        </TitledCheckbox>
+          onToggle={onToggle}
+          state={choice}
+        />
       </li>
     );
   });
@@ -122,14 +124,14 @@ Checkboxes.contextTypes = {
 };
 
 Checkboxes.propTypes = {
+  choices: PropTypes.array.isRequired,
   close: PropTypes.func,
-  onToggle: PropTypes.func,
+  mode: PropTypes.string,
   onClose: PropTypes.func,
   onOpen: PropTypes.func,
-  theme: PropTypes.string,
-  mode: PropTypes.string,
+  onToggle: PropTypes.func,
   status: PropTypes.string,
-  title: PropTypes.string.isRequired,
-  choices: PropTypes.array.isRequired
+  theme: PropTypes.string,
+  title: PropTypes.string.isRequired
 };
 export default Checkboxes;

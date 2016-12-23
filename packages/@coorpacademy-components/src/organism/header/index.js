@@ -4,7 +4,7 @@ import Picture from '../../atom/picture';
 import MenuList from '../../molecule/menu-list';
 import style from './style.css';
 
-const Header = ({children, ...props}) => {
+const Header = props => {
   const {menuItems, src, href} = props;
 
   return (
@@ -22,12 +22,12 @@ const Header = ({children, ...props}) => {
 };
 
 Header.propTypes = {
+  href: PropTypes.string,
   menuItems: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string
     })
   ),
-  href: PropTypes.string,
   src: PropTypes.oneOfType([
     PropTypes.string.isRequired,
     PropTypes.objectOf(CustomPropTypes.url).isRequired

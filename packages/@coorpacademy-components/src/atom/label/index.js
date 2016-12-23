@@ -10,16 +10,7 @@ const Label = ({children}) => {
 };
 
 Label.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.element,
-    PropTypes.arrayOf(
-      PropTypes.oneOfType([
-        PropTypes.element,
-        PropTypes.string
-      ])
-    )
-  ])
+  children: PropTypes.node
 };
 
 export default Label;

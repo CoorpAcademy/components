@@ -21,6 +21,7 @@ const Link = ({children, ...props}, context) => {
 };
 
 Link.propTypes = {
+  children: PropTypes.node,
   className: PropTypes.string,
   href: PropTypes.string
 };

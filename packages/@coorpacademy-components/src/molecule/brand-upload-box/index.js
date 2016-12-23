@@ -3,7 +3,7 @@ import uniqueId from 'lodash/fp/uniqueId';
 import Loader from '../../atom/loader';
 import style from './style.css';
 
-const BrandUploadBox = ({children, ...props}) => {
+const BrandUploadBox = props => {
   const {
     description = '',
     browse = '',

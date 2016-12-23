@@ -15,7 +15,7 @@ const url = (type, id) => {
   }
 };
 
-const VideoIframe = ({children, ...props}) => {
+const VideoIframe = props => {
   const {
     type,
     id,

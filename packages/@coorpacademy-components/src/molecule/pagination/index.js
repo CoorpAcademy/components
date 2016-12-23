@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 import Link from '../../atom/link';
 import style from './style.css';
 
-const Pagination = ({children, ...props}) => {
+const Pagination = props => {
   const {
     value,
     nextHref,

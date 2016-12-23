@@ -3,7 +3,7 @@ import threadShape from '../post-conditions';
 import ForumPost from '../forum-post';
 import style from './style.css';
 
-const ForumThread = ({children, ...props}) => {
+const ForumThread = (props) => {
   const {answers = []} = props;
   const answersView = answers.map((answerProps, index) => (
     <ForumThread

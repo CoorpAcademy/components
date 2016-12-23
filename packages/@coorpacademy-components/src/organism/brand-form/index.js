@@ -4,7 +4,7 @@ import Button from '../../atom/button';
 import Link from '../../atom/link';
 import style from './style.css';
 
-function BrandForm({children, ...props}) {
+function BrandForm(props) {
   const {
     groups,
     disabled,

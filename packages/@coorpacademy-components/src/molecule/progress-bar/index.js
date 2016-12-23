@@ -4,7 +4,7 @@ import style from './style.css';
 
 const addBackgroundClass = addClassName(style.background);
 
-const ProgressBar = ({children, ...props}) => {
+const ProgressBar = props => {
   const {
     className,
     value,

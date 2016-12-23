@@ -3,7 +3,7 @@ import Checkbox from '../../atom/checkbox';
 import Link from '../../atom/link';
 import style from './style.css';
 
-const Table = ({children, ...props}) => {
+const Table = props => {
   const {
     rows,
     columns

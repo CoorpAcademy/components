@@ -3,7 +3,7 @@ import Picture from '../../atom/picture';
 import Link from '../../atom/link';
 import style from './style.css';
 
-const SetupHeader = ({children, ...props}) => {
+const SetupHeader = props => {
   const {
     logout,
     logoutValue,

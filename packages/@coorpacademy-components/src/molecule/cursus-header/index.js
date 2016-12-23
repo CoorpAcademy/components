@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 import Picture from '../../atom/picture';
 import style from './style.css';
 
-const CursusHeader = ({children, ...props}) => {
+const CursusHeader = props => {
   const {image, title, description} = props;
 
   const imageView = image && (

@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 
-const Title = ({children, ...props}) => {
+const Title = ({children}) => {
   return (
     <h1>
       {children}
@@ -9,15 +9,6 @@ const Title = ({children, ...props}) => {
 };
 
 Title.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.element,
-    PropTypes.arrayOf(
-      PropTypes.oneOfType([
-        PropTypes.element,
-        PropTypes.string
-      ])
-    )
-  ])
+  children: PropTypes.node
 };
 export default Title;

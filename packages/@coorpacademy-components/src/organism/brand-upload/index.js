@@ -5,7 +5,7 @@ import DownloadBox from '../../molecule/brand-download-box';
 import Link from '../../atom/link';
 import style from './style.css';
 
-const BrandUpload = ({children, ...props}) => {
+const BrandUpload = props => {
   const {
     title = '',
     back,

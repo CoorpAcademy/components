@@ -5,31 +5,7 @@ import Notification from '../../../atom/notification';
 import Layout from '../layout';
 import style from './style.css';
 
-// const conditions = checker.shape({
-//   props: checker.shape({
-//     notifications: checker.arrayOf(checker.shape({
-//       type: checker.string,
-//       message: checker.string,
-//       onClose: checker.func.optional
-//     })).optional,
-//     title: checker.string,
-//     subtitle: checker.string,
-//     description: checker.string,
-//     field: checker.shape({
-//       placeholder: checker.string,
-//       label: checker.string,
-//       onChange: checker.func,
-//       error: checker.string.optional,
-//       value: checker.string.optional
-//     }),
-//     onSubmit: checker.func,
-//     submitValue: checker.string,
-//     isPending: checker.bool.optional,
-//     isModified: checker.bool.optional
-//   })
-// });
-
-const BrandCreate = Layout((props, children) => {
+const BrandCreate = Layout(props => {
   const {
     notifications = []
   } = props;
@@ -54,5 +30,26 @@ const BrandCreate = Layout((props, children) => {
   );
 });
 
-// BrandCreate.validate = createValidate(conditions);
+BrandCreate.propTypes = {
+  notifications: PropTypes.arrayOf(PropTypes.shape({
+    type: PropTypes.string.isRequired,
+    message: PropTypes.string.isRequired,
+    onClose: PropTypes.func
+  })),
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  field: PropTypes.shape({
+    placeholder: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired,
+    error: PropTypes.string,
+    value: PropTypes.string
+  }).isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  submitValue: PropTypes.string.isRequired,
+  isPending: PropTypes.bool,
+  isModified: PropTypes.bool
+};
+
 export default BrandCreate;

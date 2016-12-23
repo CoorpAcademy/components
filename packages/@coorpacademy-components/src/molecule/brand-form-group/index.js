@@ -10,7 +10,7 @@ import InputTextarea from '../../atom/input-textarea';
 import InputDoublestep from '../../atom/input-doublestep';
 import style from './style.css';
 
-const BrandFormGroup = ({children, ...props}) => {
+const BrandFormGroup = props => {
   const {
     title,
     subtitle = '',

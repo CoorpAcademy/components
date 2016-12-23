@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 import Button from '../../atom/button';
 import style from './style.css';
 
-const BrandDownloadBox = ({children, ...props}) => {
+const BrandDownloadBox = props => {
   const {
     warning = '',
     description = '',

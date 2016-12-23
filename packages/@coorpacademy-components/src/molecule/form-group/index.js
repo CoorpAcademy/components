@@ -22,7 +22,7 @@ const buildField = (field, index) => {
   }
 };
 
-const FormGroup = ({children, ...props}) => {
+const FormGroup = (props) => {
   const {title, fields = []} = props;
 
   return (

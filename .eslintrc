@@ -13,7 +13,8 @@
     "plugin:@coorpacademy/coorpacademy/core",
     "plugin:@coorpacademy/coorpacademy/ava",
     "plugin:@coorpacademy/coorpacademy/es20XX",
-    "plugin:@coorpacademy/coorpacademy/lodash-fp"
+    "plugin:@coorpacademy/coorpacademy/lodash-fp",
+    "plugin:react/all"
   ],
   "parser": "babel-eslint",
   "parserOptions": {
@@ -24,9 +25,15 @@
     "sourceType": "module"
   },
   "rules": {
+    "no-unused-vars": 0,
     "ava/no-ignored-test-files": ["error", {"files": ["**/test/**/*.js"]}],
     "no-shadow": ["error", {"builtinGlobals": true, "hoist": "all", "allow": ["Promise", "history", "location"]}],
-    "import/no-extraneous-dependencies": "off"
+    "import/no-extraneous-dependencies": "off",
+    "react/jsx-indent": [2, 2],
+    "react/jsx-indent-props": [2, 2],
+    "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx"] }],
+    "react/require-default-props": 0,
+    "react/no-array-index-key": 0
   },
   "settings": {
     "import/ignore": ["node_modules", "\\.css$"]

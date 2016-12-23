@@ -33,7 +33,7 @@ const selectInline = (theme, skin) => {
   return inline[theme];
 };
 
-const SelectBox = ({children, ...props}, {skin}) => {
+const SelectBox = (props, {skin}) => {
   const code = getOr('', 'icons.select', skin);
   const iconCode = String.fromCharCode(code);
   const {list = [], onChange, enabled = true} = props;

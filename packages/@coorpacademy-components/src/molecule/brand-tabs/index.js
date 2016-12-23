@@ -19,7 +19,7 @@ const buildTab = (tab, index) => {
   );
 };
 
-const BrandTabs = ({children, ...props}) => {
+const BrandTabs = props => {
   const {
     tabs
   } = props;

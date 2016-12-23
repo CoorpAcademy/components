@@ -3,7 +3,7 @@ import VideoIframe from '../video-iframe';
 import Picture from '../../atom/picture';
 import style from './style.css';
 
-const VideoPlayer = ({children, ...props}) => {
+const VideoPlayer = props => {
   const {
     type,
     id,

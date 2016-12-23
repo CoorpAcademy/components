@@ -5,24 +5,7 @@ import BrandCardCreate from '../../../molecule/brand-card-create';
 import Layout from '../layout';
 import style from './style.css';
 
-// const conditions = checker.shape({
-//   props: checker.shape({
-//     brands: checker.arrayOf(checker.shape({
-//       title: checker.string,
-//       edit: checker.string,
-//       editHref: checker.string,
-//       see: checker.string,
-//       seeHref: checker.string,
-//       image: checker.string
-//     })).optional,
-//     create: checker.shape({
-//       edit: checker.string,
-//       editHref: checker.string
-//     })
-//   })
-// });
-
-const BrandList = Layout((props, children) => {
+const BrandList = Layout(props => {
   const {
     brands = [],
     create
@@ -55,5 +38,19 @@ const BrandList = Layout((props, children) => {
   );
 });
 
-// BrandList.validate = createValidate(conditions);
+BrandList.propTypes = {
+  brands: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    edit: PropTypes.string.isRequired,
+    editHref: PropTypes.string.isRequired,
+    see: PropTypes.string.isRequired,
+    seeHref: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired
+  })),
+  create: PropTypes.shape({
+    edit: PropTypes.string.isRequired,
+    editHref: PropTypes.string.isRequired
+  }).isRequired
+};
+
 export default BrandList;

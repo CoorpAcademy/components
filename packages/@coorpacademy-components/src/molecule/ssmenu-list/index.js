@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import style from './style.css';
 
-const SsMenuList = ({children, ...props}) => {
+const SsMenuList = props => {
   const {items = []} = props;
   const itemsView = items.map(({title, href}, index) => (
     <li key={index} className={style.item}>

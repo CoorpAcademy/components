@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import style from './style.css';
 
-const Search = ({children, ...props}) => {
+const Search = props => {
   const {
     value,
     placeholder,

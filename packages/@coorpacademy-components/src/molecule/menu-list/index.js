@@ -3,7 +3,7 @@ import isNil from 'lodash/fp/isNil';
 import SsMenuList from '../ssmenu-list';
 import style from './style.css';
 
-const MenuList = ({children, ...props}) => {
+const MenuList = props => {
   const {menuItems = []} = props;
 
   const MenuitemDiv = menuItems.map((item, index) => {

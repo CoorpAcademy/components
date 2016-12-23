@@ -79,7 +79,7 @@ Button.propTypes = {
   href: PropTypes.string,
   target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
   onClick: PropTypes.func,
-  children: PropTypes.element
+  children: PropTypes.node
 };
 
 export default Button;

@@ -6,7 +6,7 @@ import postConditions from '../../molecule/forum/post-conditions';
 import Loader from '../../atom/loader';
 import style from './style.css';
 
-function Discussion({children, ...props}) {
+function Discussion(props) {
   const {
     threads = [],
     title,
