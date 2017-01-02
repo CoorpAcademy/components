@@ -8,8 +8,9 @@ import style from './style.css';
 const conditions = checker.shape({
   props: checker.shape({
     url: checker.string,
-    title: checker.string
-  }).strict,
+    title: checker.string,
+    touch: checker.bool
+  }),
   children: checker.none
 });
 
