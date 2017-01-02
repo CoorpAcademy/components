@@ -271,6 +271,8 @@ import createFormFixtureDefault from '../src/organism/form/test/fixtures/default
 import createGridListFixtureDefault from '../src/organism/grid-list/test/fixtures/default';
 import createHeaderFixtureDefault from '../src/organism/header/test/fixtures/default';
 import createHeroFixtureDefault from '../src/organism/hero/test/fixtures/default';
+import createHeroFixtureNoTouch from '../src/organism/hero/test/fixtures/no-touch';
+import createHeroFixtureTouch from '../src/organism/hero/test/fixtures/touch';
 import createSetupHeaderFixtureDefault from '../src/organism/setup-header/test/fixtures/default';
 import createAuthorFixtureDefault from '../src/template/app-catalog/author/test/fixtures/default';
 import createAuthorFixtureLoading from '../src/template/app-catalog/author/test/fixtures/loading';
@@ -783,7 +785,9 @@ export const fixtures = {
       Default: createHeaderFixtureDefault
     },
     Hero: {
-      Default: createHeroFixtureDefault
+      Default: createHeroFixtureDefault,
+      NoTouch: createHeroFixtureNoTouch,
+      Touch: createHeroFixtureTouch
     },
     SetupHeader: {
       Default: createSetupHeaderFixtureDefault

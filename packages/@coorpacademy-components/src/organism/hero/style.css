@@ -1,3 +1,6 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+
 .hero {
   height: 250px;
   position: relative;
@@ -20,6 +23,12 @@
   text-decoration: none;
   overflow: hidden;
 }
+.ctaTouch{
+  composes: cta;
+}
+.ctaNoTouch{
+  composes: cta;
+}
 
 .bar {
   position: absolute;
@@ -30,7 +39,7 @@
   transition: all .2s ease-out;
 }
 
-.cta:hover .bar {
+.ctaNoTouch:hover .bar {
   left: 0;
   width: 100%;
 }
@@ -41,4 +50,10 @@
   font-size: 17px;
   color: white;
   line-height: 60px;
+}
+
+@media mobile {
+  .hero {
+    height: 130px;
+  }
 }

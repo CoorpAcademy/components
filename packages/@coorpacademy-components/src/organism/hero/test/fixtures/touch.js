@@ -1,6 +1,7 @@
 export default {
   props: {
     title: 'Awesome  aaaaa aaaa aaaaa CTA',
-    url: 'http://www.google.com'
+    url: 'http://www.google.com',
+    touch: true
   }
 };
