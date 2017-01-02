@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/components-bundler",
-  "version": "3.6.7",
+  "version": "3.7.3",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
