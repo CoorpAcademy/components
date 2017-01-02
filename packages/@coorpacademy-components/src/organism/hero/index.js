@@ -20,10 +20,10 @@ export default (treant, options = {}) => {
   const bg = get('images.hero', skin);
 
   const Hero = (props, children) => {
-    const {url, title} = props;
+    const {url, title, touch=false} = props;
     const text = translate(title);
     const backgroundImage = bg ? `url(${bg})` : '';
-
+    const ctaClass = touch ? 'ctaTouch': 'ctaNoTouch' 
     return (
       <div
         className={style.hero}
@@ -33,7 +33,7 @@ export default (treant, options = {}) => {
       >
         <Link
           href={url}
-          className={style.cta}>
+          className={style[ctaClass]}>
           <div
             className={style.label}
             style={{
