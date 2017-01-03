@@ -57,6 +57,23 @@
   display: none;
 }
 
+.arrow {
+  position: relative;
+}
+.arrow:after {
+  content: '';
+  display: block;
+  position: absolute;
+  right: -225px;
+  top: 0;
+  width: 0;
+  height: 10px;
+  border-top: 5px solid black;
+  border-right:5px solid transparent;
+  border-bottom:5px solid transparent;
+  border-left:5px solid transparent;
+}
+
 .thematiques select {
   font-family: "Open Sans";
   text-transform: none;
@@ -70,6 +87,7 @@
   margin-left: 20px;
   width: 230px;
   background: #e0e0e0;
+  appearance: none;
 }
 
 @media mobile {
@@ -86,6 +104,11 @@
   .thematiques select {
       margin-left: 0;
       border-radius: 0;
+  }
+
+  .arrow:after {
+    right: 10px;
+    top: 30px;
   }
 }
 
