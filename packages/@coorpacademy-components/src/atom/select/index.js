@@ -24,7 +24,8 @@ export default (treant, options) => {
     const {
       onChange,
       disabled,
-      required
+      required,
+      theme
     } = props;
 
     const title = `${props.title}${required ? '*' : ''} :`;
@@ -41,9 +42,10 @@ export default (treant, options) => {
     });
 
     return (
-      <div className={style.default}>
+      <div className={theme ? style[theme] : style.default}>
         <label>
           <span className={style.title}>{title}</span>
+          <div className={style.arrow}></div>
           <select onChange={e => onChange(e.target.value)} disabled={disabled}>
             {optionList}
           </select>
