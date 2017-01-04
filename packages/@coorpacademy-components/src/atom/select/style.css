@@ -90,7 +90,34 @@
   appearance: none;
 }
 
+.mooc {
+  composes: default;
+}
+
+.mooc label {
+  margin: 0;
+  height: 35px;
+  border: 0;
+}
+
+.mooc select {
+  margin-left: 0;
+}
+
+.mooc .arrow,
+.mooc .title {
+  display: none;
+}
+
 @media mobile {
+  .mooc {
+    width: 40%;
+  }
+
+  .mooc select {
+    padding: 0;
+  }
+
   .thematiques select {
     height: 100%;
     width: 100%;
