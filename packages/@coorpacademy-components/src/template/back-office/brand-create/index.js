@@ -12,7 +12,10 @@ const BrandCreate = Layout(props => {
 
   const notificationsList = notifications.map((notification, index) => {
     return (
-      <div key={index} className={style.notification}>
+      <div
+        key={index}
+        className={style.notification}
+      >
         <Notification {...notification} />
       </div>
     );
@@ -21,9 +24,9 @@ const BrandCreate = Layout(props => {
   return (
     <div className={style.container}>
       <div className={style.wrapper}>
-      <div className={notifications.length > 0 ? style.notifications : style.empty}>
-        {notificationsList}
-      </div>
+        <div className={notifications.length > 0 ? style.notifications : style.empty}>
+          {notificationsList}
+        </div>
         <BrandCreateForm {...props} />
       </div>
     </div>

@@ -1,25 +1,11 @@
 import React, {PropTypes} from 'react';
 import identity from 'lodash/fp/identity';
+import * as CustomPropTypes from '../../../util/proptypes';
 import CursusHeader from '../../../molecule/cursus-header';
 import CursusRightaside from '../../../organism/cursus-rightaside';
 import CatalogCards from '../../../organism/catalog-cards';
 import layout from '../layout.css';
 import style from './style.css';
-
-// const conditions = checker.shape({
-//   props: checker.shape({
-//     title: checker.string.optional,
-//     description: checker.string.optional,
-//     image: checker.url.optional,
-//     badge: checker.url.optional,
-//     linkBuy: checker.string.optional,
-//     linkTry: checker.string.optional,
-//     rating: checker.number.optional,
-//     maxRating: checker.number.optional,
-//     assets: checker.arrayOf(checker.string).optional,
-//     disciplines: checker.oneOfType([checker.arrayOf(checker.object), checker.null]).optional
-//   })
-// });
 
 const ProductCursus = (props, context) => {
   const {translate = identity} = context;
@@ -75,5 +61,20 @@ ProductCursus.contextTypes = {
   translate: React.PropTypes.func
 };
 
-// ProductCursus.validate = createValidate(conditions);
+ProductCursus.propTypes = {
+  title: PropTypes.string,
+  description: PropTypes.string,
+  image: CustomPropTypes.url,
+  badge: CustomPropTypes.url,
+  linkBuy: PropTypes.string,
+  linkTry: PropTypes.string,
+  rating: PropTypes.number,
+  maxRating: PropTypes.number,
+  assets: PropTypes.arrayOf(PropTypes.string),
+  disciplines: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.object),
+    PropTypes.null
+  ])
+};
+
 export default ProductCursus;

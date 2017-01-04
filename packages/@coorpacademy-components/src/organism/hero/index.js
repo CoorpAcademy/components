@@ -1,8 +1,8 @@
 import React, {PropTypes} from 'react';
-import * as CustomPropTypes from '../../util/proptypes';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import identity from 'lodash/fp/identity';
+import * as CustomPropTypes from '../../util/proptypes';
 import Link from '../../atom/link';
 import style from './style.css';
 
@@ -23,7 +23,8 @@ function Hero(props, context) {
     >
       <Link
         href={url}
-        className={style[ctaClass]}>
+        className={style[ctaClass]}
+      >
         <div
           className={style.label}
           style={{
@@ -36,8 +37,7 @@ function Hero(props, context) {
             style={{
               backgroundColor: getOr('#00b0ff', 'common.primary', skin)
             }}
-            >
-            </span>
+          />
         </div>
       </Link>
     </div>

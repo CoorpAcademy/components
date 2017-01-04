@@ -23,7 +23,7 @@ const CLOSED = 'closed';
  *  - closed (default)
  *  - open
  */
- function Checkboxes(props, context) {
+function Checkboxes(props, context) {
   const {
     title,
     choices,
@@ -31,7 +31,9 @@ const CLOSED = 'closed';
     onClose,
     onOpen,
     theme = DEFAULT,
-    mode = NORMAL
+    mode = NORMAL,
+    close: _close,
+    status: _status = CLOSED
   } = props;
   const {
     translate = identity,
@@ -41,10 +43,10 @@ const CLOSED = 'closed';
   const cross = String.fromCharCode(getOr('x', 'icons.close', skin));
   const arrow = String.fromCharCode(getOr('v', 'icons["arrow-bottom"]', skin));
 
-  const closedHeader = ({onOpen, title}) => (
+  const closedHeader = ({onOpen: onOpenHeader, title: headerTitle}) => (
     <div className={style.closedHeader}>
-      <span onClick={onOpen}>
-        <span>{title}</span>
+      <span onClick={onOpenHeader}>
+        <span>{headerTitle}</span>
         <span className={style.arrow}>
           {arrow}
         </span>
@@ -52,16 +54,16 @@ const CLOSED = 'closed';
     </div>
   );
 
-  const openHeader = _options => (
+  const openHeader = ({close: closeHeader, onClose: handlerClose}) => (
     <div className={style.openHeader}>
       <span
         className={style.closeText}
       >
-        {_options.close}
+        {closeHeader}
       </span>
       <span
         className={style.close}
-        onClick={_options.onClose}
+        onClick={handlerClose}
       >
         {cross}
       </span>
@@ -69,12 +71,10 @@ const CLOSED = 'closed';
   );
 
   const createHeader = _options => {
-    const _status = get('status', _options);
-    return _status === CLOSED ? closedHeader(_options) : openHeader(_options);
+    return get('status', _options) === CLOSED ?
+      closedHeader(_options) :
+      openHeader(_options);
   };
-
-  const _close = get('close', props);
-  const _status = getOr(CLOSED, 'status', props);
 
   const isCourses = theme === 'courses';
   let header = null;
@@ -116,7 +116,7 @@ const CLOSED = 'closed';
       </ul>
     </div>
   );
-};
+}
 
 Checkboxes.contextTypes = {
   skin: React.PropTypes.object,

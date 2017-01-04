@@ -12,7 +12,12 @@ const CursusRightaside = (props, context) => {
   const {rating, maxRating, linkBuy, linkTry, badge, assets = []} = props;
 
   const assetsView = assets.map((asset, index) => (
-    <li key={index} className={style.asset}>{asset}</li>
+    <li
+      key={index}
+      className={style.asset}
+    >
+      {asset}
+    </li>
   ));
 
   return (

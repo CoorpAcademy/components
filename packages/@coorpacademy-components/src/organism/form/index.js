@@ -25,7 +25,10 @@ const Form = props => {
       onReset={prevent(onReset)}
     >
       {groups.map((group, index) => (
-        <FormGroup key={index} {...group}/>
+        <FormGroup
+          key={index}
+          {...group}
+        />
       ))}
       <div className={style.buttons}>
         <Button

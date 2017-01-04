@@ -8,6 +8,8 @@ const Search = props => {
     onChange
   } = props;
 
+  const handleChange = e => onChange(e.target.value);
+
   return (
     <div className={style.wrapper}>
       <input
@@ -16,7 +18,7 @@ const Search = props => {
         name='search'
         placeholder={placeholder}
         value={value}
-        onInput={e => onChange(e.target.value)}
+        onInput={handleChange}
       />
     </div>
   );

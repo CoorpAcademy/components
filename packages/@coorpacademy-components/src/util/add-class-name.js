@@ -8,7 +8,7 @@ import split from 'lodash/fp/split';
 import update from 'lodash/fp/update';
 
 export default className => update(
-  'className', 
+  'className',
   pipe(
     split(' '),
     concat(className),

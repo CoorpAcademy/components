@@ -8,16 +8,16 @@ const Header = props => {
   const {menuItems, src, href} = props;
 
   return (
-      <div className={style.static}>
-        <div className={style.logo}>
-          <a href={href}>
-            <Picture src={src} />
-          </a>
-        </div>
-        <div className={style.navigation}>
-          <MenuList menuItems={menuItems} />
-        </div>
+    <div className={style.static}>
+      <div className={style.logo}>
+        <a href={href}>
+          <Picture src={src} />
+        </a>
       </div>
+      <div className={style.navigation}>
+        <MenuList menuItems={menuItems} />
+      </div>
+    </div>
   );
 };
 

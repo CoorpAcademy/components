@@ -20,9 +20,9 @@ const CursusHeader = props => {
         </div>
       </div>
       <div className={style.courseWrapper}>
-          <div className={style.desc}>
-            {description}
-          </div>
+        <div className={style.desc}>
+          {description}
+        </div>
       </div>
     </div>
   );

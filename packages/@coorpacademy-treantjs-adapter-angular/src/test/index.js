@@ -1,14 +1,14 @@
 import test from 'ava';
 import isArray from 'lodash/fp/isArray';
 import contains from 'lodash/fp/contains';
-import * as treant from '@coorpacademy/treantjs-core';
-import * as engine from '@coorpacademy/treantjs-engine-virtual-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import createDirectives from '..';
 
 test('createDirectives should wrap factories as directive factories', t => {
   const factories = {
-    createStarRating: (_treant, options) => (props, children) => true,
-    createCatalogCard: (_treant, options) => (props, children) => true
+    StarRating: props => true,
+    CatalogCard: props => true
   };
 
   const app = {
@@ -16,7 +16,7 @@ test('createDirectives should wrap factories as directive factories', t => {
     directive: (_name, options) => app.directives.push(_name)
   };
 
-  createDirectives(app, treant, engine, factories);
+  createDirectives(app, React, ReactDOM, factories);
 
   t.true(isArray(app.directives));
   t.true(contains('coorpStarRating', app.directives));

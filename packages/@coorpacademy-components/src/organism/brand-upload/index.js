@@ -16,14 +16,17 @@ const BrandUpload = props => {
   } = props;
 
   const notificationsItems = notifications.map((notif, index) => (
-    <div className={style[notif.type]} key={index}>
+    <div
+      className={style[notif.type]}
+      key={index}
+    >
       <span>{notif.message}</span>
     </div>
   ));
 
   const backView = back && (
     <p className={style.back}>
-      <i className={style.arrowBack}/>
+      <i className={style.arrowBack} />
       <Link
         href={back.link}
         className={style.backDesc}
@@ -39,9 +42,15 @@ const BrandUpload = props => {
       <div className={style.title}>
         <h3>{title}</h3>
       </div>
-      {download && <DownloadBox {...download}/>}
-      <UploadBox {...upload}/>
-      {progress && <ProgressBar {...progress} className={style.progress}/>}
+      {download && <DownloadBox {...download} />}
+      <UploadBox {...upload} />
+      {
+        progress &&
+        <ProgressBar
+          {...progress}
+          className={style.progress}
+        />
+      }
       <ul className={style.notifications}>
         {notificationsItems}
       </ul>

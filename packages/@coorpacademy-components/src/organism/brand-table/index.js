@@ -6,7 +6,7 @@ import Loader from '../../atom/loader';
 import Link from '../../atom/link';
 import style from './style.css';
 
-const BrandTable = (props) => {
+const BrandTable = props => {
   const {
     createHref,
     pagination,
@@ -19,12 +19,15 @@ const BrandTable = (props) => {
 
   const pendingView = (
     <div className={style.loading}>
-      <Loader/>
+      <Loader />
     </div>
   );
 
   const tableView = rows.length > 0 ? (
-    <Table rows={rows} columns={columns} />
+    <Table
+      rows={rows}
+      columns={columns}
+    />
   ) : (
     <div className={style.empty}>
       {emptyValue}
@@ -47,8 +50,7 @@ const BrandTable = (props) => {
       <div className={style.tableWrapper}>
         {isPending ? pendingView : tableView}
       </div>
-      <div className={style.footerWrapper}>
-      </div>
+      <div className={style.footerWrapper} />
     </div>
   );
 };

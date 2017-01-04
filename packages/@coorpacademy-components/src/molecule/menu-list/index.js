@@ -18,7 +18,10 @@ const MenuList = props => {
     );
 
     return (
-      <li key={index} className={type ? style[type] : style.item}>
+      <li
+        key={index}
+        className={type ? style[type] : style.item}
+      >
         <a
           href={href}
         >

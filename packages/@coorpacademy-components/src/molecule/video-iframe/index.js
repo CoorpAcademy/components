@@ -27,13 +27,12 @@ const VideoIframe = props => {
   if (id) {
     return (
       <iframe src={url(type, id)}
-            width={width}
-            height={height}
-            frameborder={0}
-            className={style.iframe}
-            allowfullscreen={true}
-      >
-      </iframe>
+        width={width}
+        height={height}
+        frameBorder={0}
+        className={style.iframe}
+        allowFullScreen
+      />
     );
   }
   else {

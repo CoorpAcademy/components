@@ -25,11 +25,10 @@ function DisciplineCard(props, context) {
 
   const modules = discipline.modules.map(_module => (
     <ModuleBubble
-      module = {_module}
-      onClick = {onModuleClick}
-      key = {_module.ref}
-    >
-    </ModuleBubble>
+      module={_module}
+      onClick={onModuleClick}
+      key={_module.ref}
+    />
   ));
 
   const click = unary(partial(onClick, [discipline]));
@@ -39,21 +38,22 @@ function DisciplineCard(props, context) {
   const defaultColor = props.theme === 'circle' ? getOr('#fff', 'common.primary', skin) : '#fff';
 
   const bg = getOr(defaultColor, ['courses', discipline.courseNum], skin);
-  const bar =
+  const bar = (
     <div
       className={style.bar}
       style={{
         background: bg,
         height: '5px'
       }}
-    />;
+    />
+  );
 
   return (
     <div className={disciplineClass}
-         attributes={{
-           'data-name': 'discipline-card'
-         }}
-         style={mainStyle}
+      attributes={{
+        'data-name': 'discipline-card'
+      }}
+      style={mainStyle}
     >
       <div
         className={style.area}

@@ -13,8 +13,10 @@ const ModuleBubble = (props, context) => {
     translate = identity,
     skin
   } = context;
-  const {onClick} = props;
-  const _module = get('module', props);
+  const {
+    onClick,
+    module: _module
+  } = props;
   const code = getOr('', `icons[${_module.status}]`, skin);
   const icon = String.fromCharCode(code);
 
@@ -31,9 +33,9 @@ const ModuleBubble = (props, context) => {
 
   return (
     <div className={filtered ? style.filtered : style.modulewrapper}
-          attributes={{
-            'data-name': 'module-bubble'
-          }}
+      attributes={{
+        'data-name': 'module-bubble'
+      }}
     >
       <div
         className={style.bubble}
@@ -44,15 +46,14 @@ const ModuleBubble = (props, context) => {
           style={{
             background
           }}
-        >
-        </span>
+        />
         <span
           className={disabled ? style.iconDisabled : style.icon}
           style={{
             color: getOr('#fff', ['mod', 'icon', _module.status], skin)
           }}
         >
-            {icon}
+          {icon}
         </span>
       </div>
       <div className={style.label}>

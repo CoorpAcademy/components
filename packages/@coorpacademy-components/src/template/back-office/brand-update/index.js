@@ -20,7 +20,10 @@ const BrandUpdate = Layout(props => {
 
   const notificationsList = notifications.map((notification, index) => {
     return (
-      <div className={style.notification} key={index}>
+      <div
+        className={style.notification}
+        key={index}
+      >
         <Notification {...notification} />
       </div>
     );
@@ -52,7 +55,10 @@ const BrandUpdate = Layout(props => {
   return (
     <div className={style.container}>
       <div className={style.headerWrapper}>
-        <Breadcrumbs links={links} breadcrumbs={breadcrumbs} />
+        <Breadcrumbs
+          links={links}
+          breadcrumbs={breadcrumbs}
+        />
       </div>
       <div className={style.tabsWrapper}>
         <BrandTabs tabs={tabs} />

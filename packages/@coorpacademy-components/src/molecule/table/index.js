@@ -9,7 +9,7 @@ const Table = props => {
     columns
   } = props;
 
-  const headerView = columns.map((column, index) => {
+  const headerView = columns.map((column, cIndex) => {
     const {
       title,
       filtered,
@@ -19,14 +19,17 @@ const Table = props => {
     const hasOptions = options.length > 0;
 
     const createOptionsView = _options => {
-      const optionsView = _options.map((option, index) => {
+      const optionsView = _options.map((option, oIndex) => {
         const {
           onChange,
           selected
         } = option;
 
         return (
-          <div key={index} className={selected ? style.selected : style.option}>
+          <div
+            key={oIndex}
+            className={selected ? style.selected : style.option}
+          >
             <button onClick={onChange}>{option.title}</button>
           </div>
         );
@@ -42,12 +45,12 @@ const Table = props => {
     const optionsClassName = hasOptions ? style.toggle : style.noOptions;
 
     return (
-      <th key={index}>
+      <th key={cIndex}>
         <div className={filtered ? style.filtered : optionsClassName} >
           <Checkbox
             id={title}
             name={title}
-            checked={true}
+            checked
             className={style.checkbox}
           />
           <label htmlFor={title}>
@@ -61,8 +64,9 @@ const Table = props => {
 
   headerView.unshift((
     <th key="header">
-      <div className={style.noOptions}>
-      </div>
+      <div
+        className={style.noOptions}
+      />
     </th>
   ));
 
@@ -72,15 +76,18 @@ const Table = props => {
       editHref
     } = row;
 
-    const tableRows = fields.map((field, index) => {
+    const tableRows = fields.map((field, fIndex) => {
       return (
-        <td key={index}>{field}</td>
+        <td key={fIndex}>{field}</td>
       );
     });
 
     tableRows.unshift((
       <td key="header">
-        <Link className={style.editLink} href={editHref}></Link>
+        <Link
+          className={style.editLink}
+          href={editHref}
+        />
       </td>
     ));
 

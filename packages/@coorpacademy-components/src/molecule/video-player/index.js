@@ -34,17 +34,15 @@ const VideoPlayer = props => {
             height={height}
           />
         </label>
-
         <VideoIframe
           type={type}
           id={id}
           width={width}
           height={height}
-          frameborder={0}
+          frameBorder={0}
           className={style.iframe}
-          allowfullscreen={true}
-        >
-        </VideoIframe>
+          allowFullScreen
+        />
       </div>
     </div>
   );

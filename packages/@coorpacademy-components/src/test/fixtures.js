@@ -32,7 +32,7 @@ test.before(() => {
 });
 
 test.after(() =>
-  console.error.restore()
+  console.error.restore() // eslint-disable-line no-console
 );
 
 mapObject((components, componentType) => mapObject((componentPath, componentName) => {

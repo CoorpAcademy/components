@@ -13,15 +13,21 @@ const BrandList = Layout(props => {
 
   const brandCards = brands.map((brand, index) => {
     return (
-      <div key={index} className={style.brand}>
-        <BrandCard {...brand}/>
+      <div
+        key={index}
+        className={style.brand}
+      >
+        <BrandCard {...brand} />
       </div>
     );
   });
 
   if (create) {
     brandCards.push(
-      <div key="new" className={style.brand}>
+      <div
+        key="new"
+        className={style.brand}
+      >
         <BrandCardCreate {...create} />
       </div>
     );

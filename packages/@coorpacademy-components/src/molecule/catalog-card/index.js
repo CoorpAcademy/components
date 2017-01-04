@@ -4,8 +4,8 @@ import getOr from 'lodash/fp/getOr';
 import StarRating from '../star-rating';
 import Link from '../../atom/link';
 import Picture from '../../atom/picture';
-import style from './style.css';
 import {hoverFill} from '../../atom/button/hover-fill.css';
+import style from './style.css';
 
 const getOrBlank = getOr('');
 
@@ -13,7 +13,7 @@ const CatalogCard = (props, context) => {
   const {translate = identity} = context;
   const learnMore = (
     <span
-      dangerouslySetInnerHTML={{
+      dangerouslySetInnerHTML={{ // eslint-disable-line react/no-danger
         __html: translate('Learn <span>more</span>')
       }}
     />
@@ -24,7 +24,8 @@ const CatalogCard = (props, context) => {
     rating = 0,
     href = '',
     image,
-    author
+    author,
+    title = ''
   } = props;
 
   return (
@@ -43,7 +44,7 @@ const CatalogCard = (props, context) => {
       <div className={style.infoWrapper}>
         <div className={style.title}>
           <Link href={href}>
-            {getOrBlank('title', props)}
+            {title}
           </Link>
         </div>
         <div className={style.subtitle}>

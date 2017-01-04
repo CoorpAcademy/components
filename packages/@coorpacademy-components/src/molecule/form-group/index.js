@@ -9,20 +9,29 @@ const buildField = (field, index) => {
   switch (field.type) {
     case 'color':
       return (
-        <InputColor key={index} {...field}/>
+        <InputColor
+          key={index}
+          {...field}
+        />
       );
     case 'select':
       return (
-        <Select key={index} {...field}/>
+        <Select
+          key={index}
+          {...field}
+        />
       );
     default:
       return (
-        <InputText key={index} {...field}/>
+        <InputText
+          key={index}
+          {...field}
+        />
       );
   }
 };
 
-const FormGroup = (props) => {
+const FormGroup = props => {
   const {title, fields = []} = props;
 
   return (

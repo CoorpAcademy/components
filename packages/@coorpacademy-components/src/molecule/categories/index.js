@@ -17,7 +17,10 @@ const buildCategory = (category, index) => {
   } : {};
 
   return (
-    <li className={style.filter} key={index}>
+    <li
+      className={style.filter}
+      key={index}
+    >
       <Link
         {...linkProps}
         href={href}
@@ -41,7 +44,7 @@ const Categories = (props, context) => {
   return (
     <div className={style.categories}>
       <Checkbox
-        checked={true}
+        checked
         id='toggler'
         className={style.mobileToggler}
       />
@@ -51,7 +54,7 @@ const Categories = (props, context) => {
       >
         <span>{getOr('', 'name', selectedCategory)}</span>
       </label>
-      <span className={style.arrow}></span>
+      <span className={style.arrow} />
       <div className={style.category}>
         <h2>{filtersTitle}</h2>
         <ul className={style.filters}>

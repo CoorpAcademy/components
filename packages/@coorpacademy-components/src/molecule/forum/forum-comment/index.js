@@ -39,7 +39,7 @@ const ForumComment = (props, context) => {
           />
         </div>
       </div>
-    {button}
+      {button}
     </div>
   );
 };

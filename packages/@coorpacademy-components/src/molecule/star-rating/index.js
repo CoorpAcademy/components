@@ -13,7 +13,10 @@ const StarRating = props => {
   )(new Array(total));
 
   const Stars = popularity.map((popular, index) => (
-    <Star popular={popular} key={index} />
+    <Star
+      popular={popular}
+      key={index}
+    />
   ));
 
   return (

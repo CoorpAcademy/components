@@ -19,7 +19,10 @@ const DisciplineRightaside = (props, context) => {
   const authorLabel = authorTitle || translate('author');
 
   const socialView = socialLinks.map((social, index) => (
-    <div key={index} className={style.link}>
+    <div
+      key={index}
+      className={style.link}
+    >
       <SocialLink {...social} />
     </div>
   ));
@@ -37,13 +40,21 @@ const DisciplineRightaside = (props, context) => {
 
   const linkView = (
     <div className={style.authorLink}>
-      <a target={'_blank'} href={authorHref}>{authorHref}</a>
+      <a
+        target={'_blank'}
+        href={authorHref}
+      >
+        {authorHref}
+      </a>
     </div>
   );
 
   const logoView = authorLogo ? (
     <div className={style.logoContainer}>
-      <Link className={style.logoLink} href={authorLogo.href}>
+      <Link
+        className={style.logoLink}
+        href={authorLogo.href}
+      >
         <Picture
           className={style.logo}
           src={authorLogo.src}

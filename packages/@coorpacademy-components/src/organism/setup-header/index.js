@@ -30,8 +30,14 @@ const SetupHeader = props => {
       </div>
       <div className={style.logo}>
         <Link href={href}>
-          <Picture className={style.logoDesktop} src={logo} />
-          <Picture className={style.logoMobile} src={logoMobile} />
+          <Picture
+            className={style.logoDesktop}
+            src={logo}
+          />
+          <Picture
+            className={style.logoMobile}
+            src={logoMobile}
+          />
         </Link>
       </div>
       <div className={style.logout}>

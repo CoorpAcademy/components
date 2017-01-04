@@ -17,7 +17,7 @@ function BrandForm(props) {
 
   const backView = back && (
     <p className={style.back}>
-      <i className={style.arrowBack}/>
+      <i className={style.arrowBack} />
       <Link
         href={back.link}
         className={style.backDesc}
@@ -29,7 +29,10 @@ function BrandForm(props) {
 
   const brandGroups = groups.map((group, index) => {
     return (
-      <div className={style.group} key={index}>
+      <div
+        className={style.group}
+        key={index}
+      >
         <BrandFormGroup {...group} />
       </div>
     );
@@ -44,11 +47,18 @@ function BrandForm(props) {
       />
     </div>
   ) : null;
+  const handleSubmit = e => {
+    e.preventDefault();
+    return onSubmit(e);
+  };
 
   return (
     <div className={style.wrapper}>
       {backView}
-      <form className={style.groups} onSubmit={e => e.preventDefault() || onSubmit(e)}>
+      <form
+        className={style.groups}
+        onSubmit={handleSubmit}
+      >
         <div>
           {brandGroups}
         </div>
@@ -56,7 +66,7 @@ function BrandForm(props) {
       </form>
     </div>
   );
-};
+}
 
 BrandForm.propTypes = {
   groups: PropTypes.arrayOf(PropTypes.shape({

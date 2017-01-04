@@ -11,10 +11,13 @@ function DisciplineHeader(props) {
   const id = get('id', video);
   const descView = (
     <div className={style.desc}>
-      <div dangerouslySetInnerHTML={{__html: description}}/>
+      <div
+        dangerouslySetInnerHTML={{ // eslint-disable-line react/no-danger
+          __html: description
+        }}
+      />
     </div>
   );
-
 
   return (
     <div className={style.wrapper}>
@@ -28,10 +31,10 @@ function DisciplineHeader(props) {
         />
       </div>
       <div className={style.courseWrapper}>
-          <div className={style.title}>
-            {title}
-          </div>
-          {descView}
+        <div className={style.title}>
+          {title}
+        </div>
+        {descView}
       </div>
     </div>
   );

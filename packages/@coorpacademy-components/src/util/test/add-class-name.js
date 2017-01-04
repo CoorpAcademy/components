@@ -1,5 +1,5 @@
 import test from 'ava';
-import {h} from '@coorpacademy/treantjs-core';
+import React from 'react';
 import addClassName from '../add-class-name';
 
 test('should merge classNames', t => {
@@ -20,7 +20,7 @@ test('should init classNames', t => {
 });
 
 test('should add a className', t => {
-  const node = <h1 className={'foo'}></h1>;
+  const node = <h1 className={'foo'} />;
   const className = addClassName('bar')(node);
   t.is(className, 'foo bar');
 });

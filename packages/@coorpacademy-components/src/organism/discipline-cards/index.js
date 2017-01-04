@@ -14,7 +14,6 @@ function DisciplineCards(props) {
     disciplines = []
   } = props;
 
-
   const fixedDisciplines = disciplines.length > 0 ?
     set('[0].row', theme === 'circle', props.disciplines) :
     disciplines;
@@ -28,8 +27,7 @@ function DisciplineCards(props) {
         onModuleClick={onModuleClick}
         row={discipline.row}
         theme={theme}
-      >
-      </DisciplineCard>
+      />
     );
   }, fixedDisciplines);
 

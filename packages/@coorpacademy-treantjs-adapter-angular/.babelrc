@@ -1,8 +1,5 @@
 {
   "presets": ["stage-1"],
-  "plugins": [
-    ["transform-h-jsx", { "pragma": "h" }]
-  ],
   "env": {
     "commonjs": {
       "presets": [

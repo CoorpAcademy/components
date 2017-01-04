@@ -21,7 +21,10 @@ function Discussion(props) {
   } = props;
 
   const threadsView = threads.map(thread => (
-    <ForumThread key={thread.id} {...thread}/>
+    <ForumThread
+      key={thread.id}
+      {...thread}
+    />
   ));
 
   const commentView = !hideComments && (
@@ -37,7 +40,7 @@ function Discussion(props) {
 
   const loader = loading && (
     <div className={style.loader}>
-      <Loader/>
+      <Loader />
     </div>
   );
 

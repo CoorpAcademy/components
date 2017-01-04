@@ -17,13 +17,14 @@ const TitledCheckbox = (props, context) => {
   const iconSuccess = String.fromCharCode(getOr('v', 'icons.success', skin));
   const label = translate(state.label);
   const icon = state.checked ? iconSuccess : '';
+  const handleChange = () => onToggle(state);
 
   return (
     <div className={style.default}>
       <label className={style.box}
-            style={{
-              background: background || '#3d3d3d'
-            }}
+        style={{
+          background: background || '#3d3d3d'
+        }}
       >
         <span
           className={style.icon}
@@ -34,9 +35,9 @@ const TitledCheckbox = (props, context) => {
           {icon}
         </span>
         <Checkbox
-              className={style.input}
-              checked={state.checked}
-              onChange={unary(partial(onToggle, [state]))}
+          className={style.input}
+          checked={state.checked}
+          onChange={handleChange}
         />
       </label>
       <span>{label}</span>

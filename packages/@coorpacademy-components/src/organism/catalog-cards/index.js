@@ -16,7 +16,7 @@ const CatalogCards = (props, context) => {
   if (isNil(products))
     return (
       <CenteredText>
-        <Spinner/>
+        <Spinner />
       </CenteredText>
     );
 
@@ -36,8 +36,7 @@ const CatalogCards = (props, context) => {
       image={get('image', product)}
       author={get('author', product)}
       href={get('href', product)}
-    >
-    </CatalogCard>
+    />
   ));
 
   return (

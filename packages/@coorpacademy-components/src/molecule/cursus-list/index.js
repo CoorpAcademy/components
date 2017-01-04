@@ -15,7 +15,10 @@ const CursusList = (props, context) => {
     } : {};
 
     return (
-      <li className={style.cursus} key={index}>
+      <li
+        className={style.cursus}
+        key={index}
+      >
         <Link
           {...linkProps}
           href={href}

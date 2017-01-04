@@ -13,8 +13,18 @@ const Pagination = props => {
     <div className={style.wrapper}>
       <div className={style.value}>{value}</div>
       <div className={style.buttons}>
-        <Link className={previousHref ? style.button : style.disabled} href={previousHref}>⟨</Link>
-        <Link className={nextHref ? style.button : style.disabled} href={nextHref}>⟩</Link>
+        <Link
+          className={previousHref ? style.button : style.disabled}
+          href={previousHref}
+        >
+          ⟨
+        </Link>
+        <Link
+          className={nextHref ? style.button : style.disabled}
+          href={nextHref}
+        >
+          ⟩
+        </Link>
       </div>
     </div>
   );

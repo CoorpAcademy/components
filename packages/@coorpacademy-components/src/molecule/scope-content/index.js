@@ -49,7 +49,7 @@ const ScopeContent = (props, context) => {
         <div className={style.column}>
           <div className={style.coltitle}>{chaptersTitle}</div>
           <div className={style.dotscontainer}>
-            <div className={style.dots}></div>
+            <div className={style.dots} />
             <ul className={style.roundedlist}>
               {chapters}
             </ul>
