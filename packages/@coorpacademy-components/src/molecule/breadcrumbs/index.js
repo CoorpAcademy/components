@@ -2,8 +2,8 @@ import React, {PropTypes} from 'react';
 import map from 'lodash/fp/map';
 import Button from '../../atom/button';
 import Link from '../../atom/link';
-import style from './style.css';
 import {hoverFill} from '../../atom/button/hover-fill.css';
+import style from './style.css';
 
 const buildBreadcrumbs = (breadcrumb, index) => {
   const {
@@ -13,14 +13,20 @@ const buildBreadcrumbs = (breadcrumb, index) => {
 
   if (!href) {
     return (
-      <div className={style.breadcrumb} key={index}>
+      <div
+        className={style.breadcrumb}
+        key={index}
+      >
         <span>{title}</span>
       </div>
     );
   }
 
   return (
-    <div className={style.breadcrumb} key={index}>
+    <div
+      className={style.breadcrumb}
+      key={index}
+    >
       <Link href={href}>{title}</Link>
     </div>
   );
@@ -36,8 +42,17 @@ const buildLink = (link, index) => {
   const className = (type === 'primary') ? style.primary : style.secondary;
 
   return (
-    <div className={className} key={index}>
-      <Link className={hoverFill} target='_blank' href={href}>{title}</Link>
+    <div
+      className={className}
+      key={index}
+    >
+      <Link
+        className={hoverFill}
+        target='_blank'
+        href={href}
+      >
+        {title}
+      </Link>
     </div>
   );
 };

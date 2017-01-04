@@ -15,6 +15,7 @@ const InputText = props => {
   const idCheckbox = uniqueId('input-checkbox-');
   const className = error ? style.error : style.default;
   const title = `${props.title}${required ? '*' : ''} :`;
+  const handleChange = e => onChange(e.target.checked);
 
   return (
     <div className={className}>
@@ -25,7 +26,7 @@ const InputText = props => {
         name={title}
         id={idCheckbox}
         checked={checked}
-        onChange={e => onChange(e.target.checked)}
+        onChange={handleChange}
         disabled={disabled}
       />
       <label

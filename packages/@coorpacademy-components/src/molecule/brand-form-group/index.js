@@ -61,7 +61,10 @@ const BrandFormGroup = props => {
     const input = buildInput(field);
 
     return (
-      <div className={style.field} key={index}>
+      <div
+        className={style.field}
+        key={index}
+      >
         {input}
       </div>
     );
@@ -83,7 +86,6 @@ const BrandFormGroup = props => {
 BrandFormGroup.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string,
-  disabled: PropTypes.bool,
   fields: PropTypes.arrayOf(PropTypes.shape({
     type: PropTypes.string.isRequired
   }))

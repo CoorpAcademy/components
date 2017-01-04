@@ -9,10 +9,11 @@ const Select = props => {
     onChange,
     disabled,
     required,
-    theme
+    theme,
+    title: titleProps
   } = props;
 
-  const title = `${props.title}${required ? '*' : ''} :`;
+  const title = `${titleProps}${required ? '*' : ''} :`;
 
   const optionList = options && options.map((option, index) => {
     return (
@@ -26,6 +27,7 @@ const Select = props => {
   });
 
   const selected = find({selected: true}, options);
+  const handleChange = e => onChange(e.target.value);
 
   return (
     <div className={theme ? style[theme] : style.default}>
@@ -33,7 +35,7 @@ const Select = props => {
         <span className={style.title}>{title}</span>
         <div className={style.arrow}></div>
         <select
-          onChange={e => onChange(e.target.value)}
+          onChange={handleChange}
           defaultValue={get('value', selected)}
           disabled={disabled}
         >
@@ -46,10 +48,10 @@ const Select = props => {
 
 Select.propTypes = {
   title: PropTypes.string.isRequired,
-  value: PropTypes.string,
   disabled: PropTypes.bool,
   required: PropTypes.bool,
   onChange: PropTypes.func,
+  theme: PropTypes.string,
   options: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string.isRequired,
     value: PropTypes.string,

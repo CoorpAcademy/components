@@ -24,9 +24,11 @@ const toSrcSet = ({src}) => {
 
 const Picture = props => {
   if (isNil(props.src)) {
-    return <div
-      className={style.empty}
-    />;
+    return (
+      <div
+        className={style.empty}
+      />
+    );
   }
 
   return (

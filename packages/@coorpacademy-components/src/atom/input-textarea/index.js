@@ -9,10 +9,12 @@ const InputTextarea = props => {
     value,
     onChange = noop,
     error,
-    description
+    description,
+    disabled
   } = props;
 
   const className = error ? style.error : style.default;
+  const handleChange = e => onChange(e.target.value);
 
   return (
     <div className={className}>
@@ -23,9 +25,9 @@ const InputTextarea = props => {
           name={title}
           defaultValue={value}
           placeholder={placeholder}
-          onInput={e => onChange(e.target.value)}
-        >
-        </textarea>
+          onInput={handleChange}
+          disabled={disabled}
+        />
       </label>
       <div className={style.description}>
         {description}
@@ -35,7 +37,6 @@ const InputTextarea = props => {
 };
 
 InputTextarea.propTypes = {
-  type: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   disabled: PropTypes.bool,
   value: PropTypes.string,

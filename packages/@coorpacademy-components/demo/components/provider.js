@@ -1,4 +1,5 @@
 import React from 'react';
+import isEqual from 'lodash/fp/isEqual';
 
 class Provider extends React.Component {
   constructor(props, context) {
@@ -9,6 +10,11 @@ class Provider extends React.Component {
 
   getChildContext() {
     return this.state;
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    const currentState = this.state;
+    return isEqual(currentState, nextState);
   }
 
   render() {

@@ -10,9 +10,9 @@ const BrandCardCreate = props => {
 
   return (
     <div className={style.wrapper}>
-      <div className={style.circle1}></div>
-      <div className={style.circle2}></div>
-      <div className={style.circle3}></div>
+      <div className={style.circle1} />
+      <div className={style.circle2} />
+      <div className={style.circle3} />
       <div className={style.edit}>
         <Link href={editHref}><span>{edit}</span></Link>
       </div>

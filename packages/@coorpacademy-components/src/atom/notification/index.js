@@ -18,7 +18,6 @@ const NotificationComponent = props => {
 
 NotificationComponent.propTypes = {
   type: PropTypes.string.isRequired,
-  message: PropTypes.string.isRequired,
-  onClose: PropTypes.func
+  message: PropTypes.string.isRequired
 };
 export default NotificationComponent;

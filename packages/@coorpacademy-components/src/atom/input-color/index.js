@@ -17,6 +17,7 @@ const InputText = props => {
   const inlineStyle = {
     backgroundColor: value
   };
+  const handleChange = e => onChange(e.target.value);
 
   return (
     <div className={className}>
@@ -27,7 +28,7 @@ const InputText = props => {
           name={title}
           placeholder={placeholder}
           defaultValue={value || defaultValue}
-          onInput={e => onChange(e.target.value)}
+          onInput={handleChange}
         />
         <span
           className={style.preview}

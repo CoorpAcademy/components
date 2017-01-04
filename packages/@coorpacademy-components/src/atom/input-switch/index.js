@@ -13,6 +13,7 @@ const InputSwitch = props => {
 
   const isDisabled = disabled ? 'disabled' : '';
   const isUnset = value === undefined;
+  const handleChange = e => onChange(e.target.checked);
 
   return (
     <div className={isUnset ? style.unset : style.default}>
@@ -21,12 +22,12 @@ const InputSwitch = props => {
         type='checkbox'
         id={title}
         name={title}
-        onChange={e => onChange(e.target.checked)}
+        onChange={handleChange}
         checked={value}
         disabled={isDisabled}
         className={style.checkbox}
       />
-      <label htmlFor={title}></label>
+      <label htmlFor={title} />
       <div className={style.description}>
         {description}
       </div>

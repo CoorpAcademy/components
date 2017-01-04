@@ -16,6 +16,7 @@ const InputText = props => {
 
   const className = error ? style.error : style.default;
   const title = `${props.title}${required ? '*' : ''} :`;
+  const handleChange = e => onChange(e.target.value);
 
   return (
     <div className={className}>
@@ -26,7 +27,7 @@ const InputText = props => {
           name={title}
           placeholder={placeholder}
           defaultValue={value || defaultValue}
-          onInput={e => onChange(e.target.value)}
+          onInput={handleChange}
           disabled={disabled}
         />
       </label>

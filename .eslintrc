@@ -26,19 +26,22 @@
   },
   "rules": {
     "ava/no-ignored-test-files": ["error", {"files": ["**/test/**/*.js"]}],
+    "fp/no-class": 0,
     "import/no-extraneous-dependencies": "off",
-    "no-shadow": ["error", {"builtinGlobals": true, "hoist": "all", "allow": ["Promise", "history", "location"]}],
+    "no-shadow": ["error", {"builtinGlobals": true, "hoist": "all", "allow": ["Promise", "history", "location", "find"]}],
     "no-unused-vars": 0,
+    "react/forbid-component-props": 0,
+    "react/forbid-prop-types": 0,
     "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx"] }],
     "react/jsx-indent-props": [2, 2],
     "react/jsx-indent": [2, 2],
     "react/jsx-sort-props": 0,
     "react/no-array-index-key": 0,
+    "react/no-multi-comp": 0,
     "react/prop-types": 0,
-    "react/sort-prop-types": 0,
+    "react/jsx-no-literals": 0,
     "react/require-default-props": 0,
-    "react/forbid-prop-types": 0,
-    "fp/no-class": 0
+    "react/sort-prop-types": 0
   },
   "settings": {
     "import/ignore": ["node_modules", "\\.css$"]

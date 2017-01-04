@@ -17,7 +17,7 @@ const BrandUploadBox = props => {
     case 'loading':
       content = (
         <div className={style.loading}>
-          <Loader/>
+          <Loader />
         </div>
       );
       break;
@@ -30,7 +30,7 @@ const BrandUploadBox = props => {
             className={style.default}
           >
             <div className={style.cont}>
-              <i className={style.arrow}></i>
+              <i className={style.arrow} />
               <div className={style.desc}>
                 {description}
               </div>

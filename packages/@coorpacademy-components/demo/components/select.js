@@ -29,10 +29,12 @@ const buildGroups = pipe(
   flatten
 );
 
-const Select = ({options = [], onChange = noop}, children) => {
+const Select = ({options = [], onChange = noop}) => {
+  const changeHandler = e => onChange(e.target.value);
+
   return (
     <select
-      onChange={e => onChange(e.target.value)}
+      onChange={changeHandler}
     >
       {
         isArray(options) ?

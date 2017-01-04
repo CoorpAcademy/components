@@ -32,7 +32,10 @@ const CatalogCard = (props, context) => {
       <div className={style.imageWrapper}>
         <Picture src={image} />
         <div className={style.overlay}>
-          <Link className={hoverFill} href={href}>
+          <Link
+            className={hoverFill}
+            href={href}
+          >
             {learnMore}
           </Link>
         </div>

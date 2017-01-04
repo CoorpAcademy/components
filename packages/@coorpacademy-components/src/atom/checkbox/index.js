@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import isEqual from 'lodash/fp/isEqual';
 import noop from 'lodash/fp/noop';
 
 class Checkbox extends React.Component {
@@ -6,11 +7,22 @@ class Checkbox extends React.Component {
     super(props);
     const {checked} = props;
     this.state = {checked};
+    this.handleChangeBound = this.handleChange.bind(this);
   }
 
-  changeHandler(e) {
+  shouldComponentUpdate(nextProps, nextState) {
+    return isEqual({
+      ...nextProps,
+      ...nextState
+    }, {
+      ...this.props,
+      ...this.state
+    });
+  }
+
+  handleChange(e) {
     this.props.onChange(e.target.checked);
-    this.setState({
+    this.setState({ // eslint-disable-line react/no-set-state
       checked: e.target.checked
     });
   }
@@ -21,7 +33,7 @@ class Checkbox extends React.Component {
         type="checkbox"
         {...this.props}
         {...this.state}
-        onChange={e => this.changeHandler(e)}
+        onChange={this.handleChangeBound}
       >
         {this.props.children}
       </input>

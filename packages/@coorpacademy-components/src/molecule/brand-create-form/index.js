@@ -17,13 +17,17 @@ const BrandCreateForm = props => {
   const wrapperClass = (isModified || isPending || field.error) ? style.modifiedWrapper : style.wrapper;
   const fieldClass = field.error ? style.error : style.default;
   const disabled = isPending || !isModified;
+  const handleChange = e => field.onChange(e.target.value);
 
   return (
     <div className={wrapperClass}>
       <div className={style.header}>
         <h1>{title}</h1>
       </div>
-      <form className={style.content} onSubmit={e => onSubmit(e)}>
+      <form
+        className={style.content}
+        onSubmit={onSubmit}
+      >
         <h2>{subtitle}</h2>
         <div className={style.description}>
           {description}
@@ -34,14 +38,14 @@ const BrandCreateForm = props => {
               type='text'
               placeholder={field.placeholder}
               defaultValue={field.value}
-              onInput={e => field.onChange(e.target.value)}
+              onInput={handleChange}
             />{field.label}
           </label>
         </div>
         <Button
           disabled={disabled}
           submitValue={submitValue}
-          centered={true}
+          centered
         />
       </form>
     </div>

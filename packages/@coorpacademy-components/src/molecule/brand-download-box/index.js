@@ -13,7 +13,7 @@ const BrandDownloadBox = props => {
   return (
     <div className={style.wrapper}>
       <div className={style.texts}>
-        <i className={style.icon}></i>
+        <i className={style.icon} />
         <span className={style.warning}>{warning}</span>
         <p className={style.description}>{description}</p>
       </div>

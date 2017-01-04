@@ -13,7 +13,10 @@ const buildTab = (tab, index) => {
   const className = selected ? style.selected : style.tab;
 
   return (
-    <div className={className} key={index}>
+    <div
+      className={className}
+      key={index}
+    >
       <Link href={href}>{title}</Link>
     </div>
   );
