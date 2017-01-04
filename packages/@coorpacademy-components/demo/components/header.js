@@ -95,11 +95,11 @@ const Header = ({children, ...props}) => {
       >
         <Select
           options={componentOptions}
-          onChange={value => onSelectComponent(value)}
+          onChange={onSelectComponent}
         />
         <Select
           options={fixtureOptions}
-          onChange={value => onSelectFixture(value)}
+          onChange={onSelectFixture}
         />
       </div>
       <div>

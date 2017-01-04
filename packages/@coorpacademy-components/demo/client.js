@@ -5,11 +5,11 @@ import {createBrowserHistory} from '@coorpacademy/history';
 import createTranslate from '@coorpacademy/translate';
 import en from '../locales/en/global';
 import fr from '../locales/fr/global';
-import App from './app';
+import _App from './app';
 import {components, fixtures} from './components';
 import skin from './assets/skin';
 
-let _App = App;
+let App = _App;
 let _components = components;
 let _fixtures = fixtures;
 
@@ -24,44 +24,60 @@ const options = {
   translate
 };
 
-const update = vTree => ReactDOM.render(vTree, document.getElementById('app'));
+const update = vTree => {
+  ReactDOM.render(vTree, document.getElementById('app'));
+};
 
 update(
-    <_App {...{
+  <App
+    {...{
       components: _components,
       fixtures: _fixtures,
       location: history.location,
       options
-    }}/>
+    }}
+  />
 );
 
 history.listen(location => {
-  update(<_App {...{
-    components: _components,
-    fixtures: _fixtures,
-    location,
-    options
-  }}/>);
+  update(
+    <App
+      {...{
+        components: _components,
+        fixtures: _fixtures,
+        location,
+        options
+      }}
+    />
+  );
 });
 
 if (module.hot) {
   module.hot.accept('./app.js', () => {
-    _App = require('./app').default;
-    update(<_App {...{
-      components: _components,
-      fixtures: _fixtures,
-      location: history.location,
-      options
-    }}/>);
+    App = require('./app').default;
+    update(
+      <App
+        {...{
+          components: _components,
+          fixtures: _fixtures,
+          location: history.location,
+          options
+        }}
+      />
+    );
   });
   module.hot.accept('./components.js', () => {
     _components = require('./components').components;
     _fixtures = require('./components').fixtures;
-    update(<_App {...{
-      components: _components,
-      fixtures: _fixtures,
-      location: history.location,
-      options
-    }}/>);
+    update(
+      <App
+        {...{
+          components: _components,
+          fixtures: _fixtures,
+          location: history.location,
+          options
+        }}
+      />
+    );
   });
 }

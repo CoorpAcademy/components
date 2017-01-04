@@ -4,11 +4,11 @@ class Provider extends React.Component {
   constructor(props, context) {
     const {store, history, skin, translate} = props;
     super(props, context);
-    this.store = {store, history, skin, translate};
+    this.state = {store, history, skin, translate};
   }
 
   getChildContext() {
-    return this.store;
+    return this.state;
   }
 
   render() {
