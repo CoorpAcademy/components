@@ -1,13 +1,15 @@
 import React, {PropTypes} from 'react';
+import filter from 'lodash/fp/filter';
 import find from 'lodash/fp/find';
 import get from 'lodash/fp/get';
+import map from 'lodash/fp/map';
 import style from './style.css';
 
 const Select = props => {
   const {
     options = [],
     onChange,
-    multiple,
+    multiple = false,
     disabled,
     required,
     theme,
@@ -21,14 +23,23 @@ const Select = props => {
       <option
         key={index}
         value={option.value}
+        selected={option.selected}
       >
         {option.name}
       </option>
     );
   });
 
-  const selected = find({selected: true}, options);
-  const handleChange = e => onChange(e.target.value);
+  const selected = multiple ?
+    filter({selected: true}, options) :
+    find({selected: true}, options);
+  const handleChange = multiple ?
+    e => {
+      onChange(map(get('value'), e.target.selectedOptions));
+    } :
+    e => {
+      onChange(e.target.value);
+    };
 
   return (
     <div className={theme ? style[theme] : style.default}>
