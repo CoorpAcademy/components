@@ -67,11 +67,6 @@ BrandTable.propTypes = {
     nextHref: PropTypes.string,
     previousHref: PropTypes.string
   }),
-  displayOptions: PropTypes.shape({
-    value: PropTypes.string.isRequired,
-    values: PropTypes.array.isRequired,
-    onChange: PropTypes.func.isRequired
-  }),
   emptyValue: PropTypes.string.isRequired,
   isPending: PropTypes.bool,
   rows: PropTypes.array,

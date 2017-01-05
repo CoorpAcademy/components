@@ -13,6 +13,18 @@ const BrandUploadBox = props => {
   const idBox = uniqueId('drop-box-');
   let content;
 
+  const onDragEnter = () => {
+    document.getElementById(idBox).classList.add(style.dropping);
+  };
+
+  const onDrop = () => {
+    document.getElementById(idBox).classList.remove(style.dropping);
+  };
+
+  const onDragLeave = () => {
+    document.getElementById(idBox).classList.remove(style.dropping);
+  };
+
   switch (props.status) {
     case 'loading':
       content = (
@@ -40,15 +52,9 @@ const BrandUploadBox = props => {
               type='file'
               className={style.inputFile}
               onChange={onLoad}
-              onDragenter={() => {
-                document.getElementById(idBox).classList.add(style.dropping);
-              }}
-              onDrop={() => {
-                document.getElementById(idBox).classList.remove(style.dropping);
-              }}
-              onDragleave={() => {
-                document.getElementById(idBox).classList.remove(style.dropping);
-              }}
+              onDragenter={onDragEnter}
+              onDrop={onDrop}
+              onDragleave={onDragLeave}
             />
           </div>
         </div>

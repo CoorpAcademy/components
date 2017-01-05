@@ -60,7 +60,6 @@ const BrandUpload = props => {
 
 BrandUpload.propTypes = {
   title: PropTypes.string,
-  status: PropTypes.string,
   download: PropTypes.object,
   progress: PropTypes.shape({
     value: PropTypes.number.isRequired,

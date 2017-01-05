@@ -1,5 +1,6 @@
 import Button from '../src/atom/button';
 import CenteredText from '../src/atom/centered-text';
+import Checkbox from '../src/atom/checkbox';
 import InputCheckbox from '../src/atom/input-checkbox';
 import InputColor from '../src/atom/input-color';
 import InputDoublestep from '../src/atom/input-doublestep';
@@ -84,6 +85,11 @@ import ButtonFixtureDisabled from '../src/atom/button/test/fixtures/disabled';
 import ButtonFixtureLight from '../src/atom/button/test/fixtures/light';
 import ButtonFixtureLink from '../src/atom/button/test/fixtures/link';
 import CenteredTextFixtureDefault from '../src/atom/centered-text/test/fixtures/default';
+import CheckboxFixtureChecked from '../src/atom/checkbox/test/fixtures/checked';
+import CheckboxFixtureDefault from '../src/atom/checkbox/test/fixtures/default';
+import CheckboxFixtureDisabled from '../src/atom/checkbox/test/fixtures/disabled';
+import CheckboxFixtureError from '../src/atom/checkbox/test/fixtures/error';
+import CheckboxFixtureRequired from '../src/atom/checkbox/test/fixtures/required';
 import InputCheckboxFixtureChecked from '../src/atom/input-checkbox/test/fixtures/checked';
 import InputCheckboxFixtureDefault from '../src/atom/input-checkbox/test/fixtures/default';
 import InputCheckboxFixtureDisabled from '../src/atom/input-checkbox/test/fixtures/disabled';
@@ -285,6 +291,7 @@ export const components = {
   Atom: {
     Button,
     CenteredText,
+    Checkbox,
     InputCheckbox,
     InputColor,
     InputDoublestep,
@@ -388,6 +395,13 @@ export const fixtures = {
     },
     CenteredText: {
       Default: CenteredTextFixtureDefault
+    },
+    Checkbox: {
+      Checked: CheckboxFixtureChecked,
+      Default: CheckboxFixtureDefault,
+      Disabled: CheckboxFixtureDisabled,
+      Error: CheckboxFixtureError,
+      Required: CheckboxFixtureRequired
     },
     InputCheckbox: {
       Checked: InputCheckboxFixtureChecked,

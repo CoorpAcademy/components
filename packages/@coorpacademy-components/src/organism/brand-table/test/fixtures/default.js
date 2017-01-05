@@ -15,11 +15,6 @@ export default {
       nextHref: '#',
       previousHref: '#'
     },
-    displayOptions: {
-      value: '',
-      values: ['', '', ''],
-      onChange: () => {}
-    },
     emptyValue: 'There is nothing to display.',
     isPending: false,
     rows,
