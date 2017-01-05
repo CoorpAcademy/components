@@ -13,6 +13,7 @@ import Link from '../src/atom/link';
 import Loader from '../src/atom/loader';
 import Notification from '../src/atom/notification';
 import Picture from '../src/atom/picture';
+import Provider from '../src/atom/provider';
 import Select from '../src/atom/select';
 import SocialLink from '../src/atom/social-link';
 import Spinner from '../src/atom/spinner';
@@ -35,7 +36,6 @@ import CursusList from '../src/molecule/cursus-list';
 import DisciplineCard from '../src/molecule/discipline-card';
 import DisciplineHeader from '../src/molecule/discipline-header';
 import DisciplineScope from '../src/molecule/discipline-scope';
-import FormGroup from '../src/molecule/form-group';
 import MenuList from '../src/molecule/menu-list';
 import ModuleBubble from '../src/molecule/module-bubble';
 import Pagination from '../src/molecule/pagination';
@@ -62,7 +62,6 @@ import CursusRightaside from '../src/organism/cursus-rightaside';
 import DisciplineCards from '../src/organism/discipline-cards';
 import DisciplineRightaside from '../src/organism/discipline-rightaside';
 import Discussion from '../src/organism/discussion';
-import Form from '../src/organism/form';
 import GridList from '../src/organism/grid-list';
 import Header from '../src/organism/header';
 import Hero from '../src/organism/hero';
@@ -122,7 +121,10 @@ import PictureFixtureEmpty from '../src/atom/picture/test/fixtures/empty';
 import PictureFixtureSimpleSrc from '../src/atom/picture/test/fixtures/simple-src';
 import SelectFixtureDefault from '../src/atom/select/test/fixtures/default';
 import SelectFixtureDisabled from '../src/atom/select/test/fixtures/disabled';
+import SelectFixtureMooc from '../src/atom/select/test/fixtures/mooc';
+import SelectFixtureMultiple from '../src/atom/select/test/fixtures/multiple';
 import SelectFixtureRequired from '../src/atom/select/test/fixtures/required';
+import SelectFixtureThematique from '../src/atom/select/test/fixtures/thematique';
 import SocialLinkFixtureFacebook from '../src/atom/social-link/test/fixtures/facebook';
 import SocialLinkFixtureTwitter from '../src/atom/social-link/test/fixtures/twitter';
 import SpinnerFixtureDefault from '../src/atom/spinner/test/fixtures/default';
@@ -169,7 +171,6 @@ import DisciplineHeaderFixtureNoVideoNoImage from '../src/molecule/discipline-he
 import DisciplineHeaderFixtureNoVideo from '../src/molecule/discipline-header/test/fixtures/no-video';
 import DisciplineScopeFixtureDefault from '../src/molecule/discipline-scope/test/fixtures/default';
 import DisciplineScopeFixtureEmpty from '../src/molecule/discipline-scope/test/fixtures/empty';
-import FormGroupFixtureDefault from '../src/molecule/form-group/test/fixtures/default';
 import MenuListFixtureBuildTransifex from '../src/molecule/menu-list/test/fixtures/build-transifex';
 import MenuListFixtureDefault from '../src/molecule/menu-list/test/fixtures/default';
 import ModuleBubbleFixtureDefault from '../src/molecule/module-bubble/test/fixtures/default';
@@ -245,10 +246,11 @@ import DiscussionFixtureDefault from '../src/organism/discussion/test/fixtures/d
 import DiscussionFixtureLoadingMore from '../src/organism/discussion/test/fixtures/loading-more';
 import DiscussionFixtureModeration from '../src/organism/discussion/test/fixtures/moderation';
 import DiscussionFixtureNewDiscussion from '../src/organism/discussion/test/fixtures/new-discussion';
-import FormFixtureDefault from '../src/organism/form/test/fixtures/default';
 import GridListFixtureDefault from '../src/organism/grid-list/test/fixtures/default';
 import HeaderFixtureDefault from '../src/organism/header/test/fixtures/default';
 import HeroFixtureDefault from '../src/organism/hero/test/fixtures/default';
+import HeroFixtureNoTouch from '../src/organism/hero/test/fixtures/no-touch';
+import HeroFixtureTouch from '../src/organism/hero/test/fixtures/touch';
 import SetupHeaderFixtureDefault from '../src/organism/setup-header/test/fixtures/default';
 import AuthorFixtureDefault from '../src/template/app-catalog/author/test/fixtures/default';
 import AuthorFixtureLoading from '../src/template/app-catalog/author/test/fixtures/loading';
@@ -304,6 +306,7 @@ export const components = {
     Loader,
     Notification,
     Picture,
+    Provider,
     Select,
     SocialLink,
     Spinner,
@@ -328,7 +331,6 @@ export const components = {
     DisciplineCard,
     DisciplineHeader,
     DisciplineScope,
-    FormGroup,
     MenuList,
     ModuleBubble,
     Pagination,
@@ -359,7 +361,6 @@ export const components = {
     DisciplineCards,
     DisciplineRightaside,
     Discussion,
-    Form,
     GridList,
     Header,
     Hero,
@@ -458,11 +459,12 @@ export const fixtures = {
       SimpleSrc: PictureFixtureSimpleSrc
     },
     Select: {
-      Default: createSelectFixtureDefault,
-      Disabled: createSelectFixtureDisabled,
-      Mooc: createSelectFixtureMooc,
-      Required: createSelectFixtureRequired,
-      Thematique: createSelectFixtureThematique
+      Default: SelectFixtureDefault,
+      Disabled: SelectFixtureDisabled,
+      Mooc: SelectFixtureMooc,
+      Multiple: SelectFixtureMultiple,
+      Required: SelectFixtureRequired,
+      Thematique: SelectFixtureThematique
     },
     SocialLink: {
       Facebook: SocialLinkFixtureFacebook,
@@ -553,9 +555,6 @@ export const fixtures = {
     DisciplineScope: {
       Default: DisciplineScopeFixtureDefault,
       Empty: DisciplineScopeFixtureEmpty
-    },
-    FormGroup: {
-      Default: FormGroupFixtureDefault
     },
     MenuList: {
       BuildTransifex: MenuListFixtureBuildTransifex,
@@ -688,9 +687,6 @@ export const fixtures = {
       Moderation: DiscussionFixtureModeration,
       NewDiscussion: DiscussionFixtureNewDiscussion
     },
-    Form: {
-      Default: FormFixtureDefault
-    },
     GridList: {
       Default: GridListFixtureDefault
     },
@@ -698,9 +694,9 @@ export const fixtures = {
       Default: HeaderFixtureDefault
     },
     Hero: {
-      Default: createHeroFixtureDefault,
-      NoTouch: createHeroFixtureNoTouch,
-      Touch: createHeroFixtureTouch
+      Default: HeroFixtureDefault,
+      NoTouch: HeroFixtureNoTouch,
+      Touch: HeroFixtureTouch
     },
     SetupHeader: {
       Default: SetupHeaderFixtureDefault

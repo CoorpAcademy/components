@@ -7,6 +7,7 @@ const Select = props => {
   const {
     options = [],
     onChange,
+    multiple,
     disabled,
     required,
     theme,
@@ -37,6 +38,7 @@ const Select = props => {
         <select
           onChange={handleChange}
           defaultValue={get('value', selected)}
+          multiple={multiple}
           disabled={disabled}
         >
           {optionList}
@@ -49,6 +51,7 @@ const Select = props => {
 Select.propTypes = {
   title: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
+  multiple: PropTypes.bool,
   required: PropTypes.bool,
   onChange: PropTypes.func,
   theme: PropTypes.string,

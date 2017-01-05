@@ -142,3 +142,7 @@
   }
 }
 
+.default select[multiple] {
+  padding: 0;
+  height: 80px;
+}

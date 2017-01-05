@@ -1,22 +1,42 @@
 import get from 'lodash/fp/get';
 import map from 'lodash/fp/map';
-import defaultFieldText from '../../../../atom/input-text/test/fixtures/default';
-import emptyFieldText from '../../../../atom/input-text/test/fixtures/empty';
-import errorFieldText from '../../../../atom/input-text/test/fixtures/error';
-import defaultFieldColor from '../../../../atom/input-color/test/fixtures/default';
-import emptyFieldColor from '../../../../atom/input-color/test/fixtures/empty';
-import errorFieldColor from '../../../../atom/input-color/test/fixtures/error';
 
-export default {
+
+ export default {
   props: {
     title: 'Propriétés de la marque',
-    fields: map(get(['props']), [
-      defaultFieldText,
-      emptyFieldText,
-      errorFieldText,
-      defaultFieldColor,
-      emptyFieldColor,
-      errorFieldColor
-    ])
+    options: [
+      {
+        name: 'Pouet',
+        value: 'Pouet',
+        selected: false
+      },
+      {
+        name: 'Pouet2',
+        value: 'Pouet2',
+        selected: true
+      },
+      {
+        name: 'Pouet3',
+        value: 'Pouet3',
+        selected: false
+      },
+      {
+        name: 'Pouet4',
+        value: 'Pouet4',
+        selected: false
+      },
+      {
+        name: 'Pouet5',
+        value: 'Pouet5',
+        selected: false
+      },
+      {
+        name: 'Pouet6',
+        value: 'Pouet6',
+        selected: false
+      }
+    ],
+    onChange: value => console.log(value) // eslint-disable-line no-console
   }
-};
+ };
