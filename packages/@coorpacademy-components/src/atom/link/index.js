@@ -25,4 +25,12 @@ Link.propTypes = {
   className: PropTypes.string,
   href: PropTypes.string
 };
+
+Link.contextTypes = {
+  history: PropTypes.shape({
+    createHref: PropTypes.func,
+    push: PropTypes.func
+  })
+};
+
 export default Link;

@@ -55,7 +55,7 @@ Select.propTypes = {
   options: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string.isRequired,
     value: PropTypes.string,
-    selected: PropTypes.bool.isRequired
+    selected: PropTypes.bool
   }))
 };
 export default Select;

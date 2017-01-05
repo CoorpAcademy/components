@@ -11,7 +11,7 @@ import style from './style.css';
 
 const BrandUpdate = Layout(props => {
   const {
-    notifications,
+    notifications = [],
     links,
     breadcrumbs,
     tabs,
