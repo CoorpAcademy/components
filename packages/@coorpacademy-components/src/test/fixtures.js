@@ -9,7 +9,7 @@ import pipe from 'lodash/fp/pipe';
 import keys from 'lodash/fp/keys';
 import get from 'lodash/fp/get';
 import toPairs from 'lodash/fp/toPairs';
-import Provider from '../../demo/components/provider';
+import Provider from '../atom/provider';
 import componentsList from '../util/list-components';
 import fixturesList from '../util/list-fixtures';
 

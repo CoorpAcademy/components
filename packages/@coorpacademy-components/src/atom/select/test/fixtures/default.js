@@ -1,6 +1,3 @@
-import get from 'lodash/fp/get';
-import map from 'lodash/fp/map';
-
 export default {
   props: {
     title: 'Propriétés de la marque',
