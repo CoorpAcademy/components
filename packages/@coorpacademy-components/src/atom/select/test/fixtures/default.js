@@ -1,8 +1,7 @@
 import get from 'lodash/fp/get';
 import map from 'lodash/fp/map';
 
-
- export default {
+export default {
   props: {
     title: 'Propriétés de la marque',
     options: [
@@ -39,4 +38,4 @@ import map from 'lodash/fp/map';
     ],
     onChange: value => console.log(value) // eslint-disable-line no-console
   }
- };
+};
