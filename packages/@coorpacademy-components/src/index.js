@@ -56,6 +56,7 @@ export Picture from './atom/picture';
 export ProductCourse from './template/app-catalog/product-course';
 export ProductCursus from './template/app-catalog/product-cursus';
 export ProgressBar from './molecule/progress-bar';
+export Provider from './atom/provider';
 export ScopeContent from './molecule/scope-content';
 export ScopeTabs from './molecule/scope-tabs';
 export Search from './molecule/search';

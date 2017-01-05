@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './components/header';
-import Provider from './components/provider';
+import Provider from '../src/atom/provider';
 import './style.css';
 
 export default function App({components, fixtures, location, options} = {}) {
