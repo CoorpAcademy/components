@@ -46,6 +46,7 @@ Checkbox.defaultProps = {
 };
 
 Checkbox.propTypes = {
+  checked: PropTypes.bool,
   onChange: PropTypes.func,
   children: PropTypes.node
 };

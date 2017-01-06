@@ -119,6 +119,7 @@ import NotificationFixtureError from '../src/atom/notification/test/fixtures/err
 import PictureFixtureDefault from '../src/atom/picture/test/fixtures/default';
 import PictureFixtureEmpty from '../src/atom/picture/test/fixtures/empty';
 import PictureFixtureSimpleSrc from '../src/atom/picture/test/fixtures/simple-src';
+import ProviderFixtureDefault from '../src/atom/provider/test/fixtures/default';
 import SelectFixtureDefault from '../src/atom/select/test/fixtures/default';
 import SelectFixtureDisabled from '../src/atom/select/test/fixtures/disabled';
 import SelectFixtureMooc from '../src/atom/select/test/fixtures/mooc';
@@ -457,6 +458,9 @@ export const fixtures = {
       Default: PictureFixtureDefault,
       Empty: PictureFixtureEmpty,
       SimpleSrc: PictureFixtureSimpleSrc
+    },
+    Provider: {
+      Default: ProviderFixtureDefault
     },
     Select: {
       Default: SelectFixtureDefault,

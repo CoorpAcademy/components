@@ -3,65 +3,78 @@ import uniqueId from 'lodash/fp/uniqueId';
 import Loader from '../../atom/loader';
 import style from './style.css';
 
-const BrandUploadBox = props => {
-  const {
-    description = '',
-    browse = '',
-    onLoad
-  } = props;
+class BrandUploadBox extends React.Component {
+  constructor(props) {
+    super(props);
 
-  const idBox = uniqueId('drop-box-');
-  let content;
+    this.state = {
+      dragging: false
+    };
 
-  const onDragEnter = () => {
-    document.getElementById(idBox).classList.add(style.dropping);
-  };
-
-  const onDrop = () => {
-    document.getElementById(idBox).classList.remove(style.dropping);
-  };
-
-  const onDragLeave = () => {
-    document.getElementById(idBox).classList.remove(style.dropping);
-  };
-
-  switch (props.status) {
-    case 'loading':
-      content = (
-        <div className={style.loading}>
-          <Loader />
-        </div>
-      );
-      break;
-
-    default:
-      content = (
-        <div className={style.wrapper}>
-          <div
-            id={idBox}
-            className={style.default}
-          >
-            <div className={style.cont}>
-              <i className={style.arrow} />
-              <div className={style.desc}>
-                {description}
-              </div>
-              <span className={style.browse}>{browse}</span>
-            </div>
-            <input
-              type='file'
-              className={style.inputFile}
-              onChange={onLoad}
-              onDragenter={onDragEnter}
-              onDrop={onDrop}
-              onDragleave={onDragLeave}
-            />
-          </div>
-        </div>
-      );
+    this.onDragStartBound = this.onDragStart.bind(this);
+    this.onDragStopBound = this.onDragStop.bind(this);
   }
 
-  return content;
+  onDragStart() {
+    this.setState({
+      dragging: true
+    });
+  };
+
+  onDragStop() {
+    this.setState({
+      dragging: false
+    });
+  };
+
+  render() {
+    const idBox = uniqueId('drop-box-');
+    let content;
+
+    const {
+      description = '',
+      browse = '',
+      onLoad
+    } = this.props;
+
+    switch (this.props.status) {
+      case 'loading':
+        content = (
+          <div className={style.loading}>
+            <Loader />
+          </div>
+        );
+        break;
+
+      default:
+        content = (
+          <div className={style.wrapper}>
+            <div
+              id={idBox}
+              className={this.state.dragging ? style.dropping : style.default}
+            >
+              <div className={style.cont}>
+                <i className={style.arrow} />
+                <div className={style.desc}>
+                  {description}
+                </div>
+                <span className={style.browse}>{browse}</span>
+              </div>
+              <input
+                type='file'
+                className={style.inputFile}
+                onChange={onLoad}
+                onDragEnter={this.onDragStartBound}
+                onDrop={this.onDragStopBound}
+                onDragLeave={this.onDragStopBound}
+              />
+            </div>
+          </div>
+        );
+    }
+
+    return content;
+  }
 };
 
 BrandUploadBox.propTypes = {
