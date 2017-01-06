@@ -44,7 +44,7 @@ export const createRouterMiddleware = createRoutes => (...argz) => {
 
       return next(action).then(updatedAction => {
         const state = store.getState();
-        return Promise.all(
+        return Promise.all(// eslint-disable-line promise/no-nesting
           map(_action => _action(store.dispatch, {state, params}), actions)
         ).then(constant(updatedAction));
       });
