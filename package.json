@@ -53,6 +53,5 @@
     "sourceMap": false,
     "instrument": false,
     "all": true
-  },
-  "version": "3.7.5"
+  }
 }

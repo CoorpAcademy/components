@@ -16,7 +16,7 @@ const addHMR = entries => {
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
-module.exports = (appName, input, output) => {
+export default (appName, input, output) => {
   const componentCSS = new ExtractTextPlugin(`${kebabCase(appName)}.css`);
 
   return {
