@@ -53,5 +53,6 @@
     "sourceMap": false,
     "instrument": false,
     "all": true
-  }
+  },
+  "version": "0.0.8"
 }
