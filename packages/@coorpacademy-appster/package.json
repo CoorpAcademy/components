@@ -18,8 +18,7 @@
     "ava": "^0.16.0",
     "coveralls": "^2.11.13",
     "eslint": "^3.5.0",
-    "history": "^4.4.0",
-    "nyc": "^8.3.0"
+    "nyc": "^9.0.1"
   },
   "dependencies": {
     "@coorpacademy/redux-history": "3.0.3",
@@ -35,7 +34,7 @@
     "babel-preset-stage-1": "^6.13.0",
     "babili-webpack-plugin": "0.0.7",
     "compression-webpack-plugin": "^0.3.1",
-    "css-loader": "^0.25.0",
+    "css-loader": "^0.26.0",
     "express": "^4.14.0",
     "extract-text-webpack-plugin": "^2.0.0-beta.3",
     "history": "^3.2.1",
