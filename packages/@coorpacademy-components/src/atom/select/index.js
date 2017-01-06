@@ -23,7 +23,6 @@ const Select = props => {
       <option
         key={index}
         value={option.value}
-        selected={option.selected}
       >
         {option.name}
       </option>
@@ -31,8 +30,8 @@ const Select = props => {
   });
 
   const selected = multiple ?
-    filter({selected: true}, options) :
-    find({selected: true}, options);
+    map(get('value'), filter({selected: true}, options)) :
+    get('value', find({selected: true}, options));
   const handleChange = multiple ?
     e => {
       onChange(map(get('value'), e.target.selectedOptions));
@@ -48,7 +47,7 @@ const Select = props => {
         <div className={style.arrow}></div>
         <select
           onChange={handleChange}
-          defaultValue={get('value', selected)}
+          value={selected}
           multiple={multiple}
           disabled={disabled}
         >
