@@ -27,7 +27,7 @@ Provider.propTypes = {
   history: React.PropTypes.object,
   skin: React.PropTypes.object,
   translate: React.PropTypes.func,
-  children: React.PropTypes.element.isRequired
+  children: React.PropTypes.node
 };
 
 Provider.childContextTypes = {
