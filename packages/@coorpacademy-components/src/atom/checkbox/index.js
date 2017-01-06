@@ -22,7 +22,7 @@ class Checkbox extends React.Component {
 
   handleChange(e) {
     this.props.onChange(e.target.checked);
-    this.setState({ // eslint-disable-line react/no-set-state
+    this.setState({
       checked: e.target.checked
     });
   }

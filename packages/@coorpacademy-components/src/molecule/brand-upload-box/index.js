@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
 import uniqueId from 'lodash/fp/uniqueId';
+import isEqual from 'lodash/fp/isEqual';
 import Loader from '../../atom/loader';
 import style from './style.css';
 
@@ -11,21 +12,31 @@ class BrandUploadBox extends React.Component {
       dragging: false
     };
 
-    this.onDragStartBound = this.onDragStart.bind(this);
-    this.onDragStopBound = this.onDragStop.bind(this);
+    this.handleDragStart = this.onDragStart.bind(this);
+    this.handleDragStop = this.onDragStop.bind(this);
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return isEqual({
+      ...nextProps,
+      ...nextState
+    }, {
+      ...this.props,
+      ...this.state
+    });
   }
 
   onDragStart() {
     this.setState({
       dragging: true
     });
-  };
+  }
 
   onDragStop() {
     this.setState({
       dragging: false
     });
-  };
+  }
 
   render() {
     const idBox = uniqueId('drop-box-');
@@ -64,9 +75,9 @@ class BrandUploadBox extends React.Component {
                 type='file'
                 className={style.inputFile}
                 onChange={onLoad}
-                onDragEnter={this.onDragStartBound}
-                onDrop={this.onDragStopBound}
-                onDragLeave={this.onDragStopBound}
+                onDragEnter={this.handleDragStart}
+                onDrop={this.handleDragStop}
+                onDragLeave={this.handleDragStop}
               />
             </div>
           </div>
@@ -75,7 +86,7 @@ class BrandUploadBox extends React.Component {
 
     return content;
   }
-};
+}
 
 BrandUploadBox.propTypes = {
   description: PropTypes.string,
