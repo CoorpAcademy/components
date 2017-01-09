@@ -20,8 +20,6 @@
     "Christophe Dugne-Esquevin <christophe.dugne@coorpacademy.com>"
   ],
   "dependencies": {
-    "@coorpacademy/treantjs-core": "^3.7.3",
-    "@coorpacademy/treantjs-engine-virtual-dom": "^3.7.3",
     "lodash": "^4.14.1"
   },
   "devDependencies": {
