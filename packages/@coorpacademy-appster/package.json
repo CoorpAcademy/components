@@ -2,10 +2,9 @@
   "name": "@coorpacademy/appster",
   "version": "3.7.6",
   "description": "CoorpAcademy apps core",
-  "main": "index.js",
   "module": "es/index.js",
   "scripts": {
-    "build": "npm run clean && BABEL_ENV=es babel ./ --out-dir es -s --ignore test --copy-files",
+    "build": "npm run clean && BABEL_ENV=es babel src --out-dir es -s --ignore test --copy-files",
     "prepublish": "npm run build --production",
     "clean": "rm -rf es"
   },
