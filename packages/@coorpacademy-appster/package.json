@@ -4,13 +4,7 @@
   "description": "CoorpAcademy apps core",
   "main": "index.js",
   "scripts": {
-    "server": "node src/index.js",
-    "start": "npm run server",
-    "test": "npm run lint && npm run nyc",
-    "lint": "eslint src/ *.js *.json --ext .js,.json",
-    "ava": "BABEL_ENV=test ava",
-    "nyc": "BABEL_ENV=test nyc npm run ava",
-    "coveralls": "nyc report --reporter=text-lcov | coveralls"
+    "clean": "echo 'clean'"
   },
   "homepage": "https://github.com/CoorpAcademy/app-forum#readme",
   "dependencies": {
