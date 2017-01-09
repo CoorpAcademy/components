@@ -1,0 +1,43 @@
+{
+  "name": "@coorpacademy/app-slides",
+  "version": "0.0.3",
+  "description": "CoorpAcademy slides player",
+  "module": "es/index.js",
+  "files": [
+    "es",
+    "README.md"
+  ],
+  "scripts": {
+    "ava": "BABEL_ENV=test ava",
+    "build": "cross-env babel src --out-dir es -s --ignore test --copy-files",
+    "clean": "rimraf es; rimraf coverage; rimraf .nyc_output",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "lint": "eslint src/ *.js *.json --ext .js,.json",
+    "nyc": "BABEL_ENV=test nyc npm run ava",
+    "prebuild": "npm run clean",
+    "prepublish": "npm run build",
+    "start": "webpack-dev-server --content-base sandbox",
+    "test": "npm run lint && npm run nyc"
+  },
+  "homepage": "https://github.com/CoorpAcademy/components/packages/@coorpacademy-player#readme",
+  "devDependencies": {
+    "@coorpacademy/eslint-plugin-coorpacademy": "^2.0.0",
+    "ava": "^0.16.0",
+    "coveralls": "^2.11.13",
+    "cross-env": "^4.0.0",
+    "eslint": "^3.5.0",
+    "nyc": "^8.3.0",
+    "webpack-dev-server": "^2.4.5"
+  },
+  "dependencies": {
+    "@coorpacademy/appster": "3.7.6",
+    "@coorpacademy/components": "5.1.8",
+    "@coorpacademy/components-bundler": "5.1.8",
+    "babel-cli": "^6.11.4",
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "lodash": "^4.15.0",
+    "redux": "^3.6.0",
+    "redux-api-middleware": "^2.0.0-beta.1"
+  }
+}
