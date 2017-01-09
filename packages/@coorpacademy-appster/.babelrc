@@ -1,19 +1,8 @@
 {
-  "presets": ["stage-1"],
   "plugins": [
     ["transform-h-jsx", { "pragma": "h" }]
   ],
   "env": {
-    "commonjs": {
-      "presets": [
-        ["es2015", { "loose": true }]
-      ]
-    },
-    "test": {
-      "presets": [
-        ["es2015", { "loose": true }]
-      ]
-    },
     "es": {
       "presets": [
         ["es2015", { "loose": true, "modules": false }]
