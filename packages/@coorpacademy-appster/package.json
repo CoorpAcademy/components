@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/appster",
-  "version": "0.0.8",
+  "version": "3.7.6",
   "description": "CoorpAcademy apps core",
   "main": "index.js",
   "scripts": {
