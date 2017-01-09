@@ -33,6 +33,7 @@
     "fp/no-class": "off",
     "import/no-extraneous-dependencies": "off",
     "no-shadow": ["error", {"builtinGlobals": true, "hoist": "all", "allow": ["Promise", "history", "location", "find", "Notification"]}],
+    "promise/no-native": "off",
     "react/closing-bracket-location": "off",
     "react/forbid-component-props": "off",
     "react/forbid-foreign-prop-types": "off",
