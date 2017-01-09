@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import isEqual from 'lodash/fp/isEqual';
 
 class Provider extends React.Component {
@@ -23,18 +23,18 @@ class Provider extends React.Component {
 }
 
 Provider.propTypes = {
-  store: React.PropTypes.object,
-  history: React.PropTypes.object,
-  skin: React.PropTypes.object,
-  translate: React.PropTypes.func,
-  children: React.PropTypes.node
+  store: PropTypes.object,
+  history: PropTypes.object,
+  skin: PropTypes.object,
+  translate: PropTypes.func,
+  children: PropTypes.element.isRequired
 };
 
 Provider.childContextTypes = {
-  store: React.PropTypes.object,
-  history: React.PropTypes.object,
-  skin: React.PropTypes.object,
-  translate: React.PropTypes.func
+  store: PropTypes.object,
+  history: PropTypes.object,
+  skin: PropTypes.object,
+  translate: PropTypes.func
 };
 
 export default Provider;
