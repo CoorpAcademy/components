@@ -1,8 +1,5 @@
-const child = (treant, options) => {
-  const {h} = treant;
-  return <h1>foo</h1>;
-};
+import React from 'react';
 
 export default {
-  children: [child]
+  children: 'foo'
 };

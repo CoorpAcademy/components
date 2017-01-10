@@ -1,23 +1,10 @@
-import {checker, createValidate} from '../../util/validation';
-import createPicture from '../../atom/picture';
+import React, {PropTypes} from 'react';
+import * as CustomPropTypes from '../../util/proptypes';
+import Picture from '../../atom/picture';
 import style from './style.css';
 
 const VIMEO = 'vimeo';
 const YOUTUBE = 'youtube';
-
-const conditions = checker.shape({
-  props: checker.shape({
-    type: checker.oneOf([VIMEO, YOUTUBE]).optional,
-    image: checker.shape({
-      '1x': checker.url.optional,
-      '2x': checker.url.optional
-    }).optional,
-    width: checker.number.optional,
-    height: checker.number.optional,
-    id: checker.string.optional
-  }),
-  children: checker.none
-});
 
 const url = (type, id) => {
   switch (type) {
@@ -28,41 +15,45 @@ const url = (type, id) => {
   }
 };
 
-export default (treant, options = {}) => {
-  const Picture = createPicture(treant, options);
+const VideoIframe = props => {
+  const {
+    type,
+    id,
+    image,
+    width = '100%',
+    height = '400px'
+  } = props;
 
-  const VideoIframe = (props, children) => {
-    const {h} = treant;
-    const {
-      type,
-      id,
-      image,
-      width = '100%',
-      height = '400px'
-    } = props;
-
-    if (id) {
-      return (
-        <iframe src={url(type, id)}
-              width={width}
-              height={height}
-              frameborder={0}
-              className={style.iframe}
-              allowfullscreen={true}
-        >
-        </iframe>
-      );
-    }
-    else {
-      return (
-        <Picture
-          className={style.image}
-          src={image}
-        />
-      );
-    }
-  };
-
-  VideoIframe.validate = createValidate(conditions);
-  return VideoIframe;
+  if (id) {
+    return (
+      <iframe src={url(type, id)}
+        width={width}
+        height={height}
+        frameBorder={0}
+        className={style.iframe}
+        allowFullScreen
+      />
+    );
+  }
+  else {
+    return (
+      <Picture
+        className={style.image}
+        src={image}
+      />
+    );
+  }
 };
+
+VideoIframe.propTypes = {
+  type: PropTypes.oneOf([VIMEO, YOUTUBE]),
+  image: PropTypes.shape({
+    '1x': CustomPropTypes.url,
+    '2x': CustomPropTypes.url
+  }),
+  width: PropTypes.string,
+  height: PropTypes.string,
+  id: PropTypes.string
+};
+
+export default VideoIframe;

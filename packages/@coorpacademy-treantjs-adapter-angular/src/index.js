@@ -1,19 +1,22 @@
 import mapKeys from 'lodash/fp/mapKeys';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-const linkWithEngine = (treant, engine) => ($i18next, $rootScope, scope, element, createComponent) => {
-  const update = engine.render(element[0]);
+const linkWithEngine = ($rootScope, scope, element, Provider, Component, options) => {
+  const update = vTree => {
+    ReactDOM.render(vTree, element[0]);
+  };
 
   const refresh = props => {
     if (props === undefined)
       return;
 
-    const options = {
-      skin: $rootScope.skin,
-      translate: $i18next
-    };
+    const vTree = (
+      <Provider {...options}>
+        <Component {...props} />
+      </Provider>
+    );
 
-    const component = createComponent(treant, options);
-    const vTree = component(props);
     update(vTree);
   };
 
@@ -25,10 +28,15 @@ const linkWithEngine = (treant, engine) => ($i18next, $rootScope, scope, element
   scope.$on('$destroy', () => window.angular.element(element).remove());
 };
 
-const createDirective = (app, treant, engine, componentName, createComponent) => {
+const createDirective = (app, componentName, Provider, Component) => {
   const directive = ($rootScope, $i18next) => {
+    const options = {
+      skin: $rootScope.skin,
+      translate: $i18next
+    };
+
     const link = (scope, element, attrs) => {
-      linkWithEngine(treant, engine)($i18next, $rootScope, scope, element, createComponent);
+      linkWithEngine($rootScope, scope, element, Provider, Component, options);
     };
 
     return {
@@ -52,14 +60,11 @@ const createDirective = (app, treant, engine, componentName, createComponent) =>
  * <slide value="slideContent"></slide>
  * <module-bubble value="modData()"></module-bubble>
  */
-const createDirectives = (app, treant, engine, components) => {
+const createDirectives = (app, Provider, components) => {
   const toDirective = key => {
-    const isFactory = key.split('create')[1];
-    if (!isFactory) return;
-
-    const componentName = `coorp${isFactory}`;
-    const createComponent = components[key];
-    createDirective(app, treant, engine, componentName, createComponent);
+    const componentName = `coorp${key}`;
+    const Component = components[key];
+    createDirective(app, componentName, Provider, Component);
   };
 
   return mapKeys(toDirective, components);

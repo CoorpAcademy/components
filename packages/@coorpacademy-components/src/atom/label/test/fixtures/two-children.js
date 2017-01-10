@@ -1,13 +1,5 @@
-const child1 = (treant, options) => {
-  const {h} = treant;
-  return <p>foo</p>;
-};
-
-const child2 = (treant, options) => {
-  const {h} = treant;
-  return <p>bar</p>;
-};
+import React from 'react';
 
 export default {
-  children: [child1, child2]
+  children: [<p key="0">foo</p>, <p key="1">bar</p>]
 };

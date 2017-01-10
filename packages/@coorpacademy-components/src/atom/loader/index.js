@@ -1,23 +1,15 @@
-import {checker, createValidate} from '../../util/validation';
+import React from 'react';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.none,
-  children: checker.none
-});
-
-export default (treant, options) => {
-  const {h} = treant;
-
-  const Loader = (props, children) => (
+const Loader = () => {
+  return (
     <div className={style.container}>
-      <div className={style.dot}></div>
-      <div className={style.dot}></div>
-      <div className={style.dot}></div>
-      <div className={style.dot}></div>
+      <div className={style.dot} />
+      <div className={style.dot} />
+      <div className={style.dot} />
+      <div className={style.dot} />
     </div>
   );
-
-  Loader.validate = createValidate(conditions);
-  return Loader;
 };
+
+export default Loader;

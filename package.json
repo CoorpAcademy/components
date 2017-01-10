@@ -22,6 +22,7 @@
     "babel-core": "^6.18.2",
     "coveralls": "^2.11.13",
     "eslint": "^3.12.0",
+    "eslint-plugin-react": "^6.8.0",
     "lerna": "2.0.0-beta.28",
     "nyc": "^10.0.0"
   },
@@ -30,6 +31,9 @@
     "files": [
       "packages/**/src/**/test/**/*.js",
       "!**/node_module/**/*"
+    ],
+    "files": [
+      "packages/@coorpacademy-components/src/test/fixtures.js"
     ],
     "require": [
       "babel-core/register"
@@ -45,7 +49,10 @@
       "text-summary"
     ],
     "exclude": [
-      "packages/**/src/**/test/**"
+      "packages/**/src/**/test/**",
+      "packages/**/dist/**",
+      "packages/**/es/**",
+      "packages/**/lib/**"
     ],
     "require": [
       "babel-core/register"

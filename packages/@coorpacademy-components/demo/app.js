@@ -1,19 +1,20 @@
-import createHeader from './components/header';
+import React from 'react';
+import Provider from '../src/atom/provider';
+import Header from './components/header';
 import './style.css';
 
-export default (treant, options = {}) => {
-  const {h} = treant;
-  const {history} = options;
-  const Header = createHeader(treant, options);
-
-  const onNavigate = href => history.push(href);
-  return ({components, fixtures, location}, children) => (
-    <Header
-      onSelectComponent={onNavigate}
-      onSelectFixture={onNavigate}
-      components={components}
-      fixtures={fixtures}
-      location={location}
-    />
+export default function App({components, fixtures, location, options} = {}) {
+  const onNavigate = href => options.history.push(href);
+  const {store, history, skin, translate} = options;
+  return (
+    <Provider {...{store, history, skin, translate}}>
+      <Header
+        components={components}
+        fixtures={fixtures}
+        location={location}
+        onSelectComponent={onNavigate}
+        onSelectFixture={onNavigate}
+      />
+    </Provider>
   );
-};
+}

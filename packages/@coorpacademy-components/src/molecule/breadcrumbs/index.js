@@ -1,91 +1,93 @@
+import React, {PropTypes} from 'react';
 import map from 'lodash/fp/map';
-import {checker, createValidate} from '../../util/validation';
-import createLink from '../../atom/link';
-import createHoverFill from '../../behaviour/effects/hover-fill';
+import Button from '../../atom/button';
+import Link from '../../atom/link';
+import {hoverFill} from '../../atom/button/hover-fill.css';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.shape({
-    breadcrumbs: checker.arrayOf(checker.shape({
-      icon: checker.string.optional,
-      title: checker.string,
-      href: checker.string.optional
-    })).optional,
-    links: checker.arrayOf(checker.shape({
-      title: checker.string,
-      href: checker.string,
-      type: checker.string.optional
-    })).optional
-  }),
-  children: checker.none
-});
-
-export default (treant, options = {}) => {
-  const {h} = treant;
-
-  const Link = createLink(treant, options);
-  const HoverFill = createHoverFill(treant, options);
-
-  const buildBreadcrumbs = breadcrumb => {
-    const {
-        title,
-        href
-    } = breadcrumb;
-
-    if (!href) {
-      return (
-        <div className={style.breadcrumb}>
-          <span>{title}</span>
-        </div>
-      );
-    }
-
-    return (
-      <div className={style.breadcrumb}>
-        <Link href={href}>{title}</Link>
-      </div>
-    );
-  };
-
-  const buildLink = link => {
-    const {
+const buildBreadcrumbs = (breadcrumb, index) => {
+  const {
       title,
-      href,
-      type
-    } = link;
+      href
+  } = breadcrumb;
 
-    const className = (type === 'primary') ? style.primary : style.secondary;
-
+  if (!href) {
     return (
-      <div className={className}>
-        <HoverFill>
-          <Link target='_blank' href={href}>{title}</Link>
-        </HoverFill>
+      <div
+        className={style.breadcrumb}
+        key={index}
+      >
+        <span>{title}</span>
       </div>
     );
-  };
+  }
 
-  const Breadcrumbs = (props, children) => {
-    const {
-      breadcrumbs,
-      links = []
-    } = props;
-
-    const breadcrumbsList = map(buildBreadcrumbs, breadcrumbs);
-    const linksList = map(buildLink, links);
-
-    return (
-      <div className={style.wrapper}>
-        <div className={style.breadcrumbs}>
-          {breadcrumbsList}
-        </div>
-        <div className={style.links}>
-          {linksList}
-        </div>
-      </div>
-    );
-  };
-
-  Breadcrumbs.validate = createValidate(conditions);
-  return Breadcrumbs;
+  return (
+    <div
+      className={style.breadcrumb}
+      key={index}
+    >
+      <Link href={href}>{title}</Link>
+    </div>
+  );
 };
+
+const buildLink = (link, index) => {
+  const {
+    title,
+    href,
+    type
+  } = link;
+
+  const className = (type === 'primary') ? style.primary : style.secondary;
+
+  return (
+    <div
+      className={className}
+      key={index}
+    >
+      <Link
+        className={hoverFill}
+        target='_blank'
+        href={href}
+      >
+        {title}
+      </Link>
+    </div>
+  );
+};
+
+const Breadcrumbs = props => {
+  const {
+    breadcrumbs,
+    links = []
+  } = props;
+
+  const breadcrumbsList = breadcrumbs.map(buildBreadcrumbs);
+  const linksList = links.map(buildLink);
+
+  return (
+    <div className={style.wrapper}>
+      <div className={style.breadcrumbs}>
+        {breadcrumbsList}
+      </div>
+      <div className={style.links}>
+        {linksList}
+      </div>
+    </div>
+  );
+};
+
+Breadcrumbs.propTypes = {
+  breadcrumbs: PropTypes.arrayOf(PropTypes.shape({
+    icon: PropTypes.string,
+    title: PropTypes.string.isRequired,
+    href: PropTypes.string
+  })),
+  links: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    href: PropTypes.string.isRequired,
+    type: PropTypes.string
+  }))
+};
+export default Breadcrumbs;

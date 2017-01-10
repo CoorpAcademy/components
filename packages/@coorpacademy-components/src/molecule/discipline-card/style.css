@@ -89,6 +89,7 @@
 /*-------------------------------------------------- Modules */
 
 .moduleProgressionWrapper {
+  text-align: center;
   box-sizing: border-box;
   width: 100%;
   height: 70px;

@@ -1,84 +1,80 @@
-import {checker, createValidate} from '../../util/validation';
-import createProgressBar from '../../molecule/progress-bar';
-import createUploadBox from '../../molecule/brand-upload-box';
-import createDownloadBox from '../../molecule/brand-download-box';
-import createLink from '../../atom/link';
+import React, {PropTypes} from 'react';
+import ProgressBar from '../../molecule/progress-bar';
+import UploadBox from '../../molecule/brand-upload-box';
+import DownloadBox from '../../molecule/brand-download-box';
+import Link from '../../atom/link';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.shape({
-    title: checker.string.optional,
-    status: checker.string.optional,
-    download: checker.object.nullOk,
-    progress: checker.shape({
-      value: checker.number,
-      max: checker.number,
-      desc: checker.string.optional
-    }).optional,
-    upload: checker.object,
-    back: checker.shape({
-      desc: checker.string.optional,
-      link: checker.string.optional
-    }).optional,
-    notifications: checker.arrayOf(checker.shape({
-      type: checker.string,
-      message: checker.string
-    })).optional
-  }),
-  children: checker.none
-});
+const BrandUpload = props => {
+  const {
+    title = '',
+    back,
+    download,
+    upload,
+    progress,
+    notifications
+  } = props;
 
-export default (treant, options = {}) => {
-  const {h} = treant;
-  const DownloadBox = createDownloadBox(treant, options);
-  const ProgressBar = createProgressBar(treant, options);
-  const UploadBox = createUploadBox(treant, options);
-  const Link = createLink(treant, options);
+  const notificationsItems = notifications.map((notif, index) => (
+    <div
+      className={style[notif.type]}
+      key={index}
+    >
+      <span>{notif.message}</span>
+    </div>
+  ));
 
-  const BrandUpload = (props, children) => {
-    const {
-      title = '',
-      back,
-      download,
-      upload,
-      progress,
-      notifications
-    } = props;
+  const backView = back && (
+    <p className={style.back}>
+      <i className={style.arrowBack} />
+      <Link
+        href={back.link}
+        className={style.backDesc}
+      >
+        {back.desc}
+      </Link>
+    </p>
+  );
 
-    const notificationsItems = notifications.map(notif => (
-      <div className={style[notif.type]}>
-        <span>{notif.message}</span>
+  return (
+    <div className={style.wrapper}>
+      {backView}
+      <div className={style.title}>
+        <h3>{title}</h3>
       </div>
-    ));
-
-    const backView = back && (
-      <p className={style.back}>
-        <i className={style.arrowBack}/>
-        <Link
-          href={back.link}
-          className={style.backDesc}
-        >
-          {back.desc}
-        </Link>
-      </p>
-    );
-
-    return (
-      <div className={style.wrapper}>
-        {backView}
-        <div className={style.title}>
-          <h3>{title}</h3>
-        </div>
-        {download && <DownloadBox {...download}/>}
-        <UploadBox {...upload}/>
-        {progress && <ProgressBar {...progress} className={style.progress}/>}
-        <ul className={style.notifications}>
-          {notificationsItems}
-        </ul>
-      </div>
-    );
-  };
-
-  BrandUpload.validate = createValidate(conditions);
-  return BrandUpload;
+      {download && <DownloadBox {...download} />}
+      <UploadBox {...upload} />
+      {
+        progress &&
+        <ProgressBar
+          {...progress}
+          className={style.progress}
+        />
+      }
+      <ul className={style.notifications}>
+        {notificationsItems}
+      </ul>
+    </div>
+  );
 };
+
+BrandUpload.propTypes = {
+  title: PropTypes.string,
+  download: PropTypes.object,
+  progress: PropTypes.shape({
+    value: PropTypes.number.isRequired,
+    max: PropTypes.number.isRequired,
+    desc: PropTypes.string
+  }),
+  upload: PropTypes.object.isRequired,
+  back: PropTypes.shape({
+    desc: PropTypes.string,
+    link: PropTypes.string
+  }),
+  notifications: PropTypes.arrayOf(PropTypes.shape({
+    type: PropTypes.string.isRequired,
+    message: PropTypes.string.isRequired
+  }))
+};
+
+export default BrandUpload;

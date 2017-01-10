@@ -1,33 +1,28 @@
-import {checker, createValidate} from '../../../util/validation';
-import threadConditions from '../post-conditions';
-import createForumPost from '../forum-post';
+import React from 'react';
+import threadShape from '../post-conditions';
+import ForumPost from '../forum-post';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: threadConditions,
-  children: checker.none
-});
+const ForumThread = props => {
+  const {answers = []} = props;
+  const answersView = answers.map((answerProps, index) => (
+    <ForumThread
+      key={index}
+      {...answerProps}
+    />
+  ));
 
-export default (treant, options = {}) => {
-  const {h} = treant;
-  const Post = createForumPost(treant, options);
-
-  const ForumThread = (props, children) => {
-    const {answers} = props;
-    const answersView = answers && answers.map(answerProps => (
-      <ForumThread {...answerProps}/>
-    ));
-
-    return (
-      <div>
-        <Post {...props}/>
-        <div className={style.answers}>
-          {answersView}
-        </div>
+  return (
+    <div>
+      <ForumPost {...props} />
+      <div className={style.answers}>
+        {answersView}
       </div>
-    );
-  };
-
-  ForumThread.validate = createValidate(conditions);
-  return ForumThread;
+    </div>
+  );
 };
+
+ForumThread.propTypes = {
+  ...threadShape
+};
+export default ForumThread;

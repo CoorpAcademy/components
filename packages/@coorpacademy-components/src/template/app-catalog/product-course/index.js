@@ -1,109 +1,101 @@
+import React, {PropTypes} from 'react';
 import identity from 'lodash/fp/identity';
-import {checker, createValidate} from '../../../util/validation';
-import createDisciplineHeader from '../../../molecule/discipline-header';
-import createDisciplineScope from '../../../molecule/discipline-scope';
-import createDisciplineRightaside from '../../../organism/discipline-rightaside';
-import createCatalogCards from '../../../organism/catalog-cards';
+import DisciplineHeader from '../../../molecule/discipline-header';
+import DisciplineScope from '../../../molecule/discipline-scope';
+import DisciplineRightaside from '../../../organism/discipline-rightaside';
+import CatalogCards from '../../../organism/catalog-cards';
 import layout from '../layout.css';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.shape({
-    popularity: checker.number.optional,
-    maxPopularity: checker.number.optional,
-    title: checker.string.optional,
-    description: checker.string.optional,
-    image: checker.shape({
-      '1x': checker.url.optional,
-      '2x': checker.url.optional
-    }).optional,
-    video: checker.shape({
-      type: checker.oneOf(['vimeo', 'youtube']),
-      id: checker.string
-    }).optional,
-    linkBuy: checker.string.optional,
-    linkTry: checker.string.optional,
-    author: checker.shape({
-      name: checker.string,
-      socialLinks: checker.array
-    }).optional,
-    relatedDisciplines: checker.oneOfType([checker.arrayOf(checker.object), checker.null]).optional,
-    level: checker.object.optional,
-    levels: checker.arrayOf(checker.string).optional,
-    selected: checker.number.optional,
-    changeLevel: checker.func.optional
-  }),
-  children: checker.none
-});
-
-export default (treant, options = {}) => {
-  const {h} = treant;
-  const {translate = identity} = options;
-
-  const DisciplineHeader = createDisciplineHeader(treant, options);
-  const DisciplineScope = createDisciplineScope(treant, options);
-  const DisciplineRightaside = createDisciplineRightaside(treant, options);
-  const CatalogCards = createCatalogCards(treant, options);
+const ProductCourse = (props, context) => {
+  const {translate = identity} = context;
   const cardsTitle = translate('They also liked:');
-  const ProductCourse = (props, children) => {
-    const {
-      selected = 0,
-      level,
-      levels,
-      changeLevel,
-      linkBuy,
-      linkTry,
-      maxPopularity,
-      relatedDisciplines = null,
-      image,
-      title = '',
-      video,
-      author = {name: '', socialLinks: []},
-      description = '',
-      popularity = 0
-    } = props;
+  const {
+    selected = 0,
+    level,
+    levels,
+    changeLevel,
+    linkBuy,
+    linkTry,
+    maxPopularity,
+    relatedDisciplines = null,
+    image,
+    title = '',
+    video,
+    author = {name: '', socialLinks: []},
+    description = '',
+    popularity = 0
+  } = props;
 
-    return (
-      <div className={style.wrapper}>
-        <div className={style.container}>
-          <DisciplineHeader
-            image={image}
-            video={video}
-            title={title}
-            description={description}
-          />
-        </div>
-        <div className={style.colContainer}>
-          <DisciplineRightaside
-            linkBuy={linkBuy}
-            linkTry={linkTry}
-            author={author}
-            rating={popularity}
-            maxRating={maxPopularity}
-          />
-        </div>
-        <div
-          className={style.contentContainer}
-        >
-          <DisciplineScope
-            content={level}
-            levels={levels}
-            selected={selected}
-            onClick={changeLevel}
-          />
-        </div>
-        <div className={layout.container}>
-          <span className={layout.cardsTitle}>
-            {cardsTitle}
-          </span>
-          <CatalogCards
-            products={relatedDisciplines}
-          />
-        </div>
+  return (
+    <div className={style.wrapper}>
+      <div className={style.container}>
+        <DisciplineHeader
+          image={image}
+          video={video}
+          title={title}
+          description={description}
+        />
       </div>
-    );
-  };
-
-  ProductCourse.validate = createValidate(conditions);
-  return ProductCourse;
+      <div className={style.colContainer}>
+        <DisciplineRightaside
+          linkBuy={linkBuy}
+          linkTry={linkTry}
+          author={author}
+          rating={popularity}
+          maxRating={maxPopularity}
+        />
+      </div>
+      <div
+        className={style.contentContainer}
+      >
+        <DisciplineScope
+          content={level}
+          levels={levels}
+          selected={selected}
+          onClick={changeLevel}
+        />
+      </div>
+      <div className={layout.container}>
+        <span className={layout.cardsTitle}>
+          {cardsTitle}
+        </span>
+        <CatalogCards
+          products={relatedDisciplines}
+        />
+      </div>
+    </div>
+  );
 };
+
+ProductCourse.contextTypes = {
+  translate: React.PropTypes.func
+};
+
+ProductCourse.propTypes = {
+  popularity: PropTypes.number,
+  maxPopularity: PropTypes.number,
+  title: PropTypes.string,
+  description: PropTypes.string,
+  image: PropTypes.shape({
+    '1x': PropTypes.url,
+    '2x': PropTypes.url
+  }),
+  video: PropTypes.shape({
+    type: PropTypes.oneOf(['vimeo', 'youtube']).isRequired,
+    id: PropTypes.string.isRequired
+  }),
+  linkBuy: PropTypes.string,
+  linkTry: PropTypes.string,
+  author: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    socialLinks: PropTypes.array.isRequired
+  }),
+  relatedDisciplines: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.object), PropTypes.null]),
+  level: PropTypes.object,
+  levels: PropTypes.arrayOf(PropTypes.string),
+  selected: PropTypes.number,
+  changeLevel: PropTypes.func
+};
+
+export default ProductCourse;

@@ -1,39 +1,51 @@
+import React from 'react';
 import toPairs from 'lodash/fp/toPairs';
 import map from 'lodash/fp/map';
 import pipe from 'lodash/fp/pipe';
+import get from 'lodash/fp/get';
 import isArray from 'lodash/fp/isArray';
+import flatten from 'lodash/fp/flatten';
 import noop from 'lodash/fp/noop';
 
-export default ({h}) => {
-  const buildOptions = map(({value, label, selected}) => (
-    <option
-      value={value}
-      selected={selected}
+const buildOption = ({value, label}, index) => (
+  <option
+    key={index}
+    value={value}
+  >
+    {label}
+  </option>
+);
+
+const buildGroups = pipe(
+  toPairs,
+  map(([label = '', options = []]) => (
+    <optgroup
+      key={label}
+      label={label}
     >
-      {label}
-    </option>
-  ));
+      {options.map(buildOption)}
+    </optgroup>
+  )),
+  flatten
+);
 
-  const buildGroups = pipe(
-    toPairs,
-    map(([label = '', options = []]) => (
-      <optgroup
-        label={label}
-      >
-        {buildOptions(options)}
-      </optgroup>
-    ))
-  );
+const Select = ({options = [], onChange = noop}) => {
+  const changeHandler = e => onChange(e.target.value);
 
-  return ({options = [], onChange = noop}, children) => (
+  const selected = get('value', find({selected: true}, options));
+
+  return (
     <select
-      onChange={e => onChange(e.target.value)}
+      onChange={changeHandler}
+      value={selected}
     >
       {
         isArray(options) ?
-          buildOptions(options) :
+          options.map(buildOption) :
           buildGroups(options)
       }
     </select>
   );
 };
+
+export default Select;

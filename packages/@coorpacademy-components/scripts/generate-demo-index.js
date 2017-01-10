@@ -18,7 +18,7 @@ const _componentImports = pipe(
   mapObject((_components, type) =>
     mapObject((path, title) => {
       const relativePath = relative(targetDir, path);
-      return `import create${title} from '${relativePath}';`;
+      return `import ${title} from '${relativePath}';`;
     })(_components)
   ),
   flatten
@@ -28,7 +28,7 @@ const _componentTypes = pipe(
   mapObject((_components, type) => [
     `${type}: {
 ${pipe(
-  mapObject((path, title) => `${title}: create${title}`),
+  mapObject((path, title) => `${title}`),
   _join(',\n'),
   indent
 )(_components)}
@@ -50,7 +50,7 @@ const _fixtureImports = pipe(
         pipe(
           mapObject((path, fixture) => {
             const relativePath = relative(targetDir, path);
-            return `import create${title}Fixture${fixture} from '${removeExt(relativePath)}';`;
+            return `import ${title}Fixture${fixture} from '${removeExt(relativePath)}';`;
           }),
           flatten
         )(_fixtures),
@@ -72,7 +72,7 @@ const _fixtureExports = [
             _join('\n', [
               `${title}: {`,
               pipe(
-                mapObject((path, fixture) => `${fixture}: create${title}Fixture${fixture}`),
+                mapObject((path, fixture) => `${fixture}: ${title}Fixture${fixture}`),
                 _join(',\n'),
                 indent
               )(_fixtures),

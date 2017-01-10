@@ -1,21 +1,12 @@
+import React, {PropTypes} from 'react';
 import identity from 'lodash/fp/identity';
-import {checker, createValidate} from '../../util/validation';
 import pushToHistory from '../../util/navigation';
 
-const conditions = checker.shape({
-  props: checker.shape({
-    className: checker.string.optional,
-    href: checker.string.optional
-  }),
-  children: checker.array.optional
-});
+const Link = ({children, ...props}, context) => {
+  const {history: {createHref = identity} = {}} = context;
+  const onClick = pushToHistory(context);
 
-export default (treant, options = {}) => {
-  const {h} = treant;
-  const {history: {createHref = identity} = {}} = options;
-  const onClick = pushToHistory(options);
-
-  const Link = (props, children) => (
+  return (
     <a
       {...props}
       href={props.href ? createHref(props.href) : undefined}
@@ -27,7 +18,19 @@ export default (treant, options = {}) => {
       {children}
     </a>
   );
-
-  Link.validate = createValidate(conditions);
-  return Link;
 };
+
+Link.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string,
+  href: PropTypes.string
+};
+
+Link.contextTypes = {
+  history: PropTypes.shape({
+    createHref: PropTypes.func,
+    push: PropTypes.func
+  })
+};
+
+export default Link;

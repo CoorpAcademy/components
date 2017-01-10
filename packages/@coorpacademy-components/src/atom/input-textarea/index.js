@@ -1,55 +1,47 @@
+import React, {PropTypes} from 'react';
 import noop from 'lodash/fp/noop';
-import {checker, createValidate} from '../../util/validation';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.shape({
-    type: checker.string,
-    placeholder: checker.string,
-    disabled: checker.bool.optional,
-    value: checker.string.optional,
-    error: checker.string.optional,
-    onChange: checker.func.optional,
-    description: checker.string.optional
-  }),
-  children: checker.none
-});
+const InputTextarea = props => {
+  const {
+    title,
+    placeholder,
+    value,
+    onChange = noop,
+    error,
+    description,
+    disabled
+  } = props;
 
-export default (treant, options) => {
-  const {h} = treant;
+  const className = error ? style.error : style.default;
+  const handleChange = e => onChange(e.target.value);
 
-  const InputTextarea = (props, children) => {
-    const {
-      title,
-      placeholder,
-      value,
-      onChange = noop,
-      error,
-      description
-    } = props;
-
-    const className = error ? style.error : style.default;
-
-    return (
-      <div className={className}>
-        <label>
-          <span className={style.title}>{`${title} `}</span>
-          <textarea
-            resize='none'
-            name={title}
-            placeholder={placeholder}
-            onInput={e => onChange(e.target.value)}
-          >
-            {value}
-          </textarea>
-        </label>
-        <div className={style.description}>
-          {description}
-        </div>
+  return (
+    <div className={className}>
+      <label>
+        <span className={style.title}>{`${title} `}</span>
+        <textarea
+          resize='none'
+          name={title}
+          defaultValue={value}
+          placeholder={placeholder}
+          onInput={handleChange}
+          disabled={disabled}
+        />
+      </label>
+      <div className={style.description}>
+        {description}
       </div>
-    );
-  };
-
-  InputTextarea.validate = createValidate(conditions);
-  return InputTextarea;
+    </div>
+  );
 };
+
+InputTextarea.propTypes = {
+  placeholder: PropTypes.string,
+  disabled: PropTypes.bool,
+  value: PropTypes.string,
+  error: PropTypes.string,
+  onChange: PropTypes.func,
+  description: PropTypes.string
+};
+export default InputTextarea;

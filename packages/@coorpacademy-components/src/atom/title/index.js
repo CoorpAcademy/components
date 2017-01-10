@@ -1,18 +1,14 @@
-import {checker, createValidate} from '../../util/validation';
+import React, {PropTypes} from 'react';
 
-const conditions = checker.shape({
-  props: checker.none,
-  children: checker.oneOrMore
-});
-
-export default (treant, options) => {
-  const {h} = treant;
-  const Title = (props, children) => (
+const Title = ({children}) => {
+  return (
     <h1>
       {children}
     </h1>
   );
-
-  Title.validate = createValidate(conditions);
-  return Title;
 };
+
+Title.propTypes = {
+  children: PropTypes.node
+};
+export default Title;

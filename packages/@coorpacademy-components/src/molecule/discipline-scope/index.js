@@ -1,40 +1,34 @@
-import {checker, createValidate} from '../../util/validation';
-import createScopeTabs from '../scope-tabs';
-import createScopeContent from '../scope-content';
+import React, {PropTypes} from 'react';
+import ScopeTabs from '../scope-tabs';
+import ScopeContent from '../scope-content';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.shape({
-    levels: checker.array.optional,
-    selected: checker.number.optional,
-    content: checker.object.optional,
-    onClick: checker.func.optional
-  }),
-  children: checker.none
-});
+const DisciplineScope = props => {
+  const {
+    onClick,
+    selected = 0,
+    content,
+    levels = []
+  } = props;
 
-export default (treant, options = {}) => {
-  const ScopeTabs = createScopeTabs(treant, options);
-  const ScopeContent = createScopeContent(treant, options);
-
-  const DisciplineScope = (props, children) => {
-    const {h} = treant;
-    const {onClick, selected = 0, content, levels = []} = props;
-
-    return (
-      <div className={style.scope}>
-        <ScopeTabs
-          onClick={onClick}
-          selected={selected}
-          levels={levels}
-        />
-        <ScopeContent
-          content={content}
-        />
-      </div>
-    );
-  };
-
-  DisciplineScope.validate = createValidate(conditions);
-  return DisciplineScope;
+  return (
+    <div className={style.scope}>
+      <ScopeTabs
+        onClick={onClick}
+        selected={selected}
+        levels={levels}
+      />
+      <ScopeContent
+        content={content}
+      />
+    </div>
+  );
 };
+
+DisciplineScope.propTypes = {
+  levels: PropTypes.array,
+  selected: PropTypes.number,
+  content: PropTypes.object,
+  onClick: PropTypes.func
+};
+export default DisciplineScope;

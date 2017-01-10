@@ -46,6 +46,7 @@
 }
 
 .dropping {
+  composes: default;
   border: 3px dashed blue;
 }
 

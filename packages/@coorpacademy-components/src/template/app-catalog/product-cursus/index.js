@@ -1,84 +1,80 @@
+import React, {PropTypes} from 'react';
 import identity from 'lodash/fp/identity';
-import {checker, createValidate} from '../../../util/validation';
-import createCursusHeader from '../../../molecule/cursus-header';
-import createCursusRightaside from '../../../organism/cursus-rightaside';
-import createCatalogCards from '../../../organism/catalog-cards';
+import * as CustomPropTypes from '../../../util/proptypes';
+import CursusHeader from '../../../molecule/cursus-header';
+import CursusRightaside from '../../../organism/cursus-rightaside';
+import CatalogCards from '../../../organism/catalog-cards';
 import layout from '../layout.css';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.shape({
-    title: checker.string.optional,
-    description: checker.string.optional,
-    image: checker.url.optional,
-    badge: checker.url.optional,
-    linkBuy: checker.string.optional,
-    linkTry: checker.string.optional,
-    rating: checker.number.optional,
-    maxRating: checker.number.optional,
-    assets: checker.arrayOf(checker.string).optional,
-    disciplines: checker.oneOfType([checker.arrayOf(checker.object), checker.null]).optional
-  }),
-  children: checker.none
-});
-
-export default (treant, options = {}) => {
-  const {h} = treant;
-  const {translate = identity} = options;
-
-  const CursusHeader = createCursusHeader(treant, options);
-  const CursusRightaside = createCursusRightaside(treant, options);
-  const CatalogCards = createCatalogCards(treant, options);
+const ProductCursus = (props, context) => {
+  const {translate = identity} = context;
   const cardsTitle = translate('This course contains:');
+  const {
+    disciplines = null,
+    maxRating,
+    image,
+    badge,
+    title = '',
+    description = '',
+    rating = 0,
+    assets,
+    linkBuy,
+    linkTry
+  } = props;
 
-  const ProductCursus = (props, children) => {
-    const {
-      disciplines = null,
-      maxRating,
-      image,
-      badge,
-      title = '',
-      description = '',
-      rating = 0,
-      assets,
-      linkBuy,
-      linkTry
-    } = props;
+  return (
+    <div className={layout.wrapper}>
+      <div className={layout.container}>
+        <CursusHeader
+          image={image}
+          title={title}
+          description={description}
+        />
+      </div>
+      <div className={layout.colContainer}>
+        <CursusRightaside
+          badge={badge}
+          assets={assets || []}
+          rating={rating}
+          maxRating={maxRating}
+          linkBuy={linkBuy}
+          linkTry={linkTry}
+        />
+      </div>
+      <div className={style.productsContainer}>
+        <span className={layout.cardsTitle}>
+          {cardsTitle}
+        </span>
 
-    return (
-      <div className={layout.wrapper}>
-        <div className={layout.container}>
-          <CursusHeader
-            image={image}
-            title={title}
-            description={description}
+        <div className={style.productsWrapper}>
+          <CatalogCards
+            products={disciplines}
           />
-        </div>
-        <div className={layout.colContainer}>
-          <CursusRightaside
-            badge={badge}
-            assets={assets || []}
-            rating={rating}
-            maxRating={maxRating}
-            linkBuy={linkBuy}
-            linkTry={linkTry}
-          />
-        </div>
-        <div className={style.productsContainer}>
-          <span className={layout.cardsTitle}>
-            {cardsTitle}
-          </span>
-
-          <div className={style.productsWrapper}>
-            <CatalogCards
-              products={disciplines}
-            />
-          </div>
         </div>
       </div>
-    );
-  };
-
-  ProductCursus.validate = createValidate(conditions);
-  return ProductCursus;
+    </div>
+  );
 };
+
+ProductCursus.contextTypes = {
+  translate: React.PropTypes.func
+};
+
+ProductCursus.propTypes = {
+  title: PropTypes.string,
+  description: PropTypes.string,
+  image: CustomPropTypes.url,
+  badge: CustomPropTypes.url,
+  linkBuy: PropTypes.string,
+  linkTry: PropTypes.string,
+  rating: PropTypes.number,
+  maxRating: PropTypes.number,
+  assets: PropTypes.arrayOf(PropTypes.string),
+  disciplines: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.object),
+    PropTypes.null
+  ])
+};
+
+export default ProductCursus;

@@ -1,60 +1,60 @@
+import React, {PropTypes} from 'react';
 import get from 'lodash/fp/get';
-import identity from 'lodash/fp/identity';
 import getOr from 'lodash/fp/getOr';
-import {checker, createValidate} from '../../util/validation';
-import createLink from '../../atom/link';
+import identity from 'lodash/fp/identity';
+import * as CustomPropTypes from '../../util/proptypes';
+import Link from '../../atom/link';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.shape({
-    url: checker.string,
-    title: checker.string,
-    touch: checker.bool.optional
-  }),
-  children: checker.none
-});
-
-export default (treant, options = {}) => {
-  const Link = createLink(treant, options);
-  const {h} = treant;
-  const {skin, translate = identity} = options;
+function Hero(props, context) {
+  const {translate = identity, skin} = context;
   const bg = get('images.hero', skin);
+  const {url, title, touch = false} = props;
+  const text = translate(title);
+  const backgroundImage = bg ? `url(${bg})` : '';
+  const ctaClass = touch ? 'ctaTouch' : 'ctaNoTouch';
 
-  const Hero = (props, children) => {
-    const {url, title, touch = false} = props;
-    const text = translate(title);
-    const backgroundImage = bg ? `url(${bg})` : '';
-    const ctaClass = touch ? 'ctaTouch' : 'ctaNoTouch';
-    return (
-      <div
-        className={style.hero}
-        style={{
-          backgroundImage
-        }}
+  return (
+    <div
+      className={style.hero}
+      style={{
+        backgroundImage
+      }}
+    >
+      <Link
+        href={url}
+        className={style[ctaClass]}
       >
-        <Link
-          href={url}
-          className={style[ctaClass]}>
-          <div
-            className={style.label}
+        <div
+          className={style.label}
+          style={{
+            color: getOr('#00b0ff', 'common.primary', skin)
+          }}
+        >
+          {text}
+          <span
+            className={style.bar}
             style={{
-              color: getOr('#00b0ff', 'common.primary', skin)
+              backgroundColor: getOr('#00b0ff', 'common.primary', skin)
             }}
-          >
-            {text}
-            <span
-              className={style.bar}
-              style={{
-                backgroundColor: getOr('#00b0ff', 'common.primary', skin)
-              }}
-              >
-              </span>
-          </div>
-        </Link>
-      </div>
-    );
-  };
+          />
+        </div>
+      </Link>
+    </div>
+  );
+}
 
-  Hero.validate = createValidate(conditions);
-  return Hero;
+Hero.contextTypes = {
+  skin: React.PropTypes.object,
+  translate: React.PropTypes.func
 };
+
+Hero.propTypes = {
+  url: PropTypes.oneOfType([
+    CustomPropTypes.url,
+    PropTypes.string
+  ]).isRequired,
+  title: PropTypes.string.isRequired
+};
+
+export default Hero;

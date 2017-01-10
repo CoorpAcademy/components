@@ -1,100 +1,103 @@
+import React, {PropTypes} from 'react';
 import get from 'lodash/fp/get';
-import map from 'lodash/fp/map';
+import getOr from 'lodash/fp/getOr';
 import identity from 'lodash/fp/identity';
-import {checker, createValidate} from '../../util/validation';
-import createCatalogCTA from '../../molecule/catalog-cta';
-import createPicture from '../../atom/picture';
-import createLink from '../../atom/link';
-import createSocialLink from '../../atom/social-link';
+import map from 'lodash/fp/map';
+import CatalogCTA from '../../molecule/catalog-cta';
+import Picture from '../../atom/picture';
+import Link from '../../atom/link';
+import SocialLink from '../../atom/social-link';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.shape({
-    rating: checker.number.optional,
-    maxRating: checker.number.optional,
-    linkBuy: checker.string.optional,
-    linkTry: checker.string.optional,
-    author: checker.shape({
-      name: checker.string.optional,
-      href: checker.string.optional,
-      logo: checker.shape({
-        src: checker.string.optional,
-        href: checker.string.optional
-      }).optional,
-      socialLinks: checker.array.optional
-    }).optional,
-    authorTitle: checker.string.optional
-  }),
-  children: checker.none
-});
+const DisciplineRightaside = (props, context) => {
+  const {translate = identity} = context;
+  const {rating, maxRating, linkBuy, linkTry, author, authorTitle} = props;
+  const socialLinks = getOr([], 'socialLinks', author);
+  const authorLogo = get('logo', author);
+  const authorHref = get('href', author);
 
-export default (treant, options = {}) => {
-  const {h} = treant;
-  const {translate = identity} = options;
-  const CatalogCTA = createCatalogCTA(treant, options);
-  const Picture = createPicture(treant, options);
-  const Link = createLink(treant, options);
-  const SocialLink = createSocialLink(treant, options);
+  const authorLabel = authorTitle || translate('author');
 
-  const DisciplineRightaside = (props, children) => {
-    const {rating, maxRating, linkBuy, linkTry, author, authorTitle} = props;
-    const socialLinks = get('socialLinks', author);
-    const authorLogo = get('logo', author);
-    const authorHref = get('href', author);
+  const socialView = socialLinks.map((social, index) => (
+    <div
+      key={index}
+      className={style.link}
+    >
+      <SocialLink {...social} />
+    </div>
+  ));
 
-    const authorLabel = authorTitle || translate('author');
+  const ctaView = (
+    <div className={style.ctaWrapper}>
+      <CatalogCTA
+        rating={rating}
+        maxRating={maxRating}
+        linkBuy={linkBuy}
+        linkTry={linkTry}
+      />
+    </div>
+  );
 
-    const socialView = map(social => (
-      <div className={style.link}>
-        <SocialLink {...social} />
-      </div>
-    ), socialLinks);
+  const linkView = (
+    <div className={style.authorLink}>
+      <a
+        target={'_blank'}
+        href={authorHref}
+      >
+        {authorHref}
+      </a>
+    </div>
+  );
 
-    const ctaView = (
-      <div className={style.ctaWrapper}>
-        <CatalogCTA
-          rating={rating}
-          maxRating={maxRating}
-          linkBuy={linkBuy}
-          linkTry={linkTry}
+  const logoView = authorLogo ? (
+    <div className={style.logoContainer}>
+      <Link
+        className={style.logoLink}
+        href={authorLogo.href}
+      >
+        <Picture
+          className={style.logo}
+          src={authorLogo.src}
         />
-      </div>
-    );
+      </Link>
+    </div>
+  ) : null;
 
-    const linkView = (
-      <div className={style.authorLink}>
-        <a target={'_blank'} href={authorHref}>{authorHref}</a>
-      </div>
-    );
-
-    const logoView = authorLogo ? (
-      <div className={style.logoContainer}>
-        <Link className={style.logoLink} href={authorLogo.href}>
-          <Picture
-            className={style.logo}
-            src={authorLogo.src}
-          />
-        </Link>
-      </div>
-    ) : null;
-
-    return (
-      <div className={style.col}>
-        {(rating && linkBuy && linkTry) ? ctaView : null}
-        <div className={style.colDetails}>
-          <div className={style.detailTitle}>
-            {authorLabel}
-          </div>
-          {logoView}
-          {authorHref ? linkView : null}
-          <div className={style.links}>
-            {socialView}
-          </div>
+  return (
+    <div className={style.col}>
+      {(rating && linkBuy && linkTry) ? ctaView : null}
+      <div className={style.colDetails}>
+        <div className={style.detailTitle}>
+          {authorLabel}
+        </div>
+        {logoView}
+        {authorHref ? linkView : null}
+        <div className={style.links}>
+          {socialView}
         </div>
       </div>
-    );
-  };
-
-  DisciplineRightaside.validate = createValidate(conditions);
-  return DisciplineRightaside;
+    </div>
+  );
 };
+
+DisciplineRightaside.contextTypes = {
+  translate: React.PropTypes.func
+};
+
+DisciplineRightaside.propTypes = {
+  rating: PropTypes.number,
+  maxRating: PropTypes.number,
+  linkBuy: PropTypes.string,
+  linkTry: PropTypes.string,
+  author: PropTypes.shape({
+    name: PropTypes.string,
+    href: PropTypes.string,
+    logo: PropTypes.shape({
+      src: PropTypes.string,
+      href: PropTypes.string
+    }),
+    socialLinks: PropTypes.array
+  }),
+  authorTitle: PropTypes.string
+};
+export default DisciplineRightaside;

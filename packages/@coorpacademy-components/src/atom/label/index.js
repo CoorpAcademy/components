@@ -1,20 +1,16 @@
-import {checker, createValidate} from '../../util/validation';
+import React, {PropTypes} from 'react';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.none,
-  children: checker.oneOrMore
-});
-
-export default (treant, options) => {
-  const {h} = treant;
-
-  const Label = (props, children) => (
+const Label = ({children}) => {
+  return (
     <span className={style.default}>
       {children}
     </span>
   );
-
-  Label.validate = createValidate(conditions);
-  return Label;
 };
+
+Label.propTypes = {
+  children: PropTypes.node
+};
+
+export default Label;

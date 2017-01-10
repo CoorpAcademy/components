@@ -1,15 +1,8 @@
-import {checker, createValidate} from '../../util/validation';
+import React from 'react';
 import {spinner, doubleBounce1, doubleBounce2} from './style.css';
 
-const conditions = checker.shape({
-  props: checker.none,
-  children: checker.none
-});
-
-export default (treant, options) => {
-  const {h} = treant;
-
-  const Spinner = (props, children) => (
+const Spinner = () => {
+  return (
     <div
       className={spinner}
     >
@@ -22,7 +15,6 @@ export default (treant, options) => {
       />
     </div>
   );
-
-  Spinner.validate = createValidate(conditions);
-  return Spinner;
 };
+
+export default Spinner;

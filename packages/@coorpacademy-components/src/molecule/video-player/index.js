@@ -1,72 +1,60 @@
-import {checker, createValidate} from '../../util/validation';
-import createVideoIframe from '../video-iframe';
-import createPicture from '../../atom/picture';
+import React, {PropTypes} from 'react';
+import VideoIframe from '../video-iframe';
+import Picture from '../../atom/picture';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.shape({
-    type: checker.oneOf(['vimeo', 'youtube']),
-    playVideo: checker.func.optional,
-    image: checker.string.optional,
-    width: checker.string.optional,
-    height: checker.string.optional,
-    id: checker.string.optional
-  }),
-  children: checker.none
-});
+const VideoPlayer = props => {
+  const {
+    type,
+    id,
+    image,
+    playVideo,
+    width = '100%',
+    height = '400px'
+  } = props;
 
-export default (treant, options = {}) => {
-  const VideoIframe = createVideoIframe(treant, options);
-  const Picture = createPicture(treant, options);
-
-  const VideoPlayer = (props, children) => {
-    const {h} = treant;
-    const {
-      type,
-      id,
-      image,
-      playVideo,
-      width = '100%',
-      height = '400px'
-    } = props;
-
-    return (
-      <div className={style.list}>
-        <div className={style.item}>
-          <input
-            type='checkbox'
-            id='toggler'
-            checked={false}
-            className={style.checkbox}
-          />
-          <label
-            htmlFor={'toggler'}
-            className={style.togglerDisplay}
-            onClick={playVideo}
-          >
-            <Picture
-              src={image}
-              className={style.image}
-              width={width}
-              height={height}
-            />
-          </label>
-
-          <VideoIframe
-            type={type}
-            id={id}
+  return (
+    <div className={style.list}>
+      <div className={style.item}>
+        <input
+          type='checkbox'
+          id='toggler'
+          checked={false}
+          className={style.checkbox}
+        />
+        <label
+          htmlFor={'toggler'}
+          className={style.togglerDisplay}
+          onClick={playVideo}
+        >
+          <Picture
+            src={image}
+            className={style.image}
             width={width}
             height={height}
-            frameborder={0}
-            className={style.iframe}
-            allowfullscreen={true}
-          >
-          </VideoIframe>
-        </div>
+          />
+        </label>
+        <VideoIframe
+          type={type}
+          id={id}
+          width={width}
+          height={height}
+          frameBorder={0}
+          className={style.iframe}
+          allowFullScreen
+        />
       </div>
-    );
-  };
-
-  VideoPlayer.validate = createValidate(conditions);
-  return VideoPlayer;
+    </div>
+  );
 };
+
+VideoPlayer.propTypes = {
+  type: PropTypes.oneOf(['vimeo', 'youtube']).isRequired,
+  playVideo: PropTypes.func,
+  image: PropTypes.string,
+  width: PropTypes.string,
+  height: PropTypes.string,
+  id: PropTypes.string
+};
+
+export default VideoPlayer;

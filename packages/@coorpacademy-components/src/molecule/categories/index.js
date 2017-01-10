@@ -1,83 +1,81 @@
+import React, {PropTypes} from 'react';
 import _find from 'lodash/fp/find';
 import identity from 'lodash/fp/identity';
+import noop from 'lodash/fp/noop';
 import getOr from 'lodash/fp/getOr';
 import map from 'lodash/fp/map';
-import createLink from '../../atom/link';
-import {checker, createValidate} from '../../util/validation';
+import Checkbox from '../../atom/checkbox';
+import Link from '../../atom/link';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.shape({
-    categories: checker.arrayOf(
-      checker.shape({
-        name: checker.string,
-        href: checker.string.optional,
-        selected: checker.bool.optional
-      }).strict
-    )
-  }).strict,
-  children: checker.none
-});
+const buildCategory = (category, index) => {
+  const {href, selected} = category;
+  const _name = getOr('', 'name', category);
 
-export default (treant, options = {}) => {
-  const {h} = treant;
-  const {translate = identity} = options;
+  const linkProps = selected ? {
+    className: style.selected
+  } : {};
+
+  return (
+    <li
+      className={style.filter}
+      key={index}
+    >
+      <Link
+        {...linkProps}
+        href={href}
+      >
+        {_name}
+      </Link>
+    </li>
+  );
+};
+
+const Categories = (props, context) => {
+  const {categories = []} = props;
+  const {translate = identity} = context;
   const filtersTitle = translate('filters');
 
-  const Link = createLink(treant, options);
+  const CategoriesDiv = categories.map(buildCategory);
+  const selectedCategory = _find({
+    selected: true
+  }, categories) || {};
 
-  const buildCategory = category => {
-    const {href, selected} = category;
-    const _name = getOr('', 'name', category);
-
-    const linkProps = selected ? {
-      className: style.selected
-    } : {};
-
-    return (
-      <li className={style.filter}>
-        <Link
-          {...linkProps}
-          href={href}
-        >
-          {_name}
-        </Link>
-      </li>
-    );
-  };
-
-  const Categories = ({categories = []}, children) => {
-    const CategoriesDiv = map(buildCategory, categories);
-
-    const selectedCategory = _find({
-      selected: true
-    }, categories) || {};
-
-    return (
-      <div className={style.categories}>
-        <input
-          type='checkbox'
-          id='toggler'
-          checked='false'
-          className={style.mobileToggler}
-        />
-        <label
-          htmlFor='toggler'
-          className={style.togglerDisplay}
-        >
-          <span>{getOr('', 'name', selectedCategory)}</span>
-        </label>
-        <span className={style.arrow}></span>
-        <div className={style.category}>
-          <h2>{filtersTitle}</h2>
-          <ul className={style.filters}>
-            {CategoriesDiv}
-          </ul>
-        </div>
+  return (
+    <div className={style.categories}>
+      <Checkbox
+        checked
+        id='toggler'
+        className={style.mobileToggler}
+      />
+      <label
+        htmlFor='toggler'
+        className={style.togglerDisplay}
+      >
+        <span>{getOr('', 'name', selectedCategory)}</span>
+      </label>
+      <span className={style.arrow} />
+      <div className={style.category}>
+        <h2>{filtersTitle}</h2>
+        <ul className={style.filters}>
+          {CategoriesDiv}
+        </ul>
       </div>
-    );
-  };
-
-  Categories.validate = createValidate(conditions);
-  return Categories;
+    </div>
+  );
 };
+
+Categories.contextTypes = {
+  translate: React.PropTypes.func
+};
+
+Categories.propTypes = {
+  categories: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      href: PropTypes.string,
+      selected: PropTypes.bool
+    }).isRequired
+  ).isRequired
+};
+export default Categories;

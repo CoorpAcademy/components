@@ -1,6 +1,6 @@
 export default {
   props: {
-    ref: 'facebook',
+    type: 'facebook',
     link: 'http://www.facebook.com/pages/Elephant/146865738800649'
   }
 };

@@ -1,97 +1,88 @@
-import {checker, createValidate} from '../../util/validation';
-import createLink from '../link';
-import AddClassBehaviour from '../../behaviour/effects/add-class';
-import HoverFillBehaviour from '../../behaviour/effects/hover-fill';
+import React, {PropTypes} from 'react';
+import * as CustomPropTypes from '../../util/proptypes';
+import Link from '../link';
+import addClassName from '../../util/add-class-name';
 import style from './style.css';
+import {hoverFill} from './hover-fill.css';
 
-const conditions = checker.shape({
-  props: checker.shape({
-    background: checker.color.optional,
-    color: checker.color.optional,
-    submitValue: checker.string,
-    centered: checker.bool.optional,
-    disabled: checker.bool.optional,
-    href: checker.string.optional,
-    target: checker.oneOf(['_self', '_blank', '_parent', '_top']).optional,
-    onClick: checker.func.optional
-  }),
-  children: checker.none
-});
+const Button = ({children, ...props}) => {
+  const {
+    className,
+    color,
+    submitValue,
+    centered,
+    disabled,
+    href,
+    type = 'submit',
+    target = '_blank',
+    onClick
+  } = props;
 
-export default (treant, options) => {
-  const {h} = treant;
+  const centeredStyle = centered ? {
+    margin: '0 auto',
+    display: 'block'
+  } : {};
 
-  const HoverFill = HoverFillBehaviour(treant, options);
-  const Link = createLink(treant, options);
-  const AddClass = AddClassBehaviour(treant, options);
+  let buttonContent;
+  switch (type) {
+    case 'link':
+      buttonContent = (
+        <Link
+          href={href}
+          target={target}
+        >
+          {submitValue || children}
+        </Link>
+      );
+      break;
 
-  const Button = (props, children) => {
-    const {
-      className,
-      color,
-      submitValue,
-      centered,
-      disabled,
-      href,
-      type = 'submit',
-      target = '_blank',
-      onClick
-    } = props;
+    case 'a':
+      buttonContent = (
+        <a
+          href={href}
+          target={target}
+        >
+          {submitValue || children}
+        </a>
+      );
+      break;
 
-    const centeredStyle = centered && {
-      margin: '0 auto',
-      display: 'block'
-    };
+    default:
+      buttonContent = (
+        <input
+          type={type}
+          value={submitValue}
+          disabled={disabled}
+          onClick={onClick}
+          style={{
+            color
+          }}
+        />
+      );
+  }
 
-    let buttonContent;
-    switch (type) {
-      case 'link':
-        buttonContent = (
-          <Link href={href}>
-            {submitValue}
-          </Link>
-        );
-        break;
-
-      case 'a':
-        buttonContent = (
-          <a
-            href={href}
-            target={target}
-          >
-            {submitValue}
-          </a>
-        );
-        break;
-
-      default:
-        buttonContent = (
-          <input
-            type={type}
-            value={submitValue}
-            disabled={disabled}
-            onClick={onClick}
-            style={{
-              color
-            }}
-          />
-        );
-    }
-
-    return (
-      <AddClass className={className}>
-        <HoverFill>
-          <div
-            className={style.button}
-            style={centeredStyle}
-          >
-            {buttonContent}
-          </div>
-        </HoverFill>
-      </AddClass>
-    );
-  };
-
-  Button.validate = createValidate(conditions);
-  return Button;
+  return (
+    <div
+      style={centeredStyle}
+      {...addClassName(`${style.button} ${hoverFill}`)({
+        className
+      })}
+    >
+      {buttonContent}
+    </div>
+  );
 };
+
+Button.propTypes = {
+  background: CustomPropTypes.color,
+  color: CustomPropTypes.color,
+  submitValue: PropTypes.string,
+  centered: PropTypes.bool,
+  disabled: PropTypes.bool,
+  href: PropTypes.string,
+  target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
+  onClick: PropTypes.func,
+  children: PropTypes.node
+};
+
+export default Button;

@@ -1,46 +1,36 @@
-import {checker, createValidate} from '../../util/validation';
-import createPicture from '../../atom/picture';
+import React, {PropTypes} from 'react';
+import Picture from '../../atom/picture';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.shape({
-    image: checker.string.optional,
-    title: checker.string.optional,
-    description: checker.string.optional
-  }),
-  children: checker.none
-});
+const CursusHeader = props => {
+  const {image, title, description} = props;
 
-export default (treant, options = {}) => {
-  const Picture = createPicture(treant, options);
+  const imageView = image && (
+    <Picture
+      src={image}
+    />
+  );
 
-  const CursusHeader = (props, children) => {
-    const {h} = treant;
-    const {image, title, description} = props;
-
-    const imageView = image && (
-      <Picture
-        src={image}
-      />
-    );
-
-    return (
-      <div>
-        <div className={style.imgWrapper}>
-          {imageView}
-          <div className={style.title}>
-            {title}
-          </div>
-        </div>
-        <div className={style.courseWrapper}>
-            <div className={style.desc}>
-              {description}
-            </div>
+  return (
+    <div>
+      <div className={style.imgWrapper}>
+        {imageView}
+        <div className={style.title}>
+          {title}
         </div>
       </div>
-    );
-  };
-
-  CursusHeader.validate = createValidate(conditions);
-  return CursusHeader;
+      <div className={style.courseWrapper}>
+        <div className={style.desc}>
+          {description}
+        </div>
+      </div>
+    </div>
+  );
 };
+
+CursusHeader.propTypes = {
+  image: PropTypes.string,
+  title: PropTypes.string,
+  description: PropTypes.string
+};
+export default CursusHeader;

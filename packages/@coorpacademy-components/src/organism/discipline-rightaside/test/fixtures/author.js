@@ -4,11 +4,11 @@ export default {
       href: 'http://google.fr',
       socialLinks: [
         {
-          ref: 'facebook',
+          type: 'facebook',
           link: 'http://www.facebook.com/pages/Elephant/146865738800649'
         },
         {
-          ref: 'twitter',
+          type: 'twitter',
           link: 'https://twitter.com/7A8officiel'
         }
       ]

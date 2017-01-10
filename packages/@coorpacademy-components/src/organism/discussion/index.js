@@ -1,75 +1,68 @@
-import {checker, createValidate} from '../../util/validation';
-import createForumComment from '../../molecule/forum/forum-comment';
-import createForumThread from '../../molecule/forum/forum-thread';
+import React, {PropTypes} from 'react';
+import * as CustomPropTypes from '../../util/proptypes';
+import ForumComment from '../../molecule/forum/forum-comment';
+import ForumThread from '../../molecule/forum/forum-thread';
 import postConditions from '../../molecule/forum/post-conditions';
-import createLoader from '../../atom/loader';
+import Loader from '../../atom/loader';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.shape({
-    avatar: checker.url.optional,
-    loading: checker.bool.optional,
-    value: checker.string.optional,
-    onPost: checker.func.optional,
-    onChange: checker.func.optional,
-    threads: checker.arrayOf(postConditions).optional,
-    textareaDisabled: checker.bool.optional,
-    postDisabled: checker.bool.optional
-  }).optional,
-  children: checker.none
-});
+function Discussion(props) {
+  const {
+    threads = [],
+    title,
+    avatar,
+    value,
+    loading,
+    onPost,
+    onChange,
+    hideComments,
+    textareaDisabled,
+    postDisabled
+  } = props;
 
-export default (treant, options = {}) => {
-  const {h} = treant;
-  const Thread = createForumThread(treant, options);
-  const ForumComment = createForumComment(treant, options);
-  const Loader = createLoader(treant, options);
+  const threadsView = threads.map(thread => (
+    <ForumThread
+      key={thread.id}
+      {...thread}
+    />
+  ));
 
-  const Discussion = (props, children) => {
-    const {
-      threads,
-      title,
-      avatar,
-      value,
-      loading,
-      onPost,
-      onChange,
-      hideComments,
-      textareaDisabled,
-      postDisabled
-    } = props;
+  const commentView = !hideComments && (
+    <ForumComment
+      avatar={avatar}
+      value={value}
+      onPost={onPost}
+      onChange={onChange}
+      textareaDisabled={textareaDisabled}
+      postDisabled={postDisabled}
+    />
+  );
 
-    const threadsView = threads && threads.map(thread => (
-      <Thread {...thread}/>
-    ));
+  const loader = loading && (
+    <div className={style.loader}>
+      <Loader />
+    </div>
+  );
 
-    const commentView = !hideComments && (
-      <ForumComment
-        avatar={avatar}
-        value={value}
-        onPost={onPost}
-        onChange={onChange}
-        textareaDisabled={textareaDisabled}
-        postDisabled={postDisabled}
-      />
-    );
+  return (
+    <div className={style.thread}>
+      <h1>{title}</h1>
+      {commentView}
+      {threadsView}
+      {loader}
+    </div>
+  );
+}
 
-    const loader = loading && (
-      <div className={style.loader}>
-        <Loader/>
-      </div>
-    );
-
-    return (
-      <div className={style.thread}>
-        <h1>{title}</h1>
-        {commentView}
-        {threadsView}
-        {loader}
-      </div>
-    );
-  };
-
-  Discussion.validate = createValidate(conditions);
-  return Discussion;
+Discussion.propTypes = {
+  avatar: CustomPropTypes.url,
+  loading: PropTypes.bool,
+  value: PropTypes.string,
+  onPost: PropTypes.func,
+  onChange: PropTypes.func,
+  threads: PropTypes.arrayOf(PropTypes.shape(postConditions)),
+  textareaDisabled: PropTypes.bool,
+  postDisabled: PropTypes.bool
 };
+
+export default Discussion;

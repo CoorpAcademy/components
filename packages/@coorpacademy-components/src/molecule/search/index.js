@@ -1,39 +1,33 @@
-import {checker, createValidate} from '../../util/validation';
+import React, {PropTypes} from 'react';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.shape({
-    value: checker.string.optional,
-    placeholder: checker.string,
-    onChange: checker.func
-  }),
-  children: checker.none
-});
+const Search = props => {
+  const {
+    value,
+    placeholder,
+    onChange
+  } = props;
 
-export default (treant, options) => {
-  const {h} = treant;
+  const handleChange = e => onChange(e.target.value);
 
-  const Search = (props, children) => {
-    const {
-      value,
-      placeholder,
-      onChange
-    } = props;
-
-    return (
-      <div className={style.wrapper}>
-        <input
-          className={style.search}
-          type='text'
-          name='search'
-          placeholder={placeholder}
-          value={value}
-          onInput={e => onChange(e.target.value)}
-        />
-      </div>
-    );
-  };
-
-  Search.validate = createValidate(conditions);
-  return Search;
+  return (
+    <div className={style.wrapper}>
+      <input
+        className={style.search}
+        type='text'
+        name='search'
+        placeholder={placeholder}
+        value={value}
+        onInput={handleChange}
+      />
+    </div>
+  );
 };
+
+Search.propTypes = {
+  value: PropTypes.string,
+  placeholder: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired
+};
+
+export default Search;

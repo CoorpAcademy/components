@@ -1,6 +1,6 @@
 export default {
   props: {
-    background: '#765',
+    background: '#776655',
     state: {
       checked: false,
       label: 'foo'

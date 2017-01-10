@@ -1,10 +1,8 @@
-const content = (treant, options) => {
-  return 'link';
-};
+import React from 'react';
 
 export default {
   props: {
     href: '#'
   },
-  children: [content]
+  children: ['link']
 };

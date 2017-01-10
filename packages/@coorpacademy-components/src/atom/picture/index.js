@@ -1,3 +1,4 @@
+import React, {PropTypes} from 'react';
 import pipe from 'lodash/fp/pipe';
 import map from 'lodash/fp/map';
 import get from 'lodash/fp/get';
@@ -6,18 +7,8 @@ import toPairs from 'lodash/fp/toPairs';
 import join from 'lodash/fp/join';
 import isObject from 'lodash/fp/isObject';
 import isNil from 'lodash/fp/isNil';
-import {checker, createValidate} from '../../util/validation';
+import * as CustomPropTypes from '../../util/proptypes';
 import style from './style.css';
-
-const conditions = checker.shape({
-  props: checker.shape({
-    src: checker.oneOfType([
-      checker.string,
-      checker.objectOf(checker.url)
-    ]).optional
-  }),
-  children: checker.none
-});
 
 const toSrcSet = ({src}) => {
   if (!isObject(src)) return {};
@@ -31,23 +22,29 @@ const toSrcSet = ({src}) => {
   )({});
 };
 
-export default ({h}, options = {}) => {
-  const Picture = (props = {}) => {
-    if (isNil(props.src)) {
-      return <div
-        className={style.empty}
-      />;
-    }
-
+const Picture = props => {
+  if (isNil(props.src)) {
     return (
-      <img
-        alt=''
-        {...props}
-        {...toSrcSet(props)}
+      <div
+        className={style.empty}
       />
     );
-  };
+  }
 
-  Picture.validate = createValidate(conditions);
-  return Picture;
+  return (
+    <img
+      alt=''
+      {...props}
+      {...toSrcSet(props)}
+    />
+  );
 };
+
+Picture.propTypes = {
+  src: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.objectOf(CustomPropTypes.url)
+  ])
+};
+
+export default Picture;

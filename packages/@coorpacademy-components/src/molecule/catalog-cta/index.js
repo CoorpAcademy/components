@@ -1,61 +1,67 @@
-import hyperx from 'hyperx';
+import React, {PropTypes} from 'react';
 import identity from 'lodash/fp/identity';
-import {checker, createValidate} from '../../util/validation';
-import createStarRating from '../../molecule/star-rating';
-import HoverFillBehaviour from '../../behaviour/effects/hover-fill';
+import StarRating from '../../molecule/star-rating';
+import {hoverFill} from '../../atom/button/hover-fill.css';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.shape({
-    rating: checker.number.optional,
-    maxRating: checker.number.optional,
-    linkTry: checker.string.optional,
-    linkBuy: checker.string.optional
-  }),
-  children: checker.none
-});
+const CatalogCTA = (props, context) => {
+  const {
+    rating,
+    maxRating,
+    linkBuy = '#',
+    linkTry = '#'
+  } = props;
+  const {
+    translate = identity
+  } = context;
 
-export default (treant, options = {}) => {
-  const {h} = treant;
-  const hx = hyperx(h);
-  const {translate = identity} = options;
+  const startLearning = (
+    <span
+      dangerouslySetInnerHTML={{ // eslint-disable-line react/no-danger
+        __html: translate('Start <span>learning</span>')
+      }}
+    />
+  );
+  const premium = (
+    <span
+      dangerouslySetInnerHTML={{ // eslint-disable-line react/no-danger
+        __html: translate('Coorpacademy <span>subscription</span>')
+      }}
+    />
+  );
 
-  const startLearning = hx(`<span>${translate('Start <span>learning</span>')}</span>`);
-  const premium = hx(`<span>${translate('Coorpacademy <span>subscription</span>')}</span>`);
-
-  const StarRating = createStarRating(treant, options);
-  const HoverFill = HoverFillBehaviour(treant, options);
-
-  const CatalogCTA = (props, children) => {
-    const {
-      rating,
-      maxRating,
-      linkBuy = '#',
-      linkTry = '#'
-    } = props;
-
-    return (
-      <div className={style.head}>
-        <div className={style.starRating}>
-          <StarRating
-            rating={rating}
-            total={maxRating}
-          />
-        </div>
-        <HoverFill>
-          <a className={style.try} href={linkTry}>
-            {startLearning}
-          </a>
-        </HoverFill>
-        <HoverFill>
-          <a className={style.buy} href={linkBuy}>
-            {premium}
-          </a>
-        </HoverFill>
+  return (
+    <div className={style.head}>
+      <div className={style.starRating}>
+        <StarRating
+          rating={rating}
+          total={maxRating}
+        />
       </div>
-    );
-  };
-
-  CatalogCTA.validate = createValidate(conditions);
-  return CatalogCTA;
+      <a
+        className={`${style.try} ${hoverFill}`}
+        href={linkTry}
+      >
+        {startLearning}
+      </a>
+      <a
+        className={`${style.buy} ${hoverFill}`}
+        href={linkBuy}
+      >
+        {premium}
+      </a>
+    </div>
+  );
 };
+
+CatalogCTA.contextTypes = {
+  translate: React.PropTypes.func
+};
+
+CatalogCTA.propTypes = {
+  rating: PropTypes.number,
+  maxRating: PropTypes.number,
+  linkTry: PropTypes.string,
+  linkBuy: PropTypes.string
+};
+export default CatalogCTA;

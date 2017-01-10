@@ -8,14 +8,18 @@ export default {
     content: {
       groups: [{
         fields: [{
+          type: 'switch',
           title: 'Desactivate',
           value: true
         }]
       }, {
+        title: 'noop',
         disabled: false
       }, {
+        title: 'noop',
         disabled: false
       }, {
+        title: 'noop',
         disabled: false
       }]
     }

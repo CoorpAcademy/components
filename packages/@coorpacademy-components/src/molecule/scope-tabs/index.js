@@ -1,34 +1,35 @@
-import {checker, createValidate} from '../../util/validation';
+import React, {PropTypes} from 'react';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.shape({
-    selected: checker.number.optional,
-    onClick: checker.func.optional,
-    levels: checker.arrayOf(checker.string).optional
-  }),
-  children: checker.none
-});
+const ScopeTabs = props => {
+  const {
+    onClick,
+    selected = 0,
+    levels = []
+  } = props;
 
-export default (treant, options = {}) => {
-  const ScopeTabs = props => {
-    const {h} = treant;
-    const {onClick, selected = 0, levels = []} = props;
-
-    return (
-      <ul className={style.tabs}>
-        {levels.map((level, index) => (
+  return (
+    <ul className={style.tabs}>
+      {levels.map((level, index) => {
+        const handleClick = () => onClick(index);
+        return (
           <li
-            onClick={() => onClick(index)}
+            key={index}
+            onClick={handleClick}
             className={selected === index ? style.currentTab : style.tab}
           >
             {level}
           </li>
-        ))}
-      </ul>
-    );
-  };
-
-  ScopeTabs.validate = createValidate(conditions);
-  return ScopeTabs;
+        );
+      })}
+    </ul>
+  );
 };
+
+ScopeTabs.propTypes = {
+  selected: PropTypes.number,
+  onClick: PropTypes.func,
+  levels: PropTypes.arrayOf(PropTypes.string)
+};
+
+export default ScopeTabs;

@@ -1,27 +1,19 @@
+import React, {PropTypes} from 'react';
 import identity from 'lodash/fp/identity';
-import {checker, createValidate} from '../../../util/validation';
-import createCategories from '../../../molecule/categories';
-import createCursusList from '../../../molecule/cursus-list';
-import createCatalogCards from '../../../organism/catalog-cards';
+import Categories from '../../../molecule/categories';
+import CursusList from '../../../molecule/cursus-list';
+import CatalogCards from '../../../organism/catalog-cards';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.shape({
-    products: checker.oneOfType([checker.arrayOf(checker.object), checker.null]).optional,
-    categories: checker.arrayOf(checker.object),
-    cursuses: checker.arrayOf(checker.object).optional
-  }),
-  children: checker.none
-});
+const Catalog = (props, context) => {
+  const {translate = identity} = context;
+  const {
+    categories,
+    products = null,
+    cursuses
+  } = props;
 
-export default (treant, options = {}) => {
-  const {h} = treant;
-  const {translate = identity} = options;
-  const Categories = createCategories(treant, options);
-  const CursusList = createCursusList(treant, options);
-  const CatalogCards = createCatalogCards(treant, options);
-
-  const Catalog = ({categories, products = null, cursuses}, children) => (
+  return (
     <div className={style.wrapper}>
       <h1 className={style.title}>{translate('Catalog')}</h1>
       <div className={style.catalogWrapper}>
@@ -41,7 +33,18 @@ export default (treant, options = {}) => {
       </div>
     </div>
   );
-
-  Catalog.validate = createValidate(conditions);
-  return Catalog;
 };
+
+Catalog.contextTypes = {
+  translate: React.PropTypes.func
+};
+
+Catalog.propTypes = {
+  products: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.object)
+  ]),
+  categories: PropTypes.arrayOf(PropTypes.object).isRequired,
+  cursuses: PropTypes.arrayOf(PropTypes.object)
+};
+
+export default Catalog;

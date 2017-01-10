@@ -1,57 +1,54 @@
+import React, {PropTypes} from 'react';
 import identity from 'lodash/fp/identity';
-import createLink from '../../atom/link';
-import {checker, createValidate} from '../../util/validation';
+import Link from '../../atom/link';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.shape({
-    cursuses: checker.arrayOf(
-      checker.shape({
-        href: checker.string.optional,
-        title: checker.string.optional
-      })
-    ).optional
-  }),
-  children: checker.none
-});
-
-export default (treant, options = {}) => {
-  const {h} = treant;
-  const {translate = identity} = options;
+const CursusList = (props, context) => {
+  const {translate = identity} = context;
+  const {cursuses = []} = props;
   const listTitle = translate('Training Packages');
+  const CursusesDiv = cursuses.map((cursus, index) => {
+    const {title, href, selected} = cursus;
 
-  const Link = createLink(treant, options);
-
-  const CursusList = ({cursuses = []}, children) => {
-    const CursusesDiv = cursuses.map(cursus => {
-      const {title, href, selected} = cursus;
-
-      const linkProps = selected ? {
-        className: style.selected
-      } : {};
-
-      return (
-        <li className={style.cursus}>
-          <Link
-            {...linkProps}
-            href={href}
-          >
-            {title}
-          </Link>
-        </li>
-      );
-    });
+    const linkProps = selected ? {
+      className: style.selected
+    } : {};
 
     return (
-      <div className={style.cursuses}>
-        <h2 className={style.title}>{listTitle}</h2>
-        <ul className={style.list}>
-          {CursusesDiv}
-        </ul>
-      </div>
+      <li
+        className={style.cursus}
+        key={index}
+      >
+        <Link
+          {...linkProps}
+          href={href}
+        >
+          {title}
+        </Link>
+      </li>
     );
-  };
+  });
 
-  CursusList.validate = createValidate(conditions);
-  return CursusList;
+  return (
+    <div className={style.cursuses}>
+      <h2 className={style.title}>{listTitle}</h2>
+      <ul className={style.list}>
+        {CursusesDiv}
+      </ul>
+    </div>
+  );
 };
+
+CursusList.contextTypes = {
+  translate: React.PropTypes.func
+};
+
+CursusList.propTypes = {
+  cursuses: PropTypes.arrayOf(
+    PropTypes.shape({
+      href: PropTypes.string,
+      title: PropTypes.string
+    })
+  )
+};
+export default CursusList;

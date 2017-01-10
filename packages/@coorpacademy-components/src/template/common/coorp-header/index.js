@@ -1,30 +1,26 @@
+import React, {PropTypes} from 'react';
 import identity from 'lodash/fp/identity';
-import {checker, createValidate} from '../../../util/validation';
-import createHeader from '../../../organism/header';
+import * as CustomPropTypes from '../../../util/proptypes';
+import Header from '../../../organism/header';
 import content from './content';
 
-const conditions = checker.shape({
-  props: checker.shape({
-    rootUrl: checker.url.optional,
-    connexionLink: checker.url.optional,
-    inscriptionLink: checker.url.optional
-  }),
-  children: checker.none
-});
+const CoorpHeader = (props, context) => {
+  const {translate = identity} = context;
+  const headerProps = content(translate, props);
 
-export default (treant, options = {}) => {
-  const {h} = treant;
-  const {translate = identity} = options;
-  const Header = createHeader(treant, options);
-
-  const CoorpHeader = (props, children) => {
-    const headerProps = content(translate, props);
-
-    return (
-      <Header {...headerProps}/>
-    );
-  };
-
-  CoorpHeader.validate = createValidate(conditions);
-  return CoorpHeader;
+  return (
+    <Header {...headerProps} />
+  );
 };
+
+CoorpHeader.contextTypes = {
+  translate: React.PropTypes.func
+};
+
+CoorpHeader.propTypes = {
+  rootUrl: CustomPropTypes.url,
+  connexionLink: CustomPropTypes.url,
+  inscriptionLink: CustomPropTypes.url
+};
+
+export default CoorpHeader;

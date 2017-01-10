@@ -2,15 +2,8 @@ import express from 'express';
 import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
-import map from 'lodash/fp/map';
 import config from './webpack.config';
 import ssrMiddleware from './ssr';
-
-const engines = [
-  'Virtualdom',
-  'React',
-  'Snabbdom'
-];
 
 const app = express();
 
@@ -24,16 +17,7 @@ app.use(
   webpackHotMiddleware(compiler)
 );
 
-app.use('/:engine', ssrMiddleware);
-
-app.get('/', (req, res) => {
-  res.send(`
-    <h1>Sandbox</h1>
-    <ul>
-      ${map(engineName => `<li><a href="/${engineName}/">${engineName}</a></li>`, engines).join('')}
-    </ul>
-  `);
-});
+app.use('/', ssrMiddleware);
 
 if (!module.parent) {
   app.listen(3004);

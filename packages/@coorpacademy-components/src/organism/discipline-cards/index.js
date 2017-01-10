@@ -1,56 +1,52 @@
+import React, {PropTypes} from 'react';
 import set from 'lodash/fp/set';
-import {checker, createValidate} from '../../util/validation';
-import createDisciplineCard from '../../molecule/discipline-card';
-import createThemeImage from '../../molecule/theme-image';
+import map from 'lodash/fp/map';
+import DisciplineCard from '../../molecule/discipline-card';
+import ThemeImage from '../../molecule/theme-image';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.shape({
-    disciplines: checker.array,
-    onModuleClick: checker.func,
-    onDisciplineClick: checker.func,
-    theme: checker.oneOf(['default', 'circle']).optional,
-    image: checker.string.optional
-  }),
-  children: checker.none
-});
+function DisciplineCards(props) {
+  const {
+    image = 'bg',
+    onModuleClick,
+    onDisciplineClick,
+    theme = 'default',
+    disciplines = []
+  } = props;
 
-export default (treant, options = {}) => {
-  const {h} = treant;
-  const DisciplineCard = createDisciplineCard(treant, options);
-  const ThemeImage = createThemeImage(treant, options);
+  const fixedDisciplines = disciplines.length > 0 ?
+    set('[0].row', theme === 'circle', props.disciplines) :
+    disciplines;
 
-  const DisciplineCards = (props, children) => {
-    const {onModuleClick, onDisciplineClick, theme = 'default' } = props;
-
-    if (props.disciplines.length > 0) {
-      props.disciplines = set('[0].row', theme === 'circle', props.disciplines);
-    }
-
-    const disciplines = props.disciplines.map(discipline => {
-      return (
-        <DisciplineCard
-          discipline = {discipline}
-          onClick = {onDisciplineClick}
-          onModuleClick = {onModuleClick}
-          theme = {theme}
-          key = {discipline.ref}
-          row = {discipline.row}
-        >
-        </DisciplineCard>
-      );
-    });
-
+  const disciplineViews = map(discipline => {
     return (
-      <div className={style.default}>
-        <ThemeImage image={props.image} />
-        <div className={style.cardsWrapper}>
-          {disciplines}
-        </div>
-      </div>
+      <DisciplineCard
+        discipline={discipline}
+        key={discipline.ref}
+        onClick={onDisciplineClick}
+        onModuleClick={onModuleClick}
+        row={discipline.row}
+        theme={theme}
+      />
     );
-  };
+  }, fixedDisciplines);
 
-  DisciplineCards.validate = createValidate(conditions);
-  return DisciplineCards;
+  return (
+    <div className={style.default}>
+      <ThemeImage image={image} />
+      <div className={style.cardsWrapper}>
+        {disciplineViews}
+      </div>
+    </div>
+  );
+}
+
+DisciplineCards.propTypes = {
+  disciplines: PropTypes.arrayOf(PropTypes.object),
+  image: PropTypes.string,
+  onDisciplineClick: PropTypes.func.isRequired,
+  onModuleClick: PropTypes.func.isRequired,
+  theme: PropTypes.oneOf(['default', 'circle'])
 };
+
+export default DisciplineCards;

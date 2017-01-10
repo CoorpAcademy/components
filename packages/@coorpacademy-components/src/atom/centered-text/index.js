@@ -1,24 +1,13 @@
-import {checker, createValidate} from '../../util/validation';
-import AlignCenterBehaviour from '../../behaviour/align/centered/';
+import React, {PropTypes} from 'react';
 
-const conditions = checker.shape({
-  props: checker.none,
-  children: checker.oneOrMore
-});
+const CenteredText = ({children}) => (
+  <div>
+    {children}
+  </div>
+);
 
-export default (treant, options = {}) => {
-  const {h} = treant;
-
-  const AlignCenter = AlignCenterBehaviour(treant, options);
-
-  const CenteredText = ({title, categories, products}, children) => (
-    <AlignCenter>
-      <div>
-        {children}
-      </div>
-    </AlignCenter>
-  );
-
-  CenteredText.validate = createValidate(conditions);
-  return CenteredText;
+CenteredText.propTypes = {
+  children: PropTypes.node
 };
+
+export default CenteredText;

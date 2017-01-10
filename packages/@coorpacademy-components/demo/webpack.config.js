@@ -12,6 +12,7 @@ const addHMR = entries => {
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
 export default ({
+  devtool: 'source-map',
   output: {
     library: 'Coorponents',
     filename: '[name].js',

@@ -1,133 +1,131 @@
-import {checker, createValidate} from '../../util/validation';
-import createLink from '../../atom/link';
+import React, {PropTypes} from 'react';
+import Checkbox from '../../atom/checkbox';
+import Link from '../../atom/link';
 import style from './style.css';
 
-const conditions = checker.shape({
-  props: checker.shape({
-    rows: checker.arrayOf(checker.shape({
-      fields: checker.arrayOf(checker.string.optional).optional,
-      editHref: checker.string
-    })),
-    columns: checker.arrayOf(checker.shape({
-      title: checker.string,
-      filtered: checker.bool.optional,
-      options: checker.arrayOf(checker.shape({
-        title: checker.string,
-        onChange: checker.func,
-        selected: checker.bool
-      })).optional
-    }))
-  }),
-  children: checker.none
-});
+const Table = props => {
+  const {
+    rows,
+    columns
+  } = props;
 
-export default (treant, opts = {}) => {
-  const {h} = treant;
-
-  const Link = createLink(treant, opts);
-
-  const Table = (props, children) => {
+  const headerView = columns.map((column, cIndex) => {
     const {
-      rows,
-      columns
-    } = props;
+      title,
+      filtered,
+      options = []
+    } = column;
 
-    const headerView = columns.map(column => {
-      const {
-        title,
-        filtered,
-        options = []
-      } = column;
+    const hasOptions = options.length > 0;
 
-      const hasOptions = options.length > 0;
+    const createOptionsView = _options => {
+      const optionsView = _options.map((option, oIndex) => {
+        const {
+          onChange,
+          selected
+        } = option;
 
-      const createOptionsView = _options => {
-        const optionsView = _options.map(option => {
-          const {
-            onChange,
-            selected
-          } = option;
-
-          return (
-            <div className={selected ? style.selected : style.option}>
-              <button onClick={onChange}>{option.title}</button>
-            </div>
-          );
-        });
-
-        return hasOptions ? (
-          <div className={style.options}>
-            {optionsView}
-          </div>
-        ) : null;
-      };
-
-      const optionsClassName = hasOptions ? style.toggle : style.noOptions;
-
-      return (
-        <th>
-          <div className={filtered ? style.filtered : optionsClassName} >
-            <input
-              type='checkbox'
-              id={title}
-              name={title}
-              className={style.checkbox}
-            />
-            <label htmlFor={title}>
-              {title}
-            </label>
-            {options.length > 0 ? createOptionsView(options) : null}
-          </div>
-        </th>
-      );
-    });
-
-    headerView.unshift((
-      <th>
-        <div className={style.noOptions}>
-        </div>
-      </th>
-    ));
-
-    const bodyView = rows.map(row => {
-      const {
-        fields = [],
-        editHref
-      } = row;
-
-      const tableRows = fields.map(field => {
         return (
-          <td>{field}</td>
+          <div
+            key={oIndex}
+            className={selected ? style.selected : style.option}
+          >
+            <button onClick={onChange}>{option.title}</button>
+          </div>
         );
       });
 
-      tableRows.unshift((
-        <td>
-          <Link className={style.editLink} href={editHref}></Link>
-        </td>
-      ));
+      return hasOptions ? (
+        <div className={style.options}>
+          {optionsView}
+        </div>
+      ) : null;
+    };
 
+    const optionsClassName = hasOptions ? style.toggle : style.noOptions;
+
+    return (
+      <th key={cIndex}>
+        <div className={filtered ? style.filtered : optionsClassName} >
+          <Checkbox
+            id={title}
+            name={title}
+            checked
+            className={style.checkbox}
+          />
+          <label htmlFor={title}>
+            {title}
+          </label>
+          {options.length > 0 ? createOptionsView(options) : null}
+        </div>
+      </th>
+    );
+  });
+
+  headerView.unshift((
+    <th key="header">
+      <div
+        className={style.noOptions}
+      />
+    </th>
+  ));
+
+  const bodyView = rows.map((row, index) => {
+    const {
+      fields = [],
+      editHref
+    } = row;
+
+    const tableRows = fields.map((field, fIndex) => {
       return (
-        <tr>{tableRows}</tr>
+        <td key={fIndex}>{field}</td>
       );
     });
 
-    return (
-      <div className={style.wrapper}>
-        <table className={style.table}>
-          <thead>
-            <tr>
-              {headerView}
-            </tr>
-          </thead>
-          <tbody>
-            {bodyView}
-          </tbody>
-        </table>
-      </div>
-    );
-  };
+    tableRows.unshift((
+      <td key="header">
+        <Link
+          className={style.editLink}
+          href={editHref}
+        />
+      </td>
+    ));
 
-  Table.validate = createValidate(conditions);
-  return Table;
+    return (
+      <tr key={index}>{tableRows}</tr>
+    );
+  });
+
+  return (
+    <div className={style.wrapper}>
+      <table className={style.table}>
+        <thead>
+          <tr>
+            {headerView}
+          </tr>
+        </thead>
+        <tbody>
+          {bodyView}
+        </tbody>
+      </table>
+    </div>
+  );
 };
+
+Table.propTypes = {
+  rows: PropTypes.arrayOf(PropTypes.shape({
+    fields: PropTypes.arrayOf(PropTypes.string),
+    editHref: PropTypes.string.isRequired
+  })).isRequired,
+  columns: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    filtered: PropTypes.bool,
+    options: PropTypes.arrayOf(PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      onChange: PropTypes.func.isRequired,
+      selected: PropTypes.bool.isRequired
+    }))
+  })).isRequired
+};
+
+export default Table;

@@ -6,9 +6,7 @@ import map from 'lodash/fp/map';
 import config from './webpack.config';
 
 const engines = [
-  'Virtualdom',
-  'React',
-  'Snabbdom'
+  'React'
 ];
 
 const app = express();
