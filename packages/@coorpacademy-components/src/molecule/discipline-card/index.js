@@ -51,9 +51,6 @@ function DisciplineCard(props, context) {
     </div>
   ) : null;
 
-  // ,
-  // backgroundImage: hideGradient
-
   const bar = (
     <div
       className={style.bar}
