@@ -13,7 +13,7 @@ const linkWithEngine = ($rootScope, scope, element, Provider, Component, options
 
     const vTree = (
       <Provider {...options}>
-        <Component {...props}/>
+        <Component {...props} />
       </Provider>
     );
 

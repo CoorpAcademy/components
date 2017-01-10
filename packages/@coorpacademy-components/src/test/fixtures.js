@@ -13,7 +13,7 @@ import Provider from '../atom/provider';
 import componentsList from '../util/list-components';
 import fixturesList from '../util/list-fixtures';
 
-const _require = file => require(relative(__dirname, file)).default;
+const _require = file => require(relative(__dirname, file)).default; // eslint-disable-line import/no-dynamic-require
 const mapObject = fn => pipe(toPairs, map(([key, value]) => fn(value, key)));
 
 const fullOptions = {

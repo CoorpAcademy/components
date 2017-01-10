@@ -44,7 +44,7 @@ const Select = props => {
     <div className={theme ? style[theme] : style.default}>
       <label>
         <span className={style.title}>{title}</span>
-        <div className={style.arrow}></div>
+        <div className={style.arrow} />
         <select
           onChange={handleChange}
           value={selected}
