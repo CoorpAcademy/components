@@ -3,6 +3,7 @@ export default {
     discipline: {
       ref: 1,
       label: 'Digital',
+      media: 'http://lorempixel.com/300/300/business',
       modules: [{
         ref: '0',
         label: 'foo',

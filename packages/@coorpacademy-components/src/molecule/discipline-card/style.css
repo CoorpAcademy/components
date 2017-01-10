@@ -1,6 +1,8 @@
 @value transitionTime: 0.5s;
 @value localTransition: border-radius transitionTime ease, height transitionTime ease;
 @value cardWidth: 205px;
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
 
 /*-------------------------------------------------- Card */
 
@@ -17,10 +19,6 @@
   animation-delay: 0s;
 }
 
-.circle {
-  composes: default;
-}
-
 .hidden {
   composes: default;
   height: 0;
@@ -31,8 +29,14 @@
   animation-name: disciplineCardFadeOut;
 }
 
-/*-------------------------------------------------- Text */
+@media mobile {
+  .default {
+    width: 90%;
+    margin: 5px;
+  }
+}
 
+/*-------------------------------------------------- Text */
 .area {
   position: relative;
   background: white;
@@ -42,48 +46,89 @@
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   transition: localTransition;
+  overflow: hidden;
 }
 
 .text {
   position: absolute;
   width: 100%;
   height: 100%;
-  padding: 10px;
+  padding: 10px 15px;
   box-sizing: border-box;
   display: flex;
   text-align: center;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-end;
+  justify-content: flex-start;
+  z-index: 2;
+}
+.wrapperCover {
+  width: 100%;
+  position: absolute;
+  z-index: 0;
+  height: 75px;
+  background-color: #fff;
+}
+.cover {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  opacity: 0.8;
 }
 
 .headerModule {
   margin: 0;
-}
-
-.circle .area {
-  width: 140px;
-  height: 140px;
-  border-radius: 70px;
-  margin: auto;
-  transition: localTransition;
-  transition-delay: 0s;
-  border-width: 3px;
-  border-style: solid;
-  margin-bottom: 10px;
-}
-
-.circle .area:hover {
-  box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.3);
-  color: #424242;
-}
-
-.circle .text {
+  font-size: 15px;
+  font-weight: bold;
   text-transform: uppercase;
-  font-size: 13px;
+  color: #fff;
+}
+.arrow {
+  display: none;
 }
 
-.circle .bar {
-  display: none;
+@media mobile {
+  .default{
+    box-shadow: 0 0 4px 1px rgba(0,0,0,0.10);
+  }
+  .area {
+    background-color: #fff;
+    background-image: none;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    font-size: 15px;
+    color: #010101;
+    letter-spacing: 0;
+  }
+  .wrapperCover {
+    display: none;
+  }
+  .bar {
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+  }
+  .text {
+    align-items: center;
+  }
+  .headerModule {
+    color: #010101;
+  }
+
+  .arrow {
+    display: block;
+    position: absolute;
+    right: 25px;
+    composes: fa from '../../variables/fontawesome.css';
+    composes: fa-chevron-right from '../../variables/fontawesome.css';
+  }
+
+  .arrow:before {
+    position: absolute;
+    font-size: 14px;
+    top: 50%;
+    margin-top: -6px;
+    color: #B0BEC5;
+  }
 }
 
 /*-------------------------------------------------- Modules */
@@ -93,9 +138,11 @@
   box-sizing: border-box;
   width: 100%;
   height: 70px;
-  background: rgba(236, 239, 241, 0.2);
+  background: #fff;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
+  border: solid 1px #E0E0E0;
+  border-top: 0;
   display: flex;
   justify-content: center;
   align-content: center;
@@ -108,8 +155,10 @@
   animation-delay: 0s;
 }
 
-.circle .moduleProgressionWrapper {
-  background: transparent;
+@media mobile {
+  .moduleProgressionWrapper{
+    display: none;
+  }
 }
 
 /*-------------------------------------------------- Animation */

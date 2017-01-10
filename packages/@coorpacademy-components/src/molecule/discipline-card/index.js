@@ -35,9 +35,16 @@ function DisciplineCard(props, context) {
   const label = translate(discipline.label);
   const hasCourse = discipline.courseNum !== 'undefined';
 
-  const defaultColor = props.theme === 'circle' ? getOr('#fff', 'common.primary', skin) : '#fff';
+  const defaultColor = getOr('#fff', 'common.primary', skin);
 
   const bg = getOr(defaultColor, ['courses', discipline.courseNum], skin);
+
+  const defaultBgColor = discipline.media ? getOr('#fff', 'common.primary', skin) : '#f0f';
+  const media = getOr(defaultBgColor, 'media', discipline);
+
+  const hidecover = discipline.media ? 'block' : 'none';
+  const hideGradient = discipline.media ? 'linear-gradient(-180deg, rgba(255,255,255,0.00) 0%, #000000 100%)' : '0';
+
   const bar = (
     <div
       className={style.bar}
@@ -60,6 +67,18 @@ function DisciplineCard(props, context) {
           borderColor: bg
         }}
       >
+        <div className={style.wrapperCover}
+             style={{
+              backgroundColor: defaultBgColor,
+              backgroundImage: hideGradient
+             }}
+        >
+          <img className={style.cover} src={media} 
+                style={{
+                  display: hidecover
+                 }}
+          />
+        </div>  
         <div
           className={style.text}
           onClick={click}
@@ -67,6 +86,7 @@ function DisciplineCard(props, context) {
           <p className={style.headerModule}>
             {label}
           </p>
+          <span className={style.arrow}></span>
         </div>
       </div>
 
@@ -95,7 +115,7 @@ DisciplineCard.propTypes = {
   }).isRequired,
   onClick: PropTypes.func.isRequired,
   onModuleClick: PropTypes.func.isRequired,
-  theme: PropTypes.oneOf(['default', 'circle']),
+  theme: PropTypes.oneOf(['default']),
   row: PropTypes.bool
 };
 
