@@ -2,7 +2,7 @@ import mapKeys from 'lodash/fp/mapKeys';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const linkWithEngine = ($rootScope, scope, element, Provider, Component, options) => {
+const _link = ($rootScope, $i18next, scope, element, Provider, Component) => {
   const update = vTree => {
     ReactDOM.render(vTree, element[0]);
   };
@@ -10,6 +10,11 @@ const linkWithEngine = ($rootScope, scope, element, Provider, Component, options
   const refresh = props => {
     if (props === undefined)
       return;
+
+    const options = {
+      skin: $rootScope.skin,
+      translate: $i18next
+    };
 
     const vTree = (
       <Provider {...options}>
@@ -30,13 +35,8 @@ const linkWithEngine = ($rootScope, scope, element, Provider, Component, options
 
 const createDirective = (app, componentName, Provider, Component) => {
   const directive = ($rootScope, $i18next) => {
-    const options = {
-      skin: $rootScope.skin,
-      translate: $i18next
-    };
-
     const link = (scope, element, attrs) => {
-      linkWithEngine($rootScope, scope, element, Provider, Component, options);
+      _link($rootScope, $i18next, scope, element, Provider, Component);
     };
 
     return {

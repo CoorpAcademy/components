@@ -12,9 +12,19 @@ class Provider extends React.Component {
     return this.state;
   }
 
+  componentWillReceiveProps(nextProps) {
+    const {store, history, skin, translate} = nextProps;
+    this.setState({
+      store,
+      history,
+      skin,
+      translate
+    });
+  }
+
   shouldComponentUpdate(nextProps, nextState) {
     const currentState = this.state;
-    return isEqual(currentState, nextState);
+    return !isEqual(currentState, nextState);
   }
 
   render() {
