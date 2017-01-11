@@ -9,7 +9,7 @@ const shallowCompare = (instance, nextProps, nextState, nextContext) => {
   return (
     !shallowEqual(instance.props, nextProps) ||
     !shallowEqual(instance.state, nextState) ||
-    (instance.context && !shallowEqual(instance.context, nextContext))
+    !shallowEqual(instance.context, nextContext)
   );
 };
 

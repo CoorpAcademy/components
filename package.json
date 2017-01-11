@@ -32,9 +32,6 @@
       "packages/**/src/**/test/**/*.js",
       "!**/node_module/**/*"
     ],
-    "files": [
-      "packages/@coorpacademy-components/src/test/fixtures.js"
-    ],
     "require": [
       "babel-core/register"
     ],
