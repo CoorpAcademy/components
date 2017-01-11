@@ -1,62 +1,75 @@
 import React, {PropTypes} from 'react';
+import isEqual from 'lodash/fp/isEqual';
 import filter from 'lodash/fp/filter';
 import find from 'lodash/fp/find';
 import get from 'lodash/fp/get';
 import map from 'lodash/fp/map';
+import shallowCompare from '../../util/shallow-compare';
 import style from './style.css';
 
-const Select = props => {
-  const {
-    options = [],
-    onChange,
-    multiple = false,
-    disabled,
-    required,
-    theme,
-    title: titleProps
-  } = props;
+class Select extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
-  const title = `${titleProps}${required ? '*' : ''} :`;
+  shouldComponentUpdate(nextProps, nextState, nextContext) {
+    return shallowCompare(this, nextProps, nextState, nextContext);
+  }
 
-  const optionList = options && options.map((option, index) => {
-    return (
-      <option
-        key={index}
-        value={option.value}
-      >
-        {option.name}
-      </option>
-    );
-  });
+  render() {
+    const {
+      options = [],
+      onChange,
+      multiple = false,
+      disabled,
+      required,
+      theme,
+      title: titleProps
+    } = this.props;
 
-  const selected = multiple ?
-    map(get('value'), filter({selected: true}, options)) :
-    get('value', find({selected: true}, options));
-  const handleChange = multiple ?
-    e => {
-      onChange(map(get('value'), e.target.selectedOptions));
-    } :
-    e => {
-      onChange(e.target.value);
-    };
+    const title = `${titleProps}${required ? '*' : ''} :`;
 
-  return (
-    <div className={theme ? style[theme] : style.default}>
-      <label>
-        <span className={style.title}>{title}</span>
-        <div className={style.arrow} />
-        <select
-          onChange={handleChange}
-          value={selected}
-          multiple={multiple}
-          disabled={disabled}
+    const optionList = options && options.map((option, index) => {
+      return (
+        <option
+          key={index}
+          value={option.value}
         >
-          {optionList}
-        </select>
-      </label>
-    </div>
-  );
-};
+          {option.name}
+        </option>
+      );
+    });
+
+    const selected = multiple ?
+      map(get('value'), filter({selected: true}, options)) :
+      get('value', find({selected: true}, options));
+
+    const handleChange = multiple ?
+      e => {
+        onChange(map(get('value'), e.target.selectedOptions));
+      } :
+      e => {
+        onChange(e.target.value);
+      };
+
+    return (
+      <div className={theme ? style[theme] : style.default}>
+        <label>
+          <span className={style.title}>{title}</span>
+          <div className={style.arrow} />
+          <select
+            onChange={handleChange}
+            value={selected}
+            multiple={multiple}
+            disabled={disabled}
+          >
+            {optionList}
+          </select>
+        </label>
+      </div>
+    );
+  }
+}
 
 Select.propTypes = {
   title: PropTypes.string.isRequired,
@@ -71,4 +84,5 @@ Select.propTypes = {
     selected: PropTypes.bool
   }))
 };
+
 export default Select;
