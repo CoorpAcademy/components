@@ -1,8 +1,7 @@
 import test from 'ava';
+import React from 'react';
 import isArray from 'lodash/fp/isArray';
 import contains from 'lodash/fp/contains';
-import React from 'react';
-import ReactDOM from 'react-dom';
 import createDirectives from '..';
 
 test('createDirectives should wrap factories as directive factories', t => {
@@ -16,7 +15,11 @@ test('createDirectives should wrap factories as directive factories', t => {
     directive: (_name, options) => app.directives.push(_name)
   };
 
-  createDirectives(app, React, ReactDOM, factories);
+  const Provider = (
+    <div />
+  );
+
+  createDirectives(app, Provider, factories);
 
   t.true(isArray(app.directives));
   t.true(contains('coorpStarRating', app.directives));

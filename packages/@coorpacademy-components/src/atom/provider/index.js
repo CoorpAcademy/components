@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
 import isEqual from 'lodash/fp/isEqual';
+import shallowCompare from '../../util/shallow-compare';
 
 class Provider extends React.Component {
   constructor(props, context) {
@@ -12,9 +13,18 @@ class Provider extends React.Component {
     return this.state;
   }
 
+  componentWillReceiveProps(nextProps) {
+    const {store, history, skin, translate} = nextProps;
+    this.setState({
+      store,
+      history,
+      skin,
+      translate
+    });
+  }
+
   shouldComponentUpdate(nextProps, nextState) {
-    const currentState = this.state;
-    return isEqual(currentState, nextState);
+    return shallowCompare(this, nextProps, nextState);
   }
 
   render() {

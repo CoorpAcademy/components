@@ -13,6 +13,7 @@ const ModuleBubble = (props, context) => {
     translate = identity,
     skin
   } = context;
+
   const {
     onClick,
     module: _module

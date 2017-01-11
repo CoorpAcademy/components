@@ -80,6 +80,11 @@ function DisciplineCard(props, context) {
   );
 }
 
+DisciplineCard.contextTypes = {
+  skin: React.PropTypes.object,
+  translate: React.PropTypes.func
+};
+
 DisciplineCard.propTypes = {
   discipline: PropTypes.shape({
     visible: PropTypes.bool,

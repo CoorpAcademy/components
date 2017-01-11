@@ -36,6 +36,11 @@ function ThemeImage({image}, {skin}) {
   );
 }
 
+ThemeImage.contextTypes = {
+  skin: React.PropTypes.object,
+  translate: React.PropTypes.func
+};
+
 ThemeImage.propTypes = {
   image: PropTypes.string.isRequired
 };
