@@ -1,6 +1,6 @@
-import prepareApp from './src/app';
-import runServer from './src/server';
-import webpackConfig from './webpack.config';
+import webpackConfig from '../webpack.config';
+import runServer from './server';
+import prepareApp from './app';
 
 export {
   prepareApp,
