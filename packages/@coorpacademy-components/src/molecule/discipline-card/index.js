@@ -33,21 +33,12 @@ function DisciplineCard(props, context) {
   const defaultColor = getOr('#fff', 'common.primary', skin);
   const barColor = getOr('transparent', ['courses', discipline.courseNum], skin);
 
-  const hidecover = discipline.media ? 'block' : 'none';
-
   const mediaDiv = discipline.media ? (
     <div className={style.coverWrapper}>
       <img className={style.cover}
         src={discipline.media}
-        style={{
-          display: hidecover
-        }}
       />
-      <div className={style.gradient}
-        style={{
-          display: hidecover
-        }}
-      />
+      <div className={style.gradient} />
     </div>
   ) : null;
 
