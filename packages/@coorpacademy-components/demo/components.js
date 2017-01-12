@@ -232,7 +232,6 @@ import CatalogCardsFixtureNoProducts from '../src/organism/catalog-cards/test/fi
 import CursusRightasideFixtureDefault from '../src/organism/cursus-rightaside/test/fixtures/default';
 import CursusRightasideFixtureEmpty from '../src/organism/cursus-rightaside/test/fixtures/empty';
 import DisciplineCardsFixtureEmpty from '../src/organism/discipline-cards/test/fixtures/empty';
-import DisciplineCardsFixtureManyDisciplinesCircle from '../src/organism/discipline-cards/test/fixtures/many-disciplines-circle';
 import DisciplineCardsFixtureManyDisciplines from '../src/organism/discipline-cards/test/fixtures/many-disciplines';
 import DisciplineRightasideFixtureAuthor from '../src/organism/discipline-rightaside/test/fixtures/author';
 import DisciplineRightasideFixtureDefault from '../src/organism/discipline-rightaside/test/fixtures/default';
@@ -663,7 +662,6 @@ export const fixtures = {
     },
     DisciplineCards: {
       Empty: DisciplineCardsFixtureEmpty,
-      ManyDisciplinesCircle: DisciplineCardsFixtureManyDisciplinesCircle,
       ManyDisciplines: DisciplineCardsFixtureManyDisciplines
     },
     DisciplineRightaside: {
