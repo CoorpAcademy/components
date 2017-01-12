@@ -43,7 +43,6 @@ import ProgressBar from '../src/molecule/progress-bar';
 import ScopeContent from '../src/molecule/scope-content';
 import ScopeTabs from '../src/molecule/scope-tabs';
 import Search from '../src/molecule/search';
-import SelectBox from '../src/molecule/select-box';
 import SsmenuList from '../src/molecule/ssmenu-list';
 import StarRating from '../src/molecule/star-rating';
 import Table from '../src/molecule/table';
@@ -186,9 +185,6 @@ import ScopeContentFixtureEmpty from '../src/molecule/scope-content/test/fixture
 import ScopeTabsFixtureDefault from '../src/molecule/scope-tabs/test/fixtures/default';
 import ScopeTabsFixtureEmpty from '../src/molecule/scope-tabs/test/fixtures/empty';
 import SearchFixtureDefault from '../src/molecule/search/test/fixtures/default';
-import SelectBoxFixtureDefaultTheme from '../src/molecule/select-box/test/fixtures/default-theme';
-import SelectBoxFixturePlainTheme from '../src/molecule/select-box/test/fixtures/plain-theme';
-import SelectBoxFixtureWithItems from '../src/molecule/select-box/test/fixtures/with-items';
 import SsmenuListFixtureCoorpacademy from '../src/molecule/ssmenu-list/test/fixtures/coorpacademy';
 import SsmenuListFixtureEmpty from '../src/molecule/ssmenu-list/test/fixtures/empty';
 import SsmenuListFixtureFormations from '../src/molecule/ssmenu-list/test/fixtures/formations';
@@ -340,7 +336,6 @@ export const components = {
     ScopeContent,
     ScopeTabs,
     Search,
-    SelectBox,
     SsmenuList,
     StarRating,
     Table,
@@ -588,11 +583,6 @@ export const fixtures = {
     },
     Search: {
       Default: SearchFixtureDefault
-    },
-    SelectBox: {
-      DefaultTheme: SelectBoxFixtureDefaultTheme,
-      PlainTheme: SelectBoxFixturePlainTheme,
-      WithItems: SelectBoxFixtureWithItems
     },
     SsmenuList: {
       Coorpacademy: SsmenuListFixtureCoorpacademy,

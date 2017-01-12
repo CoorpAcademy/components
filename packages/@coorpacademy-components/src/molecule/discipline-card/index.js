@@ -49,10 +49,9 @@ function DisciplineCard(props, context) {
   );
 
   return (
-    <div className={disciplineClass}
-      attributes={{
-        'data-name': 'discipline-card'
-      }}
+    <div
+      className={disciplineClass}
+      data-name='discipline-card'
       style={mainStyle}
     >
       <div
