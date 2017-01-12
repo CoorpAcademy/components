@@ -61,7 +61,6 @@ export ScopeContent from './molecule/scope-content';
 export ScopeTabs from './molecule/scope-tabs';
 export Search from './molecule/search';
 export Select from './atom/select';
-export SelectBox from './molecule/select-box';
 export SetupHeader from './organism/setup-header';
 export SocialLink from './atom/social-link';
 export Spinner from './atom/spinner';

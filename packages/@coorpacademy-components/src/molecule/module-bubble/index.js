@@ -33,10 +33,9 @@ const ModuleBubble = (props, context) => {
   const background = getOr('#fff', `mod[${_module.status}]`, skin);
 
   return (
-    <div className={filtered ? style.filtered : style.modulewrapper}
-      attributes={{
-        'data-name': 'module-bubble'
-      }}
+    <div
+      className={filtered ? style.filtered : style.modulewrapper}
+      data-name='module-bubble'
     >
       <div
         className={style.bubble}
