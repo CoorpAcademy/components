@@ -161,7 +161,6 @@ import CheckboxesFixtureSimple from '../src/molecule/checkboxes/test/fixtures/si
 import CursusHeaderFixtureDefault from '../src/molecule/cursus-header/test/fixtures/default';
 import CursusHeaderFixtureEmpty from '../src/molecule/cursus-header/test/fixtures/empty';
 import CursusListFixtureDefault from '../src/molecule/cursus-list/test/fixtures/default';
-import DisciplineCardFixtureAsRow from '../src/molecule/discipline-card/test/fixtures/as-row';
 import DisciplineCardFixtureHidden from '../src/molecule/discipline-card/test/fixtures/hidden';
 import DisciplineCardFixtureWithCourseNum from '../src/molecule/discipline-card/test/fixtures/with-course-num';
 import DisciplineCardFixtureWithModules from '../src/molecule/discipline-card/test/fixtures/with-modules';
@@ -539,7 +538,6 @@ export const fixtures = {
       Default: CursusListFixtureDefault
     },
     DisciplineCard: {
-      AsRow: DisciplineCardFixtureAsRow,
       Hidden: DisciplineCardFixtureHidden,
       WithCourseNum: DisciplineCardFixtureWithCourseNum,
       WithModules: DisciplineCardFixtureWithModules
