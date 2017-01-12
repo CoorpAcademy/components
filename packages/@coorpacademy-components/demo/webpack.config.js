@@ -1,6 +1,7 @@
 import {join} from 'path';
 import concat from 'lodash/fp/concat';
 import webpack from 'webpack';
+import autoprefixer from 'autoprefixer';
 
 const hash = '[folder]__[local]';
 
@@ -48,6 +49,18 @@ export default ({
       'process.env': {
         NODE_ENV: JSON.stringify(NODE_ENV)
       }
+    }),
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        postcss: {
+          plugins: [autoprefixer({
+            browsers: ['last 2 versions']
+          })]
+        },
+        context: __dirname
+      },
+      minimize: true,
+      debug: false
     }),
 
     new webpack.HotModuleReplacementPlugin(),
