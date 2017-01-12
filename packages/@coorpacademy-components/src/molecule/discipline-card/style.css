@@ -1,24 +1,22 @@
 @value transitionTime: 0.5s;
 @value localTransition: border-radius transitionTime ease, height transitionTime ease;
 @value cardWidth: 205px;
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
 
 /*-------------------------------------------------- Card */
 
 .default {
   display: inline-block;
   width: cardWidth;
-  margin: 10px;
   overflow: hidden;
   transition: localTransition;
   transition-delay: 0s;
+  border-radius: 3px;
 
   animation-name: disciplineCardFadeIn;
   animation-timing-function: ease-in-out;
   animation-delay: 0s;
-}
-
-.circle {
-  composes: default;
 }
 
 .hidden {
@@ -32,75 +30,85 @@
 }
 
 /*-------------------------------------------------- Text */
-
-.area {
+.disciplineWrapper {
   position: relative;
   background: white;
-  height: 75px;
+  height: 110px;
   margin: 0;
-  cursor: pointer;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
   transition: localTransition;
+  overflow: hidden;
 }
 
-.text {
+.coverWrapper {
+  width: 100%;
   position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.cover {
+  width: 100%;
+}
+
+.gradient {
+  background-image: linear-gradient(-180deg, rgba(255,255,255,0.00) 0%, #000000 100%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.textWrapper {
+  position: relative;
   width: 100%;
   height: 100%;
-  padding: 10px;
+  padding: 10px 15px;
   box-sizing: border-box;
   display: flex;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-end;
+  justify-content: flex-start;
+  cursor: pointer;
 }
 
-.headerModule {
-  margin: 0;
+.textWrapper:hover .title {
+  text-decoration: underline;
 }
 
-.circle .area {
-  width: 140px;
-  height: 140px;
-  border-radius: 70px;
-  margin: auto;
-  transition: localTransition;
-  transition-delay: 0s;
-  border-width: 3px;
-  border-style: solid;
-  margin-bottom: 10px;
+.title {
+  font-family: 'Open Sans';
+  font-size: 15px;
+  font-weight: 800;
+  color: #fff;
+  text-shadow: 0 0 2px rgba(0,0,0,0.50);
 }
 
-.circle .area:hover {
-  box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.3);
-  color: #424242;
+.bar {
+  height: 5px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }
 
-.circle .text {
-  text-transform: uppercase;
-  font-size: 13px;
-}
-
-.circle .bar {
+.arrow {
   display: none;
 }
 
-/*-------------------------------------------------- Modules */
-
-.moduleProgressionWrapper {
+.modulesWrapper {
   text-align: center;
   box-sizing: border-box;
   width: 100%;
   height: 70px;
-  background: rgba(236, 239, 241, 0.2);
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
+  background: #fff;
   display: flex;
   justify-content: center;
   align-content: center;
   align-items: center;
   transition: localTransition;
+  border: solid 1px #E0E0E0;
+  border-top: none;
 
   animation-duration: 0.3s;
   animation-name: disciplineCardFadeIn;
@@ -108,8 +116,61 @@
   animation-delay: 0s;
 }
 
-.circle .moduleProgressionWrapper {
-  background: transparent;
+@media mobile {
+
+  .default {
+    width: 100%;
+    margin: 5px;
+    box-shadow: 0 0 4px 1px rgba(0,0,0,0.10);
+  }
+
+  .disciplineWrapper {
+    height: 80px;
+    background-color: #fff;
+    background-image: none;
+    font-size: 15px;
+    color: #000;
+    letter-spacing: 0;
+  }
+
+  .coverWrapper {
+    display: none;
+  }
+
+  .textWrapper {
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .textWrapper:hover .title {
+    text-decoration: none;
+  }
+
+  .title {
+    color: #000;
+    text-shadow: none;
+  }
+
+  .arrow {
+    composes: fa from '../../variables/fontawesome.css';
+    composes: fa-chevron-right from '../../variables/fontawesome.css';
+    display: block;
+    width: 10px;
+    height: 20px;
+    margin-left: 20px;
+  }
+
+  .arrow:before {
+    position: absolute;
+    font-size: 14px;
+    top: 50%;
+    margin-top: -6px;
+    color: #B0BEC5;
+  }
+
+  .modulesWrapper{
+    display: none;
+  }
 }
 
 /*-------------------------------------------------- Animation */

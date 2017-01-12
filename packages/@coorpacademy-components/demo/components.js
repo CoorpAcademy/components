@@ -161,11 +161,8 @@ import CheckboxesFixtureSimple from '../src/molecule/checkboxes/test/fixtures/si
 import CursusHeaderFixtureDefault from '../src/molecule/cursus-header/test/fixtures/default';
 import CursusHeaderFixtureEmpty from '../src/molecule/cursus-header/test/fixtures/empty';
 import CursusListFixtureDefault from '../src/molecule/cursus-list/test/fixtures/default';
-import DisciplineCardFixtureAsRow from '../src/molecule/discipline-card/test/fixtures/as-row';
 import DisciplineCardFixtureHidden from '../src/molecule/discipline-card/test/fixtures/hidden';
-import DisciplineCardFixtureWithCourseNumCircle from '../src/molecule/discipline-card/test/fixtures/with-course-num-circle';
 import DisciplineCardFixtureWithCourseNum from '../src/molecule/discipline-card/test/fixtures/with-course-num';
-import DisciplineCardFixtureWithModulesCircle from '../src/molecule/discipline-card/test/fixtures/with-modules-circle';
 import DisciplineCardFixtureWithModules from '../src/molecule/discipline-card/test/fixtures/with-modules';
 import DisciplineHeaderFixtureDefault from '../src/molecule/discipline-header/test/fixtures/default';
 import DisciplineHeaderFixtureNoVideoNoImage from '../src/molecule/discipline-header/test/fixtures/no-video-no-image';
@@ -541,11 +538,8 @@ export const fixtures = {
       Default: CursusListFixtureDefault
     },
     DisciplineCard: {
-      AsRow: DisciplineCardFixtureAsRow,
       Hidden: DisciplineCardFixtureHidden,
-      WithCourseNumCircle: DisciplineCardFixtureWithCourseNumCircle,
       WithCourseNum: DisciplineCardFixtureWithCourseNum,
-      WithModulesCircle: DisciplineCardFixtureWithModulesCircle,
       WithModules: DisciplineCardFixtureWithModules
     },
     DisciplineHeader: {

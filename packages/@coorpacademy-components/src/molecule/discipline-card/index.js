@@ -9,19 +9,14 @@ import style from './style.css';
 
 function DisciplineCard(props, context) {
   const {translate = identity, skin} = context;
-  const {discipline, onClick, onModuleClick, row} = props;
+  const {discipline, onClick, onModuleClick} = props;
 
   const hidden = discipline.visible === false;
-  const disciplineClass = hidden ? style.hidden : style[(props.theme || 'default')];
+  const disciplineClass = hidden ? style.hidden : style.default;
   const rand = (Math.floor(Math.random() * 7) + 3) * .2;
   const duration = hidden ? 1 : rand;
   const animationDuration = `${duration}s`;
-
-  let mainStyle = {animationDuration};
-  if (row) {
-    mainStyle = set('width', '100%', mainStyle);
-    mainStyle = set('margin', '10px 0', mainStyle);
-  }
+  const mainStyle = {animationDuration};
 
   const modules = discipline.modules.map(_module => (
     <ModuleBubble
@@ -35,15 +30,35 @@ function DisciplineCard(props, context) {
   const label = translate(discipline.label);
   const hasCourse = discipline.courseNum !== 'undefined';
 
-  const defaultColor = props.theme === 'circle' ? getOr('#fff', 'common.primary', skin) : '#fff';
+  const defaultColor = getOr('#fff', 'common.primary', skin);
+  const barColor = getOr('transparent', ['courses', discipline.courseNum], skin);
 
-  const bg = getOr(defaultColor, ['courses', discipline.courseNum], skin);
+  const hidecover = discipline.media ? 'block' : 'none';
+
+  const mediaDiv = discipline.media ? (
+    <div className={style.coverWrapper}>
+      <img className={style.cover}
+        src={discipline.media}
+        style={{
+          display: hidecover
+        }}
+      />
+      <div className={style.gradient}
+        style={{
+          display: hidecover
+        }}
+      />
+    </div>
+  ) : null;
+
+  // ,
+  // backgroundImage: hideGradient
+
   const bar = (
     <div
       className={style.bar}
       style={{
-        background: bg,
-        height: '5px'
+        background: barColor
       }}
     />
   );
@@ -54,25 +69,20 @@ function DisciplineCard(props, context) {
       data-name='discipline-card'
       style={mainStyle}
     >
-      <div
-        className={style.area}
-        style={{
-          borderColor: bg
-        }}
-      >
+      <div className={style.disciplineWrapper}>
+        {mediaDiv}
         <div
-          className={style.text}
+          className={style.textWrapper}
           onClick={click}
         >
-          <p className={style.headerModule}>
+          <div className={style.title}>
             {label}
-          </p>
+          </div>
+          <span className={style.arrow} />
         </div>
+        {hasCourse && bar}
       </div>
-
-      {hasCourse && bar}
-
-      <div className={style.moduleProgressionWrapper}>
+      <div className={style.modulesWrapper}>
         {modules}
       </div>
     </div>
@@ -94,9 +104,7 @@ DisciplineCard.propTypes = {
     ).isRequired
   }).isRequired,
   onClick: PropTypes.func.isRequired,
-  onModuleClick: PropTypes.func.isRequired,
-  theme: PropTypes.oneOf(['default', 'circle']),
-  row: PropTypes.bool
+  onModuleClick: PropTypes.func.isRequired
 };
 
 export default DisciplineCard;
