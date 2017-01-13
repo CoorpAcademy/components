@@ -38,11 +38,22 @@ src
 
 Give reducers and routes as params
 ```js
-import prepareApp from '@coorpacademy/appster/src/app';
+import {prepareApp} from '@coorpacademy/appster';
 import createReducer from './reducers';
 import createRoutes from './routes';
 
 const app = prepareApp(createReducer, createRoutes, options);
+```
+
+## webpack config use
+```
+const path = require('path');
+const {webpackConfig} = require('@coorpacademy/appster');
+
+const input = path.join(__dirname, 'src/app');
+const output = path.join(__dirname, 'dist');
+
+module.exports = webpackConfig('Forum', input, output);
 ```
 
 ## sandbox app use
@@ -51,7 +62,7 @@ Give reducers and routes as params
 ```js
 const path = require('path');
 const config = require('./config');
-const runServer = require('@coorpacademy/appster/src/server');
+const {runServer} = require('@coorpacademy/appster');
 const input = path.join(__dirname, '../app');
 
 const addSandbox = app => {
