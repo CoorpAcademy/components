@@ -6,6 +6,11 @@ const success = {
   message: 'user foo ok'
 };
 
+const warning = {
+  type: 'warning',
+  message: 'warning line 5'
+};
+
 const error = {
   type: 'error',
   message: 'user bar error line 5'
@@ -22,6 +27,7 @@ export default {
     upload: Upload.props,
     notifications: [
       success,
+      warning,
       success,
       success,
       error,

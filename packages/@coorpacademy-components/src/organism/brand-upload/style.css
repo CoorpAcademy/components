@@ -1,6 +1,7 @@
 @value colors: "../../variables/colors.css";
 @value lightRed from colors;
 @value lightGreen from colors;
+@value lightOrange from colors;
 @value darkGrey from colors;
 @value blue from colors;
 @value green from colors;
@@ -82,6 +83,11 @@
 .success {
   composes: notification;
   background-color: lightGreen;
+}
+
+.warning {
+  composes: notification;
+  background-color: lightOrange;
 }
 
 .progress div {
