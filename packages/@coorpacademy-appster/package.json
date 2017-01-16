@@ -7,8 +7,7 @@
   "files": [
     "lib",
     "es",
-    "locales",
-    "webpack.config.js"
+    "README.md"
   ],
   "scripts": {
     "build": "npm run build:commonjs && npm run build:es",
@@ -20,11 +19,9 @@
     "clean:build:commonjs": "rm -rf lib",
     "clean:build:es": "rm -rf es"
   },
-  "homepage": "https://github.com/CoorpAcademy/app-forum#readme",
+  "homepage": "https://github.com/CoorpAcademy/components/@coorpacademy-appster#readme",
   "dependencies": {
     "@coorpacademy/redux-history": "3.0.3",
-    "@coorpacademy/treantjs-core": "3.0.3",
-    "@coorpacademy/treantjs-engine-virtual-dom": "^3.2.0",
     "autoprefixer": "^6.4.1",
     "babel-cli": "^6.18.0",
     "babel-core": "^6.21.0",
@@ -37,7 +34,6 @@
     "babili-webpack-plugin": "0.0.7",
     "compression-webpack-plugin": "^0.3.1",
     "css-loader": "^0.26.0",
-    "express": "^4.14.0",
     "extract-text-webpack-plugin": "^2.0.0-beta.3",
     "history": "^3.2.1",
     "json-loader": "^0.5.4",
@@ -45,14 +41,12 @@
     "path-match": "^1.2.4",
     "postcss": "^5.2.2",
     "postcss-loader": "^1.1.0",
+    "react-dom": "^15.4.1",
     "redux": "^3.6.0",
     "redux-api-middleware": "^2.0.0-beta.1",
     "rxjs": "^5.0.0-beta.12",
     "style-loader": "^0.13.1",
-    "validator": "^6.0.0",
-    "webpack": "^2.1.0-beta.25",
-    "webpack-dev-middleware": "^1.4.0",
-    "webpack-hot-middleware": "^2.12.2"
+    "validator": "^6.0.0"
   },
   "devDependencies": {
     "babel-plugin-istanbul": "^3.0.0"
