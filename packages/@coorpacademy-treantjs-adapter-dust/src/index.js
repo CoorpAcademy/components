@@ -1,13 +1,15 @@
 import map from 'lodash/fp/map';
 import toPairs from 'lodash/fp/toPairs';
 import kebabCase from 'lodash/fp/kebabCase';
+import React from 'react';
+import {renderToString} from 'react-dom/server';
 
-const toHelpers = (React, ReactDOMServer, components) => {
+const toHelpers = components => {
   const toHelper = ([componentName, Component]) => {
     return (dust, options) => {
-      dust.helpers[componentName] = (chunk, context, bodies, props) => {
+      dust.helpers[kebabCase(componentName)] = (chunk, context, bodies, props) => {
         const vTree = React.createElement(Component, props);
-        const html = ReactDOMServer.renderToString(vTree);
+        const html = renderToString(vTree);
         chunk.write(html);
       };
     };
