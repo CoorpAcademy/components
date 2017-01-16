@@ -21,12 +21,19 @@ export default {
         subItems: fixtureCoorpacademy.props.items
       },
       {
+        title: 'Blog',
+        href: '/plop',
+        outgoing: true
+      },
+      {
         title: 'Connexion',
-        href: '/plop'
+        href: '/plop',
+        type: 'secondary'
       },
       {
         title: 'Inscription',
-        href: '/plop'
+        href: '/plop',
+        type: 'primary'
       }
     ]
   }

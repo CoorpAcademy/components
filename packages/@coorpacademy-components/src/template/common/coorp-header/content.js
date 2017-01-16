@@ -80,7 +80,8 @@ export default (translate, props) => {
     },
     {
       title: translate('Blog'),
-      href: 'https://blog-fr.coorpacademy.com/'
+      href: 'https://blog-fr.coorpacademy.com/',
+      outgoing: true
     },
     {
       title: translate('Connexion'),
