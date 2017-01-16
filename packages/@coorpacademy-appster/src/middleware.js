@@ -1,6 +1,6 @@
 import {applyMiddleware, compose} from 'redux';
 import {apiMiddleware} from 'redux-api-middleware';
-import {createRouterMiddleware} from '../router';
+import {createRouterMiddleware} from './router';
 
 export default (createRoutes, options) => {
   const middlewares = [

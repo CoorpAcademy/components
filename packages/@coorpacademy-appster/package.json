@@ -41,6 +41,7 @@
     "path-match": "^1.2.4",
     "postcss": "^5.2.2",
     "postcss-loader": "^1.1.0",
+    "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "redux": "^3.6.0",
     "redux-api-middleware": "^2.0.0-beta.1",
