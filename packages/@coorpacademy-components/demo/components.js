@@ -38,6 +38,7 @@ import DisciplineHeader from '../src/molecule/discipline-header';
 import DisciplineScope from '../src/molecule/discipline-scope';
 import MenuList from '../src/molecule/menu-list';
 import ModuleBubble from '../src/molecule/module-bubble';
+import ModuleCard from '../src/molecule/module-card';
 import Pagination from '../src/molecule/pagination';
 import ProgressBar from '../src/molecule/progress-bar';
 import ScopeContent from '../src/molecule/scope-content';
@@ -172,6 +173,8 @@ import DisciplineScopeFixtureEmpty from '../src/molecule/discipline-scope/test/f
 import MenuListFixtureDefault from '../src/molecule/menu-list/test/fixtures/default';
 import ModuleBubbleFixtureDefault from '../src/molecule/module-bubble/test/fixtures/default';
 import ModuleBubbleFixtureDisabled from '../src/molecule/module-bubble/test/fixtures/disabled';
+import ModuleCardFixtureActive from '../src/molecule/module-card/test/fixtures/active';
+import ModuleCardFixtureRestarted from '../src/molecule/module-card/test/fixtures/restarted';
 import PaginationFixtureDefault from '../src/molecule/pagination/test/fixtures/default';
 import PaginationFixtureDisabled from '../src/molecule/pagination/test/fixtures/disabled';
 import ProgressBarFixtureDefault from '../src/molecule/progress-bar/test/fixtures/default';
@@ -326,6 +329,7 @@ export const components = {
     DisciplineScope,
     MenuList,
     ModuleBubble,
+    ModuleCard,
     Pagination,
     ProgressBar,
     ScopeContent,
@@ -555,6 +559,10 @@ export const fixtures = {
     ModuleBubble: {
       Default: ModuleBubbleFixtureDefault,
       Disabled: ModuleBubbleFixtureDisabled
+    },
+    ModuleCard: {
+      Active: ModuleCardFixtureActive,
+      Restarted: ModuleCardFixtureRestarted
     },
     Pagination: {
       Default: PaginationFixtureDefault,
