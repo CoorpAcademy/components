@@ -7,7 +7,13 @@ const MenuList = props => {
   const {menuItems = []} = props;
 
   const MenuitemDiv = menuItems.map((item, index) => {
-    const {title, href, type, subItems} = item;
+    const {
+      title,
+      href,
+      type,
+      subItems,
+      outgoing = false
+    } = item;
 
     const subItemsView = !isNil(subItems) && (
       <div className={style.subNav}>
@@ -24,6 +30,7 @@ const MenuList = props => {
       >
         <a
           href={href}
+          target={outgoing ? '_blank' : '_self'}
         >
           {title}
         </a>
@@ -56,7 +63,8 @@ MenuList.propTypes = {
   menuItems: PropTypes.arrayOf(PropTypes.shape({
     href: PropTypes.string,
     title: PropTypes.string,
-    type: PropTypes.oneOf(['primary', 'secondary'])
+    type: PropTypes.oneOf(['primary', 'secondary']),
+    outgoing: PropTypes.bool
   }))
 };
 

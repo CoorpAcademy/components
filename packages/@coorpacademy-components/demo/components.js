@@ -169,7 +169,6 @@ import DisciplineHeaderFixtureNoVideoNoImage from '../src/molecule/discipline-he
 import DisciplineHeaderFixtureNoVideo from '../src/molecule/discipline-header/test/fixtures/no-video';
 import DisciplineScopeFixtureDefault from '../src/molecule/discipline-scope/test/fixtures/default';
 import DisciplineScopeFixtureEmpty from '../src/molecule/discipline-scope/test/fixtures/empty';
-import MenuListFixtureBuildTransifex from '../src/molecule/menu-list/test/fixtures/build-transifex';
 import MenuListFixtureDefault from '../src/molecule/menu-list/test/fixtures/default';
 import ModuleBubbleFixtureDefault from '../src/molecule/module-bubble/test/fixtures/default';
 import ModuleBubbleFixtureDisabled from '../src/molecule/module-bubble/test/fixtures/disabled';
@@ -551,7 +550,6 @@ export const fixtures = {
       Empty: DisciplineScopeFixtureEmpty
     },
     MenuList: {
-      BuildTransifex: MenuListFixtureBuildTransifex,
       Default: MenuListFixtureDefault
     },
     ModuleBubble: {
