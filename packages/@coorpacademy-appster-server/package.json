@@ -1,0 +1,44 @@
+{
+  "name": "@coorpacademy/appster-server",
+  "version": "3.7.6",
+  "description": "CoorpAcademy apps servers (sanbox, express)",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "files": [
+    "lib",
+    "es",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "npm run build:commonjs && npm run build:es",
+    "build:commonjs": "npm run clean:build:commonjs && BABEL_ENV=commonjs babel src --out-dir lib -s --ignore test --copy-files",
+    "build:es": "npm run clean:build:es && BABEL_ENV=es babel src --out-dir es -s --ignore test --copy-files",
+    "prepublish": "npm run build --production",
+    "clean": "npm run clean:build",
+    "clean:build": "npm run clean:build:commonjs && npm run clean:build:es",
+    "clean:build:commonjs": "rm -rf lib",
+    "clean:build:es": "rm -rf es"
+  },
+  "homepage": "https://github.com/CoorpAcademy/components/@coorpacademy-appster-server#readme",
+  "dependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "6.18.0",
+    "babel-preset-stage-1": "^6.5.0",
+    "babel-polyfill": "^6.13.0",
+    "css-loader": "^0.26.0",
+    "express": "^4.14.0",
+    "json-loader": "^0.5.4",
+    "lodash": "^4.15.0",
+    "postcss": "^5.2.2",
+    "postcss-loader": "^1.1.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^2.1.0-beta.25",
+    "webpack-dev-middleware": "^1.4.0",
+    "webpack-hot-middleware": "^2.12.2"
+  },
+  "devDependencies": {
+    "babel-plugin-istanbul": "^3.0.0"
+  }
+}

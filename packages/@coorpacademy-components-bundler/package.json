@@ -44,7 +44,7 @@
     "webpack": "^2.2.0"
   },
   "bin": {
-    "bundle-components": "./src/index.js"
+    "bundle-components": "./src/bundle-components.js"
   },
   "devDependencies": {
     "babel-plugin-istanbul": "^3.0.0",
