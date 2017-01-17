@@ -23,8 +23,8 @@ class Provider extends React.Component {
     });
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    return shallowCompare(this, nextProps, nextState);
+  shouldComponentUpdate(nextProps, nextState, nextContext) {
+    return shallowCompare(this, nextProps, nextState, nextContext);
   }
 
   render() {

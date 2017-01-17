@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 import uniqueId from 'lodash/fp/uniqueId';
-import isEqual from 'lodash/fp/isEqual';
+import shallowCompare from '../../util/shallow-compare';
 import Loader from '../../atom/loader';
 import style from './style.css';
 
@@ -12,27 +12,21 @@ class BrandUploadBox extends React.Component {
       dragging: false
     };
 
-    this.handleDragStart = this.onDragStart.bind(this);
-    this.handleDragStop = this.onDragStop.bind(this);
+    this.handleDragStart = this.handleDragStart.bind(this);
+    this.handleDragStop = this.handleDragStop.bind(this);
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    return isEqual({
-      ...nextProps,
-      ...nextState
-    }, {
-      ...this.props,
-      ...this.state
-    });
+  shouldComponentUpdate(nextProps, nextState, nextContext) {
+    return shallowCompare(this, nextProps, nextState, nextContext);
   }
 
-  onDragStart() {
+  handleDragStart() {
     this.setState({
       dragging: true
     });
   }
 
-  onDragStop() {
+  handleDragStop() {
     this.setState({
       dragging: false
     });
@@ -91,7 +85,7 @@ class BrandUploadBox extends React.Component {
 BrandUploadBox.propTypes = {
   description: PropTypes.string,
   browse: PropTypes.string,
-  status: PropTypes.oneOf(['default', 'loading', 'dropping']),
+  status: PropTypes.oneOf(['default', 'loading']),
   onLoad: PropTypes.func
 };
 export default BrandUploadBox;

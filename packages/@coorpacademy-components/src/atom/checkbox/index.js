@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
-import isEqual from 'lodash/fp/isEqual';
 import noop from 'lodash/fp/noop';
+import shallowCompare from '../../util/shallow-compare';
 
 class Checkbox extends React.Component {
   constructor(props) {
@@ -10,14 +10,8 @@ class Checkbox extends React.Component {
     this.handleChangeBound = this.handleChange.bind(this);
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    return isEqual({
-      ...nextProps,
-      ...nextState
-    }, {
-      ...this.props,
-      ...this.state
-    });
+  shouldComponentUpdate(nextProps, nextState, nextContext) {
+    return shallowCompare(this, nextProps, nextState, nextContext);
   }
 
   handleChange(e) {
