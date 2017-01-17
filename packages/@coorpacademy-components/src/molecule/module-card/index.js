@@ -8,23 +8,22 @@ import style from './style.css';
 function ModuleCard(props, context) {
   const {translate = identity, skin} = context;
   const {label, level, onClick} = props;
-  const click = unary(partial(onClick, [module]));
 
   return (
     <div
       className={style.default}
       data-name='module-card'
-      onClick={click}
+      onClick={onClick}
     >
       <div className={style.label}>
-        {translate(label)}
+        {label}
       </div>
       <div className={style.level}>
         {translate(level)}
       </div>
       <ModuleBubble
         module={props}
-        onClick={click}
+        onClick={onClick}
       />
     </div>
   );
