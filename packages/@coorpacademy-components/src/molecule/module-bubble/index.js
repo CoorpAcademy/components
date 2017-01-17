@@ -16,8 +16,10 @@ const ModuleBubble = (props, context) => {
 
   const {
     onClick,
-    module: _module
+    module: _module,
+    hideLabel = false
   } = props;
+
   const code = getOr('', `icons[${_module.status}]`, skin);
   const icon = String.fromCharCode(code);
 
@@ -28,9 +30,15 @@ const ModuleBubble = (props, context) => {
     stopPropagation,
     unary(partial(onClick, [_module]))
   );
-  const label = translate(_module.label);
+  const label = _module.label && translate(_module.label);
 
   const background = getOr('#fff', `mod[${_module.status}]`, skin);
+
+  const labelView = !hideLabel && (
+    <div className={style.label}>
+      {label}
+    </div>
+  );
 
   return (
     <div
@@ -56,9 +64,7 @@ const ModuleBubble = (props, context) => {
           {icon}
         </span>
       </div>
-      <div className={style.label}>
-        {label}
-      </div>
+      {labelView}
     </div>
   );
 };
