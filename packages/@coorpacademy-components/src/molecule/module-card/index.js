@@ -8,6 +8,7 @@ import style from './style.css';
 function ModuleCard(props, context) {
   const {translate = identity, skin} = context;
   const {label, level, onClick} = props;
+  const hideLabel = true;
 
   return (
     <div
@@ -22,6 +23,7 @@ function ModuleCard(props, context) {
         {translate(level)}
       </div>
       <ModuleBubble
+        hideLabel
         module={props}
         onClick={onClick}
       />

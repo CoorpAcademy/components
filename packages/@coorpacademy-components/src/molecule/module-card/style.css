@@ -9,13 +9,13 @@
   font-family: 'Open Sans';
   font-size: 15px;
   font-weight: 800;
-  color: #fff;
-  background-color: #000;
+  color: #000;
 }
 
 .level {
   font-family: 'Open Sans';
   font-size: 15px;
   font-weight: 1600;
-  color: #000;
+  color: #fff;
+  background-color: #000;
 }
