@@ -16,17 +16,19 @@ function ModuleCard(props, context) {
       data-name='module-card'
       onClick={onClick}
     >
-      <div className={style.label}>
+      <div className={style.title}>
         {label}
       </div>
       <div className={style.level}>
         {translate(level)}
       </div>
-      <ModuleBubble
-        hideLabel
-        module={props}
-        onClick={onClick}
-      />
+      <div className={style.module}>
+        <ModuleBubble
+          hideLabel
+          module={props}
+          onClick={onClick}
+        />
+      </div>
     </div>
   );
 }
