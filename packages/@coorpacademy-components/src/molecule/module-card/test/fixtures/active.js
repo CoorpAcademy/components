@@ -1,7 +1,7 @@
 export default {
   props: {
-    level: 'Digital IQ test',
-    label: 'advanced',
+    level: 'Advanced',
+    label: 'Digital IQ test',
     status: 'isActive',
     onClick: () => null
   }

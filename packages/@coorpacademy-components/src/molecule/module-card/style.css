@@ -2,7 +2,9 @@
 @value mobile from breakpoints;
 
 .default {
-  flex: 1 1 350px;
+  max-width: 350px;
+  flex: 0 1 auto;
+  margin: 5px;
   height: 80px;
   background-color: #FFFFFF;
   box-shadow: 0 0 4px 1px rgba(0,0,0,0.10);
