@@ -71,4 +71,8 @@
     flex: none;
     text-align: center;
   }
+
+  .head a {
+    margin-bottom: 15px;
+  }
 }
