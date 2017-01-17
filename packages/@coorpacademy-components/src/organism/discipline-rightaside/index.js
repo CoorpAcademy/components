@@ -11,21 +11,10 @@ import style from './style.css';
 
 const DisciplineRightaside = (props, context) => {
   const {translate = identity} = context;
-  const {rating, maxRating, linkBuy, linkTry, author, authorTitle} = props;
-  const socialLinks = getOr([], 'socialLinks', author);
-  const authorLogo = get('logo', author);
-  const authorHref = get('href', author);
+  const {rating, maxRating, linkBuy, linkTry, authorTitle} = props;
+  const authors = Array.isArray(props.author) ? props.author : [props.author];
 
   const authorLabel = authorTitle || translate('author');
-
-  const socialView = socialLinks.map((social, index) => (
-    <div
-      key={index}
-      className={style.link}
-    >
-      <SocialLink {...social} />
-    </div>
-  ));
 
   const ctaView = (
     <div className={style.ctaWrapper}>
@@ -38,30 +27,69 @@ const DisciplineRightaside = (props, context) => {
     </div>
   );
 
-  const linkView = (
-    <div className={style.authorLink}>
-      <a
-        target={'_blank'}
-        href={authorHref}
-      >
-        {authorHref}
-      </a>
-    </div>
-  );
+  const authorsView = authors.map((author, index) => { 
+    const socialLinks = getOr([], 'socialLinks', author);
+    const authorLogo = get('logo', author);
+    const authorHref = get('href', author);
+    const autName = get('name', author);
+    
+    const linkView = (
+      <div className={style.authorLink}>
+        <a
+          target={'_blank'}
+          href={authorHref}
+        >
+          {authorHref}
+        </a>
+      </div>
+    );
 
-  const logoView = authorLogo ? (
-    <div className={style.logoContainer}>
-      <Link
-        className={style.logoLink}
-        href={authorLogo.href}
+    const socialView = socialLinks.map((social, index) => (
+      <div
+        key={index}
+        className={style.link}
       >
-        <Picture
-          className={style.logo}
-          src={authorLogo.src}
-        />
-      </Link>
-    </div>
-  ) : null;
+        <SocialLink {...social} />
+      </div>
+    ));
+
+    const aNameView = {autName} ? (
+      <div className={style.authorName}>
+        {autName}
+      </div>
+    ) : null;
+
+    const logoView = authorLogo ? (
+      <div className={style.logoContainer}>
+        <Link
+          className={style.logoLink}
+          href={authorLogo.href}
+        >
+          <Picture
+            className={style.logo}
+            src={authorLogo.src}
+          />
+        </Link>
+      </div>
+    ) : null;
+
+    const authorContent = authorHref || aNameView || socialView ? (
+      <div className={style.authorContent}>
+        {authorHref ? linkView : null}
+        {autName ? aNameView : null}
+        <div className={style.links}>
+          {socialView}
+        </div>
+      </div>
+    ) : null;
+
+    return (
+      <div className={style.authorWrapper}>
+        {logoView}
+        {authorContent}
+      </div>
+    )
+  });
 
   return (
     <div className={style.col}>
@@ -70,11 +98,7 @@ const DisciplineRightaside = (props, context) => {
         <div className={style.detailTitle}>
           {authorLabel}
         </div>
-        {logoView}
-        {authorHref ? linkView : null}
-        <div className={style.links}>
-          {socialView}
-        </div>
+        {authorsView}
       </div>
     </div>
   );
