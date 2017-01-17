@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/treantjs-adapter-dust",
-  "version": "4.0.9",
+  "version": "4.0.10",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
