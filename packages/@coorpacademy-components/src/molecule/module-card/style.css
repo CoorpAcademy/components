@@ -2,20 +2,56 @@
 @value mobile from breakpoints;
 
 .default {
+  flex: 1 1 350px;
+  height: 80px;
+  background-color: #FFFFFF;
   box-shadow: 0 0 4px 1px rgba(0,0,0,0.10);
+  border-radius: 3px;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
 }
 
-.label {
+.default:hover {
+  background-color: #F7F7F7;
+}
+
+.title {
   font-family: 'Open Sans';
   font-size: 15px;
-  font-weight: 800;
-  color: #000;
+  font-weight: 700;
+  color: #000000;
+  flex-grow: 1;
 }
 
 .level {
   font-family: 'Open Sans';
-  font-size: 15px;
-  font-weight: 1600;
-  color: #fff;
-  background-color: #000;
+  color: #ffffff;
+  background-color: #474649;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-size: 10px;
+  margin-left: 20px;
+}
+
+.module {
+  margin-left: 20px;
+}
+
+@media mobile {
+  .default {
+    padding: 10px;
+  }
+
+  .level {
+    margin-left: 10px;
+  }
+
+  .module {
+    margin-left: 10px;
+  }
 }
