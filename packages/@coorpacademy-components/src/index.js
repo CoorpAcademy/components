@@ -50,6 +50,7 @@ export Link from './atom/link';
 export Loader from './atom/loader';
 export MenuList from './molecule/menu-list';
 export ModuleBubble from './molecule/module-bubble';
+export ModuleCard from './molecule/module-card';
 export Notification from './atom/notification';
 export Pagination from './molecule/pagination';
 export Picture from './atom/picture';
