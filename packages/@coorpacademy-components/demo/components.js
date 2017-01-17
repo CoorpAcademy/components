@@ -74,6 +74,7 @@ import BrandCreate from '../src/template/back-office/brand-create';
 import BrandList from '../src/template/back-office/brand-list';
 import BrandUpdate from '../src/template/back-office/brand-update';
 import CoorpHeader from '../src/template/common/coorp-header';
+import Discipline from '../src/template/common/discipline';
 import ButtonFixtureA from '../src/atom/button/test/fixtures/a';
 import ButtonFixtureBlue from '../src/atom/button/test/fixtures/blue';
 import ButtonFixtureCentered from '../src/atom/button/test/fixtures/centered';
@@ -154,6 +155,7 @@ import BreadcrumbsFixtureDefault from '../src/molecule/breadcrumbs/test/fixtures
 import CatalogCardFixtureDefault from '../src/molecule/catalog-card/test/fixtures/default';
 import CatalogCtaFixtureDefault from '../src/molecule/catalog-cta/test/fixtures/default';
 import CatalogCtaFixtureEmpty from '../src/molecule/catalog-cta/test/fixtures/empty';
+import CatalogCtaFixtureNorating from '../src/molecule/catalog-cta/test/fixtures/norating';
 import CategoriesFixtureDefault from '../src/molecule/categories/test/fixtures/default';
 import CheckboxesFixtureClosableAndClosed from '../src/molecule/checkboxes/test/fixtures/closable-and-closed';
 import CheckboxesFixtureClosableAndOpen from '../src/molecule/checkboxes/test/fixtures/closable-and-open';
@@ -238,6 +240,7 @@ import DisciplineCardsFixtureEmpty from '../src/organism/discipline-cards/test/f
 import DisciplineCardsFixtureManyDisciplines from '../src/organism/discipline-cards/test/fixtures/many-disciplines';
 import DisciplineRightasideFixtureAuthor from '../src/organism/discipline-rightaside/test/fixtures/author';
 import DisciplineRightasideFixtureDefault from '../src/organism/discipline-rightaside/test/fixtures/default';
+import DisciplineRightasideFixtureDoubleAuthor from '../src/organism/discipline-rightaside/test/fixtures/doubleAuthor';
 import DisciplineRightasideFixtureEmpty from '../src/organism/discipline-rightaside/test/fixtures/empty';
 import DiscussionFixtureDefault from '../src/organism/discussion/test/fixtures/default';
 import DiscussionFixtureLoadingMore from '../src/organism/discussion/test/fixtures/loading-more';
@@ -285,6 +288,11 @@ import BrandUpdateFixtureUsersList from '../src/template/back-office/brand-updat
 import BrandUpdateFixtureUsers from '../src/template/back-office/brand-update/test/fixtures/users';
 import CoorpHeaderFixtureProduction from '../src/template/common/coorp-header/test/fixtures/production';
 import CoorpHeaderFixtureStaging from '../src/template/common/coorp-header/test/fixtures/staging';
+import DisciplineFixtureDefault from '../src/template/common/discipline/test/fixtures/default';
+import DisciplineFixtureDoubleAuthor from '../src/template/common/discipline/test/fixtures/doubleAuthor';
+import DisciplineFixtureEmpty from '../src/template/common/discipline/test/fixtures/empty';
+import DisciplineFixtureLoading from '../src/template/common/discipline/test/fixtures/loading';
+import DisciplineFixtureNoVideo from '../src/template/common/discipline/test/fixtures/no-video';
 
 export const components = {
   Atom: {
@@ -375,7 +383,8 @@ export const components = {
     BrandUpdate
   },
   TemplateCommon: {
-    CoorpHeader
+    CoorpHeader,
+    Discipline
   }
 };
 export const fixtures = {
@@ -522,7 +531,8 @@ export const fixtures = {
     },
     CatalogCta: {
       Default: CatalogCtaFixtureDefault,
-      Empty: CatalogCtaFixtureEmpty
+      Empty: CatalogCtaFixtureEmpty,
+      Norating: CatalogCtaFixtureNorating
     },
     Categories: {
       Default: CategoriesFixtureDefault
@@ -675,6 +685,7 @@ export const fixtures = {
     DisciplineRightaside: {
       Author: DisciplineRightasideFixtureAuthor,
       Default: DisciplineRightasideFixtureDefault,
+      DoubleAuthor: DisciplineRightasideFixtureDoubleAuthor,
       Empty: DisciplineRightasideFixtureEmpty
     },
     Discussion: {
@@ -754,6 +765,13 @@ export const fixtures = {
     CoorpHeader: {
       Production: CoorpHeaderFixtureProduction,
       Staging: CoorpHeaderFixtureStaging
+    },
+    Discipline: {
+      Default: DisciplineFixtureDefault,
+      DoubleAuthor: DisciplineFixtureDoubleAuthor,
+      Empty: DisciplineFixtureEmpty,
+      Loading: DisciplineFixtureLoading,
+      NoVideo: DisciplineFixtureNoVideo
     }
   }
 };
