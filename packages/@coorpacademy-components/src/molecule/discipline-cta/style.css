@@ -1,0 +1,73 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value tablet from breakpoints;
+@value desktop from breakpoints;
+
+.head {
+  display: block;
+  width: 100%;
+}
+
+.head a {
+  display: block;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-family: "Open Sans";
+  font-weight: 600;
+  font-size: 13px;
+  text-decoration: none;
+  line-height: 52px;
+  width: 100%;
+  text-align: center;
+  border-radius: 2px;
+  margin-bottom: 15px;
+}
+
+.head a:hover {
+  color: #ffffff;
+}
+
+.head a span span {
+  font-family: "Open Sans";
+  font-weight: 800;
+}
+
+.buy {
+  background-color: #66BB6A;
+}
+
+.buy:before {
+  background-color: #29AF2F;
+}
+
+.start {
+  background-color: #00B0FF;
+}
+
+.start:before {
+  background-color: #0084FB;
+}
+
+@media desktop {
+  .head {
+    display: inline-block;
+    flex-shrink: 0;
+    flex-grow: 0;
+    vertical-align: top;
+  }
+}
+
+@media tablet {
+
+}
+
+@media mobile {
+  .head {
+    flex: none;
+    text-align: center;
+  }
+
+  .head a {
+    margin-bottom: 15px;
+  }
+}

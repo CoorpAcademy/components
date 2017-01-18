@@ -15,16 +15,14 @@ const Discipline = (props, context) => {
     level,
     levels,
     changeLevel,
-    linkBuy,
-    linkTry,
-    maxPopularity,
     relatedDisciplines = null,
     image,
     title = '',
     video,
     author = {name: '', socialLinks: []},
     description = '',
-    popularity = 0
+    start,
+    buy
   } = props;
 
   return (
@@ -39,11 +37,10 @@ const Discipline = (props, context) => {
       </div>
       <div className={style.colContainer}>
         <DisciplineRightaside
-          linkBuy={linkBuy}
-          linkTry={linkTry}
+          type={'discipline'}
+          start={start}
+          buy={buy}
           author={author}
-          rating={popularity}
-          maxRating={maxPopularity}
         />
       </div>
       <div
@@ -73,8 +70,6 @@ Discipline.contextTypes = {
 };
 
 Discipline.propTypes = {
-  popularity: PropTypes.number,
-  maxPopularity: PropTypes.number,
   title: PropTypes.string,
   description: PropTypes.string,
   image: PropTypes.shape({
@@ -85,8 +80,8 @@ Discipline.propTypes = {
     type: PropTypes.oneOf(['vimeo', 'youtube']).isRequired,
     id: PropTypes.string.isRequired
   }),
-  linkBuy: PropTypes.string,
-  linkTry: PropTypes.string,
+  start: PropTypes.func,
+  buy: PropTypes.func,
   author: PropTypes.shape({
     name: PropTypes.string.isRequired,
     socialLinks: PropTypes.array.isRequired
