@@ -2,8 +2,7 @@
 @value mobile from breakpoints;
 
 .default {
-  max-width: 350px;
-  flex: 0 1 auto;
+  width: 350px;
   margin: 5px;
   height: 80px;
   background-color: #FFFFFF;
@@ -47,6 +46,8 @@
 @media mobile {
   .default {
     padding: 10px;
+    margin: 5px 0;
+    width: 100%;
   }
 
   .level {
