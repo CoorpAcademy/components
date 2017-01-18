@@ -22,7 +22,9 @@ const Discipline = (props, context) => {
     author = {name: '', socialLinks: []},
     description = '',
     start,
-    buy
+    buy,
+    startLabel,
+    buyLabel
   } = props;
 
   return (
@@ -40,6 +42,8 @@ const Discipline = (props, context) => {
           type={'discipline'}
           start={start}
           buy={buy}
+          startLabel={startLabel}
+          buyLabel={buyLabel}
           author={author}
         />
       </div>
@@ -82,6 +86,8 @@ Discipline.propTypes = {
   }),
   start: PropTypes.func,
   buy: PropTypes.func,
+  startLabel: PropTypes.string,
+  buyLabel: PropTypes.string,
   author: PropTypes.shape({
     name: PropTypes.string.isRequired,
     socialLinks: PropTypes.array.isRequired

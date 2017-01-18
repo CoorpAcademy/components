@@ -20,7 +20,9 @@ const DisciplineRightaside = (props, context) => {
     linkTry,
     authorTitle,
     start,
-    buy
+    buy,
+    startLabel,
+    buyLabel
   } = props;
 
   const authors = Array.isArray(props.author) ? props.author : [props.author];
@@ -34,6 +36,8 @@ const DisciplineRightaside = (props, context) => {
           <DisciplineCTA
             start={start}
             buy={buy}
+            startLabel={startLabel}
+            buyLabel={buyLabel}
           />
         </div>
       );
@@ -144,6 +148,8 @@ DisciplineRightaside.propTypes = {
   linkBuy: PropTypes.string,
   start: PropTypes.func,
   buy: PropTypes.func,
+  startLabel: PropTypes.string,
+  buyLabel: PropTypes.string,
   author: PropTypes.shape({
     name: PropTypes.string,
     href: PropTypes.string,

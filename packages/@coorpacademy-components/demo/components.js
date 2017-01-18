@@ -169,6 +169,7 @@ import DisciplineCardFixtureHidden from '../src/molecule/discipline-card/test/fi
 import DisciplineCardFixtureWithCourseNum from '../src/molecule/discipline-card/test/fixtures/with-course-num';
 import DisciplineCardFixtureWithModules from '../src/molecule/discipline-card/test/fixtures/with-modules';
 import DisciplineCtaFixtureDefault from '../src/molecule/discipline-cta/test/fixtures/default';
+import DisciplineCtaFixtureNoStart from '../src/molecule/discipline-cta/test/fixtures/no-start';
 import DisciplineHeaderFixtureDefault from '../src/molecule/discipline-header/test/fixtures/default';
 import DisciplineHeaderFixtureNoVideoNoImage from '../src/molecule/discipline-header/test/fixtures/no-video-no-image';
 import DisciplineHeaderFixtureNoVideo from '../src/molecule/discipline-header/test/fixtures/no-video';
@@ -559,7 +560,8 @@ export const fixtures = {
       WithModules: DisciplineCardFixtureWithModules
     },
     DisciplineCta: {
-      Default: DisciplineCtaFixtureDefault
+      Default: DisciplineCtaFixtureDefault,
+      NoStart: DisciplineCtaFixtureNoStart
     },
     DisciplineHeader: {
       Default: DisciplineHeaderFixtureDefault,

@@ -5,6 +5,8 @@ import style from './style.css';
 
 const DisciplineCTA = (props, context) => {
   const {
+    startLabel,
+    buyLabel,
     start,
     buy
   } = props;
@@ -16,32 +18,40 @@ const DisciplineCTA = (props, context) => {
   const startLearning = (
     <span
       dangerouslySetInnerHTML={{ // eslint-disable-line react/no-danger
-        __html: translate('Start <span>learning</span>')
+        __html: translate(startLabel)
       }}
     />
   );
   const premium = (
     <span
       dangerouslySetInnerHTML={{ // eslint-disable-line react/no-danger
-        __html: translate('Coorpacademy <span>subscription</span>')
+        __html: translate(buyLabel)
       }}
     />
   );
 
+  const startButton = start && (
+    <a
+      className={`${style.start} ${hoverFill}`}
+      onClick={start}
+    >
+      {startLearning}
+    </a>
+  );
+
+  const buyButton = buy && (
+    <a
+      className={`${style.buy} ${hoverFill}`}
+      onClick={buy}
+    >
+      {premium}
+    </a>
+  );
+
   return (
     <div className={style.head}>
-      <a
-        className={`${style.start} ${hoverFill}`}
-        onClick={start}
-      >
-        {startLearning}
-      </a>
-      <a
-        className={`${style.buy} ${hoverFill}`}
-        onClick={buy}
-      >
-        {premium}
-      </a>
+      {startButton}
+      {buyButton}
     </div>
   );
 };
@@ -51,7 +61,10 @@ DisciplineCTA.contextTypes = {
 };
 
 DisciplineCTA.propTypes = {
+  startLabel: PropTypes.String,
+  buyLabel: PropTypes.String,
   start: PropTypes.func,
   buy: PropTypes.func
 };
+
 export default DisciplineCTA;
