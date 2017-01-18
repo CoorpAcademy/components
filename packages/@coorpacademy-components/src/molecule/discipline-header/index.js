@@ -1,43 +1,69 @@
 import React, {PropTypes} from 'react';
 import get from 'lodash/fp/get';
+import identity from 'lodash/fp/identity';
 import * as CustomPropTypes from '../../util/proptypes';
 import VideoIframe from '../video-iframe';
+import shallowCompare from '../../util/shallow-compare';
 import style from './style.css';
 
-function DisciplineHeader(props) {
-  const {image, title, description, video} = props;
+class DisciplineHeader extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      fullDisplay: false
+    };
+    this.handleToggleDisplay = this.handleToggleDisplay.bind(this);
+  }
 
-  const type = get('type', video);
-  const id = get('id', video);
-  const descView = (
-    <div className={style.desc}>
-      <div
-        dangerouslySetInnerHTML={{ // eslint-disable-line react/no-danger
-          __html: description
-        }}
-      />
-    </div>
-  );
+  shouldComponentUpdate(nextProps, nextState, nextContext) {
+    return shallowCompare(this, nextProps, nextState, nextContext);
+  }
 
-  return (
-    <div className={style.wrapper}>
-      <div className={style.imgWrapper}>
-        <VideoIframe
-          image={image}
-          type={type}
-          id={id}
-          width="380px"
-          height="250px"
-        />
-      </div>
-      <div className={style.courseWrapper}>
-        <div className={style.title}>
-          {title}
+  handleToggleDisplay() {
+    this.setState(prevState => ({
+      fullDisplay: !prevState.fullDisplay
+    }));
+  }
+
+  render() {
+    const {image, title, description, video} = this.props;
+    const {translate = identity} = this.context;
+
+    const type = get('type', video);
+    const id = get('id', video);
+    const toggleLabel = this.state.fullDisplay ? translate('See less') : translate('Read more');
+
+    return (
+      <div className={style.wrapper}>
+        <div className={style.imgWrapper}>
+          <VideoIframe
+            image={image}
+            type={type}
+            id={id}
+            width="380px"
+            height="250px"
+          />
         </div>
-        {descView}
+        <div className={style.courseWrapper}>
+          <div className={style.title}>
+            {title}
+          </div>
+          <div className={this.state.fullDisplay ? style.desc : style.shortDesc}>
+            <div
+              dangerouslySetInnerHTML={{ // eslint-disable-line react/no-danger
+                __html: description
+              }}
+            />
+          </div>
+          <div className={style.toggle}
+            onClick={this.handleToggleDisplay}
+          >
+            {toggleLabel}
+          </div>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 DisciplineHeader.propTypes = {
