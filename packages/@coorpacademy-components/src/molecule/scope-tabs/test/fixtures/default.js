@@ -6,7 +6,7 @@ export default {
     }, {
       name: 'Advanced',
       status: 'isLocked'
-    }, {      
+    }, {
       name: 'Coach',
       status: 'isStarted'
     }],

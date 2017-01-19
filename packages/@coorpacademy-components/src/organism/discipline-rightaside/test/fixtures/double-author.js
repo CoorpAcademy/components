@@ -33,7 +33,7 @@ export default {
         name: 'NEXSTAGE',
         href: 'http://www.nextstage.com/',
         logo: {
-          src: 'https://s3-eu-west-1.amazonaws.com/static.coorpacademy.com/content/CoorpAcademy/content/cockpit-up/poster/ns2x-1477319801703.png',
+          src: 'https://static-staging.coorpacademy.com/upload/up/partners/1472198693277logo_elephant.png',
           href: '/nextstage'
         },
         socialLinks: [

@@ -30,8 +30,8 @@ const ScopeTabs = props => {
                 module={level}
                 onClick={onClick}
               />
-            </div>  
-            <div className={style.name}>{level.name}</div>     
+            </div>
+            <div className={style.name}>{level.name}</div>
           </li>
         );
       })}
