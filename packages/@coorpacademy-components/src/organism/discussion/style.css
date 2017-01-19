@@ -1,6 +1,7 @@
 .thread {
   width: 80%;
   margin: auto;
+  overflow: hidden;
 }
 
 .thread h1 {
