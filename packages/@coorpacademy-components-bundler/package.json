@@ -34,7 +34,7 @@
     "minimist": "^1.2.0",
     "postcss-loader": "^1.1.1",
     "style-loader": "^0.13.0",
-    "webpack": "2.1.0-beta.25"
+    "webpack": "2.1.0-beta.28"
   },
   "bin": {
     "bundle-components": "./src/index.js"
