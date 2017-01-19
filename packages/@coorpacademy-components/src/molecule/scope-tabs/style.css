@@ -11,7 +11,7 @@
   flex-grow: 1;
   position: relative;
   box-sizing: border-box;
-  display: inline-block;
+  display: flex;
   text-align: center;
   font-family: "Open Sans";
   font-size: 16px;
@@ -21,6 +21,8 @@
   background: #FCFCFC;
   border: 1px solid #E3E3E3;
   cursor: pointer;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .tab:hover {
@@ -55,3 +57,12 @@
 .currentTab:last-child:after {
   display: none;
 }
+
+.name {
+  flex-shrink: 1;
+}
+
+.module {
+  flex-shrink: 0;
+  padding-top: 3px;
+} 
