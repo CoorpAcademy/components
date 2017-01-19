@@ -57,7 +57,11 @@ function DisciplineCard(props, context) {
       data-name='discipline-card'
       style={mainStyle}
     >
-      <div className={style.disciplineWrapper}>
+      <div className={style.disciplineWrapper}
+        style={{
+          backgroundColor: defaultColor
+        }}
+      >
         {mediaDiv}
         <div
           className={style.textWrapper}
