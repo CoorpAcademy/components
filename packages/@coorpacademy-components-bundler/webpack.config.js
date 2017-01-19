@@ -70,10 +70,10 @@ const config = cssScope => ({
           minimize: true,
           debug: false
         }),
-        new BabiliPlugin({
-          comments: false,
-          sourceMap: false
-        }),
+        // new BabiliPlugin({
+        //   comments: false,
+        //   sourceMap: false
+        // }),
         componentCSS
       );
 
