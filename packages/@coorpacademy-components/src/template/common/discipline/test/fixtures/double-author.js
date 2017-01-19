@@ -1,6 +1,6 @@
 import take from 'lodash/fp/take';
 import disciplineHeader from '../../../../../molecule/discipline-header/test/fixtures/default';
-import disciplineRightAside from '../../../../../organism/discipline-rightaside/test/fixtures/doubleAuthor';
+import disciplineRightAside from '../../../../../organism/discipline-rightaside/test/fixtures/double-author';
 import disciplineScope from '../../../../../molecule/discipline-scope/test/fixtures/default';
 import catalogCards from '../../../../../organism/catalog-cards/test/fixtures/default';
 

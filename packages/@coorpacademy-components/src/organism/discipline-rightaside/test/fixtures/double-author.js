@@ -2,6 +2,8 @@ import catalogCTA from '../../../../molecule/catalog-cta/test/fixtures/default';
 
 const {rating, maxRating, linkBuy, linkTry} = catalogCTA.props;
 
+/* eslint-disable max-len */
+
 export default {
   props: {
     rating,
