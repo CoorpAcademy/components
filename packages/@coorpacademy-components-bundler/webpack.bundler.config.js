@@ -6,7 +6,7 @@ module.exports = (src, bundle, dist, cssScope) => {
   let config = set('output.path', dist, defaultConfig(cssScope));
   config = set('entry', {bundle}, config);
 
-  config.module.loaders.push({
+  config.module.rules.push({
     test: /\.js$/,
     loader: 'babel-loader',
     include: join(process.cwd(), src)

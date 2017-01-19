@@ -25,19 +25,35 @@ const config = cssScope => ({
   },
 
   module: {
-    loaders: [{
-      test: /\.json$/,
-      loader: 'json-loader'
-    }, {
+    rules: [{
       test: /\.(ttf|otf|eot|svg|woff)$/,
       loader: 'file-loader'
-    }, {
-      test: /\.css$/,
-      loader: NODE_ENV === 'production' ? componentCSS.extract({
-        fallbackLoader: 'style-loader',
-        loader: `css-loader?minimize&modules&importLoaders=1&localIdentName=${hash}!postcss-loader`
-      }) : `style-loader!css-loader?minimize&modules&importLoaders=1&localIdentName=${hash}!postcss-loader`
-    }]
+    },
+      (() => {
+        if (NODE_ENV === 'production') {
+          return {
+            test: /\.css$/,
+            loader: componentCSS.extract({
+              fallbackLoader: 'style-loader',
+              loader: [
+                `css-loader?minimize&modules&importLoaders=1&localIdentName=${hash}`,
+                'postcss-loader'
+              ]
+            })
+          };
+        }
+        else {
+          return {
+            test: /\.css$/,
+            use: [
+              'style-loader',
+              `css-loader?minimize&modules&importLoaders=1&localIdentName=${hash}`,
+              'postcss-loader'
+            ]
+          };
+        }
+      })()
+    ]
   },
 
   plugins: (() => {
