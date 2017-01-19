@@ -38,7 +38,7 @@ function DisciplineCard(props, context) {
       style={{
         background: defaultColor
       }}
-    ></div>
+    />
   );
 
   const mediaDiv = discipline.media ? (
@@ -49,8 +49,6 @@ function DisciplineCard(props, context) {
       <div className={style.gradient} />
     </div>
   ) : fallBackColor;
-
-
 
   const bar = (
     <div
