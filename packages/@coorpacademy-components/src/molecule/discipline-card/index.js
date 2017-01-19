@@ -33,14 +33,6 @@ function DisciplineCard(props, context) {
   const defaultColor = getOr('#fff', 'common.primary', skin);
   const barColor = getOr('transparent', ['courses', discipline.courseNum], skin);
 
-  const fallBackColor = (
-    <div className={style.coverWrapper}
-      style={{
-        background: defaultColor
-      }}
-    ></div>
-  );
-
   const mediaDiv = discipline.media ? (
     <div className={style.coverWrapper}>
       <img className={style.cover}
@@ -48,9 +40,7 @@ function DisciplineCard(props, context) {
       />
       <div className={style.gradient} />
     </div>
-  ) : fallBackColor;
-
-
+  ) : null;
 
   const bar = (
     <div
@@ -67,7 +57,11 @@ function DisciplineCard(props, context) {
       data-name='discipline-card'
       style={mainStyle}
     >
-      <div className={style.disciplineWrapper}>
+      <div className={style.disciplineWrapper}
+        style={{
+          backgroundColor: defaultColor
+        }}
+      >
         {mediaDiv}
         <div
           className={style.textWrapper}
