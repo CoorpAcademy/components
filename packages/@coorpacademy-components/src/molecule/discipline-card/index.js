@@ -42,6 +42,13 @@ function DisciplineCard(props, context) {
     </div>
   ) : null;
 
+  const colorDiv = !discipline.media ? (
+    <div className={style.coverColorWrapper}
+      style={{
+          backgroundColor: defaultColor
+        }}
+    />
+  ) : null;
   const bar = (
     <div
       className={style.bar}
@@ -58,10 +65,8 @@ function DisciplineCard(props, context) {
       style={mainStyle}
     >
       <div className={style.disciplineWrapper}
-        style={{
-          backgroundColor: defaultColor
-        }}
       >
+        {colorDiv}
         {mediaDiv}
         <div
           className={style.textWrapper}

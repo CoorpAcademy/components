@@ -47,6 +47,10 @@
   left: 0;
 }
 
+.coverColorWrapper {
+  composes: coverWrapper;
+}
+
 .cover {
   width: 100%;
 }
