@@ -1,6 +1,5 @@
 const path = require('path');
 const webpack = require('webpack');
-const autoprefixer = require('autoprefixer');
 const BabiliPlugin = require('babili-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
@@ -21,7 +20,8 @@ const config = cssScope => ({
   output: {
     library: 'Coorponents',
     filename: '[name].js',
-    path: path.join(__dirname, 'dist')
+    path: path.join(__dirname, 'dist'),
+    libraryTarget: 'umd'
   },
 
   module: {
@@ -35,21 +35,36 @@ const config = cssScope => ({
             test: /\.css$/,
             loader: componentCSS.extract({
               fallbackLoader: 'style-loader',
-              loader: [
-                `css-loader?minimize&modules&importLoaders=1&localIdentName=${hash}`,
-                'postcss-loader'
-              ]
+              loader: [{
+                loader: 'css-loader',
+                query: {
+                  minimize: true,
+                  modules: true,
+                  importLoaders: 1,
+                  localIdentName: '[hash]'
+                }
+              }, {
+                loader: 'postcss-loader'
+              }]
             })
           };
         }
         else {
           return {
             test: /\.css$/,
-            use: [
-              'style-loader',
-              `css-loader?minimize&modules&importLoaders=1&localIdentName=${hash}`,
-              'postcss-loader'
-            ]
+            use: [{
+              loader: 'style-loader'
+            }, {
+              loader: 'css-loader',
+              options: {
+                minimize: true,
+                modules: true,
+                importLoaders: 1,
+                localIdentName: '[hash]'
+              }
+            }, {
+              loader: 'postcss-loader'
+            }]
           };
         }
       })()
@@ -76,11 +91,6 @@ const config = cssScope => ({
         }),
         new webpack.LoaderOptionsPlugin({
           options: {
-            postcss: {
-              plugins: [autoprefixer({
-                browsers: ['last 2 versions']
-              })]
-            },
             context: __dirname
           },
           minimize: true,
