@@ -25,22 +25,30 @@ export default ({
   },
 
   module: {
-    loaders: [{
+    rules: [{
       test: /\.json$/,
-      loader: 'json-loader'
+      use: ['json-loader']
     }, {
       test: /\.(ttf|otf|eot|svg|woff)$/,
-      loader: 'file-loader'
+      use: ['file-loader']
     }, {
       test: /\.js$/,
-      loader: 'babel-loader',
-      include: [
-        join(__dirname, '../src'),
-        join(__dirname, './')
-      ]
+      use: ['babel-loader']
     }, {
       test: /\.css$/,
-      loader: `style-loader!css-loader?minimize&modules&importLoaders=1&localIdentName=${hash}!postcss-loader`
+      use: [{
+        loader: 'style-loader'
+      }, {
+        loader: 'css-loader',
+        options: {
+          minimize: true,
+          modules: true,
+          importLoaders: 1,
+          localIdentName: '[hash]'
+        }
+      }, {
+        loader: 'postcss-loader'
+      }]
     }]
   },
 
@@ -52,11 +60,6 @@ export default ({
     }),
     new webpack.LoaderOptionsPlugin({
       options: {
-        postcss: {
-          plugins: [autoprefixer({
-            browsers: ['last 2 versions']
-          })]
-        },
         context: __dirname
       },
       minimize: true,
@@ -64,6 +67,6 @@ export default ({
     }),
 
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoEmitOnErrorsPlugin()
   ]
 });
