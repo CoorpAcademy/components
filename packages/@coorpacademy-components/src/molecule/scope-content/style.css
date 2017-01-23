@@ -196,6 +196,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-align: left;
 }
 
 @media desktop {
@@ -231,5 +232,9 @@
 
   .assetTitle {
     display: none;
+  }
+
+  .videos {
+    text-align: center;
   }
 }
