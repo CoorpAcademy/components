@@ -94,7 +94,7 @@ Discipline.propTypes = {
   })),
   relatedDisciplines: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.object), PropTypes.null]),
   level: PropTypes.object,
-  levels: PropTypes.arrayOf(PropTypes.string),
+  levels: PropTypes.arrayOf(PropTypes.object),
   selected: PropTypes.number,
   changeLevel: PropTypes.func
 };

@@ -1,6 +1,18 @@
 export default {
   props: {
-    levels: ['Base', 'Advanced', 'Coach'],
+    levels: [{
+      name: 'Base',
+      label: 'foo',
+      status: 'isActive'
+    }, {
+      name: 'Advanced',
+      label: 'bar',
+      status: 'isLocked'
+    }, {
+      name: 'Coach',
+      label: 'fuz',
+      status: 'isStarted'
+    }],
     selected: 1,
     onClick: () => true
   }
