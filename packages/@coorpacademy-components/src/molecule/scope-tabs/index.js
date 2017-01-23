@@ -16,7 +16,7 @@ const ScopeTabs = props => {
 
   return (
     <ul className={style.tabs}>
-      {levels.map((level, index) => {
+      {levels && levels.map((level, index) => {
         const handleClick = () => onClick(index);
         return (
           <li

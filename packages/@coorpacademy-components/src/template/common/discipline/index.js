@@ -93,8 +93,8 @@ Discipline.propTypes = {
     socialLinks: PropTypes.array.isRequired
   })),
   relatedDisciplines: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.object), PropTypes.null]),
-  level: PropTypes.arrayOf(PropTypes.string),
-  levels: PropTypes.arrayOf(PropTypes.string),
+  level: PropTypes.object,
+  levels: PropTypes.arrayOf(PropTypes.object),
   selected: PropTypes.number,
   changeLevel: PropTypes.func
 };
