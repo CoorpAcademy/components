@@ -10,7 +10,7 @@ export default {
     maxRating,
     linkBuy,
     linkTry,
-    author: [
+    authors: [
       {
         name: 'ELEPHANT',
         href: 'http://google.fr',

@@ -22,7 +22,7 @@ const ProductCourse = (props, context) => {
     image,
     title = '',
     video,
-    author = {name: '', socialLinks: []},
+    authors = [],
     description = '',
     popularity = 0
   } = props;
@@ -41,7 +41,7 @@ const ProductCourse = (props, context) => {
         <DisciplineRightaside
           linkBuy={linkBuy}
           linkTry={linkTry}
-          author={author}
+          authors={authors}
           rating={popularity}
           maxRating={maxPopularity}
         />
@@ -87,10 +87,10 @@ ProductCourse.propTypes = {
   }),
   linkBuy: PropTypes.string,
   linkTry: PropTypes.string,
-  author: PropTypes.shape({
+  authors: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string.isRequired,
     socialLinks: PropTypes.array.isRequired
-  }),
+  })),
   relatedDisciplines: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.object), PropTypes.null]),
   level: PropTypes.object,
   levels: PropTypes.arrayOf(PropTypes.string),

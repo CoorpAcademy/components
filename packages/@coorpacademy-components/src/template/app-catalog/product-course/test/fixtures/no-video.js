@@ -5,7 +5,7 @@ import disciplineScope from '../../../../../molecule/discipline-scope/test/fixtu
 import catalogCards from '../../../../../organism/catalog-cards/test/fixtures/default';
 
 const {title, description, image} = disciplineHeader.props;
-const {rating, maxRating, linkBuy, linkTry, author} = disciplineRightAside.props;
+const {rating, maxRating, linkBuy, linkTry, authors} = disciplineRightAside.props;
 const {content, levels} = disciplineScope.props;
 const {products} = catalogCards.props;
 
@@ -21,7 +21,7 @@ export default {
     image,
     linkBuy,
     linkTry,
-    author,
+    authors,
     changeLevel: () => true,
     relatedDisciplines: take(3, products),
     level: content,
