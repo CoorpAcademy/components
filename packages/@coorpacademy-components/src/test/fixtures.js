@@ -53,17 +53,6 @@ mapObject((components, componentType) => mapObject((componentPath, componentName
 
     const children = fixture.children;
 
-    test(`${it} › should be instanciated as shallowTree`, t => {
-      const vTree = (
-        <Provider {...{skin: {}}}>
-          <Component {...fixture.props}>
-            {children}
-          </Component>
-        </Provider>
-      );
-      t.truthy(ReactDOM.renderToString(vTree));
-    });
-
     test(`${it} › instanciated and resolved | no options`, t => {
       const vTree = (
         <Component {...fixture.props}>
