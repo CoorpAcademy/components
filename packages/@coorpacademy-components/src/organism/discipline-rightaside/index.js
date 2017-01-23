@@ -26,6 +26,7 @@ const DisciplineRightaside = (props, context) => {
     authors
   } = props;
 
+  const authors = props.authors;
   const authorLabel = authorTitle || translate('author');
   let ctaView;
 

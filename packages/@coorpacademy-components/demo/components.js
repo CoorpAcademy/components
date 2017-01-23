@@ -246,7 +246,11 @@ import DisciplineCardsFixtureManyDisciplines from '../src/organism/discipline-ca
 import DisciplineRightasideFixtureAuthor from '../src/organism/discipline-rightaside/test/fixtures/author';
 import DisciplineRightasideFixtureDefault from '../src/organism/discipline-rightaside/test/fixtures/default';
 import DisciplineRightasideFixtureDiscipline from '../src/organism/discipline-rightaside/test/fixtures/discipline';
+<<<<<<< HEAD
 import DisciplineRightasideFixtureDoubleAuthor from '../src/organism/discipline-rightaside/test/fixtures/doubleAuthor';
+=======
+import DisciplineRightasideFixtureDoubleAuthor from '../src/organism/discipline-rightaside/test/fixtures/double-author';
+>>>>>>> duplicated catalog-cta for discipline template (#397)
 import DisciplineRightasideFixtureEmpty from '../src/organism/discipline-rightaside/test/fixtures/empty';
 import DiscussionFixtureDefault from '../src/organism/discussion/test/fixtures/default';
 import DiscussionFixtureLoadingMore from '../src/organism/discussion/test/fixtures/loading-more';
@@ -295,7 +299,7 @@ import BrandUpdateFixtureUsers from '../src/template/back-office/brand-update/te
 import CoorpHeaderFixtureProduction from '../src/template/common/coorp-header/test/fixtures/production';
 import CoorpHeaderFixtureStaging from '../src/template/common/coorp-header/test/fixtures/staging';
 import DisciplineFixtureDefault from '../src/template/common/discipline/test/fixtures/default';
-import DisciplineFixtureDoubleAuthor from '../src/template/common/discipline/test/fixtures/doubleAuthor';
+import DisciplineFixtureDoubleAuthor from '../src/template/common/discipline/test/fixtures/double-author';
 import DisciplineFixtureEmpty from '../src/template/common/discipline/test/fixtures/empty';
 import DisciplineFixtureLoading from '../src/template/common/discipline/test/fixtures/loading';
 import DisciplineFixtureNoVideo from '../src/template/common/discipline/test/fixtures/no-video';
