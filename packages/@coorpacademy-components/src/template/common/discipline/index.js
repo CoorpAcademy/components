@@ -19,7 +19,7 @@ const Discipline = (props, context) => {
     image,
     title = '',
     video,
-    author = {name: '', socialLinks: []},
+    author = [],
     description = '',
     start,
     buy,
@@ -88,10 +88,10 @@ Discipline.propTypes = {
   buy: PropTypes.func,
   startLabel: PropTypes.string,
   buyLabel: PropTypes.string,
-  author: PropTypes.shape({
+  author: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string.isRequired,
     socialLinks: PropTypes.array.isRequired
-  }),
+  })),
   relatedDisciplines: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.object), PropTypes.null]),
   level: PropTypes.object,
   levels: PropTypes.arrayOf(PropTypes.string),

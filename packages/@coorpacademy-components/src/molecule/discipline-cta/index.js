@@ -61,8 +61,8 @@ DisciplineCTA.contextTypes = {
 };
 
 DisciplineCTA.propTypes = {
-  startLabel: PropTypes.String,
-  buyLabel: PropTypes.String,
+  startLabel: PropTypes.string,
+  buyLabel: PropTypes.string,
   start: PropTypes.func,
   buy: PropTypes.func
 };

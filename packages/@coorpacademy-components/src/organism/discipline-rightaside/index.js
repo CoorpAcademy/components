@@ -56,7 +56,7 @@ const DisciplineRightaside = (props, context) => {
       );
   }
 
-  const authorsView = authors.map((author, index) => {
+  const authorsView = authors && authors.map((author, index) => {
     const socialLinks = getOr([], 'socialLinks', author);
     const authorLogo = get('logo', author);
     const authorHref = get('href', author);
