@@ -30,7 +30,7 @@ function DisciplineCard(props, context) {
   const label = translate(discipline.label);
   const hasCourse = discipline.courseNum !== 'undefined';
 
-  const defaultColor = getOr('#fff', 'common.primary', skin);
+  const defaultColor = getOr('#f0f', 'common.primary', skin);
   const barColor = getOr('transparent', ['courses', discipline.courseNum], skin);
 
   const mediaDiv = discipline.media ? (
@@ -42,6 +42,13 @@ function DisciplineCard(props, context) {
     </div>
   ) : null;
 
+  const colorDiv = !discipline.media ? (
+    <div className={style.coverColorWrapper}
+      style={{
+        backgroundColor: defaultColor
+      }}
+    />
+  ) : null;
   const bar = (
     <div
       className={style.bar}
@@ -57,11 +64,8 @@ function DisciplineCard(props, context) {
       data-name='discipline-card'
       style={mainStyle}
     >
-      <div className={style.disciplineWrapper}
-        style={{
-          backgroundColor: defaultColor
-        }}
-      >
+      <div className={style.disciplineWrapper}>
+        {colorDiv}
         {mediaDiv}
         <div
           className={style.textWrapper}
