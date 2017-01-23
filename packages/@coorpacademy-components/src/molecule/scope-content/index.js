@@ -130,7 +130,8 @@ ScopeContent.propTypes = {
     buttonLabel: PropTypes.string,
     skills: PropTypes.arrayOf(PropTypes.string),
     chapters: PropTypes.arrayOf(PropTypes.object),
-    course_scope: PropTypes.arrayOf(PropTypes.string)
+    course_scope: PropTypes.arrayOf(PropTypes.string),
+    videos: PropTypes.array
   })
 };
 
