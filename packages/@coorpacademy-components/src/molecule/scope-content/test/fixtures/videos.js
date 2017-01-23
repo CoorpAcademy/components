@@ -21,19 +21,19 @@ export default {
       videos: [
         {
           title: 'Titre de la vidéo',
-          video: video
+          video
         },
         {
           title: 'Titre 2',
-          video: video
+          video
         },
         {
           title: 'Blabla vidéo',
-          video: video
+          video
         },
         {
           title: 'Titre de la vidéo',
-          video: video
+          video
         }
       ]
     }
