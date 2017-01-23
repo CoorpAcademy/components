@@ -8,7 +8,7 @@ export default {
     maxRating,
     linkBuy,
     linkTry,
-    author: [
+    authors: [
       {
         name: 'Eléphant',
         logo: {

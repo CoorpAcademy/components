@@ -25,7 +25,7 @@ const DisciplineRightaside = (props, context) => {
     buyLabel
   } = props;
 
-  const authors = props.author;
+  const authors = props.authors;
   const authorLabel = authorTitle || translate('author');
   let ctaView;
 
@@ -150,7 +150,7 @@ DisciplineRightaside.propTypes = {
   buy: PropTypes.func,
   startLabel: PropTypes.string,
   buyLabel: PropTypes.string,
-  author: PropTypes.arrayOf(PropTypes.shape({
+  authors: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string,
     href: PropTypes.string,
     logo: PropTypes.shape({

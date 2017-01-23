@@ -1,6 +1,6 @@
 export default {
   props: {
-    author: [
+    authors: [
       {
         href: 'http://google.fr',
         socialLinks: [

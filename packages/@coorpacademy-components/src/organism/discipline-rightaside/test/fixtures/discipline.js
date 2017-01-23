@@ -9,7 +9,7 @@ export default {
     buy,
     startLabel,
     buyLabel,
-    author: [
+    authors: [
       {
         name: 'Eléphant',
         logo: {

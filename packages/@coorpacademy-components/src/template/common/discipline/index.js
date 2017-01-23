@@ -19,7 +19,7 @@ const Discipline = (props, context) => {
     image,
     title = '',
     video,
-    author = [],
+    authors = [],
     description = '',
     start,
     buy,
@@ -44,7 +44,7 @@ const Discipline = (props, context) => {
           buy={buy}
           startLabel={startLabel}
           buyLabel={buyLabel}
-          author={author}
+          authors={authors}
         />
       </div>
       <div
@@ -88,7 +88,7 @@ Discipline.propTypes = {
   buy: PropTypes.func,
   startLabel: PropTypes.string,
   buyLabel: PropTypes.string,
-  author: PropTypes.arrayOf(PropTypes.shape({
+  authors: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string.isRequired,
     socialLinks: PropTypes.array.isRequired
   })),
