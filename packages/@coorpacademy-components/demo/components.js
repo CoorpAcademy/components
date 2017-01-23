@@ -176,7 +176,10 @@ import DisciplineHeaderFixtureNoVideoNoImage from '../src/molecule/discipline-he
 import DisciplineHeaderFixtureNoVideo from '../src/molecule/discipline-header/test/fixtures/no-video';
 import DisciplineScopeFixtureDefault from '../src/molecule/discipline-scope/test/fixtures/default';
 import DisciplineScopeFixtureEmpty from '../src/molecule/discipline-scope/test/fixtures/empty';
+<<<<<<< HEAD
 import DisciplineScopeFixtureVideos from '../src/molecule/discipline-scope/test/fixtures/videos';
+=======
+>>>>>>> added module CTA within discipline page
 import DisciplineScopeFixtureWithOnclick from '../src/molecule/discipline-scope/test/fixtures/with-onclick';
 import MenuListFixtureDefault from '../src/molecule/menu-list/test/fixtures/default';
 import ModuleBubbleFixtureDefault from '../src/molecule/module-bubble/test/fixtures/default';
@@ -189,7 +192,10 @@ import ProgressBarFixtureDefault from '../src/molecule/progress-bar/test/fixture
 import ProgressBarFixtureMax from '../src/molecule/progress-bar/test/fixtures/max';
 import ScopeContentFixtureDefault from '../src/molecule/scope-content/test/fixtures/default';
 import ScopeContentFixtureEmpty from '../src/molecule/scope-content/test/fixtures/empty';
+<<<<<<< HEAD
 import ScopeContentFixtureVideos from '../src/molecule/scope-content/test/fixtures/videos';
+=======
+>>>>>>> added module CTA within discipline page
 import ScopeContentFixtureWithOnclick from '../src/molecule/scope-content/test/fixtures/with-onclick';
 import ScopeTabsFixtureDefault from '../src/molecule/scope-tabs/test/fixtures/default';
 import ScopeTabsFixtureEmpty from '../src/molecule/scope-tabs/test/fixtures/empty';
@@ -578,7 +584,10 @@ export const fixtures = {
     DisciplineScope: {
       Default: DisciplineScopeFixtureDefault,
       Empty: DisciplineScopeFixtureEmpty,
+<<<<<<< HEAD
       Videos: DisciplineScopeFixtureVideos,
+=======
+>>>>>>> added module CTA within discipline page
       WithOnclick: DisciplineScopeFixtureWithOnclick
     },
     MenuList: {
@@ -603,7 +612,10 @@ export const fixtures = {
     ScopeContent: {
       Default: ScopeContentFixtureDefault,
       Empty: ScopeContentFixtureEmpty,
+<<<<<<< HEAD
       Videos: ScopeContentFixtureVideos,
+=======
+>>>>>>> added module CTA within discipline page
       WithOnclick: ScopeContentFixtureWithOnclick
     },
     ScopeTabs: {
