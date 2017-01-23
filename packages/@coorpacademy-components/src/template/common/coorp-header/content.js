@@ -1,6 +1,6 @@
 import join from 'lodash/fp/join';
 
-export default (translate, props) => {
+export default props => {
   const {
     rootUrl = '/',
     connexionLink = '/',
@@ -13,83 +13,83 @@ export default (translate, props) => {
     src: 'https://www.coorpacademy.com/assets/img/logo.svg',
     href: rootUrl,
     menuItems: [{
-      title: translate('Les formations'),
+      title: 'Les formations',
       href: url('catalog/trainings'),
       subItems: [
         {
-          title: translate('Tous les cursus'),
+          title: 'Tous les cursus',
           href: url('home-B2C')
         },
         {
-          title: translate('Toutes les formations'),
+          title: 'Toutes les formations',
           href: url('catalog/trainings')
         },
         {
-          title: translate('Abonnement Coorpacademy'),
+          title: 'Abonnement Coorpacademy',
           href: url('tarifs-abonnement')
         }
       ]
     },
     {
-      title: translate('Nos Solutions Entreprises'),
+      title: 'Nos Solutions Entreprises',
       href: url('solutions'),
       subItems: [
         {
-          title: translate('Solutions Entreprises'),
+          title: 'Solutions Entreprises',
           href: url('solutions')
         },
         {
-          title: translate('Des formations adaptées à vos enjeux'),
+          title: 'Des formations adaptées à vos enjeux',
           href: url('contenu-adapte-enjeux')
         },
         {
-          title: translate('Toutes les formations'),
+          title: 'Toutes les formations',
           href: url('catalog/trainings/')
         },
         {
-          title: translate('Tarifs entreprises'),
+          title: 'Tarifs entreprises',
           href: url('tarifs-entreprises')
         }
       ]
     },
     {
-      title: translate('Coorpacademy'),
+      title: 'Coorpacademy',
       href: url('qui-sommes-nous'),
       subItems: [
         {
-          title: translate('Qui sommes-nous ?'),
+          title: 'Qui sommes-nous ?',
           href: url('qui-sommes-nous')
         },
         {
-          title: translate('Pourquoi Coorpacademy ?'),
+          title: 'Pourquoi Coorpacademy ?',
           href: url('home-B2B')
         },
         {
-          title: translate('Ils nous font confiance'),
+          title: 'Ils nous font confiance',
           href: url('clients')
         },
         {
-          title: translate('L\'équipe'),
+          title: 'L\'équipe',
           href: url('equipe')
         },
         {
-          title: translate('Contactez-nous'),
+          title: 'Contactez-nous',
           href: url('contact')
         }
       ]
     },
     {
-      title: translate('Blog'),
+      title: 'Blog',
       href: 'https://blog-fr.coorpacademy.com/',
       outgoing: true
     },
     {
-      title: translate('Connexion'),
+      title: 'Connexion',
       href: connexionLink,
       type: 'secondary'
     },
     {
-      title: translate('Inscription'),
+      title: 'Inscription',
       href: inscriptionLink,
       type: 'primary'
     }]
