@@ -1,13 +1,14 @@
-import catalogCTA from '../../../../molecule/catalog-cta/test/fixtures/default';
+import disciplineCTA from '../../../../molecule/discipline-cta/test/fixtures/default';
 
-const {rating, maxRating, linkBuy, linkTry} = catalogCTA.props;
+const {start, buy, startLabel, buyLabel} = disciplineCTA.props;
 
 export default {
   props: {
-    rating,
-    maxRating,
-    linkBuy,
-    linkTry,
+    type: 'discipline',
+    start,
+    buy,
+    startLabel,
+    buyLabel,
     authors: [
       {
         name: 'Eléphant',

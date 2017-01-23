@@ -34,6 +34,7 @@ import Checkboxes from '../src/molecule/checkboxes';
 import CursusHeader from '../src/molecule/cursus-header';
 import CursusList from '../src/molecule/cursus-list';
 import DisciplineCard from '../src/molecule/discipline-card';
+import DisciplineCta from '../src/molecule/discipline-cta';
 import DisciplineHeader from '../src/molecule/discipline-header';
 import DisciplineScope from '../src/molecule/discipline-scope';
 import MenuList from '../src/molecule/menu-list';
@@ -167,6 +168,8 @@ import CursusListFixtureDefault from '../src/molecule/cursus-list/test/fixtures/
 import DisciplineCardFixtureHidden from '../src/molecule/discipline-card/test/fixtures/hidden';
 import DisciplineCardFixtureWithCourseNum from '../src/molecule/discipline-card/test/fixtures/with-course-num';
 import DisciplineCardFixtureWithModules from '../src/molecule/discipline-card/test/fixtures/with-modules';
+import DisciplineCtaFixtureDefault from '../src/molecule/discipline-cta/test/fixtures/default';
+import DisciplineCtaFixtureNoStart from '../src/molecule/discipline-cta/test/fixtures/no-start';
 import DisciplineHeaderFixtureDefault from '../src/molecule/discipline-header/test/fixtures/default';
 import DisciplineHeaderFixtureNoVideoNoImage from '../src/molecule/discipline-header/test/fixtures/no-video-no-image';
 import DisciplineHeaderFixtureNoVideo from '../src/molecule/discipline-header/test/fixtures/no-video';
@@ -239,7 +242,8 @@ import DisciplineCardsFixtureEmpty from '../src/organism/discipline-cards/test/f
 import DisciplineCardsFixtureManyDisciplines from '../src/organism/discipline-cards/test/fixtures/many-disciplines';
 import DisciplineRightasideFixtureAuthor from '../src/organism/discipline-rightaside/test/fixtures/author';
 import DisciplineRightasideFixtureDefault from '../src/organism/discipline-rightaside/test/fixtures/default';
-import DisciplineRightasideFixtureDoubleAuthor from '../src/organism/discipline-rightaside/test/fixtures/doubleAuthor';
+import DisciplineRightasideFixtureDiscipline from '../src/organism/discipline-rightaside/test/fixtures/discipline';
+import DisciplineRightasideFixtureDoubleAuthor from '../src/organism/discipline-rightaside/test/fixtures/double-author';
 import DisciplineRightasideFixtureEmpty from '../src/organism/discipline-rightaside/test/fixtures/empty';
 import DiscussionFixtureDefault from '../src/organism/discussion/test/fixtures/default';
 import DiscussionFixtureLoadingMore from '../src/organism/discussion/test/fixtures/loading-more';
@@ -288,7 +292,7 @@ import BrandUpdateFixtureUsers from '../src/template/back-office/brand-update/te
 import CoorpHeaderFixtureProduction from '../src/template/common/coorp-header/test/fixtures/production';
 import CoorpHeaderFixtureStaging from '../src/template/common/coorp-header/test/fixtures/staging';
 import DisciplineFixtureDefault from '../src/template/common/discipline/test/fixtures/default';
-import DisciplineFixtureDoubleAuthor from '../src/template/common/discipline/test/fixtures/doubleAuthor';
+import DisciplineFixtureDoubleAuthor from '../src/template/common/discipline/test/fixtures/double-author';
 import DisciplineFixtureEmpty from '../src/template/common/discipline/test/fixtures/empty';
 import DisciplineFixtureLoading from '../src/template/common/discipline/test/fixtures/loading';
 import DisciplineFixtureNoVideo from '../src/template/common/discipline/test/fixtures/no-video';
@@ -333,6 +337,7 @@ export const components = {
     CursusHeader,
     CursusList,
     DisciplineCard,
+    DisciplineCta,
     DisciplineHeader,
     DisciplineScope,
     MenuList,
@@ -554,6 +559,10 @@ export const fixtures = {
       WithCourseNum: DisciplineCardFixtureWithCourseNum,
       WithModules: DisciplineCardFixtureWithModules
     },
+    DisciplineCta: {
+      Default: DisciplineCtaFixtureDefault,
+      NoStart: DisciplineCtaFixtureNoStart
+    },
     DisciplineHeader: {
       Default: DisciplineHeaderFixtureDefault,
       NoVideoNoImage: DisciplineHeaderFixtureNoVideoNoImage,
@@ -683,6 +692,7 @@ export const fixtures = {
     DisciplineRightaside: {
       Author: DisciplineRightasideFixtureAuthor,
       Default: DisciplineRightasideFixtureDefault,
+      Discipline: DisciplineRightasideFixtureDiscipline,
       DoubleAuthor: DisciplineRightasideFixtureDoubleAuthor,
       Empty: DisciplineRightasideFixtureEmpty
     },

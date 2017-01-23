@@ -24,6 +24,8 @@ const Author = (props, context) => {
     description = ''
   } = props;
 
+  const authors = [information];
+
   return (
     <div className={layout.wrapper}>
       <div className={layout.container}>
@@ -35,7 +37,7 @@ const Author = (props, context) => {
       </div>
       <div className={layout.colContainer}>
         <DisciplineRightaside
-          author={information}
+          authors={authors}
           authorTitle={translate('Informations')}
         />
       </div>

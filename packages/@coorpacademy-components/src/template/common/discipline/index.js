@@ -15,16 +15,16 @@ const Discipline = (props, context) => {
     level,
     levels,
     changeLevel,
-    linkBuy,
-    linkTry,
-    maxPopularity,
     relatedDisciplines = null,
     image,
     title = '',
     video,
-    author = {name: '', socialLinks: []},
+    authors = [],
     description = '',
-    popularity = 0
+    start,
+    buy,
+    startLabel,
+    buyLabel
   } = props;
 
   return (
@@ -39,11 +39,12 @@ const Discipline = (props, context) => {
       </div>
       <div className={style.colContainer}>
         <DisciplineRightaside
-          linkBuy={linkBuy}
-          linkTry={linkTry}
-          author={author}
-          rating={popularity}
-          maxRating={maxPopularity}
+          type={'discipline'}
+          start={start}
+          buy={buy}
+          startLabel={startLabel}
+          buyLabel={buyLabel}
+          authors={authors}
         />
       </div>
       <div
@@ -73,8 +74,6 @@ Discipline.contextTypes = {
 };
 
 Discipline.propTypes = {
-  popularity: PropTypes.number,
-  maxPopularity: PropTypes.number,
   title: PropTypes.string,
   description: PropTypes.string,
   image: PropTypes.shape({
@@ -85,12 +84,14 @@ Discipline.propTypes = {
     type: PropTypes.oneOf(['vimeo', 'youtube']).isRequired,
     id: PropTypes.string.isRequired
   }),
-  linkBuy: PropTypes.string,
-  linkTry: PropTypes.string,
-  author: PropTypes.shape({
+  start: PropTypes.func,
+  buy: PropTypes.func,
+  startLabel: PropTypes.string,
+  buyLabel: PropTypes.string,
+  authors: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string.isRequired,
     socialLinks: PropTypes.array.isRequired
-  }),
+  })),
   relatedDisciplines: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.object), PropTypes.null]),
   level: PropTypes.object,
   levels: PropTypes.arrayOf(PropTypes.string),
