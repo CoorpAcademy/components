@@ -3,6 +3,7 @@ import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import identity from 'lodash/fp/identity';
 import Button from '../../atom/button';
+import VideoIframe from '../video-iframe';
 import style from './style.css';
 
 const ScopeContent = (props, context) => {
@@ -18,6 +19,7 @@ const ScopeContent = (props, context) => {
   const _skills = getOr([], 'skills', content);
   const _chapters = getOr([], 'chapters', content);
   const _assets = getOr([], 'course_scope', content);
+  const _videos = getOr([], 'videos', content);
 
   const onClick = get('onClick', content);
   const buttonLabel = get('buttonLabel', content);
@@ -44,6 +46,33 @@ const ScopeContent = (props, context) => {
       }}
     />
   );
+
+  const videos = _videos.map((video, index) => {
+    const type = get('type', video);
+    const id = get('id', video);
+
+    return (
+      <div className={style.video}>
+        <div className={style.imgWrapper}>
+          <VideoIframe
+            type={type}
+            id={id}
+            width="380px"
+            height="250px"
+          />
+        </div>
+        <div className={style.videoTitle}>
+          {video.title}
+        </div>
+      </div>
+    );
+  });
+
+  const videosView = _videos.length > 0 ? (
+    <div className={style.videos}>
+      {videos}
+    </div>
+  ) : null;
 
   return (
     <div>
@@ -83,6 +112,7 @@ const ScopeContent = (props, context) => {
           </div>
         </div>
       </div>
+      {videosView}
     </div>
   );
 };

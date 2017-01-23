@@ -170,6 +170,34 @@
   color: #607D8B;
 }
 
+.videos {
+  padding: 24px 11px 0;
+  border: solid 1px #E3E3E3;
+  border-top: 0;
+}
+
+.video {
+  display: inline-block;
+  margin: 0 12px 24px;
+}
+
+.imgWrapper {
+  width: 180px;
+  height: 110px;
+  margin-bottom: 5px;
+}
+
+.videoTitle {
+  font-family: 'Open Sans';
+  font-weight: 700;
+  font-size: 12px;
+  color: #455A64;
+  width: 180px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 @media desktop {
 
 }

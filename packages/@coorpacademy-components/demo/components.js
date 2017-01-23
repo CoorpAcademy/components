@@ -176,6 +176,7 @@ import DisciplineHeaderFixtureNoVideoNoImage from '../src/molecule/discipline-he
 import DisciplineHeaderFixtureNoVideo from '../src/molecule/discipline-header/test/fixtures/no-video';
 import DisciplineScopeFixtureDefault from '../src/molecule/discipline-scope/test/fixtures/default';
 import DisciplineScopeFixtureEmpty from '../src/molecule/discipline-scope/test/fixtures/empty';
+import DisciplineScopeFixtureVideos from '../src/molecule/discipline-scope/test/fixtures/videos';
 import DisciplineScopeFixtureWithOnclick from '../src/molecule/discipline-scope/test/fixtures/with-onclick';
 import MenuListFixtureDefault from '../src/molecule/menu-list/test/fixtures/default';
 import ModuleBubbleFixtureDefault from '../src/molecule/module-bubble/test/fixtures/default';
@@ -188,6 +189,7 @@ import ProgressBarFixtureDefault from '../src/molecule/progress-bar/test/fixture
 import ProgressBarFixtureMax from '../src/molecule/progress-bar/test/fixtures/max';
 import ScopeContentFixtureDefault from '../src/molecule/scope-content/test/fixtures/default';
 import ScopeContentFixtureEmpty from '../src/molecule/scope-content/test/fixtures/empty';
+import ScopeContentFixtureVideos from '../src/molecule/scope-content/test/fixtures/videos';
 import ScopeContentFixtureWithOnclick from '../src/molecule/scope-content/test/fixtures/with-onclick';
 import ScopeTabsFixtureDefault from '../src/molecule/scope-tabs/test/fixtures/default';
 import ScopeTabsFixtureEmpty from '../src/molecule/scope-tabs/test/fixtures/empty';
@@ -246,11 +248,7 @@ import DisciplineCardsFixtureManyDisciplines from '../src/organism/discipline-ca
 import DisciplineRightasideFixtureAuthor from '../src/organism/discipline-rightaside/test/fixtures/author';
 import DisciplineRightasideFixtureDefault from '../src/organism/discipline-rightaside/test/fixtures/default';
 import DisciplineRightasideFixtureDiscipline from '../src/organism/discipline-rightaside/test/fixtures/discipline';
-<<<<<<< HEAD
 import DisciplineRightasideFixtureDoubleAuthor from '../src/organism/discipline-rightaside/test/fixtures/doubleAuthor';
-=======
-import DisciplineRightasideFixtureDoubleAuthor from '../src/organism/discipline-rightaside/test/fixtures/double-author';
->>>>>>> duplicated catalog-cta for discipline template (#397)
 import DisciplineRightasideFixtureEmpty from '../src/organism/discipline-rightaside/test/fixtures/empty';
 import DiscussionFixtureDefault from '../src/organism/discussion/test/fixtures/default';
 import DiscussionFixtureLoadingMore from '../src/organism/discussion/test/fixtures/loading-more';
@@ -299,7 +297,7 @@ import BrandUpdateFixtureUsers from '../src/template/back-office/brand-update/te
 import CoorpHeaderFixtureProduction from '../src/template/common/coorp-header/test/fixtures/production';
 import CoorpHeaderFixtureStaging from '../src/template/common/coorp-header/test/fixtures/staging';
 import DisciplineFixtureDefault from '../src/template/common/discipline/test/fixtures/default';
-import DisciplineFixtureDoubleAuthor from '../src/template/common/discipline/test/fixtures/double-author';
+import DisciplineFixtureDoubleAuthor from '../src/template/common/discipline/test/fixtures/doubleAuthor';
 import DisciplineFixtureEmpty from '../src/template/common/discipline/test/fixtures/empty';
 import DisciplineFixtureLoading from '../src/template/common/discipline/test/fixtures/loading';
 import DisciplineFixtureNoVideo from '../src/template/common/discipline/test/fixtures/no-video';
@@ -580,6 +578,7 @@ export const fixtures = {
     DisciplineScope: {
       Default: DisciplineScopeFixtureDefault,
       Empty: DisciplineScopeFixtureEmpty,
+      Videos: DisciplineScopeFixtureVideos,
       WithOnclick: DisciplineScopeFixtureWithOnclick
     },
     MenuList: {
@@ -604,6 +603,7 @@ export const fixtures = {
     ScopeContent: {
       Default: ScopeContentFixtureDefault,
       Empty: ScopeContentFixtureEmpty,
+      Videos: ScopeContentFixtureVideos,
       WithOnclick: ScopeContentFixtureWithOnclick
     },
     ScopeTabs: {
