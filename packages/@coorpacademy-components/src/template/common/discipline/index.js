@@ -3,19 +3,16 @@ import identity from 'lodash/fp/identity';
 import DisciplineHeader from '../../../molecule/discipline-header';
 import DisciplineScope from '../../../molecule/discipline-scope';
 import DisciplineRightaside from '../../../organism/discipline-rightaside';
-import CatalogCards from '../../../organism/catalog-cards';
 import layout from '../layout.css';
 import style from './style.css';
 
 const Discipline = (props, context) => {
   const {translate = identity} = context;
-  const cardsTitle = translate('They also liked:');
   const {
     selected = 0,
     level,
     levels,
     changeLevel,
-    relatedDisciplines = null,
     image,
     title = '',
     video,
@@ -57,14 +54,6 @@ const Discipline = (props, context) => {
           onClick={changeLevel}
         />
       </div>
-      <div className={layout.container}>
-        <span className={layout.cardsTitle}>
-          {cardsTitle}
-        </span>
-        <CatalogCards
-          products={relatedDisciplines}
-        />
-      </div>
     </div>
   );
 };
@@ -92,7 +81,6 @@ Discipline.propTypes = {
     name: PropTypes.string.isRequired,
     socialLinks: PropTypes.array.isRequired
   })),
-  relatedDisciplines: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.object), PropTypes.null]),
   level: PropTypes.object,
   levels: PropTypes.arrayOf(PropTypes.object),
   selected: PropTypes.number,
