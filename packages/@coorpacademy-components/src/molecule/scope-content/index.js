@@ -52,7 +52,9 @@ const ScopeContent = (props, context) => {
     const id = get('id', video);
 
     return (
-      <div className={style.video}>
+      <div key={id}
+        className={style.video}
+      >
         <div className={style.imgWrapper}>
           <VideoIframe
             type={type}
@@ -131,7 +133,7 @@ ScopeContent.propTypes = {
     skills: PropTypes.arrayOf(PropTypes.string),
     chapters: PropTypes.arrayOf(PropTypes.object),
     course_scope: PropTypes.arrayOf(PropTypes.string),
-    videos: PropTypes.array
+    videos: PropTypes.arrayOf(PropTypes.object)
   })
 };
 
