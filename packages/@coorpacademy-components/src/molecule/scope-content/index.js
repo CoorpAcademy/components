@@ -59,8 +59,8 @@ const ScopeContent = (props, context) => {
           <VideoIframe
             type={type}
             id={id}
-            width="380px"
-            height="250px"
+            width="180px"
+            height="110px"
           />
         </div>
         <div className={style.videoTitle}>
