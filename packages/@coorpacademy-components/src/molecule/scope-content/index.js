@@ -52,7 +52,7 @@ const ScopeContent = (props, context) => {
           <div className={style.title}>
             {title}
           </div>
-          <div className={style.time}>{time}</div>
+          
         </div>
         <div className={style.column}>
           <div className={style.coltitle}>
@@ -72,17 +72,10 @@ const ScopeContent = (props, context) => {
           </div>
         </div>
       </div>
-
       {ctaView}
-
-      <div className={style.asset}>
-        <div className={style.assetTitle}>{assetsTitle}</div>
-        <div className={style.assetDesc}>
-          <div className={style.courseScope}>
-            {assets}
-          </div>
-        </div>
-      </div>
+      <div className={style.timeWrapper}>
+        <div className={style.time}><span className={style.clock} />{time}</div>
+      </div> 
     </div>
   );
 };

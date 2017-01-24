@@ -1,7 +1,9 @@
 @value breakpoints: "../../variables/breakpoints.css";
+@value colors: "../../variables/colors.css";
 @value mobile from breakpoints;
 @value tablet from breakpoints;
 @value desktop from breakpoints;
+@value textGrey from colors;
 
 .cta {
   float: right;
@@ -29,20 +31,42 @@
   font-family: "Open Sans";
   font-weight: 600;
   font-size: 20px;
-  color: #546E7A;
+  color: textGrey;
+}
+
+.timeWrapper {
+  display: block;
+  padding: 13px 0 13px 25px;
+  border: solid 1px #E3E3E3;
 }
 
 .time {
   display: inline-block;
   width: auto;
   padding: 3px 13px;
-  background: #546E7A;
-  border-radius: 15px;
+  color: textGrey;
   font-family: "Open Sans";
   font-weight: 800;
-  font-size: 10px;
-  color: #FFFFFF;
+  font-size: 13px;
+  margin-right: 20px;
 }
+
+.clock {
+  composes: fa from '../../variables/fontawesome.css';
+  composes: fa-clock-o from '../../variables/fontawesome.css';
+  position: relative;
+  display: block;
+  left: -20px;
+}
+
+.clock:before {
+  position: absolute;
+  font-size: 14px;
+  top: 2;
+  color: textGrey;
+  
+}
+
 
 .column {
   box-sizing: border-box;

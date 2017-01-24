@@ -6,7 +6,7 @@ export default {
         '24 QUESTIONS',
         '3 VIDÉOS'
       ],
-      time: '2H20',
+      time: '20mn',
       skills: [
         'Connaître l’ensemble des leviers au service de la génération de trafic',
         'Comprendre les différences entre les coûts media'
