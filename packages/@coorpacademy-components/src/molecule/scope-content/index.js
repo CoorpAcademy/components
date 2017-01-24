@@ -3,7 +3,6 @@ import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import identity from 'lodash/fp/identity';
 import Button from '../../atom/button';
-import VideoIframe from '../video-iframe';
 import style from './style.css';
 
 const ScopeContent = (props, context) => {
@@ -48,20 +47,16 @@ const ScopeContent = (props, context) => {
   );
 
   const videos = _videos.map((video, index) => {
-    const type = get('type', video);
-    const id = get('id', video);
+    const handleClick = get('onClick', video);
 
     return (
       <div key={index}
         className={style.video}
+        onClick={handleClick}
       >
         <div className={style.imgWrapper}>
-          <VideoIframe
-            type={type}
-            id={id}
-            width="180px"
-            height="110px"
-          />
+          <img src={video.image} />
+          <div className={style.play} />
         </div>
         <div className={style.videoTitle}>
           {video.title}
@@ -133,7 +128,11 @@ ScopeContent.propTypes = {
     skills: PropTypes.arrayOf(PropTypes.string),
     chapters: PropTypes.arrayOf(PropTypes.object),
     course_scope: PropTypes.arrayOf(PropTypes.string),
-    videos: PropTypes.arrayOf(PropTypes.object)
+    videos: PropTypes.arrayOf(PropTypes.shape({
+      title: PropTypes.string,
+      image: PropTypes.string,
+      onClick: PropTypes.func
+    }))
   })
 };
 

@@ -179,12 +179,44 @@
 .video {
   display: inline-block;
   margin: 0 12px 24px;
+  cursor: pointer;
 }
 
 .imgWrapper {
   width: 180px;
   height: 110px;
   margin-bottom: 5px;
+  overflow: hidden;
+  border: 1px solid #E1E1E1;
+  position: relative;
+}
+
+.imgWrapper img {
+  width: 100%;
+}
+
+.play {
+  composes: fa from '../../variables/fontawesome.css';
+  composes: fa-play from '../../variables/fontawesome.css';
+  top: 50%;
+  left: 50%;
+  margin-left: -20px;
+  margin-top: -20px;
+  position: absolute;
+  border: 5px solid #ffffff;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+}
+
+.play:before {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  color: #ffffff;
+  font-size: 20px;
+  text-shadow: 0px 2px 4px rgba(0,0,0,.5);
 }
 
 .videoTitle {

@@ -1,5 +1,3 @@
-import video from '../../../video-iframe/test/fixtures/default';
-
 export default {
   props: {
     content: {
@@ -21,19 +19,23 @@ export default {
       videos: [
         {
           title: 'Titre de la vidéo',
-          video
+          image: 'http://lorempixel.com/300/300/business',
+          onClick: () => true
         },
         {
           title: 'Titre 2',
-          video
+          image: 'http://lorempixel.com/300/300/business',
+          onClick: () => true
         },
         {
           title: 'Blabla vidéo',
-          video
+          image: 'http://lorempixel.com/300/300/business',
+          onClick: () => true
         },
         {
           title: 'Titre de la vidéo',
-          video
+          image: 'http://lorempixel.com/300/300/business',
+          onClick: () => true
         }
       ]
     }
