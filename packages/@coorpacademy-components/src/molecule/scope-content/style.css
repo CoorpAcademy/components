@@ -3,6 +3,10 @@
 @value tablet from breakpoints;
 @value desktop from breakpoints;
 
+.cta {
+  float: right;
+}
+
 .desc {
   display: block;
   box-sizing: border-box;
