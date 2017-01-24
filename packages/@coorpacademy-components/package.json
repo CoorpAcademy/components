@@ -1,13 +1,15 @@
 {
   "name": "@coorpacademy/components",
-  "version": "4.0.17",
+  "version": "4.1.1",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [
     "lib",
     "es",
-    "locales"
+    "locales",
+    "postcss.config.js",
+    "README.md"
   ],
   "scripts": {
     "start": "npm run generate:demo && BABEL_ENV=commonjs babel-node demo/index.js",
@@ -43,7 +45,7 @@
     "react-dom": "^15.4.1"
   },
   "devDependencies": {
-    "@coorpacademy/components-bundler": "^4.0.17",
+    "@coorpacademy/components-bundler": "^4.1.0",
     "@coorpacademy/history": "^3.7.3",
     "@coorpacademy/translate": "^3.7.3",
     "autoprefixer": "^6.4.1",
