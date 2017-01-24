@@ -51,8 +51,7 @@ const ScopeContent = (props, context) => {
         <div className={style.infos}>
           <div className={style.title}>
             {title}
-          </div>
-          
+          </div>   
         </div>
         <div className={style.column}>
           <div className={style.coltitle}>
@@ -75,7 +74,7 @@ const ScopeContent = (props, context) => {
       {ctaView}
       <div className={style.timeWrapper}>
         <div className={style.time}><span className={style.clock} />{time}</div>
-      </div> 
+      </div>
     </div>
   );
 };
