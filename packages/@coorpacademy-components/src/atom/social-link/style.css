@@ -1,3 +1,6 @@
+@value colors: "../../variables/colors.css";
+@value darkGrey from colors;
+
 .link {
   font-family: 'social-icons';
   font-size: 13px;
@@ -5,8 +8,8 @@
   text-align: center;
   width: 19px;
   padding: 4px;
-  border: 1px solid #B0BEC5;
-  color: #B0BEC5;
+  border: 1px solid darkGrey;
+  color: darkGrey;
   border-radius: 50%;
   box-sizing: content-box;
   text-decoration: none;
@@ -14,6 +17,6 @@
 }
 
 .link:hover {
-  border-color: #78909C;
-  color: #78909C;
+  border-color: #29363C;
+  color: #29363C;
 }

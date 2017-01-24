@@ -7,7 +7,7 @@ import CatalogCards from '../../../organism/catalog-cards';
 import layout from '../layout.css';
 import style from './style.css';
 
-const ProductCourse = (props, context) => {
+const Discipline = (props, context) => {
   const {translate = identity} = context;
   const cardsTitle = translate('They also liked:');
   const {
@@ -15,16 +15,16 @@ const ProductCourse = (props, context) => {
     level,
     levels,
     changeLevel,
-    linkBuy,
-    linkTry,
-    maxPopularity,
     relatedDisciplines = null,
     image,
     title = '',
     video,
     authors = [],
     description = '',
-    popularity = 0
+    start,
+    buy,
+    startLabel,
+    buyLabel
   } = props;
 
   return (
@@ -39,11 +39,12 @@ const ProductCourse = (props, context) => {
       </div>
       <div className={style.colContainer}>
         <DisciplineRightaside
-          linkBuy={linkBuy}
-          linkTry={linkTry}
+          type={'discipline'}
+          start={start}
+          buy={buy}
+          startLabel={startLabel}
+          buyLabel={buyLabel}
           authors={authors}
-          rating={popularity}
-          maxRating={maxPopularity}
         />
       </div>
       <div
@@ -68,13 +69,11 @@ const ProductCourse = (props, context) => {
   );
 };
 
-ProductCourse.contextTypes = {
+Discipline.contextTypes = {
   translate: React.PropTypes.func
 };
 
-ProductCourse.propTypes = {
-  popularity: PropTypes.number,
-  maxPopularity: PropTypes.number,
+Discipline.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   image: PropTypes.shape({
@@ -85,8 +84,10 @@ ProductCourse.propTypes = {
     type: PropTypes.oneOf(['vimeo', 'youtube']).isRequired,
     id: PropTypes.string.isRequired
   }),
-  linkBuy: PropTypes.string,
-  linkTry: PropTypes.string,
+  start: PropTypes.func,
+  buy: PropTypes.func,
+  startLabel: PropTypes.string,
+  buyLabel: PropTypes.string,
   authors: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string.isRequired,
     socialLinks: PropTypes.array.isRequired
@@ -98,4 +99,4 @@ ProductCourse.propTypes = {
   changeLevel: PropTypes.func
 };
 
-export default ProductCourse;
+export default Discipline;

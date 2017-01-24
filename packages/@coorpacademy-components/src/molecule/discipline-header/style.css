@@ -54,6 +54,10 @@
   text-decoration: underline;
 }
 
+.toggle {
+  display: none;
+}
+
 @media desktop {
 
 }
@@ -76,5 +80,27 @@
   .courseWrapper {
     margin-top: 20px;
     padding-left: 0;
+  }
+
+  .shortDesc {
+    composes: desc;
+    height: 66px;
+    overflow: hidden;
+  }
+
+  .toggle {
+    display: block;
+    cursor: pointer;
+    font-family: 'Open Sans';
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #D1D1D1;
+    border: 1px solid #D1D1D1;
+    width: 100%;
+    text-align: center;
+    line-height: 28px;
+    border-radius: 3px;
+    margin-top: 10px;
   }
 }

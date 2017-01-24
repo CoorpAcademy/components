@@ -1,0 +1,41 @@
+@value breakpoints: "../../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value tablet from breakpoints;
+@value desktop from breakpoints;
+
+.wrapper {
+  composes: wrapper from '../layout.css';
+  display: block;
+}
+
+.container {
+  composes: container from '../layout.css';
+  float: left;
+}
+
+.contentContainer {
+  composes: container;
+  margin-top: 30px;
+}
+
+.colContainer {
+  composes: colContainer from '../layout.css';
+  float: right;
+}
+
+@media desktop {
+  .container {
+    margin-top: 0px;
+    float: none;
+  }
+
+  .colContainer {
+    float: none;
+  }
+}
+
+@media tablet {
+}
+
+@media mobile {
+}
