@@ -52,7 +52,7 @@ const ScopeContent = (props, context) => {
     const id = get('id', video);
 
     return (
-      <div key={id}
+      <div key={index}
         className={style.video}
       >
         <div className={style.imgWrapper}>
