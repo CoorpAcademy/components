@@ -28,7 +28,7 @@ const ScopeTabs = props => {
               <ModuleBubble
                 hideLabel
                 module={level}
-                onClick={onClick}
+                onClick={handleClick}
               />
             </div>
             <div className={style.name}>{level.name}</div>
