@@ -89,6 +89,7 @@
 }
 
 .authorName {
+  font-family: 'Open Sans';
   padding-top: 10px;
   font-size: 14px;
   font-weight: bold;

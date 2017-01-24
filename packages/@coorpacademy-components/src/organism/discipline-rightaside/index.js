@@ -22,10 +22,10 @@ const DisciplineRightaside = (props, context) => {
     start,
     buy,
     startLabel,
-    buyLabel
+    buyLabel,
+    authors
   } = props;
 
-  const authors = props.authors;
   const authorLabel = authorTitle || translate('author');
   let ctaView;
 

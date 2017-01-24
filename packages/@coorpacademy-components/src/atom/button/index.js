@@ -9,7 +9,7 @@ const Button = ({children, ...props}) => {
   const {
     className,
     color,
-    submitValue,
+    submitValue = 'submit',
     centered,
     disabled,
     href,
@@ -63,7 +63,10 @@ const Button = ({children, ...props}) => {
 
   return (
     <div
-      style={centeredStyle}
+      style={{
+        ...props.style,
+        ...centeredStyle
+      }}
       {...addClassName(`${style.button} ${hoverFill}`)({
         className
       })}

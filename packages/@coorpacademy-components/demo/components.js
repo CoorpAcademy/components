@@ -176,6 +176,8 @@ import DisciplineHeaderFixtureNoVideoNoImage from '../src/molecule/discipline-he
 import DisciplineHeaderFixtureNoVideo from '../src/molecule/discipline-header/test/fixtures/no-video';
 import DisciplineScopeFixtureDefault from '../src/molecule/discipline-scope/test/fixtures/default';
 import DisciplineScopeFixtureEmpty from '../src/molecule/discipline-scope/test/fixtures/empty';
+import DisciplineScopeFixtureVideos from '../src/molecule/discipline-scope/test/fixtures/videos';
+import DisciplineScopeFixtureWithOnclick from '../src/molecule/discipline-scope/test/fixtures/with-onclick';
 import MenuListFixtureDefault from '../src/molecule/menu-list/test/fixtures/default';
 import ModuleBubbleFixtureDefault from '../src/molecule/module-bubble/test/fixtures/default';
 import ModuleBubbleFixtureDisabled from '../src/molecule/module-bubble/test/fixtures/disabled';
@@ -187,6 +189,8 @@ import ProgressBarFixtureDefault from '../src/molecule/progress-bar/test/fixture
 import ProgressBarFixtureMax from '../src/molecule/progress-bar/test/fixtures/max';
 import ScopeContentFixtureDefault from '../src/molecule/scope-content/test/fixtures/default';
 import ScopeContentFixtureEmpty from '../src/molecule/scope-content/test/fixtures/empty';
+import ScopeContentFixtureVideos from '../src/molecule/scope-content/test/fixtures/videos';
+import ScopeContentFixtureWithOnclick from '../src/molecule/scope-content/test/fixtures/with-onclick';
 import ScopeTabsFixtureDefault from '../src/molecule/scope-tabs/test/fixtures/default';
 import ScopeTabsFixtureEmpty from '../src/molecule/scope-tabs/test/fixtures/empty';
 import SearchFixtureDefault from '../src/molecule/search/test/fixtures/default';
@@ -297,6 +301,7 @@ import DisciplineFixtureDoubleAuthor from '../src/template/common/discipline/tes
 import DisciplineFixtureEmpty from '../src/template/common/discipline/test/fixtures/empty';
 import DisciplineFixtureLoading from '../src/template/common/discipline/test/fixtures/loading';
 import DisciplineFixtureNoVideo from '../src/template/common/discipline/test/fixtures/no-video';
+import DisciplineFixtureWithOnclick from '../src/template/common/discipline/test/fixtures/with-onclick';
 
 export const components = {
   Atom: {
@@ -572,7 +577,9 @@ export const fixtures = {
     },
     DisciplineScope: {
       Default: DisciplineScopeFixtureDefault,
-      Empty: DisciplineScopeFixtureEmpty
+      Empty: DisciplineScopeFixtureEmpty,
+      Videos: DisciplineScopeFixtureVideos,
+      WithOnclick: DisciplineScopeFixtureWithOnclick
     },
     MenuList: {
       Default: MenuListFixtureDefault
@@ -595,7 +602,9 @@ export const fixtures = {
     },
     ScopeContent: {
       Default: ScopeContentFixtureDefault,
-      Empty: ScopeContentFixtureEmpty
+      Empty: ScopeContentFixtureEmpty,
+      Videos: ScopeContentFixtureVideos,
+      WithOnclick: ScopeContentFixtureWithOnclick
     },
     ScopeTabs: {
       Default: ScopeTabsFixtureDefault,
@@ -781,7 +790,8 @@ export const fixtures = {
       DoubleAuthor: DisciplineFixtureDoubleAuthor,
       Empty: DisciplineFixtureEmpty,
       Loading: DisciplineFixtureLoading,
-      NoVideo: DisciplineFixtureNoVideo
+      NoVideo: DisciplineFixtureNoVideo,
+      WithOnclick: DisciplineFixtureWithOnclick
     }
   }
 };
