@@ -6,6 +6,7 @@
 .wrapper {
   composes: wrapper from '../layout.css';
   display: block;
+  overflow: hidden;
 }
 
 .container {
