@@ -1,0 +1,129 @@
+.wrapper {
+
+}
+
+.header {
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #DCE0E0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logoWrapper {
+
+}
+
+.menuWrapper {
+  display: flex;
+}
+
+.pages {
+  height: 100%;
+  border-left: 1px solid #DCE0E0;
+  border-right: 1px solid #DCE0E0;
+  padding: 0 20px;
+  display: flex;
+  align-items: stretch;
+}
+
+.page {
+  position: relative;
+  padding: 0 20px;
+  cursor: pointer;
+  color: #484848;
+  font-family: 'Open Sans';
+  font-size: 15px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+.page .bar {
+  background-color: #00B0FF;
+  height: 3px;
+  width: 0;
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  transition: width 0.2s ease-out;
+}
+
+.page:hover .bar {
+  width: 100%;
+}
+
+.links {
+  height: 100%;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+}
+
+.link {
+  position: relative;
+  padding: 0 30px;
+  border-radius: 17px;
+  font-family: 'Open Sans';
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 34px;
+  border: 2px solid #00B0FF;
+  color: #00B0FF;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/*.link .fill {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #00B0FF;
+}*/
+
+.link:hover {
+  /*color: #ffffff;*/
+}
+
+/*.link:hover .fill {
+  display: block;
+}*/
+
+.link:last-child {
+  margin-left: 20px;
+}
+
+.settings {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.settingsToggle {
+  position: relative;
+  composes: fa from '../../variables/fontawesome.css';
+  composes: fa-cog from '../../variables/fontawesome.css';
+  width: 40px;
+  height: 40px;
+  color: #484848;
+  cursor: pointer;
+}
+
+.settingsToggle:hover {
+  color: #000000;
+}
+
+.settingsToggle:before {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 20px;
+}
