@@ -48,6 +48,9 @@ const ScopeContent = (props, context) => {
 
   const videos = _videos.map((video, index) => {
     const handleClick = get('onClick', video);
+    const playButton = handleClick && (
+      <div className={style.play} />
+    );
 
     return (
       <div key={index}
@@ -56,7 +59,7 @@ const ScopeContent = (props, context) => {
       >
         <div className={style.imgWrapper}>
           <img src={video.image} />
-          <div className={style.play} />
+          {playButton}
         </div>
         <div className={style.videoTitle}>
           {video.title}
