@@ -105,6 +105,7 @@
 }
 
 .settings {
+  position: relative;
   margin-left: 20px;
   height: 100%;
   display: flex;
@@ -131,4 +132,72 @@
   top: 10px;
   left: 10px;
   font-size: 20px;
+}
+
+.settingsWrapper {
+  position: absolute;
+  top: 75px;
+  right: 0;
+  width: 300px;
+  border-radius: 3px;
+  border: 1px solid #DCE0E0;
+  background: #FFFFFF;
+  box-shadow: 0 0 2px 2px rgba(0,0,0,0.02);
+}
+
+.settingsWrapper:after, .settingsWrapper:before {
+	bottom: 100%;
+	right: 20px;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.settingsWrapper:after {
+	border-color: rgba(255, 255, 255, 0);
+	border-bottom-color: #ffffff;
+	border-width: 10px;
+	margin-right: -10px;
+}
+.settingsWrapper:before {
+	border-color: rgba(220, 224, 224, 0);
+	border-bottom-color: #DCE0E0;
+	border-width: 11px;
+	margin-right: -11px;
+}
+
+.settingsGroup {
+  padding: 30px;
+}
+
+.setting {
+
+}
+
+.setting .label {
+  font-family: 'Open Sans';
+  font-size: 14px;
+  font-weight: 600;
+  color: #484848;
+}
+
+.closeSettings {
+  font-family: 'Open Sans';
+  font-size: 15px;
+  font-weight: 600;
+  color: #AAAAAA;
+  height: 40px;
+  border-top: 1px solid #DCE0E0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 30px;
+  cursor: pointer;
+}
+
+.closeSettings:hover {
+  color: #484848;
 }
