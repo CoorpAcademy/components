@@ -48,10 +48,17 @@ class MoocHeader extends React.Component {
               <div className={style.settingsToggle}
                 onClick={this.handleSettingsToggle}
               />
-              <div className={this.state.isSettingsOpen ? style.settingsGroup : style.none}>
-                <div className={style.setting}>
+              <div className={this.state.isSettingsOpen ? style.settingsWrapper : style.none}>
+                <div className={style.settingsGroup}>
+                  <div className={style.setting}>
+                    <div className={style.label}>Langue</div>
+                  </div>
                 </div>
-                <div className={style.closeSettings}>Fermer</div>
+                <div className={style.closeSettings}
+                  onClick={this.handleSettingsToggle}
+                >
+                  Fermer
+                </div>
               </div>
             </div>
           </div>
