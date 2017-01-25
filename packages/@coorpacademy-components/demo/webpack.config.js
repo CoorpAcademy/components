@@ -44,7 +44,7 @@ export default ({
           minimize: true,
           modules: true,
           importLoaders: 1,
-          localIdentName: '[hash]'
+          localIdentName: `${hash}`
         }
       }, {
         loader: 'postcss-loader'
