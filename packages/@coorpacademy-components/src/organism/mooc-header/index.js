@@ -30,7 +30,9 @@ class MoocHeader extends React.Component {
       <div className={style.wrapper}>
         <div className={style.header}>
           <div className={style.logoWrapper}>
-            <a href="#">
+            <a className={style.logo}
+              href="#"
+            >
               <img src="https://www.coorpacademy.com/assets/img/logo.svg" />
             </a>
             <div className={style.themes}>

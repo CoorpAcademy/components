@@ -23,6 +23,11 @@
   height: 100%;
 }
 
+.logo {
+  display: flex;
+  align-items: center;
+}
+
 .options {
   position: relative;
   display: flex;
@@ -42,7 +47,7 @@
   cursor: pointer;
   color: #484848;
   font-family: 'Open Sans';
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
   display: flex;
   align-items: center;
@@ -53,7 +58,7 @@
   composes: fa-angle-down from '../../variables/fontawesome.css';
   margin-left: 10px;
   color: #BCBCBC;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .themes:hover .optionsGroup {
@@ -75,10 +80,9 @@
 .option {
   display: block;
   padding: 0 10px;
-  font-size: 15px;
+  font-size: 14px;
   color: #484848;
   font-family: 'Open Sans';
-  font-size: 15px;
   line-height: 30px;
   font-weight: 600;
   display: flex;
@@ -109,7 +113,7 @@
   cursor: pointer;
   color: #484848;
   font-family: 'Open Sans';
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
   display: flex;
   align-items: center;
@@ -262,7 +266,7 @@
 
 .closeSettings {
   font-family: 'Open Sans';
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
   color: #AAAAAA;
   height: 40px;
