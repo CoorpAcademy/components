@@ -19,7 +19,75 @@
 }
 
 .logoWrapper {
+  display: flex;
+  height: 100%;
+}
 
+.options {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+}
+
+.themes {
+  composes: options;
+  margin-left: 20px;
+  border-left: 1px solid #DCE0E0;
+  border-right: 1px solid #DCE0E0;
+}
+
+.currentOption {
+  position: relative;
+  padding: 0 20px;
+  cursor: pointer;
+  color: #484848;
+  font-family: 'Open Sans';
+  font-size: 15px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+.caret {
+  composes: fa from '../../variables/fontawesome.css';
+  composes: fa-angle-down from '../../variables/fontawesome.css';
+  margin-left: 10px;
+  color: #BCBCBC;
+  font-size: 15px;
+}
+
+.themes:hover .optionsGroup {
+  display: block;
+}
+
+.optionsGroup {
+  display: none;
+  position: absolute;
+  top: 59px;
+  left: 0;
+  width: 200px;
+  padding: 10px 0;
+  background-color: #ffffff;
+  border: 1px solid #DCE0E0;
+  box-shadow: 0 0 2px 2px rgba(0,0,0,0.02);
+}
+
+.option {
+  display: block;
+  padding: 0 10px;
+  font-size: 15px;
+  color: #484848;
+  font-family: 'Open Sans';
+  font-size: 15px;
+  line-height: 30px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.option:hover {
+  color: #00B0FF;
 }
 
 .menuWrapper {
@@ -59,6 +127,14 @@
 
 .page:hover .bar {
   width: 100%;
+}
+
+.more {
+  composes: options;
+}
+
+.more:hover .optionsGroup {
+  display: block;
 }
 
 .links {

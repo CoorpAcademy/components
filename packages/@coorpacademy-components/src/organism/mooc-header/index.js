@@ -33,12 +33,61 @@ class MoocHeader extends React.Component {
             <a href="#">
               <img src="https://www.coorpacademy.com/assets/img/logo.svg" />
             </a>
+            <div className={style.themes}>
+              <div className={style.currentOption}>Digital<span className={style.caret} /></div>
+              <div className={style.optionsGroup}>
+                <a href='#'
+                  className={style.option}
+                >
+                  All
+                </a>
+                <a href='#'
+                  className={style.option}
+                >
+                  Esprit du temps
+                </a>
+                <a href='#'
+                  className={style.option}
+                >
+                  Gérer son épargne
+                </a>
+                <a href='#'
+                  className={style.option}
+                >
+                  Le monde du projet
+                </a>
+              </div>
+            </div>
           </div>
           <div className={style.menuWrapper}>
             <div className={style.pages}>
               <div className={style.page}>Explore<span className={style.bar} /></div>
               <div className={style.page}>Battles<span className={style.bar} /></div>
-              <div className={style.page}>News<span className={style.bar} /></div>
+              <div className={style.more}>
+                <div className={style.currentOption}>More<span className={style.caret} /></div>
+                <div className={style.optionsGroup}>
+                  <a href='#'
+                    className={style.option}
+                  >
+                    News
+                  </a>
+                  <a href='#'
+                    className={style.option}
+                  >
+                    Médias
+                  </a>
+                  <a href='#'
+                    className={style.option}
+                  >
+                    Discussions
+                  </a>
+                  <a href='#'
+                    className={style.option}
+                  >
+                    FAQ
+                  </a>
+                </div>
+              </div>
             </div>
             <div className={style.links}>
               <div className={style.link}>Connexion<div className={style.fill} /></div>
