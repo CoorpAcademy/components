@@ -1,4 +1,7 @@
 import React, {PropTypes} from 'react';
+import find from 'lodash/fp/find';
+import filter from 'lodash/fp/filter';
+import map from 'lodash/fp/map';
 import identity from 'lodash/fp/identity';
 import shallowCompare from '../../util/shallow-compare';
 import style from './style.css';
@@ -24,42 +27,43 @@ class MoocHeader extends React.Component {
   }
 
   render() {
+    const {logo, themes, pages, settings, user} = this.props;
     const {translate = identity} = this.context;
+
+    let themesView = null;
+
+    if (themes) {
+      const currentTheme = find({selected: true}, themes);
+
+      const optionsView = filter({selected: false}, themes).map((theme, index) => (
+        <a href={theme.href}
+          key={index}
+          className={style.option}
+        >
+          {theme.title}
+        </a>
+      ));
+
+      themesView = (
+        <div className={style.themes}>
+          <div className={style.currentOption}>{currentTheme.title}<span className={style.caret} /></div>
+          <div className={style.optionsGroup}>
+            {optionsView}
+          </div>
+        </div>
+      );
+    }
 
     return (
       <div className={style.wrapper}>
         <div className={style.header}>
           <div className={style.logoWrapper}>
             <a className={style.logo}
-              href="#"
+              href={logo.href}
             >
-              <img src="https://www.coorpacademy.com/assets/img/logo.svg" />
+              <img src={logo.src} />
             </a>
-            <div className={style.themes}>
-              <div className={style.currentOption}>Digital<span className={style.caret} /></div>
-              <div className={style.optionsGroup}>
-                <a href='#'
-                  className={style.option}
-                >
-                  All
-                </a>
-                <a href='#'
-                  className={style.option}
-                >
-                  Esprit du temps
-                </a>
-                <a href='#'
-                  className={style.option}
-                >
-                  Gérer son épargne
-                </a>
-                <a href='#'
-                  className={style.option}
-                >
-                  Le monde du projet
-                </a>
-              </div>
-            </div>
+            {themesView}
           </div>
           <div className={style.menuWrapper}>
             <div className={style.pages}>
@@ -119,7 +123,31 @@ class MoocHeader extends React.Component {
   }
 }
 
-MoocHeader.propTypes = {
+MoocHeader.contextTypes = {
+  skin: React.PropTypes.object,
+  translate: React.PropTypes.func
+};
 
+MoocHeader.propTypes = {
+  logo: PropTypes.shape({
+    src: PropTypes.string,
+    href: PropTypes.string
+  }),
+  themes: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string,
+    href: PropTypes.string,
+    selected: PropTypes.bool
+  })),
+  pages: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string,
+    href: PropTypes.string,
+    selected: PropTypes.bool
+  })),
+  settings: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string,
+    type: PropTypes.oneOf(['select', 'switch', 'link']),
+    options: PropTypes.object,
+    onClick: PropTypes.func
+  }))
 };
 export default MoocHeader;
