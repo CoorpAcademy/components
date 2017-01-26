@@ -31,6 +31,7 @@ class MoocHeader extends React.Component {
     const {translate = identity} = this.context;
 
     let themesView = null;
+    let pagesView = null;
 
     if (themes) {
       const currentTheme = find({selected: true}, themes);
@@ -54,6 +55,37 @@ class MoocHeader extends React.Component {
       );
     }
 
+    if (pages) {
+      const displayedPages = pages.displayed.map((page, index) => (
+        <div key={index}
+          className={style.page}
+        >
+          {page.title}<span className={style.bar} />
+        </div>
+      ));
+
+      const optionsView = pages.more.map((page, index) => (
+        <a href={page.href}
+          key={index}
+          className={style.option}
+        >
+          {page.title}
+        </a>
+      ));
+
+      pagesView = (
+        <div className={style.pages}>
+          {displayedPages}
+          <div className={style.more}>
+            <div className={style.currentOption}>More<span className={style.caret} /></div>
+            <div className={style.optionsGroup}>
+              {optionsView}
+            </div>
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div className={style.wrapper}>
         <div className={style.header}>
@@ -66,35 +98,7 @@ class MoocHeader extends React.Component {
             {themesView}
           </div>
           <div className={style.menuWrapper}>
-            <div className={style.pages}>
-              <div className={style.page}>Explore<span className={style.bar} /></div>
-              <div className={style.page}>Battles<span className={style.bar} /></div>
-              <div className={style.more}>
-                <div className={style.currentOption}>More<span className={style.caret} /></div>
-                <div className={style.optionsGroup}>
-                  <a href='#'
-                    className={style.option}
-                  >
-                    News
-                  </a>
-                  <a href='#'
-                    className={style.option}
-                  >
-                    Médias
-                  </a>
-                  <a href='#'
-                    className={style.option}
-                  >
-                    Discussions
-                  </a>
-                  <a href='#'
-                    className={style.option}
-                  >
-                    FAQ
-                  </a>
-                </div>
-              </div>
-            </div>
+            {pagesView}
             <div className={style.links}>
               <div className={style.link}>Connexion<div className={style.fill} /></div>
               <div className={style.link}>Inscription<div className={style.fill} /></div>
@@ -138,11 +142,18 @@ MoocHeader.propTypes = {
     href: PropTypes.string,
     selected: PropTypes.bool
   })),
-  pages: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string,
-    href: PropTypes.string,
-    selected: PropTypes.bool
-  })),
+  pages: PropTypes.shape({
+    displayed: PropTypes.arrayOf(PropTypes.shape({
+      title: PropTypes.string,
+      href: PropTypes.string,
+      selected: PropTypes.bool
+    })),
+    more: PropTypes.arrayOf(PropTypes.shape({
+      title: PropTypes.string,
+      href: PropTypes.string,
+      selected: PropTypes.bool
+    }))
+  }),
   settings: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string,
     type: PropTypes.oneOf(['select', 'switch', 'link']),
