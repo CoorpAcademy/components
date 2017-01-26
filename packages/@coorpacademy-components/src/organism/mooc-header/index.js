@@ -57,11 +57,12 @@ class MoocHeader extends React.Component {
 
     if (pages) {
       const displayedPages = pages.displayed.map((page, index) => (
-        <div key={index}
-          className={style.page}
+        <a key={index}
+          href={page.href}
+          className={page.selected ? style.activePage : style.page}
         >
           {page.title}<span className={style.bar} />
-        </div>
+        </a>
       ));
 
       const optionsView = pages.more.map((page, index) => (
