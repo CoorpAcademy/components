@@ -29,38 +29,42 @@ export default {
         selected: false
       }
     ],
-    pages: [
-      {
-        title: 'Explore',
-        href: '#',
-        selected: true
-      },
-      {
-        title: 'Battles',
-        href: '#',
-        selected: false
-      },
-      {
-        title: 'News',
-        href: '#',
-        selected: false
-      },
-      {
-        title: 'Médias',
-        href: '#',
-        selected: false
-      },
-      {
-        title: 'Discussions',
-        href: '#',
-        selected: false
-      },
-      {
-        title: 'FAQ',
-        href: '#',
-        selected: false
-      }
-    ],
+    pages: {
+      displayed: [
+        {
+          title: 'Explore',
+          href: '#',
+          selected: true
+        },
+        {
+          title: 'Battles',
+          href: '#',
+          selected: false
+        }
+      ],
+      more: [
+        {
+          title: 'News',
+          href: '#',
+          selected: false
+        },
+        {
+          title: 'Médias',
+          href: '#',
+          selected: false
+        },
+        {
+          title: 'Discussions',
+          href: '#',
+          selected: false
+        },
+        {
+          title: 'FAQ',
+          href: '#',
+          selected: false
+        }
+      ]
+    },
     settings: [
       {
         title: 'Language',
