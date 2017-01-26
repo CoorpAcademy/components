@@ -1,8 +1,8 @@
 export default {
   props: {
-    cover: '',
+    cover: 'url("http://www.lorempixel.com/200/200/nature")',
     title: 'Explore the new courses',
-    subtitle: 'Welcome to coorpacademy',
+    subtitle: 'Welcome to Coorpacademy',
     cta: {
       href: '#',
       title: 'Explore now'

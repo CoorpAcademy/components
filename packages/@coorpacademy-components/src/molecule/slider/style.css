@@ -1,0 +1,19 @@
+.slidesWrapper {
+    display: block;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.slidecontent {
+    display: block;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.slidecontent li {
+    display: inline-block;
+    width: 100%;
+}
