@@ -6,8 +6,8 @@ export default {
   props: {
     slides: [
       slide,
-      slide,
-      slide
+      {...slide, cover: 'url("http://www.lorempixel.com/200/200/nature/2")'},
+      {...slide, cover: 'url("http://www.lorempixel.com/200/200/nature/3")'}
     ]
   }
 };

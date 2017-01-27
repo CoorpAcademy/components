@@ -16,8 +16,8 @@ const ButtonHover = React.createClass({
     },
 
     render: function() {
-      const textColor = this.state.hover ? getOr('#00b0ff', 'common.primary', this.props.skin) : '#fff';
-      const bgColor = this.state.hover ? '#fff' : getOr('#00b0ff', 'common.primary', this.props.skin);
+      const textColor = this.state.hover ? '#fff' : getOr('#00b0ff', 'common.primary', this.props.skin);
+      const bgColor = this.state.hover ? getOr('#00b0ff', 'common.primary', this.props.skin) : '#fff';
       return(
         <a href={this.props.cta.href} className={style.link}
           onMouseOver={this.mouseOver} onMouseOut={this.mouseOut}
