@@ -199,6 +199,7 @@ import ScopeTabsFixtureDefault from '../src/molecule/scope-tabs/test/fixtures/de
 import ScopeTabsFixtureEmpty from '../src/molecule/scope-tabs/test/fixtures/empty';
 import SearchFixtureDefault from '../src/molecule/search/test/fixtures/default';
 import SliderFixtureDefault from '../src/molecule/slider/test/fixtures/default';
+import SliderFixtureMultipleSlides from '../src/molecule/slider/test/fixtures/multiple-slides';
 import SsmenuListFixtureCoorpacademy from '../src/molecule/ssmenu-list/test/fixtures/coorpacademy';
 import SsmenuListFixtureEmpty from '../src/molecule/ssmenu-list/test/fixtures/empty';
 import SsmenuListFixtureFormations from '../src/molecule/ssmenu-list/test/fixtures/formations';
@@ -626,7 +627,8 @@ export const fixtures = {
       Default: SearchFixtureDefault
     },
     Slider: {
-      Default: SliderFixtureDefault
+      Default: SliderFixtureDefault,
+      MultipleSlides: SliderFixtureMultipleSlides
     },
     SsmenuList: {
       Coorpacademy: SsmenuListFixtureCoorpacademy,

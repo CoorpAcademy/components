@@ -49,12 +49,14 @@ const Slider = props => {
     );
   });
 
+  const viewCtrls = totalSlide === 1 ? null : (<MoveSlide />);
+
   return (
     <div className={style.slidesWrapper}>
       <ul className={style.slidecontent}>
         {myslides}
       </ul>
-      <MoveSlide />
+      {viewCtrls}
     </div>
   );
 };
