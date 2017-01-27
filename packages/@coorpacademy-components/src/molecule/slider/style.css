@@ -1,21 +1,27 @@
 .slidesWrapper {
-    display: block;
     height: 100%;
     width: 100%;
     overflow: hidden;
+    position: relative;
 }
 
 .slidecontent {
-    display: block;
-    width: auto;
+    display: table;
+    height: 100%;
     margin: 0;
     padding: 0;
-    list-style: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    // animation-name: AutoSlide;
+    // animation-duration: 15s;
+    // animation-iteration-count: infinite;
+    // animation-timing-function: ease-in-out;
 }
 
 .slidecontent li {
-    display: inline-block;
-    width: 100%;
+    display: table-cell;
 }
 
 .controls {
@@ -64,4 +70,19 @@
     line-height: 55px;
     margin-left: 15px;
     color: #000;
+}
+
+@keyframes AutoSlide {
+    0%, 15% {
+        left: 0px; 
+    }
+    33%, 50% {
+        left: -103%;
+    }
+    66%, 80% {
+        left: -206%;
+    }
+    100% {
+        left: 0px;
+    }
 }
