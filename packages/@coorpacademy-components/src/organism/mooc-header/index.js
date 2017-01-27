@@ -37,12 +37,13 @@ class MoocHeader extends React.Component {
       const currentTheme = find({selected: true}, themes);
 
       const optionsView = filter({selected: false}, themes).map((theme, index) => (
-        <a href={theme.href}
+        <div
           key={index}
+          onClick={theme.handleClick}
           className={style.option}
         >
           {theme.title}
-        </a>
+        </div>
       ));
 
       themesView = (
@@ -140,7 +141,7 @@ MoocHeader.propTypes = {
   }),
   themes: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string,
-    href: PropTypes.string,
+    handleClick: PropTypes.func,
     selected: PropTypes.bool
   })),
   pages: PropTypes.shape({
