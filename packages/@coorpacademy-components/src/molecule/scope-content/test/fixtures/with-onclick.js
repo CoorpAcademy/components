@@ -2,6 +2,8 @@ export default {
   props: {
     content: {
       title: 'Les nouveaux business',
+      skillsTitle: 'Skill title',
+      chaptersTitle: 'Chapter title',
       onClick: () => console.log('open module'),  // eslint-disable-line no-console
       buttonLabel: 'Continue',
       course_scope: [

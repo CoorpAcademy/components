@@ -8,7 +8,7 @@ import ModuleBubble from '../../molecule/module-bubble';
 import style from './style.css';
 
 function DisciplineCard(props, context) {
-  const {translate = identity, skin} = context;
+  const {skin} = context;
   const {discipline, onClick, onModuleClick} = props;
 
   const hidden = discipline.visible === false;
@@ -27,7 +27,7 @@ function DisciplineCard(props, context) {
   ));
 
   const click = unary(partial(onClick, [discipline]));
-  const label = translate(discipline.label);
+  const label = discipline.label;
   const hasCourse = discipline.courseNum !== 'undefined';
 
   const defaultColor = getOr('#f0f', 'common.primary', skin);
@@ -86,8 +86,7 @@ function DisciplineCard(props, context) {
 }
 
 DisciplineCard.contextTypes = {
-  skin: React.PropTypes.object,
-  translate: React.PropTypes.func
+  skin: React.PropTypes.object
 };
 
 DisciplineCard.propTypes = {

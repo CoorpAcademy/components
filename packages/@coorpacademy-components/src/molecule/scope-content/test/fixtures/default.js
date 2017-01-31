@@ -12,7 +12,7 @@ export default {
         'Comprendre les différences entre les coûts media'
       ],
       chapters: [
-          {name: 'Les leviers pour générer du trafic vers un site web'},
+          {name: 'Les leviers pour générer du trafic vers un site web, Les leviers pour générer du trafic vers us...'},
           {name: 'Les types de coûts en publicité'},
           {name: 'Le display à la performance'}
       ]

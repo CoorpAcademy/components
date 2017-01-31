@@ -11,21 +11,17 @@ const DisciplineCTA = (props, context) => {
     buy
   } = props;
 
-  const {
-    translate = identity
-  } = context;
-
   const startLearning = (
     <span
       dangerouslySetInnerHTML={{ // eslint-disable-line react/no-danger
-        __html: translate(startLabel)
+        __html: startLabel
       }}
     />
   );
   const premium = (
     <span
       dangerouslySetInnerHTML={{ // eslint-disable-line react/no-danger
-        __html: translate(buyLabel)
+        __html: buyLabel
       }}
     />
   );
@@ -54,10 +50,6 @@ const DisciplineCTA = (props, context) => {
       {buyButton}
     </div>
   );
-};
-
-DisciplineCTA.contextTypes = {
-  translate: React.PropTypes.func
 };
 
 DisciplineCTA.propTypes = {
