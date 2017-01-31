@@ -89,7 +89,7 @@ class Slider extends React.Component {
         this.reset();
       };
     },
-    
+
     render: function() {
       const indexSlides = this.state.countSlide;
       return(
