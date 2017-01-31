@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
+import Slide from '../../atom/slide';
 import style from './style.css';
-import Slide from '../../atom/Slide';
 
 const Slider = props => {
   const {
@@ -30,7 +30,7 @@ const Slider = props => {
         this.reset();
       };
     },
-    
+
     render: function() {
       const indexSlides = this.state.countSlide;
       return(

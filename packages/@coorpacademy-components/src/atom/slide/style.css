@@ -4,47 +4,39 @@
 @value desktop from breakpoints;
 
 .hero {
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    position: relative;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .content {
-    display: block;
-    color: white;
-    text-align: center;
-    position: relative;
-    bottom: 85px;
-    width: 100%;
-    position: absolute;
-    bottom: 85px;
+  display: block;
+  margin-top: 60px;
+  padding: 0 20px 0;
+  text-align: center;
+  position: relative;
+  width: 100%;
 }
 
-h1 {
-    font-weight: 300;
-    font-size: 30px;
-    letter-spacing: 0;
-    line-height: 59px;
-    margin: 0;
+.subtitle {
+  font-family: 'Open Sans';
+  font-weight: 300;
+  font-size: 30px;
+  letter-spacing: 0;
+  margin: 0;
 }
 
-h2 {
-    font-size: 40px;
-    font-weight: 700;
-    width: 100%;
-    margin: 0;
-}
-
-.link {
-    margin: 55px 0 0 0;
-    font-weight: 700;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    width: 192px;
-    padding: 17px 0;
-    border-radius: 100px;
+.title {
+  font-family: 'Open Sans';
+  font-size: 40px;
+  font-weight: 700;
+  width: 100%;
+  margin: 0 0 50px;
 }
 
 @media desktop {
@@ -56,5 +48,8 @@ h2 {
 }
 
 @media mobile {
-    h1 {display: none;}
+
+  .subtitle {
+    display: none;
+  }
 }

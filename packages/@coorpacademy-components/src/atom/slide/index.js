@@ -1,36 +1,7 @@
 import React, {PropTypes} from 'react';
 import getOr from 'lodash/fp/getOr';
+import Cta from '../cta';
 import style from './style.css';
-
-const ButtonHover = React.createClass({
-    getInitialState: function () {
-        return {hover: false};
-    },
-
-    mouseOver: function () {
-        this.setState({hover: true});
-    },
-
-    mouseOut: function () {
-        this.setState({hover: false});
-    },
-
-    render: function() {
-      const textColor = this.state.hover ? '#fff' : getOr('#00b0ff', 'common.primary', this.props.skin);
-      const bgColor = this.state.hover ? getOr('#00b0ff', 'common.primary', this.props.skin) : '#fff';
-      return(
-        <a href={this.props.cta.href} className={style.link}
-          onMouseOver={this.mouseOver} onMouseOut={this.mouseOut}
-          style= {{
-            color: textColor,
-            backgroundColor: bgColor
-          }}
-        >
-            {this.props.cta.title}
-        </a>
-      );
-    }
-  });
 
 const Slide = (props, context) => {
   const skin = context;
@@ -42,21 +13,19 @@ const Slide = (props, context) => {
   } = props;
 
   const imgCover = cover;
-  const defaultColor = getOr('#fff', 'common.primary', skin);
 
   return (
     <div className={style.hero}
       style={{
-        backgroundImage: imgCover,
-        backgroundColor: defaultColor
+        backgroundImage: imgCover
       }}
     >
       <div className={style.content}>
-        <h1>{title}</h1>
-        <h2>{subtitle}</h2>
-        <ButtonHover cta={cta} skin={skin} />
+        <h2 className={style.subtitle}>{subtitle}</h2>
+        <h1 className={style.title}>{title}</h1>
+        <Cta {...cta} />
       </div>
-    </div>      
+    </div>
   );
 };
 

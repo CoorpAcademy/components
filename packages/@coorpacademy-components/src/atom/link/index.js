@@ -5,14 +5,18 @@ import pushToHistory from '../../util/navigation';
 const Link = ({children, ...props}, context) => {
   const {history: {createHref = identity} = {}} = context;
   const onClick = pushToHistory(context);
+  const _style = props.href ? null : {
+    pointerEvents: 'none'
+  };
 
   return (
     <a
       {...props}
       href={props.href ? createHref(props.href) : undefined}
       onClick={onClick(props)}
-      style={props.href ? null : {
-        pointerEvents: 'none'
+      style={{
+        ...props.style,
+        ..._style
       }}
     >
       {children}
