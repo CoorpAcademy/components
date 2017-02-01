@@ -1,6 +1,7 @@
 import Button from '../src/atom/button';
 import CenteredText from '../src/atom/centered-text';
 import Checkbox from '../src/atom/checkbox';
+import Cta from '../src/atom/cta';
 import InputCheckbox from '../src/atom/input-checkbox';
 import InputColor from '../src/atom/input-color';
 import InputDoublestep from '../src/atom/input-doublestep';
@@ -94,6 +95,11 @@ import CheckboxFixtureDefault from '../src/atom/checkbox/test/fixtures/default';
 import CheckboxFixtureDisabled from '../src/atom/checkbox/test/fixtures/disabled';
 import CheckboxFixtureError from '../src/atom/checkbox/test/fixtures/error';
 import CheckboxFixtureRequired from '../src/atom/checkbox/test/fixtures/required';
+import CtaFixtureDefaultSmall from '../src/atom/cta/test/fixtures/default-small';
+import CtaFixtureDefault from '../src/atom/cta/test/fixtures/default';
+import CtaFixtureLight from '../src/atom/cta/test/fixtures/light';
+import CtaFixtureSecondaryLight from '../src/atom/cta/test/fixtures/secondary-light';
+import CtaFixtureSecondary from '../src/atom/cta/test/fixtures/secondary';
 import InputCheckboxFixtureChecked from '../src/atom/input-checkbox/test/fixtures/checked';
 import InputCheckboxFixtureDefault from '../src/atom/input-checkbox/test/fixtures/default';
 import InputCheckboxFixtureDisabled from '../src/atom/input-checkbox/test/fixtures/disabled';
@@ -199,6 +205,7 @@ import ScopeTabsFixtureDefault from '../src/molecule/scope-tabs/test/fixtures/de
 import ScopeTabsFixtureEmpty from '../src/molecule/scope-tabs/test/fixtures/empty';
 import SearchFixtureDefault from '../src/molecule/search/test/fixtures/default';
 import SliderFixtureDefault from '../src/molecule/slider/test/fixtures/default';
+import SliderFixtureMultipleSlides from '../src/molecule/slider/test/fixtures/multiple-slides';
 import SsmenuListFixtureCoorpacademy from '../src/molecule/ssmenu-list/test/fixtures/coorpacademy';
 import SsmenuListFixtureEmpty from '../src/molecule/ssmenu-list/test/fixtures/empty';
 import SsmenuListFixtureFormations from '../src/molecule/ssmenu-list/test/fixtures/formations';
@@ -314,6 +321,7 @@ export const components = {
     Button,
     CenteredText,
     Checkbox,
+    Cta,
     InputCheckbox,
     InputColor,
     InputDoublestep,
@@ -428,6 +436,13 @@ export const fixtures = {
       Disabled: CheckboxFixtureDisabled,
       Error: CheckboxFixtureError,
       Required: CheckboxFixtureRequired
+    },
+    Cta: {
+      DefaultSmall: CtaFixtureDefaultSmall,
+      Default: CtaFixtureDefault,
+      Light: CtaFixtureLight,
+      SecondaryLight: CtaFixtureSecondaryLight,
+      Secondary: CtaFixtureSecondary
     },
     InputCheckbox: {
       Checked: InputCheckboxFixtureChecked,
@@ -626,7 +641,8 @@ export const fixtures = {
       Default: SearchFixtureDefault
     },
     Slider: {
-      Default: SliderFixtureDefault
+      Default: SliderFixtureDefault,
+      MultipleSlides: SliderFixtureMultipleSlides
     },
     SsmenuList: {
       Coorpacademy: SsmenuListFixtureCoorpacademy,
