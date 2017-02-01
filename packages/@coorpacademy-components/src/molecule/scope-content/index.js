@@ -10,7 +10,7 @@ const ScopeContent = (props, context) => {
   const {content} = props;
 
   const lstitle = translate('At the end of this level, you will be able to:');
-  const chaptersTitle = translate('chapters');
+  const _chaptersTitle = translate('chapters');
   const assetsTitle = translate('assets');
 
   const time = getOr('', 'time', content);
@@ -19,6 +19,9 @@ const ScopeContent = (props, context) => {
   const _chapters = getOr([], 'chapters', content);
   const _assets = getOr([], 'course_scope', content);
   const _videos = getOr([], 'videos', content);
+
+  const skillsTitle = getOr(lstitle, 'skillsTitle', content);
+  const chaptersTitle = getOr(_chaptersTitle, 'chaptersTitle', content);
 
   const onClick = get('onClick', content);
   const buttonLabel = get('buttonLabel', content);
@@ -89,7 +92,7 @@ const ScopeContent = (props, context) => {
         <div className={style.skills}>
           <div className={style.column}>
             <div className={style.coltitle}>
-              {content.skillsTitle || lstitle}
+              {skillsTitle}
             </div>
             <ul className={style.dottedlist}>
               {skills}
@@ -98,7 +101,7 @@ const ScopeContent = (props, context) => {
         </div>
         <div className={style.column}>
           <div className={style.coltitle}>
-            {content.chaptersTitle || chaptersTitle}
+            {chaptersTitle}
           </div>
           <div className={style.dotscontainer}>
             <ul className={style.roundedlist}>

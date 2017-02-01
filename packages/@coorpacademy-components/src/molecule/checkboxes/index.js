@@ -81,7 +81,7 @@ function Checkboxes(props, context) {
 
   if (mode === CLOSABLE) {
     header = createHeader({
-      title: title,
+      title,
       close: _close,
       status: _status,
       onClose,

@@ -13,7 +13,9 @@ test('should create translate function', t => {
 });
 
 test('should use key if any locales match', t => {
-  const translate = createTranslate({});
+  const translate = createTranslate({
+    'f{{oo}}': 'f{{oo}}'
+  });
 
   t.deepEqual(
     translate('f{{oo}}', {oo: 'oo'}),
@@ -22,21 +24,12 @@ test('should use key if any locales match', t => {
 });
 
 test('shouldn\'t replace if any data match', t => {
-  const translate = createTranslate({});
-
-  t.deepEqual(
-    translate('f{{oo}}'),
-    'f{{oo}}'
-  );
-});
-
-test('should trim token', t => {
   const translate = createTranslate({
     'f{{oo}}': 'f{{oo}}'
   });
 
   t.deepEqual(
-    translate('f{{ oo }}', {oo: 'oo'}),
-    'foo'
+    translate('f{{oo}}'),
+    'f{{oo}}'
   );
 });
