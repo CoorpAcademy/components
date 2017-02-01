@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react';
 import find from 'lodash/fp/find';
 import filter from 'lodash/fp/filter';
+import getOr from 'lodash/fp/getOr';
 import map from 'lodash/fp/map';
 import identity from 'lodash/fp/identity';
 import shallowCompare from '../../util/shallow-compare';
@@ -30,11 +31,14 @@ class MoocHeader extends React.Component {
 
   render() {
     const {logo, themes, pages, settings, user, slider, links} = this.props;
-    const {translate = identity} = this.context;
+    const {translate = identity, skin} = this.context;
 
     let themesView = null;
     let pagesView = null;
     let linksView = null;
+    let userView = null;
+
+    const primaryColor = getOr('#00B0FF', 'common.primary', skin);
 
     if (themes) {
       const currentTheme = find({selected: true}, themes);
@@ -107,6 +111,25 @@ class MoocHeader extends React.Component {
       );
     }
 
+    if (user) {
+      userView = (
+        <div className={style.user}>
+          <div className={style.avatar}>
+            <a href={user.link}>
+              <img src={user.picture} />
+            </a>
+          </div>
+          <div className={style.notifications}
+            style={{
+              backgroundColor: primaryColor
+            }}
+          >
+            {user.notifications}
+          </div>
+        </div>
+      );
+    }
+
     const sliderView = slider ? (
       <div className={style.slider}>
         <Slider {...slider} />
@@ -126,7 +149,7 @@ class MoocHeader extends React.Component {
           </div>
           <div className={style.menuWrapper}>
             {pagesView}
-            {linksView}
+            {userView || linksView}
             <div className={style.settings}>
               <div className={style.settingsToggle}
                 onClick={this.handleSettingsToggle}
@@ -180,6 +203,11 @@ MoocHeader.propTypes = {
     }))
   }),
   links: PropTypes.array,
+  user: PropTypes.shape({
+    picture: PropTypes.string,
+    link: PropTypes.string,
+    notifications: PropTypes.number
+  }),
   settings: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string,
     type: PropTypes.oneOf(['select', 'switch', 'link']),
