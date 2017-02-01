@@ -4,6 +4,8 @@ import filter from 'lodash/fp/filter';
 import map from 'lodash/fp/map';
 import identity from 'lodash/fp/identity';
 import shallowCompare from '../../util/shallow-compare';
+import Slider from '../../molecule/slider';
+import Cta from '../../atom/cta';
 import style from './style.css';
 
 class MoocHeader extends React.Component {
@@ -27,11 +29,12 @@ class MoocHeader extends React.Component {
   }
 
   render() {
-    const {logo, themes, pages, settings, user} = this.props;
+    const {logo, themes, pages, settings, user, slider, links} = this.props;
     const {translate = identity} = this.context;
 
     let themesView = null;
     let pagesView = null;
+    let linksView = null;
 
     if (themes) {
       const currentTheme = find({selected: true}, themes);
@@ -88,6 +91,28 @@ class MoocHeader extends React.Component {
       );
     }
 
+    if (links) {
+      const ctas = links.map((cta, index) => {
+        return (
+          <Cta key={index}
+            {...cta}
+          />
+        );
+      });
+
+      linksView = (
+        <div className={style.links}>
+          {ctas}
+        </div>
+      );
+    }
+
+    const sliderView = slider ? (
+      <div className={style.slider}>
+        <Slider {...slider} />
+      </div>
+    ) : null;
+
     return (
       <div className={style.wrapper}>
         <div className={style.header}>
@@ -101,10 +126,7 @@ class MoocHeader extends React.Component {
           </div>
           <div className={style.menuWrapper}>
             {pagesView}
-            <div className={style.links}>
-              <div className={style.link}>Connexion<div className={style.fill} /></div>
-              <div className={style.link}>Inscription<div className={style.fill} /></div>
-            </div>
+            {linksView}
             <div className={style.settings}>
               <div className={style.settingsToggle}
                 onClick={this.handleSettingsToggle}
@@ -124,6 +146,7 @@ class MoocHeader extends React.Component {
             </div>
           </div>
         </div>
+        {sliderView}
       </div>
     );
   }
@@ -156,11 +179,13 @@ MoocHeader.propTypes = {
       selected: PropTypes.bool
     }))
   }),
+  links: PropTypes.array,
   settings: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string,
     type: PropTypes.oneOf(['select', 'switch', 'link']),
     options: PropTypes.object,
     onClick: PropTypes.func
-  }))
+  })),
+  slider: PropTypes.object
 };
 export default MoocHeader;

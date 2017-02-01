@@ -5,7 +5,8 @@ export default {
     subtitle: 'Welcome to Coorpacademy',
     cta: {
       href: '#',
-      submitValue: 'Explore now'
+      submitValue: 'Explore now',
+      light: true
     }
   }
 };

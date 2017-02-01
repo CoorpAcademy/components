@@ -1,7 +1,3 @@
-import sliderFixtures from '../../../../molecule/slider/test/fixtures/default';
-
-const slider = sliderFixtures.props;
-
 export default {
   props: {
     logo: {
@@ -65,6 +61,24 @@ export default {
         }
       ]
     },
+    links: [
+      {
+        submitValue: 'Connexion',
+        href: '#',
+        target: '_self',
+        light: false,
+        small: true,
+        secondary: true
+      },
+      {
+        submitValue: 'Inscription',
+        href: '#',
+        target: '_self',
+        light: false,
+        small: true,
+        secondary: false
+      }
+    ],
     settings: [
       {
         title: 'Language',
@@ -72,7 +86,6 @@ export default {
         options: {},
         onClick: () => true
       }
-    ],
-    slider
+    ]
   }
 };

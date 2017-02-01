@@ -272,6 +272,7 @@ import HeroFixtureDefault from '../src/organism/hero/test/fixtures/default';
 import HeroFixtureNoTouch from '../src/organism/hero/test/fixtures/no-touch';
 import HeroFixtureTouch from '../src/organism/hero/test/fixtures/touch';
 import MoocHeaderFixtureDefault from '../src/organism/mooc-header/test/fixtures/default';
+import MoocHeaderFixtureSlider from '../src/organism/mooc-header/test/fixtures/slider';
 import SetupHeaderFixtureDefault from '../src/organism/setup-header/test/fixtures/default';
 import AuthorFixtureDefault from '../src/template/app-catalog/author/test/fixtures/default';
 import AuthorFixtureLoading from '../src/template/app-catalog/author/test/fixtures/loading';
@@ -756,7 +757,8 @@ export const fixtures = {
       Touch: HeroFixtureTouch
     },
     MoocHeader: {
-      Default: MoocHeaderFixtureDefault
+      Default: MoocHeaderFixtureDefault,
+      Slider: MoocHeaderFixtureSlider
     },
     SetupHeader: {
       Default: SetupHeaderFixtureDefault
