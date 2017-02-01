@@ -67,7 +67,7 @@ class DisciplineHeader extends React.Component {
 }
 
 DisciplineHeader.contextTypes = {
-  translate: PropTypes.func.required
+  translate: PropTypes.func.isRequired
 };
 
 DisciplineHeader.propTypes = {

@@ -182,8 +182,18 @@
 }
 
 @media mobile {
+  .cta {
+    float: none;
+    display: block;
+    margin-top: 10px;
+  }
+
   .infos {
     display: block;
+  }
+
+  .skills {
+    display: none;
   }
 
   .title {
@@ -192,9 +202,7 @@
   }
 
   .time {
-    display: inline-block;
-    margin-left: 20px;
-    margin-top: 20px;
+    margin-top: 5px;
   }
 
   .column {

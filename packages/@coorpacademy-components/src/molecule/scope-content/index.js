@@ -86,13 +86,15 @@ const ScopeContent = (props, context) => {
           </div>
           {ctaView}
         </div>
-        <div className={style.column}>
-          <div className={style.coltitle}>
-            {content.skillsTitle || lstitle}
+        <div className={style.skills}>
+          <div className={style.column}>
+            <div className={style.coltitle}>
+              {content.skillsTitle || lstitle}
+            </div>
+            <ul className={style.dottedlist}>
+              {skills}
+            </ul>
           </div>
-          <ul className={style.dottedlist}>
-            {skills}
-          </ul>
         </div>
         <div className={style.column}>
           <div className={style.coltitle}>
