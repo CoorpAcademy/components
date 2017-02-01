@@ -6,7 +6,11 @@ import style from './style.css';
 const VIMEO = 'vimeo';
 const YOUTUBE = 'youtube';
 
-const url = (type, id) => {
+const getUrl = (type, id) => {
+  if (!id) {
+    return null;
+  }
+
   switch (type) {
     case VIMEO:
       return `https://player.vimeo.com/video/${id}?color=dedede&badge=0&byline=0&title=0&portrait=0`;
@@ -19,14 +23,18 @@ const VideoIframe = props => {
   const {
     type,
     id,
+    url,
     image,
     width = '100%',
     height = '400px'
   } = props;
 
-  if (id) {
+  const src = url || getUrl(type, id);
+
+  if (src) {
     return (
-      <iframe src={url(type, id)}
+      <iframe
+        src={src}
         width={width}
         height={height}
         frameBorder={0}
