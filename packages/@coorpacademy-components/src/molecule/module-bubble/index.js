@@ -10,7 +10,6 @@ import style from './style.css';
 
 const ModuleBubble = (props, context) => {
   const {
-    translate = identity,
     skin
   } = context;
 
@@ -30,7 +29,7 @@ const ModuleBubble = (props, context) => {
     stopPropagation,
     unary(partial(onClick, [_module]))
   );
-  const label = _module.label && translate(_module.label);
+  const label = _module.label;
 
   const background = getOr('#fff', `mod[${_module.status}]`, skin);
 
@@ -70,8 +69,7 @@ const ModuleBubble = (props, context) => {
 };
 
 ModuleBubble.contextTypes = {
-  skin: React.PropTypes.object,
-  translate: React.PropTypes.func
+  skin: React.PropTypes.object
 };
 
 ModuleBubble.propTypes = {

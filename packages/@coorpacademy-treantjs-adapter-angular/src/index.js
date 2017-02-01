@@ -3,6 +3,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 const _link = ($rootScope, $i18next, scope, element, Provider, Component) => {
+  const translate = (token, data) => $i18next(`coorponents:${token}`, data);
+
   const update = vTree => {
     ReactDOM.render(vTree, element[0]);
   };
@@ -13,7 +15,7 @@ const _link = ($rootScope, $i18next, scope, element, Provider, Component) => {
 
     const options = {
       skin: $rootScope.skin,
-      translate: $i18next
+      translate
     };
 
     const vTree = (
@@ -24,8 +26,6 @@ const _link = ($rootScope, $i18next, scope, element, Provider, Component) => {
 
     update(vTree);
   };
-
-  $rootScope.$on('i18nLanguageChange', () => refresh(scope.props));
 
   $rootScope.$watch('skin', () => refresh(scope.props, $rootScope.skin), true);
   scope.$watch('props', () => refresh(scope.props, $rootScope.skin), true);

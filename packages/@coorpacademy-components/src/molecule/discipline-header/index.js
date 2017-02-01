@@ -27,11 +27,11 @@ class DisciplineHeader extends React.Component {
 
   render() {
     const {image, title, description, video} = this.props;
-    const {translate = identity} = this.context;
+    const {translate} = this.context;
 
     const type = get('type', video);
     const id = get('id', video);
-    const toggleLabel = this.state.fullDisplay ? translate('See less') : translate('Read more');
+    const toggleLabel = this.state.fullDisplay ? translate('See less') : translate('Show more');
 
     return (
       <div className={style.wrapper}>
@@ -65,6 +65,10 @@ class DisciplineHeader extends React.Component {
     );
   }
 }
+
+DisciplineHeader.contextTypes = {
+  translate: PropTypes.func.isRequired
+};
 
 DisciplineHeader.propTypes = {
   image: PropTypes.shape({

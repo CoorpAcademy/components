@@ -3,6 +3,7 @@ import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import identity from 'lodash/fp/identity';
 import Button from '../../atom/button';
+import addClassName from '../../util/add-class-name';
 import style from './style.css';
 
 const ScopeContent = (props, context) => {
@@ -10,7 +11,7 @@ const ScopeContent = (props, context) => {
   const {content} = props;
 
   const lstitle = translate('At the end of this level, you will be able to:');
-  const chaptersTitle = translate('chapters');
+  const _chaptersTitle = translate('chapters');
   const assetsTitle = translate('assets');
 
   const time = getOr('', 'time', content);
@@ -19,6 +20,9 @@ const ScopeContent = (props, context) => {
   const _chapters = getOr([], 'chapters', content);
   const _assets = getOr([], 'course_scope', content);
   const _videos = getOr([], 'videos', content);
+
+  const skillsTitle = getOr(lstitle, 'skillsTitle', content);
+  const chaptersTitle = getOr(_chaptersTitle, 'chaptersTitle', content);
 
   const onClick = get('onClick', content);
   const buttonLabel = get('buttonLabel', content);
@@ -39,7 +43,7 @@ const ScopeContent = (props, context) => {
     <Button
       className={style.cta}
       onClick={onClick}
-      submitValue={translate(buttonLabel)}
+      submitValue={buttonLabel}
       style={{
         backgroundColor: getOr('#000', 'common.primary', skin)
       }}
@@ -80,21 +84,28 @@ const ScopeContent = (props, context) => {
         <div className={style.infos}>
           <div className={style.title}>
             {title}
+            <div>
+              <span className={style.time}>{time}</span>
+            </div>
           </div>
-          <div className={style.time}>{time}</div>
+          {ctaView}
         </div>
-        <div className={style.column}>
+        <div {...addClassName(`${style.column}`)({
+          className: style.skills
+        })}
+        >
           <div className={style.coltitle}>
-            {lstitle}
+            {skillsTitle}
           </div>
           <ul className={style.dottedlist}>
             {skills}
           </ul>
         </div>
         <div className={style.column}>
-          <div className={style.coltitle}>{chaptersTitle}</div>
+          <div className={style.coltitle}>
+            {chaptersTitle}
+          </div>
           <div className={style.dotscontainer}>
-            <div className={style.dots} />
             <ul className={style.roundedlist}>
               {chapters}
             </ul>
@@ -102,16 +113,6 @@ const ScopeContent = (props, context) => {
         </div>
       </div>
 
-      {ctaView}
-
-      <div className={style.asset}>
-        <div className={style.assetTitle}>{assetsTitle}</div>
-        <div className={style.assetDesc}>
-          <div className={style.courseScope}>
-            {assets}
-          </div>
-        </div>
-      </div>
       {videosView}
     </div>
   );
@@ -125,6 +126,8 @@ ScopeContent.contextTypes = {
 ScopeContent.propTypes = {
   content: PropTypes.shape({
     title: PropTypes.string,
+    skillsTitle: PropTypes.string,
+    chaptersTitle: PropTypes.string,
     time: PropTypes.string,
     onClick: PropTypes.func,
     buttonLabel: PropTypes.string,

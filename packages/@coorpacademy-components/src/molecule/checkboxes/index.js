@@ -35,8 +35,8 @@ function Checkboxes(props, context) {
     close: _close,
     status: _status = CLOSED
   } = props;
+
   const {
-    translate = identity,
     skin
   } = context;
 
@@ -81,8 +81,8 @@ function Checkboxes(props, context) {
 
   if (mode === CLOSABLE) {
     header = createHeader({
-      title: translate(title),
-      close: translate(_close),
+      title,
+      close: _close,
       status: _status,
       onClose,
       onOpen
@@ -119,8 +119,7 @@ function Checkboxes(props, context) {
 }
 
 Checkboxes.contextTypes = {
-  skin: React.PropTypes.object,
-  translate: React.PropTypes.func
+  skin: React.PropTypes.object
 };
 
 Checkboxes.propTypes = {

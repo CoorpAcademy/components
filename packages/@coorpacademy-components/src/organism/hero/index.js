@@ -7,10 +7,9 @@ import Link from '../../atom/link';
 import style from './style.css';
 
 function Hero(props, context) {
-  const {translate = identity, skin} = context;
+  const {skin} = context;
   const bg = get('images.hero', skin);
   const {url, title, touch = false} = props;
-  const text = translate(title);
   const backgroundImage = bg ? `url(${bg})` : '';
   const ctaClass = touch ? 'ctaTouch' : 'ctaNoTouch';
 
@@ -31,7 +30,7 @@ function Hero(props, context) {
             color: getOr('#00b0ff', 'common.primary', skin)
           }}
         >
-          {text}
+          {title}
           <span
             className={style.bar}
             style={{
@@ -45,8 +44,7 @@ function Hero(props, context) {
 }
 
 Hero.contextTypes = {
-  skin: React.PropTypes.object,
-  translate: React.PropTypes.func
+  skin: React.PropTypes.object
 };
 
 Hero.propTypes = {
