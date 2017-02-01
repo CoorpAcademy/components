@@ -3,6 +3,7 @@ import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import identity from 'lodash/fp/identity';
 import Button from '../../atom/button';
+import addClassName from '../../util/add-class-name';
 import style from './style.css';
 
 const ScopeContent = (props, context) => {
@@ -89,15 +90,16 @@ const ScopeContent = (props, context) => {
           </div>
           {ctaView}
         </div>
-        <div className={style.skills}>
-          <div className={style.column}>
-            <div className={style.coltitle}>
-              {skillsTitle}
-            </div>
-            <ul className={style.dottedlist}>
-              {skills}
-            </ul>
+        <div {...addClassName(`${style.column}`)({
+          className: style.skills
+        })}
+        >
+          <div className={style.coltitle}>
+            {skillsTitle}
           </div>
+          <ul className={style.dottedlist}>
+            {skills}
+          </ul>
         </div>
         <div className={style.column}>
           <div className={style.coltitle}>
