@@ -23,7 +23,7 @@ const DisciplineRightaside = (props, context) => {
     buy,
     startLabel,
     buyLabel,
-    authors
+    authors = []
   } = props;
 
   const authorLabel = authorTitle || translate('author');
@@ -56,7 +56,7 @@ const DisciplineRightaside = (props, context) => {
       );
   }
 
-  const authorsView = authors && authors.map((author, index) => {
+  const authorsView = authors.length > 0 ? authors.map((author, index) => {
     const socialLinks = getOr([], 'socialLinks', author);
     const authorLogo = get('logo', author);
     const authorHref = get('href', author);
@@ -113,23 +113,22 @@ const DisciplineRightaside = (props, context) => {
     ) : null;
 
     return (
-      <div
-        className={style.authorWrapper}
-        key={index}
-      >
-        {logoView}
-        {authorContent}
+      <div key={index}>
+        <div className={style.detailTitle}>
+          {authorLabel}
+        </div>
+        <div className={style.authorWrapper}>
+          {logoView}
+          {authorContent}
+        </div>
       </div>
     );
-  });
+  }) : null;
 
   return (
     <div className={style.col}>
       {ctaView}
       <div className={style.colDetails}>
-        <div className={style.detailTitle}>
-          {authorLabel}
-        </div>
         {authorsView}
       </div>
     </div>
