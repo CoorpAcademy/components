@@ -14,16 +14,23 @@ class Slider extends React.Component {
 
   handleIncrement() {
     this.setState(prevState => ({
-      countSlide: prevState.countSlide + 33
+      countSlide: prevState.countSlide + 1
     }));
+    if (this.state.countSlide >= 2) {
+      this.setState(prevState => ({
+        countSlide: 0
+      }));
+    }
   }
 
   handleDecrement() {
     this.setState(prevState => ({
-      countSlide: prevState.countSlide - 33
+      countSlide: prevState.countSlide - 1
     }));
     if (this.state.countSlide <= 0) {
-      this.replaceState(this.getInitialState());
+      this.setState(prevState => ({
+        countSlide: 2
+      }));
     }
   }
 
@@ -36,9 +43,11 @@ class Slider extends React.Component {
 
     const myslides = slides.map((slide, index) => {
       const isActive = this.state.countSlide === index;
-      const activeSlide = isActive ? style.activeSlide : null;
+      const activeSlide = isActive ? style.activeSlide : '';
       return (
-        <li key={index}>
+        <li key={index}
+          className={`${activeSlide} ${style.slide}`}
+        >
           <Slide {...slide} />
         </li>
       );
