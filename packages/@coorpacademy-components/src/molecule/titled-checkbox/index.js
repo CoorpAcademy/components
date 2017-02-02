@@ -9,13 +9,12 @@ import style from './style.css';
 
 const TitledCheckbox = (props, context) => {
   const {
-    translate = identity,
     skin
   } = context;
   const {state, background, onToggle} = props;
 
   const iconSuccess = String.fromCharCode(getOr('v', 'icons.success', skin));
-  const label = translate(state.label);
+  const label = state.label;
   const icon = state.checked ? iconSuccess : '';
   const handleChange = () => onToggle(state);
 
@@ -46,8 +45,7 @@ const TitledCheckbox = (props, context) => {
 };
 
 TitledCheckbox.contextTypes = {
-  skin: React.PropTypes.object,
-  translate: React.PropTypes.func
+  skin: React.PropTypes.object
 };
 
 TitledCheckbox.propTypes = {

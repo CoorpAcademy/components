@@ -6,7 +6,7 @@ import ModuleBubble from '../../molecule/module-bubble';
 import style from './style.css';
 
 function ModuleCard(props, context) {
-  const {translate = identity, skin} = context;
+  const {skin} = context;
   const {label, level, onClick} = props;
   const hideLabel = true;
 
@@ -20,7 +20,7 @@ function ModuleCard(props, context) {
         {label}
       </div>
       <div className={style.level}>
-        {translate(level)}
+        {level}
       </div>
       <div className={style.module}>
         <ModuleBubble
@@ -34,8 +34,7 @@ function ModuleCard(props, context) {
 }
 
 ModuleCard.contextTypes = {
-  skin: React.PropTypes.object,
-  translate: React.PropTypes.func
+  skin: React.PropTypes.object
 };
 
 ModuleCard.propTypes = {
