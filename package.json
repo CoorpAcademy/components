@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "@coorpacademy/eslint-plugin-coorpacademy": "^3.0.1",
-    "ava": "^0.17.0",
+    "ava": "^0.18.0",
     "babel-core": "^6.18.2",
     "coveralls": "^2.11.13",
     "eslint": "^3.12.0",
@@ -30,7 +30,7 @@
     "concurrency": 8,
     "files": [
       "packages/**/src/**/test/**/*.js",
-      "!**/node_module/**/*"
+      "!**/node_modules/**/*"
     ],
     "require": [
       "babel-core/register"
