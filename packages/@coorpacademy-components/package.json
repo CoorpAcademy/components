@@ -31,7 +31,7 @@
     "doc": "npm run doc:svg && npm run doc:png",
     "doc:svg": "node scripts/madge.js",
     "doc:png": "convert doc/components.svg doc/components.png",
-    "storybook": "start-storybook -p 3004 -c .storybook",
+    "storybook": "BABEL_ENV=es start-storybook -p 3004 -c .storybook",
     "build-storybook": "build-storybook"
   },
   "contributors": [
