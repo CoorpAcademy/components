@@ -30,7 +30,7 @@
     "concurrency": 8,
     "files": [
       "packages/**/src/**/test/**/*.js",
-      "!**/node_module/**/*"
+      "!**/node_modules/**/*"
     ],
     "require": [
       "babel-core/register"
