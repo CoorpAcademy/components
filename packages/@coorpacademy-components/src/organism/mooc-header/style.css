@@ -125,6 +125,7 @@
 
 .menuWrapper {
   display: flex;
+  height: 60px;
 }
 
 .pages {
