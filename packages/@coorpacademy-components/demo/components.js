@@ -139,6 +139,7 @@ import SelectFixtureMultiple from '../src/atom/select/test/fixtures/multiple';
 import SelectFixtureRequired from '../src/atom/select/test/fixtures/required';
 import SelectFixtureThematique from '../src/atom/select/test/fixtures/thematique';
 import SlideFixtureDefault from '../src/atom/slide/test/fixtures/default';
+import SlideFixtureLight from '../src/atom/slide/test/fixtures/light';
 import SocialLinkFixtureFacebook from '../src/atom/social-link/test/fixtures/facebook';
 import SocialLinkFixtureTwitter from '../src/atom/social-link/test/fixtures/twitter';
 import SpinnerFixtureDefault from '../src/atom/spinner/test/fixtures/default';
@@ -513,7 +514,8 @@ export const fixtures = {
       Thematique: SelectFixtureThematique
     },
     Slide: {
-      Default: SlideFixtureDefault
+      Default: SlideFixtureDefault,
+      Light: SlideFixtureLight
     },
     SocialLink: {
       Facebook: SocialLinkFixtureFacebook,

@@ -327,7 +327,11 @@
   color: #484848;
 }
 
-@media mobile {
+@media desktop {
+
+}
+
+@media tablet {
 
   .header {
     flex-direction: column;

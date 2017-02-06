@@ -6,32 +6,32 @@ class Slider extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      countSlide: 0
+      currentSlide: 0
     };
-    this.handleIncrement = this.handleIncrement.bind(this);
-    this.handleDecrement = this.handleDecrement.bind(this);
+    this.handleNextSlide = this.handleNextSlide.bind(this);
+    this.handlePreviousSlide = this.handlePreviousSlide.bind(this);
   }
 
-  handleIncrement() {
-    this.setState(prevState => ({
-      countSlide: prevState.countSlide + 1
-    }));
-    if (this.state.countSlide >= 2) {
-      this.setState(prevState => ({
-        countSlide: 0
-      }));
-    }
+  handleNextSlide() {
+    this.setState(prevState => {
+      const totalSlide = this.props.slides.length;
+      const nextSlide = prevState.currentSlide + 1;
+
+      return {
+        currentSlide: nextSlide >= totalSlide ? 0 : nextSlide
+      };
+    });
   }
 
-  handleDecrement() {
-    this.setState(prevState => ({
-      countSlide: prevState.countSlide - 1
-    }));
-    if (this.state.countSlide <= 0) {
-      this.setState(prevState => ({
-        countSlide: 2
-      }));
-    }
+  handlePreviousSlide() {
+    this.setState(prevState => {
+      const totalSlide = this.props.slides.length;
+      const nextSlide = prevState.currentSlide - 1;
+
+      return {
+        currentSlide: nextSlide <= 0 ? (totalSlide - 1) : nextSlide
+      };
+    });
   }
 
   render() {
@@ -42,42 +42,34 @@ class Slider extends React.Component {
     const totalSlide = slides.length;
 
     const myslides = slides.map((slide, index) => {
-      const isActive = this.state.countSlide === index;
-      const activeSlide = isActive ? style.activeSlide : '';
+      const isActive = this.state.currentSlide === index;
+
       return (
-        <li key={index}
-          className={`${activeSlide} ${style.slide}`}
+        <div key={index}
+          className={isActive ? style.activeSlide : style.slide}
         >
           <Slide {...slide} />
-        </li>
+        </div>
       );
     });
 
-    const viewCtrls = totalSlide === 1 ? null : (
-      <div className={style.controls}>
-        <span className={style.leftControl}
-          onClick={this.handleDecrement}
-        />
-        <span className={style.rightControl}
-          onClick={this.handleIncrement}
-        />
-      </div>
-    );
+    const leftControl = totalSlide > 1 ? (
+      <span className={style.leftControl}
+        onClick={this.handlePreviousSlide}
+      />
+    ) : null;
 
-    const nexstep = this.state.countSlide;
-
-    const SlidesView = (
-      <div className={style.slidesWrapper}>
-        <ul className={style.slidecontent}>
-          {myslides}
-        </ul>
-        {viewCtrls}
-      </div>
-    );
+    const rightControl = totalSlide > 1 ? (
+      <span className={style.rightControl}
+        onClick={this.handleNextSlide}
+      />
+    ) : null;
 
     return (
-      <div>
-        {SlidesView}
+      <div className={style.slidesWrapper}>
+        {myslides}
+        {leftControl}
+        {rightControl}
       </div>
     );
   }

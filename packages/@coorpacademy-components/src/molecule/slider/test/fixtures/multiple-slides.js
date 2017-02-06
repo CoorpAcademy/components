@@ -10,6 +10,7 @@ export default {
         cover: 'url("http://www.lorempixel.com/200/200/nature/2")',
         title: 'Hi XXX, check your battle requests,',
         subtitle: 'You have N battle requests!',
+        light: true,
         cta: {
           href: '#',
           title: 'Start Battling'

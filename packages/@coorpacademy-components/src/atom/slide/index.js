@@ -9,10 +9,13 @@ const Slide = (props, context) => {
     cover,
     title,
     subtitle,
-    cta
+    cta,
+    light
   } = props;
 
   const imgCover = cover;
+
+  cta.light = light;
 
   return (
     <div className={style.hero}
@@ -20,7 +23,7 @@ const Slide = (props, context) => {
         backgroundImage: imgCover
       }}
     >
-      <div className={style.content}>
+      <div className={light ? style.light : style.content}>
         <h2 className={style.subtitle}>{subtitle}</h2>
         <h1 className={style.title}>{title}</h1>
         <Cta {...cta} />
@@ -37,10 +40,8 @@ Slide.propTypes = {
   cover: PropTypes.string,
   title: PropTypes.string,
   subtitle: PropTypes.string,
-  cta: PropTypes.shape({
-    href: PropTypes.url,
-    title: PropTypes.string
-  })
+  light: PropTypes.bool,
+  cta: PropTypes.object
 };
 
 export default Slide;
