@@ -2,6 +2,7 @@ export default {
   props: {
     logo: {
       src: 'https://www.coorpacademy.com/assets/img/logo.svg',
+      srcMobile: 'https://up.coorpacademy.com/assets/css/skin/logos/logo_coorpacademy_zeitgeist_small.92e2b75dbe0.svg',
       href: '#'
     },
     themes: [

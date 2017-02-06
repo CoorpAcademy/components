@@ -13,10 +13,12 @@ class MoocHeader extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isSettingsOpen: false
+      isSettingsOpen: false,
+      isMenuOpen: true
     };
 
     this.handleSettingsToggle = this.handleSettingsToggle.bind(this);
+    this.handleMenuToggle = this.handleMenuToggle.bind(this);
   }
 
   shouldComponentUpdate(nextProps, nextState, nextContext) {
@@ -26,6 +28,12 @@ class MoocHeader extends React.Component {
   handleSettingsToggle() {
     this.setState(prevState => ({
       isSettingsOpen: !prevState.isSettingsOpen
+    }));
+  }
+
+  handleMenuToggle() {
+    this.setState(prevState => ({
+      isMenuOpen: !prevState.isMenuOpen
     }));
   }
 
@@ -138,8 +146,14 @@ class MoocHeader extends React.Component {
 
     return (
       <div className={style.wrapper}>
-        <div className={style.header}>
+        <div className={this.state.isMenuOpen ? style.open : style.header}>
           <div className={style.logoWrapper}>
+            <div className={style.logoMobile}
+              onClick={this.handleMenuToggle}
+            >
+              <img src={logo.srcMobile} />
+              <div className={this.state.isMenuOpen ? style.caretUp : style.caret} />
+            </div>
             <a className={style.logo}
               href={logo.href}
             >
@@ -154,7 +168,7 @@ class MoocHeader extends React.Component {
               <div className={style.settingsToggle}
                 onClick={this.handleSettingsToggle}
               />
-              <div className={this.state.isSettingsOpen ? style.settingsWrapper : style.none}>
+              <div className={this.state.isSettingsOpen ? style.settingsWrapper : style.settingsWrapperHidden}>
                 <div className={style.settingsGroup}>
                   <div className={style.setting}>
                     <div className={style.label}>Langue</div>

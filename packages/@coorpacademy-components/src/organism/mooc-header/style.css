@@ -1,9 +1,10 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value tablet from breakpoints;
+@value desktop from breakpoints;
+
 .wrapper {
   min-height: 60px;
-}
-
-.none {
-  display: none;
 }
 
 .header {
@@ -20,6 +21,10 @@
   background-color: #ffffff;
 }
 
+.open {
+  composes: header;
+}
+
 .slider {
   height: 400px;
   width: 100%;
@@ -33,6 +38,10 @@
 .logo {
   display: flex;
   align-items: center;
+}
+
+.logoMobile {
+  display: none;
 }
 
 .logo img {
@@ -67,6 +76,14 @@
 .caret {
   composes: fa from '../../variables/fontawesome.css';
   composes: fa-angle-down from '../../variables/fontawesome.css';
+  margin-left: 10px;
+  color: #BCBCBC;
+  font-size: 14px;
+}
+
+.caretUp {
+  composes: fa from '../../variables/fontawesome.css';
+  composes: fa-angle-up from '../../variables/fontawesome.css';
   margin-left: 10px;
   color: #BCBCBC;
   font-size: 14px;
@@ -248,6 +265,11 @@
   box-shadow: 0 0 2px 2px rgba(0,0,0,0.02);
 }
 
+.settingsWrapperHidden {
+  composes: settingsWrapper;
+  display: none;
+}
+
 .settingsWrapper:after, .settingsWrapper:before {
 	bottom: 100%;
 	right: 20px;
@@ -303,4 +325,137 @@
 
 .closeSettings:hover {
   color: #484848;
+}
+
+@media mobile {
+
+  .header {
+    flex-direction: column;
+  }
+
+  .open {
+    height: 100%;
+    justify-content: flex-start;
+    align-items: stretch;
+  }
+
+  .logoWrapper {
+    width: 100%;
+    height: 60px;
+    justify-content: space-between;
+    flex-shrink: 0;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .logoMobile {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .logoMobile img {
+    width: 60px;
+  }
+
+  .themes {
+    border: 0;
+    margin-left: 0;
+  }
+
+  .themes .currentOption {
+    padding: 0;
+  }
+
+  .themes .optionsGroup {
+    left: auto;
+    right: -20px;
+  }
+
+  .menuWrapper {
+    display: none;
+  }
+
+  .open .menuWrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pages {
+    padding: 10px 0 10px;
+    margin: 10px 0 10px;
+    flex-direction: column;
+    border: 0;
+    height: auto;
+    border-top: 1px solid #DCE0E0;
+    border-bottom: 1px solid #DCE0E0;
+  }
+
+  .pages .page {
+    line-height: 30px;
+    padding: 0;
+  }
+
+  .activePage {
+    color: #00B0FF;
+  }
+
+  .page .bar {
+    display: none;
+  }
+
+  .page:hover {
+    color: #00B0FF;
+  }
+
+  .pages .currentOption {
+    display: none;
+  }
+
+  .pages .optionsGroup {
+    display: block;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: none;
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+  }
+
+  .pages .option {
+    padding: 0;
+  }
+
+  .links {
+    height: auto;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 0 10px;
+    margin: 0 0 10px;
+    border-bottom: 1px solid #DCE0E0;
+  }
+
+  .link {
+    margin-bottom: 10px;
+  }
+
+  .settings {
+    height: auto;
+  }
+
+  .settingsToggle {
+    display: none;
+  }
+
+  .settingsWrapper {
+    display: block;
+  }
+
+  .settingsWrapperHidden {
+    display: block;
+  }
 }
