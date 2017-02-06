@@ -122,6 +122,44 @@ class MoocHeader extends React.Component {
     if (user) {
       userView = (
         <div className={style.user}>
+          <div className={style.stats}>
+            <a className={style.stat}
+              href={user.stats.stars.href}
+            >
+              <div className={style.stars}
+                style={{
+                  backgroundColor: primaryColor
+                }}
+              />
+              <div className={style.label}>
+                {user.stats.stars.label}
+              </div>
+            </a>
+            <a className={style.stat}
+              href={user.stats.ranking.href}
+            >
+              <div className={style.ranking}
+                style={{
+                  backgroundColor: primaryColor
+                }}
+              />
+              <div className={style.label}>
+                {user.stats.ranking.label}
+              </div>
+            </a>
+            <a className={style.stat}
+              href={user.stats.badge.href}
+            >
+              <div className={style.badge}
+                style={{
+                  backgroundColor: primaryColor
+                }}
+              />
+              <div className={style.label}>
+                {user.stats.badge.label}
+              </div>
+            </a>
+          </div>
           <div className={style.avatar}>
             <a href={user.link}>
               <img src={user.picture} />
@@ -220,7 +258,21 @@ MoocHeader.propTypes = {
   user: PropTypes.shape({
     picture: PropTypes.string,
     link: PropTypes.string,
-    notifications: PropTypes.number
+    notifications: PropTypes.number,
+    stats: PropTypes.shape({
+      stars: PropTypes.shape({
+        href: PropTypes.string,
+        label: PropTypes.string
+      }),
+      ranking: PropTypes.shape({
+        href: PropTypes.string,
+        label: PropTypes.string
+      }),
+      badge: PropTypes.shape({
+        href: PropTypes.string,
+        label: PropTypes.string
+      })
+    })
   }),
   settings: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string,

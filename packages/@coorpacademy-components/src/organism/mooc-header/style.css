@@ -160,15 +160,17 @@
   width: 0;
   position: absolute;
   bottom: -1px;
-  left: 0;
-  transition: width 0.2s ease-out;
+  left: 50%;
+  transition: all 0.2s ease-out;
 }
 
 .activePage .bar {
+  left: 0;
   width: 100%;
 }
 
 .page:hover .bar {
+  left: 0;
   width: 100%;
 }
 
@@ -194,7 +196,6 @@
 .user {
   position: relative;
   height: 100%;
-  padding-left: 20px;
   display: flex;
   align-items: center;
 }
@@ -205,6 +206,7 @@
   border-radius: 20px;
   overflow: hidden;
   background-color: #eeeeee;
+  margin-left: 20px;
 }
 
 .avatar img {
@@ -223,6 +225,63 @@
   border-radius: 8px;
   padding: 0 5px;
   pointer-events: none;
+}
+
+.stats {
+  display: flex;
+  padding: 0 10px;
+  border-right: 1px solid #DCE0E0;
+}
+
+.stat {
+  height: 100%;
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.stat:hover .label {
+  text-decoration: underline;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.stars {
+  composes: icon;
+  composes: fa from '../../variables/fontawesome.css';
+  composes: fa-star from '../../variables/fontawesome.css';
+}
+
+.ranking {
+  composes: icon;
+  composes: fa from '../../variables/fontawesome.css';
+  composes: fa-bar-chart from '../../variables/fontawesome.css';
+}
+
+.badge {
+  composes: icon;
+  composes: fa from '../../variables/fontawesome.css';
+  composes: fa-trophy from '../../variables/fontawesome.css';
+}
+
+.stat .label {
+  font-family: 'Open Sans';
+  font-size: 10px;
+  font-weight: 700;
+  color: #484848;
+  margin-top: 5px;
 }
 
 .settings {

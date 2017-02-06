@@ -12,7 +12,21 @@ export default {
     user: {
       picture: 'https://image.freepik.com/free-icon/male-user-shadow_318-34042.jpg',
       notifications: 5,
-      link: '#'
+      link: '#',
+      stats: {
+        stars: {
+          link: '#',
+          label: 124
+        },
+        ranking: {
+          link: '#',
+          label: '5ème'
+        },
+        badge: {
+          link: '#',
+          label: 'Gold'
+        }
+      }
     }
   })
 };
