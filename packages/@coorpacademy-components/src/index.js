@@ -14,6 +14,7 @@ export BrandUpload from './organism/brand-upload';
 export BrandUploadBox from './molecule/brand-upload-box';
 export Breadcrumbs from './molecule/breadcrumbs';
 export Button from './atom/button';
+export Card from './molecule/card';
 export Catalog from './template/app-catalog/catalog';
 export CatalogCard from './molecule/catalog-card';
 export CatalogCards from './organism/catalog-cards';
