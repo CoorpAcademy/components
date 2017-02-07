@@ -16,7 +16,7 @@ export default {
       stats: {
         stars: {
           link: '#',
-          label: 124
+          label: '124'
         },
         ranking: {
           link: '#',
