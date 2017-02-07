@@ -7,14 +7,17 @@
   overflow: hidden;
   height: 260px;
   text-align: left;
+  transition: all 0.1s ease-in-out;
 }
 
 .catalogListItem:hover {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   cursor: pointer;
+  transform: translateY(-5px);
 }
 
-.catalogListItem:hover .overlay {
+.catalogListItem:hover .overlay,
+.catalogListItem:hover .cta {
   display: block;
 }
 
@@ -71,6 +74,37 @@
   color: #fff;
 }
 
+.adaptiv {
+  position: absolute;
+  z-index: 3;
+  top: 10px;
+  left: 10px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #00B0FF;
+  composes: fa from '../../variables/fontawesome.css';
+  composes: fa-random from '../../variables/fontawesome.css';
+}
+
+.adaptiv:before {
+  position: absolute;
+  line-height: 27px;
+  font-size: 14px;
+  top: 0;
+  left: 6px;
+  color: #fff;
+}
+
+.cta {
+  display: none;
+  position: relative;
+  z-index: 4;
+  color: white;
+  line-height: 124px;
+  text-align: center;
+}
+
 .imageWrapper img {
   width: 100%;
   position: absolute;
@@ -89,25 +123,17 @@
   z-index: 2;
 }
 
-.overlay a {
-  display: inline-block;
-  margin: 64px 0;
-  text-transform: uppercase;
-  color: #ffffff;
-  font-family: "Open Sans";
-  font-weight: 600;
-  font-size: 13px;
-  text-decoration: none;
-  line-height: 52px;
-  padding: 0 25px;
-  background-color: #FFB90D;
-  border-radius: 2px;
-}
-
-.progress {
+.progressWrapper {
   width: 100%;
   height: 5px;
   background: #E6E6E6;
+}
+
+.progress {
+  display: block;
+  height: 5px;  
+  background: #FFB90D;
+  animation: progressbar 2s ease-in-out;
 }
 
 .infoWrapper {
@@ -138,5 +164,14 @@
   margin-top: 5px;
   font-size: 12px;
   color: #9E9E9E;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
+@keyframes progressbar {
+  0% {
+    width: 0;
+  }
+}
