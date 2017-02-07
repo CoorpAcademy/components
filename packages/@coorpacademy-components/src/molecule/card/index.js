@@ -18,8 +18,11 @@ const Card = (props, context) => {
     author,
     cta,
     progress,
-    href
+    href,
+    skin
   } = props;
+
+  const defaultColor = getOr('#00B0FF', 'common.primary', skin);
 
   const calltoaction = cta ? (
     <div className={style.cta}>{cta}</div>
@@ -33,29 +36,42 @@ const Card = (props, context) => {
     <div className={style.progressWrapper}>
       <div className={style.progress}
         style={{
-          width: progress
+          width: progress,
+          background: defaultColor
         }}
       />
     </div>
-  ) : null;
+  ) : (
+    <div className={style.noprogressbar} />
+  );
 
   const adaptivIcon = adaptiv ? (
     <div className={style.adaptiv} />
   ) : null;
 
   return (
-    <div className={style.catalogListItem}>
+    <a href={href}
+      className={style.catalogListItem}
+    >
       <div className={style.imageWrapper}>
         {certif}
         {adaptivIcon}
         <span className={style.timer}>{time}</span>
         {calltoaction}
-        <div className={style.overlay} />
+        <div className={style.overlay}
+          style={{
+            backgroundColor: defaultColor
+          }}
+        />
         <Picture src={image} />
       </div>
       {myprogress}
       <div className={style.infoWrapper}>
-        <div className={style.type}>
+        <div className={style.type}
+          style={{
+            color: defaultColor
+          }}
+        >
           {type}
         </div>
         <div className={style.title}>
@@ -65,12 +81,13 @@ const Card = (props, context) => {
           {author}
         </div>
       </div>
-    </div>
+    </a>
   );
 };
 
 Card.contextTypes = {
-  translate: React.PropTypes.func
+  translate: React.PropTypes.func,
+  skin: React.PropTypes.object
 };
 
 Card.propTypes = {
