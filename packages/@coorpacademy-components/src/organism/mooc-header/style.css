@@ -158,8 +158,8 @@
   background-color: #00B0FF;
   height: 3px;
   width: 0;
+  bottom: 0px;
   position: absolute;
-  bottom: -1px;
   left: 50%;
   transition: all 0.2s ease-out;
 }
@@ -355,11 +355,14 @@
 }
 
 .settingsGroup {
-  padding: 30px;
+  padding: 20px;
 }
 
 .setting {
-
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .setting .label {
@@ -367,6 +370,14 @@
   font-size: 14px;
   font-weight: 600;
   color: #484848;
+}
+
+.setting .link {
+  font-family: 'Open Sans';
+  font-size: 14px;
+  font-weight: 600;
+  color: #484848;
+  text-decoration: none;
 }
 
 .closeSettings {

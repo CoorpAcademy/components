@@ -2,11 +2,15 @@ import React, {PropTypes} from 'react';
 import find from 'lodash/fp/find';
 import filter from 'lodash/fp/filter';
 import getOr from 'lodash/fp/getOr';
+import get from 'lodash/fp/get';
 import map from 'lodash/fp/map';
 import identity from 'lodash/fp/identity';
 import shallowCompare from '../../util/shallow-compare';
 import Slider from '../../molecule/slider';
 import Cta from '../../atom/cta';
+import Select from '../../atom/select';
+import InputSwitch from '../../atom/input-switch';
+import Link from '../../atom/link';
 import style from './style.css';
 
 class MoocHeader extends React.Component {
@@ -45,13 +49,14 @@ class MoocHeader extends React.Component {
     let pagesView = null;
     let linksView = null;
     let userView = null;
+    let settingsView = null;
 
     const primaryColor = getOr('#00B0FF', 'common.primary', skin);
 
     if (themes) {
       const currentTheme = find({selected: true}, themes);
 
-      const optionsView = filter({selected: false}, themes).map((theme, index) => (
+      const optionsView = themes.map((theme, index) => (
         <div
           key={index}
           onClick={theme.handleClick}
@@ -176,6 +181,67 @@ class MoocHeader extends React.Component {
       );
     }
 
+    if (settings) {
+      settingsView = settings.map((setting, index) => {
+        let settingView = null;
+        const {options, type, title, onChange} = setting;
+
+        switch (type) {
+          case 'link': {
+            settingView = (
+              <div className={style.setting}
+                key={index}
+              >
+                <Link className={style.link}
+                  href={options.href}
+                >
+                  {title}
+                </Link>
+              </div>
+            );
+            break;
+          }
+          case 'select': {
+            const selectProps = {};
+            selectProps.options = options.values;
+            selectProps.title = '';
+            selectProps.theme = 'header';
+            selectProps.onChange = options.onChange;
+
+            settingView = (
+              <div className={style.setting}
+                key={index}
+              >
+                <span className={style.label}>
+                  {title}
+                </span>
+                <Select {...selectProps} />
+              </div>
+            );
+            break;
+          }
+          case 'switch': {
+            const switchProps = {};
+            switchProps.value = options.value;
+
+            settingView = (
+              <div className={style.setting}
+                key={index}
+              >
+                <span className={style.label}>
+                  {title}
+                </span>
+                <InputSwitch {...switchProps} />
+              </div>
+            );
+            break;
+          }
+        }
+
+        return settingView;
+      });
+    }
+
     const sliderView = slider ? (
       <div className={style.slider}>
         <Slider {...slider} />
@@ -208,9 +274,7 @@ class MoocHeader extends React.Component {
               />
               <div className={this.state.isSettingsOpen ? style.settingsWrapper : style.settingsWrapperHidden}>
                 <div className={style.settingsGroup}>
-                  <div className={style.setting}>
-                    <div className={style.label}>Langue</div>
-                  </div>
+                  {settingsView}
                 </div>
                 <div className={style.closeSettings}
                   onClick={this.handleSettingsToggle}
@@ -277,8 +341,16 @@ MoocHeader.propTypes = {
   settings: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string,
     type: PropTypes.oneOf(['select', 'switch', 'link']),
-    options: PropTypes.object,
-    onClick: PropTypes.func
+    options: PropTypes.shape({
+      href: PropTypes.string,
+      onChange: PropTypes.func,
+      value: PropTypes.bool,
+      values: PropTypes.arrayOf(PropTypes.shape({
+        value: PropTypes.string,
+        name: PropTypes.string,
+        selected: PropTypes.bool
+      }))
+    })
   })),
   slider: PropTypes.object
 };

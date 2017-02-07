@@ -84,8 +84,47 @@ export default {
       {
         title: 'Language',
         type: 'select',
-        options: {},
-        onClick: () => true
+        options: {
+          onChange: () => true,
+          values: [
+            {
+              name: 'Pouet',
+              value: 'Pouet',
+              selected: false
+            },
+            {
+              name: 'Pouet2',
+              value: 'Pouet2',
+              selected: true
+            },
+            {
+              name: 'Pouet3',
+              value: 'Pouet3',
+              selected: false
+            }
+          ]
+        }
+      },
+      {
+        title: 'Mon compte',
+        type: 'link',
+        options: {
+          href: '#'
+        }
+      },
+      {
+        title: 'Godmode',
+        type: 'switch',
+        options: {
+          value: true
+        }
+      },
+      {
+        title: 'Fast slides',
+        type: 'switch',
+        options: {
+          value: false
+        }
       }
     ]
   }

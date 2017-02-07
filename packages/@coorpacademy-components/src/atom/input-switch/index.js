@@ -15,9 +15,13 @@ const InputSwitch = props => {
   const isUnset = value === undefined;
   const handleChange = e => onChange(e.target.checked);
 
+  const titleView = title ? (
+    <span className={style.title}>{`${title} `}</span>
+  ) : null;
+
   return (
     <div className={isUnset ? style.unset : style.default}>
-      <span className={style.title}>{`${title} `}</span>
+      {titleView}
       <input
         type='checkbox'
         id={title}
@@ -36,7 +40,7 @@ const InputSwitch = props => {
 };
 
 InputSwitch.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   value: PropTypes.bool,
   disabled: PropTypes.bool,
   onChange: PropTypes.func,
