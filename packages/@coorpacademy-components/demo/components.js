@@ -27,6 +27,7 @@ import BrandFormGroup from '../src/molecule/brand-form-group';
 import BrandTabs from '../src/molecule/brand-tabs';
 import BrandUploadBox from '../src/molecule/brand-upload-box';
 import Breadcrumbs from '../src/molecule/breadcrumbs';
+import Card from '../src/molecule/card';
 import CatalogCard from '../src/molecule/catalog-card';
 import CatalogCta from '../src/molecule/catalog-cta';
 import Categories from '../src/molecule/categories';
@@ -153,6 +154,8 @@ import BrandTabsFixtureUsers from '../src/molecule/brand-tabs/test/fixtures/user
 import BrandUploadBoxFixtureDefault from '../src/molecule/brand-upload-box/test/fixtures/default';
 import BrandUploadBoxFixtureLoading from '../src/molecule/brand-upload-box/test/fixtures/loading';
 import BreadcrumbsFixtureDefault from '../src/molecule/breadcrumbs/test/fixtures/default';
+import CardFixtureAdaptiv from '../src/molecule/card/test/fixtures/adaptiv';
+import CardFixtureDefault from '../src/molecule/card/test/fixtures/default';
 import CatalogCardFixtureDefault from '../src/molecule/catalog-card/test/fixtures/default';
 import CatalogCtaFixtureDefault from '../src/molecule/catalog-cta/test/fixtures/default';
 import CatalogCtaFixtureEmpty from '../src/molecule/catalog-cta/test/fixtures/empty';
@@ -336,6 +339,7 @@ export const components = {
     BrandTabs,
     BrandUploadBox,
     Breadcrumbs,
+    Card,
     CatalogCard,
     CatalogCta,
     Categories,
@@ -535,6 +539,10 @@ export const fixtures = {
     },
     Breadcrumbs: {
       Default: BreadcrumbsFixtureDefault
+    },
+    Card: {
+      Adaptiv: CardFixtureAdaptiv,
+      Default: CardFixtureDefault
     },
     CatalogCard: {
       Default: CatalogCardFixtureDefault
