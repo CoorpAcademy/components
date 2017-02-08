@@ -3,7 +3,7 @@
   box-sizing: border-box;
   width: 258px;
   vertical-align: top;
-  border: 1px solid #E6E6E6;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
   overflow: hidden;
   height: 260px;
   text-align: left;
@@ -12,14 +12,13 @@
 }
 
 .catalogListItem:hover {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   background: #F7F7F7;
-  transform: translateY(-5px);
+  transform: translateY(-2px);
 }
 
-.catalogListItem:hover .overlay,
-.catalogListItem:hover .cta {
+.imageWrapper:hover .overlay,
+.imageWrapper:hover .cta {
   display: block;
 }
 
@@ -28,6 +27,11 @@
   height: 124px;
   width: 100%;
   overflow: hidden;
+}
+
+.imageWrapper a {
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .timer {
@@ -179,8 +183,13 @@
   color: #484848;
   letter-spacing: 0;
 }
+.title a {
+  color: #484848;
+  text-decoration: none;
+  cursor: pointer;
+}
 
-.catalogListItem:hover .title {
+.infoWrapper:hover .title {
   text-decoration: underline;
 }
 

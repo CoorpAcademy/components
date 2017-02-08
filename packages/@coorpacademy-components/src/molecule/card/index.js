@@ -2,6 +2,7 @@ import React, {PropTypes} from 'react';
 import identity from 'lodash/fp/identity';
 import getOr from 'lodash/fp/getOr';
 import Picture from '../../atom/picture';
+import Link from '../../atom/link';
 import style from './style.css';
 
 const getOrBlank = getOr('');
@@ -19,6 +20,7 @@ const Card = (props, context) => {
     cta,
     progress,
     href,
+    imghref,
     skin
   } = props;
 
@@ -50,20 +52,22 @@ const Card = (props, context) => {
   ) : null;
 
   return (
-    <a href={href}
+    <div
       className={style.catalogListItem}
     >
       <div className={style.imageWrapper}>
-        {certif}
-        {adaptivIcon}
-        <span className={style.timer}>{time}</span>
-        {calltoaction}
-        <div className={style.overlay}
-          style={{
-            backgroundColor: defaultColor
-          }}
-        />
-        <Picture src={image} />
+        <Link href={imghref}>
+          {certif}
+          {adaptivIcon}
+          <span className={style.timer}>{time}</span>
+          {calltoaction}
+          <div className={style.overlay}
+            style={{
+              backgroundColor: defaultColor
+            }}
+          />
+          <Picture src={image} />
+        </Link>
       </div>
       {myprogress}
       <div className={style.infoWrapper}>
@@ -75,13 +79,15 @@ const Card = (props, context) => {
           {type}
         </div>
         <div className={style.title}>
-          {title}
+          <Link href={href}>
+            {title}
+          </Link>
         </div>
         <div className={style.author}>
           {author}
         </div>
       </div>
-    </a>
+    </div>
   );
 };
 
@@ -100,7 +106,8 @@ Card.propTypes = {
   author: PropTypes.string,
   cta: PropTypes.string,
   progress: PropTypes.string,
-  href: PropTypes.string
+  href: PropTypes.string,
+  imghref: PropTypes.string
 };
 
 export default Card;

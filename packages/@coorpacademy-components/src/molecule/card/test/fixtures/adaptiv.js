@@ -9,6 +9,7 @@ export default {
     author: 'Coorpacademy && NextStage && Elephant',
     cta: 'Continue Chapter',
     progress: '',
-    href: '#'
+    href: '/pagediscipline',
+    imghref: '/slides'
   }
 };

@@ -9,6 +9,7 @@ export default {
     author: 'Coorpacademy',
     cta: 'Continue Chapter',
     progress: '65%',
-    href: '#'
+    href: '/pagediscipline',
+    imghref: '/slides'
   }
 };
