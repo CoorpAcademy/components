@@ -147,7 +147,7 @@
 
 .page {
   position: relative;
-  padding: 0 20px;
+  padding: 0 15px;
   cursor: pointer;
   color: #484848;
   font-family: 'Open Sans';
@@ -257,6 +257,7 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .stat:hover .label {

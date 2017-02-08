@@ -183,7 +183,7 @@ class MoocHeader extends React.Component {
           </div>
           <div className={style.avatarWrapper}>
             <div className={style.avatar}>
-              <Link href={user.link}
+              <Link href={user.href}
                 className={style.userLink}
               >
                 <img src={user.picture} />
@@ -338,7 +338,7 @@ MoocHeader.propTypes = {
   links: PropTypes.array,
   user: PropTypes.shape({
     picture: PropTypes.string,
-    link: PropTypes.string,
+    href: PropTypes.string,
     notifications: PropTypes.number,
     stats: PropTypes.shape({
       stars: PropTypes.shape({

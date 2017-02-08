@@ -20,7 +20,7 @@ export default {
     user: {
       picture: 'https://image.freepik.com/free-icon/male-user-shadow_318-34042.jpg',
       notifications: 5,
-      link: '#',
+      href: '#',
       stats: {
         stars: {
           link: '#',
