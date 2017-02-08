@@ -48,6 +48,14 @@
   width: 200px;
 }
 
+.notifWrapper {
+  position: relative;
+}
+
+.notifWrapper .notifications {
+  top: -5px;
+}
+
 .options {
   position: relative;
   display: flex;
@@ -200,13 +208,21 @@
   align-items: center;
 }
 
+.userLink {
+  display: block;
+}
+
+.avatarWrapper {
+  position: relative;
+  margin-left: 20px;
+}
+
 .avatar {
   width: 40px;
   height: 40px;
   border-radius: 20px;
   overflow: hidden;
   background-color: #eeeeee;
-  margin-left: 20px;
 }
 
 .avatar img {
@@ -215,7 +231,7 @@
 
 .notifications {
   position: absolute;
-  top: 10px;
+  top: 0;
   right: -5px;
   font-family: 'Open Sans';
   font-weight: 700;
@@ -522,10 +538,14 @@
 
   .user {
     height: auto;
+    padding: 10px 0 20px;
+    border-bottom: 1px solid #DCE0E0;
+    margin-bottom: 10px;
   }
 
   .stats {
-
+    padding: 0;
+    border: 0;
   }
 
   .stat {

@@ -50,6 +50,7 @@ class MoocHeader extends React.Component {
     let linksView = null;
     let userView = null;
     let settingsView = null;
+    let notificationsView = null;
 
     const primaryColor = getOr('#00B0FF', 'common.primary', skin);
 
@@ -125,6 +126,16 @@ class MoocHeader extends React.Component {
     }
 
     if (user) {
+      notificationsView = (
+        <div className={style.notifications}
+          style={{
+            backgroundColor: primaryColor
+          }}
+        >
+          {user.notifications}
+        </div>
+      );
+
       userView = (
         <div className={style.user}>
           <div className={style.stats}>
@@ -165,17 +176,15 @@ class MoocHeader extends React.Component {
               </div>
             </a>
           </div>
-          <div className={style.avatar}>
-            <a href={user.link}>
-              <img src={user.picture} />
-            </a>
-          </div>
-          <div className={style.notifications}
-            style={{
-              backgroundColor: primaryColor
-            }}
-          >
-            {user.notifications}
+          <div className={style.avatarWrapper}>
+            <div className={style.avatar}>
+              <Link href={user.link}
+                className={style.userLink}
+              >
+                <img src={user.picture} />
+              </Link>
+            </div>
+            {notificationsView}
           </div>
         </div>
       );
@@ -255,7 +264,10 @@ class MoocHeader extends React.Component {
             <div className={style.logoMobile}
               onClick={this.handleMenuToggle}
             >
-              <img src={logo.srcMobile} />
+              <div className={style.notifWrapper}>
+                <img src={logo.srcMobile} />
+                {notificationsView}
+              </div>
               <div className={this.state.isMenuOpen ? style.caretUp : style.caret} />
             </div>
             <a className={style.logo}
