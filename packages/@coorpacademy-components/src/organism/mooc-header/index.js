@@ -83,7 +83,12 @@ class MoocHeader extends React.Component {
           href={page.href}
           className={page.selected ? style.activePage : style.page}
         >
-          {page.title}<span className={style.bar} />
+          {page.title}
+          <span className={style.bar}
+            style={{
+              backgroundColor: primaryColor
+            }}
+          />
         </a>
       ));
 
