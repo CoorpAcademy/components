@@ -19,6 +19,12 @@ const InputSwitch = props => {
     <span className={style.title}>{`${title} `}</span>
   ) : null;
 
+  const descriptionView = description ? (
+    <div className={style.description}>
+      {description}
+    </div>
+  ) : null;
+
   return (
     <div className={isUnset ? style.unset : style.default}>
       {titleView}
@@ -32,9 +38,7 @@ const InputSwitch = props => {
         className={style.checkbox}
       />
       <label htmlFor={title} />
-      <div className={style.description}>
-        {description}
-      </div>
+      {descriptionView}
     </div>
   );
 };

@@ -520,6 +520,18 @@
     margin-bottom: 10px;
   }
 
+  .user {
+    height: auto;
+  }
+
+  .stats {
+
+  }
+
+  .stat {
+    height: auto;
+  }
+
   .settings {
     height: auto;
     margin: 0;

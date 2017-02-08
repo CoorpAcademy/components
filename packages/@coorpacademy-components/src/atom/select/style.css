@@ -136,6 +136,10 @@
     padding: 0;
   }
 
+  .header {
+    width: auto;
+  }
+
   .thematiques select {
     height: 100%;
     width: 100%;
