@@ -456,6 +456,7 @@
   .open .menuWrapper {
     display: flex;
     flex-direction: column;
+    height: auto;
   }
 
   .pages {
@@ -469,7 +470,7 @@
   }
 
   .pages .page {
-    line-height: 30px;
+    line-height: 40px;
     padding: 0;
   }
 
@@ -503,23 +504,25 @@
 
   .pages .option {
     padding: 0;
+    line-height: 40px;
   }
 
   .links {
     height: auto;
     justify-content: flex-start;
     align-items: center;
-    padding: 0 0 10px;
+    padding: 10px 0 20px;
     margin: 0 0 10px;
     border-bottom: 1px solid #DCE0E0;
   }
 
-  .link {
+  .links .link {
     margin-bottom: 10px;
   }
 
   .settings {
     height: auto;
+    margin: 0;
   }
 
   .settingsToggle {
@@ -528,9 +531,23 @@
 
   .settingsWrapper {
     display: block;
+    position: relative;
+    width: 100%;
+    margin: 0;
+    top: 0;
+    box-shadow: none;
+    border: 0;
   }
 
   .settingsWrapperHidden {
     display: block;
+  }
+
+  .settingsGroup {
+    padding: 0;
+  }
+
+  .closeSettings {
+    display: none;
   }
 }
