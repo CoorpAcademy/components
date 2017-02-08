@@ -2,6 +2,7 @@ import React, {PropTypes} from 'react';
 import identity from 'lodash/fp/identity';
 import getOr from 'lodash/fp/getOr';
 import Picture from '../../atom/picture';
+import Link from '../../atom/link';
 import style from './style.css';
 
 const getOrBlank = getOr('');
@@ -18,8 +19,12 @@ const Card = (props, context) => {
     author,
     cta,
     progress,
-    href
+    href,
+    imghref,
+    skin
   } = props;
+
+  const defaultColor = getOr('#00B0FF', 'common.primary', skin);
 
   const calltoaction = cta ? (
     <div className={style.cta}>{cta}</div>
@@ -33,33 +38,50 @@ const Card = (props, context) => {
     <div className={style.progressWrapper}>
       <div className={style.progress}
         style={{
-          width: progress
+          width: progress,
+          background: defaultColor
         }}
       />
     </div>
-  ) : null;
+  ) : (
+    <div className={style.noprogressbar} />
+  );
 
   const adaptivIcon = adaptiv ? (
     <div className={style.adaptiv} />
   ) : null;
 
   return (
-    <div className={style.catalogListItem}>
+    <div
+      className={style.catalogListItem}
+    >
       <div className={style.imageWrapper}>
-        {certif}
-        {adaptivIcon}
-        <span className={style.timer}>{time}</span>
-        {calltoaction}
-        <div className={style.overlay} />
-        <Picture src={image} />
+        <Link href={imghref}>
+          {certif}
+          {adaptivIcon}
+          <span className={style.timer}>{time}</span>
+          {calltoaction}
+          <div className={style.overlay}
+            style={{
+              backgroundColor: defaultColor
+            }}
+          />
+          <Picture src={image} />
+        </Link>
       </div>
       {myprogress}
       <div className={style.infoWrapper}>
-        <div className={style.type}>
+        <div className={style.type}
+          style={{
+            color: defaultColor
+          }}
+        >
           {type}
         </div>
         <div className={style.title}>
-          {title}
+          <Link href={href}>
+            {title}
+          </Link>
         </div>
         <div className={style.author}>
           {author}
@@ -70,7 +92,8 @@ const Card = (props, context) => {
 };
 
 Card.contextTypes = {
-  translate: React.PropTypes.func
+  translate: React.PropTypes.func,
+  skin: React.PropTypes.object
 };
 
 Card.propTypes = {
@@ -83,7 +106,8 @@ Card.propTypes = {
   author: PropTypes.string,
   cta: PropTypes.string,
   progress: PropTypes.string,
-  href: PropTypes.string
+  href: PropTypes.string,
+  imghref: PropTypes.string
 };
 
 export default Card;
