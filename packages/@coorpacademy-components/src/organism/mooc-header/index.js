@@ -79,7 +79,7 @@ class MoocHeader extends React.Component {
 
     if (pages) {
       const displayedPages = pages.displayed.map((page, index) => (
-        <a key={index}
+        <Link key={index}
           href={page.href}
           className={page.selected ? style.activePage : style.page}
         >
@@ -89,16 +89,16 @@ class MoocHeader extends React.Component {
               backgroundColor: primaryColor
             }}
           />
-        </a>
+        </Link>
       ));
 
       const optionsView = pages.more.map((page, index) => (
-        <a href={page.href}
+        <Link href={page.href}
           key={index}
           className={style.option}
         >
           {page.title}
-        </a>
+        </Link>
       ));
 
       pagesView = (
@@ -144,7 +144,7 @@ class MoocHeader extends React.Component {
       userView = (
         <div className={style.user}>
           <div className={style.stats}>
-            <a className={style.stat}
+            <Link className={style.stat}
               href={user.stats.stars.href}
             >
               <div className={style.stars}
@@ -155,8 +155,8 @@ class MoocHeader extends React.Component {
               <div className={style.label}>
                 {user.stats.stars.label}
               </div>
-            </a>
-            <a className={style.stat}
+            </Link>
+            <Link className={style.stat}
               href={user.stats.ranking.href}
             >
               <div className={style.ranking}
@@ -167,8 +167,8 @@ class MoocHeader extends React.Component {
               <div className={style.label}>
                 {user.stats.ranking.label}
               </div>
-            </a>
-            <a className={style.stat}
+            </Link>
+            <Link className={style.stat}
               href={user.stats.badge.href}
             >
               <div className={style.badge}
@@ -179,7 +179,7 @@ class MoocHeader extends React.Component {
               <div className={style.label}>
                 {user.stats.badge.label}
               </div>
-            </a>
+            </Link>
           </div>
           <div className={style.avatarWrapper}>
             <div className={style.avatar}>
@@ -275,11 +275,11 @@ class MoocHeader extends React.Component {
               </div>
               <div className={this.state.isMenuOpen ? style.caretUp : style.caret} />
             </div>
-            <a className={style.logo}
+            <Link className={style.logo}
               href={logo.href}
             >
               <img src={logo.src} />
-            </a>
+            </Link>
             {themesView}
           </div>
           <div className={style.menuWrapper}>
