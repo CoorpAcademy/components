@@ -23,15 +23,15 @@ export default {
       href: '#',
       stats: {
         stars: {
-          link: '#',
+          href: '#',
           label: '124'
         },
         ranking: {
-          link: '#',
+          href: '#',
           label: '5ème'
         },
         badge: {
-          link: '#',
+          href: '#',
           label: 'Gold'
         }
       }

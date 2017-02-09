@@ -75,7 +75,7 @@
   cursor: pointer;
   color: #484848;
   font-family: 'Open Sans';
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   display: flex;
   align-items: center;
@@ -90,7 +90,7 @@
   composes: fa-angle-down from '../../variables/fontawesome.css';
   margin-left: 10px;
   color: #BCBCBC;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .caretUp {
@@ -98,7 +98,7 @@
   composes: fa-angle-up from '../../variables/fontawesome.css';
   margin-left: 10px;
   color: #BCBCBC;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .themes:hover .optionsGroup {
@@ -120,7 +120,7 @@
 .option {
   display: block;
   padding: 0 10px;
-  font-size: 14px;
+  font-size: 13px;
   color: #484848;
   font-family: 'Open Sans';
   line-height: 30px;
@@ -142,7 +142,6 @@
 
 .pages {
   height: 100%;
-  border-left: 1px solid #DCE0E0;
   border-right: 1px solid #DCE0E0;
   padding: 0 20px;
   display: flex;
@@ -155,7 +154,7 @@
   cursor: pointer;
   color: #484848;
   font-family: 'Open Sans';
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   display: flex;
   align-items: center;
@@ -179,10 +178,6 @@
 .activePage .bar {
   left: 0;
   width: 100%;
-}
-
-.page:hover {
-  color: #484848 !important;
 }
 
 .page:hover .bar {
@@ -392,14 +387,14 @@
 
 .setting .label {
   font-family: 'Open Sans';
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   color: #484848;
 }
 
 .setting .link {
   font-family: 'Open Sans';
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   color: #484848;
   text-decoration: none;
@@ -407,7 +402,7 @@
 
 .closeSettings {
   font-family: 'Open Sans';
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   color: #AAAAAA;
   height: 40px;
@@ -524,10 +519,6 @@
     line-height: 40px;
   }
 
-  .pages .option:hover {
-    color: #484848 !important;
-  }
-
   .links {
     height: auto;
     justify-content: flex-start;
@@ -582,10 +573,6 @@
 
   .settingsGroup {
     padding: 0;
-  }
-
-  .settings .link:hover {
-    color: #484848 !important;
   }
 
   .closeSettings {

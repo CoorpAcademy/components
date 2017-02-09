@@ -125,6 +125,7 @@
   font-weight: 700;
   font-family: 'Open Sans';
   color: #484848;
+  width: 100px;
 }
 
 @media mobile {
