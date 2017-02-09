@@ -50,6 +50,14 @@
 
 @media tablet {
 
+  .subtitle {
+    font-size: 15px;
+  }
+
+  .title {
+    font-size: 23px;
+    margin: 0 0 20px;
+  }
 }
 
 @media mobile {

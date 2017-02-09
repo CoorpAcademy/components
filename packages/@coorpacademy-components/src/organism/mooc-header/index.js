@@ -18,7 +18,7 @@ class MoocHeader extends React.Component {
     super(props);
     this.state = {
       isSettingsOpen: false,
-      isMenuOpen: true
+      isMenuOpen: false
     };
 
     this.handleSettingsToggle = this.handleSettingsToggle.bind(this);

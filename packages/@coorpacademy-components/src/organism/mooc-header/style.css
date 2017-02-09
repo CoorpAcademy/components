@@ -26,7 +26,7 @@
 }
 
 .slider {
-  height: 400px;
+  height: 360px;
   width: 100%;
 }
 
@@ -579,4 +579,13 @@
   .closeSettings {
     display: none;
   }
+
+  .slider {
+    height: 250px;
+  }
+}
+
+@media mobile {
+
+
 }
