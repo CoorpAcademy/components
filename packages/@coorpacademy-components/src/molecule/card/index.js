@@ -10,6 +10,7 @@ const getOrBlank = getOr('');
 const Card = (props, context) => {
   const {translate = identity} = context;
   const {
+    view,
     image,
     time,
     adaptiv,
@@ -51,52 +52,96 @@ const Card = (props, context) => {
     <div className={style.adaptiv} />
   ) : null;
 
-  return (
-    <div
-      className={style.catalogListItem}
-    >
-      <div className={style.imageWrapper}>
-        <Link href={imghref}>
-          {certif}
-          {adaptivIcon}
-          <span className={style.timer}>{time}</span>
-          {calltoaction}
-          <div className={style.overlay}
-            style={{
-              backgroundColor: defaultColor
-            }}
-          />
-          <Picture src={image} />
-        </Link>
-      </div>
-      {myprogress}
-      <div className={style.infoWrapper}>
-        <div className={style.type}
-          style={{
-            color: defaultColor
-          }}
-        >
-          {type}
-        </div>
-        <div className={style.title}>
-          <Link href={href}>
-            {title}
+  const layout = view === 'dashboard' ? (
+    <div className={style.grid}>
+      <div className={style.default}>
+        <div className={style.imageWrapper}>
+          <Link href={imghref}>
+            {certif}
+            {adaptivIcon}
+            <span className={style.timer}>{time}</span>
+            {calltoaction}
+            <div className={style.overlay}
+              style={{
+                backgroundColor: defaultColor
+              }}
+            />
+            <Picture src={image} />
           </Link>
         </div>
-        <div className={style.author}>
-          {author}
+        {myprogress}
+        <div className={style.infoWrapper}>
+          <div className={style.type}
+            style={{
+              color: defaultColor
+            }}
+          >
+            {type}
+          </div>
+          <div className={style.title}>
+            <Link href={href}>
+              {title}
+            </Link>
+          </div>
+          <div className={style.author}>
+            {author}
+          </div>
         </div>
       </div>
+    </div>
+  ) : (
+    <div className={style.list}>
+      <div className={style.default}>
+        <div className={style.imageWrapper}>
+          <Link href={imghref}>
+            {certif}
+            {adaptivIcon}
+            <span className={style.timer}>{time}</span>
+            {calltoaction}
+            <div className={style.overlay}
+              style={{
+                backgroundColor: defaultColor
+              }}
+            />
+            <Picture src={image} />
+          </Link>
+        </div>
+        {myprogress}
+        <div className={style.infoWrapper}>
+          <div className={style.type}
+            style={{
+              color: defaultColor
+            }}
+          >
+            {type}
+          </div>
+          <div className={style.title}>
+            <Link href={href}>
+              {title}
+            </Link>
+          </div>
+          <div className={style.author}>
+            {author}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
+  return (
+    <div>
+      {layout}
     </div>
   );
 };
 
 Card.contextTypes = {
-  translate: React.PropTypes.func,
-  skin: React.PropTypes.object
+  skin: React.PropTypes.object,
+  translate: React.PropTypes.func
 };
 
 Card.propTypes = {
+  view: PropTypes.string,
   image: PropTypes.string,
   time: PropTypes.string,
   adaptiv: PropTypes.bool,
