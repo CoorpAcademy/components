@@ -78,30 +78,48 @@ class MoocHeader extends React.Component {
     }
 
     if (pages) {
-      const displayedPages = pages.displayed.map((page, index) => (
-        <Link key={index}
-          href={page.href}
-          className={page.selected ? style.activePage : style.page}
-          skinHover
-        >
-          {page.title}
-          <span className={style.bar}
-            style={{
-              backgroundColor: primaryColor
-            }}
-          />
-        </Link>
-      ));
+      const displayedPages = pages.displayed.map((page, index) => {
+        const activeColor = page.selected ? {
+          color: primaryColor
+        } : null;
 
-      const optionsView = pages.more.map((page, index) => (
-        <Link href={page.href}
-          key={index}
-          className={style.option}
-          skinHover
-        >
-          {page.title}
-        </Link>
-      ));
+        return (
+          <Link key={index}
+            href={page.href}
+            className={page.selected ? style.activePage : style.page}
+            skinHover
+            style={{
+              ...activeColor
+            }}
+          >
+            {page.title}
+            <span className={style.bar}
+              style={{
+                backgroundColor: primaryColor
+              }}
+            />
+          </Link>
+        );
+      });
+
+      const optionsView = pages.more.map((page, index) => {
+        const activeColor = page.selected ? {
+          color: primaryColor
+        } : null;
+
+        return (
+          <Link href={page.href}
+            key={index}
+            className={style.option}
+            skinHover
+            style={{
+              ...activeColor
+            }}
+          >
+            {page.title}
+          </Link>
+        );
+      });
 
       pagesView = (
         <div className={style.pages}>
