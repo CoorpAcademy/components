@@ -53,7 +53,7 @@ class CTA extends React.Component {
 
     const hoverBackgroundColor = textColor;
     const hoverTextColor = secondary ? secondaryColor : backgroundColor;
-    const hoverBorderColor = secondary ? textColor : secondaryColor;
+    const hoverBorderColor = secondary ? textColor : primarySkinColor;
 
     return (
       <div className={style.button}

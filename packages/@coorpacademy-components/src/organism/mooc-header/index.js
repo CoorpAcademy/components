@@ -57,15 +57,24 @@ class MoocHeader extends React.Component {
     if (themes) {
       const currentTheme = find({selected: true}, themes);
 
-      const optionsView = themes.map((theme, index) => (
-        <div
-          key={index}
-          onClick={theme.handleClick}
-          className={style.option}
-        >
-          {theme.title}
-        </div>
-      ));
+      const optionsView = themes.map((theme, index) => {
+        const activeColor = theme.selected ? {
+          color: primaryColor
+        } : null;
+
+        return (
+          <div
+            key={index}
+            onClick={theme.handleClick}
+            className={style.option}
+            style={{
+              ...activeColor
+            }}
+          >
+            {theme.title}
+          </div>
+        );
+      });
 
       themesView = (
         <div className={style.themes}>
