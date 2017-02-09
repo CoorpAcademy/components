@@ -1,6 +1,12 @@
-.catalogListItem {
+@value breakpoints: "../../variables/breakpoints.css";
+@value desktop from breakpoints;
+@value tablet from breakpoints;
+@value mobile from breakpoints;
+
+.default {
   display: inline-block;
   box-sizing: border-box;
+  margin: 7px 0 7px 15px;
   width: 258px;
   vertical-align: top;
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
@@ -11,7 +17,7 @@
   text-decoration: none;
 }
 
-.catalogListItem:hover {
+.default:hover {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   background: #F7F7F7;
   transform: translateY(-2px);
@@ -115,6 +121,7 @@
 
 .imageWrapper img {
   width: 100%;
+  height: 100%;
   position: absolute;
   top: 0;
   left: 0;
@@ -208,3 +215,69 @@
     width: 0;
   }
 }
+
+@media desktop {
+
+}
+
+@media tablet {
+
+}
+
+@media mobile {
+  .grid .default {
+    width: 201px;
+  }
+  .grid .title a {
+    font-size: 15px;
+  }
+
+  .list .default {
+    width: 99%;
+    height: 119px;
+    margin-left: 3px;
+    margin-right: 3px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    position: relative;
+  }
+
+  .list .imageWrapper {
+    position: absolute;
+    width: 103px;
+    height: 100%;
+  }
+
+  .list .timer {
+    top: 5px;
+    right: 5px;
+  }
+
+  .list .adaptiv {
+    top: 5px;
+    left: 5px;
+  }
+
+  .list .noprogressbar {
+    display: none;
+  }
+
+  .list .progressWrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  .list .infoWrapper {
+    margin-left: 103px;
+    padding: 8px 15px;
+  } 
+
+  .list .title {
+    margin: 12px 0;
+    font-size: 15px;
+    font-weight: 700;
+  }
+}
+
