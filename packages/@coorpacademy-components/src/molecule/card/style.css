@@ -270,6 +270,7 @@
   }
 
   .list .infoWrapper {
+    width: 70%;
     margin-left: 103px;
     padding: 8px 15px;
   } 
