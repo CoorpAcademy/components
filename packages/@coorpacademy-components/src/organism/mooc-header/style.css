@@ -81,6 +81,10 @@
   align-items: center;
 }
 
+.pages .currentOption {
+  padding: 0 0 0 20px;
+}
+
 .caret {
   composes: fa from '../../variables/fontawesome.css';
   composes: fa-angle-down from '../../variables/fontawesome.css';
@@ -175,6 +179,10 @@
 .activePage .bar {
   left: 0;
   width: 100%;
+}
+
+.page:hover {
+  color: #484848 !important;
 }
 
 .page:hover .bar {
@@ -491,16 +499,8 @@
     padding: 0;
   }
 
-  .activePage {
-    color: #00B0FF;
-  }
-
   .page .bar {
     display: none;
-  }
-
-  .page:hover {
-    color: #00B0FF;
   }
 
   .pages .currentOption {
@@ -522,6 +522,10 @@
   .pages .option {
     padding: 0;
     line-height: 40px;
+  }
+
+  .pages .option:hover {
+    color: #484848 !important;
   }
 
   .links {
@@ -578,6 +582,10 @@
 
   .settingsGroup {
     padding: 0;
+  }
+
+  .settings .link:hover {
+    color: #484848 !important;
   }
 
   .closeSettings {

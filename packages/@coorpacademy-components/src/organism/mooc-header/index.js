@@ -82,6 +82,7 @@ class MoocHeader extends React.Component {
         <Link key={index}
           href={page.href}
           className={page.selected ? style.activePage : style.page}
+          skinHover
         >
           {page.title}
           <span className={style.bar}
@@ -96,6 +97,7 @@ class MoocHeader extends React.Component {
         <Link href={page.href}
           key={index}
           className={style.option}
+          skinHover
         >
           {page.title}
         </Link>
@@ -208,6 +210,7 @@ class MoocHeader extends React.Component {
               >
                 <Link className={style.link}
                   href={options.href}
+                  skinHover
                 >
                   {title}
                 </Link>
@@ -327,12 +330,14 @@ MoocHeader.propTypes = {
     displayed: PropTypes.arrayOf(PropTypes.shape({
       title: PropTypes.string,
       href: PropTypes.string,
-      selected: PropTypes.bool
+      selected: PropTypes.bool,
+      counter: PropTypes.number
     })),
     more: PropTypes.arrayOf(PropTypes.shape({
       title: PropTypes.string,
       href: PropTypes.string,
-      selected: PropTypes.bool
+      selected: PropTypes.bool,
+      counter: PropTypes.number
     }))
   }),
   links: PropTypes.array,
