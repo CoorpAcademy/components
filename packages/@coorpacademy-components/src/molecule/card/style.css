@@ -15,6 +15,7 @@
   text-align: left;
   transition: all 0.1s ease-in-out;
   text-decoration: none;
+  position: relative;
 }
 
 .default:hover {
@@ -153,15 +154,11 @@
 }
 
 .progressWrapper {
+  position: absolute;
+  left: 0;
   width: 100%;
   height: 5px;
   background: #E6E6E6;
-}
-
-.noprogressbar {
-  display: block;
-  height: 5px;  
-  width: 100%;
 }
 
 .progress {
@@ -174,7 +171,7 @@
 .infoWrapper {
   width: 100%;
   box-sizing: border-box;
-  padding: 10px 20px;
+  padding: 15px 20px;
 }
 
 .type {
@@ -201,7 +198,7 @@
 }
 
 .author {
-  margin-top: 5px;
+  margin-top: 5px; 
   font-size: 12px;
   color: #9E9E9E;
   width: 100%;
@@ -230,6 +227,10 @@
   }
   .grid .title a {
     font-size: 15px;
+  }
+
+  .grid .author {
+    margin-top: 5px;
   }
 
   .list .default {

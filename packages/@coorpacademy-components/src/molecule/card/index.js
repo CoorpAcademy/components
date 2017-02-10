@@ -8,7 +8,7 @@ import style from './style.css';
 const getOrBlank = getOr('');
 
 const Card = (props, context) => {
-  const {translate = identity} = context;
+  const {translate = identity, skin} = context;
   const {
     view,
     image,
@@ -21,8 +21,7 @@ const Card = (props, context) => {
     cta,
     progress,
     href,
-    imghref,
-    skin
+    imghref
   } = props;
 
   const defaultColor = getOr('#00B0FF', 'common.primary', skin);
@@ -44,93 +43,48 @@ const Card = (props, context) => {
         }}
       />
     </div>
-  ) : (
-    <div className={style.noprogressbar} />
-  );
+  ) : (null);
 
   const adaptivIcon = adaptiv ? (
     <div className={style.adaptiv} />
   ) : null;
 
-  const layout = view === 'dashboard' ? (
-    <div className={style.grid}>
-      <div className={style.default}>
-        <div className={style.imageWrapper}>
-          <Link href={imghref}>
-            {certif}
-            {adaptivIcon}
-            <span className={style.timer}>{time}</span>
-            {calltoaction}
-            <div className={style.overlay}
-              style={{
-                backgroundColor: defaultColor
-              }}
-            />
-            <Picture src={image} />
-          </Link>
-        </div>
-        {myprogress}
-        <div className={style.infoWrapper}>
-          <div className={style.type}
-            style={{
-              color: defaultColor
-            }}
-          >
-            {type}
-          </div>
-          <div className={style.title}>
-            <Link href={href}>
-              {title}
-            </Link>
-          </div>
-          <div className={style.author}>
-            {author}
-          </div>
-        </div>
-      </div>
-    </div>
-  ) : (
-    <div className={style.list}>
-      <div className={style.default}>
-        <div className={style.imageWrapper}>
-          <Link href={imghref}>
-            {certif}
-            {adaptivIcon}
-            <span className={style.timer}>{time}</span>
-            {calltoaction}
-            <div className={style.overlay}
-              style={{
-                backgroundColor: defaultColor
-              }}
-            />
-            <Picture src={image} />
-          </Link>
-        </div>
-        {myprogress}
-        <div className={style.infoWrapper}>
-          <div className={style.type}
-            style={{
-              color: defaultColor
-            }}
-          >
-            {type}
-          </div>
-          <div className={style.title}>
-            <Link href={href}>
-              {title}
-            </Link>
-          </div>
-          <div className={style.author}>
-            {author}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-
   return (
-    <div>
-      {layout}
+    <div className={view === 'dashboard' ? style.grid : style.list}>
+      <div className={style.default}>
+        <div className={style.imageWrapper}>
+          <Link href={imghref}>
+            {certif}
+            {adaptivIcon}
+            <span className={style.timer}>{time}</span>
+            {calltoaction}
+            <div className={style.overlay}
+              style={{
+                backgroundColor: defaultColor
+              }}
+            />
+            <Picture src={image} />
+          </Link>
+        </div>
+        {myprogress}
+        <div className={style.infoWrapper}>
+          <div className={style.type}
+            style={{
+              color: defaultColor
+            }}
+          >
+            {type}
+          </div>
+          <div className={style.title}>
+            <Link href={href}>
+              {title}
+            </Link>
+          </div>
+          <div className={style.author}>
+            {author}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

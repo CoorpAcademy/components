@@ -67,7 +67,6 @@ import Discussion from '../src/organism/discussion';
 import GridList from '../src/organism/grid-list';
 import Header from '../src/organism/header';
 import Hero from '../src/organism/hero';
-import ListCards from '../src/organism/list-cards';
 import SetupHeader from '../src/organism/setup-header';
 import Author from '../src/template/app-catalog/author';
 import Catalog from '../src/template/app-catalog/catalog';
@@ -264,8 +263,6 @@ import HeaderFixtureDefault from '../src/organism/header/test/fixtures/default';
 import HeroFixtureDefault from '../src/organism/hero/test/fixtures/default';
 import HeroFixtureNoTouch from '../src/organism/hero/test/fixtures/no-touch';
 import HeroFixtureTouch from '../src/organism/hero/test/fixtures/touch';
-import ListCardsFixtureDefault from '../src/organism/list-cards/test/fixtures/default';
-import ListCardsFixtureManyCards from '../src/organism/list-cards/test/fixtures/many-cards';
 import SetupHeaderFixtureDefault from '../src/organism/setup-header/test/fixtures/default';
 import AuthorFixtureDefault from '../src/template/app-catalog/author/test/fixtures/default';
 import AuthorFixtureLoading from '../src/template/app-catalog/author/test/fixtures/loading';
@@ -387,7 +384,6 @@ export const components = {
     GridList,
     Header,
     Hero,
-    ListCards,
     SetupHeader
   },
   TemplateAppCatalog: {
@@ -737,10 +733,6 @@ export const fixtures = {
       Default: HeroFixtureDefault,
       NoTouch: HeroFixtureNoTouch,
       Touch: HeroFixtureTouch
-    },
-    ListCards: {
-      Default: ListCardsFixtureDefault,
-      ManyCards: ListCardsFixtureManyCards
     },
     SetupHeader: {
       Default: SetupHeaderFixtureDefault
