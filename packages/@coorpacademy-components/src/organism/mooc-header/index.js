@@ -13,6 +13,54 @@ import InputSwitch from '../../atom/input-switch';
 import Link from '../../atom/link';
 import style from './style.css';
 
+class Theme extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      hovered: false
+    };
+    this.handleMouseEnter = this.handleMouseEnter.bind(this);
+    this.handleMouseLeave = this.handleMouseLeave.bind(this);
+  }
+
+  shouldComponentUpdate(nextProps, nextState, nextContext) {
+    return shallowCompare(this, nextProps, nextState, nextContext);
+  }
+
+  handleMouseEnter() {
+    this.setState(prevState => ({
+      hovered: true
+    }));
+  }
+
+  handleMouseLeave() {
+    this.setState(prevState => ({
+      hovered: false
+    }));
+  }
+
+  render() {
+    const {selected, primaryColor, title, handleClick} = this.props;
+    const activeColor = this.state.hovered || selected ? {
+      color: primaryColor
+    } : null;
+
+    return (
+      <div
+        onClick={handleClick}
+        className={style.option}
+        style={{
+          ...activeColor
+        }}
+        onMouseEnter={this.handleMouseEnter}
+        onMouseLeave={this.handleMouseLeave}
+      >
+        {title}
+      </div>
+    );
+  }
+}
+
 class MoocHeader extends React.Component {
   constructor(props) {
     super(props);
@@ -68,21 +116,12 @@ class MoocHeader extends React.Component {
       const currentTheme = find({selected: true}, themes);
 
       const optionsView = themes.map((theme, index) => {
-        const activeColor = theme.selected ? {
-          color: primaryColor
-        } : null;
+        theme.primaryColor = primaryColor;
 
         return (
-          <div
-            key={index}
-            onClick={theme.handleClick}
-            className={style.option}
-            style={{
-              ...activeColor
-            }}
-          >
-            {theme.title}
-          </div>
+          <Theme key={index}
+            {...theme}
+          />
         );
       });
 
