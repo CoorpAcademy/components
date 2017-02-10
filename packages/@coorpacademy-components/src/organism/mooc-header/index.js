@@ -29,6 +29,16 @@ class MoocHeader extends React.Component {
     return shallowCompare(this, nextProps, nextState, nextContext);
   }
 
+  componentDidUpdate(prevProps, prevState, prevContext) {
+    if (this.state.isSettingsOpen) {
+      document.addEventListener('click', this.handleSettingsToggle);
+      document.addEventListener('touchstart', this.handleSettingsToggle);
+    } else {
+      document.removeEventListener('click', this.handleSettingsToggle);
+      document.removeEventListener('touchstart', this.handleSettingsToggle);
+    }
+  }
+
   handleSettingsToggle() {
     this.setState(prevState => ({
       isSettingsOpen: !prevState.isSettingsOpen

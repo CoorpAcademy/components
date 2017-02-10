@@ -63,7 +63,9 @@
 }
 
 .themes {
-  composes: options;
+  position: relative;
+  display: flex;
+  align-items: stretch;
   margin-left: 20px;
   border-left: 1px solid #DCE0E0;
   border-right: 1px solid #DCE0E0;
@@ -102,6 +104,10 @@
 }
 
 .themes:hover .optionsGroup {
+  display: block;
+}
+
+.themes .optionsGroup:hover {
   display: block;
 }
 
@@ -566,6 +572,14 @@
     top: 0;
     box-shadow: none;
     border: 0;
+  }
+
+  .settingsWrapper:before {
+    display: none;
+  }
+
+  .settingsWrapper:after {
+    display: none;
   }
 
   .settingsWrapperHidden {
