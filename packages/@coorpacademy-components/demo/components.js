@@ -1,7 +1,11 @@
 import Button from '../src/atom/button';
 import CenteredText from '../src/atom/centered-text';
 import Checkbox from '../src/atom/checkbox';
+<<<<<<< HEAD
 import Cta from '../src/atom/cta';
+=======
+import ImageUpload from '../src/atom/image-upload';
+>>>>>>> first steps image upload
 import InputCheckbox from '../src/atom/input-checkbox';
 import InputColor from '../src/atom/input-color';
 import InputDoublestep from '../src/atom/input-doublestep';
@@ -95,11 +99,16 @@ import CheckboxFixtureChecked from '../src/atom/checkbox/test/fixtures/checked';
 import CheckboxFixtureDefault from '../src/atom/checkbox/test/fixtures/default';
 import CheckboxFixtureDisabled from '../src/atom/checkbox/test/fixtures/disabled';
 import CheckboxFixtureRequired from '../src/atom/checkbox/test/fixtures/required';
+<<<<<<< HEAD
 import CtaFixtureDefaultSmall from '../src/atom/cta/test/fixtures/default-small';
 import CtaFixtureDefault from '../src/atom/cta/test/fixtures/default';
 import CtaFixtureLight from '../src/atom/cta/test/fixtures/light';
 import CtaFixtureSecondaryLight from '../src/atom/cta/test/fixtures/secondary-light';
 import CtaFixtureSecondary from '../src/atom/cta/test/fixtures/secondary';
+=======
+import ImageUploadFixtureDefault from '../src/atom/image-upload/test/fixtures/default';
+import ImageUploadFixtureImage from '../src/atom/image-upload/test/fixtures/image';
+>>>>>>> first steps image upload
 import InputCheckboxFixtureChecked from '../src/atom/input-checkbox/test/fixtures/checked';
 import InputCheckboxFixtureDefault from '../src/atom/input-checkbox/test/fixtures/default';
 import InputCheckboxFixtureDisabled from '../src/atom/input-checkbox/test/fixtures/disabled';
@@ -331,7 +340,11 @@ export const components = {
     Button,
     CenteredText,
     Checkbox,
+<<<<<<< HEAD
     Cta,
+=======
+    ImageUpload,
+>>>>>>> first steps image upload
     InputCheckbox,
     InputColor,
     InputDoublestep,
@@ -447,12 +460,18 @@ export const fixtures = {
       Disabled: CheckboxFixtureDisabled,
       Required: CheckboxFixtureRequired
     },
+<<<<<<< HEAD
     Cta: {
       DefaultSmall: CtaFixtureDefaultSmall,
       Default: CtaFixtureDefault,
       Light: CtaFixtureLight,
       SecondaryLight: CtaFixtureSecondaryLight,
       Secondary: CtaFixtureSecondary
+=======
+    ImageUpload: {
+      Default: ImageUploadFixtureDefault,
+      Image: ImageUploadFixtureImage
+>>>>>>> first steps image upload
     },
     InputCheckbox: {
       Checked: InputCheckboxFixtureChecked,
