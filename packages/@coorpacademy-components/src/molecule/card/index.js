@@ -8,7 +8,7 @@ import style from './style.css';
 const getOrBlank = getOr('');
 
 const Card = (props, context) => {
-  const {translate = identity, skin} = context;
+  const {skin} = context;
   const {
     view,
     image,
@@ -20,8 +20,8 @@ const Card = (props, context) => {
     author,
     cta,
     progress,
-    href,
-    imghref
+    topOnClick,
+    bottomOnClick
   } = props;
 
   const defaultColor = getOr('#00B0FF', 'common.primary', skin);
@@ -53,7 +53,7 @@ const Card = (props, context) => {
     <div className={view === 'dashboard' ? style.grid : style.list}>
       <div className={style.default}>
         <div className={style.imageWrapper}>
-          <Link href={imghref}>
+          <div onClick={topOnClick}>
             {certif}
             {adaptivIcon}
             <span className={style.timer}>{time}</span>
@@ -64,7 +64,7 @@ const Card = (props, context) => {
               }}
             />
             <Picture src={image} />
-          </Link>
+          </div>
         </div>
         {myprogress}
         <div className={style.infoWrapper}>
@@ -76,9 +76,9 @@ const Card = (props, context) => {
             {type}
           </div>
           <div className={style.title}>
-            <Link href={href}>
+            <div onClick={bottomOnClick}>
               {title}
-            </Link>
+            </div>
           </div>
           <div className={style.author}>
             {author}
@@ -90,8 +90,7 @@ const Card = (props, context) => {
 };
 
 Card.contextTypes = {
-  skin: React.PropTypes.object,
-  translate: React.PropTypes.func
+  skin: React.PropTypes.object
 };
 
 Card.propTypes = {
@@ -105,8 +104,8 @@ Card.propTypes = {
   author: PropTypes.string,
   cta: PropTypes.string,
   progress: PropTypes.string,
-  href: PropTypes.string,
-  imghref: PropTypes.string
+  topOnClick: PropTypes.func,
+  bottomOnClick: PropTypes.func
 };
 
 export default Card;

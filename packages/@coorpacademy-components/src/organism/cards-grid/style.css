@@ -1,0 +1,31 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value desktop from breakpoints;
+@value tablet from breakpoints;
+@value mobile from breakpoints;
+
+.default {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1125px;
+  margin: auto;
+  overflow-y: auto;
+  display: flex;
+  align-content: flex-start;
+  flex-wrap: wrap;
+}
+
+@media desktop {
+  .default {
+  }
+}
+
+@media tablet {
+  .default {
+  }
+}
+
+@media mobile {
+  .default {
+    flex-direction: column;
+  }
+}

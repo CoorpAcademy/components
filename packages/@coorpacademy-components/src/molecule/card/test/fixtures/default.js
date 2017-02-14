@@ -5,12 +5,12 @@ export default {
     time: '2h20',
     adaptiv: false,
     certification: false,
-    type: 'course',
+    type: 'default',
     title: 'From Mass Market to One to One targeting Lorem ipsum',
     author: 'Coorpacademy',
     cta: 'Continue Chapter',
     progress: '65%',
-    href: '/pagediscipline',
-    imghref: '/slides'
+    topOnClick: () => console.log('click on top'), // eslint-disable-line no-console
+    bottomOnClick: () => console.log('click on bottom') // eslint-disable-line no-console
   }
 };

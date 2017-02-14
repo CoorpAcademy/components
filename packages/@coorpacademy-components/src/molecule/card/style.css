@@ -3,6 +3,7 @@
 @value desktop from breakpoints;
 @value tablet from breakpoints;
 @value mobile from breakpoints;
+@value light from colors;
 @value grey from colors;
 @value darkGrey from colors;
 @value borderGrey from colors;
@@ -11,7 +12,7 @@
 .default {
   display: inline-block;
   box-sizing: border-box;
-  margin: 7px 0 7px 15px;
+  margin: 8px;
   width: 260px;
   vertical-align: top;
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
@@ -32,6 +33,7 @@
 .imageWrapper:hover .overlay,
 .imageWrapper:hover .cta {
   display: block;
+  cursor: pointer;
 }
 
 .imageWrapper {
@@ -200,6 +202,7 @@
 
 .infoWrapper:hover .title {
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .author {
@@ -246,6 +249,7 @@
     flex-direction: row;
     flex-wrap: nowrap;
     position: relative;
+    margin: 4px 0px;
   }
 
   .list .imageWrapper {

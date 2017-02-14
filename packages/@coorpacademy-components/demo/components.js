@@ -62,6 +62,7 @@ import ForumThread from '../src/molecule/forum/forum-thread';
 import BrandForm from '../src/organism/brand-form';
 import BrandTable from '../src/organism/brand-table';
 import BrandUpload from '../src/organism/brand-upload';
+import CardsGrid from '../src/organism/cards-grid';
 import CatalogCards from '../src/organism/catalog-cards';
 import CursusRightaside from '../src/organism/cursus-rightaside';
 import DisciplineCards from '../src/organism/discipline-cards';
@@ -255,6 +256,9 @@ import BrandTableFixtureEmpty from '../src/organism/brand-table/test/fixtures/em
 import BrandTableFixtureLoading from '../src/organism/brand-table/test/fixtures/loading';
 import BrandUploadFixtureDefault from '../src/organism/brand-upload/test/fixtures/default';
 import BrandUploadFixtureLoading from '../src/organism/brand-upload/test/fixtures/loading';
+import CardsGridFixtureCatalog from '../src/organism/cards-grid/test/fixtures/catalog';
+import CardsGridFixtureEmpty from '../src/organism/cards-grid/test/fixtures/empty';
+import CardsGridFixtureMany from '../src/organism/cards-grid/test/fixtures/many';
 import CatalogCardsFixtureDefault from '../src/organism/catalog-cards/test/fixtures/default';
 import CatalogCardsFixtureLoading from '../src/organism/catalog-cards/test/fixtures/loading';
 import CatalogCardsFixtureNoProducts from '../src/organism/catalog-cards/test/fixtures/no-products';
@@ -396,6 +400,7 @@ export const components = {
     BrandForm,
     BrandTable,
     BrandUpload,
+    CardsGrid,
     CatalogCards,
     CursusRightaside,
     DisciplineCards,
@@ -732,6 +737,11 @@ export const fixtures = {
     BrandUpload: {
       Default: BrandUploadFixtureDefault,
       Loading: BrandUploadFixtureLoading
+    },
+    CardsGrid: {
+      Catalog: CardsGridFixtureCatalog,
+      Empty: CardsGridFixtureEmpty,
+      Many: CardsGridFixtureMany
     },
     CatalogCards: {
       Default: CatalogCardsFixtureDefault,
