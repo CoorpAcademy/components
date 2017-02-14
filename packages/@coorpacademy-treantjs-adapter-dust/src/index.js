@@ -4,11 +4,17 @@ import kebabCase from 'lodash/fp/kebabCase';
 import React from 'react';
 import {renderToString} from 'react-dom/server';
 
-const toHelpers = components => {
+const toHelpers = (components, Provider) => {
   const toHelper = ([componentName, Component]) => {
     return (dust, options) => {
       dust.helpers[kebabCase(componentName)] = (chunk, context, bodies, props) => {
-        const vTree = React.createElement(Component, props);
+        let vTree = React.createElement(Component, props);
+        if (Provider) {
+          const providerOptions = {
+            skin: context.get('skin')
+          };
+          vTree = React.createElement(Provider, providerOptions, vTree);
+        }
         const html = renderToString(vTree);
         chunk.write(html);
       };
