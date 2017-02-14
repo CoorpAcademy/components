@@ -13,7 +13,7 @@ import style from './style.css';
 const toSrcSet = ({src}) => {
   if (!isObject(src)) return {};
   return pipe(
-    set('srcset', pipe(
+    set('srcSet', pipe(
       toPairs,
       map(([key, url]) => `${url} ${key}`),
       join(',')

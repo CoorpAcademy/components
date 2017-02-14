@@ -375,7 +375,7 @@ class MoocHeader extends React.Component {
           <div className={style.menuWrapper}>
             {pagesView}
             {userView || linksView}
-            <div className={style.settings}
+            <div className={style.settings} // eslint-disable-next-line no-return-assign
               ref={div => this._menuSettings = div} // eslint-disable-line react/jsx-no-bind
             >
               <div className={style.settingsToggle}
