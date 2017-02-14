@@ -1,13 +1,18 @@
 @value breakpoints: "../../variables/breakpoints.css";
+@value colors: "../../variables/colors.css";
 @value desktop from breakpoints;
 @value tablet from breakpoints;
 @value mobile from breakpoints;
+@value grey from colors;
+@value darkGrey from colors;
+@value borderGrey from colors;
+@value blue from colors;
 
 .default {
   display: inline-block;
   box-sizing: border-box;
   margin: 7px 0 7px 15px;
-  width: 258px;
+  width: 260px;
   vertical-align: top;
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
   overflow: hidden;
@@ -20,7 +25,7 @@
 
 .default:hover {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-  background: #F7F7F7;
+  background: light;
   transform: translateY(-2px);
 }
 
@@ -31,7 +36,7 @@
 
 .imageWrapper {
   position: relative;
-  height: 124px;
+  height: 125px;
   width: 100%;
   overflow: hidden;
 }
@@ -49,13 +54,13 @@
   width: 50px;
   height: 20px;
   padding-left: 10px;
-  background: #FFFFFF;
+  background: white;
   border-radius: 100px;
   font-size: 11px;
-  line-height: 21px;
+  line-height: 20px;
   font-weight: 700;
   text-align: center;
-  color: #484848;
+  color: darkGrey;
   composes: fa from '../../variables/fontawesome.css';
   composes: fa-clock-o from '../../variables/fontawesome.css';
 }
@@ -65,7 +70,7 @@
   font-size: 14px;
   top: 0;
   left: 5px;
-  color: #484848;
+  color: darkGrey;
 }
 
 .certification {
@@ -84,7 +89,7 @@
   font-size: 22px;
   top: 0;
   left: 0;
-  color: #fff;
+  color: white;
 }
 
 .adaptiv {
@@ -95,7 +100,7 @@
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background: #00B0FF;
+  background: blue;
   composes: fa from '../../variables/fontawesome.css';
   composes: fa-random from '../../variables/fontawesome.css';
 }
@@ -106,7 +111,7 @@
   font-size: 14px;
   top: 0;
   left: 6px;
-  color: #fff;
+  color: white;
 }
 
 .cta {
@@ -146,7 +151,7 @@
   height: 35px;
   width: 100%;
   font-size: 50px;
-  color: #fff;
+  color: white;
   opacity: 0.4;
   line-height: 124px;
   margin: 0 auto;
@@ -158,13 +163,13 @@
   left: 0;
   width: 100%;
   height: 5px;
-  background: #E6E6E6;
+  background: borderGrey;
 }
 
 .progress {
   display: block;
-  height: 5px;  
-  background: #00B0FF;
+  height: 5px;
+  background: blue;
   animation: progressbar 2s ease-in-out;
 }
 
@@ -177,18 +182,18 @@
 .type {
   font-weight: 700;
   font-size: 9px;
-  color: #00B0FF;
+  color: blue;
   text-transform: uppercase;
 }
 
 .title {
   margin-top: 5px;
   font-size: 18px;
-  color: #484848;
+  color: darkGrey;
   letter-spacing: 0;
 }
 .title a {
-  color: #484848;
+  color: darkGrey;
   text-decoration: none;
   cursor: pointer;
 }
@@ -198,9 +203,9 @@
 }
 
 .author {
-  margin-top: 5px; 
+  margin-top: 5px;
   font-size: 12px;
-  color: #9E9E9E;
+  color: grey;
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
@@ -234,10 +239,9 @@
   }
 
   .list .default {
-    width: 99%;
-    height: 119px;
-    margin-left: 3px;
-    margin-right: 3px;
+    width: 100%;
+    height: 120px;
+    margin: 0;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -246,7 +250,7 @@
 
   .list .imageWrapper {
     position: absolute;
-    width: 103px;
+    width: 100px;
     height: 100%;
   }
 
@@ -272,9 +276,9 @@
 
   .list .infoWrapper {
     width: 70%;
-    margin-left: 103px;
+    margin-left: 100px;
     padding: 8px 15px;
-  } 
+  }
 
   .list .title {
     margin: 12px 0;
