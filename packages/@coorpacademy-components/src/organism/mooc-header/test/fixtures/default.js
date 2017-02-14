@@ -109,7 +109,15 @@ export default {
         title: 'Mon compte',
         type: 'link',
         options: {
-          href: '#'
+          target: '_blank',
+          href: 'https://google.fr'
+        }
+      },
+      {
+        title: 'Se déconnecter',
+        type: 'link',
+        options: {
+          href: 'https://google.fr'
         }
       },
       {

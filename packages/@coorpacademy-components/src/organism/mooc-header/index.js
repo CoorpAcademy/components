@@ -287,6 +287,7 @@ class MoocHeader extends React.Component {
                 <Link className={style.link}
                   href={options.href}
                   skinHover
+                  target={options.target || null}
                 >
                   {title}
                 </Link>
@@ -444,6 +445,7 @@ MoocHeader.propTypes = {
       href: PropTypes.string,
       onChange: PropTypes.func,
       value: PropTypes.bool,
+      target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
       values: PropTypes.arrayOf(PropTypes.shape({
         value: PropTypes.string,
         name: PropTypes.string,
