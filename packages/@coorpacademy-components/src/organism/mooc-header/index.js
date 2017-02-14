@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import {findDOMNode} from 'react-dom';
 import find from 'lodash/fp/find';
 import filter from 'lodash/fp/filter';
 import getOr from 'lodash/fp/getOr';
@@ -71,21 +72,29 @@ class MoocHeader extends React.Component {
 
     this.handleSettingsToggle = this.handleSettingsToggle.bind(this);
     this.handleMenuToggle = this.handleMenuToggle.bind(this);
+    this._checkOnClose = this._checkOnClose.bind(this);
   }
 
   shouldComponentUpdate(nextProps, nextState, nextContext) {
     return shallowCompare(this, nextProps, nextState, nextContext);
   }
 
-  // componentDidUpdate(prevProps, prevState, prevContext) {
-    // if (this.state.isSettingsOpen) {
-    //   document.addEventListener('click', this.handleSettingsToggle);
-    //   document.addEventListener('touchstart', this.handleSettingsToggle);
-    // } else {
-    //   document.removeEventListener('click', this.handleSettingsToggle);
-    //   document.removeEventListener('touchstart', this.handleSettingsToggle);
-    // }
-  // }
+  componentDidUpdate(prevProps, prevState, prevContext) {
+    if (this.state.isSettingsOpen) {
+      document.addEventListener('click', this._checkOnClose);
+      document.addEventListener('touchstart', this._checkOnClose);
+    } else {
+      document.removeEventListener('click', this._checkOnClose);
+      document.removeEventListener('touchstart', this._checkOnClose);
+    }
+  }
+
+  _checkOnClose(clickEvent) {
+    const menu = findDOMNode(this._menuSettings);
+    if (menu && !menu.contains(clickEvent.target)) {
+      this.handleSettingsToggle();
+    }
+  }
 
   handleSettingsToggle() {
     this.setState(prevState => ({
@@ -366,7 +375,9 @@ class MoocHeader extends React.Component {
           <div className={style.menuWrapper}>
             {pagesView}
             {userView || linksView}
-            <div className={style.settings}>
+            <div className={style.settings}
+              ref={div => this._menuSettings = div} // eslint-disable-line react/jsx-no-bind
+            >
               <div className={style.settingsToggle}
                 onClick={this.handleSettingsToggle}
               />
