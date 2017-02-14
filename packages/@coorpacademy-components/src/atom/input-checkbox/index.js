@@ -3,7 +3,7 @@ import noop from 'lodash/fp/noop';
 import uniqueId from 'lodash/fp/uniqueId';
 import style from './style.css';
 
-const InputText = props => {
+const InputCheckbox = props => {
   const {
     checked,
     onChange = noop,
@@ -36,7 +36,7 @@ const InputText = props => {
   );
 };
 
-InputText.propTypes = {
+InputCheckbox.propTypes = {
   title: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
   required: PropTypes.bool,
@@ -45,4 +45,4 @@ InputText.propTypes = {
   onChange: PropTypes.func
 };
 
-export default InputText;
+export default InputCheckbox;

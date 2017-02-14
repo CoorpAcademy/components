@@ -1,6 +1,7 @@
 import Button from '../src/atom/button';
 import CenteredText from '../src/atom/centered-text';
 import Checkbox from '../src/atom/checkbox';
+import Cta from '../src/atom/cta';
 import InputCheckbox from '../src/atom/input-checkbox';
 import InputColor from '../src/atom/input-color';
 import InputDoublestep from '../src/atom/input-doublestep';
@@ -15,6 +16,7 @@ import Notification from '../src/atom/notification';
 import Picture from '../src/atom/picture';
 import Provider from '../src/atom/provider';
 import Select from '../src/atom/select';
+import Slide from '../src/atom/slide';
 import SocialLink from '../src/atom/social-link';
 import Spinner from '../src/atom/spinner';
 import Star from '../src/atom/star';
@@ -46,6 +48,7 @@ import ProgressBar from '../src/molecule/progress-bar';
 import ScopeContent from '../src/molecule/scope-content';
 import ScopeTabs from '../src/molecule/scope-tabs';
 import Search from '../src/molecule/search';
+import Slider from '../src/molecule/slider';
 import SsmenuList from '../src/molecule/ssmenu-list';
 import StarRating from '../src/molecule/star-rating';
 import Table from '../src/molecule/table';
@@ -67,6 +70,7 @@ import Discussion from '../src/organism/discussion';
 import GridList from '../src/organism/grid-list';
 import Header from '../src/organism/header';
 import Hero from '../src/organism/hero';
+import MoocHeader from '../src/organism/mooc-header';
 import SetupHeader from '../src/organism/setup-header';
 import Author from '../src/template/app-catalog/author';
 import Catalog from '../src/template/app-catalog/catalog';
@@ -92,6 +96,11 @@ import CheckboxFixtureDefault from '../src/atom/checkbox/test/fixtures/default';
 import CheckboxFixtureDisabled from '../src/atom/checkbox/test/fixtures/disabled';
 import CheckboxFixtureError from '../src/atom/checkbox/test/fixtures/error';
 import CheckboxFixtureRequired from '../src/atom/checkbox/test/fixtures/required';
+import CtaFixtureDefaultSmall from '../src/atom/cta/test/fixtures/default-small';
+import CtaFixtureDefault from '../src/atom/cta/test/fixtures/default';
+import CtaFixtureLight from '../src/atom/cta/test/fixtures/light';
+import CtaFixtureSecondaryLight from '../src/atom/cta/test/fixtures/secondary-light';
+import CtaFixtureSecondary from '../src/atom/cta/test/fixtures/secondary';
 import InputCheckboxFixtureChecked from '../src/atom/input-checkbox/test/fixtures/checked';
 import InputCheckboxFixtureDefault from '../src/atom/input-checkbox/test/fixtures/default';
 import InputCheckboxFixtureDisabled from '../src/atom/input-checkbox/test/fixtures/disabled';
@@ -103,6 +112,7 @@ import InputColorFixtureError from '../src/atom/input-color/test/fixtures/error'
 import InputDoublestepFixtureDefault from '../src/atom/input-doublestep/test/fixtures/default';
 import InputReadonlyFixtureDefault from '../src/atom/input-readonly/test/fixtures/default';
 import InputSwitchFixtureChecked from '../src/atom/input-switch/test/fixtures/checked';
+import InputSwitchFixtureNoTitle from '../src/atom/input-switch/test/fixtures/no-title';
 import InputSwitchFixtureUnchecked from '../src/atom/input-switch/test/fixtures/unchecked';
 import InputSwitchFixtureUnset from '../src/atom/input-switch/test/fixtures/unset';
 import InputTextFixtureDefault from '../src/atom/input-text/test/fixtures/default';
@@ -130,6 +140,8 @@ import SelectFixtureMultipleSelected from '../src/atom/select/test/fixtures/mult
 import SelectFixtureMultiple from '../src/atom/select/test/fixtures/multiple';
 import SelectFixtureRequired from '../src/atom/select/test/fixtures/required';
 import SelectFixtureThematique from '../src/atom/select/test/fixtures/thematique';
+import SlideFixtureDefault from '../src/atom/slide/test/fixtures/default';
+import SlideFixtureLight from '../src/atom/slide/test/fixtures/light';
 import SocialLinkFixtureFacebook from '../src/atom/social-link/test/fixtures/facebook';
 import SocialLinkFixtureTwitter from '../src/atom/social-link/test/fixtures/twitter';
 import SpinnerFixtureDefault from '../src/atom/spinner/test/fixtures/default';
@@ -198,6 +210,8 @@ import ScopeContentFixtureWithOnclick from '../src/molecule/scope-content/test/f
 import ScopeTabsFixtureDefault from '../src/molecule/scope-tabs/test/fixtures/default';
 import ScopeTabsFixtureEmpty from '../src/molecule/scope-tabs/test/fixtures/empty';
 import SearchFixtureDefault from '../src/molecule/search/test/fixtures/default';
+import SliderFixtureDefault from '../src/molecule/slider/test/fixtures/default';
+import SliderFixtureMultipleSlides from '../src/molecule/slider/test/fixtures/multiple-slides';
 import SsmenuListFixtureCoorpacademy from '../src/molecule/ssmenu-list/test/fixtures/coorpacademy';
 import SsmenuListFixtureEmpty from '../src/molecule/ssmenu-list/test/fixtures/empty';
 import SsmenuListFixtureFormations from '../src/molecule/ssmenu-list/test/fixtures/formations';
@@ -263,6 +277,10 @@ import HeaderFixtureDefault from '../src/organism/header/test/fixtures/default';
 import HeroFixtureDefault from '../src/organism/hero/test/fixtures/default';
 import HeroFixtureNoTouch from '../src/organism/hero/test/fixtures/no-touch';
 import HeroFixtureTouch from '../src/organism/hero/test/fixtures/touch';
+import MoocHeaderFixtureDefault from '../src/organism/mooc-header/test/fixtures/default';
+import MoocHeaderFixtureLogged from '../src/organism/mooc-header/test/fixtures/logged';
+import MoocHeaderFixtureSliderMultiple from '../src/organism/mooc-header/test/fixtures/slider-multiple';
+import MoocHeaderFixtureSlider from '../src/organism/mooc-header/test/fixtures/slider';
 import SetupHeaderFixtureDefault from '../src/organism/setup-header/test/fixtures/default';
 import AuthorFixtureDefault from '../src/template/app-catalog/author/test/fixtures/default';
 import AuthorFixtureLoading from '../src/template/app-catalog/author/test/fixtures/loading';
@@ -312,6 +330,7 @@ export const components = {
     Button,
     CenteredText,
     Checkbox,
+    Cta,
     InputCheckbox,
     InputColor,
     InputDoublestep,
@@ -326,6 +345,7 @@ export const components = {
     Picture,
     Provider,
     Select,
+    Slide,
     SocialLink,
     Spinner,
     Star,
@@ -359,6 +379,7 @@ export const components = {
     ScopeContent,
     ScopeTabs,
     Search,
+    Slider,
     SsmenuList,
     StarRating,
     Table,
@@ -384,6 +405,7 @@ export const components = {
     GridList,
     Header,
     Hero,
+    MoocHeader,
     SetupHeader
   },
   TemplateAppCatalog: {
@@ -425,6 +447,13 @@ export const fixtures = {
       Error: CheckboxFixtureError,
       Required: CheckboxFixtureRequired
     },
+    Cta: {
+      DefaultSmall: CtaFixtureDefaultSmall,
+      Default: CtaFixtureDefault,
+      Light: CtaFixtureLight,
+      SecondaryLight: CtaFixtureSecondaryLight,
+      Secondary: CtaFixtureSecondary
+    },
     InputCheckbox: {
       Checked: InputCheckboxFixtureChecked,
       Default: InputCheckboxFixtureDefault,
@@ -445,6 +474,7 @@ export const fixtures = {
     },
     InputSwitch: {
       Checked: InputSwitchFixtureChecked,
+      NoTitle: InputSwitchFixtureNoTitle,
       Unchecked: InputSwitchFixtureUnchecked,
       Unset: InputSwitchFixtureUnset
     },
@@ -490,6 +520,10 @@ export const fixtures = {
       Multiple: SelectFixtureMultiple,
       Required: SelectFixtureRequired,
       Thematique: SelectFixtureThematique
+    },
+    Slide: {
+      Default: SlideFixtureDefault,
+      Light: SlideFixtureLight
     },
     SocialLink: {
       Facebook: SocialLinkFixtureFacebook,
@@ -623,6 +657,10 @@ export const fixtures = {
     Search: {
       Default: SearchFixtureDefault
     },
+    Slider: {
+      Default: SliderFixtureDefault,
+      MultipleSlides: SliderFixtureMultipleSlides
+    },
     SsmenuList: {
       Coorpacademy: SsmenuListFixtureCoorpacademy,
       Empty: SsmenuListFixtureEmpty,
@@ -733,6 +771,12 @@ export const fixtures = {
       Default: HeroFixtureDefault,
       NoTouch: HeroFixtureNoTouch,
       Touch: HeroFixtureTouch
+    },
+    MoocHeader: {
+      Default: MoocHeaderFixtureDefault,
+      Logged: MoocHeaderFixtureLogged,
+      SliderMultiple: MoocHeaderFixtureSliderMultiple,
+      Slider: MoocHeaderFixtureSlider
     },
     SetupHeader: {
       Default: SetupHeaderFixtureDefault

@@ -1,0 +1,82 @@
+.slidesWrapper {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.slidesWrapper:hover .control {
+  display: flex;
+}
+
+.slide {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 1.2s ease-out;
+}
+
+.activeSlide {
+  composes: slide;
+  opacity: 1;
+  z-index: 2;
+}
+
+.control {
+  position: absolute;
+  composes: fa from '../../variables/fontawesome.css';
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .8);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  top: 50%;
+  margin-top: -25px;
+  cursor: pointer;
+  opacity: 0.6;
+  z-index: 3;
+}
+
+.control:hover {
+  opacity: 1;
+}
+
+.control:before {
+  color: #000;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.leftControl {
+  composes: control;
+  composes: fa-chevron-left from '../../variables/fontawesome.css';
+  left: 20px;
+}
+
+.leftControl:before {
+  margin-right: 5px;
+}
+
+.rightControl {
+  composes: control;
+  composes: fa-chevron-right from '../../variables/fontawesome.css';
+  right: 20px;
+}
+
+.rightControl:before {
+  margin-left: 5px;
+}
+
+@media mobile {
+
+  .control {
+    display: none;
+  }
+}

@@ -21,12 +21,14 @@ const InputTextarea = props => {
       <label>
         <span className={style.title}>{`${title} `}</span>
         <textarea
-          resize='none'
           name={title}
           defaultValue={value}
           placeholder={placeholder}
           onInput={handleChange}
           disabled={disabled}
+          style={{
+            resize: 'none'
+          }}
         />
       </label>
       <div className={style.description}>

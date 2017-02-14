@@ -1,0 +1,605 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value tablet from breakpoints;
+@value desktop from breakpoints;
+
+.wrapper {
+  min-height: 60px;
+}
+
+.header {
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #DCE0E0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  background-color: #ffffff;
+}
+
+.open {
+  composes: header;
+}
+
+.slider {
+  height: 360px;
+  width: 100%;
+}
+
+.logoWrapper {
+  display: flex;
+  height: 100%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logoMobile {
+  display: none;
+}
+
+.logo img {
+  width: 200px;
+}
+
+.notifWrapper {
+  position: relative;
+}
+
+.notifWrapper .notifications {
+  top: -5px;
+}
+
+.options {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+}
+
+.themes {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  margin-left: 20px;
+  border-left: 1px solid #DCE0E0;
+  border-right: 1px solid #DCE0E0;
+}
+
+.currentOption {
+  position: relative;
+  padding: 0 20px;
+  cursor: pointer;
+  color: #484848;
+  font-family: 'Open Sans';
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+.pages .currentOption {
+  padding: 0 0 0 20px;
+}
+
+.caret {
+  composes: fa from '../../variables/fontawesome.css';
+  composes: fa-angle-down from '../../variables/fontawesome.css';
+  margin-left: 10px;
+  color: #BCBCBC;
+  font-size: 13px;
+}
+
+.caretUp {
+  composes: fa from '../../variables/fontawesome.css';
+  composes: fa-angle-up from '../../variables/fontawesome.css';
+  margin-left: 10px;
+  color: #BCBCBC;
+  font-size: 13px;
+}
+
+.themes:hover .optionsGroup {
+  display: block;
+}
+
+.themes .optionsGroup:hover {
+  display: block;
+}
+
+.optionsGroup {
+  display: none;
+  position: absolute;
+  top: 59px;
+  left: -1px;
+  width: 200px;
+  padding: 10px 0;
+  background-color: #ffffff;
+  border: 1px solid #DCE0E0;
+  box-shadow: 0 0 2px 2px rgba(0,0,0,0.02);
+}
+
+.option {
+  display: block;
+  padding: 0 10px;
+  font-size: 13px;
+  color: #484848;
+  font-family: 'Open Sans';
+  line-height: 40px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.option:hover {
+  color: #00B0FF;
+}
+
+.menuWrapper {
+  display: flex;
+  height: 60px;
+}
+
+.pages {
+  height: 100%;
+  border-right: 1px solid #DCE0E0;
+  padding: 0 20px;
+  display: flex;
+  align-items: stretch;
+}
+
+.page {
+  position: relative;
+  padding: 0 15px;
+  cursor: pointer;
+  color: #484848;
+  font-family: 'Open Sans';
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.activePage {
+  composes: page;
+}
+
+.page .bar {
+  background-color: #00B0FF;
+  height: 3px;
+  width: 0;
+  bottom: 0px;
+  position: absolute;
+  left: 50%;
+  transition: all 0.2s ease-out;
+}
+
+.activePage .bar {
+  left: 0;
+  width: 100%;
+}
+
+.page:hover .bar {
+  left: 0;
+  width: 100%;
+}
+
+.more {
+  composes: options;
+}
+
+.more:hover .optionsGroup {
+  display: block;
+}
+
+.links {
+  height: 100%;
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.links > div {
+  margin-left: 10px;
+}
+
+.user {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.userLink {
+  display: block;
+}
+
+.avatarWrapper {
+  position: relative;
+  margin-left: 20px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #eeeeee;
+  border: 1px solid #DCE0E0;
+}
+
+.avatar img {
+  width: 100%;
+}
+
+.notifications {
+  position: absolute;
+  top: 0;
+  right: -5px;
+  font-family: 'Open Sans';
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 16px;
+  color: #ffffff;
+  border-radius: 8px;
+  padding: 0 5px;
+  pointer-events: none;
+}
+
+.stats {
+  display: flex;
+  padding: 0 10px;
+  border-right: 1px solid #DCE0E0;
+}
+
+.stat {
+  height: 100%;
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.stat:hover .label {
+  text-decoration: underline;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.stars {
+  composes: icon;
+  composes: fa from '../../variables/fontawesome.css';
+  composes: fa-star from '../../variables/fontawesome.css';
+}
+
+.ranking {
+  composes: icon;
+  composes: fa from '../../variables/fontawesome.css';
+  composes: fa-bar-chart from '../../variables/fontawesome.css';
+}
+
+.badge {
+  composes: icon;
+  composes: fa from '../../variables/fontawesome.css';
+  composes: fa-trophy from '../../variables/fontawesome.css';
+}
+
+.stat .label {
+  font-family: 'Open Sans';
+  font-size: 10px;
+  font-weight: 700;
+  color: #484848;
+  margin-top: 5px;
+}
+
+.settings {
+  position: relative;
+  margin-left: 20px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.settingsToggle {
+  position: relative;
+  composes: fa from '../../variables/fontawesome.css';
+  composes: fa-cog from '../../variables/fontawesome.css';
+  width: 40px;
+  height: 40px;
+  color: #484848;
+  cursor: pointer;
+}
+
+.settingsToggle:hover {
+  color: #000000;
+}
+
+.settingsToggle:before {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 20px;
+}
+
+.settingsWrapper {
+  position: absolute;
+  top: 75px;
+  right: 0;
+  width: 300px;
+  border-radius: 3px;
+  border: 1px solid #DCE0E0;
+  background: #FFFFFF;
+  box-shadow: 0 0 2px 2px rgba(0,0,0,0.02);
+}
+
+.settingsWrapperHidden {
+  composes: settingsWrapper;
+  display: none;
+}
+
+.settingsWrapper:after, .settingsWrapper:before {
+	bottom: 100%;
+	right: 20px;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.settingsWrapper:after {
+	border-color: rgba(255, 255, 255, 0);
+	border-bottom-color: #ffffff;
+	border-width: 10px;
+	margin-right: -10px;
+}
+.settingsWrapper:before {
+	border-color: rgba(220, 224, 224, 0);
+	border-bottom-color: #DCE0E0;
+	border-width: 11px;
+	margin-right: -11px;
+}
+
+.settingsGroup {
+  padding: 20px;
+}
+
+.setting {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.setting .label {
+  font-family: 'Open Sans';
+  font-size: 13px;
+  font-weight: 600;
+  color: #484848;
+}
+
+.setting .link {
+  font-family: 'Open Sans';
+  font-size: 13px;
+  font-weight: 600;
+  color: #484848;
+  text-decoration: none;
+}
+
+.closeSettings {
+  font-family: 'Open Sans';
+  font-size: 13px;
+  font-weight: 600;
+  color: #AAAAAA;
+  height: 40px;
+  border-top: 1px solid #DCE0E0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 30px;
+  cursor: pointer;
+}
+
+.closeSettings:hover {
+  color: #484848;
+}
+
+@media desktop {
+
+}
+
+@media tablet {
+
+  .header {
+    flex-direction: column;
+  }
+
+  .open {
+    height: 100%;
+    justify-content: flex-start;
+    align-items: stretch;
+  }
+
+  .logoWrapper {
+    width: 100%;
+    height: 60px;
+    justify-content: space-between;
+    flex-shrink: 0;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .logoMobile {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .logoMobile img {
+    width: 60px;
+  }
+
+  .themes {
+    border: 0;
+    margin-left: 0;
+  }
+
+  .themes .currentOption {
+    padding: 0;
+  }
+
+  .themes .optionsGroup {
+    left: auto;
+    right: -20px;
+  }
+
+  .menuWrapper {
+    display: none;
+  }
+
+  .open .menuWrapper {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .pages {
+    padding: 10px 0 10px;
+    margin: 10px 0 10px;
+    flex-direction: column;
+    border: 0;
+    height: auto;
+    border-top: 1px solid #DCE0E0;
+    border-bottom: 1px solid #DCE0E0;
+  }
+
+  .pages .page {
+    line-height: 40px;
+    padding: 0;
+  }
+
+  .page .bar {
+    display: none;
+  }
+
+  .pages .currentOption {
+    display: none;
+  }
+
+  .pages .optionsGroup {
+    display: block;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: none;
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+  }
+
+  .pages .option {
+    padding: 0;
+    line-height: 40px;
+  }
+
+  .links {
+    height: auto;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px 0 20px;
+    margin: 0 0 10px;
+    border-bottom: 1px solid #DCE0E0;
+  }
+
+  .links .link {
+    margin-bottom: 10px;
+  }
+
+  .user {
+    height: auto;
+    padding: 10px 0 20px;
+    border-bottom: 1px solid #DCE0E0;
+    margin-bottom: 10px;
+  }
+
+  .stats {
+    padding: 0;
+    border: 0;
+  }
+
+  .stat {
+    height: auto;
+  }
+
+  .settings {
+    height: auto;
+    margin: 0;
+  }
+
+  .settingsToggle {
+    display: none;
+  }
+
+  .settingsWrapper {
+    display: block;
+    position: relative;
+    width: 100%;
+    margin: 0;
+    top: 0;
+    box-shadow: none;
+    border: 0;
+  }
+
+  .settingsWrapper:before {
+    display: none;
+  }
+
+  .settingsWrapper:after {
+    display: none;
+  }
+
+  .settingsWrapperHidden {
+    display: block;
+  }
+
+  .settingsGroup {
+    padding: 0;
+  }
+
+  .closeSettings {
+    display: none;
+  }
+
+  .slider {
+    height: 250px;
+  }
+}
+
+@media mobile {
+
+
+}

@@ -114,6 +114,21 @@
   display: none;
 }
 
+
+.header {
+  composes: mooc;
+  width: auto;
+}
+
+.header select {
+  background-color: #F7F7F7;
+  border: 0;
+  font-weight: 700;
+  font-family: 'Open Sans';
+  color: #484848;
+  width: 100px;
+}
+
 @media mobile {
   .mooc {
     width: 40%;
@@ -121,6 +136,10 @@
 
   .mooc select {
     padding: 0;
+  }
+
+  .header {
+    width: auto;
   }
 
   .thematiques select {

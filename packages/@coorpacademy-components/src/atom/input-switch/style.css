@@ -1,6 +1,5 @@
 .default {
   display: flex;
-  min-height: 50px;
 }
 
 .unset {
@@ -11,7 +10,6 @@
   height: 30px;
   position: relative;
   flex-grow: 0;
-  margin: 0 20px;
   position: relative;
   display: block;
   width: 52px;
@@ -72,6 +70,8 @@
   text-transform: none;
   color: #455A64;
   width: 180px;
+  margin-right: 20px;
+  min-height: 50px;
 }
 
 .description {
@@ -80,4 +80,5 @@
   font-size: 12px;
   color: #C2C2C2;
   font-style: italic;
+  margin-left: 20px;
 }

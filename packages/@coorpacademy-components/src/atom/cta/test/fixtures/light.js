@@ -5,7 +5,6 @@ const {props} = Default;
 
 export default {
   props: defaultsDeep(props, {
-    error: true,
-    checked: false
+    light: true
   })
 };
