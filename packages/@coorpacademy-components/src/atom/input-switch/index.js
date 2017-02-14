@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
 import noop from 'lodash/fp/noop';
+import uniqueId from 'lodash/fp/uniqueId';
 import style from './style.css';
 
 const InputSwitch = props => {
@@ -11,6 +12,7 @@ const InputSwitch = props => {
     description
   } = props;
 
+  const idSwitch = uniqueId('input-switch-');
   const isDisabled = disabled ? 'disabled' : '';
   const isUnset = value === undefined;
   const handleChange = e => onChange(e.target.checked);
@@ -30,14 +32,14 @@ const InputSwitch = props => {
       {titleView}
       <input
         type='checkbox'
-        id={title}
+        id={idSwitch}
         name={title}
         onChange={handleChange}
         checked={value}
         disabled={isDisabled}
         className={style.checkbox}
       />
-      <label htmlFor={title} />
+      <label htmlFor={idSwitch} />
       {descriptionView}
     </div>
   );
