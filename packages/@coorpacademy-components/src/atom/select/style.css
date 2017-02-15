@@ -37,6 +37,8 @@
   color: #607d8b;
   margin-left: 20px;
   width: 230px;
+  outline: none;
+  appearance: none;
 }
 
 .thematiques {
@@ -88,7 +90,6 @@
   margin-left: 20px;
   width: 230px;
   background: #e0e0e0;
-  appearance: none;
 }
 
 .mooc {
@@ -126,7 +127,7 @@
   font-weight: 700;
   font-family: 'Open Sans';
   color: #484848;
-  width: 100px;
+  padding: 0 50px 0 15px;
 }
 
 @media mobile {

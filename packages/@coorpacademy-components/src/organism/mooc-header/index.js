@@ -73,6 +73,7 @@ class MoocHeader extends React.Component {
     this.handleSettingsToggle = this.handleSettingsToggle.bind(this);
     this.handleMenuToggle = this.handleMenuToggle.bind(this);
     this._checkOnClose = this._checkOnClose.bind(this);
+    this.handleLinkClick = this.handleLinkClick.bind(this);
   }
 
   shouldComponentUpdate(nextProps, nextState, nextContext) {
@@ -94,6 +95,10 @@ class MoocHeader extends React.Component {
     if (menu && !menu.contains(clickEvent.target)) {
       this.handleSettingsToggle();
     }
+  }
+
+  handleLinkClick() {
+    this.state.isMenuOpen && this.handleMenuToggle();
   }
 
   handleSettingsToggle() {
@@ -150,16 +155,25 @@ class MoocHeader extends React.Component {
           color: primaryColor
         } : null;
 
+        const battlesView = (page.counter > 0) ? (
+          <div className={style.battlesCounter}>
+            {page.counter}
+          </div>
+        ) : null;
+
         return (
           <Link key={index}
             href={page.href}
             className={page.selected ? style.activePage : style.page}
             skinHover
+            onClick={this.handleLinkClick}
+            target={page.target || null}
             style={{
               ...activeColor
             }}
           >
             {page.title}
+            {battlesView}
             <span className={style.bar}
               style={{
                 backgroundColor: primaryColor
@@ -174,10 +188,18 @@ class MoocHeader extends React.Component {
           color: primaryColor
         } : null;
 
+        const battlesView = (page.counter > 0) ? (
+          <div className={style.notifications}>
+            {user.notifications}
+          </div>
+        ) : null;
+
         return (
           <Link href={page.href}
             key={index}
             className={style.option}
+            target={page.target || null}
+            onClick={this.handleLinkClick}
             skinHover
             style={{
               ...activeColor
@@ -218,7 +240,7 @@ class MoocHeader extends React.Component {
     }
 
     if (user) {
-      notificationsView = (
+      notificationsView = (user.notifications > 0) ? (
         <div className={style.notifications}
           style={{
             backgroundColor: primaryColor
@@ -226,13 +248,14 @@ class MoocHeader extends React.Component {
         >
           {user.notifications}
         </div>
-      );
+      ) : null;
 
       userView = (
         <div className={style.user}>
           <div className={style.stats}>
             <Link className={style.stat}
               href={user.stats.stars.href}
+              onClick={this.handleLinkClick}
             >
               <div className={style.stars}
                 style={{
@@ -245,6 +268,7 @@ class MoocHeader extends React.Component {
             </Link>
             <Link className={style.stat}
               href={user.stats.ranking.href}
+              onClick={this.handleLinkClick}
             >
               <div className={style.ranking}
                 style={{
@@ -257,6 +281,7 @@ class MoocHeader extends React.Component {
             </Link>
             <Link className={style.stat}
               href={user.stats.badge.href}
+              onClick={this.handleLinkClick}
             >
               <div className={style.badge}
                 style={{
@@ -272,6 +297,7 @@ class MoocHeader extends React.Component {
             <div className={style.avatar}>
               <Link href={user.href}
                 className={style.userLink}
+                onClick={this.handleLinkClick}
               >
                 <img src={user.picture} />
               </Link>
@@ -296,6 +322,7 @@ class MoocHeader extends React.Component {
                 <Link className={style.link}
                   href={options.href}
                   skinHover
+                  onClick={this.handleLinkClick}
                   target={options.target || null}
                 >
                   {title}
@@ -417,12 +444,14 @@ MoocHeader.propTypes = {
   })),
   pages: PropTypes.shape({
     displayed: PropTypes.arrayOf(PropTypes.shape({
+      target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
       title: PropTypes.string,
       href: PropTypes.string,
       selected: PropTypes.bool,
       counter: PropTypes.number
     })),
     more: PropTypes.arrayOf(PropTypes.shape({
+      target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
       title: PropTypes.string,
       href: PropTypes.string,
       selected: PropTypes.bool,

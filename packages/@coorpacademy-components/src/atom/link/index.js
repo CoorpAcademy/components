@@ -12,6 +12,7 @@ class Link extends React.Component {
     };
     this.handleMouseEnter = this.handleMouseEnter.bind(this);
     this.handleMouseLeave = this.handleMouseLeave.bind(this);
+    this.handleOnClick = this.handleOnClick.bind(this);
   }
 
   shouldComponentUpdate(nextProps, nextState, nextContext) {
@@ -30,10 +31,14 @@ class Link extends React.Component {
     }));
   }
 
+  handleOnClick() {
+    pushToHistory(this.context);
+    this.props.onClick && this.props.onClick();
+  }
+
   render() {
     const {skin, history: {createHref = identity} = {}} = this.context;
     const {skinHover, ...aProps} = this.props;
-    const onClick = pushToHistory(this.context);
     const primarySkinColor = getOr('#00B0FF', 'common.primary', skin);
     const _style = this.props.href ? null : {
       pointerEvents: 'none'
@@ -46,7 +51,7 @@ class Link extends React.Component {
       <a
         {...aProps}
         href={this.props.href ? createHref(this.props.href) : undefined}
-        onClick={onClick(this.props)}
+        onClick={this.handleOnClick}
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}
         style={{
@@ -65,7 +70,8 @@ Link.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
   href: PropTypes.string,
-  skinHover: PropTypes.bool
+  skinHover: PropTypes.bool,
+  onClick: PropTypes.func
 };
 
 Link.contextTypes = {

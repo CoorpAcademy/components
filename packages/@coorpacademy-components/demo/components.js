@@ -94,7 +94,6 @@ import CenteredTextFixtureDefault from '../src/atom/centered-text/test/fixtures/
 import CheckboxFixtureChecked from '../src/atom/checkbox/test/fixtures/checked';
 import CheckboxFixtureDefault from '../src/atom/checkbox/test/fixtures/default';
 import CheckboxFixtureDisabled from '../src/atom/checkbox/test/fixtures/disabled';
-import CheckboxFixtureError from '../src/atom/checkbox/test/fixtures/error';
 import CheckboxFixtureRequired from '../src/atom/checkbox/test/fixtures/required';
 import CtaFixtureDefaultSmall from '../src/atom/cta/test/fixtures/default-small';
 import CtaFixtureDefault from '../src/atom/cta/test/fixtures/default';
@@ -444,7 +443,6 @@ export const fixtures = {
       Checked: CheckboxFixtureChecked,
       Default: CheckboxFixtureDefault,
       Disabled: CheckboxFixtureDisabled,
-      Error: CheckboxFixtureError,
       Required: CheckboxFixtureRequired
     },
     Cta: {
