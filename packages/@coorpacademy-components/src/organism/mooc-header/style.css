@@ -550,6 +550,7 @@
   .stats {
     padding: 0;
     border: 0;
+    height: auto;
   }
 
   .stat {
