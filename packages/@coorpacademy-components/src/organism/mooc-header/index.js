@@ -155,6 +155,12 @@ class MoocHeader extends React.Component {
           color: primaryColor
         } : null;
 
+        const battlesView = (page.counter > 0) ? (
+          <div className={style.battlesCounter}>
+            {page.counter}
+          </div>
+        ) : null;
+
         return (
           <Link key={index}
             href={page.href}
@@ -167,6 +173,7 @@ class MoocHeader extends React.Component {
             }}
           >
             {page.title}
+            {battlesView}
             <span className={style.bar}
               style={{
                 backgroundColor: primaryColor
@@ -180,6 +187,12 @@ class MoocHeader extends React.Component {
         const activeColor = page.selected ? {
           color: primaryColor
         } : null;
+
+        const battlesView = (page.counter > 0) ? (
+          <div className={style.notifications}>
+            {user.notifications}
+          </div>
+        ) : null;
 
         return (
           <Link href={page.href}

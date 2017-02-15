@@ -191,6 +191,21 @@
   width: 100%;
 }
 
+.battlesCounter {
+  position: absolute;
+  top: 15;
+  right: 0px;
+  background-color: #FFE100;
+  font-family: 'Open Sans';
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 16px;
+  color: #000000;
+  border-radius: 8px;
+  padding: 0 5px;
+  pointer-events: none;
+}
+
 .more {
   composes: options;
 }
@@ -531,6 +546,13 @@
   .pages .option {
     padding: 0;
     line-height: 40px;
+  }
+
+  .battlesCounter {
+    position: relative;
+    margin-top: -15px;
+    right: auto;
+    top: auto;
   }
 
   .links {
