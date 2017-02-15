@@ -155,6 +155,7 @@ class MoocHeader extends React.Component {
             href={page.href}
             className={page.selected ? style.activePage : style.page}
             skinHover
+            target={page.target || null}
             style={{
               ...activeColor
             }}
@@ -178,6 +179,7 @@ class MoocHeader extends React.Component {
           <Link href={page.href}
             key={index}
             className={style.option}
+            target={page.target || null}
             skinHover
             style={{
               ...activeColor
@@ -417,12 +419,14 @@ MoocHeader.propTypes = {
   })),
   pages: PropTypes.shape({
     displayed: PropTypes.arrayOf(PropTypes.shape({
+      target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
       title: PropTypes.string,
       href: PropTypes.string,
       selected: PropTypes.bool,
       counter: PropTypes.number
     })),
     more: PropTypes.arrayOf(PropTypes.shape({
+      target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
       title: PropTypes.string,
       href: PropTypes.string,
       selected: PropTypes.bool,
