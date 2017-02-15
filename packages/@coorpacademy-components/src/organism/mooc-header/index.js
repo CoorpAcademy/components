@@ -218,7 +218,7 @@ class MoocHeader extends React.Component {
     }
 
     if (user) {
-      notificationsView = (
+      notificationsView = (user.notifications > 0) ? (
         <div className={style.notifications}
           style={{
             backgroundColor: primaryColor
@@ -226,7 +226,7 @@ class MoocHeader extends React.Component {
         >
           {user.notifications}
         </div>
-      );
+      ) : null;
 
       userView = (
         <div className={style.user}>
