@@ -56,12 +56,13 @@
   right: 10px;
   width: 50px;
   height: 20px;
-  padding-left: 10px;
   background: white;
   border-radius: 100px;
   font-size: 11px;
-  line-height: 20px;
   font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   color: darkGrey;
   composes: fa from '../../variables/fontawesome.css';
@@ -69,11 +70,9 @@
 }
 
 .timer:before {
-  position: absolute;
   font-size: 14px;
-  top: 0;
-  left: 5px;
   color: darkGrey;
+  margin-right: 5px;
 }
 
 .certification {
