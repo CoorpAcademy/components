@@ -255,6 +255,7 @@
 
 .stats {
   display: flex;
+  height: 100%;
   padding: 0 10px;
   border-right: 1px solid #DCE0E0;
 }
