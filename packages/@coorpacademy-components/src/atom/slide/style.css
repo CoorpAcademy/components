@@ -16,7 +16,6 @@
 
 .content {
   display: block;
-  margin-top: 60px;
   padding: 0 100px 0;
   text-align: center;
   position: relative;
@@ -42,7 +41,7 @@
   font-size: 40px;
   font-weight: 700;
   width: 100%;
-  margin: 0 0 50px;
+  margin: 0 0 20px;
 }
 
 @media desktop {
@@ -56,7 +55,6 @@
 
   .title {
     font-size: 23px;
-    margin: 0 0 20px;
   }
 }
 
