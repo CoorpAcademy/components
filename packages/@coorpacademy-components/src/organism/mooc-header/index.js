@@ -124,6 +124,9 @@ class MoocHeader extends React.Component {
     let settingsView = null;
     let notificationsView = null;
 
+    const moreLabel = translate('More');
+    const homeLabel = translate('Home');
+    const closeLabel = translate('Close');
     const primaryColor = getOr('#00B0FF', 'common.primary', skin);
 
     if (themes) {
@@ -214,7 +217,7 @@ class MoocHeader extends React.Component {
         <div className={style.pages}>
           {displayedPages}
           <div className={style.more}>
-            <div className={style.currentOption}>More<span className={style.caret} /></div>
+            <div className={style.currentOption}>{moreLabel}<span className={style.caret} /></div>
             <div className={style.optionsGroup}>
               {optionsView}
             </div>
@@ -406,7 +409,7 @@ class MoocHeader extends React.Component {
                 onClick={this.handleLinkClick}
                 skinHover
               >
-                Home
+                {homeLabel}
               </Link>
             </div>
             {pagesView}
@@ -424,7 +427,7 @@ class MoocHeader extends React.Component {
                 <div className={style.closeSettings}
                   onClick={this.handleSettingsToggle}
                 >
-                  Fermer
+                  {closeLabel}
                 </div>
               </div>
             </div>
