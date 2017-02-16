@@ -1,8 +1,6 @@
 import React, {PropTypes} from 'react';
 import identity from 'lodash/fp/identity';
 import getOr from 'lodash/fp/getOr';
-import Picture from '../../atom/picture';
-import Link from '../../atom/link';
 import style from './style.css';
 
 const getOrBlank = getOr('');
@@ -52,7 +50,12 @@ const Card = (props, context) => {
   return (
     <div className={view === 'dashboard' ? style.grid : style.list}>
       <div className={style.default}>
-        <div className={style.imageWrapper}>
+        <div
+          className={style.imageWrapper}
+          style={{
+            backgroundImage: `url('${image}')`
+          }}
+        >
           <div onClick={topOnClick}>
             {certif}
             {adaptivIcon}
@@ -63,7 +66,6 @@ const Card = (props, context) => {
                 backgroundColor: defaultColor
               }}
             />
-            <Picture src={image} />
           </div>
         </div>
         {myprogress}

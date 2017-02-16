@@ -42,6 +42,8 @@
   height: 125px;
   width: 100%;
   overflow: hidden;
+  background-position: 50%;
+  background-size: cover;
 }
 
 .imageWrapper a {
