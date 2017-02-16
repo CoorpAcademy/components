@@ -29,7 +29,7 @@ class Slider extends React.Component {
       const nextSlide = prevState.currentSlide - 1;
 
       return {
-        currentSlide: nextSlide <= 0 ? (totalSlide - 1) : nextSlide
+        currentSlide: nextSlide < 0 ? (totalSlide - 1) : nextSlide
       };
     });
   }
