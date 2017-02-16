@@ -62,6 +62,8 @@
 .arrow {
   position: absolute;
   right: 10px;
+  margin-top: -10px;
+  top: 50%;
   font-size: 20px;
   color: #484848;
   font-weight: 700;
