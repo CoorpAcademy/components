@@ -26,7 +26,8 @@
 }
 
 .slider {
-  height: 360px;
+  padding-top: 60px;
+  height: 300px;
   width: 100%;
 }
 
@@ -646,7 +647,7 @@
   }
 
   .slider {
-    height: 250px;
+    height: 200px;
   }
 }
 
