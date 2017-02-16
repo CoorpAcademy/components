@@ -56,6 +56,10 @@
   top: -5px;
 }
 
+.homeMenu {
+  display: none;
+}
+
 .options {
   position: relative;
   display: flex;
@@ -477,6 +481,19 @@
 
   .logoMobile img {
     width: 60px;
+  }
+
+  .homeMenu {
+    display: block;
+  }
+
+  .homeLink {
+    text-decoration: none;
+    color: #484848;
+    font-family: 'Open Sans';
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 40px;
   }
 
   .themes {

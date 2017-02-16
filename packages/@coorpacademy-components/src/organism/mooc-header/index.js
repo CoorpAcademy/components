@@ -400,6 +400,15 @@ class MoocHeader extends React.Component {
             {themesView}
           </div>
           <div className={style.menuWrapper}>
+            <div className={style.homeMenu}>
+              <Link className={style.homeLink}
+                href={logo.href}
+                onClick={this.handleLinkClick}
+                skinHover
+              >
+                Home
+              </Link>
+            </div>
             {pagesView}
             {userView || linksView}
             <div className={style.settings} // eslint-disable-next-line no-return-assign
