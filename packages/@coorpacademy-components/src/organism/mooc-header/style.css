@@ -419,6 +419,10 @@
   font-size: 13px;
   font-weight: 600;
   color: #484848;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-right: 10px;
 }
 
 .setting .link {
