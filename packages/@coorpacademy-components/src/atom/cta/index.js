@@ -36,7 +36,7 @@ class CTA extends React.Component {
     const {
       submitValue = 'submit',
       href,
-      target = '_self',
+      target,
       light = false,
       small = false,
       secondary = false
