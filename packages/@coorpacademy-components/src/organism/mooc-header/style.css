@@ -105,6 +105,7 @@
 
 .themes:hover .optionsGroup {
   display: block;
+  z-index:3;
 }
 
 .themes .optionsGroup:hover {
