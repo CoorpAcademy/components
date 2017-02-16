@@ -52,11 +52,15 @@ class Select extends React.Component {
         onChange(e.target.value);
       };
 
+    const arrowView = !multiple ? (
+      <div className={style.arrow} />
+    ) : null;
+
     return (
       <div className={theme ? style[theme] : style.default}>
         <label>
           <span className={style.title}>{title}</span>
-          <div className={style.arrow} />
+          {arrowView}
           <select
             onChange={handleChange}
             value={selected}
