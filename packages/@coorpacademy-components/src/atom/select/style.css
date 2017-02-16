@@ -60,21 +60,14 @@
 }
 
 .arrow {
-  position: relative;
-}
-.arrow:after {
-  content: '';
-  display: block;
   position: absolute;
-  right: -225px;
-  top: 0;
-  width: 0;
-  height: 10px;
-  border-top: 5px solid black;
-  border-right:5px solid transparent;
-  border-bottom:5px solid transparent;
-  border-left:5px solid transparent;
+  right: 10px;
+  font-size: 20px;
+  color: #484848;
+  font-weight: 700;
   pointer-events: none;
+  composes: fa from '../../variables/fontawesome.css';
+  composes: fa-angle-down from '../../variables/fontawesome.css';
 }
 
 .thematiques select {
@@ -127,7 +120,11 @@
   font-weight: 700;
   font-family: 'Open Sans';
   color: #484848;
-  padding: 0 50px 0 15px;
+  padding: 0 30px 0 15px;
+}
+
+.header .arrow {
+  display: block;
 }
 
 @media mobile {
@@ -141,6 +138,10 @@
 
   .header {
     width: auto;
+  }
+
+  .header select {
+    padding: 0 30px 0 15px;
   }
 
   .thematiques select {
