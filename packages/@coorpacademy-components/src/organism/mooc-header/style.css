@@ -199,7 +199,7 @@
 
 .battlesCounter {
   position: absolute;
-  top: 15;
+  top: 15px;
   right: 0px;
   background-color: #FFE100;
   font-family: 'Open Sans';
