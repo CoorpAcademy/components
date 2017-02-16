@@ -57,15 +57,15 @@ const Card = (props, context) => {
           }}
         >
           <div onClick={topOnClick}>
-            {certif}
-            {adaptivIcon}
-            <span className={style.timer}>{time}</span>
             {calltoaction}
             <div className={style.overlay}
               style={{
                 backgroundColor: defaultColor
               }}
             />
+            {certif}
+            {adaptivIcon}
+            <span className={style.timer}>{time}</span>
           </div>
         </div>
         {myprogress}
