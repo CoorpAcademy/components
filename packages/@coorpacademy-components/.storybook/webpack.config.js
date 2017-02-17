@@ -5,25 +5,7 @@ const autoprefixer = require('autoprefixer');
 
 const hash = '[folder]__[local]';
 
-const addHMR = entries => {
-  if (process.env.NODE_ENV === 'production') return entries;
-  return concat(['webpack-hot-middleware/client'], entries);
-};
-
-const NODE_ENV = process.env.NODE_ENV || 'development';
-
 module.exports = {
-  devtool: 'source-map',
-  output: {
-    library: 'Coorponents',
-    filename: '[name].js',
-    publicPath: '/dist'
-  },
-
-  entry: {
-    components: addHMR(join(__dirname, 'client'))
-  },
-
   module: {
     rules: [{
       test: /\.json$/,
@@ -53,11 +35,6 @@ module.exports = {
   },
 
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify(NODE_ENV)
-      }
-    }),
     new webpack.LoaderOptionsPlugin({
       options: {
         context: __dirname
