@@ -1,49 +1,14 @@
-const join = require('path').join;
-const concat = require('lodash/fp/concat');
-const webpack = require('webpack');
-const autoprefixer = require('autoprefixer');
-
 const hash = '[folder]__[local]';
 
-module.exports = {
-  module: {
-    rules: [{
-      test: /\.json$/,
-      use: ['json-loader']
-    }, {
-      test: /\.(ttf|otf|eot|svg|woff)$/,
-      use: ['file-loader']
-    }, {
-      test: /\.js$/,
-      use: ['babel-loader']
-    }, {
-      test: /\.css$/,
-      use: [{
-        loader: 'style-loader'
-      }, {
-        loader: 'css-loader',
-        options: {
-          minimize: true,
-          modules: true,
-          importLoaders: 1,
-          localIdentName: `${hash}`
-        }
-      }, {
-        loader: 'postcss-loader'
-      }]
-    }]
-  },
+module.exports = function(storybookBaseConfig, configType) {
+  // configType has a value of 'DEVELOPMENT' or 'PRODUCTION'
+  // You can change the configuration based on that.
+  // 'PRODUCTION' is used when building the static version of storybook.
+  console.log('plop');
+  storybookBaseConfig.module.loaders.push({
+    test: /\.css$/,
+    loader: `style-loader!css-loader?minimize&modules&importLoaders=1&localIdentName=${hash}!postcss-loader`
+  });
 
-  plugins: [
-    new webpack.LoaderOptionsPlugin({
-      options: {
-        context: __dirname
-      },
-      minimize: true,
-      debug: false
-    }),
-
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin()
-  ]
+  return storybookBaseConfig;
 };

@@ -53,20 +53,6 @@ export default ({
   },
 
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify(NODE_ENV)
-      }
-    }),
-    new webpack.LoaderOptionsPlugin({
-      options: {
-        context: __dirname
-      },
-      minimize: true,
-      debug: false
-    }),
-
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin()
+    new webpack.HotModuleReplacementPlugin()
   ]
 });
