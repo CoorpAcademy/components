@@ -459,12 +459,14 @@
 
   .header {
     flex-direction: column;
+    padding: 0;
+    background-color: transparent;
+    justify-content: flex-start;
+    align-items: stretch;
   }
 
   .open {
     height: 100%;
-    justify-content: flex-start;
-    align-items: stretch;
   }
 
   .logoWrapper {
@@ -472,6 +474,10 @@
     height: 60px;
     justify-content: space-between;
     flex-shrink: 0;
+    padding: 0 20px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    z-index: 2;
   }
 
   .logo {
@@ -516,18 +522,23 @@
   }
 
   .menuWrapper {
-    display: none;
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0 20px 20px;
+    box-sizing: border-box;
+    height: 100%;
+    background-color: #ffffff;
+    left: 0;
+    top: -100%;
+    width: 100%;
+    transition: top 0.4s ease-out;
   }
 
   .open .menuWrapper {
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding-bottom: 20px;
-    margin-bottom: 60px;
-    box-sizing: border-box;
+    top: 60px;
   }
 
   .pages {
