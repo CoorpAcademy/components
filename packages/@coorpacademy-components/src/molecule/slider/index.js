@@ -1,8 +1,9 @@
 import React, {PropTypes} from 'react';
 import {findDOMNode} from 'react-dom';
-import Hammer from 'hammerjs';
 import Slide from '../../atom/slide';
 import style from './style.css';
+
+const Hammer = (typeof window !== 'undefined') ? require('hammerjs') : undefined;
 
 class Slider extends React.Component {
   constructor(props) {
@@ -17,9 +18,11 @@ class Slider extends React.Component {
   }
 
   componentDidMount() {
-    this.hammer = new Hammer(findDOMNode(this));
-    this.hammer.on('swipeleft', this.handlePreviousSlide);
-    this.hammer.on('swiperight', this.handleNextSlide);
+    if (Hammer) {
+      this.hammer = new Hammer(findDOMNode(this));
+      this.hammer.on('swipeleft', this.handlePreviousSlide);
+      this.hammer.on('swiperight', this.handleNextSlide);
+    }
 
     this.autoPlay();
   }
