@@ -1,3 +1,8 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value tablet from breakpoints;
+@value desktop from breakpoints;
+
 .slidesWrapper {
   height: 100%;
   width: 100%;
@@ -77,6 +82,10 @@
 @media mobile {
 
   .control {
+    display: none;
+  }
+
+  .slidesWrapper:hover .control {
     display: none;
   }
 }

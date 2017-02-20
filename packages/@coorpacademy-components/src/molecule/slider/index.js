@@ -1,4 +1,6 @@
 import React, {PropTypes} from 'react';
+import {findDOMNode} from 'react-dom';
+import Hammer from 'hammerjs';
 import Slide from '../../atom/slide';
 import style from './style.css';
 
@@ -8,8 +10,26 @@ class Slider extends React.Component {
     this.state = {
       currentSlide: 0
     };
+    this.interval = 8000;
     this.handleNextSlide = this.handleNextSlide.bind(this);
     this.handlePreviousSlide = this.handlePreviousSlide.bind(this);
+    this.autoPlay = this.autoPlay.bind(this);
+  }
+
+  componentDidMount() {
+    this.hammer = new Hammer(findDOMNode(this));
+    this.hammer.on('swipeleft', this.handlePreviousSlide);
+    this.hammer.on('swiperight', this.handleNextSlide);
+
+    this.autoPlay();
+  }
+
+  componentWillUnmount() {
+    if (this.hammer) {
+      this.hammer.stop();
+      this.hammer.destroy();
+    }
+    this.hammer = null;
   }
 
   handleNextSlide() {
@@ -21,6 +41,8 @@ class Slider extends React.Component {
         currentSlide: nextSlide >= totalSlide ? 0 : nextSlide
       };
     });
+
+    this.autoPlay();
   }
 
   handlePreviousSlide() {
@@ -32,6 +54,16 @@ class Slider extends React.Component {
         currentSlide: nextSlide < 0 ? (totalSlide - 1) : nextSlide
       };
     });
+
+    this.autoPlay();
+  }
+
+  autoPlay() {
+    clearTimeout(this.timer);
+    this.timer = setTimeout(() => {
+      this.handleNextSlide();
+      this.autoPlay();
+    }, this.interval);
   }
 
   render() {
