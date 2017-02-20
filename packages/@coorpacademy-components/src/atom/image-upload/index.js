@@ -43,8 +43,19 @@ class ImageUpload extends React.Component {
       previewImage
     } = this.props;
 
+    const previewView = previewImage ? (
+      <div className={style.image}>
+        <img src={previewImage} />
+      </div>
+    ) : (
+      {previewLabel}
+    );
+
     return (
       <div className={style.wrapper}>
+        <div className={style.previewWrapper}>
+          {previewView}
+        </div>
         <div className={this.state.dragging ? style.dragging : style.inputWrapper}
           id={idBox}
         >

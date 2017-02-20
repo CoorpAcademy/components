@@ -8,6 +8,17 @@
   width: 380px;
 }
 
+.previewWrapper {
+  width: 100%;
+  min-height: 100px;
+  box-sizing: border-box;
+  border: 1px dashed lightGrey;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .inputWrapper {
   width: 100%;
   height: 70px;
