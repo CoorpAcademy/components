@@ -8,6 +8,7 @@ import InputReadonly from '../../atom/input-readonly';
 import InputSwitch from '../../atom/input-switch';
 import InputTextarea from '../../atom/input-textarea';
 import InputDoublestep from '../../atom/input-doublestep';
+import ImageUpload from '../../atom/image-upload';
 import style from './style.css';
 
 const BrandFormGroup = props => {
@@ -50,9 +51,13 @@ const BrandFormGroup = props => {
         return (
           <InputCheckbox {...field} />
         );
+      case 'image':
+        return (
+          <ImageUpload {...field} />
+        );
       default:
         return (
-          <InputText {...field} />
+          <ImageUpload {...field} />
         );
     }
   };

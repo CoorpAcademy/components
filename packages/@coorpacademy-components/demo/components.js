@@ -166,6 +166,7 @@ import BrandCreateFormFixtureLoading from '../src/molecule/brand-create-form/tes
 import BrandCreateFormFixtureModified from '../src/molecule/brand-create-form/test/fixtures/modified';
 import BrandDownloadBoxFixtureDefault from '../src/molecule/brand-download-box/test/fixtures/default';
 import BrandFormGroupFixtureDefault from '../src/molecule/brand-form-group/test/fixtures/default';
+import BrandFormGroupFixtureImages from '../src/molecule/brand-form-group/test/fixtures/images';
 import BrandFormGroupFixtureLookandfeel from '../src/molecule/brand-form-group/test/fixtures/lookandfeel';
 import BrandFormGroupFixtureRoles from '../src/molecule/brand-form-group/test/fixtures/roles';
 import BrandFormGroupFixtureSso from '../src/molecule/brand-form-group/test/fixtures/sso';
@@ -579,6 +580,7 @@ export const fixtures = {
     },
     BrandFormGroup: {
       Default: BrandFormGroupFixtureDefault,
+      Images: BrandFormGroupFixtureImages,
       Lookandfeel: BrandFormGroupFixtureLookandfeel,
       Roles: BrandFormGroupFixtureRoles,
       Sso: BrandFormGroupFixtureSso
