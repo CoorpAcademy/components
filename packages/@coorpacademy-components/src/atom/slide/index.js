@@ -10,7 +10,8 @@ const Slide = (props, context) => {
     title,
     subtitle,
     cta,
-    light
+    light,
+    alignment = 'center'
   } = props;
 
   const imgCover = cover;
@@ -23,7 +24,11 @@ const Slide = (props, context) => {
         backgroundImage: imgCover
       }}
     >
-      <div className={light ? style.light : style.content}>
+      <div className={light ? style.light : style.content}
+        style={{
+          textAlign: alignment
+        }}
+      >
         <h2 className={style.subtitle}>{subtitle}</h2>
         <h1 className={style.title}>{title}</h1>
         <Cta {...cta} />
@@ -41,7 +46,8 @@ Slide.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
   light: PropTypes.bool,
-  cta: PropTypes.object
+  cta: PropTypes.object,
+  alignment: PropTypes.oneOf(['center', 'left', 'right'])
 };
 
 export default Slide;
