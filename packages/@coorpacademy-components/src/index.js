@@ -42,6 +42,7 @@ export ForumThread from './molecule/forum/forum-thread';
 export GridList from './organism/grid-list';
 export Header from './organism/header';
 export Hero from './organism/hero';
+export ImageUpload from './atom/image-upload';
 export InputCheckbox from './atom/input-checkbox';
 export InputColor from './atom/input-color';
 export InputDoublestep from './atom/input-doublestep';
