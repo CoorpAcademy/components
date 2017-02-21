@@ -8,6 +8,14 @@
   width: 380px;
 }
 
+.title {
+  font-family: "Open Sans";
+  font-size: 15px;
+  text-transform: none;
+  color: #455A64;
+  margin-bottom: 20px;
+}
+
 .previewWrapper {
   width: 100%;
   min-height: 100px;
@@ -17,6 +25,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.previewWrapper span {
+  font-family: 'Open Sans';
+  color: #455A64;
+  font-size: 15px;
+  font-weight: 700;
 }
 
 .inputWrapper {

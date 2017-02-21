@@ -39,7 +39,7 @@ class ImageUpload extends React.Component {
       title,
       onChange,
       uploadLabel,
-      previewLabel,
+      previewLabel = '',
       previewImage
     } = this.props;
 
@@ -48,11 +48,12 @@ class ImageUpload extends React.Component {
         <img src={previewImage} />
       </div>
     ) : (
-      {previewLabel}
+      <span>{previewLabel}</span>
     );
 
     return (
       <div className={style.wrapper}>
+        <div className={style.title}>{title}</div>
         <div className={style.previewWrapper}>
           {previewView}
         </div>
