@@ -12,6 +12,7 @@ const Card = (props, context) => {
     image,
     time,
     adaptiv,
+    disabled,
     certification,
     type,
     title,
@@ -23,6 +24,7 @@ const Card = (props, context) => {
   } = props;
 
   const defaultColor = getOr('#00B0FF', 'common.primary', skin);
+  const cardStyle = view === 'dashboard' ? style.grid : style.list;
 
   const calltoaction = cta ? (
     <div className={style.cta}>{cta}</div>
@@ -48,8 +50,11 @@ const Card = (props, context) => {
   ) : null;
 
   return (
-    <div className={view === 'dashboard' ? style.grid : style.list}>
-      <div className={style.default}>
+    <div className={cardStyle}>
+      <div
+        className={style.default}
+        disabled={disabled}
+      >
         <div
           className={style.imageWrapper}
           style={{
@@ -72,7 +77,7 @@ const Card = (props, context) => {
         <div className={style.infoWrapper}>
           <div className={style.type}
             style={{
-              color: defaultColor
+              color: !disabled && defaultColor
             }}
           >
             {type}
@@ -99,6 +104,7 @@ Card.propTypes = {
   view: PropTypes.string,
   image: PropTypes.string,
   time: PropTypes.string,
+  disabled: PropTypes.bool,
   adaptiv: PropTypes.bool,
   certification: PropTypes.bool,
   type: PropTypes.string,

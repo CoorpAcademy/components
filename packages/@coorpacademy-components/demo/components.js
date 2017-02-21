@@ -169,6 +169,7 @@ import BreadcrumbsFixtureDefault from '../src/molecule/breadcrumbs/test/fixtures
 import CardFixtureAdaptiv from '../src/molecule/card/test/fixtures/adaptiv';
 import CardFixtureCatalogue from '../src/molecule/card/test/fixtures/catalogue';
 import CardFixtureDefault from '../src/molecule/card/test/fixtures/default';
+import CardFixtureDisabled from '../src/molecule/card/test/fixtures/disabled';
 import CatalogCardFixtureDefault from '../src/molecule/catalog-card/test/fixtures/default';
 import CatalogCtaFixtureDefault from '../src/molecule/catalog-cta/test/fixtures/default';
 import CatalogCtaFixtureEmpty from '../src/molecule/catalog-cta/test/fixtures/empty';
@@ -581,7 +582,8 @@ export const fixtures = {
     Card: {
       Adaptiv: CardFixtureAdaptiv,
       Catalogue: CardFixtureCatalogue,
-      Default: CardFixtureDefault
+      Default: CardFixtureDefault,
+      Disabled: CardFixtureDisabled
     },
     CatalogCard: {
       Default: CatalogCardFixtureDefault

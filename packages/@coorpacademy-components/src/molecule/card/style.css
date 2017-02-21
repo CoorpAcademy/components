@@ -9,6 +9,10 @@
 @value borderGrey from colors;
 @value blue from colors;
 
+.default[disabled] {
+  pointer-events: none;
+}
+
 .default {
   display: inline-block;
   box-sizing: border-box;
@@ -35,6 +39,14 @@
 .imageWrapper:hover .cta {
   display: block;
   cursor: pointer;
+}
+
+.default[disabled] .infoWrapper {
+  pointer-events: auto;
+}
+
+.default[disabled] .imageWrapper {
+  opacity: 0.4;
 }
 
 .imageWrapper {
@@ -184,6 +196,10 @@
   font-size: 9px;
   color: blue;
   text-transform: uppercase;
+}
+
+.default[disabled] .type {
+  color: grey;
 }
 
 .title {
