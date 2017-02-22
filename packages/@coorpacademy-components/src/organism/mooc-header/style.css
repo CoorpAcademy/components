@@ -502,6 +502,7 @@
 
   .homeMenu {
     display: block;
+    flex-shrink: 0;
   }
 
   .homeLink {
