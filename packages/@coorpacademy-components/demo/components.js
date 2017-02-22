@@ -49,6 +49,7 @@ import ProgressBar from '../src/molecule/progress-bar';
 import ScopeContent from '../src/molecule/scope-content';
 import ScopeTabs from '../src/molecule/scope-tabs';
 import Search from '../src/molecule/search';
+import SetupSlide from '../src/molecule/setup-slide';
 import Slider from '../src/molecule/slider';
 import SsmenuList from '../src/molecule/ssmenu-list';
 import StarRating from '../src/molecule/star-rating';
@@ -390,6 +391,7 @@ export const components = {
     ScopeContent,
     ScopeTabs,
     Search,
+    SetupSlide,
     Slider,
     SsmenuList,
     StarRating,
