@@ -49,6 +49,10 @@ const Card = (props, context) => {
     <div className={style.adaptiv} />
   ) : null;
 
+  const lock = disabled ? (
+    <div className={style.lock} />
+  ) : null;
+
   return (
     <div className={cardStyle}>
       <div
@@ -61,7 +65,7 @@ const Card = (props, context) => {
             backgroundImage: `url('${image}')`
           }}
         >
-          <div onClick={topOnClick}>
+          <div onClick={!disabled && topOnClick}>
             {calltoaction}
             <div className={style.overlay}
               style={{
@@ -72,6 +76,7 @@ const Card = (props, context) => {
             {adaptivIcon}
             <span className={style.timer}>{time}</span>
           </div>
+          {lock}
         </div>
         {myprogress}
         <div className={style.infoWrapper}>
@@ -83,7 +88,7 @@ const Card = (props, context) => {
             {type}
           </div>
           <div className={style.title}>
-            <div onClick={bottomOnClick}>
+            <div onClick={!disabled && bottomOnClick}>
               {title}
             </div>
           </div>

@@ -168,6 +168,7 @@ import BrandTabsFixtureUsers from '../src/molecule/brand-tabs/test/fixtures/user
 import BrandUploadBoxFixtureDefault from '../src/molecule/brand-upload-box/test/fixtures/default';
 import BrandUploadBoxFixtureLoading from '../src/molecule/brand-upload-box/test/fixtures/loading';
 import BreadcrumbsFixtureDefault from '../src/molecule/breadcrumbs/test/fixtures/default';
+import CardFixtureAdaptivAndDisabled from '../src/molecule/card/test/fixtures/adaptiv-and-disabled';
 import CardFixtureAdaptiv from '../src/molecule/card/test/fixtures/adaptiv';
 import CardFixtureCatalogue from '../src/molecule/card/test/fixtures/catalogue';
 import CardFixtureDefault from '../src/molecule/card/test/fixtures/default';
@@ -584,6 +585,7 @@ export const fixtures = {
       Default: BreadcrumbsFixtureDefault
     },
     Card: {
+      AdaptivAndDisabled: CardFixtureAdaptivAndDisabled,
       Adaptiv: CardFixtureAdaptiv,
       Catalogue: CardFixtureCatalogue,
       Default: CardFixtureDefault,

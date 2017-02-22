@@ -41,12 +41,20 @@
   cursor: pointer;
 }
 
-.default[disabled] .infoWrapper {
-  pointer-events: auto;
-}
-
 .default[disabled] .imageWrapper {
   opacity: 0.4;
+}
+
+.lock {
+  composes: fa from '../../variables/fontawesome.css';
+  composes: fa-lock from '../../variables/fontawesome.css';
+  font-size: 45px;
+  color: #000;
+  opacity: 0.88;
+  text-align: center;
+  width: 100%;
+  line-height: 125px;
+  text-shadow: 0px 0px 20px white;
 }
 
 .imageWrapper {
