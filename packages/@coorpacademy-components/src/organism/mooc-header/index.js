@@ -114,7 +114,7 @@ class MoocHeader extends React.Component {
   }
 
   render() {
-    const {logo, themes, pages, settings, user, slider, links} = this.props;
+    const {logo = {}, themes, pages, settings, user, slider, links} = this.props;
     const {translate = identity, skin} = this.context;
 
     let themesView = null;
@@ -445,6 +445,7 @@ MoocHeader.contextTypes = {
 
 MoocHeader.propTypes = {
   logo: PropTypes.shape({
+    srcMobile: PropTypes.string,
     src: PropTypes.string,
     href: PropTypes.string
   }),
