@@ -2,6 +2,7 @@ import Button from '../src/atom/button';
 import CenteredText from '../src/atom/centered-text';
 import Checkbox from '../src/atom/checkbox';
 import Cta from '../src/atom/cta';
+import ImageUpload from '../src/atom/image-upload';
 import InputCheckbox from '../src/atom/input-checkbox';
 import InputColor from '../src/atom/input-color';
 import InputDoublestep from '../src/atom/input-doublestep';
@@ -101,6 +102,8 @@ import CtaFixtureDefault from '../src/atom/cta/test/fixtures/default';
 import CtaFixtureLight from '../src/atom/cta/test/fixtures/light';
 import CtaFixtureSecondaryLight from '../src/atom/cta/test/fixtures/secondary-light';
 import CtaFixtureSecondary from '../src/atom/cta/test/fixtures/secondary';
+import ImageUploadFixtureDefault from '../src/atom/image-upload/test/fixtures/default';
+import ImageUploadFixtureImage from '../src/atom/image-upload/test/fixtures/image';
 import InputCheckboxFixtureChecked from '../src/atom/input-checkbox/test/fixtures/checked';
 import InputCheckboxFixtureDefault from '../src/atom/input-checkbox/test/fixtures/default';
 import InputCheckboxFixtureDisabled from '../src/atom/input-checkbox/test/fixtures/disabled';
@@ -158,6 +161,7 @@ import BrandCreateFormFixtureLoading from '../src/molecule/brand-create-form/tes
 import BrandCreateFormFixtureModified from '../src/molecule/brand-create-form/test/fixtures/modified';
 import BrandDownloadBoxFixtureDefault from '../src/molecule/brand-download-box/test/fixtures/default';
 import BrandFormGroupFixtureDefault from '../src/molecule/brand-form-group/test/fixtures/default';
+import BrandFormGroupFixtureImages from '../src/molecule/brand-form-group/test/fixtures/images';
 import BrandFormGroupFixtureLookandfeel from '../src/molecule/brand-form-group/test/fixtures/lookandfeel';
 import BrandFormGroupFixtureRoles from '../src/molecule/brand-form-group/test/fixtures/roles';
 import BrandFormGroupFixtureSso from '../src/molecule/brand-form-group/test/fixtures/sso';
@@ -337,6 +341,7 @@ export const components = {
     CenteredText,
     Checkbox,
     Cta,
+    ImageUpload,
     InputCheckbox,
     InputColor,
     InputDoublestep,
@@ -460,6 +465,10 @@ export const fixtures = {
       SecondaryLight: CtaFixtureSecondaryLight,
       Secondary: CtaFixtureSecondary
     },
+    ImageUpload: {
+      Default: ImageUploadFixtureDefault,
+      Image: ImageUploadFixtureImage
+    },
     InputCheckbox: {
       Checked: InputCheckboxFixtureChecked,
       Default: InputCheckboxFixtureDefault,
@@ -566,6 +575,7 @@ export const fixtures = {
     },
     BrandFormGroup: {
       Default: BrandFormGroupFixtureDefault,
+      Images: BrandFormGroupFixtureImages,
       Lookandfeel: BrandFormGroupFixtureLookandfeel,
       Roles: BrandFormGroupFixtureRoles,
       Sso: BrandFormGroupFixtureSso
