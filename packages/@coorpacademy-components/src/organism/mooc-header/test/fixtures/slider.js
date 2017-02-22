@@ -8,6 +8,11 @@ const {props} = Default;
 
 export default {
   props: defaultsDeep(props, {
+    logo: {
+      src: 'https://adidas-fr-staging.coorpacademy.com/assets/css/skin/logos/logo.7d13bba680b.svg',
+      srcMobile: 'https://adidas-fr-staging.coorpacademy.com/assets/css/skin/logos/logo.7d13bba680b.svg',
+      href: '#'
+    },
     slider
   })
 };
