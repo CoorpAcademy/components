@@ -33,6 +33,7 @@
 }
 
 .buy {
+  cursor: pointer;
   background-color: #66BB6A;
 }
 
@@ -41,11 +42,12 @@
 }
 
 .start {
-  background-color: #00B0FF;
+  cursor: pointer;
 }
 
 .start:before {
-  background-color: #0084FB;
+  background-color: #fff;
+  opacity: 0.15;
 }
 
 @media desktop {

@@ -43,13 +43,4 @@
   .wrapper {
     display: flex;
   }
-
-  .colContainer {
-    order: 1;
-    margin-top: 0;
-  }
-
-  .container {
-    order: 0;
-  }
 }

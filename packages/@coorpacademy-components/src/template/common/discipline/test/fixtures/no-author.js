@@ -18,7 +18,7 @@ export default {
     title,
     description,
     video,
-    authors,
+    authors: [],
     changeLevel: () => true,
     level: content,
     levels

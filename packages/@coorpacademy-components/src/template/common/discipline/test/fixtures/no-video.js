@@ -1,25 +1,15 @@
-import take from 'lodash/fp/take';
+import defaultsDeep from 'lodash/fp/defaultsDeep';
 import disciplineHeader from '../../../../../molecule/discipline-header/test/fixtures/no-video';
-import disciplineRightAside from '../../../../../organism/discipline-rightaside/test/fixtures/default';
-import disciplineScope from '../../../../../molecule/discipline-scope/test/fixtures/default';
+import Default from './default';
 
+const {props} = Default;
 const {title, description, image} = disciplineHeader.props;
-const {authors} = disciplineRightAside.props;
-const {content, levels} = disciplineScope.props;
-
-/* eslint-disable max-len */
 
 export default {
-  props: {
-    selected: 2,
+  props: defaultsDeep(props, {
     title,
     description,
     image,
-    start: () => console.log('start'), // eslint-disable-line no-console
-    buy: () => console.log('buy'), // eslint-disable-line no-console
-    authors,
-    changeLevel: () => true,
-    level: content,
-    levels
-  }
+    video: null
+  })
 };
