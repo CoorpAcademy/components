@@ -6,7 +6,6 @@
 .default {
   box-sizing: border-box;
   width: 100%;
-  max-width: 1125px;
   margin: auto;
   overflow-y: inherit;
   display: flex;
