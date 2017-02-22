@@ -51,6 +51,7 @@ import ModuleBubble from '../src/molecule/module-bubble';
 import ModuleCard from '../src/molecule/module-card';
 import Pagination from '../src/molecule/pagination';
 import ProgressBar from '../src/molecule/progress-bar';
+import Range from '../src/molecule/range';
 import ScopeContent from '../src/molecule/scope-content';
 import ScopeTabs from '../src/molecule/scope-tabs';
 import Search from '../src/molecule/search';
@@ -233,6 +234,7 @@ import PaginationFixtureDefault from '../src/molecule/pagination/test/fixtures/d
 import PaginationFixtureDisabled from '../src/molecule/pagination/test/fixtures/disabled';
 import ProgressBarFixtureDefault from '../src/molecule/progress-bar/test/fixtures/default';
 import ProgressBarFixtureMax from '../src/molecule/progress-bar/test/fixtures/max';
+import RangeFixtureDefault from '../src/molecule/range/test/fixtures/default';
 import ScopeContentFixtureDefault from '../src/molecule/scope-content/test/fixtures/default';
 import ScopeContentFixtureEmpty from '../src/molecule/scope-content/test/fixtures/empty';
 import ScopeContentFixtureMedias from '../src/molecule/scope-content/test/fixtures/medias';
@@ -417,6 +419,7 @@ export const components = {
     ModuleCard,
     Pagination,
     ProgressBar,
+    Range,
     ScopeContent,
     ScopeTabs,
     Search,
@@ -720,6 +723,9 @@ export const fixtures = {
     ProgressBar: {
       Default: ProgressBarFixtureDefault,
       Max: ProgressBarFixtureMax
+    },
+    Range: {
+      Default: RangeFixtureDefault
     },
     ScopeContent: {
       Default: ScopeContentFixtureDefault,
