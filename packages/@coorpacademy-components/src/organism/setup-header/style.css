@@ -18,8 +18,10 @@
 
 .user {
   display: flex;
+  justify-content: flex-start;
   align-items: center;
   margin-right: 10px;
+  flex: 2;
 }
 
 .avatar {
@@ -44,8 +46,10 @@
 }
 
 .logout {
-  flex-shrink: 0;
   margin-left: 10px;
+  flex: 2;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .logout a {
@@ -67,11 +71,12 @@
 }
 
 .logo {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
   height: 45px;
   width: 200px;
   overflow: hidden;
-  flex-shrink: 1;
+  flex: 2;
 }
 
 .logo a {
