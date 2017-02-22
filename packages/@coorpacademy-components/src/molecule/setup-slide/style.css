@@ -23,15 +23,6 @@
   margin: 0;
 }
 
-.title h4 {
-  font-family: 'Open Sans';
-  font-size: 13px;
-  font-weight: 400;
-  font-style: italic;
-  color: #455A64;
-  margin: 5px 0;
-}
-
 .field {
   margin-bottom: 20px;
 }
