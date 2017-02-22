@@ -129,9 +129,8 @@ class MoocHeader extends React.Component {
     const closeLabel = translate('Close');
     const primaryColor = getOr('#00B0FF', 'common.primary', skin);
 
-    if (themes) {
-      const currentTheme = find({selected: true}, themes);
-
+    const currentTheme = find({selected: true}, themes);
+    if (currentTheme) {
       const optionsView = themes.map((theme, index) => {
         theme.primaryColor = primaryColor;
 
