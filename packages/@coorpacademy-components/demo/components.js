@@ -172,6 +172,7 @@ import BrandTabsFixtureUsers from '../src/molecule/brand-tabs/test/fixtures/user
 import BrandUploadBoxFixtureDefault from '../src/molecule/brand-upload-box/test/fixtures/default';
 import BrandUploadBoxFixtureLoading from '../src/molecule/brand-upload-box/test/fixtures/loading';
 import BreadcrumbsFixtureDefault from '../src/molecule/breadcrumbs/test/fixtures/default';
+import CardFixtureAdaptivAndDisabled from '../src/molecule/card/test/fixtures/adaptiv-and-disabled';
 import CardFixtureAdaptiv from '../src/molecule/card/test/fixtures/adaptiv';
 import CardFixtureCatalogue from '../src/molecule/card/test/fixtures/catalogue';
 import CardFixtureDefault from '../src/molecule/card/test/fixtures/default';
@@ -278,6 +279,7 @@ import DisciplineRightasideFixtureDefault from '../src/organism/discipline-right
 import DisciplineRightasideFixtureDiscipline from '../src/organism/discipline-rightaside/test/fixtures/discipline';
 import DisciplineRightasideFixtureDoubleAuthor from '../src/organism/discipline-rightaside/test/fixtures/double-author';
 import DisciplineRightasideFixtureEmpty from '../src/organism/discipline-rightaside/test/fixtures/empty';
+import DisciplineRightasideFixtureNoAuthor from '../src/organism/discipline-rightaside/test/fixtures/no-author';
 import DiscussionFixtureDefault from '../src/organism/discussion/test/fixtures/default';
 import DiscussionFixtureLoadingMore from '../src/organism/discussion/test/fixtures/loading-more';
 import DiscussionFixtureModeration from '../src/organism/discussion/test/fixtures/moderation';
@@ -332,6 +334,7 @@ import DisciplineFixtureDefault from '../src/template/common/discipline/test/fix
 import DisciplineFixtureDoubleAuthor from '../src/template/common/discipline/test/fixtures/double-author';
 import DisciplineFixtureEmpty from '../src/template/common/discipline/test/fixtures/empty';
 import DisciplineFixtureLoading from '../src/template/common/discipline/test/fixtures/loading';
+import DisciplineFixtureNoAuthor from '../src/template/common/discipline/test/fixtures/no-author';
 import DisciplineFixtureNoVideo from '../src/template/common/discipline/test/fixtures/no-video';
 import DisciplineFixtureWithOnclick from '../src/template/common/discipline/test/fixtures/with-onclick';
 
@@ -594,6 +597,7 @@ export const fixtures = {
       Default: BreadcrumbsFixtureDefault
     },
     Card: {
+      AdaptivAndDisabled: CardFixtureAdaptivAndDisabled,
       Adaptiv: CardFixtureAdaptiv,
       Catalogue: CardFixtureCatalogue,
       Default: CardFixtureDefault,
@@ -777,7 +781,8 @@ export const fixtures = {
       Default: DisciplineRightasideFixtureDefault,
       Discipline: DisciplineRightasideFixtureDiscipline,
       DoubleAuthor: DisciplineRightasideFixtureDoubleAuthor,
-      Empty: DisciplineRightasideFixtureEmpty
+      Empty: DisciplineRightasideFixtureEmpty,
+      NoAuthor: DisciplineRightasideFixtureNoAuthor
     },
     Discussion: {
       Default: DiscussionFixtureDefault,
@@ -868,6 +873,7 @@ export const fixtures = {
       DoubleAuthor: DisciplineFixtureDoubleAuthor,
       Empty: DisciplineFixtureEmpty,
       Loading: DisciplineFixtureLoading,
+      NoAuthor: DisciplineFixtureNoAuthor,
       NoVideo: DisciplineFixtureNoVideo,
       WithOnclick: DisciplineFixtureWithOnclick
     }

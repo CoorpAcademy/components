@@ -65,15 +65,14 @@
 .module {
   flex-shrink: 0;
   padding-top: 12px;
-} 
+}
 
 .module span {
   width: 25px;
   height: 25px;
-  line-height: 23px;
+  line-height: 25px;
 }
 
 .module span:last-child {
   font-size: 12px;
-  margin-left: -13px;
 }

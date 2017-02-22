@@ -110,7 +110,8 @@
   .ctaWrapper {
     width: 380px;
     flex-shrink: 1;
-    padding-right: 30px;
+    order: 2;
+    margin-left: 10px;
   }
 
   .colDetails {

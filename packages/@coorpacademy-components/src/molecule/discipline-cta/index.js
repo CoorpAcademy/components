@@ -1,9 +1,12 @@
 import React, {PropTypes} from 'react';
 import identity from 'lodash/fp/identity';
+import getOr from 'lodash/fp/getOr';
 import {hoverFill} from '../../atom/button/hover-fill.css';
 import style from './style.css';
 
 const DisciplineCTA = (props, context) => {
+  const {skin} = context;
+
   const {
     startLabel,
     buyLabel,
@@ -26,10 +29,15 @@ const DisciplineCTA = (props, context) => {
     />
   );
 
+  const startColor = getOr('#f0f', 'common.primary', skin);
+
   const startButton = start && (
     <a
       className={`${style.start} ${hoverFill}`}
       onClick={start}
+      style={{
+        backgroundColor: startColor
+      }}
     >
       {startLearning}
     </a>
@@ -50,6 +58,10 @@ const DisciplineCTA = (props, context) => {
       {buyButton}
     </div>
   );
+};
+
+DisciplineCTA.contextTypes = {
+  skin: React.PropTypes.object
 };
 
 DisciplineCTA.propTypes = {
