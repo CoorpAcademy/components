@@ -5,6 +5,8 @@ const {props} = Default;
 
 export default {
   props: defaultsDeep(props, {
-    view: 'catalog'
+    disabled: true,
+    time: '2h',
+    progress: '0%'
   })
 };

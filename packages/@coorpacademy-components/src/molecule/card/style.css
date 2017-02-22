@@ -3,18 +3,24 @@
 @value desktop from breakpoints;
 @value tablet from breakpoints;
 @value mobile from breakpoints;
+@value light from colors;
 @value grey from colors;
 @value darkGrey from colors;
 @value borderGrey from colors;
 @value blue from colors;
 
+.default[disabled] {
+  pointer-events: none;
+}
+
 .default {
   display: inline-block;
   box-sizing: border-box;
-  margin: 7px 0 7px 15px;
+  margin: 8px;
   width: 260px;
   vertical-align: top;
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+  background: white;
   overflow: hidden;
   height: 260px;
   text-align: left;
@@ -32,6 +38,15 @@
 .imageWrapper:hover .overlay,
 .imageWrapper:hover .cta {
   display: block;
+  cursor: pointer;
+}
+
+.default[disabled] .infoWrapper {
+  pointer-events: auto;
+}
+
+.default[disabled] .imageWrapper {
+  opacity: 0.4;
 }
 
 .imageWrapper {
@@ -39,6 +54,8 @@
   height: 125px;
   width: 100%;
   overflow: hidden;
+  background-position: 50%;
+  background-size: cover;
 }
 
 .imageWrapper a {
@@ -48,17 +65,17 @@
 
 .timer {
   position: absolute;
-  z-index: 3;
   top: 10px;
   right: 10px;
-  width: 50px;
-  height: 20px;
-  padding-left: 10px;
+  padding: 3px 5px;
   background: white;
   border-radius: 100px;
   font-size: 11px;
-  line-height: 20px;
+  font-family: "Open Sans";
   font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   color: darkGrey;
   composes: fa from '../../variables/fontawesome.css';
@@ -66,11 +83,10 @@
 }
 
 .timer:before {
-  position: absolute;
   font-size: 14px;
-  top: 0;
-  left: 5px;
+  font: normal normal normal 14px/1 FontAwesome;
   color: darkGrey;
+  margin-right: 5px;
 }
 
 .certification {
@@ -94,7 +110,6 @@
 
 .adaptiv {
   position: absolute;
-  z-index: 3;
   top: 10px;
   left: 10px;
   width: 25px;
@@ -141,9 +156,6 @@
   top: 0;
   opacity: .8;
   text-align: center;
-  z-index: 2;
-  composes: fa from '../../variables/fontawesome.css';
-  composes: fa-clock-o from '../../variables/fontawesome.css';
 }
 
 .overlay:before {
@@ -186,6 +198,10 @@
   text-transform: uppercase;
 }
 
+.default[disabled] .type {
+  color: grey;
+}
+
 .title {
   margin-top: 5px;
   font-size: 18px;
@@ -200,6 +216,7 @@
 
 .infoWrapper:hover .title {
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .author {
@@ -246,6 +263,7 @@
     flex-direction: row;
     flex-wrap: nowrap;
     position: relative;
+    margin: 4px 0px;
   }
 
   .list .imageWrapper {

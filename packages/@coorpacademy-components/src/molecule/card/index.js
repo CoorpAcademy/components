@@ -1,30 +1,30 @@
 import React, {PropTypes} from 'react';
 import identity from 'lodash/fp/identity';
 import getOr from 'lodash/fp/getOr';
-import Picture from '../../atom/picture';
-import Link from '../../atom/link';
 import style from './style.css';
 
 const getOrBlank = getOr('');
 
 const Card = (props, context) => {
-  const {translate = identity, skin} = context;
+  const {skin} = context;
   const {
     view,
     image,
     time,
     adaptiv,
+    disabled,
     certification,
     type,
     title,
     author,
     cta,
     progress,
-    href,
-    imghref
+    topOnClick,
+    bottomOnClick
   } = props;
 
   const defaultColor = getOr('#00B0FF', 'common.primary', skin);
+  const cardStyle = view === 'dashboard' ? style.grid : style.list;
 
   const calltoaction = cta ? (
     <div className={style.cta}>{cta}</div>
@@ -50,35 +50,42 @@ const Card = (props, context) => {
   ) : null;
 
   return (
-    <div className={view === 'dashboard' ? style.grid : style.list}>
-      <div className={style.default}>
-        <div className={style.imageWrapper}>
-          <Link href={imghref}>
-            {certif}
-            {adaptivIcon}
-            <span className={style.timer}>{time}</span>
+    <div className={cardStyle}>
+      <div
+        className={style.default}
+        disabled={disabled}
+      >
+        <div
+          className={style.imageWrapper}
+          style={{
+            backgroundImage: `url('${image}')`
+          }}
+        >
+          <div onClick={topOnClick}>
             {calltoaction}
             <div className={style.overlay}
               style={{
                 backgroundColor: defaultColor
               }}
             />
-            <Picture src={image} />
-          </Link>
+            {certif}
+            {adaptivIcon}
+            <span className={style.timer}>{time}</span>
+          </div>
         </div>
         {myprogress}
         <div className={style.infoWrapper}>
           <div className={style.type}
             style={{
-              color: defaultColor
+              color: !disabled && defaultColor
             }}
           >
             {type}
           </div>
           <div className={style.title}>
-            <Link href={href}>
+            <div onClick={bottomOnClick}>
               {title}
-            </Link>
+            </div>
           </div>
           <div className={style.author}>
             {author}
@@ -90,14 +97,14 @@ const Card = (props, context) => {
 };
 
 Card.contextTypes = {
-  skin: React.PropTypes.object,
-  translate: React.PropTypes.func
+  skin: React.PropTypes.object
 };
 
 Card.propTypes = {
   view: PropTypes.string,
   image: PropTypes.string,
   time: PropTypes.string,
+  disabled: PropTypes.bool,
   adaptiv: PropTypes.bool,
   certification: PropTypes.bool,
   type: PropTypes.string,
@@ -105,8 +112,8 @@ Card.propTypes = {
   author: PropTypes.string,
   cta: PropTypes.string,
   progress: PropTypes.string,
-  href: PropTypes.string,
-  imghref: PropTypes.string
+  topOnClick: PropTypes.func,
+  bottomOnClick: PropTypes.func
 };
 
 export default Card;
