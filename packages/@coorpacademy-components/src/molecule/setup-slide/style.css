@@ -1,15 +1,46 @@
 .wrapper {
-
+  width: 100%;
+  border: 1px solid #B9B9B9;
 }
 
 .title {
-
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 20px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #F6F6F6;
+  border-bottom: 1px solid #B9B9B9;
 }
 
 .title h3 {
+  font-family: 'Open Sans';
+  font-size: 18px;
+  font-weight: 700;
+  color: #4990E2;
+  margin: 0;
+}
 
+.title h4 {
+  font-family: 'Open Sans';
+  font-size: 13px;
+  font-weight: 400;
+  font-style: italic;
+  color: #455A64;
+  margin: 5px 0;
+}
+
+.field {
+  margin-bottom: 20px;
+}
+
+.field:last-child {
+  margin-bottom: 0;
 }
 
 .container {
-  
+  padding: 40px;
+  background-color: #ffffff;
 }

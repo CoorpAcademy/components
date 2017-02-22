@@ -222,6 +222,7 @@ import ScopeContentFixtureWithOnclick from '../src/molecule/scope-content/test/f
 import ScopeTabsFixtureDefault from '../src/molecule/scope-tabs/test/fixtures/default';
 import ScopeTabsFixtureEmpty from '../src/molecule/scope-tabs/test/fixtures/empty';
 import SearchFixtureDefault from '../src/molecule/search/test/fixtures/default';
+import SetupSlideFixtureDefault from '../src/molecule/setup-slide/test/fixtures/default';
 import SliderFixtureDefault from '../src/molecule/slider/test/fixtures/default';
 import SliderFixtureMultipleSlides from '../src/molecule/slider/test/fixtures/multiple-slides';
 import SsmenuListFixtureCoorpacademy from '../src/molecule/ssmenu-list/test/fixtures/coorpacademy';
@@ -689,6 +690,9 @@ export const fixtures = {
     },
     Search: {
       Default: SearchFixtureDefault
+    },
+    SetupSlide: {
+      Default: SetupSlideFixtureDefault
     },
     Slider: {
       Default: SliderFixtureDefault,
