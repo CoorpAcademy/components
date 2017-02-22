@@ -4,6 +4,7 @@ import Select from '../../atom/select';
 import InputText from '../../atom/input-text';
 import InputCheckbox from '../../atom/input-checkbox';
 import InputSwitch from '../../atom/input-switch';
+import ImageUpload from '../../atom/image-upload';
 import style from './style.css';
 
 const SetupSlide = props => {
@@ -28,6 +29,10 @@ const SetupSlide = props => {
       case 'checkbox':
         return (
           <InputCheckbox {...field} />
+        );
+      case 'image':
+        return (
+          <ImageUpload {...field} />
         );
       default:
         return (
