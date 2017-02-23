@@ -389,7 +389,7 @@ class MoocHeader extends React.Component {
               onClick={this.handleMenuToggle}
             >
               <div className={style.notifWrapper}>
-                <img src={logo.srcMobile} />
+                <img src={logo.srcMobile || logo.src} />
                 {notificationsView}
               </div>
               <div className={this.state.isMenuOpen ? style.caretUp : style.caret} />
