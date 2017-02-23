@@ -34,14 +34,15 @@
 .logoWrapper {
   display: flex;
   height: 100%;
+  flex: 0 1 auto;
 }
 
 .logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
   padding: 10px 0;
   box-sizing: border-box;
+  flex: 0 1 auto;
+  max-width: 200px;
 }
 
 .logoMobile {
@@ -49,8 +50,10 @@
 }
 
 .logo img {
-  max-width: 200px;
-  height: 100%;
+  max-height: 100%;
+  height: auto;
+  width: auto;
+  display: block;
 }
 
 .notifWrapper {
@@ -156,6 +159,7 @@
 .menuWrapper {
   display: flex;
   height: 60px;
+  flex: 0 1 auto;
 }
 
 .pages {
