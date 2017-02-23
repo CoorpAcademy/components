@@ -4,7 +4,7 @@ import style from './style.css';
 
 const getOrBlank = getOr('');
 
-const _Range = (props, context) => {
+const RangeSlider = (props, context) => {
   const {skin} = context;
   const {
     onChange
@@ -15,18 +15,18 @@ const _Range = (props, context) => {
       range
       <div className={style.rail} />
       <div className={style.track} />
-      <div className={style.handle1} />
-      <div className={style.handle2} />
+      <div className={style.handle} />
+      <div className={style.handle} />
     </div>
   );
 };
 
-_Range.contextTypes = {
+RangeSlider.contextTypes = {
   skin: React.PropTypes.object
 };
 
-_Range.propTypes = {
+RangeSlider.propTypes = {
   onChange: PropTypes.func
 };
 
-export default _Range;
+export default RangeSlider;
