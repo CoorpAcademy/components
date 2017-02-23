@@ -1,20 +1,41 @@
 @value colors: "../../variables/colors.css";
 @value blue from colors;
-@value lightGrey from colors;
+@value grey from colors;
+
+@value handleSize: 50px;
 
 .default {
 }
 
 .rail {
+  position: relative;
+  width: 300px;
+  height: 10px;
+  background-color: grey;
 }
 
 .track {
+  position: absolute;
+  width: 100px;
+  height: 10px;
+  background-color: green;
 }
 
 .handle {
-  width: 50px;
-  height: 50px;
+  position: absolute;
+  width: handleSize;
+  height: handleSize;
   border-radius: 50%;
-  background-color:
+  background-color: blue;
+}
+
+.handle1 {
+  composes: handle;
+  background-color: red;
+}
+
+.handle2 {
+  composes: handle;
+  background-color: pink;
 }
 
