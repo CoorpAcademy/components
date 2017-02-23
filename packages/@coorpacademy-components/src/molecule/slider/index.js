@@ -114,7 +114,7 @@ Slider.propTypes = {
   slides: PropTypes.arrayOf(PropTypes.shape({
     cover: PropTypes.string,
     title: PropTypes.string,
-    subtitle: PropTypes.string,
+    surtitle: PropTypes.string,
     cta: PropTypes.shape({
       href: PropTypes.url,
       title: PropTypes.string

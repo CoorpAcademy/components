@@ -8,7 +8,7 @@ const Slide = (props, context) => {
   const {
     cover,
     title,
-    subtitle,
+    surtitle,
     cta,
     light,
     alignment = 'center'
@@ -30,7 +30,7 @@ const Slide = (props, context) => {
           textAlign: alignment
         }}
       >
-        <h2 className={style.subtitle}>{subtitle}</h2>
+        <h2 className={style.surtitle}>{surtitle}</h2>
         <h1 className={style.title}>{title}</h1>
         <Cta {...cta} />
       </div>
@@ -45,7 +45,7 @@ Slide.contextTypes = {
 Slide.propTypes = {
   cover: PropTypes.string,
   title: PropTypes.string,
-  subtitle: PropTypes.string,
+  surtitle: PropTypes.string,
   light: PropTypes.bool,
   cta: PropTypes.object,
   alignment: PropTypes.oneOf(['center', 'left', 'right'])
