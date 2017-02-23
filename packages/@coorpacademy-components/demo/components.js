@@ -2,6 +2,7 @@ import Button from '../src/atom/button';
 import CenteredText from '../src/atom/centered-text';
 import Checkbox from '../src/atom/checkbox';
 import Cta from '../src/atom/cta';
+import Handle from '../src/atom/handle';
 import ImageUpload from '../src/atom/image-upload';
 import InputCheckbox from '../src/atom/input-checkbox';
 import InputColor from '../src/atom/input-color';
@@ -108,6 +109,7 @@ import CtaFixtureDefault from '../src/atom/cta/test/fixtures/default';
 import CtaFixtureLight from '../src/atom/cta/test/fixtures/light';
 import CtaFixtureSecondaryLight from '../src/atom/cta/test/fixtures/secondary-light';
 import CtaFixtureSecondary from '../src/atom/cta/test/fixtures/secondary';
+import HandleFixtureDefault from '../src/atom/handle/test/fixtures/default';
 import ImageUploadFixtureDefault from '../src/atom/image-upload/test/fixtures/default';
 import ImageUploadFixtureImage from '../src/atom/image-upload/test/fixtures/image';
 import InputCheckboxFixtureChecked from '../src/atom/input-checkbox/test/fixtures/checked';
@@ -360,6 +362,7 @@ export const components = {
     CenteredText,
     Checkbox,
     Cta,
+    Handle,
     ImageUpload,
     InputCheckbox,
     InputColor,
@@ -489,6 +492,9 @@ export const fixtures = {
       Light: CtaFixtureLight,
       SecondaryLight: CtaFixtureSecondaryLight,
       Secondary: CtaFixtureSecondary
+    },
+    Handle: {
+      Default: HandleFixtureDefault
     },
     ImageUpload: {
       Default: ImageUploadFixtureDefault,
