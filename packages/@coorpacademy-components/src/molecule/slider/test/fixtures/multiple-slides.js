@@ -9,7 +9,7 @@ export default {
       {...slide,
         cover: 'url("http://www.lorempixel.com/200/200/nature/2")',
         title: 'Hi XXX, check your battle requests,',
-        subtitle: 'You have N battle requests!',
+        surtitle: 'You have N battle requests!',
         light: true,
         cta: {
           href: '#',
@@ -19,7 +19,7 @@ export default {
       {...slide,
         cover: 'url("http://www.lorempixel.com/200/200/nature/3")',
         title: 'Welcome back Jane, continue your course',
-        subtitle: 'The Mobile Revolution',
+        surtitle: 'The Mobile Revolution',
         cta: {
           href: '#',
           title: 'Continue Learning'

@@ -27,7 +27,7 @@
   color: #ffffff;
 }
 
-.subtitle {
+.surtitle {
   font-family: 'Open Sans';
   font-weight: 300;
   font-size: 30px;
@@ -48,7 +48,7 @@
 
 @media tablet {
 
-  .subtitle {
+  .surtitle {
     font-size: 15px;
   }
 
@@ -63,7 +63,7 @@
     padding: 0 20px 0;
   }
 
-  .subtitle {
+  .surtitle {
     display: none;
   }
 }
