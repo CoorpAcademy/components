@@ -130,7 +130,7 @@ class MoocHeader extends React.Component {
     const primaryColor = getOr('#00B0FF', 'common.primary', skin);
 
     const currentTheme = find({selected: true}, themes);
-    if (currentTheme) {
+    if (currentTheme && themes.length > 1) {
       const optionsView = themes.map((theme, index) => {
         theme.primaryColor = primaryColor;
 
