@@ -1,0 +1,126 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value desktop from breakpoints;
+@value mobile from breakpoints;
+@value tablet from breakpoints;
+@value colors: "../../variables/colors.css";
+@value light from colors;
+@value darkGrey from colors;
+
+.default {
+  display: flex;
+  padding: 25px 0;
+  width: 100%;
+  background: light;
+  justify-content: center;
+}
+
+.wrapperFilters {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  height: 135px;
+  padding: 0 4%;
+  align-items: center;
+  justify-content: center;
+}
+.title {
+  display: none;
+  position: relative;
+  composes: fa from '../../variables/fontawesome.css';
+  composes: fa-chevron-down from '../../variables/fontawesome.css';
+}
+.title:before {
+  display: none;
+  position: absolute;
+  font-size: 14px;
+  right: 35%;
+  color: darkGrey;
+}
+
+.toggle {
+  flex-grow: 2;
+  min-width: 230px;
+  height: 10px;
+  background: red;
+}
+
+.wrapperSortBy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: #fbfafb;
+}
+
+.sorting {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  padding: 32px 0;
+  text-align: center;
+}
+.sorting .title {
+  display: block;
+  font-size: 14px;
+  font-weight: 300;
+  color: darkGrey;
+}
+.sorting .mainTitle {
+  display: flex;
+  width: 30%;
+  font-size: 20px;
+  font-weight: 700;
+  color: darkGrey;
+  justify-content: flex-start;
+}
+
+.select {
+  display: flex;
+  width: 80%;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+@media desktop {}
+
+@media tablet {}
+
+@media mobile {
+.default,
+.wrapperSortBy {
+  display: inline-block;
+  width: 49.5%;
+  height: 50px;
+  padding: 0;
+  background: #D2D2D2;
+}
+
+.default {
+  border-right: solid 1px #fbfafb;
+}
+
+.wrapperSortBy {
+  border-left: solid 1px #fbfafb;
+}
+
+.title {
+  display: block;
+  color: darkGrey;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 50px;
+  text-align: center;
+}
+.title:before {
+  display: block;
+  right: 25%;
+}
+
+.wrapperFilters,
+.sorting {
+  display: none;
+}
+
+}
