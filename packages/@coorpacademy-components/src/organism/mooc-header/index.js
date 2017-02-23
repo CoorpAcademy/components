@@ -394,11 +394,14 @@ class MoocHeader extends React.Component {
               </div>
               <div className={this.state.isMenuOpen ? style.caretUp : style.caret} />
             </div>
-            <Link className={style.logo}
-              href={logo.href}
-            >
-              <img src={logo.src} />
-            </Link>
+            <div className={style.logo}>
+              <Link
+                className={style.logoLink}
+                href={logo.href}
+              >
+                <img src={logo.src} />
+              </Link>
+            </div>
             {themesView}
           </div>
           <div className={style.menuWrapper}>

@@ -39,10 +39,15 @@
 
 .logo {
   display: block;
-  padding: 10px 0;
-  box-sizing: border-box;
   flex: 0 1 auto;
   max-width: 200px;
+}
+
+.logoLink {
+  display: block;
+  height: 100%;
+  padding: 10px 0;
+  box-sizing: border-box;
 }
 
 .logoMobile {
