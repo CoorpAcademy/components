@@ -1,0 +1,20 @@
+@value colors: "../../variables/colors.css";
+@value blue from colors;
+@value lightGrey from colors;
+
+.default {
+}
+
+.rail {
+}
+
+.track {
+}
+
+.handle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color:
+}
+
