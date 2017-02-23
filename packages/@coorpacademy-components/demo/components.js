@@ -40,6 +40,7 @@ import DisciplineCard from '../src/molecule/discipline-card';
 import DisciplineCta from '../src/molecule/discipline-cta';
 import DisciplineHeader from '../src/molecule/discipline-header';
 import DisciplineScope from '../src/molecule/discipline-scope';
+import Filters from '../src/molecule/filters';
 import MenuList from '../src/molecule/menu-list';
 import ModuleBubble from '../src/molecule/module-bubble';
 import ModuleCard from '../src/molecule/module-card';
@@ -138,6 +139,7 @@ import SelectFixtureDisabled from '../src/atom/select/test/fixtures/disabled';
 import SelectFixtureMooc from '../src/atom/select/test/fixtures/mooc';
 import SelectFixtureMultipleSelected from '../src/atom/select/test/fixtures/multiple-selected';
 import SelectFixtureMultiple from '../src/atom/select/test/fixtures/multiple';
+import SelectFixtureNolabel from '../src/atom/select/test/fixtures/nolabel';
 import SelectFixtureRequired from '../src/atom/select/test/fixtures/required';
 import SelectFixtureThematique from '../src/atom/select/test/fixtures/thematique';
 import SlideFixtureDefault from '../src/atom/slide/test/fixtures/default';
@@ -197,6 +199,7 @@ import DisciplineScopeFixtureDefault from '../src/molecule/discipline-scope/test
 import DisciplineScopeFixtureEmpty from '../src/molecule/discipline-scope/test/fixtures/empty';
 import DisciplineScopeFixtureVideos from '../src/molecule/discipline-scope/test/fixtures/videos';
 import DisciplineScopeFixtureWithOnclick from '../src/molecule/discipline-scope/test/fixtures/with-onclick';
+import FiltersFixtureDefault from '../src/molecule/filters/test/fixtures/default';
 import MenuListFixtureDefault from '../src/molecule/menu-list/test/fixtures/default';
 import ModuleBubbleFixtureDefault from '../src/molecule/module-bubble/test/fixtures/default';
 import ModuleBubbleFixtureDisabled from '../src/molecule/module-bubble/test/fixtures/disabled';
@@ -377,6 +380,7 @@ export const components = {
     DisciplineCta,
     DisciplineHeader,
     DisciplineScope,
+    Filters,
     MenuList,
     ModuleBubble,
     ModuleCard,
@@ -524,6 +528,7 @@ export const fixtures = {
       Mooc: SelectFixtureMooc,
       MultipleSelected: SelectFixtureMultipleSelected,
       Multiple: SelectFixtureMultiple,
+      Nolabel: SelectFixtureNolabel,
       Required: SelectFixtureRequired,
       Thematique: SelectFixtureThematique
     },
@@ -633,6 +638,9 @@ export const fixtures = {
       Empty: DisciplineScopeFixtureEmpty,
       Videos: DisciplineScopeFixtureVideos,
       WithOnclick: DisciplineScopeFixtureWithOnclick
+    },
+    Filters: {
+      Default: FiltersFixtureDefault
     },
     MenuList: {
       Default: MenuListFixtureDefault

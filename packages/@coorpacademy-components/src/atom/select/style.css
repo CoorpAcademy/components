@@ -41,12 +41,14 @@
   appearance: none;
 }
 
-.thematiques {
+.thematiques,
+.nolabel {
   composes: default;
   position: relative;
 }
 
-.thematiques label {
+.thematiques label,
+.nolabel label {
   display: flex;
   align-items: center;
   height: 37px;
@@ -55,7 +57,8 @@
   margin-right: 20px;
 }
 
-.thematiques .title {
+.thematiques .title,
+.nolabel .title {
   display: none;
 }
 
@@ -72,7 +75,8 @@
   composes: fa-angle-down from '../../variables/fontawesome.css';
 }
 
-.thematiques select {
+.thematiques select,
+.nolabel select {
   font-family: "Open Sans";
   text-transform: none;
   padding: 0 15px;
@@ -85,6 +89,10 @@
   margin-left: 20px;
   width: 230px;
   background: #e0e0e0;
+}
+
+.nolabel select {
+  background: white;
 }
 
 .mooc {

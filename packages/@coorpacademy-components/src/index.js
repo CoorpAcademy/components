@@ -37,6 +37,7 @@ export DisciplineHeader from './molecule/discipline-header';
 export DisciplineRightaside from './organism/discipline-rightaside';
 export DisciplineScope from './molecule/discipline-scope';
 export Discussion from './organism/discussion';
+export Filters from './molecule/filters';
 export ForumComment from './molecule/forum/forum-comment';
 export ForumPost from './molecule/forum/forum-post';
 export ForumThread from './molecule/forum/forum-thread';
