@@ -21,7 +21,8 @@ const Slide = (props, context) => {
   return (
     <div className={style.hero}
       style={{
-        backgroundImage: imgCover
+        background: `${imgCover} no-repeat center center fixed`,
+        backgroundSize: 'cover'
       }}
     >
       <div className={light ? style.light : style.content}

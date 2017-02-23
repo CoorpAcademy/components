@@ -114,7 +114,7 @@ class MoocHeader extends React.Component {
   }
 
   render() {
-    const {logo, themes, pages, settings, user, slider, links} = this.props;
+    const {logo = {}, themes, pages, settings, user, slider, links} = this.props;
     const {translate = identity, skin} = this.context;
 
     let themesView = null;
@@ -129,9 +129,8 @@ class MoocHeader extends React.Component {
     const closeLabel = translate('Close');
     const primaryColor = getOr('#00B0FF', 'common.primary', skin);
 
-    if (themes) {
-      const currentTheme = find({selected: true}, themes);
-
+    const currentTheme = find({selected: true}, themes);
+    if (currentTheme && themes.length > 1) {
       const optionsView = themes.map((theme, index) => {
         theme.primaryColor = primaryColor;
 
@@ -446,6 +445,7 @@ MoocHeader.contextTypes = {
 
 MoocHeader.propTypes = {
   logo: PropTypes.shape({
+    srcMobile: PropTypes.string,
     src: PropTypes.string,
     href: PropTypes.string
   }),

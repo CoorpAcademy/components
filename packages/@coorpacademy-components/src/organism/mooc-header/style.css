@@ -39,6 +39,9 @@
 .logo {
   display: flex;
   align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+  box-sizing: border-box;
 }
 
 .logoMobile {
@@ -46,7 +49,8 @@
 }
 
 .logo img {
-  width: 200px;
+  max-width: 200px;
+  height: 100%;
 }
 
 .notifWrapper {
@@ -137,10 +141,12 @@
   font-family: 'Open Sans';
   line-height: 40px;
   font-weight: 600;
-  display: flex;
   align-items: center;
   text-decoration: none;
   cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .option:hover {
@@ -496,6 +502,7 @@
 
   .homeMenu {
     display: block;
+    flex-shrink: 0;
   }
 
   .homeLink {
