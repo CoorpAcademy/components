@@ -19,25 +19,25 @@ const coordinate = ({start, delta, min, max}) => {
   return result;
 };
 
-/*
-  x,
-  y,
-  axis: x|y default:both
-  minX,
-  maxX,
-  minY,
-  maxY,
-  onDrag
- */
 class Handle extends React.Component {
   constructor(props, context) {
     super(props, context);
 
+    const {
+      x,
+      y,
+      axis = 'both',
+      minX,
+      maxX,
+      minY,
+      maxY,
+      onDrag
+    } = props;
+
     this.state = {
-      ...this.props,
+      ...props,
       panStartX: 0,
-      panStartY: 0,
-      axis: props.axis || 'both'
+      panStartY: 0
     };
 
     this.handlePanStart = this.handlePanStart.bind(this);
@@ -83,12 +83,16 @@ class Handle extends React.Component {
     return this.state.axis === 'y' || this.state.axis === 'both';
   }
 
+  parentWidth() {
+    return findDOMNode(this).parentElement.clientWidth;
+  }
+
   extractXFromEvent(e) {
     return coordinate({
       start: this.state.panStartX,
       delta: this.onX() ? e.deltaX : 0,
       min: this.state.minX,
-      max: this.state.maxX
+      max: this.state.maxX || this.parentWidth()
     });
   }
 
@@ -97,7 +101,7 @@ class Handle extends React.Component {
       start: this.state.panStartY,
       delta: this.onY() ? e.deltaY : 0,
       min: this.state.minY,
-      max: this.state.maxY
+      max: this.state.maxY || this.parentWidth()
     });
   }
 
@@ -139,7 +143,14 @@ class Handle extends React.Component {
 }
 
 Handle.propTypes = {
-  onChange: PropTypes.func
+  x: PropTypes.number,
+  y: PropTypes.number,
+  axis: PropTypes.oneOf(['x', 'y', 'both']),
+  minX: PropTypes.number,
+  maxX: PropTypes.number,
+  minY: PropTypes.number,
+  maxY: PropTypes.number,
+  onDrag: PropTypes.func
 };
 
 export default Handle;

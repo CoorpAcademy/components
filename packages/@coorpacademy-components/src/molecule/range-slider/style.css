@@ -7,14 +7,13 @@
 
 .default {
   position: relative;
-  top: 100px;
-  left: 100px;
+  padding: 100px;
 }
 
 .rail {
-  position: absolute;
-  width: 300px;
+  position: relative;
   height: 10px;
+  width: 100%;
   background-color: grey;
 }
 
