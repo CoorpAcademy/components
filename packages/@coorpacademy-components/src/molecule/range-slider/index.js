@@ -12,12 +12,21 @@ class RangeSlider extends React.Component {
     super(props, context);
 
     this.state = {
-      x1: 0,
-      x2: 100
+      ...props
     };
 
     this.handleDrag1 = this.handleDrag1.bind(this);
     this.handleDrag2 = this.handleDrag2.bind(this);
+  }
+
+  componentDidMount() {
+    if (!this.state.x1 || this.state.x2) {
+      // eslint-disable-next-line react/no-did-mount-set-state
+      this.setState({
+        x1: this.state.x1 || 0,
+        x2: this.state.x2 || findDOMNode(this._rail).clientWidth
+      });
+    }
   }
 
   shouldComponentUpdate(nextProps, nextState, nextContext) {
@@ -44,7 +53,10 @@ class RangeSlider extends React.Component {
 
     return (
       <div className={style.default}>
-        <div className={style.rail}>
+        <div
+          className={style.rail} // eslint-disable-next-line no-return-assign
+          ref={div => this._rail = div} // eslint-disable-line react/jsx-no-bind
+        >
           <div
             className={style.track}
             style={{
@@ -64,7 +76,6 @@ class RangeSlider extends React.Component {
             className={style.handle2}
             axis={'x'}
             minX={x1}
-            maxX={300}
             x={x2}
             onDrag={this.handleDrag2}
           />
