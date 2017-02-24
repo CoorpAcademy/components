@@ -2,6 +2,7 @@ import React, {PropTypes} from 'react';
 import {findDOMNode} from 'react-dom';
 import getOr from 'lodash/fp/getOr';
 import shallowCompare from '../../util/shallow-compare';
+import Handle from '../../atom/handle';
 import style from './style.css';
 
 const getOrBlank = getOr('');
@@ -24,9 +25,8 @@ class RangeSlider extends React.Component {
       x1: 0,
       x2: 100
     };
-
-    this.handleDrag1 = this.handleDrag1.bind(this);
-    this.handleDrag2 = this.handleDrag2.bind(this);
+    // this.handleDrag1 = this.handleDrag1.bind(this);
+    // this.handleDrag2 = this.handleDrag2.bind(this);
   }
 
   shouldComponentUpdate(nextProps, nextState, nextContext) {
@@ -43,7 +43,7 @@ class RangeSlider extends React.Component {
     });
   }
 
-  handleDrag2(e, coreData) {
+  handleDrag(e, coreData) {
     console.log('drag2', {e, coreData});
   }
 
@@ -59,19 +59,11 @@ class RangeSlider extends React.Component {
           <div
             className={style.track}
           />
-          <div
-            className={style.handle1}
-            onDrag={this.handleDrag1}
-            style={{
-              left: `${x1}px`
-            }}
+          <Handle
+            x={x1}
           />
-          <div
-            className={style.handle2}
-            onDragStart={this.handleDrag2}
-            style={{
-              left: `${x2}px`
-            }}
+          <Handle
+            x={x2}
           />
         </div>
       </div>
