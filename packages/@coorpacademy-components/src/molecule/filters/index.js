@@ -33,7 +33,7 @@ function Filters(props) {
 }
 
 Filters.propTypes = {
-  select: PropTypes.string
+  select: PropTypes.object
 };
 
 export default Filters;
