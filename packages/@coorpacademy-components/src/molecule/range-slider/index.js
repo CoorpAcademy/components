@@ -7,16 +7,6 @@ import style from './style.css';
 
 const getOrBlank = getOr('');
 
-const offsetXYFromParent = ({clientX, clientY}, offsetParent) => {
-  const isBody = offsetParent === offsetParent.ownerDocument.body;
-  const offsetParentRect = isBody ? {left: 0, top: 0} : offsetParent.getBoundingClientRect();
-
-  const x = clientX + offsetParent.scrollLeft - offsetParentRect.left;
-  const y = clientY + offsetParent.scrollTop - offsetParentRect.top;
-
-  return {x, y};
-};
-
 class RangeSlider extends React.Component {
   constructor(props, context) {
     super(props, context);
@@ -25,26 +15,25 @@ class RangeSlider extends React.Component {
       x1: 0,
       x2: 100
     };
-    // this.handleDrag1 = this.handleDrag1.bind(this);
-    // this.handleDrag2 = this.handleDrag2.bind(this);
+
+    this.handleDrag1 = this.handleDrag1.bind(this);
+    this.handleDrag2 = this.handleDrag2.bind(this);
   }
 
   shouldComponentUpdate(nextProps, nextState, nextContext) {
     return shallowCompare(this, nextProps, nextState, nextContext);
   }
 
-  handleDrag1(e, coreData) {
-    const node = findDOMNode(this);
-    const offsetParent = this.props.offsetParent || node.offsetParent || node.ownerDocument.body;
-    const {x, y} = offsetXYFromParent(e, offsetParent);
-
+  handleDrag1(coordinates) {
     this.setState({
-      x1: x
+      x1: coordinates.x
     });
   }
 
-  handleDrag(e, coreData) {
-    console.log('drag2', {e, coreData});
+  handleDrag2(coordinates) {
+    this.setState({
+      x2: coordinates.x
+    });
   }
 
   render() {
@@ -58,12 +47,26 @@ class RangeSlider extends React.Component {
         <div className={style.rail}>
           <div
             className={style.track}
+            style={{
+              left: `${x1}px`,
+              width: `${x2 - x1}px`
+            }}
           />
           <Handle
+            className={style.handle1}
+            axis={'x'}
+            minX={0}
+            maxX={x2}
             x={x1}
+            onDrag={this.handleDrag1}
           />
           <Handle
+            className={style.handle2}
+            axis={'x'}
+            minX={x1}
+            maxX={300}
             x={x2}
+            onDrag={this.handleDrag2}
           />
         </div>
       </div>

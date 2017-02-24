@@ -2,13 +2,17 @@
 @value blue from colors;
 @value grey from colors;
 
-@value handleSize: 50px;
+@value handleSize: 30px;
+@value handlePosition: translate3d(-15px, -11px, 0);
 
 .default {
+  position: relative;
+  top: 100px;
+  left: 100px;
 }
 
 .rail {
-  position: relative;
+  position: absolute;
   width: 300px;
   height: 10px;
   background-color: grey;
@@ -16,7 +20,6 @@
 
 .track {
   position: absolute;
-  width: 100px;
   height: 10px;
   background-color: green;
 }
@@ -26,12 +29,13 @@
   width: handleSize;
   height: handleSize;
   border-radius: 50%;
-  background-color: blue;
+  opacity: 0.8;
+  transform: handlePosition;
 }
 
 .handle1 {
   composes: handle;
-  background-color: red;
+  background-color: green;
 }
 
 .handle2 {
