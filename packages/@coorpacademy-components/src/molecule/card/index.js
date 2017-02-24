@@ -53,6 +53,9 @@ const Card = (props, context) => {
     <div className={style.lock} />
   ) : null;
 
+  // const timer = <span className={style.timer}>{time}</span>;
+  const timer = null;
+
   return (
     <div className={cardStyle}>
       <div
@@ -74,7 +77,7 @@ const Card = (props, context) => {
             />
             {certif}
             {adaptivIcon}
-            <span className={style.timer}>{time}</span>
+            {timer}
           </div>
           {lock}
         </div>
