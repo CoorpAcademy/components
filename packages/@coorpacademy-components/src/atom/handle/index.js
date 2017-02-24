@@ -10,8 +10,8 @@ class Handle extends React.Component {
     super(props, context);
 
     this.state = {
-      x: 0,
-      y: 0,
+      ...props,
+      axis: props.axis || 'both',
       panStartX: 0,
       panStartY: 0
     };
@@ -24,7 +24,14 @@ class Handle extends React.Component {
     if (Hammer) {
       this.hammer = new Hammer(findDOMNode(this));
       this.hammer.on('panstart', this.handlePanStart);
-      this.hammer.on('panleft panright panup pandown', this.handlePan);
+
+      if(this.props.axis === 'x' || this.props.axis === 'both'){
+        this.hammer.on('panleft panright', this.handlePan);
+      }
+
+      if(this.props.axis === 'y' || this.props.axis === 'both'){
+        this.hammer.on('panup pandown', this.handlePan);
+      }
     }
   }
 
