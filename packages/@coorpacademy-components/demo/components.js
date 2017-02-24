@@ -109,6 +109,8 @@ import CtaFixtureDefault from '../src/atom/cta/test/fixtures/default';
 import CtaFixtureLight from '../src/atom/cta/test/fixtures/light';
 import CtaFixtureSecondaryLight from '../src/atom/cta/test/fixtures/secondary-light';
 import CtaFixtureSecondary from '../src/atom/cta/test/fixtures/secondary';
+import HandleFixtureAxisX from '../src/atom/handle/test/fixtures/axis-x';
+import HandleFixtureAxisY from '../src/atom/handle/test/fixtures/axis-y';
 import HandleFixtureDefault from '../src/atom/handle/test/fixtures/default';
 import ImageUploadFixtureDefault from '../src/atom/image-upload/test/fixtures/default';
 import ImageUploadFixtureImage from '../src/atom/image-upload/test/fixtures/image';
@@ -494,6 +496,8 @@ export const fixtures = {
       Secondary: CtaFixtureSecondary
     },
     Handle: {
+      AxisX: HandleFixtureAxisX,
+      AxisY: HandleFixtureAxisY,
       Default: HandleFixtureDefault
     },
     ImageUpload: {
