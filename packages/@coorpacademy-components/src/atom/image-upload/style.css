@@ -18,7 +18,6 @@
 
 .previewWrapper {
   width: 100%;
-  min-height: 100px;
   box-sizing: border-box;
   border: 1px dashed lightGrey;
   margin-bottom: 10px;
@@ -32,6 +31,20 @@
   color: #455A64;
   font-size: 15px;
   font-weight: 700;
+  line-height: 100px;
+}
+
+.image {
+  padding: 10px;
+  min-height: 100px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+
+.image img {
+  width: 100%;
+  height: auto;
 }
 
 .inputWrapper {
