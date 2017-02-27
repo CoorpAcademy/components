@@ -59,6 +59,7 @@ class Handle extends React.Component {
           className: this.props.className
         })}
         style={{
+          ...this.props.style,
           left: `${x}px`,
           top: `${y}px`
         }}
@@ -75,6 +76,7 @@ Handle.propTypes = {
   x: PropTypes.number,
   y: PropTypes.number,
   axis: PropTypes.oneOf(['x', 'y', 'both']),
+  style: PropTypes.object,
   handlePan: PropTypes.func,
   handlePanStart: PropTypes.func,
   handlePanEnd: PropTypes.func
