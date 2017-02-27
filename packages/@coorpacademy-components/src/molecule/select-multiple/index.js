@@ -4,6 +4,7 @@ import getOr from 'lodash/fp/getOr';
 import identity from 'lodash/fp/identity';
 import filter from 'lodash/fp/filter';
 import find from 'lodash/fp/find';
+import map from 'lodash/fp/map';
 import TitledCheckbox from '../titled-checkbox';
 import style from './style.css';
 
@@ -27,7 +28,7 @@ class SelectMultiple extends React.Component {
       onToggle
     } = this.props;
 
-    const lines = choices.map((choice, i) => {
+    const lines = map.convert({cap: false})((choice, i) => {
       return (
         <li
           className={style.line}
@@ -39,7 +40,7 @@ class SelectMultiple extends React.Component {
           />
         </li>
       );
-    });
+    }, choices);
 
     const isActive = this.state.opened === true;
 
