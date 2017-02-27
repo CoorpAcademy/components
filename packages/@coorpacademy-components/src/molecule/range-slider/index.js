@@ -28,9 +28,8 @@ class RangeSlider extends React.Component {
       ...props
     };
 
-    this.handlePan = this.handlePan.bind(this);
+    this.setX = this.setX.bind(this);
     this.handlePanStart = this.handlePanStart.bind(this);
-    this.handlePanEnd = this.handlePanEnd.bind(this);
   }
 
   componentDidMount() {
@@ -58,21 +57,24 @@ class RangeSlider extends React.Component {
     });
   }
 
-  handlePan(handle, snap) {
+  setX(handle, snap) {
     return e => {
       const _x = this.extractXFromEvent(handle, e);
       const x = snap ? this.snap(_x) : _x;
-      const boundary = handle === 'x1' ? 'minx2' : 'maxx1';
 
       this.setState({
-        [handle]: x,
-        [boundary]: x
+        [handle]: x
+      });
+
+      this.setState({
+        maxx1: this.state.x2,
+        minx2: this.state.x1
+      });
+
+      this.setState({
+        isMax: this.state.x1 === this.railWidth()
       });
     };
-  }
-
-  handlePanEnd(handle) {
-    return this.handlePan(handle, true);
   }
 
   extractXFromEvent(handle, e) {
@@ -93,14 +95,17 @@ class RangeSlider extends React.Component {
       return x;
 
     const width = this.railWidth();
-    const gap = width / (this.props.steps.length - 1);
-    const result = Math.floor(x / gap) * gap;
+    const step = width / (this.props.steps.length - 1);
+    const min = Math.floor(x / step) * step;
+    const max = Math.ceil(x / step) * step;
 
-    return result;
+    const closest = x - min < max - x ? min : max;
+    return closest;
   }
 
   render() {
     const {
+      isMax,
       x1,
       x2
     } = this.state;
@@ -120,19 +125,22 @@ class RangeSlider extends React.Component {
           />
           <Handle
             className={style.handle1}
+            style={{
+              zIndex: isMax ? '1' : '0'
+            }}
             axis={'x'}
             x={x1}
-            handlePan={this.handlePan('x1')}
+            handlePan={this.setX('x1')}
             handlePanStart={this.handlePanStart('x1')}
-            handlePanEnd={this.handlePanEnd('x1')}
+            handlePanEnd={this.setX('x1', true)}
           />
           <Handle
             className={style.handle2}
             axis={'x'}
             x={x2}
-            handlePan={this.handlePan('x2')}
+            handlePan={this.setX('x2')}
             handlePanStart={this.handlePanStart('x2')}
-            handlePanEnd={this.handlePanEnd('x2')}
+            handlePanEnd={this.setX('x2', true)}
           />
         </div>
       </div>
