@@ -1,0 +1,7 @@
+.slide {
+  margin-bottom: 40px;
+}
+
+.slide:last-child {
+  margin-bottom: 0;
+}
