@@ -31,9 +31,11 @@ class Link extends React.Component {
     }));
   }
 
-  handleOnClick() {
-    pushToHistory(this.context);
-    this.props.onClick && this.props.onClick();
+  handleOnClick(e) {
+    this.props.onClick && this.props.onClick(e);
+
+    const onClick = pushToHistory(this.context)(this.props);
+    onClick(e);
   }
 
   render() {
