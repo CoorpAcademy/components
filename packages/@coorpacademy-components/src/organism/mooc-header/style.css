@@ -505,9 +505,7 @@
 
   .logoMobile img {
     width: auto;
-    height: auto;
-    max-height: 100%;
-    max-width: 100px;
+    height: 100%;
   }
 
   .notifWrapper {

@@ -289,22 +289,10 @@ import HeaderFixtureDefault from '../src/organism/header/test/fixtures/default';
 import HeroFixtureDefault from '../src/organism/hero/test/fixtures/default';
 import HeroFixtureNoTouch from '../src/organism/hero/test/fixtures/no-touch';
 import HeroFixtureTouch from '../src/organism/hero/test/fixtures/touch';
-import MoocHeaderFixtureAdeo from '../src/organism/mooc-header/test/fixtures/adeo';
-import MoocHeaderFixtureAuchan from '../src/organism/mooc-header/test/fixtures/auchan';
-import MoocHeaderFixtureCapgemini from '../src/organism/mooc-header/test/fixtures/capgemini';
-import MoocHeaderFixtureCciloire from '../src/organism/mooc-header/test/fixtures/cciloire';
-import MoocHeaderFixtureCrisis from '../src/organism/mooc-header/test/fixtures/crisis';
 import MoocHeaderFixtureDefault from '../src/organism/mooc-header/test/fixtures/default';
-import MoocHeaderFixtureIlearn from '../src/organism/mooc-header/test/fixtures/ilearn';
-import MoocHeaderFixtureLeclerc from '../src/organism/mooc-header/test/fixtures/leclerc';
 import MoocHeaderFixtureLogged from '../src/organism/mooc-header/test/fixtures/logged';
-import MoocHeaderFixtureManpower from '../src/organism/mooc-header/test/fixtures/manpower';
-import MoocHeaderFixtureRedoute from '../src/organism/mooc-header/test/fixtures/redoute';
-import MoocHeaderFixtureSchneider from '../src/organism/mooc-header/test/fixtures/schneider';
-import MoocHeaderFixtureSg from '../src/organism/mooc-header/test/fixtures/sg';
 import MoocHeaderFixtureSliderMultiple from '../src/organism/mooc-header/test/fixtures/slider-multiple';
 import MoocHeaderFixtureSlider from '../src/organism/mooc-header/test/fixtures/slider';
-import MoocHeaderFixtureYahoo from '../src/organism/mooc-header/test/fixtures/yahoo';
 import SetupHeaderFixtureDefault from '../src/organism/setup-header/test/fixtures/default';
 import AuthorFixtureDefault from '../src/template/app-catalog/author/test/fixtures/default';
 import AuthorFixtureLoading from '../src/template/app-catalog/author/test/fixtures/loading';
@@ -814,22 +802,10 @@ export const fixtures = {
       Touch: HeroFixtureTouch
     },
     MoocHeader: {
-      Adeo: MoocHeaderFixtureAdeo,
-      Auchan: MoocHeaderFixtureAuchan,
-      Capgemini: MoocHeaderFixtureCapgemini,
-      Cciloire: MoocHeaderFixtureCciloire,
-      Crisis: MoocHeaderFixtureCrisis,
       Default: MoocHeaderFixtureDefault,
-      Ilearn: MoocHeaderFixtureIlearn,
-      Leclerc: MoocHeaderFixtureLeclerc,
       Logged: MoocHeaderFixtureLogged,
-      Manpower: MoocHeaderFixtureManpower,
-      Redoute: MoocHeaderFixtureRedoute,
-      Schneider: MoocHeaderFixtureSchneider,
-      Sg: MoocHeaderFixtureSg,
       SliderMultiple: MoocHeaderFixtureSliderMultiple,
-      Slider: MoocHeaderFixtureSlider,
-      Yahoo: MoocHeaderFixtureYahoo
+      Slider: MoocHeaderFixtureSlider
     },
     SetupHeader: {
       Default: SetupHeaderFixtureDefault
