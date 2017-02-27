@@ -1,0 +1,65 @@
+.default {
+    position: relative;
+}
+
+.select {
+    display: block;
+    width: 251px;
+    height: 49px;
+    padding:0 25px;
+    background: white;
+    line-height: 50px;
+    color: #2E2E2E;
+    font-size: 14px;
+    composes: fa from '../../variables/fontawesome.css';
+    composes: fa-chevron-down from '../../variables/fontawesome.css';
+    position: relative;
+}
+.select:before {
+    display: block;
+    position: absolute;
+    font-size: 14px;
+    right: 3%;
+    color: #2E2E2E;
+}
+
+.choices {
+    display: none;
+}
+
+.activeChoices {
+    display: block;
+    width: 291px;
+    height: auto;
+    padding: 15px;
+    background: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    composes: fa from '../../variables/fontawesome.css';
+    composes: fa-times from '../../variables/fontawesome.css';
+}
+
+.activeChoices:before {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: #2E2E2E;
+}
+
+.close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+} 
+
+.activeChoices li {
+    list-style: none;
+    margin: 15px 0;
+    padding: 0;
+}
+
+.list {}

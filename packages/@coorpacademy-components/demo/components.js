@@ -52,6 +52,7 @@ import ScopeTabs from '../src/molecule/scope-tabs';
 import Search from '../src/molecule/search';
 import SetupSlide from '../src/molecule/setup-slide';
 import SetupSlider from '../src/molecule/setup-slider';
+import SelectMultiple from '../src/molecule/select-multiple';
 import Slider from '../src/molecule/slider';
 import SsmenuList from '../src/molecule/ssmenu-list';
 import StarRating from '../src/molecule/star-rating';
@@ -224,8 +225,13 @@ import ScopeContentFixtureWithOnclick from '../src/molecule/scope-content/test/f
 import ScopeTabsFixtureDefault from '../src/molecule/scope-tabs/test/fixtures/default';
 import ScopeTabsFixtureEmpty from '../src/molecule/scope-tabs/test/fixtures/empty';
 import SearchFixtureDefault from '../src/molecule/search/test/fixtures/default';
+<<<<<<< HEAD
 import SetupSlideFixtureDefault from '../src/molecule/setup-slide/test/fixtures/default';
 import SetupSliderFixtureDefault from '../src/molecule/setup-slider/test/fixtures/default';
+=======
+import SelectMultipleFixtureChecked from '../src/molecule/select-multiple/test/fixtures/checked';
+import SelectMultipleFixtureDefault from '../src/molecule/select-multiple/test/fixtures/default';
+>>>>>>> ftr: dropdown thematique
 import SliderFixtureDefault from '../src/molecule/slider/test/fixtures/default';
 import SliderFixtureMultipleSlides from '../src/molecule/slider/test/fixtures/multiple-slides';
 import SsmenuListFixtureCoorpacademy from '../src/molecule/ssmenu-list/test/fixtures/coorpacademy';
@@ -402,8 +408,12 @@ export const components = {
     ScopeContent,
     ScopeTabs,
     Search,
+<<<<<<< HEAD
     SetupSlide,
     SetupSlider,
+=======
+    SelectMultiple,
+>>>>>>> ftr: dropdown thematique
     Slider,
     SsmenuList,
     StarRating,
@@ -696,11 +706,17 @@ export const fixtures = {
     Search: {
       Default: SearchFixtureDefault
     },
+<<<<<<< HEAD
     SetupSlide: {
       Default: SetupSlideFixtureDefault
     },
     SetupSlider: {
       Default: SetupSliderFixtureDefault
+=======
+    SelectMultiple: {
+      Checked: SelectMultipleFixtureChecked,
+      Default: SelectMultipleFixtureDefault
+>>>>>>> ftr: dropdown thematique
     },
     Slider: {
       Default: SliderFixtureDefault,
