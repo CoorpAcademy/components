@@ -240,6 +240,7 @@ import ProgressBarFixtureDefault from '../src/molecule/progress-bar/test/fixture
 import ProgressBarFixtureMax from '../src/molecule/progress-bar/test/fixtures/max';
 import RangeSliderFixtureDefault from '../src/molecule/range-slider/test/fixtures/default';
 import RangeSliderFixtureMinmax from '../src/molecule/range-slider/test/fixtures/minmax';
+import RangeSliderFixtureSteps from '../src/molecule/range-slider/test/fixtures/steps';
 import ScopeContentFixtureDefault from '../src/molecule/scope-content/test/fixtures/default';
 import ScopeContentFixtureEmpty from '../src/molecule/scope-content/test/fixtures/empty';
 import ScopeContentFixtureMedias from '../src/molecule/scope-content/test/fixtures/medias';
@@ -737,7 +738,8 @@ export const fixtures = {
     },
     RangeSlider: {
       Default: RangeSliderFixtureDefault,
-      Minmax: RangeSliderFixtureMinmax
+      Minmax: RangeSliderFixtureMinmax,
+      Steps: RangeSliderFixtureSteps
     },
     ScopeContent: {
       Default: ScopeContentFixtureDefault,

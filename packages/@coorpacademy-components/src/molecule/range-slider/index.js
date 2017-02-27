@@ -7,6 +7,19 @@ import style from './style.css';
 
 const getOrBlank = getOr('');
 
+const coordinate = ({start, delta, min, max}) => {
+  let result = start + delta;
+  if (result < min) {
+    result = min;
+  }
+
+  if (result > max) {
+    result = max;
+  }
+
+  return result;
+};
+
 class RangeSlider extends React.Component {
   constructor(props, context) {
     super(props, context);
@@ -15,34 +28,84 @@ class RangeSlider extends React.Component {
       ...props
     };
 
-    this.handleDrag1 = this.handleDrag1.bind(this);
-    this.handleDrag2 = this.handleDrag2.bind(this);
+    this.handlePan = this.handlePan.bind(this);
+    this.handlePanStart = this.handlePanStart.bind(this);
+    this.handlePanEnd = this.handlePanEnd.bind(this);
   }
 
   componentDidMount() {
-    if (!this.state.x1 || this.state.x2) {
-      // eslint-disable-next-line react/no-did-mount-set-state
-      this.setState({
-        x1: this.state.x1 || 0,
-        x2: this.state.x2 || findDOMNode(this._rail).clientWidth
-      });
-    }
+    const x1 = this.state.x1 || 0;
+    const x2 = this.state.x2 || this.railWidth();
+
+    // eslint-disable-next-line react/no-did-mount-set-state
+    this.setState({
+      x1,
+      x2,
+      minx1: 0,
+      minx2: x1,
+      maxx1: x2,
+      maxx2: this.railWidth()
+    });
   }
 
   shouldComponentUpdate(nextProps, nextState, nextContext) {
     return shallowCompare(this, nextProps, nextState, nextContext);
   }
 
-  handleDrag1(coordinates) {
-    this.setState({
-      x1: coordinates.x
+  handlePanStart(handle) {
+    return e => this.setState({
+      [`panStart${handle}`]: e.target.offsetLeft
     });
   }
 
-  handleDrag2(coordinates) {
-    this.setState({
-      x2: coordinates.x
+  handlePan(handle) {
+    return e => {
+      const x = this.extractXFromEvent(handle, e);
+
+      this.setState({
+        [handle]: x,
+        maxx1: 0,
+      });
+    };
+  }
+
+  handlePanEnd(handle) {
+    return e => {
+      const x = this.extractXFromEvent(handle, e);
+      this.setState({
+        [handle]: this.snap(x)
+      });
+    };
+  }
+
+  extractXFromEvent(handle, e) {
+    return coordinate({
+      start: this.state[`panStart${handle}`],
+      delta: e.deltaX,
+      min: getMin(handle),
+      max: this.state[`max${handle}`] || this.railWidth()
     });
+  }
+
+  getMin(handle) {
+    return this.state[`min${handle}`] ;
+  }
+
+  railWidth() {
+    return findDOMNode(this._rail).clientWidth;
+  }
+
+  snap(x) {
+    if (!this.props.steps)
+      return x;
+
+    const width = this.railWidth();
+    const gap = width / (this.props.steps.length - 1);
+    const result = Math.floor(x / gap) * gap;
+
+    console.log({x, width, gap, result});
+
+    return result;
   }
 
   render() {
@@ -67,17 +130,18 @@ class RangeSlider extends React.Component {
           <Handle
             className={style.handle1}
             axis={'x'}
-            minX={0}
-            maxX={x2}
             x={x1}
-            onDrag={this.handleDrag1}
+            handlePan={this.handlePan('x1')}
+            handlePanStart={this.handlePanStart('x1')}
+            handlePanEnd={this.handlePanEnd('x1')}
           />
           <Handle
             className={style.handle2}
             axis={'x'}
-            minX={x1}
             x={x2}
-            onDrag={this.handleDrag2}
+            handlePan={this.handlePan('x2')}
+            handlePanStart={this.handlePanStart('x2')}
+            handlePanEnd={this.handlePanEnd('x2')}
           />
         </div>
       </div>
@@ -90,7 +154,9 @@ RangeSlider.contextTypes = {
 };
 
 RangeSlider.propTypes = {
-  onChange: PropTypes.func
+  x1: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  x2: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  steps: PropTypes.array
 };
 
 export default RangeSlider;
