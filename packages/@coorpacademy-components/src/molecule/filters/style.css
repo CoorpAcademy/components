@@ -90,7 +90,8 @@
 .default,
 .wrapperSortBy {
   display: inline-block;
-  width: 49.5%;
+  width: 50%;
+  box-sizing: border-box;
   height: 50px;
   padding: 0;
   background: #D2D2D2;
