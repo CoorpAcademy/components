@@ -51,6 +51,7 @@ import ScopeContent from '../src/molecule/scope-content';
 import ScopeTabs from '../src/molecule/scope-tabs';
 import Search from '../src/molecule/search';
 import SetupSlide from '../src/molecule/setup-slide';
+import SetupSlider from '../src/molecule/setup-slider';
 import Slider from '../src/molecule/slider';
 import SsmenuList from '../src/molecule/ssmenu-list';
 import StarRating from '../src/molecule/star-rating';
@@ -167,6 +168,7 @@ import BrandFormGroupFixtureDefault from '../src/molecule/brand-form-group/test/
 import BrandFormGroupFixtureImages from '../src/molecule/brand-form-group/test/fixtures/images';
 import BrandFormGroupFixtureLookandfeel from '../src/molecule/brand-form-group/test/fixtures/lookandfeel';
 import BrandFormGroupFixtureRoles from '../src/molecule/brand-form-group/test/fixtures/roles';
+import BrandFormGroupFixtureSlider from '../src/molecule/brand-form-group/test/fixtures/slider';
 import BrandFormGroupFixtureSso from '../src/molecule/brand-form-group/test/fixtures/sso';
 import BrandTabsFixtureDefault from '../src/molecule/brand-tabs/test/fixtures/default';
 import BrandTabsFixtureLookandfeel from '../src/molecule/brand-tabs/test/fixtures/lookandfeel';
@@ -223,6 +225,7 @@ import ScopeTabsFixtureDefault from '../src/molecule/scope-tabs/test/fixtures/de
 import ScopeTabsFixtureEmpty from '../src/molecule/scope-tabs/test/fixtures/empty';
 import SearchFixtureDefault from '../src/molecule/search/test/fixtures/default';
 import SetupSlideFixtureDefault from '../src/molecule/setup-slide/test/fixtures/default';
+import SetupSliderFixtureDefault from '../src/molecule/setup-slider/test/fixtures/default';
 import SliderFixtureDefault from '../src/molecule/slider/test/fixtures/default';
 import SliderFixtureMultipleSlides from '../src/molecule/slider/test/fixtures/multiple-slides';
 import SsmenuListFixtureCoorpacademy from '../src/molecule/ssmenu-list/test/fixtures/coorpacademy';
@@ -400,6 +403,7 @@ export const components = {
     ScopeTabs,
     Search,
     SetupSlide,
+    SetupSlider,
     Slider,
     SsmenuList,
     StarRating,
@@ -589,6 +593,7 @@ export const fixtures = {
       Images: BrandFormGroupFixtureImages,
       Lookandfeel: BrandFormGroupFixtureLookandfeel,
       Roles: BrandFormGroupFixtureRoles,
+      Slider: BrandFormGroupFixtureSlider,
       Sso: BrandFormGroupFixtureSso
     },
     BrandTabs: {
@@ -693,6 +698,9 @@ export const fixtures = {
     },
     SetupSlide: {
       Default: SetupSlideFixtureDefault
+    },
+    SetupSlider: {
+      Default: SetupSliderFixtureDefault
     },
     Slider: {
       Default: SliderFixtureDefault,

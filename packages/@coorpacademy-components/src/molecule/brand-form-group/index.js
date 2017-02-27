@@ -9,6 +9,7 @@ import InputSwitch from '../../atom/input-switch';
 import InputTextarea from '../../atom/input-textarea';
 import InputDoublestep from '../../atom/input-doublestep';
 import ImageUpload from '../../atom/image-upload';
+import SetupSlider from '../setup-slider';
 import style from './style.css';
 
 const BrandFormGroup = props => {
@@ -55,9 +56,13 @@ const BrandFormGroup = props => {
         return (
           <ImageUpload {...field} />
         );
+      case 'slider':
+        return (
+          <SetupSlider {...field} />
+        );
       default:
         return (
-          <ImageUpload {...field} />
+          <InputText {...field} />
         );
     }
   };
