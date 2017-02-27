@@ -13,7 +13,6 @@ class Link extends React.Component {
     this.handleMouseEnter = this.handleMouseEnter.bind(this);
     this.handleMouseLeave = this.handleMouseLeave.bind(this);
     this.handleOnClick = this.handleOnClick.bind(this);
-    this.onClick = pushToHistory(this.context);
   }
 
   shouldComponentUpdate(nextProps, nextState, nextContext) {
@@ -33,8 +32,10 @@ class Link extends React.Component {
   }
 
   handleOnClick(e) {
-    this.props.onClick && this.props.onClick();
-    this.onClick(this.props)(e);
+    this.props.onClick && this.props.onClick(e);
+
+    const onClick = pushToHistory(this.context)(this.props);
+    onClick(e);
   }
 
   render() {
