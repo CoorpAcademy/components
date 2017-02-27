@@ -33,8 +33,8 @@ class Link extends React.Component {
   }
 
   handleOnClick() {
-    this.onClick(this.props);
     this.props.onClick && this.props.onClick();
+    return this.onClick(this.props);
   }
 
   render() {
