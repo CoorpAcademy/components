@@ -6,61 +6,25 @@ import style from './style.css';
 
 const Hammer = (typeof window !== 'undefined') ? require('hammerjs') : undefined;
 
-const coordinate = ({start, delta, min, max}) => {
-  let result = start + delta;
-  if (result < min) {
-    result = min;
-  }
-
-  if (result > max) {
-    result = max;
-  }
-
-  return result;
-};
-
 class Handle extends React.Component {
   constructor(props, context) {
     super(props, context);
-
-    const {
-      x,
-      y,
-      axis = 'both',
-      minX,
-      maxX,
-      minY,
-      maxY,
-      onDrag
-    } = props;
-
-    this.state = {
-      ...props,
-      panStartX: 0,
-      panStartY: 0
-    };
-
-    this.handlePanStart = this.handlePanStart.bind(this);
-    this.handlePan = this.handlePan.bind(this);
   }
 
   componentDidMount() {
     if (Hammer) {
       this.hammer = new Hammer(findDOMNode(this));
-      this.hammer.on('panstart', this.handlePanStart);
+      this.hammer.on('panstart', this.props.handlePanStart);
+      this.hammer.on('panend', this.props.handlePanEnd);
 
       if (this.onX()) {
-        this.hammer.on('panleft panright', this.handlePan);
+        this.hammer.on('panleft panright', this.props.handlePan);
       }
 
       if (this.onY()) {
-        this.hammer.on('panup pandown', this.handlePan);
+        this.hammer.on('panup pandown', this.props.handlePan);
       }
     }
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.setState(nextProps);
   }
 
   shouldComponentUpdate(nextProps, nextState, nextContext) {
@@ -76,57 +40,18 @@ class Handle extends React.Component {
   }
 
   onX() {
-    return this.state.axis === 'x' || this.state.axis === 'both';
+    return this.props.axis === 'x' || this.props.axis === 'both';
   }
 
   onY() {
-    return this.state.axis === 'y' || this.state.axis === 'both';
-  }
-
-  parentWidth() {
-    return findDOMNode(this).parentElement.clientWidth;
-  }
-
-  extractXFromEvent(e) {
-    return coordinate({
-      start: this.state.panStartX,
-      delta: this.onX() ? e.deltaX : 0,
-      min: this.state.minX,
-      max: this.state.maxX || this.parentWidth()
-    });
-  }
-
-  extractYFromEvent(e) {
-    return coordinate({
-      start: this.state.panStartY,
-      delta: this.onY() ? e.deltaY : 0,
-      min: this.state.minY,
-      max: this.state.maxY || this.parentWidth()
-    });
-  }
-
-  handlePanStart(e) {
-    this.setState({
-      panStartX: e.target.offsetLeft,
-      panStartY: e.target.offsetTop
-    });
-  }
-
-  handlePan(e) {
-    const coordinates = {
-      x: this.extractXFromEvent(e),
-      y: this.extractYFromEvent(e)
-    };
-
-    this.setState(coordinates);
-    this.state.onDrag && this.state.onDrag(coordinates);
+    return this.props.axis === 'y' || this.props.axis === 'both';
   }
 
   render() {
     const {
       x,
       y
-    } = this.state;
+    } = this.props;
 
     return (
       <div
@@ -142,15 +67,17 @@ class Handle extends React.Component {
   }
 }
 
+Handle.defaultProps = {
+  axis: 'both'
+};
+
 Handle.propTypes = {
   x: PropTypes.number,
   y: PropTypes.number,
   axis: PropTypes.oneOf(['x', 'y', 'both']),
-  minX: PropTypes.number,
-  maxX: PropTypes.number,
-  minY: PropTypes.number,
-  maxY: PropTypes.number,
-  onDrag: PropTypes.func
+  handlePan: PropTypes.func,
+  handlePanStart: PropTypes.func,
+  handlePanEnd: PropTypes.func
 };
 
 export default Handle;
