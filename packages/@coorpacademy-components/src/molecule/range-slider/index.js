@@ -58,37 +58,30 @@ class RangeSlider extends React.Component {
     });
   }
 
-  handlePan(handle) {
+  handlePan(handle, snap) {
     return e => {
-      const x = this.extractXFromEvent(handle, e);
+      const _x = this.extractXFromEvent(handle, e);
+      const x = snap ? this.snap(_x) : _x;
+      const boundary = handle === 'x1' ? 'minx2' : 'maxx1';
 
       this.setState({
         [handle]: x,
-        maxx1: 0,
+        [boundary]: x
       });
     };
   }
 
   handlePanEnd(handle) {
-    return e => {
-      const x = this.extractXFromEvent(handle, e);
-      this.setState({
-        [handle]: this.snap(x)
-      });
-    };
+    return this.handlePan(handle, true);
   }
 
   extractXFromEvent(handle, e) {
     return coordinate({
       start: this.state[`panStart${handle}`],
       delta: e.deltaX,
-      min: getMin(handle),
+      min: this.state[`min${handle}`],
       max: this.state[`max${handle}`] || this.railWidth()
     });
-  }
-
-  getMin(handle) {
-    return this.state[`min${handle}`] ;
   }
 
   railWidth() {
@@ -102,8 +95,6 @@ class RangeSlider extends React.Component {
     const width = this.railWidth();
     const gap = width / (this.props.steps.length - 1);
     const result = Math.floor(x / gap) * gap;
-
-    console.log({x, width, gap, result});
 
     return result;
   }
