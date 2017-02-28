@@ -69,6 +69,7 @@ export Provider from './atom/provider';
 export ScopeContent from './molecule/scope-content';
 export ScopeTabs from './molecule/scope-tabs';
 export Search from './molecule/search';
+export SearchPage from './template/common/search-page';
 export Select from './atom/select';
 export SelectMultiple from './molecule/select-multiple';
 export SetupHeader from './organism/setup-header';
