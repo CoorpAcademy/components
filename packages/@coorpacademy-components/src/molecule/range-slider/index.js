@@ -8,17 +8,17 @@ import style from './style.css';
 
 const getOrBlank = getOr('');
 
-const coordinate = ({start, delta, min, max}) => {
-  let result = start + delta;
-  if (result < min) {
-    result = min;
+const xWithConstraints = ({x, delta, min, max}) => {
+  const newX = x + delta;
+  if (newX < min) {
+    return min;
   }
 
-  if (result > max) {
-    result = max;
+  if (newX > max) {
+    return max;
   }
 
-  return result;
+  return newX;
 };
 
 const snap = (x, steps, width) => {
@@ -50,8 +50,9 @@ class RangeSlider extends React.Component {
   }
 
   componentDidMount() {
+    const max = this.railWidth();
     const x1 = getOr(0, 'handle1.x', this.state);
-    const x2 = getOr(this.railWidth(), 'handle2.x', this.state);
+    const x2 = getOr(max, 'handle2.x', this.state);
 
     // eslint-disable-next-line react/no-did-mount-set-state
     this.setState({
@@ -63,7 +64,7 @@ class RangeSlider extends React.Component {
       handle2: {
         x: x2,
         min: x1,
-        max: this.railWidth()
+        max
       }
     });
   }
@@ -92,15 +93,16 @@ class RangeSlider extends React.Component {
 
   setX(num, steps) {
     return e => this.setState((previousState, currentProps) => {
+      const width = this.railWidth();
       const _x = this.extractXFromEvent(num, e);
-      const {x, step} = snap(_x, steps, this.railWidth());
+      const {x, step} = snap(_x, steps, width);
 
       let state = set([`handle${num}`, 'x'], x, previousState);
       state = set([`handle${num}`, 'step'], step, state);
       state = set(['handle1', 'max'], state.handle2.x, state);
       state = set(['handle2', 'min'], state.handle1.x, state);
 
-      const isMax = state.handle1.x === this.railWidth();
+      const isMax = state.handle1.x === width;
       state = set('isMax', isMax, state);
 
       return state;
@@ -108,8 +110,8 @@ class RangeSlider extends React.Component {
   }
 
   extractXFromEvent(num, e) {
-    return coordinate({
-      start: this.state[`handle${num}`].panStart,
+    return xWithConstraints({
+      x: this.state[`handle${num}`].panStart,
       delta: e.deltaX,
       min: this.state[`handle${num}`].min,
       max: this.state[`handle${num}`].max || this.railWidth()
@@ -123,12 +125,12 @@ class RangeSlider extends React.Component {
   render() {
     const {
       isMax,
-      handle1 = {},
-      handle2 = {}
+      handle1 = this.props.handle1,
+      handle2 = this.props.handle2
     } = this.state;
 
-    const x1 = handle1.x;
-    const x2 = handle2.x;
+    const x1 = getOr(0, 'x', handle1);
+    const x2 = getOr(0, 'x', handle2);
 
     const {
       steps,
@@ -183,8 +185,16 @@ RangeSlider.contextTypes = {
 };
 
 RangeSlider.propTypes = {
-  x1: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  x2: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  handle1: PropTypes.shape({
+    x: PropTypes.number
+  }),
+  handle2: PropTypes.shape({
+    x: PropTypes.number
+  }),
+  title: PropTypes.string,
+  labelMin: PropTypes.string,
+  labelMax: PropTypes.string,
+  onChange: PropTypes.func,
   steps: PropTypes.array
 };
 
