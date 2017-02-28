@@ -1,10 +1,12 @@
 import React, {PropTypes} from 'react';
 import Select from '../../atom/select';
+import SelectMultiple from '../../molecule/select-multiple';
 import style from './style.css';
 
 function Filters(props) {
   const {
-    select
+    select,
+    selectMultiple
   } = props;
 
   return (
@@ -14,7 +16,7 @@ function Filters(props) {
         <div className={style.wrapperFilters}>
           <Select {...select} />
           <div className={style.toggle} />
-          <Select {...select} />
+          <SelectMultiple {...selectMultiple} />
           <Select {...select} />
         </div>
       </div>
@@ -33,7 +35,8 @@ function Filters(props) {
 }
 
 Filters.propTypes = {
-  select: PropTypes.object
+  select: PropTypes.object,
+  selectMultiple: PropTypes.object
 };
 
 export default Filters;
