@@ -71,6 +71,8 @@ export ScopeTabs from './molecule/scope-tabs';
 export Search from './molecule/search';
 export Select from './atom/select';
 export SetupHeader from './organism/setup-header';
+export SetupSlide from './molecule/setup-slide';
+export SetupSlider from './molecule/setup-slider';
 export Slide from './atom/slide';
 export Slider from './molecule/slider';
 export SocialLink from './atom/social-link';
