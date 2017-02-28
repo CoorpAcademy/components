@@ -50,6 +50,7 @@ import ProgressBar from '../src/molecule/progress-bar';
 import ScopeContent from '../src/molecule/scope-content';
 import ScopeTabs from '../src/molecule/scope-tabs';
 import Search from '../src/molecule/search';
+import SelectMultiple from '../src/molecule/select-multiple';
 import SetupSlide from '../src/molecule/setup-slide';
 import SetupSlider from '../src/molecule/setup-slider';
 import Slider from '../src/molecule/slider';
@@ -224,6 +225,8 @@ import ScopeContentFixtureWithOnclick from '../src/molecule/scope-content/test/f
 import ScopeTabsFixtureDefault from '../src/molecule/scope-tabs/test/fixtures/default';
 import ScopeTabsFixtureEmpty from '../src/molecule/scope-tabs/test/fixtures/empty';
 import SearchFixtureDefault from '../src/molecule/search/test/fixtures/default';
+import SelectMultipleFixtureChecked from '../src/molecule/select-multiple/test/fixtures/checked';
+import SelectMultipleFixtureDefault from '../src/molecule/select-multiple/test/fixtures/default';
 import SetupSlideFixtureDefault from '../src/molecule/setup-slide/test/fixtures/default';
 import SetupSliderFixtureDefault from '../src/molecule/setup-slider/test/fixtures/default';
 import SliderFixtureDefault from '../src/molecule/slider/test/fixtures/default';
@@ -402,6 +405,7 @@ export const components = {
     ScopeContent,
     ScopeTabs,
     Search,
+    SelectMultiple,
     SetupSlide,
     SetupSlider,
     Slider,
@@ -695,6 +699,10 @@ export const fixtures = {
     },
     Search: {
       Default: SearchFixtureDefault
+    },
+    SelectMultiple: {
+      Checked: SelectMultipleFixtureChecked,
+      Default: SelectMultipleFixtureDefault
     },
     SetupSlide: {
       Default: SetupSlideFixtureDefault
