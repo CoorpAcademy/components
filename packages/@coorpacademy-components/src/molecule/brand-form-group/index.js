@@ -60,6 +60,10 @@ const BrandFormGroup = props => {
         return (
           <SetupSlider {...field} />
         );
+      case 'text':
+        return (
+          <InputText {...field} />
+        );
       default:
         return (
           <InputText {...field} />
