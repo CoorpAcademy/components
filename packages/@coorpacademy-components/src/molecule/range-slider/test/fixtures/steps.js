@@ -1,5 +1,10 @@
+import defaultsDeep from 'lodash/fp/defaultsDeep';
+import Default from './default';
+
+const {props} = Default;
+
 export default {
-  props: {
+  props: defaultsDeep(props, {
     steps: [{
       label: 'plop',
       value: 1
@@ -13,5 +18,5 @@ export default {
       label: 'ploup',
       value: 4
     }]
-  }
+  })
 };

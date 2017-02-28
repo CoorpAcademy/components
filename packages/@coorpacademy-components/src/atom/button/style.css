@@ -1,6 +1,6 @@
 @value colors: "../../variables/colors.css";
 @value yellow from colors;
-@value lightGrey from colors;
+@value borderGrey from colors;
 
 .button {
   border-radius: 2px;
@@ -35,6 +35,6 @@
 }
 
 .button input:disabled {
-  background-color: lightGrey;
+  background-color: borderGrey;
   cursor: default;
 }
