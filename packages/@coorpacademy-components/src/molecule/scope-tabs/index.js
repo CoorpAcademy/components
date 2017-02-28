@@ -1,5 +1,4 @@
 import React, {PropTypes} from 'react';
-import set from 'lodash/fp/set';
 import has from 'lodash/fp/has';
 import partial from 'lodash/fp/partial';
 import unary from 'lodash/fp/unary';

@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react';
 import {findDOMNode} from 'react-dom';
 import getOr from 'lodash/fp/getOr';
+import set from 'lodash/fp/set';
 import shallowCompare from '../../util/shallow-compare';
 import Handle from '../../atom/handle';
 import style from './style.css';
@@ -20,6 +21,22 @@ const coordinate = ({start, delta, min, max}) => {
   return result;
 };
 
+const snap = (x, steps, width) => {
+  if (!steps)
+    return {x, undefined};
+
+  const step = width / (steps.length - 1);
+  const min = Math.floor(x / step) * step;
+  const max = Math.ceil(x / step) * step;
+
+  const closest = x - min < max - x ? min : max;
+
+  return {
+    x: closest,
+    step: Math.floor(x / step)
+  };
+};
+
 class RangeSlider extends React.Component {
   constructor(props, context) {
     super(props, context);
@@ -33,17 +50,21 @@ class RangeSlider extends React.Component {
   }
 
   componentDidMount() {
-    const x1 = this.state.x1 || 0;
-    const x2 = this.state.x2 || this.railWidth();
+    const x1 = getOr(0, 'handle1.x', this.state);
+    const x2 = getOr(this.railWidth(), 'handle2.x', this.state);
 
     // eslint-disable-next-line react/no-did-mount-set-state
     this.setState({
-      x1,
-      x2,
-      minx1: 0,
-      minx2: x1,
-      maxx1: x2,
-      maxx2: this.railWidth()
+      handle1: {
+        x: x1,
+        min: 0,
+        max: x2
+      },
+      handle2: {
+        x: x2,
+        min: x1,
+        max: this.railWidth()
+      }
     });
   }
 
@@ -51,38 +72,47 @@ class RangeSlider extends React.Component {
     return shallowCompare(this, nextProps, nextState, nextContext);
   }
 
-  handlePanStart(handle) {
-    return e => this.setState({
-      [`panStart${handle}`]: e.target.offsetLeft
-    });
+  handlePanStart(num) {
+    return e => this.setState((previousState, currentProps) =>
+      set(
+        [`handle${num}`, 'panStart'],
+        e.target.offsetLeft,
+        previousState
+      )
+    );
   }
 
-  setX(handle, snap) {
+  handlePanEnd(num) {
+    const setX = this.setX(num, this.props.steps);
     return e => {
-      const _x = this.extractXFromEvent(handle, e);
-      const x = snap ? this.snap(_x) : _x;
-
-      this.setState({
-        [handle]: x
-      });
-
-      this.setState({
-        maxx1: this.state.x2,
-        minx2: this.state.x1
-      });
-
-      this.setState({
-        isMax: this.state.x1 === this.railWidth()
-      });
+      setX(e);
+      this.props.onChange && this.props.onChange(this.state);
     };
   }
 
-  extractXFromEvent(handle, e) {
+  setX(num, steps) {
+    return e => this.setState((previousState, currentProps) => {
+      const _x = this.extractXFromEvent(num, e);
+      const {x, step} = snap(_x, steps, this.railWidth());
+
+      let state = set([`handle${num}`, 'x'], x, previousState);
+      state = set([`handle${num}`, 'step'], step, state);
+      state = set(['handle1', 'max'], state.handle2.x, state);
+      state = set(['handle2', 'min'], state.handle1.x, state);
+
+      const isMax = state.handle1.x === this.railWidth();
+      state = set('isMax', isMax, state);
+
+      return state;
+    });
+  }
+
+  extractXFromEvent(num, e) {
     return coordinate({
-      start: this.state[`panStart${handle}`],
+      start: this.state[`handle${num}`].panStart,
       delta: e.deltaX,
-      min: this.state[`min${handle}`],
-      max: this.state[`max${handle}`] || this.railWidth()
+      min: this.state[`handle${num}`].min,
+      max: this.state[`handle${num}`].max || this.railWidth()
     });
   }
 
@@ -90,27 +120,15 @@ class RangeSlider extends React.Component {
     return findDOMNode(this._rail).clientWidth;
   }
 
-  snap(x) {
-    if (!this.props.steps)
-      return x;
-
-    const width = this.railWidth();
-    const step = width / (this.props.steps.length - 1);
-    const min = Math.floor(x / step) * step;
-    const max = Math.ceil(x / step) * step;
-
-    // const i
-
-    const closest = x - min < max - x ? min : max;
-    return closest;
-  }
-
   render() {
     const {
       isMax,
-      x1,
-      x2
+      handle1 = {},
+      handle2 = {}
     } = this.state;
+
+    const x1 = handle1.x;
+    const x2 = handle2.x;
 
     const {
       steps,
@@ -140,18 +158,17 @@ class RangeSlider extends React.Component {
             }}
             axis={'x'}
             x={x1}
-            label={this.p}
-            handlePan={this.setX('x1')}
-            handlePanStart={this.handlePanStart('x1')}
-            handlePanEnd={this.setX('x1', true)}
+            handlePan={this.setX(1)}
+            handlePanStart={this.handlePanStart(1)}
+            handlePanEnd={this.handlePanEnd(1)}
           />
           <Handle
             className={style.handle}
             axis={'x'}
             x={x2}
-            handlePan={this.setX('x2')}
-            handlePanStart={this.handlePanStart('x2')}
-            handlePanEnd={this.setX('x2', true)}
+            handlePan={this.setX(2)}
+            handlePanStart={this.handlePanStart(2)}
+            handlePanEnd={this.handlePanEnd(2)}
           />
         </div>
         <span className={style.labelMin}>{labelMin}</span>
