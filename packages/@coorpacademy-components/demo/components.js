@@ -87,6 +87,7 @@ import BrandList from '../src/template/back-office/brand-list';
 import BrandUpdate from '../src/template/back-office/brand-update';
 import CoorpHeader from '../src/template/common/coorp-header';
 import Discipline from '../src/template/common/discipline';
+import Search from '../src/template/common/search';
 import ButtonFixtureA from '../src/atom/button/test/fixtures/a';
 import ButtonFixtureBlue from '../src/atom/button/test/fixtures/blue';
 import ButtonFixtureCentered from '../src/atom/button/test/fixtures/centered';
@@ -351,6 +352,7 @@ import DisciplineFixtureLoading from '../src/template/common/discipline/test/fix
 import DisciplineFixtureNoAuthor from '../src/template/common/discipline/test/fixtures/no-author';
 import DisciplineFixtureNoVideo from '../src/template/common/discipline/test/fixtures/no-video';
 import DisciplineFixtureWithOnclick from '../src/template/common/discipline/test/fixtures/with-onclick';
+import SearchFixtureDefault from '../src/template/common/search/test/fixtures/default';
 
 export const components = {
   Atom: {
@@ -457,7 +459,8 @@ export const components = {
   },
   TemplateCommon: {
     CoorpHeader,
-    Discipline
+    Discipline,
+    Search
   }
 };
 export const fixtures = {
@@ -914,6 +917,9 @@ export const fixtures = {
       NoAuthor: DisciplineFixtureNoAuthor,
       NoVideo: DisciplineFixtureNoVideo,
       WithOnclick: DisciplineFixtureWithOnclick
+    },
+    Search: {
+      Default: SearchFixtureDefault
     }
   }
 };
