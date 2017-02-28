@@ -1,9 +1,32 @@
+@value breakpoints: "../../../variables/breakpoints.css";
+@value desktop from breakpoints;
+@value tablet from breakpoints;
+@value mobile from breakpoints;
+@value colors: "../../../variables/colors.css";
+@value light from colors;
 
 .cardsWrapper {
     display: block;
     width: 100%;
-    height: 100%;
+    height: auto;
     box-sizing: border-box;
     padding: 0 9%;
-    background: #fbfafb;
+    background: light;
 }
+
+@media desktop {
+  .cardsWrapper {
+  }
+}
+
+@media tablet {
+  .cardsWrapper {
+  }
+}
+
+@media mobile {
+  .cardsWrapper {
+    padding-top: 20px;
+  }
+}
+
