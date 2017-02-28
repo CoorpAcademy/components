@@ -2,7 +2,7 @@
 @value green from colors;
 @value blue from colors;
 @value darkGrey from colors;
-@value lightGrey from colors;
+@value borderGrey from colors;
 
 .wrapper {
   width: 100%;
@@ -30,7 +30,7 @@
 }
 
 .default {
-  border: 2px dashed lightGrey;
+  border: 2px dashed borderGrey;
   border-radius: 4px;
   overflow: hidden;
   text-align: center;

@@ -1,44 +1,83 @@
 @value colors: "../../variables/colors.css";
 @value blue from colors;
 @value grey from colors;
+@value borderGrey from colors;
+@value darkGrey from colors;
 
-@value handleSize: 30px;
-@value handlePosition: translate3d(-15px, -11px, 0);
+@value handleSize: 20px;
+@value handlePosition: translate3d(-10px,-7.5px,0);
+@value handleActiveSize: 25px;
+@value handleActivePosition: translate3d(-12.5px,-10px,0);
 
 .default {
   position: relative;
   padding: 100px;
 }
 
+.text {
+  font-size: 12px;
+  font-family: "Open Sans";
+  font-weight: 400;
+}
+
+.title {
+  composes: text;
+  color: darkGrey;
+  text-align: center;
+  width: 100%;
+}
+
+.label {
+  composes: text;
+  color: grey;
+  font-size: 10px;
+  margin-top: 8px;
+  display: inline-block;
+}
+
+.labelMin {
+  composes: label;
+}
+
+.labelMax {
+  composes: label;
+  float: right;
+}
+
 .rail {
   position: relative;
-  height: 10px;
+  height: 6px;
   width: 100%;
-  background-color: grey;
+  border-radius: 10px;
+  background-color: borderGrey;
 }
 
 .track {
   position: absolute;
-  height: 10px;
-  background-color: green;
+  height: 6px;
+  background-color: blue;
+  transition: all 0.1s;
+}
+
+.rail:active .handle,
+.rail:active .track {
+  transition: none;
 }
 
 .handle {
+  background: white;
+  box-shadow: 0 0 2px 0 rgba(0,0,0,0.50);
   position: absolute;
   width: handleSize;
   height: handleSize;
   border-radius: 50%;
-  opacity: 0.8;
   transform: handlePosition;
+  cursor: pointer;
+  transition: all 0.1s;
 }
 
-.handle1 {
-  composes: handle;
-  background-color: green;
+.handle:active {
+  width: handleActiveSize ;
+  height: handleActiveSize;
+  transform: handleActivePosition;
 }
-
-.handle2 {
-  composes: handle;
-  background-color: pink;
-}
-

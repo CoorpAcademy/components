@@ -99,6 +99,8 @@ class RangeSlider extends React.Component {
     const min = Math.floor(x / step) * step;
     const max = Math.ceil(x / step) * step;
 
+    // const i
+
     const closest = x - min < max - x ? min : max;
     return closest;
   }
@@ -110,8 +112,16 @@ class RangeSlider extends React.Component {
       x2
     } = this.state;
 
+    const {
+      steps,
+      title,
+      labelMin,
+      labelMax
+    } = this.props;
+
     return (
       <div className={style.default}>
+        <p className={style.title}>{title}</p>
         <div
           className={style.rail} // eslint-disable-next-line no-return-assign
           ref={div => this._rail = div} // eslint-disable-line react/jsx-no-bind
@@ -124,18 +134,19 @@ class RangeSlider extends React.Component {
             }}
           />
           <Handle
-            className={style.handle1}
+            className={style.handle}
             style={{
               zIndex: isMax ? '1' : '0'
             }}
             axis={'x'}
             x={x1}
+            label={this.p}
             handlePan={this.setX('x1')}
             handlePanStart={this.handlePanStart('x1')}
             handlePanEnd={this.setX('x1', true)}
           />
           <Handle
-            className={style.handle2}
+            className={style.handle}
             axis={'x'}
             x={x2}
             handlePan={this.setX('x2')}
@@ -143,6 +154,8 @@ class RangeSlider extends React.Component {
             handlePanEnd={this.setX('x2', true)}
           />
         </div>
+        <span className={style.labelMin}>{labelMin}</span>
+        <span className={style.labelMax}>{labelMax}</span>
       </div>
     );
   }
