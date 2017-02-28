@@ -50,9 +50,9 @@ import ProgressBar from '../src/molecule/progress-bar';
 import ScopeContent from '../src/molecule/scope-content';
 import ScopeTabs from '../src/molecule/scope-tabs';
 import Search from '../src/molecule/search';
+import SelectMultiple from '../src/molecule/select-multiple';
 import SetupSlide from '../src/molecule/setup-slide';
 import SetupSlider from '../src/molecule/setup-slider';
-import SelectMultiple from '../src/molecule/select-multiple';
 import Slider from '../src/molecule/slider';
 import SsmenuList from '../src/molecule/ssmenu-list';
 import StarRating from '../src/molecule/star-rating';
@@ -87,7 +87,6 @@ import BrandList from '../src/template/back-office/brand-list';
 import BrandUpdate from '../src/template/back-office/brand-update';
 import CoorpHeader from '../src/template/common/coorp-header';
 import Discipline from '../src/template/common/discipline';
-import Search from '../src/template/common/search';
 import ButtonFixtureA from '../src/atom/button/test/fixtures/a';
 import ButtonFixtureBlue from '../src/atom/button/test/fixtures/blue';
 import ButtonFixtureCentered from '../src/atom/button/test/fixtures/centered';
@@ -226,13 +225,10 @@ import ScopeContentFixtureWithOnclick from '../src/molecule/scope-content/test/f
 import ScopeTabsFixtureDefault from '../src/molecule/scope-tabs/test/fixtures/default';
 import ScopeTabsFixtureEmpty from '../src/molecule/scope-tabs/test/fixtures/empty';
 import SearchFixtureDefault from '../src/molecule/search/test/fixtures/default';
-<<<<<<< HEAD
-import SetupSlideFixtureDefault from '../src/molecule/setup-slide/test/fixtures/default';
-import SetupSliderFixtureDefault from '../src/molecule/setup-slider/test/fixtures/default';
-=======
 import SelectMultipleFixtureChecked from '../src/molecule/select-multiple/test/fixtures/checked';
 import SelectMultipleFixtureDefault from '../src/molecule/select-multiple/test/fixtures/default';
->>>>>>> ftr: dropdown thematique
+import SetupSlideFixtureDefault from '../src/molecule/setup-slide/test/fixtures/default';
+import SetupSliderFixtureDefault from '../src/molecule/setup-slider/test/fixtures/default';
 import SliderFixtureDefault from '../src/molecule/slider/test/fixtures/default';
 import SliderFixtureMultipleSlides from '../src/molecule/slider/test/fixtures/multiple-slides';
 import SsmenuListFixtureCoorpacademy from '../src/molecule/ssmenu-list/test/fixtures/coorpacademy';
@@ -352,7 +348,6 @@ import DisciplineFixtureLoading from '../src/template/common/discipline/test/fix
 import DisciplineFixtureNoAuthor from '../src/template/common/discipline/test/fixtures/no-author';
 import DisciplineFixtureNoVideo from '../src/template/common/discipline/test/fixtures/no-video';
 import DisciplineFixtureWithOnclick from '../src/template/common/discipline/test/fixtures/with-onclick';
-import SearchFixtureDefault from '../src/template/common/search/test/fixtures/default';
 
 export const components = {
   Atom: {
@@ -410,12 +405,9 @@ export const components = {
     ScopeContent,
     ScopeTabs,
     Search,
-<<<<<<< HEAD
+    SelectMultiple,
     SetupSlide,
     SetupSlider,
-=======
-    SelectMultiple,
->>>>>>> ftr: dropdown thematique
     Slider,
     SsmenuList,
     StarRating,
@@ -459,8 +451,7 @@ export const components = {
   },
   TemplateCommon: {
     CoorpHeader,
-    Discipline,
-    Search
+    Discipline
   }
 };
 export const fixtures = {
@@ -709,17 +700,15 @@ export const fixtures = {
     Search: {
       Default: SearchFixtureDefault
     },
-<<<<<<< HEAD
+    SelectMultiple: {
+      Checked: SelectMultipleFixtureChecked,
+      Default: SelectMultipleFixtureDefault
+    },
     SetupSlide: {
       Default: SetupSlideFixtureDefault
     },
     SetupSlider: {
       Default: SetupSliderFixtureDefault
-=======
-    SelectMultiple: {
-      Checked: SelectMultipleFixtureChecked,
-      Default: SelectMultipleFixtureDefault
->>>>>>> ftr: dropdown thematique
     },
     Slider: {
       Default: SliderFixtureDefault,
@@ -917,9 +906,6 @@ export const fixtures = {
       NoAuthor: DisciplineFixtureNoAuthor,
       NoVideo: DisciplineFixtureNoVideo,
       WithOnclick: DisciplineFixtureWithOnclick
-    },
-    Search: {
-      Default: SearchFixtureDefault
     }
   }
 };

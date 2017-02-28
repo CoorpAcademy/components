@@ -68,7 +68,7 @@ export ProgressBar from './molecule/progress-bar';
 export Provider from './atom/provider';
 export ScopeContent from './molecule/scope-content';
 export ScopeTabs from './molecule/scope-tabs';
-export Search from './template/common/search';
+export Search from './molecule/search';
 export Select from './atom/select';
 export SelectMultiple from './molecule/select-multiple';
 export SetupHeader from './organism/setup-header';
