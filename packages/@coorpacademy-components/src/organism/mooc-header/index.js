@@ -117,6 +117,9 @@ class MoocHeader extends React.Component {
     const {logo = {}, themes, pages, settings, user, slider, links} = this.props;
     const {translate = identity, skin} = this.context;
 
+    const logoUrl = get(['images', 'logo'], skin);
+    const logoMobileUrl = getOr(logoUrl, ['images', 'logo-mobile'], skin);
+
     let themesView = null;
     let pagesView = null;
     let linksView = null;
@@ -389,7 +392,7 @@ class MoocHeader extends React.Component {
               onClick={this.handleMenuToggle}
             >
               <div className={style.notifWrapper}>
-                <img src={logo.srcMobile || logo.src} />
+                <img src={logoMobileUrl} />
                 {notificationsView}
               </div>
               <div className={this.state.isMenuOpen ? style.caretUp : style.caret} />
@@ -399,7 +402,7 @@ class MoocHeader extends React.Component {
                 className={style.logoLink}
                 href={logo.href}
               >
-                <img src={logo.src} />
+                <img src={logoUrl} />
               </Link>
             </div>
             {themesView}
@@ -448,8 +451,6 @@ MoocHeader.contextTypes = {
 
 MoocHeader.propTypes = {
   logo: PropTypes.shape({
-    srcMobile: PropTypes.string,
-    src: PropTypes.string,
     href: PropTypes.string
   }),
   themes: PropTypes.arrayOf(PropTypes.shape({

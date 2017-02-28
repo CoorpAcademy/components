@@ -40,7 +40,6 @@
 .logo {
   display: block;
   flex: 0 1 auto;
-  max-width: 200px;
 }
 
 .logoLink {
@@ -55,8 +54,7 @@
 }
 
 .logo img {
-  max-height: 100%;
-  height: auto;
+  height: 100%;
   width: auto;
   display: block;
 }
@@ -506,7 +504,20 @@
   }
 
   .logoMobile img {
-    width: 60px;
+    width: auto;
+    height: 100%;
+  }
+
+  .notifWrapper {
+    padding: 10px 0;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+  }
+
+  .notifWrapper .notifications {
+    top: 5px;
   }
 
   .homeMenu {
