@@ -1,6 +1,7 @@
 @value colors: "../../variables/colors.css";
 @value darkGrey from colors;
 @value orange from colors;
+@value yellow from colors;
 
 .message {
   width: 100%;
@@ -45,4 +46,14 @@
 
 .error span {
   background-color: orange;
+}
+
+.warning {
+  composes: message;
+  color: yellow;
+  border-color: yellow;
+}
+
+.warning span {
+  background-color: yellow;
 }
