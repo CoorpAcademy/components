@@ -11,10 +11,11 @@
 
 .default {
   position: relative;
-  padding: 100px;
+  width: 100%;
 }
 
 .text {
+  margin: 0;
   font-size: 12px;
   font-family: "Open Sans";
   font-weight: 400;
