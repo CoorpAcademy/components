@@ -61,7 +61,7 @@ export default {
     }],
     onSubmit: () => {},
     submitValue: 'Save changes',
-    onReset: () => { alert('Reset'); },
+    onReset: () => {},
     resetValue: 'Reset changes'
   }
 };
