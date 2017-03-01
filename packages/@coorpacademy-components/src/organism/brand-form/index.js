@@ -42,7 +42,7 @@ function BrandForm(props) {
 
   const disabledSubmit = disabled || isPending || !isModified;
   const submitButton = onSubmit ? (
-    <div className={style.saveGroup}>
+    <div className={style.saveButton}>
       <Button
         disabled={disabledSubmit}
         submitValue={submitValue}
@@ -55,7 +55,7 @@ function BrandForm(props) {
   };
 
   const resetButton = onReset ? (
-    <div className={style.saveGroup}>
+    <div className={style.resetButton}>
       <Button
         type='reset'
         submitValue={resetValue}
@@ -75,11 +75,11 @@ function BrandForm(props) {
         onSubmit={handleSubmit}
         onReset={handleReset}
       >
-        <div>
-          {brandGroups}
+        {brandGroups}
+        <div className={style.buttons}>
+          {submitButton}
+          {resetButton}
         </div>
-        {submitButton}
-        {resetButton}
       </form>
     </div>
   );

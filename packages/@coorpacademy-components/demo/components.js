@@ -137,6 +137,7 @@ import LinkFixtureHref from '../src/atom/link/test/fixtures/href';
 import LoaderFixtureDefault from '../src/atom/loader/test/fixtures/default';
 import NotificationFixtureDefault from '../src/atom/notification/test/fixtures/default';
 import NotificationFixtureError from '../src/atom/notification/test/fixtures/error';
+import NotificationFixtureWarning from '../src/atom/notification/test/fixtures/warning';
 import PictureFixtureDefault from '../src/atom/picture/test/fixtures/default';
 import PictureFixtureEmpty from '../src/atom/picture/test/fixtures/empty';
 import PictureFixtureSimpleSrc from '../src/atom/picture/test/fixtures/simple-src';
@@ -538,7 +539,8 @@ export const fixtures = {
     },
     Notification: {
       Default: NotificationFixtureDefault,
-      Error: NotificationFixtureError
+      Error: NotificationFixtureError,
+      Warning: NotificationFixtureWarning
     },
     Picture: {
       Default: PictureFixtureDefault,
