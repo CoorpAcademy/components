@@ -12,6 +12,8 @@ function BrandForm(props) {
     isPending,
     onSubmit,
     submitValue,
+    onReset,
+    resetValue,
     back
   } = props;
 
@@ -52,17 +54,32 @@ function BrandForm(props) {
     return onSubmit(e);
   };
 
+  const resetButton = onReset ? (
+    <div className={style.saveGroup}>
+      <Button
+        type='reset'
+        submitValue={resetValue}
+      />
+    </div>
+  ) : null;
+  const handleReset = e => {
+    e.preventDefault();
+    return onReset(e);
+  };
+
   return (
     <div className={style.wrapper}>
       {backView}
       <form
         className={style.groups}
         onSubmit={handleSubmit}
+        onReset={handleReset}
       >
         <div>
           {brandGroups}
         </div>
         {submitButton}
+        {resetButton}
       </form>
     </div>
   );
@@ -79,6 +96,8 @@ BrandForm.propTypes = {
   isPending: PropTypes.bool,
   onSubmit: PropTypes.func,
   submitValue: PropTypes.string,
+  onReset: PropTypes.func,
+  resetValue: PropTypes.string,
   back: PropTypes.shape({
     desc: PropTypes.string,
     link: PropTypes.string
