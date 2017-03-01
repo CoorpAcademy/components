@@ -30,6 +30,7 @@ const InputText = props => {
           defaultValue={defaultValue}
           value={value}
           onInput={handleChange}
+          onChange={noop}
         />
         <span
           className={style.preview}
