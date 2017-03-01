@@ -41,7 +41,7 @@ class Theme extends React.Component {
   }
 
   render() {
-    const {selected, primaryColor, title, handleClick} = this.props;
+    const {selected, primaryColor, title, handleClick, name: themeName} = this.props;
     const activeColor = this.state.hovered || selected ? {
       color: primaryColor
     } : null;
@@ -55,6 +55,7 @@ class Theme extends React.Component {
         }}
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}
+        data-name={`thematique-${themeName}`}
       >
         {title}
       </div>
@@ -135,10 +136,10 @@ class MoocHeader extends React.Component {
     const currentTheme = find({selected: true}, themes);
     if (currentTheme && themes.length > 1) {
       const optionsView = themes.map((theme, index) => {
-        theme.primaryColor = primaryColor;
-
         return (
-          <Theme key={index}
+          <Theme
+            primaryColor={primaryColor}
+            key={theme.name || index}
             {...theme}
           />
         );
@@ -146,7 +147,10 @@ class MoocHeader extends React.Component {
 
       themesView = (
         <div className={style.themes}>
-          <div className={style.currentOption}>{currentTheme.title}<span className={style.caret} /></div>
+          <div
+            className={style.currentOption}
+            data-name="thematique"
+          >{currentTheme.title}<span className={style.caret} /></div>
           <div className={style.optionsGroup}>
             {optionsView}
           </div>
@@ -166,8 +170,11 @@ class MoocHeader extends React.Component {
           </div>
         ) : null;
 
+        const {name: pageName = index} = page;
+
         return (
-          <Link key={index}
+          <Link key={pageName}
+            data-name={`page-${pageName}`}
             href={page.href}
             className={page.selected ? style.activePage : style.page}
             skinHover
@@ -199,10 +206,13 @@ class MoocHeader extends React.Component {
           </div>
         ) : null;
 
+        const {name: pageName = index} = page;
+
         return (
           <Link href={page.href}
-            key={index}
+            key={pageName}
             className={style.option}
+            data-name={`page-more-${pageName}`}
             target={page.target || null}
             onClick={this.handleLinkClick}
             skinHover
@@ -219,7 +229,10 @@ class MoocHeader extends React.Component {
         <div className={style.pages}>
           {displayedPages}
           <div className={style.more}>
-            <div className={style.currentOption}>{moreLabel}<span className={style.caret} /></div>
+            <div
+              className={style.currentOption}
+              data-name="page-more"
+            >{moreLabel}<span className={style.caret} /></div>
             <div className={style.optionsGroup}>
               {optionsView}
             </div>
@@ -259,6 +272,7 @@ class MoocHeader extends React.Component {
         <div className={style.user}>
           <div className={style.stats}>
             <Link className={style.stat}
+              data-name="stat-stars"
               href={user.stats.stars.href}
               onClick={this.handleLinkClick}
             >
@@ -272,6 +286,7 @@ class MoocHeader extends React.Component {
               </div>
             </Link>
             <Link className={style.stat}
+              data-name="stat-ranking"
               href={user.stats.ranking.href}
               onClick={this.handleLinkClick}
             >
@@ -285,6 +300,7 @@ class MoocHeader extends React.Component {
               </div>
             </Link>
             <Link className={style.stat}
+              data-name="stat-badge"
               href={user.stats.badge.href}
               onClick={this.handleLinkClick}
             >
@@ -299,7 +315,9 @@ class MoocHeader extends React.Component {
             </Link>
           </div>
           <div className={style.avatarWrapper}>
-            <div className={style.avatar}>
+            <div className={style.avatar}
+              data-name='user-avatar'
+            >
               <Link href={user.href}
                 className={style.userLink}
                 onClick={this.handleLinkClick}
@@ -316,13 +334,15 @@ class MoocHeader extends React.Component {
     if (settings) {
       settingsView = settings.map((setting, index) => {
         let settingView = null;
-        const {options, type, title} = setting;
+        const {options, type, title, name: settingName = index} = setting;
 
         switch (type) {
           case 'link': {
             settingView = (
-              <div className={style.setting}
-                key={index}
+              <div
+                data-name={`setting-${settingName}`}
+                className={style.setting}
+                key={settingName}
               >
                 <Link className={style.link}
                   href={options.href}
@@ -344,8 +364,10 @@ class MoocHeader extends React.Component {
             selectProps.onChange = options.onChange;
 
             settingView = (
-              <div className={style.setting}
-                key={index}
+              <div
+                data-name={`setting-${settingName}`}
+                className={style.setting}
+                key={settingName}
               >
                 <span className={style.label}>
                   {title}
@@ -361,8 +383,10 @@ class MoocHeader extends React.Component {
             switchProps.onChange = options.onChange;
 
             settingView = (
-              <div className={style.setting}
-                key={index}
+              <div
+                data-name={`setting-${settingName}`}
+                className={style.setting}
+                key={settingName}
               >
                 <span className={style.label}>
                   {title}
@@ -379,7 +403,10 @@ class MoocHeader extends React.Component {
     }
 
     const sliderView = slider ? (
-      <div className={style.slider}>
+      <div
+        data-name="slider"
+        className={style.slider}
+      >
         <Slider {...slider} />
       </div>
     ) : null;
@@ -389,6 +416,7 @@ class MoocHeader extends React.Component {
         <div className={this.state.isMenuOpen ? style.open : style.header}>
           <div className={style.logoWrapper}>
             <div className={style.logoMobile}
+              data-name="logo-mobile"
               onClick={this.handleMenuToggle}
             >
               <div className={style.notifWrapper}>
@@ -397,7 +425,9 @@ class MoocHeader extends React.Component {
               </div>
               <div className={this.state.isMenuOpen ? style.caretUp : style.caret} />
             </div>
-            <div className={style.logo}>
+            <div className={style.logo}
+              data-name="logo"
+            >
               <Link
                 className={style.logoLink}
                 href={logo.href}
@@ -410,6 +440,7 @@ class MoocHeader extends React.Component {
           <div className={style.menuWrapper}>
             <div className={style.homeMenu}>
               <Link className={style.homeLink}
+                data-name="page-home"
                 href={logo.href}
                 onClick={this.handleLinkClick}
                 skinHover
@@ -422,11 +453,16 @@ class MoocHeader extends React.Component {
             <div className={style.settings} // eslint-disable-next-line no-return-assign
               ref={div => this._menuSettings = div} // eslint-disable-line react/jsx-no-bind
             >
-              <div className={style.settingsToggle}
+              <div
+                data-name="settings-toggle"
+                className={style.settingsToggle}
                 onClick={this.handleSettingsToggle}
               />
               <div className={this.state.isSettingsOpen ? style.settingsWrapper : style.settingsWrapperHidden}>
-                <div className={style.settingsGroup}>
+                <div
+                  data-name="settings"
+                  className={style.settingsGroup}
+                >
                   {settingsView}
                 </div>
                 <div className={style.closeSettings}
@@ -455,6 +491,7 @@ MoocHeader.propTypes = {
   }),
   themes: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string,
+    name: PropTypes.string,
     handleClick: PropTypes.func,
     selected: PropTypes.bool
   })),
@@ -462,6 +499,7 @@ MoocHeader.propTypes = {
     displayed: PropTypes.arrayOf(PropTypes.shape({
       target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
       title: PropTypes.string,
+      name: PropTypes.string,
       href: PropTypes.string,
       selected: PropTypes.bool,
       counter: PropTypes.number
@@ -469,6 +507,7 @@ MoocHeader.propTypes = {
     more: PropTypes.arrayOf(PropTypes.shape({
       target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
       title: PropTypes.string,
+      name: PropTypes.string,
       href: PropTypes.string,
       selected: PropTypes.bool,
       counter: PropTypes.number
@@ -496,6 +535,7 @@ MoocHeader.propTypes = {
   }),
   settings: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string,
+    name: PropTypes.string,
     type: PropTypes.oneOf(['select', 'switch', 'link']),
     options: PropTypes.shape({
       href: PropTypes.string,

@@ -35,6 +35,7 @@ class CTA extends React.Component {
     const {translate = identity, skin} = this.context;
     const {
       submitValue = 'submit',
+      name: ctaName,
       href,
       target,
       light = false,
@@ -57,6 +58,7 @@ class CTA extends React.Component {
 
     return (
       <div className={style.button}
+        data-name={ctaName}
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}
         style={{
@@ -87,6 +89,7 @@ CTA.contextTypes = {
 
 CTA.propTypes = {
   submitValue: PropTypes.string,
+  name: PropTypes.string,
   href: PropTypes.string,
   target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
   light: PropTypes.bool,
