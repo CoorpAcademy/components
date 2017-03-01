@@ -27,7 +27,8 @@ const InputText = props => {
           type='text'
           name={title}
           placeholder={placeholder}
-          defaultValue={value || defaultValue}
+          defaultValue={defaultValue}
+          value={value}
           onInput={handleChange}
         />
         <span
