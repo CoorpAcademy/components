@@ -60,6 +60,8 @@ export default {
       }]
     }],
     onSubmit: () => {},
-    submitValue: 'Save changes'
+    submitValue: 'Save changes',
+    onReset: () => {},
+    resetValue: 'Reset changes'
   }
 };
