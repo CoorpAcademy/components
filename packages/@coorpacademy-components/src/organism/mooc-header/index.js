@@ -419,22 +419,17 @@ class MoocHeader extends React.Component {
               data-name="logo-mobile"
               onClick={this.handleMenuToggle}
             >
-              <div className={style.notifWrapper}>
-                <img src={logoMobileUrl} />
-                {notificationsView}
-              </div>
+              <img src={logoMobileUrl} />
+              {notificationsView}
               <div className={this.state.isMenuOpen ? style.caretUp : style.caret} />
             </div>
-            <div className={style.logo}
+            <Link
+              className={style.logo}
               data-name="logo"
+              href={logo.href}
             >
-              <Link
-                className={style.logoLink}
-                href={logo.href}
-              >
-                <img src={logoUrl} />
-              </Link>
-            </div>
+              <img src={logoUrl} />
+            </Link>
             {themesView}
           </div>
           <div className={style.menuWrapper}>

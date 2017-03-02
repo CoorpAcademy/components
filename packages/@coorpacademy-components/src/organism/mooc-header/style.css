@@ -40,10 +40,6 @@
 .logo {
   display: block;
   flex: 0 1 auto;
-}
-
-.logoLink {
-  display: block;
   height: 100%;
   padding: 10px 0;
   box-sizing: border-box;
@@ -502,22 +498,20 @@
     align-items: center;
     cursor: pointer;
     flex: 0 1 auto;
-  }
-
-  .logoMobile img {
-    width: auto;
-    height: 100%;
-  }
-
-  .notifWrapper {
+    position: relative;
     padding: 10px 0;
     height: 100%;
     box-sizing: border-box;
-    display: block;
   }
 
-  .notifWrapper .notifications {
+  .logoMobile img {
+    height: 100%;
+    width: auto;
+  }
+
+  .logoMobile .notifications {
     top: 5px;
+    right: 10px;
   }
 
   .homeMenu {
