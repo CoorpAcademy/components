@@ -25,15 +25,20 @@ const snap = (x, steps, width) => {
   if (!steps)
     return {x, undefined};
 
-  const step = width / (steps.length - 1);
-  const min = Math.floor(x / step) * step;
-  const max = Math.ceil(x / step) * step;
+  const stepWidth = width / (steps.length - 1);
+  const minStep = Math.floor(x / stepWidth);
+  const maxStep = Math.ceil(x / stepWidth);
 
-  const closest = x - min < max - x ? min : max;
+  const min = minStep * stepWidth;
+  const max = maxStep * stepWidth;
+
+  const minIsCloser = x - min < max - x;
+  const closest = minIsCloser ? min : max;
+  const step = minIsCloser ? minStep : maxStep;
 
   return {
     x: closest,
-    step: Math.floor(x / step)
+    step
   };
 };
 
