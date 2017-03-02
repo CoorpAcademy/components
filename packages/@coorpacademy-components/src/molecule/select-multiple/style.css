@@ -1,27 +1,41 @@
+@value colors: "../../variables/colors.css";
+@value darkGrey from colors;
+
 .default {
+    display: block;
     position: relative;
-    margin-left: 20px;
 }
 
 .select {
     display: block;
-    max-width: 251px;
-    height: 49px;
-    padding:0 25px;
+    width: auto;
+    height: 50px;
+    margin: 0 20px;
+    padding: 0 15px;
+    box-sizing: border-box;
     background: white;
     line-height: 50px;
-    color: #2E2E2E;
+    color: darkGrey;
     font-size: 14px;
     composes: fa from '../../variables/fontawesome.css';
-    composes: fa-chevron-down from '../../variables/fontawesome.css';
+    composes: fa-angle-down from '../../variables/fontawesome.css';
     position: relative;
 }
 .select:before {
     display: block;
     position: absolute;
+    font-size: 20px;
+    right: 10px;
+    color: darkGrey;
+    font-weight: 700;
+}
+
+.title {
+    font-family: Open Sans;
     font-size: 14px;
-    right: 3%;
-    color: #2E2E2E;
+    color: darkGrey;
+    margin-bottom: 10px;
+    margin-left: 20px;
 }
 
 .choices {
@@ -30,14 +44,20 @@
 
 .activeChoices {
     display: block;
-    width: 291px;
+    width: 250px;
     height: auto;
     padding: 15px;
     background: white;
     position: absolute;
+<<<<<<< HEAD
     top: 0;
     left: 0;
     z-index: 3;
+=======
+    z-index: 4;
+    top: 27px;
+    left: 20px;
+>>>>>>> ftr(filter): mobile, select fixture
     composes: fa from '../../variables/fontawesome.css';
     composes: fa-times from '../../variables/fontawesome.css';
 }
@@ -47,6 +67,7 @@
     top: 5px;
     right: 5px;
     color: #2E2E2E;
+    font-weight: 300;
 }
 
 .close {
@@ -64,4 +85,11 @@
     padding: 0;
 }
 
+<<<<<<< HEAD
 .list {}
+=======
+.list {
+    margin: 0;
+    padding: 0;
+}
+>>>>>>> ftr(filter): mobile, select fixture

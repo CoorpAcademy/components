@@ -155,6 +155,7 @@ import PictureFixtureSimpleSrc from '../src/atom/picture/test/fixtures/simple-sr
 import ProviderFixtureDefault from '../src/atom/provider/test/fixtures/default';
 import SelectFixtureDefault from '../src/atom/select/test/fixtures/default';
 import SelectFixtureDisabled from '../src/atom/select/test/fixtures/disabled';
+import SelectFixtureFilter from '../src/atom/select/test/fixtures/filter';
 import SelectFixtureMooc from '../src/atom/select/test/fixtures/mooc';
 import SelectFixtureMultipleSelected from '../src/atom/select/test/fixtures/multiple-selected';
 import SelectFixtureMultiple from '../src/atom/select/test/fixtures/multiple';
@@ -586,6 +587,7 @@ export const fixtures = {
     Select: {
       Default: SelectFixtureDefault,
       Disabled: SelectFixtureDisabled,
+      Filter: SelectFixtureFilter,
       Mooc: SelectFixtureMooc,
       MultipleSelected: SelectFixtureMultipleSelected,
       Multiple: SelectFixtureMultiple,

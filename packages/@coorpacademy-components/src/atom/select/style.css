@@ -1,5 +1,7 @@
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
+@value colors: "../../variables/colors.css";
+@value darkGrey from colors;
 
 .default {
   display: flex;
@@ -48,13 +50,44 @@
 }
 
 .thematiques label,
-.nolabel label {
+.nolabel label,
+.filter label {
   display: flex;
   align-items: center;
   height: 37px;
   position: relative;
   flex-grow: 0;
-  margin-right: 20px;
+  margin: 0 20px;
+}
+
+.filter label {
+  flex-wrap: wrap;
+  height: auto;
+}
+
+.filter .title {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.filter select {
+  display: block;
+  width: 100%;
+  height: 50px;
+  background: white;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  outline: none;
+  appearance: none;
+  font-size: 14px;
+  padding: 0 15px;
+  color: darkGrey;
+}
+
+.filter .arrow {
+  top: 75%;
 }
 
 .thematiques .title,
