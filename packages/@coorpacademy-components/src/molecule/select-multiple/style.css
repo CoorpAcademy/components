@@ -5,7 +5,7 @@
 
 .select {
     display: block;
-    width: 251px;
+    max-width: 251px;
     height: 49px;
     padding:0 25px;
     background: white;

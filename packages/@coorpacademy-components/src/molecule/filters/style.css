@@ -5,6 +5,12 @@
 @value colors: "../../variables/colors.css";
 @value light from colors;
 @value darkGrey from colors;
+@value blue from colors;
+
+.search {
+  position: relative;
+  z-index: 4
+}
 
 .default {
   display: flex;
@@ -17,9 +23,10 @@
 .wrapperFilters {
   display: flex;
   flex-wrap: wrap;
-  width: 90%;
+  width: 100%;
   height: 135px;
   padding: 0 4%;
+  box-sizing: border-box;
   align-items: center;
   justify-content: center;
 }
@@ -81,47 +88,99 @@
   align-items: center;
   justify-content: flex-end;
 }
+.CTAfilter {
+  display: none;
+} 
 
 @media desktop {}
 
 @media tablet {}
 
 @media mobile {
-.default,
-.wrapperSortBy {
-  display: inline-block;
-  width: 50%;
-  box-sizing: border-box;
-  height: 50px;
-  padding: 0;
-  background: #D2D2D2;
-}
+  .default,
+  .wrapperSortBy,
+  .activeDefault,
+  .activeWrapperSortBy {
+    display: inline-block;
+    width: 50%;
+    box-sizing: border-box;
+    height: 50px;
+    padding: 0;
+    background: #D2D2D2;
+  }
 
-.default {
-  border-right: solid 1px #fbfafb;
-}
+  .default {
+    border-right: solid 1px #fbfafb;
+  }
 
-.wrapperSortBy {
-  border-left: solid 1px #fbfafb;
-}
+  .activeDefault {
+    border-right: solid 1px #fbfafb;
+    background: light;
+  }
 
-.title {
-  display: block;
-  color: darkGrey;
-  width: 100%;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 50px;
-  text-align: center;
-}
-.title:before {
-  display: block;
-  right: 25%;
-}
+  .activeWrapperSortBy {
+    border-left: solid 1px #fbfafb;
+    background: light
+  }
 
-.wrapperFilters,
-.sorting {
-  display: none;
-}
+  .wrapperSortBy {
+    border-left: solid 1px #fbfafb;
+  }
 
+  .title {
+    display: block;
+    color: darkGrey;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 50px;
+    text-align: center;
+  }
+  .title:before {
+    display: block;
+    right: 25%;
+  }
+
+  .wrapperFilters,
+  .sorting {
+    display: none;
+  }
+
+  .activeWrapperFilters {
+    width: 100%;
+    height: auto;
+    padding: 0;
+    box-sizing: border-box;
+    background: light;
+    position: absolute;
+    z-index: 3;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .5);
+  }
+
+  .activeWrapperFilters .wrapper {
+    padding: 16px;
+  }
+
+  .activeWrapperFilters .wrapper div {
+    margin-bottom: 8px;
+  }
+
+  .activeWrapperFilters .wrapper select,
+  .activeWrapperFilters .wrapper label {
+    width: 100%;
+  }
+
+  .CTAfilter {
+    display: block;
+    background: blue;
+    width: 100%;
+    height: 49px;
+    margin-top: 16px;
+    line-height: 50px;
+    color: white;
+    text-align: center;
+    font-weight: 700;
+    position: relative;
+    bottom: 0;
+  }
 }
