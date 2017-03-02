@@ -2,6 +2,7 @@ import React, {PropTypes} from 'react';
 import identity from 'lodash/fp/identity';
 import uniqueId from 'lodash/fp/uniqueId';
 import shallowCompare from '../../util/shallow-compare';
+import Loader from './../loader';
 import style from './style.css';
 
 class ImageUpload extends React.Component {
@@ -40,16 +41,27 @@ class ImageUpload extends React.Component {
       onChange,
       uploadLabel,
       previewLabel = '',
-      previewImage
+      previewImage,
+      loading = false
     } = this.props;
 
-    const previewView = previewImage ? (
-      <div className={style.image}>
-        <img src={previewImage} />
-      </div>
-    ) : (
-      <span>{previewLabel}</span>
-    );
+    let previewView = '';
+    if (previewImage) {
+      previewView = (
+        <div className={style.image}>
+          <img src={previewImage} />
+        </div>);
+    } else if (loading) {
+      previewView = (
+        <div className={style.loading}>
+          <Loader />
+        </div>);
+    } else {
+      previewView = (
+        <span>
+          {previewLabel}
+        </span>);
+    }
 
     return (
       <div className={style.wrapper}>
@@ -88,7 +100,8 @@ ImageUpload.propTypes = {
   onChange: PropTypes.func,
   uploadLabel: PropTypes.string,
   previewLabel: PropTypes.string,
-  previewImage: PropTypes.string
+  previewImage: PropTypes.string,
+  loading: PropTypes.bool
 };
 
 export default ImageUpload;
