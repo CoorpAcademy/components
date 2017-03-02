@@ -1,4 +1,5 @@
 const hash = '[folder]__[local]';
+const path = require('path');
 
 module.exports = function(storybookBaseConfig, configType) {
   // configType has a value of 'DEVELOPMENT' or 'PRODUCTION'
@@ -7,7 +8,8 @@ module.exports = function(storybookBaseConfig, configType) {
   console.log('plop');
   storybookBaseConfig.module.loaders.push({
     test: /\.css$/,
-    loader: `style-loader!css-loader?minimize&modules&importLoaders=1&localIdentName=${hash}!postcss-loader`
+    loader: `style-loader!css-loader?minimize&modules&importLoaders=1&localIdentName=${hash}!postcss-loader`,
+    include: path.join(__dirname, '../src')
   });
 
   return storybookBaseConfig;
