@@ -105,3 +105,9 @@
   bottom: 0;
   right: 0;
 }
+
+.loading {
+  min-height: 100px;
+  border: none;
+  position: relative;
+}
