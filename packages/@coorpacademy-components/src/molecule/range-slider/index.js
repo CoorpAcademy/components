@@ -47,6 +47,7 @@ class RangeSlider extends React.Component {
 
     this.setX = this.setX.bind(this);
     this.handlePanStart = this.handlePanStart.bind(this);
+    this.updatePositions = this.updatePositions.bind(this);
   }
 
   componentDidMount() {
@@ -65,12 +66,39 @@ class RangeSlider extends React.Component {
         x: x2,
         min: x1,
         max
-      }
+      },
+      railWidth: max
     });
+
+    window.addEventListener('resize', this.updatePositions);
   }
 
   shouldComponentUpdate(nextProps, nextState, nextContext) {
     return shallowCompare(this, nextProps, nextState, nextContext);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updatePositions);
+  }
+
+  updatePositions() {
+    this.setState((previousState, currentProps) => {
+      const newWidth = this.railWidth();
+      const ratio = newWidth / previousState.railWidth;
+
+      return {
+        handle1: {
+          x: previousState.handle1.x * ratio,
+          max: previousState.handle2.x * ratio
+        },
+        handle2: {
+          x: previousState.handle2.x * ratio,
+          min: previousState.handle1.x * ratio,
+          max: newWidth
+        },
+        railWidth: newWidth
+      };
+    });
   }
 
   handlePanStart(num) {
@@ -93,16 +121,15 @@ class RangeSlider extends React.Component {
 
   setX(num, steps) {
     return e => this.setState((previousState, currentProps) => {
-      const width = this.railWidth();
       const _x = this.extractXFromEvent(num, e);
-      const {x, step} = snap(_x, steps, width);
+      const {x, step} = snap(_x, steps, previousState.railWidth);
 
       let state = set([`handle${num}`, 'x'], x, previousState);
       state = set([`handle${num}`, 'step'], step, state);
       state = set(['handle1', 'max'], state.handle2.x, state);
       state = set(['handle2', 'min'], state.handle1.x, state);
 
-      const isMax = state.handle1.x === width;
+      const isMax = state.handle1.x === state.railWidth;
       state = set('isMax', isMax, state);
 
       return state;
@@ -114,7 +141,7 @@ class RangeSlider extends React.Component {
       x: this.state[`handle${num}`].panStart,
       delta: e.deltaX,
       min: this.state[`handle${num}`].min,
-      max: this.state[`handle${num}`].max || this.railWidth()
+      max: this.state[`handle${num}`].max || this.state.railWidth
     });
   }
 
