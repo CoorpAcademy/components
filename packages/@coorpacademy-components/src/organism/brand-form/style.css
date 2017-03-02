@@ -6,26 +6,6 @@
 
 }
 
-.group {
-  width: 100%;
-  border-top: 1px solid #E0E0E0;
-  margin-top: 50px;
-  padding-top: 50px;
-}
-
-.group:first-child {
-  margin-top: 0;
-  border-top: none;
-  padding-top: 0;
-}
-
-.saveGroup {
-  composes: group;
-  text-align: right;
-  border-top: none;
-  padding-top: 0;
-}
-
 .back {
   margin-bottom: 30px;
 }
@@ -50,4 +30,28 @@
 
 .backDesc:hover {
   color: blue;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  border-top: 1px solid #E0E0E0;
+  margin-top: 50px;
+  padding-top: 50px;
+}
+
+.button {
+  margin-left: 20px;
+}
+
+.button:first-child {
+  margin-left: 0;
+}
+
+.saveButton {
+  composes: button;
+}
+
+.resetButton {
+  composes: button;
 }

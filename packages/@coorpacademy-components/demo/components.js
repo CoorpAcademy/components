@@ -87,6 +87,7 @@ import BrandList from '../src/template/back-office/brand-list';
 import BrandUpdate from '../src/template/back-office/brand-update';
 import CoorpHeader from '../src/template/common/coorp-header';
 import Discipline from '../src/template/common/discipline';
+import SearchPage from '../src/template/common/search-page';
 import ButtonFixtureA from '../src/atom/button/test/fixtures/a';
 import ButtonFixtureBlue from '../src/atom/button/test/fixtures/blue';
 import ButtonFixtureCentered from '../src/atom/button/test/fixtures/centered';
@@ -136,6 +137,7 @@ import LinkFixtureHref from '../src/atom/link/test/fixtures/href';
 import LoaderFixtureDefault from '../src/atom/loader/test/fixtures/default';
 import NotificationFixtureDefault from '../src/atom/notification/test/fixtures/default';
 import NotificationFixtureError from '../src/atom/notification/test/fixtures/error';
+import NotificationFixtureWarning from '../src/atom/notification/test/fixtures/warning';
 import PictureFixtureDefault from '../src/atom/picture/test/fixtures/default';
 import PictureFixtureEmpty from '../src/atom/picture/test/fixtures/empty';
 import PictureFixtureSimpleSrc from '../src/atom/picture/test/fixtures/simple-src';
@@ -348,6 +350,7 @@ import DisciplineFixtureLoading from '../src/template/common/discipline/test/fix
 import DisciplineFixtureNoAuthor from '../src/template/common/discipline/test/fixtures/no-author';
 import DisciplineFixtureNoVideo from '../src/template/common/discipline/test/fixtures/no-video';
 import DisciplineFixtureWithOnclick from '../src/template/common/discipline/test/fixtures/with-onclick';
+import SearchPageFixtureDefault from '../src/template/common/search-page/test/fixtures/default';
 
 export const components = {
   Atom: {
@@ -451,7 +454,8 @@ export const components = {
   },
   TemplateCommon: {
     CoorpHeader,
-    Discipline
+    Discipline,
+    SearchPage
   }
 };
 export const fixtures = {
@@ -535,7 +539,8 @@ export const fixtures = {
     },
     Notification: {
       Default: NotificationFixtureDefault,
-      Error: NotificationFixtureError
+      Error: NotificationFixtureError,
+      Warning: NotificationFixtureWarning
     },
     Picture: {
       Default: PictureFixtureDefault,
@@ -906,6 +911,9 @@ export const fixtures = {
       NoAuthor: DisciplineFixtureNoAuthor,
       NoVideo: DisciplineFixtureNoVideo,
       WithOnclick: DisciplineFixtureWithOnclick
+    },
+    SearchPage: {
+      Default: SearchPageFixtureDefault
     }
   }
 };
