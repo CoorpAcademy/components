@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
 import map from 'lodash/fp/map';
+import getOr from 'lodash/fp/getOr';
 import Select from '../../atom/select';
 import InputText from '../../atom/input-text';
 import InputColor from '../../atom/input-color';
@@ -16,6 +17,7 @@ const BrandFormGroup = props => {
   const {
     title,
     subtitle = '',
+    fieldsLayout = '',
     fields = []
   } = props;
 
@@ -85,6 +87,7 @@ const BrandFormGroup = props => {
   };
 
   const fieldsList = fields.map(buildField);
+  const fieldsLayoutStyle = getOr('', fieldsLayout, style);
 
   return (
     <div className={style.wrapper}>
@@ -92,7 +95,9 @@ const BrandFormGroup = props => {
         <h3>{title}</h3>
         <h4>{subtitle}</h4>
       </div>
-      {fieldsList}
+      <div className={fieldsLayoutStyle}>
+        {fieldsList}
+      </div>
     </div>
   );
 };
@@ -100,6 +105,7 @@ const BrandFormGroup = props => {
 BrandFormGroup.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string,
+  fieldsLayout: PropTypes.string,
   fields: PropTypes.arrayOf(PropTypes.shape({
     type: PropTypes.string.isRequired
   }))
