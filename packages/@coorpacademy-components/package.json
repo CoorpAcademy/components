@@ -13,8 +13,8 @@
   ],
   "scripts": {
     "prestart": "npm run generate",
-    "start": "npm run storybook",
-    "generate": "npm run generate:index && npm run generate:storybook",
+    "start": "npm run storybook:dev",
+    "generate": "npm run generate:index && npm run generate:storybook && npm run storybook:export",
     "generate:index": "BABEL_ENV=commonjs babel-node scripts/generate-components-index.js > src/index.js",
     "generate:storybook": "BABEL_ENV=commonjs babel-node scripts/generate-storybook-index.js > storybook/components.js",
     "build": "npm run build:commonjs && npm run build:es && npm run build:browser",
@@ -22,7 +22,7 @@
     "build:es": "npm run clean:build:es && BABEL_ENV=es babel src --out-dir es -s --ignore test --copy-files",
     "build:browser": "npm run clean:build:browser && npm run build:components",
     "build:components": "bundle-components src/index.js -o dist/",
-    "prepublish": "npm run build --production",
+    "prepublish": "npm run build --production && npm run storybook:export",
     "clean": "npm run clean:build",
     "clean:build": "npm run clean:build:commonjs && npm run clean:build:es && npm run clean:build:browser",
     "clean:build:commonjs": "rm -rf lib",
@@ -31,7 +31,8 @@
     "doc": "npm run doc:svg && npm run doc:png",
     "doc:svg": "node scripts/madge.js",
     "doc:png": "convert doc/components.svg doc/components.png",
-    "storybook": "BABEL_ENV=es start-storybook -p 3004 -c .storybook",
+    "storybook:dev": "BABEL_ENV=es start-storybook -p 3004 -c .storybook",
+    "storybook:export": "BABEL_ENV=es build-storybook -c .storybook -o ../../docs",
     "build-storybook": "build-storybook"
   },
   "contributors": [
