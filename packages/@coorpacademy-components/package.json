@@ -32,7 +32,7 @@
     "doc:svg": "node scripts/madge.js",
     "doc:png": "convert doc/components.svg doc/components.png",
     "storybook:dev": "BABEL_ENV=es start-storybook -p 3004 -c .storybook",
-    "storybook:export": "BABEL_ENV=es build-storybook -c .storybook -o ../../docs",
+    "storybook:export": "BABEL_ENV=es build-storybook -c .storybook -o ../../storybook",
     "build-storybook": "build-storybook"
   },
   "contributors": [

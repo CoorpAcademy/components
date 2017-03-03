@@ -7,9 +7,24 @@ import keys from 'lodash/fp/keys';
 import forEach from 'lodash/fp/forEach';
 import toPairs from 'lodash/fp/toPairs';
 import { storiesOf, action, linkTo } from '@kadira/storybook';
+import {createBrowserHistory} from '@coorpacademy/history';
+import createTranslate from '@coorpacademy/translate';
 import Provider from '../src/atom/provider';
+import en from '../locales/en/global';
+import fr from '../locales/fr/global';
+import skin from './assets/skin';
 
 import {components, fixtures} from './components';
+
+const locales = {en, fr};
+const translate = createTranslate(locales.fr);
+const history = createBrowserHistory();
+
+const options = {
+  history,
+  skin,
+  translate
+};
 
 pipe(
   toPairs,
@@ -23,7 +38,14 @@ pipe(
         pipe(
           toPairs,
           map(([fixtureName, fixture]) => {
-            stories.add(fixtureName, () => React.createElement(factory, fixture.props));
+            stories.add(fixtureName, () => React.createElement(
+              Provider,
+              options,
+              React.createElement(
+                factory,
+                fixture.props
+              )
+            ));
           })
         )(_fixtures);
       })
