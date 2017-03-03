@@ -23,6 +23,7 @@ class Checkbox extends React.Component {
 
   render() {
     return (
+      // eslint-disable-next-line react/void-dom-elements-no-children
       <input
         type="checkbox"
         {...this.props}
