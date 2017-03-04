@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom';
 import get from 'lodash/fp/get';
 import {createBrowserHistory} from '@coorpacademy/history';
 import createTranslate from '@coorpacademy/translate';
-import en from '../locales/en/global';
-import fr from '../locales/fr/global';
 import _App from './app';
 import {components, fixtures} from './components';
 import skin from './assets/skin';
