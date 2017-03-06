@@ -8,6 +8,10 @@ This library provide sharable components for web applications, either :
 - as CommonJS components
 - as a minified library
 
+# Storybook
+
+[here](http://coorpacademy.github.io/components/storybook)
+
 ### Goal
 
 - edit a component once, share it across all our platforms
