@@ -26,7 +26,7 @@ This library provide sharable components for web applications, either :
 
 ```
 npm install
-npm start
+npm run start:components
 ```
 
 Then open `http://localhost:3004`
@@ -35,108 +35,18 @@ Then open `http://localhost:3004`
 - use `npm link` to create a local `@coorpacademy/components` package
 - use `npm link @coorpacademy/components` in your project.
 
-### Unit Tests with ava
-`@todo` example + howto
+### Unit Tests with eslint and ava
+```
+npm test
+```
+
 
 ### Publish
 ```
-npm version patch|minor|major
-git push --tags
+npm run publish:latest
 ```
 
 ### Troubleshooting
 #### lerna
 Lerna is used to plug and publish all the packages in this repo.
 You may have to reset all `node_modules` : use `lerna clean` before performing `npm i` again.
-
-# Technical details
-
-### Engines
-
-- each virtual dom library has its own [engine](./src/engine)
-- the engine implements the `hyperscript` function, the cloning, and the vtree resolving.
-- every component is built as a function to be called with the selected engine
-
-```js
-import engine from '../../src/engine/virtual-dom';
-import createElement from './element';
-const Element = createElement(engine, options);
-```
-
-`Element` being something like:
-```js
-export default ({h}) => (props, children) => (
-  <p>
-    {children}
-  </p>
-)
-```
-
-### Shallow/resolved vTree
-`@todo` explain `engine.resolve` and `engine.walker(engine.resolve)`
-
-### Applying custom behaviours
-
-It's possible to enhance a `Component` by applying a specific behaviour on it.
-
-Alike every `Component`, this behaviour is a kind of `MetaComponent`, created with the `engine` and 'wrapped' around the `Component` to enhance.
-
-```js
-const Component = createComponent(engine, options)
-const CustomBehaviour = createCustomBehaviour(engine, options)
-```
-```jsx
-<CustomBehaviour>
-  <Component>
-  </Component>
-</CustomBehaviour>
-```
-
-###### Wrappers
-
-`Wrappers` allow to modify the child's props.
-
-```jsx
-<ForceColor {color: 'red'}>
-  <Component {color: 'blue'}>
-  </Component>
-</ForceColor>
-```
-
-With this kind of `Wrapper`, the `Component` will have its `blue` props.color overriden by the `red` value.
-
-###### Behaviours
-
-`Behaviours` allow to modify a child's behaviour, like its style
-It's the same job as `wrappers` but applying the modification directly on the *resolved* vTree.
-
-With a `Behaviour` the previous example would become :
-
-```js
-const Component = createComponent(engine, options)
-const RedColor = createRedColor(engine, options)
-```
-```jsx
-<RedColor>
-  <Component>
-  </Component>
-</RedColor>
-```
-
-Here the `Component` `props.style.color` will be set by the `Behaviour`.
-
-###### Decorators
-
-Both `Wrappers` and `Behaviours` may be used as decorator to allow smaller, readable `jsx`:
-
-```js
-const Component = createComponent(engine, options)
-const RedColor = createRedColor(engine, options)
-const RedComponent = RedColor.decorate(Component);
-```
-```jsx
-<RedComponent>
-</RedComponent>
-```
-
-Here the `RedComponent` is exactly the same as the previous example for `Behaviour`.
