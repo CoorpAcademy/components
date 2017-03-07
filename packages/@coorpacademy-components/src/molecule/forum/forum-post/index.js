@@ -36,7 +36,7 @@ const ForumPost = (props, context) => {
     onDelete
   } = props;
 
-  const infoDeleted = translate('This message has been removed by its author.');
+  const infoDeleted = translate('This message has been removed by its author');
   const answerLabel = translate('Answer');
   const editLabel = translate('Edit');
   const deleteLabel = translate('Delete');
