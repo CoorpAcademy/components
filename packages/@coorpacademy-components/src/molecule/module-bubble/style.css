@@ -1,3 +1,6 @@
+@value colors: "../../variables/colors.css";
+@value borderGrey from colors;
+
 .modulewrapper {
   position: relative;
   display: inline-block;
@@ -24,6 +27,9 @@
   height: 40px;
   transition-duration: 0.5s;
   margin: auto;
+  border: 1px solid borderGrey;
+  box-sizing: border-box;
+  background-color: white;
 }
 
 .icon {
