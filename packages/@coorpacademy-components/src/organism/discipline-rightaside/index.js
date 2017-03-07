@@ -93,6 +93,7 @@ const DisciplineRightaside = (props, context) => {
         <Link
           className={style.logoLink}
           href={authorLogo.href}
+          target={'_blank'}
         >
           <Picture
             className={style.logo}
