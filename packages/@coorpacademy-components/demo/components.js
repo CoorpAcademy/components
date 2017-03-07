@@ -109,6 +109,7 @@ import CtaFixtureSecondaryLight from '../src/atom/cta/test/fixtures/secondary-li
 import CtaFixtureSecondary from '../src/atom/cta/test/fixtures/secondary';
 import ImageUploadFixtureDefault from '../src/atom/image-upload/test/fixtures/default';
 import ImageUploadFixtureImage from '../src/atom/image-upload/test/fixtures/image';
+import ImageUploadFixtureLoading from '../src/atom/image-upload/test/fixtures/loading';
 import InputCheckboxFixtureChecked from '../src/atom/input-checkbox/test/fixtures/checked';
 import InputCheckboxFixtureDefault from '../src/atom/input-checkbox/test/fixtures/default';
 import InputCheckboxFixtureDisabled from '../src/atom/input-checkbox/test/fixtures/disabled';
@@ -489,7 +490,8 @@ export const fixtures = {
     },
     ImageUpload: {
       Default: ImageUploadFixtureDefault,
-      Image: ImageUploadFixtureImage
+      Image: ImageUploadFixtureImage,
+      Loading: ImageUploadFixtureLoading
     },
     InputCheckbox: {
       Checked: InputCheckboxFixtureChecked,

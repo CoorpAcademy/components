@@ -3,10 +3,15 @@ import set from 'lodash/fp/set';
 import partial from 'lodash/fp/partial';
 import unary from 'lodash/fp/unary';
 import identity from 'lodash/fp/identity';
+import getOr from 'lodash/fp/getOr';
 import ModuleBubble from '../../molecule/module-bubble';
 import style from './style.css';
 
-const ScopeTabs = props => {
+const ScopeTabs = (props, context) => {
+  const {
+    skin
+  } = context;
+
   const {
     onClick,
     selected = 0,
@@ -14,15 +19,35 @@ const ScopeTabs = props => {
   } = props;
   const hideLabel = true;
 
+  const primary = getOr('#00B0FF', ['common', 'primary'], skin);
+
   return (
     <ul className={style.tabs}>
       {levels && levels.map((level, index) => {
         const handleClick = () => onClick(index);
+        const isSelected = selected === index;
+        const tabSkin = isSelected ? {
+          background: primary,
+          border: `1px solid ${primary}`
+        } : {
+          color: primary
+        };
+
+        const arrow = isSelected && (
+          <span
+            className={style.arrow}
+            style={{
+              borderColor: `transparent transparent transparent ${primary}`
+            }}
+          />
+        );
+
         return (
           <li
             key={index}
             onClick={handleClick}
-            className={selected === index ? style.currentTab : style.tab}
+            className={isSelected ? style.currentTab : style.tab}
+            style={tabSkin}
           >
             <div className={style.module}>
               <ModuleBubble
@@ -32,6 +57,7 @@ const ScopeTabs = props => {
               />
             </div>
             <div className={style.name}>{level.name}</div>
+            {arrow}
           </li>
         );
       })}
@@ -40,8 +66,7 @@ const ScopeTabs = props => {
 };
 
 ScopeTabs.contextTypes = {
-  skin: React.PropTypes.object,
-  translate: React.PropTypes.func
+  skin: React.PropTypes.object
 };
 
 ScopeTabs.propTypes = {
