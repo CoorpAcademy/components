@@ -1,6 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
-// const BabiliPlugin = require('babili-webpack-plugin');
+const BabiliPlugin = require('babili-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const CSSWrapper = require('@coorpacademy/css-wrapper-webpack-plugin');
@@ -96,10 +96,10 @@ const config = cssScope => ({
           minimize: true,
           debug: false
         }),
-        // new BabiliPlugin({
-        //   comments: false,
-        //   sourceMap: false
-        // }),
+        new BabiliPlugin({
+          comments: false,
+          sourceMap: false
+        }),
         componentCSS
       );
 
