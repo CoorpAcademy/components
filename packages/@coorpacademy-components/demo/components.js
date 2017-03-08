@@ -77,6 +77,7 @@ import GridList from '../src/organism/grid-list';
 import Header from '../src/organism/header';
 import Hero from '../src/organism/hero';
 import MoocHeader from '../src/organism/mooc-header';
+import Popin from '../src/organism/popin';
 import SetupHeader from '../src/organism/setup-header';
 import Author from '../src/template/app-catalog/author';
 import Catalog from '../src/template/app-catalog/catalog';
@@ -307,6 +308,7 @@ import MoocHeaderFixtureDefault from '../src/organism/mooc-header/test/fixtures/
 import MoocHeaderFixtureLogged from '../src/organism/mooc-header/test/fixtures/logged';
 import MoocHeaderFixtureSliderMultiple from '../src/organism/mooc-header/test/fixtures/slider-multiple';
 import MoocHeaderFixtureSlider from '../src/organism/mooc-header/test/fixtures/slider';
+import PopinFixtureDefault from '../src/organism/popin/test/fixtures/default';
 import SetupHeaderFixtureDefault from '../src/organism/setup-header/test/fixtures/default';
 import AuthorFixtureDefault from '../src/template/app-catalog/author/test/fixtures/default';
 import AuthorFixtureLoading from '../src/template/app-catalog/author/test/fixtures/loading';
@@ -440,6 +442,7 @@ export const components = {
     Header,
     Hero,
     MoocHeader,
+    Popin,
     SetupHeader
   },
   TemplateAppCatalog: {
@@ -843,6 +846,9 @@ export const fixtures = {
       Logged: MoocHeaderFixtureLogged,
       SliderMultiple: MoocHeaderFixtureSliderMultiple,
       Slider: MoocHeaderFixtureSlider
+    },
+    Popin: {
+      Default: PopinFixtureDefault
     },
     SetupHeader: {
       Default: SetupHeaderFixtureDefault
