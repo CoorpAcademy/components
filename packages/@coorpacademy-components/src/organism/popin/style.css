@@ -1,0 +1,67 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value colors: "../../variables/colors.css";
+@value mobile from breakpoints;
+@value tablet from breakpoints;
+@value desktop from breakpoints;
+@value darkGrey from colors;
+@value borderGrey from colors;
+@value light from colors;
+@value grey from colors;
+
+.default {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: rgba(255,255,255,.7);
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+.popin {
+  width: 680px;
+  height: auto;
+  background: white;
+  box-shadow: 0 0 15px 0 rgba(166,166,166,.84);
+}
+.header {
+  display: flex;
+  width: 100%;
+  height: 35px;
+  background: light;
+  align-items: center;
+  justify-content: center;
+  color: grey;
+  font-size: 15px;
+}
+
+.header a {
+  color: grey;
+  text-decoration: none;
+}
+
+.content {
+  color: darkGrey;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.cta {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+@media desktop {
+  
+}
+
+@media tablet {
+
+}
+
+@media mobile {
+  
+}
