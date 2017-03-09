@@ -25,18 +25,14 @@
   justify-content: center;
 }
 
-@keyframes icon-push {
-  50% {
-    transform: scale(0.7);
-  }
+.defaultTab {
+  composes: tab;
 }
 
 /* icon on module-bubble */
-.tab:hover div div div {
-  animation-name: icon-push;
-  animation-duration: 0.3s;
-  animation-timing-function: linear;
-  animation-iteration-count: 1;
+.defaultTab:hover div div div {
+  transition: transform 0.3s ease-out;
+  transform: scale(1.1);
 }
 
 .currentTab {

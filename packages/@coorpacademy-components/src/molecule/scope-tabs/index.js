@@ -33,20 +33,22 @@ const ScopeTabs = (props, context) => {
           color: primary
         };
 
-        const arrow = isSelected && (
+        const last = index === levels.length - 1;
+
+        const arrow = isSelected && !last ? (
           <span
             className={style.arrow}
             style={{
               borderColor: `transparent transparent transparent ${primary}`
             }}
           />
-        );
+        ) : null;
 
         return (
           <li
             key={index}
             onClick={handleClick}
-            className={isSelected ? style.currentTab : style.tab}
+            className={isSelected ? style.currentTab : style.defaultTab}
             style={tabSkin}
           >
             <div className={style.module}>
