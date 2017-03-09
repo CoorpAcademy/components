@@ -209,7 +209,7 @@ import DisciplineHeaderFixtureNoVideoNoImage from '../src/molecule/discipline-he
 import DisciplineHeaderFixtureNoVideo from '../src/molecule/discipline-header/test/fixtures/no-video';
 import DisciplineScopeFixtureDefault from '../src/molecule/discipline-scope/test/fixtures/default';
 import DisciplineScopeFixtureEmpty from '../src/molecule/discipline-scope/test/fixtures/empty';
-import DisciplineScopeFixtureVideos from '../src/molecule/discipline-scope/test/fixtures/videos';
+import DisciplineScopeFixtureMedias from '../src/molecule/discipline-scope/test/fixtures/medias';
 import DisciplineScopeFixtureWithOnclick from '../src/molecule/discipline-scope/test/fixtures/with-onclick';
 import FiltersFixtureDefault from '../src/molecule/filters/test/fixtures/default';
 import MenuListFixtureDefault from '../src/molecule/menu-list/test/fixtures/default';
@@ -223,7 +223,7 @@ import ProgressBarFixtureDefault from '../src/molecule/progress-bar/test/fixture
 import ProgressBarFixtureMax from '../src/molecule/progress-bar/test/fixtures/max';
 import ScopeContentFixtureDefault from '../src/molecule/scope-content/test/fixtures/default';
 import ScopeContentFixtureEmpty from '../src/molecule/scope-content/test/fixtures/empty';
-import ScopeContentFixtureVideos from '../src/molecule/scope-content/test/fixtures/videos';
+import ScopeContentFixtureMedias from '../src/molecule/scope-content/test/fixtures/medias';
 import ScopeContentFixtureWithOnclick from '../src/molecule/scope-content/test/fixtures/with-onclick';
 import ScopeTabsFixtureDefault from '../src/molecule/scope-tabs/test/fixtures/default';
 import ScopeTabsFixtureEmpty from '../src/molecule/scope-tabs/test/fixtures/empty';
@@ -669,7 +669,7 @@ export const fixtures = {
     DisciplineScope: {
       Default: DisciplineScopeFixtureDefault,
       Empty: DisciplineScopeFixtureEmpty,
-      Videos: DisciplineScopeFixtureVideos,
+      Medias: DisciplineScopeFixtureMedias,
       WithOnclick: DisciplineScopeFixtureWithOnclick
     },
     Filters: {
@@ -697,7 +697,7 @@ export const fixtures = {
     ScopeContent: {
       Default: ScopeContentFixtureDefault,
       Empty: ScopeContentFixtureEmpty,
-      Videos: ScopeContentFixtureVideos,
+      Medias: ScopeContentFixtureMedias,
       WithOnclick: ScopeContentFixtureWithOnclick
     },
     ScopeTabs: {

@@ -26,9 +26,9 @@ const DisciplineScope = props => {
 };
 
 DisciplineScope.propTypes = {
-  levels: PropTypes.array,
-  selected: PropTypes.number,
-  content: PropTypes.object,
-  onClick: PropTypes.func
+  levels: ScopeTabs.propTypes.levels,
+  selected: ScopeTabs.propTypes.selected,
+  onClick: ScopeTabs.propTypes.onClick,
+  content: ScopeContent.propTypes.content
 };
 export default DisciplineScope;

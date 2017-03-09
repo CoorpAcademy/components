@@ -72,6 +72,7 @@ Link.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
   href: PropTypes.string,
+  target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
   skinHover: PropTypes.bool,
   onClick: PropTypes.func
 };

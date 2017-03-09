@@ -1,6 +1,6 @@
 import disciplineHeader from '../../../../../molecule/discipline-header/test/fixtures/default';
 import disciplineRightAside from '../../../../../organism/discipline-rightaside/test/fixtures/discipline';
-import disciplineScope from '../../../../../molecule/discipline-scope/test/fixtures/videos';
+import disciplineScope from '../../../../../molecule/discipline-scope/test/fixtures/medias';
 
 const {title, description, video} = disciplineHeader.props;
 const {start, buy, startLabel, buyLabel, authors} = disciplineRightAside.props;
