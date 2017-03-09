@@ -12,7 +12,8 @@
     "README.md"
   ],
   "scripts": {
-    "start": "npm run generate:demo && BABEL_ENV=commonjs babel-node demo/index.js",
+    "prestart": "npm run generate",
+    "start": "BABEL_ENV=commonjs babel-node demo/index.js",
     "generate": "npm run generate:index && npm run generate:demo",
     "generate:index": "BABEL_ENV=commonjs babel-node scripts/generate-components-index.js > src/index.js",
     "generate:demo": "BABEL_ENV=commonjs babel-node scripts/generate-demo-index.js > demo/components.js",
