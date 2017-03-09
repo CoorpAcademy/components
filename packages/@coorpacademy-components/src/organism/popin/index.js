@@ -11,9 +11,13 @@ const Popin = (props, context) => {
   const {
     popinCTA,
     header,
-    content,
-    href
+    href,
+    content
   } = props;
+
+  function createMarkup() {
+    return {__html: content};
+  }
 
   return (
     <div className={style.default}>
@@ -22,7 +26,10 @@ const Popin = (props, context) => {
           <Link href={href}>{header}</Link>
         </div>
         <div className={style.content}>
-          {content}
+          <div dangerouslySetInnerHTML={ // eslint-disable-line react/no-danger
+              createMarkup()
+            }
+          />
         </div>
         <div className={style.cta}>
           <Cta {...popinCTA} />
