@@ -31,7 +31,8 @@
     "concurrency": 8,
     "files": [
       "packages/**/src/**/test/**/*.js",
-      "!**/node_modules/**/*"
+      "!**/node_modules/**/*",
+      "packages/**/storybook/static/**"
     ],
     "require": [
       "babel-core/register"
