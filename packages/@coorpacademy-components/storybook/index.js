@@ -26,6 +26,7 @@ const options = {
   translate
 };
 
+// eslint-disable-next-line lodash-fp/no-unused-result
 pipe(
   toPairs,
   map(([folderName, _folder]) => ([
@@ -35,6 +36,7 @@ pipe(
       map(([componentName, factory]) => {
         const _fixtures = get([folderName, componentName], fixtures);
         const stories = storiesOf(`${folderName}.${componentName}`, module);
+        // eslint-disable-next-line lodash-fp/no-unused-result
         pipe(
           toPairs,
           map(([fixtureName, fixture]) => {

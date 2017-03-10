@@ -50,7 +50,8 @@
       "packages/**/src/**/test/**",
       "packages/**/dist/**",
       "packages/**/es/**",
-      "packages/**/lib/**"
+      "packages/**/lib/**",
+      "packages/**/storybook/static/**"
     ],
     "require": [
       "babel-core/register"
