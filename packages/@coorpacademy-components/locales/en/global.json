@@ -4,7 +4,7 @@
   "assets": "assets",
   "At the end of this level, you will be able to:": "At the end of this level, you will be able to:",
   "author": "author",
-  "by {{author}}": "by {{author}}",
+  "by {{name}}": "by {{name}}",
   "Catalog": "Catalog",
   "certification": "certification",
   "chapters": "chapters",

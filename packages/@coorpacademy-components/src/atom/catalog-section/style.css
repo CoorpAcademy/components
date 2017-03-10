@@ -1,0 +1,17 @@
+.title {
+  border-bottom: 1px solid #E0E0E0;
+  color: #546E7A;
+  font-family: "Open Sans";
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 10px;
+  margin-bottom: 20px;
+  margin-top: 0;
+  padding: 10px 0;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.details {
+  text-align: center;
+}
