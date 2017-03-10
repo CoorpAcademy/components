@@ -1,5 +1,4 @@
 import React, {PropTypes} from 'react';
-import identity from 'lodash/fp/identity';
 import CatalogCTA from '../../../molecule/catalog-cta';
 import DisciplineHeader from '../../../molecule/discipline-header';
 import DisciplineScope from '../../../molecule/discipline-scope';
@@ -9,7 +8,7 @@ import layout from '../layout.css';
 import style from './style.css';
 
 const ProductCourse = (props, context) => {
-  const {translate = identity} = context;
+  const {translate} = context;
   const cardsTitle = translate('They also liked:');
   const {
     selected = 0,

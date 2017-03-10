@@ -1,12 +1,11 @@
 import React, {PropTypes} from 'react';
-import identity from 'lodash/fp/identity';
 import Categories from '../../../molecule/categories';
 import CursusList from '../../../molecule/cursus-list';
 import CatalogCards from '../../../organism/catalog-cards';
 import style from './style.css';
 
 const Catalog = (props, context) => {
-  const {translate = identity} = context;
+  const {translate} = context;
   const {
     categories,
     products = null,

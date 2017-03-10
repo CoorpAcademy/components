@@ -30,16 +30,14 @@
   composes: rightColumn;
 }
 
-@media wide {
-  .leftColumn {
-    float: left;
-    width: 840px;
-  }
+.leftColumn {
+  float: left;
+  width: 840px;
+}
 
-  .rightColumn {
-    float: right;
-    width: 280px;
-  }
+.rightColumn {
+  float: right;
+  width: 280px;
 }
 
 @media desktop {
@@ -51,7 +49,6 @@
     display: flex;
     flex-basis: 100%;
   }
-
 
   .header {
     order: 1;

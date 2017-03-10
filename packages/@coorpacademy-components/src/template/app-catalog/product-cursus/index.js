@@ -1,5 +1,4 @@
 import React, {PropTypes} from 'react';
-import identity from 'lodash/fp/identity';
 import * as CustomPropTypes from '../../../util/proptypes';
 import Picture from '../../../atom/picture';
 import CursusHeader from '../../../molecule/cursus-header';
@@ -11,7 +10,7 @@ import layout from '../layout.css';
 import style from './style.css';
 
 const ProductCursus = (props, context) => {
-  const {translate = identity} = context;
+  const {translate} = context;
   const cardsTitle = translate('This course contains:');
   const {
     disciplines = null,

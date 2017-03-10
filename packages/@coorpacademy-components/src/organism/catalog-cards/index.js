@@ -1,7 +1,6 @@
 import React, {PropTypes} from 'react';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
-import identity from 'lodash/fp/identity';
 import isEmpty from 'lodash/fp/isEmpty';
 import isNil from 'lodash/fp/isNil';
 import map from 'lodash/fp/map';
@@ -11,7 +10,7 @@ import CatalogCard from '../../molecule/catalog-card';
 import style from './style.css';
 
 const CatalogCards = (props, context) => {
-  const {translate = identity} = context;
+  const {translate} = context;
   const {products} = props;
   if (isNil(products))
     return (

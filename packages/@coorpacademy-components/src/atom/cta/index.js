@@ -1,6 +1,5 @@
 import React, {PropTypes} from 'react';
 import getOr from 'lodash/fp/getOr';
-import identity from 'lodash/fp/identity';
 import Link from '../link';
 import shallowCompare from '../../util/shallow-compare';
 import style from './style.css';
@@ -32,7 +31,7 @@ class CTA extends React.Component {
   }
 
   render() {
-    const {translate = identity, skin} = this.context;
+    const {translate, skin} = this.context;
     const {
       submitValue = 'submit',
       name: ctaName,

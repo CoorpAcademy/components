@@ -1,14 +1,13 @@
 import React, {PropTypes} from 'react';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
-import identity from 'lodash/fp/identity';
 import Button from '../../atom/button';
 import Link from '../../atom/link';
 import addClassName from '../../util/add-class-name';
 import style from './style.css';
 
 const ScopeContent = (props, context) => {
-  const {translate = identity, skin} = context;
+  const {translate, skin} = context;
   const {content} = props;
 
   const lstitle = translate('At the end of this level, you will be able to:');

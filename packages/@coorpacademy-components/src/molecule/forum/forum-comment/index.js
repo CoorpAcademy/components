@@ -1,11 +1,10 @@
 import React, {PropTypes} from 'react';
-import identity from 'lodash/fp/identity';
 import * as CustomPropTypes from '../../../util/proptypes';
 import Button from '../../../atom/button';
 import style from './style.css';
 
 const ForumComment = (props, context) => {
-  const {translate = identity} = context;
+  const {translate} = context;
   const {avatar, onPost, onChange, value, textareaDisabled, postDisabled} = props;
   const avatarView = avatar && (
     <div className={style.image}>
