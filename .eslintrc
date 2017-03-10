@@ -31,6 +31,7 @@
     "no-shadow": ["error", {"builtinGlobals": true, "hoist": "all", "allow": ["Promise", "history", "location", "find", "Notification"]}],
     "no-unused-vars": 0,
     "react/forbid-component-props": 0,
+    "react/forbid-foreign-prop-types": 0,
     "react/forbid-prop-types": 0,
     "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx"] }],
     "react/jsx-indent-props": [2, 2],
