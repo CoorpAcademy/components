@@ -1,10 +1,9 @@
 import React, {PropTypes} from 'react';
-import identity from 'lodash/fp/identity';
 import Link from '../../atom/link';
 import style from './style.css';
 
 const CursusList = (props, context) => {
-  const {translate = identity} = context;
+  const {translate} = context;
   const {cursuses = []} = props;
   const listTitle = translate('Training Packages');
   const CursusesDiv = cursuses.map((cursus, index) => {

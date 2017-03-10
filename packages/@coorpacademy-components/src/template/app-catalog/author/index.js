@@ -1,5 +1,4 @@
 import React, {PropTypes} from 'react';
-import identity from 'lodash/fp/identity';
 import * as CustomPropTypes from '../../../util/proptypes';
 import DisciplineHeader from '../../../molecule/discipline-header';
 import DisciplinePartners from '../../../molecule/discipline-partners';
@@ -14,7 +13,7 @@ const conditions = PropTypes.shape({
 });
 
 const Author = (props, context) => {
-  const {translate = identity} = context;
+  const {translate} = context;
   const cardsTitle = translate('Their moocs:');
   const {
     disciplines = null,

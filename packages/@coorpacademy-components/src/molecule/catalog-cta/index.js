@@ -1,5 +1,4 @@
 import React, {PropTypes} from 'react';
-import identity from 'lodash/fp/identity';
 import StarRating from '../../molecule/star-rating';
 import {hoverFill} from '../../atom/button/hover-fill.css';
 import style from './style.css';
@@ -12,7 +11,7 @@ const CatalogCTA = (props, context) => {
     linkTry = '#'
   } = props;
   const {
-    translate = identity
+    translate
   } = context;
 
   const startLearning = (

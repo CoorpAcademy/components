@@ -5,7 +5,6 @@ import filter from 'lodash/fp/filter';
 import getOr from 'lodash/fp/getOr';
 import get from 'lodash/fp/get';
 import map from 'lodash/fp/map';
-import identity from 'lodash/fp/identity';
 import shallowCompare from '../../util/shallow-compare';
 import Slider from '../../molecule/slider';
 import Cta from '../../atom/cta';
@@ -116,7 +115,7 @@ class MoocHeader extends React.Component {
 
   render() {
     const {logo = {}, themes, pages, settings, user, slider, links} = this.props;
-    const {translate = identity, skin} = this.context;
+    const {translate, skin} = this.context;
 
     const logoUrl = get(['images', 'logo'], skin);
     const logoMobileUrl = getOr(logoUrl, ['images', 'logo-mobile'], skin);

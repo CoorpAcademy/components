@@ -6,7 +6,7 @@ import ForumComment from '../forum-comment';
 import style from './style.css';
 
 const ForumPost = (props, context) => {
-  const {translate = identity} = context;
+  const {translate} = context;
   const {
     author,
     avatar,

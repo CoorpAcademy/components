@@ -1,5 +1,4 @@
 import React, {PropTypes} from 'react';
-import identity from 'lodash/fp/identity';
 import DisciplineCTA from '../../../molecule/discipline-cta';
 import DisciplineHeader from '../../../molecule/discipline-header';
 import DisciplinePartners from '../../../molecule/discipline-partners';
@@ -8,7 +7,7 @@ import layout from '../layout.css';
 import style from './style.css';
 
 const Discipline = (props, context) => {
-  const {translate = identity} = context;
+  const {translate} = context;
   const {
     selected = 0,
     level,

@@ -10,30 +10,28 @@
 }
 
 
-@media wide {
-  .column {
-    margin-bottom: 30px;
-  }
+.column {
+  margin-bottom: 30px;
+}
 
-  .leftColumn {
-    composes: column;
-    float: left;
-    width: 840px;
-  }
+.leftColumn {
+  composes: column;
+  float: left;
+  width: 840px;
+}
 
-  .rightColumn {
-    composes: column;
-    float: right;
-    width: 280px;
-  }
+.rightColumn {
+  composes: column;
+  float: right;
+  width: 280px;
+}
 
-  .header, .content, .related {
-    composes: leftColumn;
-  }
+.header, .content, .related {
+  composes: leftColumn;
+}
 
-  .cta, .partners {
-    composes: rightColumn;
-  }
+.cta, .partners {
+  composes: rightColumn;
 }
 
 @media desktop {
@@ -42,17 +40,8 @@
   }
 
   .column {
-    margin-bottom: 30px;
     display: flex;
     flex-basis: 100%;
-  }
-
-  .leftColumn {
-    composes: column;
-  }
-
-  .rightColumn {
-    composes: column;
   }
 
   .header {
