@@ -1,8 +1,9 @@
 import React, {PropTypes} from 'react';
 import identity from 'lodash/fp/identity';
+import CatalogCTA from '../../../molecule/catalog-cta';
 import DisciplineHeader from '../../../molecule/discipline-header';
 import DisciplineScope from '../../../molecule/discipline-scope';
-import DisciplineRightaside from '../../../organism/discipline-rightaside';
+import DisciplinePartners from '../../../molecule/discipline-partners';
 import CatalogCards from '../../../organism/catalog-cards';
 import layout from '../layout.css';
 import style from './style.css';
@@ -29,7 +30,7 @@ const ProductCourse = (props, context) => {
 
   return (
     <div className={style.wrapper}>
-      <div className={style.container}>
+      <div className={style.header}>
         <DisciplineHeader
           image={image}
           video={video}
@@ -37,18 +38,20 @@ const ProductCourse = (props, context) => {
           description={description}
         />
       </div>
-      <div className={style.colContainer}>
-        <DisciplineRightaside
+      <div className={style.cta}>
+        <CatalogCTA
           linkBuy={linkBuy}
           linkTry={linkTry}
-          authors={authors}
           rating={popularity}
           maxRating={maxPopularity}
         />
       </div>
-      <div
-        className={style.contentContainer}
-      >
+      <div className={style.partners}>
+        <DisciplinePartners
+          authors={authors}
+        />
+      </div>
+      <div className={style.content}>
         <DisciplineScope
           content={level}
           levels={levels}
@@ -56,13 +59,15 @@ const ProductCourse = (props, context) => {
           onClick={changeLevel}
         />
       </div>
-      <div className={layout.container}>
-        <span className={layout.cardsTitle}>
-          {cardsTitle}
-        </span>
-        <CatalogCards
-          products={relatedDisciplines}
-        />
+      <div className={style.related}>
+        <div className={`${layout.container}`}>
+          <span className={layout.cardsTitle}>
+            {cardsTitle}
+          </span>
+          <CatalogCards
+            products={relatedDisciplines}
+          />
+        </div>
       </div>
     </div>
   );
@@ -73,29 +78,24 @@ ProductCourse.contextTypes = {
 };
 
 ProductCourse.propTypes = {
-  popularity: PropTypes.number,
-  maxPopularity: PropTypes.number,
-  title: PropTypes.string,
-  description: PropTypes.string,
-  image: PropTypes.shape({
-    '1x': PropTypes.url,
-    '2x': PropTypes.url
-  }),
-  video: PropTypes.shape({
-    type: PropTypes.oneOf(['vimeo', 'youtube']).isRequired,
-    id: PropTypes.string.isRequired
-  }),
-  linkBuy: PropTypes.string,
-  linkTry: PropTypes.string,
-  authors: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    socialLinks: PropTypes.array.isRequired
-  })),
-  relatedDisciplines: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.object), PropTypes.null]),
-  level: PropTypes.object,
-  levels: PropTypes.arrayOf(PropTypes.object),
-  selected: PropTypes.number,
-  changeLevel: PropTypes.func
+  image: DisciplineHeader.propTypes.image,
+  video: DisciplineHeader.propTypes.video,
+  title: DisciplineHeader.propTypes.title,
+  description: DisciplineHeader.propTypes.description,
+
+  linkBuy: CatalogCTA.propTypes.linkBuy,
+  linkTry: CatalogCTA.propTypes.linkTry,
+  popularity: CatalogCTA.propTypes.rating,
+  maxPopularity: CatalogCTA.propTypes.maxRating,
+
+  authors: DisciplinePartners.propTypes.authors,
+
+  level: DisciplineScope.propTypes.content,
+  levels: DisciplineScope.propTypes.levels,
+  selected: DisciplineScope.propTypes.selected,
+  changeLevel: DisciplineScope.propTypes.onClick,
+
+  relatedDisciplines: CatalogCards.propTypes.products
 };
 
 export default ProductCourse;

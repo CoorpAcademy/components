@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 import identity from 'lodash/fp/identity';
 import * as CustomPropTypes from '../../../util/proptypes';
 import DisciplineHeader from '../../../molecule/discipline-header';
-import DisciplineRightaside from '../../../organism/discipline-rightaside';
+import DisciplinePartners from '../../../molecule/discipline-partners';
 import CatalogCards from '../../../organism/catalog-cards';
 import layout from '../layout.css';
 import style from './style.css';
@@ -36,7 +36,7 @@ const Author = (props, context) => {
         />
       </div>
       <div className={layout.colContainer}>
-        <DisciplineRightaside
+        <DisciplinePartners
           authors={authors}
           authorTitle={translate('Informations')}
         />

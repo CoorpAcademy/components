@@ -1,41 +1,73 @@
 @value breakpoints: "../../../variables/breakpoints.css";
-@value mobile from breakpoints;
-@value tablet from breakpoints;
 @value desktop from breakpoints;
+@value wide from breakpoints;
 
 .wrapper {
   composes: wrapper from '../layout.css';
   display: block;
+  overflow: hidden;
+  padding: 20px;
 }
 
-.container {
-  composes: container from '../layout.css';
-  float: left;
-}
 
-.contentContainer {
-  composes: container;
-  margin-top: 30px;
-}
+@media wide {
+  .column {
+    margin-bottom: 30px;
+  }
 
-.colContainer {
-  composes: colContainer from '../layout.css';
-  float: right;
+  .leftColumn {
+    composes: column;
+    float: left;
+    width: 840px;
+  }
+
+  .rightColumn {
+    composes: column;
+    float: right;
+    width: 280px;
+  }
+
+  .header, .content, .related {
+    composes: leftColumn;
+  }
+
+  .cta, .partners {
+    composes: rightColumn;
+  }
 }
 
 @media desktop {
-  .container {
-    margin-top: 0px;
-    float: none;
+  .wrapper {
+    display: flex;
   }
 
-  .colContainer {
-    float: none;
+  .column {
+    margin-bottom: 30px;
+    display: flex;
+    flex-basis: 100%;
   }
-}
 
-@media tablet {
-}
+  .leftColumn {
+    composes: column;
+  }
 
-@media mobile {
+  .rightColumn {
+    composes: column;
+  }
+
+  .header {
+    order: 1;
+  }
+  .cta {
+    order: 2;
+  }
+  .content {
+    order: 3;
+  }
+  .partners {
+    order: 4;
+  }
+  .related {
+    order: 5;
+  }
 }
