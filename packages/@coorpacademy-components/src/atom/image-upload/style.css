@@ -1,7 +1,5 @@
 @value colors: "../../variables/colors.css";
-@value green from colors;
 @value blue from colors;
-@value darkGrey from colors;
 @value lightGrey from colors;
 
 .wrapper {

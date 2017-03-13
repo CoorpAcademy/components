@@ -1,4 +1,8 @@
-
+@value breakpoints: "../../variables/breakpoints.css";
+@value colors: "../../variables/colors.css";
+@value mobile from breakpoints;
+@value darkGrey from colors;
+@value borderGrey from colors;
 
 .authorLink {
   width: 100%;
@@ -21,6 +25,7 @@
   width: 100%;
   color: darkGrey;
   border: 1px solid borderGrey;
+  border-bottom: 0;
   padding: 20px;
   text-align: center;
   box-sizing: border-box;
@@ -67,21 +72,15 @@
   margin-bottom: 30px;
 }
 
-@media desktop {
-  .logo {
-    width: 50%;
-  }
-
-  .colDetails {
-    display: inline-block;
-    vertical-align: top;
-    flex-shrink: 3;
-    flex-grow: 1;
-  }
+.logo {
+  width: 50%;
 }
 
-@media tablet {
-
+.colDetails {
+  display: inline-block;
+  vertical-align: top;
+  flex-shrink: 3;
+  flex-grow: 1;
 }
 
 @media mobile {

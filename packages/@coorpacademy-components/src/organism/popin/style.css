@@ -1,10 +1,5 @@
-@value breakpoints: "../../variables/breakpoints.css";
 @value colors: "../../variables/colors.css";
-@value mobile from breakpoints;
-@value tablet from breakpoints;
-@value desktop from breakpoints;
 @value darkGrey from colors;
-@value borderGrey from colors;
 @value light from colors;
 @value grey from colors;
 
@@ -59,16 +54,4 @@
 
 .cta input {
   padding: 0;
-}
-
-@media desktop {
-
-}
-
-@media tablet {
-
-}
-
-@media mobile {
-
 }
