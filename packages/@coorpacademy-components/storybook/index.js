@@ -12,7 +12,7 @@ import createTranslate from '@coorpacademy/translate';
 import Provider from '../src/atom/provider';
 import en from '../locales/en/global';
 import fr from '../locales/fr/global';
-import skin from './assets/skin';
+import skin from './skin';
 
 import {components, fixtures} from './components';
 
