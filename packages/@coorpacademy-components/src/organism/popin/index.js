@@ -32,6 +32,7 @@ const Popin = (props, context) => {
         <div
           className={style.header}
           onClick={headerOnClick}
+          data-name='popin-header'
         >
           {header}
         </div>
