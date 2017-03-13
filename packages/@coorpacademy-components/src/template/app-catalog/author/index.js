@@ -26,27 +26,29 @@ const Author = (props, context) => {
   const authors = [information];
 
   return (
-    <div className={layout.wrapper}>
-      <div className={layout.container}>
+    <div className={style.wrapper}>
+      <div className={style.header}>
         <DisciplineHeader
           image={image}
           title={title}
           description={description}
         />
       </div>
-      <div className={layout.colContainer}>
+      <div className={style.partners}>
         <DisciplinePartners
           authors={authors}
           authorTitle={translate('Informations')}
         />
       </div>
-      <div className={style.container}>
-        <span className={layout.cardsTitle}>
-          {cardsTitle}
-        </span>
-        <CatalogCards
-          products={disciplines}
-        />
+      <div className={style.content}>
+        <div className={layout.container}>
+          <span className={layout.cardsTitle}>
+            {cardsTitle}
+          </span>
+          <CatalogCards
+            products={disciplines}
+          />
+        </div>
       </div>
     </div>
   );
@@ -64,7 +66,7 @@ Author.propTypes = {
     '2x': CustomPropTypes.url
   }),
   information: PropTypes.shape({
-    href: PropTypes.string.isRequired,
+    href: PropTypes.string,
     socialLinks: PropTypes.array
   }),
   disciplines: PropTypes.oneOfType([

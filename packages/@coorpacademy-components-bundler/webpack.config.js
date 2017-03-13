@@ -6,7 +6,10 @@ const CompressionPlugin = require('compression-webpack-plugin');
 const CSSWrapper = require('@coorpacademy/css-wrapper-webpack-plugin');
 
 const hash = '[folder]__[local]';
-const componentCSS = new ExtractTextPlugin('bundle.css');
+const componentCSS = new ExtractTextPlugin({
+  filename: 'bundle.css',
+  ignoreOrder: true
+});
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
 

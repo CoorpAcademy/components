@@ -14,6 +14,7 @@ CatalogSection.contextTypes = {
 };
 
 CatalogSection.propTypes = {
+  title: PropTypes.string
 };
 
 export default CatalogSection;

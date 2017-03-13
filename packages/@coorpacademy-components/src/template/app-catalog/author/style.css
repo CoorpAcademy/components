@@ -1,29 +1,56 @@
 @value breakpoints: "../../../variables/breakpoints.css";
-@value mobile from breakpoints;
-@value tablet from breakpoints;
 @value desktop from breakpoints;
+@value wide from breakpoints;
 
-.container {
-  composes: container from '../layout.css';
-  margin-top: 30px;
-  padding-top: 20px;
-  border-top: 1px solid #B0BEC5;
+.wrapper {
+  composes: wrapper from '../layout.css';
+  display: block;
+  overflow: hidden;
+  padding: 20px;
 }
 
-.productsWrapper {
-  composes: productsWrapper from '../product-cursus/style.css';
+
+.column {
+  margin-bottom: 30px;
+}
+
+.leftColumn {
+  composes: column;
+  float: left;
+  width: 840px;
+}
+
+.rightColumn {
+  composes: column;
+  float: right;
+  width: 280px;
+}
+
+.header, .content {
+  composes: leftColumn;
+}
+
+.partners {
+  composes: rightColumn;
 }
 
 @media desktop {
-  .container {
-    border-top: none;
-    padding-top: 0;
-    margin-top: 20px;
+  .wrapper {
+    display: flex;
   }
-}
 
-@media tablet {
-}
+  .column {
+    display: flex;
+    flex-basis: 100%;
+  }
 
-@media mobile {
+  .header {
+    order: 1;
+  }
+  .partners {
+    order: 2;
+  }
+  .content {
+    order: 3;
+  }
 }

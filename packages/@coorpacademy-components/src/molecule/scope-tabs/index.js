@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
 import set from 'lodash/fp/set';
+import has from 'lodash/fp/has';
 import partial from 'lodash/fp/partial';
 import unary from 'lodash/fp/unary';
 import identity from 'lodash/fp/identity';
@@ -44,6 +45,16 @@ const ScopeTabs = (props, context) => {
           />
         ) : null;
 
+        const bubble = has('status', level) ? (
+          <div className={style.module}>
+            <ModuleBubble
+              hideLabel
+              module={level}
+              onClick={handleClick}
+            />
+          </div>
+        ) : null;
+
         return (
           <li
             key={index}
@@ -51,13 +62,7 @@ const ScopeTabs = (props, context) => {
             className={isSelected ? style.currentTab : style.defaultTab}
             style={tabSkin}
           >
-            <div className={style.module}>
-              <ModuleBubble
-                hideLabel
-                module={level}
-                onClick={handleClick}
-              />
-            </div>
+            {bubble}
             <div className={style.name}>{level.name}</div>
             {arrow}
           </li>

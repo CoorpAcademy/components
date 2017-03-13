@@ -55,10 +55,7 @@ const VideoIframe = props => {
 
 VideoIframe.propTypes = {
   type: PropTypes.oneOf([VIMEO, YOUTUBE]),
-  image: PropTypes.shape({
-    '1x': CustomPropTypes.url,
-    '2x': CustomPropTypes.url
-  }),
+  image: Picture.propTypes.src,
   width: PropTypes.string,
   height: PropTypes.string,
   id: PropTypes.string
