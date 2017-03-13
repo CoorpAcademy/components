@@ -59,7 +59,7 @@ const ProductCourse = (props, context) => {
         />
       </div>
       <div className={style.related}>
-        <div className={`${layout.container}`}>
+        <div className={layout.container}>
           <span className={layout.cardsTitle}>
             {cardsTitle}
           </span>

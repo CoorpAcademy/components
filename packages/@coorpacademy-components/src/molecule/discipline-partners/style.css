@@ -3,9 +3,22 @@
 @value mobile from breakpoints;
 @value darkGrey from colors;
 @value borderGrey from colors;
+@value blue from colors;
 
 .authorLink {
   width: 100%;
+}
+
+.authorLink a {
+  font-family: 'Open Sans';
+  font-weight: 600;
+  font-size: 13px;
+  color: blue;
+  text-decoration: none;
+}
+
+.authorLink a:hover {
+  text-decoration: underline;
 }
 
 .link {
@@ -81,36 +94,4 @@
   vertical-align: top;
   flex-shrink: 3;
   flex-grow: 1;
-}
-
-@media mobile {
-  .authorWrapper {
-    margin-bottom: 15px;
-  }
-
-  .authorWrapper:last-child {
-    margin-bottom: 0;
-  }
-
-  .authorContent {
-    padding: 10px 20px;
-  }
-
-  .logo {
-    width: 80%;
-  }
-
-  .link {
-    margin: 7px 3px;
-  }
-
-  .logoContainer {
-    padding: 10px 5px;
-  }
-
-  .colDetails {
-    flex: none;
-    display: block;
-    padding-left: 0;
-  }
 }

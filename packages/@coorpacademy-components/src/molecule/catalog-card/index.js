@@ -68,7 +68,7 @@ CatalogCard.propTypes = {
   rating: PropTypes.number,
   maxRating: PropTypes.number,
   title: PropTypes.string,
-  image: PropTypes.string,
+  image: Picture.propTypes.src,
   author: PropTypes.shape({
     name: PropTypes.string,
     href: PropTypes.string

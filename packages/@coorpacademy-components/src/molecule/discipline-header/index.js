@@ -71,10 +71,7 @@ DisciplineHeader.contextTypes = {
 };
 
 DisciplineHeader.propTypes = {
-  image: PropTypes.shape({
-    '1x': CustomPropTypes.url,
-    '2x': CustomPropTypes.url
-  }),
+  image: VideoIframe.propTypes.image,
   title: PropTypes.string,
   description: PropTypes.string,
   video: PropTypes.shape({
