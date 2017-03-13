@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "@coorpacademy/eslint-plugin-coorpacademy": "^3.0.1",
+    "@kadira/storybook": "^2.35.3",
     "ava": "^0.18.0",
     "babel-core": "^6.18.2",
     "coveralls": "^2.11.13",
