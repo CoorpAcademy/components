@@ -280,6 +280,7 @@ import ForumPostFixtureTextareasLocked from '../src/molecule/forum/forum-post/te
 import ForumThreadFixtureDeepAnswers from '../src/molecule/forum/forum-thread/test/fixtures/deep-answers';
 import ForumThreadFixtureDefault from '../src/molecule/forum/forum-thread/test/fixtures/default';
 import ForumThreadFixtureWithAnswers from '../src/molecule/forum/forum-thread/test/fixtures/with-answers';
+import BrandFormFixtureDashboard from '../src/organism/brand-form/test/fixtures/dashboard';
 import BrandFormFixtureDefault from '../src/organism/brand-form/test/fixtures/default';
 import BrandFormFixtureGeneralSettings from '../src/organism/brand-form/test/fixtures/general-settings';
 import BrandFormFixtureLookandfeel from '../src/organism/brand-form/test/fixtures/lookandfeel';
@@ -333,6 +334,7 @@ import BrandCreateFixtureLoading from '../src/template/back-office/brand-create/
 import BrandCreateFixtureModified from '../src/template/back-office/brand-create/test/fixtures/modified';
 import BrandListFixtureDefault from '../src/template/back-office/brand-list/test/fixtures/default';
 import BrandListFixtureLoading from '../src/template/back-office/brand-list/test/fixtures/loading';
+import BrandUpdateFixtureDashboard from '../src/template/back-office/brand-update/test/fixtures/dashboard';
 import BrandUpdateFixtureDefault from '../src/template/back-office/brand-update/test/fixtures/default';
 import BrandUpdateFixtureGeneralSettingsSuccess from '../src/template/back-office/brand-update/test/fixtures/general-settings-success';
 import BrandUpdateFixtureGeneralSettings from '../src/template/back-office/brand-update/test/fixtures/general-settings';
@@ -807,6 +809,7 @@ export const fixtures = {
   },
   Organism: {
     BrandForm: {
+      Dashboard: BrandFormFixtureDashboard,
       Default: BrandFormFixtureDefault,
       GeneralSettings: BrandFormFixtureGeneralSettings,
       Lookandfeel: BrandFormFixtureLookandfeel,
@@ -902,6 +905,7 @@ export const fixtures = {
       Loading: BrandListFixtureLoading
     },
     BrandUpdate: {
+      Dashboard: BrandUpdateFixtureDashboard,
       Default: BrandUpdateFixtureDefault,
       GeneralSettingsSuccess: BrandUpdateFixtureGeneralSettingsSuccess,
       GeneralSettings: BrandUpdateFixtureGeneralSettings,
