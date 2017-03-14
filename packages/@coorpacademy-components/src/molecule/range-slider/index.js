@@ -124,12 +124,13 @@ class RangeSlider extends React.Component {
     const setX = this.setX(num, true);
     return e => {
       setX(e);
-      this.props.onChange && this.props.onChange(this.state);
     };
   }
 
   setX(num, snap) {
     const steps = this.props.steps;
+    const onChange = this.props.onChange;
+
     return e => this.setState((previousState, currentProps) => {
       const eventX = this.extractXFromEvent(num, e);
       const {snapX, step} = calculateSnapX(eventX, steps, previousState.railWidth);
@@ -145,6 +146,10 @@ class RangeSlider extends React.Component {
 
       const isMax = state.handle1.x === state.railWidth;
       state = set('isMax', isMax, state);
+
+      if (onChange) {
+        onChange(state);
+      }
 
       return state;
     });
