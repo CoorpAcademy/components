@@ -32,45 +32,38 @@ const config = cssScope => ({
       test: /\.(ttf|otf|eot|svg|woff)$/,
       loader: 'file-loader'
     },
-      (() => {
-        if (NODE_ENV === 'production') {
-          return {
-            test: /\.css$/,
-            loader: componentCSS.extract({
-              fallbackLoader: 'style-loader',
-              loader: [{
-                loader: 'css-loader',
-                query: {
-                  minimize: true,
-                  modules: true,
-                  importLoaders: 1,
-                  localIdentName: `${hash}`
-                }
-              }, {
-                loader: 'postcss-loader'
-              }]
-            })
-          };
-        }
-        else {
-          return {
-            test: /\.css$/,
-            use: [{
-              loader: 'style-loader'
-            }, {
-              loader: 'css-loader',
-              options: {
-                minimize: true,
-                modules: true,
-                importLoaders: 1,
-                localIdentName: `${hash}`
-              }
-            }, {
-              loader: 'postcss-loader'
-            }]
-          };
-        }
-      })()
+      (NODE_ENV === 'production') ? {
+        test: /\.css$/,
+        loader: componentCSS.extract({
+          fallback: 'style-loader',
+          use: [{
+            loader: 'css-loader',
+            options: {
+              minimize: true,
+              modules: true,
+              importLoaders: 1,
+              localIdentName: `${hash}`
+            }
+          }, {
+            loader: 'postcss-loader'
+          }]
+        })
+      } : {
+        test: /\.css$/,
+        use: [{
+          loader: 'style-loader'
+        }, {
+          loader: 'css-loader',
+          options: {
+            minimize: true,
+            modules: true,
+            importLoaders: 1,
+            localIdentName: `${hash}`
+          }
+        }, {
+          loader: 'postcss-loader'
+        }]
+      }
     ]
   },
 
