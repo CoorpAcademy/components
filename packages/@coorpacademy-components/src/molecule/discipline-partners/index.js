@@ -5,6 +5,7 @@ import getOr from 'lodash/fp/getOr';
 import map from 'lodash/fp/map';
 import Link from '../../atom/link';
 import SocialLink from '../../atom/social-link';
+import CatalogSection from '../../atom/catalog-section';
 import Picture from '../../atom/picture';
 import style from './style.css';
 
@@ -76,21 +77,21 @@ const DisciplinePartners = (props, context) => {
     ) : null;
 
     return (
-      <div key={index}>
-        <div className={style.detailTitle}>
-          {authorLabel}
-        </div>
-        <div className={style.authorWrapper}>
-          {logoView}
-          {authorContent}
-        </div>
+      <div
+        key={index}
+        className={style.authorWrapper}
+      >
+        {logoView}
+        {authorContent}
       </div>
     );
   }, authors);
 
   return (
     <div className={style.colDetails}>
-      {authorsView}
+      <CatalogSection title={authorLabel}>
+        {authorsView}
+      </CatalogSection>
     </div>
   );
 };
