@@ -21,9 +21,13 @@ const xWithConstraints = ({x, delta, min, max}) => {
   return newX;
 };
 
-const snap = (x, steps, width) => {
-  if (!steps)
-    return {x, undefined};
+const calculateSnapX = (x, steps, width) => {
+  if (!steps) {
+    return {
+      x,
+      step: undefined
+    };
+  }
 
   const stepWidth = width / (steps.length - 1);
   const minStep = Math.floor(x / stepWidth);
@@ -37,7 +41,7 @@ const snap = (x, steps, width) => {
   const step = minIsCloser ? minStep : maxStep;
 
   return {
-    x: closest,
+    snapX: closest,
     step
   };
 };
@@ -117,22 +121,27 @@ class RangeSlider extends React.Component {
   }
 
   handlePanEnd(num) {
-    const setX = this.setX(num, this.props.steps);
+    const setX = this.setX(num, true);
     return e => {
       setX(e);
       this.props.onChange && this.props.onChange(this.state);
     };
   }
 
-  setX(num, steps) {
+  setX(num, snap) {
+    const steps = this.props.steps;
     return e => this.setState((previousState, currentProps) => {
-      const _x = this.extractXFromEvent(num, e);
-      const {x, step} = snap(_x, steps, previousState.railWidth);
+      const eventX = this.extractXFromEvent(num, e);
+      const {snapX, step} = calculateSnapX(eventX, steps, previousState.railWidth);
+      const x = snap ? snapX : eventX;
 
       let state = set([`handle${num}`, 'x'], x, previousState);
-      state = set([`handle${num}`, 'step'], step, state);
       state = set(['handle1', 'max'], state.handle2.x, state);
       state = set(['handle2', 'min'], state.handle1.x, state);
+
+      if (step) {
+        state = set([`handle${num}`, 'step'], step, state);
+      }
 
       const isMax = state.handle1.x === state.railWidth;
       state = set('isMax', isMax, state);
