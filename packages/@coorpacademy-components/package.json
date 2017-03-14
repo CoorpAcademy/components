@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/components",
-  "version": "4.3.17",
+  "version": "4.3.18",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -47,7 +47,7 @@
     "react-dom": "^15.4.2"
   },
   "devDependencies": {
-    "@coorpacademy/components-bundler": "^4.3.16",
+    "@coorpacademy/components-bundler": "^4.3.18",
     "@coorpacademy/history": "^3.7.3",
     "@coorpacademy/translate": "^4.1.2",
     "autoprefixer": "^6.4.1",

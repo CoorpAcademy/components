@@ -137,12 +137,19 @@
   color: white;
 }
 
+.ctaWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 37px;
+}
+
 .cta {
   display: none;
   position: relative;
   z-index: 4;
   color: white;
-  line-height: 124px;
   text-align: center;
   font-weight: 700;
   font-size: 14px;
