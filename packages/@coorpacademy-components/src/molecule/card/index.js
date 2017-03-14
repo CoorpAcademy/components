@@ -68,7 +68,10 @@ const Card = (props, context) => {
             backgroundImage: `url('${image}')`
           }}
         >
-          <div onClick={!disabled && topOnClick}>
+          <div
+            className={style.ctaWrapper}
+            onClick={!disabled && topOnClick}
+          >
             {calltoaction}
             <div className={style.overlay}
               style={{

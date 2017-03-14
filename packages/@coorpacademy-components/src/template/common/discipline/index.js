@@ -1,13 +1,13 @@
 import React, {PropTypes} from 'react';
-import identity from 'lodash/fp/identity';
+import DisciplineCTA from '../../../molecule/discipline-cta';
 import DisciplineHeader from '../../../molecule/discipline-header';
+import DisciplinePartners from '../../../molecule/discipline-partners';
 import DisciplineScope from '../../../molecule/discipline-scope';
-import DisciplineRightaside from '../../../organism/discipline-rightaside';
 import layout from '../layout.css';
 import style from './style.css';
 
 const Discipline = (props, context) => {
-  const {translate = identity} = context;
+  const {translate} = context;
   const {
     selected = 0,
     level,
@@ -26,7 +26,7 @@ const Discipline = (props, context) => {
 
   return (
     <div className={style.wrapper}>
-      <div className={style.container}>
+      <div className={style.header}>
         <DisciplineHeader
           image={image}
           video={video}
@@ -34,19 +34,21 @@ const Discipline = (props, context) => {
           description={description}
         />
       </div>
-      <div className={style.colContainer}>
-        <DisciplineRightaside
+      <div className={style.cta}>
+        <DisciplineCTA
           type={'discipline'}
           start={start}
           buy={buy}
           startLabel={startLabel}
           buyLabel={buyLabel}
+        />
+      </div>
+      <div className={style.partners}>
+        <DisciplinePartners
           authors={authors}
         />
       </div>
-      <div
-        className={style.contentContainer}
-      >
+      <div className={style.content}>
         <DisciplineScope
           content={level}
           levels={levels}
@@ -63,28 +65,22 @@ Discipline.contextTypes = {
 };
 
 Discipline.propTypes = {
-  title: PropTypes.string,
-  description: PropTypes.string,
-  image: PropTypes.shape({
-    '1x': PropTypes.url,
-    '2x': PropTypes.url
-  }),
-  video: PropTypes.shape({
-    type: PropTypes.oneOf(['vimeo', 'youtube']).isRequired,
-    id: PropTypes.string.isRequired
-  }),
-  start: PropTypes.func,
-  buy: PropTypes.func,
-  startLabel: PropTypes.string,
-  buyLabel: PropTypes.string,
-  authors: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    socialLinks: PropTypes.array.isRequired
-  })),
-  level: PropTypes.object,
-  levels: PropTypes.arrayOf(PropTypes.object),
-  selected: PropTypes.number,
-  changeLevel: PropTypes.func
+  image: DisciplineHeader.propTypes.image,
+  video: DisciplineHeader.propTypes.video,
+  title: DisciplineHeader.propTypes.title,
+  description: DisciplineHeader.propTypes.description,
+
+  start: DisciplineCTA.propTypes.start,
+  buy: DisciplineCTA.propTypes.buy,
+  startLabel: DisciplineCTA.propTypes.startLabel,
+  buyLabel: DisciplineCTA.propTypes.buyLabel,
+
+  authors: DisciplinePartners.propTypes.authors,
+
+  level: DisciplineScope.propTypes.content,
+  levels: DisciplineScope.propTypes.levels,
+  selected: DisciplineScope.propTypes.selected,
+  changeLevel: DisciplineScope.propTypes.onClick
 };
 
 export default Discipline;

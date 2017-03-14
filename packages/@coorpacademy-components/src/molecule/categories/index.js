@@ -1,6 +1,5 @@
 import React, {PropTypes} from 'react';
 import _find from 'lodash/fp/find';
-import identity from 'lodash/fp/identity';
 import noop from 'lodash/fp/noop';
 import getOr from 'lodash/fp/getOr';
 import map from 'lodash/fp/map';
@@ -33,7 +32,7 @@ const buildCategory = (category, index) => {
 
 const Categories = (props, context) => {
   const {categories = []} = props;
-  const {translate = identity} = context;
+  const {translate} = context;
   const filtersTitle = translate('filters');
 
   const CategoriesDiv = categories.map(buildCategory);

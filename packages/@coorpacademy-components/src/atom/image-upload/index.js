@@ -1,5 +1,4 @@
 import React, {PropTypes} from 'react';
-import identity from 'lodash/fp/identity';
 import uniqueId from 'lodash/fp/uniqueId';
 import shallowCompare from '../../util/shallow-compare';
 import Loader from './../loader';
@@ -35,7 +34,7 @@ class ImageUpload extends React.Component {
 
   render() {
     const idBox = uniqueId('drop-box-');
-    const {translate = identity, skin} = this.context;
+    const {translate, skin} = this.context;
     const {
       title,
       onChange,

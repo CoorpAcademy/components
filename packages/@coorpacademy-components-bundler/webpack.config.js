@@ -1,12 +1,15 @@
 const path = require('path');
 const webpack = require('webpack');
-// const BabiliPlugin = require('babili-webpack-plugin');
+const BabiliPlugin = require('babili-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const CSSWrapper = require('@coorpacademy/css-wrapper-webpack-plugin');
 
 const hash = '[folder]__[local]';
-const componentCSS = new ExtractTextPlugin('bundle.css');
+const componentCSS = new ExtractTextPlugin({
+  filename: 'bundle.css',
+  ignoreOrder: true
+});
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
@@ -29,45 +32,38 @@ const config = cssScope => ({
       test: /\.(ttf|otf|eot|svg|woff)$/,
       loader: 'file-loader'
     },
-      (() => {
-        if (NODE_ENV === 'production') {
-          return {
-            test: /\.css$/,
-            loader: componentCSS.extract({
-              fallbackLoader: 'style-loader',
-              loader: [{
-                loader: 'css-loader',
-                query: {
-                  minimize: true,
-                  modules: true,
-                  importLoaders: 1,
-                  localIdentName: `${hash}`
-                }
-              }, {
-                loader: 'postcss-loader'
-              }]
-            })
-          };
-        }
-        else {
-          return {
-            test: /\.css$/,
-            use: [{
-              loader: 'style-loader'
-            }, {
-              loader: 'css-loader',
-              options: {
-                minimize: true,
-                modules: true,
-                importLoaders: 1,
-                localIdentName: `${hash}`
-              }
-            }, {
-              loader: 'postcss-loader'
-            }]
-          };
-        }
-      })()
+      (NODE_ENV === 'production') ? {
+        test: /\.css$/,
+        loader: componentCSS.extract({
+          fallback: 'style-loader',
+          use: [{
+            loader: 'css-loader',
+            options: {
+              minimize: true,
+              modules: true,
+              importLoaders: 1,
+              localIdentName: `${hash}`
+            }
+          }, {
+            loader: 'postcss-loader'
+          }]
+        })
+      } : {
+        test: /\.css$/,
+        use: [{
+          loader: 'style-loader'
+        }, {
+          loader: 'css-loader',
+          options: {
+            minimize: true,
+            modules: true,
+            importLoaders: 1,
+            localIdentName: `${hash}`
+          }
+        }, {
+          loader: 'postcss-loader'
+        }]
+      }
     ]
   },
 
@@ -96,10 +92,10 @@ const config = cssScope => ({
           minimize: true,
           debug: false
         }),
-        // new BabiliPlugin({
-        //   comments: false,
-        //   sourceMap: false
-        // }),
+        new BabiliPlugin({
+          comments: false,
+          sourceMap: false
+        }),
         componentCSS
       );
 

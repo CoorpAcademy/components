@@ -13,7 +13,7 @@ export default {
       label: 'fuz',
       status: 'isStarted'
     }],
-    selected: 1,
+    selected: 2,
     onClick: () => true
   }
 };

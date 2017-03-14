@@ -1,4 +1,5 @@
 import Button from '../src/atom/button';
+import CatalogSection from '../src/atom/catalog-section';
 import CenteredText from '../src/atom/centered-text';
 import Checkbox from '../src/atom/checkbox';
 import Cta from '../src/atom/cta';
@@ -32,6 +33,8 @@ import BrandTabs from '../src/molecule/brand-tabs';
 import BrandUploadBox from '../src/molecule/brand-upload-box';
 import Breadcrumbs from '../src/molecule/breadcrumbs';
 import Card from '../src/molecule/card';
+import CatalogAssets from '../src/molecule/catalog-assets';
+import CatalogBadge from '../src/molecule/catalog-badge';
 import CatalogCard from '../src/molecule/catalog-card';
 import CatalogCta from '../src/molecule/catalog-cta';
 import Categories from '../src/molecule/categories';
@@ -41,6 +44,7 @@ import CursusList from '../src/molecule/cursus-list';
 import DisciplineCard from '../src/molecule/discipline-card';
 import DisciplineCta from '../src/molecule/discipline-cta';
 import DisciplineHeader from '../src/molecule/discipline-header';
+import DisciplinePartners from '../src/molecule/discipline-partners';
 import DisciplineScope from '../src/molecule/discipline-scope';
 import Filters from '../src/molecule/filters';
 import MenuList from '../src/molecule/menu-list';
@@ -71,14 +75,13 @@ import BrandTable from '../src/organism/brand-table';
 import BrandUpload from '../src/organism/brand-upload';
 import CardsGrid from '../src/organism/cards-grid';
 import CatalogCards from '../src/organism/catalog-cards';
-import CursusRightaside from '../src/organism/cursus-rightaside';
 import DisciplineCards from '../src/organism/discipline-cards';
-import DisciplineRightaside from '../src/organism/discipline-rightaside';
 import Discussion from '../src/organism/discussion';
 import GridList from '../src/organism/grid-list';
 import Header from '../src/organism/header';
 import Hero from '../src/organism/hero';
 import MoocHeader from '../src/organism/mooc-header';
+import Popin from '../src/organism/popin';
 import SetupHeader from '../src/organism/setup-header';
 import Author from '../src/template/app-catalog/author';
 import Catalog from '../src/template/app-catalog/catalog';
@@ -99,6 +102,8 @@ import ButtonFixtureDefault from '../src/atom/button/test/fixtures/default';
 import ButtonFixtureDisabled from '../src/atom/button/test/fixtures/disabled';
 import ButtonFixtureLight from '../src/atom/button/test/fixtures/light';
 import ButtonFixtureLink from '../src/atom/button/test/fixtures/link';
+import CatalogSectionFixtureList from '../src/atom/catalog-section/test/fixtures/list';
+import CatalogSectionFixturePicture from '../src/atom/catalog-section/test/fixtures/picture';
 import CenteredTextFixtureDefault from '../src/atom/centered-text/test/fixtures/default';
 import CheckboxFixtureChecked from '../src/atom/checkbox/test/fixtures/checked';
 import CheckboxFixtureDefault from '../src/atom/checkbox/test/fixtures/default';
@@ -114,6 +119,7 @@ import HandleFixtureAxisY from '../src/atom/handle/test/fixtures/axis-y';
 import HandleFixtureDefault from '../src/atom/handle/test/fixtures/default';
 import ImageUploadFixtureDefault from '../src/atom/image-upload/test/fixtures/default';
 import ImageUploadFixtureImage from '../src/atom/image-upload/test/fixtures/image';
+import ImageUploadFixtureLoading from '../src/atom/image-upload/test/fixtures/loading';
 import InputCheckboxFixtureChecked from '../src/atom/input-checkbox/test/fixtures/checked';
 import InputCheckboxFixtureDefault from '../src/atom/input-checkbox/test/fixtures/default';
 import InputCheckboxFixtureDisabled from '../src/atom/input-checkbox/test/fixtures/disabled';
@@ -190,6 +196,10 @@ import CardFixtureAdaptiv from '../src/molecule/card/test/fixtures/adaptiv';
 import CardFixtureCatalogue from '../src/molecule/card/test/fixtures/catalogue';
 import CardFixtureDefault from '../src/molecule/card/test/fixtures/default';
 import CardFixtureDisabled from '../src/molecule/card/test/fixtures/disabled';
+import CatalogAssetsFixtureDefault from '../src/molecule/catalog-assets/test/fixtures/default';
+import CatalogAssetsFixtureEmpty from '../src/molecule/catalog-assets/test/fixtures/empty';
+import CatalogBadgeFixtureDefault from '../src/molecule/catalog-badge/test/fixtures/default';
+import CatalogBadgeFixtureEmpty from '../src/molecule/catalog-badge/test/fixtures/empty';
 import CatalogCardFixtureDefault from '../src/molecule/catalog-card/test/fixtures/default';
 import CatalogCtaFixtureDefault from '../src/molecule/catalog-cta/test/fixtures/default';
 import CatalogCtaFixtureEmpty from '../src/molecule/catalog-cta/test/fixtures/empty';
@@ -211,9 +221,12 @@ import DisciplineCtaFixtureNoStart from '../src/molecule/discipline-cta/test/fix
 import DisciplineHeaderFixtureDefault from '../src/molecule/discipline-header/test/fixtures/default';
 import DisciplineHeaderFixtureNoVideoNoImage from '../src/molecule/discipline-header/test/fixtures/no-video-no-image';
 import DisciplineHeaderFixtureNoVideo from '../src/molecule/discipline-header/test/fixtures/no-video';
+import DisciplinePartnersFixtureDefault from '../src/molecule/discipline-partners/test/fixtures/default';
+import DisciplinePartnersFixtureDoubleAuthors from '../src/molecule/discipline-partners/test/fixtures/double-authors';
+import DisciplinePartnersFixtureNoAuthor from '../src/molecule/discipline-partners/test/fixtures/no-author';
 import DisciplineScopeFixtureDefault from '../src/molecule/discipline-scope/test/fixtures/default';
 import DisciplineScopeFixtureEmpty from '../src/molecule/discipline-scope/test/fixtures/empty';
-import DisciplineScopeFixtureVideos from '../src/molecule/discipline-scope/test/fixtures/videos';
+import DisciplineScopeFixtureMedias from '../src/molecule/discipline-scope/test/fixtures/medias';
 import DisciplineScopeFixtureWithOnclick from '../src/molecule/discipline-scope/test/fixtures/with-onclick';
 import FiltersFixtureDefault from '../src/molecule/filters/test/fixtures/default';
 import MenuListFixtureDefault from '../src/molecule/menu-list/test/fixtures/default';
@@ -230,7 +243,7 @@ import RangeSliderFixtureMinmax from '../src/molecule/range-slider/test/fixtures
 import RangeSliderFixtureSteps from '../src/molecule/range-slider/test/fixtures/steps';
 import ScopeContentFixtureDefault from '../src/molecule/scope-content/test/fixtures/default';
 import ScopeContentFixtureEmpty from '../src/molecule/scope-content/test/fixtures/empty';
-import ScopeContentFixtureVideos from '../src/molecule/scope-content/test/fixtures/videos';
+import ScopeContentFixtureMedias from '../src/molecule/scope-content/test/fixtures/medias';
 import ScopeContentFixtureWithOnclick from '../src/molecule/scope-content/test/fixtures/with-onclick';
 import ScopeTabsFixtureDefault from '../src/molecule/scope-tabs/test/fixtures/default';
 import ScopeTabsFixtureEmpty from '../src/molecule/scope-tabs/test/fixtures/empty';
@@ -291,16 +304,8 @@ import CardsGridFixtureMany from '../src/organism/cards-grid/test/fixtures/many'
 import CatalogCardsFixtureDefault from '../src/organism/catalog-cards/test/fixtures/default';
 import CatalogCardsFixtureLoading from '../src/organism/catalog-cards/test/fixtures/loading';
 import CatalogCardsFixtureNoProducts from '../src/organism/catalog-cards/test/fixtures/no-products';
-import CursusRightasideFixtureDefault from '../src/organism/cursus-rightaside/test/fixtures/default';
-import CursusRightasideFixtureEmpty from '../src/organism/cursus-rightaside/test/fixtures/empty';
 import DisciplineCardsFixtureEmpty from '../src/organism/discipline-cards/test/fixtures/empty';
 import DisciplineCardsFixtureManyDisciplines from '../src/organism/discipline-cards/test/fixtures/many-disciplines';
-import DisciplineRightasideFixtureAuthor from '../src/organism/discipline-rightaside/test/fixtures/author';
-import DisciplineRightasideFixtureDefault from '../src/organism/discipline-rightaside/test/fixtures/default';
-import DisciplineRightasideFixtureDiscipline from '../src/organism/discipline-rightaside/test/fixtures/discipline';
-import DisciplineRightasideFixtureDoubleAuthor from '../src/organism/discipline-rightaside/test/fixtures/double-author';
-import DisciplineRightasideFixtureEmpty from '../src/organism/discipline-rightaside/test/fixtures/empty';
-import DisciplineRightasideFixtureNoAuthor from '../src/organism/discipline-rightaside/test/fixtures/no-author';
 import DiscussionFixtureDefault from '../src/organism/discussion/test/fixtures/default';
 import DiscussionFixtureLoadingMore from '../src/organism/discussion/test/fixtures/loading-more';
 import DiscussionFixtureModeration from '../src/organism/discussion/test/fixtures/moderation';
@@ -314,6 +319,7 @@ import MoocHeaderFixtureDefault from '../src/organism/mooc-header/test/fixtures/
 import MoocHeaderFixtureLogged from '../src/organism/mooc-header/test/fixtures/logged';
 import MoocHeaderFixtureSliderMultiple from '../src/organism/mooc-header/test/fixtures/slider-multiple';
 import MoocHeaderFixtureSlider from '../src/organism/mooc-header/test/fixtures/slider';
+import PopinFixtureDefault from '../src/organism/popin/test/fixtures/default';
 import SetupHeaderFixtureDefault from '../src/organism/setup-header/test/fixtures/default';
 import AuthorFixtureDefault from '../src/template/app-catalog/author/test/fixtures/default';
 import AuthorFixtureLoading from '../src/template/app-catalog/author/test/fixtures/loading';
@@ -327,6 +333,8 @@ import ProductCourseFixtureNoVideo from '../src/template/app-catalog/product-cou
 import ProductCursusFixtureDefault from '../src/template/app-catalog/product-cursus/test/fixtures/default';
 import ProductCursusFixtureEmpty from '../src/template/app-catalog/product-cursus/test/fixtures/empty';
 import ProductCursusFixtureLoading from '../src/template/app-catalog/product-cursus/test/fixtures/loading';
+import ProductCursusFixtureWithoutAssets from '../src/template/app-catalog/product-cursus/test/fixtures/without-assets';
+import ProductCursusFixtureWithoutBadge from '../src/template/app-catalog/product-cursus/test/fixtures/without-badge';
 import BrandCreateFixtureDefault from '../src/template/back-office/brand-create/test/fixtures/default';
 import BrandCreateFixtureError from '../src/template/back-office/brand-create/test/fixtures/error';
 import BrandCreateFixtureLoading from '../src/template/back-office/brand-create/test/fixtures/loading';
@@ -363,6 +371,7 @@ import SearchPageFixtureDefault from '../src/template/common/search-page/test/fi
 export const components = {
   Atom: {
     Button,
+    CatalogSection,
     CenteredText,
     Checkbox,
     Cta,
@@ -398,6 +407,8 @@ export const components = {
     BrandUploadBox,
     Breadcrumbs,
     Card,
+    CatalogAssets,
+    CatalogBadge,
     CatalogCard,
     CatalogCta,
     Categories,
@@ -407,6 +418,7 @@ export const components = {
     DisciplineCard,
     DisciplineCta,
     DisciplineHeader,
+    DisciplinePartners,
     DisciplineScope,
     Filters,
     MenuList,
@@ -441,14 +453,13 @@ export const components = {
     BrandUpload,
     CardsGrid,
     CatalogCards,
-    CursusRightaside,
     DisciplineCards,
-    DisciplineRightaside,
     Discussion,
     GridList,
     Header,
     Hero,
     MoocHeader,
+    Popin,
     SetupHeader
   },
   TemplateAppCatalog: {
@@ -481,6 +492,10 @@ export const fixtures = {
       Light: ButtonFixtureLight,
       Link: ButtonFixtureLink
     },
+    CatalogSection: {
+      List: CatalogSectionFixtureList,
+      Picture: CatalogSectionFixturePicture
+    },
     CenteredText: {
       Default: CenteredTextFixtureDefault
     },
@@ -504,7 +519,8 @@ export const fixtures = {
     },
     ImageUpload: {
       Default: ImageUploadFixtureDefault,
-      Image: ImageUploadFixtureImage
+      Image: ImageUploadFixtureImage,
+      Loading: ImageUploadFixtureLoading
     },
     InputCheckbox: {
       Checked: InputCheckboxFixtureChecked,
@@ -640,6 +656,14 @@ export const fixtures = {
       Default: CardFixtureDefault,
       Disabled: CardFixtureDisabled
     },
+    CatalogAssets: {
+      Default: CatalogAssetsFixtureDefault,
+      Empty: CatalogAssetsFixtureEmpty
+    },
+    CatalogBadge: {
+      Default: CatalogBadgeFixtureDefault,
+      Empty: CatalogBadgeFixtureEmpty
+    },
     CatalogCard: {
       Default: CatalogCardFixtureDefault
     },
@@ -679,10 +703,15 @@ export const fixtures = {
       NoVideoNoImage: DisciplineHeaderFixtureNoVideoNoImage,
       NoVideo: DisciplineHeaderFixtureNoVideo
     },
+    DisciplinePartners: {
+      Default: DisciplinePartnersFixtureDefault,
+      DoubleAuthors: DisciplinePartnersFixtureDoubleAuthors,
+      NoAuthor: DisciplinePartnersFixtureNoAuthor
+    },
     DisciplineScope: {
       Default: DisciplineScopeFixtureDefault,
       Empty: DisciplineScopeFixtureEmpty,
-      Videos: DisciplineScopeFixtureVideos,
+      Medias: DisciplineScopeFixtureMedias,
       WithOnclick: DisciplineScopeFixtureWithOnclick
     },
     Filters: {
@@ -715,7 +744,7 @@ export const fixtures = {
     ScopeContent: {
       Default: ScopeContentFixtureDefault,
       Empty: ScopeContentFixtureEmpty,
-      Videos: ScopeContentFixtureVideos,
+      Medias: ScopeContentFixtureMedias,
       WithOnclick: ScopeContentFixtureWithOnclick
     },
     ScopeTabs: {
@@ -823,21 +852,9 @@ export const fixtures = {
       Loading: CatalogCardsFixtureLoading,
       NoProducts: CatalogCardsFixtureNoProducts
     },
-    CursusRightaside: {
-      Default: CursusRightasideFixtureDefault,
-      Empty: CursusRightasideFixtureEmpty
-    },
     DisciplineCards: {
       Empty: DisciplineCardsFixtureEmpty,
       ManyDisciplines: DisciplineCardsFixtureManyDisciplines
-    },
-    DisciplineRightaside: {
-      Author: DisciplineRightasideFixtureAuthor,
-      Default: DisciplineRightasideFixtureDefault,
-      Discipline: DisciplineRightasideFixtureDiscipline,
-      DoubleAuthor: DisciplineRightasideFixtureDoubleAuthor,
-      Empty: DisciplineRightasideFixtureEmpty,
-      NoAuthor: DisciplineRightasideFixtureNoAuthor
     },
     Discussion: {
       Default: DiscussionFixtureDefault,
@@ -862,6 +879,9 @@ export const fixtures = {
       SliderMultiple: MoocHeaderFixtureSliderMultiple,
       Slider: MoocHeaderFixtureSlider
     },
+    Popin: {
+      Default: PopinFixtureDefault
+    },
     SetupHeader: {
       Default: SetupHeaderFixtureDefault
     }
@@ -885,7 +905,9 @@ export const fixtures = {
     ProductCursus: {
       Default: ProductCursusFixtureDefault,
       Empty: ProductCursusFixtureEmpty,
-      Loading: ProductCursusFixtureLoading
+      Loading: ProductCursusFixtureLoading,
+      WithoutAssets: ProductCursusFixtureWithoutAssets,
+      WithoutBadge: ProductCursusFixtureWithoutBadge
     }
   },
   TemplateBackOffice: {

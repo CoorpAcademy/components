@@ -1,7 +1,8 @@
 import React, {PropTypes} from 'react';
+import style from './style.css';
 
 const CenteredText = ({children}) => (
-  <div>
+  <div className={style.center}>
     {children}
   </div>
 );

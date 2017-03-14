@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/components",
-  "version": "4.3.7",
+  "version": "4.3.18",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -12,7 +12,8 @@
     "README.md"
   ],
   "scripts": {
-    "start": "npm run generate:demo && BABEL_ENV=commonjs babel-node demo/index.js",
+    "prestart": "npm run generate",
+    "start": "BABEL_ENV=commonjs babel-node demo/index.js",
     "generate": "npm run generate:index && npm run generate:demo",
     "generate:index": "BABEL_ENV=commonjs babel-node scripts/generate-components-index.js > src/index.js",
     "generate:demo": "BABEL_ENV=commonjs babel-node scripts/generate-demo-index.js > demo/components.js",
@@ -46,7 +47,7 @@
     "react-dom": "^15.4.2"
   },
   "devDependencies": {
-    "@coorpacademy/components-bundler": "^4.1.2",
+    "@coorpacademy/components-bundler": "^4.3.18",
     "@coorpacademy/history": "^3.7.3",
     "@coorpacademy/translate": "^4.1.2",
     "autoprefixer": "^6.4.1",
@@ -55,7 +56,6 @@
     "babel-loader": "^6.2.5",
     "babel-plugin-css-modules-transform": "^1.1.0",
     "babel-plugin-istanbul": "^3.0.0",
-    "babel-plugin-transform-h-jsx": "^1.0.0",
     "babel-preset-es2015": "^6.13.0",
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-1": "^6.5.0",

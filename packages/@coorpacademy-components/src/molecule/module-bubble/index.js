@@ -31,7 +31,7 @@ const ModuleBubble = (props, context) => {
   );
   const label = _module.label;
 
-  const background = getOr('#fff', `mod[${_module.status}]`, skin);
+  const iconColor = getOr('#00B0FF', ['common', 'primary'], skin);
 
   const labelView = !hideLabel && (
     <div className={style.label}>
@@ -50,14 +50,11 @@ const ModuleBubble = (props, context) => {
       >
         <span
           className={style.bubbleBG}
-          style={{
-            background
-          }}
         />
         <span
           className={disabled ? style.iconDisabled : style.icon}
           style={{
-            color: getOr('#fff', ['mod', 'icon', _module.status], skin)
+            color: iconColor
           }}
         >
           {icon}

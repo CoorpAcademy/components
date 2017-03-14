@@ -1,13 +1,13 @@
 import React, {PropTypes} from 'react';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
-import identity from 'lodash/fp/identity';
 import Button from '../../atom/button';
+import Link from '../../atom/link';
 import addClassName from '../../util/add-class-name';
 import style from './style.css';
 
 const ScopeContent = (props, context) => {
-  const {translate = identity, skin} = context;
+  const {translate, skin} = context;
   const {content} = props;
 
   const lstitle = translate('At the end of this level, you will be able to:');
@@ -19,7 +19,7 @@ const ScopeContent = (props, context) => {
   const _skills = getOr([], 'skills', content);
   const _chapters = getOr([], 'chapters', content);
   const _assets = getOr([], 'course_scope', content);
-  const _videos = getOr([], 'videos', content);
+  const _medias = getOr([], 'medias', content);
 
   const skillsTitle = getOr(lstitle, 'skillsTitle', content);
   const chaptersTitle = getOr(_chaptersTitle, 'chaptersTitle', content);
@@ -50,31 +50,38 @@ const ScopeContent = (props, context) => {
     />
   );
 
-  const videos = _videos.map((video, index) => {
-    const handleClick = get('onClick', video);
-    const playButton = handleClick && (
+  const medias = _medias.map((media, index) => {
+    const {
+      onClick: handleClick,
+      href = '#',
+      target,
+      type
+    } = media;
+    const playButton = handleClick && type === 'video' && (
       <div className={style.play} />
     );
 
     return (
-      <div key={index}
-        className={style.video}
+      <Link key={index}
+        className={style.media}
         onClick={handleClick}
+        href={href}
+        target={target}
       >
         <div className={style.imgWrapper}>
-          <img src={video.image} />
+          <img src={media.image} />
           {playButton}
         </div>
-        <div className={style.videoTitle}>
-          {video.title}
+        <div className={style.mediaTitle}>
+          {media.title}
         </div>
-      </div>
+      </Link>
     );
   });
 
-  const videosView = _videos.length > 0 ? (
-    <div className={style.videos}>
-      {videos}
+  const mediasView = _medias.length > 0 ? (
+    <div className={style.medias}>
+      {medias}
     </div>
   ) : null;
 
@@ -113,7 +120,7 @@ const ScopeContent = (props, context) => {
         </div>
       </div>
 
-      {videosView}
+      {mediasView}
     </div>
   );
 };
@@ -134,10 +141,10 @@ ScopeContent.propTypes = {
     skills: PropTypes.arrayOf(PropTypes.string),
     chapters: PropTypes.arrayOf(PropTypes.object),
     course_scope: PropTypes.arrayOf(PropTypes.string),
-    videos: PropTypes.arrayOf(PropTypes.shape({
+    medias: PropTypes.arrayOf(PropTypes.shape({
+      ...Link.propTypes,
       title: PropTypes.string,
-      image: PropTypes.string,
-      onClick: PropTypes.func
+      image: PropTypes.string
     }))
   })
 };

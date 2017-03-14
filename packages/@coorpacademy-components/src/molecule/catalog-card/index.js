@@ -1,5 +1,4 @@
 import React, {PropTypes} from 'react';
-import identity from 'lodash/fp/identity';
 import getOr from 'lodash/fp/getOr';
 import StarRating from '../star-rating';
 import Link from '../../atom/link';
@@ -10,7 +9,7 @@ import style from './style.css';
 const getOrBlank = getOr('');
 
 const CatalogCard = (props, context) => {
-  const {translate = identity} = context;
+  const {translate} = context;
   const learnMore = (
     <span
       dangerouslySetInnerHTML={{ // eslint-disable-line react/no-danger
@@ -69,7 +68,7 @@ CatalogCard.propTypes = {
   rating: PropTypes.number,
   maxRating: PropTypes.number,
   title: PropTypes.string,
-  image: PropTypes.string,
+  image: Picture.propTypes.src,
   author: PropTypes.shape({
     name: PropTypes.string,
     href: PropTypes.string

@@ -1,7 +1,6 @@
 @value breakpoints: "../../../variables/breakpoints.css";
-@value mobile from breakpoints;
-@value tablet from breakpoints;
 @value desktop from breakpoints;
+@value wide from breakpoints;
 
 .wrapper {
   composes: wrapper from '../layout.css';
@@ -10,37 +9,50 @@
   padding: 20px;
 }
 
-.container {
-  composes: container from '../layout.css';
+.column {
+  margin-bottom: 30px;
+}
+
+.leftColumn {
+  composes: column;
   float: left;
+  width: 840px;
 }
 
-.contentContainer {
-  composes: container;
-  margin-top: 30px;
-}
-
-.colContainer {
-  composes: colContainer from '../layout.css';
+.rightColumn {
+  composes: column;
   float: right;
+  width: 280px;
+}
+
+.header, .content {
+  composes: leftColumn;
+}
+
+.cta, .partners {
+  composes: rightColumn;
 }
 
 @media desktop {
-  .container {
-    margin-top: 0px;
-    float: none;
-  }
-
-  .colContainer {
-    float: none;
-  }
-}
-
-@media tablet {
-}
-
-@media mobile {
   .wrapper {
     display: flex;
+  }
+
+  .column {
+    display: flex;
+    flex-basis: 100%;
+  }
+
+  .header {
+    order: 1;
+  }
+  .cta {
+    order: 2;
+  }
+  .content {
+    order: 3;
+  }
+  .partners {
+    order: 4;
   }
 }

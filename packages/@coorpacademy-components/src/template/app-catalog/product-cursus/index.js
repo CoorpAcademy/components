@@ -1,14 +1,16 @@
 import React, {PropTypes} from 'react';
-import identity from 'lodash/fp/identity';
 import * as CustomPropTypes from '../../../util/proptypes';
+import Picture from '../../../atom/picture';
 import CursusHeader from '../../../molecule/cursus-header';
-import CursusRightaside from '../../../organism/cursus-rightaside';
+import CatalogCTA from '../../../molecule/catalog-cta';
+import CatalogBadge from '../../../molecule/catalog-badge';
+import CatalogAssets from '../../../molecule/catalog-assets';
 import CatalogCards from '../../../organism/catalog-cards';
 import layout from '../layout.css';
 import style from './style.css';
 
 const ProductCursus = (props, context) => {
-  const {translate = identity} = context;
+  const {translate} = context;
   const cardsTitle = translate('This course contains:');
   const {
     disciplines = null,
@@ -23,34 +25,41 @@ const ProductCursus = (props, context) => {
     linkTry
   } = props;
 
+  const certificationLabel = translate('certification');
+  const assetsLabel = translate('assets');
+
   return (
-    <div className={layout.wrapper}>
-      <div className={layout.container}>
+    <div className={style.wrapper}>
+      <div className={style.header}>
         <CursusHeader
           image={image}
           title={title}
           description={description}
         />
       </div>
-      <div className={layout.colContainer}>
-        <CursusRightaside
-          badge={badge}
-          assets={assets || []}
+      <div className={style.cta}>
+        <CatalogCTA
           rating={rating}
           maxRating={maxRating}
           linkBuy={linkBuy}
           linkTry={linkTry}
         />
       </div>
-      <div className={style.productsContainer}>
-        <span className={layout.cardsTitle}>
-          {cardsTitle}
-        </span>
+      <div className={style.details}>
+        <CatalogBadge badge={badge} />
+        <CatalogAssets assets={assets} />
+      </div>
+      <div className={style.products}>
+        <div className={style.productsContainer}>
+          <span className={layout.cardsTitle}>
+            {cardsTitle}
+          </span>
 
-        <div className={style.productsWrapper}>
-          <CatalogCards
-            products={disciplines}
-          />
+          <div className={style.productsWrapper}>
+            <CatalogCards
+              products={disciplines}
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -62,19 +71,20 @@ ProductCursus.contextTypes = {
 };
 
 ProductCursus.propTypes = {
-  title: PropTypes.string,
-  description: PropTypes.string,
-  image: CustomPropTypes.url,
-  badge: CustomPropTypes.url,
-  linkBuy: PropTypes.string,
-  linkTry: PropTypes.string,
-  rating: PropTypes.number,
-  maxRating: PropTypes.number,
-  assets: PropTypes.arrayOf(PropTypes.string),
-  disciplines: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.object),
-    PropTypes.null
-  ])
+  title: CursusHeader.propTypes.title,
+  description: CursusHeader.propTypes.description,
+  image: CursusHeader.propTypes.image,
+
+  linkBuy: CatalogCTA.propTypes.linkBuy,
+  linkTry: CatalogCTA.propTypes.linkTry,
+  rating: CatalogCTA.propTypes.rating,
+  maxRating: CatalogCTA.propTypes.maxRating,
+
+  badge: CatalogBadge.propTypes.badge,
+
+  assets: CatalogAssets.propTypes.assets,
+
+  disciplines: CatalogCards.propTypes.products
 };
 
 export default ProductCursus;

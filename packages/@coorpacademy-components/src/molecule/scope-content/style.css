@@ -112,16 +112,17 @@
   content: '';
 }
 
-.videos {
+.medias {
   padding: 24px 11px 0;
   border: solid 1px #E3E3E3;
   border-top: 0;
 }
 
-.video {
+.media {
   display: inline-block;
   margin: 0 12px 24px;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .imgWrapper {
@@ -161,7 +162,7 @@
   text-shadow: 0px 2px 4px rgba(0,0,0,.5);
 }
 
-.videoTitle {
+.mediaTitle {
   font-family: 'Open Sans';
   font-weight: 700;
   font-size: 12px;
@@ -220,7 +221,7 @@
     display: none;
   }
 
-  .videos {
+  .medias {
     text-align: center;
   }
 }

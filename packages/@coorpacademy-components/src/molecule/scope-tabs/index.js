@@ -1,11 +1,17 @@
 import React, {PropTypes} from 'react';
+import has from 'lodash/fp/has';
 import partial from 'lodash/fp/partial';
 import unary from 'lodash/fp/unary';
 import identity from 'lodash/fp/identity';
+import getOr from 'lodash/fp/getOr';
 import ModuleBubble from '../../molecule/module-bubble';
 import style from './style.css';
 
-const ScopeTabs = props => {
+const ScopeTabs = (props, context) => {
+  const {
+    skin
+  } = context;
+
   const {
     onClick,
     selected = 0,
@@ -13,24 +19,51 @@ const ScopeTabs = props => {
   } = props;
   const hideLabel = true;
 
+  const primary = getOr('#00B0FF', ['common', 'primary'], skin);
+
   return (
     <ul className={style.tabs}>
       {levels && levels.map((level, index) => {
         const handleClick = () => onClick(index);
+        const isSelected = selected === index;
+        const tabSkin = isSelected ? {
+          background: primary,
+          border: `1px solid ${primary}`
+        } : {
+          color: primary
+        };
+
+        const last = index === levels.length - 1;
+
+        const arrow = isSelected && !last ? (
+          <span
+            className={style.arrow}
+            style={{
+              borderColor: `transparent transparent transparent ${primary}`
+            }}
+          />
+        ) : null;
+
+        const bubble = has('status', level) ? (
+          <div className={style.module}>
+            <ModuleBubble
+              hideLabel
+              module={level}
+              onClick={handleClick}
+            />
+          </div>
+        ) : null;
+
         return (
           <li
             key={index}
             onClick={handleClick}
-            className={selected === index ? style.currentTab : style.tab}
+            className={isSelected ? style.currentTab : style.defaultTab}
+            style={tabSkin}
           >
-            <div className={style.module}>
-              <ModuleBubble
-                hideLabel
-                module={level}
-                onClick={handleClick}
-              />
-            </div>
+            {bubble}
             <div className={style.name}>{level.name}</div>
+            {arrow}
           </li>
         );
       })}
@@ -39,8 +72,7 @@ const ScopeTabs = props => {
 };
 
 ScopeTabs.contextTypes = {
-  skin: React.PropTypes.object,
-  translate: React.PropTypes.func
+  skin: React.PropTypes.object
 };
 
 ScopeTabs.propTypes = {

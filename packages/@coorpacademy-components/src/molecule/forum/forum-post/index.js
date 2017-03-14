@@ -6,7 +6,7 @@ import ForumComment from '../forum-comment';
 import style from './style.css';
 
 const ForumPost = (props, context) => {
-  const {translate = identity} = context;
+  const {translate} = context;
   const {
     author,
     avatar,
@@ -36,7 +36,7 @@ const ForumPost = (props, context) => {
     onDelete
   } = props;
 
-  const infoDeleted = translate('This message has been removed by its author.');
+  const infoDeleted = translate('This message has been removed by its author');
   const answerLabel = translate('Answer');
   const editLabel = translate('Edit');
   const deleteLabel = translate('Delete');

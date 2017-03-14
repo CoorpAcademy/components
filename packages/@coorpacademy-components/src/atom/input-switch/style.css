@@ -38,9 +38,7 @@
 }
 
 .checkbox {
-  position: absolute;
-  top: -99999px;
-  right: -99999px;
+  display: none;
 }
 
 .checkbox:active:after {

@@ -1,7 +1,75 @@
 @value breakpoints: "../../../variables/breakpoints.css";
 @value mobile from breakpoints;
-@value tablet from breakpoints;
 @value desktop from breakpoints;
+@value wide from breakpoints;
+
+.wrapper {
+  composes: wrapper from '../layout.css';
+  display: block;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.column {
+  margin-bottom: 30px;
+}
+
+.leftColumn {
+  composes: column;
+}
+
+.rightColumn {
+  composes: column;
+}
+
+.header, .content, .products {
+  composes: leftColumn;
+}
+
+.cta, .details {
+  composes: rightColumn;
+}
+
+.leftColumn {
+  float: left;
+  width: 840px;
+}
+
+.rightColumn {
+  float: right;
+  width: 280px;
+}
+
+@media desktop {
+  .wrapper {
+    display: flex;
+  }
+
+  .column {
+    display: flex;
+    flex-basis: 100%;
+  }
+
+  .header {
+    order: 1;
+  }
+  .cta {
+    order: 2;
+  }
+  .content {
+    order: 3;
+  }
+  .details {
+    order: 5;
+    display: flex;
+  }
+  .products {
+    order: 5;
+  }
+  .details > * {
+    flex-grow: 1;
+  }
+}
 
 .productsWrapper {
   margin-top: 10px;
@@ -10,25 +78,19 @@
 }
 
 .productsContainer {
-  max-width: 840px;
   display: inline-block;
   vertical-align: top;
-  margin-top: -190px;
-}
-
-@media desktop {
-  .productsContainer {
-    margin-top: 20px;
-  }
-}
-
-@media tablet {
-  .productsWrapper {
-  }
 }
 
 @media mobile {
-  .productsWrapper {
-    text-align: center;
+  .details {
+    flex-flow: column;
+  }
+
+  .details > * {
+    margin-bottom: 30px;
+  }
+  .details > *:last-child {
+    margin-bottom: 0;
   }
 }

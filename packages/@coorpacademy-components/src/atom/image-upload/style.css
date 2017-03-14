@@ -1,18 +1,17 @@
 @value colors: "../../variables/colors.css";
-@value green from colors;
 @value blue from colors;
 @value darkGrey from colors;
 @value borderGrey from colors;
 
 .wrapper {
-  width: 380px;
+  width: 360px;
 }
 
 .title {
   font-family: "Open Sans";
   font-size: 15px;
   text-transform: none;
-  color: #455A64;
+  color: darkGrey;
   margin-bottom: 20px;
 }
 
@@ -28,7 +27,7 @@
 
 .previewWrapper span {
   font-family: 'Open Sans';
-  color: #455A64;
+  color: darkGrey;
   font-size: 15px;
   font-weight: 700;
   line-height: 100px;
@@ -90,7 +89,7 @@
   font-size: 18px;
   text-transform: uppercase;
   font-weight: 700;
-  color: #405863;
+  color: darkGrey;
 }
 
 .input {

@@ -1,62 +1,24 @@
 import React, {PropTypes} from 'react';
+import identity from 'lodash/fp/identity';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
-import identity from 'lodash/fp/identity';
 import map from 'lodash/fp/map';
-import CatalogCTA from '../../molecule/catalog-cta';
-import DisciplineCTA from '../../molecule/discipline-cta';
-import Picture from '../../atom/picture';
 import Link from '../../atom/link';
 import SocialLink from '../../atom/social-link';
+import Picture from '../../atom/picture';
 import style from './style.css';
 
-const DisciplineRightaside = (props, context) => {
-  const {translate = identity} = context;
+const DisciplinePartners = (props, context) => {
+  const {translate} = context;
+
   const {
-    type,
-    rating,
-    maxRating,
-    linkBuy,
-    linkTry,
     authorTitle,
-    start,
-    buy,
-    startLabel,
-    buyLabel,
     authors = []
   } = props;
 
   const authorLabel = authorTitle || translate('author');
-  let ctaView;
 
-  switch (type) {
-    case 'discipline':
-      ctaView = (
-        <div className={style.ctaWrapper}>
-          <DisciplineCTA
-            start={start}
-            buy={buy}
-            startLabel={startLabel}
-            buyLabel={buyLabel}
-          />
-        </div>
-      );
-      break;
-
-    default:
-      ctaView = (rating && linkBuy && linkTry) && (
-        <div className={style.ctaWrapper}>
-          <CatalogCTA
-            rating={rating}
-            maxRating={maxRating}
-            linkBuy={linkBuy}
-            linkTry={linkTry}
-          />
-        </div>
-      );
-  }
-
-  const authorsView = authors.length > 0 ? authors.map((author, index) => {
+  const authorsView = map.convert({cap: false})((author, index) => {
     const socialLinks = getOr([], 'socialLinks', author);
     const authorLogo = get('logo', author);
     const authorHref = get('href', author);
@@ -93,6 +55,7 @@ const DisciplineRightaside = (props, context) => {
         <Link
           className={style.logoLink}
           href={authorLogo.href}
+          target={'_blank'}
         >
           <Picture
             className={style.logo}
@@ -123,32 +86,20 @@ const DisciplineRightaside = (props, context) => {
         </div>
       </div>
     );
-  }) : null;
+  }, authors);
 
   return (
-    <div className={style.col}>
-      {ctaView}
-      <div className={style.colDetails}>
-        {authorsView}
-      </div>
+    <div className={style.colDetails}>
+      {authorsView}
     </div>
   );
 };
 
-DisciplineRightaside.contextTypes = {
+DisciplinePartners.contextTypes = {
   translate: React.PropTypes.func
 };
 
-DisciplineRightaside.propTypes = {
-  type: PropTypes.string,
-  rating: PropTypes.number,
-  maxRating: PropTypes.number,
-  linkTry: PropTypes.string,
-  linkBuy: PropTypes.string,
-  start: PropTypes.func,
-  buy: PropTypes.func,
-  startLabel: PropTypes.string,
-  buyLabel: PropTypes.string,
+DisciplinePartners.propTypes = {
   authors: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string,
     href: PropTypes.string,
@@ -160,4 +111,5 @@ DisciplineRightaside.propTypes = {
   })),
   authorTitle: PropTypes.string
 };
-export default DisciplineRightaside;
+
+export default DisciplinePartners;

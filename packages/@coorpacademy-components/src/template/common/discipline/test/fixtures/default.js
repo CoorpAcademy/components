@@ -1,9 +1,11 @@
 import disciplineHeader from '../../../../../molecule/discipline-header/test/fixtures/default';
-import disciplineRightAside from '../../../../../organism/discipline-rightaside/test/fixtures/discipline';
-import disciplineScope from '../../../../../molecule/discipline-scope/test/fixtures/videos';
+import disciplinePartners from '../../../../../molecule/discipline-partners/test/fixtures/default';
+import disciplineCTA from '../../../../../molecule/discipline-cta/test/fixtures/default';
+import disciplineScope from '../../../../../molecule/discipline-scope/test/fixtures/medias';
 
 const {title, description, video} = disciplineHeader.props;
-const {start, buy, startLabel, buyLabel, authors} = disciplineRightAside.props;
+const {start, buy, startLabel, buyLabel} = disciplineCTA.props;
+const {authors} = disciplinePartners.props;
 const {content, levels} = disciplineScope.props;
 
 /* eslint-disable max-len */
