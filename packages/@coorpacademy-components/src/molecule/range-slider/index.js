@@ -98,6 +98,7 @@ class RangeSlider extends React.Component {
       return {
         handle1: {
           x: previousState.handle1.x * ratio,
+          min: 0,
           max: previousState.handle2.x * ratio
         },
         handle2: {
@@ -134,7 +135,7 @@ class RangeSlider extends React.Component {
     return e => this.setState((previousState, currentProps) => {
       const eventX = this.extractXFromEvent(num, e);
       const {snapX, step} = calculateSnapX(eventX, steps, previousState.railWidth);
-      const x = snap ? snapX : eventX;
+      const x = snap && steps ? snapX : eventX;
 
       let state = set([`handle${num}`, 'x'], x, previousState);
       state = set(['handle1', 'max'], state.handle2.x, state);
