@@ -37,6 +37,7 @@
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 3;
     composes: fa from '../../variables/fontawesome.css';
     composes: fa-times from '../../variables/fontawesome.css';
 }
@@ -55,7 +56,7 @@
     width: 30px;
     height: 30px;
     background: transparent;
-} 
+}
 
 .activeChoices li {
     list-style: none;

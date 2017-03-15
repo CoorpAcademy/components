@@ -3,6 +3,7 @@ import CatalogSection from '../src/atom/catalog-section';
 import CenteredText from '../src/atom/centered-text';
 import Checkbox from '../src/atom/checkbox';
 import Cta from '../src/atom/cta';
+import Handle from '../src/atom/handle';
 import ImageUpload from '../src/atom/image-upload';
 import InputCheckbox from '../src/atom/input-checkbox';
 import InputColor from '../src/atom/input-color';
@@ -51,6 +52,7 @@ import ModuleBubble from '../src/molecule/module-bubble';
 import ModuleCard from '../src/molecule/module-card';
 import Pagination from '../src/molecule/pagination';
 import ProgressBar from '../src/molecule/progress-bar';
+import RangeSlider from '../src/molecule/range-slider';
 import ScopeContent from '../src/molecule/scope-content';
 import ScopeTabs from '../src/molecule/scope-tabs';
 import Search from '../src/molecule/search';
@@ -112,6 +114,9 @@ import CtaFixtureDefault from '../src/atom/cta/test/fixtures/default';
 import CtaFixtureLight from '../src/atom/cta/test/fixtures/light';
 import CtaFixtureSecondaryLight from '../src/atom/cta/test/fixtures/secondary-light';
 import CtaFixtureSecondary from '../src/atom/cta/test/fixtures/secondary';
+import HandleFixtureAxisX from '../src/atom/handle/test/fixtures/axis-x';
+import HandleFixtureAxisY from '../src/atom/handle/test/fixtures/axis-y';
+import HandleFixtureDefault from '../src/atom/handle/test/fixtures/default';
 import ImageUploadFixtureDefault from '../src/atom/image-upload/test/fixtures/default';
 import ImageUploadFixtureImage from '../src/atom/image-upload/test/fixtures/image';
 import ImageUploadFixtureLoading from '../src/atom/image-upload/test/fixtures/loading';
@@ -233,6 +238,9 @@ import PaginationFixtureDefault from '../src/molecule/pagination/test/fixtures/d
 import PaginationFixtureDisabled from '../src/molecule/pagination/test/fixtures/disabled';
 import ProgressBarFixtureDefault from '../src/molecule/progress-bar/test/fixtures/default';
 import ProgressBarFixtureMax from '../src/molecule/progress-bar/test/fixtures/max';
+import RangeSliderFixtureDefault from '../src/molecule/range-slider/test/fixtures/default';
+import RangeSliderFixtureMinmax from '../src/molecule/range-slider/test/fixtures/minmax';
+import RangeSliderFixtureSteps from '../src/molecule/range-slider/test/fixtures/steps';
 import ScopeContentFixtureDefault from '../src/molecule/scope-content/test/fixtures/default';
 import ScopeContentFixtureEmpty from '../src/molecule/scope-content/test/fixtures/empty';
 import ScopeContentFixtureMedias from '../src/molecule/scope-content/test/fixtures/medias';
@@ -369,6 +377,7 @@ export const components = {
     CenteredText,
     Checkbox,
     Cta,
+    Handle,
     ImageUpload,
     InputCheckbox,
     InputColor,
@@ -419,6 +428,7 @@ export const components = {
     ModuleCard,
     Pagination,
     ProgressBar,
+    RangeSlider,
     ScopeContent,
     ScopeTabs,
     Search,
@@ -503,6 +513,11 @@ export const fixtures = {
       Light: CtaFixtureLight,
       SecondaryLight: CtaFixtureSecondaryLight,
       Secondary: CtaFixtureSecondary
+    },
+    Handle: {
+      AxisX: HandleFixtureAxisX,
+      AxisY: HandleFixtureAxisY,
+      Default: HandleFixtureDefault
     },
     ImageUpload: {
       Default: ImageUploadFixtureDefault,
@@ -722,6 +737,11 @@ export const fixtures = {
     ProgressBar: {
       Default: ProgressBarFixtureDefault,
       Max: ProgressBarFixtureMax
+    },
+    RangeSlider: {
+      Default: RangeSliderFixtureDefault,
+      Minmax: RangeSliderFixtureMinmax,
+      Steps: RangeSliderFixtureSteps
     },
     ScopeContent: {
       Default: ScopeContentFixtureDefault,

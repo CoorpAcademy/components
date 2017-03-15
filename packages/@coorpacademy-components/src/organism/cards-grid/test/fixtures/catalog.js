@@ -3,7 +3,7 @@ import uniqueId from 'lodash/fp/uniqueId';
 
 import card from '../../../../molecule/card/test/fixtures/catalogue';
 
-const content = [
+const list = [
   card.props,
   card.props,
   card.props,
@@ -14,6 +14,6 @@ const content = [
 
 export default {
   props: {
-    content
+    list
   }
 };

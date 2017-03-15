@@ -6,7 +6,7 @@ import style from './style.css';
 
 function CardsGrid(props) {
   const {
-    content = []
+    list = []
   } = props;
 
   const cards = map(cardProps => {
@@ -15,7 +15,7 @@ function CardsGrid(props) {
         {...cardProps}
       />
     );
-  }, content);
+  }, list);
 
   return (
     <div className={style.default}>
@@ -25,7 +25,7 @@ function CardsGrid(props) {
 }
 
 CardsGrid.propTypes = {
-  content: PropTypes.arrayOf(PropTypes.object)
+  list: PropTypes.arrayOf(PropTypes.object)
 };
 
 export default CardsGrid;

@@ -5,7 +5,7 @@ import card1 from '../../../../molecule/card/test/fixtures/adaptiv';
 import card2 from '../../../../molecule/card/test/fixtures/catalogue';
 import card3 from '../../../../molecule/card/test/fixtures/default';
 
-const content = [
+const list = [
   card1.props,
   card2.props,
   card1.props,
@@ -16,6 +16,6 @@ const content = [
 
 export default {
   props: {
-    content
+    list
   }
 };

@@ -1,11 +1,13 @@
 import React, {PropTypes} from 'react';
 import Select from '../../atom/select';
 import SelectMultiple from '../../molecule/select-multiple';
+import RangeSlider from '../../molecule/range-slider';
 import style from './style.css';
 
 function Filters(props) {
   const {
     select,
+    timer,
     selectMultiple
   } = props;
 
@@ -15,7 +17,9 @@ function Filters(props) {
         <div className={style.title}>Filters</div>
         <div className={style.wrapperFilters}>
           <Select {...select} />
-          <div className={style.toggle} />
+          <div className={style.toggle}>
+            <RangeSlider {...timer} />
+          </div>
           <SelectMultiple {...selectMultiple} />
           <Select {...select} />
         </div>
