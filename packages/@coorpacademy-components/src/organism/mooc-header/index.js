@@ -148,6 +148,7 @@ class MoocHeader extends React.Component {
         <div className={style.themes}>
           <div
             className={style.currentOption}
+            aria-haspopup='true'
             data-name="thematique"
           >{currentTheme.title}<span className={style.caret} /></div>
           <div className={style.optionsGroup}>
@@ -230,6 +231,7 @@ class MoocHeader extends React.Component {
           <div className={style.more}>
             <div
               className={style.currentOption}
+              aria-haspopup='true'
               data-name="page-more"
             >{moreLabel}<span className={style.caret} /></div>
             <div className={style.optionsGroup}>

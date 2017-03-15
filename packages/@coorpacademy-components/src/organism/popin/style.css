@@ -20,7 +20,7 @@
 .popin {
   width: 680px;
   height: 75%;
-  overflow: scroll;
+  overflow: auto;
   background: white;
   padding-bottom: 20px;
   box-shadow: 0 0 15px 0 rgba(166,166,166,.84);
