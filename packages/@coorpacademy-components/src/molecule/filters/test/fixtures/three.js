@@ -27,27 +27,6 @@ export default {
       ],
       onChange: value => console.log(value) // eslint-disable-line no-console
     },
-    authors: {...select,
-      title: 'Authors',
-      options: [
-        {
-          name: 'Coorpacademy',
-          value: 'Coorpacademy',
-          selected: false
-        },
-        {
-          name: 'Nexstage',
-          value: 'Nexstage',
-          selected: true
-        },
-        {
-          name: 'Elephant',
-          value: 'Elephant',
-          selected: false
-        }
-      ],
-      onChange: value => console.log(value) // eslint-disable-line no-console
-    },
     sorting: {...select,
       title: 'Sort by',
       options: [

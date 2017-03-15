@@ -43,6 +43,9 @@ class Filters extends React.Component {
   render() {
     const {
       timer,
+      thematic,
+      authors,
+      sorting,
       select,
       selectMultiple
     } = this.props;
@@ -50,6 +53,38 @@ class Filters extends React.Component {
     const isActive = this.state.opened === true;
     const filtersActive = this.state.filter === true;
     const sortingActive = this.state.sorted === true;
+
+    const listMultipleView = selectMultiple !== undefined ? (
+      <div className={style.choice}>
+        <SelectMultiple {...selectMultiple} />
+      </div>
+    ) : null;
+
+    const thematicView = thematic !== undefined ? (
+      <div className={style.choice}>
+        <Select {...thematic} />
+      </div>
+    ) : null;
+
+    const timerView = timer !== undefined ? (
+      <div className={style.choice}>
+        <RangeSlider {...timer} />
+      </div>
+    ) : null;
+
+    const authorsView = authors !== undefined ? (
+      <div className={style.choice}>
+        <Select {...authors} />
+      </div>
+    ) : null;
+
+    const sortView = sorting !== undefined ? (
+      <div className={style.select} >
+        <Select {...sorting} />
+      </div>
+    ) : null;
+
+    const emptyFilters = select === undefined && selectMultiple === undefined;
 
     return (
       <div className={style.search}>
@@ -68,15 +103,15 @@ class Filters extends React.Component {
             className={style.title}
             onClick={this.handleOpenSort}
           >
-            sort by
+            Sort by
           </div>
         </div>
         <div className={filtersActive ? style.activeWrapperFilters : style.wrapperFilters} >
-          <div className={style.wrapper}>
-            <div className={style.choice}><Select {...select} /></div>
-            <div className={style.choice}><RangeSlider {...timer} /></div>
-            <div className={style.choice}><SelectMultiple {...selectMultiple} /></div>
-            <div className={style.choice}><Select {...select} /></div>
+          <div className={emptyFilters ? style.wrapperNone : style.wrapper}>
+            {thematicView}
+            {timerView}
+            {listMultipleView}
+            {authorsView}
           </div>
           <div
             className={style.CTAfilter}
@@ -87,9 +122,7 @@ class Filters extends React.Component {
         </div>
         <div className={sortingActive ? style.activeSorting : style.sorting} >
           <div className={style.mainTitle}>Catalog</div>
-          <div className={style.select} >
-            <Select {...select} />
-          </div>
+          {sortView}
           <div
             className={style.CTAfilter}
             onClick={this.handleOpenSort}
@@ -103,6 +136,10 @@ class Filters extends React.Component {
 }
 
 Filters.propTypes = {
+  thematic: PropTypes.object,
+  timer: PropTypes.object,
+  authors: PropTypes.object,
+  sorting: PropTypes.object,
   select: PropTypes.object,
   selectMultiple: PropTypes.object
 };

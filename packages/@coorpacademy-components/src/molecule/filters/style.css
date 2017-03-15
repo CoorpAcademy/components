@@ -8,8 +8,16 @@
 @value blue from colors;
 
 .search {
+  display: block;
+  width: 100%;
   position: relative;
-  z-index: 4
+  z-index: 4;
+  font-family: "Open Sans";
+  background: light;
+}
+
+.wrapperNone {
+  display: none;
 }
 
 .default {
@@ -18,11 +26,28 @@
   width: 100%;
   background: light;
   justify-content: center;
+  box-sizing: border-box;
 }
 
 .choice {
-  width: 300px;
-  margin: 10px; 
+  max-width: 50%;
+  min-width: 22%;
+  margin: 8px 16px;
+  box-sizing: border-box;
+}
+
+.choice label {
+  margin: 0;
+}
+
+.choice label span {
+    font-size: 13px;
+    color: darkGrey;
+}
+
+.choice select,
+.sorting select {
+  font-size: 12px;
 }
 
 .wrapperFilters {
@@ -30,19 +55,21 @@
   width: 100%;
   min-height: 135px;
   height: auto;
-  padding: 0 1%;
+  padding: 0 4%;
   box-sizing: border-box;
   align-items: center;
   justify-content: center;
-  background: #D2D2D2;
+  background: light;
 }
 
 .wrapper {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   padding: 25px 0;
+  box-sizing: border-box;
   width: 100%;
   height: auto;
+  align-items: center;
   justify-content: center;
 }
 
@@ -75,7 +102,7 @@
   width: 100%;
   padding: 32px 10%;
   box-sizing: border-box;
-  background: #fbfafb;
+  background: #fbfbfb;
 }
 
 .sorting .title {
@@ -102,7 +129,10 @@
 
 .sorting label span {
   padding-top: 8px;
+  padding-right: 10px;
   font-weight: 700;
+  text-align: right;
+  font-size: 13px;
 }
 
 .sorting label div {
@@ -122,7 +152,18 @@
 
 @media desktop {}
 
-@media tablet {}
+@media tablet {
+  .wrapper {
+    flex-wrap: wrap;
+  }
+
+  .wrapperFilters {
+    padding: 0 32px;
+  }
+  .choice {
+    width: 43%;
+  }
+}
 
 @media mobile {
   .default,
@@ -138,23 +179,24 @@
   }
   .choice {
     width: 100%;
+    max-width: 100%;
   }
   .default {
-    border-right: solid 1px #fbfafb;
+    border-right: solid 1px #fbfbfb;
   }
 
   .activeDefault {
-    border-right: solid 1px #fbfafb;
+    border-right: solid 1px #fbfbfb;
     background: light;
   }
 
   .activeWrapperSortBy {
-    border-left: solid 1px #fbfafb;
+    border-left: solid 1px #fbfbfb;
     background: light;
   }
 
   .wrapperSortBy {
-    border-left: solid 1px #fbfafb;
+    border-left: solid 1px #fbfbfb;
   }
 
   .activeDefault .title,
@@ -163,6 +205,12 @@
   .activeWrapperSortBy .title:before {
     color: blue;
   } 
+
+  .activeDefault .title:before,
+  .activeWrapperSortBy .title:before {
+    transform: rotate(180deg);
+  }
+
 
   .title {
     display: block;
@@ -195,10 +243,6 @@
     box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .5);
   }
 
-  .activeSorting {
-    padding: 20px;
-  }
-
   .activeWrapperFilters .wrapper {
     width: 100%;
     display: flex;
@@ -211,23 +255,34 @@
     margin-left: 0;
   }
 
-  .mainTitle {
+  .activeSorting .mainTitle {
     display: none;
   }
 
   .activeSorting {
-    padding: 0;
+    display: block;
+    margin: 0;
+    padding-top: 16px;
   }
 
   .activeSorting label {
     margin: 0;
   }
 
+  .activeSorting .select {
+    display: block;
+    align-items: center;
+    padding: 0px 16px;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
   .activeSorting label span {
     display: none;
   }
 
-  .CTAfilter {
+  .activeWrapperFilters .CTAfilter,
+  .activeSorting .CTAfilter {
     display: block;
     background: blue;
     width: 100%;

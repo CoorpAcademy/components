@@ -230,6 +230,9 @@ import DisciplineScopeFixtureEmpty from '../src/molecule/discipline-scope/test/f
 import DisciplineScopeFixtureMedias from '../src/molecule/discipline-scope/test/fixtures/medias';
 import DisciplineScopeFixtureWithOnclick from '../src/molecule/discipline-scope/test/fixtures/with-onclick';
 import FiltersFixtureDefault from '../src/molecule/filters/test/fixtures/default';
+import FiltersFixtureOne from '../src/molecule/filters/test/fixtures/one';
+import FiltersFixtureThree from '../src/molecule/filters/test/fixtures/three';
+import FiltersFixtureTwo from '../src/molecule/filters/test/fixtures/two';
 import MenuListFixtureDefault from '../src/molecule/menu-list/test/fixtures/default';
 import ModuleBubbleFixtureDefault from '../src/molecule/module-bubble/test/fixtures/default';
 import ModuleBubbleFixtureDisabled from '../src/molecule/module-bubble/test/fixtures/disabled';
@@ -719,7 +722,10 @@ export const fixtures = {
       WithOnclick: DisciplineScopeFixtureWithOnclick
     },
     Filters: {
-      Default: FiltersFixtureDefault
+      Default: FiltersFixtureDefault,
+      One: FiltersFixtureOne,
+      Three: FiltersFixtureThree,
+      Two: FiltersFixtureTwo
     },
     MenuList: {
       Default: MenuListFixtureDefault

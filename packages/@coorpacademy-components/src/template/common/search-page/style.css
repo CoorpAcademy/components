@@ -10,8 +10,9 @@
     width: 100%;
     height: auto;
     box-sizing: border-box;
-    padding: 0 9%;
-    background: light;
+    padding: 0 9% 16px 9%;
+    background: #fbfbfb;
+    box-sizing: border-box;
 }
 
 @media desktop {
