@@ -85,7 +85,10 @@ const Card = (props, context) => {
           {lock}
         </div>
         {myprogress}
-        <div className={style.infoWrapper}>
+        <div
+          className={style.infoWrapper}
+          onClick={!disabled && bottomOnClick}
+        >
           <div className={style.type}
             style={{
               color: !disabled && defaultColor
@@ -94,7 +97,7 @@ const Card = (props, context) => {
             {type}
           </div>
           <div className={style.title}>
-            <div onClick={!disabled && bottomOnClick}>
+            <div>
               {title}
             </div>
           </div>
