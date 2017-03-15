@@ -69,18 +69,6 @@
   justify-content: flex-start;
 }
 
-.detailTitle {
-  font-family: "Open Sans";
-  font-weight: 800;
-  font-size: 13px;
-  color: #546E7A;
-  margin-bottom: 20px;
-  padding: 10px 0;
-  line-height: 10px;
-  border-bottom: 1px solid #E0E0E0;
-  text-transform: uppercase;
-}
-
 .authorWrapper {
   margin-bottom: 30px;
 }
