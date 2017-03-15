@@ -33,3 +33,14 @@ test('shouldn\'t replace if any data match', t => {
     'f{{oo}}'
   );
 });
+
+test('should accept empty string value', t => {
+  const translate = createTranslate({
+    foo: ''
+  });
+
+  t.deepEqual(
+    translate('foo'),
+    ''
+  );
+});
