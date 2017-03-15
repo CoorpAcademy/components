@@ -1,5 +1,6 @@
 import get from 'lodash/fp/get';
 import has from 'lodash/fp/has';
+import isString from 'lodash/fp/isString';
 import trim from 'lodash/fp/trim';
 import replace from 'lodash/fp/replace';
 
@@ -7,7 +8,7 @@ const interpolation = /\{\{([\s\S]+?)\}\}/g;
 
 const createTranslate = locales => (key, data) => {
   const template = locales[key];
-  if (!template) {
+  if (!isString(template)) {
     throw new Error(`${key} not found !`);
   }
 
