@@ -3,6 +3,7 @@ import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import identity from 'lodash/fp/identity';
 import map from 'lodash/fp/map';
+import stopPropagation from '../../util/bubbling';
 import Button from '../../atom/button';
 import Link from '../../atom/link';
 import style from './style.css';
@@ -16,7 +17,7 @@ const Popin = (props, context) => {
     ctaLabel,
     ctaOnClick,
     header,
-    headerOnClick,
+    closeOnClick,
     content
   } = props;
 
@@ -27,11 +28,17 @@ const Popin = (props, context) => {
   const primary = getOr('#00B0FF', ['common', 'primary'], skin);
 
   return (
-    <div className={style.default}>
-      <div className={style.popin}>
+    <div
+      className={style.default}
+      onClick={closeOnClick}
+    >
+      <div
+        className={style.popin}
+        onClick={stopPropagation}
+      >
         <div
           className={style.header}
-          onClick={headerOnClick}
+          onClick={closeOnClick}
           data-name='popin-header'
         >
           {header}
@@ -63,7 +70,7 @@ Popin.contextTypes = {
 Popin.propTypes = {
   ctaLabel: PropTypes.string,
   ctaOnClick: PropTypes.func,
-  headerOnClick: PropTypes.func,
+  closeOnClick: PropTypes.func,
   header: PropTypes.string,
   content: PropTypes.string
 };
