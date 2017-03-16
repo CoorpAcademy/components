@@ -1,3 +1,6 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+
 @value colors: "../../variables/colors.css";
 @value darkGrey from colors;
 @value light from colors;
@@ -58,4 +61,10 @@
 
 .cta input {
   padding: 0;
+}
+
+@media mobile {
+  .popin {
+    width: 100%;
+  }
 }
