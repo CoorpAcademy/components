@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/components",
-  "version": "4.3.24",
+  "version": "4.3.25",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -49,7 +49,7 @@
   "devDependencies": {
     "@coorpacademy/components-bundler": "^4.3.20",
     "@coorpacademy/history": "^3.7.3",
-    "@coorpacademy/translate": "^4.3.23",
+    "@coorpacademy/translate": "^4.3.25",
     "autoprefixer": "^6.4.1",
     "babel-cli": "^6.11.4",
     "babel-core": "^6.11.4",
