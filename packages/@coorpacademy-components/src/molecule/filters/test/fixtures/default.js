@@ -1,8 +1,10 @@
 import dropdowns from '../../../../atom/select/test/fixtures/filter';
 import selectThematique from '../../../../molecule/select-multiple/test/fixtures/checked';
+import rangeslider from '../../../../molecule/range-slider/test/fixtures/default';
 
 const select = dropdowns.props;
 const selectMultiple = selectThematique.props;
+const timer = rangeslider.props
 
 export default {
   props: {
@@ -70,6 +72,7 @@ export default {
       onChange: value => console.log(value) // eslint-disable-line no-console
     },
     select,
-    selectMultiple
+    selectMultiple,
+    timer
   }
 };
