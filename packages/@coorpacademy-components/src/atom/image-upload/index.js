@@ -77,6 +77,8 @@ class ImageUpload extends React.Component {
           </div>
           <input
             type='file'
+            accept='image/*'
+            disabled={loading}
             className={style.input}
             onChange={onChange}
             onDragEnter={this.handleDragStart}
