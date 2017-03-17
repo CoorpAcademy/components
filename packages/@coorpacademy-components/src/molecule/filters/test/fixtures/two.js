@@ -6,6 +6,8 @@ const selectMultiple = selectThematique.props;
 
 export default {
   props: {
+    ctalabelfilter: 'Filter',
+    ctalabelsort: 'Sort by',
     thematic: {...select,
       title: 'Thematic',
       options: [

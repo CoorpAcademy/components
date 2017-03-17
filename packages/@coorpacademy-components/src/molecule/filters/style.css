@@ -6,6 +6,8 @@
 @value light from colors;
 @value darkGrey from colors;
 @value blue from colors;
+@value lighter from colors;
+@value middlegrey from colors;
 
 .search {
   display: block;
@@ -92,7 +94,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  background: #fbfafb;
+  background: lighter;
 }
 
 .sorting {
@@ -102,7 +104,7 @@
   width: 100%;
   padding: 32px 10%;
   box-sizing: border-box;
-  background: #fbfbfb;
+  background: lighter;
 }
 
 .sorting .title {
@@ -175,28 +177,28 @@
     box-sizing: border-box;
     height: 50px;
     padding: 0;
-    background: #D2D2D2;
+    background: middlegrey;
   }
   .choice {
     width: 100%;
     max-width: 100%;
   }
   .default {
-    border-right: solid 1px #fbfbfb;
+    border-right: solid 1px lighter;
   }
 
   .activeDefault {
-    border-right: solid 1px #fbfbfb;
+    border-right: solid 1px lighter;
     background: light;
   }
 
   .activeWrapperSortBy {
-    border-left: solid 1px #fbfbfb;
+    border-left: solid 1px lighter;
     background: light;
   }
 
   .wrapperSortBy {
-    border-left: solid 1px #fbfbfb;
+    border-left: solid 1px lighter;
   }
 
   .activeDefault .title,

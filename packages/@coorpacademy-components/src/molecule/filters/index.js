@@ -47,7 +47,9 @@ class Filters extends React.Component {
       authors,
       sorting,
       select,
-      selectMultiple
+      selectMultiple,
+      ctalabelfilter,
+      ctalabelsort
     } = this.props;
 
     const isActive = this.state.opened === true;
@@ -93,7 +95,7 @@ class Filters extends React.Component {
             className={style.title}
             onClick={this.handleOpenFilter}
           >
-            Filters
+            {ctalabelfilter}
           </div>
         </div>
         <div
@@ -103,7 +105,7 @@ class Filters extends React.Component {
             className={style.title}
             onClick={this.handleOpenSort}
           >
-            Sort by
+            {ctalabelsort}
           </div>
         </div>
         <div className={filtersActive ? style.activeWrapperFilters : style.wrapperFilters} >
@@ -117,7 +119,7 @@ class Filters extends React.Component {
             className={style.CTAfilter}
             onClick={this.handleOpenFilter}
           >
-            Filter
+            {ctalabelfilter}
           </div>
         </div>
         <div className={sortingActive ? style.activeSorting : style.sorting} >
@@ -127,7 +129,7 @@ class Filters extends React.Component {
             className={style.CTAfilter}
             onClick={this.handleOpenSort}
           >
-            Sort
+            {ctalabelsort}
           </div>
         </div>
       </div>
