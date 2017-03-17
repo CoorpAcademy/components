@@ -6,4 +6,5 @@ packages/*/lib
 packages/*/es
 packages/*/coverage
 packages/*/scripts
-packages/@coorpacademy-components/demo/components.js
+packages/@coorpacademy-components/storybook/components.js
+storybook/static/*
