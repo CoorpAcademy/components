@@ -12,11 +12,11 @@
     "README.md"
   ],
   "scripts": {
-    "prestart": "npm run generate",
-    "start": "BABEL_ENV=commonjs babel-node demo/index.js",
-    "generate": "npm run generate:index && npm run generate:demo",
+    "prestart": "npm run generate:index && npm run generate:storybook",
+    "start": "npm run storybook:dev",
+    "generate": "npm run generate:index && npm run generate:storybook && npm run storybook:export",
     "generate:index": "BABEL_ENV=commonjs babel-node scripts/generate-components-index.js > src/index.js",
-    "generate:demo": "BABEL_ENV=commonjs babel-node scripts/generate-demo-index.js > demo/components.js",
+    "generate:storybook": "BABEL_ENV=commonjs babel-node scripts/generate-storybook-index.js > storybook/components.js",
     "build": "npm run build:commonjs && npm run build:es && npm run build:browser",
     "build:commonjs": "npm run clean:build:commonjs && BABEL_ENV=commonjs babel src --out-dir lib -s --ignore test --copy-files",
     "build:es": "npm run clean:build:es && BABEL_ENV=es babel src --out-dir es -s --ignore test --copy-files",
@@ -30,7 +30,10 @@
     "clean:build:browser": "rm -rf dist/*",
     "doc": "npm run doc:svg && npm run doc:png",
     "doc:svg": "node scripts/madge.js",
-    "doc:png": "convert doc/components.svg doc/components.png"
+    "doc:png": "convert doc/components.svg doc/components.png",
+    "storybook:dev": "BABEL_ENV=es start-storybook -p 3004 -c .storybook",
+    "storybook:export": "BABEL_ENV=es build-storybook -c .storybook -o ../../storybook",
+    "build-storybook": "build-storybook"
   },
   "contributors": [
     "Arthur Weber <arthur.weber@coorpacademy.com>",

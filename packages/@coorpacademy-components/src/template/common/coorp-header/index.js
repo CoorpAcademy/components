@@ -3,17 +3,12 @@ import * as CustomPropTypes from '../../../util/proptypes';
 import Header from '../../../organism/header';
 import content from './content';
 
-const CoorpHeader = (props, context) => {
-  const {translate} = context;
-  const headerProps = content(translate, props);
+const CoorpHeader = props => {
+  const headerProps = content(props);
 
   return (
     <Header {...headerProps} />
   );
-};
-
-CoorpHeader.contextTypes = {
-  translate: React.PropTypes.func
 };
 
 CoorpHeader.propTypes = {

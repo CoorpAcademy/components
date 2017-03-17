@@ -8,7 +8,7 @@ import toPairs from 'lodash/fp/toPairs';
 import components from '../src/util/list-components';
 import fixtures from '../src/util/list-fixtures';
 
-const targetDir = join(__dirname, '../demo');
+const targetDir = join(__dirname, '../storybook');
 const removeExt = path => join(dirname(path), basename(path, '.js'));
 
 const mapObject = fn => pipe(toPairs, map(([key, value]) => fn(value, key)));
