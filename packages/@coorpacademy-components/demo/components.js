@@ -120,6 +120,7 @@ import HandleFixtureDefault from '../src/atom/handle/test/fixtures/default';
 import ImageUploadFixtureDefault from '../src/atom/image-upload/test/fixtures/default';
 import ImageUploadFixtureImage from '../src/atom/image-upload/test/fixtures/image';
 import ImageUploadFixtureLoading from '../src/atom/image-upload/test/fixtures/loading';
+import ImageUploadFixtureModified from '../src/atom/image-upload/test/fixtures/modified';
 import InputCheckboxFixtureChecked from '../src/atom/input-checkbox/test/fixtures/checked';
 import InputCheckboxFixtureDefault from '../src/atom/input-checkbox/test/fixtures/default';
 import InputCheckboxFixtureDisabled from '../src/atom/input-checkbox/test/fixtures/disabled';
@@ -526,7 +527,8 @@ export const fixtures = {
     ImageUpload: {
       Default: ImageUploadFixtureDefault,
       Image: ImageUploadFixtureImage,
-      Loading: ImageUploadFixtureLoading
+      Loading: ImageUploadFixtureLoading,
+      Modified: ImageUploadFixtureModified
     },
     InputCheckbox: {
       Checked: InputCheckboxFixtureChecked,

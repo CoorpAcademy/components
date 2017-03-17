@@ -2,9 +2,15 @@
 @value blue from colors;
 @value darkGrey from colors;
 @value borderGrey from colors;
+@value yellow from colors;
 
 .wrapper {
   width: 360px;
+}
+
+.wrapperModified {
+  width: 360px;
+  border: 1px solid yellow;
 }
 
 .title {
