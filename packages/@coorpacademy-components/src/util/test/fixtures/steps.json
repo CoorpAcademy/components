@@ -1,0 +1,34 @@
+[{
+  "label": "1mn",
+  "value": 1
+}, {
+  "label": "2mn",
+  "value": 2
+}, {
+  "label": "3mn",
+  "value": 3
+}, {
+  "label": "5mn",
+  "value": 5
+}, {
+  "label": "10mn",
+  "value": 10
+}, {
+  "label": "15mn",
+  "value": 15
+}, {
+  "label": "30mn",
+  "value": 30
+}, {
+  "label": "45mn",
+  "value": 45
+}, {
+  "label": "1h",
+  "value": 60
+}, {
+  "label": "2h",
+  "value": 120
+}, {
+  "label": "2h+",
+  "value": 121
+}]
