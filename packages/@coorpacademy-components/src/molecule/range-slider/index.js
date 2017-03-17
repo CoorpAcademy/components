@@ -3,6 +3,7 @@ import {findDOMNode} from 'react-dom';
 import getOr from 'lodash/fp/getOr';
 import set from 'lodash/fp/set';
 import shallowCompare from '../../util/shallow-compare';
+import closestStep from '../../util/closest-step';
 import Handle from '../../atom/handle';
 import style from './style.css';
 
@@ -19,51 +20,6 @@ const xWithConstraints = ({x, delta, min, max}) => {
   }
 
   return newX;
-};
-
-const snapX = ({
-  eventX,
-  width,
-  steps,
-  snap,
-  limit,
-  side,
-  forceRange
-}) => {
-  const stepWidth = width / (steps.length - 1);
-  let x = eventX;
-  let minStep = Math.floor(x / stepWidth);
-  let maxStep = Math.ceil(x / stepWidth);
-
-  const left = minStep * stepWidth;
-  const right = maxStep * stepWidth;
-
-  const leftIsCloser = x - left < right - x;
-
-  if (snap) {
-    x = leftIsCloser ? left : right;
-  }
-
-  let step = leftIsCloser ? minStep : maxStep;
-
-  if (snap && forceRange) {
-    const handlesAtSameX = x === limit;
-
-    if (handlesAtSameX) {
-      if (side === 'left') {
-        minStep = Math.floor((x - 1) / stepWidth);
-        x = minStep * stepWidth;
-        step = minStep;
-      }
-      else {
-        maxStep = Math.ceil((x + 1) / stepWidth);
-        x = maxStep * stepWidth;
-        step = maxStep;
-      }
-    }
-  }
-
-  return {x, step};
 };
 
 class RangeSlider extends React.Component {
@@ -156,7 +112,7 @@ class RangeSlider extends React.Component {
     const {
       x,
       step
-    } = snapX({
+    } = closestStep({
       eventX,
       width,
       steps,
