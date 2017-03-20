@@ -6,6 +6,9 @@
         ["es2015", { "loose": true }]
       ],
       "plugins": [
+        ["transform-react-remove-prop-types", {
+          "mode": "wrap"
+        }],
         ["css-modules-transform", {
           "generateScopedName": "[folder]__[local]"
         }]
@@ -25,6 +28,11 @@
     "es": {
       "presets": [
         ["es2015", { "loose": true, "modules": false }]
+      ],
+      "plugins": [
+        ["transform-react-remove-prop-types", {
+          "mode": "wrap"
+        }]
       ]
     }
   }
