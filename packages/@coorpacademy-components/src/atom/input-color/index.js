@@ -10,10 +10,17 @@ const InputText = props => {
     defaultValue,
     onChange = noop,
     error,
-    description
+    description,
+    modified = false
   } = props;
 
-  const className = error ? style.error : style.default;
+  let className = style.default;
+  if (error) {
+    className = style.error;
+  }
+  else if (modified) {
+    className = style.modified;
+  }
   const inlineStyle = {
     backgroundColor: value
   };
@@ -51,7 +58,8 @@ InputText.propTypes = {
   value: PropTypes.string,
   error: PropTypes.string,
   onChange: PropTypes.func,
-  description: PropTypes.string
+  description: PropTypes.string,
+  modified: PropTypes.bool
 };
 
 export default InputText;

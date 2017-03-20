@@ -11,10 +11,17 @@ const InputText = props => {
     error,
     description,
     disabled,
-    required
+    required,
+    modified = false
   } = props;
 
-  const className = error ? style.error : style.default;
+  let className = style.default;
+  if (error) {
+    className = style.error;
+  }
+  else if (modified) {
+    className = style.modified;
+  }
   const title = `${props.title}${required ? '*' : ''} :`;
   const handleChange = e => onChange(e.target.value);
 
@@ -47,6 +54,7 @@ InputText.propTypes = {
   value: PropTypes.string,
   error: PropTypes.string,
   onChange: PropTypes.func,
-  description: PropTypes.string
+  description: PropTypes.string,
+  modified:  PropTypes.bool
 };
 export default InputText;
