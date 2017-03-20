@@ -59,7 +59,7 @@ class Select extends React.Component {
 
     let className = style.default;
     if (modified) {
-        className = style.modified;
+      className = style.modified;
     }
 
     return (
