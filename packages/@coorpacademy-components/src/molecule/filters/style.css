@@ -6,8 +6,7 @@
 @value light from colors;
 @value darkGrey from colors;
 @value blue from colors;
-@value lighter from colors;
-@value middlegrey from colors;
+@value borderGrey from colors;
 
 .search {
   display: block;
@@ -15,7 +14,7 @@
   position: relative;
   z-index: 4;
   font-family: "Open Sans";
-  background: light;
+  background: white;
 }
 
 .wrapperNone {
@@ -26,7 +25,7 @@
   display: none;
   padding: 25px 0;
   width: 100%;
-  background: light;
+  background: white;
   justify-content: center;
   box-sizing: border-box;
 }
@@ -50,6 +49,7 @@
 .choice select,
 .sorting select {
   font-size: 12px;
+  background: light;
 }
 
 .wrapperFilters {
@@ -61,7 +61,7 @@
   box-sizing: border-box;
   align-items: center;
   justify-content: center;
-  background: light;
+  background: white;
 }
 
 .wrapper {
@@ -94,7 +94,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  background: lighter;
+  background: light;
 }
 
 .sorting {
@@ -104,7 +104,7 @@
   width: 100%;
   padding: 32px 10%;
   box-sizing: border-box;
-  background: lighter;
+  background: light;
 }
 
 .sorting .title {
@@ -177,7 +177,7 @@
     box-sizing: border-box;
     height: 50px;
     padding: 0;
-    background: middlegrey;
+    background: borderGrey;
   }
   .choice {
     width: 100%;
