@@ -33,9 +33,6 @@ webpack(config, function(err, stats) {
     process.stderr.write(err.stack);
     return;
   }
-
-  process.stdout.write(`${bundler} ${stats.toString({
-    chunks: false, // Makes the build much quieter
-    colors: true
-  })}`);
+  const statsOutput = stats.toString(config.stats || 'none');
+  process.stdout.write(`${bundler} ${statsOutput}`);
 });

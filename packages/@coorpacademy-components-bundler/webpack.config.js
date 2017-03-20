@@ -17,7 +17,9 @@ const config = cssScope => ({
   devtool: NODE_ENV === 'production' ? false : 'eval',
 
   stats: {
-    children: false
+    children: false,
+    chunks: false, // Makes the build much quieter
+    colors: true
   },
 
   output: {
