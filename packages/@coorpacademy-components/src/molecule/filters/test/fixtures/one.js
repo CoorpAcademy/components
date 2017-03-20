@@ -1,10 +1,8 @@
 import dropdowns from '../../../../atom/select/test/fixtures/filter';
 import selectThematique from '../../../../molecule/select-multiple/test/fixtures/checked';
-import rangeslider from '../../../../molecule/range-slider/test/fixtures/default';
 
 const select = dropdowns.props;
 const selectMultiple = selectThematique.props;
-const timer = rangeslider.props;
 
 export default {
   props: {
@@ -31,27 +29,6 @@ export default {
       ],
       onChange: value => console.log(value) // eslint-disable-line no-console
     },
-    authors: {...select,
-      title: 'Authors',
-      options: [
-        {
-          name: 'Coorpacademy',
-          value: 'Coorpacademy',
-          selected: false
-        },
-        {
-          name: 'Nexstage',
-          value: 'Nexstage',
-          selected: true
-        },
-        {
-          name: 'Elephant',
-          value: 'Elephant',
-          selected: false
-        }
-      ],
-      onChange: value => console.log(value) // eslint-disable-line no-console
-    },
     sorting: {...select,
       title: 'Sort by',
       options: [
@@ -73,8 +50,6 @@ export default {
       ],
       onChange: value => console.log(value) // eslint-disable-line no-console
     },
-    select,
-    selectMultiple,
-    timer
+    select
   }
 };

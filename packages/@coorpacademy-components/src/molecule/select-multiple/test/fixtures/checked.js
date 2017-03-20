@@ -1,5 +1,6 @@
 export default {
   props: {
+    title: 'Learning Path :',
     selection: 'Tous',
     choices: [
       {

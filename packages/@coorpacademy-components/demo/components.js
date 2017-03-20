@@ -155,6 +155,7 @@ import PictureFixtureSimpleSrc from '../src/atom/picture/test/fixtures/simple-sr
 import ProviderFixtureDefault from '../src/atom/provider/test/fixtures/default';
 import SelectFixtureDefault from '../src/atom/select/test/fixtures/default';
 import SelectFixtureDisabled from '../src/atom/select/test/fixtures/disabled';
+import SelectFixtureFilter from '../src/atom/select/test/fixtures/filter';
 import SelectFixtureMooc from '../src/atom/select/test/fixtures/mooc';
 import SelectFixtureMultipleSelected from '../src/atom/select/test/fixtures/multiple-selected';
 import SelectFixtureMultiple from '../src/atom/select/test/fixtures/multiple';
@@ -229,6 +230,9 @@ import DisciplineScopeFixtureEmpty from '../src/molecule/discipline-scope/test/f
 import DisciplineScopeFixtureMedias from '../src/molecule/discipline-scope/test/fixtures/medias';
 import DisciplineScopeFixtureWithOnclick from '../src/molecule/discipline-scope/test/fixtures/with-onclick';
 import FiltersFixtureDefault from '../src/molecule/filters/test/fixtures/default';
+import FiltersFixtureOne from '../src/molecule/filters/test/fixtures/one';
+import FiltersFixtureThree from '../src/molecule/filters/test/fixtures/three';
+import FiltersFixtureTwo from '../src/molecule/filters/test/fixtures/two';
 import MenuListFixtureDefault from '../src/molecule/menu-list/test/fixtures/default';
 import ModuleBubbleFixtureDefault from '../src/molecule/module-bubble/test/fixtures/default';
 import ModuleBubbleFixtureDisabled from '../src/molecule/module-bubble/test/fixtures/disabled';
@@ -586,6 +590,7 @@ export const fixtures = {
     Select: {
       Default: SelectFixtureDefault,
       Disabled: SelectFixtureDisabled,
+      Filter: SelectFixtureFilter,
       Mooc: SelectFixtureMooc,
       MultipleSelected: SelectFixtureMultipleSelected,
       Multiple: SelectFixtureMultiple,
@@ -717,7 +722,10 @@ export const fixtures = {
       WithOnclick: DisciplineScopeFixtureWithOnclick
     },
     Filters: {
-      Default: FiltersFixtureDefault
+      Default: FiltersFixtureDefault,
+      One: FiltersFixtureOne,
+      Three: FiltersFixtureThree,
+      Two: FiltersFixtureTwo
     },
     MenuList: {
       Default: MenuListFixtureDefault

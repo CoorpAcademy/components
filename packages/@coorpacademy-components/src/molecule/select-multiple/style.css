@@ -1,27 +1,41 @@
+@value colors: "../../variables/colors.css";
+@value darkGrey from colors;
+@value light from colors;
+
 .default {
+    display: block;
     position: relative;
-    margin-left: 20px;
 }
 
 .select {
     display: block;
-    width: 251px;
-    height: 49px;
-    padding:0 25px;
-    background: white;
+    width: auto;
+    height: 50px;
+    margin: 0;
+    padding: 0 15px;
+    box-sizing: border-box;
+    background: light;
     line-height: 50px;
-    color: #2E2E2E;
-    font-size: 14px;
+    color: darkGrey;
+    font-size: 12px;
     composes: fa from '../../variables/fontawesome.css';
-    composes: fa-chevron-down from '../../variables/fontawesome.css';
+    composes: fa-angle-down from '../../variables/fontawesome.css';
     position: relative;
 }
 .select:before {
     display: block;
     position: absolute;
-    font-size: 14px;
-    right: 3%;
-    color: #2E2E2E;
+    font-size: 20px;
+    right: 10px;
+    color: darkGrey;
+    font-weight: 700;
+}
+
+.title {
+    font-family: Open Sans;
+    font-size: 12px;
+    color: darkGrey;
+    margin-bottom: 10px;
 }
 
 .choices {
@@ -30,14 +44,15 @@
 
 .activeChoices {
     display: block;
-    width: 291px;
+    width: 100%;
     height: auto;
     padding: 15px;
+    box-sizing: border-box;
     background: white;
     position: absolute;
-    top: 0;
+    z-index: 4;
+    top: 27px;
     left: 0;
-    z-index: 3;
     composes: fa from '../../variables/fontawesome.css';
     composes: fa-times from '../../variables/fontawesome.css';
 }
@@ -47,6 +62,7 @@
     top: 5px;
     right: 5px;
     color: #2E2E2E;
+    font-weight: 300;
 }
 
 .close {
@@ -64,4 +80,7 @@
     padding: 0;
 }
 
-.list {}
+.list {
+    margin: 0;
+    padding: 0;
+}

@@ -23,6 +23,7 @@ class SelectMultiple extends React.Component {
 
   render() {
     const {
+      title,
       selection,
       choices,
       onToggle
@@ -46,6 +47,7 @@ class SelectMultiple extends React.Component {
 
     return (
       <div className={style.default}>
+        <div className={style.title}>{title}</div>
         <div className={style.select}
           onClick={this.handleOnClick}
         >
@@ -66,6 +68,7 @@ class SelectMultiple extends React.Component {
 }
 
 SelectMultiple.PropTypes = {
+  title: PropTypes.string,
   selection: PropTypes.array,
   choices: PropTypes.array,
   onClick: PropTypes.func,
