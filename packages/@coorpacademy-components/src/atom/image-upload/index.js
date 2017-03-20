@@ -64,9 +64,9 @@ class ImageUpload extends React.Component {
     }
 
     return (
-      <div className={modified ? style.wrapperModified : style.wrapper}>
+      <div className={style.wrapper}>
         <div className={style.title}>{title}</div>
-        <div className={style.previewWrapper}>
+        <div className={modified ? style.modified : style.previewWrapper}>
           {previewView}
         </div>
         <div className={this.state.dragging ? style.dragging : style.inputWrapper}
@@ -103,7 +103,8 @@ ImageUpload.propTypes = {
   uploadLabel: PropTypes.string,
   previewLabel: PropTypes.string,
   previewImage: PropTypes.string,
-  loading: PropTypes.bool
+  loading: PropTypes.bool,
+  modified: PropTypes.bool
 };
 
 export default ImageUpload;

@@ -8,9 +8,8 @@
   width: 360px;
 }
 
-.wrapperModified {
-  width: 360px;
-  border: 1px solid yellow;
+.modified {
+  border: 1px dashed yellow;
 }
 
 .title {
