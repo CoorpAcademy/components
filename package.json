@@ -12,6 +12,7 @@
     "publish:canary": "lerna publish --canary --skip-git",
     "clean": "lerna run clean && lerna clean --yes",
     "test": "npm run lint && npm run nyc",
+    "posttest": "lerna run prepublish",
     "lint": "eslint .",
     "ava": "NODE_ENV=test ava",
     "nyc": "NODE_ENV=test nyc npm run ava",
