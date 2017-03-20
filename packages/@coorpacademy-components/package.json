@@ -34,8 +34,11 @@
   },
   "contributors": [
     "Arthur Weber <arthur.weber@coorpacademy.com>",
+    "Christophe Dugne-Esquevin <christophe.dugne@coorpacademy.com>",
+    "Gaelle Leguet <gaelle.leguet@coorpacademy.com>",
     "Jeroen Engels <jengels@coorpacademy.com>",
-    "Christophe Dugne-Esquevin <christophe.dugne@coorpacademy.com>"
+    "Joan Ortega <joan.ortega@coorpacademy.com>",
+    "Julien Seren-Rosso <julien.seren-rosso@coorpacademy.com>"
   ],
   "dependencies": {
     "api-check": "^7.5.5",
