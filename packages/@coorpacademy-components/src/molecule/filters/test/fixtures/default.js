@@ -4,7 +4,7 @@ import rangeslider from '../../../../molecule/range-slider/test/fixtures/default
 
 const select = dropdowns.props;
 const selectMultiple = selectThematique.props;
-const timer = rangeslider.props
+const timer = rangeslider.props;
 
 export default {
   props: {
