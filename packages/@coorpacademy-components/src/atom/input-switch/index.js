@@ -9,7 +9,8 @@ const InputSwitch = props => {
     value,
     disabled,
     onChange = noop,
-    description
+    description,
+    modified = false
   } = props;
 
   const idSwitch = uniqueId('input-switch-');
@@ -27,8 +28,16 @@ const InputSwitch = props => {
     </div>
   ) : null;
 
+  let className = style.default;
+  if (isUnset) {
+    className = style.default;
+  }
+  if (modified) {
+    className = style.modified;
+  }
+
   return (
-    <div className={isUnset ? style.unset : style.default}>
+    <div className={className}>
       {titleView}
       <input
         type='checkbox'
@@ -50,6 +59,7 @@ InputSwitch.propTypes = {
   value: PropTypes.bool,
   disabled: PropTypes.bool,
   onChange: PropTypes.func,
-  description: PropTypes.string
+  description: PropTypes.string,
+  modified: PropTypes.bool
 };
 export default InputSwitch;
