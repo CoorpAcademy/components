@@ -125,6 +125,7 @@ import InputCheckboxFixtureChecked from '../src/atom/input-checkbox/test/fixture
 import InputCheckboxFixtureDefault from '../src/atom/input-checkbox/test/fixtures/default';
 import InputCheckboxFixtureDisabled from '../src/atom/input-checkbox/test/fixtures/disabled';
 import InputCheckboxFixtureError from '../src/atom/input-checkbox/test/fixtures/error';
+import InputCheckboxFixtureModified from '../src/atom/input-checkbox/test/fixtures/modified';
 import InputCheckboxFixtureRequired from '../src/atom/input-checkbox/test/fixtures/required';
 import InputColorFixtureDefault from '../src/atom/input-color/test/fixtures/default';
 import InputColorFixtureEmpty from '../src/atom/input-color/test/fixtures/empty';
@@ -535,6 +536,7 @@ export const fixtures = {
       Default: InputCheckboxFixtureDefault,
       Disabled: InputCheckboxFixtureDisabled,
       Error: InputCheckboxFixtureError,
+      Modified: InputCheckboxFixtureModified,
       Required: InputCheckboxFixtureRequired
     },
     InputColor: {

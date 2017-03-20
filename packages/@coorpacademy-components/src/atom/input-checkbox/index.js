@@ -9,11 +9,18 @@ const InputCheckbox = props => {
     onChange = noop,
     error,
     disabled,
-    required
+    required,
+    modified = false
   } = props;
 
   const idCheckbox = uniqueId('input-checkbox-');
-  const className = error ? style.error : style.default;
+  let className = style.default;
+  if (error) {
+    className = style.error;
+  }
+  else if (modified) {
+    className = style.modified;
+  }
   const title = `${props.title}${required ? '*' : ''} :`;
   const handleChange = e => onChange(e.target.checked);
 
@@ -42,7 +49,8 @@ InputCheckbox.propTypes = {
   required: PropTypes.bool,
   checked: PropTypes.bool,
   error: PropTypes.bool,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  modified: PropTypes.bool
 };
 
 export default InputCheckbox;
