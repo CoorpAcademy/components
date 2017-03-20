@@ -55,6 +55,6 @@ InputText.propTypes = {
   error: PropTypes.string,
   onChange: PropTypes.func,
   description: PropTypes.string,
-  modified:  PropTypes.bool
+  modified: PropTypes.bool
 };
 export default InputText;
