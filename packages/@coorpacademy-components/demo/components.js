@@ -160,11 +160,8 @@ import PictureFixtureSimpleSrc from '../src/atom/picture/test/fixtures/simple-sr
 import ProviderFixtureDefault from '../src/atom/provider/test/fixtures/default';
 import SelectFixtureDefault from '../src/atom/select/test/fixtures/default';
 import SelectFixtureDisabled from '../src/atom/select/test/fixtures/disabled';
-<<<<<<< f4e8bfeab531b409d31f99fed9f92c96c8b6cbc4
 import SelectFixtureFilter from '../src/atom/select/test/fixtures/filter';
-=======
 import SelectFixtureModified from '../src/atom/select/test/fixtures/modified';
->>>>>>> modified style on select
 import SelectFixtureMooc from '../src/atom/select/test/fixtures/mooc';
 import SelectFixtureMultipleSelected from '../src/atom/select/test/fixtures/multiple-selected';
 import SelectFixtureMultiple from '../src/atom/select/test/fixtures/multiple';
