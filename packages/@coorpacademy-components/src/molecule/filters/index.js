@@ -42,6 +42,7 @@ class Filters extends React.Component {
 
   render() {
     const {
+      titlepage,
       timer,
       thematic,
       authors,
@@ -123,7 +124,7 @@ class Filters extends React.Component {
           </div>
         </div>
         <div className={sortingActive ? style.activeSorting : style.sorting} >
-          <div className={style.mainTitle}>Catalog</div>
+          <div className={style.mainTitle}>{titlepage}</div>
           {sortView}
           <div
             className={style.CTAfilter}
@@ -138,6 +139,7 @@ class Filters extends React.Component {
 }
 
 Filters.propTypes = {
+  titlepage: PropTypes.string,
   thematic: PropTypes.object,
   timer: PropTypes.object,
   authors: PropTypes.object,
