@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react';
 import noop from 'lodash/fp/noop';
 import uniqueId from 'lodash/fp/uniqueId';
+import getClassState from '../../util/get-class-state';
 import style from './style.css';
 
 const InputSwitch = props => {
@@ -28,16 +29,8 @@ const InputSwitch = props => {
     </div>
   ) : null;
 
-  let className = style.default;
-  if (isUnset) {
-    className = style.default;
-  }
-  if (modified) {
-    className = style.modified;
-  }
-
   return (
-    <div className={className}>
+    <div className={getClassState(style, modified, false)}>
       {titleView}
       <input
         type='checkbox'

@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
 import noop from 'lodash/fp/noop';
+import getClassState from '../../util/get-class-state';
 import style from './style.css';
 
 const InputText = props => {
@@ -14,20 +15,13 @@ const InputText = props => {
     modified = false
   } = props;
 
-  let className = style.default;
-  if (error) {
-    className = style.error;
-  }
-  else if (modified) {
-    className = style.modified;
-  }
   const inlineStyle = {
     backgroundColor: value
   };
   const handleChange = e => onChange(e.target.value);
 
   return (
-    <div className={className}>
+    <div className={getClassState(style, modified, error)}>
       <label>
         <span className={style.title}>{`${title} `}</span>
         <input

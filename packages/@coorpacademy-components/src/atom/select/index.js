@@ -5,6 +5,7 @@ import find from 'lodash/fp/find';
 import get from 'lodash/fp/get';
 import map from 'lodash/fp/map';
 import shallowCompare from '../../util/shallow-compare';
+import getClassState from '../../util/get-class-state';
 import style from './style.css';
 
 class Select extends React.Component {
@@ -57,13 +58,8 @@ class Select extends React.Component {
       <div className={style.arrow} />
     ) : null;
 
-    let className = style.default;
-    if (modified) {
-      className = style.modified;
-    }
-
     return (
-      <div className={theme ? style[theme] : className}>
+      <div className={theme ? style[theme] : getClassState(style, modified, false)}>
         <label>
           <span className={style.title}>{title}</span>
           {arrowView}
