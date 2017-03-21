@@ -76,6 +76,7 @@ export default {
     },
     select,
     selectMultiple,
-    timer
+    timer,
+    onSearch: () => console.log('onSearch') // eslint-disable-line no-console
   }
 };
