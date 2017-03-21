@@ -5,8 +5,10 @@
 @value colors: "../../variables/colors.css";
 @value light from colors;
 @value darkGrey from colors;
-@value blue from colors;
 @value borderGrey from colors;
+@value blueGrey from colors;
+@value darkBlueGrey from colors;
+@value blue from colors;
 
 .search {
   display: block;
@@ -49,7 +51,7 @@
 .choice select,
 .sorting select {
   font-size: 12px;
-  background: light;
+  background: borderGrey;
 }
 
 .wrapperFilters {
@@ -184,21 +186,21 @@
     max-width: 100%;
   }
   .default {
-    border-right: solid 1px lighter;
+    border-right: solid 1px light;
   }
 
   .activeDefault {
-    border-right: solid 1px lighter;
+    border-right: solid 1px light;
     background: light;
   }
 
   .activeWrapperSortBy {
-    border-left: solid 1px lighter;
+    border-left: solid 1px light;
     background: light;
   }
 
   .wrapperSortBy {
-    border-left: solid 1px lighter;
+    border-left: solid 1px light;
   }
 
   .activeDefault .title,
@@ -279,7 +281,15 @@
     width: 100%;
   }
 
-  .activeSorting label span {
+  .activeSorting .select label div {
+    top: 50%;
+  }
+
+  .activeSorting .select select {
+    background: borderGrey;
+  }
+
+  .activeSorting .select label span {
     display: none;
   }
 

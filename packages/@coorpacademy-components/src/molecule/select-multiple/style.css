@@ -1,6 +1,7 @@
 @value colors: "../../variables/colors.css";
 @value darkGrey from colors;
 @value light from colors;
+@value borderGrey from colors;
 
 .default {
     display: block;
@@ -14,7 +15,7 @@
     margin: 0;
     padding: 0 15px;
     box-sizing: border-box;
-    background: light;
+    background: borderGrey;
     line-height: 50px;
     color: darkGrey;
     font-size: 12px;
