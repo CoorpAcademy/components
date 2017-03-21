@@ -47,7 +47,7 @@ class SelectMultiple extends React.Component {
 
     return (
       <div className={style.default}>
-        <div className={style.title}>{title}</div>
+        <div className={style.title}>{title} :</div>
         <div className={style.select}
           onClick={this.handleOnClick}
         >

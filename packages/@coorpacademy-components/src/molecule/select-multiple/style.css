@@ -52,8 +52,9 @@
     background: white;
     position: absolute;
     z-index: 4;
-    top: 27px;
+    top: 76px;
     left: 0;
+    border: 1px solid light;
     composes: fa from '../../variables/fontawesome.css';
     composes: fa-times from '../../variables/fontawesome.css';
 }
