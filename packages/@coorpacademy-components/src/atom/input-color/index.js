@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
 import noop from 'lodash/fp/noop';
+import getClassState from '../../util/get-class-state';
 import style from './style.css';
 
 const InputText = props => {
@@ -10,17 +11,17 @@ const InputText = props => {
     defaultValue,
     onChange = noop,
     error,
-    description
+    description,
+    modified = false
   } = props;
 
-  const className = error ? style.error : style.default;
   const inlineStyle = {
     backgroundColor: value
   };
   const handleChange = e => onChange(e.target.value);
 
   return (
-    <div className={className}>
+    <div className={getClassState(style, modified, error)}>
       <label>
         <span className={style.title}>{`${title} `}</span>
         <input
@@ -51,7 +52,8 @@ InputText.propTypes = {
   value: PropTypes.string,
   error: PropTypes.string,
   onChange: PropTypes.func,
-  description: PropTypes.string
+  description: PropTypes.string,
+  modified: PropTypes.bool
 };
 
 export default InputText;

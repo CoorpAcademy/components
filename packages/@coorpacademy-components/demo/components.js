@@ -120,17 +120,21 @@ import HandleFixtureDefault from '../src/atom/handle/test/fixtures/default';
 import ImageUploadFixtureDefault from '../src/atom/image-upload/test/fixtures/default';
 import ImageUploadFixtureImage from '../src/atom/image-upload/test/fixtures/image';
 import ImageUploadFixtureLoading from '../src/atom/image-upload/test/fixtures/loading';
+import ImageUploadFixtureModified from '../src/atom/image-upload/test/fixtures/modified';
 import InputCheckboxFixtureChecked from '../src/atom/input-checkbox/test/fixtures/checked';
 import InputCheckboxFixtureDefault from '../src/atom/input-checkbox/test/fixtures/default';
 import InputCheckboxFixtureDisabled from '../src/atom/input-checkbox/test/fixtures/disabled';
 import InputCheckboxFixtureError from '../src/atom/input-checkbox/test/fixtures/error';
+import InputCheckboxFixtureModified from '../src/atom/input-checkbox/test/fixtures/modified';
 import InputCheckboxFixtureRequired from '../src/atom/input-checkbox/test/fixtures/required';
 import InputColorFixtureDefault from '../src/atom/input-color/test/fixtures/default';
 import InputColorFixtureEmpty from '../src/atom/input-color/test/fixtures/empty';
 import InputColorFixtureError from '../src/atom/input-color/test/fixtures/error';
+import InputColorFixtureModified from '../src/atom/input-color/test/fixtures/modified';
 import InputDoublestepFixtureDefault from '../src/atom/input-doublestep/test/fixtures/default';
 import InputReadonlyFixtureDefault from '../src/atom/input-readonly/test/fixtures/default';
 import InputSwitchFixtureChecked from '../src/atom/input-switch/test/fixtures/checked';
+import InputSwitchFixtureModified from '../src/atom/input-switch/test/fixtures/modified';
 import InputSwitchFixtureNoTitle from '../src/atom/input-switch/test/fixtures/no-title';
 import InputSwitchFixtureUnchecked from '../src/atom/input-switch/test/fixtures/unchecked';
 import InputSwitchFixtureUnset from '../src/atom/input-switch/test/fixtures/unset';
@@ -138,6 +142,7 @@ import InputTextFixtureDefault from '../src/atom/input-text/test/fixtures/defaul
 import InputTextFixtureDisabled from '../src/atom/input-text/test/fixtures/disabled';
 import InputTextFixtureEmpty from '../src/atom/input-text/test/fixtures/empty';
 import InputTextFixtureError from '../src/atom/input-text/test/fixtures/error';
+import InputTextFixtureModified from '../src/atom/input-text/test/fixtures/modified';
 import InputTextFixtureRequired from '../src/atom/input-text/test/fixtures/required';
 import InputTextareaFixtureDefault from '../src/atom/input-textarea/test/fixtures/default';
 import InputTextareaFixtureEmpty from '../src/atom/input-textarea/test/fixtures/empty';
@@ -156,6 +161,7 @@ import ProviderFixtureDefault from '../src/atom/provider/test/fixtures/default';
 import SelectFixtureDefault from '../src/atom/select/test/fixtures/default';
 import SelectFixtureDisabled from '../src/atom/select/test/fixtures/disabled';
 import SelectFixtureFilter from '../src/atom/select/test/fixtures/filter';
+import SelectFixtureModified from '../src/atom/select/test/fixtures/modified';
 import SelectFixtureMooc from '../src/atom/select/test/fixtures/mooc';
 import SelectFixtureMultipleSelected from '../src/atom/select/test/fixtures/multiple-selected';
 import SelectFixtureMultiple from '../src/atom/select/test/fixtures/multiple';
@@ -526,19 +532,22 @@ export const fixtures = {
     ImageUpload: {
       Default: ImageUploadFixtureDefault,
       Image: ImageUploadFixtureImage,
-      Loading: ImageUploadFixtureLoading
+      Loading: ImageUploadFixtureLoading,
+      Modified: ImageUploadFixtureModified
     },
     InputCheckbox: {
       Checked: InputCheckboxFixtureChecked,
       Default: InputCheckboxFixtureDefault,
       Disabled: InputCheckboxFixtureDisabled,
       Error: InputCheckboxFixtureError,
+      Modified: InputCheckboxFixtureModified,
       Required: InputCheckboxFixtureRequired
     },
     InputColor: {
       Default: InputColorFixtureDefault,
       Empty: InputColorFixtureEmpty,
-      Error: InputColorFixtureError
+      Error: InputColorFixtureError,
+      Modified: InputColorFixtureModified
     },
     InputDoublestep: {
       Default: InputDoublestepFixtureDefault
@@ -548,6 +557,7 @@ export const fixtures = {
     },
     InputSwitch: {
       Checked: InputSwitchFixtureChecked,
+      Modified: InputSwitchFixtureModified,
       NoTitle: InputSwitchFixtureNoTitle,
       Unchecked: InputSwitchFixtureUnchecked,
       Unset: InputSwitchFixtureUnset
@@ -557,6 +567,7 @@ export const fixtures = {
       Disabled: InputTextFixtureDisabled,
       Empty: InputTextFixtureEmpty,
       Error: InputTextFixtureError,
+      Modified: InputTextFixtureModified,
       Required: InputTextFixtureRequired
     },
     InputTextarea: {
@@ -591,6 +602,7 @@ export const fixtures = {
       Default: SelectFixtureDefault,
       Disabled: SelectFixtureDisabled,
       Filter: SelectFixtureFilter,
+      Modified: SelectFixtureModified,
       Mooc: SelectFixtureMooc,
       MultipleSelected: SelectFixtureMultipleSelected,
       Multiple: SelectFixtureMultiple,

@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react';
 import noop from 'lodash/fp/noop';
 import uniqueId from 'lodash/fp/uniqueId';
+import getClassState from '../../util/get-class-state';
 import style from './style.css';
 
 const InputSwitch = props => {
@@ -9,7 +10,8 @@ const InputSwitch = props => {
     value,
     disabled,
     onChange = noop,
-    description
+    description,
+    modified = false
   } = props;
 
   const idSwitch = uniqueId('input-switch-');
@@ -28,7 +30,7 @@ const InputSwitch = props => {
   ) : null;
 
   return (
-    <div className={isUnset ? style.unset : style.default}>
+    <div className={getClassState(style, modified, false)}>
       {titleView}
       <input
         type='checkbox'
@@ -50,6 +52,7 @@ InputSwitch.propTypes = {
   value: PropTypes.bool,
   disabled: PropTypes.bool,
   onChange: PropTypes.func,
-  description: PropTypes.string
+  description: PropTypes.string,
+  modified: PropTypes.bool
 };
 export default InputSwitch;

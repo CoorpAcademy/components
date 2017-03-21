@@ -7,6 +7,11 @@
   composes: default;
 }
 
+.modified {
+  composes: modified from '../input-text/style.css';
+  composes: default;
+}
+
 .title {
   composes: title from '../input-text/style.css';
 }

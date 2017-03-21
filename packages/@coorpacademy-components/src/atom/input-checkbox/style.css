@@ -3,12 +3,17 @@
 @value borderGrey from colors;
 @value orange from colors;
 @value blue from colors;
+@value yellow from colors;
 
 .default {
   display: flex;
 }
 
 .error {
+  composes: default;
+}
+
+.modified {
   composes: default;
 }
 
@@ -63,4 +68,12 @@
 
 .error input {
   border-color: orange;
+}
+
+.modified input {
+  border-color: yellow;
+}
+
+.modified label {
+  border: 3px solid yellow;
 }

@@ -5,6 +5,7 @@ import find from 'lodash/fp/find';
 import get from 'lodash/fp/get';
 import map from 'lodash/fp/map';
 import shallowCompare from '../../util/shallow-compare';
+import getClassState from '../../util/get-class-state';
 import style from './style.css';
 
 class Select extends React.Component {
@@ -24,7 +25,8 @@ class Select extends React.Component {
       disabled,
       required,
       theme,
-      title: titleProps
+      title: titleProps,
+      modified = false
     } = this.props;
 
     const title = `${titleProps}${required ? '*' : ''} :`;
@@ -57,7 +59,7 @@ class Select extends React.Component {
     ) : null;
 
     return (
-      <div className={theme ? style[theme] : style.default}>
+      <div className={theme ? style[theme] : getClassState(style, modified, false)}>
         <label>
           <span className={style.title}>{title}</span>
           {arrowView}
@@ -86,7 +88,8 @@ Select.propTypes = {
     name: PropTypes.string.isRequired,
     value: PropTypes.string,
     selected: PropTypes.bool
-  }))
+  })),
+  modified: PropTypes.bool
 };
 
 export default Select;

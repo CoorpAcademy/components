@@ -1,8 +1,15 @@
+@value colors: "../../variables/colors.css";
+@value yellow from colors;
+
 .default {
   display: flex;
 }
 
 .error {
+  composes: default;
+}
+
+.modified {
   composes: default;
 }
 
@@ -38,6 +45,10 @@
 
 .error input {
   border-color: #eb5c41;
+}
+
+.modified input {
+  border-color: yellow;
 }
 
 .description {
