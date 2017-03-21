@@ -30,28 +30,27 @@ export default {
       ],
       onChange: value => console.log(value) // eslint-disable-line no-console
     },
-    sorting: {...select,
-      title: 'Sort by',
+    authors: {...select,
+      title: 'Authors',
       options: [
         {
-          name: 'Position',
-          value: 'Position',
-          selected: true
-        },
-        {
-          name: 'Most popular',
-          value: 'Most popular',
+          name: 'Coorpacademy',
+          value: 'Coorpacademy',
           selected: false
         },
         {
-          name: 'Newest',
-          value: 'Newest',
+          name: 'Nexstage',
+          value: 'Nexstage',
+          selected: true
+        },
+        {
+          name: 'Elephant',
+          value: 'Elephant',
           selected: false
         }
       ],
       onChange: value => console.log(value) // eslint-disable-line no-console
     },
-    select,
     selectMultiple
   }
 };

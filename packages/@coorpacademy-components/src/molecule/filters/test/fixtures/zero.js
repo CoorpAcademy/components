@@ -9,27 +9,6 @@ export default {
     titlepage: 'Catalog',
     ctalabelfilter: 'Filter',
     ctalabelsort: 'Sort by',
-    thematic: {...select,
-      title: 'Thematic',
-      options: [
-        {
-          name: 'digital',
-          value: 'digital',
-          selected: false
-        },
-        {
-          name: 'Esprit du temps',
-          value: 'Esprit du temps',
-          selected: true
-        },
-        {
-          name: 'La 3e révolution industrielle',
-          value: 'La 3e révolution industrielle',
-          selected: false
-        }
-      ],
-      onChange: value => console.log(value) // eslint-disable-line no-console
-    },
     sorting: {...select,
       title: 'Sort by',
       options: [

@@ -57,7 +57,6 @@ class Filters extends React.Component {
       thematic,
       authors,
       sorting,
-      select,
       selectMultiple,
       ctalabelfilter,
       ctalabelsort,
@@ -98,7 +97,8 @@ class Filters extends React.Component {
       </div>
     ) : null;
 
-    const emptyFilters = select === undefined && selectMultiple === undefined;
+    const emptyFilters = thematic === undefined && timer === undefined &&
+                         selectMultiple === undefined && authors === undefined;
 
     return (
       <div className={style.search}>
@@ -155,7 +155,6 @@ Filters.propTypes = {
   timer: PropTypes.object,
   authors: PropTypes.object,
   sorting: PropTypes.object,
-  select: PropTypes.object,
   selectMultiple: PropTypes.object,
   onSearch: PropTypes.func
 };

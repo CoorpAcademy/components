@@ -233,6 +233,7 @@ import FiltersFixtureDefault from '../src/molecule/filters/test/fixtures/default
 import FiltersFixtureOne from '../src/molecule/filters/test/fixtures/one';
 import FiltersFixtureThree from '../src/molecule/filters/test/fixtures/three';
 import FiltersFixtureTwo from '../src/molecule/filters/test/fixtures/two';
+import FiltersFixtureZero from '../src/molecule/filters/test/fixtures/zero';
 import MenuListFixtureDefault from '../src/molecule/menu-list/test/fixtures/default';
 import ModuleBubbleFixtureDefault from '../src/molecule/module-bubble/test/fixtures/default';
 import ModuleBubbleFixtureDisabled from '../src/molecule/module-bubble/test/fixtures/disabled';
@@ -726,7 +727,8 @@ export const fixtures = {
       Default: FiltersFixtureDefault,
       One: FiltersFixtureOne,
       Three: FiltersFixtureThree,
-      Two: FiltersFixtureTwo
+      Two: FiltersFixtureTwo,
+      Zero: FiltersFixtureZero
     },
     MenuList: {
       Default: MenuListFixtureDefault

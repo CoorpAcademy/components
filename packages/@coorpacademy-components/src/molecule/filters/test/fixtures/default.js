@@ -74,7 +74,6 @@ export default {
       ],
       onChange: value => console.log(value) // eslint-disable-line no-console
     },
-    select,
     selectMultiple,
     timer,
     onSearch: () => console.log('onSearch') // eslint-disable-line no-console

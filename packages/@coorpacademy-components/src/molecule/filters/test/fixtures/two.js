@@ -51,7 +51,6 @@ export default {
       ],
       onChange: value => console.log(value) // eslint-disable-line no-console
     },
-    select,
     selectMultiple
   }
 };
