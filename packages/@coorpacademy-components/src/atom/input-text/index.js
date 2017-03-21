@@ -37,6 +37,7 @@ const InputText = props => {
           value={value}
           onInput={handleChange}
           disabled={disabled}
+          onChange={noop}
         />
       </label>
       <div className={style.description}>
