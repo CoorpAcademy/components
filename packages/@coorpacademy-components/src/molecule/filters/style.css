@@ -184,6 +184,7 @@
   .choice {
     width: 100%;
     max-width: 100%;
+    position: relative;
   }
   .default {
     border-right: solid 1px light;
@@ -213,6 +214,12 @@
   .activeDefault .title:before,
   .activeWrapperSortBy .title:before {
     transform: rotate(180deg);
+    transition: transform 0.25s linear;
+  }
+  .default .title:before,
+  .wrapperSortBy .title:before {
+    transform: rotate(0deg);
+    transition: transform 0.25s linear;
   }
 
 
@@ -232,7 +239,17 @@
 
   .wrapperFilters,
   .sorting {
-    display: none;
+    width: 100%;
+    height: auto;
+    padding: 0;
+    box-sizing: border-box;
+    background: light;
+    position: absolute;
+    z-index: 3;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .5);
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
   }
 
   .activeWrapperFilters,
@@ -245,6 +262,8 @@
     position: absolute;
     z-index: 3;
     box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .5);
+    overflow: hidden;
+    visibility: visible;
   }
 
   .activeWrapperFilters .wrapper {
@@ -302,6 +321,7 @@
     margin-top: 16px;
     line-height: 50px;
     color: white;
+    cursor: pointer;
     text-align: center;
     font-weight: 700;
     position: relative;

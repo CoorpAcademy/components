@@ -37,20 +37,28 @@ class RangeSlider extends React.Component {
 
   componentDidMount() {
     const max = this.railWidth();
-    const x1 = getOr(0, 'handle1.x', this.state);
-    const x2 = getOr(max, 'handle2.x', this.state);
+    const steps = this.state.steps;
+    const stepWidth = max / (steps.length - 1);
+
+    const step1 = getOr(0, 'handle1.step', this.state);
+    const step2 = getOr((steps.length - 1), 'handle2.step', this.state);
+
+    const x1 = getOr(step1 * stepWidth, 'handle1.x', this.state);
+    const x2 = getOr(step2 * stepWidth, 'handle2.x', this.state);
 
     // eslint-disable-next-line react/no-did-mount-set-state
     this.setState({
       handle1: {
         x: x1,
         min: 0,
-        max: x2
+        max: x2,
+        step: step1
       },
       handle2: {
         x: x2,
         min: x1,
-        max
+        max,
+        step: step2
       },
       railWidth: max
     });
@@ -140,7 +148,8 @@ class RangeSlider extends React.Component {
 
   setX(num, snap) {
     const steps = this.props.steps;
-    const onChange = this.props.onChange;
+    const onDrag = this.props.onDrag;
+    const onDragEnd = this.props.onDragEnd;
 
     return e => this.setState((previousState, currentProps) => {
       let state = this.setCalculatedX(e, num, previousState, steps, snap);
@@ -150,10 +159,12 @@ class RangeSlider extends React.Component {
       const isMax = state.handle1.x === state.railWidth;
       state = set('isMax', isMax, state);
 
-      if (onChange) {
-        onChange(state);
+      if (onDrag && !snap) {
+        onDrag(state);
       }
-
+      if (onDragEnd && snap) {
+        onDragEnd(state);
+      }
       return state;
     });
   }
@@ -243,7 +254,8 @@ RangeSlider.propTypes = {
   title: PropTypes.string,
   labelMin: PropTypes.string,
   labelMax: PropTypes.string,
-  onChange: PropTypes.func,
+  onDrag: PropTypes.func,
+  onDragEnd: PropTypes.func,
   steps: PropTypes.array
 };
 

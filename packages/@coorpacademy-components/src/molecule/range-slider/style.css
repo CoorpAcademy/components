@@ -12,12 +12,16 @@
 .default {
   position: relative;
   width: 100%;
+  padding: 0 10px;
+  box-sizing: border-box;
+  user-select: none;
 }
 
 .text {
   font-size: 12px;
   font-family: "Open Sans";
   font-weight: 400;
+  user-select: none;
 }
 
 .title {
@@ -25,6 +29,7 @@
   color: darkGrey;
   text-align: center;
   width: 100%;
+  user-select: none;
 }
 
 .label {
@@ -33,6 +38,7 @@
   font-size: 10px;
   margin-top: 8px;
   display: inline-block;
+  user-select: none;
 }
 
 .labelMin {
@@ -56,7 +62,6 @@
   position: absolute;
   height: 6px;
   background-color: blue;
-  transition: all 0.1s;
 }
 
 .rail:active .handle,
@@ -73,7 +78,7 @@
   border-radius: 50%;
   transform: handlePosition;
   cursor: pointer;
-  transition: all 0.1s;
+  user-select: none;
 }
 
 .handle:active {
