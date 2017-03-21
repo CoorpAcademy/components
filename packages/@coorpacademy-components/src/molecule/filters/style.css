@@ -247,7 +247,6 @@
     position: absolute;
     z-index: 3;
     box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .5);
-    overflow: hidden;
     visibility: hidden;
     opacity: 0;
   }
@@ -262,7 +261,6 @@
     position: absolute;
     z-index: 3;
     box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .5);
-    overflow: hidden;
     visibility: visible;
   }
 
