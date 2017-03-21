@@ -21,31 +21,6 @@ const xWithConstraints = ({x, delta, min, max}) => {
   return newX;
 };
 
-const calculateSnapX = (x, steps, width) => {
-  if (!steps) {
-    return {
-      x,
-      step: undefined
-    };
-  }
-
-  const stepWidth = width / (steps.length - 1);
-  const minStep = Math.floor(x / stepWidth);
-  const maxStep = Math.ceil(x / stepWidth);
-
-  const min = minStep * stepWidth;
-  const max = maxStep * stepWidth;
-
-  const minIsCloser = x - min < max - x;
-  const closest = minIsCloser ? min : max;
-  const step = minIsCloser ? minStep : maxStep;
-
-  return {
-    snapX: closest,
-    step
-  };
-};
-
 class RangeSlider extends React.Component {
   constructor(props, context) {
     super(props, context);
@@ -98,6 +73,7 @@ class RangeSlider extends React.Component {
       return {
         handle1: {
           x: previousState.handle1.x * ratio,
+          min: 0,
           max: previousState.handle2.x * ratio
         },
         handle2: {
@@ -127,22 +103,67 @@ class RangeSlider extends React.Component {
     };
   }
 
+  calculateStepX(e, num, steps, previousState, snap) {
+    let x = this.extractXFromEvent(num, e);
+    const handle = `handle${num}`;
+    const width = previousState.railWidth;
+
+    const stepWidth = width / (steps.length - 1);
+    let minStep = Math.floor(x / stepWidth);
+    let maxStep = Math.ceil(x / stepWidth);
+
+    const left = minStep * stepWidth;
+    const right = maxStep * stepWidth;
+
+    const leftIsCloser = x - left < right - x;
+
+    if (snap) {
+      x = leftIsCloser ? left : right;
+    }
+
+    let step = leftIsCloser ? minStep : maxStep;
+    let state = set([handle, 'x'], x, previousState);
+
+    if (snap && this.props.forceRange) {
+      const handlesAtSameX = state.handle1.x === state.handle2.x;
+
+      if (handlesAtSameX) {
+        if (num === 1) {
+          minStep = Math.floor((x - 1) / stepWidth);
+          state = set([handle, 'x'], minStep * stepWidth, previousState);
+          step = minStep;
+        }
+        else {
+          maxStep = Math.ceil((x + 1) / stepWidth);
+          state = set([handle, 'x'], maxStep * stepWidth, previousState);
+          step = maxStep;
+        }
+      }
+    }
+
+    state = set([handle, 'step'], step, state);
+    return state;
+  }
+
+  setCalculatedX(e, num, previousState, steps, snap) {
+    if (steps) {
+      return this.calculateStepX(e, num, steps, previousState, snap);
+    }
+    else {
+      const x = this.extractXFromEvent(num, e);
+      const handle = `handle${num}`;
+      return set([handle, 'x'], x, previousState);
+    }
+  }
+
   setX(num, snap) {
     const steps = this.props.steps;
     const onChange = this.props.onChange;
 
     return e => this.setState((previousState, currentProps) => {
-      const eventX = this.extractXFromEvent(num, e);
-      const {snapX, step} = calculateSnapX(eventX, steps, previousState.railWidth);
-      const x = snap ? snapX : eventX;
-
-      let state = set([`handle${num}`, 'x'], x, previousState);
+      let state = this.setCalculatedX(e, num, previousState, steps, snap);
       state = set(['handle1', 'max'], state.handle2.x, state);
       state = set(['handle2', 'min'], state.handle1.x, state);
-
-      if (step) {
-        state = set([`handle${num}`, 'step'], step, state);
-      }
 
       const isMax = state.handle1.x === state.railWidth;
       state = set('isMax', isMax, state);
