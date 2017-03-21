@@ -1,6 +1,5 @@
 export default {
   props: {
-    title: '2mn - 7mn',
     labelMin: '0',
     labelMax: '∞',
     handle1: {
