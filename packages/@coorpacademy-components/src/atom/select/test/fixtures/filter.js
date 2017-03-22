@@ -1,7 +1,7 @@
 export default {
   props: {
     theme: 'filter',
-    title: 'Propriétés de la marque',
+    title: 'Propriétés de la marque :',
     options: [
       {
         name: 'Pouet',

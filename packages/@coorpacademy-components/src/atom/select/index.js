@@ -27,7 +27,7 @@ class Select extends React.Component {
       title: titleProps
     } = this.props;
 
-    const title = `${titleProps}${required ? '*' : ''} :`;
+    const title = `${titleProps}${required ? '*' : ''}`;
 
     const optionList = options && options.map((option, index) => {
       return (

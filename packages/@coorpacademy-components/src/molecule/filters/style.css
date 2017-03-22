@@ -204,6 +204,13 @@
     border-left: solid 1px light;
   }
 
+  .default .title:before,
+  .wrapperSortBy .title:before,
+  .activeDefault .title:before,
+  .activeWrapperSortBy .title:before {
+    font-family: FontAwesome;
+  } 
+
   .activeDefault .title,
   .activeWrapperSortBy .title,
   .activeDefault .title:before,
@@ -231,6 +238,7 @@
     font-weight: 700;
     line-height: 50px;
     text-align: center;
+    font-family: Open Sans;
   }
   .title:before {
     display: block;

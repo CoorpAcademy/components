@@ -28,8 +28,14 @@
   composes: text;
   color: darkGrey;
   text-align: center;
-  width: 100%;
   user-select: none;
+  color: white;
+  background-color: blue;
+  width: auto;
+  padding: 1px 7px;
+  border-radius: 25px;
+  display: table;
+  margin: 15px auto;
 }
 
 .label {

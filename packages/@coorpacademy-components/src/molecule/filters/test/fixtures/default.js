@@ -12,7 +12,7 @@ export default {
     ctalabelfilter: 'Filter',
     ctalabelsort: 'Sort by',
     thematic: {...select,
-      title: 'Thematic',
+      title: 'Thematic:',
       options: [
         {
           name: 'digital',
@@ -33,7 +33,7 @@ export default {
       onChange: value => console.log(value) // eslint-disable-line no-console
     },
     authors: {...select,
-      title: 'Authors',
+      title: 'Authors:',
       options: [
         {
           name: 'Coorpacademy',
@@ -54,7 +54,7 @@ export default {
       onChange: value => console.log(value) // eslint-disable-line no-console
     },
     sorting: {...select,
-      title: 'Sort by',
+      title: 'Sort by:',
       options: [
         {
           name: 'Position',
