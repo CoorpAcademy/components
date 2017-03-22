@@ -239,6 +239,7 @@ import FiltersFixtureDefault from '../src/molecule/filters/test/fixtures/default
 import FiltersFixtureOne from '../src/molecule/filters/test/fixtures/one';
 import FiltersFixtureThree from '../src/molecule/filters/test/fixtures/three';
 import FiltersFixtureTwo from '../src/molecule/filters/test/fixtures/two';
+import FiltersFixtureZero from '../src/molecule/filters/test/fixtures/zero';
 import MenuListFixtureDefault from '../src/molecule/menu-list/test/fixtures/default';
 import ModuleBubbleFixtureDefault from '../src/molecule/module-bubble/test/fixtures/default';
 import ModuleBubbleFixtureDisabled from '../src/molecule/module-bubble/test/fixtures/disabled';
@@ -250,6 +251,7 @@ import ProgressBarFixtureDefault from '../src/molecule/progress-bar/test/fixture
 import ProgressBarFixtureMax from '../src/molecule/progress-bar/test/fixtures/max';
 import RangeSliderFixtureDefault from '../src/molecule/range-slider/test/fixtures/default';
 import RangeSliderFixtureMinmax from '../src/molecule/range-slider/test/fixtures/minmax';
+import RangeSliderFixtureStepsForceRange from '../src/molecule/range-slider/test/fixtures/steps-force-range';
 import RangeSliderFixtureSteps from '../src/molecule/range-slider/test/fixtures/steps';
 import ScopeContentFixtureDefault from '../src/molecule/scope-content/test/fixtures/default';
 import ScopeContentFixtureEmpty from '../src/molecule/scope-content/test/fixtures/empty';
@@ -737,7 +739,8 @@ export const fixtures = {
       Default: FiltersFixtureDefault,
       One: FiltersFixtureOne,
       Three: FiltersFixtureThree,
-      Two: FiltersFixtureTwo
+      Two: FiltersFixtureTwo,
+      Zero: FiltersFixtureZero
     },
     MenuList: {
       Default: MenuListFixtureDefault
@@ -761,6 +764,7 @@ export const fixtures = {
     RangeSlider: {
       Default: RangeSliderFixtureDefault,
       Minmax: RangeSliderFixtureMinmax,
+      StepsForceRange: RangeSliderFixtureStepsForceRange,
       Steps: RangeSliderFixtureSteps
     },
     ScopeContent: {

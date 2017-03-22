@@ -2,7 +2,9 @@ import React, {PropTypes} from 'react';
 import {findDOMNode} from 'react-dom';
 import getOr from 'lodash/fp/getOr';
 import set from 'lodash/fp/set';
+import join from 'lodash/fp/join';
 import shallowCompare from '../../util/shallow-compare';
+import closestStep from '../../util/closest-step';
 import Handle from '../../atom/handle';
 import style from './style.css';
 
@@ -21,31 +23,6 @@ const xWithConstraints = ({x, delta, min, max}) => {
   return newX;
 };
 
-const calculateSnapX = (x, steps, width) => {
-  if (!steps) {
-    return {
-      x,
-      step: undefined
-    };
-  }
-
-  const stepWidth = width / (steps.length - 1);
-  const minStep = Math.floor(x / stepWidth);
-  const maxStep = Math.ceil(x / stepWidth);
-
-  const min = minStep * stepWidth;
-  const max = maxStep * stepWidth;
-
-  const minIsCloser = x - min < max - x;
-  const closest = minIsCloser ? min : max;
-  const step = minIsCloser ? minStep : maxStep;
-
-  return {
-    snapX: closest,
-    step
-  };
-};
-
 class RangeSlider extends React.Component {
   constructor(props, context) {
     super(props, context);
@@ -61,24 +38,31 @@ class RangeSlider extends React.Component {
 
   componentDidMount() {
     const max = this.railWidth();
-    const x1 = getOr(0, 'handle1.x', this.state);
-    const x2 = getOr(max, 'handle2.x', this.state);
+    const steps = this.state.steps;
+    const stepWidth = max / (steps.length - 1);
+
+    const step1 = getOr(0, 'handle1.step', this.state);
+    const step2 = getOr((steps.length - 1), 'handle2.step', this.state);
+
+    const x1 = getOr(step1 * stepWidth, 'handle1.x', this.state);
+    const x2 = getOr(step2 * stepWidth, 'handle2.x', this.state);
 
     // eslint-disable-next-line react/no-did-mount-set-state
     this.setState({
       handle1: {
         x: x1,
         min: 0,
-        max: x2
+        max: x2,
+        step: step1
       },
       handle2: {
         x: x2,
         min: x1,
-        max
+        max,
+        step: step2
       },
       railWidth: max
     });
-
     window.addEventListener('resize', this.updatePositions);
   }
 
@@ -98,6 +82,7 @@ class RangeSlider extends React.Component {
       return {
         handle1: {
           x: previousState.handle1.x * ratio,
+          min: 0,
           max: previousState.handle2.x * ratio
         },
         handle2: {
@@ -127,30 +112,58 @@ class RangeSlider extends React.Component {
     };
   }
 
+  calculateStepX(e, num, steps, previousState, snap) {
+    const eventX = this.extractXFromEvent(num, e);
+    const handle = `handle${num}`;
+    const width = previousState.railWidth;
+
+    const {
+      x,
+      step
+    } = closestStep({
+      eventX,
+      width,
+      steps,
+      snap,
+      limit: num === 1 ? this.state.handle2.x : this.state.handle1.x,
+      side: num === 1 ? 'left' : 'right',
+      forceRange: this.props.forceRange
+    });
+
+    let state = set([handle, 'x'], x, previousState);
+    state = set([handle, 'step'], step, state);
+    return state;
+  }
+
+  setCalculatedX(e, num, previousState, steps, snap) {
+    if (steps) {
+      return this.calculateStepX(e, num, steps, previousState, snap);
+    }
+    else {
+      const x = this.extractXFromEvent(num, e);
+      const handle = `handle${num}`;
+      return set([handle, 'x'], x, previousState);
+    }
+  }
+
   setX(num, snap) {
     const steps = this.props.steps;
-    const onChange = this.props.onChange;
+    const onDrag = this.props.onDrag;
+    const onDragEnd = this.props.onDragEnd;
 
     return e => this.setState((previousState, currentProps) => {
-      const eventX = this.extractXFromEvent(num, e);
-      const {snapX, step} = calculateSnapX(eventX, steps, previousState.railWidth);
-      const x = snap ? snapX : eventX;
-
-      let state = set([`handle${num}`, 'x'], x, previousState);
+      let state = this.setCalculatedX(e, num, previousState, steps, snap);
       state = set(['handle1', 'max'], state.handle2.x, state);
       state = set(['handle2', 'min'], state.handle1.x, state);
 
-      if (step) {
-        state = set([`handle${num}`, 'step'], step, state);
-      }
-
       const isMax = state.handle1.x === state.railWidth;
       state = set('isMax', isMax, state);
-
-      if (onChange) {
-        onChange(state);
+      if (onDrag && !snap) {
+        onDrag(state);
       }
-
+      if (onDragEnd && snap) {
+        onDragEnd(state);
+      }
       return state;
     });
   }
@@ -240,7 +253,8 @@ RangeSlider.propTypes = {
   title: PropTypes.string,
   labelMin: PropTypes.string,
   labelMax: PropTypes.string,
-  onChange: PropTypes.func,
+  onDrag: PropTypes.func,
+  onDragEnd: PropTypes.func,
   steps: PropTypes.array
 };
 

@@ -5,6 +5,8 @@ const {props} = Default;
 
 export default {
   props: defaultsDeep(props, {
+    handle1: null,
+    handle2: null,
     steps: [{
       label: 'plop',
       value: 1

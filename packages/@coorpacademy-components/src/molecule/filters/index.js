@@ -16,6 +16,7 @@ class Filters extends React.Component {
     this.handleOnClick = this.handleOnClick.bind(this);
     this.handleOpenFilter = this.handleOpenFilter.bind(this);
     this.handleOpenSort = this.handleOpenSort.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
   }
 
   shouldComponentUpdate(nextProps, nextState, nextContext) {
@@ -39,6 +40,15 @@ class Filters extends React.Component {
       filter: false
     });
   }
+  handleSearch() {
+    this.setState({
+      sorted: false,
+      filter: false
+    });
+    if (this.props.onSearch) {
+      this.props.onSearch();
+    }
+  }
 
   render() {
     const {
@@ -47,10 +57,10 @@ class Filters extends React.Component {
       thematic,
       authors,
       sorting,
-      select,
       selectMultiple,
       ctalabelfilter,
-      ctalabelsort
+      ctalabelsort,
+      onSearch
     } = this.props;
 
     const isActive = this.state.opened === true;
@@ -87,7 +97,8 @@ class Filters extends React.Component {
       </div>
     ) : null;
 
-    const emptyFilters = select === undefined && selectMultiple === undefined;
+    const emptyFilters = thematic === undefined && timer === undefined &&
+                         selectMultiple === undefined && authors === undefined;
 
     return (
       <div className={style.search}>
@@ -118,7 +129,7 @@ class Filters extends React.Component {
           </div>
           <div
             className={style.CTAfilter}
-            onClick={this.handleOpenFilter}
+            onClick={this.handleSearch}
           >
             {ctalabelfilter}
           </div>
@@ -128,7 +139,7 @@ class Filters extends React.Component {
           {sortView}
           <div
             className={style.CTAfilter}
-            onClick={this.handleOpenSort}
+            onClick={this.handleSearch}
           >
             {ctalabelsort}
           </div>
@@ -144,8 +155,8 @@ Filters.propTypes = {
   timer: PropTypes.object,
   authors: PropTypes.object,
   sorting: PropTypes.object,
-  select: PropTypes.object,
-  selectMultiple: PropTypes.object
+  selectMultiple: PropTypes.object,
+  onSearch: PropTypes.func
 };
 
 export default Filters;
