@@ -14,7 +14,7 @@ export default {
         Welcome to this e-training on mental health and human rights! This training is part of the World Health Organization’s initiative called QualityRights. The e-training - what it covers and who it is for - is described in the video below. <br />
         <br />
         <h2> Please watch the introductory video!  </h2>
-        [[vimeo#199307365][534px,300px]]
+        <div><p><img src="https://static.coorpacademy.com/content/capgeminiconsulting/en/cms/newcooc/newcoocdigitalbankingadvanced.png" alt="alt text"></p></div>
         <br />
         For more information on WHO QualityRights please go to  www.who.int/mental_health/policy/quality_rights/en/.
         <br />
