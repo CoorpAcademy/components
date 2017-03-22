@@ -23,18 +23,6 @@ const xWithConstraints = ({x, delta, min, max}) => {
   return newX;
 };
 
-const getTimerTitle = state => {
-  const indexFrom = getOr(0, 'handle1.step', state);
-  const indexTo = getOr(state.steps.length - 1, 'handle2.step', state);
-  const stepFrom = indexFrom === 0 ?
-        getOr('', 'labelMin', state) :
-        getOr('', [indexFrom, 'label'], state.steps);
-  const stepTo = indexTo === (state.steps.length - 1) ?
-        getOr('', 'labelMax', state) :
-        getOr('', [indexTo, 'label'], state.steps);
-  return join(' - ', [stepFrom, stepTo]);
-};
-
 class RangeSlider extends React.Component {
   constructor(props, context) {
     super(props, context);
@@ -75,7 +63,6 @@ class RangeSlider extends React.Component {
       },
       railWidth: max
     });
-    this.state = set('title', getTimerTitle(this.state), this.state);
     window.addEventListener('resize', this.updatePositions);
   }
 
@@ -171,7 +158,6 @@ class RangeSlider extends React.Component {
 
       const isMax = state.handle1.x === state.railWidth;
       state = set('isMax', isMax, state);
-      state = set('title', getTimerTitle(state), state);
       if (onDrag && !snap) {
         onDrag(state);
       }
@@ -198,7 +184,6 @@ class RangeSlider extends React.Component {
   render() {
     const {
       isMax,
-      title,
       handle1 = this.props.handle1,
       handle2 = this.props.handle2
     } = this.state;
@@ -208,6 +193,7 @@ class RangeSlider extends React.Component {
 
     const {
       steps,
+      title,
       labelMin,
       labelMax
     } = this.props;
@@ -264,6 +250,7 @@ RangeSlider.propTypes = {
   handle2: PropTypes.shape({
     x: PropTypes.number
   }),
+  title: PropTypes.string,
   labelMin: PropTypes.string,
   labelMax: PropTypes.string,
   onDrag: PropTypes.func,

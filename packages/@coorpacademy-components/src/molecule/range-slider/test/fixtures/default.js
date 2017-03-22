@@ -33,6 +33,7 @@ export default {
       label: '8mn',
       value: 8
     }],
+    title: '2mn - 7mn',
     onDrag: state => console.log('onDrag', {state}), // eslint-disable-line no-console
     onDragEnd: state => console.log('onDragEnd', {state}) // eslint-disable-line no-console
   }
