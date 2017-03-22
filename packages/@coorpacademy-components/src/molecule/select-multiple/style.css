@@ -6,6 +6,7 @@
 .default {
     display: block;
     position: relative;
+    font-family: "Open Sans";
 }
 
 .select {
@@ -19,6 +20,7 @@
     line-height: 50px;
     color: darkGrey;
     font-size: 12px;
+    font-family: "Open Sans";
     composes: fa from '../../variables/fontawesome.css';
     composes: fa-angle-down from '../../variables/fontawesome.css';
     position: relative;
@@ -30,6 +32,7 @@
     right: 10px;
     color: darkGrey;
     font-weight: 700;
+    font-family: FontAwesome;
 }
 
 .title {

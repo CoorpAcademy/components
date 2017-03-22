@@ -204,6 +204,20 @@
   }
 
   .activeDefault .title,
+  .default .title,
+  .activeWrapperSortBy .title
+  .wrapperSortBy .title {
+    font-family: "Open Sans";
+  }
+
+  .default .title:before,
+  .wrapperSortBy .title:before,
+  .activeDefault .title:before,
+  .activeWrapperSortBy .title:before {
+    font-family: FontAwesome;
+  } 
+
+  .activeDefault .title,
   .activeWrapperSortBy .title,
   .activeDefault .title:before,
   .activeWrapperSortBy .title:before {
