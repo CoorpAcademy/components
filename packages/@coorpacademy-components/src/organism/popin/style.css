@@ -28,9 +28,9 @@
   overflow: auto;
   background: white;
   padding-bottom: 20px;
-  margin: 100px 0 200px 0;
+  margin: 100px -340px 200px;
   top: 0;
-  left: 50% - 340px;
+  left: 50%;
   box-shadow: 0 0 15px 0 rgba(166,166,166,.84);
 }
 
