@@ -67,13 +67,13 @@ const ProductCursus = (props, context) => {
 };
 
 ProductCursus.contextTypes = {
-  translate: React.PropTypes.func
+  translate: PropTypes.func
 };
 
 ProductCursus.propTypes = {
   title: CursusHeader.propTypes.title,
   description: CursusHeader.propTypes.description,
-  image: CursusHeader.propTypes.image,
+  image: Picture.propTypes.src,
 
   linkBuy: CatalogCTA.propTypes.linkBuy,
   linkTry: CatalogCTA.propTypes.linkTry,

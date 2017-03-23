@@ -1,12 +1,13 @@
 import React, {PropTypes} from 'react';
-import pipe from 'lodash/fp/pipe';
-import map from 'lodash/fp/map';
+import filter from 'lodash/fp/filter';
 import get from 'lodash/fp/get';
+import isNil from 'lodash/fp/isNil';
+import isObject from 'lodash/fp/isObject';
+import join from 'lodash/fp/join';
+import map from 'lodash/fp/map';
+import pipe from 'lodash/fp/pipe';
 import set from 'lodash/fp/set';
 import toPairs from 'lodash/fp/toPairs';
-import join from 'lodash/fp/join';
-import isObject from 'lodash/fp/isObject';
-import isNil from 'lodash/fp/isNil';
 import * as CustomPropTypes from '../../util/proptypes';
 import style from './style.css';
 
@@ -15,6 +16,7 @@ const toSrcSet = ({src}) => {
   return pipe(
     set('srcSet', pipe(
       toPairs,
+      filter(([key, url]) => url),
       map(([key, url]) => `${url} ${key}`),
       join(',')
     )(src)),
@@ -42,7 +44,7 @@ const Picture = props => {
 
 Picture.propTypes = {
   src: PropTypes.oneOfType([
-    PropTypes.string,
+    CustomPropTypes.url,
     PropTypes.objectOf(CustomPropTypes.url)
   ])
 };

@@ -29,7 +29,7 @@ const CursusHeader = props => {
 };
 
 CursusHeader.propTypes = {
-  image: PropTypes.string,
+  image: Picture.propTypes.src,
   title: PropTypes.string,
   description: PropTypes.string
 };
