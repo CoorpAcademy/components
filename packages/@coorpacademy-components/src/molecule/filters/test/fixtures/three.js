@@ -51,6 +51,31 @@ export default {
       ],
       onChange: value => console.log(value) // eslint-disable-line no-console
     },
-    selectMultiple
+    courses: {...selectFilter,
+      title: 'Learning Paths:',
+      options: [
+        {
+          name: 'All categories',
+          value: 'ALL',
+          selected: false
+        },
+        {
+          name: 'Innovations & Technologies',
+          value: 'Innovations',
+          selected: true
+        },
+        {
+          name: 'Management',
+          value: 'Management',
+          selected: false
+        },
+        {
+          name: 'Sustainable development',
+          value: 'Sustainable',
+          selected: false
+        }
+      ],
+      onChange: value => console.log(value) // eslint-disable-line no-console
+    }
   }
 };

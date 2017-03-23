@@ -1,11 +1,9 @@
 import dropdownsFilter from '../../../../atom/select/test/fixtures/filter';
 import dropdownsSort from '../../../../atom/select/test/fixtures/sort';
-import selectCourses from '../../../../molecule/select-multiple/test/fixtures/checked';
 import rangeslider from '../../../../molecule/range-slider/test/fixtures/default';
 
 const selectFilter = dropdownsFilter.props;
 const selectSort = dropdownsSort.props;
-const selectMultiple = selectCourses.props;
 const timer = rangeslider.props;
 
 export default {
@@ -56,6 +54,32 @@ export default {
       ],
       onChange: value => console.log(value) // eslint-disable-line no-console
     },
+    courses: {...selectFilter,
+      title: 'Learning Paths:',
+      options: [
+        {
+          name: 'All categories',
+          value: 'ALL',
+          selected: false
+        },
+        {
+          name: 'Innovations & Technologies',
+          value: 'Innovations',
+          selected: true
+        },
+        {
+          name: 'Management',
+          value: 'Management',
+          selected: false
+        },
+        {
+          name: 'Sustainable development',
+          value: 'Sustainable',
+          selected: false
+        }
+      ],
+      onChange: value => console.log(value) // eslint-disable-line no-console
+    },
     sorting: {...selectSort,
       title: 'Sort by:',
       options: [
@@ -77,7 +101,6 @@ export default {
       ],
       onChange: value => console.log(value) // eslint-disable-line no-console
     },
-    selectMultiple,
     timer,
     onSearch: () => console.log('onSearch') // eslint-disable-line no-console
   }
