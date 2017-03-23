@@ -2,6 +2,7 @@ import React from 'react';
 import toPairs from 'lodash/fp/toPairs';
 import map from 'lodash/fp/map';
 import pipe from 'lodash/fp/pipe';
+import find from 'lodash/fp/find';
 import get from 'lodash/fp/get';
 import isArray from 'lodash/fp/isArray';
 import flatten from 'lodash/fp/flatten';
