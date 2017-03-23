@@ -33,7 +33,7 @@
 }
 
 .choice {
-  max-width: 50%;
+  flex: 50%;
   min-width: 22%;
   margin: 8px 16px;
   box-sizing: border-box;
@@ -165,7 +165,7 @@
     padding: 0 32px;
   }
   .choice {
-    width: 43%;
+    flex: 43%;
   }
 }
 
@@ -182,7 +182,7 @@
     background: borderGrey;
   }
   .choice {
-    width: 100%;
+    flex: 100%;
     max-width: 100%;
     position: relative;
   }
@@ -305,7 +305,7 @@
     box-sizing: border-box;
     width: 100%;
   }
-
+  
   .activeSorting .select label div {
     top: 50%;
   }

@@ -1,9 +1,11 @@
-import dropdowns from '../../../../atom/select/test/fixtures/filter';
-import selectThematique from '../../../../molecule/select-multiple/test/fixtures/checked';
+import dropdownsFilter from '../../../../atom/select/test/fixtures/filter';
+import dropdownsSort from '../../../../atom/select/test/fixtures/sort';
+import selectCourses from '../../../../molecule/select-multiple/test/fixtures/checked';
 import rangeslider from '../../../../molecule/range-slider/test/fixtures/default';
 
-const select = dropdowns.props;
-const selectMultiple = selectThematique.props;
+const selectFilter = dropdownsFilter.props;
+const selectSort = dropdownsSort.props;
+const selectMultiple = selectCourses.props;
 const timer = rangeslider.props;
 
 export default {
@@ -11,7 +13,7 @@ export default {
     titlepage: 'Catalog',
     ctalabelfilter: 'Filter',
     ctalabelsort: 'Sort by',
-    thematic: {...select,
+    thematic: {...selectFilter,
       title: 'Thematic:',
       options: [
         {
@@ -25,14 +27,14 @@ export default {
           selected: true
         },
         {
-          name: 'La 3e révolution industrielle',
+          name: 'La troisième révolution industrielle',
           value: 'La 3e révolution industrielle',
           selected: false
         }
       ],
       onChange: value => console.log(value) // eslint-disable-line no-console
     },
-    authors: {...select,
+    authors: {...selectFilter,
       title: 'Authors:',
       options: [
         {
@@ -41,8 +43,9 @@ export default {
           selected: false
         },
         {
-          name: 'Nexstage',
-          value: 'Nexstage',
+          name: 'World Health Organization - Mental Health Policy' +
+          'and Service Development, Michelle Funk and Nathalie Drew',
+          value: 'WHO',
           selected: true
         },
         {
@@ -53,7 +56,7 @@ export default {
       ],
       onChange: value => console.log(value) // eslint-disable-line no-console
     },
-    sorting: {...select,
+    sorting: {...selectSort,
       title: 'Sort by:',
       options: [
         {

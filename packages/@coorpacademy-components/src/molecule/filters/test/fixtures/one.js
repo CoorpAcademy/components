@@ -1,15 +1,15 @@
-import dropdowns from '../../../../atom/select/test/fixtures/filter';
-import selectThematique from '../../../../molecule/select-multiple/test/fixtures/checked';
+import dropdownsFilter from '../../../../atom/select/test/fixtures/filter';
+import dropdownsSort from '../../../../atom/select/test/fixtures/sort';
 
-const select = dropdowns.props;
-const selectMultiple = selectThematique.props;
+const selectFilter = dropdownsFilter.props;
+const selectSort = dropdownsSort.props;
 
 export default {
   props: {
     titlepage: 'Catalog',
     ctalabelfilter: 'Filter',
     ctalabelsort: 'Sort by',
-    thematic: {...select,
+    thematic: {...selectFilter,
       title: 'Thematic',
       options: [
         {
@@ -30,7 +30,7 @@ export default {
       ],
       onChange: value => console.log(value) // eslint-disable-line no-console
     },
-    sorting: {...select,
+    sorting: {...selectSort,
       title: 'Sort by',
       options: [
         {
