@@ -6,6 +6,7 @@ import config from './webpack.config';
 import ssrMiddleware from './ssr';
 
 const app = express();
+const port = process.env.PORT || 3004;
 
 process.env.BABEL_ENV = 'es';
 const compiler = webpack(config);
@@ -20,8 +21,8 @@ app.use(
 app.use('/', ssrMiddleware);
 
 if (!module.parent) {
-  app.listen(3004);
-  process.stdout.write('Open your browser: http://localhost:3004\n');
+  app.listen(port);
+  process.stdout.write(`Open your browser: http://localhost:${port}\n`);
 }
 
 export default app;
