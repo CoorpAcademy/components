@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/components",
-  "version": "4.3.33",
+  "version": "4.4.0",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -52,9 +52,9 @@
     "react-dom": "^15.4.2"
   },
   "devDependencies": {
-    "@coorpacademy/components-bundler": "^4.3.20",
-    "@coorpacademy/history": "^3.7.3",
-    "@coorpacademy/translate": "^4.3.25",
+    "@coorpacademy/components-bundler": "^4.4.0",
+    "@coorpacademy/history": "^4.4.0",
+    "@coorpacademy/translate": "^4.4.0",
     "autoprefixer": "^6.4.1",
     "babel-cli": "^6.11.4",
     "babel-core": "^6.11.4",

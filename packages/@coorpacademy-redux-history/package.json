@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/redux-history",
-  "version": "4.3.33",
+  "version": "4.4.0",
   "description": "",
   "main": "lib/index.js",
   "module": "es/indes.js",
@@ -31,7 +31,7 @@
     "lodash": "^4.14.1"
   },
   "devDependencies": {
-    "@coorpacademy/history": "^3.7.3",
+    "@coorpacademy/history": "^4.4.0",
     "babel-cli": "^6.11.4",
     "babel-core": "^6.11.4",
     "babel-plugin-istanbul": "^3.0.0",
