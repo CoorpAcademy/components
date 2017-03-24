@@ -12,11 +12,6 @@ cache:
   - packages/@coorpacademy-translate/node_modules
   - packages/@coorpacademy-treantjs-adapter-angular/node_modules
   - packages/@coorpacademy-treantjs-adapter-dust/node_modules
-  - packages/@coorpacademy-treantjs-core/node_modules
-  - packages/@coorpacademy-treantjs-engine-react/node_modules
-  - packages/@coorpacademy-treantjs-engine-snabbdom/node_modules
-  - packages/@coorpacademy-treantjs-engine-spec/node_modules
-  - packages/@coorpacademy-treantjs-engine-virtual-dom/node_modules
 before_install:
 - npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
 after_success: npm run coveralls
@@ -28,3 +23,11 @@ addons:
       - ubuntu-toolchain-r-test
     packages:
       - g++-4.8
+before-deploy: npm run storybook:export
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  local_dir: packages/@coorpacademy-components/storybook-static
+  on:
+    branch: master

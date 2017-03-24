@@ -6,3 +6,4 @@ dist
 .nyc_output
 coverage
 .vscode
+packages/@coorpacademy-components/storybook-static
