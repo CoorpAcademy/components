@@ -11,6 +11,7 @@ import InputTextarea from '../../atom/input-textarea';
 import InputDoublestep from '../../atom/input-doublestep';
 import ImageUpload from '../../atom/image-upload';
 import SetupSlider from '../setup-slider';
+import SetupSections from '../setup-sections';
 import style from './style.css';
 
 const BrandFormGroup = props => {
@@ -61,6 +62,10 @@ const BrandFormGroup = props => {
       case 'slider':
         return (
           <SetupSlider {...field} />
+        );
+      case 'sections':
+        return (
+          <SetupSections {...field} />
         );
       case 'text':
         return (

@@ -1,0 +1,94 @@
+@value breakpoints: "../../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value tablet from breakpoints;
+@value desktop from breakpoints;
+
+.wrapper {
+  padding: 20px 30px 10px;
+}
+
+.list {
+  position: relative;
+  max-width: 1080px;
+  margin: auto;
+  box-sizing: border-box;
+}
+
+.title {
+  font-family: 'Open Sans';
+  font-size: 19px;
+  font-weight: 600;
+  color: #484848;
+  margin-bottom: 16px;
+}
+
+.cards {
+  display: flex;
+  margin-left: -9px;
+  margin-right: -9px;
+  margin-bottom: -10px;
+  overflow: hidden;
+}
+
+.card {
+  box-sizing: border-box;
+  margin-bottom: 16px;
+}
+
+.arrow {
+  composes: fa from '../../../variables/fontawesome.css';
+  position: absolute;
+  font-size: 30px;
+  width: 25px;
+  color: #D8D8D8;
+  top: 50%;
+  margin-top: -15px;
+  cursor: pointer;
+}
+
+.arrow:hover {
+  color: #aaaaaa;
+}
+
+.left {
+  composes: arrow;
+  composes: fa-chevron-left from '../../../variables/fontawesome.css';
+  left: -41px;
+  text-align: right;
+}
+
+.right {
+  composes: arrow;
+  composes: fa-chevron-right from '../../../variables/fontawesome.css';
+  right: -47px;
+  text-align: left;
+}
+
+@media desktop {
+
+}
+
+@media tablet {
+  .cards {
+    overflow-x: scroll;
+  }
+}
+
+@media mobile {
+  .wrapper {
+    padding: 0 8px;
+  }
+
+  .list {
+    align-items: stretch;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+
+  .card {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+}

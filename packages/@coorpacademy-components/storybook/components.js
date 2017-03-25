@@ -24,6 +24,7 @@ import SocialLink from '../src/atom/social-link';
 import Spinner from '../src/atom/spinner';
 import Star from '../src/atom/star';
 import Title from '../src/atom/title';
+import BattleRequest from '../src/molecule/battle-request';
 import BrandCardCreate from '../src/molecule/brand-card-create';
 import BrandCard from '../src/molecule/brand-card';
 import BrandCreateForm from '../src/molecule/brand-create-form';
@@ -50,6 +51,7 @@ import Filters from '../src/molecule/filters';
 import MenuList from '../src/molecule/menu-list';
 import ModuleBubble from '../src/molecule/module-bubble';
 import ModuleCard from '../src/molecule/module-card';
+import News from '../src/molecule/news';
 import Pagination from '../src/molecule/pagination';
 import ProgressBar from '../src/molecule/progress-bar';
 import RangeSlider from '../src/molecule/range-slider';
@@ -57,6 +59,8 @@ import ScopeContent from '../src/molecule/scope-content';
 import ScopeTabs from '../src/molecule/scope-tabs';
 import Search from '../src/molecule/search';
 import SelectMultiple from '../src/molecule/select-multiple';
+import SetupSection from '../src/molecule/setup-section';
+import SetupSections from '../src/molecule/setup-sections';
 import SetupSlide from '../src/molecule/setup-slide';
 import SetupSlider from '../src/molecule/setup-slider';
 import Slider from '../src/molecule/slider';
@@ -67,6 +71,10 @@ import ThemeImage from '../src/molecule/theme-image';
 import TitledCheckbox from '../src/molecule/titled-checkbox';
 import VideoIframe from '../src/molecule/video-iframe';
 import VideoPlayer from '../src/molecule/video-player';
+import BattleRequestList from '../src/molecule/dashboard/battle-request-list';
+import CardsList from '../src/molecule/dashboard/cards-list';
+import NewsList from '../src/molecule/dashboard/news-list';
+import StartBattle from '../src/molecule/dashboard/start-battle';
 import ForumComment from '../src/molecule/forum/forum-comment';
 import ForumPost from '../src/molecule/forum/forum-post';
 import ForumThread from '../src/molecule/forum/forum-thread';
@@ -92,6 +100,7 @@ import BrandList from '../src/template/back-office/brand-list';
 import BrandUpdate from '../src/template/back-office/brand-update';
 import Authors from '../src/template/common/authors';
 import CoorpHeader from '../src/template/common/coorp-header';
+import Dashboard from '../src/template/common/dashboard';
 import Discipline from '../src/template/common/discipline';
 import SearchPage from '../src/template/common/search-page';
 import ButtonFixtureA from '../src/atom/button/test/fixtures/a';
@@ -180,6 +189,7 @@ import SpinnerFixtureDefault from '../src/atom/spinner/test/fixtures/default';
 import StarFixtureDisable from '../src/atom/star/test/fixtures/disable';
 import StarFixtureEnable from '../src/atom/star/test/fixtures/enable';
 import TitleFixtureFixture from '../src/atom/title/test/fixtures/fixture';
+import BattleRequestFixtureDefault from '../src/molecule/battle-request/test/fixtures/default';
 import BrandCardCreateFixtureDefault from '../src/molecule/brand-card-create/test/fixtures/default';
 import BrandCardFixtureDefault from '../src/molecule/brand-card/test/fixtures/default';
 import BrandCreateFormFixtureDefault from '../src/molecule/brand-create-form/test/fixtures/default';
@@ -187,6 +197,7 @@ import BrandCreateFormFixtureError from '../src/molecule/brand-create-form/test/
 import BrandCreateFormFixtureLoading from '../src/molecule/brand-create-form/test/fixtures/loading';
 import BrandCreateFormFixtureModified from '../src/molecule/brand-create-form/test/fixtures/modified';
 import BrandDownloadBoxFixtureDefault from '../src/molecule/brand-download-box/test/fixtures/default';
+import BrandFormGroupFixtureDashboard from '../src/molecule/brand-form-group/test/fixtures/dashboard';
 import BrandFormGroupFixtureDefault from '../src/molecule/brand-form-group/test/fixtures/default';
 import BrandFormGroupFixtureImages from '../src/molecule/brand-form-group/test/fixtures/images';
 import BrandFormGroupFixtureLookandfeel from '../src/molecule/brand-form-group/test/fixtures/lookandfeel';
@@ -247,6 +258,7 @@ import ModuleBubbleFixtureDefault from '../src/molecule/module-bubble/test/fixtu
 import ModuleBubbleFixtureDisabled from '../src/molecule/module-bubble/test/fixtures/disabled';
 import ModuleCardFixtureActive from '../src/molecule/module-card/test/fixtures/active';
 import ModuleCardFixtureRestarted from '../src/molecule/module-card/test/fixtures/restarted';
+import NewsFixtureDefault from '../src/molecule/news/test/fixtures/default';
 import PaginationFixtureDefault from '../src/molecule/pagination/test/fixtures/default';
 import PaginationFixtureDisabled from '../src/molecule/pagination/test/fixtures/disabled';
 import ProgressBarFixtureDefault from '../src/molecule/progress-bar/test/fixtures/default';
@@ -264,6 +276,8 @@ import ScopeTabsFixtureEmpty from '../src/molecule/scope-tabs/test/fixtures/empt
 import SearchFixtureDefault from '../src/molecule/search/test/fixtures/default';
 import SelectMultipleFixtureChecked from '../src/molecule/select-multiple/test/fixtures/checked';
 import SelectMultipleFixtureDefault from '../src/molecule/select-multiple/test/fixtures/default';
+import SetupSectionFixtureDefault from '../src/molecule/setup-section/test/fixtures/default';
+import SetupSectionsFixtureDefault from '../src/molecule/setup-sections/test/fixtures/default';
 import SetupSlideFixtureDefault from '../src/molecule/setup-slide/test/fixtures/default';
 import SetupSliderFixtureDefault from '../src/molecule/setup-slider/test/fixtures/default';
 import SliderFixtureDefault from '../src/molecule/slider/test/fixtures/default';
@@ -286,6 +300,13 @@ import VideoIframeFixtureYoutube from '../src/molecule/video-iframe/test/fixture
 import VideoPlayerFixtureDefault from '../src/molecule/video-player/test/fixtures/default';
 import VideoPlayerFixtureWithImage from '../src/molecule/video-player/test/fixtures/with-image';
 import VideoPlayerFixtureYoutube from '../src/molecule/video-player/test/fixtures/youtube';
+import BattleRequestListFixtureDefault from '../src/molecule/dashboard/battle-request-list/test/fixtures/default';
+import CardsListFixtureDefault from '../src/molecule/dashboard/cards-list/test/fixtures/default';
+import CardsListFixtureMany from '../src/molecule/dashboard/cards-list/test/fixtures/many';
+import NewsListFixtureDefault from '../src/molecule/dashboard/news-list/test/fixtures/default';
+import NewsListFixtureLoading from '../src/molecule/dashboard/news-list/test/fixtures/loading';
+import NewsListFixtureMore from '../src/molecule/dashboard/news-list/test/fixtures/more';
+import StartBattleFixtureDefault from '../src/molecule/dashboard/start-battle/test/fixtures/default';
 import ForumCommentFixtureDefault from '../src/molecule/forum/forum-comment/test/fixtures/default';
 import ForumCommentFixturePostDisabled from '../src/molecule/forum/forum-comment/test/fixtures/post-disabled';
 import ForumCommentFixtureTextareaDisabled from '../src/molecule/forum/forum-comment/test/fixtures/textarea-disabled';
@@ -377,6 +398,7 @@ import AuthorsFixtureDefault from '../src/template/common/authors/test/fixtures/
 import AuthorsFixtureNoSocials from '../src/template/common/authors/test/fixtures/no-socials';
 import CoorpHeaderFixtureProduction from '../src/template/common/coorp-header/test/fixtures/production';
 import CoorpHeaderFixtureStaging from '../src/template/common/coorp-header/test/fixtures/staging';
+import DashboardFixtureDefault from '../src/template/common/dashboard/test/fixtures/default';
 import DisciplineFixtureDefault from '../src/template/common/discipline/test/fixtures/default';
 import DisciplineFixtureDoubleAuthor from '../src/template/common/discipline/test/fixtures/double-author';
 import DisciplineFixtureEmpty from '../src/template/common/discipline/test/fixtures/empty';
@@ -416,6 +438,7 @@ export const components = {
     Title
   },
   Molecule: {
+    BattleRequest,
     BrandCardCreate,
     BrandCard,
     BrandCreateForm,
@@ -442,6 +465,7 @@ export const components = {
     MenuList,
     ModuleBubble,
     ModuleCard,
+    News,
     Pagination,
     ProgressBar,
     RangeSlider,
@@ -449,6 +473,8 @@ export const components = {
     ScopeTabs,
     Search,
     SelectMultiple,
+    SetupSection,
+    SetupSections,
     SetupSlide,
     SetupSlider,
     Slider,
@@ -459,6 +485,12 @@ export const components = {
     TitledCheckbox,
     VideoIframe,
     VideoPlayer
+  },
+  MoleculeDashboard: {
+    BattleRequestList,
+    CardsList,
+    NewsList,
+    StartBattle
   },
   MoleculeForum: {
     ForumComment,
@@ -494,6 +526,7 @@ export const components = {
   TemplateCommon: {
     Authors,
     CoorpHeader,
+    Dashboard,
     Discipline,
     SearchPage
   }
@@ -640,6 +673,9 @@ export const fixtures = {
     }
   },
   Molecule: {
+    BattleRequest: {
+      Default: BattleRequestFixtureDefault
+    },
     BrandCardCreate: {
       Default: BrandCardCreateFixtureDefault
     },
@@ -656,6 +692,7 @@ export const fixtures = {
       Default: BrandDownloadBoxFixtureDefault
     },
     BrandFormGroup: {
+      Dashboard: BrandFormGroupFixtureDashboard,
       Default: BrandFormGroupFixtureDefault,
       Images: BrandFormGroupFixtureImages,
       Lookandfeel: BrandFormGroupFixtureLookandfeel,
@@ -759,6 +796,9 @@ export const fixtures = {
       Active: ModuleCardFixtureActive,
       Restarted: ModuleCardFixtureRestarted
     },
+    News: {
+      Default: NewsFixtureDefault
+    },
     Pagination: {
       Default: PaginationFixtureDefault,
       Disabled: PaginationFixtureDisabled
@@ -789,6 +829,12 @@ export const fixtures = {
     SelectMultiple: {
       Checked: SelectMultipleFixtureChecked,
       Default: SelectMultipleFixtureDefault
+    },
+    SetupSection: {
+      Default: SetupSectionFixtureDefault
+    },
+    SetupSections: {
+      Default: SetupSectionsFixtureDefault
     },
     SetupSlide: {
       Default: SetupSlideFixtureDefault
@@ -831,6 +877,23 @@ export const fixtures = {
       Default: VideoPlayerFixtureDefault,
       WithImage: VideoPlayerFixtureWithImage,
       Youtube: VideoPlayerFixtureYoutube
+    }
+  },
+  MoleculeDashboard: {
+    BattleRequestList: {
+      Default: BattleRequestListFixtureDefault
+    },
+    CardsList: {
+      Default: CardsListFixtureDefault,
+      Many: CardsListFixtureMany
+    },
+    NewsList: {
+      Default: NewsListFixtureDefault,
+      Loading: NewsListFixtureLoading,
+      More: NewsListFixtureMore
+    },
+    StartBattle: {
+      Default: StartBattleFixtureDefault
     }
   },
   MoleculeForum: {
@@ -982,6 +1045,9 @@ export const fixtures = {
     CoorpHeader: {
       Production: CoorpHeaderFixtureProduction,
       Staging: CoorpHeaderFixtureStaging
+    },
+    Dashboard: {
+      Default: DashboardFixtureDefault
     },
     Discipline: {
       Default: DisciplineFixtureDefault,

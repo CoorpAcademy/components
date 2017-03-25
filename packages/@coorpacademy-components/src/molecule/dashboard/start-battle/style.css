@@ -1,0 +1,170 @@
+@value breakpoints: "../../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value tablet from breakpoints;
+@value desktop from breakpoints;
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.wrapper {
+  max-width: 1080px;
+  flex: 1 1 100%;
+  background: #FFFFFF;
+  border: 1px solid #FEFEFE;
+  box-shadow: 0 0 1px 1px rgba(0,0,0,0.10);
+}
+
+.start {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.button {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  border: 1px solid #ffe100;
+}
+
+.button:hover .bubble {
+  transform: scale(0);
+}
+
+.button:hover .bubble > .icon {
+  transform: scale(3);
+}
+
+.animate {
+  composes: button;
+  margin: 5px;
+}
+
+.animate:after {
+  animation: pulse 2s linear 0s infinite;
+}
+
+.animate:before {
+  animation: pulse 2s linear 1s infinite;
+}
+
+.animate:after,
+.animate:before {
+  content: '';
+  width: 150px;
+  height: 150px;
+  top: 0;
+  left: 0;
+  position: absolute;
+  box-shadow: inset 0 0 7px 0px rgba(255, 225, 0, 0.37);
+  border-radius: 50%;
+  transform: scale(1);
+}
+
+.bubble {
+  content: '';
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #ffe100;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  transition: all 0.2s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bubble .icon {
+  color: #ffffff;
+  transition: all 0.2s ease-out;
+}
+
+.icon {
+  composes: fa from '../../../variables/fontawesome.css';
+  composes: fa-bolt from '../../../variables/fontawesome.css';
+  position: absolute;
+  font-size: 130px;
+  text-align: center;
+  width: 100%;
+  left: 0px;
+  top: 5px;
+  color: #ffe100;
+}
+
+.label {
+  z-index: 2;
+  font-family: 'Open Sans';
+  color: #191919;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 15px;
+  text-align: center;
+  padding: 10px;
+  line-height: 20px;
+  letter-spacing: 4px;
+  display: flex;
+  flex-direction: column;
+}
+
+.label span {
+  font-size: 30px;
+  letter-spacing: normal;
+}
+
+.text {
+  text-align: center;
+  color: #455A64;
+  font-family: 'Open Sans';
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 40px;
+}
+
+.text p {
+  margin: 0;
+  padding: 0;
+}
+
+.link {
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.link:hover {
+  color: #455a64;
+}
+
+@media mobile {
+  .button {
+    margin-top: 20px;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}

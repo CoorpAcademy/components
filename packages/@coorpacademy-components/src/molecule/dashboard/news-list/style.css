@@ -1,0 +1,73 @@
+@value breakpoints: "../../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value tablet from breakpoints;
+@value desktop from breakpoints;
+
+.wrapper {
+  padding: 20px 30px 0;
+}
+
+.list {
+  align-items: center;
+  max-width: 1080px;
+  margin: auto;
+  box-sizing: border-box;
+}
+
+.title {
+  font-family: 'Open Sans';
+  font-size: 19px;
+  font-weight: 600;
+  color: #484848;
+  margin-bottom: 16px;
+}
+
+.card {
+  box-sizing: border-box;
+  margin-bottom: 16px;
+}
+
+.more {
+  width: 100%;
+  background-color: #F7F7F7;
+  font-family: 'Open Sans';
+  font-weight: 600;
+  color: #AAAAAA;
+  font-size: 17px;
+  line-height: 55px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.more:hover {
+  background-color: #D8D8D8;
+}
+
+.loader {
+  width: 100%;
+  height: 50px;
+  position: relative;
+}
+
+@media tablet {
+
+}
+
+@media mobile {
+  .wrapper {
+    padding: 0 8px;
+  }
+
+  .list {
+    align-items: stretch;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+
+  .card {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+}
