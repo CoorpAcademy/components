@@ -10,7 +10,7 @@ This library provide sharable components for web applications, either :
 
 # Storybook
 
-[here](http://coorpacademy.github.io/components/storybook)
+[here](http://coorpacademy.github.io/components/)
 
 ### Goal
 
