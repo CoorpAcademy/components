@@ -23,7 +23,7 @@ addons:
       - ubuntu-toolchain-r-test
     packages:
       - g++-4.8
-before-deploy: npm run storybook:export
+before_deploy: npm run storybook:export
 deploy:
   provider: pages
   skip_cleanup: true
