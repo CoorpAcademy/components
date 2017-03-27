@@ -51,6 +51,7 @@ import MenuList from '../src/molecule/menu-list';
 import ModuleBubble from '../src/molecule/module-bubble';
 import ModuleCard from '../src/molecule/module-card';
 import Pagination from '../src/molecule/pagination';
+import ProductCard from '../src/molecule/product-card';
 import ProgressBar from '../src/molecule/progress-bar';
 import RangeSlider from '../src/molecule/range-slider';
 import ScopeContent from '../src/molecule/scope-content';
@@ -439,6 +440,7 @@ export const components = {
     ModuleBubble,
     ModuleCard,
     Pagination,
+    ProductCard,
     ProgressBar,
     RangeSlider,
     ScopeContent,
