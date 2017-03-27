@@ -73,6 +73,7 @@ export Notification from './atom/notification';
 export Pagination from './molecule/pagination';
 export Picture from './atom/picture';
 export Popin from './organism/popin';
+export ProductCard from './molecule/product-card';
 export ProductCourse from './template/app-catalog/product-course';
 export ProductCursus from './template/app-catalog/product-cursus';
 export ProgressBar from './molecule/progress-bar';
