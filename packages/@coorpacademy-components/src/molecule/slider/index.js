@@ -33,6 +33,7 @@ class Slider extends React.Component {
       this.hammer.destroy();
     }
     this.hammer = null;
+    clearTimeout(this.timer);
   }
 
   handleNextSlide() {
