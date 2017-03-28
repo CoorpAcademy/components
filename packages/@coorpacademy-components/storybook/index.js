@@ -2,6 +2,7 @@ import {relative} from 'path';
 import React from 'react';
 import get from 'lodash/fp/get';
 import set from 'lodash/fp/set';
+import each from 'lodash/fp/each';
 import map from 'lodash/fp/map';
 import reduce from 'lodash/fp/reduce';
 import mapValues from 'lodash/fp/mapValues';
@@ -23,7 +24,6 @@ import {
   color
 } from '@kadira/storybook-addon-knobs';
 import createTranslate from '@coorpacademy/translate';
-import Provider from '../src/atom/provider';
 import en from '../locales/en/global';
 import fr from '../locales/fr/global';
 import skin from './skin';
@@ -68,10 +68,9 @@ const toKnobs = props => {
   return res;
 };
 
-// eslint-disable-next-line lodash-fp/no-unused-result
 pipe(
   toPairs,
-  map(([folderName, _folder]) => ([
+  each(([folderName, _folder]) => ([
     folderName,
     pipe(
       toPairs,
@@ -79,18 +78,15 @@ pipe(
         const _fixtures = get([folderName, componentName], fixtures);
         const stories = storiesOf(`${folderName}.${componentName}`, module);
         stories.addDecorator(withKnobs);
+        stories.addDecorator(require('../.storybook/addons/translate').default);
 
-        // eslint-disable-next-line lodash-fp/no-unused-result
         pipe(
           toPairs,
-          map(([fixtureName, fixture]) => {
+          each(([fixtureName, fixture]) => {
             stories.add(fixtureName, () => React.createElement(
-              Provider,
-              options,
-              React.createElement(
-                factory,
-                toKnobs(fixture.props)
-              )
+              factory,
+              toKnobs(fixture.props),
+              fixture.children
             ));
           })
         )(_fixtures);
