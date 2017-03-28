@@ -65,7 +65,7 @@ const Card = (props, context) => {
         <div
           className={style.imageWrapper}
           style={{
-            backgroundImage: `url('${image}')`
+            backgroundImage: image ? `url('${image}')` : 'none'
           }}
         >
           <div
