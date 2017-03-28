@@ -2,6 +2,7 @@ import {relative} from 'path';
 import React from 'react';
 import get from 'lodash/fp/get';
 import set from 'lodash/fp/set';
+import each from 'lodash/fp/each';
 import map from 'lodash/fp/map';
 import reduce from 'lodash/fp/reduce';
 import mapValues from 'lodash/fp/mapValues';
@@ -23,17 +24,17 @@ import {
   color
 } from '@kadira/storybook-addon-knobs';
 import createTranslate from '@coorpacademy/translate';
-import Provider from '../src/atom/provider';
 import en from '../locales/en/global';
 import fr from '../locales/fr/global';
+import {Provider} from '../src';
 import skin from './skin';
-
 import {components, fixtures} from './components';
 
+const forEach = mapValues.convert({cap: false});
 const locales = {en, fr};
 const translate = createTranslate(locales.fr);
 
-const options = {
+const context = {
   skin,
   translate
 };
@@ -49,53 +50,31 @@ const convert = (testFunc, knobFunc, property) => value => {
 };
 
 // https://github.com/storybooks/storybook-addon-knobs
-const toKnobs = props => {
-  const res = pipe(
-    toPairs,
-    reduce((acc, [property, value]) => {
-      const v = pipe(
-        convert(isColor, color, property),
-        convert(isString, text, property),
-        convert(isNumber, number, property),
-        convert(isBoolean, boolean, property),
-        convert(isObject, object, property),
-      )(value);
+const toKnobs = props => reduce.convert({cap: false})((acc, value, property) => {
+  const v = pipe(
+    convert(isColor, color, property),
+    convert(isString, text, property),
+    convert(isNumber, number, property),
+    convert(isBoolean, boolean, property),
+    convert(isObject, object, property),
+  )(value);
 
-      return set(property, v, acc);
-    }, {})
-  )(props);
+  return set(property, v, acc);
+}, {}, props);
 
-  return res;
-};
-
-// eslint-disable-next-line lodash-fp/no-unused-result
-pipe(
-  toPairs,
-  map(([folderName, _folder]) => ([
-    folderName,
-    pipe(
-      toPairs,
-      map(([componentName, factory]) => {
-        const _fixtures = get([folderName, componentName], fixtures);
-        const stories = storiesOf(`${folderName}.${componentName}`, module);
-        stories.addDecorator(withKnobs);
-
-        // eslint-disable-next-line lodash-fp/no-unused-result
-        pipe(
-          toPairs,
-          map(([fixtureName, fixture]) => {
-            stories.add(fixtureName, () => React.createElement(
-              Provider,
-              options,
-              React.createElement(
-                factory,
-                toKnobs(fixture.props),
-                fixtures.children
-              )
-            ));
-          })
-        )(_fixtures);
-      })
-    )(_folder)
-  ]))
-)(components);
+forEach((folder, folderName) => {
+  forEach((Component, componentName) => {
+    const componentFixtures = get([folderName, componentName], fixtures);
+    const stories = storiesOf(`${folderName}.${componentName}`, module);
+    stories.addDecorator(withKnobs);
+    forEach(({props, children}, fixtureName) => {
+      stories.add(fixtureName, () => (
+        <Provider {...context}>
+          <Component {...toKnobs(props)}>
+            {children}
+          </Component>
+        </Provider>
+      ));
+    }, componentFixtures);
+  }, folder);
+}, components);
