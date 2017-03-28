@@ -45,6 +45,9 @@ class Select extends React.Component {
     const selected = multiple ?
       map(get('value'), filter({selected: true}, options)) :
       get('value', find({selected: true}, options));
+    const selectedLabel = multiple ?
+      map(get('name'), filter({selected: true}, options)) :
+      get('name', find({selected: true}, options));
 
     const handleChange = multiple ?
       e => {
@@ -62,8 +65,10 @@ class Select extends React.Component {
       <div className={theme ? style[theme] : getClassState(style, modified, false)}>
         <label>
           <span className={style.title}>{title}</span>
+          <span className={style.label}>{selectedLabel}</span>
           {arrowView}
           <select
+            title={selectedLabel}
             onChange={handleChange}
             value={selected}
             multiple={multiple}

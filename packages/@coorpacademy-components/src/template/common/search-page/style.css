@@ -10,8 +10,8 @@
     width: 100%;
     height: auto;
     box-sizing: border-box;
-    padding: 0 9% 16px 9%;
-    background: #fbfbfb;
+    padding: 0 0 16px 0;
+    background: light;
     box-sizing: border-box;
 }
 
@@ -27,7 +27,7 @@
 
 @media mobile {
   .cardsWrapper {
-    padding-top: 20px;
+    padding: 5px 0px;
   }
 }
 

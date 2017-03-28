@@ -14,7 +14,7 @@
     width: auto;
     height: 50px;
     margin: 0;
-    padding: 0 15px;
+    padding: 0 30px 0 15px;
     box-sizing: border-box;
     background: borderGrey;
     line-height: 50px;
@@ -24,6 +24,10 @@
     composes: fa from '../../variables/fontawesome.css';
     composes: fa-angle-down from '../../variables/fontawesome.css';
     position: relative;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    cursor: pointer;
 }
 .select:before {
     display: block;
@@ -84,7 +88,12 @@
     margin: 15px 0;
     padding: 0;
 }
-
+.activeChoices li div {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 12px;
+}
 .list {
     margin: 0;
     padding: 0;

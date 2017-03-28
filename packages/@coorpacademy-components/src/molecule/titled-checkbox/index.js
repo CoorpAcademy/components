@@ -39,7 +39,11 @@ const TitledCheckbox = (props, context) => {
           onChange={handleChange}
         />
       </label>
-      <span>{label}</span>
+      <span
+        title={label}
+      >
+        {label}
+      </span>
     </div>
   );
 };

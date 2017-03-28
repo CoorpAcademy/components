@@ -1,6 +1,5 @@
 import React, {PropTypes} from 'react';
 import Select from '../../atom/select';
-import SelectMultiple from '../../molecule/select-multiple';
 import RangeSlider from '../../molecule/range-slider';
 import shallowCompare from '../../util/shallow-compare';
 import style from './style.css';
@@ -57,7 +56,7 @@ class Filters extends React.Component {
       thematic,
       authors,
       sorting,
-      selectMultiple,
+      courses,
       ctalabelfilter,
       ctalabelsort,
       onSearch
@@ -67,9 +66,9 @@ class Filters extends React.Component {
     const filtersActive = this.state.filter === true;
     const sortingActive = this.state.sorted === true;
 
-    const listMultipleView = selectMultiple !== undefined ? (
+    const coursesView = courses !== undefined ? (
       <div className={style.choice}>
-        <SelectMultiple {...selectMultiple} />
+        <Select {...courses} />
       </div>
     ) : null;
 
@@ -98,7 +97,7 @@ class Filters extends React.Component {
     ) : null;
 
     const emptyFilters = thematic === undefined && timer === undefined &&
-                         selectMultiple === undefined && authors === undefined;
+                         courses === undefined && authors === undefined;
 
     return (
       <div className={style.search}>
@@ -124,7 +123,7 @@ class Filters extends React.Component {
           <div className={emptyFilters ? style.wrapperNone : style.wrapper}>
             {thematicView}
             {timerView}
-            {listMultipleView}
+            {coursesView}
             {authorsView}
           </div>
           <div
@@ -153,9 +152,9 @@ Filters.propTypes = {
   titlepage: PropTypes.string,
   thematic: PropTypes.object,
   timer: PropTypes.object,
+  courses: PropTypes.object,
   authors: PropTypes.object,
   sorting: PropTypes.object,
-  selectMultiple: PropTypes.object,
   onSearch: PropTypes.func
 };
 

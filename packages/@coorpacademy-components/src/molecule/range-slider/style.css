@@ -18,7 +18,7 @@
 }
 
 .text {
-  font-size: 12px;
+  font-size: 14px;
   font-family: "Open Sans";
   font-weight: 400;
   user-select: none;
@@ -29,8 +29,6 @@
   color: darkGrey;
   text-align: center;
   user-select: none;
-  color: white;
-  background-color: blue;
   width: auto;
   padding: 0px 7px;
   border-radius: 25px;
@@ -45,6 +43,7 @@
   margin-top: 8px;
   display: inline-block;
   user-select: none;
+  visibility: hidden;
 }
 
 .labelMin {

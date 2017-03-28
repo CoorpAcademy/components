@@ -1,15 +1,13 @@
-import dropdowns from '../../../../atom/select/test/fixtures/filter';
-import selectThematique from '../../../../molecule/select-multiple/test/fixtures/checked';
+import dropdownsSort from '../../../../atom/select/test/fixtures/sort';
 
-const select = dropdowns.props;
-const selectMultiple = selectThematique.props;
+const selectSort = dropdownsSort.props;
 
 export default {
   props: {
     titlepage: 'Catalog',
     ctalabelfilter: 'Filter',
     ctalabelsort: 'Sort by',
-    sorting: {...select,
+    sorting: {...selectSort,
       title: 'Sort by',
       options: [
         {
