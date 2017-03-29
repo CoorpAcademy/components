@@ -21,11 +21,11 @@ const BattleRequestList = (props, context) => {
     );
   });
 
-  return (
+  return requests && requests.length > 0 ? (
     <div className={style.list}>
       {cards}
     </div>
-  );
+  ) : null;
 };
 
 BattleRequestList.contextTypes = {

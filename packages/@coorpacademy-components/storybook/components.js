@@ -277,6 +277,8 @@ import SearchFixtureDefault from '../src/molecule/search/test/fixtures/default';
 import SelectMultipleFixtureChecked from '../src/molecule/select-multiple/test/fixtures/checked';
 import SelectMultipleFixtureDefault from '../src/molecule/select-multiple/test/fixtures/default';
 import SetupSectionFixtureDefault from '../src/molecule/setup-section/test/fixtures/default';
+import SetupSectionFixtureFirst from '../src/molecule/setup-section/test/fixtures/first';
+import SetupSectionFixtureOther from '../src/molecule/setup-section/test/fixtures/other';
 import SetupSectionsFixtureDefault from '../src/molecule/setup-sections/test/fixtures/default';
 import SetupSlideFixtureDefault from '../src/molecule/setup-slide/test/fixtures/default';
 import SetupSliderFixtureDefault from '../src/molecule/setup-slider/test/fixtures/default';
@@ -307,6 +309,7 @@ import NewsListFixtureDefault from '../src/molecule/dashboard/news-list/test/fix
 import NewsListFixtureLoading from '../src/molecule/dashboard/news-list/test/fixtures/loading';
 import NewsListFixtureMore from '../src/molecule/dashboard/news-list/test/fixtures/more';
 import StartBattleFixtureDefault from '../src/molecule/dashboard/start-battle/test/fixtures/default';
+import StartBattleFixtureHref from '../src/molecule/dashboard/start-battle/test/fixtures/href';
 import ForumCommentFixtureDefault from '../src/molecule/forum/forum-comment/test/fixtures/default';
 import ForumCommentFixturePostDisabled from '../src/molecule/forum/forum-comment/test/fixtures/post-disabled';
 import ForumCommentFixtureTextareaDisabled from '../src/molecule/forum/forum-comment/test/fixtures/textarea-disabled';
@@ -831,7 +834,9 @@ export const fixtures = {
       Default: SelectMultipleFixtureDefault
     },
     SetupSection: {
-      Default: SetupSectionFixtureDefault
+      Default: SetupSectionFixtureDefault,
+      First: SetupSectionFixtureFirst,
+      Other: SetupSectionFixtureOther
     },
     SetupSections: {
       Default: SetupSectionsFixtureDefault
@@ -893,7 +898,8 @@ export const fixtures = {
       More: NewsListFixtureMore
     },
     StartBattle: {
-      Default: StartBattleFixtureDefault
+      Default: StartBattleFixtureDefault,
+      Href: StartBattleFixtureHref
     }
   },
   MoleculeForum: {

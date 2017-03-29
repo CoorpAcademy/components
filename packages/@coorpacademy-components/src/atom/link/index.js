@@ -42,7 +42,7 @@ class Link extends React.Component {
     const {skin, history: {createHref = identity} = {}} = this.context;
     const {skinHover, ...aProps} = this.props;
     const primarySkinColor = getOr('#00B0FF', 'common.primary', skin);
-    const _style = this.props.href ? null : {
+    const _style = this.props.href || this.props.onClick ? null : {
       pointerEvents: 'none'
     };
     const _hoverStyle = skinHover && this.state.hovered ? {

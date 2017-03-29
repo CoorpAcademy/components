@@ -17,6 +17,7 @@
   border-left: 5px solid;
   cursor: pointer;
   position: relative;
+  text-decoration: none;
 }
 
 .card:last-child {

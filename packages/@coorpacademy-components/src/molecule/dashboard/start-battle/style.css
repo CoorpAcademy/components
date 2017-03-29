@@ -36,6 +36,8 @@
   cursor: pointer;
   position: relative;
   border: 1px solid #ffe100;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .button:hover .bubble {

@@ -1,20 +1,23 @@
 import React, {PropTypes} from 'react';
 import map from 'lodash/fp/map';
+import Link from '../../../atom/link';
 import style from './style.css';
 
 const StartBattle = (props, context) => {
   const skin = context;
   const {
     label,
-    onClick
+    onClick,
+    href
   } = props;
 
   return (
     <div className={style.container}>
       <div className={style.wrapper}>
         <div className={style.start}>
-          <div className={style.animate}
+          <Link className={style.animate}
             onClick={onClick}
+            href={href}
           >
             <div className={style.icon} />
             <div className={style.bubble}>
@@ -25,7 +28,7 @@ const StartBattle = (props, context) => {
                 __html: label
               }}
             />
-          </div>
+          </Link>
         </div>
       </div>
     </div>
@@ -38,7 +41,8 @@ StartBattle.contextTypes = {
 
 StartBattle.propTypes = {
   label: React.PropTypes.string,
-  onClick: React.PropTypes.func
+  onClick: React.PropTypes.func,
+  href: React.PropTypes.string
 };
 
 export default StartBattle;

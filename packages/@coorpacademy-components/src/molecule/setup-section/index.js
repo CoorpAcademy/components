@@ -8,9 +8,10 @@ const SetupSection = (props, context) => {
 
   const {
     title,
-    handleUpClick,
-    handleDownClick,
-    display
+    onUp,
+    onDown,
+    display,
+    id
   } = props;
 
   return (
@@ -23,11 +24,11 @@ const SetupSection = (props, context) => {
           {translate('Show')}
         </div>
         <InputSwitch {...display} />
-        <div className={style.down}
-          onClick={handleDownClick}
+        <div className={onDown ? style.down : style.disabledDown}
+          onClick={onDown}
         />
-        <div className={style.up}
-          onClick={handleUpClick}
+        <div className={onUp ? style.up : style.disabledUp}
+          onClick={onUp}
         />
       </div>
     </div>
@@ -40,8 +41,9 @@ SetupSection.contextTypes = {
 
 SetupSection.propTypes = {
   title: React.PropTypes.string.isRequired,
-  handleUpClick: React.PropTypes.func,
-  handleDownClick: React.PropTypes.func,
-  display: React.PropTypes.object
+  onUp: React.PropTypes.func,
+  onDown: React.PropTypes.func,
+  display: React.PropTypes.object,
+  id: React.PropTypes.string.isRequired
 };
 export default SetupSection;

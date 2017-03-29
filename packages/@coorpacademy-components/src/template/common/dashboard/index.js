@@ -17,7 +17,7 @@ const BrandFormGroup = props => {
       type
     } = section;
     switch (type) {
-      case 'requests':
+      case 'battleRequests':
         return (
           <BattleRequestList {...section} />
         );

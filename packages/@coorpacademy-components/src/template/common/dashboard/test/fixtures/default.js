@@ -15,7 +15,7 @@ export default {
   props: {
     sections: [
       defaultsDeep(requestsProps, {
-        type: 'requests'
+        type: 'battleRequests'
       }),
       defaultsDeep(cardsProps, {
         type: 'cards'

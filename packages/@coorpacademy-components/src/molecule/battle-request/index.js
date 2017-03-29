@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
 import getOr from 'lodash/fp/getOr';
+import Link from '../../atom/link';
 import style from './style.css';
 
 const BattleRequest = (props, context) => {
@@ -8,7 +9,8 @@ const BattleRequest = (props, context) => {
     username,
     discipline,
     level,
-    avatar
+    avatar,
+    href
   } = props;
 
   const primaryColor = getOr('#00B0FF', 'common.primary', skin);
@@ -17,10 +19,11 @@ const BattleRequest = (props, context) => {
   const startLabel = translate('Start battle');
 
   return (
-    <div className={style.card}
+    <Link className={style.card}
       style={{
         borderColor: primaryColor
       }}
+      href={href}
     >
       <div className={style.avatar}>
         <img src={avatar} />
@@ -44,7 +47,7 @@ const BattleRequest = (props, context) => {
         {startLabel}
       </div>
       <div className={style.arrow} />
-    </div>
+    </Link>
   );
 };
 
@@ -57,7 +60,8 @@ BattleRequest.propTypes = {
   username: React.PropTypes.string,
   discipline: React.PropTypes.string,
   level: React.PropTypes.string,
-  avatar: React.PropTypes.string
+  avatar: React.PropTypes.string,
+  href: React.PropTypes.string
 };
 
 export default BattleRequest;

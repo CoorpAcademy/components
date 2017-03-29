@@ -1,8 +1,8 @@
 export default {
   props: {
-    id: '98aze89138',
+    id: 'aiz12ueaz97',
     title: 'Recommended for you',
-    onUp: e => {console.log(e);}, // eslint-disable-line no-console
+    onUp: null,
     onDown: e => {console.log(e);}, // eslint-disable-line no-console
     display: {
       value: true,

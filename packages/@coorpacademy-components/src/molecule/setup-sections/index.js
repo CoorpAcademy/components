@@ -11,8 +11,11 @@ const SetupSections = (props, context) => {
   } = props;
 
   const sectionsView = sections.map((section, index) => {
+    section.onUp = (index === 0) ? null : section.onUp;
+    section.onDown = (index === sections.length - 1) ? null : section.onDown;
+
     return (
-      <div key={index}
+      <div key={section.id}
         className={style.section}
       >
         <SetupSection {...section} />

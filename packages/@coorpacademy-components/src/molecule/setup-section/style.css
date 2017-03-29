@@ -50,8 +50,20 @@
   composes: fa-chevron-down from '../../variables/fontawesome.css';
 }
 
+.disabledDown {
+  composes: down;
+  color: #b9b9b9;
+  pointer-events: none;
+}
+
 .up {
   composes: arrow;
   composes: fa-chevron-up from '../../variables/fontawesome.css';
   margin-left: 8px;
+}
+
+.disabledUp {
+  composes: up;
+  color: #b9b9b9;
+  pointer-events: none;
 }
