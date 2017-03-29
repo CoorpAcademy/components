@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import Price from '../../atom/price';
+import style from './style.css';
 
 const ProductCard = props => {
   const {
@@ -7,26 +7,31 @@ const ProductCard = props => {
     subtitle,
     descriptionItems,
     price,
-    cancelText
+    cancelText,
+    checkImage
   } = props;
 
   const items = descriptionItems.map(item => {
     return (
-      <div className="product-description__item">
-        <div className="item__checkbox"></div>
+      <div className={style.productDescription}>
+        <img
+          className={style.productCheckbox}
+          src={checkImage}
+        />
         <div className="item__text">{item}</div>
       </div>
     );
   });
 
   return (
-    <div className="product">
-      <div className="product__header">
-        <div className="product-header__title">{title}</div>
-        <div className="product-header__subtitle">{subtitle}</div>
+    <div className={style.product}>
+      <div className={style.productHeader}>
+        <div className={style.productHeaderTitle}>{title}</div>
+        <div className={style.productHeaderSubtitle}>{subtitle}</div>
       </div>
-      <div className="product__body">
+      <div className="{style.productBody}">
         <div className="product__description">{items}</div>
+        <hr className="productSeparation" />
         <div className="product__price">
           <div className="price__value">{price}</div>
           <div className="price__cancel">{cancelText}</div>
@@ -41,7 +46,8 @@ ProductCard.propTypes = {
   subtitle: PropTypes.string.isRequired,
   descriptionItems: PropTypes.array.isRequired,
   price: PropTypes.string.isRequired,
-  cancelText: PropTypes.string.isRequired
+  cancelText: PropTypes.string.isRequired,
+  checkImage: PropTypes.string.isRequired
 };
 
 export default ProductCard;
