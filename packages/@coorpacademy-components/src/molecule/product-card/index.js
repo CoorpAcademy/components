@@ -13,12 +13,12 @@ const ProductCard = props => {
 
   const items = descriptionItems.map(item => {
     return (
-      <div className={style.productDescription}>
+      <div className={style.productDescriptionItem}>
         <img
           className={style.productCheckbox}
           src={checkImage}
         />
-        <div className="item__text">{item}</div>
+        <div className={style.productDescriptionText}>{item}</div>
       </div>
     );
   });
@@ -29,12 +29,12 @@ const ProductCard = props => {
         <div className={style.productHeaderTitle}>{title}</div>
         <div className={style.productHeaderSubtitle}>{subtitle}</div>
       </div>
-      <div className="{style.productBody}">
+      <div className={style.productBody}>
         <div className="product__description">{items}</div>
-        <hr className="productSeparation" />
-        <div className="product__price">
-          <div className="price__value">{price}</div>
-          <div className="price__cancel">{cancelText}</div>
+        <hr className={style.productSeparation} />
+        <div className={style.productPrice}>
+          <div className={style.priceValue}>{price}</div>
+          <div className={style.cancelText}>{cancelText}</div>
         </div>
       </div>
     </div>
