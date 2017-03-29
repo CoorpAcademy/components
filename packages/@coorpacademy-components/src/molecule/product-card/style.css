@@ -1,0 +1,39 @@
+@value colors: "../../variables/colors.css";
+@value blue from colors;
+
+.product {
+  box-shadow: 0 0 4px 0 lightgrey;
+  margin: 5px;
+}
+
+.productHeader {
+  color: white;
+  background-color: blue;
+  text-align: center;
+  padding: 10px;
+}
+
+.productHeaderTitle {
+  font-weight: bold;
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+.productHeaderSubtitle {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.productDescription {
+  display: flex;
+}
+
+.productCheckbox {
+  width: 12px;
+  height: 12px;
+  margin: 15px 0;
+}
+
+.productBody {
+  padding: 70px 20px;
+}
