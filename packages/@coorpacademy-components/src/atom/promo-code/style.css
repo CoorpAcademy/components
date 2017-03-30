@@ -1,11 +1,13 @@
 @value colors: "../../variables/colors.css";
 @value green from colors;
 @value lightGreen from colors;
+@value red from colors;
+@value lightRed from colors;
 @value darkBlueGrey from colors;
 
 .promoCode {
   box-shadow: 0 0 4px 0 lightgrey;
-  margin: 20px 0px;
+  margin: 20px 5px;
   padding: 5px;
 }
 
@@ -38,10 +40,27 @@
   width: 30%;
 }
 
-.promoCodeDescription {
+.promoCodeButtonOnSuccess {
+  box-shadow: 0 0 4px 0 green;
+}
+
+.promoCodeButtonOnError {
+  box-shadow: 0 0 4px 0 red;
+}
+
+.promoCodeDescription, .promoCodeError {
   margin: 0px 10px 20px 10px;
-  border: solid 1px green;
   padding: 20px;
+}
+
+.promoCodeDescription {
+  border: solid 1px green;
   background-color: lightGreen;
   color: green;
+}
+
+.promoCodeError {
+  border: solid 1px red;
+  background-color: lightRed;
+  color: red;
 }
