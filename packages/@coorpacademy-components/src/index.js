@@ -16,6 +16,7 @@ export Breadcrumbs from './molecule/breadcrumbs';
 export Button from './atom/button';
 export Card from './molecule/card';
 export CardsGrid from './organism/cards-grid';
+export CartHeader from './molecule/cart-header';
 export Catalog from './template/app-catalog/catalog';
 export CatalogAssets from './molecule/catalog-assets';
 export CatalogBadge from './molecule/catalog-badge';
