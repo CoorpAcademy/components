@@ -77,6 +77,7 @@ export ProductCard from './molecule/product-card';
 export ProductCourse from './template/app-catalog/product-course';
 export ProductCursus from './template/app-catalog/product-cursus';
 export ProgressBar from './molecule/progress-bar';
+export PromoCode from './atom/promo-code';
 export Provider from './atom/provider';
 export RangeSlider from './molecule/range-slider';
 export ScopeContent from './molecule/scope-content';
