@@ -1,9 +1,11 @@
 import React, {PropTypes} from 'react';
 
+import style from './style.css';
+
 const CartHeader = ({title}) => {
   return (
-    <div className="title-container">
-      <div className="title">{title}</div>
+    <div className={style.titleContainer}>
+      <div className={style.headerTitle}>{title}</div>
     </div>
   );
 };
