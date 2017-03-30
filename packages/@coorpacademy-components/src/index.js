@@ -64,6 +64,7 @@ export ModuleCard from './molecule/module-card';
 export MoocHeader from './organism/mooc-header';
 export Notification from './atom/notification';
 export Pagination from './molecule/pagination';
+export PaymentForm from './molecule/payment-form';
 export Picture from './atom/picture';
 export Popin from './organism/popin';
 export ProductCard from './molecule/product-card';
