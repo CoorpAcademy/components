@@ -1,0 +1,47 @@
+@value colors: "../../variables/colors.css";
+@value green from colors;
+@value lightGreen from colors;
+@value darkBlueGrey from colors;
+
+.promoCode {
+  box-shadow: 0 0 4px 0 lightgrey;
+  margin: 20px 0px;
+  padding: 5px;
+}
+
+.promoCodeInputAndButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.promoCodeInput, .promoCodeButton {
+  margin: 20px 10px;
+  height: 60px;
+  font-weight: bold;
+}
+
+.promoCodeInput {
+  color: darkBlueGrey;
+  font-size: 14px;
+  border: solid 1px #bbb;
+  width: 60%;
+  margin: 20px 10px;
+  padding: 10px;
+}
+
+.promoCodeButton {
+  border: 0px;
+  font-size: 18px;
+  color: #FFFFFF;
+  background-color: #BBBBBB;
+  width: 30%;
+}
+
+.promoCodeDescription {
+  margin: 0px 10px 20px 10px;
+  border: solid 1px green;
+  padding: 20px;
+  background-color: lightGreen;
+  color: green;
+}
