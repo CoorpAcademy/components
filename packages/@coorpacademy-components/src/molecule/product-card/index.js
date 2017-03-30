@@ -11,9 +11,12 @@ const ProductCard = props => {
     checkImage
   } = props;
 
-  const items = descriptionItems.map(item => {
+  const items = descriptionItems.map((item, index) => {
     return (
-      <div className={style.productDescriptionItem}>
+      <div
+        className={style.productDescriptionItem}
+        key={index}
+      >
         <img
           className={style.productCheckbox}
           src={checkImage}
