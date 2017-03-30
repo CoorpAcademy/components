@@ -49,7 +49,11 @@ class PromoCode extends Component {
             required
             onChange={this.handleInputChange}
             value={promoCode}
-            className={style.promoCodeInput}
+            className={`
+              ${style.promoCodeInput}
+              ${this.props.promoCodeError && style.promoCodeButtonOnError}
+              ${this.props.promoCodeDescription && style.promoCodeButtonOnSuccess}
+            `}
           />
           <button
             type="submit"
