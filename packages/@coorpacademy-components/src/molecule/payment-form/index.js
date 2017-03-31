@@ -5,32 +5,58 @@ class PaymentForm extends React.Component {
   constructor(props) {
     super(props);
     this.stripe = window.Stripe ? window.Stripe(props.stripeKeyPublic) : null;
+    this.state = {
+      cardNumberHasError: false,
+      cardExpiryHasError: false,
+      cardCvcHasError: false
+    };
   }
 
   componentDidMount() {
     if (this.stripe) {
       const elements = this.stripe.elements();
 
-      const elementStyle = {
-        base: {
-          color: '#546E7A',
-          fontSize: '16px',
-          fontFamily: '"Open Sans"',
-          '::placeholder': {
+      const elementOptions = {
+        style: {
+          base: {
+            iconStyle: 'solid',
             color: '#546E7A',
             fontSize: '16px',
-            fontFamily: '"Open Sans"'
+            fontFamily: '"Open Sans"',
+            '::placeholder': {
+              color: '#546E7A',
+              fontSize: '16px',
+              fontFamily: '"Open Sans"'
+            }
           }
         }
       };
 
-      this.cardNumber = elements.create('cardNumber', {style: elementStyle});
-      const cardExpiry = elements.create('cardExpiry', {style: elementStyle});
-      const cardCvc = elements.create('cardCvc', {style: elementStyle});
+      this.cardNumber = elements.create('cardNumber', elementOptions);
+      const cardExpiry = elements.create('cardExpiry', elementOptions);
+      const cardCvc = elements.create('cardCvc', elementOptions);
 
       this.cardNumber.mount('#card-number');
       cardExpiry.mount('#card-expiry');
       cardCvc.mount('#card-cvc');
+
+      this.cardNumber.on('change', ({error}) => {
+        this.setState({
+          cardNumberHasError: error
+        });
+      });
+
+      cardExpiry.on('change', ({error}) => {
+        this.setState({
+          cardExpiryHasError: error
+        });
+      });
+
+      cardCvc.on('change', ({error}) => {
+        this.setState({
+          cardCvcHasError: error
+        });
+      });
     }
   }
 
@@ -56,6 +82,12 @@ class PaymentForm extends React.Component {
       errors
     } = this.props;
 
+    const {
+      cardNumberHasError,
+      cardExpiryHasError,
+      cardCvcHasError
+    } = this.state;
+
     const handleSubmit = () => this.handleSubmit();
 
     return (
@@ -76,7 +108,7 @@ class PaymentForm extends React.Component {
           <div className={style.creditCardOwnerEmailText}>{cardOwnerEmail}</div>
           <hr className={style.creditCardOwnerEmailSeparator} />
         </div>
-        {errors && <div className={style.paymentErrors}>{errors}</div>}
+        {errors && <div className={style.paymentErrors}>- {errors}</div>}
         <div className={style.securedPayment}>
           <img
             className={style.securedPaymentImage}
@@ -86,17 +118,17 @@ class PaymentForm extends React.Component {
         </div>
         <div className={style.cardBlock}>
           <div
-            className={style.cardNumber}
+            className={`${style.cardNumber} ${cardNumberHasError && style.invalidElement}`}
             id="card-number"
           />
         </div>
         <div className={style.cardBlock}>
           <div
-            className={style.cardExpiry}
+            className={`${style.cardExpiry} ${cardExpiryHasError && style.invalidElement}`}
             id="card-expiry"
           />
           <div
-            className={style.cardCvc}
+            className={`${style.cardCvc} ${cardCvcHasError && style.invalidElement}`}
             id="card-cvc"
           />
         </div>
