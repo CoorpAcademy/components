@@ -1,21 +1,48 @@
-import React from 'react';
+// @flow
+import React, {type Children} from 'react';
 import PropTypes from 'prop-types';
 import noop from 'lodash/fp/noop';
 import shallowCompare from '../../util/shallow-compare';
 
+type DefaultProps = {
+  onChange: Function
+};
+
+export type Props = {
+  children?: Children,
+  onChange: Function,
+  checked: boolean,
+  /* eslint-disable react/no-unused-prop-types */
+  required?: boolean,
+  disabled?: boolean
+  /* eslint-enable react/no-unused-prop-types */
+};
+
+type State = {
+  checked: boolean
+};
+
 class Checkbox extends React.Component {
-  constructor(props) {
+  static defaultProps: {
+    onChange: noop
+  }
+
+  state: State
+  props: Props
+  handleChangeBound: Function
+
+  constructor(props: Props) {
     super(props);
     const {checked} = props;
     this.state = {checked};
     this.handleChangeBound = this.handleChange.bind(this);
   }
 
-  shouldComponentUpdate(nextProps, nextState, nextContext) {
+  shouldComponentUpdate(nextProps: Props, nextState: State, nextContext: any) {
     return shallowCompare(this, nextProps, nextState, nextContext);
   }
 
-  handleChange(e) {
+  handleChange(e: Event & {target: {checked: boolean}}) {
     this.props.onChange(e.target.checked);
     this.setState({
       checked: e.target.checked
