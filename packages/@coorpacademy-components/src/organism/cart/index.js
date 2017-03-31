@@ -17,11 +17,11 @@ const Cart = ({
     <div className={style.parent}>
         <CartHeader {...cartHeaderProps} />
         <div className={style.cart}>
-            <div className={style.cartBlock}>
+            <div className={style.productBlock}>
                 <ProductCard {...productCardProps} />
                 <PromoCode {...promoCodeProps} />
             </div>
-            <div className={style.cartBlock}>
+            <div className={style.paymentBlock}>
                 <PaymentForm {...paymentFormProps} />
                 <a className={style.backButton} href={backUrl}>{backTitle}</a>
             </div>
