@@ -22,14 +22,13 @@
 }
 
 .productBlock {
-    margin-right: 40px;
-    flex: 1;
+    width: calc(50% - 20px);
     display: flex;
     flex-direction: column;
 }
 
 .paymentBlock {
-    flex: 1;
+    width: calc(50% - 20px);
     display: flex;
     flex-direction: column;
 }
