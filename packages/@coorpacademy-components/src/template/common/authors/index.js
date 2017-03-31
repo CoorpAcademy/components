@@ -53,7 +53,7 @@ class Authors extends React.Component {
       </div>
     ), sociallinks);
 
-    const authorSocial = socialView ? (
+    const authorSocial = socialView === 0 ? (
       <div className={style.links}>
         <span>{socialTitle}</span>{socialView}
       </div>

@@ -196,6 +196,11 @@
     padding: 0 16px;
   }
 
+  .desc {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
   .shortDesc {
     composes: desc;
     height: 66px;
