@@ -11,6 +11,7 @@
 .product {
   box-shadow: 0 0 4px 0 lightgrey;
   margin: 5px;
+  background-color: white;
 }
 
 .productHeader {
