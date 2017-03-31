@@ -19,10 +19,17 @@
     justify-content: space-between;
 }
 
-.cartBlock {
-  max-width: 50%;
-  display: flex;
-  flex-direction: column;
+.productBlock {
+    margin-right: 40px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.paymentBlock {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 @media mobile {
