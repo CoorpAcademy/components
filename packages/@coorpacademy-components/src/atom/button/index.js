@@ -1,12 +1,28 @@
-import React from 'react';
+// @flow
+import React, {type Children} from 'react';
 import PropTypes from 'prop-types';
 import * as CustomPropTypes from '../../util/proptypes';
 import Link from '../link';
 import addClassName from '../../util/add-class-name';
+import {type LinkTarget} from '../../types';
 import style from './style.css';
 import {hoverFill} from './hover-fill.css';
 
-const Button = ({children, ...props}) => {
+export type Props = {
+  children?: Children,
+  color?: string,
+  submitValue?: string,
+  className?: string,
+  centered: boolean,
+  disabled: boolean,
+  href?: string,
+  type?: string,
+  target?: LinkTarget,
+  style?: Object,
+  onClick?: Function
+};
+
+const Button = (props: Props) => {
   const {
     className,
     color,
@@ -32,7 +48,7 @@ const Button = ({children, ...props}) => {
           href={href}
           target={target}
         >
-          {submitValue || children}
+          {submitValue || props.children}
         </Link>
       );
       break;
@@ -43,7 +59,7 @@ const Button = ({children, ...props}) => {
           href={href}
           target={target}
         >
-          {submitValue || children}
+          {submitValue || props.children}
         </a>
       );
       break;
@@ -78,7 +94,6 @@ const Button = ({children, ...props}) => {
 };
 
 Button.propTypes = {
-  background: CustomPropTypes.color,
   color: CustomPropTypes.color,
   submitValue: PropTypes.string,
   centered: PropTypes.bool,
@@ -86,6 +101,7 @@ Button.propTypes = {
   href: PropTypes.string,
   target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
   onClick: PropTypes.func,
+  style: PropTypes.object,
   children: PropTypes.node
 };
 

@@ -1,11 +1,14 @@
-import defaultsDeep from 'lodash/fp/defaultsDeep';
+// @flow
+import {type Props} from '../../';
 import Default from './default';
 
-const {props} = Default;
+const {props: parentProps} = Default;
+
+const props: Props = {
+  ...parentProps,
+  color: '#717171'
+};
 
 export default {
-  props: defaultsDeep(props, {
-    background: '#CFD8DC',
-    color: '#717171'
-  })
+  props
 };
