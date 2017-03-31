@@ -1,0 +1,63 @@
+@value colors: "../../variables/colors.css";
+@value light from colors;
+@value blueGrey from colors;
+
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+
+.parent {
+    background-color: light;
+}
+
+.cart {
+    width: 90%;
+    max-width: 1175px;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.productBlock {
+    margin-right: 40px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.paymentBlock {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+@media mobile {
+  .cart {
+    width: 100%;
+  }
+
+  .productBlock {
+    margin-right: 0;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .paymentBlock {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+.backButton {
+  border: none;
+  text-align: center;
+  margin: 10px 5px;
+  padding: 20px 0;
+  font-size: 17px;
+  font-weight: bold;
+  text-decoration: none;
+  background: #ECEFF1;
+  color: blueGrey;
+}

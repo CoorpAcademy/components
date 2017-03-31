@@ -15,6 +15,7 @@ export BrandUploadBox from './molecule/brand-upload-box';
 export Breadcrumbs from './molecule/breadcrumbs';
 export Button from './atom/button';
 export Card from './molecule/card';
+export Cart from './organism/cart';
 export CardsGrid from './organism/cards-grid';
 export CartHeader from './molecule/cart-header';
 export Catalog from './template/app-catalog/catalog';
