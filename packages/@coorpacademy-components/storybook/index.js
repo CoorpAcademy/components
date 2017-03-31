@@ -14,7 +14,7 @@ import isNumber from 'lodash/fp/isNumber';
 import isBoolean from 'lodash/fp/isBoolean';
 import isObject from 'lodash/fp/isObject';
 import toPairs from 'lodash/fp/toPairs';
-import { storiesOf, action, linkTo } from '@kadira/storybook';
+import { storiesOf, action, linkTo } from '@kadira/storybook'; // eslint-disable-line import/no-unresolved
 import {
   withKnobs,
   text,
@@ -22,7 +22,7 @@ import {
   boolean,
   object,
   color
-} from '@kadira/storybook-addon-knobs';
+} from '@kadira/storybook-addon-knobs'; // eslint-disable-line import/no-unresolved
 import createTranslate from '@coorpacademy/translate';
 import en from '../locales/en/global';
 import fr from '../locales/fr/global';
