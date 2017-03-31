@@ -7,6 +7,7 @@
   },
   "plugins": [
     "@coorpacademy/coorpacademy",
+    "flowtype-errors",
     "react"
   ],
   "extends": [
@@ -27,9 +28,19 @@
   "rules": {
     "ava/no-ignored-test-files": ["error", {"files": ["**/test/**/*.js"]}],
     "fp/no-class": 0,
+    "flowtype-errors/show-errors": "error",
     "import/no-extraneous-dependencies": "off",
     "no-shadow": ["error", {"builtinGlobals": true, "hoist": "all", "allow": ["Promise", "history", "location", "find", "Notification"]}],
     "no-unused-vars": 0,
+    "react/sort-comp": ["error", {
+      "order": [
+        "type-annotations",
+        "static-methods",
+        "lifecycle",
+        "everything-else",
+        "render"
+      ],
+    }],
     "react/forbid-component-props": 0,
     "react/forbid-foreign-prop-types": 0,
     "react/forbid-prop-types": 0,
