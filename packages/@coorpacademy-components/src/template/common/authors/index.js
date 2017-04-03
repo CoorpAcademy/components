@@ -116,10 +116,7 @@ Authors.contextTypes = {
 Authors.propTypes = {
   cards: PropTypes.object,
   cardsTitle: PropTypes.string,
-  image: PropTypes.oneOfType([
-    CustomPropTypes.url,
-    PropTypes.objectOf(CustomPropTypes.url)
-  ]),
+  image: PropTypes.string,
   title: PropTypes.string,
   website: PropTypes.string,
   urlcontent: PropTypes.string,
