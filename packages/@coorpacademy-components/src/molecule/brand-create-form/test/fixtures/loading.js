@@ -1,12 +1,16 @@
-import defaultsDeep from 'lodash/fp/defaultsDeep';
-import defaultSettings from './default';
+// @flow
+import {type Props} from '../../';
+import Default from './default';
 
-const {props} = defaultSettings;
+const {props: parentProps} = Default;
+
+const props: Props = {
+  ...parentProps,
+  isModified: true,
+  isPending: true,
+  submitValue: 'Loading'
+};
 
 export default {
-  props: defaultsDeep(props, {
-    isModified: true,
-    isPending: true,
-    submitValue: 'Loading'
-  })
+  props
 };
