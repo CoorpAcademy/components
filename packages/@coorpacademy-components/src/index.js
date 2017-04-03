@@ -1,4 +1,5 @@
 export Author from './template/app-catalog/author';
+export Authors from './template/common/authors';
 export BrandCard from './molecule/brand-card';
 export BrandCardCreate from './molecule/brand-card-create';
 export BrandCreate from './template/back-office/brand-create';

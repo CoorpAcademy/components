@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react';
 import fill from 'lodash/fp/fill';
 import pipe from 'lodash/fp/pipe';
+import map from 'lodash/fp/map';
 import Star from '../../atom/star';
 import style from './style.css';
 
@@ -12,12 +13,12 @@ const StarRating = props => {
     fill(0, rating, true)
   )(new Array(total));
 
-  const Stars = popularity.map((popular, index) => (
+  const Stars = map.convert({cap: false})((popular, index) => (
     <Star
       popular={popular}
       key={index}
     />
-  ));
+  ), popularity);
 
   return (
     <div className={style.starRating}>
