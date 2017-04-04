@@ -116,6 +116,11 @@
   white-space: pre-line;
   padding: 0 30px;
   max-width: 450px;
+  cursor: pointer;
+}
+
+.subscribeButton:hover {
+  background-color: #007BB3;
 }
 
 .subscriptionDisclaimer {

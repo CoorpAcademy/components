@@ -60,4 +60,9 @@
   text-decoration: none;
   background: #ECEFF1;
   color: blueGrey;
+  cursor: pointer;
+}
+
+.backButton:hover {
+  background: #C0CAD1;
 }
