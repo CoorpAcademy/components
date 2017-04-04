@@ -39,6 +39,11 @@
   color: #FFFFFF;
   background-color: #BBBBBB;
   width: 30%;
+  cursor: pointer;
+}
+
+.promoCodeButton:hover {
+  background: #959595;
 }
 
 .promoCodeButtonOnSuccess {
