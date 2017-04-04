@@ -90,6 +90,7 @@ import ProductCursus from '../src/template/app-catalog/product-cursus';
 import BrandCreate from '../src/template/back-office/brand-create';
 import BrandList from '../src/template/back-office/brand-list';
 import BrandUpdate from '../src/template/back-office/brand-update';
+import Authors from '../src/template/common/authors';
 import CoorpHeader from '../src/template/common/coorp-header';
 import Discipline from '../src/template/common/discipline';
 import SearchPage from '../src/template/common/search-page';
@@ -372,6 +373,8 @@ import BrandUpdateFixtureUsersImportSuccessful from '../src/template/back-office
 import BrandUpdateFixtureUsersImport from '../src/template/back-office/brand-update/test/fixtures/users-import';
 import BrandUpdateFixtureUsersList from '../src/template/back-office/brand-update/test/fixtures/users-list';
 import BrandUpdateFixtureUsers from '../src/template/back-office/brand-update/test/fixtures/users';
+import AuthorsFixtureDefault from '../src/template/common/authors/test/fixtures/default';
+import AuthorsFixtureNoSocials from '../src/template/common/authors/test/fixtures/no-socials';
 import CoorpHeaderFixtureProduction from '../src/template/common/coorp-header/test/fixtures/production';
 import CoorpHeaderFixtureStaging from '../src/template/common/coorp-header/test/fixtures/staging';
 import DisciplineFixtureDefault from '../src/template/common/discipline/test/fixtures/default';
@@ -489,6 +492,7 @@ export const components = {
     BrandUpdate
   },
   TemplateCommon: {
+    Authors,
     CoorpHeader,
     Discipline,
     SearchPage
@@ -971,6 +975,10 @@ export const fixtures = {
     }
   },
   TemplateCommon: {
+    Authors: {
+      Default: AuthorsFixtureDefault,
+      NoSocials: AuthorsFixtureNoSocials
+    },
     CoorpHeader: {
       Production: CoorpHeaderFixtureProduction,
       Staging: CoorpHeaderFixtureStaging

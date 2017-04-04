@@ -67,11 +67,15 @@ class MoocHeader extends React.Component {
     super(props);
     this.state = {
       isSettingsOpen: false,
-      isMenuOpen: false
+      isMenuOpen: false,
+      isThemeMenuOpen: false
     };
 
     this.handleSettingsToggle = this.handleSettingsToggle.bind(this);
     this.handleMenuToggle = this.handleMenuToggle.bind(this);
+    this.handleMenuThemeClick = this.handleMenuThemeClick.bind(this);
+    this.handleMenuThemeMouseEnter = this.handleMenuThemeMouseEnter.bind(this);
+    this.handleMenuThemeMouseLeave = this.handleMenuThemeMouseLeave.bind(this);
     this._checkOnClose = this._checkOnClose.bind(this);
     this.handleLinkClick = this.handleLinkClick.bind(this);
   }
@@ -113,6 +117,24 @@ class MoocHeader extends React.Component {
     }));
   }
 
+  handleMenuThemeClick() {
+    this.setState(prevState => ({
+      isThemeMenuOpen: !prevState.isThemeMenuOpen
+    }));
+  }
+
+  handleMenuThemeMouseEnter() {
+    this.setState(prevState => ({
+      isThemeMenuOpen: true
+    }));
+  }
+
+  handleMenuThemeMouseLeave() {
+    this.setState(prevState => ({
+      isThemeMenuOpen: false
+    }));
+  }
+
   render() {
     const {logo = {}, themes, pages, settings, user, slider, links} = this.props;
     const {translate, skin} = this.context;
@@ -145,9 +167,13 @@ class MoocHeader extends React.Component {
       });
 
       themesView = (
-        <div className={style.themes}>
+        <div className={this.state.isThemeMenuOpen ? style.themesHovered : style.themes}
+          onMouseEnter={this.handleMenuThemeMouseEnter}
+          onMouseLeave={this.handleMenuThemeMouseLeave}
+        >
           <div
             className={style.currentOption}
+            onTouchStart={this.handleMenuThemeClick}
             aria-haspopup='true'
             data-name="thematique"
           >{currentTheme.title}<span className={style.caret} /></div>
