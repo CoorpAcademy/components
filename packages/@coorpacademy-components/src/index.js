@@ -89,6 +89,7 @@ export Search from './molecule/search';
 export SearchPage from './template/common/search-page';
 export Select from './atom/select';
 export SelectMultiple from './molecule/select-multiple';
+export Settings from './organism/settings';
 export SetupHeader from './organism/setup-header';
 export SetupSection from './molecule/setup-section';
 export SetupSections from './molecule/setup-sections';
