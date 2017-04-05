@@ -2,7 +2,12 @@ import React from 'react';
 
 const TabContent = props => (
   <div>
-    {props.children}
+    <div>
+      {props.translations.titles[props.activeTab]}
+    </div>
+    <div>
+      {props.children}
+    </div>
   </div>
 );
 
