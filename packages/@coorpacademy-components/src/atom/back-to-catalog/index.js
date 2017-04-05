@@ -2,7 +2,7 @@ import React from 'react';
 
 const BackToCatalogButton = props => (
   <div onClick={props.handleBackToCatalogButtonClick}>
-    {props.backToCatalogButtonLabel}
+    {props.translations.backToCatalog}
   </div>
 );
 
