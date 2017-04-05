@@ -123,6 +123,11 @@
   background-color: #007BB3;
 }
 
+.subscribeButton:disabled {
+  background-color: #99dfff;
+  cursor: not-allowed;
+}
+
 .subscriptionDisclaimer {
   color: #868686;
   font-size: 10px;
