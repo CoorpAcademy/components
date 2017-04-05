@@ -95,13 +95,17 @@ class MoocHeader extends React.Component {
   }
 
   _checkOnClose(clickEvent) {
-    const menu = findDOMNode(this._menuSettings);
-    if (menu && !menu.contains(clickEvent.target)) {
-      this.handleSettingsToggle();
+    if (this.state.isSettingsOpen) {
+      const menu = findDOMNode(this._menuSettings);
+      if (menu && !menu.contains(clickEvent.target)) {
+        this.handleSettingsToggle();
+      }
     }
-    const menuThemes = findDOMNode(this._menuThemes);
-    if (menuThemes && !menuThemes.contains(clickEvent.target)) {
-      this.handleMenuThemeClick();
+    if (this.state.isThemeMenuOpen) {
+      const menuThemes = findDOMNode(this._menuThemes);
+      if (menuThemes && !menuThemes.contains(clickEvent.target)) {
+        this.handleMenuThemeClick();
+      }
     }
   }
 
