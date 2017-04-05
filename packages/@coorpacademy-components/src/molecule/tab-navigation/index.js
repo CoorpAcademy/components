@@ -3,9 +3,11 @@ import Tab from '../../atom/tab';
 import BackToCatalogButton from '../../atom/back-to-catalog';
 import TabContent from '../../atom/tab-content';
 import SubscriptionFreemiumDetails from '../subscription-details/freemium';
+import Unsubscribe from '../unsubscribe';
 
 const pages = {
-  my_subscription: SubscriptionFreemiumDetails
+  'my-subscription': SubscriptionFreemiumDetails,
+  unsubscribe: Unsubscribe
 };
 
 const TabNavigation = props => {
@@ -20,11 +22,12 @@ const TabNavigation = props => {
             {...otherProps}
             {...tab}
             key={tab.key}
+            tabKey={tab.key}
             active={tab.key === activeTab}
           />
         ))}
       </div>
-      <TabContent>
+      <TabContent activeTab={activeTab} {...otherProps}>
         <ActiveContent {...otherProps} />
       </TabContent>
     </div>
