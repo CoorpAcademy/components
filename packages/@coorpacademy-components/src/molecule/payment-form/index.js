@@ -8,7 +8,8 @@ class PaymentForm extends React.Component {
     this.state = {
       cardNumberHasError: false,
       cardExpiryHasError: false,
-      cardCvcHasError: false
+      cardCvcHasError: false,
+      submitButtonEnabled: false
     };
   }
 
@@ -42,25 +43,30 @@ class PaymentForm extends React.Component {
 
       this.cardNumber.on('change', ({error}) => {
         this.setState({
-          cardNumberHasError: error
+          cardNumberHasError: error,
+          submitButtonEnabled: true
         });
       });
 
       cardExpiry.on('change', ({error}) => {
         this.setState({
-          cardExpiryHasError: error
+          cardExpiryHasError: error,
+          submitButtonEnabled: true
         });
       });
 
       cardCvc.on('change', ({error}) => {
         this.setState({
-          cardCvcHasError: error
+          cardCvcHasError: error,
+          submitButtonEnabled: true
         });
       });
     }
   }
 
   handleSubmit() {
+    this.setState({submitButtonEnabled: false});
+
     if (this.stripe) {
       return this.stripe.createToken(this.cardNumber)
       .then(response => {
@@ -85,10 +91,12 @@ class PaymentForm extends React.Component {
     const {
       cardNumberHasError,
       cardExpiryHasError,
-      cardCvcHasError
+      cardCvcHasError,
+      submitButtonEnabled
     } = this.state;
 
     const handleSubmit = () => this.handleSubmit();
+    const disabled = submitButtonEnabled ? {} : {disabled: true};
 
     return (
       <div className={style.paymentForm}>
@@ -138,6 +146,7 @@ class PaymentForm extends React.Component {
             className={style.subscribeButton}
             type="button"
             onClick={handleSubmit}
+            {...disabled}
           >{submitText}</button>
         </div>
       </div>
