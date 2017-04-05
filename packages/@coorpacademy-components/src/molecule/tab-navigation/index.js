@@ -6,7 +6,7 @@ import SubscriptionFreemiumDetails from '../subscription-details/freemium';
 import Unsubscribe from '../unsubscribe';
 
 const pages = {
-  'my-subscription': SubscriptionFreemiumDetails,
+  subscribe: SubscriptionFreemiumDetails,
   unsubscribe: Unsubscribe
 };
 
