@@ -106,7 +106,6 @@ DisciplinePartners.propTypes = {
   authors: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string,
     more: PropTypes.string,
-    href: PropTypes.string,
     logo: PropTypes.shape({
       src: PropTypes.string,
       href: PropTypes.string
