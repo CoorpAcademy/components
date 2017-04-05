@@ -3,7 +3,7 @@ export default {
     authors: [
       {
         name: 'ELEPHANT',
-        href: 'http://google.fr',
+        more: 'Author Details',
         logo: {
           src: 'https://static-staging.coorpacademy.com/upload/up/partners/1472198693277logo_elephant.png',
           href: '/elephant'
@@ -21,7 +21,7 @@ export default {
       },
       {
         name: 'NEXSTAGE',
-        href: 'http://www.nextstage.com/',
+        more: 'Author Details',
         logo: {
           src: 'https://static-staging.coorpacademy.com/upload/up/partners/1472198693277logo_elephant.png',
           href: '/nextstage'
