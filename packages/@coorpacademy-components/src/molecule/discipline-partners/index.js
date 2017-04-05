@@ -33,7 +33,7 @@ const DisciplinePartners = (props, context) => {
           href={authorLogo.href}
         >
           {moreDetails}
-          <span className={style.linkicon}/>
+          <span className={style.linkicon} />
         </a>
       </div>
     );
