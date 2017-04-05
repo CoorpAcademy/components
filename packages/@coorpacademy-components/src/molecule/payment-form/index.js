@@ -9,7 +9,7 @@ class PaymentForm extends React.Component {
       cardNumberHasError: false,
       cardExpiryHasError: false,
       cardCvcHasError: false,
-      submitButtonEnabled: false
+      submitButtonEnabled: true
     };
   }
 
@@ -65,11 +65,11 @@ class PaymentForm extends React.Component {
   }
 
   handleSubmit() {
-    this.setState({submitButtonEnabled: false});
-
     if (this.stripe) {
       return this.stripe.createToken(this.cardNumber)
       .then(response => {
+        if (!response.error)
+          this.setState({submitButtonEnabled: false});
         return this.props.createSubscription(response);
       });
     }
