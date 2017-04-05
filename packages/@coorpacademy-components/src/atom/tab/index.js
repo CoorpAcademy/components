@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Tab = props => (
-  <div onClick={() => props.onTabClick(props.tabKey)}>
+  <div onClick={() => props.onTabClick(props.targetContent)}>
     <div>
       {props.title}
     </div>

@@ -2,17 +2,19 @@ import React, {PropTypes, Component} from 'react';
 import Tab from '../../atom/tab';
 import BackToCatalogButton from '../../atom/back-to-catalog';
 import TabContent from '../../atom/tab-content';
+import SubscriptionPremiumDetails from '../subscription-details/premium';
 import SubscriptionFreemiumDetails from '../subscription-details/freemium';
 import Unsubscribe from '../unsubscribe';
 
 const pages = {
+  'my-subscription': SubscriptionPremiumDetails,
   subscribe: SubscriptionFreemiumDetails,
   unsubscribe: Unsubscribe
 };
 
 const TabNavigation = props => {
-  const {tabs, activeTab, ...otherProps} = props;
-  const ActiveContent = pages[activeTab];
+  const {tabs, activeContent, ...otherProps} = props;
+  const ActiveContent = pages[activeContent];
   return (
     <div>
       <div>
@@ -22,13 +24,12 @@ const TabNavigation = props => {
             {...otherProps}
             {...tab}
             key={tab.key}
-            tabKey={tab.key}
-            active={tab.key === activeTab}
+            active={tab.key === activeContent}
           />
         ))}
       </div>
       <TabContent
-        activeTab={activeTab}
+        activeContent={activeContent}
         {...otherProps}
       >
         <ActiveContent {...otherProps} />
