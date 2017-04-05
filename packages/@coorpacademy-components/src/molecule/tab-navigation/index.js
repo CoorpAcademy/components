@@ -27,7 +27,10 @@ const TabNavigation = props => {
           />
         ))}
       </div>
-      <TabContent activeTab={activeTab} {...otherProps}>
+      <TabContent
+        activeTab={activeTab}
+        {...otherProps}
+      >
         <ActiveContent {...otherProps} />
       </TabContent>
     </div>
