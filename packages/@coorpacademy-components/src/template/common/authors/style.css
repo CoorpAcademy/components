@@ -11,6 +11,7 @@
 
 .wrapper {
   composes: wrapper from '../layout.css';
+  background: white;
 }
 
 .authorsWrapper {
@@ -34,6 +35,8 @@
   border: 1px solid borderGrey;
   background-color: light;
   object-fit: contain;
+  min-height: 180px;
+  padding: 8px;
 }
 
 .imgWrapper img {
@@ -180,6 +183,7 @@
     height: auto;
     text-align: center;
     margin: 16px 16px 0 16px;
+    min-height: auto;
   }
 
   .imgWrapper img {
