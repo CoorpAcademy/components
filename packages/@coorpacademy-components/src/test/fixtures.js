@@ -1,8 +1,10 @@
+import 'jsdom-global/register';
 import {relative} from 'path';
 import test from 'ava';
 import sinon from 'sinon';
 import React from 'react';
 import ReactDOM from 'react-dom/server';
+import render from 'react-test-renderer';
 import identity from 'lodash/fp/identity';
 import map from 'lodash/fp/map';
 import pipe from 'lodash/fp/pipe';
@@ -59,6 +61,11 @@ mapObject((components, componentType) => mapObject((componentPath, componentName
         {vTree}
       </Provider>
     );
+
+    test(`${it} › should pass snapshot`, t => {
+      const tree = render.create(wrappedVTree).toJSON();
+      t.snapshot(tree);
+    });
 
     test(`${it} › should have props or children in every fixture`, t => {
       t.true(undefined !== fixture.props || undefined !== fixture.children);

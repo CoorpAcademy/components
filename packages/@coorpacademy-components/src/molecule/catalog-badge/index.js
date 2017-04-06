@@ -10,7 +10,7 @@ const CatalogBadge = (props, context) => {
     badge
   } = props;
 
-  if (isNil(badge)) return null;
+  if (isNil(badge)) return <span />;
 
   const {
     translate

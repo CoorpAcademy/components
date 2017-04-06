@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {findDOMNode} from 'react-dom';
 import addClassName from '../../util/add-class-name';
 import shallowCompare from '../../util/shallow-compare';
 import style from './style.css';
@@ -10,11 +9,12 @@ const Hammer = (typeof window !== 'undefined') ? require('hammerjs') : undefined
 class Handle extends React.Component {
   constructor(props, context) {
     super(props, context);
+    this.ref = this.ref.bind(this);
   }
 
   componentDidMount() {
-    if (Hammer) {
-      this.hammer = new Hammer(findDOMNode(this));
+    if (Hammer && this.element) {
+      this.hammer = new Hammer(this.element);
       this.hammer.on('panstart', this.props.handlePanStart);
       this.hammer.on('panend', this.props.handlePanEnd);
 
@@ -38,6 +38,10 @@ class Handle extends React.Component {
       this.hammer.destroy();
     }
     this.hammer = null;
+  }
+
+  ref(element) {
+    this.element = element;
   }
 
   onX() {
@@ -64,6 +68,7 @@ class Handle extends React.Component {
           left: `${x}px`,
           top: `${y}px`
         }}
+        ref={this.ref}
       />
     );
   }

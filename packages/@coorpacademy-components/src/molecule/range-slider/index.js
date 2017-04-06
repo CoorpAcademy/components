@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {findDOMNode} from 'react-dom';
 import getOr from 'lodash/fp/getOr';
 import set from 'lodash/fp/set';
 import join from 'lodash/fp/join';
@@ -39,7 +38,7 @@ class RangeSlider extends React.Component {
 
   componentDidMount() {
     const max = this.railWidth();
-    const steps = this.state.steps;
+    const steps = this.state.steps || [];
     const stepWidth = max / (steps.length - 1);
 
     const step1 = getOr(0, 'handle1.step', this.state);
@@ -64,6 +63,7 @@ class RangeSlider extends React.Component {
       },
       railWidth: max
     });
+
     window.addEventListener('resize', this.updatePositions);
   }
 
@@ -179,7 +179,8 @@ class RangeSlider extends React.Component {
   }
 
   railWidth() {
-    return findDOMNode(this._rail).clientWidth;
+    const node = this._rail;
+    return node ? node.clientWidth : 0;
   }
 
   render() {
