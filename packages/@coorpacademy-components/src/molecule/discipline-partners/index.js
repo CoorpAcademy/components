@@ -14,7 +14,8 @@ const DisciplinePartners = (props, context) => {
 
   const {
     authorTitle,
-    authors = []
+    authors = [],
+    more
   } = props;
 
   const authorLabel = authorTitle || translate('author');
@@ -23,6 +24,7 @@ const DisciplinePartners = (props, context) => {
     const socialLinks = getOr([], 'socialLinks', author);
     const authorLogo = get('logo', author);
     const authorHref = get('href', author);
+    const moreDetails = get('more', author);
     const autName = get('name', author);
 
     const linkView = (
@@ -32,6 +34,16 @@ const DisciplinePartners = (props, context) => {
           href={authorHref}
         >
           {authorHref}
+        </a>
+      </div>
+    );
+    const moreInfoView = (
+      <div className={style.authorLink}>
+        <a
+          href={authorHref}
+        >
+          {moreDetails}
+          <span className={style.linkicon} />
         </a>
       </div>
     );
@@ -68,8 +80,9 @@ const DisciplinePartners = (props, context) => {
 
     const authorContent = authorHref || aNameView || socialView ? (
       <div className={style.authorContent}>
-        {authorHref ? linkView : null}
         {autName ? aNameView : null}
+        {moreDetails ? moreInfoView : null}
+        {(!moreDetails && authorHref) ? linkView : null}
         <div className={style.links}>
           {socialView}
         </div>
@@ -104,6 +117,7 @@ DisciplinePartners.propTypes = {
   authors: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string,
     href: PropTypes.string,
+    more: PropTypes.string,
     logo: PropTypes.shape({
       src: PropTypes.string,
       href: PropTypes.string
