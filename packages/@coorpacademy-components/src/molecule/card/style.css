@@ -19,7 +19,7 @@
   margin: 8px;
   width: 260px;
   vertical-align: top;
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   background: white;
   overflow: hidden;
   height: 260px;
@@ -33,6 +33,7 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   background: light;
   transform: translateY(-2px);
+  border: 0px solid rgba(0, 0, 0, 0);
 }
 
 .imageWrapper:hover .overlay,
