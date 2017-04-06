@@ -36,6 +36,7 @@ test('should not do anything if history is not in the options', t => {
   const customEvent = createEvent(props);
 
   onClick(props)(customEvent);
+  t.pass();
 });
 
 test('should not do anything if event does not contain a target href', t => {
@@ -47,6 +48,7 @@ test('should not do anything if event does not contain a target href', t => {
   const onClick = pushToHistory(options);
 
   onClick({})({});
+  t.pass();
 });
 
 test('should not do anything if href contain domain name', t => {
@@ -61,6 +63,7 @@ test('should not do anything if href contain domain name', t => {
   const onClick = pushToHistory(options);
 
   onClick(props)({});
+  t.pass();
 });
 
 test('should not do anything if event is prevented', t => {
@@ -78,6 +81,7 @@ test('should not do anything if event is prevented', t => {
   const customEvent = createEvent(props);
 
   onClick(props)(customEvent);
+  t.pass();
 });
 
 test('should not do anything if event is mouse click but not left click', t => {
@@ -95,6 +99,7 @@ test('should not do anything if event is mouse click but not left click', t => {
   const customEvent = createEvent(props);
 
   onClick(props)(customEvent);
+  t.pass();
 });
 
 test('should not do anything if event is mouse click used with keyboard modifiers', t => {
@@ -116,4 +121,5 @@ test('should not do anything if event is mouse click used with keyboard modifier
   onClick(props)(createEventWithModifier('metaKey'));
   onClick(props)(createEventWithModifier('ctrlKey'));
   onClick(props)(createEventWithModifier('shiftKey'));
+  t.pass();
 });
