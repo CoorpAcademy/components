@@ -232,6 +232,7 @@ import DisciplineHeaderFixtureNoVideoNoImage from '../src/molecule/discipline-he
 import DisciplineHeaderFixtureNoVideo from '../src/molecule/discipline-header/test/fixtures/no-video';
 import DisciplinePartnersFixtureDefault from '../src/molecule/discipline-partners/test/fixtures/default';
 import DisciplinePartnersFixtureDoubleAuthors from '../src/molecule/discipline-partners/test/fixtures/double-authors';
+import DisciplinePartnersFixtureMoreInfo from '../src/molecule/discipline-partners/test/fixtures/more-info';
 import DisciplinePartnersFixtureNoAuthor from '../src/molecule/discipline-partners/test/fixtures/no-author';
 import DisciplineScopeFixtureDefault from '../src/molecule/discipline-scope/test/fixtures/default';
 import DisciplineScopeFixtureEmpty from '../src/molecule/discipline-scope/test/fixtures/empty';
@@ -733,6 +734,7 @@ export const fixtures = {
     DisciplinePartners: {
       Default: DisciplinePartnersFixtureDefault,
       DoubleAuthors: DisciplinePartnersFixtureDoubleAuthors,
+      MoreInfo: DisciplinePartnersFixtureMoreInfo,
       NoAuthor: DisciplinePartnersFixtureNoAuthor
     },
     DisciplineScope: {
