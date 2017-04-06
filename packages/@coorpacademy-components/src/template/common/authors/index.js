@@ -64,7 +64,7 @@ class Authors extends React.Component {
         <div className={style.authorsWrapper}>
           <div className={style.header}>
             <div className={style.imgWrapper}>
-              <Picture src={image} />
+              <img src={image} />
             </div>
             <div className={style.descWrapper}>
               <div className={style.title}>

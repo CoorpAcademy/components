@@ -1,7 +1,5 @@
 import cardsGrid from '../../../../../organism/cards-grid/test/fixtures/catalog';
-import cover from '../../../../../atom/picture/test/fixtures/default';
 
-const image = cover.props;
 const cards = cardsGrid.props;
 
 /* eslint-disable max-len */
