@@ -20,11 +20,13 @@
 }
 .header {
     display: flex;
+    padding-top: 32px;
+    box-sizing: border-box;
 }
 
 .imgWrapper {
   display: flex;
-  margin: 32px 0 0 16px;
+  margin: 0 0 0 16px;
   justify-content: center;
   align-items: center;
   flex: 0 0 380px;
@@ -36,13 +38,14 @@
   background-color: light;
   min-height: 180px;
   line-height: 180px;
-  margin: auto 0px;
+  margin: 0px;
   padding: 8px;
 }
 
 .imgWrapper img {
   width: 100%;
   height: auto;
+  margin: auto 0;
 }
 
 .linksWrapper {
@@ -93,6 +96,10 @@
   font-size: 20px;
   font-weight: 700;
   color: black;
+}
+
+.title {
+  margin-top: 0px; 
 }
 
 .cardsTitle {
@@ -146,7 +153,7 @@
 
   .shortDesc {
     composes: desc;
-    height: 66px;
+    height: 72px;
     overflow: hidden;
   }
 
@@ -193,6 +200,10 @@
 
   .titleWrapper {
     padding-left: 16px;
+  }
+
+  .title {
+    margin-top: 32px;
   }
 
   .descWrapper {
