@@ -1,11 +1,12 @@
 import React from 'react';
+import style from './style.css';
 
 const TabContent = props => (
-  <div>
-    <div>
+  <div className={style.tabContent}>
+    <div className={style.tabContentTitle}>
       {props.translations.titles[props.activeContent]}
     </div>
-    <div>
+    <div className={style.tabContentDetails}>
       {props.children}
     </div>
   </div>
