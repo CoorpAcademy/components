@@ -1,0 +1,18 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+
+.settings {
+    width: 90%;
+    max-width: 1175px;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+@media mobile {
+  .settings {
+      width: 100%;
+  }
+}
