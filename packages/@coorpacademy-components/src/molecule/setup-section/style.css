@@ -1,0 +1,69 @@
+.wrapper {
+  width: 100%;
+  background-color: #F6F6F6;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+.title {
+  font-family: 'Open Sans';
+  font-size: 14px;
+  color: #4A90E2;
+  font-weight: 700;
+}
+
+.settings {
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+
+.label {
+  font-family: 'Open Sans';
+  font-weight: 600;
+  font-size: 14px;
+  color: #405863;
+  margin-right: 16px;
+}
+
+.arrow {
+  composes: fa from '../../variables/fontawesome.css';
+  font-size: 30px;
+  width: 40px;
+  font-weight: 500;
+  color: #4A90E2;
+  cursor: pointer;
+  text-align: center;
+  margin-left: 24px;
+}
+
+.arrow:hover {
+  color: #90C1FA;
+}
+
+.down {
+  composes: arrow;
+  composes: fa-chevron-down from '../../variables/fontawesome.css';
+}
+
+.disabledDown {
+  composes: down;
+  color: #b9b9b9;
+  pointer-events: none;
+}
+
+.up {
+  composes: arrow;
+  composes: fa-chevron-up from '../../variables/fontawesome.css';
+  margin-left: 8px;
+}
+
+.disabledUp {
+  composes: up;
+  color: #b9b9b9;
+  pointer-events: none;
+}

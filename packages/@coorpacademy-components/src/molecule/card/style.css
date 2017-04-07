@@ -264,7 +264,6 @@
 
 @media mobile {
   .grid .default {
-    width: 201px;
   }
   .grid .title a {
     font-size: 15px;
@@ -330,4 +329,3 @@
     font-weight: 700;
   }
 }
-
