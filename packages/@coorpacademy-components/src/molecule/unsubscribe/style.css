@@ -1,0 +1,56 @@
+@value colors: "../../variables/colors.css";
+@value blue from colors;
+@value darkBlue from colors;
+
+.unsubscribe {
+    font-family: 'Open sans';
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.description {
+    flex: 2;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
+
+.blueButton {
+  border: none;
+  background-color: blue;
+  color: white;
+  font-size: 15px;
+  border-radius: 30px;
+  height: 60px;
+  white-space: pre-line;
+  padding: 0 30px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.blueButton:hover {
+    background-color: darkBlue;
+}
+
+.whiteButton {
+  border: none;
+  background-color: white;
+  color: blue;
+  border: 1px solid;
+  font-size: 15px;
+  border-radius: 30px;
+  height: 60px;
+  white-space: pre-line;
+  padding: 0 30px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.whiteButton:hover {
+    background-color: #f0f0f0;
+}
