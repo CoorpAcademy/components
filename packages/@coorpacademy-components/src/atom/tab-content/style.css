@@ -1,14 +1,19 @@
 @value colors: "../../variables/colors.css";
 @value blue from colors;
 @value borderGrey from colors;
-@value light from colors;
+
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value tablet from breakpoints;
 
 .tabContent {
   display: flex;
   flex-direction: column;
   justify-content: center;
   background-color: white;
+  width: 66vw;
 }
+
 .tabContentTitle {
   flex: 1;
   color: blue;
@@ -18,8 +23,29 @@
   padding: 20px;
   margin: 0px 15px;
 }
+
 .tabContentDetails {
-  background-color: light;
-  margin: 50px 100px;
+  background-color: #FAFAFA;
+  margin: 50px 150px;
   padding: 40px;
+  text-align: center;
+}
+
+@media tablet {
+  .tabContent {
+    width: 100%;
+  }
+}
+
+@media mobile {
+  .tabContentTitle {
+    display: none;
+  }
+
+  .tabContentDetails {
+    background-color: white;
+    margin: 10px;
+    border: solid 1px borderGrey;
+    padding: 30px 20px;
+  }
 }
