@@ -1,0 +1,53 @@
+@value colors: "../../variables/colors.css";
+@value blue from colors;
+@value darkBlueGrey from colors;
+@value light from colors;
+
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value tablet from breakpoints;
+
+.premiumTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.premiumTitleImage {
+  width: 32px;
+  height: 32px;
+}
+
+.premiumTitleText {
+  color: blue;
+  font-weight: 600;
+  font-size: 16px;
+  margin-left: 20px;
+}
+
+.premiumProductDetails {
+  color: darkBlueGrey;
+  margin: 20px 0;
+  text-align: justify;
+  font-size: 14px;
+}
+
+.cancelSubscriptionText {
+  color: darkBlueGrey;
+  font-size: 15px;
+}
+
+.cancelSubscriptionLink {
+  text-decoration: none;
+  color: blue;
+}
+
+.cancelSubscriptionLink:hover {
+  color: #007BB3;
+}
+
+@media mobile {
+  .premiumProductDetails {
+    font-size: 13px;
+  }
+}
