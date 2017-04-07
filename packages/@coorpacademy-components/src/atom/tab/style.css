@@ -1,0 +1,44 @@
+@value colors: "../../variables/colors.css";
+@value blue from colors;
+@value borderGrey from colors;
+
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value tablet from breakpoints;
+
+.tab {
+  cursor: pointer;
+  padding: 20px;
+  background: white;
+  margin: 10px;
+  border-left: solid 5px blue;
+  margin: 10px 0;
+}
+
+.tab:hover {
+  background: #F0F0F0;
+}
+
+.tabTitle {
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.tabLink {
+  padding: 10px;
+}
+
+@media mobile {
+  .tab {
+    margin: 0;
+    border: none;
+    padding: 10px 0;
+    display: flex;
+    border: solid 1px borderGrey;
+  }
+
+  .tabLink {
+    display: none;
+  }
+}
