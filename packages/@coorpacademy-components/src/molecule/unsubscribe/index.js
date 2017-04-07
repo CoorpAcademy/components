@@ -13,12 +13,12 @@ const Unsubscribe = props => {
         {props.translations.confirmUnsubscribe}
       </div>
       <div className={style.buttonContainer}>
-        <button className={style.blueButton} onClick={handleKeepSubscriptionButtonClick}>
+        <button className={`${style.blueButton} ${style.button}`} onClick={handleKeepSubscriptionButtonClick}>
           {props.translations.keepSubscription}
         </button>
       </div>
       <div className={style.buttonContainer}>
-        <button className={style.whiteButton} onClick={props.handleUnsubscribeButtonClick}>
+        <button className={`${style.whiteButton} ${style.button}`} onClick={props.handleUnsubscribeButtonClick}>
           {props.translations.unsubscribe}
         </button>
       </div>
