@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './style.css';
+import style from './freemium.css';
 
 const SubscriptionFreemiumDetails = props => (
   <div className={style.subscriptionFreemium}>
