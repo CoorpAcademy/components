@@ -1,0 +1,31 @@
+@value colors: "../../variables/colors.css";
+@value borderGrey from colors;
+@value blueGrey from colors;
+
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value tablet from breakpoints;
+
+.backToCatalogButton {
+  padding: 35px;
+  border: solid 1px borderGrey;
+  color: blueGrey;
+  background: #ECEFF1;
+  display:inline;
+  font-size: 17px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.backToCatalogButton::before {
+  content: "<";
+  margin-right: 10px;
+}
+
+@media mobile {
+  .backToCatalogButton {
+    padding: 20px;
+    text-align: center;
+    margin: 10px 0;
+  }
+}
