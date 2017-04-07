@@ -25,10 +25,13 @@
 }
 
 .tabContentDetails {
-  background-color: #FAFAFA;
   margin: 50px 150px;
   padding: 40px;
   text-align: center;
+}
+
+.tabContentDetailsBackground {
+  background-color: #FAFAFA;
 }
 
 @media tablet {
