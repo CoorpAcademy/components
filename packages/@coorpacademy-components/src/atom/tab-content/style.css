@@ -1,0 +1,25 @@
+@value colors: "../../variables/colors.css";
+@value blue from colors;
+@value borderGrey from colors;
+@value light from colors;
+
+.tabContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+}
+.tabContentTitle {
+  flex: 1;
+  color: blue;
+  font-size: 20px;
+  font-weight: 600;
+  border-bottom: solid 1px borderGrey;
+  padding: 20px;
+  margin: 0px 15px;
+}
+.tabContentDetails {
+  background-color: light;
+  margin: 50px 100px;
+  padding: 40px;
+}
