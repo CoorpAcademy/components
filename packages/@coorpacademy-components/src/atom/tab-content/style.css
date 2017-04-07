@@ -41,14 +41,18 @@
 }
 
 @media mobile {
+  .tabContent {
+    background: none;
+  }
+
   .tabContentTitle {
     display: none;
   }
 
   .tabContentDetails {
     background-color: white;
-    margin: 10px;
     border: solid 1px borderGrey;
     padding: 30px 20px;
+    margin: 10px 0;
   }
 }
