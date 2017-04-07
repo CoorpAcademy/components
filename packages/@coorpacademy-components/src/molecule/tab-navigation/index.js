@@ -5,6 +5,7 @@ import TabContent from '../../atom/tab-content';
 import SubscriptionPremiumDetails from '../subscription-details/premium';
 import SubscriptionFreemiumDetails from '../subscription-details/freemium';
 import Unsubscribe from '../unsubscribe';
+import style from './style.css';
 
 const pages = {
   'my-subscription': SubscriptionPremiumDetails,
@@ -16,9 +17,11 @@ const TabNavigation = props => {
   const {tabs, activeContent, ...otherProps} = props;
   const ActiveContent = pages[activeContent];
   return (
-    <div>
-      <div>
-        <BackToCatalogButton {...otherProps} />
+    <div className={style.tabNavigation}>
+      <div className={style.tabNavigationPanel}>
+        <BackToCatalogButton
+          {...otherProps}
+        />
         {tabs.map(tab => (
           <Tab
             {...otherProps}
