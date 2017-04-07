@@ -2,15 +2,15 @@ import React from 'react';
 import style from './style.css';
 
 const SubscriptionFreemiumDetails = props => (
-  <div className="subscriptionFreemium">
-    <div className="subscriptionFreemiumTitle">
+  <div className={style.subscriptionFreemium}>
+    <div className={style.subscriptionFreemiumTitle}>
       {props.translations.subscriptionFreemiumTitle}
     </div>
-    <div className="subscriptionFreemiumContent">
+    <div className={style.subscriptionFreemiumContent}>
       {props.translations.subscriptionFreemiumDescription}
     </div>
     <button
-      className="subscriptionFreemiumButton"
+      className={style.subscriptionFreemiumButton}
       onClick={props.handleSubscriptionFreemiumButton}
     >
       {props.translations.subscriptionFreemiumButton}
