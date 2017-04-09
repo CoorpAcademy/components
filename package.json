@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "ava": "NODE_ENV=test ava",
+    "ava": "cross-env NODE_ENV=test ava",
     "bootstrap": "lerna bootstrap",
     "build": "lerna run build",
     "clean": "lerna run clean && lerna clean --yes",
@@ -8,7 +8,7 @@
     "doc": "lerna run --scope @coorpacademy/components doc",
     "lerna": "lerna",
     "lint": "eslint .",
-    "nyc": "NODE_ENV=test nyc npm run ava",
+    "nyc": "cross-env NODE_ENV=test nyc npm run ava",
     "postinstall": "npm run bootstrap",
     "posttest": "lerna run prepublish",
     "publish:beta": "lerna publish --npm-tag beta",
@@ -27,6 +27,7 @@
     "babel-preset-stage-1": "^6.5.0",
     "babel-register": "^6.24.0",
     "coveralls": "^2.11.13",
+    "cross-env": "^4.0.0",
     "eslint": "^3.18.0",
     "eslint-plugin-react": "^6.10.3",
     "lerna": "2.0.0-beta.38",
@@ -62,6 +63,10 @@
     "all": true
   },
   "babel": {
-    "presets": ["es2015", "stage-1", "react"]
+    "presets": [
+      "es2015",
+      "stage-1",
+      "react"
+    ]
   }
 }

@@ -10,6 +10,7 @@ import split from 'lodash/fp/split';
 import set from 'lodash/fp/set';
 import reduce from 'lodash/fp/reduce';
 import upperFirst from 'lodash/fp/upperFirst';
+import slash from 'slash';
 
 const pascalCase = pipe(camelCase, upperFirst);
 

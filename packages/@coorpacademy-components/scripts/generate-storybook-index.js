@@ -1,4 +1,5 @@
 import {relative, join, dirname, basename} from 'path';
+import slash from 'slash';
 import _join from 'lodash/fp/join';
 import flatten from 'lodash/fp/flatten';
 import map from 'lodash/fp/map';
@@ -18,7 +19,7 @@ const _componentImports = pipe(
   mapObject((_components, type) =>
     mapObject((path, title) => {
       const relativePath = relative(targetDir, path);
-      return `import ${title} from '${relativePath}';`;
+      return `import ${title} from '${slash(relativePath)}';`;
     })(_components)
   ),
   flatten
@@ -50,7 +51,7 @@ const _fixtureImports = pipe(
         pipe(
           mapObject((path, fixture) => {
             const relativePath = relative(targetDir, path);
-            return `import ${title}Fixture${fixture} from '${removeExt(relativePath)}';`;
+            return `import ${title}Fixture${fixture} from '${slash(removeExt(relativePath))}';`;
           }),
           flatten
         )(_fixtures),
