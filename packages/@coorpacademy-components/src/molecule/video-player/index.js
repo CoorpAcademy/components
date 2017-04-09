@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import VideoIframe from '../video-iframe';
 import Picture from '../../atom/picture';
 import style from './style.css';

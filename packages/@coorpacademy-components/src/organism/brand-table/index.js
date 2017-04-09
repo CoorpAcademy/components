@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Table from '../../molecule/table';
 import Pagination from '../../molecule/pagination';
 import Search from '../../molecule/search';

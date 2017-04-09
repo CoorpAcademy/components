@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import map from 'lodash/fp/map';
 import SetupSection from '../setup-section';
 import style from './style.css';
@@ -31,10 +32,10 @@ const SetupSections = (props, context) => {
 };
 
 SetupSections.contextTypes = {
-  translate: React.PropTypes.func
+  translate: PropTypes.func
 };
 
 SetupSections.propTypes = {
-  sections: React.PropTypes.array
+  sections: PropTypes.array
 };
 export default SetupSections;

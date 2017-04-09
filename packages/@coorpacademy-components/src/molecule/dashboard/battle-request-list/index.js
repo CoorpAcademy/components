@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import map from 'lodash/fp/map';
 import BattleRequest from '../../battle-request';
 import style from './style.css';
@@ -29,11 +30,11 @@ const BattleRequestList = (props, context) => {
 };
 
 BattleRequestList.contextTypes = {
-  skin: React.PropTypes.object
+  skin: PropTypes.object
 };
 
 BattleRequestList.propTypes = {
-  requests: React.PropTypes.array
+  requests: PropTypes.array
 };
 
 export default BattleRequestList;

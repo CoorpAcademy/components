@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import _find from 'lodash/fp/find';
 import noop from 'lodash/fp/noop';
 import getOr from 'lodash/fp/getOr';
@@ -65,7 +66,7 @@ const Categories = (props, context) => {
 };
 
 Categories.contextTypes = {
-  translate: React.PropTypes.func
+  translate: PropTypes.func
 };
 
 Categories.propTypes = {

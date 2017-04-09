@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import extractor from '../../util/image';
 import style from './style.css';
 
@@ -37,7 +38,7 @@ function ThemeImage({image}, {skin}) {
 }
 
 ThemeImage.contextTypes = {
-  skin: React.PropTypes.object
+  skin: PropTypes.object
 };
 
 ThemeImage.propTypes = {

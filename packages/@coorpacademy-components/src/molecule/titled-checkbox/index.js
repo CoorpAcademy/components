@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
 import partial from 'lodash/fp/partial';
 import unary from 'lodash/fp/unary';
@@ -49,7 +50,7 @@ const TitledCheckbox = (props, context) => {
 };
 
 TitledCheckbox.contextTypes = {
-  skin: React.PropTypes.object
+  skin: PropTypes.object
 };
 
 TitledCheckbox.propTypes = {

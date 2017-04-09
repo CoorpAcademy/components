@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import map from 'lodash/fp/map';
 import Card from '../../card';
 import style from './style.css';
@@ -39,12 +40,12 @@ const CardsList = (props, context) => {
 };
 
 CardsList.contextTypes = {
-  skin: React.PropTypes.object
+  skin: PropTypes.object
 };
 
 CardsList.propTypes = {
-  title: React.PropTypes.string,
-  cards: React.PropTypes.array
+  title: PropTypes.string,
+  cards: PropTypes.array
 };
 
 export default CardsList;

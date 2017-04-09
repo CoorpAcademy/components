@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import isNil from 'lodash/fp/isNil';
 import Picture from '../../atom/picture';
 import CatalogSection from '../../atom/catalog-section';
@@ -28,7 +29,7 @@ const CatalogBadge = (props, context) => {
 };
 
 CatalogBadge.contextTypes = {
-  translate: React.PropTypes.func
+  translate: PropTypes.func
 };
 
 CatalogBadge.propTypes = {

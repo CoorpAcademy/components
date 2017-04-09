@@ -65,7 +65,8 @@ mapObject((components, componentType) => mapObject((componentPath, componentName
     });
 
     test(`${it} › should be renderered`, t => {
-      t.truthy(ReactDOM.renderToStaticMarkup(wrappedVTree));
+      ReactDOM.renderToStaticMarkup(wrappedVTree);
+      t.pass();
     });
   })(fixtures);
 })(components))(componentsList);

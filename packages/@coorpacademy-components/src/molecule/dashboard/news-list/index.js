@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import map from 'lodash/fp/map';
 import noop from 'lodash/fp/noop';
 import News from '../../news';
@@ -54,17 +55,17 @@ const NewsList = (props, context) => {
 };
 
 NewsList.contextTypes = {
-  skin: React.PropTypes.object
+  skin: PropTypes.object
 };
 
 NewsList.propTypes = {
-  title: React.PropTypes.string,
-  news: React.PropTypes.array,
-  more: React.PropTypes.shape({
-    label: React.PropTypes.string,
-    onClick: React.PropTypes.func
+  title: PropTypes.string,
+  news: PropTypes.array,
+  more: PropTypes.shape({
+    label: PropTypes.string,
+    onClick: PropTypes.func
   }),
-  loading: React.PropTypes.bool
+  loading: PropTypes.bool
 };
 
 export default NewsList;

@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import Button from '../../atom/button';
@@ -127,7 +128,7 @@ const ScopeContent = (props, context) => {
 
 ScopeContent.contextTypes = {
   skin: PropTypes.object,
-  translate: React.PropTypes.func
+  translate: PropTypes.func
 };
 
 ScopeContent.propTypes = {
