@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import fill from 'lodash/fp/fill';
 import pipe from 'lodash/fp/pipe';
 import map from 'lodash/fp/map';

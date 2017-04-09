@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Link from '../../atom/link';
 import style from './style.css';
 
@@ -39,7 +40,7 @@ const CursusList = (props, context) => {
 };
 
 CursusList.contextTypes = {
-  translate: React.PropTypes.func
+  translate: PropTypes.func
 };
 
 CursusList.propTypes = {

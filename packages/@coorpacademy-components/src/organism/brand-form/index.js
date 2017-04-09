@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import BrandFormGroup from '../../molecule/brand-form-group';
 import Button from '../../atom/button';
 import Link from '../../atom/link';

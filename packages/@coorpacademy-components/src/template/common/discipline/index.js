@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import DisciplineCTA from '../../../molecule/discipline-cta';
 import DisciplineHeader from '../../../molecule/discipline-header';
 import DisciplinePartners from '../../../molecule/discipline-partners';
@@ -61,7 +62,7 @@ const Discipline = (props, context) => {
 };
 
 Discipline.contextTypes = {
-  translate: React.PropTypes.func
+  translate: PropTypes.func
 };
 
 Discipline.propTypes = {

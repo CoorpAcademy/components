@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import map from 'lodash/fp/map';
 import getOr from 'lodash/fp/getOr';
 import BattleRequestList from '../../../molecule/dashboard/battle-request-list';
@@ -61,6 +62,6 @@ const BrandFormGroup = props => {
 };
 
 BrandFormGroup.propTypes = {
-  sections: React.PropTypes.array
+  sections: PropTypes.array
 };
 export default BrandFormGroup;

@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import identity from 'lodash/fp/identity';
 import getOr from 'lodash/fp/getOr';
 import {hoverFill} from '../../atom/button/hover-fill.css';
@@ -61,7 +62,7 @@ const DisciplineCTA = (props, context) => {
 };
 
 DisciplineCTA.contextTypes = {
-  skin: React.PropTypes.object
+  skin: PropTypes.object
 };
 
 DisciplineCTA.propTypes = {

@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import isNil from 'lodash/fp/isNil';
 import SsMenuList from '../ssmenu-list';
 import style from './style.css';

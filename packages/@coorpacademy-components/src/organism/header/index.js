@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import * as CustomPropTypes from '../../util/proptypes';
 import Picture from '../../atom/picture';
 import MenuList from '../../molecule/menu-list';

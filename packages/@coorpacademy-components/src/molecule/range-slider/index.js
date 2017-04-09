@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import {findDOMNode} from 'react-dom';
 import getOr from 'lodash/fp/getOr';
 import set from 'lodash/fp/set';
@@ -240,7 +241,7 @@ class RangeSlider extends React.Component {
 }
 
 RangeSlider.contextTypes = {
-  skin: React.PropTypes.object
+  skin: PropTypes.object
 };
 
 RangeSlider.propTypes = {

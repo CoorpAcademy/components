@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
 import Link from '../../atom/link';
 import style from './style.css';
@@ -52,16 +53,16 @@ const BattleRequest = (props, context) => {
 };
 
 BattleRequest.contextTypes = {
-  skin: React.PropTypes.object,
-  translate: React.PropTypes.func
+  skin: PropTypes.object,
+  translate: PropTypes.func
 };
 
 BattleRequest.propTypes = {
-  username: React.PropTypes.string,
-  discipline: React.PropTypes.string,
-  level: React.PropTypes.string,
-  avatar: React.PropTypes.string,
-  href: React.PropTypes.string
+  username: PropTypes.string,
+  discipline: PropTypes.string,
+  level: PropTypes.string,
+  avatar: PropTypes.string,
+  href: PropTypes.string
 };
 
 export default BattleRequest;

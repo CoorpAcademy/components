@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Cta from '../../atom/cta';
 import Link from '../../atom/link';
 import style from './style.css';
@@ -45,17 +46,17 @@ const News = (props, context) => {
 };
 
 News.contextTypes = {
-  skin: React.PropTypes.object
+  skin: PropTypes.object
 };
 
 News.propTypes = {
-  image: React.PropTypes.string,
-  title: React.PropTypes.string,
-  date: React.PropTypes.string,
-  description: React.PropTypes.string,
-  authorLogo: React.PropTypes.string,
-  cta: React.PropTypes.shape({
-    href: React.PropTypes.string,
+  image: PropTypes.string,
+  title: PropTypes.string,
+  date: PropTypes.string,
+  description: PropTypes.string,
+  authorLogo: PropTypes.string,
+  cta: PropTypes.shape({
+    href: PropTypes.string,
     target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top'])
   })
 };

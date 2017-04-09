@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import identity from 'lodash/fp/identity';
 import getOr from 'lodash/fp/getOr';
 import style from './style.css';
@@ -111,7 +112,7 @@ const Card = (props, context) => {
 };
 
 Card.contextTypes = {
-  skin: React.PropTypes.object
+  skin: PropTypes.object
 };
 
 Card.propTypes = {

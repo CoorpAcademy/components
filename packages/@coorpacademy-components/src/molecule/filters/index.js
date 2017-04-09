@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Select from '../../atom/select';
 import RangeSlider from '../../molecule/range-slider';
 import shallowCompare from '../../util/shallow-compare';

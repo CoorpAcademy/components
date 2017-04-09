@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
 import Link from '../link';
 import shallowCompare from '../../util/shallow-compare';
@@ -82,8 +83,8 @@ class CTA extends React.Component {
 }
 
 CTA.contextTypes = {
-  skin: React.PropTypes.object,
-  translate: React.PropTypes.func
+  skin: PropTypes.object,
+  translate: PropTypes.func
 };
 
 CTA.propTypes = {

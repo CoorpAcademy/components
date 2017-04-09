@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import * as CustomPropTypes from '../../../util/proptypes';
 import Button from '../../../atom/button';
 import style from './style.css';
@@ -44,7 +45,7 @@ const ForumComment = (props, context) => {
 };
 
 ForumComment.contextTypes = {
-  translate: React.PropTypes.func
+  translate: PropTypes.func
 };
 
 ForumComment.propTypes = {

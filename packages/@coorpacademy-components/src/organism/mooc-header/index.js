@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import {findDOMNode} from 'react-dom';
 import find from 'lodash/fp/find';
 import filter from 'lodash/fp/filter';
@@ -512,8 +513,8 @@ class MoocHeader extends React.Component {
 }
 
 MoocHeader.contextTypes = {
-  skin: React.PropTypes.object,
-  translate: React.PropTypes.func
+  skin: PropTypes.object,
+  translate: PropTypes.func
 };
 
 MoocHeader.propTypes = {

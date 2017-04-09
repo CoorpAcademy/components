@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
 import Cta from '../cta';
 import style from './style.css';
@@ -38,7 +39,7 @@ const Slide = (props, context) => {
 };
 
 Slide.contextTypes = {
-  skin: React.PropTypes.object
+  skin: PropTypes.object
 };
 
 Slide.propTypes = {

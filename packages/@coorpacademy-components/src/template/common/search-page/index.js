@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Filters from '../../../molecule/filters';
 import CardsGrid from '../../../organism/cards-grid';
 import style from './style.css';

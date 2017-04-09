@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import map from 'lodash/fp/map';
 import Link from '../../../atom/link';
 import style from './style.css';
@@ -36,13 +37,13 @@ const StartBattle = (props, context) => {
 };
 
 StartBattle.contextTypes = {
-  skin: React.PropTypes.object
+  skin: PropTypes.object
 };
 
 StartBattle.propTypes = {
-  label: React.PropTypes.string,
-  onClick: React.PropTypes.func,
-  href: React.PropTypes.string
+  label: PropTypes.string,
+  onClick: PropTypes.func,
+  href: PropTypes.string
 };
 
 export default StartBattle;

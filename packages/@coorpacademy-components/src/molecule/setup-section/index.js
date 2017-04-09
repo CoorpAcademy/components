@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import map from 'lodash/fp/map';
 import InputSwitch from '../../atom/input-switch';
 import style from './style.css';
@@ -36,14 +37,14 @@ const SetupSection = (props, context) => {
 };
 
 SetupSection.contextTypes = {
-  translate: React.PropTypes.func
+  translate: PropTypes.func
 };
 
 SetupSection.propTypes = {
-  title: React.PropTypes.string.isRequired,
-  onUp: React.PropTypes.func,
-  onDown: React.PropTypes.func,
-  display: React.PropTypes.object,
-  id: React.PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  onUp: PropTypes.func,
+  onDown: PropTypes.func,
+  display: PropTypes.object,
+  id: PropTypes.string.isRequired
 };
 export default SetupSection;

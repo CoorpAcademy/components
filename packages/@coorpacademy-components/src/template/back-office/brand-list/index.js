@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import GridList from '../../../organism/grid-list';
 import BrandCard from '../../../molecule/brand-card';
 import BrandCardCreate from '../../../molecule/brand-card-create';
