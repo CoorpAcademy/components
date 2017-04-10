@@ -45,6 +45,7 @@ const Picture = props => {
 
 Picture.propTypes = {
   src: PropTypes.oneOfType([
+    PropTypes.string,
     CustomPropTypes.url,
     PropTypes.objectOf(CustomPropTypes.url)
   ])
