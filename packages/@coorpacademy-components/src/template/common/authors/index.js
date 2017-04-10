@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import getOr from 'lodash/fp/getOr';
 import map from 'lodash/fp/map';
 import * as CustomPropTypes from '../../../util/proptypes';
 import shallowCompare from '../../../util/shallow-compare';
@@ -10,7 +11,7 @@ import Link from '../../../atom/link';
 import style from './style.css';
 
 class Authors extends React.Component {
-  constructor(props) {
+  constructor(props, context) {
     super(props);
     this.state = {
       fullDisplay: false
@@ -42,7 +43,8 @@ class Authors extends React.Component {
       urlcontent
     } = this.props;
 
-    const {translate} = this.context;
+    const {translate, skin} = this.context;
+    const defaultColor = getOr('#00B0FF', 'common.primary', skin);
     const toggleLabel = this.state.fullDisplay ? translate('See less') : translate('Show more');
 
     const socialView = map.convert({cap: false})((sociallink, i) => (
@@ -75,6 +77,9 @@ class Authors extends React.Component {
                 <span>{website}</span>
                 <Link
                   className={style.linksite}
+                  style={{
+                    color: defaultColor
+                  }}
                   href={urlwebsite}
                   target={'_blank'}
                 >
@@ -111,9 +116,9 @@ class Authors extends React.Component {
 }
 
 Authors.contextTypes = {
-  translate: PropTypes.func.isRequired
+  translate: PropTypes.func.isRequired,
+  skin: React.PropTypes.object
 };
-
 Authors.propTypes = {
   cards: PropTypes.object,
   cardsTitle: PropTypes.string,

@@ -66,7 +66,6 @@
 .track {
   position: absolute;
   height: 6px;
-  background-color: blue;
 }
 
 .rail:active .handle,
@@ -76,7 +75,6 @@
 
 .handle {
   background: white;
-  box-shadow: 0 0 2px 0 rgba(0,0,0,0.50);
   position: absolute;
   width: handleSize;
   height: handleSize;

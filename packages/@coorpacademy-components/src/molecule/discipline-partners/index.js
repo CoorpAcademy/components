@@ -11,7 +11,7 @@ import Picture from '../../atom/picture';
 import style from './style.css';
 
 const DisciplinePartners = (props, context) => {
-  const {translate} = context;
+  const {translate, skin} = context;
 
   const {
     authorTitle,
@@ -20,7 +20,7 @@ const DisciplinePartners = (props, context) => {
   } = props;
 
   const authorLabel = authorTitle || translate('author');
-
+  const defaultColor = getOr('#00B0FF', 'common.primary', skin);
   const authorsView = map.convert({cap: false})((author, index) => {
     const socialLinks = getOr([], 'socialLinks', author);
     const authorLogo = get('logo', author);
@@ -32,6 +32,9 @@ const DisciplinePartners = (props, context) => {
       <div className={style.authorLink}>
         <a
           target={'_blank'}
+          style={{
+            color: defaultColor
+          }}
           href={authorHref}
         >
           {authorHref}
@@ -42,6 +45,9 @@ const DisciplinePartners = (props, context) => {
       <div className={style.authorLink}>
         <a
           href={authorHref}
+          style={{
+            color: defaultColor
+          }}
         >
           {moreDetails}
           <span className={style.linkicon} />
@@ -111,7 +117,8 @@ const DisciplinePartners = (props, context) => {
 };
 
 DisciplinePartners.contextTypes = {
-  translate: PropTypes.func
+  translate: React.PropTypes.func,
+  skin: React.PropTypes.object
 };
 
 DisciplinePartners.propTypes = {
