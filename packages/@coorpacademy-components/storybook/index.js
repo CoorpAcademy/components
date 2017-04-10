@@ -89,7 +89,8 @@ pipe(
               options,
               React.createElement(
                 factory,
-                toKnobs(fixture.props)
+                toKnobs(fixture.props),
+                fixtures.children
               )
             ));
           })
