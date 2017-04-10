@@ -96,7 +96,8 @@ const config = cssScope => ({
         }),
         new BabiliPlugin({
           comments: false,
-          sourceMap: false
+          sourceMap: false,
+          simplify: false
         }),
         componentCSS
       );
