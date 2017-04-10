@@ -117,7 +117,7 @@ class Authors extends React.Component {
 
 Authors.contextTypes = {
   translate: PropTypes.func.isRequired,
-  skin: React.PropTypes.object
+  skin: PropTypes.object
 };
 Authors.propTypes = {
   cards: PropTypes.object,

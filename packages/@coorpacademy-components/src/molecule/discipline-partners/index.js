@@ -117,8 +117,8 @@ const DisciplinePartners = (props, context) => {
 };
 
 DisciplinePartners.contextTypes = {
-  translate: React.PropTypes.func,
-  skin: React.PropTypes.object
+  translate: PropTypes.func,
+  skin: PropTypes.object
 };
 
 DisciplinePartners.propTypes = {

@@ -165,7 +165,7 @@ class Filters extends React.Component {
 }
 
 Filters.contextTypes = {
-  skin: React.PropTypes.object
+  skin: PropTypes.object
 };
 
 Filters.propTypes = {
