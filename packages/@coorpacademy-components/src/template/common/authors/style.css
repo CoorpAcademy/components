@@ -6,7 +6,6 @@
 @value black from colors;
 @value light from colors;
 @value borderGrey from colors;
-@value blue from colors;
 @value blueGrey from colors;
 
 .wrapper {
@@ -70,7 +69,6 @@
 .linksite {
   font-size: 12px;
   font-weight: 600;
-  color: blue;
   text-decoration: none;
   padding: 8px 40px 8px 0;
   box-sizing: border-box;

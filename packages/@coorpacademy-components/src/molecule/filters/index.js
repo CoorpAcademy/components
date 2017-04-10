@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import getOr from 'lodash/fp/getOr';
 import Select from '../../atom/select';
 import RangeSlider from '../../molecule/range-slider';
 import shallowCompare from '../../util/shallow-compare';
+import {hoverFill} from '../../atom/button/hover-fill.css';
 import style from './style.css';
 
 class Filters extends React.Component {
-  constructor(props) {
+  constructor(props, context) {
     super(props);
     this.state = {
       opened: false,
@@ -62,7 +64,8 @@ class Filters extends React.Component {
       ctalabelsort,
       onSearch
     } = this.props;
-
+    const {skin} = this.context;
+    const defaultColor = getOr('#00B0FF', 'common.primary', skin);
     const isActive = this.state.opened === true;
     const filtersActive = this.state.filter === true;
     const sortingActive = this.state.sorted === true;
@@ -105,6 +108,9 @@ class Filters extends React.Component {
         <div className={filtersActive ? style.activeDefault : style.default}>
           <div
             className={style.title}
+            style={{
+              color: defaultColor
+            }}
             onClick={this.handleOpenFilter}
           >
             {ctalabelfilter}
@@ -115,6 +121,9 @@ class Filters extends React.Component {
         >
           <div
             className={style.title}
+            style={{
+              color: defaultColor
+            }}
             onClick={this.handleOpenSort}
           >
             {ctalabelsort}
@@ -128,7 +137,10 @@ class Filters extends React.Component {
             {authorsView}
           </div>
           <div
-            className={style.CTAfilter}
+            className={`${style.CTAfilter} ${hoverFill}`}
+            style={{
+              backgroundColor: defaultColor
+            }}
             onClick={this.handleSearch}
           >
             {ctalabelfilter}
@@ -138,7 +150,10 @@ class Filters extends React.Component {
           <div className={style.mainTitle}>{titlepage}</div>
           {sortView}
           <div
-            className={style.CTAfilter}
+            className={`${style.CTAfilter} ${hoverFill}`}
+            style={{
+              backgroundColor: defaultColor
+            }}
             onClick={this.handleSearch}
           >
             {ctalabelsort}
@@ -148,6 +163,10 @@ class Filters extends React.Component {
     );
   }
 }
+
+Filters.contextTypes = {
+  skin: React.PropTypes.object
+};
 
 Filters.propTypes = {
   titlepage: PropTypes.string,
