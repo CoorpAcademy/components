@@ -8,8 +8,8 @@
 @value tablet from breakpoints;
 
 .tabNavigation {
+  flex: 1;
   display: flex;
-  justify-content: center;
   flex-direction: row;
   margin: 30px 0;
 }
