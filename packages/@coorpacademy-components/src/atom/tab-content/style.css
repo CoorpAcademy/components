@@ -11,6 +11,7 @@
   flex-direction: column;
   justify-content: center;
   background-color: white;
+  flex: 1;
 }
 
 .tabContentTitle {
