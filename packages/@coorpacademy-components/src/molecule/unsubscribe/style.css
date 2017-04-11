@@ -1,6 +1,8 @@
 @value colors: "../../variables/colors.css";
 @value blue from colors;
 @value darkBlue from colors;
+@value green from colors;
+@value lightGreen from colors;
 
 .unsubscribe {
     min-height: 200px;
@@ -47,4 +49,13 @@
 
 .whiteButton:hover {
   background-color: #f0f0f0;
+}
+
+.unsubscribeConfirmation {
+  white-space: pre-line;
+  text-align: left;
+  padding: 20px;
+  border: solid 1px green;
+  background-color: lightGreen;
+  color: green;
 }
