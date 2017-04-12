@@ -5,10 +5,6 @@ import webpackHotMiddleware from 'webpack-hot-middleware';
 import map from 'lodash/fp/map';
 import config from './webpack.config';
 
-const engines = [
-  'React'
-];
-
 const app = express();
 
 const compiler = webpack(config);
@@ -25,10 +21,8 @@ app.use(
 app.get('*', (req, res) => {
   res.send(`
     <body ng-app="app" ng-controller="main">
-      <input ng-model="props.value"/>
-      ${map(engineName => `
-        <${engineName}-title props="props"></${engineName}-title>
-      `, engines).join('')}
+      <input ng-model="props.children"/>
+      <coorp-title props="props"></coorp-title>
       <script type="text/javascript" src="/dist/angular.js"></script>
     </body>
   `);
