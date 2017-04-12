@@ -4,7 +4,7 @@ import style from './style.css';
 class PaymentForm extends React.Component {
   constructor(props) {
     super(props);
-    this.stripe = window.Stripe ? window.Stripe(props.stripeKeyPublic) : null;
+    this.stripe = props.stripeInstance ? props.stripeInstance(props.stripeKeyPublic) : null;
     this.state = {
       cardNumberHasError: false,
       cardExpiryHasError: false,

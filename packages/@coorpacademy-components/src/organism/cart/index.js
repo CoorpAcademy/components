@@ -23,7 +23,10 @@ const Cart = ({
           </div>
           <div className={style.paymentBlock}>
             <PaymentForm {...paymentFormProps} />
-            <a className={style.backButton} href={backUrl}>{backTitle}</a>
+            <a
+              className={style.backButton}
+              href={backUrl}
+            >{backTitle}</a>
           </div>
         </div>
       </div>
