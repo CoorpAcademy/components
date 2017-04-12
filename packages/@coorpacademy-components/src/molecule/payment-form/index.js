@@ -85,7 +85,8 @@ class PaymentForm extends React.Component {
       securedPaymentText,
       securedPaymentImage,
       disclaimer,
-      errors
+      errors,
+      warning
     } = this.props;
 
     const {
@@ -117,6 +118,7 @@ class PaymentForm extends React.Component {
           <hr className={style.creditCardOwnerEmailSeparator} />
         </div>
         {errors && <div className={style.paymentErrors}>- {errors}</div>}
+        {warning && <div className={style.paymentWarning}>- {warning}</div>}
         <div className={style.securedPayment}>
           <img
             className={style.securedPaymentImage}
@@ -165,7 +167,8 @@ PaymentForm.propTypes = {
   securedPaymentText: PropTypes.string,
   securedPaymentImage: PropTypes.string,
   disclaimer: PropTypes.string,
-  errors: PropTypes.string
+  errors: PropTypes.string,
+  warning: PropTypes.string
 };
 
 export default PaymentForm;
