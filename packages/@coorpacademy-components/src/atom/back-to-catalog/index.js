@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import style from './style.css';
 
 const BackToCatalogButton = props => (
@@ -9,5 +9,10 @@ const BackToCatalogButton = props => (
     {props.translations.backToCatalogText}
   </div>
 );
+
+BackToCatalogButton.PropTypes = {
+  handleBackToCatalogButtonClick: PropTypes.func,
+  translations: PropTypes.object
+};
 
 export default BackToCatalogButton;
