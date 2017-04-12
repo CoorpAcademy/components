@@ -3,6 +3,7 @@
 @value darkBlueGrey from colors;
 @value borderGrey from colors;
 @value red from colors;
+@value yellow from colors;
 @value lightRed from colors;
 
 @value breakpoints: "../../variables/breakpoints.css";
@@ -92,6 +93,15 @@
   border: solid 1px red;
   background-color: lightRed;
   color: red;
+  font-size: 12px;
+}
+
+.paymentWarning {
+  margin: 10px 0;
+  padding: 10px;
+  border: solid 1px yellow;
+  background-color: #FFF2D5;
+  color: yellow;
   font-size: 12px;
 }
 
