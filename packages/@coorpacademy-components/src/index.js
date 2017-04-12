@@ -1,7 +1,11 @@
 export Author from './template/app-catalog/author';
+<<<<<<< HEAD
 export Authors from './template/common/authors';
 export BattleRequest from './molecule/battle-request';
 export BattleRequestList from './molecule/dashboard/battle-request-list';
+=======
+export BackToCatalog from './atom/back-to-catalog';
+>>>>>>> Fix tests
 export BrandCard from './molecule/brand-card';
 export BrandCardCreate from './molecule/brand-card-create';
 export BrandCreate from './template/back-office/brand-create';
@@ -18,9 +22,9 @@ export BrandUploadBox from './molecule/brand-upload-box';
 export Breadcrumbs from './molecule/breadcrumbs';
 export Button from './atom/button';
 export Card from './molecule/card';
-export Cart from './organism/cart';
 export CardsGrid from './organism/cards-grid';
 export CardsList from './molecule/dashboard/cards-list';
+export Cart from './organism/cart';
 export CartHeader from './molecule/cart-header';
 export Catalog from './template/app-catalog/catalog';
 export CatalogAssets from './molecule/catalog-assets';
@@ -102,10 +106,17 @@ export Spinner from './atom/spinner';
 export SsmenuList from './molecule/ssmenu-list';
 export Star from './atom/star';
 export StarRating from './molecule/star-rating';
+<<<<<<< HEAD
 export StartBattle from './molecule/dashboard/start-battle';
+=======
+export Tab from './atom/tab';
+export TabContent from './atom/tab-content';
+export TabNavigation from './molecule/tab-navigation';
+>>>>>>> Fix tests
 export Table from './molecule/table';
 export ThemeImage from './molecule/theme-image';
 export Title from './atom/title';
 export TitledCheckbox from './molecule/titled-checkbox';
+export Unsubscribe from './molecule/unsubscribe';
 export VideoIframe from './molecule/video-iframe';
 export VideoPlayer from './molecule/video-player';
