@@ -115,6 +115,7 @@ import CoorpHeader from '../src/template/common/coorp-header';
 import Dashboard from '../src/template/common/dashboard';
 import Discipline from '../src/template/common/discipline';
 import SearchPage from '../src/template/common/search-page';
+import BackToCatalogFixtureDefault from '../src/atom/back-to-catalog/test/fixtures/default';
 import ButtonFixtureA from '../src/atom/button/test/fixtures/a';
 import ButtonFixtureBlue from '../src/atom/button/test/fixtures/blue';
 import ButtonFixtureCentered from '../src/atom/button/test/fixtures/centered';
@@ -179,6 +180,7 @@ import NotificationFixtureWarning from '../src/atom/notification/test/fixtures/w
 import PictureFixtureDefault from '../src/atom/picture/test/fixtures/default';
 import PictureFixtureEmpty from '../src/atom/picture/test/fixtures/empty';
 import PictureFixtureSimpleSrc from '../src/atom/picture/test/fixtures/simple-src';
+import PromoCodeFixtureDefault from '../src/atom/promo-code/test/fixtures/default';
 import ProviderFixtureDefault from '../src/atom/provider/test/fixtures/default';
 import SelectFixtureDefault from '../src/atom/select/test/fixtures/default';
 import SelectFixtureDisabled from '../src/atom/select/test/fixtures/disabled';
@@ -200,6 +202,8 @@ import SocialLinkFixtureTwitter from '../src/atom/social-link/test/fixtures/twit
 import SpinnerFixtureDefault from '../src/atom/spinner/test/fixtures/default';
 import StarFixtureDisable from '../src/atom/star/test/fixtures/disable';
 import StarFixtureEnable from '../src/atom/star/test/fixtures/enable';
+import TabContentFixtureDefault from '../src/atom/tab-content/test/fixtures/default';
+import TabFixtureDefault from '../src/atom/tab/test/fixtures/default';
 import TitleFixtureFixture from '../src/atom/title/test/fixtures/fixture';
 import BattleRequestFixtureDefault from '../src/molecule/battle-request/test/fixtures/default';
 import BrandCardCreateFixtureDefault from '../src/molecule/brand-card-create/test/fixtures/default';
@@ -228,6 +232,7 @@ import CardFixtureAdaptiv from '../src/molecule/card/test/fixtures/adaptiv';
 import CardFixtureCatalogue from '../src/molecule/card/test/fixtures/catalogue';
 import CardFixtureDefault from '../src/molecule/card/test/fixtures/default';
 import CardFixtureDisabled from '../src/molecule/card/test/fixtures/disabled';
+import CartHeaderFixtureDefault from '../src/molecule/cart-header/test/fixtures/default';
 import CatalogAssetsFixtureDefault from '../src/molecule/catalog-assets/test/fixtures/default';
 import CatalogAssetsFixtureEmpty from '../src/molecule/catalog-assets/test/fixtures/empty';
 import CatalogBadgeFixtureDefault from '../src/molecule/catalog-badge/test/fixtures/default';
@@ -275,6 +280,8 @@ import ModuleCardFixtureRestarted from '../src/molecule/module-card/test/fixture
 import NewsFixtureDefault from '../src/molecule/news/test/fixtures/default';
 import PaginationFixtureDefault from '../src/molecule/pagination/test/fixtures/default';
 import PaginationFixtureDisabled from '../src/molecule/pagination/test/fixtures/disabled';
+import PaymentFormFixtureDefault from '../src/molecule/payment-form/test/fixtures/default';
+import ProductCardFixtureDefault from '../src/molecule/product-card/test/fixtures/default';
 import ProgressBarFixtureDefault from '../src/molecule/progress-bar/test/fixtures/default';
 import ProgressBarFixtureMax from '../src/molecule/progress-bar/test/fixtures/max';
 import RangeSliderFixtureDefault from '../src/molecule/range-slider/test/fixtures/default';
@@ -304,12 +311,14 @@ import SsmenuListFixtureEmpty from '../src/molecule/ssmenu-list/test/fixtures/em
 import SsmenuListFixtureFormations from '../src/molecule/ssmenu-list/test/fixtures/formations';
 import SsmenuListFixtureSolutions from '../src/molecule/ssmenu-list/test/fixtures/solutions';
 import StarRatingFixtureDefault from '../src/molecule/star-rating/test/fixtures/default';
+import TabNavigationFixtureDefault from '../src/molecule/tab-navigation/test/fixtures/default';
 import TableFixtureDefault from '../src/molecule/table/test/fixtures/default';
 import TableFixtureNoOptions from '../src/molecule/table/test/fixtures/no-options';
 import ThemeImageFixtureBg from '../src/molecule/theme-image/test/fixtures/bg';
 import TitledCheckboxFixtureChecked from '../src/molecule/titled-checkbox/test/fixtures/checked';
 import TitledCheckboxFixtureNoBg from '../src/molecule/titled-checkbox/test/fixtures/no-bg';
 import TitledCheckboxFixtureNotChecked from '../src/molecule/titled-checkbox/test/fixtures/not-checked';
+import UnsubscribeFixtureDefault from '../src/molecule/unsubscribe/test/fixtures/default';
 import VideoIframeFixtureDefault from '../src/molecule/video-iframe/test/fixtures/default';
 import VideoIframeFixtureEmpty from '../src/molecule/video-iframe/test/fixtures/empty';
 import VideoIframeFixtureImagePlaceholder from '../src/molecule/video-iframe/test/fixtures/image-placeholder';
@@ -357,6 +366,7 @@ import CardsGridFixtureCatalog from '../src/organism/cards-grid/test/fixtures/ca
 import CardsGridFixtureEmpty from '../src/organism/cards-grid/test/fixtures/empty';
 import CardsGridFixtureLoading from '../src/organism/cards-grid/test/fixtures/loading';
 import CardsGridFixtureMany from '../src/organism/cards-grid/test/fixtures/many';
+import CartFixtureDefault from '../src/organism/cart/test/fixtures/default';
 import CatalogCardsFixtureDefault from '../src/organism/catalog-cards/test/fixtures/default';
 import CatalogCardsFixtureLoading from '../src/organism/catalog-cards/test/fixtures/loading';
 import CatalogCardsFixtureNoProducts from '../src/organism/catalog-cards/test/fixtures/no-products';
@@ -376,6 +386,7 @@ import MoocHeaderFixtureLogged from '../src/organism/mooc-header/test/fixtures/l
 import MoocHeaderFixtureSliderMultiple from '../src/organism/mooc-header/test/fixtures/slider-multiple';
 import MoocHeaderFixtureSlider from '../src/organism/mooc-header/test/fixtures/slider';
 import PopinFixtureDefault from '../src/organism/popin/test/fixtures/default';
+import SettingsFixtureDefault from '../src/organism/settings/test/fixtures/default';
 import SetupHeaderFixtureDefault from '../src/organism/setup-header/test/fixtures/default';
 import AuthorFixtureDefault from '../src/template/app-catalog/author/test/fixtures/default';
 import AuthorFixtureLoading from '../src/template/app-catalog/author/test/fixtures/loading';
@@ -566,6 +577,9 @@ export const components = {
 };
 export const fixtures = {
   Atom: {
+    BackToCatalog: {
+      Default: BackToCatalogFixtureDefault
+    },
     Button: {
       A: ButtonFixtureA,
       Blue: ButtonFixtureBlue,
@@ -668,6 +682,9 @@ export const fixtures = {
       Empty: PictureFixtureEmpty,
       SimpleSrc: PictureFixtureSimpleSrc
     },
+    PromoCode: {
+      Default: PromoCodeFixtureDefault
+    },
     Provider: {
       Default: ProviderFixtureDefault
     },
@@ -700,6 +717,12 @@ export const fixtures = {
     Star: {
       Disable: StarFixtureDisable,
       Enable: StarFixtureEnable
+    },
+    TabContent: {
+      Default: TabContentFixtureDefault
+    },
+    Tab: {
+      Default: TabFixtureDefault
     },
     Title: {
       Fixture: TitleFixtureFixture
@@ -752,6 +775,9 @@ export const fixtures = {
       Catalogue: CardFixtureCatalogue,
       Default: CardFixtureDefault,
       Disabled: CardFixtureDisabled
+    },
+    CartHeader: {
+      Default: CartHeaderFixtureDefault
     },
     CatalogAssets: {
       Default: CatalogAssetsFixtureDefault,
@@ -838,6 +864,12 @@ export const fixtures = {
       Default: PaginationFixtureDefault,
       Disabled: PaginationFixtureDisabled
     },
+    PaymentForm: {
+      Default: PaymentFormFixtureDefault
+    },
+    ProductCard: {
+      Default: ProductCardFixtureDefault
+    },
     ProgressBar: {
       Default: ProgressBarFixtureDefault,
       Max: ProgressBarFixtureMax
@@ -893,6 +925,9 @@ export const fixtures = {
     StarRating: {
       Default: StarRatingFixtureDefault
     },
+    TabNavigation: {
+      Default: TabNavigationFixtureDefault
+    },
     Table: {
       Default: TableFixtureDefault,
       NoOptions: TableFixtureNoOptions
@@ -904,6 +939,9 @@ export const fixtures = {
       Checked: TitledCheckboxFixtureChecked,
       NoBg: TitledCheckboxFixtureNoBg,
       NotChecked: TitledCheckboxFixtureNotChecked
+    },
+    Unsubscribe: {
+      Default: UnsubscribeFixtureDefault
     },
     VideoIframe: {
       Default: VideoIframeFixtureDefault,
@@ -984,6 +1022,9 @@ export const fixtures = {
       Loading: CardsGridFixtureLoading,
       Many: CardsGridFixtureMany
     },
+    Cart: {
+      Default: CartFixtureDefault
+    },
     CatalogCards: {
       Default: CatalogCardsFixtureDefault,
       Loading: CatalogCardsFixtureLoading,
@@ -1018,6 +1059,9 @@ export const fixtures = {
     },
     Popin: {
       Default: PopinFixtureDefault
+    },
+    Settings: {
+      Default: SettingsFixtureDefault
     },
     SetupHeader: {
       Default: SetupHeaderFixtureDefault
