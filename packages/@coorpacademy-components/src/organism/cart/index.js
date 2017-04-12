@@ -14,28 +14,31 @@ const Cart = ({
         backUrl,
         backTitle
     }) => (
-    <div className={style.parent}>
+      <div className={style.parent}>
         <CartHeader {...cartHeaderProps} />
         <div className={style.cart}>
-            <div className={style.productBlock}>
-                <ProductCard {...productCardProps} />
-                <PromoCode {...promoCodeProps} />
-            </div>
-            <div className={style.paymentBlock}>
-                <PaymentForm {...paymentFormProps} />
-                <a className={style.backButton} href={backUrl}>{backTitle}</a>
-            </div>
+          <div className={style.productBlock}>
+            <ProductCard {...productCardProps} />
+            <PromoCode {...promoCodeProps} />
+          </div>
+          <div className={style.paymentBlock}>
+            <PaymentForm {...paymentFormProps} />
+            <a
+              className={style.backButton}
+              href={backUrl}
+            >{backTitle}</a>
+          </div>
         </div>
-    </div>
+      </div>
 );
 
 Cart.PropTypes = {
-    cartHeaderProps: PropTypes.object,
-    productCardProps: PropTypes.object,
-    promoCodeProps: PropTypes.object,
-    paymentFormProps: PropTypes.object,
-    backUrl: PropTypes.string,
-    backTitle: PropTypes.string
+  cartHeaderProps: PropTypes.object,
+  productCardProps: PropTypes.object,
+  promoCodeProps: PropTypes.object,
+  paymentFormProps: PropTypes.object,
+  backUrl: PropTypes.string,
+  backTitle: PropTypes.string
 };
 
 export default Cart;

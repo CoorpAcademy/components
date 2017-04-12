@@ -1,3 +1,4 @@
+import BackToCatalog from '../src/atom/back-to-catalog';
 import Button from '../src/atom/button';
 import CatalogSection from '../src/atom/catalog-section';
 import CenteredText from '../src/atom/centered-text';
@@ -17,12 +18,15 @@ import Link from '../src/atom/link';
 import Loader from '../src/atom/loader';
 import Notification from '../src/atom/notification';
 import Picture from '../src/atom/picture';
+import PromoCode from '../src/atom/promo-code';
 import Provider from '../src/atom/provider';
 import Select from '../src/atom/select';
 import Slide from '../src/atom/slide';
 import SocialLink from '../src/atom/social-link';
 import Spinner from '../src/atom/spinner';
 import Star from '../src/atom/star';
+import TabContent from '../src/atom/tab-content';
+import Tab from '../src/atom/tab';
 import Title from '../src/atom/title';
 import BrandCardCreate from '../src/molecule/brand-card-create';
 import BrandCard from '../src/molecule/brand-card';
@@ -33,6 +37,7 @@ import BrandTabs from '../src/molecule/brand-tabs';
 import BrandUploadBox from '../src/molecule/brand-upload-box';
 import Breadcrumbs from '../src/molecule/breadcrumbs';
 import Card from '../src/molecule/card';
+import CartHeader from '../src/molecule/cart-header';
 import CatalogAssets from '../src/molecule/catalog-assets';
 import CatalogBadge from '../src/molecule/catalog-badge';
 import CatalogCard from '../src/molecule/catalog-card';
@@ -51,6 +56,7 @@ import MenuList from '../src/molecule/menu-list';
 import ModuleBubble from '../src/molecule/module-bubble';
 import ModuleCard from '../src/molecule/module-card';
 import Pagination from '../src/molecule/pagination';
+import PaymentForm from '../src/molecule/payment-form';
 import ProductCard from '../src/molecule/product-card';
 import ProgressBar from '../src/molecule/progress-bar';
 import RangeSlider from '../src/molecule/range-slider';
@@ -63,9 +69,11 @@ import SetupSlider from '../src/molecule/setup-slider';
 import Slider from '../src/molecule/slider';
 import SsmenuList from '../src/molecule/ssmenu-list';
 import StarRating from '../src/molecule/star-rating';
+import TabNavigation from '../src/molecule/tab-navigation';
 import Table from '../src/molecule/table';
 import ThemeImage from '../src/molecule/theme-image';
 import TitledCheckbox from '../src/molecule/titled-checkbox';
+import Unsubscribe from '../src/molecule/unsubscribe';
 import VideoIframe from '../src/molecule/video-iframe';
 import VideoPlayer from '../src/molecule/video-player';
 import ForumComment from '../src/molecule/forum/forum-comment';
@@ -75,6 +83,7 @@ import BrandForm from '../src/organism/brand-form';
 import BrandTable from '../src/organism/brand-table';
 import BrandUpload from '../src/organism/brand-upload';
 import CardsGrid from '../src/organism/cards-grid';
+import Cart from '../src/organism/cart';
 import CatalogCards from '../src/organism/catalog-cards';
 import DisciplineCards from '../src/organism/discipline-cards';
 import Discussion from '../src/organism/discussion';
@@ -83,6 +92,7 @@ import Header from '../src/organism/header';
 import Hero from '../src/organism/hero';
 import MoocHeader from '../src/organism/mooc-header';
 import Popin from '../src/organism/popin';
+import Settings from '../src/organism/settings';
 import SetupHeader from '../src/organism/setup-header';
 import Author from '../src/template/app-catalog/author';
 import Catalog from '../src/template/app-catalog/catalog';
@@ -385,6 +395,7 @@ import SearchPageFixtureDefault from '../src/template/common/search-page/test/fi
 
 export const components = {
   Atom: {
+    BackToCatalog,
     Button,
     CatalogSection,
     CenteredText,
@@ -404,12 +415,15 @@ export const components = {
     Loader,
     Notification,
     Picture,
+    PromoCode,
     Provider,
     Select,
     Slide,
     SocialLink,
     Spinner,
     Star,
+    TabContent,
+    Tab,
     Title
   },
   Molecule: {
@@ -422,6 +436,7 @@ export const components = {
     BrandUploadBox,
     Breadcrumbs,
     Card,
+    CartHeader,
     CatalogAssets,
     CatalogBadge,
     CatalogCard,
@@ -440,6 +455,7 @@ export const components = {
     ModuleBubble,
     ModuleCard,
     Pagination,
+    PaymentForm,
     ProductCard,
     ProgressBar,
     RangeSlider,
@@ -452,9 +468,11 @@ export const components = {
     Slider,
     SsmenuList,
     StarRating,
+    TabNavigation,
     Table,
     ThemeImage,
     TitledCheckbox,
+    Unsubscribe,
     VideoIframe,
     VideoPlayer
   },
@@ -468,6 +486,7 @@ export const components = {
     BrandTable,
     BrandUpload,
     CardsGrid,
+    Cart,
     CatalogCards,
     DisciplineCards,
     Discussion,
@@ -476,6 +495,7 @@ export const components = {
     Hero,
     MoocHeader,
     Popin,
+    Settings,
     SetupHeader
   },
   TemplateAppCatalog: {
