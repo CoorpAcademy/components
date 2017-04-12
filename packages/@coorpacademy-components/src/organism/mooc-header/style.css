@@ -114,7 +114,11 @@
   font-size: 13px;
 }
 
-.themes:hover .optionsGroup {
+.themesHovered {
+  composes: themes;
+}
+
+.themesHovered .optionsGroup {
   display: block;
   z-index:3;
 }

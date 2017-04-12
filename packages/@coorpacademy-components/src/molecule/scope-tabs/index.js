@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import has from 'lodash/fp/has';
 import partial from 'lodash/fp/partial';
 import unary from 'lodash/fp/unary';
@@ -72,7 +73,7 @@ const ScopeTabs = (props, context) => {
 };
 
 ScopeTabs.contextTypes = {
-  skin: React.PropTypes.object
+  skin: PropTypes.object
 };
 
 ScopeTabs.propTypes = {

@@ -1,12 +1,14 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+import getOr from 'lodash/fp/getOr';
 import Select from '../../atom/select';
-import SelectMultiple from '../../molecule/select-multiple';
 import RangeSlider from '../../molecule/range-slider';
 import shallowCompare from '../../util/shallow-compare';
+import {hoverFill} from '../../atom/button/hover-fill.css';
 import style from './style.css';
 
 class Filters extends React.Component {
-  constructor(props) {
+  constructor(props, context) {
     super(props);
     this.state = {
       opened: false,
@@ -57,19 +59,20 @@ class Filters extends React.Component {
       thematic,
       authors,
       sorting,
-      selectMultiple,
+      courses,
       ctalabelfilter,
       ctalabelsort,
       onSearch
     } = this.props;
-
+    const {skin} = this.context;
+    const defaultColor = getOr('#00B0FF', 'common.primary', skin);
     const isActive = this.state.opened === true;
     const filtersActive = this.state.filter === true;
     const sortingActive = this.state.sorted === true;
 
-    const listMultipleView = selectMultiple !== undefined ? (
+    const coursesView = courses !== undefined ? (
       <div className={style.choice}>
-        <SelectMultiple {...selectMultiple} />
+        <Select {...courses} />
       </div>
     ) : null;
 
@@ -98,13 +101,16 @@ class Filters extends React.Component {
     ) : null;
 
     const emptyFilters = thematic === undefined && timer === undefined &&
-                         selectMultiple === undefined && authors === undefined;
+                         courses === undefined && authors === undefined;
 
     return (
       <div className={style.search}>
         <div className={filtersActive ? style.activeDefault : style.default}>
           <div
             className={style.title}
+            style={{
+              color: defaultColor
+            }}
             onClick={this.handleOpenFilter}
           >
             {ctalabelfilter}
@@ -115,6 +121,9 @@ class Filters extends React.Component {
         >
           <div
             className={style.title}
+            style={{
+              color: defaultColor
+            }}
             onClick={this.handleOpenSort}
           >
             {ctalabelsort}
@@ -124,11 +133,14 @@ class Filters extends React.Component {
           <div className={emptyFilters ? style.wrapperNone : style.wrapper}>
             {thematicView}
             {timerView}
-            {listMultipleView}
+            {coursesView}
             {authorsView}
           </div>
           <div
-            className={style.CTAfilter}
+            className={`${style.CTAfilter} ${hoverFill}`}
+            style={{
+              backgroundColor: defaultColor
+            }}
             onClick={this.handleSearch}
           >
             {ctalabelfilter}
@@ -138,7 +150,10 @@ class Filters extends React.Component {
           <div className={style.mainTitle}>{titlepage}</div>
           {sortView}
           <div
-            className={style.CTAfilter}
+            className={`${style.CTAfilter} ${hoverFill}`}
+            style={{
+              backgroundColor: defaultColor
+            }}
             onClick={this.handleSearch}
           >
             {ctalabelsort}
@@ -149,13 +164,17 @@ class Filters extends React.Component {
   }
 }
 
+Filters.contextTypes = {
+  skin: PropTypes.object
+};
+
 Filters.propTypes = {
   titlepage: PropTypes.string,
   thematic: PropTypes.object,
   timer: PropTypes.object,
+  courses: PropTypes.object,
   authors: PropTypes.object,
   sorting: PropTypes.object,
-  selectMultiple: PropTypes.object,
   onSearch: PropTypes.func
 };
 

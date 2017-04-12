@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import uniqueId from 'lodash/fp/uniqueId';
 import shallowCompare from '../../util/shallow-compare';
 import Loader from './../loader';
@@ -93,8 +94,8 @@ class ImageUpload extends React.Component {
 }
 
 ImageUpload.contextTypes = {
-  skin: React.PropTypes.object,
-  translate: React.PropTypes.func
+  skin: PropTypes.object,
+  translate: PropTypes.func
 };
 
 ImageUpload.propTypes = {

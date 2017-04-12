@@ -1,19 +1,19 @@
 export default {
   props: {
     title: 'Learning Path:',
-    selection: 'Tous',
+    selection: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
     choices: [
       {
         label: 'Digital',
-        checked: true
+        checked: false
       },
       {
         label: 'Esprit du temps',
-        checked: true
+        checked: false
       },
       {
-        label: 'Le 3e révolution mobile',
-        checked: false
+        label: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
+        checked: true
       },
       {
         label: 'Le monde du projet',

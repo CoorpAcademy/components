@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Checkbox from '../../atom/checkbox';
 import Link from '../../atom/link';
 import style from './style.css';

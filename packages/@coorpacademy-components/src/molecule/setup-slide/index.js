@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import map from 'lodash/fp/map';
 import Select from '../../atom/select';
 import InputText from '../../atom/input-text';

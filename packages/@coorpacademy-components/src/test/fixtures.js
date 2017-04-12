@@ -16,7 +16,7 @@ import fixturesList from '../util/list-fixtures';
 const _require = file => require(relative(__dirname, file)).default; // eslint-disable-line import/no-dynamic-require
 const mapObject = fn => pipe(toPairs, map(([key, value]) => fn(value, key)));
 
-const options = {
+const context = {
   skin: {
     images: {
       tree: 'dummy.url'
@@ -48,11 +48,15 @@ mapObject((components, componentType) => mapObject((componentPath, componentName
     const fixture = _require(fixturePath);
     const children = fixture.children;
 
-    const createVtree = () => (
-      <Provider {...options}>
-        <Component {...fixture.props}>
-          {children}
-        </Component>
+    const vTree = (
+      <Component {...fixture.props}>
+        {children}
+      </Component>
+    );
+
+    const wrappedVTree = (
+      <Provider {...context}>
+        {vTree}
       </Provider>
     );
 
@@ -61,18 +65,8 @@ mapObject((components, componentType) => mapObject((componentPath, componentName
     });
 
     test(`${it} › should be renderered`, t => {
-      const vTree = createVtree();
-      t.truthy(ReactDOM.renderToString(vTree));
+      ReactDOM.renderToStaticMarkup(wrappedVTree);
+      t.pass();
     });
-
-    // test(`${it} › vDom should be pure`, t => {
-    //   const vTree1 = createVtree();
-    //   const vTree2 = createVtree();
-    //   const dom1 = ReactDOM.renderToString(vTree1);
-    //   const dom2 = ReactDOM.renderToString(vTree2);
-    //
-    //   t.deepEqual(vTree1, vTree2);
-    //   t.deepEqual(dom1, dom2);
-    // });
   })(fixtures);
 })(components))(componentsList);

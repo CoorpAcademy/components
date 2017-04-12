@@ -1,0 +1,155 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value tablet from breakpoints;
+@value desktop from breakpoints;
+
+.news {
+  height: 240px;
+  width: 100%;
+  background-color: #ffffff;
+  display: flex;
+}
+
+.image {
+  height: 100%;
+  overflow: hidden;
+  flex: 0 0 450px;
+}
+
+.image img {
+  width: 100%;
+  height: auto;
+}
+
+.infos {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.title {
+  font-family: 'Open Sans';
+  font-size: 19px;
+  font-weight: 700;
+  color: #484848;
+  margin-bottom: 5px;
+}
+
+.date {
+  font-family: 'Open Sans';
+  font-size: 14px;
+  font-weight: 500;
+  color: #aaaaaa;
+  margin-bottom: 15px;
+}
+
+.description {
+  font-family: 'Open Sans';
+  width: 100%;
+  font-size: 17px;
+  line-height: 20px;
+  height: 40px;
+  overflow: hidden;
+  font-weight: 500;
+  color: #484848;
+}
+
+.bottom {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.author {
+  height: 40px;
+}
+
+.author img {
+  height: 100%;
+  width: auto;
+}
+
+.link {
+  display: none;
+}
+
+@media tablet {
+  .news {
+    height: 150px;
+  }
+
+  .image {
+    flex: 0 0 250px;
+  }
+
+  .infos {
+    padding: 30px;
+    position: relative;
+    justify-content: flex-start;
+  }
+
+  .author {
+    display: none;
+  }
+
+  .description {
+    display: none;
+  }
+
+  .bottom {
+    margin-top: 0;
+    flex-direction: row-reverse;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+  }
+}
+
+@media mobile {
+  .news {
+    position: relative;
+    cursor: pointer;
+    height: 100px;
+    border: 1px solid #E6E6E6;
+  }
+
+  .image {
+    flex: 0 0 100px;
+    height: 100px;
+  }
+
+  .infos {
+    padding: 15px;
+    justify-content: center;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+
+  .date {
+    font-size: 12px;
+    margin-bottom: 0;
+  }
+
+  .description {
+    display: none;
+  }
+
+  .bottom {
+    display: none;
+  }
+
+  .link {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}

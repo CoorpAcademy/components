@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import isEqual from 'lodash/fp/isEqual';
 import filter from 'lodash/fp/filter';
 import find from 'lodash/fp/find';
@@ -45,6 +46,9 @@ class Select extends React.Component {
     const selected = multiple ?
       map(get('value'), filter({selected: true}, options)) :
       get('value', find({selected: true}, options));
+    const selectedLabel = multiple ?
+      map(get('name'), filter({selected: true}, options)) :
+      get('name', find({selected: true}, options));
 
     const handleChange = multiple ?
       e => {
@@ -62,8 +66,10 @@ class Select extends React.Component {
       <div className={theme ? style[theme] : getClassState(style, modified, false)}>
         <label>
           <span className={style.title}>{title}</span>
+          <span className={style.label}>{selectedLabel}</span>
           {arrowView}
           <select
+            title={selectedLabel}
             onChange={handleChange}
             value={selected}
             multiple={multiple}

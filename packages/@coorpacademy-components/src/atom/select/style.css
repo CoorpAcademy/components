@@ -3,7 +3,7 @@
 @value mobile from breakpoints;
 @value darkGrey from colors;
 @value yellow from colors;
-
+@value borderGrey from colors;
 .default {
   display: flex;
 }
@@ -32,7 +32,17 @@
   color: #455A64;
   width: 180px;
 }
-
+.label {
+  display: none;
+  position: absolute;
+  white-space: nowrap;
+  overflow: hidden;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  pointer-events: none;
+  text-overflow: ellipsis;
+}
 .default select {
   font-family: "Open Sans";
   text-transform: none;
@@ -46,6 +56,7 @@
   width: 230px;
   outline: none;
   appearance: none;
+  cursor: pointer;
 }
 
 .modified select {
@@ -61,6 +72,7 @@
   width: 230px;
   outline: none;
   appearance: none;
+  cursor: pointer;
 }
 
 .default select:focus::-ms-value {
@@ -76,7 +88,8 @@
 
 .thematiques label,
 .nolabel label,
-.filter label {
+.filter label,
+.sort label {
   display: flex;
   align-items: center;
   height: 37px;
@@ -85,18 +98,29 @@
   margin: 0 20px;
 }
 
-.filter label {
+.filter label,
+.sort label {
   flex-wrap: wrap;
   height: auto;
 }
 
-.filter .title {
+.filter .label {
+  display: block;
+  padding: 15px 30px 15px 15px;
+  font-size: 12px;
+  background: borderGrey;
+  padding-right: 30px;
+}
+
+.filter .title,
+.sort .title {
   display: block;
   width: 100%;
   margin-bottom: 10px;
 }
 
-.filter select {
+.filter select,
+.sort select {
   display: block;
   width: 100%;
   height: 50px;
@@ -109,9 +133,11 @@
   font-size: 14px;
   padding: 0 15px;
   color: darkGrey;
+  cursor: pointer;
 }
 
-.filter .arrow {
+.filter .arrow,
+.sort .arrow {
   top: 70%;
 }
 
@@ -147,6 +173,7 @@
   margin-left: 20px;
   width: 230px;
   background: #e0e0e0;
+  cursor: pointer;
 }
 
 .nolabel select {
@@ -190,6 +217,7 @@
   color: #484848;
   padding: 0 30px 0 15px;
   width: 150px;
+  cursor: pointer;
 }
 
 .header .arrow {

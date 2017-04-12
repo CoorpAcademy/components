@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import * as CustomPropTypes from '../../../util/proptypes';
 import DisciplineHeader from '../../../molecule/discipline-header';
 import DisciplinePartners from '../../../molecule/discipline-partners';
@@ -55,7 +56,7 @@ const Author = (props, context) => {
 };
 
 Author.contextTypes = {
-  translate: React.PropTypes.func
+  translate: PropTypes.func
 };
 
 Author.propTypes = {

@@ -1,4 +1,6 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+import {findDOMNode} from 'react-dom';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import identity from 'lodash/fp/identity';
@@ -15,6 +17,23 @@ class SelectMultiple extends React.Component {
       opened: false
     };
     this.handleOnClick = this.handleOnClick.bind(this);
+  }
+
+  componentDidUpdate(prevProps, prevState, prevContext) {
+    const closeHandle = function(clickEvent) {
+      const menu = findDOMNode(this._selectMultiple);
+      if (menu && !menu.contains(clickEvent.target)) {
+        this.setState({opened: false});
+      }
+    }.bind(this);
+
+    if (this.state.opened) {
+      document.addEventListener('click', closeHandle);
+      document.addEventListener('touchstart', closeHandle);
+    } else {
+      document.removeEventListener('click', closeHandle);
+      document.removeEventListener('touchstart', closeHandle);
+    }
   }
 
   handleOnClick() {
@@ -46,9 +65,12 @@ class SelectMultiple extends React.Component {
     const isActive = this.state.opened === true;
 
     return (
-      <div className={style.default}>
+      <div className={style.default} // eslint-disable-next-line no-return-assign
+        ref={div => this._selectMultiple = div} // eslint-disable-line react/jsx-no-bind
+      >
         <div className={style.title}>{title}</div>
         <div className={style.select}
+          title={selection}
           onClick={this.handleOnClick}
         >
           {selection}

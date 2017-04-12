@@ -1,8 +1,13 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import {findDOMNode} from 'react-dom';
+import get from 'lodash/fp/get';
+import getOr from 'lodash/fp/getOr';
+import _map from 'lodash/fp/map';
 import Slide from '../../atom/slide';
 import style from './style.css';
 
+const map = _map.convert({cap: false});
 const Hammer = (typeof window !== 'undefined') ? require('hammerjs') : undefined;
 
 class Slider extends React.Component {
@@ -33,6 +38,7 @@ class Slider extends React.Component {
       this.hammer.destroy();
     }
     this.hammer = null;
+    clearTimeout(this.timer);
   }
 
   handleNextSlide() {
@@ -76,7 +82,7 @@ class Slider extends React.Component {
 
     const totalSlide = slides.length;
 
-    const myslides = slides.map((slide, index) => {
+    const myslides = map((slide, index) => {
       const isActive = this.state.currentSlide === index;
 
       return (
@@ -86,16 +92,20 @@ class Slider extends React.Component {
           <Slide {...slide} />
         </div>
       );
-    });
+    }, slides);
 
+    const currentSlide = get(this.state.currentSlide, slides);
+    const controlColor = getOr(false, 'light', currentSlide) ? '#FFF' : '#000';
     const leftControl = totalSlide > 1 ? (
       <span className={style.leftControl}
+        style={{color: controlColor}}
         onClick={this.handlePreviousSlide}
       />
     ) : null;
 
     const rightControl = totalSlide > 1 ? (
       <span className={style.rightControl}
+        style={{color: controlColor}}
         onClick={this.handleNextSlide}
       />
     ) : null;

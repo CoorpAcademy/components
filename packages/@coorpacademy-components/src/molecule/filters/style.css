@@ -6,9 +6,6 @@
 @value light from colors;
 @value darkGrey from colors;
 @value borderGrey from colors;
-@value blueGrey from colors;
-@value darkBlueGrey from colors;
-@value blue from colors;
 
 .search {
   display: block;
@@ -33,7 +30,7 @@
 }
 
 .choice {
-  max-width: 50%;
+  flex: 50%;
   min-width: 22%;
   margin: 8px 16px;
   box-sizing: border-box;
@@ -88,7 +85,7 @@
   position: absolute;
   font-size: 14px;
   right: 35%;
-  color: darkGrey;
+  color: inherit;
 }
 
 .wrapperSortBy {
@@ -165,7 +162,7 @@
     padding: 0 32px;
   }
   .choice {
-    width: 43%;
+    flex: 43%;
   }
 }
 
@@ -182,7 +179,7 @@
     background: borderGrey;
   }
   .choice {
-    width: 100%;
+    flex: 100%;
     max-width: 100%;
     position: relative;
   }
@@ -215,7 +212,7 @@
   .activeWrapperSortBy .title,
   .activeDefault .title:before,
   .activeWrapperSortBy .title:before {
-    color: blue;
+    color: inherit;
   } 
 
   .activeDefault .title:before,
@@ -305,7 +302,7 @@
     box-sizing: border-box;
     width: 100%;
   }
-
+  
   .activeSorting .select label div {
     top: 50%;
   }
@@ -321,7 +318,6 @@
   .activeWrapperFilters .CTAfilter,
   .activeSorting .CTAfilter {
     display: block;
-    background: blue;
     width: 100%;
     height: 49px;
     margin-top: 16px;
@@ -332,5 +328,9 @@
     font-weight: 700;
     position: relative;
     bottom: 0;
+  }
+  .activeWrapperFilters .CTAfilter:before,
+  .activeSorting .CTAfilter:before {
+    background-color: rgba(0, 0, 0, 0.2);
   }
 }

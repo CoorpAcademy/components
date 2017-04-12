@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import isEmpty from 'lodash/fp/isEmpty';
@@ -46,7 +47,7 @@ const CatalogCards = (props, context) => {
 };
 
 CatalogCards.contextTypes = {
-  translate: React.PropTypes.func
+  translate: PropTypes.func
 };
 
 CatalogCards.propTypes = {

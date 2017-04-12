@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import identity from 'lodash/fp/identity';
 import getOr from 'lodash/fp/getOr';
 import pushToHistory from '../../util/navigation';
@@ -42,7 +43,7 @@ class Link extends React.Component {
     const {skin, history: {createHref = identity} = {}} = this.context;
     const {skinHover, ...aProps} = this.props;
     const primarySkinColor = getOr('#00B0FF', 'common.primary', skin);
-    const _style = this.props.href ? null : {
+    const _style = this.props.href || this.props.onClick ? null : {
       pointerEvents: 'none'
     };
     const _hoverStyle = skinHover && this.state.hovered ? {
@@ -78,7 +79,7 @@ Link.propTypes = {
 };
 
 Link.contextTypes = {
-  skin: React.PropTypes.object,
+  skin: PropTypes.object,
   history: PropTypes.shape({
     createHref: PropTypes.func,
     push: PropTypes.func

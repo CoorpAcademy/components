@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import StarRating from '../../molecule/star-rating';
 import {hoverFill} from '../../atom/button/hover-fill.css';
 import style from './style.css';
@@ -54,7 +55,7 @@ const CatalogCTA = (props, context) => {
 };
 
 CatalogCTA.contextTypes = {
-  translate: React.PropTypes.func
+  translate: PropTypes.func
 };
 
 CatalogCTA.propTypes = {

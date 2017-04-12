@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import {findDOMNode} from 'react-dom';
 import getOr from 'lodash/fp/getOr';
 import set from 'lodash/fp/set';
@@ -197,7 +198,8 @@ class RangeSlider extends React.Component {
       labelMin,
       labelMax
     } = this.props;
-
+    const {skin} = this.context;
+    const defaultColor = getOr('#00B0FF', 'common.primary', skin);
     return (
       <div className={style.default}>
         <p className={style.title}>{title}</p>
@@ -209,13 +211,15 @@ class RangeSlider extends React.Component {
             className={style.track}
             style={{
               left: `${x1}px`,
-              width: `${x2 - x1}px`
+              width: `${x2 - x1}px`,
+              backgroundColor: defaultColor
             }}
           />
           <Handle
             className={style.handle}
             style={{
-              zIndex: isMax ? '1' : '0'
+              zIndex: isMax ? '1' : '0',
+              boxShadow: `0px 0px 1px 1px ${defaultColor}`
             }}
             axis={'x'}
             x={x1}
@@ -227,6 +231,9 @@ class RangeSlider extends React.Component {
             className={style.handle}
             axis={'x'}
             x={x2}
+            style={{
+              boxShadow: `0px 0px 1px 1px ${defaultColor}`
+            }}
             handlePan={this.setX(2)}
             handlePanStart={this.handlePanStart(2)}
             handlePanEnd={this.handlePanEnd(2)}
@@ -240,7 +247,7 @@ class RangeSlider extends React.Component {
 }
 
 RangeSlider.contextTypes = {
-  skin: React.PropTypes.object
+  skin: PropTypes.object
 };
 
 RangeSlider.propTypes = {

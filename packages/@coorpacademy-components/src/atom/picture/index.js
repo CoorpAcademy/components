@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import filter from 'lodash/fp/filter';
 import get from 'lodash/fp/get';
 import isNil from 'lodash/fp/isNil';
@@ -44,6 +45,7 @@ const Picture = props => {
 
 Picture.propTypes = {
   src: PropTypes.oneOfType([
+    PropTypes.string,
     CustomPropTypes.url,
     PropTypes.objectOf(CustomPropTypes.url)
   ])

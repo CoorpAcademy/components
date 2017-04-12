@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import {findDOMNode} from 'react-dom';
 import find from 'lodash/fp/find';
 import filter from 'lodash/fp/filter';
@@ -67,11 +68,15 @@ class MoocHeader extends React.Component {
     super(props);
     this.state = {
       isSettingsOpen: false,
-      isMenuOpen: false
+      isMenuOpen: false,
+      isThemeMenuOpen: false
     };
 
     this.handleSettingsToggle = this.handleSettingsToggle.bind(this);
     this.handleMenuToggle = this.handleMenuToggle.bind(this);
+    this.handleMenuThemeClick = this.handleMenuThemeClick.bind(this);
+    this.handleMenuThemeMouseEnter = this.handleMenuThemeMouseEnter.bind(this);
+    this.handleMenuThemeMouseLeave = this.handleMenuThemeMouseLeave.bind(this);
     this._checkOnClose = this._checkOnClose.bind(this);
     this.handleLinkClick = this.handleLinkClick.bind(this);
   }
@@ -81,7 +86,7 @@ class MoocHeader extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState, prevContext) {
-    if (this.state.isSettingsOpen) {
+    if (this.state.isSettingsOpen || this.state.isThemeMenuOpen) {
       document.addEventListener('click', this._checkOnClose);
       document.addEventListener('touchstart', this._checkOnClose);
     } else {
@@ -91,9 +96,17 @@ class MoocHeader extends React.Component {
   }
 
   _checkOnClose(clickEvent) {
-    const menu = findDOMNode(this._menuSettings);
-    if (menu && !menu.contains(clickEvent.target)) {
-      this.handleSettingsToggle();
+    if (this.state.isSettingsOpen) {
+      const menu = findDOMNode(this._menuSettings);
+      if (menu && !menu.contains(clickEvent.target)) {
+        this.handleSettingsToggle();
+      }
+    }
+    if (this.state.isThemeMenuOpen) {
+      const menuThemes = findDOMNode(this._menuThemes);
+      if (menuThemes && !menuThemes.contains(clickEvent.target)) {
+        this.handleMenuThemeClick();
+      }
     }
   }
 
@@ -110,6 +123,24 @@ class MoocHeader extends React.Component {
   handleMenuToggle() {
     this.setState(prevState => ({
       isMenuOpen: !prevState.isMenuOpen
+    }));
+  }
+
+  handleMenuThemeClick() {
+    this.setState(prevState => ({
+      isThemeMenuOpen: !prevState.isThemeMenuOpen
+    }));
+  }
+
+  handleMenuThemeMouseEnter() {
+    this.setState(prevState => ({
+      isThemeMenuOpen: true
+    }));
+  }
+
+  handleMenuThemeMouseLeave() {
+    this.setState(prevState => ({
+      isThemeMenuOpen: false
     }));
   }
 
@@ -145,9 +176,14 @@ class MoocHeader extends React.Component {
       });
 
       themesView = (
-        <div className={style.themes}>
+        <div className={this.state.isThemeMenuOpen ? style.themesHovered : style.themes}
+          onMouseEnter={this.handleMenuThemeMouseEnter}
+          onMouseLeave={this.handleMenuThemeMouseLeave} // eslint-disable-next-line no-return-assign
+          ref={div => this._menuThemes = div} // eslint-disable-line react/jsx-no-bind
+        >
           <div
             className={style.currentOption}
+            onTouchStart={this.handleMenuThemeClick}
             aria-haspopup='true'
             data-name="thematique"
           >{currentTheme.title}<span className={style.caret} /></div>
@@ -477,8 +513,8 @@ class MoocHeader extends React.Component {
 }
 
 MoocHeader.contextTypes = {
-  skin: React.PropTypes.object,
-  translate: React.PropTypes.func
+  skin: PropTypes.object,
+  translate: PropTypes.func
 };
 
 MoocHeader.propTypes = {

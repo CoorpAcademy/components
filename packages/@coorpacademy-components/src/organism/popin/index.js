@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import identity from 'lodash/fp/identity';
@@ -64,7 +65,7 @@ const Popin = (props, context) => {
 };
 
 Popin.contextTypes = {
-  skin: React.PropTypes.object
+  skin: PropTypes.object
 };
 
 Popin.propTypes = {

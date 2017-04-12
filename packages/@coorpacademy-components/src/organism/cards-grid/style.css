@@ -27,5 +27,6 @@
 @media mobile {
   .default {
     flex-direction: column;
+    padding: 0px 5px;
   }
 }

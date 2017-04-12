@@ -1,0 +1,30 @@
+@value breakpoints: "../../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value tablet from breakpoints;
+@value desktop from breakpoints;
+
+.list {
+  display: flex;
+  flex-direction: column;
+  align-content: stretch;
+  align-items: center;
+  background-color: #F7F7F7;
+  width: 100%;
+  padding: 20px 0;
+}
+
+.card {
+  width: 600px;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+@media mobile {
+  .list {
+    align-items: stretch;
+  }
+
+  .card {
+    width: 100%;
+  }
+}

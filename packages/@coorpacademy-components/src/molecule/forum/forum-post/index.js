@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import identity from 'lodash/fp/identity';
 import Picture from '../../../atom/picture';
 import threadShape from '../post-conditions';
@@ -141,7 +142,7 @@ const ForumPost = (props, context) => {
 };
 
 ForumPost.contextTypes = {
-  translate: React.PropTypes.func
+  translate: PropTypes.func
 };
 
 ForumPost.propTypes = {

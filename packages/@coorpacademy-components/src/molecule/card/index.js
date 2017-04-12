@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import identity from 'lodash/fp/identity';
 import getOr from 'lodash/fp/getOr';
 import style from './style.css';
@@ -39,22 +40,26 @@ const Card = (props, context) => {
       <div className={style.progress}
         style={{
           width: progress,
-          background: defaultColor
+          backgroundColor: defaultColor
         }}
       />
     </div>
   ) : (null);
 
   const adaptivIcon = adaptiv ? (
-    <div className={style.adaptiv} />
+    <div
+      className={style.adaptiv}
+      style={{
+        backgroundColor: defaultColor
+      }}
+    />
   ) : null;
 
   const lock = disabled ? (
     <div className={style.lock} />
   ) : null;
 
-  // const timer = <span className={style.timer}>{time}</span>;
-  const timer = null;
+  const timer = time ? (<span className={style.timer}>{time}</span>) : null;
 
   return (
     <div className={cardStyle}>
@@ -65,7 +70,8 @@ const Card = (props, context) => {
         <div
           className={style.imageWrapper}
           style={{
-            backgroundImage: `url('${image}')`
+            backgroundColor: defaultColor,
+            backgroundImage: image ? `url('${image}')` : 'none'
           }}
         >
           <div
@@ -111,7 +117,7 @@ const Card = (props, context) => {
 };
 
 Card.contextTypes = {
-  skin: React.PropTypes.object
+  skin: PropTypes.object
 };
 
 Card.propTypes = {

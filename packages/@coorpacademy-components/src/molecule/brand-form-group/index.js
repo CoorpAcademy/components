@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import map from 'lodash/fp/map';
 import getOr from 'lodash/fp/getOr';
 import Select from '../../atom/select';
@@ -11,6 +12,7 @@ import InputTextarea from '../../atom/input-textarea';
 import InputDoublestep from '../../atom/input-doublestep';
 import ImageUpload from '../../atom/image-upload';
 import SetupSlider from '../setup-slider';
+import SetupSections from '../setup-sections';
 import style from './style.css';
 
 const BrandFormGroup = props => {
@@ -61,6 +63,10 @@ const BrandFormGroup = props => {
       case 'slider':
         return (
           <SetupSlider {...field} />
+        );
+      case 'sections':
+        return (
+          <SetupSections {...field} />
         );
       case 'text':
         return (

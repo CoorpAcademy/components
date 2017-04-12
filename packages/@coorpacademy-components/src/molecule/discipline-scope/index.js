@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import ScopeTabs from '../scope-tabs';
 import ScopeContent from '../scope-content';
 import style from './style.css';

@@ -4,6 +4,8 @@
 
 # Coorpacademy components
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/CoorpAcademy/components.svg)](https://greenkeeper.io/)
+
 This library provide sharable components for web applications, either :
 - as CommonJS components
 - as a minified library

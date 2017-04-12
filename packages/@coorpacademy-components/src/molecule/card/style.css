@@ -7,7 +7,6 @@
 @value grey from colors;
 @value darkGrey from colors;
 @value borderGrey from colors;
-@value blue from colors;
 
 .default[disabled] {
   pointer-events: none;
@@ -19,7 +18,7 @@
   margin: 8px;
   width: 260px;
   vertical-align: top;
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   background: white;
   overflow: hidden;
   height: 260px;
@@ -33,6 +32,7 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   background: light;
   transform: translateY(-2px);
+  border: 0px solid rgba(0, 0, 0, 0);
 }
 
 .imageWrapper:hover .overlay,
@@ -55,6 +55,8 @@
   width: 100%;
   line-height: 125px;
   text-shadow: 0px 0px 20px white;
+  top: 0;
+  position: absolute;
 }
 
 .imageWrapper {
@@ -123,7 +125,6 @@
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background: blue;
   composes: fa from '../../variables/fontawesome.css';
   composes: fa-random from '../../variables/fontawesome.css';
 }
@@ -197,7 +198,6 @@
 .progress {
   display: block;
   height: 5px;
-  background: blue;
   animation: progressbar 2s ease-in-out;
 }
 
@@ -211,7 +211,6 @@
 .type {
   font-weight: 700;
   font-size: 9px;
-  color: blue;
   text-transform: uppercase;
 }
 
@@ -263,7 +262,6 @@
 
 @media mobile {
   .grid .default {
-    width: 201px;
   }
   .grid .title a {
     font-size: 15px;
@@ -329,4 +327,3 @@
     font-weight: 700;
   }
 }
-

@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "ava": "NODE_ENV=test ava",
+    "ava": "cross-env NODE_ENV=test ava",
     "bootstrap": "lerna bootstrap",
     "build": "lerna run build",
     "clean": "lerna run clean && lerna clean --yes",
@@ -8,7 +8,7 @@
     "doc": "lerna run --scope @coorpacademy/components doc",
     "lerna": "lerna",
     "lint": "eslint .",
-    "nyc": "NODE_ENV=test nyc npm run ava",
+    "nyc": "cross-env NODE_ENV=test nyc npm run ava",
     "postinstall": "npm run bootstrap",
     "posttest": "lerna run prepublish",
     "publish:beta": "lerna publish --npm-tag beta",
@@ -21,12 +21,16 @@
   },
   "devDependencies": {
     "@coorpacademy/eslint-plugin-coorpacademy": "^3.0.1",
-    "ava": "^0.18.0",
-    "babel-core": "^6.18.2",
+    "ava": "^0.19.0",
+    "babel-preset-es2015": "^6.13.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-1": "^6.5.0",
+    "babel-register": "^6.24.0",
     "coveralls": "^2.11.13",
-    "eslint": "3.17.0",
-    "eslint-plugin-react": "^6.8.0",
-    "lerna": "2.0.0-beta.28",
+    "cross-env": "^4.0.0",
+    "eslint": "^3.18.0",
+    "eslint-plugin-react": "^6.10.3",
+    "lerna": "2.0.0-beta.38",
     "nyc": "^10.0.0"
   },
   "ava": {
@@ -35,9 +39,7 @@
       "packages/**/src/**/test/**/*.js",
       "!**/node_modules/**/*"
     ],
-    "require": [
-      "babel-core/register"
-    ],
+    "require": "babel-register",
     "babel": "inherit"
   },
   "nyc": {
@@ -55,11 +57,16 @@
       "packages/**/lib/**",
       "storybook/**"
     ],
-    "require": [
-      "babel-core/register"
-    ],
+    "require": "babel-register",
     "sourceMap": false,
     "instrument": false,
     "all": true
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "stage-1",
+      "react"
+    ]
   }
 }

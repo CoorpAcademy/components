@@ -10,7 +10,7 @@ export default (skin, defaultImage) => {
     const properties = getOr(defaultProperties, ['properties', image], skin);
 
     const style = {
-      backgroundImage: `url(${url})`,
+      backgroundImage: url ? `url(${url})` : 'none',
       ...properties
     };
 

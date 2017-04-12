@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Categories from '../../../molecule/categories';
 import CursusList from '../../../molecule/cursus-list';
 import CatalogCards from '../../../organism/catalog-cards';
@@ -35,7 +36,7 @@ const Catalog = (props, context) => {
 };
 
 Catalog.contextTypes = {
-  translate: React.PropTypes.func
+  translate: PropTypes.func
 };
 
 Catalog.propTypes = {
