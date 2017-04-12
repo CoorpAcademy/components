@@ -6,10 +6,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import createDirectives from '../src';
 
-const Title = ({value} = {}) => React.createElement(
+const Title = ({children} = {}) => React.createElement(
   'h1',
   {},
-  value
+  children
 );
 
 const app = angular.module('app', []);
@@ -18,12 +18,12 @@ app
   .value('config', {})
   .value('$i18next', () => {});
 
-createDirectives(app, React, ReactDOM, {
-  ReactTitle: Title
+createDirectives(app, null, {
+  Title
 });
 
 app.controller('main', $scope => {
   $scope.props = {
-    value: '@treantjs'
+    children: '@treantjs'
   };
 });

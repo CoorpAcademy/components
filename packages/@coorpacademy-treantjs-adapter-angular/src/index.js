@@ -2,6 +2,8 @@ import mapKeys from 'lodash/fp/mapKeys';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+const DefaultProvider = props => props.children;
+
 const _link = ($rootScope, $i18next, scope, element, Provider, Component) => {
   const translate = (token, data) => $i18next(`coorponents:${token}`, data);
 
@@ -64,7 +66,7 @@ const createDirectives = (app, Provider, components) => {
   const toDirective = key => {
     const componentName = `coorp${key}`;
     const Component = components[key];
-    createDirective(app, componentName, Provider, Component);
+    createDirective(app, componentName, Provider || DefaultProvider, Component);
   };
 
   return mapKeys(toDirective, components);
