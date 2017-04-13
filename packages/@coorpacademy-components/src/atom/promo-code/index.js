@@ -5,11 +5,8 @@ import style from './style.css';
 class PromoCode extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      promoCode: ''
-    };
     this.handleButtonClick = this.handleButtonClick.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
+    this.attachInputRef = this.attachInputRef.bind(this);
   }
 
   shouldComponentUpdate(nextProps, nextState, nextContext) {
@@ -17,14 +14,11 @@ class PromoCode extends Component {
   }
 
   handleButtonClick() {
-    const { promoCode } = this.state;
-    this.props.onValidate(promoCode);
+    this.props.onValidate(this.codeInput.value);
   }
 
-  handleInputChange(e) {
-    this.setState({
-      promoCode: e.target.value
-    });
+  attachInputRef(input) {
+    this.codeInput = input;
   }
 
   render() {
@@ -36,10 +30,6 @@ class PromoCode extends Component {
       onValidate
     } = this.props;
 
-    const {
-      promoCode
-    } = this.state;
-
     return (
       <div className={style.promoCode}>
         <div className={style.promoCodeInputAndButton}>
@@ -47,8 +37,7 @@ class PromoCode extends Component {
             type="text"
             placeholder={promoCodePlaceholder}
             required
-            onChange={this.handleInputChange}
-            value={promoCode}
+            ref={this.attachInputRef}
             className={`
               ${style.promoCodeInput}
               ${this.props.promoCodeError && style.promoCodeButtonOnError}
