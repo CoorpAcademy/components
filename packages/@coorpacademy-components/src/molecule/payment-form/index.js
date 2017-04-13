@@ -34,12 +34,12 @@ class PaymentForm extends React.Component {
       };
 
       this.cardNumber = elements.create('cardNumber', elementOptions);
-      const cardExpiry = elements.create('cardExpiry', elementOptions);
-      const cardCvc = elements.create('cardCvc', elementOptions);
+      this.cardExpiry = elements.create('cardExpiry', elementOptions);
+      this.cardCvc = elements.create('cardCvc', elementOptions);
 
       this.cardNumber.mount('#card-number');
-      cardExpiry.mount('#card-expiry');
-      cardCvc.mount('#card-cvc');
+      this.cardExpiry.mount('#card-expiry');
+      this.cardCvc.mount('#card-cvc');
 
       this.cardNumber.on('change', ({error}) => {
         this.setState({
@@ -48,20 +48,26 @@ class PaymentForm extends React.Component {
         });
       });
 
-      cardExpiry.on('change', ({error}) => {
+      this.cardExpiry.on('change', ({error}) => {
         this.setState({
           cardExpiryHasError: error,
           submitButtonEnabled: true
         });
       });
 
-      cardCvc.on('change', ({error}) => {
+      this.cardCvc.on('change', ({error}) => {
         this.setState({
           cardCvcHasError: error,
           submitButtonEnabled: true
         });
       });
     }
+  }
+
+  componentWillUnmount() {
+    this.cardNumber.unmount();
+    this.cardExpiry.unmount();
+    this.cardCvc.unmount();
   }
 
   handleSubmit() {
