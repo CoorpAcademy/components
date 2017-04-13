@@ -2,14 +2,13 @@ import React from 'react';
 import style from './style.css';
 
 const TabContent = props => {
-  const detailsClassName = `${style.tabContentDetails}
-  ${props.hideContentBackground ? '' : style.tabContentDetailsBackground}`;
+  const backgroundClassName = props.hideContentBackground ? style.hiddenBackground : style.greyBackground;
   return (
-    <div className={style.tabContent}>
-      <div className={style.tabContentTitle}>
+    <div className={style.content}>
+      <div className={style.contentTitle}>
         {props.translations.titles[props.activeContent]}
       </div>
-      <div className={detailsClassName}>
+      <div className={backgroundClassName}>
         {props.children}
       </div>
     </div>

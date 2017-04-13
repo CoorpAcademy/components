@@ -11,7 +11,7 @@ const SubscriptionFreemiumDetails = props => (
     </div>
     <button
       className={style.subscriptionFreemiumButton}
-      onClick={props.handleSubscriptionFreemiumButton}
+      onClick={props.onSubscriptionFreemiumButtonClick}
     >
       {props.translations.subscriptionFreemiumButton}
     </button>

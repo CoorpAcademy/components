@@ -6,7 +6,7 @@
 @value mobile from breakpoints;
 @value tablet from breakpoints;
 
-.tabContent {
+.content {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,7 +14,7 @@
   flex: 1;
 }
 
-.tabContentTitle {
+.contentTitle {
   flex: 1;
   color: blue;
   font-size: 20px;
@@ -24,32 +24,37 @@
   margin: 0px 15px;
 }
 
-.tabContentDetails {
+.contentDetails {
   margin: 50px 150px;
   padding: 40px;
   text-align: center;
 }
 
-.tabContentDetailsBackground {
+.hiddenBackground {
+  composes: contentDetails;
+}
+
+.greyBackground {
+  composes: contentDetails;
   background-color: #FAFAFA;
 }
 
 @media tablet {
-  .tabContent {
+  .content {
     width: 100%;
   }
 }
 
 @media mobile {
-  .tabContent {
+  .content {
     background: none;
   }
 
-  .tabContentTitle {
+  .contentTitle {
     display: none;
   }
 
-  .tabContentDetails {
+  .contentDetails {
     background-color: white;
     border: solid 1px borderGrey;
     padding: 30px 20px;
