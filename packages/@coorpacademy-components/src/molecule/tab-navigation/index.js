@@ -20,7 +20,7 @@ const TabNavigation = props => {
     <div className={style.tabNavigation}>
       <div className={style.tabNavigationPanel}>
         <BackToCatalogButton {...otherProps}>
-          {props.backToCatalogText}
+          {props.translations.backToCatalogText}
         </BackToCatalogButton>
         {tabs.map(tab => (
           <Tab
