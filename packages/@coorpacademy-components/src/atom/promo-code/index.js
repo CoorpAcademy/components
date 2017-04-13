@@ -36,7 +36,6 @@ class PromoCode extends Component {
           <input
             type="text"
             placeholder={promoCodePlaceholder}
-            required
             ref={this.attachInputRef}
             className={`
               ${style.promoCodeInput}
