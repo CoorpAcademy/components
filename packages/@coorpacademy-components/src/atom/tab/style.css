@@ -19,13 +19,13 @@
   background: #F0F0F0;
 }
 
-.tabTitle {
+.title {
   text-transform: uppercase;
   font-weight: bold;
   padding: 10px;
 }
 
-.tabLink {
+.link {
   padding: 10px;
 }
 
@@ -38,7 +38,7 @@
     border: solid 1px borderGrey;
   }
 
-  .tabLink {
+  .link {
     display: none;
   }
 }

@@ -25,7 +25,7 @@ const Unsubscribe = props => {
           <div className={style.buttonContainer}>
             <button
               className={`${style.whiteButton} ${style.button}`}
-              onClick={props.handleUnsubscribeButtonClick}
+              onClick={props.onUnsubscribeButtonClick}
             >
               {props.translations.unsubscribe}
             </button>

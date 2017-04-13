@@ -4,9 +4,9 @@ import style from './style.css';
 const BackToCatalogButton = props => (
   <div
     className={style.backToCatalogButton}
-    onClick={props.handleBackToCatalogButtonClick}
+    onClick={props.onBackToCatalogButtonClick}
   >
-    {props.translations.backToCatalogText}
+    {props.children}
   </div>
 );
 

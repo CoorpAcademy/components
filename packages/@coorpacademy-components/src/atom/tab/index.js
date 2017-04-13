@@ -8,13 +8,13 @@ const Tab = props => {
       className={style.tab}
       onClick={handleTabClick}
     >
-      <div className={style.tabTitle}>
+      <div className={style.title}>
         {props.title}
       </div>
-      <div className={style.tabLink}>
+      <div className={style.link}>
         {props.links.map(link => (
           <div
-            className={style.tabLinkTitle}
+            className={style.linkTitle}
             key={link.title}
           >
             {link.title}
