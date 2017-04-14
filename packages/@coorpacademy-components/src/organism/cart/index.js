@@ -1,5 +1,4 @@
 import React, {PropTypes} from 'react';
-import CartHeader from '../../molecule/cart-header';
 import ProductCard from '../../molecule/product-card';
 import PromoCode from '../../atom/promo-code';
 import PaymentForm from '../../molecule/payment-form';
@@ -12,10 +11,13 @@ const Cart = ({
         promoCodeProps,
         paymentFormProps,
         backUrl,
-        backTitle
+        backTitle,
+        title
     }) => (
       <div className={style.parent}>
-        <CartHeader {...cartHeaderProps} />
+        <div className={style.titleContainer}>
+          <div className={style.headerTitle}>{title}</div>
+        </div>
         <div className={style.cart}>
           <div className={style.productBlock}>
             <ProductCard {...productCardProps} />
