@@ -71,6 +71,8 @@ import SetupSlider from '../src/molecule/setup-slider';
 import Slider from '../src/molecule/slider';
 import SsmenuList from '../src/molecule/ssmenu-list';
 import StarRating from '../src/molecule/star-rating';
+import SubscriptionFreemium from '../src/molecule/subscription-freemium';
+import SubscriptionPremium from '../src/molecule/subscription-premium';
 import TabNavigation from '../src/molecule/tab-navigation';
 import Table from '../src/molecule/table';
 import ThemeImage from '../src/molecule/theme-image';
@@ -198,6 +200,8 @@ import SocialLinkFixtureTwitter from '../src/atom/social-link/test/fixtures/twit
 import SpinnerFixtureDefault from '../src/atom/spinner/test/fixtures/default';
 import StarFixtureDisable from '../src/atom/star/test/fixtures/disable';
 import StarFixtureEnable from '../src/atom/star/test/fixtures/enable';
+import SubscriptionFreemiumFixtureDefault from '../src/molecule/subscription-freemium/test/fixtures/default';
+import SubscriptionPremiumFixtureDefault from '../src/molecule/subscription-premium/test/fixtures/default';
 import TabContentFixtureDefault from '../src/atom/tab-content/test/fixtures/default';
 import TabFixtureDefault from '../src/atom/tab/test/fixtures/default';
 import TitleFixtureFixture from '../src/atom/title/test/fixtures/fixture';
@@ -508,6 +512,8 @@ export const components = {
     Slider,
     SsmenuList,
     StarRating,
+    SubscriptionFreemium,
+    SubscriptionPremium,
     TabNavigation,
     Table,
     ThemeImage,
@@ -905,6 +911,12 @@ export const fixtures = {
     },
     StarRating: {
       Default: StarRatingFixtureDefault
+    },
+    SubscriptionFreemium: {
+      Default: SubscriptionFreemiumFixtureDefault
+    },
+    SubscriptionPremium: {
+      Default: SubscriptionPremiumFixtureDefault
     },
     TabNavigation: {
       Default: TabNavigationFixtureDefault
