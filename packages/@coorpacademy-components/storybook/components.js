@@ -1,4 +1,3 @@
-import BackToCatalog from '../src/atom/back-to-catalog';
 import Button from '../src/atom/button';
 import CatalogSection from '../src/atom/catalog-section';
 import CenteredText from '../src/atom/centered-text';
@@ -38,7 +37,6 @@ import BrandTabs from '../src/molecule/brand-tabs';
 import BrandUploadBox from '../src/molecule/brand-upload-box';
 import Breadcrumbs from '../src/molecule/breadcrumbs';
 import Card from '../src/molecule/card';
-import CartHeader from '../src/molecule/cart-header';
 import CatalogAssets from '../src/molecule/catalog-assets';
 import CatalogBadge from '../src/molecule/catalog-badge';
 import CatalogCard from '../src/molecule/catalog-card';
@@ -114,7 +112,6 @@ import CoorpHeader from '../src/template/common/coorp-header';
 import Dashboard from '../src/template/common/dashboard';
 import Discipline from '../src/template/common/discipline';
 import SearchPage from '../src/template/common/search-page';
-import BackToCatalogFixtureDefault from '../src/atom/back-to-catalog/test/fixtures/default';
 import ButtonFixtureA from '../src/atom/button/test/fixtures/a';
 import ButtonFixtureBlue from '../src/atom/button/test/fixtures/blue';
 import ButtonFixtureCentered from '../src/atom/button/test/fixtures/centered';
@@ -231,7 +228,6 @@ import CardFixtureAdaptiv from '../src/molecule/card/test/fixtures/adaptiv';
 import CardFixtureCatalogue from '../src/molecule/card/test/fixtures/catalogue';
 import CardFixtureDefault from '../src/molecule/card/test/fixtures/default';
 import CardFixtureDisabled from '../src/molecule/card/test/fixtures/disabled';
-import CartHeaderFixtureDefault from '../src/molecule/cart-header/test/fixtures/default';
 import CatalogAssetsFixtureDefault from '../src/molecule/catalog-assets/test/fixtures/default';
 import CatalogAssetsFixtureEmpty from '../src/molecule/catalog-assets/test/fixtures/empty';
 import CatalogBadgeFixtureDefault from '../src/molecule/catalog-badge/test/fixtures/default';
@@ -437,7 +433,6 @@ import SearchPageFixtureDefault from '../src/template/common/search-page/test/fi
 
 export const components = {
   Atom: {
-    BackToCatalog,
     Button,
     CatalogSection,
     CenteredText,
@@ -479,7 +474,6 @@ export const components = {
     BrandUploadBox,
     Breadcrumbs,
     Card,
-    CartHeader,
     CatalogAssets,
     CatalogBadge,
     CatalogCard,
@@ -571,9 +565,6 @@ export const components = {
 };
 export const fixtures = {
   Atom: {
-    BackToCatalog: {
-      Default: BackToCatalogFixtureDefault
-    },
     Button: {
       A: ButtonFixtureA,
       Blue: ButtonFixtureBlue,
@@ -769,9 +760,6 @@ export const fixtures = {
       Catalogue: CardFixtureCatalogue,
       Default: CardFixtureDefault,
       Disabled: CardFixtureDisabled
-    },
-    CartHeader: {
-      Default: CartHeaderFixtureDefault
     },
     CatalogAssets: {
       Default: CatalogAssetsFixtureDefault,
