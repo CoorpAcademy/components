@@ -2,6 +2,12 @@
   composes: default from '../input-text/style.css';
 }
 
+.default .colorPicker {
+  width: 50px;
+  padding: 0;
+  border: none;
+}
+
 .error {
   composes: error from '../input-text/style.css';
   composes: default;
