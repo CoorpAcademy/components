@@ -6,7 +6,6 @@ import PaymentForm from '../../molecule/payment-form';
 import style from './style.css';
 
 const Cart = ({
-        cartHeaderProps,
         productCardProps,
         promoCodeProps,
         paymentFormProps,
@@ -35,12 +34,12 @@ const Cart = ({
 );
 
 Cart.PropTypes = {
-  cartHeaderProps: PropTypes.object,
-  productCardProps: PropTypes.object,
-  promoCodeProps: PropTypes.object,
-  paymentFormProps: PropTypes.object,
+  productCardProps: ProductCard.PropTypes,
+  promoCodeProps: PromoCode.PropTypes,
+  paymentFormProps: PaymentForm.PropTypes,
   backUrl: PropTypes.string,
-  backTitle: PropTypes.string
+  backTitle: PropTypes.string,
+  title: PropTypes.string
 };
 
 export default Cart;

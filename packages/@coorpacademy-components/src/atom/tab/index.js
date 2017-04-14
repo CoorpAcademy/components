@@ -2,7 +2,7 @@ import React from 'react';
 import style from './style.css';
 
 const Tab = props => {
-  const handleTabClick = () => props.onTabClick(props.targetContent);
+  const handleTabClick = () => props.onClick(props.targetContent);
   return (
     <div
       className={style.tab}

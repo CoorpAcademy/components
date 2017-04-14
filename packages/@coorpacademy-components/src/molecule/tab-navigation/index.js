@@ -1,4 +1,5 @@
 import React, {PropTypes, Component} from 'react';
+import map from 'lodash/fp/map';
 import Tab from '../../atom/tab';
 import TabContent from '../../atom/tab-content';
 import SubscriptionPremiumDetails from '../subscription-details/premium';
@@ -13,7 +14,7 @@ const pages = {
 };
 
 const TabNavigation = props => {
-  const {tabs, activeContent, ...otherProps} = props;
+  const {tabs, onTabClick, activeContent, ...otherProps} = props;
   const ActiveContent = pages[activeContent];
   return (
     <div className={style.tabNavigation}>
@@ -24,10 +25,11 @@ const TabNavigation = props => {
         >
           {props.translations.backToCatalogText}
         </div>
-        {tabs.map(tab => (
+        {map(tabs, tab => (
           <Tab
             {...otherProps}
             {...tab}
+            onClick={onTabClick}
             key={tab.key}
             active={tab.key === activeContent}
           />
