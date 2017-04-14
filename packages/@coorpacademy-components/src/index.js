@@ -1,6 +1,5 @@
 export Author from './template/app-catalog/author';
 export Authors from './template/common/authors';
-export BackToCatalog from './atom/back-to-catalog';
 export BattleRequest from './molecule/battle-request';
 export BattleRequestList from './molecule/dashboard/battle-request-list';
 export BrandCard from './molecule/brand-card';
@@ -22,7 +21,6 @@ export Card from './molecule/card';
 export CardsGrid from './organism/cards-grid';
 export CardsList from './molecule/dashboard/cards-list';
 export Cart from './organism/cart';
-export CartHeader from './molecule/cart-header';
 export Catalog from './template/app-catalog/catalog';
 export CatalogAssets from './molecule/catalog-assets';
 export CatalogBadge from './molecule/catalog-badge';
