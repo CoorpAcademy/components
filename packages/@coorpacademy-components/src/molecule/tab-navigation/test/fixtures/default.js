@@ -3,20 +3,26 @@ export default {
     tabs: [
       {
         title: 'Tab Title',
-        onTabClick() {},
         key: 'subscribe',
         targetContent: 'subscribe',
         links: [
           {
-            title: 'title'
+            title: 'subTitle'
           }
         ]
       }
     ],
+    onTabClick: () => {},
     onBackToCatalogButtonClick: () => {},
     activeContent: 'subscribe',
     translations: {
-      titles: {},
+      titles: {
+        subscribe: 'This is the tab content title'
+      },
+      subscriptionFreemiumTitle: 'Freemium page title',
+      subscriptionFreemiumDescription: `Bacon ipsum dolor amet jerky ground round beef ribs, pancetta tri-tip
+      spare ribs beef frankfurter porchetta burgdoggen meatball landjaeger.`,
+      subscriptionFreemiumButton: 'Launch Coorpacademy Premium',
       backToCatalogText: 'Back to catalog'
     }
   }

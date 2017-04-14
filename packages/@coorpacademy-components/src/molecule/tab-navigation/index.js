@@ -25,7 +25,7 @@ const TabNavigation = props => {
         >
           {props.translations.backToCatalogText}
         </div>
-        {map(tabs, tab => (
+        {map(tab => (
           <Tab
             {...otherProps}
             {...tab}
@@ -33,7 +33,7 @@ const TabNavigation = props => {
             key={tab.key}
             active={tab.key === activeContent}
           />
-        ))}
+        ), tabs)}
       </div>
       <TabContent
         activeContent={activeContent}
@@ -44,5 +44,10 @@ const TabNavigation = props => {
     </div>
   );
 };
+
+TabNavigation.PropTypes = {
+  onBackToCatalogButtonClick: PropTypes.func
+};
+
 
 export default TabNavigation;
