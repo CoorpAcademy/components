@@ -2,8 +2,9 @@
   composes: default from '../input-text/style.css';
 }
 
-.default .colorPicker {
+.colorPicker {
   width: 50px;
+  height: 50px;
   padding: 0;
 }
 
