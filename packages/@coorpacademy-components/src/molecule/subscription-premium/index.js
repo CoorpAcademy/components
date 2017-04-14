@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './premium.css';
+import style from './style.css';
 
 const SubscriptionPremiumDetails = props => (
   <div className={style.premium}>
