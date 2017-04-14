@@ -2,7 +2,8 @@ export default {
   props: {
     tabs: [
       {
-        title: 'title',
+        title: 'Tab Title',
+        onTabClick() {},
         key: 'subscribe',
         targetContent: 'subscribe',
         links: [
@@ -12,9 +13,11 @@ export default {
         ]
       }
     ],
+    onBackToCatalogButtonClick: () => {},
     activeContent: 'subscribe',
     translations: {
-      titles: {}
+      titles: {},
+      backToCatalogText: 'Back to catalog'
     }
   }
 };
