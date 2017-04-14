@@ -10,4 +10,6 @@ const Settings = props => {
   );
 };
 
+Settings.PropTypes = TabNavigation.PropTypes;
+
 export default Settings;
