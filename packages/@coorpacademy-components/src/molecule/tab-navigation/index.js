@@ -2,8 +2,8 @@ import React, {PropTypes, Component} from 'react';
 import map from 'lodash/fp/map';
 import Tab from '../../atom/tab';
 import TabContent from '../../atom/tab-content';
-import SubscriptionPremiumDetails from '../subscription-details/premium';
-import SubscriptionFreemiumDetails from '../subscription-details/freemium';
+import SubscriptionPremiumDetails from '../subscription-premium';
+import SubscriptionFreemiumDetails from '../subscription-freemium';
 import Unsubscribe from '../unsubscribe';
 import style from './style.css';
 
