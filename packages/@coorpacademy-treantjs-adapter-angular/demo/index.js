@@ -21,8 +21,8 @@ app.use(
 app.get('*', (req, res) => {
   res.send(`
     <body ng-app="app" ng-controller="main">
-      <input ng-model="props.children"/>
-      <coorp-title props="props"></coorp-title>
+      <input ng-model="props.children" />
+      <coorp-display-value props="props" context="context"></coorp-display-value>
       <script type="text/javascript" src="/dist/angular.js"></script>
     </body>
   `);
