@@ -1,7 +1,10 @@
 export default {
   props: {
+    activeContent: 'activeContent',
     translations: {
-      titles: {}
+      titles: {
+        activeContent: 'This is the tab content title'
+      }
     }
   }
 };

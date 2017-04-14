@@ -1,9 +1,9 @@
 export default {
   props: {
-    promoCodePlaceholder: 'placeholder',
-    promoCodeSubmit: 'Appliquer',
-    promoCodeDescription: 'description',
-    promoCodeError: 'error',
+    promoCodePlaceholder: 'Enter a promo code',
+    promoCodeSubmit: 'Apply',
+    promoCodeDescription: 'Valid promo code',
+    promoCodeError: 'Invalid promo code',
     onValidate() {}
   }
 };
