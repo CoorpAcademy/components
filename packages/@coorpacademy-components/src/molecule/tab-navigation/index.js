@@ -49,5 +49,4 @@ TabNavigation.PropTypes = {
   onBackToCatalogButtonClick: PropTypes.func
 };
 
-
 export default TabNavigation;

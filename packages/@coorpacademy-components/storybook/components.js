@@ -200,8 +200,6 @@ import SocialLinkFixtureTwitter from '../src/atom/social-link/test/fixtures/twit
 import SpinnerFixtureDefault from '../src/atom/spinner/test/fixtures/default';
 import StarFixtureDisable from '../src/atom/star/test/fixtures/disable';
 import StarFixtureEnable from '../src/atom/star/test/fixtures/enable';
-import SubscriptionFreemiumFixtureDefault from '../src/molecule/subscription-freemium/test/fixtures/default';
-import SubscriptionPremiumFixtureDefault from '../src/molecule/subscription-premium/test/fixtures/default';
 import TabContentFixtureDefault from '../src/atom/tab-content/test/fixtures/default';
 import TabFixtureDefault from '../src/atom/tab/test/fixtures/default';
 import TitleFixtureFixture from '../src/atom/title/test/fixtures/fixture';
@@ -309,6 +307,8 @@ import SsmenuListFixtureEmpty from '../src/molecule/ssmenu-list/test/fixtures/em
 import SsmenuListFixtureFormations from '../src/molecule/ssmenu-list/test/fixtures/formations';
 import SsmenuListFixtureSolutions from '../src/molecule/ssmenu-list/test/fixtures/solutions';
 import StarRatingFixtureDefault from '../src/molecule/star-rating/test/fixtures/default';
+import SubscriptionFreemiumFixtureDefault from '../src/molecule/subscription-freemium/test/fixtures/default';
+import SubscriptionPremiumFixtureDefault from '../src/molecule/subscription-premium/test/fixtures/default';
 import TabNavigationFixtureDefault from '../src/molecule/tab-navigation/test/fixtures/default';
 import TableFixtureDefault from '../src/molecule/table/test/fixtures/default';
 import TableFixtureNoOptions from '../src/molecule/table/test/fixtures/no-options';
