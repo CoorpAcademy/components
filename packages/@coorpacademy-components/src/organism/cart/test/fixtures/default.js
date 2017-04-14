@@ -1,8 +1,6 @@
 export default {
   props: {
-    cartHeaderProps: {
-      title: 'On a marché sur la lune'
-    },
+    title: 'On a marché sur la lune',
     productCardProps: {
       title: 'Produit',
       subtitle: 'P0',

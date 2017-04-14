@@ -1,12 +1,8 @@
 import React from 'react';
 import style from './style.css';
 
-const navigateToMooc = url => {
-  window.location.href = url;
-};
-
 const Unsubscribe = props => {
-  const handleKeepSubscriptionButtonClick = () => navigateToMooc(props.moocUrl);
+  const handleKeepSubscriptionButtonClick = props.navigateToMooc;
   return (
     <div>
       { !props.hasUnsubscribed &&
