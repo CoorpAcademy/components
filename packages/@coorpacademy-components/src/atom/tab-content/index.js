@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import style from './style.css';
 
 const TabContent = props => {
@@ -13,6 +13,10 @@ const TabContent = props => {
       </div>
     </div>
   );
+};
+
+TabContent.PropTypes = {
+  hideContentBackground: PropTypes.bool
 };
 
 export default TabContent;
