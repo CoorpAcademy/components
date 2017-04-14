@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import style from './style.css';
 
 const Tab = props => {
@@ -23,6 +23,13 @@ const Tab = props => {
       </div>
     </div>
   );
+};
+
+Tab.PropTypes = {
+  title: PropTypes.string,
+  links: PropTypes.array,
+  targetContent: PropTypes.string,
+  onClick: PropTypes.func
 };
 
 export default Tab;
