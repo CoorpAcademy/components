@@ -33,6 +33,20 @@
     flex-direction: column;
 }
 
+.titleContainer {
+    height: 103px;
+    background-color: yellow;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.headerTitle {
+    font-size: 40px;
+    color: darkGrey;
+}
+
 @media mobile {
   .cart {
     width: 100%;
@@ -47,6 +61,15 @@
   .paymentBlock {
     max-width: 100%;
     width: 100%;
+  }
+
+  .titleContainer {
+    height: 46px;
+    margin-bottom: 0;
+  }
+
+  .headerTitle {
+    font-size: 15px;
   }
 }
 
