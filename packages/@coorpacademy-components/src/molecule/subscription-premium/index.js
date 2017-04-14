@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import style from './style.css';
 
 const SubscriptionPremiumDetails = props => (
@@ -30,5 +30,13 @@ const SubscriptionPremiumDetails = props => (
     </div>
   </div>
 );
+
+SubscriptionPremiumDetails.PropTypes = {
+  checkImage: PropTypes.string,
+  subscriptionPremiumDescriptionDate: PropTypes.string,
+  subscriptionPremiumDescriptionPrice: PropTypes.string,
+  subscriptionPremiumDescriptionLink: PropTypes.string,
+  cancelSubscriptionText: PropTypes.string
+};
 
 export default SubscriptionPremiumDetails;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import style from './style.css';
 
 const SubscriptionFreemiumDetails = props => (
@@ -17,5 +17,9 @@ const SubscriptionFreemiumDetails = props => (
     </button>
   </div>
 );
+
+SubscriptionFreemiumDetails.PropTypes = {
+  onSubscriptionFreemiumButtonClick: PropTypes.func
+};
 
 export default SubscriptionFreemiumDetails;
