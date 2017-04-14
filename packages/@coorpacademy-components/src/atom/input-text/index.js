@@ -27,6 +27,7 @@ const InputText = props => {
         <input
           type='text'
           name={title}
+          className={style.input}
           placeholder={placeholder}
           defaultValue={defaultValue}
           value={value}
