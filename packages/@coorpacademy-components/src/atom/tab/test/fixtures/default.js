@@ -1,7 +1,16 @@
 export default {
   props: {
     onTabClick() {},
-    links: [],
-    title: 'Tab title'
+    title: 'Tab title',
+    key: 'tab',
+    targetContent: 'tab',
+    links: [
+      {
+        title: 'First tab link'
+      },
+      {
+        title: 'Second tab link'
+      }
+    ]
   }
 };
