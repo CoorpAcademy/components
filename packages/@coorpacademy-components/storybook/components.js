@@ -1516,6 +1516,9 @@ export const dependencies = {
       "children": {
         "Molecule": {
           "SetupSection": true
+        },
+        "Atom": {
+          "Loader": true
         }
       }
     },
@@ -1943,6 +1946,7 @@ export const dependencies = {
           "NewsList": true
         },
         "Molecule": {
+          "SetupSections": true,
           "BrandUploadBox": true
         },
         "Atom": {
