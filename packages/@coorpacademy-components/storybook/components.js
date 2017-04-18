@@ -282,6 +282,7 @@ import SetupSectionFixtureDefault from '../src/molecule/setup-section/test/fixtu
 import SetupSectionFixtureFirst from '../src/molecule/setup-section/test/fixtures/first';
 import SetupSectionFixtureOther from '../src/molecule/setup-section/test/fixtures/other';
 import SetupSectionsFixtureDefault from '../src/molecule/setup-sections/test/fixtures/default';
+import SetupSectionsFixtureLoading from '../src/molecule/setup-sections/test/fixtures/loading';
 import SetupSlideFixtureDefault from '../src/molecule/setup-slide/test/fixtures/default';
 import SetupSliderFixtureDefault from '../src/molecule/setup-slider/test/fixtures/default';
 import SliderFixtureDefault from '../src/molecule/slider/test/fixtures/default';
@@ -843,7 +844,8 @@ export const fixtures = {
       Other: SetupSectionFixtureOther
     },
     SetupSections: {
-      Default: SetupSectionsFixtureDefault
+      Default: SetupSectionsFixtureDefault,
+      Loading: SetupSectionsFixtureLoading
     },
     SetupSlide: {
       Default: SetupSlideFixtureDefault

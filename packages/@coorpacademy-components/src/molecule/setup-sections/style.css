@@ -14,3 +14,12 @@
 .section:last-child {
   border-bottom: 1px solid #B9B9B9;
 }
+
+.loading {
+  composes: section;
+  width: 100%;
+  background-color: #F6F6F6;
+  height: 60px;
+  min-height: 60px;
+  position: relative;
+}
