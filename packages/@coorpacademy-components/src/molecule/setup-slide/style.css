@@ -1,5 +1,6 @@
 .wrapper {
   width: 100%;
+  box-sizing: border-box;
   border: 1px solid #B9B9B9;
 }
 
@@ -7,12 +8,13 @@
   height: 50px;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   padding: 0 20px;
   width: 100%;
   box-sizing: border-box;
   background-color: #F6F6F6;
   border-bottom: 1px solid #B9B9B9;
+  cursor: pointer;
 }
 
 .title h3 {
@@ -34,4 +36,24 @@
 .container {
   padding: 40px;
   background-color: #ffffff;
+}
+
+.none {
+  display: none;
+}
+
+.arrow {
+  composes: fa from '../../variables/fontawesome.css';
+  color: #B9B9B9;
+  font-size: 30px;
+}
+
+.down {
+  composes: arrow;
+  composes: fa-chevron-down from '../../variables/fontawesome.css';
+}
+
+.up {
+  composes: arrow;
+  composes: fa-chevron-up from '../../variables/fontawesome.css';
 }
