@@ -15,15 +15,13 @@ export default {
     onTabClick: () => {},
     onBackToCatalogButtonClick: () => {},
     activeContent: 'subscribe',
-    translations: {
-      titles: {
-        subscribe: 'This is the tab content title'
-      },
-      subscriptionFreemiumTitle: 'Freemium page title',
-      subscriptionFreemiumDescription: `Bacon ipsum dolor amet jerky ground round beef ribs, pancetta tri-tip
-      spare ribs beef frankfurter porchetta burgdoggen meatball landjaeger.`,
-      subscriptionFreemiumButton: 'Launch Coorpacademy Premium',
-      backToCatalogText: 'Back to catalog'
-    }
+    titles: {
+      subscribe: 'This is the tab content title'
+    },
+    subscriptionFreemiumTitle: 'Freemium page title',
+    subscriptionFreemiumDescription: `Bacon ipsum dolor amet jerky ground round beef ribs, pancetta tri-tip
+    spare ribs beef frankfurter porchetta burgdoggen meatball landjaeger.`,
+    subscriptionFreemiumButton: 'Launch Coorpacademy Premium',
+    backToCatalogText: 'Back to catalog'
   }
 };

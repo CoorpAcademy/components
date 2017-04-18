@@ -102,6 +102,8 @@ class PaymentForm extends React.Component {
       submitButtonEnabled
     } = this.state;
 
+    const { translate } = this.context;
+
     const handleSubmit = () => this.handleSubmit();
     const disabled = submitButtonEnabled ? {} : {disabled: true};
 
@@ -112,7 +114,7 @@ class PaymentForm extends React.Component {
             className={style.acceptedCardsCheck}
             src={checkImage}
           />
-          <div className={style.acceptedCardsText}>{acceptedCardsText}</div>
+          <div className={style.acceptedCardsText}>{translate(acceptedCardsText)}</div>
           <img
             className={style.acceptedCardsImage}
             src={cardsImage}
@@ -123,14 +125,14 @@ class PaymentForm extends React.Component {
           <div className={style.creditCardOwnerEmailText}>{cardOwnerEmail}</div>
           <hr className={style.creditCardOwnerEmailSeparator} />
         </div>
-        {errors && <div className={style.paymentErrors}>- {errors}</div>}
-        {warning && <div className={style.paymentWarning}>- {warning}</div>}
+        {errors && <div className={style.paymentErrors}>- {translate(errors)}</div>}
+        {warning && <div className={style.paymentWarning}>- {translate(warning)}</div>}
         <div className={style.securedPayment}>
           <img
             className={style.securedPaymentImage}
             src={securedPaymentImage}
           />
-          <div className={style.securedPaymentText}>{securedPaymentText}</div>
+          <div className={style.securedPaymentText}>{translate(securedPaymentText)}</div>
         </div>
         <div className={style.cardBlock}>
           <div
@@ -148,19 +150,23 @@ class PaymentForm extends React.Component {
             id="card-cvc"
           />
         </div>
-        <div className={style.subscriptionDisclaimer}>{disclaimer}</div>
+        <div className={style.subscriptionDisclaimer}>{translate(disclaimer)}</div>
         <div className={style.subscribeButtonContainer}>
           <button
             className={style.subscribeButton}
             type="button"
             onClick={handleSubmit}
             {...disabled}
-          >{submitText}</button>
+          >{translate(submitText)}</button>
         </div>
       </div>
     );
   }
 }
+
+PaymentForm.contextTypes = {
+  translate: PropTypes.func
+};
 
 PaymentForm.propTypes = {
   submitText: PropTypes.string.isRequired,
