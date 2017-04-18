@@ -1,7 +1,7 @@
 export default {
   props: {
     navigateToMooc: () => {console.log('navigates to MOOC');}, // eslint-disable-line no-console
-    hasUnsubscribed: true,
+    hasUnsubscribed: false,
     confirmUnsubscribe: 'Souhaitez-vous vraiment vous désabonner ?',
     keepSubscription: 'Conserver mon abonnement',
     onUnsubscribeButtonClick: () => {console.log('unsubscribes');}, // eslint-disable-line no-console

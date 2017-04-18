@@ -31,7 +31,13 @@ import skin from './skin';
 import {components, fixtures} from './components';
 
 const locales = {en, fr};
-const translate = createTranslate(locales.fr);
+const translate = key => {
+  try {
+    return createTranslate(locales.fr)(key);
+  } catch (e) {
+    return key;
+  }
+};
 
 const options = {
   skin,
