@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+
 import Button from '../src/atom/button';
 import CatalogSection from '../src/atom/catalog-section';
 import CenteredText from '../src/atom/centered-text';
@@ -282,6 +284,7 @@ import SetupSectionFixtureDefault from '../src/molecule/setup-section/test/fixtu
 import SetupSectionFixtureFirst from '../src/molecule/setup-section/test/fixtures/first';
 import SetupSectionFixtureOther from '../src/molecule/setup-section/test/fixtures/other';
 import SetupSectionsFixtureDefault from '../src/molecule/setup-sections/test/fixtures/default';
+import SetupSectionsFixtureLoading from '../src/molecule/setup-sections/test/fixtures/loading';
 import SetupSlideFixtureDefault from '../src/molecule/setup-slide/test/fixtures/default';
 import SetupSliderFixtureDefault from '../src/molecule/setup-slider/test/fixtures/default';
 import SliderFixtureDefault from '../src/molecule/slider/test/fixtures/default';
@@ -843,7 +846,8 @@ export const fixtures = {
       Other: SetupSectionFixtureOther
     },
     SetupSections: {
-      Default: SetupSectionsFixtureDefault
+      Default: SetupSectionsFixtureDefault,
+      Loading: SetupSectionsFixtureLoading
     },
     SetupSlide: {
       Default: SetupSlideFixtureDefault
@@ -1514,6 +1518,9 @@ export const dependencies = {
       "children": {
         "Molecule": {
           "SetupSection": true
+        },
+        "Atom": {
+          "Loader": true
         }
       }
     },
@@ -1941,6 +1948,7 @@ export const dependencies = {
           "NewsList": true
         },
         "Molecule": {
+          "SetupSections": true,
           "BrandUploadBox": true
         },
         "Atom": {

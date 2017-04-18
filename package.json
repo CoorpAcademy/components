@@ -6,6 +6,7 @@
     "clean": "lerna run clean && lerna clean --yes",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "doc": "lerna run --scope @coorpacademy/components doc",
+    "generate": "lerna exec --scope @coorpacademy/components -- npm run generate",
     "lerna": "lerna",
     "lint": "eslint .",
     "nyc": "cross-env NODE_ENV=test nyc npm run ava",
@@ -55,7 +56,7 @@
       "packages/**/dist/**",
       "packages/**/es/**",
       "packages/**/lib/**",
-      "storybook/**"
+      "packages/@coorpacademy-components/storybook-static/static/**"
     ],
     "require": "babel-register",
     "sourceMap": false,
