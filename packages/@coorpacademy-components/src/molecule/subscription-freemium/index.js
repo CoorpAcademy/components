@@ -1,25 +1,36 @@
 import React, {PropTypes} from 'react';
 import style from './style.css';
 
-const SubscriptionFreemiumDetails = props => (
-  <div className={style.subscriptionFreemium}>
-    <div className={style.subscriptionFreemiumTitle}>
-      {props.translations.subscriptionFreemiumTitle}
-    </div>
-    <div className={style.subscriptionFreemiumContent}>
-      {props.translations.subscriptionFreemiumDescription}
-    </div>
-    <button
-      className={style.subscriptionFreemiumButton}
-      onClick={props.onSubscriptionFreemiumButtonClick}
-    >
-      {props.translations.subscriptionFreemiumButton}
-    </button>
-  </div>
-);
+const SubscriptionFreemiumDetails = (props, context) => {
+  const { translate } = context;
 
-SubscriptionFreemiumDetails.PropTypes = {
-  onSubscriptionFreemiumButtonClick: PropTypes.func
+  return (
+    <div className={style.subscriptionFreemium}>
+      <div className={style.subscriptionFreemiumTitle}>
+        {translate(props.subscriptionFreemiumTitle)}
+      </div>
+      <div className={style.subscriptionFreemiumContent}>
+        {translate(props.subscriptionFreemiumDescription)}
+      </div>
+      <button
+        className={style.subscriptionFreemiumButton}
+        onClick={props.onSubscriptionFreemiumButtonClick}
+      >
+        {translate(props.subscriptionFreemiumButton)}
+      </button>
+    </div>
+  );
+};
+
+SubscriptionFreemiumDetails.contextTypes = {
+  translate: PropTypes.func
+};
+
+SubscriptionFreemiumDetails.propTypes = {
+  onSubscriptionFreemiumButtonClick: PropTypes.func,
+  subscriptionFreemiumTitle: PropTypes.string,
+  subscriptionFreemiumDescription: PropTypes.string,
+  subscriptionFreemiumButton: PropTypes.string
 };
 
 export default SubscriptionFreemiumDetails;

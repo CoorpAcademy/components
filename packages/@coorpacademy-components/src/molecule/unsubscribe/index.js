@@ -1,21 +1,23 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import style from './style.css';
 
-const Unsubscribe = props => {
+const Unsubscribe = (props, context) => {
+  const { translate } = context;
   const handleKeepSubscriptionButtonClick = props.navigateToMooc;
+
   return (
     <div>
       { !props.hasUnsubscribed &&
         <div className={style.unsubscribe}>
           <div className={style.description}>
-            {props.translations.confirmUnsubscribe}
+            {translate(props.confirmUnsubscribe)}
           </div>
           <div className={style.buttonContainer}>
             <button
               className={`${style.blueButton} ${style.button}`}
               onClick={handleKeepSubscriptionButtonClick}
             >
-              {props.translations.keepSubscription}
+              {translate(props.keepSubscription)}
             </button>
           </div>
           <div className={style.buttonContainer}>
@@ -23,18 +25,32 @@ const Unsubscribe = props => {
               className={`${style.whiteButton} ${style.button}`}
               onClick={props.onUnsubscribeButtonClick}
             >
-              {props.translations.unsubscribe}
+              {translate(props.unsubscribe)}
             </button>
           </div>
         </div>
       }
       { props.hasUnsubscribed &&
         <div className={style.unsubscribeConfirmation}>
-          {props.translations.unsubscribeConfirmation}
+          {translate(props.unsubscribeConfirmation)}
         </div>
       }
     </div>
   );
+};
+
+Unsubscribe.contextTypes = {
+  translate: PropTypes.func
+};
+
+Unsubscribe.propTypes = {
+  navigateToMooc: PropTypes.func,
+  hasUnsubscribed: PropTypes.bool,
+  confirmUnsubscribe: PropTypes.string,
+  keepSubscription: PropTypes.string,
+  onUnsubscribeButtonClick: PropTypes.func,
+  unsubscribe: PropTypes.string,
+  unsubscribeConfirmation: PropTypes.string
 };
 
 export default Unsubscribe;

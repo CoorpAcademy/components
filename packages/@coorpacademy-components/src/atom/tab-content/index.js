@@ -1,12 +1,14 @@
 import React, {PropTypes} from 'react';
 import style from './style.css';
 
-const TabContent = props => {
+const TabContent = (props, context) => {
+  const { translate } = context;
+
   const backgroundClassName = props.hideContentBackground ? style.hiddenBackground : style.greyBackground;
   return (
     <div className={style.content}>
       <div className={style.contentTitle}>
-        {props.translations.titles[props.activeContent]}
+        {translate(props.titles[props.activeContent])}
       </div>
       <div className={backgroundClassName}>
         {props.children}
@@ -15,8 +17,14 @@ const TabContent = props => {
   );
 };
 
-TabContent.PropTypes = {
-  hideContentBackground: PropTypes.bool
+TabContent.contextTypes = {
+  translate: PropTypes.func
+};
+
+TabContent.propTypes = {
+  titles: PropTypes.object,
+  hideContentBackground: PropTypes.bool,
+  activeContent: PropTypes.string
 };
 
 export default TabContent;
