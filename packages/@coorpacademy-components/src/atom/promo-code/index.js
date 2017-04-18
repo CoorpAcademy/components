@@ -30,12 +30,14 @@ class PromoCode extends Component {
       onValidate
     } = this.props;
 
+    const { translate } = this.context;
+
     return (
       <div className={style.promoCode}>
         <div className={style.promoCodeInputAndButton}>
           <input
             type="text"
-            placeholder={promoCodePlaceholder}
+            placeholder={translate(promoCodePlaceholder)}
             ref={this.attachInputRef}
             className={`
               ${style.promoCodeInput}
@@ -48,7 +50,7 @@ class PromoCode extends Component {
             onClick={this.handleButtonClick}
             className={style.promoCodeButton}
           >
-            {promoCodeSubmit}
+            {translate(promoCodeSubmit)}
           </button>
         </div>
         {
@@ -60,13 +62,17 @@ class PromoCode extends Component {
         {
           this.props.promoCodeError &&
           <div className={style.promoCodeError}>
-            - {promoCodeError}
+            - {translate(promoCodeError)}
           </div>
         }
       </div>
     );
   }
 }
+
+PromoCode.contextTypes = {
+  translate: PropTypes.func
+};
 
 PromoCode.propTypes = {
   promoCodePlaceholder: PropTypes.string.isRequired,

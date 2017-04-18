@@ -13,9 +13,11 @@ const pages = {
   unsubscribe: Unsubscribe
 };
 
-const TabNavigation = props => {
+const TabNavigation = (props, context) => {
+  const { translate } = context;
   const {tabs, onTabClick, activeContent, ...otherProps} = props;
   const ActiveContent = pages[activeContent];
+
   return (
     <div className={style.tabNavigation}>
       <div className={style.tabNavigationPanel}>
@@ -23,7 +25,7 @@ const TabNavigation = props => {
           className={style.backToCatalogButton}
           onClick={props.onBackToCatalogButtonClick}
         >
-          {props.translations.backToCatalogText}
+          {translate(props.backToCatalogText)}
         </div>
         {map(tab => (
           <Tab
@@ -45,8 +47,13 @@ const TabNavigation = props => {
   );
 };
 
-TabNavigation.PropTypes = {
-  onBackToCatalogButtonClick: PropTypes.func
+TabNavigation.contextTypes = {
+  translate: PropTypes.func
+};
+
+TabNavigation.propTypes = {
+  onBackToCatalogButtonClick: PropTypes.func,
+  backToCatalogText: PropTypes.string
 };
 
 export default TabNavigation;
