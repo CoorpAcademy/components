@@ -20,7 +20,14 @@ const InputText = props => {
   return (
     <div className={getClassState(style, modified, error)}>
       <label>
-        <span className={style.title}>{`${title} `}</span>
+        <span
+          className={style.title}
+          style={{
+            color: value
+          }}
+        >
+          {`${title} `}
+        </span>
         <input
           type='color'
           name={title}
@@ -29,9 +36,6 @@ const InputText = props => {
           defaultValue={value}
           onInput={handleChange}
           onChange={noop}
-          style={{
-            backgroundColor: value
-          }}
         />
       </label>
       <div className={style.description}>
