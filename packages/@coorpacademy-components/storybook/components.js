@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+
 import Button from '../src/atom/button';
 import CatalogSection from '../src/atom/catalog-section';
 import CenteredText from '../src/atom/centered-text';
