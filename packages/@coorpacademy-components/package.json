@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/components",
-  "version": "5.0.5",
+  "version": "5.0.6",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
