@@ -34,6 +34,7 @@ const InputText = props => {
           className={style.colorPicker}
           placeholder={placeholder}
           defaultValue={value}
+          value={value}
           onInput={handleChange}
           onChange={noop}
         />
