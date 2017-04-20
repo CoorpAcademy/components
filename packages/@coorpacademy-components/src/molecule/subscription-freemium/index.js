@@ -7,16 +7,16 @@ const SubscriptionFreemiumDetails = (props, context) => {
   return (
     <div className={style.subscriptionFreemium}>
       <div className={style.subscriptionFreemiumTitle}>
-        {translate(props.subscriptionFreemiumTitle)}
+        {translate('subscription_freemium_title')}
       </div>
       <div className={style.subscriptionFreemiumContent}>
-        {translate(props.subscriptionFreemiumDescription)}
+        {translate('subscription_freemium_description')}
       </div>
       <button
         className={style.subscriptionFreemiumButton}
         onClick={props.onSubscriptionFreemiumButtonClick}
       >
-        {translate(props.subscriptionFreemiumButton)}
+        {translate('subscription_freemium_button')}
       </button>
     </div>
   );
@@ -27,10 +27,7 @@ SubscriptionFreemiumDetails.contextTypes = {
 };
 
 SubscriptionFreemiumDetails.propTypes = {
-  onSubscriptionFreemiumButtonClick: PropTypes.func,
-  subscriptionFreemiumTitle: PropTypes.string,
-  subscriptionFreemiumDescription: PropTypes.string,
-  subscriptionFreemiumButton: PropTypes.string
+  onSubscriptionFreemiumButtonClick: PropTypes.func
 };
 
 export default SubscriptionFreemiumDetails;

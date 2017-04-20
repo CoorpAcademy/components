@@ -12,23 +12,23 @@ const SubscriptionPremiumDetails = (props, context) => {
           src={props.checkImage}
         />
         <div className={style.premiumTitleText}>
-          {translate(props.subscriptionPremiumTitle)}
+          {translate('subscription_premium_title')}
         </div>
       </div>
       <div className={style.premiumProductDetails}>
-        {translate(props.subscriptionPremiumDescriptionPart1)}
+        {translate('subscription_premium_description_part1')}
         {props.subscriptionPremiumDescriptionDate}
-        {translate(props.subscriptionPremiumDescriptionPart2)}
+        {translate('subscription_premium_description_part2')}
         {props.subscriptionPremiumDescriptionPrice}
-        {translate(props.subscriptionPremiumDescriptionPart2End)}
+        {translate('subscription_premium_description_part2_end')}
       </div>
       <div className={style.cancelSubscriptionText}>
-        {translate(props.subscriptionPremiumDescriptionPart3)}
+        {translate('subscription_premium_description_part3')}
         <a
           className={style.cancelSubscriptionLink}
           href={`${props.subscriptionPremiumDescriptionLink}`}
         >
-          {translate(props.subscriptionPremiumDescriptionPart3WithLink)}
+          {translate('subscription_premium_description_part3_with_link')}
         </a>
       </div>
     </div>
@@ -43,13 +43,7 @@ SubscriptionPremiumDetails.propTypes = {
   checkImage: PropTypes.string,
   subscriptionPremiumDescriptionDate: PropTypes.string,
   subscriptionPremiumDescriptionPrice: PropTypes.string,
-  subscriptionPremiumDescriptionLink: PropTypes.string,
-  subscriptionPremiumTitle: PropTypes.string,
-  subscriptionPremiumDescriptionPart1: PropTypes.string,
-  subscriptionPremiumDescriptionPart2: PropTypes.string,
-  subscriptionPremiumDescriptionPart2End: PropTypes.string,
-  subscriptionPremiumDescriptionPart3: PropTypes.string,
-  subscriptionPremiumDescriptionPart3WithLink: PropTypes.string
+  subscriptionPremiumDescriptionLink: PropTypes.string
 };
 
 export default SubscriptionPremiumDetails;
