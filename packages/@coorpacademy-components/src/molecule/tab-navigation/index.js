@@ -25,7 +25,7 @@ const TabNavigation = (props, context) => {
           className={style.backToCatalogButton}
           onClick={props.onBackToCatalogButtonClick}
         >
-          {translate(props.backToCatalogText)}
+          {translate('back_to_catalog')}
         </div>
         {map(tab => (
           <Tab
@@ -52,8 +52,7 @@ TabNavigation.contextTypes = {
 };
 
 TabNavigation.propTypes = {
-  onBackToCatalogButtonClick: PropTypes.func,
-  backToCatalogText: PropTypes.string
+  onBackToCatalogButtonClick: PropTypes.func
 };
 
 export default TabNavigation;

@@ -2,12 +2,12 @@ export default {
   props: {
     tabs: [
       {
-        title: 'Tab Title',
+        title: 'my_subscription_title',
         key: 'subscribe',
         targetContent: 'subscribe',
         links: [
           {
-            title: 'subTitle'
+            title: 'my_subscription_manage_freemium_title'
           }
         ]
       }
@@ -16,12 +16,10 @@ export default {
     onBackToCatalogButtonClick: () => {},
     activeContent: 'subscribe',
     titles: {
-      subscribe: 'This is the tab content title'
+      subscribe: 'subscription_and_payment'
     },
-    subscriptionFreemiumTitle: 'Freemium page title',
-    subscriptionFreemiumDescription: `Bacon ipsum dolor amet jerky ground round beef ribs, pancetta tri-tip
-    spare ribs beef frankfurter porchetta burgdoggen meatball landjaeger.`,
-    subscriptionFreemiumButton: 'Launch Coorpacademy Premium',
-    backToCatalogText: 'Back to catalog'
+    subscriptionFreemiumTitle: 'subscription_freemium_title',
+    subscriptionFreemiumDescription: 'subscription_freemium_description',
+    subscriptionFreemiumButton: 'subscription_freemium_button'
   }
 };

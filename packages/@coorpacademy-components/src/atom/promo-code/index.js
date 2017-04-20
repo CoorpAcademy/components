@@ -23,8 +23,6 @@ class PromoCode extends Component {
 
   render() {
     const {
-      promoCodePlaceholder,
-      promoCodeSubmit,
       promoCodeDescription,
       promoCodeError,
       onValidate
@@ -37,7 +35,7 @@ class PromoCode extends Component {
         <div className={style.promoCodeInputAndButton}>
           <input
             type="text"
-            placeholder={translate(promoCodePlaceholder)}
+            placeholder={translate('zuora_discount_code')}
             ref={this.attachInputRef}
             className={`
               ${style.promoCodeInput}
@@ -50,7 +48,7 @@ class PromoCode extends Component {
             onClick={this.handleButtonClick}
             className={style.promoCodeButton}
           >
-            {translate(promoCodeSubmit)}
+            {translate('zuora_discount_code_submit')}
           </button>
         </div>
         {
@@ -75,8 +73,6 @@ PromoCode.contextTypes = {
 };
 
 PromoCode.propTypes = {
-  promoCodePlaceholder: PropTypes.string.isRequired,
-  promoCodeSubmit: PropTypes.string.isRequired,
   promoCodeDescription: PropTypes.string,
   promoCodeError: PropTypes.string,
   onValidate: PropTypes.func.isRequired
