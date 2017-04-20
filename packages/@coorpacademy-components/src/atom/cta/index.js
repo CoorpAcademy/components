@@ -92,7 +92,7 @@ CTA.propTypes = {
   name: PropTypes.string,
   href: PropTypes.string,
   target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
-  extraLightGrey: PropTypes.bool,
+  light: PropTypes.bool,
   small: PropTypes.bool,
   secondary: PropTypes.bool
 };

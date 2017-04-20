@@ -5,6 +5,6 @@ const {props} = Default;
 
 export default {
   props: defaultsDeep(props, {
-    extraLightGrey: true
+    light: true
   })
 };
