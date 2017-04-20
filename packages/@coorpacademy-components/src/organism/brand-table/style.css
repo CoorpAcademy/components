@@ -1,3 +1,9 @@
+@value colors: "../../variables/colors.css";
+@value white from colors;
+@value brandGreen from colors;
+@value brandGreenHover from colors;
+@value darkGrey from colors;
+
 .wrapper {
   width: 100%;
 }
@@ -13,8 +19,8 @@
   display: block;
   width: 40px;
   height: 40px;
-  color: #ffffff;
-  background-color: #A5D6A7;
+  color: white;
+  background-color: brandGreen;
   text-decoration: none;
   font-family: 'Open Sans';
   font-weight: 300;
@@ -25,7 +31,7 @@
 }
 
 .create a:hover {
-  background-color: #81c784
+  background-color: brandGreenHover;
 }
 
 .search {
@@ -52,7 +58,7 @@
 .empty {
   height: 200px;
   font-family: 'Open Sans';
-  color: #455A64;
+  color: darkGrey;
   font-size: 15px;
   font-weight: 700;
   display: flex;

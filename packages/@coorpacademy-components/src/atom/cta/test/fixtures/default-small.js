@@ -3,7 +3,7 @@ export default {
     submitValue: 'Coorpacademy',
     href: '#',
     target: '_self',
-    light: false,
+    extraLightGrey: false,
     small: true,
     secondary: false
   }

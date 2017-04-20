@@ -3,9 +3,9 @@
 @value mobile from breakpoints;
 @value tablet from breakpoints;
 @value colors: "../../variables/colors.css";
-@value light from colors;
-@value darkGrey from colors;
-@value borderGrey from colors;
+@value lightGrey from colors;
+@value mediumGrey from colors;
+@value extraLightGrey from colors;
 
 .search {
   display: block;
@@ -42,14 +42,14 @@
 
 .choice label span {
     font-size: 13px;
-    color: darkGrey;
     user-select: none;
+    color: mediumGrey;
 }
 
 .choice select,
 .sorting select {
   font-size: 12px;
-  background: borderGrey;
+  background: lightGrey;
 }
 
 .wrapperFilters {
@@ -104,14 +104,14 @@
   width: 100%;
   padding: 32px 10%;
   box-sizing: border-box;
-  background: light;
+  background: lightGrey;
 }
 
 .sorting .title {
   display: block;
   font-size: 14px;
   font-weight: 300;
-  color: darkGrey;
+  color: mediumGrey;
 }
 
 .sorting .mainTitle {
@@ -119,7 +119,7 @@
   width: 30%;
   font-size: 20px;
   font-weight: 700;
-  color: darkGrey;
+  color: mediumGrey;
   justify-content: flex-start;
 }
 
@@ -135,6 +135,10 @@
   font-weight: 700;
   text-align: right;
   font-size: 13px;
+}
+
+.sorting select {
+  background-color: extraLightGrey;
 }
 
 .sorting label div {
@@ -177,7 +181,7 @@
     box-sizing: border-box;
     height: 50px;
     padding: 0;
-    background: borderGrey;
+    background: lightGrey;
   }
   .choice {
     flex: 100%;
@@ -185,21 +189,21 @@
     position: relative;
   }
   .default {
-    border-right: solid 1px light;
+    border-right: solid 1px lightGrey;
   }
 
   .activeDefault {
-    border-right: solid 1px light;
-    background: light;
+    border-right: solid 1px lightGrey;
+    background: lightGrey;
   }
 
   .activeWrapperSortBy {
-    border-left: solid 1px light;
-    background: light;
+    border-left: solid 1px lightGrey;
+    background: lightGrey;
   }
 
   .wrapperSortBy {
-    border-left: solid 1px light;
+    border-left: solid 1px lightGrey;
   }
   .wrapper {
     padding: 25px 0 0 0;
@@ -232,7 +236,7 @@
 
   .title {
     display: block;
-    color: darkGrey;
+    color: mediumGrey;
     width: 100%;
     font-size: 14px;
     font-weight: 700;
@@ -253,7 +257,7 @@
     height: auto;
     padding: 0;
     box-sizing: border-box;
-    background: light;
+    background: lightGrey;
     position: absolute;
     z-index: 3;
     box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .5);
@@ -270,6 +274,14 @@
   
   .activeWrapperFilters,
   .activeSorting {
+    width: 100%;
+    height: auto;
+    padding: 0;
+    box-sizing: border-box;
+    background: lightGrey;
+    position: absolute;
+    z-index: 3;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .5);
     visibility: visible;
     z-index: -1;
     transform: translateY(0);
@@ -323,7 +335,7 @@
 
   .sorting .select select,
   .activeSorting .select select  {
-    background: borderGrey;
+    background: lightGrey;
   }
 
   .sorting .select label span,

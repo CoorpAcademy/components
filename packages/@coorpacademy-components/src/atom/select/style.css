@@ -1,9 +1,13 @@
 @value breakpoints: "../../variables/breakpoints.css";
 @value colors: "../../variables/colors.css";
 @value mobile from breakpoints;
+@value mediumGrey from colors;
+@value brandOrange from colors;
+@value extraLightGrey from colors;
+@value lightGrey from colors;
 @value darkGrey from colors;
-@value yellow from colors;
-@value borderGrey from colors;
+@value black from colors;
+
 .default {
   display: flex;
 }
@@ -29,7 +33,7 @@
   font-family: "Open Sans";
   font-size: 15px;
   text-transform: none;
-  color: #455A64;
+  color: darkGrey;
   width: 180px;
 }
 .label {
@@ -47,11 +51,11 @@
   font-family: "Open Sans";
   text-transform: none;
   padding: 0 15px;
-  border: solid 2px #eceff1;
+  border: solid 2px lightGrey;
   height: 50px;
   border-radius: 2px;
   font-size: 14px;
-  color: #607d8b;
+  color: darkGrey;
   margin-left: 20px;
   width: 230px;
   outline: none;
@@ -63,11 +67,11 @@
   font-family: "Open Sans";
   text-transform: none;
   padding: 0 15px;
-  border: solid 2px yellow;
+  border: solid 2px brandOrange;
   height: 50px;
   border-radius: 2px;
   font-size: 14px;
-  color: #607d8b;
+  color: dakrGrey;
   margin-left: 20px;
   width: 230px;
   outline: none;
@@ -77,7 +81,7 @@
 
 .default select:focus::-ms-value {
   background-color: transparent;  /*make the select background transparent in ie */
-  color: #607d8b;
+  color: dakrGrey;
  }
 
 .thematiques,
@@ -108,7 +112,7 @@
   display: block;
   padding: 15px 30px 15px 15px;
   font-size: 12px;
-  background: borderGrey;
+  background: lightGrey;
   padding-right: 30px;
 }
 
@@ -132,7 +136,7 @@
   appearance: none;
   font-size: 14px;
   padding: 0 15px;
-  color: darkGrey;
+  color: mediumGrey;
   cursor: pointer;
 }
 
@@ -152,7 +156,7 @@
   margin-top: -10px;
   top: 50%;
   font-size: 20px;
-  color: #484848;
+  color: darkGrey;
   font-weight: 700;
   pointer-events: none;
   composes: fa from '../../variables/fontawesome.css';
@@ -172,7 +176,7 @@
   font-weight: normal;
   margin-left: 20px;
   width: 230px;
-  background: #e0e0e0;
+  background: extraLightGrey;
   cursor: pointer;
 }
 
@@ -192,7 +196,7 @@
 }
 
 .mooc select {
-  color: #000;
+  color: black;
   height: 35px;
   margin-left: 0;
   width: auto;
@@ -214,7 +218,7 @@
   border: 0;
   font-weight: 700;
   font-family: 'Open Sans';
-  color: #484848;
+  color: darkGrey;
   padding: 0 30px 0 15px;
   width: 150px;
   cursor: pointer;

@@ -1,5 +1,8 @@
 @value colors: "../../variables/colors.css";
-@value yellow from colors;
+@value BrandOrange from colors;
+@value negativeColor from colors;
+@value darkGrey from colors;
+@value lightGrey from colors;
 
 .default {
   display: flex;
@@ -26,7 +29,7 @@
   font-family: "Open Sans";
   font-size: 15px;
   text-transform: none;
-  color: #455A64;
+  color: darkGrey;
   width: 180px;
 }
 
@@ -34,27 +37,27 @@
   font-family: "Open Sans";
   text-transform: none;
   padding: 0 15px;
-  border: solid 2px #eceff1;
+  border: solid 2px lightGrey;
   height: 50px;
   border-radius: 2px;
   font-size: 14px;
-  color: #607d8b;
+  color: darkGrey;
   margin-left: 20px;
   width: 230px;
 }
 
 .error .input {
-  border-color: #eb5c41;
+  border-color: negativeColor;
 }
 
 .modified .input {
-  border-color: yellow;
+  border-color: BrandOrange;
 }
 
 .description {
   font-family: 'Open Sans';
   font-weight: 500;
   font-size: 12px;
-  color: #C2C2C2;
+  color: darkGrey;
   font-style: italic;
 }

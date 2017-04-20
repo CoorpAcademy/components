@@ -1,6 +1,14 @@
+@value colors: "../../variables/colors.css";
+@value white from colors;
+@value extraLightGrey from colors;
+@value lightGrey from colors;
+@value mediumGrey from colors;
+@value darkGrey from colors;
+
 .wrapper {
   width: 100%;
   box-sizing: border-box;
+  border: 1px solid mediumGrey;
 }
 
 .title {
@@ -11,15 +19,16 @@
   padding: 0 20px;
   width: 100%;
   box-sizing: border-box;
-  background-color: #F6F6F6;
   cursor: pointer;
+  background-color: extraLightGrey;
+  border-bottom: 1px solid mediumGrey;
 }
 
 .title h3 {
   font-family: 'Open Sans';
   font-size: 18px;
   font-weight: 700;
-  color: #4990E2;
+  color: darkGrey;
   margin: 0;
 }
 
@@ -33,8 +42,8 @@
 
 .container {
   padding: 40px;
-  background-color: #ffffff;
-  border-top: 1px solid #B9B9B9;
+  background-color: white;
+  border-top: 1px solid lightGrey;
 }
 
 .none {
@@ -43,7 +52,7 @@
 
 .arrow {
   composes: fa from '../../variables/fontawesome.css';
-  color: #B9B9B9;
+  color: lightGrey;
   font-size: 24px;
 }
 

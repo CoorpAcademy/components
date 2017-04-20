@@ -3,10 +3,11 @@
 @value desktop from breakpoints;
 @value tablet from breakpoints;
 @value mobile from breakpoints;
-@value light from colors;
-@value grey from colors;
+@value lightGrey from colors;
+@value white from colors;
 @value darkGrey from colors;
-@value borderGrey from colors;
+@value mediumGrey from colors;
+@value black from colors;
 
 .default[disabled] {
   pointer-events: none;
@@ -30,7 +31,7 @@
 
 .default:hover {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-  background: light;
+  background: lightGrey;
   transform: translateY(-2px);
   border: 0px solid rgba(0, 0, 0, 0);
 }
@@ -49,7 +50,7 @@
   composes: fa from '../../variables/fontawesome.css';
   composes: fa-lock from '../../variables/fontawesome.css';
   font-size: 45px;
-  color: #000;
+  color: black;
   opacity: 0.88;
   text-align: center;
   width: 100%;
@@ -192,7 +193,7 @@
   left: 0;
   width: 100%;
   height: 5px;
-  background: borderGrey;
+  background: lightGrey;
 }
 
 .progress {
@@ -215,7 +216,7 @@
 }
 
 .default[disabled] .type {
-  color: grey;
+  color: darkGrey;
 }
 
 .title {
@@ -239,7 +240,7 @@
 .author {
   margin-top: 5px;
   font-size: 12px;
-  color: grey;
+  color: darkGrey;
   width: 100%;
   white-space: nowrap;
   overflow: hidden;

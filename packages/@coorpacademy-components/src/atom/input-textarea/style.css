@@ -1,3 +1,8 @@
+@value colors: "../../variables/colors.css";
+@value negativeColor from colors;
+@value darkGrey from colors;
+@value lightGrey from colors;
+
 .default {
   display: flex;
 }
@@ -19,7 +24,7 @@
   font-family: "Open Sans";
   font-size: 15px;
   text-transform: none;
-  color: #455A64;
+  color: darkGrey;
   width: 180px;
 }
 
@@ -27,24 +32,24 @@
   font-family: "Open Sans";
   text-transform: none;
   padding: 10px 15px;
-  border: solid 2px #eceff1;
+  border: solid 2px lightGrey;
   height: 125px;
   border-radius: 2px;
   font-size: 14px;
-  color: #607d8b;
+  color: darkGrey;
   margin-left: 20px;
   width: 500px;
   resize: none;
 }
 
 .error textarea {
-  border-color: #eb5c41;
+  border-color: negativeColor;
 }
 
 .description {
   font-family: 'Open Sans';
   font-weight: 500;
   font-size: 12px;
-  color: #C2C2C2;
+  color: darkGrey;
   font-style: italic;
 }

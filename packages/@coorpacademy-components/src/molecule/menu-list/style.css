@@ -2,6 +2,13 @@
 @value desktop from breakpoints;
 @value mobile from breakpoints;
 @value tablet from breakpoints;
+@value colors: "../../variables/colors.css";
+@value darkGrey from colors;
+@value primary from colors;
+@value brandOrange from colors;
+@value white from colors;
+@value extraLightGrey from colors;
+@value lightGrey from colors;
 
 .toggleBox {
   position: absolute;
@@ -46,7 +53,7 @@
 .item > a {
   font-family: Open Sans;
   font-size: 12px;
-  color: #4C616B;
+  color: darkGrey;
   text-decoration: none;
   text-transform: capitalize;
   font-weight: 600;
@@ -55,7 +62,7 @@
 }
 
 .item:hover > a {
-  color: #00b0ff;
+  color: primary;
 }
 
 .button {
@@ -76,13 +83,13 @@
 }
 
 .primary a {
-  border: solid 1px #ffb90d;
-  color: #ffb90d;
+  border: solid 1px brandOrange;
+  color: brandOrange;
 }
 
 .primary a:hover {
-  background: #ffb90d;
-  border-color: #ffb90d;
+  background: brandOrange;
+  border-color: brandOrange;
   color: white;
 }
 
@@ -91,13 +98,13 @@
 }
 
 .secondary a {
-  border: solid 1px #4C616B;
-  color: #4C616B;
+  border: solid 1px darkGrey;
+  color: darkGrey;
 }
 
 .secondary a:hover {
-  border: solid 1px #4C616B;
-  background-color: #4C616B;
+  border: solid 1px darkGrey;
+  background-color: darkGrey;
   color: white;
 }
 
@@ -121,8 +128,8 @@
     width: 275px;
     top: 0;
     right: -280px;
-    background-color: #ECEFF1;
-    box-shadow: 1px 0 10px grey;
+    background-color: lightGrey;
+    box-shadow: 1px 0 10px mediumGrey;
     transition: right 0.2s ease-out;
     overflow: auto;
     padding: 10px 0;
@@ -132,7 +139,7 @@
     display: block;
     padding: 5px 0;
     text-align: center;
-    border-bottom: solid 2px #eee;
+    border-bottom: solid 2px extraLightGrey;
     position: relative;
   }
 
@@ -164,17 +171,17 @@
   }
 
   .button a:hover {
-    color: #ffffff;
+    color: white;
   }
 
   .secondary a {
-    border: solid 1px #4C616B;
-    color: #4C616B;
+    border: solid 1px darkGrey;
+    color: darkGrey;
   }
 
   .primary > a {
-    border: solid 1px #ffb90d;
-    color: #ffb90d;
+    border: solid 1px brandOrange;
+    color: brandOrange;
   }
 
   .toggler {

@@ -2,13 +2,15 @@
 @value mobile from breakpoints;
 @value tablet from breakpoints;
 @value desktop from breakpoints;
+@value colors: "../../../variables/colors.css";
+@value extraLightGrey from colors;
 
 .list {
   display: flex;
   flex-direction: column;
   align-content: stretch;
   align-items: center;
-  background-color: #F7F7F7;
+  background-color: extraLightGrey;
   width: 100%;
   padding: 20px 0;
 }

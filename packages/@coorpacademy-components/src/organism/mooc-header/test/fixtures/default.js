@@ -65,7 +65,7 @@ export default {
         submitValue: 'Connexion',
         href: '#',
         target: '_self',
-        light: false,
+        extraLightGrey: false,
         small: true,
         secondary: true
       },
@@ -73,7 +73,7 @@ export default {
         submitValue: 'Inscription',
         href: '#',
         target: '_self',
-        light: false,
+        extraLightGrey: false,
         small: true,
         secondary: false
       }

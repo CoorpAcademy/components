@@ -1,5 +1,11 @@
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
+@value colors: "../../variables/colors.css";
+@value darkGrey from colors;
+@value mediumGrey from colors;
+@value primary from colors;
+@value white from colors;
+@value extraLightGrey from colors;
 
 .categories {
   width: 230px;
@@ -13,7 +19,7 @@
   font-family: "Open Sans";
   font-weight: 700;
   font-size: 15px;
-  color: #546E7A;
+  color: darkGrey;
   text-transform: uppercase;
   margin-bottom: 10px;
 }
@@ -27,7 +33,7 @@
 }
 
 .filter {
-  border-bottom: 1px solid #CFD8DC;
+  border-bottom: 1px solid mediumGrey;
   height: 40px;
 }
 
@@ -35,20 +41,20 @@
   display: inline-block;
   font-family: "Open Sans";
   font-size: 14px;
-  color: #37474F;
+  color: darkGrey;
   line-height: 40px;
   text-transform: uppercase;
   text-decoration: none;
 }
 
 .filter a:hover {
-  color: #00B0FF;
+  color: primary;
 }
 
 .filter a.selected {
   font-family: "Open Sans";
   font-weight: 800;
-  color: #00B0FF;
+  color: primary;
 }
 
 .mobileToggler {
@@ -61,10 +67,10 @@
   width: 100%;
   height: 60px;
   line-height: 60px;
-  background: #546E7A;
+  background: darkGrey;
   padding: 0 22px;
   border-radius: 2px;
-  color: #fff;
+  color: white;
   margin: 0 auto;
   cursor: pointer;
 }
@@ -74,7 +80,7 @@
   font-weight: 800;
   letter-spacing: 0.4px;
   font-size: 14px;
-  color: #FFFFFF;
+  color: white;
   text-transform: uppercase;
 }
 
@@ -89,7 +95,7 @@
     margin-top: 10px;
     margin-bottom: 0px;
     border-radius: 5px;
-    border: 1px solid #F0F0F0;
+    border: 1px solid extraLightGrey;
   }
 
   .category h2 {
@@ -97,7 +103,7 @@
   }
 
   .filter {
-    border-bottom: 1px solid #F0F0F0;
+    border-bottom: 1px solid extraLightGrey;
   }
 
   .filter:last-child {
@@ -107,7 +113,7 @@
   .filter a {
     font-family: "Open Sans";
     font-weight: 700;
-    color: #546E7A;
+    color: darkGrey;
     font-size: 12px;
     text-transform: none;
     display: block;
@@ -115,7 +121,7 @@
   }
 
   .arrow {
-    color: #ffffff;
+    color: white;
     border-right: 4px solid;
     border-bottom: 4px solid;
     width: 8px;

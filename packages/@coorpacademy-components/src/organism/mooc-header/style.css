@@ -3,6 +3,16 @@
 @value tablet from breakpoints;
 @value desktop from breakpoints;
 
+@value colors: "../../variables/colors.css";
+@value white from colors;
+@value extraLightGrey from colors;
+@value lightGrey from colors;
+@value mediumGrey from colors;
+@value darkGrey from colors;
+@value primary from colors;
+@value battle from colors;
+@value black from colors;
+
 .wrapper {
   min-height: 60px;
 }
@@ -13,12 +23,12 @@
   height: 60px;
   padding: 0 20px;
   box-sizing: border-box;
-  border-bottom: 1px solid #DCE0E0;
+  border-bottom: 1px solid extraLightGrey;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 10;
-  background-color: #ffffff;
+  background-color: white;
 }
 
 .open {
@@ -78,15 +88,15 @@
   display: flex;
   align-items: stretch;
   margin-left: 20px;
-  border-left: 1px solid #DCE0E0;
-  border-right: 1px solid #DCE0E0;
+  border-left: 1px solid extraLightGrey;
+  border-right: 1px solid extraLightGrey;
 }
 
 .currentOption {
   position: relative;
   padding: 0 20px;
   cursor: pointer;
-  color: #484848;
+  color: darkGrey;
   font-family: 'Open Sans';
   font-size: 13px;
   font-weight: 600;
@@ -102,7 +112,7 @@
   composes: fa from '../../variables/fontawesome.css';
   composes: fa-angle-down from '../../variables/fontawesome.css';
   margin-left: 10px;
-  color: #BCBCBC;
+  color: lightGrey;
   font-size: 13px;
 }
 
@@ -110,7 +120,7 @@
   composes: fa from '../../variables/fontawesome.css';
   composes: fa-angle-up from '../../variables/fontawesome.css';
   margin-left: 10px;
-  color: #BCBCBC;
+  color: lightGrey;
   font-size: 13px;
 }
 
@@ -134,8 +144,8 @@
   left: -1px;
   width: 200px;
   padding: 10px 0;
-  background-color: #ffffff;
-  border: 1px solid #DCE0E0;
+  background-color: white;
+  border: 1px solid extraLightGrey;
   box-shadow: 0 0 2px 2px rgba(0,0,0,0.02);
 }
 
@@ -143,7 +153,7 @@
   display: block;
   padding: 0 10px;
   font-size: 13px;
-  color: #484848;
+  color: darkGrey;
   font-family: 'Open Sans';
   line-height: 40px;
   font-weight: 600;
@@ -156,7 +166,7 @@
 }
 
 .option:hover {
-  color: #00B0FF;
+  color: primary;
 }
 
 .menuWrapper {
@@ -167,7 +177,7 @@
 
 .pages {
   height: 100%;
-  border-right: 1px solid #DCE0E0;
+  border-right: 1px solid extraLightGrey;
   padding: 0 20px;
   display: flex;
   align-items: stretch;
@@ -177,7 +187,7 @@
   position: relative;
   padding: 0 15px;
   cursor: pointer;
-  color: #484848;
+  color: darkGrey;
   font-family: 'Open Sans';
   font-size: 13px;
   font-weight: 600;
@@ -191,7 +201,7 @@
 }
 
 .page .bar {
-  background-color: #00B0FF;
+  background-color: primary;
   height: 3px;
   width: 0;
   bottom: 0px;
@@ -214,12 +224,12 @@
   position: absolute;
   top: 15px;
   right: 0px;
-  background-color: #FFE100;
+  background-color: battle;
   font-family: 'Open Sans';
   font-weight: 700;
   font-size: 10px;
   line-height: 16px;
-  color: #000000;
+  color: black;
   border-radius: 8px;
   padding: 0 5px;
   pointer-events: none;
@@ -265,8 +275,8 @@
   height: 40px;
   border-radius: 20px;
   overflow: hidden;
-  background-color: #eeeeee;
-  border: 1px solid #DCE0E0;
+  background-color: lightGrey;
+  border: 1px solid extraLightGrey;
 }
 
 .avatar img {
@@ -281,7 +291,7 @@
   font-weight: 700;
   font-size: 10px;
   line-height: 16px;
-  color: #ffffff;
+  color: white;
   border-radius: 8px;
   padding: 0 5px;
   pointer-events: none;
@@ -291,7 +301,7 @@
   display: flex;
   height: 100%;
   padding: 0 10px;
-  border-right: 1px solid #DCE0E0;
+  border-right: 1px solid extraLightGrey;
 }
 
 .stat {
@@ -312,7 +322,7 @@
 .icon {
   width: 24px;
   height: 24px;
-  color: #ffffff;
+  color: white;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -342,7 +352,7 @@
   font-family: 'Open Sans';
   font-size: 10px;
   font-weight: 700;
-  color: #484848;
+  color: darkGrey;
   margin-top: 5px;
 }
 
@@ -361,12 +371,12 @@
   composes: fa-cog from '../../variables/fontawesome.css';
   width: 40px;
   height: 40px;
-  color: #484848;
+  color: darkGrey;
   cursor: pointer;
 }
 
 .settingsToggle:hover {
-  color: #000000;
+  color: black;
 }
 
 .settingsToggle:before {
@@ -382,8 +392,8 @@
   right: 0;
   width: 300px;
   border-radius: 3px;
-  border: 1px solid #DCE0E0;
-  background: #FFFFFF;
+  border: 1px solid extraLightGrey;
+  background: white;
   box-shadow: 0 0 2px 2px rgba(0,0,0,0.02);
 }
 
@@ -405,13 +415,13 @@
 
 .settingsWrapper:after {
 	border-color: rgba(255, 255, 255, 0);
-	border-bottom-color: #ffffff;
+	border-bottom-color: white;
 	border-width: 10px;
 	margin-right: -10px;
 }
 .settingsWrapper:before {
 	border-color: rgba(220, 224, 224, 0);
-	border-bottom-color: #DCE0E0;
+	border-bottom-color: extraLightGrey;
 	border-width: 11px;
 	margin-right: -11px;
 }
@@ -431,7 +441,7 @@
   font-family: 'Open Sans';
   font-size: 13px;
   font-weight: 600;
-  color: #484848;
+  color: darkGrey;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -442,7 +452,7 @@
   font-family: 'Open Sans';
   font-size: 13px;
   font-weight: 600;
-  color: #484848;
+  color: darkGrey;
   text-decoration: none;
 }
 
@@ -450,9 +460,9 @@
   font-family: 'Open Sans';
   font-size: 13px;
   font-weight: 600;
-  color: #AAAAAA;
+  color: mediumGrey;
   height: 40px;
-  border-top: 1px solid #DCE0E0;
+  border-top: 1px solid extraLightGrey;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -461,7 +471,7 @@
 }
 
 .closeSettings:hover {
-  color: #484848;
+  color: darkGrey;
 }
 
 @media desktop {
@@ -489,7 +499,7 @@
     flex-shrink: 0;
     padding: 0 20px;
     box-sizing: border-box;
-    background-color: #ffffff;
+    background-color: white;
     z-index: 2;
   }
 
@@ -525,7 +535,7 @@
 
   .homeLink {
     text-decoration: none;
-    color: #484848;
+    color: darkGrey;
     font-family: 'Open Sans';
     font-size: 13px;
     font-weight: 600;
@@ -555,7 +565,7 @@
     padding: 0 20px 80px;
     box-sizing: border-box;
     height: 100%;
-    background-color: #ffffff;
+    background-color: white;
     left: 0;
     top: -100%;
     width: 100%;
@@ -572,8 +582,8 @@
     flex-direction: column;
     border: 0;
     height: auto;
-    border-top: 1px solid #DCE0E0;
-    border-bottom: 1px solid #DCE0E0;
+    border-top: 1px solid extraLightGrey;
+    border-bottom: 1px solid extraLightGrey;
     flex-shrink: 0;
   }
 
@@ -620,7 +630,7 @@
     align-items: center;
     padding: 10px 0 20px;
     margin: 0 0 10px;
-    border-bottom: 1px solid #DCE0E0;
+    border-bottom: 1px solid extraLightGrey;
     flex-shrink: 0;
   }
 
@@ -631,7 +641,7 @@
   .user {
     height: auto;
     padding: 10px 0 20px;
-    border-bottom: 1px solid #DCE0E0;
+    border-bottom: 1px solid extraLightGrey;
     margin-bottom: 10px;
     flex-shrink: 0;
   }

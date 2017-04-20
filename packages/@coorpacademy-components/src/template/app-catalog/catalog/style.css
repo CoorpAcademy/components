@@ -3,6 +3,9 @@
 @value tablet from breakpoints;
 @value desktop from breakpoints;
 
+@value colors: "../../../variables/colors.css";
+@value darkGrey from colors;
+
 .wrapper {
   width: 100%;
   box-sizing: border-box;
@@ -17,7 +20,7 @@
   font-weight: 700;
   font-size: 28px;
   line-height: 28px;
-  color: #546E7A;
+  color: darkGrey;
   margin-bottom: 50px;
   margin-left: 350px;
 }

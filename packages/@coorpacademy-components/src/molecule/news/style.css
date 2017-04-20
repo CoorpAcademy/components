@@ -2,11 +2,16 @@
 @value mobile from breakpoints;
 @value tablet from breakpoints;
 @value desktop from breakpoints;
+@value colors: "../../variables/colors.css";
+@value white from colors;
+@value darkGrey from colors;
+@value mediumGrey from colors;
+@value extraLightGrey from colors;
 
 .news {
   height: 240px;
   width: 100%;
-  background-color: #ffffff;
+  background-color: white;
   display: flex;
 }
 
@@ -35,7 +40,7 @@
   font-family: 'Open Sans';
   font-size: 19px;
   font-weight: 700;
-  color: #484848;
+  color: darkGrey;
   margin-bottom: 5px;
 }
 
@@ -43,7 +48,7 @@
   font-family: 'Open Sans';
   font-size: 14px;
   font-weight: 500;
-  color: #aaaaaa;
+  color: mediumGrey;
   margin-bottom: 15px;
 }
 
@@ -55,7 +60,7 @@
   height: 40px;
   overflow: hidden;
   font-weight: 500;
-  color: #484848;
+  color: darkGrey;
 }
 
 .bottom {
@@ -114,7 +119,7 @@
     position: relative;
     cursor: pointer;
     height: 100px;
-    border: 1px solid #E6E6E6;
+    border: 1px solid extraLightGrey;
   }
 
   .image {
