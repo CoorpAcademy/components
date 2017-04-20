@@ -34,7 +34,7 @@ Tab.contextTypes = {
 
 Tab.propTypes = {
   title: PropTypes.string,
-  links: PropTypes.array
+  links: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string))
 };
 
 export default Tab;

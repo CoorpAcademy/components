@@ -10,29 +10,29 @@ const Unsubscribe = (props, context) => {
       { !props.hasUnsubscribed &&
         <div className={style.unsubscribe}>
           <div className={style.description}>
-            {translate(props.confirmUnsubscribe)}
+            {translate('confirm_unsubscribe')}
           </div>
           <div className={style.buttonContainer}>
             <button
-              className={`${style.blueButton} ${style.button}`}
+              className={style.blueButton}
               onClick={handleKeepSubscriptionButtonClick}
             >
-              {translate(props.keepSubscription)}
+              {translate('keep_subscription')}
             </button>
           </div>
           <div className={style.buttonContainer}>
             <button
-              className={`${style.whiteButton} ${style.button}`}
+              className={style.whiteButton}
               onClick={props.onUnsubscribeButtonClick}
             >
-              {translate(props.unsubscribe)}
+              {translate('unsubscribe')}
             </button>
           </div>
         </div>
       }
       { props.hasUnsubscribed &&
         <div className={style.unsubscribeConfirmation}>
-          {translate(props.unsubscribeConfirmation)}
+          {translate('premium_unsubscribe_confirmation')}
         </div>
       }
     </div>
@@ -46,11 +46,7 @@ Unsubscribe.contextTypes = {
 Unsubscribe.propTypes = {
   navigateToMooc: PropTypes.func,
   hasUnsubscribed: PropTypes.bool,
-  confirmUnsubscribe: PropTypes.string,
-  keepSubscription: PropTypes.string,
-  onUnsubscribeButtonClick: PropTypes.func,
-  unsubscribe: PropTypes.string,
-  unsubscribeConfirmation: PropTypes.string
+  onUnsubscribeButtonClick: PropTypes.func
 };
 
 export default Unsubscribe;

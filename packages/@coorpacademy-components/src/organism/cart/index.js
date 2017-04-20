@@ -5,40 +5,47 @@ import PaymentForm from '../../molecule/payment-form';
 
 import style from './style.css';
 
-const Cart = ({
-        productCardProps,
-        promoCodeProps,
-        paymentFormProps,
-        backUrl,
-        backTitle,
-        title
-    }) => (
-      <div className={style.parent}>
-        <div className={style.titleContainer}>
-          <div className={style.headerTitle}>{title}</div>
+const Cart = (props, context) => {
+  const {
+    productCardProps,
+    promoCodeProps,
+    paymentFormProps,
+    backUrl,
+    title
+  } = props;
+  const { translate } = context;
+
+  return (
+    <div className={style.parent}>
+      <div className={style.titleContainer}>
+        <div className={style.headerTitle}>{title}</div>
+      </div>
+      <div className={style.cart}>
+        <div className={style.productBlock}>
+          <ProductCard {...productCardProps} />
+          <PromoCode {...promoCodeProps} />
         </div>
-        <div className={style.cart}>
-          <div className={style.productBlock}>
-            <ProductCard {...productCardProps} />
-            <PromoCode {...promoCodeProps} />
-          </div>
-          <div className={style.paymentBlock}>
-            <PaymentForm {...paymentFormProps} />
-            <a
-              className={style.backButton}
-              href={backUrl}
-            >{backTitle}</a>
-          </div>
+        <div className={style.paymentBlock}>
+          <PaymentForm {...paymentFormProps} />
+          <a
+            className={style.backButton}
+            href={backUrl}
+          >{translate('back_to_catalog')}</a>
         </div>
       </div>
-);
+    </div>
+  );
+};
 
-Cart.PropTypes = {
-  productCardProps: ProductCard.PropTypes,
-  promoCodeProps: PromoCode.PropTypes,
-  paymentFormProps: PaymentForm.PropTypes,
+Cart.contextTypes = {
+  translate: PropTypes.func
+};
+
+Cart.propTypes = {
+  productCardProps: ProductCard.propTypes,
+  promoCodeProps: PromoCode.propTypes,
+  paymentFormProps: PaymentForm.propTypes,
   backUrl: PropTypes.string,
-  backTitle: PropTypes.string,
   title: PropTypes.string
 };
 
