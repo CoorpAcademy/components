@@ -1,15 +1,15 @@
 export default {
   props: {
     onTabClick() {},
-    title: 'Tab title',
+    title: 'my_subscription_title',
     key: 'tab',
     targetContent: 'tab',
     links: [
       {
-        title: 'First tab link'
+        title: 'subscription_freemium_title'
       },
       {
-        title: 'Second tab link'
+        title: 'subscription_premium_title'
       }
     ]
   }

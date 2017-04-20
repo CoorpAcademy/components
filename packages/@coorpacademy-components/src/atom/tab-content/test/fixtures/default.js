@@ -2,7 +2,7 @@ export default {
   props: {
     activeContent: 'activeContent',
     titles: {
-      activeContent: 'This is the tab content title'
+      activeContent: 'my_subscription_manage_freemium_title'
     }
   }
 };
