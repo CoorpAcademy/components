@@ -22,7 +22,7 @@ TabContent.contextTypes = {
 };
 
 TabContent.propTypes = {
-  titles: PropTypes.object,
+  titles: PropTypes.objectOf(PropTypes.string),
   hideContentBackground: PropTypes.bool,
   activeContent: PropTypes.string
 };

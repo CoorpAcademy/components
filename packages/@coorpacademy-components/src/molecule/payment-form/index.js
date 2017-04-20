@@ -5,12 +5,10 @@ class PaymentForm extends React.Component {
   constructor(props) {
     super(props);
     this.stripe = props.stripeInstance ? props.stripeInstance(props.stripeKeyPublic) : null;
-    this.state = {
-      cardNumberHasError: false,
-      cardExpiryHasError: false,
-      cardCvcHasError: false,
-      submitButtonEnabled: true
-    };
+    this.handleCardNumberChange = this.handleCardNumberChange.bind(this);
+    this.handleCardExpiryChange = this.handleCardExpiryChange.bind(this);
+    this.handleCardCvcChange = this.handleCardCvcChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -41,44 +39,46 @@ class PaymentForm extends React.Component {
       this.cardExpiry.mount('#card-expiry');
       this.cardCvc.mount('#card-cvc');
 
-      this.cardNumber.on('change', ({error}) => {
-        this.setState({
-          cardNumberHasError: error,
-          submitButtonEnabled: true
-        });
-      });
-
-      this.cardExpiry.on('change', ({error}) => {
-        this.setState({
-          cardExpiryHasError: error,
-          submitButtonEnabled: true
-        });
-      });
-
-      this.cardCvc.on('change', ({error}) => {
-        this.setState({
-          cardCvcHasError: error,
-          submitButtonEnabled: true
-        });
-      });
+      this.cardNumber.on('change', this.handleCardNumberChange);
+      this.cardExpiry.on('change', this.handleCardExpiryChange);
+      this.cardCvc.on('change', this.handleCardCvcChange);
     }
   }
 
   componentWillUnmount() {
-    this.cardNumber.unmount();
-    this.cardExpiry.unmount();
-    this.cardCvc.unmount();
+    if (this.cardNumer)
+      this.cardNumber.unmount();
+    if (this.cardExpiry)
+      this.cardExpiry.unmount();
+    if (this.cardCvc)
+      this.cardCvc.unmount();
+    this.cardNumer = null;
+    this.cardExpiry = null;
+    this.cardCvc = null;
   }
 
   handleSubmit() {
     if (this.stripe) {
       return this.stripe.createToken(this.cardNumber)
       .then(response => {
-        if (!response.error)
-          this.setState({submitButtonEnabled: false});
         return this.props.createSubscription(response);
       });
     }
+  }
+
+  handleCardNumberChange({error}) {
+    const {onCardNumberChange = () => {}} = this.props;
+    onCardNumberChange(error);
+  }
+
+  handleCardExpiryChange({error}) {
+    const {onCardExpiryChange = () => {}} = this.props;
+    onCardExpiryChange(error);
+  }
+
+  handleCardCvcChange({error}) {
+    const {onCardCvcChange = () => {}} = this.props;
+    onCardCvcChange(error);
   }
 
   render() {
@@ -88,19 +88,15 @@ class PaymentForm extends React.Component {
       cardOwnerEmail,
       securedPaymentImage,
       errors,
-      warning
-    } = this.props;
-
-    const {
+      warning,
+      submitButtonEnabled,
       cardNumberHasError,
       cardExpiryHasError,
-      cardCvcHasError,
-      submitButtonEnabled
-    } = this.state;
+      cardCvcHasError
+    } = this.props;
 
     const { translate } = this.context;
 
-    const handleSubmit = () => this.handleSubmit();
     const disabled = submitButtonEnabled ? {} : {disabled: true};
 
     return (
@@ -151,7 +147,7 @@ class PaymentForm extends React.Component {
           <button
             className={style.subscribeButton}
             type="button"
-            onClick={handleSubmit}
+            onClick={this.handleSubmit}
             {...disabled}
           >{translate('payment_form_submit')}</button>
         </div>
@@ -172,7 +168,14 @@ PaymentForm.propTypes = {
   cardOwnerEmail: PropTypes.string,
   securedPaymentImage: PropTypes.string,
   errors: PropTypes.string,
-  warning: PropTypes.string
+  warning: PropTypes.string,
+  onCardNumberChange: PropTypes.func,
+  cardNumberHasError: PropTypes.bool,
+  onCardExpiryChange: PropTypes.func,
+  cardExpiryHasError: PropTypes.bool,
+  onCardCvcChange: PropTypes.func,
+  cardCvcHasError: PropTypes.bool,
+  submitButtonEnabled: PropTypes.bool
 };
 
 export default PaymentForm;

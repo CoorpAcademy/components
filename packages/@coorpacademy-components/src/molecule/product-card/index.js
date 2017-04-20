@@ -6,7 +6,6 @@ const ProductCard = (props, context) => {
     title,
     subtitle,
     price,
-    cancelText,
     checkImage
   } = props;
 
@@ -62,7 +61,6 @@ ProductCard.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,
-  cancelText: PropTypes.string.isRequired,
   checkImage: PropTypes.string.isRequired
 };
 
