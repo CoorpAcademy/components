@@ -83,14 +83,10 @@ class PaymentForm extends React.Component {
 
   render() {
     const {
-      submitText,
       checkImage,
       cardsImage,
       cardOwnerEmail,
-      acceptedCardsText,
-      securedPaymentText,
       securedPaymentImage,
-      disclaimer,
       errors,
       warning
     } = this.props;
@@ -114,7 +110,7 @@ class PaymentForm extends React.Component {
             className={style.acceptedCardsCheck}
             src={checkImage}
           />
-          <div className={style.acceptedCardsText}>{translate(acceptedCardsText)}</div>
+          <div className={style.acceptedCardsText}>{translate('accepted_cards')}</div>
           <img
             className={style.acceptedCardsImage}
             src={cardsImage}
@@ -132,7 +128,7 @@ class PaymentForm extends React.Component {
             className={style.securedPaymentImage}
             src={securedPaymentImage}
           />
-          <div className={style.securedPaymentText}>{translate(securedPaymentText)}</div>
+          <div className={style.securedPaymentText}>{translate('secured_payment')}</div>
         </div>
         <div className={style.cardBlock}>
           <div
@@ -150,14 +146,14 @@ class PaymentForm extends React.Component {
             id="card-cvc"
           />
         </div>
-        <div className={style.subscriptionDisclaimer}>{translate(disclaimer)}</div>
+        <div className={style.subscriptionDisclaimer}>{translate('subscription_disclaimer')}</div>
         <div className={style.subscribeButtonContainer}>
           <button
             className={style.subscribeButton}
             type="button"
             onClick={handleSubmit}
             {...disabled}
-          >{translate(submitText)}</button>
+          >{translate('payment_form_submit')}</button>
         </div>
       </div>
     );
@@ -169,16 +165,12 @@ PaymentForm.contextTypes = {
 };
 
 PaymentForm.propTypes = {
-  submitText: PropTypes.string.isRequired,
   stripeKeyPublic: PropTypes.string.isRequired,
   createSubscription: PropTypes.func.isRequired,
   checkImage: PropTypes.string.isRequired,
   cardsImage: PropTypes.string.isRequired,
   cardOwnerEmail: PropTypes.string,
-  acceptedCardsText: PropTypes.string,
-  securedPaymentText: PropTypes.string,
   securedPaymentImage: PropTypes.string,
-  disclaimer: PropTypes.string,
   errors: PropTypes.string,
   warning: PropTypes.string
 };

@@ -1,7 +1,7 @@
 export default {
   props: {
-    title: 'Product title',
-    subtitle: 'Product subtitle',
+    title: 'up_good_name',
+    subtitle: 'up_good_description',
     price: '9.9',
     checkImage: 'http://iconshow.me/media/images/Mixed/small-n-flat-icon/png2/256/-sign-check.png'
   }
