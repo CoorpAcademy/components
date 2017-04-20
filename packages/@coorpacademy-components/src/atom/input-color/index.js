@@ -9,33 +9,35 @@ const InputText = props => {
     title,
     placeholder,
     value,
+    defaultValue,
     onChange = noop,
     error,
     description,
     modified = false
   } = props;
 
+  const inlineStyle = {
+    backgroundColor: value
+  };
   const handleChange = e => onChange(e.target.value);
 
   return (
     <div className={getClassState(style, modified, error)}>
       <label>
-        <span
-          className={style.title}
-          style={{
-            color: value
-          }}
-        >
-          {`${title} `}
-        </span>
+        <span className={style.title}>{`${title} `}</span>
         <input
-          type='color'
+          type='text'
           name={title}
-          className={style.colorPicker}
+          className={style.input}
           placeholder={placeholder}
+          defaultValue={defaultValue}
           value={value}
           onInput={handleChange}
           onChange={noop}
+        />
+        <span
+          className={style.preview}
+          style={inlineStyle}
         />
       </label>
       <div className={style.description}>
@@ -48,6 +50,7 @@ const InputText = props => {
 InputText.propTypes = {
   title: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
+  defaultValue: PropTypes.string,
   value: PropTypes.string,
   error: PropTypes.string,
   onChange: PropTypes.func,
