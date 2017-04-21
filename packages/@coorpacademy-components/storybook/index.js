@@ -1,20 +1,14 @@
-import {relative} from 'path';
 import React from 'react';
 import get from 'lodash/fp/get';
 import set from 'lodash/fp/set';
-import each from 'lodash/fp/each';
-import map from 'lodash/fp/map';
 import reduce from 'lodash/fp/reduce';
 import mapValues from 'lodash/fp/mapValues';
 import pipe from 'lodash/fp/pipe';
-import keys from 'lodash/fp/keys';
-import defaults from 'lodash/fp/defaults';
 import isString from 'lodash/fp/isString';
 import isNumber from 'lodash/fp/isNumber';
 import isBoolean from 'lodash/fp/isBoolean';
 import isObject from 'lodash/fp/isObject';
-import toPairs from 'lodash/fp/toPairs';
-import { storiesOf, action, linkTo } from '@kadira/storybook'; // eslint-disable-line import/no-unresolved
+import { storiesOf } from '@kadira/storybook'; // eslint-disable-line import/no-unresolved
 import {
   withKnobs,
   text,

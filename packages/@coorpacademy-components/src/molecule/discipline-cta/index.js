@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import identity from 'lodash/fp/identity';
 import getOr from 'lodash/fp/getOr';
 import {hoverFill} from '../../atom/button/hover-fill.css';
 import style from './style.css';

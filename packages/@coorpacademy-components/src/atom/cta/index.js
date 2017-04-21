@@ -1,5 +1,5 @@
 // @flow
-import React, {type Children} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
 import Link from '../link';
@@ -53,7 +53,7 @@ class CTA extends React.Component {
   }
 
   render() {
-    const {translate, skin} = this.context;
+    const {skin} = this.context;
     const {
       submitValue = 'submit',
       name: ctaName,

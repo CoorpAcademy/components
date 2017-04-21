@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import isEqual from 'lodash/fp/isEqual';
 import shallowCompare from '../../util/shallow-compare';
 
 class Provider extends React.Component {

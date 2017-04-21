@@ -5,7 +5,6 @@ import Link from '../../atom/link';
 import style from './style.css';
 
 const News = (props, context) => {
-  const {translate, skin} = context;
   const {
     image,
     title,

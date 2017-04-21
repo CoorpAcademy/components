@@ -1,12 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
-import identity from 'lodash/fp/identity';
-import map from 'lodash/fp/map';
 import stopPropagation from '../../util/bubbling';
 import Button from '../../atom/button';
-import Link from '../../atom/link';
 import style from './style.css';
 
 const Popin = (props, context) => {

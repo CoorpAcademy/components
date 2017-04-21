@@ -7,12 +7,6 @@ import CatalogCards from '../../../organism/catalog-cards';
 import layout from '../layout.css';
 import style from './style.css';
 
-const conditions = PropTypes.shape({
-  props: PropTypes.shape({
-
-  })
-});
-
 const Author = (props, context) => {
   const {translate} = context;
   const cardsTitle = translate('Their moocs:');

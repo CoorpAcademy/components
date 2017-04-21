@@ -1,5 +1,5 @@
 // @flow
-import React, {type Children} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../../atom/button';
 import style from './style.css';

@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import isEqual from 'lodash/fp/isEqual';
 import filter from 'lodash/fp/filter';
 import find from 'lodash/fp/find';
 import get from 'lodash/fp/get';

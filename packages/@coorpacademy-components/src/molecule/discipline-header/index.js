@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
-import identity from 'lodash/fp/identity';
-import * as CustomPropTypes from '../../util/proptypes';
 import VideoIframe from '../video-iframe';
 import shallowCompare from '../../util/shallow-compare';
 import style from './style.css';

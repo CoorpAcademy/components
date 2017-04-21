@@ -3,13 +3,10 @@ import PropTypes from 'prop-types';
 import {findDOMNode} from 'react-dom';
 import getOr from 'lodash/fp/getOr';
 import set from 'lodash/fp/set';
-import join from 'lodash/fp/join';
 import shallowCompare from '../../util/shallow-compare';
 import closestStep from '../../util/closest-step';
 import Handle from '../../atom/handle';
 import style from './style.css';
-
-const getOrBlank = getOr('');
 
 const xWithConstraints = ({x, delta, min, max}) => {
   const newX = x + delta;
@@ -193,7 +190,6 @@ class RangeSlider extends React.Component {
     const x2 = getOr(0, 'x', handle2);
 
     const {
-      steps,
       title,
       labelMin,
       labelMax

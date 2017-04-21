@@ -1,11 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import map from 'lodash/fp/map';
 import Card from '../../card';
 import style from './style.css';
 
 const CardsList = (props, context) => {
-  const skin = context;
   const {
     title,
     cards

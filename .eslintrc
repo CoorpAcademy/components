@@ -31,7 +31,6 @@
     "flowtype-errors/show-errors": "error",
     "import/no-extraneous-dependencies": "off",
     "no-shadow": ["error", {"builtinGlobals": true, "hoist": "all", "allow": ["Promise", "history", "location", "find", "Notification"]}],
-    "no-unused-vars": 0,
     "react/sort-comp": ["error", {
       "order": [
         "type-annotations",

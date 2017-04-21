@@ -4,10 +4,6 @@ import PropTypes from 'prop-types';
 import noop from 'lodash/fp/noop';
 import shallowCompare from '../../util/shallow-compare';
 
-type DefaultProps = {
-  onChange: Function
-};
-
 export type Props = {
   children?: Children,
   onChange: Function,

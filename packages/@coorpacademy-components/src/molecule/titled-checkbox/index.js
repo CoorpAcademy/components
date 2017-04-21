@@ -1,9 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
-import partial from 'lodash/fp/partial';
-import unary from 'lodash/fp/unary';
-import identity from 'lodash/fp/identity';
 import * as CustomPropTypes from '../../util/proptypes';
 import Checkbox from '../../atom/checkbox';
 import style from './style.css';

@@ -1,9 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import has from 'lodash/fp/has';
-import partial from 'lodash/fp/partial';
-import unary from 'lodash/fp/unary';
-import identity from 'lodash/fp/identity';
 import getOr from 'lodash/fp/getOr';
 import ModuleBubble from '../../molecule/module-bubble';
 import style from './style.css';
@@ -18,7 +15,6 @@ const ScopeTabs = (props, context) => {
     selected = 0,
     levels
   } = props;
-  const hideLabel = true;
 
   const primary = getOr('#00B0FF', ['common', 'primary'], skin);
 

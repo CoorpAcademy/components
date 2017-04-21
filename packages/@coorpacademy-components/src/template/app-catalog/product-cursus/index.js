@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import * as CustomPropTypes from '../../../util/proptypes';
 import Picture from '../../../atom/picture';
 import CursusHeader from '../../../molecule/cursus-header';
 import CatalogCTA from '../../../molecule/catalog-cta';
@@ -25,9 +24,6 @@ const ProductCursus = (props, context) => {
     linkBuy,
     linkTry
   } = props;
-
-  const certificationLabel = translate('certification');
-  const assetsLabel = translate('assets');
 
   return (
     <div className={style.wrapper}>

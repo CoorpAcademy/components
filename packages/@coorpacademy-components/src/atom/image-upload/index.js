@@ -35,7 +35,6 @@ class ImageUpload extends React.Component {
 
   render() {
     const idBox = uniqueId('drop-box-');
-    const {translate, skin} = this.context;
     const {
       title,
       onChange,

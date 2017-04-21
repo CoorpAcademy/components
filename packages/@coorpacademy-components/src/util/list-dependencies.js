@@ -8,7 +8,6 @@ import negate from 'lodash/fp/negate';
 import reduce from 'lodash/fp/reduce';
 import defaultsDeep from 'lodash/fp/defaultsDeep';
 import pickBy from 'lodash/fp/pickBy';
-import compact from 'lodash/fp/compact';
 import pipe from 'lodash/fp/pipe';
 import values from 'lodash/fp/values';
 import map from 'lodash/fp/map';

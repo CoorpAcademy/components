@@ -61,12 +61,10 @@ class Filters extends React.Component {
       sorting,
       courses,
       ctalabelfilter,
-      ctalabelsort,
-      onSearch
+      ctalabelsort
     } = this.props;
     const {skin} = this.context;
     const defaultColor = getOr('#00B0FF', 'common.primary', skin);
-    const isActive = this.state.opened === true;
     const filtersActive = this.state.filter === true;
     const sortingActive = this.state.sorted === true;
 

@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import identity from 'lodash/fp/identity';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import map from 'lodash/fp/map';
@@ -15,8 +14,7 @@ const DisciplinePartners = (props, context) => {
 
   const {
     authorTitle,
-    authors = [],
-    more
+    authors = []
   } = props;
 
   const authorLabel = authorTitle || translate('author');
