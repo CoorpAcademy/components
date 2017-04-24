@@ -55,7 +55,10 @@ const BrandFormGroup = props => {
   const sectionsList = sections.map(buildSection);
 
   return (
-    <div className={style.wrapper}>
+    <div
+      className={style.wrapper}
+      data-name="dashboard"
+    >
       {sectionsList}
     </div>
   );

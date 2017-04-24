@@ -23,7 +23,10 @@ const BattleRequestList = (props, context) => {
   });
 
   return requests && requests.length > 0 ? (
-    <div className={style.list}>
+    <div
+      className={style.list}
+      data-name="battle-request-list"
+    >
       {cards}
     </div>
   ) : null;
