@@ -1,9 +1,10 @@
 import React, {PropTypes} from 'react';
+import Link from '../../atom/link';
 import style from './style.css';
 
 const Unsubscribe = (props, context) => {
   const { translate } = context;
-  const handleKeepSubscriptionButtonClick = props.navigateToMooc;
+  const { moocUrl } = props;
 
   return (
     <div>
@@ -13,16 +14,16 @@ const Unsubscribe = (props, context) => {
             {translate('confirm_unsubscribe')}
           </div>
           <div className={style.buttonContainer}>
-            <button
-              className={style.blueButton}
-              onClick={handleKeepSubscriptionButtonClick}
+            <Link
+              className={style.keepSubscriptionButton}
+              href={moocUrl}
             >
               {translate('keep_subscription')}
-            </button>
+            </Link>
           </div>
           <div className={style.buttonContainer}>
             <button
-              className={style.whiteButton}
+              className={style.unsubscribeButton}
               onClick={props.onUnsubscribeButtonClick}
             >
               {translate('unsubscribe')}
@@ -44,7 +45,7 @@ Unsubscribe.contextTypes = {
 };
 
 Unsubscribe.propTypes = {
-  navigateToMooc: PropTypes.func,
+  moocUrl: PropTypes.string,
   hasUnsubscribed: PropTypes.bool,
   onUnsubscribeButtonClick: PropTypes.func
 };
