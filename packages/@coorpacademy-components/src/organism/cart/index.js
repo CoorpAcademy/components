@@ -11,15 +11,14 @@ const Cart = (props, context) => {
     productCardProps,
     promoCodeProps,
     paymentFormProps,
-    backUrl,
-    title
+    backUrl
   } = props;
   const { translate } = context;
 
   return (
     <div className={style.parent}>
       <div className={style.titleContainer}>
-        <div className={style.headerTitle}>{title}</div>
+        <div className={style.headerTitle}>{translate('cart_title')}</div>
       </div>
       <div className={style.cart}>
         <div className={style.productBlock}>
@@ -46,8 +45,7 @@ Cart.propTypes = {
   productCardProps: ProductCard.propTypes,
   promoCodeProps: PromoCode.propTypes,
   paymentFormProps: PaymentForm.propTypes,
-  backUrl: PropTypes.string,
-  title: PropTypes.string
+  backUrl: PropTypes.string
 };
 
 export default Cart;

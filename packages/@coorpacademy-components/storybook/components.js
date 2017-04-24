@@ -391,6 +391,8 @@ import MoocHeaderFixtureSliderMultiple from '../src/organism/mooc-header/test/fi
 import MoocHeaderFixtureSlider from '../src/organism/mooc-header/test/fixtures/slider';
 import PopinFixtureDefault from '../src/organism/popin/test/fixtures/default';
 import SettingsFixtureDefault from '../src/organism/settings/test/fixtures/default';
+import SettingsFixtureFreemium from '../src/organism/settings/test/fixtures/freemium';
+import SettingsFixturePremium from '../src/organism/settings/test/fixtures/premium';
 import SetupHeaderFixtureDefault from '../src/organism/setup-header/test/fixtures/default';
 import AuthorFixtureDefault from '../src/template/app-catalog/author/test/fixtures/default';
 import AuthorFixtureLoading from '../src/template/app-catalog/author/test/fixtures/loading';
@@ -1066,7 +1068,9 @@ export const fixtures = {
       Default: PopinFixtureDefault
     },
     Settings: {
-      Default: SettingsFixtureDefault
+      Default: SettingsFixtureDefault,
+      Freemium: SettingsFixtureFreemium,
+      Premium: SettingsFixturePremium
     },
     SetupHeader: {
       Default: SetupHeaderFixtureDefault
