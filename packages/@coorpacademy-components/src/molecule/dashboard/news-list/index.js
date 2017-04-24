@@ -42,7 +42,10 @@ const NewsList = (props, context) => {
   });
 
   return (
-    <div className={style.wrapper}>
+    <div
+      className={style.wrapper}
+      data-name="news-list"
+    >
       <div className={style.list}>
         <div className={style.title}>
           {title}

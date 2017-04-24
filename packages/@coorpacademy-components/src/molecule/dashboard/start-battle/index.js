@@ -13,7 +13,10 @@ const StartBattle = (props, context) => {
   } = props;
 
   return (
-    <div className={style.container}>
+    <div
+      className={style.container}
+      data-name="start-battle"
+    >
       <div className={style.wrapper}>
         <div className={style.start}>
           <Link className={style.animate}
