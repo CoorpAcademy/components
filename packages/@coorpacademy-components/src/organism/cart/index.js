@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
 import ProductCard from '../../molecule/product-card';
+import Link from '../../atom/link';
 import PromoCode from '../../atom/promo-code';
 import PaymentForm from '../../molecule/payment-form';
 
@@ -27,10 +28,10 @@ const Cart = (props, context) => {
         </div>
         <div className={style.paymentBlock}>
           <PaymentForm {...paymentFormProps} />
-          <a
+          <Link
             className={style.backButton}
             href={backUrl}
-          >{translate('back_to_catalog')}</a>
+          >{translate('back_to_catalog')}</Link>
         </div>
       </div>
     </div>
