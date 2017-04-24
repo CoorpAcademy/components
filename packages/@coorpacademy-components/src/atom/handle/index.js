@@ -15,15 +15,15 @@ class Handle extends React.Component {
   componentDidMount() {
     if (Hammer) {
       this.hammer = new Hammer(findDOMNode(this));
-      this.hammer.on('panstart', this.props.handlePanStart);
-      this.hammer.on('panend', this.props.handlePanEnd);
+      this.hammer.on('panstart', this.props.onPanStart);
+      this.hammer.on('panend', this.props.onPanEnd);
 
       if (this.onX()) {
-        this.hammer.on('panleft panright', this.props.handlePan);
+        this.hammer.on('panleft panright', this.props.onPan);
       }
 
       if (this.onY()) {
-        this.hammer.on('panup pandown', this.props.handlePan);
+        this.hammer.on('panup pandown', this.props.onPan);
       }
     }
   }
@@ -78,9 +78,9 @@ Handle.propTypes = {
   y: PropTypes.number,
   axis: PropTypes.oneOf(['x', 'y', 'both']),
   style: PropTypes.object,
-  handlePan: PropTypes.func,
-  handlePanStart: PropTypes.func,
-  handlePanEnd: PropTypes.func
+  onPan: PropTypes.func,
+  onPanStart: PropTypes.func,
+  onPanEnd: PropTypes.func
 };
 
 export default Handle;

@@ -2,8 +2,8 @@ export default {
   props: {
     x: 50,
     y: 50,
-    handlePan: e => console.log('handlePan', e.type), // eslint-disable-line no-console
-    handlePanStart: e => console.log('handlePanStart', e.type), // eslint-disable-line no-console
-    handlePanEnd: e => console.log('handlePanEnd', e.type) // eslint-disable-line no-console
+    onPan: e => console.log('onPan', e.type), // eslint-disable-line no-console
+    onPanStart: e => console.log('onPanStart', e.type), // eslint-disable-line no-console
+    onPanEnd: e => console.log('onPanEnd', e.type) // eslint-disable-line no-console
   }
 };
