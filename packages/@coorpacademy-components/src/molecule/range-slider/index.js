@@ -26,7 +26,6 @@ class RangeSlider extends React.Component {
     super(props, context);
 
     this.state = {
-      ...props
     };
 
     this.setX = this.setX.bind(this);
@@ -35,15 +34,29 @@ class RangeSlider extends React.Component {
   }
 
   componentDidMount() {
-    const max = this.railWidth();
-    const steps = this.state.steps;
+    const width = this.railWidth();
+    this.initHandlesPositions(width);
+    window.addEventListener('resize', this.updatePositions);
+  }
+
+  shouldComponentUpdate(nextProps, nextState, nextContext) {
+    return shallowCompare(this, nextProps, nextState, nextContext);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updatePositions);
+  }
+
+  initHandlesPositions(width) {
+    const max = width;
+    const steps = this.props.steps || [];
     const stepWidth = max / (steps.length - 1);
 
-    const step1 = getOr(0, 'handle1.step', this.state);
-    const step2 = getOr((steps.length - 1), 'handle2.step', this.state);
+    const step1 = getOr(0, 'handle1.step', this.props);
+    const step2 = getOr((steps.length - 1), 'handle2.step', this.props);
 
-    const x1 = getOr(step1 * stepWidth, 'handle1.x', this.state);
-    const x2 = getOr(step2 * stepWidth, 'handle2.x', this.state);
+    const x1 = getOr(step1 * stepWidth, 'handle1.x', this.props);
+    const x2 = getOr(step2 * stepWidth, 'handle2.x', this.props);
 
     // eslint-disable-next-line react/no-did-mount-set-state
     this.setState({
@@ -61,20 +74,15 @@ class RangeSlider extends React.Component {
       },
       railWidth: max
     });
-    window.addEventListener('resize', this.updatePositions);
-  }
-
-  shouldComponentUpdate(nextProps, nextState, nextContext) {
-    return shallowCompare(this, nextProps, nextState, nextContext);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.updatePositions);
   }
 
   updatePositions() {
+    const newWidth = this.railWidth();
+    this.refreshMinMax(newWidth);
+  }
+
+  refreshMinMax(newWidth) {
     this.setState((previousState, currentProps) => {
-      const newWidth = this.railWidth();
       const ratio = newWidth / previousState.railWidth;
 
       return {
@@ -94,13 +102,15 @@ class RangeSlider extends React.Component {
   }
 
   handlePanStart(num) {
-    return e => this.setState((previousState, currentProps) =>
-      set(
-        [`handle${num}`, 'panStart'],
-        e.target.offsetLeft,
-        previousState
-      )
-    );
+    return e => {
+      this.setState((previousState, currentProps) =>
+        set(
+          [`handle${num}`, 'panStart'],
+          e.target.offsetLeft,
+          previousState
+        )
+      );
+    };
   }
 
   handlePanEnd(num) {
@@ -219,9 +229,10 @@ class RangeSlider extends React.Component {
             }}
             axis={'x'}
             x={x1}
-            handlePan={this.setX(1)}
-            handlePanStart={this.handlePanStart(1)}
-            handlePanEnd={this.handlePanEnd(1)}
+            // onClick={() => console.log('onclick')}
+            onPan={this.setX(1)}
+            onPanStart={this.handlePanStart(1)}
+            onPanEnd={this.handlePanEnd(1)}
           />
           <Handle
             className={style.handle}
@@ -230,9 +241,9 @@ class RangeSlider extends React.Component {
             style={{
               boxShadow: `0px 0px 1px 1px ${defaultColor}`
             }}
-            handlePan={this.setX(2)}
-            handlePanStart={this.handlePanStart(2)}
-            handlePanEnd={this.handlePanEnd(2)}
+            onPan={this.setX(2)}
+            onPanStart={this.handlePanStart(2)}
+            onPanEnd={this.handlePanEnd(2)}
           />
         </div>
         <span className={style.labelMin}>{labelMin}</span>
