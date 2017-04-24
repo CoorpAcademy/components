@@ -15,8 +15,6 @@ export default {
     onTabClick: () => {},
     onBackToCatalogButtonClick: () => {},
     activeContent: 'subscribe',
-    titles: {
-      subscribe: 'subscription_and_payment'
-    }
+    tabTitle: 'subscription_and_payment'
   }
 };

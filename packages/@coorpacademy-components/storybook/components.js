@@ -181,6 +181,8 @@ import PictureFixtureDefault from '../src/atom/picture/test/fixtures/default';
 import PictureFixtureEmpty from '../src/atom/picture/test/fixtures/empty';
 import PictureFixtureSimpleSrc from '../src/atom/picture/test/fixtures/simple-src';
 import PromoCodeFixtureDefault from '../src/atom/promo-code/test/fixtures/default';
+import PromoCodeFixtureError from '../src/atom/promo-code/test/fixtures/error';
+import PromoCodeFixtureSuccess from '../src/atom/promo-code/test/fixtures/success';
 import ProviderFixtureDefault from '../src/atom/provider/test/fixtures/default';
 import SelectFixtureDefault from '../src/atom/select/test/fixtures/default';
 import SelectFixtureDisabled from '../src/atom/select/test/fixtures/disabled';
@@ -280,6 +282,8 @@ import NewsFixtureDefault from '../src/molecule/news/test/fixtures/default';
 import PaginationFixtureDefault from '../src/molecule/pagination/test/fixtures/default';
 import PaginationFixtureDisabled from '../src/molecule/pagination/test/fixtures/disabled';
 import PaymentFormFixtureDefault from '../src/molecule/payment-form/test/fixtures/default';
+import PaymentFormFixtureError from '../src/molecule/payment-form/test/fixtures/error';
+import PaymentFormFixtureWarning from '../src/molecule/payment-form/test/fixtures/warning';
 import ProductCardFixtureDefault from '../src/molecule/product-card/test/fixtures/default';
 import ProgressBarFixtureDefault from '../src/molecule/progress-bar/test/fixtures/default';
 import ProgressBarFixtureMax from '../src/molecule/progress-bar/test/fixtures/max';
@@ -678,7 +682,9 @@ export const fixtures = {
       SimpleSrc: PictureFixtureSimpleSrc
     },
     PromoCode: {
-      Default: PromoCodeFixtureDefault
+      Default: PromoCodeFixtureDefault,
+      Error: PromoCodeFixtureError,
+      Success: PromoCodeFixtureSuccess
     },
     Provider: {
       Default: ProviderFixtureDefault
@@ -857,7 +863,9 @@ export const fixtures = {
       Disabled: PaginationFixtureDisabled
     },
     PaymentForm: {
-      Default: PaymentFormFixtureDefault
+      Default: PaymentFormFixtureDefault,
+      Error: PaymentFormFixtureError,
+      Warning: PaymentFormFixtureWarning
     },
     ProductCard: {
       Default: ProductCardFixtureDefault
