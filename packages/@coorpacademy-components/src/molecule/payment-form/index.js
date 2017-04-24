@@ -61,7 +61,7 @@ class PaymentForm extends React.Component {
     if (this.stripe) {
       return this.stripe.createToken(this.cardNumber)
       .then(response => {
-        return this.props.createSubscription(response);
+        return this.props.onSubscription(response);
       });
     }
   }
@@ -162,7 +162,7 @@ PaymentForm.contextTypes = {
 
 PaymentForm.propTypes = {
   stripeKeyPublic: PropTypes.string.isRequired,
-  createSubscription: PropTypes.func.isRequired,
+  onSubscription: PropTypes.func.isRequired,
   checkImage: PropTypes.string.isRequired,
   cardsImage: PropTypes.string.isRequired,
   cardOwnerEmail: PropTypes.string,
