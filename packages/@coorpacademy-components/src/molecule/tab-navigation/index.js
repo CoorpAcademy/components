@@ -1,5 +1,6 @@
 import React, {PropTypes, Component} from 'react';
 import map from 'lodash/fp/map';
+import Link from '../../atom/link';
 import Tab from '../../atom/tab';
 import TabContent from '../../atom/tab-content';
 import SubscriptionPremiumDetails from '../subscription-premium';
@@ -21,12 +22,12 @@ const TabNavigation = (props, context) => {
   return (
     <div className={style.tabNavigation}>
       <div className={style.tabNavigationPanel}>
-        <div
+        <Link
           className={style.backToCatalogButton}
-          onClick={props.onBackToCatalogButtonClick}
+          href={props.moocUrl}
         >
           {translate('back_to_catalog')}
-        </div>
+        </Link>
         {map(tab => (
           <Tab
             {...otherProps}
@@ -52,7 +53,7 @@ TabNavigation.contextTypes = {
 };
 
 TabNavigation.propTypes = {
-  onBackToCatalogButtonClick: PropTypes.func
+  moocUrl: PropTypes.string
 };
 
 export default TabNavigation;

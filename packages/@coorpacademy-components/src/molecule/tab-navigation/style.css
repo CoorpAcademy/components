@@ -30,6 +30,7 @@
   font-size: 17px;
   font-weight: 900;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .backToCatalogButton::before {

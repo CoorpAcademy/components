@@ -29,27 +29,30 @@
   padding: 0 30px;
   cursor: pointer;
   text-transform: uppercase;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
 }
 
-.blueButton {
+.keepSubscriptionButton {
   composes: button;
   border: none;
   background-color: blue;
   color: white;
 }
 
-.blueButton:hover {
+.keepSubscriptionButton:hover {
   background-color: darkBlue;
 }
 
-.whiteButton {
+.unsubscribeButton {
   composes: button;
   background-color: white;
   color: blue;
   border: 1px solid;
 }
 
-.whiteButton:hover {
+.unsubscribeButton:hover {
   background-color: #f0f0f0;
 }
 
