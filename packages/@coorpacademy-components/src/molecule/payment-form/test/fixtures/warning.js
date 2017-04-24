@@ -5,10 +5,11 @@ export default {
     cardOwnerEmail: 'email@coorpacademy.com',
     securedPaymentImage: 'http://simpleicon.com/wp-content/uploads/lock-2.png',
     stripeKeyPublic: 'key',
+    warning: 'incomplete_number',
     createSubscription() {},
     onCardNumberChange() {},
     onCardExpiryChange() {},
     onCardCvcChange() {},
-    submitButtonEnabled: true
+    submitButtonEnabled: false
   }
 };
