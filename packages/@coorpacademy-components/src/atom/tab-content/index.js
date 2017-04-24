@@ -3,12 +3,13 @@ import style from './style.css';
 
 const TabContent = (props, context) => {
   const { translate } = context;
+  const { tabTitle } = props;
 
   const backgroundClassName = props.hideContentBackground ? style.hiddenBackground : style.greyBackground;
   return (
     <div className={style.content}>
       <div className={style.contentTitle}>
-        {translate(props.titles[props.activeContent])}
+        {translate(tabTitle)}
       </div>
       <div className={backgroundClassName}>
         {props.children}
@@ -22,9 +23,8 @@ TabContent.contextTypes = {
 };
 
 TabContent.propTypes = {
-  titles: PropTypes.objectOf(PropTypes.string),
-  hideContentBackground: PropTypes.bool,
-  activeContent: PropTypes.string
+  tabTitle: PropTypes.string,
+  hideContentBackground: PropTypes.bool
 };
 
 export default TabContent;
