@@ -55,7 +55,7 @@
   "expired_card": "La carte a expiré",
   "zuora_discount_code": "Code promo",
   "zuora_discount_code_submit": "Valider",
-  "currency_per_month": " € par mois",
+  "subscription_price": "${price} ${currency} par mois",
   "promo_5e_description": "Remise de 5 € sur les deux premiers mois",
   "wrong_promo_code": "Le code promo entré est erroné",
   "product_desc_culture": "Culture Digitale : Tous les niveaux complets",
