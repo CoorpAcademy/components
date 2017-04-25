@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import template from 'lodash/fp/template';
 import style from './style.css';
 
 const ProductCard = (props, context) => {
@@ -6,6 +7,7 @@ const ProductCard = (props, context) => {
     title,
     subtitle,
     price,
+    currency,
     checkImage
   } = props;
 
@@ -19,6 +21,9 @@ const ProductCard = (props, context) => {
     'product_desc_forum',
     'product_desc_certificates'
   ];
+
+  const priceTemplate = translate('subscription_price');
+  const priceValue = template(priceTemplate)({price, currency});
 
   const items = descriptionItemTranslationKeys.map((itemTranslationKey, index) => {
     return (
@@ -45,7 +50,7 @@ const ProductCard = (props, context) => {
         <div className="product__description">{items}</div>
         <hr className={style.productSeparation} />
         <div className={style.productPrice}>
-          <div className={style.priceValue}>{price}{translate('currency_per_month')}</div>
+          <div className={style.priceValue}>{priceValue}</div>
           <div className={style.cancelText}>{translate('product_cancel')}</div>
         </div>
       </div>
@@ -60,6 +65,7 @@ ProductCard.contextTypes = {
 ProductCard.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
+  currency: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,
   checkImage: PropTypes.string.isRequired
 };
