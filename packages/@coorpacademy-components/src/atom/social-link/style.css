@@ -1,5 +1,5 @@
 @value colors: "../../variables/colors.css";
-@value darkGrey from colors;
+@value mediumGrey from colors;
 
 .link {
   font-family: 'social-icons';
@@ -8,8 +8,8 @@
   text-align: center;
   width: 19px;
   padding: 4px;
-  border: 1px solid darkGrey;
-  color: darkGrey;
+  border: 1px solid mediumGrey;
+  color: mediumGrey;
   border-radius: 50%;
   box-sizing: content-box;
   text-decoration: none;

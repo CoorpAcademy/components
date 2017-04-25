@@ -1,11 +1,15 @@
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
+@value colors: "../../variables/colors.css";
+@value white from colors;
+@value extraLightGrey from colors;
+@value darkGrey from colors;
 
 .default {
   width: 350px;
   margin: 5px;
   height: 80px;
-  background-color: #FFFFFF;
+  background-color: white;
   box-shadow: 0 0 4px 1px rgba(0,0,0,0.10);
   border-radius: 3px;
   padding: 20px;
@@ -17,21 +21,21 @@
 }
 
 .default:hover {
-  background-color: #F7F7F7;
+  background-color: extraLightGrey;
 }
 
 .title {
   font-family: 'Open Sans';
   font-size: 15px;
   font-weight: 700;
-  color: #000000;
+  color: darkGrey;
   flex-grow: 1;
 }
 
 .level {
   font-family: 'Open Sans';
-  color: #ffffff;
-  background-color: #474649;
+  color: white;
+  background-color: darkGrey;
   text-transform: uppercase;
   padding: 5px 10px;
   border-radius: 3px;

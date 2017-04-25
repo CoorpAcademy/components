@@ -1,4 +1,7 @@
 @value breakpoints: "../../variables/breakpoints.css";
+@value colors: "../../variables/colors.css";
+@value black from colors;
+@value white from colors;
 @value mobile from breakpoints;
 @value tablet from breakpoints;
 @value desktop from breakpoints;
@@ -22,12 +25,12 @@
   text-align: center;
   position: relative;
   width: 100%;
-  color: #000000;
+  color: black;
 }
 
 .light {
   composes: content;
-  color: #ffffff;
+  color: white;
 }
 
 .surtitle {

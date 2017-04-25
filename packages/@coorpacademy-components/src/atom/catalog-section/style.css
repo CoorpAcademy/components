@@ -1,6 +1,10 @@
+@value colors: "../../variables/colors.css";
+@value lightGrey from colors;
+@value darkGrey from colors;
+
 .title {
-  border-bottom: 1px solid #E0E0E0;
-  color: #546E7A;
+  border-bottom: 1px solid lightGrey;
+  color: darkGrey;
   font-family: "Open Sans";
   font-size: 13px;
   font-weight: 800;

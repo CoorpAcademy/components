@@ -1,3 +1,14 @@
+@value colors: "../../variables/colors.css";
+@value white from colors;
+@value primary from colors;
+@value primaryAdd2 from colors;
+@value mediumGrey from colors;
+@value darkGrey from colors;
+@value lightGrey from colors;
+@value extraLightGrey from colors;
+@value brandGreen from colors;
+@value brandGreenHover from colors;
+
 .wrapper {
  width: 100%;
  display: flex;
@@ -5,7 +16,7 @@
  padding: 0 40px;
  height: 80px;
  box-sizing: border-box;
- background-color: #F7F7F7;
+ background-color: extraLightGrey;
  align-items: center;
 }
 
@@ -22,7 +33,7 @@
   font-family: 'Open Sans';
   font-weight: 700;
   font-size: 17px;
-  color: #B0BEC5;
+  color: mediumGrey;
   text-decoration: none;
 }
 
@@ -30,11 +41,11 @@
   font-family: 'Open Sans';
   font-weight: 700;
   font-size: 17px;
-  color: #455A64;
+  color: darkGrey;
 }
 
 .breadcrumb a:hover {
-  color: #90A4AE;
+  color: mediumGrey;
 }
 
 .breadcrumb:last-child:after {
@@ -43,7 +54,7 @@
 
 .breadcrumb:after {
   content: '⟩';
-  color: #B0BEC5;
+  color: lightGrey;
   margin-left: 10px;
 }
 
@@ -60,7 +71,7 @@
   font-family: 'Open Sans';
   font-size: 15px;
   line-height: 52px;
-  color: #ffffff;
+  color: white;
   display: block;
   height: 52px;
   padding: 0 50px;
@@ -74,11 +85,11 @@
 }
 
 .primary a {
-  background-color: #00B0FF;
+  background-color: primary;
 }
 
 .primary a:before {
-  background-color: #0091EA;
+  background-color: primaryAdd2;
 }
 
 .secondary {
@@ -86,9 +97,9 @@
 }
 
 .secondary a {
-  background-color: #A5D6A7;
+  background-color: brandGreen;
 }
 
 .secondary a:before {
-  background-color: #81C784;
+  background-color: brandGreenHover;
 }

@@ -1,9 +1,9 @@
 @value colors: "../../variables/colors.css";
+@value lightGrey from colors;
+@value negativeColor from colors;
+@value primary from colors;
+@value brandAdditionalbrand from colors;
 @value darkGrey from colors;
-@value borderGrey from colors;
-@value orange from colors;
-@value blue from colors;
-@value yellow from colors;
 
 .default {
   display: flex;
@@ -25,7 +25,7 @@
   font-family: "Open Sans";
   font-size: 15px;
   text-transform: none;
-  color: #455A64;
+  color: darkGrey;
   width: 180px;
 }
 
@@ -36,7 +36,7 @@
   top: 6px; left: 5px;
   font-size: 18px;
   line-height: 0.8;
-  color: blue;
+  color: primary;
   transition: all .2s;
 }
 
@@ -51,8 +51,8 @@
 }
 
 .default label {
-  border: solid 2px borderGrey;
-  background-color: borderGrey;
+  border: solid 2px lightGrey;
+  background-color: lightGrey;
   width: 23px;
   height: 23px;
   border-radius: 2px;
@@ -63,17 +63,17 @@
 }
 
 .error label {
-  border: 3px solid orange;
+  border: 3px solid negativeColor;
 }
 
 .error input {
-  border-color: orange;
+  border-color: negativeColor;
 }
 
 .modified input {
-  border-color: yellow;
+  border-color: BrandOrange;
 }
 
 .modified label {
-  border: 3px solid yellow;
+  border: 3px solid BrandOrange;
 }

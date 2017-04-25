@@ -1,6 +1,13 @@
+@value colors: "../../variables/colors.css";
+@value white from colors;
+@value extraLightGrey from colors;
+@value lightGrey from colors;
+@value mediumGrey from colors;
+@value primaryAdd1 from colors;
+
 .open {
   margin: 0;
-  background: #FAFAFA;
+  background: extraLightGrey;
   box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.12), 0px 8px 8px 0px rgba(0,0,0,0.24);
   border-radius: 3px;
 }
@@ -23,15 +30,15 @@
 }
 
 .line:hover {
-  background: #e4e4e4;
+  background: extraLightGrey;
 }
 
 
 /*------------------------------------------------------------ header */
 
 .openHeader {
-  background: #FFFFFF;
-  box-shadow: 0px 1px 0px 0px #ECEFF1;
+  background: white;
+  box-shadow: 0px 1px 0px 0px lightGrey;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
   height: 37px;
@@ -59,7 +66,7 @@
 
 .icon {
   font-family: 'icons-default';
-  color: #78909C;
+  color: mediumGrey;
   font-size: 12px;
   width: 22px;
   height: 22px;
@@ -79,5 +86,5 @@
 }
 
 .close:hover {
-  color: #A6B9C3;
+  color: primaryAdd1;
 }

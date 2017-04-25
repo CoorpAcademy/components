@@ -1,13 +1,15 @@
 @value colors: "../../variables/colors.css";
-@value borderGrey from colors;
+@value negativeColor from colors;
+@value white from colors;
 @value darkGrey from colors;
-@value red from colors;
+@value mediumGrey from colors;
+@value extraLightGrey from colors;
 
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
 
 .wrapper {
-  background: borderGrey;
+  background: extraLightGrey;
   padding: 25px 45px;
   display: flex;
   align-items: center;
@@ -18,7 +20,7 @@
 }
 
 .button {
-  background-color: darkGrey;
+  background-color: mediumGrey;
 }
 
 .icon {
@@ -27,8 +29,8 @@
   width: 12px;
   height: 12px;
   font-size: 15px;
-  background: red;
-  color: #fff;
+  background: negativeColor;
+  color: white;
   padding: 7px;
   border-radius: 50%;
   text-align: center;

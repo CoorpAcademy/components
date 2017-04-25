@@ -1,3 +1,8 @@
+@value colors: "../../../variables/colors.css";
+@value lightGrey from colors;
+@value darkGrey from colors;
+@value extraLightGrey from colors;
+
 .container {
   padding: 5px;
 }
@@ -7,7 +12,7 @@
 }
 
 .image {
-  background-color: #eeeeee;
+  background-color: extraLightGrey;
   border-radius: 3px;
   overflow: hidden;
   width: 50px;
@@ -33,7 +38,7 @@
   width: 100%;
   margin: 0 auto;
   padding: 5px;
-  border: solid 2px #eceff1;
+  border: solid 2px lightGrey;
   border-radius: 2px;
   font-size: 14px;
   font-family: 'Open Sans';
@@ -49,7 +54,7 @@
 }
 
 .button {
-  background-color: #546E7A;
+  background-color: darkGrey;
   width: 100px;
   padding: 0;
 }

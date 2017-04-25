@@ -1,6 +1,12 @@
+@value colors: "../../variables/colors.css";
+@value extraLightGrey from colors;
+@value mediumGrey from colors;
+@value darkGrey from colors;
+@value primaryAdd2 from colors;
+
 .wrapper {
   width: 100%;
-  background-color: #F6F6F6;
+  background-color: extraLightGrey;
   height: 60px;
   display: flex;
   align-items: center;
@@ -12,7 +18,7 @@
 .title {
   font-family: 'Open Sans';
   font-size: 14px;
-  color: #4A90E2;
+  color: darkGrey;
   font-weight: 700;
 }
 
@@ -26,7 +32,7 @@
   font-family: 'Open Sans';
   font-weight: 600;
   font-size: 14px;
-  color: #405863;
+  color: darkGrey;
   margin-right: 16px;
 }
 
@@ -35,14 +41,14 @@
   font-size: 30px;
   width: 40px;
   font-weight: 500;
-  color: #4A90E2;
+  color: darkGrey;
   cursor: pointer;
   text-align: center;
   margin-left: 24px;
 }
 
 .arrow:hover {
-  color: #90C1FA;
+  color: primaryAdd2;
 }
 
 .down {
@@ -52,7 +58,7 @@
 
 .disabledDown {
   composes: down;
-  color: #b9b9b9;
+  color: mediumGrey;
   pointer-events: none;
 }
 
@@ -64,6 +70,6 @@
 
 .disabledUp {
   composes: up;
-  color: #b9b9b9;
+  color: mediumGrey;
   pointer-events: none;
 }

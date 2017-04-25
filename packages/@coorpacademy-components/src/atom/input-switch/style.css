@@ -1,5 +1,10 @@
 @value colors: "../../variables/colors.css";
-@value yellow from colors;
+@value BrandOrange from colors;
+@value mediumGrey from colors;
+@value positiveColor from colors;
+@value extraLightGrey from colors;
+@value lightGrey from colors;
+@value darkGrey from colors;
 
 .default {
   display: flex;
@@ -20,7 +25,7 @@
   position: relative;
   display: block;
   width: 52px;
-  background: #898989;
+  background: mediumGrey;
   border-radius: 100px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -48,7 +53,7 @@
   width: 28px;
   height: 28px;
   border-radius: 100px;
-  background: yellow;
+  background: BrandOrange;
   box-shadow: 0px 3px 3px rgba(0,0,0,0.05);
   content: '';
   transition: all 0.3s ease;
@@ -67,7 +72,7 @@
 }
 
 .checkbox:checked ~ label {
-  background: #00DC88;
+  background: positiveColor;
 }
 
 .default input:checked ~ label:after {
@@ -75,19 +80,19 @@
 }
 
 .checkbox:disabled ~ label {
-  background: #d5d5d5;
+  background: lightGrey;
   pointer-events: none;
 }
 
 .checkbox:disabled ~ label:after {
-  background: #bcbdbc;
+  background: extraLightGrey;
 }
 
 .title {
   font-family: "Open Sans";
   font-size: 15px;
   text-transform: none;
-  color: #455A64;
+  color: darkGrey;
   width: 180px;
   margin-right: 20px;
   min-height: 50px;
@@ -97,7 +102,7 @@
   font-family: 'Open Sans';
   font-weight: 500;
   font-size: 12px;
-  color: #C2C2C2;
+  color: darkGrey;
   font-style: italic;
   margin-left: 20px;
 }

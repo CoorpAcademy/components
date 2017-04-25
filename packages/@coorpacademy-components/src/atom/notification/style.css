@@ -1,7 +1,8 @@
 @value colors: "../../variables/colors.css";
-@value darkGrey from colors;
+@value mediumGrey from colors;
 @value orange from colors;
-@value yellow from colors;
+@value brandDarkOrange from colors;
+@value negativeColor from colors;
 
 .message {
   width: 100%;
@@ -9,8 +10,8 @@
   font-weight: 700;
   font-size: 14px;
   text-align: center;
-  color: darkGrey;
-  border: 1px solid darkGrey;
+  color: mediumGrey;
+  border: 1px solid mediumGrey;
   border-radius: 2px;
   padding: 10px 20px;
   box-sizing: border-box;
@@ -22,7 +23,7 @@
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background-color: darkGrey;
+  background-color: mediumGrey;
   color: #ffffff;
   text-align: center;
   margin-right: 10px;
@@ -40,20 +41,20 @@
 
 .error {
   composes: message;
-  color: orange;
-  border-color: orange;
+  color: negativeColor;
+  border-color: negativeColor;
 }
 
 .error span {
-  background-color: orange;
+  background-color: negativeColor;
 }
 
 .warning {
   composes: message;
-  color: yellow;
-  border-color: yellow;
+  color: brandDarkOrange;
+  border-color: brandDarkOrange;
 }
 
 .warning span {
-  background-color: yellow;
+  background-color: brandDarkOrange;
 }

@@ -1,22 +1,29 @@
+@value colors: "../../variables/colors.css";
+@value lightGrey from colors;
+@value extraLightGrey from colors;
+@value mediumGrey from colors;
+@value darkGrey from colors;
+@value primary from colors;
+
 .wrapper {
   overflow-x: scroll;
   padding-bottom: 15px;
 }
 
 .table {
-  border: 1px solid #EBECEF;
+  border: 1px solid lightGrey;
   font-family: 'Open Sans';
   border-spacing: 0;
 }
 
 .table thead {
-  background-color: #F7F7F7;
+  background-color: extraLightGrey;
 }
 
 .table th {
   text-align: left;
-  border-right: 1px solid #EBECEF;
-  border-bottom: 1px solid #EBECEF;
+  border-right: 1px solid lightGrey;
+  border-bottom: 1px solid lightGrey;
   position: relative;
 }
 
@@ -26,15 +33,15 @@
 
 .table tbody td {
   font-weight: 600;
-  color: #455A64;
+  color: darkGrey;
   line-height: 42px;
   padding: 0 25px;
   white-space: nowrap;
 }
 
 .table td {
-  border-right: 1px solid #EBECEF;
-  border-bottom: 1px solid #EBECEF;
+  border-right: 1px solid lightGrey;
+  border-bottom: 1px solid lightGrey;
 }
 
 .table td:last-child {
@@ -46,7 +53,7 @@
 }
 
 .table tbody tr:hover {
-  background-color: #FAFAFA;
+  background-color: extraLightGrey;
 }
 
 .checkbox {
@@ -78,7 +85,7 @@
   font-family: 'Open Sans';
   font-size: 15px;
   font-weight: 700;
-  color: #90A4AE;
+  color: mediumGrey;
   box-sizing: border-box;
   line-height: 70px;
   white-space: nowrap;
@@ -97,7 +104,7 @@
 }
 
 .filtered:before {
-  color: #90A4AE;
+  color: mediumGrey;
 }
 
 
@@ -109,7 +116,7 @@
   width: 300px;
   padding: 20px;
   background-color: #ffffff;
-  border: 1px solid #EBECEF;
+  border: 1px solid lightGrey;
   box-shadow: 0 7px 8px 0 rgba(0,0,0,0.14);
 }
 
@@ -126,11 +133,11 @@
   font-weight: 600;
   font-size: 15px;
   line-height: 25px;
-  color: #90A4AE;
+  color: mediumGrey;
 }
 
 .option button:hover {
-  color: #455A64;
+  color: darkGrey;
 }
 
 .selected {
@@ -138,16 +145,16 @@
 }
 
 .selected button {
-  color: #455A64;
+  color: darkGrey;
 }
 
 .editLink {
   composes: fa from '../../variables/fontawesome.css';
   composes: fa-pencil from '../../variables/fontawesome.css';
-  color: #455A64;
+  color: darkGrey;
   text-decoration: none;
 }
 
 .editLink:hover {
-  color: #00B0FF;
+  color: primary;
 }
