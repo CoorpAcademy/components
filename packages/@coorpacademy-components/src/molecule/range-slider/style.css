@@ -1,13 +1,10 @@
 @value colors: "../../variables/colors.css";
-@value blue from colors;
 @value grey from colors;
 @value borderGrey from colors;
 @value darkGrey from colors;
 
-@value handleSize: 20px;
-@value handlePosition: translate3d(-10px,-7.5px,0);
-@value handleActiveSize: 25px;
-@value handleActivePosition: translate3d(-12.5px,-10px,0);
+@value handleSize: 30px;
+@value handlePosition: translate3d(-15px,-13px,0);
 
 .default {
   position: relative;
@@ -82,10 +79,9 @@
   transform: handlePosition;
   cursor: pointer;
   user-select: none;
+  margin: 0 0 0 6px;
 }
 
-.handle:active {
-  width: handleActiveSize ;
-  height: handleActiveSize;
-  transform: handleActivePosition;
+.handle + .handle {
+  margin: 0 0 0 -6px;
 }
