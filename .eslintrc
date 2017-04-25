@@ -7,6 +7,7 @@
   },
   "plugins": [
     "@coorpacademy/coorpacademy",
+    "css-modules",
     "react"
   ],
   "extends": [
@@ -43,7 +44,8 @@
     "react/jsx-no-literals": 0,
     "react/require-default-props": 0,
     "react/sort-prop-types": 0,
-    "react/no-set-state": 0
+    "react/no-set-state": 0,
+    "css-modules/no-undef-class": "error"
   },
   "settings": {
     "import/ignore": ["node_modules", "\\.css$"]
