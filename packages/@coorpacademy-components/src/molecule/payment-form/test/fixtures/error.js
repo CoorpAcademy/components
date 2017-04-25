@@ -6,7 +6,7 @@ export default {
     securedPaymentImage: 'http://simpleicon.com/wp-content/uploads/lock-2.png',
     stripeKeyPublic: 'key',
     errors: 'invalid_expiry_year_past',
-    createSubscription() {},
+    onSubscription() {},
     onCardNumberChange() {},
     cardNumberHasError: true,
     onCardExpiryChange() {},

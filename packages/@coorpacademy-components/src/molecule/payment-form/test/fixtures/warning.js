@@ -6,7 +6,7 @@ export default {
     securedPaymentImage: 'http://simpleicon.com/wp-content/uploads/lock-2.png',
     stripeKeyPublic: 'key',
     warning: 'incomplete_number',
-    createSubscription() {},
+    onSubscription() {},
     onCardNumberChange() {},
     onCardExpiryChange() {},
     onCardCvcChange() {},
