@@ -100,8 +100,6 @@ class PaymentForm extends React.Component {
 
     const { translate } = this.context;
 
-    const disabled = submitButtonEnabled ? {} : {disabled: true};
-
     return (
       <div className={style.paymentForm}>
         <div className={style.acceptedCards}>
@@ -151,7 +149,7 @@ class PaymentForm extends React.Component {
             className={style.subscribeButton}
             type="button"
             onClick={this.handleSubmit}
-            {...disabled}
+            disabled={!submitButtonEnabled}
           >{translate('payment_form_submit')}</button>
         </div>
       </div>
