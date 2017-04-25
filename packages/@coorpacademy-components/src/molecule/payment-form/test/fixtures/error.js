@@ -5,7 +5,7 @@ export default {
     cardOwnerEmail: 'email@coorpacademy.com',
     securedPaymentImage: 'http://simpleicon.com/wp-content/uploads/lock-2.png',
     stripeKeyPublic: 'key',
-    errors: 'invalid_expiry_year_past',
+    errors: 'An error has occured',
     onSubscription() {},
     onCardNumberChange() {},
     cardNumberHasError: true,

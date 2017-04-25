@@ -1,6 +1,6 @@
 export default {
   props: {
-    promoCodeDescription: 'up_good_description',
+    promoCodeDescription: 'Code promo valide',
     onValidate() {},
     promoCode: ''
   }

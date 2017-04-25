@@ -36,13 +36,13 @@ const PromoCode = (props, context) => {
       {
         promoCodeDescription &&
         <div className={style.promoCodeDescription}>
-          - {translate(promoCodeDescription)}
+          - {promoCodeDescription}
         </div>
       }
       {
         promoCodeError &&
         <div className={style.promoCodeError}>
-          - {translate(promoCodeError)}
+          - {promoCodeError}
         </div>
       }
     </div>
