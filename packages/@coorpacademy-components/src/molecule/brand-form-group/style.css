@@ -32,15 +32,3 @@
 .field:last-child {
   margin-bottom: 0;
 }
-
-.grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  margin: auto;
-}
-
-.grid .field {
-  margin-bottom: 20px;
-  padding-right: 20px;
-}

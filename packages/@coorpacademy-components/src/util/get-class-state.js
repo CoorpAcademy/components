@@ -1,9 +1,9 @@
-export default (style, isModified, isError) => {
+export default (dfaultClassName, modifiedClassName, errorClassName, isModified = false, isError = false) => {
   if (isError) {
-    return style.error;
+    return errorClassName;
   }
   else if (isModified) {
-    return style.modified;
+    return modifiedClassName;
   }
-  return style.default;
+  return dfaultClassName;
 };

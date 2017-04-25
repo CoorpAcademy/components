@@ -59,7 +59,7 @@
 .link {
   display: inline-block;
   margin-right: 8px;
-} 
+}
 
 .link a {
   color: blueGrey;
@@ -97,7 +97,7 @@
 }
 
 .title {
-  margin-top: 0px; 
+  margin-top: 0px;
 }
 
 .cardsTitle {
@@ -117,7 +117,7 @@
   color: #263238;
   letter-spacing: 0px;
   line-height: 22px;
-  margin-top: 16px; 
+  margin-top: 16px;
 }
 
 .desc a {
@@ -194,10 +194,6 @@
 
   .imgWrapper img {
     width: 100%;
-  }
-
-  .titleWrapper {
-    padding-left: 16px;
   }
 
   .title {

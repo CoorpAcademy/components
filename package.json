@@ -17,6 +17,7 @@
     "publish:latest": "lerna publish",
     "start:angular": "lerna exec --scope @coorpacademy/treantjs-adapter-angular -- npm start",
     "start:components": "lerna exec --scope @coorpacademy/components -- npm start",
+    "start": "npm run start:components",
     "storybook:export": "lerna exec --scope @coorpacademy/components -- npm run storybook:export",
     "test": "npm run lint && npm run nyc"
   },
