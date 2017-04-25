@@ -55,7 +55,7 @@
   "expired_card": "The credit card expired",
   "zuora_discount_code": "Promo code",
   "zuora_discount_code_submit": "Apply",
-  "currency_per_month": "€ per month",
+  "subscription_price": "${currency}${price} per month",
   "promo_5e_description": "€5 discount on the first two months",
   "wrong_promo_code": "The promo code entered is wrong",
   "product_desc_culture": "Digital culture: All levels completed",
