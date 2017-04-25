@@ -9,7 +9,7 @@ const TabContent = (props, context) => {
   return (
     <div className={style.content}>
       <div className={style.contentTitle}>
-        {translate(tabTitle)}
+        {tabTitle}
       </div>
       <div className={backgroundClassName}>
         {props.children}

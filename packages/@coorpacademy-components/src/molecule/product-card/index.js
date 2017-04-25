@@ -43,8 +43,8 @@ const ProductCard = (props, context) => {
   return (
     <div className={style.product}>
       <div className={style.productHeader}>
-        <div className={style.productHeaderTitle}>{translate(title)}</div>
-        <div className={style.productHeaderSubtitle}>{translate(subtitle)}</div>
+        <div className={style.productHeaderTitle}>{title}</div>
+        <div className={style.productHeaderSubtitle}>{subtitle}</div>
       </div>
       <div className={style.productBody}>
         <div className="product__description">{items}</div>
