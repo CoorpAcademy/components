@@ -106,7 +106,6 @@ export SubscriptionFreemium from './molecule/subscription-freemium';
 export SubscriptionPremium from './molecule/subscription-premium';
 export Tab from './atom/tab';
 export TabContent from './atom/tab-content';
-export TabNavigation from './molecule/tab-navigation';
 export Table from './molecule/table';
 export ThemeImage from './molecule/theme-image';
 export Title from './atom/title';
