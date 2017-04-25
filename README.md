@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/CoorpAcademy/components.svg?token=tpTZr2AKsFCqAwZ7nAEf&branch=master)](https://travis-ci.com/CoorpAcademy/components)
+[![Build Status](https://travis-ci.org/CoorpAcademy/components.svg?branch=master)](https://travis-ci.org/CoorpAcademy/components)
 [![Coverage Status](https://coveralls.io/repos/github/CoorpAcademy/components/badge.svg?branch=master&t=15or4z)](https://coveralls.io/github/CoorpAcademy/components?branch=master)
 [![GitPitch](https://gitpitch.com/assets/badge.svg)](https://gitpitch.com/coorpacademy/tekacademy/components?grs=github&t=night)
 
