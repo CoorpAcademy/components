@@ -1306,6 +1306,22 @@ export const dependencies = {
         }
       }
     },
+    "SubscriptionFreemium": {
+      "parents": {
+        "Organism": {
+          "Settings": true
+        }
+      },
+      "children": {}
+    },
+    "SubscriptionPremium": {
+      "parents": {
+        "Organism": {
+          "Settings": true
+        }
+      },
+      "children": {}
+    },
     "Slider": {
       "parents": {
         "Organism": {
@@ -1357,6 +1373,22 @@ export const dependencies = {
           "StarRating": true
         }
       }
+    },
+    "PaymentForm": {
+      "parents": {
+        "Organism": {
+          "Cart": true
+        }
+      },
+      "children": {}
+    },
+    "ProductCard": {
+      "parents": {
+        "Organism": {
+          "Cart": true
+        }
+      },
+      "children": {}
     },
     "Card": {
       "parents": {
@@ -1678,6 +1710,13 @@ export const dependencies = {
     "ThemeImage": {
       "children": {}
     },
+    "Unsubscribe": {
+      "children": {
+        "Atom": {
+          "Link": true
+        }
+      }
+    },
     "VideoPlayer": {
       "children": {
         "Atom": {
@@ -1775,6 +1814,18 @@ export const dependencies = {
         }
       }
     },
+    "Cart": {
+      "children": {
+        "Atom": {
+          "Link": true,
+          "PromoCode": true
+        },
+        "Molecule": {
+          "PaymentForm": true,
+          "ProductCard": true
+        }
+      }
+    },
     "DisciplineCards": {
       "children": {
         "Molecule": {
@@ -1832,6 +1883,19 @@ export const dependencies = {
           "Button": true
         }
       }
+    },
+    "Settings": {
+      "children": {
+        "Atom": {
+          "Link": true,
+          "TabContent": true,
+          "Tab": true
+        },
+        "Molecule": {
+          "SubscriptionFreemium": true,
+          "SubscriptionPremium": true
+        }
+      }
     }
   },
   "Atom": {
@@ -1866,8 +1930,10 @@ export const dependencies = {
         },
         "Organism": {
           "SetupHeader": true,
+          "Settings": true,
           "MoocHeader": true,
           "Hero": true,
+          "Cart": true,
           "BrandUpload": true,
           "BrandTable": true,
           "BrandForm": true
@@ -1876,6 +1942,7 @@ export const dependencies = {
           "StartBattle": true
         },
         "Molecule": {
+          "Unsubscribe": true,
           "Table": true,
           "ScopeContent": true,
           "Pagination": true,
@@ -1926,6 +1993,22 @@ export const dependencies = {
         },
         "Atom": {
           "CatalogSection": true
+        }
+      },
+      "children": {}
+    },
+    "TabContent": {
+      "parents": {
+        "Organism": {
+          "Settings": true
+        }
+      },
+      "children": {}
+    },
+    "Tab": {
+      "parents": {
+        "Organism": {
+          "Settings": true
         }
       },
       "children": {}
@@ -1997,6 +2080,14 @@ export const dependencies = {
       "parents": {
         "Organism": {
           "CatalogCards": true
+        }
+      },
+      "children": {}
+    },
+    "PromoCode": {
+      "parents": {
+        "Organism": {
+          "Cart": true
         }
       },
       "children": {}

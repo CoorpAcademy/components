@@ -12,7 +12,7 @@ const Tab = (props, context) => {
       onClick={handleTabClick}
     >
       <div className={style.title}>
-        {translate(props.title)}
+        {props.title}
       </div>
       <div className={style.link}>
         {map(link => (
@@ -20,7 +20,7 @@ const Tab = (props, context) => {
             className={style.linkTitle}
             key={link.title}
           >
-            {translate(link.title)}
+            {link.title}
           </div>
         ), props.links)}
       </div>
