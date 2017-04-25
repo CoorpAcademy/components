@@ -11,25 +11,6 @@
   justify-content: center;
 }
 
-.cta {
-  position: relative;
-  box-sizing: border-box;
-  padding: 0 15px;
-  text-align: center;
-  min-width: 250px;
-  height: 60px;
-  background: white;
-  border-radius: 3px;
-  text-decoration: none;
-  overflow: hidden;
-}
-.ctaTouch{
-  composes: cta;
-}
-.ctaNoTouch{
-  composes: cta;
-}
-
 .bar {
   position: absolute;
   bottom: 0;
@@ -37,11 +18,6 @@
   height: 3px;
   width: 0;
   transition: all .2s ease-out;
-}
-
-.ctaNoTouch:hover .bar {
-  left: 0;
-  width: 100%;
 }
 
 .label {

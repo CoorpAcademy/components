@@ -149,7 +149,6 @@ import InputSwitchFixtureChecked from '../src/atom/input-switch/test/fixtures/ch
 import InputSwitchFixtureModified from '../src/atom/input-switch/test/fixtures/modified';
 import InputSwitchFixtureNoTitle from '../src/atom/input-switch/test/fixtures/no-title';
 import InputSwitchFixtureUnchecked from '../src/atom/input-switch/test/fixtures/unchecked';
-import InputSwitchFixtureUnset from '../src/atom/input-switch/test/fixtures/unset';
 import InputTextFixtureDefault from '../src/atom/input-text/test/fixtures/default';
 import InputTextFixtureDisabled from '../src/atom/input-text/test/fixtures/disabled';
 import InputTextFixtureEmpty from '../src/atom/input-text/test/fixtures/empty';
@@ -607,8 +606,7 @@ export const fixtures = {
       Checked: InputSwitchFixtureChecked,
       Modified: InputSwitchFixtureModified,
       NoTitle: InputSwitchFixtureNoTitle,
-      Unchecked: InputSwitchFixtureUnchecked,
-      Unset: InputSwitchFixtureUnset
+      Unchecked: InputSwitchFixtureUnchecked
     },
     InputText: {
       Default: InputTextFixtureDefault,

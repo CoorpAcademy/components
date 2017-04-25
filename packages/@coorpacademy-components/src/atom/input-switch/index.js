@@ -17,7 +17,6 @@ const InputSwitch = props => {
 
   const idSwitch = uniqueId('input-switch-');
   const isDisabled = disabled ? 'disabled' : '';
-  const isUnset = value === undefined;
   const handleChange = e => onChange(e.target.checked);
 
   const titleView = title ? (
@@ -29,9 +28,10 @@ const InputSwitch = props => {
       {description}
     </div>
   ) : null;
+  const className = getClassState(style.default, style.modified, null, modified);
 
   return (
-    <div className={getClassState(style, modified, false)}>
+    <div className={className}>
       {titleView}
       <input
         type='checkbox'

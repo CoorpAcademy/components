@@ -1,10 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import keys from 'lodash/fp/keys';
 import ProgressBar from '../../molecule/progress-bar';
 import UploadBox from '../../molecule/brand-upload-box';
 import DownloadBox from '../../molecule/brand-download-box';
 import Link from '../../atom/link';
 import style from './style.css';
+
+const notificationStyle = {
+  warning: style.warning,
+  error: style.error,
+  success: style.success
+};
 
 const BrandUpload = props => {
   const {
@@ -18,7 +25,7 @@ const BrandUpload = props => {
 
   const notificationsItems = notifications.map((notif, index) => (
     <div
-      className={style[notif.type]}
+      className={notificationStyle[notif.type]}
       key={index}
     >
       <span>{notif.message}</span>
@@ -73,7 +80,7 @@ BrandUpload.propTypes = {
     link: PropTypes.string
   }),
   notifications: PropTypes.arrayOf(PropTypes.shape({
-    type: PropTypes.string.isRequired,
+    type: PropTypes.oneOf(keys(notificationStyle)).isRequired,
     message: PropTypes.string.isRequired
   }))
 };

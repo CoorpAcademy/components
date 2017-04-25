@@ -1,8 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import keys from 'lodash/fp/keys';
 import isNil from 'lodash/fp/isNil';
 import SsMenuList from '../ssmenu-list';
 import style from './style.css';
+
+const buttonStyle = {
+  primary: style.primary,
+  secondary: style.secondary
+};
 
 const MenuList = props => {
   const {menuItems = []} = props;
@@ -27,7 +33,7 @@ const MenuList = props => {
     return (
       <li
         key={index}
-        className={type ? style[type] : style.item}
+        className={type ? buttonStyle[type] : style.item}
       >
         <a
           href={href}
@@ -64,7 +70,7 @@ MenuList.propTypes = {
   menuItems: PropTypes.arrayOf(PropTypes.shape({
     href: PropTypes.string,
     title: PropTypes.string,
-    type: PropTypes.oneOf(['primary', 'secondary']),
+    type: PropTypes.oneOf(keys(buttonStyle)),
     outgoing: PropTypes.bool
   }))
 };

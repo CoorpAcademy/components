@@ -4,7 +4,7 @@ import * as CustomPropTypes from '../../../util/proptypes';
 import DisciplineHeader from '../../../molecule/discipline-header';
 import DisciplinePartners from '../../../molecule/discipline-partners';
 import CatalogCards from '../../../organism/catalog-cards';
-import layout from '../layout.css';
+import layout from '../layout.css'; // eslint-disable-line css-modules/no-unused-class
 import style from './style.css';
 
 const conditions = PropTypes.shape({

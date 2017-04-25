@@ -22,7 +22,7 @@
   composes: column;
 }
 
-.header, .content, .products {
+.header, .products {
   composes: leftColumn;
 }
 
@@ -55,9 +55,6 @@
   }
   .cta {
     order: 2;
-  }
-  .content {
-    order: 3;
   }
   .details {
     order: 5;
