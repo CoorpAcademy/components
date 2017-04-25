@@ -75,7 +75,6 @@ import SsmenuList from '../src/molecule/ssmenu-list';
 import StarRating from '../src/molecule/star-rating';
 import SubscriptionFreemium from '../src/molecule/subscription-freemium';
 import SubscriptionPremium from '../src/molecule/subscription-premium';
-import TabNavigation from '../src/molecule/tab-navigation';
 import Table from '../src/molecule/table';
 import ThemeImage from '../src/molecule/theme-image';
 import TitledCheckbox from '../src/molecule/titled-checkbox';
@@ -316,7 +315,6 @@ import SsmenuListFixtureSolutions from '../src/molecule/ssmenu-list/test/fixture
 import StarRatingFixtureDefault from '../src/molecule/star-rating/test/fixtures/default';
 import SubscriptionFreemiumFixtureDefault from '../src/molecule/subscription-freemium/test/fixtures/default';
 import SubscriptionPremiumFixtureDefault from '../src/molecule/subscription-premium/test/fixtures/default';
-import TabNavigationFixtureDefault from '../src/molecule/tab-navigation/test/fixtures/default';
 import TableFixtureDefault from '../src/molecule/table/test/fixtures/default';
 import TableFixtureNoOptions from '../src/molecule/table/test/fixtures/no-options';
 import ThemeImageFixtureBg from '../src/molecule/theme-image/test/fixtures/bg';
@@ -528,7 +526,6 @@ export const components = {
     StarRating,
     SubscriptionFreemium,
     SubscriptionPremium,
-    TabNavigation,
     Table,
     ThemeImage,
     TitledCheckbox,
@@ -936,9 +933,6 @@ export const fixtures = {
     },
     SubscriptionPremium: {
       Default: SubscriptionPremiumFixtureDefault
-    },
-    TabNavigation: {
-      Default: TabNavigationFixtureDefault
     },
     Table: {
       Default: TableFixtureDefault,
