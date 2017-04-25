@@ -118,8 +118,8 @@ class PaymentForm extends React.Component {
           <div className={style.creditCardOwnerEmailText}>{cardOwnerEmail}</div>
           <hr className={style.creditCardOwnerEmailSeparator} />
         </div>
-        {errors && <div className={style.paymentErrors}>- {translate(errors)}</div>}
-        {warning && <div className={style.paymentWarning}>- {translate(warning)}</div>}
+        {errors && <div className={style.paymentErrors}>- {errors}</div>}
+        {warning && <div className={style.paymentWarning}>- {warning}</div>}
         <div className={style.securedPayment}>
           <img
             className={style.securedPaymentImage}
