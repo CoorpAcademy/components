@@ -22,13 +22,10 @@ export default {
       stripeKeyPublic: 'key',
       errors: 'invalid_expiry_year_past',
       warning: 'incomplete_number',
-      createSubscription() {},
+      onSubscription() {},
       onCardNumberChange() {},
-      cardNumberHasError: true,
       onCardExpiryChange() {},
-      cardExpiryHasError: true,
       onCardCvcChange() {},
-      cardCvcHasError: true,
       submitButtonEnabled: true
     },
     backUrl: 'back url'
