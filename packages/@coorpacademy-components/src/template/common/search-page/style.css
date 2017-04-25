@@ -4,6 +4,8 @@
 @value mobile from breakpoints;
 @value colors: "../../../variables/colors.css";
 @value light from colors;
+@value borderGrey from colors;
+@value darkGrey from colors;
 
 .cardsWrapper {
     display: block;
@@ -13,6 +15,28 @@
     padding: 0 0 16px 0;
     background: light;
     box-sizing: border-box;
+}
+
+.noresults {
+  border-top: solid 2px borderGrey;
+  margin: 0 40px;
+  min-height: 600px;
+  box-sizing: border-box;
+  padding: 16px 0;
+  text-align: center;
+  position: relative;
+}
+
+.noresults div {
+  margin: 8px 0;
+}
+
+.noresults .clear {
+  border-radius: 10px;
+}
+
+.noresults .clear input {
+  line-height: 40px;
 }
 
 @media desktop {
