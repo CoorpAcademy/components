@@ -2,11 +2,6 @@
 @value mobile from breakpoints;
 @value tablet from breakpoints;
 
-@value colors: "../../variables/colors.css";
-@value white from colors;
-@value extraLightGrey from colors;
-@value primary from colors;
-
 .list {
   list-style-type: none;
   width: 100%;
@@ -14,12 +9,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  border: solid 2px extraLightGrey;
+  border: solid 2px #eee;
   position: relative;
   border-radius: 3px;
   box-shadow: 0 6px 12px rgba(0,0,0,.175);
   text-transform: initial ;
-  background-color: white;
+  background-color: #ffffff;
 }
 
 .list:before {
@@ -33,13 +28,13 @@
   position: absolute;
   pointer-events: none;
   border-color: rgba(0,0,0,0);
-  border-bottom-color: extraLightGrey;
+  border-bottom-color: #eee;
   border-width: 8px;
   margin-left: -8px;
 }
 
 .item {
-  border-bottom: solid 1px extraLightGrey;
+  border-bottom: solid 1px #eee;
 }
 
 .item:hover {
@@ -49,7 +44,7 @@
 .item a {
   font-family: Open Sans;
   font-size: 12px;
-  color: extraLightGrey;
+  color: #787878;
   text-decoration: none;
   padding: 20px;
   display: inline-block;;
@@ -61,7 +56,7 @@
 }
 
 .item:hover a {
-  color: primary;
+  color: #00b0ff;
 }
 
 .item:last-child {
@@ -69,7 +64,7 @@
 }
 
 .item:last-child:hover {
-  border-color: primary;
+  border-color: #00b0ff;
 }
 
 

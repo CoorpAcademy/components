@@ -1,8 +1,8 @@
 @value breakpoints: "../../variables/breakpoints.css";
 @value colors: "../../variables/colors.css";
 @value mobile from breakpoints;
-@value mediumGrey from colors;
-@value lightGrey from colors;
+@value darkGrey from colors;
+@value borderGrey from colors;
 
 .authorLink {
   width: 100%;
@@ -39,14 +39,14 @@
   font-family: 'Open Sans';
   font-size: 14px;
   font-weight: bold;
-  color: mediumGrey;
+  color: darkGrey;
   letter-spacing: -0.22px;
 }
 
 .logoContainer {
   width: 100%;
-  color: mediumGrey;
-  border: 1px solid lightGrey;
+  color: darkGrey;
+  border: 1px solid borderGrey;
   border-bottom: 0;
   padding: 20px;
   text-align: center;
@@ -68,7 +68,7 @@
   text-align: left;
   box-sizing: border-box;
   background: #FCFCFC;
-  border: 1px solid lightGrey;
+  border: 1px solid borderGrey;
 }
 
 .links {

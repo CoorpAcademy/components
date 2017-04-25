@@ -1,6 +1,3 @@
-@value colors: "../../variables/colors.css";
-@value mediumGrey from colors;
-
 .wrapper {
 
 }
@@ -10,12 +7,12 @@
   border-left: 1px;
   border-right: 1px;
   border-style: solid;
-  border-color: mediumGrey;
+  border-color: #B9B9B9;
   border-bottom: 0px;
 }
 
 .section:last-child {
-  border-bottom: 1px solid mediumGrey;
+  border-bottom: 1px solid #B9B9B9;
 }
 
 .loading {

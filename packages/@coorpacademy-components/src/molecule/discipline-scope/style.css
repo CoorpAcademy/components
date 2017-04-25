@@ -2,14 +2,12 @@
 @value mobile from breakpoints;
 @value tablet from breakpoints;
 @value desktop from breakpoints;
-@value colors: "../../variables/colors.css";
-@value white from colors;
 
 .scope {
   display: block;
   width: 100%;
   margin: 0 0 40px 0;
-  background: white;
+  background: #fff;
 }
 
 @media desktop {

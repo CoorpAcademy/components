@@ -2,10 +2,6 @@
 @value mobile from breakpoints;
 @value tablet from breakpoints;
 @value desktop from breakpoints;
-@value colors: "../../variables/colors.css";
-@value white from colors;
-@value brandGreen from colors;
-@value brandGreenHover from colors;
 
 .head {
   display: block;
@@ -15,7 +11,7 @@
 .head a {
   display: block;
   text-transform: uppercase;
-  color: white;
+  color: #ffffff;
   font-family: "Open Sans";
   font-weight: 600;
   font-size: 13px;
@@ -28,7 +24,7 @@
 }
 
 .head a:hover {
-  color: white;
+  color: #ffffff;
 }
 
 .head a span span {
@@ -38,11 +34,11 @@
 
 .buy {
   cursor: pointer;
-  background-color: brandGreen;
+  background-color: #66BB6A;
 }
 
 .buy:before {
-  background-color: brandGreenHover;
+  background-color: #29AF2F;
 }
 
 .start {
@@ -50,7 +46,7 @@
 }
 
 .start:before {
-  background-color: white;
+  background-color: #fff;
   opacity: 0.15;
 }
 

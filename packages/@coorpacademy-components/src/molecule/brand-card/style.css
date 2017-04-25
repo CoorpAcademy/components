@@ -1,18 +1,10 @@
-@value colors: "../../variables/colors.css";
-@value extraLightGrey from colors;
-@value white from colors;
-@value darkGrey from colors;
-@value mediumGrey from colors;
-@value ligtGrey from colors;
-@value primary from colors;
-
 .wrapper {
   width: 300px;
   height: 300px;
   box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.09);
   border-radius: 5px;
   overflow: hidden;
-  background-color: white;
+  background-color: #ffffff;
 }
 
 .image {
@@ -33,7 +25,7 @@
   font-family: 'Open Sans';
   font-weight: 700;
   font-size: 15px;
-  color: darkGrey;
+  color: #455A64;
   width: 100%;
   display: inline-block;
   padding: 0 20px;
@@ -49,13 +41,13 @@
   display: inline-block;
   width: 50%;
   box-sizing: border-box;
-  border-top: 1px solid lightGrey;
+  border-top: 1px solid #F5F5F5;
   height: 50px;
 }
 
 .link a {
   font-family: 'Open Sans';
-  color: lightGrey;
+  color: #B0BEC5;
   font-weight: 600;
   font-size: 15px;
   text-decoration: none;
@@ -67,7 +59,7 @@
 
 .edit {
   composes: link;
-  border-right: 1px solid lightGrey;
+  border-right: 1px solid #F5F5F5;
 }
 
 .edit a:hover {
@@ -79,5 +71,5 @@
 }
 
 .see a:hover {
-  color: primary;
+  color: #00B0FF;
 }

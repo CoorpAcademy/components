@@ -2,11 +2,6 @@
 @value mobile from breakpoints;
 @value tablet from breakpoints;
 @value desktop from breakpoints;
-@value colors: "../../variables/colors.css";
-@value extraLightGrey from colors;
-@value lightGrey from colors;
-@value darkGrey from colors;
-@value primary from colors;
 
 .wrapper {
   display: flex;
@@ -21,8 +16,8 @@
   height: 250px;
   vertical-align: top;
   overflow: hidden;
-  border: 1px solid lightGrey;
-  background-color: extraLightGrey;
+  border: 1px solid #E3E3E3;
+  background-color: #FCFCFC;
 }
 
 .courseWrapper {
@@ -37,13 +32,13 @@
   font-weight: 700;
   font-size: 20px;
   margin-bottom: 16px;
-  color: darkGrey;
+  color: #546E7A;
 }
 
 .desc {
   font-family: "Open Sans";
   font-size: 15px;
-  color: darkGrey;
+  color: #263238;
   letter-spacing: 0px;
   line-height: 22px;
 }
@@ -51,7 +46,7 @@
 .desc a {
   font-family: Open Sans;
   font-weight: 600;
-  color: primary;
+  color: #00b0ff;
   text-decoration: none;
 }
 
@@ -100,8 +95,8 @@
     font-size: 13px;
     font-weight: 600;
     text-transform: uppercase;
-    color: extraLightGrey;
-    border: 1px solid extraLightGrey;
+    color: #D1D1D1;
+    border: 1px solid #D1D1D1;
     width: 100%;
     text-align: center;
     line-height: 28px;

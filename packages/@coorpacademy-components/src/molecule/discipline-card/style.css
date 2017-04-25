@@ -3,11 +3,6 @@
 @value cardWidth: 205px;
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
-@value colors: "../../variables/colors.css";
-@value white from colors;
-@value black from colors;
-@value extraLightGrey from colors;
-@value mediumGrey from colors;
 
 /*-------------------------------------------------- Card */
 
@@ -61,7 +56,7 @@
 }
 
 .gradient {
-  background-image: linear-gradient(-180deg, rgba(255,255,255,0.00) 0%, black 100%);
+  background-image: linear-gradient(-180deg, rgba(255,255,255,0.00) 0%, #000000 100%);
   opacity: 0.8;
   position: absolute;
   top: 0;
@@ -90,7 +85,7 @@
   font-family: 'Open Sans';
   font-size: 15px;
   font-weight: 800;
-  color: white;
+  color: #fff;
   text-shadow: 0 0 2px rgba(0,0,0,0.50);
 }
 
@@ -111,13 +106,13 @@
   box-sizing: border-box;
   width: 100%;
   height: 70px;
-  background: white;
+  background: #fff;
   display: flex;
   justify-content: center;
   align-content: center;
   align-items: center;
   transition: localTransition;
-  border: solid 1px extraLightGrey;
+  border: solid 1px #E0E0E0;
   border-top: none;
 
   animation-duration: 0.3s;
@@ -137,10 +132,10 @@
 
   .disciplineWrapper {
     height: 80px;
-    background-color: white;
+    background-color: #fff;
     background-image: none;
     font-size: 15px;
-    color: black;
+    color: #000;
     letter-spacing: 0;
   }
 
@@ -158,7 +153,7 @@
   }
 
   .title {
-    color: black;
+    color: #000;
     text-shadow: none;
   }
 
@@ -176,7 +171,7 @@
     font-size: 14px;
     top: 50%;
     margin-top: -6px;
-    color: mediumGrey;
+    color: #B0BEC5;
   }
 
   .modulesWrapper{

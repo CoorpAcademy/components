@@ -1,9 +1,4 @@
 @value time: 0.3s;
-@value colors: "../../../variables/colors.css";
-@value negativeColor from colors;
-@value darkGrey from colors;
-@value extraLightGrey from colors;
-@value black from colors;
 
 .post {
   opacity: 0;
@@ -24,9 +19,9 @@
 
 .rejected {
   composes: post;
-  border-left: negativeColor 3px solid;
+  border-left: #ad6262 3px solid;
   padding-left: 10px;
-  background: extraLightGrey;
+  background: #ffedd4;
 }
 
 .image {
@@ -55,7 +50,7 @@
 }
 
 .date {
-  color: extraLightGrey;
+  color: #b7bbc1;
   font-size: 11px;
 }
 
@@ -81,14 +76,14 @@
 .action {
   font-size: 12px;
   margin: 0 14px 0 0;
-  color: mediumGrey;
+  color: #b0b0b0;
   transition: all time ease-in-out;
   cursor: pointer;
   order: 1;
 }
 
 .action:hover {
-  color: black;
+  color: #333;
 }
 
 /*----------------------------------------------------------------------------*/

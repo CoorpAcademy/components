@@ -1,8 +1,7 @@
 @value colors: "../../variables/colors.css";
-@value primary from colors;
-@value mediumGrey from colors;
-@value lightGrey from colors;
-@value mediumGrey from colors;
+@value grey from colors;
+@value borderGrey from colors;
+@value darkGrey from colors;
 
 @value handleSize: 30px;
 @value handlePosition: translate3d(-15px,-13px,0);
@@ -24,7 +23,7 @@
 
 .title {
   composes: text;
-  color: mediumGrey;
+  color: darkGrey;
   text-align: center;
   user-select: none;
   width: auto;
@@ -36,7 +35,7 @@
 
 .label {
   composes: text;
-  color: mediumGrey;
+  color: grey;
   font-size: 10px;
   margin-top: 8px;
   display: inline-block;
@@ -58,7 +57,7 @@
   height: 6px;
   width: 100%;
   border-radius: 10px;
-  background-color: lightGrey;
+  background-color: borderGrey;
 }
 
 .track {
