@@ -3,13 +3,6 @@
 @value tablet from breakpoints;
 @value desktop from breakpoints;
 
-@value colors: "../../variables/colors.css";
-@value extraLightGrey from colors;
-@value lightGrey from colors;
-@value white from colors;
-@value darkGrey from colors;
-@value mediumGrey from colors;
-
 .cta {
   float: right;
   width: auto;
@@ -20,9 +13,9 @@
   box-sizing: border-box;
   width: 100%;
   padding: 30px;
-  border-left: solid 1px lightGrey;
-  border-right: solid 1px lightGrey;
-  border-bottom: 1px solid lightGrey;
+  border-left: solid 1px #E3E3E3;
+  border-right: solid 1px #E3E3E3;
+  border-bottom: 1px solid #e3e3e3;
 }
 
 .infos {
@@ -38,19 +31,19 @@
   font-family: "Open Sans";
   font-weight: 600;
   font-size: 20px;
-  color: darkGrey;
+  color: #546E7A;
 }
 
 .time {
   display: inline-block;
   width: auto;
   padding: 3px 13px;
-  background: darkGrey;
+  background: #546E7A;
   border-radius: 15px;
   font-family: "Open Sans";
   font-weight: 800;
   font-size: 10px;
-  color: white;
+  color: #FFFFFF;
 }
 
 .column {
@@ -61,7 +54,7 @@
   font-family: "Open Sans";
   font-size: 12px;
   padding-right: 40px;
-  color: mediumGrey;
+  color: #607D8B;
 }
 
 .coltitle {
@@ -71,8 +64,8 @@
   margin-bottom: 15px;
   padding-bottom: 10px;
   font-size: 10px;
-  color: darkGrey;
-  border-bottom: solid 1px lightGrey;
+  color: #455A64;
+  border-bottom: solid 1px #E3E3E3;
   vertical-align: top;
 }
 
@@ -88,7 +81,7 @@
   line-height: 26px;
   font-size: 14px;
   font-family: "Open Sans";
-  color: darkGrey;
+  color: #546E7A;
 }
 
 .roundedlist {
@@ -103,7 +96,7 @@
   line-height: 26px;
   font-size: 14px;
   font-family: "Open Sans";
-  color: darkGrey;
+  color: #546E7A;
 }
 
 .roundedlist li:before {
@@ -121,7 +114,7 @@
 
 .medias {
   padding: 24px 11px 0;
-  border: solid 1px extraLightGrey;
+  border: solid 1px #E3E3E3;
   border-top: 0;
 }
 
@@ -137,7 +130,7 @@
   height: 102px;
   margin-bottom: 5px;
   overflow: hidden;
-  border: 1px solid extraLightGrey;
+  border: 1px solid #E1E1E1;
   position: relative;
 }
 
@@ -153,7 +146,7 @@
   margin-left: -20px;
   margin-top: -25px;
   position: absolute;
-  border: 5px solid white;
+  border: 5px solid #ffffff;
   border-radius: 50%;
   height: 40px;
   width: 40px;
@@ -164,7 +157,7 @@
   position: absolute;
   top: 10px;
   left: 15px;
-  color: white;
+  color: #ffffff;
   font-size: 20px;
   text-shadow: 0px 2px 4px rgba(0,0,0,.5);
 }
@@ -173,7 +166,7 @@
   font-family: 'Open Sans';
   font-weight: 700;
   font-size: 12px;
-  color: darkGrey;
+  color: #455A64;
   width: 180px;
   white-space: nowrap;
   overflow: hidden;

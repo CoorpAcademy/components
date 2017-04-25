@@ -2,10 +2,6 @@
 @value mobile from breakpoints;
 @value tablet from breakpoints;
 @value desktop from breakpoints;
-@value colors: "../../../variables/colors.css";
-@value darkGrey from colors;
-@value extraLightGrey from colors;
-@value mediumGrey from colors;
 
 .wrapper {
   padding: 20px 30px 10px;
@@ -22,7 +18,7 @@
   font-family: 'Open Sans';
   font-size: 19px;
   font-weight: 600;
-  color: darkGrey;
+  color: #484848;
   margin-bottom: 16px;
 }
 
@@ -44,14 +40,14 @@
   position: absolute;
   font-size: 30px;
   width: 25px;
-  color: extraLightGrey;
+  color: #D8D8D8;
   top: 50%;
   margin-top: -15px;
   cursor: pointer;
 }
 
 .arrow:hover {
-  color: mediumGrey;
+  color: #aaaaaa;
 }
 
 .left {

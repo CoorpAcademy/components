@@ -1,6 +1,7 @@
 @value colors: "../../variables/colors.css";
-@value mediumGrey from colors;
-@value lightGrey from colors;
+@value darkGrey from colors;
+@value light from colors;
+@value borderGrey from colors;
 
 .default {
     display: block;
@@ -15,9 +16,9 @@
     margin: 0;
     padding: 0 30px 0 15px;
     box-sizing: border-box;
-    background: lightGrey;
+    background: borderGrey;
     line-height: 50px;
-    color: mediumGrey;
+    color: darkGrey;
     font-size: 12px;
     font-family: "Open Sans";
     composes: fa from '../../variables/fontawesome.css';
@@ -33,7 +34,7 @@
     position: absolute;
     font-size: 20px;
     right: 10px;
-    color: mediumGrey;
+    color: darkGrey;
     font-weight: 700;
     font-family: FontAwesome;
 }
@@ -41,7 +42,7 @@
 .title {
     font-family: Open Sans;
     font-size: 13px;
-    color: mediumGrey;
+    color: darkGrey;
     margin-bottom: 10px;
 }
 
@@ -60,7 +61,7 @@
     z-index: 4;
     top: 76px;
     left: 0;
-    border: 1px solid lightGrey;
+    border: 1px solid light;
     composes: fa from '../../variables/fontawesome.css';
     composes: fa-times from '../../variables/fontawesome.css';
 }

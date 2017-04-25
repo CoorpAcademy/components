@@ -3,16 +3,9 @@
 @value tablet from breakpoints;
 @value desktop from breakpoints;
 
-@value colors: "../../variables/colors.css";
-@value white from colors;
-@value extraLightGrey from colors;
-@value lightGrey from colors;
-@value mediumGrey from colors;
-@value black from colors;
-
 .wrapper {
   position: fixed;
-  background-color: white;
+  background-color: #ffffff;
   width: 100%;
   height: 80px;
   box-sizing: border-box;
@@ -36,7 +29,7 @@
   overflow: hidden;
   width: 40px;
   height: 40px;
-  background: extraLightGrey;
+  background: #efefef;
   flex-shrink: 0;
 }
 
@@ -49,7 +42,7 @@
   font-family: 'Open Sans';
   font-size: 14px;
   font-weight: 600;
-  color: black;
+  color: #2C2C2C;
 }
 
 .logout {
@@ -62,8 +55,8 @@
 .logout a {
   padding: 0 15px;
   line-height: 32px;
-  color: mediumGrey;
-  border: 1px solid lightGrey;
+  color: #78909C;
+  border: 1px solid #CFD8DC;
   border-radius: 2px;
   font-size: 12px;
   text-transform: capitalize;
@@ -74,7 +67,7 @@
 
 .logout a:hover {
   color: white;
-  background-color: mediumGrey;
+  background-color: #78909C;
 }
 
 .logo {

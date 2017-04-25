@@ -1,10 +1,3 @@
-@value colors: "../../variables/colors.css";
-@value extraLightGrey from colors;
-@value white from colors;
-@value darkGrey from colors;
-@value mediumGrey from colors;
-@value primary from colors;
-
 .tabs {
   display: flex;
   width: 100%;
@@ -24,9 +17,9 @@
   font-size: 16px;
   line-height: 50px;
   height: 50px;
-  color: primary;
-  background: extraLightGrey;
-  border: 1px solid lightGrey;
+  color: #00B0FF;
+  background: #FCFCFC;
+  border: 1px solid #E3E3E3;
   cursor: pointer;
   flex-direction: row;
   justify-content: center;
@@ -44,7 +37,7 @@
 
 .currentTab {
   composes: tab;
-  color: white;
+  color: #ffffff;
   font-family: "Open Sans";
   font-weight: 800;
 }

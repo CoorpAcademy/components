@@ -1,10 +1,10 @@
 /* from https://codepen.io/alexerlandsson/pen/yOVdvj */
 
 @value colors: "../../variables/colors.css";
-@value positiveColor from colors;
-@value negativeColor from colors;
-@value primary from colors;
-@value BrandOrange from colors;
+@value green from colors;
+@value red from colors;
+@value blue from colors;
+@value yellow from colors;
 
 .container {
   position: absolute;
@@ -20,7 +20,7 @@
 .dot {
   width: 10px;
   height: 10px;
-  background-color: negativeColor ;
+  background-color: red ;
   border-radius: 50%;
   float: left;
   margin: 0 5px;
@@ -29,17 +29,17 @@
 }
 
 .dot:nth-child(2) {
-  background-color: primary ;
+  background-color: blue ;
   animation: fx 1300ms ease infinite 300ms;
 }
 
 .dot:nth-child(3) {
-  background-color: positiveColor ;
+  background-color: green ;
   animation: fx 1300ms ease infinite 600ms;
 }
 
 .dot:nth-child(4) {
-  background-color: BrandOrange ;
+  background-color: yellow ;
   animation: fx 1300ms ease infinite 900ms;
 }
 

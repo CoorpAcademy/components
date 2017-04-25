@@ -1,6 +1,3 @@
-@value colors: "../../variables/colors.css";
-@value darkGrey from colors;
-
 .spinner {
   width: 40px;
   height: 40px;
@@ -13,7 +10,7 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background-color: darkGrey;
+  background-color: #333;
   opacity: 0.6;
   position: absolute;
   top: 0;

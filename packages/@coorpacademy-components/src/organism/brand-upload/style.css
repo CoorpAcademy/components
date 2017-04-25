@@ -1,10 +1,10 @@
 @value colors: "../../variables/colors.css";
-@value mediumGrey from colors;
-@value negativeColor from colors;
-@value brandGreenHover from colors;
-@value brandOrange from colors;
-@value primary from colors;
-@value brandGreen from colors;
+@value lightRed from colors;
+@value lightGreen from colors;
+@value lightOrange from colors;
+@value darkGrey from colors;
+@value blue from colors;
+@value green from colors;
 
 .wrapper {
   width: 100%;
@@ -25,7 +25,7 @@
   width: 18px;
   height: 11px;
   font-size: 15px;
-  color: mediumGrey;
+  color: darkGrey;
 }
 
 .backDesc {
@@ -33,12 +33,12 @@
   font-family: 'Open Sans';
   font-size: 15px;
   font-weight: 700;
-  color: mediumGrey;
+  color: darkGrey;
   text-decoration: none;
 }
 
 .backDesc:hover {
-  color: primary;
+  color: blue;
 }
 
 .title {
@@ -49,7 +49,7 @@
   font-family: 'Open Sans';
   font-size: 17px;
   font-weight: 700;
-  color: mediumGrey;
+  color: darkGrey;
   margin: 0;
 }
 
@@ -76,22 +76,22 @@
 
 .error {
   composes: notification;
-  background-color: negativeColor;
+  background-color: lightRed;
   font-style: italic;
 }
 
 .success {
   composes: notification;
-  background-color: brandGreenHover;
+  background-color: lightGreen;
 }
 
 .warning {
   composes: notification;
-  background-color: brandOrange;
+  background-color: lightOrange;
 }
 
 .progress div {
-  background: brandGreen;
+  background: green;
 }
 
 @keyframes notificationAppear {

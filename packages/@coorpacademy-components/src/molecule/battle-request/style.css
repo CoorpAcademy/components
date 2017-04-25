@@ -2,17 +2,12 @@
 @value mobile from breakpoints;
 @value tablet from breakpoints;
 @value desktop from breakpoints;
-@value colors: "../../variables/colors.css";
-@value extraLightGrey from colors;
-@value white from colors;
-@value darkGrey from colors;
-@value mediumGrey from colors;
 
 .card {
   margin: 0px 0px 8px 0px;
   width: 100%;
   height: 80px;
-  background-color: white;
+  background-color: #FFFFFF;
   box-shadow: 0 0 4px 1px rgba(0,0,0,0.10);
   padding: 20px;
   box-sizing: border-box;
@@ -30,7 +25,7 @@
 }
 
 .card:hover {
-  background-color: extraLightGrey;
+  background-color: #F7F7F7;
 }
 
 .avatar {
@@ -39,7 +34,7 @@
   height: 50px;
   border-radius: 50%;
   overflow: hidden;
-  background-color: extraLightGrey;
+  background-color: #eeeeee;
   margin-right: 20px;
   flex-shrink: 0;
 }
@@ -58,7 +53,7 @@
   font-size: 14px;
   font-weight: 700;
   text-align: left;
-  color: darkGrey;
+  color: #484848;
   display: flex;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -66,7 +61,7 @@
 }
 
 .name span {
-  color: mediumGrey;
+  color: #AAAAAA;
   margin-left: 5px;
 }
 
@@ -91,7 +86,7 @@
   font-size: 12px;
   font-weight: 700;
   text-align: left;
-  color: darkGrey;
+  color: #484848;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -102,8 +97,8 @@
 
 .level {
   font-family: 'Open Sans';
-  color: white;
-  background-color: darkGrey;
+  color: #ffffff;
+  background-color: #474649;
   text-transform: uppercase;
   padding: 2px 10px;
   border-radius: 3px;
@@ -117,13 +112,13 @@
   line-height: 20px;
   font-family: 'Open Sans';
   font-weight: 600;
-  color: darkGrey;
+  color: #484848;
 }
 
 .arrow {
   composes: fa from '../../variables/fontawesome.css';
   composes: fa-chevron-right from '../../variables/fontawesome.css';
-  color: lightGrey;
+  color: #C7C7C7;
   font-size: 20px;
   margin-left: 20px;
 }

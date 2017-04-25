@@ -1,6 +1,3 @@
-@value colors: "../../variables/colors.css";
-@value extraLightGrey from colors;
-
 .thread {
   width: 80%;
   margin: auto;
@@ -24,7 +21,7 @@
   width: 30px;
   margin: 0 20px;
   vertical-align: middle;
-  background: extraLightGrey;
+  background: #d0d0d0;
 }
 
 .loader {

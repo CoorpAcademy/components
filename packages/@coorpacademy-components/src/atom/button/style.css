@@ -1,16 +1,15 @@
 @value colors: "../../variables/colors.css";
-@value white from colors;
-@value brandOrange from colors;
-@value mediumGrey from colors;
+@value yellow from colors;
+@value borderGrey from colors;
 
 .button {
   border-radius: 2px;
   width: 200px;
-  background-color: brandOrange;
+  background-color: yellow;
 }
 
 .button:before {
-  background-color: white;
+  background-color: #fff;
   opacity: 0.15;
 }
 
@@ -18,7 +17,7 @@
 .button input {
   display: inline-block;
   text-transform: uppercase;
-  color: white;
+  color: #fff;
   background-color: transparent;
   font-family: Open Sans;
   font-weight: 600;
@@ -36,6 +35,6 @@
 }
 
 .button input:disabled {
-  background-color: mediumGrey;
+  background-color: borderGrey;
   cursor: default;
 }

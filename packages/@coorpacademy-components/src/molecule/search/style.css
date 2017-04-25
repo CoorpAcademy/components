@@ -1,8 +1,3 @@
-@value colors: "../../variables/colors.css";
-@value darkGrey from colors;
-@value lightGrey from colors;
-@value mediumGrey from colors;
-
 .wrapper {
   position: relative;
   composes: fa from '../../variables/fontawesome.css';
@@ -15,17 +10,17 @@
   top: 50%;
   margin-top: -9px;
   left: 15px;
-  color: darkGrey;
+  color: #90A4AE;
 }
 
 .search {
   font-family: "Open Sans";
   text-transform: none;
   padding: 0 15px 0 45px;;
-  border: solid 2px lightGrey;
+  border: solid 2px #eceff1;
   height: 50px;
   border-radius: 3px;
   font-size: 15px;
-  color: mediumGrey;
+  color: #90A4AE;
   width: 300px;
 }

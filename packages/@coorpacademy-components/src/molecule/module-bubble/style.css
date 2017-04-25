@@ -1,7 +1,5 @@
 @value colors: "../../variables/colors.css";
-@value lightGrey from colors;
-@value darkGrey from colors;
-@value white from colors;
+@value borderGrey from colors;
 
 .modulewrapper {
   position: relative;
@@ -29,7 +27,7 @@
   height: 40px;
   transition-duration: 0.5s;
   margin: auto;
-  border: 1px solid lightGrey;
+  border: 1px solid borderGrey;
   box-sizing: border-box;
   background-color: white;
 }
@@ -51,7 +49,7 @@
 .label {
   font-family: 'Open Sans';
   text-transform: uppercase;
-  color: darkGrey;
+  color: #546E7A;
   font-size: 9px;
   text-align: center;
   white-space: nowrap;

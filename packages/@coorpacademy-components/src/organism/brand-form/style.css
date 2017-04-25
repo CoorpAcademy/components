@@ -1,7 +1,6 @@
 @value colors: "../../variables/colors.css";
-@value extraLightGrey from colors;
-@value mediumGrey from colors;
-@value primary from colors;
+@value darkGrey from colors;
+@value blue from colors;
 
 .wrapper {
 
@@ -17,7 +16,7 @@
   width: 18px;
   height: 11px;
   font-size: 15px;
-  color: mediumGrey;
+  color: darkGrey;
 }
 
 .backDesc {
@@ -25,12 +24,12 @@
   font-family: 'Open Sans';
   font-size: 15px;
   font-weight: 700;
-  color: mediumGrey;
+  color: darkGrey;
   text-decoration: none;
 }
 
 .backDesc:hover {
-  color: primary;
+  color: blue;
 }
 
 .group {
@@ -45,8 +44,7 @@
 .buttons {
   display: flex;
   justify-content: flex-end;
-  /*border-top: 1px solid extraLightGrey;*/
-  margin-top: 50px;
+  /*border-top: 1px solid #E0E0E0;*/
   padding-top: 50px;
 }
 

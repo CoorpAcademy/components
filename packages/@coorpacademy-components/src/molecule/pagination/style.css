@@ -1,8 +1,3 @@
-@value colors: "../../variables/colors.css";
-@value white from colors;
-@value lightGrey from colors;
-@value mediumGrey from colors;
-
 .wrapper {
   display: flex;
   align-items: center;
@@ -19,7 +14,7 @@
 .buttons {
   display: inline-block;
   margin-left: 10px;
-  border: 1px solid lightGrey;
+  border: 1px solid #ECEFF1;
   border-radius: 4px;
   overflow: hidden;
 }
@@ -29,27 +24,27 @@
   width: 36px;
   height: 36px;
   text-decoration: none;
-  color: mediumGrey;
+  color: #B0BEC5;
   font-size: 16px;
   line-height: 36px;
   text-align: center;
 }
 
 .button:hover {
-  background-color: mediumGrey;
-  color: white;
+  background-color: #B0BEC5;
+  color: #ffffff;
 }
 
 .button:first-child {
-  border-right: 1px solid lightGrey;
+  border-right: 1px solid #ECEFF1;
 }
 
 .disabled {
   composes: button;
-  color: lightGrey;
+  color: #F7F7F7;
 }
 
 .disabled:hover {
-  color: lightGrey;
-  background-color: white;
+  color: #f7f7f7;
+  background-color: #ffffff;
 }

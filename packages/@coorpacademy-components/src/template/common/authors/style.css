@@ -4,9 +4,9 @@
 @value desktop from breakpoints;
 @value colors: "../../../variables/colors.css";
 @value black from colors;
-@value lightGrey from colors;
-@value mediumGrey from colors;
-@value primary from colors;
+@value light from colors;
+@value borderGrey from colors;
+@value blueGrey from colors;
 
 .wrapper {
   composes: wrapper from '../layout.css';
@@ -33,8 +33,8 @@
   height: 16%;
   vertical-align: top;
   overflow: hidden;
-  border: 1px solid mediumGrey;
-  background-color: lightGrey;
+  border: 1px solid borderGrey;
+  background-color: light;
   min-height: 180px;
   line-height: 180px;
   margin: 0px;
@@ -62,8 +62,8 @@
 } 
 
 .link a {
-  color: primary;
-  border-color: primary;
+  color: blueGrey;
+  border-color: blueGrey;
 }
 
 .linksite {
@@ -123,7 +123,7 @@
 .desc a {
   font-family: Open Sans;
   font-weight: 600;
-  color: primary;
+  color: #00b0ff;
   text-decoration: none;
 }
 
@@ -163,7 +163,7 @@
     font-weight: 600;
     text-transform: uppercase;
     color: #D1D1D1;
-    border: 1px solid lightGrey;
+    border: 1px solid #D1D1D1;
     width: 100%;
     text-align: center;
     line-height: 28px;
@@ -229,8 +229,8 @@
     font-size: 13px;
     font-weight: 600;
     text-transform: uppercase;
-    color: lightGrey;
-    border: 1px solid lightGrey;
+    color: #D1D1D1;
+    border: 1px solid #D1D1D1;
     width: 100%;
     text-align: center;
     line-height: 28px;

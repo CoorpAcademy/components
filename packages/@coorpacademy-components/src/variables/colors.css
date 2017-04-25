@@ -1,24 +1,22 @@
-@value primary: #00B0ff;
-@value primaryAdd1: #B3E5FC;
-@value primaryAdd2: #0091ea;
-@value primaryAdd3: #0277bd;
-@value primaryAdd4: #01579b;
+@value grey: #8f8f8f;
+@value darkGrey: #484848;
+@value borderGrey: #d8d8d8;
+@value light: #F7F7F7;
 
-@value extraLightGrey: #fafafa;
-@value lightGrey: #eceff1;
-@value mediumGrey: #90a4ae;
-@value darkGrey: #546e7a;
+@value blueGrey: #90A4AE;
+@value darkBlueGrey: #546E7A;
 
-@value brandOrange: #ffa000;
-@value brandOrangeHover: #E55224;
-@value brandGreen: #66bb6a;
-@value brandGreenHover: #3AA03F;
-@value brandGrey: #607D8B;
-@value brandDarkOrange: #FF7043;
+@value green: #3AB63F;
+@value lightGreen: #E8F5E9;
 
-@value negativeColor: #f73f52;
-@value positiveColor: #3ec483;
+@value blue: #00B0FF;
 
-@value white: #fff;
-@value black: #14171a;
-@value battle: #ffe100;
+@value yellow: #FFB90D;
+
+@value orange: #EB5C41;
+@value lightOrange: #FFE4B7;
+
+@value red: #F4511E;
+@value lightRed: #FBE9E7;
+
+@value black: #14171A;

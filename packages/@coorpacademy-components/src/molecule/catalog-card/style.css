@@ -1,16 +1,9 @@
-@value colors: "../../variables/colors.css";
-@value white from colors;
-@value extraLightGrey from colors;
-@value mediumGrey from colors;
-@value darkGrey from colors;
-@value brandOrange from colors;
-
 .catalogListItem {
   display: inline-block;
   box-sizing: border-box;
   width: 270px;
   vertical-align: top;
-  border: 1px solid mediumGrey;
+  border: 1px solid #E3E3E3;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   overflow: hidden;
@@ -47,23 +40,23 @@
   display: inline-block;
   margin: 64px 0;
   text-transform: uppercase;
-  color: white;
+  color: #ffffff;
   font-family: "Open Sans";
   font-weight: 600;
   font-size: 13px;
   text-decoration: none;
   line-height: 52px;
   padding: 0 25px;
-  background-color: brandOrange;
+  background-color: #FFB90D;
   border-radius: 2px;
 }
 
 .overlay a:hover {
-  color: white;
+  color: #ffffff;
 }
 
 .overlay a:before {
-  background-color: brandOrange;
+  background-color: #e6ac00
 }
 
 .overlay a span span {
@@ -85,13 +78,13 @@
   font-family: "Open Sans";
   font-weight: 600;
   font-size: 17px;
-  color: darkGrey;
+  color: #546E7A;
   text-decoration: none;
 }
 
 .title a:hover {
   text-decoration: underline;
-  color: darkGrey;
+  color: #546E7A;
 }
 
 .subtitle {
@@ -102,7 +95,7 @@
   font-family: "Open Sans";
   font-weight: 600;
   font-size: 13px;
-  color: darkGrey;
+  color: #78909C;
   font-style: italic;
   text-decoration: none;
 }
