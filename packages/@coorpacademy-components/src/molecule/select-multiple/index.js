@@ -50,10 +50,7 @@ class SelectMultiple extends React.Component {
 
     const lines = map.convert({cap: false})((choice, i) => {
       return (
-        <li
-          className={style.line}
-          key={i}
-        >
+        <li key={i}>
           <TitledCheckbox
             onToggle={onToggle}
             state={choice}

@@ -113,7 +113,7 @@ const ScopeContent = (props, context) => {
           <div className={style.coltitle}>
             {chaptersTitle}
           </div>
-          <div className={style.dotscontainer}>
+          <div>
             <ul className={style.roundedlist}>
               {chapters}
             </ul>

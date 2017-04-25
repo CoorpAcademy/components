@@ -10,19 +10,12 @@ const CursusList = (props, context) => {
   const CursusesDiv = cursuses.map((cursus, index) => {
     const {title, href, selected} = cursus;
 
-    const linkProps = selected ? {
-      className: style.selected
-    } : {};
-
     return (
       <li
         className={style.cursus}
         key={index}
       >
-        <Link
-          {...linkProps}
-          href={href}
-        >
+        <Link href={href}>
           {title}
         </Link>
       </li>

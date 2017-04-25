@@ -18,7 +18,7 @@ const SetupSlider = props => {
   ));
 
   return (
-    <div className={style.wrapper}>
+    <div>
       {slidesView}
     </div>
   );

@@ -72,7 +72,6 @@ function BrandForm(props) {
     <div className={style.wrapper}>
       {backView}
       <form
-        className={style.groups}
         onSubmit={handleSubmit}
         onReset={handleReset}
       >

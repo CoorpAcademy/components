@@ -18,14 +18,12 @@ const BrandDownloadBox = props => {
         <span className={style.warning}>{warning}</span>
         <p className={style.description}>{description}</p>
       </div>
-      <div className={style.buttonWrapper}>
-        <Button
-          className={style.button}
-          type='a'
-          href={href}
-          submitValue={submitValue}
-        />
-      </div>
+      <Button
+        className={style.button}
+        type='a'
+        href={href}
+        submitValue={submitValue}
+      />
     </div>
   );
 };
