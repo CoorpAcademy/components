@@ -85,9 +85,7 @@ class Authors extends React.Component {
                 >
                   {urlcontent}
                 </Link>
-                <div className={style.socialWrapper}>
-                  {authorSocial}
-                </div>
+                {authorSocial}
               </div>
               <div className={this.state.fullDisplay ? style.desc : style.shortDesc}>
                 <div
@@ -106,9 +104,7 @@ class Authors extends React.Component {
           <div className={style.cardsTitle}>
             {cardsTitle}
           </div>
-          <div className={style.cardsWrapper}>
-            <CardsGrid {...cards} />
-          </div>
+          <CardsGrid {...cards} />
         </div>
       </div>
     );

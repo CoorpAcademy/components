@@ -22,7 +22,7 @@ const StarRating = props => {
   ), popularity);
 
   return (
-    <div className={style.starRating}>
+    <div>
       {Stars}
     </div>
   );

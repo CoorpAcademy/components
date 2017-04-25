@@ -41,7 +41,7 @@ const MenuList = props => {
   });
 
   return (
-    <div className={style.menu}>
+    <div>
       <input
         type='checkbox'
         id='toggle'
