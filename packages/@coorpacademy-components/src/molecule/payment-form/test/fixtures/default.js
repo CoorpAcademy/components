@@ -5,7 +5,7 @@ export default {
     cardOwnerEmail: 'email@coorpacademy.com',
     securedPaymentImage: 'http://simpleicon.com/wp-content/uploads/lock-2.png',
     stripeKeyPublic: 'key',
-    createSubscription() {},
+    onSubscription() {},
     onCardNumberChange() {},
     onCardExpiryChange() {},
     onCardCvcChange() {},

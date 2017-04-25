@@ -46,15 +46,18 @@ class PaymentForm extends React.Component {
   }
 
   componentWillUnmount() {
-    if (this.cardNumer)
+    if (this.cardNumer) {
       this.cardNumber.unmount();
-    if (this.cardExpiry)
+      this.cardNumber.off('change', this.handleCardNumberChange);
+    }
+    if (this.cardExpiry) {
       this.cardExpiry.unmount();
-    if (this.cardCvc)
+      this.cardExpiry.off('change', this.handleCardExpiryChange);
+    }
+    if (this.cardCvc) {
       this.cardCvc.unmount();
-    this.cardNumer = null;
-    this.cardExpiry = null;
-    this.cardCvc = null;
+      this.cardCvc.off('change', this.handleCardCvcChange);
+    }
   }
 
   handleSubmit() {
