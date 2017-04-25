@@ -1,15 +1,10 @@
-@value breakpoints: "../../variables/breakpoints.css";
 @value colors: "../../variables/colors.css";
-@value mobile from breakpoints;
-@value blue from colors;
 @value grey from colors;
 @value borderGrey from colors;
 @value darkGrey from colors;
 
-@value handleSize: 20px;
-@value handlePosition: translate3d(-10px,-7.5px,0);
-@value handleActiveSize: 30px;
-@value handleActivePosition: translate3d(-15px,-13px,0);
+@value handleSize: 30px;
+@value handlePosition: translate3d(-15px,-13px,0);
 
 .default {
   position: relative;
@@ -84,22 +79,9 @@
   transform: handlePosition;
   cursor: pointer;
   user-select: none;
+  margin: 0 0 0 6px;
 }
 
-.handle:active {
-  width: handleActiveSize ;
-  height: handleActiveSize;
-  transform: handleActivePosition;
-}
-
-@media mobile {
-  .handle {
-    width: handleActiveSize ;
-    height: handleActiveSize;
-    transform: handleActivePosition;
-    margin: 0 0 0 6px;
-  }
-  .handle + .handle {
-    margin: 0 0 0 -6px;
-  }
+.handle + .handle {
+  margin: 0 0 0 -6px;
 }
