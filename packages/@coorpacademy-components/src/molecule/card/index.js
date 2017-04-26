@@ -1,10 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import identity from 'lodash/fp/identity';
 import getOr from 'lodash/fp/getOr';
 import style from './style.css';
-
-const getOrBlank = getOr('');
 
 const Card = (props, context) => {
   const {skin} = context;

@@ -1,11 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import map from 'lodash/fp/map';
 import Link from '../../../atom/link';
 import style from './style.css';
 
 const StartBattle = (props, context) => {
-  const skin = context;
   const {
     label,
     onClick,
@@ -37,10 +35,6 @@ const StartBattle = (props, context) => {
       </div>
     </div>
   );
-};
-
-StartBattle.contextTypes = {
-  skin: PropTypes.object
 };
 
 StartBattle.propTypes = {

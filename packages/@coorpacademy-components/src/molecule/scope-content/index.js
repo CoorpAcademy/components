@@ -13,7 +13,6 @@ const ScopeContent = (props, context) => {
 
   const lstitle = translate('At the end of this level, you will be able to:');
   const _chaptersTitle = translate('chapters');
-  const assetsTitle = translate('assets');
 
   const time = getOr('', 'time', content);
   const title = getOr('', 'title', content);
@@ -34,10 +33,6 @@ const ScopeContent = (props, context) => {
 
   const chapters = _chapters.map((chapter, index) => (
     <li key={index}>{chapter.name}</li>
-  ));
-
-  const assets = _assets.map((asset, index) => (
-    <span key={index}>{asset}</span>
   ));
 
   const ctaView = onClick && (

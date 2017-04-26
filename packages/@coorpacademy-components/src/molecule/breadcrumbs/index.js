@@ -1,7 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import map from 'lodash/fp/map';
-import Button from '../../atom/button';
 import Link from '../../atom/link';
 import {hoverFill} from '../../atom/button/hover-fill.css';
 import style from './style.css';

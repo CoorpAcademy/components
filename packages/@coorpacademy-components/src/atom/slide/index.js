@@ -1,11 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import getOr from 'lodash/fp/getOr';
 import Cta from '../cta';
 import style from './style.css';
 
 const Slide = (props, context) => {
-  const skin = context;
   const {
     cover,
     title,
@@ -36,10 +34,6 @@ const Slide = (props, context) => {
       </div>
     </div>
   );
-};
-
-Slide.contextTypes = {
-  skin: PropTypes.object
 };
 
 Slide.propTypes = {

@@ -92,7 +92,7 @@ const BrandFormGroup = props => {
     );
   };
 
-  const fieldsList = fields.map(buildField);
+  const fieldsList = map.convert({cap: false})(buildField, fields);
   const fieldsLayoutStyle = getOr('', fieldsLayout, style);
 
   return (

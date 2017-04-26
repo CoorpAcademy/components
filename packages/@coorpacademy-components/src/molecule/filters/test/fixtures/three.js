@@ -1,8 +1,6 @@
 import dropdownsFilter from '../../../../atom/select/test/fixtures/filter';
-import selectCourses from '../../../../molecule/select-multiple/test/fixtures/checked';
 
 const selectFilter = dropdownsFilter.props;
-const selectMultiple = selectCourses.props;
 
 export default {
   props: {

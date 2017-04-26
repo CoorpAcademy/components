@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
 import partial from 'lodash/fp/partial';
 import unary from 'lodash/fp/unary';
-import identity from 'lodash/fp/identity';
 import ModuleBubble from '../../molecule/module-bubble';
 import style from './style.css';
 
