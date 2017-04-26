@@ -9,6 +9,13 @@
   padding: 20px;
 }
 
+.container {
+  composes: container from '../layout.css';
+}
+
+.cardsTitle {
+  composes: cardsTitle from '../layout.css';
+}
 
 .column {
   margin-bottom: 30px;

@@ -5,7 +5,6 @@ import DisciplineHeader from '../../../molecule/discipline-header';
 import DisciplineScope from '../../../molecule/discipline-scope';
 import DisciplinePartners from '../../../molecule/discipline-partners';
 import CatalogCards from '../../../organism/catalog-cards';
-import layout from '../layout.css'; // eslint-disable-line css-modules/no-unused-class
 import style from './style.css';
 
 const ProductCourse = (props, context) => {
@@ -60,8 +59,8 @@ const ProductCourse = (props, context) => {
         />
       </div>
       <div className={style.related}>
-        <div className={layout.container}>
-          <span className={layout.cardsTitle}>
+        <div className={style.container}>
+          <span className={style.cardsTitle}>
             {cardsTitle}
           </span>
           <CatalogCards
