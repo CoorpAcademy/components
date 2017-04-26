@@ -10,7 +10,6 @@ const disciplines = [card1, card2, card1, card2, card1, card2].map(update('ref',
 
 export default {
   props: {
-    image: 'bg',
     disciplines,
     onModuleClick: () => null,
     onDisciplineClick: () => null

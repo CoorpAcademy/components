@@ -58,7 +58,7 @@ class SelectMultiple extends React.Component {
 
     return (
       <div className={style.default}
-        ref={div => this._selectMultiple = div} // eslint-disable-line react/jsx-no-bind
+        ref={div => {this._selectMultiple = div;}} // eslint-disable-line react/jsx-no-bind
       >
         <div className={style.title}>{title}</div>
         <div className={style.select}

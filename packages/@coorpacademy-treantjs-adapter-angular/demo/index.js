@@ -2,7 +2,6 @@ import express from 'express';
 import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
-import map from 'lodash/fp/map';
 import config from './webpack.config';
 
 const app = express();

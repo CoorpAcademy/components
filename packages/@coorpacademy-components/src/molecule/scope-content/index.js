@@ -18,7 +18,6 @@ const ScopeContent = (props, context) => {
   const title = getOr('', 'title', content);
   const _skills = getOr([], 'skills', content);
   const _chapters = getOr([], 'chapters', content);
-  const _assets = getOr([], 'course_scope', content);
   const _medias = getOr([], 'medias', content);
 
   const skillsTitle = getOr(lstitle, 'skillsTitle', content);

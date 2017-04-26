@@ -1,7 +1,3 @@
-import basicCTA from '../../../../atom/cta/test/fixtures/default';
-
-const popinCTA = basicCTA.props;
-
 export default {
   props: {
     popinCTA: {

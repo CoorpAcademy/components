@@ -1,7 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import map from 'lodash/fp/map';
-import getOr from 'lodash/fp/getOr';
 import BattleRequestList from '../../../molecule/dashboard/battle-request-list';
 import CardsList from '../../../molecule/dashboard/cards-list';
 import NewsList from '../../../molecule/dashboard/news-list';

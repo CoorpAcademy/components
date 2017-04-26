@@ -2,7 +2,6 @@ import {parse as qsParse} from 'querystring';
 import getOr from 'lodash/fp/getOr';
 import get from 'lodash/fp/get';
 import isEqual from 'lodash/fp/isEqual';
-import negate from 'lodash/fp/negate';
 import pipe from 'lodash/fp/pipe';
 import set from 'lodash/fp/set';
 
