@@ -7,7 +7,6 @@ import CatalogCTA from '../../../molecule/catalog-cta';
 import CatalogBadge from '../../../molecule/catalog-badge';
 import CatalogAssets from '../../../molecule/catalog-assets';
 import CatalogCards from '../../../organism/catalog-cards';
-import layout from '../layout.css'; // eslint-disable-line css-modules/no-unused-class
 import style from './style.css';
 
 const ProductCursus = (props, context) => {
@@ -52,7 +51,7 @@ const ProductCursus = (props, context) => {
       </div>
       <div className={style.products}>
         <div className={style.productsContainer}>
-          <span className={layout.cardsTitle}>
+          <span className={style.cardsTitle}>
             {cardsTitle}
           </span>
 

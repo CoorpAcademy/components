@@ -4,7 +4,6 @@ import DisciplineCTA from '../../../molecule/discipline-cta';
 import DisciplineHeader from '../../../molecule/discipline-header';
 import DisciplinePartners from '../../../molecule/discipline-partners';
 import DisciplineScope from '../../../molecule/discipline-scope';
-import layout from '../layout.css'; // eslint-disable-line css-modules/no-unused-class
 import style from './style.css';
 
 const Discipline = (props, context) => {
