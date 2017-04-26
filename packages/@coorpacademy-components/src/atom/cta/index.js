@@ -1,12 +1,33 @@
+// @flow
 import React from 'react';
 import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
 import Link from '../link';
 import shallowCompare from '../../util/shallow-compare';
+import {type LinkTarget} from '../../types';
 import style from './style.css';
 
+export type Props = {
+  submitValue: string,
+  name: string,
+  href: string,
+  target: LinkTarget,
+  light: boolean,
+  small: boolean,
+  secondary: boolean
+};
+
+type State = {
+  hovered: boolean
+};
+
 class CTA extends React.Component {
-  constructor(props) {
+  state: State
+  props: Props
+  handleMouseEnter: Function
+  handleMouseLeave: Function
+
+  constructor(props: Props) {
     super(props);
     this.state = {
       hovered: false
@@ -15,24 +36,24 @@ class CTA extends React.Component {
     this.handleMouseLeave = this.handleMouseLeave.bind(this);
   }
 
-  shouldComponentUpdate(nextProps, nextState, nextContext) {
+  shouldComponentUpdate(nextProps: Props, nextState: State, nextContext: any) {
     return shallowCompare(this, nextProps, nextState, nextContext);
   }
 
   handleMouseEnter() {
-    this.setState(prevState => ({
+    this.setState({
       hovered: true
-    }));
+    });
   }
 
   handleMouseLeave() {
-    this.setState(prevState => ({
+    this.setState({
       hovered: false
-    }));
+    });
   }
 
   render() {
-    const {translate, skin} = this.context;
+    const {skin} = this.context;
     const {
       submitValue = 'submit',
       name: ctaName,
@@ -43,18 +64,18 @@ class CTA extends React.Component {
       secondary = false
     } = this.props;
 
-    const primarySkinColor = getOr('#00B0FF', 'common.primary', skin);
+    const primarySkinColor: string = getOr('#00B0FF', 'common.primary', skin);
 
-    const primaryColor = light ? '#fff' : primarySkinColor;
-    const secondaryColor = light ? primarySkinColor : '#fff';
+    const primaryColor: string = light ? '#fff' : primarySkinColor;
+    const secondaryColor: string = light ? primarySkinColor : '#fff';
 
-    const backgroundColor = secondary ? 'transparent' : primaryColor;
-    const textColor = secondary ? primaryColor : secondaryColor;
-    const borderColor = primaryColor;
+    const backgroundColor: string = secondary ? 'transparent' : primaryColor;
+    const textColor: string = secondary ? primaryColor : secondaryColor;
+    const borderColor: string = primaryColor;
 
-    const hoverBackgroundColor = textColor;
-    const hoverTextColor = secondary ? secondaryColor : backgroundColor;
-    const hoverBorderColor = secondary ? textColor : secondaryColor;
+    const hoverBackgroundColor: string = textColor;
+    const hoverTextColor: string = secondary ? secondaryColor : backgroundColor;
+    const hoverBorderColor: string = secondary ? textColor : secondaryColor;
 
     return (
       <div className={style.button}

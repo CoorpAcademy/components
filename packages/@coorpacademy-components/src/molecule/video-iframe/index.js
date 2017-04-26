@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import * as CustomPropTypes from '../../util/proptypes';
 import Picture from '../../atom/picture';
 import style from './style.css';
 

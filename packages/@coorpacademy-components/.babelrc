@@ -1,11 +1,13 @@
 {
-  "presets": ["es2015", "stage-1", "react"],
+  "presets": ["flow", "react", "es2015", "stage-1"],
   "env": {
     "commonjs": {
       "presets": [
         ["es2015", { "loose": true }]
       ],
       "plugins": [
+        "syntax-flow",
+        ["transform-class-properties", {"spec": false}],
         ["transform-react-remove-prop-types", {
           "mode": "wrap"
         }],
@@ -19,6 +21,8 @@
         ["es2015", { "loose": true }]
       ],
       "plugins": [
+        "syntax-flow",
+        ["transform-class-properties", {"spec": false}],
         ["css-modules-transform", {
           "generateScopedName": "[folder]__[local]"
         }],
@@ -30,6 +34,8 @@
         ["es2015", { "loose": true, "modules": false }]
       ],
       "plugins": [
+        "syntax-flow",
+        ["transform-class-properties", {"spec": false}],
         ["transform-react-remove-prop-types", {
           "mode": "wrap"
         }]

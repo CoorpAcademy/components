@@ -17,7 +17,6 @@ const InputSwitch = props => {
 
   const idSwitch = uniqueId('input-switch-');
   const isDisabled = disabled ? 'disabled' : '';
-  const isUnset = value === undefined;
   const handleChange = e => onChange(e.target.checked);
 
   const titleView = title ? (

@@ -1,5 +1,8 @@
-import React from 'react';
+// @flow
+import React, {type Children} from 'react';
+
+const children: Children = <p>foo</p>;
 
 export default {
-  children: <p>foo</p>
+  children
 };

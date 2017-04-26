@@ -1,9 +1,15 @@
+// @flow
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from '../../atom/link';
 import style from './style.css';
 
-const BrandCardCreate = props => {
+export type Props = {
+  edit: string,
+  editHref: string
+};
+
+const BrandCardCreate = (props: Props) => {
   const {
     edit,
     editHref

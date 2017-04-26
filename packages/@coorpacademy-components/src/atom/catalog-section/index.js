@@ -1,8 +1,14 @@
-import React from 'react';
+// @flow
+import React, {type Children} from 'react';
 import PropTypes from 'prop-types';
 import style from './style.css';
 
-const CatalogSection = ({title, children}, context) => (
+export type Props = {
+  children?: Children,
+  title: string
+};
+
+const CatalogSection = ({title, children}: Props) => (
   <div className={style.details}>
     <div className={style.title}>
       {title}
@@ -10,9 +16,6 @@ const CatalogSection = ({title, children}, context) => (
     {children}
   </div>
 );
-
-CatalogSection.contextTypes = {
-};
 
 CatalogSection.propTypes = {
   title: PropTypes.string

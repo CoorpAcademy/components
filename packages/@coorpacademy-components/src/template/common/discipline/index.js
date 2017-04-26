@@ -4,11 +4,9 @@ import DisciplineCTA from '../../../molecule/discipline-cta';
 import DisciplineHeader from '../../../molecule/discipline-header';
 import DisciplinePartners from '../../../molecule/discipline-partners';
 import DisciplineScope from '../../../molecule/discipline-scope';
-import layout from '../layout.css';
 import style from './style.css';
 
 const Discipline = (props, context) => {
-  const {translate} = context;
   const {
     selected = 0,
     level,

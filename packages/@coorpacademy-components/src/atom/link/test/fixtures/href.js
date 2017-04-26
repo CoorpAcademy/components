@@ -1,8 +1,12 @@
-import React from 'react';
+// @flow
+import {type Props} from '../../';
+
+const props: Props = {
+  href: '#',
+  target: '_blank'
+};
 
 export default {
-  props: {
-    href: '#'
-  },
+  props,
   children: ['link']
 };

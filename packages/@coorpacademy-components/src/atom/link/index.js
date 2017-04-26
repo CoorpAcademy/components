@@ -1,12 +1,34 @@
-import React from 'react';
+// @flow
+import React, {type Children} from 'react';
 import PropTypes from 'prop-types';
 import identity from 'lodash/fp/identity';
 import getOr from 'lodash/fp/getOr';
 import pushToHistory from '../../util/navigation';
 import shallowCompare from '../../util/shallow-compare';
+import {type LinkTarget} from '../../types';
+
+export type Props = {
+  children?: Children,
+  className?: string,
+  href: string,
+  target?: LinkTarget,
+  skinHover?: boolean,
+  onClick?: Function,
+  style?: Object
+};
+
+type State = {
+  hovered: boolean
+};
 
 class Link extends React.Component {
-  constructor(props) {
+  state: State
+  props: Props
+  handleMouseEnter: Function
+  handleMouseLeave: Function
+  handleOnClick: Function
+
+  constructor(props: Props) {
     super(props);
     this.state = {
       hovered: false
@@ -16,23 +38,23 @@ class Link extends React.Component {
     this.handleOnClick = this.handleOnClick.bind(this);
   }
 
-  shouldComponentUpdate(nextProps, nextState, nextContext) {
+  shouldComponentUpdate(nextProps: Props, nextState: State, nextContext: any) {
     return shallowCompare(this, nextProps, nextState, nextContext);
   }
 
   handleMouseEnter() {
-    this.setState(prevState => ({
+    this.setState({
       hovered: true
-    }));
+    });
   }
 
   handleMouseLeave() {
-    this.setState(prevState => ({
+    this.setState({
       hovered: false
-    }));
+    });
   }
 
-  handleOnClick(e) {
+  handleOnClick(e: Event) {
     this.props.onClick && this.props.onClick(e);
 
     const onClick = pushToHistory(this.context)(this.props);
@@ -75,7 +97,8 @@ Link.propTypes = {
   href: PropTypes.string,
   target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
   skinHover: PropTypes.bool,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  style: PropTypes.object
 };
 
 Link.contextTypes = {

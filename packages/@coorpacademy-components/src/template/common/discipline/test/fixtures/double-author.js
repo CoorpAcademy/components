@@ -4,7 +4,7 @@ import disciplineCTA from '../../../../../molecule/discipline-cta/test/fixtures/
 import Default from './default';
 
 const {props} = Default;
-const {rating, maxRating, linkBuy, linkTry} = disciplineCTA.props;
+const {rating, maxRating} = disciplineCTA.props;
 const {authors} = disciplinePartners.props;
 
 export default {

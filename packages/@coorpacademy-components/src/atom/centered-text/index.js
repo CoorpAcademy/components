@@ -1,8 +1,13 @@
-import React from 'react';
+// @flow
+import React, {type Children} from 'react';
 import PropTypes from 'prop-types';
 import style from './style.css';
 
-const CenteredText = ({children}) => (
+export type Props = {|
+  children?: Children
+|};
+
+const CenteredText = ({children}: Props) => (
   <div className={style.center}>
     {children}
   </div>

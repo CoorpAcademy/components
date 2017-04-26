@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import map from 'lodash/fp/map';
 import getOr from 'lodash/fp/getOr';
 import Select from '../../atom/select';
 import InputText from '../../atom/input-text';

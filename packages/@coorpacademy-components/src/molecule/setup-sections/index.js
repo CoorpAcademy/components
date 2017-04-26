@@ -1,13 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import map from 'lodash/fp/map';
 import SetupSection from '../setup-section';
 import Loader from '../../atom/loader';
 import style from './style.css';
 
 const SetupSections = (props, context) => {
-  const { translate } = context;
-
   const {
     sections,
     loading = false

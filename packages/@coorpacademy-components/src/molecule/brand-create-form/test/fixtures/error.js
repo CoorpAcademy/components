@@ -1,12 +1,17 @@
-import defaultsDeep from 'lodash/fp/defaultsDeep';
-import defaultSettings from './default';
+// @flow
+import {type Props} from '../../';
+import Default from './default';
 
-const {props} = defaultSettings;
+const {props: parentProps} = Default;
+
+const props: Props = {
+  ...parentProps,
+  field: {
+    ...parentProps.field,
+    error: 'Something wrong.'
+  }
+};
 
 export default {
-  props: defaultsDeep(props, {
-    field: {
-      error: 'Something wrong.'
-    }
-  })
+  props
 };

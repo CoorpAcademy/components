@@ -1,9 +1,31 @@
+// @flow
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../../atom/button';
 import style from './style.css';
 
-const BrandCreateForm = props => {
+/* eslint-disable react/no-unused-prop-types */
+type Field = {
+  label: string,
+  placeholder: string,
+  onChange: Function,
+  error?: string,
+  value: string
+};
+/* eslint-enable react/no-unused-prop-types */
+
+export type Props = {
+  title: string,
+  subtitle: string,
+  description: string,
+  field: Field,
+  onSubmit: Function,
+  submitValue: string,
+  isPending: boolean,
+  isModified: boolean
+};
+
+const BrandCreateForm = (props: Props) => {
   const {
     title,
     subtitle,

@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
-import identity from 'lodash/fp/identity';
 import TitledCheckbox from '../titled-checkbox';
 import style from './style.css';
 

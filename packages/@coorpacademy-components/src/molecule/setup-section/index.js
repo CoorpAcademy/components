@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import map from 'lodash/fp/map';
 import InputSwitch from '../../atom/input-switch';
 import style from './style.css';
 
@@ -11,8 +10,7 @@ const SetupSection = (props, context) => {
     title,
     onUp,
     onDown,
-    display,
-    id
+    display
   } = props;
 
   return (
@@ -44,7 +42,6 @@ SetupSection.propTypes = {
   title: PropTypes.string.isRequired,
   onUp: PropTypes.func,
   onDown: PropTypes.func,
-  display: PropTypes.object,
-  id: PropTypes.string.isRequired
+  display: PropTypes.object
 };
 export default SetupSection;
