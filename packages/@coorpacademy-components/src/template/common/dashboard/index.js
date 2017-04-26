@@ -45,6 +45,7 @@ const BrandFormGroup = props => {
     return (
       <div
         key={index}
+        className={style.section}
       >
         {sectionView}
       </div>

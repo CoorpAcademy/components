@@ -8,6 +8,8 @@
   width: 100%;
   background-color: #ffffff;
   display: flex;
+  border: 1px solid #ECEFF1;
+  box-sizing: border-box;
 }
 
 .image {
