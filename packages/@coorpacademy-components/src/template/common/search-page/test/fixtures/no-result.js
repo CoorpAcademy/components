@@ -8,10 +8,7 @@ const clearFilters = clearFilter.props;
 
 export default {
   props: {
-    searchFilters: {
-      ...filters,
-      count: '0'
-    },
+    searchFilters,
     clearFilters,
     noresultsfound: 'Sorry no result available'
   }

@@ -8,7 +8,6 @@ import style from './style.css';
 
 const SearchPage = (props, context) => {
   const {
-    count,
     searchFilters,
     cards,
     noresultsfound,
@@ -18,7 +17,7 @@ const SearchPage = (props, context) => {
   const {skin} = context;
   const defaultColor = getOr('#00B0FF', 'common.primary', skin);
 
-  const cardsView = cards === undefined ? (
+  const cardsView = _.isEmpty(cards) ? (
     <div className={style.noresults}>
       <div>{noresultsfound}</div>
       <Button {...clearFilters}
@@ -43,7 +42,7 @@ SearchPage.contextTypes = {
 };
 
 SearchPage.propTypes = {
-  count: PropTypes.string,
+  noresultsfound: PropTypes.string,
   searchFilters: PropTypes.object,
   cards: PropTypes.object,
   clearFilters: PropTypes.object
