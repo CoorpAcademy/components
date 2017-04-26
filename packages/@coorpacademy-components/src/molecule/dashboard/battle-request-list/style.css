@@ -10,13 +10,20 @@
   align-items: center;
   background-color: #F7F7F7;
   width: 100%;
-  padding: 20px 0;
 }
 
 .card {
   width: 600px;
   padding: 5px;
   box-sizing: border-box;
+}
+
+.card:first-child {
+  margin-top: 20px;
+}
+
+.card:last-child {
+  margin-bottom: 20px;
 }
 
 @media mobile {

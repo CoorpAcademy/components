@@ -307,6 +307,7 @@ import VideoPlayerFixtureDefault from '../src/molecule/video-player/test/fixture
 import VideoPlayerFixtureWithImage from '../src/molecule/video-player/test/fixtures/with-image';
 import VideoPlayerFixtureYoutube from '../src/molecule/video-player/test/fixtures/youtube';
 import BattleRequestListFixtureDefault from '../src/molecule/dashboard/battle-request-list/test/fixtures/default';
+import BattleRequestListFixtureEmpty from '../src/molecule/dashboard/battle-request-list/test/fixtures/empty';
 import CardsListFixtureDefault from '../src/molecule/dashboard/cards-list/test/fixtures/default';
 import CardsListFixtureMany from '../src/molecule/dashboard/cards-list/test/fixtures/many';
 import NewsListFixtureDefault from '../src/molecule/dashboard/news-list/test/fixtures/default';
@@ -406,6 +407,7 @@ import AuthorsFixtureNoSocials from '../src/template/common/authors/test/fixture
 import CoorpHeaderFixtureProduction from '../src/template/common/coorp-header/test/fixtures/production';
 import CoorpHeaderFixtureStaging from '../src/template/common/coorp-header/test/fixtures/staging';
 import DashboardFixtureDefault from '../src/template/common/dashboard/test/fixtures/default';
+import DashboardFixtureEmpyRequests from '../src/template/common/dashboard/test/fixtures/empy-requests';
 import DisciplineFixtureDefault from '../src/template/common/discipline/test/fixtures/default';
 import DisciplineFixtureDoubleAuthor from '../src/template/common/discipline/test/fixtures/double-author';
 import DisciplineFixtureEmpty from '../src/template/common/discipline/test/fixtures/empty';
@@ -892,7 +894,8 @@ export const fixtures = {
   },
   MoleculeDashboard: {
     BattleRequestList: {
-      Default: BattleRequestListFixtureDefault
+      Default: BattleRequestListFixtureDefault,
+      Empty: BattleRequestListFixtureEmpty
     },
     CardsList: {
       Default: CardsListFixtureDefault,
@@ -1059,7 +1062,8 @@ export const fixtures = {
       Staging: CoorpHeaderFixtureStaging
     },
     Dashboard: {
-      Default: DashboardFixtureDefault
+      Default: DashboardFixtureDefault,
+      EmpyRequests: DashboardFixtureEmpyRequests
     },
     Discipline: {
       Default: DisciplineFixtureDefault,
