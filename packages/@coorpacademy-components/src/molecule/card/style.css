@@ -311,8 +311,7 @@
   .list .infoWrapper {
     width: 100%;
     box-sizing: border-box;
-    margin-left: 100px;
-    padding: 8px 15px;
+    padding: 8px 15px 8px 115px;
     height: 100%;
   }
 
