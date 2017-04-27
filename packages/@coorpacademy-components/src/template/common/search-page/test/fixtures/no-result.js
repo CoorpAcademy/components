@@ -5,7 +5,6 @@ const searchFilters = filters.props;
 const clearFilters = clearFilter.props;
 
 /* eslint-disable max-len */
-
 export default {
   props: {
     searchFilters,
