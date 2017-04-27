@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/redux-history",
-  "version": "5.0.2",
+  "version": "5.0.16",
   "description": "",
   "main": "lib/index.js",
   "module": "es/indes.js",

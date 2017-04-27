@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/treantjs-adapter-angular",
-  "version": "5.0.14",
+  "version": "5.0.16",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
