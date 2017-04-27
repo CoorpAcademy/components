@@ -10,6 +10,9 @@ export default {
   props: {
     searchFilters,
     clearFilters,
+    cards: {
+      list: []
+    },
     noresultsfound: 'Sorry no result available'
   }
 };
