@@ -1626,6 +1626,9 @@ export const dependencies = {
       "children": {
         "Molecule": {
           "Card": true
+        },
+        "Atom": {
+          "Loader": true
         }
       }
     },
@@ -1900,6 +1903,7 @@ export const dependencies = {
       "parents": {
         "Organism": {
           "Discussion": true,
+          "CardsGrid": true,
           "BrandTable": true
         },
         "MoleculeDashboard": {
