@@ -1,13 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import partial from 'lodash/fp/partial';
-import unary from 'lodash/fp/unary';
-import identity from 'lodash/fp/identity';
 import ModuleBubble from '../../molecule/module-bubble';
 import style from './style.css';
 
 function ModuleCard(props, context) {
-  const {skin} = context;
   const {label, level, onClick} = props;
   const hideLabel = true;
 
@@ -25,7 +21,7 @@ function ModuleCard(props, context) {
       </div>
       <div className={style.module}>
         <ModuleBubble
-          hideLabel
+          hideLabel={hideLabel}
           module={props}
           onClick={onClick}
         />
@@ -33,10 +29,6 @@ function ModuleCard(props, context) {
     </div>
   );
 }
-
-ModuleCard.contextTypes = {
-  skin: PropTypes.object
-};
 
 ModuleCard.propTypes = {
   label: PropTypes.string.isRequired,

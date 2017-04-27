@@ -2,10 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {findDOMNode} from 'react-dom';
 import find from 'lodash/fp/find';
-import filter from 'lodash/fp/filter';
 import getOr from 'lodash/fp/getOr';
 import get from 'lodash/fp/get';
-import map from 'lodash/fp/map';
 import shallowCompare from '../../util/shallow-compare';
 import Slider from '../../molecule/slider';
 import Cta from '../../atom/cta';
@@ -235,12 +233,6 @@ class MoocHeader extends React.Component {
         const activeColor = page.selected ? {
           color: primaryColor
         } : null;
-
-        const battlesView = (page.counter > 0) ? (
-          <div className={style.notifications}>
-            {user.notifications}
-          </div>
-        ) : null;
 
         const {name: pageName = index} = page;
 

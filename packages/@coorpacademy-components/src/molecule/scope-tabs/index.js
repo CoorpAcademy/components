@@ -1,9 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import has from 'lodash/fp/has';
-import partial from 'lodash/fp/partial';
-import unary from 'lodash/fp/unary';
-import identity from 'lodash/fp/identity';
 import getOr from 'lodash/fp/getOr';
 import ModuleBubble from '../../molecule/module-bubble';
 import style from './style.css';
@@ -48,7 +45,7 @@ const ScopeTabs = (props, context) => {
         const bubble = has('status', level) ? (
           <div className={style.module}>
             <ModuleBubble
-              hideLabel
+              hideLabel={hideLabel}
               module={level}
               onClick={handleClick}
             />

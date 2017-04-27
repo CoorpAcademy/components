@@ -6,12 +6,6 @@ import DisciplinePartners from '../../../molecule/discipline-partners';
 import CatalogCards from '../../../organism/catalog-cards';
 import style from './style.css';
 
-const conditions = PropTypes.shape({
-  props: PropTypes.shape({
-
-  })
-});
-
 const Author = (props, context) => {
   const {translate} = context;
   const cardsTitle = translate('Their moocs:');

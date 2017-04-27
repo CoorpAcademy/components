@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import map from 'lodash/fp/map';
 import Breadcrumbs from '../../../molecule/breadcrumbs';
 import BrandTabs from '../../../molecule/brand-tabs';
 import BrandForm from '../../../organism/brand-form';

@@ -8,7 +8,7 @@ const CursusList = (props, context) => {
   const {cursuses = []} = props;
   const listTitle = translate('Training Packages');
   const CursusesDiv = cursuses.map((cursus, index) => {
-    const {title, href, selected} = cursus;
+    const {title, href} = cursus;
 
     return (
       <li

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import filter from 'lodash/fp/filter';
 import find from 'lodash/fp/find';
 import get from 'lodash/fp/get';
-import isEqual from 'lodash/fp/isEqual';
 import keys from 'lodash/fp/keys';
 import map from 'lodash/fp/map';
 import shallowCompare from '../../util/shallow-compare';

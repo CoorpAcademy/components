@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import isEmpty from 'lodash/fp/isEmpty';
 import map from 'lodash/fp/map';
-import Picture from '../../atom/picture';
 import CatalogSection from '../../atom/catalog-section';
 import style from './style.css';
 

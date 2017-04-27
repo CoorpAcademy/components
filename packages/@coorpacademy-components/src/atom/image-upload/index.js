@@ -35,7 +35,6 @@ class ImageUpload extends React.Component {
 
   render() {
     const idBox = uniqueId('drop-box-');
-    const {translate, skin} = this.context;
     const {
       title,
       onChange,
@@ -92,11 +91,6 @@ class ImageUpload extends React.Component {
     );
   }
 }
-
-ImageUpload.contextTypes = {
-  skin: PropTypes.object,
-  translate: PropTypes.func
-};
 
 ImageUpload.propTypes = {
   title: PropTypes.string,

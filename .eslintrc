@@ -30,7 +30,6 @@
     "fp/no-class": 0,
     "import/no-extraneous-dependencies": "off",
     "no-shadow": ["error", {"builtinGlobals": true, "hoist": "all", "allow": ["Promise", "history", "location", "find", "Notification"]}],
-    "no-unused-vars": 0,
     "react/forbid-component-props": 0,
     "react/forbid-foreign-prop-types": 0,
     "react/forbid-prop-types": 0,

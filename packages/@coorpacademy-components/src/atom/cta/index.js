@@ -32,7 +32,7 @@ class CTA extends React.Component {
   }
 
   render() {
-    const {translate, skin} = this.context;
+    const {skin} = this.context;
     const {
       submitValue = 'submit',
       name: ctaName,
@@ -83,8 +83,7 @@ class CTA extends React.Component {
 }
 
 CTA.contextTypes = {
-  skin: PropTypes.object,
-  translate: PropTypes.func
+  skin: PropTypes.object
 };
 
 CTA.propTypes = {

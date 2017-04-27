@@ -1,11 +1,7 @@
-import entries from 'lodash/fp/entries';
-import forEach from 'lodash/fp/forEach';
 import isEqual from 'lodash/fp/isEqual';
-import spread from 'lodash/fp/spread';
 import angular from 'angular';
 import React from 'react';
 import PropTypes from 'prop-types';
-import ReactDOM from 'react-dom';
 import createDirectives from '../src';
 
 const DisplayValue = ({children} = {}, {backgroundColor}) =>

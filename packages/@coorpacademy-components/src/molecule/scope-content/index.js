@@ -13,13 +13,11 @@ const ScopeContent = (props, context) => {
 
   const lstitle = translate('At the end of this level, you will be able to:');
   const _chaptersTitle = translate('chapters');
-  const assetsTitle = translate('assets');
 
   const time = getOr('', 'time', content);
   const title = getOr('', 'title', content);
   const _skills = getOr([], 'skills', content);
   const _chapters = getOr([], 'chapters', content);
-  const _assets = getOr([], 'course_scope', content);
   const _medias = getOr([], 'medias', content);
 
   const skillsTitle = getOr(lstitle, 'skillsTitle', content);
@@ -34,10 +32,6 @@ const ScopeContent = (props, context) => {
 
   const chapters = _chapters.map((chapter, index) => (
     <li key={index}>{chapter.name}</li>
-  ));
-
-  const assets = _assets.map((asset, index) => (
-    <span key={index}>{asset}</span>
   ));
 
   const ctaView = onClick && (

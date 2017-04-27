@@ -1,13 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import getOr from 'lodash/fp/getOr';
 import StarRating from '../star-rating';
 import Link from '../../atom/link';
 import Picture from '../../atom/picture';
 import {hoverFill} from '../../atom/button/hover-fill.css';
 import style from './style.css';
-
-const getOrBlank = getOr('');
 
 const CatalogCard = (props, context) => {
   const {translate} = context;

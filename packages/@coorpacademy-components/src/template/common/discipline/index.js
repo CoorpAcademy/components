@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import DisciplineCTA from '../../../molecule/discipline-cta';
 import DisciplineHeader from '../../../molecule/discipline-header';
 import DisciplinePartners from '../../../molecule/discipline-partners';
@@ -7,7 +6,6 @@ import DisciplineScope from '../../../molecule/discipline-scope';
 import style from './style.css';
 
 const Discipline = (props, context) => {
-  const {translate} = context;
   const {
     selected = 0,
     level,
@@ -58,10 +56,6 @@ const Discipline = (props, context) => {
       </div>
     </div>
   );
-};
-
-Discipline.contextTypes = {
-  translate: PropTypes.func
 };
 
 Discipline.propTypes = {

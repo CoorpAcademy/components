@@ -1,13 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import map from 'lodash/fp/map';
-import noop from 'lodash/fp/noop';
 import News from '../../news';
 import Loader from '../../../atom/loader';
 import style from './style.css';
 
 const NewsList = (props, context) => {
-  const skin = context;
   const {
     title,
     news,
@@ -55,10 +52,6 @@ const NewsList = (props, context) => {
       </div>
     </div>
   );
-};
-
-NewsList.contextTypes = {
-  skin: PropTypes.object
 };
 
 NewsList.propTypes = {

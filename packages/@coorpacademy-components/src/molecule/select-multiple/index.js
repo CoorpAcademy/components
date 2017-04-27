@@ -1,11 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {findDOMNode} from 'react-dom';
-import get from 'lodash/fp/get';
-import getOr from 'lodash/fp/getOr';
-import identity from 'lodash/fp/identity';
-import filter from 'lodash/fp/filter';
-import find from 'lodash/fp/find';
 import map from 'lodash/fp/map';
 import TitledCheckbox from '../titled-checkbox';
 import style from './style.css';
@@ -62,8 +57,8 @@ class SelectMultiple extends React.Component {
     const isActive = this.state.opened === true;
 
     return (
-      <div className={style.default} // eslint-disable-next-line no-return-assign
-        ref={div => this._selectMultiple = div} // eslint-disable-line react/jsx-no-bind
+      <div className={style.default}
+        ref={div => {this._selectMultiple = div;}} // eslint-disable-line react/jsx-no-bind
       >
         <div className={style.title}>{title}</div>
         <div className={style.select}
