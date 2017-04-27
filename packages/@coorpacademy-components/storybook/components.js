@@ -109,6 +109,7 @@ import ButtonFixtureA from '../src/atom/button/test/fixtures/a';
 import ButtonFixtureBlue from '../src/atom/button/test/fixtures/blue';
 import ButtonFixtureCentered from '../src/atom/button/test/fixtures/centered';
 import ButtonFixtureClassName from '../src/atom/button/test/fixtures/class-name';
+import ButtonFixtureClear from '../src/atom/button/test/fixtures/clear';
 import ButtonFixtureDark from '../src/atom/button/test/fixtures/dark';
 import ButtonFixtureDefault from '../src/atom/button/test/fixtures/default';
 import ButtonFixtureDisabled from '../src/atom/button/test/fixtures/disabled';
@@ -416,6 +417,7 @@ import DisciplineFixtureNoAuthor from '../src/template/common/discipline/test/fi
 import DisciplineFixtureNoVideo from '../src/template/common/discipline/test/fixtures/no-video';
 import DisciplineFixtureWithOnclick from '../src/template/common/discipline/test/fixtures/with-onclick';
 import SearchPageFixtureDefault from '../src/template/common/search-page/test/fixtures/default';
+import SearchPageFixtureNoResult from '../src/template/common/search-page/test/fixtures/no-result';
 
 export const components = {
   Atom: {
@@ -547,6 +549,7 @@ export const fixtures = {
       Blue: ButtonFixtureBlue,
       Centered: ButtonFixtureCentered,
       ClassName: ButtonFixtureClassName,
+      Clear: ButtonFixtureClear,
       Dark: ButtonFixtureDark,
       Default: ButtonFixtureDefault,
       Disabled: ButtonFixtureDisabled,
@@ -1075,7 +1078,8 @@ export const fixtures = {
       WithOnclick: DisciplineFixtureWithOnclick
     },
     SearchPage: {
-      Default: SearchPageFixtureDefault
+      Default: SearchPageFixtureDefault,
+      NoResult: SearchPageFixtureNoResult
     }
   }
 };
@@ -1751,50 +1755,23 @@ export const dependencies = {
       }
     }
   },
-  "MoleculeDashboard": {
-    "BattleRequestList": {
+  "Atom": {
+    "Button": {
       "parents": {
         "TemplateCommon": {
-          "Dashboard": true
-        }
-      },
-      "children": {
-        "Molecule": {
-          "BattleRequest": true
-        }
-      }
-    },
-    "CardsList": {
-      "parents": {
-        "TemplateCommon": {
-          "Dashboard": true
-        }
-      },
-      "children": {
-        "Molecule": {
-          "Card": true
-        }
-      }
-    },
-    "NewsList": {
-      "parents": {
-        "TemplateCommon": {
-          "Dashboard": true
-        }
-      },
-      "children": {
-        "Molecule": {
-          "News": true
+          "SearchPage": true
         },
-        "Atom": {
-          "Loader": true
-        }
-      }
-    },
-    "StartBattle": {
-      "parents": {
-        "TemplateCommon": {
-          "Dashboard": true
+        "Organism": {
+          "Popin": true,
+          "BrandForm": true
+        },
+        "MoleculeForum": {
+          "ForumComment": true
+        },
+        "Molecule": {
+          "ScopeContent": true,
+          "BrandDownloadBox": true,
+          "BrandCreateForm": true
         }
       },
       "children": {
@@ -1802,9 +1779,7 @@ export const dependencies = {
           "Link": true
         }
       }
-    }
-  },
-  "Atom": {
+    },
     "Link": {
       "parents": {
         "TemplateCommon": {
@@ -1875,27 +1850,6 @@ export const dependencies = {
         }
       },
       "children": {}
-    },
-    "Button": {
-      "parents": {
-        "Organism": {
-          "Popin": true,
-          "BrandForm": true
-        },
-        "MoleculeForum": {
-          "ForumComment": true
-        },
-        "Molecule": {
-          "ScopeContent": true,
-          "BrandDownloadBox": true,
-          "BrandCreateForm": true
-        }
-      },
-      "children": {
-        "Atom": {
-          "Link": true
-        }
-      }
     },
     "Cta": {
       "parents": {
@@ -2079,6 +2033,59 @@ export const dependencies = {
       "children": {}
     }
   },
+  "MoleculeDashboard": {
+    "BattleRequestList": {
+      "parents": {
+        "TemplateCommon": {
+          "Dashboard": true
+        }
+      },
+      "children": {
+        "Molecule": {
+          "BattleRequest": true
+        }
+      }
+    },
+    "CardsList": {
+      "parents": {
+        "TemplateCommon": {
+          "Dashboard": true
+        }
+      },
+      "children": {
+        "Molecule": {
+          "Card": true
+        }
+      }
+    },
+    "NewsList": {
+      "parents": {
+        "TemplateCommon": {
+          "Dashboard": true
+        }
+      },
+      "children": {
+        "Molecule": {
+          "News": true
+        },
+        "Atom": {
+          "Loader": true
+        }
+      }
+    },
+    "StartBattle": {
+      "parents": {
+        "TemplateCommon": {
+          "Dashboard": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Link": true
+        }
+      }
+    }
+  },
   "MoleculeForum": {
     "ForumComment": {
       "parents": {
@@ -2242,6 +2249,9 @@ export const dependencies = {
         },
         "Organism": {
           "CardsGrid": true
+        },
+        "Atom": {
+          "Button": true
         }
       }
     }

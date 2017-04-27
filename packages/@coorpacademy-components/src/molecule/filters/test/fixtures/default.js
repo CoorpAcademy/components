@@ -8,7 +8,7 @@ const timer = rangeslider.props;
 
 export default {
   props: {
-    titlepage: 'Catalog',
+    titlepage: 'Catalog: 8',
     ctalabelfilter: 'Filter',
     ctalabelsort: 'Sort by',
     thematic: {...selectFilter,
