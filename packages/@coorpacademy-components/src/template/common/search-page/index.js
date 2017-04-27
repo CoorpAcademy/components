@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
+import isEmpty from 'lodash/isEmpty';
 import Filters from '../../../molecule/filters';
 import Button from '../../../atom/button';
 import CardsGrid from '../../../organism/cards-grid';
