@@ -152,8 +152,6 @@
   display: none;
 }
 
-@media desktop {}
-
 @media tablet {
   .wrapper {
     flex-wrap: wrap;
@@ -167,147 +165,161 @@
   }
 }
 
+.default,
+.wrapperSortBy,
+.activeDefault,
+.activeWrapperSortBy {
+  display: inline-block;
+  width: 50%;
+  box-sizing: border-box;
+  height: 50px;
+  padding: 0;
+  background: borderGrey;
+}
+.choice {
+  flex: 100%;
+  max-width: 100%;
+  position: relative;
+}
+.default {
+  border-right: solid 1px light;
+}
+
+.activeDefault {
+  border-right: solid 1px light;
+  background: light;
+}
+
+.activeWrapperSortBy {
+  border-left: solid 1px light;
+  background: light;
+}
+
+.wrapperSortBy {
+  border-left: solid 1px light;
+}
+.wrapper {
+  padding: 25px 0 0 0;
+}
+.default .title:before,
+.wrapperSortBy .title:before,
+.activeDefault .title:before,
+.activeWrapperSortBy .title:before {
+  font-family: FontAwesome;
+}
+
+.activeDefault .title,
+.activeWrapperSortBy .title,
+.activeDefault .title:before,
+.activeWrapperSortBy .title:before {
+  color: inherit;
+}
+
+.activeDefault .title:before,
+.activeWrapperSortBy .title:before {
+  transform: rotate(180deg);
+  transition: transform .4s ease-out;
+}
+.default .title:before,
+.wrapperSortBy .title:before {
+  transform: rotate(0deg);
+  transition: transform .4s ease-out;
+}
+
+
+.title {
+  display: block;
+  color: darkGrey;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 50px;
+  text-align: center;
+  font-family: Open Sans;
+}
+.title:before {
+  display: block;
+  right: 25%;
+}
+
+.wrapperFilters,
+.sorting,
+.activeWrapperFilters,
+.activeSorting {
+  height: auto;
+  width: 100%;
+  padding: 0;
+  box-sizing: border-box;
+  background: light;
+  position: absolute;
+  z-index: 3;
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .5);
+  display: block;
+}
+
+.wrapperFilters,
+.sorting {
+  visibility: hidden;
+  z-index: -1;
+  transform: translateY(-100%);
+  transition: all .4s ease-out;
+}
+
+.activeWrapperFilters,
+.activeSorting {
+  visibility: visible;
+  z-index: -1;
+  transform: translateY(0);
+  transition: all .4s ease-out;
+}
+
+.wrapperFilters .wrapper,
+.activeWrapperFilters .wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  items-algin: flex-start;
+}
+
+.activeWrapperFilters .wrapper label {
+  width: 25%;
+  margin-left: 0;
+}
+
+.sorting .mainTitle ,
+.activeSorting .mainTitle {
+  display: none;
+}
+
+.sorting,
+.activeSorting {
+  display: block;
+  margin: 0;
+  padding-top: 16px;
+}
+
+.sorting .select label div,
+.activeSorting .select label div {
+  top: 50%;
+}
+
+.sorting .select select,
+.activeSorting .select select  {
+  background: borderGrey;
+}
+
+.sorting .select label span,
+.activeSorting .select label span {
+  display: none;
+}
+
 @media mobile {
-  .default,
-  .wrapperSortBy,
-  .activeDefault,
-  .activeWrapperSortBy {
-    display: inline-block;
-    width: 50%;
-    box-sizing: border-box;
-    height: 50px;
-    padding: 0;
-    background: borderGrey;
-  }
-  .choice {
-    flex: 100%;
-    max-width: 100%;
-    position: relative;
-  }
-  .default {
-    border-right: solid 1px light;
-  }
-
-  .activeDefault {
-    border-right: solid 1px light;
-    background: light;
-  }
-
-  .activeWrapperSortBy {
-    border-left: solid 1px light;
-    background: light;
-  }
-
-  .wrapperSortBy {
-    border-left: solid 1px light;
-  }
-  .wrapper {
-    padding: 25px 0 0 0;
-  }
-  .default .title:before,
-  .wrapperSortBy .title:before,
-  .activeDefault .title:before,
-  .activeWrapperSortBy .title:before {
-    font-family: FontAwesome;
-  } 
-
-  .activeDefault .title,
-  .activeWrapperSortBy .title,
-  .activeDefault .title:before,
-  .activeWrapperSortBy .title:before {
-    color: inherit;
-  } 
-
-  .activeDefault .title:before,
-  .activeWrapperSortBy .title:before {
-    transform: rotate(180deg);
-    transition: transform .4s ease-out;
-  }
-  .default .title:before,
-  .wrapperSortBy .title:before {
-    transform: rotate(0deg);
-    transition: transform .4s ease-out;
-  }
-
-
-  .title {
-    display: block;
-    color: darkGrey;
-    width: 100%;
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 50px;
-    text-align: center;
-    font-family: Open Sans;
-  }
-  .title:before {
-    display: block;
-    right: 25%;
-  }
-
-  .wrapperFilters,
-  .sorting,
-  .activeWrapperFilters,
-  .activeSorting {
-    width: 100%;
-    height: auto;
-    padding: 0;
-    box-sizing: border-box;
-    background: light;
-    position: absolute;
-    z-index: 3;
-    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .5);
-    display: block;
-  }
-
-  .wrapperFilters,
-  .sorting {
-    visibility: hidden;
-    z-index: -1;
-    transform: translateY(-100%);
-    transition: all .4s ease-out;
-  }
-  
-  .activeWrapperFilters,
-  .activeSorting {
-    visibility: visible;
-    z-index: -1;
-    transform: translateY(0);
-    transition: all .4s ease-out;
-  }
-
-  .wrapperFilters .wrapper,
-  .activeWrapperFilters .wrapper {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    items-algin: flex-start;
-  }
-
-  .activeWrapperFilters .wrapper select {
-    width: 100%;
-    margin-left: 0;
-  }
-
-  .sorting .mainTitle ,
-  .activeSorting .mainTitle {
-    display: none;
-  }
-
-  .sorting,
-  .activeSorting {
-    display: block;
-    margin: 0;
-    padding-top: 16px;
-  }
-
   .sorting label,
   .activeSorting label {
     margin: 0;
     width: 100%;
   }
 
-  .sorting .select, 
+  .sorting .select,
   .activeSorting .select {
     display: inline-block;
     align-items: center;
@@ -315,20 +327,11 @@
     box-sizing: border-box;
     width: 100%;
   }
-  
-  .sorting .select label div,
-  .activeSorting .select label div {
-    top: 50%;
-  }
 
-  .sorting .select select,
-  .activeSorting .select select  {
-    background: borderGrey;
-  }
-
-  .sorting .select label span,
-  .activeSorting .select label span {
-    display: none;
+  .wrapperFilters .wrapper,
+  .activeWrapperFilters .wrapper,
+  .activeWrapperFilters .wrapper label {
+    width: 100%;
   }
 
   .wrapperFilters .CTAfilter,
