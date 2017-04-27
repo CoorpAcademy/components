@@ -11,7 +11,7 @@ export default {
     searchFilters,
     clearFilters,
     cards: {
-        list: []
+      list: []
     },
     noresultsfound: 'Sorry no result available'
   }
