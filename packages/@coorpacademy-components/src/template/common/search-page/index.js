@@ -18,7 +18,7 @@ const SearchPage = (props, context) => {
   const {skin} = context;
   const defaultColor = getOr('#00B0FF', 'common.primary', skin);
 
-  const cardsView = _.isEmpty(cards) ? (
+  const cardsView = isEmpty(cards) ? (
     <div className={style.noresults}>
       <div>{noresultsfound}</div>
       <Button {...clearFilters}
