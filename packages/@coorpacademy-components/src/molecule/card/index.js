@@ -100,11 +100,14 @@ const Card = (props, context) => {
             {type}
           </div>
           <div className={style.title}>
-            <div>
+            <div title={title}>
               {title}
             </div>
           </div>
-          <div className={style.author}>
+          <div
+            title={author}
+            className={style.author}
+          >
             {author}
           </div>
         </div>
