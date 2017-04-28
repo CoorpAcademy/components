@@ -38,7 +38,7 @@
   "Show": "Voir",
   "zuora_discount_code": "Code promo",
   "zuora_discount_code_submit": "Valider",
-  "subscription_price": "${price} ${currency} par mois",
+  "subscription_price": "${price} ${currency} TTC par mois",
   "product_desc_culture": "Culture Digitale : Tous les niveaux complets",
   "product_desc_partnership": "Toutes les formations de nos partenaires",
   "product_desc_battle": "Battle mode",
