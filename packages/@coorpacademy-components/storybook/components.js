@@ -269,7 +269,9 @@ import DisciplineScopeFixtureMedias from '../src/molecule/discipline-scope/test/
 import DisciplineScopeFixtureWithOnclick from '../src/molecule/discipline-scope/test/fixtures/with-onclick';
 import FiltersFixtureDefault from '../src/molecule/filters/test/fixtures/default';
 import FiltersFixtureOne from '../src/molecule/filters/test/fixtures/one';
+import FiltersFixtureOpened from '../src/molecule/filters/test/fixtures/opened';
 import FiltersFixtureThree from '../src/molecule/filters/test/fixtures/three';
+import FiltersFixtureTwoOpened from '../src/molecule/filters/test/fixtures/two-opened';
 import FiltersFixtureTwo from '../src/molecule/filters/test/fixtures/two';
 import FiltersFixtureZero from '../src/molecule/filters/test/fixtures/zero';
 import MenuListFixtureDefault from '../src/molecule/menu-list/test/fixtures/default';
@@ -843,7 +845,9 @@ export const fixtures = {
     Filters: {
       Default: FiltersFixtureDefault,
       One: FiltersFixtureOne,
+      Opened: FiltersFixtureOpened,
       Three: FiltersFixtureThree,
+      TwoOpened: FiltersFixtureTwoOpened,
       Two: FiltersFixtureTwo,
       Zero: FiltersFixtureZero
     },

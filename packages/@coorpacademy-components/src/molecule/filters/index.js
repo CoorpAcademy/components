@@ -11,11 +11,9 @@ class Filters extends React.Component {
   constructor(props, context) {
     super(props);
     this.state = {
-      opened: false,
-      filter: false,
+      filter: props.isOpen,
       sorted: false
     };
-    this.handleOnClick = this.handleOnClick.bind(this);
     this.handleOpenFilter = this.handleOpenFilter.bind(this);
     this.handleOpenSort = this.handleOpenSort.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
@@ -23,10 +21,6 @@ class Filters extends React.Component {
 
   shouldComponentUpdate(nextProps, nextState, nextContext) {
     return shallowCompare(this, nextProps, nextState, nextContext);
-  }
-
-  handleOnClick() {
-    this.setState({opened: !this.state.opened});
   }
 
   handleOpenFilter() {
@@ -130,8 +124,8 @@ class Filters extends React.Component {
         <div className={filtersActive ? style.activeWrapperFilters : style.wrapperFilters} >
           <div className={emptyFilters ? style.wrapperNone : style.wrapper}>
             {thematicView}
-            {timerView}
             {coursesView}
+            {timerView}
             {authorsView}
           </div>
           <div
@@ -167,6 +161,7 @@ Filters.contextTypes = {
 };
 
 Filters.propTypes = {
+  isOpen: PropTypes.bool,
   titlepage: PropTypes.string,
   thematic: PropTypes.object,
   timer: PropTypes.object,

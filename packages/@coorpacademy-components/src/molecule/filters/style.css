@@ -29,29 +29,6 @@
   box-sizing: border-box;
 }
 
-.choice {
-  flex: 50%;
-  min-width: 22%;
-  margin: 8px 16px;
-  box-sizing: border-box;
-}
-
-.choice label {
-  margin: 0;
-}
-
-.choice label span {
-    font-size: 13px;
-    color: darkGrey;
-    user-select: none;
-}
-
-.choice select,
-.sorting select {
-  font-size: 12px;
-  background: borderGrey;
-}
-
 .wrapperFilters {
   display: flex;
   width: 100%;
@@ -67,12 +44,10 @@
 .wrapper {
   display: flex;
   flex-wrap: nowrap;
-  padding: 25px 0;
+  padding: 25px;
   box-sizing: border-box;
   width: 100%;
   height: auto;
-  align-items: center;
-  justify-content: center;
 }
 
 .title {
@@ -141,28 +116,8 @@
   margin-top: -20px;
 }
 
-.select {
-  display: flex;
-  width: 80%;
-  align-items: center;
-  justify-content: flex-end;
-}
-
 .CTAfilter {
   display: none;
-}
-
-@media tablet {
-  .wrapper {
-    flex-wrap: wrap;
-  }
-
-  .wrapperFilters {
-    padding: 0 32px;
-  }
-  .choice {
-    flex: 43%;
-  }
 }
 
 .default,
@@ -176,10 +131,27 @@
   padding: 0;
   background: borderGrey;
 }
+
 .choice {
-  flex: 100%;
-  max-width: 100%;
+  width: 25%;
+  padding: 10px 20px;
   position: relative;
+}
+
+.choice label {
+  margin: 0;
+}
+
+.choice label span {
+  font-size: 13px;
+  color: darkGrey;
+  user-select: none;
+}
+
+.choice select,
+.sorting select {
+  font-size: 12px;
+  background: borderGrey;
 }
 .default {
   border-right: solid 1px light;
@@ -197,9 +169,6 @@
 
 .wrapperSortBy {
   border-left: solid 1px light;
-}
-.wrapper {
-  padding: 25px 0 0 0;
 }
 .default .title:before,
 .wrapperSortBy .title:before,
@@ -256,6 +225,9 @@
   box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .5);
   display: block;
 }
+.activeSorting {
+  padding: 25px;
+}
 
 .wrapperFilters,
 .sorting {
@@ -276,12 +248,10 @@
 .wrapperFilters .wrapper,
 .activeWrapperFilters .wrapper {
   display: flex;
-  flex-wrap: wrap;
-  items-algin: flex-start;
+  justify-content: flex-start;
 }
 
 .activeWrapperFilters .wrapper label {
-  width: 25%;
   margin-left: 0;
 }
 
@@ -294,7 +264,6 @@
 .activeSorting {
   display: block;
   margin: 0;
-  padding-top: 16px;
 }
 
 .sorting .select label div,
@@ -312,7 +281,53 @@
   display: none;
 }
 
+@media desktop {
+  .sorting label,
+  .activeSorting .select {
+    width: 25%;
+  }
+}
+
+@media tablet {
+  .wrapper {
+    flex-wrap: wrap;
+    padding: 10px;
+  }
+
+  .choice {
+    width: 45%;
+    flex-grow: 1;
+    padding: 10px;
+  }
+
+  .wrapperFilters {
+    padding: 0 32px;
+  }
+
+  .select {
+    select: 50%;
+  }
+
+  .sorting label,
+  .activeSorting .select {
+    width: 50%;
+  }
+}
+
 @media mobile {
+  .activeSorting {
+    padding: 10px 0px 0px;
+  }
+
+  .wrapper {
+    padding: 0;
+  }
+
+  .choice{
+    padding: 10px 0;
+    width: 100%;
+  }
+
   .sorting label,
   .activeSorting label {
     margin: 0;
@@ -323,7 +338,6 @@
   .activeSorting .select {
     display: inline-block;
     align-items: center;
-    padding: 0px 16px;
     box-sizing: border-box;
     width: 100%;
   }
