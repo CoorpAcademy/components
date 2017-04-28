@@ -215,15 +215,11 @@
 .sorting,
 .activeWrapperFilters,
 .activeSorting {
-  height: auto;
   width: 100%;
   padding: 0;
   box-sizing: border-box;
   background: light;
-  position: absolute;
-  z-index: 3;
   box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .5);
-  display: block;
 }
 .activeSorting {
   padding: 25px;
@@ -231,18 +227,12 @@
 
 .wrapperFilters,
 .sorting {
-  visibility: hidden;
-  z-index: -1;
-  transform: translateY(-100%);
-  transition: all .4s ease-out;
+  display: none;
 }
 
 .activeWrapperFilters,
 .activeSorting {
-  visibility: visible;
-  z-index: -1;
-  transform: translateY(0);
-  transition: all .4s ease-out;
+  display: block;
 }
 
 .wrapperFilters .wrapper,
@@ -258,12 +248,6 @@
 .sorting .mainTitle ,
 .activeSorting .mainTitle {
   display: none;
-}
-
-.sorting,
-.activeSorting {
-  display: block;
-  margin: 0;
 }
 
 .sorting .select label div,
