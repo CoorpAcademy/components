@@ -11,9 +11,10 @@
   display: block;
   width: 100%;
   position: relative;
-  z-index: 4;
+  z-index: 5;
   font-family: "Open Sans";
-  background: white;
+  background: light;
+  min-height: 50px;
 }
 
 .wrapperNone {
@@ -27,6 +28,17 @@
   background: white;
   justify-content: center;
   box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.activeDefault {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
 }
 
 .wrapperFilters {
@@ -70,6 +82,17 @@
   justify-content: center;
   width: 100%;
   background: light;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.activeWrapperSortBy {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
 }
 
 .sorting {
@@ -216,23 +239,33 @@
 .activeWrapperFilters,
 .activeSorting {
   width: 100%;
-  padding: 0;
+  padding: 50px 0 0;
   box-sizing: border-box;
   background: light;
-  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .5);
 }
 .activeSorting {
-  padding: 25px;
+  padding: 75px 25px 25px;
 }
 
-.wrapperFilters,
-.sorting {
+.sorting,
+.wrapperFilters {
   display: none;
+  animation: close 1s ease-out forwards;
 }
 
-.activeWrapperFilters,
-.activeSorting {
-  display: block;
+.activeSorting,
+.activeWrapperFilters {
+  visibility: visible;
+  animation: open 0.2s ease-out forwards;
+}
+
+@keyframes open {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .wrapperFilters .wrapper,
