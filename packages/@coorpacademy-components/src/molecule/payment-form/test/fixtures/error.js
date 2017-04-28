@@ -13,6 +13,18 @@ export default {
     cardExpiryHasError: true,
     onCardCvcChange() {},
     cardCvcHasError: true,
-    submitButtonEnabled: false
+    submitButtonEnabled: false,
+    stripeInstance: () => {
+        return {elements: () => {
+          return {create: (elementName, elementOptions) => {
+            return {
+              on: (eventListend, eventHandler) => {},
+              off: (eventListend, eventHandler) => {},
+              mount: elementId => {},
+              unmount: () => {}
+            };
+          }};
+        }};
+      }
   }
 };

@@ -22,7 +22,19 @@ export default {
       onCardNumberChange() {},
       onCardExpiryChange() {},
       onCardCvcChange() {},
-      submitButtonEnabled: true
+      submitButtonEnabled: true,
+      stripeInstance: () => {
+        return {elements: () => {
+          return {create: (elementName, elementOptions) => {
+            return {
+              on: (eventListend, eventHandler) => {},
+              off: (eventListend, eventHandler) => {},
+              mount: elementId => {},
+              unmount: () => {}
+            };
+          }};
+        }};
+      }
     },
     backUrl: 'back url'
   }

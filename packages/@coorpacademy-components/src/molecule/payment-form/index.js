@@ -163,6 +163,7 @@ PaymentForm.contextTypes = {
 
 PaymentForm.propTypes = {
   stripeKeyPublic: PropTypes.string.isRequired,
+  stripeInstance: PropTypes.func.isRequired,
   onSubscription: PropTypes.func.isRequired,
   checkImage: PropTypes.string.isRequired,
   cardsImage: PropTypes.string.isRequired,
