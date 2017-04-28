@@ -15,16 +15,16 @@ export default {
     cardCvcHasError: true,
     submitButtonEnabled: false,
     stripeInstance: () => {
-        return {elements: () => {
-          return {create: (elementName, elementOptions) => {
-            return {
-              on: (eventListend, eventHandler) => {},
-              off: (eventListend, eventHandler) => {},
-              mount: elementId => {},
-              unmount: () => {}
-            };
-          }};
+      return {elements: () => {
+        return {create: (elementName, elementOptions) => {
+          return {
+            on: (eventListend, eventHandler) => {},
+            off: (eventListend, eventHandler) => {},
+            mount: elementId => {},
+            unmount: () => {}
+          };
         }};
-      }
+      }};
+    }
   }
 };
