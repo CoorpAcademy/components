@@ -345,6 +345,7 @@ import BrandUploadFixtureDefault from '../src/organism/brand-upload/test/fixture
 import BrandUploadFixtureLoading from '../src/organism/brand-upload/test/fixtures/loading';
 import CardsGridFixtureCatalog from '../src/organism/cards-grid/test/fixtures/catalog';
 import CardsGridFixtureEmpty from '../src/organism/cards-grid/test/fixtures/empty';
+import CardsGridFixtureLoading from '../src/organism/cards-grid/test/fixtures/loading';
 import CardsGridFixtureMany from '../src/organism/cards-grid/test/fixtures/many';
 import CatalogCardsFixtureDefault from '../src/organism/catalog-cards/test/fixtures/default';
 import CatalogCardsFixtureLoading from '../src/organism/catalog-cards/test/fixtures/loading';
@@ -959,6 +960,7 @@ export const fixtures = {
     CardsGrid: {
       Catalog: CardsGridFixtureCatalog,
       Empty: CardsGridFixtureEmpty,
+      Loading: CardsGridFixtureLoading,
       Many: CardsGridFixtureMany
     },
     CatalogCards: {
@@ -1624,6 +1626,9 @@ export const dependencies = {
       "children": {
         "Molecule": {
           "Card": true
+        },
+        "Atom": {
+          "Loader": true
         }
       }
     },
@@ -1898,6 +1903,7 @@ export const dependencies = {
       "parents": {
         "Organism": {
           "Discussion": true,
+          "CardsGrid": true,
           "BrandTable": true
         },
         "MoleculeDashboard": {

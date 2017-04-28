@@ -14,6 +14,12 @@
   justify-content: center;
 }
 
+.loader {
+  position: relative;
+  height: 100px;
+  width: 100%;
+}
+
 @media desktop {
   .default {
   }
