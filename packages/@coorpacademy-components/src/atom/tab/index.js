@@ -3,7 +3,6 @@ import map from 'lodash/fp/map';
 import style from './style.css';
 
 const Tab = (props, context) => {
-  const { translate } = context;
   const handleTabClick = () => props.onClick(props.targetContent);
 
   return (
@@ -17,7 +16,6 @@ const Tab = (props, context) => {
       <div className={style.link}>
         {map(link => (
           <div
-            className={style.linkTitle}
             key={link.title}
           >
             {link.title}

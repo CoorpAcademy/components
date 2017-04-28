@@ -5,7 +5,7 @@ const SubscriptionPremiumDetails = (props, context) => {
   const { translate } = context;
 
   return (
-    <div className={style.premium}>
+    <div>
       <div className={style.premiumTitle}>
         <img
           className={style.premiumTitleImage}
