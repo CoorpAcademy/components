@@ -38,7 +38,7 @@
   "Show": "Show",
   "zuora_discount_code": "Promo code",
   "zuora_discount_code_submit": "Apply",
-  "subscription_price": "${currency}${price} per month",
+  "subscription_price": "${currency}${price} VAT per month",
   "product_desc_culture": "Digital culture: All levels completed",
   "product_desc_partnership": "All training courses of our partners",
   "product_desc_battle": "Battle mode",
