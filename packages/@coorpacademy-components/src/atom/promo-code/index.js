@@ -1,5 +1,4 @@
 import React, {PropTypes} from 'react';
-import shallowCompare from '../../util/shallow-compare';
 import style from './style.css';
 
 const PromoCode = (props, context) => {

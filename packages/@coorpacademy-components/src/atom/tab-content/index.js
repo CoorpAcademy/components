@@ -2,7 +2,6 @@ import React, {PropTypes} from 'react';
 import style from './style.css';
 
 const TabContent = (props, context) => {
-  const { translate } = context;
   const { tabTitle } = props;
 
   const backgroundClassName = props.hideContentBackground ? style.hiddenBackground : style.greyBackground;
