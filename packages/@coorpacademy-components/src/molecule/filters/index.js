@@ -24,24 +24,28 @@ class Filters extends React.Component {
   }
 
   handleOpenFilter() {
+    const newValue = !this.state.filter;
+
     this.setState({
-      filter: !this.state.filter,
+      filter: newValue,
       sorted: false
     });
 
     if (this.props.onToggleFilters) {
-      this.props.onToggleFilters(this.state.filter);
+      this.props.onToggleFilters(newValue);
     }
   }
 
   handleOpenSort() {
+    const newValue = !this.state.sorted;
+
     this.setState({
-      sorted: !this.state.sorted,
+      sorted: newValue,
       filter: false
     });
 
     if (this.props.onToggleSorts) {
-      this.props.onToggleSorts(this.state.sorted);
+      this.props.onToggleSorts(newValue);
     }
   }
 
