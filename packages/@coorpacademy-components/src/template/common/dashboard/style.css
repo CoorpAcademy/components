@@ -6,6 +6,7 @@
 .wrapper {
   width: 100%;
   background-color: #ffffff;
+  padding-bottom: 20px;
 }
 
 @media desktop {
