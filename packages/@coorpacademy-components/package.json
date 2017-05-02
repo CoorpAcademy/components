@@ -54,8 +54,8 @@
     "react-dom": "^15.5.3"
   },
   "devDependencies": {
-    "@coorpacademy/components-bundler": "^5.0.16-alpha.9e5ef7ad",
-    "@coorpacademy/translate": "^5.0.16-alpha.9e5ef7ad",
+    "@coorpacademy/components-bundler": "^5.0.2",
+    "@coorpacademy/translate": "^5.0.2",
     "@kadira/storybook": "^2.35.3",
     "@kadira/storybook-addon-knobs": "^1.7.1",
     "autoprefixer": "^6.4.1",
