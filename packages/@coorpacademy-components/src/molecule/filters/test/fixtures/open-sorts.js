@@ -1,10 +1,10 @@
 import defaultsDeep from 'lodash/fp/defaultsDeep';
-import Two from './two';
+import Default from './default';
 
-const {props} = Two;
+const {props} = Default;
 
 export default {
   props: defaultsDeep(props, {
-    openFilters: true
+    openSorts: true
   })
 };

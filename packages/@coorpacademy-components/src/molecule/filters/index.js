@@ -11,8 +11,8 @@ class Filters extends React.Component {
   constructor(props, context) {
     super(props);
     this.state = {
-      filter: props.isOpen,
-      sorted: false
+      filter: !!props.openFilters,
+      sorted: !!props.openSorts
     };
     this.handleOpenFilter = this.handleOpenFilter.bind(this);
     this.handleOpenSort = this.handleOpenSort.bind(this);
@@ -28,6 +28,10 @@ class Filters extends React.Component {
       filter: !this.state.filter,
       sorted: false
     });
+
+    if (this.props.onToggleFilters) {
+      this.props.onToggleFilters(this.state.filter);
+    }
   }
 
   handleOpenSort() {
@@ -35,7 +39,12 @@ class Filters extends React.Component {
       sorted: !this.state.sorted,
       filter: false
     });
+
+    if (this.props.onToggleSorts) {
+      this.props.onToggleSorts(this.state.sorted);
+    }
   }
+
   handleSearch() {
     this.setState({
       sorted: false,
@@ -48,14 +57,15 @@ class Filters extends React.Component {
 
   render() {
     const {
-      titlepage,
       timer,
       thematic,
       authors,
       sorting,
       courses,
-      ctalabelfilter,
-      ctalabelsort
+      filterCTALabel,
+      filterTabLabel,
+      sortCTALabel,
+      sortTabLabel
     } = this.props;
     const {skin} = this.context;
     const defaultColor = getOr('#00B0FF', 'common.primary', skin);
@@ -105,7 +115,7 @@ class Filters extends React.Component {
             }}
             onClick={this.handleOpenFilter}
           >
-            {ctalabelfilter}
+            {filterTabLabel}
           </div>
         </div>
         <div
@@ -118,7 +128,7 @@ class Filters extends React.Component {
             }}
             onClick={this.handleOpenSort}
           >
-            {ctalabelsort}
+            {sortTabLabel}
           </div>
         </div>
         <div className={filtersActive ? style.activeWrapperFilters : style.wrapperFilters} >
@@ -135,11 +145,10 @@ class Filters extends React.Component {
             }}
             onClick={this.handleSearch}
           >
-            {ctalabelfilter}
+            {filterCTALabel}
           </div>
         </div>
         <div className={sortingActive ? style.activeSorting : style.sorting} >
-          <div className={style.mainTitle}>{titlepage}</div>
           {sortView}
           <div
             className={`${style.CTAfilter} ${hoverFill}`}
@@ -148,7 +157,7 @@ class Filters extends React.Component {
             }}
             onClick={this.handleSearch}
           >
-            {ctalabelsort}
+            {sortCTALabel}
           </div>
         </div>
       </div>
@@ -161,14 +170,20 @@ Filters.contextTypes = {
 };
 
 Filters.propTypes = {
-  isOpen: PropTypes.bool,
-  titlepage: PropTypes.string,
+  filterCTALabel: PropTypes.string,
+  filterTabLabel: PropTypes.string,
+  sortCTALabel: PropTypes.string,
+  sortTabLabel: PropTypes.string,
+  openFilters: PropTypes.bool,
+  openSorts: PropTypes.bool,
   thematic: PropTypes.object,
   timer: PropTypes.object,
   courses: PropTypes.object,
   authors: PropTypes.object,
   sorting: PropTypes.object,
-  onSearch: PropTypes.func
+  onSearch: PropTypes.func,
+  onToggleFilters: PropTypes.func,
+  onToggleSorts: PropTypes.func
 };
 
 export default Filters;
