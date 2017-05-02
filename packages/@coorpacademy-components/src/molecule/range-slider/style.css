@@ -30,7 +30,12 @@
   padding: 0px 7px;
   border-radius: 25px;
   display: table;
-  margin: 15px auto;
+  margin: 0px auto 15px;
+}
+
+.titleLabel {
+  composes: text;
+  font-size: 13px;
 }
 
 .label {

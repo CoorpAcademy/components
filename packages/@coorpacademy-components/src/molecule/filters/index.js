@@ -114,9 +114,6 @@ class Filters extends React.Component {
         <div className={filtersActive ? style.activeDefault : style.default}>
           <div
             className={style.title}
-            style={{
-              color: defaultColor
-            }}
             onClick={this.handleOpenFilter}
           >
             {filterTabLabel}
@@ -127,9 +124,6 @@ class Filters extends React.Component {
         >
           <div
             className={style.title}
-            style={{
-              color: defaultColor
-            }}
             onClick={this.handleOpenSort}
           >
             {sortTabLabel}

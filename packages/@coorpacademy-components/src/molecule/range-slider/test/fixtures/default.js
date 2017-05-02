@@ -1,5 +1,6 @@
 export default {
   props: {
+    label: 'Time:',
     labelMin: '0',
     labelMax: '∞',
     handle1: {

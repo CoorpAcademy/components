@@ -66,13 +66,21 @@
 }
 
 .title {
-  display: none;
+  display: block;
+  color: darkGrey;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 50px;
+  text-align: center;
+  font-family: Open Sans;
   position: relative;
   composes: fa from '../../variables/fontawesome.css';
   composes: fa-chevron-down from '../../variables/fontawesome.css';
 }
 .title:before {
-  display: none;
+  display: block;
+  right: 25%;
   position: absolute;
   font-size: 14px;
   right: 35%;
@@ -214,22 +222,6 @@
 .wrapperSortBy .title:before {
   transform: rotate(0deg);
   transition: transform .4s ease-out;
-}
-
-
-.title {
-  display: block;
-  color: darkGrey;
-  width: 100%;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 50px;
-  text-align: center;
-  font-family: Open Sans;
-}
-.title:before {
-  display: block;
-  right: 25%;
 }
 
 .wrapperFilters,

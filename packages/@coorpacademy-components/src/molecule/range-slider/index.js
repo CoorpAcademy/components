@@ -201,6 +201,7 @@ class RangeSlider extends React.Component {
 
     const {
       title,
+      label,
       labelMin,
       labelMax
     } = this.props;
@@ -208,6 +209,7 @@ class RangeSlider extends React.Component {
     const defaultColor = getOr('#00B0FF', 'common.primary', skin);
     return (
       <div className={style.default}>
+        <span className={style.titleLabel}>{label}</span>
         <p className={style.title}>{title}</p>
         <div
           className={style.rail} // eslint-disable-next-line no-return-assign
@@ -264,6 +266,7 @@ RangeSlider.propTypes = {
   handle2: PropTypes.shape({
     x: PropTypes.number
   }),
+  label: PropTypes.string,
   title: PropTypes.string,
   labelMin: PropTypes.string,
   labelMax: PropTypes.string,
