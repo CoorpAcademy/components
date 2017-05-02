@@ -33,7 +33,9 @@ const BattleRequest = (props, context) => {
           </span>
         </div>
         <div className={style.discipline}>
-          {discipline}
+          <div className={style.disciplineName}>
+            {discipline}
+          </div>
           <div className={style.level}>
             {level}
           </div>
