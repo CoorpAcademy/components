@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactMarkdown from 'react-markdown';
 import PropTypes from 'prop-types';
 import Cta from '../../atom/cta';
 import Link from '../../atom/link';
@@ -28,7 +27,7 @@ const News = (props, context) => {
         </div>
         <div className={style.date}>{date}</div>
         <div className={style.description}>
-          <ReactMarkdown source={description} />
+          {description}
         </div>
         <div className={style.bottom}>
           <div className={style.author}>
