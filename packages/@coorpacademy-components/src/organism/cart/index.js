@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import ProductCard from '../../molecule/product-card';
 import Link from '../../atom/link';
 import PromoCode from '../../atom/promo-code';
