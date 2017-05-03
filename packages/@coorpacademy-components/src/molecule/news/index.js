@@ -27,7 +27,11 @@ const News = (props, context) => {
         </div>
         <div className={style.date}>{date}</div>
         <div className={style.description}>
-          {description}
+          <div
+            dangerouslySetInnerHTML={{ // eslint-disable-line react/no-danger
+              __html: description
+            }}
+          />
         </div>
         <div className={style.bottom}>
           <div className={style.author}>
