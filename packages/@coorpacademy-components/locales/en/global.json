@@ -46,14 +46,12 @@
   "product_desc_forum": "Forum",
   "product_desc_certificates": "Coorpacademy certificates",
   "product_cancel": "Cancel at any time.",
-  "decimal_separator": ".",
   "accepted_cards": "Credit or debit card",
   "secured_payment": "Secure server",
   "payment_form_submit": "Start my Coorpacademy premium subscription",
-  "subscription_disclaimer": "You agree to immediately get access to Coorpacademy Premium \"à la carte\". You also agree that refunds are only possible during the period of 14 days as long as you do not have access to Spotify. To view the terms of use, click here. This payment method is not compatible with a free trial or similar launch discounts.",
+  "subscription_disclaimer": "You agree to immediately get access to Coorpacademy Premium “à la carte”. You also agree that you will be charged from transaction date to the end of the month, for the first invoice. Then you will be charged the first day of each month.",
   "back_to_catalog": "Back to courses",
   "cart_title": "Go to the next level!",
-  "promo_code_not_found_error": "The promo code was not found.",
   "subscription_and_payment": "Subscription and payment",
   "confirm_unsubscribe": "Are you sure you want to unsubscribe?",
   "keep_subscription": "Keep my subscription",
@@ -69,6 +67,5 @@
   "subscription_premium_description_part3_with_link": "to cancel your subscription?",
   "EUR": "€",
   "USD": "$",
-  "premium_unsubscribe_confirmation": "We confirm the cancelling of your subscription which will be effective starting from next month.\n\nIn the meantime, you can continue to enjoy our content on the Coorpacademy platform.",
-  "message_not_processed": "We currently have technical problems. Your request will be processed as soon as possible and you will receive a confirmation email."
+  "premium_unsubscribe_confirmation": "We confirm the cancelling of your subscription which will be effective starting from next month.\n\nIn the meantime, you can continue to enjoy our content on the Coorpacademy platform."
 }
