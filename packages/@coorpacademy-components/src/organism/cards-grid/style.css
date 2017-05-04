@@ -20,6 +20,10 @@
   width: 100%;
 }
 
+.card {
+  margin: 8px;
+}
+
 @media desktop {
   .default {
   }
@@ -34,5 +38,9 @@
   .default {
     flex-direction: column;
     padding: 0px 5px;
+  }
+
+  .card {
+    margin: 4px 0px;
   }
 }

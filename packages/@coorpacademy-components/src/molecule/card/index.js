@@ -1,12 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
+import keys from 'lodash/fp/keys';
 import style from './style.css';
+
+const viewStyle = {
+  grid: style.grid,
+  list: style.list
+};
 
 const Card = (props, context) => {
   const {skin} = context;
   const {
-    view,
+    view = 'grid',
     image,
     time,
     adaptiv,
@@ -21,8 +27,10 @@ const Card = (props, context) => {
     bottomOnClick
   } = props;
 
+  const lazyClass = title ? style.default : style.lazy;
+
   const defaultColor = getOr('#00B0FF', 'common.primary', skin);
-  const cardStyle = view === 'dashboard' ? style.grid : style.list;
+  const cardStyle = viewStyle[view];
 
   const calltoaction = cta ? (
     <div className={style.cta}>{cta}</div>
@@ -61,7 +69,7 @@ const Card = (props, context) => {
   return (
     <div className={cardStyle}>
       <div
-        className={style.default}
+        className={lazyClass}
         disabled={disabled}
       >
         <div
@@ -121,7 +129,7 @@ Card.contextTypes = {
 };
 
 Card.propTypes = {
-  view: PropTypes.string,
+  view: PropTypes.oneOf(keys(viewStyle)),
   image: PropTypes.string,
   time: PropTypes.string,
   disabled: PropTypes.bool,
