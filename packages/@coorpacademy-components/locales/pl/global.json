@@ -46,14 +46,12 @@
   "product_desc_forum": "Forum",
   "product_desc_certificates": "Coorpacademy certyfikaty",
   "product_cancel": "W każdej chwili zrezygnować.",
-  "decimal_separator": ".",
   "accepted_cards": "Karty kredytowej lub debetowej",
   "secured_payment": "Zabezpieczenia serwera",
   "payment_form_submit": "Rozpocznij subskrypcję premium Coorpacademy",
-  "subscription_disclaimer": "Zgadzasz się natychmiast uzyskać dostęp do Coorpacademy Premium \\\"à la carte\\\". Zgadzasz się również, że zwroty są możliwe tylko w okresie 14 dni, tak długo, jak nie masz dostęp do Spotify. Aby wyświetlić warunki korzystania, kliknij tutaj. Ta metoda płatności nie jest zgodny z bezpłatną wersję próbną lub podobnych uruchamiania rabaty.",
+  "subscription_disclaimer": "Zgadzasz się natychmiast uzyskać dostęp do Coorpacademy Premium \"à la carte\". Zgadzasz się również, że zapłacisz od daty transakcji do końca miesiąca, na pierwszej fakturze. Następnie zostanie opłata pierwszego dnia każdego miesiąca.",
   "back_to_catalog": "Wróć do kursów",
   "cart_title": "Przejdź do następnego poziomu!",
-  "promo_code_not_found_error": "Nie znaleziono kodu promocyjnego.",
   "subscription_and_payment": "Subskrypcja i płatności",
   "confirm_unsubscribe": "Czy na pewno chcesz anulować subskrypcję?",
   "keep_subscription": "Zachować mój abonament",
@@ -69,6 +67,5 @@
   "subscription_premium_description_part3_with_link": "Aby anulować subskrypcję?",
   "EUR": "€",
   "USD": "$",
-  "premium_unsubscribe_confirmation": "Możemy potwierdzić anulowanie subskrypcji, który będzie obowiązywać dopiero od następnej month.\n\nIn Tymczasem, nadal można korzystać z naszych treści na platformie Coorpacademy.",
-  "message_not_processed": "Obecnie mamy problemy techniczne. Będzie jak najszybciej przetworzyć żądania i otrzymasz wiadomość e-mail z potwierdzeniem."
+  "premium_unsubscribe_confirmation": "Możemy potwierdzić anulowanie subskrypcji, który będzie obowiązywać dopiero od następnej month.\n\nIn Tymczasem, nadal można korzystać z naszych treści na platformie Coorpacademy."
 }
