@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
 import keys from 'lodash/fp/keys';
-import style from './style.css';
 import Loader from '../../atom/loader';
+import style from './style.css';
 
 const viewStyle = {
   grid: style.grid,
