@@ -25,7 +25,9 @@ class RangeSlider extends React.Component {
   constructor(props, context) {
     super(props, context);
 
-    this.state = {};
+    this.state = {
+      railWidth: 0
+    };
 
     this.setX = this.setX.bind(this);
     this.handlePanStart = this.handlePanStart.bind(this);
@@ -33,12 +35,16 @@ class RangeSlider extends React.Component {
   }
 
   componentDidMount() {
+    const width = this.railWidth();
+    this.initHandlesPositions(width);
     window.addEventListener('resize', this.updatePositions);
   }
 
   componentWillReceiveProps() {
-    const width = this.railWidth();
-    this.initHandlesPositions(width);
+    if (this.state.railWidth === 0) {
+      const width = this.railWidth();
+      this.initHandlesPositions(width);
+    }
   }
 
   shouldComponentUpdate(nextProps, nextState, nextContext) {
