@@ -46,14 +46,12 @@
   "product_desc_forum": "Fórum",
   "product_desc_certificates": "Coorpacademy tanúsítványok",
   "product_cancel": "Áthúz bármikor.",
-  "decimal_separator": ".",
   "accepted_cards": "Hitel- vagy betéti kártya",
   "secured_payment": "Biztonságos szerveren",
   "payment_form_submit": "Elkezd az én-m Coorpacademy premium előfizetéssel",
-  "subscription_disclaimer": "Ön beleegyezik, hogy azonnal kap belépés-hoz Coorpacademy prémium \\\"à la carte\\\". Ön szintén elfogadja, hogy a visszatérítési lehetőség csak akkor lehetséges a 14 napos időszak alatt, amíg nem férnek a Spotify. A felhasználási feltételeket, kattintson ide. Ez a fizetési mód nem összeegyeztethető-val egy szabad próba- vagy hasonló dob kedvezmények.",
+  "subscription_disclaimer": "Ön beleegyezik, hogy azonnal kap belépés-hoz Coorpacademy Prémium \"à la carte\". Ön szintén elfogadja, hogy Ön felszámolásra kerül a tranzakció dátuma az első számlát a hónap végéig. Majd akkor kell fizetni minden hónap első napja.",
   "back_to_catalog": "Vissza a tanfolyamok",
   "cart_title": "Menj a következő szintre!",
-  "promo_code_not_found_error": "A promóciós kód nem található.",
   "subscription_and_payment": "Aláírás és fizetés",
   "confirm_unsubscribe": "Biztos benne, hogy le akarja mondani?",
   "keep_subscription": "Eltartás az én-m aláírás",
@@ -69,6 +67,5 @@
   "subscription_premium_description_part3_with_link": "megszakítja az előfizetést?",
   "EUR": "€",
   "USD": "$",
-  "premium_unsubscribe_confirmation": "Megerősítjük, hogy az érvénytelenítés az előfizetés, amely lesz hatásos, kezdve a következő month.\n\nIn időközben, továbbra is a tartalom a Coorpacademy platform.",
-  "message_not_processed": "Jelenleg van műszaki probléma. Kérését mielőbb feldolgozzuk, és kap egy visszaigazoló e-mailben."
+  "premium_unsubscribe_confirmation": "Megerősítjük, hogy az érvénytelenítés az előfizetés, amely lesz hatásos, kezdve a következő month.\n\nIn időközben, továbbra is a tartalom a Coorpacademy platform."
 }
