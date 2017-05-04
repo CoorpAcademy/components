@@ -46,14 +46,12 @@
   "product_desc_forum": "포럼",
   "product_desc_certificates": "Coorpacademy 인증서",
   "product_cancel": "언제 든 지 취소 합니다.",
-  "decimal_separator": ".",
   "accepted_cards": "신용 카드 또는 직불 카드",
   "secured_payment": "보안 서버",
   "payment_form_submit": "Coorpacademy 프리미엄 구독 시작",
-  "subscription_disclaimer": "Coorpacademy 프리미엄 \\\"à 라 carte\\에 대 한 액세스를 즉시 얻을 하는 데 동의\". 당신은 또한는 동의 환불만 가능 14 일의 기간으로 Spotify에 대 한 액세스를 필요가 없습니다. 이용 약관을 보려면 여기를 클릭 하십시오. 이 지불 방법을 무료 평가판 또는 유사한 출시 할인와 호환 되지 않습니다.",
+  "subscription_disclaimer": "Coorpacademy 프리미엄에 즉시 액세스를 얻을에 동의 \"일품 요리\". 또한 그 청구 됩니다 트랜잭션 날짜에서 첫 번째 인보이스에 대 한 달의 끝에 동의 합니다. 다음 당신은 각 달의 첫 날 부과 됩니다.",
   "back_to_catalog": "과정을 다시",
   "cart_title": "다음 단계로 이동!",
-  "promo_code_not_found_error": "프로 모션 코드 찾을 수 없습니다.",
   "subscription_and_payment": "가입 및 결제",
   "confirm_unsubscribe": "당신은 정말 탈퇴 하 시겠습니까?",
   "keep_subscription": "내 구독을 유지",
@@ -69,6 +67,5 @@
   "subscription_premium_description_part3_with_link": "가입 취소?",
   "EUR": "€",
   "USD": "$",
-  "premium_unsubscribe_confirmation": "우리는 효과적인 반면 다음 month.\n\nIn에서 시작 될 것입니다 귀하의 가입의 취소 확인, Coorpacademy 플랫폼에 콘텐츠를 즐길 수 있는 계속할 수 있습니다.",
-  "message_not_processed": "우리는 현재 기술 문제가 있다. 귀하의 요청을 최대한 빨리 처리 될 것입니다 그리고 당신이 확인 이메일을 받게 됩니다."
+  "premium_unsubscribe_confirmation": "우리는 효과적인 반면 다음 month.\n\nIn에서 시작 될 것입니다 귀하의 가입의 취소 확인, Coorpacademy 플랫폼에 콘텐츠를 즐길 수 있는 계속할 수 있습니다."
 }
