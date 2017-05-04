@@ -46,14 +46,12 @@
   "product_desc_forum": "Forum",
   "product_desc_certificates": "Coorpacademy certificaten",
   "product_cancel": "Op elk moment annuleren.",
-  "decimal_separator": ".",
   "accepted_cards": "Creditcard of bankpas",
   "secured_payment": "Beveiligde server",
   "payment_form_submit": "Start mijn Coorpacademy premium-abonnement",
-  "subscription_disclaimer": "U stemt ermee in om onmiddellijk toegang te krijgen tot Coorpacademy Premium \\\"à la carte\\\". U aanvaardt tevens dat restituties alleen mogelijk in de periode van 14 dagen zijn, zolang u geen toegang tot Spotify. De gebruiksvoorwaarden, klik hier. Deze betaalmethode is niet compatibel met een gratis proefperiode of soortgelijke lancering kortingen.",
+  "subscription_disclaimer": "U stemt ermee in om onmiddellijk toegang te krijgen tot Coorpacademy Premium \"à la carte\". U aanvaardt tevens dat u in rekening vanaf de datum van transactie aan het eind van de maand, voor de eerste factuur gebracht. Vervolgens worden u aangerekend de eerste dag van elke maand.",
   "back_to_catalog": "Terug naar cursussen",
   "cart_title": "Ga naar het volgende niveau!",
-  "promo_code_not_found_error": "De promo-code is niet gevonden.",
   "subscription_and_payment": "Inschrijving en betaling",
   "confirm_unsubscribe": "Bent u zeker dat u wilt opzeggen?",
   "keep_subscription": "Houden van mijn abonnement",
@@ -69,6 +67,5 @@
   "subscription_premium_description_part3_with_link": "om uw abonnement?",
   "EUR": "€",
   "USD": "$",
-  "premium_unsubscribe_confirmation": "Wij bevestigen de annulering van uw abonnement die effectief vanaf volgende month.\n\nIn de tussentijd zal zijn, kunt u blijven om onze inhoud op het platform van Coorpacademy te genieten.",
-  "message_not_processed": "Wij hebben momenteel technische problemen. Uw aanvraag zal zo spoedig mogelijk worden verwerkt en u ontvangt een bevestiging per e-mail."
+  "premium_unsubscribe_confirmation": "Wij bevestigen de annulering van uw abonnement die effectief vanaf volgende month.\n\nIn de tussentijd zal zijn, kunt u blijven om onze inhoud op het platform van Coorpacademy te genieten."
 }
