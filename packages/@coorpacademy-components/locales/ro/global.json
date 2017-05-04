@@ -46,14 +46,12 @@
   "product_desc_forum": "Forum",
   "product_desc_certificates": "Certificatele de Coorpacademy",
   "product_cancel": "Anula în orice moment.",
-  "decimal_separator": ".",
   "accepted_cards": "Card de credit sau de debit",
   "secured_payment": "Server securizat",
   "payment_form_submit": "Începe meu abonament premium Coorpacademy",
-  "subscription_disclaimer": "Sunteţi de acord pentru a obţine imediat acces la Coorpacademy Premium \\\"à la carte\\\". Sunteţi, de asemenea, de acord că restituirile sunt posibile doar în timpul perioadei de 14 zile, atâta timp cât nu aveţi acces la Spotify. Pentru a vizualiza condiţiile de utilizare, click aici. Această metodă de plată nu este compatibil cu o încercare gratuită sau similare lansarea reduceri.",
+  "subscription_disclaimer": "Sunteţi de acord să obţineţi imediat acces la Coorpacademy Premium \"à la carte\". De asemenea, de acord că veţi fi taxat la data tranzacţiei până la sfârşitul lunii, pentru prima factura. Apoi se va percepe prima zi a fiecărei luni.",
   "back_to_catalog": "Înapoi la cursuri",
   "cart_title": "Du-te la nivelul următor!",
-  "promo_code_not_found_error": "Codul promoţional nu a fost găsit.",
   "subscription_and_payment": "Abonament şi plată",
   "confirm_unsubscribe": "Esti sigur ca vrei sa renunti?",
   "keep_subscription": "Păstraţi abonamentul meu",
@@ -69,6 +67,5 @@
   "subscription_premium_description_part3_with_link": "pentru a anula abonamentul?",
   "EUR": "€",
   "USD": "$",
-  "premium_unsubscribe_confirmation": "Confirmăm că anulează abonamentul care va fi eficace pornind de la următoarea month.\n\nIn între timp, puteţi continua să se bucure de conţinut noastre pe platforma Coorpacademy.",
-  "message_not_processed": "În prezent avem probleme tehnice. Cererea dumneavoastră va fi procesată cât mai repede posibil şi veţi primi un e-mail de confirmare."
+  "premium_unsubscribe_confirmation": "Confirmăm că anulează abonamentul care va fi eficace pornind de la următoarea month.\n\nIn între timp, puteţi continua să se bucure de conţinut noastre pe platforma Coorpacademy."
 }
