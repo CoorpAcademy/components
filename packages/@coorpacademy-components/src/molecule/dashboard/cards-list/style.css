@@ -5,6 +5,7 @@
 
 .wrapper {
   padding: 20px 30px 10px;
+  position: relative;
 }
 
 .list {
@@ -12,6 +13,10 @@
   max-width: 1080px;
   margin: auto;
   box-sizing: border-box;
+}
+
+.listWrapper {
+  overflow: hidden;
 }
 
 .title {
@@ -26,19 +31,13 @@
   display: flex;
   overflow: hidden;
   padding-bottom: 10px;
+  margin-left: -8px;
+  margin-right: -8px;
 }
 
 .card {
   box-sizing: border-box;
   padding: 8px 8px 16px;
-}
-
-.card:first-child {
-  margin-left: 0px;
-}
-
-.card:last-child {
-  margin-left: 0px;
 }
 
 .arrow {
@@ -63,11 +62,21 @@
   text-align: right;
 }
 
+.leftDisabled {
+  composes: left;
+  pointer-events: none;
+}
+
 .right {
   composes: arrow;
   composes: fa-chevron-right from '../../../variables/fontawesome.css';
   right: -35px;
   text-align: left;
+}
+
+.rightDisabled {
+  composes: right;
+  pointer-events: none;
 }
 
 @media desktop {
