@@ -1,7 +1,7 @@
 {
-  "name": "@coorpacademy/appster-server",
+  "name": "@coorpacademy/app-sandbox",
   "version": "3.7.6",
-  "description": "CoorpAcademy apps servers (sanbox, express)",
+  "description": "CoorpAcademy apps sandbox",
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [
