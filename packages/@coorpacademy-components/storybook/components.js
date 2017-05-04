@@ -1403,7 +1403,11 @@ export const dependencies = {
           "CardsList": true
         }
       },
-      "children": {}
+      "children": {
+        "Atom": {
+          "Loader": true
+        }
+      }
     },
     "BrandDownloadBox": {
       "parents": {
@@ -2072,6 +2076,7 @@ export const dependencies = {
         },
         "Molecule": {
           "SetupSections": true,
+          "Card": true,
           "BrandUploadBox": true
         },
         "Atom": {

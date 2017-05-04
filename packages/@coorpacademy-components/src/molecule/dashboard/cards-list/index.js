@@ -52,9 +52,7 @@ class CardsList extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (!shallowCompare(this, prevProps, prevState)) {
-      this.updateArrowsState();
-    }
+    this.updateArrowsState();
   }
 
   componentWillUnmount() {

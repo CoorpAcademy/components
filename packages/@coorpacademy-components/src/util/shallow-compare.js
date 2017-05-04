@@ -1,4 +1,4 @@
-import shallowEqual from 'fbjs/lib/shallowEqual';
+import isEqual from 'lodash/fp/isEqual'
 
 /**
  * Does a shallow comparison for props, state and context
@@ -7,9 +7,9 @@ import shallowEqual from 'fbjs/lib/shallowEqual';
  */
 const shallowCompare = (instance, nextProps, nextState, nextContext) => {
   return (
-    !shallowEqual(instance.props, nextProps) ||
-    !shallowEqual(instance.state, nextState) ||
-    !shallowEqual(instance.context, nextContext)
+    !isEqual(instance.props, nextProps) ||
+    !isEqual(instance.state, nextState) ||
+    !isEqual(instance.context, nextContext)
   );
 };
 
