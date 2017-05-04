@@ -46,14 +46,12 @@
   "product_desc_forum": "Cose da fare",
   "product_desc_certificates": "Coorpacademy certificati",
   "product_cancel": "Annullare in qualsiasi momento.",
-  "decimal_separator": ".",
   "accepted_cards": "Carta di credito o di debito",
   "secured_payment": "Server sicuro",
   "payment_form_submit": "Avviare il mio abbonamento premium Coorpacademy",
-  "subscription_disclaimer": "L'utente accetta di ottenere immediatamente l'accesso a Coorpacademy Premium \\\"à la carte\\\". Accetti inoltre che i rimborsi sono possibili solo durante il periodo di 14 giorni fino a quando non hai accesso a Spotify. Per visualizzare i termini di utilizzo, clicca qui. Questo metodo di pagamento non è compatibile con una versione di prova gratuita o simili lancio sconti.",
+  "subscription_disclaimer": "L'utente accetta di ottenere immediatamente l'accesso a Coorpacademy Premium \"à la carte\". Lei inoltre conviene che verrà addebitato dalla data della transazione fino alla fine del mese, per la prima fattura. Poi viene addebitato il primo giorno di ogni mese.",
   "back_to_catalog": "Torna a corsi",
   "cart_title": "Andare al livello successivo!",
-  "promo_code_not_found_error": "Il codice promozionale non è stato trovato.",
   "subscription_and_payment": "Iscrizione e pagamento",
   "confirm_unsubscribe": "Sei sicuro di che voler annullare l'iscrizione?",
   "keep_subscription": "Tenere il mio abbonamento",
@@ -69,6 +67,5 @@
   "subscription_premium_description_part3_with_link": "per annullare l'abbonamento?",
   "EUR": "€",
   "USD": "$",
-  "premium_unsubscribe_confirmation": "Confermiamo la cancellazione dell'abbonamento che sarà effettiva a partire dal prossimo month.\n\nIn frattempo, è possibile continuare a godere i nostri contenuti sulla piattaforma Coorpacademy.",
-  "message_not_processed": "Attualmente abbiamo problemi tecnici. Vostra richiesta verrà elaborata più presto e riceverete un'e-mail di conferma."
+  "premium_unsubscribe_confirmation": "Confermiamo la cancellazione dell'abbonamento che sarà effettiva a partire dal prossimo month.\n\nIn frattempo, è possibile continuare a godere i nostri contenuti sulla piattaforma Coorpacademy."
 }
