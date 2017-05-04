@@ -13,7 +13,6 @@ class CardsList extends React.Component {
     this.wrapperWidth = this.wrapperWidth.bind(this);
     this.cardWidth = this.cardWidth.bind(this);
     this.cardsWidth = this.cardsWidth.bind(this);
-    this.maxScrollPosition = this.maxScrollPosition.bind(this);
     this.getPossiblePositions = this.getPossiblePositions.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
     this.handleOnLeft = this.handleOnLeft.bind(this);
@@ -42,10 +41,6 @@ class CardsList extends React.Component {
     return this._cardsCount * this.cardWidth();
   }
 
-  maxScrollPosition() {
-    return this.cardsWidth() - this.wrapperWidth();
-  }
-
   getPossiblePositions(filter) {
     const cardWidth = this.cardWidth();
     return this._cards.map((card, index) => {
@@ -71,7 +66,7 @@ class CardsList extends React.Component {
   handleOnRight() {
     const currentScrollPos = this._cardsWrapper.scrollLeft + this.wrapperWidth();
     // console.log('Max position:' + this.maxScrollPosition());
-    if (currentScrollPos >= this.maxScrollPosition()) {
+    if (currentScrollPos >= this.cardsWidth()) {
       return;
     }
 
