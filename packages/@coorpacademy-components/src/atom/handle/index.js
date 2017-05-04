@@ -59,6 +59,7 @@ class Handle extends React.Component {
         {...addClassName(`${style.default}`)({
           className: this.props.className
         })}
+        data-name={'handle'}
         style={{
           ...this.props.style,
           left: `${x}px`,

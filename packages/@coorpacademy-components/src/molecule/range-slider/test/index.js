@@ -81,13 +81,8 @@ test('mount RangeSlider with enzyme', t => {
   setWidth(slider, 500);
   mouseDown(slider, 1, 12);
 
-  const handles = slider.find('.range-slider__handle');
+  const handles = slider.find('[data-name="handle"]');
   t.is(handles.length, 2);
-
-  const handle1 = handles.at(0);
-  const handle2 = handles.at(1);
-  t.is(handle1.is('.range-slider__handle'), true);
-  t.is(handle2.is('.range-slider__handle'), true);
 
   /* ondrag */
   slider.instance().setX(1)(mockEvent);
