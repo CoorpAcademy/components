@@ -78,13 +78,24 @@
   composes: fa from '../../variables/fontawesome.css';
   composes: fa-chevron-down from '../../variables/fontawesome.css';
 }
+
 .title:before {
+  font-family: FontAwesome;
   display: block;
-  right: 25%;
   position: absolute;
   font-size: 14px;
   right: 35%;
-  color: inherit;
+}
+
+.activeDefault .title:before,
+.activeWrapperSortBy .title:before {
+  transform: rotate(180deg);
+  transition: transform .4s ease-out;
+}
+.default .title:before,
+.wrapperSortBy .title:before {
+  transform: rotate(0deg);
+  transition: transform .4s ease-out;
 }
 
 .wrapperSortBy {
@@ -199,30 +210,6 @@
 .wrapperSortBy {
   border-left: solid 1px light;
 }
-.default .title:before,
-.wrapperSortBy .title:before,
-.activeDefault .title:before,
-.activeWrapperSortBy .title:before {
-  font-family: FontAwesome;
-}
-
-.activeDefault .title,
-.activeWrapperSortBy .title,
-.activeDefault .title:before,
-.activeWrapperSortBy .title:before {
-  color: inherit;
-}
-
-.activeDefault .title:before,
-.activeWrapperSortBy .title:before {
-  transform: rotate(180deg);
-  transition: transform .4s ease-out;
-}
-.default .title:before,
-.wrapperSortBy .title:before {
-  transform: rotate(0deg);
-  transition: transform .4s ease-out;
-}
 
 .wrapperFilters,
 .sorting,
@@ -321,6 +308,10 @@
   .choice{
     padding: 10px 0;
     width: 100%;
+  }
+
+  .title:before {
+    right: 10%;
   }
 
   .sorting label,
