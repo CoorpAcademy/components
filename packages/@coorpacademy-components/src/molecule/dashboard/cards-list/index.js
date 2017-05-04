@@ -68,7 +68,7 @@ class CardsList extends React.Component {
         return (el + cardWidth) < leftBound;
       }).length;
       const limit = this.getPossiblePositions(el => {
-        return (el + cardWidth) > leftBound && el <= rightBound;
+        return (el + cardWidth) > leftBound && el < rightBound;
       }).length;
       this.props.onScroll(skip, limit);
     }
