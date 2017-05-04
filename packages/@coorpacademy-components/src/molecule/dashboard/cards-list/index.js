@@ -26,7 +26,6 @@ class CardsList extends React.Component {
     this.maxLeftBound = this.maxLeftBound.bind(this);
     this.rightBound = this.rightBound.bind(this);
     this.wrapperWidth = this.wrapperWidth.bind(this);
-    this.cardWidth = this.cardWidth.bind(this);
     this.cardsWidth = this.cardsWidth.bind(this);
     this.getPossiblePositions = this.getPossiblePositions.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
@@ -79,10 +78,6 @@ class CardsList extends React.Component {
     return this._cardsWrapper.offsetWidth;
   }
 
-  cardWidth() {
-    return this._cards.length > 0 ? this._cards[0].scrollWidth : 0;
-  }
-
   cardsWidth() {
     return this._cards.map(el => {
       return el.scrollWidth;
@@ -101,13 +96,12 @@ class CardsList extends React.Component {
     if (this.props.onScroll) {
       const leftBound = this.leftBound();
       const rightBound = this.rightBound();
-      const cardWidth = this.cardWidth();
 
-      const skip = this.getPossiblePositions(el => {
-        return (el + cardWidth) < leftBound;
+      const skip = this.getPossiblePositions((el, index) => {
+        return (el + this._cards[index].scrollWidth) <= leftBound;
       }).length;
-      const limit = this.getPossiblePositions(el => {
-        return (el + cardWidth) > leftBound && el < rightBound;
+      const limit = this.getPossiblePositions((el, index) => {
+        return (el + this._cards[index].scrollWidth) > leftBound && el < rightBound;
       }).length;
       this.props.onScroll(skip, limit);
     }
