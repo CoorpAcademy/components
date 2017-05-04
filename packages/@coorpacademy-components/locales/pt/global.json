@@ -46,14 +46,12 @@
   "product_desc_forum": "Fórum",
   "product_desc_certificates": "Certificados de Coorpacademy",
   "product_cancel": "Cancelar a qualquer momento.",
-  "decimal_separator": ".",
   "accepted_cards": "Cartão de crédito ou débito",
   "secured_payment": "Servidor seguro",
   "payment_form_submit": "Começar a minha assinatura premium do Coorpacademy",
-  "subscription_disclaimer": "Você concorda em imediatamente obter acesso ao Coorpacademy Premium \\\"à la carte\\\". Você também concorda que as restituições só são possíveis durante o período de 14 dias, enquanto você não tem acesso ao Spotify. Para ver os termos de uso, clique aqui. Este método de pagamento não é compatível com uma versão gratuita ou descontos de lançamento semelhante.",
+  "subscription_disclaimer": "Você concorda em imediatamente ter acesso a Coorpacademy Premium \"à la carte\". Você também concorda que você será cobrado a partir data de transação para o final do mês, para a primeira fatura. Então você será cobrado no primeiro dia de cada mês.",
   "back_to_catalog": "Voltar para cursos",
   "cart_title": "Ir para o próximo nível!",
-  "promo_code_not_found_error": "O código promocional não foi encontrado.",
   "subscription_and_payment": "Subscrição e integralização",
   "confirm_unsubscribe": "Tem certeza que deseja cancelar?",
   "keep_subscription": "Manter minha assinatura",
@@ -69,6 +67,5 @@
   "subscription_premium_description_part3_with_link": "para cancelar sua assinatura?",
   "EUR": "€",
   "USD": "$",
-  "premium_unsubscribe_confirmation": "Confirmamos o cancelamento de sua inscrição que será efetivada a partir na próxima month.\n\nIn, entretanto, você pode continuar a apreciar nosso conteúdo na plataforma Coorpacademy.",
-  "message_not_processed": "Atualmente temos problemas técnicos. Seu pedido será processado logo que possível e você receberá um e-mail de confirmação."
+  "premium_unsubscribe_confirmation": "Confirmamos o cancelamento de sua inscrição que será efetivada a partir na próxima month.\n\nIn, entretanto, você pode continuar a apreciar nosso conteúdo na plataforma Coorpacademy."
 }
