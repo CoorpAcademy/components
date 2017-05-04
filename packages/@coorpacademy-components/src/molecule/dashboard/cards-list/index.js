@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import head from 'lodash/fp/head';
 import last from 'lodash/fp/last';
-import isNumber from 'lodash/fp/isNumber';
 import Card from '../../card';
 import style from './style.css';
 

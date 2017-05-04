@@ -17,6 +17,7 @@ export default {
       defaultsDeep(props, { title: 'Eigth item' }),
       defaultsDeep(props, { title: 'Ninth item' }),
       defaultsDeep(props, { title: 'Tenth item' })
-    ]
+    ],
+    onScroll: (skip, limit) => { console.log(skip, limit); } // eslint-disable-line no-console
   }
 };
