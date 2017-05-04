@@ -114,6 +114,7 @@ class Filters extends React.Component {
         <div className={filtersActive ? style.activeDefault : style.default}>
           <div
             className={style.title}
+            data-name={'filters-button'}
             onClick={this.handleOpenFilter}
           >
             {filterTabLabel}
