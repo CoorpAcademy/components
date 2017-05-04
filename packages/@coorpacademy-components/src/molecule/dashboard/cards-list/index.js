@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import head from 'lodash/fp/head';
-import tail from 'lodash/fp/tail';
+import last from 'lodash/fp/last';
+import isNumber from 'lodash/fp/isNumber';
 import Card from '../../card';
 import style from './style.css';
 
@@ -10,6 +11,8 @@ class CardsList extends React.Component {
     super(props);
     this._cards = [];
 
+    this.leftBound = this.leftBound.bind(this);
+    this.rightBound = this.rightBound.bind(this);
     this.wrapperWidth = this.wrapperWidth.bind(this);
     this.cardWidth = this.cardWidth.bind(this);
     this.cardsWidth = this.cardsWidth.bind(this);
@@ -27,6 +30,14 @@ class CardsList extends React.Component {
 
   componentWillUnmount() {
     this._cardsWrapper.removeEventListener('scroll', this.handleScroll);
+  }
+
+  leftBound() {
+    return this._cardsWrapper.scrollLeft;
+  }
+
+  rightBound() {
+    return this.leftBound() + this.wrapperWidth();
   }
 
   wrapperWidth() {
@@ -49,13 +60,23 @@ class CardsList extends React.Component {
   }
 
   handleScroll(scrollEvent) {
-    // console.log(scrollEvent.target.scrollLeft);
-    // comput how skip and limit and call onScroll
-    //this.props.onScroll();
+    if (this.props.onScroll) {
+      const leftBound = this.leftBound();
+      const rightBound = this.rightBound();
+      const cardWidth = this.cardWidth();
+
+      const skip = this.getPossiblePositions(el => {
+        return (el + cardWidth) < leftBound;
+      }).length;
+      const limit = this.getPossiblePositions(el => {
+        return (el + cardWidth) > leftBound && el <= rightBound;
+      }).length;
+      this.props.onScroll(skip, limit);
+    }
   }
 
   handleOnLeft() {
-    const currentScrollPos = this._cardsWrapper.scrollLeft;
+    const currentScrollPos = this.leftBound();
     if (currentScrollPos <= 0) {
       return;
     }
@@ -64,8 +85,7 @@ class CardsList extends React.Component {
   }
 
   handleOnRight() {
-    const currentScrollPos = this._cardsWrapper.scrollLeft + this.wrapperWidth();
-    // console.log('Max position:' + this.maxScrollPosition());
+    const currentScrollPos = this.rightBound();
     if (currentScrollPos >= this.cardsWidth()) {
       return;
     }
@@ -74,13 +94,15 @@ class CardsList extends React.Component {
   }
 
   scrollTo(currentScrollPos, toPrevious) {
-    // console.log('Going to scroll from:' + currentScrollPos);
-
     const possiblePositions = this.getPossiblePositions(el => {
       return toPrevious ? el < currentScrollPos : el > currentScrollPos;
     });
-    const actualPosition = toPrevious ? tail(possiblePositions) : head(possiblePositions) - this.wrapperWidth();
-    // console.log('Actual position:' + actualPosition);
+
+    if (possiblePositions.length === 0) {
+      return;
+    }
+
+    const actualPosition = toPrevious ? last(possiblePositions) : head(possiblePositions) - this.wrapperWidth();
     this._cardsWrapper.scrollLeft = actualPosition;
   }
 
