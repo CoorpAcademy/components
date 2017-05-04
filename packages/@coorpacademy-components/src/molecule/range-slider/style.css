@@ -83,9 +83,4 @@
   transform: handlePosition;
   cursor: pointer;
   user-select: none;
-  margin: 0 0 0 6px;
-}
-
-.handle + .handle {
-  margin: 0 0 0 -6px;
 }
