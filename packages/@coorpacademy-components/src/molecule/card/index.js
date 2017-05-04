@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
 import keys from 'lodash/fp/keys';
 import style from './style.css';
+import Loader from '../../atom/loader';
 
 const viewStyle = {
   grid: style.grid,
@@ -65,6 +66,7 @@ const Card = (props, context) => {
   ) : null;
 
   const timer = time ? (<span className={style.timer}>{time}</span>) : null;
+  const loader = (title && type) ? null : (<Loader />);
 
   return (
     <div className={cardStyle}>
@@ -79,6 +81,7 @@ const Card = (props, context) => {
             backgroundImage: image ? `url('${image}')` : 'none'
           }}
         >
+          {loader}
           <div
             className={style.ctaWrapper}
             onClick={!disabled && topOnClick}
