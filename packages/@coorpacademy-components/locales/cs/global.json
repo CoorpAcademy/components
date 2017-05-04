@@ -46,14 +46,12 @@
   "product_desc_forum": "Fórum",
   "product_desc_certificates": "Coorpacademy certifikáty",
   "product_cancel": "Kdykoli zrušit.",
-  "decimal_separator": ".",
   "accepted_cards": "Kreditní nebo debetní karta",
   "secured_payment": "Zabezpečený server",
   "payment_form_submit": "Začátek předplatného premium Coorpacademy",
-  "subscription_disclaimer": "Souhlasíte, že okamžitě získat přístup k Coorpacademy Premium \\\"à la carte\\\". Také souhlasíte s tím, že náhrady jsou možné pouze v období 14 dnů, pokud nemáte přístup ke službě Spotify. Chcete-li zobrazit podmínky použití, klepněte sem. Tato platební metoda není kompatibilní s bezplatnou zkušební verzi nebo podobné spuštění slevy.",
+  "subscription_disclaimer": "Souhlasíte, že okamžitě získat přístup k Coorpacademy Premium \"à la carte\". Také souhlasíte s tím, že zaplatíte od data transakce na konci měsíce, první fakturu. Pak bude účtována první den každého měsíce.",
   "back_to_catalog": "Zpět na kurzy",
   "cart_title": "Přechod na další úroveň!",
-  "promo_code_not_found_error": "Promo kód nebyl nalezen.",
   "subscription_and_payment": "Odběr a platba",
   "confirm_unsubscribe": "Opravdu že se chcete odhlásit?",
   "keep_subscription": "Udržujte své předplatné",
@@ -69,6 +67,5 @@
   "subscription_premium_description_part3_with_link": "Chcete-li zrušit své předplatné?",
   "EUR": "€",
   "USD": "$",
-  "premium_unsubscribe_confirmation": "Potvrdit zrušení předplatného, které budou účinné až od dalšího month.\n\nIn té doby, můžete i nadále využívat náš obsah na platformě Coorpacademy.",
-  "message_not_processed": "V současné době máme technické problémy. Vaše žádost bude vyřízena co nejrychleji a obdržíte e-mail s potvrzením."
+  "premium_unsubscribe_confirmation": "Potvrdit zrušení předplatného, které budou účinné až od dalšího month.\n\nIn té doby, můžete i nadále využívat náš obsah na platformě Coorpacademy."
 }
