@@ -22,9 +22,13 @@ const News = (props, context) => {
         <img src={image} />
       </div>
       <div className={style.infos}>
-        <div className={style.title}>
+        <Link href={cta.href}
+          title={title}
+          className={style.title}
+          target={cta.target}
+        >
           {title}
-        </div>
+        </Link>
         <div className={style.date}>{date}</div>
         <div className={style.description}>
           <div
@@ -54,10 +58,7 @@ News.propTypes = {
   date: PropTypes.string,
   description: PropTypes.string,
   authorLogo: PropTypes.string,
-  cta: PropTypes.shape({
-    href: PropTypes.string,
-    target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top'])
-  })
+  cta: Link.PropTypes
 };
 
 export default News;

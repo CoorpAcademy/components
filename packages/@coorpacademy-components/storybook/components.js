@@ -278,6 +278,10 @@ import ModuleBubbleFixtureDisabled from '../src/molecule/module-bubble/test/fixt
 import ModuleCardFixtureActive from '../src/molecule/module-card/test/fixtures/active';
 import ModuleCardFixtureRestarted from '../src/molecule/module-card/test/fixtures/restarted';
 import NewsFixtureDefault from '../src/molecule/news/test/fixtures/default';
+import NewsFixtureLongDesciption from '../src/molecule/news/test/fixtures/long-desciption';
+import NewsFixtureLongTitle from '../src/molecule/news/test/fixtures/long-title';
+import NewsFixtureSmallDesciption from '../src/molecule/news/test/fixtures/small-desciption';
+import NewsFixtureSmallTitle from '../src/molecule/news/test/fixtures/small-title';
 import PaginationFixtureDefault from '../src/molecule/pagination/test/fixtures/default';
 import PaginationFixtureDisabled from '../src/molecule/pagination/test/fixtures/disabled';
 import PaymentFormFixtureDefault from '../src/molecule/payment-form/test/fixtures/default';
@@ -859,7 +863,11 @@ export const fixtures = {
       Restarted: ModuleCardFixtureRestarted
     },
     News: {
-      Default: NewsFixtureDefault
+      Default: NewsFixtureDefault,
+      LongDesciption: NewsFixtureLongDesciption,
+      LongTitle: NewsFixtureLongTitle,
+      SmallDesciption: NewsFixtureSmallDesciption,
+      SmallTitle: NewsFixtureSmallTitle
     },
     Pagination: {
       Default: PaginationFixtureDefault,
