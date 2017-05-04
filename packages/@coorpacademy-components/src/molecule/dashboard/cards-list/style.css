@@ -5,6 +5,7 @@
 
 .wrapper {
   padding: 20px 30px 10px;
+  position: relative;
 }
 
 .list {
@@ -12,6 +13,10 @@
   max-width: 1080px;
   margin: auto;
   box-sizing: border-box;
+}
+
+.listWrapper {
+  overflow: hidden;
 }
 
 .title {
@@ -24,22 +29,22 @@
 
 .cards {
   display: flex;
-  margin-left: -9px;
-  margin-right: -9px;
-  margin-bottom: -10px;
   overflow: hidden;
+  padding-bottom: 10px;
+  margin-left: -8px;
+  margin-right: -8px;
 }
 
 .card {
   box-sizing: border-box;
-  margin-bottom: 16px;
+  padding: 8px 8px 16px;
 }
 
 .arrow {
   composes: fa from '../../../variables/fontawesome.css';
   position: absolute;
   font-size: 30px;
-  width: 25px;
+  width: 20px;
   color: #D8D8D8;
   top: 50%;
   margin-top: -15px;
@@ -53,24 +58,44 @@
 .left {
   composes: arrow;
   composes: fa-chevron-left from '../../../variables/fontawesome.css';
-  left: -41px;
+  left: -35px;
   text-align: right;
+}
+
+.leftDisabled {
+  composes: left;
+  pointer-events: none;
 }
 
 .right {
   composes: arrow;
   composes: fa-chevron-right from '../../../variables/fontawesome.css';
-  right: -47px;
+  right: -35px;
   text-align: left;
 }
 
-@media desktop {
+.rightDisabled {
+  composes: right;
+  pointer-events: none;
+}
 
+@media desktop {
+  .left {
+    left: -25px;
+  }
+
+  .right {
+    right: -25px;
+  }
 }
 
 @media tablet {
   .cards {
     overflow-x: scroll;
+  }
+
+  .arrow {
+    display: none;
   }
 }
 

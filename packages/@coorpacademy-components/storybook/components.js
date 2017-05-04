@@ -233,6 +233,7 @@ import CardFixtureAdaptiv from '../src/molecule/card/test/fixtures/adaptiv';
 import CardFixtureCatalogue from '../src/molecule/card/test/fixtures/catalogue';
 import CardFixtureDefault from '../src/molecule/card/test/fixtures/default';
 import CardFixtureDisabled from '../src/molecule/card/test/fixtures/disabled';
+import CardFixtureEmpty from '../src/molecule/card/test/fixtures/empty';
 import CatalogAssetsFixtureDefault from '../src/molecule/catalog-assets/test/fixtures/default';
 import CatalogAssetsFixtureEmpty from '../src/molecule/catalog-assets/test/fixtures/empty';
 import CatalogBadgeFixtureDefault from '../src/molecule/catalog-badge/test/fixtures/default';
@@ -340,6 +341,7 @@ import VideoPlayerFixtureYoutube from '../src/molecule/video-player/test/fixture
 import BattleRequestListFixtureDefault from '../src/molecule/dashboard/battle-request-list/test/fixtures/default';
 import BattleRequestListFixtureEmpty from '../src/molecule/dashboard/battle-request-list/test/fixtures/empty';
 import CardsListFixtureDefault from '../src/molecule/dashboard/cards-list/test/fixtures/default';
+import CardsListFixtureManyEmpty from '../src/molecule/dashboard/cards-list/test/fixtures/many-empty';
 import CardsListFixtureMany from '../src/molecule/dashboard/cards-list/test/fixtures/many';
 import NewsListFixtureDefault from '../src/molecule/dashboard/news-list/test/fixtures/default';
 import NewsListFixtureLoading from '../src/molecule/dashboard/news-list/test/fixtures/loading';
@@ -785,7 +787,8 @@ export const fixtures = {
       Adaptiv: CardFixtureAdaptiv,
       Catalogue: CardFixtureCatalogue,
       Default: CardFixtureDefault,
-      Disabled: CardFixtureDisabled
+      Disabled: CardFixtureDisabled,
+      Empty: CardFixtureEmpty
     },
     CatalogAssets: {
       Default: CatalogAssetsFixtureDefault,
@@ -983,6 +986,7 @@ export const fixtures = {
     },
     CardsList: {
       Default: CardsListFixtureDefault,
+      ManyEmpty: CardsListFixtureManyEmpty,
       Many: CardsListFixtureMany
     },
     NewsList: {
@@ -1413,7 +1417,11 @@ export const dependencies = {
           "CardsList": true
         }
       },
-      "children": {}
+      "children": {
+        "Atom": {
+          "Loader": true
+        }
+      }
     },
     "BrandDownloadBox": {
       "parents": {
@@ -2082,6 +2090,7 @@ export const dependencies = {
         },
         "Molecule": {
           "SetupSections": true,
+          "Card": true,
           "BrandUploadBox": true
         },
         "Atom": {
