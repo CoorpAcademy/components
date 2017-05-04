@@ -46,14 +46,12 @@
   "product_desc_forum": "Forum",
   "product_desc_certificates": "Coorpacademy Zertifikate",
   "product_cancel": "Einem beliebigen Zeitpunkt abbrechen.",
-  "decimal_separator": ".",
   "accepted_cards": "Kredit-oder Debitkarte",
   "secured_payment": "Sicherheitsserver",
   "payment_form_submit": "Meine Coorpacademy-Premium-Abonnement zu starten",
-  "subscription_disclaimer": "Sie verpflichten sich, umgehend Zugriff auf Premium-Coorpacademy \\\"à la Carte\\\". Sie bestätigen auch, dass Erstattungen nur möglich in der Zeit von 14 Tagen sind, solange Sie keinen Zugriff auf Spotify. Um die Nutzungsbedingungen einzusehen, klicken Sie hier. Diese Zahlungsmethode ist nicht kompatibel mit einer kostenlosen Testversion oder ähnlichen Start Rabatten.",
+  "subscription_disclaimer": "Sie stimmen zu, erhalten sofort Zugriff auf Coorpacademy Premium \"à la carte\". Sie stimmen auch zu, dass Sie bis zum Ende des Monats, für die erste Rechnung vom Transaktionsdatum berechnet werden. Dann werden Sie am ersten Tag eines jeden Monats belastet.",
   "back_to_catalog": "Zurück zu Kurse",
   "cart_title": "Gehen Sie zum nächsten Level!",
-  "promo_code_not_found_error": "Die Promo-Code wurde nicht gefunden.",
   "subscription_and_payment": "Zeichnung und Zahlung",
   "confirm_unsubscribe": "Sind Sie sicher, dass Sie sich abmelden möchten?",
   "keep_subscription": "Mein Abonnement halten",
@@ -69,6 +67,5 @@
   "subscription_premium_description_part3_with_link": "um Ihr Abonnement zu kündigen?",
   "EUR": "€",
   "USD": "$",
-  "premium_unsubscribe_confirmation": "Wir bestätigen die Kündigung Ihres Abonnements wirksam ab der nächsten month.\n\nIn der Zwischenzeit werden, Sie können weiterhin unsere Inhalte auf der Plattform Coorpacademy zu genießen.",
-  "message_not_processed": "Wir haben derzeit technische Probleme. Ihre Anfrage wird schnellstmöglich bearbeitet und Sie erhalten eine Bestätigung per e-Mail."
+  "premium_unsubscribe_confirmation": "Wir bestätigen die Kündigung Ihres Abonnements wirksam ab der nächsten month.\n\nIn der Zwischenzeit werden, Sie können weiterhin unsere Inhalte auf der Plattform Coorpacademy zu genießen."
 }
