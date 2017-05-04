@@ -12,6 +12,7 @@
   align-content: flex-start;
   flex-wrap: wrap;
   justify-content: center;
+  background-color: white;
 }
 
 .loader {

@@ -11,11 +11,9 @@ class Filters extends React.Component {
   constructor(props, context) {
     super(props);
     this.state = {
-      opened: false,
-      filter: false,
-      sorted: false
+      filter: !!props.openFilters,
+      sorted: !!props.openSorts
     };
-    this.handleOnClick = this.handleOnClick.bind(this);
     this.handleOpenFilter = this.handleOpenFilter.bind(this);
     this.handleOpenSort = this.handleOpenSort.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
@@ -25,23 +23,32 @@ class Filters extends React.Component {
     return shallowCompare(this, nextProps, nextState, nextContext);
   }
 
-  handleOnClick() {
-    this.setState({opened: !this.state.opened});
-  }
-
   handleOpenFilter() {
+    const newValue = !this.state.filter;
+
     this.setState({
-      filter: !this.state.filter,
+      filter: newValue,
       sorted: false
     });
+
+    if (this.props.onToggleFilters) {
+      this.props.onToggleFilters(newValue);
+    }
   }
 
   handleOpenSort() {
+    const newValue = !this.state.sorted;
+
     this.setState({
-      sorted: !this.state.sorted,
+      sorted: newValue,
       filter: false
     });
+
+    if (this.props.onToggleSorts) {
+      this.props.onToggleSorts(newValue);
+    }
   }
+
   handleSearch() {
     this.setState({
       sorted: false,
@@ -54,14 +61,15 @@ class Filters extends React.Component {
 
   render() {
     const {
-      titlepage,
       timer,
       thematic,
       authors,
       sorting,
       courses,
-      ctalabelfilter,
-      ctalabelsort
+      filterCTALabel,
+      filterTabLabel,
+      sortCTALabel,
+      sortTabLabel
     } = this.props;
     const {skin} = this.context;
     const defaultColor = getOr('#00B0FF', 'common.primary', skin);
@@ -106,12 +114,10 @@ class Filters extends React.Component {
         <div className={filtersActive ? style.activeDefault : style.default}>
           <div
             className={style.title}
-            style={{
-              color: defaultColor
-            }}
+            data-name={'filters-button'}
             onClick={this.handleOpenFilter}
           >
-            {ctalabelfilter}
+            {filterTabLabel}
           </div>
         </div>
         <div
@@ -119,19 +125,16 @@ class Filters extends React.Component {
         >
           <div
             className={style.title}
-            style={{
-              color: defaultColor
-            }}
             onClick={this.handleOpenSort}
           >
-            {ctalabelsort}
+            {sortTabLabel}
           </div>
         </div>
         <div className={filtersActive ? style.activeWrapperFilters : style.wrapperFilters} >
           <div className={emptyFilters ? style.wrapperNone : style.wrapper}>
             {thematicView}
-            {timerView}
             {coursesView}
+            {timerView}
             {authorsView}
           </div>
           <div
@@ -141,11 +144,10 @@ class Filters extends React.Component {
             }}
             onClick={this.handleSearch}
           >
-            {ctalabelfilter}
+            {filterCTALabel}
           </div>
         </div>
         <div className={sortingActive ? style.activeSorting : style.sorting} >
-          <div className={style.mainTitle}>{titlepage}</div>
           {sortView}
           <div
             className={`${style.CTAfilter} ${hoverFill}`}
@@ -154,7 +156,7 @@ class Filters extends React.Component {
             }}
             onClick={this.handleSearch}
           >
-            {ctalabelsort}
+            {sortCTALabel}
           </div>
         </div>
       </div>
@@ -167,13 +169,20 @@ Filters.contextTypes = {
 };
 
 Filters.propTypes = {
-  titlepage: PropTypes.string,
+  filterCTALabel: PropTypes.string,
+  filterTabLabel: PropTypes.string,
+  sortCTALabel: PropTypes.string,
+  sortTabLabel: PropTypes.string,
+  openFilters: PropTypes.bool,
+  openSorts: PropTypes.bool,
   thematic: PropTypes.object,
   timer: PropTypes.object,
   courses: PropTypes.object,
   authors: PropTypes.object,
   sorting: PropTypes.object,
-  onSearch: PropTypes.func
+  onSearch: PropTypes.func,
+  onToggleFilters: PropTypes.func,
+  onToggleSorts: PropTypes.func
 };
 
 export default Filters;

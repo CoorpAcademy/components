@@ -9,6 +9,7 @@ import style from './style.css';
 
 const SearchPage = (props, context) => {
   const {
+    title,
     searchFilters,
     cards,
     noresultsfound,
@@ -32,6 +33,7 @@ const SearchPage = (props, context) => {
     <div>
       <Filters {...searchFilters} />
       <div className={style.cardsWrapper}>
+        <div className={style.title}>{title}</div>
         {cardsView}
       </div>
     </div>
@@ -44,6 +46,7 @@ SearchPage.contextTypes = {
 
 SearchPage.propTypes = {
   noresultsfound: PropTypes.string,
+  title: PropTypes.string,
   searchFilters: PropTypes.object,
   cards: PropTypes.object,
   clearFilters: PropTypes.object

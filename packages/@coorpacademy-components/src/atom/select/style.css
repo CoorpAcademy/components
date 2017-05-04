@@ -123,6 +123,7 @@
 .sort .title {
   display: block;
   width: 100%;
+  font-weight: 700;
   margin-bottom: 10px;
 }
 

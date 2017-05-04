@@ -25,8 +25,7 @@ class RangeSlider extends React.Component {
   constructor(props, context) {
     super(props, context);
 
-    this.state = {
-    };
+    this.state = {};
 
     this.setX = this.setX.bind(this);
     this.handlePanStart = this.handlePanStart.bind(this);
@@ -34,9 +33,12 @@ class RangeSlider extends React.Component {
   }
 
   componentDidMount() {
+    window.addEventListener('resize', this.updatePositions);
+  }
+
+  componentWillReceiveProps() {
     const width = this.railWidth();
     this.initHandlesPositions(width);
-    window.addEventListener('resize', this.updatePositions);
   }
 
   shouldComponentUpdate(nextProps, nextState, nextContext) {
@@ -48,6 +50,10 @@ class RangeSlider extends React.Component {
   }
 
   initHandlesPositions(width) {
+    if (width === 0) {
+      return;
+    }
+
     const max = width;
     const steps = this.props.steps || [];
     const stepWidth = max / (steps.length - 1);
@@ -201,6 +207,7 @@ class RangeSlider extends React.Component {
 
     const {
       title,
+      label,
       labelMin,
       labelMax
     } = this.props;
@@ -208,6 +215,7 @@ class RangeSlider extends React.Component {
     const defaultColor = getOr('#00B0FF', 'common.primary', skin);
     return (
       <div className={style.default}>
+        <span className={style.titleLabel}>{label}</span>
         <p className={style.title}>{title}</p>
         <div
           className={style.rail} // eslint-disable-next-line no-return-assign
@@ -264,6 +272,7 @@ RangeSlider.propTypes = {
   handle2: PropTypes.shape({
     x: PropTypes.number
   }),
+  label: PropTypes.string,
   title: PropTypes.string,
   labelMin: PropTypes.string,
   labelMax: PropTypes.string,

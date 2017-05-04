@@ -11,9 +11,12 @@
   display: block;
   width: 100%;
   position: relative;
-  z-index: 4;
+  z-index: 5;
   font-family: "Open Sans";
-  background: white;
+  background: light;
+  min-height: 50px;
+  padding: 0 15px;
+  box-sizing: border-box;
 }
 
 .wrapperNone {
@@ -27,33 +30,22 @@
   background: white;
   justify-content: center;
   box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
 }
 
-.choice {
-  flex: 50%;
-  min-width: 22%;
-  margin: 8px 16px;
-  box-sizing: border-box;
-}
-
-.choice label {
-  margin: 0;
-}
-
-.choice label span {
-    font-size: 13px;
-    color: darkGrey;
-    user-select: none;
-}
-
-.choice select,
-.sorting select {
-  font-size: 12px;
-  background: borderGrey;
+.activeDefault {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
 }
 
 .wrapperFilters {
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
   min-height: 135px;
   height: auto;
@@ -67,26 +59,43 @@
 .wrapper {
   display: flex;
   flex-wrap: nowrap;
-  padding: 25px 0;
+  padding: 25px;
   box-sizing: border-box;
   width: 100%;
   height: auto;
-  align-items: center;
-  justify-content: center;
 }
 
 .title {
-  display: none;
+  display: block;
+  color: darkGrey;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 50px;
+  text-align: center;
+  font-family: Open Sans;
   position: relative;
   composes: fa from '../../variables/fontawesome.css';
   composes: fa-chevron-down from '../../variables/fontawesome.css';
 }
+
 .title:before {
-  display: none;
+  font-family: FontAwesome;
+  display: block;
   position: absolute;
   font-size: 14px;
   right: 35%;
-  color: inherit;
+}
+
+.activeDefault .title:before,
+.activeWrapperSortBy .title:before {
+  transform: rotate(180deg);
+  transition: transform .4s ease-out;
+}
+.default .title:before,
+.wrapperSortBy .title:before {
+  transform: rotate(0deg);
+  transition: transform .4s ease-out;
 }
 
 .wrapperSortBy {
@@ -95,6 +104,21 @@
   justify-content: center;
   width: 100%;
   background: light;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.activeWrapperSortBy {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.select {
+  width: 25%;
 }
 
 .sorting {
@@ -112,15 +136,6 @@
   font-size: 14px;
   font-weight: 300;
   color: darkGrey;
-}
-
-.sorting .mainTitle {
-  display: flex;
-  width: 30%;
-  font-size: 20px;
-  font-weight: 700;
-  color: darkGrey;
-  justify-content: flex-start;
 }
 
 .sorting label {
@@ -141,164 +156,162 @@
   margin-top: -20px;
 }
 
-.select {
-  display: flex;
-  width: 80%;
-  align-items: center;
-  justify-content: flex-end;
-}
-
 .CTAfilter {
   display: none;
 }
 
-@media desktop {}
+.default,
+.wrapperSortBy,
+.activeDefault,
+.activeWrapperSortBy {
+  display: inline-block;
+  width: 50%;
+  box-sizing: border-box;
+  height: 50px;
+  padding: 0;
+  background: borderGrey;
+}
+
+.choice {
+  width: 25%;
+  padding: 5px 1%;
+  position: relative;
+}
+
+.choice label {
+  margin: 0;
+}
+
+.choice label span {
+  font-size: 13px;
+  color: darkGrey;
+  user-select: none;
+}
+
+.choice select {
+  font-size: 12px;
+  background: borderGrey;
+}
+
+.default {
+  border-right: solid 1px light;
+}
+
+.activeDefault {
+  border-right: solid 1px light;
+  background: light;
+}
+
+.activeWrapperSortBy {
+  border-left: solid 1px light;
+  background: light;
+}
+
+.wrapperSortBy {
+  border-left: solid 1px light;
+}
+
+.wrapperFilters,
+.sorting,
+.activeWrapperFilters,
+.activeSorting {
+  width: 100%;
+  padding: 50px 0 0;
+  box-sizing: border-box;
+  background: light;
+}
+.activeSorting {
+  padding: 75px 25px 25px;
+}
+
+.sorting,
+.wrapperFilters {
+  display: none;
+}
+
+.activeSorting,
+.activeWrapperFilters {
+  visibility: visible;
+}
+
+.wrapperFilters .wrapper,
+.activeWrapperFilters .wrapper {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.activeWrapperFilters .wrapper label {
+  margin-left: 0;
+}
+
+.sorting .select label div,
+.activeSorting .select label div {
+  top: 50%;
+}
+
+.sorting .select select,
+.activeSorting .select select  {
+  background: borderGrey;
+}
+
+.sorting .select label span,
+.activeSorting .select label span {
+  display: none;
+}
+
+@media desktop {
+  .sorting label,
+  .activeSorting .select {
+    width: 25%;
+  }
+}
 
 @media tablet {
   .wrapper {
     flex-wrap: wrap;
+    padding: 10px;
+  }
+
+  .choice {
+    width: 45%;
+    padding: 10px;
   }
 
   .wrapperFilters {
     padding: 0 32px;
   }
-  .choice {
-    flex: 43%;
+
+  .wrapperFilters .wrapper,
+  .activeWrapperFilters .wrapper {
+    justify-content: space-between;
+  }
+
+  .select {
+    select: 50%;
+  }
+
+  .sorting label,
+  .activeSorting .select {
+    width: 50%;
   }
 }
 
 @media mobile {
-  .default,
-  .wrapperSortBy,
-  .activeDefault,
-  .activeWrapperSortBy {
-    display: inline-block;
-    width: 50%;
-    box-sizing: border-box;
-    height: 50px;
-    padding: 0;
-    background: borderGrey;
-  }
-  .choice {
-    flex: 100%;
-    max-width: 100%;
-    position: relative;
-  }
-  .default {
-    border-right: solid 1px light;
+  .activeSorting {
+    padding: 75px 0 10px;
   }
 
-  .activeDefault {
-    border-right: solid 1px light;
-    background: light;
-  }
-
-  .activeWrapperSortBy {
-    border-left: solid 1px light;
-    background: light;
-  }
-
-  .wrapperSortBy {
-    border-left: solid 1px light;
-  }
   .wrapper {
-    padding: 25px 0 0 0;
-  }
-  .default .title:before,
-  .wrapperSortBy .title:before,
-  .activeDefault .title:before,
-  .activeWrapperSortBy .title:before {
-    font-family: FontAwesome;
-  } 
-
-  .activeDefault .title,
-  .activeWrapperSortBy .title,
-  .activeDefault .title:before,
-  .activeWrapperSortBy .title:before {
-    color: inherit;
-  } 
-
-  .activeDefault .title:before,
-  .activeWrapperSortBy .title:before {
-    transform: rotate(180deg);
-    transition: transform .4s ease-out;
-  }
-  .default .title:before,
-  .wrapperSortBy .title:before {
-    transform: rotate(0deg);
-    transition: transform .4s ease-out;
-  }
-
-
-  .title {
-    display: block;
-    color: darkGrey;
-    width: 100%;
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 50px;
-    text-align: center;
-    font-family: Open Sans;
-  }
-  .title:before {
-    display: block;
-    right: 25%;
-  }
-
-  .wrapperFilters,
-  .sorting,
-  .activeWrapperFilters,
-  .activeSorting {
-    width: 100%;
-    height: auto;
     padding: 0;
-    box-sizing: border-box;
-    background: light;
-    position: absolute;
-    z-index: 3;
-    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .5);
-    display: block;
   }
 
-  .wrapperFilters,
-  .sorting {
-    visibility: hidden;
-    z-index: -1;
-    transform: translateY(-100%);
-    transition: all .4s ease-out;
-  }
-  
-  .activeWrapperFilters,
-  .activeSorting {
-    visibility: visible;
-    z-index: -1;
-    transform: translateY(0);
-    transition: all .4s ease-out;
-  }
-
-  .wrapperFilters .wrapper,
-  .activeWrapperFilters .wrapper {
+  .choice{
+    padding: 10px 0;
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    items-algin: flex-start;
   }
 
-  .activeWrapperFilters .wrapper select {
-    width: 100%;
-    margin-left: 0;
-  }
-
-  .sorting .mainTitle ,
-  .activeSorting .mainTitle {
-    display: none;
-  }
-
-  .sorting,
-  .activeSorting {
-    display: block;
-    margin: 0;
-    padding-top: 16px;
+  .title:before {
+    right: 10%;
   }
 
   .sorting label,
@@ -307,28 +320,18 @@
     width: 100%;
   }
 
-  .sorting .select, 
+  .sorting .select,
   .activeSorting .select {
     display: inline-block;
     align-items: center;
-    padding: 0px 16px;
     box-sizing: border-box;
     width: 100%;
   }
-  
-  .sorting .select label div,
-  .activeSorting .select label div {
-    top: 50%;
-  }
 
-  .sorting .select select,
-  .activeSorting .select select  {
-    background: borderGrey;
-  }
-
-  .sorting .select label span,
-  .activeSorting .select label span {
-    display: none;
+  .wrapperFilters .wrapper,
+  .activeWrapperFilters .wrapper,
+  .activeWrapperFilters .wrapper label {
+    width: 100%;
   }
 
   .wrapperFilters .CTAfilter,

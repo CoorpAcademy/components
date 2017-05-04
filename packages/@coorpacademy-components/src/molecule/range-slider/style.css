@@ -9,8 +9,6 @@
 .default {
   position: relative;
   width: 100%;
-  padding: 0 10px;
-  box-sizing: border-box;
   user-select: none;
 }
 
@@ -30,7 +28,13 @@
   padding: 0px 7px;
   border-radius: 25px;
   display: table;
-  margin: 15px auto;
+  margin: 0px auto 15px;
+}
+
+.titleLabel {
+  composes: text;
+  font-size: 13px;
+  font-weight: 700;
 }
 
 .label {

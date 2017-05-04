@@ -31,7 +31,17 @@
   margin: 8px 0;
 }
 
+.title {
+  font-family: "Open Sans";
+  font-size: 20px;
+  font-weight: 700;
+  color: darkGrey;
+  padding: 25px;
+  background: white;
+}
+
 .noresults .clear {
+  width: auto;
   border-radius: 10px;
 }
 
@@ -52,6 +62,10 @@
 @media mobile {
   .cardsWrapper {
     padding: 5px 0px;
+  }
+
+  .title {
+    display: none;
   }
 }
 
