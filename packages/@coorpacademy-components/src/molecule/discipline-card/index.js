@@ -12,9 +12,7 @@ function DisciplineCard(props, context) {
 
   const hidden = discipline.visible === false;
   const disciplineClass = hidden ? style.hidden : style.default;
-  const rand = (Math.floor(Math.random() * 7) + 3) * .2;
-  const duration = hidden ? 1 : rand;
-  const animationDuration = `${duration}s`;
+  const animationDuration = '1s';
   const mainStyle = {animationDuration};
 
   const modules = discipline.modules.map(_module => (
