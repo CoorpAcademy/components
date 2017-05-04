@@ -46,14 +46,12 @@
   "product_desc_forum": "フォーラム",
   "product_desc_certificates": "Coorpacademy 証明書",
   "product_cancel": "いつでもをキャンセルします。",
-  "decimal_separator": ".",
   "accepted_cards": "クレジット カードまたはデビット カード",
   "secured_payment": "セキュリティで保護されたサーバー",
   "payment_form_submit": "Coorpacademy プレミアム サブスクリプションを開始します。",
-  "subscription_disclaimer": "Coorpacademy プレミアム \\\"à ラ carte\\ へのアクセスをすぐに取得することに同意する」。また、払い戻しが唯一可能な 14 日間の期間中に楽しんでるへのアクセスを持っていない限り、同意します。利用規約を表示するには、ここをクリックします。このお支払方法は、無料の試用版または類似の打ち上げ割引と互換性がありません。",
+  "subscription_disclaimer": "Coorpacademy プレミアムへのアクセスをすぐに取得することに同意\"アラカルト アラカルト」。また、最初の請求書に、その月の最後にトランザクションの日付から課金することを同意します。その後に、毎月の最初の日が課金されます。",
   "back_to_catalog": "コースに戻る",
   "cart_title": "次のレベルに行く!",
-  "promo_code_not_found_error": "プロモーション コードが見つかりませんでした。",
   "subscription_and_payment": "サブスクリプションとお支払い",
   "confirm_unsubscribe": "購読を中止するよろしいですか。",
   "keep_subscription": "私のサブスクリプションを維持します。",
@@ -69,6 +67,5 @@
   "subscription_premium_description_part3_with_link": "サブスクリプションをキャンセルするには?",
   "EUR": "€",
   "USD": "$",
-  "premium_unsubscribe_confirmation": "その間に次の month.\n\nIn から始まって有効になりますあなたのサブスクリプションのキャンセルを確認、Coorpacademy プラットフォームでコンテンツを享受し続けることができます。",
-  "message_not_processed": "現在技術的な問題があります。あなたのリクエストは、できるだけ早く処理され、確認メールが届きます。"
+  "premium_unsubscribe_confirmation": "その間に次の month.\n\nIn から始まって有効になりますあなたのサブスクリプションのキャンセルを確認、Coorpacademy プラットフォームでコンテンツを享受し続けることができます。"
 }
