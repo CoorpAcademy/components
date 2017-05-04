@@ -9,8 +9,6 @@
 .default {
   position: relative;
   width: 100%;
-  padding: 0 10px;
-  box-sizing: border-box;
   user-select: none;
 }
 
@@ -36,6 +34,7 @@
 .titleLabel {
   composes: text;
   font-size: 13px;
+  font-weight: 700;
 }
 
 .label {
