@@ -4,26 +4,16 @@ import Link from '../../atom/link';
 import style from './style.css';
 
 const Pagination = props => {
-  const {
-    value,
-    nextHref,
-    previousHref
-  } = props;
+  const {value, nextHref, previousHref} = props;
 
   return (
     <div className={style.wrapper}>
       <div className={style.value}>{value}</div>
       <div className={style.buttons}>
-        <Link
-          className={previousHref ? style.button : style.disabled}
-          href={previousHref}
-        >
+        <Link className={previousHref ? style.button : style.disabled} href={previousHref}>
           ⟨
         </Link>
-        <Link
-          className={nextHref ? style.button : style.disabled}
-          href={nextHref}
-        >
+        <Link className={nextHref ? style.button : style.disabled} href={nextHref}>
           ⟩
         </Link>
       </div>

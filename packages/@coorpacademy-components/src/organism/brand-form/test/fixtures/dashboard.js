@@ -6,9 +6,6 @@ const propsDash = Dashboard.props;
 
 export default {
   props: {
-    groups: [
-      props,
-      propsDash
-    ]
+    groups: [props, propsDash]
   }
 };

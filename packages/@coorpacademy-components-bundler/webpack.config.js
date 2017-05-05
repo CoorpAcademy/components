@@ -30,42 +30,52 @@ const config = cssScope => ({
   },
 
   module: {
-    rules: [{
-      test: /\.(ttf|otf|eot|svg|woff)$/,
-      loader: 'file-loader'
-    },
-      (NODE_ENV === 'production') ? {
-        test: /\.css$/,
-        loader: componentCSS.extract({
-          fallback: 'style-loader',
-          use: [{
-            loader: 'css-loader',
-            options: {
-              minimize: true,
-              modules: true,
-              importLoaders: 1,
-              localIdentName: `${hash}`
-            }
-          }, {
-            loader: 'postcss-loader'
-          }]
-        })
-      } : {
-        test: /\.css$/,
-        use: [{
-          loader: 'style-loader'
-        }, {
-          loader: 'css-loader',
-          options: {
-            minimize: true,
-            modules: true,
-            importLoaders: 1,
-            localIdentName: `${hash}`
+    rules: [
+      {
+        test: /\.(ttf|otf|eot|svg|woff)$/,
+        loader: 'file-loader'
+      },
+      NODE_ENV === 'production'
+        ? {
+            test: /\.css$/,
+            loader: componentCSS.extract({
+              fallback: 'style-loader',
+              use: [
+                {
+                  loader: 'css-loader',
+                  options: {
+                    minimize: true,
+                    modules: true,
+                    importLoaders: 1,
+                    localIdentName: `${hash}`
+                  }
+                },
+                {
+                  loader: 'postcss-loader'
+                }
+              ]
+            })
           }
-        }, {
-          loader: 'postcss-loader'
-        }]
-      }
+        : {
+            test: /\.css$/,
+            use: [
+              {
+                loader: 'style-loader'
+              },
+              {
+                loader: 'css-loader',
+                options: {
+                  minimize: true,
+                  modules: true,
+                  importLoaders: 1,
+                  localIdentName: `${hash}`
+                }
+              },
+              {
+                loader: 'postcss-loader'
+              }
+            ]
+          }
     ]
   },
 
@@ -103,9 +113,7 @@ const config = cssScope => ({
       );
 
     if (cssScope) {
-      plugins.push(
-        new CSSWrapper('bundle.css', cssScope)
-      );
+      plugins.push(new CSSWrapper('bundle.css', cssScope));
     }
 
     return plugins;

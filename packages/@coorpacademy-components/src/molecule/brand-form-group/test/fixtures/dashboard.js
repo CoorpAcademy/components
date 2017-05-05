@@ -6,9 +6,11 @@ export default {
   props: {
     title: 'Dashboard',
     subtitle: 'Explanation about the dashboard',
-    fields: [{
-      type: 'sections',
-      ...props
-    }]
+    fields: [
+      {
+        type: 'sections',
+        ...props
+      }
+    ]
   }
 };

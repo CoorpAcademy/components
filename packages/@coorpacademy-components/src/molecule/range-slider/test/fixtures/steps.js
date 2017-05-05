@@ -7,18 +7,23 @@ export default {
   props: defaultsDeep(props, {
     handle1: null,
     handle2: null,
-    steps: [{
-      label: 'plop',
-      value: 1
-    }, {
-      label: 'plup',
-      value: 2
-    }, {
-      label: 'plip',
-      value: 3
-    }, {
-      label: 'ploup',
-      value: 4
-    }]
+    steps: [
+      {
+        label: 'plop',
+        value: 1
+      },
+      {
+        label: 'plup',
+        value: 2
+      },
+      {
+        label: 'plip',
+        value: 3
+      },
+      {
+        label: 'ploup',
+        value: 4
+      }
+    ]
   })
 };

@@ -5,12 +5,7 @@ import Loader from '../../../atom/loader';
 import style from './style.css';
 
 const NewsList = (props, context) => {
-  const {
-    title,
-    news,
-    more,
-    loading = false
-  } = props;
+  const {title, news, more, loading = false} = props;
 
   const loadingView = (
     <div className={style.loader}>
@@ -18,31 +13,25 @@ const NewsList = (props, context) => {
     </div>
   );
 
-  const moreView = more ? (
-    <div className={style.more}
-      onClick={more.onClick} // eslint-disable-line react/jsx-handler-names
-    >
-      {more.label}
-    </div>
-  ) : null;
+  const moreView = more
+    ? <div
+        className={style.more}
+        onClick={more.onClick} // eslint-disable-line react/jsx-handler-names
+      >
+        {more.label}
+      </div>
+    : null;
 
   const cardsView = news.map((nws, key) => {
     return (
-      <div className={style.card}
-        key={key}
-      >
-        <News
-          {...nws}
-        />
+      <div className={style.card} key={key}>
+        <News {...nws} />
       </div>
     );
   });
 
   return (
-    <div
-      className={style.wrapper}
-      data-name="news-list"
-    >
+    <div className={style.wrapper} data-name="news-list">
       <div className={style.list}>
         <div className={style.title}>
           {title}

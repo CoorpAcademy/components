@@ -23,17 +23,13 @@ class Checkbox extends React.Component {
   }
 
   render() {
+    /* eslint-disable react/void-dom-elements-no-children */
     return (
-      // eslint-disable-next-line react/void-dom-elements-no-children
-      <input
-        type="checkbox"
-        {...this.props}
-        {...this.state}
-        onChange={this.handleChangeBound}
-      >
+      <input type="checkbox" {...this.props} {...this.state} onChange={this.handleChangeBound}>
         {this.props.children}
       </input>
     );
+    /* eslint-enable react/void-dom-elements-no-children */
   }
 }
 

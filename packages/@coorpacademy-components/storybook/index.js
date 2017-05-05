@@ -9,14 +9,7 @@ import isNumber from 'lodash/fp/isNumber';
 import isBoolean from 'lodash/fp/isBoolean';
 import isObject from 'lodash/fp/isObject';
 import {storiesOf} from '@kadira/storybook'; // eslint-disable-line import/no-unresolved
-import {
-  withKnobs,
-  text,
-  number,
-  boolean,
-  object,
-  color
-} from '@kadira/storybook-addon-knobs'; // eslint-disable-line import/no-unresolved
+import {withKnobs, text, number, boolean, object, color} from '@kadira/storybook-addon-knobs'; // eslint-disable-line import/no-unresolved
 import createTranslate from '@coorpacademy/translate';
 import en from '../locales/en/global';
 import fr from '../locales/fr/global';
@@ -44,17 +37,22 @@ const convert = (testFunc, knobFunc, property) => value => {
 };
 
 // https://github.com/storybooks/storybook-addon-knobs
-const toKnobs = props => reduce.convert({cap: false})((acc, value, property) => {
-  const v = pipe(
-    convert(isColor, color, property),
-    convert(isString, text, property),
-    convert(isNumber, number, property),
-    convert(isBoolean, boolean, property),
-    convert(isObject, object, property),
-  )(value);
+const toKnobs = props =>
+  reduce.convert({cap: false})(
+    (acc, value, property) => {
+      const v = pipe(
+        convert(isColor, color, property),
+        convert(isString, text, property),
+        convert(isNumber, number, property),
+        convert(isBoolean, boolean, property),
+        convert(isObject, object, property)
+      )(value);
 
-  return set(property, v, acc);
-}, {}, props);
+      return set(property, v, acc);
+    },
+    {},
+    props
+  );
 
 forEach((folder, folderName) => {
   forEach((Component, componentName) => {

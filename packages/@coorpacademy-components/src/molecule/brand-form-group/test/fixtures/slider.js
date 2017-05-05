@@ -6,9 +6,11 @@ export default {
   props: {
     title: 'Slider',
     subtitle: 'Explanation about the slider',
-    fields: [{
-      type: 'slider',
-      ...props
-    }]
+    fields: [
+      {
+        type: 'slider',
+        ...props
+      }
+    ]
   }
 };

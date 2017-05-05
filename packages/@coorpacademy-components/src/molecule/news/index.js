@@ -5,14 +5,7 @@ import Link from '../../atom/link';
 import style from './style.css';
 
 const News = (props, context) => {
-  const {
-    image,
-    title,
-    date,
-    description,
-    authorLogo,
-    cta
-  } = props;
+  const {image, title, date, description, authorLogo, cta} = props;
 
   cta.secondary = true;
 
@@ -22,17 +15,14 @@ const News = (props, context) => {
         <img src={image} />
       </div>
       <div className={style.infos}>
-        <Link href={cta.href}
-          title={title}
-          className={style.title}
-          target={cta.target}
-        >
+        <Link href={cta.href} title={title} className={style.title} target={cta.target}>
           {title}
         </Link>
         <div className={style.date}>{date}</div>
         <div className={style.description}>
           <div
-            dangerouslySetInnerHTML={{ // eslint-disable-line react/no-danger
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{
               __html: description
             }}
           />
@@ -44,10 +34,7 @@ const News = (props, context) => {
           <Cta {...cta} />
         </div>
       </div>
-      <Link className={style.link}
-        href={cta.href}
-        target={cta.target}
-      />
+      <Link className={style.link} href={cta.href} target={cta.target} />
     </div>
   );
 };

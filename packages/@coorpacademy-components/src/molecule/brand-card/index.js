@@ -5,22 +5,12 @@ import Picture from '../../atom/picture';
 import style from './style.css';
 
 const BrandCard = props => {
-  const {
-    title,
-    edit,
-    editHref,
-    see,
-    seeHref,
-    image
-  } = props;
+  const {title, edit, editHref, see, seeHref, image} = props;
 
   return (
     <div className={style.wrapper}>
       <div className={style.image}>
-        <Picture
-          className={style.picture}
-          src={image}
-        />
+        <Picture className={style.picture} src={image} />
       </div>
       <div className={style.information}>
         <h3>{title}</h3>
@@ -28,10 +18,7 @@ const BrandCard = props => {
           <Link href={editHref}>{edit}</Link>
         </div>
         <div className={style.see}>
-          <Link
-            target='_blank'
-            href={seeHref}
-          >
+          <Link target="_blank" href={seeHref}>
             {see}
           </Link>
         </div>

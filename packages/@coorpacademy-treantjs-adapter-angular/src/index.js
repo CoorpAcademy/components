@@ -37,9 +37,7 @@ const createDirective = (app, componentName, Provider, Component) => {
     };
   };
 
-  app.directive(componentName, [
-    directive
-  ]);
+  app.directive(componentName, [directive]);
 };
 
 /**

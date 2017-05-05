@@ -4,29 +4,21 @@ import Link from '../../../atom/link';
 import style from './style.css';
 
 const StartBattle = (props, context) => {
-  const {
-    label,
-    onClick,
-    href
-  } = props;
+  const {label, onClick, href} = props;
 
   return (
-    <div
-      className={style.container}
-      data-name="start-battle"
-    >
+    <div className={style.container} data-name="start-battle">
       <div className={style.wrapper}>
         <div className={style.start}>
-          <Link className={style.animate}
-            onClick={onClick}
-            href={href}
-          >
+          <Link className={style.animate} onClick={onClick} href={href}>
             <div className={style.icon} />
             <div className={style.bubble}>
               <div className={style.icon} />
             </div>
-            <div className={style.label}
-              dangerouslySetInnerHTML={{ // eslint-disable-line react/no-danger
+            <div
+              className={style.label}
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={{
                 __html: label
               }}
             />

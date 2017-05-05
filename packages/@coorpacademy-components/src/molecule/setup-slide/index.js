@@ -24,36 +24,21 @@ class SetupSlide extends React.Component {
   }
 
   render() {
-    const {
-      title,
-      fields = []
-    } = this.props;
+    const {title, fields = []} = this.props;
 
     const buildInput = field => {
-      const {
-        type
-      } = field;
+      const {type} = field;
       switch (type) {
         case 'switch':
-          return (
-            <InputSwitch {...field} />
-          );
+          return <InputSwitch {...field} />;
         case 'select':
-          return (
-            <Select {...field} />
-          );
+          return <Select {...field} />;
         case 'checkbox':
-          return (
-            <InputCheckbox {...field} />
-          );
+          return <InputCheckbox {...field} />;
         case 'image':
-          return (
-            <ImageUpload {...field} />
-          );
+          return <ImageUpload {...field} />;
         default:
-          return (
-            <InputText {...field} />
-          );
+          return <InputText {...field} />;
       }
     };
 
@@ -61,10 +46,7 @@ class SetupSlide extends React.Component {
       const input = buildInput(field);
 
       return (
-        <div
-          className={style.field}
-          key={index}
-        >
+        <div className={style.field} key={index}>
           {input}
         </div>
       );
@@ -74,9 +56,7 @@ class SetupSlide extends React.Component {
 
     return (
       <div className={style.wrapper}>
-        <div className={style.title}
-          onClick={this.handleOnClick}
-        >
+        <div className={style.title} onClick={this.handleOnClick}>
           <h3>{title}</h3>
           <span className={this.state.expanded ? style.up : style.down} />
         </div>
@@ -90,8 +70,10 @@ class SetupSlide extends React.Component {
 
 SetupSlide.propTypes = {
   title: PropTypes.string.isRequired,
-  fields: PropTypes.arrayOf(PropTypes.shape({
-    type: PropTypes.string.isRequired
-  }))
+  fields: PropTypes.arrayOf(
+    PropTypes.shape({
+      type: PropTypes.string.isRequired
+    })
+  )
 };
 export default SetupSlide;

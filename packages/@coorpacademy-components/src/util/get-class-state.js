@@ -1,8 +1,13 @@
-export default (dfaultClassName, modifiedClassName, errorClassName, isModified = false, isError = false) => {
+export default (
+  dfaultClassName,
+  modifiedClassName,
+  errorClassName,
+  isModified = false,
+  isError = false
+) => {
   if (isError) {
     return errorClassName;
-  }
-  else if (isModified) {
+  } else if (isModified) {
     return modifiedClassName;
   }
   return dfaultClassName;

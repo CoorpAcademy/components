@@ -6,11 +6,7 @@ import style from './style.css';
 const CursusHeader = props => {
   const {image, title, description} = props;
 
-  const imageView = image && (
-    <Picture
-      src={image}
-    />
-  );
+  const imageView = image && <Picture src={image} />;
 
   return (
     <div>

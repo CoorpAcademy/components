@@ -63,8 +63,7 @@ class PaymentForm extends React.Component {
 
   handleSubmit() {
     if (this.stripe) {
-      return this.stripe.createToken(this.cardNumber)
-      .then(response => {
+      return this.stripe.createToken(this.cardNumber).then(response => {
         return this.props.onSubscription(response);
       });
     }
@@ -99,20 +98,14 @@ class PaymentForm extends React.Component {
       cardCvcHasError
     } = this.props;
 
-    const { translate } = this.context;
+    const {translate} = this.context;
 
     return (
       <div className={style.paymentForm}>
         <div className={style.acceptedCards}>
-          <img
-            className={style.acceptedCardsCheck}
-            src={checkImage}
-          />
+          <img className={style.acceptedCardsCheck} src={checkImage} />
           <div className={style.acceptedCardsText}>{translate('accepted_cards')}</div>
-          <img
-            className={style.acceptedCardsImage}
-            src={cardsImage}
-          />
+          <img className={style.acceptedCardsImage} src={cardsImage} />
         </div>
         <div className={style.creditCardOwnerEmail}>
           <hr className={style.creditCardOwnerEmailSeparator} />
@@ -122,10 +115,7 @@ class PaymentForm extends React.Component {
         {errors && <div className={style.paymentErrors}>- {errors}</div>}
         {warning && <div className={style.paymentWarning}>- {warning}</div>}
         <div className={style.securedPayment}>
-          <img
-            className={style.securedPaymentImage}
-            src={securedPaymentImage}
-          />
+          <img className={style.securedPaymentImage} src={securedPaymentImage} />
           <div className={style.securedPaymentText}>{translate('secured_payment')}</div>
         </div>
         <div className={style.cardBlock}>
@@ -151,7 +141,9 @@ class PaymentForm extends React.Component {
             type="button"
             onClick={this.handleSubmit}
             disabled={!submitButtonEnabled}
-          >{translate('payment_form_submit')}</button>
+          >
+            {translate('payment_form_submit')}
+          </button>
         </div>
       </div>
     );

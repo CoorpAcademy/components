@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import style from './style.css';
 
 const SubscriptionFreemiumDetails = (props, context) => {
-  const { translate } = context;
+  const {translate} = context;
 
   return (
     <div className={style.subscriptionFreemium}>

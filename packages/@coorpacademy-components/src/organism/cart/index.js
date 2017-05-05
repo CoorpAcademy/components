@@ -8,13 +8,8 @@ import PaymentForm from '../../molecule/payment-form';
 import style from './style.css';
 
 const Cart = (props, context) => {
-  const {
-    productCardProps,
-    promoCodeProps,
-    paymentFormProps,
-    backUrl
-  } = props;
-  const { translate } = context;
+  const {productCardProps, promoCodeProps, paymentFormProps, backUrl} = props;
+  const {translate} = context;
 
   return (
     <div className={style.parent}>
@@ -28,10 +23,7 @@ const Cart = (props, context) => {
         </div>
         <div className={style.paymentBlock}>
           <PaymentForm {...paymentFormProps} />
-          <Link
-            className={style.backButton}
-            href={backUrl}
-          >{translate('back_to_catalog')}</Link>
+          <Link className={style.backButton} href={backUrl}>{translate('back_to_catalog')}</Link>
         </div>
       </div>
     </div>

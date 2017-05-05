@@ -4,10 +4,7 @@ import Link from '../../atom/link';
 import style from './style.css';
 
 const BrandCardCreate = props => {
-  const {
-    edit,
-    editHref
-  } = props;
+  const {edit, editHref} = props;
 
   return (
     <div className={style.wrapper}>

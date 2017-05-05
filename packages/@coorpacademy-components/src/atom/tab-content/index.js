@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 import style from './style.css';
 
 const TabContent = (props, context) => {
-  const { tabTitle } = props;
+  const {tabTitle} = props;
 
-  const backgroundClassName = props.hideContentBackground ? style.hiddenBackground : style.greyBackground;
+  const backgroundClassName = props.hideContentBackground
+    ? style.hiddenBackground
+    : style.greyBackground;
   return (
     <div className={style.content}>
       <div className={style.contentTitle}>

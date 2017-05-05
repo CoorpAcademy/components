@@ -14,35 +14,22 @@ const notificationStyle = {
 };
 
 const BrandUpload = props => {
-  const {
-    title = '',
-    back,
-    download,
-    upload,
-    progress,
-    notifications
-  } = props;
+  const {title = '', back, download, upload, progress, notifications} = props;
 
   const notificationsItems = notifications.map((notif, index) => (
-    <div
-      className={notificationStyle[notif.type]}
-      key={index}
-    >
+    <div className={notificationStyle[notif.type]} key={index}>
       <span>{notif.message}</span>
     </div>
   ));
 
-  const backView = back && (
+  const backView =
+    back &&
     <p className={style.back}>
       <i className={style.arrowBack} />
-      <Link
-        href={back.link}
-        className={style.backDesc}
-      >
+      <Link href={back.link} className={style.backDesc}>
         {back.desc}
       </Link>
-    </p>
-  );
+    </p>;
 
   return (
     <div className={style.wrapper}>
@@ -52,13 +39,7 @@ const BrandUpload = props => {
       </div>
       {download && <DownloadBox {...download} />}
       <UploadBox {...upload} />
-      {
-        progress &&
-        <ProgressBar
-          {...progress}
-          className={style.progress}
-        />
-      }
+      {progress && <ProgressBar {...progress} className={style.progress} />}
       <ul className={style.notifications}>
         {notificationsItems}
       </ul>
@@ -79,10 +60,12 @@ BrandUpload.propTypes = {
     desc: PropTypes.string,
     link: PropTypes.string
   }),
-  notifications: PropTypes.arrayOf(PropTypes.shape({
-    type: PropTypes.oneOf(keys(notificationStyle)).isRequired,
-    message: PropTypes.string.isRequired
-  }))
+  notifications: PropTypes.arrayOf(
+    PropTypes.shape({
+      type: PropTypes.oneOf(keys(notificationStyle)).isRequired,
+      message: PropTypes.string.isRequired
+    })
+  )
 };
 
 export default BrandUpload;

@@ -25,12 +25,7 @@ const Discipline = (props, context) => {
   return (
     <div className={style.wrapper}>
       <div className={style.header}>
-        <DisciplineHeader
-          image={image}
-          video={video}
-          title={title}
-          description={description}
-        />
+        <DisciplineHeader image={image} video={video} title={title} description={description} />
       </div>
       <div className={style.cta}>
         <DisciplineCTA
@@ -42,9 +37,7 @@ const Discipline = (props, context) => {
         />
       </div>
       <div className={style.partners}>
-        <DisciplinePartners
-          authors={authors}
-        />
+        <DisciplinePartners authors={authors} />
       </div>
       <div className={style.content}>
         <DisciplineScope

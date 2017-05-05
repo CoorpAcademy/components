@@ -4,7 +4,7 @@ export default {
     title: 'Name',
     placeholder: 'Your text',
     value: '',
-    error: 'Error\'s message',
+    error: "Error's message",
     onChange: value => console.log(value) // eslint-disable-line no-console
   }
 };

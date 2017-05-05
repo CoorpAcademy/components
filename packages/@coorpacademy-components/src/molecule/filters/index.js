@@ -76,61 +76,55 @@ class Filters extends React.Component {
     const filtersActive = this.state.filter === true;
     const sortingActive = this.state.sorted === true;
 
-    const coursesView = courses !== undefined ? (
-      <div className={style.choice}>
-        <Select {...courses} />
-      </div>
-    ) : null;
+    const coursesView = courses !== undefined
+      ? <div className={style.choice}>
+          <Select {...courses} />
+        </div>
+      : null;
 
-    const thematicView = thematic !== undefined ? (
-      <div className={style.choice}>
-        <Select {...thematic} />
-      </div>
-    ) : null;
+    const thematicView = thematic !== undefined
+      ? <div className={style.choice}>
+          <Select {...thematic} />
+        </div>
+      : null;
 
-    const timerView = timer !== undefined ? (
-      <div className={style.choice}>
-        <RangeSlider {...timer} />
-      </div>
-    ) : null;
+    const timerView = timer !== undefined
+      ? <div className={style.choice}>
+          <RangeSlider {...timer} />
+        </div>
+      : null;
 
-    const authorsView = authors !== undefined ? (
-      <div className={style.choice}>
-        <Select {...authors} />
-      </div>
-    ) : null;
+    const authorsView = authors !== undefined
+      ? <div className={style.choice}>
+          <Select {...authors} />
+        </div>
+      : null;
 
-    const sortView = sorting !== undefined ? (
-      <div className={style.select} >
-        <Select {...sorting} />
-      </div>
-    ) : null;
+    const sortView = sorting !== undefined
+      ? <div className={style.select}>
+          <Select {...sorting} />
+        </div>
+      : null;
 
-    const emptyFilters = thematic === undefined && timer === undefined &&
-                         courses === undefined && authors === undefined;
+    const emptyFilters =
+      thematic === undefined &&
+      timer === undefined &&
+      courses === undefined &&
+      authors === undefined;
 
     return (
       <div className={style.search}>
         <div className={filtersActive ? style.activeDefault : style.default}>
-          <div
-            className={style.title}
-            data-name={'filters-button'}
-            onClick={this.handleOpenFilter}
-          >
+          <div className={style.title} data-name={'filters-button'} onClick={this.handleOpenFilter}>
             {filterTabLabel}
           </div>
         </div>
-        <div
-          className={sortingActive ? style.activeWrapperSortBy : style.wrapperSortBy}
-        >
-          <div
-            className={style.title}
-            onClick={this.handleOpenSort}
-          >
+        <div className={sortingActive ? style.activeWrapperSortBy : style.wrapperSortBy}>
+          <div className={style.title} onClick={this.handleOpenSort}>
             {sortTabLabel}
           </div>
         </div>
-        <div className={filtersActive ? style.activeWrapperFilters : style.wrapperFilters} >
+        <div className={filtersActive ? style.activeWrapperFilters : style.wrapperFilters}>
           <div className={emptyFilters ? style.wrapperNone : style.wrapper}>
             {thematicView}
             {coursesView}
@@ -147,7 +141,7 @@ class Filters extends React.Component {
             {filterCTALabel}
           </div>
         </div>
-        <div className={sortingActive ? style.activeSorting : style.sorting} >
+        <div className={sortingActive ? style.activeSorting : style.sorting}>
           {sortView}
           <div
             className={`${style.CTAfilter} ${hoverFill}`}

@@ -8,7 +8,8 @@ export default {
     filterCTALabel: 'Filter',
     sortTabLabel: 'Sort by',
     sortCTALabel: 'Sort',
-    sorting: {...selectSort,
+    sorting: {
+      ...selectSort,
       title: 'Sort by',
       options: [
         {

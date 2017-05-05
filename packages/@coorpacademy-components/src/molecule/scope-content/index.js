@@ -26,15 +26,12 @@ const ScopeContent = (props, context) => {
   const onClick = get('onClick', content);
   const buttonLabel = get('buttonLabel', content);
 
-  const skills = _skills.map((skill, index) => (
-    <li key={index}>{skill}</li>
-  ));
+  const skills = _skills.map((skill, index) => <li key={index}>{skill}</li>);
 
-  const chapters = _chapters.map((chapter, index) => (
-    <li key={index}>{chapter.name}</li>
-  ));
+  const chapters = _chapters.map((chapter, index) => <li key={index}>{chapter.name}</li>);
 
-  const ctaView = onClick && (
+  const ctaView =
+    onClick &&
     <Button
       className={style.cta}
       onClick={onClick}
@@ -42,27 +39,14 @@ const ScopeContent = (props, context) => {
       style={{
         backgroundColor: getOr('#000', 'common.primary', skin)
       }}
-    />
-  );
+    />;
 
   const medias = _medias.map((media, index) => {
-    const {
-      onClick: handleClick,
-      href = '#',
-      target,
-      type
-    } = media;
-    const playButton = handleClick && type === 'video' && (
-      <div className={style.play} />
-    );
+    const {onClick: handleClick, href = '#', target, type} = media;
+    const playButton = handleClick && type === 'video' && <div className={style.play} />;
 
     return (
-      <Link key={index}
-        className={style.media}
-        onClick={handleClick}
-        href={href}
-        target={target}
-      >
+      <Link key={index} className={style.media} onClick={handleClick} href={href} target={target}>
         <div className={style.imgWrapper}>
           <img src={media.image} />
           {playButton}
@@ -74,11 +58,11 @@ const ScopeContent = (props, context) => {
     );
   });
 
-  const mediasView = _medias.length > 0 ? (
-    <div className={style.medias}>
-      {medias}
-    </div>
-  ) : null;
+  const mediasView = _medias.length > 0
+    ? <div className={style.medias}>
+        {medias}
+      </div>
+    : null;
 
   return (
     <div>
@@ -92,9 +76,10 @@ const ScopeContent = (props, context) => {
           </div>
           {ctaView}
         </div>
-        <div {...addClassName(`${style.column}`)({
-          className: style.skills
-        })}
+        <div
+          {...addClassName(`${style.column}`)({
+            className: style.skills
+          })}
         >
           <div className={style.coltitle}>
             {skillsTitle}
@@ -136,11 +121,13 @@ ScopeContent.propTypes = {
     skills: PropTypes.arrayOf(PropTypes.string),
     chapters: PropTypes.arrayOf(PropTypes.object),
     course_scope: PropTypes.arrayOf(PropTypes.string),
-    medias: PropTypes.arrayOf(PropTypes.shape({
-      ...Link.propTypes,
-      title: PropTypes.string,
-      image: PropTypes.string
-    }))
+    medias: PropTypes.arrayOf(
+      PropTypes.shape({
+        ...Link.propTypes,
+        title: PropTypes.string,
+        image: PropTypes.string
+      })
+    )
   })
 };
 

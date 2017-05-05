@@ -27,19 +27,10 @@ const ProductCursus = (props, context) => {
   return (
     <div className={style.wrapper}>
       <div className={style.header}>
-        <CursusHeader
-          image={image}
-          title={title}
-          description={description}
-        />
+        <CursusHeader image={image} title={title} description={description} />
       </div>
       <div className={style.cta}>
-        <CatalogCTA
-          rating={rating}
-          maxRating={maxRating}
-          linkBuy={linkBuy}
-          linkTry={linkTry}
-        />
+        <CatalogCTA rating={rating} maxRating={maxRating} linkBuy={linkBuy} linkTry={linkTry} />
       </div>
       <div className={style.details}>
         <CatalogBadge badge={badge} />
@@ -52,9 +43,7 @@ const ProductCursus = (props, context) => {
           </span>
 
           <div className={style.productsWrapper}>
-            <CatalogCards
-              products={disciplines}
-            />
+            <CatalogCards products={disciplines} />
           </div>
         </div>
       </div>

@@ -14,7 +14,7 @@ export default {
         href: '/plop'
       },
       {
-        title: 'L\'équipe',
+        title: "L'équipe",
         href: '/plop'
       },
       {

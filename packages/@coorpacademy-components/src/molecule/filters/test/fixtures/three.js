@@ -8,7 +8,8 @@ export default {
     filterCTALabel: 'Filter',
     sortTabLabel: 'Sort by',
     sortCTALabel: 'Sort',
-    thematic: {...selectFilter,
+    thematic: {
+      ...selectFilter,
       title: 'Thematic',
       options: [
         {
@@ -29,7 +30,8 @@ export default {
       ],
       onChange: value => console.log(value) // eslint-disable-line no-console
     },
-    authors: {...selectFilter,
+    authors: {
+      ...selectFilter,
       title: 'Authors',
       options: [
         {
@@ -50,7 +52,8 @@ export default {
       ],
       onChange: value => console.log(value) // eslint-disable-line no-console
     },
-    courses: {...selectFilter,
+    courses: {
+      ...selectFilter,
       title: 'Learning Paths:',
       options: [
         {

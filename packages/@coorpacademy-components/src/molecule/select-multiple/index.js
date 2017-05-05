@@ -36,20 +36,12 @@ class SelectMultiple extends React.Component {
   }
 
   render() {
-    const {
-      title,
-      selection,
-      choices,
-      onToggle
-    } = this.props;
+    const {title, selection, choices, onToggle} = this.props;
 
     const lines = map.convert({cap: false})((choice, i) => {
       return (
         <li key={i}>
-          <TitledCheckbox
-            onToggle={onToggle}
-            state={choice}
-          />
+          <TitledCheckbox onToggle={onToggle} state={choice} />
         </li>
       );
     }, choices);
@@ -57,21 +49,19 @@ class SelectMultiple extends React.Component {
     const isActive = this.state.opened === true;
 
     return (
-      <div className={style.default}
-        ref={div => {this._selectMultiple = div;}} // eslint-disable-line react/jsx-no-bind
+      <div
+        className={style.default}
+        // eslint-disable-next-line react/jsx-no-bind
+        ref={div => {
+          this._selectMultiple = div;
+        }}
       >
         <div className={style.title}>{title}</div>
-        <div className={style.select}
-          title={selection}
-          onClick={this.handleOnClick}
-        >
+        <div className={style.select} title={selection} onClick={this.handleOnClick}>
           {selection}
         </div>
-        <div className={isActive ? style.activeChoices : style.choices} >
-          <span
-            onClick={this.handleOnClick}
-            className={style.close}
-          />
+        <div className={isActive ? style.activeChoices : style.choices}>
+          <span onClick={this.handleOnClick} className={style.close} />
           <ul className={style.list}>
             {lines}
           </ul>

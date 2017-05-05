@@ -4,18 +4,11 @@ import Button from '../../atom/button';
 import style from './style.css';
 
 const BrandCreateForm = props => {
-  const {
-    title,
-    subtitle,
-    description,
-    field,
-    onSubmit,
-    submitValue,
-    isPending,
-    isModified
-  } = props;
+  const {title, subtitle, description, field, onSubmit, submitValue, isPending, isModified} = props;
 
-  const wrapperClass = (isModified || isPending || field.error) ? style.modifiedWrapper : style.wrapper;
+  const wrapperClass = isModified || isPending || field.error
+    ? style.modifiedWrapper
+    : style.wrapper;
   const fieldClass = field.error ? style.error : style.default;
   const disabled = isPending || !isModified;
   const handleChange = e => field.onChange(e.target.value);
@@ -25,10 +18,7 @@ const BrandCreateForm = props => {
       <div className={style.header}>
         <h1>{title}</h1>
       </div>
-      <form
-        className={style.content}
-        onSubmit={onSubmit}
-      >
+      <form className={style.content} onSubmit={onSubmit}>
         <h2>{subtitle}</h2>
         <div className={style.description}>
           {description}
@@ -36,18 +26,15 @@ const BrandCreateForm = props => {
         <div className={fieldClass}>
           <label>
             <input
-              type='text'
+              type="text"
               placeholder={field.placeholder}
               defaultValue={field.value}
               onInput={handleChange}
-            />{field.label}
+            />
+            {field.label}
           </label>
         </div>
-        <Button
-          disabled={disabled}
-          submitValue={submitValue}
-          centered
-        />
+        <Button disabled={disabled} submitValue={submitValue} centered />
       </form>
     </div>
   );

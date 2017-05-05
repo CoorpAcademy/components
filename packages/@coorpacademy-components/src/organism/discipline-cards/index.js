@@ -5,11 +5,7 @@ import DisciplineCard from '../../molecule/discipline-card';
 import style from './style.css';
 
 function DisciplineCards(props) {
-  const {
-    onModuleClick,
-    onDisciplineClick,
-    disciplines = []
-  } = props;
+  const {onModuleClick, onDisciplineClick, disciplines = []} = props;
 
   const disciplineViews = map(discipline => {
     return (

@@ -14,25 +14,13 @@ function ThemeImage({image}, {skin}) {
 
   return (
     <div className={style.wrapper}>
-      <div
-        className={style.default}
-        style={defaultStyle}
-      />
+      <div className={style.default} style={defaultStyle} />
 
-      <div
-        className={style.desktop}
-        style={desktopStyle}
-      />
+      <div className={style.desktop} style={desktopStyle} />
 
-      <div
-        className={style.tablet}
-        style={tabletStyle}
-      />
+      <div className={style.tablet} style={tabletStyle} />
 
-      <div
-        className={style.mobile}
-        style={mobileStyle}
-      />
+      <div className={style.mobile} style={mobileStyle} />
     </div>
   );
 }

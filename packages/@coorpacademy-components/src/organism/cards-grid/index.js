@@ -6,25 +6,18 @@ import Loader from '../../atom/loader';
 import style from './style.css';
 
 function CardsGrid(props) {
-  const {
-    list = [],
-    loading = false
-  } = props;
+  const {list = [], loading = false} = props;
 
-  const loader = loading && (
+  const loader =
+    loading &&
     <div className={style.loader}>
       <Loader />
-    </div>
-  );
+    </div>;
 
   const cards = map(cardProps => {
     return (
-      <div className={style.card}
-        key={cardProps.key}
-      >
-        <Card
-          {...cardProps}
-        />
+      <div className={style.card} key={cardProps.key}>
+        <Card {...cardProps} />
       </div>
     );
   }, list);

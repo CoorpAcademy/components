@@ -65,7 +65,7 @@ class RangeSlider extends React.Component {
     const stepWidth = max / (steps.length - 1);
 
     const step1 = getOr(0, 'handle1.step', this.props);
-    const step2 = getOr((steps.length - 1), 'handle2.step', this.props);
+    const step2 = getOr(steps.length - 1, 'handle2.step', this.props);
 
     const x1 = getOr(step1 * stepWidth, 'handle1.x', this.props);
     const x2 = getOr(step2 * stepWidth, 'handle2.x', this.props);
@@ -116,11 +116,7 @@ class RangeSlider extends React.Component {
   handlePanStart(num) {
     return e => {
       this.setState((previousState, currentProps) =>
-        set(
-          [`handle${num}`, 'panStart'],
-          e.target.offsetLeft,
-          previousState
-        )
+        set([`handle${num}`, 'panStart'], e.target.offsetLeft, previousState)
       );
     };
   }
@@ -137,10 +133,7 @@ class RangeSlider extends React.Component {
     const handle = `handle${num}`;
     const width = previousState.railWidth;
 
-    const {
-      x,
-      step
-    } = closestStep({
+    const {x, step} = closestStep({
       eventX,
       width,
       steps,
@@ -158,8 +151,7 @@ class RangeSlider extends React.Component {
   setCalculatedX(e, num, previousState, steps, snap) {
     if (steps) {
       return this.calculateStepX(e, num, steps, previousState, snap);
-    }
-    else {
+    } else {
       const x = this.extractXFromEvent(num, e);
       const handle = `handle${num}`;
       return set([handle, 'x'], x, previousState);
@@ -171,21 +163,22 @@ class RangeSlider extends React.Component {
     const onDrag = this.props.onDrag;
     const onDragEnd = this.props.onDragEnd;
 
-    return e => this.setState((previousState, currentProps) => {
-      let state = this.setCalculatedX(e, num, previousState, steps, snap);
-      state = set(['handle1', 'max'], state.handle2.x, state);
-      state = set(['handle2', 'min'], state.handle1.x, state);
+    return e =>
+      this.setState((previousState, currentProps) => {
+        let state = this.setCalculatedX(e, num, previousState, steps, snap);
+        state = set(['handle1', 'max'], state.handle2.x, state);
+        state = set(['handle2', 'min'], state.handle1.x, state);
 
-      const isMax = state.handle1.x === state.railWidth;
-      state = set('isMax', isMax, state);
-      if (onDrag && !snap) {
-        onDrag(state);
-      }
-      if (onDragEnd && snap) {
-        onDragEnd(state);
-      }
-      return state;
-    });
+        const isMax = state.handle1.x === state.railWidth;
+        state = set('isMax', isMax, state);
+        if (onDrag && !snap) {
+          onDrag(state);
+        }
+        if (onDragEnd && snap) {
+          onDragEnd(state);
+        }
+        return state;
+      });
   }
 
   extractXFromEvent(num, e) {
@@ -202,21 +195,12 @@ class RangeSlider extends React.Component {
   }
 
   render() {
-    const {
-      isMax,
-      handle1 = this.props.handle1,
-      handle2 = this.props.handle2
-    } = this.state;
+    const {isMax, handle1 = this.props.handle1, handle2 = this.props.handle2} = this.state;
 
     const x1 = getOr(0, 'x', handle1);
     const x2 = getOr(0, 'x', handle2);
 
-    const {
-      title,
-      label,
-      labelMin,
-      labelMax
-    } = this.props;
+    const {title, label, labelMin, labelMax} = this.props;
     const {skin} = this.context;
     const defaultColor = getOr('#00B0FF', 'common.primary', skin);
     return (
@@ -225,7 +209,7 @@ class RangeSlider extends React.Component {
         <p className={style.title}>{title}</p>
         <div
           className={style.rail} // eslint-disable-next-line no-return-assign
-          ref={div => this._rail = div} // eslint-disable-line react/jsx-no-bind
+          ref={div => (this._rail = div)} // eslint-disable-line react/jsx-no-bind
         >
           <div
             className={style.track}

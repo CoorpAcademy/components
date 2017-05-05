@@ -6,14 +6,7 @@ import getClassState from '../../util/get-class-state';
 import style from './style.css';
 
 const InputCheckbox = props => {
-  const {
-    checked,
-    onChange = noop,
-    error,
-    disabled,
-    required,
-    modified = false
-  } = props;
+  const {checked, onChange = noop, error, disabled, required, modified = false} = props;
 
   const idCheckbox = uniqueId('input-checkbox-');
   const title = `${props.title}${required ? '*' : ''} :`;
@@ -24,7 +17,7 @@ const InputCheckbox = props => {
     <div className={className}>
       <span className={style.title}>{title}</span>
       <input
-        type='checkbox'
+        type="checkbox"
         className={style.checkbox}
         name={title}
         id={idCheckbox}
@@ -32,9 +25,7 @@ const InputCheckbox = props => {
         onChange={handleChange}
         disabled={disabled}
       />
-      <label
-        htmlFor={idCheckbox}
-      />
+      <label htmlFor={idCheckbox} />
     </div>
   );
 };

@@ -12,10 +12,7 @@ import style from './style.css';
 const DisciplinePartners = (props, context) => {
   const {translate, skin} = context;
 
-  const {
-    authorTitle,
-    authors = []
-  } = props;
+  const {authorTitle, authors = []} = props;
 
   const authorLabel = authorTitle || translate('author');
   const defaultColor = getOr('#00B0FF', 'common.primary', skin);
@@ -54,51 +51,38 @@ const DisciplinePartners = (props, context) => {
     );
 
     const socialView = socialLinks.map((social, i) => (
-      <div
-        key={i}
-        className={style.link}
-      >
+      <div key={i} className={style.link}>
         <SocialLink {...social} />
       </div>
     ));
 
-    const aNameView = autName && (
+    const aNameView =
+      autName &&
       <div className={style.authorName}>
         {autName}
-      </div>
-    );
+      </div>;
 
-    const logoView = authorLogo ? (
-      <div className={style.logoContainer}>
-        <Link
-          className={style.logoLink}
-          href={authorLogo.href}
-          target={'_blank'}
-        >
-          <Picture
-            className={style.logo}
-            src={authorLogo.src}
-          />
-        </Link>
-      </div>
-    ) : null;
-
-    const authorContent = authorHref || aNameView || socialView ? (
-      <div className={style.authorContent}>
-        {autName ? aNameView : null}
-        {moreDetails ? moreInfoView : null}
-        {(!moreDetails && authorHref) ? linkView : null}
-        <div className={style.links}>
-          {socialView}
+    const logoView = authorLogo
+      ? <div className={style.logoContainer}>
+          <Link className={style.logoLink} href={authorLogo.href} target={'_blank'}>
+            <Picture className={style.logo} src={authorLogo.src} />
+          </Link>
         </div>
-      </div>
-    ) : null;
+      : null;
+
+    const authorContent = authorHref || aNameView || socialView
+      ? <div className={style.authorContent}>
+          {autName ? aNameView : null}
+          {moreDetails ? moreInfoView : null}
+          {!moreDetails && authorHref ? linkView : null}
+          <div className={style.links}>
+            {socialView}
+          </div>
+        </div>
+      : null;
 
     return (
-      <div
-        key={index}
-        className={style.authorWrapper}
-      >
+      <div key={index} className={style.authorWrapper}>
         {logoView}
         {authorContent}
       </div>
@@ -120,15 +104,17 @@ DisciplinePartners.contextTypes = {
 };
 
 DisciplinePartners.propTypes = {
-  authors: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string,
-    href: PropTypes.string,
-    logo: PropTypes.shape({
-      src: PropTypes.string,
-      href: PropTypes.string
-    }),
-    socialLinks: PropTypes.array
-  })),
+  authors: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      href: PropTypes.string,
+      logo: PropTypes.shape({
+        src: PropTypes.string,
+        href: PropTypes.string
+      }),
+      socialLinks: PropTypes.array
+    })
+  ),
   authorTitle: PropTypes.string
 };
 

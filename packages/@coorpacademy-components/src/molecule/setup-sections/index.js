@@ -5,10 +5,7 @@ import Loader from '../../atom/loader';
 import style from './style.css';
 
 const SetupSections = (props, context) => {
-  const {
-    sections,
-    loading = false
-  } = props;
+  const {sections, loading = false} = props;
 
   let sectionsView = null;
 
@@ -16,16 +13,15 @@ const SetupSections = (props, context) => {
     sectionsView = (
       <div className={style.loading}>
         <Loader />
-      </div>);
+      </div>
+    );
   } else {
     sectionsView = sections.map((section, index) => {
-      section.onUp = (index === 0) ? null : section.onUp;
-      section.onDown = (index === sections.length - 1) ? null : section.onDown;
+      section.onUp = index === 0 ? null : section.onUp;
+      section.onDown = index === sections.length - 1 ? null : section.onDown;
 
       return (
-        <div key={section.id}
-          className={style.section}
-        >
+        <div key={section.id} className={style.section}>
           <SetupSection {...section} />
         </div>
       );

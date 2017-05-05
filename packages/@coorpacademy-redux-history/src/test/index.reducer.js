@@ -1,9 +1,5 @@
 import test from 'ava';
-import {
-  createLocation,
-  INITAL_STATE,
-  historyReducer
-} from '..';
+import {createLocation, INITAL_STATE, historyReducer} from '..';
 
 test('should have initial state', t => {
   const action = {type: 'foo'};

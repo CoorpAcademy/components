@@ -20,21 +20,15 @@ import fixtures from './list-fixtures';
 const mapObject = mapValues.convert({cap: false});
 
 const containsComponent = Component => vTree => {
-  return some(
-    vNode => {
-      if (get('type', vNode) === Component) return true;
-      return containsComponent(Component)(vNode);
-    },
-    React.Children.toArray(get('props.children', vTree))
-  );
+  return some(vNode => {
+    if (get('type', vNode) === Component) return true;
+    return containsComponent(Component)(vNode);
+  }, React.Children.toArray(get('props.children', vTree)));
 };
 
 const getChildren = Component => ({props, children}) => {
   const shallowRenderer = ReactTestUtils.createRenderer();
-  shallowRenderer.render(
-    React.createElement(Component, props, children),
-    {translate: identity}
-  );
+  shallowRenderer.render(React.createElement(Component, props, children), {translate: identity});
   const vTree = shallowRenderer.getRenderOutput();
   return pipe(
     mapObject((folder, folderName) =>
@@ -51,46 +45,37 @@ const getChildren = Component => ({props, children}) => {
 };
 
 export default pipe(
-  mapObject(
-    (folder, folderName) =>
-      mapObject(
-        (componentPath, componentName) => {
-          const Component = require(componentPath).default; // eslint-disable-line import/no-dynamic-require
-          const componentFixtures = pipe(
-            get([folderName, componentName]),
-            values,
-            map(pipe(require, get('default')))
-          )(fixtures);
+  mapObject((folder, folderName) =>
+    mapObject((componentPath, componentName) => {
+      const Component = require(componentPath).default; // eslint-disable-line import/no-dynamic-require
+      const componentFixtures = pipe(
+        get([folderName, componentName]),
+        values,
+        map(pipe(require, get('default')))
+      )(fixtures);
 
-          return {
-            children: reduce((acc, fixture) => {
-              return defaultsDeep(
-                getChildren(Component)(fixture),
-                acc
-              );
-            }, {}, componentFixtures)
-          };
-        },
-        folder
-      )
+      return {
+        children: reduce(
+          (acc, fixture) => {
+            return defaultsDeep(getChildren(Component)(fixture), acc);
+          },
+          {},
+          componentFixtures
+        )
+      };
+    }, folder)
   ),
   dependencies => {
     return pipe(
-      flatMap.convert({cap: false})(
-        (folder, folderName) =>
-          flatMap.convert({cap: false})(
-            ({children} = {}, componentName) => {
-              return mapObject(
-                mapObject(
-                  () => set(['parents', folderName, componentName], true, {})
-                ),
-                children
-              );
-            },
-            folder
-          )
+      flatMap.convert({cap: false})((folder, folderName) =>
+        flatMap.convert({cap: false})(({children} = {}, componentName) => {
+          return mapObject(
+            mapObject(() => set(['parents', folderName, componentName], true, {})),
+            children
+          );
+        }, folder)
       ),
-      reduce(defaultsDeep, dependencies),
+      reduce(defaultsDeep, dependencies)
     )(dependencies);
   }
 )(components);

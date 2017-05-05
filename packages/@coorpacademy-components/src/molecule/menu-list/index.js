@@ -14,31 +14,17 @@ const MenuList = props => {
   const {menuItems = []} = props;
 
   const MenuitemDiv = menuItems.map((item, index) => {
-    const {
-      title,
-      href,
-      type,
-      subItems,
-      outgoing = false
-    } = item;
+    const {title, href, type, subItems, outgoing = false} = item;
 
-    const subItemsView = !isNil(subItems) && (
+    const subItemsView =
+      !isNil(subItems) &&
       <div className={style.subNav}>
-        <SsMenuList
-          items={item.subItems}
-        />
-      </div>
-    );
+        <SsMenuList items={item.subItems} />
+      </div>;
 
     return (
-      <li
-        key={index}
-        className={type ? buttonStyle[type] : style.item}
-      >
-        <a
-          href={href}
-          target={outgoing ? '_blank' : '_self'}
-        >
+      <li key={index} className={type ? buttonStyle[type] : style.item}>
+        <a href={href} target={outgoing ? '_blank' : '_self'}>
           {title}
         </a>
         {subItemsView}
@@ -48,15 +34,8 @@ const MenuList = props => {
 
   return (
     <div>
-      <input
-        type='checkbox'
-        id='toggle'
-        className={style.toggleBox}
-      />
-      <label
-        htmlFor='toggle'
-        className={style.toggler}
-      >
+      <input type="checkbox" id="toggle" className={style.toggleBox} />
+      <label htmlFor="toggle" className={style.toggler}>
         ≡
       </label>
       <ul className={style.list}>
@@ -67,12 +46,14 @@ const MenuList = props => {
 };
 
 MenuList.propTypes = {
-  menuItems: PropTypes.arrayOf(PropTypes.shape({
-    href: PropTypes.string,
-    title: PropTypes.string,
-    type: PropTypes.oneOf(keys(buttonStyle)),
-    outgoing: PropTypes.bool
-  }))
+  menuItems: PropTypes.arrayOf(
+    PropTypes.shape({
+      href: PropTypes.string,
+      title: PropTypes.string,
+      type: PropTypes.oneOf(keys(buttonStyle)),
+      outgoing: PropTypes.bool
+    })
+  )
 };
 
 export default MenuList;

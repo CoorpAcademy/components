@@ -39,9 +39,7 @@ function Checkboxes(props, context) {
     status: _status = STATUS.CLOSED
   } = props;
 
-  const {
-    skin
-  } = context;
+  const {skin} = context;
 
   const cross = String.fromCharCode(getOr('x', 'icons.close', skin));
   const arrow = String.fromCharCode(getOr('v', 'icons["arrow-bottom"]', skin));
@@ -59,24 +57,19 @@ function Checkboxes(props, context) {
 
   const openHeader = ({close: closeHeader, onClose: handlerClose}) => (
     <div className={style.openHeader}>
-      <span
-        className={style.closeText}
-      >
+      <span className={style.closeText}>
         {closeHeader}
       </span>
-      <span
-        className={style.close}
-        onClick={handlerClose}
-      >
+      <span className={style.close} onClick={handlerClose}>
         {cross}
       </span>
     </div>
   );
 
   const createHeader = _options => {
-    return get('status', _options) === STATUS.CLOSED ?
-      closedHeader(_options) :
-      openHeader(_options);
+    return get('status', _options) === STATUS.CLOSED
+      ? closedHeader(_options)
+      : openHeader(_options);
   };
 
   const isCourses = theme === 'courses';
@@ -98,15 +91,8 @@ function Checkboxes(props, context) {
     const background = isCourses ? coursesBG : defaultBG;
 
     return (
-      <li
-        className={style.line}
-        key={i}
-      >
-        <TitledCheckbox
-          background={background}
-          onToggle={onToggle}
-          state={choice}
-        />
+      <li className={style.line} key={i}>
+        <TitledCheckbox background={background} onToggle={onToggle} state={choice} />
       </li>
     );
   });

@@ -6,10 +6,7 @@ import style from './style.css';
 const ForumThread = props => {
   const {answers = []} = props;
   const answersView = answers.map((answerProps, index) => (
-    <ForumThread
-      key={index}
-      {...answerProps}
-    />
+    <ForumThread key={index} {...answerProps} />
   ));
 
   return (

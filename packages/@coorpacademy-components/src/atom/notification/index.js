@@ -10,10 +10,7 @@ const notificationStyle = {
 };
 
 const NotificationComponent = props => {
-  const {
-    type,
-    message
-  } = props;
+  const {type, message} = props;
 
   const className = type ? notificationStyle[type] : style.message;
 

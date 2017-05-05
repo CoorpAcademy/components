@@ -1,12 +1,4 @@
-const closestStep = ({
-  eventX,
-  width,
-  steps,
-  snap,
-  limit,
-  side,
-  forceRange
-}) => {
+const closestStep = ({eventX, width, steps, snap, limit, side, forceRange}) => {
   const stepWidth = width / (steps.length - 1);
   let x = eventX;
   let minStep = Math.floor(x / stepWidth);
@@ -31,8 +23,7 @@ const closestStep = ({
         minStep = Math.floor((x - 1) / stepWidth);
         x = minStep * stepWidth;
         step = minStep;
-      }
-      else {
+      } else {
         maxStep = Math.ceil((x + 1) / stepWidth);
         x = maxStep * stepWidth;
         step = maxStep;

@@ -16,9 +16,7 @@ const createTranslate = locales => (key, data) => {
     interpolation,
     (token, value) => {
       const _value = trim(value);
-      return has(_value, data) ?
-        get(_value, data) :
-        token;
+      return has(_value, data) ? get(_value, data) : token;
     },
     template
   );

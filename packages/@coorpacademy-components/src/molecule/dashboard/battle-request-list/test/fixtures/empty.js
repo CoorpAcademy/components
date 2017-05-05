@@ -1,6 +1,5 @@
 export default {
   props: {
-    requests: [
-    ]
+    requests: []
   }
 };

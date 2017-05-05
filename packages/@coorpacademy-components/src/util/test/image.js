@@ -70,4 +70,3 @@ test('should extract default image when undefined custom', t => {
   t.is(style.bar, 'barz');
   t.is(style.plop, undefined);
 });
-

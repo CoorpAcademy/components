@@ -41,35 +41,32 @@ class Select extends React.Component {
 
     const title = `${titleProps}${required ? '*' : ''}`;
 
-    const optionList = options && options.map((option, index) => {
-      return (
-        <option
-          key={index}
-          value={option.value}
-        >
-          {option.name}
-        </option>
-      );
-    });
+    const optionList =
+      options &&
+      options.map((option, index) => {
+        return (
+          <option key={index} value={option.value}>
+            {option.name}
+          </option>
+        );
+      });
 
-    const selected = multiple ?
-      map(get('value'), filter({selected: true}, options)) :
-      get('value', find({selected: true}, options));
-    const selectedLabel = multiple ?
-      map(get('name'), filter({selected: true}, options)) :
-      get('name', find({selected: true}, options));
+    const selected = multiple
+      ? map(get('value'), filter({selected: true}, options))
+      : get('value', find({selected: true}, options));
+    const selectedLabel = multiple
+      ? map(get('name'), filter({selected: true}, options))
+      : get('name', find({selected: true}, options));
 
-    const handleChange = multiple ?
-      e => {
-        onChange(map(get('value'), e.target.selectedOptions));
-      } :
-      e => {
-        onChange(e.target.value);
-      };
+    const handleChange = multiple
+      ? e => {
+          onChange(map(get('value'), e.target.selectedOptions));
+        }
+      : e => {
+          onChange(e.target.value);
+        };
 
-    const arrowView = !multiple ? (
-      <div className={style.arrow} />
-    ) : null;
+    const arrowView = !multiple ? <div className={style.arrow} /> : null;
     const className = getClassState(style.default, style.modified, style.error, modified);
 
     return (
@@ -100,11 +97,13 @@ Select.propTypes = {
   required: PropTypes.bool,
   onChange: PropTypes.func,
   theme: PropTypes.oneOf(keys(themeStyle)),
-  options: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    value: PropTypes.string,
-    selected: PropTypes.bool
-  })),
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      value: PropTypes.string,
+      selected: PropTypes.bool
+    })
+  ),
   modified: PropTypes.bool
 };
 

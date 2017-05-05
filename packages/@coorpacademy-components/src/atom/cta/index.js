@@ -57,7 +57,8 @@ class CTA extends React.Component {
     const hoverBorderColor = secondary ? textColor : secondaryColor;
 
     return (
-      <div className={style.button}
+      <div
+        className={style.button}
         data-name={ctaName}
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}

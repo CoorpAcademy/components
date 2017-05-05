@@ -15,31 +15,25 @@ const pascalCase = pipe(camelCase, upperFirst);
 
 const cwd = join(__dirname, '..');
 
-const paths = glob.sync(
-  '**/!(layout)/test/fixtures/*.js',
-  {cwd}
-);
+const paths = glob.sync('**/!(layout)/test/fixtures/*.js', {cwd});
 
 const removeExt = filename => basename(filename, '.js');
 
 export default pipe(
   map(
-    pipe(
-      split('/'),
-      folders => {
-        const type = pipe(slice(0, -4), _join('-'), pascalCase)(folders);
-        const title = pipe(slice(slice(0, -4, folders).length, -3), _join('-'), pascalCase)(folders);
-        const fixture = pipe(last, removeExt, pascalCase)(folders);
-        const path = join(__dirname, '..', ...folders);
+    pipe(split('/'), folders => {
+      const type = pipe(slice(0, -4), _join('-'), pascalCase)(folders);
+      const title = pipe(slice(slice(0, -4, folders).length, -3), _join('-'), pascalCase)(folders);
+      const fixture = pipe(last, removeExt, pascalCase)(folders);
+      const path = join(__dirname, '..', ...folders);
 
-        return {
-          title,
-          type,
-          fixture,
-          path
-        };
-      }
-    )
+      return {
+        title,
+        type,
+        fixture,
+        path
+      };
+    })
   ),
   reduce((acc, {title, type, fixture, path}) => set([type, title, fixture], path, acc), {})
 )(paths);
