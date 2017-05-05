@@ -4,15 +4,9 @@ import template from 'lodash/fp/template';
 import style from './style.css';
 
 const ProductCard = (props, context) => {
-  const {
-    title,
-    subtitle,
-    price,
-    currency,
-    checkImage
-  } = props;
+  const {title, subtitle, price, currency, checkImage} = props;
 
-  const { translate } = context;
+  const {translate} = context;
 
   const descriptionItemTranslationKeys = [
     'product_desc_culture',
@@ -28,14 +22,8 @@ const ProductCard = (props, context) => {
 
   const items = descriptionItemTranslationKeys.map((itemTranslationKey, index) => {
     return (
-      <div
-        className={style.productDescriptionItem}
-        key={index}
-      >
-        <img
-          className={style.productCheckbox}
-          src={checkImage}
-        />
+      <div className={style.productDescriptionItem} key={index}>
+        <img className={style.productCheckbox} src={checkImage} />
         <div className={style.productDescriptionText}>{translate(itemTranslationKey)}</div>
       </div>
     );

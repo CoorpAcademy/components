@@ -9,22 +9,13 @@ export const LOCATION = '@@history/LOCATION';
 export const NAVIGATE = '@@history/NAVIGATE';
 
 const REMOVE_QUESTION_MARK = /^\??(.*)/;
-const parseQuery = pipe(
-  s => REMOVE_QUESTION_MARK.exec(s),
-  get(1),
-  qsParse
-);
+const parseQuery = pipe(s => REMOVE_QUESTION_MARK.exec(s), get(1), qsParse);
 
 export const createLocation = location => {
-  const loc = pipe(
-      getOr('', 'search'),
-      parseQuery,
-      query => {
-        if (isEqual(query, {}))
-          return location;
-        return set('query', query, location);
-      }
-    )(location);
+  const loc = pipe(getOr('', 'search'), parseQuery, query => {
+    if (isEqual(query, {})) return location;
+    return set('query', query, location);
+  })(location);
 
   return {
     type: LOCATION,
@@ -61,8 +52,7 @@ export const createGoForwardNavigate = createNavigate(ACTIONS_HISTORY.GO_FORWARD
 export const INITAL_STATE = {};
 
 export const historyReducer = (state = INITAL_STATE, {type, payload}) => {
-  if (type === LOCATION)
-    return payload;
+  if (type === LOCATION) return payload;
   return state;
 };
 
@@ -73,12 +63,7 @@ export const historyMiddleware = ({history}) => store => {
 
   return next => action => {
     if (action.type === NAVIGATE) {
-      const {
-        payload: {
-          action: historyAction,
-          args
-        }
-      } = action;
+      const {payload: {action: historyAction, args}} = action;
 
       switch (historyAction) {
         case ACTIONS_HISTORY.PUSH:

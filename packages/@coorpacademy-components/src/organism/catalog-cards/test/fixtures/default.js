@@ -15,7 +15,7 @@ export default {
         href: '/catalog/trainings/27'
       },
       {
-        title: 'La production d\'énergie',
+        title: "La production d'énergie",
         image: 'https://unsplash.it/g/268',
         author: {
           name: 'We demain',
@@ -81,7 +81,7 @@ export default {
         href: '/catalog/trainings/24'
       },
       {
-        title: 'L\'éfficacité énergétique',
+        title: "L'éfficacité énergétique",
         image: 'https://unsplash.it/g/268',
         author: {
           name: 'We Demain',

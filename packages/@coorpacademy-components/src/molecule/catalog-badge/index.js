@@ -6,24 +6,17 @@ import CatalogSection from '../../atom/catalog-section';
 import style from './style.css';
 
 const CatalogBadge = (props, context) => {
-  const {
-    badge
-  } = props;
+  const {badge} = props;
 
   if (isNil(badge)) return null;
 
-  const {
-    translate
-  } = context;
+  const {translate} = context;
 
   const title = translate('certification');
 
   return (
     <CatalogSection title={title}>
-      <Picture
-        className={style.badge}
-        src={badge}
-      />
+      <Picture className={style.badge} src={badge} />
     </CatalogSection>
   );
 };

@@ -8,15 +8,9 @@ import stopPropagation from '../../util/bubbling';
 import style from './style.css';
 
 const ModuleBubble = (props, context) => {
-  const {
-    skin
-  } = context;
+  const {skin} = context;
 
-  const {
-    onClick,
-    module: _module,
-    hideLabel = false
-  } = props;
+  const {onClick, module: _module, hideLabel = false} = props;
 
   const code = getOr('', `icons[${_module.status}]`, skin);
   const icon = String.fromCharCode(code);
@@ -24,32 +18,21 @@ const ModuleBubble = (props, context) => {
   const filtered = _module.filtered;
   const disabled = _module.disabled;
 
-  const click = !disabled && pipe(
-    stopPropagation,
-    unary(partial(onClick, [_module]))
-  );
+  const click = !disabled && pipe(stopPropagation, unary(partial(onClick, [_module])));
   const label = _module.label;
 
   const iconColor = getOr('#00B0FF', ['common', 'primary'], skin);
 
-  const labelView = !hideLabel && (
+  const labelView =
+    !hideLabel &&
     <div className={style.label}>
       {label}
-    </div>
-  );
+    </div>;
 
   return (
-    <div
-      className={filtered ? style.filtered : style.modulewrapper}
-      data-name='module-bubble'
-    >
-      <div
-        className={style.bubble}
-        onClick={click}
-      >
-        <span
-          className={style.bubbleBG}
-        />
+    <div className={filtered ? style.filtered : style.modulewrapper} data-name="module-bubble">
+      <div className={style.bubble} onClick={click}>
+        <span className={style.bubbleBG} />
         <span
           className={disabled ? style.iconDisabled : style.icon}
           style={{

@@ -37,11 +37,7 @@ class BrandUploadBox extends React.Component {
     const idBox = uniqueId('drop-box-');
     let content;
 
-    const {
-      description = '',
-      browse = '',
-      onLoad
-    } = this.props;
+    const {description = '', browse = '', onLoad} = this.props;
 
     switch (this.props.status) {
       case 'loading':
@@ -55,10 +51,7 @@ class BrandUploadBox extends React.Component {
       default:
         content = (
           <div className={style.wrapper}>
-            <div
-              id={idBox}
-              className={this.state.dragging ? style.dropping : style.default}
-            >
+            <div id={idBox} className={this.state.dragging ? style.dropping : style.default}>
               <div className={style.cont}>
                 <i className={style.arrow} />
                 <div className={style.desc}>
@@ -67,7 +60,7 @@ class BrandUploadBox extends React.Component {
                 <span className={style.browse}>{browse}</span>
               </div>
               <input
-                type='file'
+                type="file"
                 className={style.inputFile}
                 onChange={onLoad}
                 onDragEnter={this.handleDragStart}

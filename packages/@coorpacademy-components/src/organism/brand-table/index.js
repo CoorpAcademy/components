@@ -8,15 +8,7 @@ import Link from '../../atom/link';
 import style from './style.css';
 
 const BrandTable = props => {
-  const {
-    createHref,
-    pagination,
-    search,
-    rows = [],
-    columns = [],
-    isPending,
-    emptyValue
-  } = props;
+  const {createHref, pagination, search, rows = [], columns = [], isPending, emptyValue} = props;
 
   const pendingView = (
     <div className={style.loading}>
@@ -24,16 +16,11 @@ const BrandTable = props => {
     </div>
   );
 
-  const tableView = rows.length > 0 ? (
-    <Table
-      rows={rows}
-      columns={columns}
-    />
-  ) : (
-    <div className={style.empty}>
-      {emptyValue}
-    </div>
-  );
+  const tableView = rows.length > 0
+    ? <Table rows={rows} columns={columns} />
+    : <div className={style.empty}>
+        {emptyValue}
+      </div>;
 
   return (
     <div className={style.wrapper}>

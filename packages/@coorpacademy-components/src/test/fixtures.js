@@ -31,42 +31,44 @@ test.before(() => {
   });
 });
 
-test.after(() =>
-  console.error.restore() // eslint-disable-line no-console
+test.after(
+  () => console.error.restore() // eslint-disable-line no-console
 );
 
-mapObject((components, componentType) => mapObject((componentPath, componentName) => {
-  const Component = _require(componentPath);
-  const fixtures = get([componentType, componentName], fixturesList);
+mapObject((components, componentType) =>
+  mapObject((componentPath, componentName) => {
+    const Component = _require(componentPath);
+    const fixtures = get([componentType, componentName], fixturesList);
 
-  test(`[${componentType}] ${componentName} › should have at least one fixture`, t => {
-    t.true(keys(fixtures).length > 0);
-  });
-
-  return mapObject((fixturePath, fixtureName) => {
-    const it = `[${componentType}] ${componentName} › ${fixtureName}`;
-    const fixture = _require(fixturePath);
-    const children = fixture.children;
-
-    const vTree = (
-      <Component {...fixture.props}>
-        {children}
-      </Component>
-    );
-
-    const wrappedVTree = (
-      <Provider {...context}>
-        {vTree}
-      </Provider>
-    );
-
-    test(`${it} › should have props or children in every fixture`, t => {
-      t.true(undefined !== fixture.props || undefined !== fixture.children);
+    test(`[${componentType}] ${componentName} › should have at least one fixture`, t => {
+      t.true(keys(fixtures).length > 0);
     });
 
-    test(`${it} › should be renderered`, t => {
-      ReactDOM.renderToStaticMarkup(wrappedVTree);
-      t.pass();
-    });
-  })(fixtures);
-})(components))(componentsList);
+    return mapObject((fixturePath, fixtureName) => {
+      const it = `[${componentType}] ${componentName} › ${fixtureName}`;
+      const fixture = _require(fixturePath);
+      const children = fixture.children;
+
+      const vTree = (
+        <Component {...fixture.props}>
+          {children}
+        </Component>
+      );
+
+      const wrappedVTree = (
+        <Provider {...context}>
+          {vTree}
+        </Provider>
+      );
+
+      test(`${it} › should have props or children in every fixture`, t => {
+        t.true(undefined !== fixture.props || undefined !== fixture.children);
+      });
+
+      test(`${it} › should be renderered`, t => {
+        ReactDOM.renderToStaticMarkup(wrappedVTree);
+        t.pass();
+      });
+    })(fixtures);
+  })(components)
+)(componentsList);

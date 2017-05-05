@@ -18,7 +18,7 @@ const pages = {
 };
 
 const Settings = (props, context) => {
-  const { translate } = context;
+  const {translate} = context;
   const {tabs, onTabClick, activeContent, ...otherProps} = props;
   const ActiveContent = pages[activeContent];
 
@@ -26,26 +26,23 @@ const Settings = (props, context) => {
     <div className={style.settings}>
       <div className={style.tabNavigation}>
         <div className={style.tabNavigationPanel}>
-          <Link
-            className={style.backToCatalogButton}
-            href={props.moocUrl}
-          >
+          <Link className={style.backToCatalogButton} href={props.moocUrl}>
             {translate('back_to_catalog')}
           </Link>
-          {map(tab => (
-            <Tab
-              {...otherProps}
-              {...tab}
-              onClick={onTabClick}
-              key={tab.key}
-              active={tab.key === activeContent}
-            />
-          ), tabs)}
+          {map(
+            tab => (
+              <Tab
+                {...otherProps}
+                {...tab}
+                onClick={onTabClick}
+                key={tab.key}
+                active={tab.key === activeContent}
+              />
+            ),
+            tabs
+          )}
         </div>
-        <TabContent
-          activeContent={activeContent}
-          {...otherProps}
-        >
+        <TabContent activeContent={activeContent} {...otherProps}>
           <ActiveContent {...otherProps} />
         </TabContent>
       </div>

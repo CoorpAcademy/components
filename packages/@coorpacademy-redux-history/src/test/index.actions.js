@@ -20,17 +20,20 @@ test('createLocation should create a LOCATION action', t => {
   t.is(action.payload.pathname, '/');
 });
 
-forEach(([nameAction, createAction]) => {
-  test(`createNavigate should create a NAVIGATE action with ${nameAction}`, t => {
-    const action = createAction('/');
-    t.is(action.type, NAVIGATE);
-    t.truthy(action.payload.action);
-    t.deepEqual(action.payload.args, ['/']);
-  });
-}, toPairs({
-  createPushNavigate,
-  createReplaceNavigate,
-  createGoNavigate,
-  createGoBackNavigate,
-  createGoForwardNavigate
-}));
+forEach(
+  ([nameAction, createAction]) => {
+    test(`createNavigate should create a NAVIGATE action with ${nameAction}`, t => {
+      const action = createAction('/');
+      t.is(action.type, NAVIGATE);
+      t.truthy(action.payload.action);
+      t.deepEqual(action.payload.args, ['/']);
+    });
+  },
+  toPairs({
+    createPushNavigate,
+    createReplaceNavigate,
+    createGoNavigate,
+    createGoBackNavigate,
+    createGoForwardNavigate
+  })
+);

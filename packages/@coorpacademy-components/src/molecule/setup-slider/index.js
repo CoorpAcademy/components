@@ -4,14 +4,10 @@ import SetupSlide from '../setup-slide';
 import style from './style.css';
 
 const SetupSlider = props => {
-  const {
-    slides = []
-  } = props;
+  const {slides = []} = props;
 
   const slidesView = slides.map((slide, key) => (
-    <div key={key}
-      className={style.slide}
-    >
+    <div key={key} className={style.slide}>
       <SetupSlide {...slide} />
     </div>
   ));

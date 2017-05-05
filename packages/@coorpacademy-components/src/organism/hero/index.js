@@ -20,10 +20,7 @@ function Hero(props, context) {
         backgroundImage
       }}
     >
-      <Link
-        href={url}
-        className={style[ctaClass]}
-      >
+      <Link href={url} className={style[ctaClass]}>
         <div
           className={style.label}
           style={{
@@ -48,10 +45,7 @@ Hero.contextTypes = {
 };
 
 Hero.propTypes = {
-  url: PropTypes.oneOfType([
-    CustomPropTypes.url,
-    PropTypes.string
-  ]).isRequired,
+  url: PropTypes.oneOfType([CustomPropTypes.url, PropTypes.string]).isRequired,
   title: PropTypes.string.isRequired
 };
 

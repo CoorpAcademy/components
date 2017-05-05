@@ -79,17 +79,21 @@ class CardsList extends React.Component {
   }
 
   cardsWidth() {
-    return this._cards.map(el => {
-      return el.scrollWidth;
-    }).reduce((a, b) => a + b, 0);
+    return this._cards
+      .map(el => {
+        return el.scrollWidth;
+      })
+      .reduce((a, b) => a + b, 0);
   }
 
   getPossiblePositions(filter) {
-    return this._cards.map((card, index, arr) => {
-      return arr.slice(0, index).reduce((a, b) => {
-        return a + b.scrollWidth;
-      }, 0);
-    }).filter(filter);
+    return this._cards
+      .map((card, index, arr) => {
+        return arr.slice(0, index).reduce((a, b) => {
+          return a + b.scrollWidth;
+        }, 0);
+      })
+      .filter(filter);
   }
 
   handleScroll(scrollEvent) {
@@ -98,10 +102,10 @@ class CardsList extends React.Component {
       const rightBound = this.rightBound();
 
       const skip = this.getPossiblePositions((el, index) => {
-        return (el + this._cards[index].scrollWidth) <= leftBound;
+        return el + this._cards[index].scrollWidth <= leftBound;
       }).length;
       const limit = this.getPossiblePositions((el, index) => {
-        return (el + this._cards[index].scrollWidth) > leftBound && el < rightBound;
+        return el + this._cards[index].scrollWidth > leftBound && el < rightBound;
       }).length;
       this.props.onScroll(skip, limit);
     }
@@ -127,7 +131,7 @@ class CardsList extends React.Component {
 
   scrollTo(currentScrollPos, toPrevious) {
     const possiblePositions = this.getPossiblePositions(el => {
-      return toPrevious ? el < currentScrollPos : el > (currentScrollPos + this.wrapperWidth());
+      return toPrevious ? el < currentScrollPos : el > currentScrollPos + this.wrapperWidth();
     });
 
     if (!toPrevious) {
@@ -138,7 +142,9 @@ class CardsList extends React.Component {
       return;
     }
 
-    const actualPosition = toPrevious ? last(possiblePositions) : head(possiblePositions) - this.wrapperWidth();
+    const actualPosition = toPrevious
+      ? last(possiblePositions)
+      : head(possiblePositions) - this.wrapperWidth();
     this._cardsWrapper.scrollLeft = actualPosition;
     this.updateArrowsState();
   }
@@ -161,48 +167,44 @@ class CardsList extends React.Component {
   }
 
   render() {
-    const {
-      title,
-      cards
-    } = this.props;
+    const {title, cards} = this.props;
 
     const cardsView = cards.map((card, key) => {
       return (
-        <div className={style.card}
+        <div
+          className={style.card}
           key={key} // eslint-disable-next-line no-return-assign
-          ref={div => this._cards[key] = div} // eslint-disable-line react/jsx-no-bind
+          ref={div => (this._cards[key] = div)} // eslint-disable-line react/jsx-no-bind
         >
-          <Card
-            {...card}
-          />
+          <Card {...card} />
         </div>
       );
     });
 
-    const leftArrowView = this.state.left.hidden ? null : (
-      <div className={this.state.left.disabled ? style.leftDisabled : style.left}
-        onClick={this.handleOnLeft}
-      />
-    );
+    const leftArrowView = this.state.left.hidden
+      ? null
+      : <div
+          className={this.state.left.disabled ? style.leftDisabled : style.left}
+          onClick={this.handleOnLeft}
+        />;
 
-    const rightArrowView = this.state.right.hidden ? null : (
-      <div className={this.state.right.disabled ? style.rightDisabled : style.right}
-        onClick={this.handleOnRight}
-      />
-    );
+    const rightArrowView = this.state.right.hidden
+      ? null
+      : <div
+          className={this.state.right.disabled ? style.rightDisabled : style.right}
+          onClick={this.handleOnRight}
+        />;
 
     return (
-      <div
-        className={style.wrapper}
-        data-name="cards-list"
-      >
+      <div className={style.wrapper} data-name="cards-list">
         <div className={style.list}>
           <div className={style.listWrapper}>
             <div className={style.title}>
               {title}
             </div>
-            <div className={style.cards} // eslint-disable-next-line no-return-assign
-              ref={div => this._cardsWrapper = div} // eslint-disable-line react/jsx-no-bind
+            <div
+              className={style.cards} // eslint-disable-next-line no-return-assign
+              ref={div => (this._cardsWrapper = div)} // eslint-disable-line react/jsx-no-bind
             >
               {cardsView}
             </div>

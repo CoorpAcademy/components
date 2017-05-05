@@ -5,7 +5,7 @@ import addClassName from '../../util/add-class-name';
 import shallowCompare from '../../util/shallow-compare';
 import style from './style.css';
 
-const Hammer = (typeof window !== 'undefined') ? require('hammerjs') : undefined;
+const Hammer = typeof window !== 'undefined' ? require('hammerjs') : undefined;
 
 class Handle extends React.Component {
   constructor(props, context) {
@@ -49,10 +49,7 @@ class Handle extends React.Component {
   }
 
   render() {
-    const {
-      x,
-      y
-    } = this.props;
+    const {x, y} = this.props;
 
     return (
       <div

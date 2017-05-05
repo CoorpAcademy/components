@@ -7,16 +7,14 @@ import style from './style.css';
 const ForumComment = (props, context) => {
   const {translate} = context;
   const {avatar, onPost, onChange, value, textareaDisabled, postDisabled} = props;
-  const avatarView = avatar && (
+  const avatarView =
+    avatar &&
     <div className={style.image}>
       <img src={avatar} />
-    </div>
-  );
+    </div>;
 
   const button = (
-    <div
-      className={style.post}
-    >
+    <div className={style.post}>
       <Button
         onClick={onPost}
         disabled={postDisabled}

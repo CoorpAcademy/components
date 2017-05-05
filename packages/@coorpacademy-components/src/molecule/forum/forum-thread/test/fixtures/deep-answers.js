@@ -16,14 +16,6 @@ const answer2 = {
 export default {
   props: {
     ...post,
-    answers: [
-      answer,
-      answer,
-      answer,
-      answer,
-      answer1,
-      answer2,
-      answer1
-    ]
+    answers: [answer, answer, answer, answer, answer1, answer2, answer1]
   }
 };

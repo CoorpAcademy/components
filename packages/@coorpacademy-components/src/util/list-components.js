@@ -15,28 +15,21 @@ const pascalCase = pipe(camelCase, upperFirst);
 
 const cwd = join(__dirname, '..');
 
-const paths = glob.sync(
-  '**/**/!(test|layout)/index.js',
-  {cwd}
-);
+const paths = glob.sync('**/**/!(test|layout)/index.js', {cwd});
 
 export default pipe(
   map(
-    pipe(
-      split('/'),
-      slice(0, -1),
-      folders => {
-        const title = pipe(last, pascalCase)(folders);
-        const type = pipe(slice(0, -1), _join('-'), pascalCase)(folders);
-        const path = join(__dirname, '..', ...folders);
+    pipe(split('/'), slice(0, -1), folders => {
+      const title = pipe(last, pascalCase)(folders);
+      const type = pipe(slice(0, -1), _join('-'), pascalCase)(folders);
+      const path = join(__dirname, '..', ...folders);
 
-        return {
-          title,
-          type,
-          path
-        };
-      }
-    )
+      return {
+        title,
+        type,
+        path
+      };
+    })
   ),
   reduce((acc, {title, type, path}) => set([type, title], path, acc), {})
 )(paths);

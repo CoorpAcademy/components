@@ -1,9 +1,8 @@
-import 'jsdom-global/register';
+import 'jsdom-global/register'; // eslint-disable-line import/no-unresolved
 import test from 'ava';
 import React from 'react';
-import {mount} from 'enzyme';
+import {mount} from 'enzyme'; // eslint-disable-line import/no-unresolved
 import set from 'lodash/fp/set';
-
 import RangeSlider from '..';
 
 const steps = [
@@ -51,22 +50,12 @@ const mockEvent = {
 
 const mouseDown = (slider, handle, x) => {
   slider.setState((previousState, currentProps) =>
-    set(
-      [`handle${handle}`, 'panStart'],
-      x,
-      previousState
-    )
+    set([`handle${handle}`, 'panStart'], x, previousState)
   );
 };
 
 const setWidth = (slider, width) => {
-  slider.setState((previousState, currentProps) =>
-    set(
-      ['railWidth'],
-      width,
-      previousState
-    )
-  );
+  slider.setState((previousState, currentProps) => set(['railWidth'], width, previousState));
 
   slider.instance().refreshMinMax(width);
 };

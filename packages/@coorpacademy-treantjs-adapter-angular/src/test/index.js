@@ -15,9 +15,7 @@ test('createDirectives should wrap factories as directive factories', t => {
     directive: (_name, options) => app.directives.push(_name)
   };
 
-  const Provider = (
-    <div />
-  );
+  const Provider = <div />;
 
   createDirectives(app, Provider, factories);
 

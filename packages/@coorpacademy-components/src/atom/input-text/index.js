@@ -26,7 +26,7 @@ const InputText = props => {
       <label>
         <span className={style.title}>{title}</span>
         <input
-          type='text'
+          type="text"
           name={title}
           className={style.input}
           placeholder={placeholder}

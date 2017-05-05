@@ -7,31 +7,19 @@ import StartBattle from '../../../molecule/dashboard/start-battle';
 import style from './style.css';
 
 const BrandFormGroup = props => {
-  const {
-    sections = []
-  } = props;
+  const {sections = []} = props;
 
   const buildSectionComponent = section => {
-    const {
-      type
-    } = section;
+    const {type} = section;
     switch (type) {
       case 'battleRequests':
-        return (
-          <BattleRequestList {...section} />
-        );
+        return <BattleRequestList {...section} />;
       case 'cards':
-        return (
-          <CardsList {...section} />
-        );
+        return <CardsList {...section} />;
       case 'news':
-        return (
-          <NewsList {...section} />
-        );
+        return <NewsList {...section} />;
       case 'battle':
-        return (
-          <StartBattle {...section} />
-        );
+        return <StartBattle {...section} />;
       default:
         return null;
     }
@@ -41,10 +29,7 @@ const BrandFormGroup = props => {
     const sectionView = buildSectionComponent(section);
 
     return (
-      <div
-        key={index}
-        className={style.section}
-      >
+      <div key={index} className={style.section}>
         {sectionView}
       </div>
     );
@@ -53,10 +38,7 @@ const BrandFormGroup = props => {
   const sectionsList = sections.map(buildSection);
 
   return (
-    <div
-      className={style.wrapper}
-      data-name="dashboard"
-    >
+    <div className={style.wrapper} data-name="dashboard">
       {sectionsList}
     </div>
   );

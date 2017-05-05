@@ -10,30 +10,21 @@ const CatalogCard = (props, context) => {
   const {translate} = context;
   const learnMore = (
     <span
-      dangerouslySetInnerHTML={{ // eslint-disable-line react/no-danger
+      // eslint-disable-next-line react/no-danger
+      dangerouslySetInnerHTML={{
         __html: translate('Learn <span>more</span>')
       }}
     />
   );
 
-  const {
-    maxRating = 5,
-    rating = 0,
-    href = '',
-    image,
-    author,
-    title = ''
-  } = props;
+  const {maxRating = 5, rating = 0, href = '', image, author, title = ''} = props;
 
   return (
     <li className={style.catalogListItem}>
       <div className={style.imageWrapper}>
         <Picture src={image} />
         <div className={style.overlay}>
-          <Link
-            className={hoverFill}
-            href={href}
-          >
+          <Link className={hoverFill} href={href}>
             {learnMore}
           </Link>
         </div>
@@ -49,10 +40,7 @@ const CatalogCard = (props, context) => {
             {translate('by {{name}}', author)}
           </Link>
         </div>
-        <StarRating
-          rating={rating}
-          total={maxRating}
-        />
+        <StarRating rating={rating} total={maxRating} />
       </div>
     </li>
   );

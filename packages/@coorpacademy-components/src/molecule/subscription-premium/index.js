@@ -3,15 +3,12 @@ import PropTypes from 'prop-types';
 import style from './style.css';
 
 const SubscriptionPremiumDetails = (props, context) => {
-  const { translate } = context;
+  const {translate} = context;
 
   return (
     <div>
       <div className={style.premiumTitle}>
-        <img
-          className={style.premiumTitleImage}
-          src={props.checkImage}
-        />
+        <img className={style.premiumTitleImage} src={props.checkImage} />
         <div className={style.premiumTitleText}>
           {translate('subscription_premium_title')}
         </div>

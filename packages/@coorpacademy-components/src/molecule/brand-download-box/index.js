@@ -4,12 +4,7 @@ import Button from '../../atom/button';
 import style from './style.css';
 
 const BrandDownloadBox = props => {
-  const {
-    warning = '',
-    description = '',
-    href = '',
-    submitValue = ''
-  } = props;
+  const {warning = '', description = '', href = '', submitValue = ''} = props;
 
   return (
     <div className={style.wrapper}>
@@ -18,12 +13,7 @@ const BrandDownloadBox = props => {
         <span className={style.warning}>{warning}</span>
         <p className={style.description}>{description}</p>
       </div>
-      <Button
-        className={style.button}
-        type='a'
-        href={href}
-        submitValue={submitValue}
-      />
+      <Button className={style.button} type="a" href={href} submitValue={submitValue} />
     </div>
   );
 };

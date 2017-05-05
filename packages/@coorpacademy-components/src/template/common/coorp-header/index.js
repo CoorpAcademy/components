@@ -6,9 +6,7 @@ import content from './content';
 const CoorpHeader = props => {
   const headerProps = content(props);
 
-  return (
-    <Header {...headerProps} />
-  );
+  return <Header {...headerProps} />;
 };
 
 CoorpHeader.propTypes = {

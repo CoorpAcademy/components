@@ -57,9 +57,7 @@ BackgroundColorProvider.childContextTypes = {
 
 const app = angular.module('app', []);
 
-app
-  .value('config', {})
-  .value('$i18next', () => {});
+app.value('config', {}).value('$i18next', () => {});
 
 createDirectives(app, BackgroundColorProvider, {
   DisplayValue

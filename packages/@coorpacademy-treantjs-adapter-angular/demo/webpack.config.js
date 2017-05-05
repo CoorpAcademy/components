@@ -7,7 +7,7 @@ const addHMR = entries => {
   return concat(['webpack-hot-middleware/client'], entries);
 };
 
-const sandboxConfig = ({
+const sandboxConfig = {
   output: {
     publicPath: '/dist'
   },
@@ -17,16 +17,15 @@ const sandboxConfig = ({
   },
 
   module: {
-    loaders: [{
-      test: /\.js$/,
-      loader: 'babel-loader'
-    }]
+    loaders: [
+      {
+        test: /\.js$/,
+        loader: 'babel-loader'
+      }
+    ]
   },
 
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin()
-  ]
-});
+  plugins: [new webpack.HotModuleReplacementPlugin(), new webpack.NoEmitOnErrorsPlugin()]
+};
 
 export default sandboxConfig;

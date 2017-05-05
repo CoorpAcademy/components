@@ -33,47 +33,39 @@ const Card = (props, context) => {
   const defaultColor = getOr('#00B0FF', 'common.primary', skin);
   const cardStyle = viewStyle[view];
 
-  const calltoaction = cta ? (
-    <div className={style.cta}>{cta}</div>
-  ) : null;
+  const calltoaction = cta ? <div className={style.cta}>{cta}</div> : null;
 
-  const certif = certification ? (
-    <div className={style.certification} />
-  ) : null;
+  const certif = certification ? <div className={style.certification} /> : null;
 
-  const myprogress = !adaptiv ? (
-    <div className={style.progressWrapper}>
-      <div className={style.progress}
+  const myprogress = !adaptiv
+    ? <div className={style.progressWrapper}>
+        <div
+          className={style.progress}
+          style={{
+            width: progress,
+            backgroundColor: defaultColor
+          }}
+        />
+      </div>
+    : null;
+
+  const adaptivIcon = adaptiv
+    ? <div
+        className={style.adaptiv}
         style={{
-          width: progress,
           backgroundColor: defaultColor
         }}
       />
-    </div>
-  ) : (null);
+    : null;
 
-  const adaptivIcon = adaptiv ? (
-    <div
-      className={style.adaptiv}
-      style={{
-        backgroundColor: defaultColor
-      }}
-    />
-  ) : null;
+  const lock = disabled ? <div className={style.lock} /> : null;
 
-  const lock = disabled ? (
-    <div className={style.lock} />
-  ) : null;
-
-  const timer = time ? (<span className={style.timer}>{time}</span>) : null;
-  const loader = (title && type) ? null : (<Loader />);
+  const timer = time ? <span className={style.timer}>{time}</span> : null;
+  const loader = title && type ? null : <Loader />;
 
   return (
     <div className={cardStyle}>
-      <div
-        className={lazyClass}
-        disabled={disabled}
-      >
+      <div className={lazyClass} disabled={disabled}>
         <div
           className={style.imageWrapper}
           style={{
@@ -82,12 +74,10 @@ const Card = (props, context) => {
           }}
         >
           {loader}
-          <div
-            className={style.ctaWrapper}
-            onClick={!disabled && topOnClick}
-          >
+          <div className={style.ctaWrapper} onClick={!disabled && topOnClick}>
             {calltoaction}
-            <div className={style.overlay}
+            <div
+              className={style.overlay}
               style={{
                 backgroundColor: defaultColor
               }}
@@ -99,11 +89,9 @@ const Card = (props, context) => {
           {lock}
         </div>
         {myprogress}
-        <div
-          className={style.infoWrapper}
-          onClick={!disabled && bottomOnClick}
-        >
-          <div className={style.type}
+        <div className={style.infoWrapper} onClick={!disabled && bottomOnClick}>
+          <div
+            className={style.type}
             style={{
               color: !disabled && defaultColor
             }}
@@ -115,10 +103,7 @@ const Card = (props, context) => {
               {title}
             </div>
           </div>
-          <div
-            title={author}
-            className={style.author}
-          >
+          <div title={author} className={style.author}>
             {author}
           </div>
         </div>

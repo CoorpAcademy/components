@@ -4,23 +4,12 @@ import ScopeContent from '../scope-content';
 import style from './style.css';
 
 const DisciplineScope = props => {
-  const {
-    onClick,
-    selected = 0,
-    content,
-    levels = []
-  } = props;
+  const {onClick, selected = 0, content, levels = []} = props;
 
   return (
     <div className={style.scope}>
-      <ScopeTabs
-        onClick={onClick}
-        selected={selected}
-        levels={levels}
-      />
-      <ScopeContent
-        content={content}
-      />
+      <ScopeTabs onClick={onClick} selected={selected} levels={levels} />
+      <ScopeContent content={content} />
     </div>
   );
 };

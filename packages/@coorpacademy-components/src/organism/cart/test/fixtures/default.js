@@ -24,16 +24,20 @@ export default {
       onCardCvcChange() {},
       submitButtonEnabled: true,
       stripeInstance: () => {
-        return {elements: () => {
-          return {create: (elementName, elementOptions) => {
+        return {
+          elements: () => {
             return {
-              on: (eventListend, eventHandler) => {},
-              off: (eventListend, eventHandler) => {},
-              mount: elementId => {},
-              unmount: () => {}
+              create: (elementName, elementOptions) => {
+                return {
+                  on: (eventListend, eventHandler) => {},
+                  off: (eventListend, eventHandler) => {},
+                  mount: elementId => {},
+                  unmount: () => {}
+                };
+              }
             };
-          }};
-        }};
+          }
+        };
       }
     },
     backUrl: 'back url'

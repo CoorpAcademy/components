@@ -27,7 +27,7 @@ const InputText = props => {
       <label>
         <span className={style.title}>{`${title} `}</span>
         <input
-          type='text'
+          type="text"
           name={title}
           className={style.input}
           placeholder={placeholder}
@@ -36,10 +36,7 @@ const InputText = props => {
           onInput={handleChange}
           onChange={noop}
         />
-        <span
-          className={style.preview}
-          style={inlineStyle}
-        />
+        <span className={style.preview} style={inlineStyle} />
       </label>
       <div className={style.description}>
         {description}

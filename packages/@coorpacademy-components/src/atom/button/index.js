@@ -19,19 +19,18 @@ const Button = ({children, ...props}) => {
     onClick
   } = props;
 
-  const centeredStyle = centered ? {
-    margin: '0 auto',
-    display: 'block'
-  } : {};
+  const centeredStyle = centered
+    ? {
+        margin: '0 auto',
+        display: 'block'
+      }
+    : {};
 
   let buttonContent;
   switch (type) {
     case 'link':
       buttonContent = (
-        <Link
-          href={href}
-          target={target}
-        >
+        <Link href={href} target={target}>
           {submitValue || children}
         </Link>
       );
@@ -39,10 +38,7 @@ const Button = ({children, ...props}) => {
 
     case 'a':
       buttonContent = (
-        <a
-          href={href}
-          target={target}
-        >
+        <a href={href} target={target}>
           {submitValue || children}
         </a>
       );

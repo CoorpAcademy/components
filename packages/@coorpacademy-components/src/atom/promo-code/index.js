@@ -3,14 +3,9 @@ import PropTypes from 'prop-types';
 import style from './style.css';
 
 const PromoCode = (props, context) => {
-  const {
-    promoCodeDescription,
-    promoCodeError,
-    onValidate,
-    handlePromoCodeChange
-  } = props;
+  const {promoCodeDescription, promoCodeError, onValidate, handlePromoCodeChange} = props;
 
-  const { translate } = context;
+  const {translate} = context;
 
   return (
     <div className={style.promoCode}>
@@ -25,26 +20,18 @@ const PromoCode = (props, context) => {
           `}
           onChange={handlePromoCodeChange}
         />
-        <button
-          type="submit"
-          onClick={onValidate}
-          className={style.promoCodeButton}
-        >
+        <button type="submit" onClick={onValidate} className={style.promoCodeButton}>
           {translate('zuora_discount_code_submit')}
         </button>
       </div>
-      {
-        promoCodeDescription &&
+      {promoCodeDescription &&
         <div className={style.promoCodeDescription}>
           - {promoCodeDescription}
-        </div>
-      }
-      {
-        promoCodeError &&
+        </div>}
+      {promoCodeError &&
         <div className={style.promoCodeError}>
           - {promoCodeError}
-        </div>
-      }
+        </div>}
     </div>
   );
 };

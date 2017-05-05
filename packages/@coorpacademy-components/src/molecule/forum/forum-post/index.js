@@ -47,18 +47,14 @@ const ForumPost = (props, context) => {
   let messageClassName = style.message;
   if (deleted) {
     messageClassName = style.deletedMessage;
-  }
-  else if (showEditBox) {
+  } else if (showEditBox) {
     messageClassName = style.hiddenMessage;
   }
 
   return (
     <div className={rejected ? style.rejected : style.post}>
       <div className={style.image}>
-        <Picture
-          src={avatar}
-          className={style.avatar}
-        />
+        <Picture src={avatar} className={style.avatar} />
       </div>
       <div className={style.content}>
         <div>
@@ -70,7 +66,7 @@ const ForumPost = (props, context) => {
             className={style.action}
             onClick={onAnswer}
             style={{
-              display: (answerable && !deleted && !rejected) ? 'block' : 'none'
+              display: answerable && !deleted && !rejected ? 'block' : 'none'
             }}
           >
             {answerLabel}
@@ -110,9 +106,7 @@ const ForumPost = (props, context) => {
             {deleted ? infoDeleted : message}
           </div>
 
-          <div
-            className={`${style.edition} ${showEditBox ? style.visible : ''}`}
-          >
+          <div className={`${style.edition} ${showEditBox ? style.visible : ''}`}>
             <ForumComment
               avatar={null}
               value={edition}
@@ -123,9 +117,7 @@ const ForumPost = (props, context) => {
             />
           </div>
 
-          <div
-            className={`${style.answer} ${showAnswerBox ? style.visible : ''}`}
-          >
+          <div className={`${style.answer} ${showAnswerBox ? style.visible : ''}`}>
             <ForumComment
               avatar={answerAvatar}
               textareaDisabled={answerTextareaDisabled}

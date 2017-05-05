@@ -20,9 +20,7 @@ test.beforeEach(t => {
   const store = createStore(
     historyReducer,
     history.location,
-    applyMiddleware(
-      historyMiddleware({history})
-    )
+    applyMiddleware(historyMiddleware({history}))
   );
 
   t.context.store = store;

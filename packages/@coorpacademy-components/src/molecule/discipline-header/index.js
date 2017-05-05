@@ -35,13 +35,7 @@ class DisciplineHeader extends React.Component {
     return (
       <div className={style.wrapper}>
         <div className={style.imgWrapper}>
-          <VideoIframe
-            image={image}
-            type={type}
-            id={id}
-            width="380px"
-            height="250px"
-          />
+          <VideoIframe image={image} type={type} id={id} width="380px" height="250px" />
         </div>
         <div className={style.courseWrapper}>
           <div className={style.title}>
@@ -49,14 +43,13 @@ class DisciplineHeader extends React.Component {
           </div>
           <div className={this.state.fullDisplay ? style.desc : style.shortDesc}>
             <div
-              dangerouslySetInnerHTML={{ // eslint-disable-line react/no-danger
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={{
                 __html: description
               }}
             />
           </div>
-          <div className={style.toggle}
-            onClick={this.handleToggleDisplay}
-          >
+          <div className={style.toggle} onClick={this.handleToggleDisplay}>
             {toggleLabel}
           </div>
         </div>

@@ -6,17 +6,9 @@ import Button from '../../atom/button';
 import style from './style.css';
 
 const Popin = (props, context) => {
-  const {
-    skin
-  } = context;
+  const {skin} = context;
 
-  const {
-    ctaLabel,
-    ctaOnClick,
-    header,
-    closeOnClick,
-    content
-  } = props;
+  const {ctaLabel, ctaOnClick, header, closeOnClick, content} = props;
 
   function createMarkup() {
     return {__html: content};
@@ -25,25 +17,15 @@ const Popin = (props, context) => {
   const primary = getOr('#00B0FF', ['common', 'primary'], skin);
 
   return (
-    <div
-      className={style.default}
-      onClick={closeOnClick}
-    >
-      <div
-        className={style.popin}
-        onClick={stopPropagation}
-      >
-        <div
-          className={style.header}
-          onClick={closeOnClick}
-          data-name='popin-header'
-        >
+    <div className={style.default} onClick={closeOnClick}>
+      <div className={style.popin} onClick={stopPropagation}>
+        <div className={style.header} onClick={closeOnClick} data-name="popin-header">
           {header}
         </div>
         <div className={style.content}>
-          <div dangerouslySetInnerHTML={ // eslint-disable-line react/no-danger
-              createMarkup()
-            }
+          <div
+            dangerouslySetInnerHTML={// eslint-disable-line react/no-danger
+            createMarkup()}
           />
         </div>
         <Button

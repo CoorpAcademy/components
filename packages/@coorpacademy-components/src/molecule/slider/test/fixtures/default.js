@@ -4,8 +4,6 @@ const slide = slideFixtures.props;
 
 export default {
   props: {
-    slides: [
-      slide
-    ]
+    slides: [slide]
   }
 };

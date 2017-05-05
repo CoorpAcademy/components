@@ -8,11 +8,7 @@ function ModuleCard(props, context) {
   const hideLabel = true;
 
   return (
-    <div
-      className={style.default}
-      data-name='module-card'
-      onClick={onClick}
-    >
+    <div className={style.default} data-name="module-card" onClick={onClick}>
       <div className={style.title}>
         {label}
       </div>
@@ -20,11 +16,7 @@ function ModuleCard(props, context) {
         {level}
       </div>
       <div className={style.module}>
-        <ModuleBubble
-          hideLabel={hideLabel}
-          module={props}
-          onClick={onClick}
-        />
+        <ModuleBubble hideLabel={hideLabel} module={props} onClick={onClick} />
       </div>
     </div>
   );

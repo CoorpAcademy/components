@@ -2,8 +2,12 @@ export default {
   props: {
     id: '98aze89138',
     title: 'Recommended for you',
-    onUp: e => {console.log(e);}, // eslint-disable-line no-console
-    onDown: e => {console.log(e);}, // eslint-disable-line no-console
+    onUp: e => {
+      console.log(e); // eslint-disable-line no-console
+    },
+    onDown: e => {
+      console.log(e); // eslint-disable-line no-console
+    },
     display: {
       value: true,
       onChange: value => console.log(value) // eslint-disable-line no-console

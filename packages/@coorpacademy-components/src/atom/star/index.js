@@ -5,9 +5,7 @@ import style from './style.css';
 const Star = props => {
   const state = props.popular ? style.popular : style.default;
 
-  return (
-    <span className={state}>★</span>
-  );
+  return <span className={state}>★</span>;
 };
 
 Star.propTypes = {

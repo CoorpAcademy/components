@@ -6,7 +6,8 @@ export default {
   props: {
     slides: [
       slide,
-      {...slide,
+      {
+        ...slide,
         cover: 'url("http://www.lorempixel.com/200/200/nature/2")',
         title: 'Hi XXX, check your battle requests,',
         surtitle: 'You have N battle requests!',
@@ -16,7 +17,8 @@ export default {
           title: 'Start Battling'
         }
       },
-      {...slide,
+      {
+        ...slide,
         cover: 'url("http://www.lorempixel.com/200/200/nature/3")',
         title: 'Welcome back Jane, continue your course',
         surtitle: 'The Mobile Revolution',

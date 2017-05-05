@@ -1,8 +1,7 @@
-import 'jsdom-global/register';
+import 'jsdom-global/register'; // eslint-disable-line import/no-unresolved
 import test from 'ava';
 import React from 'react';
-import {mount} from 'enzyme';
-
+import {mount} from 'enzyme'; // eslint-disable-line import/no-unresolved
 import Filters from '..';
 
 test('mount Filters with enzyme', t => {
@@ -21,11 +20,7 @@ test('mount Filters with enzyme', t => {
   };
 
   const component = (
-    <Filters
-      onToggleFilters={onToggleFilters}
-      onToggleSorts={onToggleSorts}
-      onSearch={onSearch}
-    />
+    <Filters onToggleFilters={onToggleFilters} onToggleSorts={onToggleSorts} onSearch={onSearch} />
   );
 
   const filters = mount(component);

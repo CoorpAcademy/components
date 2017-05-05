@@ -22,26 +22,17 @@ const Author = (props, context) => {
   return (
     <div className={style.wrapper}>
       <div className={style.header}>
-        <DisciplineHeader
-          image={image}
-          title={title}
-          description={description}
-        />
+        <DisciplineHeader image={image} title={title} description={description} />
       </div>
       <div className={style.partners}>
-        <DisciplinePartners
-          authors={authors}
-          authorTitle={translate('Informations')}
-        />
+        <DisciplinePartners authors={authors} authorTitle={translate('Informations')} />
       </div>
       <div className={style.content}>
         <div className={style.container}>
           <span className={style.cardsTitle}>
             {cardsTitle}
           </span>
-          <CatalogCards
-            products={disciplines}
-          />
+          <CatalogCards products={disciplines} />
         </div>
       </div>
     </div>
@@ -63,8 +54,6 @@ Author.propTypes = {
     href: PropTypes.string,
     socialLinks: PropTypes.array
   }),
-  disciplines: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.object)
-  ])
+  disciplines: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.object)])
 };
 export default Author;

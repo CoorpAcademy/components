@@ -10,7 +10,7 @@ test('index should be up to date', t => {
   t.deepEqual(content, generatedComponentContent, 'run `npm run generate:index` command');
 });
 
-test('storybook\'s index should be up to date', t => {
+test("storybook's index should be up to date", t => {
   const content = readFileSync(join(__dirname, '../../storybook/components.js'), 'utf8');
 
   t.deepEqual(content, generatedStorybookContent, 'run `npm run generate:storybook` command');
