@@ -13,13 +13,12 @@
     height: auto;
     box-sizing: border-box;
     padding: 0 0 16px 0;
-    background: light;
+    background: white;
     box-sizing: border-box;
 }
 
 .noresults {
-  border-top: solid 2px borderGrey;
-  margin: 0 40px;
+  border-top: solid 1px borderGrey;
   min-height: 600px;
   box-sizing: border-box;
   padding: 16px 0;

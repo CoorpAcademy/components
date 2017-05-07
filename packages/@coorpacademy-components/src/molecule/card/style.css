@@ -45,6 +45,9 @@
 
 .default:hover {
   background: light;
+  box-shadow: 0 2px 4px rgba(0,0,0,.4);
+  transform: translateY(-2px);
+  border: 0 solid transparent;
 }
 
 .imageWrapper:hover .overlay,
@@ -139,6 +142,7 @@
   border-radius: 50%;
   composes: fa from '../../variables/fontawesome.css';
   composes: fa-random from '../../variables/fontawesome.css';
+  box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.4);
 }
 
 .adaptiv:before {

@@ -8,7 +8,7 @@
 
 .default {
   position: relative;
-  width: 100%;
+  padding: 0 17px;
   user-select: none;
 }
 
@@ -17,6 +17,7 @@
   font-family: "Open Sans";
   font-weight: 400;
   user-select: none;
+  margin-left: -17px;
 }
 
 .title {

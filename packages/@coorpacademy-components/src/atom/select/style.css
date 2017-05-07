@@ -115,8 +115,14 @@
   display: block;
   padding: 15px 30px 15px 15px;
   font-size: 12px;
-  background: borderGrey;
   padding-right: 30px;
+  background: white;
+  border: 1px solid borderGrey;
+}
+.sort{
+  background: white;
+  border: 1px solid borderGrey;
+  margin-bottom: 10px;
 }
 
 .filter .title,
@@ -138,7 +144,7 @@
   border-radius: 0;
   outline: none;
   appearance: none;
-  font-size: 14px;
+  font-size: 12px;
   padding: 0 15px;
   color: darkGrey;
   cursor: pointer;
