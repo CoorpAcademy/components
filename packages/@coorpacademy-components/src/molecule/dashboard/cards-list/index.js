@@ -179,17 +179,11 @@ class CardsList extends React.Component {
 
     const leftArrowView = this.state.left.hidden
       ? null
-      : <div
-          className={style.left}
-          onClick={this.handleOnLeft}
-        />;
+      : <div className={style.left} onClick={this.handleOnLeft} />;
 
     const rightArrowView = this.state.right.hidden
       ? null
-      : <div
-          className={style.right}
-          onClick={this.handleOnRight}
-        />;
+      : <div className={style.right} onClick={this.handleOnRight} />;
 
     return (
       <div className={style.wrapper} data-name="cards-list">
