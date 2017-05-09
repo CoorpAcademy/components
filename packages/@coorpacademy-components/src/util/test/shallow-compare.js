@@ -1,13 +1,15 @@
 import test from 'ava';
 import shallowCompare from '../shallow-compare';
 
-test('should shallow compare', t => {
-  const _this = {
-    props: 'foo',
-    state: 'bar',
-    context: 'baz'
+test('should compare', t => {
+  const component = {
+    props: {foo: 'foo'},
+    state: {bar: 'bar'},
+    context: {baz: 'baz'}
   };
 
-  t.false(shallowCompare(_this, 'foo', 'bar', 'baz'));
-  t.true(shallowCompare(_this, 'plop', 'bar', 'baz'));
+  t.false(shallowCompare(component, {foo: 'foo'}, {bar: 'bar'}, {baz: 'baz'}));
+  t.true(shallowCompare(component, {foo: 'foo'}, {bar: 'bar'}, {baz: '_baz'}));
+  t.true(shallowCompare(component, {foo: 'foo'}, {bar: '_bar'}, {baz: 'baz'}));
+  t.true(shallowCompare(component, {foo: '_foo'}, {bar: 'bar'}, {baz: 'baz'}));
 });

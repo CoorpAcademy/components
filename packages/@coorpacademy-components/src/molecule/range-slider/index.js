@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import {findDOMNode} from 'react-dom';
 import getOr from 'lodash/fp/getOr';
 import set from 'lodash/fp/set';
-import shallowCompare from '../../util/shallow-compare';
 import closestStep from '../../util/closest-step';
 import Handle from '../../atom/handle';
 import style from './style.css';
@@ -45,10 +44,6 @@ class RangeSlider extends React.Component {
       const width = this.railWidth();
       this.initHandlesPositions(width);
     }
-  }
-
-  shouldComponentUpdate(nextProps, nextState, nextContext) {
-    return shallowCompare(this, nextProps, nextState, nextContext);
   }
 
   componentWillUnmount() {

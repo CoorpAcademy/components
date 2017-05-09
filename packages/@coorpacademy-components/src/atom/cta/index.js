@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
 import Link from '../link';
-import shallowCompare from '../../util/shallow-compare';
 import style from './style.css';
 
 class CTA extends React.Component {
@@ -13,10 +12,6 @@ class CTA extends React.Component {
     };
     this.handleMouseEnter = this.handleMouseEnter.bind(this);
     this.handleMouseLeave = this.handleMouseLeave.bind(this);
-  }
-
-  shouldComponentUpdate(nextProps, nextState, nextContext) {
-    return shallowCompare(this, nextProps, nextState, nextContext);
   }
 
   handleMouseEnter() {

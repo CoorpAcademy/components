@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
 import Select from '../../atom/select';
 import RangeSlider from '../../molecule/range-slider';
-import shallowCompare from '../../util/shallow-compare';
 import {hoverFill} from '../../atom/button/hover-fill.css';
 import style from './style.css';
 
@@ -18,10 +17,6 @@ class Filters extends React.Component {
     this.handleOpenFilter = this.handleOpenFilter.bind(this);
     this.handleOpenSort = this.handleOpenSort.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
-  }
-
-  shouldComponentUpdate(nextProps, nextState, nextContext) {
-    return shallowCompare(this, nextProps, nextState, nextContext);
   }
 
   handleOpenFilter() {

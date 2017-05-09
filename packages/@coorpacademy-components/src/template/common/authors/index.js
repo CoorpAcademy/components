@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
 import map from 'lodash/fp/map';
-import shallowCompare from '../../../util/shallow-compare';
 import CardsGrid from '../../../organism/cards-grid';
 import SocialLink from '../../../atom/social-link';
 import Link from '../../../atom/link';
@@ -15,10 +14,6 @@ class Authors extends React.Component {
       fullDisplay: false
     };
     this.handleToggleDisplay = this.handleToggleDisplay.bind(this);
-  }
-
-  shouldComponentUpdate(nextProps, nextState, nextContext) {
-    return shallowCompare(this, nextProps, nextState, nextContext);
   }
 
   handleToggleDisplay() {

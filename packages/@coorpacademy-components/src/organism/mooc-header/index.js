@@ -4,7 +4,6 @@ import {findDOMNode} from 'react-dom';
 import find from 'lodash/fp/find';
 import getOr from 'lodash/fp/getOr';
 import get from 'lodash/fp/get';
-import shallowCompare from '../../util/shallow-compare';
 import Slider from '../../molecule/slider';
 import Cta from '../../atom/cta';
 import Select from '../../atom/select';
@@ -20,10 +19,6 @@ class Theme extends React.Component {
     };
     this.handleMouseEnter = this.handleMouseEnter.bind(this);
     this.handleMouseLeave = this.handleMouseLeave.bind(this);
-  }
-
-  shouldComponentUpdate(nextProps, nextState, nextContext) {
-    return shallowCompare(this, nextProps, nextState, nextContext);
   }
 
   handleMouseEnter() {
@@ -79,10 +74,6 @@ class MoocHeader extends React.Component {
     this.handleMenuThemeMouseLeave = this.handleMenuThemeMouseLeave.bind(this);
     this._checkOnClose = this._checkOnClose.bind(this);
     this.handleLinkClick = this.handleLinkClick.bind(this);
-  }
-
-  shouldComponentUpdate(nextProps, nextState, nextContext) {
-    return shallowCompare(this, nextProps, nextState, nextContext);
   }
 
   componentDidUpdate(prevProps, prevState, prevContext) {

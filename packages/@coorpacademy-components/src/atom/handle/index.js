@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {findDOMNode} from 'react-dom';
 import addClassName from '../../util/add-class-name';
-import shallowCompare from '../../util/shallow-compare';
 import style from './style.css';
 
 const Hammer = typeof window !== 'undefined' ? require('hammerjs') : undefined;
@@ -26,10 +25,6 @@ class Handle extends React.Component {
         this.hammer.on('panup pandown', this.props.onPan);
       }
     }
-  }
-
-  shouldComponentUpdate(nextProps, nextState, nextContext) {
-    return shallowCompare(this, nextProps, nextState, nextContext);
   }
 
   componentWillUnmount() {
