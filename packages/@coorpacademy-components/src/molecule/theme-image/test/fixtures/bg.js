@@ -1,5 +1,5 @@
 export default {
   props: {
-    image: 'bg'
+    image: 'footer'
   }
 };
