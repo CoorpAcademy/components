@@ -122,11 +122,13 @@ class Filters extends React.Component {
         <div className={filtersActive ? style.activeDefault : style.default}>
           <div className={style.title} data-name={'filters-button'} onClick={this.handleOpenFilter}>
             {filterTabLabel}
+            <div className={style.arrow} />
           </div>
         </div>
         <div className={sortingActive ? style.activeWrapperSortBy : style.wrapperSortBy}>
           <div className={style.title} onClick={this.handleOpenSort}>
             {sortTabLabel}
+            <div className={style.arrow} />
           </div>
         </div>
         <div className={filtersActive ? style.activeWrapperFilters : style.wrapperFilters}>
