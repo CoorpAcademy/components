@@ -13,7 +13,7 @@ const componentCSS = new ExtractTextPlugin({
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
-const config = cssScope => ({
+const config = (appName, cssScope) => ({
   devtool: NODE_ENV === 'production' ? false : 'eval',
 
   stats: {
@@ -23,7 +23,7 @@ const config = cssScope => ({
   },
 
   output: {
-    library: 'Coorponents',
+    library: appName,
     filename: '[name].js',
     path: path.join(__dirname, 'dist'),
     libraryTarget: 'umd'

@@ -44,3 +44,14 @@ import createRoutes from './routes';
 
 const app = prepareApp(createReducer, createRoutes, options);
 ```
+
+## webpack config use
+```
+const path = require('path');
+const {webpackConfig} = require('@coorpacademy/appster');
+
+const input = path.join(__dirname, 'src/app');
+const output = path.join(__dirname, 'dist');
+
+module.exports = webpackConfig('Forum', input, output);
+```

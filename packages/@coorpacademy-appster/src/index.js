@@ -9,9 +9,7 @@ import {createRouter} from './router';
 
 const createRenderer = (store, history, update, _createRouter, options) => {
   const state$ = Observable.create(observer =>
-    store.subscribe(() =>
-      observer.next(store.getState())
-    )
+    store.subscribe(() => observer.next(store.getState()))
   ).startWith(store.getState());
 
   const Router = _createRouter({
@@ -28,9 +26,7 @@ const createRenderer = (store, history, update, _createRouter, options) => {
     });
   });
 
-  return view$
-    .map(update)
-    .subscribe();
+  return view$.map(update).subscribe();
 };
 
 /**
@@ -41,10 +37,7 @@ const createRenderer = (store, history, update, _createRouter, options) => {
 const prepareApp = (createReducer, routes, options, connectors = []) => {
   const history = createHistory();
 
-  const store = createStore(
-    createReducer(),
-    createMiddleware(routes, options)
-  );
+  const store = createStore(createReducer(), createMiddleware(routes, options));
 
   const unconnectHistory = connectHistory(history, store);
   store.dispatch(navigate(history.getCurrentLocation()));

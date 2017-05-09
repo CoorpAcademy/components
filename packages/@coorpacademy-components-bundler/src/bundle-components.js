@@ -5,34 +5,36 @@
 //         optional [-a angular/dust]
 //         optional [--cssScope "#catalog"]
 
-const bundler = '[components:bundler]';
-process.stdout.write(`${bundler} preparing a bundle\n`);
+if (!module.parent) {
+  const bundler = '[components:bundler]';
+  process.stdout.write(`${bundler} preparing a bundle\n`);
 
-const {join} = require('path');
-const webpack = require('webpack');
-const argv = require('minimist')(process.argv.slice(2));
-const createConfig = require('../webpack.bundler.config');
+  const {join} = require('path');
+  const webpack = require('webpack');
+  const argv = require('minimist')(process.argv.slice(2));
+  const {componentsConfig} = require('../webpack.bundler.config');
 
-const input = join(process.cwd(), argv._[0]);
-const dist = join(process.cwd(), argv.o);
-const src = argv.s || 'src/';
-const adapter = argv.a;
-const cssScope = argv.cssScope;
+  const input = join(process.cwd(), argv._[0]);
+  const dist = join(process.cwd(), argv.o);
+  const src = argv.s || 'src/';
+  const adapter = argv.a;
+  const cssScope = argv.cssScope;
 
-process.stdout.write(`${bundler}    input: ${argv._[0]}\n`);
-process.stdout.write(`${bundler}    output: ${argv.o}\n`);
-process.stdout.write(`${bundler}    src: ${src}\n`);
-process.stdout.write(adapter ? `${bundler} adapter: ${adapter}\n` : '');
-process.stdout.write(cssScope ? `${bundler} cssScope: ${cssScope}\n` : '');
-process.stdout.write(`${bundler} webpack is running...\n`);
+  process.stdout.write(`${bundler}    input: ${argv._[0]}\n`);
+  process.stdout.write(`${bundler}    output: ${argv.o}\n`);
+  process.stdout.write(`${bundler}    src: ${src}\n`);
+  process.stdout.write(adapter ? `${bundler} adapter: ${adapter}\n` : '');
+  process.stdout.write(cssScope ? `${bundler} cssScope: ${cssScope}\n` : '');
+  process.stdout.write(`${bundler} webpack is running...\n`);
 
-const config = createConfig(src, input, dist, cssScope);
+  const config = componentsConfig(src, input, dist, cssScope);
 
-webpack(config, function(err, stats) {
-  if (err) {
-    process.stderr.write(err.stack);
-    return;
-  }
-  const statsOutput = stats.toString(config.stats || 'none');
-  process.stdout.write(`${bundler} ${statsOutput}`);
-});
+  webpack(config, function(err, stats) {
+    if (err) {
+      process.stderr.write(err.stack);
+      return;
+    }
+    const statsOutput = stats.toString(config.stats || 'none');
+    process.stdout.write(`${bundler} ${statsOutput}`);
+  });
+}

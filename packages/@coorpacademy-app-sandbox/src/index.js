@@ -1,33 +1,16 @@
-const express = require('express');
-const webpack = require('webpack');
-const webpackDevMiddleware = require('webpack-dev-middleware');
-const webpackHotMiddleware = require('webpack-hot-middleware');
-const {pipe} = require('lodash/fp');
-const config = require('./webpack.config');
+const pkg = require('../package.json');
+const createServer = require('./server');
 
-const addClient = (name, input) => app => {
-  const _config = config(name, input);
-  const compiler = webpack(_config);
-  return app.use(
-    webpackDevMiddleware(compiler, {
-      noInfo: true,
-      publicPath: _config.output.publicPath
-    }),
-    webpackHotMiddleware(compiler)
-  );
+const config = {
+  env: process.env.NODE_ENV || 'development',
+  port: process.env.PORT || 3100
 };
 
-const createServer = (name, input, addSandbox) => {
-  return pipe(
-    addSandbox,
-    addClient(name, input)
-  )(express());
-};
+const app = createServer(config);
 
-const runServer = (name, appConfig, input, addSandbox) => {
-  const app = createServer(name, input, addSandbox);
-  const PORT = appConfig.port;
-  const ENV = appConfig.env;
+if (!module.parent) {
+  const PORT = config.port;
+  const ENV = config.env;
 
   process.on('uncaughtException', err => {
     // eslint-disable-next-line no-console
@@ -35,8 +18,9 @@ const runServer = (name, appConfig, input, addSandbox) => {
     process.exit(1);
   });
 
-  // eslint-disable-next-line no-console
-  app.listen(PORT, () => console.info(`open ${name} on : http://localhost:${PORT} | env:${ENV}`));
-};
+  app.listen(PORT, () =>
+    process.stdout.write(`${pkg.name}(${ENV}) listening on http://localhost:${PORT}`)
+  );
+}
 
-export default runServer;
+module.exports = app;
