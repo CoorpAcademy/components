@@ -118,10 +118,7 @@ class Filters extends React.Component {
       authors === undefined;
 
     return (
-      <div
-        className={style.search}
-        data-animated={animated}
-      >
+      <div className={style.search} data-animated={animated}>
         <div className={filtersActive ? style.activeDefault : style.default}>
           <div className={style.title} data-name={'filters-button'} onClick={this.handleOpenFilter}>
             {filterTabLabel}
