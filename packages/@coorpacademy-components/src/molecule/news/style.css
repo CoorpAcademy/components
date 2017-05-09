@@ -18,6 +18,12 @@
   flex: 0 0 450px;
 }
 
+.linkImage{
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
 .image img {
   width: 100%;
   height: auto;
