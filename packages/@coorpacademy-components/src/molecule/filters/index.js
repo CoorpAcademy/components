@@ -12,7 +12,8 @@ class Filters extends React.Component {
     super(props);
     this.state = {
       filter: !!props.openFilters,
-      sorted: !!props.openSorts
+      sorted: !!props.openSorts,
+      animated: false
     };
     this.handleOpenFilter = this.handleOpenFilter.bind(this);
     this.handleOpenSort = this.handleOpenSort.bind(this);
@@ -28,7 +29,8 @@ class Filters extends React.Component {
 
     this.setState({
       filter: newValue,
-      sorted: false
+      sorted: false,
+      animated: true
     });
 
     if (this.props.onToggleFilters) {
@@ -41,7 +43,8 @@ class Filters extends React.Component {
 
     this.setState({
       sorted: newValue,
-      filter: false
+      filter: false,
+      animated: true
     });
 
     if (this.props.onToggleSorts) {
@@ -52,7 +55,8 @@ class Filters extends React.Component {
   handleSearch() {
     this.setState({
       sorted: false,
-      filter: false
+      filter: false,
+      animated: true
     });
     if (this.props.onSearch) {
       this.props.onSearch();
@@ -75,6 +79,7 @@ class Filters extends React.Component {
     const defaultColor = getOr('#00B0FF', 'common.primary', skin);
     const filtersActive = this.state.filter === true;
     const sortingActive = this.state.sorted === true;
+    const animated = this.state.animated === true;
 
     const coursesView = courses !== undefined
       ? <div className={style.choice}>
@@ -113,7 +118,7 @@ class Filters extends React.Component {
       authors === undefined;
 
     return (
-      <div className={style.search}>
+      <div className={style.search} data-animated={animated}>
         <div className={filtersActive ? style.activeDefault : style.default}>
           <div className={style.title} data-name={'filters-button'} onClick={this.handleOpenFilter}>
             {filterTabLabel}
