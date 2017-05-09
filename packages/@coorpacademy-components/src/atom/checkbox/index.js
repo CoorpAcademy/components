@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import noop from 'lodash/fp/noop';
-import shallowCompare from '../../util/shallow-compare';
 
 class Checkbox extends React.Component {
   constructor(props) {
@@ -9,10 +8,6 @@ class Checkbox extends React.Component {
     const {checked} = props;
     this.state = {checked};
     this.handleChangeBound = this.handleChange.bind(this);
-  }
-
-  shouldComponentUpdate(nextProps, nextState, nextContext) {
-    return shallowCompare(this, nextProps, nextState, nextContext);
   }
 
   handleChange(e) {
@@ -23,13 +18,8 @@ class Checkbox extends React.Component {
   }
 
   render() {
-    /* eslint-disable react/void-dom-elements-no-children */
-    return (
-      <input type="checkbox" {...this.props} {...this.state} onChange={this.handleChangeBound}>
-        {this.props.children}
-      </input>
-    );
-    /* eslint-enable react/void-dom-elements-no-children */
+    const {props, state} = this;
+    return <input type="checkbox" {...props} {...state} onChange={this.handleChangeBound} />;
   }
 }
 
@@ -39,8 +29,7 @@ Checkbox.defaultProps = {
 
 Checkbox.propTypes = {
   checked: PropTypes.bool,
-  onChange: PropTypes.func,
-  children: PropTypes.node
+  onChange: PropTypes.func
 };
 
 export default Checkbox;

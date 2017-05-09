@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
 import VideoIframe from '../video-iframe';
-import shallowCompare from '../../util/shallow-compare';
 import style from './style.css';
 
 class DisciplineHeader extends React.Component {
@@ -12,10 +11,6 @@ class DisciplineHeader extends React.Component {
       fullDisplay: false
     };
     this.handleToggleDisplay = this.handleToggleDisplay.bind(this);
-  }
-
-  shouldComponentUpdate(nextProps, nextState, nextContext) {
-    return shallowCompare(this, nextProps, nextState, nextContext);
   }
 
   handleToggleDisplay() {

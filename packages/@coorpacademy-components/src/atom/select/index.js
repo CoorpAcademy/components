@@ -5,7 +5,6 @@ import find from 'lodash/fp/find';
 import get from 'lodash/fp/get';
 import keys from 'lodash/fp/keys';
 import map from 'lodash/fp/map';
-import shallowCompare from '../../util/shallow-compare';
 import getClassState from '../../util/get-class-state';
 import style from './style.css';
 
@@ -18,77 +17,67 @@ const themeStyle = {
   thematiques: style.thematiques
 };
 
-class Select extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+const Select = props => {
+  const {
+    options = [],
+    onChange,
+    multiple = false,
+    disabled,
+    required,
+    theme,
+    title: titleProps,
+    modified = false
+  } = props;
 
-  shouldComponentUpdate(nextProps, nextState, nextContext) {
-    return shallowCompare(this, nextProps, nextState, nextContext);
-  }
+  const title = `${titleProps}${required ? '*' : ''}`;
 
-  render() {
-    const {
-      options = [],
-      onChange,
-      multiple = false,
-      disabled,
-      required,
-      theme,
-      title: titleProps,
-      modified = false
-    } = this.props;
+  const optionList =
+    options &&
+    options.map((option, index) => {
+      return (
+        <option key={index} value={option.value}>
+          {option.name}
+        </option>
+      );
+    });
 
-    const title = `${titleProps}${required ? '*' : ''}`;
+  const selected = multiple
+    ? map(get('value'), filter({selected: true}, options))
+    : get('value', find({selected: true}, options));
+  const selectedLabel = multiple
+    ? map(get('name'), filter({selected: true}, options))
+    : get('name', find({selected: true}, options));
 
-    const optionList =
-      options &&
-      options.map((option, index) => {
-        return (
-          <option key={index} value={option.value}>
-            {option.name}
-          </option>
-        );
-      });
+  const handleChange = multiple
+    ? e => {
+        onChange(map(get('value'), e.target.selectedOptions));
+      }
+    : e => {
+        onChange(e.target.value);
+      };
 
-    const selected = multiple
-      ? map(get('value'), filter({selected: true}, options))
-      : get('value', find({selected: true}, options));
-    const selectedLabel = multiple
-      ? map(get('name'), filter({selected: true}, options))
-      : get('name', find({selected: true}, options));
+  const arrowView = !multiple ? <div className={style.arrow} /> : null;
+  const className = getClassState(style.default, style.modified, style.error, modified);
 
-    const handleChange = multiple
-      ? e => {
-          onChange(map(get('value'), e.target.selectedOptions));
-        }
-      : e => {
-          onChange(e.target.value);
-        };
-
-    const arrowView = !multiple ? <div className={style.arrow} /> : null;
-    const className = getClassState(style.default, style.modified, style.error, modified);
-
-    return (
-      <div className={theme ? themeStyle[theme] : className}>
-        <label>
-          <span className={style.title}>{title}</span>
-          <span className={style.label}>{selectedLabel}</span>
-          {arrowView}
-          <select
-            title={selectedLabel}
-            onChange={handleChange}
-            value={selected}
-            multiple={multiple}
-            disabled={disabled}
-          >
-            {optionList}
-          </select>
-        </label>
-      </div>
-    );
-  }
-}
+  return (
+    <div className={theme ? themeStyle[theme] : className}>
+      <label>
+        <span className={style.title}>{title}</span>
+        <span className={style.label}>{selectedLabel}</span>
+        {arrowView}
+        <select
+          title={selectedLabel}
+          onChange={handleChange}
+          value={selected}
+          multiple={multiple}
+          disabled={disabled}
+        >
+          {optionList}
+        </select>
+      </label>
+    </div>
+  );
+};
 
 Select.propTypes = {
   title: PropTypes.string.isRequired,

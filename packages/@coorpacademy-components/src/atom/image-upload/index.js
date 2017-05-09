@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import uniqueId from 'lodash/fp/uniqueId';
-import shallowCompare from '../../util/shallow-compare';
 import Loader from './../loader';
 import style from './style.css';
 
@@ -15,10 +14,6 @@ class ImageUpload extends React.Component {
 
     this.handleDragStart = this.handleDragStart.bind(this);
     this.handleDragStop = this.handleDragStop.bind(this);
-  }
-
-  shouldComponentUpdate(nextProps, nextState, nextContext) {
-    return shallowCompare(this, nextProps, nextState, nextContext);
   }
 
   handleDragStart() {

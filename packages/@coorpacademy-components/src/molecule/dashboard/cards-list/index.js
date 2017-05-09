@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import head from 'lodash/fp/head';
 import last from 'lodash/fp/last';
-import shallowCompare from '../../../util/shallow-compare';
 import Card from '../../card';
 import style from './style.css';
 
@@ -42,10 +41,6 @@ class CardsList extends React.Component {
     }
 
     this.updateArrowsState();
-  }
-
-  shouldComponentUpdate(nextProps, nextState, nextContext) {
-    return shallowCompare(this, nextProps, nextState, nextContext);
   }
 
   componentDidUpdate(prevProps, prevState) {

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import identity from 'lodash/fp/identity';
 import getOr from 'lodash/fp/getOr';
 import pushToHistory from '../../util/navigation';
-import shallowCompare from '../../util/shallow-compare';
 
 class Link extends React.Component {
   constructor(props) {
@@ -14,10 +13,6 @@ class Link extends React.Component {
     this.handleMouseEnter = this.handleMouseEnter.bind(this);
     this.handleMouseLeave = this.handleMouseLeave.bind(this);
     this.handleOnClick = this.handleOnClick.bind(this);
-  }
-
-  shouldComponentUpdate(nextProps, nextState, nextContext) {
-    return shallowCompare(this, nextProps, nextState, nextContext);
   }
 
   handleMouseEnter() {
