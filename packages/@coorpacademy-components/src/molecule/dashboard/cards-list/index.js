@@ -13,11 +13,9 @@ class CardsList extends React.Component {
 
     this.state = {
       left: {
-        disabled: true,
         hidden: true
       },
       right: {
-        disabled: true,
         hidden: true
       }
     };
@@ -156,12 +154,10 @@ class CardsList extends React.Component {
 
     this.setState({
       left: {
-        hidden: shouldHideArrows,
-        disabled: leftArrowDisabled
+        hidden: shouldHideArrows || leftArrowDisabled
       },
       right: {
-        hidden: shouldHideArrows,
-        disabled: rightArrowDisabled
+        hidden: shouldHideArrows || rightArrowDisabled
       }
     });
   }
@@ -184,14 +180,14 @@ class CardsList extends React.Component {
     const leftArrowView = this.state.left.hidden
       ? null
       : <div
-          className={this.state.left.disabled ? style.leftDisabled : style.left}
+          className={style.left}
           onClick={this.handleOnLeft}
         />;
 
     const rightArrowView = this.state.right.hidden
       ? null
       : <div
-          className={this.state.right.disabled ? style.rightDisabled : style.right}
+          className={style.right}
           onClick={this.handleOnRight}
         />;
 

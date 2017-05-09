@@ -62,21 +62,11 @@
   text-align: right;
 }
 
-.leftDisabled {
-  composes: left;
-  pointer-events: none;
-}
-
 .right {
   composes: arrow;
   composes: fa-chevron-right from '../../../variables/fontawesome.css';
   right: -35px;
   text-align: left;
-}
-
-.rightDisabled {
-  composes: right;
-  pointer-events: none;
 }
 
 @media desktop {
