@@ -1,7 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import debounce from 'lodash/fp/debounce';
 import head from 'lodash/fp/head';
+import isEqual from 'lodash/fp/isEqual';
 import last from 'lodash/fp/last';
+import PropTypes from 'prop-types';
 import Card from '../../card';
 import style from './style.css';
 
@@ -29,7 +31,7 @@ class CardsList extends React.Component {
     this.handleOnLeft = this.handleOnLeft.bind(this);
     this.handleOnRight = this.handleOnRight.bind(this);
     this.scrollTo = this.scrollTo.bind(this);
-    this.updateArrowsState = this.updateArrowsState.bind(this);
+    this.updateArrowsState = debounce(200, this.updateArrowsState.bind(this));
   }
 
   componentDidMount() {
@@ -147,14 +149,16 @@ class CardsList extends React.Component {
     const leftArrowDisabled = this.leftBound() <= 0;
     const rightArrowDisabled = this.rightBound() >= this.cardsWidth();
 
-    this.setState({
+    const nextState = {
       left: {
         hidden: shouldHideArrows || leftArrowDisabled
       },
       right: {
         hidden: shouldHideArrows || rightArrowDisabled
       }
-    });
+    };
+
+    if (!isEqual(this.state, nextState)) this.setState(nextState);
   }
 
   render() {
