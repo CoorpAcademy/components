@@ -73,25 +73,28 @@
   font-family: Open Sans;
   position: relative;
   cursor: pointer;
+}
+
+.arrow {
   composes: fa from '../../variables/fontawesome.css';
   composes: fa-chevron-down from '../../variables/fontawesome.css';
 }
 
-.title:before {
+.arrow:before {
   font-family: FontAwesome;
   display: block;
-  position: absolute;
+  position: relative;
   font-size: 14px;
-  right: 35%;
+  margin: 0 10px;
 }
 
-.activeDefault .title:before,
-.activeWrapperSortBy .title:before {
+.activeDefault .arrow:before,
+.activeWrapperSortBy .arrow:before {
   transform: rotate(180deg);
   transition: transform .4s ease-out;
 }
-.default .title:before,
-.wrapperSortBy .title:before {
+.default .arrow:before,
+.wrapperSortBy .arrow:before {
   transform: rotate(0deg);
   transition: transform .4s ease-out;
 }
@@ -235,8 +238,8 @@
   margin: 0px;
 }
 
-.sorting .select label span,
-.activeSorting .select label span {
+.sorting .select label span:first-child,
+.activeSorting .select label span:first-child {
   display: none;
 }
 [data-animated='true'] .sorting{
@@ -304,9 +307,6 @@
     width: 100%;
   }
 
-  .title:before {
-    right: 10%;
-  }
   .sorting,
   .activeSorting{
     padding-left: 15px;
