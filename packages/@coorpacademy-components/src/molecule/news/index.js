@@ -12,7 +12,9 @@ const News = (props, context) => {
   return (
     <div className={style.news}>
       <div className={style.image}>
-        <img src={image} />
+        <Link href={cta.href} className={style.title} target={cta.target}>
+          <img src={image} />
+        </Link>
       </div>
       <div className={style.infos}>
         <Link href={cta.href} title={title} className={style.title} target={cta.target}>
