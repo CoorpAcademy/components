@@ -1,10 +1,8 @@
+import omit from 'lodash/fp/omit';
 import Desktop from './desktop';
 
 const {props} = Desktop;
 
 export default {
-  props: {
-    ...props,
-    modified: true
-  }
+  props: omit('previewImage', props)
 };
