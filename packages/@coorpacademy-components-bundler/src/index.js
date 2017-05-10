@@ -31,8 +31,13 @@ const config = createConfig(src, input, dist, cssScope);
 webpack(config, function(err, stats) {
   if (err) {
     process.stderr.write(err.stack);
-    return;
+    process.exit(1);
   }
+
   const statsOutput = stats.toString(config.stats || 'none');
   process.stdout.write(`${bundler} ${statsOutput}`);
+
+  if (stats.hasErrors()) {
+    process.exit(1);
+  }
 });
