@@ -193,6 +193,7 @@ import SelectFixtureMultiple from '../src/atom/select/test/fixtures/multiple';
 import SelectFixtureNolabel from '../src/atom/select/test/fixtures/nolabel';
 import SelectFixtureRequired from '../src/atom/select/test/fixtures/required';
 import SelectFixtureSort from '../src/atom/select/test/fixtures/sort';
+import SelectFixtureThematiqueLong from '../src/atom/select/test/fixtures/thematique-long';
 import SelectFixtureThematique from '../src/atom/select/test/fixtures/thematique';
 import SlideFixtureDefault from '../src/atom/slide/test/fixtures/default';
 import SlideFixtureLeft from '../src/atom/slide/test/fixtures/left';
@@ -712,6 +713,7 @@ export const fixtures = {
       Nolabel: SelectFixtureNolabel,
       Required: SelectFixtureRequired,
       Sort: SelectFixtureSort,
+      ThematiqueLong: SelectFixtureThematiqueLong,
       Thematique: SelectFixtureThematique
     },
     Slide: {
