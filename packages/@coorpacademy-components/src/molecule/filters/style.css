@@ -43,8 +43,6 @@
 }
 
 .wrapperFilters {
-  display: flex;
-  flex-wrap: wrap;
   width: 100%;
   height: auto;
   box-sizing: border-box;
@@ -139,9 +137,10 @@
 }
 
 .choice {
-  width: 22.5%;
+  width: 25%;
   padding: 5px 1%;
   position: relative;
+  box-sizing: border-box;
 }
 
 .choice label {
@@ -262,8 +261,8 @@
   }
 
   .choice {
-    width: 45%;
-    padding: 12px 10px;
+    width: 50%;
+    padding: 12px 3%;
   }
 
   .activeWrapperFilters{
