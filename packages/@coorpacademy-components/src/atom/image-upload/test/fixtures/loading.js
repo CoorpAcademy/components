@@ -1,10 +1,10 @@
-import defaultsDeep from 'lodash/fp/defaultsDeep';
-import Default from './default';
+import WithoutImage from './without-image';
 
-const {props} = Default;
+const {props} = WithoutImage;
 
 export default {
-  props: defaultsDeep(props, {
+  props: {
+    ...props,
     loading: true
-  })
+  }
 };

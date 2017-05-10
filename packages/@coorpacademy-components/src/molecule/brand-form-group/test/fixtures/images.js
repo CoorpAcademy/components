@@ -1,3 +1,7 @@
+import Desktop from '../../../../atom/image-upload/test/fixtures/desktop';
+import Mobile from '../../../../atom/image-upload/test/fixtures/mobile';
+import Email from '../../../../atom/image-upload/test/fixtures/email';
+
 export default {
   props: {
     title: 'Platform logos',
@@ -5,34 +9,16 @@ export default {
     fieldsLayout: 'grid',
     fields: [
       {
-        title: 'Desktop (*)',
         type: 'image',
-        uploadLabel: 'Upload',
-        previewLabel: 'Preview',
-        onChange: () => true
+        ...Desktop.props
       },
       {
-        title: 'Mobile (*)',
-        uploadLabel: 'Upload',
         type: 'image',
-        previewLabel: 'Preview',
-        previewImage: 'https://www.coorpacademy.com/assets/img/logo.svg',
-        onChange: () => true
+        ...Mobile.props
       },
       {
-        title: 'Desktop (*)',
         type: 'image',
-        uploadLabel: 'Upload',
-        previewLabel: 'Preview',
-        onChange: () => true
-      },
-      {
-        title: 'Mobile (*)',
-        uploadLabel: 'Upload',
-        type: 'image',
-        previewLabel: 'Preview',
-        previewImage: 'https://www.coorpacademy.com/assets/img/logo.svg',
-        onChange: () => true
+        ...Email.props
       }
     ]
   }

@@ -140,10 +140,12 @@ import CtaFixtureSecondary from '../src/atom/cta/test/fixtures/secondary';
 import HandleFixtureAxisX from '../src/atom/handle/test/fixtures/axis-x';
 import HandleFixtureAxisY from '../src/atom/handle/test/fixtures/axis-y';
 import HandleFixtureDefault from '../src/atom/handle/test/fixtures/default';
-import ImageUploadFixtureDefault from '../src/atom/image-upload/test/fixtures/default';
-import ImageUploadFixtureImage from '../src/atom/image-upload/test/fixtures/image';
+import ImageUploadFixtureDesktop from '../src/atom/image-upload/test/fixtures/desktop';
+import ImageUploadFixtureEmail from '../src/atom/image-upload/test/fixtures/email';
 import ImageUploadFixtureLoading from '../src/atom/image-upload/test/fixtures/loading';
+import ImageUploadFixtureMobile from '../src/atom/image-upload/test/fixtures/mobile';
 import ImageUploadFixtureModified from '../src/atom/image-upload/test/fixtures/modified';
+import ImageUploadFixtureWithoutImage from '../src/atom/image-upload/test/fixtures/without-image';
 import InputCheckboxFixtureChecked from '../src/atom/input-checkbox/test/fixtures/checked';
 import InputCheckboxFixtureDefault from '../src/atom/input-checkbox/test/fixtures/default';
 import InputCheckboxFixtureDisabled from '../src/atom/input-checkbox/test/fixtures/disabled';
@@ -630,10 +632,12 @@ export const fixtures = {
       Default: HandleFixtureDefault
     },
     ImageUpload: {
-      Default: ImageUploadFixtureDefault,
-      Image: ImageUploadFixtureImage,
+      Desktop: ImageUploadFixtureDesktop,
+      Email: ImageUploadFixtureEmail,
       Loading: ImageUploadFixtureLoading,
-      Modified: ImageUploadFixtureModified
+      Mobile: ImageUploadFixtureMobile,
+      Modified: ImageUploadFixtureModified,
+      WithoutImage: ImageUploadFixtureWithoutImage
     },
     InputCheckbox: {
       Checked: InputCheckboxFixtureChecked,
