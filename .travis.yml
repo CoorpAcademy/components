@@ -8,6 +8,7 @@ cache:
   - packages/@coorpacademy-components-bundler/node_modules
   - packages/@coorpacademy-components/node_modules
   - packages/@coorpacademy-history/node_modules
+  - packages/@coorpacademy-progression-engine/node_modules
   - packages/@coorpacademy-redux-history/node_modules
   - packages/@coorpacademy-translate/node_modules
   - packages/@coorpacademy-treantjs-adapter-angular/node_modules
