@@ -1,0 +1,31 @@
+{
+  "name": "@coorpacademy/app-sandbox",
+  "version": "3.7.6",
+  "description": "CoorpAcademy dev sandbox for apps",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "homepage": "https://github.com/CoorpAcademy/components/@coorpacademy-app-sandbox#readme",
+  "dependencies": {
+    "@coorpacademy/app-forum": "0.0.3",
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.5",
+    "babel-polyfill": "^6.13.0",
+    "babel-preset-es2015": "6.18.0",
+    "babel-preset-stage-1": "^6.5.0",
+    "css-loader": "^0.26.0",
+    "express": "^4.14.0",
+    "json-loader": "^0.5.4",
+    "lodash": "^4.15.0",
+    "postcss": "^5.2.2",
+    "postcss-loader": "^1.1.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^2.1.0-beta.25",
+    "webpack-dev-middleware": "^1.4.0",
+    "webpack-hot-middleware": "^2.12.2"
+  },
+  "devDependencies": {
+    "babel-plugin-istanbul": "^3.0.0"
+  }
+}

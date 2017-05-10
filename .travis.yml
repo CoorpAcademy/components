@@ -5,8 +5,10 @@ node_js:
 cache:
   directories:
   - node_modules
-  - packages/@coorpacademy-components-bundler/node_modules
+  - packages/@coorpacademy-app-sandbox/node_modules
+  - packages/@coorpacademy-appster/node_modules
   - packages/@coorpacademy-components/node_modules
+  - packages/@coorpacademy-components-bundler/node_modules
   - packages/@coorpacademy-history/node_modules
   - packages/@coorpacademy-redux-history/node_modules
   - packages/@coorpacademy-translate/node_modules
