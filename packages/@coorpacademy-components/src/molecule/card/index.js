@@ -22,18 +22,14 @@ const Card = (props, context) => {
     type,
     title,
     author,
-    cta,
     progress,
-    topOnClick,
-    bottomOnClick
+    onClick
   } = props;
 
   const lazyClass = title ? style.default : style.lazy;
 
   const defaultColor = getOr('#00B0FF', 'common.primary', skin);
   const cardStyle = viewStyle[view];
-
-  const calltoaction = cta ? <div className={style.cta}>{cta}</div> : null;
 
   const certif = certification ? <div className={style.certification} /> : null;
 
@@ -74,14 +70,7 @@ const Card = (props, context) => {
           }}
         >
           {loader}
-          <div className={style.ctaWrapper} onClick={!disabled && topOnClick}>
-            {calltoaction}
-            <div
-              className={style.overlay}
-              style={{
-                backgroundColor: defaultColor
-              }}
-            />
+          <div className={style.ctaWrapper} onClick={!disabled && onClick}>
             {certif}
             {adaptivIcon}
             {timer}
@@ -89,7 +78,7 @@ const Card = (props, context) => {
           {lock}
         </div>
         {myprogress}
-        <div className={style.infoWrapper} onClick={!disabled && bottomOnClick}>
+        <div className={style.infoWrapper} onClick={!disabled && onClick}>
           <div
             className={style.type}
             style={{
@@ -126,10 +115,8 @@ Card.propTypes = {
   type: PropTypes.string,
   title: PropTypes.string,
   author: PropTypes.string,
-  cta: PropTypes.string,
   progress: PropTypes.string,
-  topOnClick: PropTypes.func,
-  bottomOnClick: PropTypes.func
+  onClick: PropTypes.func
 };
 
 export default Card;
