@@ -12,7 +12,6 @@ export default {
     },
     question: 'Amongst these businesses, which have suffered setbacks for not knowing how to putting users first?',
     cta: props,
-    help: 'Select something below',
     answer: {
       type: 'draganddrop',
       ...answerProps
