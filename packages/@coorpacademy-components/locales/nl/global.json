@@ -38,7 +38,7 @@
   "Show": "Toon",
   "zuora_discount_code": "Promo-code",
   "zuora_discount_code_submit": "Toepassing",
-  "subscription_price": "${currency} ${price} BTW per maand",
+  "subscription_price": "${currency} ${price} incl. belastingen per maand",
   "product_desc_culture": "Digitale cultuur: alle niveaus voltooid",
   "product_desc_partnership": "Alle opleidingen van onze partners",
   "product_desc_battle": "Slag bij modus",
