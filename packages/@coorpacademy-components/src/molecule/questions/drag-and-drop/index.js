@@ -6,6 +6,7 @@ import style from './style.css';
 
 const DragAndDrop = (props, context) => {
   const {answers} = props;
+  const {translate} = context;
 
   const selectedAnswers = filter({selected: true}, answers);
 
@@ -27,16 +28,22 @@ const DragAndDrop = (props, context) => {
     );
   }, answers);
 
+  const emptyView = <span>{translate('Select the correct option(s) below')}</span>;
+
   return (
     <div className={style.wrapper}>
       <div className={style.selectedAnswers}>
-        {selectedAnswersViews}
+        {selectedAnswers.length > 0 ? selectedAnswersViews : emptyView}
       </div>
       <div className={style.answers}>
         {answersViews}
       </div>
     </div>
   );
+};
+
+DragAndDrop.contextTypes = {
+  translate: PropTypes.func
 };
 
 DragAndDrop.propTypes = {

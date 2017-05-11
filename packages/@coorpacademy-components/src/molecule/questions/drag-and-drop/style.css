@@ -22,6 +22,15 @@
   min-height: 100px;
 }
 
+.selectedAnswers span {
+  width: 100%;
+  text-align: center;
+  font-family: 'Open Sans';
+  font-size: 13px;
+  font-weight: 600;
+  color: #14171A;
+}
+
 .answer {
   font-family: 'Open Sans';
   font-size: 13px;
