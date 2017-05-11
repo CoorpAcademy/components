@@ -5,6 +5,7 @@ import style from './style.css';
 
 const Slides = (props, context) => {
   const {progression, question, cta} = props;
+  const {translate} = this.context;
 
   const progressionWidth = progression.current / progression.total * 100;
 
@@ -22,7 +23,7 @@ const Slides = (props, context) => {
         <span>{progression.current}</span>/{progression.total}
       </div>
       <div className={style.guideWrapper}>
-        Need some help?
+        {translate('Need some help?')}
       </div>
       <div className={style.question}>
         {question}
@@ -32,6 +33,10 @@ const Slides = (props, context) => {
       </div>
     </div>
   );
+};
+
+Slides.contextTypes = {
+  translate: PropTypes.func
 };
 
 Slides.propTypes = {
