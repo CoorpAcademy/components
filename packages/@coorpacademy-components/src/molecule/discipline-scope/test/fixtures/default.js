@@ -6,7 +6,7 @@ const content = scopeContent.props.content;
 
 export default {
   props: {
-    selected: 2,
+    selected: 1,
     onClick: () => true,
     content,
     levels
