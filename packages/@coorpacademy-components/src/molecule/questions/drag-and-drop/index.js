@@ -31,7 +31,7 @@ const DragAndDrop = (props, context) => {
 
   return (
     <div className={style.wrapper}>
-      <div className={style.selectedAnswers}>
+      <div className={selectedAnswers.length > 0 ? style.selectedAnswers : style.emptyAnswers}>
         {emptyView || selectedAnswersViews}
       </div>
       <div className={style.answers}>

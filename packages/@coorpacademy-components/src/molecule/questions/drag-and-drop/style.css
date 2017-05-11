@@ -22,7 +22,13 @@
   min-height: 100px;
 }
 
-.selectedAnswers span {
+.emptyAnswers {
+  composes: selectedAnswers;
+  align-items: center;
+  padding: 16px;
+}
+
+.emptyAnswers span {
   width: 100%;
   text-align: center;
   font-family: 'Open Sans';
@@ -45,6 +51,10 @@
   border-radius: 3px;
   padding: 0 16px;
   cursor: pointer;
+}
+
+.answer:hover {
+  background-color: #ECEFF1;
 }
 
 .selectedAnswer {
