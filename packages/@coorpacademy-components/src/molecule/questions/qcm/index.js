@@ -33,7 +33,7 @@ const QCM = (props, context) => {
 };
 
 QCM.contextTypes = {
-  skin: PropTypes.obect
+  skin: PropTypes.object
 };
 
 QCM.propTypes = {
