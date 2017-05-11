@@ -71,6 +71,7 @@ import SetupSections from '../src/molecule/setup-sections';
 import SetupSlide from '../src/molecule/setup-slide';
 import SetupSlider from '../src/molecule/setup-slider';
 import Slider from '../src/molecule/slider';
+import Slides from '../src/molecule/slides';
 import SsmenuList from '../src/molecule/ssmenu-list';
 import StarRating from '../src/molecule/star-rating';
 import SubscriptionFreemium from '../src/molecule/subscription-freemium';
@@ -320,6 +321,7 @@ import SetupSlideFixtureDefault from '../src/molecule/setup-slide/test/fixtures/
 import SetupSliderFixtureDefault from '../src/molecule/setup-slider/test/fixtures/default';
 import SliderFixtureDefault from '../src/molecule/slider/test/fixtures/default';
 import SliderFixtureMultipleSlides from '../src/molecule/slider/test/fixtures/multiple-slides';
+import SlidesFixtureDefault from '../src/molecule/slides/test/fixtures/default';
 import SsmenuListFixtureCoorpacademy from '../src/molecule/ssmenu-list/test/fixtures/coorpacademy';
 import SsmenuListFixtureEmpty from '../src/molecule/ssmenu-list/test/fixtures/empty';
 import SsmenuListFixtureFormations from '../src/molecule/ssmenu-list/test/fixtures/formations';
@@ -537,6 +539,7 @@ export const components = {
     SetupSlide,
     SetupSlider,
     Slider,
+    Slides,
     SsmenuList,
     StarRating,
     SubscriptionFreemium,
@@ -947,6 +950,9 @@ export const fixtures = {
     Slider: {
       Default: SliderFixtureDefault,
       MultipleSlides: SliderFixtureMultipleSlides
+    },
+    Slides: {
+      Default: SlidesFixtureDefault
     },
     SsmenuList: {
       Coorpacademy: SsmenuListFixtureCoorpacademy,
@@ -1749,6 +1755,13 @@ export const dependencies = {
         }
       }
     },
+    "Slides": {
+      "children": {
+        "Atom": {
+          "Cta": true
+        }
+      }
+    },
     "ThemeImage": {
       "children": {}
     },
@@ -2061,6 +2074,7 @@ export const dependencies = {
           "MoocHeader": true
         },
         "Molecule": {
+          "Slides": true,
           "News": true
         },
         "Atom": {

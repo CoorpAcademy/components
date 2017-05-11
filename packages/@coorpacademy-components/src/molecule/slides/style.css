@@ -1,0 +1,72 @@
+.wrapper {
+  position: relative;
+  box-shadow: 0 0 4px 5px rgba(0,0,0,0.04);
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 36px 32px 32px;
+}
+
+.progressionWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #ECEFF1;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  overflow: hidden;
+}
+
+.progressionBar {
+  position: absolute;
+  height: 4px;
+  background-color: #00B0FF;
+  border-radius: 3px;
+  border-bottom-left-radius: 0px;
+  transition: width 0.2s linear;
+}
+
+.infos {
+  position: absolute;
+  top: 4px;
+  background-color: #ECEFF1;
+  color: #546E7A;
+  font-family: 'Open Sans';
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.progressionCount {
+  composes: infos;
+  right: 0;
+  padding: 0 5px 4px 10px;
+  border-bottom-left-radius: 12px;
+}
+
+.progressionCount span {
+  color: #00B0FF;
+}
+
+.guideWrapper {
+  composes: infos;
+  left: 0;
+  padding: 0 10px 4px 5px;
+  border-bottom-right-radius: 12px;
+}
+
+.question {
+  font-family: 'Open Sans';
+  font-size: 20px;
+  font-weight: 600;
+  color: #14171A;
+  text-align: center;
+  padding-bottom: 32px;
+}
+
+.ctaWrapper {
+
+}
