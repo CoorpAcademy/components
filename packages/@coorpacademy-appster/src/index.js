@@ -6,7 +6,7 @@ import {Provider} from '@coorpacademy/components';
 import {syncStoreWithHistory} from '@coorpacademy/redux-history';
 import {Observable} from 'rxjs';
 import {createBrowserHistory} from '@coorpacademy/history';
-import createReducers from './create-reducers';
+import createReducers from './reducers';
 import createMiddleware from './middleware';
 import {createRouter} from './router';
 

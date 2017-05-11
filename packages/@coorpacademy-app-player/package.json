@@ -1,7 +1,7 @@
 {
-  "name": "@coorpacademy/app-slides",
+  "name": "@coorpacademy/app-player",
   "version": "0.0.3",
-  "description": "CoorpAcademy slides player",
+  "description": "CoorpAcademy player [freerun, learner, battles]",
   "module": "es/index.js",
   "files": [
     "es",
@@ -19,7 +19,7 @@
     "start": "webpack-dev-server --content-base sandbox",
     "test": "npm run lint && npm run nyc"
   },
-  "homepage": "https://github.com/CoorpAcademy/components/packages/@coorpacademy-player#readme",
+  "homepage": "https://github.com/CoorpAcademy/components/packages/@coorpacademy-app-player#readme",
   "devDependencies": {
     "@coorpacademy/eslint-plugin-coorpacademy": "^2.0.0",
     "ava": "^0.16.0",
@@ -27,12 +27,13 @@
     "cross-env": "^4.0.0",
     "eslint": "^3.5.0",
     "nyc": "^8.3.0",
+    "rimraf": "^2.6.1",
     "webpack-dev-server": "^2.4.5"
   },
   "dependencies": {
-    "@coorpacademy/appster": "3.7.6",
-    "@coorpacademy/components": "5.1.8",
-    "@coorpacademy/components-bundler": "5.1.8",
+    "@coorpacademy/appster": "5.2.5-alpha.f18720a8",
+    "@coorpacademy/components": "5.2.5-alpha.f18720a8",
+    "@coorpacademy/components-bundler": "5.2.5-alpha.f18720a8",
     "babel-cli": "^6.11.4",
     "babel-core": "^6.14.0",
     "babel-loader": "^6.2.5",

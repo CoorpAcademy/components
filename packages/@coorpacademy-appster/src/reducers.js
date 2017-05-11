@@ -12,12 +12,13 @@ const composeReducers = (...reducers) => (state, action) =>
     reducers
   );
 
-export default ({lang} = {}, reducers) => {
-  return composeReducers(
+const createReducers = ({lang} = {}, reducers) =>
+  composeReducers(
     combineReducers({
       lang: createLanguageReducer(lang),
       route,
       ...reducers
     })
   );
-};
+
+export default createReducers;
