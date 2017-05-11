@@ -84,6 +84,7 @@ export ProgressBar from './molecule/progress-bar';
 export PromoCode from './atom/promo-code';
 export Provider from './atom/provider';
 export Qcm from './molecule/questions/qcm';
+export QcmImage from './molecule/questions/qcm-image';
 export RangeSlider from './molecule/range-slider';
 export ScopeContent from './molecule/scope-content';
 export ScopeTabs from './molecule/scope-tabs';

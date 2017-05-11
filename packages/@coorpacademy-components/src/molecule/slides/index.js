@@ -4,6 +4,7 @@ import getOr from 'lodash/fp/getOr';
 import Cta from '../../atom/cta';
 import DragAndDrop from '../questions/drag-and-drop';
 import Qcm from '../questions/qcm';
+import QcmImage from '../questions/qcm-image';
 import style from './style.css';
 
 const Slides = (props, context) => {
@@ -19,9 +20,11 @@ const Slides = (props, context) => {
     ? (answerProps => {
         switch (answerProps.type) {
           case 'draganddrop':
-            return <DragAndDrop {...answerProps} />;
+            return <div className={style.dragAndDrop}><DragAndDrop {...answerProps} /></div>;
           case 'qcm':
-            return <Qcm {...answerProps} />;
+            return <div className={style.qcm}><Qcm {...answerProps} /></div>;
+          case 'qcmimage':
+            return <div className={style.qcmImage}><QcmImage {...answerProps} /></div>;
           default:
             return null;
         }
@@ -72,9 +75,9 @@ Slides.propTypes = {
   }),
   question: PropTypes.string.required,
   help: PropTypes.string,
-  answer: {
-    type: PropTypes.oneOf(['draganddrop', 'qcm']).required
-  },
+  answer: PropTypes.shape({
+    type: PropTypes.oneOf(['draganddrop', 'qcm', 'qcmimage']).required
+  }),
   cta: PropTypes.object.required
 };
 

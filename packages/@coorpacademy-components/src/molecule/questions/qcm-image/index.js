@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
 import style from './style.css';
 
-const QCM = (props, context) => {
+const QCMImage = (props, context) => {
   const {answers} = props;
 
   const answersViews = answers.map((answer, key) => {
-    const {onClick, title, selected} = answer;
+    const {onClick, title, selected, image} = answer;
     const {skin} = context;
 
     const primarySkinColor = getOr('#00B0FF', 'common.primary', skin);
@@ -20,7 +20,15 @@ const QCM = (props, context) => {
         style={selectedStyle}
         key={key}
       >
-        {title}
+        <div
+          className={style.imageWrapper}
+          style={{
+            backgroundImage: `url(${image})`
+          }}
+        />
+        <div className={style.titleWrapper}>
+          {title}
+        </div>
       </div>
     );
   });
@@ -32,18 +40,19 @@ const QCM = (props, context) => {
   );
 };
 
-QCM.contextTypes = {
-  skin: PropTypes.obect
+QCMImage.contextTypes = {
+  skin: PropTypes.object
 };
 
-QCM.propTypes = {
+QCMImage.propTypes = {
   answers: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
       selected: PropTypes.bool,
-      onClick: PropTypes.func
+      onClick: PropTypes.func,
+      image: PropTypes.string
     })
   )
 };
 
-export default QCM;
+export default QCMImage;
