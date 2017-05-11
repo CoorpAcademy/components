@@ -113,8 +113,21 @@
   margin: 0;
 }
 
+.thematiques .label {
+  display: block;
+  padding: 0px 30px 0px 10px;
+  font-size: 12px;
+  background: white;
+  border: 2px solid #cfd8dc;
+  border-radius: 2px;
+  height: 44px;
+  line-height: 42px;
+  box-sizing: border-box;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 .filter .label,
-.thematiques .label,
 .sort .label {
   display: block;
   padding: 15px 30px 15px 15px;
