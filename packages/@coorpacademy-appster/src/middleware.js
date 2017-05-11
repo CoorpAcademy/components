@@ -6,7 +6,7 @@ import {createRouterMiddleware} from './router';
 export default (createRoutes, options) => {
   const middlewares = [
     historyMiddleware(options),
-    createRouterMiddleware(createRoutes, options),
+    createRouterMiddleware(createRoutes)(options),
     apiMiddleware
   ];
 

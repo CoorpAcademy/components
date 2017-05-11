@@ -1,6 +1,8 @@
 import {combineReducers} from 'redux';
-import title from './title';
+import plop from './plop';
+import plup from './plup';
 
 export default combineReducers({
-  title
+  plop,
+  plup
 });

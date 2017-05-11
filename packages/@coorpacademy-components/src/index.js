@@ -37,6 +37,7 @@ export Cta from './atom/cta';
 export CursusHeader from './molecule/cursus-header';
 export CursusList from './molecule/cursus-list';
 export Dashboard from './template/common/dashboard';
+export Demo from './template/app-player/demo';
 export Discipline from './template/common/discipline';
 export DisciplineCard from './molecule/discipline-card';
 export DisciplineCards from './organism/discipline-cards';

@@ -21,9 +21,9 @@
   },
   "homepage": "https://github.com/CoorpAcademy/components/@coorpacademy-appster#readme",
   "dependencies": {
-    "@coorpacademy/components": "^5.2.1",
-    "@coorpacademy/history": "^5.0.2",
-    "@coorpacademy/redux-history": "5.2.2",
+    "@coorpacademy/components": "5.2.5-alpha.f18720a8",
+    "@coorpacademy/history": "5.2.5-alpha.f18720a8",
+    "@coorpacademy/redux-history": "5.2.5-alpha.f18720a8",
     "autoprefixer": "^6.4.1",
     "babel-cli": "^6.18.0",
     "babel-core": "^6.21.0",
@@ -45,7 +45,7 @@
   "devDependencies": {
     "babel-plugin-istanbul": "^3.0.0",
     "cross-env": "^4.0.0",
-    "webpack": "^2.5.1",
-    "webpack-dev-server": "^2.4.5"
+    "rimraf": "^2.6.1",
+    "webpack": "^2.5.1"
   }
 }
