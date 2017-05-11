@@ -38,7 +38,7 @@
   "Show": "Mostrar",
   "zuora_discount_code": "Código de promoción",
   "zuora_discount_code_submit": "Aplicar",
-  "subscription_price": "${currency} ${price} IVA por mes",
+  "subscription_price": "$ {сurrency} $ {price} incl. Impuestos por mes",
   "product_desc_culture": "Cultura digital: completados todos los niveles",
   "product_desc_partnership": "Todos los cursos de capacitación de nuestros socios",
   "product_desc_battle": "Modo de batalla",
