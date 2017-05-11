@@ -38,7 +38,7 @@
   "Show": "显示",
   "zuora_discount_code": "促销代码",
   "zuora_discount_code_submit": "应用",
-  "subscription_price": "${currency} ${price}每月增值税",
+  "subscription_price": "$ {currency} $ {price}包括每月税金",
   "product_desc_culture": "数字文化：各级完成",
   "product_desc_partnership": "我们合作伙伴的所有培训课程",
   "product_desc_battle": "对战模式",
