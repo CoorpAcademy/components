@@ -1,29 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import map from 'lodash/fp/map';
 import style from './style.css';
 
 const DragAndDrop = (props, context) => {
   const {answers, selectedAnswers} = props;
   const {translate} = context;
 
-  const selectedAnswersViews = map(answer => {
+  const selectedAnswersViews = selectedAnswers.map((answer, key) => {
     const {onClick, title} = answer;
     return (
-      <div className={style.selectedAnswer} onClick={onClick}>
+      <div className={style.selectedAnswer} onClick={onClick} key={key}>
         {title}
       </div>
     );
-  }, selectedAnswers);
+  });
 
-  const answersViews = map(answer => {
+  const answersViews = answers.map((answer, key) => {
     const {onClick, title, selected} = answer;
     return (
-      <div className={selected ? style.invisibleAnswer : style.answer} onClick={onClick}>
+      <div className={selected ? style.invisibleAnswer : style.answer} onClick={onClick} key={key}>
         {title}
       </div>
     );
-  }, answers);
+  });
 
   const emptyView = selectedAnswers.length > 0
     ? null

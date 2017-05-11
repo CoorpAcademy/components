@@ -90,6 +90,7 @@ import ForumComment from '../src/molecule/forum/forum-comment';
 import ForumPost from '../src/molecule/forum/forum-post';
 import ForumThread from '../src/molecule/forum/forum-thread';
 import DragAndDrop from '../src/molecule/questions/drag-and-drop';
+import Qcm from '../src/molecule/questions/qcm';
 import BrandForm from '../src/organism/brand-form';
 import BrandTable from '../src/organism/brand-table';
 import BrandUpload from '../src/organism/brand-upload';
@@ -324,6 +325,7 @@ import SliderFixtureDefault from '../src/molecule/slider/test/fixtures/default';
 import SliderFixtureMultipleSlides from '../src/molecule/slider/test/fixtures/multiple-slides';
 import SlidesFixtureDefault from '../src/molecule/slides/test/fixtures/default';
 import SlidesFixtureDragAndDrop from '../src/molecule/slides/test/fixtures/drag-and-drop';
+import SlidesFixtureQcm from '../src/molecule/slides/test/fixtures/qcm';
 import SsmenuListFixtureCoorpacademy from '../src/molecule/ssmenu-list/test/fixtures/coorpacademy';
 import SsmenuListFixtureEmpty from '../src/molecule/ssmenu-list/test/fixtures/empty';
 import SsmenuListFixtureFormations from '../src/molecule/ssmenu-list/test/fixtures/formations';
@@ -374,6 +376,8 @@ import ForumThreadFixtureDefault from '../src/molecule/forum/forum-thread/test/f
 import ForumThreadFixtureWithAnswers from '../src/molecule/forum/forum-thread/test/fixtures/with-answers';
 import DragAndDropFixtureDefault from '../src/molecule/questions/drag-and-drop/test/fixtures/default';
 import DragAndDropFixtureNoSelected from '../src/molecule/questions/drag-and-drop/test/fixtures/no-selected';
+import QcmFixtureDefault from '../src/molecule/questions/qcm/test/fixtures/default';
+import QcmFixtureNoSelected from '../src/molecule/questions/qcm/test/fixtures/no-selected';
 import BrandFormFixtureDashboard from '../src/organism/brand-form/test/fixtures/dashboard';
 import BrandFormFixtureDefault from '../src/organism/brand-form/test/fixtures/default';
 import BrandFormFixtureGeneralSettings from '../src/organism/brand-form/test/fixtures/general-settings';
@@ -567,7 +571,8 @@ export const components = {
     ForumThread
   },
   MoleculeQuestions: {
-    DragAndDrop
+    DragAndDrop,
+    Qcm
   },
   Organism: {
     BrandForm,
@@ -960,7 +965,8 @@ export const fixtures = {
     },
     Slides: {
       Default: SlidesFixtureDefault,
-      DragAndDrop: SlidesFixtureDragAndDrop
+      DragAndDrop: SlidesFixtureDragAndDrop,
+      Qcm: SlidesFixtureQcm
     },
     SsmenuList: {
       Coorpacademy: SsmenuListFixtureCoorpacademy,
@@ -1053,6 +1059,10 @@ export const fixtures = {
     DragAndDrop: {
       Default: DragAndDropFixtureDefault,
       NoSelected: DragAndDropFixtureNoSelected
+    },
+    Qcm: {
+      Default: QcmFixtureDefault,
+      NoSelected: QcmFixtureNoSelected
     }
   },
   Organism: {
@@ -1775,7 +1785,8 @@ export const dependencies = {
           "Cta": true
         },
         "MoleculeQuestions": {
-          "DragAndDrop": true
+          "DragAndDrop": true,
+          "Qcm": true
         }
       }
     },
@@ -2381,6 +2392,14 @@ export const dependencies = {
   },
   "MoleculeQuestions": {
     "DragAndDrop": {
+      "parents": {
+        "Molecule": {
+          "Slides": true
+        }
+      },
+      "children": {}
+    },
+    "Qcm": {
       "parents": {
         "Molecule": {
           "Slides": true

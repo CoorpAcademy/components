@@ -79,9 +79,14 @@
 
 .answerWrapper {
   margin-bottom: 32px;
-  width: 100%;
+  max-width: 100%;
 }
 
 .ctaWrapper {
+}
 
+@media mobile {
+  .wrapper {
+    padding: 36px 16px 16px;
+  }
 }

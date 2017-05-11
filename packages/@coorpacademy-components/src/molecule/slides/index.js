@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
 import Cta from '../../atom/cta';
 import DragAndDrop from '../questions/drag-and-drop';
+import Qcm from '../questions/qcm';
 import style from './style.css';
 
 const Slides = (props, context) => {
@@ -19,6 +20,8 @@ const Slides = (props, context) => {
         switch (answerProps.type) {
           case 'draganddrop':
             return <DragAndDrop {...answerProps} />;
+          case 'qcm':
+            return <Qcm {...answerProps} />;
           default:
             return null;
         }
@@ -70,7 +73,7 @@ Slides.propTypes = {
   question: PropTypes.string.required,
   help: PropTypes.string,
   answer: {
-    type: PropTypes.oneOf(['draganddrop']).required
+    type: PropTypes.oneOf(['draganddrop', 'qcm']).required
   },
   cta: PropTypes.object.required
 };
