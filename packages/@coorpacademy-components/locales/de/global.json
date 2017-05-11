@@ -38,7 +38,7 @@
   "Show": "Zeigen",
   "zuora_discount_code": "Promo-code",
   "zuora_discount_code_submit": "Gelten",
-  "subscription_price": "${currency} ${price} MwSt pro Monat",
+  "subscription_price": "${currency} ${price} inkl. Steuern pro Monat",
   "product_desc_culture": "Digitale Kultur: alle Ebenen abgeschlossen",
   "product_desc_partnership": "Alle Schulungen unserer Partner",
   "product_desc_battle": "Battle-Modus",
