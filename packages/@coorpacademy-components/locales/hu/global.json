@@ -38,7 +38,7 @@
   "Show": "Térkép",
   "zuora_discount_code": "Sétány kód",
   "zuora_discount_code_submit": "Alkalmazása",
-  "subscription_price": "${currency} ${price} ÁFA / hó",
+  "subscription_price": "${currency} ${price} beleértve az adókat / hó",
   "product_desc_culture": "Digitális kultúra: minden szintek befejezett",
   "product_desc_partnership": "Összes képzések partnereink",
   "product_desc_battle": "Battle módban",
