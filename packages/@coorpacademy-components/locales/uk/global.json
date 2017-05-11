@@ -38,7 +38,7 @@
   "Show": "Показати",
   "zuora_discount_code": "Промо-код",
   "zuora_discount_code_submit": "Застосувати",
-  "subscription_price": "${currency} $ {price} ПДВ на місяць",
+  "subscription_price": "${currency} ${price} вкл. податки на місяць",
   "product_desc_culture": "Електронна культура: всі рівні завершено",
   "product_desc_partnership": "Всі навчальні курси наших партнерів",
   "product_desc_battle": "Бойовий режим",
