@@ -38,7 +38,7 @@
   "Show": "Afișare",
   "zuora_discount_code": "Cod Promo",
   "zuora_discount_code_submit": "Se aplică",
-  "subscription_price": "${currency} ${price} TVA pe lună",
+  "subscription_price": "${currency} ${price} incl. taxe pe lună",
   "product_desc_culture": "Cultura digitală: toate niveluri finalizate",
   "product_desc_partnership": "Toate cursurile de training ale partenerilor nostri",
   "product_desc_battle": "Modul de luptă",
