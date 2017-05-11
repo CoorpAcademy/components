@@ -90,13 +90,13 @@ const DisciplinePartners = (props, context) => {
     );
   }, authors);
 
-  return isEmpty(authors) ? null : (
-    <div className={style.colDetails}>
-      <CatalogSection title={authorLabel}>
-        {authorsView}
-      </CatalogSection>
-    </div>
-  );
+  return !isEmpty(authors)
+    ? <div className={style.colDetails}>
+        <CatalogSection title={authorLabel}>
+          {authorsView}
+        </CatalogSection>
+      </div>
+    : null;
 };
 
 DisciplinePartners.contextTypes = {
