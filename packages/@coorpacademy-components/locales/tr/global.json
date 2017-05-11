@@ -38,7 +38,7 @@
   "Show": "Göster",
   "zuora_discount_code": "Promosyon kodu",
   "zuora_discount_code_submit": "Uygula",
-  "subscription_price": "${currencyi} ${price} KDV aylık",
+  "subscription_price": "${currency} ${price} dahil vergiler aylık",
   "product_desc_culture": "Dijital kültür: tüm düzeyleri tamamlandı",
   "product_desc_partnership": "Ortaklarımızın tüm eğitim kursları",
   "product_desc_battle": "Savaş modu",
