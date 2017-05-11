@@ -38,7 +38,7 @@
   "Show": "Pokaż",
   "zuora_discount_code": "Kod promocyjny",
   "zuora_discount_code_submit": "Zastosowanie",
-  "subscription_price": "${currency} ${price} VAT miesięcznie",
+  "subscription_price": "${currency} ${price} włączając podatki na miesiąc",
   "product_desc_culture": "Kultura cyfrowa: wszystkie poziomy wypełnione",
   "product_desc_partnership": "Wszystkie kursy i szkolenia naszych partnerów",
   "product_desc_battle": "Tryb bitwy",
