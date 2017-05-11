@@ -46,6 +46,7 @@ export DisciplineHeader from './molecule/discipline-header';
 export DisciplinePartners from './molecule/discipline-partners';
 export DisciplineScope from './molecule/discipline-scope';
 export Discussion from './organism/discussion';
+export DragAndDrop from './molecule/questions/drag-and-drop';
 export Filters from './molecule/filters';
 export ForumComment from './molecule/forum/forum-comment';
 export ForumPost from './molecule/forum/forum-post';

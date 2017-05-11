@@ -5,7 +5,7 @@ import style from './style.css';
 
 const Slides = (props, context) => {
   const {progression, question, cta} = props;
-  const {translate} = this.context;
+  const {translate} = context;
 
   const progressionWidth = progression.current / progression.total * 100;
 

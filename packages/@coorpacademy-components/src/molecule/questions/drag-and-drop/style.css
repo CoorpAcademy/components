@@ -1,0 +1,48 @@
+.wrapper {
+
+}
+
+.answers {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  box-sizing: border-box;
+  margin-bottom: -8px;
+  padding: 0 24px 0 32px;
+}
+
+.selectedAnswers {
+  composes: answers;
+  border: 2px dashed #ECEFF1;
+  background-color: #FAFAFA;
+  padding: 16px 8px 8px 16px;
+  margin-bottom: 36px;
+  min-height: 100px;
+}
+
+.answer {
+  font-family: 'Open Sans';
+  font-size: 13px;
+  font-weight: 600;
+  color: #14171A;
+  line-height: 44px;
+  background-color: #ffffff;
+  border: 1px solid #ECEFF1;
+  box-sizing: border-box;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  border-radius: 3px;
+  padding: 0 16px;
+  cursor: pointer;
+}
+
+.selectedAnswer {
+  composes: answer;
+}
+
+.invisibleAnswer {
+  composes: answer;
+  visibility: hidden;
+}

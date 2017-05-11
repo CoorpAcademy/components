@@ -89,6 +89,7 @@ import StartBattle from '../src/molecule/dashboard/start-battle';
 import ForumComment from '../src/molecule/forum/forum-comment';
 import ForumPost from '../src/molecule/forum/forum-post';
 import ForumThread from '../src/molecule/forum/forum-thread';
+import DragAndDrop from '../src/molecule/questions/drag-and-drop';
 import BrandForm from '../src/organism/brand-form';
 import BrandTable from '../src/organism/brand-table';
 import BrandUpload from '../src/organism/brand-upload';
@@ -370,6 +371,8 @@ import ForumPostFixtureTextareasLocked from '../src/molecule/forum/forum-post/te
 import ForumThreadFixtureDeepAnswers from '../src/molecule/forum/forum-thread/test/fixtures/deep-answers';
 import ForumThreadFixtureDefault from '../src/molecule/forum/forum-thread/test/fixtures/default';
 import ForumThreadFixtureWithAnswers from '../src/molecule/forum/forum-thread/test/fixtures/with-answers';
+import DragAndDropFixtureDefault from '../src/molecule/questions/drag-and-drop/test/fixtures/default';
+import DragAndDropFixtureNoSelected from '../src/molecule/questions/drag-and-drop/test/fixtures/no-selected';
 import BrandFormFixtureDashboard from '../src/organism/brand-form/test/fixtures/dashboard';
 import BrandFormFixtureDefault from '../src/organism/brand-form/test/fixtures/default';
 import BrandFormFixtureGeneralSettings from '../src/organism/brand-form/test/fixtures/general-settings';
@@ -561,6 +564,9 @@ export const components = {
     ForumComment,
     ForumPost,
     ForumThread
+  },
+  MoleculeQuestions: {
+    DragAndDrop
   },
   Organism: {
     BrandForm,
@@ -1039,6 +1045,12 @@ export const fixtures = {
       DeepAnswers: ForumThreadFixtureDeepAnswers,
       Default: ForumThreadFixtureDefault,
       WithAnswers: ForumThreadFixtureWithAnswers
+    }
+  },
+  MoleculeQuestions: {
+    DragAndDrop: {
+      Default: DragAndDropFixtureDefault,
+      NoSelected: DragAndDropFixtureNoSelected
     }
   },
   Organism: {
@@ -2360,6 +2372,11 @@ export const dependencies = {
           "ForumComment": true
         }
       }
+    }
+  },
+  "MoleculeQuestions": {
+    "DragAndDrop": {
+      "children": {}
     }
   },
   "TemplateAppCatalog": {
