@@ -323,6 +323,7 @@ import SetupSliderFixtureDefault from '../src/molecule/setup-slider/test/fixture
 import SliderFixtureDefault from '../src/molecule/slider/test/fixtures/default';
 import SliderFixtureMultipleSlides from '../src/molecule/slider/test/fixtures/multiple-slides';
 import SlidesFixtureDefault from '../src/molecule/slides/test/fixtures/default';
+import SlidesFixtureDragAndDrop from '../src/molecule/slides/test/fixtures/drag-and-drop';
 import SsmenuListFixtureCoorpacademy from '../src/molecule/ssmenu-list/test/fixtures/coorpacademy';
 import SsmenuListFixtureEmpty from '../src/molecule/ssmenu-list/test/fixtures/empty';
 import SsmenuListFixtureFormations from '../src/molecule/ssmenu-list/test/fixtures/formations';
@@ -958,7 +959,8 @@ export const fixtures = {
       MultipleSlides: SliderFixtureMultipleSlides
     },
     Slides: {
-      Default: SlidesFixtureDefault
+      Default: SlidesFixtureDefault,
+      DragAndDrop: SlidesFixtureDragAndDrop
     },
     SsmenuList: {
       Coorpacademy: SsmenuListFixtureCoorpacademy,
@@ -1771,6 +1773,9 @@ export const dependencies = {
       "children": {
         "Atom": {
           "Cta": true
+        },
+        "MoleculeQuestions": {
+          "DragAndDrop": true
         }
       }
     },
@@ -2376,6 +2381,11 @@ export const dependencies = {
   },
   "MoleculeQuestions": {
     "DragAndDrop": {
+      "parents": {
+        "Molecule": {
+          "Slides": true
+        }
+      },
       "children": {}
     }
   },

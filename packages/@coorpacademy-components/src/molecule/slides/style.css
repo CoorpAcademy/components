@@ -1,3 +1,7 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value tablet from breakpoints;
+
 .wrapper {
   position: relative;
   box-shadow: 0 0 4px 5px rgba(0,0,0,0.04);
@@ -23,7 +27,6 @@
 .progressionBar {
   position: absolute;
   height: 4px;
-  background-color: #00B0FF;
   border-radius: 3px;
   border-bottom-left-radius: 0px;
   transition: width 0.2s linear;
@@ -48,7 +51,6 @@
 }
 
 .progressionCount span {
-  color: #00B0FF;
 }
 
 .guideWrapper {
@@ -65,6 +67,19 @@
   color: #14171A;
   text-align: center;
   padding-bottom: 32px;
+}
+
+.helpView {
+  font-family: 'Open Sans';
+  font-size: 15px;
+  font-weight: 500;
+  color: #90A4AE;
+  margin-bottom: 32px;
+}
+
+.answerWrapper {
+  margin-bottom: 32px;
+  width: 100%;
 }
 
 .ctaWrapper {

@@ -25,12 +25,14 @@ const DragAndDrop = (props, context) => {
     );
   }, answers);
 
-  const emptyView = <span>{translate('Select the correct option(s) below')}</span>;
+  const emptyView = selectedAnswers.length > 0
+    ? null
+    : <span>{translate('Select the correct option(s) below')}</span>;
 
   return (
     <div className={style.wrapper}>
       <div className={style.selectedAnswers}>
-        {selectedAnswers.length > 0 ? selectedAnswersViews : emptyView}
+        {emptyView || selectedAnswersViews}
       </div>
       <div className={style.answers}>
         {answersViews}
