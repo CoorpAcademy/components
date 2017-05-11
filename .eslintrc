@@ -7,6 +7,8 @@
   },
   "plugins": [
     "@coorpacademy/coorpacademy",
+    "flowtype",
+    "flowtype-errors",
     "css-modules",
     "react"
   ],
@@ -31,6 +33,16 @@
     "css-modules/no-undef-class": "error",
     "css-modules/no-unused-class": "error",
     "fp/no-class": "off",
+    "flowtype/boolean-style": ["error", "boolean"],
+    "flowtype/define-flow-type": "error",
+    "flowtype/no-primitive-constructor-types": "error",
+    "flowtype/no-types-missing-file-annotation": "error",
+    "flowtype/no-weak-types": "error",
+    "flowtype/require-parameter-type": ["error", {"excludeArrowFunctions": true}],
+    "flowtype/require-return-type": ["error", "always", {"excludeArrowFunctions": "expressionsOnly"}],
+    "flowtype/type-id-match": ["error", "^([A-Z][a-z0-9]*)+$"],
+    "flowtype/use-flow-type": "error",
+    "flowtype-errors/show-errors": "error",
     "import/no-extraneous-dependencies": "off",
     "no-shadow": ["error", {"builtinGlobals": true, "hoist": "all", "allow": ["Promise", "history", "location", "find", "Notification"]}],
     "react/closing-bracket-location": "off",
@@ -53,6 +65,9 @@
     "react/sort-prop-types": "off"
   },
   "settings": {
-    "import/ignore": ["node_modules", "\\.css$"]
+    "import/ignore": ["node_modules", "\\.css$"],
+    "flowtype": {
+      "onlyFilesWithFlowAnnotation": true
+    }
   }
 }
