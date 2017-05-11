@@ -1,5 +1,6 @@
 export default {
   props: {
+    selectedAnswers: [],
     answers: [
       {
         title: 'There is no need for a password',

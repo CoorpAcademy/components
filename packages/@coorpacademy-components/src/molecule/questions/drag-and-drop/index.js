@@ -1,14 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import filter from 'lodash/fp/filter';
 import map from 'lodash/fp/map';
 import style from './style.css';
 
 const DragAndDrop = (props, context) => {
-  const {answers} = props;
+  const {answers, selectedAnswers} = props;
   const {translate} = context;
-
-  const selectedAnswers = filter({selected: true}, answers);
 
   const selectedAnswersViews = map(answer => {
     const {onClick, title} = answer;
@@ -51,6 +48,12 @@ DragAndDrop.propTypes = {
     PropTypes.shape({
       title: PropTypes.string,
       selected: PropTypes.bool,
+      onClick: PropTypes.func
+    })
+  ),
+  selectedAnswers: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
       onClick: PropTypes.func
     })
   )

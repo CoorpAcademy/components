@@ -1,5 +1,17 @@
 export default {
   props: {
+    selectedAnswers: [
+      {
+        title: 'Lorem',
+        onClick: () => {},
+        selected: true
+      },
+      {
+        title: 'Pouet',
+        onClick: () => {},
+        selected: true
+      }
+    ],
     answers: [
       {
         title: 'There is no need for a password',
