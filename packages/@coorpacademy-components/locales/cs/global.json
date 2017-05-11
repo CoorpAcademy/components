@@ -38,7 +38,7 @@
   "Show": "Zobrazit",
   "zuora_discount_code": "Promo kód",
   "zuora_discount_code_submit": "Použít",
-  "subscription_price": "${currency} ${price} DPH za měsíc",
+  "subscription_price": "${currency} ${price} včetně daní za měsíc",
   "product_desc_culture": "Digitální kultury: všechny dokončené úrovně",
   "product_desc_partnership": "Všechna školení našich partnerů",
   "product_desc_battle": "Režim bitvy",
