@@ -1,5 +1,5 @@
 {
-  "presets": ["stage-1"],
+  "presets": ["flow", "stage-1"],
   "env": {
     "commonjs": {
       "presets": [
