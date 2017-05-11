@@ -38,7 +38,7 @@
   "Show": "Показать",
   "zuora_discount_code": "Промо-код",
   "zuora_discount_code_submit": "Применить",
-  "subscription_price": "${currency} ${price} НДС в месяц",
+  "subscription_price": "${currency} ${price} в месяц вкл. НДС ",
   "product_desc_culture": "Цифровая культура: Все уровни завершены ",
   "product_desc_partnership": "Все учебные курсы наших партнеров",
   "product_desc_battle": "Режим битвы",
