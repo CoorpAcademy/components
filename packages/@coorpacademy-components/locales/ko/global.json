@@ -38,7 +38,7 @@
   "Show": "보기",
   "zuora_discount_code": "프로 모션 코드",
   "zuora_discount_code_submit": "적용",
-  "subscription_price": "달 당 ${currency} ${price} 부가 가치세",
+  "subscription_price": "달 당 ${currency} ${price} 포함 세금",
   "product_desc_culture": "디지털 문화: 모든 레벨을 완료",
   "product_desc_partnership": "우리의 파트너의 모든 교육 과정",
   "product_desc_battle": "전투 모드",
