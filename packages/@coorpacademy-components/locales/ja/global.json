@@ -38,7 +38,7 @@
   "Show": "ショー",
   "zuora_discount_code": "プロモーション コード",
   "zuora_discount_code_submit": "適用",
-  "subscription_price": "1 ヶ月あたりの ${currency} ${price} 付加価値税",
+  "subscription_price": "1 ヶ月あたりの ${currency} ${price} 税込税",
   "product_desc_culture": "デジタル文化: すべてのレベルを完了",
   "product_desc_partnership": "我々 のパートナーのすべてのトレーニング コース",
   "product_desc_battle": "戦闘モード",
