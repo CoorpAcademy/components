@@ -1,3 +1,6 @@
+@value breakpoints: "../../../variables/breakpoints.css";
+@value mobile from breakpoints;
+
 .wrapper {
 
 }
@@ -64,4 +67,11 @@
 .invisibleAnswer {
   composes: answer;
   visibility: hidden;
+}
+
+@media mobile {
+
+  .selectedAnswers {
+    min-height: auto;
+  }
 }
