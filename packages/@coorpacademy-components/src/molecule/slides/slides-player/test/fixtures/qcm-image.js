@@ -1,8 +1,8 @@
-import Cta from '../../../../atom/cta/test/fixtures/default';
-import DragAndDrop from '../../../questions/drag-and-drop/test/fixtures/default';
+import Cta from '../../../../../atom/cta/test/fixtures/default';
+import QcmImage from '../../../../questions/qcm-image/test/fixtures/default';
 
 const {props} = Cta;
-const answerProps = DragAndDrop.props;
+const answerProps = QcmImage.props;
 
 export default {
   props: {
@@ -12,8 +12,9 @@ export default {
     },
     question: 'Amongst these businesses, which have suffered setbacks for not knowing how to putting users first?',
     cta: props,
+    help: 'Select something below',
     answer: {
-      type: 'draganddrop',
+      type: 'qcmimage',
       ...answerProps
     }
   }

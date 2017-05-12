@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
-import Cta from '../../atom/cta';
-import DragAndDrop from '../questions/drag-and-drop';
-import Qcm from '../questions/qcm';
-import QcmImage from '../questions/qcm-image';
+import Cta from '../../../atom/cta';
+import DragAndDrop from '../../questions/drag-and-drop';
+import Qcm from '../../questions/qcm';
+import QcmImage from '../../questions/qcm-image';
 import style from './style.css';
 
-const Slides = (props, context) => {
+const SlidesPlayer = (props, context) => {
   const {progression, question, cta, help, answer} = props;
   const {skin, translate} = context;
 
@@ -63,12 +63,12 @@ const Slides = (props, context) => {
   );
 };
 
-Slides.contextTypes = {
+SlidesPlayer.contextTypes = {
   translate: PropTypes.func,
   skin: PropTypes.object
 };
 
-Slides.propTypes = {
+SlidesPlayer.propTypes = {
   progression: PropTypes.shape({
     current: PropTypes.number.required,
     total: PropTypes.number.required
@@ -81,4 +81,4 @@ Slides.propTypes = {
   cta: PropTypes.object.required
 };
 
-export default Slides;
+export default SlidesPlayer;

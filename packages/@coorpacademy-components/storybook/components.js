@@ -71,7 +71,6 @@ import SetupSections from '../src/molecule/setup-sections';
 import SetupSlide from '../src/molecule/setup-slide';
 import SetupSlider from '../src/molecule/setup-slider';
 import Slider from '../src/molecule/slider';
-import Slides from '../src/molecule/slides';
 import SsmenuList from '../src/molecule/ssmenu-list';
 import StarRating from '../src/molecule/star-rating';
 import SubscriptionFreemium from '../src/molecule/subscription-freemium';
@@ -92,6 +91,7 @@ import ForumThread from '../src/molecule/forum/forum-thread';
 import DragAndDrop from '../src/molecule/questions/drag-and-drop';
 import QcmImage from '../src/molecule/questions/qcm-image';
 import Qcm from '../src/molecule/questions/qcm';
+import SlidesPlayer from '../src/molecule/slides/slides-player';
 import BrandForm from '../src/organism/brand-form';
 import BrandTable from '../src/organism/brand-table';
 import BrandUpload from '../src/organism/brand-upload';
@@ -324,10 +324,6 @@ import SetupSlideFixtureDefault from '../src/molecule/setup-slide/test/fixtures/
 import SetupSliderFixtureDefault from '../src/molecule/setup-slider/test/fixtures/default';
 import SliderFixtureDefault from '../src/molecule/slider/test/fixtures/default';
 import SliderFixtureMultipleSlides from '../src/molecule/slider/test/fixtures/multiple-slides';
-import SlidesFixtureDefault from '../src/molecule/slides/test/fixtures/default';
-import SlidesFixtureDragAndDrop from '../src/molecule/slides/test/fixtures/drag-and-drop';
-import SlidesFixtureQcmImage from '../src/molecule/slides/test/fixtures/qcm-image';
-import SlidesFixtureQcm from '../src/molecule/slides/test/fixtures/qcm';
 import SsmenuListFixtureCoorpacademy from '../src/molecule/ssmenu-list/test/fixtures/coorpacademy';
 import SsmenuListFixtureEmpty from '../src/molecule/ssmenu-list/test/fixtures/empty';
 import SsmenuListFixtureFormations from '../src/molecule/ssmenu-list/test/fixtures/formations';
@@ -382,6 +378,10 @@ import QcmImageFixtureDefault from '../src/molecule/questions/qcm-image/test/fix
 import QcmImageFixtureNoSelected from '../src/molecule/questions/qcm-image/test/fixtures/no-selected';
 import QcmFixtureDefault from '../src/molecule/questions/qcm/test/fixtures/default';
 import QcmFixtureNoSelected from '../src/molecule/questions/qcm/test/fixtures/no-selected';
+import SlidesPlayerFixtureDefault from '../src/molecule/slides/slides-player/test/fixtures/default';
+import SlidesPlayerFixtureDragAndDrop from '../src/molecule/slides/slides-player/test/fixtures/drag-and-drop';
+import SlidesPlayerFixtureQcmImage from '../src/molecule/slides/slides-player/test/fixtures/qcm-image';
+import SlidesPlayerFixtureQcm from '../src/molecule/slides/slides-player/test/fixtures/qcm';
 import BrandFormFixtureDashboard from '../src/organism/brand-form/test/fixtures/dashboard';
 import BrandFormFixtureDefault from '../src/organism/brand-form/test/fixtures/default';
 import BrandFormFixtureGeneralSettings from '../src/organism/brand-form/test/fixtures/general-settings';
@@ -551,7 +551,6 @@ export const components = {
     SetupSlide,
     SetupSlider,
     Slider,
-    Slides,
     SsmenuList,
     StarRating,
     SubscriptionFreemium,
@@ -578,6 +577,9 @@ export const components = {
     DragAndDrop,
     QcmImage,
     Qcm
+  },
+  MoleculeSlides: {
+    SlidesPlayer
   },
   Organism: {
     BrandForm,
@@ -968,12 +970,6 @@ export const fixtures = {
       Default: SliderFixtureDefault,
       MultipleSlides: SliderFixtureMultipleSlides
     },
-    Slides: {
-      Default: SlidesFixtureDefault,
-      DragAndDrop: SlidesFixtureDragAndDrop,
-      QcmImage: SlidesFixtureQcmImage,
-      Qcm: SlidesFixtureQcm
-    },
     SsmenuList: {
       Coorpacademy: SsmenuListFixtureCoorpacademy,
       Empty: SsmenuListFixtureEmpty,
@@ -1073,6 +1069,14 @@ export const fixtures = {
     Qcm: {
       Default: QcmFixtureDefault,
       NoSelected: QcmFixtureNoSelected
+    }
+  },
+  MoleculeSlides: {
+    SlidesPlayer: {
+      Default: SlidesPlayerFixtureDefault,
+      DragAndDrop: SlidesPlayerFixtureDragAndDrop,
+      QcmImage: SlidesPlayerFixtureQcmImage,
+      Qcm: SlidesPlayerFixtureQcm
     }
   },
   Organism: {
@@ -1789,18 +1793,6 @@ export const dependencies = {
         }
       }
     },
-    "Slides": {
-      "children": {
-        "Atom": {
-          "Cta": true
-        },
-        "MoleculeQuestions": {
-          "DragAndDrop": true,
-          "QcmImage": true,
-          "Qcm": true
-        }
-      }
-    },
     "ThemeImage": {
       "children": {}
     },
@@ -2112,8 +2104,10 @@ export const dependencies = {
         "Organism": {
           "MoocHeader": true
         },
+        "MoleculeSlides": {
+          "SlidesPlayer": true
+        },
         "Molecule": {
-          "Slides": true,
           "News": true
         },
         "Atom": {
@@ -2404,27 +2398,41 @@ export const dependencies = {
   "MoleculeQuestions": {
     "DragAndDrop": {
       "parents": {
-        "Molecule": {
-          "Slides": true
+        "MoleculeSlides": {
+          "SlidesPlayer": true
         }
       },
       "children": {}
     },
     "QcmImage": {
       "parents": {
-        "Molecule": {
-          "Slides": true
+        "MoleculeSlides": {
+          "SlidesPlayer": true
         }
       },
       "children": {}
     },
     "Qcm": {
       "parents": {
-        "Molecule": {
-          "Slides": true
+        "MoleculeSlides": {
+          "SlidesPlayer": true
         }
       },
       "children": {}
+    }
+  },
+  "MoleculeSlides": {
+    "SlidesPlayer": {
+      "children": {
+        "Atom": {
+          "Cta": true
+        },
+        "MoleculeQuestions": {
+          "DragAndDrop": true,
+          "QcmImage": true,
+          "Qcm": true
+        }
+      }
     }
   },
   "TemplateAppCatalog": {

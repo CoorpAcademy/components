@@ -1,4 +1,4 @@
-@value breakpoints: "../../variables/breakpoints.css";
+@value breakpoints: "../../../variables/breakpoints.css";
 @value mobile from breakpoints;
 
 .wrapper {
