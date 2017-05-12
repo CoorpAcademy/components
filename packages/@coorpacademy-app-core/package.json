@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/app-core",
-  "version": "3.7.6",
+  "version": "5.2.5-alpha.8e3e4b3f",
   "description": "CoorpAcademy redux apps core",
   "module": "es/index.js",
   "files": [

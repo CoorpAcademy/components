@@ -3,17 +3,16 @@ const webpack = require('webpack');
 const BabiliPlugin = require('babili-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
-const CSSWrapper = require('@coorpacademy/css-wrapper-webpack-plugin');
 
 const hash = '[folder]__[local]';
 const componentCSS = new ExtractTextPlugin({
-  filename: 'bundle.css',
+  filename: '[name].css',
   ignoreOrder: true
 });
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
-const config = (appName, cssScope) => ({
+const config = {
   devtool: NODE_ENV === 'production' ? false : 'eval',
 
   stats: {
@@ -23,7 +22,7 @@ const config = (appName, cssScope) => ({
   },
 
   output: {
-    library: appName,
+    library: 'bundle',
     filename: '[name].js',
     path: join(__dirname, 'dist'),
     libraryTarget: 'umd'
@@ -37,50 +36,29 @@ const config = (appName, cssScope) => ({
       },
       {
         test: /\.js$/,
-        loader: 'babel-loader',
+        loader: 'babel-loader?cacheDirectory=true',
         include: join(process.cwd(), 'src')
       },
-      NODE_ENV === 'production'
-        ? {
-            test: /\.css$/,
-            loader: componentCSS.extract({
-              fallback: 'style-loader',
-              use: [
-                {
-                  loader: 'css-loader',
-                  options: {
-                    minimize: true,
-                    modules: true,
-                    importLoaders: 1,
-                    localIdentName: `${hash}`
-                  }
-                },
-                {
-                  loader: 'postcss-loader'
-                }
-              ]
-            })
-          }
-        : {
-            test: /\.css$/,
-            use: [
-              {
-                loader: 'style-loader'
-              },
-              {
-                loader: 'css-loader',
-                options: {
-                  minimize: true,
-                  modules: true,
-                  importLoaders: 1,
-                  localIdentName: `${hash}`
-                }
-              },
-              {
-                loader: 'postcss-loader'
+      {
+        test: /\.css$/,
+        loader: componentCSS.extract({
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                minimize: true,
+                modules: true,
+                importLoaders: 1,
+                localIdentName: `${hash}`
               }
-            ]
-          }
+            },
+            {
+              loader: 'postcss-loader'
+            }
+          ]
+        })
+      }
     ]
   },
 
@@ -90,7 +68,8 @@ const config = (appName, cssScope) => ({
         'process.env': {
           NODE_ENV: JSON.stringify(NODE_ENV)
         }
-      })
+      }),
+      componentCSS
     ];
 
     if (NODE_ENV === 'production')
@@ -113,16 +92,11 @@ const config = (appName, cssScope) => ({
           comments: false,
           sourceMap: false,
           simplify: false
-        }),
-        componentCSS
+        })
       );
-
-    if (cssScope) {
-      plugins.push(new CSSWrapper('bundle.css', cssScope));
-    }
 
     return plugins;
   })()
-});
+};
 
 module.exports = config;
