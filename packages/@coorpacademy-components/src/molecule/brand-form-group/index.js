@@ -8,6 +8,9 @@ import InputColor from '../../atom/input-color';
 import InputCheckbox from '../../atom/input-checkbox';
 import InputReadonly from '../../atom/input-readonly';
 import InputSwitch from '../../atom/input-switch';
+import BrandUploadBox from '../../molecule/brand-upload-box';
+import BrandDownloadBox from '../../molecule/brand-download-box';
+import Button from '../../atom/button';
 import InputTextarea from '../../atom/input-textarea';
 import InputDoublestep from '../../atom/input-doublestep';
 import ImageUpload from '../../atom/image-upload';
@@ -16,7 +19,15 @@ import SetupSections from '../setup-sections';
 import style from './style.css';
 
 const BrandFormGroup = props => {
-  const {title, subtitle = '', fieldsLayout = '', fields = []} = props;
+  const {
+    title, 
+    subtitle = '', 
+    fieldsLayout = '', 
+    fields = [], 
+    branddlbox, 
+    branduploadbox, 
+    ssoconnection
+  } = props;
 
   const buildInput = field => {
     const {type} = field;
@@ -43,6 +54,12 @@ const BrandFormGroup = props => {
         return <SetupSections {...field} />;
       case 'text':
         return <InputText {...field} />;
+      case 'downloadbox':
+        return <BrandDownloadBox {...field} />;
+      case 'uploadbox':
+        return <BrandUploadBox {...branduploadbox} />;
+      case 'connectButton':
+        return <Button {...ssoconnection} />;  
       default:
         return <InputText {...field} />;
     }
@@ -78,6 +95,9 @@ BrandFormGroup.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string,
   fieldsLayout: PropTypes.string,
+  branddlbox: PropTypes.object,
+  branduploadbox: PropTypes.object,
+  ssoconnection: PropTypes.object,
   fields: PropTypes.arrayOf(
     PropTypes.shape({
       type: PropTypes.string.isRequired
