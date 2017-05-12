@@ -1,5 +1,6 @@
-import _ from 'lodash/fp';
+import random from 'lodash/fp/random';
 
 export default function computeNextStep(progression, slides, action) {
-  return _.first(slides);
+  const index = random(0, slides.length - 1);
+  return slides[index];
 }
