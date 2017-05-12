@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> add slides headers
 /* eslint-disable max-len */
 
 import Button from '../src/atom/button';
@@ -92,6 +95,10 @@ import ForumThread from '../src/molecule/forum/forum-thread';
 import DragAndDrop from '../src/molecule/questions/drag-and-drop';
 import QcmImage from '../src/molecule/questions/qcm-image';
 import Qcm from '../src/molecule/questions/qcm';
+<<<<<<< HEAD
+=======
+import SlidesHeader from '../src/molecule/slides/slides-header';
+>>>>>>> add slides headers
 import SlidesPlayer from '../src/molecule/slides/slides-player';
 import BrandForm from '../src/organism/brand-form';
 import BrandTable from '../src/organism/brand-table';
@@ -112,7 +119,10 @@ import Author from '../src/template/app-catalog/author';
 import Catalog from '../src/template/app-catalog/catalog';
 import ProductCourse from '../src/template/app-catalog/product-course';
 import ProductCursus from '../src/template/app-catalog/product-cursus';
+<<<<<<< HEAD
 import Demo from '../src/template/app-player/demo';
+=======
+>>>>>>> add slides headers
 import BrandCreate from '../src/template/back-office/brand-create';
 import BrandList from '../src/template/back-office/brand-list';
 import BrandUpdate from '../src/template/back-office/brand-update';
@@ -146,12 +156,19 @@ import CtaFixtureSecondary from '../src/atom/cta/test/fixtures/secondary';
 import HandleFixtureAxisX from '../src/atom/handle/test/fixtures/axis-x';
 import HandleFixtureAxisY from '../src/atom/handle/test/fixtures/axis-y';
 import HandleFixtureDefault from '../src/atom/handle/test/fixtures/default';
+<<<<<<< HEAD
 import ImageUploadFixtureDesktop from '../src/atom/image-upload/test/fixtures/desktop';
 import ImageUploadFixtureEmail from '../src/atom/image-upload/test/fixtures/email';
 import ImageUploadFixtureLoading from '../src/atom/image-upload/test/fixtures/loading';
 import ImageUploadFixtureMobile from '../src/atom/image-upload/test/fixtures/mobile';
 import ImageUploadFixtureModified from '../src/atom/image-upload/test/fixtures/modified';
 import ImageUploadFixtureWithoutImage from '../src/atom/image-upload/test/fixtures/without-image';
+=======
+import ImageUploadFixtureDefault from '../src/atom/image-upload/test/fixtures/default';
+import ImageUploadFixtureImage from '../src/atom/image-upload/test/fixtures/image';
+import ImageUploadFixtureLoading from '../src/atom/image-upload/test/fixtures/loading';
+import ImageUploadFixtureModified from '../src/atom/image-upload/test/fixtures/modified';
+>>>>>>> add slides headers
 import InputCheckboxFixtureChecked from '../src/atom/input-checkbox/test/fixtures/checked';
 import InputCheckboxFixtureDefault from '../src/atom/input-checkbox/test/fixtures/default';
 import InputCheckboxFixtureDisabled from '../src/atom/input-checkbox/test/fixtures/disabled';
@@ -379,6 +396,10 @@ import QcmImageFixtureDefault from '../src/molecule/questions/qcm-image/test/fix
 import QcmImageFixtureNoSelected from '../src/molecule/questions/qcm-image/test/fixtures/no-selected';
 import QcmFixtureDefault from '../src/molecule/questions/qcm/test/fixtures/default';
 import QcmFixtureNoSelected from '../src/molecule/questions/qcm/test/fixtures/no-selected';
+<<<<<<< HEAD
+=======
+import SlidesHeaderFixtureDefault from '../src/molecule/slides/slides-header/test/fixtures/default';
+>>>>>>> add slides headers
 import SlidesPlayerFixtureDefault from '../src/molecule/slides/slides-player/test/fixtures/default';
 import SlidesPlayerFixtureDragAndDrop from '../src/molecule/slides/slides-player/test/fixtures/drag-and-drop';
 import SlidesPlayerFixtureQcmImage from '../src/molecule/slides/slides-player/test/fixtures/qcm-image';
@@ -436,8 +457,11 @@ import ProductCursusFixtureEmpty from '../src/template/app-catalog/product-cursu
 import ProductCursusFixtureLoading from '../src/template/app-catalog/product-cursus/test/fixtures/loading';
 import ProductCursusFixtureWithoutAssets from '../src/template/app-catalog/product-cursus/test/fixtures/without-assets';
 import ProductCursusFixtureWithoutBadge from '../src/template/app-catalog/product-cursus/test/fixtures/without-badge';
+<<<<<<< HEAD
 import DemoFixtureDefault from '../src/template/app-player/demo/test/fixtures/default';
 import LayoutPlayerFixtureDefault from '../src/template/app-player/layout-player/test/fixtures/default';
+=======
+>>>>>>> add slides headers
 import BrandCreateFixtureDefault from '../src/template/back-office/brand-create/test/fixtures/default';
 import BrandCreateFixtureError from '../src/template/back-office/brand-create/test/fixtures/error';
 import BrandCreateFixtureLoading from '../src/template/back-office/brand-create/test/fixtures/loading';
@@ -580,6 +604,10 @@ export const components = {
     Qcm
   },
   MoleculeSlides: {
+<<<<<<< HEAD
+=======
+    SlidesHeader,
+>>>>>>> add slides headers
     SlidesPlayer
   },
   Organism: {
@@ -605,9 +633,12 @@ export const components = {
     ProductCourse,
     ProductCursus
   },
+<<<<<<< HEAD
   TemplateAppPlayer: {
     Demo
   },
+=======
+>>>>>>> add slides headers
   TemplateBackOffice: {
     BrandCreate,
     BrandList,
@@ -661,12 +692,19 @@ export const fixtures = {
       Default: HandleFixtureDefault
     },
     ImageUpload: {
+<<<<<<< HEAD
       Desktop: ImageUploadFixtureDesktop,
       Email: ImageUploadFixtureEmail,
       Loading: ImageUploadFixtureLoading,
       Mobile: ImageUploadFixtureMobile,
       Modified: ImageUploadFixtureModified,
       WithoutImage: ImageUploadFixtureWithoutImage
+=======
+      Default: ImageUploadFixtureDefault,
+      Image: ImageUploadFixtureImage,
+      Loading: ImageUploadFixtureLoading,
+      Modified: ImageUploadFixtureModified
+>>>>>>> add slides headers
     },
     InputCheckbox: {
       Checked: InputCheckboxFixtureChecked,
@@ -1073,6 +1111,12 @@ export const fixtures = {
     }
   },
   MoleculeSlides: {
+<<<<<<< HEAD
+=======
+    SlidesHeader: {
+      Default: SlidesHeaderFixtureDefault
+    },
+>>>>>>> add slides headers
     SlidesPlayer: {
       Default: SlidesPlayerFixtureDefault,
       DragAndDrop: SlidesPlayerFixtureDragAndDrop,
@@ -1175,6 +1219,7 @@ export const fixtures = {
       WithoutBadge: ProductCursusFixtureWithoutBadge
     }
   },
+<<<<<<< HEAD
   TemplateAppPlayer: {
     Demo: {
       Default: DemoFixtureDefault
@@ -1183,6 +1228,8 @@ export const fixtures = {
       Default: LayoutPlayerFixtureDefault
     }
   },
+=======
+>>>>>>> add slides headers
   TemplateBackOffice: {
     BrandCreate: {
       Default: BrandCreateFixtureDefault,
@@ -2025,6 +2072,12 @@ export const dependencies = {
           "BrandTable": true,
           "BrandForm": true
         },
+<<<<<<< HEAD
+=======
+        "MoleculeSlides": {
+          "SlidesHeader": true
+        },
+>>>>>>> add slides headers
         "MoleculeDashboard": {
           "StartBattle": true
         },
@@ -2423,6 +2476,16 @@ export const dependencies = {
     }
   },
   "MoleculeSlides": {
+<<<<<<< HEAD
+=======
+    "SlidesHeader": {
+      "children": {
+        "Atom": {
+          "Link": true
+        }
+      }
+    },
+>>>>>>> add slides headers
     "SlidesPlayer": {
       "children": {
         "Atom": {
@@ -2486,11 +2549,14 @@ export const dependencies = {
       }
     }
   },
+<<<<<<< HEAD
   "TemplateAppPlayer": {
     "Demo": {
       "children": {}
     }
   },
+=======
+>>>>>>> add slides headers
   "TemplateBackOffice": {
     "BrandCreate": {
       "children": {
@@ -2564,5 +2630,8 @@ export const dependencies = {
     }
   }
 };
+<<<<<<< HEAD
 =======
 >>>>>>> fix
+=======
+>>>>>>> add slides headers

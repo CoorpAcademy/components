@@ -38,7 +38,10 @@ const SlidesHeader = (props, context) => {
       </div>
       <div className={style.secondary}>
         {secondaryTitleView}
-        <div className={style.livesWrapper}>
+      </div>
+      <div className={style.livesWrapper}>
+        <div className={style.lives}>
+          x{lives.count}
         </div>
       </div>
     </div>
