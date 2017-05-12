@@ -1,7 +1,7 @@
 {
-  "name": "@coorpacademy/appster",
+  "name": "@coorpacademy/app-core",
   "version": "3.7.6",
-  "description": "CoorpAcademy apps core",
+  "description": "CoorpAcademy redux apps core",
   "module": "es/index.js",
   "files": [
     "es",
@@ -19,7 +19,7 @@
     "prebuild:commonjs": "npm run clean:build:commonjs",
     "prebuild:es": "npm run clean:build:es"
   },
-  "homepage": "https://github.com/CoorpAcademy/components/@coorpacademy-appster#readme",
+  "homepage": "https://github.com/CoorpAcademy/components/@coorpacademy-app-core#readme",
   "dependencies": {
     "@coorpacademy/components": "5.2.5-alpha.f18720a8",
     "@coorpacademy/history": "5.2.5-alpha.f18720a8",
