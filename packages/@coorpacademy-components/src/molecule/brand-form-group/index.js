@@ -23,10 +23,7 @@ const BrandFormGroup = props => {
     title, 
     subtitle = '', 
     fieldsLayout = '', 
-    fields = [], 
-    branddlbox, 
-    branduploadbox, 
-    ssoconnection
+    fields = []
   } = props;
 
   const buildInput = field => {
@@ -55,11 +52,11 @@ const BrandFormGroup = props => {
       case 'text':
         return <InputText {...field} />;
       case 'downloadbox':
-        return <BrandDownloadBox {...branddlbox} />;
+        return <BrandDownloadBox {...field} />;
       case 'uploadbox':
-        return <BrandUploadBox {...branduploadbox} />;
+        return <BrandUploadBox {...field} />;
       case 'connectButton':
-        return <Button {...ssoconnection} />;  
+        return <Button {...field} />;  
       default:
         return <InputText {...field} />;
     }
@@ -95,9 +92,6 @@ BrandFormGroup.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string,
   fieldsLayout: PropTypes.string,
-  branddlbox: PropTypes.object,
-  branduploadbox: PropTypes.object,
-  ssoconnection: PropTypes.object,
   fields: PropTypes.arrayOf(
     PropTypes.shape({
       type: PropTypes.string.isRequired
