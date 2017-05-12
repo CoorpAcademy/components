@@ -21,7 +21,7 @@
     "start:components": "lerna exec --scope @coorpacademy/components -- npm start",
     "start": "npm run start:components",
     "storybook:export": "lerna exec --scope @coorpacademy/components -- npm run storybook:export",
-    "test": "npm run lint && npm run nyc"
+    "test": "npm run lint && npm run flow && npm run nyc"
   },
   "devDependencies": {
     "@coorpacademy/eslint-plugin-coorpacademy": "^5.0.0",

@@ -1,3 +1,4 @@
+// @flow
 import test from 'ava';
 import isEmpty from 'lodash/fp/isEmpty';
 import computeNextStep from '../compute-next-step';
