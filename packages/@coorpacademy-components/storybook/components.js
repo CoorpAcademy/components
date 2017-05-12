@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* eslint-disable max-len */
 
 import Button from '../src/atom/button';
@@ -2563,3 +2564,5 @@ export const dependencies = {
     }
   }
 };
+=======
+>>>>>>> fix

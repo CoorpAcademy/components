@@ -10,7 +10,7 @@ const SlidesHeader = (props, context) => {
 
   const primarySkinColor = getOr('#00B0FF', 'common.primary', skin);
 
-  const primarySubtitleView = primary.subtitle
+  const primarySubtitleView = primary && primary.subtitle
     ? <div
         className={style.primarySubtitle}
         style={{
@@ -21,7 +21,7 @@ const SlidesHeader = (props, context) => {
       </div>
     : null;
 
-  const secondaryTitleView = secondary.title
+  const secondaryTitleView = secondary && secondary.title
     ? <div className={style.secondaryTitle}>
         {secondary.title}
       </div>

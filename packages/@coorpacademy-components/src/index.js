@@ -100,6 +100,7 @@ export SetupSlide from './molecule/setup-slide';
 export SetupSlider from './molecule/setup-slider';
 export Slide from './atom/slide';
 export Slider from './molecule/slider';
+export SlidesHeader from './molecule/slides/slides-header';
 export SlidesPlayer from './molecule/slides/slides-player';
 export SocialLink from './atom/social-link';
 export Spinner from './atom/spinner';
