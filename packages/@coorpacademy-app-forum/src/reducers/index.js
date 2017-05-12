@@ -1,4 +1,4 @@
-import {createReducers} from '@coorpacademy/appster';
+import {createReducers} from '@coorpacademy/app-core';
 import api from './api';
 import ui from './ui';
 
