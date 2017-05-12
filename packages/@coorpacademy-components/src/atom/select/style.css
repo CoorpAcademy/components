@@ -121,9 +121,13 @@
   font-size: 12px;
   padding-right: 30px;
   background: white;
+  text-transform: none;
+  text-align: initial;
+}
+.thematiques .label{
+  font-size: 14px;
   border: 1px solid borderGrey;
 }
-
 .sort {
   background: white;
   margin-bottom: 10px;

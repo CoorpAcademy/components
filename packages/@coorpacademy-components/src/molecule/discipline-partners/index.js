@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
+import isEmpty from 'lodash/fp/isEmpty';
 import map from 'lodash/fp/map';
 import Link from '../../atom/link';
 import SocialLink from '../../atom/social-link';
@@ -89,13 +90,13 @@ const DisciplinePartners = (props, context) => {
     );
   }, authors);
 
-  return (
-    <div className={style.colDetails}>
-      <CatalogSection title={authorLabel}>
-        {authorsView}
-      </CatalogSection>
-    </div>
-  );
+  return !isEmpty(authors)
+    ? <div className={style.colDetails}>
+        <CatalogSection title={authorLabel}>
+          {authorsView}
+        </CatalogSection>
+      </div>
+    : null;
 };
 
 DisciplinePartners.contextTypes = {
