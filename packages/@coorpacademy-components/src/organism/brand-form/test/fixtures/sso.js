@@ -46,7 +46,7 @@ export default {
         title: '5. Test your connection',
         fields: [
           {
-            type: 'connectButton',
+            type: 'button',
             submitValue: 'Test Connection',
             onClick: () => console.log('click on foo') // eslint-disable-line no-console
           }
