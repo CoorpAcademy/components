@@ -12,6 +12,7 @@ export default {
       },
       {
         title: '1. Download Coorpacademy’s Service Provider (SP) Metadata',
+        subtitle: 'This is the information your company needs to configure Coorpacademy as a service provider accepted your IdP',
         fields: [
           {
             type: 'downloadbox',
