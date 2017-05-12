@@ -55,7 +55,7 @@ const BrandFormGroup = props => {
       case 'text':
         return <InputText {...field} />;
       case 'downloadbox':
-        return <BrandDownloadBox {...field} />;
+        return <BrandDownloadBox {...branddlbox} />;
       case 'uploadbox':
         return <BrandUploadBox {...branduploadbox} />;
       case 'connectButton':
