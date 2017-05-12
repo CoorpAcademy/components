@@ -36,11 +36,9 @@ export default {
         fields: [
           {
             type: 'uploadbox',
-            branduploadbox: {
-              ...Upload,
-
-            },
-            onChange: () => true
+            description: 'Drag here your SAML metadata file (.xml) here',
+            browse: 'or browse',
+            onLoad: () => true
           }
         ]
       },
@@ -49,7 +47,7 @@ export default {
         fields: [
           {
             type: 'connectButton',
-            ssoconnection: Connection.props,
+            submitValue: 'Test Connection',
             onClick: () => console.log('click on foo') // eslint-disable-line no-console
           }
         ]
