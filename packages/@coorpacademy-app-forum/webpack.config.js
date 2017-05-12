@@ -1,5 +1,5 @@
 const path = require('path');
-const {createConfig} = require('@coorpacademy/components-bundler');
+const config = require('@coorpacademy/webpack-config');
 
 const appName = 'Forum';
 
@@ -15,4 +15,7 @@ const output = {
   libraryTarget: 'umd'
 };
 
-module.exports = createConfig(appName, entry, output);
+_.set(config, 'entry', entry);
+_.set(config, 'output', output);
+
+module.exports = config;

@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/history",
-  "version": "5.0.2",
+  "version": "5.2.5-alpha.8e3e4b3f",
   "description": "",
   "main": "lib/history.js",
   "module": "es/history.js",
