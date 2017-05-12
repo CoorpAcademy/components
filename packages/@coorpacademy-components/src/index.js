@@ -34,7 +34,6 @@ export CenteredText from './atom/centered-text';
 export Checkbox from './atom/checkbox';
 export Checkboxes from './molecule/checkboxes';
 export CoorpHeader from './template/common/coorp-header';
-export CreateSso from './template/back-office/create-sso';
 export Cta from './atom/cta';
 export CursusHeader from './molecule/cursus-header';
 export CursusList from './molecule/cursus-list';

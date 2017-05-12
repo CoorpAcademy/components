@@ -12,7 +12,7 @@ const BrandDownloadBox = props => {
         <span className={style.warning}>{warning}</span>
         <p className={style.description}>{description}</p>
       </div>
-    : <div className={style.ssoTexts}>
+    : <div className={style.titleTexts}>
         <span className={style.title}>{title}</span>
         <p className={style.description}>{description}</p>
       </div>;

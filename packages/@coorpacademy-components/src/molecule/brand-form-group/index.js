@@ -19,12 +19,7 @@ import SetupSections from '../setup-sections';
 import style from './style.css';
 
 const BrandFormGroup = props => {
-  const {
-    title, 
-    subtitle = '', 
-    fieldsLayout = '', 
-    fields = []
-  } = props;
+  const {title, subtitle = '', fieldsLayout = '', fields = []} = props;
 
   const buildInput = field => {
     const {type} = field;
@@ -56,7 +51,7 @@ const BrandFormGroup = props => {
       case 'uploadbox':
         return <BrandUploadBox {...field} />;
       case 'button':
-        return <Button {...field} />;  
+        return <Button {...field} />;
       default:
         return <InputText {...field} />;
     }

@@ -118,7 +118,6 @@ import FreeRun from '../src/template/app-player/free-run';
 import BrandCreate from '../src/template/back-office/brand-create';
 import BrandList from '../src/template/back-office/brand-list';
 import BrandUpdate from '../src/template/back-office/brand-update';
-import CreateSso from '../src/template/back-office/create-sso';
 import Authors from '../src/template/common/authors';
 import CoorpHeader from '../src/template/common/coorp-header';
 import Dashboard from '../src/template/common/dashboard';
@@ -477,7 +476,6 @@ import BrandUpdateFixtureUsersImportSuccessful from '../src/template/back-office
 import BrandUpdateFixtureUsersImport from '../src/template/back-office/brand-update/test/fixtures/users-import';
 import BrandUpdateFixtureUsersList from '../src/template/back-office/brand-update/test/fixtures/users-list';
 import BrandUpdateFixtureUsers from '../src/template/back-office/brand-update/test/fixtures/users';
-import CreateSsoFixtureDefault from '../src/template/back-office/create-sso/test/fixtures/default';
 import AuthorsFixtureDefault from '../src/template/common/authors/test/fixtures/default';
 import AuthorsFixtureNoSocials from '../src/template/common/authors/test/fixtures/no-socials';
 import CoorpHeaderFixtureProduction from '../src/template/common/coorp-header/test/fixtures/production';
@@ -631,8 +629,7 @@ export const components = {
   TemplateBackOffice: {
     BrandCreate,
     BrandList,
-    BrandUpdate,
-    CreateSso
+    BrandUpdate
   },
   TemplateCommon: {
     Authors,
@@ -1250,9 +1247,6 @@ export const fixtures = {
       UsersImport: BrandUpdateFixtureUsersImport,
       UsersList: BrandUpdateFixtureUsersList,
       Users: BrandUpdateFixtureUsers
-    },
-    CreateSso: {
-      Default: CreateSsoFixtureDefault
     }
   },
   TemplateCommon: {
@@ -1878,7 +1872,6 @@ export const dependencies = {
     "SetupHeader": {
       "parents": {
         "TemplateBackOffice": {
-          "CreateSso": true,
           "BrandUpdate": true,
           "BrandList": true,
           "BrandCreate": true
@@ -2611,13 +2604,6 @@ export const dependencies = {
       }
     },
     "BrandUpdate": {
-      "children": {
-        "Organism": {
-          "SetupHeader": true
-        }
-      }
-    },
-    "CreateSso": {
       "children": {
         "Organism": {
           "SetupHeader": true

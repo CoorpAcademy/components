@@ -7,7 +7,7 @@ export default {
     groups: [
       {
         title: 'Single Sign On (SSO)',
-         /* eslint-disable max-len */
+        /* eslint-disable max-len */
         subtitle: 'Setup your platform’s single-sign-on method. This lets users connect to the Coorpacademy platform using your compny’s loing/password, adn have seamless integration with their business identity. Follow the steps below to set up your platform’s SSO.'
       },
       {
@@ -15,10 +15,7 @@ export default {
         fields: [
           {
             type: 'downloadbox',
-            title: 'Download our SAML Service PRovider Assertion (metadata)',
-            description: 'This is the information your company needs to configure Coorpacademy as a service provider accepted your IdP',
-            href: '/Molecule/BrandDownloadBox',
-            submitValue: 'Download Metadata XML'
+            ...Download.props
           }
         ]
       },
@@ -36,9 +33,7 @@ export default {
         fields: [
           {
             type: 'uploadbox',
-            description: 'Drag here your SAML metadata file (.xml) here',
-            browse: 'or browse',
-            onLoad: () => true
+            ...Upload.props
           }
         ]
       },
@@ -47,8 +42,7 @@ export default {
         fields: [
           {
             type: 'button',
-            submitValue: 'Test Connection',
-            onClick: () => console.log('click on foo') // eslint-disable-line no-console
+            ...Connection.props
           }
         ]
       },
@@ -125,13 +119,15 @@ export default {
             type: 'select',
             description: 'Lorem Ipsum dolor sit amet.',
             onChange: () => {}
-          }, {
+          },
+          {
             title: 'Clock skew',
             value: '0',
             type: 'text',
             description: 'if you geet an error that says "SAML assertion not yet valid", you can adjust this number (in ms) by trial and error to find a value that allows both servers to synchronize',
             onChange: () => {}
-          }, {
+          },
+          {
             title: 'Binding',
             value: 'HTTP POST',
             values: ['HTTP POST', 'HTTP_REDIRECT'],
