@@ -31,9 +31,9 @@
     "webpack-dev-server": "^2.4.5"
   },
   "dependencies": {
-    "@coorpacademy/app-core": "5.2.5-alpha.8041f027",
-    "@coorpacademy/components": "5.2.5-alpha.8041f027",
-    "@coorpacademy/webpack-bundler": "5.2.5-alpha.8041f027",
+    "@coorpacademy/app-core": "5.2.5-alpha.bd27735c",
+    "@coorpacademy/components": "5.2.5-alpha.bd27735c",
+    "@coorpacademy/webpack-config": "5.2.5-alpha.bd27735c",
     "babel-cli": "^6.11.4",
     "babel-core": "^6.14.0",
     "babel-loader": "^6.2.5",

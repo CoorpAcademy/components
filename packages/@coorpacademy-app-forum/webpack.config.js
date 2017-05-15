@@ -1,10 +1,11 @@
+const set = require('lodash/fp/set');
 const path = require('path');
-const config = require('@coorpacademy/webpack-config');
+let config = require('@coorpacademy/webpack-config');
 
 const appName = 'Forum';
 
 const entry = {
-  app: ['babel-polyfill', './src']
+  forum: ['babel-polyfill', './src']
 };
 
 const output = {
@@ -15,7 +16,7 @@ const output = {
   libraryTarget: 'umd'
 };
 
-_.set(config, 'entry', entry);
-_.set(config, 'output', output);
+config = set('entry', entry, config);
+config = set('output', output, config);
 
 module.exports = config;
