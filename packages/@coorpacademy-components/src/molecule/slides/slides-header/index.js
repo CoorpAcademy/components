@@ -23,8 +23,8 @@ const SlidesHeader = (props, context) => {
 
   const secondarySubtitleView = secondary && secondary.subtitle
     ? <div className={style.secondarySubtitle}>
-      {secondary.subtitle}
-    </div>
+        {secondary.subtitle}
+      </div>
     : null;
 
   const secondaryTitleView = secondary && secondary.title
