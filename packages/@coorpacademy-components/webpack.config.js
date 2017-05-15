@@ -2,18 +2,16 @@ const path = require('path');
 const set = require('lodash/fp/set');
 let config = require('@coorpacademy/webpack-config');
 
-const appName = 'Forum';
+const appName = 'Components';
 
 const entry = {
-  forum: ['babel-polyfill', './src']
+  components: ['./src']
 };
 
 const output = {
   library: appName,
   path: path.resolve(__dirname, 'dist'),
-  publicPath: '/dist',
-  filename: 'forum.js',
-  libraryTarget: 'umd'
+  filename: 'components.js'
 };
 
 config = set('entry', entry, config);
