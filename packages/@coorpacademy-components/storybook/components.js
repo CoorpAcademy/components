@@ -96,7 +96,11 @@ import DragAndDrop from '../src/molecule/questions/drag-and-drop';
 import QcmImage from '../src/molecule/questions/qcm-image';
 import Qcm from '../src/molecule/questions/qcm';
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+import SlidesFooter from '../src/molecule/slides/slides-footer';
+>>>>>>> add slider footer
 import SlidesHeader from '../src/molecule/slides/slides-header';
 >>>>>>> add slides headers
 import SlidesPlayer from '../src/molecule/slides/slides-player';
@@ -397,7 +401,15 @@ import QcmImageFixtureNoSelected from '../src/molecule/questions/qcm-image/test/
 import QcmFixtureDefault from '../src/molecule/questions/qcm/test/fixtures/default';
 import QcmFixtureNoSelected from '../src/molecule/questions/qcm/test/fixtures/no-selected';
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+import SlidesFooterFixtureDefault from '../src/molecule/slides/slides-footer/test/fixtures/default';
+import SlidesFooterFixtureDisabled from '../src/molecule/slides/slides-footer/test/fixtures/disabled';
+import SlidesFooterFixtureHighlighted from '../src/molecule/slides/slides-footer/test/fixtures/highlighted';
+import SlidesFooterFixtureNotify from '../src/molecule/slides/slides-footer/test/fixtures/notify';
+import SlidesFooterFixtureSelected from '../src/molecule/slides/slides-footer/test/fixtures/selected';
+>>>>>>> add slider footer
 import SlidesHeaderFixtureDefault from '../src/molecule/slides/slides-header/test/fixtures/default';
 <<<<<<< HEAD
 >>>>>>> add slides headers
@@ -610,7 +622,11 @@ export const components = {
   },
   MoleculeSlides: {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+    SlidesFooter,
+>>>>>>> add slider footer
     SlidesHeader,
 >>>>>>> add slides headers
     SlidesPlayer
@@ -1117,7 +1133,17 @@ export const fixtures = {
   },
   MoleculeSlides: {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+    SlidesFooter: {
+      Default: SlidesFooterFixtureDefault,
+      Disabled: SlidesFooterFixtureDisabled,
+      Highlighted: SlidesFooterFixtureHighlighted,
+      Notify: SlidesFooterFixtureNotify,
+      Selected: SlidesFooterFixtureSelected
+    },
+>>>>>>> add slider footer
     SlidesHeader: {
       Default: SlidesHeaderFixtureDefault,
       Freerun: SlidesHeaderFixtureFreerun,
@@ -2484,7 +2510,13 @@ export const dependencies = {
   },
   "MoleculeSlides": {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+    "SlidesFooter": {
+      "children": {}
+    },
+>>>>>>> add slider footer
     "SlidesHeader": {
       "children": {
         "Atom": {
