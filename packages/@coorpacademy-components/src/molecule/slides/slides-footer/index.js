@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import keys from 'lodash/fp/keys';
-import addClassName from '../../../util/add-class-name';
 import style from './style.css';
 
 const buttonStyle = {
