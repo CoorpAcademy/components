@@ -21,6 +21,12 @@ const SlidesHeader = (props, context) => {
       </div>
     : null;
 
+  const secondarySubtitleView = secondary && secondary.subtitle
+    ? <div className={style.secondarySubtitle}>
+      {secondary.subtitle}
+    </div>
+    : null;
+
   const secondaryTitleView = secondary && secondary.title
     ? <div className={style.secondaryTitle}>
         {secondary.title}
@@ -37,9 +43,12 @@ const SlidesHeader = (props, context) => {
         </div>
       </div>
       <div className={style.secondary}>
+        {secondarySubtitleView}
         {secondaryTitleView}
       </div>
       <div className={style.livesWrapper}>
+        <div className={style.heartBackground} />
+        <div className={style.heart} />
         <div className={style.lives}>
           x{lives.count}
         </div>

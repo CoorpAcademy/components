@@ -399,7 +399,12 @@ import QcmFixtureNoSelected from '../src/molecule/questions/qcm/test/fixtures/no
 <<<<<<< HEAD
 =======
 import SlidesHeaderFixtureDefault from '../src/molecule/slides/slides-header/test/fixtures/default';
+<<<<<<< HEAD
 >>>>>>> add slides headers
+=======
+import SlidesHeaderFixtureFreerun from '../src/molecule/slides/slides-header/test/fixtures/freerun';
+import SlidesHeaderFixtureNoSecondary from '../src/molecule/slides/slides-header/test/fixtures/no-secondary';
+>>>>>>> fix slide header
 import SlidesPlayerFixtureDefault from '../src/molecule/slides/slides-player/test/fixtures/default';
 import SlidesPlayerFixtureDragAndDrop from '../src/molecule/slides/slides-player/test/fixtures/drag-and-drop';
 import SlidesPlayerFixtureQcmImage from '../src/molecule/slides/slides-player/test/fixtures/qcm-image';
@@ -1114,7 +1119,9 @@ export const fixtures = {
 <<<<<<< HEAD
 =======
     SlidesHeader: {
-      Default: SlidesHeaderFixtureDefault
+      Default: SlidesHeaderFixtureDefault,
+      Freerun: SlidesHeaderFixtureFreerun,
+      NoSecondary: SlidesHeaderFixtureNoSecondary
     },
 >>>>>>> add slides headers
     SlidesPlayer: {

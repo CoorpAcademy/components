@@ -27,6 +27,7 @@
 }
 
 .primary {
+  max-width: 320px;
   min-width: 0px;
   flex-grow: 1;
   flex-shrink: 2;
@@ -82,6 +83,7 @@
   font-size: 15px;
   font-weight: 700;
   color: #14171A;
+  margin-right: 10px;
 }
 
 .livesWrapper {
@@ -92,6 +94,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+}
+
+.heart {
+  composes: fa from '../../../variables/fontawesome.css';
+  composes: fa-heart from '../../../variables/fontawesome.css';
+  font-size: 18px;
+  position: absolute;
+  margin-left: -20px;
+  color: #F73F52;
+}
+
+.heartBackground {
+  composes: fa from '../../../variables/fontawesome.css';
+  composes: fa-heart from '../../../variables/fontawesome.css';
+  font-size: 26px;
+  color: #ffffff;
+  position: absolute;
+  margin-left: -20px;
 }
 
 .lives {
@@ -110,6 +131,10 @@
 }
 
 @media mobile {
+  .primary {
+    max-width: none;
+  }
+
   .secondary {
     display: none;
   }
