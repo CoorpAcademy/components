@@ -21,22 +21,15 @@
   },
   "homepage": "https://github.com/CoorpAcademy/components/packages/@coorpacademy-app-player#readme",
   "devDependencies": {
-    "@coorpacademy/eslint-plugin-coorpacademy": "^2.0.0",
-    "ava": "^0.16.0",
-    "coveralls": "^2.11.13",
-    "cross-env": "^4.0.0",
-    "eslint": "^3.5.0",
-    "nyc": "^8.3.0",
-    "rimraf": "^2.6.1",
+    "babel-cli": "^6.11.4",
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
     "webpack-dev-server": "^2.4.5"
   },
   "dependencies": {
     "@coorpacademy/app-core": "5.2.5-alpha.732927d3",
     "@coorpacademy/components": "5.2.5-alpha.732927d3",
     "@coorpacademy/webpack-config": "5.2.5-alpha.732927d3",
-    "babel-cli": "^6.11.4",
-    "babel-core": "^6.14.0",
-    "babel-loader": "^6.2.5",
     "lodash": "^4.15.0",
     "redux": "^3.6.0",
     "redux-api-middleware": "^2.0.0-beta.1"
