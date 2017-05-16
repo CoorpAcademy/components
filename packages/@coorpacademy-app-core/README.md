@@ -1,14 +1,13 @@
-# Appster
+# app-core
 
-- `npm install`
-- `npm test`
+This core provides a core redux router for all apps
 
-## typical app src/
+## typical app tree
 
-The app should have @coorpacademy/appster as deps and have an `src/` looking like:
+Your app should have @coorpacademy/app-core as deps and have an `src/` looking like:
+
 ```
-src
-├── app
+├── src
 │   ├── actions
 │   │   ├── api-an-action.js
 │   │   ├── api-another-action.js
@@ -24,34 +23,117 @@ src
 │   │       ├── index.js
 │   │       └── test
 │   ├── routes.js
+│   ├── test
+│   │   └── index.js
 │   └── views
 │       └── a-view.js
-├── sandbox
-│   ├── config.js
-│   └── index.js
-└── test
-    └── index.js
+└──  sandbox
+│   └──  index.html
+└── webpack.config.js
+
 ```
 
+## main
+inject your routes and reducers
 
-## redux app use
-
-Give reducers and routes as params
-```js
-import {prepareApp} from '@coorpacademy/appster';
+```
+import {prepareApp} from '@coorpacademy/app-core';
 import createReducer from './reducers';
 import createRoutes from './routes';
 
-const app = prepareApp(createReducer, createRoutes, options);
+export const create = options => prepareApp(createReducer, createRoutes, options);
 ```
 
-## webpack config use
+## routes
+map your routes, views and actions within your `createRoutes` function
+```
+import createView from './view';
+import {updatePlop} from './actions/ui-demo';
+
+const createRoutes = options => {
+  return [
+    {
+      path: '*',
+      view: createView(options),
+      actions: [
+        updatePlop({
+          plop: 'new plop !'
+        })
+      ]
+    }
+  ];
+};
+
+export default createRoutes;
+```
+
+## reducers
+
+Combine all reducers in `reducers/index.js`
+```js
+import {createReducers} from '@coorpacademy/app-core';
+import ui from './ui';
+
+export default ({lang} = {}) => createReducers(lang, {ui});
+```
+
+then you just need to use redux combineReducers for all nested state
+in the previous example, `ui/index.js` is
+```
+import {combineReducers} from 'redux';
+import foo from './foo';
+import bar from './bar';
+
+export default combineReducers({
+  foo,
+  bar
+});
+
+```
+
+## sandbox
+Use `webpack-dev-server` to run the app within a sandbox.
+```
+  "scripts": {
+    "start": "webpack-dev-server --content-base sandbox"
+  }
+```
+
+`webpack.config.js` should use `@coorpacademy/webpack-config`
 ```
 const path = require('path');
-const {webpackConfig} = require('@coorpacademy/appster');
+const pipe = require('lodash/fp/pipe');
+const set = require('lodash/fp/set');
+const config = require('@coorpacademy/webpack-config');
 
-const input = path.join(__dirname, 'src/app');
-const output = path.join(__dirname, 'dist');
+const appName = 'Player';
 
-module.exports = webpackConfig('Forum', input, output);
+const entry = {
+  player: ['babel-polyfill', './src']
+};
+
+const output = {
+  library: appName,
+  path: path.resolve(__dirname, 'dist'),
+  publicPath: '/dist',
+  filename: 'player.js',
+  libraryTarget: 'umd'
+};
+
+module.exports = pipe(set('entry', entry), set('output', output))(config);
+```
+
+
+`index.html` should look like:
+```html
+<link rel="stylesheet" type="text/css" href="/dist/player.css">
+<div id="player"></div>
+
+<script type="text/javascript" src="/dist/player.js"></script>
+
+<script>
+  window.Player.create({
+    container: document.getElementById('player')
+  });
+</script>
 ```
