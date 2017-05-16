@@ -1,3 +1,7 @@
-const test = require('ava');
+import test from 'ava';
+import isFunction from 'lodash/fp/isFunction';
+import {create} from '..';
 
-test('shoud pass', t => t.pass());
+test('app-forum shoud provide a create function', t => {
+  t.is(isFunction(create), true);
+});
