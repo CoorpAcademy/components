@@ -1,6 +1,7 @@
 const path = require('path');
+const pipe = require('lodash/fp/pipe');
 const set = require('lodash/fp/set');
-let config = require('@coorpacademy/webpack-config');
+const config = require('@coorpacademy/webpack-config');
 
 const appName = 'Player';
 
@@ -16,7 +17,4 @@ const output = {
   libraryTarget: 'umd'
 };
 
-config = set('entry', entry, config);
-config = set('output', output, config);
-
-module.exports = config;
+module.exports = pipe(set('entry', entry), set('output', output))(config);
