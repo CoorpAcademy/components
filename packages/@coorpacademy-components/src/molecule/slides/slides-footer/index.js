@@ -13,14 +13,14 @@ const SlidesFooter = (props, context) => {
   const {buttons} = props;
 
   const buttonsView = buttons.map((button, key) => {
-    const {disabled, notify, selected, highlighted, title, type} = button;
+    const {disabled, notify, selected, highlighted, title, type, onClick} = button;
 
     const className = selected ? style.selected : style.button;
 
     const notifyView = notify ? <span className={style.notify} /> : null;
 
     return (
-      <div className={disabled ? style.disabled : className} key={key}>
+      <div className={disabled ? style.disabled : className} key={key} onClick={onClick}>
         <div className={highlighted ? style.highlighted : style.logo}>
           {notifyView}
           <span className={buttonStyle[type]} />
@@ -47,7 +47,8 @@ SlidesFooter.propTypes = {
       selected: PropTypes.bool,
       highlighted: PropTypes.bool,
       title: PropTypes.bool,
-      type: PropTypes.oneOf(keys(buttonStyle)).isRequired
+      type: PropTypes.oneOf(keys(buttonStyle)).isRequired,
+      onClick: PropTypes.func
     })
   )
 };
