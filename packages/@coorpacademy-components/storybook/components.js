@@ -2482,6 +2482,52 @@ export const dependencies = {
       }
     }
   },
+  "MoleculeSlides": {
+    "SlidesFooter": {
+      "parents": {
+        "MoleculeSlides": {
+          "SlidesPlayer": true
+        }
+      },
+      "children": {}
+<<<<<<< HEAD
+    }
+  },
+  "MoleculeSlides": {
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+    "SlidesFooter": {
+      "children": {}
+=======
+>>>>>>> integrate footer
+    },
+>>>>>>> add slider footer
+    "SlidesHeader": {
+      "children": {
+        "Atom": {
+          "Link": true
+        }
+      }
+    },
+>>>>>>> add slides headers
+    "SlidesPlayer": {
+      "children": {
+        "Atom": {
+          "Cta": true
+        },
+        "MoleculeSlides": {
+          "SlidesFooter": true
+        },
+        "MoleculeQuestions": {
+          "DragAndDrop": true,
+          "QcmImage": true,
+          "Qcm": true
+        }
+      }
+    }
+  },
   "MoleculeQuestions": {
     "DragAndDrop": {
       "parents": {
@@ -2506,36 +2552,6 @@ export const dependencies = {
         }
       },
       "children": {}
-    }
-  },
-  "MoleculeSlides": {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
-    "SlidesFooter": {
-      "children": {}
-    },
->>>>>>> add slider footer
-    "SlidesHeader": {
-      "children": {
-        "Atom": {
-          "Link": true
-        }
-      }
-    },
->>>>>>> add slides headers
-    "SlidesPlayer": {
-      "children": {
-        "Atom": {
-          "Cta": true
-        },
-        "MoleculeQuestions": {
-          "DragAndDrop": true,
-          "QcmImage": true,
-          "Qcm": true
-        }
-      }
     }
   },
   "TemplateAppCatalog": {

@@ -5,10 +5,11 @@ import Cta from '../../../atom/cta';
 import DragAndDrop from '../../questions/drag-and-drop';
 import Qcm from '../../questions/qcm';
 import QcmImage from '../../questions/qcm-image';
+import SlidesFooter from '../slides-footer';
 import style from './style.css';
 
 const SlidesPlayer = (props, context) => {
-  const {progression, question, cta, help, answer} = props;
+  const {progression, question, cta, help, answer, buttons} = props;
   const {skin, translate} = context;
 
   const primarySkinColor = getOr('#00B0FF', 'common.primary', skin);
@@ -49,15 +50,20 @@ const SlidesPlayer = (props, context) => {
       <div className={style.guideWrapper}>
         {translate('Need some help?')}
       </div>
-      <div className={style.question}>
-        {question}
+      <div className={style.contentWrapper}>
+        <div className={style.question}>
+          {question}
+        </div>
+        {helpView}
+        <div className={style.answerWrapper}>
+          {answerView}
+        </div>
+        <div className={style.ctaWrapper}>
+          <Cta {...cta} />
+        </div>
       </div>
-      {helpView}
-      <div className={style.answerWrapper}>
-        {answerView}
-      </div>
-      <div className={style.ctaWrapper}>
-        <Cta {...cta} />
+      <div className={style.footer}>
+        <SlidesFooter buttons={buttons} />
       </div>
     </div>
   );
@@ -78,7 +84,8 @@ SlidesPlayer.propTypes = {
   answer: PropTypes.shape({
     type: PropTypes.oneOf(['draganddrop', 'qcm', 'qcmimage']).required
   }),
-  cta: PropTypes.object.required
+  cta: PropTypes.object.required,
+  buttons: PropTypes.array
 };
 
 export default SlidesPlayer;

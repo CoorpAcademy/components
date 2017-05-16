@@ -5,10 +5,14 @@
   position: relative;
   box-shadow: 0 0 4px 5px rgba(0,0,0,0.04);
   border-radius: 3px;
+}
+
+.contentWrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 36px 32px 32px;
+  width: 100%;
 }
 
 .progressionWrapper {
@@ -94,8 +98,18 @@
 .ctaWrapper {
 }
 
+.footer {
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  overflow: hidden;
+}
+
 @media mobile {
   .wrapper {
+
+  }
+
+  .contentWrapper {
     padding: 36px 16px 16px;
   }
 

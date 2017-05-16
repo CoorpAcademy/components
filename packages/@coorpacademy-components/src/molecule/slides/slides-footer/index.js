@@ -10,7 +10,7 @@ const buttonStyle = {
 };
 
 const SlidesFooter = (props, context) => {
-  const {buttons} = props;
+  const {buttons = []} = props;
 
   const buttonsView = buttons.map((button, key) => {
     const {disabled, notify, selected, highlighted, title, type, onClick} = button;
@@ -32,11 +32,11 @@ const SlidesFooter = (props, context) => {
     );
   });
 
-  return (
-    <div className={style.wrapper}>
-      {buttonsView}
-    </div>
-  );
+  return buttons.length > 0
+    ? <div className={style.wrapper}>
+        {buttonsView}
+      </div>
+    : null;
 };
 
 SlidesFooter.propTypes = {
