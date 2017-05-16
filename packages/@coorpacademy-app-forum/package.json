@@ -2,22 +2,25 @@
   "name": "@coorpacademy/app-forum",
   "version": "5.2.5-alpha.db8cc48d",
   "description": "CoorpAcademy forum",
+  "main": "lib/index.js",
   "module": "es/index.js",
   "files": [
     "es",
+    "lib",
     "README.md"
   ],
   "scripts": {
-    "ava": "BABEL_ENV=test ava",
-    "build": "cross-env babel src --out-dir es -s --ignore test --copy-files",
-    "clean": "rimraf es; rimraf coverage; rimraf .nyc_output",
-    "coveralls": "nyc report --reporter=text-lcov | coveralls",
-    "lint": "eslint src/ *.js *.json --ext .js,.json",
-    "nyc": "BABEL_ENV=test nyc npm run ava",
-    "prebuild": "npm run clean",
+    "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib -s --ignore test --copy-files",
+    "build:es": "cross-env BABEL_ENV=es babel src --out-dir es -s --ignore test --copy-files",
+    "build": "npm run build:commonjs && npm run build:es",
+    "clean:build:commonjs": "rimraf lib",
+    "clean:build:es": "rimraf es",
+    "clean:build": "npm run clean:build:commonjs && npm run clean:build:es",
+    "clean": "npm run clean:build",
     "prepublish": "npm run build",
-    "start": "webpack-dev-server --content-base sandbox",
-    "test": "npm run lint && npm run nyc"
+    "prebuild:commonjs": "npm run clean:build:commonjs",
+    "prebuild:es": "npm run clean:build:es",
+    "start": "webpack-dev-server --content-base sandbox"
   },
   "homepage": "https://github.com/CoorpAcademy/components/packages/@coorpacademy-forum#readme",
   "devDependencies": {
