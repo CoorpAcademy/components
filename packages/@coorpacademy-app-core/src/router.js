@@ -49,8 +49,7 @@ export const createRouterMiddleware = createRoutes => (...argz) => {
       const params = match(pathname);
 
       const updatedAction = await next(action); // eslint-disable-line callback-return
-      const state = store.getState();
-      await Promise.all(map(_action => _action(store.dispatch, {state, params}, store), actions));
+      await Promise.all(map(_action => _action(store.dispatch, store.getState, params), actions));
       return constant(updatedAction);
     }
 

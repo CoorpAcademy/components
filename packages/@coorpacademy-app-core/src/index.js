@@ -18,6 +18,7 @@ const createRenderer = (store, history, update, _createRouter, options) => {
   const Router = _createRouter({
     ...options,
     dispatch: store.dispatch,
+    getState: store.getState,
     history
   });
 
@@ -36,6 +37,7 @@ const createRenderer = (store, history, update, _createRouter, options) => {
         {
           ...options,
           dispatch: store.dispatch,
+          getState: store.getState,
           history
         },
         vTree
@@ -57,13 +59,13 @@ const createRenderer = (store, history, update, _createRouter, options) => {
  * example :
  * const transifexConnector = _.partial(connectTransifex, window.Transifex)
  */
-const prepareApp = (createReducer, routes, options, connectors = []) => {
+const prepareApp = (createReducer, routes, middlewares, options) => {
   const history = createBrowserHistory();
 
   const store = createStore(
     createReducer(options),
     {lang: options.lang},
-    createMiddleware(routes, {
+    createMiddleware(routes, middlewares, {
       ...options,
       history
     })

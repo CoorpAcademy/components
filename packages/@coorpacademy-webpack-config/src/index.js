@@ -36,7 +36,11 @@ const config = {
       },
       {
         test: /\.js$/,
-        loader: 'babel-loader?cacheDirectory=true',
+        loader: 'babel-loader',
+        options: {
+          cacheDirectory: true
+        },
+        exclude: /(node_modules|bower_components)/,
         include: join(process.cwd(), 'src')
       },
       {
