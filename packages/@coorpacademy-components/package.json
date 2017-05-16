@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/components",
-  "version": "5.2.4",
+  "version": "5.2.5-alpha.8e3e4b3f",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -12,7 +12,7 @@
     "README.md"
   ],
   "scripts": {
-    "build:browser": "cross-env BABEL_ENV=es bundle-components src/index.js -o dist/",
+    "build:browser": "cross-env BABEL_ENV=es webpack",
     "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib -s --ignore test --copy-files",
     "build:es": "cross-env BABEL_ENV=es babel src --out-dir es -s --ignore test --copy-files",
     "build": "npm run build:commonjs && npm run build:es && npm run build:browser",
@@ -45,7 +45,6 @@
     "Julien Seren-Rosso <julien.seren-rosso@coorpacademy.com>"
   ],
   "dependencies": {
-    "api-check": "^7.5.5",
     "extended-proptypes": "^1.1.4",
     "file-loader": "^0.9.0",
     "hammerjs": "^2.0.8",
@@ -54,8 +53,8 @@
     "react-dom": "^15.5.3"
   },
   "devDependencies": {
-    "@coorpacademy/components-bundler": "^5.2.2",
-    "@coorpacademy/translate": "^5.2.2",
+    "@coorpacademy/translate": "^5.2.5-alpha.8e3e4b3f",
+    "@coorpacademy/webpack-config": "5.2.5-alpha.732927d3",
     "@kadira/storybook": "^2.35.3",
     "@kadira/storybook-addon-knobs": "^1.7.1",
     "autoprefixer": "^6.4.1",

@@ -1,6 +1,6 @@
 {
-  "name": "@coorpacademy/components-bundler",
-  "version": "5.2.2",
+  "name": "@coorpacademy/webpack-config",
+  "version": "5.2.5-alpha.8e3e4b3f",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -30,6 +30,7 @@
     "babel-core": "^6.11.4",
     "babel-loader": "^6.2.5",
     "babel-plugin-css-modules-transform": "^1.1.0",
+    "babel-plugin-transform-object-assign": "^6.22.0",
     "babel-preset-es2015": "^6.13.0",
     "babel-preset-stage-1": "^6.5.0",
     "babili-webpack-plugin": "0.0.11",
@@ -42,9 +43,6 @@
     "postcss-loader": "^1.1.1",
     "style-loader": "^0.13.0",
     "webpack": "^2.2.0"
-  },
-  "bin": {
-    "bundle-components": "./src/index.js"
   },
   "devDependencies": {
     "babel-plugin-istanbul": "^3.0.0",

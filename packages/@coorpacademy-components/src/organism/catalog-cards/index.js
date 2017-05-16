@@ -50,6 +50,7 @@ CatalogCards.contextTypes = {
 };
 
 CatalogCards.propTypes = {
-  products: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.object), PropTypes.null])
+  products: PropTypes.arrayOf(PropTypes.object)
 };
+
 export default CatalogCards;

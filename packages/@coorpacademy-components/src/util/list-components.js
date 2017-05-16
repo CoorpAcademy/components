@@ -15,7 +15,7 @@ const pascalCase = pipe(camelCase, upperFirst);
 
 const cwd = join(__dirname, '..');
 
-const paths = glob.sync('**/**/!(test|layout)/index.js', {cwd});
+const paths = glob.sync('**/**/!(test|layout*)/index.js', {cwd});
 
 export default pipe(
   map(

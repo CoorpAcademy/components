@@ -107,6 +107,7 @@ import Author from '../src/template/app-catalog/author';
 import Catalog from '../src/template/app-catalog/catalog';
 import ProductCourse from '../src/template/app-catalog/product-course';
 import ProductCursus from '../src/template/app-catalog/product-cursus';
+import Demo from '../src/template/app-player/demo';
 import BrandCreate from '../src/template/back-office/brand-create';
 import BrandList from '../src/template/back-office/brand-list';
 import BrandUpdate from '../src/template/back-office/brand-update';
@@ -420,6 +421,8 @@ import ProductCursusFixtureEmpty from '../src/template/app-catalog/product-cursu
 import ProductCursusFixtureLoading from '../src/template/app-catalog/product-cursus/test/fixtures/loading';
 import ProductCursusFixtureWithoutAssets from '../src/template/app-catalog/product-cursus/test/fixtures/without-assets';
 import ProductCursusFixtureWithoutBadge from '../src/template/app-catalog/product-cursus/test/fixtures/without-badge';
+import DemoFixtureDefault from '../src/template/app-player/demo/test/fixtures/default';
+import LayoutPlayerFixtureDefault from '../src/template/app-player/layout-player/test/fixtures/default';
 import BrandCreateFixtureDefault from '../src/template/back-office/brand-create/test/fixtures/default';
 import BrandCreateFixtureError from '../src/template/back-office/brand-create/test/fixtures/error';
 import BrandCreateFixtureLoading from '../src/template/back-office/brand-create/test/fixtures/loading';
@@ -578,6 +581,9 @@ export const components = {
     Catalog,
     ProductCourse,
     ProductCursus
+  },
+  TemplateAppPlayer: {
+    Demo
   },
   TemplateBackOffice: {
     BrandCreate,
@@ -1122,6 +1128,14 @@ export const fixtures = {
       Loading: ProductCursusFixtureLoading,
       WithoutAssets: ProductCursusFixtureWithoutAssets,
       WithoutBadge: ProductCursusFixtureWithoutBadge
+    }
+  },
+  TemplateAppPlayer: {
+    Demo: {
+      Default: DemoFixtureDefault
+    },
+    LayoutPlayer: {
+      Default: LayoutPlayerFixtureDefault
     }
   },
   TemplateBackOffice: {
@@ -2382,6 +2396,11 @@ export const dependencies = {
           "CatalogCards": true
         }
       }
+    }
+  },
+  "TemplateAppPlayer": {
+    "Demo": {
+      "children": {}
     }
   },
   "TemplateBackOffice": {

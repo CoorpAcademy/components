@@ -1,0 +1,37 @@
+{
+  "name": "@coorpacademy/app-player",
+  "version": "5.2.5-alpha.8e3e4b3f",
+  "description": "CoorpAcademy player [freerun, learner, battles]",
+  "module": "es/index.js",
+  "files": [
+    "es",
+    "README.md"
+  ],
+  "scripts": {
+    "ava": "BABEL_ENV=test ava",
+    "build": "cross-env babel src --out-dir es -s --ignore test --copy-files",
+    "clean": "rimraf es; rimraf coverage; rimraf .nyc_output",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "lint": "eslint src/ *.js *.json --ext .js,.json",
+    "nyc": "BABEL_ENV=test nyc npm run ava",
+    "prebuild": "npm run clean",
+    "prepublish": "npm run build",
+    "start": "webpack-dev-server --content-base sandbox",
+    "test": "npm run lint && npm run nyc"
+  },
+  "homepage": "https://github.com/CoorpAcademy/components/packages/@coorpacademy-app-player#readme",
+  "devDependencies": {
+    "babel-cli": "^6.11.4",
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "webpack-dev-server": "^2.4.5"
+  },
+  "dependencies": {
+    "@coorpacademy/app-core": "5.2.5-alpha.732927d3",
+    "@coorpacademy/components": "5.2.5-alpha.732927d3",
+    "@coorpacademy/webpack-config": "5.2.5-alpha.732927d3",
+    "lodash": "^4.15.0",
+    "redux": "^3.6.0",
+    "redux-api-middleware": "^2.0.0-beta.1"
+  }
+}

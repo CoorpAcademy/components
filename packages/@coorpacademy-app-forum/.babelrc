@@ -1,0 +1,10 @@
+{
+  "presets": ["stage-1"],
+  "env": {
+    "test": {
+      "presets": [
+        ["es2015", { "loose": true }]
+      ]
+    }
+  }
+}
