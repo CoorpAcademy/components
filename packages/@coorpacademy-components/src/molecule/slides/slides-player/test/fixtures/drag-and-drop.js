@@ -1,8 +1,10 @@
 import Cta from '../../../../../atom/cta/test/fixtures/default';
 import DragAndDrop from '../../../../questions/drag-and-drop/test/fixtures/default';
+import Footer from '../../../slides-footer/test/fixtures/default';
 
 const {props} = Cta;
 const answerProps = DragAndDrop.props;
+const footerProps = Footer.props;
 
 export default {
   props: {
@@ -15,6 +17,7 @@ export default {
     answer: {
       type: 'draganddrop',
       ...answerProps
-    }
+    },
+    ...footerProps
   }
 };

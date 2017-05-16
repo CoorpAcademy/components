@@ -13,6 +13,7 @@
   align-items: center;
   padding: 36px 32px 32px;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .progressionWrapper {
@@ -106,11 +107,26 @@
 
 @media mobile {
   .wrapper {
-
+    box-shadow: none;
+    border-radius: 0;
   }
 
   .contentWrapper {
-    padding: 36px 16px 16px;
+    padding: 32px 16px 16px;
+    margin-bottom: 80px;
+    overflow-y: auto;
+  }
+
+  .progressionWrapper {
+    display: none;
+  }
+
+  .progressionCount {
+    display: none;
+  }
+
+  .guideWrapper {
+    display: none;
   }
 
   .question {
@@ -123,5 +139,11 @@
 
   .answerWrapper {
     margin-bottom: 16px;
+  }
+
+  .footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
   }
 }

@@ -1,8 +1,10 @@
 import Cta from '../../../../../atom/cta/test/fixtures/default';
 import QcmImage from '../../../../questions/qcm-image/test/fixtures/default';
+import Footer from '../../../slides-footer/test/fixtures/default';
 
 const {props} = Cta;
 const answerProps = QcmImage.props;
+const footerProps = Footer.props;
 
 export default {
   props: {
@@ -16,6 +18,7 @@ export default {
     answer: {
       type: 'qcmimage',
       ...answerProps
-    }
+    },
+    ...footerProps
   }
 };

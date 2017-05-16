@@ -135,6 +135,7 @@ import CoorpHeader from '../src/template/common/coorp-header';
 import Dashboard from '../src/template/common/dashboard';
 import Discipline from '../src/template/common/discipline';
 import SearchPage from '../src/template/common/search-page';
+import Slides from '../src/template/common/slides';
 import ButtonFixtureA from '../src/atom/button/test/fixtures/a';
 import ButtonFixtureBlue from '../src/atom/button/test/fixtures/blue';
 import ButtonFixtureCentered from '../src/atom/button/test/fixtures/centered';
@@ -517,6 +518,7 @@ import DisciplineFixtureNoVideo from '../src/template/common/discipline/test/fix
 import DisciplineFixtureWithOnclick from '../src/template/common/discipline/test/fixtures/with-onclick';
 import SearchPageFixtureDefault from '../src/template/common/search-page/test/fixtures/default';
 import SearchPageFixtureNoResult from '../src/template/common/search-page/test/fixtures/no-result';
+import SlidesFixtureDefault from '../src/template/common/slides/test/fixtures/default';
 
 export const components = {
   Atom: {
@@ -670,7 +672,8 @@ export const components = {
     CoorpHeader,
     Dashboard,
     Discipline,
-    SearchPage
+    SearchPage,
+    Slides
   }
 };
 export const fixtures = {
@@ -1319,11 +1322,39 @@ export const fixtures = {
     SearchPage: {
       Default: SearchPageFixtureDefault,
       NoResult: SearchPageFixtureNoResult
+    },
+    Slides: {
+      Default: SlidesFixtureDefault
     }
   }
 };
 
 export const dependencies = {
+  "MoleculeSlides": {
+    "SlidesHeader": {
+      "parents": {
+        "TemplateCommon": {
+          "Slides": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Link": true
+        }
+      }
+    },
+    "SlidesPlayer": {
+      "parents": {
+        "TemplateCommon": {
+          "Slides": true
+        }
+      },
+      "children": {}
+    },
+    "SlidesFooter": {
+      "children": {}
+    }
+  },
   "Molecule": {
     "Filters": {
       "parents": {
@@ -2191,9 +2222,6 @@ export const dependencies = {
         "Organism": {
           "MoocHeader": true
         },
-        "MoleculeSlides": {
-          "SlidesPlayer": true
-        },
         "Molecule": {
           "News": true
         },
@@ -2482,6 +2510,7 @@ export const dependencies = {
       }
     }
   },
+<<<<<<< HEAD
   "MoleculeSlides": {
     "SlidesFooter": {
       "parents": {
@@ -2528,29 +2557,16 @@ export const dependencies = {
       }
     }
   },
+=======
+>>>>>>> add template
   "MoleculeQuestions": {
     "DragAndDrop": {
-      "parents": {
-        "MoleculeSlides": {
-          "SlidesPlayer": true
-        }
-      },
       "children": {}
     },
     "QcmImage": {
-      "parents": {
-        "MoleculeSlides": {
-          "SlidesPlayer": true
-        }
-      },
       "children": {}
     },
     "Qcm": {
-      "parents": {
-        "MoleculeSlides": {
-          "SlidesPlayer": true
-        }
-      },
       "children": {}
     }
   },
@@ -2680,6 +2696,14 @@ export const dependencies = {
         },
         "Atom": {
           "Button": true
+        }
+      }
+    },
+    "Slides": {
+      "children": {
+        "MoleculeSlides": {
+          "SlidesHeader": true,
+          "SlidesPlayer": true
         }
       }
     }
