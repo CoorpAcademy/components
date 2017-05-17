@@ -2,9 +2,10 @@
 <div id="player"></div>
 
 <script type="text/javascript" src="/dist/player.js"></script>
+<script type="text/javascript" src="/dist/scenarios.js"></script>
 
 <script>
-  window.Player.create({
+  const {dispatch} = window.Player.player.create({
     container: document.getElementById('player'),
     // api: 'http://localhost:3000',
     api: 'https://digital-staging.coorpacademy.com',
@@ -15,4 +16,6 @@
       }
     }
   });
+
+  window.Player.scenarios.Victory(dispatch);
 </script>

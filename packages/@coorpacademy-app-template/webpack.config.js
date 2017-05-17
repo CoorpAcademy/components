@@ -6,12 +6,11 @@ const config = require('@coorpacademy/webpack-config');
 const {RootMostResolvePlugin} = require('webpack-dependency-suite');
 
 const entry = {
-  player: ['babel-polyfill', './src'],
-  scenarios: './src/scenarios'
+  template: ['babel-polyfill', './src']
 };
 
 const output = {
-  library: ['Player', '[name]'],
+  library: 'Template',
   path: path.resolve(__dirname, 'dist'),
   publicPath: '/dist',
   filename: '[name].js',

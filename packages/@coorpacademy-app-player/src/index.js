@@ -1,13 +1,24 @@
-import {prepareApp} from '@coorpacademy/app-core';
+import {createStore} from 'redux';
+import ReactDOM from 'react-dom';
+import pipe from 'lodash/fp/pipe';
 import createReducer from './reducers';
-import createRoutes from './routes';
-import createMiddlewares from './middlewares';
-import scenario from './scenarios/default';
-// @TODO import translate
+import createMiddleware from './middlewares';
+import createMapStateToVnode from './view';
 
-// eslint-disable-next-line import/prefer-default-export
-export const create = options => {
-  const {store} = prepareApp(createReducer, createRoutes, createMiddlewares(options), options);
+const create = options => {
+  const {container} = options;
 
-  return Promise.all(scenario(store.dispatch));
+  const store = createStore(createReducer(options), {}, createMiddleware(options));
+  const {dispatch} = store;
+
+  const unsubscribe = store.subscribe(
+    pipe(createMapStateToVnode(options)(dispatch), vNode => ReactDOM(container, vNode))
+  );
+
+  return {
+    dispatch,
+    unsubscribe
+  };
 };
+
+export {create}; // eslint-disable-line import/prefer-default-export

@@ -1,10 +1,8 @@
 import pipe from 'lodash/fp/pipe';
 import getOr from 'lodash/fp/getOr';
 import {Demo} from '@coorpacademy/components';
-import {answerProgression} from './actions/ui';
 
-const createMapStateToProps = ({dispatch, getState, api}) => ({state, params}) => {
-  window.createAnswer = answerProgression(api, dispatch, getState);
+const createMapStateToProps = ({api}) => dispatch => state => {
   return {
     plop: getOr('default plop', 'ui.plop', state),
     plup: getOr('default plup', 'ui.plup', state)
@@ -13,8 +11,8 @@ const createMapStateToProps = ({dispatch, getState, api}) => ({state, params}) =
 
 export {createMapStateToProps};
 
-export default options => {
-  const mapStateToProps = createMapStateToProps(options);
+export default options => dispatch => {
+  const mapStateToProps = createMapStateToProps(options)(dispatch);
 
   return pipe(mapStateToProps, Demo);
 };
