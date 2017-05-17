@@ -1,28 +1,19 @@
 // @flow
 export type Progression = {};
 
-type ContentChoiceItem = {
-  _id: string,
-  value: string
-};
+export type Answer = Array<string>;
+export type AcceptedAnswers = Array<Answer>;
 
-type ContentChoice = {
-  _id: string,
-  value?: string,
-  items: Array<ContentChoiceItem>
-};
-
-type Question = {
-  // TODO When implementing checkAnswer, create nice types for every question type that match the expected
-  // data perfectly
-  type: 'qcmDrag' | 'template' | 'qcm',
+export type QCMQuestion = {
+  type: 'qcm',
   content: {
-    choices: Array<ContentChoice>
+    answers: AcceptedAnswers
   }
 };
 
+export type Question = QCMQuestion;
+
 export type Slide = {
-  _id: string,
   chapter_id: string,
   question: Question
 };
