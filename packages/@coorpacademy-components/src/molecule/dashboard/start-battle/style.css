@@ -119,6 +119,7 @@
   line-height: 20px;
   letter-spacing: 4px;
   display: flex;
+  width: inherit;
   flex-direction: column;
 }
 
