@@ -21,6 +21,10 @@ const config = {
     colors: true
   },
 
+  resolveLoader: {
+    modules: [join(__dirname, '../node_modules'), 'node_modules']
+  },
+
   output: {
     library: 'bundle',
     filename: '[name].js',
