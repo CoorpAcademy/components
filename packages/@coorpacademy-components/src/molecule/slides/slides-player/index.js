@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import keys from 'lodash/fp/keys';
 import getOr from 'lodash/fp/getOr';
 import Cta from '../../../atom/cta';
 import DragAndDrop from '../../questions/drag-and-drop';
@@ -95,15 +96,15 @@ SlidesPlayer.contextTypes = {
 
 SlidesPlayer.propTypes = {
   progression: PropTypes.shape({
-    current: PropTypes.number.required,
-    total: PropTypes.number.required
+    current: PropTypes.number.isRequired,
+    total: PropTypes.number.isRequired
   }),
-  question: PropTypes.string.required,
+  question: PropTypes.string.isRequired,
   help: PropTypes.string,
   answer: PropTypes.shape({
-    type: PropTypes.oneOf(['draganddrop', 'qcm', 'qcmimage']).required
+    type: PropTypes.oneOf(keys(answers)).isRequired
   }),
-  cta: PropTypes.object.required,
+  cta: PropTypes.object.isRequired,
   buttons: PropTypes.array
 };
 
