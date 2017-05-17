@@ -53,8 +53,8 @@
     "react-dom": "^15.5.3"
   },
   "devDependencies": {
-    "@coorpacademy/translate": "^5.3.0",
-    "@coorpacademy/webpack-config": "5.2.5-alpha.732927d3",
+    "@coorpacademy/translate": "5.3.0",
+    "@coorpacademy/webpack-config": "5.3.0",
     "@kadira/storybook": "^2.35.3",
     "@kadira/storybook-addon-knobs": "^1.7.1",
     "autoprefixer": "^6.4.1",

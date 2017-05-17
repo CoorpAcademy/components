@@ -23,9 +23,9 @@
   },
   "homepage": "https://github.com/CoorpAcademy/components/@coorpacademy-app-core#readme",
   "dependencies": {
-    "@coorpacademy/components": "5.2.5-alpha.732927d3",
-    "@coorpacademy/history": "5.2.5-alpha.732927d3",
-    "@coorpacademy/redux-history": "5.2.5-alpha.732927d3",
+    "@coorpacademy/components": "5.3.0",
+    "@coorpacademy/history": "5.3.0",
+    "@coorpacademy/redux-history": "5.3.0",
     "autoprefixer": "^6.4.1",
     "babel-cli": "^6.18.0",
     "babel-core": "^6.21.0",
