@@ -1,0 +1,35 @@
+.wrapper {
+
+}
+
+.answer {
+  width: 100%;
+  font-family: 'Open Sans';
+  font-size: 15px;
+  font-weight: 600;
+  color: #14171A;
+  background-color: #ffffff;
+  line-height: 54px;
+  border: 1px solid #ECEFF1;
+  border-radius: 3px;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+  cursor: pointer;
+  padding: 0 32px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.answer:last-child {
+  margin-bottom: 0;
+}
+
+.answer:hover {
+  background-color: #ECEFF1;
+}
+
+.selected {
+  composes: answer;
+  color: #ffffff;
+}

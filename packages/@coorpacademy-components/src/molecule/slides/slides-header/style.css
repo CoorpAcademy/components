@@ -1,0 +1,141 @@
+@value breakpoints: "../../../variables/breakpoints.css";
+@value mobile from breakpoints;
+
+.wrapper {
+  width: 100%;
+  height: 60px;
+  display: flex;
+}
+
+.back {
+  composes: fa from '../../../variables/fontawesome.css';
+  composes: fa-chevron-left from '../../../variables/fontawesome.css';
+  font-size: 16px;
+  color: #546E7A;
+  text-decoration: none;
+  height: 100%;
+  width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #FAFAFA;
+  flex-shrink: 0;
+}
+
+.back:hover {
+  background-color: #ECEFF1;
+}
+
+.primary {
+  max-width: 320px;
+  min-width: 0px;
+  flex-grow: 1;
+  flex-shrink: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  background-color: #FAFAFA;
+  height: 100%;
+  padding-right: 16px;
+  box-sizing: border-box;
+}
+
+.primaryTitle {
+  font-family: 'Open Sans';
+  font-size: 15px;
+  color: #546E7A;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.primarySubtitle {
+  font-family: 'Open Sans';
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.secondary {
+  min-width: 0px;
+  flex-grow: 2;
+  height: 100%;
+  background-color: #ECEFF1;
+  display: flex;
+  padding: 0 16px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.secondaryTitle {
+  font-family: 'Open Sans';
+  font-size: 15px;
+  font-weight: 500;
+  color: #14171A;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.secondarySubtitle {
+  font-family: 'Open Sans';
+  font-size: 15px;
+  font-weight: 700;
+  color: #14171A;
+  margin-right: 10px;
+}
+
+.livesWrapper {
+  flex-shrink: 0;
+  width: 80px;
+  height: 100%;
+  background-color: #ECEFF1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.heart {
+  composes: fa from '../../../variables/fontawesome.css';
+  composes: fa-heart from '../../../variables/fontawesome.css';
+  font-size: 18px;
+  position: absolute;
+  margin-left: -20px;
+  color: #F73F52;
+}
+
+.heartBackground {
+  composes: fa from '../../../variables/fontawesome.css';
+  composes: fa-heart from '../../../variables/fontawesome.css';
+  font-size: 26px;
+  color: #ffffff;
+  position: absolute;
+  margin-left: -20px;
+}
+
+.lives {
+  font-family: 'Open Sans';
+  font-size: 15px;
+  font-weight: 600;
+  color: #546E7A;
+  width: 42px;
+  height: 42px;
+  border-radius: 21px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+}
+
+@media mobile {
+  .primary {
+    max-width: none;
+  }
+
+  .secondary {
+    display: none;
+  }
+}

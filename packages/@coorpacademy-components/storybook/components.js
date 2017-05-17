@@ -88,6 +88,12 @@ import StartBattle from '../src/molecule/dashboard/start-battle';
 import ForumComment from '../src/molecule/forum/forum-comment';
 import ForumPost from '../src/molecule/forum/forum-post';
 import ForumThread from '../src/molecule/forum/forum-thread';
+import DragAndDrop from '../src/molecule/questions/drag-and-drop';
+import QcmImage from '../src/molecule/questions/qcm-image';
+import Qcm from '../src/molecule/questions/qcm';
+import SlidesFooter from '../src/molecule/slides/slides-footer';
+import SlidesHeader from '../src/molecule/slides/slides-header';
+import SlidesPlayer from '../src/molecule/slides/slides-player';
 import BrandForm from '../src/organism/brand-form';
 import BrandTable from '../src/organism/brand-table';
 import BrandUpload from '../src/organism/brand-upload';
@@ -116,6 +122,7 @@ import CoorpHeader from '../src/template/common/coorp-header';
 import Dashboard from '../src/template/common/dashboard';
 import Discipline from '../src/template/common/discipline';
 import SearchPage from '../src/template/common/search-page';
+import Slides from '../src/template/common/slides';
 import ButtonFixtureA from '../src/atom/button/test/fixtures/a';
 import ButtonFixtureBlue from '../src/atom/button/test/fixtures/blue';
 import ButtonFixtureCentered from '../src/atom/button/test/fixtures/centered';
@@ -368,6 +375,24 @@ import ForumPostFixtureTextareasLocked from '../src/molecule/forum/forum-post/te
 import ForumThreadFixtureDeepAnswers from '../src/molecule/forum/forum-thread/test/fixtures/deep-answers';
 import ForumThreadFixtureDefault from '../src/molecule/forum/forum-thread/test/fixtures/default';
 import ForumThreadFixtureWithAnswers from '../src/molecule/forum/forum-thread/test/fixtures/with-answers';
+import DragAndDropFixtureDefault from '../src/molecule/questions/drag-and-drop/test/fixtures/default';
+import DragAndDropFixtureNoSelected from '../src/molecule/questions/drag-and-drop/test/fixtures/no-selected';
+import QcmImageFixtureDefault from '../src/molecule/questions/qcm-image/test/fixtures/default';
+import QcmImageFixtureNoSelected from '../src/molecule/questions/qcm-image/test/fixtures/no-selected';
+import QcmFixtureDefault from '../src/molecule/questions/qcm/test/fixtures/default';
+import QcmFixtureNoSelected from '../src/molecule/questions/qcm/test/fixtures/no-selected';
+import SlidesFooterFixtureDefault from '../src/molecule/slides/slides-footer/test/fixtures/default';
+import SlidesFooterFixtureDisabled from '../src/molecule/slides/slides-footer/test/fixtures/disabled';
+import SlidesFooterFixtureHighlighted from '../src/molecule/slides/slides-footer/test/fixtures/highlighted';
+import SlidesFooterFixtureNotify from '../src/molecule/slides/slides-footer/test/fixtures/notify';
+import SlidesFooterFixtureSelected from '../src/molecule/slides/slides-footer/test/fixtures/selected';
+import SlidesHeaderFixtureDefault from '../src/molecule/slides/slides-header/test/fixtures/default';
+import SlidesHeaderFixtureFreerun from '../src/molecule/slides/slides-header/test/fixtures/freerun';
+import SlidesHeaderFixtureNoSecondary from '../src/molecule/slides/slides-header/test/fixtures/no-secondary';
+import SlidesPlayerFixtureDefault from '../src/molecule/slides/slides-player/test/fixtures/default';
+import SlidesPlayerFixtureDragAndDrop from '../src/molecule/slides/slides-player/test/fixtures/drag-and-drop';
+import SlidesPlayerFixtureQcmImage from '../src/molecule/slides/slides-player/test/fixtures/qcm-image';
+import SlidesPlayerFixtureQcm from '../src/molecule/slides/slides-player/test/fixtures/qcm';
 import BrandFormFixtureDashboard from '../src/organism/brand-form/test/fixtures/dashboard';
 import BrandFormFixtureDefault from '../src/organism/brand-form/test/fixtures/default';
 import BrandFormFixtureGeneralSettings from '../src/organism/brand-form/test/fixtures/general-settings';
@@ -461,6 +486,7 @@ import DisciplineFixtureNoVideo from '../src/template/common/discipline/test/fix
 import DisciplineFixtureWithOnclick from '../src/template/common/discipline/test/fixtures/with-onclick';
 import SearchPageFixtureDefault from '../src/template/common/search-page/test/fixtures/default';
 import SearchPageFixtureNoResult from '../src/template/common/search-page/test/fixtures/no-result';
+import SlidesFixtureDefault from '../src/template/common/slides/test/fixtures/default';
 
 export const components = {
   Atom: {
@@ -559,6 +585,16 @@ export const components = {
     ForumPost,
     ForumThread
   },
+  MoleculeQuestions: {
+    DragAndDrop,
+    QcmImage,
+    Qcm
+  },
+  MoleculeSlides: {
+    SlidesFooter,
+    SlidesHeader,
+    SlidesPlayer
+  },
   Organism: {
     BrandForm,
     BrandTable,
@@ -595,7 +631,8 @@ export const components = {
     CoorpHeader,
     Dashboard,
     Discipline,
-    SearchPage
+    SearchPage,
+    Slides
   }
 };
 export const fixtures = {
@@ -1035,6 +1072,40 @@ export const fixtures = {
       WithAnswers: ForumThreadFixtureWithAnswers
     }
   },
+  MoleculeQuestions: {
+    DragAndDrop: {
+      Default: DragAndDropFixtureDefault,
+      NoSelected: DragAndDropFixtureNoSelected
+    },
+    QcmImage: {
+      Default: QcmImageFixtureDefault,
+      NoSelected: QcmImageFixtureNoSelected
+    },
+    Qcm: {
+      Default: QcmFixtureDefault,
+      NoSelected: QcmFixtureNoSelected
+    }
+  },
+  MoleculeSlides: {
+    SlidesFooter: {
+      Default: SlidesFooterFixtureDefault,
+      Disabled: SlidesFooterFixtureDisabled,
+      Highlighted: SlidesFooterFixtureHighlighted,
+      Notify: SlidesFooterFixtureNotify,
+      Selected: SlidesFooterFixtureSelected
+    },
+    SlidesHeader: {
+      Default: SlidesHeaderFixtureDefault,
+      Freerun: SlidesHeaderFixtureFreerun,
+      NoSecondary: SlidesHeaderFixtureNoSecondary
+    },
+    SlidesPlayer: {
+      Default: SlidesPlayerFixtureDefault,
+      DragAndDrop: SlidesPlayerFixtureDragAndDrop,
+      QcmImage: SlidesPlayerFixtureQcmImage,
+      Qcm: SlidesPlayerFixtureQcm
+    }
+  },
   Organism: {
     BrandForm: {
       Dashboard: BrandFormFixtureDashboard,
@@ -1194,11 +1265,56 @@ export const fixtures = {
     SearchPage: {
       Default: SearchPageFixtureDefault,
       NoResult: SearchPageFixtureNoResult
+    },
+    Slides: {
+      Default: SlidesFixtureDefault
     }
   }
 };
 
 export const dependencies = {
+  "MoleculeSlides": {
+    "SlidesHeader": {
+      "parents": {
+        "TemplateCommon": {
+          "Slides": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Link": true
+        }
+      }
+    },
+    "SlidesPlayer": {
+      "parents": {
+        "TemplateCommon": {
+          "Slides": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Cta": true
+        },
+        "MoleculeSlides": {
+          "SlidesFooter": true
+        },
+        "MoleculeQuestions": {
+          "DragAndDrop": true,
+          "QcmImage": true,
+          "Qcm": true
+        }
+      }
+    },
+    "SlidesFooter": {
+      "parents": {
+        "MoleculeSlides": {
+          "SlidesPlayer": true
+        }
+      },
+      "children": {}
+    }
+  },
   "Molecule": {
     "Filters": {
       "parents": {
@@ -1980,6 +2096,9 @@ export const dependencies = {
           "BrandTable": true,
           "BrandForm": true
         },
+        "MoleculeSlides": {
+          "SlidesHeader": true
+        },
         "MoleculeDashboard": {
           "StartBattle": true
         },
@@ -2059,6 +2178,9 @@ export const dependencies = {
       "parents": {
         "Organism": {
           "MoocHeader": true
+        },
+        "MoleculeSlides": {
+          "SlidesPlayer": true
         },
         "Molecule": {
           "News": true
@@ -2348,6 +2470,32 @@ export const dependencies = {
       }
     }
   },
+  "MoleculeQuestions": {
+    "DragAndDrop": {
+      "parents": {
+        "MoleculeSlides": {
+          "SlidesPlayer": true
+        }
+      },
+      "children": {}
+    },
+    "QcmImage": {
+      "parents": {
+        "MoleculeSlides": {
+          "SlidesPlayer": true
+        }
+      },
+      "children": {}
+    },
+    "Qcm": {
+      "parents": {
+        "MoleculeSlides": {
+          "SlidesPlayer": true
+        }
+      },
+      "children": {}
+    }
+  },
   "TemplateAppCatalog": {
     "Author": {
       "children": {
@@ -2471,6 +2619,14 @@ export const dependencies = {
         },
         "Atom": {
           "Button": true
+        }
+      }
+    },
+    "Slides": {
+      "children": {
+        "MoleculeSlides": {
+          "SlidesHeader": true,
+          "SlidesPlayer": true
         }
       }
     }

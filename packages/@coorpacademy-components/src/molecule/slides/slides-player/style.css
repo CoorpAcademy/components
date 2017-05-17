@@ -1,0 +1,149 @@
+@value breakpoints: "../../../variables/breakpoints.css";
+@value mobile from breakpoints;
+
+.wrapper {
+  position: relative;
+  box-shadow: 0 0 4px 5px rgba(0,0,0,0.04);
+  border-radius: 3px;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 36px 32px 32px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.progressionWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #ECEFF1;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  overflow: hidden;
+}
+
+.progressionBar {
+  position: absolute;
+  height: 4px;
+  border-radius: 3px;
+  border-bottom-left-radius: 0px;
+  transition: width 0.2s linear;
+}
+
+.infos {
+  position: absolute;
+  top: 4px;
+  background-color: #ECEFF1;
+  color: #546E7A;
+  font-family: 'Open Sans';
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.progressionCount {
+  composes: infos;
+  right: 0;
+  padding: 0 5px 4px 10px;
+  border-bottom-left-radius: 12px;
+}
+
+.progressionCount span {
+}
+
+.guideWrapper {
+  composes: infos;
+  left: 0;
+  padding: 0 10px 4px 5px;
+  border-bottom-right-radius: 12px;
+}
+
+.question {
+  font-family: 'Open Sans';
+  font-size: 20px;
+  font-weight: 600;
+  color: #14171A;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.helpView {
+  font-family: 'Open Sans';
+  font-size: 15px;
+  font-weight: 500;
+  color: #90A4AE;
+  margin-bottom: 32px;
+}
+
+.answerWrapper {
+  margin-bottom: 32px;
+  max-width: 100%;
+}
+
+.dragAndDrop {
+}
+
+.qcm {
+  max-width: 320px;
+}
+
+.qcmImage {
+}
+
+.ctaWrapper {
+}
+
+.footer {
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  overflow: hidden;
+}
+
+@media mobile {
+  .wrapper {
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .contentWrapper {
+    padding: 32px 16px 16px;
+    margin-bottom: 80px;
+    overflow-y: auto;
+  }
+
+  .progressionWrapper {
+    display: none;
+  }
+
+  .progressionCount {
+    display: none;
+  }
+
+  .guideWrapper {
+    display: none;
+  }
+
+  .question {
+    margin-bottom: 16px;
+  }
+
+  .helpView {
+    margin-bottom: 16px;
+  }
+
+  .answerWrapper {
+    margin-bottom: 16px;
+  }
+
+  .footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+}
