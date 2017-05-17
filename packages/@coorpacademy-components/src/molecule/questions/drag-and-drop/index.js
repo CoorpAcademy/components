@@ -1,10 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import pipe from 'lodash/fp/pipe';
+import filter from 'lodash/fp/filter';
+import orderBy from 'lodash/fp/orderBy';
 import style from './style.css';
 
 const DragAndDrop = (props, context) => {
-  const {answers, selectedAnswers} = props;
+  const {answers} = props;
   const {translate} = context;
+
+  const selectedAnswers = pipe(filter('selected'), orderBy('order', 'asc'))(answers);
 
   const selectedAnswersViews = selectedAnswers.map((answer, key) => {
     const {onClick, title} = answer;
@@ -24,14 +29,12 @@ const DragAndDrop = (props, context) => {
     );
   });
 
-  const emptyView = selectedAnswers.length > 0
-    ? null
-    : <span>{translate('Select the correct option(s) below')}</span>;
+  const emptyView = <span>{translate('Select the correct option(s) below')}</span>;
 
   return (
     <div className={style.wrapper}>
-      <div className={selectedAnswers.length > 0 ? style.selectedAnswers : style.emptyAnswers}>
-        {emptyView || selectedAnswersViews}
+      <div className={selectedAnswersViews ? style.selectedAnswers : style.emptyAnswers}>
+        {selectedAnswersViews || emptyView}
       </div>
       <div className={style.answers}>
         {answersViews}
@@ -47,15 +50,10 @@ DragAndDrop.contextTypes = {
 DragAndDrop.propTypes = {
   answers: PropTypes.arrayOf(
     PropTypes.shape({
-      title: PropTypes.string,
+      onClick: PropTypes.func,
+      order: PropTypes.number,
       selected: PropTypes.bool,
-      onClick: PropTypes.func
-    })
-  ),
-  selectedAnswers: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string,
-      onClick: PropTypes.func
+      title: PropTypes.string
     })
   )
 };
