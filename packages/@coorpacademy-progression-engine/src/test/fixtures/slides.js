@@ -93,110 +93,111 @@ const slides: Array<Slide> = [
       },
       medias: []
     }
+  },
+  {
+    _id: '1.A1.2',
+    klf: "Le Knowledge Graph est donc un moyen de rassembler des informations clés autour d'un personnage célèbre par exemple. Mais aussi autour d'autres individus liés à celui-ci. En cela, il enrichit la recherche avec des éléments qui font sens.\n",
+    tips: "La serendipité, vous connaissez ? C'est de découvrir de nouvelles choses de façon inattendue. Un peu comme le Knowledge Graph, donc.\n",
+    chapter_id: '1.A1',
+    authors: [],
+    context: {
+      media: {
+        subtitles: [],
+        posters: [],
+        src: []
+      }
+    },
+    meta: {
+      updatedAt: '2017-05-11T15:21:54.233Z',
+      createdAt: '2017-05-11T15:21:54.233Z'
+    },
+    lessons: [
+      {
+        type: 'video',
+        poster: '//static.coorpacademy.com/content/digital/miniatures_cours/avance/1A1.png',
+        description: 'Le concept de Knowledge Graph',
+        mimeType: 'application/vimeo',
+        videoId: '89404998\n',
+        _id: '590b862e2e967f64333ad464',
+        subtitles: [],
+        posters: [],
+        src: []
+      }
+    ],
+    question: {
+      type: 'qcmDrag',
+      header: "Quels types d'éléments peut-on trouver dans la fenêtre relative au Knowledge Graph ?",
+      explanation: 'Déplacez les bonnes réponses dans la colonne de droite.',
+      content: {
+        matchOrder: false,
+        maxTypos: null,
+        answers: [['bar', 'foo']],
+        choices: [
+          {
+            label: 'Des photos',
+            value: 'discipline_1.module_avance.chapter_1.slide_2.choice1',
+            _id: '590b862e2e967f64333ad469',
+            items: [],
+            media: {
+              subtitles: [],
+              posters: [],
+              src: []
+            }
+          },
+          {
+            label: 'Des bannières publicitaires',
+            value: 'discipline_1.module_avance.chapter_1.slide_2.choice2',
+            _id: '590b862e2e967f64333ad468',
+            items: [],
+            media: {
+              subtitles: [],
+              posters: [],
+              src: []
+            }
+          },
+          {
+            label: 'Des recherches associées',
+            value: 'discipline_1.module_avance.chapter_1.slide_2.choice3',
+            _id: '590b862e2e967f64333ad467',
+            items: [],
+            media: {
+              subtitles: [],
+              posters: [],
+              src: []
+            }
+          },
+          {
+            label: 'Une date de naissance',
+            value: 'discipline_1.module_avance.chapter_1.slide_2.choice4',
+            _id: '590b862e2e967f64333ad466',
+            items: [],
+            media: {
+              subtitles: [],
+              posters: [],
+              src: []
+            }
+          },
+          {
+            label: 'La liste des courses à faire',
+            value: 'discipline_1.module_avance.chapter_1.slide_2.choice5',
+            _id: '590b862e2e967f64333ad465',
+            items: [],
+            media: {
+              subtitles: [],
+              posters: [],
+              src: []
+            }
+          }
+        ],
+        media: {
+          subtitles: [],
+          posters: [],
+          src: []
+        }
+      },
+      medias: []
+    }
   }
-  // {
-  //   _id: '1.A1.2',
-  //   klf: "Le Knowledge Graph est donc un moyen de rassembler des informations clés autour d'un personnage célèbre par exemple. Mais aussi autour d'autres individus liés à celui-ci. En cela, il enrichit la recherche avec des éléments qui font sens.\n",
-  //   tips: "La serendipité, vous connaissez ? C'est de découvrir de nouvelles choses de façon inattendue. Un peu comme le Knowledge Graph, donc.\n",
-  //   chapter_id: '1.A1',
-  //   authors: [],
-  //   context: {
-  //     media: {
-  //       subtitles: [],
-  //       posters: [],
-  //       src: []
-  //     }
-  //   },
-  //   meta: {
-  //     updatedAt: '2017-05-11T15:21:54.233Z',
-  //     createdAt: '2017-05-11T15:21:54.233Z'
-  //   },
-  //   lessons: [
-  //     {
-  //       type: 'video',
-  //       poster: '//static.coorpacademy.com/content/digital/miniatures_cours/avance/1A1.png',
-  //       description: 'Le concept de Knowledge Graph',
-  //       mimeType: 'application/vimeo',
-  //       videoId: '89404998\n',
-  //       _id: '590b862e2e967f64333ad464',
-  //       subtitles: [],
-  //       posters: [],
-  //       src: []
-  //     }
-  //   ],
-  //   question: {
-  //     type: 'qcmDrag',
-  //     header: "Quels types d'éléments peut-on trouver dans la fenêtre relative au Knowledge Graph ?",
-  //     explanation: 'Déplacez les bonnes réponses dans la colonne de droite.',
-  //     content: {
-  //       matchOrder: false,
-  //       maxTypos: null,
-  //       choices: [
-  //         {
-  //           label: 'Des photos',
-  //           value: 'discipline_1.module_avance.chapter_1.slide_2.choice1',
-  //           _id: '590b862e2e967f64333ad469',
-  //           items: [],
-  //           media: {
-  //             subtitles: [],
-  //             posters: [],
-  //             src: []
-  //           }
-  //         },
-  //         {
-  //           label: 'Des bannières publicitaires',
-  //           value: 'discipline_1.module_avance.chapter_1.slide_2.choice2',
-  //           _id: '590b862e2e967f64333ad468',
-  //           items: [],
-  //           media: {
-  //             subtitles: [],
-  //             posters: [],
-  //             src: []
-  //           }
-  //         },
-  //         {
-  //           label: 'Des recherches associées',
-  //           value: 'discipline_1.module_avance.chapter_1.slide_2.choice3',
-  //           _id: '590b862e2e967f64333ad467',
-  //           items: [],
-  //           media: {
-  //             subtitles: [],
-  //             posters: [],
-  //             src: []
-  //           }
-  //         },
-  //         {
-  //           label: 'Une date de naissance',
-  //           value: 'discipline_1.module_avance.chapter_1.slide_2.choice4',
-  //           _id: '590b862e2e967f64333ad466',
-  //           items: [],
-  //           media: {
-  //             subtitles: [],
-  //             posters: [],
-  //             src: []
-  //           }
-  //         },
-  //         {
-  //           label: 'La liste des courses à faire',
-  //           value: 'discipline_1.module_avance.chapter_1.slide_2.choice5',
-  //           _id: '590b862e2e967f64333ad465',
-  //           items: [],
-  //           media: {
-  //             subtitles: [],
-  //             posters: [],
-  //             src: []
-  //           }
-  //         }
-  //       ],
-  //       media: {
-  //         subtitles: [],
-  //         posters: [],
-  //         src: []
-  //       }
-  //     },
-  //     medias: []
-  //   }
-  // },
   // {
   //   _id: '1.A1.3',
   //   klf: "En retenant l'internaute plus longtemps sur ses pages via le Knowledge Graph, Google monétise mieux ses publicités, tout en affichant plus de résultats provenant de son écosystème : maps, images…\n",

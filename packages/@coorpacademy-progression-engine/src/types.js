@@ -5,7 +5,7 @@ export type Answer = Array<string>;
 export type AcceptedAnswers = Array<Answer>;
 
 export type QCMQuestion = {
-  type: 'qcm',
+  type: 'qcm' | 'qcmDrag',
   content: {
     answers: AcceptedAnswers
   }
