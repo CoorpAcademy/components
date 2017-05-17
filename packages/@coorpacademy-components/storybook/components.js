@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> add slides headers
 /* eslint-disable max-len */
@@ -2714,3 +2715,5 @@ export const dependencies = {
 >>>>>>> fix
 =======
 >>>>>>> add slides headers
+=======
+>>>>>>> fix
