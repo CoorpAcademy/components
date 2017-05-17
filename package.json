@@ -16,7 +16,7 @@
     "posttest": "lerna run prepublish",
     "publish:beta": "lerna publish --npm-tag beta",
     "publish:canary": "lerna publish --canary --skip-git",
-    "publish:latest": "lerna publish",
+    "publish:latest": "lerna publish --exact",
     "start:angular": "lerna exec --scope @coorpacademy/treantjs-adapter-angular -- npm start",
     "start:components": "lerna exec --scope @coorpacademy/components -- npm start",
     "start": "npm run start:components",
