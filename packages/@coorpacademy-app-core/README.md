@@ -40,8 +40,9 @@ inject your routes and reducers
 import {prepareApp} from '@coorpacademy/app-core';
 import createReducer from './reducers';
 import createRoutes from './routes';
+import {apiMiddleware} from 'redux-api-middleware';
 
-export const create = options => prepareApp(createReducer, createRoutes, options);
+export const create = options => prepareApp(createReducer, createRoutes, [apiMiddleware], options);
 ```
 
 ## routes

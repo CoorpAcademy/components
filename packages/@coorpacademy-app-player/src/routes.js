@@ -1,19 +1,12 @@
 import createView from './view';
-import {updatePlop, updatePlup} from './actions/ui-demo';
+import {selectProgression} from './actions/ui';
 
 const createRoutes = options => {
   return [
     {
-      path: '*',
+      path: ':id?',
       view: createView(options),
-      actions: [
-        updatePlop({
-          plop: 'new plop !'
-        }),
-        updatePlup({
-          plup: 'new plup !'
-        })
-      ]
+      actions: [({id}) => selectProgression(id)]
     }
   ];
 };

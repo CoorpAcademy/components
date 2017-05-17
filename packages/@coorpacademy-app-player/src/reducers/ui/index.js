@@ -1,8 +1,6 @@
 import {combineReducers} from 'redux';
-import plop from './plop';
-import plup from './plup';
+import current from './current';
 
 export default combineReducers({
-  plop,
-  plup
+  current
 });

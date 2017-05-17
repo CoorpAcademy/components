@@ -3,7 +3,7 @@ import get from 'lodash/fp/get';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from '@coorpacademy/components';
-import {syncStoreWithHistory} from '@coorpacademy/redux-history';
+// import {syncStoreWithHistory} from '@coorpacademy/redux-history';
 import {Observable} from 'rxjs';
 import {createBrowserHistory} from '@coorpacademy/history';
 import createReducers from './reducers';
@@ -18,6 +18,7 @@ const createRenderer = (store, history, update, _createRouter, options) => {
   const Router = _createRouter({
     ...options,
     dispatch: store.dispatch,
+    getState: store.getState,
     history
   });
 
@@ -36,6 +37,7 @@ const createRenderer = (store, history, update, _createRouter, options) => {
         {
           ...options,
           dispatch: store.dispatch,
+          getState: store.getState,
           history
         },
         vTree
@@ -57,19 +59,19 @@ const createRenderer = (store, history, update, _createRouter, options) => {
  * example :
  * const transifexConnector = _.partial(connectTransifex, window.Transifex)
  */
-const prepareApp = (createReducer, routes, options, connectors = []) => {
+const prepareApp = (createReducer, routes, middlewares, options) => {
   const history = createBrowserHistory();
 
   const store = createStore(
     createReducer(options),
     {lang: options.lang},
-    createMiddleware(routes, {
+    createMiddleware(routes, middlewares, {
       ...options,
       history
     })
   );
 
-  syncStoreWithHistory(store, history);
+  // syncStoreWithHistory(store, history);
 
   const update = vTree => {
     ReactDOM.render(vTree, options.container);
@@ -84,6 +86,10 @@ const prepareApp = (createReducer, routes, options, connectors = []) => {
       store.replaceReducer(newCreateReducer(options));
     });
   }
+
+  return {
+    store
+  };
 };
 
 export {prepareApp, createReducers};
