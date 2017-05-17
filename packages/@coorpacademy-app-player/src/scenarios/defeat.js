@@ -33,8 +33,8 @@ export default dispatch =>
           ref: '0'
         },
         progression: {
-          current: 1,
-          total: 5
+          current: 0,
+          total: 4
         },
         lives: 3
       },
@@ -74,10 +74,10 @@ export default dispatch =>
           ref: '1'
         },
         progression: {
-          current: 2,
-          total: 5
+          current: 1,
+          total: 4
         },
-        lives: 3
+        lives: 2
       },
       meta: {
         id: '0'
@@ -115,10 +115,10 @@ export default dispatch =>
           ref: '2'
         },
         progression: {
-          current: 3,
-          total: 5
+          current: 2,
+          total: 4
         },
-        lives: 2
+        lives: 1
       },
       meta: {
         id: '0'
@@ -135,6 +135,75 @@ export default dispatch =>
       payload: {},
       meta: {
         id: '2'
+      }
+    },
+
+    /**
+   *  ANSWERS LAST SLIDE
+   */
+
+    {
+      type: ANSWER_CREATE_REQUEST,
+      meta: {
+        id: '0'
+      }
+    },
+    {
+      type: ANSWER_CREATE_SUCCESS,
+      payload: {
+        content: {
+          type: 'slides',
+          ref: '3'
+        },
+        progression: {
+          current: 3,
+          total: 4
+        },
+        lives: 0
+      },
+      meta: {
+        id: '0'
+      }
+    },
+    {
+      type: SLIDE_FETCH_REQUEST,
+      meta: {
+        id: '3'
+      }
+    },
+    {
+      type: SLIDE_FETCH_SUCCESS,
+      payload: {},
+      meta: {
+        id: '3'
+      }
+    },
+
+    /**
+   *  FAIL
+   */
+
+    {
+      type: ANSWER_CREATE_REQUEST,
+      meta: {
+        id: '0'
+      }
+    },
+    {
+      type: ANSWER_CREATE_SUCCESS,
+      payload: {
+        content: {
+          type: 'endpoint'
+        },
+        progression: {
+          current: 3,
+          total: 4
+        },
+        lives: 0,
+        success: false
+      },
+      meta: {
+        id: '0'
       }
     }
   ]);
