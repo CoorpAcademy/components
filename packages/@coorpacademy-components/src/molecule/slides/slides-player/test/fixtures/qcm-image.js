@@ -16,7 +16,7 @@ export default {
     cta: props,
     help: 'Select something below',
     answer: {
-      type: 'qcmimage',
+      type: 'qcmImage',
       ...answerProps
     },
     ...footerProps

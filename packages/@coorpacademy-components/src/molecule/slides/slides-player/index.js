@@ -8,45 +8,64 @@ import QcmImage from '../../questions/qcm-image';
 import SlidesFooter from '../slides-footer';
 import style from './style.css';
 
-const SlidesPlayer = (props, context) => {
-  const {progression, question, cta, help, answer, buttons} = props;
-  const {skin, translate} = context;
+const answerStyle = {
+  dragAndDrop: style.dragAndDrop,
+  qcm: style.qcm,
+  qcmImage: style.qcmImage
+};
 
-  const primarySkinColor = getOr('#00B0FF', 'common.primary', skin);
+const answers = {
+  dragAndDrop: DragAndDrop,
+  qcm: Qcm,
+  qcmImage: QcmImage
+};
 
-  const progressionWidth = progression.current / progression.total * 100;
-  const helpView = help ? <div className={style.helpView}>{help}</div> : null;
-
-  const answerView = answer
-    ? (answerProps => {
-        switch (answerProps.type) {
-          case 'draganddrop':
-            return <div className={style.dragAndDrop}><DragAndDrop {...answerProps} /></div>;
-          case 'qcm':
-            return <div className={style.qcm}><Qcm {...answerProps} /></div>;
-          case 'qcmimage':
-            return <div className={style.qcmImage}><QcmImage {...answerProps} /></div>;
-          default:
-            return null;
-        }
-      })(answer)
-    : null;
-
+const createAnswerView = answer => {
+  const Answer = answer && answers[answer.type];
   return (
-    <div className={style.wrapper}>
+    Answer !== undefined &&
+    <div className={answerStyle[answer.type]}>
+      <Answer {...answer} />
+    </div>
+  );
+};
+
+const createProgressionView = (progression, skin) => {
+  if (!progression) return null;
+
+  const color = getOr('#00B0FF', 'common.primary', skin);
+  const progressionWidth = progression.current / progression.total * 100;
+  return (
+    <div>
+      <div className={style.progressionCount}>
+        <span style={{color}}>{progression.current}</span>
+        /{progression.total}
+      </div>
       <div className={style.progressionWrapper}>
         <div
           className={style.progressionBar}
           style={{
-            backgroundColor: primarySkinColor,
+            backgroundColor: color,
             width: `${progressionWidth}%`
           }}
         />
       </div>
-      <div className={style.progressionCount}>
-        <span style={{color: primarySkinColor}}>{progression.current}</span>
-        /{progression.total}
-      </div>
+    </div>
+  );
+};
+
+const SlidesPlayer = (props, context) => {
+  const {progression, question, cta, help, answer, buttons} = props;
+  const {skin, translate} = context;
+
+  const helpView = help ? <div className={style.helpView}>{help}</div> : null;
+
+  const answerView = createAnswerView(answer);
+  const progressionView = createProgressionView(progression, skin);
+
+  return (
+    <div className={style.wrapper}>
+      {progressionView}
       <div className={style.guideWrapper}>
         {translate('Need some help?')}
       </div>
