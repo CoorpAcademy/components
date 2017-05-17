@@ -3,7 +3,7 @@ import get from 'lodash/fp/get';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from '@coorpacademy/components';
-import {syncStoreWithHistory} from '@coorpacademy/redux-history';
+// import {syncStoreWithHistory} from '@coorpacademy/redux-history';
 import {Observable} from 'rxjs';
 import {createBrowserHistory} from '@coorpacademy/history';
 import createReducers from './reducers';
