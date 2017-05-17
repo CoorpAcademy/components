@@ -71,7 +71,7 @@ const prepareApp = (createReducer, routes, middlewares, options) => {
     })
   );
 
-  syncStoreWithHistory(store, history);
+  // syncStoreWithHistory(store, history);
 
   const update = vTree => {
     ReactDOM.render(vTree, options.container);
@@ -86,6 +86,10 @@ const prepareApp = (createReducer, routes, middlewares, options) => {
       store.replaceReducer(newCreateReducer(options));
     });
   }
+
+  return {
+    store
+  };
 };
 
 export {prepareApp, createReducers};

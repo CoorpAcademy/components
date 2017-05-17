@@ -6,7 +6,7 @@ const createRoutes = options => {
     {
       path: ':id?',
       view: createView(options),
-      actions: [selectProgression(options)]
+      actions: [({id}) => selectProgression(id)]
     }
   ];
 };

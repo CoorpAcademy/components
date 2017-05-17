@@ -53,7 +53,7 @@ const editCommands = [
 export default options => {
   let apiStore = createApiStore();
 
-  return store => next => async action => {
+  return ({dispatch}) => next => async action => {
     if (!isRSAA(action)) return next(action);
 
     const readCommand = find(
@@ -67,7 +67,7 @@ export default options => {
       const {entities, types} = readCommand;
       const [REQUEST, SUCCESS, FAILURE] = types;
 
-      await store.dispatch({
+      await dispatch({
         type: REQUEST,
         meta: get([RSAA, 'types', 0, 'meta'], action)
       });
@@ -100,7 +100,7 @@ export default options => {
       const {entities, types, transform} = editCommand;
       const [REQUEST, SUCCESS, FAILURE] = types;
 
-      await store.dispatch({
+      await dispatch({
         type: REQUEST,
         meta: get([RSAA, 'types', 0, 'meta'], action)
       });

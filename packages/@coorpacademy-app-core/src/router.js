@@ -4,6 +4,7 @@ import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import isString from 'lodash/fp/isString';
 import map from 'lodash/fp/map';
+import pipe from 'lodash/fp/pipe';
 import pathMatch from 'path-match';
 import {LOCATION} from '@coorpacademy/redux-history';
 
@@ -41,15 +42,15 @@ export const createRouterMiddleware = createRoutes => (...argz) => {
     createRoutes(...argz)
   );
 
-  return store => next => async action => {
+  return ({dispatch, getState}) => next => async action => {
     if (action.type === LOCATION) {
-      const currentPathname = get('route.pathname', store.getState());
+      const currentPathname = get('route.pathname', getState());
       const pathname = getOr(currentPathname, 'payload.pathname', action);
       const {match, actions} = find(route => route.match(pathname), routes);
       const params = match(pathname);
 
       const updatedAction = await next(action); // eslint-disable-line callback-return
-      await Promise.all(map(_action => _action(store.dispatch, store.getState, params), actions));
+      await Promise.all(map(pipe(_action => _action(params), dispatch), actions));
       return constant(updatedAction);
     }
 
