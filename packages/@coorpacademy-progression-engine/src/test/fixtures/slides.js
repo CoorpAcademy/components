@@ -327,6 +327,27 @@ const slides: Array<Slide> = [
       },
       medias: []
     }
+  },
+  {
+    _id: '2.A1.1',
+    chapter_id: '2.A1',
+    question: {
+      type: 'basic',
+      content: {
+        answers: [['bar'], ['baz']]
+      }
+    }
+  },
+  {
+    _id: '2.A1.2',
+    chapter_id: '2.A1',
+    question: {
+      type: 'basic',
+      content: {
+        maxTypos: 5,
+        answers: [['foooooooooooooo']]
+      }
+    }
   }
 ];
 

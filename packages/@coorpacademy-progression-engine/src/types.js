@@ -54,7 +54,15 @@ export type QCMQuestion = {
   }
 };
 
-export type Question = QCMQuestion;
+export type BasicQuestion = {
+  type: 'basic',
+  content: {
+    maxTypos?: number,
+    answers: AcceptedAnswers
+  }
+};
+
+export type Question = QCMQuestion | BasicQuestion;
 
 export type Slide = {
   _id: string,
