@@ -23,7 +23,7 @@
     "prebuild:browser": "npm run clean:build:browser",
     "prebuild:commonjs": "npm run clean:build:commonjs",
     "prebuild:es": "npm run clean:build:es",
-    "start": "webpack-dev-server --content-base sandbox"
+    "start": "webpack-dev-server --content-base sandbox --history-api-fallback true --hot true"
   },
   "homepage": "https://github.com/CoorpAcademy/components/packages/@coorpacademy-app-player#readme",
   "devDependencies": {
@@ -36,15 +36,12 @@
     "webpack-dev-server": "^2.4.5"
   },
   "dependencies": {
-    "@coorpacademy/app-core": "5.3.3",
     "@coorpacademy/components": "5.3.3",
     "@coorpacademy/webpack-config": "5.3.3",
     "lodash": "^4.17.4",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "redux": "^3.6.0",
-    "redux-api-middleware": "^2.0.0-beta.1",
-    "redux-thunk": "^2.2.0",
-    "webpack-dependency-suite": "^1.5.0"
+    "redux-thunk": "^2.2.0"
   }
 }

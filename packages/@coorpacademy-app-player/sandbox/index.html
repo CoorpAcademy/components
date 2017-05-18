@@ -1,11 +1,11 @@
-<link rel="stylesheet" type="text/css" href="/dist/player.css">
+<link rel="stylesheet" type="text/css" href="/dist/Player.css">
 <div id="player"></div>
 
-<script type="text/javascript" src="/dist/player.js"></script>
-<script type="text/javascript" src="/dist/scenarios.js"></script>
+<script type="text/javascript" src="/dist/Player.js"></script>
+<script type="text/javascript" src="/dist/Scenarios.js"></script>
 
 <script>
-  const {dispatch} = window.Player.player.create({
+  const {dispatch} = window.Coorpacademy.Player.create({
     container: document.getElementById('player'),
     // api: 'http://localhost:3000',
     api: 'https://digital-staging.coorpacademy.com',
@@ -17,5 +17,5 @@
     }
   });
 
-  window.Player.scenarios.Victory(dispatch);
+  window.Coorpacademy.Scenarios.Victory(dispatch);
 </script>

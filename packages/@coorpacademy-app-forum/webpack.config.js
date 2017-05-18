@@ -17,4 +17,8 @@ const output = {
   libraryTarget: 'umd'
 };
 
-module.exports = pipe(set('entry', entry), set('output', output))(config);
+module.exports = pipe(
+  set('entry', entry),
+  set('output', output),
+  set('resolve.modules', [path.join(__dirname, 'node_modules'), 'node_modules'])
+)(config);
