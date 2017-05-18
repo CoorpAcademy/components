@@ -3,19 +3,19 @@
 
 <script type="text/javascript" src="/dist/Player.js"></script>
 <script type="text/javascript" src="/dist/Scenarios.js"></script>
+<script type="text/javascript" src="/dist/Services.js"></script>
 
 <script>
   const {dispatch} = window.Coorpacademy.Player.create({
     container: document.getElementById('player'),
-    // api: 'http://localhost:3000',
-    api: 'https://digital-staging.coorpacademy.com',
-    // api: '',
+    services: window.Coorpacademy.Services,
     skin: {
       common: {
         primary: '#123'
       }
-    }
+    },
+    progression: '0'
   });
 
-  window.Coorpacademy.Scenarios.Victory(dispatch);
+  // window.Coorpacademy.Scenarios.Victory(dispatch);
 </script>

@@ -5,7 +5,8 @@ const config = require('@coorpacademy/webpack-config');
 
 const entry = {
   Player: './src',
-  Scenarios: './src/scenarios'
+  Scenarios: './src/scenarios',
+  Services: './src/services'
 };
 
 const output = {
