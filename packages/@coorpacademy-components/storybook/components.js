@@ -95,7 +95,6 @@ import SlidesFooter from '../src/molecule/slides/slides-footer';
 import SlidesHeader from '../src/molecule/slides/slides-header';
 import SlidesPlayer from '../src/molecule/slides/slides-player';
 import BrandForm from '../src/organism/brand-form';
-import BrandSso from '../src/organism/brand-sso';
 import BrandTable from '../src/organism/brand-table';
 import BrandUpload from '../src/organism/brand-upload';
 import CardsGrid from '../src/organism/cards-grid';
@@ -403,8 +402,6 @@ import BrandFormFixtureGeneralSettings from '../src/organism/brand-form/test/fix
 import BrandFormFixtureLookandfeel from '../src/organism/brand-form/test/fixtures/lookandfeel';
 import BrandFormFixtureSso from '../src/organism/brand-form/test/fixtures/sso';
 import BrandFormFixtureUserEdit from '../src/organism/brand-form/test/fixtures/user-edit';
-import BrandSsoFixtureDefault from '../src/organism/brand-sso/test/fixtures/default';
-import BrandSsoFixtureLoading from '../src/organism/brand-sso/test/fixtures/loading';
 import BrandTableFixtureDefault from '../src/organism/brand-table/test/fixtures/default';
 import BrandTableFixtureEmpty from '../src/organism/brand-table/test/fixtures/empty';
 import BrandTableFixtureLoading from '../src/organism/brand-table/test/fixtures/loading';
@@ -601,7 +598,6 @@ export const components = {
   },
   Organism: {
     BrandForm,
-    BrandSso,
     BrandTable,
     BrandUpload,
     CardsGrid,
@@ -1123,10 +1119,6 @@ export const fixtures = {
       Sso: BrandFormFixtureSso,
       UserEdit: BrandFormFixtureUserEdit
     },
-    BrandSso: {
-      Default: BrandSsoFixtureDefault,
-      Loading: BrandSsoFixtureLoading
-    },
     BrandTable: {
       Default: BrandTableFixtureDefault,
       Empty: BrandTableFixtureEmpty,
@@ -1526,8 +1518,7 @@ export const dependencies = {
     "BrandDownloadBox": {
       "parents": {
         "Organism": {
-          "BrandUpload": true,
-          "BrandSso": true
+          "BrandUpload": true
         }
       },
       "children": {
@@ -1539,8 +1530,7 @@ export const dependencies = {
     "BrandUploadBox": {
       "parents": {
         "Organism": {
-          "BrandUpload": true,
-          "BrandSso": true
+          "BrandUpload": true
         }
       },
       "children": {
@@ -1913,20 +1903,6 @@ export const dependencies = {
         }
       }
     },
-    "BrandSso": {
-      "children": {
-        "Atom": {
-          "Button": true,
-          "InputCheckbox": true,
-          "InputSwitch": true,
-          "InputText": true
-        },
-        "Molecule": {
-          "BrandDownloadBox": true,
-          "BrandUploadBox": true
-        }
-      }
-    },
     "BrandTable": {
       "children": {
         "Atom": {
@@ -2044,7 +2020,6 @@ export const dependencies = {
         },
         "Organism": {
           "Popin": true,
-          "BrandSso": true,
           "BrandForm": true
         },
         "MoleculeForum": {
@@ -2179,8 +2154,7 @@ export const dependencies = {
     "InputSwitch": {
       "parents": {
         "Organism": {
-          "MoocHeader": true,
-          "BrandSso": true
+          "MoocHeader": true
         },
         "Molecule": {
           "SetupSlide": true,
@@ -2235,25 +2209,6 @@ export const dependencies = {
       "parents": {
         "Organism": {
           "Cart": true
-        }
-      },
-      "children": {}
-    },
-    "InputCheckbox": {
-      "parents": {
-        "Organism": {
-          "BrandSso": true
-        }
-      },
-      "children": {}
-    },
-    "InputText": {
-      "parents": {
-        "Organism": {
-          "BrandSso": true
-        },
-        "Molecule": {
-          "BrandFormGroup": true
         }
       },
       "children": {}
@@ -2337,7 +2292,18 @@ export const dependencies = {
       },
       "children": {}
     },
+    "InputText": {
+      "parents": {
+        "Molecule": {
+          "BrandFormGroup": true
+        }
+      },
+      "children": {}
+    },
     "CenteredText": {
+      "children": {}
+    },
+    "InputCheckbox": {
       "children": {}
     },
     "InputDoublestep": {

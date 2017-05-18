@@ -105,6 +105,13 @@ export default {
             value: false,
             type: 'switch',
             onChange: () => {}
+          },
+          {
+            title: 'Default Route',
+            value: false,
+            type: 'switch',
+            description: 'Turn this setting on to make the SSO connection the default way to access the platform, rather than the traditionnal Coorpacademy-specific login',
+            onChange: () => {}
           }
         ]
       },

@@ -10,7 +10,6 @@ export BrandDownloadBox from './molecule/brand-download-box';
 export BrandForm from './organism/brand-form';
 export BrandFormGroup from './molecule/brand-form-group';
 export BrandList from './template/back-office/brand-list';
-export BrandSso from './organism/brand-sso';
 export BrandTable from './organism/brand-table';
 export BrandTabs from './molecule/brand-tabs';
 export BrandUpdate from './template/back-office/brand-update';
