@@ -17,7 +17,7 @@ export const selectProgression = id => async (dispatch, getState) => {
   if (response.error) return response;
 
   const progression = get(`data.progressions.entities.${progressionId}`, getState()); // eslint-disable-line lodash-fp/no-chain
-  return dispatch(fetchSlide(progression.contentRef));
+  return dispatch(fetchSlide(progression.content.ref));
 };
 
 export const answerProgression = (id, body) => async (dispatch, getState) => {
