@@ -1,5 +1,9 @@
-import {createReducers} from '@coorpacademy/app-core';
-import ui from './ui';
+import {combineReducers} from 'redux';
 import data from './data';
+import ui from './ui';
 
-export default ({lang} = {}) => createReducers(lang, {ui, data});
+export default () =>
+  combineReducers({
+    data,
+    ui
+  });

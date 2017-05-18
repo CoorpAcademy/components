@@ -1,11 +1,10 @@
-import curry from 'lodash/fp/curry';
 import {RSAA} from 'redux-api-middleware';
 
 export const CREATE_THREAD_REQUEST = '@@thread/CREATE_REQUEST';
 export const CREATE_THREAD_SUCCESS = '@@thread/CREATE_SUCCESS';
 export const CREATE_THREAD_FAILURE = '@@thread/CREATE_FAILURE';
 
-export const createThreadAction = curry(({api, channel}, dispatch, thread) => {
+export const createThreadAction = thread => (dispatch, getState, {api, channel}) => {
   const endpoint = `${api}/forums`;
   const meta = {channel};
   return dispatch({
@@ -34,4 +33,4 @@ export const createThreadAction = curry(({api, channel}, dispatch, thread) => {
       ]
     }
   });
-});
+};

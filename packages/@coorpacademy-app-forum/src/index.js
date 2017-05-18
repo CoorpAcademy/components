@@ -1,8 +1,29 @@
-import {prepareApp} from '@coorpacademy/app-core';
+import {createStore} from 'redux';
+import {render} from 'react-dom';
+import pipe from 'lodash/fp/pipe';
 import createReducer from './reducers';
-import createRoutes from './routes';
+import createMiddleware from './middlewares';
+import createMapStateToVnode from './views';
+import {fetchDiscussionAction} from './actions/api-fetch-discussion';
 
-// @TODO import translate
+const create = options => {
+  const {container} = options;
 
-// eslint-disable-next-line import/prefer-default-export
-export const create = options => prepareApp(createReducer, createRoutes, [], options);
+  const store = createStore(createReducer(options), {}, createMiddleware(options));
+  const {dispatch, getState} = store;
+
+  const unsubscribe = store.subscribe(
+    pipe(getState, createMapStateToVnode(options)(dispatch), vNode => {
+      return render(vNode, container);
+    })
+  );
+
+  dispatch(fetchDiscussionAction());
+
+  return {
+    dispatch,
+    unsubscribe
+  };
+};
+
+export {create}; // eslint-disable-line import/prefer-default-export
