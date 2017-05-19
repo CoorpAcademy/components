@@ -113,7 +113,7 @@ import Author from '../src/template/app-catalog/author';
 import Catalog from '../src/template/app-catalog/catalog';
 import ProductCourse from '../src/template/app-catalog/product-course';
 import ProductCursus from '../src/template/app-catalog/product-cursus';
-import Demo from '../src/template/app-player/demo';
+import FreeRun from '../src/template/app-player/free-run';
 import BrandCreate from '../src/template/back-office/brand-create';
 import BrandList from '../src/template/back-office/brand-list';
 import BrandUpdate from '../src/template/back-office/brand-update';
@@ -122,7 +122,6 @@ import CoorpHeader from '../src/template/common/coorp-header';
 import Dashboard from '../src/template/common/dashboard';
 import Discipline from '../src/template/common/discipline';
 import SearchPage from '../src/template/common/search-page';
-import Slides from '../src/template/common/slides';
 import ButtonFixtureA from '../src/atom/button/test/fixtures/a';
 import ButtonFixtureBlue from '../src/atom/button/test/fixtures/blue';
 import ButtonFixtureCentered from '../src/atom/button/test/fixtures/centered';
@@ -446,8 +445,7 @@ import ProductCursusFixtureEmpty from '../src/template/app-catalog/product-cursu
 import ProductCursusFixtureLoading from '../src/template/app-catalog/product-cursus/test/fixtures/loading';
 import ProductCursusFixtureWithoutAssets from '../src/template/app-catalog/product-cursus/test/fixtures/without-assets';
 import ProductCursusFixtureWithoutBadge from '../src/template/app-catalog/product-cursus/test/fixtures/without-badge';
-import DemoFixtureDefault from '../src/template/app-player/demo/test/fixtures/default';
-import LayoutPlayerFixtureDefault from '../src/template/app-player/layout-player/test/fixtures/default';
+import FreeRunFixtureDefault from '../src/template/app-player/free-run/test/fixtures/default';
 import BrandCreateFixtureDefault from '../src/template/back-office/brand-create/test/fixtures/default';
 import BrandCreateFixtureError from '../src/template/back-office/brand-create/test/fixtures/error';
 import BrandCreateFixtureLoading from '../src/template/back-office/brand-create/test/fixtures/loading';
@@ -486,7 +484,6 @@ import DisciplineFixtureNoVideo from '../src/template/common/discipline/test/fix
 import DisciplineFixtureWithOnclick from '../src/template/common/discipline/test/fixtures/with-onclick';
 import SearchPageFixtureDefault from '../src/template/common/search-page/test/fixtures/default';
 import SearchPageFixtureNoResult from '../src/template/common/search-page/test/fixtures/no-result';
-import SlidesFixtureDefault from '../src/template/common/slides/test/fixtures/default';
 
 export const components = {
   Atom: {
@@ -619,7 +616,7 @@ export const components = {
     ProductCursus
   },
   TemplateAppPlayer: {
-    Demo
+    FreeRun
   },
   TemplateBackOffice: {
     BrandCreate,
@@ -631,8 +628,7 @@ export const components = {
     CoorpHeader,
     Dashboard,
     Discipline,
-    SearchPage,
-    Slides
+    SearchPage
   }
 };
 export const fixtures = {
@@ -1202,11 +1198,8 @@ export const fixtures = {
     }
   },
   TemplateAppPlayer: {
-    Demo: {
-      Default: DemoFixtureDefault
-    },
-    LayoutPlayer: {
-      Default: LayoutPlayerFixtureDefault
+    FreeRun: {
+      Default: FreeRunFixtureDefault
     }
   },
   TemplateBackOffice: {
@@ -1265,56 +1258,11 @@ export const fixtures = {
     SearchPage: {
       Default: SearchPageFixtureDefault,
       NoResult: SearchPageFixtureNoResult
-    },
-    Slides: {
-      Default: SlidesFixtureDefault
     }
   }
 };
 
 export const dependencies = {
-  "MoleculeSlides": {
-    "SlidesHeader": {
-      "parents": {
-        "TemplateCommon": {
-          "Slides": true
-        }
-      },
-      "children": {
-        "Atom": {
-          "Link": true
-        }
-      }
-    },
-    "SlidesPlayer": {
-      "parents": {
-        "TemplateCommon": {
-          "Slides": true
-        }
-      },
-      "children": {
-        "Atom": {
-          "Cta": true
-        },
-        "MoleculeSlides": {
-          "SlidesFooter": true
-        },
-        "MoleculeQuestions": {
-          "DragAndDrop": true,
-          "QcmImage": true,
-          "Qcm": true
-        }
-      }
-    },
-    "SlidesFooter": {
-      "parents": {
-        "MoleculeSlides": {
-          "SlidesPlayer": true
-        }
-      },
-      "children": {}
-    }
-  },
   "Molecule": {
     "Filters": {
       "parents": {
@@ -2422,6 +2370,48 @@ export const dependencies = {
       }
     }
   },
+  "MoleculeSlides": {
+    "SlidesHeader": {
+      "parents": {
+        "TemplateAppPlayer": {
+          "FreeRun": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Link": true
+        }
+      }
+    },
+    "SlidesPlayer": {
+      "parents": {
+        "TemplateAppPlayer": {
+          "FreeRun": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Cta": true
+        },
+        "MoleculeSlides": {
+          "SlidesFooter": true
+        },
+        "MoleculeQuestions": {
+          "DragAndDrop": true,
+          "QcmImage": true,
+          "Qcm": true
+        }
+      }
+    },
+    "SlidesFooter": {
+      "parents": {
+        "MoleculeSlides": {
+          "SlidesPlayer": true
+        }
+      },
+      "children": {}
+    }
+  },
   "MoleculeForum": {
     "ForumComment": {
       "parents": {
@@ -2547,8 +2537,13 @@ export const dependencies = {
     }
   },
   "TemplateAppPlayer": {
-    "Demo": {
-      "children": {}
+    "FreeRun": {
+      "children": {
+        "MoleculeSlides": {
+          "SlidesHeader": true,
+          "SlidesPlayer": true
+        }
+      }
     }
   },
   "TemplateBackOffice": {
@@ -2619,14 +2614,6 @@ export const dependencies = {
         },
         "Atom": {
           "Button": true
-        }
-      }
-    },
-    "Slides": {
-      "children": {
-        "MoleculeSlides": {
-          "SlidesHeader": true,
-          "SlidesPlayer": true
         }
       }
     }

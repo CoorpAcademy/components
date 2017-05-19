@@ -1,18 +1,102 @@
 import pipe from 'lodash/fp/pipe';
 import getOr from 'lodash/fp/getOr';
-import {Demo} from '@coorpacademy/components';
+import {createElement} from 'react';
+import {Provider, FreeRun} from '@coorpacademy/components';
+
+const toHeader = state => {
+  return {
+    primary: {
+      title: 'Du management classique au nouveau blablabla'
+    },
+    lives: {
+      count: 3
+    }
+  };
+};
+
+const toPlayer = state => {
+  return {
+    progression: {
+      current: 2,
+      total: 6
+    },
+    question: 'Amongst these businesses, which have suffered setbacks for not knowing how to putting users first?',
+    cta: {
+      submitValue: 'Coorpacademy',
+      href: '#',
+      target: '_self',
+      light: false,
+      small: false,
+      secondary: false
+    },
+    help: 'Select something below',
+    answer: {
+      type: 'qcm',
+      answers: [
+        {
+          title: 'There is no need for a password',
+          selected: false
+        },
+        {
+          title: 'Lorem ipsum',
+          selected: false
+        },
+        {
+          title: 'Lorem',
+          selected: true
+        },
+        {
+          title: 'You need to have a password',
+          selected: false
+        },
+        {
+          title: 'Pouet',
+          selected: true
+        },
+        {
+          title: 'Lorem ipsum dolor sit amet',
+          selected: false
+        },
+        {
+          title: 'Lorem ipsum dolor',
+          selected: false
+        },
+        {
+          title: 'all your base are belong to us',
+          selected: false
+        }
+      ]
+    },
+    buttons: [
+      {
+        title: 'Media',
+        type: 'media'
+      },
+      {
+        title: 'Clue',
+        type: 'clue'
+      },
+      {
+        title: 'Coach',
+        type: 'coach'
+      }
+    ]
+  };
+};
 
 const createMapStateToProps = ({api}) => dispatch => state => {
   return {
-    plop: getOr('default plop', 'ui.plop', state),
-    plup: getOr('default plup', 'ui.plup', state)
+    header: toHeader(state),
+    player: toPlayer(state)
   };
 };
 
 export {createMapStateToProps};
 
+const wrapInProvider = options => vNode => createElement(Provider, options, vNode);
+
 export default options => dispatch => {
   const mapStateToProps = createMapStateToProps(options)(dispatch);
 
-  return pipe(mapStateToProps, Demo);
+  return pipe(mapStateToProps, FreeRun, wrapInProvider(options));
 };

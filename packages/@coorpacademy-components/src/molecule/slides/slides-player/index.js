@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import identity from 'lodash/fp/identity';
 import getOr from 'lodash/fp/getOr';
 import Cta from '../../../atom/cta';
 import DragAndDrop from '../../questions/drag-and-drop';
@@ -56,7 +57,7 @@ const createProgressionView = (progression, skin) => {
 
 const SlidesPlayer = (props, context) => {
   const {progression, question, cta, help, answer, buttons} = props;
-  const {skin, translate} = context;
+  const {skin, translate = identity} = context;
 
   const helpView = help ? <div className={style.helpView}>{help}</div> : null;
 
