@@ -10,7 +10,7 @@ const createMatch = pathMatch({
   end: false
 });
 
-export const createRouter = routeDefinitions => options => dispatch => {
+export const createRouter = routeDefinitions => (options = {}) => dispatch => {
   const routes = map(
     ({path, view}) => ({
       match: isString(path) ? createMatch(path) : path,
@@ -21,7 +21,7 @@ export const createRouter = routeDefinitions => options => dispatch => {
 
   const {routePath = 'route'} = options;
   return state => {
-    const {pathname = ''} = get(routePath, state);
+    const {pathname} = get(routePath, state);
     const {match, view} = find(route => route.match(pathname), routes);
 
     const params = match(pathname);
@@ -29,7 +29,7 @@ export const createRouter = routeDefinitions => options => dispatch => {
   };
 };
 
-export const createRouterMiddleware = (routeDefinitions, LOCATION) => options => {
+export const createRouterMiddleware = (routeDefinitions, LOCATION) => {
   const routes = map(
     ({path, action}) => ({
       match: isString(path) ? createMatch(path) : path,
@@ -38,10 +38,10 @@ export const createRouterMiddleware = (routeDefinitions, LOCATION) => options =>
     routeDefinitions
   );
 
-  return ({dispatch, getState}) => next => async action => {
+  return ({dispatch}) => next => async action => {
     if (action.type !== LOCATION) return next(action);
 
-    const {pathname = ''} = action.payload;
+    const {pathname} = action.payload;
     const {match, action: _action} = find(route => route.match(pathname), routes);
     const params = match(pathname);
     const actionReturn = await next(action); // eslint-disable-line callback-return

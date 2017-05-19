@@ -10,7 +10,7 @@ export default options => {
       ReduxThunk.withExtraArgument(options),
       apiMiddleware,
       historyMiddleware(options),
-      routerMiddleware(options)
+      routerMiddleware
     ),
     window.devToolsExtension ? window.devToolsExtension() : f => f
   );
