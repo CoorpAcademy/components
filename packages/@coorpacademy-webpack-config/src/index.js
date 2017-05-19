@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const BabiliPlugin = require('babili-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
+const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
 
 const hash = '[folder]__[local]';
 const componentCSS = new ExtractTextPlugin({
@@ -72,6 +73,11 @@ const config = {
 
   plugins: (() => {
     const plugins = [
+      new BundleAnalyzerPlugin({
+        analyzerMode: 'static',
+        generateStatsFile: true,
+        openAnalyzer: false
+      }),
       new webpack.DefinePlugin({
         'process.env': {
           NODE_ENV: JSON.stringify(NODE_ENV)

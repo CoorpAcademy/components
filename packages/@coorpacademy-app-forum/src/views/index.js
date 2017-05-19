@@ -1,7 +1,8 @@
 import getOr from 'lodash/fp/getOr';
 import pipe from 'lodash/fp/pipe';
 import {createElement} from 'react';
-import {Discussion, Provider} from '@coorpacademy/components';
+import Provider from '@coorpacademy/components/es/atom/provider';
+import Discussion from '@coorpacademy/components/es/organism/discussion';
 import {
   updateDiscussionTextareaAction,
   resetDiscussionTextareaAction

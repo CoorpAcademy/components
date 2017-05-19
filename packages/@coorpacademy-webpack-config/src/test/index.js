@@ -6,5 +6,5 @@ test('should provide a default config', t => {
   t.is(config.output.library, 'bundle');
   t.is(config.devtool, 'eval');
   t.is(config.module.rules.length, 3);
-  t.is(config.plugins.length, 2);
+  t.is(config.plugins.length, 3);
 });
