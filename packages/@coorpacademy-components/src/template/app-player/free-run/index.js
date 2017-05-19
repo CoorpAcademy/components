@@ -4,7 +4,7 @@ import SlidesHeader from '../../../molecule/slides/slides-header';
 import SlidesPlayer from '../../../molecule/slides/slides-player';
 import style from './style.css';
 
-const BrandFormGroup = props => {
+const FreeRunPlayer = props => {
   const {header, player} = props;
 
   return (
@@ -17,8 +17,8 @@ const BrandFormGroup = props => {
   );
 };
 
-BrandFormGroup.propTypes = {
+FreeRunPlayer.propTypes = {
   header: PropTypes.object,
   player: PropTypes.object
 };
-export default BrandFormGroup;
+export default FreeRunPlayer;
