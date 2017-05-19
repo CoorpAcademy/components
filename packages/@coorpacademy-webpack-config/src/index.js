@@ -1,9 +1,9 @@
-const {join} = require('path');
-const webpack = require('webpack');
-const BabiliPlugin = require('babili-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const CompressionPlugin = require('compression-webpack-plugin');
-const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
+import {join} from 'path';
+import webpack from 'webpack';
+import BabiliPlugin from 'babili-webpack-plugin';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import CompressionPlugin from 'compression-webpack-plugin';
+import {BundleAnalyzerPlugin} from 'webpack-bundle-analyzer';
 
 const hash = '[folder]__[local]';
 const componentCSS = new ExtractTextPlugin({
@@ -11,9 +11,7 @@ const componentCSS = new ExtractTextPlugin({
   ignoreOrder: true
 });
 
-const NODE_ENV = process.env.NODE_ENV || 'development';
-
-const config = {
+export default (NODE_ENV = 'development') => ({
   devtool: NODE_ENV === 'production' ? false : 'eval',
 
   stats: {
@@ -111,6 +109,4 @@ const config = {
 
     return plugins;
   })()
-};
-
-module.exports = config;
+});

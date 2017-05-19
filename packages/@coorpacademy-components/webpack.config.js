@@ -1,6 +1,7 @@
 const path = require('path');
+const pipe = require('lodash/fp/pipe');
 const set = require('lodash/fp/set');
-let config = require('@coorpacademy/webpack-config');
+const {default: generateConfig} = require('@coorpacademy/webpack-config');
 
 const appName = 'Components';
 
@@ -14,7 +15,6 @@ const output = {
   filename: 'components.js'
 };
 
-config = set('entry', entry, config);
-config = set('output', output, config);
-
-module.exports = config;
+module.exports = pipe(generateConfig, set('entry', entry), set('output', output))(
+  process.env.NODE_ENV
+);

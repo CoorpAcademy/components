@@ -32,3 +32,12 @@ test('should accept empty string value', t => {
 
   t.deepEqual(translate('foo'), '');
 });
+
+test("should throw error if template isn't a string", t => {
+  const translate = createTranslate({
+    foo: 0
+  });
+
+  t.throws(() => translate('foo'));
+  t.throws(() => translate('bar'));
+});
