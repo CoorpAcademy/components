@@ -67,7 +67,7 @@ const SlidesPlayer = (props, context) => {
     <div className={style.wrapper}>
       {progressionView}
       <div className={style.guideWrapper}>
-        {translate('Need some help?')}
+        <span>{translate('New media')}</span>
       </div>
       <div className={style.contentWrapper}>
         <div className={style.question}>

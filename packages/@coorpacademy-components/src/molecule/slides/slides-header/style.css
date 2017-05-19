@@ -101,7 +101,9 @@
   composes: fa-heart from '../../../variables/fontawesome.css';
   font-size: 18px;
   position: absolute;
-  margin-left: -20px;
+  top: 50%;
+  margin-top: -9px;
+  left: 12px;
   color: #F73F52;
 }
 
@@ -111,7 +113,9 @@
   font-size: 26px;
   color: #ffffff;
   position: absolute;
-  margin-left: -20px;
+  top: 50%;
+  margin-top: -13px;
+  left: 8px;
 }
 
 .lives {
