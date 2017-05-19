@@ -46,7 +46,7 @@ SlidesFooter.propTypes = {
       notify: PropTypes.bool,
       selected: PropTypes.bool,
       highlighted: PropTypes.bool,
-      title: PropTypes.bool,
+      title: PropTypes.string,
       type: PropTypes.oneOf(keys(buttonStyle)).isRequired,
       onClick: PropTypes.func
     })

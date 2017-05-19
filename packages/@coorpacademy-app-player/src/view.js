@@ -1,7 +1,14 @@
 import pipe from 'lodash/fp/pipe';
 import getOr from 'lodash/fp/getOr';
+import get from 'lodash/fp/get';
 import {createElement} from 'react';
 import {Provider, FreeRun} from '@coorpacademy/components';
+
+const currentProgression = state => {
+  const entities = getOr({}, 'data.progressions.entities')(state);
+  const currentId = getOr(null, 'ui.current.progressionId')(state);
+  return getOr({}, currentId)(entities);
+};
 
 const toHeader = state => {
   return {
@@ -9,17 +16,14 @@ const toHeader = state => {
       title: 'Du management classique au nouveau blablabla'
     },
     lives: {
-      count: 3
+      count: get('lives')(currentProgression(state))
     }
   };
 };
 
 const toPlayer = state => {
   return {
-    progression: {
-      current: 2,
-      total: 6
-    },
+    progression: get('progression')(currentProgression(state)),
     question: 'Amongst these businesses, which have suffered setbacks for not knowing how to putting users first?',
     cta: {
       submitValue: 'Coorpacademy',

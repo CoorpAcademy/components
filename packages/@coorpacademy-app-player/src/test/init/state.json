@@ -1,0 +1,15 @@
+{
+  "data": {
+    "progressions": {
+      "entities": {}
+    },
+    "slides": {
+      "entities": {}
+    }
+  },
+  "ui": {
+    "current": {
+      "progressionId": null
+    }
+  }
+}
