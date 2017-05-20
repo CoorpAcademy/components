@@ -4,18 +4,19 @@ import kebabCase from 'lodash/fp/kebabCase';
 import {createElement} from 'react';
 import {renderToStaticMarkup} from 'react-dom/server';
 
-const toHelpers = (components, Provider) => {
+const DefaultProvider = ({children}) => children;
+
+const toHelpers = (components, Provider = DefaultProvider) => {
   const toHelper = ([componentName, Component]) => {
     return (dust, options) => {
       dust.helpers[kebabCase(componentName)] = (chunk, context, bodies, props) => {
-        let vTree = createElement(Component, props);
-        if (Provider) {
-          const providerOptions = {
-            skin: context.get('skin')
-          };
-          vTree = createElement(Provider, providerOptions, vTree);
-        }
-        const html = renderToStaticMarkup(vTree);
+        const providerPropsAttribute = props.context;
+        const providerProps = providerPropsAttribute ? context.get(providerPropsAttribute) : {};
+
+        const html = renderToStaticMarkup(
+          createElement(Provider, providerProps, createElement(Component, props))
+        );
+
         chunk.write(html);
       };
     };
