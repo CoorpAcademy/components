@@ -1,25 +1,89 @@
+/* global angular */
 import test from 'ava';
-import React from 'react';
-import isArray from 'lodash/fp/isArray';
-import contains from 'lodash/fp/contains';
+import {createElement} from 'react';
+import setupBrower from 'browser-env';
 import createDirectives from '..';
 
-test('createDirectives should wrap factories as directive factories', t => {
-  const factories = {
-    StarRating: props => true,
-    CatalogCard: props => true
-  };
+setupBrower();
 
-  const app = {
-    directives: [],
-    directive: (_name, options) => app.directives.push(_name)
-  };
+require('angular/angular');
 
-  const Provider = <div />;
+global.angular = global.window.angular;
 
-  createDirectives(app, Provider, factories);
+global.window.mocha = {};
+global.window.beforeEach = test.beforeEach;
+global.window.afterEach = test.afterEach;
+require('angular-mocks');
 
-  t.true(isArray(app.directives));
-  t.true(contains('coorpStarRating', app.directives));
-  t.true(contains('coorpCatalogCard', app.directives));
+test.beforeEach(t => {
+  t.context.app = angular.module('myApp', []);
 });
+
+const macro = (t, {components, template, provider, data}, expected) => {
+  createDirectives(t.context.app, provider, components);
+  angular.mock.module('myApp');
+
+  angular.mock.inject(($compile, $rootScope) => {
+    const scope = $rootScope.$new();
+    const element = $compile(template)(scope);
+    Object.assign(scope, data);
+    scope.$digest();
+    t.is(element.html().replace(' data-reactroot=""', ''), expected);
+  });
+};
+
+test(
+  'should attach directive',
+  macro,
+  {
+    components: {
+      Title: () => createElement('h1')
+    },
+    template: '<coorp-title></coorp-title>'
+  },
+  '<h1></h1>'
+);
+
+test(
+  'should wrap component with provider element',
+  macro,
+  {
+    components: {
+      Title: () => createElement('h1')
+    },
+    provider: ({children}) => createElement('strong', null, children),
+    template: '<coorp-title></coorp-title>'
+  },
+  '<strong><h1></h1></strong>'
+);
+
+test(
+  'should pass props',
+  macro,
+  {
+    components: {
+      Title: ({children}) => createElement('h1', null, children)
+    },
+    template: '<coorp-title props="props"></coorp-title>',
+    data: {
+      props: {children: 'foo'}
+    }
+  },
+  '<h1>foo</h1>'
+);
+
+test(
+  'should extract provider props from context',
+  macro,
+  {
+    components: {
+      Title: () => createElement('h1')
+    },
+    provider: ({tagName}) => createElement(tagName),
+    template: '<coorp-title context="context"></coorp-title>',
+    data: {
+      context: {tagName: 'blink'}
+    }
+  },
+  '<blink></blink>'
+);
