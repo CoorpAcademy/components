@@ -23,7 +23,7 @@
     "prebuild:browser": "npm run clean:build:browser",
     "prebuild:commonjs": "npm run clean:build:commonjs",
     "prebuild:es": "npm run clean:build:es",
-    "start": "webpack-dev-server --content-base sandbox --history-api-fallback true --hot true"
+    "start": "cross-env BABEL_ENV=es webpack-dev-server --content-base sandbox --history-api-fallback true --hot true"
   },
   "homepage": "https://github.com/CoorpAcademy/components/packages/@coorpacademy-forum#readme",
   "devDependencies": {
