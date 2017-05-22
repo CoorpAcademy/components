@@ -1,28 +1,43 @@
 import {createStore} from 'redux';
 import {render} from 'react-dom';
-import pipe from 'lodash/fp/pipe';
 import createReducer from './reducers';
 import createMiddleware from './middlewares';
 import createMapStateToVnode from './views';
 import {fetchDiscussionAction} from './actions/api-fetch-discussion';
 
+const createUpdate = (container, {dispatch, getState}, options) => createMapStateToView => {
+  const mapStateToView = createMapStateToView(options)(dispatch);
+
+  return () => {
+    const state = getState();
+    const view = mapStateToView(state);
+    return render(view, container);
+  };
+};
+
 const create = options => {
   const {container} = options;
 
   const store = createStore(createReducer(options), {}, createMiddleware(options));
-  const {dispatch, getState} = store;
+  const {dispatch} = store;
 
-  const unsubscribe = store.subscribe(
-    pipe(getState, createMapStateToVnode(options)(dispatch), vNode => {
-      return render(vNode, container);
-    })
-  );
+  let update = createUpdate(container, store, options)(createMapStateToVnode);
+  let unsubscribe = store.subscribe();
+
+  if (module.hot) {
+    module.hot.accept('./view.js', function() {
+      unsubscribe();
+      update = createUpdate(container, store, options)(require('./view').default);
+      update();
+      unsubscribe = store.subscribe(update);
+    });
+  }
 
   dispatch(fetchDiscussionAction());
 
   return {
     dispatch,
-    unsubscribe
+    unsubscribe: () => unsubscribe()
   };
 };
 
