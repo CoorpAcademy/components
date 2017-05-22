@@ -8,7 +8,7 @@
             "type": "slides"
           },
           "lives": 3,
-          "progression": {
+          "step": {
             "current": 0,
             "total": 4
           }

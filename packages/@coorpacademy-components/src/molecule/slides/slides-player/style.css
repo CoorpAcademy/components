@@ -16,7 +16,7 @@
   box-sizing: border-box;
 }
 
-.progressionWrapper {
+.stepWrapper {
   position: absolute;
   z-index: 2;
   top: 0;
@@ -29,7 +29,7 @@
   overflow: hidden;
 }
 
-.progressionBar {
+.stepBar {
   position: absolute;
   height: 4px;
   border-radius: 3px;
@@ -47,14 +47,14 @@
   line-height: 16px;
 }
 
-.progressionCount {
+.stepCount {
   composes: infos;
   right: 0;
   padding: 4px 5px 4px 10px;
   border-bottom-left-radius: 12px;
 }
 
-.progressionCount span {
+.stepCount span {
 }
 
 .guideWrapper {

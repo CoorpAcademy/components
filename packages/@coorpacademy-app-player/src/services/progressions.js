@@ -5,7 +5,11 @@ import reduce from 'lodash/fp/reduce';
 import progressionsData from './progressions.data';
 
 const generateId = () => uniqueId('progression');
-const progressions = reduce((map, slide) => map.set(slide.id, slide), new Map(), progressionsData);
+const progressions = reduce(
+  (map, progression) => map.set(progression.id, progression),
+  new Map(),
+  progressionsData
+);
 
 export const findById = id => {
   if (progressions.has(id)) return Promise.resolve(progressions.get(id));

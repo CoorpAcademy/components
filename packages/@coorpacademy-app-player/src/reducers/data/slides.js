@@ -5,13 +5,13 @@ export default (state = {entities: {}}, action) => {
   switch (action.type) {
     case SLIDE_FETCH_REQUEST: {
       const {meta} = action;
-      const {id} = meta;
-      return set(['entities', id], null, state);
+      const {ref} = meta;
+      return set(['entities', ref], null, state);
     }
     case SLIDE_FETCH_SUCCESS: {
       const {payload, meta} = action;
-      const {id} = meta;
-      return set(['entities', id], payload, state);
+      const {ref} = meta;
+      return set(['entities', ref], payload, state);
     }
     default:
       return state;
