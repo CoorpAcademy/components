@@ -22,7 +22,7 @@ const create = options => {
   const {dispatch} = store;
 
   let update = createUpdate(container, store, options)(createMapStateToVnode);
-  let unsubscribe = store.subscribe();
+  let unsubscribe = store.subscribe(update);
 
   if (module.hot) {
     module.hot.accept('./view.js', function() {
