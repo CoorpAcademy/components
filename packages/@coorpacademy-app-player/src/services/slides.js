@@ -1,7 +1,7 @@
-const slides = new Map();
-slides.set('0', {});
-slides.set('1', {});
-slides.set('2', {});
+import reduce from 'lodash/fp/reduce';
+import slidesData from './slides.data';
+
+const slides = reduce((map, slide) => map.set(slide.id, slide), new Map(), slidesData);
 
 const findById = id => {
   if (slides.has(id)) return Promise.resolve(slides.get(id));

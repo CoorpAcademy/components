@@ -1,11 +1,11 @@
 import uniqueId from 'lodash/fp/uniqueId';
 import pipe from 'lodash/fp/pipe';
 import update from 'lodash/fp/update';
+import reduce from 'lodash/fp/reduce';
+import progressionsData from './progressions.data';
 
-const generateId = uniqueId('progression');
-
-const progressions = new Map();
-progressions.set('0', {id: '0', actions: [], content: {ref: '0'}});
+const generateId = () => uniqueId('progression');
+const progressions = reduce((map, slide) => map.set(slide.id, slide), new Map(), progressionsData);
 
 export const findById = id => {
   if (progressions.has(id)) return Promise.resolve(progressions.get(id));

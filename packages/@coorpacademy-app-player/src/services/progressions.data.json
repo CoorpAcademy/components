@@ -1,0 +1,15 @@
+[
+  {
+    "id": "0",
+    "actions": [],
+    "content": {
+      "ref": "0",
+      "type": "slide"
+    },
+    "lives": 2,
+    "step": {
+      "current": 1,
+      "total": 4
+    }
+  }
+]
