@@ -31,23 +31,23 @@ const createAnswerView = answer => {
   );
 };
 
-const createProgressionView = (progression, skin) => {
-  if (!progression) return null;
+const createStepView = (step, skin) => {
+  if (!step) return null;
 
   const color = getOr('#00B0FF', 'common.primary', skin);
-  const progressionWidth = progression.current / progression.total * 100;
+  const stepWidth = step.current / step.total * 100;
   return (
     <div>
-      <div className={style.progressionCount}>
-        <span style={{color}}>{progression.current}</span>
-        /{progression.total}
+      <div className={style.stepCount}>
+        <span style={{color}}>{step.current}</span>
+        /{step.total}
       </div>
-      <div className={style.progressionWrapper}>
+      <div className={style.stepWrapper}>
         <div
-          className={style.progressionBar}
+          className={style.stepBar}
           style={{
             backgroundColor: color,
-            width: `${progressionWidth}%`
+            width: `${stepWidth}%`
           }}
         />
       </div>
@@ -56,17 +56,17 @@ const createProgressionView = (progression, skin) => {
 };
 
 const SlidesPlayer = (props, context) => {
-  const {progression, question, cta, help, answer, buttons} = props;
+  const {step, question, cta, help, answer, buttons} = props;
   const {skin, translate = identity} = context;
 
   const helpView = help ? <div className={style.helpView}>{help}</div> : null;
 
   const answerView = createAnswerView(answer);
-  const progressionView = createProgressionView(progression, skin);
+  const stepView = createStepView(step, skin);
 
   return (
     <div className={style.wrapper}>
-      {progressionView}
+      {stepView}
       <div className={style.guideWrapper}>
         <span>{translate('New media')}</span>
       </div>
@@ -95,7 +95,7 @@ SlidesPlayer.contextTypes = {
 };
 
 SlidesPlayer.propTypes = {
-  progression: PropTypes.shape({
+  step: PropTypes.shape({
     current: PropTypes.number.required,
     total: PropTypes.number.required
   }),

@@ -1,10 +1,6 @@
 import map from 'lodash/fp/map';
-import {
-  PROGRESSION_FETCH_REQUEST,
-  PROGRESSION_FETCH_SUCCESS,
-  ANSWER_CREATE_REQUEST,
-  ANSWER_CREATE_SUCCESS
-} from '../actions/progressions';
+import {PROGRESSION_FETCH_REQUEST, PROGRESSION_FETCH_SUCCESS} from '../actions/progressions';
+import {ANSWER_CREATE_REQUEST, ANSWER_CREATE_SUCCESS} from '../actions/answers';
 import {SLIDE_FETCH_REQUEST, SLIDE_FETCH_SUCCESS} from '../actions/slides';
 import {UI_SELECT_PROGRESSION} from '../actions/ui';
 

@@ -1,6 +1,6 @@
 [
   {
-    "id": "qcmSlide-1",
+    "ref": "qcmSlide-1",
     "question": {
       "type": "qcm",
       "header": "Quelles cases de QCM ne sont pas adjacentes ?",

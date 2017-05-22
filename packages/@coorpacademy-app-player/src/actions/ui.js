@@ -1,5 +1,6 @@
 import get from 'lodash/fp/get';
-import {fetchProgression, createAnswer} from './progressions';
+import {fetchProgression} from './progressions';
+import {createAnswer} from './answers';
 import {fetchSlide} from './slides';
 
 export const UI_SELECT_PROGRESSION = '@@ui/SELECT_PROGRESSION';
@@ -27,3 +28,13 @@ export const answerProgression = (id, body) => async (dispatch, getState) => {
   const progression = get(`data.progressions.entities.${id}`, getState()); // eslint-disable-line lodash-fp/no-chain
   await dispatch(fetchSlide(progression.contentRef));
 };
+
+export const ANSWER_EDIT = '@@answer/EDIT';
+
+export const editAnswer = answer => ({
+  type: ANSWER_EDIT,
+  meta: {
+    id: answer.id
+  },
+  payload: answer
+});
