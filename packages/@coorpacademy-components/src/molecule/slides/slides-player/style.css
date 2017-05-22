@@ -18,6 +18,7 @@
 
 .progressionWrapper {
   position: absolute;
+  z-index: 2;
   top: 0;
   left: 0;
   width: 100%;
@@ -38,7 +39,6 @@
 
 .infos {
   position: absolute;
-  top: 4px;
   background-color: #ECEFF1;
   color: #546E7A;
   font-family: 'Open Sans';
@@ -50,7 +50,7 @@
 .progressionCount {
   composes: infos;
   right: 0;
-  padding: 0 5px 4px 10px;
+  padding: 4px 5px 4px 10px;
   border-bottom-left-radius: 12px;
 }
 
@@ -60,8 +60,19 @@
 .guideWrapper {
   composes: infos;
   left: 0;
-  padding: 0 10px 4px 5px;
+  padding: 4px 10px 4px 5px;
   border-bottom-right-radius: 12px;
+  cursor: pointer;
+}
+
+.guideWrapper span {
+  margin-right: 5px;
+}
+
+.guideWrapper:after {
+  display: inline-block;
+  content: '⨠';
+  transform: rotate(90deg);
 }
 
 .question {
@@ -90,7 +101,6 @@
 }
 
 .qcm {
-  max-width: 320px;
 }
 
 .qcmImage {
@@ -117,20 +127,13 @@
     overflow-y: auto;
   }
 
-  .progressionWrapper {
-    display: none;
-  }
-
-  .progressionCount {
-    display: none;
-  }
-
   .guideWrapper {
     display: none;
   }
 
   .question {
     margin-bottom: 16px;
+    font-size: 17px;
   }
 
   .helpView {
