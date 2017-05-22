@@ -42,13 +42,13 @@
     "minimist": "^1.2.0",
     "postcss-loader": "^1.1.1",
     "style-loader": "^0.13.0",
-    "webpack": "^2.2.0"
+    "webpack": "^2.2.0",
+    "webpack-bundle-analyzer": "^2.8.2"
   },
   "devDependencies": {
     "babel-plugin-istanbul": "^3.0.0",
     "cross-env": "^4.0.0",
-    "rimraf": "^2.6.1",
-    "webpack-bundle-analyzer": "^2.8.2"
+    "rimraf": "^2.6.1"
   },
   "author": "CoorpAcademy"
 }
