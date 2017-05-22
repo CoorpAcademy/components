@@ -1,10 +1,19 @@
 import {createStore} from 'redux';
 import {render} from 'react-dom';
-import pipe from 'lodash/fp/pipe';
 import createReducer from './reducers';
 import createMiddleware from './middlewares';
 import createMapStateToVnode from './view';
 import {selectProgression} from './actions/ui';
+
+const createUpdate = (container, {dispatch, getState}, options) => createMapStateToView => {
+  const mapStateToView = createMapStateToView(options)(dispatch);
+
+  return () => {
+    const state = getState();
+    const view = mapStateToView(state);
+    return render(view, container);
+  };
+};
 
 const create = options => {
   const {container, progression} = options;
@@ -12,17 +21,23 @@ const create = options => {
   const store = createStore(createReducer(options), {}, createMiddleware(options));
   const {dispatch} = store;
 
-  const unsubscribe = store.subscribe(() =>
-    pipe(createMapStateToVnode(options)(dispatch), vNode => {
-      return render(vNode, container);
-    })(store.getState())
-  );
+  let update = createUpdate(container, store, options)(createMapStateToVnode);
+  let unsubscribe = store.subscribe();
+
+  if (module.hot) {
+    module.hot.accept('./view.js', function() {
+      unsubscribe();
+      update = createUpdate(container, store, options)(require('./view').default);
+      update();
+      unsubscribe = store.subscribe(update);
+    });
+  }
 
   dispatch(selectProgression(progression));
 
   return {
     dispatch,
-    unsubscribe
+    unsubscribe: () => unsubscribe()
   };
 };
 
