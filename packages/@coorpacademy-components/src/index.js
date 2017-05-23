@@ -51,6 +51,7 @@ export ForumComment from './molecule/forum/forum-comment';
 export ForumPost from './molecule/forum/forum-post';
 export ForumThread from './molecule/forum/forum-thread';
 export FreeRun from './template/app-player/free-run';
+export FreeText from './molecule/questions/free-text';
 export GridList from './organism/grid-list';
 export Handle from './atom/handle';
 export Header from './organism/header';

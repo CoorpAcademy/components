@@ -11,10 +11,11 @@ import {Provider, FreeRun} from '@coorpacademy/components';
 import {editAnswer, validateAnswer} from './actions/ui';
 
 const getChoices = slide => get('question.content.choices')(slide);
+const getProgressionId = state => getOr(null, 'ui.current.progressionId')(state);
 
 const getProgression = state => {
   const entities = getOr({}, 'data.progressions.entities')(state);
-  const currentId = getOr(null, 'ui.current.progressionId')(state);
+  const currentId = getProgressionId(state);
   return getOr({}, currentId)(entities);
 };
 
@@ -24,27 +25,34 @@ const getSlide = (progression, state) => {
   return getOr({}, ref)(entities);
 };
 
-const choicesToAnswers = (slide, state, dispatch) =>
-  map(
-    choice => ({
-      title: choice.label,
-      selected: pipe(get('ui.answers'), includes(choice.id))(state),
-      onClick: () => {
-        dispatch(editAnswer(choice));
-      }
-    }),
-    getChoices(slide)
-  );
+const choicesToAnswers = (state, dispatch) =>
+  map(choice => ({
+    title: choice.label,
+    selected: pipe(get('ui.answers'), includes(choice.id))(state),
+    onClick: () => {
+      dispatch(editAnswer(getProgressionId(state), choice));
+    }
+  }));
 
 const getAnswer = (slide, state, dispatch) => {
   return {
-    type: 'qcm',
-    answers: choicesToAnswers(slide, state, dispatch)
+    type: get('question.type')(slide),
+    answers: choicesToAnswers(state, dispatch)(getChoices(slide))
   };
 };
 
-const extractFinalAnswer = choices =>
-  pipe(get('ui.answers'), reduce((acc, answer) => concat(acc, find({id: answer}, choices)), []));
+const extractFinalAnswer = (choices, questionType) => {
+  switch (questionType) {
+    case 'qcm':
+      return pipe(
+        get('ui.answers'),
+        reduce((acc, answer) => concat(acc, find({id: answer}, choices)), [])
+      );
+
+    default:
+      return get('ui.answers');
+  }
+};
 
 const toHeader = state => {
   return {
@@ -58,13 +66,9 @@ const toHeader = state => {
 };
 
 const toPlayer = (state, dispatch) => {
-  // const editAnswer = () => dispatch({plop: 'plup'});
-  // const editAnswer = editAnswerAction(dispatch);
   const progression = getProgression(state);
   const slide = getSlide(progression, state);
   const answer = getAnswer(slide, state, dispatch);
-
-  // slide, answer => props
 
   return {
     step: get('step')(progression),
@@ -72,8 +76,8 @@ const toPlayer = (state, dispatch) => {
     cta: {
       submitValue: 'Validate',
       onClick: () => {
-        const finalAnswer = extractFinalAnswer(getChoices(slide))(state);
-        dispatch(validateAnswer(finalAnswer));
+        const finalAnswer = extractFinalAnswer(getChoices(slide), answer.type)(state);
+        dispatch(validateAnswer(getProgressionId(state), finalAnswer));
       },
       light: false,
       small: false,

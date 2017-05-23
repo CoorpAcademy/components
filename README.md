@@ -37,7 +37,7 @@ npm run start:components
 
 Then open `http://localhost:3004`
 
-### Locally use `/lib` in a project
+### Locally use `/lib` in an external project
 - use `npm link` to create a local `@coorpacademy/components` package
 - use `npm link @coorpacademy/components` in your project.
 
@@ -53,8 +53,6 @@ npm run publish:latest
 
 ### Developing apps using HMR and components
 ```
-[@coorpacademy-components]> npm link
-[@coorpacademy-app-player]> npm link @coorpacademy/components
 [@coorpacademy-components]> npm run build:es -- --watch
 [@coorpacademy-app-player]> npm start
 ```

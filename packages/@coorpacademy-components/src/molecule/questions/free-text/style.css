@@ -1,0 +1,16 @@
+.wrapper {
+
+}
+
+.input {
+  font-family: "Open Sans";
+  text-transform: none;
+  padding: 0 15px;
+  border: solid 2px #eceff1;
+  height: 50px;
+  border-radius: 2px;
+  font-size: 14px;
+  color: #607d8b;
+  margin-left: 20px;
+  width: 230px;
+}
