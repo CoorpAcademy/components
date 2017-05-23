@@ -31,19 +31,21 @@ export const answerProgression = (id, body) => async (dispatch, getState) => {
 
 export const ANSWER_EDIT = '@@answer/EDIT';
 
-export const editAnswer = answer => ({
+export const editAnswer = (progressionId, answer) => ({
   type: ANSWER_EDIT,
   meta: {
-    id: answer.id
+    id: answer.id,
+    progressionId
   },
   payload: answer
 });
 
 export const ANSWER_VALIDATE = '@@answer/VALIDATE';
 
-export const validateAnswer = (id, body) => async (dispatch, getState) => {
-  const response = await dispatch(createAnswer(id, body));
+export const validateAnswer = (progressionId, body) => async (dispatch, getState) => {
+  const response = await dispatch(createAnswer(progressionId, body));
   if (response.error) return response;
 
+  dispatch(editAnswer(progressionId, null));
   return dispatch(selectProgression('0'));
 };

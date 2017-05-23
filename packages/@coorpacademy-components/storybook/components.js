@@ -89,6 +89,7 @@ import ForumComment from '../src/molecule/forum/forum-comment';
 import ForumPost from '../src/molecule/forum/forum-post';
 import ForumThread from '../src/molecule/forum/forum-thread';
 import DragAndDrop from '../src/molecule/questions/drag-and-drop';
+import FreeText from '../src/molecule/questions/free-text';
 import QcmImage from '../src/molecule/questions/qcm-image';
 import Qcm from '../src/molecule/questions/qcm';
 import SlidesFooter from '../src/molecule/slides/slides-footer';
@@ -380,6 +381,7 @@ import ForumThreadFixtureDefault from '../src/molecule/forum/forum-thread/test/f
 import ForumThreadFixtureWithAnswers from '../src/molecule/forum/forum-thread/test/fixtures/with-answers';
 import DragAndDropFixtureDefault from '../src/molecule/questions/drag-and-drop/test/fixtures/default';
 import DragAndDropFixtureNoSelected from '../src/molecule/questions/drag-and-drop/test/fixtures/no-selected';
+import FreeTextFixtureDefault from '../src/molecule/questions/free-text/test/fixtures/default';
 import QcmImageFixtureDefault from '../src/molecule/questions/qcm-image/test/fixtures/default';
 import QcmImageFixtureNoSelected from '../src/molecule/questions/qcm-image/test/fixtures/no-selected';
 import QcmFixtureDefault from '../src/molecule/questions/qcm/test/fixtures/default';
@@ -394,6 +396,7 @@ import SlidesHeaderFixtureFreerun from '../src/molecule/slides/slides-header/tes
 import SlidesHeaderFixtureNoSecondary from '../src/molecule/slides/slides-header/test/fixtures/no-secondary';
 import SlidesPlayerFixtureDefault from '../src/molecule/slides/slides-player/test/fixtures/default';
 import SlidesPlayerFixtureDragAndDrop from '../src/molecule/slides/slides-player/test/fixtures/drag-and-drop';
+import SlidesPlayerFixtureFreeText from '../src/molecule/slides/slides-player/test/fixtures/free-text';
 import SlidesPlayerFixtureQcmImage from '../src/molecule/slides/slides-player/test/fixtures/qcm-image';
 import SlidesPlayerFixtureQcm from '../src/molecule/slides/slides-player/test/fixtures/qcm';
 import BrandFormFixtureDashboard from '../src/organism/brand-form/test/fixtures/dashboard';
@@ -588,6 +591,7 @@ export const components = {
   },
   MoleculeQuestions: {
     DragAndDrop,
+    FreeText,
     QcmImage,
     Qcm
   },
@@ -1081,6 +1085,9 @@ export const fixtures = {
       Default: DragAndDropFixtureDefault,
       NoSelected: DragAndDropFixtureNoSelected
     },
+    FreeText: {
+      Default: FreeTextFixtureDefault
+    },
     QcmImage: {
       Default: QcmImageFixtureDefault,
       NoSelected: QcmImageFixtureNoSelected
@@ -1106,6 +1113,7 @@ export const fixtures = {
     SlidesPlayer: {
       Default: SlidesPlayerFixtureDefault,
       DragAndDrop: SlidesPlayerFixtureDragAndDrop,
+      FreeText: SlidesPlayerFixtureFreeText,
       QcmImage: SlidesPlayerFixtureQcmImage,
       Qcm: SlidesPlayerFixtureQcm
     }
@@ -2491,6 +2499,9 @@ export const dependencies = {
           "SlidesPlayer": true
         }
       },
+      "children": {}
+    },
+    "FreeText": {
       "children": {}
     }
   },

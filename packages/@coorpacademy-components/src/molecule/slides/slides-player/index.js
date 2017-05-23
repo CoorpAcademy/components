@@ -4,6 +4,7 @@ import identity from 'lodash/fp/identity';
 import getOr from 'lodash/fp/getOr';
 import Cta from '../../../atom/cta';
 import DragAndDrop from '../../questions/drag-and-drop';
+import FreeText from '../../questions/free-text';
 import Qcm from '../../questions/qcm';
 import QcmImage from '../../questions/qcm-image';
 import SlidesFooter from '../slides-footer';
@@ -12,13 +13,15 @@ import style from './style.css';
 const answerStyle = {
   dragAndDrop: style.dragAndDrop,
   qcm: style.qcm,
-  qcmImage: style.qcmImage
+  qcmImage: style.qcmImage,
+  freeText: style.freeText
 };
 
 const answers = {
   dragAndDrop: DragAndDrop,
   qcm: Qcm,
-  qcmImage: QcmImage
+  qcmImage: QcmImage,
+  freeText: FreeText
 };
 
 const createAnswerView = answer => {
