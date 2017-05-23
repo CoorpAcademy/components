@@ -38,3 +38,12 @@ export const editAnswer = answer => ({
   },
   payload: answer
 });
+
+export const ANSWER_VALIDATE = '@@answer/VALIDATE';
+
+export const validateAnswer = (id, body) => async (dispatch, getState) => {
+  const response = await dispatch(createAnswer(id, body));
+  if (response.error) return response;
+
+  return dispatch(selectProgression('0'));
+};

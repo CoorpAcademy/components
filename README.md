@@ -46,10 +46,17 @@ Then open `http://localhost:3004`
 npm test
 ```
 
-
 ### Publish
 ```
 npm run publish:latest
+```
+
+### Developing apps using HMR and components
+```
+[@coorpacademy-components]> npm link
+[@coorpacademy-app-player]> npm link @coorpacademy/components
+[@coorpacademy-components]> npm run build:es -- --watch
+[@coorpacademy-app-player]> npm start
 ```
 
 ### Troubleshooting
