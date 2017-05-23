@@ -11,5 +11,18 @@
       "current": 1,
       "total": 4
     }
+  },
+  {
+    "id": "1",
+    "actions": [],
+    "content": {
+      "ref": "templateSlide-1",
+      "type": "slide"
+    },
+    "lives": 2,
+    "step": {
+      "current": 2,
+      "total": 4
+    }
   }
 ]

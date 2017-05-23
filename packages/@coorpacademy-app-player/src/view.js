@@ -25,20 +25,38 @@ const getSlide = (progression, state) => {
   return getOr({}, ref)(entities);
 };
 
-const choicesToAnswers = (state, dispatch) =>
+const qcmOptions = (state, dispatch) =>
   map(choice => ({
     title: choice.label,
     selected: pipe(get('ui.answers'), includes(choice.id))(state),
     onClick: () => {
-      dispatch(editAnswer(getProgressionId(state), choice));
+      dispatch(editAnswer('qcm')(getProgressionId(state), choice));
     }
   }));
 
-const getAnswer = (slide, state, dispatch) => {
-  return {
-    type: get('question.type')(slide),
-    answers: choicesToAnswers(state, dispatch)(getChoices(slide))
-  };
+const prepareUIAnswer = (slide, state, dispatch) => {
+  const questionType = get('question.type')(slide);
+
+  switch (questionType) {
+    case 'qcm':
+      return {
+        type: questionType,
+        answers: qcmOptions(state, dispatch)(getChoices(slide))
+      };
+
+    case 'template':
+    default:
+      return {
+        type: 'freeText',
+        answers: {
+          value: get('ui.answers')(state),
+          placeholder: 'Type here',
+          onInput: value => {
+            dispatch(editAnswer(questionType)(getProgressionId(state), value));
+          }
+        }
+      };
+  }
 };
 
 const extractFinalAnswer = (choices, questionType) => {
@@ -68,7 +86,7 @@ const toHeader = state => {
 const toPlayer = (state, dispatch) => {
   const progression = getProgression(state);
   const slide = getSlide(progression, state);
-  const answer = getAnswer(slide, state, dispatch);
+  const answer = prepareUIAnswer(slide, state, dispatch);
 
   return {
     step: get('step')(progression),
