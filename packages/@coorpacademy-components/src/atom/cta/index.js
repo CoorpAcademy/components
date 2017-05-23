@@ -35,7 +35,8 @@ class CTA extends React.Component {
       target,
       light = false,
       small = false,
-      secondary = false
+      secondary = false,
+      onClick
     } = this.props;
 
     const primarySkinColor = getOr('#00B0FF', 'common.primary', skin);
@@ -66,6 +67,7 @@ class CTA extends React.Component {
       >
         <Link
           href={href}
+          onClick={onClick}
           target={target}
           style={{
             color: this.state.hovered ? hoverTextColor : textColor
@@ -89,7 +91,8 @@ CTA.propTypes = {
   target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
   light: PropTypes.bool,
   small: PropTypes.bool,
-  secondary: PropTypes.bool
+  secondary: PropTypes.bool,
+  onClick: PropTypes.func
 };
 
 export default CTA;

@@ -2,10 +2,15 @@ import pipe from 'lodash/fp/pipe';
 import getOr from 'lodash/fp/getOr';
 import includes from 'lodash/fp/includes';
 import get from 'lodash/fp/get';
+import find from 'lodash/fp/find';
+import concat from 'lodash/fp/concat';
 import map from 'lodash/fp/map';
+import reduce from 'lodash/fp/reduce';
 import {createElement} from 'react';
 import {Provider, FreeRun} from '@coorpacademy/components';
-import {editAnswer} from './actions/ui';
+import {editAnswer, validateAnswer} from './actions/ui';
+
+const getChoices = slide => get('question.content.choices')(slide);
 
 const getProgression = state => {
   const entities = getOr({}, 'data.progressions.entities')(state);
@@ -28,7 +33,7 @@ const choicesToAnswers = (slide, state, dispatch) =>
         dispatch(editAnswer(choice));
       }
     }),
-    get('question.content.choices')(slide)
+    getChoices(slide)
   );
 
 const getAnswer = (slide, state, dispatch) => {
@@ -37,6 +42,9 @@ const getAnswer = (slide, state, dispatch) => {
     answers: choicesToAnswers(slide, state, dispatch)
   };
 };
+
+const extractFinalAnswer = choices =>
+  pipe(get('ui.answers'), reduce((acc, answer) => concat(acc, find({id: answer}, choices)), []));
 
 const toHeader = state => {
   return {
@@ -63,7 +71,10 @@ const toPlayer = (state, dispatch) => {
     question: get('question.header')(slide),
     cta: {
       submitValue: 'Validate',
-      href: () => dispatch(),
+      onClick: () => {
+        const finalAnswer = extractFinalAnswer(getChoices(slide))(state);
+        dispatch(validateAnswer(finalAnswer));
+      },
       light: false,
       small: false,
       secondary: false
