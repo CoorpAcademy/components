@@ -1,5 +1,5 @@
 import {createStore} from 'redux';
-import {render} from 'react-dom';
+import {render, unmountComponentAtNode} from 'react-dom';
 import createReducer from './reducers';
 import createMiddleware from './middlewares';
 import createMapStateToVnode from './view';
@@ -36,8 +36,11 @@ const create = options => {
   dispatch(selectProgression(progression));
 
   return {
-    dispatch,
-    unsubscribe: () => unsubscribe()
+    update: () => update(),
+    unsubscribe: () => {
+      unmountComponentAtNode(container);
+      return unsubscribe();
+    }
   };
 };
 
