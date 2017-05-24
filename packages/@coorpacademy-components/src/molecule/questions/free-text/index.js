@@ -29,7 +29,8 @@ FreeText.contextTypes = {
 
 FreeText.propTypes = {
   placeholder: PropTypes.string,
-  value: PropTypes.string
+  value: PropTypes.string,
+  onChange: PropTypes.func
 };
 
 export default FreeText;

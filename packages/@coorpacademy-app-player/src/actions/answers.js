@@ -7,7 +7,7 @@ export const createAnswer = (progressionId, body) => async (dispatch, getState, 
 
   await dispatch({
     type: ANSWER_CREATE_REQUEST,
-    meta: {progressionId}
+    meta: {progressionId, body}
   });
 
   try {

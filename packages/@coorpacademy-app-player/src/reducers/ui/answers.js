@@ -5,30 +5,24 @@ import {ANSWER_EDIT, ANSWER_RESET} from '../../actions/ui';
 const editAnswerState = (state, questionType, answer) => {
   switch (questionType) {
     case 'qcm':
-      if (includes(answer.id, state)) {
-        return remove(id => id === answer.id)(state);
+      if (includes(answer.label, state)) {
+        return remove(label => label === answer.label)(state);
       } else {
-        return [...state, answer.id];
+        return [...state, answer.label];
       }
 
     case 'template':
       return answer;
 
     default:
-      return state;
   }
 };
 
-export default (state = [], {type, payload}) => {
-  switch (type) {
-    case ANSWER_EDIT: {
-      const {answer, questionType} = payload;
-      return editAnswerState(state, questionType, answer);
-    }
-    case ANSWER_RESET:
-      return [];
-
-    default:
-      return state;
-  }
+export default (state, {type, payload}) => {
+  if (includes(type, ANSWER_EDIT)) {
+    const {answer, questionType} = payload;
+    return editAnswerState(state, questionType, answer);
+  } else if (ANSWER_RESET) {
+    return [];
+  } else return state;
 };
