@@ -1,5 +1,24 @@
 // @flow
-export type Progression = {};
+
+export type Content = {
+  ref: string,
+  type: string,
+  version?: string
+};
+
+export type State = {
+  content: Content
+};
+
+export type Action = {
+  type: string,
+  payload?: {}
+};
+
+export type Progression = {
+  content: Content,
+  state: State
+};
 
 export type Answer = Array<string>;
 export type AcceptedAnswers = Array<Answer>;

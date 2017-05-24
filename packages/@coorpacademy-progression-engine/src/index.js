@@ -1,6 +1,6 @@
 // @flow
 import computeNextStep from './compute-next-step';
 import checkAnswer from './check-answer';
-import updateProgression from './update-progression';
+import updateState from './update-state';
 
-export {computeNextStep, checkAnswer, updateProgression};
+export {computeNextStep, checkAnswer, updateState};
