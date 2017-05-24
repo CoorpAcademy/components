@@ -1,76 +1,10 @@
 import pipe from 'lodash/fp/pipe';
-import getOr from 'lodash/fp/getOr';
-import includes from 'lodash/fp/includes';
 import get from 'lodash/fp/get';
-import find from 'lodash/fp/find';
-import concat from 'lodash/fp/concat';
-import map from 'lodash/fp/map';
-import reduce from 'lodash/fp/reduce';
 import {createElement} from 'react';
 import {Provider, FreeRun} from '@coorpacademy/components';
-import {editAnswer, validateAnswer} from './actions/ui';
-
-const getChoices = slide => get('question.content.choices')(slide);
-const getProgressionId = state => getOr(null, 'ui.current.progressionId')(state);
-
-const getProgression = state => {
-  const entities = getOr({}, 'data.progressions.entities')(state);
-  const currentId = getProgressionId(state);
-  return getOr({}, currentId)(entities);
-};
-
-const getSlide = (progression, state) => {
-  const entities = getOr({}, 'data.slides.entities')(state);
-  const ref = getOr(null, 'content.ref')(progression);
-  return getOr({}, ref)(entities);
-};
-
-const qcmOptions = (state, dispatch) =>
-  map(choice => ({
-    title: choice.label,
-    selected: pipe(get('ui.answers'), includes(choice.id))(state),
-    onClick: () => {
-      dispatch(editAnswer('qcm')(getProgressionId(state), choice));
-    }
-  }));
-
-const getAnswerProps = (slide, state, dispatch) => {
-  const questionType = get('question.type')(slide);
-
-  switch (questionType) {
-    case 'qcm':
-      return {
-        type: questionType,
-        answers: qcmOptions(state, dispatch)(getChoices(slide))
-      };
-
-    case 'template':
-    default:
-      return {
-        type: 'freeText',
-        answers: {
-          value: get('ui.answers')(state),
-          placeholder: 'Type here',
-          onInput: value => {
-            dispatch(editAnswer(questionType)(getProgressionId(state), value));
-          }
-        }
-      };
-  }
-};
-
-const extractFinalAnswer = (choices, questionType) => {
-  switch (questionType) {
-    case 'qcm':
-      return pipe(
-        get('ui.answers'),
-        reduce((acc, answer) => concat(acc, find({id: answer}, choices)), [])
-      );
-
-    default:
-      return get('ui.answers');
-  }
-};
+import {validateAnswer} from './actions/ui';
+import getAnswerProps from './answer-props';
+import {getProgression, getSlide, getProgressionId} from './state-extract';
 
 const toHeader = state => {
   return {
@@ -94,8 +28,12 @@ const toPlayer = (state, dispatch) => {
     cta: {
       submitValue: 'Validate',
       onClick: () => {
-        const finalAnswer = extractFinalAnswer(getChoices(slide), answer.type)(state);
-        dispatch(validateAnswer(getProgressionId(state), finalAnswer));
+        dispatch(
+          validateAnswer(getProgressionId(state), {
+            answers: get('ui.answers')(state),
+            slideRef: slide.ref
+          })
+        );
       },
       light: false,
       small: false,

@@ -105,7 +105,7 @@ SlidesPlayer.propTypes = {
   question: PropTypes.string.required,
   help: PropTypes.string,
   answer: PropTypes.shape({
-    type: PropTypes.oneOf(['draganddrop', 'qcm', 'qcmimage']).required
+    type: PropTypes.oneOf(['dragAndDrop', 'qcm', 'qcmImage', 'freeText']).required
   }),
   cta: PropTypes.object.required,
   buttons: PropTypes.array
