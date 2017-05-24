@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import noop from 'lodash/fp/noop';
+import get from 'lodash/fp/get';
 import style from './style.css';
 
-const FreeText = (props, context) => {
+const FreeText = (props, {skin}) => {
   const {placeholder = '', value, defaultValue, onChange = noop} = props;
 
   const handleChange = e => onChange(e.target.value);
@@ -18,6 +19,10 @@ const FreeText = (props, context) => {
         value={value}
         onInput={handleChange}
         onChange={noop}
+        style={{
+          color: get('common.primary', skin),
+          borderColor: get('common.primary', skin)
+        }}
       />
     </div>
   );

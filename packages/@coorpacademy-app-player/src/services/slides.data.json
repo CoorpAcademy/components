@@ -1,6 +1,6 @@
 [
   {
-    "ref": "qcmSlide-1",
+    "id": "qcmSlide-1",
     "question": {
       "type": "qcm",
       "header": "Quelles cases de QCM ne sont pas adjacentes ?",
@@ -44,7 +44,7 @@
     "tips": "Suspendisse augue dui, volutpat a turpis non, scelerisque vulputate tortor. Aliquam non ipsum eu ligula pellentesque elementum."
   },
   {
-    "ref": "templateSlide-1",
+    "id": "templateSlide-1",
     "question": {
       "type": "template",
       "header": "1 + 1 ?",

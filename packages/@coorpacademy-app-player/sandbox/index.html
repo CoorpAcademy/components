@@ -4,20 +4,17 @@
 <div id="player"></div>
 
 <script type="text/javascript" src="/dist/Player.js"></script>
-<script type="text/javascript" src="/dist/Scenarios.js"></script>
 <script type="text/javascript" src="/dist/Services.js"></script>
 
-<script>
-  const {dispatch} = window.Coorpacademy.Player.create({
-    container: document.getElementById('player'),
-    services: window.Coorpacademy.Services,
-    skin: {
-      common: {
-        primary: '#007bb3'
-      }
-    },
-    progression: '1'
-  });
-
-  // window.Coorpacademy.Scenarios.Victory(dispatch);
+<script type="text/javascript">
+window.Coorpacademy.Player.create({
+  container: document.getElementById('player'),
+  services: window.Coorpacademy.Services,
+  skin: {
+    common: {
+      primary: '#007bb3'
+    }
+  },
+  progression: '1'
+});
 </script>

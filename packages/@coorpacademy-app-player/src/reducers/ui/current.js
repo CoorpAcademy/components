@@ -1,5 +1,5 @@
 import set from 'lodash/fp/set';
-import {UI_SELECT_PROGRESSION} from '../../actions/ui';
+import {UI_SELECT_PROGRESSION} from '../../actions/ui/progressions';
 
 export default (state = {progressionId: null}, action) => {
   switch (action.type) {

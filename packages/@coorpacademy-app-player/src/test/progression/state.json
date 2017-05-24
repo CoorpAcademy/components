@@ -4,7 +4,7 @@
       "entities": {
         "0": {
           "content": {
-            "ref": "0",
+            "id": "0",
             "type": "slides"
           },
           "lives": 3,

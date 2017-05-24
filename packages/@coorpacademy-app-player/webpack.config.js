@@ -5,7 +5,6 @@ const {default: generateConfig} = require('@coorpacademy/webpack-config');
 
 const entry = {
   Player: ['babel-polyfill', './src'],
-  Scenarios: './src/scenarios',
   Services: './src/services'
 };
 

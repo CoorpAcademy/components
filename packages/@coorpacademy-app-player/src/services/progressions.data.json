@@ -3,7 +3,7 @@
     "id": "0",
     "actions": [],
     "content": {
-      "ref": "qcmSlide-1",
+      "id": "qcmSlide-1",
       "type": "slide"
     },
     "lives": 2,
@@ -16,7 +16,7 @@
     "id": "1",
     "actions": [],
     "content": {
-      "ref": "templateSlide-1",
+      "id": "templateSlide-1",
       "type": "slide"
     },
     "lives": 2,
