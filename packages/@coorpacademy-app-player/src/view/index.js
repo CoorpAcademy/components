@@ -2,9 +2,9 @@ import pipe from 'lodash/fp/pipe';
 import get from 'lodash/fp/get';
 import {createElement} from 'react';
 import {Provider, FreeRun} from '@coorpacademy/components';
-import {validateAnswer} from './actions/ui';
+import {getProgression, getSlide, getProgressionId} from '../state-extract';
+import {validateAnswer} from '../actions/ui/answers';
 import getAnswerProps from './answer-props';
-import {getProgression, getSlide, getProgressionId} from './state-extract';
 
 const toHeader = state => {
   return {
@@ -19,7 +19,7 @@ const toHeader = state => {
 
 const toPlayer = (state, dispatch) => {
   const progression = getProgression(state);
-  const slide = getSlide(progression, state);
+  const slide = getSlide(state);
   const answer = getAnswerProps(slide, state, dispatch);
 
   return {
@@ -31,7 +31,7 @@ const toPlayer = (state, dispatch) => {
         dispatch(
           validateAnswer(getProgressionId(state), {
             answers: get('ui.answers')(state),
-            slideRef: slide.ref
+            slideId: slide.id
           })
         );
       },

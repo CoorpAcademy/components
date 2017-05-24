@@ -1,5 +1,5 @@
 import set from 'lodash/fp/set';
-import {PROGRESSION_FETCH_SUCCESS, PROGRESSION_FETCH_REQUEST} from '../../actions/progressions';
+import {PROGRESSION_FETCH_SUCCESS, PROGRESSION_FETCH_REQUEST} from '../../actions/api/progressions';
 
 export default (state = {entities: {}}, action) => {
   switch (action.type) {

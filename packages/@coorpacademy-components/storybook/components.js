@@ -382,6 +382,7 @@ import ForumThreadFixtureWithAnswers from '../src/molecule/forum/forum-thread/te
 import DragAndDropFixtureDefault from '../src/molecule/questions/drag-and-drop/test/fixtures/default';
 import DragAndDropFixtureNoSelected from '../src/molecule/questions/drag-and-drop/test/fixtures/no-selected';
 import FreeTextFixtureDefault from '../src/molecule/questions/free-text/test/fixtures/default';
+import FreeTextFixtureWithDefaultValue from '../src/molecule/questions/free-text/test/fixtures/with-default-value';
 import QcmImageFixtureDefault from '../src/molecule/questions/qcm-image/test/fixtures/default';
 import QcmImageFixtureNoSelected from '../src/molecule/questions/qcm-image/test/fixtures/no-selected';
 import QcmFixtureDefault from '../src/molecule/questions/qcm/test/fixtures/default';
@@ -1086,7 +1087,8 @@ export const fixtures = {
       NoSelected: DragAndDropFixtureNoSelected
     },
     FreeText: {
-      Default: FreeTextFixtureDefault
+      Default: FreeTextFixtureDefault,
+      WithDefaultValue: FreeTextFixtureWithDefaultValue
     },
     QcmImage: {
       Default: QcmImageFixtureDefault,
@@ -2414,6 +2416,7 @@ export const dependencies = {
         },
         "MoleculeQuestions": {
           "DragAndDrop": true,
+          "FreeText": true,
           "QcmImage": true,
           "Qcm": true
         }
@@ -2485,6 +2488,14 @@ export const dependencies = {
       },
       "children": {}
     },
+    "FreeText": {
+      "parents": {
+        "MoleculeSlides": {
+          "SlidesPlayer": true
+        }
+      },
+      "children": {}
+    },
     "QcmImage": {
       "parents": {
         "MoleculeSlides": {
@@ -2499,9 +2510,6 @@ export const dependencies = {
           "SlidesPlayer": true
         }
       },
-      "children": {}
-    },
-    "FreeText": {
       "children": {}
     }
   },
