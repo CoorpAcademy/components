@@ -34,7 +34,7 @@ const qcmOptions = (state, dispatch) =>
     }
   }));
 
-const prepareUIAnswer = (slide, state, dispatch) => {
+const getAnswerProps = (slide, state, dispatch) => {
   const questionType = get('question.type')(slide);
 
   switch (questionType) {
@@ -86,7 +86,7 @@ const toHeader = state => {
 const toPlayer = (state, dispatch) => {
   const progression = getProgression(state);
   const slide = getSlide(progression, state);
-  const answer = prepareUIAnswer(slide, state, dispatch);
+  const answer = getAnswerProps(slide, state, dispatch);
 
   return {
     step: get('step')(progression),

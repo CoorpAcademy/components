@@ -1,6 +1,6 @@
 import remove from 'lodash/fp/remove';
 import includes from 'lodash/fp/includes';
-import {ANSWER_EDIT} from '../../actions/ui';
+import {ANSWER_EDIT, ANSWER_RESET} from '../../actions/ui';
 
 const editAnswerState = (state, questionType, answer) => {
   switch (questionType) {
@@ -25,6 +25,9 @@ export default (state = [], {type, payload}) => {
       const {answer, questionType} = payload;
       return editAnswerState(state, questionType, answer);
     }
+    case ANSWER_RESET:
+      return [];
+
     default:
       return state;
   }
