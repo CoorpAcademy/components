@@ -43,9 +43,20 @@ export const editAnswer = questionType => (progressionId, answer) => ({
   }
 });
 
+export const ANSWER_RESET = '@@answer/RESET';
+
+export const resetAnswer = progressionId => ({
+  type: ANSWER_RESET,
+  meta: {
+    progressionId
+  },
+  payload: {}
+});
+
 export const validateAnswer = (progressionId, body) => async (dispatch, getState) => {
   const response = await dispatch(createAnswer(progressionId, body));
   if (response.error) return response;
 
+  await dispatch(resetAnswer(progressionId));
   return dispatch(selectProgression(`${(parseInt(progressionId) + 1) % 2}`));
 };
