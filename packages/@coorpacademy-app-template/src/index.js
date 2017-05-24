@@ -1,5 +1,5 @@
 import {createStore} from 'redux';
-import {render} from 'react-dom';
+import {render, unmountComponentAtNode} from 'react-dom';
 import {syncStoreWithHistory} from '@coorpacademy/redux-history';
 import {createBrowserHistory} from '@coorpacademy/history';
 import createReducer from './reducers';
@@ -22,7 +22,6 @@ const create = options => {
   const history = createBrowserHistory();
 
   const store = createStore(createReducer(options), {}, createMiddleware({...options, history}));
-  const {dispatch} = store;
 
   let update = createUpdate(container, store, options)(createMapStateToVnode);
   let unsubscribe = store.subscribe(update);
@@ -39,8 +38,11 @@ const create = options => {
   syncStoreWithHistory(store, history);
 
   return {
-    dispatch,
-    unsubscribe: () => unsubscribe()
+    update: () => update(),
+    unsubscribe: () => {
+      unmountComponentAtNode(container);
+      return unsubscribe();
+    }
   };
 };
 

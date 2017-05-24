@@ -1,5 +1,5 @@
 import {createStore} from 'redux';
-import {render} from 'react-dom';
+import {render, unmountComponentAtNode} from 'react-dom';
 import createReducer from './reducers';
 import createMiddleware from './middlewares';
 import createMapStateToVnode from './views';
@@ -36,8 +36,11 @@ const create = options => {
   dispatch(fetchDiscussionAction());
 
   return {
-    dispatch,
-    unsubscribe: () => unsubscribe()
+    update: () => update(),
+    unsubscribe: () => {
+      unmountComponentAtNode(container);
+      return unsubscribe();
+    }
   };
 };
 
