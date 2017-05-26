@@ -1,6 +1,6 @@
 import {fetchProgression} from '../api/progressions';
 import {fetchSlide} from '../api/slides';
-import {getProgression, getProgressionId} from '../../state-extract';
+import {getProgression, getProgressionId} from '../../utils/state-extract';
 
 export const UI_SELECT_PROGRESSION = '@@ui/SELECT_PROGRESSION';
 

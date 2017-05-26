@@ -16,7 +16,7 @@ test('should find progression', async t => {
   t.deepEqual(await findById(progression.id), progression);
 });
 
-test('should add anwser action', async t => {
+test('should add answer action', async t => {
   const progression = await createProgression({});
 
   const progressionWithAnswer = await createAnswer(progression.id);

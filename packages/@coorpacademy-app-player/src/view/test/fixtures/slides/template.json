@@ -1,0 +1,20 @@
+{
+  "id": "templateSlide-1",
+  "question": {
+    "type": "template",
+    "header": "1 + 1 ?",
+    "explanation": "(plusieurs réponses possibles)"
+  },
+  "lessons": [
+    {
+      "description": "La recherche en ligne A",
+      "mimeType": "application/vimeo",
+      "videoId": 33678526,
+      "width": 611,
+      "height": 280
+    }
+  ],
+  "clue": "imperdiet nunc in, pellentesque tortor !!!",
+  "klf": "Phasellus imperdiet neque a ipsum venenatis, vel ultrices orci tincidunt. Praesent venenatis diam turpis, rutrum convallis quam varius vitae. In hac habitasse platea dictumst. In hendrerit lorem sagittis, hendrerit orci id, varius velit. Maecenas lobortis malesuada urna, eget placerat ligula adipiscing at.",
+  "tips": "Suspendisse augue dui, volutpat a turpis non, scelerisque vulputate tortor. Aliquam non ipsum eu ligula pellentesque elementum."
+}

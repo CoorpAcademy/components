@@ -2,7 +2,7 @@ import pipe from 'lodash/fp/pipe';
 import get from 'lodash/fp/get';
 import {createElement} from 'react';
 import {Provider, FreeRun} from '@coorpacademy/components';
-import {getProgression, getSlide, getProgressionId} from '../state-extract';
+import {getProgression, getSlide, getProgressionId} from '../utils/state-extract';
 import {validateAnswer} from '../actions/ui/answers';
 import getAnswerProps from './answer-props';
 
@@ -20,7 +20,7 @@ const toHeader = state => {
 const toPlayer = (state, dispatch) => {
   const progression = getProgression(state);
   const slide = getSlide(state);
-  const answer = getAnswerProps(slide, state, dispatch);
+  const answer = getAnswerProps(state, slide, dispatch);
 
   return {
     step: get('step')(progression),

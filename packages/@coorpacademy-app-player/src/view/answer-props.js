@@ -3,7 +3,7 @@ import includes from 'lodash/fp/includes';
 import head from 'lodash/fp/head';
 import get from 'lodash/fp/get';
 import map from 'lodash/fp/map';
-import {getChoices, getProgressionId, getQuestionType} from '../state-extract';
+import {getChoices, getProgressionId, getQuestionType} from '../utils/state-extract';
 import {editAnswer} from '../actions/ui/answers';
 
 const editAnswerAction = (state, slide, dispatch) => newValue => {
@@ -28,7 +28,7 @@ const qcmTemplateProps = (state, slide, dispatch) => ({
   onChange: editAnswerAction(state, slide, dispatch)
 });
 
-export default function getAnswerProps(slide, state, dispatch) {
+export default function getAnswerProps(state, slide, dispatch) {
   const type = getQuestionType(slide);
   switch (type) {
     case 'qcm':
