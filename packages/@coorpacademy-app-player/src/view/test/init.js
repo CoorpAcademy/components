@@ -1,7 +1,7 @@
 import noop from 'lodash/fp/noop';
 import test from 'ava';
-import {createMapStateToProps} from '../../view';
-import state from './state';
+import {createMapStateToProps} from '..';
+import state from './fixtures/init-state';
 
 const mapStateToProps = createMapStateToProps({})(noop);
 

@@ -12,6 +12,8 @@ export const ANSWER_EDIT = {
 const newState = (state, questionType, newValue) => {
   switch (questionType) {
     case 'qcm':
+      if (!newValue.label) return state;
+
       if (includes(newValue.label, state)) {
         return remove(label => label === newValue.label)(state);
       } else {
@@ -22,6 +24,7 @@ const newState = (state, questionType, newValue) => {
       return [newValue];
 
     default:
+      return state;
   }
 };
 
