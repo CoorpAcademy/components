@@ -1,21 +1,22 @@
 import map from 'lodash/fp/map';
 import toPairs from 'lodash/fp/toPairs';
 import kebabCase from 'lodash/fp/kebabCase';
-import React from 'react';
-import {renderToString} from 'react-dom/server';
+import {createElement} from 'react';
+import {renderToStaticMarkup} from 'react-dom/server';
 
-const toHelpers = (components, Provider) => {
+const DefaultProvider = ({children}) => children;
+
+const toHelpers = (components, Provider = DefaultProvider) => {
   const toHelper = ([componentName, Component]) => {
     return (dust, options) => {
       dust.helpers[kebabCase(componentName)] = (chunk, context, bodies, props) => {
-        let vTree = React.createElement(Component, props);
-        if (Provider) {
-          const providerOptions = {
-            skin: context.get('skin')
-          };
-          vTree = React.createElement(Provider, providerOptions, vTree);
-        }
-        const html = renderToString(vTree);
+        const providerPropsAttribute = props.context;
+        const providerProps = providerPropsAttribute ? context.get(providerPropsAttribute) : {};
+
+        const html = renderToStaticMarkup(
+          createElement(Provider, providerProps, createElement(Component, props))
+        );
+
         chunk.write(html);
       };
     };

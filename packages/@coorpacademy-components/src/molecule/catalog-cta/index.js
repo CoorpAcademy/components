@@ -1,29 +1,25 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import StarRating from '../../molecule/star-rating';
 import {hoverFill} from '../../atom/button/hover-fill.css';
 import style from './style.css';
 
 const CatalogCTA = (props, context) => {
-  const {
-    rating,
-    maxRating,
-    linkBuy = '#',
-    linkTry = '#'
-  } = props;
-  const {
-    translate
-  } = context;
+  const {rating, maxRating, linkBuy = '#', linkTry = '#'} = props;
+  const {translate} = context;
 
   const startLearning = (
     <span
-      dangerouslySetInnerHTML={{ // eslint-disable-line react/no-danger
+      // eslint-disable-next-line react/no-danger
+      dangerouslySetInnerHTML={{
         __html: translate('Start <span>learning</span>')
       }}
     />
   );
   const premium = (
     <span
-      dangerouslySetInnerHTML={{ // eslint-disable-line react/no-danger
+      // eslint-disable-next-line react/no-danger
+      dangerouslySetInnerHTML={{
         __html: translate('Coorpacademy <span>subscription</span>')
       }}
     />
@@ -32,21 +28,12 @@ const CatalogCTA = (props, context) => {
   return (
     <div className={style.head}>
       <div className={style.starRating}>
-        <StarRating
-          rating={rating}
-          total={maxRating}
-        />
+        <StarRating rating={rating} total={maxRating} />
       </div>
-      <a
-        className={`${style.try} ${hoverFill}`}
-        href={linkTry}
-      >
+      <a className={`${style.try} ${hoverFill}`} href={linkTry}>
         {startLearning}
       </a>
-      <a
-        className={`${style.buy} ${hoverFill}`}
-        href={linkBuy}
-      >
+      <a className={`${style.buy} ${hoverFill}`} href={linkBuy}>
         {premium}
       </a>
     </div>
@@ -54,7 +41,7 @@ const CatalogCTA = (props, context) => {
 };
 
 CatalogCTA.contextTypes = {
-  translate: React.PropTypes.func
+  translate: PropTypes.func
 };
 
 CatalogCTA.propTypes = {

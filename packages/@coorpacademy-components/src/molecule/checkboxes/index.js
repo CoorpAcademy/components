@@ -1,28 +1,31 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
-import identity from 'lodash/fp/identity';
+import values from 'lodash/fp/values';
 import TitledCheckbox from '../titled-checkbox';
 import style from './style.css';
 
-const DEFAULT = 'default';
-const NORMAL = 'normal';
-const CLOSABLE = 'closable';
-const CLOSED = 'closed';
+const THEME = {
+  DEFAULT: 'default',
+  COURSES: 'courses'
+};
 
-/**
- * themes
- *  - default (default)
- *  - courses
- *
- * modes
- *  - normal (default)
- *  - closable
- *
- * status
- *  - closed (default)
- *  - open
- */
+const MODE = {
+  NORMAL: 'normal',
+  CLOSABLE: 'closable'
+};
+
+const STATUS = {
+  CLOSED: 'closed',
+  OPEN: 'open'
+};
+
+const statusStyle = {
+  closed: style.closed,
+  open: style.open
+};
+
 function Checkboxes(props, context) {
   const {
     title,
@@ -30,15 +33,13 @@ function Checkboxes(props, context) {
     onToggle,
     onClose,
     onOpen,
-    theme = DEFAULT,
-    mode = NORMAL,
+    theme = THEME.DEFAULT,
+    mode = MODE.NORMAL,
     close: _close,
-    status: _status = CLOSED
+    status: _status = STATUS.CLOSED
   } = props;
 
-  const {
-    skin
-  } = context;
+  const {skin} = context;
 
   const cross = String.fromCharCode(getOr('x', 'icons.close', skin));
   const arrow = String.fromCharCode(getOr('v', 'icons["arrow-bottom"]', skin));
@@ -56,30 +57,25 @@ function Checkboxes(props, context) {
 
   const openHeader = ({close: closeHeader, onClose: handlerClose}) => (
     <div className={style.openHeader}>
-      <span
-        className={style.closeText}
-      >
+      <span className={style.closeText}>
         {closeHeader}
       </span>
-      <span
-        className={style.close}
-        onClick={handlerClose}
-      >
+      <span className={style.close} onClick={handlerClose}>
         {cross}
       </span>
     </div>
   );
 
   const createHeader = _options => {
-    return get('status', _options) === CLOSED ?
-      closedHeader(_options) :
-      openHeader(_options);
+    return get('status', _options) === STATUS.CLOSED
+      ? closedHeader(_options)
+      : openHeader(_options);
   };
 
   const isCourses = theme === 'courses';
   let header = null;
 
-  if (mode === CLOSABLE) {
+  if (mode === MODE.CLOSABLE) {
     header = createHeader({
       title,
       close: _close,
@@ -95,21 +91,14 @@ function Checkboxes(props, context) {
     const background = isCourses ? coursesBG : defaultBG;
 
     return (
-      <li
-        className={style.line}
-        key={i}
-      >
-        <TitledCheckbox
-          background={background}
-          onToggle={onToggle}
-          state={choice}
-        />
+      <li className={style.line} key={i}>
+        <TitledCheckbox background={background} onToggle={onToggle} state={choice} />
       </li>
     );
   });
 
   return (
-    <div className={style[_status]}>
+    <div className={statusStyle[_status]}>
       {header}
       <ul className={style.list}>
         {lines}
@@ -119,18 +108,18 @@ function Checkboxes(props, context) {
 }
 
 Checkboxes.contextTypes = {
-  skin: React.PropTypes.object
+  skin: PropTypes.object
 };
 
 Checkboxes.propTypes = {
   choices: PropTypes.array.isRequired,
   close: PropTypes.func,
-  mode: PropTypes.string,
+  mode: PropTypes.oneOf(values(MODE)),
   onClose: PropTypes.func,
   onOpen: PropTypes.func,
   onToggle: PropTypes.func,
-  status: PropTypes.string,
-  theme: PropTypes.string,
+  status: PropTypes.oneOf(values(STATUS)),
+  theme: PropTypes.oneOf(values(THEME)),
   title: PropTypes.string.isRequired
 };
 export default Checkboxes;

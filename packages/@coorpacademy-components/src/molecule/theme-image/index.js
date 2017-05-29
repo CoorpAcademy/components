@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import extractor from '../../util/image';
 import style from './style.css';
 
@@ -13,31 +14,19 @@ function ThemeImage({image}, {skin}) {
 
   return (
     <div className={style.wrapper}>
-      <div
-        className={style.default}
-        style={defaultStyle}
-      />
+      <div className={style.default} style={defaultStyle} />
 
-      <div
-        className={style.desktop}
-        style={desktopStyle}
-      />
+      <div className={style.desktop} style={desktopStyle} />
 
-      <div
-        className={style.tablet}
-        style={tabletStyle}
-      />
+      <div className={style.tablet} style={tabletStyle} />
 
-      <div
-        className={style.mobile}
-        style={mobileStyle}
-      />
+      <div className={style.mobile} style={mobileStyle} />
     </div>
   );
 }
 
 ThemeImage.contextTypes = {
-  skin: React.PropTypes.object
+  skin: PropTypes.object
 };
 
 ThemeImage.propTypes = {

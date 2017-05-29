@@ -1,21 +1,16 @@
-import React, {PropTypes} from 'react';
-import map from 'lodash/fp/map';
+import React from 'react';
+import PropTypes from 'prop-types';
 import BrandCreateForm from '../../../molecule/brand-create-form';
 import Notification from '../../../atom/notification';
 import Layout from '../layout';
 import style from './style.css';
 
 const BrandCreate = Layout(props => {
-  const {
-    notifications = []
-  } = props;
+  const {notifications = []} = props;
 
   const notificationsList = notifications.map((notification, index) => {
     return (
-      <div
-        key={index}
-        className={style.notification}
-      >
+      <div key={index} className={style.notification}>
         <Notification {...notification} />
       </div>
     );
@@ -34,11 +29,13 @@ const BrandCreate = Layout(props => {
 });
 
 BrandCreate.propTypes = {
-  notifications: PropTypes.arrayOf(PropTypes.shape({
-    type: PropTypes.string.isRequired,
-    message: PropTypes.string.isRequired,
-    onClose: PropTypes.func
-  })),
+  notifications: PropTypes.arrayOf(
+    PropTypes.shape({
+      type: PropTypes.string.isRequired,
+      message: PropTypes.string.isRequired,
+      onClose: PropTypes.func
+    })
+  ),
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,

@@ -1,12 +1,9 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import style from './style.css';
 
 const Search = props => {
-  const {
-    value,
-    placeholder,
-    onChange
-  } = props;
+  const {value, placeholder, onChange} = props;
 
   const handleChange = e => onChange(e.target.value);
 
@@ -14,8 +11,8 @@ const Search = props => {
     <div className={style.wrapper}>
       <input
         className={style.search}
-        type='text'
-        name='search'
+        type="text"
+        name="search"
         placeholder={placeholder}
         value={value}
         onInput={handleChange}

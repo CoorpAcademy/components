@@ -55,14 +55,6 @@
   display: block;
 }
 
-.notifWrapper {
-  position: relative;
-}
-
-.notifWrapper .notifications {
-  top: -5px;
-}
-
 .homeMenu {
   display: none;
 }

@@ -1,16 +1,10 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import * as CustomPropTypes from '../../../util/proptypes';
 import DisciplineHeader from '../../../molecule/discipline-header';
 import DisciplinePartners from '../../../molecule/discipline-partners';
 import CatalogCards from '../../../organism/catalog-cards';
-import layout from '../layout.css';
 import style from './style.css';
-
-const conditions = PropTypes.shape({
-  props: PropTypes.shape({
-
-  })
-});
 
 const Author = (props, context) => {
   const {translate} = context;
@@ -28,26 +22,17 @@ const Author = (props, context) => {
   return (
     <div className={style.wrapper}>
       <div className={style.header}>
-        <DisciplineHeader
-          image={image}
-          title={title}
-          description={description}
-        />
+        <DisciplineHeader image={image} title={title} description={description} />
       </div>
       <div className={style.partners}>
-        <DisciplinePartners
-          authors={authors}
-          authorTitle={translate('Informations')}
-        />
+        <DisciplinePartners authors={authors} authorTitle={translate('Informations')} />
       </div>
       <div className={style.content}>
-        <div className={layout.container}>
-          <span className={layout.cardsTitle}>
+        <div className={style.container}>
+          <span className={style.cardsTitle}>
             {cardsTitle}
           </span>
-          <CatalogCards
-            products={disciplines}
-          />
+          <CatalogCards products={disciplines} />
         </div>
       </div>
     </div>
@@ -55,7 +40,7 @@ const Author = (props, context) => {
 };
 
 Author.contextTypes = {
-  translate: React.PropTypes.func
+  translate: PropTypes.func
 };
 
 Author.propTypes = {
@@ -69,8 +54,6 @@ Author.propTypes = {
     href: PropTypes.string,
     socialLinks: PropTypes.array
   }),
-  disciplines: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.object)
-  ])
+  disciplines: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.object)])
 };
 export default Author;

@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import * as CustomPropTypes from '../../util/proptypes';
 import ForumComment from '../../molecule/forum/forum-comment';
 import ForumThread from '../../molecule/forum/forum-thread';
@@ -20,14 +21,10 @@ function Discussion(props) {
     postDisabled
   } = props;
 
-  const threadsView = threads.map(thread => (
-    <ForumThread
-      key={thread.id}
-      {...thread}
-    />
-  ));
+  const threadsView = threads.map(thread => <ForumThread key={thread.id} {...thread} />);
 
-  const commentView = !hideComments && (
+  const commentView =
+    !hideComments &&
     <ForumComment
       avatar={avatar}
       value={value}
@@ -35,14 +32,13 @@ function Discussion(props) {
       onChange={onChange}
       textareaDisabled={textareaDisabled}
       postDisabled={postDisabled}
-    />
-  );
+    />;
 
-  const loader = loading && (
+  const loader =
+    loading &&
     <div className={style.loader}>
       <Loader />
-    </div>
-  );
+    </div>;
 
   return (
     <div className={style.thread}>

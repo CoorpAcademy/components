@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
 import style from './style.css';
 
 const GridList = ({children}) => {

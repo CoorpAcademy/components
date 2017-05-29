@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import noop from 'lodash/fp/noop';
 import getClassState from '../../util/get-class-state';
 import style from './style.css';
@@ -19,24 +20,23 @@ const InputText = props => {
     backgroundColor: value
   };
   const handleChange = e => onChange(e.target.value);
+  const className = getClassState(style.default, style.modified, style.error, modified, error);
 
   return (
-    <div className={getClassState(style, modified, error)}>
+    <div className={className}>
       <label>
         <span className={style.title}>{`${title} `}</span>
         <input
-          type='text'
+          type="text"
           name={title}
+          className={style.input}
           placeholder={placeholder}
           defaultValue={defaultValue}
           value={value}
           onInput={handleChange}
           onChange={noop}
         />
-        <span
-          className={style.preview}
-          style={inlineStyle}
-        />
+        <span className={style.preview} style={inlineStyle} />
       </label>
       <div className={style.description}>
         {description}

@@ -1,32 +1,19 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import style from './style.css';
 
 const InputDoublestep = props => {
-  const {
-    title,
-    toggleValue,
-    cancelValue,
-    onChange,
-    description
-  } = props;
+  const {title, toggleValue, cancelValue, onChange, description} = props;
 
   return (
     <div className={style.wrapper}>
       <div className={style.value}>
-        <input
-          type='checkbox'
-          id={toggleValue}
-          name={toggleValue}
-          className={style.checkbox}
-        />
+        <input type="checkbox" id={toggleValue} name={toggleValue} className={style.checkbox} />
         <label htmlFor={toggleValue}>
           <span className={style.toggle}>{toggleValue}</span>
           <span className={style.cancel}>{cancelValue}</span>
         </label>
-        <button
-          onClick={onChange}
-          className={style.delete}
-        >
+        <button onClick={onChange} className={style.delete}>
           {title}
         </button>
       </div>

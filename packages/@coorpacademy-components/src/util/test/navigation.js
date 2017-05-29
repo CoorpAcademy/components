@@ -113,8 +113,7 @@ test('should not do anything if event is mouse click used with keyboard modifier
     href: '/foo'
   };
 
-  const createEventWithModifier = modifier =>
-    createEvent({...props, [modifier]: true});
+  const createEventWithModifier = modifier => createEvent({...props, [modifier]: true});
 
   const onClick = pushToHistory(options);
   onClick(props)(createEventWithModifier('altKey'));

@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import * as CustomPropTypes from '../../../util/proptypes';
 import Button from '../../../atom/button';
 import style from './style.css';
@@ -6,16 +7,14 @@ import style from './style.css';
 const ForumComment = (props, context) => {
   const {translate} = context;
   const {avatar, onPost, onChange, value, textareaDisabled, postDisabled} = props;
-  const avatarView = avatar && (
+  const avatarView =
+    avatar &&
     <div className={style.image}>
       <img src={avatar} />
-    </div>
-  );
+    </div>;
 
   const button = (
-    <div
-      className={style.post}
-    >
+    <div className={style.post}>
       <Button
         onClick={onPost}
         disabled={postDisabled}
@@ -44,7 +43,7 @@ const ForumComment = (props, context) => {
 };
 
 ForumComment.contextTypes = {
-  translate: React.PropTypes.func
+  translate: PropTypes.func
 };
 
 ForumComment.propTypes = {

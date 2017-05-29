@@ -1,0 +1,27 @@
+{
+  "data": {
+    "progressions": {
+      "entities": {
+        "0": {
+          "content": {
+            "id": "0",
+            "type": "slides"
+          },
+          "lives": 3,
+          "step": {
+            "current": 0,
+            "total": 4
+          }
+        }
+      }
+    },
+    "slides": {
+      "entities": {}
+    }
+  },
+  "ui": {
+    "current": {
+      "progressionId": "0"
+    }
+  }
+}

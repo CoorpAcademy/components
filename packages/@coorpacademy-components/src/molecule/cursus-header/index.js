@@ -1,15 +1,12 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Picture from '../../atom/picture';
 import style from './style.css';
 
 const CursusHeader = props => {
   const {image, title, description} = props;
 
-  const imageView = image && (
-    <Picture
-      src={image}
-    />
-  );
+  const imageView = image && <Picture src={image} />;
 
   return (
     <div>

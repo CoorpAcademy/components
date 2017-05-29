@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import Button from '../../atom/button';
@@ -12,13 +13,11 @@ const ScopeContent = (props, context) => {
 
   const lstitle = translate('At the end of this level, you will be able to:');
   const _chaptersTitle = translate('chapters');
-  const assetsTitle = translate('assets');
 
   const time = getOr('', 'time', content);
   const title = getOr('', 'title', content);
   const _skills = getOr([], 'skills', content);
   const _chapters = getOr([], 'chapters', content);
-  const _assets = getOr([], 'course_scope', content);
   const _medias = getOr([], 'medias', content);
 
   const skillsTitle = getOr(lstitle, 'skillsTitle', content);
@@ -27,19 +26,12 @@ const ScopeContent = (props, context) => {
   const onClick = get('onClick', content);
   const buttonLabel = get('buttonLabel', content);
 
-  const skills = _skills.map((skill, index) => (
-    <li key={index}>{skill}</li>
-  ));
+  const skills = _skills.map((skill, index) => <li key={index}>{skill}</li>);
 
-  const chapters = _chapters.map((chapter, index) => (
-    <li key={index}>{chapter.name}</li>
-  ));
+  const chapters = _chapters.map((chapter, index) => <li key={index}>{chapter.name}</li>);
 
-  const assets = _assets.map((asset, index) => (
-    <span key={index}>{asset}</span>
-  ));
-
-  const ctaView = onClick && (
+  const ctaView =
+    onClick &&
     <Button
       className={style.cta}
       onClick={onClick}
@@ -47,27 +39,14 @@ const ScopeContent = (props, context) => {
       style={{
         backgroundColor: getOr('#000', 'common.primary', skin)
       }}
-    />
-  );
+    />;
 
   const medias = _medias.map((media, index) => {
-    const {
-      onClick: handleClick,
-      href = '#',
-      target,
-      type
-    } = media;
-    const playButton = handleClick && type === 'video' && (
-      <div className={style.play} />
-    );
+    const {onClick: handleClick, href = '#', target, type} = media;
+    const playButton = handleClick && type === 'video' && <div className={style.play} />;
 
     return (
-      <Link key={index}
-        className={style.media}
-        onClick={handleClick}
-        href={href}
-        target={target}
-      >
+      <Link key={index} className={style.media} onClick={handleClick} href={href} target={target}>
         <div className={style.imgWrapper}>
           <img src={media.image} />
           {playButton}
@@ -79,11 +58,11 @@ const ScopeContent = (props, context) => {
     );
   });
 
-  const mediasView = _medias.length > 0 ? (
-    <div className={style.medias}>
-      {medias}
-    </div>
-  ) : null;
+  const mediasView = _medias.length > 0
+    ? <div className={style.medias}>
+        {medias}
+      </div>
+    : null;
 
   return (
     <div>
@@ -97,9 +76,10 @@ const ScopeContent = (props, context) => {
           </div>
           {ctaView}
         </div>
-        <div {...addClassName(`${style.column}`)({
-          className: style.skills
-        })}
+        <div
+          {...addClassName(`${style.column}`)({
+            className: style.skills
+          })}
         >
           <div className={style.coltitle}>
             {skillsTitle}
@@ -112,7 +92,7 @@ const ScopeContent = (props, context) => {
           <div className={style.coltitle}>
             {chaptersTitle}
           </div>
-          <div className={style.dotscontainer}>
+          <div>
             <ul className={style.roundedlist}>
               {chapters}
             </ul>
@@ -127,7 +107,7 @@ const ScopeContent = (props, context) => {
 
 ScopeContent.contextTypes = {
   skin: PropTypes.object,
-  translate: React.PropTypes.func
+  translate: PropTypes.func
 };
 
 ScopeContent.propTypes = {
@@ -141,11 +121,13 @@ ScopeContent.propTypes = {
     skills: PropTypes.arrayOf(PropTypes.string),
     chapters: PropTypes.arrayOf(PropTypes.object),
     course_scope: PropTypes.arrayOf(PropTypes.string),
-    medias: PropTypes.arrayOf(PropTypes.shape({
-      ...Link.propTypes,
-      title: PropTypes.string,
-      image: PropTypes.string
-    }))
+    medias: PropTypes.arrayOf(
+      PropTypes.shape({
+        ...Link.propTypes,
+        title: PropTypes.string,
+        image: PropTypes.string
+      })
+    )
   })
 };
 

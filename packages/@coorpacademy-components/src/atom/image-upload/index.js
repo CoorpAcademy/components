@@ -1,6 +1,6 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import uniqueId from 'lodash/fp/uniqueId';
-import shallowCompare from '../../util/shallow-compare';
 import Loader from './../loader';
 import style from './style.css';
 
@@ -14,10 +14,6 @@ class ImageUpload extends React.Component {
 
     this.handleDragStart = this.handleDragStart.bind(this);
     this.handleDragStop = this.handleDragStop.bind(this);
-  }
-
-  shouldComponentUpdate(nextProps, nextState, nextContext) {
-    return shallowCompare(this, nextProps, nextState, nextContext);
   }
 
   handleDragStart() {
@@ -34,7 +30,6 @@ class ImageUpload extends React.Component {
 
   render() {
     const idBox = uniqueId('drop-box-');
-    const {translate, skin} = this.context;
     const {
       title,
       onChange,
@@ -50,17 +45,20 @@ class ImageUpload extends React.Component {
       previewView = (
         <div className={style.image}>
           <img src={previewImage} />
-        </div>);
+        </div>
+      );
     } else if (loading) {
       previewView = (
         <div className={style.loading}>
           <Loader />
-        </div>);
+        </div>
+      );
     } else {
       previewView = (
         <span>
           {previewLabel}
-        </span>);
+        </span>
+      );
     }
 
     return (
@@ -69,16 +67,14 @@ class ImageUpload extends React.Component {
         <div className={modified ? style.modified : style.previewWrapper}>
           {previewView}
         </div>
-        <div className={this.state.dragging ? style.dragging : style.inputWrapper}
-          id={idBox}
-        >
+        <div className={this.state.dragging ? style.dragging : style.inputWrapper} id={idBox}>
           <i className={style.arrow} />
           <div className={style.uploadLabel}>
             {uploadLabel}
           </div>
           <input
-            type='file'
-            accept='image/*'
+            type="file"
+            accept="image/*"
             disabled={loading}
             className={style.input}
             onChange={onChange}
@@ -91,11 +87,6 @@ class ImageUpload extends React.Component {
     );
   }
 }
-
-ImageUpload.contextTypes = {
-  skin: React.PropTypes.object,
-  translate: React.PropTypes.func
-};
 
 ImageUpload.propTypes = {
   title: PropTypes.string,

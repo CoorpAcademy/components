@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+
 import Button from '../src/atom/button';
 import CatalogSection from '../src/atom/catalog-section';
 import CenteredText from '../src/atom/centered-text';
@@ -17,12 +19,15 @@ import Link from '../src/atom/link';
 import Loader from '../src/atom/loader';
 import Notification from '../src/atom/notification';
 import Picture from '../src/atom/picture';
+import PromoCode from '../src/atom/promo-code';
 import Provider from '../src/atom/provider';
 import Select from '../src/atom/select';
 import Slide from '../src/atom/slide';
 import SocialLink from '../src/atom/social-link';
 import Spinner from '../src/atom/spinner';
 import Star from '../src/atom/star';
+import TabContent from '../src/atom/tab-content';
+import Tab from '../src/atom/tab';
 import Title from '../src/atom/title';
 import BattleRequest from '../src/molecule/battle-request';
 import BrandCardCreate from '../src/molecule/brand-card-create';
@@ -53,6 +58,8 @@ import ModuleBubble from '../src/molecule/module-bubble';
 import ModuleCard from '../src/molecule/module-card';
 import News from '../src/molecule/news';
 import Pagination from '../src/molecule/pagination';
+import PaymentForm from '../src/molecule/payment-form';
+import ProductCard from '../src/molecule/product-card';
 import ProgressBar from '../src/molecule/progress-bar';
 import RangeSlider from '../src/molecule/range-slider';
 import ScopeContent from '../src/molecule/scope-content';
@@ -66,9 +73,12 @@ import SetupSlider from '../src/molecule/setup-slider';
 import Slider from '../src/molecule/slider';
 import SsmenuList from '../src/molecule/ssmenu-list';
 import StarRating from '../src/molecule/star-rating';
+import SubscriptionFreemium from '../src/molecule/subscription-freemium';
+import SubscriptionPremium from '../src/molecule/subscription-premium';
 import Table from '../src/molecule/table';
 import ThemeImage from '../src/molecule/theme-image';
 import TitledCheckbox from '../src/molecule/titled-checkbox';
+import Unsubscribe from '../src/molecule/unsubscribe';
 import VideoIframe from '../src/molecule/video-iframe';
 import VideoPlayer from '../src/molecule/video-player';
 import BattleRequestList from '../src/molecule/dashboard/battle-request-list';
@@ -78,10 +88,18 @@ import StartBattle from '../src/molecule/dashboard/start-battle';
 import ForumComment from '../src/molecule/forum/forum-comment';
 import ForumPost from '../src/molecule/forum/forum-post';
 import ForumThread from '../src/molecule/forum/forum-thread';
+import DragAndDrop from '../src/molecule/questions/drag-and-drop';
+import FreeText from '../src/molecule/questions/free-text';
+import QcmImage from '../src/molecule/questions/qcm-image';
+import Qcm from '../src/molecule/questions/qcm';
+import SlidesFooter from '../src/molecule/slides/slides-footer';
+import SlidesHeader from '../src/molecule/slides/slides-header';
+import SlidesPlayer from '../src/molecule/slides/slides-player';
 import BrandForm from '../src/organism/brand-form';
 import BrandTable from '../src/organism/brand-table';
 import BrandUpload from '../src/organism/brand-upload';
 import CardsGrid from '../src/organism/cards-grid';
+import Cart from '../src/organism/cart';
 import CatalogCards from '../src/organism/catalog-cards';
 import DisciplineCards from '../src/organism/discipline-cards';
 import Discussion from '../src/organism/discussion';
@@ -90,11 +108,13 @@ import Header from '../src/organism/header';
 import Hero from '../src/organism/hero';
 import MoocHeader from '../src/organism/mooc-header';
 import Popin from '../src/organism/popin';
+import Settings from '../src/organism/settings';
 import SetupHeader from '../src/organism/setup-header';
 import Author from '../src/template/app-catalog/author';
 import Catalog from '../src/template/app-catalog/catalog';
 import ProductCourse from '../src/template/app-catalog/product-course';
 import ProductCursus from '../src/template/app-catalog/product-cursus';
+import FreeRun from '../src/template/app-player/free-run';
 import BrandCreate from '../src/template/back-office/brand-create';
 import BrandList from '../src/template/back-office/brand-list';
 import BrandUpdate from '../src/template/back-office/brand-update';
@@ -107,11 +127,13 @@ import ButtonFixtureA from '../src/atom/button/test/fixtures/a';
 import ButtonFixtureBlue from '../src/atom/button/test/fixtures/blue';
 import ButtonFixtureCentered from '../src/atom/button/test/fixtures/centered';
 import ButtonFixtureClassName from '../src/atom/button/test/fixtures/class-name';
+import ButtonFixtureClear from '../src/atom/button/test/fixtures/clear';
 import ButtonFixtureDark from '../src/atom/button/test/fixtures/dark';
 import ButtonFixtureDefault from '../src/atom/button/test/fixtures/default';
 import ButtonFixtureDisabled from '../src/atom/button/test/fixtures/disabled';
 import ButtonFixtureLight from '../src/atom/button/test/fixtures/light';
 import ButtonFixtureLink from '../src/atom/button/test/fixtures/link';
+import ButtonFixtureSso from '../src/atom/button/test/fixtures/sso';
 import CatalogSectionFixtureList from '../src/atom/catalog-section/test/fixtures/list';
 import CatalogSectionFixturePicture from '../src/atom/catalog-section/test/fixtures/picture';
 import CenteredTextFixtureDefault from '../src/atom/centered-text/test/fixtures/default';
@@ -127,10 +149,12 @@ import CtaFixtureSecondary from '../src/atom/cta/test/fixtures/secondary';
 import HandleFixtureAxisX from '../src/atom/handle/test/fixtures/axis-x';
 import HandleFixtureAxisY from '../src/atom/handle/test/fixtures/axis-y';
 import HandleFixtureDefault from '../src/atom/handle/test/fixtures/default';
-import ImageUploadFixtureDefault from '../src/atom/image-upload/test/fixtures/default';
-import ImageUploadFixtureImage from '../src/atom/image-upload/test/fixtures/image';
+import ImageUploadFixtureDesktop from '../src/atom/image-upload/test/fixtures/desktop';
+import ImageUploadFixtureEmail from '../src/atom/image-upload/test/fixtures/email';
 import ImageUploadFixtureLoading from '../src/atom/image-upload/test/fixtures/loading';
+import ImageUploadFixtureMobile from '../src/atom/image-upload/test/fixtures/mobile';
 import ImageUploadFixtureModified from '../src/atom/image-upload/test/fixtures/modified';
+import ImageUploadFixtureWithoutImage from '../src/atom/image-upload/test/fixtures/without-image';
 import InputCheckboxFixtureChecked from '../src/atom/input-checkbox/test/fixtures/checked';
 import InputCheckboxFixtureDefault from '../src/atom/input-checkbox/test/fixtures/default';
 import InputCheckboxFixtureDisabled from '../src/atom/input-checkbox/test/fixtures/disabled';
@@ -146,8 +170,8 @@ import InputReadonlyFixtureDefault from '../src/atom/input-readonly/test/fixture
 import InputSwitchFixtureChecked from '../src/atom/input-switch/test/fixtures/checked';
 import InputSwitchFixtureModified from '../src/atom/input-switch/test/fixtures/modified';
 import InputSwitchFixtureNoTitle from '../src/atom/input-switch/test/fixtures/no-title';
+import InputSwitchFixtureSso from '../src/atom/input-switch/test/fixtures/sso';
 import InputSwitchFixtureUnchecked from '../src/atom/input-switch/test/fixtures/unchecked';
-import InputSwitchFixtureUnset from '../src/atom/input-switch/test/fixtures/unset';
 import InputTextFixtureDefault from '../src/atom/input-text/test/fixtures/default';
 import InputTextFixtureDisabled from '../src/atom/input-text/test/fixtures/disabled';
 import InputTextFixtureEmpty from '../src/atom/input-text/test/fixtures/empty';
@@ -167,6 +191,9 @@ import NotificationFixtureWarning from '../src/atom/notification/test/fixtures/w
 import PictureFixtureDefault from '../src/atom/picture/test/fixtures/default';
 import PictureFixtureEmpty from '../src/atom/picture/test/fixtures/empty';
 import PictureFixtureSimpleSrc from '../src/atom/picture/test/fixtures/simple-src';
+import PromoCodeFixtureDefault from '../src/atom/promo-code/test/fixtures/default';
+import PromoCodeFixtureError from '../src/atom/promo-code/test/fixtures/error';
+import PromoCodeFixtureSuccess from '../src/atom/promo-code/test/fixtures/success';
 import ProviderFixtureDefault from '../src/atom/provider/test/fixtures/default';
 import SelectFixtureDefault from '../src/atom/select/test/fixtures/default';
 import SelectFixtureDisabled from '../src/atom/select/test/fixtures/disabled';
@@ -178,6 +205,7 @@ import SelectFixtureMultiple from '../src/atom/select/test/fixtures/multiple';
 import SelectFixtureNolabel from '../src/atom/select/test/fixtures/nolabel';
 import SelectFixtureRequired from '../src/atom/select/test/fixtures/required';
 import SelectFixtureSort from '../src/atom/select/test/fixtures/sort';
+import SelectFixtureThematiqueLong from '../src/atom/select/test/fixtures/thematique-long';
 import SelectFixtureThematique from '../src/atom/select/test/fixtures/thematique';
 import SlideFixtureDefault from '../src/atom/slide/test/fixtures/default';
 import SlideFixtureLeft from '../src/atom/slide/test/fixtures/left';
@@ -188,6 +216,8 @@ import SocialLinkFixtureTwitter from '../src/atom/social-link/test/fixtures/twit
 import SpinnerFixtureDefault from '../src/atom/spinner/test/fixtures/default';
 import StarFixtureDisable from '../src/atom/star/test/fixtures/disable';
 import StarFixtureEnable from '../src/atom/star/test/fixtures/enable';
+import TabContentFixtureDefault from '../src/atom/tab-content/test/fixtures/default';
+import TabFixtureDefault from '../src/atom/tab/test/fixtures/default';
 import TitleFixtureFixture from '../src/atom/title/test/fixtures/fixture';
 import BattleRequestFixtureDefault from '../src/molecule/battle-request/test/fixtures/default';
 import BrandCardCreateFixtureDefault from '../src/molecule/brand-card-create/test/fixtures/default';
@@ -197,6 +227,7 @@ import BrandCreateFormFixtureError from '../src/molecule/brand-create-form/test/
 import BrandCreateFormFixtureLoading from '../src/molecule/brand-create-form/test/fixtures/loading';
 import BrandCreateFormFixtureModified from '../src/molecule/brand-create-form/test/fixtures/modified';
 import BrandDownloadBoxFixtureDefault from '../src/molecule/brand-download-box/test/fixtures/default';
+import BrandDownloadBoxFixtureSso from '../src/molecule/brand-download-box/test/fixtures/sso';
 import BrandFormGroupFixtureDashboard from '../src/molecule/brand-form-group/test/fixtures/dashboard';
 import BrandFormGroupFixtureDefault from '../src/molecule/brand-form-group/test/fixtures/default';
 import BrandFormGroupFixtureImages from '../src/molecule/brand-form-group/test/fixtures/images';
@@ -210,12 +241,14 @@ import BrandTabsFixtureSso from '../src/molecule/brand-tabs/test/fixtures/sso';
 import BrandTabsFixtureUsers from '../src/molecule/brand-tabs/test/fixtures/users';
 import BrandUploadBoxFixtureDefault from '../src/molecule/brand-upload-box/test/fixtures/default';
 import BrandUploadBoxFixtureLoading from '../src/molecule/brand-upload-box/test/fixtures/loading';
+import BrandUploadBoxFixtureSso from '../src/molecule/brand-upload-box/test/fixtures/sso';
 import BreadcrumbsFixtureDefault from '../src/molecule/breadcrumbs/test/fixtures/default';
 import CardFixtureAdaptivAndDisabled from '../src/molecule/card/test/fixtures/adaptiv-and-disabled';
 import CardFixtureAdaptiv from '../src/molecule/card/test/fixtures/adaptiv';
 import CardFixtureCatalogue from '../src/molecule/card/test/fixtures/catalogue';
 import CardFixtureDefault from '../src/molecule/card/test/fixtures/default';
 import CardFixtureDisabled from '../src/molecule/card/test/fixtures/disabled';
+import CardFixtureEmpty from '../src/molecule/card/test/fixtures/empty';
 import CatalogAssetsFixtureDefault from '../src/molecule/catalog-assets/test/fixtures/default';
 import CatalogAssetsFixtureEmpty from '../src/molecule/catalog-assets/test/fixtures/empty';
 import CatalogBadgeFixtureDefault from '../src/molecule/catalog-badge/test/fixtures/default';
@@ -245,13 +278,17 @@ import DisciplinePartnersFixtureDefault from '../src/molecule/discipline-partner
 import DisciplinePartnersFixtureDoubleAuthors from '../src/molecule/discipline-partners/test/fixtures/double-authors';
 import DisciplinePartnersFixtureMoreInfo from '../src/molecule/discipline-partners/test/fixtures/more-info';
 import DisciplinePartnersFixtureNoAuthor from '../src/molecule/discipline-partners/test/fixtures/no-author';
+import DisciplinePartnersFixtureNosite from '../src/molecule/discipline-partners/test/fixtures/nosite';
 import DisciplineScopeFixtureDefault from '../src/molecule/discipline-scope/test/fixtures/default';
 import DisciplineScopeFixtureEmpty from '../src/molecule/discipline-scope/test/fixtures/empty';
 import DisciplineScopeFixtureMedias from '../src/molecule/discipline-scope/test/fixtures/medias';
 import DisciplineScopeFixtureWithOnclick from '../src/molecule/discipline-scope/test/fixtures/with-onclick';
 import FiltersFixtureDefault from '../src/molecule/filters/test/fixtures/default';
 import FiltersFixtureOne from '../src/molecule/filters/test/fixtures/one';
+import FiltersFixtureOpenSorts from '../src/molecule/filters/test/fixtures/open-sorts';
+import FiltersFixtureOpened from '../src/molecule/filters/test/fixtures/opened';
 import FiltersFixtureThree from '../src/molecule/filters/test/fixtures/three';
+import FiltersFixtureTwoOpened from '../src/molecule/filters/test/fixtures/two-opened';
 import FiltersFixtureTwo from '../src/molecule/filters/test/fixtures/two';
 import FiltersFixtureZero from '../src/molecule/filters/test/fixtures/zero';
 import MenuListFixtureDefault from '../src/molecule/menu-list/test/fixtures/default';
@@ -260,8 +297,16 @@ import ModuleBubbleFixtureDisabled from '../src/molecule/module-bubble/test/fixt
 import ModuleCardFixtureActive from '../src/molecule/module-card/test/fixtures/active';
 import ModuleCardFixtureRestarted from '../src/molecule/module-card/test/fixtures/restarted';
 import NewsFixtureDefault from '../src/molecule/news/test/fixtures/default';
+import NewsFixtureLongDesciption from '../src/molecule/news/test/fixtures/long-desciption';
+import NewsFixtureLongTitle from '../src/molecule/news/test/fixtures/long-title';
+import NewsFixtureSmallDesciption from '../src/molecule/news/test/fixtures/small-desciption';
+import NewsFixtureSmallTitle from '../src/molecule/news/test/fixtures/small-title';
 import PaginationFixtureDefault from '../src/molecule/pagination/test/fixtures/default';
 import PaginationFixtureDisabled from '../src/molecule/pagination/test/fixtures/disabled';
+import PaymentFormFixtureDefault from '../src/molecule/payment-form/test/fixtures/default';
+import PaymentFormFixtureError from '../src/molecule/payment-form/test/fixtures/error';
+import PaymentFormFixtureWarning from '../src/molecule/payment-form/test/fixtures/warning';
+import ProductCardFixtureDefault from '../src/molecule/product-card/test/fixtures/default';
 import ProgressBarFixtureDefault from '../src/molecule/progress-bar/test/fixtures/default';
 import ProgressBarFixtureMax from '../src/molecule/progress-bar/test/fixtures/max';
 import RangeSliderFixtureDefault from '../src/molecule/range-slider/test/fixtures/default';
@@ -281,6 +326,7 @@ import SetupSectionFixtureDefault from '../src/molecule/setup-section/test/fixtu
 import SetupSectionFixtureFirst from '../src/molecule/setup-section/test/fixtures/first';
 import SetupSectionFixtureOther from '../src/molecule/setup-section/test/fixtures/other';
 import SetupSectionsFixtureDefault from '../src/molecule/setup-sections/test/fixtures/default';
+import SetupSectionsFixtureLoading from '../src/molecule/setup-sections/test/fixtures/loading';
 import SetupSlideFixtureDefault from '../src/molecule/setup-slide/test/fixtures/default';
 import SetupSliderFixtureDefault from '../src/molecule/setup-slider/test/fixtures/default';
 import SliderFixtureDefault from '../src/molecule/slider/test/fixtures/default';
@@ -290,12 +336,16 @@ import SsmenuListFixtureEmpty from '../src/molecule/ssmenu-list/test/fixtures/em
 import SsmenuListFixtureFormations from '../src/molecule/ssmenu-list/test/fixtures/formations';
 import SsmenuListFixtureSolutions from '../src/molecule/ssmenu-list/test/fixtures/solutions';
 import StarRatingFixtureDefault from '../src/molecule/star-rating/test/fixtures/default';
+import SubscriptionFreemiumFixtureDefault from '../src/molecule/subscription-freemium/test/fixtures/default';
+import SubscriptionPremiumFixtureDefault from '../src/molecule/subscription-premium/test/fixtures/default';
 import TableFixtureDefault from '../src/molecule/table/test/fixtures/default';
 import TableFixtureNoOptions from '../src/molecule/table/test/fixtures/no-options';
 import ThemeImageFixtureBg from '../src/molecule/theme-image/test/fixtures/bg';
 import TitledCheckboxFixtureChecked from '../src/molecule/titled-checkbox/test/fixtures/checked';
 import TitledCheckboxFixtureNoBg from '../src/molecule/titled-checkbox/test/fixtures/no-bg';
 import TitledCheckboxFixtureNotChecked from '../src/molecule/titled-checkbox/test/fixtures/not-checked';
+import UnsubscribeFixtureDefault from '../src/molecule/unsubscribe/test/fixtures/default';
+import UnsubscribeFixtureSubscribed from '../src/molecule/unsubscribe/test/fixtures/subscribed';
 import VideoIframeFixtureDefault from '../src/molecule/video-iframe/test/fixtures/default';
 import VideoIframeFixtureEmpty from '../src/molecule/video-iframe/test/fixtures/empty';
 import VideoIframeFixtureImagePlaceholder from '../src/molecule/video-iframe/test/fixtures/image-placeholder';
@@ -304,7 +354,9 @@ import VideoPlayerFixtureDefault from '../src/molecule/video-player/test/fixture
 import VideoPlayerFixtureWithImage from '../src/molecule/video-player/test/fixtures/with-image';
 import VideoPlayerFixtureYoutube from '../src/molecule/video-player/test/fixtures/youtube';
 import BattleRequestListFixtureDefault from '../src/molecule/dashboard/battle-request-list/test/fixtures/default';
+import BattleRequestListFixtureEmpty from '../src/molecule/dashboard/battle-request-list/test/fixtures/empty';
 import CardsListFixtureDefault from '../src/molecule/dashboard/cards-list/test/fixtures/default';
+import CardsListFixtureManyEmpty from '../src/molecule/dashboard/cards-list/test/fixtures/many-empty';
 import CardsListFixtureMany from '../src/molecule/dashboard/cards-list/test/fixtures/many';
 import NewsListFixtureDefault from '../src/molecule/dashboard/news-list/test/fixtures/default';
 import NewsListFixtureLoading from '../src/molecule/dashboard/news-list/test/fixtures/loading';
@@ -327,6 +379,27 @@ import ForumPostFixtureTextareasLocked from '../src/molecule/forum/forum-post/te
 import ForumThreadFixtureDeepAnswers from '../src/molecule/forum/forum-thread/test/fixtures/deep-answers';
 import ForumThreadFixtureDefault from '../src/molecule/forum/forum-thread/test/fixtures/default';
 import ForumThreadFixtureWithAnswers from '../src/molecule/forum/forum-thread/test/fixtures/with-answers';
+import DragAndDropFixtureDefault from '../src/molecule/questions/drag-and-drop/test/fixtures/default';
+import DragAndDropFixtureNoSelected from '../src/molecule/questions/drag-and-drop/test/fixtures/no-selected';
+import FreeTextFixtureDefault from '../src/molecule/questions/free-text/test/fixtures/default';
+import FreeTextFixtureWithDefaultValue from '../src/molecule/questions/free-text/test/fixtures/with-default-value';
+import QcmImageFixtureDefault from '../src/molecule/questions/qcm-image/test/fixtures/default';
+import QcmImageFixtureNoSelected from '../src/molecule/questions/qcm-image/test/fixtures/no-selected';
+import QcmFixtureDefault from '../src/molecule/questions/qcm/test/fixtures/default';
+import QcmFixtureNoSelected from '../src/molecule/questions/qcm/test/fixtures/no-selected';
+import SlidesFooterFixtureDefault from '../src/molecule/slides/slides-footer/test/fixtures/default';
+import SlidesFooterFixtureDisabled from '../src/molecule/slides/slides-footer/test/fixtures/disabled';
+import SlidesFooterFixtureHighlighted from '../src/molecule/slides/slides-footer/test/fixtures/highlighted';
+import SlidesFooterFixtureNotify from '../src/molecule/slides/slides-footer/test/fixtures/notify';
+import SlidesFooterFixtureSelected from '../src/molecule/slides/slides-footer/test/fixtures/selected';
+import SlidesHeaderFixtureDefault from '../src/molecule/slides/slides-header/test/fixtures/default';
+import SlidesHeaderFixtureFreerun from '../src/molecule/slides/slides-header/test/fixtures/freerun';
+import SlidesHeaderFixtureNoSecondary from '../src/molecule/slides/slides-header/test/fixtures/no-secondary';
+import SlidesPlayerFixtureDefault from '../src/molecule/slides/slides-player/test/fixtures/default';
+import SlidesPlayerFixtureDragAndDrop from '../src/molecule/slides/slides-player/test/fixtures/drag-and-drop';
+import SlidesPlayerFixtureFreeText from '../src/molecule/slides/slides-player/test/fixtures/free-text';
+import SlidesPlayerFixtureQcmImage from '../src/molecule/slides/slides-player/test/fixtures/qcm-image';
+import SlidesPlayerFixtureQcm from '../src/molecule/slides/slides-player/test/fixtures/qcm';
 import BrandFormFixtureDashboard from '../src/organism/brand-form/test/fixtures/dashboard';
 import BrandFormFixtureDefault from '../src/organism/brand-form/test/fixtures/default';
 import BrandFormFixtureGeneralSettings from '../src/organism/brand-form/test/fixtures/general-settings';
@@ -340,7 +413,9 @@ import BrandUploadFixtureDefault from '../src/organism/brand-upload/test/fixture
 import BrandUploadFixtureLoading from '../src/organism/brand-upload/test/fixtures/loading';
 import CardsGridFixtureCatalog from '../src/organism/cards-grid/test/fixtures/catalog';
 import CardsGridFixtureEmpty from '../src/organism/cards-grid/test/fixtures/empty';
+import CardsGridFixtureLoading from '../src/organism/cards-grid/test/fixtures/loading';
 import CardsGridFixtureMany from '../src/organism/cards-grid/test/fixtures/many';
+import CartFixtureDefault from '../src/organism/cart/test/fixtures/default';
 import CatalogCardsFixtureDefault from '../src/organism/catalog-cards/test/fixtures/default';
 import CatalogCardsFixtureLoading from '../src/organism/catalog-cards/test/fixtures/loading';
 import CatalogCardsFixtureNoProducts from '../src/organism/catalog-cards/test/fixtures/no-products';
@@ -360,6 +435,9 @@ import MoocHeaderFixtureLogged from '../src/organism/mooc-header/test/fixtures/l
 import MoocHeaderFixtureSliderMultiple from '../src/organism/mooc-header/test/fixtures/slider-multiple';
 import MoocHeaderFixtureSlider from '../src/organism/mooc-header/test/fixtures/slider';
 import PopinFixtureDefault from '../src/organism/popin/test/fixtures/default';
+import SettingsFixtureDefault from '../src/organism/settings/test/fixtures/default';
+import SettingsFixtureFreemium from '../src/organism/settings/test/fixtures/freemium';
+import SettingsFixturePremium from '../src/organism/settings/test/fixtures/premium';
 import SetupHeaderFixtureDefault from '../src/organism/setup-header/test/fixtures/default';
 import AuthorFixtureDefault from '../src/template/app-catalog/author/test/fixtures/default';
 import AuthorFixtureLoading from '../src/template/app-catalog/author/test/fixtures/loading';
@@ -375,6 +453,7 @@ import ProductCursusFixtureEmpty from '../src/template/app-catalog/product-cursu
 import ProductCursusFixtureLoading from '../src/template/app-catalog/product-cursus/test/fixtures/loading';
 import ProductCursusFixtureWithoutAssets from '../src/template/app-catalog/product-cursus/test/fixtures/without-assets';
 import ProductCursusFixtureWithoutBadge from '../src/template/app-catalog/product-cursus/test/fixtures/without-badge';
+import FreeRunFixtureDefault from '../src/template/app-player/free-run/test/fixtures/default';
 import BrandCreateFixtureDefault from '../src/template/back-office/brand-create/test/fixtures/default';
 import BrandCreateFixtureError from '../src/template/back-office/brand-create/test/fixtures/error';
 import BrandCreateFixtureLoading from '../src/template/back-office/brand-create/test/fixtures/loading';
@@ -403,6 +482,7 @@ import AuthorsFixtureNoSocials from '../src/template/common/authors/test/fixture
 import CoorpHeaderFixtureProduction from '../src/template/common/coorp-header/test/fixtures/production';
 import CoorpHeaderFixtureStaging from '../src/template/common/coorp-header/test/fixtures/staging';
 import DashboardFixtureDefault from '../src/template/common/dashboard/test/fixtures/default';
+import DashboardFixtureEmptyRequests from '../src/template/common/dashboard/test/fixtures/empty-requests';
 import DisciplineFixtureDefault from '../src/template/common/discipline/test/fixtures/default';
 import DisciplineFixtureDoubleAuthor from '../src/template/common/discipline/test/fixtures/double-author';
 import DisciplineFixtureEmpty from '../src/template/common/discipline/test/fixtures/empty';
@@ -411,6 +491,7 @@ import DisciplineFixtureNoAuthor from '../src/template/common/discipline/test/fi
 import DisciplineFixtureNoVideo from '../src/template/common/discipline/test/fixtures/no-video';
 import DisciplineFixtureWithOnclick from '../src/template/common/discipline/test/fixtures/with-onclick';
 import SearchPageFixtureDefault from '../src/template/common/search-page/test/fixtures/default';
+import SearchPageFixtureNoResult from '../src/template/common/search-page/test/fixtures/no-result';
 
 export const components = {
   Atom: {
@@ -433,12 +514,15 @@ export const components = {
     Loader,
     Notification,
     Picture,
+    PromoCode,
     Provider,
     Select,
     Slide,
     SocialLink,
     Spinner,
     Star,
+    TabContent,
+    Tab,
     Title
   },
   Molecule: {
@@ -471,6 +555,8 @@ export const components = {
     ModuleCard,
     News,
     Pagination,
+    PaymentForm,
+    ProductCard,
     ProgressBar,
     RangeSlider,
     ScopeContent,
@@ -484,9 +570,12 @@ export const components = {
     Slider,
     SsmenuList,
     StarRating,
+    SubscriptionFreemium,
+    SubscriptionPremium,
     Table,
     ThemeImage,
     TitledCheckbox,
+    Unsubscribe,
     VideoIframe,
     VideoPlayer
   },
@@ -501,11 +590,23 @@ export const components = {
     ForumPost,
     ForumThread
   },
+  MoleculeQuestions: {
+    DragAndDrop,
+    FreeText,
+    QcmImage,
+    Qcm
+  },
+  MoleculeSlides: {
+    SlidesFooter,
+    SlidesHeader,
+    SlidesPlayer
+  },
   Organism: {
     BrandForm,
     BrandTable,
     BrandUpload,
     CardsGrid,
+    Cart,
     CatalogCards,
     DisciplineCards,
     Discussion,
@@ -514,6 +615,7 @@ export const components = {
     Hero,
     MoocHeader,
     Popin,
+    Settings,
     SetupHeader
   },
   TemplateAppCatalog: {
@@ -521,6 +623,9 @@ export const components = {
     Catalog,
     ProductCourse,
     ProductCursus
+  },
+  TemplateAppPlayer: {
+    FreeRun
   },
   TemplateBackOffice: {
     BrandCreate,
@@ -542,11 +647,13 @@ export const fixtures = {
       Blue: ButtonFixtureBlue,
       Centered: ButtonFixtureCentered,
       ClassName: ButtonFixtureClassName,
+      Clear: ButtonFixtureClear,
       Dark: ButtonFixtureDark,
       Default: ButtonFixtureDefault,
       Disabled: ButtonFixtureDisabled,
       Light: ButtonFixtureLight,
-      Link: ButtonFixtureLink
+      Link: ButtonFixtureLink,
+      Sso: ButtonFixtureSso
     },
     CatalogSection: {
       List: CatalogSectionFixtureList,
@@ -574,10 +681,12 @@ export const fixtures = {
       Default: HandleFixtureDefault
     },
     ImageUpload: {
-      Default: ImageUploadFixtureDefault,
-      Image: ImageUploadFixtureImage,
+      Desktop: ImageUploadFixtureDesktop,
+      Email: ImageUploadFixtureEmail,
       Loading: ImageUploadFixtureLoading,
-      Modified: ImageUploadFixtureModified
+      Mobile: ImageUploadFixtureMobile,
+      Modified: ImageUploadFixtureModified,
+      WithoutImage: ImageUploadFixtureWithoutImage
     },
     InputCheckbox: {
       Checked: InputCheckboxFixtureChecked,
@@ -603,8 +712,8 @@ export const fixtures = {
       Checked: InputSwitchFixtureChecked,
       Modified: InputSwitchFixtureModified,
       NoTitle: InputSwitchFixtureNoTitle,
-      Unchecked: InputSwitchFixtureUnchecked,
-      Unset: InputSwitchFixtureUnset
+      Sso: InputSwitchFixtureSso,
+      Unchecked: InputSwitchFixtureUnchecked
     },
     InputText: {
       Default: InputTextFixtureDefault,
@@ -639,6 +748,11 @@ export const fixtures = {
       Empty: PictureFixtureEmpty,
       SimpleSrc: PictureFixtureSimpleSrc
     },
+    PromoCode: {
+      Default: PromoCodeFixtureDefault,
+      Error: PromoCodeFixtureError,
+      Success: PromoCodeFixtureSuccess
+    },
     Provider: {
       Default: ProviderFixtureDefault
     },
@@ -653,6 +767,7 @@ export const fixtures = {
       Nolabel: SelectFixtureNolabel,
       Required: SelectFixtureRequired,
       Sort: SelectFixtureSort,
+      ThematiqueLong: SelectFixtureThematiqueLong,
       Thematique: SelectFixtureThematique
     },
     Slide: {
@@ -671,6 +786,12 @@ export const fixtures = {
     Star: {
       Disable: StarFixtureDisable,
       Enable: StarFixtureEnable
+    },
+    TabContent: {
+      Default: TabContentFixtureDefault
+    },
+    Tab: {
+      Default: TabFixtureDefault
     },
     Title: {
       Fixture: TitleFixtureFixture
@@ -693,7 +814,8 @@ export const fixtures = {
       Modified: BrandCreateFormFixtureModified
     },
     BrandDownloadBox: {
-      Default: BrandDownloadBoxFixtureDefault
+      Default: BrandDownloadBoxFixtureDefault,
+      Sso: BrandDownloadBoxFixtureSso
     },
     BrandFormGroup: {
       Dashboard: BrandFormGroupFixtureDashboard,
@@ -712,7 +834,8 @@ export const fixtures = {
     },
     BrandUploadBox: {
       Default: BrandUploadBoxFixtureDefault,
-      Loading: BrandUploadBoxFixtureLoading
+      Loading: BrandUploadBoxFixtureLoading,
+      Sso: BrandUploadBoxFixtureSso
     },
     Breadcrumbs: {
       Default: BreadcrumbsFixtureDefault
@@ -722,7 +845,8 @@ export const fixtures = {
       Adaptiv: CardFixtureAdaptiv,
       Catalogue: CardFixtureCatalogue,
       Default: CardFixtureDefault,
-      Disabled: CardFixtureDisabled
+      Disabled: CardFixtureDisabled,
+      Empty: CardFixtureEmpty
     },
     CatalogAssets: {
       Default: CatalogAssetsFixtureDefault,
@@ -775,7 +899,8 @@ export const fixtures = {
       Default: DisciplinePartnersFixtureDefault,
       DoubleAuthors: DisciplinePartnersFixtureDoubleAuthors,
       MoreInfo: DisciplinePartnersFixtureMoreInfo,
-      NoAuthor: DisciplinePartnersFixtureNoAuthor
+      NoAuthor: DisciplinePartnersFixtureNoAuthor,
+      Nosite: DisciplinePartnersFixtureNosite
     },
     DisciplineScope: {
       Default: DisciplineScopeFixtureDefault,
@@ -786,7 +911,10 @@ export const fixtures = {
     Filters: {
       Default: FiltersFixtureDefault,
       One: FiltersFixtureOne,
+      OpenSorts: FiltersFixtureOpenSorts,
+      Opened: FiltersFixtureOpened,
       Three: FiltersFixtureThree,
+      TwoOpened: FiltersFixtureTwoOpened,
       Two: FiltersFixtureTwo,
       Zero: FiltersFixtureZero
     },
@@ -802,11 +930,23 @@ export const fixtures = {
       Restarted: ModuleCardFixtureRestarted
     },
     News: {
-      Default: NewsFixtureDefault
+      Default: NewsFixtureDefault,
+      LongDesciption: NewsFixtureLongDesciption,
+      LongTitle: NewsFixtureLongTitle,
+      SmallDesciption: NewsFixtureSmallDesciption,
+      SmallTitle: NewsFixtureSmallTitle
     },
     Pagination: {
       Default: PaginationFixtureDefault,
       Disabled: PaginationFixtureDisabled
+    },
+    PaymentForm: {
+      Default: PaymentFormFixtureDefault,
+      Error: PaymentFormFixtureError,
+      Warning: PaymentFormFixtureWarning
+    },
+    ProductCard: {
+      Default: ProductCardFixtureDefault
     },
     ProgressBar: {
       Default: ProgressBarFixtureDefault,
@@ -841,7 +981,8 @@ export const fixtures = {
       Other: SetupSectionFixtureOther
     },
     SetupSections: {
-      Default: SetupSectionsFixtureDefault
+      Default: SetupSectionsFixtureDefault,
+      Loading: SetupSectionsFixtureLoading
     },
     SetupSlide: {
       Default: SetupSlideFixtureDefault
@@ -862,6 +1003,12 @@ export const fixtures = {
     StarRating: {
       Default: StarRatingFixtureDefault
     },
+    SubscriptionFreemium: {
+      Default: SubscriptionFreemiumFixtureDefault
+    },
+    SubscriptionPremium: {
+      Default: SubscriptionPremiumFixtureDefault
+    },
     Table: {
       Default: TableFixtureDefault,
       NoOptions: TableFixtureNoOptions
@@ -873,6 +1020,10 @@ export const fixtures = {
       Checked: TitledCheckboxFixtureChecked,
       NoBg: TitledCheckboxFixtureNoBg,
       NotChecked: TitledCheckboxFixtureNotChecked
+    },
+    Unsubscribe: {
+      Default: UnsubscribeFixtureDefault,
+      Subscribed: UnsubscribeFixtureSubscribed
     },
     VideoIframe: {
       Default: VideoIframeFixtureDefault,
@@ -888,10 +1039,12 @@ export const fixtures = {
   },
   MoleculeDashboard: {
     BattleRequestList: {
-      Default: BattleRequestListFixtureDefault
+      Default: BattleRequestListFixtureDefault,
+      Empty: BattleRequestListFixtureEmpty
     },
     CardsList: {
       Default: CardsListFixtureDefault,
+      ManyEmpty: CardsListFixtureManyEmpty,
       Many: CardsListFixtureMany
     },
     NewsList: {
@@ -928,6 +1081,45 @@ export const fixtures = {
       WithAnswers: ForumThreadFixtureWithAnswers
     }
   },
+  MoleculeQuestions: {
+    DragAndDrop: {
+      Default: DragAndDropFixtureDefault,
+      NoSelected: DragAndDropFixtureNoSelected
+    },
+    FreeText: {
+      Default: FreeTextFixtureDefault,
+      WithDefaultValue: FreeTextFixtureWithDefaultValue
+    },
+    QcmImage: {
+      Default: QcmImageFixtureDefault,
+      NoSelected: QcmImageFixtureNoSelected
+    },
+    Qcm: {
+      Default: QcmFixtureDefault,
+      NoSelected: QcmFixtureNoSelected
+    }
+  },
+  MoleculeSlides: {
+    SlidesFooter: {
+      Default: SlidesFooterFixtureDefault,
+      Disabled: SlidesFooterFixtureDisabled,
+      Highlighted: SlidesFooterFixtureHighlighted,
+      Notify: SlidesFooterFixtureNotify,
+      Selected: SlidesFooterFixtureSelected
+    },
+    SlidesHeader: {
+      Default: SlidesHeaderFixtureDefault,
+      Freerun: SlidesHeaderFixtureFreerun,
+      NoSecondary: SlidesHeaderFixtureNoSecondary
+    },
+    SlidesPlayer: {
+      Default: SlidesPlayerFixtureDefault,
+      DragAndDrop: SlidesPlayerFixtureDragAndDrop,
+      FreeText: SlidesPlayerFixtureFreeText,
+      QcmImage: SlidesPlayerFixtureQcmImage,
+      Qcm: SlidesPlayerFixtureQcm
+    }
+  },
   Organism: {
     BrandForm: {
       Dashboard: BrandFormFixtureDashboard,
@@ -949,7 +1141,11 @@ export const fixtures = {
     CardsGrid: {
       Catalog: CardsGridFixtureCatalog,
       Empty: CardsGridFixtureEmpty,
+      Loading: CardsGridFixtureLoading,
       Many: CardsGridFixtureMany
+    },
+    Cart: {
+      Default: CartFixtureDefault
     },
     CatalogCards: {
       Default: CatalogCardsFixtureDefault,
@@ -986,6 +1182,11 @@ export const fixtures = {
     Popin: {
       Default: PopinFixtureDefault
     },
+    Settings: {
+      Default: SettingsFixtureDefault,
+      Freemium: SettingsFixtureFreemium,
+      Premium: SettingsFixturePremium
+    },
     SetupHeader: {
       Default: SetupHeaderFixtureDefault
     }
@@ -1012,6 +1213,11 @@ export const fixtures = {
       Loading: ProductCursusFixtureLoading,
       WithoutAssets: ProductCursusFixtureWithoutAssets,
       WithoutBadge: ProductCursusFixtureWithoutBadge
+    }
+  },
+  TemplateAppPlayer: {
+    FreeRun: {
+      Default: FreeRunFixtureDefault
     }
   },
   TemplateBackOffice: {
@@ -1055,7 +1261,8 @@ export const fixtures = {
       Staging: CoorpHeaderFixtureStaging
     },
     Dashboard: {
-      Default: DashboardFixtureDefault
+      Default: DashboardFixtureDefault,
+      EmptyRequests: DashboardFixtureEmptyRequests
     },
     Discipline: {
       Default: DisciplineFixtureDefault,
@@ -1067,7 +1274,1375 @@ export const fixtures = {
       WithOnclick: DisciplineFixtureWithOnclick
     },
     SearchPage: {
-      Default: SearchPageFixtureDefault
+      Default: SearchPageFixtureDefault,
+      NoResult: SearchPageFixtureNoResult
+    }
+  }
+};
+
+export const dependencies = {
+  "Molecule": {
+    "Filters": {
+      "parents": {
+        "TemplateCommon": {
+          "SearchPage": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Select": true
+        },
+        "Molecule": {
+          "RangeSlider": true
+        }
+      }
+    },
+    "DisciplineCta": {
+      "parents": {
+        "TemplateCommon": {
+          "Discipline": true
+        }
+      },
+      "children": {}
+    },
+    "DisciplineHeader": {
+      "parents": {
+        "TemplateCommon": {
+          "Discipline": true
+        },
+        "TemplateAppCatalog": {
+          "ProductCourse": true,
+          "Author": true
+        }
+      },
+      "children": {
+        "Molecule": {
+          "VideoIframe": true
+        }
+      }
+    },
+    "DisciplinePartners": {
+      "parents": {
+        "TemplateCommon": {
+          "Discipline": true
+        },
+        "TemplateAppCatalog": {
+          "ProductCourse": true,
+          "Author": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "CatalogSection": true,
+          "Link": true,
+          "Picture": true,
+          "SocialLink": true
+        }
+      }
+    },
+    "DisciplineScope": {
+      "parents": {
+        "TemplateCommon": {
+          "Discipline": true
+        },
+        "TemplateAppCatalog": {
+          "ProductCourse": true
+        }
+      },
+      "children": {
+        "Molecule": {
+          "ScopeContent": true,
+          "ScopeTabs": true
+        }
+      }
+    },
+    "CatalogAssets": {
+      "parents": {
+        "TemplateAppCatalog": {
+          "ProductCursus": true
+        }
+      },
+      "children": {}
+    },
+    "CatalogBadge": {
+      "parents": {
+        "TemplateAppCatalog": {
+          "ProductCursus": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Picture": true
+        }
+      }
+    },
+    "CatalogCta": {
+      "parents": {
+        "TemplateAppCatalog": {
+          "ProductCursus": true,
+          "ProductCourse": true
+        }
+      },
+      "children": {
+        "Molecule": {
+          "StarRating": true
+        }
+      }
+    },
+    "CursusHeader": {
+      "parents": {
+        "TemplateAppCatalog": {
+          "ProductCursus": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Picture": true
+        }
+      }
+    },
+    "Categories": {
+      "parents": {
+        "TemplateAppCatalog": {
+          "Catalog": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Checkbox": true,
+          "Link": true
+        }
+      }
+    },
+    "CursusList": {
+      "parents": {
+        "TemplateAppCatalog": {
+          "Catalog": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Link": true
+        }
+      }
+    },
+    "SubscriptionFreemium": {
+      "parents": {
+        "Organism": {
+          "Settings": true
+        }
+      },
+      "children": {}
+    },
+    "SubscriptionPremium": {
+      "parents": {
+        "Organism": {
+          "Settings": true
+        }
+      },
+      "children": {}
+    },
+    "Slider": {
+      "parents": {
+        "Organism": {
+          "MoocHeader": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Slide": true
+        }
+      }
+    },
+    "MenuList": {
+      "parents": {
+        "Organism": {
+          "Header": true
+        }
+      },
+      "children": {
+        "Molecule": {
+          "SsmenuList": true
+        }
+      }
+    },
+    "DisciplineCard": {
+      "parents": {
+        "Organism": {
+          "DisciplineCards": true
+        }
+      },
+      "children": {
+        "Molecule": {
+          "ModuleBubble": true
+        }
+      }
+    },
+    "CatalogCard": {
+      "parents": {
+        "Organism": {
+          "CatalogCards": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Link": true,
+          "Picture": true
+        },
+        "Molecule": {
+          "StarRating": true
+        }
+      }
+    },
+    "PaymentForm": {
+      "parents": {
+        "Organism": {
+          "Cart": true
+        }
+      },
+      "children": {}
+    },
+    "ProductCard": {
+      "parents": {
+        "Organism": {
+          "Cart": true
+        }
+      },
+      "children": {}
+    },
+    "Card": {
+      "parents": {
+        "Organism": {
+          "CardsGrid": true
+        },
+        "MoleculeDashboard": {
+          "CardsList": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Loader": true
+        }
+      }
+    },
+    "BrandDownloadBox": {
+      "parents": {
+        "Organism": {
+          "BrandUpload": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Button": true
+        }
+      }
+    },
+    "BrandUploadBox": {
+      "parents": {
+        "Organism": {
+          "BrandUpload": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Loader": true
+        }
+      }
+    },
+    "ProgressBar": {
+      "parents": {
+        "Organism": {
+          "BrandUpload": true
+        }
+      },
+      "children": {}
+    },
+    "Pagination": {
+      "parents": {
+        "Organism": {
+          "BrandTable": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Link": true
+        }
+      }
+    },
+    "Search": {
+      "parents": {
+        "Organism": {
+          "BrandTable": true
+        }
+      },
+      "children": {}
+    },
+    "Table": {
+      "parents": {
+        "Organism": {
+          "BrandTable": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Checkbox": true,
+          "Link": true
+        }
+      }
+    },
+    "BrandFormGroup": {
+      "parents": {
+        "Organism": {
+          "BrandForm": true
+        }
+      },
+      "children": {
+        "Molecule": {
+          "SetupSections": true,
+          "SetupSlider": true
+        },
+        "Atom": {
+          "InputReadonly": true,
+          "ImageUpload": true,
+          "InputColor": true,
+          "InputSwitch": true,
+          "InputText": true
+        }
+      }
+    },
+    "News": {
+      "parents": {
+        "MoleculeDashboard": {
+          "NewsList": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Cta": true,
+          "Link": true
+        }
+      }
+    },
+    "BattleRequest": {
+      "parents": {
+        "MoleculeDashboard": {
+          "BattleRequestList": true
+        }
+      },
+      "children": {}
+    },
+    "VideoIframe": {
+      "parents": {
+        "Molecule": {
+          "VideoPlayer": true,
+          "DisciplineHeader": true
+        }
+      },
+      "children": {}
+    },
+    "SetupSlide": {
+      "parents": {
+        "Molecule": {
+          "SetupSlider": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "ImageUpload": true,
+          "InputSwitch": true,
+          "Select": true
+        }
+      }
+    },
+    "SetupSection": {
+      "parents": {
+        "Molecule": {
+          "SetupSections": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "InputSwitch": true
+        }
+      }
+    },
+    "TitledCheckbox": {
+      "parents": {
+        "Molecule": {
+          "SelectMultiple": true,
+          "Checkboxes": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Checkbox": true
+        }
+      }
+    },
+    "ModuleBubble": {
+      "parents": {
+        "Molecule": {
+          "ScopeTabs": true,
+          "ModuleCard": true,
+          "DisciplineCard": true
+        }
+      },
+      "children": {}
+    },
+    "SsmenuList": {
+      "parents": {
+        "Molecule": {
+          "MenuList": true
+        }
+      },
+      "children": {}
+    },
+    "RangeSlider": {
+      "parents": {
+        "Molecule": {
+          "Filters": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Handle": true
+        }
+      }
+    },
+    "ScopeContent": {
+      "parents": {
+        "Molecule": {
+          "DisciplineScope": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Link": true,
+          "Button": true
+        }
+      }
+    },
+    "ScopeTabs": {
+      "parents": {
+        "Molecule": {
+          "DisciplineScope": true
+        }
+      },
+      "children": {
+        "Molecule": {
+          "ModuleBubble": true
+        }
+      }
+    },
+    "StarRating": {
+      "parents": {
+        "Molecule": {
+          "CatalogCta": true,
+          "CatalogCard": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Star": true
+        }
+      }
+    },
+    "SetupSections": {
+      "parents": {
+        "Molecule": {
+          "BrandFormGroup": true
+        }
+      },
+      "children": {
+        "Molecule": {
+          "SetupSection": true
+        },
+        "Atom": {
+          "Loader": true
+        }
+      }
+    },
+    "SetupSlider": {
+      "parents": {
+        "Molecule": {
+          "BrandFormGroup": true
+        }
+      },
+      "children": {
+        "Molecule": {
+          "SetupSlide": true
+        }
+      }
+    },
+    "BrandCardCreate": {
+      "children": {
+        "Atom": {
+          "Link": true
+        }
+      }
+    },
+    "BrandCard": {
+      "children": {
+        "Atom": {
+          "Link": true,
+          "Picture": true
+        }
+      }
+    },
+    "BrandCreateForm": {
+      "children": {
+        "Atom": {
+          "Button": true
+        }
+      }
+    },
+    "BrandTabs": {
+      "children": {
+        "Atom": {
+          "Link": true
+        }
+      }
+    },
+    "Breadcrumbs": {
+      "children": {
+        "Atom": {
+          "Link": true
+        }
+      }
+    },
+    "Checkboxes": {
+      "children": {
+        "Molecule": {
+          "TitledCheckbox": true
+        }
+      }
+    },
+    "ModuleCard": {
+      "children": {
+        "Molecule": {
+          "ModuleBubble": true
+        }
+      }
+    },
+    "SelectMultiple": {
+      "children": {
+        "Molecule": {
+          "TitledCheckbox": true
+        }
+      }
+    },
+    "ThemeImage": {
+      "children": {}
+    },
+    "Unsubscribe": {
+      "children": {
+        "Atom": {
+          "Link": true
+        }
+      }
+    },
+    "VideoPlayer": {
+      "children": {
+        "Atom": {
+          "Picture": true
+        },
+        "Molecule": {
+          "VideoIframe": true
+        }
+      }
+    }
+  },
+  "Organism": {
+    "CardsGrid": {
+      "parents": {
+        "TemplateCommon": {
+          "SearchPage": true,
+          "Authors": true
+        }
+      },
+      "children": {
+        "Molecule": {
+          "Card": true
+        },
+        "Atom": {
+          "Loader": true
+        }
+      }
+    },
+    "SetupHeader": {
+      "parents": {
+        "TemplateBackOffice": {
+          "BrandUpdate": true,
+          "BrandList": true,
+          "BrandCreate": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Link": true,
+          "Picture": true
+        }
+      }
+    },
+    "CatalogCards": {
+      "parents": {
+        "TemplateAppCatalog": {
+          "ProductCursus": true,
+          "ProductCourse": true,
+          "Catalog": true,
+          "Author": true
+        }
+      },
+      "children": {
+        "Molecule": {
+          "CatalogCard": true
+        },
+        "Atom": {
+          "Spinner": true
+        }
+      }
+    },
+    "BrandForm": {
+      "children": {
+        "Molecule": {
+          "BrandFormGroup": true
+        },
+        "Atom": {
+          "Button": true,
+          "Link": true
+        }
+      }
+    },
+    "BrandTable": {
+      "children": {
+        "Atom": {
+          "Link": true,
+          "Loader": true
+        },
+        "Molecule": {
+          "Pagination": true,
+          "Search": true,
+          "Table": true
+        }
+      }
+    },
+    "BrandUpload": {
+      "children": {
+        "Atom": {
+          "Link": true
+        },
+        "Molecule": {
+          "BrandDownloadBox": true,
+          "BrandUploadBox": true,
+          "ProgressBar": true
+        }
+      }
+    },
+    "Cart": {
+      "children": {
+        "Atom": {
+          "Link": true,
+          "PromoCode": true
+        },
+        "Molecule": {
+          "PaymentForm": true,
+          "ProductCard": true
+        }
+      }
+    },
+    "DisciplineCards": {
+      "children": {
+        "Molecule": {
+          "DisciplineCard": true
+        }
+      }
+    },
+    "Discussion": {
+      "children": {
+        "MoleculeForum": {
+          "ForumComment": true,
+          "ForumThread": true
+        },
+        "Atom": {
+          "Loader": true
+        }
+      }
+    },
+    "GridList": {
+      "children": {}
+    },
+    "Header": {
+      "children": {
+        "Atom": {
+          "Picture": true
+        },
+        "Molecule": {
+          "MenuList": true
+        }
+      }
+    },
+    "Hero": {
+      "children": {
+        "Atom": {
+          "Link": true
+        }
+      }
+    },
+    "MoocHeader": {
+      "children": {
+        "Atom": {
+          "Cta": true,
+          "InputSwitch": true,
+          "Link": true,
+          "Select": true
+        },
+        "Molecule": {
+          "Slider": true
+        }
+      }
+    },
+    "Popin": {
+      "children": {
+        "Atom": {
+          "Button": true
+        }
+      }
+    },
+    "Settings": {
+      "children": {
+        "Atom": {
+          "Link": true,
+          "TabContent": true,
+          "Tab": true
+        },
+        "Molecule": {
+          "SubscriptionFreemium": true,
+          "SubscriptionPremium": true
+        }
+      }
+    }
+  },
+  "Atom": {
+    "Button": {
+      "parents": {
+        "TemplateCommon": {
+          "SearchPage": true
+        },
+        "Organism": {
+          "Popin": true,
+          "BrandForm": true
+        },
+        "MoleculeForum": {
+          "ForumComment": true
+        },
+        "Molecule": {
+          "ScopeContent": true,
+          "BrandDownloadBox": true,
+          "BrandCreateForm": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Link": true
+        }
+      }
+    },
+    "Link": {
+      "parents": {
+        "TemplateCommon": {
+          "Authors": true
+        },
+        "Organism": {
+          "SetupHeader": true,
+          "Settings": true,
+          "MoocHeader": true,
+          "Hero": true,
+          "Cart": true,
+          "BrandUpload": true,
+          "BrandTable": true,
+          "BrandForm": true
+        },
+        "MoleculeSlides": {
+          "SlidesHeader": true
+        },
+        "MoleculeDashboard": {
+          "StartBattle": true
+        },
+        "Molecule": {
+          "Unsubscribe": true,
+          "Table": true,
+          "ScopeContent": true,
+          "Pagination": true,
+          "News": true,
+          "DisciplinePartners": true,
+          "CursusList": true,
+          "Categories": true,
+          "CatalogCard": true,
+          "Breadcrumbs": true,
+          "BrandTabs": true,
+          "BrandCard": true,
+          "BrandCardCreate": true
+        },
+        "Atom": {
+          "Cta": true,
+          "Button": true
+        }
+      },
+      "children": {}
+    },
+    "SocialLink": {
+      "parents": {
+        "TemplateCommon": {
+          "Authors": true
+        },
+        "Molecule": {
+          "DisciplinePartners": true
+        }
+      },
+      "children": {}
+    },
+    "Picture": {
+      "parents": {
+        "Organism": {
+          "SetupHeader": true,
+          "Header": true
+        },
+        "MoleculeForum": {
+          "ForumPost": true
+        },
+        "Molecule": {
+          "VideoPlayer": true,
+          "DisciplinePartners": true,
+          "CursusHeader": true,
+          "CatalogCard": true,
+          "CatalogBadge": true,
+          "BrandCard": true
+        },
+        "Atom": {
+          "CatalogSection": true
+        }
+      },
+      "children": {}
+    },
+    "TabContent": {
+      "parents": {
+        "Organism": {
+          "Settings": true
+        }
+      },
+      "children": {}
+    },
+    "Tab": {
+      "parents": {
+        "Organism": {
+          "Settings": true
+        }
+      },
+      "children": {}
+    },
+    "Cta": {
+      "parents": {
+        "Organism": {
+          "MoocHeader": true
+        },
+        "MoleculeSlides": {
+          "SlidesPlayer": true
+        },
+        "Molecule": {
+          "News": true
+        },
+        "Atom": {
+          "Slide": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Link": true
+        }
+      }
+    },
+    "InputSwitch": {
+      "parents": {
+        "Organism": {
+          "MoocHeader": true
+        },
+        "Molecule": {
+          "SetupSlide": true,
+          "SetupSection": true,
+          "BrandFormGroup": true
+        }
+      },
+      "children": {}
+    },
+    "Select": {
+      "parents": {
+        "Organism": {
+          "MoocHeader": true
+        },
+        "Molecule": {
+          "SetupSlide": true,
+          "Filters": true
+        }
+      },
+      "children": {}
+    },
+    "Loader": {
+      "parents": {
+        "Organism": {
+          "Discussion": true,
+          "CardsGrid": true,
+          "BrandTable": true
+        },
+        "MoleculeDashboard": {
+          "NewsList": true
+        },
+        "Molecule": {
+          "SetupSections": true,
+          "Card": true,
+          "BrandUploadBox": true
+        },
+        "Atom": {
+          "ImageUpload": true
+        }
+      },
+      "children": {}
+    },
+    "Spinner": {
+      "parents": {
+        "Organism": {
+          "CatalogCards": true
+        }
+      },
+      "children": {}
+    },
+    "PromoCode": {
+      "parents": {
+        "Organism": {
+          "Cart": true
+        }
+      },
+      "children": {}
+    },
+    "Checkbox": {
+      "parents": {
+        "Molecule": {
+          "TitledCheckbox": true,
+          "Table": true,
+          "Categories": true
+        }
+      },
+      "children": {}
+    },
+    "Star": {
+      "parents": {
+        "Molecule": {
+          "StarRating": true
+        }
+      },
+      "children": {}
+    },
+    "Slide": {
+      "parents": {
+        "Molecule": {
+          "Slider": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Cta": true
+        }
+      }
+    },
+    "ImageUpload": {
+      "parents": {
+        "Molecule": {
+          "SetupSlide": true,
+          "BrandFormGroup": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Loader": true
+        }
+      }
+    },
+    "Handle": {
+      "parents": {
+        "Molecule": {
+          "RangeSlider": true
+        }
+      },
+      "children": {}
+    },
+    "CatalogSection": {
+      "parents": {
+        "Molecule": {
+          "DisciplinePartners": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Picture": true
+        }
+      }
+    },
+    "InputReadonly": {
+      "parents": {
+        "Molecule": {
+          "BrandFormGroup": true
+        }
+      },
+      "children": {}
+    },
+    "InputColor": {
+      "parents": {
+        "Molecule": {
+          "BrandFormGroup": true
+        }
+      },
+      "children": {}
+    },
+    "InputText": {
+      "parents": {
+        "Molecule": {
+          "BrandFormGroup": true
+        }
+      },
+      "children": {}
+    },
+    "CenteredText": {
+      "children": {}
+    },
+    "InputCheckbox": {
+      "children": {}
+    },
+    "InputDoublestep": {
+      "children": {}
+    },
+    "InputTextarea": {
+      "children": {}
+    },
+    "Label": {
+      "children": {}
+    },
+    "Notification": {
+      "children": {}
+    },
+    "Provider": {
+      "children": {}
+    },
+    "Title": {
+      "children": {}
+    }
+  },
+  "MoleculeDashboard": {
+    "BattleRequestList": {
+      "parents": {
+        "TemplateCommon": {
+          "Dashboard": true
+        }
+      },
+      "children": {
+        "Molecule": {
+          "BattleRequest": true
+        }
+      }
+    },
+    "CardsList": {
+      "parents": {
+        "TemplateCommon": {
+          "Dashboard": true
+        }
+      },
+      "children": {
+        "Molecule": {
+          "Card": true
+        }
+      }
+    },
+    "NewsList": {
+      "parents": {
+        "TemplateCommon": {
+          "Dashboard": true
+        }
+      },
+      "children": {
+        "Molecule": {
+          "News": true
+        },
+        "Atom": {
+          "Loader": true
+        }
+      }
+    },
+    "StartBattle": {
+      "parents": {
+        "TemplateCommon": {
+          "Dashboard": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Link": true
+        }
+      }
+    }
+  },
+  "MoleculeSlides": {
+    "SlidesHeader": {
+      "parents": {
+        "TemplateAppPlayer": {
+          "FreeRun": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Link": true
+        }
+      }
+    },
+    "SlidesPlayer": {
+      "parents": {
+        "TemplateAppPlayer": {
+          "FreeRun": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Cta": true
+        },
+        "MoleculeSlides": {
+          "SlidesFooter": true
+        },
+        "MoleculeQuestions": {
+          "DragAndDrop": true,
+          "FreeText": true,
+          "QcmImage": true,
+          "Qcm": true
+        }
+      }
+    },
+    "SlidesFooter": {
+      "parents": {
+        "MoleculeSlides": {
+          "SlidesPlayer": true
+        }
+      },
+      "children": {}
+    }
+  },
+  "MoleculeForum": {
+    "ForumComment": {
+      "parents": {
+        "Organism": {
+          "Discussion": true
+        },
+        "MoleculeForum": {
+          "ForumPost": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Button": true
+        }
+      }
+    },
+    "ForumThread": {
+      "parents": {
+        "Organism": {
+          "Discussion": true
+        },
+        "MoleculeForum": {
+          "ForumThread": true
+        }
+      },
+      "children": {
+        "MoleculeForum": {
+          "ForumPost": true,
+          "ForumThread": true
+        }
+      }
+    },
+    "ForumPost": {
+      "parents": {
+        "MoleculeForum": {
+          "ForumThread": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Picture": true
+        },
+        "MoleculeForum": {
+          "ForumComment": true
+        }
+      }
+    }
+  },
+  "MoleculeQuestions": {
+    "DragAndDrop": {
+      "parents": {
+        "MoleculeSlides": {
+          "SlidesPlayer": true
+        }
+      },
+      "children": {}
+    },
+    "FreeText": {
+      "parents": {
+        "MoleculeSlides": {
+          "SlidesPlayer": true
+        }
+      },
+      "children": {}
+    },
+    "QcmImage": {
+      "parents": {
+        "MoleculeSlides": {
+          "SlidesPlayer": true
+        }
+      },
+      "children": {}
+    },
+    "Qcm": {
+      "parents": {
+        "MoleculeSlides": {
+          "SlidesPlayer": true
+        }
+      },
+      "children": {}
+    }
+  },
+  "TemplateAppCatalog": {
+    "Author": {
+      "children": {
+        "Molecule": {
+          "DisciplineHeader": true,
+          "DisciplinePartners": true
+        },
+        "Organism": {
+          "CatalogCards": true
+        }
+      }
+    },
+    "Catalog": {
+      "children": {
+        "Molecule": {
+          "Categories": true,
+          "CursusList": true
+        },
+        "Organism": {
+          "CatalogCards": true
+        }
+      }
+    },
+    "ProductCourse": {
+      "children": {
+        "Molecule": {
+          "CatalogCta": true,
+          "DisciplineHeader": true,
+          "DisciplinePartners": true,
+          "DisciplineScope": true
+        },
+        "Organism": {
+          "CatalogCards": true
+        }
+      }
+    },
+    "ProductCursus": {
+      "children": {
+        "Molecule": {
+          "CatalogAssets": true,
+          "CatalogBadge": true,
+          "CatalogCta": true,
+          "CursusHeader": true
+        },
+        "Organism": {
+          "CatalogCards": true
+        }
+      }
+    }
+  },
+  "TemplateAppPlayer": {
+    "FreeRun": {
+      "children": {
+        "MoleculeSlides": {
+          "SlidesHeader": true,
+          "SlidesPlayer": true
+        }
+      }
+    }
+  },
+  "TemplateBackOffice": {
+    "BrandCreate": {
+      "children": {
+        "Organism": {
+          "SetupHeader": true
+        }
+      }
+    },
+    "BrandList": {
+      "children": {
+        "Organism": {
+          "SetupHeader": true
+        }
+      }
+    },
+    "BrandUpdate": {
+      "children": {
+        "Organism": {
+          "SetupHeader": true
+        }
+      }
+    }
+  },
+  "TemplateCommon": {
+    "Authors": {
+      "children": {
+        "Atom": {
+          "Link": true,
+          "SocialLink": true
+        },
+        "Organism": {
+          "CardsGrid": true
+        }
+      }
+    },
+    "CoorpHeader": {
+      "children": {}
+    },
+    "Dashboard": {
+      "children": {
+        "MoleculeDashboard": {
+          "BattleRequestList": true,
+          "CardsList": true,
+          "NewsList": true,
+          "StartBattle": true
+        }
+      }
+    },
+    "Discipline": {
+      "children": {
+        "Molecule": {
+          "DisciplineCta": true,
+          "DisciplineHeader": true,
+          "DisciplinePartners": true,
+          "DisciplineScope": true
+        }
+      }
+    },
+    "SearchPage": {
+      "children": {
+        "Molecule": {
+          "Filters": true
+        },
+        "Organism": {
+          "CardsGrid": true
+        },
+        "Atom": {
+          "Button": true
+        }
+      }
     }
   }
 };

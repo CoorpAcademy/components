@@ -5,8 +5,6 @@ const {props} = News;
 export default {
   props: {
     title: 'Latest news',
-    news: [
-      props, props, props
-    ]
+    news: [props, props, props]
   }
 };

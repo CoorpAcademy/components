@@ -1,14 +1,11 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import {findDOMNode} from 'react-dom';
 import getOr from 'lodash/fp/getOr';
 import set from 'lodash/fp/set';
-import join from 'lodash/fp/join';
-import shallowCompare from '../../util/shallow-compare';
 import closestStep from '../../util/closest-step';
 import Handle from '../../atom/handle';
 import style from './style.css';
-
-const getOrBlank = getOr('');
 
 const xWithConstraints = ({x, delta, min, max}) => {
   const newX = x + delta;
@@ -28,7 +25,7 @@ class RangeSlider extends React.Component {
     super(props, context);
 
     this.state = {
-      ...props
+      railWidth: 0
     };
 
     this.setX = this.setX.bind(this);
@@ -37,15 +34,36 @@ class RangeSlider extends React.Component {
   }
 
   componentDidMount() {
-    const max = this.railWidth();
-    const steps = this.state.steps;
+    const width = this.railWidth();
+    this.initHandlesPositions(width);
+    window.addEventListener('resize', this.updatePositions);
+  }
+
+  componentWillReceiveProps() {
+    if (this.state.railWidth === 0) {
+      const width = this.railWidth();
+      this.initHandlesPositions(width);
+    }
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updatePositions);
+  }
+
+  initHandlesPositions(width) {
+    if (width === 0) {
+      return;
+    }
+
+    const max = width;
+    const steps = this.props.steps || [];
     const stepWidth = max / (steps.length - 1);
 
-    const step1 = getOr(0, 'handle1.step', this.state);
-    const step2 = getOr((steps.length - 1), 'handle2.step', this.state);
+    const step1 = getOr(0, 'handle1.step', this.props);
+    const step2 = getOr(steps.length - 1, 'handle2.step', this.props);
 
-    const x1 = getOr(step1 * stepWidth, 'handle1.x', this.state);
-    const x2 = getOr(step2 * stepWidth, 'handle2.x', this.state);
+    const x1 = getOr(step1 * stepWidth, 'handle1.x', this.props);
+    const x2 = getOr(step2 * stepWidth, 'handle2.x', this.props);
 
     // eslint-disable-next-line react/no-did-mount-set-state
     this.setState({
@@ -63,20 +81,15 @@ class RangeSlider extends React.Component {
       },
       railWidth: max
     });
-    window.addEventListener('resize', this.updatePositions);
-  }
-
-  shouldComponentUpdate(nextProps, nextState, nextContext) {
-    return shallowCompare(this, nextProps, nextState, nextContext);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.updatePositions);
   }
 
   updatePositions() {
+    const newWidth = this.railWidth();
+    this.refreshMinMax(newWidth);
+  }
+
+  refreshMinMax(newWidth) {
     this.setState((previousState, currentProps) => {
-      const newWidth = this.railWidth();
       const ratio = newWidth / previousState.railWidth;
 
       return {
@@ -96,13 +109,11 @@ class RangeSlider extends React.Component {
   }
 
   handlePanStart(num) {
-    return e => this.setState((previousState, currentProps) =>
-      set(
-        [`handle${num}`, 'panStart'],
-        e.target.offsetLeft,
-        previousState
-      )
-    );
+    return e => {
+      this.setState((previousState, currentProps) =>
+        set([`handle${num}`, 'panStart'], e.target.offsetLeft, previousState)
+      );
+    };
   }
 
   handlePanEnd(num) {
@@ -117,10 +128,7 @@ class RangeSlider extends React.Component {
     const handle = `handle${num}`;
     const width = previousState.railWidth;
 
-    const {
-      x,
-      step
-    } = closestStep({
+    const {x, step} = closestStep({
       eventX,
       width,
       steps,
@@ -138,8 +146,7 @@ class RangeSlider extends React.Component {
   setCalculatedX(e, num, previousState, steps, snap) {
     if (steps) {
       return this.calculateStepX(e, num, steps, previousState, snap);
-    }
-    else {
+    } else {
       const x = this.extractXFromEvent(num, e);
       const handle = `handle${num}`;
       return set([handle, 'x'], x, previousState);
@@ -151,21 +158,22 @@ class RangeSlider extends React.Component {
     const onDrag = this.props.onDrag;
     const onDragEnd = this.props.onDragEnd;
 
-    return e => this.setState((previousState, currentProps) => {
-      let state = this.setCalculatedX(e, num, previousState, steps, snap);
-      state = set(['handle1', 'max'], state.handle2.x, state);
-      state = set(['handle2', 'min'], state.handle1.x, state);
+    return e =>
+      this.setState((previousState, currentProps) => {
+        let state = this.setCalculatedX(e, num, previousState, steps, snap);
+        state = set(['handle1', 'max'], state.handle2.x, state);
+        state = set(['handle2', 'min'], state.handle1.x, state);
 
-      const isMax = state.handle1.x === state.railWidth;
-      state = set('isMax', isMax, state);
-      if (onDrag && !snap) {
-        onDrag(state);
-      }
-      if (onDragEnd && snap) {
-        onDragEnd(state);
-      }
-      return state;
-    });
+        const isMax = state.handle1.x === state.railWidth;
+        state = set('isMax', isMax, state);
+        if (onDrag && !snap) {
+          onDrag(state);
+        }
+        if (onDragEnd && snap) {
+          onDragEnd(state);
+        }
+        return state;
+      });
   }
 
   extractXFromEvent(num, e) {
@@ -182,54 +190,53 @@ class RangeSlider extends React.Component {
   }
 
   render() {
-    const {
-      isMax,
-      handle1 = this.props.handle1,
-      handle2 = this.props.handle2
-    } = this.state;
+    const {isMax, handle1 = this.props.handle1, handle2 = this.props.handle2} = this.state;
 
     const x1 = getOr(0, 'x', handle1);
     const x2 = getOr(0, 'x', handle2);
 
-    const {
-      steps,
-      title,
-      labelMin,
-      labelMax
-    } = this.props;
-
+    const {title, label, labelMin, labelMax} = this.props;
+    const {skin} = this.context;
+    const defaultColor = getOr('#00B0FF', 'common.primary', skin);
     return (
       <div className={style.default}>
+        <span className={style.titleLabel}>{label}</span>
         <p className={style.title}>{title}</p>
         <div
           className={style.rail} // eslint-disable-next-line no-return-assign
-          ref={div => this._rail = div} // eslint-disable-line react/jsx-no-bind
+          ref={div => (this._rail = div)} // eslint-disable-line react/jsx-no-bind
         >
           <div
             className={style.track}
             style={{
               left: `${x1}px`,
-              width: `${x2 - x1}px`
+              width: `${x2 - x1}px`,
+              backgroundColor: defaultColor
             }}
           />
           <Handle
             className={style.handle}
             style={{
-              zIndex: isMax ? '1' : '0'
+              zIndex: isMax ? '1' : '0',
+              boxShadow: `0px 0px 1px 1px ${defaultColor}`
             }}
             axis={'x'}
             x={x1}
-            handlePan={this.setX(1)}
-            handlePanStart={this.handlePanStart(1)}
-            handlePanEnd={this.handlePanEnd(1)}
+            // onClick={() => console.log('onclick')}
+            onPan={this.setX(1)}
+            onPanStart={this.handlePanStart(1)}
+            onPanEnd={this.handlePanEnd(1)}
           />
           <Handle
             className={style.handle}
             axis={'x'}
             x={x2}
-            handlePan={this.setX(2)}
-            handlePanStart={this.handlePanStart(2)}
-            handlePanEnd={this.handlePanEnd(2)}
+            style={{
+              boxShadow: `0px 0px 1px 1px ${defaultColor}`
+            }}
+            onPan={this.setX(2)}
+            onPanStart={this.handlePanStart(2)}
+            onPanEnd={this.handlePanEnd(2)}
           />
         </div>
         <span className={style.labelMin}>{labelMin}</span>
@@ -240,7 +247,7 @@ class RangeSlider extends React.Component {
 }
 
 RangeSlider.contextTypes = {
-  skin: React.PropTypes.object
+  skin: PropTypes.object
 };
 
 RangeSlider.propTypes = {
@@ -250,6 +257,7 @@ RangeSlider.propTypes = {
   handle2: PropTypes.shape({
     x: PropTypes.number
   }),
+  label: PropTypes.string,
   title: PropTypes.string,
   labelMin: PropTypes.string,
   labelMax: PropTypes.string,

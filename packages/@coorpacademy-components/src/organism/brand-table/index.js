@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Table from '../../molecule/table';
 import Pagination from '../../molecule/pagination';
 import Search from '../../molecule/search';
@@ -7,15 +8,7 @@ import Link from '../../atom/link';
 import style from './style.css';
 
 const BrandTable = props => {
-  const {
-    createHref,
-    pagination,
-    search,
-    rows = [],
-    columns = [],
-    isPending,
-    emptyValue
-  } = props;
+  const {createHref, pagination, search, rows = [], columns = [], isPending, emptyValue} = props;
 
   const pendingView = (
     <div className={style.loading}>
@@ -23,16 +16,11 @@ const BrandTable = props => {
     </div>
   );
 
-  const tableView = rows.length > 0 ? (
-    <Table
-      rows={rows}
-      columns={columns}
-    />
-  ) : (
-    <div className={style.empty}>
-      {emptyValue}
-    </div>
-  );
+  const tableView = rows.length > 0
+    ? <Table rows={rows} columns={columns} />
+    : <div className={style.empty}>
+        {emptyValue}
+      </div>;
 
   return (
     <div className={style.wrapper}>

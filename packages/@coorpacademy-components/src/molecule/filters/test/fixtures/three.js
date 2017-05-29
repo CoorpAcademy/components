@@ -1,15 +1,15 @@
 import dropdownsFilter from '../../../../atom/select/test/fixtures/filter';
-import selectCourses from '../../../../molecule/select-multiple/test/fixtures/checked';
 
 const selectFilter = dropdownsFilter.props;
-const selectMultiple = selectCourses.props;
 
 export default {
   props: {
-    titlepage: 'Catalog',
-    ctalabelfilter: 'Filter',
-    ctalabelsort: 'Sort by',
-    thematic: {...selectFilter,
+    filterTabLabel: 'Filter',
+    filterCTALabel: 'Filter',
+    sortTabLabel: 'Sort by',
+    sortCTALabel: 'Sort',
+    thematic: {
+      ...selectFilter,
       title: 'Thematic',
       options: [
         {
@@ -30,7 +30,8 @@ export default {
       ],
       onChange: value => console.log(value) // eslint-disable-line no-console
     },
-    authors: {...selectFilter,
+    authors: {
+      ...selectFilter,
       title: 'Authors',
       options: [
         {
@@ -51,7 +52,8 @@ export default {
       ],
       onChange: value => console.log(value) // eslint-disable-line no-console
     },
-    courses: {...selectFilter,
+    courses: {
+      ...selectFilter,
       title: 'Learning Paths:',
       options: [
         {

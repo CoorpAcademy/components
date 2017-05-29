@@ -3,20 +3,20 @@
 @value mobile from breakpoints;
 @value tablet from breakpoints;
 @value colors: "../../variables/colors.css";
-@value light from colors;
 @value darkGrey from colors;
-@value borderGrey from colors;
-@value blueGrey from colors;
-@value darkBlueGrey from colors;
-@value blue from colors;
+@value unselectTab from colors;
+@value selectTab from colors;
 
 .search {
   display: block;
   width: 100%;
   position: relative;
-  z-index: 4;
+  z-index: 5;
   font-family: "Open Sans";
-  background: white;
+  background: unselectTab;
+  min-height: 50px;
+  box-sizing: border-box;
+  border-bottom: 1px solid selectTab;
 }
 
 .wrapperNone {
@@ -30,36 +30,21 @@
   background: white;
   justify-content: center;
   box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
 }
-
-.choice {
-  flex: 50%;
-  min-width: 22%;
-  margin: 8px 16px;
-  box-sizing: border-box;
-}
-
-.choice label {
-  margin: 0;
-}
-
-.choice label span {
-    font-size: 13px;
-    color: darkGrey;
-}
-
-.choice select,
-.sorting select {
-  font-size: 12px;
-  background: borderGrey;
+.activeDefault {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
 }
 
 .wrapperFilters {
-  display: flex;
   width: 100%;
-  min-height: 135px;
   height: auto;
-  padding: 0 4%;
   box-sizing: border-box;
   align-items: center;
   justify-content: center;
@@ -69,26 +54,47 @@
 .wrapper {
   display: flex;
   flex-wrap: nowrap;
-  padding: 25px 0;
+  padding: 65px 25px 7px 25px;
   box-sizing: border-box;
   width: 100%;
   height: auto;
-  align-items: center;
-  justify-content: center;
 }
 
 .title {
-  display: none;
+  display: block;
+  color: darkGrey;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 50px;
+  text-align: center;
+  font-family: Open Sans;
   position: relative;
+  cursor: pointer;
+}
+
+.arrow {
   composes: fa from '../../variables/fontawesome.css';
   composes: fa-chevron-down from '../../variables/fontawesome.css';
 }
-.title:before {
-  display: none;
-  position: absolute;
+
+.arrow:before {
+  font-family: FontAwesome;
+  display: block;
+  position: relative;
   font-size: 14px;
-  right: 35%;
-  color: darkGrey;
+  margin: 0 10px;
+}
+
+.activeDefault .arrow:before,
+.activeWrapperSortBy .arrow:before {
+  transform: rotate(180deg);
+  transition: transform .4s ease-out;
+}
+.default .arrow:before,
+.wrapperSortBy .arrow:before {
+  transform: rotate(0deg);
+  transition: transform .4s ease-out;
 }
 
 .wrapperSortBy {
@@ -96,241 +102,261 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  background: light;
+  background: selectTab;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
 }
 
-.sorting {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  padding: 32px 10%;
-  box-sizing: border-box;
-  background: light;
-}
-
-.sorting .title {
-  display: block;
-  font-size: 14px;
-  font-weight: 300;
-  color: darkGrey;
-}
-
-.sorting .mainTitle {
-  display: flex;
-  width: 30%;
-  font-size: 20px;
-  font-weight: 700;
-  color: darkGrey;
-  justify-content: flex-start;
-}
-
-.sorting label {
-  float: right;
-  flex-wrap: nowrap;
-  width: 150%;
-}
-
-.sorting label span {
-  padding-top: 8px;
-  padding-right: 10px;
-  font-weight: 700;
-  text-align: right;
-  font-size: 13px;
-}
-
-.sorting label div {
-  margin-top: -20px;
+.activeWrapperSortBy {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
 }
 
 .select {
-  display: flex;
-  width: 80%;
-  align-items: center;
-  justify-content: flex-end;
+  width: 25%;
 }
 
 .CTAfilter {
   display: none;
 }
 
-@media desktop {}
+.default,
+.wrapperSortBy,
+.activeDefault,
+.activeWrapperSortBy {
+  display: inline-block;
+  width: 50%;
+  box-sizing: border-box;
+  height: 50px;
+  padding: 0;
+  background: unselectTab;
+}
+
+.choice {
+  width: 25%;
+  padding: 5px 1%;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.choice label {
+  margin: 0;
+}
+
+.choice label span {
+  font-size: 13px;
+  color: darkGrey;
+  user-select: none;
+}
+
+.choice select {
+  background: transparent;
+}
+
+.default {
+  border-right: solid 1px selectTab;
+  border-bottom: solid 1px selectTab;
+}
+
+.activeDefault {
+  border-right: solid 1px selectTab;
+  background: selectTab;
+}
+
+.activeWrapperSortBy {
+  border-left: solid 1px selectTab;
+  background: selectTab;
+}
+
+.wrapperSortBy {
+  border-left: solid 1px selectTab;
+  border-bottom: solid 1px selectTab;
+}
+
+.wrapperFilters,
+.sorting,
+.activeWrapperFilters,
+.activeSorting {
+  width: 100%;
+  box-sizing: border-box;
+  background: selectTab;
+}
+.activeSorting {
+  max-height: 150px;
+  overflow: hidden;
+  padding: 70px 15px 10px 15px;
+  opacity: 1;
+}
+.sorting {
+  max-height: 0px;
+  overflow: hidden;
+  padding: 0 15px 0 15px;
+  opacity: 0;
+}
+.wrapperFilters{
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 15px;
+  opacity: 0;
+}
+.activeWrapperFilters{
+  max-height: 170px;
+  overflow: hidden;
+  padding: 0 15px;
+  opacity: 1;
+}
+
+.wrapperFilters .wrapper,
+.activeWrapperFilters .wrapper {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.activeWrapperFilters .wrapper label {
+  margin-left: 0;
+}
+
+.sorting .select label div,
+.activeSorting .select label div {
+  top: 50%;
+}
+
+.sorting .select select,
+.activeSorting .select select  {
+  background: transparent;
+}
+.sorting .select,
+.activeSorting .select {
+  width: 21%;
+  padding-left: 36px;
+}
+.sorting label,
+.activeSorting label {
+  margin: 0px;
+}
+
+.sorting .select label span:first-child,
+.activeSorting .select label span:first-child {
+  display: none;
+}
+[data-animated='true'] .sorting{
+  transition: all .4s ease-out;
+}
+[data-animated='true'] .activeSorting {
+  transition: all .4s ease-out;
+}
+[data-animated='true'] .wrapperFilters{
+  transition: all .4s ease-out;
+}
+[data-animated='true'] .activeWrapperFilters {
+  transition: all .4s ease-out;
+}
 
 @media tablet {
   .wrapper {
     flex-wrap: wrap;
+    padding: 65px 10px 0 10px;
   }
-
-  .wrapperFilters {
-    padding: 0 32px;
+  .search {
+    border-top: 1px solid selectTab;
   }
   .choice {
-    flex: 43%;
+    width: 50%;
+    padding: 12px 3%;
+  }
+
+  .activeWrapperFilters{
+    max-height: 280px;
+  }
+
+  .wrapperFilters .wrapper,
+  .activeWrapperFilters .wrapper {
+    justify-content: space-between;
+  }
+
+  .select {
+    width: 50%;
+  }
+
+  .sorting .select,
+  .activeSorting .select {
+    width: 44%;
+    padding: 0 20px;
+  }
+  .sorting label,
+  .activeSorting label {
+    margin: 0;
   }
 }
 
 @media mobile {
-  .default,
-  .wrapperSortBy,
-  .activeDefault,
-  .activeWrapperSortBy {
-    display: inline-block;
-    width: 50%;
-    box-sizing: border-box;
-    height: 50px;
-    padding: 0;
-    background: borderGrey;
+  .search {
+    border-top: 1px solid selectTab;
   }
-  .choice {
-    flex: 100%;
-    max-width: 100%;
-    position: relative;
-  }
-  .default {
-    border-right: solid 1px light;
-  }
-
-  .activeDefault {
-    border-right: solid 1px light;
-    background: light;
-  }
-
-  .activeWrapperSortBy {
-    border-left: solid 1px light;
-    background: light;
-  }
-
-  .wrapperSortBy {
-    border-left: solid 1px light;
-  }
-
-  .default .title:before,
-  .wrapperSortBy .title:before,
-  .activeDefault .title:before,
-  .activeWrapperSortBy .title:before {
-    font-family: FontAwesome;
-  } 
-
-  .activeDefault .title,
-  .activeWrapperSortBy .title,
-  .activeDefault .title:before,
-  .activeWrapperSortBy .title:before {
-    color: blue;
-  } 
-
-  .activeDefault .title:before,
-  .activeWrapperSortBy .title:before {
-    transform: rotate(180deg);
-    transition: transform 0.25s linear;
-  }
-  .default .title:before,
-  .wrapperSortBy .title:before {
-    transform: rotate(0deg);
-    transition: transform 0.25s linear;
-  }
-
-
-  .title {
-    display: block;
-    color: darkGrey;
-    width: 100%;
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 50px;
-    text-align: center;
-    font-family: Open Sans;
-  }
-  .title:before {
-    display: block;
-    right: 25%;
-  }
-
-  .wrapperFilters,
-  .sorting {
-    width: 100%;
-    height: auto;
-    padding: 0;
-    box-sizing: border-box;
-    background: light;
-    position: absolute;
-    z-index: 3;
-    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .5);
-    visibility: hidden;
-    opacity: 0;
-  }
-
-  .activeWrapperFilters,
   .activeSorting {
+    padding: 65px 10px 0;
+    max-height: 200px;
+  }
+  .activeWrapperFilters{
+    max-height: 550px;
+  }
+  .wrapper {
+    padding: 65px 0 0;
+  }
+
+  .choice{
+    padding: 10px 0;
     width: 100%;
-    height: auto;
-    padding: 0;
-    box-sizing: border-box;
-    background: light;
-    position: absolute;
-    z-index: 3;
-    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .5);
-    visibility: visible;
   }
 
-  .activeWrapperFilters .wrapper {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    items-algin: flex-start;
+  .sorting,
+  .activeSorting{
+    padding-left: 15px;
+    padding-right: 15px;
   }
-
-  .activeWrapperFilters .wrapper select {
-    width: 100%;
-    margin-left: 0;
-  }
-
-  .activeSorting .mainTitle {
-    display: none;
-  }
-
-  .activeSorting {
-    display: block;
-    margin: 0;
-    padding-top: 16px;
-  }
-
+  .sorting label,
   .activeSorting label {
     margin: 0;
-  }
-
-  .activeSorting .select {
-    display: block;
-    align-items: center;
-    padding: 0px 16px;
-    box-sizing: border-box;
     width: 100%;
   }
-  
-  .activeSorting .select label div {
-    top: 50%;
+
+  .sorting .select,
+  .activeSorting .select {
+    display: inline-block;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0;
   }
 
-  .activeSorting .select select {
-    background: borderGrey;
+  .wrapperFilters .wrapper,
+  .activeWrapperFilters .wrapper,
+  .activeWrapperFilters .wrapper label {
+    width: 100%;
   }
 
-  .activeSorting .select label span {
-    display: none;
-  }
-
+  .wrapperFilters .CTAfilter,
+  .sorting .CTAfilter,
   .activeWrapperFilters .CTAfilter,
   .activeSorting .CTAfilter {
     display: block;
-    background: blue;
     width: 100%;
     height: 49px;
-    margin-top: 16px;
+    margin-top: 20px;
     line-height: 50px;
     color: white;
     cursor: pointer;
     text-align: center;
     font-weight: 700;
     position: relative;
-    bottom: 0;
+    bottom: 15px;
+  }
+  .activeWrapperFilters .CTAfilter:before,
+  .activeSorting .CTAfilter:before {
+    background-color: rgba(0, 0, 0, 0.2);
   }
 }

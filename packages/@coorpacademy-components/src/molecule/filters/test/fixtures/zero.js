@@ -4,10 +4,12 @@ const selectSort = dropdownsSort.props;
 
 export default {
   props: {
-    titlepage: 'Catalog',
-    ctalabelfilter: 'Filter',
-    ctalabelsort: 'Sort by',
-    sorting: {...selectSort,
+    filterTabLabel: 'Filter',
+    filterCTALabel: 'Filter',
+    sortTabLabel: 'Sort by',
+    sortCTALabel: 'Sort',
+    sorting: {
+      ...selectSort,
       title: 'Sort by',
       options: [
         {

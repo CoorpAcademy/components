@@ -1,7 +1,7 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
-import identity from 'lodash/fp/identity';
 import * as CustomPropTypes from '../../util/proptypes';
 import Link from '../../atom/link';
 import style from './style.css';
@@ -20,10 +20,7 @@ function Hero(props, context) {
         backgroundImage
       }}
     >
-      <Link
-        href={url}
-        className={style[ctaClass]}
-      >
+      <Link href={url} className={style[ctaClass]}>
         <div
           className={style.label}
           style={{
@@ -44,14 +41,11 @@ function Hero(props, context) {
 }
 
 Hero.contextTypes = {
-  skin: React.PropTypes.object
+  skin: PropTypes.object
 };
 
 Hero.propTypes = {
-  url: PropTypes.oneOfType([
-    CustomPropTypes.url,
-    PropTypes.string
-  ]).isRequired,
+  url: PropTypes.oneOfType([CustomPropTypes.url, PropTypes.string]).isRequired,
   title: PropTypes.string.isRequired
 };
 

@@ -14,7 +14,7 @@
   max-width: 1080px;
   flex: 1 1 100%;
   background: #FFFFFF;
-  border: 1px solid #FEFEFE;
+  border: 1px solid #ECEFF1;
   box-shadow: 0 0 1px 1px rgba(0,0,0,0.10);
 }
 
@@ -119,35 +119,13 @@
   line-height: 20px;
   letter-spacing: 4px;
   display: flex;
+  width: inherit;
   flex-direction: column;
 }
 
 .label span {
   font-size: 30px;
   letter-spacing: normal;
-}
-
-.text {
-  text-align: center;
-  color: #455A64;
-  font-family: 'Open Sans';
-  font-size: 14px;
-  font-weight: 500;
-  margin-top: 40px;
-}
-
-.text p {
-  margin: 0;
-  padding: 0;
-}
-
-.link {
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-.link:hover {
-  color: #455a64;
 }
 
 @media mobile {

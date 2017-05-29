@@ -1,0 +1,92 @@
+@value colors: "../../variables/colors.css";
+@value light from colors;
+@value blueGrey from colors;
+@value yellow from colors;
+
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+
+.parent {
+    background-color: light;
+    height: 100vh;
+}
+
+.cart {
+    width: 90%;
+    max-width: 1175px;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.productBlock {
+    width: calc(50% - 20px);
+    display: flex;
+    flex-direction: column;
+}
+
+.paymentBlock {
+    width: calc(50% - 20px);
+    display: flex;
+    flex-direction: column;
+}
+
+.titleContainer {
+    height: 103px;
+    background-color: yellow;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.headerTitle {
+    font-size: 40px;
+    color: #a1a1a1;
+}
+
+@media mobile {
+  .cart {
+    width: 100%;
+  }
+
+  .productBlock {
+    margin-right: 0;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .paymentBlock {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .titleContainer {
+    height: 46px;
+    margin-bottom: 0;
+  }
+
+  .headerTitle {
+    font-size: 15px;
+  }
+}
+
+.backButton {
+  border: none;
+  text-align: center;
+  margin: 10px 5px;
+  padding: 20px 0;
+  font-size: 17px;
+  font-weight: bold;
+  text-decoration: none;
+  background: #ECEFF1;
+  color: blueGrey;
+  cursor: pointer;
+}
+
+.backButton:hover {
+  background: #C0CAD1;
+}

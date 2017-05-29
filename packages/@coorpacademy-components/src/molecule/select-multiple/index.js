@@ -1,10 +1,6 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import {findDOMNode} from 'react-dom';
-import get from 'lodash/fp/get';
-import getOr from 'lodash/fp/getOr';
-import identity from 'lodash/fp/identity';
-import filter from 'lodash/fp/filter';
-import find from 'lodash/fp/find';
 import map from 'lodash/fp/map';
 import TitledCheckbox from '../titled-checkbox';
 import style from './style.css';
@@ -40,23 +36,12 @@ class SelectMultiple extends React.Component {
   }
 
   render() {
-    const {
-      title,
-      selection,
-      choices,
-      onToggle
-    } = this.props;
+    const {title, selection, choices, onToggle} = this.props;
 
     const lines = map.convert({cap: false})((choice, i) => {
       return (
-        <li
-          className={style.line}
-          key={i}
-        >
-          <TitledCheckbox
-            onToggle={onToggle}
-            state={choice}
-          />
+        <li key={i}>
+          <TitledCheckbox onToggle={onToggle} state={choice} />
         </li>
       );
     }, choices);
@@ -64,21 +49,19 @@ class SelectMultiple extends React.Component {
     const isActive = this.state.opened === true;
 
     return (
-      <div className={style.default} // eslint-disable-next-line no-return-assign
-        ref={div => this._selectMultiple = div} // eslint-disable-line react/jsx-no-bind
+      <div
+        className={style.default}
+        // eslint-disable-next-line react/jsx-no-bind
+        ref={div => {
+          this._selectMultiple = div;
+        }}
       >
         <div className={style.title}>{title}</div>
-        <div className={style.select}
-          title={selection}
-          onClick={this.handleOnClick}
-        >
+        <div className={style.select} title={selection} onClick={this.handleOnClick}>
           {selection}
         </div>
-        <div className={isActive ? style.activeChoices : style.choices} >
-          <span
-            onClick={this.handleOnClick}
-            className={style.close}
-          />
+        <div className={isActive ? style.activeChoices : style.choices}>
+          <span onClick={this.handleOnClick} className={style.close} />
           <ul className={style.list}>
             {lines}
           </ul>

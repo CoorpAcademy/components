@@ -1,6 +1,6 @@
 import dropdownsFilter from '../../../../atom/select/test/fixtures/filter';
 import dropdownsSort from '../../../../atom/select/test/fixtures/sort';
-import rangeslider from '../../../../molecule/range-slider/test/fixtures/default';
+import rangeslider from '../../../../molecule/range-slider/test/fixtures/steps-force-range';
 
 const selectFilter = dropdownsFilter.props;
 const selectSort = dropdownsSort.props;
@@ -8,10 +8,12 @@ const timer = rangeslider.props;
 
 export default {
   props: {
-    titlepage: 'Catalog',
-    ctalabelfilter: 'Filter',
-    ctalabelsort: 'Sort by',
-    thematic: {...selectFilter,
+    filterTabLabel: 'Filter',
+    filterCTALabel: 'Filter',
+    sortTabLabel: 'Sort by',
+    sortCTALabel: 'Sort',
+    thematic: {
+      ...selectFilter,
       title: 'Thematic:',
       options: [
         {
@@ -32,7 +34,8 @@ export default {
       ],
       onChange: value => console.log(value) // eslint-disable-line no-console
     },
-    authors: {...selectFilter,
+    authors: {
+      ...selectFilter,
       title: 'Authors:',
       options: [
         {
@@ -42,7 +45,7 @@ export default {
         },
         {
           name: 'World Health Organization - Mental Health Policy' +
-          'and Service Development, Michelle Funk and Nathalie Drew',
+            'and Service Development, Michelle Funk and Nathalie Drew',
           value: 'WHO',
           selected: true
         },
@@ -54,7 +57,8 @@ export default {
       ],
       onChange: value => console.log(value) // eslint-disable-line no-console
     },
-    courses: {...selectFilter,
+    courses: {
+      ...selectFilter,
       title: 'Learning Paths:',
       options: [
         {
@@ -80,7 +84,8 @@ export default {
       ],
       onChange: value => console.log(value) // eslint-disable-line no-console
     },
-    sorting: {...selectSort,
+    sorting: {
+      ...selectSort,
       title: 'Sort by:',
       options: [
         {

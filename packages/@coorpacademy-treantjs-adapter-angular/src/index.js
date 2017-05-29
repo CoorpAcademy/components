@@ -2,24 +2,16 @@ import mapKeys from 'lodash/fp/mapKeys';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const _link = ($rootScope, $i18next, scope, element, Provider, Component) => {
-  const translate = (token, data) => $i18next(`coorponents:${token}`, data);
+const DefaultProvider = props => props.children;
 
+const link = (Provider, Component) => (scope, element, attrs) => {
   const update = vTree => {
     ReactDOM.render(vTree, element[0]);
   };
 
-  const refresh = props => {
-    if (props === undefined)
-      return;
-
-    const options = {
-      skin: $rootScope.skin,
-      translate
-    };
-
+  const refresh = (context = {}, props = {}) => {
     const vTree = (
-      <Provider {...options}>
+      <Provider {...context}>
         <Component {...props} />
       </Provider>
     );
@@ -27,32 +19,25 @@ const _link = ($rootScope, $i18next, scope, element, Provider, Component) => {
     update(vTree);
   };
 
-  $rootScope.$watch('skin', () => refresh(scope.props, $rootScope.skin), true);
-  scope.$watch('props', () => refresh(scope.props, $rootScope.skin), true);
+  scope.$watch('context', () => refresh(scope.context, scope.props), true);
+  scope.$watch('props', () => refresh(scope.context, scope.props), true);
 
   scope.$on('$destroy', () => window.angular.element(element).remove());
 };
 
 const createDirective = (app, componentName, Provider, Component) => {
-  const directive = ($rootScope, $i18next) => {
-    const link = (scope, element, attrs) => {
-      _link($rootScope, $i18next, scope, element, Provider, Component);
-    };
-
+  const directive = () => {
     return {
       restrict: 'E',
-      link,
+      link: link(Provider, Component),
       scope: {
-        props: '='
+        props: '=',
+        context: '='
       }
     };
   };
 
-  app.directive(componentName, [
-    '$rootScope',
-    '$i18next',
-    directive
-  ]);
+  app.directive(componentName, [directive]);
 };
 
 /**
@@ -64,7 +49,7 @@ const createDirectives = (app, Provider, components) => {
   const toDirective = key => {
     const componentName = `coorp${key}`;
     const Component = components[key];
-    createDirective(app, componentName, Provider, Component);
+    createDirective(app, componentName, Provider || DefaultProvider, Component);
   };
 
   return mapKeys(toDirective, components);

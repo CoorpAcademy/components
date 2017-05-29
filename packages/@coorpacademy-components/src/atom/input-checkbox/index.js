@@ -1,28 +1,23 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import noop from 'lodash/fp/noop';
 import uniqueId from 'lodash/fp/uniqueId';
 import getClassState from '../../util/get-class-state';
 import style from './style.css';
 
 const InputCheckbox = props => {
-  const {
-    checked,
-    onChange = noop,
-    error,
-    disabled,
-    required,
-    modified = false
-  } = props;
+  const {checked, onChange = noop, error, disabled, required, modified = false} = props;
 
   const idCheckbox = uniqueId('input-checkbox-');
   const title = `${props.title}${required ? '*' : ''} :`;
   const handleChange = e => onChange(e.target.checked);
+  const className = getClassState(style.default, style.modified, style.error, modified, error);
 
   return (
-    <div className={getClassState(style, modified, error)}>
+    <div className={className}>
       <span className={style.title}>{title}</span>
       <input
-        type='checkbox'
+        type="checkbox"
         className={style.checkbox}
         name={title}
         id={idCheckbox}
@@ -30,9 +25,7 @@ const InputCheckbox = props => {
         onChange={handleChange}
         disabled={disabled}
       />
-      <label
-        htmlFor={idCheckbox}
-      />
+      <label htmlFor={idCheckbox} />
     </div>
   );
 };

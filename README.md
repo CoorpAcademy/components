@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/CoorpAcademy/components.svg?token=tpTZr2AKsFCqAwZ7nAEf&branch=master)](https://travis-ci.com/CoorpAcademy/components)
+[![Build Status](https://travis-ci.org/CoorpAcademy/components.svg?branch=master)](https://travis-ci.org/CoorpAcademy/components)
 [![Coverage Status](https://coveralls.io/repos/github/CoorpAcademy/components/badge.svg?branch=master&t=15or4z)](https://coveralls.io/github/CoorpAcademy/components?branch=master)
 [![GitPitch](https://gitpitch.com/assets/badge.svg)](https://gitpitch.com/coorpacademy/tekacademy/components?grs=github&t=night)
 
@@ -37,7 +37,7 @@ npm run start:components
 
 Then open `http://localhost:3004`
 
-### Locally use `/lib` in a project
+### Locally use `/lib` in an external project
 - use `npm link` to create a local `@coorpacademy/components` package
 - use `npm link @coorpacademy/components` in your project.
 
@@ -46,10 +46,15 @@ Then open `http://localhost:3004`
 npm test
 ```
 
-
 ### Publish
 ```
 npm run publish:latest
+```
+
+### Developing apps using HMR and components
+```
+[@coorpacademy-components]> npm run build:es -- --watch
+[@coorpacademy-app-player]> npm start
 ```
 
 ### Troubleshooting

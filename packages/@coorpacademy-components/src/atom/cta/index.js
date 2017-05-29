@@ -1,7 +1,7 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
 import Link from '../link';
-import shallowCompare from '../../util/shallow-compare';
 import style from './style.css';
 
 class CTA extends React.Component {
@@ -12,10 +12,6 @@ class CTA extends React.Component {
     };
     this.handleMouseEnter = this.handleMouseEnter.bind(this);
     this.handleMouseLeave = this.handleMouseLeave.bind(this);
-  }
-
-  shouldComponentUpdate(nextProps, nextState, nextContext) {
-    return shallowCompare(this, nextProps, nextState, nextContext);
   }
 
   handleMouseEnter() {
@@ -31,7 +27,7 @@ class CTA extends React.Component {
   }
 
   render() {
-    const {translate, skin} = this.context;
+    const {skin} = this.context;
     const {
       submitValue = 'submit',
       name: ctaName,
@@ -39,7 +35,8 @@ class CTA extends React.Component {
       target,
       light = false,
       small = false,
-      secondary = false
+      secondary = false,
+      onClick
     } = this.props;
 
     const primarySkinColor = getOr('#00B0FF', 'common.primary', skin);
@@ -56,7 +53,8 @@ class CTA extends React.Component {
     const hoverBorderColor = secondary ? textColor : secondaryColor;
 
     return (
-      <div className={style.button}
+      <div
+        className={style.button}
         data-name={ctaName}
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}
@@ -69,6 +67,7 @@ class CTA extends React.Component {
       >
         <Link
           href={href}
+          onClick={onClick}
           target={target}
           style={{
             color: this.state.hovered ? hoverTextColor : textColor
@@ -82,8 +81,7 @@ class CTA extends React.Component {
 }
 
 CTA.contextTypes = {
-  skin: React.PropTypes.object,
-  translate: React.PropTypes.func
+  skin: PropTypes.object
 };
 
 CTA.propTypes = {
@@ -93,7 +91,8 @@ CTA.propTypes = {
   target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
   light: PropTypes.bool,
   small: PropTypes.bool,
-  secondary: PropTypes.bool
+  secondary: PropTypes.bool,
+  onClick: PropTypes.func
 };
 
 export default CTA;

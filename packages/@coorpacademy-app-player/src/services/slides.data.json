@@ -1,0 +1,66 @@
+[
+  {
+    "id": "qcmSlide-1",
+    "question": {
+      "type": "qcm",
+      "header": "Quelles cases de QCM ne sont pas adjacentes ?",
+      "explanation": "(plusieurs réponses possibles)",
+      "content": {
+        "choices": [
+          {
+            "label": "Case 1",
+            "id": "answer1",
+            "value": "answer 1"
+          },
+          {
+            "label": "Case 2",
+            "id": "answer2",
+            "value": "answer 2"
+          },
+          {
+            "label": "Case 3",
+            "id": "answer3",
+            "value": "answer 3"
+          },
+          {
+            "label": "Case 4",
+            "id": "answer4",
+            "value": "answer 4"
+          }
+        ]
+      }
+    },
+    "lessons": [
+      {
+        "description": "La recherche en ligne A",
+        "mimeType": "application/vimeo",
+        "videoId": 33678526,
+        "width": 611,
+        "height": 280
+      }
+    ],
+    "clue": "imperdiet nunc in, pellentesque tortor !!!",
+    "klf": "Phasellus imperdiet neque a ipsum venenatis, vel ultrices orci tincidunt. Praesent venenatis diam turpis, rutrum convallis quam varius vitae. In hac habitasse platea dictumst. In hendrerit lorem sagittis, hendrerit orci id, varius velit. Maecenas lobortis malesuada urna, eget placerat ligula adipiscing at.",
+    "tips": "Suspendisse augue dui, volutpat a turpis non, scelerisque vulputate tortor. Aliquam non ipsum eu ligula pellentesque elementum."
+  },
+  {
+    "id": "templateSlide-1",
+    "question": {
+      "type": "template",
+      "header": "1 + 1 ?",
+      "explanation": "(plusieurs réponses possibles)"
+    },
+    "lessons": [
+      {
+        "description": "La recherche en ligne A",
+        "mimeType": "application/vimeo",
+        "videoId": 33678526,
+        "width": 611,
+        "height": 280
+      }
+    ],
+    "clue": "imperdiet nunc in, pellentesque tortor !!!",
+    "klf": "Phasellus imperdiet neque a ipsum venenatis, vel ultrices orci tincidunt. Praesent venenatis diam turpis, rutrum convallis quam varius vitae. In hac habitasse platea dictumst. In hendrerit lorem sagittis, hendrerit orci id, varius velit. Maecenas lobortis malesuada urna, eget placerat ligula adipiscing at.",
+    "tips": "Suspendisse augue dui, volutpat a turpis non, scelerisque vulputate tortor. Aliquam non ipsum eu ligula pellentesque elementum."
+  }
+]

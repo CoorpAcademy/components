@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import map from 'lodash/fp/map';
 import getOr from 'lodash/fp/getOr';
 import Select from '../../atom/select';
@@ -7,6 +8,9 @@ import InputColor from '../../atom/input-color';
 import InputCheckbox from '../../atom/input-checkbox';
 import InputReadonly from '../../atom/input-readonly';
 import InputSwitch from '../../atom/input-switch';
+import BrandUploadBox from '../../molecule/brand-upload-box';
+import BrandDownloadBox from '../../molecule/brand-download-box';
+import Button from '../../atom/button';
 import InputTextarea from '../../atom/input-textarea';
 import InputDoublestep from '../../atom/input-doublestep';
 import ImageUpload from '../../atom/image-upload';
@@ -15,66 +19,41 @@ import SetupSections from '../setup-sections';
 import style from './style.css';
 
 const BrandFormGroup = props => {
-  const {
-    title,
-    subtitle = '',
-    fieldsLayout = '',
-    fields = []
-  } = props;
+  const {title, subtitle = '', fieldsLayout = '', fields = []} = props;
 
   const buildInput = field => {
-    const {
-      type
-    } = field;
+    const {type} = field;
     switch (type) {
       case 'color':
-        return (
-          <InputColor {...field} />
-        );
+        return <InputColor {...field} />;
       case 'readonly':
-        return (
-          <InputReadonly {...field} />
-        );
+        return <InputReadonly {...field} />;
       case 'switch':
-        return (
-          <InputSwitch {...field} />
-        );
+        return <InputSwitch {...field} />;
       case 'textarea':
-        return (
-          <InputTextarea {...field} />
-        );
+        return <InputTextarea {...field} />;
       case 'doublestep':
-        return (
-          <InputDoublestep {...field} />
-        );
+        return <InputDoublestep {...field} />;
       case 'select':
-        return (
-          <Select {...field} />
-        );
+        return <Select {...field} />;
       case 'checkbox':
-        return (
-          <InputCheckbox {...field} />
-        );
+        return <InputCheckbox {...field} />;
       case 'image':
-        return (
-          <ImageUpload {...field} />
-        );
+        return <ImageUpload {...field} />;
       case 'slider':
-        return (
-          <SetupSlider {...field} />
-        );
+        return <SetupSlider {...field} />;
       case 'sections':
-        return (
-          <SetupSections {...field} />
-        );
+        return <SetupSections {...field} />;
       case 'text':
-        return (
-          <InputText {...field} />
-        );
+        return <InputText {...field} />;
+      case 'downloadbox':
+        return <BrandDownloadBox {...field} />;
+      case 'uploadbox':
+        return <BrandUploadBox {...field} />;
+      case 'button':
+        return <Button {...field} />;
       default:
-        return (
-          <InputText {...field} />
-        );
+        return <InputText {...field} />;
     }
   };
 
@@ -82,16 +61,13 @@ const BrandFormGroup = props => {
     const input = buildInput(field);
 
     return (
-      <div
-        className={style.field}
-        key={index}
-      >
+      <div className={style.field} key={index}>
         {input}
       </div>
     );
   };
 
-  const fieldsList = fields.map(buildField);
+  const fieldsList = map.convert({cap: false})(buildField, fields);
   const fieldsLayoutStyle = getOr('', fieldsLayout, style);
 
   return (
@@ -111,8 +87,10 @@ BrandFormGroup.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string,
   fieldsLayout: PropTypes.string,
-  fields: PropTypes.arrayOf(PropTypes.shape({
-    type: PropTypes.string.isRequired
-  }))
+  fields: PropTypes.arrayOf(
+    PropTypes.shape({
+      type: PropTypes.string.isRequired
+    })
+  )
 };
 export default BrandFormGroup;

@@ -1,17 +1,12 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
 import Link from '../../atom/link';
 import style from './style.css';
 
 const BattleRequest = (props, context) => {
   const {translate, skin} = context;
-  const {
-    username,
-    discipline,
-    level,
-    avatar,
-    href
-  } = props;
+  const {username, discipline, level, avatar, href} = props;
 
   const primaryColor = getOr('#00B0FF', 'common.primary', skin);
 
@@ -19,7 +14,8 @@ const BattleRequest = (props, context) => {
   const startLabel = translate('Start battle');
 
   return (
-    <Link className={style.card}
+    <Link
+      className={style.card}
       style={{
         borderColor: primaryColor
       }}
@@ -37,7 +33,9 @@ const BattleRequest = (props, context) => {
           </span>
         </div>
         <div className={style.discipline}>
-          {discipline}
+          <div className={style.disciplineName}>
+            {discipline}
+          </div>
           <div className={style.level}>
             {level}
           </div>
@@ -52,16 +50,16 @@ const BattleRequest = (props, context) => {
 };
 
 BattleRequest.contextTypes = {
-  skin: React.PropTypes.object,
-  translate: React.PropTypes.func
+  skin: PropTypes.object,
+  translate: PropTypes.func
 };
 
 BattleRequest.propTypes = {
-  username: React.PropTypes.string,
-  discipline: React.PropTypes.string,
-  level: React.PropTypes.string,
-  avatar: React.PropTypes.string,
-  href: React.PropTypes.string
+  username: PropTypes.string,
+  discipline: PropTypes.string,
+  level: PropTypes.string,
+  avatar: PropTypes.string,
+  href: PropTypes.string
 };
 
 export default BattleRequest;

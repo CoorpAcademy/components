@@ -6,10 +6,7 @@ test('should create translate function', t => {
     'f{{oo}}': 'b{{ar}}'
   });
 
-  t.deepEqual(
-    translate('f{{oo}}', {ar: 'ar'}),
-    'bar'
-  );
+  t.deepEqual(translate('f{{oo}}', {ar: 'ar'}), 'bar');
 });
 
 test('should use key if any locales match', t => {
@@ -17,21 +14,15 @@ test('should use key if any locales match', t => {
     'f{{oo}}': 'f{{oo}}'
   });
 
-  t.deepEqual(
-    translate('f{{oo}}', {oo: 'oo'}),
-    'foo'
-  );
+  t.deepEqual(translate('f{{oo}}', {oo: 'oo'}), 'foo');
 });
 
-test('shouldn\'t replace if any data match', t => {
+test("shouldn't replace if any data match", t => {
   const translate = createTranslate({
     'f{{oo}}': 'f{{oo}}'
   });
 
-  t.deepEqual(
-    translate('f{{oo}}'),
-    'f{{oo}}'
-  );
+  t.deepEqual(translate('f{{oo}}'), 'f{{oo}}');
 });
 
 test('should accept empty string value', t => {
@@ -39,8 +30,14 @@ test('should accept empty string value', t => {
     foo: ''
   });
 
-  t.deepEqual(
-    translate('foo'),
-    ''
-  );
+  t.deepEqual(translate('foo'), '');
+});
+
+test("should throw error if template isn't a string", t => {
+  const translate = createTranslate({
+    foo: 0
+  });
+
+  t.throws(() => translate('foo'));
+  t.throws(() => translate('bar'));
 });

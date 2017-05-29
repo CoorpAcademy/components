@@ -1,0 +1,104 @@
+@value colors: "../../variables/colors.css";
+@value blue from colors;
+@value darkBlueGrey from colors;
+@value borderGrey from colors;
+
+@value breakpoints: "../../variables/breakpoints.css";
+@value desktop from breakpoints;
+@value tablet from breakpoints;
+@value mobile from breakpoints;
+
+.product {
+  box-shadow: 0 0 4px 0 lightgrey;
+  margin: 5px;
+  background-color: white;
+}
+
+.productHeader {
+  color: white;
+  background-color: blue;
+  text-align: center;
+  padding: 10px;
+}
+
+.productHeaderTitle {
+  font-weight: bold;
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.productHeaderSubtitle {
+  font-size: 22px;
+  margin: 10px 0;
+}
+
+.productBody {
+  padding: 20px 70px;
+}
+
+.productDescriptionItem {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.productDescriptionText {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.productCheckbox {
+  width: 12px;
+  height: 12px;
+  margin-right: 15px;
+}
+
+.productBody {
+  color: darkBlueGrey;
+}
+
+.productSeparation {
+  border: solid 1px borderGrey;
+  border-bottom: none;
+  margin: 20px 0;
+}
+
+.productPrice {
+  text-align: center;
+}
+
+.priceValue {
+  margin: 10px 0;
+  font-size: 22px;
+}
+.cancelText {
+  margin: 20px 0;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+@media mobile {
+  .productHeaderTitle {
+    font-size: 14px;
+  }
+
+  .productHeaderSubtitle {
+    font-size: 18px;
+  }
+
+  .productBody {
+    padding: 20px 30px;
+  }
+
+  .productDescriptionText {
+    font-size: 13px;
+  }
+
+  .priceValue {
+    font-size: 17px;
+  }
+
+  .cancelText {
+    font-size: 12px;
+  }
+}

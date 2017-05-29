@@ -1,5 +1,5 @@
-import React, {PropTypes} from 'react';
-import * as CustomPropTypes from '../../util/proptypes';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Picture from '../../atom/picture';
 import style from './style.css';
 
@@ -20,14 +20,7 @@ const getUrl = (type, id) => {
 };
 
 const VideoIframe = props => {
-  const {
-    type,
-    id,
-    url,
-    image,
-    width = '100%',
-    height = '400px'
-  } = props;
+  const {type, id, url, image, width = '100%', height = '400px'} = props;
 
   const src = url || getUrl(type, id);
 
@@ -42,14 +35,8 @@ const VideoIframe = props => {
         allowFullScreen
       />
     );
-  }
-  else {
-    return (
-      <Picture
-        className={style.image}
-        src={image}
-      />
-    );
+  } else {
+    return <Picture className={style.image} src={image} />;
   }
 };
 

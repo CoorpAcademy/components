@@ -1,4 +1,5 @@
 import {relative, join, dirname, basename} from 'path';
+import slash from 'slash';
 import _join from 'lodash/fp/join';
 import flatten from 'lodash/fp/flatten';
 import map from 'lodash/fp/map';
@@ -7,6 +8,7 @@ import split from 'lodash/fp/split';
 import toPairs from 'lodash/fp/toPairs';
 import components from '../src/util/list-components';
 import fixtures from '../src/util/list-fixtures';
+import dependencies from '../src/util/list-dependencies';
 
 const targetDir = join(__dirname, '../storybook');
 const removeExt = path => join(dirname(path), basename(path, '.js'));
@@ -18,7 +20,7 @@ const _componentImports = pipe(
   mapObject((_components, type) =>
     mapObject((path, title) => {
       const relativePath = relative(targetDir, path);
-      return `import ${title} from '${relativePath}';`;
+      return `import ${title} from '${slash(relativePath)}';`;
     })(_components)
   ),
   flatten
@@ -50,7 +52,7 @@ const _fixtureImports = pipe(
         pipe(
           mapObject((path, fixture) => {
             const relativePath = relative(targetDir, path);
-            return `import ${title}Fixture${fixture} from '${removeExt(relativePath)}';`;
+            return `import ${title}Fixture${fixture} from '${slash(removeExt(relativePath))}';`;
           }),
           flatten
         )(_fixtures),
@@ -91,12 +93,18 @@ const _fixtureExports = [
   '};'
 ];
 
+const _dependenciesExports = `export const dependencies = ${JSON.stringify(dependencies, null, 2)};`;
+
 const file = _join('\n', [
+  '/* eslint-disable max-len */',
+  '',
   ..._componentImports,
   ..._fixtureImports,
   '',
   ..._componentExport,
   ..._fixtureExports,
+  '',
+  _dependenciesExports,
   ''
 ]);
 

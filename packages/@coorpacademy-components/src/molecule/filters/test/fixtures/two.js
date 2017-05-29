@@ -6,10 +6,12 @@ const selectSort = dropdownsSort.props;
 
 export default {
   props: {
-    titlepage: 'Catalog',
-    ctalabelfilter: 'Filter',
-    ctalabelsort: 'Sort by',
-    thematic: {...selectFilter,
+    filterTabLabel: 'Filter',
+    filterCTALabel: 'Filter',
+    sortTabLabel: 'Sort by',
+    sortCTALabel: 'Sort',
+    thematic: {
+      ...selectFilter,
       title: 'Thematic',
       options: [
         {
@@ -30,7 +32,8 @@ export default {
       ],
       onChange: value => console.log(value) // eslint-disable-line no-console
     },
-    courses: {...selectFilter,
+    courses: {
+      ...selectFilter,
       title: 'Learning Paths:',
       options: [
         {
@@ -56,7 +59,8 @@ export default {
       ],
       onChange: value => console.log(value) // eslint-disable-line no-console
     },
-    sorting: {...selectSort,
+    sorting: {
+      ...selectSort,
       title: 'Sort by',
       options: [
         {

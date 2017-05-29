@@ -1,17 +1,10 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import noop from 'lodash/fp/noop';
 import style from './style.css';
 
 const InputTextarea = props => {
-  const {
-    title,
-    placeholder,
-    value,
-    onChange = noop,
-    error,
-    description,
-    disabled
-  } = props;
+  const {title, placeholder, value, onChange = noop, error, description, disabled} = props;
 
   const className = error ? style.error : style.default;
   const handleChange = e => onChange(e.target.value);

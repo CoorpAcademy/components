@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import style from './style.css';
 
 const icons = {
@@ -14,17 +15,11 @@ const icons = {
 };
 
 const SocialLink = props => {
-  const {
-    type,
-    link
-  } = props;
+  const {type, link} = props;
 
   return (
-    <a
-      href={link}
-      className={style.link}
-      target={'_blank'}
-    >{String.fromCharCode(icons[type])}
+    <a href={link} className={style.link} target={'_blank'}>
+      {String.fromCharCode(icons[type])}
     </a>
   );
 };

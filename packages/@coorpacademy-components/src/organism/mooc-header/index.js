@@ -1,11 +1,9 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import {findDOMNode} from 'react-dom';
 import find from 'lodash/fp/find';
-import filter from 'lodash/fp/filter';
 import getOr from 'lodash/fp/getOr';
 import get from 'lodash/fp/get';
-import map from 'lodash/fp/map';
-import shallowCompare from '../../util/shallow-compare';
 import Slider from '../../molecule/slider';
 import Cta from '../../atom/cta';
 import Select from '../../atom/select';
@@ -23,10 +21,6 @@ class Theme extends React.Component {
     this.handleMouseLeave = this.handleMouseLeave.bind(this);
   }
 
-  shouldComponentUpdate(nextProps, nextState, nextContext) {
-    return shallowCompare(this, nextProps, nextState, nextContext);
-  }
-
   handleMouseEnter() {
     this.setState(prevState => ({
       hovered: true
@@ -41,9 +35,11 @@ class Theme extends React.Component {
 
   render() {
     const {selected, primaryColor, title, handleClick, name: themeName} = this.props;
-    const activeColor = this.state.hovered || selected ? {
-      color: primaryColor
-    } : null;
+    const activeColor = this.state.hovered || selected
+      ? {
+          color: primaryColor
+        }
+      : null;
 
     return (
       <div
@@ -78,10 +74,6 @@ class MoocHeader extends React.Component {
     this.handleMenuThemeMouseLeave = this.handleMenuThemeMouseLeave.bind(this);
     this._checkOnClose = this._checkOnClose.bind(this);
     this.handleLinkClick = this.handleLinkClick.bind(this);
-  }
-
-  shouldComponentUpdate(nextProps, nextState, nextContext) {
-    return shallowCompare(this, nextProps, nextState, nextContext);
   }
 
   componentDidUpdate(prevProps, prevState, prevContext) {
@@ -165,27 +157,24 @@ class MoocHeader extends React.Component {
     const currentTheme = find({selected: true}, themes);
     if (currentTheme && themes.length > 1) {
       const optionsView = themes.map((theme, index) => {
-        return (
-          <Theme
-            primaryColor={primaryColor}
-            key={theme.name || index}
-            {...theme}
-          />
-        );
+        return <Theme primaryColor={primaryColor} key={theme.name || index} {...theme} />;
       });
 
       themesView = (
-        <div className={this.state.isThemeMenuOpen ? style.themesHovered : style.themes}
+        <div
+          className={this.state.isThemeMenuOpen ? style.themesHovered : style.themes}
           onMouseEnter={this.handleMenuThemeMouseEnter}
           onMouseLeave={this.handleMenuThemeMouseLeave} // eslint-disable-next-line no-return-assign
-          ref={div => this._menuThemes = div} // eslint-disable-line react/jsx-no-bind
+          ref={div => (this._menuThemes = div)} // eslint-disable-line react/jsx-no-bind
         >
           <div
             className={style.currentOption}
             onTouchStart={this.handleMenuThemeClick}
-            aria-haspopup='true'
+            aria-haspopup="true"
             data-name="thematique"
-          >{currentTheme.title}<span className={style.caret} /></div>
+          >
+            {currentTheme.title}<span className={style.caret} />
+          </div>
           <div className={style.optionsGroup}>
             {optionsView}
           </div>
@@ -195,20 +184,23 @@ class MoocHeader extends React.Component {
 
     if (pages) {
       const displayedPages = pages.displayed.map((page, index) => {
-        const activeColor = page.selected ? {
-          color: primaryColor
-        } : null;
+        const activeColor = page.selected
+          ? {
+              color: primaryColor
+            }
+          : null;
 
-        const battlesView = (page.counter > 0) ? (
-          <div className={style.battlesCounter}>
-            {page.counter}
-          </div>
-        ) : null;
+        const battlesView = page.counter > 0
+          ? <div className={style.battlesCounter}>
+              {page.counter}
+            </div>
+          : null;
 
         const {name: pageName = index} = page;
 
         return (
-          <Link key={pageName}
+          <Link
+            key={pageName}
             data-name={`page-${pageName}`}
             href={page.href}
             className={page.selected ? style.activePage : style.page}
@@ -221,7 +213,8 @@ class MoocHeader extends React.Component {
           >
             {page.title}
             {battlesView}
-            <span className={style.bar}
+            <span
+              className={style.bar}
               style={{
                 backgroundColor: primaryColor
               }}
@@ -231,20 +224,17 @@ class MoocHeader extends React.Component {
       });
 
       const optionsView = pages.more.map((page, index) => {
-        const activeColor = page.selected ? {
-          color: primaryColor
-        } : null;
-
-        const battlesView = (page.counter > 0) ? (
-          <div className={style.notifications}>
-            {user.notifications}
-          </div>
-        ) : null;
+        const activeColor = page.selected
+          ? {
+              color: primaryColor
+            }
+          : null;
 
         const {name: pageName = index} = page;
 
         return (
-          <Link href={page.href}
+          <Link
+            href={page.href}
             key={pageName}
             className={style.option}
             data-name={`page-more-${pageName}`}
@@ -264,11 +254,9 @@ class MoocHeader extends React.Component {
         <div className={style.pages}>
           {displayedPages}
           <div className={style.more}>
-            <div
-              className={style.currentOption}
-              aria-haspopup='true'
-              data-name="page-more"
-            >{moreLabel}<span className={style.caret} /></div>
+            <div className={style.currentOption} aria-haspopup="true" data-name="page-more">
+              {moreLabel}<span className={style.caret} />
+            </div>
             <div className={style.optionsGroup}>
               {optionsView}
             </div>
@@ -279,11 +267,7 @@ class MoocHeader extends React.Component {
 
     if (links) {
       const ctas = links.map((cta, index) => {
-        return (
-          <Cta key={index}
-            {...cta}
-          />
-        );
+        return <Cta key={index} {...cta} />;
       });
 
       linksView = (
@@ -294,25 +278,28 @@ class MoocHeader extends React.Component {
     }
 
     if (user) {
-      notificationsView = (user.notifications > 0) ? (
-        <div className={style.notifications}
-          style={{
-            backgroundColor: primaryColor
-          }}
-        >
-          {user.notifications}
-        </div>
-      ) : null;
+      notificationsView = user.notifications > 0
+        ? <div
+            className={style.notifications}
+            style={{
+              backgroundColor: primaryColor
+            }}
+          >
+            {user.notifications}
+          </div>
+        : null;
 
       userView = (
         <div className={style.user}>
           <div className={style.stats}>
-            <Link className={style.stat}
+            <Link
+              className={style.stat}
               data-name="stat-stars"
               href={user.stats.stars.href}
               onClick={this.handleLinkClick}
             >
-              <div className={style.stars}
+              <div
+                className={style.stars}
                 style={{
                   backgroundColor: primaryColor
                 }}
@@ -321,12 +308,14 @@ class MoocHeader extends React.Component {
                 {user.stats.stars.label}
               </div>
             </Link>
-            <Link className={style.stat}
+            <Link
+              className={style.stat}
               data-name="stat-ranking"
               href={user.stats.ranking.href}
               onClick={this.handleLinkClick}
             >
-              <div className={style.ranking}
+              <div
+                className={style.ranking}
                 style={{
                   backgroundColor: primaryColor
                 }}
@@ -335,12 +324,14 @@ class MoocHeader extends React.Component {
                 {user.stats.ranking.label}
               </div>
             </Link>
-            <Link className={style.stat}
+            <Link
+              className={style.stat}
               data-name="stat-badge"
               href={user.stats.badge.href}
               onClick={this.handleLinkClick}
             >
-              <div className={style.badge}
+              <div
+                className={style.badge}
                 style={{
                   backgroundColor: primaryColor
                 }}
@@ -351,13 +342,8 @@ class MoocHeader extends React.Component {
             </Link>
           </div>
           <div className={style.avatarWrapper}>
-            <div className={style.avatar}
-              data-name='user-avatar'
-            >
-              <Link href={user.href}
-                className={style.userLink}
-                onClick={this.handleLinkClick}
-              >
+            <div className={style.avatar} data-name="user-avatar">
+              <Link href={user.href} className={style.userLink} onClick={this.handleLinkClick}>
                 <img src={user.picture} />
               </Link>
             </div>
@@ -375,12 +361,9 @@ class MoocHeader extends React.Component {
         switch (type) {
           case 'link': {
             settingView = (
-              <div
-                data-name={`setting-${settingName}`}
-                className={style.setting}
-                key={settingName}
-              >
-                <Link className={style.link}
+              <div data-name={`setting-${settingName}`} className={style.setting} key={settingName}>
+                <Link
+                  className={style.link}
                   href={options.href}
                   skinHover
                   onClick={this.handleLinkClick}
@@ -400,11 +383,7 @@ class MoocHeader extends React.Component {
             selectProps.onChange = options.onChange;
 
             settingView = (
-              <div
-                data-name={`setting-${settingName}`}
-                className={style.setting}
-                key={settingName}
-              >
+              <div data-name={`setting-${settingName}`} className={style.setting} key={settingName}>
                 <span className={style.label}>
                   {title}
                 </span>
@@ -419,11 +398,7 @@ class MoocHeader extends React.Component {
             switchProps.onChange = options.onChange;
 
             settingView = (
-              <div
-                data-name={`setting-${settingName}`}
-                className={style.setting}
-                key={settingName}
-              >
+              <div data-name={`setting-${settingName}`} className={style.setting} key={settingName}>
                 <span className={style.label}>
                   {title}
                 </span>
@@ -438,20 +413,18 @@ class MoocHeader extends React.Component {
       });
     }
 
-    const sliderView = slider ? (
-      <div
-        data-name="slider"
-        className={style.slider}
-      >
-        <Slider {...slider} />
-      </div>
-    ) : null;
+    const sliderView = slider
+      ? <div data-name="slider" className={style.slider}>
+          <Slider {...slider} />
+        </div>
+      : null;
 
     return (
       <div className={style.wrapper}>
         <div className={this.state.isMenuOpen ? style.open : style.header}>
           <div className={style.logoWrapper}>
-            <div className={style.logoMobile}
+            <div
+              className={style.logoMobile}
               data-name="logo-mobile"
               onClick={this.handleMenuToggle}
             >
@@ -459,18 +432,15 @@ class MoocHeader extends React.Component {
               {notificationsView}
               <div className={this.state.isMenuOpen ? style.caretUp : style.caret} />
             </div>
-            <Link
-              className={style.logo}
-              data-name="logo"
-              href={logo.href}
-            >
+            <Link className={style.logo} data-name="logo" href={logo.href}>
               <img src={logoUrl} />
             </Link>
             {themesView}
           </div>
           <div className={style.menuWrapper}>
             <div className={style.homeMenu}>
-              <Link className={style.homeLink}
+              <Link
+                className={style.homeLink}
                 data-name="page-home"
                 href={logo.href}
                 onClick={this.handleLinkClick}
@@ -481,24 +451,24 @@ class MoocHeader extends React.Component {
             </div>
             {pagesView}
             {userView || linksView}
-            <div className={style.settings} // eslint-disable-next-line no-return-assign
-              ref={div => this._menuSettings = div} // eslint-disable-line react/jsx-no-bind
+            <div
+              className={style.settings} // eslint-disable-next-line no-return-assign
+              ref={div => (this._menuSettings = div)} // eslint-disable-line react/jsx-no-bind
             >
               <div
                 data-name="settings-toggle"
                 className={style.settingsToggle}
                 onClick={this.handleSettingsToggle}
               />
-              <div className={this.state.isSettingsOpen ? style.settingsWrapper : style.settingsWrapperHidden}>
-                <div
-                  data-name="settings"
-                  className={style.settingsGroup}
-                >
+              <div
+                className={
+                  this.state.isSettingsOpen ? style.settingsWrapper : style.settingsWrapperHidden
+                }
+              >
+                <div data-name="settings" className={style.settingsGroup}>
                   {settingsView}
                 </div>
-                <div className={style.closeSettings}
-                  onClick={this.handleSettingsToggle}
-                >
+                <div className={style.closeSettings} onClick={this.handleSettingsToggle}>
                   {closeLabel}
                 </div>
               </div>
@@ -512,37 +482,43 @@ class MoocHeader extends React.Component {
 }
 
 MoocHeader.contextTypes = {
-  skin: React.PropTypes.object,
-  translate: React.PropTypes.func
+  skin: PropTypes.object,
+  translate: PropTypes.func
 };
 
 MoocHeader.propTypes = {
   logo: PropTypes.shape({
     href: PropTypes.string
   }),
-  themes: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string,
-    name: PropTypes.string,
-    handleClick: PropTypes.func,
-    selected: PropTypes.bool
-  })),
+  themes: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      name: PropTypes.string,
+      handleClick: PropTypes.func,
+      selected: PropTypes.bool
+    })
+  ),
   pages: PropTypes.shape({
-    displayed: PropTypes.arrayOf(PropTypes.shape({
-      target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
-      title: PropTypes.string,
-      name: PropTypes.string,
-      href: PropTypes.string,
-      selected: PropTypes.bool,
-      counter: PropTypes.number
-    })),
-    more: PropTypes.arrayOf(PropTypes.shape({
-      target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
-      title: PropTypes.string,
-      name: PropTypes.string,
-      href: PropTypes.string,
-      selected: PropTypes.bool,
-      counter: PropTypes.number
-    }))
+    displayed: PropTypes.arrayOf(
+      PropTypes.shape({
+        target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
+        title: PropTypes.string,
+        name: PropTypes.string,
+        href: PropTypes.string,
+        selected: PropTypes.bool,
+        counter: PropTypes.number
+      })
+    ),
+    more: PropTypes.arrayOf(
+      PropTypes.shape({
+        target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
+        title: PropTypes.string,
+        name: PropTypes.string,
+        href: PropTypes.string,
+        selected: PropTypes.bool,
+        counter: PropTypes.number
+      })
+    )
   }),
   links: PropTypes.array,
   user: PropTypes.shape({
@@ -564,22 +540,26 @@ MoocHeader.propTypes = {
       })
     })
   }),
-  settings: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string,
-    name: PropTypes.string,
-    type: PropTypes.oneOf(['select', 'switch', 'link']),
-    options: PropTypes.shape({
-      href: PropTypes.string,
-      onChange: PropTypes.func,
-      value: PropTypes.bool,
-      target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
-      values: PropTypes.arrayOf(PropTypes.shape({
-        value: PropTypes.string,
-        name: PropTypes.string,
-        selected: PropTypes.bool
-      }))
+  settings: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      name: PropTypes.string,
+      type: PropTypes.oneOf(['select', 'switch', 'link']),
+      options: PropTypes.shape({
+        href: PropTypes.string,
+        onChange: PropTypes.func,
+        value: PropTypes.bool,
+        target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
+        values: PropTypes.arrayOf(
+          PropTypes.shape({
+            value: PropTypes.string,
+            name: PropTypes.string,
+            selected: PropTypes.bool
+          })
+        )
+      })
     })
-  })),
+  ),
   slider: PropTypes.object
 };
 export default MoocHeader;

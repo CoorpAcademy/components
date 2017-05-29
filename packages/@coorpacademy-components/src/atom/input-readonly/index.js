@@ -1,12 +1,9 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import style from './style.css';
 
 const InputReadonly = props => {
-  const {
-    title,
-    value,
-    description
-  } = props;
+  const {title, value, description} = props;
 
   return (
     <div className={style.wrapper}>

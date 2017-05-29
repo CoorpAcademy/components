@@ -1,38 +1,18 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import VideoIframe from '../video-iframe';
 import Picture from '../../atom/picture';
 import style from './style.css';
 
 const VideoPlayer = props => {
-  const {
-    type,
-    id,
-    image,
-    playVideo,
-    width = '100%',
-    height = '400px'
-  } = props;
+  const {type, id, image, playVideo, width = '100%', height = '400px'} = props;
 
   return (
     <div className={style.list}>
       <div className={style.item}>
-        <input
-          type='checkbox'
-          id='toggler'
-          checked={false}
-          className={style.checkbox}
-        />
-        <label
-          htmlFor={'toggler'}
-          className={style.togglerDisplay}
-          onClick={playVideo}
-        >
-          <Picture
-            src={image}
-            className={style.image}
-            width={width}
-            height={height}
-          />
+        <input type="checkbox" id="toggler" checked={false} className={style.checkbox} />
+        <label htmlFor={'toggler'} className={style.togglerDisplay} onClick={playVideo}>
+          <Picture src={image} className={style.image} width={width} height={height} />
         </label>
         <VideoIframe
           type={type}

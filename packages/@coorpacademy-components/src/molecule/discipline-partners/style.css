@@ -3,7 +3,6 @@
 @value mobile from breakpoints;
 @value darkGrey from colors;
 @value borderGrey from colors;
-@value blue from colors;
 
 .authorLink {
   width: 100%;
@@ -14,7 +13,6 @@
   font-family: 'Open Sans';
   font-weight: 700;
   font-size: 12px;
-  color: blue;
   text-decoration: none;
 }
 

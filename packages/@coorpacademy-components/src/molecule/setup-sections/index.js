@@ -1,27 +1,32 @@
-import React, {PropTypes} from 'react';
-import map from 'lodash/fp/map';
+import React from 'react';
+import PropTypes from 'prop-types';
 import SetupSection from '../setup-section';
+import Loader from '../../atom/loader';
 import style from './style.css';
 
 const SetupSections = (props, context) => {
-  const { translate } = context;
+  const {sections, loading = false} = props;
 
-  const {
-    sections
-  } = props;
+  let sectionsView = null;
 
-  const sectionsView = sections.map((section, index) => {
-    section.onUp = (index === 0) ? null : section.onUp;
-    section.onDown = (index === sections.length - 1) ? null : section.onDown;
-
-    return (
-      <div key={section.id}
-        className={style.section}
-      >
-        <SetupSection {...section} />
+  if (loading) {
+    sectionsView = (
+      <div className={style.loading}>
+        <Loader />
       </div>
     );
-  });
+  } else {
+    sectionsView = sections.map((section, index) => {
+      section.onUp = index === 0 ? null : section.onUp;
+      section.onDown = index === sections.length - 1 ? null : section.onDown;
+
+      return (
+        <div key={section.id} className={style.section}>
+          <SetupSection {...section} />
+        </div>
+      );
+    });
+  }
 
   return (
     <div className={style.wrapper}>
@@ -30,11 +35,8 @@ const SetupSections = (props, context) => {
   );
 };
 
-SetupSections.contextTypes = {
-  translate: React.PropTypes.func
-};
-
 SetupSections.propTypes = {
-  sections: React.PropTypes.array
+  sections: PropTypes.array,
+  loading: PropTypes.bool
 };
 export default SetupSections;

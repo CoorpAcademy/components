@@ -62,10 +62,6 @@
 }
 
 @media mobile {
-  .wrapper {
-    flex-direction: column;
-  }
-
   .imgWrapper {
     flex: none;
     height: auto;

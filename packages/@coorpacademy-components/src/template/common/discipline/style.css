@@ -1,5 +1,6 @@
 @value breakpoints: "../../../variables/breakpoints.css";
 @value desktop from breakpoints;
+@value mobile from breakpoints;
 @value wide from breakpoints;
 
 .wrapper {
@@ -54,5 +55,12 @@
   }
   .partners {
     order: 4;
+  }
+}
+
+@media mobile {
+
+  .content {
+    width: 100%;
   }
 }

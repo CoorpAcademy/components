@@ -1,0 +1,66 @@
+@value colors: "../../variables/colors.css";
+@value blue from colors;
+@value darkBlue from colors;
+@value green from colors;
+@value lightGreen from colors;
+
+.unsubscribe {
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.description {
+    flex: 2;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
+
+.button {
+  font-size: 15px;
+  border-radius: 30px;
+  height: 60px;
+  white-space: pre-line;
+  padding: 0 30px;
+  cursor: pointer;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.keepSubscriptionButton {
+  composes: button;
+  border: none;
+  background-color: blue;
+  color: white;
+}
+
+.keepSubscriptionButton:hover {
+  background-color: darkBlue;
+}
+
+.unsubscribeButton {
+  composes: button;
+  background-color: white;
+  color: blue;
+  border: 1px solid;
+}
+
+.unsubscribeButton:hover {
+  background-color: #f0f0f0;
+}
+
+.unsubscribeConfirmation {
+  white-space: pre-line;
+  text-align: left;
+  padding: 20px;
+  border: solid 1px green;
+  background-color: lightGreen;
+  color: green;
+}

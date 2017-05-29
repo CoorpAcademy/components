@@ -1,12 +1,11 @@
-import React, {PropTypes} from 'react';
-import * as CustomPropTypes from '../../../util/proptypes';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Picture from '../../../atom/picture';
 import CursusHeader from '../../../molecule/cursus-header';
 import CatalogCTA from '../../../molecule/catalog-cta';
 import CatalogBadge from '../../../molecule/catalog-badge';
 import CatalogAssets from '../../../molecule/catalog-assets';
 import CatalogCards from '../../../organism/catalog-cards';
-import layout from '../layout.css';
 import style from './style.css';
 
 const ProductCursus = (props, context) => {
@@ -25,25 +24,13 @@ const ProductCursus = (props, context) => {
     linkTry
   } = props;
 
-  const certificationLabel = translate('certification');
-  const assetsLabel = translate('assets');
-
   return (
     <div className={style.wrapper}>
       <div className={style.header}>
-        <CursusHeader
-          image={image}
-          title={title}
-          description={description}
-        />
+        <CursusHeader image={image} title={title} description={description} />
       </div>
       <div className={style.cta}>
-        <CatalogCTA
-          rating={rating}
-          maxRating={maxRating}
-          linkBuy={linkBuy}
-          linkTry={linkTry}
-        />
+        <CatalogCTA rating={rating} maxRating={maxRating} linkBuy={linkBuy} linkTry={linkTry} />
       </div>
       <div className={style.details}>
         <CatalogBadge badge={badge} />
@@ -51,14 +38,12 @@ const ProductCursus = (props, context) => {
       </div>
       <div className={style.products}>
         <div className={style.productsContainer}>
-          <span className={layout.cardsTitle}>
+          <span className={style.cardsTitle}>
             {cardsTitle}
           </span>
 
           <div className={style.productsWrapper}>
-            <CatalogCards
-              products={disciplines}
-            />
+            <CatalogCards products={disciplines} />
           </div>
         </div>
       </div>

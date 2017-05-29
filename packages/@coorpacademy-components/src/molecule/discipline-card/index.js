@@ -1,8 +1,8 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
 import partial from 'lodash/fp/partial';
 import unary from 'lodash/fp/unary';
-import identity from 'lodash/fp/identity';
 import ModuleBubble from '../../molecule/module-bubble';
 import style from './style.css';
 
@@ -12,17 +12,13 @@ function DisciplineCard(props, context) {
 
   const hidden = discipline.visible === false;
   const disciplineClass = hidden ? style.hidden : style.default;
-  const rand = (Math.floor(Math.random() * 7) + 3) * .2;
+  const rand = (Math.floor(Math.random() * 7) + 3) * 0.2;
   const duration = hidden ? 1 : rand;
   const animationDuration = `${duration}s`;
   const mainStyle = {animationDuration};
 
   const modules = discipline.modules.map(_module => (
-    <ModuleBubble
-      module={_module}
-      onClick={onModuleClick}
-      key={_module.ref}
-    />
+    <ModuleBubble module={_module} onClick={onModuleClick} key={_module.ref} />
   ));
 
   const click = unary(partial(onClick, [discipline]));
@@ -32,22 +28,21 @@ function DisciplineCard(props, context) {
   const defaultColor = getOr('#f0f', 'common.primary', skin);
   const barColor = getOr('transparent', ['courses', discipline.courseNum], skin);
 
-  const mediaDiv = discipline.media ? (
-    <div className={style.coverWrapper}>
-      <img className={style.cover}
-        src={discipline.media}
-      />
-      <div className={style.gradient} />
-    </div>
-  ) : null;
+  const mediaDiv = discipline.media
+    ? <div className={style.coverWrapper}>
+        <img className={style.cover} src={discipline.media} />
+        <div className={style.gradient} />
+      </div>
+    : null;
 
-  const colorDiv = !discipline.media ? (
-    <div className={style.coverColorWrapper}
-      style={{
-        backgroundColor: defaultColor
-      }}
-    />
-  ) : null;
+  const colorDiv = !discipline.media
+    ? <div
+        className={style.coverColorWrapper}
+        style={{
+          backgroundColor: defaultColor
+        }}
+      />
+    : null;
   const bar = (
     <div
       className={style.bar}
@@ -58,18 +53,11 @@ function DisciplineCard(props, context) {
   );
 
   return (
-    <div
-      className={disciplineClass}
-      data-name='discipline-card'
-      style={mainStyle}
-    >
+    <div className={disciplineClass} data-name="discipline-card" style={mainStyle}>
       <div className={style.disciplineWrapper}>
         {colorDiv}
         {mediaDiv}
-        <div
-          className={style.textWrapper}
-          onClick={click}
-        >
+        <div className={style.textWrapper} onClick={click}>
           <div className={style.title}>
             {label}
           </div>
@@ -85,7 +73,7 @@ function DisciplineCard(props, context) {
 }
 
 DisciplineCard.contextTypes = {
-  skin: React.PropTypes.object
+  skin: PropTypes.object
 };
 
 DisciplineCard.propTypes = {

@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
 import Header from '../../../organism/setup-header';
 import style from './style.css';
 

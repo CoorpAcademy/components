@@ -1,0 +1,23 @@
+@value breakpoints: "../../../variables/breakpoints.css";
+@value desktop from breakpoints;
+@value tablet from breakpoints;
+@value mobile from breakpoints;
+
+.wrapper {
+  width: 100%;
+}
+
+.playerWrapper {
+  margin: 32px auto;
+  box-sizing: border-box;
+  max-width: 960px;
+  padding: 0 30px;
+}
+
+@media mobile {
+
+  .playerWrapper {
+    margin: 0;
+    padding: 0;
+  }
+}

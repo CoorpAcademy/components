@@ -30,7 +30,7 @@
   width: 180px;
 }
 
-.default input {
+.input {
   font-family: "Open Sans";
   text-transform: none;
   padding: 0 15px;
@@ -43,11 +43,11 @@
   width: 230px;
 }
 
-.error input {
+.error .input {
   border-color: #eb5c41;
 }
 
-.modified input {
+.modified .input {
   border-color: yellow;
 }
 

@@ -7,7 +7,6 @@
 @value grey from colors;
 @value darkGrey from colors;
 @value borderGrey from colors;
-@value blue from colors;
 
 .default[disabled] {
   pointer-events: none;
@@ -16,8 +15,7 @@
 .default {
   display: inline-block;
   box-sizing: border-box;
-  margin: 8px;
-  width: 260px;
+  width: 258px;
   vertical-align: top;
   border: 1px solid rgba(0, 0, 0, 0.1);
   background: white;
@@ -27,13 +25,26 @@
   transition: all 0.1s ease-in-out;
   text-decoration: none;
   position: relative;
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.lazy {
+  composes: default;
+  pointer-events: none;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .default:hover {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   background: light;
-  transform: translateY(-2px);
-  border: 0px solid rgba(0, 0, 0, 0);
 }
 
 .imageWrapper:hover .overlay,
@@ -56,6 +67,8 @@
   width: 100%;
   line-height: 125px;
   text-shadow: 0px 0px 20px white;
+  top: 0;
+  position: absolute;
 }
 
 .imageWrapper {
@@ -124,9 +137,9 @@
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background: blue;
   composes: fa from '../../variables/fontawesome.css';
   composes: fa-random from '../../variables/fontawesome.css';
+  box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.4);
 }
 
 .adaptiv:before {
@@ -198,7 +211,6 @@
 .progress {
   display: block;
   height: 5px;
-  background: blue;
   animation: progressbar 2s ease-in-out;
 }
 
@@ -212,7 +224,6 @@
 .type {
   font-weight: 700;
   font-size: 9px;
-  color: blue;
   text-transform: uppercase;
 }
 
@@ -280,12 +291,10 @@
   .list .default {
     width: 100%;
     height: 120px;
-    margin: 0;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     position: relative;
-    margin: 4px 0px;
   }
 
   .list .imageWrapper {
@@ -304,10 +313,6 @@
     left: 5px;
   }
 
-  .list .noprogressbar {
-    display: none;
-  }
-
   .list .progressWrapper {
     position: absolute;
     bottom: 0;
@@ -317,8 +322,7 @@
   .list .infoWrapper {
     width: 100%;
     box-sizing: border-box;
-    margin-left: 100px;
-    padding: 8px 15px;
+    padding: 8px 15px 8px 115px;
     height: 100%;
   }
 

@@ -6,11 +6,13 @@ const {props} = CreateForm;
 
 export default {
   props: defaultsDeep(props, {
-    notifications: [{
-      type: 'error',
-      message: 'There is a problem in your form',
-      onClose: () => {}
-    }],
+    notifications: [
+      {
+        type: 'error',
+        message: 'There is a problem in your form',
+        onClose: () => {}
+      }
+    ],
     header: Header.props
   })
 };

@@ -1,16 +1,12 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import addClassName from '../../util/add-class-name';
 import style from './style.css';
 
 const addBackgroundClass = addClassName(style.background);
 
 const ProgressBar = props => {
-  const {
-    className,
-    value,
-    max,
-    desc = ''
-  } = props;
+  const {className, value, max, desc = ''} = props;
 
   const ratio = value / max;
   const percentage = Math.floor(ratio * 100);

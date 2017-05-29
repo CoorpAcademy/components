@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import style from './style.css';
 
 const CatalogSection = ({title, children}, context) => (
@@ -10,8 +11,7 @@ const CatalogSection = ({title, children}, context) => (
   </div>
 );
 
-CatalogSection.contextTypes = {
-};
+CatalogSection.contextTypes = {};
 
 CatalogSection.propTypes = {
   title: PropTypes.string

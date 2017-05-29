@@ -1,16 +1,11 @@
-import React, {PropTypes} from 'react';
-import set from 'lodash/fp/set';
+import React from 'react';
+import PropTypes from 'prop-types';
 import map from 'lodash/fp/map';
 import DisciplineCard from '../../molecule/discipline-card';
 import style from './style.css';
 
 function DisciplineCards(props) {
-  const {
-    image = 'bg',
-    onModuleClick,
-    onDisciplineClick,
-    disciplines = []
-  } = props;
+  const {onModuleClick, onDisciplineClick, disciplines = []} = props;
 
   const disciplineViews = map(discipline => {
     return (
@@ -32,7 +27,6 @@ function DisciplineCards(props) {
 
 DisciplineCards.propTypes = {
   disciplines: PropTypes.arrayOf(PropTypes.object),
-  image: PropTypes.string,
   onDisciplineClick: PropTypes.func.isRequired,
   onModuleClick: PropTypes.func.isRequired
 };

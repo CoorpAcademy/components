@@ -2,6 +2,10 @@
   composes: default from '../input-text/style.css';
 }
 
+.input{
+  composes: input from '../input-text/style.css';
+}
+
 .error {
   composes: error from '../input-text/style.css';
   composes: default;

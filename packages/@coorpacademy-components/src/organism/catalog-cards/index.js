@@ -1,9 +1,9 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import isEmpty from 'lodash/fp/isEmpty';
 import isNil from 'lodash/fp/isNil';
-import map from 'lodash/fp/map';
 import CenteredText from '../../atom/centered-text';
 import Spinner from '../../atom/spinner';
 import CatalogCard from '../../molecule/catalog-card';
@@ -46,13 +46,11 @@ const CatalogCards = (props, context) => {
 };
 
 CatalogCards.contextTypes = {
-  translate: React.PropTypes.func
+  translate: PropTypes.func
 };
 
 CatalogCards.propTypes = {
-  products: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.object),
-    PropTypes.null
-  ])
+  products: PropTypes.arrayOf(PropTypes.object)
 };
+
 export default CatalogCards;

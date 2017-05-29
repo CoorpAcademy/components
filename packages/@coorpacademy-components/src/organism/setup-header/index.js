@@ -1,22 +1,13 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Picture from '../../atom/picture';
 import Link from '../../atom/link';
 import style from './style.css';
 
 const SetupHeader = props => {
-  const {
-    logout,
-    logoutValue,
-    href,
-    user = {},
-    logo,
-    logoMobile
-  } = props;
+  const {logout, logoutValue, href, user = {}, logo, logoMobile} = props;
 
-  const {
-    username = '',
-    image = ''
-  } = user;
+  const {username = '', image = ''} = user;
 
   return (
     <div className={style.wrapper}>
@@ -30,14 +21,8 @@ const SetupHeader = props => {
       </div>
       <div className={style.logo}>
         <Link href={href}>
-          <Picture
-            className={style.logoDesktop}
-            src={logo}
-          />
-          <Picture
-            className={style.logoMobile}
-            src={logoMobile}
-          />
+          <Picture className={style.logoDesktop} src={logo} />
+          <Picture className={style.logoMobile} src={logoMobile} />
         </Link>
       </div>
       <div className={style.logout}>

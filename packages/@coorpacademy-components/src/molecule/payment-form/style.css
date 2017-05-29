@@ -1,0 +1,167 @@
+@value colors: "../../variables/colors.css";
+@value blue from colors;
+@value darkBlueGrey from colors;
+@value borderGrey from colors;
+@value red from colors;
+@value yellow from colors;
+@value lightRed from colors;
+
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value tablet from breakpoints;
+
+.paymentForm {
+  margin: 5px;
+  padding: 30px;
+  box-shadow: 0 0 4px 0 lightgrey;
+  background-color: white;
+}
+
+.acceptedCards {
+  display: flex;
+  align-items: center;
+}
+
+.acceptedCardsText {
+  margin: 0 15px;
+  color: darkBlueGrey;
+}
+
+.acceptedCardsCheck {
+  width: 20px;
+  height: 20px;
+}
+
+.acceptedCardsImage {
+  height: 40px;
+}
+
+.cardNumber, .cardExpiry, .cardCvc {
+  border: 1px solid #bbb;
+  padding: 20px 10px;
+}
+
+.cardNumber {
+  flex: 1;
+}
+
+.cardExpiry, .cardCvc {
+  min-width: 45%;
+}
+
+.cardBlock {
+  margin: 20px 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.creditCardOwnerEmail {
+  margin: 20px 0;
+}
+
+.creditCardOwnerEmailText {
+  padding: 20px 0;
+  text-align: center;
+  word-wrap: break-word;
+  color: darkBlueGrey;
+}
+
+.creditCardOwnerEmailSeparator {
+  margin: 0px 40px;
+  border: solid 1px borderGrey;
+  border-bottom: none;
+}
+
+.securedPayment {
+  display: flex;
+  align-items: flex-end;
+}
+
+.securedPaymentImage {
+  width: 22px;
+}
+
+.securedPaymentText {
+  margin-left: 10px;
+  margin-bottom: 2px;
+  font-size: 12px;
+}
+
+.paymentErrors {
+  margin: 10px 0;
+  padding: 10px;
+  border: solid 1px red;
+  background-color: lightRed;
+  color: red;
+  font-size: 12px;
+}
+
+.paymentWarning {
+  margin: 10px 0;
+  padding: 10px;
+  border: solid 1px yellow;
+  background-color: #FFF2D5;
+  color: yellow;
+  font-size: 12px;
+}
+
+.invalidElement {
+  color: red;
+  box-shadow: 0 0 4px 0 red;
+}
+
+.subscribeButtonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.subscribeButton {
+  border: none;
+  background-color: blue;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 50px;
+  height: 100px;
+  white-space: pre-line;
+  padding: 0 30px;
+  max-width: 450px;
+  cursor: pointer;
+}
+
+.subscribeButton:hover {
+  background-color: #007BB3;
+}
+
+.subscribeButton:disabled {
+  background-color: #99dfff;
+  cursor: not-allowed;
+}
+
+.subscriptionDisclaimer {
+  color: #868686;
+  font-size: 10px;
+  margin: 25px 0;
+  text-align: justify;
+}
+
+@media mobile {
+  .paymentForm {
+    padding: 20px;
+  }
+}
+
+@media tablet {
+  .acceptedCardsCheck {
+    width: 14px;
+    height: 14px;
+  }
+
+  .acceptedCardsText {
+    font-size: 12px;
+  }
+
+  .acceptedCardsImage {
+    height: 25px;
+  }
+}

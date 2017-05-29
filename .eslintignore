@@ -6,5 +6,5 @@ packages/*/lib
 packages/*/es
 packages/*/coverage
 packages/*/scripts
+packages/@coorpacademy-components/storybook-static/static
 packages/@coorpacademy-components/storybook/components.js
-storybook/static/*

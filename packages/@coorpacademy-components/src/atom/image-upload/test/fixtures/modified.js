@@ -1,11 +1,10 @@
-import defaultsDeep from 'lodash/fp/defaultsDeep';
-import Default from './default';
+import Desktop from './desktop';
 
-const {props} = Default;
+const {props} = Desktop;
 
 export default {
-  props: defaultsDeep(props, {
-    previewImage: 'https://www.coorpacademy.com/assets/img/logo.svg',
+  props: {
+    ...props,
     modified: true
-  })
+  }
 };

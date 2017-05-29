@@ -1,6 +1,6 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import uniqueId from 'lodash/fp/uniqueId';
-import shallowCompare from '../../util/shallow-compare';
 import Loader from '../../atom/loader';
 import style from './style.css';
 
@@ -14,10 +14,6 @@ class BrandUploadBox extends React.Component {
 
     this.handleDragStart = this.handleDragStart.bind(this);
     this.handleDragStop = this.handleDragStop.bind(this);
-  }
-
-  shouldComponentUpdate(nextProps, nextState, nextContext) {
-    return shallowCompare(this, nextProps, nextState, nextContext);
   }
 
   handleDragStart() {
@@ -36,11 +32,7 @@ class BrandUploadBox extends React.Component {
     const idBox = uniqueId('drop-box-');
     let content;
 
-    const {
-      description = '',
-      browse = '',
-      onLoad
-    } = this.props;
+    const {description = '', browse = '', onLoad} = this.props;
 
     switch (this.props.status) {
       case 'loading':
@@ -54,10 +46,7 @@ class BrandUploadBox extends React.Component {
       default:
         content = (
           <div className={style.wrapper}>
-            <div
-              id={idBox}
-              className={this.state.dragging ? style.dropping : style.default}
-            >
+            <div id={idBox} className={this.state.dragging ? style.dropping : style.default}>
               <div className={style.cont}>
                 <i className={style.arrow} />
                 <div className={style.desc}>
@@ -66,7 +55,7 @@ class BrandUploadBox extends React.Component {
                 <span className={style.browse}>{browse}</span>
               </div>
               <input
-                type='file'
+                type="file"
                 className={style.inputFile}
                 onChange={onLoad}
                 onDragEnter={this.handleDragStart}

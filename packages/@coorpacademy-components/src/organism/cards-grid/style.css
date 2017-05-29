@@ -12,6 +12,17 @@
   align-content: flex-start;
   flex-wrap: wrap;
   justify-content: center;
+  background-color: white;
+}
+
+.loader {
+  position: relative;
+  height: 100px;
+  width: 100%;
+}
+
+.card {
+  margin: 8px;
 }
 
 @media desktop {
@@ -28,5 +39,10 @@
   .default {
     flex-direction: column;
     padding: 0px 5px;
+  }
+
+  .card {
+    margin: 4px 0px;
+    width: 100%;
   }
 }

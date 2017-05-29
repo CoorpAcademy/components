@@ -1,0 +1,50 @@
+{
+  "name": "@coorpacademy/app-forum",
+  "version": "5.3.8",
+  "description": "CoorpAcademy forum",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "files": [
+    "es",
+    "lib",
+    "README.md"
+  ],
+  "scripts": {
+    "build:browser": "cross-env BABEL_ENV=es webpack",
+    "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib -s --ignore test --copy-files",
+    "build:es": "cross-env BABEL_ENV=es babel src --out-dir es -s --ignore test --copy-files",
+    "build": "npm run build:commonjs && npm run build:es && npm run build:browser",
+    "clean:build:browser": "rimraf dist/*",
+    "clean:build:commonjs": "rimraf lib",
+    "clean:build:es": "rimraf es",
+    "clean:build": "npm run clean:build:commonjs && npm run clean:build:es && npm run clean:build:browser",
+    "clean": "npm run clean:build",
+    "prepublish": "npm run build --production",
+    "prebuild:browser": "npm run clean:build:browser",
+    "prebuild:commonjs": "npm run clean:build:commonjs",
+    "prebuild:es": "npm run clean:build:es",
+    "start": "cross-env BABEL_ENV=es webpack-dev-server --content-base sandbox --history-api-fallback true --hot true"
+  },
+  "homepage": "https://github.com/CoorpAcademy/components/packages/@coorpacademy-forum#readme",
+  "devDependencies": {
+    "babel-cli": "^6.11.4",
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "babel-plugin-istanbul": "^4.1.4",
+    "cross-env": "^5.0.0",
+    "path-match": "^1.2.4",
+    "rimraf": "^2.6.1",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.5"
+  },
+  "dependencies": {
+    "@coorpacademy/components": "5.3.8",
+    "@coorpacademy/webpack-config": "6.0.2",
+    "lodash": "^4.17.4",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "redux": "^3.6.0",
+    "redux-api-middleware": "^2.0.0-beta.1",
+    "redux-thunk": "^2.2.0"
+  }
+}

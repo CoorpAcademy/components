@@ -1,14 +1,19 @@
-import React, {PropTypes} from 'react';
-import identity from 'lodash/fp/identity';
+import React from 'react';
+import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
+import keys from 'lodash/fp/keys';
+import Loader from '../../atom/loader';
 import style from './style.css';
 
-const getOrBlank = getOr('');
+const viewStyle = {
+  grid: style.grid,
+  list: style.list
+};
 
 const Card = (props, context) => {
   const {skin} = context;
   const {
-    view,
+    view = 'grid',
     image,
     time,
     adaptiv,
@@ -23,57 +28,56 @@ const Card = (props, context) => {
     bottomOnClick
   } = props;
 
+  const lazyClass = title ? style.default : style.lazy;
+
   const defaultColor = getOr('#00B0FF', 'common.primary', skin);
-  const cardStyle = view === 'dashboard' ? style.grid : style.list;
+  const cardStyle = viewStyle[view];
 
-  const calltoaction = cta ? (
-    <div className={style.cta}>{cta}</div>
-  ) : null;
+  const calltoaction = cta ? <div className={style.cta}>{cta}</div> : null;
 
-  const certif = certification ? (
-    <div className={style.certification} />
-  ) : null;
+  const certif = certification ? <div className={style.certification} /> : null;
 
-  const myprogress = !adaptiv ? (
-    <div className={style.progressWrapper}>
-      <div className={style.progress}
+  const myprogress = !adaptiv
+    ? <div className={style.progressWrapper}>
+        <div
+          className={style.progress}
+          style={{
+            width: progress,
+            backgroundColor: defaultColor
+          }}
+        />
+      </div>
+    : null;
+
+  const adaptivIcon = adaptiv
+    ? <div
+        className={style.adaptiv}
         style={{
-          width: progress,
-          background: defaultColor
+          backgroundColor: defaultColor
         }}
       />
-    </div>
-  ) : (null);
+    : null;
 
-  const adaptivIcon = adaptiv ? (
-    <div className={style.adaptiv} />
-  ) : null;
+  const lock = disabled ? <div className={style.lock} /> : null;
 
-  const lock = disabled ? (
-    <div className={style.lock} />
-  ) : null;
-
-  // const timer = <span className={style.timer}>{time}</span>;
-  const timer = null;
+  const timer = time ? <span className={style.timer}>{time}</span> : null;
+  const loader = title && type ? null : <Loader />;
 
   return (
     <div className={cardStyle}>
-      <div
-        className={style.default}
-        disabled={disabled}
-      >
+      <div className={lazyClass} disabled={disabled}>
         <div
           className={style.imageWrapper}
           style={{
+            backgroundColor: defaultColor,
             backgroundImage: image ? `url('${image}')` : 'none'
           }}
         >
-          <div
-            className={style.ctaWrapper}
-            onClick={!disabled && topOnClick}
-          >
+          {loader}
+          <div className={style.ctaWrapper} onClick={!disabled && topOnClick}>
             {calltoaction}
-            <div className={style.overlay}
+            <div
+              className={style.overlay}
               style={{
                 backgroundColor: defaultColor
               }}
@@ -85,11 +89,9 @@ const Card = (props, context) => {
           {lock}
         </div>
         {myprogress}
-        <div
-          className={style.infoWrapper}
-          onClick={!disabled && bottomOnClick}
-        >
-          <div className={style.type}
+        <div className={style.infoWrapper} onClick={!disabled && bottomOnClick}>
+          <div
+            className={style.type}
             style={{
               color: !disabled && defaultColor
             }}
@@ -97,11 +99,11 @@ const Card = (props, context) => {
             {type}
           </div>
           <div className={style.title}>
-            <div>
+            <div title={title}>
               {title}
             </div>
           </div>
-          <div className={style.author}>
+          <div title={author} className={style.author}>
             {author}
           </div>
         </div>
@@ -111,11 +113,11 @@ const Card = (props, context) => {
 };
 
 Card.contextTypes = {
-  skin: React.PropTypes.object
+  skin: PropTypes.object
 };
 
 Card.propTypes = {
-  view: PropTypes.string,
+  view: PropTypes.oneOf(keys(viewStyle)),
   image: PropTypes.string,
   time: PropTypes.string,
   disabled: PropTypes.bool,

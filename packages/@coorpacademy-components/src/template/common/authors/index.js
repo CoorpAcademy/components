@@ -1,24 +1,19 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+import getOr from 'lodash/fp/getOr';
 import map from 'lodash/fp/map';
-import * as CustomPropTypes from '../../../util/proptypes';
-import shallowCompare from '../../../util/shallow-compare';
 import CardsGrid from '../../../organism/cards-grid';
-import Picture from '../../../atom/picture';
 import SocialLink from '../../../atom/social-link';
 import Link from '../../../atom/link';
 import style from './style.css';
 
 class Authors extends React.Component {
-  constructor(props) {
+  constructor(props, context) {
     super(props);
     this.state = {
       fullDisplay: false
     };
     this.handleToggleDisplay = this.handleToggleDisplay.bind(this);
-  }
-
-  shouldComponentUpdate(nextProps, nextState, nextContext) {
-    return shallowCompare(this, nextProps, nextState, nextContext);
   }
 
   handleToggleDisplay() {
@@ -41,23 +36,24 @@ class Authors extends React.Component {
       urlcontent
     } = this.props;
 
-    const {translate} = this.context;
+    const {translate, skin} = this.context;
+    const defaultColor = getOr('#00B0FF', 'common.primary', skin);
     const toggleLabel = this.state.fullDisplay ? translate('See less') : translate('Show more');
 
-    const socialView = map.convert({cap: false})((sociallink, i) => (
-      <div
-        key={i}
-        className={style.link}
-      >
-        <SocialLink {...sociallink} />
-      </div>
-    ), sociallinks);
+    const socialView = map.convert({cap: false})(
+      (sociallink, i) => (
+        <div key={i} className={style.link}>
+          <SocialLink {...sociallink} />
+        </div>
+      ),
+      sociallinks
+    );
 
-    const authorSocial = socialView.length > 0 ? (
-      <div className={style.links}>
-        <span>{socialTitle}</span>{socialView}
-      </div>
-    ) : null;
+    const authorSocial = socialView.length > 0
+      ? <div className={style.links}>
+          <span>{socialTitle}</span>{socialView}
+        </div>
+      : null;
 
     return (
       <div className={style.wrapper}>
@@ -74,25 +70,25 @@ class Authors extends React.Component {
                 <span>{website}</span>
                 <Link
                   className={style.linksite}
+                  style={{
+                    color: defaultColor
+                  }}
                   href={urlwebsite}
                   target={'_blank'}
                 >
                   {urlcontent}
                 </Link>
-                <div className={style.socialWrapper}>
-                  {authorSocial}
-                </div>
+                {authorSocial}
               </div>
               <div className={this.state.fullDisplay ? style.desc : style.shortDesc}>
                 <div
-                  dangerouslySetInnerHTML={{ // eslint-disable-line react/no-danger
+                  // eslint-disable-next-line react/no-danger
+                  dangerouslySetInnerHTML={{
                     __html: description
                   }}
                 />
               </div>
-              <div className={style.toggle}
-                onClick={this.handleToggleDisplay}
-              >
+              <div className={style.toggle} onClick={this.handleToggleDisplay}>
                 {toggleLabel}
               </div>
             </div>
@@ -100,9 +96,7 @@ class Authors extends React.Component {
           <div className={style.cardsTitle}>
             {cardsTitle}
           </div>
-          <div className={style.cardsWrapper}>
-            <CardsGrid {...cards} />
-          </div>
+          <CardsGrid {...cards} />
         </div>
       </div>
     );
@@ -110,9 +104,9 @@ class Authors extends React.Component {
 }
 
 Authors.contextTypes = {
-  translate: PropTypes.func.isRequired
+  translate: PropTypes.func.isRequired,
+  skin: PropTypes.object
 };
-
 Authors.propTypes = {
   cards: PropTypes.object,
   cardsTitle: PropTypes.string,
@@ -123,10 +117,12 @@ Authors.propTypes = {
   urlwebsite: PropTypes.string,
   description: PropTypes.string,
   socialTitle: PropTypes.string,
-  sociallinks: PropTypes.arrayOf(PropTypes.shape({
-    type: PropTypes.string,
-    link: PropTypes.string
-  }))
+  sociallinks: PropTypes.arrayOf(
+    PropTypes.shape({
+      type: PropTypes.string,
+      link: PropTypes.string
+    })
+  )
 };
 
 export default Authors;

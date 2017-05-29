@@ -1,18 +1,18 @@
 .wrapper {
   width: 100%;
-  border: 1px solid #B9B9B9;
+  box-sizing: border-box;
 }
 
 .title {
   height: 50px;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   padding: 0 20px;
   width: 100%;
   box-sizing: border-box;
   background-color: #F6F6F6;
-  border-bottom: 1px solid #B9B9B9;
+  cursor: pointer;
 }
 
 .title h3 {
@@ -34,4 +34,25 @@
 .container {
   padding: 40px;
   background-color: #ffffff;
+  border-top: 1px solid #B9B9B9;
+}
+
+.none {
+  display: none;
+}
+
+.arrow {
+  composes: fa from '../../variables/fontawesome.css';
+  color: #B9B9B9;
+  font-size: 24px;
+}
+
+.down {
+  composes: arrow;
+  composes: fa-plus from '../../variables/fontawesome.css';
+}
+
+.up {
+  composes: arrow;
+  composes: fa-minus from '../../variables/fontawesome.css';
 }

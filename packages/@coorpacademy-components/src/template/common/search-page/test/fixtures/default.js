@@ -8,6 +8,7 @@ const cards = cardsGrid.props;
 
 export default {
   props: {
+    title: 'Catalog (8 items)',
     searchFilters,
     cards
   }

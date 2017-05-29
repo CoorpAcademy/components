@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import BrandFormGroup from '../../molecule/brand-form-group';
 import Button from '../../atom/button';
 import Link from '../../atom/link';
@@ -17,51 +18,39 @@ function BrandForm(props) {
     back
   } = props;
 
-  const backView = back && (
+  const backView =
+    back &&
     <p className={style.back}>
       <i className={style.arrowBack} />
-      <Link
-        href={back.link}
-        className={style.backDesc}
-      >
+      <Link href={back.link} className={style.backDesc}>
         {back.desc}
       </Link>
-    </p>
-  );
+    </p>;
 
   const brandGroups = groups.map((group, index) => {
     return (
-      <div
-        className={style.group}
-        key={index}
-      >
+      <div className={style.group} key={index}>
         <BrandFormGroup {...group} />
       </div>
     );
   });
 
   const disabledSubmit = disabled || isPending || !isModified;
-  const submitButton = onSubmit ? (
-    <div className={style.saveButton}>
-      <Button
-        disabled={disabledSubmit}
-        submitValue={submitValue}
-      />
-    </div>
-  ) : null;
+  const submitButton = onSubmit
+    ? <div className={style.saveButton}>
+        <Button disabled={disabledSubmit} submitValue={submitValue} />
+      </div>
+    : null;
   const handleSubmit = e => {
     e.preventDefault();
     return onSubmit(e);
   };
 
-  const resetButton = onReset ? (
-    <div className={style.resetButton}>
-      <Button
-        type='reset'
-        submitValue={resetValue}
-      />
-    </div>
-  ) : null;
+  const resetButton = onReset
+    ? <div className={style.resetButton}>
+        <Button type="reset" submitValue={resetValue} />
+      </div>
+    : null;
   const handleReset = e => {
     e.preventDefault();
     return onReset(e);
@@ -70,11 +59,7 @@ function BrandForm(props) {
   return (
     <div className={style.wrapper}>
       {backView}
-      <form
-        className={style.groups}
-        onSubmit={handleSubmit}
-        onReset={handleReset}
-      >
+      <form onSubmit={handleSubmit} onReset={handleReset}>
         {brandGroups}
         <div className={style.buttons}>
           {submitButton}
@@ -86,11 +71,14 @@ function BrandForm(props) {
 }
 
 BrandForm.propTypes = {
-  groups: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    disabled: PropTypes.bool,
-    fields: PropTypes.array
-  })).isRequired,
+  groups: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      ssodescription: PropTypes.string,
+      disabled: PropTypes.bool,
+      fields: PropTypes.array
+    })
+  ).isRequired,
   disabled: PropTypes.bool,
   isModified: PropTypes.bool,
   isPending: PropTypes.bool,

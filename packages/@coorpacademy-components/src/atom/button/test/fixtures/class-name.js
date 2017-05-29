@@ -4,7 +4,7 @@ import Default from './default';
 const {props} = Default;
 
 export default {
-  props: {
+  props: defaultsDeep(props, {
     className: 'foo'
-  }
+  })
 };

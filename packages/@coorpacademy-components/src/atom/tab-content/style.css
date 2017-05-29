@@ -1,0 +1,63 @@
+@value colors: "../../variables/colors.css";
+@value blue from colors;
+@value borderGrey from colors;
+
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value tablet from breakpoints;
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+  flex: 1;
+}
+
+.contentTitle {
+  flex: 1;
+  color: blue;
+  font-size: 20px;
+  font-weight: 600;
+  border-bottom: solid 1px borderGrey;
+  padding: 20px;
+  margin: 0px 15px;
+}
+
+.contentDetails {
+  margin: 50px 150px;
+  padding: 40px;
+  text-align: center;
+}
+
+.hiddenBackground {
+  composes: contentDetails;
+}
+
+.greyBackground {
+  composes: contentDetails;
+  background-color: #FAFAFA;
+}
+
+@media tablet {
+  .content {
+    width: 100%;
+  }
+}
+
+@media mobile {
+  .content {
+    background: none;
+  }
+
+  .contentTitle {
+    display: none;
+  }
+
+  .contentDetails {
+    background-color: white;
+    border: solid 1px borderGrey;
+    padding: 30px 20px;
+    margin: 10px 0;
+  }
+}

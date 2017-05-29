@@ -2,12 +2,7 @@ import express from 'express';
 import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
-import map from 'lodash/fp/map';
 import config from './webpack.config';
-
-const engines = [
-  'React'
-];
 
 const app = express();
 
@@ -23,15 +18,15 @@ app.use(
 );
 
 app.get('*', (req, res) => {
-  res.send(`
+  res.send(
+    `
     <body ng-app="app" ng-controller="main">
-      <input ng-model="props.value"/>
-      ${map(engineName => `
-        <${engineName}-title props="props"></${engineName}-title>
-      `, engines).join('')}
+      <input ng-model="props.children" />
+      <coorp-display-value props="props" context="context"></coorp-display-value>
       <script type="text/javascript" src="/dist/angular.js"></script>
     </body>
-  `);
+  `
+  );
 });
 
 if (!module.parent) {

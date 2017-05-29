@@ -10,6 +10,10 @@
   padding: 20px;
 }
 
+.cardsTitle {
+  composes: cardsTitle from '../layout.css';
+}
+
 .column {
   margin-bottom: 30px;
 }
@@ -22,7 +26,7 @@
   composes: column;
 }
 
-.header, .content, .products {
+.header, .products {
   composes: leftColumn;
 }
 
@@ -55,9 +59,6 @@
   }
   .cta {
     order: 2;
-  }
-  .content {
-    order: 3;
   }
   .details {
     order: 5;

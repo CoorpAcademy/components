@@ -4,6 +4,8 @@
 @value mobile from breakpoints;
 @value colors: "../../../variables/colors.css";
 @value light from colors;
+@value borderGrey from colors;
+@value darkGrey from colors;
 
 .cardsWrapper {
     display: block;
@@ -11,8 +13,39 @@
     height: auto;
     box-sizing: border-box;
     padding: 0 0 16px 0;
-    background: light;
+    background: white;
     box-sizing: border-box;
+}
+
+.noresults {
+  border-top: solid 1px borderGrey;
+  min-height: 600px;
+  box-sizing: border-box;
+  padding: 16px 0;
+  text-align: center;
+  position: relative;
+}
+
+.noresults div {
+  margin: 8px 0;
+}
+
+.title {
+  font-family: "Open Sans";
+  font-size: 20px;
+  font-weight: 700;
+  color: darkGrey;
+  padding: 25px;
+  background: white;
+}
+
+.noresults .clear {
+  width: auto;
+  border-radius: 10px;
+}
+
+.noresults .clear input {
+  line-height: 40px;
 }
 
 @media desktop {
@@ -28,6 +61,10 @@
 @media mobile {
   .cardsWrapper {
     padding: 5px 0px;
+  }
+
+  .title {
+    display: none;
   }
 }
 

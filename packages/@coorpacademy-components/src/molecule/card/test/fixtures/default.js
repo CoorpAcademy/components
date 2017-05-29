@@ -1,6 +1,6 @@
 export default {
   props: {
-    view: 'dashboard',
+    view: 'grid',
     image: 'https://placehold.it/380x600/1d1d1d',
     time: '2h20',
     adaptiv: false,
