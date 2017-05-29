@@ -45,11 +45,6 @@
 
 .default:hover {
   background: light;
-}
-
-.imageWrapper:hover .overlay,
-.imageWrapper:hover .cta {
-  display: block;
   cursor: pointer;
 }
 
@@ -210,12 +205,10 @@
   cursor: pointer;
 }
 
-.infoWrapper:hover .title {
+.default:hover .infoWrapper .title {
   text-decoration: underline;
 }
-.infoWrapper:hover{
-  cursor: pointer;
-}
+
 .author {
   margin-top: 5px;
   font-size: 12px;
