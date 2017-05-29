@@ -28,7 +28,37 @@ export default {
         subtitle: 'Get the metadata that Coorpacademy can use to connect to your IdP. Follow your IdP’s instructions for exporting a SAML metadata file.'
       },
       {
-        title: '4. Upload your Company’s Identity Provider (Idp)',
+        title: '4. Enter your Company’s Identity Provider (Idp)',
+        subtitle: 'This is the information Coorpacademy needs to connect to your IdP as a Service Provider',
+        fields: [
+          {
+            title: 'Call Back Url*',
+            placeholder: 'http://localhost:3000/sso/callback',
+            value: '',
+            type: 'text',
+            description: 'Lorem Ipsum',
+            onChange: () => {}
+          },
+          {
+            title: 'entry Point URL*',
+            placeholder: 'https://sts-test.adidas-group.com/adfs/ls/',
+            value: '',
+            type: 'text',
+            description: 'This is the URL users are redirected to when they connect to Coorpacademy so that they can log in to the SSO',
+            onChange: () => {}
+          },
+          {
+            title: 'Issuer*',
+            placeholder: 'http://localhost:3000',
+            value: '',
+            type: 'text',
+            description: 'Lorem Ipsum',
+            onChange: () => {}
+          }
+        ]
+      },
+      {
+        title: 'Or Upload your Company’s Identity Provider (Idp)',
         subtitle: 'This is the information Coorpacademy needs to connect to your IdP as a Service Provider',
         fields: [
           {
