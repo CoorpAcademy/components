@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import map from 'lodash/fp/map';
-
+import Provider from '../../atom/provider';
 import Link from '../../atom/link';
 import Tab from '../../atom/tab';
 import TabContent from '../../atom/tab-content';
@@ -51,7 +51,7 @@ const Settings = (props, context) => {
 };
 
 Settings.contextTypes = {
-  translate: PropTypes.func
+  translate: Provider.childContextTypes.translate
 };
 
 Settings.propTypes = {

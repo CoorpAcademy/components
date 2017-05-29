@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import extractor from '../../util/image';
+import Provider from '../../atom/provider';
 import style from './style.css';
 
 function ThemeImage({image}, {skin}) {
@@ -26,7 +27,7 @@ function ThemeImage({image}, {skin}) {
 }
 
 ThemeImage.contextTypes = {
-  skin: PropTypes.object
+  skin: Provider.childContextTypes.skin
 };
 
 ThemeImage.propTypes = {

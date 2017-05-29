@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import _find from 'lodash/fp/find';
 import getOr from 'lodash/fp/getOr';
 import Checkbox from '../../atom/checkbox';
+import Provider from '../../atom/provider';
 import Link from '../../atom/link';
 import style from './style.css';
 
@@ -56,7 +57,7 @@ const Categories = (props, context) => {
 };
 
 Categories.contextTypes = {
-  translate: PropTypes.func
+  translate: Provider.childContextTypes.translate
 };
 
 Categories.propTypes = {

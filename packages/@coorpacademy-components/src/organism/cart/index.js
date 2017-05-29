@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ProductCard from '../../molecule/product-card';
 import Link from '../../atom/link';
+import Provider from '../../atom/provider';
 import PromoCode from '../../atom/promo-code';
 import PaymentForm from '../../molecule/payment-form';
 
@@ -31,13 +32,13 @@ const Cart = (props, context) => {
 };
 
 Cart.contextTypes = {
-  translate: PropTypes.func
+  translate: Provider.childContextTypes.translate
 };
 
 Cart.propTypes = {
-  productCardProps: ProductCard.propTypes,
-  promoCodeProps: PromoCode.propTypes,
-  paymentFormProps: PaymentForm.propTypes,
+  productCardProps: PropTypes.shape(ProductCard.propTypes),
+  promoCodeProps: PropTypes.shape(PromoCode.propTypes),
+  paymentFormProps: PropTypes.shape(PaymentForm.propTypes),
   backUrl: PropTypes.string
 };
 

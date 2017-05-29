@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
 import stopPropagation from '../../util/bubbling';
+import Provider from '../../atom/provider';
 import Button from '../../atom/button';
 import style from './style.css';
 
@@ -43,7 +44,7 @@ const Popin = (props, context) => {
 };
 
 Popin.contextTypes = {
-  skin: PropTypes.object
+  skin: Provider.childContextTypes.skin
 };
 
 Popin.propTypes = {

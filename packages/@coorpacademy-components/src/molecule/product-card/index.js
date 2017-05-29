@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import template from 'lodash/fp/template';
+import Provider from '../../atom/provider';
 import style from './style.css';
 
 const ProductCard = (props, context) => {
@@ -48,7 +49,7 @@ const ProductCard = (props, context) => {
 };
 
 ProductCard.contextTypes = {
-  translate: PropTypes.func
+  translate: Provider.childContextTypes.translate
 };
 
 ProductCard.propTypes = {

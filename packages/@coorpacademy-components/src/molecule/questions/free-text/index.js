@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import noop from 'lodash/fp/noop';
 import get from 'lodash/fp/get';
+import Provider from '../../../atom/provider';
 import style from './style.css';
 
 const FreeText = (props, {skin}) => {
@@ -29,7 +30,7 @@ const FreeText = (props, {skin}) => {
 };
 
 FreeText.contextTypes = {
-  skin: PropTypes.object
+  skin: Provider.childContextTypes.skin
 };
 
 FreeText.propTypes = {

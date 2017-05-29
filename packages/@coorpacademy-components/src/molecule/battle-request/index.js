@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
 import Link from '../../atom/link';
+import Provider from '../../atom/provider';
 import style from './style.css';
 
 const BattleRequest = (props, context) => {
@@ -50,8 +51,8 @@ const BattleRequest = (props, context) => {
 };
 
 BattleRequest.contextTypes = {
-  skin: PropTypes.object,
-  translate: PropTypes.func
+  skin: Provider.childContextTypes.skin,
+  translate: Provider.childContextTypes.translate
 };
 
 BattleRequest.propTypes = {

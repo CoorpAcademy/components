@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
+import Provider from '../../../atom/provider';
 import style from './style.css';
 
 const QCM = (props, context) => {
@@ -33,7 +34,7 @@ const QCM = (props, context) => {
 };
 
 QCM.contextTypes = {
-  skin: PropTypes.object
+  skin: Provider.childContextTypes.skin
 };
 
 QCM.propTypes = {

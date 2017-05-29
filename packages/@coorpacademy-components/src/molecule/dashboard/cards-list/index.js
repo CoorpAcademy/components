@@ -208,7 +208,7 @@ class CardsList extends React.Component {
 
 CardsList.propTypes = {
   title: PropTypes.string,
-  cards: PropTypes.array,
+  cards: PropTypes.arrayOf(PropTypes.shape(Card.protoTypes)),
   onScroll: PropTypes.func
 };
 

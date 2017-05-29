@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
 import * as CustomPropTypes from '../../util/proptypes';
+import Provider from '../../atom/provider';
 import Checkbox from '../../atom/checkbox';
 import style from './style.css';
 
@@ -40,7 +41,7 @@ const TitledCheckbox = (props, context) => {
 };
 
 TitledCheckbox.contextTypes = {
-  skin: PropTypes.object
+  skin: Provider.childContextTypes.skin
 };
 
 TitledCheckbox.propTypes = {

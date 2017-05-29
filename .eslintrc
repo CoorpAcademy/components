@@ -49,7 +49,6 @@
     "react/closing-bracket-location": "off",
     "react/forbid-component-props": "off",
     "react/forbid-foreign-prop-types": "off",
-    "react/forbid-prop-types": "off",
     "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
     "react/jsx-indent-props": "off",
     "react/jsx-indent": "off",

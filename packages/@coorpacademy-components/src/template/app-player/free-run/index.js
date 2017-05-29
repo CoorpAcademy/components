@@ -18,7 +18,7 @@ const FreeRunPlayer = props => {
 };
 
 FreeRunPlayer.propTypes = {
-  header: PropTypes.object,
-  player: PropTypes.object
+  header: PropTypes.shape(SlidesHeader.propTypes),
+  player: PropTypes.shape(SlidesPlayer.propTypes)
 };
 export default FreeRunPlayer;

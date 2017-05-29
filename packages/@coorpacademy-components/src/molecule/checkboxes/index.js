@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import values from 'lodash/fp/values';
+import Provider from '../../atom/provider';
 import TitledCheckbox from '../titled-checkbox';
 import style from './style.css';
 
@@ -42,7 +43,7 @@ function Checkboxes(props, context) {
   const {skin} = context;
 
   const cross = String.fromCharCode(getOr('x', 'icons.close', skin));
-  const arrow = String.fromCharCode(getOr('v', 'icons["arrow-bottom"]', skin));
+  const arrow = String.fromCharCode(getOr('v', ['icons', 'arrow-bottom'], skin));
 
   const closedHeader = ({onOpen: onOpenHeader, title: headerTitle}) => (
     <div className={style.closedHeader}>
@@ -108,11 +109,11 @@ function Checkboxes(props, context) {
 }
 
 Checkboxes.contextTypes = {
-  skin: PropTypes.object
+  skin: Provider.childContextTypes.skin
 };
 
 Checkboxes.propTypes = {
-  choices: PropTypes.array.isRequired,
+  choices: PropTypes.arrayOf(TitledCheckbox.propTypes.state).isRequired,
   close: PropTypes.func,
   mode: PropTypes.oneOf(values(MODE)),
   onClose: PropTypes.func,

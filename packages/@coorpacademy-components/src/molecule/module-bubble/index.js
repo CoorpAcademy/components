@@ -4,6 +4,7 @@ import getOr from 'lodash/fp/getOr';
 import pipe from 'lodash/fp/pipe';
 import partial from 'lodash/fp/partial';
 import unary from 'lodash/fp/unary';
+import Provider from '../../atom/provider';
 import stopPropagation from '../../util/bubbling';
 import style from './style.css';
 
@@ -12,7 +13,7 @@ const ModuleBubble = (props, context) => {
 
   const {onClick, module: _module, hideLabel = false} = props;
 
-  const code = getOr('', `icons[${_module.status}]`, skin);
+  const code = getOr('', ['icons', _module.status], skin);
   const icon = String.fromCharCode(code);
 
   const filtered = _module.filtered;
@@ -48,7 +49,7 @@ const ModuleBubble = (props, context) => {
 };
 
 ModuleBubble.contextTypes = {
-  skin: PropTypes.object
+  skin: Provider.childContextTypes.skin
 };
 
 ModuleBubble.propTypes = {

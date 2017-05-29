@@ -1,8 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import isNil from 'lodash/fp/isNil';
 import Picture from '../../atom/picture';
 import CatalogSection from '../../atom/catalog-section';
+import Provider from '../../atom/provider';
 import style from './style.css';
 
 const CatalogBadge = (props, context) => {
@@ -22,7 +22,7 @@ const CatalogBadge = (props, context) => {
 };
 
 CatalogBadge.contextTypes = {
-  translate: PropTypes.func
+  translate: Provider.childContextTypes.translate
 };
 
 CatalogBadge.propTypes = {

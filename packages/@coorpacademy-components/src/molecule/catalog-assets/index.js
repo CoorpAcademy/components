@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import isEmpty from 'lodash/fp/isEmpty';
 import map from 'lodash/fp/map';
 import CatalogSection from '../../atom/catalog-section';
+import Provider from '../../atom/provider';
 import style from './style.css';
 
 const CatalogAssets = (props, context) => {
@@ -27,10 +28,10 @@ const CatalogAssets = (props, context) => {
 };
 
 CatalogAssets.contextTypes = {
-  translate: PropTypes.func
+  translate: Provider.childContextTypes.translate
 };
 
 CatalogAssets.propTypes = {
-  assets: PropTypes.array
+  assets: PropTypes.arrayOf(PropTypes.string)
 };
 export default CatalogAssets;

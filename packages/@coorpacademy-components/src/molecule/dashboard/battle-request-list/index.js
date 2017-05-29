@@ -22,7 +22,7 @@ const BattleRequestList = (props, context) => {
 };
 
 BattleRequestList.propTypes = {
-  requests: PropTypes.array
+  requests: PropTypes.arrayOf(PropTypes.shape(BattleRequest.propTypes))
 };
 
 export default BattleRequestList;

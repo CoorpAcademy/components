@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import StarRating from '../../molecule/star-rating';
 import {hoverFill} from '../../atom/button/hover-fill.css';
+import Provider from '../../atom/provider';
 import style from './style.css';
 
 const CatalogCTA = (props, context) => {
@@ -41,7 +42,7 @@ const CatalogCTA = (props, context) => {
 };
 
 CatalogCTA.contextTypes = {
-  translate: PropTypes.func
+  translate: Provider.childContextTypes.translate
 };
 
 CatalogCTA.propTypes = {

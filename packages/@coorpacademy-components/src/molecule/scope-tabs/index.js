@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import has from 'lodash/fp/has';
 import getOr from 'lodash/fp/getOr';
+import Provider from '../../atom/provider';
 import ModuleBubble from '../../molecule/module-bubble';
 import style from './style.css';
 
@@ -63,7 +64,7 @@ const ScopeTabs = (props, context) => {
 };
 
 ScopeTabs.contextTypes = {
-  skin: PropTypes.object
+  skin: Provider.childContextTypes.skin
 };
 
 ScopeTabs.propTypes = {

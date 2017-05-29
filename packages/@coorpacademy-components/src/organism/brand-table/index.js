@@ -57,8 +57,8 @@ BrandTable.propTypes = {
   }),
   emptyValue: PropTypes.string.isRequired,
   isPending: PropTypes.bool,
-  rows: PropTypes.array,
-  columns: PropTypes.array
+  rows: Table.propTypes.rows,
+  columns: Table.propTypes.columns
 };
 
 export default BrandTable;

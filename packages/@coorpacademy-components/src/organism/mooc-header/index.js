@@ -4,11 +4,12 @@ import {findDOMNode} from 'react-dom';
 import find from 'lodash/fp/find';
 import getOr from 'lodash/fp/getOr';
 import get from 'lodash/fp/get';
-import Slider from '../../molecule/slider';
+import Provider from '../../atom/provider';
 import Cta from '../../atom/cta';
 import Select from '../../atom/select';
 import InputSwitch from '../../atom/input-switch';
 import Link from '../../atom/link';
+import Slider from '../../molecule/slider';
 import style from './style.css';
 
 class Theme extends React.Component {
@@ -482,8 +483,8 @@ class MoocHeader extends React.Component {
 }
 
 MoocHeader.contextTypes = {
-  skin: PropTypes.object,
-  translate: PropTypes.func
+  translate: Provider.childContextTypes.translate,
+  skin: Provider.childContextTypes.skin
 };
 
 MoocHeader.propTypes = {
@@ -520,7 +521,7 @@ MoocHeader.propTypes = {
       })
     )
   }),
-  links: PropTypes.array,
+  links: PropTypes.arrayOf(PropTypes.shape(Cta.propTypes)),
   user: PropTypes.shape({
     picture: PropTypes.string,
     href: PropTypes.string,
@@ -560,6 +561,6 @@ MoocHeader.propTypes = {
       })
     })
   ),
-  slider: PropTypes.object
+  slider: PropTypes.shape(Slider.propTypes)
 };
 export default MoocHeader;

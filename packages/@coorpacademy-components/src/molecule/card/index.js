@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
 import keys from 'lodash/fp/keys';
 import Loader from '../../atom/loader';
+import Provider from '../../atom/provider';
 import style from './style.css';
 
 const viewStyle = {
@@ -113,7 +114,7 @@ const Card = (props, context) => {
 };
 
 Card.contextTypes = {
-  skin: PropTypes.object
+  skin: Provider.childContextTypes.skin
 };
 
 Card.propTypes = {

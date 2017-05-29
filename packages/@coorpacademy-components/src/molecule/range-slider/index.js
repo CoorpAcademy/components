@@ -5,6 +5,7 @@ import getOr from 'lodash/fp/getOr';
 import set from 'lodash/fp/set';
 import closestStep from '../../util/closest-step';
 import Handle from '../../atom/handle';
+import Provider from '../../atom/provider';
 import style from './style.css';
 
 const xWithConstraints = ({x, delta, min, max}) => {
@@ -247,7 +248,7 @@ class RangeSlider extends React.Component {
 }
 
 RangeSlider.contextTypes = {
-  skin: PropTypes.object
+  skin: Provider.childContextTypes.skin
 };
 
 RangeSlider.propTypes = {
@@ -263,7 +264,12 @@ RangeSlider.propTypes = {
   labelMax: PropTypes.string,
   onDrag: PropTypes.func,
   onDragEnd: PropTypes.func,
-  steps: PropTypes.array
+  steps: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      value: PropTypes.number.isRequired
+    })
+  )
 };
 
 export default RangeSlider;

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
 import map from 'lodash/fp/map';
+import Provider from '../../../atom/provider';
 import CardsGrid from '../../../organism/cards-grid';
 import SocialLink from '../../../atom/social-link';
 import Link from '../../../atom/link';
@@ -104,11 +105,11 @@ class Authors extends React.Component {
 }
 
 Authors.contextTypes = {
-  translate: PropTypes.func.isRequired,
-  skin: PropTypes.object
+  translate: Provider.childContextTypes.translate,
+  skin: Provider.childContextTypes.skin
 };
 Authors.propTypes = {
-  cards: PropTypes.object,
+  cards: PropTypes.shape(CardsGrid.propTypes),
   cardsTitle: PropTypes.string,
   image: PropTypes.string,
   title: PropTypes.string,

@@ -49,13 +49,13 @@ const BrandUpload = props => {
 
 BrandUpload.propTypes = {
   title: PropTypes.string,
-  download: PropTypes.object,
+  download: PropTypes.shape(DownloadBox.propTypes),
   progress: PropTypes.shape({
     value: PropTypes.number.isRequired,
     max: PropTypes.number.isRequired,
     desc: PropTypes.string
   }),
-  upload: PropTypes.object.isRequired,
+  upload: PropTypes.shape(UploadBox.propTypes).isRequired,
   back: PropTypes.shape({
     desc: PropTypes.string,
     link: PropTypes.string

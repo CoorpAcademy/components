@@ -70,7 +70,7 @@ Handle.propTypes = {
   x: PropTypes.number,
   y: PropTypes.number,
   axis: PropTypes.oneOf(['x', 'y', 'both']),
-  style: PropTypes.object,
+  style: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
   onPan: PropTypes.func,
   onPanStart: PropTypes.func,
   onPanEnd: PropTypes.func

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import * as CustomPropTypes from '../../../util/proptypes';
+import Provider from '../../../atom/provider';
 import DisciplineHeader from '../../../molecule/discipline-header';
 import DisciplinePartners from '../../../molecule/discipline-partners';
 import CatalogCards from '../../../organism/catalog-cards';
@@ -40,7 +41,7 @@ const Author = (props, context) => {
 };
 
 Author.contextTypes = {
-  translate: PropTypes.func
+  translate: Provider.childContextTypes.translate
 };
 
 Author.propTypes = {

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import identity from 'lodash/fp/identity';
 import getOr from 'lodash/fp/getOr';
+import Provider from '../provider';
 import pushToHistory from '../../util/navigation';
 
 class Link extends React.Component {
@@ -78,11 +79,8 @@ Link.propTypes = {
 };
 
 Link.contextTypes = {
-  skin: PropTypes.object,
-  history: PropTypes.shape({
-    createHref: PropTypes.func,
-    push: PropTypes.func
-  })
+  skin: Provider.childContextTypes.skin,
+  history: Provider.childContextTypes.history
 };
 
 export default Link;

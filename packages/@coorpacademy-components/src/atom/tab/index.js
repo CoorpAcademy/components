@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import map from 'lodash/fp/map';
+import Provider from '../provider';
 import style from './style.css';
 
 const Tab = (props, context) => {
@@ -26,7 +27,7 @@ const Tab = (props, context) => {
 };
 
 Tab.contextTypes = {
-  translate: PropTypes.func
+  translate: Provider.childContextTypes.translate
 };
 
 Tab.propTypes = {

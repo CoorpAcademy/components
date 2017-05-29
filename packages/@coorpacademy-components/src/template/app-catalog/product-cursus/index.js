@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import Provider from '../../../atom/provider';
 import Picture from '../../../atom/picture';
 import CursusHeader from '../../../molecule/cursus-header';
 import CatalogCTA from '../../../molecule/catalog-cta';
@@ -52,7 +52,7 @@ const ProductCursus = (props, context) => {
 };
 
 ProductCursus.contextTypes = {
-  translate: PropTypes.func
+  translate: Provider.childContextTypes.translate
 };
 
 ProductCursus.propTypes = {

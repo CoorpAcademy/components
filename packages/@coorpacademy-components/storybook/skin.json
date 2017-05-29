@@ -6,14 +6,8 @@
     "bad": "#ed1c24"
   },
   "images": {
-    "bg": "'https://placehold.it/1500x1500/123'",
     "logo": "https://www.coorpacademy.com/assets/img/logo.svg",
     "logo-mobile": "https://up.coorpacademy.com/assets/css/skin/logos/logo_coorpacademy_zeitgeist_small.92e2b75dbe0.svg"
-  },
-  "properties": {
-    "bg": {
-      "backgroundSize": "cover"
-    }
   },
   "texts": {
     "normal": "#191919",

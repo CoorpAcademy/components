@@ -45,6 +45,13 @@ const BrandFormGroup = props => {
 };
 
 BrandFormGroup.propTypes = {
-  sections: PropTypes.array
+  sections: PropTypes.arrayOf(
+    PropTypes.oneOfType([
+      PropTypes.shape(BattleRequestList.propTypes),
+      PropTypes.shape(CardsList.propTypes),
+      PropTypes.shape(NewsList.propTypes),
+      PropTypes.shape(StartBattle.propTypes)
+    ])
+  )
 };
 export default BrandFormGroup;
