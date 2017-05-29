@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import pipe from 'lodash/fp/pipe';
 import filter from 'lodash/fp/filter';
 import orderBy from 'lodash/fp/orderBy';
+import Provider from '../../../atom/provider';
 import style from './style.css';
 
 const DragAndDrop = (props, context) => {
@@ -44,7 +45,7 @@ const DragAndDrop = (props, context) => {
 };
 
 DragAndDrop.contextTypes = {
-  translate: PropTypes.func
+  translate: Provider.childContextTypes.translate
 };
 
 DragAndDrop.propTypes = {

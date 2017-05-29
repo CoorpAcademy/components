@@ -11,8 +11,6 @@ const CatalogSection = ({title, children}, context) => (
   </div>
 );
 
-CatalogSection.contextTypes = {};
-
 CatalogSection.propTypes = {
   title: PropTypes.string
 };

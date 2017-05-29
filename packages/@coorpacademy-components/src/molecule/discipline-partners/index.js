@@ -6,6 +6,7 @@ import isEmpty from 'lodash/fp/isEmpty';
 import map from 'lodash/fp/map';
 import Link from '../../atom/link';
 import SocialLink from '../../atom/social-link';
+import Provider from '../../atom/provider';
 import CatalogSection from '../../atom/catalog-section';
 import Picture from '../../atom/picture';
 import style from './style.css';
@@ -100,8 +101,8 @@ const DisciplinePartners = (props, context) => {
 };
 
 DisciplinePartners.contextTypes = {
-  translate: PropTypes.func,
-  skin: PropTypes.object
+  translate: Provider.childContextTypes.translate,
+  skin: Provider.childContextTypes.skin
 };
 
 DisciplinePartners.propTypes = {

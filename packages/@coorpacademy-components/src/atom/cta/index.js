@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
+import Provider from '../provider';
 import Link from '../link';
 import style from './style.css';
 
@@ -81,18 +82,18 @@ class CTA extends React.Component {
 }
 
 CTA.contextTypes = {
-  skin: PropTypes.object
+  skin: Provider.childContextTypes.skin
 };
 
 CTA.propTypes = {
-  submitValue: PropTypes.string,
+  submitValue: Link.propTypes.children,
+  href: Link.propTypes.href,
+  onClick: Link.propTypes.onClick,
+  target: Link.propTypes.target,
   name: PropTypes.string,
-  href: PropTypes.string,
-  target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
   light: PropTypes.bool,
   small: PropTypes.bool,
-  secondary: PropTypes.bool,
-  onClick: PropTypes.func
+  secondary: PropTypes.bool
 };
 
 export default CTA;

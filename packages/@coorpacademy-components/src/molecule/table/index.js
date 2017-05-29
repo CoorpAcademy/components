@@ -5,7 +5,7 @@ import Link from '../../atom/link';
 import style from './style.css';
 
 const Table = props => {
-  const {rows, columns} = props;
+  const {rows = [], columns = []} = props;
 
   const headerView = columns.map((column, cIndex) => {
     const {title, filtered, options = []} = column;
@@ -89,7 +89,7 @@ Table.propTypes = {
       fields: PropTypes.arrayOf(PropTypes.string),
       editHref: PropTypes.string.isRequired
     })
-  ).isRequired,
+  ),
   columns: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
@@ -102,7 +102,7 @@ Table.propTypes = {
         })
       )
     })
-  ).isRequired
+  )
 };
 
 export default Table;

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import StarRating from '../star-rating';
 import Link from '../../atom/link';
 import Picture from '../../atom/picture';
+import Provider from '../../atom/provider';
 import {hoverFill} from '../../atom/button/hover-fill.css';
 import style from './style.css';
 
@@ -47,7 +48,7 @@ const CatalogCard = (props, context) => {
 };
 
 CatalogCard.contextTypes = {
-  translate: PropTypes.func
+  translate: Provider.childContextTypes.translate
 };
 
 CatalogCard.propTypes = {

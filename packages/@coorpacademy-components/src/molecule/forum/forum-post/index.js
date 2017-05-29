@@ -1,6 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import identity from 'lodash/fp/identity';
+import Provider from '../../../atom/provider';
 import Picture from '../../../atom/picture';
 import threadShape from '../post-conditions';
 import ForumComment from '../forum-comment';
@@ -134,7 +134,7 @@ const ForumPost = (props, context) => {
 };
 
 ForumPost.contextTypes = {
-  translate: PropTypes.func
+  translate: Provider.childContextTypes.translate
 };
 
 ForumPost.propTypes = {

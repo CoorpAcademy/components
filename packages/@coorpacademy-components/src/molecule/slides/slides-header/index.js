@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
 import Link from '../../../atom/link';
+import Provider from '../../../atom/provider';
 import style from './style.css';
 
 const SlidesHeader = (props, context) => {
@@ -58,13 +59,13 @@ const SlidesHeader = (props, context) => {
 };
 
 SlidesHeader.contextTypes = {
-  skin: PropTypes.object
+  skin: Provider.childContextTypes.skin
 };
 
 SlidesHeader.propTypes = {
-  backHref: PropTypes.string.required,
+  backHref: PropTypes.string.isRequired,
   primary: PropTypes.shape({
-    title: PropTypes.string.required,
+    title: PropTypes.string.isRequired,
     subtitle: PropTypes.string
   }),
   secondary: PropTypes.shape({
@@ -72,7 +73,7 @@ SlidesHeader.propTypes = {
     subtitle: PropTypes.string
   }),
   lives: PropTypes.shape({
-    count: PropTypes.number.required
+    count: PropTypes.number.isRequired
   })
 };
 

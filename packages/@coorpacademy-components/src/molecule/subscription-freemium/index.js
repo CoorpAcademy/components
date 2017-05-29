@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Provider from '../../atom/provider';
 import style from './style.css';
 
 const SubscriptionFreemiumDetails = (props, context) => {
@@ -24,7 +25,7 @@ const SubscriptionFreemiumDetails = (props, context) => {
 };
 
 SubscriptionFreemiumDetails.contextTypes = {
-  translate: PropTypes.func
+  translate: Provider.childContextTypes.translate
 };
 
 SubscriptionFreemiumDetails.propTypes = {

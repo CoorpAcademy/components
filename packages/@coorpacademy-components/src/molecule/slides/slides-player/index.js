@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import identity from 'lodash/fp/identity';
 import getOr from 'lodash/fp/getOr';
+import Provider from '../../../atom/provider';
 import Cta from '../../../atom/cta';
 import DragAndDrop from '../../questions/drag-and-drop';
 import FreeText from '../../questions/free-text';
@@ -93,22 +94,22 @@ const SlidesPlayer = (props, context) => {
 };
 
 SlidesPlayer.contextTypes = {
-  translate: PropTypes.func,
-  skin: PropTypes.object
+  translate: Provider.childContextTypes.translate,
+  skin: Provider.childContextTypes.skin
 };
 
 SlidesPlayer.propTypes = {
   step: PropTypes.shape({
-    current: PropTypes.number.required,
-    total: PropTypes.number.required
+    current: PropTypes.number.isRequired,
+    total: PropTypes.number.isRequired
   }),
-  question: PropTypes.string.required,
+  question: PropTypes.string.isRequired,
   help: PropTypes.string,
   answer: PropTypes.shape({
-    type: PropTypes.oneOf(['dragAndDrop', 'qcm', 'qcmImage', 'freeText']).required
+    type: PropTypes.oneOf(['dragAndDrop', 'qcm', 'qcmImage', 'freeText']).isRequired
   }),
-  cta: PropTypes.object.required,
-  buttons: PropTypes.array
+  cta: PropTypes.shape(Cta.propTypes).isRequired,
+  buttons: SlidesFooter.propTypes.buttons
 };
 
 export default SlidesPlayer;

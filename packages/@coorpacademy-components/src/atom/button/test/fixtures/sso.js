@@ -2,7 +2,7 @@ export default {
   props: {
     type: 'button',
     submitValue: 'Test Connection',
-    color: 'white',
+    color: '#FFFFFF',
     onClick: () => console.log('click on foo') // eslint-disable-line no-console
   }
 };

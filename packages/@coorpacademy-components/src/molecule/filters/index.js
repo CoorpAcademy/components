@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
 import Select from '../../atom/select';
+import Provider from '../../atom/provider';
 import RangeSlider from '../../molecule/range-slider';
 import {hoverFill} from '../../atom/button/hover-fill.css';
 import style from './style.css';
@@ -161,7 +162,7 @@ class Filters extends React.Component {
 }
 
 Filters.contextTypes = {
-  skin: PropTypes.object
+  skin: Provider.childContextTypes.skin
 };
 
 Filters.propTypes = {
@@ -171,11 +172,11 @@ Filters.propTypes = {
   sortTabLabel: PropTypes.string,
   openFilters: PropTypes.bool,
   openSorts: PropTypes.bool,
-  thematic: PropTypes.object,
-  timer: PropTypes.object,
-  courses: PropTypes.object,
-  authors: PropTypes.object,
-  sorting: PropTypes.object,
+  thematic: PropTypes.shape(Select.propTypes),
+  timer: PropTypes.shape(RangeSlider.propTypes),
+  courses: PropTypes.shape(Select.propTypes),
+  authors: PropTypes.shape(Select.propTypes),
+  sorting: PropTypes.shape(Select.propTypes),
   onSearch: PropTypes.func,
   onToggleFilters: PropTypes.func,
   onToggleSorts: PropTypes.func

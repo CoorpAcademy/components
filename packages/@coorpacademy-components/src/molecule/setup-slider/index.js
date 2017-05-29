@@ -20,6 +20,6 @@ const SetupSlider = props => {
 };
 
 SetupSlider.propTypes = {
-  slides: PropTypes.array
+  slides: PropTypes.arrayOf(PropTypes.shape(SetupSlide.propTypes))
 };
 export default SetupSlider;

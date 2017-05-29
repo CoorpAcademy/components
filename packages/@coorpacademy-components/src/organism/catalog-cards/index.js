@@ -4,6 +4,7 @@ import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import isEmpty from 'lodash/fp/isEmpty';
 import isNil from 'lodash/fp/isNil';
+import Provider from '../../atom/provider';
 import CenteredText from '../../atom/centered-text';
 import Spinner from '../../atom/spinner';
 import CatalogCard from '../../molecule/catalog-card';
@@ -46,7 +47,7 @@ const CatalogCards = (props, context) => {
 };
 
 CatalogCards.contextTypes = {
-  translate: PropTypes.func
+  translate: Provider.childContextTypes.translate
 };
 
 CatalogCards.propTypes = {

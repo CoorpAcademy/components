@@ -13,7 +13,7 @@ import values from 'lodash/fp/values';
 import map from 'lodash/fp/map';
 import mapValues from 'lodash/fp/mapValues';
 import React from 'react';
-import ReactTestUtils from 'react-dom/test-utils';
+import ReactShallowRenderer from 'react-test-renderer/shallow';
 import components from './list-components';
 import fixtures from './list-fixtures';
 
@@ -27,7 +27,7 @@ const containsComponent = Component => vTree => {
 };
 
 const getChildren = Component => ({props, children}) => {
-  const shallowRenderer = ReactTestUtils.createRenderer();
+  const shallowRenderer = new ReactShallowRenderer();
   shallowRenderer.render(React.createElement(Component, props, children), {translate: identity});
   const vTree = shallowRenderer.getRenderOutput();
   return pipe(

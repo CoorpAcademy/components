@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Provider from '../provider';
 import style from './style.css';
 
 const TabContent = (props, context) => {
@@ -21,7 +22,7 @@ const TabContent = (props, context) => {
 };
 
 TabContent.contextTypes = {
-  translate: PropTypes.func
+  translate: Provider.childContextTypes.translate
 };
 
 TabContent.propTypes = {

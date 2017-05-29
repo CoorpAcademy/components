@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Provider from '../../atom/provider';
 import InputSwitch from '../../atom/input-switch';
 import style from './style.css';
 
@@ -26,13 +27,13 @@ const SetupSection = (props, context) => {
 };
 
 SetupSection.contextTypes = {
-  translate: PropTypes.func
+  translate: Provider.childContextTypes.translate
 };
 
 SetupSection.propTypes = {
   title: PropTypes.string.isRequired,
   onUp: PropTypes.func,
   onDown: PropTypes.func,
-  display: PropTypes.object
+  display: PropTypes.shape(InputSwitch.propTypes)
 };
 export default SetupSection;

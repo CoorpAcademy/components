@@ -26,14 +26,14 @@ const context = {
 };
 
 test.before(() => {
-  sinon.stub(console, 'error', warning => {
-    throw new Error(warning);
+  sinon.stub(console, 'error', error => {
+    throw new Error(error);
   });
 });
 
-test.after(
-  () => console.error.restore() // eslint-disable-line no-console
-);
+test.after(() => {
+  console.error.restore(); // eslint-disable-line no-console
+});
 
 mapObject((components, componentType) =>
   mapObject((componentPath, componentName) => {
@@ -49,23 +49,23 @@ mapObject((components, componentType) =>
       const fixture = _require(fixturePath);
       const children = fixture.children;
 
-      const vTree = (
-        <Component {...fixture.props}>
-          {children}
-        </Component>
-      );
-
-      const wrappedVTree = (
-        <Provider {...context}>
-          {vTree}
-        </Provider>
-      );
-
       test(`${it} › should have props or children in every fixture`, t => {
         t.true(undefined !== fixture.props || undefined !== fixture.children);
       });
 
       test(`${it} › should be renderered`, t => {
+        const vTree = (
+          <Component {...fixture.props}>
+            {children}
+          </Component>
+        );
+
+        const wrappedVTree = (
+          <Provider {...context}>
+            {vTree}
+          </Provider>
+        );
+
         ReactDOM.renderToStaticMarkup(wrappedVTree);
         t.pass();
       });

@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import Provider from '../../../atom/provider';
 import CatalogCTA from '../../../molecule/catalog-cta';
 import DisciplineHeader from '../../../molecule/discipline-header';
 import DisciplineScope from '../../../molecule/discipline-scope';
@@ -64,7 +64,7 @@ const ProductCourse = (props, context) => {
 };
 
 ProductCourse.contextTypes = {
-  translate: PropTypes.func
+  translate: Provider.childContextTypes.translate
 };
 
 ProductCourse.propTypes = {

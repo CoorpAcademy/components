@@ -45,7 +45,7 @@ const NewsList = (props, context) => {
 
 NewsList.propTypes = {
   title: PropTypes.string,
-  news: PropTypes.array,
+  news: PropTypes.arrayOf(PropTypes.shape(News.propTypes)),
   more: PropTypes.shape({
     label: PropTypes.string,
     onClick: PropTypes.func

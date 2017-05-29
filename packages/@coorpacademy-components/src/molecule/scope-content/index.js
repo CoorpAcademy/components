@@ -4,6 +4,7 @@ import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import Button from '../../atom/button';
 import Link from '../../atom/link';
+import Provider from '../../atom/provider';
 import addClassName from '../../util/add-class-name';
 import style from './style.css';
 
@@ -106,8 +107,8 @@ const ScopeContent = (props, context) => {
 };
 
 ScopeContent.contextTypes = {
-  skin: PropTypes.object,
-  translate: PropTypes.func
+  skin: Provider.childContextTypes.skin,
+  translate: Provider.childContextTypes.translate
 };
 
 ScopeContent.propTypes = {

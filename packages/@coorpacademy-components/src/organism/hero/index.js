@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import * as CustomPropTypes from '../../util/proptypes';
+import Provider from '../../atom/provider';
 import Link from '../../atom/link';
 import style from './style.css';
 
@@ -41,7 +42,7 @@ function Hero(props, context) {
 }
 
 Hero.contextTypes = {
-  skin: PropTypes.object
+  skin: Provider.childContextTypes.skin
 };
 
 Hero.propTypes = {

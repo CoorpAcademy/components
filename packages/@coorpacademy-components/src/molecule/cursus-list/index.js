@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from '../../atom/link';
+import Provider from '../../atom/provider';
 import style from './style.css';
 
 const CursusList = (props, context) => {
@@ -30,7 +31,7 @@ const CursusList = (props, context) => {
 };
 
 CursusList.contextTypes = {
-  translate: PropTypes.func
+  translate: Provider.childContextTypes.translate
 };
 
 CursusList.propTypes = {

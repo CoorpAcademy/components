@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Provider from '../../atom/provider';
 import Link from '../../atom/link';
 import style from './style.css';
 
@@ -34,7 +35,7 @@ const Unsubscribe = (props, context) => {
 };
 
 Unsubscribe.contextTypes = {
-  translate: PropTypes.func
+  translate: Provider.childContextTypes.translate
 };
 
 Unsubscribe.propTypes = {

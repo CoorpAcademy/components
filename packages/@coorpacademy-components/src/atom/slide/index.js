@@ -36,7 +36,7 @@ Slide.propTypes = {
   title: PropTypes.string,
   surtitle: PropTypes.string,
   light: PropTypes.bool,
-  cta: PropTypes.object,
+  cta: PropTypes.shape(Cta.propTypes),
   alignment: PropTypes.oneOf(['center', 'left', 'right'])
 };
 

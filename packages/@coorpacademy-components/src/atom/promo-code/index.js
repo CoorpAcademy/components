@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Provider from '../provider';
 import style from './style.css';
 
 const PromoCode = (props, context) => {
@@ -37,7 +38,7 @@ const PromoCode = (props, context) => {
 };
 
 PromoCode.contextTypes = {
-  translate: PropTypes.func
+  translate: Provider.childContextTypes.translate
 };
 
 PromoCode.propTypes = {

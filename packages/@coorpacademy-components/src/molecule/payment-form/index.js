@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Provider from '../../atom/provider';
 import style from './style.css';
 
 class PaymentForm extends React.Component {
@@ -151,7 +152,7 @@ class PaymentForm extends React.Component {
 }
 
 PaymentForm.contextTypes = {
-  translate: PropTypes.func
+  translate: Provider.childContextTypes.translate
 };
 
 PaymentForm.propTypes = {

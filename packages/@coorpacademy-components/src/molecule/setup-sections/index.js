@@ -36,7 +36,7 @@ const SetupSections = (props, context) => {
 };
 
 SetupSections.propTypes = {
-  sections: PropTypes.array,
+  sections: PropTypes.arrayOf(PropTypes.shape(SetupSection.propTypes)),
   loading: PropTypes.bool
 };
 export default SetupSections;

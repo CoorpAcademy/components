@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
 import isEmpty from 'lodash/fp/isEmpty';
-import Filters from '../../../molecule/filters';
+import Provider from '../../../atom/provider';
 import Button from '../../../atom/button';
+import Filters from '../../../molecule/filters';
 import CardsGrid from '../../../organism/cards-grid';
 import style from './style.css';
 
@@ -32,15 +33,15 @@ const SearchPage = (props, context) => {
 };
 
 SearchPage.contextTypes = {
-  skin: PropTypes.object
+  skin: Provider.childContextTypes.skin
 };
 
 SearchPage.propTypes = {
   noresultsfound: PropTypes.string,
   title: PropTypes.string,
-  searchFilters: PropTypes.object,
-  cards: PropTypes.object,
-  clearFilters: PropTypes.object
+  searchFilters: PropTypes.shape(Filters.propTypes),
+  cards: PropTypes.shape(CardsGrid.propTypes),
+  clearFilters: PropTypes.shape(Button.propTypes)
 };
 
 export default SearchPage;
