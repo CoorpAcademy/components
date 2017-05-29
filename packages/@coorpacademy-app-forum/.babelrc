@@ -9,7 +9,8 @@
     "test": {
       "presets": [
         ["es2015", { "loose": true }]
-      ]
+      ],
+      "plugins": ["istanbul"]
     },
     "es": {
       "presets": [
