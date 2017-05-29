@@ -8,6 +8,9 @@ import InputColor from '../../atom/input-color';
 import InputCheckbox from '../../atom/input-checkbox';
 import InputReadonly from '../../atom/input-readonly';
 import InputSwitch from '../../atom/input-switch';
+import BrandUploadBox from '../../molecule/brand-upload-box';
+import BrandDownloadBox from '../../molecule/brand-download-box';
+import Button from '../../atom/button';
 import InputTextarea from '../../atom/input-textarea';
 import InputDoublestep from '../../atom/input-doublestep';
 import ImageUpload from '../../atom/image-upload';
@@ -43,6 +46,12 @@ const BrandFormGroup = props => {
         return <SetupSections {...field} />;
       case 'text':
         return <InputText {...field} />;
+      case 'downloadbox':
+        return <BrandDownloadBox {...field} />;
+      case 'uploadbox':
+        return <BrandUploadBox {...field} />;
+      case 'button':
+        return <Button {...field} />;
       default:
         return <InputText {...field} />;
     }

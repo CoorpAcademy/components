@@ -132,6 +132,7 @@ import ButtonFixtureDefault from '../src/atom/button/test/fixtures/default';
 import ButtonFixtureDisabled from '../src/atom/button/test/fixtures/disabled';
 import ButtonFixtureLight from '../src/atom/button/test/fixtures/light';
 import ButtonFixtureLink from '../src/atom/button/test/fixtures/link';
+import ButtonFixtureSso from '../src/atom/button/test/fixtures/sso';
 import CatalogSectionFixtureList from '../src/atom/catalog-section/test/fixtures/list';
 import CatalogSectionFixturePicture from '../src/atom/catalog-section/test/fixtures/picture';
 import CenteredTextFixtureDefault from '../src/atom/centered-text/test/fixtures/default';
@@ -168,6 +169,7 @@ import InputReadonlyFixtureDefault from '../src/atom/input-readonly/test/fixture
 import InputSwitchFixtureChecked from '../src/atom/input-switch/test/fixtures/checked';
 import InputSwitchFixtureModified from '../src/atom/input-switch/test/fixtures/modified';
 import InputSwitchFixtureNoTitle from '../src/atom/input-switch/test/fixtures/no-title';
+import InputSwitchFixtureSso from '../src/atom/input-switch/test/fixtures/sso';
 import InputSwitchFixtureUnchecked from '../src/atom/input-switch/test/fixtures/unchecked';
 import InputTextFixtureDefault from '../src/atom/input-text/test/fixtures/default';
 import InputTextFixtureDisabled from '../src/atom/input-text/test/fixtures/disabled';
@@ -224,6 +226,7 @@ import BrandCreateFormFixtureError from '../src/molecule/brand-create-form/test/
 import BrandCreateFormFixtureLoading from '../src/molecule/brand-create-form/test/fixtures/loading';
 import BrandCreateFormFixtureModified from '../src/molecule/brand-create-form/test/fixtures/modified';
 import BrandDownloadBoxFixtureDefault from '../src/molecule/brand-download-box/test/fixtures/default';
+import BrandDownloadBoxFixtureSso from '../src/molecule/brand-download-box/test/fixtures/sso';
 import BrandFormGroupFixtureDashboard from '../src/molecule/brand-form-group/test/fixtures/dashboard';
 import BrandFormGroupFixtureDefault from '../src/molecule/brand-form-group/test/fixtures/default';
 import BrandFormGroupFixtureImages from '../src/molecule/brand-form-group/test/fixtures/images';
@@ -237,6 +240,7 @@ import BrandTabsFixtureSso from '../src/molecule/brand-tabs/test/fixtures/sso';
 import BrandTabsFixtureUsers from '../src/molecule/brand-tabs/test/fixtures/users';
 import BrandUploadBoxFixtureDefault from '../src/molecule/brand-upload-box/test/fixtures/default';
 import BrandUploadBoxFixtureLoading from '../src/molecule/brand-upload-box/test/fixtures/loading';
+import BrandUploadBoxFixtureSso from '../src/molecule/brand-upload-box/test/fixtures/sso';
 import BreadcrumbsFixtureDefault from '../src/molecule/breadcrumbs/test/fixtures/default';
 import CardFixtureAdaptivAndDisabled from '../src/molecule/card/test/fixtures/adaptiv-and-disabled';
 import CardFixtureAdaptiv from '../src/molecule/card/test/fixtures/adaptiv';
@@ -643,7 +647,8 @@ export const fixtures = {
       Default: ButtonFixtureDefault,
       Disabled: ButtonFixtureDisabled,
       Light: ButtonFixtureLight,
-      Link: ButtonFixtureLink
+      Link: ButtonFixtureLink,
+      Sso: ButtonFixtureSso
     },
     CatalogSection: {
       List: CatalogSectionFixtureList,
@@ -702,6 +707,7 @@ export const fixtures = {
       Checked: InputSwitchFixtureChecked,
       Modified: InputSwitchFixtureModified,
       NoTitle: InputSwitchFixtureNoTitle,
+      Sso: InputSwitchFixtureSso,
       Unchecked: InputSwitchFixtureUnchecked
     },
     InputText: {
@@ -803,7 +809,8 @@ export const fixtures = {
       Modified: BrandCreateFormFixtureModified
     },
     BrandDownloadBox: {
-      Default: BrandDownloadBoxFixtureDefault
+      Default: BrandDownloadBoxFixtureDefault,
+      Sso: BrandDownloadBoxFixtureSso
     },
     BrandFormGroup: {
       Dashboard: BrandFormGroupFixtureDashboard,
@@ -822,7 +829,8 @@ export const fixtures = {
     },
     BrandUploadBox: {
       Default: BrandUploadBoxFixtureDefault,
-      Loading: BrandUploadBoxFixtureLoading
+      Loading: BrandUploadBoxFixtureLoading,
+      Sso: BrandUploadBoxFixtureSso
     },
     Breadcrumbs: {
       Default: BreadcrumbsFixtureDefault

@@ -74,6 +74,7 @@ BrandForm.propTypes = {
   groups: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
+      ssodescription: PropTypes.string,
       disabled: PropTypes.bool,
       fields: PropTypes.array
     })

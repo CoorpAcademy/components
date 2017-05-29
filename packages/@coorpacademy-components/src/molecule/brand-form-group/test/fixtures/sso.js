@@ -1,6 +1,7 @@
 export default {
   props: {
     title: 'URLs',
+    ssodescription: 'test',
     disabled: true,
     fields: [
       {
