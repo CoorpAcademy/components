@@ -1,11 +1,12 @@
 // @flow
+import includes from 'lodash/fp/includes';
 import sample from 'lodash/fp/sample';
 import {type State, type Slide, type Action, type Content} from './types';
 import updateState from './update-state';
 
 const getNextSlide = (state: State, slides: Array<Slide>): Slide => {
   const nextSlide = sample(slides);
-  if (state.slides.indexOf(nextSlide._id) !== -1) {
+  if (includes(nextSlide._id, state.slides)) {
     return getNextSlide(state, slides);
   }
   return nextSlide;
