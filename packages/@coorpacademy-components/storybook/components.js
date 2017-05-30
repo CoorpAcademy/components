@@ -88,10 +88,12 @@ import StartBattle from '../src/molecule/dashboard/start-battle';
 import ForumComment from '../src/molecule/forum/forum-comment';
 import ForumPost from '../src/molecule/forum/forum-post';
 import ForumThread from '../src/molecule/forum/forum-thread';
-import DragAndDrop from '../src/molecule/questions/drag-and-drop';
+import Dropdown from '../src/molecule/questions/dropdown';
 import FreeText from '../src/molecule/questions/free-text';
+import Picker from '../src/molecule/questions/picker';
 import QcmImage from '../src/molecule/questions/qcm-image';
 import Qcm from '../src/molecule/questions/qcm';
+import QuestionRange from '../src/molecule/questions/question-range';
 import SlidesFooter from '../src/molecule/slides/slides-footer';
 import SlidesHeader from '../src/molecule/slides/slides-header';
 import SlidesPlayer from '../src/molecule/slides/slides-player';
@@ -202,11 +204,11 @@ import SelectFixtureModified from '../src/atom/select/test/fixtures/modified';
 import SelectFixtureMooc from '../src/atom/select/test/fixtures/mooc';
 import SelectFixtureMultipleSelected from '../src/atom/select/test/fixtures/multiple-selected';
 import SelectFixtureMultiple from '../src/atom/select/test/fixtures/multiple';
-import SelectFixtureNolabel from '../src/atom/select/test/fixtures/nolabel';
+import SelectFixtureQuestion from '../src/atom/select/test/fixtures/question';
 import SelectFixtureRequired from '../src/atom/select/test/fixtures/required';
 import SelectFixtureSort from '../src/atom/select/test/fixtures/sort';
-import SelectFixtureThematiqueLong from '../src/atom/select/test/fixtures/thematique-long';
-import SelectFixtureThematique from '../src/atom/select/test/fixtures/thematique';
+import SelectFixtureThematiquesLong from '../src/atom/select/test/fixtures/thematiques-long';
+import SelectFixtureThematiques from '../src/atom/select/test/fixtures/thematiques';
 import SlideFixtureDefault from '../src/atom/slide/test/fixtures/default';
 import SlideFixtureLeft from '../src/atom/slide/test/fixtures/left';
 import SlideFixtureLight from '../src/atom/slide/test/fixtures/light';
@@ -379,14 +381,18 @@ import ForumPostFixtureTextareasLocked from '../src/molecule/forum/forum-post/te
 import ForumThreadFixtureDeepAnswers from '../src/molecule/forum/forum-thread/test/fixtures/deep-answers';
 import ForumThreadFixtureDefault from '../src/molecule/forum/forum-thread/test/fixtures/default';
 import ForumThreadFixtureWithAnswers from '../src/molecule/forum/forum-thread/test/fixtures/with-answers';
-import DragAndDropFixtureDefault from '../src/molecule/questions/drag-and-drop/test/fixtures/default';
-import DragAndDropFixtureNoSelected from '../src/molecule/questions/drag-and-drop/test/fixtures/no-selected';
+import DropdownFixtureDefault from '../src/molecule/questions/dropdown/test/fixtures/default';
+import DropdownFixtureNoSelected from '../src/molecule/questions/dropdown/test/fixtures/no-selected';
 import FreeTextFixtureDefault from '../src/molecule/questions/free-text/test/fixtures/default';
 import FreeTextFixtureWithDefaultValue from '../src/molecule/questions/free-text/test/fixtures/with-default-value';
+import PickerFixtureDefault from '../src/molecule/questions/picker/test/fixtures/default';
+import PickerFixtureNoSelected from '../src/molecule/questions/picker/test/fixtures/no-selected';
 import QcmImageFixtureDefault from '../src/molecule/questions/qcm-image/test/fixtures/default';
 import QcmImageFixtureNoSelected from '../src/molecule/questions/qcm-image/test/fixtures/no-selected';
 import QcmFixtureDefault from '../src/molecule/questions/qcm/test/fixtures/default';
 import QcmFixtureNoSelected from '../src/molecule/questions/qcm/test/fixtures/no-selected';
+import QuestionRangeFixtureDefault from '../src/molecule/questions/question-range/test/fixtures/default';
+import QuestionRangeFixtureNoSelected from '../src/molecule/questions/question-range/test/fixtures/no-selected';
 import SlidesFooterFixtureDefault from '../src/molecule/slides/slides-footer/test/fixtures/default';
 import SlidesFooterFixtureDisabled from '../src/molecule/slides/slides-footer/test/fixtures/disabled';
 import SlidesFooterFixtureHighlighted from '../src/molecule/slides/slides-footer/test/fixtures/highlighted';
@@ -591,10 +597,12 @@ export const components = {
     ForumThread
   },
   MoleculeQuestions: {
-    DragAndDrop,
+    Dropdown,
     FreeText,
+    Picker,
     QcmImage,
-    Qcm
+    Qcm,
+    QuestionRange
   },
   MoleculeSlides: {
     SlidesFooter,
@@ -764,11 +772,11 @@ export const fixtures = {
       Mooc: SelectFixtureMooc,
       MultipleSelected: SelectFixtureMultipleSelected,
       Multiple: SelectFixtureMultiple,
-      Nolabel: SelectFixtureNolabel,
+      Question: SelectFixtureQuestion,
       Required: SelectFixtureRequired,
       Sort: SelectFixtureSort,
-      ThematiqueLong: SelectFixtureThematiqueLong,
-      Thematique: SelectFixtureThematique
+      ThematiquesLong: SelectFixtureThematiquesLong,
+      Thematiques: SelectFixtureThematiques
     },
     Slide: {
       Default: SlideFixtureDefault,
@@ -1082,13 +1090,17 @@ export const fixtures = {
     }
   },
   MoleculeQuestions: {
-    DragAndDrop: {
-      Default: DragAndDropFixtureDefault,
-      NoSelected: DragAndDropFixtureNoSelected
+    Dropdown: {
+      Default: DropdownFixtureDefault,
+      NoSelected: DropdownFixtureNoSelected
     },
     FreeText: {
       Default: FreeTextFixtureDefault,
       WithDefaultValue: FreeTextFixtureWithDefaultValue
+    },
+    Picker: {
+      Default: PickerFixtureDefault,
+      NoSelected: PickerFixtureNoSelected
     },
     QcmImage: {
       Default: QcmImageFixtureDefault,
@@ -1097,6 +1109,10 @@ export const fixtures = {
     Qcm: {
       Default: QcmFixtureDefault,
       NoSelected: QcmFixtureNoSelected
+    },
+    QuestionRange: {
+      Default: QuestionRangeFixtureDefault,
+      NoSelected: QuestionRangeFixtureNoSelected
     }
   },
   MoleculeSlides: {
@@ -2179,6 +2195,9 @@ export const dependencies = {
         "Organism": {
           "MoocHeader": true
         },
+        "MoleculeQuestions": {
+          "Dropdown": true
+        },
         "Molecule": {
           "SetupSlide": true,
           "Filters": true
@@ -2415,7 +2434,7 @@ export const dependencies = {
           "SlidesFooter": true
         },
         "MoleculeQuestions": {
-          "DragAndDrop": true,
+          "Picker": true,
           "FreeText": true,
           "QcmImage": true,
           "Qcm": true
@@ -2480,7 +2499,7 @@ export const dependencies = {
     }
   },
   "MoleculeQuestions": {
-    "DragAndDrop": {
+    "Picker": {
       "parents": {
         "MoleculeSlides": {
           "SlidesPlayer": true
@@ -2510,6 +2529,16 @@ export const dependencies = {
           "SlidesPlayer": true
         }
       },
+      "children": {}
+    },
+    "Dropdown": {
+      "children": {
+        "Atom": {
+          "Select": true
+        }
+      }
+    },
+    "QuestionRange": {
       "children": {}
     }
   },

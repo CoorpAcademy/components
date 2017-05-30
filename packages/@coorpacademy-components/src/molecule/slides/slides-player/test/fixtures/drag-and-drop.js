@@ -1,13 +1,13 @@
-import DragAndDrop from '../../../../questions/drag-and-drop/test/fixtures/default';
+import Picker from '../../../../questions/picker/test/fixtures/default';
 import Default from './default';
 
-const answerProps = DragAndDrop.props;
+const answerProps = Picker.props;
 
 export default {
   props: {
     ...Default.props,
     answer: {
-      type: 'dragAndDrop',
+      type: 'picker',
       ...answerProps
     }
   }

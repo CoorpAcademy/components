@@ -4,22 +4,22 @@ import identity from 'lodash/fp/identity';
 import getOr from 'lodash/fp/getOr';
 import Provider from '../../../atom/provider';
 import Cta from '../../../atom/cta';
-import DragAndDrop from '../../questions/drag-and-drop';
 import FreeText from '../../questions/free-text';
+import Picker from '../../questions/picker';
 import Qcm from '../../questions/qcm';
 import QcmImage from '../../questions/qcm-image';
 import SlidesFooter from '../slides-footer';
 import style from './style.css';
 
 const answerStyle = {
-  dragAndDrop: style.dragAndDrop,
+  picker: style.picker,
   qcm: style.qcm,
   qcmImage: style.qcmImage,
   freeText: style.freeText
 };
 
 const answers = {
-  dragAndDrop: DragAndDrop,
+  picker: Picker,
   qcm: Qcm,
   qcmImage: QcmImage,
   freeText: FreeText
@@ -106,7 +106,7 @@ SlidesPlayer.propTypes = {
   question: PropTypes.string.isRequired,
   help: PropTypes.string,
   answer: PropTypes.shape({
-    type: PropTypes.oneOf(['dragAndDrop', 'qcm', 'qcmImage', 'freeText']).isRequired
+    type: PropTypes.oneOf(['picker', 'qcm', 'qcmImage', 'freeText']).required
   }),
   cta: PropTypes.shape(Cta.propTypes).isRequired,
   buttons: SlidesFooter.propTypes.buttons

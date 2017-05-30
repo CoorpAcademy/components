@@ -1,9 +1,8 @@
 @value breakpoints: "../../variables/breakpoints.css";
 @value colors: "../../variables/colors.css";
 @value mobile from breakpoints;
-@value darkGrey from colors;
 @value yellow from colors;
-@value borderGrey from colors;
+
 .default {
   display: flex;
 }
@@ -32,6 +31,7 @@
   color: #455A64;
   width: 180px;
 }
+
 .label {
   display: none;
   position: absolute;
@@ -44,6 +44,7 @@
   text-overflow: ellipsis;
   height: 18px;
 }
+
 .default select {
   font-family: "Open Sans";
   text-transform: none;
@@ -81,106 +82,6 @@
   color: #607d8b;
  }
 
-.thematiques,
-.nolabel {
-  composes: default;
-  position: relative;
-}
-
-.nolabel label,
-.filter label,
-.sort label {
-  display: flex;
-  align-items: center;
-  height: 37px;
-  position: relative;
-  flex-grow: 0;
-  margin: 0 20px;
-}
-
-.thematiques label {
-  display: flex;
-  align-items: center;
-  height: 44px;
-  position: relative;
-  flex-grow: 0;
-}
-
-.filter label,
-.sort label {
-  flex-wrap: wrap;
-  height: auto;
-  margin: 0;
-}
-
-.thematiques .label {
-  display: block;
-  padding: 0px 30px 0px 10px;
-  font-size: 12px;
-  background: white;
-  border: 2px solid #cfd8dc;
-  border-radius: 2px;
-  height: 44px;
-  line-height: 42px;
-  box-sizing: border-box;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-.filter .label,
-.sort .label {
-  display: block;
-  padding: 15px 30px 15px 15px;
-  font-size: 12px;
-  padding-right: 30px;
-  background: white;
-  text-transform: none;
-  text-align: initial;
-}
-.thematiques .label{
-  font-size: 14px;
-  border: 1px solid borderGrey;
-}
-.sort {
-  background: white;
-  margin-bottom: 10px;
-}
-
-.filter .title,
-.sort .title {
-  display: block;
-  width: 100%;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-.filter select,
-.sort select {
-  display: block;
-  width: 100%;
-  height: 50px;
-  background: white;
-  margin: 0;
-  border: 0;
-  border-radius: 0;
-  outline: none;
-  appearance: none;
-  font-size: 12px;
-  padding: 0 15px;
-  color: darkGrey;
-  cursor: pointer;
-}
-
-.filter .arrow,
-.sort .arrow {
-  top: 70%;
-}
-
-.thematiques .title,
-.nolabel .title {
-  display: none;
-}
-
 .arrow {
   position: absolute;
   right: 10px;
@@ -194,118 +95,7 @@
   composes: fa-angle-down from '../../variables/fontawesome.css';
 }
 
-.nolabel select {
-  font-family: "Open Sans";
-  text-transform: none;
-  padding: 0 15px;
-  border: 0;
-  height: 37px;
-  border-radius: 2px;
-  font-size: 15px;
-  color: black;
-  font-weight: normal;
-  margin-left: 20px;
-  width: 230px;
-  background: #e0e0e0;
-  cursor: pointer;
-}
-
-.thematiques select {
-  font-family: "Open Sans";
-  text-transform: none;
-  padding: 0 15px;
-  height: 44px;
-  border-radius: 2px;
-  font-size: 15px;
-  color: black;
-  font-weight: normal;
-  margin-left: 0px;
-  width: 230px;
-  cursor: pointer;
-  background: white;
-  border: 2px solid #cfd8dc;
-}
-
-.nolabel select {
-  background: white;
-}
-
-.mooc {
-  composes: default;
-  width: 150px;
-}
-
-.mooc label {
-  margin: 0;
-  height: 35px;
-  border: 0;
-}
-
-.mooc select {
-  color: #000;
-  height: 35px;
-  margin-left: 0;
-  width: auto;
-}
-
-.mooc .arrow,
-.mooc .title {
-  display: none;
-}
-
-
-.header {
-  composes: mooc;
-  width: auto;
-}
-
-.header select {
-  background-color: #F7F7F7;
-  border: 0;
-  font-weight: 700;
-  font-family: 'Open Sans';
-  color: #484848;
-  padding: 0 30px 0 15px;
-  width: 150px;
-  cursor: pointer;
-}
-
-.header .arrow {
-  display: block;
-}
-
 @media mobile {
-  .mooc {
-    width: 40%;
-  }
-
-  .mooc select {
-    padding: 0;
-  }
-
-  .header {
-    width: auto;
-  }
-
-  .header select {
-    padding: 0 30px 0 15px;
-  }
-
-  .thematiques select {
-    height: 100%;
-    width: 100%;
-  }
-  .thematiques label {
-    display: block;
-    margin-right: 0;
-    width: 100%;
-    height: 44px;
-  }
-  .thematiques select {
-      margin-left: 0;
-      border-radius: 0;
-  }
-
   .arrow:after {
     right: 10px;
     top: 30px;

@@ -1,6 +1,5 @@
 export default {
   props: {
-    title: 'Propriétés de la marque :',
     options: [
       {
         name: 'Pouet',
