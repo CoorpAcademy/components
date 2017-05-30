@@ -7,17 +7,23 @@ export type Content = {
 };
 
 export type State = {
-  content: Content
+  content?: Content,
+  nextContent: Content,
+  lives?: number,
+  slides?: Array<string>
 };
 
 export type Action = {
   type: string,
-  payload?: {}
+  payload: {
+    isCorrect?: boolean
+  }
 };
 
 export type Progression = {
   content: Content,
-  state: State
+  state: State,
+  actions: Array<Action>
 };
 
 export type Answer = Array<string>;
@@ -33,6 +39,7 @@ export type QCMQuestion = {
 export type Question = QCMQuestion;
 
 export type Slide = {
+  _id: string,
   chapter_id: string,
   question: Question
 };
