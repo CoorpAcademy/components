@@ -10,7 +10,6 @@ export default {
     author: 'Coorpacademy',
     cta: 'Continue Chapter',
     progress: '65%',
-    topOnClick: () => console.log('click on top'), // eslint-disable-line no-console
-    bottomOnClick: () => console.log('click on bottom') // eslint-disable-line no-console
+    onClick: () => console.log('click everywhere') // eslint-disable-line no-console
   }
 };
