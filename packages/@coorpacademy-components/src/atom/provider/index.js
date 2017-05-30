@@ -27,32 +27,38 @@ class Provider extends React.Component {
   }
 }
 
+const historyShape = PropTypes.shape({
+  createHref: PropTypes.func,
+  push: PropTypes.func
+});
+
+const skinShape = PropTypes.shape({
+  common: PropTypes.objectOf(CustomPropTypes.color),
+  images: PropTypes.shape({
+    'logo-mobile': CustomPropTypes.url,
+    logo: CustomPropTypes.url,
+    'logo-email': CustomPropTypes.url,
+    login: CustomPropTypes.url
+  }),
+  icons: PropTypes.objectOf(CustomPropTypes.hex),
+  mod: PropTypes.objectOf(CustomPropTypes.color),
+  courses: PropTypes.arrayOf(CustomPropTypes.color),
+  texts: PropTypes.objectOf(CustomPropTypes.color)
+});
+
+const translateShape = PropTypes.func;
+
 Provider.propTypes = {
-  history: PropTypes.shape({
-    createHref: PropTypes.func,
-    push: PropTypes.func
-  }),
-  skin: PropTypes.shape({
-    common: PropTypes.objectOf(CustomPropTypes.color),
-    images: PropTypes.shape({
-      'logo-mobile': CustomPropTypes.url,
-      logo: CustomPropTypes.url,
-      'logo-email': CustomPropTypes.url,
-      login: CustomPropTypes.url
-    }),
-    icons: PropTypes.objectOf(CustomPropTypes.hex),
-    mod: PropTypes.objectOf(CustomPropTypes.color),
-    courses: PropTypes.arrayOf(CustomPropTypes.color),
-    texts: PropTypes.objectOf(CustomPropTypes.color)
-  }),
-  translate: PropTypes.func,
+  history: historyShape,
+  skin: skinShape,
+  translate: translateShape,
   children: PropTypes.element.isRequired
 };
 
 Provider.childContextTypes = {
-  history: Provider.propTypes.history,
-  skin: Provider.propTypes.skin,
-  translate: Provider.propTypes.translate.isRequired
+  history: historyShape,
+  skin: skinShape,
+  translate: translateShape.isRequired
 };
 
 export default Provider;
