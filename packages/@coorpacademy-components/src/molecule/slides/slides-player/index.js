@@ -2,26 +2,32 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import identity from 'lodash/fp/identity';
 import getOr from 'lodash/fp/getOr';
-import Provider from '../../../atom/provider';
 import Cta from '../../../atom/cta';
+import DropDown from '../../questions/drop-down';
 import FreeText from '../../questions/free-text';
 import Picker from '../../questions/picker';
+import Provider from '../../../atom/provider';
 import Qcm from '../../questions/qcm';
 import QcmImage from '../../questions/qcm-image';
+import QuestionRange from '../../questions/question-range';
 import SlidesFooter from '../slides-footer';
 import style from './style.css';
 
 const answerStyle = {
+  dropDown: style.dropDown,
   picker: style.picker,
   qcm: style.qcm,
   qcmImage: style.qcmImage,
+  range: style.range,
   freeText: style.freeText
 };
 
 const answers = {
+  dropDown: DropDown,
   picker: Picker,
   qcm: Qcm,
   qcmImage: QcmImage,
+  range: QuestionRange,
   freeText: FreeText
 };
 
@@ -106,7 +112,7 @@ SlidesPlayer.propTypes = {
   question: PropTypes.string.isRequired,
   help: PropTypes.string,
   answer: PropTypes.shape({
-    type: PropTypes.oneOf(['picker', 'qcm', 'qcmImage', 'freeText']).required
+    type: PropTypes.oneOf(['picker', 'qcm', 'qcmImage', 'freeText', 'dropDown', 'range']).required
   }),
   cta: PropTypes.shape(Cta.propTypes).isRequired,
   buttons: SlidesFooter.propTypes.buttons

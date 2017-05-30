@@ -88,7 +88,7 @@ import StartBattle from '../src/molecule/dashboard/start-battle';
 import ForumComment from '../src/molecule/forum/forum-comment';
 import ForumPost from '../src/molecule/forum/forum-post';
 import ForumThread from '../src/molecule/forum/forum-thread';
-import Dropdown from '../src/molecule/questions/dropdown';
+import DropDown from '../src/molecule/questions/drop-down';
 import FreeText from '../src/molecule/questions/free-text';
 import Picker from '../src/molecule/questions/picker';
 import QcmImage from '../src/molecule/questions/qcm-image';
@@ -381,8 +381,8 @@ import ForumPostFixtureTextareasLocked from '../src/molecule/forum/forum-post/te
 import ForumThreadFixtureDeepAnswers from '../src/molecule/forum/forum-thread/test/fixtures/deep-answers';
 import ForumThreadFixtureDefault from '../src/molecule/forum/forum-thread/test/fixtures/default';
 import ForumThreadFixtureWithAnswers from '../src/molecule/forum/forum-thread/test/fixtures/with-answers';
-import DropdownFixtureDefault from '../src/molecule/questions/dropdown/test/fixtures/default';
-import DropdownFixtureNoSelected from '../src/molecule/questions/dropdown/test/fixtures/no-selected';
+import DropDownFixtureDefault from '../src/molecule/questions/drop-down/test/fixtures/default';
+import DropDownFixtureNoSelected from '../src/molecule/questions/drop-down/test/fixtures/no-selected';
 import FreeTextFixtureDefault from '../src/molecule/questions/free-text/test/fixtures/default';
 import FreeTextFixtureWithDefaultValue from '../src/molecule/questions/free-text/test/fixtures/with-default-value';
 import PickerFixtureDefault from '../src/molecule/questions/picker/test/fixtures/default';
@@ -402,10 +402,12 @@ import SlidesHeaderFixtureDefault from '../src/molecule/slides/slides-header/tes
 import SlidesHeaderFixtureFreerun from '../src/molecule/slides/slides-header/test/fixtures/freerun';
 import SlidesHeaderFixtureNoSecondary from '../src/molecule/slides/slides-header/test/fixtures/no-secondary';
 import SlidesPlayerFixtureDefault from '../src/molecule/slides/slides-player/test/fixtures/default';
-import SlidesPlayerFixtureDragAndDrop from '../src/molecule/slides/slides-player/test/fixtures/drag-and-drop';
+import SlidesPlayerFixtureDropDown from '../src/molecule/slides/slides-player/test/fixtures/drop-down';
 import SlidesPlayerFixtureFreeText from '../src/molecule/slides/slides-player/test/fixtures/free-text';
+import SlidesPlayerFixturePicker from '../src/molecule/slides/slides-player/test/fixtures/picker';
 import SlidesPlayerFixtureQcmImage from '../src/molecule/slides/slides-player/test/fixtures/qcm-image';
 import SlidesPlayerFixtureQcm from '../src/molecule/slides/slides-player/test/fixtures/qcm';
+import SlidesPlayerFixtureRange from '../src/molecule/slides/slides-player/test/fixtures/range';
 import BrandFormFixtureDashboard from '../src/organism/brand-form/test/fixtures/dashboard';
 import BrandFormFixtureDefault from '../src/organism/brand-form/test/fixtures/default';
 import BrandFormFixtureGeneralSettings from '../src/organism/brand-form/test/fixtures/general-settings';
@@ -459,7 +461,12 @@ import ProductCursusFixtureEmpty from '../src/template/app-catalog/product-cursu
 import ProductCursusFixtureLoading from '../src/template/app-catalog/product-cursus/test/fixtures/loading';
 import ProductCursusFixtureWithoutAssets from '../src/template/app-catalog/product-cursus/test/fixtures/without-assets';
 import ProductCursusFixtureWithoutBadge from '../src/template/app-catalog/product-cursus/test/fixtures/without-badge';
-import FreeRunFixtureDefault from '../src/template/app-player/free-run/test/fixtures/default';
+import FreeRunFixtureDropDown from '../src/template/app-player/free-run/test/fixtures/drop-down';
+import FreeRunFixtureFreeText from '../src/template/app-player/free-run/test/fixtures/free-text';
+import FreeRunFixturePicker from '../src/template/app-player/free-run/test/fixtures/picker';
+import FreeRunFixtureQcmImage from '../src/template/app-player/free-run/test/fixtures/qcm-image';
+import FreeRunFixtureQcm from '../src/template/app-player/free-run/test/fixtures/qcm';
+import FreeRunFixtureRange from '../src/template/app-player/free-run/test/fixtures/range';
 import BrandCreateFixtureDefault from '../src/template/back-office/brand-create/test/fixtures/default';
 import BrandCreateFixtureError from '../src/template/back-office/brand-create/test/fixtures/error';
 import BrandCreateFixtureLoading from '../src/template/back-office/brand-create/test/fixtures/loading';
@@ -597,7 +604,7 @@ export const components = {
     ForumThread
   },
   MoleculeQuestions: {
-    Dropdown,
+    DropDown,
     FreeText,
     Picker,
     QcmImage,
@@ -1090,9 +1097,9 @@ export const fixtures = {
     }
   },
   MoleculeQuestions: {
-    Dropdown: {
-      Default: DropdownFixtureDefault,
-      NoSelected: DropdownFixtureNoSelected
+    DropDown: {
+      Default: DropDownFixtureDefault,
+      NoSelected: DropDownFixtureNoSelected
     },
     FreeText: {
       Default: FreeTextFixtureDefault,
@@ -1130,10 +1137,12 @@ export const fixtures = {
     },
     SlidesPlayer: {
       Default: SlidesPlayerFixtureDefault,
-      DragAndDrop: SlidesPlayerFixtureDragAndDrop,
+      DropDown: SlidesPlayerFixtureDropDown,
       FreeText: SlidesPlayerFixtureFreeText,
+      Picker: SlidesPlayerFixturePicker,
       QcmImage: SlidesPlayerFixtureQcmImage,
-      Qcm: SlidesPlayerFixtureQcm
+      Qcm: SlidesPlayerFixtureQcm,
+      Range: SlidesPlayerFixtureRange
     }
   },
   Organism: {
@@ -1233,7 +1242,12 @@ export const fixtures = {
   },
   TemplateAppPlayer: {
     FreeRun: {
-      Default: FreeRunFixtureDefault
+      DropDown: FreeRunFixtureDropDown,
+      FreeText: FreeRunFixtureFreeText,
+      Picker: FreeRunFixturePicker,
+      QcmImage: FreeRunFixtureQcmImage,
+      Qcm: FreeRunFixtureQcm,
+      Range: FreeRunFixtureRange
     }
   },
   TemplateBackOffice: {
@@ -1626,6 +1640,21 @@ export const dependencies = {
         }
       }
     },
+    "RangeSlider": {
+      "parents": {
+        "MoleculeQuestions": {
+          "QuestionRange": true
+        },
+        "Molecule": {
+          "Filters": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Handle": true
+        }
+      }
+    },
     "News": {
       "parents": {
         "MoleculeDashboard": {
@@ -1712,18 +1741,6 @@ export const dependencies = {
         }
       },
       "children": {}
-    },
-    "RangeSlider": {
-      "parents": {
-        "Molecule": {
-          "Filters": true
-        }
-      },
-      "children": {
-        "Atom": {
-          "Handle": true
-        }
-      }
     },
     "ScopeContent": {
       "parents": {
@@ -2196,7 +2213,7 @@ export const dependencies = {
           "MoocHeader": true
         },
         "MoleculeQuestions": {
-          "Dropdown": true
+          "DropDown": true
         },
         "Molecule": {
           "SetupSlide": true,
@@ -2434,10 +2451,12 @@ export const dependencies = {
           "SlidesFooter": true
         },
         "MoleculeQuestions": {
-          "Picker": true,
+          "DropDown": true,
           "FreeText": true,
+          "Picker": true,
           "QcmImage": true,
-          "Qcm": true
+          "Qcm": true,
+          "QuestionRange": true
         }
       }
     },
@@ -2499,7 +2518,19 @@ export const dependencies = {
     }
   },
   "MoleculeQuestions": {
-    "Picker": {
+    "DropDown": {
+      "parents": {
+        "MoleculeSlides": {
+          "SlidesPlayer": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Select": true
+        }
+      }
+    },
+    "FreeText": {
       "parents": {
         "MoleculeSlides": {
           "SlidesPlayer": true
@@ -2507,7 +2538,7 @@ export const dependencies = {
       },
       "children": {}
     },
-    "FreeText": {
+    "Picker": {
       "parents": {
         "MoleculeSlides": {
           "SlidesPlayer": true
@@ -2531,15 +2562,17 @@ export const dependencies = {
       },
       "children": {}
     },
-    "Dropdown": {
+    "QuestionRange": {
+      "parents": {
+        "MoleculeSlides": {
+          "SlidesPlayer": true
+        }
+      },
       "children": {
-        "Atom": {
-          "Select": true
+        "Molecule": {
+          "RangeSlider": true
         }
       }
-    },
-    "QuestionRange": {
-      "children": {}
     }
   },
   "TemplateAppCatalog": {

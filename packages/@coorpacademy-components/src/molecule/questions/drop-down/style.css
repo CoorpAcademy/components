@@ -2,7 +2,7 @@
 @value mobile from breakpoints;
 
 .wrapper {
-
+  padding: 50px 0;
 }
 
 @media mobile {
