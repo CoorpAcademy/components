@@ -17,5 +17,5 @@ export const selectProgression = id => async (dispatch, getState) => {
   if (response.error) return response;
 
   const progression = getProgression(getState());
-  return dispatch(fetchSlide(progression.content.id));
+  return dispatch(fetchSlide(progression.state.nextContent.ref));
 };

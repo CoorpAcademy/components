@@ -1,28 +1,24 @@
 [
   {
     "id": "0",
-    "actions": [],
-    "content": {
-      "id": "qcmSlide-1",
-      "type": "slide"
-    },
-    "lives": 2,
-    "step": {
-      "current": 1,
-      "total": 4
+    "state": {
+      "nextContent": {
+        "ref": "qcmSlide-1",
+        "type": "slide"
+      },
+      "lives": 2,
+      "slides": ["templateSlide-1"]
     }
   },
   {
     "id": "1",
-    "actions": [],
-    "content": {
-      "id": "templateSlide-1",
-      "type": "slide"
-    },
-    "lives": 2,
-    "step": {
-      "current": 2,
-      "total": 4
+    "state": {
+      "nextContent": {
+        "ref": "templateSlide-1",
+        "type": "slide"
+      },
+      "lives": 3,
+      "slides": []
     }
   }
 ]
