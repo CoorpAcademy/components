@@ -7,7 +7,7 @@ import {getChoices, getProgressionId, getQuestionType} from '../utils/state-extr
 import {editAnswer} from '../actions/ui/answers';
 
 const editAnswerAction = (state, slide, dispatch) => newValue => {
-  dispatch(
+  return dispatch(
     editAnswer(get('ui.answers', state), getQuestionType(slide), getProgressionId(state), newValue)
   );
 };

@@ -13,6 +13,6 @@ export const getProgression = state => {
 
 export const getSlide = state => {
   const entities = getOr({}, 'data.slides.entities')(state);
-  const id = getOr(null, 'content.id')(getProgression(state));
+  const id = getOr(null, 'state.nextContent.ref')(getProgression(state));
   return getOr({}, id)(entities);
 };

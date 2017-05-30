@@ -28,15 +28,17 @@ const newState = (state, questionType, newValue) => {
   }
 };
 
-export const editAnswer = (state, questionType, progressionId, newValue) => ({
-  type: ANSWER_EDIT[questionType],
-  meta: {
-    progressionId
-  },
-  payload: {
-    answer: newState(state, questionType, newValue)
-  }
-});
+export const editAnswer = (state, questionType, progressionId, newValue) => {
+  return {
+    type: ANSWER_EDIT[questionType],
+    meta: {
+      progressionId
+    },
+    payload: {
+      answer: newState(state, questionType, newValue)
+    }
+  };
+};
 
 export const resetAnswer = progressionId => ({
   type: ANSWER_RESET,
@@ -49,7 +51,7 @@ export const resetAnswer = progressionId => ({
 export const validateAnswer = (progressionId, body) => async (dispatch, getState) => {
   await dispatch(resetAnswer(progressionId));
 
-  const response = await dispatch(createAnswer(progressionId, body));
+  const response = await dispatch(createAnswer(progressionId, body.answers));
   if (response.error) return response;
   return dispatch(selectProgression(`${(parseInt(progressionId) + 1) % 2}`));
 };
