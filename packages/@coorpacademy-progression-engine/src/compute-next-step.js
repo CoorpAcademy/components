@@ -5,7 +5,19 @@ import without from 'lodash/fp/without';
 import {type State, type Slide, type Content} from './types';
 import {hasFinished, isAlive} from './util';
 
-export default function computeNextStep(state: State, slidePool: Array<Slide>): Content {
+const defaultState = {
+  lives: 4,
+  slides: [],
+  nextContent: {
+    ref: '',
+    type: ''
+  }
+};
+
+export default function computeNextStep(
+  slidePool: Array<Slide>,
+  state: State = defaultState
+): Content {
   const {slides = []} = state;
   // if no more lives, return failure endpoint
   if (isAlive(state)) {
