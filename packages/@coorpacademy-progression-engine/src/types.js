@@ -10,6 +10,7 @@ export type State = {
   content?: Content,
   nextContent: Content,
   lives: number,
+  isCorrect: boolean,
   slides: Array<string>
 };
 
