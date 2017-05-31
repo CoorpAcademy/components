@@ -102,7 +102,7 @@ Select.contextTypes = {
 };
 
 Select.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   disabled: PropTypes.bool,
   multiple: PropTypes.bool,
   required: PropTypes.bool,

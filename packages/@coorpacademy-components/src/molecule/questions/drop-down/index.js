@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Select from '../../../atom/select';
 import style from './style.css';
 
@@ -12,14 +11,8 @@ const DropDown = (props, context) => {
 };
 
 DropDown.propTypes = {
-  options: PropTypes.arrayOf(
-    PropTypes.shape({
-      onClick: PropTypes.func,
-      name: PropTypes.String,
-      value: PropTypes.String,
-      selected: PropTypes.bool
-    })
-  )
+  onChange: Select.propTypes.onChange,
+  options: Select.propTypes.options
 };
 
 export default DropDown;

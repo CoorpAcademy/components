@@ -1,5 +1,8 @@
+@value breakpoints: "../../../variables/breakpoints.css";
+@value mobile from breakpoints;
+
 .wrapper {
-  padding: 80px 0 120px;
+  padding: 80px 0 165px;
 }
 
 .input {
@@ -19,3 +22,17 @@
 .input:focus {
   outline: none;
 }
+
+@media mobile {
+  .wrapper {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .input {
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+  }
+}
+

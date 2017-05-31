@@ -89,7 +89,7 @@ const SlidesPlayer = (props, context) => {
           {answerView}
         </div>
         <div className={style.ctaWrapper}>
-          <Cta {...cta} />
+          <Cta className={style.cta} {...cta} />
         </div>
       </div>
       <div className={style.footer}>

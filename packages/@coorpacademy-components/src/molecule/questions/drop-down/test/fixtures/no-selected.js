@@ -2,42 +2,42 @@ export default {
   props: {
     options: [
       {
-        title: 'There is no need for a password',
+        name: 'There is no need for a password',
         onClick: () => {},
         selected: false
       },
       {
-        title: 'Lorem ipsum',
+        name: 'Lorem ipsum',
         onClick: () => {},
         selected: false
       },
       {
-        title: 'Lorem',
+        name: 'Lorem',
         onClick: () => {},
         selected: false
       },
       {
-        title: 'You need to have a password',
+        name: 'You need to have a password',
         onClick: () => {},
         selected: false
       },
       {
-        title: 'Pouet',
+        name: 'Pouet',
         onClick: () => {},
         selected: false
       },
       {
-        title: 'Lorem ipsum dolor sit amet',
+        name: 'Lorem ipsum dolor sit amet',
         onClick: () => {},
         selected: false
       },
       {
-        title: 'Lorem ipsum dolor',
+        name: 'Lorem ipsum dolor',
         onClick: () => {},
         selected: false
       },
       {
-        title: 'all your base are belong to us',
+        name: 'all your base are belong to us',
         onClick: () => {},
         selected: false
       }

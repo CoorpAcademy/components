@@ -1,8 +1,8 @@
 import SlidesHeader from '../../../../../molecule/slides/slides-header/test/fixtures/default';
-import Range from '../../../../../molecule/slides/slides-player/test/fixtures/range';
+import QuestionRange from '../../../../../molecule/slides/slides-player/test/fixtures/range';
 
 const headerProps = SlidesHeader.props;
-const playerProps = Range.props;
+const playerProps = QuestionRange.props;
 
 export default {
   props: {

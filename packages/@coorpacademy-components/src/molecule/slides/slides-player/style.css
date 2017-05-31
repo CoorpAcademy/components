@@ -81,7 +81,7 @@
   font-weight: 600;
   color: #14171A;
   text-align: center;
-  margin-bottom: 32px;
+  margin-bottom: 10px;
 }
 
 .helpView {
@@ -89,11 +89,10 @@
   font-size: 15px;
   font-weight: 500;
   color: #90A4AE;
-  margin-bottom: 32px;
+  margin-bottom: 25px;
 }
 
 .answerWrapper {
-  margin-bottom: 32px;
   max-width: 100%;
 }
 
@@ -115,7 +114,17 @@
 .range {
 }
 
-.ctaWrapper {
+.cta {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.cta:focus {
+  border: 3px solid;
+}
+
+.cta a {
+  font-size: 16px;
 }
 
 .footer {
@@ -150,7 +159,22 @@
   }
 
   .answerWrapper {
-    margin-bottom: 16px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .ctaWrapper {
+    width: 100%;
+    text-align: center;
+  }
+
+  .cta {
+    padding: 23px 0;
+    width: 100%;
+  }
+
+  .cta a {
+    font-size: 18px;
   }
 
   .footer {
