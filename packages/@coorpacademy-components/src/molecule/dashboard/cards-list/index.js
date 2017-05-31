@@ -1,5 +1,6 @@
 import React from 'react';
 import debounce from 'lodash/fp/debounce';
+import getOr from 'lodash/fp/getOr';
 import head from 'lodash/fp/head';
 import isEqual from 'lodash/fp/isEqual';
 import last from 'lodash/fp/last';
@@ -58,7 +59,7 @@ class CardsList extends React.Component {
   }
 
   leftBound() {
-    return this._cardsWrapper.scrollLeft;
+    return getOr(0, 'scrollLeft', this._cardsWrapper);
   }
 
   maxLeftBound() {
@@ -70,22 +71,18 @@ class CardsList extends React.Component {
   }
 
   wrapperWidth() {
-    return this._cardsWrapper.offsetWidth;
+    return getOr(0, 'offsetWidth', this._cardsWrapper);
   }
 
   cardsWidth() {
-    return this._cards
-      .map(el => {
-        return el.scrollWidth;
-      })
-      .reduce((a, b) => a + b, 0);
+    return this._cards.map(getOr(0, 'scrollWidth')).reduce((a, b) => a + b, 0);
   }
 
   getPossiblePositions(filter) {
     return this._cards
       .map((card, index, arr) => {
         return arr.slice(0, index).reduce((a, b) => {
-          return a + b.scrollWidth;
+          return a + getOr(0, 'scrollWidth', b);
         }, 0);
       })
       .filter(filter);
