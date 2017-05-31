@@ -313,6 +313,9 @@ import ProgressBarFixtureDefault from '../src/molecule/progress-bar/test/fixture
 import ProgressBarFixtureMax from '../src/molecule/progress-bar/test/fixtures/max';
 import RangeSliderFixtureDefault from '../src/molecule/range-slider/test/fixtures/default';
 import RangeSliderFixtureMinmax from '../src/molecule/range-slider/test/fixtures/minmax';
+import RangeSliderFixtureOneHandleNoTrack from '../src/molecule/range-slider/test/fixtures/one-handle-no-track';
+import RangeSliderFixtureOneHandleWithSteps from '../src/molecule/range-slider/test/fixtures/one-handle-with-steps';
+import RangeSliderFixtureOneHandleWithTrack from '../src/molecule/range-slider/test/fixtures/one-handle-with-track';
 import RangeSliderFixtureStepsForceRange from '../src/molecule/range-slider/test/fixtures/steps-force-range';
 import RangeSliderFixtureSteps from '../src/molecule/range-slider/test/fixtures/steps';
 import ScopeContentFixtureDefault from '../src/molecule/scope-content/test/fixtures/default';
@@ -970,6 +973,9 @@ export const fixtures = {
     RangeSlider: {
       Default: RangeSliderFixtureDefault,
       Minmax: RangeSliderFixtureMinmax,
+      OneHandleNoTrack: RangeSliderFixtureOneHandleNoTrack,
+      OneHandleWithSteps: RangeSliderFixtureOneHandleWithSteps,
+      OneHandleWithTrack: RangeSliderFixtureOneHandleWithTrack,
       StepsForceRange: RangeSliderFixtureStepsForceRange,
       Steps: RangeSliderFixtureSteps
     },

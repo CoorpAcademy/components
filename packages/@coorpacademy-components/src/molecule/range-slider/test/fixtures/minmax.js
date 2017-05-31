@@ -1,3 +1,6 @@
 export default {
-  props: {}
+  props: {
+    handle: {x: 300},
+    handleMin: {x: 100}
+  }
 };
