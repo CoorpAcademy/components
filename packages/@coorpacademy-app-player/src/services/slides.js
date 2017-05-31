@@ -1,7 +1,7 @@
 import reduce from 'lodash/fp/reduce';
 import slidesData from './slides.data';
 
-const slides = reduce((slideMap, slide) => slideMap.set(slide.id, slide), new Map(), slidesData);
+const slides = reduce((slideMap, slide) => slideMap.set(slide._id, slide), new Map(), slidesData);
 
 export const findById = id => {
   if (slides.has(id)) return Promise.resolve(slides.get(id));
@@ -9,5 +9,5 @@ export const findById = id => {
 };
 
 export const find = () => {
-  return Promise.resolve(Array.from(slides.entries()));
+  return Promise.resolve(Array.from(slides.values()));
 };

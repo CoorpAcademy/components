@@ -4,9 +4,9 @@ import isString from 'lodash/fp/isString';
 import {createProgression, findById, createAnswer} from '../progressions';
 
 test('should create progression', async t => {
-  const {id, state} = await createProgression({});
+  const {_id, state} = await createProgression({});
 
-  t.true(isString(id));
+  t.true(isString(_id));
   t.true(isObject(state));
   t.true(isObject(state.nextContent));
   t.true(isString(state.nextContent.ref));
@@ -16,21 +16,17 @@ test('should create progression', async t => {
 test('should find progression', async t => {
   const progression = await createProgression({});
 
-  t.deepEqual(await findById(progression.id), progression);
+  t.deepEqual(await findById(progression._id), progression);
 });
 
 test('should add answer action', async t => {
   const progression = await createProgression({});
-
-  const progressionWithAnswer = await createAnswer(progression.id, {
-    content: {
-      ref: 'qcmSlide-1',
-      type: 'slide'
-    },
+  const progressionWithAnswer = await createAnswer(progression._id, {
+    content: progression.state.nextContent,
     answers: ['bar']
   });
 
-  t.true(isString(progressionWithAnswer.id));
+  t.true(isString(progressionWithAnswer._id));
   t.true(isObject(progressionWithAnswer.state));
   t.true(isObject(progressionWithAnswer.state.nextContent));
   t.true(isString(progressionWithAnswer.state.nextContent.ref));

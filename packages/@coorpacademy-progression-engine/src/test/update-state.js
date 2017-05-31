@@ -6,7 +6,7 @@ import type {Action, State} from '../types';
 test('should return the given state untouched (TMP)', t => {
   const state: State = Object.freeze({
     nextContent: {
-      ref: 'slide_0',
+      ref: '1.A1.1',
       type: 'slide'
     },
     lives: 1,
@@ -16,6 +16,14 @@ test('should return the given state untouched (TMP)', t => {
   const action: Action = Object.freeze({
     type: 'answer',
     payload: {
+      nextContent: {
+        ref: '1.A1.2',
+        type: 'slide'
+      },
+      content: {
+        ref: '1.A1.1',
+        type: 'slide'
+      },
       isCorrect: false
     }
   });
@@ -23,7 +31,7 @@ test('should return the given state untouched (TMP)', t => {
   t.deepEqual(updateState(state, [action]), {
     ...state,
     lives: 0,
-    slides: ['slide_0'],
-    isCorrect: false
+    slides: ['1.A1.1'],
+    ...action.payload
   });
 });

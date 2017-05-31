@@ -1,20 +1,20 @@
 [
   {
-    "id": "0",
+    "_id": "0",
     "state": {
       "nextContent": {
-        "ref": "qcmSlide-1",
+        "ref": "1.A1.2",
         "type": "slide"
       },
       "lives": 2,
-      "slides": ["templateSlide-1"]
+      "slides": ["1.A1.1"]
     }
   },
   {
-    "id": "1",
+    "_id": "1",
     "state": {
       "nextContent": {
-        "ref": "templateSlide-1",
+        "ref": "1.A1.1",
         "type": "slide"
       },
       "lives": 3,

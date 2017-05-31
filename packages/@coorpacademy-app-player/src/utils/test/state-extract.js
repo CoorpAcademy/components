@@ -39,7 +39,7 @@ test('should getProgression', t => {
 });
 
 test('should getSlide', t => {
-  const slide = {id: '0'};
+  const slide = {_id: '0'};
   const progression = {state: {nextContent: {ref: '0'}}};
   const state = pipe(
     set('ui.current.progressionId', '0'),

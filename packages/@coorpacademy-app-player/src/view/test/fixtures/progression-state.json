@@ -3,14 +3,16 @@
     "progressions": {
       "entities": {
         "0": {
-          "content": {
-            "id": "0",
-            "type": "slides"
-          },
-          "lives": 3,
-          "step": {
-            "current": 0,
-            "total": 4
+          "state": {
+            "nextContent": {
+              "ref": "0",
+              "type": "slides"
+            },
+            "lives": 3,
+            "step": {
+              "current": 0,
+              "total": 4
+            }
           }
         }
       }

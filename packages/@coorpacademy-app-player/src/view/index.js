@@ -12,7 +12,7 @@ const toHeader = state => {
       title: 'Du management classique au nouveau blablabla'
     },
     lives: {
-      count: get('lives')(getProgression(state))
+      count: get('state.lives')(getProgression(state))
     }
   };
 };
@@ -23,7 +23,7 @@ const toPlayer = (state, dispatch) => {
   const answer = getAnswerProps(state, slide, dispatch);
 
   return {
-    step: get('step')(progression),
+    step: get('state.step')(progression),
     question: get('question.header')(slide),
     cta: {
       submitValue: 'Validate',
@@ -31,7 +31,7 @@ const toPlayer = (state, dispatch) => {
         dispatch(
           validateAnswer(getProgressionId(state), {
             answers: get('ui.answers')(state),
-            slideId: slide.id
+            slideId: slide._id
           })
         );
       },
