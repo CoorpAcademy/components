@@ -1,27 +1,26 @@
 // @flow
-import includes from 'lodash/fp/includes';
 import sample from 'lodash/fp/sample';
+import pipe from 'lodash/fp/pipe';
+import without from 'lodash/fp/without';
+import map from 'lodash/fp/map';
 import {type State, type Slide, type Action, type Content} from './types';
 import updateState from './update-state';
 
-const getNextSlide = (state: State, slides: Array<Slide>): Slide => {
-  const nextSlide = sample(slides);
-  if (includes(nextSlide._id, state.slides)) {
-    return getNextSlide(state, slides);
-  }
-  return nextSlide;
+const getNextSlide = (state: State, slides: Array<Slide>): string => {
+  return pipe(map('_id'), without(state.slides), sample)(slides);
 };
 
 export default function computeNextStep(
   state: State,
   action: Action,
-  slides: Array<Slide>
+  slidePool: Array<Slide>
 ): Content {
   // compute next state according to the action
   const nextState = updateState(state, [action]);
+  const {lives = 0, slides = []} = nextState;
 
   // if no more lives, return endpoint content
-  if (nextState.lives < 0) {
+  if (lives < 0) {
     return {
       ref: 'failExitNode',
       type: 'failure'
@@ -29,7 +28,7 @@ export default function computeNextStep(
   }
 
   // if all slides answered and still alive
-  if (nextState.slides.length === 4 && nextState.lives >= 0) {
+  if (slides.length === 4 && lives >= 0) {
     return {
       ref: 'successExitNode',
       type: 'success'
@@ -37,11 +36,17 @@ export default function computeNextStep(
   }
 
   // if still alive, get next slide
-  const nextSlide = getNextSlide(nextState, slides);
+  const nextSlideId = getNextSlide(nextState, slidePool);
 
   // with next slide return content object
+  if (nextSlideId)
+    return {
+      ref: nextSlideId,
+      type: 'slide'
+    };
+
   return {
-    ref: nextSlide._id,
-    type: 'slide'
+    ref: 'successExitNode',
+    type: 'success'
   };
 }

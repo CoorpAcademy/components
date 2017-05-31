@@ -1,19 +1,26 @@
 // @flow
 import concat from 'lodash/fp/concat';
 import reduce from 'lodash/fp/reduce';
+import isEqual from 'lodash/fp/isEqual';
 import type {Action, State} from './types';
 
 function reduceAction(state: State, action: Action): State {
-  const {type} = action;
+  const {type, payload} = action;
 
   switch (type) {
-    case 'answer':
+    case 'answer': {
+      const {content, nextContent, isCorrect} = payload;
+      const {slides = [], lives = 0} = state;
+      if (!isEqual(state.nextContent, content)) throw new Error();
       return {
         ...state,
-        isCorrect: action.payload.isCorrect,
-        slides: concat(state.slides, [state.nextContent.ref]),
-        lives: action.payload.isCorrect ? state.lives : state.lives - 1
+        content,
+        nextContent,
+        isCorrect,
+        slides: concat([state.nextContent.ref], slides),
+        lives: isCorrect ? lives : lives - 1
       };
+    }
     default:
       return state;
   }

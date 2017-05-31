@@ -1,16 +1,25 @@
-import {computeNextStep, checkAnswer, updateState} from '@coorpacademy/progression-engine';
+import {checkAnswer, updateState} from '@coorpacademy/progression-engine';
 import uniqueId from 'lodash/fp/uniqueId';
 import update from 'lodash/fp/update';
 import pipe from 'lodash/fp/pipe';
 import set from 'lodash/fp/set';
-import map from 'lodash/fp/map';
 import reduce from 'lodash/fp/reduce';
+import sample from 'lodash/fp/sample';
 import progressionsData from './progressions.data';
 import * as SlidesService from './slides';
 
+const computeNextStep = (state, action, slides) => {
+  const slide = sample(slides);
+
+  return {
+    ref: slide._id,
+    type: 'slide'
+  };
+};
+
 const generateId = () => uniqueId('progression');
 const progressions = reduce(
-  (progressionMap, progression) => progressionMap.set(progression.id, progression),
+  (progressionMap, progression) => progressionMap.set(progression._id, progression),
   new Map(),
   progressionsData
 );
@@ -21,23 +30,24 @@ export const findById = id => {
 };
 
 export const find = () => {
-  return Promise.resolve(Array.from(progressions.entries()));
+  return Promise.resolve(Array.from(progressions.values()));
 };
 
-export const createProgression = progression => {
-  const id = generateId();
-  progressions.set(id, {
+export const createProgression = async progression => {
+  const _id = generateId();
+
+  const slides = await SlidesService.find();
+  const nextContent = computeNextStep({}, {}, slides);
+
+  progressions.set(_id, {
     ...progression,
-    id,
+    _id,
     state: {
-      nextContent: {
-        ref: 'sli_EkRyFvjjG',
-        type: 'slide'
-      }
+      nextContent
     }
   });
 
-  return findById(id);
+  return findById(_id);
 };
 
 export const createAnswer = async (progressionId, payload) => {
@@ -45,7 +55,7 @@ export const createAnswer = async (progressionId, payload) => {
   const slideId = payload.content.ref;
   const slide = await SlidesService.findById(slideId);
   const progression = await findById(progressionId);
-  const slides = await SlidesService.find().then(map('id'));
+  const slides = await SlidesService.find();
 
   const action = pipe(set('payload.isCorrect', checkAnswer({}, slide.question, answers)), _action =>
     set('payload.nextContent', computeNextStep(progression.state, _action, slides), _action)

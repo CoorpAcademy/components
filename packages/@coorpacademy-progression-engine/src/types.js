@@ -9,14 +9,16 @@ export type Content = {
 export type State = {
   content?: Content,
   nextContent: Content,
-  lives: number,
-  slides: Array<string>
+  lives?: number,
+  slides?: Array<string>
 };
 
 export type Action = {
   type: string,
   payload: {
-    isCorrect?: boolean
+    content: Content,
+    nextContent: Content,
+    isCorrect: boolean
   }
 };
 
