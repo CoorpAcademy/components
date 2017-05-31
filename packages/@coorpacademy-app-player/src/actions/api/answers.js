@@ -1,4 +1,4 @@
-import {getProgression} from '../../utils/state-extract';
+import {getCurrentProgression} from '../../utils/state-extract';
 
 export const ANSWER_CREATE_REQUEST = '@@answer/CREATE_REQUEST';
 export const ANSWER_CREATE_SUCCESS = '@@answer/CREATE_SUCCESS';
@@ -6,8 +6,13 @@ export const ANSWER_CREATE_FAILURE = '@@answer/CREATE_FAILURE';
 
 export const createAnswer = (progressionId, answers) => async (dispatch, getState, {services}) => {
   const {Progressions} = services;
-  const progression = getProgression(getState());
+  const progression = getCurrentProgression(getState());
   const nextContent = progression.state.nextContent;
+
+  await dispatch({
+    type: ANSWER_CREATE_REQUEST,
+    meta: {progressionId}
+  });
 
   try {
     const answer = await Progressions.createAnswer(progressionId, {

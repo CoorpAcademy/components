@@ -14,7 +14,13 @@ test('should create initial qcm props', t => {
 });
 
 test('should create edited qcm props', t => {
-  const state = {ui: {answers: ['Case 1', 'Case 3']}};
+  const state = {
+    ui: {
+      answers: {'1234': ['Case 1', 'Case 3']},
+      current: {progressionId: '1234'}
+    }
+  };
+
   const props = getAnswerProps(state, qcm);
   t.is(props.type, 'qcm');
   t.is(reduce((acc, answer) => acc && answer.selected, true)(props.answers), false);
@@ -28,7 +34,13 @@ test('should create edited qcm props', t => {
 });
 
 test('should create edited template props', t => {
-  const state = {ui: {answers: ['foo']}};
+  const state = {
+    ui: {
+      answers: {'1234': ['foo']},
+      current: {progressionId: '1234'}
+    }
+  };
+
   const props = getAnswerProps(state, template);
   t.is(props.type, 'freeText');
   t.is(props.value, 'foo');
@@ -36,10 +48,16 @@ test('should create edited template props', t => {
 });
 
 test('should create action: edit-answer-qcm', t => {
-  const state = {ui: {answers: ['Case 1'], current: {progressionId: '1234'}}};
+  const state = {
+    ui: {
+      answers: {'1234': ['Case 1']},
+      current: {progressionId: '1234'}
+    }
+  };
+
   const dispatch = action => {
     t.is(action.type, ANSWER_EDIT.qcm);
-    t.is(action.payload.answer[1], 'Case 3');
+    t.is(action.payload[0], 'Case 3');
     t.is(action.meta.progressionId, '1234');
   };
 
@@ -48,10 +66,15 @@ test('should create action: edit-answer-qcm', t => {
 });
 
 test('should create action: edit-answer-template', t => {
-  const state = {ui: {answers: ['foo'], current: {progressionId: '1234'}}};
+  const state = {
+    ui: {
+      answers: {'1234': ['foo']},
+      current: {progressionId: '1234'}
+    }
+  };
   const dispatch = action => {
     t.is(action.type, ANSWER_EDIT.template);
-    t.is(action.payload.answer[0], 'foo');
+    t.is(action.payload[0], 'foo');
     t.is(action.meta.progressionId, '1234');
   };
 

@@ -1,6 +1,6 @@
 import {fetchProgression} from '../api/progressions';
 import {fetchSlide} from '../api/slides';
-import {getProgression, getProgressionId} from '../../utils/state-extract';
+import {getCurrentProgression, getProgressionId} from '../../utils/state-extract';
 
 export const UI_SELECT_PROGRESSION = '@@ui/SELECT_PROGRESSION';
 
@@ -16,6 +16,6 @@ export const selectProgression = id => async (dispatch, getState) => {
   const response = await dispatch(fetchProgression(progressionId));
   if (response.error) return response;
 
-  const progression = getProgression(getState());
+  const progression = getCurrentProgression(getState());
   return dispatch(fetchSlide(progression.state.nextContent.ref));
 };
