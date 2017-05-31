@@ -2,7 +2,12 @@ import pipe from 'lodash/fp/pipe';
 import get from 'lodash/fp/get';
 import {createElement} from 'react';
 import {Provider, FreeRun} from '@coorpacademy/components';
-import {getProgression, getSlide, getProgressionId} from '../utils/state-extract';
+import {
+  getCurrentProgression,
+  getSlide,
+  getProgressionId,
+  getAnswers
+} from '../utils/state-extract';
 import {validateAnswer} from '../actions/ui/answers';
 import getAnswerProps from './answer-props';
 
@@ -12,13 +17,13 @@ const toHeader = state => {
       title: 'Du management classique au nouveau blablabla'
     },
     lives: {
-      count: get('state.lives')(getProgression(state))
+      count: get('state.lives')(getCurrentProgression(state))
     }
   };
 };
 
 const toPlayer = (state, dispatch) => {
-  const progression = getProgression(state);
+  const progression = getCurrentProgression(state);
   const slide = getSlide(state);
   const answer = getAnswerProps(state, slide, dispatch);
 
@@ -30,7 +35,7 @@ const toPlayer = (state, dispatch) => {
       onClick: () => {
         dispatch(
           validateAnswer(getProgressionId(state), {
-            answers: get('ui.answers')(state),
+            answers: getAnswers(state),
             slideId: slide._id
           })
         );

@@ -64,10 +64,9 @@ export const createAnswer = async (progressionId, payload) => {
     payload
   });
 
-  progressions.set(
-    progressionId,
-    update('state', state => updateState(state, action), progression)
-  );
+  const p = update('state', state => updateState(state, [action]), progression);
+
+  progressions.set(progressionId, p);
 
   return findById(progressionId);
 };

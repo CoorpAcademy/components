@@ -5,7 +5,7 @@ import {
   getChoices,
   getProgressionId,
   getQuestionType,
-  getProgression,
+  getCurrentProgression,
   getSlide
 } from '../state-extract';
 
@@ -28,14 +28,14 @@ test('should getQuestionType', t => {
   t.is(getQuestionType(plop), type);
 });
 
-test('should getProgression', t => {
+test('should getCurrentProgression', t => {
   const progression = {foo: 'bar'};
   const state = pipe(
     set('ui.current.progressionId', '0'),
     set('data.progressions.entities', {'0': progression})
   )({});
 
-  t.is(getProgression(state), progression);
+  t.is(getCurrentProgression(state), progression);
 });
 
 test('should getSlide', t => {

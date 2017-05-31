@@ -1,30 +1,31 @@
 import pipe from 'lodash/fp/pipe';
 import includes from 'lodash/fp/includes';
 import head from 'lodash/fp/head';
-import get from 'lodash/fp/get';
 import map from 'lodash/fp/map';
-import {getChoices, getProgressionId, getQuestionType} from '../utils/state-extract';
+import {getChoices, getProgressionId, getQuestionType, getAnswers} from '../utils/state-extract';
 import {editAnswer} from '../actions/ui/answers';
 
 const editAnswerAction = (state, slide, dispatch) => newValue => {
   return dispatch(
-    editAnswer(get('ui.answers', state), getQuestionType(slide), getProgressionId(state), newValue)
+    editAnswer(getAnswers(state), getQuestionType(slide), getProgressionId(state), newValue)
   );
 };
 
-const qcmProps = (state, slide, dispatch) => ({
-  type: 'qcm',
-  answers: map(choice => ({
-    title: choice.label,
-    selected: pipe(get('ui.answers'), includes(choice.label))(state),
-    onClick: () => editAnswerAction(state, slide, dispatch)(choice)
-  }))(getChoices(slide))
-});
+const qcmProps = (state, slide, dispatch) => {
+  return {
+    type: 'qcm',
+    answers: map(choice => ({
+      title: choice.label,
+      selected: pipe(getAnswers, includes(choice.label))(state),
+      onClick: () => editAnswerAction(state, slide, dispatch)(choice)
+    }))(getChoices(slide))
+  };
+};
 
 const qcmTemplateProps = (state, slide, dispatch) => ({
   type: 'freeText',
   placeholder: 'Type here',
-  value: pipe(get('ui.answers'), head)(state),
+  value: pipe(getAnswers, head)(state),
   onChange: editAnswerAction(state, slide, dispatch)
 });
 
