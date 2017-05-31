@@ -1,56 +1,17 @@
 // @flow
 import test from 'ava';
-import isEmpty from 'lodash/fp/isEmpty';
 import computeNextStep from '../compute-next-step';
 import slides from './fixtures/slides';
 
-test('should return the content or next step when action is correct answer', t => {
+test('should return a new slide when user is still alive', t => {
   const progression = Object.freeze({
     state: {
       nextContent: {
         ref: '1.A1.1',
         type: 'slide'
-      }
-    },
-    content: {
-      ref: '1.A1',
-      type: 'chapter'
-    },
-    actions: []
-  });
-
-  const action = Object.freeze({
-    type: 'answer',
-    payload: {
-      nextContent: {
-        ref: '1.A1.2',
-        type: 'slide'
       },
-      content: {
-        ref: '1.A1.1',
-        type: 'slide'
-      },
-      isCorrect: true
-    }
-  });
-
-  const nextStep = computeNextStep(progression.state, action, slides);
-  t.false(isEmpty(nextStep));
-  t.not(nextStep.ref, '1.A1.1');
-});
-
-test('should return the fail endpoint, when action has wrong answers and progressions no more lives', t => {
-  const progression = Object.freeze({
-    state: {
-      nextContent: {
-        ref: '1.A1.2',
-        type: 'slide'
-      },
-      content: {
-        ref: '1.A1.1',
-        type: 'slide'
-      },
-      lives: 0,
+      lives: 1,
+      isCorrect: true,
       slides: ['1.A1.1']
     },
     content: {
@@ -60,38 +21,24 @@ test('should return the fail endpoint, when action has wrong answers and progres
     actions: []
   });
 
-  const action = Object.freeze({
-    type: 'answer',
-    payload: {
-      nextContent: {
-        ref: '1.A1.3',
+  const nextStep = computeNextStep(progression.state, slides);
+  t.not(nextStep.ref, '1.A1.1');
+});
+
+test('should return the fail endpoint, when progressions state no more lives', t => {
+  const progression = Object.freeze({
+    state: {
+      content: {
+        ref: '1.A1.1',
         type: 'slide'
       },
-      content: {
+      nextContent: {
         ref: '1.A1.2',
         type: 'slide'
       },
-      isCorrect: false
-    }
-  });
-
-  const nextStep = computeNextStep(progression.state, action, slides);
-  t.false(isEmpty(nextStep));
-  t.deepEqual(nextStep, {
-    ref: 'failExitNode',
-    type: 'failure'
-  });
-});
-
-test('should return the success endpoint when action state has all answered slides and user is still alive', t => {
-  const progression = Object.freeze({
-    state: {
-      nextContent: {
-        ref: '1.A1.4',
-        type: 'slide'
-      },
       lives: 0,
-      slides: ['1.A1.1', '1.A1.3', '1.A1.2']
+      isCorrect: false,
+      slides: ['1.A1.1', '1.A1.2']
     },
     content: {
       ref: '1.A1',
@@ -100,23 +47,36 @@ test('should return the success endpoint when action state has all answered slid
     actions: []
   });
 
-  const action = Object.freeze({
-    type: 'answer',
-    payload: {
-      nextContent: {
-        ref: '1.A1.5',
+  const nextStep = computeNextStep(progression.state, slides);
+  t.deepEqual(nextStep, {
+    ref: 'failExitNode',
+    type: 'failure'
+  });
+});
+
+test('should return the success endpoint when progression state has answered all slides', t => {
+  const progression = Object.freeze({
+    state: {
+      content: {
+        ref: '1.A1.2',
         type: 'slide'
       },
-      content: {
+      nextContent: {
         ref: '1.A1.4',
         type: 'slide'
       },
-      isCorrect: true
-    }
+      lives: 1,
+      isCorrect: true,
+      slides: ['1.A1.1', '1.A1.3', '1.A1.2', '1.A1.4']
+    },
+    content: {
+      ref: '1.A1',
+      type: 'chapter'
+    },
+    actions: []
   });
 
-  const nextStep = computeNextStep(progression.state, action, slides);
-  t.false(isEmpty(nextStep));
+  const nextStep = computeNextStep(progression.state, slides);
   t.deepEqual(nextStep, {
     ref: 'successExitNode',
     type: 'success'

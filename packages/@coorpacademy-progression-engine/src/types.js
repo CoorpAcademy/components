@@ -9,8 +9,8 @@ export type Content = {
 export type State = {
   content?: Content,
   nextContent: Content,
-  lives?: number,
-  slides?: Array<string>
+  lives: number,
+  slides: Array<string>
 };
 
 export type Action = {
