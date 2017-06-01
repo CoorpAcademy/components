@@ -6,6 +6,7 @@ const {props} = Card;
 export default {
   props: {
     title: 'Most Recent',
+    showMore: 'See all',
     cards: [
       defaultsDeep(props, {title: 'First item'}),
       defaultsDeep(props, {title: 'Second item'}),
@@ -20,6 +21,9 @@ export default {
     ],
     onScroll: (skip, limit) => {
       console.log(skip, limit); // eslint-disable-line no-console
+    },
+    onShowMore: () => {
+      console.log('show More'); // eslint-disable-line no-console
     }
   }
 };
