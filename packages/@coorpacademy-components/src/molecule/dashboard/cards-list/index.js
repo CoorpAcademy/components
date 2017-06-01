@@ -159,7 +159,7 @@ class CardsList extends React.Component {
   }
 
   render() {
-    const {title, cards} = this.props;
+    const {title, showMore, cards, onShowMore} = this.props;
 
     const cardsView = cards.map((card, key) => {
       return (
@@ -180,13 +180,19 @@ class CardsList extends React.Component {
     const rightArrowView = this.state.right.hidden
       ? null
       : <div className={style.right} onClick={this.handleOnRight} />;
-
+    const titleView = title && onShowMore
+      ? <span className={style.titleLink} onClick={onShowMore}>{title}</span>
+      : <span className={style.title}>{title}</span>;
+    const showMoreView = showMore && onShowMore
+      ? <span className={style.showMore} onClick={onShowMore}>{showMore}</span>
+      : null;
     return (
       <div className={style.wrapper} data-name="cards-list">
         <div className={style.list}>
           <div className={style.listWrapper}>
-            <div className={style.title}>
-              {title}
+            <div>
+              {titleView}
+              {showMoreView}
             </div>
             <div
               className={style.cards} // eslint-disable-next-line no-return-assign
@@ -205,8 +211,10 @@ class CardsList extends React.Component {
 
 CardsList.propTypes = {
   title: PropTypes.string,
+  showMore: PropTypes.string,
   cards: PropTypes.arrayOf(PropTypes.shape(Card.protoTypes)),
-  onScroll: PropTypes.func
+  onScroll: PropTypes.func,
+  onShowMore: PropTypes.func
 };
 
 export default CardsList;

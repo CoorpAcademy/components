@@ -1,7 +1,11 @@
 @value breakpoints: "../../../variables/breakpoints.css";
+@value colors: "../../../variables/colors.css";
+
 @value mobile from breakpoints;
 @value tablet from breakpoints;
 @value desktop from breakpoints;
+
+@value darkGrey from colors;
 
 .wrapper {
   padding: 20px 30px 10px;
@@ -23,8 +27,40 @@
   font-family: 'Open Sans';
   font-size: 19px;
   font-weight: 600;
-  color: #484848;
-  margin-bottom: 16px;
+  color: darkGrey;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+.titleLink {
+  composes: title;
+  cursor: pointer;
+}
+.titleLink:hover {
+  text-decoration: underline;
+}
+.showMore {
+  float: right;
+  font-family: 'Open Sans';
+  font-size: 12px;
+  font-weight: 100;
+  color: darkGrey;
+  cursor: pointer;
+  position: relative;
+  margin-right: 15px;
+  margin-top: 10px;
+  composes: fa from '../../../variables/fontawesome.css';
+  composes: fa-angle-right from '../../../variables/fontawesome.css';
+}
+.showMore:hover {
+  text-decoration: underline;
+}
+.showMore:before {
+  font-size: 12px;
+  font: normal normal normal 12px/1 FontAwesome;
+  color: darkGrey;
+  position: absolute;
+  right: -10px;
+  top: 0px;
 }
 
 .cards {
@@ -107,5 +143,8 @@
   .card {
     width: 100%;
     margin-bottom: 8px;
+  }
+  .showMore {
+    display: none;
   }
 }
