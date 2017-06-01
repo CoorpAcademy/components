@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Cta from '../cta';
 import style from './style.css';
 
-const Slide = (props, context) => {
+const Slide = props => {
   const {cover, title, surtitle, cta, light, alignment = 'center'} = props;
 
   const imgCover = cover;

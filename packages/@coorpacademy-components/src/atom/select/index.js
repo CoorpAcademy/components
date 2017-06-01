@@ -3,21 +3,31 @@ import PropTypes from 'prop-types';
 import filter from 'lodash/fp/filter';
 import find from 'lodash/fp/find';
 import get from 'lodash/fp/get';
+import getOr from 'lodash/fp/getOr';
 import keys from 'lodash/fp/keys';
 import map from 'lodash/fp/map';
+import Provider from '../../atom/provider';
 import getClassState from '../../util/get-class-state';
 import style from './style.css';
+/* eslint-disable css-modules/no-unused-class */
+import filterStyle from './theme-filter.css';
+import headerStyle from './theme-header.css';
+import moocStyle from './theme-mooc.css';
+import questionStyle from './theme-question.css';
+import sortStyle from './theme-sort.css';
+import thematiquesStyle from './theme-thematiques.css';
+/* eslint-enable css-modules/no-unused-class */
 
 const themeStyle = {
-  filter: style.filter,
-  mooc: style.mooc,
-  header: style.header,
-  nolabel: style.nolabel,
-  sort: style.sort,
-  thematiques: style.thematiques
+  filter: filterStyle.filter,
+  header: headerStyle.header,
+  mooc: moocStyle.mooc,
+  question: questionStyle.question,
+  sort: sortStyle.sort,
+  thematiques: thematiquesStyle.thematiques
 };
 
-const Select = props => {
+const Select = (props, context) => {
   const {
     options = [],
     onChange,
@@ -25,11 +35,12 @@ const Select = props => {
     disabled,
     required,
     theme,
-    title: titleProps,
     modified = false
   } = props;
 
-  const title = `${titleProps}${required ? '*' : ''}`;
+  const {skin} = context;
+
+  const title = props.title && `${props.title}${required ? '*' : ''}`;
 
   const optionList =
     options &&
@@ -40,6 +51,8 @@ const Select = props => {
         </option>
       );
     });
+
+  const titleView = title && <span className={style.title}>{title}</span>;
 
   const selected = multiple
     ? map(get('value'), filter({selected: true}, options))
@@ -56,13 +69,18 @@ const Select = props => {
         onChange(e.target.value);
       };
 
-  const arrowView = !multiple ? <div className={style.arrow} /> : null;
+  const color = getOr('#000', 'common.primary', skin);
+  const skinColor = {
+    color: theme === 'question' ? color : null
+  };
+
+  const arrowView = !multiple ? <div style={skinColor} className={style.arrow} /> : null;
   const className = getClassState(style.default, style.modified, style.error, modified);
 
   return (
     <div className={theme ? themeStyle[theme] : className}>
-      <label>
-        <span className={style.title}>{title}</span>
+      <label style={skinColor}>
+        {titleView}
         <span className={style.label}>{selectedLabel}</span>
         {arrowView}
         <select
@@ -79,8 +97,12 @@ const Select = props => {
   );
 };
 
+Select.contextTypes = {
+  skin: Provider.childContextTypes.skin
+};
+
 Select.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   disabled: PropTypes.bool,
   multiple: PropTypes.bool,
   required: PropTypes.bool,

@@ -6,7 +6,7 @@ import orderBy from 'lodash/fp/orderBy';
 import Provider from '../../../atom/provider';
 import style from './style.css';
 
-const DragAndDrop = (props, context) => {
+const Picker = (props, context) => {
   const {answers} = props;
   const {translate} = context;
 
@@ -44,11 +44,11 @@ const DragAndDrop = (props, context) => {
   );
 };
 
-DragAndDrop.contextTypes = {
+Picker.contextTypes = {
   translate: Provider.childContextTypes.translate
 };
 
-DragAndDrop.propTypes = {
+Picker.propTypes = {
   answers: PropTypes.arrayOf(
     PropTypes.shape({
       onClick: PropTypes.func,
@@ -59,4 +59,4 @@ DragAndDrop.propTypes = {
   )
 };
 
-export default DragAndDrop;
+export default Picker;

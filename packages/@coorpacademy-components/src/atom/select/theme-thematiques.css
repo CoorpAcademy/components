@@ -1,0 +1,3 @@
+.thematiques {
+  composes: no-label from './theme-no-label.css';
+}

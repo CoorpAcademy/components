@@ -2,26 +2,32 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import identity from 'lodash/fp/identity';
 import getOr from 'lodash/fp/getOr';
-import Provider from '../../../atom/provider';
 import Cta from '../../../atom/cta';
-import DragAndDrop from '../../questions/drag-and-drop';
+import DropDown from '../../questions/drop-down';
 import FreeText from '../../questions/free-text';
+import Picker from '../../questions/picker';
+import Provider from '../../../atom/provider';
 import Qcm from '../../questions/qcm';
 import QcmImage from '../../questions/qcm-image';
+import QuestionRange from '../../questions/question-range';
 import SlidesFooter from '../slides-footer';
 import style from './style.css';
 
 const answerStyle = {
-  dragAndDrop: style.dragAndDrop,
+  dropDown: style.dropDown,
+  picker: style.picker,
   qcm: style.qcm,
   qcmImage: style.qcmImage,
+  range: style.range,
   freeText: style.freeText
 };
 
 const answers = {
-  dragAndDrop: DragAndDrop,
+  dropDown: DropDown,
+  picker: Picker,
   qcm: Qcm,
   qcmImage: QcmImage,
+  range: QuestionRange,
   freeText: FreeText
 };
 
@@ -83,7 +89,7 @@ const SlidesPlayer = (props, context) => {
           {answerView}
         </div>
         <div className={style.ctaWrapper}>
-          <Cta {...cta} />
+          <Cta className={style.cta} {...cta} />
         </div>
       </div>
       <div className={style.footer}>
@@ -106,7 +112,7 @@ SlidesPlayer.propTypes = {
   question: PropTypes.string.isRequired,
   help: PropTypes.string,
   answer: PropTypes.shape({
-    type: PropTypes.oneOf(['dragAndDrop', 'qcm', 'qcmImage', 'freeText']).isRequired
+    type: PropTypes.oneOf(['picker', 'qcm', 'qcmImage', 'freeText', 'dropDown', 'range']).required
   }),
   cta: PropTypes.shape(Cta.propTypes).isRequired,
   buttons: SlidesFooter.propTypes.buttons

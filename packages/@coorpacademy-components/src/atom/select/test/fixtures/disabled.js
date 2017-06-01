@@ -5,6 +5,7 @@ const {props} = Default;
 
 export default {
   props: defaultsDeep(props, {
+    title: 'Propriétés de la marque :',
     disabled: true
   })
 };

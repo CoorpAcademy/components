@@ -1,0 +1,13 @@
+@value breakpoints: "../../../variables/breakpoints.css";
+@value mobile from breakpoints;
+
+.wrapper {
+  padding: 80px 0 165px;
+  width: 500px;
+}
+
+@media mobile {
+  .wrapper {
+    width: 100%;
+  }
+}

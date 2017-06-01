@@ -1,5 +1,5 @@
 import defaultsDeep from 'lodash/fp/defaultsDeep';
-import thematique from './thematique';
+import thematique from './thematiques';
 
 const {props} = thematique;
 

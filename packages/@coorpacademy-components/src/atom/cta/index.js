@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
+import addClassName from '../../util/add-class-name';
 import Provider from '../provider';
 import Link from '../link';
 import style from './style.css';
@@ -55,7 +56,9 @@ class CTA extends React.Component {
 
     return (
       <div
-        className={style.button}
+        {...addClassName(`${style.button}`)({
+          className: this.props.className
+        })}
         data-name={ctaName}
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}
