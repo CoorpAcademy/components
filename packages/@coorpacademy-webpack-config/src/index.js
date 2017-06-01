@@ -100,11 +100,15 @@ export default (NODE_ENV = 'development') => ({
           minimize: true,
           debug: false
         }),
-        new BabiliPlugin({
-          comments: false,
-          sourceMap: false,
-          simplify: false
-        })
+        new BabiliPlugin(
+          {
+            simplify: false
+          },
+          {
+            comments: false,
+            sourceMap: false
+          }
+        )
       );
 
     return plugins;

@@ -1,11 +1,15 @@
 [ignore]
-.*/node_modules/fbjs/.*
-.*/node_modules/graphviz/.*
-.*/git/.*
-.tx/.*
+.*/packages/.*/lib
+.*/packages/.*/dist
+.*/packages/.*/es
+.*/node_modules/conventional-changelog-core/
+.*/node_modules/graphviz/
+.*/node_modules/babel-plugin-transform-react-remove-prop-types/
 
 [include]
+packages/*/src
 
 [libs]
 
 [options]
+strip_root=true
