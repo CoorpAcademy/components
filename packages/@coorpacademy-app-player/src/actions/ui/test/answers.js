@@ -3,7 +3,7 @@ import {ANSWER_EDIT} from '../../../actions/ui/answers'; // eslint-disable-line 
 import {editAnswer} from '../answers'; // eslint-disable-line import/no-duplicates
 
 test('should check questionType or return same state', t => {
-  const state = {'0': ['foo']};
+  const state = ['foo'];
   const action = editAnswer(state, 'bar', '0', {});
 
   t.is(action.type, undefined);
@@ -12,7 +12,7 @@ test('should check questionType or return same state', t => {
 });
 
 test('should add a qcm choice', t => {
-  const state = {'0': ['foo']};
+  const state = ['foo'];
   const action = editAnswer(state, 'qcm', '0', {label: 'bar'});
 
   t.is(action.type, ANSWER_EDIT.qcm);
@@ -21,7 +21,7 @@ test('should add a qcm choice', t => {
 });
 
 test('should remove a qcm choice', t => {
-  const state = {'0': ['foo']};
+  const state = ['foo'];
   const action = editAnswer(state, 'qcm', '0', {label: 'foo'});
 
   t.is(action.type, ANSWER_EDIT.qcm);
@@ -30,7 +30,7 @@ test('should remove a qcm choice', t => {
 });
 
 test('should check qcm has answer.label or return same state', t => {
-  const state = {'0': ['foo']};
+  const state = ['foo'];
   const action = editAnswer(state, 'qcm', '0', {});
 
   t.is(action.type, ANSWER_EDIT.qcm);
@@ -39,7 +39,7 @@ test('should check qcm has answer.label or return same state', t => {
 });
 
 test('should edit a template answer', t => {
-  const state = {'0': ['foo']};
+  const state = ['foo'];
   const action = editAnswer(state, 'template', '0', 'bar');
 
   t.is(action.type, ANSWER_EDIT.template);
