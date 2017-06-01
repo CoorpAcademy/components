@@ -57,7 +57,7 @@ test('should create action: edit-answer-qcm', t => {
 
   const dispatch = action => {
     t.is(action.type, ANSWER_EDIT.qcm);
-    t.is(action.payload[0], 'Case 3');
+    t.is(action.payload[1], 'Case 3');
     t.is(action.meta.progressionId, '1234');
   };
 

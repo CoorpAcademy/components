@@ -33,7 +33,7 @@ export const editAnswer = (state, questionType, progressionId, newValue) => {
     meta: {
       progressionId
     },
-    payload: newState(state[progressionId], questionType, newValue)
+    payload: newState(state, questionType, newValue)
   };
 };
 
