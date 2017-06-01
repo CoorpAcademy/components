@@ -1,11 +1,11 @@
 import defaultsDeep from 'lodash/fp/defaultsDeep';
-import Steps from './steps';
+import Default from './default';
 
-const {props} = Steps;
+const {props} = Default;
 
 export default {
   props: defaultsDeep(props, {
-    label: 'Time:',
-    forceRange: true
+    title: '2017',
+    bigTitle: true
   })
 };

@@ -186,14 +186,30 @@ class RangeSlider extends React.Component {
 
   render() {
     const {isMax, handleMin = this.props.handleMin, handleMax = this.props.handle} = this.state;
-    const {oneHandle = false, hideTrack = false} = this.props;
+    const {
+      bigTitle = false,
+      hideTrack = false,
+      label,
+      labelMax,
+      labelMin,
+      oneHandle = false,
+      title
+    } = this.props;
 
     const x1 = getOr(0, 'x', handleMin);
     const x2 = getOr(0, 'x', handleMax);
 
-    const {title, label, labelMin, labelMax} = this.props;
     const {skin} = this.context;
     const defaultColor = getOr('#00B0FF', 'common.primary', skin);
+
+    const titleView =
+      title &&
+      <p
+        className={bigTitle ? style.bigTitle : style.title}
+        style={{color: bigTitle && defaultColor}}
+      >
+        {title}
+      </p>;
 
     const trackView =
       !hideTrack &&
@@ -236,17 +252,22 @@ class RangeSlider extends React.Component {
       />
     );
 
+    const labelMinView = labelMin && <span className={style.labelMin}>{labelMin}</span>;
+    const labelMaxView = labelMax && <span className={style.labelMax}>{labelMax}</span>;
+
     return (
       <div className={style.default}>
         <span className={style.titleLabel}>{label}</span>
-        <p className={style.title}>{title}</p>
+        {titleView}
         <div className={style.rail} ref={this.ref}>
           {trackView}
           {handleMinView}
           {handleMaxView}
         </div>
-        <span className={style.labelMin}>{labelMin}</span>
-        <span className={style.labelMax}>{labelMax}</span>
+        <div className={style.labelsWrapper}>
+          {labelMinView}
+          {labelMaxView}
+        </div>
       </div>
     );
   }

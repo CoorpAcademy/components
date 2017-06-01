@@ -1,5 +1,5 @@
 @value colors: "../../variables/colors.css";
-@value grey from colors;
+@value black from colors;
 @value borderGrey from colors;
 @value darkGrey from colors;
 
@@ -17,7 +17,6 @@
   font-family: "Open Sans";
   font-weight: 400;
   user-select: none;
-  margin-left: -17px;
 }
 
 .title {
@@ -32,20 +31,33 @@
   margin: 0px auto 15px;
 }
 
+.bigTitle {
+  composes: title;
+  font-size: 24px;
+  font-weight: 700;
+}
+
 .titleLabel {
   composes: text;
+  margin-left: -17px;
   font-size: 13px;
   font-weight: 700;
 }
 
+.labelsWrapper {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 -17px;
+}
+
 .label {
   composes: text;
-  color: grey;
-  font-size: 10px;
-  margin-top: 8px;
+  color: black;
+  font-size: 15px;
+  font-weight: 700;
+  margin-top: 20px;
   display: inline-block;
   user-select: none;
-  visibility: hidden;
 }
 
 .labelMin {
@@ -54,7 +66,6 @@
 
 .labelMax {
   composes: label;
-  float: right;
 }
 
 .rail {

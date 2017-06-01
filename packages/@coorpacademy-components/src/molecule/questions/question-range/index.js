@@ -6,7 +6,7 @@ import style from './style.css';
 const QuestionRange = (props, context) => {
   return (
     <div className={style.wrapper}>
-      <RangeSlider />
+      <RangeSlider {...props} />
     </div>
   );
 };

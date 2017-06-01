@@ -1,8 +1,11 @@
 export default {
   props: {
-    value: '2017',
-    onChange: () => {},
-    leftLabel: '0',
-    rightLabel: '10000'
+    title: '2017',
+    bigTitle: true,
+    labelMin: '0',
+    labelMax: '10000',
+    handle: {x: 300},
+    oneHandle: true,
+    onChange: () => {}
   }
 };
