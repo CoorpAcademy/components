@@ -318,6 +318,8 @@ import RangeSliderFixtureOneHandleWithSteps from '../src/molecule/range-slider/t
 import RangeSliderFixtureOneHandleWithTrack from '../src/molecule/range-slider/test/fixtures/one-handle-with-track';
 import RangeSliderFixtureStepsForceRange from '../src/molecule/range-slider/test/fixtures/steps-force-range';
 import RangeSliderFixtureSteps from '../src/molecule/range-slider/test/fixtures/steps';
+import RangeSliderFixtureWithBigTitle from '../src/molecule/range-slider/test/fixtures/with-big-title';
+import RangeSliderFixtureWithLabels from '../src/molecule/range-slider/test/fixtures/with-labels';
 import ScopeContentFixtureDefault from '../src/molecule/scope-content/test/fixtures/default';
 import ScopeContentFixtureEmpty from '../src/molecule/scope-content/test/fixtures/empty';
 import ScopeContentFixtureMedias from '../src/molecule/scope-content/test/fixtures/medias';
@@ -977,7 +979,9 @@ export const fixtures = {
       OneHandleWithSteps: RangeSliderFixtureOneHandleWithSteps,
       OneHandleWithTrack: RangeSliderFixtureOneHandleWithTrack,
       StepsForceRange: RangeSliderFixtureStepsForceRange,
-      Steps: RangeSliderFixtureSteps
+      Steps: RangeSliderFixtureSteps,
+      WithBigTitle: RangeSliderFixtureWithBigTitle,
+      WithLabels: RangeSliderFixtureWithLabels
     },
     ScopeContent: {
       Default: ScopeContentFixtureDefault,
