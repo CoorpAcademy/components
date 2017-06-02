@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {findDOMNode} from 'react-dom';
 import addClassName from '../../util/add-class-name';
 import style from './style.css';
 
@@ -9,11 +8,13 @@ const Hammer = typeof window !== 'undefined' ? require('hammerjs') : undefined;
 class Handle extends React.Component {
   constructor(props, context) {
     super(props, context);
+
+    this.setHandle = this.setHandle.bind(this);
   }
 
   componentDidMount() {
     if (Hammer) {
-      this.hammer = new Hammer(findDOMNode(this));
+      this.hammer = new Hammer(this.handle);
       this.hammer.on('panstart', this.props.onPanStart);
       this.hammer.on('panend', this.props.onPanEnd);
 
@@ -43,6 +44,10 @@ class Handle extends React.Component {
     return this.props.axis === 'y' || this.props.axis === 'both';
   }
 
+  setHandle(el) {
+    this.handle = el;
+  }
+
   render() {
     const {x, y} = this.props;
 
@@ -51,6 +56,7 @@ class Handle extends React.Component {
         {...addClassName(`${style.default}`)({
           className: this.props.className
         })}
+        ref={this.setHandle}
         data-name={'handle'}
         style={{
           ...this.props.style,

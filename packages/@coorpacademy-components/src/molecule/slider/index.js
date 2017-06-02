@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {findDOMNode} from 'react-dom';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import _map from 'lodash/fp/map';
@@ -20,11 +19,12 @@ class Slider extends React.Component {
     this.handleNextSlide = this.handleNextSlide.bind(this);
     this.handlePreviousSlide = this.handlePreviousSlide.bind(this);
     this.autoPlay = this.autoPlay.bind(this);
+    this.setSlider = this.setSlider.bind(this);
   }
 
   componentDidMount() {
     if (Hammer) {
-      this.hammer = new Hammer(findDOMNode(this));
+      this.hammer = new Hammer(this.slider);
       this.hammer.on('swipeleft', this.handlePreviousSlide);
       this.hammer.on('swiperight', this.handleNextSlide);
     }
@@ -39,6 +39,10 @@ class Slider extends React.Component {
     }
     this.hammer = null;
     clearTimeout(this.timer);
+  }
+
+  setSlider(el) {
+    this.slider = el;
   }
 
   handleNextSlide() {
@@ -109,7 +113,7 @@ class Slider extends React.Component {
       : null;
 
     return (
-      <div className={style.slidesWrapper}>
+      <div className={style.slidesWrapper} ref={this.setSlider}>
         {myslides}
         {leftControl}
         {rightControl}

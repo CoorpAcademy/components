@@ -33,7 +33,6 @@ export default class Panel extends React.Component {
   }
 
   handlerStoryChange  (kind, story) {
-    console.log('yolo', kind);
     this.setState({
       children: {},
       parents: {},

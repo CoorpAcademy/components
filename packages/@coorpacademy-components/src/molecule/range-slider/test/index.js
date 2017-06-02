@@ -1,7 +1,7 @@
-import 'jsdom-global/register'; // eslint-disable-line import/no-unresolved
+import 'jsdom-global/register';
 import test from 'ava';
 import React from 'react';
-import {mount} from 'enzyme'; // eslint-disable-line import/no-unresolved
+import {mount} from 'enzyme';
 import set from 'lodash/fp/set';
 import RangeSlider from '..';
 

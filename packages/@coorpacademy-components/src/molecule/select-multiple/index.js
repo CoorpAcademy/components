@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {findDOMNode} from 'react-dom';
 import map from 'lodash/fp/map';
 import TitledCheckbox from '../titled-checkbox';
 import style from './style.css';
@@ -12,11 +11,12 @@ class SelectMultiple extends React.Component {
       opened: false
     };
     this.handleOnClick = this.handleOnClick.bind(this);
+    this.setSelect = this.setSelect.bind(this);
   }
 
   componentDidUpdate(prevProps, prevState, prevContext) {
     const closeHandle = function(clickEvent) {
-      const menu = findDOMNode(this._selectMultiple);
+      const menu = this.select;
       if (menu && !menu.contains(clickEvent.target)) {
         this.setState({opened: false});
       }
@@ -35,6 +35,10 @@ class SelectMultiple extends React.Component {
     this.setState({opened: !this.state.opened});
   }
 
+  setSelect(el) {
+    this.select = el;
+  }
+
   render() {
     const {title, selection, choices, onToggle} = this.props;
 
@@ -49,13 +53,7 @@ class SelectMultiple extends React.Component {
     const isActive = this.state.opened === true;
 
     return (
-      <div
-        className={style.default}
-        // eslint-disable-next-line react/jsx-no-bind
-        ref={div => {
-          this._selectMultiple = div;
-        }}
-      >
+      <div className={style.default} ref={this.setSelect}>
         <div className={style.title}>{title}</div>
         <div className={style.select} title={selection} onClick={this.handleOnClick}>
           {selection}

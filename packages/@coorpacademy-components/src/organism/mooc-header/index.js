@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {findDOMNode} from 'react-dom';
 import find from 'lodash/fp/find';
 import getOr from 'lodash/fp/getOr';
 import get from 'lodash/fp/get';
@@ -75,6 +74,8 @@ class MoocHeader extends React.Component {
     this.handleMenuThemeMouseLeave = this.handleMenuThemeMouseLeave.bind(this);
     this._checkOnClose = this._checkOnClose.bind(this);
     this.handleLinkClick = this.handleLinkClick.bind(this);
+    this.setMenuSettings = this.setMenuSettings.bind(this);
+    this.setMenuThemes = this.setMenuThemes.bind(this);
   }
 
   componentDidUpdate(prevProps, prevState, prevContext) {
@@ -87,15 +88,23 @@ class MoocHeader extends React.Component {
     }
   }
 
+  setMenuSettings(el) {
+    this.menuSettings = el;
+  }
+
+  setMenuThemes(el) {
+    this.menuThemes = el;
+  }
+
   _checkOnClose(clickEvent) {
     if (this.state.isSettingsOpen) {
-      const menu = findDOMNode(this._menuSettings);
+      const menu = this.menuSettings;
       if (menu && !menu.contains(clickEvent.target)) {
         this.handleSettingsToggle();
       }
     }
     if (this.state.isThemeMenuOpen) {
-      const menuThemes = findDOMNode(this._menuThemes);
+      const menuThemes = this.menuThemes;
       if (menuThemes && !menuThemes.contains(clickEvent.target)) {
         this.handleMenuThemeClick();
       }
@@ -165,8 +174,8 @@ class MoocHeader extends React.Component {
         <div
           className={this.state.isThemeMenuOpen ? style.themesHovered : style.themes}
           onMouseEnter={this.handleMenuThemeMouseEnter}
-          onMouseLeave={this.handleMenuThemeMouseLeave} // eslint-disable-next-line no-return-assign
-          ref={div => (this._menuThemes = div)} // eslint-disable-line react/jsx-no-bind
+          onMouseLeave={this.handleMenuThemeMouseLeave}
+          ref={this.setMenuThemes}
         >
           <div
             className={style.currentOption}
@@ -452,10 +461,7 @@ class MoocHeader extends React.Component {
             </div>
             {pagesView}
             {userView || linksView}
-            <div
-              className={style.settings} // eslint-disable-next-line no-return-assign
-              ref={div => (this._menuSettings = div)} // eslint-disable-line react/jsx-no-bind
-            >
+            <div className={style.settings} ref={this.setMenuSettings}>
               <div
                 data-name="settings-toggle"
                 className={style.settingsToggle}

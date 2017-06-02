@@ -14,10 +14,8 @@ const NewsList = (props, context) => {
   );
 
   const moreView = more
-    ? <div
-        className={style.more}
-        onClick={more.onClick} // eslint-disable-line react/jsx-handler-names
-      >
+    ? // eslint-disable-next-line react/jsx-handler-names
+      <div className={style.more} onClick={more.onClick}>
         {more.label}
       </div>
     : null;

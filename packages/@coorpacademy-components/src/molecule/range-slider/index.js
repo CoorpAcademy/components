@@ -62,7 +62,6 @@ class RangeSlider extends React.Component {
     const x1 = getOr(step1 * stepWidth, 'handleMin.x', this.props);
     const x2 = getOr(step2 * stepWidth, 'handle.x', this.props);
 
-    // eslint-disable-next-line react/no-did-mount-set-state
     this.setState({
       handleMin: {
         x: x1,
