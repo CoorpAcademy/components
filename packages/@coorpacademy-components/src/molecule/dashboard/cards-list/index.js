@@ -11,7 +11,7 @@ import style from './style.css';
 class CardsList extends React.Component {
   constructor(props) {
     super(props);
-    this._cards = [];
+    this.cards = [];
 
     this.state = {
       left: {
@@ -33,11 +33,11 @@ class CardsList extends React.Component {
     this.handleOnRight = this.handleOnRight.bind(this);
     this.scrollTo = this.scrollTo.bind(this);
     this.updateArrowsState = debounce(200, this.updateArrowsState.bind(this));
+    this.setCardsWrapper = this.setCardsWrapper.bind(this);
   }
 
   componentDidMount() {
-    this._cardsWrapper.addEventListener('scroll', this.handleScroll);
-    this._cardsCount = this.props.cards.length;
+    this.cardsWrapper.addEventListener('scroll', this.handleScroll);
 
     if (window) {
       window.addEventListener('resize', this.updateArrowsState);
@@ -51,15 +51,25 @@ class CardsList extends React.Component {
   }
 
   componentWillUnmount() {
-    this._cardsWrapper.removeEventListener('scroll', this.handleScroll);
+    this.cardsWrapper.removeEventListener('scroll', this.handleScroll);
 
     if (window) {
       window.addEventListener('resize', this.updateArrowsState);
     }
   }
 
+  setCards(key) {
+    return el => {
+      this.cards[key] = el;
+    };
+  }
+
+  setCardsWrapper(el) {
+    this.cardsWrapper = el;
+  }
+
   leftBound() {
-    return getOr(0, 'scrollLeft', this._cardsWrapper);
+    return getOr(0, 'scrollLeft', this.cardsWrapper);
   }
 
   maxLeftBound() {
@@ -71,15 +81,15 @@ class CardsList extends React.Component {
   }
 
   wrapperWidth() {
-    return getOr(0, 'offsetWidth', this._cardsWrapper);
+    return getOr(0, 'offsetWidth', this.cardsWrapper);
   }
 
   cardsWidth() {
-    return this._cards.map(getOr(0, 'scrollWidth')).reduce((a, b) => a + b, 0);
+    return this.cards.map(getOr(0, 'scrollWidth')).reduce((a, b) => a + b, 0);
   }
 
   getPossiblePositions(filter) {
-    return this._cards
+    return this.cards
       .map((card, index, arr) => {
         return arr.slice(0, index).reduce((a, b) => {
           return a + getOr(0, 'scrollWidth', b);
@@ -94,10 +104,10 @@ class CardsList extends React.Component {
       const rightBound = this.rightBound();
 
       const skip = this.getPossiblePositions((el, index) => {
-        return el + this._cards[index].scrollWidth <= leftBound;
+        return el + this.cards[index].scrollWidth <= leftBound;
       }).length;
       const limit = this.getPossiblePositions((el, index) => {
-        return el + this._cards[index].scrollWidth > leftBound && el < rightBound;
+        return el + this.cards[index].scrollWidth > leftBound && el < rightBound;
       }).length;
       this.props.onScroll(skip, limit);
     }
@@ -137,7 +147,7 @@ class CardsList extends React.Component {
     const actualPosition = toPrevious
       ? last(possiblePositions)
       : head(possiblePositions) - this.wrapperWidth();
-    this._cardsWrapper.scrollLeft = actualPosition;
+    this.cardsWrapper.scrollLeft = actualPosition;
     this.updateArrowsState();
   }
 
@@ -163,11 +173,7 @@ class CardsList extends React.Component {
 
     const cardsView = cards.map((card, key) => {
       return (
-        <div
-          className={style.card}
-          key={key} // eslint-disable-next-line no-return-assign
-          ref={div => (this._cards[key] = div)} // eslint-disable-line react/jsx-no-bind
-        >
+        <div className={style.card} key={key} ref={this.setCards(key)}>
           <Card {...card} />
         </div>
       );
@@ -194,10 +200,7 @@ class CardsList extends React.Component {
               {titleView}
               {showMoreView}
             </div>
-            <div
-              className={style.cards} // eslint-disable-next-line no-return-assign
-              ref={div => (this._cardsWrapper = div)} // eslint-disable-line react/jsx-no-bind
-            >
+            <div className={style.cards} ref={this.setCardsWrapper}>
               {cardsView}
             </div>
           </div>
