@@ -1,6 +1,5 @@
 import test from 'ava';
-import {ANSWER_EDIT} from '../../../actions/ui/answers'; // eslint-disable-line import/no-duplicates
-import {editAnswer} from '../answers'; // eslint-disable-line import/no-duplicates
+import {ANSWER_EDIT, editAnswer} from '../answers';
 
 test('should check questionType or return same state', t => {
   const state = ['foo'];

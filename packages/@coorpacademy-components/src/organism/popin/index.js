@@ -25,8 +25,8 @@ const Popin = (props, context) => {
         </div>
         <div className={style.content}>
           <div
-            dangerouslySetInnerHTML={// eslint-disable-line react/no-danger
-            createMarkup()}
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={createMarkup()}
           />
         </div>
         <Button

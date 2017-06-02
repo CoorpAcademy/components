@@ -71,7 +71,7 @@ class Link extends React.Component {
 
 Link.propTypes = {
   children: PropTypes.node,
-  className: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
+  className: PropTypes.string,
   href: PropTypes.string,
   target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
   skinHover: PropTypes.bool,
