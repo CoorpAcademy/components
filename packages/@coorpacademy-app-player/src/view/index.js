@@ -6,7 +6,7 @@ import Player from '@coorpacademy/components/es/template/app-player/player';
 import {
   getCurrentProgression,
   getCurrentSlide,
-  getProgressionId,
+  getCurrentProgressionId,
   getAnswers
 } from '../utils/state-extract';
 import {validateAnswer} from '../actions/ui/answers';
@@ -35,7 +35,7 @@ const toPlayer = (state, dispatch) => {
       submitValue: 'Validate',
       onClick: () => {
         dispatch(
-          validateAnswer(getProgressionId(state), {
+          validateAnswer(getCurrentProgressionId(state), {
             answers: getAnswers(state),
             slideId: slide._id
           })

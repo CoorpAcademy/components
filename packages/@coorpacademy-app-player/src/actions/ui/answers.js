@@ -37,7 +37,7 @@ export const editAnswer = (state, questionType, progressionId, newValue) => {
   };
 };
 
-export const validateAnswer = (progressionId, body) => async (dispatch, getState) => {
+export const validateAnswer = (progressionId, body) => async (dispatch, getState, {services}) => {
   const response = await dispatch(createAnswer(progressionId, body.answers));
   if (response.error) return response;
   return dispatch(selectProgression(progressionId));

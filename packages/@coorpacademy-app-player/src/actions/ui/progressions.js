@@ -1,7 +1,7 @@
 import {fetchProgression} from '../api/progressions';
 import {fetchSlide} from '../api/slides';
 import {fetchExitNode} from '../api/exit-nodes';
-import {getCurrentProgression, getProgressionId} from '../../utils/state-extract';
+import {getCurrentProgression, getCurrentProgressionId} from '../../utils/state-extract';
 
 export const UI_SELECT_PROGRESSION = '@@ui/SELECT_PROGRESSION';
 
@@ -13,8 +13,6 @@ export const fetchContent = ({type, ref}) => {
     case 'success':
     case 'failure':
       return fetchExitNode(ref);
-    default:
-      break;
   }
 };
 
@@ -26,7 +24,7 @@ export const selectProgression = id => async (dispatch, getState) => {
     }
   });
 
-  const progressionId = getProgressionId(getState());
+  const progressionId = getCurrentProgressionId(getState());
   const response = await dispatch(fetchProgression(progressionId));
   if (response.error) return response;
 

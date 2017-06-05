@@ -1,7 +1,7 @@
 import get from 'lodash/fp/get';
 
 export const getChoices = get('question.content.choices');
-export const getProgressionId = get('ui.current.progressionId');
+export const getCurrentProgressionId = get('ui.current.progressionId');
 export const getQuestionType = get('question.type');
 
 export const getProgression = id => state => {
@@ -9,12 +9,12 @@ export const getProgression = id => state => {
 };
 
 export const getCurrentProgression = state => {
-  const id = getProgressionId(state);
+  const id = getCurrentProgressionId(state);
   return getProgression(id)(state);
 };
 
 export const getAnswers = state => {
-  const progressionId = getProgressionId(state);
+  const progressionId = getCurrentProgressionId(state);
   return get(['ui', 'answers', progressionId])(state);
 };
 
@@ -28,12 +28,12 @@ export const getCurrentSlide = state => {
   return getSlide(id)(state);
 };
 
-export const getExitNode = id => state => {
-  const entities = get('data.exitnodes.entities')(state);
-  return get(id)(entities);
+export const getExitNode = ref => state => {
+  const entities = get('data.exitNodes.entities')(state);
+  return get(ref)(entities);
 };
 
 export const getCurrentExitNode = state => {
-  const id = get('state.nextContent.ref')(getCurrentProgression(state));
-  return getSlide(id)(state);
+  const ref = get('state.nextContent.ref')(getCurrentProgression(state));
+  return getExitNode(ref)(state);
 };
