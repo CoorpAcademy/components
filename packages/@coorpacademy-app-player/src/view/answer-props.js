@@ -2,12 +2,17 @@ import pipe from 'lodash/fp/pipe';
 import includes from 'lodash/fp/includes';
 import head from 'lodash/fp/head';
 import map from 'lodash/fp/map';
-import {getChoices, getProgressionId, getQuestionType, getAnswers} from '../utils/state-extract';
+import {
+  getChoices,
+  getCurrentProgressionId,
+  getQuestionType,
+  getAnswers
+} from '../utils/state-extract';
 import {editAnswer} from '../actions/ui/answers';
 
 const editAnswerAction = (state, slide, dispatch) => newValue => {
   return dispatch(
-    editAnswer(getAnswers(state), getQuestionType(slide), getProgressionId(state), newValue)
+    editAnswer(getAnswers(state), getQuestionType(slide), getCurrentProgressionId(state), newValue)
   );
 };
 

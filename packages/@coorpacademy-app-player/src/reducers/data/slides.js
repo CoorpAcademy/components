@@ -1,6 +1,14 @@
 import set from 'lodash/fp/set';
 import update from 'lodash/fp/update';
-import {SLIDE_FETCH_REQUEST, SLIDE_FETCH_SUCCESS} from '../../actions/api/slides';
+import isNull from 'lodash/fp/isNull';
+import get from 'lodash/fp/get';
+import unset from 'lodash/fp/unset';
+import pipe from 'lodash/fp/pipe';
+import {
+  SLIDE_FETCH_REQUEST,
+  SLIDE_FETCH_SUCCESS,
+  SLIDE_FETCH_FAILURE
+} from '../../actions/api/slides';
 
 export default (state = {entities: {}}, action) => {
   switch (action.type) {
@@ -13,6 +21,12 @@ export default (state = {entities: {}}, action) => {
       const {payload, meta} = action;
       const {id} = meta;
       return set(['entities', id], payload, state);
+    }
+    case SLIDE_FETCH_FAILURE: {
+      const {meta} = action;
+      const {id} = meta;
+      if (pipe(get(['entities', id]), isNull)(state)) return unset(['entities', id], state);
+      return state;
     }
     default:
       return state;

@@ -3,10 +3,11 @@ import set from 'lodash/fp/set';
 import pipe from 'lodash/fp/pipe';
 import {
   getChoices,
-  getProgressionId,
+  getCurrentProgressionId,
   getQuestionType,
   getCurrentProgression,
-  getSlide
+  getCurrentSlide,
+  getCurrentExitNode
 } from '../state-extract';
 
 test('should getChoices', t => {
@@ -15,11 +16,11 @@ test('should getChoices', t => {
   t.is(getChoices(plop), choices);
 });
 
-test('should getProgressionId', t => {
+test('should getCurrentProgressionId', t => {
   const progressionId = '1234';
   const plop = set('ui.current.progressionId', progressionId, {});
-  t.is(getProgressionId(plop), progressionId);
-  t.is(getProgressionId({}), null);
+  t.is(getCurrentProgressionId(plop), progressionId);
+  t.is(getCurrentProgressionId({}), undefined);
 });
 
 test('should getQuestionType', t => {
@@ -47,5 +48,17 @@ test('should getCurrentSlide', t => {
     set('data.slides.entities', {'0': slide})
   )({});
 
-  t.is(getSlide(state), slide);
+  t.is(getCurrentSlide(state), slide);
+});
+
+test('should getCurrentExitNode', t => {
+  const exitNode = {ref: 'successExitNode'};
+  const progression = {state: {nextContent: {ref: 'successExitNode'}}};
+  const state = pipe(
+    set('ui.current.progressionId', '0'),
+    set('data.progressions.entities', {'0': progression}),
+    set('data.exitNodes.entities', {successExitNode: exitNode})
+  )({});
+
+  t.is(getCurrentExitNode(state), exitNode);
 });

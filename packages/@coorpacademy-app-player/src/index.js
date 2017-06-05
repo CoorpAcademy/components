@@ -24,6 +24,7 @@ const create = options => {
   let update = createUpdate(container, store, options)(createMapStateToVnode);
   let unsubscribe = store.subscribe(update);
 
+  /* istanbul ignore if  */
   if (module.hot) {
     module.hot.accept('./view/index.js', function() {
       unsubscribe();

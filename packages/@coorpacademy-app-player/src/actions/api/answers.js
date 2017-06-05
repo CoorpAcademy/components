@@ -1,36 +1,24 @@
-import {getCurrentProgression} from '../../utils/state-extract';
+import buildTask from '../../utils/redux-task';
+import {getProgression} from '../../utils/state-extract';
 
 export const ANSWER_CREATE_REQUEST = '@@answer/CREATE_REQUEST';
 export const ANSWER_CREATE_SUCCESS = '@@answer/CREATE_SUCCESS';
 export const ANSWER_CREATE_FAILURE = '@@answer/CREATE_FAILURE';
 
-export const createAnswer = (progressionId, answers) => async (dispatch, getState, {services}) => {
+export const createAnswer = (progressionId, answers) => (dispatch, getState, {services}) => {
   const {Progressions} = services;
-  const progression = getCurrentProgression(getState());
+  const progression = getProgression(progressionId)(getState());
   const nextContent = progression.state.nextContent;
 
-  await dispatch({
-    type: ANSWER_CREATE_REQUEST,
+  const action = buildTask({
+    types: [ANSWER_CREATE_REQUEST, ANSWER_CREATE_SUCCESS, ANSWER_CREATE_FAILURE],
+    task: () =>
+      Progressions.createAnswer(progressionId, {
+        content: nextContent,
+        answers
+      }),
     meta: {progressionId}
   });
 
-  try {
-    const answer = await Progressions.createAnswer(progressionId, {
-      content: nextContent,
-      answers
-    });
-
-    return dispatch({
-      type: ANSWER_CREATE_SUCCESS,
-      meta: {progressionId},
-      payload: answer
-    });
-  } catch (err) {
-    return dispatch({
-      type: ANSWER_CREATE_FAILURE,
-      meta: {progressionId},
-      error: true,
-      payload: err
-    });
-  }
+  return dispatch(action);
 };
