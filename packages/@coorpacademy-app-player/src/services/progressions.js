@@ -1,21 +1,11 @@
-import {checkAnswer, updateState} from '@coorpacademy/progression-engine';
+import {computeNextStep, checkAnswer, updateState} from '@coorpacademy/progression-engine';
 import uniqueId from 'lodash/fp/uniqueId';
 import update from 'lodash/fp/update';
 import pipe from 'lodash/fp/pipe';
 import set from 'lodash/fp/set';
 import reduce from 'lodash/fp/reduce';
-import sample from 'lodash/fp/sample';
 import progressionsData from './progressions.data';
 import * as SlidesService from './slides';
-
-const computeNextStep = (state, action, slides) => {
-  const slide = sample(slides);
-
-  return {
-    ref: slide._id,
-    type: 'slide'
-  };
-};
 
 const generateId = () => uniqueId('progression');
 const progressions = reduce(
@@ -37,13 +27,14 @@ export const createProgression = async progression => {
   const _id = generateId();
 
   const slides = await SlidesService.find();
-  const nextContent = computeNextStep({}, {}, slides);
+  const nextContent = computeNextStep(slides);
 
   progressions.set(_id, {
     ...progression,
     _id,
     state: {
-      nextContent
+      nextContent,
+      slides: []
     }
   });
 
@@ -57,8 +48,9 @@ export const createAnswer = async (progressionId, payload) => {
   const progression = await findById(progressionId);
   const slides = await SlidesService.find();
 
-  const action = pipe(set('payload.isCorrect', checkAnswer({}, slide.question, answers)), _action =>
-    set('payload.nextContent', computeNextStep(progression.state, _action, slides), _action)
+  const action = pipe(
+    set('payload.isCorrect', checkAnswer({}, slide.question, answers)),
+    set('payload.nextContent', computeNextStep(slides, progression.state))
   )({
     type: 'answer',
     payload
