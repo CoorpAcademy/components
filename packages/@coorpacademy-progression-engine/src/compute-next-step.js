@@ -8,6 +8,7 @@ import {hasFinished, isAlive} from './util';
 const defaultState = {
   lives: 4,
   slides: [],
+  isCorrect: true,
   nextContent: {
     ref: '',
     type: ''
