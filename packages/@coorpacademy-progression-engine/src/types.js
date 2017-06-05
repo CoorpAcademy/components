@@ -29,10 +29,16 @@ export type Action = {
   }
 };
 
+export type Engine = {
+  ref: 'microlearning',
+  version: string
+};
+
 export type Progression = {
   content: Content,
   state: State,
-  actions: Array<Action>
+  actions: Array<Action>,
+  engine: Engine
 };
 
 export type Answer = Array<string>;
@@ -52,3 +58,12 @@ export type Slide = {
   chapter_id: string,
   question: Question
 };
+
+export type MicroLearningConfig = {
+  version: string,
+  lives: number,
+  maxTypos: number,
+  slidesToComplete: number
+};
+
+export type Config = MicroLearningConfig;

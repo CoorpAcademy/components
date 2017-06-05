@@ -2,8 +2,9 @@
 import map from 'lodash/fp/map';
 import sample from 'lodash/fp/sample';
 import without from 'lodash/fp/without';
-import {type State, type Slide, type Content} from './types';
+import type {State, Slide, Content, Engine, MicroLearningConfig} from './types';
 import {hasFinished, isAlive} from './util';
+import getConfig from './config';
 
 const defaultState = {
   lives: 1,
@@ -20,9 +21,11 @@ const defaultState = {
 };
 
 export default function computeNextStep(
+  engine: Engine,
   slidePool: Array<Slide>,
   state: State = defaultState
 ): Content {
+  const config = (getConfig(engine): MicroLearningConfig);
   const {slides = []} = state;
   // if no more lives, return failure endpoint
   if (!isAlive(state)) {
@@ -33,7 +36,7 @@ export default function computeNextStep(
   }
 
   // if all slides answered and still alive return success endpoint
-  if (hasFinished(4, state)) {
+  if (hasFinished(config.slidesToComplete, state)) {
     return {
       ref: 'successExitNode',
       type: 'success'
