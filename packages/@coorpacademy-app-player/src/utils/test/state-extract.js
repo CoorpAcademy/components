@@ -38,7 +38,7 @@ test('should getCurrentProgression', t => {
   t.is(getCurrentProgression(state), progression);
 });
 
-test('should getSlide', t => {
+test('should getCurrentSlide', t => {
   const slide = {_id: '0'};
   const progression = {state: {nextContent: {ref: '0'}}};
   const state = pipe(

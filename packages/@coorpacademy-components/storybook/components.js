@@ -116,7 +116,7 @@ import Author from '../src/template/app-catalog/author';
 import Catalog from '../src/template/app-catalog/catalog';
 import ProductCourse from '../src/template/app-catalog/product-course';
 import ProductCursus from '../src/template/app-catalog/product-cursus';
-import FreeRun from '../src/template/app-player/free-run';
+import Player from '../src/template/app-player/player';
 import BrandCreate from '../src/template/back-office/brand-create';
 import BrandList from '../src/template/back-office/brand-list';
 import BrandUpdate from '../src/template/back-office/brand-update';
@@ -466,12 +466,12 @@ import ProductCursusFixtureEmpty from '../src/template/app-catalog/product-cursu
 import ProductCursusFixtureLoading from '../src/template/app-catalog/product-cursus/test/fixtures/loading';
 import ProductCursusFixtureWithoutAssets from '../src/template/app-catalog/product-cursus/test/fixtures/without-assets';
 import ProductCursusFixtureWithoutBadge from '../src/template/app-catalog/product-cursus/test/fixtures/without-badge';
-import FreeRunFixtureDropDown from '../src/template/app-player/free-run/test/fixtures/drop-down';
-import FreeRunFixtureFreeText from '../src/template/app-player/free-run/test/fixtures/free-text';
-import FreeRunFixturePicker from '../src/template/app-player/free-run/test/fixtures/picker';
-import FreeRunFixtureQcmImage from '../src/template/app-player/free-run/test/fixtures/qcm-image';
-import FreeRunFixtureQcm from '../src/template/app-player/free-run/test/fixtures/qcm';
-import FreeRunFixtureRange from '../src/template/app-player/free-run/test/fixtures/range';
+import PlayerFixtureDropDown from '../src/template/app-player/player/test/fixtures/drop-down';
+import PlayerFixtureFreeText from '../src/template/app-player/player/test/fixtures/free-text';
+import PlayerFixturePicker from '../src/template/app-player/player/test/fixtures/picker';
+import PlayerFixtureQcmImage from '../src/template/app-player/player/test/fixtures/qcm-image';
+import PlayerFixtureQcm from '../src/template/app-player/player/test/fixtures/qcm';
+import PlayerFixtureRange from '../src/template/app-player/player/test/fixtures/range';
 import BrandCreateFixtureDefault from '../src/template/back-office/brand-create/test/fixtures/default';
 import BrandCreateFixtureError from '../src/template/back-office/brand-create/test/fixtures/error';
 import BrandCreateFixtureLoading from '../src/template/back-office/brand-create/test/fixtures/loading';
@@ -645,7 +645,7 @@ export const components = {
     ProductCursus
   },
   TemplateAppPlayer: {
-    FreeRun
+    Player
   },
   TemplateBackOffice: {
     BrandCreate,
@@ -1251,13 +1251,13 @@ export const fixtures = {
     }
   },
   TemplateAppPlayer: {
-    FreeRun: {
-      DropDown: FreeRunFixtureDropDown,
-      FreeText: FreeRunFixtureFreeText,
-      Picker: FreeRunFixturePicker,
-      QcmImage: FreeRunFixtureQcmImage,
-      Qcm: FreeRunFixtureQcm,
-      Range: FreeRunFixtureRange
+    Player: {
+      DropDown: PlayerFixtureDropDown,
+      FreeText: PlayerFixtureFreeText,
+      Picker: PlayerFixturePicker,
+      QcmImage: PlayerFixtureQcmImage,
+      Qcm: PlayerFixtureQcm,
+      Range: PlayerFixtureRange
     }
   },
   TemplateBackOffice: {
@@ -2438,7 +2438,7 @@ export const dependencies = {
     "SlidesHeader": {
       "parents": {
         "TemplateAppPlayer": {
-          "FreeRun": true
+          "Player": true
         }
       },
       "children": {
@@ -2450,7 +2450,7 @@ export const dependencies = {
     "SlidesPlayer": {
       "parents": {
         "TemplateAppPlayer": {
-          "FreeRun": true
+          "Player": true
         }
       },
       "children": {
@@ -2636,7 +2636,7 @@ export const dependencies = {
     }
   },
   "TemplateAppPlayer": {
-    "FreeRun": {
+    "Player": {
       "children": {
         "MoleculeSlides": {
           "SlidesHeader": true,

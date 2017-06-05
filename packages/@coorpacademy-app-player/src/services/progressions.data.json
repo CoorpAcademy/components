@@ -2,23 +2,45 @@
   {
     "_id": "0",
     "state": {
+      "slides": [],
       "nextContent": {
-        "ref": "1.A1.2",
+        "ref": "1.A1.1",
         "type": "slide"
       },
-      "lives": 2,
-      "slides": ["1.A1.1"]
+      "lives": 1
     }
   },
   {
     "_id": "1",
     "state": {
+      "slides": ["1.A1.1"],
       "nextContent": {
-        "ref": "1.A1.1",
+        "ref": "1.A1.2",
         "type": "slide"
       },
-      "lives": 3,
-      "slides": []
+      "lives": 1
+    }
+  },
+  {
+    "_id": "2",
+    "state": {
+      "slides": ["1.A1.1", "1.A1.2", "1.A1.3", "1.A1.4"],
+      "nextContent": {
+        "ref": "successExitNode",
+        "type": "success"
+      },
+      "lives": 1
+    }
+  },
+  {
+    "_id": "3",
+    "state": {
+      "slides": [],
+      "nextContent": {
+        "ref": "failExitNode",
+        "type": "failure"
+      },
+      "lives": 0
     }
   }
 ]

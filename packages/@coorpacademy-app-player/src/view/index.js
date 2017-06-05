@@ -1,10 +1,11 @@
 import pipe from 'lodash/fp/pipe';
 import get from 'lodash/fp/get';
 import {createElement} from 'react';
-import {Provider, FreeRun} from '@coorpacademy/components';
+import Provider from '@coorpacademy/components/es/atom/provider';
+import Player from '@coorpacademy/components/es/template/app-player/player';
 import {
   getCurrentProgression,
-  getSlide,
+  getCurrentSlide,
   getProgressionId,
   getAnswers
 } from '../utils/state-extract';
@@ -24,7 +25,7 @@ const toHeader = state => {
 
 const toPlayer = (state, dispatch) => {
   const progression = getCurrentProgression(state);
-  const slide = getSlide(state);
+  const slide = getCurrentSlide(state);
   const answer = getAnswerProps(state, slide, dispatch);
 
   return {
@@ -77,5 +78,5 @@ const wrapInProvider = options => vNode => createElement(Provider, options, vNod
 export default options => dispatch => {
   const mapStateToProps = createMapStateToProps(options)(dispatch);
 
-  return pipe(mapStateToProps, FreeRun, wrapInProvider(options));
+  return pipe(mapStateToProps, Player, wrapInProvider(options));
 };
