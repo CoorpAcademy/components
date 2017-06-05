@@ -154,7 +154,7 @@
 .menuWrapper {
   display: flex;
   height: 60px;
-  flex: 0 1 auto;
+  flex: 0 0 auto;
 }
 
 .pages {
