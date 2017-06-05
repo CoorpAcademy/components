@@ -1,26 +1,39 @@
-import getOr from 'lodash/fp/getOr';
 import get from 'lodash/fp/get';
 
 export const getChoices = get('question.content.choices');
-export const getProgressionId = getOr(null, 'ui.current.progressionId');
+export const getProgressionId = get('ui.current.progressionId');
 export const getQuestionType = get('question.type');
 
 export const getProgression = id => state => {
-  return getOr({}, ['data', 'progressions', 'entities', id], state);
+  return get(['data', 'progressions', 'entities', id], state);
 };
 
 export const getCurrentProgression = state => {
-  const currentId = getProgressionId(state);
-  return getProgression(currentId)(state);
+  const id = getProgressionId(state);
+  return getProgression(id)(state);
 };
 
 export const getAnswers = state => {
   const progressionId = getProgressionId(state);
-  return getOr([], ['ui', 'answers', progressionId])(state);
+  return get(['ui', 'answers', progressionId])(state);
 };
 
-export const getSlide = state => {
-  const entities = getOr({}, 'data.slides.entities')(state);
-  const id = getOr(null, 'state.nextContent.ref')(getCurrentProgression(state));
-  return getOr({}, id)(entities);
+export const getSlide = id => state => {
+  const entities = get('data.slides.entities')(state);
+  return get(id)(entities);
+};
+
+export const getCurrentSlide = state => {
+  const id = get('state.nextContent.ref')(getCurrentProgression(state));
+  return getSlide(id)(state);
+};
+
+export const getExitNode = id => state => {
+  const entities = get('data.exitnodes.entities')(state);
+  return get(id)(entities);
+};
+
+export const getCurrentExitNode = state => {
+  const id = get('state.nextContent.ref')(getCurrentProgression(state));
+  return getSlide(id)(state);
 };
