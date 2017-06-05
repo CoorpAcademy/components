@@ -7,6 +7,8 @@ import update from 'lodash/fp/update';
 import isEqual from 'lodash/fp/isEqual';
 import type {Action, State, Content} from './types';
 
+const mapWithKey = map.convert({cap: false});
+
 function isCorrect(state: boolean = false, action: Action): boolean {
   switch (action.type) {
     case 'answer':
@@ -52,7 +54,7 @@ function nextContent(c: Content, action: Action): Content {
   }
 }
 
-function validator(state: State, action: Action) {
+function validate(state: State, action: Action) {
   switch (action.type) {
     case 'answer':
       if (!isEqual(state.nextContent, action.payload.content)) {
@@ -64,27 +66,21 @@ function validator(state: State, action: Action) {
   }
 }
 
-const mapWithKey = map.convert({cap: false});
-
-function combineReducers(
-  validate: Function, // eslint-disable-line flowtype/no-weak-types
-  fnMap: {[string]: Function} // eslint-disable-line flowtype/no-weak-types
-): (State, Action) => State {
+// eslint-disable-next-line flowtype/no-weak-types
+function combineReducers(fnMap: {[string]: Function}): (State, Action) => State {
   // eslint-disable-next-line flowtype/require-return-type
   const fns = mapWithKey((fn, key) => {
     return (action: Action) => (state: State): State => {
+      validate(state, action);
       const newState = update(key, value => fn(value, action), state);
       return (newState: State);
     };
   }, fnMap);
 
-  return (state: State, action: Action): State => {
-    validate(state, action);
-    return pipe(...map(fn => fn(action), fns))(state);
-  };
+  return (state: State, action: Action): State => pipe(...map(fn => fn(action), fns))(state);
 }
 
-const reduceAction = combineReducers(validator, {
+const reduceAction = combineReducers({
   isCorrect,
   slides,
   lives,
