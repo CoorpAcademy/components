@@ -6,7 +6,7 @@ import {type State, type Slide, type Content} from './types';
 import {hasFinished, isAlive} from './util';
 
 const defaultState = {
-  lives: 4,
+  lives: 1,
   slides: [],
   isCorrect: true,
   nextContent: {
@@ -21,7 +21,7 @@ export default function computeNextStep(
 ): Content {
   const {slides = []} = state;
   // if no more lives, return failure endpoint
-  if (isAlive(state)) {
+  if (!isAlive(state)) {
     return {
       ref: 'failExitNode',
       type: 'failure'
