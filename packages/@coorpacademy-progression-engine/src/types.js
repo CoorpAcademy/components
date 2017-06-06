@@ -29,13 +29,16 @@ export type Action = {
   }
 };
 
+export type EngineType = 'microlearning';
+
 export type Engine = {
-  ref: 'microlearning',
+  ref: EngineType,
   version: string
 };
 
 export type Progression = {
   content: Content,
+  initialState: State,
   state: State,
   actions: Array<Action>,
   engine: Engine
