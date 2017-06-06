@@ -13,7 +13,11 @@ test('should update state when answering a question correctly', t => {
     },
     lives: 1,
     slides: [],
-    isCorrect: true
+    isCorrect: true,
+    step: {
+      current: 0,
+      total: 4
+    }
   });
 
   const action: Action = Object.freeze({
@@ -31,7 +35,7 @@ test('should update state when answering a question correctly', t => {
     }
   });
 
-  const omitChangedFields = omit(['slides', 'isCorrect', 'content', 'nextContent']);
+  const omitChangedFields = omit(['slides', 'isCorrect', 'content', 'nextContent', 'step']);
   const newState = updateState(state, [action]);
 
   t.true(
@@ -39,6 +43,7 @@ test('should update state when answering a question correctly', t => {
     '`isCorrect` should reflect the `isCorrect` field from the action payload'
   );
   t.deepEqual(newState.slides, ['1.A1.1'], 'answered slide should have been stored in `slides`');
+  t.deepEqual(newState.step, {current: 1, total: 4}, 'step progression is wrong');
   t.deepEqual(
     newState.content,
     state.nextContent,
@@ -65,7 +70,11 @@ test('should update state when answering a question incorrectly', t => {
     },
     lives: 1,
     slides: ['1.A1.4'],
-    isCorrect: true
+    isCorrect: true,
+    step: {
+      current: 1,
+      total: 4
+    }
   });
 
   const action: Action = Object.freeze({
@@ -83,7 +92,14 @@ test('should update state when answering a question incorrectly', t => {
     }
   });
 
-  const omitChangedFields = omit(['lives', 'slides', 'isCorrect', 'content', 'nextContent']);
+  const omitChangedFields = omit([
+    'lives',
+    'slides',
+    'isCorrect',
+    'content',
+    'nextContent',
+    'step'
+  ]);
   const newState = updateState(state, [action]);
 
   t.true(newState.lives === 0, '`lives` should have been decremented');
@@ -91,6 +107,7 @@ test('should update state when answering a question incorrectly', t => {
     newState.isCorrect,
     '`isCorrect` should reflect the `isCorrect` field from the action payload'
   );
+  t.deepEqual(newState.step, {current: 2, total: 4}, 'step progression is wrong');
   t.deepEqual(
     newState.slides,
     ['1.A1.4', '1.A1.2'],
@@ -122,7 +139,11 @@ test("should throw if the state's nextContent is not the same as the action's co
     },
     lives: 1,
     slides: ['1.A1.4'],
-    isCorrect: true
+    isCorrect: true,
+    step: {
+      current: 1,
+      total: 4
+    }
   });
 
   const action: Action = Object.freeze({

@@ -5,9 +5,7 @@ import concat from 'lodash/fp/concat';
 import reduce from 'lodash/fp/reduce';
 import update from 'lodash/fp/update';
 import isEqual from 'lodash/fp/isEqual';
-import type {Action, State, Content} from './types';
-
-const mapWithKey = map.convert({cap: false});
+import type {Action, State, Step, Content} from './types';
 
 function isCorrect(state: boolean = false, action: Action): boolean {
   switch (action.type) {
@@ -54,6 +52,13 @@ function nextContent(c: Content, action: Action): Content {
   }
 }
 
+function step(s: Step, action: Action, state: State): Step {
+  return {
+    total: 4, // TODO replace with config
+    current: (state.slides || []).length
+  };
+}
+
 function validate(state: State, action: Action) {
   switch (action.type) {
     case 'answer':
@@ -67,12 +72,12 @@ function validate(state: State, action: Action) {
 }
 
 // eslint-disable-next-line flowtype/no-weak-types
-function combineReducers(fnMap: {[string]: Function}): (State, Action) => State {
+function combineReducers(fnMap: Array<{key: string, fn: Function}>): (State, Action) => State {
   // eslint-disable-next-line flowtype/require-return-type
-  const fns = mapWithKey((fn, key) => {
+  const fns = map(({fn, key}) => {
     return (action: Action) => (state: State): State => {
       validate(state, action);
-      const newState = update(key, value => fn(value, action), state);
+      const newState = update(key, value => fn(value, action, state), state);
       return (newState: State);
     };
   }, fnMap);
@@ -80,13 +85,14 @@ function combineReducers(fnMap: {[string]: Function}): (State, Action) => State 
   return (state: State, action: Action): State => pipe(...map(fn => fn(action), fns))(state);
 }
 
-const reduceAction = combineReducers({
-  isCorrect,
-  slides,
-  lives,
-  content,
-  nextContent
-});
+const reduceAction = combineReducers([
+  {key: 'isCorrect', fn: isCorrect},
+  {key: 'slides', fn: slides},
+  {key: 'lives', fn: lives},
+  {key: 'step', fn: step},
+  {key: 'content', fn: content},
+  {key: 'nextContent', fn: nextContent}
+]);
 
 const updateState: (state: State, actions: Array<Action>) => State = reduce(reduceAction);
 

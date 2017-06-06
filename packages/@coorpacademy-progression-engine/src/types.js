@@ -1,5 +1,10 @@
 // @flow
 
+export type Step = {
+  current: number,
+  total: number
+};
+
 export type Content = {
   ref: string,
   type: string,
@@ -11,7 +16,8 @@ export type State = {
   nextContent: Content,
   lives: number,
   isCorrect: boolean,
-  slides: Array<string>
+  slides: Array<string>,
+  step: Step
 };
 
 export type Action = {

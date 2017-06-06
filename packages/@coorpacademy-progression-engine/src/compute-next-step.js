@@ -12,6 +12,10 @@ const defaultState = {
   nextContent: {
     ref: '',
     type: ''
+  },
+  step: {
+    current: 0,
+    total: 4
   }
 };
 
