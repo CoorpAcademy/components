@@ -5,9 +5,10 @@ import concat from 'lodash/fp/concat';
 import reduce from 'lodash/fp/reduce';
 import update from 'lodash/fp/update';
 import isEqual from 'lodash/fp/isEqual';
-import type {Action, State, Step, Content} from './types';
+import getConfig from './config';
+import type {Action, State, Content, MicroLearningConfig, Engine, Step} from './types';
 
-function isCorrect(state: boolean = false, action: Action): boolean {
+function isCorrect(config: MicroLearningConfig, state: boolean = false, action: Action): boolean {
   switch (action.type) {
     case 'answer':
       return action.payload.isCorrect;
@@ -16,7 +17,7 @@ function isCorrect(state: boolean = false, action: Action): boolean {
   }
 }
 
-function slides(array: Array<string> = [], action: Action): Array<string> {
+function slides(config: MicroLearningConfig, array: Array<string>, action: Action): Array<string> {
   switch (action.type) {
     case 'answer':
       return concat(array, [action.payload.content.ref]);
@@ -25,7 +26,7 @@ function slides(array: Array<string> = [], action: Action): Array<string> {
   }
 }
 
-function lives(amount: number = 1, action: Action): number {
+function lives(config: MicroLearningConfig, amount: number, action: Action): number {
   switch (action.type) {
     case 'answer':
       return action.payload.isCorrect ? amount : amount - 1;
@@ -34,7 +35,7 @@ function lives(amount: number = 1, action: Action): number {
   }
 }
 
-function content(c: Content, action: Action): Content {
+function content(config: MicroLearningConfig, c: Content, action: Action): Content {
   switch (action.type) {
     case 'answer':
       return action.payload.content;
@@ -43,7 +44,7 @@ function content(c: Content, action: Action): Content {
   }
 }
 
-function nextContent(c: Content, action: Action): Content {
+function nextContent(config: MicroLearningConfig, c: Content, action: Action): Content {
   switch (action.type) {
     case 'answer':
       return action.payload.nextContent;
@@ -52,14 +53,14 @@ function nextContent(c: Content, action: Action): Content {
   }
 }
 
-function step(s: Step, action: Action, state: State): Step {
+function step(config: MicroLearningConfig, s: Step, action: Action, state: State): Step {
   return {
-    total: 4, // TODO replace with config
+    total: config.slidesToComplete,
     current: (state.slides || []).length
   };
 }
 
-function validate(state: State, action: Action) {
+function validate(config: MicroLearningConfig, state: State, action: Action) {
   switch (action.type) {
     case 'answer':
       if (!isEqual(state.nextContent, action.payload.content)) {
@@ -71,18 +72,22 @@ function validate(state: State, action: Action) {
   }
 }
 
-// eslint-disable-next-line flowtype/no-weak-types
-function combineReducers(fnMap: Array<{key: string, fn: Function}>): (State, Action) => State {
+function combineReducers(
+  fnMap: Array<{key: string, fn: Function}> // eslint-disable-line flowtype/no-weak-types
+): MicroLearningConfig => (State, Action) => State {
   // eslint-disable-next-line flowtype/require-return-type
   const fns = map(({fn, key}) => {
-    return (action: Action) => (state: State): State => {
-      validate(state, action);
-      const newState = update(key, value => fn(value, action, state), state);
+    return (config: MicroLearningConfig, action: Action) => (state: State): State => {
+      validate(config, state, action);
+      const newState = update(key, value => fn(config, value, action, state), state);
       return (newState: State);
     };
   }, fnMap);
 
-  return (state: State, action: Action): State => pipe(...map(fn => fn(action), fns))(state);
+  return (config: MicroLearningConfig): ((State, Action) => State) => {
+    return (state: State, action: Action): State =>
+      pipe(...map(fn => fn(config, action), fns))(state);
+  };
 }
 
 const reduceAction = combineReducers([
@@ -94,6 +99,7 @@ const reduceAction = combineReducers([
   {key: 'nextContent', fn: nextContent}
 ]);
 
-const updateState: (state: State, actions: Array<Action>) => State = reduce(reduceAction);
-
-export default updateState;
+export default function updateState(engine: Engine, state: State, actions: Array<Action>): State {
+  const config = (getConfig(engine): MicroLearningConfig);
+  return reduce(reduceAction(config), state, actions);
+}
