@@ -27,14 +27,15 @@ export const createProgression = async progression => {
   const _id = generateId();
 
   const slides = await SlidesService.find();
-  const nextContent = computeNextStep(slides);
+  const nextContent = computeNextStep(progression.engine, slides, progression.state);
 
   progressions.set(_id, {
     ...progression,
     _id,
     state: {
-      nextContent,
-      slides: []
+      slides: [],
+      ...progression.state,
+      nextContent
     }
   });
 
@@ -49,14 +50,14 @@ export const createAnswer = async (progressionId, payload) => {
   const slides = await SlidesService.find();
 
   const action = pipe(
-    set('payload.isCorrect', checkAnswer({}, slide.question, answers)),
-    set('payload.nextContent', computeNextStep(slides, progression.state))
+    set('payload.isCorrect', checkAnswer(progression.engine, slide.question, answers)),
+    set('payload.nextContent', computeNextStep(progression.engine, slides, progression.state))
   )({
     type: 'answer',
     payload
   });
 
-  const p = update('state', state => updateState(state, [action]), progression);
+  const p = update('state', state => updateState(progression.engine, state, [action]), progression);
 
   progressions.set(progressionId, p);
 
