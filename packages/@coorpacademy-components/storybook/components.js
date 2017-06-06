@@ -203,6 +203,7 @@ import ProviderFixtureDefault from '../src/atom/provider/test/fixtures/default';
 import SelectFixtureDefault from '../src/atom/select/test/fixtures/default';
 import SelectFixtureDisabled from '../src/atom/select/test/fixtures/disabled';
 import SelectFixtureFilter from '../src/atom/select/test/fixtures/filter';
+import SelectFixtureInvalid from '../src/atom/select/test/fixtures/invalid';
 import SelectFixtureModified from '../src/atom/select/test/fixtures/modified';
 import SelectFixtureMooc from '../src/atom/select/test/fixtures/mooc';
 import SelectFixtureMultipleSelected from '../src/atom/select/test/fixtures/multiple-selected';
@@ -789,6 +790,7 @@ export const fixtures = {
       Default: SelectFixtureDefault,
       Disabled: SelectFixtureDisabled,
       Filter: SelectFixtureFilter,
+      Invalid: SelectFixtureInvalid,
       Modified: SelectFixtureModified,
       Mooc: SelectFixtureMooc,
       MultipleSelected: SelectFixtureMultipleSelected,
