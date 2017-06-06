@@ -4,7 +4,7 @@ import SlidesHeader from '../../../molecule/slides/slides-header';
 import SlidesPlayer from '../../../molecule/slides/slides-player';
 import style from './style.css';
 
-const FreeRunPlayer = props => {
+const SlidePlayer = props => {
   const {header, player} = props;
 
   return (
@@ -17,8 +17,9 @@ const FreeRunPlayer = props => {
   );
 };
 
-FreeRunPlayer.propTypes = {
+SlidePlayer.propTypes = {
   header: PropTypes.shape(SlidesHeader.propTypes),
   player: PropTypes.shape(SlidesPlayer.propTypes)
 };
-export default FreeRunPlayer;
+
+export default SlidePlayer;

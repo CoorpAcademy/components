@@ -116,7 +116,10 @@ import Author from '../src/template/app-catalog/author';
 import Catalog from '../src/template/app-catalog/catalog';
 import ProductCourse from '../src/template/app-catalog/product-course';
 import ProductCursus from '../src/template/app-catalog/product-cursus';
+import Loading from '../src/template/app-player/loading';
 import Player from '../src/template/app-player/player';
+import PopinCorrection from '../src/template/app-player/popin-correction';
+import PopinEnd from '../src/template/app-player/popin-end';
 import BrandCreate from '../src/template/back-office/brand-create';
 import BrandList from '../src/template/back-office/brand-list';
 import BrandUpdate from '../src/template/back-office/brand-update';
@@ -466,12 +469,15 @@ import ProductCursusFixtureEmpty from '../src/template/app-catalog/product-cursu
 import ProductCursusFixtureLoading from '../src/template/app-catalog/product-cursus/test/fixtures/loading';
 import ProductCursusFixtureWithoutAssets from '../src/template/app-catalog/product-cursus/test/fixtures/without-assets';
 import ProductCursusFixtureWithoutBadge from '../src/template/app-catalog/product-cursus/test/fixtures/without-badge';
+import LoadingFixtureDefault from '../src/template/app-player/loading/test/fixtures/default';
 import PlayerFixtureDropDown from '../src/template/app-player/player/test/fixtures/drop-down';
 import PlayerFixtureFreeText from '../src/template/app-player/player/test/fixtures/free-text';
 import PlayerFixturePicker from '../src/template/app-player/player/test/fixtures/picker';
 import PlayerFixtureQcmImage from '../src/template/app-player/player/test/fixtures/qcm-image';
 import PlayerFixtureQcm from '../src/template/app-player/player/test/fixtures/qcm';
 import PlayerFixtureRange from '../src/template/app-player/player/test/fixtures/range';
+import PopinCorrectionFixtureDefault from '../src/template/app-player/popin-correction/test/fixtures/default';
+import PopinEndFixtureDefault from '../src/template/app-player/popin-end/test/fixtures/default';
 import BrandCreateFixtureDefault from '../src/template/back-office/brand-create/test/fixtures/default';
 import BrandCreateFixtureError from '../src/template/back-office/brand-create/test/fixtures/error';
 import BrandCreateFixtureLoading from '../src/template/back-office/brand-create/test/fixtures/loading';
@@ -645,7 +651,10 @@ export const components = {
     ProductCursus
   },
   TemplateAppPlayer: {
-    Player
+    Loading,
+    Player,
+    PopinCorrection,
+    PopinEnd
   },
   TemplateBackOffice: {
     BrandCreate,
@@ -1251,6 +1260,9 @@ export const fixtures = {
     }
   },
   TemplateAppPlayer: {
+    Loading: {
+      Default: LoadingFixtureDefault
+    },
     Player: {
       DropDown: PlayerFixtureDropDown,
       FreeText: PlayerFixtureFreeText,
@@ -1258,6 +1270,12 @@ export const fixtures = {
       QcmImage: PlayerFixtureQcmImage,
       Qcm: PlayerFixtureQcm,
       Range: PlayerFixtureRange
+    },
+    PopinCorrection: {
+      Default: PopinCorrectionFixtureDefault
+    },
+    PopinEnd: {
+      Default: PopinEndFixtureDefault
     }
   },
   TemplateBackOffice: {
@@ -2144,6 +2162,30 @@ export const dependencies = {
       },
       "children": {}
     },
+    "Loader": {
+      "parents": {
+        "TemplateAppPlayer": {
+          "Loading": true
+        },
+        "Organism": {
+          "Discussion": true,
+          "CardsGrid": true,
+          "BrandTable": true
+        },
+        "MoleculeDashboard": {
+          "NewsList": true
+        },
+        "Molecule": {
+          "SetupSections": true,
+          "Card": true,
+          "BrandUploadBox": true
+        },
+        "Atom": {
+          "ImageUpload": true
+        }
+      },
+      "children": {}
+    },
     "Picture": {
       "parents": {
         "Organism": {
@@ -2228,27 +2270,6 @@ export const dependencies = {
         "Molecule": {
           "SetupSlide": true,
           "Filters": true
-        }
-      },
-      "children": {}
-    },
-    "Loader": {
-      "parents": {
-        "Organism": {
-          "Discussion": true,
-          "CardsGrid": true,
-          "BrandTable": true
-        },
-        "MoleculeDashboard": {
-          "NewsList": true
-        },
-        "Molecule": {
-          "SetupSections": true,
-          "Card": true,
-          "BrandUploadBox": true
-        },
-        "Atom": {
-          "ImageUpload": true
         }
       },
       "children": {}
@@ -2636,6 +2657,13 @@ export const dependencies = {
     }
   },
   "TemplateAppPlayer": {
+    "Loading": {
+      "children": {
+        "Atom": {
+          "Loader": true
+        }
+      }
+    },
     "Player": {
       "children": {
         "MoleculeSlides": {
@@ -2643,6 +2671,12 @@ export const dependencies = {
           "SlidesPlayer": true
         }
       }
+    },
+    "PopinCorrection": {
+      "children": {}
+    },
+    "PopinEnd": {
+      "children": {}
     }
   },
   "TemplateBackOffice": {
