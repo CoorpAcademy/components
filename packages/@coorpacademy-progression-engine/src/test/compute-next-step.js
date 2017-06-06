@@ -18,7 +18,11 @@ test('should return a new slide when user is still alive', t => {
       },
       lives: 1,
       isCorrect: true,
-      slides: ['1.A1.1']
+      slides: ['1.A1.1'],
+      step: {
+        current: 1,
+        total: 4
+      }
     },
     content: {
       ref: '1.A1',
@@ -44,7 +48,11 @@ test('should return the fail endpoint, when progressions state no more lives', t
       },
       lives: 0,
       isCorrect: false,
-      slides: ['1.A1.1', '1.A1.2']
+      slides: ['1.A1.1', '1.A1.2'],
+      step: {
+        current: 2,
+        total: 4
+      }
     },
     content: {
       ref: '1.A1',
@@ -73,7 +81,11 @@ test('should return the success endpoint when progression state has answered all
       },
       lives: 1,
       isCorrect: true,
-      slides: ['1.A1.1', '1.A1.3', '1.A1.2', '1.A1.4']
+      slides: ['1.A1.1', '1.A1.3', '1.A1.2', '1.A1.4'],
+      step: {
+        current: 4,
+        total: 4
+      }
     },
     content: {
       ref: '1.A1',
