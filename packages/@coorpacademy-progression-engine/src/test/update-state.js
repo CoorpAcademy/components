@@ -4,6 +4,11 @@ import omit from 'lodash/fp/omit';
 import updateState from '../update-state';
 import type {Action, State} from '../types';
 
+const engine = {
+  ref: 'microlearning',
+  version: '1'
+};
+
 test('should update state when answering a question correctly', t => {
   const state: State = Object.freeze({
     content: undefined,
@@ -36,7 +41,7 @@ test('should update state when answering a question correctly', t => {
   });
 
   const omitChangedFields = omit(['slides', 'isCorrect', 'content', 'nextContent', 'step']);
-  const newState = updateState(state, [action]);
+  const newState = updateState(engine, state, [action]);
 
   t.true(
     newState.isCorrect,
@@ -100,7 +105,7 @@ test('should update state when answering a question incorrectly', t => {
     'nextContent',
     'step'
   ]);
-  const newState = updateState(state, [action]);
+  const newState = updateState(engine, state, [action]);
 
   t.true(newState.lives === 0, '`lives` should have been decremented');
   t.false(
@@ -162,7 +167,7 @@ test("should throw if the state's nextContent is not the same as the action's co
   });
 
   t.throws(
-    () => updateState(state, [action]),
+    () => updateState(engine, state, [action]),
     'The content of the progression state does not match the content of the given answer'
   );
 });
