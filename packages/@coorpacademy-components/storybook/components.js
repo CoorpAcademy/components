@@ -30,6 +30,8 @@ import Star from '../src/atom/star';
 import TabContent from '../src/atom/tab-content';
 import Tab from '../src/atom/tab';
 import Title from '../src/atom/title';
+import AccordionPart from '../src/molecule/accordion-part';
+import Accordion from '../src/molecule/accordion';
 import BattleRequest from '../src/molecule/battle-request';
 import BrandCardCreate from '../src/molecule/brand-card-create';
 import BrandCard from '../src/molecule/brand-card';
@@ -228,6 +230,8 @@ import StarFixtureEnable from '../src/atom/star/test/fixtures/enable';
 import TabContentFixtureDefault from '../src/atom/tab-content/test/fixtures/default';
 import TabFixtureDefault from '../src/atom/tab/test/fixtures/default';
 import TitleFixtureFixture from '../src/atom/title/test/fixtures/fixture';
+import AccordionPartFixtureDefault from '../src/molecule/accordion-part/test/fixtures/default';
+import AccordionFixtureDefault from '../src/molecule/accordion/test/fixtures/default';
 import BattleRequestFixtureDefault from '../src/molecule/battle-request/test/fixtures/default';
 import BrandCardCreateFixtureDefault from '../src/molecule/brand-card-create/test/fixtures/default';
 import BrandCardFixtureDefault from '../src/molecule/brand-card/test/fixtures/default';
@@ -568,6 +572,8 @@ export const components = {
     Title
   },
   Molecule: {
+    AccordionPart,
+    Accordion,
     BattleRequest,
     BrandCardCreate,
     BrandCard,
@@ -850,6 +856,12 @@ export const fixtures = {
     }
   },
   Molecule: {
+    AccordionPart: {
+      Default: AccordionPartFixtureDefault
+    },
+    Accordion: {
+      Default: AccordionFixtureDefault
+    },
     BattleRequest: {
       Default: BattleRequestFixtureDefault
     },
@@ -1871,6 +1883,25 @@ export const dependencies = {
         }
       }
     },
+    "AccordionPart": {
+      "parents": {
+        "Molecule": {
+          "Accordion": true
+        }
+      },
+      "children": {
+        "MoleculeQuestions": {
+          "Picker": true
+        }
+      }
+    },
+    "Accordion": {
+      "children": {
+        "Molecule": {
+          "AccordionPart": true
+        }
+      }
+    },
     "BrandCardCreate": {
       "children": {
         "Atom": {
@@ -2618,6 +2649,9 @@ export const dependencies = {
       "parents": {
         "MoleculeSlides": {
           "SlidesPlayer": true
+        },
+        "Molecule": {
+          "AccordionPart": true
         }
       },
       "children": {}

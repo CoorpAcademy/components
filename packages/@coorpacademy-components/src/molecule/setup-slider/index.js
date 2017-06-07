@@ -1,25 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SetupSlide from '../setup-slide';
-import style from './style.css';
+import Accordion from '../accordion';
 
 const SetupSlider = props => {
-  const {slides = []} = props;
+  const {titles = [], slides = []} = props;
 
-  const slidesView = slides.map((slide, key) => (
-    <div key={key} className={style.slide}>
-      <SetupSlide {...slide} />
-    </div>
-  ));
+  const slidesView = slides.map((slide, key) => <SetupSlide key={key} {...slide} />);
 
   return (
-    <div>
+    <Accordion titles={titles}>
       {slidesView}
-    </div>
+    </Accordion>
   );
 };
 
 SetupSlider.propTypes = {
+  titles: PropTypes.arrayOf(PropTypes.string),
   slides: PropTypes.arrayOf(PropTypes.shape(SetupSlide.propTypes))
 };
+
 export default SetupSlider;

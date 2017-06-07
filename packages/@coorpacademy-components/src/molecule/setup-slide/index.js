@@ -24,7 +24,7 @@ class SetupSlide extends React.Component {
   }
 
   render() {
-    const {title, fields = []} = this.props;
+    const {fields = []} = this.props;
 
     const buildInput = field => {
       const {type} = field;
@@ -56,20 +56,13 @@ class SetupSlide extends React.Component {
 
     return (
       <div className={style.wrapper}>
-        <div className={style.title} onClick={this.handleOnClick}>
-          <h3>{title}</h3>
-          <span className={this.state.expanded ? style.up : style.down} />
-        </div>
-        <div className={this.state.expanded ? style.container : style.none}>
-          {fieldsList}
-        </div>
+        {fieldsList}
       </div>
     );
   }
 }
 
 SetupSlide.propTypes = {
-  title: PropTypes.string.isRequired,
   fields: PropTypes.arrayOf(
     PropTypes.shape({
       type: PropTypes.string.isRequired

@@ -1,3 +1,5 @@
+export Accordion from './molecule/accordion';
+export AccordionPart from './molecule/accordion-part';
 export Author from './template/app-catalog/author';
 export Authors from './template/common/authors';
 export BattleRequest from './molecule/battle-request';

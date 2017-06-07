@@ -4,6 +4,7 @@ const {props} = Slide;
 
 export default {
   props: {
+    titles: ['1', '2', '3'],
     slides: [props, props, props]
   }
 };
