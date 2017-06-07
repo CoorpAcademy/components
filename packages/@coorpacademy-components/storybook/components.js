@@ -6,6 +6,7 @@ import CenteredText from '../src/atom/centered-text';
 import Checkbox from '../src/atom/checkbox';
 import Cta from '../src/atom/cta';
 import Handle from '../src/atom/handle';
+import Heart from '../src/atom/heart';
 import ImageUpload from '../src/atom/image-upload';
 import InputCheckbox from '../src/atom/input-checkbox';
 import InputColor from '../src/atom/input-color';
@@ -53,6 +54,7 @@ import DisciplineHeader from '../src/molecule/discipline-header';
 import DisciplinePartners from '../src/molecule/discipline-partners';
 import DisciplineScope from '../src/molecule/discipline-scope';
 import Filters from '../src/molecule/filters';
+import Lives from '../src/molecule/lives';
 import MenuList from '../src/molecule/menu-list';
 import ModuleBubble from '../src/molecule/module-bubble';
 import ModuleCard from '../src/molecule/module-card';
@@ -109,6 +111,7 @@ import GridList from '../src/organism/grid-list';
 import Header from '../src/organism/header';
 import Hero from '../src/organism/hero';
 import MoocHeader from '../src/organism/mooc-header';
+import PopinKlf from '../src/organism/popin-klf';
 import Popin from '../src/organism/popin';
 import Settings from '../src/organism/settings';
 import SetupHeader from '../src/organism/setup-header';
@@ -151,6 +154,8 @@ import CtaFixtureSecondary from '../src/atom/cta/test/fixtures/secondary';
 import HandleFixtureAxisX from '../src/atom/handle/test/fixtures/axis-x';
 import HandleFixtureAxisY from '../src/atom/handle/test/fixtures/axis-y';
 import HandleFixtureDefault from '../src/atom/handle/test/fixtures/default';
+import HeartFixtureDisable from '../src/atom/heart/test/fixtures/disable';
+import HeartFixtureEnable from '../src/atom/heart/test/fixtures/enable';
 import ImageUploadFixtureDesktop from '../src/atom/image-upload/test/fixtures/desktop';
 import ImageUploadFixtureEmail from '../src/atom/image-upload/test/fixtures/email';
 import ImageUploadFixtureLoading from '../src/atom/image-upload/test/fixtures/loading';
@@ -293,6 +298,7 @@ import FiltersFixtureThree from '../src/molecule/filters/test/fixtures/three';
 import FiltersFixtureTwoOpened from '../src/molecule/filters/test/fixtures/two-opened';
 import FiltersFixtureTwo from '../src/molecule/filters/test/fixtures/two';
 import FiltersFixtureZero from '../src/molecule/filters/test/fixtures/zero';
+import LivesFixtureDefault from '../src/molecule/lives/test/fixtures/default';
 import MenuListFixtureDefault from '../src/molecule/menu-list/test/fixtures/default';
 import ModuleBubbleFixtureDefault from '../src/molecule/module-bubble/test/fixtures/default';
 import ModuleBubbleFixtureDisabled from '../src/molecule/module-bubble/test/fixtures/disabled';
@@ -447,6 +453,9 @@ import MoocHeaderFixtureDefault from '../src/organism/mooc-header/test/fixtures/
 import MoocHeaderFixtureLogged from '../src/organism/mooc-header/test/fixtures/logged';
 import MoocHeaderFixtureSliderMultiple from '../src/organism/mooc-header/test/fixtures/slider-multiple';
 import MoocHeaderFixtureSlider from '../src/organism/mooc-header/test/fixtures/slider';
+import PopinKlfFixtureDefault from '../src/organism/popin-klf/test/fixtures/default';
+import PopinKlfFixtureGameOver from '../src/organism/popin-klf/test/fixtures/game-over';
+import PopinKlfFixtureWrong from '../src/organism/popin-klf/test/fixtures/wrong';
 import PopinFixtureDefault from '../src/organism/popin/test/fixtures/default';
 import SettingsFixtureDefault from '../src/organism/settings/test/fixtures/default';
 import SettingsFixtureFreemium from '../src/organism/settings/test/fixtures/freemium';
@@ -519,6 +528,7 @@ export const components = {
     Checkbox,
     Cta,
     Handle,
+    Heart,
     ImageUpload,
     InputCheckbox,
     InputColor,
@@ -568,6 +578,7 @@ export const components = {
     DisciplinePartners,
     DisciplineScope,
     Filters,
+    Lives,
     MenuList,
     ModuleBubble,
     ModuleCard,
@@ -634,6 +645,7 @@ export const components = {
     Header,
     Hero,
     MoocHeader,
+    PopinKlf,
     Popin,
     Settings,
     SetupHeader
@@ -699,6 +711,10 @@ export const fixtures = {
       AxisX: HandleFixtureAxisX,
       AxisY: HandleFixtureAxisY,
       Default: HandleFixtureDefault
+    },
+    Heart: {
+      Disable: HeartFixtureDisable,
+      Enable: HeartFixtureEnable
     },
     ImageUpload: {
       Desktop: ImageUploadFixtureDesktop,
@@ -937,6 +953,9 @@ export const fixtures = {
       TwoOpened: FiltersFixtureTwoOpened,
       Two: FiltersFixtureTwo,
       Zero: FiltersFixtureZero
+    },
+    Lives: {
+      Default: LivesFixtureDefault
     },
     MenuList: {
       Default: MenuListFixtureDefault
@@ -1214,6 +1233,11 @@ export const fixtures = {
       SliderMultiple: MoocHeaderFixtureSliderMultiple,
       Slider: MoocHeaderFixtureSlider
     },
+    PopinKlf: {
+      Default: PopinKlfFixtureDefault,
+      GameOver: PopinKlfFixtureGameOver,
+      Wrong: PopinKlfFixtureWrong
+    },
     Popin: {
       Default: PopinFixtureDefault
     },
@@ -1481,6 +1505,18 @@ export const dependencies = {
         }
       },
       "children": {}
+    },
+    "Lives": {
+      "parents": {
+        "Organism": {
+          "PopinKlf": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Heart": true
+        }
+      }
     },
     "Slider": {
       "parents": {
@@ -2044,6 +2080,13 @@ export const dependencies = {
         }
       }
     },
+    "PopinKlf": {
+      "children": {
+        "Molecule": {
+          "Lives": true
+        }
+      }
+    },
     "Popin": {
       "children": {
         "Atom": {
@@ -2316,6 +2359,14 @@ export const dependencies = {
       "parents": {
         "Molecule": {
           "RangeSlider": true
+        }
+      },
+      "children": {}
+    },
+    "Heart": {
+      "parents": {
+        "Molecule": {
+          "Lives": true
         }
       },
       "children": {}

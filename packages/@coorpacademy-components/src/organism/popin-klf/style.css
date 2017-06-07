@@ -1,0 +1,235 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+
+@value colors: "../../variables/colors.css";
+@value darkGrey from colors;
+@value light from colors;
+@value grey from colors;
+@value borderGrey from colors;
+@value green from colors;
+@value red from colors;
+@value black from colors;
+@value yellow from colors;
+@value blue from colors;
+
+.default {
+  position: fixed;
+  z-index: 20;
+  top:0;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: rgba(0,0,0,.7);
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.popin {
+  position: absolute;
+  width: 850px;
+  overflow: auto;
+  background: white;
+  margin: 100px -425px 200px;
+  top: 0;
+  left: 50%;
+  box-shadow: 0 0 15px 0 rgba(166,166,166,.84);
+}
+
+.header {
+  display: table;
+  width: 100%;
+  position: relative;
+  background: light;
+}
+
+.answergood, .answerwrong {
+  display: table-cell;
+  vertical-align: middle;
+  width: 24%;
+  color: white;
+  padding: 7px 5px;
+  text-align: center;
+}
+
+.answergood {
+  background: green;
+}
+
+.answerwrong span {
+  display: block;
+  font-size: 22px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.answerwrong {
+  background: red;
+}
+
+.lives {
+  display: table-cell;
+  width: 13.6%;
+  vertical-align: middle;
+  text-align: center;
+  background-color: borderGrey;
+}
+
+.heart {
+  composes: fa from '../../variables/fontawesome.css';
+  composes: fa-heart from '../../variables/fontawesome.css';
+  font-size: 1.4375rem;
+  line-height: 1.725rem;
+  color: red;
+  padding: 0 4px; 
+}
+
+.answerDesc {
+  display: table-cell;
+  width: 76%;
+  box-sizing: border-box;
+  padding: 16px 12px 13px 12px;
+}
+
+.answerDescPart1 {
+  font-size: 14px;
+  color: darkGrey;
+  font-weight: 600;
+  text-align: left;
+  padding-right: 20px;
+  padding-bottom: 15px;
+}
+
+.answerDescPart2 {
+  line-height: 16px;
+  font-size: 13px;
+  color: darkGrey;
+}
+
+.answerCoreTitle {
+  color: black;
+  text-align: left;
+  font-size: 14px;
+  line-height: 16.8px;
+  font-size: .875rem;
+  line-height: 1.05rem;
+  text-transform: inherit;
+  font-weight: bold;
+  margin: 25px 30px 12px 30px;
+}
+
+.answerCoreDesc {
+  color: black;
+  padding: 0 70px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.35rem;
+}
+
+.dykTitle {
+  font-size: .875rem;
+  line-height: 1.05rem;
+  text-transform: inherit;
+  color: black;
+  font-weight: bold;
+  margin: 25px 30px 13px 30px;
+  text-align: left;
+}
+
+.dykDesc {
+  padding: 0 70px;
+  text-align: left;
+  font-size: 1.0625rem;
+  line-height: 1.275rem;
+  color: darkGrey;
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.dykicon {
+  composes: fa from '../../variables/fontawesome.css';
+  composes: fa-lightbulb-o from '../../variables/fontawesome.css';
+  color: yellow;
+  position: absolute;
+  left: 40px;
+  font-size: 28px;
+  top: 8px;
+}
+
+.dykDesc p {
+  text-align: left;
+  font-size: 17px;
+  line-height: 20.4px;
+  font-size: 17px;
+  line-height: 20px;
+  color: darkGrey;
+  position: relative;
+}
+
+.assistance {
+  float: right;
+  margin-top: 11px;
+  position: absolute;
+  right: 10px;
+  bottom: 80px;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  outline: 0;
+  line-height: 26px;
+}
+
+.assistanceIco {
+  composes: fa from '../../variables/fontawesome.css';
+  composes: fa-exclamation-triangle from '../../variables/fontawesome.css';
+}
+
+.footer {
+  display: table;
+  width: 100%;
+  margin: 0;
+}
+
+.lesson, .next {
+  display: table-cell;
+  width: 50%;
+  height: 70px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 13px;
+  line-height: 15.6px;
+  text-decoration: none;
+  border: none;
+  padding: 0;
+  font-weight: bold;
+  position: relative;
+  padding-top: 2px;
+  vertical-align: middle;
+}
+
+.lesson {
+  background-color: light;
+}
+
+.next {
+  color: light;
+}
+
+.arrow {
+  composes: fa from '../../variables/fontawesome.css';
+  composes: fa-long-arrow-right from '../../variables/fontawesome.css';
+  padding-left: 16px;
+} 
+
+.video {
+  composes: fa from '../../variables/fontawesome.css';
+  composes: fa-video-camera from '../../variables/fontawesome.css';
+  padding-right: 16px;
+}
