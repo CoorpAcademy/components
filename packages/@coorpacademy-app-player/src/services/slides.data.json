@@ -1,96 +1,470 @@
 [
   {
-    "_id": "1.A1.1",
-    "question": {
-      "type": "qcm",
-      "header": "Quelles cases de QCM ne sont pas adjacentes ?",
-      "explanation": "(plusieurs réponses possibles)",
-      "content": {
-        "answers": [
-          ["answer 1"]
-        ],
-        "choices": [
-          {
-            "label": "Case 1",
-            "id": "answer1",
-            "value": "answer 1"
-          },
-          {
-            "label": "Case 2",
-            "id": "answer2",
-            "value": "answer 2"
-          },
-          {
-            "label": "Case 3",
-            "id": "answer3",
-            "value": "answer 3"
-          },
-          {
-            "label": "Case 4",
-            "id": "answer4",
-            "value": "answer 4"
-          }
-        ]
+    "_id": "sli_VkcAWR-ZQ",
+    "klf": "Lire n'est pas difficile.",
+    "tips": "Il y a pas mal de gens qui se trompent sans lire.",
+    "chapter_id": "cha_Ny1BTxRp~",
+    "authors": [],
+    "context": {
+      "media": {
+        "subtitles": [],
+        "posters": [],
+        "src": []
       }
+    },
+    "meta": {
+      "updatedAt": "2017-06-06T13:49:35.198Z",
+      "createdAt": "2017-06-06T13:49:35.198Z"
     },
     "lessons": [
       {
-        "description": "La recherche en ligne A",
-        "mimeType": "application/vimeo",
-        "videoId": 33678526,
-        "width": 611,
-        "height": 280
+        "_id": "59307529a2b39d0024eebff3",
+        "description": "Hierarchie",
+        "mediaUrl": "//static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/raw/hierachie-contenu-1496311207505.pdf",
+        "mimeType": "application/pdf",
+        "type": "pdf",
+        "subtitles": [],
+        "posters": [],
+        "src": []
       }
     ],
-    "clue": "imperdiet nunc in, pellentesque tortor !!!",
-    "klf": "Phasellus imperdiet neque a ipsum venenatis, vel ultrices orci tincidunt. Praesent venenatis diam turpis, rutrum convallis quam varius vitae. In hac habitasse platea dictumst. In hendrerit lorem sagittis, hendrerit orci id, varius velit. Maecenas lobortis malesuada urna, eget placerat ligula adipiscing at.",
-    "tips": "Suspendisse augue dui, volutpat a turpis non, scelerisque vulputate tortor. Aliquam non ipsum eu ligula pellentesque elementum."
+    "question": {
+      "type": "qcm",
+      "header": "Choisissez la bonne réponse.",
+      "explanation": "Sélectionnez la (les) bonne(s) réponse(s).",
+      "content": {
+        "maxTypos": null,
+        "choices": [
+          {
+            "_id": "59307529a2b39d0024eebff5",
+            "value": "sli_VkcAWR-ZQ.choice_E1RSGRu~m",
+            "label": "Bonne réponse",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            }
+          },
+          {
+            "_id": "59307529a2b39d0024eebff4",
+            "value": "sli_VkcAWR-ZQ.choice_4JwIM0u~7",
+            "label": "Mauvaise réponse",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            }
+          }
+        ],
+        "media": {
+          "subtitles": [],
+          "posters": [],
+          "src": []
+        }
+      },
+      "medias": []
+    }
   },
   {
-    "_id": "1.A1.2",
-    "question": {
-      "type": "qcm",
-      "header": "Quelles cases de QCM ne sont pas adjacentes ?",
-      "explanation": "(plusieurs réponses possibles)",
-      "content": {
-        "answers": [
-          ["answer 1"]
-        ],
-        "choices": [
-          {
-            "label": "Case 1",
-            "id": "answer1",
-            "value": "answer 1"
-          },
-          {
-            "label": "Case 2",
-            "id": "answer2",
-            "value": "answer 2"
-          },
-          {
-            "label": "Case 3",
-            "id": "answer3",
-            "value": "answer 3"
-          },
-          {
-            "label": "Case 4",
-            "id": "answer4",
-            "value": "answer 4"
-          }
-        ]
+    "_id": "sli_E1iEQRuZm",
+    "klf": "Indeed, c'est Free Run",
+    "tips": "Il y a aussi le mode classique qui s'appelle désormais Learner",
+    "chapter_id": "cha_Ny1BTxRp~",
+    "authors": [],
+    "context": {
+      "media": {
+        "subtitles": [],
+        "posters": [],
+        "src": []
       }
+    },
+    "meta": {
+      "updatedAt": "2017-06-06T13:49:35.220Z",
+      "createdAt": "2017-06-06T13:49:35.220Z"
     },
     "lessons": [
       {
-        "description": "La recherche en ligne A",
-        "mimeType": "application/vimeo",
-        "videoId": 33678526,
-        "width": 611,
-        "height": 280
+        "_id": "5930752aa2b39d0024eebff8",
+        "description": "Hierarchie",
+        "mediaUrl": "//static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/raw/hierachie-contenu-1496311207505.pdf",
+        "mimeType": "application/pdf",
+        "type": "pdf",
+        "subtitles": [],
+        "posters": [],
+        "src": []
       }
     ],
-    "clue": "imperdiet nunc in, pellentesque tortor !!!",
-    "klf": "Phasellus imperdiet neque a ipsum venenatis, vel ultrices orci tincidunt. Praesent venenatis diam turpis, rutrum convallis quam varius vitae. In hac habitasse platea dictumst. In hendrerit lorem sagittis, hendrerit orci id, varius velit. Maecenas lobortis malesuada urna, eget placerat ligula adipiscing at.",
-    "tips": "Suspendisse augue dui, volutpat a turpis non, scelerisque vulputate tortor. Aliquam non ipsum eu ligula pellentesque elementum."
+    "question": {
+      "type": "qcm",
+      "header": "Dans quel mode de jeux se trouve-t-on ?",
+      "explanation": "Sélectionnez la (les) bonne(s) réponse(s).",
+      "content": {
+        "maxTypos": null,
+        "choices": [
+          {
+            "_id": "5930752aa2b39d0024eebffa",
+            "value": "sli_E1iEQRuZm.choice_4kXwQAdb7",
+            "label": "Free Run",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            }
+          },
+          {
+            "_id": "5930752aa2b39d0024eebff9",
+            "value": "sli_E1iEQRuZm.choice_VklXvQAOZX",
+            "label": "Learner",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            }
+          }
+        ],
+        "media": {
+          "subtitles": [],
+          "posters": [],
+          "src": []
+        }
+      },
+      "medias": []
+    }
+  },
+  {
+    "_id": "sli_4kl~7RubX",
+    "klf": "Oui oui oui !",
+    "tips": "Alors !",
+    "chapter_id": "cha_Ny1BTxRp~",
+    "authors": [],
+    "context": {
+      "media": {
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      }
+    },
+    "meta": {
+      "updatedAt": "2017-06-06T13:49:35.241Z",
+      "createdAt": "2017-06-06T13:49:35.241Z"
+    },
+    "lessons": [
+      {
+        "_id": "59307529a2b39d0024eebfeb",
+        "description": "Hierarchie",
+        "mediaUrl": "//static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/raw/hierachie-contenu-1496311207505.pdf",
+        "mimeType": "application/pdf",
+        "type": "pdf",
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      }
+    ],
+    "question": {
+      "type": "qcm",
+      "header": "Choisissez la réponse vrai.",
+      "explanation": "Sélectionnez la (les) bonne(s) réponse(s).",
+      "content": {
+        "maxTypos": null,
+        "choices": [
+          {
+            "_id": "59307529a2b39d0024eebfed",
+            "value": "sli_4kl~7RubX.choice_VkYXQAOb7",
+            "label": "Vrai",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            }
+          },
+          {
+            "_id": "59307529a2b39d0024eebfec",
+            "value": "sli_4kl~7RubX.choice_VkcXXAdZm",
+            "label": "Faux",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            }
+          }
+        ],
+        "media": {
+          "subtitles": [],
+          "posters": [],
+          "src": []
+        }
+      },
+      "medias": []
+    }
+  },
+  {
+    "_id": "sli_Vy88~R-bX",
+    "klf": "Difficile hein !",
+    "tips": "Que 1 X 1 n'est pas 2 !",
+    "chapter_id": "cha_Ny1BTxRp~",
+    "authors": [],
+    "context": {
+      "media": {
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      }
+    },
+    "meta": {
+      "updatedAt": "2017-06-06T13:49:35.256Z",
+      "createdAt": "2017-06-06T13:49:35.255Z"
+    },
+    "lessons": [
+      {
+        "_id": "5930752aa2b39d0024eebffb",
+        "description": "Hierarchie",
+        "mediaUrl": "//static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/raw/hierachie-contenu-1496311207505.pdf",
+        "mimeType": "application/pdf",
+        "type": "pdf",
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      }
+    ],
+    "question": {
+      "type": "qcm",
+      "header": "Combien ça fait 1 + 1 ?",
+      "explanation": "Sélectionnez la (les) bonne(s) réponse(s).",
+      "content": {
+        "maxTypos": null,
+        "choices": [
+          {
+            "_id": "5930752aa2b39d0024eebffe",
+            "value": "sli_Vy88~R-bX.choice_EyWTW0O~X",
+            "label": "0",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            }
+          },
+          {
+            "_id": "5930752aa2b39d0024eebffd",
+            "value": "sli_Vy88~R-bX.choice_EJmabCuZX",
+            "label": "1",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            }
+          },
+          {
+            "_id": "5930752aa2b39d0024eebffc",
+            "value": "sli_Vy88~R-bX.choice_NyoT~C-~X",
+            "label": "2",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            }
+          }
+        ],
+        "media": {
+          "subtitles": [],
+          "posters": [],
+          "src": []
+        }
+      },
+      "medias": []
+    }
+  },
+  {
+    "_id": "sli_EyinLfF~X",
+    "klf": "xxx",
+    "tips": "xxx",
+    "chapter_id": "cha_Ny1BTxRp~",
+    "__v": 0,
+    "authors": [],
+    "context": {
+      "media": {
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      }
+    },
+    "meta": {
+      "updatedAt": "2017-06-06T13:49:35.297Z",
+      "createdAt": "2017-06-06T13:49:35.297Z"
+    },
+    "lessons": [],
+    "question": {
+      "type": "qcm",
+      "header": "Répondez à cette question si difficile... 2 x 2 ?",
+      "explanation": "Sélectionnez la (les) bonne(s) réponse(s).",
+      "content": {
+        "maxTypos": null,
+        "choices": [
+          {
+            "_id": "59307529a2b39d0024eebff0",
+            "value": "sli_EyinLfF~X.choice_EyYRLMYWQ",
+            "label": "Je ne sais pas",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            }
+          },
+          {
+            "_id": "59307529a2b39d0024eebfef",
+            "value": "sli_EyinLfF~X.choice_V1M1wGFWm",
+            "label": "4",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            }
+          },
+          {
+            "_id": "59307529a2b39d0024eebfee",
+            "value": "sli_EyinLfF~X.choice_NJdkDfF~Q",
+            "label": "Demandez à Lucas !",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            }
+          }
+        ],
+        "media": {
+          "subtitles": [],
+          "posters": [],
+          "src": []
+        }
+      },
+      "medias": []
+    }
+  },
+  {
+    "_id": "sli_VktuuzFW7",
+    "klf": "xxx",
+    "tips": "xxx",
+    "chapter_id": "cha_Ny1BTxRp~",
+    "__v": 0,
+    "authors": [],
+    "context": {
+      "media": {
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      }
+    },
+    "meta": {
+      "updatedAt": "2017-06-06T13:49:35.330Z",
+      "createdAt": "2017-06-06T13:49:35.330Z"
+    },
+    "lessons": [],
+    "question": {
+      "type": "qcm",
+      "header": "Où se trouve Coorpacademy France ?",
+      "explanation": "Sélectionnez la (les) bonne(s) réponse(s).",
+      "content": {
+        "maxTypos": null,
+        "choices": [
+          {
+            "_id": "59307529a2b39d0024eebff7",
+            "value": "sli_VktuuzFW7.choice_Vyt9uGt~Q",
+            "label": "Rue d'Aboukir",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            }
+          },
+          {
+            "_id": "59307529a2b39d0024eebff6",
+            "value": "sli_VktuuzFW7.choice_E1cc-GFZQ",
+            "label": "Boulevard Poissonnière",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            }
+          }
+        ],
+        "media": {
+          "subtitles": [],
+          "posters": [],
+          "src": []
+        }
+      },
+      "medias": []
+    }
+  },
+  {
+    "_id": "sli_4ymMuMFb7",
+    "klf": "xxx",
+    "tips": "xxx",
+    "chapter_id": "cha_Ny1BTxRp~",
+    "__v": 0,
+    "authors": [],
+    "context": {
+      "media": {
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      }
+    },
+    "meta": {
+      "updatedAt": "2017-06-06T13:49:35.350Z",
+      "createdAt": "2017-06-06T13:49:35.350Z"
+    },
+    "lessons": [],
+    "question": {
+      "type": "qcm",
+      "header": "Quelle est la capitale de la France ?",
+      "explanation": "Sélectionnez la (les) bonne(s) réponse(s).",
+      "content": {
+        "maxTypos": null,
+        "choices": [
+          {
+            "_id": "59307529a2b39d0024eebff2",
+            "value": "sli_4ymMuMFb7.choice_VJaHdMK~7",
+            "label": "C'est Paris !",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            }
+          },
+          {
+            "_id": "59307529a2b39d0024eebff1",
+            "value": "sli_4ymMuMFb7.choice_NkfU-MtbX",
+            "label": "Ce n'est pas Bogota !",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            }
+          }
+        ],
+        "media": {
+          "subtitles": [],
+          "posters": [],
+          "src": []
+        }
+      },
+      "medias": []
+    }
   }
 ]

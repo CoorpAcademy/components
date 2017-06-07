@@ -1,4 +1,5 @@
 import get from 'lodash/fp/get';
+import getOr from 'lodash/fp/getOr';
 
 export const getChoices = get('question.content.choices');
 export const getCurrentProgressionId = get('ui.current.progressionId');
@@ -36,4 +37,20 @@ export const getExitNode = ref => state => {
 export const getCurrentExitNode = state => {
   const ref = get('state.nextContent.ref')(getCurrentProgression(state));
   return getExitNode(ref)(state);
+};
+
+export const getCurrentContent = state => {
+  const {ref, type} = getOr({}, 'state.nextContent')(getCurrentProgression(state));
+  switch (type) {
+    case 'slide': {
+      return getSlide(ref)(state);
+    }
+    case 'success':
+    case 'failure': {
+      return getExitNode(ref)(state);
+    }
+    default: {
+      return null;
+    }
+  }
 };

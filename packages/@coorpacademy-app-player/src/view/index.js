@@ -3,6 +3,10 @@ import get from 'lodash/fp/get';
 import {createElement} from 'react';
 import Provider from '@coorpacademy/components/es/atom/provider';
 import Player from '@coorpacademy/components/es/template/app-player/player';
+// import Loading from '@coorpacademy/components/es/template/app-player/loading';
+// import PopinCorrection from '@coorpacademy/components/es/template/app-player/popin-correction';
+// import PopinEnd from '@coorpacademy/components/es/template/app-player/popin-end';
+import Title from '@coorpacademy/components/es/atom/title';
 import {
   getCurrentProgression,
   getCurrentSlide,
@@ -75,8 +79,27 @@ export {createMapStateToProps};
 
 const wrapInProvider = options => vNode => createElement(Provider, options, vNode);
 
-export default options => dispatch => {
+export const createSlide = options => dispatch => {
   const mapStateToProps = createMapStateToProps(options)(dispatch);
 
   return pipe(mapStateToProps, Player, wrapInProvider(options));
 };
+
+export const createRouter = options => dispatch => state => {
+  const progression = getCurrentProgression(state);
+
+  switch (get('state.nextContent.type', progression)) {
+    case 'slide': {
+      return createSlide(options)(dispatch)(state);
+    }
+    case 'success':
+    case 'failure': {
+      return Title({children: progression.state.nextContent.ref});
+    }
+    default: {
+      return Title({children: 'Loading'});
+    }
+  }
+};
+
+export default createRouter;
