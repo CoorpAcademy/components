@@ -1,0 +1,53 @@
+.default {
+  position: relative;
+  width: 52px;
+  height: 42px;
+}
+
+.heart {
+  composes: fa from '../../variables/fontawesome.css';
+  composes: fa-heart from '../../variables/fontawesome.css';
+  font-size: 18px;
+  position: absolute;
+  top: 50%;
+  margin-top: -8px;
+  left: 4px;
+  color: #F73F52;
+}
+
+.heartBackground {
+  composes: fa from '../../variables/fontawesome.css';
+  composes: fa-heart from '../../variables/fontawesome.css';
+  font-size: 26px;
+  color: #ffffff;
+  position: absolute;
+  top: 50%;
+  margin-top: -12px;
+}
+
+.bolt {
+  composes: fa from '../../variables/fontawesome.css';
+  composes: fa-bolt from '../../variables/fontawesome.css';
+  font-size: 8px;
+  position: absolute;
+  top: 50%;
+  margin-top: -7px;
+  left: 11px;
+  color: white;
+}
+
+.livesCounter {
+  position: absolute;
+  font-family: 'Open Sans';
+  font-size: 15px;
+  font-weight: 600;
+  color: #546E7A;
+  width: 42px;
+  height: 42px;
+  border-radius: 21px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 14px;
+}
