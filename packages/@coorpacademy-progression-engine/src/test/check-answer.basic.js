@@ -80,15 +80,53 @@ test('should consider the max number of typos from the slide before the one in t
   t.true(checkAnswer(engineWithTypos, question, ['foooooooooooo']));
   t.true(checkAnswer(engineWithTypos, question, ['foooooooooooa']));
   t.false(checkAnswer(engineWithTypos, question, ['fooooooooooaa']));
-  t.false(checkAnswer(engineWithTypos, question, ['foooooooooaaa']));
-  t.false(checkAnswer(engineWithTypos, question, ['fooooooooaaaa']));
 });
 
-test.skip('should return true when the given answer includes an accepted answer', t => {
+test('should consider the max number of typos from the slide before the one in the config (with no typos)', t => {
+  const question = createQuestion([['foooooooooooo']], 0);
+  const engineWithTypos = {
+    ref: 'microlearning',
+    version: 'allow_typos_3'
+  };
+
+  t.true(checkAnswer(engineWithTypos, question, ['foooooooooooo']));
+  t.false(checkAnswer(engineWithTypos, question, ['foooooooooooa']));
+  t.false(checkAnswer(engineWithTypos, question, ['fooooooooooaa']));
+});
+
+test('should return true when the given answer contains an accepted answer', t => {
   const question = createQuestion([['Guillaume']]);
 
   t.true(checkAnswer(engine, question, ['Guillaume Bacon']));
   t.true(checkAnswer(engine, question, ['We should tell guillaume something about QA']));
+});
+
+test('should return true when the given answer includes an accepted answer that touches unrelated characters up to a certain limit', t => {
+  const question = createQuestion([['Guillaume']]);
+
+  t.true(checkAnswer(engine, question, ['ZGuillaume']));
+  t.true(checkAnswer(engine, question, ['GuillaumeZ']));
+  t.true(checkAnswer(engine, question, ['ZGuillaumeZ']));
+  t.true(checkAnswer(engine, question, ['ZZGuillaumeZZ']));
+  t.true(checkAnswer(engine, question, ['ZZGuillaumeZZZ']));
+  t.true(checkAnswer(engine, question, ['ZZZGuillaumeZZ']));
+  t.true(checkAnswer(engine, question, ['ZZZZZGuillaume']));
+  t.true(checkAnswer(engine, question, ['GuillaumeZZZZZ']));
+  t.true(checkAnswer(engine, question, ['We should tell ZZguillaume something about QA']));
+});
+
+test('should return false when the given answer includes an accepted answer but touches too many unrelated characters', t => {
+  const question = createQuestion([['Guillaume']]);
+
+  t.false(checkAnswer(engine, question, ['GuillaumeZZZZZZ']));
+  t.false(checkAnswer(engine, question, ['ZZZZZZGuillaume']));
+  t.false(checkAnswer(engine, question, ['We should tell ZZZZZZguillaume something about QA']));
+});
+
+test('should return false when the given answer includes an accepted answer but has a typo', t => {
+  const question = createQuestion([['this exact phrase']]);
+
+  t.false(checkAnswer(engine, question, ['ZZthis exactz phraseZZ']));
 });
 
 test('should return false when the words are given in a different order', t => {
@@ -101,4 +139,40 @@ test('should return false when the given answer has typos and is in the midst of
   const question = createQuestion([['though question']]);
 
   t.false(checkAnswer(engine, question, ['XXXtouff questionXXX']));
+});
+
+test('should return true when the given answer includes an accepted answer that touches unrelated characters up to a certain limit (simple word)', t => {
+  const question = createQuestion([['Bob'], ['Guillaume']]);
+
+  t.true(checkAnswer(engine, question, ['ZGuillaume']));
+  t.true(checkAnswer(engine, question, ['Zguillaume']));
+  t.true(checkAnswer(engine, question, ['GuillaumeZ']));
+  t.true(checkAnswer(engine, question, ['ZGuillaumeZ']));
+  t.true(checkAnswer(engine, question, ['ZZGuillaumeZZ']));
+  t.true(checkAnswer(engine, question, ['ZZGuillaumeZZZ']));
+  t.true(checkAnswer(engine, question, ['ZZZGuillaumeZZ']));
+  t.true(checkAnswer(engine, question, ['ZZZZZGuillaume']));
+  t.true(checkAnswer(engine, question, ['GuillaumeZZZZZ']));
+  t.true(checkAnswer(engine, question, ['We should tell ZZguillaume something about QA']));
+});
+
+test('should return true when the given answer includes an accepted answer that touches unrelated characters up to a certain limit (multiple words)', t => {
+  const question = createQuestion([['Guillaume Tell']]);
+
+  t.true(checkAnswer(engine, question, ['ZGuillaume Tell']));
+  t.true(checkAnswer(engine, question, ['ZGuillaume tell']));
+  t.true(checkAnswer(engine, question, ['Guillaume TellZ']));
+  t.true(checkAnswer(engine, question, ['ZGuillaume TellZ']));
+  t.true(checkAnswer(engine, question, ['ZZGuillaume TellZZ']));
+  t.true(checkAnswer(engine, question, ['ZZGuillaume TellZZZ']));
+  t.true(checkAnswer(engine, question, ['ZZZGuillaume TellZZ']));
+  t.true(checkAnswer(engine, question, ['ZZZZZGuillaume Tell']));
+  t.true(checkAnswer(engine, question, ['Guillaume TellZZZZZ']));
+  t.true(checkAnswer(engine, question, ['We should tell ZZguillaume Tell something about QA']));
+});
+
+test('should return false when the given answer is an empty string', t => {
+  const question = createQuestion([['Guillaume Tell']]);
+
+  t.false(checkAnswer(engine, question, ['']));
 });

@@ -3,11 +3,23 @@ import uniqBy from 'lodash/fp/uniqBy';
 import type {MicroLearningConfig} from '../types';
 
 const realConfigurations: Array<MicroLearningConfig> = [
-  {version: '1', lives: 1, maxTypos: 2, slidesToComplete: 4}
+  {
+    version: '1',
+    lives: 1,
+    maxTypos: 2,
+    slidesToComplete: 4,
+    answerBoundaryLimit: 5
+  }
 ];
 
 const testConfigurations: Array<MicroLearningConfig> = [
-  {version: 'allow_typos_3', lives: 1, maxTypos: 3, slidesToComplete: 4}
+  {
+    version: 'allow_typos_3',
+    lives: 1,
+    maxTypos: 3,
+    slidesToComplete: 4,
+    answerBoundaryLimit: 5
+  }
 ];
 
 const configurations = realConfigurations.concat(

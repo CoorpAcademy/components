@@ -32,6 +32,30 @@ function checkFuzzyAnswer(maxTypos: number, fm: any, userAnswer: string): boolea
   return !!fm.get(userAnswer, {maxChanges: maxTypos}).value;
 }
 
+function containsAnswer(
+  config: MicroLearningConfig,
+  allowedAnswer: string,
+  givenAnswer: string
+): boolean {
+  const index = givenAnswer.indexOf(allowedAnswer);
+  // Find the allowed answer in the given answer
+  if (index === -1) {
+    // If not present
+    return false;
+  }
+
+  // Get the non-space characters surrounding the answer and make sure that there are not too many.
+  const limit = config.answerBoundaryLimit;
+  const [first, second] = givenAnswer.split(allowedAnswer);
+  const indexOfSpaceInFirst = _.reverse(first).indexOf(' ');
+  const indexOfSpaceInSecond = second.indexOf(' ');
+
+  return (
+    (first.length <= limit || (indexOfSpaceInFirst !== -1 && indexOfSpaceInFirst <= limit)) &&
+    (second.length <= limit || (indexOfSpaceInSecond !== -1 && indexOfSpaceInSecond <= limit))
+  );
+}
+
 function checkAnswerForBasic(
   config: MicroLearningConfig,
   question: BasicQuestion,
@@ -40,8 +64,17 @@ function checkAnswerForBasic(
   const allowedAnswers = question.content.answers;
   const comparableGivenAnswer = normalizeBasic(givenAnswer);
   const fm = new FuzzyMatching(_.flatten(allowedAnswers));
-  const maxTypos = question.content.maxTypos || config.maxTypos;
-  return checkFuzzyAnswer(maxTypos, fm, comparableGivenAnswer[0]);
+  const maxTypos = question.content.maxTypos !== undefined
+    ? question.content.maxTypos
+    : config.maxTypos;
+  return (
+    checkFuzzyAnswer(maxTypos, fm, comparableGivenAnswer[0]) ||
+    _.some(
+      allowedAnswer =>
+        containsAnswer(config, normalizeBasic(allowedAnswer)[0], comparableGivenAnswer[0]),
+      allowedAnswers
+    )
+  );
 }
 
 function checkAnswerForQCM(
@@ -65,12 +98,15 @@ export default function checkAnswer(
   const config = (getConfig(engine): MicroLearningConfig);
   const allowedAnswers = question.content.answers;
   switch (question.type) {
-    case 'basic':
+    case 'basic': {
       return checkAnswerForBasic(config, question, givenAnswer);
-    case 'qcm':
+    }
+    case 'qcm': {
       return checkAnswerForQCM(false, allowedAnswers, givenAnswer);
-    case 'qcmDrag':
+    }
+    case 'qcmDrag': {
       return checkAnswerForQCM(true, allowedAnswers, givenAnswer);
+    }
     default:
       return true;
   }
