@@ -476,8 +476,18 @@ import PlayerFixturePicker from '../src/template/app-player/player/test/fixtures
 import PlayerFixtureQcmImage from '../src/template/app-player/player/test/fixtures/qcm-image';
 import PlayerFixtureQcm from '../src/template/app-player/player/test/fixtures/qcm';
 import PlayerFixtureRange from '../src/template/app-player/player/test/fixtures/range';
-import PopinCorrectionFixtureDefault from '../src/template/app-player/popin-correction/test/fixtures/default';
-import PopinEndFixtureDefault from '../src/template/app-player/popin-end/test/fixtures/default';
+import PopinCorrectionFixtureCorrectClosed from '../src/template/app-player/popin-correction/test/fixtures/correct-closed';
+import PopinCorrectionFixtureCorrectNextChapter from '../src/template/app-player/popin-correction/test/fixtures/correct-next-chapter';
+import PopinCorrectionFixtureCorrectOpenKlf from '../src/template/app-player/popin-correction/test/fixtures/correct-open-klf';
+import PopinCorrectionFixtureCorrectOpenRessources2 from '../src/template/app-player/popin-correction/test/fixtures/correct-open-ressources-2';
+import PopinCorrectionFixtureCorrectOpenRessources from '../src/template/app-player/popin-correction/test/fixtures/correct-open-ressources';
+import PopinCorrectionFixtureCorrectOpenTips from '../src/template/app-player/popin-correction/test/fixtures/correct-open-tips';
+import PopinCorrectionFixtureFailClosed from '../src/template/app-player/popin-correction/test/fixtures/fail-closed';
+import PopinCorrectionFixtureFailOpenKlf from '../src/template/app-player/popin-correction/test/fixtures/fail-open-klf';
+import PopinCorrectionFixtureFailOpenRessources2 from '../src/template/app-player/popin-correction/test/fixtures/fail-open-ressources-2';
+import PopinCorrectionFixtureFailOpenRessources from '../src/template/app-player/popin-correction/test/fixtures/fail-open-ressources';
+import PopinCorrectionFixtureFailOpenTips from '../src/template/app-player/popin-correction/test/fixtures/fail-open-tips';
+import PopinEndFixtureCorrect from '../src/template/app-player/popin-end/test/fixtures/correct';
 import BrandCreateFixtureDefault from '../src/template/back-office/brand-create/test/fixtures/default';
 import BrandCreateFixtureError from '../src/template/back-office/brand-create/test/fixtures/error';
 import BrandCreateFixtureLoading from '../src/template/back-office/brand-create/test/fixtures/loading';
@@ -1272,10 +1282,20 @@ export const fixtures = {
       Range: PlayerFixtureRange
     },
     PopinCorrection: {
-      Default: PopinCorrectionFixtureDefault
+      CorrectClosed: PopinCorrectionFixtureCorrectClosed,
+      CorrectNextChapter: PopinCorrectionFixtureCorrectNextChapter,
+      CorrectOpenKlf: PopinCorrectionFixtureCorrectOpenKlf,
+      CorrectOpenRessources2: PopinCorrectionFixtureCorrectOpenRessources2,
+      CorrectOpenRessources: PopinCorrectionFixtureCorrectOpenRessources,
+      CorrectOpenTips: PopinCorrectionFixtureCorrectOpenTips,
+      FailClosed: PopinCorrectionFixtureFailClosed,
+      FailOpenKlf: PopinCorrectionFixtureFailOpenKlf,
+      FailOpenRessources2: PopinCorrectionFixtureFailOpenRessources2,
+      FailOpenRessources: PopinCorrectionFixtureFailOpenRessources,
+      FailOpenTips: PopinCorrectionFixtureFailOpenTips
     },
     PopinEnd: {
-      Default: PopinEndFixtureDefault
+      Correct: PopinEndFixtureCorrect
     }
   },
   TemplateBackOffice: {

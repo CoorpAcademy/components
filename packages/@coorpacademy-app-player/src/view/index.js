@@ -3,9 +3,9 @@ import get from 'lodash/fp/get';
 import {createElement} from 'react';
 import Provider from '@coorpacademy/components/es/atom/provider';
 import Player from '@coorpacademy/components/es/template/app-player/player';
-import Loading from '@coorpacademy/components/es/template/app-player/loading';
-import PopinCorrection from '@coorpacademy/components/es/template/app-player/popin-correction';
-import PopinEnd from '@coorpacademy/components/es/template/app-player/popin-end';
+// import Loading from '@coorpacademy/components/es/template/app-player/loading';
+// import PopinCorrection from '@coorpacademy/components/es/template/app-player/popin-correction';
+// import PopinEnd from '@coorpacademy/components/es/template/app-player/popin-end';
 import Title from '@coorpacademy/components/es/atom/title';
 import {
   getCurrentProgression,
