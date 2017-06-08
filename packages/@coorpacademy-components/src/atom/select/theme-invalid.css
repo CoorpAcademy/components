@@ -1,0 +1,21 @@
+@value colors: "../../variables/colors.css";
+@value black from colors;
+@value borderGrey from colors;
+
+.invalid {
+  composes: no-label from './theme-no-label.css';
+}
+
+.invalid label {
+  height: 54px;
+  color: black;
+}
+
+.invalid .label {
+  font-size: 15px;
+  font-weight: 700;
+  border: 2px solid;
+  height: 54px;
+  line-height: 52px;
+  border-color: borderGrey;
+}

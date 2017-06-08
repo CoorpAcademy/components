@@ -10,6 +10,7 @@ import Provider from '../../atom/provider';
 import getClassState from '../../util/get-class-state';
 import style from './style.css';
 /* eslint-disable css-modules/no-unused-class */
+import invalidStyle from './theme-invalid.css';
 import filterStyle from './theme-filter.css';
 import headerStyle from './theme-header.css';
 import moocStyle from './theme-mooc.css';
@@ -20,6 +21,7 @@ import thematiquesStyle from './theme-thematiques.css';
 
 const themeStyle = {
   filter: filterStyle.filter,
+  invalid: invalidStyle.invalid,
   header: headerStyle.header,
   mooc: moocStyle.mooc,
   question: questionStyle.question,
