@@ -231,6 +231,9 @@ import TabContentFixtureDefault from '../src/atom/tab-content/test/fixtures/defa
 import TabFixtureDefault from '../src/atom/tab/test/fixtures/default';
 import TitleFixtureFixture from '../src/atom/title/test/fixtures/fixture';
 import AccordionPartFixtureDefault from '../src/molecule/accordion-part/test/fixtures/default';
+import AccordionPartFixtureOpen from '../src/molecule/accordion-part/test/fixtures/open';
+import AccordionPartFixtureOpenable from '../src/molecule/accordion-part/test/fixtures/openable';
+import AccordionPartFixtureTogglable from '../src/molecule/accordion-part/test/fixtures/togglable';
 import AccordionFixtureDefault from '../src/molecule/accordion/test/fixtures/default';
 import BattleRequestFixtureDefault from '../src/molecule/battle-request/test/fixtures/default';
 import BrandCardCreateFixtureDefault from '../src/molecule/brand-card-create/test/fixtures/default';
@@ -857,7 +860,10 @@ export const fixtures = {
   },
   Molecule: {
     AccordionPart: {
-      Default: AccordionPartFixtureDefault
+      Default: AccordionPartFixtureDefault,
+      Open: AccordionPartFixtureOpen,
+      Openable: AccordionPartFixtureOpenable,
+      Togglable: AccordionPartFixtureTogglable
     },
     Accordion: {
       Default: AccordionFixtureDefault

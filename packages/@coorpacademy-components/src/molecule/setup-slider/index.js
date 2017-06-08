@@ -5,7 +5,7 @@ import SetupSlide from '../setup-slide';
 import Accordion from '../accordion';
 
 const SetupSlider = props => {
-  const {titles = [], slides = []} = props;
+  const {tabProps, slides = []} = props;
 
   const slidesView = map.convert({cap: false})(
     (slide, key) => <SetupSlide key={key} {...slide} />,
@@ -13,14 +13,14 @@ const SetupSlider = props => {
   );
 
   return (
-    <Accordion titles={titles}>
+    <Accordion tabProps={tabProps} openable>
       {slidesView}
     </Accordion>
   );
 };
 
 SetupSlider.propTypes = {
-  titles: PropTypes.arrayOf(PropTypes.string),
+  tabProps: Accordion.propTypes.tabProps,
   slides: PropTypes.arrayOf(PropTypes.shape(SetupSlide.propTypes))
 };
 

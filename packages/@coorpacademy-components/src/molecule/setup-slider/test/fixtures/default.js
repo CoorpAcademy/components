@@ -4,7 +4,17 @@ const {props} = Slide;
 
 export default {
   props: {
-    titles: ['1', '2', '3'],
+    tabProps: [
+      {
+        title: '1'
+      },
+      {
+        title: '2'
+      },
+      {
+        title: '3'
+      }
+    ],
     slides: [props, props, props]
   }
 };

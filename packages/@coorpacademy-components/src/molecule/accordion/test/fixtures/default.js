@@ -8,7 +8,18 @@ import qcmImageFixture from '../../../questions/qcm-image/test/fixtures/default'
 
 export default {
   props: {
-    titles: ['Qcm image', 'Qcm classique', 'Picker']
+    tabProps: [
+      {
+        title: 'Qcm image'
+      },
+      {
+        title: 'Qcm classique',
+        open: true
+      },
+      {
+        title: 'Picker'
+      }
+    ]
   },
   children: [
     <QcmImage key="1" {...qcmImageFixture.props} />,

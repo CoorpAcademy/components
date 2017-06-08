@@ -6,15 +6,23 @@ class Accordion extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      expanded: false
+      open: props.open || false
     };
 
     this.handleOnClick = this.handleOnClick.bind(this);
   }
 
   handleOnClick() {
+    if (this.props.onToggle) {
+      this.props.onToggle();
+    }
+
+    if (!this.props.openable) {
+      return;
+    }
+
     this.setState(prevState => ({
-      expanded: !prevState.expanded
+      open: !prevState.open
     }));
   }
 
@@ -25,9 +33,9 @@ class Accordion extends React.Component {
       <div>
         <div className={style.title} onClick={this.handleOnClick}>
           <h3>{title}</h3>
-          <span className={this.state.expanded ? style.up : style.down} />
+          <span className={this.state.open ? style.up : style.down} />
         </div>
-        <div className={this.state.expanded ? style.container : style.none}>
+        <div className={this.state.open ? style.container : style.none}>
           {content}
         </div>
       </div>
@@ -37,7 +45,10 @@ class Accordion extends React.Component {
 
 Accordion.propTypes = {
   title: PropTypes.string,
-  content: PropTypes.node
+  content: PropTypes.node,
+  open: PropTypes.bool,
+  openable: PropTypes.bool,
+  onToggle: PropTypes.func
 };
 
 export default Accordion;
