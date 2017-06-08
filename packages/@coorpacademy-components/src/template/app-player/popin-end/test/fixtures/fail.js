@@ -5,19 +5,17 @@ import loading from './loading';
 export default defaultsDeep(loading, {
   props: {
     header: {
-      title: 'Big Data - Avancé',
-      subtitle: 'Félicitations !',
-      fail: false,
-      stars: '+29',
-      rank: '+5',
+      title: 'Oups...',
+      subtitle: "Vous n'avez plus de vie...",
+      fail: true,
+      lives: 0,
       cta: {
-        title: 'Next level',
-        subtitle: 'Big Data - Coach',
+        title: 'Retry level',
         href: '#'
       }
     },
     recommendation: {
-      cards: [Card.props, Card.props, Card.props]
+      value: [Card.props, Card.props, Card.props]
     }
   }
 });
