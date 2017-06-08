@@ -493,6 +493,8 @@ import PopinCorrectionFixtureFailOpenRessources from '../src/template/app-player
 import PopinCorrectionFixtureFailOpenTips from '../src/template/app-player/popin-correction/test/fixtures/fail-open-tips';
 import PopinCorrectionFixtureLoading from '../src/template/app-player/popin-correction/test/fixtures/loading';
 import PopinEndFixtureCorrect from '../src/template/app-player/popin-end/test/fixtures/correct';
+import PopinEndFixtureFail from '../src/template/app-player/popin-end/test/fixtures/fail';
+import PopinEndFixtureLoading from '../src/template/app-player/popin-end/test/fixtures/loading';
 import BrandCreateFixtureDefault from '../src/template/back-office/brand-create/test/fixtures/default';
 import BrandCreateFixtureError from '../src/template/back-office/brand-create/test/fixtures/error';
 import BrandCreateFixtureLoading from '../src/template/back-office/brand-create/test/fixtures/loading';
@@ -1307,7 +1309,9 @@ export const fixtures = {
       Loading: PopinCorrectionFixtureLoading
     },
     PopinEnd: {
-      Correct: PopinEndFixtureCorrect
+      Correct: PopinEndFixtureCorrect,
+      Fail: PopinEndFixtureFail,
+      Loading: PopinEndFixtureLoading
     }
   },
   TemplateBackOffice: {
