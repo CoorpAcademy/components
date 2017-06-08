@@ -1,10 +1,19 @@
 @value breakpoints: "../../../variables/breakpoints.css";
-@value desktop from breakpoints;
-@value tablet from breakpoints;
 @value mobile from breakpoints;
+@value colors: "../../../variables/colors.css";
+@value blue from colors;
+@value red from colors;
 
 .wrapper {
   width: 100%;
+}
+
+.fail {
+  background-color: red;
+}
+
+.success {
+  background-color: blue;
 }
 
 @media mobile {
