@@ -1,3 +1,7 @@
+@value colors: "../../variables/colors.css";
+@value orange from colors;
+@value white from colors;
+
 .catalogListItem {
   display: inline-block;
   box-sizing: border-box;
@@ -40,19 +44,19 @@
   display: inline-block;
   margin: 64px 0;
   text-transform: uppercase;
-  color: #ffffff;
+  color: white;
   font-family: "Open Sans";
   font-weight: 600;
   font-size: 13px;
   text-decoration: none;
   line-height: 52px;
   padding: 0 25px;
-  background-color: #FFB90D;
+  background-color: orange;
   border-radius: 2px;
 }
 
 .overlay a:hover {
-  color: #ffffff;
+  color: white;
 }
 
 .overlay a:before {

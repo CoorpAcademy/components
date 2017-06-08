@@ -2,11 +2,12 @@
 @value mobile from breakpoints;
 @value tablet from breakpoints;
 @value desktop from breakpoints;
+
 @value colors: "../../../variables/colors.css";
 @value black from colors;
 @value light from colors;
 @value borderGrey from colors;
-@value blueGrey from colors;
+@value medium from colors;
 
 .wrapper {
   composes: wrapper from '../layout.css';
@@ -62,8 +63,8 @@
 }
 
 .link a {
-  color: blueGrey;
-  border-color: blueGrey;
+  color: medium;
+  border-color: medium;
 }
 
 .linksite {

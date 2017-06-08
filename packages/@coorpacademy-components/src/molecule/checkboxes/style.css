@@ -1,6 +1,9 @@
+@value colors: "../../variables/colors.css";
+@value xtraLightGrey from colors;
+
 .open {
   margin: 0;
-  background: #FAFAFA;
+  background: xtraLightGrey;
   box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.12), 0px 8px 8px 0px rgba(0,0,0,0.24);
   border-radius: 3px;
 }

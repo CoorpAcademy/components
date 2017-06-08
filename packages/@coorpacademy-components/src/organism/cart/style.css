@@ -1,6 +1,6 @@
 @value colors: "../../variables/colors.css";
 @value light from colors;
-@value blueGrey from colors;
+@value medium from colors;
 @value yellow from colors;
 
 @value breakpoints: "../../variables/breakpoints.css";
@@ -83,7 +83,7 @@
   font-weight: bold;
   text-decoration: none;
   background: #ECEFF1;
-  color: blueGrey;
+  color: medium;
   cursor: pointer;
 }
 

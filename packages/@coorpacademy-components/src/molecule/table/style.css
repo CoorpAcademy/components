@@ -1,3 +1,9 @@
+@value colors: "../../variables/colors.css";
+@value xtraLightGrey from colors;
+@value blue from colors;
+@value medium from colors;
+@value white from colors;
+
 .wrapper {
   overflow-x: scroll;
   padding-bottom: 15px;
@@ -10,7 +16,7 @@
 }
 
 .table thead {
-  background-color: #F7F7F7;
+  background-color: xtraLightGrey;
 }
 
 .table th {
@@ -26,7 +32,7 @@
 
 .table tbody td {
   font-weight: 600;
-  color: #455A64;
+  color: dark;
   line-height: 42px;
   padding: 0 25px;
   white-space: nowrap;
@@ -46,7 +52,7 @@
 }
 
 .table tbody tr:hover {
-  background-color: #FAFAFA;
+  background-color: xtraLightGrey;
 }
 
 .checkbox {
@@ -78,7 +84,7 @@
   font-family: 'Open Sans';
   font-size: 15px;
   font-weight: 700;
-  color: #90A4AE;
+  color: medium;
   box-sizing: border-box;
   line-height: 70px;
   white-space: nowrap;
@@ -97,7 +103,7 @@
 }
 
 .filtered:before {
-  color: #90A4AE;
+  color: medium;
 }
 
 
@@ -108,7 +114,7 @@
   left: -1px;
   width: 300px;
   padding: 20px;
-  background-color: #ffffff;
+  background-color: white;
   border: 1px solid #EBECEF;
   box-shadow: 0 7px 8px 0 rgba(0,0,0,0.14);
 }
@@ -126,11 +132,11 @@
   font-weight: 600;
   font-size: 15px;
   line-height: 25px;
-  color: #90A4AE;
+  color: medium;
 }
 
 .option button:hover {
-  color: #455A64;
+  color: dark;
 }
 
 .selected {
@@ -138,16 +144,16 @@
 }
 
 .selected button {
-  color: #455A64;
+  color: dark;
 }
 
 .editLink {
   composes: fa from '../../variables/fontawesome.css';
   composes: fa-pencil from '../../variables/fontawesome.css';
-  color: #455A64;
+  color: dark;
   text-decoration: none;
 }
 
 .editLink:hover {
-  color: #00B0FF;
+  color: blue;
 }

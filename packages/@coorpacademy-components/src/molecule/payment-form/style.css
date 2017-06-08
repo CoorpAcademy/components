@@ -1,10 +1,10 @@
 @value colors: "../../variables/colors.css";
 @value blue from colors;
-@value darkBlueGrey from colors;
+@value dark from colors;
 @value borderGrey from colors;
 @value red from colors;
 @value yellow from colors;
-@value lightRed from colors;
+@value orangeAdd from colors;
 
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
@@ -24,7 +24,7 @@
 
 .acceptedCardsText {
   margin: 0 15px;
-  color: darkBlueGrey;
+  color: dark;
 }
 
 .acceptedCardsCheck {
@@ -63,7 +63,7 @@
   padding: 20px 0;
   text-align: center;
   word-wrap: break-word;
-  color: darkBlueGrey;
+  color: dark;
 }
 
 .creditCardOwnerEmailSeparator {
@@ -91,7 +91,7 @@
   margin: 10px 0;
   padding: 10px;
   border: solid 1px red;
-  background-color: lightRed;
+  background-color: orangeAdd;
   color: red;
   font-size: 12px;
 }

@@ -1,9 +1,12 @@
+@value colors: "../../variables/colors.css";
+@value orange from colors;
+
 .default {
   color: #B0BEC5;
   margin-right: 2px;
 }
 
 .popular {
-  color: #FFB90D;
+  color: orange;
   margin-right: 2px;
 }

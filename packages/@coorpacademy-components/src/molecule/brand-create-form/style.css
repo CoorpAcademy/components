@@ -3,13 +3,19 @@
 @value tablet from breakpoints;
 @value desktop from breakpoints;
 
+@value colors: "../../variables/colors.css";
+@value dark from colors;
+@value white from colors;
+@value blue from colors;
+@value red from colors;
+
 .wrapper {
   width: 100%;
   border-radius: 8px;
   box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.09);
   position: relative;
   overflow: hidden;
-  background-color: #ffffff;
+  background-color: white;
 }
 
 .modifiedWrapper {
@@ -26,7 +32,7 @@
 }
 
 .modifiedWrapper:before {
-  border-top-color: #00B0FF;
+  border-top-color: blue;
 }
 
 .header {
@@ -40,7 +46,7 @@
   font-family: 'Open Sans';
   font-weight: 700;
   font-size: 17px;
-  color: #455A64;
+  color: dark;
   margin: 0;
   line-height: 75px;
 }
@@ -54,7 +60,7 @@
   font-family: 'Open Sans';
   font-weight: 700;
   font-size: 17px;
-  color: #455A64;
+  color: dark;
   margin: 0 0 20px;
 }
 
@@ -95,7 +101,7 @@
 }
 
 .error input {
-  border-color: #eb5c41;
+  border-color: red;
 }
 
 @media mobile {

@@ -1,7 +1,7 @@
 @value colors: "../../variables/colors.css";
 @value blue from colors;
 @value borderGrey from colors;
-@value darkBlueGrey from colors;
+@value dark from colors;
 @value light from colors;
 
 .subscriptionFreemium {
@@ -17,7 +17,7 @@
   margin: 10px;
 }
 .subscriptionFreemiumContent {
-  color: darkBlueGrey;
+  color: dark;
   font-size: 14px;
   text-align: center;
   margin: 30px;

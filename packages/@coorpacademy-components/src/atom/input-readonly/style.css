@@ -1,3 +1,6 @@
+@value colors: "../../variables/colors.css";
+@value dark from colors;
+
 .wrapper {
   display: flex;
   align-items: center;
@@ -9,7 +12,7 @@
   font-family: "Open Sans";
   font-size: 15px;
   text-transform: none;
-  color: #455A64;
+  color: dark;
   width: 180px;
 }
 
@@ -17,7 +20,7 @@
   font-family: 'Open Sans';
   font-size: 15px;
   font-weight: 700;
-  color: #455A64;
+  color: dark;
   margin: 0 20px;
 }
 

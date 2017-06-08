@@ -1,6 +1,7 @@
 @value colors: "../../variables/colors.css";
 @value blue from colors;
 @value borderGrey from colors;
+@value xtraLightGrey from colors;
 
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
@@ -36,7 +37,7 @@
 
 .greyBackground {
   composes: contentDetails;
-  background-color: #FAFAFA;
+  background-color: xtraLightGrey;
 }
 
 @media tablet {

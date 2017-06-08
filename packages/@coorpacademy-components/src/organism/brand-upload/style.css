@@ -1,8 +1,9 @@
 @value colors: "../../variables/colors.css";
-@value lightRed from colors;
+@value red from colors;
+@value orangeAdd from colors;
 @value lightGreen from colors;
-@value lightOrange from colors;
-@value darkGrey from colors;
+@value xtraLightGrey from colors;
+@value dark from colors;
 @value blue from colors;
 @value green from colors;
 
@@ -25,7 +26,7 @@
   width: 18px;
   height: 11px;
   font-size: 15px;
-  color: darkGrey;
+  color: dark;
 }
 
 .backDesc {
@@ -33,7 +34,7 @@
   font-family: 'Open Sans';
   font-size: 15px;
   font-weight: 700;
-  color: darkGrey;
+  color: dark;
   text-decoration: none;
 }
 
@@ -76,7 +77,7 @@
 
 .error {
   composes: notification;
-  background-color: lightRed;
+  background-color: red;
   font-style: italic;
 }
 
@@ -87,7 +88,7 @@
 
 .warning {
   composes: notification;
-  background-color: lightOrange;
+  background-color: orangeAdd;
 }
 
 .progress div {

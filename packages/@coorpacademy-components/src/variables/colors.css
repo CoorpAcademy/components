@@ -3,24 +3,28 @@
 @value borderGrey: #d8d8d8;
 @value light: #F7F7F7;
 @value selectTab: #ECEFF1;
-@value unselectTab: #FAFAFA;
 
-
-@value blueGrey: #90A4AE;
-@value darkBlueGrey: #546E7A;
-
-@value green: #3AB63F;
-@value lightGreen: #E8F5E9;
+/*---- good ----*/
 
 @value blue: #00B0FF;
-@value darkBlue: #007bb3;
+@value primaryAdd1: #B3E5FC;
+@value primaryAdd2: #0091EA;
+@value primaryAdd3: #0277BD;
+@value primaryAdd4: #015798;
 
-@value yellow: #FFB90D;
+@xtraLightGrey: #FAFAFA;
+@value medium: #90A4AE;
+@value dark: #546E7A;
 
-@value orange: #EB5C41;
-@value lightOrange: #FFE4B7;
+@value orangeAdd: #FF7043; // @value lightOrange: #FFE4B7;
+@value orange: #FFA000;
 
-@value red: #F4511E;
-@value lightRed: #FBE9E7;
+@value green: #3EC483;
+@value lightGreen: #66BB6A; // @value lightGreen: #E8F5E9;
 
+@value red: #F73F52;
+
+@value yellow: #FFE100;
+
+@value white: #fff;
 @value black: #14171A;

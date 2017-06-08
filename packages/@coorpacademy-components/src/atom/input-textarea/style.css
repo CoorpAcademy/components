@@ -1,3 +1,6 @@
+@value colors: "../../variables/colors.css";
+@value dark from colors;
+
 .default {
   display: flex;
 }
@@ -19,7 +22,7 @@
   font-family: "Open Sans";
   font-size: 15px;
   text-transform: none;
-  color: #455A64;
+  color: dark;
   width: 180px;
 }
 

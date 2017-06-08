@@ -1,5 +1,5 @@
 @value colors: "../../variables/colors.css";
-@value darkGrey from colors;
+@value dark from colors;
 @value borderGrey from colors;
 @value orange from colors;
 @value blue from colors;
@@ -25,7 +25,7 @@
   font-family: "Open Sans";
   font-size: 15px;
   text-transform: none;
-  color: #455A64;
+  color: dark;
   width: 180px;
 }
 
@@ -57,7 +57,7 @@
   height: 23px;
   border-radius: 2px;
   font-size: 14px;
-  color: darkGrey;
+  color: dark;
   margin-left: 20px;
   position: relative;
 }

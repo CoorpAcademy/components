@@ -1,7 +1,7 @@
 @value breakpoints: "../../variables/breakpoints.css";
 @value colors: "../../variables/colors.css";
 @value mobile from breakpoints;
-@value yellow from colors;
+@value orange from colors;
 
 .default {
   display: flex;
@@ -28,7 +28,7 @@
   font-family: "Open Sans";
   font-size: 15px;
   text-transform: none;
-  color: #455A64;
+  color: dark;
   width: 180px;
 }
 
@@ -65,7 +65,7 @@
   font-family: "Open Sans";
   text-transform: none;
   padding: 0 15px;
-  border: solid 2px yellow;
+  border: solid 2px orange;
   height: 50px;
   border-radius: 2px;
   font-size: 14px;
