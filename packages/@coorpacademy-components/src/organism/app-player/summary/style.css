@@ -7,16 +7,5 @@
   width: 100%;
 }
 
-.popinWrapper {
-  margin: 32px auto;
-  box-sizing: border-box;
-  max-width: 960px;
-  padding: 0 30px;
-}
-
 @media mobile {
-  .popinWrapper {
-    margin: 0;
-    padding: 0;
-  }
 }
