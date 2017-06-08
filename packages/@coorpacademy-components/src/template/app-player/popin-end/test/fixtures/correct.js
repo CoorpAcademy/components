@@ -1,23 +1,11 @@
 import defaultsDeep from 'lodash/fp/defaultsDeep';
-import Card from '../../../../../molecule/card/test/fixtures/default';
-import loading from './loading';
+import Correct from '../../../../../organism/app-player/summary/test/fixtures/correct';
+import template from './default';
 
-export default defaultsDeep(loading, {
+const summaryProps = Correct.props;
+
+export default defaultsDeep(template, {
   props: {
-    header: {
-      title: 'Big Data - Avancé',
-      subtitle: 'Félicitations !',
-      fail: false,
-      stars: '+29',
-      rank: '+5',
-      cta: {
-        title: 'Next level',
-        subtitle: 'Big Data - Coach',
-        href: '#'
-      }
-    },
-    recommendation: {
-      cards: [Card.props, Card.props, Card.props]
-    }
+    summary: summaryProps
   }
 });
