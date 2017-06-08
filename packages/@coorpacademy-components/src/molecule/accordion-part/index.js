@@ -37,7 +37,7 @@ class Accordion extends React.Component {
 
 Accordion.propTypes = {
   title: PropTypes.string,
-  content: PropTypes.object // eslint-disable-line react/forbid-prop-types
+  content: PropTypes.node
 };
 
 export default Accordion;

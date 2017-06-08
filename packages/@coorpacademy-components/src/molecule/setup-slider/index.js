@@ -1,12 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import map from 'lodash/fp/map';
 import SetupSlide from '../setup-slide';
 import Accordion from '../accordion';
 
 const SetupSlider = props => {
   const {titles = [], slides = []} = props;
 
-  const slidesView = slides.map((slide, key) => <SetupSlide key={key} {...slide} />);
+  const slidesView = map.convert({cap: false})(
+    (slide, key) => <SetupSlide key={key} {...slide} />,
+    slides
+  );
 
   return (
     <Accordion titles={titles}>

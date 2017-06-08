@@ -7,60 +7,43 @@ import InputSwitch from '../../atom/input-switch';
 import ImageUpload from '../../atom/image-upload';
 import style from './style.css';
 
-class SetupSlide extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      expanded: false
-    };
+const SetupSlide = props => {
+  const {fields = []} = props;
 
-    this.handleOnClick = this.handleOnClick.bind(this);
-  }
+  const buildInput = field => {
+    const {type} = field;
+    switch (type) {
+      case 'switch':
+        return <InputSwitch {...field} />;
+      case 'select':
+        return <Select {...field} />;
+      case 'checkbox':
+        return <InputCheckbox {...field} />;
+      case 'image':
+        return <ImageUpload {...field} />;
+      default:
+        return <InputText {...field} />;
+    }
+  };
 
-  handleOnClick() {
-    this.setState(prevState => ({
-      expanded: !prevState.expanded
-    }));
-  }
-
-  render() {
-    const {fields = []} = this.props;
-
-    const buildInput = field => {
-      const {type} = field;
-      switch (type) {
-        case 'switch':
-          return <InputSwitch {...field} />;
-        case 'select':
-          return <Select {...field} />;
-        case 'checkbox':
-          return <InputCheckbox {...field} />;
-        case 'image':
-          return <ImageUpload {...field} />;
-        default:
-          return <InputText {...field} />;
-      }
-    };
-
-    const buildField = (field, index) => {
-      const input = buildInput(field);
-
-      return (
-        <div className={style.field} key={index}>
-          {input}
-        </div>
-      );
-    };
-
-    const fieldsList = fields.map(buildField);
+  const buildField = (field, index) => {
+    const input = buildInput(field);
 
     return (
-      <div className={style.wrapper}>
-        {fieldsList}
+      <div className={style.field} key={index}>
+        {input}
       </div>
     );
-  }
-}
+  };
+
+  const fieldsList = fields.map(buildField);
+
+  return (
+    <div className={style.wrapper}>
+      {fieldsList}
+    </div>
+  );
+};
 
 SetupSlide.propTypes = {
   fields: PropTypes.arrayOf(
