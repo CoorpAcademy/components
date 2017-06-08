@@ -1,39 +1,36 @@
 // @flow
 import getConfig from './config';
-import type {Content, Progression, Slide, State, EngineType} from './types';
-import computeNextStep from './compute-next-step';
+import type {Content, Progression, State, Engine} from './types';
 
 export default function createProgression(
-  engineType: EngineType,
+  engine: Engine,
   content: Content,
-  slidePool: Array<Slide>
+  initialContent: Content
 ): Progression {
-  const config = getConfig({ref: engineType, version: 'latest'});
-  const engine = {
-    ref: engineType,
+  const config = getConfig({ref: engine.ref, version: 'latest'});
+
+  const currentEngine = {
+    ref: engine.ref,
     version: config.version
   };
+
   const initialState: State = {
     lives: config.lives,
     isCorrect: true,
     slides: [],
     step: {
       current: 0,
-      total: 4
+      total: config.slidesToComplete
     },
     content: undefined,
-    nextContent: {
-      type: 'slide',
-      ref: 'unknown_ref'
-    }
+    nextContent: initialContent
   };
-  initialState.nextContent = computeNextStep(engine, slidePool, initialState);
 
   return {
     content,
     initialState,
     state: initialState,
     actions: [],
-    engine
+    engine: currentEngine
   };
 }

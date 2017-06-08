@@ -20,8 +20,8 @@ export type State = {
   step: Step
 };
 
-export type Action = {
-  type: string,
+export type AnswerAction = {
+  type: 'answer',
   payload: {
     content: Content,
     nextContent: Content,
@@ -29,10 +29,14 @@ export type Action = {
   }
 };
 
-export type EngineType = 'microlearning';
+export type InitAction = {
+  type: 'init'
+};
+
+export type Action = InitAction | AnswerAction;
 
 export type Engine = {
-  ref: EngineType,
+  ref: string,
   version: string
 };
 
