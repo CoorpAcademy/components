@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
 import Link from '../../../atom/link';
 import Provider from '../../../atom/provider';
+import Life from '../../../atom/life';
 import style from './style.css';
 
 const SlidesHeader = (props, context) => {
@@ -48,11 +49,7 @@ const SlidesHeader = (props, context) => {
         {secondaryTitleView}
       </div>
       <div className={style.livesWrapper}>
-        <div className={style.heartBackground} />
-        <div className={style.heart} />
-        <div className={style.lives}>
-          x{lives.count}
-        </div>
+        <Life {...lives} />
       </div>
     </div>
   );

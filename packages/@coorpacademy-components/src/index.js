@@ -64,6 +64,7 @@ export InputSwitch from './atom/input-switch';
 export InputText from './atom/input-text';
 export InputTextarea from './atom/input-textarea';
 export Label from './atom/label';
+export Life from './atom/life';
 export Link from './atom/link';
 export Loader from './atom/loader';
 export Loading from './template/app-player/loading';

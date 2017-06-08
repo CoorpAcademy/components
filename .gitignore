@@ -8,3 +8,5 @@ coverage
 .vscode
 packages/@coorpacademy-components/storybook-static
 .idea
+package-lock.json
+

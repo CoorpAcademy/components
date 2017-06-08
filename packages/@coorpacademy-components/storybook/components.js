@@ -15,6 +15,7 @@ import InputSwitch from '../src/atom/input-switch';
 import InputText from '../src/atom/input-text';
 import InputTextarea from '../src/atom/input-textarea';
 import Label from '../src/atom/label';
+import Life from '../src/atom/life';
 import Link from '../src/atom/link';
 import Loader from '../src/atom/loader';
 import Notification from '../src/atom/notification';
@@ -188,6 +189,8 @@ import InputTextareaFixtureEmpty from '../src/atom/input-textarea/test/fixtures/
 import InputTextareaFixtureError from '../src/atom/input-textarea/test/fixtures/error';
 import LabelFixtureOneChild from '../src/atom/label/test/fixtures/one-child';
 import LabelFixtureTwoChildren from '../src/atom/label/test/fixtures/two-children';
+import LifeFixtureDefault from '../src/atom/life/test/fixtures/default';
+import LifeFixtureFail from '../src/atom/life/test/fixtures/fail';
 import LinkFixtureHref from '../src/atom/link/test/fixtures/href';
 import LoaderFixtureDefault from '../src/atom/loader/test/fixtures/default';
 import NotificationFixtureDefault from '../src/atom/notification/test/fixtures/default';
@@ -544,6 +547,7 @@ export const components = {
     InputText,
     InputTextarea,
     Label,
+    Life,
     Link,
     Loader,
     Notification,
@@ -770,6 +774,10 @@ export const fixtures = {
     Label: {
       OneChild: LabelFixtureOneChild,
       TwoChildren: LabelFixtureTwoChildren
+    },
+    Life: {
+      Default: LifeFixtureDefault,
+      Fail: LifeFixtureFail
     },
     Link: {
       Href: LinkFixtureHref
@@ -2310,6 +2318,14 @@ export const dependencies = {
       },
       "children": {}
     },
+    "Life": {
+      "parents": {
+        "MoleculeSlides": {
+          "SlidesHeader": true
+        }
+      },
+      "children": {}
+    },
     "Checkbox": {
       "parents": {
         "Molecule": {
@@ -2484,6 +2500,7 @@ export const dependencies = {
       },
       "children": {
         "Atom": {
+          "Life": true,
           "Link": true
         }
       }
