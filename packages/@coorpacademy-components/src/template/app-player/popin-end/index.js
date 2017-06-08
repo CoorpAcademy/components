@@ -1,20 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import SlidesHeader from '../../../molecule/slides/slides-header';
+import Summary from '../../../organism/app-player/summary';
 import style from './style.css';
 
-const PopinEnd = props => {
-  const {success} = props;
+const SlidePlayer = props => {
+  const {header, summary} = props;
 
   return (
     <div className={style.wrapper}>
-      <p>End</p>
-      <p>success: {success}</p>
+      <SlidesHeader {...header} />
+      <div className={style.popinWrapper}>
+        <Summary {...summary} />
+      </div>
     </div>
   );
 };
 
-PopinEnd.propTypes = {
-  success: PropTypes.bool
+SlidePlayer.propTypes = {
+  header: PropTypes.shape(SlidesHeader.propTypes),
+  summary: PropTypes.shape(Summary.propTypes)
 };
 
-export default PopinEnd;
+export default SlidePlayer;
