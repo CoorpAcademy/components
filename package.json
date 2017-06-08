@@ -8,6 +8,7 @@
     "doc": "lerna run --scope @coorpacademy/components doc",
     "flow": "flow check",
     "generate": "lerna exec --scope @coorpacademy/components -- npm run generate",
+    "init-component": "lerna exec --scope @coorpacademy/components -- npm run init-component",
     "lerna": "lerna",
     "lint": "eslint packages/ *.js *.json --ext .js,.json",
     "lint:fix": "npm run lint -- --fix",
