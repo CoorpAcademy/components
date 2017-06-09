@@ -2,7 +2,7 @@ import test from 'ava';
 import isObject from 'lodash/fp/isObject';
 import isString from 'lodash/fp/isString';
 import isArray from 'lodash/fp/isArray';
-import {createProgression, findById, createAnswer, find} from '../progressions';
+import {create, findById, createAnswer, findAll} from '../progressions';
 
 const engine = {
   ref: 'microlearning',
@@ -10,12 +10,12 @@ const engine = {
 };
 
 test('should return all progressions', async t => {
-  const progressions = await find();
+  const progressions = await findAll();
   t.true(isArray(progressions));
 });
 
 test('should create progression', async t => {
-  const {_id, state} = await createProgression({engine});
+  const {_id, state} = await create({engine});
 
   t.true(isString(_id));
   t.true(isObject(state));
@@ -25,13 +25,13 @@ test('should create progression', async t => {
 });
 
 test('should find progression', async t => {
-  const progression = await createProgression({engine});
+  const progression = await create({engine});
 
   t.deepEqual(await findById(progression._id), progression);
 });
 
 test('should add answer action', async t => {
-  const progression = await createProgression({engine});
+  const progression = await create({engine});
   const progressionWithAnswer = await createAnswer(progression._id, {
     content: progression.state.nextContent,
     answers: ['bar']

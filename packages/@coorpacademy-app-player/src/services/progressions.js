@@ -19,17 +19,47 @@ export const findById = id => {
   return Promise.reject(new Error('Progression not found'));
 };
 
-export const find = () => {
+export const findAll = () => {
   return Promise.resolve(Array.from(progressions.values()));
 };
 
-export const createProgression = async progression => {
+const save = progression => {
+  progressions.set(progression._id, progression);
+  return progression;
+};
+
+export const createAnswer = async (progressionId, payload) => {
+  const userAnswers = payload.answers;
+  const slideId = payload.content.ref;
+  const slide = await SlidesService.findById(slideId);
+  const progression = await findById(progressionId);
+  const slides = await SlidesService.findAll();
+
+  const action = pipe(
+    set('payload.isCorrect', checkAnswer(progression.engine, slide.question, userAnswers)),
+    _action => {
+      const nextState = updateState(progression.engine, progression.state, [_action]);
+      return set('payload.nextContent', computeNextStep(progression.engine, slides, nextState))(
+        _action
+      );
+    }
+  )({
+    type: 'answer',
+    payload
+  });
+
+  const p = update('state', state => updateState(progression.engine, state, [action]), progression);
+
+  return save(p);
+};
+
+export const create = async progression => {
   const _id = generateId();
 
-  const slides = await SlidesService.find();
+  const slides = await SlidesService.findAll();
   const nextContent = computeNextStep(progression.engine, slides, progression.state);
 
-  progressions.set(_id, {
+  return save({
     ...progression,
     _id,
     state: {
@@ -38,28 +68,4 @@ export const createProgression = async progression => {
       nextContent
     }
   });
-
-  return findById(_id);
-};
-
-export const createAnswer = async (progressionId, payload) => {
-  const answers = payload.answers;
-  const slideId = payload.content.ref;
-  const slide = await SlidesService.findById(slideId);
-  const progression = await findById(progressionId);
-  const slides = await SlidesService.find();
-
-  const action = pipe(
-    set('payload.isCorrect', checkAnswer(progression.engine, slide.question, answers)),
-    set('payload.nextContent', computeNextStep(progression.engine, slides, progression.state))
-  )({
-    type: 'answer',
-    payload
-  });
-
-  const p = update('state', state => updateState(progression.engine, state, [action]), progression);
-
-  progressions.set(progressionId, p);
-
-  return findById(progressionId);
 };

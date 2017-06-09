@@ -1,6 +1,10 @@
 [
   {
     "_id": "0",
+    "engine": {
+      "ref": "microlearning",
+      "version": "1"
+    },
     "state": {
       "slides": [],
       "nextContent": {
@@ -12,6 +16,10 @@
   },
   {
     "_id": "1",
+    "engine": {
+      "ref": "microlearning",
+      "version": "1"
+    },
     "state": {
       "slides": ["sli_VkcAWR-ZQ"],
       "nextContent": {
@@ -23,6 +31,10 @@
   },
   {
     "_id": "2",
+    "engine": {
+      "ref": "microlearning",
+      "version": "1"
+    },
     "state": {
       "slides": ["sli_VkcAWR-ZQ", "sli_E1iEQRuZm", "sli_4kl~7RubX", "sli_Vy88~R-bX"],
       "nextContent": {
@@ -34,6 +46,10 @@
   },
   {
     "_id": "3",
+    "engine": {
+      "ref": "microlearning",
+      "version": "1"
+    },
     "state": {
       "slides": [],
       "nextContent": {

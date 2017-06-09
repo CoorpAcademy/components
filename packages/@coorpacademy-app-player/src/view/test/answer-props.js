@@ -16,7 +16,7 @@ test('should create initial qcm props', t => {
 test('should create edited qcm props', t => {
   const state = {
     ui: {
-      answers: {'1234': ['Case 1', 'Case 3']},
+      answers: {'1234': {value: ['Case 1', 'Case 3']}},
       current: {progressionId: '1234'}
     }
   };
@@ -36,7 +36,7 @@ test('should create edited qcm props', t => {
 test('should create edited template props', t => {
   const state = {
     ui: {
-      answers: {'1234': ['foo']},
+      answers: {'1234': {value: ['foo']}},
       current: {progressionId: '1234'}
     }
   };
@@ -50,7 +50,7 @@ test('should create edited template props', t => {
 test('should create action: edit-answer-qcm', t => {
   const state = {
     ui: {
-      answers: {'1234': ['Case 1']},
+      answers: {'1234': {value: ['Case 1']}},
       current: {progressionId: '1234'}
     }
   };
@@ -68,7 +68,7 @@ test('should create action: edit-answer-qcm', t => {
 test('should create action: edit-answer-template', t => {
   const state = {
     ui: {
-      answers: {'1234': ['foo']},
+      answers: {'1234': {value: ['foo']}},
       current: {progressionId: '1234'}
     }
   };

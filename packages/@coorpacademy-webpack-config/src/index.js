@@ -44,7 +44,7 @@ export default (NODE_ENV = 'development') => ({
           cacheDirectory: true
         },
         exclude: /(node_modules|bower_components)/,
-        include: join(process.cwd(), 'src')
+        include: [join(process.cwd(), 'src')]
       },
       {
         test: /\.css$/,

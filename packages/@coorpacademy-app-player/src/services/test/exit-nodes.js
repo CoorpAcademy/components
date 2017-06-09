@@ -2,10 +2,10 @@ import test from 'ava';
 import head from 'lodash/fp/head';
 import isArray from 'lodash/fp/isArray';
 import exitNodesData from '../exit-nodes.data';
-import {findById, find} from '../exit-nodes';
+import {findById, findAll} from '../exit-nodes';
 
 test('should return all exitNodes', async t => {
-  const exitNodes = await find();
+  const exitNodes = await findAll();
   t.true(isArray(exitNodes));
 });
 

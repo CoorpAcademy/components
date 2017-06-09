@@ -1,19 +1,26 @@
 import pipe from 'lodash/fp/pipe';
 import get from 'lodash/fp/get';
+import getOr from 'lodash/fp/getOr';
+import isUndefined from 'lodash/fp/isUndefined';
+import isNull from 'lodash/fp/isNull';
+import every from 'lodash/fp/every';
 import {createElement} from 'react';
 import Provider from '@coorpacademy/components/es/atom/provider';
 import Player from '@coorpacademy/components/es/template/app-player/player';
 // import Loading from '@coorpacademy/components/es/template/app-player/loading';
-// import PopinCorrection from '@coorpacademy/components/es/template/app-player/popin-correction';
+import PopinCorrection from '@coorpacademy/components/es/template/app-player/popin-correction';
 // import PopinEnd from '@coorpacademy/components/es/template/app-player/popin-end';
 import Title from '@coorpacademy/components/es/atom/title';
 import {
   getCurrentProgression,
   getCurrentSlide,
+  getPreviousSlide,
   getCurrentProgressionId,
+  getAnswerValues,
   getAnswers
 } from '../utils/state-extract';
 import {validateAnswer} from '../actions/ui/answers';
+import {selectProgression} from '../actions/ui/progressions';
 import getAnswerProps from './answer-props';
 
 const toHeader = state => {
@@ -40,7 +47,7 @@ const toPlayer = (state, dispatch) => {
       onClick: () => {
         dispatch(
           validateAnswer(getCurrentProgressionId(state), {
-            answers: getAnswers(state),
+            answers: getAnswerValues(state),
             slideId: slide._id
           })
         );
@@ -85,8 +92,73 @@ export const createSlide = options => dispatch => {
   return pipe(mapStateToProps, Player, wrapInProvider(options));
 };
 
+export const createPopinCorrection = ({translate}) => dispatch => {
+  const resetProgression = () => {
+    return dispatch((_dispatch, getState) => {
+      const progressionId = getCurrentProgressionId(getState());
+      return _dispatch(selectProgression(progressionId));
+    });
+  };
+  return state => {
+    const {isCorrect, correction} = getAnswers(state);
+    const slide = getPreviousSlide(state);
+
+    const header = isNull(isCorrect)
+      ? {}
+      : {
+          title: translate(`correction.header.${isCorrect ? 'correct' : 'fail'}.title`),
+          subtitle: translate(`correction.header.${isCorrect ? 'correct' : 'fail'}.subtitle`),
+          fail: !isCorrect
+        };
+
+    const question = {
+      header: getOr('', 'question.header', slide),
+      answer: translate('correction.answer', {
+        answer: correction || ''
+      })
+    };
+
+    return PopinCorrection({
+      header: {
+        lives: 1,
+        title: '',
+        subtitle: '',
+        cta: {
+          title: translate('correction.header.cta'),
+          onClick: resetProgression
+        },
+        ...header
+      },
+      question,
+      ressources: {
+        title: translate('correction.ressources.title'),
+        value: getOr([], 'lessons', slide),
+        open: false,
+        onClick: () => {}
+      },
+      klf: {
+        title: translate('correction.klf.title'),
+        value: getOr('', 'klf', slide),
+        onClick: () => {},
+        open: false
+      },
+      tips: {
+        title: translate('correction.tips.title'),
+        value: getOr('', 'tips', slide),
+        onClick: () => {},
+        open: false
+      }
+    });
+  };
+};
+
 export const createRouter = options => dispatch => state => {
   const progression = getCurrentProgression(state);
+
+  const {isCorrect, correction} = getAnswers(state);
+
+  if (!every(isUndefined, [isCorrect, correction]))
+    return createPopinCorrection(options)(dispatch)(state);
 
   switch (get('state.nextContent.type', progression)) {
     case 'slide': {
