@@ -1,0 +1,11 @@
+{
+  "correction.header.correct.title": "Good job",
+  "correction.header.correct.subtitle": "Bonne réponse",
+  "correction.header.fail.title": "Aïe Aïe Aïe",
+  "correction.header.fail.subtitle": "Mauvaise réponse",
+  "correction.header.cta": "Continuer",
+  "correction.answer": "Bonne réponse: {answer}",
+  "correction.ressources.title": "Voir le cours",
+  "correction.klf.title": "Point clés",
+  "correction.tips.title": "Le saviez vous ?"
+}

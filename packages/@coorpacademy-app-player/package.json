@@ -23,7 +23,7 @@
     "prebuild:browser": "npm run clean:build:browser",
     "prebuild:commonjs": "npm run clean:build:commonjs",
     "prebuild:es": "npm run clean:build:es",
-    "start": "cross-env BABEL_ENV=es webpack-dev-server --content-base sandbox --history-api-fallback true --hot true"
+    "start": "cross-env BABEL_ENV=es webpack-dev-server --config sandbox/webpack.config.js --content-base sandbox --history-api-fallback true --hot true"
   },
   "homepage": "https://github.com/CoorpAcademy/components/packages/@coorpacademy-app-player#readme",
   "devDependencies": {
@@ -40,6 +40,7 @@
   },
   "dependencies": {
     "@coorpacademy/components": "5.3.20",
+    "@coorpacademy/translate": "5.3.4",
     "@coorpacademy/webpack-config": "6.0.5",
     "lodash": "^4.17.4",
     "react": "^15.5.4",

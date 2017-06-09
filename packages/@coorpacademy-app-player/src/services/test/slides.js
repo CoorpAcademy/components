@@ -2,10 +2,10 @@ import test from 'ava';
 import head from 'lodash/fp/head';
 import isArray from 'lodash/fp/isArray';
 import slidesData from '../slides.data';
-import {findById, find} from '../slides';
+import {findById, findAll} from '../slides';
 
 test('should return all slides', async t => {
-  const slides = await find();
+  const slides = await findAll();
   t.true(isArray(slides));
 });
 

@@ -4,10 +4,10 @@ import pipe from 'lodash/fp/pipe';
 import macro from '../../test/helpers/macro';
 import {
   createAnswer,
-  ANSWER_CREATE_REQUEST,
-  ANSWER_CREATE_SUCCESS,
-  ANSWER_CREATE_FAILURE
-} from '../answers';
+  PROGRESSION_CREATE_ANSWER_REQUEST,
+  PROGRESSION_CREATE_ANSWER_SUCCESS,
+  PROGRESSION_CREATE_ANSWER_FAILURE
+} from '../progressions';
 
 const getState = pipe(
   set('data.progressions.entities.foo._id', 'foo'),
@@ -30,11 +30,11 @@ test(
   createAnswer('foo', ['baz']),
   [
     {
-      type: ANSWER_CREATE_REQUEST,
+      type: PROGRESSION_CREATE_ANSWER_REQUEST,
       meta: {progressionId: 'foo'}
     },
     {
-      type: ANSWER_CREATE_SUCCESS,
+      type: PROGRESSION_CREATE_ANSWER_SUCCESS,
       meta: {progressionId: 'foo'},
       payload: 'quz'
     }
@@ -56,11 +56,11 @@ test(
   createAnswer('foo', ['baz']),
   [
     {
-      type: ANSWER_CREATE_REQUEST,
+      type: PROGRESSION_CREATE_ANSWER_REQUEST,
       meta: {progressionId: 'foo'}
     },
     {
-      type: ANSWER_CREATE_FAILURE,
+      type: PROGRESSION_CREATE_ANSWER_FAILURE,
       meta: {progressionId: 'foo'},
       error: true,
       payload: new Error()

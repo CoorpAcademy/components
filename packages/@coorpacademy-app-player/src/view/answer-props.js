@@ -6,13 +6,18 @@ import {
   getChoices,
   getCurrentProgressionId,
   getQuestionType,
-  getAnswers
+  getAnswerValues
 } from '../utils/state-extract';
 import {editAnswer} from '../actions/ui/answers';
 
 const editAnswerAction = (state, slide, dispatch) => newValue => {
   return dispatch(
-    editAnswer(getAnswers(state), getQuestionType(slide), getCurrentProgressionId(state), newValue)
+    editAnswer(
+      getAnswerValues(state),
+      getQuestionType(slide),
+      getCurrentProgressionId(state),
+      newValue
+    )
   );
 };
 
@@ -21,7 +26,7 @@ const qcmProps = (state, slide, dispatch) => {
     type: 'qcm',
     answers: map(choice => ({
       title: choice.label,
-      selected: pipe(getAnswers, includes(choice.label))(state),
+      selected: pipe(getAnswerValues, includes(choice.label))(state),
       onClick: () => editAnswerAction(state, slide, dispatch)(choice)
     }))(getChoices(slide))
   };
@@ -30,7 +35,7 @@ const qcmProps = (state, slide, dispatch) => {
 const qcmTemplateProps = (state, slide, dispatch) => ({
   type: 'freeText',
   placeholder: 'Type here',
-  value: pipe(getAnswers, head)(state),
+  value: pipe(getAnswerValues, head)(state),
   onChange: editAnswerAction(state, slide, dispatch)
 });
 

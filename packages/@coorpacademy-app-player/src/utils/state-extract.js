@@ -1,5 +1,6 @@
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
+import pipe from 'lodash/fp/pipe';
 
 export const getChoices = get('question.content.choices');
 export const getCurrentProgressionId = get('ui.current.progressionId');
@@ -16,8 +17,10 @@ export const getCurrentProgression = state => {
 
 export const getAnswers = state => {
   const progressionId = getCurrentProgressionId(state);
-  return get(['ui', 'answers', progressionId])(state);
+  return getOr({}, ['ui', 'answers', progressionId])(state);
 };
+
+export const getAnswerValues = pipe(getAnswers, get('value'));
 
 export const getSlide = id => state => {
   const entities = get('data.slides.entities')(state);
@@ -26,6 +29,11 @@ export const getSlide = id => state => {
 
 export const getCurrentSlide = state => {
   const id = get('state.nextContent.ref')(getCurrentProgression(state));
+  return getSlide(id)(state);
+};
+
+export const getPreviousSlide = state => {
+  const id = get('state.content.ref')(getCurrentProgression(state));
   return getSlide(id)(state);
 };
 

@@ -8,9 +8,9 @@ import pipe from 'lodash/fp/pipe';
 import {
   PROGRESSION_FETCH_SUCCESS,
   PROGRESSION_FETCH_REQUEST,
-  PROGRESSION_FETCH_FAILURE
+  PROGRESSION_FETCH_FAILURE,
+  PROGRESSION_CREATE_ANSWER_SUCCESS
 } from '../../actions/api/progressions';
-import {ANSWER_CREATE_SUCCESS} from '../../actions/api/answers';
 
 export default (state = {entities: {}}, action) => {
   switch (action.type) {
@@ -24,7 +24,7 @@ export default (state = {entities: {}}, action) => {
       const {id} = meta;
       return update(['entities', id], progression => progression || null, state);
     }
-    case ANSWER_CREATE_SUCCESS: {
+    case PROGRESSION_CREATE_ANSWER_SUCCESS: {
       const {payload, meta} = action;
       const {progressionId} = meta;
       return update(

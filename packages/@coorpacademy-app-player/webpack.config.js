@@ -4,8 +4,7 @@ const set = require('lodash/fp/set');
 const {default: generateConfig} = require('@coorpacademy/webpack-config');
 
 const entry = {
-  Player: ['babel-polyfill', './src'],
-  Services: './src/services'
+  Player: ['babel-polyfill', './src']
 };
 
 const output = {

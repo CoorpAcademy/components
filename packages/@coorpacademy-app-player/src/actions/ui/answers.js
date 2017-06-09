@@ -1,7 +1,7 @@
 import remove from 'lodash/fp/remove';
 import includes from 'lodash/fp/includes';
-import {createAnswer} from '../api/answers';
-import {selectProgression} from './progressions';
+import {createAnswer} from '../api/progressions';
+import {fetchAnswer} from '../api/answers';
 
 export const ANSWER_EDIT = {
   qcm: '@@answer/EDIT_QCM',
@@ -38,7 +38,10 @@ export const editAnswer = (state, questionType, progressionId, newValue) => {
 };
 
 export const validateAnswer = (progressionId, body) => async (dispatch, getState, {services}) => {
-  const response = await dispatch(createAnswer(progressionId, body.answers));
-  if (response.error) return response;
-  return dispatch(selectProgression(progressionId));
+  const createAnswerResponse = await dispatch(createAnswer(progressionId, body.answers));
+  if (createAnswerResponse.error) return createAnswerResponse;
+
+  const slideId = createAnswerResponse.payload.state.content.ref;
+  const fetchAnswerResponse = await dispatch(fetchAnswer(progressionId, slideId));
+  return fetchAnswerResponse;
 };

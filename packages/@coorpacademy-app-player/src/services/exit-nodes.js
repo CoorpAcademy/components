@@ -12,6 +12,6 @@ export const findById = id => {
   return Promise.reject(new Error('ExitNode not found'));
 };
 
-export const find = () => {
+export const findAll = () => {
   return Promise.resolve(Array.from(exitNodes.values()));
 };

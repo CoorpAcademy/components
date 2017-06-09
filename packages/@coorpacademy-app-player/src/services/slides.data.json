@@ -58,6 +58,11 @@
             }
           }
         ],
+        "answers": [
+          [
+            "Bonne réponse"
+          ]
+        ],
         "media": {
           "subtitles": [],
           "posters": [],
@@ -126,6 +131,11 @@
             }
           }
         ],
+        "answers": [
+          [
+            "Free Run"
+          ]
+        ],
         "media": {
           "subtitles": [],
           "posters": [],
@@ -170,6 +180,11 @@
       "explanation": "Sélectionnez la (les) bonne(s) réponse(s).",
       "content": {
         "maxTypos": null,
+        "answers": [
+          [
+            "Vrai"
+          ]
+        ],
         "choices": [
           {
             "_id": "59307529a2b39d0024eebfed",
@@ -273,6 +288,11 @@
             }
           }
         ],
+        "answers": [
+          [
+            "2"
+          ]
+        ],
         "media": {
           "subtitles": [],
           "posters": [],
@@ -342,6 +362,11 @@
             }
           }
         ],
+        "answers": [
+          [
+            "4"
+          ]
+        ],
         "media": {
           "subtitles": [],
           "posters": [],
@@ -400,6 +425,11 @@
             }
           }
         ],
+        "answers": [
+          [
+            "Boulevard Poissonnière"
+          ]
+        ],
         "media": {
           "subtitles": [],
           "posters": [],
@@ -457,6 +487,11 @@
               "src": []
             }
           }
+        ],
+        "answers": [
+          [
+            "C'est Paris !"
+          ]
         ],
         "media": {
           "subtitles": [],

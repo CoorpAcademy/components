@@ -3,9 +3,9 @@ import reducer from '../progressions';
 import {
   PROGRESSION_FETCH_REQUEST,
   PROGRESSION_FETCH_SUCCESS,
-  PROGRESSION_FETCH_FAILURE
+  PROGRESSION_FETCH_FAILURE,
+  PROGRESSION_CREATE_ANSWER_SUCCESS
 } from '../../../actions/api/progressions';
-import {ANSWER_CREATE_SUCCESS} from '../../../actions/api/answers';
 import macro from '../../test/helpers/macro';
 
 test('should have initial value', macro, reducer, undefined, {}, {entities: {}});
@@ -93,7 +93,7 @@ test(
   reducer,
   {entities: {foo: {foo: 'foo'}}},
   {
-    type: ANSWER_CREATE_SUCCESS,
+    type: PROGRESSION_CREATE_ANSWER_SUCCESS,
     meta: {progressionId: 'foo'},
     payload: {bar: 'bar'}
   },
