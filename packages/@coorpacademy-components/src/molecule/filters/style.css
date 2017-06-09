@@ -3,8 +3,8 @@
 @value mobile from breakpoints;
 @value tablet from breakpoints;
 @value colors: "../../variables/colors.css";
-@value darkGrey from colors;
-@value unselectTab from colors;
+@value DARK from colors;
+@value xtraLightGrey from colors;
 @value selectTab from colors;
 
 .search {
@@ -13,7 +13,7 @@
   position: relative;
   z-index: 5;
   font-family: "Open Sans";
-  background: unselectTab;
+  background: xtraLightGrey;
   min-height: 50px;
   box-sizing: border-box;
   border-bottom: 1px solid selectTab;
@@ -62,7 +62,7 @@
 
 .title {
   display: block;
-  color: darkGrey;
+  color: DARK;
   width: 100%;
   font-size: 14px;
   font-weight: 600;
@@ -133,7 +133,7 @@
   box-sizing: border-box;
   height: 50px;
   padding: 0;
-  background: unselectTab;
+  background: xtraLightGrey;
 }
 
 .choice {
@@ -149,7 +149,7 @@
 
 .choice label span {
   font-size: 13px;
-  color: darkGrey;
+  color: DARK;
   user-select: none;
 }
 

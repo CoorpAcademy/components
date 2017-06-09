@@ -2,8 +2,8 @@
 @value green from colors;
 @value lightGreen from colors;
 @value red from colors;
-@value lightRed from colors;
-@value darkBlueGrey from colors;
+@value orangeAdd from colors;
+@value dark from colors;
 
 .promoCode {
   box-shadow: 0 0 4px 0 lightgrey;
@@ -25,7 +25,7 @@
 }
 
 .promoCodeInput {
-  color: darkBlueGrey;
+  color: dark;
   font-size: 14px;
   border: solid 1px #bbb;
   width: 60%;
@@ -67,6 +67,6 @@
 
 .promoCodeError {
   border: solid 1px red;
-  background-color: lightRed;
+  background-color: orangeAdd;
   color: red;
 }

@@ -1,6 +1,6 @@
 @value colors: "../../variables/colors.css";
 @value blue from colors;
-@value darkBlueGrey from colors;
+@value dark from colors;
 @value light from colors;
 
 @value breakpoints: "../../variables/breakpoints.css";
@@ -26,14 +26,14 @@
 }
 
 .premiumProductDetails {
-  color: darkBlueGrey;
+  color: dark;
   margin: 20px 0;
   text-align: justify;
   font-size: 14px;
 }
 
 .cancelSubscriptionText {
-  color: darkBlueGrey;
+  color: dark;
   font-size: 15px;
 }
 

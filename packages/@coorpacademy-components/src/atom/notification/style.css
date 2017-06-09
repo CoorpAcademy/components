@@ -1,7 +1,10 @@
 @value colors: "../../variables/colors.css";
-@value darkGrey from colors;
+@value dark from colors;
 @value orange from colors;
 @value yellow from colors;
+@value lightGreen from colors;
+@value white from colors;
+@value red from colors;
 
 .message {
   width: 100%;
@@ -9,8 +12,8 @@
   font-weight: 700;
   font-size: 14px;
   text-align: center;
-  color: darkGrey;
-  border: 1px solid darkGrey;
+  color: dark;
+  border: 1px solid dark;
   border-radius: 2px;
   padding: 10px 20px;
   box-sizing: border-box;
@@ -22,38 +25,38 @@
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background-color: darkGrey;
-  color: #ffffff;
+  background-color: dark;
+  color: white;
   text-align: center;
   margin-right: 10px;
 }
 
 .success {
   composes: message;
-  color: green;
-  border-color: green;
+  color: lightGreen;
+  border-color: lightGreen;
 }
 
 .success span {
-  background-color: green;
+  background-color: lightGreen;
 }
 
 .error {
+  composes: message;
+  color: red;
+  border-color: red;
+}
+
+.error span {
+  background-color: red;
+}
+
+.warning {
   composes: message;
   color: orange;
   border-color: orange;
 }
 
-.error span {
-  background-color: orange;
-}
-
-.warning {
-  composes: message;
-  color: yellow;
-  border-color: yellow;
-}
-
 .warning span {
-  background-color: yellow;
+  background-color: orange;
 }

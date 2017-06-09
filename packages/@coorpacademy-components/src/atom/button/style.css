@@ -1,11 +1,11 @@
 @value colors: "../../variables/colors.css";
-@value yellow from colors;
+@value orange from colors;
 @value borderGrey from colors;
 
 .button {
   border-radius: 2px;
   width: 200px;
-  background-color: yellow;
+  background-color: orange;
 }
 
 .button:before {

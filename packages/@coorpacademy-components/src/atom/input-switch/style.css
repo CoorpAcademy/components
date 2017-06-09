@@ -1,5 +1,5 @@
 @value colors: "../../variables/colors.css";
-@value yellow from colors;
+@value orange from colors;
 
 .default {
   display: flex;
@@ -44,7 +44,7 @@
   width: 28px;
   height: 28px;
   border-radius: 100px;
-  background: yellow;
+  background: orange;
   box-shadow: 0px 3px 3px rgba(0,0,0,0.05);
   content: '';
   transition: all 0.3s ease;
@@ -79,7 +79,7 @@
   font-family: "Open Sans";
   font-size: 15px;
   text-transform: none;
-  color: #455A64;
+  color: dark;
   width: 180px;
   margin-right: 20px;
   min-height: 50px;

@@ -1,3 +1,6 @@
+@value colors: "../../variables/colors.css";
+@value dark from colors;
+
 .wrapper {
   display: flex;
   align-items: flex-start;
@@ -8,7 +11,7 @@
   font-family: 'Open Sans';
   font-size: 15px;
   font-weight: 700;
-  color: #455A64;
+  color: dark;
   margin-right: 20px;
 }
 
@@ -44,7 +47,7 @@
   composes: button;
   display: none;
   border: 1px solid #455A64;
-  color: #455A64;
+  color: dark;
   background-color: #ffffff;
   margin-right: 20px;
   font-weight: 600;

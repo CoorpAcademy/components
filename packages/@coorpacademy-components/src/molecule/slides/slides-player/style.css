@@ -1,6 +1,9 @@
 @value breakpoints: "../../../variables/breakpoints.css";
 @value mobile from breakpoints;
 
+@value colors: "../../../variables/colors.css";
+@value medium from colors;
+
 .wrapper {
   position: relative;
   box-shadow: 0 0 4px 5px rgba(0,0,0,0.04);
@@ -88,7 +91,7 @@
   font-family: 'Open Sans';
   font-size: 15px;
   font-weight: 500;
-  color: #90A4AE;
+  color: medium;
   margin-bottom: 25px;
 }
 

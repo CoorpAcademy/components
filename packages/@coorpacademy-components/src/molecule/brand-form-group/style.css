@@ -1,3 +1,6 @@
+@value colors: "../../variables/colors.css";
+@value dark from colors;
+
 .wrapper {
   width: 100%;
   padding-bottom: 50px;
@@ -12,7 +15,7 @@
   font-family: 'Open Sans';
   font-size: 17px;
   font-weight: 700;
-  color: #455A64;
+  color: dark;
   margin: 0;
 }
 
@@ -21,7 +24,7 @@
   font-size: 13px;
   font-weight: 400;
   font-style: italic;
-  color: #455A64;
+  color: dark;
   margin: 5px 0;
 }
 

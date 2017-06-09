@@ -1,6 +1,6 @@
 @value colors: "../../variables/colors.css";
 @value blue from colors;
-@value darkBlueGrey from colors;
+@value dark from colors;
 @value borderGrey from colors;
 
 @value breakpoints: "../../variables/breakpoints.css";
@@ -54,7 +54,7 @@
 }
 
 .productBody {
-  color: darkBlueGrey;
+  color: dark;
 }
 
 .productSeparation {

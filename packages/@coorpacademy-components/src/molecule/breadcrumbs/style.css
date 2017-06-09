@@ -1,3 +1,9 @@
+@value colors: "../../variables/colors.css";
+@value medium from colors;
+@value lightGreen from colors;
+@value blue from colors;
+@value white from colors;
+
 .wrapper {
  width: 100%;
  display: flex;
@@ -30,11 +36,11 @@
   font-family: 'Open Sans';
   font-weight: 700;
   font-size: 17px;
-  color: #455A64;
+  color: dark;
 }
 
 .breadcrumb a:hover {
-  color: #90A4AE;
+  color: medium;
 }
 
 .breadcrumb:last-child:after {
@@ -60,7 +66,7 @@
   font-family: 'Open Sans';
   font-size: 15px;
   line-height: 52px;
-  color: #ffffff;
+  color: white;
   display: block;
   height: 52px;
   padding: 0 50px;
@@ -74,7 +80,7 @@
 }
 
 .primary a {
-  background-color: #00B0FF;
+  background-color: blue;
 }
 
 .primary a:before {
@@ -86,7 +92,7 @@
 }
 
 .secondary a {
-  background-color: #A5D6A7;
+  background-color: lightGreen;
 }
 
 .secondary a:before {

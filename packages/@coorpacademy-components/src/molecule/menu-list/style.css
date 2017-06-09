@@ -3,6 +3,9 @@
 @value mobile from breakpoints;
 @value tablet from breakpoints;
 
+@value colors: "../../variables/colors.css";
+@value orange from colors;
+
 .toggleBox {
   position: absolute;
   left: -99999px;
@@ -77,12 +80,12 @@
 
 .primary a {
   border: solid 1px #ffb90d;
-  color: #ffb90d;
+  color: orange;
 }
 
 .primary a:hover {
-  background: #ffb90d;
-  border-color: #ffb90d;
+  background: orange;
+  border-color: orange;
   color: white;
 }
 
@@ -174,7 +177,7 @@
 
   .primary > a {
     border: solid 1px #ffb90d;
-    color: #ffb90d;
+    color: orange;
   }
 
   .toggler {
