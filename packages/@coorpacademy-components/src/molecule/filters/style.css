@@ -143,6 +143,11 @@
   box-sizing: border-box;
 }
 
+.timerWrapper {
+  composes: choice;
+  padding-bottom: 24px;
+}
+
 .choice label {
   margin: 0;
 }
@@ -269,6 +274,10 @@
     padding: 12px 3%;
   }
 
+  .timerWrapper {
+    padding-bottom: 24px;
+  }
+
   .activeWrapperFilters{
     max-height: 280px;
   }
@@ -311,6 +320,10 @@
   .choice{
     padding: 10px 0;
     width: 100%;
+  }
+
+  .timerWrapper {
+    padding-bottom: 24px;
   }
 
   .sorting,

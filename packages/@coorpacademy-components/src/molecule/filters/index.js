@@ -90,7 +90,7 @@ class Filters extends React.Component {
       : null;
 
     const timerView = timer !== undefined
-      ? <div className={style.choice}>
+      ? <div className={style.timerWrapper}>
           <RangeSlider {...timer} />
         </div>
       : null;

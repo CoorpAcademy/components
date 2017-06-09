@@ -46,6 +46,7 @@
     "Julien Seren-Rosso <julien.seren-rosso@coorpacademy.com>"
   ],
   "dependencies": {
+    "classnames": "^2.2.5",
     "extended-proptypes": "^1.3.0",
     "file-loader": "^0.11.1",
     "hammerjs": "^2.0.8",
