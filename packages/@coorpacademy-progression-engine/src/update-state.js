@@ -18,7 +18,8 @@ import type {
   Step
 } from './types';
 
-function isCorrect(config: MicroLearningConfig) {
+// eslint-disable-next-line flowtype/no-weak-types
+function isCorrect(config: MicroLearningConfig): Function {
   return (state: boolean = false, action: Action): boolean => {
     switch (action.type) {
       // eslint-disable-next-line no-case-declarations
@@ -31,7 +32,8 @@ function isCorrect(config: MicroLearningConfig) {
   };
 }
 
-function slides(config: MicroLearningConfig) {
+// eslint-disable-next-line flowtype/no-weak-types
+function slides(config: MicroLearningConfig): Function {
   return (array: Array<string> = [], action: Action): Array<string> => {
     switch (action.type) {
       // eslint-disable-next-line no-case-declarations
@@ -44,21 +46,22 @@ function slides(config: MicroLearningConfig) {
   };
 }
 
-function lives(config: MicroLearningConfig) {
-  return (amount: number = config.level, action: Action): number => {
-    const currentLives = amount || config.lives;
+// eslint-disable-next-line flowtype/no-weak-types
+function lives(config: MicroLearningConfig): Function {
+  return (amount: number = config.lives, action: Action): number => {
     switch (action.type) {
       // eslint-disable-next-line no-case-declarations
       case 'answer':
         const answerAction = (action: AnswerAction);
-        return answerAction.payload.isCorrect ? currentLives : currentLives - 1;
+        return answerAction.payload.isCorrect ? amount : amount - 1;
       default:
-        return currentLives;
+        return amount;
     }
   };
 }
 
-function content(config: MicroLearningConfig) {
+// eslint-disable-next-line flowtype/no-weak-types
+function content(config: MicroLearningConfig): Function {
   return (c: Content, action: Action): Content => {
     switch (action.type) {
       // eslint-disable-next-line no-case-declarations
@@ -71,20 +74,22 @@ function content(config: MicroLearningConfig) {
   };
 }
 
-function nextContent(config: MicroLearningConfig) {
+// eslint-disable-next-line flowtype/no-weak-types
+function nextContent(config: MicroLearningConfig): Function {
   return (c: Content, action: Action): Content => {
-   switch (action.type) {
-     // eslint-disable-next-line no-case-declarations
-     case 'answer':
-       const answerAction = (action: AnswerAction);
-       return answerAction.payload.nextContent;
-     default:
-       return c;
-   }
+    switch (action.type) {
+      // eslint-disable-next-line no-case-declarations
+      case 'answer':
+        const answerAction = (action: AnswerAction);
+        return answerAction.payload.nextContent;
+      default:
+        return c;
+    }
   };
 }
 
-function step(config: MicroLearningConfig) {
+// eslint-disable-next-line flowtype/no-weak-types
+function step(config: MicroLearningConfig): Function {
   return (s: Step, action: Action, state: State): Step => {
     return {
       total: config.slidesToComplete,
@@ -93,7 +98,8 @@ function step(config: MicroLearningConfig) {
   };
 }
 
-function validate(config: MicroLearningConfig) {
+// eslint-disable-next-line flowtype/no-weak-types
+function validate(config: MicroLearningConfig): Function {
   return (state: State, action: Action) => {
     switch (action.type) {
       // eslint-disable-next-line no-case-declarations
@@ -104,9 +110,9 @@ function validate(config: MicroLearningConfig) {
             'The content of the progression state does not match the content of the given answer'
           );
         }
-      break;
+        break;
     }
-  }
+  };
 }
 
 function combineReducers(
