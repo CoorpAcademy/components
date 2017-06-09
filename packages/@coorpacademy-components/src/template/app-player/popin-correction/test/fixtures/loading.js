@@ -1,20 +1,33 @@
-import defaultsDeep from 'lodash/fp/defaultsDeep';
-import correctClosed from './correct-closed';
-
-export default defaultsDeep(correctClosed, {
-  props: {
-    header: null,
-    question: {
-      answer: null
-    },
-    ressources: {
-      value: null
-    },
-    klf: {
-      value: null
-    },
-    tips: {
-      value: null
+export default {
+  header: {
+    lives: 1,
+    title: '',
+    subtitle: '',
+    cta: {
+      title: '',
+      onClick: () => {}
     }
+  },
+  question: {
+    header: '',
+    answer: ''
+  },
+  ressources: {
+    title: 'Voir le cours',
+    value: [],
+    open: false,
+    onClick: () => {}
+  },
+  klf: {
+    title: 'Point clés',
+    value: '',
+    onClick: () => {},
+    open: false
+  },
+  tips: {
+    title: 'Le saviez vous',
+    value: '',
+    onClick: () => {},
+    open: false
   }
-});
+};

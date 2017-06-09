@@ -1,13 +1,14 @@
-export default {
+import defaultsDeep from 'lodash/fp/defaultsDeep';
+import loading from './loading';
+
+export default defaultsDeep(loading, {
   props: {
     header: {
       fail: false,
-      lives: 1,
       title: 'Good Job',
       subtitle: 'Bonne réponse',
       cta: {
-        title: 'Continue',
-        onClick: () => {}
+        title: 'Continue'
       }
     },
     question: {
@@ -15,7 +16,6 @@ export default {
       answer: "Grâce à des outils d'analyse et de surveillance"
     },
     ressources: {
-      title: 'Voir le cours',
       value: [
         {
           type: 'video',
@@ -56,21 +56,13 @@ export default {
           selected: false,
           onClick: () => {}
         }
-      ],
-      open: false,
-      onClick: () => {}
+      ]
     },
     klf: {
-      title: 'Point clés',
-      value: "Les éco-innovations sont divisées en 3 catégories : intégrées, radicales et économie de la fonctionnalité. La dernière consiste à remplacer un produit par un service. C'est par exemple le cas du système Vélib'.",
-      onClick: () => {},
-      open: false
+      value: "Les éco-innovations sont divisées en 3 catégories : intégrées, radicales et économie de la fonctionnalité. La dernière consiste à remplacer un produit par un service. C'est par exemple le cas du système Vélib'."
     },
     tips: {
-      title: 'Le saviez vous',
-      value: 'Les smart cities, ou villes intelligentes, portent des solutions dans lesquelles se conjuguent les 3 types d’éco-innovations. En France, il en existait vingt début 2016, la plus grande étant Paris.',
-      onClick: () => {},
-      open: false
+      value: 'Les smart cities, ou villes intelligentes, portent des solutions dans lesquelles se conjuguent les 3 types d’éco-innovations. En France, il en existait vingt début 2016, la plus grande étant Paris.'
     }
   }
-};
+});
