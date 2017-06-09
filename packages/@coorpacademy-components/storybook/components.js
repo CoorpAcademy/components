@@ -30,8 +30,6 @@ import Star from '../src/atom/star';
 import TabContent from '../src/atom/tab-content';
 import Tab from '../src/atom/tab';
 import Title from '../src/atom/title';
-import AccordionPart from '../src/molecule/accordion-part';
-import Accordion from '../src/molecule/accordion';
 import BattleRequest from '../src/molecule/battle-request';
 import BrandCardCreate from '../src/molecule/brand-card-create';
 import BrandCard from '../src/molecule/brand-card';
@@ -100,6 +98,9 @@ import QuestionRange from '../src/molecule/questions/question-range';
 import SlidesFooter from '../src/molecule/slides/slides-footer';
 import SlidesHeader from '../src/molecule/slides/slides-header';
 import SlidesPlayer from '../src/molecule/slides/slides-player';
+import Container from '../src/organism/accordion/container';
+import Part from '../src/organism/accordion/part';
+import Toggler from '../src/organism/accordion/toggler';
 import BrandForm from '../src/organism/brand-form';
 import BrandTable from '../src/organism/brand-table';
 import BrandUpload from '../src/organism/brand-upload';
@@ -230,11 +231,6 @@ import StarFixtureEnable from '../src/atom/star/test/fixtures/enable';
 import TabContentFixtureDefault from '../src/atom/tab-content/test/fixtures/default';
 import TabFixtureDefault from '../src/atom/tab/test/fixtures/default';
 import TitleFixtureFixture from '../src/atom/title/test/fixtures/fixture';
-import AccordionPartFixtureDefault from '../src/molecule/accordion-part/test/fixtures/default';
-import AccordionPartFixtureOpen from '../src/molecule/accordion-part/test/fixtures/open';
-import AccordionPartFixtureOpenable from '../src/molecule/accordion-part/test/fixtures/openable';
-import AccordionPartFixtureTogglable from '../src/molecule/accordion-part/test/fixtures/togglable';
-import AccordionFixtureDefault from '../src/molecule/accordion/test/fixtures/default';
 import BattleRequestFixtureDefault from '../src/molecule/battle-request/test/fixtures/default';
 import BrandCardCreateFixtureDefault from '../src/molecule/brand-card-create/test/fixtures/default';
 import BrandCardFixtureDefault from '../src/molecule/brand-card/test/fixtures/default';
@@ -427,6 +423,11 @@ import SlidesPlayerFixturePicker from '../src/molecule/slides/slides-player/test
 import SlidesPlayerFixtureQcmImage from '../src/molecule/slides/slides-player/test/fixtures/qcm-image';
 import SlidesPlayerFixtureQcm from '../src/molecule/slides/slides-player/test/fixtures/qcm';
 import SlidesPlayerFixtureRange from '../src/molecule/slides/slides-player/test/fixtures/range';
+import ContainerFixtureDefault from '../src/organism/accordion/container/test/fixtures/default';
+import PartFixtureDefault from '../src/organism/accordion/part/test/fixtures/default';
+import PartFixtureOpen from '../src/organism/accordion/part/test/fixtures/open';
+import TogglerFixtureAllAreOpenable from '../src/organism/accordion/toggler/test/fixtures/all-are-openable';
+import TogglerFixtureOnlyOne from '../src/organism/accordion/toggler/test/fixtures/only-one';
 import BrandFormFixtureDashboard from '../src/organism/brand-form/test/fixtures/dashboard';
 import BrandFormFixtureDefault from '../src/organism/brand-form/test/fixtures/default';
 import BrandFormFixtureGeneralSettings from '../src/organism/brand-form/test/fixtures/general-settings';
@@ -575,8 +576,6 @@ export const components = {
     Title
   },
   Molecule: {
-    AccordionPart,
-    Accordion,
     BattleRequest,
     BrandCardCreate,
     BrandCard,
@@ -653,6 +652,11 @@ export const components = {
     SlidesFooter,
     SlidesHeader,
     SlidesPlayer
+  },
+  OrganismAccordion: {
+    Container,
+    Part,
+    Toggler
   },
   Organism: {
     BrandForm,
@@ -859,15 +863,6 @@ export const fixtures = {
     }
   },
   Molecule: {
-    AccordionPart: {
-      Default: AccordionPartFixtureDefault,
-      Open: AccordionPartFixtureOpen,
-      Openable: AccordionPartFixtureOpenable,
-      Togglable: AccordionPartFixtureTogglable
-    },
-    Accordion: {
-      Default: AccordionFixtureDefault
-    },
     BattleRequest: {
       Default: BattleRequestFixtureDefault
     },
@@ -1203,6 +1198,19 @@ export const fixtures = {
       QcmImage: SlidesPlayerFixtureQcmImage,
       Qcm: SlidesPlayerFixtureQcm,
       Range: SlidesPlayerFixtureRange
+    }
+  },
+  OrganismAccordion: {
+    Container: {
+      Default: ContainerFixtureDefault
+    },
+    Part: {
+      Default: PartFixtureDefault,
+      Open: PartFixtureOpen
+    },
+    Toggler: {
+      AllAreOpenable: TogglerFixtureAllAreOpenable,
+      OnlyOne: TogglerFixtureOnlyOne
     }
   },
   Organism: {
@@ -1886,25 +1894,6 @@ export const dependencies = {
       "children": {
         "Molecule": {
           "SetupSlide": true
-        }
-      }
-    },
-    "AccordionPart": {
-      "parents": {
-        "Molecule": {
-          "Accordion": true
-        }
-      },
-      "children": {
-        "MoleculeQuestions": {
-          "Picker": true
-        }
-      }
-    },
-    "Accordion": {
-      "children": {
-        "Molecule": {
-          "AccordionPart": true
         }
       }
     },
@@ -2631,6 +2620,40 @@ export const dependencies = {
     }
   },
   "MoleculeQuestions": {
+    "Picker": {
+      "parents": {
+        "OrganismAccordion": {
+          "Toggler": true,
+          "Part": true
+        },
+        "MoleculeSlides": {
+          "SlidesPlayer": true
+        }
+      },
+      "children": {}
+    },
+    "QcmImage": {
+      "parents": {
+        "OrganismAccordion": {
+          "Toggler": true
+        },
+        "MoleculeSlides": {
+          "SlidesPlayer": true
+        }
+      },
+      "children": {}
+    },
+    "Qcm": {
+      "parents": {
+        "OrganismAccordion": {
+          "Toggler": true
+        },
+        "MoleculeSlides": {
+          "SlidesPlayer": true
+        }
+      },
+      "children": {}
+    },
     "DropDown": {
       "parents": {
         "MoleculeSlides": {
@@ -2651,33 +2674,6 @@ export const dependencies = {
       },
       "children": {}
     },
-    "Picker": {
-      "parents": {
-        "MoleculeSlides": {
-          "SlidesPlayer": true
-        },
-        "Molecule": {
-          "AccordionPart": true
-        }
-      },
-      "children": {}
-    },
-    "QcmImage": {
-      "parents": {
-        "MoleculeSlides": {
-          "SlidesPlayer": true
-        }
-      },
-      "children": {}
-    },
-    "Qcm": {
-      "parents": {
-        "MoleculeSlides": {
-          "SlidesPlayer": true
-        }
-      },
-      "children": {}
-    },
     "QuestionRange": {
       "parents": {
         "MoleculeSlides": {
@@ -2687,6 +2683,36 @@ export const dependencies = {
       "children": {
         "Molecule": {
           "RangeSlider": true
+        }
+      }
+    }
+  },
+  "OrganismAccordion": {
+    "Part": {
+      "parents": {
+        "OrganismAccordion": {
+          "Container": true
+        }
+      },
+      "children": {
+        "MoleculeQuestions": {
+          "Picker": true
+        }
+      }
+    },
+    "Container": {
+      "children": {
+        "OrganismAccordion": {
+          "Part": true
+        }
+      }
+    },
+    "Toggler": {
+      "children": {
+        "MoleculeQuestions": {
+          "Picker": true,
+          "QcmImage": true,
+          "Qcm": true
         }
       }
     }

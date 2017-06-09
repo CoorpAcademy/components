@@ -3,6 +3,6 @@ import Default from './default';
 
 export default defaultsDeep(Default, {
   props: {
-    openable: true
+    isOpen: true
   }
 });

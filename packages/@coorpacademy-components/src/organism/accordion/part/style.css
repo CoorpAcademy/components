@@ -29,17 +29,17 @@
 }
 
 .arrow {
-  composes: fa from '../../variables/fontawesome.css';
+  composes: fa from '../../../variables/fontawesome.css';
   color: #B9B9B9;
   font-size: 24px;
 }
 
 .down {
   composes: arrow;
-  composes: fa-plus from '../../variables/fontawesome.css';
+  composes: fa-plus from '../../../variables/fontawesome.css';
 }
 
 .up {
   composes: arrow;
-  composes: fa-minus from '../../variables/fontawesome.css';
+  composes: fa-minus from '../../../variables/fontawesome.css';
 }

@@ -2,18 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
 import map from 'lodash/fp/map';
-import Part from '../accordion-part';
+import noop from 'lodash/fp/noop';
+import Part from '../part';
 import style from './style.css';
 
 const Accordion = props => {
-  const {tabProps, children = [], openable = false} = props;
+  const {tabProps, children = [], onClick = noop} = props;
 
   const accordion = map.convert({cap: false})((child, key) => {
     const title = get([key, 'title'], tabProps);
-    const isOpen = get([key, 'open'], tabProps);
+    const isOpen = get([key, 'isOpen'], tabProps);
+    const handleOnClick = () => onClick(key);
+
     return (
       <div key={key} className={style.wrapper}>
-        <Part title={title} content={child} openable={openable} open={isOpen} />
+        <Part title={title} content={child} isOpen={isOpen} onClick={handleOnClick} />
       </div>
     );
   }, children);
@@ -28,7 +31,7 @@ const Accordion = props => {
 Accordion.propTypes = {
   children: PropTypes.arrayOf(PropTypes.node),
   tabProps: PropTypes.arrayOf(PropTypes.shape(Part.PropTypes)),
-  openable: PropTypes.bool
+  onClick: PropTypes.func
 };
 
 export default Accordion;

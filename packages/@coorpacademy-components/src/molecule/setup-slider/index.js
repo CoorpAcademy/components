@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import map from 'lodash/fp/map';
 import SetupSlide from '../setup-slide';
-import Accordion from '../accordion';
+import Accordion from '../../organism/accordion/toggler';
 
 const SetupSlider = props => {
   const {tabProps, slides = []} = props;
@@ -13,14 +13,14 @@ const SetupSlider = props => {
   );
 
   return (
-    <Accordion tabProps={tabProps} openable>
+    <Accordion tabProps={tabProps} type={'all'}>
       {slidesView}
     </Accordion>
   );
 };
 
 SetupSlider.propTypes = {
-  tabProps: Accordion.propTypes.tabProps,
+  tabProps: PropTypes.arrayOf(PropTypes.shape(Accordion.PropTypes)),
   slides: PropTypes.arrayOf(PropTypes.shape(SetupSlide.propTypes))
 };
 
