@@ -2,7 +2,7 @@
 import test from 'ava';
 import omit from 'lodash/fp/omit';
 import updateState from '../update-state';
-import type {Action, State} from '../types';
+import type {AnswerAction, State} from '../types';
 
 const engine = {
   ref: 'microlearning',
@@ -25,7 +25,7 @@ test('should update state when answering a question correctly', t => {
     }
   });
 
-  const action: Action = Object.freeze({
+  const action: AnswerAction = Object.freeze({
     type: 'answer',
     payload: {
       content: {
@@ -82,7 +82,7 @@ test('should update state when answering a question incorrectly', t => {
     }
   });
 
-  const action: Action = Object.freeze({
+  const action: AnswerAction = Object.freeze({
     type: 'answer',
     payload: {
       content: {
@@ -151,7 +151,7 @@ test("should throw if the state's nextContent is not the same as the action's co
     }
   });
 
-  const action: Action = Object.freeze({
+  const action: AnswerAction = Object.freeze({
     type: 'answer',
     payload: {
       content: {
