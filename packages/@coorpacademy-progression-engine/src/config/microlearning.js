@@ -8,7 +8,8 @@ const realConfigurations: Array<MicroLearningConfig> = [
     lives: 1,
     maxTypos: 2,
     slidesToComplete: 4,
-    answerBoundaryLimit: 5
+    answerBoundaryLimit: 5,
+    starsPerCorrectAnswer: 4
   }
 ];
 

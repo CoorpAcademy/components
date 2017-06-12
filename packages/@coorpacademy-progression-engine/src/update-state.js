@@ -99,6 +99,20 @@ function step(config: MicroLearningConfig): Function {
 }
 
 // eslint-disable-next-line flowtype/no-weak-types
+function stars(config: MicroLearningConfig): Function {
+  return (currentStars: number = 0, action: Action): Step => {
+    switch (action.type) {
+      // eslint-disable-next-line no-case-declarations
+      case 'answer':
+        const answerAction = (action: AnswerAction);
+        return (answerAction.payload.isCorrect) ? currentStars + config.starsPerCorrectAnswer : currentStars;
+      default:
+        return currentStars;
+    }
+  };
+}
+
+// eslint-disable-next-line flowtype/no-weak-types
 function validate(config: MicroLearningConfig): Function {
   return (state: State, action: Action) => {
     switch (action.type) {
@@ -138,6 +152,7 @@ const reduceAction = combineReducers([
   {key: 'slides', fn: slides},
   {key: 'lives', fn: lives},
   {key: 'step', fn: step},
+  {key: 'stars', fn: stars},
   {key: 'content', fn: content},
   {key: 'nextContent', fn: nextContent}
 ]);
