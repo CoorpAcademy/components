@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import map from 'lodash/fp/map';
-import getOr from 'lodash/fp/getOr';
 import Select from '../../atom/select';
 import InputText from '../../atom/input-text';
 import InputColor from '../../atom/input-color';
@@ -68,15 +67,13 @@ const BrandFormGroup = props => {
   };
 
   const fieldsList = map.convert({cap: false})(buildField, fields);
-  const fieldsLayoutStyle = getOr('', fieldsLayout, style);
-
   return (
     <div className={style.wrapper}>
       <div className={style.title}>
         <h3>{title}</h3>
         <h4>{subtitle}</h4>
       </div>
-      <div className={fieldsLayoutStyle}>
+      <div className={fieldsLayout === 'grid' ? style.grid : style.list}>
         {fieldsList}
       </div>
     </div>

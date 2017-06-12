@@ -10,7 +10,15 @@
   margin-top: 20px;
   margin-bottom: 20px;
 }
-
+.list {
+}
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+.grid .field {
+  margin-right: 20px;
+}
 .title h3 {
   font-family: 'Open Sans';
   font-size: 17px;
