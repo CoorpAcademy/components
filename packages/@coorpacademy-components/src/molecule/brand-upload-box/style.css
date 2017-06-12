@@ -1,8 +1,9 @@
 @value colors: "../../variables/colors.css";
-@value green from colors;
-@value blue from colors;
-@value darkGrey from colors;
-@value borderGrey from colors;
+@value positive from colors;
+@value brand from colors;
+@value dark from colors;
+@value xtraLightGrey from colors;
+@value white from colors;
 
 .wrapper {
   width: 100%;
@@ -17,8 +18,8 @@
   height: 54px;
   box-sizing: border-box;
   font-size: 30px;
-  background: blue;
-  color: #fff;
+  background: brand;
+  color: white;
   border-radius: 50%;
   padding: 12px;
   margin-bottom: 15px;
@@ -30,7 +31,7 @@
 }
 
 .default {
-  border: 2px dashed borderGrey;
+  border: 2px dashed xtraLightGrey;
   border-radius: 4px;
   overflow: hidden;
   text-align: center;
@@ -47,11 +48,11 @@
 
 .dropping {
   composes: default;
-  border: 3px dashed blue;
+  border: 3px dashed brand;
 }
 
 .cont {
-  color: darkGrey;
+  color: dark;
   height: 200px;
   display: flex;
   align-items: center;
@@ -63,7 +64,7 @@
   font-family: 'Open Sans';
   font-weight: 600;
   font-size: 17px;
-  color: darkGrey;
+  color: dark;
 }
 
 .browse {
@@ -71,7 +72,7 @@
   font-family: 'Open Sans';
   font-weight: 600;
   font-size: 17px;
-  color: blue;
+  color: brand;
 }
 
 .inputFile {

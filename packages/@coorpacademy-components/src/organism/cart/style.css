@@ -1,7 +1,7 @@
 @value colors: "../../variables/colors.css";
 @value light from colors;
 @value medium from colors;
-@value yellow from colors;
+@value battle from colors;
 
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
@@ -36,7 +36,7 @@
 
 .titleContainer {
     height: 103px;
-    background-color: yellow;
+    background-color: battle;
     display: flex;
     align-items: center;
     justify-content: center;

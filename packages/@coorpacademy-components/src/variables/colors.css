@@ -1,30 +1,24 @@
-@value grey: #8f8f8f;
-@value darkGrey: #484848;
-@value borderGrey: #d8d8d8;
-@value light: #F7F7F7;
-@value selectTab: #ECEFF1;
-
-/*---- good ----*/
-
-@value blue: #00B0FF;
+@value brand: #00B0FF;
 @value primaryAdd1: #B3E5FC;
 @value primaryAdd2: #0091EA;
 @value primaryAdd3: #0277BD;
 @value primaryAdd4: #015798;
 
 @value xtraLightGrey: #FAFAFA;
+@value light: #ECEFF1;
 @value medium: #90A4AE;
 @value dark: #546E7A;
+@value grey: #607D8B;
 
 @value orangeAdd: #FF7043;
 @value orange: #FFA000;
 
-@value green: #3EC483;
+@value positive: #3EC483;
 @value lightGreen: #66BB6A;
 
-@value red: #F73F52;
+@value negative: #F73F52;
 
-@value yellow: #FFE100;
+@value battle: #FFE100;
 
 @value white: #fff;
 @value black: #14171A;

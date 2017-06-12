@@ -1,17 +1,17 @@
 @value colors: "../../variables/colors.css";
-@value borderGrey from colors;
-@value blue from colors;
+@value xtraLightGrey from colors;
+@value brand from colors;
 
 .background {
   width: 100%;
   height: 25px;
-  background-color: borderGrey;
+  background-color: xtraLightGrey;
   border-radius: 5px;
   position: relative;
 }
 
 .progress {
-  background-color: blue;
+  background-color: brand;
   border-radius: 5px;
   height: 100%;
 }

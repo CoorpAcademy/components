@@ -2,7 +2,7 @@
 @value dark from colors;
 @value white from colors;
 @value orange from colors;
-@value blue from colors;
+@value brand from colors;
 
 .wrapper {
   width: 300px;
@@ -82,5 +82,5 @@
 }
 
 .see a:hover {
-  color: blue;
+  color: brand;
 }

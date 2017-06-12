@@ -1,7 +1,7 @@
 @value breakpoints: "../../variables/breakpoints.css";
 @value colors: "../../variables/colors.css";
 @value mobile from breakpoints;
-@value darkGrey from colors;
+@value dark from colors;
 @value light from colors;
 
 .header {
@@ -14,7 +14,7 @@
   border: 0;
   font-weight: 700;
   font-family: 'Open Sans';
-  color: darkGrey;
+  color: dark;
   padding: 0 30px 0 15px;
   width: 150px;
   cursor: pointer;

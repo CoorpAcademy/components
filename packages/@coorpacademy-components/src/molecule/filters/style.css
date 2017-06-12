@@ -2,10 +2,12 @@
 @value desktop from breakpoints;
 @value mobile from breakpoints;
 @value tablet from breakpoints;
+
 @value colors: "../../variables/colors.css";
-@value DARK from colors;
+@value dark from colors;
 @value xtraLightGrey from colors;
-@value selectTab from colors;
+@value light from colors;
+@value white from colors;
 
 .search {
   display: block;
@@ -16,7 +18,7 @@
   background: xtraLightGrey;
   min-height: 50px;
   box-sizing: border-box;
-  border-bottom: 1px solid selectTab;
+  border-bottom: 1px solid light;
 }
 
 .wrapperNone {
@@ -102,7 +104,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  background: selectTab;
+  background: light;
   position: absolute;
   top: 0;
   right: 0;
@@ -163,23 +165,23 @@
 }
 
 .default {
-  border-right: solid 1px selectTab;
-  border-bottom: solid 1px selectTab;
+  border-right: solid 1px light;
+  border-bottom: solid 1px light;
 }
 
 .activeDefault {
-  border-right: solid 1px selectTab;
-  background: selectTab;
+  border-right: solid 1px light;
+  background: light;
 }
 
 .activeWrapperSortBy {
-  border-left: solid 1px selectTab;
-  background: selectTab;
+  border-left: solid 1px light;
+  background: light;
 }
 
 .wrapperSortBy {
-  border-left: solid 1px selectTab;
-  border-bottom: solid 1px selectTab;
+  border-left: solid 1px light;
+  border-bottom: solid 1px light;
 }
 
 .wrapperFilters,
@@ -188,7 +190,7 @@
 .activeSorting {
   width: 100%;
   box-sizing: border-box;
-  background: selectTab;
+  background: light;
 }
 .activeSorting {
   max-height: 150px;
@@ -267,7 +269,7 @@
     padding: 65px 10px 0 10px;
   }
   .search {
-    border-top: 1px solid selectTab;
+    border-top: 1px solid light;
   }
   .choice {
     width: 50%;
@@ -304,7 +306,7 @@
 
 @media mobile {
   .search {
-    border-top: 1px solid selectTab;
+    border-top: 1px solid light;
   }
   .activeSorting {
     padding: 65px 10px 0;

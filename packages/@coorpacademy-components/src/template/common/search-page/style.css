@@ -2,9 +2,10 @@
 @value desktop from breakpoints;
 @value tablet from breakpoints;
 @value mobile from breakpoints;
+
 @value colors: "../../../variables/colors.css";
 @value light from colors;
-@value borderGrey from colors;
+@value xtraLightGrey from colors;
 @value dark from colors;
 
 .cardsWrapper {
@@ -18,7 +19,7 @@
 }
 
 .noresults {
-  border-top: solid 1px borderGrey;
+  border-top: solid 1px xtraLightGrey;
   min-height: 600px;
   box-sizing: border-box;
   padding: 16px 0;

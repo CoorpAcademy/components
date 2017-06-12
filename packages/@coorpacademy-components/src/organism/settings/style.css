@@ -1,6 +1,6 @@
 @value colors: "../../variables/colors.css";
-@value blue from colors;
-@value borderGrey from colors;
+@value brand from colors;
+@value xtraLightGrey from colors;
 @value medium from colors;
 
 @value breakpoints: "../../variables/breakpoints.css";
@@ -33,7 +33,7 @@
 
 .backToCatalogButton {
   padding: 35px;
-  border: solid 1px borderGrey;
+  border: solid 1px xtraLightGrey;
   color: medium;
   background: #ECEFF1;
   display:inline;

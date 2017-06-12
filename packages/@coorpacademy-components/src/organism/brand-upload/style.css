@@ -1,11 +1,11 @@
 @value colors: "../../variables/colors.css";
-@value red from colors;
+@value negative from colors;
 @value orangeAdd from colors;
 @value lightGreen from colors;
 @value xtraLightGrey from colors;
 @value dark from colors;
-@value blue from colors;
-@value green from colors;
+@value brand from colors;
+@value positive from colors;
 
 .wrapper {
   width: 100%;
@@ -39,7 +39,7 @@
 }
 
 .backDesc:hover {
-  color: blue;
+  color: brand;
 }
 
 .title {
@@ -50,7 +50,7 @@
   font-family: 'Open Sans';
   font-size: 17px;
   font-weight: 700;
-  color: darkGrey;
+  color: dark;
   margin: 0;
 }
 
@@ -77,7 +77,7 @@
 
 .error {
   composes: notification;
-  background-color: red;
+  background-color: negative;
   font-style: italic;
 }
 
@@ -92,7 +92,7 @@
 }
 
 .progress div {
-  background: green;
+  background: positive;
 }
 
 @keyframes notificationAppear {

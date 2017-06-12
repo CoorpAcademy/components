@@ -1,7 +1,7 @@
 @value colors: "../../variables/colors.css";
 @value xtraLightGrey from colors;
 @value lightGreen from colors;
-@value blue from colors;
+@value brand from colors;
 
 .wrapper {
   width: 100%;
@@ -17,7 +17,7 @@
 .title {
   font-family: 'Open Sans';
   font-size: 14px;
-  color: blue;
+  color: brand;
   font-weight: 700;
 }
 
@@ -31,7 +31,7 @@
   font-family: 'Open Sans';
   font-weight: 600;
   font-size: 14px;
-  color: blue;
+  color: brand;
   margin-right: 16px;
 }
 
@@ -40,7 +40,7 @@
   font-size: 30px;
   width: 40px;
   font-weight: 500;
-  color: blue;
+  color: brand;
   cursor: pointer;
   text-align: center;
   margin-left: 24px;
