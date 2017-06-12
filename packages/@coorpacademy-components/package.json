@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/components",
-  "version": "5.3.20",
+  "version": "5.3.21",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -55,7 +55,7 @@
   },
   "devDependencies": {
     "@coorpacademy/translate": "5.3.4",
-    "@coorpacademy/webpack-config": "6.0.5",
+    "@coorpacademy/webpack-config": "6.0.6",
     "@kadira/storybook": "^2.35.3",
     "@kadira/storybook-addon-knobs": "^1.7.1",
     "autoprefixer": "^7.1.1",
