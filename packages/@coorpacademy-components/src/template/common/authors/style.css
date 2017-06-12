@@ -6,8 +6,9 @@
 @value colors: "../../../variables/colors.css";
 @value black from colors;
 @value light from colors;
-@value borderGrey from colors;
+@value xtraLightGrey from colors;
 @value medium from colors;
+@value brand from colors;
 
 .wrapper {
   composes: wrapper from '../layout.css';
@@ -34,7 +35,7 @@
   height: 16%;
   vertical-align: top;
   overflow: hidden;
-  border: 1px solid borderGrey;
+  border: 1px solid xtraLightGrey;
   background-color: light;
   min-height: 180px;
   line-height: 180px;
@@ -124,7 +125,7 @@
 .desc a {
   font-family: Open Sans;
   font-weight: 600;
-  color: #00b0ff;
+  color: brand;
   text-decoration: none;
 }
 

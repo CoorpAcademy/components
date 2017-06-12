@@ -1,7 +1,7 @@
 @value colors: "../../variables/colors.css";
 @value medium from colors;
 @value lightGreen from colors;
-@value blue from colors;
+@value brand from colors;
 @value white from colors;
 
 .wrapper {
@@ -80,7 +80,7 @@
 }
 
 .primary a {
-  background-color: blue;
+  background-color: brand;
 }
 
 .primary a:before {

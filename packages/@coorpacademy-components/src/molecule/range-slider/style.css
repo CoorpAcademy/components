@@ -1,7 +1,7 @@
 @value colors: "../../variables/colors.css";
 @value black from colors;
-@value borderGrey from colors;
-@value darkGrey from colors;
+@value xtraLightGrey from colors;
+@value dark from colors;
 
 @value handleSize: 30px;
 @value handlePosition: translate3d(-15px,-13px,0);
@@ -21,7 +21,7 @@
 
 .title {
   composes: text;
-  color: darkGrey;
+  color: dark;
   text-align: center;
   user-select: none;
   width: auto;
@@ -73,7 +73,7 @@
   height: 6px;
   width: 100%;
   border-radius: 10px;
-  background-color: borderGrey;
+  background-color: xtraLightGrey;
 }
 
 .track {

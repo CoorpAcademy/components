@@ -6,8 +6,8 @@
 @value colors: "../../variables/colors.css";
 @value dark from colors;
 @value white from colors;
-@value blue from colors;
-@value red from colors;
+@value brand from colors;
+@value negative from colors;
 
 .wrapper {
   width: 100%;
@@ -32,7 +32,7 @@
 }
 
 .modifiedWrapper:before {
-  border-top-color: blue;
+  border-top-color: brand;
 }
 
 .header {
@@ -101,7 +101,7 @@
 }
 
 .error input {
-  border-color: red;
+  border-color: negative;
 }
 
 @media mobile {

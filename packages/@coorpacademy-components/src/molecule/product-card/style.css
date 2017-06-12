@@ -1,7 +1,8 @@
 @value colors: "../../variables/colors.css";
-@value blue from colors;
+@value brand from colors;
 @value dark from colors;
-@value borderGrey from colors;
+@value xtraLightGrey from colors;
+@value light from colors;
 
 @value breakpoints: "../../variables/breakpoints.css";
 @value desktop from breakpoints;
@@ -9,14 +10,14 @@
 @value mobile from breakpoints;
 
 .product {
-  box-shadow: 0 0 4px 0 lightgrey;
+  box-shadow: 0 0 4px 0 light;
   margin: 5px;
   background-color: white;
 }
 
 .productHeader {
   color: white;
-  background-color: blue;
+  background-color: brand;
   text-align: center;
   padding: 10px;
 }
@@ -58,7 +59,7 @@
 }
 
 .productSeparation {
-  border: solid 1px borderGrey;
+  border: solid 1px xtraLightGrey;
   border-bottom: none;
   margin: 20px 0;
 }

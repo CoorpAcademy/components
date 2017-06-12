@@ -1,5 +1,5 @@
 @value colors: "../../variables/colors.css";
-@value blue from colors;
+@value brand from colors;
 @value dark from colors;
 @value light from colors;
 
@@ -19,7 +19,7 @@
 }
 
 .premiumTitleText {
-  color: blue;
+  color: brand;
   font-weight: 600;
   font-size: 16px;
   margin-left: 20px;
@@ -39,7 +39,7 @@
 
 .cancelSubscriptionLink {
   text-decoration: none;
-  color: blue;
+  color: brand;
 }
 
 .cancelSubscriptionLink:hover {

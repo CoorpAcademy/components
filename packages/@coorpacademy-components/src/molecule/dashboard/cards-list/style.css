@@ -5,7 +5,7 @@
 @value tablet from breakpoints;
 @value desktop from breakpoints;
 
-@value darkGrey from colors;
+@value dark from colors;
 
 .wrapper {
   padding: 20px 30px 10px;
@@ -27,7 +27,7 @@
   font-family: 'Open Sans';
   font-size: 19px;
   font-weight: 600;
-  color: darkGrey;
+  color: dark;
   margin-bottom: 10px;
   display: inline-block;
 }
@@ -43,7 +43,7 @@
   font-family: 'Open Sans';
   font-size: 12px;
   font-weight: 100;
-  color: darkGrey;
+  color: dark;
   cursor: pointer;
   position: relative;
   margin-right: 15px;
@@ -57,7 +57,7 @@
 .showMore:before {
   font-size: 12px;
   font: normal normal normal 12px/1 FontAwesome;
-  color: darkGrey;
+  color: dark;
   position: absolute;
   right: -10px;
   top: 0px;

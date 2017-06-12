@@ -1,12 +1,13 @@
 @value colors: "../../variables/colors.css";
-@value green from colors;
+@value positive from colors;
 @value lightGreen from colors;
-@value red from colors;
-@value orangeAdd from colors;
+@value negative from colors;
+@value white from colors;
 @value dark from colors;
+@value light from colors;
 
 .promoCode {
-  box-shadow: 0 0 4px 0 lightgrey;
+  box-shadow: 0 0 4px 0 light;
   margin: 20px 5px;
   padding: 5px;
   background-color: white;
@@ -36,7 +37,7 @@
 .promoCodeButton {
   border: 0px;
   font-size: 18px;
-  color: #FFFFFF;
+  color: white;
   background-color: #BBBBBB;
   width: 30%;
   cursor: pointer;
@@ -47,11 +48,11 @@
 }
 
 .promoCodeButtonOnSuccess {
-  box-shadow: 0 0 4px 0 green;
+  box-shadow: 0 0 4px 0 positive;
 }
 
 .promoCodeButtonOnError {
-  box-shadow: 0 0 4px 0 red;
+  box-shadow: 0 0 4px 0 negative;
 }
 
 .promoCodeDescription, .promoCodeError {
@@ -60,13 +61,13 @@
 }
 
 .promoCodeDescription {
-  border: solid 1px green;
+  border: solid 1px positive;
   background-color: lightGreen;
-  color: green;
+  color: positive;
 }
 
 .promoCodeError {
-  border: solid 1px red;
-  background-color: orangeAdd;
-  color: red;
+  border: solid 1px negative;
+  background-color: white;
+  color: negative;
 }

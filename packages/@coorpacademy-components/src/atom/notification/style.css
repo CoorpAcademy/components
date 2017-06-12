@@ -1,10 +1,10 @@
 @value colors: "../../variables/colors.css";
 @value dark from colors;
 @value orange from colors;
-@value yellow from colors;
+@value battle from colors;
 @value lightGreen from colors;
 @value white from colors;
-@value red from colors;
+@value negative from colors;
 
 .message {
   width: 100%;
@@ -43,12 +43,12 @@
 
 .error {
   composes: message;
-  color: red;
-  border-color: red;
+  color: negative;
+  border-color: negative;
 }
 
 .error span {
-  background-color: red;
+  background-color: negative;
 }
 
 .warning {

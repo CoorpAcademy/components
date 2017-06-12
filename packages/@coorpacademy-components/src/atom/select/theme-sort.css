@@ -1,6 +1,6 @@
 @value breakpoints: "../../variables/breakpoints.css";
 @value colors: "../../variables/colors.css";
-@value darkGrey from colors;
+@value dark from colors;
 
 .sort {
   background: #fff;
@@ -46,7 +46,7 @@
   appearance: none;
   font-size: 12px;
   padding: 0 15px;
-  color: darkGrey;
+  color: dark;
   cursor: pointer;
 }
 

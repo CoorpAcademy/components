@@ -1,7 +1,7 @@
 @value colors: "../../variables/colors.css";
-@value blue from colors;
-@value darkBlue from colors;
-@value green from colors;
+@value brand from colors;
+@value darkbrand from colors;
+@value positive from colors;
 @value lightGreen from colors;
 
 .unsubscribe {
@@ -37,18 +37,18 @@
 .keepSubscriptionButton {
   composes: button;
   border: none;
-  background-color: blue;
+  background-color: brand;
   color: white;
 }
 
 .keepSubscriptionButton:hover {
-  background-color: darkBlue;
+  background-color: darkbrand;
 }
 
 .unsubscribeButton {
   composes: button;
   background-color: white;
-  color: blue;
+  color: brand;
   border: 1px solid;
 }
 
@@ -60,7 +60,7 @@
   white-space: pre-line;
   text-align: left;
   padding: 20px;
-  border: solid 1px green;
+  border: solid 1px positive;
   background-color: lightGreen;
-  color: green;
+  color: positive;
 }

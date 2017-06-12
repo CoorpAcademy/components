@@ -1,9 +1,9 @@
 @value colors: "../../variables/colors.css";
 @value dark from colors;
-@value borderGrey from colors;
+@value xtraLightGrey from colors;
 @value orange from colors;
-@value blue from colors;
-@value yellow from colors;
+@value brand from colors;
+@value battle from colors;
 
 .default {
   display: flex;
@@ -36,7 +36,7 @@
   top: 6px; left: 5px;
   font-size: 18px;
   line-height: 0.8;
-  color: blue;
+  color: brand;
   transition: all .2s;
 }
 
@@ -51,8 +51,8 @@
 }
 
 .default label {
-  border: solid 2px borderGrey;
-  background-color: borderGrey;
+  border: solid 2px xtraLightGrey;
+  background-color: xtraLightGrey;
   width: 23px;
   height: 23px;
   border-radius: 2px;
@@ -71,9 +71,9 @@
 }
 
 .modified input {
-  border-color: yellow;
+  border-color: battle;
 }
 
 .modified label {
-  border: 3px solid yellow;
+  border: 3px solid battle;
 }

@@ -1,5 +1,5 @@
 @value colors: "../../variables/colors.css";
-@value borderGrey from colors;
+@value xtraLightGrey from colors;
 
 .question {
   composes: no-label from './theme-no-label.css';

@@ -1,6 +1,6 @@
 @value colors: "../../variables/colors.css";
 @value dark from colors;
-@value blue from colors;
+@value brand from colors;
 @value white from colors;
 
 .wrapper {
@@ -77,8 +77,8 @@
   width: 46px;
   height: 46px;
   text-align: center;
-  color: blue;
-  border: solid 2px blue;
+  color: brand;
+  border: solid 2px brand;
   z-index: -1;
 }
 

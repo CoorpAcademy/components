@@ -1,10 +1,11 @@
 @value colors: "../../variables/colors.css";
-@value blue from colors;
+@value brand from colors;
 @value dark from colors;
-@value borderGrey from colors;
-@value red from colors;
-@value yellow from colors;
+@value xtraLightGrey from colors;
+@value negative from colors;
+@value battle from colors;
 @value orangeAdd from colors;
+@value light from colors;
 
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
@@ -13,7 +14,7 @@
 .paymentForm {
   margin: 5px;
   padding: 30px;
-  box-shadow: 0 0 4px 0 lightgrey;
+  box-shadow: 0 0 4px 0 light;
   background-color: white;
 }
 
@@ -68,7 +69,7 @@
 
 .creditCardOwnerEmailSeparator {
   margin: 0px 40px;
-  border: solid 1px borderGrey;
+  border: solid 1px xtraLightGrey;
   border-bottom: none;
 }
 
@@ -90,24 +91,24 @@
 .paymentErrors {
   margin: 10px 0;
   padding: 10px;
-  border: solid 1px red;
+  border: solid 1px negative;
   background-color: orangeAdd;
-  color: red;
+  color: negative;
   font-size: 12px;
 }
 
 .paymentWarning {
   margin: 10px 0;
   padding: 10px;
-  border: solid 1px yellow;
+  border: solid 1px battle;
   background-color: #FFF2D5;
-  color: yellow;
+  color: battle;
   font-size: 12px;
 }
 
 .invalidElement {
-  color: red;
-  box-shadow: 0 0 4px 0 red;
+  color: negative;
+  box-shadow: 0 0 4px 0 negative;
 }
 
 .subscribeButtonContainer {
@@ -117,7 +118,7 @@
 
 .subscribeButton {
   border: none;
-  background-color: blue;
+  background-color: brand;
   color: white;
   font-size: 18px;
   font-weight: bold;

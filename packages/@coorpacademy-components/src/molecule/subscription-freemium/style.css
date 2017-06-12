@@ -1,6 +1,6 @@
 @value colors: "../../variables/colors.css";
-@value blue from colors;
-@value borderGrey from colors;
+@value brand from colors;
+@value xtraLightGrey from colors;
 @value dark from colors;
 @value light from colors;
 
@@ -10,7 +10,7 @@
   justify-content: center;
 }
 .subscriptionFreemiumTitle {
-  color: blue;
+  color: brand;
   font-weight: 600;
   font-size: 16px;
   text-align: center;
