@@ -17,7 +17,16 @@ export type State = {
   lives: number,
   isCorrect: boolean,
   slides: Array<string>,
+  requestedClues: Array<string>,
+  stars: number,
   step: Step
+};
+
+export type AskClueAction = {
+  type: 'clue',
+  payload: {
+    content: Content
+  }
 };
 
 export type AnswerAction = {
@@ -33,7 +42,7 @@ export type InitAction = {
   type: 'init'
 };
 
-export type Action = InitAction | AnswerAction;
+export type Action = InitAction | AnswerAction | AskClueAction;
 
 export type Engine = {
   ref: string,
@@ -86,7 +95,8 @@ export type MicroLearningConfig = {
   lives: number,
   maxTypos: number,
   slidesToComplete: number,
-  answerBoundaryLimit: number
+  answerBoundaryLimit: number,
+  starsPerCorrectAnswer: number
 };
 
 export type Config = MicroLearningConfig;

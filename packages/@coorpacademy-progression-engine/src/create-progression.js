@@ -18,6 +18,8 @@ export default function createProgression(
     lives: config.lives,
     isCorrect: true,
     slides: [],
+    stars: 0,
+    requestedClues: [],
     step: {
       current: 0,
       total: config.slidesToComplete

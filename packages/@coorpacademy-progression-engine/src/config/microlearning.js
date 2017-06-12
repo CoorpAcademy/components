@@ -19,7 +19,8 @@ const testConfigurations: Array<MicroLearningConfig> = [
     lives: 1,
     maxTypos: 3,
     slidesToComplete: 4,
-    answerBoundaryLimit: 5
+    answerBoundaryLimit: 5,
+    starsPerCorrectAnswer: 4
   }
 ];
 

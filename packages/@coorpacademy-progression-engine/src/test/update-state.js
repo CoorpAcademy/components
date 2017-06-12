@@ -2,54 +2,16 @@
 import test from 'ava';
 import pick from 'lodash/fp/pick';
 import updateState from '../update-state';
-import type {AnswerAction, State} from '../types';
+import type {AnswerAction, AskClueAction, State} from '../types';
+import {stateForFirstSlide, stateForSecondSlide} from './fixtures/states';
 
 const engine = {
   ref: 'microlearning',
   version: '1'
 };
 
-test('should initialize state from state without actions', t => {
-  const state: State = Object.freeze({
-    nextContent: {
-      ref: '1.A1.1',
-      type: 'slide'
-    }
-  });
-
-  const newState = updateState(engine, state, []);
-  t.deepEqual(newState, {
-    isCorrect: false,
-    slides: [],
-    lives: 1,
-    step: {
-      current: 0,
-      total: 4
-    },
-    stars: 0,
-    content: undefined,
-    nextContent: {
-      ref: '1.A1.1',
-      type: 'slide'
-    }
-  });
-});
-
 test('should update state when answering the first question correctly', t => {
-  const state: State = Object.freeze({
-    content: undefined,
-    nextContent: {
-      ref: '1.A1.1',
-      type: 'slide'
-    },
-    lives: 1,
-    slides: [],
-    isCorrect: true,
-    step: {
-      current: 0,
-      total: 4
-    }
-  });
+  const state: State = Object.freeze(stateForFirstSlide);
 
   const action: AnswerAction = Object.freeze({
     type: 'answer',
@@ -66,7 +28,7 @@ test('should update state when answering the first question correctly', t => {
     }
   });
 
-  const pickUnchangedFields = pick(['lives']);
+  const pickUnchangedFields = pick(['lives', 'requestedClues']);
   const newState = updateState(engine, state, [action]);
 
   t.true(
@@ -94,24 +56,7 @@ test('should update state when answering the first question correctly', t => {
 });
 
 test('should update state when answering the another question correctly', t => {
-  const state: State = Object.freeze({
-    content: {
-      ref: '1.A1.4',
-      type: 'slide'
-    },
-    nextContent: {
-      ref: '1.A1.2',
-      type: 'slide'
-    },
-    lives: 1,
-    slides: ['1.A1.4'],
-    isCorrect: true,
-    stars: 4,
-    step: {
-      current: 1,
-      total: 4
-    }
-  });
+  const state: State = Object.freeze(stateForSecondSlide);
 
   const action: AnswerAction = Object.freeze({
     type: 'answer',
@@ -128,14 +73,18 @@ test('should update state when answering the another question correctly', t => {
     }
   });
 
-  const pickUnchangedFields = pick(['lives']);
+  const pickUnchangedFields = pick(['lives', 'requestedClues']);
   const newState = updateState(engine, state, [action]);
 
   t.true(
     newState.isCorrect,
     '`isCorrect` should reflect the `isCorrect` field from the action payload'
   );
-  t.deepEqual(newState.slides, ['1.A1.4', '1.A1.2'], 'answered slide should have been stored in `slides`');
+  t.deepEqual(
+    newState.slides,
+    ['1.A1.4', '1.A1.2'],
+    'answered slide should have been stored in `slides`'
+  );
   t.deepEqual(newState.step, {current: 2, total: 4}, 'step progression is wrong');
   t.deepEqual(newState.stars, 8, 'step progression is wrong');
   t.deepEqual(
@@ -156,24 +105,7 @@ test('should update state when answering the another question correctly', t => {
 });
 
 test('should update state when answering a question incorrectly', t => {
-  const state: State = Object.freeze({
-    content: {
-      ref: '1.A1.4',
-      type: 'slide'
-    },
-    nextContent: {
-      ref: '1.A1.2',
-      type: 'slide'
-    },
-    lives: 1,
-    slides: ['1.A1.4'],
-    isCorrect: true,
-    stars: 4,
-    step: {
-      current: 1,
-      total: 4
-    }
-  });
+  const state: State = Object.freeze(stateForSecondSlide);
 
   const action: AnswerAction = Object.freeze({
     type: 'answer',
@@ -190,7 +122,7 @@ test('should update state when answering a question incorrectly', t => {
     }
   });
 
-  const pickUnchangedFields = pick(['stars']);
+  const pickUnchangedFields = pick(['stars', 'requestedClues']);
   const newState = updateState(engine, state, [action]);
 
   t.true(newState.lives === 0, '`lives` should have been decremented');
@@ -221,21 +153,72 @@ test('should update state when answering a question incorrectly', t => {
   );
 });
 
-test("should throw if the state's nextContent is not the same as the action's content", t => {
-  const state: State = Object.freeze({
-    content: undefined,
-    nextContent: {
-      ref: '1.A1.2',
-      type: 'slide'
-    },
-    lives: 1,
-    slides: ['1.A1.4'],
-    isCorrect: true,
-    step: {
-      current: 1,
-      total: 4
+test('should update state when asking for a clue', t => {
+  const state: State = Object.freeze(stateForSecondSlide);
+
+  const action: AskClueAction = Object.freeze({
+    type: 'clue',
+    payload: {
+      content: {
+        ref: '1.A1.2',
+        type: 'slide'
+      }
     }
   });
+
+  const pickUnchangedFields = pick([
+    'content',
+    'nextContent',
+    'lives',
+    'slides',
+    'isCorrect',
+    'step'
+  ]);
+  const newState = updateState(engine, state, [action]);
+
+  t.is(newState.stars, 3);
+  t.deepEqual(newState.requestedClues, ['1.A1.2']);
+  t.deepEqual(
+    pickUnchangedFields(newState),
+    pickUnchangedFields(state),
+    'Some fields that should not have been touched have been modified'
+  );
+});
+
+test('should update stars once when actions has several AskClueAction for the same content', t => {
+  const state: State = Object.freeze(stateForSecondSlide);
+
+  const action: AskClueAction = Object.freeze({
+    type: 'clue',
+    payload: {
+      content: {
+        ref: '1.A1.2',
+        type: 'slide'
+      }
+    }
+  });
+
+  const pickUnchangedFields = pick([
+    'content',
+    'nextContent',
+    'lives',
+    'slides',
+    'isCorrect',
+    'step'
+  ]);
+  const newState = updateState(engine, state, [action, action]);
+
+  t.is(newState.stars, 3);
+  t.deepEqual(newState.requestedClues, ['1.A1.2']);
+  t.deepEqual(
+    pickUnchangedFields(newState),
+    pickUnchangedFields(state),
+    'Some fields that should not have been touched have been modified'
+  );
+});
+
+test("should throw if the state's nextContent is not the same as the action's content", t => {
+  const state: State = Object.freeze(stateForSecondSlide);
 
   const action: AnswerAction = Object.freeze({
     type: 'answer',

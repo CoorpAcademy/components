@@ -11,6 +11,7 @@ import getConfig from './config';
 import type {
   Action,
   AnswerAction,
+  AskClueAction,
   State,
   Content,
   MicroLearningConfig,
@@ -40,6 +41,21 @@ function slides(config: MicroLearningConfig): Function {
       case 'answer':
         const answerAction = (action: AnswerAction);
         return concat(array, [answerAction.payload.content.ref]);
+      default:
+        return array;
+    }
+  };
+}
+
+// eslint-disable-next-line flowtype/no-weak-types
+function requestedClues(config: MicroLearningConfig): Function {
+  return (array: Array<string> = [], action: Action): Array<string> => {
+    switch (action.type) {
+      // eslint-disable-next-line no-case-declarations
+      case 'clue':
+        const requestedClueAction = (action: AskClueAction);
+        const slideRef = requestedClueAction.payload.content.ref;
+        return array.indexOf(slideRef) === -1 ? concat(array, [slideRef]) : array;
       default:
         return array;
     }
@@ -100,12 +116,19 @@ function step(config: MicroLearningConfig): Function {
 
 // eslint-disable-next-line flowtype/no-weak-types
 function stars(config: MicroLearningConfig): Function {
-  return (currentStars: number = 0, action: Action): Step => {
+  return (currentStars: number = 0, action: Action, state: State): number => {
     switch (action.type) {
       // eslint-disable-next-line no-case-declarations
       case 'answer':
         const answerAction = (action: AnswerAction);
-        return (answerAction.payload.isCorrect) ? currentStars + config.starsPerCorrectAnswer : currentStars;
+        return answerAction.payload.isCorrect
+          ? currentStars + config.starsPerCorrectAnswer
+          : currentStars;
+      // eslint-disable-next-line no-case-declarations
+      case 'clue':
+        const requestedClueAction = (action: AskClueAction);
+        const slideRef = requestedClueAction.payload.content.ref;
+        return state.requestedClues.indexOf(slideRef) === -1 ? currentStars - 1 : currentStars;
       default:
         return currentStars;
     }
@@ -153,6 +176,7 @@ const reduceAction = combineReducers([
   {key: 'lives', fn: lives},
   {key: 'step', fn: step},
   {key: 'stars', fn: stars},
+  {key: 'requestedClues', fn: requestedClues},
   {key: 'content', fn: content},
   {key: 'nextContent', fn: nextContent}
 ]);
