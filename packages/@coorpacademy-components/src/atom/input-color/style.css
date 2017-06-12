@@ -1,3 +1,6 @@
+@value colors: "../../variables/colors.css";
+@value grey from colors;
+
 .default {
   composes: default from '../input-text/style.css';
 }
@@ -30,6 +33,7 @@
   position: absolute;
   top: 50%;
   margin-top: -10px;
+  box-shadow: 0px 0px 1px grey;
 }
 
 .description {
