@@ -8,7 +8,7 @@
   font-family: 'Open Sans';
 }
 
-.header > section {
+.section {
   height: 100%;
   background-color: gray;
 }
@@ -17,17 +17,17 @@
  * Correction Part
  */
 
-.header > section:first-child {
+.section.correction {
   position: relative;
   background-color: #3EC483;
   flex: 2;
 }
 
-.header.fail > section:first-child {
+.header.fail > .section.correction {
   background-color: #F73F52;
 }
 
-.titlesWrapper, .lifeWrapper {
+.wrapper {
   position: absolute;
   left: 0;
   top: 0;
@@ -35,40 +35,40 @@
   bottom: 0;
 }
 
-.titlesWrapper {
+.wrapper.titles {
   display: flex;
   justify-content: center;
   flex-direction: column;
   color: white;
 }
 
-.titlesWrapper > * {
+.wrapper.titles > .text {
   margin: 0;
   font-weight: normal;
   margin-left: 32px;
 }
 
-.titlesWrapper > h1 {
+.wrapper.titles > .subtitle {
   font-size: 16px;
 }
 
-.titlesWrapper > h2 {
+.wrapper.titles > .title {
   font-size: 20px;
 }
 
-.titlesWrapper > .wrongAnswer {
+.wrapper.titles > .wrongAnswer {
   text-decoration: line-through;
   font-size: 14px;
 }
 
-.lifeWrapper {
+.wrapper.life {
   position: absolute;
   display: flex;
   align-items: center;
   justify-content: flex-end;
 }
 
-.lifeWrapper > * {
+.wrapper.life > .component {
   margin-right: 42px;
 }
 
@@ -77,14 +77,14 @@
  * Next Question Part
  */
 
-.header > section:last-child {
+.section.next {
   display: flex;
   justify-content: center;
   background-color: #ECEFF1;
   flex: 1;
 }
 
-.header > section:last-child > button {
+.section.next > .button {
   display: flex;
   background-color: transparent;
   border-radius: none;
@@ -94,35 +94,34 @@
   transition: transform 0.1s;
 }
 
-.header > section:last-child > button * {
-  cursor: pointer;
-}
-
-.header > section:last-child > button:hover {
+.section.next > .button:hover {
   transform: scale(1.02);
 }
 
-.header > section:last-child > button:active {
+.section.next > .button:active {
   transform: scale(0.98);
 }
 
-.header > section:last-child > button > label {
+.section.next > .button > .clickable {
+  cursor: pointer;
+}
+
+.section.next > .button > .label {
   font-family: 'Open Sans';
   color: #546E7A;
   font-size: 16px;
   margin-right: 1rem;
 }
 
-/*
- * button > nextIcon
- */
-
-.nextIcon {
-  composes: fa from '../../../../variables/fontawesome.css';
-  composes: fa-angle-right from '../../../../variables/fontawesome.css';
+.section.next > .button > .icon {
   font-size: 30px;
   color: #546E7A;
   margin-top: -4px;
+}
+
+.angleRight {
+  composes: fa from '../../../../variables/fontawesome.css';
+  composes: fa-angle-right from '../../../../variables/fontawesome.css';
 }
 
 @media mobile {
@@ -131,7 +130,7 @@
     height: 300px;
   }
 
-  .titlesWrapper > * {
+  .wrapper.titles > .text {
     max-width: 300px;
     white-space: nowrap;
     text-overflow: ellipsis;
