@@ -9,6 +9,8 @@ import getConfig from './config';
 const defaultState = {
   lives: 1,
   slides: [],
+  stars: 0,
+  requestedClues: [],
   isCorrect: true,
   nextContent: {
     ref: '',
