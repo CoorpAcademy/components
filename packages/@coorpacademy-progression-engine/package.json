@@ -30,6 +30,7 @@
     "Julien Seren-Rosso <julien.seren-rosso@coorpacademy.com>"
   ],
   "dependencies": {
+    "fuzzy-matching": "^0.4.3",
     "lodash": "^4.17.4"
   },
   "devDependencies": {

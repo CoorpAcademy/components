@@ -58,7 +58,22 @@ export type QCMQuestion = {
   }
 };
 
-export type Question = QCMQuestion;
+export type BasicQuestion = {
+  type: 'basic',
+  content: {
+    maxTypos?: number,
+    answers: AcceptedAnswers
+  }
+};
+
+export type UnknownQuestion = {
+  type: 'unknown',
+  content: {
+    answers: AcceptedAnswers
+  }
+};
+
+export type Question = QCMQuestion | BasicQuestion | UnknownQuestion;
 
 export type Slide = {
   _id: string,
@@ -70,7 +85,8 @@ export type MicroLearningConfig = {
   version: string,
   lives: number,
   maxTypos: number,
-  slidesToComplete: number
+  slidesToComplete: number,
+  answerBoundaryLimit: number
 };
 
 export type Config = MicroLearningConfig;
