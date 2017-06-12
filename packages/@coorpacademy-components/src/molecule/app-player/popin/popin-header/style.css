@@ -17,13 +17,15 @@
  * Correction Part
  */
 
-.section.correction {
+.correctionSectionDefault {
+  composes: section;
   position: relative;
   background-color: #3EC483;
   flex: 2;
 }
 
-.header.fail > .section.correction {
+.correctionSectionFail {
+  composes: correctionSectionDefault;
   background-color: #F73F52;
 }
 
@@ -35,40 +37,44 @@
   bottom: 0;
 }
 
-.wrapper.titles {
+.titlesWrapper {
+  composes: wrapper;
   display: flex;
   justify-content: center;
   flex-direction: column;
   color: white;
 }
 
-.wrapper.titles > .text {
+.titleElement {
   margin: 0;
   font-weight: normal;
   margin-left: 32px;
 }
 
-.wrapper.titles > .subtitle {
+.subtitle {
+  composes: titleElement;
   font-size: 16px;
 }
 
-.wrapper.titles > .title {
+.title {
+  composes: titleElement;
   font-size: 20px;
 }
 
-.wrapper.titles > .wrongAnswer {
+.wrongAnswer {
+  composes: titleElement;
   text-decoration: line-through;
   font-size: 14px;
 }
 
-.wrapper.life {
-  position: absolute;
+.lifeWrapper {
+  composes: wrapper;
   display: flex;
   align-items: center;
   justify-content: flex-end;
 }
 
-.wrapper.life > .component {
+.life {
   margin-right: 42px;
 }
 
@@ -77,14 +83,15 @@
  * Next Question Part
  */
 
-.section.next {
+.nextSection {
+  composes: section;
   display: flex;
   justify-content: center;
   background-color: #ECEFF1;
   flex: 1;
 }
 
-.section.next > .button {
+.nextButton {
   display: flex;
   background-color: transparent;
   border-radius: none;
@@ -94,34 +101,33 @@
   transition: transform 0.1s;
 }
 
-.section.next > .button:hover {
+.nextButton:hover {
   transform: scale(1.02);
 }
 
-.section.next > .button:active {
+.nextButton:active {
   transform: scale(0.98);
 }
 
-.section.next > .button > .clickable {
+.nextButtonContent {
   cursor: pointer;
 }
 
-.section.next > .button > .label {
+.nextButtonLabel {
+  composes: nextButtonContent;
   font-family: 'Open Sans';
   color: #546E7A;
   font-size: 16px;
   margin-right: 1rem;
 }
 
-.section.next > .button > .icon {
+.nextButtonIcon {
+  composes: nextButtonContent;
+  composes: fa from '../../../../variables/fontawesome.css';
+  composes: fa-angle-right from '../../../../variables/fontawesome.css';
   font-size: 30px;
   color: #546E7A;
   margin-top: -4px;
-}
-
-.angleRight {
-  composes: fa from '../../../../variables/fontawesome.css';
-  composes: fa-angle-right from '../../../../variables/fontawesome.css';
 }
 
 @media mobile {
@@ -130,7 +136,7 @@
     height: 300px;
   }
 
-  .wrapper.titles > .text {
+  .titleElement {
     max-width: 300px;
     white-space: nowrap;
     text-overflow: ellipsis;
