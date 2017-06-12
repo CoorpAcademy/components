@@ -3,7 +3,7 @@ import {render, unmountComponentAtNode} from 'react-dom';
 import createReducer from './reducers';
 import createMiddleware from './middlewares';
 import createMapStateToVnode from './view';
-import {selectProgression} from './actions/ui/progressions';
+import start from './start';
 
 const createUpdate = (container, {dispatch, getState}, options) => createMapStateToView => {
   const mapStateToView = createMapStateToView(options)(dispatch);
@@ -16,25 +16,28 @@ const createUpdate = (container, {dispatch, getState}, options) => createMapStat
 };
 
 const create = options => {
-  const {container, progression} = options;
+  const {container} = options;
 
   const store = createStore(createReducer(options), {}, createMiddleware(options));
-  const {dispatch} = store;
 
   let update = createUpdate(container, store, options)(createMapStateToVnode);
   let unsubscribe = store.subscribe(update);
 
   /* istanbul ignore if  */
   if (module.hot) {
-    module.hot.accept('./view/index.js', function() {
+    module.hot.accept('./view', () => {
       unsubscribe();
       update = createUpdate(container, store, options)(require('./view').default);
       update();
       unsubscribe = store.subscribe(update);
     });
+    module.hot.accept('./reducers', () => {
+      const reducers = require('./reducers').default(options);
+      store.replaceReducer(reducers);
+    });
   }
 
-  dispatch(selectProgression(progression));
+  start(options, store);
 
   return {
     update: () => update(),
