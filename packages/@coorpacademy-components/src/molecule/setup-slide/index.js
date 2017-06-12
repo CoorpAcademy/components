@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import map from 'lodash/fp/map';
 import Select from '../../atom/select';
 import InputText from '../../atom/input-text';
 import InputCheckbox from '../../atom/input-checkbox';
@@ -36,7 +37,7 @@ const SetupSlide = props => {
     );
   };
 
-  const fieldsList = fields.map(buildField);
+  const fieldsList = map.convert({cap: false})(buildField, fields);
 
   return (
     <div className={style.wrapper}>

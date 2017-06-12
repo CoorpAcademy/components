@@ -27,12 +27,8 @@ class AccordionToggler extends React.Component {
   }
 
   newOpenState(isSelectedTab, currentOpenState) {
-    switch (this.props.type) {
-      case 'all':
-        return isSelectedTab ? !currentOpenState : currentOpenState;
-      case 'one':
-        return isSelectedTab ? !currentOpenState : false;
-    }
+    const isOpenOtherTab = this.props.oneTabOnly ? false : currentOpenState;
+    return isSelectedTab ? !currentOpenState : isOpenOtherTab;
   }
 
   render() {
@@ -48,7 +44,7 @@ class AccordionToggler extends React.Component {
 
 AccordionToggler.propTypes = {
   tabProps: PropTypes.arrayOf(PropTypes.shape(Accordion.PropTypes)),
-  type: PropTypes.oneOf(['all', 'one'])
+  oneTabOnly: PropTypes.bool
 };
 
 export default AccordionToggler;

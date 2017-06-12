@@ -3,6 +3,6 @@ import Default from './all-are-openable';
 
 export default defaultsDeep(Default, {
   props: {
-    type: 'one'
+    oneTabOnly: true
   }
 });
