@@ -3,6 +3,10 @@
 
 @value colors: "../../../variables/colors.css";
 @value xtraLightGrey from colors;
+@value light from colors;
+@value orangeAdd from colors;
+@value grey from colors;
+@value positive from colors;
 
 .wrapper {
   width: 100%;
@@ -18,8 +22,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-top: 1px solid #ECEFF1;
-  border-right: 1px solid #ECEFF1;
+  border-top: 1px solid light;
+  border-right: 1px solid light;
   box-sizing: border-box;
 }
 
@@ -28,20 +32,20 @@
 }
 
 .button:hover {
-  background-color: #ECEFF1;
+  background-color: light;
 }
 
 .button:hover .icon {
-  color: #ECEFF1;
+  color: light;
 }
 
 .selected {
   composes: button;
-  background-color: #ECEFF1;
+  background-color: light;
 }
 
 .selected .icon {
-  color: #ECEFF1;
+  color: light;
 }
 
 .disabled {
@@ -50,16 +54,16 @@
 }
 
 .disabled .logo {
-  background-color: #ECEFF1;
+  background-color: light;
 }
 
 .disabled .title {
-  color: #ECEFF1;
+  color: light;
 }
 
 .notify {
   position: absolute;
-  background-color: #FF7043;
+  background-color: orangeAdd;
   width: 10px;
   height: 10px;
   border-radius: 5px;
@@ -75,12 +79,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #607D8B;
+  background-color: grey;
 }
 
 .highlighted {
   composes: logo;
-  background-color: #3EC483;
+  background-color: positive;
 }
 
 .icon {
@@ -108,5 +112,5 @@
   font-family: 'Open Sans';
   font-weight: 700;
   font-size: 13px;
-  color: #14171A;
+  color: black;
 }

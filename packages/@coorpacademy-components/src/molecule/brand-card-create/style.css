@@ -2,6 +2,8 @@
 @value dark from colors;
 @value brand from colors;
 @value white from colors;
+@value primaryAdd1 from colors;
+@value light from colors;
 
 .wrapper {
   width: 300px;
@@ -14,13 +16,13 @@
 }
 
 .wrapper:hover .circle {
-  border: 1px solid #B3E5FC;
+  border: 1px solid primaryAdd1;
 }
 
 .circle {
   position: absolute;
   border-radius: 50%;
-  border: 1px solid #F2F2F2;
+  border: 1px solid light;
   top: 50%;
   left: 50%;
   transition: border 0.4s ease-out;
@@ -59,7 +61,7 @@
   box-sizing: border-box;
   position: relative;
   z-index: 9;
-  border-right: 1px solid #F5F5F5;
+  border-right: 1px solid light;
 }
 
 .edit:before {

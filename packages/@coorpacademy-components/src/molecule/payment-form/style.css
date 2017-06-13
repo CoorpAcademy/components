@@ -41,7 +41,7 @@
 }
 
 .cardNumber, .cardExpiry, .cardCvc {
-  border: 1px solid #bbb;
+  border: 1px solid medium;
   padding: 20px 10px;
 }
 

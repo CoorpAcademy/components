@@ -1,5 +1,10 @@
 @value time: 0.3s;
 
+@value colors: "../../../variables/colors.css";
+@value medium from colors;
+@value orangeAdd from colors;
+@value negative from colors;
+
 .post {
   opacity: 0;
   display: flex;
@@ -19,9 +24,9 @@
 
 .rejected {
   composes: post;
-  border-left: #ad6262 3px solid;
+  border-left: color(negative lightness(20%)) 3px solid;
   padding-left: 10px;
-  background: #ffedd4;
+  background: color(orangeAdd lightness(80%));
 }
 
 .image {
@@ -50,7 +55,7 @@
 }
 
 .date {
-  color: #b7bbc1;
+  color: medium;
   font-size: 11px;
 }
 

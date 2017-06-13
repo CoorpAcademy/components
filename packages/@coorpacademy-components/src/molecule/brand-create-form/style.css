@@ -8,6 +8,8 @@
 @value white from colors;
 @value brand from colors;
 @value negative from colors;
+@value light from colors;
+@value medium from colors;
 
 .wrapper {
   width: 100%;
@@ -24,7 +26,7 @@
 
 .wrapper:before {
   content: "";
-  border-top: 5px solid #CFD8DC;
+  border-top: 5px solid light;
   position: absolute;
   top: 0;
   left: 0;
@@ -39,7 +41,7 @@
   width: 100%;
   height: 75px;
   text-align: center;
-  border-bottom: 1px solid #ECEFF1;
+  border-bottom: 1px solid light;
 }
 
 .header h1 {
@@ -68,7 +70,7 @@
   font-family: 'Open Sans';
   font-weight: 500;
   font-size: 15px;
-  color: #B0BEC5;
+  color: medium;
   margin-bottom: 20px;
 }
 
@@ -84,18 +86,18 @@
   font-family: 'Open Sans';
   font-weight: 600;
   font-size: 18px;
-  color: #B0BEC5;
+  color: medium;
 }
 
 .default input {
   font-family: "Open Sans";
   text-transform: none;
   padding: 0 15px;
-  border: solid 2px #eceff1;
+  border: solid 2px light;
   height: 50px;
   border-radius: 2px;
   font-size: 14px;
-  color: #607d8b;
+  color: dark;
   width: 200px;
   text-align: right;
 }

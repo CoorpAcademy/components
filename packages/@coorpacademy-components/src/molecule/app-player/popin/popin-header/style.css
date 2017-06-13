@@ -122,7 +122,7 @@
 .nextButtonLabel {
   composes: nextButtonContent;
   font-family: 'Open Sans';
-  color: #546E7A;
+  color: medium;
   font-size: 16px;
   margin-right: 1rem;
 }

@@ -8,56 +8,10 @@
   box-sizing: border-box;
 }
 
-.title {
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
-  width: 100%;
-  box-sizing: border-box;
-  background-color: xtraLightGrey;
-  cursor: pointer;
-}
-
-.title h3 {
-  font-family: 'Open Sans';
-  font-size: 18px;
-  font-weight: 700;
-  color: brand;
-  margin: 0;
-}
-
 .field {
   margin-bottom: 20px;
 }
 
 .field:last-child {
   margin-bottom: 0;
-}
-
-.container {
-  padding: 40px;
-  background-color: white;
-  border-top: 1px solid xtraLightGrey;
-}
-
-.none {
-  display: none;
-}
-
-.arrow {
-  composes: fa from '../../variables/fontawesome.css';
-  color: xtraLightGrey;
-  font-size: 24px;
-}
-
-.down {
-  composes: arrow;
-  composes: fa-plus from '../../variables/fontawesome.css';
-}
-
-.up {
-  composes: arrow;
-  composes: fa-minus from '../../variables/fontawesome.css';
 }

@@ -1,5 +1,6 @@
 @value colors: "../../variables/colors.css";
 @value xtraLightGrey from colors;
+@value dark from colors;
 
 .modulewrapper {
   position: relative;
@@ -49,7 +50,7 @@
 .label {
   font-family: 'Open Sans';
   text-transform: uppercase;
-  color: #546E7A;
+  color: dark;
   font-size: 9px;
   text-align: center;
   white-space: nowrap;
