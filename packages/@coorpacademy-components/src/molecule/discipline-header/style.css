@@ -3,6 +3,12 @@
 @value tablet from breakpoints;
 @value desktop from breakpoints;
 
+@value colors: "../../variables/colors.css";
+@value xtraLightGrey from colors;
+@value light from colors;
+@value dark from colors;
+@value black from colors;
+
 .wrapper {
   display: flex;
   width: 100%;
@@ -16,8 +22,8 @@
   height: 250px;
   vertical-align: top;
   overflow: hidden;
-  border: 1px solid #E3E3E3;
-  background-color: #FCFCFC;
+  border: 1px solid light;
+  background-color: xtraLightGrey;
 }
 
 .courseWrapper {
@@ -32,13 +38,13 @@
   font-weight: 700;
   font-size: 20px;
   margin-bottom: 16px;
-  color: #546E7A;
+  color: dark;
 }
 
 .desc {
   font-family: "Open Sans";
   font-size: 15px;
-  color: #263238;
+  color: black;
   letter-spacing: 0px;
   line-height: 22px;
 }
@@ -46,7 +52,7 @@
 .desc a {
   font-family: Open Sans;
   font-weight: 600;
-  color: #00b0ff;
+  color: brand;
   text-decoration: none;
 }
 
@@ -95,8 +101,8 @@
     font-size: 13px;
     font-weight: 600;
     text-transform: uppercase;
-    color: #D1D1D1;
-    border: 1px solid #D1D1D1;
+    color: light;
+    border: 1px solid light;
     width: 100%;
     text-align: center;
     line-height: 28px;

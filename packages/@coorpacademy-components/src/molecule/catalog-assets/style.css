@@ -1,3 +1,5 @@
+@value colors: "../../variables/colors.css";
+@value grey from colors;
 
 .assets {
   text-align: left;
@@ -10,7 +12,7 @@
   font-family: "Open Sans";
   font-weight: 400;
   font-size: 12px;
-  color: #607D8B;
+  color: grey;
   padding-bottom: 10px;
   line-height: 10px;
   text-transform: uppercase;

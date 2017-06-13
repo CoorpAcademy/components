@@ -2,6 +2,7 @@
 @value brand from colors;
 @value dark from colors;
 @value light from colors;
+@value primaryAdd3 from colors;
 
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
@@ -43,7 +44,7 @@
 }
 
 .cancelSubscriptionLink:hover {
-  color: #007BB3;
+  color: primaryAdd3;
 }
 
 @media mobile {

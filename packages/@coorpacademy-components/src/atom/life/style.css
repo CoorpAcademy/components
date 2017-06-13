@@ -1,3 +1,8 @@
+@value colors: "../../variables/colors.css";
+@value white from colors;
+@value negative from colors;
+@value dark from colors;
+
 .default {
   position: relative;
   width: 52px;
@@ -12,14 +17,14 @@
   top: 50%;
   margin-top: -8px;
   left: 4px;
-  color: #F73F52;
+  color: negative;
 }
 
 .heartBackground {
   composes: fa from '../../variables/fontawesome.css';
   composes: fa-heart from '../../variables/fontawesome.css';
   font-size: 26px;
-  color: #ffffff;
+  color: white;
   position: absolute;
   top: 50%;
   margin-top: -12px;
@@ -41,11 +46,11 @@
   font-family: 'Open Sans';
   font-size: 15px;
   font-weight: 600;
-  color: #546E7A;
+  color: dark;
   width: 42px;
   height: 42px;
   border-radius: 21px;
-  background-color: #ffffff;
+  background-color: white;
   display: flex;
   align-items: center;
   justify-content: center;

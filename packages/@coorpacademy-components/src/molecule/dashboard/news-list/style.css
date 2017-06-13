@@ -3,6 +3,12 @@
 @value tablet from breakpoints;
 @value desktop from breakpoints;
 
+@value colors: "../../../variables/colors.css";
+@value xtraLightGrey from colors;
+@value light from colors;
+@value medium from colors;
+@value dark from colors;
+
 .wrapper {
   padding: 20px 30px 0;
 }
@@ -18,7 +24,7 @@
   font-family: 'Open Sans';
   font-size: 19px;
   font-weight: 600;
-  color: #484848;
+  color: dark;
   margin-bottom: 16px;
 }
 
@@ -29,10 +35,10 @@
 
 .more {
   width: 100%;
-  background-color: #F7F7F7;
+  background-color: xtraLightGrey;
   font-family: 'Open Sans';
   font-weight: 600;
-  color: #AAAAAA;
+  color: medium;
   font-size: 17px;
   line-height: 55px;
   text-align: center;
@@ -40,7 +46,7 @@
 }
 
 .more:hover {
-  background-color: #D8D8D8;
+  background-color: light;
 }
 
 .loader {

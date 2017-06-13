@@ -104,43 +104,6 @@
   position: relative;
 }
 
-.heart {
-  composes: fa from '../../../variables/fontawesome.css';
-  composes: fa-heart from '../../../variables/fontawesome.css';
-  font-size: 18px;
-  position: absolute;
-  top: 50%;
-  margin-top: -9px;
-  left: 12px;
-  color: negative;
-}
-
-.heartBackground {
-  composes: fa from '../../../variables/fontawesome.css';
-  composes: fa-heart from '../../../variables/fontawesome.css';
-  font-size: 26px;
-  color: white;
-  position: absolute;
-  top: 50%;
-  margin-top: -13px;
-  left: 8px;
-}
-
-.lives {
-  font-family: 'Open Sans';
-  font-size: 15px;
-  font-weight: 600;
-  color: dark;
-  width: 42px;
-  height: 42px;
-  border-radius: 21px;
-  background-color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 10px;
-}
-
 @media mobile {
   .primary {
     max-width: none;

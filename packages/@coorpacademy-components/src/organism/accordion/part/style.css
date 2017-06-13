@@ -1,3 +1,9 @@
+@value colors: "../../../variables/colors.css";
+@value medium from colors;
+@value white from colors;
+@value primaryAdd2 from colors;
+@value xtraLightGrey from colors;
+
 .title {
   height: 50px;
   display: flex;
@@ -6,7 +12,7 @@
   padding: 0 20px;
   width: 100%;
   box-sizing: border-box;
-  background-color: #F6F6F6;
+  background-color: xtraLightGrey;
   cursor: pointer;
 }
 
@@ -14,14 +20,14 @@
   font-family: 'Open Sans';
   font-size: 18px;
   font-weight: 700;
-  color: #4990E2;
+  color: primaryAdd2;
   margin: 0;
 }
 
 .container {
   padding: 40px;
-  background-color: #ffffff;
-  border-top: 1px solid #B9B9B9;
+  background-color: white;
+  border-top: 1px solid medium;
   animation: fadeIn 3s forwards;
   overflow: hidden;
 }
@@ -41,7 +47,7 @@
 
 .arrow {
   composes: fa from '../../../variables/fontawesome.css';
-  color: #B9B9B9;
+  color: medium;
   font-size: 24px;
 }
 

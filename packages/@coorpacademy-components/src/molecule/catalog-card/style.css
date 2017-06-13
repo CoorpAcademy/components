@@ -1,13 +1,17 @@
 @value colors: "../../variables/colors.css";
 @value orange from colors;
+@value orangeAdd from colors;
 @value white from colors;
+@value light from colors;
+@value medium from colors;
+@value dark from colors;
 
 .catalogListItem {
   display: inline-block;
   box-sizing: border-box;
   width: 270px;
   vertical-align: top;
-  border: 1px solid #E3E3E3;
+  border: 1px solid light;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   overflow: hidden;
@@ -60,7 +64,7 @@
 }
 
 .overlay a:before {
-  background-color: #e6ac00
+  background-color: orangeAdd;
 }
 
 .overlay a span span {
@@ -82,13 +86,13 @@
   font-family: "Open Sans";
   font-weight: 600;
   font-size: 17px;
-  color: #546E7A;
+  color: dark;
   text-decoration: none;
 }
 
 .title a:hover {
   text-decoration: underline;
-  color: #546E7A;
+  color: dark;
 }
 
 .subtitle {
@@ -99,7 +103,7 @@
   font-family: "Open Sans";
   font-weight: 600;
   font-size: 13px;
-  color: #78909C;
+  color: medium;
   font-style: italic;
   text-decoration: none;
 }

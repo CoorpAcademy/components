@@ -3,6 +3,8 @@
 @value brand from colors;
 @value medium from colors;
 @value white from colors;
+@value light from colors;
+@value dark from colors;
 
 .wrapper {
   overflow-x: scroll;
@@ -10,7 +12,7 @@
 }
 
 .table {
-  border: 1px solid #EBECEF;
+  border: 1px solid light;
   font-family: 'Open Sans';
   border-spacing: 0;
 }
@@ -21,8 +23,8 @@
 
 .table th {
   text-align: left;
-  border-right: 1px solid #EBECEF;
-  border-bottom: 1px solid #EBECEF;
+  border-right: 1px solid light;
+  border-bottom: 1px solid light;
   position: relative;
 }
 
@@ -39,8 +41,8 @@
 }
 
 .table td {
-  border-right: 1px solid #EBECEF;
-  border-bottom: 1px solid #EBECEF;
+  border-right: 1px solid light;
+  border-bottom: 1px solid light;
 }
 
 .table td:last-child {
@@ -75,7 +77,7 @@
   top: 50%;
   margin-top: -9px;
   right: 15px;
-  color: #CFD8DC;
+  color: color(light lightness(43%));
 }
 
 .toggle label, .filtered label, .noOptions label {
@@ -115,7 +117,7 @@
   width: 300px;
   padding: 20px;
   background-color: white;
-  border: 1px solid #EBECEF;
+  border: 1px solid light;
   box-shadow: 0 7px 8px 0 rgba(0,0,0,0.14);
 }
 

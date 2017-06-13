@@ -1,3 +1,7 @@
+@value colors: "../../variables/colors.css";
+@value medium from colors;
+@value xtraLightGrey from colors;
+
 .wrapper {
 
 }
@@ -7,18 +11,18 @@
   border-left: 1px;
   border-right: 1px;
   border-style: solid;
-  border-color: #B9B9B9;
+  border-color: medium;
   border-bottom: 0px;
 }
 
 .section:last-child {
-  border-bottom: 1px solid #B9B9B9;
+  border-bottom: 1px solid medium;
 }
 
 .loading {
   composes: section;
   width: 100%;
-  background-color: #F6F6F6;
+  background-color: xtraLightGrey;
   height: 60px;
   min-height: 60px;
   position: relative;

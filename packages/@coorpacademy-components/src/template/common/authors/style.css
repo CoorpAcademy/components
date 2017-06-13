@@ -116,7 +116,7 @@
 .desc {
   font-family: "Open Sans";
   font-size: 15px;
-  color: #263238;
+  color: black;
   letter-spacing: 0px;
   line-height: 22px;
   margin-top: 16px;
@@ -164,8 +164,8 @@
     font-size: 13px;
     font-weight: 600;
     text-transform: uppercase;
-    color: #D1D1D1;
-    border: 1px solid #D1D1D1;
+    color: light;
+    border: 1px solid light;
     width: 100%;
     text-align: center;
     line-height: 28px;
@@ -227,8 +227,8 @@
     font-size: 13px;
     font-weight: 600;
     text-transform: uppercase;
-    color: #D1D1D1;
-    border: 1px solid #D1D1D1;
+    color: light;
+    border: 1px solid light;
     width: 100%;
     text-align: center;
     line-height: 28px;

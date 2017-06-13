@@ -1,5 +1,6 @@
 @value colors: "../../variables/colors.css";
 @value medium from colors;
+@value light from colors;
 
 .wrapper {
   position: relative;
@@ -20,7 +21,7 @@
   font-family: "Open Sans";
   text-transform: none;
   padding: 0 15px 0 45px;;
-  border: solid 2px #eceff1;
+  border: solid 2px light;
   height: 50px;
   border-radius: 3px;
   font-size: 15px;

@@ -1,6 +1,9 @@
 @value colors: "../../variables/colors.css";
 @value dark from colors;
 @value white from colors;
+@value medium from colors;
+@value light from colors;
+@value xtraLightGrey from colors;
 
 .wrapper {
   display: flex;
@@ -18,7 +21,7 @@
 .buttons {
   display: inline-block;
   margin-left: 10px;
-  border: 1px solid #ECEFF1;
+  border: 1px solid light;
   border-radius: 4px;
   overflow: hidden;
 }
@@ -28,27 +31,27 @@
   width: 36px;
   height: 36px;
   text-decoration: none;
-  color: #B0BEC5;
+  color: medium;
   font-size: 16px;
   line-height: 36px;
   text-align: center;
 }
 
 .button:hover {
-  background-color: #B0BEC5;
+  background-color: medium;
   color: white;
 }
 
 .button:first-child {
-  border-right: 1px solid #ECEFF1;
+  border-right: 1px solid light;
 }
 
 .disabled {
   composes: button;
-  color: #F7F7F7;
+  color: xtraLightGrey;
 }
 
 .disabled:hover {
-  color: #f7f7f7;
+  color: xtraLightGrey;
   background-color: white;
 }

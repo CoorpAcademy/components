@@ -6,6 +6,8 @@
 @value colors: "../../variables/colors.css";
 @value dark from colors;
 @value white from colors;
+@value light from colors;
+@value grey from colors;
 
 .cta {
   float: right;
@@ -17,9 +19,9 @@
   box-sizing: border-box;
   width: 100%;
   padding: 30px;
-  border-left: solid 1px #E3E3E3;
-  border-right: solid 1px #E3E3E3;
-  border-bottom: 1px solid #e3e3e3;
+  border-left: solid 1px light;
+  border-right: solid 1px light;
+  border-bottom: 1px solid light;
 }
 
 .infos {
@@ -35,14 +37,14 @@
   font-family: "Open Sans";
   font-weight: 600;
   font-size: 20px;
-  color: #546E7A;
+  color: dark;
 }
 
 .time {
   display: inline-block;
   width: auto;
   padding: 3px 13px;
-  background: #546E7A;
+  background: dark;
   border-radius: 15px;
   font-family: "Open Sans";
   font-weight: 800;
@@ -58,7 +60,7 @@
   font-family: "Open Sans";
   font-size: 12px;
   padding-right: 40px;
-  color: #607D8B;
+  color: grey;
 }
 
 .coltitle {
@@ -69,7 +71,7 @@
   padding-bottom: 10px;
   font-size: 10px;
   color: dark;
-  border-bottom: solid 1px #E3E3E3;
+  border-bottom: solid 1px light;
   vertical-align: top;
 }
 
@@ -85,7 +87,7 @@
   line-height: 26px;
   font-size: 14px;
   font-family: "Open Sans";
-  color: #546E7A;
+  color: dark;
 }
 
 .roundedlist {
@@ -100,7 +102,7 @@
   line-height: 26px;
   font-size: 14px;
   font-family: "Open Sans";
-  color: #546E7A;
+  color: dark;
 }
 
 .roundedlist li:before {
@@ -118,7 +120,7 @@
 
 .medias {
   padding: 24px 11px 0;
-  border: solid 1px #E3E3E3;
+  border: solid 1px light;
   border-top: 0;
 }
 
@@ -134,7 +136,7 @@
   height: 102px;
   margin-bottom: 5px;
   overflow: hidden;
-  border: 1px solid #E1E1E1;
+  border: 1px solid light;
   position: relative;
 }
 

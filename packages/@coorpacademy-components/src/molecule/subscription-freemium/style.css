@@ -3,6 +3,8 @@
 @value xtraLightGrey from colors;
 @value dark from colors;
 @value light from colors;
+@value primaryAdd3 from colors;
+@value primaryAdd2 from colors;
 
 .subscriptionFreemium {
   display: flex;
@@ -27,7 +29,7 @@
   color: white;
   font-size: 18px;
   font-weight: 600;
-  background-color: #1E90FF;
+  background-color: primaryAdd2;
   border-radius: 50px;
   padding: 20px;
   margin: 20px 20px 0px 20px;
@@ -36,5 +38,5 @@
 }
 
 .subscriptionFreemiumButton:hover {
-  background: #007BB3;
+  background: primaryAdd3;
 }

@@ -2,6 +2,7 @@
 @value brand from colors;
 @value xtraLightGrey from colors;
 @value medium from colors;
+@value light from colors;
 
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
@@ -35,7 +36,7 @@
   padding: 35px;
   border: solid 1px xtraLightGrey;
   color: medium;
-  background: #ECEFF1;
+  background: light;
   display:inline;
   font-size: 17px;
   font-weight: 900;

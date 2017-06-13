@@ -3,6 +3,7 @@
 @value darkbrand from colors;
 @value positive from colors;
 @value lightGreen from colors;
+@value xtraLightGrey from colors;
 
 .unsubscribe {
   min-height: 200px;
@@ -42,7 +43,7 @@
 }
 
 .keepSubscriptionButton:hover {
-  background-color: darkbrand;
+  background-color: color(brand lightness(43%));
 }
 
 .unsubscribeButton {
@@ -53,7 +54,7 @@
 }
 
 .unsubscribeButton:hover {
-  background-color: #f0f0f0;
+  background-color: xtraLightGrey;
 }
 
 .unsubscribeConfirmation {
@@ -62,5 +63,5 @@
   padding: 20px;
   border: solid 1px positive;
   background-color: lightGreen;
-  color: positive;
+  color: white;
 }

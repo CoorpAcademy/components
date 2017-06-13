@@ -1,3 +1,6 @@
+@value colors: "../../variables/colors.css";
+@value light from colors;
+
 .thread {
   width: 80%;
   margin: auto;
@@ -21,7 +24,7 @@
   width: 30px;
   margin: 0 20px;
   vertical-align: middle;
-  background: #d0d0d0;
+  background: light;
 }
 
 .loader {
