@@ -18,13 +18,13 @@ const Cards = props => {
   }
 };
 
-const Footer = ({title, href, color}) => (
+const Footer = ({title, color, ...linkProps}) => (
   <Link
     style={{
       color
     }}
-    href={href}
     className={style.footer}
+    {...linkProps}
   >
     {title}
   </Link>
@@ -49,21 +49,11 @@ PopinEnd.contextTypes = {
 };
 
 PopinEnd.propTypes = {
-  header: PropTypes.shape({
-    title: PropTypes.string,
-    subtitle: PropTypes.string,
-    fail: PropTypes.bool,
-    stars: PropTypes.string,
-    rank: PropTypes.string,
-    cta: PropTypes.shape({
-      title: PropTypes.string,
-      subtitle: PropTypes.string,
-      href: PropTypes.url
-    })
-  }),
+  header: PropTypes.shape(PopinHeader.propTypes),
   footer: PropTypes.shape({
     title: PropTypes.string,
-    href: PropTypes.url
+    href: PropTypes.url,
+    onClick: PropTypes.func
   }),
   recommendation: PropTypes.shape(CardsList.propTypes)
 };
