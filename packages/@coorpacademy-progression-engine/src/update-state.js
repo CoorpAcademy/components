@@ -5,6 +5,7 @@ import pipe from 'lodash/fp/pipe';
 import concat from 'lodash/fp/concat';
 import reduce from 'lodash/fp/reduce';
 import update from 'lodash/fp/update';
+import includes from 'lodash/fp/includes';
 import isEmpty from 'lodash/fp/isEmpty';
 import isEqual from 'lodash/fp/isEqual';
 import getConfig from './config';
@@ -24,10 +25,10 @@ import type {
 function isCorrect(config: MicroLearningConfig): Function {
   return (state: boolean = false, action: Action): boolean => {
     switch (action.type) {
-      // eslint-disable-next-line no-case-declarations
-      case 'answer':
+      case 'answer': {
         const answerAction = (action: AnswerAction);
         return answerAction.payload.isCorrect;
+      }
       default:
         return state;
     }
@@ -38,10 +39,10 @@ function isCorrect(config: MicroLearningConfig): Function {
 function slides(config: MicroLearningConfig): Function {
   return (array: Array<string> = [], action: Action): Array<string> => {
     switch (action.type) {
-      // eslint-disable-next-line no-case-declarations
-      case 'answer':
+      case 'answer': {
         const answerAction = (action: AnswerAction);
         return concat(array, [answerAction.payload.content.ref]);
+      }
       default:
         return array;
     }
@@ -52,11 +53,11 @@ function slides(config: MicroLearningConfig): Function {
 function viewedResources(config: MicroLearningConfig): Function {
   return (array: Array<string> = [], action: Action): Array<string> => {
     switch (action.type) {
-      // eslint-disable-next-line no-case-declarations
-      case 'resource':
+      case 'resource': {
         const requestedClueAction = (action: ChapterResourceViewedAction);
         const chapterRef = requestedClueAction.payload.content.chapter_ref;
-        return array.indexOf(chapterRef) === -1 ? concat(array, [chapterRef]) : array;
+        return includes(chapterRef, array) ? array : concat(array, [chapterRef]);
+      }
       default:
         return array;
     }
@@ -67,11 +68,11 @@ function viewedResources(config: MicroLearningConfig): Function {
 function requestedClues(config: MicroLearningConfig): Function {
   return (array: Array<string> = [], action: Action): Array<string> => {
     switch (action.type) {
-      // eslint-disable-next-line no-case-declarations
-      case 'clue':
+      case 'clue': {
         const requestedClueAction = (action: AskClueAction);
         const slideRef = requestedClueAction.payload.content.ref;
-        return array.indexOf(slideRef) === -1 ? concat(array, [slideRef]) : array;
+        return includes(slideRef, array) ? array : concat(array, [slideRef]);
+      }
       default:
         return array;
     }
@@ -82,10 +83,10 @@ function requestedClues(config: MicroLearningConfig): Function {
 function lives(config: MicroLearningConfig): Function {
   return (amount: number = config.lives, action: Action): number => {
     switch (action.type) {
-      // eslint-disable-next-line no-case-declarations
-      case 'answer':
+      case 'answer': {
         const answerAction = (action: AnswerAction);
         return answerAction.payload.isCorrect ? amount : amount - 1;
+      }
       default:
         return amount;
     }
@@ -96,10 +97,10 @@ function lives(config: MicroLearningConfig): Function {
 function content(config: MicroLearningConfig): Function {
   return (c: Content, action: Action): Content => {
     switch (action.type) {
-      // eslint-disable-next-line no-case-declarations
-      case 'answer':
+      case 'answer': {
         const answerAction = (action: AnswerAction);
         return answerAction.payload.content;
+      }
       default:
         return c;
     }
@@ -110,10 +111,10 @@ function content(config: MicroLearningConfig): Function {
 function nextContent(config: MicroLearningConfig): Function {
   return (c: Content, action: Action): Content => {
     switch (action.type) {
-      // eslint-disable-next-line no-case-declarations
-      case 'answer':
+      case 'answer': {
         const answerAction = (action: AnswerAction);
         return answerAction.payload.nextContent;
+      }
       default:
         return c;
     }
@@ -134,26 +135,26 @@ function step(config: MicroLearningConfig): Function {
 function stars(config: MicroLearningConfig): Function {
   return (currentStars: number = 0, action: Action, state: State): number => {
     switch (action.type) {
-      // eslint-disable-next-line no-case-declarations
-      case 'answer':
+      case 'answer': {
         const answerAction = (action: AnswerAction);
         return answerAction.payload.isCorrect
           ? currentStars + config.starsPerCorrectAnswer
           : currentStars;
-      // eslint-disable-next-line no-case-declarations
-      case 'clue':
+      }
+      case 'clue': {
         const requestedClueAction = (action: AskClueAction);
         const slideRef = requestedClueAction.payload.content.ref;
         return state.requestedClues.indexOf(slideRef) === -1
           ? currentStars + config.starsPerAskingClue
           : currentStars;
-      // eslint-disable-next-line no-case-declarations
-      case 'resource':
+      }
+      case 'resource': {
         const chapterResourceViewedAction = (action: ChapterResourceViewedAction);
         const chapterRef = chapterResourceViewedAction.payload.content.chapter_ref;
         return state.viewedResources.indexOf(chapterRef) === -1
           ? currentStars + config.starsPerCorrectAnswer
           : currentStars;
+      }
       default:
         return currentStars;
     }
@@ -164,8 +165,7 @@ function stars(config: MicroLearningConfig): Function {
 function validate(config: MicroLearningConfig): Function {
   return (state: State, action: Action) => {
     switch (action.type) {
-      // eslint-disable-next-line no-case-declarations
-      case 'answer':
+      case 'answer': {
         const answerAction = (action: AnswerAction);
         if (!isEqual(state.nextContent, answerAction.payload.content)) {
           throw new Error(
@@ -173,6 +173,7 @@ function validate(config: MicroLearningConfig): Function {
           );
         }
         break;
+      }
     }
   };
 }
