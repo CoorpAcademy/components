@@ -102,7 +102,7 @@ export default (NODE_ENV = 'development') => ({
         }),
         new BabiliPlugin(
           {
-            simplify: false
+            evaluate: false
           },
           {
             comments: false,

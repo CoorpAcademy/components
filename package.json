@@ -14,7 +14,6 @@
     "lint:fix": "npm run lint -- --fix",
     "nyc": "cross-env NODE_ENV=test nyc npm run ava",
     "postinstall": "npm run bootstrap",
-    "posttest": "lerna run prepublish",
     "publish:beta": "lerna publish --npm-tag beta",
     "publish:canary": "lerna publish --canary --skip-git",
     "publish:latest": "lerna publish --exact",
