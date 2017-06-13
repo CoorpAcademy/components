@@ -114,7 +114,6 @@ function nextContent(config: MicroLearningConfig): (Content, Action) => Content 
   };
 }
 
-// eslint-disable-next-line flowtype/no-weak-types
 function step(config: MicroLearningConfig): (Step, Action, State) => Step {
   return (s: Step, action: Action, state: State): Step => {
     return {
