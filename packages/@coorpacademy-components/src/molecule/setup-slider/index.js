@@ -1,25 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import map from 'lodash/fp/map';
 import SetupSlide from '../setup-slide';
-import style from './style.css';
+import Accordion from '../../organism/accordion/toggler';
 
 const SetupSlider = props => {
-  const {slides = []} = props;
+  const {tabProps, slides = []} = props;
 
-  const slidesView = slides.map((slide, key) => (
-    <div key={key} className={style.slide}>
-      <SetupSlide {...slide} />
-    </div>
-  ));
+  const slidesView = map.convert({cap: false})(
+    (slide, key) => <SetupSlide key={key} {...slide} />,
+    slides
+  );
 
   return (
-    <div>
+    <Accordion tabProps={tabProps} type={'all'}>
       {slidesView}
-    </div>
+    </Accordion>
   );
 };
 
 SetupSlider.propTypes = {
+  tabProps: PropTypes.arrayOf(PropTypes.shape(Accordion.PropTypes)),
   slides: PropTypes.arrayOf(PropTypes.shape(SetupSlide.propTypes))
 };
+
 export default SetupSlider;

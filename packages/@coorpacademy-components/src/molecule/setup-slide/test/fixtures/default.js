@@ -1,6 +1,5 @@
 export default {
   props: {
-    title: 'Platform design',
     fields: [
       {
         type: 'select',
