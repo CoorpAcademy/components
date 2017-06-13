@@ -1,7 +1,13 @@
-import {computeNextStep, checkAnswer, updateState} from '@coorpacademy/progression-engine';
+import {
+  createProgression,
+  computeNextStep,
+  checkAnswer,
+  updateState
+} from '@coorpacademy/progression-engine';
 import uniqueId from 'lodash/fp/uniqueId';
 import update from 'lodash/fp/update';
 import pipe from 'lodash/fp/pipe';
+import sample from 'lodash/fp/sample';
 import set from 'lodash/fp/set';
 import reduce from 'lodash/fp/reduce';
 import progressionsData from './progressions.data';
@@ -56,16 +62,20 @@ export const createAnswer = async (progressionId, payload) => {
 export const create = async progression => {
   const _id = generateId();
 
+  const chapter = {
+    ref: 'cha_Ny1BTxRp~',
+    type: 'chapter'
+  };
   const slides = await SlidesService.findAll();
-  const nextContent = computeNextStep(progression.engine, slides, progression.state);
+  const initialContent = {
+    ref: sample(slides)._id,
+    type: 'slide'
+  };
+
+  const newProgression = createProgression(progression.engine, chapter, initialContent);
 
   return save({
-    ...progression,
     _id,
-    state: {
-      slides: [],
-      ...progression.state,
-      nextContent
-    }
+    ...newProgression
   });
 };
