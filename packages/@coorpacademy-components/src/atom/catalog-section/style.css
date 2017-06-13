@@ -1,6 +1,10 @@
+@value colors: "../../variables/colors.css";
+@value light from colors;
+@value medium from colors;
+
 .title {
-  border-bottom: 1px solid #E0E0E0;
-  color: #546E7A;
+  border-bottom: 1px solid light;
+  color: medium;
   font-family: "Open Sans";
   font-size: 13px;
   font-weight: 800;

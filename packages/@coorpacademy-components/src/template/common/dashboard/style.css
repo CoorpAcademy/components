@@ -3,9 +3,12 @@
 @value tablet from breakpoints;
 @value mobile from breakpoints;
 
+@value colors: "../../../variables/colors.css";
+@value white from colors;
+
 .wrapper {
   width: 100%;
-  background-color: #ffffff;
+  background-color: white;
   padding-bottom: 20px;
 }
 

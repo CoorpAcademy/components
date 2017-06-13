@@ -1,7 +1,11 @@
+@value colors: "../../variables/colors.css";
+@value white from colors;
+@value light from colors;
+
 .empty {
   width: 100%;
   height: 100%;
-  background-color: #fff;
-  border: 1px dashed #ededed;
+  background-color: white;
+  border: 1px dashed light;
   box-sizing: border-box;
 }

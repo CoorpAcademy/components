@@ -1,5 +1,6 @@
 @value colors: "../../variables/colors.css";
 @value dark from colors;
+@value white from colors;
 
 .filter label {
   display: flex;
@@ -16,7 +17,7 @@
   padding: 15px 30px 15px 15px;
   font-size: 12px;
   padding-right: 30px;
-  background: #fff;
+  background: white;
   text-transform: none;
   text-align: initial;
 }
@@ -32,7 +33,7 @@
   display: block;
   width: 100%;
   height: 50px;
-  background: #fff;
+  background: white;
   margin: 0;
   border: 0;
   border-radius: 0;

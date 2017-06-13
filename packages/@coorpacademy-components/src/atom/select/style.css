@@ -1,7 +1,11 @@
 @value breakpoints: "../../variables/breakpoints.css";
-@value colors: "../../variables/colors.css";
 @value mobile from breakpoints;
+
+@value colors: "../../variables/colors.css";
 @value orange from colors;
+@value dark from colors;
+@value light from colors;
+@value black from colors;
 
 .default {
   display: flex;
@@ -49,11 +53,11 @@
   font-family: "Open Sans";
   text-transform: none;
   padding: 0 15px;
-  border: solid 2px #eceff1;
+  border: solid 2px light;
   height: 50px;
   border-radius: 2px;
   font-size: 14px;
-  color: #607d8b;
+  color: dark;
   margin-left: 20px;
   width: 230px;
   outline: none;
@@ -69,7 +73,7 @@
   height: 50px;
   border-radius: 2px;
   font-size: 14px;
-  color: #607d8b;
+  color: dark;
   margin-left: 20px;
   width: 230px;
   outline: none;
@@ -79,7 +83,7 @@
 
 .default select:focus::-ms-value {
   background-color: transparent;  /*make the select background transparent in ie */
-  color: #607d8b;
+  color: dark;
  }
 
 .arrow {
@@ -88,7 +92,7 @@
   margin-top: -10px;
   top: 50%;
   font-size: 20px;
-  color: #484848;
+  color: black;
   font-weight: 700;
   pointer-events: none;
   composes: fa from '../../variables/fontawesome.css';

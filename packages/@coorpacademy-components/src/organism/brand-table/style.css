@@ -1,6 +1,7 @@
 @value colors: "../../variables/colors.css";
 @value lightGreen from colors;
-@value daark from colors;
+@value dark from colors;
+@value white from colors;
 
 .wrapper {
   width: 100%;
@@ -17,7 +18,7 @@
   display: block;
   width: 40px;
   height: 40px;
-  color: #ffffff;
+  color: white;
   background-color: lightGreen;
   text-decoration: none;
   font-family: 'Open Sans';
@@ -29,7 +30,7 @@
 }
 
 .create a:hover {
-  background-color: #81c784
+  background-color: color(lightGreen lightness(60%));
 }
 
 .search {

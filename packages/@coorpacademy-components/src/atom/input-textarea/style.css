@@ -1,5 +1,8 @@
 @value colors: "../../variables/colors.css";
 @value dark from colors;
+@value medium from colors;
+@value light from colors;
+@value negative from colors;
 
 .default {
   display: flex;
@@ -30,24 +33,24 @@
   font-family: "Open Sans";
   text-transform: none;
   padding: 10px 15px;
-  border: solid 2px #eceff1;
+  border: solid 2px light;
   height: 125px;
   border-radius: 2px;
   font-size: 14px;
-  color: #607d8b;
+  color: dark;
   margin-left: 20px;
   width: 500px;
   resize: none;
 }
 
 .error textarea {
-  border-color: #eb5c41;
+  border-color: negative;
 }
 
 .description {
   font-family: 'Open Sans';
   font-weight: 500;
   font-size: 12px;
-  color: #C2C2C2;
+  color: medium;
   font-style: italic;
 }

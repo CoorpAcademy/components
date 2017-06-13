@@ -3,12 +3,18 @@
 @value tablet from breakpoints;
 @value desktop from breakpoints;
 
+@value colors: "../../variables/colors.css";
+@value dark from colors;
+@value light from colors;
+@value white from colors;
+@value medium from colors;
+
 .news {
   height: 240px;
   width: 100%;
-  background-color: #ffffff;
+  background-color: white;
   display: flex;
-  border: 1px solid #ECEFF1;
+  border: 1px solid light;
   box-sizing: border-box;
   overflow: hidden;
 }
@@ -45,7 +51,7 @@
   font-family: 'Open Sans';
   font-size: 19px;
   font-weight: 700;
-  color: #484848;
+  color: dark;
   margin-bottom: 5px;
   height: 70px;
   overflow: hidden;
@@ -59,7 +65,7 @@
   font-family: 'Open Sans';
   font-size: 14px;
   font-weight: 500;
-  color: #aaaaaa;
+  color: medium;
   margin-bottom: 15px;
 }
 
@@ -72,7 +78,7 @@
   height: 100%;
   overflow: hidden;
   font-weight: 500;
-  color: #484848;
+  color: dark;
 }
 
 .bottom {
@@ -131,7 +137,7 @@
     position: relative;
     cursor: pointer;
     height: 100px;
-    border: 1px solid #E6E6E6;
+    border: 1px solid light;
   }
 
   .image {

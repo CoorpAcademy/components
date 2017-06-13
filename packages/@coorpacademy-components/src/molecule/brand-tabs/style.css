@@ -1,7 +1,12 @@
+@value colors: "../../variables/colors.css";
+@value white from colors;
+@value light from colors;
+@value brand from colors;
+
 .wrapper {
   width: 100%;
   height: 72px;
-  background-color: #ffffff;
+  background-color: white;
   display: flex;
 }
 
@@ -11,8 +16,8 @@
   flex-grow: 1;
   text-align: center;
   box-sizing: border-box;
-  border-right: 1px solid #ECEFF1;
-  border-bottom: 3px solid #D8D8D8;
+  border-right: 1px solid light;
+  border-bottom: 3px solid light;
 }
 
 .tab:last-child {
@@ -25,23 +30,23 @@
   font-family: 'Open Sans';
   font-size: 17px;
   font-weight: 700;
-  color: #B0BEC5;
+  color: medium;
   text-decoration: none;
 }
 
 .tab:hover {
-  border-bottom: 3px solid #00B0FF;
+  border-bottom: 3px solid brand;
 }
 
 .tab:hover a {
-  color: #00B0FF;
+  color: brand;
 }
 
 .selected {
   composes: tab;
-  border-bottom: 3px solid #00B0FF;
+  border-bottom: 3px solid brand;
 }
 
 .selected a {
-  color: #00B0FF;
+  color: brand;
 }
