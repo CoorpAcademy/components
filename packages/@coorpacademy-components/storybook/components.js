@@ -102,6 +102,7 @@ import SlidesPlayer from '../src/molecule/slides/slides-player';
 import Container from '../src/organism/accordion/container';
 import Part from '../src/organism/accordion/part';
 import Toggler from '../src/organism/accordion/toggler';
+import Summary from '../src/organism/app-player/summary';
 import BrandForm from '../src/organism/brand-form';
 import BrandTable from '../src/organism/brand-table';
 import BrandUpload from '../src/organism/brand-upload';
@@ -234,6 +235,7 @@ import TabFixtureDefault from '../src/atom/tab/test/fixtures/default';
 import TitleFixtureFixture from '../src/atom/title/test/fixtures/fixture';
 import PopinHeaderFixtureDefault from '../src/molecule/app-player/popin/popin-header/test/fixtures/default';
 import PopinHeaderFixtureFail from '../src/molecule/app-player/popin/popin-header/test/fixtures/fail';
+import PopinHeaderFixtureStarsRank from '../src/molecule/app-player/popin/popin-header/test/fixtures/stars-rank';
 import BattleRequestFixtureDefault from '../src/molecule/battle-request/test/fixtures/default';
 import BrandCardCreateFixtureDefault from '../src/molecule/brand-card-create/test/fixtures/default';
 import BrandCardFixtureDefault from '../src/molecule/brand-card/test/fixtures/default';
@@ -432,6 +434,9 @@ import PartFixtureDefault from '../src/organism/accordion/part/test/fixtures/def
 import PartFixtureOpen from '../src/organism/accordion/part/test/fixtures/open';
 import TogglerFixtureAllAreOpenable from '../src/organism/accordion/toggler/test/fixtures/all-are-openable';
 import TogglerFixtureOnlyOne from '../src/organism/accordion/toggler/test/fixtures/only-one';
+import SummaryFixtureCorrect from '../src/organism/app-player/summary/test/fixtures/correct';
+import SummaryFixtureFail from '../src/organism/app-player/summary/test/fixtures/fail';
+import SummaryFixtureLoading from '../src/organism/app-player/summary/test/fixtures/loading';
 import BrandFormFixtureDashboard from '../src/organism/brand-form/test/fixtures/dashboard';
 import BrandFormFixtureDefault from '../src/organism/brand-form/test/fixtures/default';
 import BrandFormFixtureGeneralSettings from '../src/organism/brand-form/test/fixtures/general-settings';
@@ -505,6 +510,7 @@ import PopinCorrectionFixtureFailOpenRessources from '../src/template/app-player
 import PopinCorrectionFixtureFailOpenTips from '../src/template/app-player/popin-correction/test/fixtures/fail-open-tips';
 import PopinCorrectionFixtureLoading from '../src/template/app-player/popin-correction/test/fixtures/loading';
 import PopinEndFixtureCorrect from '../src/template/app-player/popin-end/test/fixtures/correct';
+import PopinEndFixtureDefault from '../src/template/app-player/popin-end/test/fixtures/default';
 import PopinEndFixtureFail from '../src/template/app-player/popin-end/test/fixtures/fail';
 import PopinEndFixtureLoading from '../src/template/app-player/popin-end/test/fixtures/loading';
 import BrandCreateFixtureDefault from '../src/template/back-office/brand-create/test/fixtures/default';
@@ -664,6 +670,9 @@ export const components = {
     Container,
     Part,
     Toggler
+  },
+  OrganismAppPlayer: {
+    Summary
   },
   Organism: {
     BrandForm,
@@ -872,7 +881,8 @@ export const fixtures = {
   MoleculeAppPlayerPopin: {
     PopinHeader: {
       Default: PopinHeaderFixtureDefault,
-      Fail: PopinHeaderFixtureFail
+      Fail: PopinHeaderFixtureFail,
+      StarsRank: PopinHeaderFixtureStarsRank
     }
   },
   Molecule: {
@@ -1227,6 +1237,13 @@ export const fixtures = {
       OnlyOne: TogglerFixtureOnlyOne
     }
   },
+  OrganismAppPlayer: {
+    Summary: {
+      Correct: SummaryFixtureCorrect,
+      Fail: SummaryFixtureFail,
+      Loading: SummaryFixtureLoading
+    }
+  },
   Organism: {
     BrandForm: {
       Dashboard: BrandFormFixtureDashboard,
@@ -1350,6 +1367,7 @@ export const fixtures = {
     },
     PopinEnd: {
       Correct: PopinEndFixtureCorrect,
+      Default: PopinEndFixtureDefault,
       Fail: PopinEndFixtureFail,
       Loading: PopinEndFixtureLoading
     }
@@ -2241,12 +2259,16 @@ export const dependencies = {
     "Loader": {
       "parents": {
         "TemplateAppPlayer": {
+          "PopinEnd": true,
           "Loading": true
         },
         "Organism": {
           "Discussion": true,
           "CardsGrid": true,
           "BrandTable": true
+        },
+        "OrganismAppPlayer": {
+          "Summary": true
         },
         "MoleculeDashboard": {
           "NewsList": true
@@ -2503,6 +2525,9 @@ export const dependencies = {
       "parents": {
         "TemplateCommon": {
           "Dashboard": true
+        },
+        "OrganismAppPlayer": {
+          "Summary": true
         }
       },
       "children": {
@@ -2553,6 +2578,7 @@ export const dependencies = {
     "SlidesHeader": {
       "parents": {
         "TemplateAppPlayer": {
+          "PopinEnd": true,
           "Player": true
         }
       },
@@ -2593,6 +2619,26 @@ export const dependencies = {
         }
       },
       "children": {}
+    }
+  },
+  "OrganismAppPlayer": {
+    "Summary": {
+      "parents": {
+        "TemplateAppPlayer": {
+          "PopinEnd": true
+        }
+      },
+      "children": {
+        "MoleculeAppPlayerPopin": {
+          "PopinHeader": true
+        },
+        "MoleculeDashboard": {
+          "CardsList": true
+        },
+        "Atom": {
+          "Loader": true
+        }
+      }
     }
   },
   "MoleculeForum": {
@@ -2641,6 +2687,16 @@ export const dependencies = {
           "ForumComment": true
         }
       }
+    }
+  },
+  "MoleculeAppPlayerPopin": {
+    "PopinHeader": {
+      "parents": {
+        "OrganismAppPlayer": {
+          "Summary": true
+        }
+      },
+      "children": {}
     }
   },
   "MoleculeQuestions": {
@@ -2815,7 +2871,17 @@ export const dependencies = {
       }
     },
     "PopinEnd": {
-      "children": {}
+      "children": {
+        "MoleculeSlides": {
+          "SlidesHeader": true
+        },
+        "OrganismAppPlayer": {
+          "Summary": true
+        },
+        "Atom": {
+          "Loader": true
+        }
+      }
     }
   },
   "TemplateBackOffice": {

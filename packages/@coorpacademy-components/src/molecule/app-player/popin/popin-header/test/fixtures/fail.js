@@ -7,7 +7,7 @@ export default {
     wrongAnswer: 'Maecenas faucibus mollis interdum. Donec sed odio dui.',
     cta: {
       title: 'Continuer',
-      onClick: () => null
+      href: '#'
     }
   }
 };
