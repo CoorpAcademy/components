@@ -12,15 +12,15 @@
 @value primaryAdd3: #0277BD;
 @value primaryAdd4: #015798;
 
-@xtraLightGrey: #FAFAFA;
+@value xtraLightGrey: #FAFAFA;
 @value medium: #90A4AE;
 @value dark: #546E7A;
 
-@value orangeAdd: #FF7043; // @value lightOrange: #FFE4B7;
+@value orangeAdd: #FF7043;
 @value orange: #FFA000;
 
 @value green: #3EC483;
-@value lightGreen: #66BB6A; // @value lightGreen: #E8F5E9;
+@value lightGreen: #66BB6A;
 
 @value red: #F73F52;
 
