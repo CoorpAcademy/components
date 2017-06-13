@@ -2537,6 +2537,16 @@ export const dependencies = {
       }
     }
   },
+  "MoleculeAppPlayerPopin": {
+    "PopinHeader": {
+      "parents": {
+        "TemplateAppPlayer": {
+          "PopinCorrection": true
+        }
+      },
+      "children": {}
+    }
+  },
   "MoleculeSlides": {
     "SlidesHeader": {
       "parents": {
@@ -2729,11 +2739,6 @@ export const dependencies = {
       }
     }
   },
-  "MoleculeAppPlayerPopin": {
-    "PopinHeader": {
-      "children": {}
-    }
-  },
   "TemplateAppCatalog": {
     "Author": {
       "children": {
@@ -2801,7 +2806,11 @@ export const dependencies = {
       }
     },
     "PopinCorrection": {
-      "children": {}
+      "children": {
+        "MoleculeAppPlayerPopin": {
+          "PopinHeader": true
+        }
+      }
     },
     "PopinEnd": {
       "children": {}
