@@ -5,8 +5,23 @@ import style from './style.css';
 
 const WrongAnswer = ({text}) => <p className={style.wrongAnswer}>{text}</p>;
 
+const IconsPart = props => {
+  const {lives, fail, stars, rank} = props;
+  const livesIcon =
+    lives !== undefined && <Life fail={fail} count={lives} className={style.life} />;
+  const starsIcon = stars !== undefined && <p className={style.icon}>{stars}</p>;
+  const rankIcon = rank !== undefined && <p className={style.icon}>{rank}</p>;
+
+  return (
+    <div className={style.lifeWrapper}>
+      {livesIcon}
+      {starsIcon}
+      {rankIcon}
+    </div>
+  );
+};
 const CorrectionPart = props => {
-  const {fail = false, lives, wrongAnswer, title, subtitle} = props;
+  const {fail = false, wrongAnswer, title, subtitle} = props;
   const className = fail ? style.correctionSectionFail : style.correctionSectionDefault;
 
   return (
@@ -16,9 +31,7 @@ const CorrectionPart = props => {
         <h2 className={style.subtitle}>{subtitle}</h2>
         {fail && wrongAnswer ? <WrongAnswer text={wrongAnswer} /> : null}
       </div>
-      <div className={style.lifeWrapper}>
-        <Life fail={fail} count={lives} className={style.life} />
-      </div>
+      <IconsPart {...props} />
     </div>
   );
 };
@@ -37,7 +50,7 @@ const NextQuestionPart = props => {
 };
 
 const PopinHeader = props => {
-  const {fail = false, title, subtitle, lives, wrongAnswer, cta} = props;
+  const {fail = false, title, subtitle, lives, stars, rank, wrongAnswer, cta} = props;
   const handleOnClick = cta.onClick;
 
   return (
@@ -46,6 +59,8 @@ const PopinHeader = props => {
         title={title}
         subtitle={subtitle}
         lives={lives}
+        stars={stars}
+        rank={rank}
         fail={fail}
         wrongAnswer={wrongAnswer}
       />
@@ -56,7 +71,9 @@ const PopinHeader = props => {
 
 PopinHeader.propTypes = {
   fail: PropTypes.bool,
-  lives: PropTypes.number.isRequired,
+  lives: PropTypes.number,
+  stars: PropTypes.string,
+  rank: PropTypes.string,
   subtitle: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   wrongAnswer: PropTypes.string,

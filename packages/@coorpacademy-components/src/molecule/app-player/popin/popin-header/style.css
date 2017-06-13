@@ -78,6 +78,13 @@
   margin-right: 42px;
 }
 
+.icon {
+  font-family: 'Open Sans';
+  color: white;
+  font-weight: 700;
+  font-size: 22px;
+  padding: 0 10px;
+}
 
 /*
  * Next Question Part
