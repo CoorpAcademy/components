@@ -144,7 +144,9 @@ function stars(config: MicroLearningConfig): Function {
       case 'clue':
         const requestedClueAction = (action: AskClueAction);
         const slideRef = requestedClueAction.payload.content.ref;
-        return state.requestedClues.indexOf(slideRef) === -1 ? currentStars - 1 : currentStars;
+        return state.requestedClues.indexOf(slideRef) === -1
+          ? currentStars + config.starsPerAskingClue
+          : currentStars;
       // eslint-disable-next-line no-case-declarations
       case 'resource':
         const chapterResourceViewedAction = (action: ChapterResourceViewedAction);

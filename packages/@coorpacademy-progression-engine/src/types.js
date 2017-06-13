@@ -113,6 +113,7 @@ export type MicroLearningConfig = {
   maxTypos: number,
   slidesToComplete: number,
   answerBoundaryLimit: number,
+  starsPerAskingClue: number,
   starsPerCorrectAnswer: number,
   starsPerResourceViewed: number
 };
