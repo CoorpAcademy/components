@@ -2267,9 +2267,6 @@ export const dependencies = {
           "CardsGrid": true,
           "BrandTable": true
         },
-        "OrganismAppPlayer": {
-          "Summary": true
-        },
         "MoleculeDashboard": {
           "NewsList": true
         },
@@ -2525,9 +2522,6 @@ export const dependencies = {
       "parents": {
         "TemplateCommon": {
           "Dashboard": true
-        },
-        "OrganismAppPlayer": {
-          "Summary": true
         }
       },
       "children": {
@@ -2618,17 +2612,7 @@ export const dependencies = {
           "PopinEnd": true
         }
       },
-      "children": {
-        "MoleculeAppPlayerPopin": {
-          "PopinHeader": true
-        },
-        "MoleculeDashboard": {
-          "CardsList": true
-        },
-        "Atom": {
-          "Loader": true
-        }
-      }
+      "children": {}
     }
   },
   "MoleculeAppPlayerPopin": {
@@ -2687,16 +2671,6 @@ export const dependencies = {
           "ForumComment": true
         }
       }
-    }
-  },
-  "MoleculeAppPlayerPopin": {
-    "PopinHeader": {
-      "parents": {
-        "OrganismAppPlayer": {
-          "Summary": true
-        }
-      },
-      "children": {}
     }
   },
   "MoleculeQuestions": {
@@ -2795,6 +2769,11 @@ export const dependencies = {
           "Qcm": true
         }
       }
+    }
+  },
+  "MoleculeAppPlayerPopin": {
+    "PopinHeader": {
+      "children": {}
     }
   },
   "TemplateAppCatalog": {

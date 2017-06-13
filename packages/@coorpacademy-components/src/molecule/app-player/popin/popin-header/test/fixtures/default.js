@@ -5,7 +5,7 @@ export default {
     subtitle: 'Bonne réponse',
     cta: {
       title: 'Continuer',
-      onClick: () => null
+      href: '#'
     }
   }
 };

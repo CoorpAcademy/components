@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Life from '../../../../atom/life';
+import Link from '../../../../atom/link';
 import style from './style.css';
 
 const WrongAnswer = ({text}) => <p className={style.wrongAnswer}>{text}</p>;
@@ -37,21 +38,20 @@ const CorrectionPart = props => {
 };
 
 const NextQuestionPart = props => {
-  const {title, onClick} = props;
+  const {title, href} = props;
 
   return (
     <div className={style.nextSection}>
-      <button className={style.nextButton} onClick={onClick}>
-        <label className={style.nextButtonLabel}>{title}</label>
+      <Link href={href} className={style.nextButton}>
+        {title}
         <span className={style.nextButtonIcon} />
-      </button>
+      </Link>
     </div>
   );
 };
 
 const PopinHeader = props => {
   const {fail = false, title, subtitle, lives, stars, rank, wrongAnswer, cta} = props;
-  const handleOnClick = cta.onClick;
 
   return (
     <div className={style.header}>
@@ -64,7 +64,7 @@ const PopinHeader = props => {
         fail={fail}
         wrongAnswer={wrongAnswer}
       />
-      <NextQuestionPart title={cta.title} onClick={handleOnClick} />
+      <NextQuestionPart {...cta} />
     </div>
   );
 };
@@ -79,7 +79,7 @@ PopinHeader.propTypes = {
   wrongAnswer: PropTypes.string,
   cta: PropTypes.shape({
     title: PropTypes.string.isRequired,
-    onClick: PropTypes.func
+    href: PropTypes.url
   })
 };
 
