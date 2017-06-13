@@ -5,6 +5,11 @@ import style from './style.css';
 const InputDoublestep = props => {
   const {title, toggleValue, cancelValue, onChange, description} = props;
 
+  const handleOnChange = e => {
+    e.preventDefault();
+    return onChange(e);
+  };
+
   return (
     <div className={style.wrapper}>
       <div className={style.value}>
@@ -13,7 +18,7 @@ const InputDoublestep = props => {
           <span className={style.toggle}>{toggleValue}</span>
           <span className={style.cancel}>{cancelValue}</span>
         </label>
-        <button onClick={onChange} className={style.delete}>
+        <button onClick={handleOnChange} className={style.delete}>
           {title}
         </button>
       </div>
