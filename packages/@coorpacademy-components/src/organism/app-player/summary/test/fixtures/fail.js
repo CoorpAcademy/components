@@ -17,6 +17,10 @@ export default defaultsDeep(loading, {
     recommendation: {
       title: 'You may try:',
       cards: [Card.props, Card.props, Card.props]
+    },
+    footer: {
+      title: 'Back to home',
+      href: '#'
     }
   }
 });

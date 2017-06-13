@@ -1,21 +1,51 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import getOr from 'lodash/fp/getOr';
+import Provider from '../../../atom/provider';
+import Link from '../../../atom/link';
 import Loader from '../../../atom/loader';
 import CardsList from '../../../molecule/dashboard/cards-list';
-import Header from '../../../molecule/app-player/popin/popin-header';
+import PopinHeader from '../../../molecule/app-player/popin/popin-header';
 import style from './style.css';
 
-const PopinEnd = props => {
-  const {header, recommendation} = props;
-  const headerView = header ? <Header {...header} /> : null;
-  const cards = recommendation.cards ? <CardsList {...recommendation} /> : <Loader />;
+const Header = props => <PopinHeader {...props} />;
+
+const Cards = props => {
+  if (props.cards) {
+    return <CardsList {...props} />;
+  } else {
+    return <Loader />;
+  }
+};
+
+const Footer = ({title, href, color}) => (
+  <Link
+    style={{
+      color
+    }}
+    href={href}
+    className={style.footer}
+  >
+    {title}
+  </Link>
+);
+
+const PopinEnd = (props, context) => {
+  const {header, recommendation, footer} = props;
+  const {skin} = context;
+  const primary = getOr('#f0f', 'common.primary', skin);
 
   return (
     <div className={style.wrapper}>
-      {headerView}
-      {cards}
+      <Header {...header} />
+      <Cards {...recommendation} />
+      <Footer color={primary} {...footer} />
     </div>
   );
+};
+
+PopinEnd.contextTypes = {
+  skin: Provider.childContextTypes.skin
 };
 
 PopinEnd.propTypes = {
@@ -30,6 +60,10 @@ PopinEnd.propTypes = {
       subtitle: PropTypes.string,
       href: PropTypes.url
     })
+  }),
+  footer: PropTypes.shape({
+    title: PropTypes.string,
+    href: PropTypes.url
   }),
   recommendation: PropTypes.shape(CardsList.propTypes)
 };

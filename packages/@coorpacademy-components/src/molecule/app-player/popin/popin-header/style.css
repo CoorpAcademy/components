@@ -98,16 +98,6 @@
   flex: 1;
 }
 
-.nextButton {
-  display: flex;
-  background-color: transparent;
-  border-radius: none;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  transition: transform 0.1s;
-}
-
 .nextButton:hover {
   transform: scale(1.02);
 }
@@ -120,12 +110,20 @@
   cursor: pointer;
 }
 
-.nextButtonLabel {
+.nextButton {
   composes: nextButtonContent;
   font-family: 'Open Sans';
   color: #546E7A;
   font-size: 16px;
   margin-right: 1rem;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border-radius: none;
+  border: none;
+  outline: none;
+  transition: transform 0.1s;
+  text-decoration: none;
 }
 
 .nextButtonIcon {
@@ -135,6 +133,7 @@
   font-size: 30px;
   color: #546E7A;
   margin-top: -4px;
+  margin-left: 14px;
 }
 
 @media mobile {

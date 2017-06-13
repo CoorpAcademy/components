@@ -6,8 +6,8 @@ export default {
     title: 'Big Data - Avancé',
     subtitle: 'Félicitations !',
     cta: {
-      title: 'Continuer',
-      onClick: () => null
+      title: 'Niveau suivant',
+      href: '#'
     }
   }
 };

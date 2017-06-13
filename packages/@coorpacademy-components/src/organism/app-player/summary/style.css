@@ -1,19 +1,29 @@
 @value breakpoints: "../../../variables/breakpoints.css";
 @value mobile from breakpoints;
 @value colors: "../../../variables/colors.css";
-@value blue from colors;
-@value red from colors;
+@value xtraLightGrey from colors;
 
 .wrapper {
   width: 100%;
+  background-color: xtraLightGrey;
+  border: 1px solid #ECEFF1;
+  border-radius: 3px;
+  box-shadow: 0 0 1px 1px rgba(0,0,0,0.07);
+  overflow: hidden;
 }
 
-.fail {
-  background-color: red;
-}
-
-.success {
-  background-color: blue;
+.footer {
+  font-family: 'Open Sans';
+  font-size: 16px;
+  font-weight: 700;
+  background-color: white;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 @media mobile {
