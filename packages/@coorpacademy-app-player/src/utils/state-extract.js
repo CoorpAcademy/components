@@ -47,18 +47,4 @@ export const getCurrentExitNode = state => {
   return getExitNode(ref)(state);
 };
 
-export const getCurrentContent = state => {
-  const {ref, type} = getOr({}, 'state.nextContent')(getCurrentProgression(state));
-  switch (type) {
-    case 'slide': {
-      return getSlide(ref)(state);
-    }
-    case 'success':
-    case 'failure': {
-      return getExitNode(ref)(state);
-    }
-    default: {
-      return null;
-    }
-  }
-};
+export const getCurrentContent = pipe(getCurrentProgression, get('state.nextContent'));

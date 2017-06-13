@@ -2189,6 +2189,9 @@ export const dependencies = {
         "TemplateCommon": {
           "Authors": true
         },
+        "TemplateAppPlayer": {
+          "PopinEnd": true
+        },
         "Organism": {
           "SetupHeader": true,
           "Settings": true,
@@ -2815,7 +2818,11 @@ export const dependencies = {
       }
     },
     "PopinEnd": {
-      "children": {}
+      "children": {
+        "Atom": {
+          "Link": true
+        }
+      }
     }
   },
   "TemplateBackOffice": {

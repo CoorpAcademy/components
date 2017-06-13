@@ -92,48 +92,13 @@ test('should getPreviousSlide', t => {
   t.is(getPreviousSlide(state), slide);
 });
 
-test('should getCurrentContent when is a slide', t => {
-  const slide = {_id: '0'};
-  const progression = {state: {nextContent: {ref: '0', type: 'slide'}}};
-  const state = pipe(
-    set('ui.current.progressionId', '0'),
-    set('data.progressions.entities', {'0': progression}),
-    set('data.slides.entities', {'0': slide})
-  )({});
-
-  t.is(getCurrentContent(state), slide);
-});
-
-test('should getCurrentContent when is an success exitNode', t => {
-  const exitNode = {_id: '0'};
-  const progression = {state: {nextContent: {ref: '0', type: 'success'}}};
-  const state = pipe(
-    set('ui.current.progressionId', '0'),
-    set('data.progressions.entities', {'0': progression}),
-    set('data.exitNodes.entities', {'0': exitNode})
-  )({});
-
-  t.is(getCurrentContent(state), exitNode);
-});
-
-test('should getCurrentContent when is an failure exitNode', t => {
-  const exitNode = {_id: '0'};
-  const progression = {state: {nextContent: {ref: '0', type: 'failure'}}};
-  const state = pipe(
-    set('ui.current.progressionId', '0'),
-    set('data.progressions.entities', {'0': progression}),
-    set('data.exitNodes.entities', {'0': exitNode})
-  )({});
-
-  t.is(getCurrentContent(state), exitNode);
-});
-
-test('should getCurrentContent as null when content has an unknown type', t => {
-  const progression = {state: {nextContent: {ref: '0', type: 'unknown'}}};
+test('should getCurrentContent', t => {
+  const content = {ref: '0', type: 'slide'};
+  const progression = {state: {nextContent: content}};
   const state = pipe(
     set('ui.current.progressionId', '0'),
     set('data.progressions.entities', {'0': progression})
   )({});
 
-  t.is(getCurrentContent(state), null);
+  t.is(getCurrentContent(state), content);
 });
