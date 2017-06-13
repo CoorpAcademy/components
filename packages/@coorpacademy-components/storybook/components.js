@@ -235,6 +235,7 @@ import TabFixtureDefault from '../src/atom/tab/test/fixtures/default';
 import TitleFixtureFixture from '../src/atom/title/test/fixtures/fixture';
 import PopinHeaderFixtureDefault from '../src/molecule/app-player/popin/popin-header/test/fixtures/default';
 import PopinHeaderFixtureFail from '../src/molecule/app-player/popin/popin-header/test/fixtures/fail';
+import PopinHeaderFixtureStarsRank from '../src/molecule/app-player/popin/popin-header/test/fixtures/stars-rank';
 import BattleRequestFixtureDefault from '../src/molecule/battle-request/test/fixtures/default';
 import BrandCardCreateFixtureDefault from '../src/molecule/brand-card-create/test/fixtures/default';
 import BrandCardFixtureDefault from '../src/molecule/brand-card/test/fixtures/default';
@@ -880,7 +881,8 @@ export const fixtures = {
   MoleculeAppPlayerPopin: {
     PopinHeader: {
       Default: PopinHeaderFixtureDefault,
-      Fail: PopinHeaderFixtureFail
+      Fail: PopinHeaderFixtureFail,
+      StarsRank: PopinHeaderFixtureStarsRank
     }
   },
   Molecule: {
@@ -2617,6 +2619,9 @@ export const dependencies = {
         }
       },
       "children": {
+        "MoleculeAppPlayerPopin": {
+          "PopinHeader": true
+        },
         "MoleculeDashboard": {
           "CardsList": true
         },
@@ -2682,6 +2687,16 @@ export const dependencies = {
           "ForumComment": true
         }
       }
+    }
+  },
+  "MoleculeAppPlayerPopin": {
+    "PopinHeader": {
+      "parents": {
+        "OrganismAppPlayer": {
+          "Summary": true
+        }
+      },
+      "children": {}
     }
   },
   "MoleculeQuestions": {
