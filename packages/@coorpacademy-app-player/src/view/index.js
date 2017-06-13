@@ -1,17 +1,21 @@
-import pipe from 'lodash/fp/pipe';
+import cond from 'lodash/fp/cond';
+import constant from 'lodash/fp/constant';
+import every from 'lodash/fp/every';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
-import isUndefined from 'lodash/fp/isUndefined';
+import isEqual from 'lodash/fp/isEqual';
 import isNull from 'lodash/fp/isNull';
-import every from 'lodash/fp/every';
+import isUndefined from 'lodash/fp/isUndefined';
+import pipe from 'lodash/fp/pipe';
 import {createElement} from 'react';
 import Provider from '@coorpacademy/components/es/atom/provider';
 import Player from '@coorpacademy/components/es/template/app-player/player';
-// import Loading from '@coorpacademy/components/es/template/app-player/loading';
+import Loading from '@coorpacademy/components/es/template/app-player/loading';
 import PopinCorrection from '@coorpacademy/components/es/template/app-player/popin-correction';
-// import PopinEnd from '@coorpacademy/components/es/template/app-player/popin-end';
-import Title from '@coorpacademy/components/es/atom/title';
+import PopinEnd from '@coorpacademy/components/es/template/app-player/popin-end';
 import {
+  getCurrentContent,
+  getCurrentExitNode,
   getCurrentProgression,
   getCurrentSlide,
   getPreviousSlide,
@@ -89,7 +93,59 @@ const wrapInProvider = options => vNode => createElement(Provider, options, vNod
 export const createSlide = options => dispatch => {
   const mapStateToProps = createMapStateToProps(options)(dispatch);
 
-  return pipe(mapStateToProps, Player, wrapInProvider(options));
+  return pipe(mapStateToProps, props => createElement(Player, props), wrapInProvider(options));
+};
+
+export const createPopinEnd = ({translate}) => dispatch => {
+  return state => {
+    const exitNode = getCurrentExitNode(state);
+    const progression = getCurrentProgression(state);
+
+    const header = cond([
+      [
+        pipe(get('type'), isEqual('success')),
+        () => ({
+          title: '',
+          subtitle: translate('end.header.correct.subtitle'),
+          fail: false,
+          stars: get('state.stars')(progression),
+          cta: {
+            title: translate('end.header.correct.cta.title'),
+            subtitle: '',
+            href: '/'
+          }
+        })
+      ],
+      [
+        pipe(get('type'), isEqual('failure')),
+        () => ({
+          title: translate('end.header.fail.title'),
+          subtitle: translate('end.header.fail.subtitle'),
+          fail: true,
+          lives: get('state.lives')(progression),
+          cta: {
+            title: translate('end.header.fail.cta.title'),
+            href: `/`
+          }
+        })
+      ],
+      [constant(true), constant(null)]
+    ])(exitNode);
+    const recommendation = {
+      title: translate('end.recommendation.title'),
+      coards: null
+    };
+    const footer = {
+      title: translate('end.footer.title'),
+      href: '/'
+    };
+
+    return createElement(PopinEnd, {
+      header,
+      recommendation,
+      footer
+    });
+  };
 };
 
 export const createPopinCorrection = ({translate}) => dispatch => {
@@ -120,7 +176,7 @@ export const createPopinCorrection = ({translate}) => dispatch => {
       })
     };
 
-    return PopinCorrection({
+    return createElement(PopinCorrection, {
       header: {
         lives: 1,
         title: '',
@@ -156,22 +212,24 @@ export const createPopinCorrection = ({translate}) => dispatch => {
 
 export const createRouter = options => dispatch => state => {
   const progression = getCurrentProgression(state);
+  if (!progression) return createElement(Loading);
+  const currentContent = getCurrentContent(state);
 
   const {isCorrect, correction} = getAnswers(state);
 
   if (!every(isUndefined, [isCorrect, correction]))
     return createPopinCorrection(options)(dispatch)(state);
 
-  switch (get('state.nextContent.type', progression)) {
+  switch (get('type', currentContent)) {
     case 'slide': {
       return createSlide(options)(dispatch)(state);
     }
     case 'success':
     case 'failure': {
-      return Title({children: progression.state.nextContent.ref});
+      return createPopinEnd(options)(dispatch)(state);
     }
     default: {
-      return Title({children: 'Loading'});
+      return createElement(Loading);
     }
   }
 };
