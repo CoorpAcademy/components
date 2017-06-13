@@ -4,7 +4,7 @@ export default {
     recommendation: {
       title: 'Sujets associés :',
       cards: null
-    },
+    }
     // feedback: {
     //   title: 'Donnez votre avis sur ce cours',
     //   value: '',
@@ -13,9 +13,5 @@ export default {
     //   onSumbit: () => {},
     //   sent: false
     // },
-    footer: {
-      title: 'Back to home',
-      href: '#'
-    }
   }
 };
