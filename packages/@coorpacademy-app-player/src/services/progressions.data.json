@@ -5,6 +5,10 @@
       "ref": "microlearning",
       "version": "1"
     },
+    "content": {
+      "ref": "5.C7",
+      "type": "chapter"
+    },
     "state": {
       "slides": [],
       "nextContent": {
@@ -24,6 +28,10 @@
       "ref": "microlearning",
       "version": "1"
     },
+    "content": {
+      "ref": "5.C7",
+      "type": "chapter"
+    },
     "state": {
       "slides": ["sli_VkcAWR-ZQ"],
       "nextContent": {
@@ -39,6 +47,10 @@
       "ref": "microlearning",
       "version": "1"
     },
+    "content": {
+      "ref": "5.C7",
+      "type": "chapter"
+    },
     "state": {
       "slides": ["sli_VkcAWR-ZQ", "sli_E1iEQRuZm", "sli_4kl~7RubX", "sli_Vy88~R-bX"],
       "nextContent": {
@@ -53,6 +65,10 @@
     "engine": {
       "ref": "microlearning",
       "version": "1"
+    },
+    "content": {
+      "ref": "5.C7",
+      "type": "chapter"
     },
     "state": {
       "slides": [],
