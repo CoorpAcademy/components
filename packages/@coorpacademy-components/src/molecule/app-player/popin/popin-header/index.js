@@ -38,11 +38,10 @@ const CorrectionPart = props => {
 };
 
 const NextQuestionPart = props => {
-  const {title, href} = props;
-
+  const {title, ...linkProps} = props;
   return (
     <div className={style.nextSection}>
-      <Link href={href} className={style.nextButton}>
+      <Link {...linkProps} className={style.nextButton}>
         {title}
         <span className={style.nextButtonIcon} />
       </Link>
@@ -74,11 +73,11 @@ PopinHeader.propTypes = {
   lives: PropTypes.number,
   stars: PropTypes.string,
   rank: PropTypes.string,
-  subtitle: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string,
+  title: PropTypes.string,
   wrongAnswer: PropTypes.string,
   cta: PropTypes.shape({
-    title: PropTypes.string.isRequired,
+    title: PropTypes.string,
     href: PropTypes.url
   })
 };

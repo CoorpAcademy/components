@@ -19,7 +19,6 @@ const Content = props => {
 
 const PopinEnd = props => {
   const {header, summary} = props;
-
   return (
     <div className={style.wrapper}>
       <SlidesHeader {...header} />

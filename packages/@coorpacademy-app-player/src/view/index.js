@@ -141,9 +141,12 @@ export const createPopinEnd = ({translate}) => dispatch => {
     };
 
     return createElement(PopinEnd, {
-      header,
-      recommendation,
-      footer
+      header: toHeader(state),
+      summary: {
+        header,
+        recommendation,
+        footer
+      }
     });
   };
 };
