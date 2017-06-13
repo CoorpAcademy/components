@@ -1,5 +1,10 @@
 @value colors: "../../variables/colors.css";
 @value orange from colors;
+@value medium from colors;
+@value white from colors;
+@value positive from colors;
+@value light from colors;
+@value dark from colors;
 
 .default {
   display: flex;
@@ -16,7 +21,7 @@
   position: relative;
   display: block;
   width: 52px;
-  background: #898989;
+  background: medium;
   border-radius: 100px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -30,7 +35,7 @@
   width: 28px;
   height: 28px;
   border-radius: 100px;
-  background: #fff;
+  background: white;
   box-shadow: 0px 3px 3px rgba(0,0,0,0.05);
   content: '';
   transition: all 0.3s ease;
@@ -59,7 +64,7 @@
 }
 
 .checkbox:checked ~ label {
-  background: #00DC88;
+  background: positive;
 }
 
 .default input:checked ~ label:after {
@@ -67,12 +72,12 @@
 }
 
 .checkbox:disabled ~ label {
-  background: #d5d5d5;
+  background: light;
   pointer-events: none;
 }
 
 .checkbox:disabled ~ label:after {
-  background: #bcbdbc;
+  background: medium;
 }
 
 .title {
@@ -89,7 +94,7 @@
   font-family: 'Open Sans';
   font-weight: 500;
   font-size: 12px;
-  color: #C2C2C2;
+  color: medium;
   font-style: italic;
   margin-left: 20px;
 }

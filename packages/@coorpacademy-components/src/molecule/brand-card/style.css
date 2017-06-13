@@ -3,6 +3,8 @@
 @value white from colors;
 @value orange from colors;
 @value brand from colors;
+@value xtraLightGrey from colors;
+@value medium from colors;
 
 .wrapper {
   width: 300px;
@@ -52,13 +54,13 @@
   display: inline-block;
   width: 50%;
   box-sizing: border-box;
-  border-top: 1px solid #F5F5F5;
+  border-top: 1px solid xtraLightGrey;
   height: 50px;
 }
 
 .link a {
   font-family: 'Open Sans';
-  color: #B0BEC5;
+  color: medium;
   font-weight: 600;
   font-size: 15px;
   text-decoration: none;
@@ -70,7 +72,7 @@
 
 .edit {
   composes: link;
-  border-right: 1px solid #F5F5F5;
+  border-right: 1px solid xtraLightGrey;
 }
 
 .edit a:hover {

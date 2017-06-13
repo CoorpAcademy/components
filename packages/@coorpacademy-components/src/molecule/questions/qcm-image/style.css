@@ -1,6 +1,11 @@
 @value breakpoints: "../../../variables/breakpoints.css";
 @value mobile from breakpoints;
 
+@value colors: "../../../variables/colors.css";
+@value white from colors;
+@value xtraLightGrey from colors;
+@value black from colors;
+
 .wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -10,9 +15,9 @@
 
 .answer {
   width: 100%;
-  color: #14171A;
-  background-color: #ffffff;
-  border: 1px solid #ECEFF1;
+  color: black;
+  background-color: white;
+  border: 1px solid xtraLightGrey;
   border-radius: 3px;
   box-sizing: border-box;
   margin-bottom: 8px;
@@ -44,12 +49,12 @@
 }
 
 .answer:hover {
-  background-color: #ECEFF1;
+  background-color: xtraLightGrey;
 }
 
 .selected {
   composes: answer;
-  color: #ffffff;
+  color: white;
 }
 
 @media mobile {

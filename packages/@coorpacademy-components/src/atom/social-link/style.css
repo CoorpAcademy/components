@@ -17,6 +17,6 @@
 }
 
 .link:hover {
-  border-color: #29363C;
-  color: #29363C;
+  border-color: color(dark lightness(60%));
+  color: color(dark lightness(60%));
 }

@@ -1,8 +1,9 @@
 @value colors: "../../variables/colors.css";
 @value orange from colors;
+@value medium from colors;
 
 .default {
-  color: #B0BEC5;
+  color: medium;
   margin-right: 2px;
 }
 

@@ -5,6 +5,7 @@
 @value white from colors;
 @value dark from colors;
 @value light from colors;
+@value medium from colors;
 
 .promoCode {
   box-shadow: 0 0 4px 0 light;
@@ -28,7 +29,7 @@
 .promoCodeInput {
   color: dark;
   font-size: 14px;
-  border: solid 1px #bbb;
+  border: solid 1px medium;
   width: 60%;
   margin: 20px 10px;
   padding: 10px;
@@ -38,13 +39,13 @@
   border: 0px;
   font-size: 18px;
   color: white;
-  background-color: #BBBBBB;
+  background-color: medium;
   width: 30%;
   cursor: pointer;
 }
 
 .promoCodeButton:hover {
-  background: #959595;
+  background: color(medium lightness(50%));
 }
 
 .promoCodeButtonOnSuccess {

@@ -1,6 +1,9 @@
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
 
+@value colors: "../../variables/colors.css";
+@value black from colors;
+
 .mooc {
   composes: default from './style.css';
   width: 150px;
@@ -13,7 +16,7 @@
 }
 
 .mooc select {
-  color: #000;
+  color: black;
   height: 35px;
   margin-left: 0;
   width: auto;

@@ -46,11 +46,16 @@
     "Julien Seren-Rosso <julien.seren-rosso@coorpacademy.com>"
   ],
   "dependencies": {
+    "autoprefixer": "^7.1.1",
     "classnames": "^2.2.5",
     "extended-proptypes": "^1.3.0",
     "file-loader": "^0.11.1",
     "hammerjs": "^2.0.8",
     "lodash": "^4.17.4",
+    "postcss-calc": "^6.0.0",
+    "postcss-color-function": "^4.0.0",
+    "postcss-modules-values": "^1.3.0",
+    "postcss-modules-values-replace": "^1.2.1",
     "react": "^15.5.4",
     "react-dom": "^15.5.4"
   },
@@ -59,7 +64,6 @@
     "@coorpacademy/webpack-config": "6.0.6",
     "@kadira/storybook": "^2.35.3",
     "@kadira/storybook-addon-knobs": "^1.7.1",
-    "autoprefixer": "^7.1.1",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",

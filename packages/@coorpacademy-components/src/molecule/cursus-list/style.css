@@ -1,6 +1,11 @@
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
 
+@value colors: "../../variables/colors.css";
+@value xtraLightGrey from colors;
+@value white from colors;
+@value medium from colors;
+
 .cursuses {
   width: 230px;
 }
@@ -9,9 +14,9 @@
   font-family: Open Sans;
   font-weight: 700;
   font-size: 15px;
-  color: #B0BEC5;
+  color: medium;
   text-transform: uppercase;
-  background-color: #F0F0F0;
+  background-color: xtraLightGrey;
   line-height: 50px;
   margin: 0;
   padding: 0 20px;
@@ -24,7 +29,7 @@
   text-align: left;
   margin: 0;
   padding: 0;
-  border: 1px solid #F0F0F0;
+  border: 1px solid xtraLightGrey;
   box-sizing: border-box;
   border-radius: 0 0 2px 2px;
 }
@@ -34,19 +39,19 @@
 }
 
 .cursus {
-  border-bottom: 1px solid #F0F0F0;
+  border-bottom: 1px solid xtraLightGrey;
   padding: 0 20px;
 }
 
 .cursus:hover {
-  background-color: #B0BEC5;;
+  background-color: medium;;
   cursor: pointer;
 }
 
 .cursus a {
   font-family: Open Sans;
   font-size: 14px;
-  color: #B0BEC5;
+  color: medium;
   text-decoration: none;
   height: 50px;
   display: table-cell;
@@ -54,7 +59,7 @@
 }
 
 .cursus:hover a {
-  color: #FFFFFF;
+  color: white;
 }
 
 @media mobile {

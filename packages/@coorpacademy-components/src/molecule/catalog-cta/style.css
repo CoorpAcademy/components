@@ -3,6 +3,11 @@
 @value tablet from breakpoints;
 @value desktop from breakpoints;
 
+@value colors: "../../variables/colors.css";
+@value white from colors;
+@value brand from colors;
+@value positive from colors;
+
 .head {
   display: block;
   width: 100%;
@@ -16,7 +21,7 @@
 .head a {
   display: block;
   text-transform: uppercase;
-  color: #ffffff;
+  color: white;
   font-family: "Open Sans";
   font-weight: 600;
   font-size: 13px;
@@ -29,7 +34,7 @@
 }
 
 .head a:hover {
-  color: #ffffff;
+  color: white;
 }
 
 .head a span span {
@@ -38,19 +43,19 @@
 }
 
 .buy {
-  background-color: #66BB6A;
+  background-color: positive;
 }
 
 .buy:before {
-  background-color: #29AF2F;
+  background-color: color(positive blackness(20%));
 }
 
 .try {
-  background-color: #00B0FF;
+  background-color: brand;
 }
 
 .try:before {
-  background-color: #0084FB;
+  background-color: color(brand blackness(20%));
 }
 
 @media desktop {

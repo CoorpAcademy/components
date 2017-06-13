@@ -6,6 +6,9 @@
 @value battle from colors;
 @value orangeAdd from colors;
 @value light from colors;
+@value white from colors;
+@value primaryAdd2 from colors;
+@value medium from colors;
 
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
@@ -101,7 +104,7 @@
   margin: 10px 0;
   padding: 10px;
   border: solid 1px battle;
-  background-color: #FFF2D5;
+  background-color: white;
   color: battle;
   font-size: 12px;
 }
@@ -131,16 +134,16 @@
 }
 
 .subscribeButton:hover {
-  background-color: #007BB3;
+  background-color: primaryAdd2;
 }
 
 .subscribeButton:disabled {
-  background-color: #99dfff;
+  background-color: primaryAdd1;
   cursor: not-allowed;
 }
 
 .subscriptionDisclaimer {
-  color: #868686;
+  color: medium;
   font-size: 10px;
   margin: 25px 0;
   text-align: justify;

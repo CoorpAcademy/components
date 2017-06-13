@@ -3,14 +3,18 @@
 @value tablet from breakpoints;
 @value desktop from breakpoints;
 
+@value colors: "../../variables/colors.css";
+@value white from colors;
+@value dark from colors;
+
 .static {
   position: fixed;
-  background-color: #ffffff;
+  background-color: white;
   width: 100%;
   height: 80px;
   font-size: 14px;
   box-sizing: border-box;
-  color: #4C616B;
+  color: dark;
   text-transform: uppercase;
   z-index: 800;
   padding: 0 15px;

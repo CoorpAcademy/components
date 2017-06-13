@@ -5,6 +5,10 @@
 
 @value colors: "../../variables/colors.css";
 @value orange from colors;
+@value white from colors;
+@value dark from colors;
+@value brand from colors;
+@value light from colors;
 
 .toggleBox {
   position: absolute;
@@ -49,7 +53,7 @@
 .item > a {
   font-family: Open Sans;
   font-size: 12px;
-  color: #4C616B;
+  color: dark;
   text-decoration: none;
   text-transform: capitalize;
   font-weight: 600;
@@ -58,7 +62,7 @@
 }
 
 .item:hover > a {
-  color: #00b0ff;
+  color: brand;
 }
 
 .button {
@@ -79,7 +83,7 @@
 }
 
 .primary a {
-  border: solid 1px #ffb90d;
+  border: solid 1px orange;
   color: orange;
 }
 
@@ -94,13 +98,13 @@
 }
 
 .secondary a {
-  border: solid 1px #4C616B;
-  color: #4C616B;
+  border: solid 1px dark;
+  color: dark;
 }
 
 .secondary a:hover {
-  border: solid 1px #4C616B;
-  background-color: #4C616B;
+  border: solid 1px dark;
+  background-color: dark;
   color: white;
 }
 
@@ -124,7 +128,7 @@
     width: 275px;
     top: 0;
     right: -280px;
-    background-color: #ECEFF1;
+    background-color: light;
     box-shadow: 1px 0 10px grey;
     transition: right 0.2s ease-out;
     overflow: auto;
@@ -135,7 +139,7 @@
     display: block;
     padding: 5px 0;
     text-align: center;
-    border-bottom: solid 2px #eee;
+    border-bottom: solid 2px light;
     position: relative;
   }
 
@@ -167,16 +171,16 @@
   }
 
   .button a:hover {
-    color: #ffffff;
+    color: white;
   }
 
   .secondary a {
-    border: solid 1px #4C616B;
-    color: #4C616B;
+    border: solid 1px dark;
+    color: dark;
   }
 
   .primary > a {
-    border: solid 1px #ffb90d;
+    border: solid 1px orange;
     color: orange;
   }
 
