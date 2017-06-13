@@ -2259,7 +2259,6 @@ export const dependencies = {
     "Loader": {
       "parents": {
         "TemplateAppPlayer": {
-          "PopinEnd": true,
           "Loading": true
         },
         "Organism": {
@@ -2605,16 +2604,6 @@ export const dependencies = {
       "children": {}
     }
   },
-  "OrganismAppPlayer": {
-    "Summary": {
-      "parents": {
-        "TemplateAppPlayer": {
-          "PopinEnd": true
-        }
-      },
-      "children": {}
-    }
-  },
   "MoleculeAppPlayerPopin": {
     "PopinHeader": {
       "parents": {
@@ -2771,8 +2760,8 @@ export const dependencies = {
       }
     }
   },
-  "MoleculeAppPlayerPopin": {
-    "PopinHeader": {
+  "OrganismAppPlayer": {
+    "Summary": {
       "children": {}
     }
   },
@@ -2853,12 +2842,6 @@ export const dependencies = {
       "children": {
         "MoleculeSlides": {
           "SlidesHeader": true
-        },
-        "OrganismAppPlayer": {
-          "Summary": true
-        },
-        "Atom": {
-          "Loader": true
         }
       }
     }
