@@ -102,13 +102,15 @@ export const createPopinCorrection = ({translate}) => dispatch => {
   return state => {
     const {isCorrect, correction} = getAnswers(state);
     const slide = getPreviousSlide(state);
+    const progression = getCurrentProgression(state);
 
     const header = isNull(isCorrect)
       ? {}
       : {
           title: translate(`correction.header.${isCorrect ? 'correct' : 'fail'}.title`),
           subtitle: translate(`correction.header.${isCorrect ? 'correct' : 'fail'}.subtitle`),
-          fail: !isCorrect
+          fail: !isCorrect,
+          lives: progression.state.lives
         };
 
     const question = {
