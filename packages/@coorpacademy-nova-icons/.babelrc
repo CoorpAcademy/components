@@ -1,0 +1,39 @@
+{
+  "presets": ["es2015", "stage-1", "react"],
+  "env": {
+    "commonjs": {
+      "presets": [
+        ["es2015", { "loose": true }]
+      ],
+      "plugins": [
+        ["transform-react-remove-prop-types", {
+          "mode": "wrap"
+        }],
+        ["css-modules-transform", {
+          "generateScopedName": "[folder]__[local]"
+        }]
+      ]
+    },
+    "test": {
+      "presets": [
+        ["es2015", { "loose": true }]
+      ],
+      "plugins": [
+        ["css-modules-transform", {
+          "generateScopedName": "[folder]__[local]"
+        }],
+        "istanbul"
+      ]
+    },
+    "es": {
+      "presets": [
+        ["es2015", { "loose": true, "modules": false }]
+      ],
+      "plugins": [
+        ["transform-react-remove-prop-types", {
+          "mode": "wrap"
+        }]
+      ]
+    }
+  }
+}
