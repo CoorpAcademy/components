@@ -2,6 +2,7 @@
 @value white from colors;
 @value light from colors;
 @value brand from colors;
+@value medium from colors;
 
 .wrapper {
   width: 100%;

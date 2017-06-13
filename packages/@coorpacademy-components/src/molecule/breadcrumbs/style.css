@@ -3,6 +3,7 @@
 @value lightGreen from colors;
 @value brand from colors;
 @value white from colors;
+@value xtraLightGrey from colors;
 
 .wrapper {
  width: 100%;
@@ -11,7 +12,7 @@
  padding: 0 40px;
  height: 80px;
  box-sizing: border-box;
- background-color: #F7F7F7;
+ background-color: xtraLightGrey;
  align-items: center;
 }
 
@@ -28,7 +29,7 @@
   font-family: 'Open Sans';
   font-weight: 700;
   font-size: 17px;
-  color: #B0BEC5;
+  color: medium;
   text-decoration: none;
 }
 
@@ -49,7 +50,7 @@
 
 .breadcrumb:after {
   content: '⟩';
-  color: #B0BEC5;
+  color: medium;
   margin-left: 10px;
 }
 
@@ -84,7 +85,7 @@
 }
 
 .primary a:before {
-  background-color: #0091EA;
+  background-color: color(brand lightness(70%));
 }
 
 .secondary {
@@ -96,5 +97,5 @@
 }
 
 .secondary a:before {
-  background-color: #81C784;
+  background-color: color(lightGreen lightness(50%));
 }
