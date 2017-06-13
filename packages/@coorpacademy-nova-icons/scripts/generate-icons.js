@@ -110,7 +110,7 @@ const generateComponents = async ({novaPath, category}) => {
 
 const runScript = async () => {
   const argv = minimist(process.argv.slice(2));
-  const [novaPath] = argv._;
+  const [novaPath = path.join(__dirname, '..', 'third-party', 'Nova-Icons')] = argv._;
 
   return Promise.all([
     generateComponents({novaPath, category: {

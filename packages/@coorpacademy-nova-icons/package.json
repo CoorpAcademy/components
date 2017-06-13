@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "generate-icons": "node scripts/generate-icons.js",
-    "prepublish": "babel src/solid --out-dir solid && babel src/line --out-dir line",
-    "svgo": "svgo"
+    "build": "babel src/solid --out-dir solid && babel src/line --out-dir line",
+    "prepublish": "npm run generate-icons && npm run build"
   },
   "author": "CoorpAcademy",
   "peerDependencies": {
