@@ -3,6 +3,7 @@ import isFunction from 'lodash/fp/isFunction';
 import reduce from 'lodash/fp/reduce';
 import getAnswerProps from '../answer-props';
 import {ANSWER_EDIT} from '../../actions/ui/answers';
+import basic from './fixtures/slides/basic';
 import qcm from './fixtures/slides/qcm';
 import template from './fixtures/slides/template';
 
@@ -80,4 +81,24 @@ test('should create action: edit-answer-template', t => {
 
   const props = getAnswerProps(state, template, dispatch);
   props.onChange('foo');
+});
+
+test('should create initial basic props', t => {
+  const state = {};
+  const props = getAnswerProps(state, basic);
+  t.is(props.type, 'freeText');
+});
+
+test('should create edited basic props', t => {
+  const state = {
+    ui: {
+      answers: {'1234': {value: ['foo']}},
+      current: {progressionId: '1234'}
+    }
+  };
+
+  const props = getAnswerProps(state, basic);
+  t.is(props.type, 'freeText');
+  t.is(props.value, 'foo');
+  t.is(isFunction(props.onChange), true);
 });

@@ -39,11 +39,21 @@ const qcmTemplateProps = (state, slide, dispatch) => ({
   onChange: editAnswerAction(state, slide, dispatch)
 });
 
+const basicProps = (state, slide, dispatch) => ({
+  type: 'freeText',
+  placeholder: 'Type here',
+  value: pipe(getAnswerValues, head)(state),
+  onChange: editAnswerAction(state, slide, dispatch)
+});
+
 export default function getAnswerProps(state, slide, dispatch) {
   const type = getQuestionType(slide);
   switch (type) {
     case 'qcm':
       return qcmProps(state, slide, dispatch);
+
+    case 'basic':
+      return basicProps(state, slide, dispatch);
 
     case 'template':
     default:
