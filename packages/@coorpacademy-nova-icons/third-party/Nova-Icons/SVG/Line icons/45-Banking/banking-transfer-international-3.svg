@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px"
+	 height="24px" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve">
+<g id="Frame_-_24px">
+	<rect style="fill:none;" width="24" height="24"/>
+</g>
+<g id="Line_Icons">
+	<g>
+		<path style="fill:#757575;" d="M12,4c1.445,0,2.807,0.365,4,1.004V2.795C14.766,2.285,13.416,2,12,2
+			C7.253,2,3.236,5.168,1.942,9.5H0l3,4l3-4H4.057C5.273,6.292,8.37,4,12,4z"/>
+		<path style="fill:#757575;" d="M13,7.601C12.677,7.535,12.343,7.5,12,7.5s-0.677,0.036-1,0.102V10.5h2V7.601z"/>
+		<rect x="11" y="11.5" style="fill:#757575;" width="2" height="2"/>
+		<path style="fill:#757575;" d="M14,7.922V10.5h2.578C16.074,9.348,15.151,8.425,14,7.922z"/>
+		<path style="fill:#757575;" d="M14,13.5h2.899c0.065-0.323,0.101-0.657,0.101-1c0-0.342-0.035-0.677-0.101-1H14V13.5z"/>
+		<path style="fill:#757575;" d="M10,10.5V7.922C8.849,8.425,7.926,9.348,7.422,10.5H10z"/>
+		<path style="fill:#757575;" d="M10,11.5H7.101C7.035,11.823,7,12.157,7,12.5c0,0.343,0.035,0.677,0.101,1H10V11.5z"/>
+		<path style="fill:#757575;" d="M14,17.077c1.151-0.504,2.074-1.427,2.578-2.578H14V17.077z"/>
+		<path style="fill:#757575;" d="M11,17.398c0.323,0.066,0.657,0.101,1,0.101s0.677-0.035,1-0.101V14.5h-2V17.398z"/>
+		<path style="fill:#757575;" d="M10,17.077V14.5H7.422C7.926,15.65,8.849,16.573,10,17.077z"/>
+		<path style="fill:#757575;" d="M21,12.5l-3,4h1.475C18.042,19.171,15.238,21,12,21c-1.445,0-2.807-0.365-4-1.004v2.208
+			C9.234,22.714,10.584,23,12,23c4.372,0,8.119-2.69,9.695-6.5H24L21,12.5z"/>
+		<path style="fill:#757575;" d="M3,19.5c-1.656,0-3,1.343-3,3h6C6,20.843,4.656,19.5,3,19.5z"/>
+		<circle style="fill:#757575;" cx="3" cy="17.5" r="2"/>
+		<path style="fill:#757575;" d="M21,6.5c-1.656,0-3,1.343-3,3h6C24,7.843,22.656,6.5,21,6.5z"/>
+		<circle style="fill:#757575;" cx="21" cy="4.5" r="2"/>
+	</g>
+</g>
+</svg>

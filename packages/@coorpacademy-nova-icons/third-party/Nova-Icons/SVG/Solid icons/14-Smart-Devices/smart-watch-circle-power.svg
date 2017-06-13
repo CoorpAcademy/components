@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px"
+	 height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+<g id="Frame_-_24px">
+	<rect y="-0.003" fill="none" width="24" height="24"/>
+</g>
+<g id="Filled_Icons">
+	<g>
+		<path fill="#757575" d="M14,8.841v2.15c0.155,0.306,0.25,0.644,0.25,1.01c0,1.24-1.009,2.25-2.25,2.25s-2.25-1.01-2.25-2.25
+			c0-0.365,0.095-0.704,0.25-1.01v-2.15c-1.048,0.665-1.75,1.829-1.75,3.16c0,2.068,1.682,3.75,3.75,3.75s3.75-1.682,3.75-3.75
+			C15.75,10.67,15.048,9.506,14,8.841z"/>
+		<rect x="11" y="7.001" fill="#757575" width="2" height="4"/>
+		<path fill="#757575" d="M16.318,5.273L15,0.001H9L7.682,5.273C5.469,6.696,4,9.175,4,12.001c0,2.826,1.469,5.305,3.682,6.727
+			L9,24.001h6l1.318-5.272C18.531,17.306,20,14.827,20,12.001C20,9.175,18.531,6.696,16.318,5.273z M12,18.001c-3.314,0-6-2.687-6-6
+			c0-3.314,2.686-6,6-6s6,2.687,6,6C18,15.314,15.314,18.001,12,18.001z"/>
+	</g>
+</g>
+</svg>
