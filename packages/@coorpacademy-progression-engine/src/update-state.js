@@ -12,10 +12,11 @@ import type {
   Action,
   AnswerAction,
   AskClueAction,
-  State,
+  ChapterResourceViewedAction,
   Content,
-  MicroLearningConfig,
   Engine,
+  MicroLearningConfig,
+  State,
   Step
 } from './types';
 
@@ -41,6 +42,21 @@ function slides(config: MicroLearningConfig): Function {
       case 'answer':
         const answerAction = (action: AnswerAction);
         return concat(array, [answerAction.payload.content.ref]);
+      default:
+        return array;
+    }
+  };
+}
+
+// eslint-disable-next-line flowtype/no-weak-types
+function viewedResources(config: MicroLearningConfig): Function {
+  return (array: Array<string> = [], action: Action): Array<string> => {
+    switch (action.type) {
+      // eslint-disable-next-line no-case-declarations
+      case 'resource':
+        const requestedClueAction = (action: ChapterResourceViewedAction);
+        const chapterRef = requestedClueAction.payload.content.chapter_ref;
+        return array.indexOf(chapterRef) === -1 ? concat(array, [chapterRef]) : array;
       default:
         return array;
     }
@@ -129,6 +145,13 @@ function stars(config: MicroLearningConfig): Function {
         const requestedClueAction = (action: AskClueAction);
         const slideRef = requestedClueAction.payload.content.ref;
         return state.requestedClues.indexOf(slideRef) === -1 ? currentStars - 1 : currentStars;
+      // eslint-disable-next-line no-case-declarations
+      case 'resource':
+        const chapterResourceViewedAction = (action: ChapterResourceViewedAction);
+        const chapterRef = chapterResourceViewedAction.payload.content.chapter_ref;
+        return state.viewedResources.indexOf(chapterRef) === -1
+          ? currentStars + config.starsPerCorrectAnswer
+          : currentStars;
       default:
         return currentStars;
     }
@@ -177,6 +200,7 @@ const reduceAction = combineReducers([
   {key: 'step', fn: step},
   {key: 'stars', fn: stars},
   {key: 'requestedClues', fn: requestedClues},
+  {key: 'viewedResources', fn: viewedResources},
   {key: 'content', fn: content},
   {key: 'nextContent', fn: nextContent}
 ]);

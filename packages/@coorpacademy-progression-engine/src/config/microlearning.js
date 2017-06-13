@@ -9,7 +9,8 @@ const realConfigurations: Array<MicroLearningConfig> = [
     maxTypos: 2,
     slidesToComplete: 4,
     answerBoundaryLimit: 5,
-    starsPerCorrectAnswer: 4
+    starsPerCorrectAnswer: 4,
+    starsPerResourceViewed: 4
   }
 ];
 
@@ -20,7 +21,8 @@ const testConfigurations: Array<MicroLearningConfig> = [
     maxTypos: 3,
     slidesToComplete: 4,
     answerBoundaryLimit: 5,
-    starsPerCorrectAnswer: 4
+    starsPerCorrectAnswer: 4,
+    starsPerResourceViewed: 4
   }
 ];
 

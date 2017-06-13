@@ -20,6 +20,7 @@ export default function createProgression(
     slides: [],
     stars: 0,
     requestedClues: [],
+    viewedResources: [],
     step: {
       current: 0,
       total: config.slidesToComplete

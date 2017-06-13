@@ -6,26 +6,10 @@ import type {State, Slide, Content, Engine, MicroLearningConfig} from './types';
 import {hasFinished, isAlive} from './util';
 import getConfig from './config';
 
-const defaultState = {
-  lives: 1,
-  slides: [],
-  stars: 0,
-  requestedClues: [],
-  isCorrect: true,
-  nextContent: {
-    ref: '',
-    type: ''
-  },
-  step: {
-    current: 0,
-    total: 4
-  }
-};
-
 export default function computeNextStep(
   engine: Engine,
   slidePool: Array<Slide>,
-  state: State = defaultState
+  state: State
 ): Content {
   const config = (getConfig(engine): MicroLearningConfig);
   const {slides = []} = state;

@@ -1,8 +1,9 @@
 // @flow
 import test from 'ava';
+import omit from 'lodash/fp/omit';
 import pick from 'lodash/fp/pick';
 import updateState from '../update-state';
-import type {AnswerAction, AskClueAction, State} from '../types';
+import type {AnswerAction, AskClueAction, State, ChapterResourceViewedAction} from '../types';
 import {stateForFirstSlide, stateForSecondSlide} from './fixtures/states';
 
 const engine = {
@@ -28,7 +29,7 @@ test('should update state when answering the first question correctly', t => {
     }
   });
 
-  const pickUnchangedFields = pick(['lives', 'requestedClues']);
+  const pickUnchangedFields = pick(['lives', 'requestedClues', 'viewedResources']);
   const newState = updateState(engine, state, [action]);
 
   t.true(
@@ -73,7 +74,7 @@ test('should update state when answering the another question correctly', t => {
     }
   });
 
-  const pickUnchangedFields = pick(['lives', 'requestedClues']);
+  const pickUnchangedFields = pick(['lives', 'requestedClues', 'viewedResources']);
   const newState = updateState(engine, state, [action]);
 
   t.true(
@@ -122,7 +123,7 @@ test('should update state when answering a question incorrectly', t => {
     }
   });
 
-  const pickUnchangedFields = pick(['stars', 'requestedClues']);
+  const pickUnchangedFields = pick(['stars', 'requestedClues', 'viewedResources']);
   const newState = updateState(engine, state, [action]);
 
   t.true(newState.lives === 0, '`lives` should have been decremented');
@@ -198,21 +199,40 @@ test('should update stars once when actions has several AskClueAction for the sa
     }
   });
 
-  const pickUnchangedFields = pick([
-    'content',
-    'nextContent',
-    'lives',
-    'slides',
-    'isCorrect',
-    'step'
-  ]);
+  const omitChangedFields = omit(['requestedClues', 'stars']);
   const newState = updateState(engine, state, [action, action]);
 
   t.is(newState.stars, 3);
   t.deepEqual(newState.requestedClues, ['1.A1.2']);
   t.deepEqual(
-    pickUnchangedFields(newState),
-    pickUnchangedFields(state),
+    omitChangedFields(newState),
+    omitChangedFields(state),
+    'Some fields that should not have been touched have been modified'
+  );
+});
+
+test('should update stars after viewing a resource', t => {
+  const state: State = Object.freeze(stateForSecondSlide);
+
+  const action: ChapterResourceViewedAction = Object.freeze({
+    type: 'resource',
+    payload: {
+      content: {
+        ref: '5936600c50571fa407e7c4c4',
+        type: 'resource',
+        chapter_ref: '1.A1'
+      }
+    }
+  });
+
+  const omitChangedFields = omit(['viewedResources', 'stars']);
+  const newState = updateState(engine, state, [action, action]);
+
+  t.is(newState.stars, 8);
+  t.deepEqual(newState.viewedResources, ['1.A1']);
+  t.deepEqual(
+    omitChangedFields(newState),
+    omitChangedFields(state),
     'Some fields that should not have been touched have been modified'
   );
 });

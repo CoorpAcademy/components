@@ -5,11 +5,20 @@ export type Step = {
   total: number
 };
 
-export type Content = {
+export type GenericContent = {
   ref: string,
   type: string,
   version?: string
 };
+
+export type ResourceContent = {
+  ref: string,
+  type: 'resource',
+  chapter_ref: string,
+  version?: string
+};
+
+export type Content = GenericContent | ResourceContent;
 
 export type State = {
   content?: Content,
@@ -18,6 +27,7 @@ export type State = {
   isCorrect: boolean,
   slides: Array<string>,
   requestedClues: Array<string>,
+  viewedResources: Array<string>,
   stars: number,
   step: Step
 };
@@ -26,6 +36,13 @@ export type AskClueAction = {
   type: 'clue',
   payload: {
     content: Content
+  }
+};
+
+export type ChapterResourceViewedAction = {
+  type: 'resource',
+  payload: {
+    content: ResourceContent
   }
 };
 
@@ -42,7 +59,7 @@ export type InitAction = {
   type: 'init'
 };
 
-export type Action = InitAction | AnswerAction | AskClueAction;
+export type Action = InitAction | AnswerAction | AskClueAction | ChapterResourceViewedAction;
 
 export type Engine = {
   ref: string,
@@ -96,7 +113,8 @@ export type MicroLearningConfig = {
   maxTypos: number,
   slidesToComplete: number,
   answerBoundaryLimit: number,
-  starsPerCorrectAnswer: number
+  starsPerCorrectAnswer: number,
+  starsPerResourceViewed: number
 };
 
 export type Config = MicroLearningConfig;
