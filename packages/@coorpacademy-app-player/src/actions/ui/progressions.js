@@ -2,20 +2,14 @@ import {fetchProgression} from '../api/progressions';
 import {fetchSlide} from '../api/slides';
 import {fetchStartRank} from '../api/rank';
 import {fetchExitNode} from '../api/exit-nodes';
-import {getCurrentProgression, getCurrentProgressionId} from '../../utils/state-extract';
+import {fetchChapter} from '../api/chapters';
+import {
+  getCurrentProgression,
+  getCurrentProgressionId,
+  getCurrentContent
+} from '../../utils/state-extract';
 
 export const UI_SELECT_PROGRESSION = '@@ui/SELECT_PROGRESSION';
-
-export const fetchContent = ({type, ref}) => {
-  switch (type) {
-    case 'slide':
-      return fetchSlide(ref);
-
-    case 'success':
-    case 'failure':
-      return fetchExitNode(ref);
-  }
-};
 
 export const selectProgression = id => async (dispatch, getState) => {
   await dispatch({
@@ -32,5 +26,17 @@ export const selectProgression = id => async (dispatch, getState) => {
   await dispatch(fetchStartRank());
 
   const progression = getCurrentProgression(getState());
-  return dispatch(fetchContent(progression.state.nextContent));
+  const {ref, type} = getCurrentContent(getState());
+
+  switch (type) {
+    case 'slide': {
+      return dispatch(fetchSlide(ref));
+    }
+    case 'success':
+    case 'failure': {
+      const {content} = progression;
+      await dispatch(fetchChapter(content.ref));
+      return dispatch(fetchExitNode(ref));
+    }
+  }
 };

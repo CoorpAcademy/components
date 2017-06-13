@@ -29,6 +29,11 @@ export const getSlide = id => state => {
   return get(id)(entities);
 };
 
+export const getChapter = id => state => {
+  const entities = get('data.chapters.entities')(state);
+  return get(id)(entities);
+};
+
 export const getCurrentSlide = state => {
   const id = get('state.nextContent.ref')(getCurrentProgression(state));
   return getSlide(id)(state);
