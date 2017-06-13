@@ -30,6 +30,7 @@ import Star from '../src/atom/star';
 import TabContent from '../src/atom/tab-content';
 import Tab from '../src/atom/tab';
 import Title from '../src/atom/title';
+import PopinHeader from '../src/molecule/app-player/popin/popin-header';
 import BattleRequest from '../src/molecule/battle-request';
 import BrandCardCreate from '../src/molecule/brand-card-create';
 import BrandCard from '../src/molecule/brand-card';
@@ -231,6 +232,8 @@ import StarFixtureEnable from '../src/atom/star/test/fixtures/enable';
 import TabContentFixtureDefault from '../src/atom/tab-content/test/fixtures/default';
 import TabFixtureDefault from '../src/atom/tab/test/fixtures/default';
 import TitleFixtureFixture from '../src/atom/title/test/fixtures/fixture';
+import PopinHeaderFixtureDefault from '../src/molecule/app-player/popin/popin-header/test/fixtures/default';
+import PopinHeaderFixtureFail from '../src/molecule/app-player/popin/popin-header/test/fixtures/fail';
 import BattleRequestFixtureDefault from '../src/molecule/battle-request/test/fixtures/default';
 import BrandCardCreateFixtureDefault from '../src/molecule/brand-card-create/test/fixtures/default';
 import BrandCardFixtureDefault from '../src/molecule/brand-card/test/fixtures/default';
@@ -575,6 +578,9 @@ export const components = {
     Tab,
     Title
   },
+  MoleculeAppPlayerPopin: {
+    PopinHeader
+  },
   Molecule: {
     BattleRequest,
     BrandCardCreate,
@@ -860,6 +866,12 @@ export const fixtures = {
     },
     Title: {
       Fixture: TitleFixtureFixture
+    }
+  },
+  MoleculeAppPlayerPopin: {
+    PopinHeader: {
+      Default: PopinHeaderFixtureDefault,
+      Fail: PopinHeaderFixtureFail
     }
   },
   Molecule: {
@@ -2715,6 +2727,11 @@ export const dependencies = {
           "Qcm": true
         }
       }
+    }
+  },
+  "MoleculeAppPlayerPopin": {
+    "PopinHeader": {
+      "children": {}
     }
   },
   "TemplateAppCatalog": {

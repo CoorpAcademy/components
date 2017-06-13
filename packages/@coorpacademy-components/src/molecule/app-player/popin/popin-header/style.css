@@ -1,0 +1,146 @@
+@value breakpoints: "../../../../variables/breakpoints.css";
+@value mobile from breakpoints;
+
+.header {
+  display: flex;
+  height: 100px;
+  width: 100%;
+  font-family: 'Open Sans';
+}
+
+.section {
+  height: 100%;
+  background-color: gray;
+}
+
+/*
+ * Correction Part
+ */
+
+.correctionSectionDefault {
+  composes: section;
+  position: relative;
+  background-color: #3EC483;
+  flex: 2;
+}
+
+.correctionSectionFail {
+  composes: correctionSectionDefault;
+  background-color: #F73F52;
+}
+
+.wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.titlesWrapper {
+  composes: wrapper;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+}
+
+.titleElement {
+  margin: 0;
+  font-weight: normal;
+  margin-left: 32px;
+}
+
+.subtitle {
+  composes: titleElement;
+  font-size: 16px;
+}
+
+.title {
+  composes: titleElement;
+  font-size: 20px;
+}
+
+.wrongAnswer {
+  composes: titleElement;
+  text-decoration: line-through;
+  font-size: 14px;
+}
+
+.lifeWrapper {
+  composes: wrapper;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.life {
+  margin-right: 42px;
+}
+
+
+/*
+ * Next Question Part
+ */
+
+.nextSection {
+  composes: section;
+  display: flex;
+  justify-content: center;
+  background-color: #ECEFF1;
+  flex: 1;
+}
+
+.nextButton {
+  display: flex;
+  background-color: transparent;
+  border-radius: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.nextButton:hover {
+  transform: scale(1.02);
+}
+
+.nextButton:active {
+  transform: scale(0.98);
+}
+
+.nextButtonContent {
+  cursor: pointer;
+}
+
+.nextButtonLabel {
+  composes: nextButtonContent;
+  font-family: 'Open Sans';
+  color: #546E7A;
+  font-size: 16px;
+  margin-right: 1rem;
+}
+
+.nextButtonIcon {
+  composes: nextButtonContent;
+  composes: fa from '../../../../variables/fontawesome.css';
+  composes: fa-angle-right from '../../../../variables/fontawesome.css';
+  font-size: 30px;
+  color: #546E7A;
+  margin-top: -4px;
+}
+
+@media mobile {
+  .header {
+    flex-flow: column;
+    height: 300px;
+  }
+
+  .titleElement {
+    max-width: 300px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+  }
+
+}

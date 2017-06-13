@@ -85,6 +85,7 @@ export Player from './template/app-player/player';
 export Popin from './organism/popin';
 export PopinCorrection from './template/app-player/popin-correction';
 export PopinEnd from './template/app-player/popin-end';
+export PopinHeader from './molecule/app-player/popin/popin-header';
 export ProductCard from './molecule/product-card';
 export ProductCourse from './template/app-catalog/product-course';
 export ProductCursus from './template/app-catalog/product-cursus';
