@@ -21,8 +21,7 @@ import type {
   Step
 } from './types';
 
-// eslint-disable-next-line flowtype/no-weak-types
-function isCorrect(config: MicroLearningConfig): Function {
+function isCorrect(config: MicroLearningConfig): (boolean, Action) => boolean {
   return (state: boolean = false, action: Action): boolean => {
     switch (action.type) {
       case 'answer': {
@@ -35,8 +34,7 @@ function isCorrect(config: MicroLearningConfig): Function {
   };
 }
 
-// eslint-disable-next-line flowtype/no-weak-types
-function slides(config: MicroLearningConfig): Function {
+function slides(config: MicroLearningConfig): (Array<string>, Action) => Array<string> {
   return (array: Array<string> = [], action: Action): Array<string> => {
     switch (action.type) {
       case 'answer': {
@@ -49,8 +47,7 @@ function slides(config: MicroLearningConfig): Function {
   };
 }
 
-// eslint-disable-next-line flowtype/no-weak-types
-function viewedResources(config: MicroLearningConfig): Function {
+function viewedResources(config: MicroLearningConfig): (Array<string>, Action) => Array<string> {
   return (array: Array<string> = [], action: Action): Array<string> => {
     switch (action.type) {
       case 'resource': {
@@ -64,8 +61,7 @@ function viewedResources(config: MicroLearningConfig): Function {
   };
 }
 
-// eslint-disable-next-line flowtype/no-weak-types
-function requestedClues(config: MicroLearningConfig): Function {
+function requestedClues(config: MicroLearningConfig): (Array<string>, Action) => Array<string> {
   return (array: Array<string> = [], action: Action): Array<string> => {
     switch (action.type) {
       case 'clue': {
@@ -79,8 +75,7 @@ function requestedClues(config: MicroLearningConfig): Function {
   };
 }
 
-// eslint-disable-next-line flowtype/no-weak-types
-function lives(config: MicroLearningConfig): Function {
+function lives(config: MicroLearningConfig): (number, Action) => number {
   return (amount: number = config.lives, action: Action): number => {
     switch (action.type) {
       case 'answer': {
@@ -93,8 +88,7 @@ function lives(config: MicroLearningConfig): Function {
   };
 }
 
-// eslint-disable-next-line flowtype/no-weak-types
-function content(config: MicroLearningConfig): Function {
+function content(config: MicroLearningConfig): (Content, Action) => Content {
   return (c: Content, action: Action): Content => {
     switch (action.type) {
       case 'answer': {
@@ -107,8 +101,7 @@ function content(config: MicroLearningConfig): Function {
   };
 }
 
-// eslint-disable-next-line flowtype/no-weak-types
-function nextContent(config: MicroLearningConfig): Function {
+function nextContent(config: MicroLearningConfig): (Content, Action) => Content {
   return (c: Content, action: Action): Content => {
     switch (action.type) {
       case 'answer': {
@@ -122,7 +115,7 @@ function nextContent(config: MicroLearningConfig): Function {
 }
 
 // eslint-disable-next-line flowtype/no-weak-types
-function step(config: MicroLearningConfig): Function {
+function step(config: MicroLearningConfig): (Step, Action, State) => Step {
   return (s: Step, action: Action, state: State): Step => {
     return {
       total: config.slidesToComplete,
@@ -131,8 +124,7 @@ function step(config: MicroLearningConfig): Function {
   };
 }
 
-// eslint-disable-next-line flowtype/no-weak-types
-function stars(config: MicroLearningConfig): Function {
+function stars(config: MicroLearningConfig): (number, Action, State) => number {
   return (currentStars: number = 0, action: Action, state: State): number => {
     switch (action.type) {
       case 'answer': {
@@ -144,16 +136,16 @@ function stars(config: MicroLearningConfig): Function {
       case 'clue': {
         const requestedClueAction = (action: AskClueAction);
         const slideRef = requestedClueAction.payload.content.ref;
-        return state.requestedClues.indexOf(slideRef) === -1
-          ? currentStars + config.starsPerAskingClue
-          : currentStars;
+        return includes(slideRef, state.requestedClues)
+          ? currentStars
+          : currentStars + config.starsPerAskingClue;
       }
       case 'resource': {
         const chapterResourceViewedAction = (action: ChapterResourceViewedAction);
         const chapterRef = chapterResourceViewedAction.payload.content.chapter_ref;
-        return state.viewedResources.indexOf(chapterRef) === -1
-          ? currentStars + config.starsPerCorrectAnswer
-          : currentStars;
+        return includes(chapterRef, state.viewedResources)
+          ? currentStars
+          : currentStars + config.starsPerCorrectAnswer;
       }
       default:
         return currentStars;
@@ -161,8 +153,7 @@ function stars(config: MicroLearningConfig): Function {
   };
 }
 
-// eslint-disable-next-line flowtype/no-weak-types
-function validate(config: MicroLearningConfig): Function {
+function validate(config: MicroLearningConfig): (State, Action) => void {
   return (state: State, action: Action) => {
     switch (action.type) {
       case 'answer': {
