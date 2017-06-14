@@ -6,6 +6,8 @@
 @value dark from colors;
 @value light from colors;
 @value black from colors;
+@value white from colors;
+@value brand from colors;
 
 .wrapper {
   position: relative;
@@ -20,6 +22,53 @@
   padding: 36px 32px 32px;
   width: 100%;
   box-sizing: border-box;
+}
+
+.contentWrapperHelpers {
+  composes: contentWrapper;
+  background-color: light;
+}
+
+.clue {
+  background: brand;
+  border: 10px solid white;
+  margin-bottom: 24px;
+  padding: 24px;
+  text-align: center;
+  width: 45%;
+}
+
+.icon {
+  position: relative;
+  background-color: white;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin-bottom: 8px;
+  float: right;
+}
+
+.iconClue {
+  position: absolute;
+  color: brand;
+  top: 0px;
+  right: 4px;
+  composes: fa from '../../../variables/fontawesome.css';
+  composes: fa-puzzle-piece from '../../../variables/fontawesome.css';
+}
+
+.iconClue:before {
+  line-height: 27px;
+  font-size: 14px;
+}
+
+.clueText {
+  font-family: 'Open Sans';
+  font-style: italic;
+  color: white;
+  display: block;
+  width: 100%;
+  float: right;
 }
 
 .stepWrapper {

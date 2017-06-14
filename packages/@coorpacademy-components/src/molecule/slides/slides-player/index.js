@@ -66,13 +66,35 @@ const createStepView = (step, skin) => {
 };
 
 const SlidesPlayer = (props, context) => {
-  const {step, question, cta, help, answer, buttons, verticalMargin = 100} = props;
+  const {step, question, cta, help, answer, buttons, clue, verticalMargin = 100} = props;
   const {skin, translate = identity} = context;
 
   const helpView = help ? <div className={style.helpView}>{help}</div> : null;
 
-  const answerView = createAnswerView(answer);
   const stepView = createStepView(step, skin);
+
+  let content = '';
+  let contentStyle = style.contentWrapper;
+  if (answer) {
+    const answerView = createAnswerView(answer);
+    content = (
+      <div className={style.answerWrapper}>
+        {answerView}
+      </div>
+    );
+  }
+
+  if (clue) {
+    contentStyle = style.contentWrapperHelpers;
+    content = (
+      <div className={style.clue}>
+        <div className={style.icon}>
+          <span className={style.iconClue} />
+        </div>
+        <div className={style.clueText}>{clue}</div>
+      </div>
+    );
+  }
 
   return (
     <div className={style.wrapper}>
@@ -90,9 +112,7 @@ const SlidesPlayer = (props, context) => {
           {question}
         </div>
         {helpView}
-        <div className={style.answerWrapper}>
-          {answerView}
-        </div>
+        {content}
         <div className={style.ctaWrapper}>
           <Cta className={style.cta} {...cta} />
         </div>
@@ -120,6 +140,7 @@ SlidesPlayer.propTypes = {
   answer: PropTypes.shape({
     type: PropTypes.oneOf(['picker', 'qcm', 'qcmImage', 'freeText', 'dropDown', 'range']).required
   }),
+  clue: PropTypes.string,
   cta: PropTypes.shape(Cta.propTypes).isRequired,
   buttons: SlidesFooter.propTypes.buttons
 };
