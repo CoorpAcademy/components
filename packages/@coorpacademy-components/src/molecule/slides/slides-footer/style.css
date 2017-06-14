@@ -87,26 +87,6 @@
   background-color: positive;
 }
 
-.icon {
-  color: xtraLightGrey;
-  composes: fa from '../../../variables/fontawesome.css';
-}
-
-.media {
-  composes: icon;
-  composes: fa-film from '../../../variables/fontawesome.css';
-}
-
-.clue {
-  composes: icon;
-  composes: fa-puzzle-piece from '../../../variables/fontawesome.css';
-}
-
-.coach {
-  composes: icon;
-  composes: fa-comments from '../../../variables/fontawesome.css';
-}
-
 .title {
   margin-top: 4px;
   font-family: 'Open Sans';

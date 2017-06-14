@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import uniqueId from 'lodash/fp/uniqueId';
+import getOr from 'lodash/fp/getOr';
+import UploadIcon from '@coorpacademy/nova-icons/solid/data-transfer/data-upload-1';
+import Provider from '../provider';
 import Loader from './../loader';
 import style from './style.css';
 
@@ -29,6 +32,8 @@ class ImageUpload extends React.Component {
   }
 
   render() {
+    const {skin} = this.context;
+    const brandColor = getOr('#00B0FF', 'common.brand', skin);
     const idBox = uniqueId('drop-box-');
     const {
       title,
@@ -68,7 +73,7 @@ class ImageUpload extends React.Component {
           {previewView}
         </div>
         <div className={this.state.dragging ? style.dragging : style.inputWrapper} id={idBox}>
-          <i className={style.arrow} />
+          <UploadIcon className={style.arrow} color={brandColor} />
           <div className={style.uploadLabel}>
             {uploadLabel}
           </div>
@@ -87,6 +92,10 @@ class ImageUpload extends React.Component {
     );
   }
 }
+
+ImageUpload.contextTypes = {
+  skin: Provider.childContextTypes.skin
+};
 
 ImageUpload.propTypes = {
   title: PropTypes.string,
