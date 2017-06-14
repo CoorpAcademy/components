@@ -106,11 +106,11 @@ export const createPopinEnd = ({translate}) => dispatch => {
         pipe(get('type'), isEqual('success')),
         () => ({
           title: '',
-          subtitle: translate('end.header.correct.subtitle'),
+          subtitle: translate('Congratulations!'),
           fail: false,
           stars: get('state.stars')(progression),
           cta: {
-            title: translate('end.header.correct.cta.title'),
+            title: translate('Back to dashboard'),
             subtitle: '',
             href: '/'
           }
@@ -119,12 +119,12 @@ export const createPopinEnd = ({translate}) => dispatch => {
       [
         pipe(get('type'), isEqual('failure')),
         () => ({
-          title: translate('end.header.fail.title'),
-          subtitle: translate('end.header.fail.subtitle'),
+          title: translate('O O O P S'),
+          subtitle: translate('You are missing lives!'),
           fail: true,
           lives: get('state.lives')(progression),
           cta: {
-            title: translate('end.header.fail.cta.title'),
+            title: translate('Retry level'),
             href: `/`
           }
         })
@@ -132,11 +132,11 @@ export const createPopinEnd = ({translate}) => dispatch => {
       [constant(true), constant(null)]
     ])(exitNode);
     const recommendation = {
-      title: translate('end.recommendation.title'),
+      title: translate('Related subjects'),
       coards: null
     };
     const footer = {
-      title: translate('end.footer.title'),
+      title: translate('Back to dashboard'),
       href: '/'
     };
 
@@ -166,15 +166,15 @@ export const createPopinCorrection = ({translate}) => dispatch => {
     const header = isNull(isCorrect)
       ? {}
       : {
-          title: translate(`correction.header.${isCorrect ? 'correct' : 'fail'}.title`),
-          subtitle: translate(`correction.header.${isCorrect ? 'correct' : 'fail'}.subtitle`),
+          title: translate(isCorrect ? 'Good job' : 'Ouch'),
+          subtitle: translate(isCorrect ? 'Good answer' : 'Wrong answer'),
           fail: !isCorrect,
           lives: progression.state.lives
         };
 
     const question = {
       header: getOr('', 'question.header', slide),
-      answer: translate('correction.answer', {
+      answer: translate('Correct answer {answer}', {
         answer: correction || ''
       })
     };
@@ -185,26 +185,26 @@ export const createPopinCorrection = ({translate}) => dispatch => {
         title: '',
         subtitle: '',
         cta: {
-          title: translate('correction.header.cta'),
+          title: translate('Next'),
           onClick: resetProgression
         },
         ...header
       },
       question,
       ressources: {
-        title: translate('correction.ressources.title'),
+        title: translate('Key point'),
         value: getOr([], 'lessons', slide),
         open: false,
         onClick: () => {}
       },
       klf: {
-        title: translate('correction.klf.title'),
+        title: translate('Access the lesson'),
         value: getOr('', 'klf', slide),
         onClick: () => {},
         open: false
       },
       tips: {
-        title: translate('correction.tips.title'),
+        title: translate('Did you know that?'),
         value: getOr('', 'tips', slide),
         onClick: () => {},
         open: false
