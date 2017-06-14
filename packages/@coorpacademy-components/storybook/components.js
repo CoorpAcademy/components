@@ -429,6 +429,7 @@ import SlidesPlayerFixturePicker from '../src/molecule/slides/slides-player/test
 import SlidesPlayerFixtureQcmImage from '../src/molecule/slides/slides-player/test/fixtures/qcm-image';
 import SlidesPlayerFixtureQcm from '../src/molecule/slides/slides-player/test/fixtures/qcm';
 import SlidesPlayerFixtureRange from '../src/molecule/slides/slides-player/test/fixtures/range';
+import SlidesPlayerFixtureWithMinHeight from '../src/molecule/slides/slides-player/test/fixtures/with-min-height';
 import ContainerFixtureDefault from '../src/organism/accordion/container/test/fixtures/default';
 import PartFixtureDefault from '../src/organism/accordion/part/test/fixtures/default';
 import PartFixtureOpen from '../src/organism/accordion/part/test/fixtures/open';
@@ -1221,7 +1222,8 @@ export const fixtures = {
       Picker: SlidesPlayerFixturePicker,
       QcmImage: SlidesPlayerFixtureQcmImage,
       Qcm: SlidesPlayerFixtureQcm,
-      Range: SlidesPlayerFixtureRange
+      Range: SlidesPlayerFixtureRange,
+      WithMinHeight: SlidesPlayerFixtureWithMinHeight
     }
   },
   OrganismAccordion: {

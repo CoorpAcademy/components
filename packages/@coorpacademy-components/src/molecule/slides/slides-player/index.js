@@ -66,7 +66,7 @@ const createStepView = (step, skin) => {
 };
 
 const SlidesPlayer = (props, context) => {
-  const {step, question, cta, help, answer, buttons} = props;
+  const {step, question, cta, help, answer, buttons, verticalMargin = 100} = props;
   const {skin, translate = identity} = context;
 
   const helpView = help ? <div className={style.helpView}>{help}</div> : null;
@@ -80,7 +80,12 @@ const SlidesPlayer = (props, context) => {
       <div className={style.guideWrapper}>
         <span>{translate('New media')}</span>
       </div>
-      <div className={style.contentWrapper}>
+      <div
+        className={style.contentWrapper}
+        style={{
+          minHeight: `calc(100vh - ${verticalMargin}px)`
+        }}
+      >
         <div className={style.question}>
           {question}
         </div>
@@ -111,6 +116,7 @@ SlidesPlayer.propTypes = {
   }),
   question: PropTypes.string.isRequired,
   help: PropTypes.string,
+  verticalMargin: PropTypes.number,
   answer: PropTypes.shape({
     type: PropTypes.oneOf(['picker', 'qcm', 'qcmImage', 'freeText', 'dropDown', 'range']).required
   }),
