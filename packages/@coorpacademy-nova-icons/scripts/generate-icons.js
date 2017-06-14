@@ -8,10 +8,14 @@ const minimist = require('minimist');
 const SVGO = require('svgo');
 const stream = require('stream');
 
+const formatAttribute = (name, value) => (
+  name === 'fill' && value === '#757575' ? '{color}' : `"${value}"`
+);
+
 const formatAttributes = attributes => {
   const expressions = Object.keys(attributes)
     .filter(name => name !== 'id')
-    .map(name => `${camelCase(name)}="${attributes[name]}"`)
+    .map(name => `${camelCase(name)}=${formatAttribute(name, attributes[name])}`)
     .join(' ');
 
   return expressions.length > 0 ? ` ${expressions}` : '';
@@ -20,7 +24,7 @@ const formatAttributes = attributes => {
 const componentize = (basename, output) => {
   const componentName = `Nova${pascalCase(basename).replace('_', '')}`;
   const stream = sax.createStream(true, {lowercase: true});
-  const meta = {indent: 4, open: false, done: false};
+  const meta = {indent: 6, open: false, done: false};
   const writeLine = line => output.write(`${line || ''}\n`);
   const writeIndentedLine = line => writeLine(
     `${Array(meta.indent).fill().map((_, i) => ' ').join('')}${line}`
@@ -31,8 +35,11 @@ const componentize = (basename, output) => {
       writeLine(`import React from 'react';`);
       writeLine(`import IconBase from 'react-icon-base';`);
       writeLine();
-      writeLine(`const ${componentName} = props => (`);
-      writeLine(`  <IconBase viewBox="${attributes.viewBox}" {...props}>`);
+      writeLine(`const ${componentName} = props => {`);
+      writeLine(`  const {color = '#757575', ...baseProps} = props;`);
+      writeLine();
+      writeLine(`  return (`);
+      writeLine(`    <IconBase viewBox="${attributes.viewBox}" {...baseProps}>`);
 
       meta.open = true;
     } else if (meta.open) {
@@ -49,8 +56,9 @@ const componentize = (basename, output) => {
     if (name === 'svg') {
       meta.open = false;
       meta.done = true;
-      writeLine(`  </IconBase>`);
-      writeLine(`);`);
+      writeLine(`    </IconBase>`);
+      writeLine(`  );`);
+      writeLine(`};`);
       writeLine();
       writeLine(`export default ${componentName};`);
     } else if (meta.open) {

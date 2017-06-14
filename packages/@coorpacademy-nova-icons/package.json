@@ -9,10 +9,8 @@
     "prepublish": "npm run generate-icons && npm run build"
   },
   "author": "CoorpAcademy",
-  "peerDependencies": {
-    "react": "*"
-  },
   "dependencies": {
+    "react": "^15.5.4",
     "react-icon-base": "2.0.8"
   },
   "devDependencies": {
