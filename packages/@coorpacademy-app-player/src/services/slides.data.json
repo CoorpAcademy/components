@@ -1,5 +1,58 @@
 [
   {
+    "_id":"1.B2.4",
+    "klf":"Some KFL",
+    "tips":"XXX",
+    "chapter_id":"cha_Ny1BTxRp~",
+    "authors":[],
+    "context":{
+      "media":{
+        "subtitles":[],
+        "posters":[],
+        "src":[]
+      }
+    },
+    "meta":{
+      "updatedAt":"2017-06-13T12:15:40.321Z",
+      "createdAt":"2017-06-13T12:15:40.321Z"
+    },
+    "lessons":[
+      {
+        "type":"video",
+        "poster":"//static.coorpacademy.com/content/digital/miniatures_cours/base/1B2.png",
+        "description":"Anatomie d'une page de résultats",
+        "mimeType":"application/vimeo",
+        "videoId":"88393119\n",
+        "_id":"590b862e2e967f64333ad456",
+        "subtitles":[],
+        "posters":[],
+        "src":[]
+      }
+    ],
+    "question":{
+      "type":"basic",
+      "header":"Écrivez le mot Text dans l'input.\n",
+      "explanation":"Saisissez votre réponse.",
+      "content":{
+        "label":"Saisissez votre réponse.",
+        "placeholder":" ",
+        "maxTypos":null,
+        "choices":[],
+        "answers": [
+          [
+            "Text"
+          ]
+        ],
+        "media":{
+          "subtitles":[],
+          "posters":[],
+          "src":[]
+        }
+      },
+      "medias":[]
+    }
+  },
+  {
     "_id": "sli_VkcAWR-ZQ",
     "klf": "Lire n'est pas difficile.",
     "tips": "Il y a pas mal de gens qui se trompent sans lire.",

@@ -5,7 +5,8 @@ import {fetchAnswer} from '../api/answers';
 
 export const ANSWER_EDIT = {
   qcm: '@@answer/EDIT_QCM',
-  template: '@@answer/EDIT_TEMPLATE'
+  template: '@@answer/EDIT_TEMPLATE',
+  basic: '@@answer/EDIT_TEMPLATE'
 };
 
 const newState = (state = [], questionType, newValue) => {
@@ -19,6 +20,7 @@ const newState = (state = [], questionType, newValue) => {
         return [...state, newValue.label];
       }
 
+    case 'basic':
     case 'template':
       return [newValue];
 
