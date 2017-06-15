@@ -8,7 +8,7 @@ import getOr from 'lodash/fp/getOr';
 import Provider from '../../../atom/provider';
 import style from './style.css';
 
-const CONTENT_ICON_TYPES = {
+const ICONS = {
   media: MediaIcon,
   clue: ClueIcon,
   coach: CoachIcon
@@ -22,7 +22,7 @@ const SlidesFooter = (props, context) => {
   const buttonsView = buttons.map((button, key) => {
     const {disabled, notify, selected, highlighted, title, type, onClick} = button;
 
-    const IconType = CONTENT_ICON_TYPES[type];
+    const IconType = ICONS[type];
 
     const className = selected ? style.selected : style.button;
 
@@ -60,7 +60,7 @@ SlidesFooter.propTypes = {
       selected: PropTypes.bool,
       highlighted: PropTypes.bool,
       title: PropTypes.string,
-      type: PropTypes.oneOf(keys(CONTENT_ICON_TYPES)).isRequired,
+      type: PropTypes.oneOf(keys(ICONS)).isRequired,
       onClick: PropTypes.func
     })
   )
