@@ -4,8 +4,9 @@
   "description": "React components bank based on Nova SVG icons",
   "main": "index.js",
   "scripts": {
+    "clean": "rm -rf src solid line composition",
     "generate-icons": "node scripts/generate-icons.js",
-    "build": "babel src/solid --out-dir solid && babel src/line --out-dir line",
+    "build": "babel src/solid --out-dir solid && babel src/line --out-dir line && babel src/composition --out-dir composition",
     "prepublish": "npm run generate-icons && npm run build"
   },
   "author": "CoorpAcademy",
