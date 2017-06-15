@@ -15,23 +15,27 @@
   display: flex;
 }
 
-.back {
-  composes: fa from '../../../variables/fontawesome.css';
-  composes: fa-chevron-left from '../../../variables/fontawesome.css';
-  font-size: 16px;
-  color: dark;
-  text-decoration: none;
-  height: 100%;
-  width: 60px;
+.backLink {
   display: flex;
+  width: 52px;
+  height: 100%;
   align-items: center;
   justify-content: center;
   background-color: xtraLightGrey;
-  flex-shrink: 0;
 }
 
-.back:hover {
-  background-color: light;
+.backIcon {
+  width: 11px;
+  height: 16px;
+  transition: transform 0.01s;
+}
+
+.backIcon:hover {
+  transform: scale(1.05);
+}
+
+.backIcon:active {
+  transform: scale(0.95);
 }
 
 .primary {
