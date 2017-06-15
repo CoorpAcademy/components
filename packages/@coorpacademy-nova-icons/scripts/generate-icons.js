@@ -29,7 +29,7 @@ const writeFile = (fileName, data) => new Promise(
 );
 
 const formatAttribute = (name, value) => (
-  name === 'fill' && value === '#757575' ? '{color}' : `"${value}"`
+  name === 'fill' && value !== 'none' ? '{color}' : `"${value}"`
 );
 
 const formatAttributes = attributes => {
