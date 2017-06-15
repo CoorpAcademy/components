@@ -64,10 +64,6 @@
   display: block;
 }
 
-.homeMenu {
-  display: none;
-}
-
 .options {
   position: relative;
   display: flex;
@@ -517,20 +513,6 @@
   .logoMobile .notifications {
     top: 5px;
     right: 10px;
-  }
-
-  .homeMenu {
-    display: block;
-    flex-shrink: 0;
-  }
-
-  .homeLink {
-    text-decoration: none;
-    color: dark;
-    font-family: 'Open Sans';
-    font-size: 13px;
-    font-weight: 600;
-    line-height: 40px;
   }
 
   .themes {
