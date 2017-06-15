@@ -437,6 +437,7 @@ import TogglerFixtureOnlyOne from '../src/organism/accordion/toggler/test/fixtur
 import SummaryFixtureCorrect from '../src/organism/app-player/summary/test/fixtures/correct';
 import SummaryFixtureFail from '../src/organism/app-player/summary/test/fixtures/fail';
 import SummaryFixtureLoading from '../src/organism/app-player/summary/test/fixtures/loading';
+import SummaryFixtureNoRecommandations from '../src/organism/app-player/summary/test/fixtures/no-recommandations';
 import BrandFormFixtureDashboard from '../src/organism/brand-form/test/fixtures/dashboard';
 import BrandFormFixtureDefault from '../src/organism/brand-form/test/fixtures/default';
 import BrandFormFixtureGeneralSettings from '../src/organism/brand-form/test/fixtures/general-settings';
@@ -513,6 +514,7 @@ import PopinEndFixtureCorrect from '../src/template/app-player/popin-end/test/fi
 import PopinEndFixtureDefault from '../src/template/app-player/popin-end/test/fixtures/default';
 import PopinEndFixtureFail from '../src/template/app-player/popin-end/test/fixtures/fail';
 import PopinEndFixtureLoading from '../src/template/app-player/popin-end/test/fixtures/loading';
+import PopinEndFixtureNoRecommandations from '../src/template/app-player/popin-end/test/fixtures/no-recommandations';
 import BrandCreateFixtureDefault from '../src/template/back-office/brand-create/test/fixtures/default';
 import BrandCreateFixtureError from '../src/template/back-office/brand-create/test/fixtures/error';
 import BrandCreateFixtureLoading from '../src/template/back-office/brand-create/test/fixtures/loading';
@@ -1241,7 +1243,8 @@ export const fixtures = {
     Summary: {
       Correct: SummaryFixtureCorrect,
       Fail: SummaryFixtureFail,
-      Loading: SummaryFixtureLoading
+      Loading: SummaryFixtureLoading,
+      NoRecommandations: SummaryFixtureNoRecommandations
     }
   },
   Organism: {
@@ -1369,7 +1372,8 @@ export const fixtures = {
       Correct: PopinEndFixtureCorrect,
       Default: PopinEndFixtureDefault,
       Fail: PopinEndFixtureFail,
-      Loading: PopinEndFixtureLoading
+      Loading: PopinEndFixtureLoading,
+      NoRecommandations: PopinEndFixtureNoRecommandations
     }
   },
   TemplateBackOffice: {

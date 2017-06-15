@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
 import Provider from '../../../atom/provider';
 import Link from '../../../atom/link';
-import Loader from '../../../atom/loader';
 import CardsList from '../../../molecule/dashboard/cards-list';
 import PopinHeader from '../../../molecule/app-player/popin/popin-header';
 import style from './style.css';
@@ -14,7 +13,7 @@ const Cards = props => {
   if (props.cards) {
     return <CardsList {...props} />;
   } else {
-    return <Loader />;
+    return null;
   }
 };
 

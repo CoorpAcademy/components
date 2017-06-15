@@ -15,7 +15,7 @@ export default defaultsDeep(loading, {
       header: 'Par quel moyen les entreprises peuvent-elles connaître leur popularité sur les réseaux sociaux ?',
       answer: "Grâce à des outils d'analyse et de surveillance"
     },
-    ressources: {
+    resources: {
       value: [
         {
           type: 'video',
