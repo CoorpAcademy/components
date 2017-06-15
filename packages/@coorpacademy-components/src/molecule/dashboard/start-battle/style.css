@@ -6,7 +6,6 @@
 @value colors: "../../../variables/colors.css";
 @value white from colors;
 @value medium from colors;
-@value light from colors;
 @value battle from colors;
 @value black from colors;
 
@@ -21,8 +20,7 @@
   max-width: 1080px;
   flex: 1 1 100%;
   background: white;
-  border: 1px solid light;
-  box-shadow: 0 0 1px 1px rgba(0,0,0,0.10);
+  border: 1px solid rgba(0,0,0,.1);
 }
 
 .start {

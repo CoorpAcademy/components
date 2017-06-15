@@ -104,10 +104,10 @@ class CardsList extends React.Component {
       const rightBound = this.rightBound();
 
       const skip = this.getPossiblePositions((el, index) => {
-        return el + this.cards[index].scrollWidth <= leftBound;
+        return el + getOr(0, [index, 'scrollWidth'], this.cards) <= leftBound;
       }).length;
       const limit = this.getPossiblePositions((el, index) => {
-        return el + this.cards[index].scrollWidth > leftBound && el < rightBound;
+        return el + getOr(0, [index, 'scrollWidth'], this.cards) > leftBound && el < rightBound;
       }).length;
       this.props.onScroll(skip, limit);
     }
