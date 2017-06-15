@@ -4,14 +4,12 @@ import AlertIcon from '@coorpacademy/nova-icons/solid/interface-feedback/interfa
 import getOr from 'lodash/fp/getOr';
 import Button from '../../atom/button';
 import Provider from '../../atom/provider';
-
 import style from './style.css';
 
 const BrandDownloadBox = (props, context) => {
   const {title = '', warning = '', description = '', href = '', submitValue = ''} = props;
   const {skin} = context;
   const negativeColor = getOr('#F73F52', 'common.negative', skin);
-
 
   const type = warning
     ? <div className={style.texts}>
