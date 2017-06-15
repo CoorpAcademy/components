@@ -5,54 +5,58 @@
 
 .default {
   position: relative;
-  width: 52px;
-  height: 42px;
-}
-
-.heart {
-  composes: fa from '../../variables/fontawesome.css';
-  composes: fa-heart from '../../variables/fontawesome.css';
-  font-size: 18px;
-  position: absolute;
-  top: 50%;
-  margin-top: -8px;
-  left: 4px;
-  color: negative;
-}
-
-.heartBackground {
-  composes: fa from '../../variables/fontawesome.css';
-  composes: fa-heart from '../../variables/fontawesome.css';
-  font-size: 26px;
-  color: white;
-  position: absolute;
-  top: 50%;
-  margin-top: -12px;
-}
-
-.bolt {
-  composes: fa from '../../variables/fontawesome.css';
-  composes: fa-bolt from '../../variables/fontawesome.css';
-  font-size: 8px;
-  position: absolute;
-  top: 50%;
-  margin-top: -7px;
-  left: 11px;
-  color: white;
+  width: 90px;
+  height: 67px;
 }
 
 .livesCounter {
   position: absolute;
-  font-family: 'Open Sans';
-  font-size: 15px;
-  font-weight: 600;
-  color: dark;
-  width: 42px;
-  height: 42px;
-  border-radius: 21px;
-  background-color: white;
   display: flex;
-  align-items: center;
   justify-content: center;
-  left: 14px;
+  align-items: center;
+  color: dark;
+  font-size: 22px;
+  font-family: 'Open Sans';
+  font-weight: 700;
+  top: 0;
+  right: 0;
+  width: 67px;
+  height: 67px;
+  border-radius: 50%;
+  background-color: white;
+
+}
+
+.heartWrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 42px;
+  height: 100%;
+}
+
+.centeredOverlapIcon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+
+.heartIcon {
+  composes: centeredOverlapIcon;
+  margin: -17px 0 0 -17px;
+  width: 34px;
+  height: 34px;
+}
+
+.heart {
+  composes: heartIcon;
+}
+
+.heartOutline {
+  composes: heartIcon;
+}
+
+.heartOutline > path:last-child {
+  stroke: white;
+  stroke-width: 4px;
 }
