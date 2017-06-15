@@ -2,11 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
+import PlayIcon from '@coorpacademy/nova-icons/line/audio/audio-control-play';
 import Button from '../../atom/button';
 import Link from '../../atom/link';
 import Provider from '../../atom/provider';
 import addClassName from '../../util/add-class-name';
 import style from './style.css';
+
+
 
 const ScopeContent = (props, context) => {
   const {translate, skin} = context;
@@ -44,13 +47,13 @@ const ScopeContent = (props, context) => {
 
   const medias = _medias.map((media, index) => {
     const {onClick: handleClick, href = '#', target, type} = media;
-    const playButton = handleClick && type === 'video' && <div className={style.play} />;
+    const white = getOr('#fff', 'common.white', skin);
 
     return (
       <Link key={index} className={style.media} onClick={handleClick} href={href} target={target}>
         <div className={style.imgWrapper}>
           <img src={media.image} />
-          {playButton}
+          {type === 'video' ? <PlayIcon className={style.play} color={white} /> : null}
         </div>
         <div className={style.mediaTitle}>
           {media.title}
