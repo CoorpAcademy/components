@@ -6,9 +6,9 @@ import getClassState from '../../util/get-class-state';
 import style from './style.css';
 
 const InputSwitch = props => {
-  const {title, value, disabled, onChange = noop, description, modified = false} = props;
+  const {title, id, value, disabled, onChange = noop, description, modified = false} = props;
 
-  const idSwitch = uniqueId('input-switch-');
+  const idSwitch = id || uniqueId('input-switch-');
   const isDisabled = disabled ? 'disabled' : '';
   const handleChange = e => onChange(e.target.checked);
 
@@ -41,6 +41,7 @@ const InputSwitch = props => {
 
 InputSwitch.propTypes = {
   title: PropTypes.string,
+  id: PropTypes.string,
   value: PropTypes.bool,
   disabled: PropTypes.bool,
   onChange: PropTypes.func,
