@@ -11,7 +11,7 @@ const componentCSS = new ExtractTextPlugin({
   ignoreOrder: true
 });
 
-export default (NODE_ENV = 'development') => ({
+export default (NODE_ENV = 'development', additionalPlugins = []) => ({
   devtool: NODE_ENV === 'production' ? false : 'eval',
 
   stats: {
@@ -70,19 +70,22 @@ export default (NODE_ENV = 'development') => ({
   },
 
   plugins: (() => {
-    const plugins = [
-      new BundleAnalyzerPlugin({
-        analyzerMode: 'static',
-        generateStatsFile: true,
-        openAnalyzer: false
-      }),
-      new webpack.DefinePlugin({
-        'process.env': {
-          NODE_ENV: JSON.stringify(NODE_ENV)
-        }
-      }),
-      componentCSS
-    ];
+    const plugins = [].concat(
+      [
+        new BundleAnalyzerPlugin({
+          analyzerMode: 'static',
+          generateStatsFile: true,
+          openAnalyzer: false
+        }),
+        new webpack.DefinePlugin({
+          'process.env': {
+            NODE_ENV: JSON.stringify(NODE_ENV)
+          }
+        }),
+        componentCSS
+      ],
+      additionalPlugins
+    );
 
     if (NODE_ENV === 'production')
       plugins.push(
