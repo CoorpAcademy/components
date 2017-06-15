@@ -405,6 +405,7 @@ class MoocHeader extends React.Component {
           case 'switch': {
             const switchProps = {};
             switchProps.value = options.value;
+            switchProps.id = `input-switch-${index}`;
             switchProps.onChange = options.onChange;
 
             settingView = (
