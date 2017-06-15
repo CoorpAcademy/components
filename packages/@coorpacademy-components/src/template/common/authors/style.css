@@ -9,6 +9,7 @@
 @value xtraLightGrey from colors;
 @value medium from colors;
 @value brand from colors;
+@value white from colors;
 
 .wrapper {
   composes: wrapper from '../layout.css';
@@ -35,8 +36,8 @@
   height: 16%;
   vertical-align: top;
   overflow: hidden;
-  border: 1px solid xtraLightGrey;
-  background-color: light;
+  border: 1px solid light;
+  background-color: white;
   min-height: 180px;
   line-height: 180px;
   margin: 0px;
