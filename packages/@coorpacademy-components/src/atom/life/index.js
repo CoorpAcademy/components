@@ -2,12 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import getOr from 'lodash/fp/getOr';
-import Provider from '../provider';
 import HeartIcon from '@coorpacademy/nova-icons/solid/vote-and-rewards/vote-heart';
 import HeartBrokenIcon from '@coorpacademy/nova-icons/solid/vote-and-rewards/vote-heart-broken';
+import Provider from '../provider';
 import style from './style.css';
-
-
 
 const Life = (props, context) => {
   const {skin} = context;

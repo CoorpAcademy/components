@@ -35,17 +35,9 @@
   background-color: light;
 }
 
-.button:hover .icon {
-  color: light;
-}
-
 .selected {
   composes: button;
   background-color: light;
-}
-
-.selected .icon {
-  color: light;
 }
 
 .disabled {

@@ -9,8 +9,6 @@ import Provider from '../../atom/provider';
 import addClassName from '../../util/add-class-name';
 import style from './style.css';
 
-
-
 const ScopeContent = (props, context) => {
   const {translate, skin} = context;
   const {content} = props;
