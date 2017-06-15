@@ -44,18 +44,6 @@
 }
 
 .icon {
-  composes: fa from '../../../variables/fontawesome.css';
-  font-size: 15px;
-}
-
-.down {
-  composes: icon;
-  composes: fa-plus from '../../../variables/fontawesome.css';
-  color: dark;
-}
-
-.up {
-  composes: icon;
-  composes: fa-minus from '../../../variables/fontawesome.css';
-  color: medium;
+  width: 24px;
+  height: 24px;
 }
