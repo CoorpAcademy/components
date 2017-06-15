@@ -160,7 +160,6 @@ class MoocHeader extends React.Component {
     let notificationsView = null;
 
     const moreLabel = translate('More');
-    const homeLabel = translate('Home');
     const closeLabel = translate('Close');
     const primaryColor = getOr('#00B0FF', 'common.primary', skin);
 
@@ -449,17 +448,6 @@ class MoocHeader extends React.Component {
             {themesView}
           </div>
           <div className={style.menuWrapper}>
-            <div className={style.homeMenu}>
-              <Link
-                className={style.homeLink}
-                data-name="page-home"
-                href={logo.href}
-                onClick={this.handleLinkClick}
-                skinHover
-              >
-                {homeLabel}
-              </Link>
-            </div>
             {pagesView}
             {userView || linksView}
             <div className={style.settings} ref={this.setMenuSettings}>
