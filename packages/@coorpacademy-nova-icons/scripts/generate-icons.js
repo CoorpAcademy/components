@@ -1,4 +1,5 @@
 const {camelCase, pascalCase} = require('change-case');
+const {queue} = require('async');
 const sax = require('sax');
 const mkdirp = require('mkdirp-promise');
 const fs = require('fs');
@@ -7,6 +8,25 @@ const walk = require('walk-promise');
 const minimist = require('minimist');
 const SVGO = require('svgo');
 const stream = require('stream');
+
+const MAX_SIMULTANEOUS_HANDLES = 1000;
+
+const readQueue = queue(
+  ({fileName}, done) => fs.readFile(fileName, 'utf8', done)
+, MAX_SIMULTANEOUS_HANDLES);
+
+const writeQueue = queue(
+  ({fileName, data}, done) => fs.writeFile(fileName, data, done)
+, MAX_SIMULTANEOUS_HANDLES);
+
+
+const writeFile = (fileName, data) => new Promise(
+  (resolve, reject) => writeQueue.push({fileName, data}, (err) => {
+    if (err) reject(err);
+
+    resolve();
+  })
+);
 
 const formatAttribute = (name, value) => (
   name === 'fill' && value === '#757575' ? '{color}' : `"${value}"`
@@ -21,16 +41,21 @@ const formatAttributes = attributes => {
   return expressions.length > 0 ? ` ${expressions}` : '';
 };
 
-const componentize = (basename, output) => {
+const componentize = async (basename, svgData) => {
+  const inputStream = new stream.Readable();
   const componentName = `Nova${pascalCase(basename).replace('_', '')}`;
-  const stream = sax.createStream(true, {lowercase: true});
-  const meta = {indent: 6, open: false, done: false};
-  const writeLine = line => output.write(`${line || ''}\n`);
+  const saxStream = sax.createStream(true, {lowercase: true});
+  const meta = {indent: 6, open: false, done: false, data: ''};
+
+  const writeLine = line => {
+    meta.data += `${line || ''}\n`;
+  };
+
   const writeIndentedLine = line => writeLine(
     `${Array(meta.indent).fill().map((_, i) => ' ').join('')}${line}`
   );
 
-  stream.on('opentag', ({name, attributes}) => {
+  saxStream.on('opentag', ({name, attributes}) => {
     if (name === 'svg' && !meta.done) {
       writeLine(`import React from 'react';`);
       writeLine(`import IconBase from 'react-icon-base';`);
@@ -52,7 +77,7 @@ const componentize = (basename, output) => {
     }
   });
 
-  stream.on('closetag', name => {
+  saxStream.on('closetag', name => {
     if (name === 'svg') {
       meta.open = false;
       meta.done = true;
@@ -69,12 +94,16 @@ const componentize = (basename, output) => {
     }
   });
 
-  return stream;
+  inputStream.pipe(saxStream);
+  inputStream.push(svgData);
+  inputStream.push(null);
+
+  return new Promise(resolve => inputStream.on('end', () => resolve(meta.data)));
 };
 
 const optimizeSVG = fileName => new Promise(
   resolve => (
-    fs.readFile(fileName, 'utf8', (err, input) => {
+    readQueue.push({fileName}, (err, input) => {
       const svgo = new SVGO();
 
       svgo.optimize(input, ({data}) => resolve(data));
@@ -83,15 +112,11 @@ const optimizeSVG = fileName => new Promise(
 );
 
 const generateComponent = async ({destDir, dest, src, basename}) => {
-  const inputStream = new stream.Readable();
   const optimizedSVG = await optimizeSVG(src);
+  const componentFeed = await componentize(basename, optimizedSVG);
 
   await mkdirp(destDir);
-
-
-  inputStream.pipe(componentize(basename, fs.createWriteStream(dest)))
-  inputStream.push(optimizedSVG);
-  inputStream.push(null);
+  await writeFile(dest, componentFeed);
 };
 
 const generateComponents = async ({novaPath, category}) => {
@@ -120,16 +145,15 @@ const runScript = async () => {
   const argv = minimist(process.argv.slice(2));
   const [novaPath = path.join(__dirname, '..', 'third-party', 'Nova-Icons')] = argv._;
 
-  return Promise.all([
-    generateComponents({novaPath, category: {
-      src: 'Solid icons',
-      dest: 'solid'
-    }}),
-    generateComponents({novaPath, category: {
-      src: 'Line icons',
-      dest: 'line'
-    }})
-  ]);
+  return Promise.all(['Solid icons', 'Line icons', 'Composition icons'].map(
+    src => generateComponents({
+      novaPath,
+      category: {
+        src,
+        dest: src.split(' ')[0].toLowerCase()
+      }
+    })
+  ));
 };
 
 runScript();
