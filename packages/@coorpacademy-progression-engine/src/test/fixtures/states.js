@@ -63,8 +63,8 @@ export const failProgressionState: State = {
 
 export const successProgressionState: State = {
   content: {
-    ref: 'successExitNode',
-    type: 'success'
+    ref: '1.A1.2',
+    type: 'slide'
   },
   nextContent: {
     ref: '1.A1.4',
@@ -72,7 +72,7 @@ export const successProgressionState: State = {
   },
   lives: 1,
   isCorrect: true,
-  slides: ['1.A1.1', '1.A1.3', '1.A1.2'],
+  slides: ['1.A1.1', '1.A1.3', '1.A1.2', '1.A1.4'],
   step: {
     current: 4,
     total: 4
