@@ -41,7 +41,13 @@
   color: positive;
 }
 
-/* KLF + tips -------------- */
+/* Slides -------------- */
+
+.sliderWrapper {
+  padding: 16px 30px 16px 71px;
+  height: 400px;
+  position: relative;
+}
 
 .simpleTextWrapper {
   padding: 16px 30px 16px 71px;

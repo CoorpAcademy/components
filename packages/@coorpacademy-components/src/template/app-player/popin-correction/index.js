@@ -1,5 +1,8 @@
 import React from 'react';
+import map from 'lodash/fp/map';
+import Slider from '../../../organism/slider';
 import PopinHeader from '../../../molecule/app-player/popin/popin-header';
+import Video from '../../../molecule/video-iframe';
 import Accordion from '../../../organism/accordion/container';
 import style from './style.css';
 
@@ -18,11 +21,21 @@ const extractTabs = (resources, klf, tips) => [
   }
 ];
 
-const Resources = props => (
-  <div>
-    {`${props}`}
-  </div>
-);
+const Resources = props => {
+  const {value} = props;
+
+  const resources = map.convert({cap: false})((resource, key) => {
+    return <Video key={key} type={'vimeo'} id={resource.videoId} />;
+  }, value);
+
+  return (
+    <div className={style.sliderWrapper}>
+      <Slider>
+        {resources}
+      </Slider>
+    </div>
+  );
+};
 
 const SimpleText = props => (
   <div className={style.simpleTextWrapper}>
@@ -43,7 +56,6 @@ const Question = props => (
 const PopinCorrection = props => {
   const {header = {}, question, resources, klf, tips} = props;
   const tabs = extractTabs(resources, klf, tips);
-
   return (
     <div className={style.wrapper}>
       <PopinHeader {...header} />

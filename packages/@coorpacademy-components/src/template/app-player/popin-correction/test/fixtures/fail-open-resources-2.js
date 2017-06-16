@@ -3,7 +3,7 @@ import failClosed from './fail-closed';
 
 export default defaultsDeep(failClosed, {
   props: {
-    ressources: {
+    resources: {
       open: true,
       value: [
         {
