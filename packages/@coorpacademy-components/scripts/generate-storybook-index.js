@@ -65,7 +65,7 @@ const _fixtureImports = pipe(
 
 const _fixtureExports = [
   'export const fixtures = {',
-  ...pipe(
+  pipe(
     mapObject((titles, type) =>
       _join('\n', [
         `${type}: {`,
