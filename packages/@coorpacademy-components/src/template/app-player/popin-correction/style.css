@@ -41,12 +41,12 @@
   color: positive;
 }
 
-/* KLF -------------- */
+/* KLF + tips -------------- */
 
-.klf {
+.simpleTextWrapper {
   padding: 16px 30px 16px 71px;
 }
 
-.klfText {
+.simpleText {
   composes: text;
 }

@@ -24,15 +24,9 @@ const Resources = props => (
   </div>
 );
 
-const Klf = props => (
-  <div className={style.klf}>
-    <p className={style.klfText}>{props.value}</p>
-  </div>
-);
-
-const Tips = props => (
-  <div>
-    {`${props}`}
+const SimpleText = props => (
+  <div className={style.simpleTextWrapper}>
+    <p className={style.simpleText}>{props.value}</p>
   </div>
 );
 
@@ -56,8 +50,8 @@ const PopinCorrection = props => {
       <Question {...question} />
       <Accordion tabProps={tabs} oneTabOnly>
         <Resources {...resources} />
-        <Klf {...klf} />
-        <Tips {...tips} />
+        <SimpleText {...klf} />
+        <SimpleText {...tips} />
       </Accordion>
     </div>
   );
