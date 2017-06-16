@@ -41,10 +41,20 @@ export default (NODE_ENV = 'development', additionalPlugins = []) => ({
         test: /\.js$/,
         loader: 'babel-loader',
         options: {
-          cacheDirectory: true
-        },
-        exclude: /(node_modules|bower_components)/,
-        include: [join(process.cwd(), 'src')]
+          cacheDirectory: true,
+          presets: [
+            [
+              'env',
+              {
+                targets: {
+                  browsers: ['last 2 versions']
+                },
+                modules: false,
+                loose: true
+              }
+            ]
+          ]
+        }
       },
       {
         test: /\.css$/,
