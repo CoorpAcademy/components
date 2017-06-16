@@ -19,10 +19,7 @@
     "clean:build:es": "rimraf es",
     "clean:build": "npm run clean:build:commonjs && npm run clean:build:es && npm run clean:build:browser",
     "clean": "npm run clean:build",
-    "prepublish": "npm run build --production",
-    "prebuild:browser": "npm run clean:build:browser",
-    "prebuild:commonjs": "npm run clean:build:commonjs",
-    "prebuild:es": "npm run clean:build:es",
+    "prepublish": "npm run clean && npm run build --production",
     "start": "cross-env BABEL_ENV=es webpack-dev-server --content-base sandbox --history-api-fallback true --hot true"
   },
   "homepage": "https://github.com/CoorpAcademy/components/packages/@coorpacademy-app-template#readme",
