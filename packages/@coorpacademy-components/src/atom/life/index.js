@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import getOr from 'lodash/fp/getOr';
 import HeartIcon from '@coorpacademy/nova-icons/solid/vote-and-rewards/vote-heart';
-import HeartBrokenIcon from '@coorpacademy/nova-icons/solid/vote-and-rewards/vote-heart-broken';
+import HeartBrokenIcon from '@coorpacademy/nova-icons/composition/coorpacademy/broken-heart';
 import Provider from '../provider';
 import style from './style.css';
 
