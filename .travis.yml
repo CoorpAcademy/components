@@ -16,6 +16,7 @@ cache:
   - packages/@coorpacademy-translate/node_modules
   - packages/@coorpacademy-treantjs-adapter-angular/node_modules
   - packages/@coorpacademy-treantjs-adapter-dust/node_modules
+  - packages/@coorpacademy-webpack-config/node_modules
 before_install:
 - npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
 after_success: npm run coveralls
