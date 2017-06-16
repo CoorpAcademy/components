@@ -12,16 +12,17 @@ const Life = (props, context) => {
   const {count = 3, fail = false, className} = props;
   const negativeColor = getOr('#F73F52', 'common.negative', skin);
   const white = getOr('#fff', 'common.white', skin);
-  const Icon = fail ? HeartBrokenIcon : HeartIcon;
 
   return (
     <div className={classnames(style.default, className)}>
-      <div className={style.livesCounter}>
-        x{count}
+      <div className={style.livesCounterWrapper}>
+        <div className={fail ? style.previousLivesCounterFail : style.previousLivesCounterDefault}>x{count + 1}</div>
+        <div className={fail ? style.livesCounterFail : style.livesCounterDefault}>x{count}</div>
       </div>
-      <div className={style.heartWrapper}>
+      <div className={fail ? style.heartWrapperFail : style.heartWrapperDefault}>
         <HeartIcon className={style.heartOutline} color={white} />
-        <Icon className={style.heart} color={negativeColor} />
+        <HeartIcon className={fail ? style.heartNormalFail : style.heartNormalDefault} color={negativeColor} />
+        <HeartBrokenIcon className={fail ? style.heartBrokenFail : style.heartBrokenDefault} color={negativeColor} />
       </div>
     </div>
   );
