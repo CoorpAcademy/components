@@ -70,6 +70,7 @@
       "packages/**/lib/**",
       "packages/@coorpacademy-components/storybook-static/static/**"
     ],
+    "cache": true,
     "require": "babel-register",
     "sourceMap": false,
     "instrument": false,
