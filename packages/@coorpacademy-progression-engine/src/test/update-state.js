@@ -37,7 +37,7 @@ test('should update state when answering the first question correctly', t => {
     '`isCorrect` should reflect the `isCorrect` field from the action payload'
   );
   t.deepEqual(newState.slides, ['1.A1.1'], 'answered slide should have been stored in `slides`');
-  t.deepEqual(newState.step, {current: 1, total: 4}, 'step progression is wrong');
+  t.deepEqual(newState.step, {current: 2, total: 4}, 'step progression is wrong');
   t.deepEqual(newState.stars, 4, 'step progression is wrong');
   t.deepEqual(
     newState.content,
@@ -86,7 +86,7 @@ test('should update state when answering the another question correctly', t => {
     ['1.A1.4', '1.A1.2'],
     'answered slide should have been stored in `slides`'
   );
-  t.deepEqual(newState.step, {current: 2, total: 4}, 'step progression is wrong');
+  t.deepEqual(newState.step, {current: 3, total: 4}, 'step progression is wrong');
   t.deepEqual(newState.stars, 8, 'step progression is wrong');
   t.deepEqual(
     newState.content,
@@ -131,7 +131,7 @@ test('should update state when answering a question incorrectly', t => {
     newState.isCorrect,
     '`isCorrect` should reflect the `isCorrect` field from the action payload'
   );
-  t.deepEqual(newState.step, {current: 2, total: 4}, 'step progression is wrong');
+  t.deepEqual(newState.step, {current: 3, total: 4}, 'step progression is wrong');
   t.deepEqual(
     newState.slides,
     ['1.A1.4', '1.A1.2'],

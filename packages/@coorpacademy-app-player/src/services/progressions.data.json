@@ -11,7 +11,11 @@
         "ref": "1.B2.4",
         "type": "slide"
       },
-      "lives": 1
+      "lives": 1,
+      "step": {
+        "current": 1,
+        "total": 4
+      }
     }
   },
   {

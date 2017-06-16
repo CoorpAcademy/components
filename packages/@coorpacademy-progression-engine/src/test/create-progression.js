@@ -35,7 +35,7 @@ test('should return a new progression for microlearning', t => {
   t.true(progression.initialState.lives === 1);
   t.true(progression.initialState.isCorrect);
   t.deepEqual(progression.initialState.slides, []);
-  t.deepEqual(progression.initialState.step, {current: 0, total: 4});
+  t.deepEqual(progression.initialState.step, {current: 1, total: 4});
   t.falsy(progression.initialState.content);
   t.true(progression.initialState.nextContent.type === 'slide');
   t.true(typeof progression.initialState.nextContent.ref === 'string');
