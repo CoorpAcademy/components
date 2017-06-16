@@ -46,6 +46,7 @@
   },
   "devDependencies": {
     "babel-plugin-istanbul": "^4.1.4",
+    "babel-preset-env": "^1.5.2",
     "cross-env": "^5.0.0",
     "rimraf": "^2.6.1"
   },

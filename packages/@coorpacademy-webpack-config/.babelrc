@@ -1,14 +1,32 @@
 {
-  "presets": ["stage-1"],
+  "presets": [
+    "stage-1"
+  ],
   "env": {
     "commonjs": {
       "presets": [
-        ["es2015", { "loose": true }]
+        [
+          "env",
+          {
+            "targets": {
+              "node": true
+            },
+            "loose": true
+          }
+        ]
       ]
     },
     "test": {
       "presets": [
-        ["es2015", { "loose": true }]
+        [
+          "env",
+          {
+            "targets": {
+              "node": true
+            },
+            "loose": true
+          }
+        ]
       ],
       "plugins": [
         "istanbul"
@@ -16,7 +34,16 @@
     },
     "es": {
       "presets": [
-        ["es2015", { "loose": true, "modules": false }]
+        [
+          "env",
+          {
+            "targets": {
+              "node": true
+            },
+            "modules": false,
+            "loose": true
+          }
+        ]
       ]
     }
   }
