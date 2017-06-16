@@ -4,14 +4,4 @@
 .wrapper {
   width: 100%;
   box-sizing: border-box;
-  border-top: 1px;
-  border-left: 1px;
-  border-right: 1px;
-  border-style: solid;
-  border-color: medium;
-  border-bottom: 0px;
-}
-
-.wrapper:last-child {
-  border-bottom: 1px solid medium;
 }
