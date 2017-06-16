@@ -10,8 +10,8 @@ const Resources = props => (
 );
 
 const Klf = props => (
-  <div>
-    {`${props}`}
+  <div className={style.klf}>
+    <p className={style.klfText}>{props.value}</p>
   </div>
 );
 
@@ -22,8 +22,12 @@ const Tips = props => (
 );
 
 const Question = props => (
-  <div>
-    {`${props}`}
+  <div className={style.question}>
+    <p className={style.questionHeader}>{props.header}</p>
+    <div>
+      <span className={style.answerPrefix}>{props.answerPrefix}</span>
+      <span className={style.answer}>{props.answer}</span>
+    </div>
   </div>
 );
 

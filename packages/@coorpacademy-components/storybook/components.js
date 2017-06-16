@@ -2618,6 +2618,41 @@ export const dependencies = {
       "children": {}
     }
   },
+  "OrganismAccordion": {
+    "Container": {
+      "parents": {
+        "TemplateAppPlayer": {
+          "PopinCorrection": true
+        }
+      },
+      "children": {
+        "OrganismAccordion": {
+          "Part": true
+        }
+      }
+    },
+    "Part": {
+      "parents": {
+        "OrganismAccordion": {
+          "Container": true
+        }
+      },
+      "children": {
+        "MoleculeQuestions": {
+          "Picker": true
+        }
+      }
+    },
+    "Toggler": {
+      "children": {
+        "MoleculeQuestions": {
+          "Picker": true,
+          "QcmImage": true,
+          "Qcm": true
+        }
+      }
+    }
+  },
   "MoleculeForum": {
     "ForumComment": {
       "parents": {
@@ -2734,36 +2769,6 @@ export const dependencies = {
       }
     }
   },
-  "OrganismAccordion": {
-    "Part": {
-      "parents": {
-        "OrganismAccordion": {
-          "Container": true
-        }
-      },
-      "children": {
-        "MoleculeQuestions": {
-          "Picker": true
-        }
-      }
-    },
-    "Container": {
-      "children": {
-        "OrganismAccordion": {
-          "Part": true
-        }
-      }
-    },
-    "Toggler": {
-      "children": {
-        "MoleculeQuestions": {
-          "Picker": true,
-          "QcmImage": true,
-          "Qcm": true
-        }
-      }
-    }
-  },
   "OrganismAppPlayer": {
     "Summary": {
       "children": {}
@@ -2839,6 +2844,9 @@ export const dependencies = {
       "children": {
         "MoleculeAppPlayerPopin": {
           "PopinHeader": true
+        },
+        "OrganismAccordion": {
+          "Container": true
         }
       }
     },
