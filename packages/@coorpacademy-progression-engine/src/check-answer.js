@@ -62,7 +62,7 @@ function checkAnswerForBasic(
   givenAnswer: Answer
 ): boolean {
   const allowedAnswers = question.content.answers;
-  const comparableGivenAnswer = normalizeBasic(givenAnswer);
+  const comparableGivenAnswer = normalizeBasic(givenAnswer)[0] || '';
   const fm = new FuzzyMatching(_.flatten(allowedAnswers));
   const maxTypos = question.content.maxTypos !== undefined
     ? question.content.maxTypos
@@ -71,7 +71,7 @@ function checkAnswerForBasic(
     checkFuzzyAnswer(maxTypos, fm, comparableGivenAnswer[0]) ||
     _.some(
       allowedAnswer =>
-        containsAnswer(config, normalizeBasic(allowedAnswer)[0], comparableGivenAnswer[0]),
+        containsAnswer(config, normalizeBasic(allowedAnswer)[0], comparableGivenAnswer),
       allowedAnswers
     )
   );

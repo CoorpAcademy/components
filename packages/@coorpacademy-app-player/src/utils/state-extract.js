@@ -20,7 +20,7 @@ export const getAnswers = state => {
   return getOr({}, ['ui', 'answers', progressionId])(state);
 };
 
-export const getAnswerValues = pipe(getAnswers, get('value'));
+export const getAnswerValues = pipe(getAnswers, getOr([], 'value'));
 
 export const getSlide = id => state => {
   const entities = get('data.slides.entities')(state);
