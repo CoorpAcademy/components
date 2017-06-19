@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import getOr from 'lodash/fp/getOr';
+import ArrowRight from '@coorpacademy/nova-icons/composition/navigation/arrow-right';
+import Provider from '../../../../atom/provider';
 import Life from '../../../../atom/life';
 import Link from '../../../../atom/link';
 import style from './style.css';
@@ -37,16 +40,23 @@ const CorrectionPart = props => {
   );
 };
 
-const NextQuestionPart = props => {
+const NextQuestionPart = (props, context) => {
   const {title, ...linkProps} = props;
+  const {skin} = context;
+  const mediumColor = getOr('#90A4AE', 'common.medium', skin);
+
   return (
     <div className={style.nextSection}>
       <Link {...linkProps} className={style.nextButton}>
         {title}
-        <span className={style.nextButtonIcon} />
+        <ArrowRight color={mediumColor} className={style.nextButtonIcon} />
       </Link>
     </div>
   );
+};
+
+NextQuestionPart.contextTypes = {
+  skin: Provider.childContextTypes.skin
 };
 
 const PopinHeader = props => {
