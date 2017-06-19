@@ -6,6 +6,7 @@ import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import keys from 'lodash/fp/keys';
 import map from 'lodash/fp/map';
+import ArrowDown from '@coorpacademy/nova-icons/composition/navigation/arrow-down';
 import Provider from '../../atom/provider';
 import getClassState from '../../util/get-class-state';
 import style from './style.css';
@@ -71,12 +72,13 @@ const Select = (props, context) => {
         onChange(e.target.value);
       };
 
+  const black = getOr('#14171A', 'common.black', skin);
   const color = getOr('#000', 'common.primary', skin);
   const skinColor = {
     color: theme === 'question' ? color : null
   };
 
-  const arrowView = !multiple ? <div style={skinColor} className={style.arrow} /> : null;
+  const arrowView = !multiple ? <ArrowDown color={theme === 'question' ? color : black} className={style.arrow} /> : null;
   const className = getClassState(style.default, style.modified, style.error, modified);
 
   return (
