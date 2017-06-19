@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import _map from 'lodash/fp/map';
+import ArrowRight from '@coorpacademy/nova-icons/composition/navigation/arrow-right';
+import ArrowLeft from '@coorpacademy/nova-icons/composition/navigation/arrow-left';
 import style from './style.css';
 
 const map = _map.convert({cap: false});
@@ -95,17 +97,17 @@ class Slider extends React.Component {
     const currentSlide = get(this.state.currentSlide, children);
     const controlColor = getOr(false, 'light', currentSlide) ? '#FFF' : '#000';
     const leftControl = totalSlide > 1
-      ? <span
+      ? <ArrowLeft
           className={style.leftControl}
-          style={{color: controlColor}}
+          color={controlColor}
           onClick={this.handlePreviousSlide}
         />
       : null;
 
     const rightControl = totalSlide > 1
-      ? <span
+      ? <ArrowRight
           className={style.rightControl}
-          style={{color: controlColor}}
+          color={controlColor}
           onClick={this.handleNextSlide}
         />
       : null;
