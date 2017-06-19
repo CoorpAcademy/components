@@ -2,14 +2,21 @@
 @value mobile from breakpoints;
 @value colors: "../../../variables/colors.css";
 @value xtraLightGrey from colors;
+@value light from colors;
+@value dark from colors;
 
 .wrapper {
   width: 100%;
   background-color: xtraLightGrey;
-  border: 1px solid #ECEFF1;
+  border: 1px solid light;
   border-radius: 3px;
   box-shadow: 0 0 1px 1px rgba(0,0,0,0.07);
   overflow: hidden;
+}
+
+.loaderWrapper {
+  position: relative;
+  height: 100px;
 }
 
 .footer {
@@ -24,6 +31,86 @@
   justify-content: center;
   cursor: pointer;
   text-decoration: none;
+}
+
+/* ----------------------------------------- actions */
+
+.actionWrapper {
+  background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  padding: 35px;
+}
+
+.text {
+  font-family: 'Open Sans';
+  color: dark;
+}
+
+/* ------------- simple */
+
+.simpleWrapper {
+  composes: actionWrapper;
+}
+
+.simpleTexts {
+  width: 100%;
+}
+
+.simplePrefix {
+  composes: text;
+  font-size: 25px;
+  margin-right: 7px;
+}
+
+.simpleTitle {
+  composes: text;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.simpleButton {
+  margin-top: 25px;
+  border-radius: 30px;
+}
+
+.simpleButton > input {
+  text-transform: none;
+}
+
+/* ------------- nextCourse */
+
+.nextCourseWrapper {
+  composes: actionWrapper;
+  padding: 15px;
+}
+
+.nextCourseTexts {
+  text-align: right;
+  padding: 70px 80px;
+}
+
+.nextCourseDescription {
+  composes: text;
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.nextCoursePrefix {
+  composes: text;
+  font-size: 25px;
+}
+
+.nextCourseTitle {
+  composes: text;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.nextCourseCard {
+
 }
 
 @media mobile {
