@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import keys from 'lodash/fp/keys';
+import getOr from 'lodash/fp/getOr';
+import ArrowLeft from '@coorpacademy/nova-icons/composition/navigation/arrow-left';
+import Provider from '../../atom/provider';
 import ProgressBar from '../../molecule/progress-bar';
 import UploadBox from '../../molecule/brand-upload-box';
 import DownloadBox from '../../molecule/brand-download-box';
@@ -13,8 +16,11 @@ const notificationStyle = {
   success: style.success
 };
 
-const BrandUpload = props => {
+const BrandUpload = (props, context) => {
   const {title = '', back, download, upload, progress, notifications} = props;
+
+  const {skin} = context;
+  const darkColor = getOr('#546E7A', 'common.dark', skin);
 
   const notificationsItems = notifications.map((notif, index) => (
     <div className={notificationStyle[notif.type]} key={index}>
@@ -25,7 +31,7 @@ const BrandUpload = props => {
   const backView =
     back &&
     <p className={style.back}>
-      <i className={style.arrowBack} />
+      <ArrowLeft color={darkColor} className={style.arrowBack} />
       <Link href={back.link} className={style.backDesc}>
         {back.desc}
       </Link>
@@ -45,6 +51,10 @@ const BrandUpload = props => {
       </ul>
     </div>
   );
+};
+
+BrandUpload.contextTypes = {
+  skin: Provider.childContextTypes.skin
 };
 
 BrandUpload.propTypes = {
