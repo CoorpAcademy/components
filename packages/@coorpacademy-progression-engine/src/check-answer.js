@@ -1,9 +1,10 @@
 // @flow
-import _ from 'lodash/fp';
 import map from 'lodash/fp/map';
 import pipe from 'lodash/fp/pipe';
 import some from 'lodash/fp/some';
 import sortBy from 'lodash/fp/sortBy';
+import flatten from 'lodash/fp/flatten';
+import reverse from 'lodash/fp/reverse';
 import toLower from 'lodash/fp/toLower';
 import isEqual from 'lodash/fp/isEqual';
 import identity from 'lodash/fp/identity';
@@ -47,7 +48,7 @@ function containsAnswer(
   // Get the non-space characters surrounding the answer and make sure that there are not too many.
   const limit = config.answerBoundaryLimit;
   const [first, second] = givenAnswer.split(allowedAnswer);
-  const indexOfSpaceInFirst = _.reverse(first).indexOf(' ');
+  const indexOfSpaceInFirst = reverse(first).indexOf(' ');
   const indexOfSpaceInSecond = second.indexOf(' ');
 
   return (
@@ -63,13 +64,13 @@ function checkAnswerForBasic(
 ): boolean {
   const allowedAnswers = question.content.answers;
   const comparableGivenAnswer = normalizeBasic(givenAnswer);
-  const fm = new FuzzyMatching(_.flatten(allowedAnswers));
-  const maxTypos = question.content.maxTypos !== undefined
+  const fm = new FuzzyMatching(flatten(allowedAnswers));
+  const maxTypos = question.content.maxTypos === 0
     ? question.content.maxTypos
-    : config.maxTypos;
+    : question.content.maxTypos || config.maxTypos;
   return (
     checkFuzzyAnswer(maxTypos, fm, comparableGivenAnswer[0]) ||
-    _.some(
+    some(
       allowedAnswer =>
         containsAnswer(config, normalizeBasic(allowedAnswer)[0], comparableGivenAnswer[0]),
       allowedAnswers
