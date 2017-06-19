@@ -8,7 +8,7 @@ const engine = {
   version: 'latest'
 };
 
-function createQuestion(answers: AcceptedAnswers, maxTypos?: number): BasicQuestion {
+function createQuestion(answers: AcceptedAnswers, maxTypos?: ?number): BasicQuestion {
   return {
     type: 'basic',
     content: {
@@ -92,6 +92,20 @@ test('should consider the max number of typos from the slide before the one in t
   t.true(checkAnswer(engineWithTypos, question, ['foooooooooooo']));
   t.false(checkAnswer(engineWithTypos, question, ['foooooooooooa']));
   t.false(checkAnswer(engineWithTypos, question, ['fooooooooooaa']));
+});
+
+test('should use the number of typos from the config if the one in question equals null', t => {
+  const question = createQuestion([['foooooooooooo']], null);
+  const engineWithTypos = {
+    ref: 'microlearning',
+    version: 'allow_typos_3'
+  };
+
+  t.true(checkAnswer(engineWithTypos, question, ['foooooooooooo']));
+  t.true(checkAnswer(engineWithTypos, question, ['foooooooooooa']));
+  t.true(checkAnswer(engineWithTypos, question, ['fooooooooooaa']));
+  t.true(checkAnswer(engineWithTypos, question, ['foooooooooaaa']));
+  t.false(checkAnswer(engineWithTypos, question, ['foooooooaaaaa']));
 });
 
 test('should return true when the given answer contains an accepted answer', t => {

@@ -87,7 +87,7 @@ export type QCMQuestion = {
 export type BasicQuestion = {
   type: 'basic',
   content: {
-    maxTypos?: number,
+    maxTypos?: ?number,
     answers: AcceptedAnswers
   }
 };
