@@ -9,7 +9,7 @@ const minimist = require('minimist');
 const SVGO = require('svgo');
 const stream = require('stream');
 
-const MAX_SIMULTANEOUS_HANDLES = 1000;
+const MAX_SIMULTANEOUS_HANDLES = 100;
 
 const readQueue = queue(
   ({fileName}, done) => fs.readFile(fileName, 'utf8', done)
