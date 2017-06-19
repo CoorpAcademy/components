@@ -28,13 +28,11 @@
 
 .linkicon {
   position: relative;
-  margin-left: 8px;
-  top: 1px;
+  margin-left: 6px;
+  top: -1px;
   box-sizing: border-box;
-  font-weight: 700;
-  font-size: 15px;
-  composes: fa from '../../variables/fontawesome.css';
-  composes: fa-angle-right from '../../variables/fontawesome.css';
+  width: 10px;
+  height: 10px;
 }
 
 .authorName {

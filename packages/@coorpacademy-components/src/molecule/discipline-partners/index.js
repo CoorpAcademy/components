@@ -4,6 +4,7 @@ import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import isEmpty from 'lodash/fp/isEmpty';
 import map from 'lodash/fp/map';
+import ArrowRight from '@coorpacademy/nova-icons/composition/navigation/arrow-right';
 import Link from '../../atom/link';
 import SocialLink from '../../atom/social-link';
 import Provider from '../../atom/provider';
@@ -18,6 +19,7 @@ const DisciplinePartners = (props, context) => {
 
   const authorLabel = authorTitle || translate('author');
   const defaultColor = getOr('#00B0FF', 'common.primary', skin);
+  const orangeAddColor = getOr('#FF7043', 'common.orangeAdd', skin);
   const authorsView = map.convert({cap: false})((author, index) => {
     const socialLinks = getOr([], 'socialLinks', author);
     const authorLogo = get('logo', author);
@@ -47,7 +49,7 @@ const DisciplinePartners = (props, context) => {
           }}
         >
           {moreDetails}
-          <span className={style.linkicon} />
+          <ArrowRight color={orangeAddColor} className={style.linkicon} />
         </a>
       </div>
     );
