@@ -134,11 +134,8 @@
 
 .nextButtonIcon {
   composes: nextButtonContent;
-  composes: fa from '../../../../variables/fontawesome.css';
-  composes: fa-angle-right from '../../../../variables/fontawesome.css';
-  font-size: 30px;
-  color: medium;
-  margin-top: -4px;
+  width: 20px;
+  height: 20px;
   margin-left: 14px;
 }
 
