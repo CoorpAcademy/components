@@ -32,10 +32,24 @@ const formatAttribute = (name, value) => (
   name === 'fill' && value !== 'none' ? '{color}' : `"${value}"`
 );
 
-const formatAttributes = attributes => {
+const formatAsFillColor = () => 'fill={color}';
+const formatAsOutline = () => 'stroke={outline} stokeWidth={outlineWidth * 2 - 1}';
+const keepOriginalFormat = (name, value) => `${camelCase(name)}="${value}"`;
+
+const formatAttributes = (attributes, outlineBlock = false) => {
+  const formatAttribute = (name, value) => {
+    const formater = (
+      (name === 'fill' && value != 'none' && !outlineBlock && formatAsFillColor)
+      || (name === 'fill' && value != 'none' && outlineBlock && formatAsOutline)
+      || keepOriginalFormat
+    );
+
+    return formater(name, value);
+  };
+
   const expressions = Object.keys(attributes)
     .filter(name => name !== 'id')
-    .map(name => `${camelCase(name)}=${formatAttribute(name, attributes[name])}`)
+    .map(name => formatAttribute(name, attributes[name]))
     .join(' ');
 
   return expressions.length > 0 ? ` ${expressions}` : '';
@@ -45,7 +59,13 @@ const componentize = async (basename, svgData) => {
   const inputStream = new stream.Readable();
   const componentName = `Nova${pascalCase(basename).replace('_', '')}`;
   const saxStream = sax.createStream(true, {lowercase: true});
-  const meta = {indent: 6, open: false, done: false, data: ''};
+  const meta = {
+    indent: 10,
+    open: false,
+    done: false,
+    data: '',
+    svgContent: []
+  };
 
   const writeLine = line => {
     meta.data += `${line || ''}\n`;
@@ -55,24 +75,47 @@ const componentize = async (basename, svgData) => {
     `${Array(meta.indent).fill().map((_, i) => ' ').join('')}${line}`
   );
 
+  const writeSVGTag = opts => {
+    const {
+      name,
+      attributes,
+      closing = false,
+      autoclosing = false,
+      outlineBlock = false,
+    } = opts;
+
+    if (autoclosing) {
+      writeIndentedLine(`<${name}${formatAttributes(attributes, outlineBlock)} />`);
+    } else if (closing) {
+      meta.indent -= 2;
+      writeIndentedLine(`</${name}>`);
+    } else {
+      writeIndentedLine(`<${name}${formatAttributes(attributes, outlineBlock)}>`);
+      meta.indent += 2;
+    }
+
+    if (outlineBlock) meta.svgContent.push(opts);
+  };
+
   saxStream.on('opentag', ({name, attributes}) => {
     if (name === 'svg' && !meta.done) {
       writeLine(`import React from 'react';`);
       writeLine(`import IconBase from 'react-icon-base';`);
       writeLine();
       writeLine(`const ${componentName} = props => {`);
-      writeLine(`  const {color = '#757575', ...baseProps} = props;`);
+      writeLine(`  const {color = '#757575', outline = null, outlineWidth = 1, ...baseProps} = props;`);
       writeLine();
       writeLine(`  return (`);
       writeLine(`    <IconBase viewBox="${attributes.viewBox}" {...baseProps}>`);
+      writeLine(`      {outline ? (`);
+      writeLine(`        <g>`);
 
       meta.open = true;
     } else if (meta.open) {
       if (name === 'g') {
-        writeIndentedLine(`<g${formatAttributes(attributes)}>`);
-        meta.indent += 2;
+        writeSVGTag({name, attributes, outlineBlock: true});
       } else {
-        writeIndentedLine(`<${name}${formatAttributes(attributes)} />`);
+        writeSVGTag({name, attributes, outlineBlock: true, autoclosing: true});
       }
     }
   });
@@ -81,6 +124,10 @@ const componentize = async (basename, svgData) => {
     if (name === 'svg') {
       meta.open = false;
       meta.done = true;
+      meta.indent = 6;
+      writeLine(`        </g>`);
+      writeLine(`      ) : null}`);
+      meta.svgContent.forEach(opts => writeSVGTag(Object.assign(opts, {outlineBlock: false})));
       writeLine(`    </IconBase>`);
       writeLine(`  );`);
       writeLine(`};`);
@@ -88,8 +135,7 @@ const componentize = async (basename, svgData) => {
       writeLine(`export default ${componentName};`);
     } else if (meta.open) {
       if (name === 'g') {
-        meta.indent -= 2;
-        writeIndentedLine(`</g>`);
+        writeSVGTag({name, closing: true, outlineBlock: true});
       }
     }
   });
