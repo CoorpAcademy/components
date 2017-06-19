@@ -1,11 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import getOr from 'lodash/fp/getOr';
+import ArrowLeft from '@coorpacademy/nova-icons/composition/navigation/arrow-left';
 import BrandFormGroup from '../../molecule/brand-form-group';
+import Provider from '../../atom/provider';
 import Button from '../../atom/button';
 import Link from '../../atom/link';
 import style from './style.css';
 
-function BrandForm(props) {
+function BrandForm(props, context) {
   const {
     groups,
     disabled,
@@ -18,10 +21,13 @@ function BrandForm(props) {
     back
   } = props;
 
+  const {skin} = context;
+  const darkColor = getOr('#546E7A', 'common.dark', skin);
+
   const backView =
     back &&
     <p className={style.back}>
-      <i className={style.arrowBack} />
+      <ArrowLeft color={darkColor} className={style.arrowBack} />
       <Link href={back.link} className={style.backDesc}>
         {back.desc}
       </Link>
@@ -69,6 +75,10 @@ function BrandForm(props) {
     </div>
   );
 }
+
+BrandForm.contextTypes = {
+  skin: Provider.childContextTypes.skin
+};
 
 BrandForm.propTypes = {
   groups: PropTypes.arrayOf(
