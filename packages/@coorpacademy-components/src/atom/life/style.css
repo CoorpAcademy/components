@@ -2,6 +2,7 @@
 @value white from colors;
 @value negative from colors;
 @value dark from colors;
+@value grey from colors;
 
 .default {
   position: relative;
@@ -9,13 +10,12 @@
   height: 67px;
 }
 
-.livesCounterWrapper {
+.counterText {
   position: absolute;
   display: flex;
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  color: dark;
   font-size: 22px;
   font-family: 'Open Sans';
   font-weight: 700;
@@ -23,34 +23,56 @@
   right: 0;
   width: 67px;
   height: 67px;
-  border-radius: 50%;
-  background-color: white;
   line-height: 0;
   overflow: hidden;
 }
 
+.livesCounterWrapper {
+  composes: counterText;
+  border-radius: 50%;
+  background-color: white;
+  color: dark;
+}
+
+.multiplier {
+  composes: counterText;
+  color: grey;
+}
+
+.multiplierText {
+  margin-left: -0.9rem;
+}
+
 @keyframes hidePreviousLivesCounter {
-  0% {margin-top: 100%}
-  80% {margin-top: 100%}
-  90% {margin-top: -100%}
+  0% {margin-top: 100%;}
+  75% {margin-top: 100%;}
+  85% {margin-top: -100%;}
   100% {margin-top: -100%;}
 }
 
+.counterValue {
+  margin-left: 0.9rem;
+}
+
 .previousLivesCounterDefault {
+  composes: counterValue;
   margin-top: -100%;
 }
 
 .previousLivesCounterFail {
+  composes: counterValue;
   animation-name: hidePreviousLivesCounter;
   animation-duration: 2s;
   animation-fill-mode: forwards;
 }
 
 .livesCounterDefault {
+  composes: counterValue;
   margin-top: 100%;
 }
 
 .livesCounterFail {
+  composes: counterValue;
   margin-top: 100%;
 }
 
@@ -66,16 +88,6 @@
   8% {transform: translateX(-1px);}
   9% {transform: translateX(1px);}
   10% {transform: translateX(0);}
-  20% {transform: translateX(-1px);}
-  21% {transform: translateX(1px);}
-  22% {transform: translateX(-1px);}
-  23% {transform: translateX(1px);}
-  24% {transform: translateX(-1px);}
-  25% {transform: translateX(1px);}
-  26% {transform: translateX(-1px);}
-  27% {transform: translateX(1px);}
-  28% {transform: translateX(-1px);}
-  29% {transform: translateX(1px);}
   30% {transform: translateX(0);}
   40% {transform: translateX(-1px);}
   41% {transform: translateX(1px);}
@@ -88,21 +100,17 @@
   48% {transform: translateX(-1px);}
   49% {transform: translateX(1px);}
   50% {transform: translateX(0);}
-  60% {transform: translateX(-1px);}
-  61% {transform: translateX(1px);}
-  62% {transform: translateX(-1px);}
-  63% {transform: translateX(1px);}
-  64% {transform: translateX(-1px);}
-  65% {transform: translateX(1px);}
-  66% {transform: translateX(-1px);}
-  67% {transform: translateX(1px);}
-  68% {transform: translateX(-1px);}
-  69% {transform: translateX(1px);}
   70% {transform: translateX(0);}
-  78% {transform: scale(1);}
-  80% {
-    transform: scale(1.5, 1.3);
-  }
+  71% {transform: translateX(1px);}
+  72% {transform: translateX(-1px);}
+  73% {transform: translateX(1px);}
+  74% {transform: scale(1.1, 1) translateX(-1px);}
+  75% {transform: scale(1.2, 1) translateX(1px);}
+  76% {transform: scale(1.2, 1) translateX(-1px);}
+  77% {transform: scale(1.3, 1) translateX(1px);}
+  78% {transform: scale(1.4, 1.1) translateX(-1px);}
+  79% {transform: scale(1.4, 1.2) translateX(1px);}
+  80% {transform: scale(1.5, 1.3);}
   82% {transform: scale(1);}
 }
 

@@ -16,8 +16,11 @@ const Life = (props, context) => {
   return (
     <div className={classnames(style.default, className)}>
       <div className={style.livesCounterWrapper}>
-        <div className={fail ? style.previousLivesCounterFail : style.previousLivesCounterDefault}>x{count + 1}</div>
-        <div className={fail ? style.livesCounterFail : style.livesCounterDefault}>x{count}</div>
+        <div className={fail ? style.previousLivesCounterFail : style.previousLivesCounterDefault}>{count + 1}</div>
+        <div className={fail ? style.livesCounterFail : style.livesCounterDefault}>{count}</div>
+      </div>
+      <div className={style.multiplier}>
+        <div className={style.multiplierText}>x</div>
       </div>
       <div className={fail ? style.heartWrapperFail : style.heartWrapperDefault}>
         <HeartIcon className={style.heartOutline} color={white} />
