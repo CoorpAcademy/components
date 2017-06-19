@@ -21,8 +21,6 @@
     color: dark;
     font-size: 12px;
     font-family: "Open Sans";
-    composes: fa from '../../variables/fontawesome.css';
-    composes: fa-angle-down from '../../variables/fontawesome.css';
     position: relative;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -62,8 +60,6 @@
     top: 76px;
     left: 0;
     border: 1px solid light;
-    composes: fa from '../../variables/fontawesome.css';
-    composes: fa-times from '../../variables/fontawesome.css';
 }
 
 .activeChoices:before {
