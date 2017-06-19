@@ -5,8 +5,28 @@ import head from 'lodash/fp/head';
 import isEqual from 'lodash/fp/isEqual';
 import last from 'lodash/fp/last';
 import PropTypes from 'prop-types';
+import ArrowLeft from '@coorpacademy/nova-icons/composition/navigation/arrow-left';
+import ArrowRight from '@coorpacademy/nova-icons/composition/navigation/arrow-right';
+import Provider from '../../../atom/provider';
 import Card from '../../card';
 import style from './style.css';
+
+const ShowMoreLink = (props, context) => {
+  const {onShowMore, showMore} = props;
+  const {skin} = context;
+  const darkColor = getOr('#546E7A', 'common.dark', skin);
+
+  return (
+    <div className={style.showMore} onClick={onShowMore}>
+      {showMore}
+      <ArrowRight color={darkColor} className={style.showMoreIcon} />
+    </div>
+  );
+}
+
+ShowMoreLink.contextTypes = {
+  skin: Provider.childContextTypes.skin
+};
 
 class CardsList extends React.Component {
   constructor(props) {
@@ -170,6 +190,9 @@ class CardsList extends React.Component {
 
   render() {
     const {title, showMore, cards, onShowMore} = this.props;
+    const {skin} = this.context;
+
+    const mediumColor = getOr('#90A4AE', 'common.medium', skin);
 
     const cardsView = cards.map((card, key) => {
       return (
@@ -181,16 +204,16 @@ class CardsList extends React.Component {
 
     const leftArrowView = this.state.left.hidden
       ? null
-      : <div className={style.left} onClick={this.handleOnLeft} />;
+      : <ArrowLeft color={mediumColor} className={style.left} onClick={this.handleOnLeft} />;
 
     const rightArrowView = this.state.right.hidden
       ? null
-      : <div className={style.right} onClick={this.handleOnRight} />;
+      : <ArrowRight color={mediumColor} className={style.right} onClick={this.handleOnRight} />;
     const titleView = title && onShowMore
       ? <span className={style.titleLink} onClick={onShowMore}>{title}</span>
       : <span className={style.title}>{title}</span>;
     const showMoreView = showMore && onShowMore
-      ? <span className={style.showMore} onClick={onShowMore}>{showMore}</span>
+      ? <ShowMoreLink onShowMore={onShowMore} showMore={showMore} />
       : null;
     return (
       <div className={style.wrapper} data-name="cards-list">
@@ -211,6 +234,10 @@ class CardsList extends React.Component {
     );
   }
 }
+
+CardsList.contextTypes = {
+  skin: Provider.childContextTypes.skin
+};
 
 CardsList.propTypes = {
   title: PropTypes.string,
