@@ -34,6 +34,10 @@ export const getCurrentSlide = state => {
   return getSlide(id)(state);
 };
 
+export const getContent = state => {
+  return get('content')(getCurrentProgression(state));
+};
+
 export const getPreviousSlide = state => {
   const id = get('state.content.ref')(getCurrentProgression(state));
   return getSlide(id)(state);
@@ -77,3 +81,16 @@ export const getRoute = state => {
 };
 
 export const getCurrentContent = pipe(getCurrentProgression, get('state.nextContent'));
+
+export const getRecommendations = state => {
+  const id = getCurrentProgressionId(state);
+  return get(`data.recommendations.entities.${id}`, state);
+};
+
+export const getStartRank = state => {
+  return get(`data.rank.start`, state);
+};
+
+export const getEndRank = state => {
+  return get(`data.rank.end`, state);
+};
