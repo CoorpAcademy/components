@@ -57,6 +57,7 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-linked-input": "^15.5.1"
+    "stylelint": "^7.11.1"
   },
   "devDependencies": {
     "@coorpacademy/translate": "5.3.6",
