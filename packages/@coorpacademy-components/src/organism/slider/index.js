@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import _map from 'lodash/fp/map';
@@ -118,5 +119,9 @@ class Slider extends React.Component {
     );
   }
 }
+
+Slider.propTypes = {
+  children: PropTypes.arrayOf(PropTypes.node)
+};
 
 export default Slider;

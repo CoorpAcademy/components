@@ -4,12 +4,8 @@ import map from 'lodash/fp/map';
 import Slide from '../../../atom/slide';
 import Slider from '../../../organism/slider';
 
-const ImageSlider = props => {
-  const {slides} = props;
-
-  const myslides = map.convert({cap: false})((slide, key) => {
-    return <Slide key={key} {...slide} />;
-  }, slides);
+const ImageSlider = ({slides}) => {
+  const myslides = map(slide => <Slide key={slide.title} {...slide} />, slides);
 
   return (
     <Slider>
@@ -19,17 +15,7 @@ const ImageSlider = props => {
 };
 
 ImageSlider.propTypes = {
-  slides: PropTypes.arrayOf(
-    PropTypes.shape({
-      cover: PropTypes.string,
-      title: PropTypes.string,
-      surtitle: PropTypes.string,
-      cta: PropTypes.shape({
-        href: PropTypes.url,
-        title: PropTypes.string
-      })
-    })
-  )
+  slides: PropTypes.arrayOf(PropTypes.shape(Slide.propTypes))
 };
 
 export default ImageSlider;
