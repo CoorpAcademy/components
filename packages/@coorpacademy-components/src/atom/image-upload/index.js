@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import uniqueId from 'lodash/fp/uniqueId';
-import getOr from 'lodash/fp/getOr';
+import get from 'lodash/fp/get';
 import UploadIcon from '@coorpacademy/nova-icons/solid/data-transfer/data-upload-1';
 import Provider from '../provider';
 import Loader from './../loader';
@@ -33,7 +33,7 @@ class ImageUpload extends React.Component {
 
   render() {
     const {skin} = this.context;
-    const brandColor = getOr('#00B0FF', 'common.brand', skin);
+    const brandColor = get('common.brand', skin);
     const idBox = uniqueId('drop-box-');
     const {
       title,

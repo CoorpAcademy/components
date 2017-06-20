@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import filter from 'lodash/fp/filter';
 import find from 'lodash/fp/find';
 import get from 'lodash/fp/get';
-import getOr from 'lodash/fp/getOr';
 import keys from 'lodash/fp/keys';
 import map from 'lodash/fp/map';
 import ArrowDown from '@coorpacademy/nova-icons/composition/navigation/arrow-down';
@@ -72,8 +71,8 @@ const Select = (props, context) => {
         onChange(e.target.value);
       };
 
-  const black = getOr('#14171A', 'common.black', skin);
-  const color = getOr('#000', 'common.primary', skin);
+  const black = get('common.black', skin);
+  const color = get('common.primary', skin);
   const skinColor = {
     color: theme === 'question' ? color : null
   };

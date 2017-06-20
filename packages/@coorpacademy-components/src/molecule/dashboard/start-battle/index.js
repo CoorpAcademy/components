@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import getOr from 'lodash/fp/getOr';
+import get from 'lodash/fp/get';
 import BoltIcon from '@coorpacademy/nova-icons/composition/coorpacademy/bolt';
 import Provider from '../../../atom/provider';
 import Link from '../../../atom/link';
@@ -10,8 +10,8 @@ const StartBattle = (props, context) => {
   const {label, onClick, href} = props;
   const {skin} = context;
 
-  const white = getOr('#fff', 'common.white', skin);
-  const battleColor = getOr('#fff', 'common.battle', skin);
+  const white = get('common.white', skin);
+  const battleColor = get('common.battle', skin);
 
   return (
     <div className={style.container} data-name="start-battle">

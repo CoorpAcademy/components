@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import getOr from 'lodash/fp/getOr';
+import get from 'lodash/fp/get';
 import ArrowRight from '@coorpacademy/nova-icons/composition/navigation/arrow-right';
 import Provider from '../../../../atom/provider';
 import Life from '../../../../atom/life';
@@ -43,7 +43,7 @@ const CorrectionPart = props => {
 const NextQuestionPart = (props, context) => {
   const {title, ...linkProps} = props;
   const {skin} = context;
-  const mediumColor = getOr('#90A4AE', 'common.medium', skin);
+  const mediumColor = get('common.medium', skin);
 
   return (
     <div className={style.nextSection}>
