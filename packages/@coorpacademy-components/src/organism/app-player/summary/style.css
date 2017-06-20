@@ -1,5 +1,6 @@
 @value breakpoints: "../../../variables/breakpoints.css";
 @value mobile from breakpoints;
+@value tablet from breakpoints;
 @value colors: "../../../variables/colors.css";
 @value xtraLightGrey from colors;
 @value light from colors;
@@ -114,6 +115,25 @@
 
 }
 
+@media mobile {
+  .nextCourseTexts {
+    width: 100%;
+    text-align: center;
+    padding: 5px 0 15px;
+  }
+
+  .nextCourseDescription {
+    font-size: 15px;
+    margin-bottom: 5px;
+  }
+
+  .nextCourseTitle,
+  .nextCoursePrefix {
+    font-size: 15px;
+  }
+}
+
+
 /* ------------- subscribe */
 
 .subscribeWrapper {
@@ -153,5 +173,16 @@
 
 }
 
+@media tablet {
+  .subscribeTexts {
+    padding-right: 3%;
+  }
+}
+
 @media mobile {
+  .subscribeTexts {
+    width: 100%;
+    text-align: center;
+    padding: 0;
+  }
 }
