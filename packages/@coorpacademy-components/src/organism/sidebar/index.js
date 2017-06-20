@@ -41,7 +41,7 @@ const InfoItem = props => {
   );
 };
 
-const AnalyticsSidebar = props => {
+const Sidebar = props => {
   return (
     <div className={style.text}>
       <div className={style.navigation}>
@@ -75,6 +75,6 @@ const AnalyticsSidebar = props => {
     </div>
   );
 };
-AnalyticsSidebar.propTypes = {};
+Sidebar.propTypes = {};
 
-export default AnalyticsSidebar;
+export default Sidebar;

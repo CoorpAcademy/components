@@ -102,7 +102,7 @@ import SlidesPlayer from '../src/molecule/slides/slides-player';
 import Container from '../src/organism/accordion/container';
 import Part from '../src/organism/accordion/part';
 import Toggler from '../src/organism/accordion/toggler';
-import AnalyticsSidebar from '../src/organism/analytics-sidebar';
+import Summary from '../src/organism/app-player/summary';
 import BrandForm from '../src/organism/brand-form';
 import BrandTable from '../src/organism/brand-table';
 import BrandUpload from '../src/organism/brand-upload';
@@ -118,7 +118,7 @@ import MoocHeader from '../src/organism/mooc-header';
 import Popin from '../src/organism/popin';
 import Settings from '../src/organism/settings';
 import SetupHeader from '../src/organism/setup-header';
-import Summary from '../src/organism/app-player/summary';
+import Sidebar from '../src/organism/sidebar';
 import Author from '../src/template/app-catalog/author';
 import Catalog from '../src/template/app-catalog/catalog';
 import ProductCourse from '../src/template/app-catalog/product-course';
@@ -436,7 +436,9 @@ import PartFixtureDefault from '../src/organism/accordion/part/test/fixtures/def
 import PartFixtureOpen from '../src/organism/accordion/part/test/fixtures/open';
 import TogglerFixtureAllAreOpenable from '../src/organism/accordion/toggler/test/fixtures/all-are-openable';
 import TogglerFixtureOnlyOne from '../src/organism/accordion/toggler/test/fixtures/only-one';
-import AnalyticsSidebarFixtureDefault from '../src/organism/analytics-sidebar/test/fixtures/default';
+import SummaryFixtureCorrect from '../src/organism/app-player/summary/test/fixtures/correct';
+import SummaryFixtureFail from '../src/organism/app-player/summary/test/fixtures/fail';
+import SummaryFixtureLoading from '../src/organism/app-player/summary/test/fixtures/loading';
 import BrandFormFixtureDashboard from '../src/organism/brand-form/test/fixtures/dashboard';
 import BrandFormFixtureDefault from '../src/organism/brand-form/test/fixtures/default';
 import BrandFormFixtureGeneralSettings from '../src/organism/brand-form/test/fixtures/general-settings';
@@ -476,9 +478,8 @@ import SettingsFixtureDefault from '../src/organism/settings/test/fixtures/defau
 import SettingsFixtureFreemium from '../src/organism/settings/test/fixtures/freemium';
 import SettingsFixturePremium from '../src/organism/settings/test/fixtures/premium';
 import SetupHeaderFixtureDefault from '../src/organism/setup-header/test/fixtures/default';
-import SummaryFixtureCorrect from '../src/organism/app-player/summary/test/fixtures/correct';
-import SummaryFixtureFail from '../src/organism/app-player/summary/test/fixtures/fail';
-import SummaryFixtureLoading from '../src/organism/app-player/summary/test/fixtures/loading';
+import SidebarFixtureAnalytics from '../src/organism/sidebar/test/fixtures/analytics';
+import SidebarFixtureDefault from '../src/organism/sidebar/test/fixtures/default';
 import AuthorFixtureDefault from '../src/template/app-catalog/author/test/fixtures/default';
 import AuthorFixtureLoading from '../src/template/app-catalog/author/test/fixtures/loading';
 import CatalogFixtureDefault from '../src/template/app-catalog/catalog/test/fixtures/default';
@@ -674,8 +675,10 @@ export const components = {
     Part,
     Toggler
   },
+  OrganismAppPlayer: {
+    Summary
+  },
   Organism: {
-    AnalyticsSidebar,
     BrandForm,
     BrandTable,
     BrandUpload,
@@ -690,10 +693,8 @@ export const components = {
     MoocHeader,
     Popin,
     Settings,
-    SetupHeader
-  },
-  OrganismAppPlayer: {
-    Summary
+    SetupHeader,
+    Sidebar
   },
   TemplateAppCatalog: {
     Author,
@@ -1242,10 +1243,14 @@ export const fixtures = {
       OnlyOne: TogglerFixtureOnlyOne
     }
   },
+  OrganismAppPlayer: {
+    Summary: {
+      Correct: SummaryFixtureCorrect,
+      Fail: SummaryFixtureFail,
+      Loading: SummaryFixtureLoading
+    }
+  },
   Organism: {
-    AnalyticsSidebar: {
-      Default: AnalyticsSidebarFixtureDefault
-    },
     BrandForm: {
       Dashboard: BrandFormFixtureDashboard,
       Default: BrandFormFixtureDefault,
@@ -1314,13 +1319,10 @@ export const fixtures = {
     },
     SetupHeader: {
       Default: SetupHeaderFixtureDefault
-    }
-  },
-  OrganismAppPlayer: {
-    Summary: {
-      Correct: SummaryFixtureCorrect,
-      Fail: SummaryFixtureFail,
-      Loading: SummaryFixtureLoading
+    },
+    Sidebar: {
+      Analytics: SidebarFixtureAnalytics,
+      Default: SidebarFixtureDefault
     }
   },
   TemplateAppCatalog: {
@@ -2065,9 +2067,6 @@ export const dependencies = {
         }
       }
     },
-    "AnalyticsSidebar": {
-      "children": {}
-    },
     "BrandForm": {
       "children": {
         "Molecule": {
@@ -2186,6 +2185,9 @@ export const dependencies = {
           "SubscriptionPremium": true
         }
       }
+    },
+    "Sidebar": {
+      "children": {}
     }
   },
   "Atom": {

@@ -1,4 +1,3 @@
-export AnalyticsSidebar from './organism/analytics-sidebar';
 export Author from './template/app-catalog/author';
 export Authors from './template/common/authors';
 export BattleRequest from './molecule/battle-request';
@@ -109,6 +108,7 @@ export SetupSection from './molecule/setup-section';
 export SetupSections from './molecule/setup-sections';
 export SetupSlide from './molecule/setup-slide';
 export SetupSlider from './molecule/setup-slider';
+export Sidebar from './organism/sidebar';
 export Slide from './atom/slide';
 export Slider from './molecule/slider';
 export SlidesFooter from './molecule/slides/slides-footer';
