@@ -74,20 +74,22 @@
   margin-left: 5px;
 }
 
-.icon {
-  composes: fa from '../../variables/fontawesome.css';
-  composes: fa-bolt from '../../variables/fontawesome.css';
-  font-size: 22px;
-  color: white;
+.iconBubble {
   position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   top: 10px;
   left: 10px;
   width: 30px;
   height: 30px;
   background: battle;
   border-radius: 50%;
-  line-height: 28px;
-  text-align: center;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
 }
 
 .discipline {

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
+import BoltIcon from '@coorpacademy/nova-icons/composition/coorpacademy/bolt';
 import Link from '../../atom/link';
 import Provider from '../../atom/provider';
 import style from './style.css';
@@ -10,6 +11,7 @@ const BattleRequest = (props, context) => {
   const {username, discipline, level, avatar, href} = props;
 
   const primaryColor = getOr('#00B0FF', 'common.primary', skin);
+  const white = getOr('#fff', 'common.white', skin);
 
   const challengeLabel = translate('challenges you on');
   const startLabel = translate('Start battle');
@@ -25,7 +27,9 @@ const BattleRequest = (props, context) => {
       <div className={style.avatar}>
         <img src={avatar} />
       </div>
-      <div className={style.icon} />
+      <div className={style.iconBubble}>
+        <BoltIcon color={white} className={style.icon} />
+      </div>
       <div className={style.info}>
         <div className={style.name}>
           {username}
