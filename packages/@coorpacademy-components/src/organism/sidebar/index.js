@@ -21,7 +21,7 @@ const FilterItem = props => {
 const SelectItem = props => {
   return (
     <li>
-      <Link href={props.href}>
+      <Link href={props.href} onClick={props.handleOnClick}>
         {props.title}
       </Link>
     </li>
@@ -63,7 +63,7 @@ const Sidebar = props => {
                   <SelectItem
                     key={index}
                     title={item.title}
-                    handleOnClick={item.onclick}
+                    handleOnClick={item.onClick}
                     href={item.href}
                   />
                 );
