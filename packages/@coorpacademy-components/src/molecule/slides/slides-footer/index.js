@@ -4,7 +4,7 @@ import keys from 'lodash/fp/keys';
 import MediaIcon from '@coorpacademy/nova-icons/solid/videos/video-clip-3';
 import ClueIcon from '@coorpacademy/nova-icons/solid/programming/programming-jigsaw';
 import CoachIcon from '@coorpacademy/nova-icons/solid/messages-and-chat/chat-bubbles-circle';
-import getOr from 'lodash/fp/getOr';
+import get from 'lodash/fp/get';
 import Provider from '../../../atom/provider';
 import style from './style.css';
 
@@ -17,7 +17,7 @@ const ICONS = {
 const SlidesFooter = (props, context) => {
   const {skin} = context;
   const {buttons = []} = props;
-  const xtraLightGrey = getOr('#FAFAFA', 'common.xtraLightGrey', skin);
+  const xtraLightGrey = get('common.xtraLightGrey', skin);
 
   const buttonsView = buttons.map((button, key) => {
     const {disabled, notify, selected, highlighted, title, type, onClick} = button;

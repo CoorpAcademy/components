@@ -18,8 +18,8 @@ const DisciplinePartners = (props, context) => {
   const {authorTitle, authors = []} = props;
 
   const authorLabel = authorTitle || translate('author');
-  const defaultColor = getOr('#00B0FF', 'common.primary', skin);
-  const orangeAddColor = getOr('#FF7043', 'common.orangeAdd', skin);
+  const defaultColor = get('common.primary', skin);
+  const orangeAddColor = get('common.orangeAdd', skin);
   const authorsView = map.convert({cap: false})((author, index) => {
     const socialLinks = getOr([], 'socialLinks', author);
     const authorLogo = get('logo', author);

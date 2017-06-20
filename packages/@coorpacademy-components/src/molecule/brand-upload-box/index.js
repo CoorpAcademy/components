@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import uniqueId from 'lodash/fp/uniqueId';
-import getOr from 'lodash/fp/getOr';
+import get from 'lodash/fp/get';
 import UploadIcon from '@coorpacademy/nova-icons/solid/data-transfer/data-upload-1';
 import Loader from '../../atom/loader';
 import style from './style.css';
@@ -37,7 +37,7 @@ class BrandUploadBox extends React.Component {
     let content;
 
     const {description = '', browse = '', onLoad} = this.props;
-    const brandColor = getOr('#00B0FF', 'common.brand', skin);
+    const brandColor = get('common.brand', skin);
 
     switch (this.props.status) {
       case 'loading':

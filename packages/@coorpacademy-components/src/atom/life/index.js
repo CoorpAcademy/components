@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import getOr from 'lodash/fp/getOr';
+import get from 'lodash/fp/get';
 import HeartIcon from '@coorpacademy/nova-icons/solid/vote-and-rewards/vote-heart';
 import HeartBrokenIcon from '@coorpacademy/nova-icons/composition/coorpacademy/broken-heart';
 import Provider from '../provider';
@@ -10,8 +10,8 @@ import style from './style.css';
 const Life = (props, context) => {
   const {skin} = context;
   const {count = 3, fail = false, className} = props;
-  const negativeColor = getOr('#F73F52', 'common.negative', skin);
-  const white = getOr('#fff', 'common.white', skin);
+  const negativeColor = get('common.negative', skin);
+  const white = get('common.white', skin);
 
   return (
     <div className={classnames(style.default, className)}>

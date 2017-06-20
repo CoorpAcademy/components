@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import getOr from 'lodash/fp/getOr';
+import get from 'lodash/fp/get';
 import ArrowLeft from '@coorpacademy/nova-icons/composition/navigation/arrow-left';
 import BrandFormGroup from '../../molecule/brand-form-group';
 import Provider from '../../atom/provider';
@@ -22,7 +22,7 @@ function BrandForm(props, context) {
   } = props;
 
   const {skin} = context;
-  const darkColor = getOr('#546E7A', 'common.dark', skin);
+  const darkColor = get('common.dark', skin);
 
   const backView =
     back &&

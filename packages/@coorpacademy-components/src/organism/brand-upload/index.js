@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import keys from 'lodash/fp/keys';
-import getOr from 'lodash/fp/getOr';
+import get from 'lodash/fp/get';
 import ArrowLeft from '@coorpacademy/nova-icons/composition/navigation/arrow-left';
 import Provider from '../../atom/provider';
 import ProgressBar from '../../molecule/progress-bar';
@@ -20,7 +20,7 @@ const BrandUpload = (props, context) => {
   const {title = '', back, download, upload, progress, notifications} = props;
 
   const {skin} = context;
-  const darkColor = getOr('#546E7A', 'common.dark', skin);
+  const darkColor = get('common.dark', skin);
 
   const notificationsItems = notifications.map((notif, index) => (
     <div className={notificationStyle[notif.type]} key={index}>

@@ -1,5 +1,6 @@
 import React from 'react';
 import debounce from 'lodash/fp/debounce';
+import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import head from 'lodash/fp/head';
 import isEqual from 'lodash/fp/isEqual';
@@ -14,7 +15,7 @@ import style from './style.css';
 const ShowMoreLink = (props, context) => {
   const {onShowMore, showMore} = props;
   const {skin} = context;
-  const darkColor = getOr('#546E7A', 'common.dark', skin);
+  const darkColor = get('common.dark', skin);
 
   return (
     <div className={style.showMore} onClick={onShowMore}>

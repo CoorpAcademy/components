@@ -39,13 +39,13 @@ const ScopeContent = (props, context) => {
       onClick={onClick}
       submitValue={buttonLabel}
       style={{
-        backgroundColor: getOr('#000', 'common.primary', skin)
+        backgroundColor: get('common.primary', skin)
       }}
     />;
 
   const medias = _medias.map((media, index) => {
     const {onClick: handleClick, href = '#', target, type} = media;
-    const white = getOr('#fff', 'common.white', skin);
+    const white = get('common.white', skin);
 
     return (
       <Link key={index} className={style.media} onClick={handleClick} href={href} target={target}>
