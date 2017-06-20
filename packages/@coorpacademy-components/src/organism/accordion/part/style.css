@@ -1,8 +1,8 @@
 @value colors: "../../../variables/colors.css";
 @value medium from colors;
 @value white from colors;
-@value primaryAdd2 from colors;
-@value xtraLightGrey from colors;
+@value dark from colors;
+@value light from colors;
 
 .title {
   height: 50px;
@@ -12,22 +12,20 @@
   padding: 0 20px;
   width: 100%;
   box-sizing: border-box;
-  background-color: xtraLightGrey;
+  background-color: light;
   cursor: pointer;
 }
 
 .title h3 {
   font-family: 'Open Sans';
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 700;
-  color: primaryAdd2;
+  color: dark;
   margin: 0;
 }
 
 .container {
-  padding: 40px;
   background-color: white;
-  border-top: 1px solid medium;
   animation: fadeIn 3s forwards;
   overflow: hidden;
 }
@@ -45,18 +43,19 @@
   display: none;
 }
 
-.arrow {
+.icon {
   composes: fa from '../../../variables/fontawesome.css';
-  color: medium;
-  font-size: 24px;
+  font-size: 15px;
 }
 
 .down {
-  composes: arrow;
+  composes: icon;
   composes: fa-plus from '../../../variables/fontawesome.css';
+  color: dark;
 }
 
 .up {
-  composes: arrow;
+  composes: icon;
   composes: fa-minus from '../../../variables/fontawesome.css';
+  color: medium;
 }

@@ -3,7 +3,7 @@ import correctClosed from './correct-closed';
 
 export default defaultsDeep(correctClosed, {
   props: {
-    ressources: {
+    resources: {
       open: true
     }
   }

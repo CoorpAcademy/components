@@ -1,5 +1,5 @@
 import defaultsDeep from 'lodash/fp/defaultsDeep';
-import sliderFixtures from '../../../../molecule/slider/test/fixtures/multiple-slides';
+import sliderFixtures from '../../../mooc/image-slider/test/fixtures/multiple-slides';
 import Default from './default';
 
 const slider = sliderFixtures.props;

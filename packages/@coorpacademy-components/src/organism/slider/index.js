@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import _map from 'lodash/fp/map';
-import Slide from '../../atom/slide';
 import style from './style.css';
 
 const map = _map.convert({cap: false});
@@ -47,7 +46,7 @@ class Slider extends React.Component {
 
   handleNextSlide() {
     this.setState(prevState => {
-      const totalSlide = this.props.slides.length;
+      const totalSlide = this.props.children.length;
       const nextSlide = prevState.currentSlide + 1;
 
       return {
@@ -60,7 +59,7 @@ class Slider extends React.Component {
 
   handlePreviousSlide() {
     this.setState(prevState => {
-      const totalSlide = this.props.slides.length;
+      const totalSlide = this.props.children.length;
       const nextSlide = prevState.currentSlide - 1;
 
       return {
@@ -80,21 +79,20 @@ class Slider extends React.Component {
   }
 
   render() {
-    const {slides} = this.props;
+    const {children} = this.props;
+    const totalSlide = children.length;
 
-    const totalSlide = slides.length;
-
-    const myslides = map((slide, index) => {
+    const myslides = map((child, index) => {
       const isActive = this.state.currentSlide === index;
 
       return (
         <div key={index} className={isActive ? style.activeSlide : style.slide}>
-          <Slide {...slide} />
+          {child}
         </div>
       );
-    }, slides);
+    }, children);
 
-    const currentSlide = get(this.state.currentSlide, slides);
+    const currentSlide = get(this.state.currentSlide, children);
     const controlColor = getOr(false, 'light', currentSlide) ? '#FFF' : '#000';
     const leftControl = totalSlide > 1
       ? <span
@@ -123,17 +121,7 @@ class Slider extends React.Component {
 }
 
 Slider.propTypes = {
-  slides: PropTypes.arrayOf(
-    PropTypes.shape({
-      cover: PropTypes.string,
-      title: PropTypes.string,
-      surtitle: PropTypes.string,
-      cta: PropTypes.shape({
-        href: PropTypes.url,
-        title: PropTypes.string
-      })
-    })
-  )
+  children: PropTypes.arrayOf(PropTypes.node)
 };
 
 export default Slider;

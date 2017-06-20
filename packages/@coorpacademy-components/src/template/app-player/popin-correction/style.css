@@ -1,3 +1,58 @@
+@value colors: "../../../variables/colors.css";
+@value dark from colors;
+@value medium from colors;
+@value positive from colors;
+
 .wrapper {
   width: 100%;
+}
+
+.text {
+  font-family: 'Open Sans';
+  font-size: 13px;
+  color: dark;
+  margin: 0;
+}
+
+/* Question -------------- */
+
+.question {
+  padding: 16px 48px;
+}
+
+.questionHeader {
+  composes: text;
+  font-size: 12px;
+  color: medium;
+  padding: 5px 0;
+}
+
+.answerPrefix {
+  composes: text;
+  font-size: 14px;
+  color: positive;
+  margin-right: 5px;
+}
+
+.answer {
+  composes: text;
+  font-weight: 700;
+  font-size: 14px;
+  color: positive;
+}
+
+/* Slides -------------- */
+
+.sliderWrapper {
+  padding: 16px 30px 16px 71px;
+  height: 400px;
+  position: relative;
+}
+
+.simpleTextWrapper {
+  padding: 16px 30px 16px 71px;
+}
+
+.simpleText {
+  composes: text;
 }
