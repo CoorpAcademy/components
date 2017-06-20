@@ -42,36 +42,38 @@ const InfoItem = props => {
 };
 
 const Sidebar = props => {
+  const sections = Array.isArray(props.items[0]) ? props.items : [props.items];
   return (
-    <div className={style.text}>
-      <div className={style.navigation}>
-        <ul>
-          {props.items.map((item, index) => {
-            if (item.type === 'select')
-              return (
-                <FilterItem
-                  key={index}
-                  title={item.title}
-                  options={item.options}
-                  handleOnChange={item.onChange}
-                />
-              );
-            else if (item.type === 'link')
-              return (
-                <SelectItem
-                  key={index}
-                  title={item.title}
-                  handleOnClick={item.onclick}
-                  href={item.href}
-                />
-              );
-            return <hr key={index} />;
-          })}
-        </ul>
-      </div>
-      <div className={style.info}>
-        <InfoItem title="Date lancement" info="30 fev" />
-      </div>
+    <div className={style.sidebar}>
+      {sections.map((sidebarSection, idx) => (
+        <div className={style.sidebar_part} key={idx}>
+          <ul>
+            {sidebarSection.map((item, index) => {
+              if (item.type === 'select')
+                return (
+                  <FilterItem
+                    key={index}
+                    title={item.title}
+                    options={item.options}
+                    handleOnChange={item.onChange}
+                  />
+                );
+              else if (item.type === 'link')
+                return (
+                  <SelectItem
+                    key={index}
+                    title={item.title}
+                    handleOnClick={item.onclick}
+                    href={item.href}
+                  />
+                );
+              else if (item.type === 'info')
+                return <InfoItem key={index} title={item.title} info={item.value} />;
+              return null;
+            })}
+          </ul>
+        </div>
+      ))}
     </div>
   );
 };

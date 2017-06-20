@@ -11,15 +11,10 @@
 @value brand from colors;
 @value black from colors;
 
-.text {
+.sidebar {
   color: dark
 }
 
-.navigation {
-
-
-}
-.info {
-
-
+.sidebar_part {
+  background-color: medium
 }
