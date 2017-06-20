@@ -2,19 +2,12 @@
 @value medium from colors;
 @value light from colors;
 
-.wrapper {
+.icon {
   position: relative;
-  composes: fa from '../../variables/fontawesome.css';
-  composes: fa-search from '../../variables/fontawesome.css';
-}
-
-.wrapper:before {
-  position: absolute;
-  font-size: 18px;
-  top: 50%;
-  margin-top: -9px;
-  left: 15px;
-  color: medium;
+  margin: 0 0 0 -20px;
+  width: 19px;
+  height: 19px;
+  left: 35px;
 }
 
 .search {
