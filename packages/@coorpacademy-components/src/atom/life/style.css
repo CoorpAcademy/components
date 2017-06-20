@@ -187,8 +187,3 @@
   animation-duration: 2s;
   animation-fill-mode: forwards;
 }
-
-.heartOutline > path:last-child {
-  stroke: white;
-  stroke-width: 4px;
-}
