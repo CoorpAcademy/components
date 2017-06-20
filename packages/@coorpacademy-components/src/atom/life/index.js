@@ -23,7 +23,7 @@ const Life = (props, context) => {
         <div className={style.multiplierText}>x</div>
       </div>
       <div className={fail ? style.heartWrapperFail : style.heartWrapperDefault}>
-        <HeartIcon className={style.heartOutline} color={white} />
+        <HeartIcon outline={white} outlineWidth={5} className={style.heartOutline} color={white} />
         <HeartIcon className={fail ? style.heartNormalFail : style.heartNormalDefault} color={negativeColor} />
         <HeartBrokenIcon className={fail ? style.heartBrokenFail : style.heartBrokenDefault} color={negativeColor} />
       </div>

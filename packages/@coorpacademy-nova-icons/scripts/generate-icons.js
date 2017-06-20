@@ -33,7 +33,7 @@ const formatAttribute = (name, value) => (
 );
 
 const formatAsFillColor = () => 'fill={color}';
-const formatAsOutline = () => 'stroke={outline} stokeWidth={outlineWidth * 2 - 1}';
+const formatAsOutline = () => 'stroke={outline} strokeWidth={outlineWidth}';
 const keepOriginalFormat = (name, value) => `${camelCase(name)}="${value}"`;
 
 const formatAttributes = (attributes, outlineBlock = false) => {
