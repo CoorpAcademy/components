@@ -26,8 +26,16 @@ const SetupSection = (props, context) => {
           {translate('Show')}
         </div>
         <InputSwitch {...display} />
-        <ArrowDownIcon color={colorUp} className={onDown ? style.arrow : style.disabled} onClick={onDown} />
-        <ArrowUpIcon color={colorDown} className={onUp ? style.arrow : style.disabled} onClick={onUp} />
+        <ArrowDownIcon
+          color={colorUp}
+          className={onDown ? style.arrow : style.disabled}
+          onClick={onDown}
+        />
+        <ArrowUpIcon
+          color={colorDown}
+          className={onUp ? style.arrow : style.disabled}
+          onClick={onUp}
+        />
       </div>
     </div>
   );

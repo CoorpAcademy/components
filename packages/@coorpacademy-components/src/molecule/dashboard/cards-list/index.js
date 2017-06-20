@@ -22,7 +22,7 @@ const ShowMoreLink = (props, context) => {
       <ArrowRight color={darkColor} className={style.showMoreIcon} />
     </div>
   );
-}
+};
 
 ShowMoreLink.contextTypes = {
   skin: Provider.childContextTypes.skin
