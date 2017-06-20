@@ -1,3 +1,4 @@
+export AnalyticsSidebar from './organism/analytics-sidebar';
 export Author from './template/app-catalog/author';
 export Authors from './template/common/authors';
 export BattleRequest from './molecule/battle-request';
