@@ -46,7 +46,23 @@ const NextCourse = ({title, description, prefix, card}) => (
   </div>
 );
 
-const Subscribe = props => <p>subscribe</p>;
+const Subscribe = ({title, description, button, card}) => {
+  const {title: buttonTitle, ...linkProps} = button;
+  return (
+    <div className={style.subscribeWrapper}>
+      <div className={style.subscribeTexts}>
+        <div className={style.subscribeDescription}>{description}</div>
+        <div className={style.subscribeTitle}>{title}</div>
+        <div className={style.subscribeButtonWrapper}>
+          <Button className={style.subscribeButton} {...linkProps} submitValue={buttonTitle} />
+        </div>
+      </div>
+      <div className={style.subscribeCard}>
+        <Card {...card} />
+      </div>
+    </div>
+  );
+};
 
 const actions = {
   simple: SimpleAction,

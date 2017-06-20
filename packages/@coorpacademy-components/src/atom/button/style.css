@@ -7,6 +7,7 @@
   border-radius: 2px;
   width: 200px;
   background-color: orange;
+  text-transform: inherit;
 }
 
 .button:before {
@@ -17,7 +18,7 @@
 .button a,
 .button input {
   display: inline-block;
-  text-transform: uppercase;
+  text-transform: inherit;
   color: white;
   background-color: transparent;
   font-family: Open Sans;

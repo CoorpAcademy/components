@@ -3,6 +3,7 @@
 @value colors: "../../../variables/colors.css";
 @value xtraLightGrey from colors;
 @value light from colors;
+@value positive from colors;
 @value dark from colors;
 
 .wrapper {
@@ -110,6 +111,45 @@
 }
 
 .nextCourseCard {
+
+}
+
+/* ------------- subscribe */
+
+.subscribeWrapper {
+  composes: actionWrapper;
+  padding: 15px;
+}
+
+.subscribeTexts {
+  text-align: right;
+  padding: 70px 109px 70px 20px;
+}
+
+.subscribeDescription {
+  composes: text;
+  font-size: 15px;
+}
+
+.subscribeTitle {
+  composes: text;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.subscribeButtonWrapper {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.subscribeButton {
+  background-color: positive;
+  border-radius: 30px;
+  text-transform: none;
+  width: auto;
+}
+
+.subscribeCard {
 
 }
 
