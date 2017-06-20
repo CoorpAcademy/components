@@ -38,39 +38,19 @@
 }
 
 .arrow {
-  composes: fa from '../../variables/fontawesome.css';
-  font-size: 30px;
-  width: 40px;
-  font-weight: 500;
-  color: brand;
+  left: 50%;
+  top: 50%;
+  margin: 0px 0 0 24px;
+  width: 30px;
+  height: 30px;
   cursor: pointer;
-  text-align: center;
-  margin-left: 24px;
 }
 
-.arrow:hover {
-  color: primaryAdd1;
+.arrow:hover path:last-child {
+  fill: primaryAdd1;
 }
 
-.down {
+.disabled {
   composes: arrow;
-  composes: fa-chevron-down from '../../variables/fontawesome.css';
-}
-
-.disabledDown {
-  composes: down;
-  color: medium;
-  pointer-events: none;
-}
-
-.up {
-  composes: arrow;
-  composes: fa-chevron-up from '../../variables/fontawesome.css';
-  margin-left: 8px;
-}
-
-.disabledUp {
-  composes: up;
-  color: medium;
   pointer-events: none;
 }
