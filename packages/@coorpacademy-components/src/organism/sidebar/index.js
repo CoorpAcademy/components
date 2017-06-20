@@ -29,16 +29,15 @@ const SelectItem = props => {
 };
 
 const InfoItem = props => {
-  //TODO: refactor me!!
   return (
-    <dl>
-      <dt>
+    <ul className={style.infoItem}>
+      <li className={style.infoItemTitle}>
         {props.title}
-      </dt>
-      <dd>
+      </li>
+      <li className={style.infoItemContent}>
         {props.info}
-      </dd>
-    </dl>
+      </li>
+    </ul>
   );
 };
 

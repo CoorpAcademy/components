@@ -479,6 +479,7 @@ import SettingsFixtureFreemium from '../src/organism/settings/test/fixtures/free
 import SettingsFixturePremium from '../src/organism/settings/test/fixtures/premium';
 import SetupHeaderFixtureDefault from '../src/organism/setup-header/test/fixtures/default';
 import SidebarFixtureAnalytics from '../src/organism/sidebar/test/fixtures/analytics';
+import SidebarFixtureCustom from '../src/organism/sidebar/test/fixtures/custom';
 import SidebarFixtureDefault from '../src/organism/sidebar/test/fixtures/default';
 import AuthorFixtureDefault from '../src/template/app-catalog/author/test/fixtures/default';
 import AuthorFixtureLoading from '../src/template/app-catalog/author/test/fixtures/loading';
@@ -1322,6 +1323,7 @@ export const fixtures = {
     },
     Sidebar: {
       Analytics: SidebarFixtureAnalytics,
+      Custom: SidebarFixtureCustom,
       Default: SidebarFixtureDefault
     }
   },
