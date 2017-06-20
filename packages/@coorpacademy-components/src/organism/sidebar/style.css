@@ -13,12 +13,13 @@
 
 .sidebar {
   color: dark;
-  max-width: 250px;
+  max-width: 200px;
 }
 
 .sidebar_part {
-  padding: 0;
-  border: 1px solid light;
+  padding: 15px 0 0 0;
+  border: 1px solid light;;
+
 }
 .sidebar_part > ul {
   padding: 0px;
@@ -26,7 +27,7 @@
 }
 
 .selectItem {
-  padding: 12px 15px;
+  padding: 0px 0px 15px 20px ;
 }
 
 .linkItem {
