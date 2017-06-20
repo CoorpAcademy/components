@@ -28,12 +28,8 @@ const writeFile = (fileName, data) => new Promise(
   })
 );
 
-const formatAttribute = (name, value) => (
-  name === 'fill' && value !== 'none' ? '{color}' : `"${value}"`
-);
-
-const formatAsFillColor = () => 'fill={color}';
-const formatAsOutline = () => 'stroke={outline} strokeWidth={outlineWidth}';
+const formatAsFillColor = () => 'fill={activeColor}';
+const formatAsOutline = () => 'stroke={activeOutline} strokeWidth={activeOutlineWidth}';
 const keepOriginalFormat = (name, value) => `${camelCase(name)}="${value}"`;
 
 const formatAttributes = (attributes, outlineBlock = false) => {
@@ -60,7 +56,7 @@ const componentize = async (basename, svgData) => {
   const componentName = `Nova${pascalCase(basename).replace('_', '')}`;
   const saxStream = sax.createStream(true, {lowercase: true});
   const meta = {
-    indent: 10,
+    indent: 12,
     open: false,
     done: false,
     data: '',
@@ -99,16 +95,29 @@ const componentize = async (basename, svgData) => {
 
   saxStream.on('opentag', ({name, attributes}) => {
     if (name === 'svg' && !meta.done) {
-      writeLine(`import React from 'react';`);
+      writeLine(`import React, {Component} from 'react';`);
       writeLine(`import IconBase from 'react-icon-base';`);
       writeLine();
-      writeLine(`const ${componentName} = props => {`);
-      writeLine(`  const {color = '#757575', outline = null, outlineWidth = 1, ...baseProps} = props;`);
+      writeLine(`class ${componentName} extends Component {`);
       writeLine();
-      writeLine(`  return (`);
-      writeLine(`    <IconBase viewBox="${attributes.viewBox}" {...baseProps}>`);
-      writeLine(`      {outline ? (`);
-      writeLine(`        <g>`);
+      writeLine(`  constructor(props) {`);
+      writeLine(`    super(props);`);
+      writeLine(`    this.state = {hovering: false};`);
+      writeLine(`    this.handleMouseEnter = () => this.setState({hovering: true});`);
+      writeLine(`    this.handleMouseLeave = () => this.setState({hovering: false});`);
+      writeLine(`  }`);
+      writeLine();
+      writeLine(`  render() {`);
+      writeLine(`    const {color = '#757575', outline = null, outlineWidth = 1, ...baseProps} = this.props;`);
+      writeLine(`    const {hoverColor = color, hoverOutline = outline} = this.props;`);
+      writeLine(`    const activeColor = this.state.hovering ? hoverColor : color;`);
+      writeLine(`    const activeOutline = this.state.hovering ? hoverOutline : outline;`);
+      writeLine(`    const activeOutlineWidth = this.state.hovering ? hoverOutlineWidth : outlineWidth;`);
+      writeLine();
+      writeLine(`    return (`);
+      writeLine(`      <IconBase viewBox="${attributes.viewBox}" {...baseProps} onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>`);
+      writeLine(`        {activeOutline ? (`);
+      writeLine(`          <g>`);
 
       meta.open = true;
     } else if (meta.open) {
@@ -124,13 +133,14 @@ const componentize = async (basename, svgData) => {
     if (name === 'svg') {
       meta.open = false;
       meta.done = true;
-      meta.indent = 6;
-      writeLine(`        </g>`);
-      writeLine(`      ) : null}`);
+      meta.indent = 8;
+      writeLine(`          </g>`);
+      writeLine(`        ) : null}`);
       meta.svgContent.forEach(opts => writeSVGTag(Object.assign(opts, {outlineBlock: false})));
-      writeLine(`    </IconBase>`);
-      writeLine(`  );`);
-      writeLine(`};`);
+      writeLine(`      </IconBase>`);
+      writeLine(`    );`);
+      writeLine(`  }`);
+      writeLine(`}`);
       writeLine();
       writeLine(`export default ${componentName};`);
     } else if (meta.open) {
