@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import getOr from 'lodash/fp/getOr';
+import get from 'lodash/fp/get';
 import BoltIcon from '@coorpacademy/nova-icons/composition/coorpacademy/bolt';
+import ArrowRightIcon from '@coorpacademy/nova-icons/composition/navigation/arrow-right';
 import Link from '../../atom/link';
 import Provider from '../../atom/provider';
 import style from './style.css';
@@ -10,8 +11,9 @@ const BattleRequest = (props, context) => {
   const {translate, skin} = context;
   const {username, discipline, level, avatar, href} = props;
 
-  const primaryColor = getOr('#00B0FF', 'common.primary', skin);
-  const white = getOr('#fff', 'common.white', skin);
+  const primaryColor = get('common.primary', skin);
+  const white = get('common.white', skin);
+  const light = get('common.light', skin);
 
   const challengeLabel = translate('challenges you on');
   const startLabel = translate('Start battle');
@@ -49,7 +51,7 @@ const BattleRequest = (props, context) => {
       <div className={style.start}>
         {startLabel}
       </div>
-      <div className={style.arrow} />
+      <ArrowRightIcon className={style.arrow} color={light} />
     </Link>
   );
 };
