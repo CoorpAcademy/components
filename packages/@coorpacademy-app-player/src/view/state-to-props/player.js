@@ -37,6 +37,7 @@ const playerProps = (options, store) => state => {
     text: clue,
     step: get('state.step')(progression),
     question: get('question.header')(slide),
+    verticalMargin: 260,
     cta: route === 'clue'
       ? {
           submitValue: translate('Back'),
