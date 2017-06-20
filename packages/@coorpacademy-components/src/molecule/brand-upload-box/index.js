@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import uniqueId from 'lodash/fp/uniqueId';
 import getOr from 'lodash/fp/getOr';
 import UploadIcon from '@coorpacademy/nova-icons/solid/data-transfer/data-upload-1';
-import Provider from '../../atom/provider';
 import Loader from '../../atom/loader';
 import style from './style.css';
 

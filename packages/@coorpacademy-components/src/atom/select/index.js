@@ -78,7 +78,9 @@ const Select = (props, context) => {
     color: theme === 'question' ? color : null
   };
 
-  const arrowView = !multiple ? <ArrowDown color={theme === 'question' ? color : black} className={style.arrow} /> : null;
+  const arrowView = !multiple
+    ? <ArrowDown color={theme === 'question' ? color : black} className={style.arrow} />
+    : null;
   const className = getClassState(style.default, style.modified, style.error, modified);
 
   return (
