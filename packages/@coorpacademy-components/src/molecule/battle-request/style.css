@@ -131,11 +131,11 @@
 }
 
 .arrow {
-  composes: fa from '../../variables/fontawesome.css';
-  composes: fa-chevron-right from '../../variables/fontawesome.css';
-  color: light;
-  font-size: 20px;
-  margin-left: 20px;
+  left: 50%;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  margin: 0px 0 0 20px;
 }
 
 @media mobile {
