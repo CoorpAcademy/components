@@ -1,6 +1,6 @@
 @value colors: "../../variables/colors.css";
 @value black from colors;
-@value light from colors;
+@value medium from colors;
 
 .invalid {
   composes: no-label from './theme-no-label.css';
@@ -17,5 +17,5 @@
   border: 2px solid;
   height: 54px;
   line-height: 52px;
-  border-color: light;
+  border-color: medium;
 }
