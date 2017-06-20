@@ -12,9 +12,41 @@
 @value black from colors;
 
 .sidebar {
-  color: dark
+  color: dark;
+  max-width: 250px;
 }
 
 .sidebar_part {
-  background-color: medium
+  padding: 0;
+  border: 1px solid light;
+}
+.sidebar_part > ul {
+  padding: 0px;
+  margin: 0px;
+}
+
+.selectItem {
+  padding: 12px 15px;
+}
+
+.linkItem {
+  padding: 12px 15px;
+  border-left: 3px solid transparent;
+}
+.linkItem:hover {
+   border-left-color: medium;
+   background-color: light;
+ }
+.linkItem a {
+  color: dark;
+  text-decoration: none
+}
+
+.selectLinkItem {
+  border-left-color: brand;
+}
+
+.itemList {
+  list-style-type: none;
+  display: block;
 }

@@ -46,7 +46,8 @@ export default {
       {
         title: 'Engagement',
         type: 'link',
-        href: '/analytics/dashboard'
+        href: '/analytics/dashboard',
+        selected: true
       },
       {
         title: 'Per User',

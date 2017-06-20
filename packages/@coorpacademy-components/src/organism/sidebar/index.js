@@ -6,7 +6,7 @@ import style from './style.css';
 
 const FilterItem = props => {
   return (
-    <li>
+    <li className={style.selectItem}>
       <span>{props.title}</span>
       <Select
         title={props.title}
@@ -20,7 +20,7 @@ const FilterItem = props => {
 
 const SelectItem = props => {
   return (
-    <li>
+    <li className={props.selected ? `${style.linkItem} ${style.selectLinkItem}` : style.linkItem}>
       <Link href={props.href} onClick={props.handleOnClick}>
         {props.title}
       </Link>
@@ -29,6 +29,7 @@ const SelectItem = props => {
 };
 
 const InfoItem = props => {
+  //TODO: refactor me!!
   return (
     <dl>
       <dt>
@@ -47,7 +48,7 @@ const Sidebar = props => {
     <div className={style.sidebar}>
       {sections.map((sidebarSection, idx) => (
         <div className={style.sidebar_part} key={idx}>
-          <ul>
+          <ul className={style.itemList}>
             {sidebarSection.map((item, index) => {
               if (item.type === 'select')
                 return (
@@ -65,6 +66,7 @@ const Sidebar = props => {
                     title={item.title}
                     handleOnClick={item.onClick}
                     href={item.href}
+                    selected={item.selected || false}
                   />
                 );
               else if (item.type === 'info')

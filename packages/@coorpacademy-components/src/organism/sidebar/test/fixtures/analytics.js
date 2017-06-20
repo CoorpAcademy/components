@@ -56,6 +56,7 @@ export default {
             console.log('Clicked on Engagement', value);
             value.preventDefault();
           },
+          selected: true,
           href: '/analytics/dashboard'
         },
         {
