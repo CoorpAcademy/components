@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types'; //TODO once prototyping over
 import Link from '../../atom/link/index';
 import Select from '../../atom/select/index';
 import style from './style.css';
@@ -10,13 +10,12 @@ const FilterItem = props => {
       <span>{props.title}</span>
       <Select
         title={props.title}
-        onChange={props.onChange}
+        onChange={props.handleOnChange}
         theme="header"
         options={props.options}
       />
     </li>
   );
-  // see theme, onChange
 };
 
 const SelectItem = props => {
@@ -47,12 +46,27 @@ const AnalyticsSidebar = props => {
     <div className={style.text}>
       <div className={style.navigation}>
         <ul>
-          <FilterItem title="Target" options={props.populationsAvailable} />
-          <FilterItem title="Population" options={props.providersAvailable} />
-          <SelectItem title="Engagament" href="/analytics/dashboard" />
-          <SelectItem title="Per User" href="/analytics/users/activity" />
-          <SelectItem title="Per Module" href="/analytics/modules/activity" />
-          <SelectItem title="Exports" href="analytics/exports/global" />
+          {props.items.map((item, index) => {
+            if (item.type === 'select')
+              return (
+                <FilterItem
+                  key={index}
+                  title={item.title}
+                  options={item.options}
+                  handleOnChange={item.onChange}
+                />
+              );
+            else if (item.type === 'link')
+              return (
+                <SelectItem
+                  key={index}
+                  title={item.title}
+                  handleOnClick={item.onclick}
+                  href={item.href}
+                />
+              );
+            return <hr key={index} />;
+          })}
         </ul>
       </div>
       <div className={style.info}>
@@ -61,8 +75,6 @@ const AnalyticsSidebar = props => {
     </div>
   );
 };
-AnalyticsSidebar.propTypes = {
-  text: PropTypes.string.isRequired
-};
+AnalyticsSidebar.propTypes = {};
 
 export default AnalyticsSidebar;
