@@ -1,4 +1,4 @@
-import slideFixtures from '../../../../atom/slide/test/fixtures/default';
+import slideFixtures from '../../../../../atom/slide/test/fixtures/default';
 
 const slide = slideFixtures.props;
 

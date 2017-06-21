@@ -13,7 +13,7 @@ export default {
       header: '',
       answer: ''
     },
-    ressources: {
+    resources: {
       title: 'Voir le cours',
       value: [],
       open: false,

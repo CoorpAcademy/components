@@ -8,7 +8,7 @@ import Cta from '../../atom/cta';
 import Select from '../../atom/select';
 import InputSwitch from '../../atom/input-switch';
 import Link from '../../atom/link';
-import Slider from '../../molecule/slider';
+import ImageSlider from '../../organism/mooc/image-slider';
 import style from './style.css';
 
 class Theme extends React.Component {
@@ -425,7 +425,7 @@ class MoocHeader extends React.Component {
 
     const sliderView = slider
       ? <div data-name="slider" className={style.slider}>
-          <Slider {...slider} />
+          <ImageSlider {...slider} />
         </div>
       : null;
 
@@ -556,6 +556,6 @@ MoocHeader.propTypes = {
       })
     })
   ),
-  slider: PropTypes.shape(Slider.propTypes)
+  slider: PropTypes.shape(ImageSlider.propTypes)
 };
 export default MoocHeader;

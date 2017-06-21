@@ -72,7 +72,6 @@ import SetupSection from '../src/molecule/setup-section';
 import SetupSections from '../src/molecule/setup-sections';
 import SetupSlide from '../src/molecule/setup-slide';
 import SetupSlider from '../src/molecule/setup-slider';
-import Slider from '../src/molecule/slider';
 import SsmenuList from '../src/molecule/ssmenu-list';
 import StarRating from '../src/molecule/star-rating';
 import SubscriptionFreemium from '../src/molecule/subscription-freemium';
@@ -119,6 +118,8 @@ import Popin from '../src/organism/popin';
 import Settings from '../src/organism/settings';
 import SetupHeader from '../src/organism/setup-header';
 import Sidebar from '../src/organism/sidebar';
+import Slider from '../src/organism/slider';
+import ImageSlider from '../src/organism/mooc/image-slider';
 import Author from '../src/template/app-catalog/author';
 import Catalog from '../src/template/app-catalog/catalog';
 import ProductCourse from '../src/template/app-catalog/product-course';
@@ -354,8 +355,6 @@ import SetupSectionsFixtureDefault from '../src/molecule/setup-sections/test/fix
 import SetupSectionsFixtureLoading from '../src/molecule/setup-sections/test/fixtures/loading';
 import SetupSlideFixtureDefault from '../src/molecule/setup-slide/test/fixtures/default';
 import SetupSliderFixtureDefault from '../src/molecule/setup-slider/test/fixtures/default';
-import SliderFixtureDefault from '../src/molecule/slider/test/fixtures/default';
-import SliderFixtureMultipleSlides from '../src/molecule/slider/test/fixtures/multiple-slides';
 import SsmenuListFixtureCoorpacademy from '../src/molecule/ssmenu-list/test/fixtures/coorpacademy';
 import SsmenuListFixtureEmpty from '../src/molecule/ssmenu-list/test/fixtures/empty';
 import SsmenuListFixtureFormations from '../src/molecule/ssmenu-list/test/fixtures/formations';
@@ -440,6 +439,7 @@ import TogglerFixtureOnlyOne from '../src/organism/accordion/toggler/test/fixtur
 import SummaryFixtureCorrect from '../src/organism/app-player/summary/test/fixtures/correct';
 import SummaryFixtureFail from '../src/organism/app-player/summary/test/fixtures/fail';
 import SummaryFixtureLoading from '../src/organism/app-player/summary/test/fixtures/loading';
+import SummaryFixtureNoRecommandations from '../src/organism/app-player/summary/test/fixtures/no-recommandations';
 import BrandFormFixtureDashboard from '../src/organism/brand-form/test/fixtures/dashboard';
 import BrandFormFixtureDefault from '../src/organism/brand-form/test/fixtures/default';
 import BrandFormFixtureGeneralSettings from '../src/organism/brand-form/test/fixtures/general-settings';
@@ -482,6 +482,10 @@ import SetupHeaderFixtureDefault from '../src/organism/setup-header/test/fixture
 import SidebarFixtureAnalytics from '../src/organism/sidebar/test/fixtures/analytics';
 import SidebarFixtureCustom from '../src/organism/sidebar/test/fixtures/custom';
 import SidebarFixtureDefault from '../src/organism/sidebar/test/fixtures/default';
+import SliderFixtureDefault from '../src/organism/slider/test/fixtures/default';
+import SliderFixtureMultipleSlides from '../src/organism/slider/test/fixtures/multiple-slides';
+import ImageSliderFixtureDefault from '../src/organism/mooc/image-slider/test/fixtures/default';
+import ImageSliderFixtureMultipleSlides from '../src/organism/mooc/image-slider/test/fixtures/multiple-slides';
 import AuthorFixtureDefault from '../src/template/app-catalog/author/test/fixtures/default';
 import AuthorFixtureLoading from '../src/template/app-catalog/author/test/fixtures/loading';
 import CatalogFixtureDefault from '../src/template/app-catalog/catalog/test/fixtures/default';
@@ -506,19 +510,20 @@ import PlayerFixtureRange from '../src/template/app-player/player/test/fixtures/
 import PopinCorrectionFixtureCorrectClosed from '../src/template/app-player/popin-correction/test/fixtures/correct-closed';
 import PopinCorrectionFixtureCorrectNextChapter from '../src/template/app-player/popin-correction/test/fixtures/correct-next-chapter';
 import PopinCorrectionFixtureCorrectOpenKlf from '../src/template/app-player/popin-correction/test/fixtures/correct-open-klf';
-import PopinCorrectionFixtureCorrectOpenRessources2 from '../src/template/app-player/popin-correction/test/fixtures/correct-open-ressources-2';
-import PopinCorrectionFixtureCorrectOpenRessources from '../src/template/app-player/popin-correction/test/fixtures/correct-open-ressources';
+import PopinCorrectionFixtureCorrectOpenResources2 from '../src/template/app-player/popin-correction/test/fixtures/correct-open-resources-2';
+import PopinCorrectionFixtureCorrectOpenResources from '../src/template/app-player/popin-correction/test/fixtures/correct-open-resources';
 import PopinCorrectionFixtureCorrectOpenTips from '../src/template/app-player/popin-correction/test/fixtures/correct-open-tips';
 import PopinCorrectionFixtureFailClosed from '../src/template/app-player/popin-correction/test/fixtures/fail-closed';
 import PopinCorrectionFixtureFailOpenKlf from '../src/template/app-player/popin-correction/test/fixtures/fail-open-klf';
-import PopinCorrectionFixtureFailOpenRessources2 from '../src/template/app-player/popin-correction/test/fixtures/fail-open-ressources-2';
-import PopinCorrectionFixtureFailOpenRessources from '../src/template/app-player/popin-correction/test/fixtures/fail-open-ressources';
+import PopinCorrectionFixtureFailOpenResources2 from '../src/template/app-player/popin-correction/test/fixtures/fail-open-resources-2';
+import PopinCorrectionFixtureFailOpenResources from '../src/template/app-player/popin-correction/test/fixtures/fail-open-resources';
 import PopinCorrectionFixtureFailOpenTips from '../src/template/app-player/popin-correction/test/fixtures/fail-open-tips';
 import PopinCorrectionFixtureLoading from '../src/template/app-player/popin-correction/test/fixtures/loading';
 import PopinEndFixtureCorrect from '../src/template/app-player/popin-end/test/fixtures/correct';
 import PopinEndFixtureDefault from '../src/template/app-player/popin-end/test/fixtures/default';
 import PopinEndFixtureFail from '../src/template/app-player/popin-end/test/fixtures/fail';
 import PopinEndFixtureLoading from '../src/template/app-player/popin-end/test/fixtures/loading';
+import PopinEndFixtureNoRecommandations from '../src/template/app-player/popin-end/test/fixtures/no-recommandations';
 import BrandCreateFixtureDefault from '../src/template/back-office/brand-create/test/fixtures/default';
 import BrandCreateFixtureError from '../src/template/back-office/brand-create/test/fixtures/error';
 import BrandCreateFixtureLoading from '../src/template/back-office/brand-create/test/fixtures/loading';
@@ -636,7 +641,6 @@ export const components = {
     SetupSections,
     SetupSlide,
     SetupSlider,
-    Slider,
     SsmenuList,
     StarRating,
     SubscriptionFreemium,
@@ -697,6 +701,10 @@ export const components = {
     Settings,
     SetupHeader,
     Sidebar
+    Slider
+  },
+  OrganismMooc: {
+    ImageSlider
   },
   TemplateAppCatalog: {
     Author,
@@ -1092,10 +1100,6 @@ export const fixtures = {
     SetupSlider: {
       Default: SetupSliderFixtureDefault
     },
-    Slider: {
-      Default: SliderFixtureDefault,
-      MultipleSlides: SliderFixtureMultipleSlides
-    },
     SsmenuList: {
       Coorpacademy: SsmenuListFixtureCoorpacademy,
       Empty: SsmenuListFixtureEmpty,
@@ -1250,7 +1254,8 @@ export const fixtures = {
     Summary: {
       Correct: SummaryFixtureCorrect,
       Fail: SummaryFixtureFail,
-      Loading: SummaryFixtureLoading
+      Loading: SummaryFixtureLoading,
+      NoRecommandations: SummaryFixtureNoRecommandations
     }
   },
   Organism: {
@@ -1327,6 +1332,15 @@ export const fixtures = {
       Analytics: SidebarFixtureAnalytics,
       Custom: SidebarFixtureCustom,
       Default: SidebarFixtureDefault
+    Slider: {
+      Default: SliderFixtureDefault,
+      MultipleSlides: SliderFixtureMultipleSlides
+    }
+  },
+  OrganismMooc: {
+    ImageSlider: {
+      Default: ImageSliderFixtureDefault,
+      MultipleSlides: ImageSliderFixtureMultipleSlides
     }
   },
   TemplateAppCatalog: {
@@ -1369,13 +1383,13 @@ export const fixtures = {
       CorrectClosed: PopinCorrectionFixtureCorrectClosed,
       CorrectNextChapter: PopinCorrectionFixtureCorrectNextChapter,
       CorrectOpenKlf: PopinCorrectionFixtureCorrectOpenKlf,
-      CorrectOpenRessources2: PopinCorrectionFixtureCorrectOpenRessources2,
-      CorrectOpenRessources: PopinCorrectionFixtureCorrectOpenRessources,
+      CorrectOpenResources2: PopinCorrectionFixtureCorrectOpenResources2,
+      CorrectOpenResources: PopinCorrectionFixtureCorrectOpenResources,
       CorrectOpenTips: PopinCorrectionFixtureCorrectOpenTips,
       FailClosed: PopinCorrectionFixtureFailClosed,
       FailOpenKlf: PopinCorrectionFixtureFailOpenKlf,
-      FailOpenRessources2: PopinCorrectionFixtureFailOpenRessources2,
-      FailOpenRessources: PopinCorrectionFixtureFailOpenRessources,
+      FailOpenResources2: PopinCorrectionFixtureFailOpenResources2,
+      FailOpenResources: PopinCorrectionFixtureFailOpenResources,
       FailOpenTips: PopinCorrectionFixtureFailOpenTips,
       Loading: PopinCorrectionFixtureLoading
     },
@@ -1383,7 +1397,8 @@ export const fixtures = {
       Correct: PopinEndFixtureCorrect,
       Default: PopinEndFixtureDefault,
       Fail: PopinEndFixtureFail,
-      Loading: PopinEndFixtureLoading
+      Loading: PopinEndFixtureLoading,
+      NoRecommandations: PopinEndFixtureNoRecommandations
     }
   },
   TemplateBackOffice: {
@@ -1607,18 +1622,6 @@ export const dependencies = {
         }
       },
       "children": {}
-    },
-    "Slider": {
-      "parents": {
-        "Organism": {
-          "MoocHeader": true
-        }
-      },
-      "children": {
-        "Atom": {
-          "Slide": true
-        }
-      }
     },
     "MenuList": {
       "parents": {
@@ -2165,8 +2168,8 @@ export const dependencies = {
           "Link": true,
           "Select": true
         },
-        "Molecule": {
-          "Slider": true
+        "OrganismMooc": {
+          "ImageSlider": true
         }
       }
     },
@@ -2192,6 +2195,17 @@ export const dependencies = {
     },
     "Sidebar": {
       "children": {}
+    "Slider": {
+      "children": {
+        "Atom": {
+          "Slide": true
+        },
+        "MoleculeQuestions": {
+          "Picker": true,
+          "QcmImage": true,
+          "Qcm": true
+        }
+      }
     }
   },
   "Atom": {
@@ -2296,6 +2310,21 @@ export const dependencies = {
         }
       },
       "children": {}
+    },
+    "Slide": {
+      "parents": {
+        "OrganismMooc": {
+          "ImageSlider": true
+        },
+        "Organism": {
+          "Slider": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Cta": true
+        }
+      }
     },
     "Picture": {
       "parents": {
@@ -2426,18 +2455,6 @@ export const dependencies = {
         }
       },
       "children": {}
-    },
-    "Slide": {
-      "parents": {
-        "Molecule": {
-          "Slider": true
-        }
-      },
-      "children": {
-        "Atom": {
-          "Cta": true
-        }
-      }
     },
     "ImageUpload": {
       "parents": {
@@ -2631,6 +2648,132 @@ export const dependencies = {
       "children": {}
     }
   },
+  "OrganismAccordion": {
+    "Container": {
+      "parents": {
+        "TemplateAppPlayer": {
+          "PopinCorrection": true
+        }
+      },
+      "children": {
+        "OrganismAccordion": {
+          "Part": true
+        }
+      }
+    },
+    "Part": {
+      "parents": {
+        "OrganismAccordion": {
+          "Container": true
+        }
+      },
+      "children": {
+        "MoleculeQuestions": {
+          "Picker": true
+        }
+      }
+    },
+    "Toggler": {
+      "children": {
+        "MoleculeQuestions": {
+          "Picker": true,
+          "QcmImage": true,
+          "Qcm": true
+        }
+      }
+    }
+  },
+  "MoleculeQuestions": {
+    "Picker": {
+      "parents": {
+        "Organism": {
+          "Slider": true
+        },
+        "OrganismAccordion": {
+          "Toggler": true,
+          "Part": true
+        },
+        "MoleculeSlides": {
+          "SlidesPlayer": true
+        }
+      },
+      "children": {}
+    },
+    "QcmImage": {
+      "parents": {
+        "Organism": {
+          "Slider": true
+        },
+        "OrganismAccordion": {
+          "Toggler": true
+        },
+        "MoleculeSlides": {
+          "SlidesPlayer": true
+        }
+      },
+      "children": {}
+    },
+    "Qcm": {
+      "parents": {
+        "Organism": {
+          "Slider": true
+        },
+        "OrganismAccordion": {
+          "Toggler": true
+        },
+        "MoleculeSlides": {
+          "SlidesPlayer": true
+        }
+      },
+      "children": {}
+    },
+    "DropDown": {
+      "parents": {
+        "MoleculeSlides": {
+          "SlidesPlayer": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Select": true
+        }
+      }
+    },
+    "FreeText": {
+      "parents": {
+        "MoleculeSlides": {
+          "SlidesPlayer": true
+        }
+      },
+      "children": {}
+    },
+    "QuestionRange": {
+      "parents": {
+        "MoleculeSlides": {
+          "SlidesPlayer": true
+        }
+      },
+      "children": {
+        "Molecule": {
+          "RangeSlider": true
+        }
+      }
+    }
+  },
+  "OrganismMooc": {
+    "ImageSlider": {
+      "parents": {
+        "Organism": {
+          "MoocHeader": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Slide": true
+        }
+      }
+    }
+  },
   "MoleculeForum": {
     "ForumComment": {
       "parents": {
@@ -2675,104 +2818,6 @@ export const dependencies = {
         },
         "MoleculeForum": {
           "ForumComment": true
-        }
-      }
-    }
-  },
-  "MoleculeQuestions": {
-    "Picker": {
-      "parents": {
-        "OrganismAccordion": {
-          "Toggler": true,
-          "Part": true
-        },
-        "MoleculeSlides": {
-          "SlidesPlayer": true
-        }
-      },
-      "children": {}
-    },
-    "QcmImage": {
-      "parents": {
-        "OrganismAccordion": {
-          "Toggler": true
-        },
-        "MoleculeSlides": {
-          "SlidesPlayer": true
-        }
-      },
-      "children": {}
-    },
-    "Qcm": {
-      "parents": {
-        "OrganismAccordion": {
-          "Toggler": true
-        },
-        "MoleculeSlides": {
-          "SlidesPlayer": true
-        }
-      },
-      "children": {}
-    },
-    "DropDown": {
-      "parents": {
-        "MoleculeSlides": {
-          "SlidesPlayer": true
-        }
-      },
-      "children": {
-        "Atom": {
-          "Select": true
-        }
-      }
-    },
-    "FreeText": {
-      "parents": {
-        "MoleculeSlides": {
-          "SlidesPlayer": true
-        }
-      },
-      "children": {}
-    },
-    "QuestionRange": {
-      "parents": {
-        "MoleculeSlides": {
-          "SlidesPlayer": true
-        }
-      },
-      "children": {
-        "Molecule": {
-          "RangeSlider": true
-        }
-      }
-    }
-  },
-  "OrganismAccordion": {
-    "Part": {
-      "parents": {
-        "OrganismAccordion": {
-          "Container": true
-        }
-      },
-      "children": {
-        "MoleculeQuestions": {
-          "Picker": true
-        }
-      }
-    },
-    "Container": {
-      "children": {
-        "OrganismAccordion": {
-          "Part": true
-        }
-      }
-    },
-    "Toggler": {
-      "children": {
-        "MoleculeQuestions": {
-          "Picker": true,
-          "QcmImage": true,
-          "Qcm": true
         }
       }
     }
@@ -2852,6 +2897,9 @@ export const dependencies = {
       "children": {
         "MoleculeAppPlayerPopin": {
           "PopinHeader": true
+        },
+        "OrganismAccordion": {
+          "Container": true
         }
       }
     },
