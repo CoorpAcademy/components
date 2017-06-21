@@ -3,6 +3,11 @@ import PropTypes from 'prop-types';
 import find from 'lodash/fp/find';
 import getOr from 'lodash/fp/getOr';
 import get from 'lodash/fp/get';
+import ArrowDown from '@coorpacademy/nova-icons/composition/navigation/arrow-down';
+import StarIcon from '@coorpacademy/nova-icons/composition/coorpacademy/star';
+import ChartsIcon from '@coorpacademy/nova-icons/composition/coorpacademy/charts';
+import TrophyIcon from '@coorpacademy/nova-icons/solid/vote-and-rewards/rewards-trophy-5';
+import CogIcon from '@coorpacademy/nova-icons/composition/coorpacademy/cog';
 import Provider from '../../atom/provider';
 import Cta from '../../atom/cta';
 import Select from '../../atom/select';
@@ -161,7 +166,11 @@ class MoocHeader extends React.Component {
 
     const moreLabel = translate('More');
     const closeLabel = translate('Close');
-    const primaryColor = getOr('#00B0FF', 'common.primary', skin);
+    const primaryColor = get('common.primary', skin);
+    const mediumColor = get('common.medium', skin);
+    const darkColor = get('common.dark', skin);
+    const white = get('common.white', skin);
+    const iconWrapperStyle = {backgroundColor: primaryColor};
 
     const currentTheme = find({selected: true}, themes);
     if (currentTheme && themes.length > 1) {
@@ -182,7 +191,7 @@ class MoocHeader extends React.Component {
             aria-haspopup="true"
             data-name="thematique"
           >
-            {currentTheme.title}<span className={style.caret} />
+            {currentTheme.title}<ArrowDown color={mediumColor} className={style.caret} />
           </div>
           <div className={style.optionsGroup}>
             {optionsView}
@@ -264,7 +273,7 @@ class MoocHeader extends React.Component {
           {displayedPages}
           <div className={style.more}>
             <div className={style.currentOption} aria-haspopup="true" data-name="page-more">
-              {moreLabel}<span className={style.caret} />
+              {moreLabel}<ArrowDown color={mediumColor} className={style.caret} />
             </div>
             <div className={style.optionsGroup}>
               {optionsView}
@@ -307,12 +316,9 @@ class MoocHeader extends React.Component {
               href={user.stats.stars.href}
               onClick={this.handleLinkClick}
             >
-              <div
-                className={style.stars}
-                style={{
-                  backgroundColor: primaryColor
-                }}
-              />
+              <div className={style.iconWrapper} style={iconWrapperStyle}>
+                <StarIcon className={style.stars} color={white} />
+              </div>
               <div className={style.label}>
                 {user.stats.stars.label}
               </div>
@@ -323,12 +329,10 @@ class MoocHeader extends React.Component {
               href={user.stats.ranking.href}
               onClick={this.handleLinkClick}
             >
-              <div
-                className={style.ranking}
-                style={{
-                  backgroundColor: primaryColor
-                }}
-              />
+              <div className={style.iconWrapper} style={iconWrapperStyle}>
+                <ChartsIcon className={style.ranking} color={white} />
+              </div>
+
               <div className={style.label}>
                 {user.stats.ranking.label}
               </div>
@@ -339,12 +343,9 @@ class MoocHeader extends React.Component {
               href={user.stats.badge.href}
               onClick={this.handleLinkClick}
             >
-              <div
-                className={style.badge}
-                style={{
-                  backgroundColor: primaryColor
-                }}
-              />
+              <div className={style.iconWrapper} style={iconWrapperStyle}>
+                <TrophyIcon className={style.badge} color={white} />
+              </div>
               <div className={style.label}>
                 {user.stats.badge.label}
               </div>
@@ -440,7 +441,10 @@ class MoocHeader extends React.Component {
             >
               <img src={logoMobileUrl} />
               {notificationsView}
-              <div className={this.state.isMenuOpen ? style.caretUp : style.caret} />
+              <ArrowDown
+                color={mediumColor}
+                className={this.state.isMenuOpen ? style.caretUp : style.caret}
+              />
             </div>
             <Link className={style.logo} data-name="logo" href={logo.href}>
               <img src={logoUrl} />
@@ -451,8 +455,9 @@ class MoocHeader extends React.Component {
             {pagesView}
             {userView || linksView}
             <div className={style.settings} ref={this.setMenuSettings}>
-              <div
+              <CogIcon
                 data-name="settings-toggle"
+                color={darkColor}
                 className={style.settingsToggle}
                 onClick={this.handleSettingsToggle}
               />
