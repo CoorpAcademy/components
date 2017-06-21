@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 
+import Answer from '../src/atom/answer';
 import Button from '../src/atom/button';
 import CatalogSection from '../src/atom/catalog-section';
 import CenteredText from '../src/atom/centered-text';
@@ -137,6 +138,12 @@ import CoorpHeader from '../src/template/common/coorp-header';
 import Dashboard from '../src/template/common/dashboard';
 import Discipline from '../src/template/common/discipline';
 import SearchPage from '../src/template/common/search-page';
+import AnswerFixtureDefault from '../src/atom/answer/test/fixtures/default';
+import AnswerFixtureDropDown from '../src/atom/answer/test/fixtures/drop-down';
+import AnswerFixturePicker from '../src/atom/answer/test/fixtures/picker';
+import AnswerFixtureQcmImage from '../src/atom/answer/test/fixtures/qcm-image';
+import AnswerFixtureQcm from '../src/atom/answer/test/fixtures/qcm';
+import AnswerFixtureRange from '../src/atom/answer/test/fixtures/range';
 import ButtonFixtureA from '../src/atom/button/test/fixtures/a';
 import ButtonFixtureBlue from '../src/atom/button/test/fixtures/blue';
 import ButtonFixtureCentered from '../src/atom/button/test/fixtures/centered';
@@ -571,6 +578,7 @@ import SearchPageFixtureNoResult from '../src/template/common/search-page/test/f
 
 export const components = {
   Atom: {
+    Answer,
     Button,
     CatalogSection,
     CenteredText,
@@ -740,6 +748,14 @@ export const components = {
 };
 export const fixtures = {
   Atom: {
+    Answer: {
+      Default: AnswerFixtureDefault,
+      DropDown: AnswerFixtureDropDown,
+      Picker: AnswerFixturePicker,
+      QcmImage: AnswerFixtureQcmImage,
+      Qcm: AnswerFixtureQcm,
+      Range: AnswerFixtureRange
+    },
     Button: {
       A: ButtonFixtureA,
       Blue: ButtonFixtureBlue,
@@ -2527,6 +2543,9 @@ export const dependencies = {
           "BrandFormGroup": true
         }
       },
+      "children": {}
+    },
+    "Answer": {
       "children": {}
     },
     "CenteredText": {
