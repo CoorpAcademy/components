@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import keys from 'lodash/fp/keys';
 import Provider from '../../../atom/provider';
@@ -72,23 +73,18 @@ const actions = {
 
 const Action = props => {
   const {type, ...actionProps} = props;
-  if (!type) return null;
+  const Type = get(type, actions);
 
-  const Type = actions[type];
-  return <Type {...actionProps} />;
+  return Type ? <Type {...actionProps} /> : null;
 };
 
-const Cards = props => {
-  if (props.cards) {
-    return <CardsList {...props} />;
-  } else {
-    return (
-      <div className={style.loaderWrapper}>
-        <Loader />
-      </div>
-    );
-  }
-};
+const CardsLoader = () => (
+  <div className={style.loaderWrapper}>
+    <Loader />
+  </div>
+);
+
+const Cards = props => (props.cards ? <CardsList {...props} /> : <CardsLoader />);
 
 const Footer = ({title, color, ...linkProps}) => (
   <Link
