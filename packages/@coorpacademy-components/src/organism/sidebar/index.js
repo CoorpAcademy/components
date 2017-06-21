@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types'; //TODO once prototyping over
+import PropTypes from 'prop-types';
 import Link from '../../atom/link/index';
 import Select from '../../atom/select/index';
 import style from './style.css';
@@ -78,6 +78,36 @@ const Sidebar = props => {
     </div>
   );
 };
-Sidebar.propTypes = {};
+
+const InfoProptype = PropTypes.shape({
+  title: PropTypes.string.isRequired,
+  type: PropTypes.oneOf(['info']).isRequired,
+  value: PropTypes.string.isRequired
+});
+const LinkProptype = PropTypes.shape({
+  title: PropTypes.string.isRequired,
+  type: PropTypes.oneOf(['link']).isRequired,
+  selected: PropTypes.bool,
+  href: PropTypes.string.isRequired,
+  onClick: PropTypes.func
+});
+const SelectProptype = PropTypes.shape({
+  title: PropTypes.string.isRequired,
+  type: PropTypes.oneOf(['select']).isRequired,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired,
+      selected: PropTypes.bool.isRequired
+    })
+  ).isRequired,
+  onChange: PropTypes.func
+});
+const SectionProptype = PropTypes.oneOfType([InfoProptype, SelectProptype, LinkProptype]);
+Sidebar.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.oneOfType([SectionProptype, PropTypes.arrayOf(SectionProptype).isRequired])
+  ).isRequired
+};
 
 export default Sidebar;
