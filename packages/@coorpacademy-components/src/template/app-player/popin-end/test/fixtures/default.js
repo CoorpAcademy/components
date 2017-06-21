@@ -4,7 +4,6 @@ const headerProps = SlidesHeader.props;
 
 export default {
   props: {
-    header: headerProps,
-    summary: {}
+    header: headerProps
   }
 };

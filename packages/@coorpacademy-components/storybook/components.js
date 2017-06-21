@@ -437,7 +437,10 @@ import TogglerFixtureOnlyOne from '../src/organism/accordion/toggler/test/fixtur
 import SummaryFixtureCorrect from '../src/organism/app-player/summary/test/fixtures/correct';
 import SummaryFixtureFail from '../src/organism/app-player/summary/test/fixtures/fail';
 import SummaryFixtureLoading from '../src/organism/app-player/summary/test/fixtures/loading';
+import SummaryFixtureNextCourse from '../src/organism/app-player/summary/test/fixtures/next-course';
 import SummaryFixtureNoRecommandations from '../src/organism/app-player/summary/test/fixtures/no-recommandations';
+import SummaryFixtureSimpleAction from '../src/organism/app-player/summary/test/fixtures/simple-action';
+import SummaryFixtureSubscribe from '../src/organism/app-player/summary/test/fixtures/subscribe';
 import BrandFormFixtureDashboard from '../src/organism/brand-form/test/fixtures/dashboard';
 import BrandFormFixtureDefault from '../src/organism/brand-form/test/fixtures/default';
 import BrandFormFixtureGeneralSettings from '../src/organism/brand-form/test/fixtures/general-settings';
@@ -1248,7 +1251,10 @@ export const fixtures = {
       Correct: SummaryFixtureCorrect,
       Fail: SummaryFixtureFail,
       Loading: SummaryFixtureLoading,
-      NoRecommandations: SummaryFixtureNoRecommandations
+      NextCourse: SummaryFixtureNextCourse,
+      NoRecommandations: SummaryFixtureNoRecommandations,
+      SimpleAction: SummaryFixtureSimpleAction,
+      Subscribe: SummaryFixtureSubscribe
     }
   },
   Organism: {

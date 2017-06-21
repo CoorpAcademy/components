@@ -1,6 +1,7 @@
 export default {
   props: {
     header: null,
+    action: null,
     recommendation: {
       title: 'Sujets associés :',
       cards: null
