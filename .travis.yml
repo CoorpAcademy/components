@@ -1,7 +1,7 @@
 sudo: false
 language: node_js
 node_js:
-- '7.1'
+- '7.9'
 cache:
   directories:
   - node_modules
@@ -20,13 +20,13 @@ before_install:
 - npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
 after_success: npm run coveralls
 env:
-  - CXX=g++-4.8
+  - CXX=g++-5
 addons:
   apt:
     sources:
       - ubuntu-toolchain-r-test
     packages:
-      - g++-4.8
+      - g++-5
 before_deploy: npm run storybook:export
 deploy:
   provider: pages
