@@ -7,8 +7,8 @@ import {
   getCurrentProgressionId,
   getQuestionType,
   getAnswerValues
-} from '../utils/state-extract';
-import {editAnswer} from '../actions/ui/answers';
+} from '../../utils/state-extract';
+import {editAnswer} from '../../actions/ui/answers';
 
 const editAnswerAction = (state, slide, dispatch) => newValue => {
   return dispatch(

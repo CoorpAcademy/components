@@ -1,9 +1,9 @@
 import noop from 'lodash/fp/noop';
 import test from 'ava';
-import {createMapStateToProps} from '..';
+import {slideStateToProps} from '../slide';
 import state from './fixtures/progression-state';
 
-const mapStateToProps = createMapStateToProps({})(noop);
+const mapStateToProps = slideStateToProps({}, noop);
 
 test('should map progression-fetch-success state to props', t => {
   const props = mapStateToProps(state);

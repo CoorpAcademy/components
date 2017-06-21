@@ -5,8 +5,9 @@ import createMiddleware from './middlewares';
 import createMapStateToVnode from './view';
 import start from './start';
 
-const createUpdate = (container, {dispatch, getState}, options) => createMapStateToView => {
-  const mapStateToView = createMapStateToView(options)(dispatch);
+const createUpdate = (container, store, options) => createMapStateToView => {
+  const mapStateToView = createMapStateToView(options, store);
+  const {getState} = store;
 
   return () => {
     const state = getState();
