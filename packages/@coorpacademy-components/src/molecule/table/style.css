@@ -67,20 +67,9 @@
 
 .toggle {
   width: 100%;
-  composes: fa from '../../variables/fontawesome.css';
-  composes: fa-caret-down from '../../variables/fontawesome.css';
 }
 
-.toggle:before, .filtered:before {
-  position: absolute;
-  font-size: 18px;
-  top: 50%;
-  margin-top: -9px;
-  right: 15px;
-  color: color(light lightness(43%));
-}
-
-.toggle label, .filtered label, .noOptions label {
+.toggle label, .noOptions label {
   display: inline-block;
   cursor: pointer;
   font-family: 'Open Sans';
@@ -98,16 +87,21 @@
   cursor: auto;
 }
 
-.filtered {
-  width: 100%;
-  composes: fa from '../../variables/fontawesome.css';
-  composes: fa-filter from '../../variables/fontawesome.css';
+.optionsIconWrapper {
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  justify-content: flex-end;
+  align-items: center;
+  pointer-events: none;
 }
 
-.filtered:before {
-  color: medium;
+.optionsIcon {
+  margin: 4px 10px 0 0;
 }
-
 
 .options {
   display: none;
@@ -150,12 +144,4 @@
 }
 
 .editLink {
-  composes: fa from '../../variables/fontawesome.css';
-  composes: fa-pencil from '../../variables/fontawesome.css';
-  color: dark;
-  text-decoration: none;
-}
-
-.editLink:hover {
-  color: brand;
 }
