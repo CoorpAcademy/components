@@ -191,7 +191,7 @@ export const createPopinCorrection = ({translate}) => dispatch => {
         ...header
       },
       question,
-      ressources: {
+      resources: {
         title: translate('Key point'),
         value: getOr([], 'lessons', slide),
         open: false,
