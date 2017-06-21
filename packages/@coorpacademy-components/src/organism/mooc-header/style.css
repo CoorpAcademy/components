@@ -96,19 +96,16 @@
 }
 
 .caret {
-  composes: fa from '../../variables/fontawesome.css';
-  composes: fa-angle-down from '../../variables/fontawesome.css';
-  margin-left: 10px;
+  margin: 2px 0 0 10px;
   color: medium;
-  font-size: 13px;
+  width: 10px;
+  height: 10px;
+  transition: transform 0.3s;
 }
 
 .caretUp {
-  composes: fa from '../../variables/fontawesome.css';
-  composes: fa-angle-up from '../../variables/fontawesome.css';
-  margin-left: 10px;
-  color: medium;
-  font-size: 13px;
+  composes: caret;
+  transform: rotate(180deg);
 }
 
 .themesHovered {
@@ -306,33 +303,31 @@
   text-decoration: underline;
 }
 
-.icon {
+.iconWrapper {
   width: 24px;
   height: 24px;
-  color: white;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 12px;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
 }
 
 .stars {
   composes: icon;
-  composes: fa from '../../variables/fontawesome.css';
-  composes: fa-star from '../../variables/fontawesome.css';
 }
 
 .ranking {
   composes: icon;
-  composes: fa from '../../variables/fontawesome.css';
-  composes: fa-bar-chart from '../../variables/fontawesome.css';
 }
 
 .badge {
   composes: icon;
-  composes: fa from '../../variables/fontawesome.css';
-  composes: fa-trophy from '../../variables/fontawesome.css';
+  margin-top: 1px;
 }
 
 .stat .label {
@@ -354,11 +349,8 @@
 
 .settingsToggle {
   position: relative;
-  composes: fa from '../../variables/fontawesome.css';
-  composes: fa-cog from '../../variables/fontawesome.css';
-  width: 40px;
-  height: 40px;
-  color: dark;
+  width: 20px;
+  height: 20px;
   cursor: pointer;
 }
 
