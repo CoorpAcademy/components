@@ -64,7 +64,7 @@
 
 .title {
   display: block;
-  color: DARK;
+  color: dark;
   width: 100%;
   font-size: 14px;
   font-weight: 600;
@@ -76,25 +76,17 @@
 }
 
 .arrow {
-  composes: fa from '../../variables/fontawesome.css';
-  composes: fa-chevron-down from '../../variables/fontawesome.css';
+  display: inline-block;
+  margin-left: 14px;
 }
 
-.arrow:before {
-  font-family: FontAwesome;
-  display: block;
-  position: relative;
-  font-size: 14px;
-  margin: 0 10px;
-}
-
-.activeDefault .arrow:before,
-.activeWrapperSortBy .arrow:before {
+.activeDefault .arrow,
+.activeWrapperSortBy .arrow {
   transform: rotate(180deg);
   transition: transform .4s ease-out;
 }
-.default .arrow:before,
-.wrapperSortBy .arrow:before {
+.default .arrow,
+.wrapperSortBy .arrow {
   transform: rotate(0deg);
   transition: transform .4s ease-out;
 }
