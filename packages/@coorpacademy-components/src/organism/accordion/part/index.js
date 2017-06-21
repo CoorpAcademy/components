@@ -12,12 +12,13 @@ const AccordionPart = (props, context) => {
   const {title, content, onClick = noop, isOpen = false} = props;
   const Icon = isOpen ? SubtractIcon : AddIcon;
   const darkColor = get('common.dark', skin);
+  const mediumColor = get('common.medium', skin);
 
   return (
     <div>
       <div className={style.title} onClick={onClick}>
         <h3>{title}</h3>
-        <Icon className={style.icon} color={darkColor} />
+        <Icon className={style.icon} color={isOpen ? mediumColor : darkColor} />
       </div>
       <div className={isOpen ? style.container : style.none}>
         {content}
