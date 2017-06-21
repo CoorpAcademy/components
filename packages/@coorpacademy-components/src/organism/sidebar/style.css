@@ -8,7 +8,6 @@
 @value white from colors;
 @value dark from colors;
 @value medium from colors;
-@value brand from colors;
 @value black from colors;
 
 .sidebar {
@@ -20,7 +19,7 @@
 
 .sidebar_part {
   padding: 0px 0 0 0;
-  border: 1px solid light;;
+  border: 1px solid light;
   margin-bottom: 20px;
 
 }
@@ -42,11 +41,11 @@
 .linkItem {
   padding: 12px 15px;
   border-left: 3px solid transparent;
-  margin-top: 15px;
-}
-.itemList > .linkItem ~ .linkItem  {
-/* hack cf https://stackoverflow.com/questions/2717480/css-selector-for-first-element-with-class */
   margin-top: 0px;
+}
+.linkItem[key=3]{
+/* hack cf https://stackoverflow.com/questions/2717480/css-selector-for-first-element-with-class */
+  margin-top: 10px;
 }
 .linkItem a {
   color: dark;
@@ -56,17 +55,10 @@
 .linkItem:hover {
   border-left-color: medium;
   background-color: light;
-  color: brand;
+  /*color: brand;*/
 }
 .linkItem:hover a{
-  color: brand;
-}
-
-.selectLinkItem {
-  border-left-color: brand;
-}
-.selectLinkItem a{
-  color: brand;
+  /*color: brand;*/
 }
 
 .infoItem {
@@ -82,5 +74,5 @@
 .infoItemContent {
   padding: 12px;
   color: brand;
-  border-left: 3px solid brand;
+  border-left: 3px solid;
 }
