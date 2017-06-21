@@ -22,31 +22,38 @@ const FilterItem = props => {
 
 const SelectItem = props => {
   return (
-    <li
-      className={style.linkItem}
+    <Link
+      href={props.href}
+      onClick={props.handleOnClick}
+      skinHover
       style={{
-        borderLeftColor: props.selected ? props.color : 'none'
+        textDecoration: 'none',
+        color: props.selected ? props.color : '#607D8B'
       }}
     >
-      <Link href={props.href} onClick={props.handleOnClick}>
+      <li
+        className={style.linkItem}
+        style={{
+          borderLeftColor: props.selected ? props.color : 'none'
+        }}
+      >
         {props.title}
-      </Link>
-    </li>
-  ); // a color to handle
+      </li>
+    </Link>
+  );
 };
 
 const InfoItem = props => {
   return (
-    <ul
-      className={style.infoItem}
-    >
+    <ul className={style.infoItem}>
       <li className={style.infoItemTitle}>
         {props.title}
       </li>
-      <li className={style.infoItemContent}
-          style={{
-            borderLeftColor: props.color
-          }}
+      <li
+        className={style.infoItemContent}
+        style={{
+          borderLeftColor: props.color
+        }}
       >
         {props.info}
       </li>

@@ -37,7 +37,6 @@
   padding: 15px 0px 0px 20px ;
 }
 
-
 .linkItem {
   padding: 12px 15px;
   border-left: 3px solid transparent;
@@ -47,18 +46,11 @@
 /* hack cf https://stackoverflow.com/questions/2717480/css-selector-for-first-element-with-class */
   margin-top: 10px;
 }
-.linkItem a {
-  color: dark;
-  text-decoration: none
-}
 
 .linkItem:hover {
   border-left-color: medium;
   background-color: light;
-  /*color: brand;*/
-}
-.linkItem:hover a{
-  /*color: brand;*/
+
 }
 
 .infoItem {
