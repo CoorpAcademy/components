@@ -88,9 +88,6 @@ const SlidesPlayer = (props, context) => {
     contentStyle = style.contentWrapperHelpers;
     content = (
       <div className={style.clue}>
-        <div className={style.icon}>
-          <span className={style.iconClue} />
-        </div>
         <div className={style.clueText}>{clue}</div>
       </div>
     );

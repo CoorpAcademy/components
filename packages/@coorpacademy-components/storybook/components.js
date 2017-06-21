@@ -4,6 +4,7 @@ import Button from '../src/atom/button';
 import CatalogSection from '../src/atom/catalog-section';
 import CenteredText from '../src/atom/centered-text';
 import Checkbox from '../src/atom/checkbox';
+import Clue from '../src/atom/clue';
 import Cta from '../src/atom/cta';
 import Handle from '../src/atom/handle';
 import ImageUpload from '../src/atom/image-upload';
@@ -154,6 +155,7 @@ import CheckboxFixtureChecked from '../src/atom/checkbox/test/fixtures/checked';
 import CheckboxFixtureDefault from '../src/atom/checkbox/test/fixtures/default';
 import CheckboxFixtureDisabled from '../src/atom/checkbox/test/fixtures/disabled';
 import CheckboxFixtureRequired from '../src/atom/checkbox/test/fixtures/required';
+import ClueFixtureDefault from '../src/atom/clue/test/fixtures/default';
 import CtaFixtureDefaultSmall from '../src/atom/cta/test/fixtures/default-small';
 import CtaFixtureDefault from '../src/atom/cta/test/fixtures/default';
 import CtaFixtureLight from '../src/atom/cta/test/fixtures/light';
@@ -573,6 +575,7 @@ export const components = {
     CatalogSection,
     CenteredText,
     Checkbox,
+    Clue,
     Cta,
     Handle,
     ImageUpload,
@@ -762,6 +765,9 @@ export const fixtures = {
       Default: CheckboxFixtureDefault,
       Disabled: CheckboxFixtureDisabled,
       Required: CheckboxFixtureRequired
+    },
+    Clue: {
+      Default: ClueFixtureDefault
     },
     Cta: {
       DefaultSmall: CtaFixtureDefaultSmall,
@@ -2524,6 +2530,9 @@ export const dependencies = {
       "children": {}
     },
     "CenteredText": {
+      "children": {}
+    },
+    "Clue": {
       "children": {}
     },
     "InputCheckbox": {

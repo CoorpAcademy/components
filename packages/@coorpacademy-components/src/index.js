@@ -32,6 +32,7 @@ export Categories from './molecule/categories';
 export CenteredText from './atom/centered-text';
 export Checkbox from './atom/checkbox';
 export Checkboxes from './molecule/checkboxes';
+export Clue from './atom/clue';
 export Container from './organism/accordion/container';
 export CoorpHeader from './template/common/coorp-header';
 export Cta from './atom/cta';
