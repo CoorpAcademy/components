@@ -17,24 +17,21 @@
   font-family: 'Open Sans';
 }
 
-.sidebar_part {
-  padding: 0px 0 0 0;
+.sidebarPart {
+  padding: 0 0 0 0;
   border: 1px solid light;
   margin-bottom: 20px;
-
 }
-.sidebar_part > ul {
+
+.sectionItems {
   padding: 0px;
   margin: 0px;
-}
-
-.itemList {
   list-style-type: none;
   display: block;
 }
 
 .selectItem {
-  padding: 15px 0px 0px 20px ;
+  padding: 10px 0px 10px 20px;
 }
 
 .linkItem {
@@ -42,15 +39,10 @@
   border-left: 3px solid transparent;
   margin-top: 0px;
 }
-.linkItem[key=3]{
-/* hack cf https://stackoverflow.com/questions/2717480/css-selector-for-first-element-with-class */
-  margin-top: 10px;
-}
 
 .linkItem:hover {
   border-left-color: medium;
   background-color: light;
-
 }
 
 .infoItem {
@@ -65,6 +57,5 @@
 
 .infoItemContent {
   padding: 12px;
-  color: brand;
   border-left: 3px solid;
 }

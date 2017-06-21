@@ -6,7 +6,7 @@ import Provider from '../../atom/provider';
 import Select from '../../atom/select/index';
 import style from './style.css';
 
-const FilterItem = props => {
+const SelectItem = props => {
   return (
     <li className={style.selectItem}>
       <span>{props.title}</span>
@@ -20,7 +20,7 @@ const FilterItem = props => {
   );
 };
 
-const SelectItem = props => {
+const LinkItem = props => {
   return (
     <Link
       href={props.href}
@@ -52,7 +52,8 @@ const InfoItem = props => {
       <li
         className={style.infoItemContent}
         style={{
-          borderLeftColor: props.color
+          borderLeftColor: props.color,
+          color: props.color
         }}
       >
         {props.info}
@@ -69,12 +70,12 @@ const Sidebar = (props, context) => {
   return (
     <div className={style.sidebar}>
       {sections.map((sidebarSection, idx) => (
-        <div className={style.sidebar_part} key={idx}>
-          <ul className={style.itemList}>
+        <div className={style.sidebarPart} key={idx}>
+          <ul className={style.sectionItems}>
             {sidebarSection.map((item, index) => {
               if (item.type === 'select')
                 return (
-                  <FilterItem
+                  <SelectItem
                     key={index}
                     title={item.title}
                     options={item.options}
@@ -84,7 +85,7 @@ const Sidebar = (props, context) => {
                 );
               else if (item.type === 'link')
                 return (
-                  <SelectItem
+                  <LinkItem
                     key={index}
                     title={item.title}
                     handleOnClick={item.onClick}
