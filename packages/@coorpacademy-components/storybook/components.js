@@ -700,7 +700,7 @@ export const components = {
     Popin,
     Settings,
     SetupHeader,
-    Sidebar
+    Sidebar,
     Slider
   },
   OrganismMooc: {
@@ -1332,6 +1332,7 @@ export const fixtures = {
       Analytics: SidebarFixtureAnalytics,
       Custom: SidebarFixtureCustom,
       Default: SidebarFixtureDefault
+    },
     Slider: {
       Default: SliderFixtureDefault,
       MultipleSlides: SliderFixtureMultipleSlides
@@ -2195,6 +2196,7 @@ export const dependencies = {
     },
     "Sidebar": {
       "children": {}
+    },
     "Slider": {
       "children": {
         "Atom": {
