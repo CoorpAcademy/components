@@ -71,7 +71,7 @@ const Sidebar = (props, context) => {
     <div className={style.sidebar}>
       {sections.map((sidebarSection, idx) => (
         <div className={style.sidebarPart} key={idx}>
-          <SidebarItems items={sidebarSection} color={defaultColor}/>
+          <SidebarItems items={sidebarSection} color={defaultColor} />
         </div>
       ))}
     </div>
@@ -81,39 +81,39 @@ const Sidebar = (props, context) => {
 const SidebarItems = props => {
   return (
     <ul className={style.sectionItems}>
-      {props.items.map((item, index) => {
-        switch (item.type) {
-          case 'select':
-            return (
-              <SelectItem
-                key={index}
-                title={item.title}
-                options={item.options}
-                handleOnChange={item.onChange}
-                color={props.color}
-              />
-            );
-          case 'link':
-            return (
-              <LinkItem
-                key={index}
-                title={item.title}
-                handleOnClick={item.onClick}
-                href={item.href}
-                selected={item.selected || false}
-                color={props.color}
-              />
-            );
-          case 'info':
-            return (
-              <InfoItem key={index} title={item.title} info={item.value} color={props.color} />
-            );
-          default:
-            return null;
-        }
-      })}
+      {props.items.map((item, index) => (
+        <SidebarItem item={item} key={index} color={props.color} />
+      ))}
     </ul>
   );
+};
+
+const SidebarItem = ({item, color}) => {
+  switch (item.type) {
+    case 'select':
+      return (
+        <SelectItem
+          title={item.title}
+          options={item.options}
+          handleOnChange={item.onChange}
+          color={color}
+        />
+      );
+    case 'link':
+      return (
+        <LinkItem
+          title={item.title}
+          handleOnClick={item.onClick}
+          href={item.href}
+          selected={item.selected || false}
+          color={color}
+        />
+      );
+    case 'info':
+      return <InfoItem title={item.title} info={item.value} color={color} />;
+    default:
+      return null;
+  }
 };
 
 const InfoProptype = PropTypes.shape({
