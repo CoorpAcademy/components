@@ -1,3 +1,4 @@
+import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import isNull from 'lodash/fp/isNull';
 import {
@@ -6,6 +7,7 @@ import {
   getCurrentProgressionId,
   getAnswers
 } from '../../utils/state-extract';
+import {toggleAccordion} from '../../actions/ui/corrections';
 import {selectProgression} from '../../actions/ui/progressions';
 
 const popinCorrectionStateToProps = ({translate}, dispatch) => state => {
@@ -16,8 +18,13 @@ const popinCorrectionStateToProps = ({translate}, dispatch) => state => {
     });
   };
 
+  const toggleAccordionSection = _dispatch => sectionId => {
+    return toggleAccordion(_dispatch, sectionId);
+  };
+
   const {isCorrect, correction} = getAnswers(state);
   const slide = getPreviousSlide(state);
+  const accordion = get('ui.corrections.accordion', state);
   const progression = getCurrentProgression(state);
 
   const header = isNull(isCorrect)
@@ -49,23 +56,21 @@ const popinCorrectionStateToProps = ({translate}, dispatch) => state => {
     },
     question,
     resources: {
-      title: translate('Key point'),
+      title: translate('Access the lesson'),
       value: getOr([], 'lessons', slide),
-      open: false,
-      onClick: () => {}
+      open: getOr(false, '0', accordion)
     },
     klf: {
-      title: translate('Access the lesson'),
+      title: translate('Key point'),
       value: getOr('', 'klf', slide),
-      onClick: () => {},
-      open: false
+      open: getOr(false, '1', accordion)
     },
     tips: {
       title: translate('Did you know that?'),
       value: getOr('', 'tips', slide),
-      onClick: () => {},
-      open: false
-    }
+      open: getOr(false, '2', accordion)
+    },
+    onClick: toggleAccordionSection(dispatch)
   };
 };
 
