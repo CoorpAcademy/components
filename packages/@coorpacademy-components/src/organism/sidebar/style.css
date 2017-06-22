@@ -1,0 +1,62 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value tablet from breakpoints;
+@value desktop from breakpoints;
+
+@value colors: "../../variables/colors.css";
+@value light from colors;
+@value white from colors;
+@value dark from colors;
+@value medium from colors;
+@value black from colors;
+
+.sidebar {
+  color: dark;
+  max-width: 200px;
+  margin: 10px;
+  font-family: 'Open Sans';
+}
+
+.sidebarPart {
+  padding: 0;
+  border: 1px solid light;
+  margin-bottom: 20px;
+  background-color: white;
+}
+
+.sectionItems {
+  padding: 0px;
+  margin: 0px;
+  list-style-type: none;
+  display: block;
+}
+
+.selectItem {
+  padding: 10px 20px;
+}
+
+.linkItem {
+  padding: 12px 15px;
+  border-left: 3px solid transparent;
+  margin-top: 0px;
+}
+
+.linkItem:hover {
+  border-left-color: medium;
+  background-color: light;
+}
+
+.infoItem {
+  list-style-type: none;
+  padding: 0px;
+}
+
+.infoItemTitle {
+  padding: 12px;
+  background-color: light;
+}
+
+.infoItemContent {
+  padding: 12px;
+  border-left: 3px solid;
+}

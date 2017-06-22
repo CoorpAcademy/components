@@ -109,6 +109,7 @@ export SetupSection from './molecule/setup-section';
 export SetupSections from './molecule/setup-sections';
 export SetupSlide from './molecule/setup-slide';
 export SetupSlider from './molecule/setup-slider';
+export Sidebar from './organism/sidebar';
 export Slide from './atom/slide';
 export Slider from './organism/slider';
 export SlidesFooter from './molecule/slides/slides-footer';

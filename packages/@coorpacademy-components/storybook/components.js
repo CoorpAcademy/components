@@ -117,6 +117,7 @@ import MoocHeader from '../src/organism/mooc-header';
 import Popin from '../src/organism/popin';
 import Settings from '../src/organism/settings';
 import SetupHeader from '../src/organism/setup-header';
+import Sidebar from '../src/organism/sidebar';
 import Slider from '../src/organism/slider';
 import ImageSlider from '../src/organism/mooc/image-slider';
 import Author from '../src/template/app-catalog/author';
@@ -198,6 +199,7 @@ import LabelFixtureTwoChildren from '../src/atom/label/test/fixtures/two-childre
 import LifeFixtureDefault from '../src/atom/life/test/fixtures/default';
 import LifeFixtureFail from '../src/atom/life/test/fixtures/fail';
 import LinkFixtureHref from '../src/atom/link/test/fixtures/href';
+import LinkFixtureStyledLink from '../src/atom/link/test/fixtures/styled-link';
 import LoaderFixtureDefault from '../src/atom/loader/test/fixtures/default';
 import NotificationFixtureDefault from '../src/atom/notification/test/fixtures/default';
 import NotificationFixtureError from '../src/atom/notification/test/fixtures/error';
@@ -480,6 +482,9 @@ import SettingsFixtureDefault from '../src/organism/settings/test/fixtures/defau
 import SettingsFixtureFreemium from '../src/organism/settings/test/fixtures/freemium';
 import SettingsFixturePremium from '../src/organism/settings/test/fixtures/premium';
 import SetupHeaderFixtureDefault from '../src/organism/setup-header/test/fixtures/default';
+import SidebarFixtureAnalytics from '../src/organism/sidebar/test/fixtures/analytics';
+import SidebarFixtureCustom from '../src/organism/sidebar/test/fixtures/custom';
+import SidebarFixtureDefault from '../src/organism/sidebar/test/fixtures/default';
 import SliderFixtureDefault from '../src/organism/slider/test/fixtures/default';
 import SliderFixtureMultipleSlides from '../src/organism/slider/test/fixtures/multiple-slides';
 import ImageSliderFixtureDefault from '../src/organism/mooc/image-slider/test/fixtures/default';
@@ -698,6 +703,7 @@ export const components = {
     Popin,
     Settings,
     SetupHeader,
+    Sidebar,
     Slider
   },
   OrganismMooc: {
@@ -825,7 +831,8 @@ export const fixtures = {
       Fail: LifeFixtureFail
     },
     Link: {
-      Href: LinkFixtureHref
+      Href: LinkFixtureHref,
+      StyledLink: LinkFixtureStyledLink
     },
     Loader: {
       Default: LoaderFixtureDefault
@@ -1326,6 +1333,11 @@ export const fixtures = {
     },
     SetupHeader: {
       Default: SetupHeaderFixtureDefault
+    },
+    Sidebar: {
+      Analytics: SidebarFixtureAnalytics,
+      Custom: SidebarFixtureCustom,
+      Default: SidebarFixtureDefault
     },
     Slider: {
       Default: SliderFixtureDefault,
@@ -2187,6 +2199,9 @@ export const dependencies = {
           "SubscriptionPremium": true
         }
       }
+    },
+    "Sidebar": {
+      "children": {}
     },
     "Slider": {
       "children": {
