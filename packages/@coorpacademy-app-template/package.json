@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/app-template",
-  "version": "5.3.14",
+  "version": "5.3.15",
   "description": "CoorpAcademy redux application template",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -36,10 +36,10 @@
     "webpack-dev-server": "^2.4.5"
   },
   "dependencies": {
-    "@coorpacademy/history": "5.3.4",
-    "@coorpacademy/redux-history": "5.3.5",
-    "@coorpacademy/redux-router": "5.3.7",
-    "@coorpacademy/webpack-config": "6.0.8",
+    "@coorpacademy/history": "5.3.5",
+    "@coorpacademy/redux-history": "5.3.6",
+    "@coorpacademy/redux-router": "5.3.8",
+    "@coorpacademy/webpack-config": "6.0.9",
     "lodash": "^4.17.4",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
