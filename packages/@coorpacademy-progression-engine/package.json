@@ -17,9 +17,7 @@
     "clean:build:es": "rimraf es",
     "clean:build": "npm run clean:build:commonjs && npm run clean:build:es",
     "clean": "npm run clean:build",
-    "prebuild:commonjs": "npm run clean:build:commonjs",
-    "prebuild:es": "npm run clean:build:es",
-    "prepublish": "npm run build --production"
+    "prepublish": "npm run clean && npm run build --production"
   },
   "contributors": [
     "Arthur Weber <arthur.weber@coorpacademy.com>",
@@ -37,7 +35,7 @@
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
     "babel-plugin-istanbul": "^4.1.4",
-    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-env": "^1.5.2",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-stage-1": "^6.24.1",
     "cross-env": "^5.0.0",
