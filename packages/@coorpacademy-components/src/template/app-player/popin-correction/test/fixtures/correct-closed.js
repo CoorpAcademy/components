@@ -64,6 +64,7 @@ export default defaultsDeep(loading, {
     },
     tips: {
       value: 'Les smart cities, ou villes intelligentes, portent des solutions dans lesquelles se conjuguent les 3 types d’éco-innovations. En France, il en existait vingt début 2016, la plus grande étant Paris.'
-    }
+    },
+    onClick: id => console.log(id) // eslint-disable-line no-console
   }
 });

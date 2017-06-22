@@ -53,14 +53,14 @@ Question.propTypes = {
 };
 
 const PopinCorrection = props => {
-  const {header = {}, question, resources, klf, tips} = props;
+  const {header = {}, question, resources, klf, tips, onClick} = props;
   const tabs = extractTabs([resources, klf, tips]);
 
   return (
     <div className={style.wrapper}>
       <PopinHeader {...header} />
       <Question {...question} />
-      <Accordion tabProps={tabs} oneTabOnly>
+      <Accordion tabProps={tabs} onClick={onClick} oneTabOnly>
         <Resources {...resources} />
         <SimpleText text={klf.value} />
         <SimpleText text={tips.value} />
@@ -74,7 +74,8 @@ PopinCorrection.propTypes = {
   header: PropTypes.shape(PopinHeader.propTypes),
   question: PropTypes.shape(Question.propTypes),
   klf: PropTypes.shape(SimpleText.propTypes),
-  tips: PropTypes.shape(SimpleText.propTypes)
+  tips: PropTypes.shape(SimpleText.propTypes),
+  onClick: PropTypes.func
 };
 
 export default PopinCorrection;
