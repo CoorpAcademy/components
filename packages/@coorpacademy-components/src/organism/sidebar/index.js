@@ -71,39 +71,48 @@ const Sidebar = (props, context) => {
     <div className={style.sidebar}>
       {sections.map((sidebarSection, idx) => (
         <div className={style.sidebarPart} key={idx}>
-          <ul className={style.sectionItems}>
-            {sidebarSection.map((item, index) => {
-              if (item.type === 'select')
-                return (
-                  <SelectItem
-                    key={index}
-                    title={item.title}
-                    options={item.options}
-                    handleOnChange={item.onChange}
-                    color={defaultColor}
-                  />
-                );
-              else if (item.type === 'link')
-                return (
-                  <LinkItem
-                    key={index}
-                    title={item.title}
-                    handleOnClick={item.onClick}
-                    href={item.href}
-                    selected={item.selected || false}
-                    color={defaultColor}
-                  />
-                );
-              else if (item.type === 'info')
-                return (
-                  <InfoItem key={index} title={item.title} info={item.value} color={defaultColor} />
-                );
-              return null;
-            })}
-          </ul>
+          <SidebarItems items={sidebarSection} color={defaultColor}/>
         </div>
       ))}
     </div>
+  );
+};
+
+const SidebarItems = props => {
+  return (
+    <ul className={style.sectionItems}>
+      {props.items.map((item, index) => {
+        switch (item.type) {
+          case 'select':
+            return (
+              <SelectItem
+                key={index}
+                title={item.title}
+                options={item.options}
+                handleOnChange={item.onChange}
+                color={props.color}
+              />
+            );
+          case 'link':
+            return (
+              <LinkItem
+                key={index}
+                title={item.title}
+                handleOnClick={item.onClick}
+                href={item.href}
+                selected={item.selected || false}
+                color={props.color}
+              />
+            );
+          case 'info':
+            return (
+              <InfoItem key={index} title={item.title} info={item.value} color={props.color} />
+            );
+          default:
+            return null;
+        }
+      })}
+    </ul>
   );
 };
 
