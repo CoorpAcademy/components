@@ -34,7 +34,7 @@ const LinkItem = props => {
       <li
         className={style.linkItem}
         style={{
-          borderLeftColor: props.selected ? props.color : 'transparent'
+          borderLeftColor: props.selected ? props.color : null
         }}
       >
         {props.title}
