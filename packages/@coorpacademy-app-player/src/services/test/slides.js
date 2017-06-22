@@ -1,16 +1,12 @@
 import test from 'ava';
 import head from 'lodash/fp/head';
-import isArray from 'lodash/fp/isArray';
+import pipe from 'lodash/fp/pipe';
+import unset from 'lodash/fp/unset';
 import slidesData from '../slides.data';
-import {findById, findAll} from '../slides';
-
-test('should return all slides', async t => {
-  const slides = await findAll();
-  t.true(isArray(slides));
-});
+import {findById} from '../slides';
 
 test('should findById', async t => {
-  const slide = head(slidesData);
+  const slide = pipe(head, unset('clue'), unset('question.content.answers'))(slidesData);
   t.deepEqual(await findById(slide._id), slide);
 });
 

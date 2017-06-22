@@ -1,18 +1,12 @@
 import test from 'ava';
 import isObject from 'lodash/fp/isObject';
 import isString from 'lodash/fp/isString';
-import isArray from 'lodash/fp/isArray';
-import {create, findById, createAnswer, findAll} from '../progressions';
+import {create, findById, createAnswer} from '../progressions';
 
 const engine = {
   ref: 'microlearning',
   version: '1'
 };
-
-test('should return all progressions', async t => {
-  const progressions = await findAll();
-  t.true(isArray(progressions));
-});
 
 test('should create progression', async t => {
   const {_id, state} = await create({engine});

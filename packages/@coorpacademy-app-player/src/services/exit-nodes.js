@@ -1,17 +1,14 @@
 import reduce from 'lodash/fp/reduce';
 import exitNodesData from './exit-nodes.data';
 
-const exitNodes = reduce(
+const exitNodeStore = reduce(
   (exitNodeMap, exitNode) => exitNodeMap.set(exitNode.ref, exitNode),
   new Map(),
   exitNodesData
 );
 
-export const findById = id => {
-  if (exitNodes.has(id)) return Promise.resolve(exitNodes.get(id));
-  return Promise.reject(new Error('ExitNode not found'));
-};
-
-export const findAll = () => {
-  return Promise.resolve(Array.from(exitNodes.values()));
+// eslint-disable-next-line import/prefer-default-export,require-await
+export const findById = async id => {
+  if (!exitNodeStore.has(id)) throw new Error('ExitNode not found');
+  return exitNodeStore.get(id);
 };
