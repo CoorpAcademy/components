@@ -19,7 +19,8 @@ export default {
       {
         title: 'Picker'
       }
-    ]
+    ],
+    onClick: key => console.log(key) // eslint-disable-line no-console
   },
   children: [
     <QcmImage key="1" {...qcmImageFixture.props} />,
