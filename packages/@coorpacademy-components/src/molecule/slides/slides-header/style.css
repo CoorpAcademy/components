@@ -98,14 +98,15 @@
 }
 
 .livesWrapper {
-  flex-shrink: 0;
-  width: 80px;
-  height: 100%;
   background-color: light;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+}
+
+.life {
+  margin-right: 16px;
 }
 
 @media mobile {
