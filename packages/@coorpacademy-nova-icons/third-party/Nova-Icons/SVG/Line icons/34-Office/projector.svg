@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px"
+	 height="24px" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve">
+<g id="Frame_-_24px">
+	<rect style="fill:none;" width="24" height="24"/>
+</g>
+<g id="Line_Icons">
+	<g>
+		<path style="fill:#757575;" d="M19,6h-4V3c0-1.102-0.897-2-2-2h-3C8.897,1,8,1.898,8,3v3c0,1.103,0.897,2,2,2h9v7H4
+			c-0.552,0-1,0.448-1,1v6c0,0.552,0.448,1,1,1h16c0.552,0,1-0.448,1-1V8C21,6.898,20.103,6,19,6z M10,6V3h3l0.001,3H13H10z M19,21
+			H5v-4h14V21z"/>
+		<circle style="fill:#757575;" cx="13" cy="19" r="1"/>
+		<circle style="fill:#757575;" cx="17" cy="19" r="1"/>
+		<rect x="10" y="10" style="fill:#757575;" width="2" height="4"/>
+		
+			<rect x="13.666" y="9.371" transform="matrix(0.9428 -0.3332 0.3332 0.9428 -2.951 5.5374)" style="fill:#757575;" width="2" height="3.999"/>
+		
+			<rect x="6.333" y="9.372" transform="matrix(0.9428 0.3332 -0.3332 0.9428 4.2088 -1.7938)" style="fill:#757575;" width="2" height="4"/>
+	</g>
+</g>
+</svg>

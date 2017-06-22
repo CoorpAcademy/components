@@ -1,14 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import get from 'lodash/fp/get';
+import SearchIcon from '@coorpacademy/nova-icons/composition/coorpacademy/search';
+import Provider from '../../atom/provider';
 import style from './style.css';
 
-const Search = props => {
+const Search = (props, context) => {
   const {value, placeholder, onChange} = props;
-
+  const {skin} = context;
+  const medium = get('common.medium', skin);
   const handleChange = e => onChange(e.target.value);
 
   return (
-    <div className={style.wrapper}>
+    <div>
+      <SearchIcon color={medium} className={style.icon} />
       <input
         className={style.search}
         type="text"
@@ -19,6 +24,10 @@ const Search = props => {
       />
     </div>
   );
+};
+
+Search.contextTypes = {
+  skin: Provider.childContextTypes.skin
 };
 
 Search.propTypes = {

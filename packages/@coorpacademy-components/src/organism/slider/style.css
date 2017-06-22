@@ -32,14 +32,13 @@
 
 .control {
   position: absolute;
-  composes: fa from '../../variables/fontawesome.css';
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
   display: none;
   align-items: center;
   justify-content: center;
   top: 50%;
-  margin-top: -25px;
+  margin-top: -15px;
   cursor: pointer;
   opacity: 0.6;
   z-index: 3;
@@ -58,7 +57,6 @@
 
 .leftControl {
   composes: control;
-  composes: fa-chevron-left from '../../variables/fontawesome.css';
   left: 20px;
 }
 
@@ -68,7 +66,6 @@
 
 .rightControl {
   composes: control;
-  composes: fa-chevron-right from '../../variables/fontawesome.css';
   right: 20px;
 }
 

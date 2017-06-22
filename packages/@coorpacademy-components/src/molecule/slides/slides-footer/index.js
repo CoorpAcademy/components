@@ -1,19 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import keys from 'lodash/fp/keys';
+import MediaIcon from '@coorpacademy/nova-icons/solid/videos/video-clip-3';
+import ClueIcon from '@coorpacademy/nova-icons/solid/programming/programming-jigsaw';
+import CoachIcon from '@coorpacademy/nova-icons/solid/messages-and-chat/chat-bubbles-circle';
+import get from 'lodash/fp/get';
+import Provider from '../../../atom/provider';
 import style from './style.css';
 
-const buttonStyle = {
-  media: style.media,
-  clue: style.clue,
-  coach: style.coach
+const ICONS = {
+  media: MediaIcon,
+  clue: ClueIcon,
+  coach: CoachIcon
 };
 
 const SlidesFooter = (props, context) => {
+  const {skin} = context;
   const {buttons = []} = props;
+  const xtraLightGrey = get('common.xtraLightGrey', skin);
 
   const buttonsView = buttons.map((button, key) => {
     const {disabled, notify, selected, highlighted, title, type, onClick} = button;
+
+    const IconType = ICONS[type];
 
     const className = selected ? style.selected : style.button;
 
@@ -23,7 +32,7 @@ const SlidesFooter = (props, context) => {
       <div className={disabled ? style.disabled : className} key={key} onClick={onClick}>
         <div className={highlighted ? style.highlighted : style.logo}>
           {notifyView}
-          <span className={buttonStyle[type]} />
+          <IconType color={xtraLightGrey} />
         </div>
         <div className={style.title}>
           {title}
@@ -39,6 +48,10 @@ const SlidesFooter = (props, context) => {
     : null;
 };
 
+SlidesFooter.contextTypes = {
+  skin: Provider.childContextTypes.skin
+};
+
 SlidesFooter.propTypes = {
   buttons: PropTypes.arrayOf(
     PropTypes.shape({
@@ -47,7 +60,7 @@ SlidesFooter.propTypes = {
       selected: PropTypes.bool,
       highlighted: PropTypes.bool,
       title: PropTypes.string,
-      type: PropTypes.oneOf(keys(buttonStyle)).isRequired,
+      type: PropTypes.oneOf(keys(ICONS)).isRequired,
       onClick: PropTypes.func
     })
   )

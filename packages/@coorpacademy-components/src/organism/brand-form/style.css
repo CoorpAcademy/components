@@ -12,12 +12,9 @@
 }
 
 .arrowBack {
-  composes: fa from '../../variables/fontawesome.css';
-  composes: fa-arrow-left from '../../variables/fontawesome.css';
-  width: 18px;
-  height: 11px;
-  font-size: 15px;
-  color: dark;
+  width: 15px;
+  height: 15px;
+  margin-top: -2px;
 }
 
 .backDesc {

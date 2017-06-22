@@ -198,6 +198,7 @@ import LabelFixtureOneChild from '../src/atom/label/test/fixtures/one-child';
 import LabelFixtureTwoChildren from '../src/atom/label/test/fixtures/two-children';
 import LifeFixtureDefault from '../src/atom/life/test/fixtures/default';
 import LifeFixtureFail from '../src/atom/life/test/fixtures/fail';
+import LifeFixtureSmall from '../src/atom/life/test/fixtures/small';
 import LinkFixtureHref from '../src/atom/link/test/fixtures/href';
 import LinkFixtureStyledLink from '../src/atom/link/test/fixtures/styled-link';
 import LoaderFixtureDefault from '../src/atom/loader/test/fixtures/default';
@@ -828,7 +829,8 @@ export const fixtures = {
     },
     Life: {
       Default: LifeFixtureDefault,
-      Fail: LifeFixtureFail
+      Fail: LifeFixtureFail,
+      Small: LifeFixtureSmall
     },
     Link: {
       Href: LinkFixtureHref,

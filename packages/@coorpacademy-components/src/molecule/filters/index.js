@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import getOr from 'lodash/fp/getOr';
+import get from 'lodash/fp/get';
+import ArrowDown from '@coorpacademy/nova-icons/composition/navigation/arrow-down';
 import Select from '../../atom/select';
 import Provider from '../../atom/provider';
 import RangeSlider from '../../molecule/range-slider';
@@ -72,7 +73,8 @@ class Filters extends React.Component {
       sortTabLabel
     } = this.props;
     const {skin} = this.context;
-    const defaultColor = getOr('#00B0FF', 'common.primary', skin);
+    const defaultColor = get('common.primary', skin);
+    const darkColor = get('common.dark', skin);
     const filtersActive = this.state.filter === true;
     const sortingActive = this.state.sorted === true;
     const animated = this.state.animated === true;
@@ -118,13 +120,17 @@ class Filters extends React.Component {
         <div className={filtersActive ? style.activeDefault : style.default}>
           <div className={style.title} data-name={'filters-button'} onClick={this.handleOpenFilter}>
             {filterTabLabel}
-            <div className={style.arrow} />
+            <div className={style.arrow}>
+              <ArrowDown color={darkColor} />
+            </div>
           </div>
         </div>
         <div className={sortingActive ? style.activeWrapperSortBy : style.wrapperSortBy}>
           <div className={style.title} onClick={this.handleOpenSort}>
             {sortTabLabel}
-            <div className={style.arrow} />
+            <div className={style.arrow}>
+              <ArrowDown color={darkColor} />
+            </div>
           </div>
         </div>
         <div className={filtersActive ? style.activeWrapperFilters : style.wrapperFilters}>

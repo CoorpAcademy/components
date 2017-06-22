@@ -72,18 +72,8 @@
 }
 
 .arrow {
-  composes: fa from '../../variables/fontawesome.css';
-  composes: fa-arrow-up from '../../variables/fontawesome.css';
   width: 34px;
   height: 34px;
-  box-sizing: border-box;
-  font-size: 18px;
-  background: brand;
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin-right: 10px;
   transition: all 0.2s cubic-bezier(0.47, 1.04, 0.46, 2.16);
 }

@@ -48,19 +48,17 @@
   position: relative;
   margin-right: 15px;
   margin-top: 10px;
-  composes: fa from '../../../variables/fontawesome.css';
-  composes: fa-angle-right from '../../../variables/fontawesome.css';
 }
 .showMore:hover {
   text-decoration: underline;
 }
-.showMore:before {
-  font-size: 12px;
-  font: normal normal normal 12px/1 FontAwesome;
-  color: dark;
+.showMoreIcon {
   position: absolute;
-  right: -10px;
-  top: 0px;
+  width: 8px;
+  height: 8px;
+  margin-top: -4px;
+  right: -15px;
+  top: 50%;
 }
 
 .cards {
@@ -77,30 +75,27 @@
 }
 
 .arrow {
-  composes: fa from '../../../variables/fontawesome.css';
   position: absolute;
-  font-size: 30px;
-  width: 20px;
-  color: #D8D8D8;
+  width: 28px;
+  height: 28px;
+  margin-top: -8px;
   top: 50%;
-  margin-top: -15px;
   cursor: pointer;
+  opacity: 0.5;
 }
 
 .arrow:hover {
-  color: #aaaaaa;
+  opacity: 1;
 }
 
 .left {
   composes: arrow;
-  composes: fa-chevron-left from '../../../variables/fontawesome.css';
   left: -35px;
   text-align: right;
 }
 
 .right {
   composes: arrow;
-  composes: fa-chevron-right from '../../../variables/fontawesome.css';
   right: -35px;
   text-align: left;
 }

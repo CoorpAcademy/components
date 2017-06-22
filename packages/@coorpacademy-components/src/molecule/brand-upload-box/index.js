@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import uniqueId from 'lodash/fp/uniqueId';
+import get from 'lodash/fp/get';
+import UploadIcon from '@coorpacademy/nova-icons/solid/data-transfer/data-upload-1';
 import Loader from '../../atom/loader';
 import style from './style.css';
 
@@ -30,9 +32,12 @@ class BrandUploadBox extends React.Component {
 
   render() {
     const idBox = uniqueId('drop-box-');
+    const {skin} = this.context;
+
     let content;
 
     const {description = '', browse = '', onLoad} = this.props;
+    const brandColor = get('common.brand', skin);
 
     switch (this.props.status) {
       case 'loading':
@@ -48,7 +53,7 @@ class BrandUploadBox extends React.Component {
           <div className={style.wrapper}>
             <div id={idBox} className={this.state.dragging ? style.dropping : style.default}>
               <div className={style.cont}>
-                <i className={style.arrow} />
+                <UploadIcon color={brandColor} className={style.arrow} />
                 <div className={style.desc}>
                   {description}
                 </div>

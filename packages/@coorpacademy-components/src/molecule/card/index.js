@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import getOr from 'lodash/fp/getOr';
+import get from 'lodash/fp/get';
 import keys from 'lodash/fp/keys';
+import LockIcon from '@coorpacademy/nova-icons/solid/locks/lock-1';
+import ClockIcon from '@coorpacademy/nova-icons/composition/coorpacademy/clock';
+import AdaptivIcon from '@coorpacademy/nova-icons/composition/coorpacademy/adaptive';
 import Loader from '../../atom/loader';
 import Provider from '../../atom/provider';
 import style from './style.css';
@@ -11,6 +14,18 @@ const viewStyle = {
   list: style.list
 };
 
+const Timer = ({time, color}) => (
+  <div className={style.timer}>
+    <ClockIcon className={style.clockIcon} color={color} /> {time}
+  </div>
+);
+
+const AdaptivBubble = ({background, color}) => (
+  <div className={style.adaptiv} style={{backgroundColor: background}}>
+    <AdaptivIcon className={style.adaptivIcon} color={color} />
+  </div>
+);
+
 const Card = (props, context) => {
   const {skin} = context;
   const {
@@ -19,7 +34,6 @@ const Card = (props, context) => {
     time,
     adaptiv,
     disabled,
-    certification,
     type,
     title,
     author,
@@ -29,10 +43,10 @@ const Card = (props, context) => {
 
   const lazyClass = title ? style.default : style.lazy;
 
-  const defaultColor = getOr('#00B0FF', 'common.primary', skin);
+  const defaultColor = get('common.primary', skin);
+  const darkColor = get('common.dark', skin);
+  const mediumColor = get('common.medium', skin);
   const cardStyle = viewStyle[view];
-
-  const certif = certification ? <div className={style.certification} /> : null;
 
   const myprogress = !adaptiv
     ? <div className={style.progressWrapper}>
@@ -46,18 +60,12 @@ const Card = (props, context) => {
       </div>
     : null;
 
-  const adaptivIcon = adaptiv
-    ? <div
-        className={style.adaptiv}
-        style={{
-          backgroundColor: defaultColor
-        }}
-      />
+  const adaptivIcon = adaptiv ? <AdaptivBubble color="white" background={defaultColor} /> : null;
+  const lock = disabled
+    ? <LockIcon color={darkColor} className={style.lock} outline={mediumColor} />
     : null;
 
-  const lock = disabled ? <div className={style.lock} /> : null;
-
-  const timer = time ? <span className={style.timer}>{time}</span> : null;
+  const timer = time ? <Timer time={time} color={darkColor} /> : null;
   const loader = title && type ? null : <Loader />;
 
   return (
@@ -72,12 +80,11 @@ const Card = (props, context) => {
         >
           {loader}
           <div className={style.ctaWrapper} onClick={!disabled && onClick}>
-            {certif}
             {adaptivIcon}
             {timer}
           </div>
-          {lock}
         </div>
+        <div className={style.lockWrapper}>{lock}</div>
         {myprogress}
         <div className={style.infoWrapper} onClick={!disabled && onClick}>
           <div
@@ -112,7 +119,6 @@ Card.propTypes = {
   time: PropTypes.string,
   disabled: PropTypes.bool,
   adaptiv: PropTypes.bool,
-  certification: PropTypes.bool,
   type: PropTypes.string,
   title: PropTypes.string,
   author: PropTypes.string,

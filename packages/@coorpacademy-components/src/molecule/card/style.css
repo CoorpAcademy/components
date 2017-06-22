@@ -54,23 +54,25 @@
   opacity: 0.4;
 }
 
-.lock {
-  composes: fa from '../../variables/fontawesome.css';
-  composes: fa-lock from '../../variables/fontawesome.css';
-  font-size: 45px;
-  color: black;
-  opacity: 0.88;
-  text-align: center;
-  width: 100%;
-  line-height: 125px;
-  text-shadow: 0px 0px 20px white;
-  top: 0;
+.lockWrapper {
   position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 125px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lock {
+  width: 45px;
+  height: 45px;
 }
 
 .imageWrapper {
-  position: relative;
   height: 125px;
+  position: relative;
   width: 100%;
   overflow: hidden;
   background-position: 50%;
@@ -97,8 +99,12 @@
   justify-content: center;
   text-align: center;
   color: dark;
-  composes: fa from '../../variables/fontawesome.css';
-  composes: fa-clock-o from '../../variables/fontawesome.css';
+}
+
+.clockIcon {
+  width: 12px;
+  height: 12px;
+  margin: -2px 2px 0 0;
 }
 
 .timer:before {
@@ -108,44 +114,23 @@
   margin-right: 5px;
 }
 
-.certification {
-  position: absolute;
-  z-index: 3;
-  top: 10px;
-  left: 10px;
-  width: 50px;
-  height: 20px;
-  composes: fa from '../../variables/fontawesome.css';
-  composes: fa-certificate from '../../variables/fontawesome.css';
-}
-
-.certification:before {
-  position: absolute;
-  font-size: 22px;
-  top: 0;
-  left: 0;
-  color: white;
-}
-
 .adaptiv {
   position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   top: 10px;
   left: 10px;
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  composes: fa from '../../variables/fontawesome.css';
-  composes: fa-random from '../../variables/fontawesome.css';
   box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.4);
 }
 
-.adaptiv:before {
-  position: absolute;
-  line-height: 27px;
-  font-size: 14px;
-  top: 0;
-  left: 6px;
-  color: white;
+.adaptivIcon {
+  margin-top: -2px;
+  width: 21px;
+  height: 21px;
 }
 
 .ctaWrapper {

@@ -1,11 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import get from 'lodash/fp/get';
+import ArrowDown from '@coorpacademy/nova-icons/composition/navigation/arrow-down';
+import FunnelIcon from '@coorpacademy/nova-icons/composition/coorpacademy/funnel';
+import PencilIcon from '@coorpacademy/nova-icons/solid/content-edition/pencil-1';
+import Provider from '../../atom/provider';
 import Checkbox from '../../atom/checkbox';
 import Link from '../../atom/link';
 import style from './style.css';
 
-const Table = props => {
+const Table = (props, context) => {
   const {rows = [], columns = []} = props;
+  const {skin} = context;
+
+  const mediumColor = get('common.medium', skin);
+  const brandColor = get('common.brand', skin);
 
   const headerView = columns.map((column, cIndex) => {
     const {title, filtered, options = []} = column;
@@ -30,16 +39,19 @@ const Table = props => {
         : null;
     };
 
-    const optionsClassName = hasOptions ? style.toggle : style.noOptions;
+    const OptionsIcon = (hasOptions && (filtered ? FunnelIcon : ArrowDown)) || null;
 
     return (
       <th key={cIndex}>
-        <div className={filtered ? style.filtered : optionsClassName}>
+        <div className={hasOptions ? style.toggle : style.noOptions}>
           <Checkbox id={title} name={title} checked className={style.checkbox} />
           <label htmlFor={title}>
             {title}
           </label>
           {options.length > 0 ? createOptionsView(options) : null}
+          <div className={style.optionsIconWrapper}>
+            {hasOptions ? <OptionsIcon color={mediumColor} className={style.optionsIcon} /> : null}
+          </div>
         </div>
       </th>
     );
@@ -60,7 +72,9 @@ const Table = props => {
 
     tableRows.unshift(
       <td key="header">
-        <Link className={style.editLink} href={editHref} />
+        <Link className={style.editLink} href={editHref}>
+          <PencilIcon color={mediumColor} hoverColor={brandColor} />
+        </Link>
       </td>
     );
 
@@ -81,6 +95,10 @@ const Table = props => {
       </table>
     </div>
   );
+};
+
+Table.contextTypes = {
+  skin: Provider.childContextTypes.skin
 };
 
 Table.propTypes = {
