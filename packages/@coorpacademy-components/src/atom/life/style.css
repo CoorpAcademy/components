@@ -4,6 +4,10 @@
 @value dark from colors;
 @value grey from colors;
 
+/*
+ * Default
+ */
+
 .default {
   position: relative;
   width: 90px;
@@ -40,7 +44,7 @@
 }
 
 .multiplierText {
-  margin-left: -0.9rem;
+  margin-left: -14px;
 }
 
 @keyframes hidePreviousLivesCounter {
@@ -51,7 +55,7 @@
 }
 
 .counterValue {
-  margin-left: 0.9rem;
+  margin-left: 14px;
 }
 
 .previousLivesCounterDefault {
@@ -186,4 +190,38 @@
   animation-name: showBrokenHeart;
   animation-duration: 2s;
   animation-fill-mode: forwards;
+}
+
+/*
+ * Small
+ */
+
+.small {
+  position: relative;
+  width: 57px;
+  height: 42px;
+}
+
+.small .counterText {
+  width: 42px;
+  height: 42px;
+  font-size: 16px;
+}
+
+.small .multiplierText {
+  margin-left: -10px;
+}
+
+.small .counterValue {
+  margin-left: 10px;
+}
+
+.small .heartWrapper {
+  width: 28px;
+}
+
+.small .heartIcon {
+  margin: -11px 0 0 -11px;
+  width: 22px;
+  height: 22px;
 }

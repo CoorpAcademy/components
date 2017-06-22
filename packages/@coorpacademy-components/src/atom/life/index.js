@@ -7,14 +7,19 @@ import HeartBrokenIcon from '@coorpacademy/nova-icons/composition/coorpacademy/b
 import Provider from '../provider';
 import style from './style.css';
 
+const MODES = {
+  default: style.default,
+  small: style.small
+};
+
 const Life = (props, context) => {
   const {skin} = context;
-  const {count = 3, fail = false, className} = props;
+  const {count = 3, fail = false, mode = 'default', className, style: customStyle} = props;
   const negativeColor = get('common.negative', skin);
   const white = get('common.white', skin);
 
   return (
-    <div className={classnames(style.default, className)}>
+    <div className={classnames(MODES[mode], className)} style={customStyle}>
       <div className={style.livesCounterWrapper}>
         <div className={fail ? style.previousLivesCounterFail : style.previousLivesCounterDefault}>
           {count + 1}
@@ -44,6 +49,7 @@ Life.contextTypes = {
 };
 
 Life.propTypes = {
+  mode: PropTypes.oneOf(MODES),
   count: PropTypes.number,
   fail: PropTypes.bool,
   className: PropTypes.string

@@ -53,7 +53,7 @@ const SlidesHeader = (props, context) => {
         {secondaryTitleView}
       </div>
       <div className={style.livesWrapper}>
-        <Life {...lives} />
+        <Life {...lives} className={style.life} mode="small" />
       </div>
     </div>
   );
