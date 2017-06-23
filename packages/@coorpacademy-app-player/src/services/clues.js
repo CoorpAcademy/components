@@ -15,6 +15,7 @@ export const findById = async (progressionId, slideId) => {
 
   if (!includes(slideId, progression.state.requestedClues))
     throw new Error('Clue is not available');
+
   if (!clueStore.has(slideId)) throw new Error('Clue not found');
 
   return clueStore.get(slideId);

@@ -4,7 +4,7 @@ import isNull from 'lodash/fp/isNull';
 import join from 'lodash/fp/join';
 import {
   getAnswers,
-  getCorrection,
+  getCurrentCorrection,
   getCurrentProgression,
   getCurrentProgressionId,
   getPreviousSlide
@@ -25,7 +25,7 @@ const popinCorrectionStateToProps = ({translate}, dispatch) => state => {
   };
 
   const {isCorrect} = getAnswers(state);
-  const correction = getCorrection(state);
+  const correction = getCurrentCorrection(state);
   const slide = getPreviousSlide(state);
   const accordion = get('ui.corrections.accordion', state);
   const progression = getCurrentProgression(state);

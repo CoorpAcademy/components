@@ -23,7 +23,8 @@ test(
       },
       current: {
         progressionId: null
-      }
+      },
+      route: {}
     }
   }
 );

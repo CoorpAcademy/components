@@ -41,8 +41,7 @@ test(
   t => ({
     Progressions: {
       findById: id => {
-        t.is(id, 'foo');
-        return 'foo';
+        t.fail();
       }
     }
   }),

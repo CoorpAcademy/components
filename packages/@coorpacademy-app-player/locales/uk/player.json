@@ -2,7 +2,7 @@
   "Access the lesson": "Отримати урок",
   "Back to dashboard": "Назад до приладної панели",
   "Congratulations!": "Вітаємо!",
-  "Correct answer {answer}": "Правильна відповідь: {{answer}}",
+  "Correct answer {{answer}}": "Правильна відповідь: {{answer}}",
   "Did you know that?": "Ви знаєте, що?",
   "Good answer": "Хороший відповідь",
   "Good job": "Гарна робота",

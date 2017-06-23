@@ -6,6 +6,7 @@ import {selectRoute} from './route';
 
 const getId = get('_id');
 
+// eslint-disable-next-line import/prefer-default-export
 export const selectClue = async (dispatch, getState) => {
   const state = getState();
   const progressionId = getCurrentProgressionId(state);

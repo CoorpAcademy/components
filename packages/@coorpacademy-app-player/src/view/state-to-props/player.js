@@ -8,7 +8,7 @@ import {
 } from '../../utils/state-extract';
 import {validateAnswer} from '../../actions/ui/answers';
 import {selectRoute} from '../../actions/ui/route';
-import {selectClue} from '../../actions/ui/clue';
+import {selectClue} from '../../actions/ui/clues';
 import getAnswerProps from './answer';
 
 const playerProps = (state, dispatch) => {

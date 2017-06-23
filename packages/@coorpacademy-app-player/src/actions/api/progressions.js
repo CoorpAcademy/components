@@ -57,8 +57,6 @@ export const requestClue = (progressionId, slideId) => (dispatch, getState, {ser
 
   const requestedClues = get('state.requestedClues', progression);
 
-  if (includes(slideId, requestedClues)) return;
-
   const action = buildTask({
     types: [
       PROGRESSION_REQUEST_CLUE_REQUEST,
@@ -72,6 +70,7 @@ export const requestClue = (progressionId, slideId) => (dispatch, getState, {ser
           type: 'slide'
         }
       }),
+    bailout: () => includes(slideId, requestedClues),
     meta: {progressionId}
   });
 

@@ -5,7 +5,11 @@ import {
   getAnswers,
   getAnswerValues,
   getChoices,
+  getClue,
+  getCurrentClue,
+  getCorrection,
   getCurrentContent,
+  getCurrentCorrection,
   getCurrentExitNode,
   getCurrentProgression,
   getCurrentProgressionId,
@@ -101,4 +105,46 @@ test('should getCurrentContent', t => {
   )({});
 
   t.is(getCurrentContent(state), content);
+});
+
+test('should getCorrection', t => {
+  const correction = ['Bonne réponse'];
+  const state = set('data.answers.entities.foo.bar', correction)({});
+
+  t.is(getCorrection('foo', 'bar')(state), correction);
+});
+
+test('should getCurrentCorrection', t => {
+  const progression = pipe(set('_id', 'foo'), set('state.content.ref', 'bar'))({});
+  const slide = {_id: 'bar'};
+  const correction = ['Bonne réponse'];
+  const state = pipe(
+    set(`data.progressions.entities.${progression._id}`, progression),
+    set(`data.slides.entities.${slide._id}`, slide),
+    set(`data.answers.entities.${progression._id}.${slide._id}`, correction),
+    set('ui.current.progressionId', 'foo')
+  )({});
+
+  t.is(getCurrentCorrection(state), correction);
+});
+
+test('should getClue', t => {
+  const clue = 'Indice';
+  const state = set('data.clues.entities.foo.bar', clue)({});
+
+  t.is(getClue('foo', 'bar')(state), clue);
+});
+
+test('should getCurrentClue', t => {
+  const progression = pipe(set('_id', 'foo'), set('state.nextContent.ref', 'bar'))({});
+  const slide = {_id: 'bar'};
+  const clue = 'Indice';
+  const state = pipe(
+    set(`data.progressions.entities.${progression._id}`, progression),
+    set(`data.slides.entities.${slide._id}`, slide),
+    set(`data.clues.entities.${progression._id}.${slide._id}`, clue),
+    set('ui.current.progressionId', 'foo')
+  )({});
+
+  t.is(getCurrentClue(state), clue);
 });

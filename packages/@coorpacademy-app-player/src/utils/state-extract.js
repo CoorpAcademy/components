@@ -2,6 +2,8 @@ import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import pipe from 'lodash/fp/pipe';
 
+const getId = get('_id');
+
 export const getChoices = get('question.content.choices');
 export const getCurrentProgressionId = get('ui.current.progressionId');
 export const getQuestionType = get('question.type');
@@ -47,18 +49,31 @@ export const getCurrentExitNode = state => {
   return getExitNode(ref)(state);
 };
 
-const getId = get('_id');
-export const getCorrection = state => {
+export const getCorrection = (progressionId, slideId) => state => {
+  return get(['data', 'answers', 'entities', progressionId, slideId], state);
+};
+export const getCurrentCorrection = state => {
   const progression = getCurrentProgression(state);
   const slide = getPreviousSlide(state);
 
-  return get(['data', 'answers', 'entities', getId(progression), getId(slide)], state);
+  return getCorrection(getId(progression), getId(slide))(state);
+};
+
+export const getClue = (progressionId, slideId) => state => {
+  return get(['data', 'clues', 'entities', progressionId, slideId], state);
+};
+
+export const getCurrentClue = state => {
+  const progression = getCurrentProgression(state);
+  const slide = getCurrentSlide(state);
+
+  return getClue(getId(progression), getId(slide))(state);
 };
 
 export const getRoute = state => {
-  const progression = getCurrentProgression(state);
+  const progressionId = getCurrentProgressionId(state);
 
-  return get(['ui', 'route', getId(progression)], state);
+  return get(['ui', 'route', progressionId], state);
 };
 
 export const getCurrentContent = pipe(getCurrentProgression, get('state.nextContent'));

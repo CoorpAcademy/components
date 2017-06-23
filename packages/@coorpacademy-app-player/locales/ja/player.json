@@ -2,7 +2,7 @@
   "Access the lesson": "レッスンにアクセスします。",
   "Back to dashboard": "ダッシュ ボードに戻る",
   "Congratulations!": "おめでとうございます!",
-  "Correct answer {answer}": "正解: {{answer}}",
+  "Correct answer {{answer}}": "正解: {{answer}}",
   "Did you know that?": "ご存知でしたか。",
   "Good answer": "良い答え",
   "Good job": "よく出来ました",

@@ -2,7 +2,7 @@
   "Access the lesson": "Acesso a lição",
   "Back to dashboard": "Volta para o dashboard",
   "Congratulations!": "Parabéns!",
-  "Correct answer {answer}": "Resposta correta: {{answer}}",
+  "Correct answer {{answer}}": "Resposta correta: {{answer}}",
   "Did you know that?": "Sabia que?",
   "Good answer": "Boa resposta",
   "Good job": "Muito bom trabalho",
