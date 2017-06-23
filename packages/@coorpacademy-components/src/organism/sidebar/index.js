@@ -70,13 +70,10 @@ const Sidebar = (props, context) => {
   const sections = Array.isArray(props.items[0]) ? props.items : [props.items];
   const {skin} = context;
   const defaultColor = getOr('#00B0FF', 'common.primary', skin);
-  const sectionStyle = props.capitalized
-    ? `${style.sidebarPart} ${style.sidebarCapitalized}`
-    : style.sidebarPart;
   return (
     <div className={style.sidebar}>
       {sections.map((sidebarSection, idx) => (
-        <div className={sectionStyle} key={idx}>
+        <div className={style.sidebarPart} key={idx}>
           <SidebarItems items={sidebarSection} color={defaultColor} />
         </div>
       ))}
@@ -149,7 +146,6 @@ const SelectProptype = PropTypes.shape({
 });
 const SectionProptype = PropTypes.oneOfType([InfoProptype, SelectProptype, LinkProptype]);
 Sidebar.propTypes = {
-  capitalized: PropTypes.bool,
   items: PropTypes.arrayOf(
     PropTypes.oneOfType([SectionProptype, PropTypes.arrayOf(SectionProptype).isRequired])
   ).isRequired
