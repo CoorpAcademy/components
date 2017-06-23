@@ -8,6 +8,7 @@ const walk = require('walk-promise');
 const minimist = require('minimist');
 const SVGO = require('svgo');
 const stream = require('stream');
+const whiteList = require('../icons');
 
 const MAX_SIMULTANEOUS_HANDLES = 100;
 
@@ -189,10 +190,11 @@ const generateComponents = async ({novaPath, category}) => {
       const destDir = path.join(__dirname, '..', 'src', category.dest, subcat);
       const basename = path.basename(src, '.svg');
       const dest = path.join(destDir, `${basename}.js`);
+      const importName = path.join(`@coorpacademy/nova-icons/${category.dest}/${subcat}/${basename}`);
+      const isWhiteListed = whiteList.indexOf(importName) >= 0;
 
-      return generateComponent({destDir, dest, src, basename});
+      return isWhiteListed ? generateComponent({destDir, dest, src, basename}) : null;
     });
-
 
   return Promise.all(tasks);
 };
