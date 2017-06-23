@@ -21,9 +21,13 @@ const SelectItem = props => {
 };
 
 const LinkItem = props => {
+  const handleOnClick = e => {
+    e.preventDefault();
+    props.handleOnClick && props.handleOnClick(e);
+  };
   return (
     <Link
-      onClick={props.handleOnClick}
+      onClick={handleOnClick}
       skinHover
       data-name={props.name || `link-item-${props.index}`}
       style={{
