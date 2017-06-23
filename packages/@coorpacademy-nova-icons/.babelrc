@@ -1,38 +1,78 @@
 {
-  "presets": ["es2015", "stage-1", "react"],
+  "presets": [
+    "stage-1",
+    "react"
+  ],
   "env": {
     "commonjs": {
       "presets": [
-        ["es2015", { "loose": true }]
+        [
+          "env",
+          {
+            "targets": {
+              "node": true
+            },
+            "loose": true
+          }
+        ]
       ],
       "plugins": [
-        ["transform-react-remove-prop-types", {
-          "mode": "wrap"
-        }],
-        ["css-modules-transform", {
-          "generateScopedName": "[folder]__[local]"
-        }]
+        [
+          "transform-react-remove-prop-types",
+          {
+            "mode": "wrap"
+          }
+        ],
+        [
+          "css-modules-transform",
+          {
+            "generateScopedName": "[folder]__[local]"
+          }
+        ]
       ]
     },
     "test": {
       "presets": [
-        ["es2015", { "loose": true }]
+        [
+          "env",
+          {
+            "targets": {
+              "node": true
+            },
+            "loose": true
+          }
+        ]
       ],
       "plugins": [
-        ["css-modules-transform", {
-          "generateScopedName": "[folder]__[local]"
-        }],
+        [
+          "css-modules-transform",
+          {
+            "generateScopedName": "[folder]__[local]"
+          }
+        ],
         "istanbul"
       ]
     },
     "es": {
       "presets": [
-        ["es2015", { "loose": true, "modules": false }]
+        [
+          "env",
+          {
+            "targets": {
+              "node": true
+            },
+            "modules": false,
+            "loose": true
+          }
+        ]
       ],
       "plugins": [
-        ["transform-react-remove-prop-types", {
-          "mode": "wrap"
-        }]
+        [
+          "transform-react-remove-prop-types",
+          {
+            "mode": "wrap"
+          }
+        ]
       ]
     }
   }
