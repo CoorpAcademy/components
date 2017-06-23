@@ -68,7 +68,8 @@
       "packages/**/dist/**",
       "packages/**/es/**",
       "packages/**/lib/**",
-      "packages/@coorpacademy-components/storybook-static/static/**"
+      "packages/@coorpacademy-components/storybook-static/static/**",
+      "packages/@coorpacademy-nova-icons/**"
     ],
     "cache": true,
     "require": "babel-register",
