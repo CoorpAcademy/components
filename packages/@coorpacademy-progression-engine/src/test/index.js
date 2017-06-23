@@ -1,9 +1,19 @@
 // @flow
 import test from 'ava';
-import {checkAnswer, computeNextStep, updateState, createProgression} from '..';
+import {
+  checkAnswer,
+  checkAnswerCorrectness,
+  computeNextStep,
+  updateState,
+  createProgression
+} from '..';
 
 test('should export checkAnswer', t => {
   t.is(typeof checkAnswer, 'function');
+});
+
+test('should export checkAnswerCorrectness', t => {
+  t.is(typeof checkAnswerCorrectness, 'function');
 });
 
 test('should export computeNextStep', t => {
