@@ -74,6 +74,16 @@ export type Progression = {
   engine: Engine
 };
 
+export type PartialCorrection = {
+  answer: string,
+  isCorrect: boolean
+};
+
+export type AnswerCorrection = {
+  isCorrect: boolean,
+  corrections: Array<PartialCorrection>
+};
+
 export type Answer = Array<string>;
 export type AcceptedAnswers = Array<Answer>;
 
