@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import identity from 'lodash/fp/identity';
-import map from 'lodash/fp/map';
 import getOr from 'lodash/fp/getOr';
 import Cta from '../../../atom/cta';
 import Provider from '../../../atom/provider';
@@ -90,7 +89,7 @@ SlidesPlayer.propTypes = {
   verticalMargin: PropTypes.number,
   text: Clue.propTypes.text,
   answer: PropTypes.shape({
-    type: PropTypes.oneOf(['picker', 'qcm', 'qcmImage', 'freeText', 'dropDown', 'range']).required
+    type: PropTypes.string
   }),
   cta: PropTypes.shape(Cta.propTypes).isRequired,
   buttons: SlidesFooter.propTypes.buttons

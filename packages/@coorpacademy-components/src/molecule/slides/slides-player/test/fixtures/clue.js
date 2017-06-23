@@ -1,6 +1,6 @@
 import Cta from '../../../../../atom/cta/test/fixtures/default';
 import Footer from '../../../slides-footer/test/fixtures/selected';
-import Clue from '../../../../../atom/clue/test/fixtures/default'
+import Clue from '../../../../../atom/clue/test/fixtures/default';
 
 const {props} = Cta;
 const footerProps = Footer.props;

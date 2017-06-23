@@ -2,8 +2,6 @@ import Cta from '../../../../../atom/cta/test/fixtures/default';
 import Footer from '../../../slides-footer/test/fixtures/default';
 import Answer from '../../../../../molecule/answer/test/fixtures/default';
 
-const answer = Answer.props;
-
 const {props} = Cta;
 const footerProps = Footer.props;
 
@@ -20,7 +18,7 @@ export default {
       ...props,
       submitValue: 'Validate'
     },
-    ...answer,
+    ...Answer.props,
     ...footerProps
   }
 };
