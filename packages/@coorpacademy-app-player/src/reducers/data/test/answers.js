@@ -10,7 +10,7 @@ import macro from '../../test/helpers/macro';
 test('should have initial value', macro, reducer, undefined, {}, {entities: {}});
 
 test(
-  'should set entities to null on request',
+  'should set entity to null on request',
   macro,
   reducer,
   {},
@@ -22,7 +22,7 @@ test(
 );
 
 test(
-  "should set entities to null if doesn't exist on request",
+  "should set entity to null if doesn't exist on request",
   macro,
   reducer,
   {},
@@ -46,7 +46,7 @@ test(
 );
 
 test(
-  'should set entities on success',
+  'should set entity on success',
   macro,
   reducer,
   {},
@@ -73,7 +73,7 @@ test(
 );
 
 test(
-  'should do nothing is entity already exists on failure',
+  'should do nothing on failure if entity already exists',
   macro,
   reducer,
   {entities: {foo: {bar: 'foo'}}},
