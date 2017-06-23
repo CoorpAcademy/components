@@ -3,13 +3,66 @@ import test from 'ava';
 import omit from 'lodash/fp/omit';
 import pick from 'lodash/fp/pick';
 import updateState from '../update-state';
-import type {AnswerAction, AskClueAction, State, ChapterResourceViewedAction} from '../types';
+import createProgression from '../create-progression';
+import type {
+  AnswerAction,
+  AskClueAction,
+  Content,
+  State,
+  ChapterResourceViewedAction
+} from '../types';
 import {stateForFirstSlide, stateForSecondSlide} from './fixtures/states';
 
 const engine = {
   ref: 'microlearning',
   version: '1'
 };
+
+test('should return a valid state when there are no actions', t => {
+  const content: Content = Object.freeze({
+    type: 'chapter',
+    ref: '1.A1',
+    version: '1.0.0'
+  });
+
+  const initialContent: Content = Object.freeze({
+    type: 'slide',
+    ref: '1.A1.1'
+  });
+  const progression = createProgression(engine, content, initialContent);
+
+  const state = updateState(engine, progression.state, []);
+
+  t.is(state.lives, 1);
+  t.is(state.stars, 0);
+  t.true(state.isCorrect);
+  t.is(state.content, undefined);
+  t.deepEqual(state.nextContent, initialContent);
+  t.deepEqual(state.slides, []);
+  t.deepEqual(state.requestedClues, []);
+  t.deepEqual(state.viewedResources, []);
+  t.deepEqual(state.step, {current: 1, total: 4});
+});
+
+test('should return a valid state when there are no actions and state is empty', t => {
+  const initialContent: Content = Object.freeze({
+    type: 'slide',
+    ref: '1.A1.1'
+  });
+
+  // $FlowFixMe
+  const state = updateState(engine, {nextContent: initialContent}, []);
+
+  t.is(state.lives, 1);
+  t.is(state.stars, 0);
+  t.true(state.isCorrect);
+  t.is(state.content, undefined);
+  t.deepEqual(state.nextContent, initialContent);
+  t.deepEqual(state.slides, []);
+  t.deepEqual(state.requestedClues, []);
+  t.deepEqual(state.viewedResources, []);
+  t.deepEqual(state.step, {current: 1, total: 4});
+});
 
 test('should update state when answering the first question correctly', t => {
   const state: State = Object.freeze(stateForFirstSlide);
