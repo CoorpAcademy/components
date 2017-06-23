@@ -9,7 +9,8 @@ import {
   PROGRESSION_FETCH_SUCCESS,
   PROGRESSION_FETCH_REQUEST,
   PROGRESSION_FETCH_FAILURE,
-  PROGRESSION_CREATE_ANSWER_SUCCESS
+  PROGRESSION_CREATE_ANSWER_SUCCESS,
+  PROGRESSION_REQUEST_CLUE_SUCCESS
 } from '../../actions/api/progressions';
 
 export default (state = {entities: {}}, action) => {
@@ -24,6 +25,7 @@ export default (state = {entities: {}}, action) => {
       const {id} = meta;
       return update(['entities', id], progression => progression || null, state);
     }
+    case PROGRESSION_REQUEST_CLUE_SUCCESS:
     case PROGRESSION_CREATE_ANSWER_SUCCESS: {
       const {payload, meta} = action;
       const {progressionId} = meta;

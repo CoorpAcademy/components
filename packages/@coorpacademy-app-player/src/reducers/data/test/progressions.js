@@ -4,7 +4,8 @@ import {
   PROGRESSION_FETCH_REQUEST,
   PROGRESSION_FETCH_SUCCESS,
   PROGRESSION_FETCH_FAILURE,
-  PROGRESSION_CREATE_ANSWER_SUCCESS
+  PROGRESSION_CREATE_ANSWER_SUCCESS,
+  PROGRESSION_REQUEST_CLUE_SUCCESS
 } from '../../../actions/api/progressions';
 import macro from '../../test/helpers/macro';
 
@@ -94,6 +95,19 @@ test(
   {entities: {foo: {foo: 'foo'}}},
   {
     type: PROGRESSION_CREATE_ANSWER_SUCCESS,
+    meta: {progressionId: 'foo'},
+    payload: {bar: 'bar'}
+  },
+  {entities: {foo: {foo: 'foo', bar: 'bar'}}}
+);
+
+test(
+  'should merge clue result with progression',
+  macro,
+  reducer,
+  {entities: {foo: {foo: 'foo'}}},
+  {
+    type: PROGRESSION_REQUEST_CLUE_SUCCESS,
     meta: {progressionId: 'foo'},
     payload: {bar: 'bar'}
   },

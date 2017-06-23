@@ -8,9 +8,12 @@ import {
 } from '../../utils/state-extract';
 import {validateAnswer} from '../../actions/ui/answers';
 import {selectRoute} from '../../actions/ui/route';
+import {selectClue} from '../../actions/ui/clue';
 import getAnswerProps from './answer';
 
 const playerProps = (state, dispatch) => {
+  const clickClueHandler = () => dispatch(selectClue);
+
   const progression = getCurrentProgression(state);
   const slide = getCurrentSlide(state);
   const answer = getAnswerProps(state, slide, dispatch);
@@ -48,9 +51,7 @@ const playerProps = (state, dispatch) => {
         title: 'Clue',
         type: 'clue',
         selected: route === 'clue',
-        onClick: () => {
-          return dispatch(selectRoute('clue'));
-        }
+        onClick: clickClueHandler
       },
       {
         title: 'Coach',

@@ -41,7 +41,7 @@ const popinCorrectionStateToProps = ({translate}, dispatch) => state => {
 
   const question = {
     header: getOr('', 'question.header', slide),
-    answer: translate('Correct answer {answer}', {
+    answer: translate('Correct answer {{answer}}', {
       answer: join(', ', correction) || ''
     })
   };

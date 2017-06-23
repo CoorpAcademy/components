@@ -10,9 +10,8 @@ const clueStore = reduce(
 );
 
 // eslint-disable-next-line import/prefer-default-export
-export const findById = async progressionId => {
+export const findById = async (progressionId, slideId) => {
   const progression = await ProgressionsService.findById(progressionId);
-  const slideId = progression.state.nextContent.ref;
 
   if (!includes(slideId, progression.state.requestedClues))
     throw new Error('Clue is not available');
