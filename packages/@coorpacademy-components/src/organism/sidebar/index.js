@@ -23,9 +23,9 @@ const SelectItem = props => {
 const LinkItem = props => {
   return (
     <Link
-      href={props.href}
       onClick={props.handleOnClick}
       skinHover
+      data-name={props.name || `link-item-${props.index}`}
       style={{
         textDecoration: 'none',
         color: props.selected ? props.color : '#607D8B'
@@ -82,13 +82,13 @@ const SidebarItems = props => {
   return (
     <ul className={style.sectionItems}>
       {props.items.map((item, index) => (
-        <SidebarItem item={item} key={index} color={props.color} />
+        <SidebarItem item={item} key={index} index={index} color={props.color} />
       ))}
     </ul>
   );
 };
 
-const SidebarItem = ({item, color}) => {
+const SidebarItem = ({item, color, index}) => {
   switch (item.type) {
     case 'select':
       return (
@@ -104,7 +104,8 @@ const SidebarItem = ({item, color}) => {
         <LinkItem
           title={item.title}
           handleOnClick={item.onClick}
-          href={item.href}
+          name={item.name}
+          index={index}
           selected={item.selected || false}
           color={color}
         />
@@ -125,7 +126,7 @@ const LinkProptype = PropTypes.shape({
   title: PropTypes.string.isRequired,
   type: PropTypes.oneOf(['link']).isRequired,
   selected: PropTypes.bool,
-  href: PropTypes.string.isRequired,
+  name: PropTypes.string,
   onClick: PropTypes.func
 });
 const SelectProptype = PropTypes.shape({
