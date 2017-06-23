@@ -1818,7 +1818,12 @@ export const dependencies = {
       },
       "children": {
         "MoleculeQuestions": {
-          "QcmImage": true
+          "FreeText": true,
+          "DropDown": true,
+          "Picker": true,
+          "QcmImage": true,
+          "Qcm": true,
+          "QuestionRange": true
         }
       }
     },
@@ -2740,6 +2745,9 @@ export const dependencies = {
         "OrganismAccordion": {
           "Toggler": true,
           "Part": true
+        },
+        "Molecule": {
+          "Answer": true
         }
       },
       "children": {}
@@ -2765,21 +2773,39 @@ export const dependencies = {
         },
         "OrganismAccordion": {
           "Toggler": true
+        },
+        "Molecule": {
+          "Answer": true
+        }
+      },
+      "children": {}
+    },
+    "FreeText": {
+      "parents": {
+        "Molecule": {
+          "Answer": true
         }
       },
       "children": {}
     },
     "DropDown": {
+      "parents": {
+        "Molecule": {
+          "Answer": true
+        }
+      },
       "children": {
         "Atom": {
           "Select": true
         }
       }
     },
-    "FreeText": {
-      "children": {}
-    },
     "QuestionRange": {
+      "parents": {
+        "Molecule": {
+          "Answer": true
+        }
+      },
       "children": {
         "Molecule": {
           "RangeSlider": true
