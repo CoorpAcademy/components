@@ -1,4 +1,5 @@
 import React from 'react';
+import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
 import Link from '../../atom/link/index';
@@ -9,7 +10,7 @@ import style from './style.css';
 const SelectItem = props => {
   return (
     <li className={style.selectItem}>
-      <span>{props.title}</span>
+      <span className={style.sidebarTitle}>{props.title}</span>
       <Select
         title={props.title}
         onChange={props.handleOnChange}
@@ -21,18 +22,22 @@ const SelectItem = props => {
 };
 
 const LinkItem = props => {
+  const handleOnClick = e => {
+    e.preventDefault();
+    props.handleOnClick && props.handleOnClick(e);
+  };
   return (
     <Link
-      href={props.href}
-      onClick={props.handleOnClick}
+      onClick={handleOnClick}
       skinHover
+      data-name={props.name || `link-item-${props.index}`}
       style={{
         textDecoration: 'none',
         color: props.selected ? props.color : '#607D8B'
       }}
     >
       <li
-        className={style.linkItem}
+        className={classnames(style.linkItem, style.sidebarTitle)}
         style={{
           borderLeftColor: props.selected ? props.color : null
         }}
@@ -66,7 +71,6 @@ const Sidebar = (props, context) => {
   const sections = Array.isArray(props.items[0]) ? props.items : [props.items];
   const {skin} = context;
   const defaultColor = getOr('#00B0FF', 'common.primary', skin);
-
   return (
     <div className={style.sidebar}>
       {sections.map((sidebarSection, idx) => (
@@ -82,13 +86,13 @@ const SidebarItems = props => {
   return (
     <ul className={style.sectionItems}>
       {props.items.map((item, index) => (
-        <SidebarItem item={item} key={index} color={props.color} />
+        <SidebarItem item={item} key={index} index={index} color={props.color} />
       ))}
     </ul>
   );
 };
 
-const SidebarItem = ({item, color}) => {
+const SidebarItem = ({item, color, index}) => {
   switch (item.type) {
     case 'select':
       return (
@@ -104,7 +108,8 @@ const SidebarItem = ({item, color}) => {
         <LinkItem
           title={item.title}
           handleOnClick={item.onClick}
-          href={item.href}
+          name={item.name}
+          index={index}
           selected={item.selected || false}
           color={color}
         />
@@ -125,7 +130,7 @@ const LinkProptype = PropTypes.shape({
   title: PropTypes.string.isRequired,
   type: PropTypes.oneOf(['link']).isRequired,
   selected: PropTypes.bool,
-  href: PropTypes.string.isRequired,
+  name: PropTypes.string,
   onClick: PropTypes.func
 });
 const SelectProptype = PropTypes.shape({

@@ -3,56 +3,63 @@ export default {
     items: [
       [
         {
-          title: 'Provider',
+          title: 'Avion',
           type: 'select',
           options: [
             {
-              name: 'ALL',
-              value: 'ALL',
-              selected: true
-            },
-            {
-              name: 'Provider 1',
-              value: 'prov1',
+              name: 'Biplan',
+              value: 'av1',
               selected: false
             },
             {
-              name: 'Provider 2',
-              value: 'prov2',
+              name: 'Concorde',
+              value: 'av2',
               selected: false
             }
           ]
         },
         {
-          title: 'Engagement',
+          title: 'Mer',
+          type: 'select',
+          options: [
+            {
+              name: 'Mediterranée',
+              value: 'see1',
+              selected: false
+            },
+            {
+              name: 'Manche',
+              value: 'see2',
+              selected: false
+            }
+          ]
+        },
+        {
+          title: 'Allo',
           type: 'link',
-          href: '/analytics/dashboard',
           selected: true
         },
         {
-          title: 'Per User',
-          type: 'link',
-          href: '/analytics/users/activity'
+          title: 'Papa',
+          type: 'link'
         },
         {
-          title: 'Per Module',
-          type: 'link',
-          href: 'analytics/exports/global'
+          title: 'Tango',
+          type: 'link'
         },
         {
-          title: 'Exports',
-          type: 'link',
-          href: 'analytics/exports/global'
+          title: 'Charlie',
+          type: 'link'
         }
       ],
       [
         {
-          title: 'Date lancement',
+          title: 'Lieu de Départ',
           type: 'info',
-          value: '30 février'
+          value: 'Bourget'
         },
         {
-          title: 'Population cible',
+          title: 'Altitude Max',
           type: 'info',
           value: '40012'
         }

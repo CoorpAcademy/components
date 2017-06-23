@@ -24,6 +24,10 @@
   background-color: white;
 }
 
+.sidebarTitle {
+  text-transform: uppercase;
+}
+
 .sectionItems {
   padding: 0px;
   margin: 0px;

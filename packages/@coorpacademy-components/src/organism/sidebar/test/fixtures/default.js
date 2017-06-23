@@ -2,67 +2,53 @@ export default {
   props: {
     items: [
       {
-        title: 'Provider',
+        title: 'Avion',
         type: 'select',
         options: [
           {
-            name: 'ALL',
-            value: 'ALL',
-            selected: true
-          },
-          {
-            name: 'Provider 1',
-            value: 'prov1',
+            name: 'Biplan',
+            value: 'av1',
             selected: false
           },
           {
-            name: 'Provider 2',
-            value: 'prov2',
+            name: 'Concorde',
+            value: 'av2',
             selected: false
           }
         ]
       },
       {
-        title: 'Population',
+        title: 'Mer',
         type: 'select',
         options: [
           {
-            name: 'ALL',
-            value: 'ALL',
-            selected: true
-          },
-          {
-            name: 'Population 1',
-            value: 'pop1',
+            name: 'Mediterranée',
+            value: 'see1',
             selected: false
           },
           {
-            name: 'Population 2',
-            value: 'pop2',
+            name: 'Manche',
+            value: 'see2',
             selected: false
           }
         ]
       },
       {
-        title: 'Engagement',
+        title: 'Allo',
         type: 'link',
-        href: '/analytics/dashboard',
         selected: true
       },
       {
-        title: 'Per User',
-        type: 'link',
-        href: '/analytics/users/activity'
+        title: 'Papa',
+        type: 'link'
       },
       {
-        title: 'Per Module',
-        type: 'link',
-        href: 'analytics/exports/global'
+        title: 'Tango',
+        type: 'link'
       },
       {
-        title: 'Exports',
-        type: 'link',
-        href: 'analytics/exports/global'
+        title: 'Charlie',
+        type: 'link'
       }
     ]
   }

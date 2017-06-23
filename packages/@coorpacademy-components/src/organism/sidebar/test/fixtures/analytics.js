@@ -54,25 +54,24 @@ export default {
           onClick: value => {
             // eslint-disable-next-line no-console
             console.log('Clicked on Engagement', value);
-            value.preventDefault();
           },
           selected: true,
-          href: '/analytics/dashboard'
+          name: 'analytics.dashboard'
         },
         {
           title: 'Per User',
           type: 'link',
-          href: '/analytics/users/activity'
+          name: 'analytics.users'
         },
         {
           title: 'Per Module',
           type: 'link',
-          href: 'analytics/exports/global'
+          name: 'analytics.modules'
         },
         {
           title: 'Exports',
           type: 'link',
-          href: 'analytics/exports/global'
+          name: 'analytics.exports'
         }
       ],
       [
