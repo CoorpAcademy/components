@@ -1,4 +1,5 @@
 import React from 'react';
+import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
 import Link from '../../atom/link/index';
@@ -36,7 +37,7 @@ const LinkItem = props => {
       }}
     >
       <li
-        className={`${style.linkItem} ${style.sidebarTitle}`}
+        className={classnames(style.linkItem, style.sidebarTitle)}
         style={{
           borderLeftColor: props.selected ? props.color : null
         }}
