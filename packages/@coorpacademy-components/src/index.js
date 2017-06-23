@@ -1,4 +1,4 @@
-export Answer from './atom/answer';
+export Answer from './molecule/answer';
 export Author from './template/app-catalog/author';
 export Authors from './template/common/authors';
 export BattleRequest from './molecule/battle-request';

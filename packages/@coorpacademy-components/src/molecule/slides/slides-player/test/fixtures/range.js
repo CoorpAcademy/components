@@ -1,14 +1,14 @@
-import QuestionRange from '../../../../questions/question-range/test/fixtures/default';
+import Range from '../../../../../molecule/answer/test/fixtures/range';
 import Default from './default';
 
-const answerProps = QuestionRange.props;
+const answer = Range.props;
 
 export default {
   props: {
     ...Default.props,
     answer: {
-      type: 'range',
-      ...answerProps
+      type: 'questionRange',
+      ...answer
     }
   }
 };

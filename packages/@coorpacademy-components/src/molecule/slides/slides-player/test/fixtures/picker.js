@@ -1,14 +1,14 @@
-import Picker from '../../../../questions/picker/test/fixtures/default';
+import Answer from '../../../../../molecule/answer/test/fixtures/picker';
 import Default from './default';
 
-const answerProps = Picker.props;
+const answer = Answer.props;
 
 export default {
   props: {
     ...Default.props,
     answer: {
       type: 'picker',
-      ...answerProps
+      ...answer
     }
   }
 };

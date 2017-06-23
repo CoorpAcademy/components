@@ -1,0 +1,19 @@
+@value colors: "../../variables/colors.css";
+@value medium from colors;
+@value dark from colors;
+@value light from colors;
+@value black from colors;
+@value white from colors;
+@value brand from colors;
+
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+
+
+.wrapper {
+  
+}
+
+@media mobile {
+
+}

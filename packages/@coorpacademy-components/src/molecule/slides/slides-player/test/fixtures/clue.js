@@ -1,11 +1,14 @@
 import Cta from '../../../../../atom/cta/test/fixtures/default';
 import Footer from '../../../slides-footer/test/fixtures/selected';
+import Clue from '../../../../../atom/clue/test/fixtures/default'
 
 const {props} = Cta;
 const footerProps = Footer.props;
+const clueProps = Clue.props;
 
 export default {
   props: {
+    typeClue: true,
     step: {
       current: 2,
       total: 6
@@ -16,7 +19,7 @@ export default {
       submitValue: 'Back to Question'
     },
     help: 'En regardant cet indice, vous perdez 1 étoile',
-    clue: 'Presque le nom de code de James Bond. Presque le nom de code de James Bond.',
+    ...clueProps,
     ...footerProps
   }
 };

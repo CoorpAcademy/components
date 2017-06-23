@@ -4,9 +4,7 @@ const answerProps = QcmImage.props;
 
 export default {
   props: {
-    answer: {
-      type: 'qcmImage',
-      ...answerProps
-    }
+    type: 'qcmImage',
+    ...answerProps
   }
 };

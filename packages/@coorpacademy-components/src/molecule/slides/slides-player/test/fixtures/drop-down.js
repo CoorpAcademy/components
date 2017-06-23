@@ -1,14 +1,11 @@
-import DropDown from '../../../../questions/drop-down/test/fixtures/default';
+import Answer from '../../../../../molecule/answer/test/fixtures/drop-down';
 import Default from './default';
 
-const answerProps = DropDown.props;
+const answer = Answer.props;
 
 export default {
   props: {
     ...Default.props,
-    answer: {
-      type: 'dropDown',
-      ...answerProps
-    }
+    ...answer
   }
 };
