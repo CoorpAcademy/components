@@ -12,7 +12,6 @@ export default function computeNextStep(
   state: State
 ): Content {
   const config = (getConfig(engine): MicroLearningConfig);
-  const {slides = []} = state;
   // if no more lives, return failure endpoint
   if (!isAlive(state)) {
     return {
@@ -29,7 +28,7 @@ export default function computeNextStep(
     };
   }
 
-  const remainingSlides = without(slides, map('_id', slidePool));
+  const remainingSlides = without(state.slides, map('_id', slidePool));
   const nextSlide = sample(remainingSlides);
 
   // with next slide return content object
