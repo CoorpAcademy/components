@@ -3,15 +3,18 @@ import {
   getCurrentProgression,
   getCurrentSlide,
   getCurrentProgressionId,
-  getAnswerValues
+  getAnswerValues,
+  getRoute
 } from '../../utils/state-extract';
 import {validateAnswer} from '../../actions/ui/answers';
+import {selectRoute} from '../../actions/ui/route';
 import getAnswerProps from './answer';
 
 const playerProps = (state, dispatch) => {
   const progression = getCurrentProgression(state);
   const slide = getCurrentSlide(state);
   const answer = getAnswerProps(state, slide, dispatch);
+  const route = getRoute(state);
 
   return {
     step: get('state.step')(progression),
@@ -35,11 +38,19 @@ const playerProps = (state, dispatch) => {
     buttons: [
       {
         title: 'Media',
-        type: 'media'
+        type: 'media',
+        selected: route === 'media',
+        onClick: () => {
+          return dispatch(selectRoute('media'));
+        }
       },
       {
         title: 'Clue',
-        type: 'clue'
+        type: 'clue',
+        selected: route === 'clue',
+        onClick: () => {
+          return dispatch(selectRoute('clue'));
+        }
       },
       {
         title: 'Coach',

@@ -47,4 +47,18 @@ export const getCurrentExitNode = state => {
   return getExitNode(ref)(state);
 };
 
+const getId = get('_id');
+export const getCorrection = state => {
+  const progression = getCurrentProgression(state);
+  const slide = getPreviousSlide(state);
+
+  return get(['data', 'answers', 'entities', getId(progression), getId(slide)], state);
+};
+
+export const getRoute = state => {
+  const progression = getCurrentProgression(state);
+
+  return get(['ui', 'route', getId(progression)], state);
+};
+
 export const getCurrentContent = pipe(getCurrentProgression, get('state.nextContent'));
