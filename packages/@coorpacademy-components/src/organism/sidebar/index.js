@@ -9,7 +9,7 @@ import style from './style.css';
 const SelectItem = props => {
   return (
     <li className={style.selectItem}>
-      <span>{props.title}</span>
+      <span className={style.sidebarTitle}>{props.title}</span>
       <Select
         title={props.title}
         onChange={props.handleOnChange}
@@ -36,7 +36,7 @@ const LinkItem = props => {
       }}
     >
       <li
-        className={style.linkItem}
+        className={`${style.linkItem} ${style.sidebarTitle}`}
         style={{
           borderLeftColor: props.selected ? props.color : null
         }}
@@ -70,11 +70,13 @@ const Sidebar = (props, context) => {
   const sections = Array.isArray(props.items[0]) ? props.items : [props.items];
   const {skin} = context;
   const defaultColor = getOr('#00B0FF', 'common.primary', skin);
-
+  const sectionStyle = props.capitalized
+    ? `${style.sidebarPart} ${style.sidebarCapitalized}`
+    : style.sidebarPart;
   return (
     <div className={style.sidebar}>
       {sections.map((sidebarSection, idx) => (
-        <div className={style.sidebarPart} key={idx}>
+        <div className={sectionStyle} key={idx}>
           <SidebarItems items={sidebarSection} color={defaultColor} />
         </div>
       ))}
@@ -147,6 +149,7 @@ const SelectProptype = PropTypes.shape({
 });
 const SectionProptype = PropTypes.oneOfType([InfoProptype, SelectProptype, LinkProptype]);
 Sidebar.propTypes = {
+  capitalized: PropTypes.bool,
   items: PropTypes.arrayOf(
     PropTypes.oneOfType([SectionProptype, PropTypes.arrayOf(SectionProptype).isRequired])
   ).isRequired

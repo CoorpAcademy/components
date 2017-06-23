@@ -1,5 +1,6 @@
 export default {
   props: {
+    capitalized: true,
     items: [
       [
         {
