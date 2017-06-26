@@ -49,7 +49,9 @@ const SlidesPlayer = (props, context) => {
   } = props;
   const {skin, translate = identity} = context;
 
-  const catchError = error ? <div className={style.error}>Oups, something went wrong...</div> : null;
+  const catchError = error
+    ? <div className={style.error}>Oups, something went wrong...</div>
+    : null;
 
   const helpView = help ? <div className={style.helpView}>{help}</div> : null;
 
