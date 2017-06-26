@@ -4,6 +4,7 @@ import Answer from '../../../../../molecule/answer/test/fixtures/default';
 
 const {props} = Cta;
 const footerProps = Footer.props;
+const answerType = Answer.props;
 
 export default {
   props: {
@@ -18,7 +19,7 @@ export default {
       ...props,
       submitValue: 'Validate'
     },
-    ...Answer.props,
+    answerType,
     ...footerProps
   }
 };

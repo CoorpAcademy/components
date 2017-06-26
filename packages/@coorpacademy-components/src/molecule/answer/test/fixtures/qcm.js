@@ -4,7 +4,7 @@ const answerProps = Qcm.props;
 
 export default {
   props: {
-    question: {
+    model: {
       type: 'qcm',
       ...answerProps
     }

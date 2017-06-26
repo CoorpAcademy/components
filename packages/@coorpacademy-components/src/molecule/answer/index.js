@@ -9,28 +9,28 @@ import QuestionRange from '../../molecule/questions/question-range';
 import style from './style.css';
 
 const Answer = props => {
-  const {question} = props;
+  const {model} = props;
 
   const buildAnswer = () => {
-    const {type} = question;
+    const {type} = model;
 
     switch (type) {
       case 'picker':
-        return <Picker {...question} />;
+        return <Picker {...model} />;
       case 'qcm':
-        return <Qcm {...question} />;
+        return <Qcm {...model} />;
       case 'qcmImage':
-        return <QcmImage {...question} />;
+        return <QcmImage {...model} />;
       case 'freeText':
-        return <FreeText {...question} />;
+        return <FreeText {...model} />;
       case 'dropDown':
-        return <DropDown {...question} />;
+        return <DropDown {...model} />;
       case 'range':
-        return <QuestionRange {...question} />;
+        return <QuestionRange {...model} />;
     }
   };
 
-  const answerView = buildAnswer(question);
+  const answerView = buildAnswer(model);
 
   return (
     <div className={style.wrapper}>
@@ -40,7 +40,7 @@ const Answer = props => {
 };
 
 Answer.propTypes = {
-  question: PropTypes.shape({
+  model: PropTypes.shape({
     type: PropTypes.oneOf(['picker', 'qcm', 'qcmImage', 'freeText', 'dropDown', 'range']).required
   })
 };

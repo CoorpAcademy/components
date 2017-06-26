@@ -2,7 +2,7 @@ import FreeText from '../../../../molecule/questions/free-text/test/fixtures/def
 
 export default {
   props: {
-    question: {
+    model: {
       type: 'freeText',
       ...FreeText.props
     }
