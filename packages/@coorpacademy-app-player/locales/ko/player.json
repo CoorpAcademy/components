@@ -2,7 +2,7 @@
   "Access the lesson": "수업에 액세스",
   "Back to dashboard": "대시보드를 다시",
   "Congratulations!": "축 하!",
-  "Correct answer {answer}": "답변 수정: {answer}",
+  "Correct answer {answer}": "답변 수정: {{answer}}",
   "Did you know that?": "당신이 알고 있었나?",
   "Good answer": "좋은 답변",
   "Good job": "잘 했어요",
