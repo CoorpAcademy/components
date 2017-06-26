@@ -8,6 +8,7 @@ export default defaultsDeep(loading, {
       title: 'Big Data - Avancé',
       subtitle: 'Félicitations !',
       fail: false,
+      corrections: [{answer: 'Correct', isCorrect: true}],
       stars: '+29',
       rank: '+5',
       cta: {

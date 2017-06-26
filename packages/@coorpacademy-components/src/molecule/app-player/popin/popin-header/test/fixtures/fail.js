@@ -4,7 +4,7 @@ export default {
     lives: 2,
     title: 'Aïe Aïe Aïe',
     subtitle: 'Mauvaise réponse',
-    wrongAnswer: 'Maecenas faucibus mollis interdum. Donec sed odio dui.',
+    corrections: [{answer: 'Je ne sais pas', isCorrect: false}],
     cta: {
       title: 'Continuer',
       href: '#'

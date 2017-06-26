@@ -5,6 +5,12 @@ export default defaultsDeep(loading, {
   props: {
     header: {
       fail: false,
+      corrections: [
+        {
+          answer: "Grâce à des outils d'analyse et de surveillance",
+          isCorrect: true
+        }
+      ],
       title: 'Good Job',
       subtitle: 'Bonne réponse',
       cta: {

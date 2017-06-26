@@ -1,13 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
+import zip from 'lodash/fp/zip';
+import pipe from 'lodash/fp/pipe';
+import times from 'lodash/fp/times';
+import compact from 'lodash/fp/compact';
+import flatten from 'lodash/fp/flatten';
 import ArrowRight from '@coorpacademy/nova-icons/composition/navigation/arrow-right';
-import Provider from '../../../../atom/provider';
 import Life from '../../../../atom/life';
 import Link from '../../../../atom/link';
+import Provider from '../../../../atom/provider';
 import style from './style.css';
 
-const WrongAnswer = ({text}) => <p className={style.wrongAnswer}>{text}</p>;
+const separator = index => <span key={index} className={style.answerSeparator}>/</span>;
+
+const joinBySeparator = elements => {
+  const separators = times(separator, elements.length - 1);
+  return pipe(zip, flatten, compact)(elements, separators);
+};
+
+const AnswersCorrection = ({corrections}) => {
+  const answers = corrections.map(correction => (
+    <span
+      key={correction.answer}
+      className={correction.isCorrect ? style.correctAnswer : style.wrongAnswer}
+    >
+      {correction.answer}
+    </span>
+  ));
+  return <p className={style.fullAnswer}>{joinBySeparator(answers)}</p>;
+};
 
 const IconsPart = props => {
   const {lives, fail, stars, rank} = props;
@@ -25,7 +47,7 @@ const IconsPart = props => {
   );
 };
 const CorrectionPart = props => {
-  const {fail = false, wrongAnswer, title, subtitle} = props;
+  const {fail = false, corrections = [], title, subtitle} = props;
   const className = fail ? style.correctionSectionFail : style.correctionSectionDefault;
 
   return (
@@ -33,7 +55,7 @@ const CorrectionPart = props => {
       <div className={style.titlesWrapper}>
         <h1 className={style.title}>{title}</h1>
         <h2 className={style.subtitle}>{subtitle}</h2>
-        {fail && wrongAnswer ? <WrongAnswer text={wrongAnswer} /> : null}
+        {fail && corrections.length ? <AnswersCorrection corrections={corrections} /> : null}
       </div>
       <IconsPart {...props} />
     </div>
@@ -61,7 +83,7 @@ NextQuestionPart.contextTypes = {
 };
 
 const PopinHeader = props => {
-  const {fail = false, title, subtitle, lives, stars, rank, wrongAnswer, cta} = props;
+  const {fail = false, title, subtitle, lives, stars, rank, corrections, cta} = props;
 
   return (
     <div className={style.header}>
@@ -72,7 +94,7 @@ const PopinHeader = props => {
         stars={stars}
         rank={rank}
         fail={fail}
-        wrongAnswer={wrongAnswer}
+        corrections={corrections}
       />
       <NextQuestionPart {...cta} />
     </div>
@@ -86,7 +108,12 @@ PopinHeader.propTypes = {
   rank: PropTypes.string,
   subtitle: PropTypes.string,
   title: PropTypes.string,
-  wrongAnswer: PropTypes.string,
+  corrections: PropTypes.arrayOf(
+    PropTypes.shape({
+      answer: PropTypes.string.isRequired,
+      isCorrect: PropTypes.bool.isRequired
+    })
+  ),
   cta: PropTypes.shape({
     title: PropTypes.string,
     href: PropTypes.url

@@ -247,6 +247,10 @@ import AnswerFixturePicker from '../src/molecule/answer/test/fixtures/picker';
 import AnswerFixtureQcmImage from '../src/molecule/answer/test/fixtures/qcm-image';
 import AnswerFixtureQcm from '../src/molecule/answer/test/fixtures/qcm';
 import AnswerFixtureRange from '../src/molecule/answer/test/fixtures/range';
+import PopinHeaderFixtureDefault from '../src/molecule/app-player/popin/popin-header/test/fixtures/default';
+import PopinHeaderFixtureFailMultipleAnswers from '../src/molecule/app-player/popin/popin-header/test/fixtures/fail-multiple-answers';
+import PopinHeaderFixtureFail from '../src/molecule/app-player/popin/popin-header/test/fixtures/fail';
+import PopinHeaderFixtureStarsRank from '../src/molecule/app-player/popin/popin-header/test/fixtures/stars-rank';
 import BattleRequestFixtureDefault from '../src/molecule/battle-request/test/fixtures/default';
 import BrandCardCreateFixtureDefault from '../src/molecule/brand-card-create/test/fixtures/default';
 import BrandCardFixtureDefault from '../src/molecule/brand-card/test/fixtures/default';
@@ -534,6 +538,7 @@ import PopinCorrectionFixtureCorrectOpenResources2 from '../src/template/app-pla
 import PopinCorrectionFixtureCorrectOpenResources from '../src/template/app-player/popin-correction/test/fixtures/correct-open-resources';
 import PopinCorrectionFixtureCorrectOpenTips from '../src/template/app-player/popin-correction/test/fixtures/correct-open-tips';
 import PopinCorrectionFixtureFailClosed from '../src/template/app-player/popin-correction/test/fixtures/fail-closed';
+import PopinCorrectionFixtureFailMultipleAnswers from '../src/template/app-player/popin-correction/test/fixtures/fail-multiple-answers';
 import PopinCorrectionFixtureFailOpenKlf from '../src/template/app-player/popin-correction/test/fixtures/fail-open-klf';
 import PopinCorrectionFixtureFailOpenResources2 from '../src/template/app-player/popin-correction/test/fixtures/fail-open-resources-2';
 import PopinCorrectionFixtureFailOpenResources from '../src/template/app-player/popin-correction/test/fixtures/fail-open-resources';
@@ -1432,6 +1437,7 @@ export const fixtures = {
       CorrectOpenResources: PopinCorrectionFixtureCorrectOpenResources,
       CorrectOpenTips: PopinCorrectionFixtureCorrectOpenTips,
       FailClosed: PopinCorrectionFixtureFailClosed,
+      FailMultipleAnswers: PopinCorrectionFixtureFailMultipleAnswers,
       FailOpenKlf: PopinCorrectionFixtureFailOpenKlf,
       FailOpenResources2: PopinCorrectionFixtureFailOpenResources2,
       FailOpenResources: PopinCorrectionFixtureFailOpenResources,
