@@ -41,6 +41,8 @@ const SlidesPlayer = (props, context) => {
 
   const stepView = createStepView(step, skin);
 
+  const wrapperColor = typeClue === 'clue' ? '#ECEFF1' : 'white';
+
   const contentStyle = typeClue === 'clue' ? style.contentWrapperHelpers : style.contentWrapper;
 
   const contentView = typeClue === 'clue' ? <Clue text={text} /> : <Answer {...answerType} />;
@@ -54,7 +56,8 @@ const SlidesPlayer = (props, context) => {
       <div
         className={style.contentWrapper}
         style={{
-          minHeight: `calc(100vh - ${verticalMargin}px)`
+          minHeight: `calc(100vh - ${verticalMargin}px)`,
+          backgroundColor: wrapperColor
         }}
       >
         <div className={style.question}>
