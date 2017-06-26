@@ -8,11 +8,23 @@
 @value black from colors;
 @value white from colors;
 @value brand from colors;
+@value negative from colors;
 
 .wrapper {
   position: relative;
   box-shadow: 0 0 4px 5px rgba(0,0,0,0.04);
   border-radius: 3px;
+}
+
+.error {
+  display: block;
+  width: 80%;
+  margin: 32px auto;
+  padding: 32px;
+  text-align: center;
+  box-sizing: border-box;
+  color: negative;
+  border: solid 2px negative;
 }
 
 .contentWrapper {
