@@ -2,7 +2,7 @@
   "Access the lesson": "Acces Lecţia",
   "Back to dashboard": "Înapoi la tabloul de bord",
   "Congratulations!": "Felicitări!",
-  "Correct answer {answer}": "Raspunsul corect: {answer}",
+  "Correct answer {answer}": "Corecta raspunsul: {{answer}}",
   "Did you know that?": "Ştiaţi că?",
   "Good answer": "Răspuns bun",
   "Good job": "bună treabă",
