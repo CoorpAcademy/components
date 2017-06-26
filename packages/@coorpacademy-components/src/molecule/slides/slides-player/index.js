@@ -79,7 +79,7 @@ SlidesPlayer.contextTypes = {
 };
 
 SlidesPlayer.propTypes = {
-  typeClue: PropTypes.boolean,
+  typeClue: PropTypes.bool,
   step: PropTypes.shape({
     current: PropTypes.number.isRequired,
     total: PropTypes.number.isRequired
