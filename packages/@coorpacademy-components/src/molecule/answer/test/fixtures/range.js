@@ -4,7 +4,7 @@ const answerProps = QuestionRange.props;
 
 export default {
   props: {
-    answer: {
+    question: {
       type: 'range',
       ...answerProps
     }

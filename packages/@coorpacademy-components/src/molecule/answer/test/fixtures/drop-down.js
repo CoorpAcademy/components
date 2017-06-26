@@ -4,7 +4,7 @@ const answerProps = DropDown.props;
 
 export default {
   props: {
-    answer: {
+    question: {
       type: 'dropDown',
       ...answerProps
     }

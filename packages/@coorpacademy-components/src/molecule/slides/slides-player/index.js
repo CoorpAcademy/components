@@ -34,16 +34,16 @@ const createStepView = (step, skin) => {
 };
 
 const SlidesPlayer = (props, context) => {
-  const {step, question, cta, help, answer, buttons, text, answer, verticalMargin = 100} = props;
+  const {typeClue, step, question, cta, help, buttons, text, answerType, verticalMargin = 100} = props;
   const {skin, translate = identity} = context;
 
   const helpView = help ? <div className={style.helpView}>{help}</div> : null;
 
   const stepView = createStepView(step, skin);
 
-  const contentStyle = typeClue ? style.contentWrapperHelpers : style.contentWrapper;
+  const contentStyle = typeClue === 'clue' ? style.contentWrapperHelpers : style.contentWrapper;
 
-  const contentView = typeClue ? <Clue text={text} /> : <Answer {...answer} />;
+  const contentView = typeClue === 'clue' ? <Clue text={text} /> : <Answer {...answerType} />;
 
   return (
     <div className={style.wrapper}>
@@ -79,7 +79,7 @@ SlidesPlayer.contextTypes = {
 };
 
 SlidesPlayer.propTypes = {
-  typeClue: PropTypes.bool,
+  typeClue: PropTypes.string,
   step: PropTypes.shape({
     current: PropTypes.number.isRequired,
     total: PropTypes.number.isRequired
@@ -88,7 +88,7 @@ SlidesPlayer.propTypes = {
   help: PropTypes.string,
   verticalMargin: PropTypes.number,
   text: Clue.propTypes.text,
-  answer: Answer.propTypes.answer,
+  answerType: PropTypes.object,
   cta: PropTypes.shape(Cta.propTypes).isRequired,
   buttons: SlidesFooter.propTypes.buttons
 };

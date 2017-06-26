@@ -7,7 +7,7 @@ const footerProps = Footer.props;
 
 export default {
   props: {
-    typeClue: false,
+    typeClue: 'answer',
     step: {
       current: 2,
       total: 6

@@ -8,27 +8,29 @@ import QcmImage from '../../molecule/questions/qcm-image';
 import QuestionRange from '../../molecule/questions/question-range';
 import style from './style.css';
 
-const buildAnswer = answer => {
-  const {type} = answer;
-
-  switch (type) {
-    case 'picker':
-      return <Picker {...answer} />;
-    case 'qcm':
-      return <Qcm {...answer} />;
-    case 'qcmImage':
-      return <QcmImage {...answer} />;
-    case 'freeText':
-      return <FreeText {...answer} />;
-    case 'dropDown':
-      return <DropDown {...answer} />;
-    case 'range':
-      return <QuestionRange {...answer} />;
-  }
-};
-
 const Answer = props => {
-  const answerView = buildAnswer(props);
+  const {question} = props;
+
+  const buildAnswer = () => {
+    const {type} = question;
+
+    switch (type) {
+      case 'picker':
+        return <Picker {...question} />;
+      case 'qcm':
+        return <Qcm {...question} />;
+      case 'qcmImage':
+        return <QcmImage {...question} />;
+      case 'freeText':
+        return <FreeText {...question} />;
+      case 'dropDown':
+        return <DropDown {...question} />;
+      case 'range':
+        return <QuestionRange {...question} />;
+    }
+  };
+
+  const answerView = buildAnswer(question);
 
   return (
     <div className={style.wrapper}>
@@ -38,7 +40,7 @@ const Answer = props => {
 };
 
 Answer.propTypes = {
-  answer: PropTypes.shape({
+  question: PropTypes.shape({
     type: PropTypes.oneOf(['picker', 'qcm', 'qcmImage', 'freeText', 'dropDown', 'range']).required
   })
 };

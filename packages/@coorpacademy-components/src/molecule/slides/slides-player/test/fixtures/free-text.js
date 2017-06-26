@@ -3,7 +3,7 @@ import Default from './default';
 
 export default {
   props: {
-    typeClue: false,
+    typeClue: 'answer',
     ...Default.props,
     ...Answer.props
   }

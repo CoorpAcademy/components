@@ -8,7 +8,7 @@ const clueProps = Clue.props;
 
 export default {
   props: {
-    typeClue: true,
+    typeClue: 'clue',
     step: {
       current: 2,
       total: 6

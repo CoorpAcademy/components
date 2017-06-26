@@ -3,6 +3,7 @@ import Default from './default';
 
 export default {
   props: {
+    typeClue: 'answer',
     ...Default.props,
     ...Answer.props
   }
