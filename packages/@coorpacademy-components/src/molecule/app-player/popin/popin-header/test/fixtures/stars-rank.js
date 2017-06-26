@@ -5,6 +5,7 @@ export default {
     rank: '+5',
     title: 'Big Data - Avancé',
     subtitle: 'Félicitations !',
+    corrections: [{answer: 'Je ne sais pas', isCorrect: false}],
     cta: {
       title: 'Niveau suivant',
       href: '#'

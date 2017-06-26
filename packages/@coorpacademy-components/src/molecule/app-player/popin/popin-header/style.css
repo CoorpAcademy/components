@@ -69,10 +69,21 @@
   font-size: 20px;
 }
 
-.wrongAnswer {
+.fullAnswer {
   composes: titleElement;
-  text-decoration: line-through;
+}
+
+.answerSeparator {
+  margin: 0 3px;
+}
+
+.correctAnswer {
   font-size: 14px;
+}
+
+.wrongAnswer {
+  composes: correctAnswer;
+  text-decoration: line-through;
 }
 
 .lifeWrapper {

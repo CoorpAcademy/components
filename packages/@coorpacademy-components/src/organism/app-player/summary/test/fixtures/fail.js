@@ -8,6 +8,7 @@ export default defaultsDeep(loading, {
       title: 'Oups...',
       subtitle: "Vous n'avez plus de vie...",
       fail: true,
+      corrections: [{answer: 'Correct', isCorrect: false}],
       lives: 0,
       cta: {
         title: 'Retry level',
