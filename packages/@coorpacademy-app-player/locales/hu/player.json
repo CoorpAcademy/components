@@ -2,7 +2,7 @@
   "Access the lesson": "Hozzáférés a lecke",
   "Back to dashboard": "Vissza a műszerfal",
   "Congratulations!": "Gratulálok!",
-  "Correct answer {answer}": "Helyes válasz: {answer}",
+  "Correct answer {answer}": "Helyes válasz: {{answer}}",
   "Did you know that?": "Tudtad, hogy?",
   "Good answer": "Jó válasz",
   "Good job": "szép munka",
