@@ -41,8 +41,7 @@ test(
   t => ({
     ExitNodes: {
       findById: id => {
-        t.is(id, 'foo');
-        return id;
+        t.fail();
       }
     }
   }),

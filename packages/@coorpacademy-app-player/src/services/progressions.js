@@ -12,35 +12,43 @@ import getOr from 'lodash/fp/getOr';
 import set from 'lodash/fp/set';
 import reduce from 'lodash/fp/reduce';
 import progressionsData from './progressions.data';
-import * as SlidesService from './slides';
+import slidesData from './slides.data';
+
+const slideStore = reduce(
+  (slideMap, slide) => slideMap.set(slide._id, slide),
+  new Map(),
+  slidesData
+);
 
 const generateId = () => uniqueId('progression');
-const progressions = reduce(
+const progressionStore = reduce(
   (progressionMap, progression) => progressionMap.set(progression._id, progression),
   new Map(),
   progressionsData
 );
 
-export const findById = id => {
-  if (progressions.has(id)) return Promise.resolve(progressions.get(id));
-  return Promise.reject(new Error('Progression not found'));
+// eslint-disable-next-line require-await
+export const findById = async id => {
+  if (!progressionStore.has(id)) throw new Error('Progression not found');
+  return progressionStore.get(id);
 };
 
-export const findAll = () => {
-  return Promise.resolve(Array.from(progressions.values()));
+// eslint-disable-next-line require-await
+const findAllSlides = async () => {
+  return Array.from(slideStore.values());
 };
 
-const save = progression => {
-  progressions.set(progression._id, progression);
+export const save = progression => {
+  progressionStore.set(progression._id, progression);
   return progression;
 };
 
 export const createAnswer = async (progressionId, payload) => {
   const userAnswers = getOr([''], 'answers', payload);
   const slideId = payload.content.ref;
-  const slide = await SlidesService.findById(slideId);
+  const slide = slideStore.get(slideId);
   const progression = await findById(progressionId);
-  const slides = await SlidesService.findAll();
+  const slides = await findAllSlides();
 
   const action = pipe(
     set('payload.isCorrect', checkAnswer(progression.engine, slide.question, userAnswers)),
@@ -55,19 +63,32 @@ export const createAnswer = async (progressionId, payload) => {
     payload
   });
 
-  const p = update('state', state => updateState(progression.engine, state, [action]), progression);
+  return pipe(update('state', state => updateState(progression.engine, state, [action])), save)(
+    progression
+  );
+};
 
-  return save(p);
+export const requestClue = async (progressionId, payload) => {
+  const progression = await findById(progressionId);
+
+  const action = {
+    type: 'clue',
+    payload
+  };
+
+  return pipe(update('state', state => updateState(progression.engine, state, [action])), save)(
+    progression
+  );
 };
 
 export const create = async progression => {
   const _id = generateId();
+  const slides = await findAllSlides();
 
   const chapter = {
     ref: 'cha_Ny1BTxRp~',
     type: 'chapter'
   };
-  const slides = await SlidesService.findAll();
   const initialContent = {
     ref: sample(slides)._id,
     type: 'slide'

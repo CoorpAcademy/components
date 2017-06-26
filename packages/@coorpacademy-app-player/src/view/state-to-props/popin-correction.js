@@ -1,11 +1,13 @@
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import isNull from 'lodash/fp/isNull';
+import join from 'lodash/fp/join';
 import {
+  getAnswers,
+  getCurrentCorrection,
   getCurrentProgression,
-  getPreviousSlide,
   getCurrentProgressionId,
-  getAnswers
+  getPreviousSlide
 } from '../../utils/state-extract';
 import {toggleAccordion} from '../../actions/ui/corrections';
 import {selectProgression} from '../../actions/ui/progressions';
@@ -22,7 +24,8 @@ const popinCorrectionStateToProps = ({translate}, dispatch) => state => {
     return toggleAccordion(_dispatch, sectionId);
   };
 
-  const {isCorrect, correction} = getAnswers(state);
+  const {isCorrect} = getAnswers(state);
+  const correction = getCurrentCorrection(state);
   const slide = getPreviousSlide(state);
   const accordion = get('ui.corrections.accordion', state);
   const progression = getCurrentProgression(state);
@@ -38,8 +41,8 @@ const popinCorrectionStateToProps = ({translate}, dispatch) => state => {
 
   const question = {
     header: getOr('', 'question.header', slide),
-    answer: translate('Correct answer {answer}', {
-      answer: correction || ''
+    answer: translate('Correct answer {{answer}}', {
+      answer: join(', ', correction) || ''
     })
   };
 

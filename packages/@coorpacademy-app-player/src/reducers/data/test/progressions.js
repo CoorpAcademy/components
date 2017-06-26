@@ -4,14 +4,15 @@ import {
   PROGRESSION_FETCH_REQUEST,
   PROGRESSION_FETCH_SUCCESS,
   PROGRESSION_FETCH_FAILURE,
-  PROGRESSION_CREATE_ANSWER_SUCCESS
+  PROGRESSION_CREATE_ANSWER_SUCCESS,
+  PROGRESSION_REQUEST_CLUE_SUCCESS
 } from '../../../actions/api/progressions';
 import macro from '../../test/helpers/macro';
 
 test('should have initial value', macro, reducer, undefined, {}, {entities: {}});
 
 test(
-  'should set entities to null on request',
+  'should set entity to null on request',
   macro,
   reducer,
   {},
@@ -23,7 +24,7 @@ test(
 );
 
 test(
-  "should set entities to null if doesn't exist on request",
+  "should set entity to null if doesn't exist on request",
   macro,
   reducer,
   {},
@@ -47,7 +48,7 @@ test(
 );
 
 test(
-  'should set entities on success',
+  'should set entity on success',
   macro,
   reducer,
   {},
@@ -74,7 +75,7 @@ test(
 );
 
 test(
-  'should do nothing is entity already exists on failure',
+  'should do nothing on failure if entity already exists',
   macro,
   reducer,
   {entities: {foo: 'foo'}},
@@ -94,6 +95,19 @@ test(
   {entities: {foo: {foo: 'foo'}}},
   {
     type: PROGRESSION_CREATE_ANSWER_SUCCESS,
+    meta: {progressionId: 'foo'},
+    payload: {bar: 'bar'}
+  },
+  {entities: {foo: {foo: 'foo', bar: 'bar'}}}
+);
+
+test(
+  'should merge clue result with progression',
+  macro,
+  reducer,
+  {entities: {foo: {foo: 'foo'}}},
+  {
+    type: PROGRESSION_REQUEST_CLUE_SUCCESS,
     meta: {progressionId: 'foo'},
     payload: {bar: 'bar'}
   },

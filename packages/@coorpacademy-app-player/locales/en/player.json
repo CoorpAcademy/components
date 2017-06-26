@@ -2,7 +2,7 @@
   "Access the lesson": "Access the lesson",
   "Back to dashboard": "Back to dashboard",
   "Congratulations!": "Congratulations!",
-  "Correct answer {answer}": "Correct answer: {{answer}}",
+  "Correct answer {{answer}}": "Correct answer: {{answer}}",
   "Did you know that?": "Did you know that?",
   "Good answer": "Good answer",
   "Good job": "Good job",

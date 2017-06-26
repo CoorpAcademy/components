@@ -10,6 +10,8 @@ test(
   {},
   {
     data: {
+      answers: {entities: {}},
+      clues: {entities: {}},
       exitNodes: {entities: {}},
       progressions: {entities: {}},
       slides: {entities: {}}
@@ -21,7 +23,8 @@ test(
       },
       current: {
         progressionId: null
-      }
+      },
+      route: {}
     }
   }
 );

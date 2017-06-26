@@ -1,10 +1,14 @@
 import {combineReducers} from 'redux';
-import slides from './slides';
-import progressions from './progressions';
+import answers from './answers';
+import clues from './clues';
 import exitNodes from './exit-nodes';
+import progressions from './progressions';
+import slides from './slides';
 
 export default combineReducers({
-  slides,
+  answers,
+  clues,
+  exitNodes,
   progressions,
-  exitNodes
+  slides
 });

@@ -1,13 +1,16 @@
+import map from 'lodash/fp/map';
+import pipe from 'lodash/fp/pipe';
 import reduce from 'lodash/fp/reduce';
+import unset from 'lodash/fp/unset';
 import slidesData from './slides.data';
 
-const slides = reduce((slideMap, slide) => slideMap.set(slide._id, slide), new Map(), slidesData);
+const slideStore = pipe(
+  map(pipe(unset('clue'), unset('question.content.answers'))),
+  reduce((slideMap, slide) => slideMap.set(slide._id, slide), new Map())
+)(slidesData);
 
-export const findById = id => {
-  if (slides.has(id)) return Promise.resolve(slides.get(id));
-  return Promise.reject(new Error('Slide not found'));
-};
-
-export const findAll = () => {
-  return Promise.resolve(Array.from(slides.values()));
+// eslint-disable-next-line import/prefer-default-export,require-await
+export const findById = async id => {
+  if (!slideStore.has(id)) throw new Error('Slide not found');
+  return slideStore.get(id);
 };

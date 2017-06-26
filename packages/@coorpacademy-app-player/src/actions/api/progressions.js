@@ -1,3 +1,5 @@
+import includes from 'lodash/fp/includes';
+import get from 'lodash/fp/get';
 import buildTask from '../../utils/redux-task';
 import {getProgression} from '../../utils/state-extract';
 
@@ -38,6 +40,37 @@ export const createAnswer = (progressionId, answers) => (dispatch, getState, {se
         content: nextContent,
         answers
       }),
+    meta: {progressionId}
+  });
+
+  return dispatch(action);
+};
+
+export const PROGRESSION_REQUEST_CLUE_REQUEST = '@@progression/REQUEST_CLUE_REQUEST';
+export const PROGRESSION_REQUEST_CLUE_SUCCESS = '@@progression/REQUEST_CLUE_SUCCESS';
+export const PROGRESSION_REQUEST_CLUE_FAILURE = '@@progression/REQUEST_CLUE_FAILURE';
+
+export const requestClue = (progressionId, slideId) => (dispatch, getState, {services}) => {
+  const {Progressions} = services;
+  const state = getState();
+  const progression = getProgression(progressionId)(state);
+
+  const requestedClues = get('state.requestedClues', progression);
+
+  const action = buildTask({
+    types: [
+      PROGRESSION_REQUEST_CLUE_REQUEST,
+      PROGRESSION_REQUEST_CLUE_SUCCESS,
+      PROGRESSION_REQUEST_CLUE_FAILURE
+    ],
+    task: () =>
+      Progressions.requestClue(progressionId, {
+        content: {
+          ref: slideId,
+          type: 'slide'
+        }
+      }),
+    bailout: () => includes(slideId, requestedClues),
     meta: {progressionId}
   });
 

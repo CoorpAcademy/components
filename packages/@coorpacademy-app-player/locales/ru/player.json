@@ -2,7 +2,7 @@
   "Access the lesson": "Просмотреть урок",
   "Back to dashboard": "Вернуться на главную страницу",
   "Congratulations!": "Поздравляем!",
-  "Correct answer {answer}": "Правильный ответ: {{answer}}",
+  "Correct answer {{answer}}": "Правильный ответ: {{answer}}",
   "Did you know that?": "Знаете ли вы ?",
   "Good answer": "Верный ответ",
   "Good job": "Отличная работа",
