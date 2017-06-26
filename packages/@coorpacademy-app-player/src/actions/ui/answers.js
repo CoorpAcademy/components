@@ -1,7 +1,9 @@
-import remove from 'lodash/fp/remove';
 import includes from 'lodash/fp/includes';
+import isEmpty from 'lodash/fp/isEmpty';
+import remove from 'lodash/fp/remove';
 import {createAnswer} from '../api/progressions';
 import {fetchAnswer} from '../api/answers';
+import {toggleAccordion} from './corrections';
 
 export const ANSWER_EDIT = {
   qcm: '@@answer/EDIT_QCM',
@@ -43,7 +45,18 @@ export const validateAnswer = (progressionId, body) => async (dispatch, getState
   const createAnswerResponse = await dispatch(createAnswer(progressionId, body.answers));
   if (createAnswerResponse.error) return createAnswerResponse;
 
-  const slideId = createAnswerResponse.payload.state.content.ref;
+  const progressionState = createAnswerResponse.payload.state;
+  const slideId = progressionState.content.ref;
+
+  const {viewedResources = [], isCorrect = false} = progressionState;
+  if (isCorrect) {
+    await dispatch(toggleAccordion(2));
+  } else {
+    isEmpty(viewedResources)
+      ? await dispatch(toggleAccordion(0))
+      : await dispatch(toggleAccordion(1));
+  }
+
   const fetchAnswerResponse = await dispatch(fetchAnswer(progressionId, slideId));
   return fetchAnswerResponse;
 };

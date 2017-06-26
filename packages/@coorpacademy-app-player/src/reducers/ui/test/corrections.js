@@ -12,7 +12,9 @@ test(
   {
     type: UI_SELECT_PROGRESSION
   },
-  {accordion: [false, false, false]}
+  {
+    accordion: [false, false, false]
+  }
 );
 
 test(
@@ -26,5 +28,7 @@ test(
       id: 2
     }
   },
-  {accordion: [undefined, undefined, true]}
+  {
+    accordion: [undefined, undefined, true]
+  }
 );

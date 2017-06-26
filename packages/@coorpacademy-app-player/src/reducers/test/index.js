@@ -18,9 +18,7 @@ test(
     },
     ui: {
       answers: {},
-      corrections: {
-        accordion: [false, false, false]
-      },
+      corrections: {},
       current: {
         progressionId: null
       },
