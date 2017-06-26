@@ -1,4 +1,5 @@
 import get from 'lodash/fp/get';
+import noop from 'lodash/fp/noop';
 import {
   getCurrentProgression,
   getCurrentSlide,
@@ -20,14 +21,13 @@ const playerProps = (state, dispatch) => {
   const route = getRoute(state);
 
   const clickClueHandler = () => dispatch(selectClue);
-  const clickCTAHandler = () => {
+  const clickCTAHandler = () =>
     dispatch(
       validateAnswer(getCurrentProgressionId(state), {
         answers: getAnswerValues(state),
         slideId: slide._id
       })
     );
-  };
 
   return {
     typeClue: route === 'clue',
@@ -60,7 +60,8 @@ const playerProps = (state, dispatch) => {
       },
       {
         title: 'Coach',
-        type: 'coach'
+        type: 'coach',
+        onClick: noop
       }
     ]
   };

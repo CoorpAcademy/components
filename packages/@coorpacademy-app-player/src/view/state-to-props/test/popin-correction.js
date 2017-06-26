@@ -2,8 +2,8 @@ import test from 'ava';
 import noop from 'lodash/fp/noop';
 import set from 'lodash/fp/set';
 import createMapStateToProps from '../popin-correction';
-import statePopinKO from './fixtures/popinKO';
-import statePopinOK from './fixtures/popinOK';
+import statePopinKO from './fixtures/popin-correction/popinKO';
+import statePopinOK from './fixtures/popin-correction/popinOK';
 
 const translate = key => `__${key}`;
 const commonOptions = {
