@@ -24,11 +24,6 @@
   box-sizing: border-box;
 }
 
-.contentWrapperHelpers {
-  composes: contentWrapper;
-  background-color: light;
-}
-
 .stepWrapper {
   position: absolute;
   z-index: 2;

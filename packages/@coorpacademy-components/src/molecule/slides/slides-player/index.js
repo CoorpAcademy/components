@@ -34,7 +34,17 @@ const createStepView = (step, skin) => {
 };
 
 const SlidesPlayer = (props, context) => {
-  const {typeClue, step, question, cta, help, buttons, text, answerType, verticalMargin = 100} = props;
+  const {
+    typeClue,
+    step,
+    question,
+    cta,
+    help,
+    buttons,
+    text,
+    answerType,
+    verticalMargin = 100
+  } = props;
   const {skin, translate = identity} = context;
 
   const helpView = help ? <div className={style.helpView}>{help}</div> : null;
@@ -42,8 +52,6 @@ const SlidesPlayer = (props, context) => {
   const stepView = createStepView(step, skin);
 
   const wrapperColor = typeClue === 'clue' ? '#ECEFF1' : 'white';
-
-  const contentStyle = typeClue === 'clue' ? style.contentWrapperHelpers : style.contentWrapper;
 
   const contentView = typeClue === 'clue' ? <Clue text={text} /> : <Answer {...answerType} />;
 
@@ -91,7 +99,7 @@ SlidesPlayer.propTypes = {
   help: PropTypes.string,
   verticalMargin: PropTypes.number,
   text: Clue.propTypes.text,
-  answerType: PropTypes.object,
+  answerType: PropTypes.shape(Answer.PropTypes),
   cta: PropTypes.shape(Cta.propTypes).isRequired,
   buttons: SlidesFooter.propTypes.buttons
 };
