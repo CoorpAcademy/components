@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="13px" height="13px" viewBox="0 0 13 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch Beta 45 (43276) - http://www.bohemiancoding.com/sketch -->
-    <title>Artboard</title>
+    <title>star</title>
     <desc>Created with Sketch Beta.</desc>
     <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Artboard">
-            <polygon fill="#757575" id="Shape" points="6.5 0 8.03439 4.96557489 13 4.96557489 8.98274 8.03442511 10.51726 13 6.5 9.93114978 2.48274 13 4.01726 8.03442511 0 4.96557489 4.96561 4.96557489"></polygon>
+        <g id="star" fill-rule="nonzero">
+            <polygon fill="#757575" id="Shape" points="8 0 9.88848 6.11147679 16 6.11147679 11.05568 9.88852321 12.94432 16 8 12.2229536 3.05568 16 4.94432 9.88852321 0 6.11147679 6.11152 6.11147679"></polygon>
         </g>
     </g>
 </svg>
