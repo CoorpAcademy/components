@@ -58,7 +58,7 @@
   "devDependencies": {
     "@coorpacademy/translate": "5.3.6",
     "@coorpacademy/webpack-config": "6.0.11",
-    "@coorpacademy/nova-icons": "0.0.1",
+    "@coorpacademy/nova-icons": "1.0.0",
     "@kadira/storybook": "^2.35.3",
     "@kadira/storybook-addon-knobs": "^1.7.1",
     "babel-cli": "^6.24.1",
