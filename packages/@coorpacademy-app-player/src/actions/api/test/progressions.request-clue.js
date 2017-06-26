@@ -9,15 +9,15 @@ import {
   PROGRESSION_REQUEST_CLUE_FAILURE
 } from '../progressions';
 
-const getState = pipe(
+const initState = pipe(
   set('data.progressions.entities.foo._id', 'foo'),
-  set('data.progressions.entities.foo.state.nextContent', 'bar')
+  set('data.progressions.entities.foo.state.nextContent.ref', 'bar')
 );
 
 test(
   'should request clue',
   macro,
-  getState({}),
+  initState({}),
   t => ({
     Progressions: {
       requestClue: (id, payload) => {
@@ -44,7 +44,7 @@ test(
 test(
   'should prevent request if clue has already requested',
   macro,
-  pipe(getState, set('data.progressions.entities.foo.state.requestedClues', ['bar']))({}),
+  pipe(initState, set('data.progressions.entities.foo.state.requestedClues', ['bar']))({}),
   t => ({
     Progressions: {
       requestClue: (id, payload) => {
@@ -64,7 +64,7 @@ test(
 test(
   'should return error if request failed',
   macro,
-  getState({}),
+  initState({}),
   t => ({
     Progressions: {
       requestClue: (id, payload) => {

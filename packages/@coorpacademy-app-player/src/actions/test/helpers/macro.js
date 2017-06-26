@@ -17,7 +17,7 @@ export default async (t, state, createServices, action, expected) => {
   const {dispatch} = createStore(
     (_state, _action) => {
       const [expectedAction, newState = _state] = expectedActions.shift() || [];
-      t.deepEqual(expectedAction, _action);
+      t.deepEqual(_action, expectedAction);
       return defaultsDeep(_state, newState);
     },
     state,
@@ -27,5 +27,5 @@ export default async (t, state, createServices, action, expected) => {
   const result = await dispatch(action);
 
   t.is(size(expectedActions), 0);
-  t.deepEqual(head(last(mapExpected(expected))), result);
+  t.deepEqual(result, head(last(mapExpected(expected))));
 };

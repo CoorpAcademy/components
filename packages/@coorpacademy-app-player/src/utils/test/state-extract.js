@@ -18,20 +18,20 @@ import {
   getQuestionType
 } from '../state-extract';
 
-test('should getChoices', t => {
+test('getChoices should get choices from state', t => {
   const choices = ['foo', 'bar'];
   const plop = set('question.content.choices', choices, {});
   t.is(getChoices(plop), choices);
 });
 
-test('should getCurrentProgressionId', t => {
+test("getCurrentProgressionId should get current progression's id from state", t => {
   const progressionId = '1234';
   const plop = set('ui.current.progressionId', progressionId, {});
   t.is(getCurrentProgressionId(plop), progressionId);
   t.is(getCurrentProgressionId({}), undefined);
 });
 
-test('should getCurrentProgression', t => {
+test('getCurrentProgression should get current progression from state', t => {
   const progression = {foo: 'bar'};
   const state = pipe(
     set('ui.current.progressionId', '0'),
@@ -41,27 +41,27 @@ test('should getCurrentProgression', t => {
   t.is(getCurrentProgression(state), progression);
 });
 
-test('should getAnswers', t => {
+test('getAnswers should get answers from state', t => {
   const answers = {value: ['foo']};
   const state = pipe(set('ui.current.progressionId', '0'), set('ui.answers.0', answers))({});
 
   t.is(getAnswers(state), answers);
 });
 
-test('should getAnswerValues', t => {
+test("getAnswerValues should get answer's values from state", t => {
   const answers = ['foo'];
   const state = pipe(set('ui.current.progressionId', '0'), set('ui.answers.0.value', answers))({});
 
   t.is(getAnswerValues(state), answers);
 });
 
-test('should getQuestionType', t => {
+test("getQuestionType should get question's type from state", t => {
   const type = 'foo';
   const plop = set('question.type', type, {});
   t.is(getQuestionType(plop), type);
 });
 
-test('should getCurrentSlide', t => {
+test('getCurrentSlide should get current slide from state', t => {
   const slide = {_id: '0'};
   const progression = {state: {nextContent: {ref: '0'}}};
   const state = pipe(
@@ -73,7 +73,7 @@ test('should getCurrentSlide', t => {
   t.is(getCurrentSlide(state), slide);
 });
 
-test('should getCurrentExitNode', t => {
+test('getCurrentExitNode should get current exit node from state', t => {
   const exitNode = {ref: 'successExitNode'};
   const progression = {state: {nextContent: {ref: 'successExitNode'}}};
   const state = pipe(
@@ -85,7 +85,7 @@ test('should getCurrentExitNode', t => {
   t.is(getCurrentExitNode(state), exitNode);
 });
 
-test('should getPreviousSlide', t => {
+test('getPreviousSlide should get previous slide from state', t => {
   const slide = {_id: '0'};
   const progression = {state: {content: {ref: '0'}}};
   const state = pipe(
@@ -96,7 +96,7 @@ test('should getPreviousSlide', t => {
   t.is(getPreviousSlide(state), slide);
 });
 
-test('should getCurrentContent', t => {
+test('getCurrentContent should get current content from state', t => {
   const content = {ref: '0', type: 'slide'};
   const progression = {state: {nextContent: content}};
   const state = pipe(
@@ -107,14 +107,14 @@ test('should getCurrentContent', t => {
   t.is(getCurrentContent(state), content);
 });
 
-test('should getCorrection', t => {
+test('getCorrection should get correction from state', t => {
   const correction = ['Bonne réponse'];
   const state = set('data.answers.entities.foo.bar', correction)({});
 
   t.is(getCorrection('foo', 'bar')(state), correction);
 });
 
-test('should getCurrentCorrection', t => {
+test('getCurrentCorrection should get current correction from state', t => {
   const progression = pipe(set('_id', 'foo'), set('state.content.ref', 'bar'))({});
   const slide = {_id: 'bar'};
   const correction = ['Bonne réponse'];
@@ -128,14 +128,14 @@ test('should getCurrentCorrection', t => {
   t.is(getCurrentCorrection(state), correction);
 });
 
-test('should getClue', t => {
+test('getClue should get clue from state', t => {
   const clue = 'Indice';
   const state = set('data.clues.entities.foo.bar', clue)({});
 
   t.is(getClue('foo', 'bar')(state), clue);
 });
 
-test('should getCurrentClue', t => {
+test('getCurrentClue should get current clue from state', t => {
   const progression = pipe(set('_id', 'foo'), set('state.nextContent.ref', 'bar'))({});
   const slide = {_id: 'bar'};
   const clue = 'Indice';
