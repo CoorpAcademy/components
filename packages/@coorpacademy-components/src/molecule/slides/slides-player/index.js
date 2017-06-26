@@ -5,6 +5,7 @@ import getOr from 'lodash/fp/getOr';
 import Cta from '../../../atom/cta';
 import Provider from '../../../atom/provider';
 import Clue from '../../../atom/clue';
+import Loader from '../../../atom/loader';
 import Answer from '../../../molecule/answer';
 import SlidesFooter from '../slides-footer';
 import style from './style.css';
@@ -35,6 +36,7 @@ const createStepView = (step, skin) => {
 
 const SlidesPlayer = (props, context) => {
   const {
+    error,
     typeClue,
     step,
     question,
@@ -47,6 +49,8 @@ const SlidesPlayer = (props, context) => {
   } = props;
   const {skin, translate = identity} = context;
 
+  const catchError = error ? <div className={style.error}>Oups, something went wrong...</div> : null;
+
   const helpView = help ? <div className={style.helpView}>{help}</div> : null;
 
   const stepView = createStepView(step, skin);
@@ -55,7 +59,7 @@ const SlidesPlayer = (props, context) => {
 
   const contentView = typeClue === 'clue' ? <Clue text={text} /> : <Answer {...answerType} />;
 
-  return (
+  const slideView = (
     <div className={style.wrapper}>
       {stepView}
       <div className={style.guideWrapper}>
@@ -82,6 +86,15 @@ const SlidesPlayer = (props, context) => {
       </div>
     </div>
   );
+
+  const globalView = stepView ? slideView : <Loader />;
+
+  return (
+    <div>
+      {catchError}
+      {globalView}
+    </div>
+  );
 };
 
 SlidesPlayer.contextTypes = {
@@ -90,6 +103,7 @@ SlidesPlayer.contextTypes = {
 };
 
 SlidesPlayer.propTypes = {
+  error: PropTypes.bool,
   typeClue: PropTypes.string,
   step: PropTypes.shape({
     current: PropTypes.number.isRequired,
