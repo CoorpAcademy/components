@@ -145,27 +145,12 @@
 }
 
 .play {
-  composes: fa from '../../variables/fontawesome.css';
-  composes: fa-play from '../../variables/fontawesome.css';
+  position: absolute;
   top: 50%;
   left: 50%;
-  margin-left: -20px;
-  margin-top: -25px;
-  position: absolute;
-  border: 5px solid white;
-  border-radius: 50%;
-  height: 40px;
-  width: 40px;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
-}
-
-.play:before {
-  position: absolute;
-  top: 10px;
-  left: 15px;
-  color: white;
-  font-size: 20px;
-  text-shadow: 0px 2px 4px rgba(0,0,0,.5);
+  height: 52px;
+  width: 52px;
+  margin: -20px 0 0 -20px;
 }
 
 .mediaTitle {

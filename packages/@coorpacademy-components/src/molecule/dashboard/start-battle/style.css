@@ -20,7 +20,6 @@
   max-width: 1080px;
   flex: 1 1 100%;
   background: white;
-  border: 1px solid rgba(0,0,0,.1);
 }
 
 .start {
@@ -79,12 +78,10 @@
   transform: scale(1);
 }
 
-.bubble {
-  content: '';
+.bubbleFrame {
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  background-color: battle;
   position: absolute;
   overflow: hidden;
   top: 0;
@@ -95,21 +92,26 @@
   justify-content: center;
 }
 
-.bubble .icon {
-  color: white;
-  transition: all 0.2s ease-out;
+.bubble {
+  composes: bubbleFrame;
+  background-color: battle;
+}
+
+.backBubble {
+  composes: bubbleFrame;
+}
+
+.iconBubble {
+  composes: bubbleFrame;
+}
+
+.animate:hover .iconBubble {
+  opacity: 0;
 }
 
 .icon {
-  composes: fa from '../../../variables/fontawesome.css';
-  composes: fa-bolt from '../../../variables/fontawesome.css';
-  position: absolute;
-  font-size: 130px;
-  text-align: center;
-  width: 100%;
-  left: 0px;
-  top: 5px;
-  color: battle;
+  width: 100px;
+  height: 100px;
 }
 
 .label {

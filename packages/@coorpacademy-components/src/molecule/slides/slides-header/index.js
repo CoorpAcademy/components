@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import getOr from 'lodash/fp/getOr';
+import get from 'lodash/fp/get';
+import BackIcon from '@coorpacademy/nova-icons/composition/navigation/arrow-left';
 import Link from '../../../atom/link';
 import Provider from '../../../atom/provider';
 import Life from '../../../atom/life';
@@ -10,7 +11,8 @@ const SlidesHeader = (props, context) => {
   const {backHref, primary, secondary, lives} = props;
   const {skin} = context;
 
-  const primarySkinColor = getOr('#00B0FF', 'common.primary', skin);
+  const darkColor = get('common.dark', skin);
+  const primarySkinColor = get('common.primary', skin);
 
   const primarySubtitleView = primary && primary.subtitle
     ? <div
@@ -37,7 +39,9 @@ const SlidesHeader = (props, context) => {
 
   return (
     <div className={style.wrapper}>
-      <Link href={backHref} className={style.back} />
+      <Link href={backHref} className={style.backLink}>
+        <BackIcon className={style.backIcon} color={darkColor} />
+      </Link>
       <div className={style.primary}>
         {primarySubtitleView}
         <div className={style.primaryTitle}>
@@ -49,7 +53,7 @@ const SlidesHeader = (props, context) => {
         {secondaryTitleView}
       </div>
       <div className={style.livesWrapper}>
-        <Life {...lives} />
+        <Life {...lives} className={style.life} mode="small" />
       </div>
     </div>
   );

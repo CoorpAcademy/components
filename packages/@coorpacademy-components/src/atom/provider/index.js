@@ -1,12 +1,38 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import defaultsDeep from 'lodash/fp/defaultsDeep';
 import * as CustomPropTypes from '../../util/proptypes';
+
+const DEFAULT_SKIN = {
+  common: {
+    brand: '#00B0FF',
+    primaryAdd1: '#B3E5FC',
+    primaryAdd2: '#0091EA',
+    primaryAdd3: '#0277BD',
+    primaryAdd4: '#015798',
+    xtraLightGrey: '#FAFAFA',
+    light: '#ECEFF1',
+    medium: '#90A4AE',
+    dark: '#546E7A',
+    grey: '#607D8B',
+    orangeAdd: '#FF7043',
+    orange: '#FFA000',
+    positive: '#3EC483',
+    lightGreen: '#66BB6A',
+    negative: '#F73F52',
+    battle: '#FFE100',
+    white: '#FFFFFF',
+    black: '#14171A'
+  }
+};
+
+const mergeSkin = (skin = {}) => defaultsDeep(skin, DEFAULT_SKIN);
 
 class Provider extends React.Component {
   constructor(props, context) {
     const {history, skin, translate} = props;
     super(props, context);
-    this.state = {history, skin, translate};
+    this.state = {history, skin: mergeSkin(skin), translate};
   }
 
   getChildContext() {
@@ -17,7 +43,7 @@ class Provider extends React.Component {
     const {history, skin, translate} = nextProps;
     this.setState({
       history,
-      skin,
+      skin: mergeSkin(skin),
       translate
     });
   }

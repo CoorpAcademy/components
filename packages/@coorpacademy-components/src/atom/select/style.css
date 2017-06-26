@@ -89,14 +89,11 @@
 .arrow {
   position: absolute;
   right: 10px;
-  margin-top: -10px;
+  margin-top: -4px;
   top: 50%;
-  font-size: 20px;
-  color: black;
-  font-weight: 700;
   pointer-events: none;
-  composes: fa from '../../variables/fontawesome.css';
-  composes: fa-angle-down from '../../variables/fontawesome.css';
+  width: 12px;
+  height: 12px;
 }
 
 @media mobile {

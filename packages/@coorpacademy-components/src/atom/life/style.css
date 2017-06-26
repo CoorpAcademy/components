@@ -2,57 +2,226 @@
 @value white from colors;
 @value negative from colors;
 @value dark from colors;
+@value grey from colors;
+
+/*
+ * Default
+ */
 
 .default {
   position: relative;
-  width: 52px;
+  width: 90px;
+  height: 67px;
+}
+
+.counterText {
+  position: absolute;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  font-family: 'Open Sans';
+  font-weight: 700;
+  top: 0;
+  right: 0;
+  width: 67px;
+  height: 67px;
+  line-height: 0;
+  overflow: hidden;
+}
+
+.livesCounterWrapper {
+  composes: counterText;
+  border-radius: 50%;
+  background-color: white;
+  color: dark;
+}
+
+.multiplier {
+  composes: counterText;
+  color: grey;
+}
+
+.multiplierText {
+  margin-left: -14px;
+}
+
+@keyframes hidePreviousLivesCounter {
+  0% {margin-top: 100%;}
+  75% {margin-top: 100%;}
+  85% {margin-top: -100%;}
+  100% {margin-top: -100%;}
+}
+
+.counterValue {
+  margin-left: 14px;
+}
+
+.previousLivesCounterDefault {
+  composes: counterValue;
+  margin-top: -100%;
+}
+
+.previousLivesCounterFail {
+  composes: counterValue;
+  animation-name: hidePreviousLivesCounter;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+.livesCounterDefault {
+  composes: counterValue;
+  margin-top: 100%;
+}
+
+.livesCounterFail {
+  composes: counterValue;
+  margin-top: 100%;
+}
+
+@keyframes shakeHeart {
+  0% {transform: translateX(-1px);}
+  1% {transform: translateX(1px);}
+  2% {transform: translateX(-1px);}
+  3% {transform: translateX(1px);}
+  4% {transform: translateX(-1px);}
+  5% {transform: translateX(1px);}
+  6% {transform: translateX(-1px);}
+  7% {transform: translateX(1px);}
+  8% {transform: translateX(-1px);}
+  9% {transform: translateX(1px);}
+  10% {transform: translateX(0);}
+  30% {transform: translateX(0);}
+  40% {transform: translateX(-1px);}
+  41% {transform: translateX(1px);}
+  42% {transform: translateX(-1px);}
+  43% {transform: translateX(1px);}
+  44% {transform: translateX(-1px);}
+  45% {transform: translateX(1px);}
+  46% {transform: translateX(-1px);}
+  47% {transform: translateX(1px);}
+  48% {transform: translateX(-1px);}
+  49% {transform: translateX(1px);}
+  50% {transform: translateX(0);}
+  70% {transform: translateX(0);}
+  71% {transform: translateX(1px);}
+  72% {transform: translateX(-1px);}
+  73% {transform: translateX(1px);}
+  74% {transform: scale(1.1, 1) translateX(-1px);}
+  75% {transform: scale(1.2, 1) translateX(1px);}
+  76% {transform: scale(1.2, 1) translateX(-1px);}
+  77% {transform: scale(1.3, 1) translateX(1px);}
+  78% {transform: scale(1.4, 1.1) translateX(-1px);}
+  79% {transform: scale(1.4, 1.2) translateX(1px);}
+  80% {transform: scale(1.5, 1.3);}
+  82% {transform: scale(1);}
+}
+
+.heartWrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 42px;
+  height: 100%;
+}
+
+.heartWrapperDefault {
+  composes: heartWrapper;
+}
+
+.heartWrapperFail {
+  composes: heartWrapper;
+  animation-name: shakeHeart;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+.centeredOverlapIcon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+
+.heartIcon {
+  composes: centeredOverlapIcon;
+  margin: -17px 0 0 -17px;
+  width: 34px;
+  height: 34px;
+}
+
+@keyframes showBrokenHeart {
+  0% {opacity: 0;}
+  79% {opacity: 0;}
+  80% {opacity: 1;}
+  100% {opacity: 1;}
+}
+
+@keyframes hideNormalHeart {
+  0% {opacity: 1;}
+  79% {opacity: 1;}
+  80% {opacity: 0;}
+  100% {opacity: 0;}
+}
+
+.heartOutline {
+  composes: heartIcon;
+}
+
+.heartNormalDefault {
+  composes: heartIcon;
+  opacity: 1;
+}
+
+.heartNormalFail {
+  composes: heartIcon;
+  animation-name: hideNormalHeart;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+.heartBrokenDefault {
+  composes: heartIcon;
+  opacity: 0;
+}
+
+.heartBrokenFail {
+  composes: heartIcon;
+  animation-name: showBrokenHeart;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+/*
+ * Small
+ */
+
+.small {
+  position: relative;
+  width: 57px;
   height: 42px;
 }
 
-.heart {
-  composes: fa from '../../variables/fontawesome.css';
-  composes: fa-heart from '../../variables/fontawesome.css';
-  font-size: 18px;
-  position: absolute;
-  top: 50%;
-  margin-top: -8px;
-  left: 4px;
-  color: negative;
-}
-
-.heartBackground {
-  composes: fa from '../../variables/fontawesome.css';
-  composes: fa-heart from '../../variables/fontawesome.css';
-  font-size: 26px;
-  color: white;
-  position: absolute;
-  top: 50%;
-  margin-top: -12px;
-}
-
-.bolt {
-  composes: fa from '../../variables/fontawesome.css';
-  composes: fa-bolt from '../../variables/fontawesome.css';
-  font-size: 8px;
-  position: absolute;
-  top: 50%;
-  margin-top: -7px;
-  left: 11px;
-  color: white;
-}
-
-.livesCounter {
-  position: absolute;
-  font-family: 'Open Sans';
-  font-size: 15px;
-  font-weight: 600;
-  color: dark;
+.small .counterText {
   width: 42px;
   height: 42px;
-  border-radius: 21px;
-  background-color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  left: 14px;
+  font-size: 16px;
+}
+
+.small .multiplierText {
+  margin-left: -10px;
+}
+
+.small .counterValue {
+  margin-left: 10px;
+}
+
+.small .heartWrapper {
+  width: 28px;
+}
+
+.small .heartIcon {
+  margin: -11px 0 0 -11px;
+  width: 22px;
+  height: 22px;
 }

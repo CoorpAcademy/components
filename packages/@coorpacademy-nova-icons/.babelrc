@@ -1,0 +1,79 @@
+{
+  "presets": [
+    "stage-1",
+    "react"
+  ],
+  "env": {
+    "commonjs": {
+      "presets": [
+        [
+          "env",
+          {
+            "targets": {
+              "node": true
+            },
+            "loose": true
+          }
+        ]
+      ],
+      "plugins": [
+        [
+          "transform-react-remove-prop-types",
+          {
+            "mode": "wrap"
+          }
+        ],
+        [
+          "css-modules-transform",
+          {
+            "generateScopedName": "[folder]__[local]"
+          }
+        ]
+      ]
+    },
+    "test": {
+      "presets": [
+        [
+          "env",
+          {
+            "targets": {
+              "node": true
+            },
+            "loose": true
+          }
+        ]
+      ],
+      "plugins": [
+        [
+          "css-modules-transform",
+          {
+            "generateScopedName": "[folder]__[local]"
+          }
+        ],
+        "istanbul"
+      ]
+    },
+    "es": {
+      "presets": [
+        [
+          "env",
+          {
+            "targets": {
+              "node": true
+            },
+            "modules": false,
+            "loose": true
+          }
+        ]
+      ],
+      "plugins": [
+        [
+          "transform-react-remove-prop-types",
+          {
+            "mode": "wrap"
+          }
+        ]
+      ]
+    }
+  }
+}

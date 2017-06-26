@@ -27,16 +27,8 @@
 }
 
 .icon {
-  composes: fa from '../../variables/fontawesome.css';
-  composes: fa-exclamation from '../../variables/fontawesome.css';
-  width: 12px;
-  height: 12px;
-  font-size: 15px;
-  background: negative;
-  color: white;
-  padding: 7px;
-  border-radius: 50%;
-  text-align: center;
+  width: 32px;
+  height: 32px;
 }
 
 .warning, .title {

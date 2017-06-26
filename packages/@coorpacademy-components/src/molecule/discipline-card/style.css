@@ -165,8 +165,6 @@
   }
 
   .arrow {
-    composes: fa from '../../variables/fontawesome.css';
-    composes: fa-chevron-right from '../../variables/fontawesome.css';
     display: block;
     width: 10px;
     height: 20px;

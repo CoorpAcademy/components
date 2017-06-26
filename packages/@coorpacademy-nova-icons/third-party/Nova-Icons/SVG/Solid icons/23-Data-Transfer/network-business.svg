@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px"
+	 height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+<g id="Frame_-_24px">
+	<rect y="0" fill="none" width="24" height="24"/>
+</g>
+<g id="Filled_Icons">
+	<g>
+		<g>
+			<rect x="8" y="10.001" fill="#757575" width="4" height="4"/>
+			<path fill="#757575" d="M6,10.001H1.201C1.07,10.648,1,11.316,1,12.001c0,0.684,0.07,1.353,0.201,2H6V10.001z"/>
+			<path fill="#757575" d="M8,8.001h4v-6h-1c-1.045,0-2.053,0.162-3,0.461V8.001z"/>
+			<path fill="#757575" d="M8,16.001v5.539c0.947,0.298,1.955,0.461,3,0.461h1v-6H8z"/>
+			<path fill="#757575" d="M6,8.001V3.353C4.166,4.419,2.698,6.044,1.841,8.001H6z"/>
+			<path fill="#757575" d="M6,16.001H1.841C2.698,17.957,4.166,19.583,6,20.647V16.001z"/>
+		</g>
+		<g>
+			<circle fill="#757575" cx="18" cy="5.001" r="3"/>
+			<path fill="#757575" d="M18,8.001c-2.757,0-5,2.242-5,5v3c0,0.552,0.447,1,1,1h1v4c0,0.552,0.447,1,1,1h4c0.553,0,1-0.448,1-1v-4
+				h1c0.553,0,1-0.448,1-1v-3C23,10.243,20.757,8.001,18,8.001z"/>
+		</g>
+	</g>
+</g>
+</svg>
