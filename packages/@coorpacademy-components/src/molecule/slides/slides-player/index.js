@@ -43,7 +43,7 @@ const SlidesPlayer = (props, context) => {
 
   const contentStyle = typeClue ? style.contentWrapperHelpers : style.contentWrapper;
 
-  const contentView = typeClue ? <Clue text={text} /> : <Answer answer={answer} />;
+  const contentView = typeClue ? <Clue text={text} /> : <Answer {...answer} />;
 
   return (
     <div className={style.wrapper}>
@@ -88,7 +88,7 @@ SlidesPlayer.propTypes = {
   help: PropTypes.string,
   verticalMargin: PropTypes.number,
   text: Clue.propTypes.text,
-  answer: PropTypes.function,
+  answer: Answer.propTypes.answer,
   cta: PropTypes.shape(Cta.propTypes).isRequired,
   buttons: SlidesFooter.propTypes.buttons
 };
