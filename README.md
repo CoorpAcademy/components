@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/CoorpAcademy/components.svg?branch=master)](https://travis-ci.org/CoorpAcademy/components)
-[![Coverage Status](https://coveralls.io/repos/github/CoorpAcademy/components/badge.svg?branch=master&t=15or4z)](https://coveralls.io/github/CoorpAcademy/components?branch=master)
+[![Coverage Status](https://codecov.io/gh/CoorpAcademy/components/branch/master/graph/badge.svg)](https://codecov.io/gh/CoorpAcademy/components)
 [![GitPitch](https://gitpitch.com/assets/badge.svg)](https://gitpitch.com/coorpacademy/tekacademy/components?grs=github&t=night)
 
 # Coorpacademy components
