@@ -514,6 +514,7 @@ import ProductCursusFixtureLoading from '../src/template/app-catalog/product-cur
 import ProductCursusFixtureWithoutAssets from '../src/template/app-catalog/product-cursus/test/fixtures/without-assets';
 import ProductCursusFixtureWithoutBadge from '../src/template/app-catalog/product-cursus/test/fixtures/without-badge';
 import LoadingFixtureDefault from '../src/template/app-player/loading/test/fixtures/default';
+import PlayerFixtureClue from '../src/template/app-player/player/test/fixtures/clue';
 import PlayerFixtureDropDown from '../src/template/app-player/player/test/fixtures/drop-down';
 import PlayerFixtureFreeText from '../src/template/app-player/player/test/fixtures/free-text';
 import PlayerFixturePicker from '../src/template/app-player/player/test/fixtures/picker';
@@ -1403,6 +1404,7 @@ export const fixtures = {
       Default: LoadingFixtureDefault
     },
     Player: {
+      Clue: PlayerFixtureClue,
       DropDown: PlayerFixtureDropDown,
       FreeText: PlayerFixtureFreeText,
       Picker: PlayerFixturePicker,
