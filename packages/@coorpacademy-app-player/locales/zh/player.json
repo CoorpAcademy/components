@@ -2,7 +2,7 @@
   "Access the lesson": "进入课程",
   "Back to dashboard": "返回仪表板",
   "Congratulations!": "恭喜！",
-  "Correct answer {answer}": "正确答案：{answer}",
+  "Correct answer {answer}": "正确答案：{{answer}}",
   "Did you know that?": "你知道吗？",
   "Good answer": "好答案",
   "Good job": "做得好",
