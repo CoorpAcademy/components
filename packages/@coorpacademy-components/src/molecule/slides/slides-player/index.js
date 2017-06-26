@@ -88,7 +88,7 @@ SlidesPlayer.propTypes = {
   help: PropTypes.string,
   verticalMargin: PropTypes.number,
   text: Clue.propTypes.text,
-  answer: PropTypes.shape(Answer.propTypes),
+  answer: PropTypes.function,
   cta: PropTypes.shape(Cta.propTypes).isRequired,
   buttons: SlidesFooter.propTypes.buttons
 };
