@@ -2,7 +2,7 @@
   "Access the lesson": "Toegang tot de les",
   "Back to dashboard": "Terug naar dashboard",
   "Congratulations!": "Gefeliciteerd!",
-  "Correct answer {answer}": "Juiste antwoord: {answer}",
+  "Correct answer {answer}": "Juiste antwoord: {{answer}}",
   "Did you know that?": "Wist u dat?",
   "Good answer": "Goede antwoord",
   "Good job": "Goed gedaan",
