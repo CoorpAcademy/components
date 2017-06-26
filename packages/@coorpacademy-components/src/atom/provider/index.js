@@ -21,8 +21,8 @@ const DEFAULT_SKIN = {
     lightGreen: '#66BB6A',
     negative: '#F73F52',
     battle: '#FFE100',
-    white: '#fff',
-    black: '#14171'
+    white: '#FFFFFF',
+    black: '#14171A'
   }
 };
 
