@@ -4,7 +4,7 @@
     "bootstrap": "lerna bootstrap",
     "build": "lerna run build",
     "clean": "lerna run clean && lerna clean --yes",
-    "coveralls": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "codecov": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
     "doc": "lerna run --scope @coorpacademy/components doc",
     "flow": "flow check",
     "generate": "lerna exec --scope @coorpacademy/components -- npm run generate",

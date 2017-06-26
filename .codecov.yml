@@ -1,0 +1,60 @@
+codecov:
+  notify:
+    require_ci_to_pass: yes
+
+coverage:
+  status:
+    project:
+      appForum:
+        target: auto
+        paths: "packages/@coorpacademy-app-forum"
+      appPlayer:
+        target: auto
+        paths: "packages/@coorpacademy-app-player"
+      appTemplate:
+        target: auto
+        paths: "packages/@coorpacademy-app-template"
+      components:
+        target: auto
+        paths: "packages/@coorpacademy-components"
+      history:
+        target: 100%
+        paths: "packages/@coorpacademy-history"
+      progressionEngine:
+        target: auto
+        paths: "packages/@coorpacademy-progression-engine"
+      reduxHistory:
+        target: 100%
+        paths: "packages/@coorpacademy-redux-history"
+      reduxRouter:
+        target: 100%
+        paths: "packages/@coorpacademy-redux-router"
+      translate:
+        target: 100%
+        paths: "packages/@coorpacademy-translate"
+      treantjsAdapterAngular:
+        target: 100%
+        paths: "packages/@coorpacademy-treantjs-adapter-angular"
+      treantjsAdapterDust:
+        target: 100%
+        paths: "packages/@coorpacademy-treantjs-adapter-dust"
+      webpackConfig:
+        target: 100%
+        paths: "packages/@coorpacademy-webpack-config"
+      repository:
+        paths: "!packages/"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
