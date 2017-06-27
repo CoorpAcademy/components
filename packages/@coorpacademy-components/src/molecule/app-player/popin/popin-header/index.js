@@ -51,6 +51,7 @@ const NextQuestionPart = (props, context) => {
         {title}
         <ArrowRight color={mediumColor} className={style.nextButtonIcon} />
       </Link>
+      <div className={style.buttonOverlay} />
     </div>
   );
 };
