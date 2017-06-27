@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import identity from 'lodash/fp/identity';
 import getOr from 'lodash/fp/getOr';
-import values from 'lodash/fp/values';
 import Cta from '../../../atom/cta';
 import Provider from '../../../atom/provider';
 import Clue from '../../../atom/clue';
