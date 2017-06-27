@@ -53,9 +53,21 @@ test(
   {
     type: ANSWER_FETCH_SUCCESS,
     meta: {progressionId: 'foo', slideId: 'bar'},
-    payload: 'foo'
+    payload: {
+      correctAnswer: ['baz'],
+      corrections: [{answer: 'foo', isCorrect: false}]
+    }
   },
-  {entities: {foo: {bar: 'foo'}}}
+  {
+    entities: {
+      foo: {
+        bar: {
+          correctAnswer: ['baz'],
+          corrections: [{answer: 'foo', isCorrect: false}]
+        }
+      }
+    }
+  }
 );
 
 test(
@@ -76,12 +88,30 @@ test(
   'should do nothing on failure if entity already exists',
   macro,
   reducer,
-  {entities: {foo: {bar: 'foo'}}},
+  {
+    entities: {
+      foo: {
+        bar: {
+          correctAnswer: ['baz'],
+          corrections: [{answer: 'foo', isCorrect: false}]
+        }
+      }
+    }
+  },
   {
     type: ANSWER_FETCH_FAILURE,
     meta: {progressionId: 'foo', slideId: 'bar'},
     error: true,
     payload: {}
   },
-  {entities: {foo: {bar: 'foo'}}}
+  {
+    entities: {
+      foo: {
+        bar: {
+          correctAnswer: ['baz'],
+          corrections: [{answer: 'foo', isCorrect: false}]
+        }
+      }
+    }
+  }
 );

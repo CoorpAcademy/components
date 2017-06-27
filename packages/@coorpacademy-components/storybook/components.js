@@ -247,10 +247,6 @@ import AnswerFixturePicker from '../src/molecule/answer/test/fixtures/picker';
 import AnswerFixtureQcmImage from '../src/molecule/answer/test/fixtures/qcm-image';
 import AnswerFixtureQcm from '../src/molecule/answer/test/fixtures/qcm';
 import AnswerFixtureRange from '../src/molecule/answer/test/fixtures/range';
-import PopinHeaderFixtureDefault from '../src/molecule/app-player/popin/popin-header/test/fixtures/default';
-import PopinHeaderFixtureFailMultipleAnswers from '../src/molecule/app-player/popin/popin-header/test/fixtures/fail-multiple-answers';
-import PopinHeaderFixtureFail from '../src/molecule/app-player/popin/popin-header/test/fixtures/fail';
-import PopinHeaderFixtureStarsRank from '../src/molecule/app-player/popin/popin-header/test/fixtures/stars-rank';
 import BattleRequestFixtureDefault from '../src/molecule/battle-request/test/fixtures/default';
 import BrandCardCreateFixtureDefault from '../src/molecule/brand-card-create/test/fixtures/default';
 import BrandCardFixtureDefault from '../src/molecule/brand-card/test/fixtures/default';
@@ -390,6 +386,7 @@ import VideoPlayerFixtureDefault from '../src/molecule/video-player/test/fixture
 import VideoPlayerFixtureWithImage from '../src/molecule/video-player/test/fixtures/with-image';
 import VideoPlayerFixtureYoutube from '../src/molecule/video-player/test/fixtures/youtube';
 import PopinHeaderFixtureDefault from '../src/molecule/app-player/popin/popin-header/test/fixtures/default';
+import PopinHeaderFixtureFailMultipleAnswers from '../src/molecule/app-player/popin/popin-header/test/fixtures/fail-multiple-answers';
 import PopinHeaderFixtureFail from '../src/molecule/app-player/popin/popin-header/test/fixtures/fail';
 import PopinHeaderFixtureStarsRank from '../src/molecule/app-player/popin/popin-header/test/fixtures/stars-rank';
 import BattleRequestListFixtureDefault from '../src/molecule/dashboard/battle-request-list/test/fixtures/default';
@@ -1179,6 +1176,7 @@ export const fixtures = {
   MoleculeAppPlayerPopin: {
     PopinHeader: {
       Default: PopinHeaderFixtureDefault,
+      FailMultipleAnswers: PopinHeaderFixtureFailMultipleAnswers,
       Fail: PopinHeaderFixtureFail,
       StarsRank: PopinHeaderFixtureStarsRank
     }

@@ -1,9 +1,5 @@
 import test from 'ava';
 import find from 'lodash/fp/find';
-import get from 'lodash/fp/get';
-import set from 'lodash/fp/set';
-import head from 'lodash/fp/head';
-import pipe from 'lodash/fp/pipe';
 import {findById} from '../answers';
 import * as Progressions from '../progressions';
 import slidesData from '../slides.data';
@@ -33,9 +29,8 @@ test('findById should return the correct answer and corrections for the given an
 
 test("findById should throw error if slide doesn't exist", async t => {
   const progression = await Progressions.create({engine});
-  const slide = find({_id: progression.state.content.ref}, slidesData);
   return t.throws(
-    findById(progression._id, slide._id, ['foo', 'bar']),
+    findById(progression._id, progression.state.nextContent.ref, ['foo', 'bar']),
     'Answers are not available'
   );
 });

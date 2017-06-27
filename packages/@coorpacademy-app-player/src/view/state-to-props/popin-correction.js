@@ -1,8 +1,8 @@
 import getOr from 'lodash/fp/getOr';
 import get from 'lodash/fp/get';
 import isNil from 'lodash/fp/isNil';
+import join from 'lodash/fp/join';
 import {
-  getAnswers,
   getCurrentCorrection,
   getCurrentProgression,
   getCurrentProgressionId,
@@ -16,13 +16,15 @@ const popinCorrectionStateToProps = ({translate}, {dispatch}) => state => {
   const resetProgression = () => dispatch(selectProgression(progressionId));
 
   const toggleAccordionSection = sectionId => dispatch(toggleAccordion(sectionId));
-  const {isCorrect, correctAnswer, corrections} = getAnswers(state);
   const slide = getPreviousSlide(state);
   const progression = getCurrentProgression(state);
   const accordion = get('ui.corrections.accordion', state);
-  // const isCorrect = isNil(correction) ? null : get('state.isCorrect')(progression);
+  const answerResult = getCurrentCorrection(state);
+  const correctAnswer = get('correctAnswer', answerResult) || [];
+  const corrections = get('corrections', answerResult) || [];
+  const isCorrect = isNil(answerResult) ? null : get('state.isCorrect')(progression);
 
-  const header = isNil(correctAnswer)
+  const header = isNil(answerResult)
     ? {}
     : {
         title: translate(isCorrect ? 'Good job' : 'Ouch'),
@@ -34,7 +36,7 @@ const popinCorrectionStateToProps = ({translate}, {dispatch}) => state => {
   const question = {
     header: getOr('', 'question.header', slide),
     answer: translate('Correct answer {{answer}}', {
-      answer: (correctAnswer || []).join(' / ')
+      answer: join(', ', correctAnswer)
     })
   };
 
@@ -43,7 +45,7 @@ const popinCorrectionStateToProps = ({translate}, {dispatch}) => state => {
       lives: 1,
       title: '',
       subtitle: '',
-      corrections: corrections || [],
+      corrections,
       cta: {
         title: translate('Next'),
         onClick: resetProgression

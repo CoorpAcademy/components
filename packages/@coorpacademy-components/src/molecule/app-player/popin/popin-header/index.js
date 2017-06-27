@@ -31,6 +31,15 @@ const AnswersCorrection = ({corrections}) => {
   return <p className={style.fullAnswer}>{joinBySeparator(answers)}</p>;
 };
 
+AnswersCorrection.propTypes = {
+  corrections: PropTypes.arrayOf(
+    PropTypes.shape({
+      answer: PropTypes.string.isRequired,
+      isCorrect: PropTypes.bool.isRequired
+    })
+  )
+};
+
 const IconsPart = props => {
   const {lives, fail, stars, rank} = props;
   const livesIcon =
@@ -108,12 +117,7 @@ PopinHeader.propTypes = {
   rank: PropTypes.string,
   subtitle: PropTypes.string,
   title: PropTypes.string,
-  corrections: PropTypes.arrayOf(
-    PropTypes.shape({
-      answer: PropTypes.string.isRequired,
-      isCorrect: PropTypes.bool.isRequired
-    })
-  ),
+  corrections: AnswersCorrection.propTypes.corrections,
   cta: PropTypes.shape({
     title: PropTypes.string,
     href: PropTypes.url
