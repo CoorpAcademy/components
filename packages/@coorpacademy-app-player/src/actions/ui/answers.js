@@ -57,6 +57,6 @@ export const validateAnswer = (progressionId, body) => async (dispatch, getState
       : await dispatch(toggleAccordion(1));
   }
 
-  const fetchAnswerResponse = await dispatch(fetchAnswer(progressionId, slideId));
+  const fetchAnswerResponse = await dispatch(fetchAnswer(progressionId, slideId, body.answers));
   return fetchAnswerResponse;
 };
