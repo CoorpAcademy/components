@@ -13,31 +13,29 @@ const engine = {
   version: '1'
 };
 
-test('should findById', async t => {
+test('findById should return the correct answer and corrections for the given answer', async t => {
   const progression = await Progressions.create({engine});
+  const answers = ['bar'];
   const progressionWithAnswer = await Progressions.createAnswer(progression._id, {
     content: progression.state.nextContent,
-    answers: ['bar']
+    answers
   });
-  const correctAnswers = await findById(progressionWithAnswer._id);
-
-  const expected = pipe(
-    find({_id: progressionWithAnswer.state.content.ref}),
-    get('question.content.answers'),
-    head
-  )(slidesData);
-  t.deepEqual(correctAnswers, expected);
-});
-
-test("should throw error if slide doesn't exist", async t => {
-  const progression = await Progressions.create({engine});
-  const corruptProgression = Progressions.save(
-    pipe(set('state.slides', ['unknown']), set('state.content.ref', 'unknown'))(progression)
+  const slide = find({_id: progressionWithAnswer.state.content.ref}, slidesData);
+  const correctAnswers = await findById(
+    progressionWithAnswer._id,
+    progressionWithAnswer.state.content.ref,
+    answers
   );
-  return t.throws(findById(corruptProgression._id), 'Answers not found');
+
+  t.deepEqual(correctAnswers.correctAnswer, slide.question.content.answers[0]);
+  t.deepEqual(correctAnswers.corrections, [{answer: 'bar', isCorrect: false}]);
 });
 
-test("should throw error if clue haven't been requested", async t => {
+test("findById should throw error if slide doesn't exist", async t => {
   const progression = await Progressions.create({engine});
-  return t.throws(findById(progression._id), 'Answers are not available');
+  const slide = find({_id: progression.state.content.ref}, slidesData);
+  return t.throws(
+    findById(progression._id, slide._id, ['foo', 'bar']),
+    'Answers are not available'
+  );
 });

@@ -14,7 +14,10 @@ import {ANSWER_FETCH_REQUEST, ANSWER_FETCH_SUCCESS, ANSWER_FETCH_FAILURE} from '
 test(
   'should submit answers with the current content and refresh progression state',
   macro,
-  set('data.progressions.entities.foo.state.nextContent', {type: 'slide', ref: 'baz'})({}),
+  set('data.progressions.entities.foo.state.nextContent', {
+    type: 'slide',
+    ref: 'baz'
+  })({}),
   t => ({
     Progressions: {
       createAnswer: (id, payload) => {
@@ -31,9 +34,12 @@ test(
       }
     },
     Answers: {
-      findById: id => {
+      findById: (id, slideId, givenAnswer) => {
         t.is(id, 'foo');
-        return ['Bonne réponse'];
+        return {
+          correctAnswer: ['Bonne réponse'],
+          corrections: givenAnswer.map(answer => ({answer, isCorrect: false}))
+        };
       }
     }
   }),
@@ -79,7 +85,10 @@ test(
           progressionId: 'foo',
           slideId: 'baz'
         },
-        payload: ['Bonne réponse']
+        payload: {
+          correctAnswer: ['Bonne réponse'],
+          corrections: [{answer: 'bar', isCorrect: false}]
+        }
       },
       set('ui.answers.0.correction', 'Bonne réponse', {})
     ]
@@ -89,7 +98,10 @@ test(
 test(
   'should dispatch failure on request fail',
   macro,
-  set('data.progressions.entities.foo.state.nextContent', {type: 'slide', ref: 'baz'})({}),
+  set('data.progressions.entities.foo.state.nextContent', {
+    type: 'slide',
+    ref: 'baz'
+  })({}),
   t => ({
     Progressions: {
       createAnswer: (id, payload) => {
@@ -123,7 +135,10 @@ test(
 test(
   'should dispatch failure when answers request fail',
   macro,
-  set('data.progressions.entities.foo.state.nextContent', {type: 'slide', ref: 'baz'})({}),
+  set('data.progressions.entities.foo.state.nextContent', {
+    type: 'slide',
+    ref: 'baz'
+  })({}),
   t => ({
     Progressions: {
       createAnswer: (id, payload) => {
