@@ -1,0 +1,68 @@
+@value colors: "../../variables/colors.css";
+@value light from colors;
+
+.resource {
+  position: relative;
+  width: 230px;
+  height: 47px;
+  cursor: pointer;
+}
+
+.video {
+  composes: resource;
+}
+
+.pdf {
+  composes: resource;
+}
+
+.posterWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 45px;
+  border: 1px solid;
+}
+
+.poster {
+  width: 65px;
+  height: 41px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.pdf .poster {
+  background-color: light;
+}
+
+.icon {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  left: 50%;
+  margin: -10px 0 0 -10px;
+}
+
+.description {
+  position: absolute;
+  top: 0;
+  left: 91px;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Open Sans';
+  font-size: 11px;
+}
+
+.selectedDescription {
+  composes: description;
+  font-weight: bold;
+}

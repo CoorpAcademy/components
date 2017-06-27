@@ -23,6 +23,7 @@ import Notification from '../src/atom/notification';
 import Picture from '../src/atom/picture';
 import PromoCode from '../src/atom/promo-code';
 import Provider from '../src/atom/provider';
+import ResourceMiniature from '../src/atom/resource-miniature';
 import Select from '../src/atom/select';
 import Slide from '../src/atom/slide';
 import SocialLink from '../src/atom/social-link';
@@ -117,6 +118,7 @@ import Header from '../src/organism/header';
 import Hero from '../src/organism/hero';
 import MoocHeader from '../src/organism/mooc-header';
 import Popin from '../src/organism/popin';
+import ResourceBrowser from '../src/organism/resource-browser';
 import Settings from '../src/organism/settings';
 import SetupHeader from '../src/organism/setup-header';
 import Sidebar from '../src/organism/sidebar';
@@ -216,6 +218,10 @@ import PromoCodeFixtureDefault from '../src/atom/promo-code/test/fixtures/defaul
 import PromoCodeFixtureError from '../src/atom/promo-code/test/fixtures/error';
 import PromoCodeFixtureSuccess from '../src/atom/promo-code/test/fixtures/success';
 import ProviderFixtureDefault from '../src/atom/provider/test/fixtures/default';
+import ResourceMiniatureFixturePdf from '../src/atom/resource-miniature/test/fixtures/pdf';
+import ResourceMiniatureFixtureSelectedPdf from '../src/atom/resource-miniature/test/fixtures/selected-pdf';
+import ResourceMiniatureFixtureSelectedVideo from '../src/atom/resource-miniature/test/fixtures/selected-video';
+import ResourceMiniatureFixtureVideo from '../src/atom/resource-miniature/test/fixtures/video';
 import SelectFixtureDefault from '../src/atom/select/test/fixtures/default';
 import SelectFixtureDisabled from '../src/atom/select/test/fixtures/disabled';
 import SelectFixtureFilter from '../src/atom/select/test/fixtures/filter';
@@ -493,6 +499,7 @@ import MoocHeaderFixtureLogged from '../src/organism/mooc-header/test/fixtures/l
 import MoocHeaderFixtureSliderMultiple from '../src/organism/mooc-header/test/fixtures/slider-multiple';
 import MoocHeaderFixtureSlider from '../src/organism/mooc-header/test/fixtures/slider';
 import PopinFixtureDefault from '../src/organism/popin/test/fixtures/default';
+import ResourceBrowserFixtureDefault from '../src/organism/resource-browser/test/fixtures/default';
 import SettingsFixtureDefault from '../src/organism/settings/test/fixtures/default';
 import SettingsFixtureFreemium from '../src/organism/settings/test/fixtures/freemium';
 import SettingsFixturePremium from '../src/organism/settings/test/fixtures/premium';
@@ -610,6 +617,7 @@ export const components = {
     Picture,
     PromoCode,
     Provider,
+    ResourceMiniature,
     Select,
     Slide,
     SocialLink,
@@ -722,6 +730,7 @@ export const components = {
     Hero,
     MoocHeader,
     Popin,
+    ResourceBrowser,
     Settings,
     SetupHeader,
     Sidebar,
@@ -880,6 +889,12 @@ export const fixtures = {
     },
     Provider: {
       Default: ProviderFixtureDefault
+    },
+    ResourceMiniature: {
+      Pdf: ResourceMiniatureFixturePdf,
+      SelectedPdf: ResourceMiniatureFixtureSelectedPdf,
+      SelectedVideo: ResourceMiniatureFixtureSelectedVideo,
+      Video: ResourceMiniatureFixtureVideo
     },
     Select: {
       Default: SelectFixtureDefault,
@@ -1363,6 +1378,9 @@ export const fixtures = {
     },
     Popin: {
       Default: PopinFixtureDefault
+    },
+    ResourceBrowser: {
+      Default: ResourceBrowserFixtureDefault
     },
     Settings: {
       Default: SettingsFixtureDefault,
@@ -2246,6 +2264,13 @@ export const dependencies = {
         }
       }
     },
+    "ResourceBrowser": {
+      "children": {
+        "Atom": {
+          "ResourceMiniature": true
+        }
+      }
+    },
     "Settings": {
       "children": {
         "Atom": {
@@ -2432,6 +2457,14 @@ export const dependencies = {
       "parents": {
         "Organism": {
           "Settings": true
+        }
+      },
+      "children": {}
+    },
+    "ResourceMiniature": {
+      "parents": {
+        "Organism": {
+          "ResourceBrowser": true
         }
       },
       "children": {}

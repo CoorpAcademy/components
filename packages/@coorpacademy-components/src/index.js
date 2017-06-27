@@ -99,6 +99,8 @@ export Qcm from './molecule/questions/qcm';
 export QcmImage from './molecule/questions/qcm-image';
 export QuestionRange from './molecule/questions/question-range';
 export RangeSlider from './molecule/range-slider';
+export ResourceBrowser from './organism/resource-browser';
+export ResourceMiniature from './atom/resource-miniature';
 export ScopeContent from './molecule/scope-content';
 export ScopeTabs from './molecule/scope-tabs';
 export Search from './molecule/search';

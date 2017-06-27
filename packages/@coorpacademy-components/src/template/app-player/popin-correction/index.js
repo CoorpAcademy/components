@@ -1,30 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import map from 'lodash/fp/map';
-import Slider from '../../../organism/slider';
+import ResourceBrowser from '../../../organism/resource-browser';
 import PopinHeader from '../../../molecule/app-player/popin/popin-header';
-import Video from '../../../molecule/video-iframe';
 import Accordion from '../../../organism/accordion/container';
 import style from './style.css';
 
 const extractTabs = map(item => ({title: item.title, isOpen: item.open}));
 
-const Resources = props => {
-  const {value} = props;
-
-  const resources = map(
-    resource => <Video key={resource.videoId} type={'vimeo'} id={resource.videoId} />,
-    value
-  );
-
-  return (
-    <div className={style.sliderWrapper}>
-      <Slider>
-        {resources}
-      </Slider>
-    </div>
-  );
-};
+const Resources = ({resources}) => (
+  <div className={style.browserWrapper}>
+    <ResourceBrowser resources={resources.value} className={style.browser} />
+  </div>
+);
 
 const SimpleText = ({text}) => (
   <div className={style.simpleTextWrapper}>
@@ -61,7 +49,7 @@ const PopinCorrection = props => {
       <PopinHeader {...header} />
       <Question {...question} />
       <Accordion tabProps={tabs} onClick={onClick} oneTabOnly>
-        <Resources {...resources} />
+        <Resources resources={resources} />
         <SimpleText text={klf.value} />
         <SimpleText text={tips.value} />
       </Accordion>

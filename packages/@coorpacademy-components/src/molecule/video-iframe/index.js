@@ -1,28 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import qs from 'qs';
 import Picture from '../../atom/picture';
 import style from './style.css';
 
-const VIMEO = 'vimeo';
-const YOUTUBE = 'youtube';
-
-const getUrl = (type, id) => {
-  if (!id) {
-    return null;
-  }
-
-  switch (type) {
-    case VIMEO:
-      return `https://player.vimeo.com/video/${id}?color=dedede&badge=0&byline=0&title=0&portrait=0`;
-    case YOUTUBE:
-      return `https://www.youtube.com/embed/${id}`;
+const PROVIDERS = {
+  vimeo: {
+    url: 'https://player.vimeo.com/video',
+    query: {
+      color: 'dedede',
+      badge: 0,
+      byline: 0,
+      title: 0,
+      portrait: 0
+    }
+  },
+  youtube: {
+    url: 'https://www.youtube.com/embed'
   }
 };
 
-const VideoIframe = props => {
-  const {type, id, url, image, width = '100%', height = '400px'} = props;
+const formatUrl = ({id, url, query = {}, opts = {}}) =>
+  `${url}/${id}?${qs.stringify({...query, ...opts})}`;
 
-  const src = url || getUrl(type, id);
+const getUrl = ({type, id, ...opts}) =>
+  id && PROVIDERS[type] ? formatUrl({id, ...PROVIDERS[type], opts}) : null;
+
+const VideoIframe = props => {
+  const {type, id, url, image, autoplay = false, width = '100%', height = '400px'} = props;
+
+  const src = url || getUrl({type, id, autoplay});
 
   if (src) {
     return (
@@ -41,11 +48,12 @@ const VideoIframe = props => {
 };
 
 VideoIframe.propTypes = {
-  type: PropTypes.oneOf([VIMEO, YOUTUBE]),
+  type: PropTypes.oneOf(Object.keys(PROVIDERS)),
   image: Picture.propTypes.src,
   width: PropTypes.string,
   height: PropTypes.string,
-  id: PropTypes.string
+  id: PropTypes.string,
+  autoplay: PropTypes.bool
 };
 
 export default VideoIframe;
