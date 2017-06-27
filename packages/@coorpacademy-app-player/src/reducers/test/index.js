@@ -15,6 +15,7 @@ test(
       exitNodes: {entities: {}},
       progressions: {entities: {}},
       slides: {entities: {}},
+      rank: {},
       recommendations: {entities: {}}
     },
     ui: {
