@@ -8,6 +8,7 @@
 @value black from colors;
 @value white from colors;
 @value brand from colors;
+@value negative from colors;
 
 .wrapper {
   position: relative;
@@ -20,6 +21,23 @@
   flex-direction: column;
   align-items: center;
   padding: 36px 32px 32px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.error {
+  color: negative;
+  text-align: center;
+  border: solid 2px negative;
+  padding: 36px 32px 32px;
+  box-sizing: border-box;
+  width: 80%;
+  margin: 32px auto;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
   width: 100%;
   box-sizing: border-box;
 }
