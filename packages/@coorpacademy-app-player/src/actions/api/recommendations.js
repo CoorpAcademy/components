@@ -14,7 +14,7 @@ export const fetchRecommendations = progressionId => (dispatch, getState, {servi
     types: [RECO_FETCH_REQUEST, RECO_FETCH_SUCCESS, RECO_FETCH_FAILURE],
     task: () => Recommendations.find(currentRef),
     meta: {id: progressionId},
-    bailout: getRecommendations(getState())
+    bailout: getRecommendations
   });
 
   return dispatch(action);
