@@ -30,7 +30,7 @@ const playerProps = (state, dispatch) => {
     );
 
   return {
-    typeClue: route === 'clue',
+    typeClue: route === 'clue' ? 'clue' : 'answer',
     text: clue,
     step: get('state.step')(progression),
     question: get('question.header')(slide),
@@ -42,7 +42,9 @@ const playerProps = (state, dispatch) => {
       secondary: false
     },
     help: 'Select something below',
-    answer,
+    answerType: {
+      model: answer
+    },
     buttons: [
       {
         title: 'Media',

@@ -26,7 +26,7 @@ const context = {
 };
 
 test.before(() => {
-  sinon.stub(console, 'error', error => {
+  sinon.stub(console, 'error').callsFake(error => {
     throw new Error(error);
   });
 });

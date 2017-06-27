@@ -8,6 +8,7 @@ browserEnv(['window', 'document', 'navigator']);
 test('should create app', t => {
   const el = document.createElement('div');
   const app = create({
+    translate: v => v,
     container: el,
     services,
     progressionId: '1'
