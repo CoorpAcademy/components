@@ -9,7 +9,7 @@ import stateClue from './fixtures/player/clue';
 test('should display slide', async t => {
   const props = mapStateToProps(stateSlide, identity);
 
-  t.false(props.typeClue);
+  t.is(props.typeClue, 'answer');
   t.is(props.text, '');
 
   t.deepEqual(props.step, {current: 2, total: 4});
@@ -23,7 +23,7 @@ test('should display slide', async t => {
   });
   await t.notThrows(props.cta.onClick);
   t.is(props.help, 'Select something below');
-  t.truthy(props.answer);
+  t.truthy(props.answerType);
 
   t.deepEqual(map(omit('onClick'), props.buttons), [
     {
@@ -48,7 +48,7 @@ test('should display slide', async t => {
 test('should display clue', async t => {
   const props = mapStateToProps(stateClue, identity);
 
-  t.true(props.typeClue);
+  t.is(props.typeClue, 'clue');
   t.is(props.text, 'Clue');
 
   t.deepEqual(props.step, {current: 2, total: 4});
@@ -62,7 +62,7 @@ test('should display clue', async t => {
   });
   await t.notThrows(props.cta.onClick);
   t.is(props.help, 'Select something below');
-  t.truthy(props.answer);
+  t.truthy(props.answerType);
 
   t.deepEqual(map(omit('onClick'), props.buttons), [
     {

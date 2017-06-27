@@ -39,12 +39,12 @@
             "content": {
               "label": "Saisissez votre réponse.",
               "placeholder": " ",
-              "maxTypos":null,
-              "choices": [
-
-              ],
+              "maxTypos": null,
+              "choices": [],
               "answers": [
-                ["Text"]
+                [
+                  "Text"
+                ]
               ],
               "media": {
                 "subtitles": [],
@@ -89,7 +89,7 @@
             "header": "Combien ça fait 1 + 1 ?",
             "explanation": "Sélectionnez la (les) bonne(s) réponse(s).",
             "content": {
-              "maxTypos":null,
+              "maxTypos": null,
               "choices": [
                 {
                   "_id": "5930752aa2b39d0024eebffe",
@@ -126,7 +126,9 @@
                 }
               ],
               "answers": [
-                ["2"]
+                [
+                  "2"
+                ]
               ],
               "media": {
                 "subtitles": [],
@@ -173,6 +175,15 @@
         }
       }
     },
+    "answers": {
+      "entities": {
+        "0": {
+          "sli_Vy88~R-bX": [
+            "2"
+          ]
+        }
+      }
+    },
     "exitNodes": {
       "entities": {}
     }
@@ -183,7 +194,6 @@
         "value": [
           "2"
         ],
-        "isCorrect":true,
         "correction": [
           [
             "2"

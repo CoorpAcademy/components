@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import get from 'lodash/fp/get';
+import keys from 'lodash/fp/keys';
 import HeartIcon from '@coorpacademy/nova-icons/solid/vote-and-rewards/vote-heart';
 import HeartBrokenIcon from '@coorpacademy/nova-icons/composition/coorpacademy/broken-heart';
 import Provider from '../provider';
@@ -49,7 +50,7 @@ Life.contextTypes = {
 };
 
 Life.propTypes = {
-  mode: PropTypes.oneOf(MODES),
+  mode: PropTypes.oneOf(keys(MODES)),
   count: PropTypes.number,
   fail: PropTypes.bool,
   className: PropTypes.string

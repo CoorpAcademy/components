@@ -51,6 +51,15 @@
         }
       }
     },
+    "answers": {
+      "entities": {
+        "0": {
+          "1.B2.4": [
+            "2"
+          ]
+        }
+      }
+    },
     "progressions": {
       "entities": {
         "0": {
@@ -91,7 +100,6 @@
   "ui": {
     "answers": {
       "0": {
-        "isCorrect": false,
         "correction": [
           ["Text"]
         ]

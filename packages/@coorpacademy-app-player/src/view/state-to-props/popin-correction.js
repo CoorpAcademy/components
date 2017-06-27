@@ -1,8 +1,8 @@
 import getOr from 'lodash/fp/getOr';
-import isNull from 'lodash/fp/isNull';
+import get from 'lodash/fp/get';
+import isNil from 'lodash/fp/isNil';
 import join from 'lodash/fp/join';
 import {
-  getAnswers,
   getCurrentCorrection,
   getCurrentProgression,
   getCurrentProgressionId,
@@ -23,13 +23,13 @@ const popinCorrectionStateToProps = ({translate}, dispatch) => state => {
     return _dispatch(toggleAccordion(sectionId));
   };
 
-  const {isCorrect} = getAnswers(state);
   const correction = getCurrentCorrection(state);
   const slide = getPreviousSlide(state);
   const progression = getCurrentProgression(state);
-  const accordion = getOr({}, 'ui.corrections.accordion', state);
+  const accordion = get('ui.corrections.accordion', state);
+  const isCorrect = isNil(correction) ? null : get('state.isCorrect')(progression);
 
-  const header = isNull(isCorrect)
+  const header = isNil(correction)
     ? {}
     : {
         title: translate(isCorrect ? 'Good job' : 'Ouch'),

@@ -2,12 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import identity from 'lodash/fp/identity';
 import getOr from 'lodash/fp/getOr';
+import values from 'lodash/fp/values';
 import Cta from '../../../atom/cta';
 import Provider from '../../../atom/provider';
 import Clue from '../../../atom/clue';
 import Answer from '../../../molecule/answer';
 import SlidesFooter from '../slides-footer';
 import style from './style.css';
+
+const TYPE = {
+  CLUE: 'clue',
+  ANSWER: 'answer'
+};
 
 const createStepView = (step, skin) => {
   if (!step) return null;
@@ -51,9 +57,9 @@ const SlidesPlayer = (props, context) => {
 
   const stepView = createStepView(step, skin);
 
-  const wrapperColor = typeClue === 'clue' ? '#ECEFF1' : 'white';
+  const wrapperColor = typeClue === TYPE.CLUE ? '#ECEFF1' : 'white';
 
-  const contentView = typeClue === 'clue' ? <Clue text={text} /> : <Answer {...answerType} />;
+  const contentView = typeClue === TYPE.CLUE ? <Clue text={text} /> : <Answer {...answerType} />;
 
   return (
     <div className={style.wrapper}>
@@ -84,13 +90,15 @@ const SlidesPlayer = (props, context) => {
   );
 };
 
+SlidesPlayer.TYPE = TYPE;
+
 SlidesPlayer.contextTypes = {
   translate: Provider.childContextTypes.translate,
   skin: Provider.childContextTypes.skin
 };
 
 SlidesPlayer.propTypes = {
-  typeClue: PropTypes.string,
+  typeClue: PropTypes.oneOf(values(TYPE)),
   step: PropTypes.shape({
     current: PropTypes.number.isRequired,
     total: PropTypes.number.isRequired
