@@ -1,0 +1,40 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+
+.default {
+  display: flex;
+  flex-flow: row;
+  width: 621px;
+  height: 220px;
+}
+
+.resourcesList {
+  margin-left: 42px;
+  width: 230px;
+  height: 100%;
+}
+
+.playerWrapper {
+  height: 100%;
+  width: 356px;
+}
+
+@media mobile {
+  .default {
+    flex-flow: column;
+    height: auto;
+  }
+
+  .playerWrapper {
+    width: 100%;
+    max-width: 100vw;
+    height: 50vh;
+  }
+
+  .resourcesList {
+    display: flex;
+    flex-flow: column;
+    margin-top: 20px;
+    width: 100%;
+  }
+}

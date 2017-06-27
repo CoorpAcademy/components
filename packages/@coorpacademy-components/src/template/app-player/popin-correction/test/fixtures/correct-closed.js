@@ -1,6 +1,33 @@
 import defaultsDeep from 'lodash/fp/defaultsDeep';
 import loading from './loading';
 
+const resourceValues = [
+  {
+    type: 'video',
+    mimeType: 'application/vimeo',
+    videoId: '166479793',
+    description: 'De l’éco-conception à l’innovation responsable',
+    poster: '//static.coorpacademy.com/content/CoorpAcademy/content-partnerships-svp/cockpit-partner-svp/poster/poster-1480426784168.jpg',
+    _id: '590b9be24f7b862e0046e577',
+    subtitles: [],
+    posters: [],
+    src: [],
+    selected: true
+  },
+  {
+    type: 'video',
+    poster: '//static.coorpacademy.com/content/digital/miniatures_cours/avance/1A1.png',
+    description: 'Le concept de Knowledge Graph',
+    mimeType: 'application/vimeo',
+    videoId: '89404998\n',
+    _id: '590b862e2e967f64333ad45f',
+    subtitles: [],
+    posters: [],
+    src: [],
+    selected: false
+  }
+];
+
 export default defaultsDeep(loading, {
   props: {
     header: {
@@ -23,47 +50,10 @@ export default defaultsDeep(loading, {
       answer: "Grâce à des outils d'analyse et de surveillance"
     },
     resources: {
-      value: [
-        {
-          type: 'video',
-          mimeType: 'application/vimeo',
-          videoId: '166479793',
-          description: 'De l’éco-conception à l’innovation responsable',
-          poster: '//static.coorpacademy.com/content/CoorpAcademy/content-partnerships-svp/cockpit-partner-svp/poster/poster-1480426784168.jpg',
-          _id: '590b9be24f7b862e0046e577',
-          subtitles: [],
-          posters: [],
-          src: [],
-          selected: true,
-          onClick: () => {}
-        },
-        {
-          type: 'video',
-          mimeType: 'application/vimeo',
-          videoId: '166479793',
-          description: 'De l’éco-conception à l’innovation responsable',
-          poster: '//static.coorpacademy.com/content/CoorpAcademy/content-partnerships-svp/cockpit-partner-svp/poster/poster-1480426784168.jpg',
-          _id: '590b9be24f7b862e0046e577',
-          subtitles: [],
-          posters: [],
-          src: [],
-          selected: false,
-          onClick: () => {}
-        },
-        {
-          type: 'video',
-          mimeType: 'application/vimeo',
-          videoId: '166479793',
-          description: 'De l’éco-conception à l’innovation responsable',
-          poster: '//static.coorpacademy.com/content/CoorpAcademy/content-partnerships-svp/cockpit-partner-svp/poster/poster-1480426784168.jpg',
-          _id: '590b9be24f7b862e0046e577',
-          subtitles: [],
-          posters: [],
-          src: [],
-          selected: false,
-          onClick: () => {}
-        }
-      ]
+      value: resourceValues.map(resource => ({
+        ...resource,
+        onClick: () => console.log(`Selecting "${resource.description}"`) // eslint-disable-line no-console
+      }))
     },
     klf: {
       value: "Les éco-innovations sont divisées en 3 catégories : intégrées, radicales et économie de la fonctionnalité. La dernière consiste à remplacer un produit par un service. C'est par exemple le cas du système Vélib'."
