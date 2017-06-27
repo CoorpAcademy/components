@@ -1,4 +1,3 @@
-import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import isNull from 'lodash/fp/isNull';
 import join from 'lodash/fp/join';
@@ -21,14 +20,14 @@ const popinCorrectionStateToProps = ({translate}, dispatch) => state => {
   };
 
   const toggleAccordionSection = _dispatch => sectionId => {
-    return toggleAccordion(_dispatch, sectionId);
+    return _dispatch(toggleAccordion(sectionId));
   };
 
   const {isCorrect} = getAnswers(state);
   const correction = getCurrentCorrection(state);
   const slide = getPreviousSlide(state);
-  const accordion = get('ui.corrections.accordion', state);
   const progression = getCurrentProgression(state);
+  const accordion = getOr({}, 'ui.corrections.accordion', state);
 
   const header = isNull(isCorrect)
     ? {}

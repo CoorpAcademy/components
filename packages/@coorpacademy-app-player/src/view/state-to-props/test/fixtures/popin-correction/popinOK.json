@@ -194,6 +194,8 @@
     "current": {
       "progressionId": "0"
     },
-    "corrections": {}
+    "corrections": {
+      "accordion": [false, false, true]
+    }
   }
 }
