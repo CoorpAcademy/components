@@ -4,6 +4,7 @@ import Button from '../src/atom/button';
 import CatalogSection from '../src/atom/catalog-section';
 import CenteredText from '../src/atom/centered-text';
 import Checkbox from '../src/atom/checkbox';
+import Clue from '../src/atom/clue';
 import Cta from '../src/atom/cta';
 import Handle from '../src/atom/handle';
 import ImageUpload from '../src/atom/image-upload';
@@ -30,7 +31,7 @@ import Star from '../src/atom/star';
 import TabContent from '../src/atom/tab-content';
 import Tab from '../src/atom/tab';
 import Title from '../src/atom/title';
-import PopinHeader from '../src/molecule/app-player/popin/popin-header';
+import Answer from '../src/molecule/answer';
 import BattleRequest from '../src/molecule/battle-request';
 import BrandCardCreate from '../src/molecule/brand-card-create';
 import BrandCard from '../src/molecule/brand-card';
@@ -82,6 +83,7 @@ import TitledCheckbox from '../src/molecule/titled-checkbox';
 import Unsubscribe from '../src/molecule/unsubscribe';
 import VideoIframe from '../src/molecule/video-iframe';
 import VideoPlayer from '../src/molecule/video-player';
+import PopinHeader from '../src/molecule/app-player/popin/popin-header';
 import BattleRequestList from '../src/molecule/dashboard/battle-request-list';
 import CardsList from '../src/molecule/dashboard/cards-list';
 import NewsList from '../src/molecule/dashboard/news-list';
@@ -154,6 +156,7 @@ import CheckboxFixtureChecked from '../src/atom/checkbox/test/fixtures/checked';
 import CheckboxFixtureDefault from '../src/atom/checkbox/test/fixtures/default';
 import CheckboxFixtureDisabled from '../src/atom/checkbox/test/fixtures/disabled';
 import CheckboxFixtureRequired from '../src/atom/checkbox/test/fixtures/required';
+import ClueFixtureDefault from '../src/atom/clue/test/fixtures/default';
 import CtaFixtureDefaultSmall from '../src/atom/cta/test/fixtures/default-small';
 import CtaFixtureDefault from '../src/atom/cta/test/fixtures/default';
 import CtaFixtureLight from '../src/atom/cta/test/fixtures/light';
@@ -237,9 +240,12 @@ import StarFixtureEnable from '../src/atom/star/test/fixtures/enable';
 import TabContentFixtureDefault from '../src/atom/tab-content/test/fixtures/default';
 import TabFixtureDefault from '../src/atom/tab/test/fixtures/default';
 import TitleFixtureFixture from '../src/atom/title/test/fixtures/fixture';
-import PopinHeaderFixtureDefault from '../src/molecule/app-player/popin/popin-header/test/fixtures/default';
-import PopinHeaderFixtureFail from '../src/molecule/app-player/popin/popin-header/test/fixtures/fail';
-import PopinHeaderFixtureStarsRank from '../src/molecule/app-player/popin/popin-header/test/fixtures/stars-rank';
+import AnswerFixtureDefault from '../src/molecule/answer/test/fixtures/default';
+import AnswerFixtureDropDown from '../src/molecule/answer/test/fixtures/drop-down';
+import AnswerFixturePicker from '../src/molecule/answer/test/fixtures/picker';
+import AnswerFixtureQcmImage from '../src/molecule/answer/test/fixtures/qcm-image';
+import AnswerFixtureQcm from '../src/molecule/answer/test/fixtures/qcm';
+import AnswerFixtureRange from '../src/molecule/answer/test/fixtures/range';
 import BattleRequestFixtureDefault from '../src/molecule/battle-request/test/fixtures/default';
 import BrandCardCreateFixtureDefault from '../src/molecule/brand-card-create/test/fixtures/default';
 import BrandCardFixtureDefault from '../src/molecule/brand-card/test/fixtures/default';
@@ -378,6 +384,9 @@ import VideoIframeFixtureYoutube from '../src/molecule/video-iframe/test/fixture
 import VideoPlayerFixtureDefault from '../src/molecule/video-player/test/fixtures/default';
 import VideoPlayerFixtureWithImage from '../src/molecule/video-player/test/fixtures/with-image';
 import VideoPlayerFixtureYoutube from '../src/molecule/video-player/test/fixtures/youtube';
+import PopinHeaderFixtureDefault from '../src/molecule/app-player/popin/popin-header/test/fixtures/default';
+import PopinHeaderFixtureFail from '../src/molecule/app-player/popin/popin-header/test/fixtures/fail';
+import PopinHeaderFixtureStarsRank from '../src/molecule/app-player/popin/popin-header/test/fixtures/stars-rank';
 import BattleRequestListFixtureDefault from '../src/molecule/dashboard/battle-request-list/test/fixtures/default';
 import BattleRequestListFixtureEmpty from '../src/molecule/dashboard/battle-request-list/test/fixtures/empty';
 import CardsListFixtureDefault from '../src/molecule/dashboard/cards-list/test/fixtures/default';
@@ -424,6 +433,7 @@ import SlidesFooterFixtureSelected from '../src/molecule/slides/slides-footer/te
 import SlidesHeaderFixtureDefault from '../src/molecule/slides/slides-header/test/fixtures/default';
 import SlidesHeaderFixtureFreerun from '../src/molecule/slides/slides-header/test/fixtures/freerun';
 import SlidesHeaderFixtureNoSecondary from '../src/molecule/slides/slides-header/test/fixtures/no-secondary';
+import SlidesPlayerFixtureClue from '../src/molecule/slides/slides-player/test/fixtures/clue';
 import SlidesPlayerFixtureDefault from '../src/molecule/slides/slides-player/test/fixtures/default';
 import SlidesPlayerFixtureDropDown from '../src/molecule/slides/slides-player/test/fixtures/drop-down';
 import SlidesPlayerFixtureFreeText from '../src/molecule/slides/slides-player/test/fixtures/free-text';
@@ -505,6 +515,7 @@ import ProductCursusFixtureLoading from '../src/template/app-catalog/product-cur
 import ProductCursusFixtureWithoutAssets from '../src/template/app-catalog/product-cursus/test/fixtures/without-assets';
 import ProductCursusFixtureWithoutBadge from '../src/template/app-catalog/product-cursus/test/fixtures/without-badge';
 import LoadingFixtureDefault from '../src/template/app-player/loading/test/fixtures/default';
+import PlayerFixtureClue from '../src/template/app-player/player/test/fixtures/clue';
 import PlayerFixtureDropDown from '../src/template/app-player/player/test/fixtures/drop-down';
 import PlayerFixtureFreeText from '../src/template/app-player/player/test/fixtures/free-text';
 import PlayerFixturePicker from '../src/template/app-player/player/test/fixtures/picker';
@@ -573,6 +584,7 @@ export const components = {
     CatalogSection,
     CenteredText,
     Checkbox,
+    Clue,
     Cta,
     Handle,
     ImageUpload,
@@ -600,10 +612,8 @@ export const components = {
     Tab,
     Title
   },
-  MoleculeAppPlayerPopin: {
-    PopinHeader
-  },
   Molecule: {
+    Answer,
     BattleRequest,
     BrandCardCreate,
     BrandCard,
@@ -655,6 +665,9 @@ export const components = {
     Unsubscribe,
     VideoIframe,
     VideoPlayer
+  },
+  MoleculeAppPlayerPopin: {
+    PopinHeader
   },
   MoleculeDashboard: {
     BattleRequestList,
@@ -762,6 +775,9 @@ export const fixtures = {
       Default: CheckboxFixtureDefault,
       Disabled: CheckboxFixtureDisabled,
       Required: CheckboxFixtureRequired
+    },
+    Clue: {
+      Default: ClueFixtureDefault
     },
     Cta: {
       DefaultSmall: CtaFixtureDefaultSmall,
@@ -899,14 +915,15 @@ export const fixtures = {
       Fixture: TitleFixtureFixture
     }
   },
-  MoleculeAppPlayerPopin: {
-    PopinHeader: {
-      Default: PopinHeaderFixtureDefault,
-      Fail: PopinHeaderFixtureFail,
-      StarsRank: PopinHeaderFixtureStarsRank
-    }
-  },
   Molecule: {
+    Answer: {
+      Default: AnswerFixtureDefault,
+      DropDown: AnswerFixtureDropDown,
+      Picker: AnswerFixturePicker,
+      QcmImage: AnswerFixtureQcmImage,
+      Qcm: AnswerFixtureQcm,
+      Range: AnswerFixtureRange
+    },
     BattleRequest: {
       Default: BattleRequestFixtureDefault
     },
@@ -1148,6 +1165,13 @@ export const fixtures = {
       Youtube: VideoPlayerFixtureYoutube
     }
   },
+  MoleculeAppPlayerPopin: {
+    PopinHeader: {
+      Default: PopinHeaderFixtureDefault,
+      Fail: PopinHeaderFixtureFail,
+      StarsRank: PopinHeaderFixtureStarsRank
+    }
+  },
   MoleculeDashboard: {
     BattleRequestList: {
       Default: BattleRequestListFixtureDefault,
@@ -1232,6 +1256,7 @@ export const fixtures = {
       NoSecondary: SlidesHeaderFixtureNoSecondary
     },
     SlidesPlayer: {
+      Clue: SlidesPlayerFixtureClue,
       Default: SlidesPlayerFixtureDefault,
       DropDown: SlidesPlayerFixtureDropDown,
       FreeText: SlidesPlayerFixtureFreeText,
@@ -1381,6 +1406,7 @@ export const fixtures = {
       Default: LoadingFixtureDefault
     },
     Player: {
+      Clue: PlayerFixtureClue,
       DropDown: PlayerFixtureDropDown,
       FreeText: PlayerFixtureFreeText,
       Picker: PlayerFixturePicker,
@@ -1785,6 +1811,23 @@ export const dependencies = {
           "InputColor": true,
           "InputSwitch": true,
           "InputText": true
+        }
+      }
+    },
+    "Answer": {
+      "parents": {
+        "MoleculeSlides": {
+          "SlidesPlayer": true
+        }
+      },
+      "children": {
+        "MoleculeQuestions": {
+          "FreeText": true,
+          "DropDown": true,
+          "Picker": true,
+          "QcmImage": true,
+          "Qcm": true,
+          "QuestionRange": true
         }
       }
     },
@@ -2440,6 +2483,14 @@ export const dependencies = {
       },
       "children": {}
     },
+    "Clue": {
+      "parents": {
+        "MoleculeSlides": {
+          "SlidesPlayer": true
+        }
+      },
+      "children": {}
+    },
     "Life": {
       "parents": {
         "MoleculeSlides": {
@@ -2624,18 +2675,14 @@ export const dependencies = {
       },
       "children": {
         "Atom": {
+          "Clue": true,
           "Cta": true
         },
         "MoleculeSlides": {
           "SlidesFooter": true
         },
-        "MoleculeQuestions": {
-          "DropDown": true,
-          "FreeText": true,
-          "Picker": true,
-          "QcmImage": true,
-          "Qcm": true,
-          "QuestionRange": true
+        "Molecule": {
+          "Answer": true
         }
       }
     },
@@ -2703,8 +2750,8 @@ export const dependencies = {
           "Toggler": true,
           "Part": true
         },
-        "MoleculeSlides": {
-          "SlidesPlayer": true
+        "Molecule": {
+          "Answer": true
         }
       },
       "children": {}
@@ -2717,8 +2764,8 @@ export const dependencies = {
         "OrganismAccordion": {
           "Toggler": true
         },
-        "MoleculeSlides": {
-          "SlidesPlayer": true
+        "Molecule": {
+          "Answer": true
         }
       },
       "children": {}
@@ -2731,16 +2778,24 @@ export const dependencies = {
         "OrganismAccordion": {
           "Toggler": true
         },
-        "MoleculeSlides": {
-          "SlidesPlayer": true
+        "Molecule": {
+          "Answer": true
+        }
+      },
+      "children": {}
+    },
+    "FreeText": {
+      "parents": {
+        "Molecule": {
+          "Answer": true
         }
       },
       "children": {}
     },
     "DropDown": {
       "parents": {
-        "MoleculeSlides": {
-          "SlidesPlayer": true
+        "Molecule": {
+          "Answer": true
         }
       },
       "children": {
@@ -2749,18 +2804,10 @@ export const dependencies = {
         }
       }
     },
-    "FreeText": {
-      "parents": {
-        "MoleculeSlides": {
-          "SlidesPlayer": true
-        }
-      },
-      "children": {}
-    },
     "QuestionRange": {
       "parents": {
-        "MoleculeSlides": {
-          "SlidesPlayer": true
+        "Molecule": {
+          "Answer": true
         }
       },
       "children": {

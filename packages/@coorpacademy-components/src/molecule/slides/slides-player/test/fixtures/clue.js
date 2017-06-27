@@ -1,25 +1,25 @@
 import Cta from '../../../../../atom/cta/test/fixtures/default';
-import Footer from '../../../slides-footer/test/fixtures/default';
-import Answer from '../../../../../molecule/answer/test/fixtures/default';
+import Footer from '../../../slides-footer/test/fixtures/selected';
+import Clue from '../../../../../atom/clue/test/fixtures/default';
 
 const {props} = Cta;
 const footerProps = Footer.props;
-const answerType = Answer.props;
+const clueProps = Clue.props;
 
 export default {
   props: {
-    typeClue: 'answer',
+    typeClue: 'clue',
     step: {
       current: 2,
       total: 6
     },
     question: 'Amongst these businesses, which have suffered setbacks for not knowing how to putting users first?',
-    help: 'Select something below',
     cta: {
       ...props,
-      submitValue: 'Validate'
+      submitValue: 'Back to Question'
     },
-    answerType,
+    help: 'En regardant cet indice, vous perdez 1 étoile',
+    ...clueProps,
     ...footerProps
   }
 };

@@ -1,14 +1,12 @@
-import QcmImage from '../../../../questions/qcm-image/test/fixtures/default';
+import Answer from '../../../../../molecule/answer/test/fixtures/qcm-image';
 import Default from './default';
 
-const answerProps = QcmImage.props;
+const answerType = Answer.props;
 
 export default {
   props: {
+    typeClue: 'answer',
     ...Default.props,
-    answer: {
-      type: 'qcmImage',
-      ...answerProps
-    }
+    answerType
   }
 };

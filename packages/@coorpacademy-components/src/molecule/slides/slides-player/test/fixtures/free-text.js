@@ -1,12 +1,12 @@
-import FreeText from '../../../../questions/free-text/test/fixtures/default';
+import Answer from '../../../../../molecule/answer/test/fixtures/default';
 import Default from './default';
+
+const answerType = Answer.props;
 
 export default {
   props: {
+    typeClue: 'answer',
     ...Default.props,
-    answer: {
-      type: 'freeText',
-      ...FreeText.props
-    }
+    answerType
   }
 };

@@ -1,3 +1,4 @@
+export Answer from './molecule/answer';
 export Author from './template/app-catalog/author';
 export Authors from './template/common/authors';
 export BattleRequest from './molecule/battle-request';
@@ -32,6 +33,7 @@ export Categories from './molecule/categories';
 export CenteredText from './atom/centered-text';
 export Checkbox from './atom/checkbox';
 export Checkboxes from './molecule/checkboxes';
+export Clue from './atom/clue';
 export Container from './organism/accordion/container';
 export CoorpHeader from './template/common/coorp-header';
 export Cta from './atom/cta';

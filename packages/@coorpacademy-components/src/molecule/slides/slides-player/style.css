@@ -6,6 +6,8 @@
 @value dark from colors;
 @value light from colors;
 @value black from colors;
+@value white from colors;
+@value brand from colors;
 
 .wrapper {
   position: relative;
@@ -98,28 +100,6 @@
   margin-bottom: 25px;
 }
 
-.answerWrapper {
-  max-width: 100%;
-}
-
-.picker {
-}
-
-.qcm {
-}
-
-.qcmImage {
-}
-
-.freeText {
-}
-
-.dropDown {
-}
-
-.range {
-}
-
 .cta {
   padding-left: 25px;
   padding-right: 25px;
@@ -162,11 +142,6 @@
 
   .helpView {
     margin-bottom: 16px;
-  }
-
-  .answerWrapper {
-    width: 100%;
-    text-align: center;
   }
 
   .ctaWrapper {

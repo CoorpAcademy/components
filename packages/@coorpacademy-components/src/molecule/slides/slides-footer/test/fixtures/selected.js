@@ -3,12 +3,12 @@ export default {
     buttons: [
       {
         title: 'Media',
-        type: 'media',
-        selected: true
+        type: 'media'
       },
       {
         title: 'Clue',
-        type: 'clue'
+        type: 'clue',
+        selected: true
       },
       {
         title: 'Coach',

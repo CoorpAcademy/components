@@ -3,43 +3,11 @@ import PropTypes from 'prop-types';
 import identity from 'lodash/fp/identity';
 import getOr from 'lodash/fp/getOr';
 import Cta from '../../../atom/cta';
-import DropDown from '../../questions/drop-down';
-import FreeText from '../../questions/free-text';
-import Picker from '../../questions/picker';
 import Provider from '../../../atom/provider';
-import Qcm from '../../questions/qcm';
-import QcmImage from '../../questions/qcm-image';
-import QuestionRange from '../../questions/question-range';
+import Clue from '../../../atom/clue';
+import Answer from '../../../molecule/answer';
 import SlidesFooter from '../slides-footer';
 import style from './style.css';
-
-const answerStyle = {
-  dropDown: style.dropDown,
-  picker: style.picker,
-  qcm: style.qcm,
-  qcmImage: style.qcmImage,
-  range: style.range,
-  freeText: style.freeText
-};
-
-const answers = {
-  dropDown: DropDown,
-  picker: Picker,
-  qcm: Qcm,
-  qcmImage: QcmImage,
-  range: QuestionRange,
-  freeText: FreeText
-};
-
-const createAnswerView = answer => {
-  const Answer = answer && answers[answer.type];
-  return (
-    Answer !== undefined &&
-    <div className={answerStyle[answer.type]}>
-      <Answer {...answer} />
-    </div>
-  );
-};
 
 const createStepView = (step, skin) => {
   if (!step) return null;
@@ -66,13 +34,26 @@ const createStepView = (step, skin) => {
 };
 
 const SlidesPlayer = (props, context) => {
-  const {step, question, cta, help, answer, buttons, verticalMargin = 100} = props;
+  const {
+    typeClue,
+    step,
+    question,
+    cta,
+    help,
+    buttons,
+    text,
+    answerType,
+    verticalMargin = 100
+  } = props;
   const {skin, translate = identity} = context;
 
   const helpView = help ? <div className={style.helpView}>{help}</div> : null;
 
-  const answerView = createAnswerView(answer);
   const stepView = createStepView(step, skin);
+
+  const wrapperColor = typeClue === 'clue' ? '#ECEFF1' : 'white';
+
+  const contentView = typeClue === 'clue' ? <Clue text={text} /> : <Answer {...answerType} />;
 
   return (
     <div className={style.wrapper}>
@@ -83,16 +64,15 @@ const SlidesPlayer = (props, context) => {
       <div
         className={style.contentWrapper}
         style={{
-          minHeight: `calc(100vh - ${verticalMargin}px)`
+          minHeight: `calc(100vh - ${verticalMargin}px)`,
+          backgroundColor: wrapperColor
         }}
       >
         <div className={style.question}>
           {question}
         </div>
         {helpView}
-        <div className={style.answerWrapper}>
-          {answerView}
-        </div>
+        {contentView}
         <div className={style.ctaWrapper}>
           <Cta className={style.cta} {...cta} />
         </div>
@@ -110,6 +90,7 @@ SlidesPlayer.contextTypes = {
 };
 
 SlidesPlayer.propTypes = {
+  typeClue: PropTypes.string,
   step: PropTypes.shape({
     current: PropTypes.number.isRequired,
     total: PropTypes.number.isRequired
@@ -117,9 +98,8 @@ SlidesPlayer.propTypes = {
   question: PropTypes.string.isRequired,
   help: PropTypes.string,
   verticalMargin: PropTypes.number,
-  answer: PropTypes.shape({
-    type: PropTypes.oneOf(['picker', 'qcm', 'qcmImage', 'freeText', 'dropDown', 'range']).required
-  }),
+  text: Clue.propTypes.text,
+  answerType: PropTypes.shape(Answer.PropTypes),
   cta: PropTypes.shape(Cta.propTypes).isRequired,
   buttons: SlidesFooter.propTypes.buttons
 };
