@@ -20,7 +20,10 @@ export default (state = {entities: {}}, action) => {
     case ANSWER_FETCH_SUCCESS: {
       const {payload, meta} = action;
       const {progressionId, slideId} = meta;
-      return set(['entities', progressionId, slideId], payload, state);
+      return pipe(
+        set(['entities', progressionId, slideId, 'correctAnswer'], payload.correctAnswer),
+        set(['entities', progressionId, slideId, 'corrections'], payload.corrections)
+      )(state);
     }
     case ANSWER_FETCH_FAILURE: {
       const {meta} = action;

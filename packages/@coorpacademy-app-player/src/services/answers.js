@@ -1,9 +1,10 @@
 import head from 'lodash/fp/head';
+import find from 'lodash/fp/find';
+import assign from 'lodash/fp/assign';
 import reduce from 'lodash/fp/reduce';
 import includes from 'lodash/fp/includes';
 import {checkAnswerCorrectness} from '@coorpacademy/progression-engine';
 import slidesData from './slides.data';
-import * as SlidesService from './slides';
 import * as ProgressionsService from './progressions';
 
 const answerStore = reduce(
@@ -14,17 +15,19 @@ const answerStore = reduce(
 
 // eslint-disable-next-line import/prefer-default-export
 export const findById = async (progressionId, slideId, givenAnswers = []) => {
-  const [progression, slide] = await Promise.all([
-    ProgressionsService.findById(progressionId),
-    SlidesService.findById(slideId)
-  ]);
+  const progression = await ProgressionsService.findById(progressionId);
+  const slide = find({_id: slideId}, slidesData);
 
   if (!includes(slideId, progression.state.slides)) throw new Error('Answers are not available');
+  const correctAnswer = answerStore.get(slideId);
+  const question = assign(slide.question, {
+    answers: [correctAnswer]
+  });
 
-  const {corrections} = checkAnswerCorrectness(progression.engine, slide.question, givenAnswers);
+  const {corrections} = checkAnswerCorrectness(progression.engine, question, givenAnswers);
 
   return {
-    correctAnswer: answerStore.get(slideId),
+    correctAnswer,
     corrections
   };
 };

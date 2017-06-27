@@ -3,16 +3,6 @@ import set from 'lodash/fp/set';
 import unset from 'lodash/fp/unset';
 import values from 'lodash/fp/values';
 import {ANSWER_EDIT} from '../../actions/ui/answers';
-import {
-  PROGRESSION_CREATE_ANSWER_REQUEST,
-  PROGRESSION_CREATE_ANSWER_SUCCESS,
-  PROGRESSION_CREATE_ANSWER_FAILURE
-} from '../../actions/api/progressions';
-import {
-  ANSWER_FETCH_REQUEST,
-  ANSWER_FETCH_SUCCESS,
-  ANSWER_FETCH_FAILURE
-} from '../../actions/api/answers';
 import {UI_SELECT_PROGRESSION} from '../../actions/ui/progressions';
 
 const ANSWER_EDIT_ACTIONS = values(ANSWER_EDIT);
@@ -22,39 +12,6 @@ export default (state = {}, {type, payload, meta}) => {
     case UI_SELECT_PROGRESSION: {
       const {id: progressionId} = payload;
       return unset([progressionId], state);
-    }
-    case PROGRESSION_CREATE_ANSWER_REQUEST: {
-      const {progressionId} = meta;
-      return set([progressionId, 'isCorrect'], null, state);
-    }
-    case PROGRESSION_CREATE_ANSWER_FAILURE: {
-      const {progressionId} = meta;
-      return unset([progressionId, 'isCorrect'], state);
-    }
-    case PROGRESSION_CREATE_ANSWER_SUCCESS: {
-      const {progressionId} = meta;
-      const {state: {isCorrect}} = payload;
-      return set([progressionId, 'isCorrect'], isCorrect, state);
-    }
-    case ANSWER_FETCH_REQUEST: {
-      const {progressionId} = meta;
-      return pipe(
-        set([progressionId, 'corrections'], null),
-        set([progressionId, 'correctAnswer'], null)
-      )(state);
-    }
-    case ANSWER_FETCH_FAILURE: {
-      const {progressionId} = meta;
-      return pipe(unset([progressionId, 'corrections']), unset([progressionId, 'correctAnswer']))(
-        state
-      );
-    }
-    case ANSWER_FETCH_SUCCESS: {
-      const {progressionId} = meta;
-      return pipe(
-        set([progressionId, 'corrections'], payload.corrections),
-        set([progressionId, 'correctAnswer'], payload.correctAnswer)
-      )(state);
     }
   }
 
