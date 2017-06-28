@@ -7,6 +7,7 @@ import Cta from '../../../atom/cta';
 import Provider from '../../../atom/provider';
 import Clue from '../../../atom/clue';
 import Answer from '../../../molecule/answer';
+import Loader from '../../../atom/loader';
 import SlidesFooter from '../slides-footer';
 import style from './style.css';
 
@@ -41,6 +42,8 @@ const createStepView = (step, skin) => {
 
 const SlidesPlayer = (props, context) => {
   const {
+    error,
+    errorMsg,
     typeClue,
     step,
     question,
@@ -51,6 +54,7 @@ const SlidesPlayer = (props, context) => {
     answerType,
     verticalMargin = 100
   } = props;
+
   const {skin, translate = identity} = context;
 
   const helpView = help ? <div className={style.helpView}>{help}</div> : null;
@@ -61,13 +65,8 @@ const SlidesPlayer = (props, context) => {
 
   const contentView = typeClue === TYPE.CLUE ? <Clue text={text} /> : <Answer {...answerType} />;
 
-  return (
-    <div className={style.wrapper}>
-      {stepView}
-      <div className={style.guideWrapper}>
-        <span>{translate('New media')}</span>
-      </div>
-      <div
+  const globalView = stepView
+    ? <div
         className={style.contentWrapper}
         style={{
           minHeight: `calc(100vh - ${verticalMargin}px)`,
@@ -83,8 +82,37 @@ const SlidesPlayer = (props, context) => {
           <Cta className={style.cta} {...cta} />
         </div>
       </div>
-      <div className={style.footer}>
-        <SlidesFooter buttons={buttons} />
+    : <div
+        className={style.loading}
+        style={{
+          minHeight: `calc(100vh - ${verticalMargin}px)`
+        }}
+      >
+        <Loader />
+      </div>;
+
+  const catchError = error
+    ? <div
+        className={style.contentWrapper}
+        style={{
+          minHeight: `calc(100vh - ${verticalMargin}px)`
+        }}
+      >
+        <div className={style.error}>{errorMsg}</div>
+      </div>
+    : globalView;
+
+  return (
+    <div>
+      <div className={style.wrapper}>
+        {stepView}
+        <div className={style.guideWrapper}>
+          <span>{translate('New media')}</span>
+        </div>
+        {catchError}
+        <div className={style.footer}>
+          <SlidesFooter buttons={buttons} />
+        </div>
       </div>
     </div>
   );
@@ -98,17 +126,19 @@ SlidesPlayer.contextTypes = {
 };
 
 SlidesPlayer.propTypes = {
+  error: PropTypes.bool,
   typeClue: PropTypes.oneOf(values(TYPE)),
+  errorMsg: PropTypes.string,
   step: PropTypes.shape({
     current: PropTypes.number.isRequired,
     total: PropTypes.number.isRequired
   }),
-  question: PropTypes.string.isRequired,
+  question: PropTypes.string,
   help: PropTypes.string,
   verticalMargin: PropTypes.number,
   text: Clue.propTypes.text,
   answerType: PropTypes.shape(Answer.PropTypes),
-  cta: PropTypes.shape(Cta.propTypes).isRequired,
+  cta: PropTypes.shape(Cta.propTypes),
   buttons: SlidesFooter.propTypes.buttons
 };
 

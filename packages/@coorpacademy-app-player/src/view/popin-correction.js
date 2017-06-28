@@ -2,8 +2,6 @@ import PopinCorrection from '@coorpacademy/components/es/template/app-player/pop
 import mapStateToProps from './state-to-props/popin-correction';
 import createView from './create-view';
 
-const createPopinCorrection = (options, dispatch) => {
-  return createView(options, dispatch, PopinCorrection, mapStateToProps);
-};
+const createPopinCorrection = createView(PopinCorrection, mapStateToProps);
 
 export default createPopinCorrection;

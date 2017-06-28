@@ -4,9 +4,7 @@ import {createElement} from 'react';
 
 const identityStateToProps = (options, dispatch) => identity;
 
-const createView = (options, dispatch, template, mapper = identityStateToProps) => {
-  const stateToProps = mapper(options, dispatch);
-  return pipe(stateToProps, props => createElement(template, props));
-};
+const createView = (template, mapper = identityStateToProps) => (options, store) =>
+  pipe(mapper(options, store), props => createElement(template, props));
 
 export default createView;

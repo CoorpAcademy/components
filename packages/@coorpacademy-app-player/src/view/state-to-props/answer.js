@@ -10,7 +10,7 @@ import {
 } from '../../utils/state-extract';
 import {editAnswer} from '../../actions/ui/answers';
 
-const editAnswerAction = (state, slide, dispatch) => newValue => {
+const editAnswerAction = (options, {dispatch}) => (state, slide) => newValue => {
   return dispatch(
     editAnswer(
       getAnswerValues(state),
@@ -21,42 +21,50 @@ const editAnswerAction = (state, slide, dispatch) => newValue => {
   );
 };
 
-const qcmProps = (state, slide, dispatch) => {
+const qcmProps = (options, store) => (state, slide) => {
   return {
     type: 'qcm',
     answers: map(choice => ({
       title: choice.label,
       selected: pipe(getAnswerValues, includes(choice.label))(state),
-      onClick: () => editAnswerAction(state, slide, dispatch)(choice)
+      onClick: () => editAnswerAction(options, store)(state, slide)(choice)
     }))(getChoices(slide))
   };
 };
 
-const qcmTemplateProps = (state, slide, dispatch) => ({
-  type: 'freeText',
-  placeholder: 'Type here',
-  value: pipe(getAnswerValues, head)(state),
-  onChange: editAnswerAction(state, slide, dispatch)
-});
+const qcmTemplateProps = (options, store) => (state, slide) => {
+  const {translate} = options;
+  return {
+    type: 'freeText',
+    placeholder: translate('Type here'),
+    value: pipe(getAnswerValues, head)(state),
+    onChange: editAnswerAction(options, store)(state, slide)
+  };
+};
 
-const basicProps = (state, slide, dispatch) => ({
-  type: 'freeText',
-  placeholder: 'Type here',
-  value: pipe(getAnswerValues, head)(state),
-  onChange: editAnswerAction(state, slide, dispatch)
-});
+const basicProps = (options, store) => (state, slide) => {
+  const {translate} = options;
+  return {
+    type: 'freeText',
+    placeholder: translate('Type here'),
+    value: pipe(getAnswerValues, head)(state),
+    onChange: editAnswerAction(options, store)(state, slide)
+  };
+};
 
-export default function getAnswerProps(state, slide, dispatch) {
+const createGetAnswerProps = (options, store) => (state, slide) => {
   const type = getQuestionType(slide);
   switch (type) {
     case 'qcm':
-      return qcmProps(state, slide, dispatch);
+      return qcmProps(options, store)(state, slide);
 
     case 'basic':
-      return basicProps(state, slide, dispatch);
+      return basicProps(options, store)(state, slide);
 
     case 'template':
     default:
-      return qcmTemplateProps(state, slide, dispatch);
+      return qcmTemplateProps(options, store)(state, slide);
   }
-}
+};
+
+export default createGetAnswerProps;

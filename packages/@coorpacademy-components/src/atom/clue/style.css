@@ -4,6 +4,7 @@
 @value light from colors;
 @value black from colors;
 @value white from colors;
+@value medium from colors;
 @value brand from colors;
 
 @value breakpoints: "../../variables/breakpoints.css";
@@ -30,6 +31,12 @@
   display: flex;
   align-items: center;
   position: relative;
+  transition: background-color 3s ease-out;
+}
+
+.loadingClue {
+  composes: clue;
+  background-color: medium;
 }
 
 .clueText {

@@ -1,9 +1,9 @@
-import noop from 'lodash/fp/noop';
+import identity from 'lodash/fp/identity';
 import test from 'ava';
-import {slideStateToProps} from '../slide';
+import {createSlideStateToProps} from '../slide';
 import state from './fixtures/init-state';
 
-const mapStateToProps = slideStateToProps({}, noop);
+const mapStateToProps = createSlideStateToProps({translate: identity}, {dispatch: identity});
 
 test('should provide default props to init state', t => {
   const props = mapStateToProps(state);

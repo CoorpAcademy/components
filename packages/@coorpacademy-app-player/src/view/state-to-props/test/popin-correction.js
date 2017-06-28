@@ -1,5 +1,7 @@
 import test from 'ava';
-import noop from 'lodash/fp/noop';
+import identity from 'lodash/fp/identity';
+import isFunction from 'lodash/fp/isFunction';
+import {UI_TOGGLE_ACCORDION} from '../../../actions/ui/corrections';
 import createMapStateToProps from '../popin-correction';
 import statePopinKO from './fixtures/popin-correction/popinKO';
 import statePopinOK from './fixtures/popin-correction/popinOK';
@@ -9,7 +11,7 @@ const commonOptions = {
   translate
 };
 
-const mapStateToProps = createMapStateToProps(commonOptions, {dispatch: noop});
+const mapStateToProps = createMapStateToProps(commonOptions, {dispatch: identity});
 
 test('should set properties for success popin', t => {
   const props = mapStateToProps(statePopinOK);
@@ -22,6 +24,19 @@ test('should set properties for success popin', t => {
   t.false(props.resources.open);
   t.false(props.klf.open);
   t.true(props.tips.open);
+
+  const resetHandler = props.header.cta.onClick;
+  t.true(isFunction(resetHandler));
+  const actionReset = resetHandler();
+  t.true(isFunction(actionReset));
+
+  const toggleAccordionHandler = props.onClick;
+  t.true(isFunction(toggleAccordionHandler));
+  const actionToggleAccordion = toggleAccordionHandler(0);
+  t.deepEqual(actionToggleAccordion, {
+    type: UI_TOGGLE_ACCORDION,
+    payload: {id: 0}
+  });
 });
 
 test('should set properties to open resource tab if wrong answer and no resource viewed', t => {

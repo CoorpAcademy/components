@@ -6,7 +6,9 @@ import pipe from 'lodash/fp/pipe';
 import {getCurrentExitNode, getCurrentProgression} from '../../utils/state-extract';
 import headerProps from './header';
 
-const popinEndStateToProps = ({translate}, dispatch) => state => {
+const popinEndStateToProps = (options, store) => state => {
+  const {translate} = options;
+
   const exitNode = getCurrentExitNode(state);
   const progression = getCurrentProgression(state);
 
@@ -49,7 +51,7 @@ const popinEndStateToProps = ({translate}, dispatch) => state => {
     href: '/'
   };
   return {
-    header: headerProps(state),
+    header: headerProps(options, store)(state),
     summary: {
       header,
       recommendation,

@@ -1,11 +1,16 @@
 import test from 'ava';
 import isFunction from 'lodash/fp/isFunction';
+import identity from 'lodash/fp/identity';
 import reduce from 'lodash/fp/reduce';
-import getAnswerProps from '../answer';
+import creategetAnswerProps from '../answer';
 import {ANSWER_EDIT} from '../../../actions/ui/answers';
 import basic from './fixtures/slides/basic';
 import qcm from './fixtures/slides/qcm';
 import template from './fixtures/slides/template';
+
+const options = {translate: identity};
+const store = {dispatch: identity};
+const getAnswerProps = creategetAnswerProps(options, store);
 
 test('should create initial qcm props', t => {
   const state = {};
@@ -56,14 +61,12 @@ test('should create action: edit-answer-qcm', t => {
     }
   };
 
-  const dispatch = action => {
-    t.is(action.type, ANSWER_EDIT.qcm);
-    t.is(action.payload[1], 'Case 3');
-    t.is(action.meta.progressionId, '1234');
-  };
+  const props = getAnswerProps(state, qcm);
+  const action = props.answers[2].onClick();
 
-  const props = getAnswerProps(state, qcm, dispatch);
-  props.answers[2].onClick();
+  t.is(action.type, ANSWER_EDIT.qcm);
+  t.is(action.payload[1], 'Case 3');
+  t.is(action.meta.progressionId, '1234');
 });
 
 test('should create action: edit-answer-template', t => {
@@ -73,14 +76,13 @@ test('should create action: edit-answer-template', t => {
       current: {progressionId: '1234'}
     }
   };
-  const dispatch = action => {
-    t.is(action.type, ANSWER_EDIT.template);
-    t.is(action.payload[0], 'foo');
-    t.is(action.meta.progressionId, '1234');
-  };
 
-  const props = getAnswerProps(state, template, dispatch);
-  props.onChange('foo');
+  const props = getAnswerProps(state, template);
+  const action = props.onChange('foo');
+
+  t.is(action.type, ANSWER_EDIT.template);
+  t.is(action.payload[0], 'foo');
+  t.is(action.meta.progressionId, '1234');
 });
 
 test('should create initial basic props', t => {
@@ -100,5 +102,5 @@ test('should create edited basic props', t => {
   const props = getAnswerProps(state, basic);
   t.is(props.type, 'freeText');
   t.is(props.value, 'foo');
-  t.is(isFunction(props.onChange), true);
+  t.true(isFunction(props.onChange));
 });

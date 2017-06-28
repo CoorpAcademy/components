@@ -157,6 +157,7 @@ import CheckboxFixtureDefault from '../src/atom/checkbox/test/fixtures/default';
 import CheckboxFixtureDisabled from '../src/atom/checkbox/test/fixtures/disabled';
 import CheckboxFixtureRequired from '../src/atom/checkbox/test/fixtures/required';
 import ClueFixtureDefault from '../src/atom/clue/test/fixtures/default';
+import ClueFixtureLoading from '../src/atom/clue/test/fixtures/loading';
 import CtaFixtureDefaultSmall from '../src/atom/cta/test/fixtures/default-small';
 import CtaFixtureDefault from '../src/atom/cta/test/fixtures/default';
 import CtaFixtureLight from '../src/atom/cta/test/fixtures/light';
@@ -436,7 +437,9 @@ import SlidesHeaderFixtureNoSecondary from '../src/molecule/slides/slides-header
 import SlidesPlayerFixtureClue from '../src/molecule/slides/slides-player/test/fixtures/clue';
 import SlidesPlayerFixtureDefault from '../src/molecule/slides/slides-player/test/fixtures/default';
 import SlidesPlayerFixtureDropDown from '../src/molecule/slides/slides-player/test/fixtures/drop-down';
+import SlidesPlayerFixtureError from '../src/molecule/slides/slides-player/test/fixtures/error';
 import SlidesPlayerFixtureFreeText from '../src/molecule/slides/slides-player/test/fixtures/free-text';
+import SlidesPlayerFixtureLoading from '../src/molecule/slides/slides-player/test/fixtures/loading';
 import SlidesPlayerFixturePicker from '../src/molecule/slides/slides-player/test/fixtures/picker';
 import SlidesPlayerFixtureQcmImage from '../src/molecule/slides/slides-player/test/fixtures/qcm-image';
 import SlidesPlayerFixtureQcm from '../src/molecule/slides/slides-player/test/fixtures/qcm';
@@ -517,6 +520,8 @@ import ProductCursusFixtureWithoutBadge from '../src/template/app-catalog/produc
 import LoadingFixtureDefault from '../src/template/app-player/loading/test/fixtures/default';
 import PlayerFixtureClue from '../src/template/app-player/player/test/fixtures/clue';
 import PlayerFixtureDropDown from '../src/template/app-player/player/test/fixtures/drop-down';
+import PlayerFixtureEmpty from '../src/template/app-player/player/test/fixtures/empty';
+import PlayerFixtureError from '../src/template/app-player/player/test/fixtures/error';
 import PlayerFixtureFreeText from '../src/template/app-player/player/test/fixtures/free-text';
 import PlayerFixturePicker from '../src/template/app-player/player/test/fixtures/picker';
 import PlayerFixtureQcmImage from '../src/template/app-player/player/test/fixtures/qcm-image';
@@ -777,7 +782,8 @@ export const fixtures = {
       Required: CheckboxFixtureRequired
     },
     Clue: {
-      Default: ClueFixtureDefault
+      Default: ClueFixtureDefault,
+      Loading: ClueFixtureLoading
     },
     Cta: {
       DefaultSmall: CtaFixtureDefaultSmall,
@@ -1259,7 +1265,9 @@ export const fixtures = {
       Clue: SlidesPlayerFixtureClue,
       Default: SlidesPlayerFixtureDefault,
       DropDown: SlidesPlayerFixtureDropDown,
+      Error: SlidesPlayerFixtureError,
       FreeText: SlidesPlayerFixtureFreeText,
+      Loading: SlidesPlayerFixtureLoading,
       Picker: SlidesPlayerFixturePicker,
       QcmImage: SlidesPlayerFixtureQcmImage,
       Qcm: SlidesPlayerFixtureQcm,
@@ -1408,6 +1416,8 @@ export const fixtures = {
     Player: {
       Clue: PlayerFixtureClue,
       DropDown: PlayerFixtureDropDown,
+      Empty: PlayerFixtureEmpty,
+      Error: PlayerFixtureError,
       FreeText: PlayerFixtureFreeText,
       Picker: PlayerFixturePicker,
       QcmImage: PlayerFixtureQcmImage,
@@ -2350,6 +2360,9 @@ export const dependencies = {
           "CardsGrid": true,
           "BrandTable": true
         },
+        "MoleculeSlides": {
+          "SlidesPlayer": true
+        },
         "MoleculeDashboard": {
           "NewsList": true
         },
@@ -2359,7 +2372,8 @@ export const dependencies = {
           "BrandUploadBox": true
         },
         "Atom": {
-          "ImageUpload": true
+          "ImageUpload": true,
+          "Clue": true
         }
       },
       "children": {}
@@ -2489,7 +2503,11 @@ export const dependencies = {
           "SlidesPlayer": true
         }
       },
-      "children": {}
+      "children": {
+        "Atom": {
+          "Loader": true
+        }
+      }
     },
     "Life": {
       "parents": {
@@ -2676,7 +2694,8 @@ export const dependencies = {
       "children": {
         "Atom": {
           "Clue": true,
-          "Cta": true
+          "Cta": true,
+          "Loader": true
         },
         "MoleculeSlides": {
           "SlidesFooter": true

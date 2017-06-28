@@ -1,9 +1,9 @@
-import noop from 'lodash/fp/noop';
 import test from 'ava';
-import {slideStateToProps} from '../slide';
+import identity from 'lodash/fp/identity';
+import {createSlideStateToProps} from '../slide';
 import state from './fixtures/progression-state';
 
-const mapStateToProps = slideStateToProps({}, noop);
+const mapStateToProps = createSlideStateToProps({translate: identity}, {dispatch: identity});
 
 test('should map progression-fetch-success state to props', t => {
   const props = mapStateToProps(state);

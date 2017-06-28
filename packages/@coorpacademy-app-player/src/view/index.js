@@ -1,47 +1,33 @@
-import get from 'lodash/fp/get';
-import pipe from 'lodash/fp/pipe';
 import {createElement} from 'react';
+import cond from 'lodash/fp/cond';
+import constant from 'lodash/fp/constant';
+import get from 'lodash/fp/get';
+import isEqual from 'lodash/fp/isEqual';
+import pipe from 'lodash/fp/pipe';
 import Provider from '@coorpacademy/components/es/atom/provider';
 import {getCurrentContent, getCurrentProgression, getRoute} from '../utils/state-extract';
-import PopinCorrection from './popin-correction';
-import PopinEnd from './popin-end';
-import Loading from './loading';
-import Slide from './slide';
+import createPopinCorrectionView from './popin-correction';
+import createSlideView from './slide';
+import createPopinEndView from './popin-end';
+import createLoadingView from './loading';
 
 const wrapInProvider = options => vNode => createElement(Provider, options, vNode);
 
-const renderView = (options, dispatch, state) => view => {
-  return view(options, dispatch)(state);
-};
+const matchRoute = route => pipe(getRoute, isEqual(route));
+const matchContentType = contentType => pipe(getCurrentContent, get('type'), isEqual(contentType));
 
-const createMapStateToVnode = (options, {dispatch}) =>
-  pipe(state => {
-    const render = renderView(options, dispatch, state);
-    const progression = getCurrentProgression(state);
+const createMapStateToProps = (options, store) =>
+  cond([
+    [getCurrentProgression, createLoadingView(options, store)],
+    [getCurrentContent, createLoadingView(options, store)],
+    [matchRoute('correction'), createPopinCorrectionView(options, store)],
+    [matchContentType('slide'), createSlideView(options, store)],
+    [matchContentType('success'), createPopinEndView(options, store)],
+    [matchContentType('failure'), createPopinEndView(options, store)],
+    [constant(true), createLoadingView(options, store)]
+  ]);
 
-    if (!progression) return render(Loading);
-    const currentContent = getCurrentContent(state);
-
-    const route = getRoute(state);
-    switch (route) {
-      case 'correction': {
-        return render(PopinCorrection);
-      }
-      default: {
-        switch (get('type', currentContent)) {
-          case 'slide': {
-            return render(Slide);
-          }
-          case 'success':
-          case 'failure': {
-            return render(PopinEnd);
-          }
-          default: {
-            return render(Loading);
-          }
-        }
-      }
-    }
-  }, wrapInProvider(options));
+const createMapStateToVnode = (options, store) =>
+  pipe(createMapStateToProps(options, store), wrapInProvider(options));
 
 export default createMapStateToVnode;
