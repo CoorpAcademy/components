@@ -157,6 +157,7 @@ import CheckboxFixtureDefault from '../src/atom/checkbox/test/fixtures/default';
 import CheckboxFixtureDisabled from '../src/atom/checkbox/test/fixtures/disabled';
 import CheckboxFixtureRequired from '../src/atom/checkbox/test/fixtures/required';
 import ClueFixtureDefault from '../src/atom/clue/test/fixtures/default';
+import ClueFixtureLoading from '../src/atom/clue/test/fixtures/loading';
 import CtaFixtureDefaultSmall from '../src/atom/cta/test/fixtures/default-small';
 import CtaFixtureDefault from '../src/atom/cta/test/fixtures/default';
 import CtaFixtureLight from '../src/atom/cta/test/fixtures/light';
@@ -781,7 +782,8 @@ export const fixtures = {
       Required: CheckboxFixtureRequired
     },
     Clue: {
-      Default: ClueFixtureDefault
+      Default: ClueFixtureDefault,
+      Loading: ClueFixtureLoading
     },
     Cta: {
       DefaultSmall: CtaFixtureDefaultSmall,
@@ -2370,7 +2372,8 @@ export const dependencies = {
           "BrandUploadBox": true
         },
         "Atom": {
-          "ImageUpload": true
+          "ImageUpload": true,
+          "Clue": true
         }
       },
       "children": {}
@@ -2500,7 +2503,11 @@ export const dependencies = {
           "SlidesPlayer": true
         }
       },
-      "children": {}
+      "children": {
+        "Atom": {
+          "Loader": true
+        }
+      }
     },
     "Life": {
       "parents": {

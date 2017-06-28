@@ -13,11 +13,14 @@ import {selectRoute} from '../../actions/ui/route';
 import {selectClue} from '../../actions/ui/clues';
 import getAnswerProps from './answer';
 
-const playerProps = (state, dispatch) => {
+const playerProps = (options, store) => state => {
+  const {translate} = options;
+  const {dispatch} = store;
+
   const progression = getCurrentProgression(state);
   const slide = getCurrentSlide(state);
-  const answer = getAnswerProps(state, slide, dispatch);
-  const clue = getCurrentClue(state) || '';
+  const answer = getAnswerProps(options, store)(state, slide);
+  const clue = getCurrentClue(state) || null;
   const route = getRoute(state);
 
   const clickClueHandler = () => dispatch(selectClue);
@@ -34,20 +37,28 @@ const playerProps = (state, dispatch) => {
     text: clue,
     step: get('state.step')(progression),
     question: get('question.header')(slide),
-    cta: {
-      submitValue: 'Validate',
-      onClick: route === 'clue' ? clickClueHandler : clickCTAHandler,
-      light: false,
-      small: false,
-      secondary: false
-    },
-    help: 'Select something below',
+    cta: route === 'clue'
+      ? {
+          submitValue: translate('Back'),
+          onClick: clickClueHandler,
+          light: false,
+          small: false,
+          secondary: false
+        }
+      : {
+          submitValue: translate('Validate'),
+          onClick: clickCTAHandler,
+          light: false,
+          small: false,
+          secondary: false
+        },
+    help: translate('Select something below'),
     answerType: {
       model: answer
     },
     buttons: [
       {
-        title: 'Media',
+        title: translate('Media'),
         type: 'media',
         selected: route === 'media',
         onClick: () => {
@@ -55,13 +66,13 @@ const playerProps = (state, dispatch) => {
         }
       },
       {
-        title: 'Clue',
+        title: translate('Clue'),
         type: 'clue',
         selected: route === 'clue',
         onClick: clickClueHandler
       },
       {
-        title: 'Coach',
+        title: translate('Coach'),
         type: 'coach',
         onClick: noop
       }

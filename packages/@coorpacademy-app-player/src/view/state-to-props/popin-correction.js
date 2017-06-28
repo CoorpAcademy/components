@@ -11,17 +11,11 @@ import {
 import {toggleAccordion} from '../../actions/ui/corrections';
 import {selectProgression} from '../../actions/ui/progressions';
 
-const popinCorrectionStateToProps = ({translate}, dispatch) => state => {
-  const resetProgression = () => {
-    return dispatch((_dispatch, getState) => {
-      const progressionId = getCurrentProgressionId(getState());
-      return _dispatch(selectProgression(progressionId));
-    });
-  };
+const popinCorrectionStateToProps = ({translate}, {dispatch}) => state => {
+  const progressionId = getCurrentProgressionId(state);
+  const resetProgression = () => dispatch(selectProgression(progressionId));
 
-  const toggleAccordionSection = _dispatch => sectionId => {
-    return _dispatch(toggleAccordion(sectionId));
-  };
+  const toggleAccordionSection = sectionId => dispatch(toggleAccordion(sectionId));
 
   const correction = getCurrentCorrection(state);
   const slide = getPreviousSlide(state);
@@ -72,7 +66,7 @@ const popinCorrectionStateToProps = ({translate}, dispatch) => state => {
       value: getOr('', 'tips', slide),
       open: getOr(false, '2', accordion)
     },
-    onClick: toggleAccordionSection(dispatch)
+    onClick: toggleAccordionSection
   };
 };
 
