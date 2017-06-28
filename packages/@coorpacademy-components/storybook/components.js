@@ -499,7 +499,8 @@ import MoocHeaderFixtureLogged from '../src/organism/mooc-header/test/fixtures/l
 import MoocHeaderFixtureSliderMultiple from '../src/organism/mooc-header/test/fixtures/slider-multiple';
 import MoocHeaderFixtureSlider from '../src/organism/mooc-header/test/fixtures/slider';
 import PopinFixtureDefault from '../src/organism/popin/test/fixtures/default';
-import ResourceBrowserFixtureDefault from '../src/organism/resource-browser/test/fixtures/default';
+import ResourceBrowserFixturePdfSelected from '../src/organism/resource-browser/test/fixtures/pdf-selected';
+import ResourceBrowserFixtureVideoSelected from '../src/organism/resource-browser/test/fixtures/video-selected';
 import SettingsFixtureDefault from '../src/organism/settings/test/fixtures/default';
 import SettingsFixtureFreemium from '../src/organism/settings/test/fixtures/freemium';
 import SettingsFixturePremium from '../src/organism/settings/test/fixtures/premium';
@@ -538,14 +539,14 @@ import PlayerFixtureRange from '../src/template/app-player/player/test/fixtures/
 import PopinCorrectionFixtureCorrectClosed from '../src/template/app-player/popin-correction/test/fixtures/correct-closed';
 import PopinCorrectionFixtureCorrectNextChapter from '../src/template/app-player/popin-correction/test/fixtures/correct-next-chapter';
 import PopinCorrectionFixtureCorrectOpenKlf from '../src/template/app-player/popin-correction/test/fixtures/correct-open-klf';
-import PopinCorrectionFixtureCorrectOpenResources2 from '../src/template/app-player/popin-correction/test/fixtures/correct-open-resources-2';
-import PopinCorrectionFixtureCorrectOpenResources from '../src/template/app-player/popin-correction/test/fixtures/correct-open-resources';
+import PopinCorrectionFixtureCorrectOpenResourcesWithPdf from '../src/template/app-player/popin-correction/test/fixtures/correct-open-resources-with-pdf';
+import PopinCorrectionFixtureCorrectOpenResourcesWithVideo from '../src/template/app-player/popin-correction/test/fixtures/correct-open-resources-with-video';
 import PopinCorrectionFixtureCorrectOpenTips from '../src/template/app-player/popin-correction/test/fixtures/correct-open-tips';
 import PopinCorrectionFixtureFailClosed from '../src/template/app-player/popin-correction/test/fixtures/fail-closed';
 import PopinCorrectionFixtureFailMultipleAnswers from '../src/template/app-player/popin-correction/test/fixtures/fail-multiple-answers';
 import PopinCorrectionFixtureFailOpenKlf from '../src/template/app-player/popin-correction/test/fixtures/fail-open-klf';
-import PopinCorrectionFixtureFailOpenResources2 from '../src/template/app-player/popin-correction/test/fixtures/fail-open-resources-2';
-import PopinCorrectionFixtureFailOpenResources from '../src/template/app-player/popin-correction/test/fixtures/fail-open-resources';
+import PopinCorrectionFixtureFailOpenResourcesWithPdf from '../src/template/app-player/popin-correction/test/fixtures/fail-open-resources-with-pdf';
+import PopinCorrectionFixtureFailOpenResourcesWithVideo from '../src/template/app-player/popin-correction/test/fixtures/fail-open-resources-with-video';
 import PopinCorrectionFixtureFailOpenTips from '../src/template/app-player/popin-correction/test/fixtures/fail-open-tips';
 import PopinCorrectionFixtureLoading from '../src/template/app-player/popin-correction/test/fixtures/loading';
 import PopinEndFixtureCorrect from '../src/template/app-player/popin-end/test/fixtures/correct';
@@ -1380,7 +1381,8 @@ export const fixtures = {
       Default: PopinFixtureDefault
     },
     ResourceBrowser: {
-      Default: ResourceBrowserFixtureDefault
+      PdfSelected: ResourceBrowserFixturePdfSelected,
+      VideoSelected: ResourceBrowserFixtureVideoSelected
     },
     Settings: {
       Default: SettingsFixtureDefault,
@@ -1449,14 +1451,14 @@ export const fixtures = {
       CorrectClosed: PopinCorrectionFixtureCorrectClosed,
       CorrectNextChapter: PopinCorrectionFixtureCorrectNextChapter,
       CorrectOpenKlf: PopinCorrectionFixtureCorrectOpenKlf,
-      CorrectOpenResources2: PopinCorrectionFixtureCorrectOpenResources2,
-      CorrectOpenResources: PopinCorrectionFixtureCorrectOpenResources,
+      CorrectOpenResourcesWithPdf: PopinCorrectionFixtureCorrectOpenResourcesWithPdf,
+      CorrectOpenResourcesWithVideo: PopinCorrectionFixtureCorrectOpenResourcesWithVideo,
       CorrectOpenTips: PopinCorrectionFixtureCorrectOpenTips,
       FailClosed: PopinCorrectionFixtureFailClosed,
       FailMultipleAnswers: PopinCorrectionFixtureFailMultipleAnswers,
       FailOpenKlf: PopinCorrectionFixtureFailOpenKlf,
-      FailOpenResources2: PopinCorrectionFixtureFailOpenResources2,
-      FailOpenResources: PopinCorrectionFixtureFailOpenResources,
+      FailOpenResourcesWithPdf: PopinCorrectionFixtureFailOpenResourcesWithPdf,
+      FailOpenResourcesWithVideo: PopinCorrectionFixtureFailOpenResourcesWithVideo,
       FailOpenTips: PopinCorrectionFixtureFailOpenTips,
       Loading: PopinCorrectionFixtureLoading
     },
