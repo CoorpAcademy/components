@@ -24,13 +24,14 @@
     "doc": "npm run doc:svg && npm run doc:png",
     "generate:index": "cross-env BABEL_ENV=commonjs babel-node scripts/generate-components-index.js > src/index.js",
     "generate:storybook": "cross-env BABEL_ENV=commonjs babel-node scripts/generate-storybook-index.js > storybook/components.js",
-    "generate": "npm run generate:index && npm run generate:storybook && npm run storybook:export",
+    "generate": "npm run generate:index && npm run generate:storybook",
     "init-component": "node scripts/init-component.js",
     "prepublish": "npm run clean && npm run build --production",
     "prestart": "npm run generate:index && npm run generate:storybook",
     "start": "npm run storybook:dev",
+    "static": "npm run storybook:export",
     "storybook:dev": "cross-env BABEL_ENV=es start-storybook -p 3004 -c .storybook",
-    "storybook:export": "cross-env BABEL_ENV=es build-storybook -c .storybook -o storybook-static"
+    "storybook:export": "cross-env BABEL_ENV=es build-storybook -c .storybook -o static"
   },
   "contributors": [
     "Arthur Weber <arthur.weber@coorpacademy.com>",

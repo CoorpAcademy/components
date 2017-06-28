@@ -17,8 +17,11 @@
     "clean:build:commonjs": "rimraf lib",
     "clean:build:es": "rimraf es",
     "clean:build": "npm run clean:build:commonjs && npm run clean:build:es",
-    "clean": "npm run clean:build",
+    "clean:static": "npm run static",
+    "clean": "npm run clean:build && npm run clean:static",
     "prepublish": "npm run clean && npm run build --production",
+    "static": "webpack --progress --output-path static/dist/ --config sandbox/webpack.config.js",
+    "poststatic": "cp sandbox/index.html static/index.html",
     "start": "cross-env BABEL_ENV=es webpack-dev-server --config sandbox/webpack.config.js --content-base sandbox --history-api-fallback true --hot true"
   },
   "homepage": "https://github.com/CoorpAcademy/components/packages/@coorpacademy-app-player#readme",

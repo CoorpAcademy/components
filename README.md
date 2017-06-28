@@ -12,7 +12,11 @@ This library provide sharable components for web applications, either :
 
 # Storybook
 
-[here](http://coorpacademy.github.io/components/)
+[here](http://coorpacademy.github.io/components/components)
+
+# AppPlayer
+
+[here](http://coorpacademy.github.io/components/app-player)
 
 ### Goal
 
