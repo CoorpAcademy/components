@@ -1,7 +1,7 @@
 import set from 'lodash/fp/set';
 import {UI_SELECT_PROGRESSION} from '../../actions/ui/progressions';
 
-export default (state = {progressionId: null}, action) => {
+const uiCurrentReducer = (state = {progressionId: null}, action) => {
   switch (action.type) {
     case UI_SELECT_PROGRESSION: {
       const {payload} = action;
@@ -12,3 +12,5 @@ export default (state = {progressionId: null}, action) => {
       return state;
   }
 };
+
+export default uiCurrentReducer;

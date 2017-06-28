@@ -11,7 +11,7 @@ const componentCSS = new ExtractTextPlugin({
   ignoreOrder: true
 });
 
-export default (NODE_ENV = 'development', additionalPlugins = []) => ({
+const createConfig = (NODE_ENV = 'development', additionalPlugins = []) => ({
   devtool: NODE_ENV === 'production' ? false : 'eval',
 
   stats: {
@@ -127,3 +127,5 @@ export default (NODE_ENV = 'development', additionalPlugins = []) => ({
     return plugins;
   })()
 });
+
+export default createConfig;

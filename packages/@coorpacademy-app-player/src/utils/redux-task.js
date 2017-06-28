@@ -6,7 +6,7 @@ import set from 'lodash/fp/set';
 
 const setMeta = meta => (isUndefined(meta) ? identity : set('meta', meta));
 
-export default ({bailout = constant(false), meta, task, types}) => async (
+const reduxTask = ({bailout = constant(false), meta, task, types}) => async (
   dispatch,
   getState,
   options
@@ -35,3 +35,5 @@ export default ({bailout = constant(false), meta, task, types}) => async (
     });
   }
 };
+
+export default reduxTask;

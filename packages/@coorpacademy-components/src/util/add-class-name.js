@@ -6,5 +6,7 @@ import reverse from 'lodash/fp/reverse';
 import split from 'lodash/fp/split';
 import update from 'lodash/fp/update';
 
-export default className =>
+const addClassName = className =>
   update('className', pipe(split(' '), concat(className), reverse, compact, join(' ')));
+
+export default addClassName;

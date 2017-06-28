@@ -6,7 +6,7 @@ import unset from 'lodash/fp/unset';
 import pipe from 'lodash/fp/pipe';
 import {CLUE_FETCH_REQUEST, CLUE_FETCH_SUCCESS, CLUE_FETCH_FAILURE} from '../../actions/api/clues';
 
-export default (state = {entities: {}}, action) => {
+const dataCluesReducer = (state = {entities: {}}, action) => {
   switch (action.type) {
     case CLUE_FETCH_REQUEST: {
       const {meta} = action;
@@ -29,3 +29,5 @@ export default (state = {entities: {}}, action) => {
       return state;
   }
 };
+
+export default dataCluesReducer;

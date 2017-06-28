@@ -2,8 +2,10 @@ import {combineReducers} from 'redux';
 import data from './data';
 import ui from './ui';
 
-export default () =>
+const reducer = () =>
   combineReducers({
     data,
     ui
   });
+
+export default reducer;

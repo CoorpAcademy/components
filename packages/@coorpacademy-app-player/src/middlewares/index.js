@@ -1,7 +1,7 @@
 import {applyMiddleware, compose} from 'redux';
 import ReduxThunk from 'redux-thunk';
 
-export default options => {
+const middlewares = options => {
   return compose(
     applyMiddleware(ReduxThunk.withExtraArgument(options)),
     typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION__
@@ -9,3 +9,5 @@ export default options => {
       : f => f
   );
 };
+
+export default middlewares;

@@ -1,6 +1,6 @@
 import join from 'lodash/fp/join';
 
-export default props => {
+const content = props => {
   const {rootUrl = '/', connexionLink = '/', inscriptionLink = '/'} = props;
 
   const url = sub => join('', [rootUrl, sub]);
@@ -93,3 +93,5 @@ export default props => {
     ]
   };
 };
+
+export default content;
