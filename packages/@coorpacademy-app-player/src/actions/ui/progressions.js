@@ -30,7 +30,6 @@ export const selectProgression = id => async (dispatch, getState) => {
   if (response.error) return response;
 
   await dispatch(fetchStartRank());
-
   await dispatch(fetchBestProgression(progressionId, getCurrentContentRef(getState())));
   
   const progression = getCurrentProgression(getState());
