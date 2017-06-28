@@ -20,7 +20,9 @@
     "start:angular": "lerna exec --scope @coorpacademy/treantjs-adapter-angular -- npm start",
     "start:components": "lerna exec --scope @coorpacademy/components -- npm start",
     "start": "npm run start:components",
-    "storybook:export": "lerna exec --scope @coorpacademy/components -- npm run storybook:export",
+    "prestatic": "rimraf static",
+    "static": "lerna run --scope @coorpacademy/components --scope @coorpacademy/app-player static",
+    "poststatic": "mkdirp static && cp -r packages/@coorpacademy-components/static static/components && cp -r packages/@coorpacademy-app-player/static static/app-player",
     "test": "npm run lint && npm run flow && npm run nyc"
   },
   "devDependencies": {
@@ -41,7 +43,9 @@
     "eslint-plugin-react": "^7.0.1",
     "flow-bin": "^0.47.0",
     "lerna": "^2.0.0-rc.5",
-    "nyc": "^11.0.1"
+    "mkdirp": "^0.5.1",
+    "nyc": "^11.0.1",
+    "rimraf": "^2.6.1"
   },
   "ava": {
     "concurrency": 8,

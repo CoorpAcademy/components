@@ -2,11 +2,11 @@ node_modules
 *-debug.log*
 lib
 es
+static
 dist
 .nyc_output
 coverage
 .vscode
-packages/@coorpacademy-components/storybook-static
 .idea
 package-lock.json
 

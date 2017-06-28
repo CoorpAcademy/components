@@ -28,11 +28,11 @@ addons:
       - ubuntu-toolchain-r-test
     packages:
       - g++-5
-before_deploy: npm run storybook:export
+before_deploy: npm run static
 deploy:
   provider: pages
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
-  local_dir: packages/@coorpacademy-components/storybook-static
+  local_dir: static
   on:
     branch: master
