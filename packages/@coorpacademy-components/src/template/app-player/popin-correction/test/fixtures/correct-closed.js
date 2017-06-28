@@ -15,6 +15,17 @@ const resourceValues = [
     selected: true
   },
   {
+    type: 'pdf',
+    description: "Chapitre 1. Diagramme du l'hiérarchie du contenu.",
+    mediaUrl: '//static.coorpacademy.com/content/CoorpAcademy/content/cockpit-mooc-technique/raw/hierachie-contenu-1494494029567.pdf',
+    _id: '590b9be24f7b862e0046e575',
+    subtitles: [],
+    posters: [],
+    src: [],
+    selected: false,
+    onClick: () => {}
+  },
+  {
     type: 'video',
     poster: '//static.coorpacademy.com/content/digital/miniatures_cours/avance/1A1.png',
     description: 'Le concept de Knowledge Graph',
