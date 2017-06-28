@@ -53,11 +53,11 @@ const DisciplinePartners = (props, context) => {
       </div>
     );
 
-    const socialView = socialLinks.map((social, i) => (
+    const socialView = socialLinks.map((social, i) =>
       <div key={i} className={style.link}>
         <SocialLink {...social} />
       </div>
-    ));
+    );
 
     const aNameView =
       autName &&

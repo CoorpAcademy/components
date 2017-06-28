@@ -14,11 +14,10 @@ const Tab = (props, context) => {
       </div>
       <div className={style.link}>
         {map(
-          link => (
+          link =>
             <div key={link.title}>
               {link.title}
-            </div>
-          ),
+            </div>,
           props.links
         )}
       </div>

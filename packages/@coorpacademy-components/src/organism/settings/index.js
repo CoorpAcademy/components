@@ -30,15 +30,14 @@ const Settings = (props, context) => {
             {translate('back_to_catalog')}
           </Link>
           {map(
-            tab => (
+            tab =>
               <Tab
                 {...otherProps}
                 {...tab}
                 onClick={onTabClick}
                 key={tab.key}
                 active={tab.key === activeContent}
-              />
-            ),
+              />,
             tabs
           )}
         </div>

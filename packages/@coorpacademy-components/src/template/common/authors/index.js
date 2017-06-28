@@ -42,11 +42,10 @@ class Authors extends React.Component {
     const toggleLabel = this.state.fullDisplay ? translate('See less') : translate('Show more');
 
     const socialView = map.convert({cap: false})(
-      (sociallink, i) => (
+      (sociallink, i) =>
         <div key={i} className={style.link}>
           <SocialLink {...sociallink} />
-        </div>
-      ),
+        </div>,
       sociallinks
     );
 

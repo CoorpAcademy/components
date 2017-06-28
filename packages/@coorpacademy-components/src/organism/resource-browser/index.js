@@ -9,9 +9,8 @@ import Link from '../../atom/link';
 import VideoPlayer from '../../molecule/video-iframe';
 import style from './style.css';
 
-const SelectedVideo = ({videoId, autoplay = false}) => (
-  <VideoPlayer type="vimeo" id={videoId} height="100%" width="auto" autoplay={autoplay} />
-);
+const SelectedVideo = ({videoId, autoplay = false}) =>
+  <VideoPlayer type="vimeo" id={videoId} height="100%" width="auto" autoplay={autoplay} />;
 
 const SelectedPDF = (props, context) => {
   const {description, mediaUrl} = props;

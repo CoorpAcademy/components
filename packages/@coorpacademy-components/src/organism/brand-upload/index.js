@@ -22,11 +22,11 @@ const BrandUpload = (props, context) => {
   const {skin} = context;
   const darkColor = get('common.dark', skin);
 
-  const notificationsItems = notifications.map((notif, index) => (
+  const notificationsItems = notifications.map((notif, index) =>
     <div className={notificationStyle[notif.type]} key={index}>
       <span>{notif.message}</span>
     </div>
-  ));
+  );
 
   const backView =
     back &&

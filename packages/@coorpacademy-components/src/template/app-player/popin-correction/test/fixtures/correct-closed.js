@@ -7,7 +7,8 @@ const resourceValues = [
     mimeType: 'application/vimeo',
     videoId: '166479793',
     description: 'De l’éco-conception à l’innovation responsable',
-    poster: '//static.coorpacademy.com/content/CoorpAcademy/content-partnerships-svp/cockpit-partner-svp/poster/poster-1480426784168.jpg',
+    poster:
+      '//static.coorpacademy.com/content/CoorpAcademy/content-partnerships-svp/cockpit-partner-svp/poster/poster-1480426784168.jpg',
     _id: '590b9be24f7b862e0046e577',
     subtitles: [],
     posters: [],
@@ -17,7 +18,8 @@ const resourceValues = [
   {
     type: 'pdf',
     description: "Chapitre 1. Diagramme du l'hiérarchie du contenu.",
-    mediaUrl: '//static.coorpacademy.com/content/CoorpAcademy/content/cockpit-mooc-technique/raw/hierachie-contenu-1494494029567.pdf',
+    mediaUrl:
+      '//static.coorpacademy.com/content/CoorpAcademy/content/cockpit-mooc-technique/raw/hierachie-contenu-1494494029567.pdf',
     _id: '590b9be24f7b862e0046e575',
     subtitles: [],
     posters: [],
@@ -56,7 +58,8 @@ export default defaultsDeep(loading, {
       }
     },
     question: {
-      header: 'Par quel moyen les entreprises peuvent-elles connaître leur popularité sur les réseaux sociaux ?',
+      header:
+        'Par quel moyen les entreprises peuvent-elles connaître leur popularité sur les réseaux sociaux ?',
       answerPrefix: 'Bonne réponse:',
       answer: "Grâce à des outils d'analyse et de surveillance"
     },
@@ -67,10 +70,12 @@ export default defaultsDeep(loading, {
       }))
     },
     klf: {
-      value: "Les éco-innovations sont divisées en 3 catégories : intégrées, radicales et économie de la fonctionnalité. La dernière consiste à remplacer un produit par un service. C'est par exemple le cas du système Vélib'."
+      value:
+        "Les éco-innovations sont divisées en 3 catégories : intégrées, radicales et économie de la fonctionnalité. La dernière consiste à remplacer un produit par un service. C'est par exemple le cas du système Vélib'."
     },
     tips: {
-      value: 'Les smart cities, ou villes intelligentes, portent des solutions dans lesquelles se conjuguent les 3 types d’éco-innovations. En France, il en existait vingt début 2016, la plus grande étant Paris.'
+      value:
+        'Les smart cities, ou villes intelligentes, portent des solutions dans lesquelles se conjuguent les 3 types d’éco-innovations. En France, il en existait vingt début 2016, la plus grande étant Paris.'
     },
     onClick: id => console.log(id) // eslint-disable-line no-console
   }
