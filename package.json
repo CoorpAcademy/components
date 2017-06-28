@@ -26,7 +26,7 @@
     "test": "npm run lint && npm run flow && npm run nyc"
   },
   "devDependencies": {
-    "@coorpacademy/eslint-plugin-coorpacademy": "^5.0.0",
+    "@coorpacademy/eslint-plugin-coorpacademy": "^6.0.1",
     "ava": "^0.19.1",
     "babel-polyfill": "^6.23.0",
     "babel-preset-es2015": "^6.24.1",
@@ -37,7 +37,7 @@
     "codecov": "^2.2.0",
     "concurrently": "^3.5.0",
     "cross-env": "^5.0.0",
-    "eslint": "^3.19.0",
+    "eslint": "^4.1.1",
     "eslint-plugin-css-modules": "^2.7.1",
     "eslint-plugin-flowtype": "^2.34.0",
     "eslint-plugin-flowtype-errors": "^3.3.0",
