@@ -14,17 +14,15 @@ const viewStyle = {
   list: style.list
 };
 
-const Timer = ({time, color}) => (
+const Timer = ({time, color}) =>
   <div className={style.timer}>
     <ClockIcon className={style.clockIcon} color={color} /> {time}
-  </div>
-);
+  </div>;
 
-const AdaptivBubble = ({background, color}) => (
+const AdaptivBubble = ({background, color}) =>
   <div className={style.adaptiv} style={{backgroundColor: background}}>
     <AdaptivIcon className={style.adaptivIcon} color={color} />
-  </div>
-);
+  </div>;
 
 const Card = (props, context) => {
   const {skin} = context;

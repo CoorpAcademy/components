@@ -20,14 +20,14 @@ const joinBySeparator = elements => {
 };
 
 const AnswersCorrection = ({corrections}) => {
-  const answers = corrections.map(correction => (
+  const answers = corrections.map(correction =>
     <span
       key={correction.answer}
       className={correction.isCorrect ? style.correctAnswer : style.wrongAnswer}
     >
       {correction.answer}
     </span>
-  ));
+  );
   return <p className={style.fullAnswer}>{joinBySeparator(answers)}</p>;
 };
 

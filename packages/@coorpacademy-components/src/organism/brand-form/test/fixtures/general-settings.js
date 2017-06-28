@@ -36,7 +36,8 @@ export default {
             type: 'doublestep',
             toggleValue: 'Delete Platform',
             cancelValue: 'Cancel',
-            description: 'Are you sure you want to delete your platform? Deleting your platform is irreversible!',
+            description:
+              'Are you sure you want to delete your platform? Deleting your platform is irreversible!',
             onChange: () => {}
           }
         ]

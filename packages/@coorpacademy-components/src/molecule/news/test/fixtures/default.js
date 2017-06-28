@@ -4,7 +4,8 @@ export default {
     title: 'A World Of Infinite Opportunities',
     date: '3 january 2018',
     description: 'Vestibulum id <b>ligula</b> porta felis <i>euismod semper</i>.', // eslint-disable-line max-len
-    authorLogo: 'https://static.coorpacademy.com/content/digital/raw/logo_coorpacademy-1487689750995.svg',
+    authorLogo:
+      'https://static.coorpacademy.com/content/digital/raw/logo_coorpacademy-1487689750995.svg',
     cta: {
       submitValue: 'Read more',
       href: '#',

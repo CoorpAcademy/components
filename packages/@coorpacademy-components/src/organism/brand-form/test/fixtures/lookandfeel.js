@@ -1,6 +1,5 @@
 import BrandFormGroupImages from '../../../../molecule/brand-form-group/test/fixtures/images';
-import BrandFormGroupLookAndFeel
-  from '../../../../molecule/brand-form-group/test/fixtures/lookandfeel';
+import BrandFormGroupLookAndFeel from '../../../../molecule/brand-form-group/test/fixtures/lookandfeel';
 
 export default {
   props: {

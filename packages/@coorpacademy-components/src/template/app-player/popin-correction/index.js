@@ -8,31 +8,28 @@ import style from './style.css';
 
 const extractTabs = map(item => ({title: item.title, isOpen: item.open}));
 
-const Resources = ({resources}) => (
+const Resources = ({resources}) =>
   <div className={style.browserWrapper}>
     <ResourceBrowser resources={resources.value} className={style.browser} />
-  </div>
-);
+  </div>;
 
-const SimpleText = ({text}) => (
+const SimpleText = ({text}) =>
   <div className={style.simpleTextWrapper}>
     <p className={style.simpleText}>{text}</p>
-  </div>
-);
+  </div>;
 
 SimpleText.propTypes = {
   text: PropTypes.string
 };
 
-const Question = props => (
+const Question = props =>
   <div className={style.question}>
     <p className={style.questionHeader}>{props.header}</p>
     <div>
       <span className={style.answerPrefix}>{props.answerPrefix}</span>
       <span className={style.answer}>{props.answer}</span>
     </div>
-  </div>
-);
+  </div>;
 
 Question.propTypes = {
   header: PropTypes.string,

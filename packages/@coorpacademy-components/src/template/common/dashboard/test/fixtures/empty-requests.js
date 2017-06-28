@@ -1,6 +1,5 @@
 import defaultsDeep from 'lodash/fp/defaultsDeep';
-import BattleRequestList
-  from '../../../../../molecule/dashboard/battle-request-list/test/fixtures/empty';
+import BattleRequestList from '../../../../../molecule/dashboard/battle-request-list/test/fixtures/empty';
 import CardsList from '../../../../../molecule/dashboard/cards-list/test/fixtures/default';
 import ManyCardsList from '../../../../../molecule/dashboard/cards-list/test/fixtures/many';
 import NewsList from '../../../../../molecule/dashboard/news-list/test/fixtures/default';

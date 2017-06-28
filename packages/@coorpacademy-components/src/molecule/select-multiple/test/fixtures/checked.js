@@ -1,7 +1,8 @@
 export default {
   props: {
     title: 'Learning Path:',
-    selection: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
+    selection:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
     choices: [
       {
         label: 'Digital',
@@ -12,7 +13,8 @@ export default {
         checked: false
       },
       {
-        label: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
+        label:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
         checked: true
       },
       {

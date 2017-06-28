@@ -27,7 +27,7 @@ const CatalogCards = (props, context) => {
       </CenteredText>
     );
 
-  const productViews = products.map((product, index) => (
+  const productViews = products.map((product, index) =>
     <CatalogCard
       key={index}
       rating={getOr(0, 'popularity', product)}
@@ -37,7 +37,7 @@ const CatalogCards = (props, context) => {
       author={get('author', product)}
       href={get('href', product)}
     />
-  ));
+  );
 
   return (
     <ul className={style['category-list']}>

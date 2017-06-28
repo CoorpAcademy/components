@@ -73,11 +73,11 @@ const Sidebar = (props, context) => {
   const defaultColor = getOr('#00B0FF', 'common.primary', skin);
   return (
     <div className={style.sidebar}>
-      {sections.map((sidebarSection, idx) => (
+      {sections.map((sidebarSection, idx) =>
         <div className={style.sidebarPart} key={idx}>
           <SidebarItems items={sidebarSection} color={defaultColor} />
         </div>
-      ))}
+      )}
     </div>
   );
 };
@@ -85,9 +85,9 @@ const Sidebar = (props, context) => {
 const SidebarItems = props => {
   return (
     <ul className={style.sectionItems}>
-      {props.items.map((item, index) => (
+      {props.items.map((item, index) =>
         <SidebarItem item={item} key={index} index={index} color={props.color} />
-      ))}
+      )}
     </ul>
   );
 };

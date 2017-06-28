@@ -34,7 +34,7 @@ const SimpleAction = ({color, prefix, title, button}) => {
   );
 };
 
-const NextCourse = ({title, description, prefix, card}) => (
+const NextCourse = ({title, description, prefix, card}) =>
   <div className={style.nextCourseWrapper}>
     <div className={style.nextCourseTexts}>
       <div className={style.nextCourseDescription}>{description}</div>
@@ -44,8 +44,7 @@ const NextCourse = ({title, description, prefix, card}) => (
     <div className={style.nextCourseCard}>
       <Card {...card} />
     </div>
-  </div>
-);
+  </div>;
 
 const Subscribe = ({title, description, button, card}) => {
   const {title: buttonTitle, ...linkProps} = button;
@@ -78,15 +77,14 @@ const Action = props => {
   return Type ? <Type {...actionProps} /> : null;
 };
 
-const CardsLoader = () => (
+const CardsLoader = () =>
   <div className={style.loaderWrapper}>
     <Loader />
-  </div>
-);
+  </div>;
 
 const Cards = props => (props.cards ? <CardsList {...props} /> : <CardsLoader />);
 
-const Footer = ({title, color, ...linkProps}) => (
+const Footer = ({title, color, ...linkProps}) =>
   <Link
     style={{
       color
@@ -95,8 +93,7 @@ const Footer = ({title, color, ...linkProps}) => (
     {...linkProps}
   >
     {title}
-  </Link>
-);
+  </Link>;
 
 const Summary = (props, context) => {
   const {header, recommendation, footer, action} = props;

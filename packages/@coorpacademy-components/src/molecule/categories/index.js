@@ -32,12 +32,13 @@ const Categories = (props, context) => {
   const filtersTitle = translate('filters');
 
   const CategoriesDiv = categories.map(buildCategory);
-  const selectedCategory = _find(
-    {
-      selected: true
-    },
-    categories
-  ) || {};
+  const selectedCategory =
+    _find(
+      {
+        selected: true
+      },
+      categories
+    ) || {};
 
   return (
     <div className={style.categories}>

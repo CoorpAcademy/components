@@ -13,7 +13,8 @@ export default {
       current: 2,
       total: 6
     },
-    question: 'Amongst these businesses, which have suffered setbacks for not knowing how to putting users first?',
+    question:
+      'Amongst these businesses, which have suffered setbacks for not knowing how to putting users first?',
     cta: {
       ...props,
       submitValue: 'Back to Question'

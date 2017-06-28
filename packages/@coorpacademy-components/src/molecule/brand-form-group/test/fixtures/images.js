@@ -5,7 +5,8 @@ import Email from '../../../../atom/image-upload/test/fixtures/email';
 export default {
   props: {
     title: 'Platform logos',
-    subtitle: '(SVG files are recommanded for retina display. For any other file types, max height recommanded is xxx px)', // eslint-disable-line max-len
+    subtitle:
+      '(SVG files are recommanded for retina display. For any other file types, max height recommanded is xxx px)', // eslint-disable-line max-len
     fieldsLayout: 'grid',
     fields: [
       {
