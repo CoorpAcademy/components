@@ -63,6 +63,7 @@ const popinEndStateToProps = (options, store) => state => {
     ],
     [constant(true), constant(null)]
   ])(exitNode);
+
   const recommendation = {
     title: translate('Related subjects'),
     cards: getRecommendations(state)

@@ -69,7 +69,7 @@ export const validateAnswer = (progressionId, body) => async (dispatch, getState
     case 'success':
     case 'failure': {
       await dispatch(fetchEndRank(progressionId));
-      await dispatch(fetchRecommendations(progressionId));
+      return dispatch(fetchRecommendations(progressionId));
     }
   }
 
