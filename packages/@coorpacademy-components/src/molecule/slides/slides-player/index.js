@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import identity from 'lodash/fp/identity';
 import getOr from 'lodash/fp/getOr';
+import values from 'lodash/fp/values';
 import Cta from '../../../atom/cta';
 import Provider from '../../../atom/provider';
 import Clue from '../../../atom/clue';
@@ -126,7 +127,7 @@ SlidesPlayer.contextTypes = {
 
 SlidesPlayer.propTypes = {
   error: PropTypes.bool,
-  typeClue: PropTypes.string,
+  typeClue: PropTypes.oneOf(values(TYPE)),
   errorMsg: PropTypes.string,
   step: PropTypes.shape({
     current: PropTypes.number.isRequired,
