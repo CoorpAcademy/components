@@ -10,7 +10,11 @@ import {
   PROGRESSION_FETCH_REQUEST,
   PROGRESSION_FETCH_FAILURE,
   PROGRESSION_CREATE_ANSWER_SUCCESS,
-  PROGRESSION_REQUEST_CLUE_SUCCESS
+  PROGRESSION_REQUEST_CLUE_SUCCESS,
+  PROGRESSION_FETCH_BESTOF_REQUEST,
+  PROGRESSION_FETCH_BESTOF_SUCCESS,
+  PROGRESSION_FETCH_BESTOF_FAILURE
+  
 } from '../../actions/api/progressions';
 
 export default (state = {entities: {}}, action) => {
@@ -34,6 +38,11 @@ export default (state = {entities: {}}, action) => {
         progression => assign(progression, payload),
         state
       );
+    }
+    case PROGRESSION_FETCH_BESTOF_SUCCESS:{
+      const {payload, meta} = action;
+      const {progressionId} = meta;
+      return set(['entities', progressionId, 'previousBestScore'], payload.state.stars, state);
     }
     case PROGRESSION_FETCH_FAILURE: {
       const {meta} = action;
