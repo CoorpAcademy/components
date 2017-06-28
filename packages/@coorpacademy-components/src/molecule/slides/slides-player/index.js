@@ -65,11 +65,13 @@ const SlidesPlayer = (props, context) => {
 
   const contentView = typeClue === TYPE.CLUE ? <Clue text={text} /> : <Answer {...answerType} />;
 
+  const minHeight = `calc(100vh - ${verticalMargin}px)`;
+
   const globalView = stepView
     ? <div
         className={style.contentWrapper}
         style={{
-          minHeight: `calc(100vh - ${verticalMargin}px)`,
+          minHeight,
           backgroundColor: wrapperColor
         }}
       >
@@ -85,7 +87,7 @@ const SlidesPlayer = (props, context) => {
     : <div
         className={style.loading}
         style={{
-          minHeight: `calc(100vh - ${verticalMargin}px)`
+          minHeight
         }}
       >
         <Loader />
@@ -95,7 +97,7 @@ const SlidesPlayer = (props, context) => {
     ? <div
         className={style.contentWrapper}
         style={{
-          minHeight: `calc(100vh - ${verticalMargin}px)`
+          minHeight
         }}
       >
         <div className={style.error}>{errorMsg}</div>
