@@ -1,6 +1,6 @@
 import test from 'ava';
 import reducer from '../corrections';
-import {UI_TOGGLE_ACCORDION} from '../../../actions/ui/corrections';
+import {UI_TOGGLE_ACCORDION, UI_SELECT_RESOURCE_IN_POPIN} from '../../../actions/ui/corrections';
 import {UI_SELECT_PROGRESSION} from '../../../actions/ui/progressions';
 import macro from '../../test/helpers/macro';
 
@@ -13,7 +13,8 @@ test(
     type: UI_SELECT_PROGRESSION
   },
   {
-    accordion: [false, false, false]
+    accordion: [false, false, false],
+    playResource: ''
   }
 );
 
@@ -30,5 +31,25 @@ test(
   },
   {
     accordion: [undefined, undefined, true]
+  }
+);
+
+test(
+  'should set the resource to play',
+  macro,
+  reducer,
+  {
+    accordion: [false, false, false],
+    playResource: 'video2'
+  },
+  {
+    type: UI_SELECT_RESOURCE_IN_POPIN,
+    payload: {
+      id: 'video1'
+    }
+  },
+  {
+    accordion: [false, false, false],
+    playResource: 'video1'
   }
 );

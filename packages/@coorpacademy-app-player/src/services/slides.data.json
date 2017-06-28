@@ -28,6 +28,17 @@
         "subtitles": [],
         "posters": [],
         "src": []
+      },
+      {
+        "description": "Historique des moteurs de recherche",
+        "mimeType": "application/vimeo",
+        "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B1.png",
+        "posters": [],
+        "src": [],
+        "subtitles": [],
+        "type": "video",
+        "videoId": "88546728\n",
+        "_id": "590b862e2e967f64333ad4fc"
       }
     ],
     "question": {
@@ -72,6 +83,28 @@
       "createdAt": "2017-06-06T13:49:35.198Z"
     },
     "lessons": [
+      {
+        "type": "video",
+        "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B2.png",
+        "description": "Anatomie d'une page de résultats",
+        "mimeType": "application/vimeo",
+        "videoId": "88393119\n",
+        "_id": "590b862e2e967f64333ad456",
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      },
+      {
+        "description": "Historique des moteurs de recherche",
+        "mimeType": "application/vimeo",
+        "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B1.png",
+        "posters": [],
+        "src": [],
+        "subtitles": [],
+        "type": "video",
+        "videoId": "88546728\n",
+        "_id": "590b862e2e967f64333ad4fc"
+      },
       {
         "_id": "59307529a2b39d0024eebff3",
         "description": "Hierarchie",
@@ -147,6 +180,28 @@
     },
     "lessons": [
       {
+        "type": "video",
+        "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B2.png",
+        "description": "Anatomie d'une page de résultats",
+        "mimeType": "application/vimeo",
+        "videoId": "88393119\n",
+        "_id": "590b862e2e967f64333ad456",
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      },
+      {
+        "description": "Historique des moteurs de recherche",
+        "mimeType": "application/vimeo",
+        "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B1.png",
+        "posters": [],
+        "src": [],
+        "subtitles": [],
+        "type": "video",
+        "videoId": "88546728\n",
+        "_id": "590b862e2e967f64333ad4fc"
+      },
+      {
         "_id": "5930752aa2b39d0024eebff8",
         "description": "Hierarchie",
         "mediaUrl": "//static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/raw/hierachie-contenu-1496311207505.pdf",
@@ -221,6 +276,28 @@
     },
     "lessons": [
       {
+        "type": "video",
+        "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B2.png",
+        "description": "Anatomie d'une page de résultats",
+        "mimeType": "application/vimeo",
+        "videoId": "88393119\n",
+        "_id": "590b862e2e967f64333ad456",
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      },
+      {
+        "description": "Historique des moteurs de recherche",
+        "mimeType": "application/vimeo",
+        "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B1.png",
+        "posters": [],
+        "src": [],
+        "subtitles": [],
+        "type": "video",
+        "videoId": "88546728\n",
+        "_id": "590b862e2e967f64333ad4fc"
+      },
+      {
         "_id": "59307529a2b39d0024eebfeb",
         "description": "Hierarchie",
         "mediaUrl": "//static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/raw/hierachie-contenu-1496311207505.pdf",
@@ -294,6 +371,28 @@
       "createdAt": "2017-06-06T13:49:35.255Z"
     },
     "lessons": [
+      {
+        "type": "video",
+        "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B2.png",
+        "description": "Anatomie d'une page de résultats",
+        "mimeType": "application/vimeo",
+        "videoId": "88393119\n",
+        "_id": "590b862e2e967f64333ad456",
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      },
+      {
+        "description": "Historique des moteurs de recherche",
+        "mimeType": "application/vimeo",
+        "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B1.png",
+        "posters": [],
+        "src": [],
+        "subtitles": [],
+        "type": "video",
+        "videoId": "88546728\n",
+        "_id": "590b862e2e967f64333ad4fc"
+      },
       {
         "_id": "5930752aa2b39d0024eebffb",
         "description": "Hierarchie",
@@ -518,7 +617,30 @@
       "updatedAt": "2017-06-06T13:49:35.350Z",
       "createdAt": "2017-06-06T13:49:35.350Z"
     },
-    "lessons": [],
+    "lessons": [
+      {
+        "type": "video",
+        "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B2.png",
+        "description": "Anatomie d'une page de résultats",
+        "mimeType": "application/vimeo",
+        "videoId": "88393119\n",
+        "_id": "590b862e2e967f64333ad456",
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      },
+      {
+        "description": "Historique des moteurs de recherche",
+        "mimeType": "application/vimeo",
+        "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B1.png",
+        "posters": [],
+        "src": [],
+        "subtitles": [],
+        "type": "video",
+        "videoId": "88546728\n",
+        "_id": "590b862e2e967f64333ad4fc"
+      }
+    ],
     "question": {
       "type": "qcm",
       "header": "Quelle est la capitale de la France ?",

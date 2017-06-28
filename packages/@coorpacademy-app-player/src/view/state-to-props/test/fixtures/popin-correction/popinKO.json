@@ -26,6 +26,17 @@
               "subtitles": [],
               "posters": [],
               "src": []
+            },
+            {
+              "description": "Historique des moteurs de recherche",
+              "mimeType": "application/vimeo",
+              "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B1.png",
+              "posters": [],
+              "src": [],
+              "subtitles": [],
+              "type": "video",
+              "videoId": "88546728\n",
+              "_id": "590b862e2e967f64333ad4fc"
             }
           ],
           "question": {
