@@ -15,14 +15,9 @@ import {
 import {toggleAccordion, selectResource} from '../../actions/ui/corrections';
 import {selectProgression} from '../../actions/ui/progressions';
 
-const popinCorrectionStateToProps = ({translate}, dispatch) => state => {
-  const resetProgression = () => {
-    return dispatch((_dispatch, getState) => {
-      const progressionId = getCurrentProgressionId(getState());
-      return _dispatch(selectProgression(progressionId));
-    });
-  };
-
+const popinCorrectionStateToProps = ({translate}, {dispatch}) => state => {
+  const progressionId = getCurrentProgressionId(state);
+  const resetProgression = () => dispatch(selectProgression(progressionId));
   const toggleAccordionSection = sectionId => dispatch(toggleAccordion(sectionId));
   const slide = getPreviousSlide(state);
   const progression = getCurrentProgression(state);
@@ -38,7 +33,13 @@ const popinCorrectionStateToProps = ({translate}, dispatch) => state => {
     lessons = map(lesson => {
       return pipe(
         set('onClick', () => dispatch(_dispatch => _dispatch(selectResource(lesson._id)))),
-        set('selected', lesson._id === _resourcesToPlay)
+        set('selected', lesson._id === _resourcesToPlay),
+        _lesson => {
+          if (_lesson.type === 'pdf') {
+            return set('mediaUrl', _lesson.mediaUrl, _lesson);
+          }
+          return _lesson;
+        }
       )(lesson);
     }, lessons);
 
