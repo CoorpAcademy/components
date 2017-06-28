@@ -9,7 +9,7 @@ import {
 import {UI_SELECT_ROUTE} from '../../actions/ui/route';
 import {UI_SELECT_PROGRESSION} from '../../actions/ui/progressions';
 
-export default (state = {}, {type, payload, meta}) => {
+const uiRouteReducer = (state = {}, {type, payload, meta}) => {
   switch (type) {
     case PROGRESSION_CREATE_ANSWER_REQUEST:
     case PROGRESSION_CREATE_ANSWER_SUCCESS:
@@ -31,3 +31,5 @@ export default (state = {}, {type, payload, meta}) => {
       return state;
   }
 };
+
+export default uiRouteReducer;

@@ -4,7 +4,7 @@ import set from 'lodash/fp/set';
 import {UI_TOGGLE_ACCORDION, UI_SELECT_RESOURCE_IN_POPIN} from '../../actions/ui/corrections';
 import {UI_SELECT_PROGRESSION} from '../../actions/ui/progressions';
 
-export default (state = {}, {type, payload, meta}) => {
+const uiCorrectionsReducer = (state = {}, {type, payload, meta}) => {
   switch (type) {
     case UI_TOGGLE_ACCORDION: {
       const {id: tabId} = payload;
@@ -24,3 +24,5 @@ export default (state = {}, {type, payload, meta}) => {
 
   return state;
 };
+
+export default uiCorrectionsReducer;

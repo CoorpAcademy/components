@@ -10,7 +10,7 @@ import {
   EXIT_NODE_FETCH_FAILURE
 } from '../../actions/api/exit-nodes';
 
-export default (state = {entities: {}}, action) => {
+const dataExitNodesReducer = (state = {entities: {}}, action) => {
   switch (action.type) {
     case EXIT_NODE_FETCH_REQUEST: {
       const {meta} = action;
@@ -32,3 +32,5 @@ export default (state = {entities: {}}, action) => {
       return state;
   }
 };
+
+export default dataExitNodesReducer;

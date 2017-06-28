@@ -34,8 +34,10 @@ const wrapInProvider = options => vNode => createElement(Provider, options, vNod
 
 export {createMapStateToProps};
 
-export default options => dispatch => {
+const forum = options => dispatch => {
   const mapStateToProps = createMapStateToProps(options)(dispatch);
 
   return pipe(mapStateToProps, Discussion, wrapInProvider(options));
 };
+
+export default forum;

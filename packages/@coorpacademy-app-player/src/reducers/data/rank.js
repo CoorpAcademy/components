@@ -14,7 +14,7 @@ import {
   RANK_FETCH_END_FAILURE
 } from '../../actions/api/rank';
 
-export default (state = {}, action) => {
+const dataRankReducer = (state = {}, action) => {
   switch (action.type) {
     case RANK_FETCH_START_REQUEST: {
       return update('start', rank => rank || null, state);
@@ -42,3 +42,5 @@ export default (state = {}, action) => {
       return state;
   }
 };
+
+export default dataRankReducer;

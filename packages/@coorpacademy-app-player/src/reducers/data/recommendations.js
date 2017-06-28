@@ -10,7 +10,7 @@ import {
   RECO_FETCH_FAILURE
 } from '../../actions/api/recommendations';
 
-export default (state = {entities: {}}, action) => {
+const dataRecommendationsReducer = (state = {entities: {}}, action) => {
   switch (action.type) {
     case RECO_FETCH_REQUEST: {
       const {meta} = action;
@@ -32,3 +32,5 @@ export default (state = {entities: {}}, action) => {
       return state;
   }
 };
+
+export default dataRecommendationsReducer;

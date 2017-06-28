@@ -9,7 +9,7 @@ import defaultsDeep from 'lodash/fp/defaultsDeep';
 
 const mapExpected = map(expected => (isArray(expected) ? expected : [expected]));
 
-export default async (t, state, createServices, action, expected) => {
+const actionMacro = async (t, state, createServices, action, expected) => {
   const options = {
     services: createServices(t)
   };
@@ -29,3 +29,5 @@ export default async (t, state, createServices, action, expected) => {
   t.is(size(expectedActions), 0);
   t.deepEqual(result, head(last(mapExpected(expected))));
 };
+
+export default actionMacro;

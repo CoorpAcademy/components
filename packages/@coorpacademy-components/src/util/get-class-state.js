@@ -1,5 +1,5 @@
-export default (
-  dfaultClassName,
+const getClassState = (
+  defaultClassName,
   modifiedClassName,
   errorClassName,
   isModified = false,
@@ -10,5 +10,7 @@ export default (
   } else if (isModified) {
     return modifiedClassName;
   }
-  return dfaultClassName;
+  return defaultClassName;
 };
+
+export default getClassState;

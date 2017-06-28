@@ -10,7 +10,7 @@ import {
   SLIDE_FETCH_FAILURE
 } from '../../actions/api/slides';
 
-export default (state = {entities: {}}, action) => {
+const dataSlidesReducer = (state = {entities: {}}, action) => {
   switch (action.type) {
     case SLIDE_FETCH_REQUEST: {
       const {meta} = action;
@@ -32,3 +32,5 @@ export default (state = {entities: {}}, action) => {
       return state;
   }
 };
+
+export default dataSlidesReducer;

@@ -7,7 +7,7 @@ import {UI_SELECT_PROGRESSION} from '../../actions/ui/progressions';
 
 const ANSWER_EDIT_ACTIONS = values(ANSWER_EDIT);
 
-export default (state = {}, {type, payload, meta}) => {
+const uiAnswersReducer = (state = {}, {type, payload, meta}) => {
   switch (type) {
     case UI_SELECT_PROGRESSION: {
       const {id: progressionId} = payload;
@@ -22,3 +22,5 @@ export default (state = {}, {type, payload, meta}) => {
 
   return state;
 };
+
+export default uiAnswersReducer;

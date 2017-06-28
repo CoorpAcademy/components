@@ -332,7 +332,7 @@ import ModuleBubbleFixtureDisabled from '../src/molecule/module-bubble/test/fixt
 import ModuleCardFixtureActive from '../src/molecule/module-card/test/fixtures/active';
 import ModuleCardFixtureRestarted from '../src/molecule/module-card/test/fixtures/restarted';
 import NewsFixtureDefault from '../src/molecule/news/test/fixtures/default';
-import NewsFixtureLongDesciption from '../src/molecule/news/test/fixtures/long-desciption';
+import NewsFixtureLongDescription from '../src/molecule/news/test/fixtures/long-description';
 import NewsFixtureLongTitle from '../src/molecule/news/test/fixtures/long-title';
 import NewsFixtureSmallDesciption from '../src/molecule/news/test/fixtures/small-desciption';
 import NewsFixtureSmallTitle from '../src/molecule/news/test/fixtures/small-title';
@@ -1082,7 +1082,7 @@ export const fixtures = {
     },
     News: {
       Default: NewsFixtureDefault,
-      LongDesciption: NewsFixtureLongDesciption,
+      LongDescription: NewsFixtureLongDescription,
       LongTitle: NewsFixtureLongTitle,
       SmallDesciption: NewsFixtureSmallDesciption,
       SmallTitle: NewsFixtureSmallTitle

@@ -1,1 +1,3 @@
-export default e => e.stopPropagation();
+const bubbling = e => e.stopPropagation();
+
+export default bubbling;

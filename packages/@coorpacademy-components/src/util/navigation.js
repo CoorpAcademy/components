@@ -5,7 +5,7 @@ import has from 'lodash/fp/has';
 const isLeftClickEvent = e => e.button === 0;
 const isModifiedEvent = e => !!(e.metaKey || e.altKey || e.ctrlKey || e.shiftKey);
 
-export default options => {
+const navigation = options => {
   const _history = getOr({}, 'history', options);
   if (!has('push', _history)) {
     return () => () => {};
@@ -20,3 +20,5 @@ export default options => {
     _history.push(href);
   };
 };
+
+export default navigation;

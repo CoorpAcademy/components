@@ -4,7 +4,7 @@ import ReduxThunk from 'redux-thunk';
 import {historyMiddleware} from '@coorpacademy/redux-history';
 import routerMiddleware from './routes';
 
-export default options => {
+const middlewares = options => {
   return compose(
     applyMiddleware(
       ReduxThunk.withExtraArgument(options),
@@ -15,3 +15,5 @@ export default options => {
     window.devToolsExtension ? window.devToolsExtension() : f => f
   );
 };
+
+export default middlewares;

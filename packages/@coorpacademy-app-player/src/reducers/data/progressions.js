@@ -13,7 +13,7 @@ import {
   PROGRESSION_REQUEST_CLUE_SUCCESS
 } from '../../actions/api/progressions';
 
-export default (state = {entities: {}}, action) => {
+const dataProgressionsReducer = (state = {entities: {}}, action) => {
   switch (action.type) {
     case PROGRESSION_FETCH_SUCCESS: {
       const {payload, meta} = action;
@@ -45,3 +45,5 @@ export default (state = {entities: {}}, action) => {
       return state;
   }
 };
+
+export default dataProgressionsReducer;

@@ -1,6 +1,6 @@
 import {INCREMENT, DECREMENT, ASSIGN} from '../actions';
 
-export default (state = 0, action) => {
+const counter = (state = 0, action) => {
   switch (action.type) {
     case ASSIGN:
       return action.payload;
@@ -12,3 +12,5 @@ export default (state = 0, action) => {
       return state;
   }
 };
+
+export default counter;

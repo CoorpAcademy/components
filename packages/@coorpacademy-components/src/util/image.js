@@ -1,7 +1,7 @@
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 
-export default (skin, defaultImage) => {
+const ImageElement = (skin, defaultImage) => {
   const defaultUrl = get(['images', defaultImage], skin);
 
   return image => {
@@ -14,3 +14,5 @@ export default (skin, defaultImage) => {
     return url ? style : null;
   };
 };
+
+export default ImageElement;

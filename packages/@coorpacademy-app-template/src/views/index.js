@@ -35,8 +35,10 @@ const View = ({counter = 0, onIncrement, onDecrement}) =>
     )
   );
 
-export default options => dispatch => {
+const appTemplate = options => dispatch => {
   const mapStateToProps = createMapStateToProps(options)(dispatch);
 
   return pipe(mapStateToProps, View);
 };
+
+export default appTemplate;

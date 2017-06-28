@@ -10,7 +10,7 @@ import {
   ANSWER_FETCH_FAILURE
 } from '../../actions/api/answers';
 
-export default (state = {entities: {}}, action) => {
+const dataAnswersReducer = (state = {entities: {}}, action) => {
   switch (action.type) {
     case ANSWER_FETCH_REQUEST: {
       const {meta} = action;
@@ -36,3 +36,5 @@ export default (state = {entities: {}}, action) => {
       return state;
   }
 };
+
+export default dataAnswersReducer;
