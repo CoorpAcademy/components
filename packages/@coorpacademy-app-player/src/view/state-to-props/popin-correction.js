@@ -1,19 +1,27 @@
 import getOr from 'lodash/fp/getOr';
 import get from 'lodash/fp/get';
+import isEmpty from 'lodash/fp/isEmpty';
 import isNil from 'lodash/fp/isNil';
 import join from 'lodash/fp/join';
+import map from 'lodash/fp/map';
+import pipe from 'lodash/fp/pipe';
+import set from 'lodash/fp/set';
 import {
   getCurrentCorrection,
   getCurrentProgression,
   getCurrentProgressionId,
   getPreviousSlide
 } from '../../utils/state-extract';
-import {toggleAccordion} from '../../actions/ui/corrections';
+import {toggleAccordion, selectResource} from '../../actions/ui/corrections';
 import {selectProgression} from '../../actions/ui/progressions';
 
-const popinCorrectionStateToProps = ({translate}, {dispatch}) => state => {
-  const progressionId = getCurrentProgressionId(state);
-  const resetProgression = () => dispatch(selectProgression(progressionId));
+const popinCorrectionStateToProps = ({translate}, dispatch) => state => {
+  const resetProgression = () => {
+    return dispatch((_dispatch, getState) => {
+      const progressionId = getCurrentProgressionId(getState());
+      return _dispatch(selectProgression(progressionId));
+    });
+  };
 
   const toggleAccordionSection = sectionId => dispatch(toggleAccordion(sectionId));
   const slide = getPreviousSlide(state);
@@ -23,6 +31,25 @@ const popinCorrectionStateToProps = ({translate}, {dispatch}) => state => {
   const correctAnswer = get('correctAnswer', answerResult) || [];
   const corrections = get('corrections', answerResult) || [];
   const isCorrect = isNil(answerResult) ? null : get('state.isCorrect')(progression);
+
+  const buildResourcesView = (_slide, _resourcesToPlay) => {
+    let lessons = getOr([], 'lessons', _slide);
+
+    lessons = map(lesson => {
+      return pipe(
+        set('onClick', () => dispatch(_dispatch => _dispatch(selectResource(lesson._id)))),
+        set('selected', lesson._id === _resourcesToPlay)
+      )(lesson);
+    }, lessons);
+
+    if (!_resourcesToPlay && !isEmpty(lessons)) {
+      lessons[0].selected = true;
+    }
+
+    return lessons;
+  };
+
+  const resourcesToPlay = get('ui.corrections.playResource', state);
 
   const header = isNil(answerResult)
     ? {}
@@ -40,6 +67,8 @@ const popinCorrectionStateToProps = ({translate}, {dispatch}) => state => {
     })
   };
 
+  const resources = buildResourcesView(slide, resourcesToPlay);
+
   return {
     header: {
       lives: 1,
@@ -55,7 +84,7 @@ const popinCorrectionStateToProps = ({translate}, {dispatch}) => state => {
     question,
     resources: {
       title: translate('Access the lesson'),
-      value: getOr([], 'lessons', slide),
+      value: resources,
       open: getOr(false, '0', accordion)
     },
     klf: {
