@@ -76,3 +76,26 @@ export const requestClue = (progressionId, slideId) => (dispatch, getState, {ser
 
   return dispatch(action);
 };
+
+
+export const PROGRESSION_FETCH_BESTOF_REQUEST = '@@progression/FETCH_BESTOF_REQUEST';
+export const PROGRESSION_FETCH_BESTOF_SUCCESS = '@@progression/FETCH_BESTOF_SUCCESS';
+export const PROGRESSION_FETCH_BESTOF_FAILURE = '@@progression/FETCH_BESTOF_FAILURE';
+
+export const fetchBestProgression = (progressionId, contentRef) => (dispatch, getState, {services}) => {
+  const {Progressions} = services;
+  const state = getState();
+
+  const action = buildTask({
+    types: [
+      PROGRESSION_FETCH_BESTOF_REQUEST,
+      PROGRESSION_FETCH_BESTOF_SUCCESS,
+      PROGRESSION_FETCH_BESTOF_FAILURE
+    ],
+    task: () => Progressions.findBestOf(contentRef),
+    // bailout: () => includes(slideId, requestedClues),
+    meta: {progressionId, ref: contentRef}
+  });
+
+  return dispatch(action);
+};

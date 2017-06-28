@@ -73,6 +73,8 @@ export const getCurrentCorrection = state => {
   return getCorrection(getId(progression), getId(slide))(state);
 };
 
+export const getCurrentContentRef = state => get('content.ref')(getCurrentProgression(state));
+
 export const getClue = (progressionId, slideId) => state => {
   return get(['data', 'clues', 'entities', progressionId, slideId], state);
 };
