@@ -83,8 +83,8 @@ const Card = (props, context) => {
             {adaptivIcon}
             {timer}
           </div>
+          {disabled ? <div className={style.lockWrapper}>{lock}</div> : null}
         </div>
-        {disabled ? <div className={style.lockWrapper}>{lock}</div> : null}
         {myprogress}
         <div className={style.infoWrapper} onClick={!disabled && onClick}>
           <div
