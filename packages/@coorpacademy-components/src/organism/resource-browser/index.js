@@ -9,7 +9,7 @@ import Link from '../../atom/link';
 import VideoPlayer from '../../molecule/video-iframe';
 import style from './style.css';
 
-const SelectedVideo = ({videoType, videoId, autoplay = false}) => (
+const SelectedVideo = ({videoId, autoplay = false}) => (
   <VideoPlayer type="vimeo" id={videoId} height="100%" width="auto" autoplay={autoplay} />
 );
 
@@ -68,7 +68,8 @@ const resourcePropTypeBase = {
 
 const videoPropType = PropTypes.shape({
   ...resourcePropTypeBase,
-  videoId: PropTypes.string.isRequired
+  videoId: PropTypes.shape(VideoPlayer.propTypes.id).isRequired,
+  autoplay: PropTypes.shape(VideoPlayer.propTypes.autoplay)
 });
 
 const pdfPropType = PropTypes.shape({
