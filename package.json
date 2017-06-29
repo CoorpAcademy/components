@@ -21,7 +21,7 @@
     "start:components": "lerna exec --scope @coorpacademy/components -- npm start",
     "start": "npm run start:components",
     "prestatic": "rimraf static",
-    "static": "lerna run --scope @coorpacademy/components --scope @coorpacademy/app-player static",
+    "static": "lerna run --scope @coorpacademy/components --scope @coorpacademy/app-player static -- --production",
     "poststatic": "mkdirp static && cp -r packages/@coorpacademy-components/static static/components && cp -r packages/@coorpacademy-app-player/static static/app-player",
     "test": "npm run lint && npm run flow && npm run nyc"
   },
