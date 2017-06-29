@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
 import Provider from '../../atom/provider';
-import {hoverFill} from '../../atom/button/hover-fill.css';
 import style from './style.css';
 
 const DisciplineCTA = (props, context) => {
@@ -32,7 +31,7 @@ const DisciplineCTA = (props, context) => {
   const startButton =
     start &&
     <a
-      className={`${style.start} ${hoverFill}`}
+      className={style.start}
       onClick={start}
       style={{
         backgroundColor: startColor
@@ -43,7 +42,7 @@ const DisciplineCTA = (props, context) => {
 
   const buyButton =
     buy &&
-    <a className={`${style.buy} ${hoverFill}`} onClick={buy}>
+    <a className={style.buy} onClick={buy}>
       {premium}
     </a>;
 

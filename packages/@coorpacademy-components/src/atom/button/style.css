@@ -4,8 +4,9 @@
 @value whtie from colors;
 
 .button {
+  composes: hoverFill from './hover-fill.css';
   border-radius: 2px;
-  width: 200px;
+  min-width: 200px;
   background-color: orange;
   text-transform: inherit;
 }

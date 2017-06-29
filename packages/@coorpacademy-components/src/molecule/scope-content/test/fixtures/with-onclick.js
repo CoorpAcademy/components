@@ -5,7 +5,7 @@ export default {
       skillsTitle: 'Skill title',
       chaptersTitle: 'Chapter title',
       onClick: () => console.log('open module'), // eslint-disable-line no-console
-      buttonLabel: 'Continue',
+      buttonLabel: 'Commencer le niveau Base',
       course_scope: ['24 QUESTIONS', '3 VIDÉOS'],
       time: '2H20',
       skills: [

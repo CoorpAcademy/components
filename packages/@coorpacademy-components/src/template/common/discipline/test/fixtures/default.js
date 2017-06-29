@@ -9,8 +9,6 @@ const {start, buy, startLabel, buyLabel} = disciplineCTA.props;
 const {authors} = disciplinePartners.props;
 const {content, levels} = disciplineScope.props;
 
-/* eslint-disable max-len */
-
 export default {
   props: {
     selected: 2,
