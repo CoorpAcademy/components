@@ -8,6 +8,7 @@ import {
   PROGRESSION_FETCH_SUCCESS,
   PROGRESSION_FETCH_FAILURE
 } from '../../api/progressions';
+import {RANK_FETCH_START_REQUEST, RANK_FETCH_START_SUCCESS} from '../../api/rank';
 import {SLIDE_FETCH_REQUEST, SLIDE_FETCH_SUCCESS} from '../../api/slides';
 import {EXIT_NODE_FETCH_REQUEST, EXIT_NODE_FETCH_SUCCESS} from '../../api/exit-nodes';
 
@@ -64,6 +65,11 @@ test(
         t.is(id, 'bar');
         return 'bar';
       }
+    },
+    LeaderBoard: {
+      getRank: () => {
+        return 1;
+      }
     }
   }),
   selectProgression('foo'),
@@ -92,6 +98,19 @@ test(
         set('data.progressions.entities.foo._id', 'foo'),
         set('data.progressions.entities.foo.state.nextContent', {type: 'slide', ref: 'bar'})
       )({})
+    ],
+    [
+      {
+        type: RANK_FETCH_START_REQUEST
+      },
+      set('data.rank.start', null, {})
+    ],
+    [
+      {
+        type: RANK_FETCH_START_SUCCESS,
+        payload: 1
+      },
+      set('data.rank.start', 1, {})
     ],
     [
       {
@@ -124,6 +143,11 @@ test(
         t.is(id, 'bar');
         return 'bar';
       }
+    },
+    LeaderBoard: {
+      getRank: () => {
+        return 1;
+      }
     }
   }),
   selectProgression('foo'),
@@ -152,6 +176,19 @@ test(
         set('data.progressions.entities.foo._id', 'foo'),
         set('data.progressions.entities.foo.state.nextContent', {type: 'success', ref: 'bar'})
       )({})
+    ],
+    [
+      {
+        type: RANK_FETCH_START_REQUEST
+      },
+      set('data.rank.start', null, {})
+    ],
+    [
+      {
+        type: RANK_FETCH_START_SUCCESS,
+        payload: 1
+      },
+      set('data.rank.start', 1, {})
     ],
     [
       {

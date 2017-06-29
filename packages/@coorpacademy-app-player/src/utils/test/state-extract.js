@@ -15,7 +15,9 @@ import {
   getCurrentProgressionId,
   getCurrentSlide,
   getPreviousSlide,
-  getQuestionType
+  getQuestionType,
+  getStartRank,
+  getEndRank
 } from '../state-extract';
 
 test('getChoices should get choices from state', t => {
@@ -133,6 +135,18 @@ test('getClue should get clue from state', t => {
   const state = set('data.clues.entities.foo.bar', clue)({});
 
   t.is(getClue('foo', 'bar')(state), clue);
+});
+
+test('getStartRank should get rank.start from state', t => {
+  const rank = 'foo';
+  const state = set('data.rank.start', rank)({});
+  t.is(getStartRank(state), rank);
+});
+
+test('getEndRank should get rank.end from state', t => {
+  const rank = 'foo';
+  const state = set('data.rank.end', rank)({});
+  t.is(getEndRank(state), rank);
 });
 
 test('getCurrentClue should get current clue from state', t => {

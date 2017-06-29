@@ -14,7 +14,9 @@ test(
       clues: {entities: {}},
       exitNodes: {entities: {}},
       progressions: {entities: {}},
-      slides: {entities: {}}
+      slides: {entities: {}},
+      rank: {},
+      recommendations: {entities: {}}
     },
     ui: {
       answers: {},
