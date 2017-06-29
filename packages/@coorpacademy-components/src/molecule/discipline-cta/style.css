@@ -37,6 +37,7 @@
 }
 
 .buy {
+  composes: hoverFill from '../../atom/button/hover-fill.css';
   cursor: pointer;
   background-color: positive;
 }
@@ -46,6 +47,7 @@
 }
 
 .start {
+  composes: hoverFill from '../../atom/button/hover-fill.css';
   cursor: pointer;
 }
 
