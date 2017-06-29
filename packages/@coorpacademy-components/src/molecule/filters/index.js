@@ -5,7 +5,6 @@ import ArrowDown from '@coorpacademy/nova-icons/composition/navigation/arrow-dow
 import Select from '../../atom/select';
 import Provider from '../../atom/provider';
 import RangeSlider from '../../molecule/range-slider';
-import {hoverFill} from '../../atom/button/hover-fill.css';
 import style from './style.css';
 
 class Filters extends React.Component {
@@ -141,7 +140,7 @@ class Filters extends React.Component {
             {authorsView}
           </div>
           <div
-            className={`${style.CTAfilter} ${hoverFill}`}
+            className={style.CTAfilter}
             style={{
               backgroundColor: defaultColor
             }}
@@ -153,7 +152,7 @@ class Filters extends React.Component {
         <div className={sortingActive ? style.activeSorting : style.sorting}>
           {sortView}
           <div
-            className={`${style.CTAfilter} ${hoverFill}`}
+            className={style.CTAfilter}
             style={{
               backgroundColor: defaultColor
             }}
