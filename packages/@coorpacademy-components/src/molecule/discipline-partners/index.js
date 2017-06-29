@@ -19,7 +19,6 @@ const DisciplinePartners = (props, context) => {
 
   const authorLabel = authorTitle || translate('author');
   const defaultColor = get('common.primary', skin);
-  const orangeAddColor = get('common.orangeAdd', skin);
   const authorsView = map.convert({cap: false})((author, index) => {
     const socialLinks = getOr([], 'socialLinks', author);
     const authorLogo = get('logo', author);
@@ -49,7 +48,7 @@ const DisciplinePartners = (props, context) => {
           }}
         >
           {moreDetails}
-          <ArrowRight color={orangeAddColor} className={style.linkicon} />
+          <ArrowRight color={defaultColor} className={style.linkicon} />
         </a>
       </div>
     );
