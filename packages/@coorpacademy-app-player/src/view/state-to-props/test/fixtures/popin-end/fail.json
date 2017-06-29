@@ -1,0 +1,173 @@
+{
+  "data": {
+    "answers": {
+      "entities": {
+        "0": {
+          "1.B2.4": [
+            "Text"
+          ]
+        }
+      }
+    },
+    "clues": {
+      "entities": {}
+    },
+    "exitNodes": {
+      "entities": {
+        "failExitNode": {
+          "_id": "5809d933c762494a60eb58a0",
+          "ref": "failExitNode",
+          "type": "failure",
+          "meta": {
+            "updatedAt": "2017-06-05T08:36:49.956Z",
+            "createdAt": "2017-06-05T08:36:49.956Z"
+          },
+          "media": {
+            "subtitles": [],
+            "posters": [],
+            "src": []
+          }
+        }
+      }
+    },
+    "progressions": {
+      "entities": {
+        "0": {
+          "_id": "0",
+          "engine": {
+            "ref": "microlearning",
+            "version": "1"
+          },
+          "state": {
+            "slides": [
+              "1.B2.4"
+            ],
+            "nextContent": {
+              "ref": "failExitNode",
+              "type": "failure"
+            },
+            "lives": 0,
+            "step": {
+              "total": 4,
+              "current": 2
+            },
+            "isCorrect": false,
+            "stars": 0,
+            "requestedClues": [],
+            "viewedResources": [],
+            "content": {
+              "ref": "1.B2.4",
+              "type": "slide"
+            }
+          }
+        }
+      }
+    },
+    "rank": {
+      "start": 100,
+      "end": 100
+    },
+    "recommendations": {
+      "entities": {
+        "0": [
+          {
+            "view": "list",
+            "image": "https://placehold.it/380x600/1d1d1d",
+            "time": "2h20",
+            "type": "default",
+            "title": "From Mass Market to One to One targeting Lorem ipsum",
+            "author": "Coorpacademy",
+            "cta": "Continue Chapter",
+            "href": "#"
+          },
+          {
+            "view": "list",
+            "image": "https://placehold.it/380x600/1d1d1d",
+            "time": "2h20",
+            "type": "default",
+            "title": "From Mass Market to One to One targeting Lorem ipsum",
+            "author": "Coorpacademy",
+            "cta": "Continue Chapter",
+            "href": "#"
+          },
+          {
+            "view": "list",
+            "image": "https://placehold.it/380x600/1d1d1d",
+            "time": "2h20",
+            "type": "default",
+            "title": "From Mass Market to One to One targeting Lorem ipsum",
+            "author": "Coorpacademy",
+            "cta": "Continue Chapter",
+            "href": "#"
+          }
+        ]
+      }
+    },
+    "slides": {
+      "entities": {
+        "1.B2.4": {
+          "_id": "1.B2.4",
+          "klf": "Some KFL",
+          "tips": "XXX",
+          "chapter_id": "cha_Ny1BTxRp~",
+          "authors": [],
+          "context": {
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            }
+          },
+          "meta": {
+            "updatedAt": "2017-06-13T12:15:40.321Z",
+            "createdAt": "2017-06-13T12:15:40.321Z"
+          },
+          "lessons": [
+            {
+              "type": "video",
+              "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B2.png",
+              "description": "Anatomie d'une page de résultats",
+              "mimeType": "application/vimeo",
+              "videoId": "88393119\n",
+              "_id": "590b862e2e967f64333ad456",
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            }
+          ],
+          "question": {
+            "type": "basic",
+            "header": "Écrivez le mot Text dans l'input.\n",
+            "explanation": "Saisissez votre réponse.",
+            "content": {
+              "label": "Saisissez votre réponse.",
+              "placeholder": " ",
+              "maxTypos": null,
+              "choices": [],
+              "media": {
+                "subtitles": [],
+                "posters": [],
+                "src": []
+              }
+            },
+            "medias": []
+          }
+        }
+      }
+    }
+  },
+  "ui": {
+    "answers": {},
+    "corrections": {
+      "accordion": [
+        false,
+        false,
+        false
+      ]
+    },
+    "current": {
+      "progressionId": "0"
+    },
+    "route": {}
+  }
+}

@@ -3,8 +3,27 @@ import constant from 'lodash/fp/constant';
 import get from 'lodash/fp/get';
 import isEqual from 'lodash/fp/isEqual';
 import pipe from 'lodash/fp/pipe';
-import {getCurrentExitNode, getCurrentProgression} from '../../utils/state-extract';
+import {
+  getCurrentExitNode,
+  getCurrentProgression,
+  getRecommendations,
+  getStartRank,
+  getEndRank
+} from '../../utils/state-extract';
 import headerProps from './header';
+
+const extractRank = state => {
+  const start = getStartRank(state);
+  const end = getEndRank(state);
+
+  if (start === end) {
+    return null;
+  } else {
+    const sign = end - start > 0 ? '-' : '+';
+    const diff = Math.abs(end - start);
+    return `${sign}${diff}`;
+  }
+};
 
 const popinEndStateToProps = (options, store) => state => {
   const {translate} = options;
@@ -20,6 +39,7 @@ const popinEndStateToProps = (options, store) => state => {
         subtitle: translate('Congratulations!'),
         fail: false,
         stars: get('state.stars')(progression),
+        rank: extractRank(state),
         cta: {
           title: translate('Back to dashboard'),
           subtitle: '',
@@ -34,6 +54,7 @@ const popinEndStateToProps = (options, store) => state => {
         subtitle: translate('You are missing lives!'),
         fail: true,
         lives: get('state.lives')(progression),
+        rank: extractRank(state),
         cta: {
           title: translate('Retry level'),
           href: `/`
@@ -42,15 +63,17 @@ const popinEndStateToProps = (options, store) => state => {
     ],
     [constant(true), constant(null)]
   ])(exitNode);
+
   const recommendation = {
     title: translate('Related subjects'),
-    coards: null
+    cards: getRecommendations(state)
   };
   const footer = {
     title: translate('Back to dashboard'),
     href: '/'
   };
-  return {
+
+  const props = {
     header: headerProps(options, store)(state),
     summary: {
       header,
@@ -58,6 +81,8 @@ const popinEndStateToProps = (options, store) => state => {
       footer
     }
   };
+
+  return props;
 };
 
 export default popinEndStateToProps;
