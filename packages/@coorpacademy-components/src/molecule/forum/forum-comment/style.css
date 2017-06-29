@@ -1,6 +1,5 @@
 @value colors: "../../../variables/colors.css";
 @value medium from colors;
-@value orangeAdd from colors;
 @value negative from colors;
 @value light from colors;
 @value dark from colors;
