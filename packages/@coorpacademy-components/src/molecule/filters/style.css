@@ -115,6 +115,7 @@
 }
 
 .CTAfilter {
+  composes: hoverFill from '../../atom/button/hover-fill.css';
   display: none;
 }
 
