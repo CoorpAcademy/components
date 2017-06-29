@@ -58,7 +58,7 @@ const PopinCorrection = props => {
 };
 
 PopinCorrection.propTypes = {
-  // resources.value: WIP fixtures à definir
+  resources: PropTypes.shape(ResourceBrowser.propTypes),
   header: PropTypes.shape(PopinHeader.propTypes),
   question: PropTypes.shape(Question.propTypes),
   klf: PropTypes.shape(SimpleText.propTypes),

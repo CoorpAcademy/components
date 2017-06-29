@@ -6,6 +6,7 @@ import join from 'lodash/fp/join';
 import map from 'lodash/fp/map';
 import pipe from 'lodash/fp/pipe';
 import set from 'lodash/fp/set';
+import update from 'lodash/fp/update';
 import {
   getCurrentCorrection,
   getCurrentProgression,
@@ -28,26 +29,24 @@ const popinCorrectionStateToProps = ({translate}, {dispatch}) => state => {
   const isCorrect = isNil(answerResult) ? null : get('state.isCorrect')(progression);
 
   const buildResourcesView = (_slide, _resourcesToPlay) => {
-    let lessons = getOr([], 'lessons', _slide);
-
-    lessons = map(lesson => {
-      return pipe(
-        set('onClick', () => dispatch(_dispatch => _dispatch(selectResource(lesson._id)))),
-        set('selected', lesson._id === _resourcesToPlay),
-        _lesson => {
-          if (_lesson.type === 'pdf') {
-            return set('mediaUrl', _lesson.mediaUrl, _lesson);
+    const lessons = pipe(
+      getOr([], 'lessons'),
+      map(lesson => {
+        return pipe(
+          set('onClick', () => dispatch(_dispatch => _dispatch(selectResource(lesson._id)))),
+          set('selected', lesson._id === _resourcesToPlay),
+          _lesson => {
+            if (_lesson.type === 'pdf') {
+              return set('mediaUrl', _lesson.mediaUrl, _lesson);
+            }
+            return _lesson;
           }
-          return _lesson;
-        }
-      )(lesson);
-    }, lessons);
+        )(lesson);
+      })
+    )(_slide);
 
-    if (!_resourcesToPlay && !isEmpty(lessons)) {
-      lessons[0].selected = true;
-    }
-
-    return lessons;
+    const forceSelected = !_resourcesToPlay && !isEmpty(lessons);
+    return update('0.selected', selected => forceSelected || selected)(lessons);
   };
 
   const resourcesToPlay = get('ui.corrections.playResource', state);
