@@ -391,10 +391,11 @@ import VideoIframeFixtureYoutube from '../src/molecule/video-iframe/test/fixture
 import VideoPlayerFixtureDefault from '../src/molecule/video-player/test/fixtures/default';
 import VideoPlayerFixtureWithImage from '../src/molecule/video-player/test/fixtures/with-image';
 import VideoPlayerFixtureYoutube from '../src/molecule/video-player/test/fixtures/youtube';
-import PopinHeaderFixtureDefault from '../src/molecule/app-player/popin/popin-header/test/fixtures/default';
 import PopinHeaderFixtureFailMultipleAnswers from '../src/molecule/app-player/popin/popin-header/test/fixtures/fail-multiple-answers';
 import PopinHeaderFixtureFail from '../src/molecule/app-player/popin/popin-header/test/fixtures/fail';
+import PopinHeaderFixtureLoading from '../src/molecule/app-player/popin/popin-header/test/fixtures/loading';
 import PopinHeaderFixtureStarsRank from '../src/molecule/app-player/popin/popin-header/test/fixtures/stars-rank';
+import PopinHeaderFixtureSucess from '../src/molecule/app-player/popin/popin-header/test/fixtures/sucess';
 import BattleRequestListFixtureDefault from '../src/molecule/dashboard/battle-request-list/test/fixtures/default';
 import BattleRequestListFixtureEmpty from '../src/molecule/dashboard/battle-request-list/test/fixtures/empty';
 import CardsListFixtureDefault from '../src/molecule/dashboard/cards-list/test/fixtures/default';
@@ -1191,10 +1192,11 @@ export const fixtures = {
   },
   MoleculeAppPlayerPopin: {
     PopinHeader: {
-      Default: PopinHeaderFixtureDefault,
       FailMultipleAnswers: PopinHeaderFixtureFailMultipleAnswers,
       Fail: PopinHeaderFixtureFail,
-      StarsRank: PopinHeaderFixtureStarsRank
+      Loading: PopinHeaderFixtureLoading,
+      StarsRank: PopinHeaderFixtureStarsRank,
+      Sucess: PopinHeaderFixtureSucess
     }
   },
   MoleculeDashboard: {
@@ -2348,6 +2350,9 @@ export const dependencies = {
         "MoleculeDashboard": {
           "StartBattle": true
         },
+        "MoleculeAppPlayerPopin": {
+          "PopinHeader": true
+        },
         "Molecule": {
           "Unsubscribe": true,
           "Table": true,
@@ -2760,7 +2765,11 @@ export const dependencies = {
           "PopinCorrection": true
         }
       },
-      "children": {}
+      "children": {
+        "Atom": {
+          "Link": true
+        }
+      }
     }
   },
   "OrganismAccordion": {

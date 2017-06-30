@@ -25,15 +25,21 @@
  * Correction Part
  */
 
-.correctionSectionDefault {
+.correctionSectionLoading {
   composes: section;
   position: relative;
-  background-color: positive;
+  background-color: medium;
+  transition: background-color 0.3s;
   flex: 2;
 }
 
+.correctionSectionSuccess {
+  composes: correctionSectionLoading;
+  background-color: positive;
+}
+
 .correctionSectionFail {
-  composes: correctionSectionDefault;
+  composes: correctionSectionLoading;
   background-color: negative;
 }
 
@@ -116,8 +122,14 @@
   display: flex;
   justify-content: center;
   background-color: light;
+  transition: flex-grow 0.3s;
   color: medium;
   flex: 1;
+}
+
+.nextSectionLoading {
+  composes: nextSection;
+  flex-grow: 0;
 }
 
 .nextButton {
