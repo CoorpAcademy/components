@@ -1,8 +1,19 @@
-import * as Answers from './answers';
-import * as Clues from './clues';
-import * as ExitNodes from './exit-nodes';
-import * as Progressions from './progressions';
-import * as Recommendations from './recommendations';
-import * as Slides from './slides';
+import mapValues from 'lodash/fp/mapValues';
+import addTimeout from '../utils/add-timeout';
 
-export {Answers, Clues, ExitNodes, Progressions, Recommendations, Slides};
+import * as AnswersService from './answers';
+import * as CluesService from './clues';
+import * as ExitNodesService from './exit-nodes';
+import * as ProgressionsService from './progressions';
+import * as RecommendationsService from './recommendations';
+import * as SlidesService from './slides';
+
+const TIMEOUT = 500;
+const addTimeoutToService = mapValues(addTimeout(TIMEOUT));
+
+export const Answers = addTimeoutToService(AnswersService);
+export const Clues = addTimeoutToService(CluesService);
+export const ExitNodes = addTimeoutToService(ExitNodesService);
+export const Progressions = addTimeoutToService(ProgressionsService);
+export const Recommendations = addTimeoutToService(RecommendationsService);
+export const Slides = addTimeoutToService(SlidesService);
