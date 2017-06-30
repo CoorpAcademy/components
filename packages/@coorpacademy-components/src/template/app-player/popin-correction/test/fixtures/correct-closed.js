@@ -49,10 +49,12 @@ export default defaultsDeep(loading, {
           isCorrect: true
         }
       ],
+      lives: 1,
       title: 'Good Job',
       subtitle: 'Bonne réponse',
       cta: {
-        title: 'Continue'
+        title: 'Continue',
+        onClick: () => {}
       }
     },
     question: {

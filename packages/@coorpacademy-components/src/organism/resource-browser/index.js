@@ -68,8 +68,8 @@ const resourcePropTypeBase = {
 
 const videoPropType = PropTypes.shape({
   ...resourcePropTypeBase,
-  videoId: PropTypes.shape(VideoPlayer.propTypes.id).isRequired,
-  autoplay: PropTypes.shape(VideoPlayer.propTypes.autoplay)
+  videoId: VideoPlayer.propTypes.id.isRequired,
+  autoplay: VideoPlayer.propTypes.autoplay
 });
 
 const pdfPropType = PropTypes.shape({
@@ -78,7 +78,7 @@ const pdfPropType = PropTypes.shape({
 });
 
 ResourceBrowser.propTypes = {
-  resources: PropTypes.arrayOf(PropTypes.oneOfType(videoPropType, pdfPropType))
+  resources: PropTypes.arrayOf(PropTypes.oneOfType([videoPropType, pdfPropType]))
 };
 
 export default ResourceBrowser;

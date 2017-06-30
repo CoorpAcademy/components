@@ -27,6 +27,7 @@ const popinCorrectionStateToProps = ({translate}, {dispatch}) => state => {
   const correctAnswer = get('correctAnswer', answerResult) || [];
   const corrections = get('corrections', answerResult) || [];
   const isCorrect = isNil(answerResult) ? null : get('state.isCorrect')(progression);
+  const isLoading = isNil(isCorrect);
 
   const buildResourcesView = (_slide, _resourcesToPlay) => {
     const lessons = pipe(
@@ -56,7 +57,7 @@ const popinCorrectionStateToProps = ({translate}, {dispatch}) => state => {
     : {
         title: translate(isCorrect ? 'Good job' : 'Ouch'),
         subtitle: translate(isCorrect ? 'Good answer' : 'Wrong answer'),
-        fail: !isCorrect,
+        fail: isLoading ? null : !isCorrect,
         lives: progression.state.lives
       };
 
@@ -70,17 +71,19 @@ const popinCorrectionStateToProps = ({translate}, {dispatch}) => state => {
   const resources = buildResourcesView(slide, resourcesToPlay);
 
   return {
-    header: {
-      lives: 1,
-      title: '',
-      subtitle: '',
-      corrections,
-      cta: {
-        title: translate('Next'),
-        onClick: resetProgression
-      },
-      ...header
-    },
+    header: isLoading
+      ? {}
+      : {
+          lives: 1,
+          title: '',
+          subtitle: '',
+          corrections,
+          cta: {
+            title: translate('Next'),
+            onClick: resetProgression
+          },
+          ...header
+        },
     question,
     resources: {
       title: translate('Access the lesson'),

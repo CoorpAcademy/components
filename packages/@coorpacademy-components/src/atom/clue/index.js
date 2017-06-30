@@ -1,5 +1,5 @@
 import React from 'react';
-import isNull from 'lodash/fp/isNull';
+import isNil from 'lodash/fp/isNil';
 import PropTypes from 'prop-types';
 import Loader from '../loader';
 import style from './style.css';
@@ -7,7 +7,7 @@ import style from './style.css';
 const Clue = props => {
   const {text} = props;
 
-  const isLoading = isNull(text);
+  const isLoading = isNil(text);
 
   return (
     <div className={style.wrapperClue}>
@@ -19,7 +19,7 @@ const Clue = props => {
 };
 
 Clue.propTypes = {
-  text: PropTypes.oneOfType([PropTypes.string, PropTypes.oneOf([null])])
+  text: PropTypes.string
 };
 
 export default Clue;

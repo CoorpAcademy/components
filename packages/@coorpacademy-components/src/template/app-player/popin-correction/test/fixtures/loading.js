@@ -1,14 +1,6 @@
 export default {
   props: {
-    header: {
-      lives: 1,
-      title: '',
-      subtitle: '',
-      cta: {
-        title: '',
-        onClick: () => {}
-      }
-    },
+    header: {},
     question: {
       header: '',
       answer: ''

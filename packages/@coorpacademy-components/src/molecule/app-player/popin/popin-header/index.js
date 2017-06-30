@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import get from 'lodash/fp/get';
-import zip from 'lodash/fp/zip';
-import pipe from 'lodash/fp/pipe';
-import times from 'lodash/fp/times';
 import compact from 'lodash/fp/compact';
 import flatten from 'lodash/fp/flatten';
+import get from 'lodash/fp/get';
+import isNil from 'lodash/fp/isNil';
+import pipe from 'lodash/fp/pipe';
+import times from 'lodash/fp/times';
+import zip from 'lodash/fp/zip';
 import ArrowRight from '@coorpacademy/nova-icons/composition/navigation/arrow-right';
+import Loader from '../../../../atom/loader';
 import Life from '../../../../atom/life';
 import Link from '../../../../atom/link';
 import Provider from '../../../../atom/provider';
@@ -55,13 +57,26 @@ const IconsPart = props => {
     </div>
   );
 };
+
+const buildClass = (value, success, fail, loading) => {
+  if (loading && isNil(value)) return loading;
+  return value ? success : fail;
+};
+
 const CorrectionPart = props => {
-  const {fail = false, corrections = [], title, subtitle} = props;
-  const className = fail ? style.correctionSectionFail : style.correctionSectionDefault;
+  const {fail, corrections = [], title, subtitle} = props;
+  const isLoading = isNil(fail);
+  const className = buildClass(
+    !fail,
+    style.correctionSectionSuccess,
+    style.correctionSectionFail,
+    style.correctionSectionLoading
+  );
 
   return (
     <div className={className}>
       <div className={style.titlesWrapper}>
+        {isLoading ? <Loader /> : null}
         <h1 className={style.title}>{title}</h1>
         <h2 className={style.subtitle}>{subtitle}</h2>
         {fail && corrections.length ? <AnswersCorrection corrections={corrections} /> : null}
@@ -72,27 +87,26 @@ const CorrectionPart = props => {
 };
 
 const NextQuestionPart = (props, context) => {
-  const {title, ...linkProps} = props;
+  const isLoading = isNil(props);
+  const {title, ...linkProps} = props || {};
   const {skin} = context;
   const mediumColor = get('common.medium', skin);
 
   return (
-    <div className={style.nextSection}>
-      <Link {...linkProps} className={style.nextButton}>
-        {title}
-        <ArrowRight color={mediumColor} className={style.nextButtonIcon} />
-      </Link>
+    <div className={isLoading ? style.nextSectionLoading : style.nextSection}>
+      {isLoading
+        ? null
+        : <Link {...linkProps} className={style.nextButton}>
+            {title}
+            <ArrowRight color={mediumColor} className={style.nextButtonIcon} />
+          </Link>}
       <div className={style.buttonOverlay} />
     </div>
   );
 };
 
-NextQuestionPart.contextTypes = {
-  skin: Provider.childContextTypes.skin
-};
-
-const PopinHeader = props => {
-  const {fail = false, title, subtitle, lives, stars, rank, corrections, cta} = props;
+const PopinHeader = (props, context) => {
+  const {fail, title, subtitle, lives, stars, rank, corrections, cta} = props;
 
   return (
     <div className={style.header}>
@@ -105,9 +119,13 @@ const PopinHeader = props => {
         fail={fail}
         corrections={corrections}
       />
-      <NextQuestionPart {...cta} />
+      {NextQuestionPart(cta, context)}
     </div>
   );
+};
+
+PopinHeader.contextTypes = {
+  skin: Provider.childContextTypes.skin
 };
 
 PopinHeader.propTypes = {
