@@ -14,22 +14,25 @@ const SubscriptionPremiumDetails = (props, context) => {
           {translate('subscription_premium_title')}
         </div>
       </div>
-      <div className={style.premiumProductDetails}>
-        {translate('subscription_premium_description_part1')}
-        {props.subscriptionPremiumDescriptionDate}
-        {translate('subscription_premium_description_part2')}
-        {props.subscriptionPremiumDescriptionPrice}
-        {translate('subscription_premium_description_part2_end')}
-      </div>
-      <div className={style.cancelSubscriptionText}>
-        {translate('subscription_premium_description_part3')}
-        <a
-          className={style.cancelSubscriptionLink}
-          href={`${props.subscriptionPremiumDescriptionLink}`}
-        >
-          {translate('subscription_premium_description_part3_with_link')}
-        </a>
-      </div>
+      {props.subscriptionPremiumDescriptionPrice &&
+        <div>
+          <div className={style.premiumProductDetails}>
+            {translate('subscription_premium_description_part1')}
+            {props.subscriptionPremiumDescriptionDate}
+            {translate('subscription_premium_description_part2')}
+            {props.subscriptionPremiumDescriptionPrice}
+            {translate('subscription_premium_description_part2_end')}
+          </div>
+          <div className={style.cancelSubscriptionText}>
+            {translate('subscription_premium_description_part3')}
+            <a
+              className={style.cancelSubscriptionLink}
+              href={`${props.subscriptionPremiumDescriptionLink}`}
+            >
+              {translate('subscription_premium_description_part3_with_link')}
+            </a>
+          </div>
+        </div>}
     </div>
   );
 };
