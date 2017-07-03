@@ -1,5 +1,6 @@
 import React from 'react';
 import get from 'lodash/fp/get';
+import find from 'lodash/fp/find';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import PDFIcon from '@coorpacademy/nova-icons/line/files-office/file-office-pdf';
@@ -45,7 +46,7 @@ const SELECTED_TYPES = {
 
 const ResourceBrowser = props => {
   const {resources, className} = props;
-  const selectedResource = resources.find(({selected}) => selected);
+  const selectedResource = find(({selected}) => selected, resources);
   const SelectedResourceType = selectedResource && SELECTED_TYPES[selectedResource.type];
 
   return (
