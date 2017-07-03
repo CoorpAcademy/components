@@ -11,7 +11,6 @@ import ArrowRight from '@coorpacademy/nova-icons/composition/navigation/arrow-ri
 import ChartsIcon from '@coorpacademy/nova-icons/composition/coorpacademy/charts';
 import StarIcon from '@coorpacademy/nova-icons/composition/coorpacademy/star';
 import Loader from '../../../../atom/loader';
-import Provider from '../../../../atom/provider';
 import Life from '../../../../atom/life';
 import Link from '../../../../atom/link';
 import Provider from '../../../../atom/provider';
@@ -94,14 +93,14 @@ const IconsPart = props => {
 
 const buildClass = (value, success, fail, loading) => {
   if (loading && isNil(value)) return loading;
-  return value ? success : fail;
+  return value ? fail : success;
 };
 
 const CorrectionPart = props => {
   const {fail, corrections = [], title, subtitle} = props;
   const isLoading = isNil(fail);
   const className = buildClass(
-    !fail,
+    fail,
     style.correctionSectionSuccess,
     style.correctionSectionFail,
     style.correctionSectionLoading

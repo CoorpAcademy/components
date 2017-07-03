@@ -395,7 +395,7 @@ import PopinHeaderFixtureFailMultipleAnswers from '../src/molecule/app-player/po
 import PopinHeaderFixtureFail from '../src/molecule/app-player/popin/popin-header/test/fixtures/fail';
 import PopinHeaderFixtureLoading from '../src/molecule/app-player/popin/popin-header/test/fixtures/loading';
 import PopinHeaderFixtureStarsRank from '../src/molecule/app-player/popin/popin-header/test/fixtures/stars-rank';
-import PopinHeaderFixtureSucess from '../src/molecule/app-player/popin/popin-header/test/fixtures/sucess';
+import PopinHeaderFixtureSuccess from '../src/molecule/app-player/popin/popin-header/test/fixtures/success';
 import BattleRequestListFixtureDefault from '../src/molecule/dashboard/battle-request-list/test/fixtures/default';
 import BattleRequestListFixtureEmpty from '../src/molecule/dashboard/battle-request-list/test/fixtures/empty';
 import CardsListFixtureDefault from '../src/molecule/dashboard/cards-list/test/fixtures/default';
@@ -1196,7 +1196,7 @@ export const fixtures = {
       Fail: PopinHeaderFixtureFail,
       Loading: PopinHeaderFixtureLoading,
       StarsRank: PopinHeaderFixtureStarsRank,
-      Sucess: PopinHeaderFixtureSucess
+      Success: PopinHeaderFixtureSuccess
     }
   },
   MoleculeDashboard: {
