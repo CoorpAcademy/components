@@ -8,6 +8,8 @@ import pipe from 'lodash/fp/pipe';
 import times from 'lodash/fp/times';
 import zip from 'lodash/fp/zip';
 import ArrowRight from '@coorpacademy/nova-icons/composition/navigation/arrow-right';
+import ChartsIcon from '@coorpacademy/nova-icons/composition/coorpacademy/charts';
+import StarIcon from '@coorpacademy/nova-icons/composition/coorpacademy/star';
 import Loader from '../../../../atom/loader';
 import Life from '../../../../atom/life';
 import Link from '../../../../atom/link';
@@ -42,32 +44,63 @@ AnswersCorrection.propTypes = {
   )
 };
 
+const Rank = ({rank}, {skin}) => {
+  const positive = get('common.positive', skin);
+  return rank
+    ? <div className={style.centerContent}>
+        <div className={style.iconBubble}>
+          <ChartsIcon className={style.icon} color={positive} />
+        </div>
+        <span className={style.iconText}>{rank}</span>
+      </div>
+    : null;
+};
+
+Rank.contextTypes = {
+  skin: Provider.childContextTypes.skin
+};
+
+const Stars = ({stars}, {skin}) => {
+  const positive = get('common.positive', skin);
+  return stars
+    ? <div className={style.centerContent}>
+        <div className={style.iconBubble}>
+          <StarIcon className={style.icon} color={positive} />
+        </div>
+        <span className={style.iconText}>{stars}</span>
+      </div>
+    : null;
+};
+
+Stars.contextTypes = {
+  skin: Provider.childContextTypes.skin
+};
+
+const Lifes = ({lives, fail}) => {
+  return lives ? <Life fail={fail} count={lives} className={style.life} /> : null;
+};
+
 const IconsPart = props => {
   const {lives, fail, stars, rank} = props;
-  const livesIcon =
-    lives !== undefined && <Life fail={fail} count={lives} className={style.life} />;
-  const starsIcon = stars !== undefined && <p className={style.icon}>{stars}</p>;
-  const rankIcon = rank !== undefined && <p className={style.icon}>{rank}</p>;
-
   return (
-    <div className={style.lifeWrapper}>
-      {livesIcon}
-      {starsIcon}
-      {rankIcon}
+    <div className={style.iconsWrapper}>
+      <Lifes lives={lives} fail={fail} />
+      <Stars stars={stars} />
+      <Rank rank={rank} />
     </div>
   );
 };
 
 const buildClass = (value, success, fail, loading) => {
   if (loading && isNil(value)) return loading;
-  return value ? success : fail;
+  return value ? fail : success;
 };
 
 const CorrectionPart = props => {
   const {fail, corrections = [], title, subtitle} = props;
   const isLoading = isNil(fail);
   const className = buildClass(
-    !fail,
+    fail,
     style.correctionSectionSuccess,
     style.correctionSectionFail,
     style.correctionSectionLoading
