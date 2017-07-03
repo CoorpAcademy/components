@@ -1,0 +1,66 @@
+@value colors: "../../variables/colors.css";
+@value white from colors;
+@value light from colors;
+
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value tablet from breakpoints;
+@value desktop from breakpoints;
+
+.wrapper, 
+.deviceView {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: solid 2px pink;
+}
+
+.empty {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border: 1px dashed light;
+  box-sizing: border-box;
+}
+
+.default {
+    display: block;
+    background-size: cover; 
+    width: 100%;
+    height: 100%;
+}
+
+.mobile, .tablet, .desktop {
+    display: none;
+    background-size: cover; 
+    width: 100%;
+    height: 100%;
+    border: solid 1px green;
+}
+
+@media desktop {
+  .desktop {
+    display: block;
+  }
+  .mobile, .tablet {
+    display: none;
+  }
+}
+
+@media tablet {
+  .tablet {
+    display: block;
+  }
+  .mobile, .desktop {
+    display: none;
+  }
+}
+
+@media mobile {
+  .mobile {
+    display: block;
+  }
+  .desktop, .tablet {
+    display: none;
+  }
+}
