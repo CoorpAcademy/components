@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@coorpacademy/eslint-plugin-coorpacademy": "^6.0.1",
-    "ava": "^0.19.1",
+    "ava": "^0.20.0",
     "babel-polyfill": "^6.23.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-flow": "^6.23.0",
