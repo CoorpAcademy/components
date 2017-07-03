@@ -66,7 +66,7 @@ export default defaultsDeep(loading, {
     resources: {
       value: resourceValues.map(resource => ({
         ...resource,
-        onClick: () => console.log(`Selecting "${resource.description}"`) // eslint-disable-line no-console
+        onClick: () => console.log(`Selecting "${resource.description}"`)
       }))
     },
     klf: {
@@ -77,6 +77,6 @@ export default defaultsDeep(loading, {
       value:
         'Les smart cities, ou villes intelligentes, portent des solutions dans lesquelles se conjuguent les 3 types d’éco-innovations. En France, il en existait vingt début 2016, la plus grande étant Paris.'
     },
-    onClick: id => console.log(id) // eslint-disable-line no-console
+    onClick: id => console.log(id)
   }
 });

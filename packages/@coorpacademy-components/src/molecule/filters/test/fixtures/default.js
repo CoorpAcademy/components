@@ -32,7 +32,7 @@ export default {
           selected: false
         }
       ],
-      onChange: value => console.log(value) // eslint-disable-line no-console
+      onChange: value => console.log(value)
     },
     authors: {
       ...selectFilter,
@@ -56,7 +56,7 @@ export default {
           selected: false
         }
       ],
-      onChange: value => console.log(value) // eslint-disable-line no-console
+      onChange: value => console.log(value)
     },
     courses: {
       ...selectFilter,
@@ -83,7 +83,7 @@ export default {
           selected: false
         }
       ],
-      onChange: value => console.log(value) // eslint-disable-line no-console
+      onChange: value => console.log(value)
     },
     sorting: {
       ...selectSort,
@@ -105,9 +105,9 @@ export default {
           selected: false
         }
       ],
-      onChange: value => console.log(value) // eslint-disable-line no-console
+      onChange: value => console.log(value)
     },
     timer,
-    onSearch: () => console.log('onSearch') // eslint-disable-line no-console
+    onSearch: () => console.log('onSearch')
   }
 };

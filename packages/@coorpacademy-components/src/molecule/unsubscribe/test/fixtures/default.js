@@ -1,11 +1,11 @@
 export default {
   props: {
     navigateToMooc: () => {
-      console.log('navigates to MOOC'); // eslint-disable-line no-console
+      console.log('navigates to MOOC');
     },
     hasUnsubscribed: true,
     onUnsubscribeButtonClick: () => {
-      console.log('unsubscribes'); // eslint-disable-line no-console
+      console.log('unsubscribes');
     }
   }
 };

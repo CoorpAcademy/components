@@ -4,6 +4,6 @@ export default {
     title: 'Name',
     placeholder: 'Your text',
     value: 'Foo foo foo',
-    onChange: value => console.log(value) // eslint-disable-line no-console
+    onChange: value => console.log(value)
   }
 };

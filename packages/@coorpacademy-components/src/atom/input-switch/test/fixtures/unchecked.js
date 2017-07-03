@@ -3,6 +3,6 @@ export default {
     type: 'switch',
     title: 'Name',
     value: false,
-    onChange: value => console.log(value) // eslint-disable-line no-console
+    onChange: value => console.log(value)
   }
 };

@@ -4,11 +4,11 @@ export default {
     title: 'Recommended for you',
     onUp: null,
     onDown: e => {
-      console.log(e); // eslint-disable-line no-console
+      console.log(e);
     },
     display: {
       value: true,
-      onChange: value => console.log(value) // eslint-disable-line no-console
+      onChange: value => console.log(value)
     }
   }
 };

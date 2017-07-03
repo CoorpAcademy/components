@@ -3,14 +3,14 @@ export default {
     id: '98e898748',
     title: 'Recommended for you',
     onUp: e => {
-      console.log(e); // eslint-disable-line no-console
+      console.log(e);
     },
     onDown: e => {
-      console.log(e); // eslint-disable-line no-console
+      console.log(e);
     },
     display: {
       value: true,
-      onChange: value => console.log(value) // eslint-disable-line no-console
+      onChange: value => console.log(value)
     }
   }
 };
