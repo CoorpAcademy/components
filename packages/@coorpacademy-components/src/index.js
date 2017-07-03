@@ -84,6 +84,7 @@ export Part from './organism/accordion/part';
 export PaymentForm from './molecule/payment-form';
 export Picker from './molecule/questions/picker';
 export Picture from './atom/picture';
+export PictureBackground from './atom/picture-background';
 export Player from './template/app-player/player';
 export Popin from './organism/popin';
 export PopinCorrection from './template/app-player/popin-correction';

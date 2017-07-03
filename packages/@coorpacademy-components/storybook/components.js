@@ -20,6 +20,7 @@ import Life from '../src/atom/life';
 import Link from '../src/atom/link';
 import Loader from '../src/atom/loader';
 import Notification from '../src/atom/notification';
+import PictureBackground from '../src/atom/picture-background';
 import Picture from '../src/atom/picture';
 import PromoCode from '../src/atom/promo-code';
 import Provider from '../src/atom/provider';
@@ -211,6 +212,8 @@ import LoaderFixtureDefault from '../src/atom/loader/test/fixtures/default';
 import NotificationFixtureDefault from '../src/atom/notification/test/fixtures/default';
 import NotificationFixtureError from '../src/atom/notification/test/fixtures/error';
 import NotificationFixtureWarning from '../src/atom/notification/test/fixtures/warning';
+import PictureBackgroundFixtureDefault from '../src/atom/picture-background/test/fixtures/default';
+import PictureBackgroundFixtureDesktop from '../src/atom/picture-background/test/fixtures/desktop';
 import PictureFixtureDefault from '../src/atom/picture/test/fixtures/default';
 import PictureFixtureEmpty from '../src/atom/picture/test/fixtures/empty';
 import PictureFixtureSimpleSrc from '../src/atom/picture/test/fixtures/simple-src';
@@ -616,6 +619,7 @@ export const components = {
     Link,
     Loader,
     Notification,
+    PictureBackground,
     Picture,
     PromoCode,
     Provider,
@@ -878,6 +882,10 @@ export const fixtures = {
       Default: NotificationFixtureDefault,
       Error: NotificationFixtureError,
       Warning: NotificationFixtureWarning
+    },
+    PictureBackground: {
+      Default: PictureBackgroundFixtureDefault,
+      Desktop: PictureBackgroundFixtureDesktop
     },
     Picture: {
       Default: PictureFixtureDefault,
@@ -2652,6 +2660,9 @@ export const dependencies = {
       "children": {}
     },
     "Notification": {
+      "children": {}
+    },
+    "PictureBackground": {
       "children": {}
     },
     "Provider": {
