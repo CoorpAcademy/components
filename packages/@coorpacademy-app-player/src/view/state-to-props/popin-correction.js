@@ -47,7 +47,9 @@ const popinCorrectionStateToProps = ({translate}, {dispatch}) => state => {
     )(_slide);
 
     const forceSelected = !_resourcesToPlay && !isEmpty(lessons);
-    return update('0.selected', selected => forceSelected || selected)(lessons);
+    return !isEmpty(lessons)
+      ? update('0.selected', selected => forceSelected || selected)(lessons)
+      : lessons;
   };
 
   const resourcesToPlay = get('ui.corrections.playResource', state);

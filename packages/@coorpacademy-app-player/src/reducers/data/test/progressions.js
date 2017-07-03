@@ -4,6 +4,7 @@ import {
   PROGRESSION_FETCH_REQUEST,
   PROGRESSION_FETCH_SUCCESS,
   PROGRESSION_FETCH_FAILURE,
+  PROGRESSION_CREATE_ANSWER_REQUEST,
   PROGRESSION_CREATE_ANSWER_SUCCESS,
   PROGRESSION_REQUEST_CLUE_SUCCESS
 } from '../../../actions/api/progressions';
@@ -86,6 +87,18 @@ test(
     payload: {}
   },
   {entities: {foo: 'foo'}}
+);
+
+test(
+  'should set isCorrect null',
+  macro,
+  reducer,
+  {},
+  {
+    type: PROGRESSION_CREATE_ANSWER_REQUEST,
+    meta: {progressionId: 'foo'}
+  },
+  {entities: {foo: {state: {isCorrect: null}}}}
 );
 
 test(

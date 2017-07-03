@@ -68,7 +68,7 @@ const resourcePropTypeBase = {
 
 const videoPropType = PropTypes.shape({
   ...resourcePropTypeBase,
-  videoId: VideoPlayer.propTypes.id.isRequired,
+  videoId: VideoPlayer.propTypes.id,
   autoplay: VideoPlayer.propTypes.autoplay
 });
 

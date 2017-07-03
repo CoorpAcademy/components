@@ -4,6 +4,7 @@ import compact from 'lodash/fp/compact';
 import flatten from 'lodash/fp/flatten';
 import get from 'lodash/fp/get';
 import isNil from 'lodash/fp/isNil';
+import map from 'lodash/fp/map';
 import pipe from 'lodash/fp/pipe';
 import times from 'lodash/fp/times';
 import zip from 'lodash/fp/zip';
@@ -24,13 +25,15 @@ const joinBySeparator = elements => {
 };
 
 const AnswersCorrection = ({corrections}) => {
-  const answers = corrections.map(correction =>
-    <span
-      key={correction.answer}
-      className={correction.isCorrect ? style.correctAnswer : style.wrongAnswer}
-    >
-      {correction.answer}
-    </span>
+  const answers = map(
+    correction =>
+      <span
+        key={correction.answer}
+        className={correction.isCorrect ? style.correctAnswer : style.wrongAnswer}
+      >
+        {correction.answer}
+      </span>,
+    corrections
   );
   return <p className={style.fullAnswer}>{joinBySeparator(answers)}</p>;
 };
@@ -46,14 +49,15 @@ AnswersCorrection.propTypes = {
 
 const Rank = ({rank}, {skin}) => {
   const positive = get('common.positive', skin);
-  return rank
-    ? <div className={style.centerContent}>
-        <div className={style.iconBubble}>
-          <ChartsIcon className={style.icon} color={positive} />
-        </div>
-        <span className={style.iconText}>{rank}</span>
+  if (isNil(rank)) return null;
+  return (
+    <div className={style.centerContent}>
+      <div className={style.iconBubble}>
+        <ChartsIcon className={style.icon} color={positive} />
       </div>
-    : null;
+      <span className={style.iconText}>{rank}</span>
+    </div>
+  );
 };
 
 Rank.contextTypes = {
@@ -62,14 +66,16 @@ Rank.contextTypes = {
 
 const Stars = ({stars}, {skin}) => {
   const positive = get('common.positive', skin);
-  return stars
-    ? <div className={style.centerContent}>
-        <div className={style.iconBubble}>
-          <StarIcon className={style.icon} color={positive} />
-        </div>
-        <span className={style.iconText}>{stars}</span>
+  if (isNil(stars)) return null;
+
+  return (
+    <div className={style.centerContent}>
+      <div className={style.iconBubble}>
+        <StarIcon className={style.icon} color={positive} />
       </div>
-    : null;
+      <span className={style.iconText}>{stars}</span>
+    </div>
+  );
 };
 
 Stars.contextTypes = {
@@ -77,7 +83,9 @@ Stars.contextTypes = {
 };
 
 const Lifes = ({lives, fail}) => {
-  return lives ? <Life fail={fail} count={lives} className={style.life} /> : null;
+  if (isNil(lives)) return null;
+
+  return <Life fail={fail} count={lives} className={style.life} />;
 };
 
 const IconsPart = props => {

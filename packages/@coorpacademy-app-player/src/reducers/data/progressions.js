@@ -9,6 +9,7 @@ import {
   PROGRESSION_FETCH_SUCCESS,
   PROGRESSION_FETCH_REQUEST,
   PROGRESSION_FETCH_FAILURE,
+  PROGRESSION_CREATE_ANSWER_REQUEST,
   PROGRESSION_CREATE_ANSWER_SUCCESS,
   PROGRESSION_REQUEST_CLUE_SUCCESS
 } from '../../actions/api/progressions';
@@ -24,6 +25,11 @@ const dataProgressionsReducer = (state = {entities: {}}, action) => {
       const {meta} = action;
       const {id} = meta;
       return update(['entities', id], progression => progression || null, state);
+    }
+    case PROGRESSION_CREATE_ANSWER_REQUEST: {
+      const {meta} = action;
+      const {progressionId} = meta;
+      return set(['entities', progressionId, 'state', 'isCorrect'], null, state);
     }
     case PROGRESSION_REQUEST_CLUE_SUCCESS:
     case PROGRESSION_CREATE_ANSWER_SUCCESS: {

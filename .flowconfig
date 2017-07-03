@@ -2,6 +2,7 @@
 .*/packages/.*/lib
 .*/packages/.*/dist
 .*/packages/.*/es
+.*/packages/.*/static
 .*/node_modules/conventional-changelog-core/
 .*/node_modules/graphviz/
 .*/node_modules/babel-plugin-transform-react-remove-prop-types/

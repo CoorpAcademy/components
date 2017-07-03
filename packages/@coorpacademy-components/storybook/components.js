@@ -543,6 +543,7 @@ import PopinCorrectionFixtureCorrectOpenKlf from '../src/template/app-player/pop
 import PopinCorrectionFixtureCorrectOpenResourcesWithPdf from '../src/template/app-player/popin-correction/test/fixtures/correct-open-resources-with-pdf';
 import PopinCorrectionFixtureCorrectOpenResourcesWithVideo from '../src/template/app-player/popin-correction/test/fixtures/correct-open-resources-with-video';
 import PopinCorrectionFixtureCorrectOpenTips from '../src/template/app-player/popin-correction/test/fixtures/correct-open-tips';
+import PopinCorrectionFixtureCorrectWithoutResources from '../src/template/app-player/popin-correction/test/fixtures/correct-without-resources';
 import PopinCorrectionFixtureFailClosed from '../src/template/app-player/popin-correction/test/fixtures/fail-closed';
 import PopinCorrectionFixtureFailMultipleAnswers from '../src/template/app-player/popin-correction/test/fixtures/fail-multiple-answers';
 import PopinCorrectionFixtureFailOpenKlf from '../src/template/app-player/popin-correction/test/fixtures/fail-open-klf';
@@ -1456,6 +1457,7 @@ export const fixtures = {
       CorrectOpenResourcesWithPdf: PopinCorrectionFixtureCorrectOpenResourcesWithPdf,
       CorrectOpenResourcesWithVideo: PopinCorrectionFixtureCorrectOpenResourcesWithVideo,
       CorrectOpenTips: PopinCorrectionFixtureCorrectOpenTips,
+      CorrectWithoutResources: PopinCorrectionFixtureCorrectWithoutResources,
       FailClosed: PopinCorrectionFixtureFailClosed,
       FailMultipleAnswers: PopinCorrectionFixtureFailMultipleAnswers,
       FailOpenKlf: PopinCorrectionFixtureFailOpenKlf,
