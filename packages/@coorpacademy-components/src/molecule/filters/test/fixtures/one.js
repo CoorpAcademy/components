@@ -30,7 +30,7 @@ export default {
           selected: false
         }
       ],
-      onChange: value => console.log(value) // eslint-disable-line no-console
+      onChange: value => console.log(value)
     },
     sorting: {
       ...selectSort,
@@ -52,7 +52,7 @@ export default {
           selected: false
         }
       ],
-      onChange: value => console.log(value) // eslint-disable-line no-console
+      onChange: value => console.log(value)
     }
   }
 };

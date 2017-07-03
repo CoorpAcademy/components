@@ -5,6 +5,6 @@ export default {
     placeholder: '#FFFFFF',
     value: '#CC88F7',
     modified: true,
-    onChange: value => console.log(value) // eslint-disable-line no-console
+    onChange: value => console.log(value)
   }
 };

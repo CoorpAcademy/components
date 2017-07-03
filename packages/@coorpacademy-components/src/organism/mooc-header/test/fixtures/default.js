@@ -83,7 +83,7 @@ export default {
         title: 'Language',
         type: 'select',
         options: {
-          onChange: value => console.log(value), // eslint-disable-line no-console
+          onChange: value => console.log(value),
           values: [
             {
               name: 'Pouet',
@@ -122,7 +122,7 @@ export default {
         title: 'Godmode',
         type: 'switch',
         options: {
-          onChange: value => console.log(value), // eslint-disable-line no-console
+          onChange: value => console.log(value),
           value: true
         }
       },
@@ -130,7 +130,7 @@ export default {
         title: 'Fast slides',
         type: 'switch',
         options: {
-          onChange: value => console.log(value), // eslint-disable-line no-console
+          onChange: value => console.log(value),
           value: false
         }
       }

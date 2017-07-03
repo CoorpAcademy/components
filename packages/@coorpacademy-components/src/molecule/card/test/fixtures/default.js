@@ -10,6 +10,6 @@ export default {
     author: 'Coorpacademy',
     cta: 'Continue Chapter',
     progress: '65%',
-    onClick: () => console.log('click everywhere') // eslint-disable-line no-console
+    onClick: () => console.log('click everywhere')
   }
 };

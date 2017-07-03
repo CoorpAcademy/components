@@ -20,10 +20,10 @@ export default {
       defaultsDeep(props, {title: 'Tenth item'})
     ],
     onScroll: (skip, limit) => {
-      console.log(skip, limit); // eslint-disable-line no-console
+      console.log(skip, limit);
     },
     onShowMore: () => {
-      console.log('show More'); // eslint-disable-line no-console
+      console.log('show More');
     }
   }
 };

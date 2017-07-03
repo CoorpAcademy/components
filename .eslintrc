@@ -69,5 +69,15 @@
     "flowtype": {
       "onlyFilesWithFlowAnnotation": true
     }
-  }
+  },
+  "overrides": [
+    {
+      "files": [
+        "packages/@coorpacademy-components/src/**/test/fixtures/*.js"
+      ],
+      "rules": {
+        "no-console": "off"
+      }
+    }
+  ]
 }

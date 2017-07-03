@@ -5,7 +5,6 @@ export default {
         {
           title: 'Provider',
           type: 'select',
-          // eslint-disable-next-line no-console
           onChange: value => console.log('NEW provider', value),
           options: [
             {
@@ -28,7 +27,6 @@ export default {
         {
           title: 'Population',
           type: 'select',
-          // eslint-disable-next-line no-console
           onChange: value => console.log('NEW population', value),
           options: [
             {
@@ -52,7 +50,6 @@ export default {
           title: 'Engagement',
           type: 'link',
           onClick: value => {
-            // eslint-disable-next-line no-console
             console.log('Clicked on Engagement', value);
           },
           selected: true,

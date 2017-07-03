@@ -4,6 +4,6 @@ export default {
     title: 'Name',
     value: false,
     modified: true,
-    onChange: value => console.log(value) // eslint-disable-line no-console
+    onChange: value => console.log(value)
   }
 };

@@ -39,6 +39,6 @@ export default {
         selected: false
       }
     ],
-    onChange: value => console.log(value) // eslint-disable-line no-console
+    onChange: value => console.log(value)
   }
 };
