@@ -197,3 +197,9 @@ test('should return false when the given answer is an empty string', t => {
 
   assertIncorrect(t, engine, question, [''], [false]);
 });
+
+test("should return false when the given answer isn't defined", t => {
+  const question = createQuestion([['Guillaume Tell']]);
+
+  assertIncorrect(t, engine, question, [], []);
+});
