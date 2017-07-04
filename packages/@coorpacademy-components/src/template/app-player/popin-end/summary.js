@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import keys from 'lodash/fp/keys';
-import Provider from '../../../../atom/provider';
-import Button from '../../../../atom/button';
-import Link from '../../../../atom/link';
-import Loader from '../../../../atom/loader';
-import Card from '../../../../molecule/card';
-import CardsList from '../../../../molecule/dashboard/cards-list';
-import PopinHeader from '../../../../molecule/app-player/popin/popin-header';
-import style from './style.css';
+import Provider from '../../../atom/provider';
+import Button from '../../../atom/button';
+import Link from '../../../atom/link';
+import Loader from '../../../atom/loader';
+import Card from '../../../molecule/card';
+import CardsList from '../../../molecule/dashboard/cards-list';
+import PopinHeader from '../../../molecule/app-player/popin/popin-header';
+import style from './summary.css';
 
 const Header = props => <PopinHeader {...props} />;
 

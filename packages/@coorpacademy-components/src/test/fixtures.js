@@ -40,6 +40,10 @@ mapObject((components, componentType) =>
     const Component = _require(componentPath);
     const fixtures = get([componentType, componentName], fixturesList);
 
+    test(`[${componentType}] ${componentName} › should have at least one fixture`, t => {
+      t.true(keys(fixtures).length > 0);
+    });
+
     return mapObject((fixturePath, fixtureName) => {
       const it = `[${componentType}] ${componentName} › ${fixtureName}`;
       const fixture = _require(fixturePath);

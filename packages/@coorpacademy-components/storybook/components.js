@@ -131,7 +131,6 @@ import Loading from '../src/template/app-player/loading';
 import Player from '../src/template/app-player/player';
 import PopinCorrection from '../src/template/app-player/popin-correction';
 import PopinEnd from '../src/template/app-player/popin-end';
-import Summary from '../src/template/app-player/popin-end/summary';
 import BrandCreate from '../src/template/back-office/brand-create';
 import BrandList from '../src/template/back-office/brand-list';
 import BrandUpdate from '../src/template/back-office/brand-update';
@@ -746,9 +745,6 @@ export const components = {
     Player,
     PopinCorrection,
     PopinEnd
-  },
-  TemplateAppPlayerPopinEnd: {
-    Summary
   },
   TemplateBackOffice: {
     BrandCreate,
@@ -3018,11 +3014,6 @@ export const dependencies = {
           "SlidesHeader": true
         }
       }
-    }
-  },
-  "TemplateAppPlayerPopinEnd": {
-    "Summary": {
-      "children": {}
     }
   },
   "TemplateBackOffice": {
