@@ -42,14 +42,16 @@ const PopinCorrection = props => {
   const tabs = extractTabs([resources, klf, tips]);
 
   return (
-    <div className={style.wrapper}>
-      <PopinHeader {...header} />
-      <Question {...question} />
-      <Accordion tabProps={tabs} onClick={onClick} oneTabOnly>
-        <Resources resources={resources} />
-        <SimpleText text={klf.value} />
-        <SimpleText text={tips.value} />
-      </Accordion>
+    <div className={style.overlay}>
+      <div className={style.wrapper}>
+        <PopinHeader {...header} />
+        <Question {...question} />
+        <Accordion tabProps={tabs} onClick={onClick} oneTabOnly>
+          <Resources resources={resources} />
+          <SimpleText text={klf.value} />
+          <SimpleText text={tips.value} />
+        </Accordion>
+      </div>
     </div>
   );
 };
