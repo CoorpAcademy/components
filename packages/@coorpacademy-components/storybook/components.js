@@ -104,7 +104,6 @@ import SlidesPlayer from '../src/molecule/slides/slides-player';
 import Container from '../src/organism/accordion/container';
 import Part from '../src/organism/accordion/part';
 import Toggler from '../src/organism/accordion/toggler';
-import Summary from '../src/organism/app-player/summary';
 import BrandForm from '../src/organism/brand-form';
 import BrandTable from '../src/organism/brand-table';
 import BrandUpload from '../src/organism/brand-upload';
@@ -132,6 +131,7 @@ import Loading from '../src/template/app-player/loading';
 import Player from '../src/template/app-player/player';
 import PopinCorrection from '../src/template/app-player/popin-correction';
 import PopinEnd from '../src/template/app-player/popin-end';
+import Summary from '../src/template/app-player/popin-end/summary';
 import BrandCreate from '../src/template/back-office/brand-create';
 import BrandList from '../src/template/back-office/brand-list';
 import BrandUpdate from '../src/template/back-office/brand-update';
@@ -458,13 +458,6 @@ import PartFixtureDefault from '../src/organism/accordion/part/test/fixtures/def
 import PartFixtureOpen from '../src/organism/accordion/part/test/fixtures/open';
 import TogglerFixtureAllAreOpenable from '../src/organism/accordion/toggler/test/fixtures/all-are-openable';
 import TogglerFixtureOnlyOne from '../src/organism/accordion/toggler/test/fixtures/only-one';
-import SummaryFixtureCorrect from '../src/organism/app-player/summary/test/fixtures/correct';
-import SummaryFixtureFail from '../src/organism/app-player/summary/test/fixtures/fail';
-import SummaryFixtureLoading from '../src/organism/app-player/summary/test/fixtures/loading';
-import SummaryFixtureNextCourse from '../src/organism/app-player/summary/test/fixtures/next-course';
-import SummaryFixtureNoRecommandations from '../src/organism/app-player/summary/test/fixtures/no-recommandations';
-import SummaryFixtureSimpleAction from '../src/organism/app-player/summary/test/fixtures/simple-action';
-import SummaryFixtureSubscribe from '../src/organism/app-player/summary/test/fixtures/subscribe';
 import BrandFormFixtureDashboard from '../src/organism/brand-form/test/fixtures/dashboard';
 import BrandFormFixtureDefault from '../src/organism/brand-form/test/fixtures/default';
 import BrandFormFixtureGeneralSettings from '../src/organism/brand-form/test/fixtures/general-settings';
@@ -555,7 +548,10 @@ import PopinEndFixtureCorrect from '../src/template/app-player/popin-end/test/fi
 import PopinEndFixtureDefault from '../src/template/app-player/popin-end/test/fixtures/default';
 import PopinEndFixtureFail from '../src/template/app-player/popin-end/test/fixtures/fail';
 import PopinEndFixtureLoading from '../src/template/app-player/popin-end/test/fixtures/loading';
-import PopinEndFixtureNoRecommandations from '../src/template/app-player/popin-end/test/fixtures/no-recommandations';
+import PopinEndFixtureNextCourse from '../src/template/app-player/popin-end/test/fixtures/next-course';
+import PopinEndFixtureSimpleAction from '../src/template/app-player/popin-end/test/fixtures/simple-action';
+import PopinEndFixtureSubscribe from '../src/template/app-player/popin-end/test/fixtures/subscribe';
+import PopinEndFixtureWithRecommendations from '../src/template/app-player/popin-end/test/fixtures/with-recommendations';
 import BrandCreateFixtureDefault from '../src/template/back-office/brand-create/test/fixtures/default';
 import BrandCreateFixtureError from '../src/template/back-office/brand-create/test/fixtures/error';
 import BrandCreateFixtureLoading from '../src/template/back-office/brand-create/test/fixtures/loading';
@@ -716,9 +712,6 @@ export const components = {
     Part,
     Toggler
   },
-  OrganismAppPlayer: {
-    Summary
-  },
   Organism: {
     BrandForm,
     BrandTable,
@@ -753,6 +746,9 @@ export const components = {
     Player,
     PopinCorrection,
     PopinEnd
+  },
+  TemplateAppPlayerPopinEnd: {
+    Summary
   },
   TemplateBackOffice: {
     BrandCreate,
@@ -1310,17 +1306,6 @@ export const fixtures = {
       OnlyOne: TogglerFixtureOnlyOne
     }
   },
-  OrganismAppPlayer: {
-    Summary: {
-      Correct: SummaryFixtureCorrect,
-      Fail: SummaryFixtureFail,
-      Loading: SummaryFixtureLoading,
-      NextCourse: SummaryFixtureNextCourse,
-      NoRecommandations: SummaryFixtureNoRecommandations,
-      SimpleAction: SummaryFixtureSimpleAction,
-      Subscribe: SummaryFixtureSubscribe
-    }
-  },
   Organism: {
     BrandForm: {
       Dashboard: BrandFormFixtureDashboard,
@@ -1471,7 +1456,10 @@ export const fixtures = {
       Default: PopinEndFixtureDefault,
       Fail: PopinEndFixtureFail,
       Loading: PopinEndFixtureLoading,
-      NoRecommandations: PopinEndFixtureNoRecommandations
+      NextCourse: PopinEndFixtureNextCourse,
+      SimpleAction: PopinEndFixtureSimpleAction,
+      Subscribe: PopinEndFixtureSubscribe,
+      WithRecommendations: PopinEndFixtureWithRecommendations
     }
   },
   TemplateBackOffice: {
@@ -2948,11 +2936,6 @@ export const dependencies = {
       }
     }
   },
-  "OrganismAppPlayer": {
-    "Summary": {
-      "children": {}
-    }
-  },
   "TemplateAppCatalog": {
     "Author": {
       "children": {
@@ -3035,6 +3018,11 @@ export const dependencies = {
           "SlidesHeader": true
         }
       }
+    }
+  },
+  "TemplateAppPlayerPopinEnd": {
+    "Summary": {
+      "children": {}
     }
   },
   "TemplateBackOffice": {

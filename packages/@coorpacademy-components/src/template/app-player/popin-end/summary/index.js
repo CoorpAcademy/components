@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import keys from 'lodash/fp/keys';
-import Provider from '../../../atom/provider';
-import Button from '../../../atom/button';
-import Link from '../../../atom/link';
-import Loader from '../../../atom/loader';
-import Card from '../../../molecule/card';
-import CardsList from '../../../molecule/dashboard/cards-list';
-import PopinHeader from '../../../molecule/app-player/popin/popin-header';
+import Provider from '../../../../atom/provider';
+import Button from '../../../../atom/button';
+import Link from '../../../../atom/link';
+import Loader from '../../../../atom/loader';
+import Card from '../../../../molecule/card';
+import CardsList from '../../../../molecule/dashboard/cards-list';
+import PopinHeader from '../../../../molecule/app-player/popin/popin-header';
 import style from './style.css';
 
 const Header = props => <PopinHeader {...props} />;
@@ -97,7 +97,9 @@ const CardsLoader = () =>
   </div>;
 
 const Cards = props =>
-  props.cards === null ? <CardsLoader /> : props.cards && <CardsList {...props} />;
+  get('cards', props) === null
+    ? <CardsLoader />
+    : (props.cards && <CardsList {...props} />) || null;
 
 const Footer = ({title, color, ...linkProps}) =>
   <Link

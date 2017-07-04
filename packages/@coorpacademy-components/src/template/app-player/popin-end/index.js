@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SlidesHeader from '../../../molecule/slides/slides-header';
-import Summary from '../../../organism/app-player/summary';
+import Summary from './summary';
 import style from './style.css';
 
 const Content = props =>

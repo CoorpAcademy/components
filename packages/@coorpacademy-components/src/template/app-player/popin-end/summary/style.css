@@ -1,7 +1,7 @@
-@value breakpoints: "../../../variables/breakpoints.css";
+@value breakpoints: "../../../../variables/breakpoints.css";
 @value mobile from breakpoints;
 @value tablet from breakpoints;
-@value colors: "../../../variables/colors.css";
+@value colors: "../../../../variables/colors.css";
 @value xtraLightGrey from colors;
 @value light from colors;
 @value positive from colors;

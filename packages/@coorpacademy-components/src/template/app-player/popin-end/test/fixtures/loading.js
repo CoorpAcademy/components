@@ -1,11 +1,19 @@
 import defaultsDeep from 'lodash/fp/defaultsDeep';
-import Loading from '../../../../../organism/app-player/summary/test/fixtures/loading';
 import template from './default';
-
-const summaryProps = Loading.props;
 
 export default defaultsDeep(template, {
   props: {
-    summary: summaryProps
+    summary: {
+      header: null,
+      action: null
+      // feedback: {
+      //   title: 'Donnez votre avis sur ce cours',
+      //   value: '',
+      //   onChange: value => {},
+      //   sumitValue: 'Post',
+      //   onSumbit: () => {},
+      //   sent: false
+      // },
+    }
   }
 });

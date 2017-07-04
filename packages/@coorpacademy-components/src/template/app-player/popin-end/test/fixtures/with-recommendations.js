@@ -4,12 +4,11 @@ import correct from './correct';
 
 export default defaultsDeep(correct, {
   props: {
-    action: {
-      type: 'nextCourse',
-      description: 'Validate your skills!',
-      prefix: 'See course:',
-      title: 'Big Data',
-      card: Card.props
+    summary: {
+      recommendation: {
+        title: 'You should try:',
+        cards: [Card.props, Card.props, Card.props]
+      }
     }
   }
 });
