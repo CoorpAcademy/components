@@ -36,9 +36,8 @@ function containsAnswer(
   allowedAnswer: string,
   givenAnswer: string
 ): boolean {
-  const index = givenAnswer.indexOf(allowedAnswer);
   // Find the allowed answer in the given answer
-  if (index === -1) {
+  if (!includes(allowedAnswer, givenAnswer)) {
     // If not present
     return false;
   }
