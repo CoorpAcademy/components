@@ -3,6 +3,7 @@ import debounce from 'lodash/fp/debounce';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import head from 'lodash/fp/head';
+import map from 'lodash/fp/map';
 import isEqual from 'lodash/fp/isEqual';
 import last from 'lodash/fp/last';
 import PropTypes from 'prop-types';
@@ -106,7 +107,7 @@ class CardsList extends React.Component {
   }
 
   cardsWidth() {
-    return this.cards.map(getOr(0, 'scrollWidth')).reduce((a, b) => a + b, 0);
+    return map(getOr(0, 'scrollWidth'), this.cards).reduce((a, b) => a + b, 0);
   }
 
   getPossiblePositions(filter) {
@@ -195,13 +196,13 @@ class CardsList extends React.Component {
 
     const mediumColor = getOr('#90A4AE', 'common.medium', skin);
 
-    const cardsView = cards.map((card, key) => {
+    const cardsView = map.convert({cap: false})((card, key) => {
       return (
         <div className={style.card} key={key} ref={this.setCards(key)}>
           <Card {...card} />
         </div>
       );
-    });
+    }, cards);
 
     const leftArrowView = this.state.left.hidden
       ? null
