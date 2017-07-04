@@ -6,20 +6,20 @@ export default defaultsDeep(failClosed, {
     header: {
       corrections: [
         {
-          answer: 'Apple',
+          answer: '0',
           isCorrect: false
         },
         {
-          answer: 'Microsoft',
+          answer: 'Deux',
           isCorrect: true
         },
         {
-          answer: 'Google',
+          answer: '2',
+          isCorrect: true
+        },
+        {
+          answer: '1',
           isCorrect: false
-        },
-        {
-          answer: 'Facebook',
-          isCorrect: true
         }
       ]
     }
