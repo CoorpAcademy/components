@@ -79,8 +79,8 @@ const popinEndStateToProps = (options, store) => state => {
       () =>
         get('nextChapter', recommendations) && {
           type: 'nextCourse',
-          description: 'Validate your skills!',
-          prefix: 'See course:',
+          description: translate('Validate your skills!'),
+          prefix: translate('See course:'),
           ...recommendations.nextChapter
         }
     ],
@@ -88,8 +88,8 @@ const popinEndStateToProps = (options, store) => state => {
       pipe(get('type'), isEqual('failure')),
       () => ({
         type: 'simple',
-        prefix: 'Retry level:',
-        title: 'Big Data - Coach',
+        prefix: translate('Retry level:'),
+        title: '------ current state.chapter.title ------',
         button: {
           title: translate('Retry level'),
           href: `/`
