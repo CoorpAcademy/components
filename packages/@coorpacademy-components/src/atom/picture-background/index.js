@@ -9,23 +9,23 @@ const PictureBackground = props => {
   const mobile = src.mobile;
   const desktop = src.desktop;
 
-  const pictureView = isObject(src)?
-      <div className={style.deviceView}>
-        <div className={style.mobile}
+  const pictureView = isObject(src)
+    ? <div className={style.deviceView}>
+        <div
+          className={style.mobile}
           style={{
             backgroundImage: `url(${mobile})`
           }}
         />
-        <div className={style.desktop}
+        <div
+          className={style.desktop}
           style={{
             backgroundImage: `url(${desktop})`
           }}
         />
       </div>
-     : <div className={style.default}
-        style={{backgroundImage: `url(${src})`}}
-      />;
-     
+    : <div className={style.default} style={{backgroundImage: `url(${src})`}} />;
+
   return (
     <div className={style.wrapper}>
       {pictureView}
@@ -34,9 +34,7 @@ const PictureBackground = props => {
 };
 
 PictureBackground.propTypes = {
-  src: PropTypes.oneOfType([
-    PropTypes.objectOf(PropTypes.string), PropTypes.string
-  ])
+  src: PropTypes.oneOfType([PropTypes.objectOf(PropTypes.string), PropTypes.string])
 };
 
 export default PictureBackground;

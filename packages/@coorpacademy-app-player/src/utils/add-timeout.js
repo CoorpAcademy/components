@@ -5,6 +5,7 @@ const addTimeout = curryN(2, (TIMEOUT, fun) => (...args) =>
     setTimeout(() => {
       resolve(fun(...args));
     }, TIMEOUT)
-  ));
+  )
+);
 
 export default addTimeout;
