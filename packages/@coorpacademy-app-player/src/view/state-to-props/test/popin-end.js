@@ -23,8 +23,12 @@ test('should set properties for success popin', t => {
   t.is(props.summary.recommendation.title, '__Related subjects');
   t.is(props.summary.recommendation.cards.length, 3);
 
+  t.is(props.summary.action.type, 'nextCourse');
+  t.is(props.summary.action.title, 'Chapter 2');
+  t.is(props.summary.action.card.view, 'grid');
+
   const card = props.summary.recommendation.cards[1];
-  t.is(card.view, 'list');
+  t.is(card.view, 'grid');
 
   t.is(props.summary.footer.title, '__Back to dashboard');
   t.is(props.summary.footer.href, '/');
@@ -41,7 +45,7 @@ test('should set properties for failure popin', t => {
   t.is(props.summary.recommendation.cards.length, 3);
 
   const card = props.summary.recommendation.cards[1];
-  t.is(card.view, 'list');
+  t.is(card.view, 'grid');
 
   t.is(props.summary.footer.title, '__Back to dashboard');
   t.is(props.summary.footer.href, '/');
