@@ -3,6 +3,7 @@ import set from 'lodash/fp/set';
 import update from 'lodash/fp/update';
 import isNull from 'lodash/fp/isNull';
 import get from 'lodash/fp/get';
+import getOr from 'lodash/fp/getOr';
 import unset from 'lodash/fp/unset';
 import pipe from 'lodash/fp/pipe';
 import {
@@ -43,9 +44,13 @@ const dataProgressionsReducer = (state = {entities: {}}, action) => {
       );
     }
     case PROGRESSION_FETCH_BESTOF_SUCCESS: {
-      const {payload, meta} = action;
+      const {payload: progression, meta} = action;
       const {progressionId} = meta;
-      return set(['entities', progressionId, 'previousBestScore'], payload.state.stars, state);
+      return set(
+        ['entities', progressionId, 'previousBestScore'],
+        getOr(0, 'state.stars', progression),
+        state
+      );
     }
     case PROGRESSION_FETCH_FAILURE: {
       const {meta} = action;
