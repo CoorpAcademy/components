@@ -45,10 +45,10 @@
 
 .wrapper {
   position: absolute;
-  left: 0;
   top: 0;
   right: 0;
   bottom: 0;
+  width: 100%;
 }
 
 .titlesWrapper {
@@ -202,4 +202,28 @@
     overflow-x: hidden;
   }
 
+  .iconsWrapper {
+    flex-flow: column;
+    align-items: left;
+    justify-content: space-around;
+    width: 70px;
+    right: 25px;
+  }
+
+  .icon {
+    width: 15px;
+    height: 15px;
+  }
+
+  .iconText {
+    font-size: 15px;
+  }
+
+  .iconsWrapper::before, .iconsWrapper::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+  }
 }

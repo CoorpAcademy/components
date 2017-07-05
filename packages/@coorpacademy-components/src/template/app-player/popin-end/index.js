@@ -13,7 +13,7 @@ const PopinEnd = props => {
   const {header, summary} = props;
   return (
     <div className={style.wrapper}>
-      <SlidesHeader {...header} />
+      <SlidesHeader {...header} className={style.slidesHeader} />
       <Content {...summary} />
     </div>
   );
