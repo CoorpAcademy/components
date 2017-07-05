@@ -64,10 +64,41 @@ const popinEndStateToProps = (options, store) => state => {
     [constant(true), constant(null)]
   ])(exitNode);
 
-  const recommendation = {
+  const recommendations = getRecommendations(state);
+  const list = get('list', recommendations);
+  const hasRecommendations = list && list.length > 0;
+
+  const recommendation = hasRecommendations && {
     title: translate('Related subjects'),
-    cards: getRecommendations(state)
+    cards: list
   };
+
+  const action = cond([
+    [
+      pipe(get('type'), isEqual('success')),
+      () =>
+        get('nextChapter', recommendations) && {
+          type: 'nextCourse',
+          description: translate('Validate your skills!'),
+          prefix: translate('See course:'),
+          ...recommendations.nextChapter
+        }
+    ],
+    [
+      pipe(get('type'), isEqual('failure')),
+      () => ({
+        type: 'simple',
+        prefix: translate('Retry level:'),
+        title: '------ current state.chapter.title ------',
+        button: {
+          title: translate('Retry level'),
+          href: `/`
+        }
+      })
+    ],
+    [constant(true), constant(null)]
+  ])(exitNode);
+
   const footer = {
     title: translate('Back to dashboard'),
     href: '/'
@@ -77,6 +108,7 @@ const popinEndStateToProps = (options, store) => state => {
     header: headerProps(options, store)(state),
     summary: {
       header,
+      action,
       recommendation,
       footer
     }

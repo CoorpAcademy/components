@@ -127,7 +127,6 @@ export StarRating from './molecule/star-rating';
 export StartBattle from './molecule/dashboard/start-battle';
 export SubscriptionFreemium from './molecule/subscription-freemium';
 export SubscriptionPremium from './molecule/subscription-premium';
-export Summary from './organism/app-player/summary';
 export Tab from './atom/tab';
 export TabContent from './atom/tab-content';
 export Table from './molecule/table';

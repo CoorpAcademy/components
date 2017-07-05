@@ -3,9 +3,7 @@
     "answers": {
       "entities": {
         "0": {
-          "1.B2.4": [
-            "Text"
-          ]
+          "1.B2.4": ["Text"]
         }
       }
     },
@@ -39,9 +37,7 @@
             "version": "1"
           },
           "state": {
-            "slides": [
-              "1.B2.4"
-            ],
+            "slides": ["1.B2.4"],
             "nextContent": {
               "ref": "successExitNode",
               "type": "success"
@@ -69,38 +65,65 @@
     },
     "recommendations": {
       "entities": {
-        "0": [
-          {
-            "view": "list",
-            "image": "https://placehold.it/380x600/1d1d1d",
-            "time": "2h20",
-            "type": "default",
-            "title": "From Mass Market to One to One targeting Lorem ipsum",
-            "author": "Coorpacademy",
-            "cta": "Continue Chapter",
-            "href": "#"
+        "0": {
+          "nextChapter": {
+            "card": {
+              "view": "grid",
+              "image": "//static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/poster/1931716-40629814-640-360-1496310886550.jpg",
+              "time": "8m",
+              "adaptiv": false,
+              "certification": false,
+              "type": "chapitre",
+              "title": "Chapter 2",
+              "author": "Superman",
+              "progress": "0%",
+              "key": "cha_NyZ4M0YQ7",
+              "disabled": false
+            },
+            "title": "Chapter 2"
           },
-          {
-            "view": "list",
-            "image": "https://placehold.it/380x600/1d1d1d",
-            "time": "2h20",
-            "type": "default",
-            "title": "From Mass Market to One to One targeting Lorem ipsum",
-            "author": "Coorpacademy",
-            "cta": "Continue Chapter",
-            "href": "#"
-          },
-          {
-            "view": "list",
-            "image": "https://placehold.it/380x600/1d1d1d",
-            "time": "2h20",
-            "type": "default",
-            "title": "From Mass Market to One to One targeting Lorem ipsum",
-            "author": "Coorpacademy",
-            "cta": "Continue Chapter",
-            "href": "#"
-          }
-        ]
+          "list": [
+            {
+              "view": "grid",
+              "image": "//static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/poster/1931716-40629814-640-360-1496310886550.jpg",
+              "time": "8m",
+              "adaptiv": false,
+              "certification": false,
+              "type": "chapitre",
+              "title": "chapter 1",
+              "author": "Superman",
+              "progress": "0%",
+              "key": "cha_Ny1BTxRp~",
+              "disabled": false
+            },
+            {
+              "view": "grid",
+              "image": "//static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/poster/1931716-40629814-640-360-1496310886550.jpg",
+              "time": "8m",
+              "adaptiv": false,
+              "certification": false,
+              "type": "chapitre",
+              "title": "chapter 1",
+              "author": "Superman",
+              "progress": "0%",
+              "key": "cha_Ny1BTxRp~",
+              "disabled": false
+            },
+            {
+              "view": "grid",
+              "image": "//static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/poster/1931716-40629814-640-360-1496310886550.jpg",
+              "time": "8m",
+              "adaptiv": false,
+              "certification": false,
+              "type": "chapitre",
+              "title": "chapter 1",
+              "author": "Superman",
+              "progress": "0%",
+              "key": "cha_Ny1BTxRp~",
+              "disabled": false
+            }
+          ]
+        }
       }
     },
     "slides": {
@@ -159,11 +182,7 @@
   "ui": {
     "answers": {},
     "corrections": {
-      "accordion": [
-        false,
-        false,
-        false
-      ]
+      "accordion": [false, false, false]
     },
     "current": {
       "progressionId": "0"

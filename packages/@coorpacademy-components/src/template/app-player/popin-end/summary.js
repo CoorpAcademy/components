@@ -10,7 +10,7 @@ import Loader from '../../../atom/loader';
 import Card from '../../../molecule/card';
 import CardsList from '../../../molecule/dashboard/cards-list';
 import PopinHeader from '../../../molecule/app-player/popin/popin-header';
-import style from './style.css';
+import style from './summary.css';
 
 const Header = props => <PopinHeader {...props} />;
 
@@ -19,8 +19,12 @@ const SimpleAction = ({color, prefix, title, button}) => {
   return (
     <div className={style.simpleWrapper}>
       <div className={style.simpleTexts}>
-        <span className={style.simplePrefix}>{prefix}</span>
-        <span className={style.simpleTitle}>{title}</span>
+        <span className={style.simplePrefix}>
+          {prefix}
+        </span>
+        <span className={style.simpleTitle}>
+          {title}
+        </span>
       </div>
       <Button
         style={{
@@ -37,9 +41,15 @@ const SimpleAction = ({color, prefix, title, button}) => {
 const NextCourse = ({title, description, prefix, card}) =>
   <div className={style.nextCourseWrapper}>
     <div className={style.nextCourseTexts}>
-      <div className={style.nextCourseDescription}>{description}</div>
-      <div className={style.nextCoursePrefix}>{prefix}</div>
-      <div className={style.nextCourseTitle}>{title}</div>
+      <div className={style.nextCourseDescription}>
+        {description}
+      </div>
+      <div className={style.nextCoursePrefix}>
+        {prefix}
+      </div>
+      <div className={style.nextCourseTitle}>
+        {title}
+      </div>
     </div>
     <div className={style.nextCourseCard}>
       <Card {...card} />
@@ -51,8 +61,12 @@ const Subscribe = ({title, description, button, card}) => {
   return (
     <div className={style.subscribeWrapper}>
       <div className={style.subscribeTexts}>
-        <div className={style.subscribeDescription}>{description}</div>
-        <div className={style.subscribeTitle}>{title}</div>
+        <div className={style.subscribeDescription}>
+          {description}
+        </div>
+        <div className={style.subscribeTitle}>
+          {title}
+        </div>
         <div className={style.subscribeButtonWrapper}>
           <Button className={style.subscribeButton} {...linkProps} submitValue={buttonTitle} />
         </div>
@@ -82,7 +96,10 @@ const CardsLoader = () =>
     <Loader />
   </div>;
 
-const Cards = props => (props.cards ? <CardsList {...props} /> : <CardsLoader />);
+const Cards = props =>
+  get('cards', props) === null
+    ? <CardsLoader />
+    : (props.cards && <CardsList {...props} />) || null;
 
 const Footer = ({title, color, ...linkProps}) =>
   <Link

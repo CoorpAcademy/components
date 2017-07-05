@@ -1,11 +1,20 @@
 import defaultsDeep from 'lodash/fp/defaultsDeep';
-import Fail from '../../../../../organism/app-player/summary/test/fixtures/fail';
-import template from './default';
+import loading from './loading';
 
-const summaryProps = Fail.props;
-
-export default defaultsDeep(template, {
+export default defaultsDeep(loading, {
   props: {
-    summary: summaryProps
+    summary: {
+      header: {
+        title: 'Oups...',
+        subtitle: "Vous n'avez plus de vie...",
+        fail: true,
+        corrections: [{answer: 'Correct', isCorrect: false}],
+        lives: 0,
+        cta: {
+          title: 'Retry level',
+          href: '#'
+        }
+      }
+    }
   }
 });

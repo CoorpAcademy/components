@@ -1,11 +1,26 @@
 import defaultsDeep from 'lodash/fp/defaultsDeep';
-import Correct from '../../../../../organism/app-player/summary/test/fixtures/correct';
-import template from './default';
+import loading from './loading';
 
-const summaryProps = Correct.props;
-
-export default defaultsDeep(template, {
+export default defaultsDeep(loading, {
   props: {
-    summary: summaryProps
+    summary: {
+      header: {
+        title: 'Big Data - Avancé',
+        subtitle: 'Félicitations !',
+        fail: false,
+        corrections: [{answer: 'Correct', isCorrect: true}],
+        stars: '+29',
+        rank: '+5',
+        cta: {
+          title: 'Next level',
+          subtitle: 'Big Data - Coach',
+          href: '#'
+        }
+      },
+      footer: {
+        title: 'Back to home',
+        href: '#'
+      }
+    }
   }
 });
