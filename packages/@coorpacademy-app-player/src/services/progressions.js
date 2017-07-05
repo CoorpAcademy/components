@@ -10,6 +10,7 @@ import pipe from 'lodash/fp/pipe';
 import sample from 'lodash/fp/sample';
 import getOr from 'lodash/fp/getOr';
 import set from 'lodash/fp/set';
+import maxBy from 'lodash/fp/maxBy';
 import reduce from 'lodash/fp/reduce';
 import progressionsData from './progressions.data';
 import slidesData from './slides.data';
@@ -41,6 +42,10 @@ const findAllSlides = async () => {
 export const save = progression => {
   progressionStore.set(progression._id, progression);
   return progression;
+};
+
+export const findBestOf = () => {
+  return maxBy(p => p.state.stars || 0)(progressionStore);
 };
 
 export const createAnswer = async (progressionId, payload) => {
