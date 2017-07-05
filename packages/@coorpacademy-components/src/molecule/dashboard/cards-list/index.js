@@ -4,6 +4,7 @@ import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import head from 'lodash/fp/head';
 import map from 'lodash/fp/map';
+import sumBy from 'lodash/fp/sumBy';
 import isEqual from 'lodash/fp/isEqual';
 import last from 'lodash/fp/last';
 import PropTypes from 'prop-types';
@@ -107,7 +108,7 @@ class CardsList extends React.Component {
   }
 
   cardsWidth() {
-    return map(getOr(0, 'scrollWidth'), this.cards).reduce((a, b) => a + b, 0);
+    return sumBy('scrollWidth', this.cards);
   }
 
   getPossiblePositions(filter) {
