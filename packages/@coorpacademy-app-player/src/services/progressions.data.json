@@ -57,7 +57,8 @@
         "ref": "successExitNode",
         "type": "success"
       },
-      "lives": 1
+      "lives": 1,
+      "stars": 12
     }
   },
   {
