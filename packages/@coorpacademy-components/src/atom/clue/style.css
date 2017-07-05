@@ -48,6 +48,19 @@
   float: right;
 }
 
+.logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
 @media mobile {
   .clue {
     width: 70%;
