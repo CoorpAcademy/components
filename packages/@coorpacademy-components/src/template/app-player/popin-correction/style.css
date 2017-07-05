@@ -1,3 +1,6 @@
+@value breakpoints: "../../../variables/breakpoints.css";
+@value mobile from breakpoints;
+
 @value colors: "../../../variables/colors.css";
 @value dark from colors;
 @value medium from colors;
@@ -74,4 +77,10 @@
 
 .simpleText {
   composes: text;
+}
+
+@media mobile {
+  .wrapper {
+    margin: 0 auto 0 auto;
+  }
 }

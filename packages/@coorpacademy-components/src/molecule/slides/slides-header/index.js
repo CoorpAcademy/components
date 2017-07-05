@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
+import classnames from 'classnames';
 import BackIcon from '@coorpacademy/nova-icons/composition/navigation/arrow-left';
 import Link from '../../../atom/link';
 import Provider from '../../../atom/provider';
@@ -8,7 +9,7 @@ import Life from '../../../atom/life';
 import style from './style.css';
 
 const SlidesHeader = (props, context) => {
-  const {backHref, primary, secondary, lives} = props;
+  const {backHref, primary, secondary, lives, className} = props;
   const {skin} = context;
 
   const darkColor = get('common.dark', skin);
@@ -38,7 +39,7 @@ const SlidesHeader = (props, context) => {
     : null;
 
   return (
-    <div className={style.wrapper}>
+    <div className={classnames(style.wrapper, className)}>
       <Link href={backHref} className={style.backLink}>
         <BackIcon className={style.backIcon} color={darkColor} />
       </Link>
