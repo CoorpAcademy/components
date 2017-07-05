@@ -71,6 +71,12 @@ test(
       getRank: () => {
         return 1;
       }
+    },
+    Chapters: {
+      findById: id => {
+        t.is(id, 'baz');
+        return 'baz';
+      }
     }
   }),
   selectProgression('foo'),
@@ -97,7 +103,8 @@ test(
       },
       pipe(
         set('data.progressions.entities.foo._id', 'foo'),
-        set('data.progressions.entities.foo.state.nextContent', {type: 'slide', ref: 'bar'})
+        set('data.progressions.entities.foo.state.nextContent', {type: 'slide', ref: 'bar'}),
+        set('data.progressions.entities.foo.content', {type: 'chapter', ref: 'baz'})
       )({})
     ],
     [
@@ -113,6 +120,18 @@ test(
       },
       set('data.rank.start', 1, {})
     ],
+    [
+      {
+        type: CHAPTER_FETCH_REQUEST,
+        meta: {id: 'baz'}
+      },
+      set('data.chapters.entities.baz', null, {})
+    ],
+    {
+      type: CHAPTER_FETCH_SUCCESS,
+      meta: {id: 'baz'},
+      payload: 'baz'
+    },
     [
       {
         type: SLIDE_FETCH_REQUEST,

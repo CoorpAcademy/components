@@ -13,12 +13,23 @@
               "current": 0,
               "total": 4
             }
+          },
+          "content": {
+            "ref": "5.C7",
+            "type": "chapter"
           }
         }
       }
     },
     "slides": {
       "entities": {}
+    },
+    "chapters": {
+      "entities": {
+        "5.C7": {
+          "name": "Les réseaux sociaux au service du crowdfunding"
+        }
+      }
     }
   },
   "ui": {

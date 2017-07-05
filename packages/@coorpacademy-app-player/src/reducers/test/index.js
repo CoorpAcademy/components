@@ -11,6 +11,7 @@ test(
   {
     data: {
       answers: {entities: {}},
+      chapters: {entities: {}},
       clues: {entities: {}},
       exitNodes: {entities: {}},
       progressions: {entities: {}},
