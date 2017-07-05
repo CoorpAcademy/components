@@ -12,10 +12,7 @@ import {
   PROGRESSION_CREATE_ANSWER_REQUEST,
   PROGRESSION_CREATE_ANSWER_SUCCESS,
   PROGRESSION_REQUEST_CLUE_SUCCESS,
-  PROGRESSION_FETCH_BESTOF_REQUEST,
-  PROGRESSION_FETCH_BESTOF_SUCCESS,
-  PROGRESSION_FETCH_BESTOF_FAILURE
-
+  PROGRESSION_FETCH_BESTOF_SUCCESS
 } from '../../actions/api/progressions';
 
 const dataProgressionsReducer = (state = {entities: {}}, action) => {
@@ -45,7 +42,7 @@ const dataProgressionsReducer = (state = {entities: {}}, action) => {
         state
       );
     }
-    case PROGRESSION_FETCH_BESTOF_SUCCESS:{
+    case PROGRESSION_FETCH_BESTOF_SUCCESS: {
       const {payload, meta} = action;
       const {progressionId} = meta;
       return set(['entities', progressionId, 'previousBestScore'], payload.state.stars, state);

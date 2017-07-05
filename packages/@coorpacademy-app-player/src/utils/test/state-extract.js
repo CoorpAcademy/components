@@ -17,7 +17,8 @@ import {
   getPreviousSlide,
   getQuestionType,
   getStartRank,
-  getEndRank
+  getEndRank,
+  getBestScore
 } from '../state-extract';
 
 test('getChoices should get choices from state', t => {
@@ -147,6 +148,16 @@ test('getEndRank should get rank.end from state', t => {
   const rank = 'foo';
   const state = set('data.rank.end', rank)({});
   t.is(getEndRank(state), rank);
+});
+
+test('getBestScore should get previousBestScore from currentProgression', t => {
+  const bestScore = 'foo';
+  const progression = {previousBestScore: bestScore};
+  const state = pipe(
+    set('ui.current.progressionId', '0'),
+    set('data.progressions.entities', {'0': progression})
+  )({});
+  t.is(getBestScore(state), bestScore);
 });
 
 test('getCurrentClue should get current clue from state', t => {

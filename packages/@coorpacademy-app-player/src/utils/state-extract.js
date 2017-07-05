@@ -99,10 +99,6 @@ export const getRecommendations = state => {
   return get(`data.recommendations.entities.${id}`, state);
 };
 
-export const getStartRank = state => {
-  return get(`data.rank.start`, state);
-};
-
-export const getEndRank = state => {
-  return get(`data.rank.end`, state);
-};
+export const getStartRank = get(`data.rank.start`);
+export const getEndRank = get(`data.rank.end`);
+export const getBestScore = pipe(getCurrentProgression, get('previousBestScore'));

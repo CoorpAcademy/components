@@ -7,6 +7,7 @@ import {
   getCurrentExitNode,
   getCurrentProgression,
   getRecommendations,
+  getBestScore,
   getStartRank,
   getEndRank
 } from '../../utils/state-extract';
@@ -25,20 +26,24 @@ const extractRank = state => {
   }
 };
 
-const popinEndStateToProps = (options, store) => state => {
-  const {translate} = options;
-
-  const exitNode = getCurrentExitNode(state);
+const extractStars = state => {
   const progression = getCurrentProgression(state);
+  const stars = get('state.stars')(progression);
+  const bestScore = getBestScore(state);
 
-  const header = cond([
+  return stars > bestScore ? `+${stars - bestScore}` : '+0';
+};
+
+const summaryHeader = (state, translate) => {
+  const progression = getCurrentProgression(state);
+  return cond([
     [
       pipe(get('type'), isEqual('success')),
       () => ({
         title: '',
         subtitle: translate('Congratulations!'),
         fail: false,
-        stars: get('state.stars')(progression),
+        stars: extractStars(state),
         rank: extractRank(state),
         cta: {
           title: translate('Back to dashboard'),
@@ -62,8 +67,10 @@ const popinEndStateToProps = (options, store) => state => {
       })
     ],
     [constant(true), constant(null)]
-  ])(exitNode);
+  ]);
+};
 
+const extractRecommendation = (state, translate) => {
   const recommendations = getRecommendations(state);
   const list = get('list', recommendations);
   const hasRecommendations = list && list.length > 0;
@@ -73,7 +80,12 @@ const popinEndStateToProps = (options, store) => state => {
     cards: list
   };
 
-  const action = cond([
+  return recommendation;
+};
+
+const extractAction = (state, translate) => {
+  const recommendations = getRecommendations(state);
+  return cond([
     [
       pipe(get('type'), isEqual('success')),
       () =>
@@ -97,7 +109,13 @@ const popinEndStateToProps = (options, store) => state => {
       })
     ],
     [constant(true), constant(null)]
-  ])(exitNode);
+  ]);
+};
+
+const popinEndStateToProps = (options, store) => state => {
+  const {translate} = options;
+
+  const exitNode = getCurrentExitNode(state);
 
   const footer = {
     title: translate('Back to dashboard'),
@@ -107,9 +125,9 @@ const popinEndStateToProps = (options, store) => state => {
   const props = {
     header: headerProps(options, store)(state),
     summary: {
-      header,
-      action,
-      recommendation,
+      header: summaryHeader(state, translate)(exitNode),
+      action: extractAction(state, translate)(exitNode),
+      recommendation: extractRecommendation(state, translate),
       footer
     }
   };

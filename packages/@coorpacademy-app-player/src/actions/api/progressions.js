@@ -1,7 +1,7 @@
 import includes from 'lodash/fp/includes';
 import get from 'lodash/fp/get';
 import buildTask from '../../utils/redux-task';
-import {getProgression} from '../../utils/state-extract';
+import {getProgression, getBestScore} from '../../utils/state-extract';
 
 export const PROGRESSION_FETCH_REQUEST = '@@progression/FETCH_REQUEST';
 export const PROGRESSION_FETCH_SUCCESS = '@@progression/FETCH_SUCCESS';
@@ -77,14 +77,16 @@ export const requestClue = (progressionId, slideId) => (dispatch, getState, {ser
   return dispatch(action);
 };
 
-
 export const PROGRESSION_FETCH_BESTOF_REQUEST = '@@progression/FETCH_BESTOF_REQUEST';
 export const PROGRESSION_FETCH_BESTOF_SUCCESS = '@@progression/FETCH_BESTOF_SUCCESS';
 export const PROGRESSION_FETCH_BESTOF_FAILURE = '@@progression/FETCH_BESTOF_FAILURE';
 
-export const fetchBestProgression = (progressionId, contentRef) => (dispatch, getState, {services}) => {
+export const fetchBestProgression = (progressionId, contentRef) => (
+  dispatch,
+  getState,
+  {services}
+) => {
   const {Progressions} = services;
-  const state = getState();
 
   const action = buildTask({
     types: [
@@ -93,7 +95,7 @@ export const fetchBestProgression = (progressionId, contentRef) => (dispatch, ge
       PROGRESSION_FETCH_BESTOF_FAILURE
     ],
     task: () => Progressions.findBestOf(contentRef),
-    // bailout: () => includes(slideId, requestedClues),
+    bailout: getBestScore,
     meta: {progressionId, ref: contentRef}
   });
 
