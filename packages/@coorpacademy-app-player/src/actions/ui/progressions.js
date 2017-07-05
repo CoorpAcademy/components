@@ -1,5 +1,4 @@
 import get from 'lodash/fp/get';
-import isNil from 'lodash/fp/isNil';
 import {fetchProgression} from '../api/progressions';
 import {fetchSlide} from '../api/slides';
 import {fetchStartRank} from '../api/rank';
@@ -8,8 +7,7 @@ import {fetchChapter} from '../api/chapters';
 import {
   getCurrentProgression,
   getCurrentProgressionId,
-  getCurrentContent,
-  getCurrentChapter
+  getCurrentContent
 } from '../../utils/state-extract';
 
 export const UI_SELECT_PROGRESSION = '@@ui/SELECT_PROGRESSION';
@@ -30,12 +28,8 @@ export const selectProgression = id => async (dispatch, getState) => {
 
   const progression = getCurrentProgression(getState());
   const {ref, type} = getCurrentContent(getState());
-  const chapter = getCurrentChapter(getState());
-
-  if (isNil(chapter)) {
-    const chapterRef = get('content.ref', progression);
-    await dispatch(fetchChapter(chapterRef));
-  }
+  const chapterRef = get('content.ref', progression);
+  await dispatch(fetchChapter(chapterRef));
 
   switch (type) {
     case 'slide': {
