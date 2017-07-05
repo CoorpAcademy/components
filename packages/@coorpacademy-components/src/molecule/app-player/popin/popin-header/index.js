@@ -137,9 +137,8 @@ const NextQuestionPart = (props, context) => {
         ? null
         : <Link {...linkProps} className={style.nextButton}>
             {title}
-            <ArrowRight color={mediumColor} className={style.nextButtonIcon} />
+            <ArrowRight color="inherit" className={style.nextButtonIcon} />
           </Link>}
-      <div className={style.buttonOverlay} />
     </div>
   );
 };
