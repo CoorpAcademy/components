@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/app-player",
-  "version": "5.4.18",
+  "version": "5.4.19",
   "description": "CoorpAcademy player [freerun, learner, battles]",
   "main": "lib/index.js",
   "module": "es/index.js",
