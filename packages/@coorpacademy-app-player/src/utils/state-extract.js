@@ -34,6 +34,11 @@ export const getChapter = id => state => {
   return get(id)(entities);
 };
 
+export const getCurrentChapter = state => {
+  const id = get('content.ref')(getCurrentProgression(state));
+  return getChapter(id)(state);
+};
+
 export const getCurrentSlide = state => {
   const id = get('state.nextContent.ref')(getCurrentProgression(state));
   return getSlide(id)(state);

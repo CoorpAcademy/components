@@ -10,7 +10,7 @@ import {
   CHAPTER_FETCH_FAILURE
 } from '../../actions/api/chapters';
 
-export default (state = {entities: {}}, action) => {
+const dataChaptersReducer = (state = {entities: {}}, action) => {
   switch (action.type) {
     case CHAPTER_FETCH_REQUEST: {
       const {meta} = action;
@@ -32,3 +32,5 @@ export default (state = {entities: {}}, action) => {
       return state;
   }
 };
+
+export default dataChaptersReducer;
