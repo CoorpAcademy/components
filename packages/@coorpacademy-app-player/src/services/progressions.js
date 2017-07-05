@@ -45,7 +45,8 @@ export const save = progression => {
 };
 
 export const findBestOf = () => {
-  return maxBy(p => p.state.stars || 0)(progressionStore);
+  const bestProgression = maxBy(p => p.state.stars || 0)(progressionsData);
+  return bestProgression;
 };
 
 export const createAnswer = async (progressionId, payload) => {

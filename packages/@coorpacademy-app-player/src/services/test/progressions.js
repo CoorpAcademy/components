@@ -1,7 +1,7 @@
 import test from 'ava';
 import isObject from 'lodash/fp/isObject';
 import isString from 'lodash/fp/isString';
-import {create, findById, createAnswer} from '../progressions';
+import {create, findById, createAnswer, findBestOf} from '../progressions';
 
 const engine = {
   ref: 'microlearning',
@@ -22,6 +22,11 @@ test('should find progression', async t => {
   const progression = await create({engine});
 
   t.deepEqual(await findById(progression._id), progression);
+});
+
+test('should find best score', async t => {
+  const progression = await findBestOf();
+  t.is(progression.state.stars, 12);
 });
 
 test('should add answer action', async t => {
