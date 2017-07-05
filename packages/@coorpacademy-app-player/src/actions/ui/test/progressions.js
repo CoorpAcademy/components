@@ -6,7 +6,9 @@ import {selectProgression, UI_SELECT_PROGRESSION} from '../progressions';
 import {
   PROGRESSION_FETCH_REQUEST,
   PROGRESSION_FETCH_SUCCESS,
-  PROGRESSION_FETCH_FAILURE
+  PROGRESSION_FETCH_FAILURE,
+  PROGRESSION_FETCH_BESTOF_REQUEST,
+  PROGRESSION_FETCH_BESTOF_SUCCESS
 } from '../../api/progressions';
 import {RANK_FETCH_START_REQUEST, RANK_FETCH_START_SUCCESS} from '../../api/rank';
 import {SLIDE_FETCH_REQUEST, SLIDE_FETCH_SUCCESS} from '../../api/slides';
@@ -59,6 +61,10 @@ test(
       findById: id => {
         t.is(id, 'foo');
         return 'foo';
+      },
+      findBestOf: ref => {
+        t.is(ref, 'baz');
+        return 16;
       }
     },
     Slides: {
@@ -122,6 +128,21 @@ test(
     ],
     [
       {
+        type: PROGRESSION_FETCH_BESTOF_REQUEST,
+        meta: {progressionId: 'foo', ref: 'baz'}
+      },
+      set('data.progressions.entities.foo.previousBestScore', null)({})
+    ],
+    [
+      {
+        type: PROGRESSION_FETCH_BESTOF_SUCCESS,
+        meta: {progressionId: 'foo', ref: 'baz'},
+        payload: 16
+      },
+      set('data.progressions.entities.foo.previousBestScore', 16, {})
+    ],
+    [
+      {
         type: CHAPTER_FETCH_REQUEST,
         meta: {id: 'baz'}
       },
@@ -156,6 +177,10 @@ test(
       findById: id => {
         t.is(id, 'foo');
         return 'foo';
+      },
+      findBestOf: ref => {
+        t.is(ref, 'baz');
+        return 16;
       }
     },
     ExitNodes: {
@@ -216,6 +241,21 @@ test(
         payload: 1
       },
       set('data.rank.start', 1, {})
+    ],
+    [
+      {
+        type: PROGRESSION_FETCH_BESTOF_REQUEST,
+        meta: {progressionId: 'foo', ref: 'baz'}
+      },
+      set('data.progressions.entities.foo.previousBestScore', null, {})
+    ],
+    [
+      {
+        type: PROGRESSION_FETCH_BESTOF_SUCCESS,
+        meta: {progressionId: 'foo', ref: 'baz'},
+        payload: 16
+      },
+      set('data.progressions.entities.foo.previousBestScore', 16, {})
     ],
     [
       {
