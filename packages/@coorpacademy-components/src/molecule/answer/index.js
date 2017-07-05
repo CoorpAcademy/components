@@ -9,7 +9,7 @@ import QuestionRange from '../../molecule/questions/question-range';
 import style from './style.css';
 
 const Answer = props => {
-  const {model} = props;
+  const {model, verticalMargin = 70} = props;
 
   const buildAnswer = () => {
     const {type} = model;
@@ -29,17 +29,23 @@ const Answer = props => {
         return <QuestionRange {...model} />;
     }
   };
-
+  const minHeight = `calc(50vh - ${verticalMargin}px)`;
   const answerView = buildAnswer(model);
 
   return (
-    <div className={style.wrapper}>
+    <div
+      className={style.wrapper}
+      style={{
+        minHeight
+      }}
+    >
       {answerView}
     </div>
   );
 };
 
 Answer.propTypes = {
+  verticalMargin: PropTypes.number,
   model: PropTypes.shape({
     type: PropTypes.oneOf(['picker', 'qcm', 'qcmImage', 'freeText', 'dropDown', 'range']).required
   })

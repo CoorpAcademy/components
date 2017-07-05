@@ -28,6 +28,7 @@
   padding: 36px 32px 32px;
   width: 100%;
   box-sizing: border-box;
+  position: relative;
 }
 
 .error {
@@ -144,6 +145,8 @@
   flex-grow: 0.1;
   align-items: flex-end;
   padding-top: 25px;
+  position: absolute;
+  bottom: 32px;
 }
 
 .footer {

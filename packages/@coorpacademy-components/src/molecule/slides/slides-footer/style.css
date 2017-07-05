@@ -86,3 +86,9 @@
   font-size: 13px;
   color: black;
 }
+
+@media mobile {
+  .button:last-child {
+    display: none;
+  }
+}
