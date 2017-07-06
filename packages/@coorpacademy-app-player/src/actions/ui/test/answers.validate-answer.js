@@ -349,8 +349,8 @@ test(
       pipe(
         set('data.progressions.entities.foo', null),
         set('data.progressions.entities.foo.state.nextContent', {
-          type: 'failure',
-          ref: 'failExitNode'
+          type: 'success',
+          ref: 'successExitNode'
         })
       )({})
     ],

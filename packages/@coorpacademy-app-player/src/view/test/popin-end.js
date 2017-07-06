@@ -1,8 +1,10 @@
 import test from 'ava';
 import noop from 'lodash/fp/noop';
+import set from 'lodash/fp/set';
 import popinEndStateToProps from '../popin-end';
 import success from './fixtures/popin-end/success';
 import fail from './fixtures/popin-end/fail';
+import testRendering from './utils/render';
 
 const translate = key => `__${key}`;
 const commonOptions = {
@@ -12,7 +14,9 @@ const commonOptions = {
 const toProps = popinEndStateToProps(commonOptions, {dispatch: noop});
 
 test('should set properties for success popin', t => {
-  const props = toProps(success);
+  const vNode = toProps(success);
+  testRendering(vNode);
+  const {props} = vNode;
 
   t.is(props.header.lives.count, 0);
   t.is(props.summary.header.title, '');
@@ -35,11 +39,36 @@ test('should set properties for success popin', t => {
 });
 
 test('should set properties for failure popin', t => {
-  const props = toProps(fail);
+  const vNode = toProps(fail);
+  testRendering(vNode);
+  const {props} = vNode;
+
   t.is(props.header.lives.count, 0);
   t.is(props.summary.header.title, '__O O O P S');
   t.is(props.summary.header.subtitle, '__You are missing lives!');
   t.is(props.summary.header.fail, true);
+  t.is(props.summary.header.rank, null);
+
+  t.is(props.summary.recommendation.title, '__Related subjects');
+  t.is(props.summary.recommendation.cards.length, 3);
+
+  const card = props.summary.recommendation.cards[1];
+  t.is(card.view, 'grid');
+
+  t.is(props.summary.footer.title, '__Back to dashboard');
+  t.is(props.summary.footer.href, '/');
+});
+
+test('should set properties for failure popin when losing rank', t => {
+  const vNode = toProps(set('data.rank.start', 90, fail));
+  testRendering(vNode);
+  const {props} = vNode;
+
+  t.is(props.header.lives.count, 0);
+  t.is(props.summary.header.title, '__O O O P S');
+  t.is(props.summary.header.subtitle, '__You are missing lives!');
+  t.is(props.summary.header.fail, true);
+  t.is(props.summary.header.rank, '-10');
 
   t.is(props.summary.recommendation.title, '__Related subjects');
   t.is(props.summary.recommendation.cards.length, 3);

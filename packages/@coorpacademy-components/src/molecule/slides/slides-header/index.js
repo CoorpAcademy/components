@@ -65,7 +65,7 @@ SlidesHeader.contextTypes = {
 };
 
 SlidesHeader.propTypes = {
-  backHref: PropTypes.string.isRequired,
+  backHref: Link.propTypes.href,
   primary: PropTypes.shape({
     title: PropTypes.string.isRequired,
     subtitle: PropTypes.string

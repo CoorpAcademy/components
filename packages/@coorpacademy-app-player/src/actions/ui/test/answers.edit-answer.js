@@ -14,4 +14,5 @@ test('should add a qcm choice', macro, ['foo'], 'qcm', {label: 'bar'}, ['foo', '
 test('should remove a qcm choice', macro, ['foo'], 'qcm', {label: 'foo'}, []);
 test('should check qcm has answer.label or return same state', macro, ['foo'], 'qcm', {}, ['foo']);
 test('should edit a template answer', macro, ['foo'], 'template', 'bar', ['bar']);
+test('should edit a basic answer', macro, ['foo'], 'basic', 'bar', ['bar']);
 test('should initiate state if undefined', macro, undefined, 'qcm', {label: 'bar'}, ['bar']);
