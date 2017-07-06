@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import map from 'lodash/fp/map';
+import isNil from 'lodash/fp/isNil';
 import CheckIcon from '@coorpacademy/nova-icons/composition/coorpacademy/check';
+import Loader from '../../../atom/loader';
 import ResourceBrowser from '../../../organism/resource-browser';
 import PopinHeader from '../../../molecule/app-player/popin/popin-header';
 import Accordion from '../../../organism/accordion/container';
@@ -62,6 +64,7 @@ class PopinCorrection extends Component {
   render() {
     const {header = {}, question, resources, klf, tips, onClick} = this.props;
     const tabs = extractTabs({resources, klf, tips});
+    const isLoading = isNil(header.lives);
     const delayedHeader = wrapHeaderClick(header, headerClick => {
       if (!this.state.closing) {
         this.setState({closing: true}, () => setTimeout(headerClick, ANIMATION_DELAY));
@@ -70,14 +73,17 @@ class PopinCorrection extends Component {
 
     return (
       <div className={this.state.closing ? style.closingOverlay : style.openingOverlay}>
-        <div className={style.wrapper}>
-          <PopinHeader {...delayedHeader} />
-          <Question {...question} />
-          <Accordion tabProps={tabs} onClick={onClick} oneTabOnly>
-            <Resources resources={resources} />
-            <SimpleText text={klf.value} />
-            <SimpleText text={tips.value} />
-          </Accordion>
+        <div className={isLoading ? style.loadingWrapper : style.wrapper}>
+          <div className={isLoading ? style.loadingContent : style.content}>
+            <PopinHeader {...delayedHeader} />
+            <Question {...question} />
+            <Accordion tabProps={tabs} onClick={onClick} oneTabOnly>
+              <Resources resources={resources} />
+              <SimpleText text={klf.value} />
+              <SimpleText text={tips.value} />
+            </Accordion>
+          </div>
+          <Loader className={isLoading ? style.activeLoader : style.inactiveLoader} />
         </div>
       </div>
     );

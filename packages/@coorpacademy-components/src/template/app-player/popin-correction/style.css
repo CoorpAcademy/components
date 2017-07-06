@@ -45,7 +45,12 @@
   animation-fill-mode: forwards;
 }
 
-.wrapper {
+@keyframes bounceWrapper {
+  from {transform: scale(0.5);}
+  to {transform: scale(1);}
+}
+
+.baseWrapper {
   position: absolute;
   top: 30%;
   left: 50%;
@@ -54,12 +59,47 @@
   max-width: 100%;
   border-radius: 3px;
   overflow: hidden;
+  background-color: white;
+}
+
+.wrapper {
+  composes: baseWrapper;
+  animation-name: bounceWrapper;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.54, 0.05, 0.54, 2.14);
+}
+
+.loadingWrapper {
+  composes: baseWrapper;
+  transform: scale(0.5);
+  overflow: hidden;
+}
+
+.content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.3s;
+}
+
+.loadingContent {
+  opacity: 0;
 }
 
 .text {
   font-family: 'Open Sans';
   font-size: 13px;
   margin: 0;
+}
+
+.activeLoader {
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.inactiveLoader {
+  opacity: 0;
 }
 
 /* Question -------------- */
