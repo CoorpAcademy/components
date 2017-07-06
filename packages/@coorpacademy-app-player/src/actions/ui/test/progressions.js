@@ -128,21 +128,6 @@ test(
     ],
     [
       {
-        type: PROGRESSION_FETCH_BESTOF_REQUEST,
-        meta: {progressionId: 'foo', ref: 'baz'}
-      },
-      set('data.progressions.entities.foo.previousBestScore', null)({})
-    ],
-    [
-      {
-        type: PROGRESSION_FETCH_BESTOF_SUCCESS,
-        meta: {progressionId: 'foo', ref: 'baz'},
-        payload: 16
-      },
-      set('data.progressions.entities.foo.previousBestScore', 16, {})
-    ],
-    [
-      {
         type: CHAPTER_FETCH_REQUEST,
         meta: {id: 'baz'}
       },
@@ -153,6 +138,21 @@ test(
       meta: {id: 'baz'},
       payload: 'baz'
     },
+    [
+      {
+        type: PROGRESSION_FETCH_BESTOF_REQUEST,
+        meta: {chapterId: 'baz'}
+      },
+      set('data.chapters.entities.baz.bestScore', null)({})
+    ],
+    [
+      {
+        type: PROGRESSION_FETCH_BESTOF_SUCCESS,
+        meta: {chapterId: 'baz'},
+        payload: 16
+      },
+      set('data.chapters.entities.baz.bestScore', 16, {})
+    ],
     [
       {
         type: SLIDE_FETCH_REQUEST,
@@ -244,21 +244,6 @@ test(
     ],
     [
       {
-        type: PROGRESSION_FETCH_BESTOF_REQUEST,
-        meta: {progressionId: 'foo', ref: 'baz'}
-      },
-      set('data.progressions.entities.foo.previousBestScore', null, {})
-    ],
-    [
-      {
-        type: PROGRESSION_FETCH_BESTOF_SUCCESS,
-        meta: {progressionId: 'foo', ref: 'baz'},
-        payload: 16
-      },
-      set('data.progressions.entities.foo.previousBestScore', 16, {})
-    ],
-    [
-      {
         type: CHAPTER_FETCH_REQUEST,
         meta: {id: 'baz'}
       },
@@ -269,6 +254,21 @@ test(
       meta: {id: 'baz'},
       payload: 'baz'
     },
+    [
+      {
+        type: PROGRESSION_FETCH_BESTOF_REQUEST,
+        meta: {chapterId: 'baz'}
+      },
+      set('data.chapters.entities.baz.bestScore', null, {})
+    ],
+    [
+      {
+        type: PROGRESSION_FETCH_BESTOF_SUCCESS,
+        meta: {chapterId: 'baz'},
+        payload: 16
+      },
+      set('data.chapters.entities.baz.bestScore', 16, {})
+    ],
     [
       {
         type: EXIT_NODE_FETCH_REQUEST,

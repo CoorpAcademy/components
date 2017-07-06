@@ -7,8 +7,7 @@ import {fetchChapter} from '../api/chapters';
 import {
   getCurrentProgression,
   getCurrentProgressionId,
-  getCurrentContent,
-  getCurrentContentRef
+  getCurrentContent
 } from '../../utils/state-extract';
 
 export const UI_SELECT_PROGRESSION = '@@ui/SELECT_PROGRESSION';
@@ -25,13 +24,13 @@ export const selectProgression = id => async (dispatch, getState) => {
   const response = await dispatch(fetchProgression(progressionId));
   if (response.error) return response;
 
-  await dispatch(fetchStartRank());
-  await dispatch(fetchBestProgression(progressionId, getCurrentContentRef(getState())));
-
   const progression = getCurrentProgression(getState());
   const {ref, type} = getCurrentContent(getState());
   const chapterRef = get('content.ref', progression);
+
+  await dispatch(fetchStartRank());
   await dispatch(fetchChapter(chapterRef));
+  await dispatch(fetchBestProgression(chapterRef));
 
   switch (type) {
     case 'slide': {

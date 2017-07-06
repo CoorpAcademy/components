@@ -150,12 +150,13 @@ test('getEndRank should get rank.end from state', t => {
   t.is(getEndRank(state), rank);
 });
 
-test('getBestScore should get previousBestScore from currentProgression', t => {
+test('getBestScore should get bestScore from currentChapter', t => {
   const bestScore = 'foo';
-  const progression = {previousBestScore: bestScore};
+  const progression = {content: {ref: 'bar'}};
   const state = pipe(
     set('ui.current.progressionId', '0'),
-    set('data.progressions.entities', {'0': progression})
+    set('data.progressions.entities', {'0': progression}),
+    set('data.chapters.entities.bar', {bestScore})
   )({});
   t.is(getBestScore(state), bestScore);
 });

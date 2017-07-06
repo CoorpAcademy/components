@@ -101,4 +101,4 @@ export const getRecommendations = state => {
 
 export const getStartRank = get(`data.rank.start`);
 export const getEndRank = get(`data.rank.end`);
-export const getBestScore = pipe(getCurrentProgression, get('previousBestScore'));
+export const getBestScore = pipe(getCurrentChapter, get('bestScore'));
