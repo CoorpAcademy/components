@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import map from 'lodash/fp/map';
+import CheckIcon from '@coorpacademy/nova-icons/composition/coorpacademy/check';
 import ResourceBrowser from '../../../organism/resource-browser';
 import PopinHeader from '../../../molecule/app-player/popin/popin-header';
 import Accordion from '../../../organism/accordion/container';
@@ -38,7 +39,8 @@ SimpleText.propTypes = {
 const Question = ({header, answer, answerPrefix}) =>
   <div className={style.question}>
     <p className={style.questionHeader}>{header}</p>
-    <div>
+    <div className={style.answerWrapper}>
+      <CheckIcon className={style.checkIcon} color="inherit" />
       {answerPrefix ? <span className={style.answerPrefix}>{answerPrefix}</span> : null}
       <span className={style.answer}>{answer}</span>
     </div>
