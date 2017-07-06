@@ -29,6 +29,11 @@ test('should find best score', async t => {
   t.is(progression.state.stars, 12);
 });
 
+test('should find 0 stars when there is no best score so far', async t => {
+  const progression = await findBestOf('none');
+  t.is(progression.state.stars, 0);
+});
+
 test('should add answer action', async t => {
   const progression = await create({engine});
   const progressionWithAnswer = await createAnswer(progression._id, {
