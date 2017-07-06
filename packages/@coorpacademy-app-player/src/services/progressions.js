@@ -7,7 +7,9 @@ import {
 import uniqueId from 'lodash/fp/uniqueId';
 import update from 'lodash/fp/update';
 import pipe from 'lodash/fp/pipe';
+import filter from 'lodash/fp/filter';
 import sample from 'lodash/fp/sample';
+import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import set from 'lodash/fp/set';
 import maxBy from 'lodash/fp/maxBy';
@@ -44,8 +46,14 @@ export const save = progression => {
   return progression;
 };
 
-export const findBestOf = () => {
-  const bestProgression = maxBy(p => p.state.stars || 0)(progressionsData);
+export const findBestOf = contentRef => {
+  const bestProgression = pipe(
+    filter(p => get('content.ref', p) === contentRef),
+    maxBy(p => p.state.stars || 0)
+  )(progressionsData);
+  if (!bestProgression) {
+    throw new Error(`Chapter not found: ${contentRef}`);
+  }
   return bestProgression;
 };
 

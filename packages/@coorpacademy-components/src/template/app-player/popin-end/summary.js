@@ -27,6 +27,7 @@ const SimpleAction = ({color, prefix, title, button}) => {
         </span>
       </div>
       <Button
+        type={'link'}
         style={{
           backgroundColor: color
         }}

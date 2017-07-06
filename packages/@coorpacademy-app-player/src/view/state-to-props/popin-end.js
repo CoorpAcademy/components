@@ -34,7 +34,7 @@ const extractStars = state => {
   return stars > bestScore ? `+${stars - bestScore}` : '+0';
 };
 
-const summaryHeader = (state, translate) => {
+const summaryHeader = ({translate}, store) => state => {
   const progression = getCurrentProgression(state);
   return cond([
     [
@@ -70,7 +70,7 @@ const summaryHeader = (state, translate) => {
   ]);
 };
 
-const extractRecommendation = (state, translate) => {
+const extractRecommendation = ({translate}, store) => state => {
   const recommendations = getRecommendations(state);
   const list = get('list', recommendations);
   const hasRecommendations = list && list.length > 0;
@@ -83,7 +83,7 @@ const extractRecommendation = (state, translate) => {
   return recommendation;
 };
 
-const extractAction = (state, translate) => {
+const extractAction = ({translate}, store) => state => {
   const recommendations = getRecommendations(state);
   return cond([
     [
@@ -125,9 +125,9 @@ const popinEndStateToProps = (options, store) => state => {
   const props = {
     header: headerProps(options, store)(state),
     summary: {
-      header: summaryHeader(state, translate)(exitNode),
-      action: extractAction(state, translate)(exitNode),
-      recommendation: extractRecommendation(state, translate),
+      header: summaryHeader(options, store)(state)(exitNode),
+      action: extractAction(options, store)(state)(exitNode),
+      recommendation: extractRecommendation(options, store)(state),
       footer
     }
   };
