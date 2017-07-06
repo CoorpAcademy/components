@@ -21,19 +21,19 @@ test(
       }
     }
   }),
-  fetchBestProgression('foo', 'bar'),
+  fetchBestProgression('bar'),
   [
     {
       type: PROGRESSION_FETCH_BESTOF_REQUEST,
-      meta: {progressionId: 'foo', ref: 'bar'}
+      meta: {chapterId: 'bar'}
     },
     [
       {
         type: PROGRESSION_FETCH_BESTOF_SUCCESS,
-        meta: {progressionId: 'foo', ref: 'bar'},
+        meta: {chapterId: 'bar'},
         payload: 'baz'
       },
-      set('data.progressions.entities.foo.previousBestScore', 'baz', {})
+      set('data.chapters.entities.bar.bestScore', 'baz', {})
     ]
   ]
 );
@@ -43,7 +43,8 @@ test(
   macro,
   pipe(
     set('ui.current.progressionId', 'foo'),
-    set('data.progressions.entities.foo.previousBestScore', 12)
+    set('data.progressions.entities.foo', {content: {ref: 'bar'}}),
+    set('data.chapters.entities.bar.bestScore', 12)
   )({}),
   t => ({
     Progressions: {
@@ -52,11 +53,11 @@ test(
       }
     }
   }),
-  fetchBestProgression('foo', 'bar'),
+  fetchBestProgression('bar'),
   [
     {
       type: PROGRESSION_FETCH_BESTOF_REQUEST,
-      meta: {progressionId: 'foo', ref: 'bar'}
+      meta: {chapterId: 'bar'}
     }
   ]
 );
@@ -73,15 +74,15 @@ test(
       }
     }
   }),
-  fetchBestProgression('foo', 'bar'),
+  fetchBestProgression('bar'),
   [
     {
       type: PROGRESSION_FETCH_BESTOF_REQUEST,
-      meta: {progressionId: 'foo', ref: 'bar'}
+      meta: {chapterId: 'bar'}
     },
     {
       type: PROGRESSION_FETCH_BESTOF_FAILURE,
-      meta: {progressionId: 'foo', ref: 'bar'},
+      meta: {chapterId: 'bar'},
       error: true,
       payload: new Error()
     }

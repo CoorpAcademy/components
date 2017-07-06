@@ -5,6 +5,7 @@ import {
   CHAPTER_FETCH_SUCCESS,
   CHAPTER_FETCH_FAILURE
 } from '../../../actions/api/chapters';
+import {PROGRESSION_FETCH_BESTOF_SUCCESS} from '../../../actions/api/progressions';
 import macro from '../../test/helpers/macro';
 
 test('should have initial value', macro, reducer, undefined, {}, {entities: {}});
@@ -84,4 +85,17 @@ test(
     payload: {}
   },
   {entities: {foo: 'foo'}}
+);
+
+test(
+  'should set bestScore',
+  macro,
+  reducer,
+  {entities: {foo: {bestScore: null}}},
+  {
+    type: PROGRESSION_FETCH_BESTOF_SUCCESS,
+    meta: {chapterId: 'foo'},
+    payload: {state: {stars: 12}}
+  },
+  {entities: {foo: {bestScore: 12}}}
 );
