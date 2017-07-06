@@ -15,7 +15,7 @@ const Button = ({children, ...props}) => {
     disabled,
     href,
     type = 'submit',
-    target = '_blank',
+    target,
     onClick
   } = props;
 

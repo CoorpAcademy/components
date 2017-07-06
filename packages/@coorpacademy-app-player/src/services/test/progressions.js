@@ -25,7 +25,7 @@ test('should find progression', async t => {
 });
 
 test('should find best score', async t => {
-  const progression = await findBestOf();
+  const progression = await findBestOf('5.C7');
   t.is(progression.state.stars, 12);
 });
 
