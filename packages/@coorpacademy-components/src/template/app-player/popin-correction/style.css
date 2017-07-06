@@ -109,11 +109,11 @@
   display: flex;
   width: 100%;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .browser {
-  margin: 48px 0 48px 0;
+  margin: 16px 0 16px 35px;
 }
 
 .simpleTextWrapper {
