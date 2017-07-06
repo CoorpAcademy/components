@@ -12,11 +12,12 @@ const Accordion = props => {
   const accordion = map.convert({cap: false})((child, key) => {
     const title = get([key, 'title'], tabProps);
     const isOpen = get([key, 'isOpen'], tabProps);
+    const iconType = get([key, 'iconType'], tabProps);
     const handleOnClick = () => onClick(key);
 
     return (
       <div key={key} className={style.wrapper}>
-        <Part title={title} content={child} isOpen={isOpen} onClick={handleOnClick} />
+        <Part iconType={iconType} title={title} content={child} isOpen={isOpen} onClick={handleOnClick} />
       </div>
     );
   }, children);

@@ -6,9 +6,13 @@ import PopinHeader from '../../../molecule/app-player/popin/popin-header';
 import Accordion from '../../../organism/accordion/container';
 import style from './style.css';
 
-const FADE_OUT_DELAY = 300;
+const ANIMATION_DELAY = 300;
 
-const extractTabs = map(item => ({title: item.title, isOpen: item.open}));
+const extractTabs = items => Object.keys(items).map(type => {
+  const item = items[type];
+
+  return {iconType: type, title: item.title, isOpen: item.open};
+});
 
 const wrapHeaderClick = ({cta = {}, ...opts}, clickWrapper) => {
   const {onClick, ...ctaContent} = cta;
@@ -31,12 +35,12 @@ SimpleText.propTypes = {
   text: PropTypes.string
 };
 
-const Question = props =>
+const Question = ({header, answer, answerPrefix}) =>
   <div className={style.question}>
-    <p className={style.questionHeader}>{props.header}</p>
+    <p className={style.questionHeader}>{header}</p>
     <div>
-      <span className={style.answerPrefix}>{props.answerPrefix}</span>
-      <span className={style.answer}>{props.answer}</span>
+      {answerPrefix ? <span className={style.answerPrefix}>{answerPrefix}</span> : null}
+      <span className={style.answer}>{answer}</span>
     </div>
   </div>;
 
@@ -55,10 +59,10 @@ class PopinCorrection extends Component {
 
   render() {
     const {header = {}, question, resources, klf, tips, onClick} = this.props;
-    const tabs = extractTabs([resources, klf, tips]);
+    const tabs = extractTabs({resources, klf, tips});
     const delayedHeader = wrapHeaderClick(header, headerClick => {
       if (!this.state.closing) {
-        this.setState({closing: true}, () => setTimeout(headerClick, FADE_OUT_DELAY));
+        this.setState({closing: true}, () => setTimeout(headerClick, ANIMATION_DELAY));
       }
     });
 
