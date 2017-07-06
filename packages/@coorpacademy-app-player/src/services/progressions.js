@@ -51,10 +51,7 @@ export const findBestOf = contentRef => {
     filter(p => get('content.ref', p) === contentRef),
     maxBy(p => p.state.stars || 0)
   )(progressionsData);
-  if (!bestProgression) {
-    throw new Error(`Chapter not found: ${contentRef}`);
-  }
-  return bestProgression;
+  return bestProgression || set('state.stars', 0, {});
 };
 
 export const createAnswer = async (progressionId, payload) => {
