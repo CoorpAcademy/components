@@ -67,7 +67,7 @@ const SlidesPlayer = (props, context) => {
 
   const minHeight = `calc(100vh - ${verticalMargin}px)`;
 
-  const globalView = stepView
+  const globalView = question && stepView
     ? <div
         className={style.contentWrapper}
         style={{

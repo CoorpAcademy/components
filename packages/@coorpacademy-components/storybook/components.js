@@ -447,6 +447,7 @@ import SlidesPlayerFixtureDropDown from '../src/molecule/slides/slides-player/te
 import SlidesPlayerFixtureError from '../src/molecule/slides/slides-player/test/fixtures/error';
 import SlidesPlayerFixtureFreeText from '../src/molecule/slides/slides-player/test/fixtures/free-text';
 import SlidesPlayerFixtureLoading from '../src/molecule/slides/slides-player/test/fixtures/loading';
+import SlidesPlayerFixtureNoQuestion from '../src/molecule/slides/slides-player/test/fixtures/no-question';
 import SlidesPlayerFixturePicker from '../src/molecule/slides/slides-player/test/fixtures/picker';
 import SlidesPlayerFixtureQcmImage from '../src/molecule/slides/slides-player/test/fixtures/qcm-image';
 import SlidesPlayerFixtureQcm from '../src/molecule/slides/slides-player/test/fixtures/qcm';
@@ -1282,6 +1283,7 @@ export const fixtures = {
       Error: SlidesPlayerFixtureError,
       FreeText: SlidesPlayerFixtureFreeText,
       Loading: SlidesPlayerFixtureLoading,
+      NoQuestion: SlidesPlayerFixtureNoQuestion,
       Picker: SlidesPlayerFixturePicker,
       QcmImage: SlidesPlayerFixtureQcmImage,
       Qcm: SlidesPlayerFixtureQcm,
