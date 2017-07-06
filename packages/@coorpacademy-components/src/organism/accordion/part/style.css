@@ -6,6 +6,7 @@
 @value xtraLightGrey from colors;
 
 .header {
+  position: relative;
   height: 50px;
   display: flex;
   align-items: center;
@@ -43,10 +44,38 @@
 }
 
 .icon {
-  width: 17px;
-  height: 17px;
-  margin-right: 35px;
+  position: absolute;
+  top: 50%;
+  right: 43px;
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s, opacity 0.2s;
 }
+
+.openIcon {
+  composes: icon;
+  opacity: 0;
+  transform: translate(50%, -50%) rotate(90deg);
+}
+
+.openIconActivated {
+  composes: icon;
+  opacity: 1;
+  transform: translate(50%, -50%) rotate(180deg);
+}
+
+.closeIcon {
+  composes: icon;
+  opacity: 0;
+  transform: translate(50%, -50%) rotate(90deg);
+}
+
+.closeIconActivated {
+  composes: icon;
+  opacity: 1;
+  transform: translate(50%, -50%);
+}
+
 
 .container {
   background-color: white;

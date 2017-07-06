@@ -19,10 +19,11 @@ const ICON_TYPES = {
 const AccordionPart = (props, context) => {
   const {skin} = context;
   const {title, content, iconType, onClick = noop, isOpen = false} = props;
-  const OpenIcon = isOpen ? LessIcon : MoreIcon;
   const TitleIcon = ICON_TYPES[iconType];
   const darkColor = get('common.dark', skin);
   const mediumColor = get('common.medium', skin);
+  const openIconClassName = isOpen ? style.openIconActivated : style.openIcon;
+  const closeIconClassName = !isOpen ? style.closeIconActivated : style.closeIcon;
 
   return (
     <div>
@@ -31,7 +32,9 @@ const AccordionPart = (props, context) => {
           {TitleIcon ? <TitleIcon className={style.titleIcon} color="inherit" /> : null}
           <h3 className={style.titleLabel}>{title}</h3>
         </div>
-        <OpenIcon className={style.icon} color={isOpen ? mediumColor : darkColor} /> </div>
+        <MoreIcon className={closeIconClassName} color={darkColor} />
+        <LessIcon className={openIconClassName} color={mediumColor} />
+      </div>
       <div className={isOpen ? style.container : style.none}>
         {content}
       </div>
