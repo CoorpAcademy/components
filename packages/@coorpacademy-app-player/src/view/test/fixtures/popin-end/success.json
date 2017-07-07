@@ -10,6 +10,13 @@
     "clues": {
       "entities": {}
     },
+    "chapters": {
+      "entities": {
+        "1.B2": {
+          "bestScore": 0
+        }
+      }
+    },
     "exitNodes": {
       "entities": {
         "successExitNode": {
@@ -35,6 +42,10 @@
           "engine": {
             "ref": "microlearning",
             "version": "1"
+          },
+          "content": {
+            "ref": "1.B2",
+            "type": "chapter"
           },
           "state": {
             "slides": ["1.B2.4"],
