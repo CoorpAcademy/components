@@ -46,7 +46,6 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "redux": "^3.6.0",
-    "redux-thunk": "^2.2.0",
-    "sinon": "^2.3.6"
+    "redux-thunk": "^2.2.0"
   }
 }

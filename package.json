@@ -56,7 +56,8 @@
     ],
     "require": [
       "babel-register",
-      "babel-polyfill"
+      "babel-polyfill",
+      "./test/utils/throw-warning"
     ],
     "babel": "inherit"
   },
