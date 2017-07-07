@@ -2,7 +2,6 @@ import getOr from 'lodash/fp/getOr';
 import get from 'lodash/fp/get';
 import isEmpty from 'lodash/fp/isEmpty';
 import isNil from 'lodash/fp/isNil';
-import join from 'lodash/fp/join';
 import map from 'lodash/fp/map';
 import pipe from 'lodash/fp/pipe';
 import set from 'lodash/fp/set';
@@ -65,9 +64,8 @@ const popinCorrectionStateToProps = ({translate}, {dispatch}) => state => {
 
   const question = {
     header: getOr('', 'question.header', slide),
-    answer: translate('Correct answer {{answer}}', {
-      answer: join(', ', correctAnswer)
-    })
+    answerPrefix: translate('Correct answer'),
+    answer: correctAnswer
   };
 
   const resources = buildResourcesView(slide, resourcesToPlay);
