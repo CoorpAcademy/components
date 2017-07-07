@@ -41,23 +41,15 @@ const createStepView = (step, skin) => {
 };
 
 const SlidesPlayer = (props, context) => {
-  const {
-    error,
-    errorMsg,
-    typeClue,
-    step,
-    question,
-    cta,
-    help,
-    buttons,
-    text,
-    answerType,
-    verticalMargin = 100
-  } = props;
+  const {error, errorMsg, typeClue, step, question, cta, help, buttons, text, answerType} = props;
 
   const {skin, translate = identity} = context;
 
-  const helpView = help ? <div className={style.helpView}>{help}</div> : null;
+  const helpView = help
+    ? <div className={style.helpView}>
+        {help}
+      </div>
+    : null;
 
   const stepView = createStepView(step, skin);
 
@@ -65,13 +57,10 @@ const SlidesPlayer = (props, context) => {
 
   const contentView = typeClue === TYPE.CLUE ? <Clue text={text} /> : <Answer {...answerType} />;
 
-  const minHeight = `calc(100vh - ${verticalMargin}px)`;
-
   const globalView = question && stepView
     ? <div
         className={style.contentWrapper}
         style={{
-          minHeight,
           backgroundColor: wrapperColor
         }}
       >
@@ -84,37 +73,29 @@ const SlidesPlayer = (props, context) => {
           <Cta className={style.cta} {...cta} />
         </div>
       </div>
-    : <div
-        className={style.loading}
-        style={{
-          minHeight
-        }}
-      >
+    : <div className={style.loading}>
         <Loader />
       </div>;
 
   const catchError = error
-    ? <div
-        className={style.contentWrapper}
-        style={{
-          minHeight
-        }}
-      >
-        <div className={style.error}>{errorMsg}</div>
+    ? <div className={style.contentWrapper}>
+        <div className={style.error}>
+          {errorMsg}
+        </div>
       </div>
     : globalView;
 
   return (
-    <div>
-      <div className={style.wrapper}>
-        {stepView}
-        <div className={style.guideWrapper}>
-          <span>{translate('New media')}</span>
-        </div>
-        {catchError}
-        <div className={style.footer}>
-          <SlidesFooter buttons={buttons} />
-        </div>
+    <div className={style.wrapper}>
+      {stepView}
+      <div className={style.guideWrapper}>
+        <span>
+          {translate('New media')}
+        </span>
+      </div>
+      {catchError}
+      <div className={style.footer}>
+        <SlidesFooter buttons={buttons} />
       </div>
     </div>
   );
@@ -137,7 +118,6 @@ SlidesPlayer.propTypes = {
   }),
   question: PropTypes.string,
   help: PropTypes.string,
-  verticalMargin: PropTypes.number,
   text: Clue.propTypes.text,
   answerType: PropTypes.shape(Answer.PropTypes),
   cta: PropTypes.shape(Cta.propTypes),

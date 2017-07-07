@@ -2,7 +2,6 @@
 @value mobile from breakpoints;
 
 .wrapper {
-  padding: 80px 0 165px;
 }
 
 .input {
