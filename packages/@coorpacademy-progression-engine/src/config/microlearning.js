@@ -1,5 +1,4 @@
 // @flow
-import uniqBy from 'lodash/fp/uniqBy';
 import type {MicroLearningConfig} from '../types';
 
 const realConfigurations: Array<MicroLearningConfig> = [
@@ -31,10 +30,6 @@ const testConfigurations: Array<MicroLearningConfig> = [
 const configurations = realConfigurations.concat(
   process.env.NODE_ENV === 'test' ? testConfigurations : []
 );
-
-if (configurations.length !== uniqBy('version', configurations).length) {
-  throw new Error('Config has conflicting version numbers');
-}
 
 export default {
   configurations,
