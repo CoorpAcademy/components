@@ -125,10 +125,8 @@ const CorrectionPart = props => {
   );
 };
 
-const NextQuestionPart = (props, context) => {
+const NextQuestionPart = props => {
   const {title, ...linkProps} = props || {};
-  const {skin} = context;
-  const mediumColor = get('common.medium', skin);
 
   return (
     <Link {...linkProps} className={style.nextSection}>

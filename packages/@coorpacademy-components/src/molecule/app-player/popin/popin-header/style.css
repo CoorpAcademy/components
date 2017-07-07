@@ -147,11 +147,6 @@
   flex: 1;
 }
 
-.nextSectionLoading {
-  composes: nextSection;
-  flex-grow: 0;
-}
-
 .nextButton {
   font-family: 'Open Sans';
   color: inherit;

@@ -17,7 +17,13 @@ const Accordion = props => {
 
     return (
       <div key={key} className={style.wrapper}>
-        <Part iconType={iconType} title={title} content={child} isOpen={isOpen} onClick={handleOnClick} />
+        <Part
+          iconType={iconType}
+          title={title}
+          content={child}
+          isOpen={isOpen}
+          onClick={handleOnClick}
+        />
       </div>
     );
   }, children);

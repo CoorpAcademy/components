@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import map from 'lodash/fp/map';
 import isNil from 'lodash/fp/isNil';
 import CheckIcon from '@coorpacademy/nova-icons/composition/coorpacademy/check';
 import Loader from '../../../atom/loader';
@@ -11,11 +10,12 @@ import style from './style.css';
 
 const ANIMATION_DELAY = 300;
 
-const extractTabs = items => Object.keys(items).map(type => {
-  const item = items[type];
+const extractTabs = items =>
+  Object.keys(items).map(type => {
+    const item = items[type];
 
-  return {iconType: type, title: item.title, isOpen: item.open};
-});
+    return {iconType: type, title: item.title, isOpen: item.open};
+  });
 
 const wrapHeaderClick = ({cta = {}, ...opts}, clickWrapper) => {
   const {onClick, ...ctaContent} = cta;
@@ -55,7 +55,6 @@ Question.propTypes = {
 };
 
 class PopinCorrection extends Component {
-
   constructor(props) {
     super(props);
     this.state = {closing: false};
@@ -90,7 +89,6 @@ class PopinCorrection extends Component {
       </div>
     );
   }
-
 }
 
 PopinCorrection.propTypes = {
