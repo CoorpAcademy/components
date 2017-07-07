@@ -51,7 +51,7 @@
   "ava": {
     "concurrency": 8,
     "files": [
-      "packages/**/src/**/test/*.js",
+      "packages/**/src/**/test/**/*.js",
       "!**/node_modules/**/*"
     ],
     "require": [
