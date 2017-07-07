@@ -4,7 +4,7 @@ import set from 'lodash/fp/set';
 import popinEndStateToProps from '../popin-end';
 import success from './fixtures/popin-end/success';
 import fail from './fixtures/popin-end/fail';
-import testRendering from './utils/render';
+import testRendering from './helpers/render';
 
 const translate = key => `__${key}`;
 const commonOptions = {

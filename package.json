@@ -51,8 +51,7 @@
   "ava": {
     "concurrency": 8,
     "files": [
-      "packages/**/src/**/test/**/*.js",
-      "!**/node_modules/**/*"
+      "**/test/**/*.js"
     ],
     "require": [
       "babel-register",
