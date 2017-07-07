@@ -47,11 +47,6 @@
   animation-fill-mode: forwards;
 }
 
-@keyframes bounceWrapper {
-  from {transform: scale(0.5);}
-  to {transform: scale(1);}
-}
-
 .scrollWrapper {
   position: absolute;
   top: 0;
@@ -66,7 +61,12 @@
   max-width: 100%;
   border-radius: 3px;
   overflow: hidden;
-  margin: calc(30vh - 100px) auto 50px auto;
+  margin: 50px auto 50px auto;
+  transition: transform 0.3s ease-out;
+}
+
+.loadingWrapper {
+  transform: scale(0);
 }
 
 .wrapper {
@@ -74,27 +74,25 @@
   animation-name: bounceWrapper;
   animation-duration: 0.3s;
   animation-fill-mode: forwards;
-  animation-timing-function: cubic-bezier(0.54, 0.05, 0.54, 2.14);
+  animation-timing-function: ease-in-out;
 }
 
-.loadingWrapper {
-  composes: baseWrapper;
-  transform: scale(0.5);
+.baseContent {
+  position: relative;
+  width: 100%;
   overflow: hidden;
+  transition: opacity 0.5s;
+  border-radius: 3px;
 }
 
 .content {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transition: opacity 0.3s;
-  max-height: 500vh;
+  composes: baseContent;
+  opacity: 1;
 }
 
 .loadingContent {
+  composes: baseContent;
   opacity: 0;
-  max-height: 50px;
-  transition: max-height 1s 1s;
 }
 
 .text {
@@ -176,15 +174,34 @@
 }
 
 @media mobile {
-  .overlay {
+  .overlay, .scrollWrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
     background-color: white;
   }
 
   .baseWrapper {
     margin: 0;
+    border-radius: 0;
+  }
+
+  .baseContent {
+    border-radius: 0;
+  }
+
+  .loadingWrapper {
+    transform: translate(0);
   }
 
   .wrapper {
     animation-name: fadeInOverlay;
+    animation-duration: 0.1s;
   }
+
+  .browser, .browserWrapper {
+    margin: 5px 0;
+    width: 100%;
+  }
+
 }

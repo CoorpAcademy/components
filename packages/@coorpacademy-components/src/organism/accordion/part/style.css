@@ -20,6 +20,15 @@
   color: dark;
 }
 
+.openHeader {
+  composes: header;
+  background-color: xtraLightGrey;
+}
+
+.closedHeader {
+  composes: header;
+}
+
 .header:hover {
   background-color: xtraLightGrey;
 }
@@ -78,7 +87,7 @@
 
 
 .container {
-  background-color: white;
+  background-color: xtraLightGrey;
   animation: fadeIn 3s forwards;
   overflow: hidden;
 }
