@@ -22,6 +22,7 @@ test('should set properties for success popin', t => {
   t.is(props.summary.header.title, '');
   t.is(props.summary.header.subtitle, '__Congratulations!');
   t.is(props.summary.header.fail, false);
+  t.is(props.summary.header.stars, '+10');
   t.is(props.summary.header.rank, '+10');
 
   t.is(props.summary.recommendation.title, '__Related subjects');
@@ -47,6 +48,7 @@ test('should set properties for failure popin', t => {
   t.is(props.summary.header.title, '__O O O P S');
   t.is(props.summary.header.subtitle, '__You are missing lives!');
   t.is(props.summary.header.fail, true);
+  t.is(props.summary.header.stars, null);
   t.is(props.summary.header.rank, null);
 
   t.is(props.summary.recommendation.title, '__Related subjects');
@@ -68,6 +70,7 @@ test('should set properties for failure popin when losing rank', t => {
   t.is(props.summary.header.title, '__O O O P S');
   t.is(props.summary.header.subtitle, '__You are missing lives!');
   t.is(props.summary.header.fail, true);
+  t.is(props.summary.header.stars, null);
   t.is(props.summary.header.rank, '-10');
 
   t.is(props.summary.recommendation.title, '__Related subjects');
