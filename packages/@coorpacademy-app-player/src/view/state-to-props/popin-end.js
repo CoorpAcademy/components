@@ -13,6 +13,11 @@ import {
 } from '../../utils/state-extract';
 import headerProps from './header';
 
+const formatGain = gain => {
+  if (gain > 0) return `+${gain}`;
+  return `${gain}`;
+};
+
 const extractRank = state => {
   const start = getStartRank(state);
   const end = getEndRank(state);
@@ -20,9 +25,8 @@ const extractRank = state => {
   if (start === end) {
     return null;
   } else {
-    const sign = end - start > 0 ? '-' : '+';
-    const diff = Math.abs(end - start);
-    return `${sign}${diff}`;
+    const diff = start - end;
+    return formatGain(diff);
   }
 };
 
@@ -60,6 +64,7 @@ const summaryHeader = ({translate}, store) => state => {
         fail: true,
         lives: get('state.lives')(progression),
         rank: extractRank(state),
+        stars: null,
         cta: {
           title: translate('Retry level'),
           href: `/`

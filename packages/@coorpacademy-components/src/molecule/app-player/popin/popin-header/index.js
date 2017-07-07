@@ -170,7 +170,7 @@ PopinHeader.contextTypes = {
 PopinHeader.propTypes = {
   fail: PropTypes.bool,
   lives: PropTypes.number,
-  stars: PropTypes.number,
+  stars: PropTypes.string,
   rank: PropTypes.string,
   subtitle: PropTypes.string,
   title: PropTypes.string,
