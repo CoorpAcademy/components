@@ -1,6 +1,5 @@
 import {relative} from 'path';
 import test from 'ava';
-import sinon from 'sinon';
 import React from 'react';
 import ReactDOM from 'react-dom/server';
 import identity from 'lodash/fp/identity';
@@ -24,16 +23,6 @@ const context = {
   },
   translate: identity
 };
-
-test.before(() => {
-  sinon.stub(console, 'error').callsFake(error => {
-    throw new Error(error);
-  });
-});
-
-test.after(() => {
-  console.error.restore(); // eslint-disable-line no-console
-});
 
 mapObject((components, componentType) =>
   mapObject((componentPath, componentName) => {
