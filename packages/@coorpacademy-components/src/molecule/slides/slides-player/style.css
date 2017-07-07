@@ -14,11 +14,16 @@
   position: relative;
   box-shadow: 0 0 4px 5px rgba(0,0,0,0.04);
   border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .contentWrapper {
+  position: relative;
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
   align-items: center;
   padding: 36px 32px 32px;
   width: 100%;
@@ -40,6 +45,7 @@
   align-items: center;
   width: 100%;
   box-sizing: border-box;
+  flex-grow: 1;
 }
 
 .stepWrapper {
@@ -107,7 +113,8 @@
   font-weight: 600;
   color: black;
   text-align: center;
-  margin-bottom: 10px;
+  flex-grow: 0.1;
+  margin: 10px;
 }
 
 .helpView {
@@ -115,7 +122,8 @@
   font-size: 15px;
   font-weight: 500;
   color: medium;
-  margin-bottom: 25px;
+  flex-grow: 0.1;
+  margin: 10px;
 }
 
 .cta {
@@ -129,6 +137,13 @@
 
 .cta a {
   font-size: 16px;
+}
+
+.ctaWrapper {
+  display: flex;
+  flex-grow: 0.1;
+  align-items: flex-end;
+  padding-top: 25px;
 }
 
 .footer {
