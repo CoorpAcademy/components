@@ -1,7 +1,7 @@
 import test from 'ava';
 import noop from 'lodash/fp/noop';
 import loadingStateToProps from '../loading';
-import testRendering from './utils/render';
+import testRendering from './helpers/render';
 
 const translate = key => `__${key}`;
 const commonOptions = {

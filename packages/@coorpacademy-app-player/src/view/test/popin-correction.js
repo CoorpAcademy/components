@@ -8,7 +8,7 @@ import {UI_TOGGLE_ACCORDION, selectResource} from '../../actions/ui/corrections'
 import createMapStateToProps from '../popin-correction';
 import statePopinFailure from './fixtures/popin-correction/popin-failure';
 import statePopinSuccess from './fixtures/popin-correction/popin-success';
-import testRendering from './utils/render';
+import testRendering from './helpers/render';
 
 const translate = key => `__${key}`;
 const commonOptions = {

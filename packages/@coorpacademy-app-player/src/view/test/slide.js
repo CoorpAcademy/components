@@ -7,7 +7,7 @@ import stateHeader from './fixtures/progression-state';
 import stateSlide from './fixtures/player/slide';
 import stateClue from './fixtures/player/clue';
 import stateLoadingClue from './fixtures/player/loading-clue';
-import testRendering from './utils/render';
+import testRendering from './helpers/render';
 
 const options = {translate: identity};
 const store = {dispatch: identity};
