@@ -60,6 +60,7 @@ const summaryHeader = ({translate}, store) => state => {
         fail: true,
         lives: get('state.lives')(progression),
         rank: extractRank(state),
+        stars: null,
         cta: {
           title: translate('Retry level'),
           href: `/`

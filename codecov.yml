@@ -1,15 +1,19 @@
 codecov:
   notify:
     require_ci_to_pass: yes
-
 coverage:
+  parsers:
+    javascript:
+      enable_partials: yes
   status:
+    patch: off
     project:
+      default: false
       appForum:
         target: auto
         paths: "packages/@coorpacademy-app-forum"
       appPlayer:
-        target: auto
+        target: 100%
         paths: "packages/@coorpacademy-app-player"
       appTemplate:
         target: auto

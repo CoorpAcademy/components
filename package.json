@@ -51,12 +51,13 @@
   "ava": {
     "concurrency": 8,
     "files": [
-      "packages/**/src/**/test/**/*.js",
+      "packages/**/src/**/test/*.js",
       "!**/node_modules/**/*"
     ],
     "require": [
       "babel-register",
-      "babel-polyfill"
+      "babel-polyfill",
+      "./test/utils/throw-warning"
     ],
     "babel": "inherit"
   },

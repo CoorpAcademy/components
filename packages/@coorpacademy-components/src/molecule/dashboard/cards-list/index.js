@@ -77,8 +77,9 @@ class CardsList extends React.Component {
     this.cardsWrapper.removeEventListener('scroll', this.handleScroll);
 
     if (window) {
-      window.addEventListener('resize', this.updateArrowsState);
+      window.removeEventListener('resize', this.updateArrowsState);
     }
+    this.updateArrowsState.cancel();
   }
 
   setCards(key) {

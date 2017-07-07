@@ -10,6 +10,13 @@
     "clues": {
       "entities": {}
     },
+    "chapters": {
+      "entities": {
+        "1.B2": {
+          "bestScore": 0
+        }
+      }
+    },
     "exitNodes": {
       "entities": {
         "successExitNode": {
@@ -36,6 +43,10 @@
             "ref": "microlearning",
             "version": "1"
           },
+          "content": {
+            "ref": "1.B2",
+            "type": "chapter"
+          },
           "state": {
             "slides": ["1.B2.4"],
             "nextContent": {
@@ -48,7 +59,7 @@
               "current": 2
             },
             "isCorrect": false,
-            "stars": 0,
+            "stars": 10,
             "requestedClues": [],
             "viewedResources": [],
             "content": {

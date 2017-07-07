@@ -34,7 +34,7 @@ const popinCorrectionStateToProps = ({translate}, {dispatch}) => state => {
       getOr([], 'lessons'),
       map(lesson => {
         return pipe(
-          set('onClick', () => dispatch(_dispatch => _dispatch(selectResource(lesson._id)))),
+          set('onClick', () => dispatch(selectResource(lesson._id))),
           set('selected', lesson._id === _resourcesToPlay),
           _lesson => {
             if (_lesson.type === 'pdf') {
