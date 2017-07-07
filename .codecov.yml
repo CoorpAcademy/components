@@ -13,7 +13,7 @@ coverage:
         target: auto
         paths: "packages/@coorpacademy-app-forum"
       appPlayer:
-        target: auto
+        target: 100%
         paths: "packages/@coorpacademy-app-player"
       appTemplate:
         target: auto
