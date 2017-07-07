@@ -73,15 +73,17 @@ class PopinCorrection extends Component {
 
     return (
       <div className={this.state.closing ? style.closingOverlay : style.openingOverlay}>
-        <div className={isLoading ? style.loadingWrapper : style.wrapper}>
-          <div className={isLoading ? style.loadingContent : style.content}>
-            <PopinHeader {...delayedHeader} />
-            <Question {...question} />
-            <Accordion tabProps={tabs} onClick={onClick} oneTabOnly>
-              <Resources resources={resources} />
-              <SimpleText text={klf.value} />
-              <SimpleText text={tips.value} />
-            </Accordion>
+        <div className={style.scrollWrapper}>
+          <div className={isLoading ? style.loadingWrapper : style.wrapper}>
+            <div className={isLoading ? style.loadingContent : style.content}>
+              <PopinHeader {...delayedHeader} />
+              <Question {...question} />
+              <Accordion tabProps={tabs} onClick={onClick} oneTabOnly>
+                <Resources resources={resources} />
+                <SimpleText text={klf.value} />
+                <SimpleText text={tips.value} />
+              </Accordion>
+            </div>
           </div>
           <Loader className={isLoading ? style.activeLoader : style.inactiveLoader} />
         </div>
