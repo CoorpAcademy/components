@@ -28,7 +28,6 @@ import Select from '../src/atom/select';
 import Slide from '../src/atom/slide';
 import SocialLink from '../src/atom/social-link';
 import Spinner from '../src/atom/spinner';
-import Star from '../src/atom/star';
 import TabContent from '../src/atom/tab-content';
 import Tab from '../src/atom/tab';
 import Title from '../src/atom/title';
@@ -43,15 +42,6 @@ import BrandTabs from '../src/molecule/brand-tabs';
 import BrandUploadBox from '../src/molecule/brand-upload-box';
 import Breadcrumbs from '../src/molecule/breadcrumbs';
 import Card from '../src/molecule/card';
-import CatalogAssets from '../src/molecule/catalog-assets';
-import CatalogBadge from '../src/molecule/catalog-badge';
-import CatalogCard from '../src/molecule/catalog-card';
-import CatalogCta from '../src/molecule/catalog-cta';
-import Categories from '../src/molecule/categories';
-import Checkboxes from '../src/molecule/checkboxes';
-import CursusHeader from '../src/molecule/cursus-header';
-import CursusList from '../src/molecule/cursus-list';
-import DisciplineCard from '../src/molecule/discipline-card';
 import DisciplineCta from '../src/molecule/discipline-cta';
 import DisciplineHeader from '../src/molecule/discipline-header';
 import DisciplinePartners from '../src/molecule/discipline-partners';
@@ -69,13 +59,11 @@ import RangeSlider from '../src/molecule/range-slider';
 import ScopeContent from '../src/molecule/scope-content';
 import ScopeTabs from '../src/molecule/scope-tabs';
 import Search from '../src/molecule/search';
-import SelectMultiple from '../src/molecule/select-multiple';
 import SetupSection from '../src/molecule/setup-section';
 import SetupSections from '../src/molecule/setup-sections';
 import SetupSlide from '../src/molecule/setup-slide';
 import SetupSlider from '../src/molecule/setup-slider';
 import SsmenuList from '../src/molecule/ssmenu-list';
-import StarRating from '../src/molecule/star-rating';
 import SubscriptionFreemium from '../src/molecule/subscription-freemium';
 import SubscriptionPremium from '../src/molecule/subscription-premium';
 import Table from '../src/molecule/table';
@@ -109,8 +97,6 @@ import BrandTable from '../src/organism/brand-table';
 import BrandUpload from '../src/organism/brand-upload';
 import CardsGrid from '../src/organism/cards-grid';
 import Cart from '../src/organism/cart';
-import CatalogCards from '../src/organism/catalog-cards';
-import DisciplineCards from '../src/organism/discipline-cards';
 import Discussion from '../src/organism/discussion';
 import GridList from '../src/organism/grid-list';
 import Header from '../src/organism/header';
@@ -123,10 +109,6 @@ import SetupHeader from '../src/organism/setup-header';
 import Sidebar from '../src/organism/sidebar';
 import Slider from '../src/organism/slider';
 import ImageSlider from '../src/organism/mooc/image-slider';
-import Author from '../src/template/app-catalog/author';
-import Catalog from '../src/template/app-catalog/catalog';
-import ProductCourse from '../src/template/app-catalog/product-course';
-import ProductCursus from '../src/template/app-catalog/product-cursus';
 import Loading from '../src/template/app-player/loading';
 import Player from '../src/template/app-player/player';
 import PopinCorrection from '../src/template/app-player/popin-correction';
@@ -241,8 +223,6 @@ import SlideFixtureRight from '../src/atom/slide/test/fixtures/right';
 import SocialLinkFixtureFacebook from '../src/atom/social-link/test/fixtures/facebook';
 import SocialLinkFixtureTwitter from '../src/atom/social-link/test/fixtures/twitter';
 import SpinnerFixtureDefault from '../src/atom/spinner/test/fixtures/default';
-import StarFixtureDisable from '../src/atom/star/test/fixtures/disable';
-import StarFixtureEnable from '../src/atom/star/test/fixtures/enable';
 import TabContentFixtureDefault from '../src/atom/tab-content/test/fixtures/default';
 import TabFixtureDefault from '../src/atom/tab/test/fixtures/default';
 import TitleFixtureFixture from '../src/atom/title/test/fixtures/fixture';
@@ -282,26 +262,6 @@ import CardFixtureCatalogue from '../src/molecule/card/test/fixtures/catalogue';
 import CardFixtureDefault from '../src/molecule/card/test/fixtures/default';
 import CardFixtureDisabled from '../src/molecule/card/test/fixtures/disabled';
 import CardFixtureEmpty from '../src/molecule/card/test/fixtures/empty';
-import CatalogAssetsFixtureDefault from '../src/molecule/catalog-assets/test/fixtures/default';
-import CatalogAssetsFixtureEmpty from '../src/molecule/catalog-assets/test/fixtures/empty';
-import CatalogBadgeFixtureDefault from '../src/molecule/catalog-badge/test/fixtures/default';
-import CatalogBadgeFixtureEmpty from '../src/molecule/catalog-badge/test/fixtures/empty';
-import CatalogCardFixtureDefault from '../src/molecule/catalog-card/test/fixtures/default';
-import CatalogCtaFixtureDefault from '../src/molecule/catalog-cta/test/fixtures/default';
-import CatalogCtaFixtureEmpty from '../src/molecule/catalog-cta/test/fixtures/empty';
-import CatalogCtaFixtureNorating from '../src/molecule/catalog-cta/test/fixtures/norating';
-import CategoriesFixtureDefault from '../src/molecule/categories/test/fixtures/default';
-import CheckboxesFixtureClosableAndClosed from '../src/molecule/checkboxes/test/fixtures/closable-and-closed';
-import CheckboxesFixtureClosableAndOpen from '../src/molecule/checkboxes/test/fixtures/closable-and-open';
-import CheckboxesFixtureCoursesTheme from '../src/molecule/checkboxes/test/fixtures/courses-theme';
-import CheckboxesFixtureSimple from '../src/molecule/checkboxes/test/fixtures/simple';
-import CursusHeaderFixtureDefault from '../src/molecule/cursus-header/test/fixtures/default';
-import CursusHeaderFixtureEmpty from '../src/molecule/cursus-header/test/fixtures/empty';
-import CursusListFixtureDefault from '../src/molecule/cursus-list/test/fixtures/default';
-import DisciplineCardFixtureHidden from '../src/molecule/discipline-card/test/fixtures/hidden';
-import DisciplineCardFixtureWithCourseNum from '../src/molecule/discipline-card/test/fixtures/with-course-num';
-import DisciplineCardFixtureWithModulesNoimage from '../src/molecule/discipline-card/test/fixtures/with-modules-noimage';
-import DisciplineCardFixtureWithModules from '../src/molecule/discipline-card/test/fixtures/with-modules';
 import DisciplineCtaFixtureDefault from '../src/molecule/discipline-cta/test/fixtures/default';
 import DisciplineCtaFixtureNoStart from '../src/molecule/discipline-cta/test/fixtures/no-start';
 import DisciplineHeaderFixtureDefault from '../src/molecule/discipline-header/test/fixtures/default';
@@ -359,8 +319,6 @@ import ScopeContentFixtureWithOnclick from '../src/molecule/scope-content/test/f
 import ScopeTabsFixtureDefault from '../src/molecule/scope-tabs/test/fixtures/default';
 import ScopeTabsFixtureEmpty from '../src/molecule/scope-tabs/test/fixtures/empty';
 import SearchFixtureDefault from '../src/molecule/search/test/fixtures/default';
-import SelectMultipleFixtureChecked from '../src/molecule/select-multiple/test/fixtures/checked';
-import SelectMultipleFixtureDefault from '../src/molecule/select-multiple/test/fixtures/default';
 import SetupSectionFixtureDefault from '../src/molecule/setup-section/test/fixtures/default';
 import SetupSectionFixtureFirst from '../src/molecule/setup-section/test/fixtures/first';
 import SetupSectionFixtureOther from '../src/molecule/setup-section/test/fixtures/other';
@@ -372,7 +330,6 @@ import SsmenuListFixtureCoorpacademy from '../src/molecule/ssmenu-list/test/fixt
 import SsmenuListFixtureEmpty from '../src/molecule/ssmenu-list/test/fixtures/empty';
 import SsmenuListFixtureFormations from '../src/molecule/ssmenu-list/test/fixtures/formations';
 import SsmenuListFixtureSolutions from '../src/molecule/ssmenu-list/test/fixtures/solutions';
-import StarRatingFixtureDefault from '../src/molecule/star-rating/test/fixtures/default';
 import SubscriptionFreemiumFixtureDefault from '../src/molecule/subscription-freemium/test/fixtures/default';
 import SubscriptionPremiumFixtureDefault from '../src/molecule/subscription-premium/test/fixtures/default';
 import TableFixtureDefault from '../src/molecule/table/test/fixtures/default';
@@ -474,11 +431,6 @@ import CardsGridFixtureEmpty from '../src/organism/cards-grid/test/fixtures/empt
 import CardsGridFixtureLoading from '../src/organism/cards-grid/test/fixtures/loading';
 import CardsGridFixtureMany from '../src/organism/cards-grid/test/fixtures/many';
 import CartFixtureDefault from '../src/organism/cart/test/fixtures/default';
-import CatalogCardsFixtureDefault from '../src/organism/catalog-cards/test/fixtures/default';
-import CatalogCardsFixtureLoading from '../src/organism/catalog-cards/test/fixtures/loading';
-import CatalogCardsFixtureNoProducts from '../src/organism/catalog-cards/test/fixtures/no-products';
-import DisciplineCardsFixtureEmpty from '../src/organism/discipline-cards/test/fixtures/empty';
-import DisciplineCardsFixtureManyDisciplines from '../src/organism/discipline-cards/test/fixtures/many-disciplines';
 import DiscussionFixtureDefault from '../src/organism/discussion/test/fixtures/default';
 import DiscussionFixtureLoadingMore from '../src/organism/discussion/test/fixtures/loading-more';
 import DiscussionFixtureModeration from '../src/organism/discussion/test/fixtures/moderation';
@@ -506,20 +458,6 @@ import SliderFixtureDefault from '../src/organism/slider/test/fixtures/default';
 import SliderFixtureMultipleSlides from '../src/organism/slider/test/fixtures/multiple-slides';
 import ImageSliderFixtureDefault from '../src/organism/mooc/image-slider/test/fixtures/default';
 import ImageSliderFixtureMultipleSlides from '../src/organism/mooc/image-slider/test/fixtures/multiple-slides';
-import AuthorFixtureDefault from '../src/template/app-catalog/author/test/fixtures/default';
-import AuthorFixtureLoading from '../src/template/app-catalog/author/test/fixtures/loading';
-import CatalogFixtureDefault from '../src/template/app-catalog/catalog/test/fixtures/default';
-import CatalogFixtureEmpty from '../src/template/app-catalog/catalog/test/fixtures/empty';
-import CatalogFixtureLoading from '../src/template/app-catalog/catalog/test/fixtures/loading';
-import ProductCourseFixtureDefault from '../src/template/app-catalog/product-course/test/fixtures/default';
-import ProductCourseFixtureEmpty from '../src/template/app-catalog/product-course/test/fixtures/empty';
-import ProductCourseFixtureLoading from '../src/template/app-catalog/product-course/test/fixtures/loading';
-import ProductCourseFixtureNoVideo from '../src/template/app-catalog/product-course/test/fixtures/no-video';
-import ProductCursusFixtureDefault from '../src/template/app-catalog/product-cursus/test/fixtures/default';
-import ProductCursusFixtureEmpty from '../src/template/app-catalog/product-cursus/test/fixtures/empty';
-import ProductCursusFixtureLoading from '../src/template/app-catalog/product-cursus/test/fixtures/loading';
-import ProductCursusFixtureWithoutAssets from '../src/template/app-catalog/product-cursus/test/fixtures/without-assets';
-import ProductCursusFixtureWithoutBadge from '../src/template/app-catalog/product-cursus/test/fixtures/without-badge';
 import LoadingFixtureDefault from '../src/template/app-player/loading/test/fixtures/default';
 import PlayerFixtureClue from '../src/template/app-player/player/test/fixtures/clue';
 import PlayerFixtureDropDown from '../src/template/app-player/player/test/fixtures/drop-down';
@@ -621,7 +559,6 @@ export const components = {
     Slide,
     SocialLink,
     Spinner,
-    Star,
     TabContent,
     Tab,
     Title
@@ -638,15 +575,6 @@ export const components = {
     BrandUploadBox,
     Breadcrumbs,
     Card,
-    CatalogAssets,
-    CatalogBadge,
-    CatalogCard,
-    CatalogCta,
-    Categories,
-    Checkboxes,
-    CursusHeader,
-    CursusList,
-    DisciplineCard,
     DisciplineCta,
     DisciplineHeader,
     DisciplinePartners,
@@ -664,13 +592,11 @@ export const components = {
     ScopeContent,
     ScopeTabs,
     Search,
-    SelectMultiple,
     SetupSection,
     SetupSections,
     SetupSlide,
     SetupSlider,
     SsmenuList,
-    StarRating,
     SubscriptionFreemium,
     SubscriptionPremium,
     Table,
@@ -718,8 +644,6 @@ export const components = {
     BrandUpload,
     CardsGrid,
     Cart,
-    CatalogCards,
-    DisciplineCards,
     Discussion,
     GridList,
     Header,
@@ -734,12 +658,6 @@ export const components = {
   },
   OrganismMooc: {
     ImageSlider
-  },
-  TemplateAppCatalog: {
-    Author,
-    Catalog,
-    ProductCourse,
-    ProductCursus
   },
   TemplateAppPlayer: {
     Loading,
@@ -920,10 +838,6 @@ export const fixtures = {
     Spinner: {
       Default: SpinnerFixtureDefault
     },
-    Star: {
-      Disable: StarFixtureDisable,
-      Enable: StarFixtureEnable
-    },
     TabContent: {
       Default: TabContentFixtureDefault
     },
@@ -992,44 +906,6 @@ export const fixtures = {
       Default: CardFixtureDefault,
       Disabled: CardFixtureDisabled,
       Empty: CardFixtureEmpty
-    },
-    CatalogAssets: {
-      Default: CatalogAssetsFixtureDefault,
-      Empty: CatalogAssetsFixtureEmpty
-    },
-    CatalogBadge: {
-      Default: CatalogBadgeFixtureDefault,
-      Empty: CatalogBadgeFixtureEmpty
-    },
-    CatalogCard: {
-      Default: CatalogCardFixtureDefault
-    },
-    CatalogCta: {
-      Default: CatalogCtaFixtureDefault,
-      Empty: CatalogCtaFixtureEmpty,
-      Norating: CatalogCtaFixtureNorating
-    },
-    Categories: {
-      Default: CategoriesFixtureDefault
-    },
-    Checkboxes: {
-      ClosableAndClosed: CheckboxesFixtureClosableAndClosed,
-      ClosableAndOpen: CheckboxesFixtureClosableAndOpen,
-      CoursesTheme: CheckboxesFixtureCoursesTheme,
-      Simple: CheckboxesFixtureSimple
-    },
-    CursusHeader: {
-      Default: CursusHeaderFixtureDefault,
-      Empty: CursusHeaderFixtureEmpty
-    },
-    CursusList: {
-      Default: CursusListFixtureDefault
-    },
-    DisciplineCard: {
-      Hidden: DisciplineCardFixtureHidden,
-      WithCourseNum: DisciplineCardFixtureWithCourseNum,
-      WithModulesNoimage: DisciplineCardFixtureWithModulesNoimage,
-      WithModules: DisciplineCardFixtureWithModules
     },
     DisciplineCta: {
       Default: DisciplineCtaFixtureDefault,
@@ -1122,10 +998,6 @@ export const fixtures = {
     Search: {
       Default: SearchFixtureDefault
     },
-    SelectMultiple: {
-      Checked: SelectMultipleFixtureChecked,
-      Default: SelectMultipleFixtureDefault
-    },
     SetupSection: {
       Default: SetupSectionFixtureDefault,
       First: SetupSectionFixtureFirst,
@@ -1146,9 +1018,6 @@ export const fixtures = {
       Empty: SsmenuListFixtureEmpty,
       Formations: SsmenuListFixtureFormations,
       Solutions: SsmenuListFixtureSolutions
-    },
-    StarRating: {
-      Default: StarRatingFixtureDefault
     },
     SubscriptionFreemium: {
       Default: SubscriptionFreemiumFixtureDefault
@@ -1331,15 +1200,6 @@ export const fixtures = {
     Cart: {
       Default: CartFixtureDefault
     },
-    CatalogCards: {
-      Default: CatalogCardsFixtureDefault,
-      Loading: CatalogCardsFixtureLoading,
-      NoProducts: CatalogCardsFixtureNoProducts
-    },
-    DisciplineCards: {
-      Empty: DisciplineCardsFixtureEmpty,
-      ManyDisciplines: DisciplineCardsFixtureManyDisciplines
-    },
     Discussion: {
       Default: DiscussionFixtureDefault,
       LoadingMore: DiscussionFixtureLoadingMore,
@@ -1392,30 +1252,6 @@ export const fixtures = {
     ImageSlider: {
       Default: ImageSliderFixtureDefault,
       MultipleSlides: ImageSliderFixtureMultipleSlides
-    }
-  },
-  TemplateAppCatalog: {
-    Author: {
-      Default: AuthorFixtureDefault,
-      Loading: AuthorFixtureLoading
-    },
-    Catalog: {
-      Default: CatalogFixtureDefault,
-      Empty: CatalogFixtureEmpty,
-      Loading: CatalogFixtureLoading
-    },
-    ProductCourse: {
-      Default: ProductCourseFixtureDefault,
-      Empty: ProductCourseFixtureEmpty,
-      Loading: ProductCourseFixtureLoading,
-      NoVideo: ProductCourseFixtureNoVideo
-    },
-    ProductCursus: {
-      Default: ProductCursusFixtureDefault,
-      Empty: ProductCursusFixtureEmpty,
-      Loading: ProductCursusFixtureLoading,
-      WithoutAssets: ProductCursusFixtureWithoutAssets,
-      WithoutBadge: ProductCursusFixtureWithoutBadge
     }
   },
   TemplateAppPlayer: {
@@ -1549,10 +1385,6 @@ export const dependencies = {
       "parents": {
         "TemplateCommon": {
           "Discipline": true
-        },
-        "TemplateAppCatalog": {
-          "ProductCourse": true,
-          "Author": true
         }
       },
       "children": {
@@ -1565,10 +1397,6 @@ export const dependencies = {
       "parents": {
         "TemplateCommon": {
           "Discipline": true
-        },
-        "TemplateAppCatalog": {
-          "ProductCourse": true,
-          "Author": true
         }
       },
       "children": {
@@ -1584,85 +1412,12 @@ export const dependencies = {
       "parents": {
         "TemplateCommon": {
           "Discipline": true
-        },
-        "TemplateAppCatalog": {
-          "ProductCourse": true
         }
       },
       "children": {
         "Molecule": {
           "ScopeContent": true,
           "ScopeTabs": true
-        }
-      }
-    },
-    "CatalogAssets": {
-      "parents": {
-        "TemplateAppCatalog": {
-          "ProductCursus": true
-        }
-      },
-      "children": {}
-    },
-    "CatalogBadge": {
-      "parents": {
-        "TemplateAppCatalog": {
-          "ProductCursus": true
-        }
-      },
-      "children": {
-        "Atom": {
-          "Picture": true
-        }
-      }
-    },
-    "CatalogCta": {
-      "parents": {
-        "TemplateAppCatalog": {
-          "ProductCursus": true,
-          "ProductCourse": true
-        }
-      },
-      "children": {
-        "Molecule": {
-          "StarRating": true
-        }
-      }
-    },
-    "CursusHeader": {
-      "parents": {
-        "TemplateAppCatalog": {
-          "ProductCursus": true
-        }
-      },
-      "children": {
-        "Atom": {
-          "Picture": true
-        }
-      }
-    },
-    "Categories": {
-      "parents": {
-        "TemplateAppCatalog": {
-          "Catalog": true
-        }
-      },
-      "children": {
-        "Atom": {
-          "Checkbox": true,
-          "Link": true
-        }
-      }
-    },
-    "CursusList": {
-      "parents": {
-        "TemplateAppCatalog": {
-          "Catalog": true
-        }
-      },
-      "children": {
-        "Atom": {
-          "Link": true
         }
       }
     },
@@ -1691,34 +1446,6 @@ export const dependencies = {
       "children": {
         "Molecule": {
           "SsmenuList": true
-        }
-      }
-    },
-    "DisciplineCard": {
-      "parents": {
-        "Organism": {
-          "DisciplineCards": true
-        }
-      },
-      "children": {
-        "Molecule": {
-          "ModuleBubble": true
-        }
-      }
-    },
-    "CatalogCard": {
-      "parents": {
-        "Organism": {
-          "CatalogCards": true
-        }
-      },
-      "children": {
-        "Atom": {
-          "Link": true,
-          "Picture": true
-        },
-        "Molecule": {
-          "StarRating": true
         }
       }
     },
@@ -1926,25 +1653,11 @@ export const dependencies = {
         }
       }
     },
-    "TitledCheckbox": {
-      "parents": {
-        "Molecule": {
-          "SelectMultiple": true,
-          "Checkboxes": true
-        }
-      },
-      "children": {
-        "Atom": {
-          "Checkbox": true
-        }
-      }
-    },
     "ModuleBubble": {
       "parents": {
         "Molecule": {
           "ScopeTabs": true,
-          "ModuleCard": true,
-          "DisciplineCard": true
+          "ModuleCard": true
         }
       },
       "children": {}
@@ -1979,19 +1692,6 @@ export const dependencies = {
       "children": {
         "Molecule": {
           "ModuleBubble": true
-        }
-      }
-    },
-    "StarRating": {
-      "parents": {
-        "Molecule": {
-          "CatalogCta": true,
-          "CatalogCard": true
-        }
-      },
-      "children": {
-        "Atom": {
-          "Star": true
         }
       }
     },
@@ -2058,13 +1758,6 @@ export const dependencies = {
         }
       }
     },
-    "Checkboxes": {
-      "children": {
-        "Molecule": {
-          "TitledCheckbox": true
-        }
-      }
-    },
     "ModuleCard": {
       "children": {
         "Molecule": {
@@ -2072,15 +1765,15 @@ export const dependencies = {
         }
       }
     },
-    "SelectMultiple": {
-      "children": {
-        "Molecule": {
-          "TitledCheckbox": true
-        }
-      }
-    },
     "ThemeImage": {
       "children": {}
+    },
+    "TitledCheckbox": {
+      "children": {
+        "Atom": {
+          "Checkbox": true
+        }
+      }
     },
     "Unsubscribe": {
       "children": {
@@ -2132,24 +1825,6 @@ export const dependencies = {
         }
       }
     },
-    "CatalogCards": {
-      "parents": {
-        "TemplateAppCatalog": {
-          "ProductCursus": true,
-          "ProductCourse": true,
-          "Catalog": true,
-          "Author": true
-        }
-      },
-      "children": {
-        "Molecule": {
-          "CatalogCard": true
-        },
-        "Atom": {
-          "Spinner": true
-        }
-      }
-    },
     "BrandForm": {
       "children": {
         "Molecule": {
@@ -2195,13 +1870,6 @@ export const dependencies = {
         "Molecule": {
           "PaymentForm": true,
           "ProductCard": true
-        }
-      }
-    },
-    "DisciplineCards": {
-      "children": {
-        "Molecule": {
-          "DisciplineCard": true
         }
       }
     },
@@ -2348,9 +2016,6 @@ export const dependencies = {
           "Pagination": true,
           "News": true,
           "DisciplinePartners": true,
-          "CursusList": true,
-          "Categories": true,
-          "CatalogCard": true,
           "Breadcrumbs": true,
           "BrandTabs": true,
           "BrandCard": true,
@@ -2429,9 +2094,6 @@ export const dependencies = {
         "Molecule": {
           "VideoPlayer": true,
           "DisciplinePartners": true,
-          "CursusHeader": true,
-          "CatalogCard": true,
-          "CatalogBadge": true,
           "BrandCard": true
         },
         "Atom": {
@@ -2513,14 +2175,6 @@ export const dependencies = {
       },
       "children": {}
     },
-    "Spinner": {
-      "parents": {
-        "Organism": {
-          "CatalogCards": true
-        }
-      },
-      "children": {}
-    },
     "PromoCode": {
       "parents": {
         "Organism": {
@@ -2553,16 +2207,7 @@ export const dependencies = {
       "parents": {
         "Molecule": {
           "TitledCheckbox": true,
-          "Table": true,
-          "Categories": true
-        }
-      },
-      "children": {}
-    },
-    "Star": {
-      "parents": {
-        "Molecule": {
-          "StarRating": true
+          "Table": true
         }
       },
       "children": {}
@@ -2643,6 +2288,9 @@ export const dependencies = {
       "children": {}
     },
     "Provider": {
+      "children": {}
+    },
+    "Spinner": {
       "children": {}
     },
     "Title": {
@@ -2930,56 +2578,6 @@ export const dependencies = {
         },
         "MoleculeForum": {
           "ForumComment": true
-        }
-      }
-    }
-  },
-  "TemplateAppCatalog": {
-    "Author": {
-      "children": {
-        "Molecule": {
-          "DisciplineHeader": true,
-          "DisciplinePartners": true
-        },
-        "Organism": {
-          "CatalogCards": true
-        }
-      }
-    },
-    "Catalog": {
-      "children": {
-        "Molecule": {
-          "Categories": true,
-          "CursusList": true
-        },
-        "Organism": {
-          "CatalogCards": true
-        }
-      }
-    },
-    "ProductCourse": {
-      "children": {
-        "Molecule": {
-          "CatalogCta": true,
-          "DisciplineHeader": true,
-          "DisciplinePartners": true,
-          "DisciplineScope": true
-        },
-        "Organism": {
-          "CatalogCards": true
-        }
-      }
-    },
-    "ProductCursus": {
-      "children": {
-        "Molecule": {
-          "CatalogAssets": true,
-          "CatalogBadge": true,
-          "CatalogCta": true,
-          "CursusHeader": true
-        },
-        "Organism": {
-          "CatalogCards": true
         }
       }
     }
