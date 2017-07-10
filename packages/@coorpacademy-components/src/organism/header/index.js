@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {UrlPropType} from '../../util/proptypes';
+import {SrcPropType} from '../../util/proptypes';
 import Picture from '../../atom/picture';
 import MenuList from '../../molecule/menu-list';
 import style from './style.css';
@@ -31,7 +31,7 @@ Header.propTypes = {
   ),
   src: PropTypes.oneOfType([
     PropTypes.string.isRequired,
-    PropTypes.objectOf(UrlPropType).isRequired
+    PropTypes.objectOf(SrcPropType).isRequired
   ])
 };
 

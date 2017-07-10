@@ -1,24 +1,25 @@
+import PropTypes from 'prop-types';
 import forEach from 'lodash/fp/forEach';
 import set from 'lodash/fp/set';
 import split from 'lodash/fp/split';
 import map from 'lodash/fp/map';
 import concat from 'lodash/fp/concat';
 import test from 'ava';
-import {ColorPropType, HexPropType, UrlPropType, PathPropType} from '../proptypes';
+import {ColorPropType, HexPropType, UrlPropType, PathPropType, SrcPropType} from '../proptypes';
 
 const validMacro = (t, proptype, values) => {
   forEach(value => {
-    const props = set(value, value, {});
-    const error = proptype(props, value, 'test');
-    t.falsy(error);
+    const props = set('assert', value, {});
+    const propTypes = set('assert', proptype, {});
+    t.notThrows(() => PropTypes.checkPropTypes(propTypes, props, 'assert', 'Assertion'));
   }, values);
 };
 
 const failMacro = (t, proptype, values) => {
   forEach(value => {
     const props = set('assert', value, {});
-    const error = proptype(props, 'assert', 'test');
-    t.truthy(error);
+    const propTypes = set('assert', proptype, {});
+    t.throws(() => PropTypes.checkPropTypes(propTypes, props, 'assert', 'Assertion'));
   }, values);
 };
 
@@ -61,3 +62,9 @@ test('PathPropType should pass when valid path is passed', validMacro, PathPropT
 test('PathPropType should throw error when incorrect path is passed', failMacro, PathPropType, [
   'https://static.coorpacademy.com/content/digital/raw/login-bg-1491236164055.jpg'
 ]);
+
+test('SrcPropType should pass when valid source is passed', validMacro, SrcPropType, [
+  '/assets/css/skin/logos/logo_coorpacademy-retina-theme3.png',
+  'https://static.coorpacademy.com/content/digital/raw/login-bg-1491236164055.jpg'
+]);
+test('SrcPropType should throw error when incorrect source is passed', failMacro, SrcPropType, [0]);

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import defaultsDeep from 'lodash/fp/defaultsDeep';
-import {UrlPropType, PathPropType, ColorPropType, HexPropType} from '../../util/proptypes';
+import {SrcPropType, ColorPropType, HexPropType} from '../../util/proptypes';
 
 const DEFAULT_SKIN = {
   common: {
@@ -57,8 +57,6 @@ const historyShape = PropTypes.shape({
   createHref: PropTypes.func,
   push: PropTypes.func
 });
-
-const SrcPropType = PropTypes.oneOfType([UrlPropType, PathPropType]);
 
 const skinShape = PropTypes.shape({
   common: PropTypes.objectOf(ColorPropType),

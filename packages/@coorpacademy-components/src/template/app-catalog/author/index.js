@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {UrlPropType} from '../../../util/proptypes';
+import {SrcPropType} from '../../../util/proptypes';
 import Provider from '../../../atom/provider';
 import DisciplineHeader from '../../../molecule/discipline-header';
 import DisciplinePartners from '../../../molecule/discipline-partners';
@@ -48,8 +48,8 @@ Author.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   image: PropTypes.shape({
-    '1x': UrlPropType,
-    '2x': UrlPropType
+    '1x': SrcPropType,
+    '2x': SrcPropType
   }),
   information: PropTypes.shape({
     href: PropTypes.string,

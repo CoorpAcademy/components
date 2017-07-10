@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {UrlPropType} from '../../../util/proptypes';
+import {SrcPropType} from '../../../util/proptypes';
 import Provider from '../../../atom/provider';
 import Button from '../../../atom/button';
 import style from './style.css';
@@ -49,7 +49,7 @@ ForumComment.contextTypes = {
 
 ForumComment.propTypes = {
   value: PropTypes.string,
-  avatar: UrlPropType,
+  avatar: SrcPropType,
   onChange: PropTypes.func,
   onPost: PropTypes.func
 };
