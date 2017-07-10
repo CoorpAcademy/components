@@ -10,7 +10,6 @@ const ScopeTabs = (props, context) => {
   const {skin} = context;
 
   const {onClick, selected = 0, levels} = props;
-  const hideLabel = true;
 
   const primary = getOr('#00B0FF', ['common', 'primary'], skin);
 
@@ -42,7 +41,7 @@ const ScopeTabs = (props, context) => {
 
           const bubble = has('status', level)
             ? <div className={style.module}>
-                <ModuleBubble hideLabel={hideLabel} module={level} onClick={handleClick} />
+                <ModuleBubble {...level} onClick={handleClick} />
               </div>
             : null;
 

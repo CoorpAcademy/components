@@ -19,7 +19,7 @@ function DisciplineCard(props, context) {
   const mainStyle = {animationDuration};
 
   const modules = discipline.modules.map(_module =>
-    <ModuleBubble module={_module} onClick={onModuleClick} key={_module.ref} />
+    <ModuleBubble {..._module} onClick={onModuleClick} key={_module.ref} />
   );
 
   const click = unary(partial(onClick, [discipline]));
