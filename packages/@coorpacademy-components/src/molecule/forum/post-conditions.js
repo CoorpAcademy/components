@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
-import {UrlPropType} from '../../util/proptypes';
+import {SrcPropType} from '../../util/proptypes';
 
 export default {
   author: PropTypes.string,
   date: PropTypes.string,
   message: PropTypes.string,
-  avatar: UrlPropType,
-  answerAvatar: UrlPropType,
+  avatar: SrcPropType,
+  answerAvatar: SrcPropType,
   answer: PropTypes.string,
   edition: PropTypes.string,
   showAnswerBox: PropTypes.bool,
