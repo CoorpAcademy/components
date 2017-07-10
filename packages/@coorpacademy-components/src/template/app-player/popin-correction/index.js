@@ -8,8 +8,6 @@ import PopinHeader from '../../../molecule/app-player/popin/popin-header';
 import Accordion from '../../../organism/accordion/container';
 import style from './style.css';
 
-const ANIMATION_DELAY = 300;
-
 const extractTabs = items =>
   Object.keys(items).map(type => {
     const item = items[type];
@@ -57,21 +55,36 @@ Question.propTypes = {
 class PopinCorrection extends Component {
   constructor(props) {
     super(props);
-    this.state = {closing: false};
+    this.state = {open: false};
+    this.initWrapper = this.initWrapper.bind(this);
+  }
+
+  componentDidMount() {
+    this.deferOpen();
+  }
+
+  deferOpen() {
+    this.setState({open: true});
+  }
+
+  initWrapper(wrapper) {
+    this.wrapper = wrapper;
   }
 
   render() {
     const {header = {}, question, resources, klf, tips, onClick} = this.props;
     const tabs = extractTabs({resources, klf, tips});
     const isLoading = isNil(header.lives);
+    const className = this.state.open ? style.openOverlay : style.overlay;
     const delayedHeader = wrapHeaderClick(header, headerClick => {
       if (!this.state.closing) {
-        this.setState({closing: true}, () => setTimeout(headerClick, ANIMATION_DELAY));
+        this.wrapper.addEventListener('transitionend', headerClick);
+        this.setState({open: false});
       }
     });
 
     return (
-      <div className={this.state.closing ? style.closingOverlay : style.openingOverlay}>
+      <div ref={this.initWrapper} className={className}>
         <div className={style.scrollWrapper}>
           <div className={isLoading ? style.loadingWrapper : style.wrapper}>
             <div className={isLoading ? style.loadingContent : style.content}>

@@ -32,22 +32,13 @@
   margin: 0;
   padding: 0;
   z-index: 100;
-}
-
-.openingOverlay {
-  composes: overlay;
+  transition: opacity 0.3s;
   opacity: 0;
-  animation-name: fadeInOverlay;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
 }
 
-.closingOverlay {
+.openOverlay {
   composes: overlay;
   opacity: 1;
-  animation-name: fadeOutOverlay;
-  animation-duration: 0.3s;
-  animation-fill-mode: forwards;
 }
 
 .scrollWrapper {
