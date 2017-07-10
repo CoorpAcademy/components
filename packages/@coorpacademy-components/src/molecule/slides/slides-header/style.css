@@ -40,16 +40,15 @@
 
 .primary {
   min-width: 0px;
-  flex-grow: 1;
-  flex-shrink: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: center;
   background-color: xtraLightGrey;
   height: 100%;
   padding-right: 16px;
   box-sizing: border-box;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 0;
+  height: 100%;
+  padding-top: 12px;
 }
 
 .primaryTitle {
@@ -112,6 +111,7 @@
 @media mobile {
   .primary {
     max-width: none;
+    width: 100%;
   }
 
   .secondary {
