@@ -5,7 +5,6 @@ import style from './style.css';
 
 function ModuleCard(props, context) {
   const {label, level, onClick} = props;
-  const hideLabel = true;
 
   return (
     <div className={style.default} data-name="module-card" onClick={onClick}>
@@ -16,7 +15,7 @@ function ModuleCard(props, context) {
         {level}
       </div>
       <div className={style.module}>
-        <ModuleBubble hideLabel={hideLabel} module={props} onClick={onClick} />
+        <ModuleBubble {...props} onClick={onClick} />
       </div>
     </div>
   );

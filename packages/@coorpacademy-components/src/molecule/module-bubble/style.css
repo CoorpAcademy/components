@@ -47,18 +47,6 @@
   transition-duration: 0.5s;
 }
 
-.label {
-  font-family: 'Open Sans';
-  text-transform: uppercase;
-  color: dark;
-  font-size: 9px;
-  text-align: center;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: block;
-}
-
 .bubble:hover .bubbleBG {
 
 }

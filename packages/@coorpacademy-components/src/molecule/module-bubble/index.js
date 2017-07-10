@@ -11,24 +11,15 @@ import style from './style.css';
 const ModuleBubble = (props, context) => {
   const {skin} = context;
 
-  const {onClick, module: _module, hideLabel = false} = props;
+  // eslint-disable-next-line no-shadow
+  const {onClick, status, filtered, disabled} = props;
 
-  const code = getOr('', ['icons', _module.status], skin);
+  const code = getOr('', ['icons', status], skin);
   const icon = String.fromCharCode(code);
 
-  const filtered = _module.filtered;
-  const disabled = _module.disabled;
-
-  const click = !disabled && pipe(stopPropagation, unary(partial(onClick, [_module])));
-  const label = _module.label;
+  const click = !disabled && pipe(stopPropagation, unary(partial(onClick, [props])));
 
   const iconColor = getOr('#00B0FF', ['common', 'primary'], skin);
-
-  const labelView =
-    !hideLabel &&
-    <div className={style.label}>
-      {label}
-    </div>;
 
   return (
     <div className={filtered ? style.filtered : style.modulewrapper} data-name="module-bubble">
@@ -43,7 +34,6 @@ const ModuleBubble = (props, context) => {
           {icon}
         </span>
       </div>
-      {labelView}
     </div>
   );
 };
@@ -53,12 +43,9 @@ ModuleBubble.contextTypes = {
 };
 
 ModuleBubble.propTypes = {
-  module: PropTypes.shape({
-    disabled: PropTypes.bool,
-    filtered: PropTypes.bool,
-    label: PropTypes.string.isRequired,
-    status: PropTypes.string.isRequired
-  }).isRequired,
+  disabled: PropTypes.bool,
+  filtered: PropTypes.bool,
+  status: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired
 };
 export default ModuleBubble;
