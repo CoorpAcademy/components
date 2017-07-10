@@ -2377,6 +2377,7 @@ export const dependencies = {
     "Loader": {
       "parents": {
         "TemplateAppPlayer": {
+          "PopinCorrection": true,
           "Loading": true
         },
         "Organism": {
@@ -3002,6 +3003,9 @@ export const dependencies = {
     },
     "PopinCorrection": {
       "children": {
+        "Atom": {
+          "Loader": true
+        },
         "MoleculeAppPlayerPopin": {
           "PopinHeader": true
         },

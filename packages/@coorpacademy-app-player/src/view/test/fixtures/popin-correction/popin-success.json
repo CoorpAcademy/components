@@ -178,9 +178,17 @@
     "answers": {
       "entities": {
         "0": {
-          "sli_Vy88~R-bX": [
-            "2"
-          ]
+          "sli_Vy88~R-bX": {
+            "correctAnswer": [
+              "2"
+            ],
+            "corrections": [
+              {
+                "answer": "2",
+                "isCorrect": true
+              }
+            ]
+          }
         }
       }
     },
@@ -193,11 +201,6 @@
       "0": {
         "value": [
           "2"
-        ],
-        "correction": [
-          [
-            "2"
-          ]
         ]
       }
     },

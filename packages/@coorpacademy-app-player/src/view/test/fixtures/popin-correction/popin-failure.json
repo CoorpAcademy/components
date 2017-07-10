@@ -65,9 +65,17 @@
     "answers": {
       "entities": {
         "0": {
-          "1.B2.4": [
-            "2"
-          ]
+          "1.B2.4": {
+            "correctAnswer": [
+              "Text"
+            ],
+            "corrections": [
+              {
+                "answer": "Toto",
+                "isCorrect": false
+              }
+            ]
+          }
         }
       }
     },
@@ -111,8 +119,8 @@
   "ui": {
     "answers": {
       "0": {
-        "correction": [
-          ["Text"]
+        "value": [
+          "Toto"
         ]
       }
     },

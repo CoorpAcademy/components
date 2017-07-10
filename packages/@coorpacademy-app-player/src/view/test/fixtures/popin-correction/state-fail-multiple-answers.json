@@ -1,0 +1,519 @@
+{
+  "data": {
+    "answers": {
+      "entities": {
+        "59634ace3f6143001c46bae5": {
+          "sli_4ymMuMFb8": {
+            "correctAnswer": [
+              "Twitter"
+            ],
+            "corrections": [
+              {
+                "answer": "Twitter",
+                "isCorrect": true
+              }
+            ]
+          },
+          "sli_EyinLfF~X": {
+            "correctAnswer": [
+              "4"
+            ],
+            "corrections": [
+              {
+                "answer": "4",
+                "isCorrect": true
+              }
+            ]
+          },
+          "sli_4ymMuMFbB": {
+            "correctAnswer": [
+              "Blanc"
+            ],
+            "corrections": [
+              {
+                "answer": "blanc",
+                "isCorrect": true
+              }
+            ]
+          },
+          "sli_NJ862PX7Q": {
+            "correctAnswer": [
+              "France",
+              "Suisse"
+            ],
+            "corrections": [
+              {
+                "answer": "Suisse",
+                "isCorrect": true
+              },
+              {
+                "answer": "Fiji",
+                "isCorrect": false
+              }
+            ]
+          }
+        }
+      }
+    },
+    "chapters": {
+      "entities": {
+        "cha_Ny1BTxRp~": {
+          "_id": "cha_Ny1BTxRp~",
+          "name": "chapter 1",
+          "stars": 20,
+          "freeRun": true,
+          "meta": {
+            "updatedAt": "2017-06-29T14:39:19.495Z",
+            "createdAt": "2017-06-01T10:13:25.708Z"
+          },
+          "poster": {
+            "subtitles": [],
+            "posters": [],
+            "src": []
+          },
+          "isConditional": false,
+          "time": 8
+        }
+      }
+    },
+    "clues": {
+      "entities": {}
+    },
+    "exitNodes": {
+      "entities": {}
+    },
+    "progressions": {
+      "entities": {
+        "59634ace3f6143001c46bae5": {
+          "_id": "59634ace3f6143001c46bae5",
+          "userId": "5852b139a0c3291200f000cd",
+          "content": {
+            "ref": "cha_Ny1BTxRp~",
+            "type": "chapter"
+          },
+          "meta": {
+            "updatedAt": "2017-07-10T09:37:18.075Z",
+            "createdAt": "2017-07-10T09:37:18.075Z"
+          },
+          "engine": {
+            "ref": "microlearning",
+            "version": "1"
+          },
+          "state": {
+            "nextContent": {
+              "ref": "failExitNode",
+              "type": "failure"
+            },
+            "isCorrect": false,
+            "slides": [
+              "sli_4ymMuMFb8",
+              "sli_EyinLfF~X",
+              "sli_4ymMuMFbB",
+              "sli_NJ862PX7Q"
+            ],
+            "lives": 0,
+            "step": {
+              "total": 4,
+              "current": 5
+            },
+            "stars": 12,
+            "requestedClues": [],
+            "viewedResources": [],
+            "content": {
+              "ref": "sli_NJ862PX7Q",
+              "type": "slide"
+            }
+          },
+          "$promise": {
+            "$$state": {
+              "status": 1,
+              "value": {
+                "state": {
+                  "nextContent": {
+                    "ref": "failExitNode",
+                    "type": "failure"
+                  },
+                  "isCorrect": false,
+                  "slides": [
+                    "sli_4ymMuMFb8",
+                    "sli_EyinLfF~X",
+                    "sli_4ymMuMFbB",
+                    "sli_NJ862PX7Q"
+                  ],
+                  "lives": 0,
+                  "step": {
+                    "total": 4,
+                    "current": 5
+                  },
+                  "stars": 12,
+                  "requestedClues": [],
+                  "viewedResources": [],
+                  "content": {
+                    "ref": "sli_NJ862PX7Q",
+                    "type": "slide"
+                  }
+                },
+                "correctAnswer": [
+                  "France",
+                  "Suisse"
+                ]
+              },
+              "processScheduled": false
+            }
+          },
+          "$resolved": true,
+          "correctAnswer": [
+            "France",
+            "Suisse"
+          ]
+        }
+      }
+    },
+    "rank": {},
+    "recommendations": {
+      "entities": {}
+    },
+    "slides": {
+      "entities": {
+        "sli_4ymMuMFb8": {
+          "_id": "sli_4ymMuMFb8",
+          "klf": "Sur Twitter, l’outil de référence du microblogging, les messages sont limités à 140 signes.",
+          "tips": "Twitter compterait plus de 20 millions de faux comptes.",
+          "chapter_id": "cha_Ny1BTxRp~",
+          "authors": [],
+          "context": {
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            }
+          },
+          "meta": {
+            "updatedAt": "2017-07-10T09:37:18.273Z",
+            "createdAt": "2017-07-10T09:37:18.273Z"
+          },
+          "lessons": [
+            {
+              "type": "video",
+              "mimeType": "application/vimeo",
+              "videoId": "191200830",
+              "description": "Universal Searches",
+              "poster": "//static.coorpacademy.com/content/up/fr/medias/img/poster/miniature_bleue_up.jpg",
+              "_id": "5955111adfdc3224006ec08b",
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            },
+            {
+              "type": "video",
+              "mimeType": "application/vimeo",
+              "videoId": "191168702",
+              "description": "A Short History of Search Engines",
+              "poster": "//static.coorpacademy.com/content/up/fr/medias/img/poster/miniature_bleue_up.jpg",
+              "_id": "5955111adfdc3224006ec08a",
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            }
+          ],
+          "question": {
+            "type": "basic",
+            "header": "Quel réseau social se distingue par ses messages instantanés limités à 140 signes ?",
+            "explanation": "Saisissez votre réponse.",
+            "content": {
+              "label": " ",
+              "placeholder": " ",
+              "id": "sli_4ymMuMFb8.choice_1",
+              "maxTypos": null,
+              "choices": [],
+              "media": {
+                "subtitles": [],
+                "posters": [],
+                "src": []
+              }
+            },
+            "medias": []
+          }
+        },
+        "sli_EyinLfF~X": {
+          "_id": "sli_EyinLfF~X",
+          "klf": "2 x 2 est égal à additionner 2 fois le chiffre 2 à zéro. C est-à-dire 0 + 2 = 2 (une première fois), plus 2 (ce qu on a cumulé) + 2 = 4.",
+          "tips": "4 s'écrit 11 en base 3",
+          "chapter_id": "cha_Ny1BTxRp~",
+          "__v": 0,
+          "authors": [],
+          "context": {
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            }
+          },
+          "meta": {
+            "updatedAt": "2017-07-10T09:37:24.078Z",
+            "createdAt": "2017-07-10T09:37:24.078Z"
+          },
+          "lessons": [
+            {
+              "type": "video",
+              "mimeType": "application/vimeo",
+              "videoId": "191200830",
+              "description": "Universal Searches",
+              "poster": "//static.coorpacademy.com/content/up/fr/medias/img/poster/miniature_bleue_up.jpg",
+              "_id": "5955111bdfdc3224006ec098",
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            },
+            {
+              "type": "video",
+              "mimeType": "application/vimeo",
+              "videoId": "191168702",
+              "description": "A Short History of Search Engines",
+              "poster": "//static.coorpacademy.com/content/up/fr/medias/img/poster/miniature_bleue_up.jpg",
+              "_id": "5955111bdfdc3224006ec097",
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            }
+          ],
+          "question": {
+            "type": "qcm",
+            "header": "Répondez à cette question si difficile... 2 x 2 ?",
+            "explanation": "Sélectionnez la (les) bonne(s) réponse(s).",
+            "content": {
+              "maxTypos": null,
+              "choices": [
+                {
+                  "label": "Je ne sais pas",
+                  "value": "sli_EyinLfF~X.choice_EyYRLMYWQ",
+                  "_id": "5955111bdfdc3224006ec09b",
+                  "items": [],
+                  "media": {
+                    "subtitles": [],
+                    "posters": [],
+                    "src": []
+                  }
+                },
+                {
+                  "label": "4",
+                  "value": "sli_EyinLfF~X.choice_V1M1wGFWm",
+                  "_id": "5955111bdfdc3224006ec09a",
+                  "items": [],
+                  "media": {
+                    "subtitles": [],
+                    "posters": [],
+                    "src": []
+                  }
+                },
+                {
+                  "label": "Demandez à Lucas !",
+                  "value": "sli_EyinLfF~X.choice_NJdkDfF~Q",
+                  "_id": "5955111bdfdc3224006ec099",
+                  "items": [],
+                  "media": {
+                    "subtitles": [],
+                    "posters": [],
+                    "src": []
+                  }
+                }
+              ],
+              "media": {
+                "subtitles": [],
+                "posters": [],
+                "src": []
+              }
+            },
+            "medias": []
+          }
+        },
+        "sli_4ymMuMFbB": {
+          "_id": "sli_4ymMuMFbB",
+          "klf": "Pas problème si t'es daltonien.",
+          "tips": "On fait la même blague en Amérique du Sud, avec le cheval blanc de Simon Bolivar.",
+          "chapter_id": "cha_Ny1BTxRp~",
+          "authors": [],
+          "context": {
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            }
+          },
+          "meta": {
+            "updatedAt": "2017-07-10T09:37:29.070Z",
+            "createdAt": "2017-07-10T09:37:29.070Z"
+          },
+          "lessons": [
+            {
+              "type": "video",
+              "mimeType": "application/vimeo",
+              "videoId": "191200830",
+              "description": "Universal Searches",
+              "poster": "//static.coorpacademy.com/content/up/fr/medias/img/poster/miniature_bleue_up.jpg",
+              "_id": "5955111adfdc3224006ec091",
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            },
+            {
+              "type": "video",
+              "mimeType": "application/vimeo",
+              "videoId": "191168702",
+              "description": "A Short History of Search Engines",
+              "poster": "//static.coorpacademy.com/content/up/fr/medias/img/poster/miniature_bleue_up.jpg",
+              "_id": "5955111adfdc3224006ec090",
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            }
+          ],
+          "question": {
+            "type": "basic",
+            "header": "De quelle couleur est le cheval blanc de Henri IV ?",
+            "explanation": "Saisissez votre réponse.",
+            "content": {
+              "label": " ",
+              "placeholder": " ",
+              "id": "sli_4ymMuMFbB.choice_1",
+              "maxTypos": null,
+              "choices": [],
+              "media": {
+                "subtitles": [],
+                "posters": [],
+                "src": []
+              }
+            },
+            "medias": []
+          }
+        },
+        "sli_NJ862PX7Q": {
+          "_id": "sli_NJ862PX7Q",
+          "klf": "Coorpacademy compte deux sièges principaux, un à Paris, l'autre à Lausanne.",
+          "tips": "Nos vidéo conf se font toujours avec les équipes des deux pays.",
+          "chapter_id": "cha_Ny1BTxRp~",
+          "authors": [],
+          "context": {
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            }
+          },
+          "meta": {
+            "updatedAt": "2017-07-10T09:37:36.773Z",
+            "createdAt": "2017-07-10T09:37:36.773Z"
+          },
+          "lessons": [
+            {
+              "type": "video",
+              "mimeType": "application/vimeo",
+              "videoId": "191200830",
+              "description": "Universal Searches",
+              "poster": "//static.coorpacademy.com/content/up/fr/medias/img/poster/miniature_bleue_up.jpg",
+              "_id": "59551123dfdc3224006ec0a0",
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            },
+            {
+              "type": "video",
+              "mimeType": "application/vimeo",
+              "videoId": "191168702",
+              "description": "A Short History of Search Engines",
+              "poster": "//static.coorpacademy.com/content/up/fr/medias/img/poster/miniature_bleue_up.jpg",
+              "_id": "59551123dfdc3224006ec09f",
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            }
+          ],
+          "question": {
+            "type": "qcm",
+            "header": "Dans quels pays est présent Coorpacademy ?",
+            "explanation": "Sélectionnez la (les) bonne(s) réponse(s).",
+            "content": {
+              "maxTypos": null,
+              "choices": [
+                {
+                  "label": "France",
+                  "value": "sli_NJ862PX7Q.choice_EyuRnDmQ7",
+                  "_id": "59551123dfdc3224006ec0a4",
+                  "items": [],
+                  "media": {
+                    "subtitles": [],
+                    "posters": [],
+                    "src": []
+                  }
+                },
+                {
+                  "label": "Suisse",
+                  "value": "sli_NJ862PX7Q.choice_V1Y0hwX77",
+                  "_id": "59551123dfdc3224006ec0a3",
+                  "items": [],
+                  "media": {
+                    "subtitles": [],
+                    "posters": [],
+                    "src": []
+                  }
+                },
+                {
+                  "label": "Fiji",
+                  "value": "sli_NJ862PX7Q.choice_NJ5A2w7QX",
+                  "_id": "59551123dfdc3224006ec0a2",
+                  "items": [],
+                  "media": {
+                    "subtitles": [],
+                    "posters": [],
+                    "src": []
+                  }
+                },
+                {
+                  "label": "Tonga",
+                  "value": "sli_NJ862PX7Q.choice_NkoC2Dm7Q",
+                  "_id": "59551123dfdc3224006ec0a1",
+                  "items": [],
+                  "media": {
+                    "subtitles": [],
+                    "posters": [],
+                    "src": []
+                  }
+                }
+              ],
+              "media": {
+                "subtitles": [],
+                "posters": [],
+                "src": []
+              }
+            },
+            "medias": []
+          }
+        }
+      }
+    }
+  },
+  "ui": {
+    "answers": {
+      "59634ace3f6143001c46bae5": {
+        "value": [
+          "Suisse",
+          "Fiji"
+        ]
+      }
+    },
+    "corrections": {
+      "accordion": [
+        true,
+        false,
+        false
+      ],
+      "playResource": ""
+    },
+    "current": {
+      "progressionId": "59634ace3f6143001c46bae5"
+    },
+    "route": {
+      "59634ace3f6143001c46bae5": "correction"
+    }
+  }
+}

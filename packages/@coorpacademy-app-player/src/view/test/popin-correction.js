@@ -8,6 +8,7 @@ import {UI_TOGGLE_ACCORDION, selectResource} from '../../actions/ui/corrections'
 import createMapStateToProps from '../popin-correction';
 import statePopinFailure from './fixtures/popin-correction/popin-failure';
 import statePopinSuccess from './fixtures/popin-correction/popin-success';
+import statePopinFailureMultipleAnswers from './fixtures/popin-correction/state-fail-multiple-answers';
 import testRendering from './helpers/render';
 
 const translate = key => `__${key}`;
@@ -26,7 +27,8 @@ test('should set properties for success popin', t => {
   t.false(props.header.fail);
   t.is(props.header.title, '__Good job');
   t.is(props.header.subtitle, '__Good answer');
-  t.is(props.question.answer, '__Correct answer {{answer}}');
+  t.is(props.question.answerPrefix, '__Correct answer');
+  t.is(props.question.answer, '2');
   t.false(props.resources.open);
   t.false(props.klf.open);
   t.true(props.tips.open);
@@ -54,7 +56,7 @@ test('should set properties to open resource tab if wrong answer and no resource
   t.true(props.header.fail);
   t.is(props.header.title, '__Ouch');
   t.is(props.header.subtitle, '__Wrong answer');
-  t.is(props.question.answer, '__Correct answer {{answer}}');
+  t.deepEqual(props.question.answer, 'Text');
   t.true(props.resources.open);
   t.false(props.klf.open);
   t.false(props.tips.open);
@@ -84,7 +86,8 @@ test('should set properties when selecting second resource', t => {
   t.true(props.header.fail);
   t.is(props.header.title, '__Ouch');
   t.is(props.header.subtitle, '__Wrong answer');
-  t.is(props.question.answer, '__Correct answer {{answer}}');
+  t.deepEqual(props.header.corrections, [{answer: 'Toto', isCorrect: false}]);
+  t.is(props.question.answer, 'Text');
   t.true(props.resources.open);
   t.false(props.klf.open);
   t.false(props.tips.open);
@@ -105,7 +108,7 @@ test('should display loading when correction is not still fetched', t => {
   const {props} = vNode;
 
   t.deepEqual(props.header, {});
-  t.is(props.question.answer, '__Correct answer {{answer}}');
+  t.is(props.question.answer, '');
   t.false(props.resources.open);
   t.false(props.klf.open);
   t.true(props.tips.open);
@@ -123,7 +126,7 @@ test("should display loading state when answer's result is not still received", 
   const {props} = vNode;
 
   t.deepEqual(props.header, {});
-  t.is(props.question.answer, '__Correct answer {{answer}}');
+  t.is(props.question.answer, '2');
   t.false(props.resources.open);
   t.false(props.klf.open);
   t.true(props.tips.open);
@@ -147,4 +150,23 @@ test('should display correction view when slide has not ressources', t => {
 
   t.true(isArray(resources));
   t.is(resources.length, 0);
+});
+
+test('should show correction on multiple answers for a slide', t => {
+  const vNode = mapStateToProps(statePopinFailureMultipleAnswers);
+  testRendering(vNode);
+  const {props} = vNode;
+
+  t.is(props.header.lives, 0);
+  t.true(props.header.fail);
+  t.is(props.header.title, '__Ouch');
+  t.is(props.header.subtitle, '__Wrong answer');
+  t.deepEqual(props.question.answer, 'France, Suisse');
+  t.deepEqual(props.header.corrections, [
+    {answer: 'Suisse', isCorrect: true},
+    {answer: 'Fiji', isCorrect: false}
+  ]);
+  t.true(props.resources.open);
+  t.false(props.klf.open);
+  t.false(props.tips.open);
 });
