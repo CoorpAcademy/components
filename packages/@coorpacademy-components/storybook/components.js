@@ -2357,7 +2357,6 @@ export const dependencies = {
           "BrandCardCreate": true
         },
         "Atom": {
-          "Cta": true,
           "Button": true
         }
       },
@@ -2479,11 +2478,7 @@ export const dependencies = {
           "Slide": true
         }
       },
-      "children": {
-        "Atom": {
-          "Link": true
-        }
-      }
+      "children": {}
     },
     "InputSwitch": {
       "parents": {
