@@ -4,7 +4,7 @@ import split from 'lodash/fp/split';
 import map from 'lodash/fp/map';
 import concat from 'lodash/fp/concat';
 import test from 'ava';
-import {color, hex, url, path} from '../proptypes';
+import {ColorPropType, HexPropType, UrlPropType, PathPropType} from '../proptypes';
 
 const validMacro = (t, proptype, values) => {
   forEach(value => {
@@ -22,38 +22,42 @@ const failMacro = (t, proptype, values) => {
   }, values);
 };
 
-test('Color should pass when correct color value is passed', validMacro, color, ['#FF00FF']);
-test('Color should throw error when incorrect color value is passed', failMacro, color, [
-  '#123',
-  'blue'
+test('ColorPropType should pass when correct color value is passed', validMacro, ColorPropType, [
+  '#FF00FF'
 ]);
+test(
+  'ColorPropType should throw error when incorrect color value is passed',
+  failMacro,
+  ColorPropType,
+  ['#123', 'blue']
+);
 
 const VALID_HEX_CHAR = split('', '0123456789ABCDEF');
 test(
-  'Hex should pass when heximal value is passed',
+  'HexPropType should pass when heximal value is passed',
   validMacro,
-  hex,
+  HexPropType,
   concat(VALID_HEX_CHAR, map(char => `0x${char}`, VALID_HEX_CHAR))
 );
 
 const INVALID_HEX_CHAR = split('', 'GHIJKLMNOPQRSTUVWXYZ&é"\'(§è!çà)-@');
 test(
-  'Hex should throw error when incorrect value is passed',
+  'HexPropType should throw error when incorrect value is passed',
   failMacro,
-  hex,
+  HexPropType,
   concat(INVALID_HEX_CHAR, map(char => `0x${char}`, INVALID_HEX_CHAR))
 );
 
-test('Url should pass when valid URL is passed', validMacro, url, [
+test('UrlPropType should pass when valid URL is passed', validMacro, UrlPropType, [
   'https://static.coorpacademy.com/content/digital/raw/login-bg-1491236164055.jpg'
 ]);
-test('Url should throw error when incorrect url is passed', failMacro, url, [
+test('UrlPropType should throw error when incorrect url is passed', failMacro, UrlPropType, [
   '/assets/css/skin/logos/logo_coorpacademy-retina-theme3.png'
 ]);
 
-test('Path should pass when valid path is passed', validMacro, path, [
+test('PathPropType should pass when valid path is passed', validMacro, PathPropType, [
   '/assets/css/skin/logos/logo_coorpacademy-retina-theme3.png'
 ]);
-test('Path should throw error when incorrect path is passed', failMacro, path, [
+test('PathPropType should throw error when incorrect path is passed', failMacro, PathPropType, [
   'https://static.coorpacademy.com/content/digital/raw/login-bg-1491236164055.jpg'
 ]);

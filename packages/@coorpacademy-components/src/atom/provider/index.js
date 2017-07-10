@@ -1,12 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import defaultsDeep from 'lodash/fp/defaultsDeep';
-import {
-  url as UrlPropType,
-  path as PathPropType,
-  color as ColorPropType,
-  hex as HexPropType
-} from '../../util/proptypes';
+import {UrlPropType, PathPropType, ColorPropType, HexPropType} from '../../util/proptypes';
 
 const DEFAULT_SKIN = {
   common: {

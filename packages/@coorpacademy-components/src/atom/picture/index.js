@@ -9,7 +9,7 @@ import map from 'lodash/fp/map';
 import pipe from 'lodash/fp/pipe';
 import set from 'lodash/fp/set';
 import toPairs from 'lodash/fp/toPairs';
-import * as CustomPropTypes from '../../util/proptypes';
+import {UrlPropType} from '../../util/proptypes';
 import style from './style.css';
 
 const toSrcSet = ({src}) => {
@@ -34,11 +34,7 @@ const Picture = props => {
 };
 
 Picture.propTypes = {
-  src: PropTypes.oneOfType([
-    PropTypes.string,
-    CustomPropTypes.url,
-    PropTypes.objectOf(CustomPropTypes.url)
-  ])
+  src: PropTypes.oneOfType([PropTypes.string, UrlPropType, PropTypes.objectOf(UrlPropType)])
 };
 
 export default Picture;
