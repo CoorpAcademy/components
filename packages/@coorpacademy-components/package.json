@@ -52,6 +52,7 @@
     "postcss-calc": "^6.0.0",
     "postcss-color-function": "^4.0.0",
     "postcss-modules-values-replace": "^1.2.1",
+    "prop-types": "^15.5.10",
     "qs": "6.5.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4"

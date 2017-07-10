@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import * as CustomPropTypes from '../../util/proptypes';
+import {UrlPropType} from '../../util/proptypes';
 import ForumComment from '../../molecule/forum/forum-comment';
 import ForumThread from '../../molecule/forum/forum-thread';
 import postConditions from '../../molecule/forum/post-conditions';
@@ -51,7 +51,7 @@ function Discussion(props) {
 }
 
 Discussion.propTypes = {
-  avatar: CustomPropTypes.url,
+  avatar: UrlPropType,
   loading: PropTypes.bool,
   value: PropTypes.string,
   onPost: PropTypes.func,

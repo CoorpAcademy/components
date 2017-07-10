@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
-import * as CustomPropTypes from '../../util/proptypes';
+import {ColorPropType} from '../../util/proptypes';
 import Provider from '../../atom/provider';
 import Checkbox from '../../atom/checkbox';
 import style from './style.css';
@@ -49,7 +49,7 @@ TitledCheckbox.propTypes = {
     checked: PropTypes.bool,
     label: PropTypes.string.isRequired
   }).isRequired,
-  background: CustomPropTypes.color,
+  background: ColorPropType,
   onToggle: PropTypes.func.isRequired
 };
 

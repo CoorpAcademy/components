@@ -1,5 +1,5 @@
 import React from 'react';
-import * as CustomPropTypes from '../../../util/proptypes';
+import {UrlPropType} from '../../../util/proptypes';
 import Header from '../../../organism/header';
 import content from './content';
 
@@ -10,9 +10,9 @@ const CoorpHeader = props => {
 };
 
 CoorpHeader.propTypes = {
-  rootUrl: CustomPropTypes.url,
-  connexionLink: CustomPropTypes.url,
-  inscriptionLink: CustomPropTypes.url
+  rootUrl: UrlPropType,
+  connexionLink: UrlPropType,
+  inscriptionLink: UrlPropType
 };
 
 export default CoorpHeader;

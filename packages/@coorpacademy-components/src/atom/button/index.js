@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import * as CustomPropTypes from '../../util/proptypes';
+import {ColorPropType} from '../../util/proptypes';
 import Link from '../link';
 import addClassName from '../../util/add-class-name';
 import style from './style.css';
@@ -74,8 +74,8 @@ const Button = ({children, ...props}) => {
 };
 
 Button.propTypes = {
-  background: CustomPropTypes.color,
-  color: CustomPropTypes.color,
+  background: ColorPropType,
+  color: ColorPropType,
   submitValue: PropTypes.string,
   centered: PropTypes.bool,
   disabled: PropTypes.bool,

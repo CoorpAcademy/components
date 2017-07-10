@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
-import * as CostumPropTypes from '../../util/proptypes';
+import {UrlPropType} from '../../util/proptypes';
 
 export default {
   author: PropTypes.string,
   date: PropTypes.string,
   message: PropTypes.string,
-  avatar: CostumPropTypes.url,
-  answerAvatar: CostumPropTypes.url,
+  avatar: UrlPropType,
+  answerAvatar: UrlPropType,
   answer: PropTypes.string,
   edition: PropTypes.string,
   showAnswerBox: PropTypes.bool,
