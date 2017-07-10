@@ -1,7 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import defaultsDeep from 'lodash/fp/defaultsDeep';
-import * as CustomPropTypes from '../../util/proptypes';
+import {
+  url as UrlPropType,
+  path as PathPropType,
+  color as ColorPropType,
+  hex as HexPropType
+} from '../../util/proptypes';
 
 const DEFAULT_SKIN = {
   common: {
@@ -58,18 +63,20 @@ const historyShape = PropTypes.shape({
   push: PropTypes.func
 });
 
+const SrcPropType = PropTypes.oneOfType([UrlPropType, PathPropType]);
+
 const skinShape = PropTypes.shape({
-  common: PropTypes.objectOf(CustomPropTypes.color),
+  common: PropTypes.objectOf(ColorPropType),
   images: PropTypes.shape({
-    'logo-mobile': CustomPropTypes.url,
-    logo: CustomPropTypes.url,
-    'logo-email': CustomPropTypes.url,
-    login: CustomPropTypes.url
+    'logo-mobile': SrcPropType,
+    logo: SrcPropType,
+    'logo-email': SrcPropType,
+    login: SrcPropType
   }),
-  icons: PropTypes.objectOf(CustomPropTypes.hex),
-  mod: PropTypes.objectOf(CustomPropTypes.color),
-  courses: PropTypes.arrayOf(CustomPropTypes.color),
-  texts: PropTypes.objectOf(CustomPropTypes.color)
+  icons: PropTypes.objectOf(HexPropType),
+  mod: PropTypes.objectOf(ColorPropType),
+  courses: PropTypes.arrayOf(ColorPropType),
+  texts: PropTypes.objectOf(ColorPropType)
 });
 
 const translateShape = PropTypes.func;
