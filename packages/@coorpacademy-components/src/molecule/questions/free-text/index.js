@@ -1,4 +1,5 @@
 import React from 'react';
+import LinkedInput from 'react-linked-input';
 import PropTypes from 'prop-types';
 import noop from 'lodash/fp/noop';
 import get from 'lodash/fp/get';
@@ -12,7 +13,7 @@ const FreeText = (props, {skin}) => {
 
   return (
     <div className={style.wrapper}>
-      <input
+      <LinkedInput
         type="text"
         className={style.input}
         placeholder={placeholder}
