@@ -154,8 +154,8 @@ class MoocHeader extends React.Component {
     const {logo = {}, themes, pages, settings, user, slider, links} = this.props;
     const {translate, skin} = this.context;
 
-    const logoUrl = get(['images', 'logo'], skin);
-    const logoMobileUrl = getOr(logoUrl, ['images', 'logo-mobile'], skin);
+    const logoUrl = get('src', logo) || get('images.logo', skin);
+    const logoMobileUrl = get('srcMobile', logo) || getOr(logoUrl, 'images.logo-mobile', skin);
 
     let themesView = null;
     let pagesView = null;
@@ -489,6 +489,8 @@ MoocHeader.contextTypes = {
 
 MoocHeader.propTypes = {
   logo: PropTypes.shape({
+    src: PropTypes.string,
+    srcMobile: PropTypes.string,
     href: PropTypes.string
   }),
   themes: PropTypes.arrayOf(
