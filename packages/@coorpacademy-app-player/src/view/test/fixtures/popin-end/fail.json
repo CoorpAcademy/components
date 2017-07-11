@@ -34,6 +34,10 @@
       "entities": {
         "0": {
           "_id": "0",
+          "content": {
+            "ref": "1.B2",
+            "type": "chapter"
+          },
           "engine": {
             "ref": "microlearning",
             "version": "1"
@@ -163,6 +167,22 @@
             },
             "medias": []
           }
+        }
+      }
+    },
+    "chapters": {
+      "entities": {
+        "1.B2": {
+          "_id": "1.B2",
+          "stars": 20,
+          "name": "Les réseaux sociaux au service du crowdfunding",
+          "poster": {
+            "subtitles": [],
+            "posters": [],
+            "src": []
+          },
+          "isConditional": false,
+          "time": 8
         }
       }
     }
