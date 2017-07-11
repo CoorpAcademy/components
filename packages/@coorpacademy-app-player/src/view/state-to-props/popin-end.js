@@ -1,9 +1,11 @@
 import cond from 'lodash/fp/cond';
 import constant from 'lodash/fp/constant';
 import get from 'lodash/fp/get';
+import getOr from 'lodash/fp/getOr';
 import isEqual from 'lodash/fp/isEqual';
 import pipe from 'lodash/fp/pipe';
 import {
+  getCurrentChapter,
   getCurrentExitNode,
   getCurrentProgression,
   getRecommendations,
@@ -102,7 +104,7 @@ const extractAction = ({translate}, store) => state => {
       () => ({
         type: 'simple',
         prefix: translate('Retry level:'),
-        title: '------ current state.chapter.title ------',
+        title: getOr('', 'name')(getCurrentChapter(state)),
         button: {
           title: translate('Retry level'),
           href: `/`
