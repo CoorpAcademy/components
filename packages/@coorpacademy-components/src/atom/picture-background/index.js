@@ -27,14 +27,20 @@ const PictureBackground = props => {
     : <div className={style.default} style={{backgroundImage: `url(${src})`}} />;
 
   return (
-    <div className={style.wrapper}>
+    <div
+      className={style.wrapper}
+      style={{
+        ...props.style
+      }}
+    >
       {pictureView}
     </div>
   );
 };
 
 PictureBackground.propTypes = {
-  src: PropTypes.oneOfType([PropTypes.objectOf(PropTypes.string), PropTypes.string])
+  src: PropTypes.oneOfType([PropTypes.objectOf(PropTypes.string), PropTypes.string]),
+  style: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))
 };
 
 export default PictureBackground;
