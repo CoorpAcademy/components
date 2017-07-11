@@ -57,8 +57,6 @@ const SlidesPlayer = (props, context) => {
 
   const contentView = typeClue === TYPE.CLUE ? <Clue text={text} /> : <Answer {...answerType} />;
 
-  const minHeight = `calc(95vh - ${verticalMargin}px)`;
-
   const globalView = question && stepView
     ? <div
         className={style.contentWrapper}
