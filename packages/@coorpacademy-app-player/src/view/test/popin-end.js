@@ -58,6 +58,8 @@ test('should set properties for failure popin', t => {
   t.is(props.summary.header.stars, null);
   t.is(props.summary.header.rank, null);
 
+  t.is(props.summary.action.title, 'Les réseaux sociaux au service du crowdfunding');
+
   t.is(props.summary.recommendation.title, '__Related subjects');
   t.is(props.summary.recommendation.cards.length, 3);
 
