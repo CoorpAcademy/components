@@ -1,5 +1,5 @@
 import * as React from "react";
-import addons from "@kadira/storybook-addons";
+import addons from "@storybook/addons";
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import identity from 'lodash/fp/identity';

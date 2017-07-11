@@ -1,5 +1,5 @@
 import React from 'react';
-import addons from "@kadira/storybook-addons";
+import addons from "@storybook/addons";
 import {renderToString} from 'react-dom/server';
 import {Provider} from '../../../src'
 
