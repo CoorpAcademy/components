@@ -34,7 +34,7 @@ const PictureBackground = props => {
 
 PictureBackground.propTypes = {
   src: PropTypes.oneOfType([
-    PropTypes.objectOf(PropTypes.string), PropTypes.string
+    PropTypes.objectOf(PropTypes.string), PropTypes.string.isRequired
   ])
 };
 
