@@ -181,6 +181,11 @@
   }
 
   .ctaWrapper {
+    display: block;
+    width: 100%;
+  }
+
+  .ctaWrapper a {
     width: 100%;
     text-align: center;
   }
@@ -192,6 +197,7 @@
 
   .cta a {
     font-size: 18px;
+    width: 100%;
   }
 
   .footer {
