@@ -3,10 +3,26 @@ const path = require('path');
 
 module.exports = {
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.css$/,
-        loader: `style-loader!css-loader?minimize&modules&importLoaders=1&localIdentName=${hash}!postcss-loader`,
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              minimize: true,
+              modules: true,
+              importLoaders: 1,
+              localIdentName: `${hash}`
+            }
+          },
+          {
+            loader: 'postcss-loader'
+          }
+        ],
         include: path.join(__dirname, '../src')
       }
     ]
