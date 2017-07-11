@@ -66,7 +66,12 @@ class PopinCorrection extends Component {
   }
 
   deferOpen() {
-    this.deferedOpen = defer(() => this.setState({open: true}));
+    clearTimeout(this.deferedOpen);
+
+    this.deferedOpen = defer(() => {
+      this.setState({open: true});
+      this.props.onOpen && this.props.onOpen();
+    });
   }
 
   initWrapper(wrapper) {
@@ -112,7 +117,8 @@ PopinCorrection.propTypes = {
   question: PropTypes.shape(Question.propTypes),
   klf: PropTypes.shape(SimpleText.propTypes),
   tips: PropTypes.shape(SimpleText.propTypes),
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  onOpen: PropTypes.func
 };
 
 export default PopinCorrection;
