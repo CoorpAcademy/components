@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import isNil from 'lodash/fp/isNil';
+import partial from 'lodash/fp/partial';
+import defer from 'lodash/fp/defer';
 import CheckIcon from '@coorpacademy/nova-icons/composition/coorpacademy/check';
 import Loader from '../../../atom/loader';
 import ResourceBrowser from '../../../organism/resource-browser';
@@ -17,7 +19,7 @@ const extractTabs = items =>
 
 const wrapHeaderClick = ({cta = {}, ...opts}, clickWrapper) => {
   const {onClick, ...ctaContent} = cta;
-  const wrappedClick = () => clickWrapper(onClick);
+  const wrappedClick = partial(clickWrapper, [onClick]);
 
   return {cta: {onClick: wrappedClick, ...ctaContent}, ...opts};
 };
@@ -64,7 +66,7 @@ class PopinCorrection extends Component {
   }
 
   deferOpen() {
-    this.setState({open: true});
+    this.deferedOpen = defer(() => this.setState({open: true}));
   }
 
   initWrapper(wrapper) {
@@ -77,7 +79,7 @@ class PopinCorrection extends Component {
     const isLoading = isNil(header.lives);
     const className = this.state.open ? style.openOverlay : style.overlay;
     const delayedHeader = wrapHeaderClick(header, headerClick => {
-      if (!this.state.closing) {
+      if (this.state.open) {
         this.wrapper.addEventListener('transitionend', headerClick);
         this.setState({open: false});
       }
