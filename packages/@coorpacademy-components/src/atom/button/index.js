@@ -1,4 +1,5 @@
 import React from 'react';
+import LinkedInput from 'react-linked-input';
 import PropTypes from 'prop-types';
 import {ColorPropType} from '../../util/proptypes';
 import Link from '../link';
@@ -46,7 +47,7 @@ const Button = ({children, ...props}) => {
 
     default:
       buttonContent = (
-        <input
+        <LinkedInput
           type={type}
           value={submitValue}
           disabled={disabled}

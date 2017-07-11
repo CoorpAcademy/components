@@ -1,4 +1,5 @@
 import React from 'react';
+import LinkedInput from 'react-linked-input';
 import PropTypes from 'prop-types';
 import Button from '../../atom/button';
 import style from './style.css';
@@ -25,10 +26,10 @@ const BrandCreateForm = props => {
         </div>
         <div className={fieldClass}>
           <label>
-            <input
+            <LinkedInput
               type="text"
               placeholder={field.placeholder}
-              defaultValue={field.value}
+              value={field.value}
               onInput={handleChange}
             />
             {field.label}

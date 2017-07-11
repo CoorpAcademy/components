@@ -109,8 +109,8 @@ const componentize = async (basename, svgData) => {
       writeLine(`  }`);
       writeLine();
       writeLine(`  render() {`);
-      writeLine(`    const {color = '#757575', outline = null, outlineWidth = 1, ...baseProps} = this.props;`);
-      writeLine(`    const {hoverColor = color, hoverOutline = outline, hoverOutlineWidth = outlineWidth} = this.props;`);
+      writeLine(`    const {color = '#757575', outline = null, outlineWidth = 1, hoverColor = color, ...baseProps} = this.props;`);
+      writeLine(`    const {hoverOutline = outline, hoverOutlineWidth = outlineWidth} = this.props;`);
       writeLine(`    const activeColor = this.state.hovering ? hoverColor : color;`);
       writeLine(`    const activeOutline = this.state.hovering ? hoverOutline : outline;`);
       writeLine(`    const activeOutlineWidth = this.state.hovering ? hoverOutlineWidth : outlineWidth;`);
