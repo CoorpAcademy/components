@@ -32,12 +32,7 @@ const Answer = props => {
   const answerView = buildAnswer(model);
 
   return (
-    <div
-      className={style.wrapper}
-      style={{
-        minHeight
-      }}
-    >
+    <div className={style.wrapper}>
       {answerView}
     </div>
   );
