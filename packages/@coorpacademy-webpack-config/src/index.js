@@ -24,6 +24,10 @@ const createConfig = (NODE_ENV = 'development', additionalPlugins = []) => ({
     modules: [join(__dirname, '../node_modules'), 'node_modules']
   },
 
+  resolve: {
+    modules: [join(__dirname, '../node_modules'), 'node_modules']
+  },
+
   output: {
     library: 'bundle',
     filename: '[name].js',

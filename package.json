@@ -1,7 +1,7 @@
 {
   "scripts": {
     "ava": "cross-env NODE_ENV=test ava",
-    "bootstrap": "lerna bootstrap",
+    "bootstrap": "lerna bootstrap --hoist",
     "build": "lerna run build",
     "clean": "lerna run clean && lerna clean --yes",
     "codecov": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
