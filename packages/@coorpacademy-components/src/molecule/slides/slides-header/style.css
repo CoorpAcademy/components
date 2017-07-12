@@ -41,14 +41,10 @@
 .primary {
   min-width: 0px;
   background-color: xtraLightGrey;
-  height: 100%;
   padding-right: 16px;
   box-sizing: border-box;
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 0;
-  height: 100%;
-  padding-top: 12px;
+  display: flex;
+  align-items: center;
 }
 
 .primaryTitle {

@@ -64,6 +64,7 @@
 
 .stepBar {
   position: absolute;
+  z-index: 1;
   height: 4px;
   border-radius: 3px;
   border-bottom-left-radius: 0px;
@@ -72,6 +73,7 @@
 
 .infos {
   position: absolute;
+  z-index: 1;
   background-color: light;
   color: dark;
   font-family: 'Open Sans';
@@ -144,10 +146,8 @@
 .ctaWrapper {
   display: flex;
   flex-grow: 0.1;
+  padding-top: 15px;
   align-items: flex-end;
-  padding-top: 25px;
-  position: absolute;
-  bottom: 32px;
   font-family: 'Open Sans';
 }
 
