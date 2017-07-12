@@ -10,9 +10,9 @@ module.exports = {
         'color-no-hex': [true, {severity: 'error'}],
         'declaration-colon-space-after': 'always',
         'declaration-block-no-duplicate-properties': true,
-        indentation: ['tab', {'except': [2]}],
+        indentation: ['tab', {except: [2]}],
         'max-empty-lines': 2
-        }
+      }
     }),
     require('postcss-reporter')({clearAllMessages: true}),
     require('autoprefixer')({
