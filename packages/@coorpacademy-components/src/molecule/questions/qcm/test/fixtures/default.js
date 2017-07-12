@@ -2,7 +2,7 @@ export default {
   props: {
     answers: [
       {
-        title: 'There is no need for a password',
+        title: 'There is no need for a password for this, you only need your ID to connect',
         onClick: () => {},
         selected: false
       },
@@ -27,7 +27,8 @@ export default {
         selected: true
       },
       {
-        title: 'Lorem ipsum dolor sit amet',
+        title:
+          'Alios autem dicere aiunt multo etiam inhumanius (quem locum breviter paulo ante perstrinxi) praesidii adiumentique causa, non benevolentiae neque caritatis, amicitias esse expetendas; itaque, ut quisque minimum firmitatis haberet minimumque virium', // eslint-disable-line max-len
         onClick: () => {},
         selected: false
       },

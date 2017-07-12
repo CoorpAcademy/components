@@ -29,7 +29,6 @@ const Answer = props => {
         return <QuestionRange {...model} />;
     }
   };
-
   const answerView = buildAnswer(model);
 
   return (

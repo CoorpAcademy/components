@@ -2,7 +2,7 @@ export default {
   props: {
     answers: [
       {
-        title: 'There is no need for a password',
+        title: 'There is no need for a password for this, you only need your ID to connect',
         onClick: () => {},
         selected: false
       },

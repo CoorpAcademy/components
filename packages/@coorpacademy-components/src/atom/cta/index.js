@@ -55,31 +55,30 @@ class CTA extends React.Component {
     const hoverBorderColor = secondary ? textColor : secondaryColor;
 
     return (
-      <div
-        {...addClassName(`${style.button}`)({
-          className: this.props.className
-        })}
-        data-name={ctaName}
-        onMouseEnter={this.handleMouseEnter}
-        onMouseLeave={this.handleMouseLeave}
-        style={{
-          backgroundColor: this.state.hovered ? hoverBackgroundColor : backgroundColor,
-          borderColor: this.state.hovered ? hoverBorderColor : borderColor,
-          height: small ? '36px' : '46px',
-          borderRadius: small ? '18px' : '23px'
-        }}
-      >
-        <Link
-          href={href}
-          onClick={onClick}
-          target={target}
+      <Link href={href} onClick={onClick} target={target}>
+        <div
+          {...addClassName(`${style.button}`)({
+            className: this.props.className
+          })}
+          data-name={ctaName}
+          onMouseEnter={this.handleMouseEnter}
+          onMouseLeave={this.handleMouseLeave}
           style={{
-            color: this.state.hovered ? hoverTextColor : textColor
+            backgroundColor: this.state.hovered ? hoverBackgroundColor : backgroundColor,
+            borderColor: this.state.hovered ? hoverBorderColor : borderColor,
+            height: small ? '36px' : '46px',
+            borderRadius: small ? '18px' : '23px'
           }}
         >
-          {submitValue}
-        </Link>
-      </div>
+          <div
+            style={{
+              color: this.state.hovered ? hoverTextColor : textColor
+            }}
+          >
+            {submitValue}
+          </div>
+        </div>
+      </Link>
     );
   }
 }
