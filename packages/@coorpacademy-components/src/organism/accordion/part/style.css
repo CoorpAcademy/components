@@ -3,29 +3,91 @@
 @value white from colors;
 @value dark from colors;
 @value light from colors;
+@value xtraLightGrey from colors;
 
-.title {
+.header {
+  position: relative;
   height: 50px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
   width: 100%;
   box-sizing: border-box;
   background-color: light;
   cursor: pointer;
+  border-bottom: 1px solid xtraLightGrey;
+  transition: background-color 0.3s;
+  color: dark;
 }
 
-.title h3 {
+.openHeader {
+  composes: header;
+  background-color: xtraLightGrey;
+}
+
+.closedHeader {
+  composes: header;
+}
+
+.header:hover {
+  background-color: xtraLightGrey;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 35px;
+}
+
+.titleLabel {
   font-family: 'Open Sans';
   font-size: 15px;
   font-weight: 700;
-  color: dark;
-  margin: 0;
 }
 
+.titleIcon {
+  width: 22px;
+  height: 22px;
+  margin-right: 15px;
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  right: 43px;
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s, opacity 0.1s;
+}
+
+.openIcon {
+  composes: icon;
+  opacity: 0;
+  transform: translate(50%, -50%) rotate(90deg);
+}
+
+.openIconActivated {
+  composes: icon;
+  opacity: 1;
+  transform: translate(50%, -50%) rotate(180deg);
+}
+
+.closeIcon {
+  composes: icon;
+  opacity: 0;
+  transform: translate(50%, -50%) rotate(90deg);
+}
+
+.closeIconActivated {
+  composes: icon;
+  opacity: 1;
+  transform: translate(50%, -50%);
+}
+
+
 .container {
-  background-color: white;
+  background-color: xtraLightGrey;
   animation: fadeIn 3s forwards;
   overflow: hidden;
 }
@@ -41,9 +103,4 @@
 
 .none {
   display: none;
-}
-
-.icon {
-  width: 24px;
-  height: 24px;
 }

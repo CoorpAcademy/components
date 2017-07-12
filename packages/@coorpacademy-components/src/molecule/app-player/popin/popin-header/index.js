@@ -125,22 +125,16 @@ const CorrectionPart = props => {
   );
 };
 
-const NextQuestionPart = (props, context) => {
-  const isLoading = isNil(props);
+const NextQuestionPart = props => {
   const {title, ...linkProps} = props || {};
-  const {skin} = context;
-  const mediumColor = get('common.medium', skin);
 
   return (
-    <div className={isLoading ? style.nextSectionLoading : style.nextSection}>
-      {isLoading
-        ? null
-        : <Link {...linkProps} className={style.nextButton}>
-            {title}
-            <ArrowRight color={mediumColor} className={style.nextButtonIcon} />
-          </Link>}
-      <div className={style.buttonOverlay} />
-    </div>
+    <Link {...linkProps} className={style.nextSection}>
+      <div className={style.nextButton}>
+        {title}
+        <ArrowRight color="inherit" className={style.nextButtonIcon} />
+      </div>
+    </Link>
   );
 };
 

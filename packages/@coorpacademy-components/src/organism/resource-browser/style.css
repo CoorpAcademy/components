@@ -7,8 +7,7 @@
 .default {
   display: flex;
   flex-flow: row;
-  width: 621px;
-  height: 220px;
+  height: 352px;
 }
 
 .resourcesList {
@@ -19,7 +18,7 @@
 
 .playerWrapper {
   height: 100%;
-  width: 356px;
+  width: 556px;
 }
 
 .pdfFrame {
@@ -52,7 +51,7 @@
   width: 100px;
   height: 28px;
   margin-top: 16px;
-  border-radius: 12px;
+  border-radius: 14px;
   cursor: pointer;
   overflow: hidden;
   transition: transform 0.1s ease-out;
@@ -112,5 +111,6 @@
     flex-flow: column;
     margin-top: 20px;
     width: 100%;
+    height: auto;
   }
 }

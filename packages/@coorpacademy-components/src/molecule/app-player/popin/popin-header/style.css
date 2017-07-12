@@ -62,7 +62,7 @@
 .titleElement {
   margin: 0;
   font-weight: normal;
-  margin-left: 32px;
+  margin-left: 35px;
 }
 
 .subtitle {
@@ -77,6 +77,10 @@
 
 .fullAnswer {
   composes: titleElement;
+  width: 50%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .answerSeparator {
@@ -143,15 +147,11 @@
   flex: 1;
 }
 
-.nextSectionLoading {
-  composes: nextSection;
-  flex-grow: 0;
-}
-
 .nextButton {
   font-family: 'Open Sans';
   color: inherit;
   font-size: 16px;
+  font-weight: bold;
   margin-right: 1rem;
   display: flex;
   align-items: center;
@@ -160,6 +160,11 @@
   border: none;
   outline: none;
   text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nextSection:hover .nextButton {
+  color: dark;
 }
 
 .nextButtonIcon {
@@ -167,27 +172,6 @@
   height: 20px;
   margin-left: 14px;
 }
-
-.buttonOverlay {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  pointer-events: none;
-  background-color: xtraLightGrey;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.nextSection:hover .buttonOverlay {
-  opacity: 0.2;
-}
-
-.nextSection:active .buttonOverlay {
-  background-color: light;
-}
-
 
 @media mobile {
   .header {
