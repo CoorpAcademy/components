@@ -53,7 +53,8 @@ const createConfig = (NODE_ENV = 'development', additionalPlugins = []) => ({
                 loose: true
               }
             ]
-          ]
+          ],
+          plugins: ['transform-object-assign']
         }
       },
       {
