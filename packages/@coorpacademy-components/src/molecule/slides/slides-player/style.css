@@ -138,6 +138,7 @@
 
 .cta a {
   font-size: 16px;
+  font-family: 'Open Sans';
 }
 
 .ctaWrapper {
@@ -147,6 +148,7 @@
   padding-top: 25px;
   position: absolute;
   bottom: 32px;
+  font-family: 'Open Sans';
 }
 
 .footer {
@@ -182,7 +184,7 @@
 
   .ctaWrapper {
     display: block;
-    width: 100%;
+    width: 90%;
   }
 
   .ctaWrapper a {
