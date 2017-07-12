@@ -2,7 +2,7 @@
 @value mobile from breakpoints;
 
 .wrapper {
-  
+
 }
 
 .input {
@@ -14,7 +14,6 @@
   height: 50px;
   border-radius: 2px;
   font-size: 14px;
-  margin-left: 20px;
   width: 230px;
   outline: none;
 }
