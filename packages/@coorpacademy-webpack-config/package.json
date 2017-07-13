@@ -3,14 +3,13 @@
   "version": "6.1.0",
   "description": "",
   "main": "lib/index.js",
-  "module": "es/index.js",
+  "files": [
+    "lib",
+    "README.md"
+  ],
   "scripts": {
-    "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib -s --ignore test --copy-files",
-    "build:es": "cross-env BABEL_ENV=es babel src --out-dir es -s --ignore test --copy-files",
-    "build": "npm run build:commonjs && npm run build:es",
-    "clean:build:commonjs": "rimraf lib",
-    "clean:build:es": "rimraf es",
-    "clean:build": "npm run clean:build:commonjs && npm run clean:build:es",
+    "build": "cross-env babel src --out-dir lib -s --ignore test --copy-files",
+    "clean:build": "rimraf lib",
     "clean": "npm run clean:build",
     "prepublish": "npm run clean && npm run build --production"
   },
