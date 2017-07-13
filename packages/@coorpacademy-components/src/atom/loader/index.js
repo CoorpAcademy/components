@@ -4,11 +4,13 @@ import style from './style.css';
 
 const Loader = ({className}) => {
   return (
-    <div data-name="loader" className={classnames(style.container, className)}>
-      <div className={style.dot} />
-      <div className={style.dot} />
-      <div className={style.dot} />
-      <div className={style.dot} />
+    <div className={classnames(style.container, className)}>
+      <div className={style.dots}>
+        <div className={style.red} />
+        <div className={style.blue} />
+        <div className={style.green} />
+        <div className={style.yellow} />
+      </div>
     </div>
   );
 };

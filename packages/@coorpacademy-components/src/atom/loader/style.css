@@ -1,55 +1,166 @@
-/* from https://codepen.io/alexerlandsson/pen/yOVdvj */
-
 @value colors: "../../variables/colors.css";
 @value positive from colors;
 @value negative from colors;
 @value brand from colors;
 @value battle from colors;
+@value TIME 3s;
+@value RED_INITIAL translate(-2.5px, 10px) rotate(45deg);
+@value RED_FINAL translate(-5px, -5px) rotate(45deg);
+@value BLUE_INITIAL translate(-2.5px, 40px) rotate(-45deg);
+@value BLUE_FINAL translate(-5px, 55px) rotate(-45deg);
+@value YELLOW_INITIAL translate(27.5px, 40px) rotate(225deg);
+@value YELLOW_FINAL translate(55px, 55px) rotate(225deg);
+@value GREEN_INITIAL translate(27.5px, 10px) rotate(135deg);
+@value GREEN_FINAL translate(55px, -5px) rotate(135deg);
 
 .container {
   position: absolute;
-  width: 90px;
+  width: 60px;
+  height: 60px;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
+  animation: scale 9s ease-in-out infinite;
+}
+
+.dots {
+  animation: rotate TIME ease-in-out infinite;
+  width: 100%;
+  height: 100%;
 }
 
 .dot {
-  width: 10px;
+  width: 30px;
   height: 10px;
+  border-radius: 5px;
+  position: absolute;
+}
+
+.red {
+  composes: dot;
   background-color: negative;
-  border-radius: 50%;
-  float: left;
-  margin: 0 5px;
-  transform: scale(0);
-  animation: fx 1300ms ease infinite 0ms;
+  animation: red TIME infinite;
 }
 
-.dot:nth-child(2) {
+.blue {
+  composes: dot;
   background-color: brand;
-  animation: fx 1300ms ease infinite 300ms;
+  animation: blue TIME infinite;
 }
 
-.dot:nth-child(3) {
+.green {
+  composes: dot;
   background-color: positive;
-  animation: fx 1300ms ease infinite 600ms;
+  animation: green TIME infinite;
 }
 
-.dot:nth-child(4) {
+.yellow {
+  composes: dot;
   background-color: battle;
-  animation: fx 1300ms ease infinite 900ms;
+  animation: yellow TIME infinite;
 }
 
-@keyframes fx {
+@keyframes scale {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+
+  15% {
+    transform: translate(-50%, -50%) scale(0.2);
+  }
+
+  33% {
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+
+  44% {
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+
   50% {
-    transform: scale(1);
-    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+
+  66% {
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+
+  77% {
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+
+  88% {
+    transform: translate(-50%, -50%) scale(0.3);
   }
 
   100% {
-    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes red {
+  0% {
+    transform: RED_INITIAL;
+  }
+
+  50% {
+    transform: RED_FINAL;
+    width: 10px;
+  }
+
+  100% {
+    transform: RED_INITIAL;
+  }
+}
+
+@keyframes blue {
+  0% {
+    transform: BLUE_INITIAL;
+  }
+
+  50% {
+    transform: BLUE_FINAL;
+    width: 10px;
+  }
+
+  100% {
+    transform: BLUE_INITIAL;
+  }
+}
+
+@keyframes yellow {
+  0% {
+    transform: YELLOW_INITIAL;
+  }
+
+  50% {
+    transform: YELLOW_FINAL;
+    width: 10px;
+  }
+
+  100% {
+    transform: YELLOW_INITIAL;
+  }
+}
+
+@keyframes green {
+  0% {
+    transform: GREEN_INITIAL;
+  }
+
+  50% {
+    transform: GREEN_FINAL;
+    width: 10px;
+  }
+
+  100% {
+    transform: GREEN_INITIAL;
   }
 }
