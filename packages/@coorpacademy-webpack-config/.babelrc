@@ -1,49 +1,20 @@
 {
   "presets": [
-    "stage-1"
+    "stage-1",
+    [
+      "env",
+      {
+        "targets": {
+          "node": true
+        },
+        "loose": true
+      }
+    ]
   ],
   "env": {
-    "commonjs": {
-      "presets": [
-        [
-          "env",
-          {
-            "targets": {
-              "node": true
-            },
-            "loose": true
-          }
-        ]
-      ]
-    },
     "test": {
-      "presets": [
-        [
-          "env",
-          {
-            "targets": {
-              "node": true
-            },
-            "loose": true
-          }
-        ]
-      ],
       "plugins": [
         "istanbul"
-      ]
-    },
-    "es": {
-      "presets": [
-        [
-          "env",
-          {
-            "targets": {
-              "node": true
-            },
-            "modules": false,
-            "loose": true
-          }
-        ]
       ]
     }
   }
