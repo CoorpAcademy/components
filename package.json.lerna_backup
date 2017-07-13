@@ -1,0 +1,97 @@
+{
+  "scripts": {
+    "ava": "cross-env NODE_ENV=test ava",
+    "bootstrap": "lerna bootstrap --hoist",
+    "build": "lerna run build",
+    "clean": "lerna run clean && lerna clean --yes",
+    "codecov": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "doc": "lerna run --scope @coorpacademy/components doc",
+    "flow": "flow check",
+    "generate": "lerna exec --scope @coorpacademy/components -- npm run generate",
+    "init-component": "lerna exec --scope @coorpacademy/components -- npm run init-component",
+    "lerna": "lerna",
+    "lint": "npm run eslint && npm run stylelint",
+    "lint:fix": "npm run eslint:fix && npm run stylelint:fix",
+    "eslint": "eslint packages/ *.js *.json --ext .js,.json",
+    "eslint:fix": "npm run eslint -- --fix",
+    "stylelint": "stylelint '**/*.css'",
+    "stylelint:fix": "npm run stylelint -- --fix",
+    "nyc": "cross-env NODE_ENV=test nyc npm run ava",
+    "postinstall": "npm run bootstrap",
+    "publish:beta": "lerna publish --npm-tag beta",
+    "publish:canary": "lerna publish --canary --skip-git",
+    "publish:latest": "lerna publish --exact",
+    "start:angular": "lerna exec --scope @coorpacademy/treantjs-adapter-angular -- npm start",
+    "start:components": "lerna run --parallel --scope @coorpacademy/components start",
+    "start:app-player": "concurrently \"lerna exec --scope @coorpacademy/components -- npm run build:es -- --watch\" \"lerna exec --scope @coorpacademy/progression-engine -- npm run build:es -- --watch\" \"lerna run --scope @coorpacademy/app-player start\"",
+    "prestatic": "rimraf static",
+    "static": "lerna run --scope @coorpacademy/components --scope @coorpacademy/app-player static -- --production",
+    "poststatic": "mkdirp static && cp -r packages/@coorpacademy-components/static static/components && cp -r packages/@coorpacademy-app-player/static static/app-player",
+    "test": "npm run lint && npm run flow && npm run nyc"
+  },
+  "devDependencies": {
+    "@ava/babel-preset-stage-4": "^1.1.0",
+    "@coorpacademy/eslint-plugin-coorpacademy": "^6.0.1",
+    "ava": "^0.20.0",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-flow": "^6.23.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
+    "babel-register": "^6.24.1",
+    "codecov": "^2.2.0",
+    "concurrently": "^3.5.0",
+    "cross-env": "^5.0.0",
+    "eslint": "^4.1.1",
+    "eslint-plugin-css-modules": "^2.7.1",
+    "eslint-plugin-flowtype": "^2.34.0",
+    "eslint-plugin-flowtype-errors": "^3.3.0",
+    "eslint-plugin-react": "^7.0.1",
+    "flow-bin": "^0.47.0",
+    "lerna": "^2.0.0-rc.5",
+    "mkdirp": "^0.5.1",
+    "nyc": "^11.0.1",
+    "rimraf": "^2.6.1",
+    "stylelint": "^8.0.0"
+  },
+  "ava": {
+    "concurrency": 8,
+    "files": [
+      "**/test/**/*.js"
+    ],
+    "require": [
+      "babel-register",
+      "babel-polyfill",
+      "./test/helpers/throw-warning"
+    ],
+    "babel": {
+      "presets": [
+        "@ava/stage-4",
+        "stage-1",
+        "flow",
+        "react"
+      ]
+    }
+  },
+  "nyc": {
+    "include": [
+      "packages/**/src/**"
+    ],
+    "reporter": [
+      "lcov",
+      "text-summary"
+    ],
+    "exclude": [
+      "packages/**/test/**",
+      "packages/**/dist/**",
+      "packages/**/es/**",
+      "packages/**/lib/**",
+      "packages/**/static/**",
+      "packages/@coorpacademy-nova-icons/**"
+    ],
+    "cache": true,
+    "require": "babel-register",
+    "sourceMap": false,
+    "instrument": false,
+    "all": true
+  }
+}
