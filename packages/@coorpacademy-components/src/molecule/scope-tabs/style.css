@@ -9,7 +9,7 @@
   list-style: none;
   list-style-position: outside;
   margin: 0;
-  padding:0;
+  padding: 0;
 }
 
 .tab {
@@ -59,7 +59,7 @@
   border-width: 18px 0 18px 14px;
 }
 
-.currentTab:last-child:after {
+.currentTab:last-child::after {
   display: none;
 }
 

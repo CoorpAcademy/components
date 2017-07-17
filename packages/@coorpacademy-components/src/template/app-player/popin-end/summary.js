@@ -52,7 +52,7 @@ const NextCourse = ({title, description, prefix, card}) =>
         {title}
       </div>
     </div>
-    <div className={style.nextCourseCard}>
+    <div>
       <Card {...card} />
     </div>
   </div>;
@@ -72,7 +72,7 @@ const Subscribe = ({title, description, button, card}) => {
           <Button className={style.subscribeButton} {...linkProps} submitValue={buttonTitle} />
         </div>
       </div>
-      <div className={style.subscribeCard}>
+      <div>
         <Card {...card} />
       </div>
     </div>

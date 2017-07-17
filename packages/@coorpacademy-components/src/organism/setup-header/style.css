@@ -2,7 +2,6 @@
 @value mobile from breakpoints;
 @value tablet from breakpoints;
 @value desktop from breakpoints;
-
 @value colors: "../../variables/colors.css";
 @value light from colors;
 @value medium from colors;

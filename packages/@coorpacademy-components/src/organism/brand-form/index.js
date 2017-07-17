@@ -63,7 +63,7 @@ function BrandForm(props, context) {
   };
 
   return (
-    <div className={style.wrapper}>
+    <div>
       {backView}
       <form onSubmit={handleSubmit} onReset={handleReset}>
         {brandGroups}

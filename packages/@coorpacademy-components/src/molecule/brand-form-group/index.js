@@ -73,7 +73,7 @@ const BrandFormGroup = props => {
         <h3>{title}</h3>
         <h4>{subtitle}</h4>
       </div>
-      <div className={fieldsLayout === 'grid' ? style.grid : style.list}>
+      <div className={fieldsLayout === 'grid' ? style.grid : null}>
         {fieldsList}
       </div>
     </div>

@@ -2,7 +2,6 @@
 @value mobile from breakpoints;
 @value tablet from breakpoints;
 @value desktop from breakpoints;
-
 @value colors: "../../variables/colors.css";
 @value white from colors;
 @value dark from colors;
@@ -18,7 +17,6 @@
   text-transform: uppercase;
   z-index: 800;
   padding: 0 15px;
-
   display: flex;
   align-items: center;
   justify-content: space-between;

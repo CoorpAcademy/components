@@ -9,7 +9,6 @@
 @value white from colors;
 @value primaryAdd2 from colors;
 @value medium from colors;
-
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
 @value tablet from breakpoints;
@@ -40,7 +39,9 @@
   height: 40px;
 }
 
-.cardNumber, .cardExpiry, .cardCvc {
+.cardNumber,
+.cardExpiry,
+.cardCvc {
   border: 1px solid medium;
   padding: 20px 10px;
 }
@@ -49,7 +50,8 @@
   flex: 1;
 }
 
-.cardExpiry, .cardCvc {
+.cardExpiry,
+.cardCvc {
   min-width: 45%;
 }
 
@@ -71,7 +73,7 @@
 }
 
 .creditCardOwnerEmailSeparator {
-  margin: 0px 40px;
+  margin: 0 40px;
   border: solid 1px xtraLightGrey;
   border-bottom: none;
 }

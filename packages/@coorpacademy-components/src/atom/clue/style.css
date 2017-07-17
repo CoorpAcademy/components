@@ -6,7 +6,6 @@
 @value white from colors;
 @value medium from colors;
 @value brand from colors;
-
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
 

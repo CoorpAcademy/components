@@ -1,6 +1,5 @@
 @value breakpoints: "../../../variables/breakpoints.css";
 @value mobile from breakpoints;
-
 @value colors: "../../../variables/colors.css";
 @value medium from colors;
 @value dark from colors;
@@ -12,7 +11,7 @@
 
 .wrapper {
   position: relative;
-  box-shadow: 0 0 4px 5px rgba(0,0,0,0.04);
+  box-shadow: 0 0 4px 5px rgba(0, 0, 0, 0.04);
   border-radius: 3px;
   display: flex;
   flex-direction: column;
@@ -28,7 +27,6 @@
   padding: 36px 32px 32px;
   width: 100%;
   box-sizing: border-box;
-  position: relative;
 }
 
 .error {
@@ -67,7 +65,7 @@
   z-index: 1;
   height: 4px;
   border-radius: 3px;
-  border-bottom-left-radius: 0px;
+  border-bottom-left-radius: 0;
   transition: width 0.2s linear;
 }
 
@@ -89,9 +87,6 @@
   border-bottom-left-radius: 12px;
 }
 
-.stepCount span {
-}
-
 .guideWrapper {
   composes: infos;
   left: 0;
@@ -104,7 +99,7 @@
   margin-right: 5px;
 }
 
-.guideWrapper:after {
+.guideWrapper::after {
   display: inline-block;
   content: '⨠';
   transform: rotate(90deg);

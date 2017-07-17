@@ -2,7 +2,6 @@
 @value mobile from breakpoints;
 @value tablet from breakpoints;
 @value desktop from breakpoints;
-
 @value colors: "../../../variables/colors.css";
 @value white from colors;
 @value medium from colors;
@@ -41,7 +40,6 @@
   position: relative;
   border: 1px solid battle;
   text-decoration: none;
-  cursor: pointer;
 }
 
 .button:hover .bubble {
@@ -57,23 +55,23 @@
   margin: 5px;
 }
 
-.animate:after {
+.animate::after {
   animation: pulse 2s linear 0s infinite;
 }
 
-.animate:before {
+.animate::before {
   animation: pulse 2s linear 1s infinite;
 }
 
-.animate:after,
-.animate:before {
+.animate::after,
+.animate::before {
   content: '';
   width: 150px;
   height: 150px;
   top: 0;
   left: 0;
   position: absolute;
-  box-shadow: inset 0 0 7px 0px rgba(255, 225, 0, 0.37);
+  box-shadow: inset 0 0 7px 0 rgba(255, 225, 0, 0.37);
   border-radius: 50%;
   transform: scale(1);
 }
@@ -146,10 +144,12 @@
     transform: scale(1);
     opacity: 1;
   }
+
   50% {
     transform: scale(2);
     opacity: 1;
   }
+
   100% {
     transform: scale(3);
     opacity: 0;

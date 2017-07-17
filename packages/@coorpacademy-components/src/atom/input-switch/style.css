@@ -18,7 +18,6 @@
   height: 30px;
   position: relative;
   flex-grow: 0;
-  position: relative;
   display: block;
   width: 52px;
   background: medium;
@@ -27,7 +26,7 @@
   transition: all 0.3s ease;
 }
 
-.default label:after {
+.default label::after {
   position: absolute;
   left: 1px;
   top: 1px;
@@ -36,12 +35,12 @@
   height: 28px;
   border-radius: 100px;
   background: white;
-  box-shadow: 0px 3px 3px rgba(0,0,0,0.05);
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.05);
   content: '';
   transition: all 0.3s ease;
 }
 
-.modified label:after {
+.modified label::after {
   position: absolute;
   left: 1px;
   top: 1px;
@@ -50,7 +49,7 @@
   height: 28px;
   border-radius: 100px;
   background: orange;
-  box-shadow: 0px 3px 3px rgba(0,0,0,0.05);
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.05);
   content: '';
   transition: all 0.3s ease;
 }
@@ -59,7 +58,7 @@
   display: none;
 }
 
-.checkbox:active:after {
+.checkbox:active::after {
   transform: scale(1.15, 0.85);
 }
 
@@ -67,7 +66,7 @@
   background: positive;
 }
 
-.default input:checked ~ label:after {
+.default input:checked ~ label::after {
   left: 23px;
 }
 
@@ -76,7 +75,7 @@
   pointer-events: none;
 }
 
-.checkbox:disabled ~ label:after {
+.checkbox:disabled ~ label::after {
   background: medium;
 }
 

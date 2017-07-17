@@ -44,10 +44,10 @@ const Breadcrumbs = props => {
 
   return (
     <div className={style.wrapper}>
-      <div className={style.breadcrumbs}>
+      <div>
         {breadcrumbsList}
       </div>
-      <div className={style.links}>
+      <div>
         {linksList}
       </div>
     </div>

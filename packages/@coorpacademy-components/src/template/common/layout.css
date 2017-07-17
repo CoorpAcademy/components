@@ -8,7 +8,6 @@
   max-width: 1280px;
   padding: 0 20px;
   margin: auto;
-
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -33,7 +32,7 @@
   position: relative;
   font-family: "Open Sans";
   font-size: 20px;
-  color: #37474F;
+  color: #37474f;
   font-weight: 800;
   margin-bottom: 20px;
 }
@@ -52,10 +51,6 @@
     margin-left: 0;
     margin-top: 30px;
   }
-}
-
-@media tablet {
-
 }
 
 @media mobile {

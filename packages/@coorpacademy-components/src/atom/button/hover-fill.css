@@ -8,7 +8,7 @@
   overflow: hidden;
 }
 
-.hoverFill:before {
+.hoverFill::before {
   content: "";
   position: absolute;
   top: 0;
@@ -19,12 +19,12 @@
   transform: scaleX(0) skewX(70deg);
   transform-origin: 50%;
   transition-property: transform;
-  transition-duration: .3s;
+  transition-duration: 0.3s;
   transition-timing-function: ease-out;
 }
 
-.hoverFill:hover:before,
-.hoverFill:focus:before,
-.hoverFill:active:before {
+.hoverFill:hover::before,
+.hoverFill:focus::before,
+.hoverFill:active::before {
   transform: scaleX(2) skewX(25deg);
 }

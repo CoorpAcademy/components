@@ -3,10 +3,6 @@
 @value brand from colors;
 @value light from colors;
 
-.wrapper {
-
-}
-
 .back {
   margin-bottom: 30px;
 }
@@ -42,7 +38,8 @@
 .buttons {
   display: flex;
   justify-content: flex-end;
-  /*border-top: 1px solid #E0E0E0;*/
+
+  /* border-top: 1px solid #E0E0E0; */
   padding-top: 50px;
 }
 

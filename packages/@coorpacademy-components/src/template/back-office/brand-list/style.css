@@ -3,7 +3,6 @@
 @value tablet from breakpoints;
 @value desktop from breakpoints;
 
-
 .container {
   padding: 40px 0 0;
 }

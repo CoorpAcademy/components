@@ -1,5 +1,4 @@
 @value time: 0.3s;
-
 @value colors: "../../../variables/colors.css";
 @value medium from colors;
 @value orangeAdd from colors;
@@ -17,6 +16,7 @@
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -91,7 +91,8 @@
   color: #333;
 }
 
-/*----------------------------------------------------------------------------*/
+/* ---------------------------------------------------------------------------- */
+
 /* comments */
 
 .comment {

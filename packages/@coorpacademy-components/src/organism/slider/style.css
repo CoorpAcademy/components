@@ -48,7 +48,7 @@
   opacity: 1;
 }
 
-.control:before {
+.control::before {
   font-size: 30px;
   display: flex;
   align-items: center;
@@ -60,7 +60,7 @@
   left: 20px;
 }
 
-.leftControl:before {
+.leftControl::before {
   margin-right: 5px;
 }
 
@@ -69,12 +69,11 @@
   right: 20px;
 }
 
-.rightControl:before {
+.rightControl::before {
   margin-left: 5px;
 }
 
 @media mobile {
-
   .control {
     display: none;
   }
