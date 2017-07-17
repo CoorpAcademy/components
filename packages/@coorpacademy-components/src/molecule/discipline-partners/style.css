@@ -48,7 +48,7 @@
   color: dark;
   border: 1px solid xtraLightGrey;
   border-bottom: 0;
-  padding: 20px;
+  padding: 8px;
   text-align: center;
   box-sizing: border-box;
   background-color: white;
@@ -60,6 +60,7 @@
 
 .logo {
   max-width: 100%;
+  width: 100%;
 }
 
 .authorContent {
@@ -80,10 +81,6 @@
 
 .authorWrapper {
   margin-bottom: 30px;
-}
-
-.logo {
-  width: 50%;
 }
 
 .colDetails {

@@ -498,8 +498,11 @@
   }
 
   .logoMobile img {
-    height: 100%;
+    height: auto;
     width: auto;
+    max-height: 50px;
+    max-width: 100px; 
+    display: block;
   }
 
   .logoMobile .notifications {

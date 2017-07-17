@@ -193,6 +193,8 @@ import LoaderFixtureDefault from '../src/atom/loader/test/fixtures/default';
 import NotificationFixtureDefault from '../src/atom/notification/test/fixtures/default';
 import NotificationFixtureError from '../src/atom/notification/test/fixtures/error';
 import NotificationFixtureWarning from '../src/atom/notification/test/fixtures/warning';
+import PictureBackgroundFixtureContain from '../src/atom/picture-background/test/fixtures/contain';
+import PictureBackgroundFixtureCover from '../src/atom/picture-background/test/fixtures/cover';
 import PictureBackgroundFixtureDefault from '../src/atom/picture-background/test/fixtures/default';
 import PictureBackgroundFixtureDesktop from '../src/atom/picture-background/test/fixtures/desktop';
 import PictureFixtureDefault from '../src/atom/picture/test/fixtures/default';
@@ -796,6 +798,8 @@ export const fixtures = {
       Warning: NotificationFixtureWarning
     },
     PictureBackground: {
+      Contain: PictureBackgroundFixtureContain,
+      Cover: PictureBackgroundFixtureCover,
       Default: PictureBackgroundFixtureDefault,
       Desktop: PictureBackgroundFixtureDesktop
     },

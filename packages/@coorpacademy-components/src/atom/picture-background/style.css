@@ -15,21 +15,23 @@
     height: 100%;
 }
 
-.default {
+.picture , .default{
     display: block;
-    background-size: cover;
+    background-repeat: no-repeat;
     background-position: 50% 50%; 
     width: 100%;
     height: 100%;
 }
-
-.mobile, .desktop {
-    background-size: cover; 
-    background-position: 50% 50%;
+.cover {
+  background-size: cover;
+}
+.contain {
+  background-size: contain;
+}
+.mobile , .desktop{
     width: 100%;
     height: 100%;
 }
-
 .mobile{
   display: none;
 }
@@ -42,13 +44,16 @@
   .mobile {
     display: none;
   }
+  .desktop {
+    display: block;
+  }
 }
 
 @media tablet {
 
 }
 
-@media mobile {
+@media all and mobile {
   .mobile {
     display: block;
   }
