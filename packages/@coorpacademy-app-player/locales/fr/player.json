@@ -5,7 +5,7 @@
   "Clue": "Indice",
   "Coach": "Coach",
   "Congratulations!": "Félicitations !",
-  "Correct answer": "Bonne réponse : ",
+  "Correct answer": "Bonne réponse :",
   "Did you know that?": "Le saviez vous ?",
   "Good answer": "Bonne réponse",
   "Good job": "Bien fait",
@@ -16,12 +16,9 @@
   "Ouch": "Aïe...",
   "Related subjects": "Sujets connexes :",
   "Retry level": "Recommencer le niveau",
-  "Retry level:": "Recommencer le niveau :",
-  "See course:": "Voir le cours :",
   "Select something below": "Sélectionner la ou les option(s) correcte(s) ci-dessous",
   "Type here": "Saisissez ici",
   "Validate": "Valider",
-  "Validate your skills!": "Validez vos compétences !",
   "Wrong answer": "Mauvaise réponse",
   "You are missing lives!": "Vous n'avez plus d'essais possibles !"
 }
