@@ -5,6 +5,7 @@ import keys from 'lodash/fp/keys';
 import LockIcon from '@coorpacademy/nova-icons/solid/locks/lock-1';
 import ClockIcon from '@coorpacademy/nova-icons/composition/coorpacademy/clock';
 import AdaptivIcon from '@coorpacademy/nova-icons/composition/coorpacademy/adaptive';
+import TimerIcon from '@coorpacademy/nova-icons/composition/coorpacademy/timer';
 import Loader from '../../atom/loader';
 import Provider from '../../atom/provider';
 import style from './style.css';
@@ -31,6 +32,7 @@ const Card = (props, context) => {
     image,
     time,
     adaptiv,
+    freerun,
     disabled,
     type,
     title,
@@ -58,6 +60,11 @@ const Card = (props, context) => {
       </div>
     : null;
 
+  const freeRunIcon = freerun
+    ? <div className={style.timerIconWrapper}>
+        <TimerIcon className={style.freerunIcon} color={mediumColor} background={defaultColor} />
+      </div>
+    : null;
   const adaptivIcon = adaptiv ? <AdaptivBubble color="white" background={defaultColor} /> : null;
   const lock = disabled
     ? <LockIcon color={darkColor} className={style.lock} outline={mediumColor} />
@@ -78,6 +85,7 @@ const Card = (props, context) => {
         >
           {loader}
           <div className={style.ctaWrapper} onClick={!disabled && onClick}>
+            {freeRunIcon}
             {adaptivIcon}
             {timer}
           </div>
@@ -117,6 +125,7 @@ Card.propTypes = {
   time: PropTypes.string,
   disabled: PropTypes.bool,
   adaptiv: PropTypes.bool,
+  freerun: PropTypes.bool,
   type: PropTypes.string,
   title: PropTypes.string,
   author: PropTypes.string,
