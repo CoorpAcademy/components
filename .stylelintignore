@@ -1,0 +1,11 @@
+node_modules
+*-debug.log*
+lib
+es
+static
+dist
+.nyc_output
+coverage
+.vscode
+.idea
+package-lock.json
