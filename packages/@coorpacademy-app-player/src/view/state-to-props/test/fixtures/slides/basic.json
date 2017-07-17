@@ -48,6 +48,20 @@
         "src":[]
       }
     },
-    "medias":[]
+    "medias": [
+      {
+        "type": "img",
+        "_id": "593eb72a187bd18c01283591",
+        "subtitles": [],
+        "posters": [],
+        "src": [
+          {
+            "mimeType": "image/jpeg",
+            "url": "//static.coorpacademy.com/content/ijoinchanel/en/slides/1B2_Q6/1B2-Q6-canap-v1.jpg",
+            "_id": "593eb72a187bd18c01283592"
+          }
+        ]
+      }
+    ]
   }
 }
