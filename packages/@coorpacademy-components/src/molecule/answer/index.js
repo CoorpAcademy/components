@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Picture from '../../atom/picture';
 import DropDown from '../../molecule/questions/drop-down';
 import FreeText from '../../molecule/questions/free-text';
 import Picker from '../../molecule/questions/picker';
@@ -8,8 +9,16 @@ import QcmImage from '../../molecule/questions/qcm-image';
 import QuestionRange from '../../molecule/questions/question-range';
 import style from './style.css';
 
+const MediaView = ({media}) => {
+  return (
+    <div className={style.media}>
+      <Picture className={style.picture} src={media} />
+    </div>
+  );
+};
+
 const Answer = props => {
-  const {model} = props;
+  const {model, media} = props;
 
   const buildAnswer = () => {
     const {type} = model;
@@ -32,8 +41,11 @@ const Answer = props => {
   const answerView = buildAnswer(model);
 
   return (
-    <div className={style.wrapper}>
-      {answerView}
+    <div>
+      {media ? <MediaView media={media} /> : null}
+      <div className={style.wrapper}>
+        {answerView}
+      </div>
     </div>
   );
 };
@@ -41,7 +53,8 @@ const Answer = props => {
 Answer.propTypes = {
   model: PropTypes.shape({
     type: PropTypes.oneOf(['picker', 'qcm', 'qcmImage', 'freeText', 'dropDown', 'range']).required
-  })
+  }),
+  media: PropTypes.string
 };
 
 export default Answer;
