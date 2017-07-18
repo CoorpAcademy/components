@@ -9,6 +9,6 @@ export default {
       height: '300px',
       position: 'absolute'
     },
-    view: 'cover'
+    view: 'contain'
   }
 };

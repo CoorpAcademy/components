@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import find from 'lodash/fp/find';
 import getOr from 'lodash/fp/getOr';
 import get from 'lodash/fp/get';
+import isEmpty from 'lodash/fp/isEmpty';
 import ArrowDown from '@coorpacademy/nova-icons/composition/navigation/arrow-down';
 import StarIcon from '@coorpacademy/nova-icons/composition/coorpacademy/star';
 import ChartsIcon from '@coorpacademy/nova-icons/composition/coorpacademy/charts';
@@ -152,6 +153,7 @@ class MoocHeader extends React.Component {
 
   render() {
     const {logo = {}, themes, pages, settings, user, slider, links} = this.props;
+    if (isEmpty(this.props)) return null;
     const {translate, skin} = this.context;
 
     const logoUrl = get('src', logo) || get('images.logo', skin);
