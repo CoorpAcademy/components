@@ -142,6 +142,7 @@
   justify-content: center;
   background-color: light;
   transition: flex-grow 0.3s;
+  text-decoration: none;
   color: medium;
   flex: 1;
 }
@@ -158,7 +159,6 @@
   border-radius: none;
   border: none;
   outline: none;
-  text-decoration: none;
   transition: color 0.3s;
 }
 
