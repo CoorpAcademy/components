@@ -67,7 +67,7 @@ class CTA extends React.Component {
           backgroundColor: this.state.hovered ? hoverBackgroundColor : backgroundColor,
           borderColor: this.state.hovered ? hoverBorderColor : borderColor,
           height: small ? '32px' : '42px',
-          lineHeight: small ? '32px' : '42px',
+          lineHeight: small ? '28px' : '38px',
           borderRadius: small ? '18px' : '23px',
           color: this.state.hovered ? hoverTextColor : textColor
         }}

@@ -2,7 +2,7 @@
   border-width: 2px;
   border-style: solid;
   display: inline-block;
-  box-sizing: content-box;
+  box-sizing: border-box;
   font-family: 'Open Sans';
   font-size: 13px;
   font-weight: 600;

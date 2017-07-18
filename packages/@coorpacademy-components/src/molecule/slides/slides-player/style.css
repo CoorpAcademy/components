@@ -161,6 +161,7 @@
 
   .contentWrapper {
     padding: 32px 16px 16px;
+    margin-bottom: 80px;
     overflow-y: auto;
   }
 
