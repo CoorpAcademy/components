@@ -2,7 +2,6 @@
 @value desktop from breakpoints;
 @value tablet from breakpoints;
 @value mobile from breakpoints;
-
 @value colors: "../../variables/colors.css";
 @value light from colors;
 @value grey from colors;
@@ -40,6 +39,7 @@
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -107,8 +107,7 @@
   margin: -2px 2px 0 0;
 }
 
-.timer:before {
-  font-size: 14px;
+.timer::before {
   font: normal normal normal 14px/1 FontAwesome;
   color: dark;
   margin-right: 5px;
@@ -186,6 +185,7 @@
   color: dark;
   letter-spacing: 0;
 }
+
 .title a {
   color: dark;
   text-decoration: none;
@@ -212,17 +212,7 @@
   }
 }
 
-@media desktop {
-
-}
-
-@media tablet {
-
-}
-
 @media mobile {
-  .grid .default {
-  }
   .grid .title a {
     font-size: 15px;
   }
@@ -239,8 +229,7 @@
     width: 100%;
     height: 120px;
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
+    flex-flow: row nowrap;
     position: relative;
   }
 

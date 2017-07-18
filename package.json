@@ -10,8 +10,12 @@
     "generate": "lerna exec --scope @coorpacademy/components -- npm run generate",
     "init-component": "lerna exec --scope @coorpacademy/components -- npm run init-component",
     "lerna": "lerna",
-    "lint": "eslint packages/ *.js *.json --ext .js,.json",
-    "lint:fix": "npm run lint -- --fix",
+    "lint": "npm run eslint && npm run stylelint",
+    "lint:fix": "npm run eslint:fix && npm run stylelint:fix",
+    "eslint": "eslint packages/ *.js *.json --ext .js,.json",
+    "eslint:fix": "npm run lint -- --fix",
+    "stylelint": "stylelint '**/*.css'",
+    "stylelint:fix": "npm run stylelint -- --fix",
     "nyc": "cross-env NODE_ENV=test nyc npm run ava",
     "postinstall": "npm run bootstrap",
     "publish:beta": "lerna publish --npm-tag beta",
@@ -46,7 +50,8 @@
     "lerna": "^2.0.0-rc.5",
     "mkdirp": "^0.5.1",
     "nyc": "^11.0.1",
-    "rimraf": "^2.6.1"
+    "rimraf": "^2.6.1",
+    "stylelint": "^8.0.0"
   },
   "ava": {
     "concurrency": 8,

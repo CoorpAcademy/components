@@ -11,7 +11,7 @@
   text-transform: inherit;
 }
 
-.button:before {
+.button::before {
   background-color: white;
   opacity: 0.15;
 }

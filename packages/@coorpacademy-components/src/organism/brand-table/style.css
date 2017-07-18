@@ -33,22 +33,6 @@
   background-color: color(lightGreen lightness(60%));
 }
 
-.search {
-
-}
-
-.pagination {
-
-}
-
-.tableWrapper {
-
-}
-
-.footerWrapper {
-
-}
-
 .loading {
   position: relative;
   height: 200px;

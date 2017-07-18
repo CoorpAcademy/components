@@ -27,7 +27,7 @@ const QCM = (props, context) => {
   });
 
   return (
-    <div className={style.wrapper}>
+    <div>
       {answersViews}
     </div>
   );

@@ -33,7 +33,7 @@ const Picker = (props, context) => {
   const emptyView = <span>{translate('Select the correct option(s) below')}</span>;
 
   return (
-    <div className={style.wrapper}>
+    <div>
       <div className={selectedAnswersViews ? style.selectedAnswers : style.emptyAnswers}>
         {selectedAnswersViews || emptyView}
       </div>

@@ -2,7 +2,6 @@
 @value mobile from breakpoints;
 @value tablet from breakpoints;
 @value desktop from breakpoints;
-
 @value colors: "../../../variables/colors.css";
 @value black from colors;
 @value light from colors;
@@ -20,15 +19,15 @@
   display: block;
   width: 100%;
 }
+
 .header {
-    display: flex;
-    padding-top: 32px;
-    box-sizing: border-box;
+  display: flex;
+  padding-top: 32px;
+  box-sizing: border-box;
 }
 
 .imgWrapper {
   display: flex;
-  margin: 0 0 0 16px;
   justify-content: center;
   align-items: center;
   flex: 0 0 380px;
@@ -40,7 +39,7 @@
   background-color: white;
   min-height: 180px;
   line-height: 180px;
-  margin: 0px;
+  margin: 0;
   padding: 8px;
 }
 
@@ -100,12 +99,12 @@
 }
 
 .title {
-  margin-top: 0px;
+  margin-top: 0;
 }
 
 .cardsTitle {
-    width: 100%;
-    padding-left: 16px;
+  width: 100%;
+  padding-left: 16px;
 }
 
 .descWrapper {
@@ -118,7 +117,7 @@
   font-family: "Open Sans";
   font-size: 15px;
   color: black;
-  letter-spacing: 0px;
+  letter-spacing: 0;
   line-height: 22px;
   margin-top: 16px;
 }
@@ -190,7 +189,7 @@
     flex: none;
     height: auto;
     text-align: center;
-    margin: 16px 16px 0 16px;
+    margin: 16px 16px 0;
     min-height: auto;
     line-height: 0;
   }
@@ -205,8 +204,7 @@
 
   .descWrapper {
     display: block;
-    padding-left: 0;
-    padding: 0 16px;
+    padding: 0 16px 0 0;
   }
 
   .desc,

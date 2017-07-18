@@ -2,7 +2,6 @@
 @value black from colors;
 @value xtraLightGrey from colors;
 @value dark from colors;
-
 @value handleSize: 30px;
 @value handlePosition: translate3d(-15px,-13px,0);
 
@@ -25,10 +24,10 @@
   text-align: center;
   user-select: none;
   width: auto;
-  padding: 0px 7px;
+  padding: 0 7px;
   border-radius: 25px;
   display: table;
-  margin: 0px auto 15px;
+  margin: 0 auto 15px;
 }
 
 .bigTitle {

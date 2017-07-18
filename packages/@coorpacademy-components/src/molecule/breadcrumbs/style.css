@@ -6,18 +6,14 @@
 @value xtraLightGrey from colors;
 
 .wrapper {
- width: 100%;
- display: flex;
- justify-content: space-between;
- padding: 0 40px;
- height: 80px;
- box-sizing: border-box;
- background-color: xtraLightGrey;
- align-items: center;
-}
-
-.breadcrumbs {
-
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 40px;
+  height: 80px;
+  box-sizing: border-box;
+  background-color: xtraLightGrey;
+  align-items: center;
 }
 
 .breadcrumb {
@@ -44,18 +40,14 @@
   color: medium;
 }
 
-.breadcrumb:last-child:after {
+.breadcrumb:last-child::after {
   content: '';
 }
 
-.breadcrumb:after {
+.breadcrumb::after {
   content: '⟩';
   color: medium;
   margin-left: 10px;
-}
-
-.links {
-
 }
 
 .link {
@@ -84,7 +76,7 @@
   background-color: brand;
 }
 
-.primary a:before {
+.primary a::before {
   background-color: color(brand lightness(70%));
 }
 
@@ -96,6 +88,6 @@
   background-color: lightGreen;
 }
 
-.secondary a:before {
+.secondary a::before {
   background-color: color(lightGreen lightness(50%));
 }

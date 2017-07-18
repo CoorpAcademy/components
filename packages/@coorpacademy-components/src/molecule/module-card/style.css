@@ -1,6 +1,5 @@
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
-
 @value colors: "../../variables/colors.css";
 @value white from colors;
 @value black from colors;
@@ -12,7 +11,7 @@
   margin: 5px;
   height: 80px;
   background-color: white;
-  box-shadow: 0 0 4px 1px rgba(0,0,0,0.10);
+  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1);
   border-radius: 3px;
   padding: 20px;
   box-sizing: border-box;

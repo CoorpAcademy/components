@@ -28,17 +28,17 @@ const BrandTable = props => {
         <div className={style.create}>
           <Link href={createHref}>+</Link>
         </div>
-        <div className={style.search}>
+        <div>
           <Search {...search} />
         </div>
-        <div className={style.pagination}>
+        <div>
           <Pagination {...pagination} />
         </div>
       </div>
-      <div className={style.tableWrapper}>
+      <div>
         {isPending ? pendingView : tableView}
       </div>
-      <div className={style.footerWrapper} />
+      <div />
     </div>
   );
 };

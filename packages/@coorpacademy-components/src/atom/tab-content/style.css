@@ -1,7 +1,6 @@
 @value colors: "../../variables/colors.css";
 @value brand from colors;
 @value xtraLightGrey from colors;
-
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
 @value tablet from breakpoints;
@@ -21,7 +20,7 @@
   font-weight: 600;
   border-bottom: solid 1px xtraLightGrey;
   padding: 20px;
-  margin: 0px 15px;
+  margin: 0 15px;
 }
 
 .contentDetails {

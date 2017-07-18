@@ -2,7 +2,6 @@
 @value mobile from breakpoints;
 @value tablet from breakpoints;
 @value desktop from breakpoints;
-
 @value colors: "../../variables/colors.css";
 @value dark from colors;
 @value light from colors;
@@ -25,7 +24,7 @@
   flex: 0 0 450px;
 }
 
-.linkImage{
+.linkImage {
   height: 100%;
   display: flex;
   align-items: center;
@@ -56,7 +55,6 @@
   height: 70px;
   overflow: hidden;
   white-space: nowrap;
-  overflow: hidden;
   text-overflow: ellipsis;
   text-decoration: none;
 }

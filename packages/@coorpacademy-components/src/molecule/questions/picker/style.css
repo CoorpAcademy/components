@@ -1,14 +1,10 @@
 @value breakpoints: "../../../variables/breakpoints.css";
 @value mobile from breakpoints;
-
 @value colors: "../../../variables/colors.css";
 @value xtraLightGrey from colors;
 @value light from colors;
 @value white from colors;
 @value black from colors;
-
-.wrapper {
-}
 
 .answers {
   width: 100%;
@@ -75,7 +71,6 @@
 }
 
 @media mobile {
-
   .selectedAnswers {
     min-height: auto;
   }

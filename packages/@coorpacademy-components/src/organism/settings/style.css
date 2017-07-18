@@ -3,19 +3,17 @@
 @value xtraLightGrey from colors;
 @value medium from colors;
 @value light from colors;
-
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
 @value tablet from breakpoints;
 
 .settings {
-    width: 90%;
-    max-width: 1175px;
-    margin-right: auto;
-    margin-left: auto;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+  width: 90%;
+  max-width: 1175px;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  flex-flow: row wrap;
 }
 
 .tabNavigation {
@@ -37,7 +35,7 @@
   border: solid 1px xtraLightGrey;
   color: medium;
   background: light;
-  display:inline;
+  display: inline;
   font-size: 17px;
   font-weight: 900;
   cursor: pointer;
@@ -72,7 +70,7 @@
     margin: 10px 0;
   }
 
-   .settings {
-      width: 100%;
+  .settings {
+    width: 100%;
   }
 }

@@ -1,10 +1,6 @@
 @value breakpoints: "../../../variables/breakpoints.css";
 @value mobile from breakpoints;
 
-.wrapper {
-
-}
-
 .input {
   font-family: "Open Sans";
   font-weight: 700;

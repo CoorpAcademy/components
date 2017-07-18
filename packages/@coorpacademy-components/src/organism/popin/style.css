@@ -1,6 +1,5 @@
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
-
 @value colors: "../../variables/colors.css";
 @value dark from colors;
 @value light from colors;
@@ -9,13 +8,13 @@
 .default {
   position: fixed;
   z-index: 20;
-  top:0;
+  top: 0;
   display: flex;
   width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
-  background: rgba(255,255,255,.7);
+  background: rgba(255, 255, 255, 0.7);
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
@@ -31,7 +30,7 @@
   margin: 100px -340px 200px;
   top: 0;
   left: 50%;
-  box-shadow: 0 0 15px 0 rgba(166,166,166,.84);
+  box-shadow: 0 0 15px 0 rgba(166, 166, 166, 0.84);
 }
 
 .header {
@@ -52,7 +51,8 @@
   box-sizing: border-box;
 }
 
-.content img, .content iframe {
+.content img,
+.content iframe {
   max-width: 100%;
 }
 

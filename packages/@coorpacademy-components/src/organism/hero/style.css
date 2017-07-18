@@ -17,7 +17,7 @@
   left: 50%;
   height: 3px;
   width: 0;
-  transition: all .2s ease-out;
+  transition: all 0.2s ease-out;
 }
 
 .label {

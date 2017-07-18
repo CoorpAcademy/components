@@ -12,7 +12,7 @@
   background-color: xtraLightGrey;
   border: 1px solid light;
   border-radius: 3px;
-  box-shadow: 0 0 1px 1px rgba(0,0,0,0.07);
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.07);
   overflow: hidden;
 }
 
@@ -111,10 +111,6 @@
   font-weight: 700;
 }
 
-.nextCourseCard {
-
-}
-
 @media mobile {
   .nextCourseTexts {
     width: 100%;
@@ -132,7 +128,6 @@
     font-size: 15px;
   }
 }
-
 
 /* ------------- subscribe */
 
@@ -167,10 +162,6 @@
   border-radius: 30px;
   text-transform: none;
   width: auto;
-}
-
-.subscribeCard {
-
 }
 
 @media tablet {

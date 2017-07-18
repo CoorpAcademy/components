@@ -20,7 +20,7 @@
 
 .no-label .label {
   display: block;
-  padding: 0px 30px 0px 10px;
+  padding: 0 30px 0 10px;
   font-size: 14px;
   border: 1px solid xtraLightGrey;
   background: white;
@@ -41,7 +41,7 @@
   font-size: 15px;
   color: black;
   font-weight: normal;
-  margin-left: 0px;
+  margin-left: 0;
   width: 230px;
   cursor: pointer;
   background: white;
@@ -55,6 +55,7 @@
     margin-left: 0;
     border-radius: 0;
   }
+
   .no-label label {
     display: block;
     margin-right: 0;

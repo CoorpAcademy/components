@@ -1,9 +1,6 @@
 @value breakpoints: "../../../variables/breakpoints.css";
 @value mobile from breakpoints;
 
-.wrapper {
-}
-
 @media mobile {
   .wrapper {
     width: 100%;

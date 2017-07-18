@@ -1,7 +1,6 @@
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
 @value tablet from breakpoints;
-
 @value colors: "../../variables/colors.css";
 @value xtraLightGrey from colors;
 @value brand from colors;
@@ -19,12 +18,12 @@
   border: solid 2px light;
   position: relative;
   border-radius: 3px;
-  box-shadow: 0 6px 12px rgba(0,0,0,.175);
-  text-transform: initial ;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  text-transform: initial;
   background-color: white;
 }
 
-.list:before {
+.list::before {
   display: block;
   top: -17px;
   left: 50px;
@@ -34,7 +33,7 @@
   width: 0;
   position: absolute;
   pointer-events: none;
-  border-color: rgba(0,0,0,0);
+  border-color: rgba(0, 0, 0, 0);
   border-bottom-color: light;
   border-width: 8px;
   margin-left: -8px;
@@ -54,7 +53,7 @@
   color: dark;
   text-decoration: none;
   padding: 20px;
-  display: inline-block;;
+  display: inline-block;
   vertical-align: middle;
   text-transform: initial;
   width: 100%;
@@ -73,7 +72,6 @@
 .item:last-child:hover {
   border-color: brand;
 }
-
 
 @media tablet {
   .list {

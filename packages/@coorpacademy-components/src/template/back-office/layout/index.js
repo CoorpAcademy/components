@@ -5,7 +5,7 @@ import style from './style.css';
 const createLayout = Template => {
   return function Layout(props) {
     return (
-      <div className={style.container}>
+      <div>
         <Header {...props.header} />
         <div className={style.contentWrapper}>
           <Template {...props} />

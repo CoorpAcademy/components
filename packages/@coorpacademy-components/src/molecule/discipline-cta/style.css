@@ -2,7 +2,6 @@
 @value mobile from breakpoints;
 @value tablet from breakpoints;
 @value desktop from breakpoints;
-
 @value colors: "../../variables/colors.css";
 @value white from colors;
 @value positive from colors;
@@ -42,7 +41,7 @@
   background-color: positive;
 }
 
-.buy:before {
+.buy::before {
   background-color: color(positive blackness(20%));
 }
 
@@ -51,7 +50,7 @@
   cursor: pointer;
 }
 
-.start:before {
+.start::before {
   background-color: white;
   opacity: 0.15;
 }
@@ -63,10 +62,6 @@
     flex-grow: 0;
     vertical-align: top;
   }
-}
-
-@media tablet {
-
 }
 
 @media mobile {

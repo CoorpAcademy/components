@@ -37,10 +37,10 @@ const BrandUpdate = Layout(props => {
 
   return (
     <div className={style.container}>
-      <div className={style.headerWrapper}>
+      <div>
         <Breadcrumbs links={links} breadcrumbs={breadcrumbs} />
       </div>
-      <div className={style.tabsWrapper}>
+      <div>
         <BrandTabs tabs={tabs} />
       </div>
       <div className={style.notifications}>

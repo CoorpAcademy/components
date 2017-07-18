@@ -20,7 +20,7 @@
 .dot {
   width: 10px;
   height: 10px;
-  background-color: negative ;
+  background-color: negative;
   border-radius: 50%;
   float: left;
   margin: 0 5px;
@@ -29,17 +29,17 @@
 }
 
 .dot:nth-child(2) {
-  background-color: brand ;
+  background-color: brand;
   animation: fx 1300ms ease infinite 300ms;
 }
 
 .dot:nth-child(3) {
-  background-color: positive ;
+  background-color: positive;
   animation: fx 1300ms ease infinite 600ms;
 }
 
 .dot:nth-child(4) {
-  background-color: battle ;
+  background-color: battle;
   animation: fx 1300ms ease infinite 900ms;
 }
 
@@ -48,6 +48,7 @@
     transform: scale(1);
     opacity: 1;
   }
+
   100% {
     opacity: 0;
   }

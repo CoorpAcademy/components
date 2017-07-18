@@ -1,10 +1,8 @@
 @value breakpoints: "../../../variables/breakpoints.css";
 @value colors: "../../../variables/colors.css";
-
 @value mobile from breakpoints;
 @value tablet from breakpoints;
 @value desktop from breakpoints;
-
 @value dark from colors;
 
 .wrapper {
@@ -31,13 +29,16 @@
   margin-bottom: 10px;
   display: inline-block;
 }
+
 .titleLink {
   composes: title;
   cursor: pointer;
 }
+
 .titleLink:hover {
   text-decoration: underline;
 }
+
 .showMore {
   float: right;
   font-family: 'Open Sans';
@@ -49,9 +50,11 @@
   margin-right: 15px;
   margin-top: 10px;
 }
+
 .showMore:hover {
   text-decoration: underline;
 }
+
 .showMoreIcon {
   position: absolute;
   width: 8px;
@@ -140,6 +143,7 @@
     margin-bottom: 8px;
     flex: 0 0 272px;
   }
+
   .showMore {
     display: none;
   }

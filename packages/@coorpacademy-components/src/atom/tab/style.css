@@ -3,7 +3,6 @@
 @value xtraLightGrey from colors;
 @value white from colors;
 @value light from colors;
-
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
 @value tablet from breakpoints;
@@ -12,7 +11,6 @@
   cursor: pointer;
   padding: 20px;
   background: white;
-  margin: 10px;
   border-left: solid 5px brand;
   margin: 10px 0;
 }
@@ -34,7 +32,6 @@
 @media mobile {
   .tab {
     margin: 0;
-    border: none;
     padding: 10px 0;
     display: flex;
     border: solid 1px xtraLightGrey;
