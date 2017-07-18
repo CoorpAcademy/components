@@ -1,7 +1,6 @@
 {
   "common": {
     "primary": "#FF7043",
-    "tertiary":  "#d0d0d0 ",
     "good": "#24b694",
     "bad": "#ed1c24"
   },
