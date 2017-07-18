@@ -13,7 +13,7 @@
     "lint": "npm run eslint && npm run stylelint",
     "lint:fix": "npm run eslint:fix && npm run stylelint:fix",
     "eslint": "eslint packages/ *.js *.json --ext .js,.json",
-    "eslint:fix": "npm run lint -- --fix",
+    "eslint:fix": "npm run eslint -- --fix",
     "stylelint": "stylelint '**/*.css'",
     "stylelint:fix": "npm run stylelint -- --fix",
     "nyc": "cross-env NODE_ENV=test nyc npm run ava",

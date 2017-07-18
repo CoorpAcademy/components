@@ -267,6 +267,7 @@ import CardFixtureCatalogue from '../src/molecule/card/test/fixtures/catalogue';
 import CardFixtureDefault from '../src/molecule/card/test/fixtures/default';
 import CardFixtureDisabled from '../src/molecule/card/test/fixtures/disabled';
 import CardFixtureEmpty from '../src/molecule/card/test/fixtures/empty';
+import CardFixtureFreerun from '../src/molecule/card/test/fixtures/freerun';
 import DisciplineCtaFixtureDefault from '../src/molecule/discipline-cta/test/fixtures/default';
 import DisciplineCtaFixtureNoStart from '../src/molecule/discipline-cta/test/fixtures/no-start';
 import DisciplineHeaderFixtureDefault from '../src/molecule/discipline-header/test/fixtures/default';
@@ -917,7 +918,8 @@ export const fixtures = {
       Catalogue: CardFixtureCatalogue,
       Default: CardFixtureDefault,
       Disabled: CardFixtureDisabled,
-      Empty: CardFixtureEmpty
+      Empty: CardFixtureEmpty,
+      Freerun: CardFixtureFreerun
     },
     DisciplineCta: {
       Default: DisciplineCtaFixtureDefault,
