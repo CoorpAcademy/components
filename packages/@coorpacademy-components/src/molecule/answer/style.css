@@ -24,8 +24,8 @@
 .media {
   display: block;
   margin: 0 auto;
-  max-height: 500px;
-  width: 500px;
+  max-height: 400px;
+  width: 400px;
   overflow: hidden;
 }
 
