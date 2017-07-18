@@ -20,7 +20,7 @@
     "lessons": [
       {
         "type": "video",
-        "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B2.png",
+        "poster": "https://api-staging.coorpacademy.com/api-service/medias?h=230&w=230&q=90&url=https://static.coorpacademy.com/content/digital/miniatures_cours/base/1B2.png",
         "description": "Anatomie d'une page de résultats",
         "mimeType": "application/vimeo",
         "videoId": "88393119\n",
@@ -32,7 +32,7 @@
       {
         "description": "Historique des moteurs de recherche",
         "mimeType": "application/vimeo",
-        "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B1.png",
+        "poster": "https://api-staging.coorpacademy.com/api-service/medias?h=230&w=230&q=90&url=https://static.coorpacademy.com/content/digital/miniatures_cours/base/1B1.png",
         "posters": [],
         "src": [],
         "subtitles": [],
@@ -70,7 +70,7 @@
           "src": [
             {
               "mimeType": "image/jpeg",
-              "url": "//static.coorpacademy.com/content/ijoinchanel/en/slides/1B2_Q6/1B2-Q6-canap-v1.jpg",
+              "url": "https://api-staging.coorpacademy.com/api-service/medias?h=400&w=400&q=90&url=https://static.coorpacademy.com/content/ijoinchanel/en/slides/1B2_Q6/1B2-Q6-canap-v1.jpg",
               "_id": "593eb72a187bd18c01283592"
             }
           ]
@@ -267,7 +267,7 @@
           "src": [
             {
               "mimeType": "image/jpeg",
-              "url": "//i2.kym-cdn.com/photos/images/facebook/000/437/645/a9d.jpg",
+              "url": "https://api-staging.coorpacademy.com/api-service/medias?h=400&w=400&q=90&url=https://i2.kym-cdn.com/photos/images/facebook/000/437/645/a9d.jpg",
               "_id": "593eb72a187bd18c01283592"
             }
           ]
@@ -378,7 +378,7 @@
           "src":[
             {
               "mimeType": "image/jpeg",
-              "url": "//static.coorpacademy.com/content/ijoinchanel/en/slides/1B2_Q6/1B2-Q6-canap-v1.jpg",
+              "url": "https://api-staging.coorpacademy.com/api-service/medias?h=400&w=400&q=90&url=https://static.coorpacademy.com/content/ijoinchanel/en/slides/1B2_Q6/1B2-Q6-canap-v1.jpg",
               "_id": "593eb72a187bd18c01283592"
             }
           ]
@@ -407,7 +407,7 @@
     "lessons": [
       {
         "type": "video",
-        "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B2.png",
+        "poster": "https://api-staging.coorpacademy.com/api-service/medias?h=230&w=230&q=90&url=https://static.coorpacademy.com/content/digital/miniatures_cours/base/1B2.png",
         "description": "Anatomie d'une page de résultats",
         "mimeType": "application/vimeo",
         "videoId": "88393119\n",
@@ -419,7 +419,7 @@
       {
         "description": "Historique des moteurs de recherche",
         "mimeType": "application/vimeo",
-        "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B1.png",
+        "poster": "https://api-staging.coorpacademy.com/api-service/medias?h=230&w=230&q=90&url=https://static.coorpacademy.com/content/digital/miniatures_cours/base/1B1.png",
         "posters": [],
         "src": [],
         "subtitles": [],
@@ -430,7 +430,7 @@
       {
         "_id": "5930752aa2b39d0024eebffb",
         "description": "Hierarchie",
-        "mediaUrl": "//static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/raw/hierachie-contenu-1496311207505.pdf",
+        "mediaUrl": "https://api-staging.coorpacademy.com/api-service/medias?h=230&w=230&q=90&url=https://static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/raw/hierachie-contenu-1496311207505.pdf",
         "mimeType": "application/pdf",
         "type": "pdf",
         "subtitles": [],
@@ -574,7 +574,7 @@
           "src": [
             {
               "mimeType": "image/jpeg",
-              "url": "https://pbs.twimg.com/profile_images/629387285914480640/K_1HUn-G.jpg",
+              "url": "https://api-staging.coorpacademy.com/api-service/medias?h=400&w=400&q=90&url=https:https://pbs.twimg.com/profile_images/629387285914480640/K_1HUn-G.jpg",
               "_id": "593eb72a187bd18c01283592"
             }
           ]
@@ -652,7 +652,7 @@
           "src": [
             {
               "mimeType": "image/jpeg",
-              "url": "//user-images.githubusercontent.com/7602475/28273504-db1da18a-6b0e-11e7-97cd-b2e307fc51c7.png",
+              "url": "https://api-staging.coorpacademy.com/api-service/medias?h=400&w=400&q=90&url=https://user-images.githubusercontent.com/7602475/28273504-db1da18a-6b0e-11e7-97cd-b2e307fc51c7.png",
               "_id": "593eb72a187bd18c01283592"
             }
           ]
@@ -682,7 +682,7 @@
     "lessons": [
       {
         "type": "video",
-        "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B2.png",
+        "poster": "https://api-staging.coorpacademy.com/api-service/medias?h=230&w=230&q=90&url=https://static.coorpacademy.com/content/digital/miniatures_cours/base/1B2.png",
         "description": "Anatomie d'une page de résultats",
         "mimeType": "application/vimeo",
         "videoId": "88393119\n",
@@ -694,7 +694,7 @@
       {
         "description": "Historique des moteurs de recherche",
         "mimeType": "application/vimeo",
-        "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B1.png",
+        "poster": "https://api-staging.coorpacademy.com/api-service/medias?h=230&w=230&q=90&url=https://static.coorpacademy.com/content/digital/miniatures_cours/base/1B1.png",
         "posters": [],
         "src": [],
         "subtitles": [],
