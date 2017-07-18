@@ -1579,23 +1579,6 @@ export const dependencies = {
         }
       }
     },
-    "Answer": {
-      "parents": {
-        "MoleculeSlides": {
-          "SlidesPlayer": true
-        }
-      },
-      "children": {
-        "MoleculeQuestions": {
-          "FreeText": true,
-          "DropDown": true,
-          "Picker": true,
-          "QcmImage": true,
-          "Qcm": true,
-          "QuestionRange": true
-        }
-      }
-    },
     "RangeSlider": {
       "parents": {
         "MoleculeQuestions": {
@@ -1733,6 +1716,18 @@ export const dependencies = {
       "children": {
         "Molecule": {
           "SetupSlide": true
+        }
+      }
+    },
+    "Answer": {
+      "children": {
+        "MoleculeQuestions": {
+          "FreeText": true,
+          "DropDown": true,
+          "Picker": true,
+          "QcmImage": true,
+          "Qcm": true,
+          "QuestionRange": true
         }
       }
     },
@@ -2063,9 +2058,6 @@ export const dependencies = {
           "CardsGrid": true,
           "BrandTable": true
         },
-        "MoleculeSlides": {
-          "SlidesPlayer": true
-        },
         "MoleculeDashboard": {
           "NewsList": true
         },
@@ -2145,9 +2137,6 @@ export const dependencies = {
         "Organism": {
           "MoocHeader": true
         },
-        "MoleculeSlides": {
-          "SlidesPlayer": true
-        },
         "Molecule": {
           "News": true
         },
@@ -2192,18 +2181,6 @@ export const dependencies = {
         }
       },
       "children": {}
-    },
-    "Clue": {
-      "parents": {
-        "MoleculeSlides": {
-          "SlidesPlayer": true
-        }
-      },
-      "children": {
-        "Atom": {
-          "Loader": true
-        }
-      }
     },
     "Life": {
       "parents": {
@@ -2281,6 +2258,13 @@ export const dependencies = {
     },
     "CenteredText": {
       "children": {}
+    },
+    "Clue": {
+      "children": {
+        "Atom": {
+          "Loader": true
+        }
+      }
     },
     "InputCheckbox": {
       "children": {}
@@ -2385,16 +2369,8 @@ export const dependencies = {
         }
       },
       "children": {
-        "Atom": {
-          "Clue": true,
-          "Cta": true,
-          "Loader": true
-        },
         "MoleculeSlides": {
           "SlidesFooter": true
-        },
-        "Molecule": {
-          "Answer": true
         }
       }
     },
