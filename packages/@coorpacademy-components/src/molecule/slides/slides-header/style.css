@@ -3,6 +3,7 @@
 @value colors: "../../../variables/colors.css";
 @value xtraLightGrey from colors;
 @value dark from colors;
+@value medium from colors;
 @value white from colors;
 @value light from colors;
 @value negative from colors;
@@ -15,26 +16,23 @@
 }
 
 .backLink {
+  color: medium;
   display: flex;
-  width: 52px;
   height: 100%;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
   background-color: xtraLightGrey;
 }
 
+.backLink:hover {
+  color: dark;
+}
+
 .backIcon {
-  width: 11px;
+  width: 52px;
   height: 16px;
-  transition: transform 0.01s;
-}
-
-.backIcon:hover {
-  transform: scale(1.1);
-}
-
-.backIcon:active {
-  transform: scale(0.95);
+  transition: color 0.3s;
 }
 
 .primary {
@@ -49,11 +47,12 @@
 .primaryTitle {
   font-family: 'Open Sans';
   font-size: 15px;
-  color: dark;
+  color: inherit;
   font-weight: 700;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  transition: color 0.3s;
 }
 
 .primarySubtitle {
