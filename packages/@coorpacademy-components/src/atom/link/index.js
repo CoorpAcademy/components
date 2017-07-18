@@ -20,12 +20,20 @@ class Link extends React.Component {
     this.setState(prevState => ({
       hovered: true
     }));
+
+    if (this.props.onMouseEnter) {
+      this.props.onMouseEnter();
+    }
   }
 
   handleMouseLeave() {
     this.setState(prevState => ({
       hovered: false
     }));
+
+    if (this.props.onMouseLeave) {
+      this.props.onMouseLeave();
+    }
   }
 
   handleOnClick(e) {
@@ -57,6 +65,7 @@ class Link extends React.Component {
         onClick={this.handleOnClick}
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}
+        className={this.props.className}
         style={{
           ...this.props.style,
           ..._style,
@@ -75,7 +84,9 @@ Link.propTypes = {
   href: PropTypes.string,
   target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
   skinHover: PropTypes.bool,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  onMouseEnter: PropTypes.func,
+  onMouseLeave: PropTypes.func
 };
 
 Link.contextTypes = {

@@ -2,27 +2,11 @@
   border-width: 2px;
   border-style: solid;
   display: inline-block;
-  box-sizing: border-box;
-}
-
-.button a {
+  box-sizing: content-box;
   font-family: 'Open Sans';
   font-size: 13px;
   font-weight: 600;
   text-decoration: none;
   padding: 0 20px;
-  display: flex;
-  flex: 0 0 0%;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
-
-.button div {
-  padding: 0 20px;
-  display: flex;
-  flex: 0 0 0%;
-  align-items: center;
-  justify-content: center;
   height: 100%;
 }

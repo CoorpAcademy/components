@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
-import addClassName from '../../util/add-class-name';
+import classnames from 'classnames';
 import Provider from '../provider';
 import Link from '../link';
 import style from './style.css';
@@ -55,29 +55,24 @@ class CTA extends React.Component {
     const hoverBorderColor = secondary ? textColor : secondaryColor;
 
     return (
-      <Link href={href} onClick={onClick} target={target}>
-        <div
-          {...addClassName(`${style.button}`)({
-            className: this.props.className
-          })}
-          data-name={ctaName}
-          onMouseEnter={this.handleMouseEnter}
-          onMouseLeave={this.handleMouseLeave}
-          style={{
-            backgroundColor: this.state.hovered ? hoverBackgroundColor : backgroundColor,
-            borderColor: this.state.hovered ? hoverBorderColor : borderColor,
-            height: small ? '36px' : '46px',
-            borderRadius: small ? '18px' : '23px'
-          }}
-        >
-          <div
-            style={{
-              color: this.state.hovered ? hoverTextColor : textColor
-            }}
-          >
-            {submitValue}
-          </div>
-        </div>
+      <Link
+        href={href}
+        onClick={onClick}
+        onMouseEnter={this.handleMouseEnter}
+        onMouseLeave={this.handleMouseLeave}
+        target={target}
+        className={classnames(style.button, this.props.className)}
+        data-name={ctaName}
+        style={{
+          backgroundColor: this.state.hovered ? hoverBackgroundColor : backgroundColor,
+          borderColor: this.state.hovered ? hoverBorderColor : borderColor,
+          height: small ? '32px' : '42px',
+          lineHeight: small ? '32px' : '42px',
+          borderRadius: small ? '18px' : '23px',
+          color: this.state.hovered ? hoverTextColor : textColor
+        }}
+      >
+        {submitValue}
       </Link>
     );
   }
