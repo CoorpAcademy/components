@@ -6,7 +6,8 @@ import {
   getCurrentProgressionId,
   getAnswerValues,
   getCurrentClue,
-  getRoute
+  getRoute,
+  getQuestionMedia
 } from '../../utils/state-extract';
 import {validateAnswer} from '../../actions/ui/answers';
 import {selectRoute} from '../../actions/ui/route';
@@ -20,6 +21,7 @@ const playerProps = (options, store) => state => {
   const progression = getCurrentProgression(state);
   const slide = getCurrentSlide(state);
   const answer = getAnswerProps(options, store)(state, slide);
+  const mediaQuestion = getQuestionMedia(state);
   const clue = getCurrentClue(state) || null;
   const route = getRoute(state);
 
@@ -55,7 +57,8 @@ const playerProps = (options, store) => state => {
         },
     help: translate('Select something below'),
     answerType: {
-      model: answer
+      model: answer,
+      media: mediaQuestion
     },
     buttons: [
       {

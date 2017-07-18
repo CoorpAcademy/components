@@ -77,7 +77,7 @@ const SlidesPlayer = (props, context) => {
         <Loader />
       </div>;
 
-  const catchError = error
+  const questionView = error
     ? <div className={style.contentWrapper}>
         <div className={style.error}>
           {errorMsg}
@@ -93,7 +93,7 @@ const SlidesPlayer = (props, context) => {
           {translate('New media')}
         </span>
       </div>
-      {catchError}
+      {questionView}
       <div className={style.footer}>
         <SlidesFooter buttons={buttons} />
       </div>
