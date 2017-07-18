@@ -5,10 +5,8 @@
 @value black from colors;
 @value white from colors;
 @value brand from colors;
-
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
-
 
 .wrapper {
   width: 100%;
@@ -17,11 +15,23 @@
   align-items: center;
   justify-content: center;
   padding-top: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+}
+
+.picture {
+  width: 100%;
+}
+
+.media {
+  display: block;
+  margin: 0 auto;
+  max-height: 500px;
+  width: 500px;
+  overflow: hidden;
 }
 
 @media mobile {
-
+  .media {
+    max-height: 300px;
+    width: 300px;
+  }
 }

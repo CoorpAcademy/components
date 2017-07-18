@@ -2,7 +2,6 @@
 @value mobile from breakpoints;
 @value tablet from breakpoints;
 @value desktop from breakpoints;
-
 @value colors: "../../variables/colors.css";
 @value white from colors;
 @value black from colors;
@@ -22,7 +21,7 @@
 
 .content {
   display: block;
-  padding: 0 100px 0;
+  padding: 0 100px;
   text-align: center;
   position: relative;
   width: 100%;
@@ -50,11 +49,7 @@
   margin: 0 0 20px;
 }
 
-@media desktop {
-}
-
 @media tablet {
-
   .surtitle {
     font-size: 15px;
   }
@@ -65,9 +60,8 @@
 }
 
 @media mobile {
-
   .content {
-    padding: 0 20px 0;
+    padding: 0 20px;
   }
 
   .surtitle {

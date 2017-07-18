@@ -2,7 +2,6 @@
 @value mobile from breakpoints;
 @value tablet from breakpoints;
 @value desktop from breakpoints;
-
 @value colors: "../../../variables/colors.css";
 @value xtraLightGrey from colors;
 @value light from colors;
@@ -53,10 +52,6 @@
   width: 100%;
   height: 50px;
   position: relative;
-}
-
-@media tablet {
-
 }
 
 @media mobile {

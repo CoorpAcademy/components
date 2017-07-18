@@ -2,7 +2,6 @@
 @value mobile from breakpoints;
 @value tablet from breakpoints;
 @value desktop from breakpoints;
-
 @value colors: "../../variables/colors.css";
 @value light from colors;
 @value white from colors;
@@ -29,8 +28,8 @@
 }
 
 .sectionItems {
-  padding: 0px;
-  margin: 0px;
+  padding: 0;
+  margin: 0;
   list-style-type: none;
   display: block;
 }
@@ -42,7 +41,7 @@
 .linkItem {
   padding: 12px 15px;
   border-left: 3px solid transparent;
-  margin-top: 0px;
+  margin-top: 0;
 }
 
 .linkItem:hover {
@@ -52,7 +51,7 @@
 
 .infoItem {
   list-style-type: none;
-  padding: 0px;
+  padding: 0;
 }
 
 .infoItemTitle {

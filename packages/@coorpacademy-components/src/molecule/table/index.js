@@ -72,7 +72,7 @@ const Table = (props, context) => {
 
     tableRows.unshift(
       <td key="header">
-        <Link className={style.editLink} href={editHref}>
+        <Link href={editHref}>
           <PencilIcon color={mediumColor} hoverColor={brandColor} />
         </Link>
       </td>

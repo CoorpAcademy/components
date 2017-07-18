@@ -8,7 +8,7 @@
 .wrapper {
   width: 300px;
   height: 300px;
-  box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.09);
+  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.09);
   border-radius: 5px;
   overflow: hidden;
   background-color: white;
@@ -64,7 +64,7 @@
   border-right: 1px solid light;
 }
 
-.edit:before {
+.edit::before {
   display: block;
   content: '+';
   font-weight: bold;

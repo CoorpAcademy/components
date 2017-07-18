@@ -2,7 +2,6 @@
 @value mobile from breakpoints;
 @value tablet from breakpoints;
 @value desktop from breakpoints;
-
 @value colors: "../../variables/colors.css";
 @value dark from colors;
 @value white from colors;
@@ -105,7 +104,7 @@
   color: dark;
 }
 
-.roundedlist li:before {
+.roundedlist li::before {
   display: inline-block;
   position: relative;
   z-index: 2;
@@ -163,10 +162,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
   text-align: left;
-}
-
-@media desktop {
-
 }
 
 @media tablet {

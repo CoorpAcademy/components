@@ -25,24 +25,14 @@
   margin: 8px;
 }
 
-@media desktop {
-  .default {
-  }
-}
-
-@media tablet {
-  .default {
-  }
-}
-
 @media mobile {
   .default {
     flex-direction: column;
-    padding: 0px 5px;
+    padding: 0 5px;
   }
 
   .card {
-    margin: 4px 0px;
+    margin: 4px 0;
     width: 100%;
   }
 }

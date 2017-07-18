@@ -2,7 +2,6 @@
 @value mobile from breakpoints;
 @value tablet from breakpoints;
 @value desktop from breakpoints;
-
 @value colors: "../../variables/colors.css";
 @value dark from colors;
 @value white from colors;
@@ -14,7 +13,7 @@
 .wrapper {
   width: 100%;
   border-radius: 8px;
-  box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.09);
+  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.09);
   position: relative;
   overflow: hidden;
   background-color: white;
@@ -24,7 +23,7 @@
   composes: wrapper;
 }
 
-.wrapper:before {
+.wrapper::before {
   content: "";
   border-top: 5px solid light;
   position: absolute;
@@ -33,7 +32,7 @@
   width: 100%;
 }
 
-.modifiedWrapper:before {
+.modifiedWrapper::before {
   border-top-color: brand;
 }
 

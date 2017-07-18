@@ -47,18 +47,10 @@
   transition-duration: 0.5s;
 }
 
-.bubble:hover .bubbleBG {
-
-}
-
-.bubble:active .bubbleBG {
-
-}
-
 .iconDisabled {
   composes: icon;
 }
 
 .bubble:hover .iconDisabled {
-  color: white!important;
+  color: white !important;
 }

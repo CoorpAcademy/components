@@ -29,7 +29,7 @@ const SetupSections = (props, context) => {
   }
 
   return (
-    <div className={style.wrapper}>
+    <div>
       {sectionsView}
     </div>
   );

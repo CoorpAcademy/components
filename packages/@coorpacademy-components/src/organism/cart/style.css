@@ -2,50 +2,48 @@
 @value light from colors;
 @value medium from colors;
 @value battle from colors;
-
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
 
 .parent {
-    background-color: light;
-    height: 100vh;
+  background-color: light;
+  height: 100vh;
 }
 
 .cart {
-    width: 90%;
-    max-width: 1175px;
-    margin-right: auto;
-    margin-left: auto;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  width: 90%;
+  max-width: 1175px;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
 }
 
 .productBlock {
-    width: calc(50% - 20px);
-    display: flex;
-    flex-direction: column;
+  width: calc(50% - 20px);
+  display: flex;
+  flex-direction: column;
 }
 
 .paymentBlock {
-    width: calc(50% - 20px);
-    display: flex;
-    flex-direction: column;
+  width: calc(50% - 20px);
+  display: flex;
+  flex-direction: column;
 }
 
 .titleContainer {
-    height: 103px;
-    background-color: battle;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 30px;
+  height: 103px;
+  background-color: battle;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
 }
 
 .headerTitle {
-    font-size: 40px;
-    color: medium;
+  font-size: 40px;
+  color: medium;
 }
 
 @media mobile {

@@ -9,7 +9,7 @@
   border-right: 1px;
   border-style: solid;
   border-color: medium;
-  border-bottom: 0px;
+  border-bottom: 0;
 }
 
 .wrapper:last-child {

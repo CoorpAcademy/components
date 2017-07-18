@@ -5,7 +5,7 @@
   composes: default from '../input-text/style.css';
 }
 
-.input{
+.input {
   composes: input from '../input-text/style.css';
 }
 
@@ -33,7 +33,7 @@
   position: absolute;
   top: 50%;
   margin-top: -10px;
-  box-shadow: 0px 0px 1px grey;
+  box-shadow: 0 0 1px grey;
 }
 
 .description {

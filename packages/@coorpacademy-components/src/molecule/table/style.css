@@ -61,7 +61,7 @@
   display: none;
 }
 
-.checkbox:checked ~ .options{
+.checkbox:checked ~ .options {
   display: block;
 }
 
@@ -69,7 +69,8 @@
   width: 100%;
 }
 
-.toggle label, .noOptions label {
+.toggle label,
+.noOptions label {
   display: inline-block;
   cursor: pointer;
   font-family: 'Open Sans';
@@ -112,10 +113,7 @@
   padding: 20px;
   background-color: white;
   border: 1px solid light;
-  box-shadow: 0 7px 8px 0 rgba(0,0,0,0.14);
-}
-
-.option {
+  box-shadow: 0 7px 8px 0 rgba(0, 0, 0, 0.14);
 }
 
 .option button {
@@ -141,7 +139,4 @@
 
 .selected button {
   color: dark;
-}
-
-.editLink {
 }

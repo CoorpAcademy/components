@@ -1,6 +1,5 @@
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
-
 @value colors: "../../variables/colors.css";
 @value black from colors;
 

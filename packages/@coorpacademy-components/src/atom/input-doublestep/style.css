@@ -65,7 +65,7 @@
 }
 
 .checkbox {
-  display:none;
+  display: none;
 }
 
 .checkbox:checked ~ label .cancel {

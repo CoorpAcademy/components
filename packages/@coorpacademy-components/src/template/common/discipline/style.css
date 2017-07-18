@@ -26,11 +26,13 @@
   width: 280px;
 }
 
-.header, .content {
+.header,
+.content {
   composes: leftColumn;
 }
 
-.cta, .partners {
+.cta,
+.partners {
   composes: rightColumn;
 }
 
@@ -47,19 +49,21 @@
   .header {
     order: 1;
   }
+
   .cta {
     order: 2;
   }
+
   .content {
     order: 3;
   }
+
   .partners {
     order: 4;
   }
 }
 
 @media mobile {
-
   .content {
     width: 100%;
   }

@@ -2,7 +2,6 @@
 @value mobile from breakpoints;
 @value tablet from breakpoints;
 @value desktop from breakpoints;
-
 @value colors: "../../variables/colors.css";
 @value xtraLightGrey from colors;
 @value light from colors;
@@ -45,7 +44,7 @@
   font-family: "Open Sans";
   font-size: 15px;
   color: black;
-  letter-spacing: 0px;
+  letter-spacing: 0;
   line-height: 22px;
 }
 
@@ -62,14 +61,6 @@
 
 .toggle {
   display: none;
-}
-
-@media desktop {
-
-}
-
-@media tablet {
-
 }
 
 @media mobile {

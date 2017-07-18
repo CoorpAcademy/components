@@ -2,17 +2,16 @@
 @value white from colors;
 @value light from colors;
 @value negative from colors;
-
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
 @value tablet from breakpoints;
 @value desktop from breakpoints;
 
-.wrapper, 
+.wrapper,
 .deviceView {
-    display: block;
-    width: 100%;
-    height: 100%;
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .picture , .default{
@@ -49,14 +48,11 @@
   }
 }
 
-@media tablet {
-
-}
-
-@media all and mobile {
+@media mobile {
   .mobile {
     display: block;
   }
+
   .desktop {
     display: none;
   }

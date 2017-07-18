@@ -7,6 +7,7 @@ export default {
     model: {
       type: 'qcm',
       ...answerProps
-    }
+    },
+    media: 'http://i2.kym-cdn.com/photos/images/facebook/000/437/645/a9d.jpg'
   }
 };

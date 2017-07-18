@@ -1,6 +1,5 @@
 @value breakpoints: "../../../variables/breakpoints.css";
 @value mobile from breakpoints;
-
 @value colors: "../../../variables/colors.css";
 @value xtraLightGrey from colors;
 @value dark from colors;
@@ -39,7 +38,7 @@
 }
 
 .primary {
-  min-width: 0px;
+  min-width: 0;
   background-color: xtraLightGrey;
   padding-right: 16px;
   box-sizing: border-box;
@@ -64,7 +63,7 @@
 }
 
 .secondary {
-  min-width: 0px;
+  min-width: 0;
   flex-grow: 2;
   height: 100%;
   background-color: light;

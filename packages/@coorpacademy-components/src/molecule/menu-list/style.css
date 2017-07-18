@@ -2,7 +2,6 @@
 @value desktop from breakpoints;
 @value mobile from breakpoints;
 @value tablet from breakpoints;
-
 @value colors: "../../variables/colors.css";
 @value orange from colors;
 @value white from colors;
@@ -66,9 +65,9 @@
 }
 
 .button {
- composes: item;
- cursor: default;
- padding: 0 5px;
+  composes: item;
+  cursor: default;
+  padding: 0 5px;
 }
 
 .button a {

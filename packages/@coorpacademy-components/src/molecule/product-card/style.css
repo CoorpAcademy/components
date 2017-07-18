@@ -3,7 +3,6 @@
 @value dark from colors;
 @value xtraLightGrey from colors;
 @value light from colors;
-
 @value breakpoints: "../../variables/breakpoints.css";
 @value desktop from breakpoints;
 @value tablet from breakpoints;
@@ -72,6 +71,7 @@
   margin: 10px 0;
   font-size: 22px;
 }
+
 .cancelText {
   margin: 20px 0;
   font-size: 14px;

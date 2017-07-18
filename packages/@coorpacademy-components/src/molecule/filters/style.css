@@ -2,7 +2,6 @@
 @value desktop from breakpoints;
 @value mobile from breakpoints;
 @value tablet from breakpoints;
-
 @value colors: "../../variables/colors.css";
 @value dark from colors;
 @value xtraLightGrey from colors;
@@ -37,6 +36,7 @@
   left: 0;
   z-index: 10;
 }
+
 .activeDefault {
   position: absolute;
   top: 0;
@@ -56,7 +56,7 @@
 .wrapper {
   display: flex;
   flex-wrap: nowrap;
-  padding: 65px 25px 7px 25px;
+  padding: 65px 25px 7px;
   box-sizing: border-box;
   width: 100%;
   height: auto;
@@ -83,12 +83,13 @@
 .activeDefault .arrow,
 .activeWrapperSortBy .arrow {
   transform: rotate(180deg);
-  transition: transform .4s ease-out;
+  transition: transform 0.4s ease-out;
 }
+
 .default .arrow,
 .wrapperSortBy .arrow {
   transform: rotate(0deg);
-  transition: transform .4s ease-out;
+  transition: transform 0.4s ease-out;
 }
 
 .wrapperSortBy {
@@ -185,25 +186,29 @@
   box-sizing: border-box;
   background: light;
 }
+
 .activeSorting {
   max-height: 150px;
   overflow: hidden;
-  padding: 70px 15px 10px 15px;
+  padding: 70px 15px 10px;
   opacity: 1;
 }
+
 .sorting {
-  max-height: 0px;
-  overflow: hidden;
-  padding: 0 15px 0 15px;
-  opacity: 0;
-}
-.wrapperFilters{
   max-height: 0;
   overflow: hidden;
   padding: 0 15px;
   opacity: 0;
 }
-.activeWrapperFilters{
+
+.wrapperFilters {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 15px;
+  opacity: 0;
+}
+
+.activeWrapperFilters {
   max-height: 170px;
   overflow: hidden;
   padding: 0 15px;
@@ -226,44 +231,52 @@
 }
 
 .sorting .select select,
-.activeSorting .select select  {
+.activeSorting .select select {
   background: transparent;
 }
+
 .sorting .select,
 .activeSorting .select {
   width: 21%;
   padding-left: 36px;
 }
+
 .sorting label,
 .activeSorting label {
-  margin: 0px;
+  margin: 0;
 }
 
 .sorting .select label span:first-child,
 .activeSorting .select label span:first-child {
   display: none;
 }
-[data-animated='true'] .sorting{
-  transition: all .4s ease-out;
+
+[data-animated='true'] .sorting {
+  transition: all 0.4s ease-out;
 }
+
 [data-animated='true'] .activeSorting {
-  transition: all .4s ease-out;
+  transition: all 0.4s ease-out;
 }
-[data-animated='true'] .wrapperFilters{
-  transition: all .4s ease-out;
+
+[data-animated='true'] .wrapperFilters {
+  transition: all 0.4s ease-out;
 }
+
 [data-animated='true'] .activeWrapperFilters {
-  transition: all .4s ease-out;
+  transition: all 0.4s ease-out;
 }
 
 @media tablet {
   .wrapper {
     flex-wrap: wrap;
-    padding: 65px 10px 0 10px;
+    padding: 65px 10px 0;
   }
+
   .search {
     border-top: 1px solid light;
   }
+
   .choice {
     width: 50%;
     padding: 12px 3%;
@@ -273,7 +286,7 @@
     padding-bottom: 24px;
   }
 
-  .activeWrapperFilters{
+  .activeWrapperFilters {
     max-height: 280px;
   }
 
@@ -291,6 +304,7 @@
     width: 44%;
     padding: 0 20px;
   }
+
   .sorting label,
   .activeSorting label {
     margin: 0;
@@ -301,18 +315,21 @@
   .search {
     border-top: 1px solid light;
   }
+
   .activeSorting {
     padding: 65px 10px 0;
     max-height: 200px;
   }
-  .activeWrapperFilters{
+
+  .activeWrapperFilters {
     max-height: 550px;
   }
+
   .wrapper {
     padding: 65px 0 0;
   }
 
-  .choice{
+  .choice {
     padding: 10px 0;
     width: 100%;
   }
@@ -322,10 +339,11 @@
   }
 
   .sorting,
-  .activeSorting{
+  .activeSorting {
     padding-left: 15px;
     padding-right: 15px;
   }
+
   .sorting label,
   .activeSorting label {
     margin: 0;
@@ -363,8 +381,9 @@
     position: relative;
     bottom: 15px;
   }
-  .activeWrapperFilters .CTAfilter:before,
-  .activeSorting .CTAfilter:before {
+
+  .activeWrapperFilters .CTAfilter::before,
+  .activeSorting .CTAfilter::before {
     background-color: rgba(0, 0, 0, 0.2);
   }
 }

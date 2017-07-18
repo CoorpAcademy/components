@@ -2,20 +2,18 @@
 @value desktop from breakpoints;
 @value tablet from breakpoints;
 @value mobile from breakpoints;
-
 @value colors: "../../../variables/colors.css";
 @value light from colors;
 @value xtraLightGrey from colors;
 @value dark from colors;
 
 .cardsWrapper {
-    display: block;
-    width: 100%;
-    height: auto;
-    box-sizing: border-box;
-    padding: 0 0 16px 0;
-    background: white;
-    box-sizing: border-box;
+  display: block;
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  padding: 0 0 16px;
+  background: white;
 }
 
 .noresults {
@@ -49,19 +47,9 @@
   line-height: 40px;
 }
 
-@media desktop {
-  .cardsWrapper {
-  }
-}
-
-@media tablet {
-  .cardsWrapper {
-  }
-}
-
 @media mobile {
   .cardsWrapper {
-    padding: 5px 0px;
+    padding: 5px 0;
   }
 
   .title {

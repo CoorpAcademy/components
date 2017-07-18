@@ -1,9 +1,9 @@
 [
   {
     "_id": "1.B2.4",
-    "klf": "Some KFL",
-    "tips": "XXX",
-    "clue": "clue",
+    "klf": "Nous devons chouchouter nos clientes et les mettre à l'aise pendant leur attente.",
+    "tips": "Avez-vous récemment consulté les iPads ou le magazine 31 rue Cambon ?",
+    "clue": "… Century Fox.",
     "chapter_id": "cha_Ny1BTxRp~",
     "authors": [],
     "context": {
@@ -61,14 +61,28 @@
           "src": []
         }
       },
-      "medias": []
+      "medias": [
+        {
+          "type": "img",
+          "_id": "593eb72a187bd18c01283591",
+          "subtitles": [],
+          "posters": [],
+          "src": [
+            {
+              "mimeType": "image/jpeg",
+              "url": "//static.coorpacademy.com/content/ijoinchanel/en/slides/1B2_Q6/1B2-Q6-canap-v1.jpg",
+              "_id": "593eb72a187bd18c01283592"
+            }
+          ]
+        }
+      ]
     }
   },
   {
     "_id": "sli_VkcAWR-ZQ",
     "klf": "Lire n'est pas difficile.",
     "tips": "Il y a pas mal de gens qui se trompent sans lire.",
-    "clue": "clue",
+    "clue": "… Century Fox.",
     "chapter_id": "cha_Ny1BTxRp~",
     "authors": [],
     "context": {
@@ -250,7 +264,13 @@
         "media": {
           "subtitles": [],
           "posters": [],
-          "src": []
+          "src": [
+            {
+              "mimeType": "image/jpeg",
+              "url": "//i2.kym-cdn.com/photos/images/facebook/000/437/645/a9d.jpg",
+              "_id": "593eb72a187bd18c01283592"
+            }
+          ]
         }
       },
       "medias": []
@@ -349,7 +369,21 @@
           "src": []
         }
       },
-      "medias": []
+      "medias":[
+        {
+          "type": "img",
+          "_id": "593eb72a187bd18c01283591",
+          "subtitles": [],
+          "posters": [],
+          "src":[
+            {
+              "mimeType": "image/jpeg",
+              "url": "//static.coorpacademy.com/content/ijoinchanel/en/slides/1B2_Q6/1B2-Q6-canap-v1.jpg",
+              "_id": "593eb72a187bd18c01283592"
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -531,7 +565,21 @@
           "src": []
         }
       },
-      "medias": []
+      "medias": [
+        {
+          "type": "img",
+          "_id": "593eb72a187bd18c01283591",
+          "subtitles": [],
+          "posters": [],
+          "src": [
+            {
+              "mimeType": "image/jpeg",
+              "url": "https://pbs.twimg.com/profile_images/629387285914480640/K_1HUn-G.jpg",
+              "_id": "593eb72a187bd18c01283592"
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -595,7 +643,21 @@
           "src": []
         }
       },
-      "medias": []
+      "medias": [
+        {
+          "type": "img",
+          "_id": "593eb72a187bd18c01283591",
+          "subtitles": [],
+          "posters": [],
+          "src": [
+            {
+              "mimeType": "image/jpeg",
+              "url": "//user-images.githubusercontent.com/7602475/28273504-db1da18a-6b0e-11e7-97cd-b2e307fc51c7.png",
+              "_id": "593eb72a187bd18c01283592"
+            }
+          ]
+        }
+      ]
     }
   },
   {

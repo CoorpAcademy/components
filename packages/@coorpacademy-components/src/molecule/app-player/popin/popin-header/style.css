@@ -1,6 +1,5 @@
 @value breakpoints: "../../../../variables/breakpoints.css";
 @value mobile from breakpoints;
-
 @value colors: "../../../../variables/colors.css";
 @value negative from colors;
 @value light from colors;
@@ -203,7 +202,8 @@
     font-size: 15px;
   }
 
-  .iconsWrapper::before, .iconsWrapper::after {
+  .iconsWrapper::before,
+  .iconsWrapper::after {
     content: '';
     display: block;
     width: 0;

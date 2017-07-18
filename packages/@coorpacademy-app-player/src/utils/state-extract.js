@@ -100,3 +100,8 @@ export const getRecommendations = state => {
 export const getStartRank = get(`data.rank.start`);
 export const getEndRank = get(`data.rank.end`);
 export const getBestScore = pipe(getCurrentChapter, get('bestScore'));
+
+export const getQuestionMedia = state => {
+  const slide = getCurrentSlide(state);
+  return get('question.medias.0.src.0.url', slide);
+};
