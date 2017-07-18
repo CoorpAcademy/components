@@ -8,6 +8,7 @@ export default {
       type: 'qcm',
       ...answerProps
     },
-    media: 'http://i2.kym-cdn.com/photos/images/facebook/000/437/645/a9d.jpg'
+    media:
+      'https://api-staging.coorpacademy.com/api-service/medias?h=400&w=400&q=90&url=http://www.howitworksdaily.com/wp-content/uploads/2015/07/68_1.jpg'
   }
 };

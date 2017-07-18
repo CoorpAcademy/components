@@ -6,6 +6,7 @@ export default {
       type: 'freeText',
       ...FreeText.props
     },
-    media: 'http://static.coorpacademy.com/content/ijoinchanel/en/slides/1B2_Q6/1B2-Q6-canap-v1.jpg'
+    media:
+      'https://api-staging.coorpacademy.com/api-service/medias?h=400&w=400&q=90&url=http://europeantrips.org/wp-content/uploads/2012/03/Eiffel-Tower.jpg'
   }
 };

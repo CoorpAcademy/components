@@ -12,7 +12,7 @@ import style from './style.css';
 const MediaView = ({media}) => {
   return (
     <div className={style.media}>
-      <Picture className={style.picture} src={media} />
+      <Picture src={media} />
     </div>
   );
 };
