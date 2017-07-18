@@ -21,9 +21,7 @@ class Link extends React.Component {
       hovered: true
     }));
 
-    if (this.props.onMouseEnter) {
-      this.props.onMouseEnter();
-    }
+    this.props.onMouseEnter && this.props.onMouseEnter();
   }
 
   handleMouseLeave() {
@@ -31,9 +29,7 @@ class Link extends React.Component {
       hovered: false
     }));
 
-    if (this.props.onMouseLeave) {
-      this.props.onMouseLeave();
-    }
+    this.props.onMouseLeave && this.props.onMouseLeave();
   }
 
   handleOnClick(e) {
