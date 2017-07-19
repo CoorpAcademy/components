@@ -32,7 +32,7 @@ const playerProps = (options, store) => state => {
   const mediaQuestion = getQuestionMedia(state);
   const clue = getCurrentClue(state) || null;
   const route = getRoute(state);
-  const resources = getResourcesProps(store)(state, slide);
+  const resources = getResourcesProps(options, store)(state, slide);
   const isAnswer = !ROUTES.includes(route);
   const clickClueHandler = () => dispatch(selectClue);
   const clickBackToAnswerHandler = () => dispatch(selectRoute('answer'));

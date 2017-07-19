@@ -42,7 +42,7 @@ const popinCorrectionStateToProps = (options, store) => state => {
     answer: join(', ', correctAnswer)
   };
 
-  const resources = getResourcesProps(store)(state, slide);
+  const resources = getResourcesProps(options, store)(state, slide);
 
   return {
     header: isLoading

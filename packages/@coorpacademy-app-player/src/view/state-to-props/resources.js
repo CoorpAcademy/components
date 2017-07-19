@@ -7,7 +7,7 @@ import update from 'lodash/fp/update';
 import {getResourcesToPlay} from '../../utils/state-extract';
 import {selectResource} from '../../actions/ui/corrections';
 
-const getResourcesProps = store => (state, slide) => {
+const getResourcesProps = (options, store) => (state, slide) => {
   const {dispatch} = store;
   const resourcesToPlay = getResourcesToPlay(state);
 
