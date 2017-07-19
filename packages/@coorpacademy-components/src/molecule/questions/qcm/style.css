@@ -10,13 +10,13 @@
   font-weight: 600;
   color: black;
   background-color: white;
-  line-height: 54px;
   border: 1px solid light;
   border-radius: 3px;
   box-sizing: border-box;
   margin-bottom: 8px;
   cursor: pointer;
-  padding: 0 32px;
+  padding: 8px 32px;
+  line-height: 24px;
   white-space: normal;
 }
 

@@ -113,6 +113,7 @@
   text-align: center;
   flex-grow: 0.1;
   margin: 10px;
+  max-width: 100%;
 }
 
 .helpView {
