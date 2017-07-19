@@ -7,6 +7,7 @@ import Provider from '../../../atom/provider';
 import Clue from '../../../atom/clue';
 import Answer from '../../../molecule/answer';
 import Loader from '../../../atom/loader';
+import ResourceBrowser from '../../../organism/resource-browser';
 import SlidesFooter from '../slides-footer';
 import style from './style.css';
 
@@ -26,9 +27,16 @@ ClueContent.propTypes = {
   text: Clue.propTypes.text
 };
 
+const MediaContent = ({resources}) => <ResourceBrowser resources={resources} />;
+
+MediaContent.propTypes = {
+  resources: ResourceBrowser.propTypes.resources
+};
+
 const CONTENT_TYPE = {
   answer: AnswerContent,
-  clue: ClueContent
+  clue: ClueContent,
+  media: MediaContent
 };
 
 /*
