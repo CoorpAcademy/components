@@ -29,6 +29,7 @@ const Card = (props, context) => {
   const {skin} = context;
   const {
     view = 'grid',
+    dataName,
     image,
     time,
     adaptiv,
@@ -74,7 +75,7 @@ const Card = (props, context) => {
   const loader = title && type ? null : <Loader />;
 
   return (
-    <div className={cardStyle}>
+    <div className={cardStyle} data-name={dataName}>
       <div className={lazyClass} disabled={disabled}>
         <div
           className={style.imageWrapper}
@@ -121,6 +122,7 @@ Card.contextTypes = {
 
 Card.propTypes = {
   view: PropTypes.oneOf(keys(viewStyle)),
+  dataName: PropTypes.string,
   image: PropTypes.string,
   time: PropTypes.string,
   disabled: PropTypes.bool,

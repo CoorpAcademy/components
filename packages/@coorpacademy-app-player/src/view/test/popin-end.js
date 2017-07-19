@@ -52,8 +52,8 @@ test('should set properties for failure popin', t => {
   const {props} = vNode;
 
   t.is(props.header.lives.count, 0);
-  t.is(props.summary.header.title, '__O O O P S');
-  t.is(props.summary.header.subtitle, '__You are missing lives!');
+  t.is(props.summary.header.title, '__Ooops');
+  t.is(props.summary.header.subtitle, '__You are out of lives!');
   t.is(props.summary.header.fail, true);
   t.is(props.summary.header.stars, null);
   t.is(props.summary.header.rank, null);
@@ -76,8 +76,8 @@ test('should set properties for failure popin when losing rank', t => {
   const {props} = vNode;
 
   t.is(props.header.lives.count, 0);
-  t.is(props.summary.header.title, '__O O O P S');
-  t.is(props.summary.header.subtitle, '__You are missing lives!');
+  t.is(props.summary.header.title, '__Ooops');
+  t.is(props.summary.header.subtitle, '__You are out of lives!');
   t.is(props.summary.header.fail, true);
   t.is(props.summary.header.stars, null);
   t.is(props.summary.header.rank, '-10');

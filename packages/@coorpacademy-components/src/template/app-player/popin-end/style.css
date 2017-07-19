@@ -5,6 +5,7 @@
 
 .wrapper {
   width: 100%;
+  flex-grow: inherit;
 }
 
 .popinWrapper {
