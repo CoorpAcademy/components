@@ -42,7 +42,7 @@ const summaryHeader = ({translate}, store) => state => {
     [
       pipe(get('type'), isEqual('success')),
       () => ({
-        title: '',
+        title: getOr('', 'name')(getCurrentChapter(state)),
         subtitle: translate('Congratulations!'),
         fail: false,
         stars: extractStars(state),
