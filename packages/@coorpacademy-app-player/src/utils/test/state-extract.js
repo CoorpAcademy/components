@@ -18,7 +18,8 @@ import {
   getQuestionType,
   getStartRank,
   getEndRank,
-  getBestScore
+  getBestScore,
+  getResourcesToPlay
 } from '../state-extract';
 
 test('getChoices should get choices from state', t => {
@@ -173,4 +174,10 @@ test('getCurrentClue should get current clue from state', t => {
   )({});
 
   t.is(getCurrentClue(state), clue);
+});
+
+test('getResourcesToPlay should get resources to play from state', t => {
+  const state = set('ui.corrections.playResource', true, {});
+
+  t.true(getResourcesToPlay(state));
 });
