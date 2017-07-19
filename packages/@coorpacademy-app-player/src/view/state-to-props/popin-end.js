@@ -57,14 +57,14 @@ const summaryHeader = ({translate}, store) => state => {
     [
       pipe(get('type'), isEqual('failure')),
       () => ({
-        title: translate('O O O P S'),
-        subtitle: translate('You are missing lives!'),
+        title: translate('Ooops'),
+        subtitle: translate('You are out of lives!'),
         fail: true,
         lives: get('state.lives')(progression),
         rank: extractRank(state),
         stars: null,
         cta: {
-          title: translate('Retry level'),
+          title: translate('Retry chapter'),
           href: `/`
         }
       })
@@ -94,8 +94,8 @@ const extractAction = ({translate}, store) => state => {
       () =>
         get('nextChapter', recommendations) && {
           type: 'nextCourse',
-          description: translate('Validate your skills!'),
-          prefix: translate('See course:'),
+          description: translate('Check out the next chapter in this course!'),
+          prefix: translate('Next chapter:'),
           ...recommendations.nextChapter
         }
     ],
@@ -103,10 +103,10 @@ const extractAction = ({translate}, store) => state => {
       pipe(get('type'), isEqual('failure')),
       () => ({
         type: 'simple',
-        prefix: translate('Retry level:'),
+        prefix: translate('Retry chapter:'),
         title: getOr('', 'name')(getCurrentChapter(state)),
         button: {
-          title: translate('Retry level'),
+          title: translate('Retry chapter'),
           href: `/`
         }
       })
