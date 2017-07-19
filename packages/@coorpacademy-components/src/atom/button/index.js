@@ -30,7 +30,7 @@ const Button = ({children, ...props}) => {
   switch (type) {
     case 'link':
       buttonContent = (
-        <Link href={href} target={target}>
+        <Link href={href} target={target} onClick={onClick}>
           {submitValue || children}
         </Link>
       );
@@ -38,7 +38,7 @@ const Button = ({children, ...props}) => {
 
     case 'a':
       buttonContent = (
-        <a href={href} target={target}>
+        <a href={href} target={target} onClick={onClick}>
           {submitValue || children}
         </a>
       );

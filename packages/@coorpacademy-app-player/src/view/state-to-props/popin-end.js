@@ -4,6 +4,7 @@ import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import isEqual from 'lodash/fp/isEqual';
 import pipe from 'lodash/fp/pipe';
+import {retry, exit} from '../../actions/api/location';
 import {
   getCurrentChapter,
   getCurrentExitNode,
@@ -36,7 +37,7 @@ const extractStars = state => {
   return stars > bestScore ? `+${stars - bestScore}` : '+0';
 };
 
-const summaryHeader = ({translate}, store) => state => {
+const summaryHeader = ({translate}, {dispatch}) => state => {
   const progression = getCurrentProgression(state);
   return cond([
     [
@@ -65,7 +66,7 @@ const summaryHeader = ({translate}, store) => state => {
         stars: null,
         cta: {
           title: translate('Retry chapter'),
-          href: `/`
+          onClick: () => dispatch(retry)
         }
       })
     ],
@@ -86,7 +87,7 @@ const extractRecommendation = ({translate}, store) => state => {
   return recommendation;
 };
 
-const extractAction = ({translate}, store) => state => {
+const extractAction = ({translate}, {dispatch}) => state => {
   const recommendations = getRecommendations(state);
   return cond([
     [
@@ -107,7 +108,7 @@ const extractAction = ({translate}, store) => state => {
         title: getOr('', 'name')(getCurrentChapter(state)),
         button: {
           title: translate('Retry chapter'),
-          href: `/`
+          onClick: () => dispatch(retry)
         }
       })
     ],
@@ -117,12 +118,13 @@ const extractAction = ({translate}, store) => state => {
 
 const popinEndStateToProps = (options, store) => state => {
   const {translate} = options;
+  const {dispatch} = store;
 
   const exitNode = getCurrentExitNode(state);
 
   const footer = {
     title: translate('Back to dashboard'),
-    href: '/'
+    onClick: () => dispatch(exit)
   };
 
   const props = {

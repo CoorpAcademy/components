@@ -63,7 +63,5 @@ module.exports = (storybookBaseConfig, configType) => {
     plugin => !(plugin instanceof webpack.optimize.UglifyJsPlugin)
   );
 
-  console.log(storybookBaseConfig.plugins);
-
   return storybookBaseConfig;
 };
