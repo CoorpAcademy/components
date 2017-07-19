@@ -2,6 +2,7 @@
   "Access the lesson": "Access the lesson",
   "Back to dashboard": "Back to dashboard",
   "Back": "Back",
+  "Check out the next chapter in this course!": "Check out the next chapter in this course!",
   "Clue": "Clue",
   "Coach": "Coach",
   "Congratulations!": "Congratulations!",
@@ -11,14 +12,16 @@
   "Good job": "Good job",
   "Key point": "Key point",
   "Media": "Media",
+  "Next chapter:": "Next chapter:",
   "Next": "Next",
-  "O O O P S": "O O O P S ...",
+  "Ooops": "Ooops...",
   "Ouch": "Ouch...",
   "Related subjects": "Related subjects:",
-  "Retry level": "Retry level",
+  "Retry chapter": "Retry chapter",
+  "Retry chapter:": "Retry chapter:",
   "Select something below": "Select something below",
   "Type here": "Type here",
   "Validate": "Validate",
   "Wrong answer": "Wrong answer",
-  "You are missing lives!": "You are missing lives!"
+  "You are out of lives!": "You are out of lives!"
 }
