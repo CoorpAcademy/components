@@ -1,5 +1,5 @@
 import test from 'ava';
-import noop from 'lodash/fp/noop';
+import identity from 'lodash/fp/identity';
 import set from 'lodash/fp/set';
 import popinEndStateToProps from '../popin-end';
 import success from './fixtures/popin-end/success';
@@ -11,9 +11,9 @@ const commonOptions = {
   translate
 };
 
-const toProps = popinEndStateToProps(commonOptions, {dispatch: noop});
+const toProps = popinEndStateToProps(commonOptions, {dispatch: identity});
 
-test('should set properties for success popin', t => {
+test('should set properties for success popin', async t => {
   const vNode = toProps(success);
   testRendering(vNode);
   const {props} = vNode;
@@ -36,7 +36,8 @@ test('should set properties for success popin', t => {
   t.is(card.view, 'grid');
 
   t.is(props.summary.footer.title, '__Back to dashboard');
-  t.is(props.summary.footer.href, '/');
+  const exitHandler = props.summary.footer.onClick;
+  await t.notThrows(exitHandler);
 });
 
 test("should display +0 when user don't get higher score than his best score", t => {
@@ -46,7 +47,7 @@ test("should display +0 when user don't get higher score than his best score", t
   t.is(props.summary.header.stars, '+0');
 });
 
-test('should set properties for failure popin', t => {
+test('should set properties for failure popin', async t => {
   const vNode = toProps(fail);
   testRendering(vNode);
   const {props} = vNode;
@@ -67,10 +68,19 @@ test('should set properties for failure popin', t => {
   t.is(card.view, 'grid');
 
   t.is(props.summary.footer.title, '__Back to dashboard');
-  t.is(props.summary.footer.href, '/');
+  const exitHandler = props.summary.footer.onClick;
+  await t.notThrows(exitHandler);
+
+  t.is(props.summary.header.cta.title, '__Retry chapter');
+  const headerRetryHandler = props.summary.header.cta.onClick;
+  await t.notThrows(headerRetryHandler);
+
+  t.is(props.summary.action.button.title, '__Retry chapter');
+  const retryHandler = props.summary.action.button.onClick;
+  await t.notThrows(retryHandler);
 });
 
-test('should set properties for failure popin when losing rank', t => {
+test('should set properties for failure popin when losing rank', async t => {
   const vNode = toProps(set('data.rank.start', 90, fail));
   testRendering(vNode);
   const {props} = vNode;
@@ -89,5 +99,6 @@ test('should set properties for failure popin when losing rank', t => {
   t.is(card.view, 'grid');
 
   t.is(props.summary.footer.title, '__Back to dashboard');
-  t.is(props.summary.footer.href, '/');
+  const exitHandler = props.summary.footer.onClick;
+  await t.notThrows(exitHandler);
 });

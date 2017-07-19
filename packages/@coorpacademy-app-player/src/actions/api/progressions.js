@@ -1,5 +1,5 @@
-import includes from 'lodash/fp/includes';
 import get from 'lodash/fp/get';
+import includes from 'lodash/fp/includes';
 import buildTask from '../../utils/redux-task';
 import {getProgression, getBestScore} from '../../utils/state-extract';
 

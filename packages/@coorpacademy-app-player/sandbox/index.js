@@ -1,5 +1,6 @@
 import createTranslate from '@coorpacademy/translate';
-import locales from '../locales/fr/player';
+import localesComponents from '@coorpacademy/components/locales/en/global';
+import localesAppPlayer from '../locales/en/player';
 import {create as createApp} from '../src';
 import * as Services from '../src/services';
 
@@ -7,8 +8,12 @@ import * as Services from '../src/services';
 export const create = options => {
   const translate = (key, data) => {
     try {
-      return createTranslate(locales)(key, data);
+      return createTranslate({
+        ...localesAppPlayer,
+        ...localesComponents
+      })(key, data);
     } catch (err) {
+      console.error(err); // eslint-disable-line no-console
       return createTranslate({[key]: key})(key, data);
     }
   };
