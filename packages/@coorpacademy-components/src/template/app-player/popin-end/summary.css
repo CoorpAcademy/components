@@ -92,6 +92,7 @@
 .nextCourseTexts {
   text-align: right;
   padding: 70px 80px;
+  max-width: calc(100% - 500px);
 }
 
 .nextCourseDescription {
@@ -111,11 +112,23 @@
   font-weight: 700;
 }
 
+.nextCourseCard {
+  display: flex;
+  align-items: center;
+}
+
+@media tablet {
+  .nextCourseTexts {
+    padding: 70px 30px 70px 0px;
+  }
+}
+
 @media mobile {
   .nextCourseTexts {
     width: 100%;
     text-align: center;
-    padding: 5px 0 15px;
+    padding: 20px 30px 35px 0;
+    max-width: 100%;
   }
 
   .nextCourseDescription {
