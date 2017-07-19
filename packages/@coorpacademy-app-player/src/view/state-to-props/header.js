@@ -4,6 +4,7 @@ import {getCurrentProgression, getCurrentChapter} from '../../utils/state-extrac
 
 const headerProps = (options, store) => state => {
   return {
+    backHref: '/',
     primary: {
       title: getOr('', 'name')(getCurrentChapter(state))
     },

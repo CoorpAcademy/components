@@ -12,7 +12,6 @@ const SlidesHeader = (props, context) => {
   const {backHref, primary, secondary, lives, className} = props;
   const {skin} = context;
 
-  const darkColor = get('common.dark', skin);
   const primarySkinColor = get('common.primary', skin);
 
   const primarySubtitleView = primary && primary.subtitle
@@ -41,14 +40,14 @@ const SlidesHeader = (props, context) => {
   return (
     <div className={classnames(style.wrapper, className)}>
       <Link href={backHref} className={style.backLink}>
-        <BackIcon className={style.backIcon} color={darkColor} />
-      </Link>
-      <div className={style.primary}>
-        {primarySubtitleView}
-        <div className={style.primaryTitle}>
-          {primary.title}
+        <BackIcon className={style.backIcon} color="inherit" />
+        <div className={style.primary}>
+          {primarySubtitleView}
+          <div className={style.primaryTitle}>
+            {primary.title}
+          </div>
         </div>
-      </div>
+      </Link>
       <div className={style.secondary}>
         {secondarySubtitleView}
         {secondaryTitleView}
