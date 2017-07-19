@@ -574,7 +574,7 @@
           "src": [
             {
               "mimeType": "image/jpeg",
-              "url": "https://api-staging.coorpacademy.com/api-service/medias?h=400&w=400&q=90&url=https:https://pbs.twimg.com/profile_images/629387285914480640/K_1HUn-G.jpg",
+              "url": "https://api-staging.coorpacademy.com/api-service/medias?h=400&w=400&q=90&url=http://europeantrips.org/wp-content/uploads/2012/03/Eiffel-Tower.jpg",
               "_id": "593eb72a187bd18c01283592"
             }
           ]
