@@ -1,19 +1,16 @@
 import getOr from 'lodash/fp/getOr';
 import get from 'lodash/fp/get';
-import isEmpty from 'lodash/fp/isEmpty';
 import isNil from 'lodash/fp/isNil';
 import join from 'lodash/fp/join';
-import map from 'lodash/fp/map';
-import pipe from 'lodash/fp/pipe';
-import set from 'lodash/fp/set';
-import update from 'lodash/fp/update';
 import {
   getCurrentCorrection,
   getCurrentProgression,
   getCurrentProgressionId,
-  getPreviousSlide
+  getPreviousSlide,
+  getResourcesToPlay
 } from '../../utils/state-extract';
-import {toggleAccordion, selectResource} from '../../actions/ui/corrections';
+import buildResourcesBrowser from '../../utils/build-resources-browser';
+import {toggleAccordion} from '../../actions/ui/corrections';
 import {selectProgression} from '../../actions/ui/progressions';
 
 const popinCorrectionStateToProps = ({translate}, {dispatch}) => state => {
@@ -28,31 +25,7 @@ const popinCorrectionStateToProps = ({translate}, {dispatch}) => state => {
   const corrections = get('corrections', answerResult) || [];
   const isCorrect = isNil(answerResult) ? null : get('state.isCorrect')(progression);
   const isLoading = isNil(isCorrect);
-
-  const buildResourcesView = (_slide, _resourcesToPlay) => {
-    const lessons = pipe(
-      getOr([], 'lessons'),
-      map(lesson => {
-        return pipe(
-          set('onClick', () => dispatch(selectResource(lesson._id))),
-          set('selected', lesson._id === _resourcesToPlay),
-          _lesson => {
-            if (_lesson.type === 'pdf') {
-              return set('mediaUrl', _lesson.mediaUrl, _lesson);
-            }
-            return _lesson;
-          }
-        )(lesson);
-      })
-    )(_slide);
-
-    const forceSelected = !_resourcesToPlay && !isEmpty(lessons);
-    return !isEmpty(lessons)
-      ? update('0.selected', selected => forceSelected || selected)(lessons)
-      : lessons;
-  };
-
-  const resourcesToPlay = get('ui.corrections.playResource', state);
+  const resourcesToPlay = getResourcesToPlay(state);
 
   const header = isNil(answerResult)
     ? {}
@@ -69,7 +42,7 @@ const popinCorrectionStateToProps = ({translate}, {dispatch}) => state => {
     answer: join(', ', correctAnswer)
   };
 
-  const resources = buildResourcesView(slide, resourcesToPlay);
+  const resourcesBrowser = buildResourcesBrowser({dispatch, translate, slide, resourcesToPlay});
 
   return {
     header: isLoading
@@ -88,7 +61,7 @@ const popinCorrectionStateToProps = ({translate}, {dispatch}) => state => {
     question,
     resources: {
       title: translate('Access the lesson'),
-      value: resources,
+      value: resourcesBrowser,
       open: getOr(false, '0', accordion)
     },
     klf: {

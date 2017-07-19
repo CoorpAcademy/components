@@ -105,3 +105,5 @@ export const getQuestionMedia = state => {
   const slide = getCurrentSlide(state);
   return get('question.medias.0.src.0.url', slide);
 };
+
+export const getResourcesToPlay = state => get('ui.corrections.playResource', state);
