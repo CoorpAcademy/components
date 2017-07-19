@@ -7,14 +7,13 @@ import {
   getAnswerValues,
   getCurrentClue,
   getRoute,
-  getQuestionMedia,
-  getResourcesToPlay
+  getQuestionMedia
 } from '../../utils/state-extract';
-import buildResourcesBrowser from '../../utils/build-resources-browser';
 import {validateAnswer} from '../../actions/ui/answers';
 import {selectRoute} from '../../actions/ui/route';
 import {selectClue} from '../../actions/ui/clues';
 import getAnswerProps from './answer';
+import getResourcesProps from './resources';
 
 const ROUTES = ['media', 'clue'];
 const CTA_STYLE = {
@@ -33,8 +32,7 @@ const playerProps = (options, store) => state => {
   const mediaQuestion = getQuestionMedia(state);
   const clue = getCurrentClue(state) || null;
   const route = getRoute(state);
-  const resourcesToPlay = getResourcesToPlay(state);
-  const resourcesBrowser = buildResourcesBrowser({dispatch, translate, slide, resourcesToPlay});
+  const resources = getResourcesProps(store)(state, slide);
   const isAnswer = !ROUTES.includes(route);
   const clickClueHandler = () => dispatch(selectClue);
   const clickBackToAnswerHandler = () => dispatch(selectRoute('answer'));
@@ -52,7 +50,7 @@ const playerProps = (options, store) => state => {
     step: get('state.step')(progression),
     question: get('question.header')(slide),
     verticalMargin: 260,
-    resources: resourcesBrowser,
+    resources,
     cta: isAnswer
       ? {
           submitValue: translate('Validate'),

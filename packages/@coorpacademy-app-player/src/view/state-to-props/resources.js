@@ -4,9 +4,13 @@ import map from 'lodash/fp/map';
 import pipe from 'lodash/fp/pipe';
 import set from 'lodash/fp/set';
 import update from 'lodash/fp/update';
-import {selectResource} from '../actions/ui/corrections';
+import {getResourcesToPlay} from '../../utils/state-extract';
+import {selectResource} from '../../actions/ui/corrections';
 
-const buildResourcesBrowser = ({dispatch, slide, resourcesToPlay}) => {
+const getResourcesProps = store => (state, slide) => {
+  const {dispatch} = store;
+  const resourcesToPlay = getResourcesToPlay(state);
+
   const lessons = pipe(
     getOr([], 'lessons'),
     map(lesson => {
@@ -29,4 +33,4 @@ const buildResourcesBrowser = ({dispatch, slide, resourcesToPlay}) => {
     : lessons;
 };
 
-export default buildResourcesBrowser;
+export default getResourcesProps;

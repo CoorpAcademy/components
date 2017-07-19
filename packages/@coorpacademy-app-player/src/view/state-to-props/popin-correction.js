@@ -6,14 +6,15 @@ import {
   getCurrentCorrection,
   getCurrentProgression,
   getCurrentProgressionId,
-  getPreviousSlide,
-  getResourcesToPlay
+  getPreviousSlide
 } from '../../utils/state-extract';
-import buildResourcesBrowser from '../../utils/build-resources-browser';
 import {toggleAccordion} from '../../actions/ui/corrections';
 import {selectProgression} from '../../actions/ui/progressions';
+import getResourcesProps from './resources';
 
-const popinCorrectionStateToProps = ({translate}, {dispatch}) => state => {
+const popinCorrectionStateToProps = (options, store) => state => {
+  const {translate} = options;
+  const {dispatch} = store;
   const progressionId = getCurrentProgressionId(state);
   const resetProgression = () => dispatch(selectProgression(progressionId));
   const toggleAccordionSection = sectionId => dispatch(toggleAccordion(sectionId));
@@ -25,7 +26,6 @@ const popinCorrectionStateToProps = ({translate}, {dispatch}) => state => {
   const corrections = get('corrections', answerResult) || [];
   const isCorrect = isNil(answerResult) ? null : get('state.isCorrect')(progression);
   const isLoading = isNil(isCorrect);
-  const resourcesToPlay = getResourcesToPlay(state);
 
   const header = isNil(answerResult)
     ? {}
@@ -42,7 +42,7 @@ const popinCorrectionStateToProps = ({translate}, {dispatch}) => state => {
     answer: join(', ', correctAnswer)
   };
 
-  const resourcesBrowser = buildResourcesBrowser({dispatch, translate, slide, resourcesToPlay});
+  const resources = getResourcesProps(store)(state, slide);
 
   return {
     header: isLoading
@@ -61,7 +61,7 @@ const popinCorrectionStateToProps = ({translate}, {dispatch}) => state => {
     question,
     resources: {
       title: translate('Access the lesson'),
-      value: resourcesBrowser,
+      value: resources,
       open: getOr(false, '0', accordion)
     },
     klf: {
