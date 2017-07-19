@@ -52,7 +52,7 @@ const NextCourse = ({title, description, prefix, card}) =>
         {title}
       </div>
     </div>
-    <div>
+    <div className={style.nextCourseCard}>
       <Card {...card} />
     </div>
   </div>;

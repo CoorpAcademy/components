@@ -7,9 +7,9 @@ export default defaultsDeep(correct, {
     summary: {
       action: {
         type: 'nextCourse',
-        description: 'Validate your skills!',
-        prefix: 'See course:',
-        title: 'Big Data',
+        description: 'Check out the next chapter in this course!',
+        prefix: 'Next chapter:',
+        title: 'Le prochain chapitre qui a un titre vraiment trop long',
         card: Card.props
       }
     }
