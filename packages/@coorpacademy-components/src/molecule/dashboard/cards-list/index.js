@@ -193,7 +193,7 @@ class CardsList extends React.Component {
   }
 
   render() {
-    const {title, showMore, cards, onShowMore} = this.props;
+    const {title, showMore, cards, onShowMore, dataName} = this.props;
     const {skin} = this.context;
 
     const mediumColor = getOr('#90A4AE', 'common.medium', skin);
@@ -201,7 +201,7 @@ class CardsList extends React.Component {
     const cardsView = map.convert({cap: false})((card, key) => {
       return (
         <div className={style.card} key={key} ref={this.setCards(key)}>
-          <Card {...card} />
+          <Card {...card} dataName={`${dataName}-${key}`} />
         </div>
       );
     }, cards);
@@ -244,6 +244,7 @@ CardsList.contextTypes = {
 };
 
 CardsList.propTypes = {
+  dataName: PropTypes.string,
   title: PropTypes.string,
   showMore: PropTypes.string,
   cards: PropTypes.arrayOf(PropTypes.shape(Card.protoTypes)),

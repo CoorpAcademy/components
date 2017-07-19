@@ -41,11 +41,9 @@ const Answer = props => {
   const answerView = buildAnswer(model);
 
   return (
-    <div>
+    <div className={style.wrapper}>
       {media ? <MediaView media={media} /> : null}
-      <div className={style.wrapper}>
-        {answerView}
-      </div>
+      {answerView}
     </div>
   );
 };

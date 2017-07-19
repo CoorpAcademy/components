@@ -53,7 +53,7 @@ const NextCourse = ({title, description, prefix, card}) =>
       </div>
     </div>
     <div className={style.nextCourseCard}>
-      <Card {...card} />
+      <Card {...card} dataName={'popin-end-next-course'} />
     </div>
   </div>;
 
@@ -73,7 +73,7 @@ const Subscribe = ({title, description, button, card}) => {
         </div>
       </div>
       <div>
-        <Card {...card} />
+        <Card {...card} dataName={'popin-end-subscribe'} />
       </div>
     </div>
   );
@@ -100,7 +100,7 @@ const CardsLoader = () =>
 const Cards = props =>
   get('cards', props) === null
     ? <CardsLoader />
-    : (props.cards && <CardsList {...props} />) || null;
+    : (props.cards && <CardsList {...props} dataName={'popin-end-recommendation'} />) || null;
 
 const Footer = ({title, color, ...linkProps}) =>
   <Link

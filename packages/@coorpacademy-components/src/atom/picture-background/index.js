@@ -12,7 +12,6 @@ const viewStyle = {
 
 const PictureBackground = props => {
   const {src, view} = props;
-
   const mobile = src.mobile;
   const desktop = src.desktop;
   const bgStyle = viewStyle[view];
