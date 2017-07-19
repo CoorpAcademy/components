@@ -8,5 +8,14 @@
   font-weight: 600;
   text-decoration: none;
   padding: 0 20px;
-  height: 100%;
+  height: 42px;
+  line-height: 38px;
+  border-radius: 23px;
+}
+
+.smallButton {
+  composes: button;
+  height: 32px;
+  line-height: 28px;
+  border-radius: 18px;
 }
