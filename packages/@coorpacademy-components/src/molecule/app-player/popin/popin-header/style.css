@@ -66,12 +66,13 @@
 
 .subtitle {
   composes: titleElement;
-  font-size: 16px;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .title {
   composes: titleElement;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .fullAnswer {
