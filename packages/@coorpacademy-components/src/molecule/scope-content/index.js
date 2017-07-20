@@ -6,7 +6,6 @@ import PlayIcon from '@coorpacademy/nova-icons/line/audio/audio-control-play';
 import Button from '../../atom/button';
 import Link from '../../atom/link';
 import Provider from '../../atom/provider';
-import addClassName from '../../util/add-class-name';
 import style from './style.css';
 
 const ScopeContent = (props, context) => {
@@ -78,11 +77,7 @@ const ScopeContent = (props, context) => {
           </div>
           {ctaView}
         </div>
-        <div
-          {...addClassName(`${style.column}`)({
-            className: style.skills
-          })}
-        >
+        <div className={style.skills}>
           <div className={style.coltitle}>
             {skillsTitle}
           </div>

@@ -1,11 +1,10 @@
 import React from 'react';
 import LinkedInput from 'react-linked-input';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import {ColorPropType} from '../../util/proptypes';
 import Link from '../link';
-import addClassName from '../../util/add-class-name';
 import style from './style.css';
-import {hoverFill} from './hover-fill.css';
 
 const Button = ({children, ...props}) => {
   const {
@@ -65,9 +64,7 @@ const Button = ({children, ...props}) => {
         ...props.style,
         ...centeredStyle
       }}
-      {...addClassName(`${style.button} ${hoverFill}`)({
-        className
-      })}
+      className={classnames(style.button, className)}
     >
       {buttonContent}
     </div>

@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import addClassName from '../../util/add-class-name';
+import classnames from 'classnames';
 import style from './style.css';
-
-const addBackgroundClass = addClassName(style.background);
 
 const ProgressBar = props => {
   const {className, value, max, desc = ''} = props;
@@ -13,7 +11,7 @@ const ProgressBar = props => {
   const text = `${percentage}%`;
 
   return (
-    <div {...addBackgroundClass({className})}>
+    <div className={classnames(style.background, className)}>
       <div
         className={style.progress}
         style={{
