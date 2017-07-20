@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import addClassName from '../../util/add-class-name';
+import classnames from 'classnames';
 import style from './style.css';
 
 const Hammer = typeof window !== 'undefined' ? require('hammerjs') : undefined;
@@ -53,9 +53,7 @@ class Handle extends React.Component {
 
     return (
       <div
-        {...addClassName(`${style.default}`)({
-          className: this.props.className
-        })}
+        className={classnames(style.default, this.props.className)}
         ref={this.setHandle}
         data-name={'handle'}
         style={{

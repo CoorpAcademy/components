@@ -74,6 +74,10 @@
   vertical-align: top;
 }
 
+.skills {
+  composes: column;
+}
+
 .dottedlist {
   display: block;
   margin: 0;
@@ -183,10 +187,6 @@
     display: block;
   }
 
-  .column.skills {
-    display: none;
-  }
-
   .title {
     font-size: 16px;
     display: block;
@@ -201,6 +201,10 @@
     width: 100%;
     padding-right: 0;
     margin-bottom: 20px;
+  }
+
+  .skills {
+    display: none;
   }
 
   .medias {
