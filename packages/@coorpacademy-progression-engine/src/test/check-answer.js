@@ -1,4 +1,4 @@
-// // @flow
+// @flow
 import test from 'ava';
 import checkAnswer from '../check-answer';
 import checkAnswerCorrectness from '../check-answer-correctness';
