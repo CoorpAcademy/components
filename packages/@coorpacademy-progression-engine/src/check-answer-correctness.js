@@ -14,6 +14,7 @@ import getConfig from './config';
 import type {
   Question,
   BasicQuestion,
+  TemplateQuestion,
   PartialCorrection,
   AnswerCorrection,
   AcceptedAnswers,
@@ -82,6 +83,30 @@ function matchAnswerForBasic(
   ];
 }
 
+function isTextCorrect(
+  config: MicroLearningConfig,
+  allowedAnswers: Answer,
+  answer: string
+): boolean {
+  return allowedAnswers.includes(answer);
+}
+
+function matchAnswerForTemplate(
+  config: MicroLearningConfig,
+  question: TemplateQuestion,
+  givenAnswer: Answer
+): Array<Array<PartialCorrection>> {
+  const allowedAnswers = question.content.answers;
+  return [
+    givenAnswer.map((answer, index) => ({
+      answer,
+      isCorrect: allowedAnswers.some(allowedAnswer =>
+        isTextCorrect(config, [allowedAnswer[index]], answer)
+      )
+    }))
+  ];
+}
+
 function matchAnswerForUnorderedQCM(
   allowedAnswers: AcceptedAnswers,
   givenAnswer: Answer
@@ -133,6 +158,9 @@ function matchGivenAnswerToQuestion(
   switch (question.type) {
     case 'basic': {
       return matchAnswerForBasic(config, question, givenAnswer);
+    }
+    case 'template': {
+      return matchAnswerForTemplate(config, question, givenAnswer);
     }
     case 'qcm': {
       return matchAnswerForUnorderedQCM(allowedAnswers, givenAnswer);

@@ -102,6 +102,20 @@ export type BasicQuestion = {
   }
 };
 
+type TemplateChoice = {
+  type: 'text' | 'select'
+};
+
+export type TemplateQuestion = {
+  type: 'template',
+  content: {
+    matchOrder: boolean,
+    maxTypos?: ?number,
+    choices: Array<TemplateChoice>,
+    answers: AcceptedAnswers
+  }
+};
+
 export type UnknownQuestion = {
   type: 'unknown',
   content: {
@@ -109,7 +123,7 @@ export type UnknownQuestion = {
   }
 };
 
-export type Question = QCMQuestion | BasicQuestion | UnknownQuestion;
+export type Question = QCMQuestion | BasicQuestion | TemplateQuestion | UnknownQuestion;
 
 export type Slide = {
   _id: string,
