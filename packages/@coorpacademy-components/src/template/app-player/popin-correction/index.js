@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import isNil from 'lodash/fp/isNil';
-import partial from 'lodash/fp/partial';
 import defer from 'lodash/fp/defer';
+import isNil from 'lodash/fp/isNil';
+import omit from 'lodash/fp/omit';
+import partial from 'lodash/fp/partial';
 import CheckIcon from '@coorpacademy/nova-icons/composition/coorpacademy/check';
 import Loader from '../../../atom/loader';
 import ResourceBrowser from '../../../organism/resource-browser';
@@ -95,7 +96,7 @@ class PopinCorrection extends Component {
         <div className={style.scrollWrapper}>
           <div className={isLoading ? style.loadingWrapper : style.wrapper}>
             <div className={isLoading ? style.loadingContent : style.content}>
-              <PopinHeader {...delayedHeader} />
+              <PopinHeader {...delayedHeader} animated />
               <Question {...question} />
               <Accordion tabProps={tabs} onClick={onClick} oneTabOnly>
                 <Resources resources={resources} />
@@ -113,7 +114,7 @@ class PopinCorrection extends Component {
 
 PopinCorrection.propTypes = {
   resources: PropTypes.shape(ResourceBrowser.propTypes),
-  header: PropTypes.shape(PopinHeader.propTypes),
+  header: PropTypes.shape(omit(['animated'], PopinHeader.propTypes)),
   question: PropTypes.shape(Question.propTypes),
   klf: PropTypes.shape(SimpleText.propTypes),
   tips: PropTypes.shape(SimpleText.propTypes),
