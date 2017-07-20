@@ -1,9 +1,8 @@
 export default {
   props: {
-    popinCTA: {
-      submitValue: 'Start Learning'
-    },
-    href: '#',
+    ctaLabel: 'Start Learning',
+    ctaOnClick: () => console.log('ctaOnClick'),
+    closeOnClick: () => console.log('closeOnClick'),
     header: 'skip intro',
     /* eslint-disable max-len */
     content: `<h1>Welcome!</h1>

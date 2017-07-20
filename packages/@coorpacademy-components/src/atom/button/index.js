@@ -1,23 +1,63 @@
 import React from 'react';
 import LinkedInput from 'react-linked-input';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
 import {ColorPropType} from '../../util/proptypes';
 import Link from '../link';
 import style from './style.css';
 
-const Button = ({children, ...props}) => {
+const ButtonContent = props => {
   const {
-    className,
     color,
     submitValue = 'submit',
-    centered,
     disabled,
     href,
-    type = 'submit',
     target,
-    onClick
+    onClick,
+    className,
+    children,
+    type
   } = props;
+
+  switch (type) {
+    case 'link':
+      return (
+        <Link
+          href={href}
+          onClick={onClick}
+          target={target}
+          className={className}
+          style={props.style}
+        >
+          {submitValue || children}
+        </Link>
+      );
+
+    case 'a':
+      return (
+        <a href={href} target={target} className={className} onClick={onClick} style={props.style}>
+          {submitValue || children}
+        </a>
+      );
+
+    default:
+      return (
+        <LinkedInput
+          type={type}
+          value={submitValue}
+          disabled={disabled}
+          onClick={onClick}
+          className={className}
+          style={{
+            color,
+            ...props.style
+          }}
+        />
+      );
+  }
+};
+
+const Button = ({children, ...props}) => {
+  const {className = style.button, centered, type = 'submit'} = props;
 
   const centeredStyle = centered
     ? {
@@ -26,48 +66,18 @@ const Button = ({children, ...props}) => {
       }
     : {};
 
-  let buttonContent;
-  switch (type) {
-    case 'link':
-      buttonContent = (
-        <Link href={href} target={target} onClick={onClick}>
-          {submitValue || children}
-        </Link>
-      );
-      break;
-
-    case 'a':
-      buttonContent = (
-        <a href={href} target={target} onClick={onClick}>
-          {submitValue || children}
-        </a>
-      );
-      break;
-
-    default:
-      buttonContent = (
-        <LinkedInput
-          type={type}
-          value={submitValue}
-          disabled={disabled}
-          onClick={onClick}
-          style={{
-            color
-          }}
-        />
-      );
-  }
-
   return (
-    <div
+    <ButtonContent
+      {...props}
+      type={type}
+      className={className}
       style={{
         ...props.style,
         ...centeredStyle
       }}
-      className={classnames(style.button, className)}
     >
-      {buttonContent}
-    </div>
+      {children}
+    </ButtonContent>
   );
 };
 

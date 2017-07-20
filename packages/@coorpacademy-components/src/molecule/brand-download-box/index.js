@@ -25,7 +25,7 @@ const BrandDownloadBox = (props, context) => {
   return (
     <div className={style.wrapper}>
       {type}
-      <Button className={style.button} type="a" href={href} submitValue={submitValue} />
+      <Button className={style.button} type="link" href={href} submitValue={submitValue} />
     </div>
   );
 };

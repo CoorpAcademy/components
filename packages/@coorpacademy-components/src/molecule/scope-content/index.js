@@ -34,6 +34,7 @@ const ScopeContent = (props, context) => {
   const ctaView =
     onClick &&
     <Button
+      type="link"
       className={style.cta}
       onClick={onClick}
       submitValue={buttonLabel}
