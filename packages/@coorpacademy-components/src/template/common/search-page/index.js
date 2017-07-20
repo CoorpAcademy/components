@@ -17,7 +17,12 @@ const SearchPage = (props, context) => {
   const cardsView = isEmpty(cards.list)
     ? <div className={style.noresults}>
         <div>{noresultsfound}</div>
-        <Button {...clearFilters} className={style.clear} style={{background: defaultColor}} />
+        <Button
+          className={style.clear}
+          style={{background: defaultColor}}
+          {...clearFilters}
+          type="link"
+        />
       </div>
     : <CardsGrid {...cards} />;
 

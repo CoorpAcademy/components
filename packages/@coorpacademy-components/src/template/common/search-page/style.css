@@ -38,13 +38,12 @@
   background: white;
 }
 
-.noresults .clear {
-  width: auto;
-  border-radius: 10px;
-}
-
-.noresults .clear input {
+.clear {
+  composes: button from '../../../atom/button/style.css';
+  border-radius: 45px;
+  height: 40px;
   line-height: 40px;
+  width: auto;
 }
 
 @media mobile {

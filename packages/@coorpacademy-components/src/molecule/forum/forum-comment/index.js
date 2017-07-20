@@ -17,6 +17,7 @@ const ForumComment = (props, context) => {
   const button = (
     <div className={style.post}>
       <Button
+        type="link"
         onClick={onPost}
         disabled={postDisabled}
         submitValue={translate('Post')}

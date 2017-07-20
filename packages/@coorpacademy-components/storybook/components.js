@@ -2002,11 +2002,7 @@ export const dependencies = {
           "BrandCreateForm": true
         }
       },
-      "children": {
-        "Atom": {
-          "Link": true
-        }
-      }
+      "children": {}
     },
     "Link": {
       "parents": {
@@ -2043,9 +2039,6 @@ export const dependencies = {
           "BrandTabs": true,
           "BrandCard": true,
           "BrandCardCreate": true
-        },
-        "Atom": {
-          "Button": true
         }
       },
       "children": {}

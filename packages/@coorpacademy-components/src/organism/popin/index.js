@@ -30,7 +30,8 @@ const Popin = (props, context) => {
           />
         </div>
         <Button
-          className={style.cta}
+          type="link"
+          className={style.button}
           onClick={ctaOnClick}
           submitValue={ctaLabel}
           centered

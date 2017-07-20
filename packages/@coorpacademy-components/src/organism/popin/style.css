@@ -56,16 +56,13 @@
   max-width: 100%;
 }
 
-.cta {
+.button {
+  composes: button from '../../atom/button/style.css';
   display: flex;
   align-items: flex-end;
   justify-content: center;
   margin-bottom: 30px;
   cursor: pointer;
-}
-
-.cta input {
-  padding: 0;
 }
 
 @media mobile {

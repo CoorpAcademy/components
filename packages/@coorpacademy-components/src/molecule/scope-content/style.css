@@ -9,6 +9,7 @@
 @value grey from colors;
 
 .cta {
+  composes: button from '../../atom/button/style.css';
   float: right;
   width: auto;
 }

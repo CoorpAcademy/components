@@ -22,6 +22,7 @@
 }
 
 .button {
+  composes: button from '../../atom/button/style.css';
   background-color: dark;
 }
 

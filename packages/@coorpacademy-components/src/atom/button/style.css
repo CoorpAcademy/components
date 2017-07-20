@@ -1,27 +1,17 @@
 @value colors: "../../variables/colors.css";
 @value orange from colors;
 @value xtraLightGrey from colors;
-@value whtie from colors;
+@value white from colors;
 
 .button {
   composes: hoverFill from './hover-fill.css';
-  border-radius: 2px;
   min-width: 200px;
   background-color: orange;
   text-transform: inherit;
-}
-
-.button::before {
-  background-color: white;
-  opacity: 0.15;
-}
-
-.button a,
-.button input {
+  border-radius: 2px;
+  cursor: pointer;
   display: inline-block;
-  text-transform: inherit;
   color: white;
-  background-color: transparent;
   font-family: Open Sans;
   font-weight: 600;
   font-size: 13px;
@@ -29,8 +19,11 @@
   line-height: 52px;
   text-align: center;
   border: none;
-  cursor: pointer;
-  width: 100%;
+}
+
+.button::before {
+  background-color: white;
+  opacity: 0.15;
 }
 
 .button input {

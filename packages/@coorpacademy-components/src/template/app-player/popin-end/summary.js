@@ -27,7 +27,7 @@ const SimpleAction = ({color, prefix, title, button}) => {
         </span>
       </div>
       <Button
-        type={'link'}
+        type="link"
         style={{
           backgroundColor: color
         }}
@@ -69,7 +69,12 @@ const Subscribe = ({title, description, button, card}) => {
           {title}
         </div>
         <div className={style.subscribeButtonWrapper}>
-          <Button className={style.subscribeButton} {...linkProps} submitValue={buttonTitle} />
+          <Button
+            type="link"
+            className={style.subscribeButton}
+            {...linkProps}
+            submitValue={buttonTitle}
+          />
         </div>
       </div>
       <div>
