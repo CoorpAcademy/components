@@ -1,26 +1,51 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import identity from 'lodash/fp/identity';
-import getOr from 'lodash/fp/getOr';
-import values from 'lodash/fp/values';
+import get from 'lodash/fp/getOr';
 import Cta from '../../../atom/cta';
 import Provider from '../../../atom/provider';
 import Clue from '../../../atom/clue';
 import Answer from '../../../molecule/answer';
 import Loader from '../../../atom/loader';
+import ResourceBrowser from '../../../organism/resource-browser';
 import SlidesFooter from '../slides-footer';
 import style from './style.css';
 
-const TYPE = {
-  CLUE: 'clue',
-  ANSWER: 'answer'
+/*
+ * Content types
+ */
+
+const AnswerContent = ({answerType}) => <Answer {...answerType} />;
+
+AnswerContent.propTypes = {
+  answerType: PropTypes.shape(Answer.PropTypes)
 };
 
-const createStepView = (step, skin) => {
-  if (!step) return null;
+const ClueContent = ({text}) => <Clue text={text} />;
 
-  const color = getOr('#00B0FF', 'common.primary', skin);
+ClueContent.propTypes = {
+  text: Clue.propTypes.text
+};
+
+const MediaContent = ({resources}) => <ResourceBrowser resources={resources} />;
+
+MediaContent.propTypes = {
+  resources: ResourceBrowser.propTypes.resources
+};
+
+const CONTENT_TYPE = {
+  answer: AnswerContent,
+  clue: ClueContent,
+  media: MediaContent
+};
+
+/*
+ * Normal layouts
+ */
+
+const Step = ({step, color}) => {
   const stepWidth = step.current / step.total * 100;
+
   return (
     <div>
       <div className={style.stepCount}>
@@ -40,60 +65,104 @@ const createStepView = (step, skin) => {
   );
 };
 
+Step.propTypes = {
+  step: PropTypes.shape({
+    current: PropTypes.number.isRequired,
+    total: PropTypes.number.isRequired
+  })
+};
+
+const Help = ({help}) =>
+  <div className={style.helpView}>
+    {help}
+  </div>;
+
+Help.propTypes = {
+  help: PropTypes.string
+};
+
+const ContentLayout = (props, context) => {
+  const {typeClue, question, cta, help} = props;
+  const ContentType = CONTENT_TYPE[typeClue];
+  const wrapperColor = typeClue === 'answer' ? 'white' : '#ECEFF1';
+
+  return (
+    <div className={style.contentWrapper} style={{backgroundColor: wrapperColor}}>
+      <div className={style.question}>
+        {question}
+      </div>
+      {help ? <Help help={help} /> : null}
+      <ContentType {...props} />
+      <div className={style.ctaWrapper}>
+        <Cta className={style.cta} {...cta} />
+      </div>
+    </div>
+  );
+};
+
+ContentLayout.contextTypes = {
+  translate: Provider.childContextTypes.translate,
+  skin: Provider.childContextTypes.skin
+};
+
+ContentLayout.propTypes = {
+  typeClue: PropTypes.oneOf(Object.keys(CONTENT_TYPE)),
+  question: PropTypes.string,
+  cta: PropTypes.shape(Cta.propTypes)
+};
+
+/*
+ * Loading
+ */
+
+const LoadingLayout = () =>
+  <div className={style.loading}>
+    <Loader />
+  </div>;
+
+const LoadedLayout = ({question, step, ...props}) =>
+  question && step
+    ? <ContentLayout question={question} step={step} {...props} />
+    : <LoadingLayout />;
+
+/*
+ * Errors
+ */
+
+const ErrorMessage = ({errorMsg}) =>
+  <div className={style.contentWrapper}>
+    <div className={style.error}>
+      {errorMsg}
+    </div>
+  </div>;
+
+ErrorMessage.propTypes = {
+  errorMsg: PropTypes.string
+};
+
+const Content = ({error, ...props}) =>
+  error ? <ErrorMessage {...props} /> : <LoadedLayout {...props} />;
+
+Content.propTypes = {
+  error: PropTypes.bool
+};
+
+/*
+ * SlidesPlayer
+ */
+
 const SlidesPlayer = (props, context) => {
-  const {error, errorMsg, typeClue, step, question, cta, help, buttons, text, answerType} = props;
-
+  const {step, buttons} = props;
   const {skin, translate = identity} = context;
-
-  const helpView = help
-    ? <div className={style.helpView}>
-        {help}
-      </div>
-    : null;
-
-  const stepView = createStepView(step, skin);
-
-  const wrapperColor = typeClue === TYPE.CLUE ? '#ECEFF1' : 'white';
-
-  const contentView = typeClue === TYPE.CLUE ? <Clue text={text} /> : <Answer {...answerType} />;
-
-  const globalView = question && stepView
-    ? <div
-        className={style.contentWrapper}
-        style={{
-          backgroundColor: wrapperColor
-        }}
-      >
-        <div className={style.question}>
-          {question}
-        </div>
-        {helpView}
-        {contentView}
-        <div className={style.ctaWrapper}>
-          <Cta className={style.cta} {...cta} />
-        </div>
-      </div>
-    : <div className={style.loading}>
-        <Loader />
-      </div>;
-
-  const questionView = error
-    ? <div className={style.contentWrapper}>
-        <div className={style.error}>
-          {errorMsg}
-        </div>
-      </div>
-    : globalView;
+  const stepColor = get('common.primary', skin);
 
   return (
     <div className={style.wrapper}>
-      {stepView}
+      {step ? <Step step={step} color={stepColor} /> : null}
       <div className={style.guideWrapper}>
-        <span>
-          {translate('New media')}
-        </span>
+        <span>{translate('New media')}</span>
       </div>
-      {questionView}
+      <Content {...props} />
       <div className={style.footer}>
         <SlidesFooter buttons={buttons} />
       </div>
@@ -101,7 +170,7 @@ const SlidesPlayer = (props, context) => {
   );
 };
 
-SlidesPlayer.TYPE = TYPE;
+SlidesPlayer.TYPE = CONTENT_TYPE;
 
 SlidesPlayer.contextTypes = {
   translate: Provider.childContextTypes.translate,
@@ -109,18 +178,7 @@ SlidesPlayer.contextTypes = {
 };
 
 SlidesPlayer.propTypes = {
-  error: PropTypes.bool,
-  typeClue: PropTypes.oneOf(values(TYPE)),
-  errorMsg: PropTypes.string,
-  step: PropTypes.shape({
-    current: PropTypes.number.isRequired,
-    total: PropTypes.number.isRequired
-  }),
-  question: PropTypes.string,
-  help: PropTypes.string,
-  text: Clue.propTypes.text,
-  answerType: PropTypes.shape(Answer.PropTypes),
-  cta: PropTypes.shape(Cta.propTypes),
+  step: Step.propTypes.step,
   buttons: SlidesFooter.propTypes.buttons
 };
 

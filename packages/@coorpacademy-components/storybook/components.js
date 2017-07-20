@@ -396,11 +396,12 @@ import QcmFixtureDefault from '../src/molecule/questions/qcm/test/fixtures/defau
 import QcmFixtureNoSelected from '../src/molecule/questions/qcm/test/fixtures/no-selected';
 import QuestionRangeFixtureDefault from '../src/molecule/questions/question-range/test/fixtures/default';
 import QuestionRangeFixtureNoSelected from '../src/molecule/questions/question-range/test/fixtures/no-selected';
+import SlidesFooterFixtureClueSelected from '../src/molecule/slides/slides-footer/test/fixtures/clue-selected';
 import SlidesFooterFixtureDefault from '../src/molecule/slides/slides-footer/test/fixtures/default';
 import SlidesFooterFixtureDisabled from '../src/molecule/slides/slides-footer/test/fixtures/disabled';
 import SlidesFooterFixtureHighlighted from '../src/molecule/slides/slides-footer/test/fixtures/highlighted';
+import SlidesFooterFixtureMediaSelected from '../src/molecule/slides/slides-footer/test/fixtures/media-selected';
 import SlidesFooterFixtureNotify from '../src/molecule/slides/slides-footer/test/fixtures/notify';
-import SlidesFooterFixtureSelected from '../src/molecule/slides/slides-footer/test/fixtures/selected';
 import SlidesHeaderFixtureDefault from '../src/molecule/slides/slides-header/test/fixtures/default';
 import SlidesHeaderFixtureFreerun from '../src/molecule/slides/slides-header/test/fixtures/freerun';
 import SlidesHeaderFixtureNoSecondary from '../src/molecule/slides/slides-header/test/fixtures/no-secondary';
@@ -410,6 +411,7 @@ import SlidesPlayerFixtureDropDown from '../src/molecule/slides/slides-player/te
 import SlidesPlayerFixtureError from '../src/molecule/slides/slides-player/test/fixtures/error';
 import SlidesPlayerFixtureFreeText from '../src/molecule/slides/slides-player/test/fixtures/free-text';
 import SlidesPlayerFixtureLoading from '../src/molecule/slides/slides-player/test/fixtures/loading';
+import SlidesPlayerFixtureMedia from '../src/molecule/slides/slides-player/test/fixtures/media';
 import SlidesPlayerFixtureNoQuestion from '../src/molecule/slides/slides-player/test/fixtures/no-question';
 import SlidesPlayerFixturePicker from '../src/molecule/slides/slides-player/test/fixtures/picker';
 import SlidesPlayerFixtureQcmImage from '../src/molecule/slides/slides-player/test/fixtures/qcm-image';
@@ -470,6 +472,7 @@ import PlayerFixtureDropDown from '../src/template/app-player/player/test/fixtur
 import PlayerFixtureEmpty from '../src/template/app-player/player/test/fixtures/empty';
 import PlayerFixtureError from '../src/template/app-player/player/test/fixtures/error';
 import PlayerFixtureFreeText from '../src/template/app-player/player/test/fixtures/free-text';
+import PlayerFixtureMedia from '../src/template/app-player/player/test/fixtures/media';
 import PlayerFixturePicker from '../src/template/app-player/player/test/fixtures/picker';
 import PlayerFixtureQcmImage from '../src/template/app-player/player/test/fixtures/qcm-image';
 import PlayerFixtureQcm from '../src/template/app-player/player/test/fixtures/qcm';
@@ -1148,11 +1151,12 @@ export const fixtures = {
   },
   MoleculeSlides: {
     SlidesFooter: {
+      ClueSelected: SlidesFooterFixtureClueSelected,
       Default: SlidesFooterFixtureDefault,
       Disabled: SlidesFooterFixtureDisabled,
       Highlighted: SlidesFooterFixtureHighlighted,
-      Notify: SlidesFooterFixtureNotify,
-      Selected: SlidesFooterFixtureSelected
+      MediaSelected: SlidesFooterFixtureMediaSelected,
+      Notify: SlidesFooterFixtureNotify
     },
     SlidesHeader: {
       Default: SlidesHeaderFixtureDefault,
@@ -1166,6 +1170,7 @@ export const fixtures = {
       Error: SlidesPlayerFixtureError,
       FreeText: SlidesPlayerFixtureFreeText,
       Loading: SlidesPlayerFixtureLoading,
+      Media: SlidesPlayerFixtureMedia,
       NoQuestion: SlidesPlayerFixtureNoQuestion,
       Picker: SlidesPlayerFixturePicker,
       QcmImage: SlidesPlayerFixtureQcmImage,
@@ -1278,6 +1283,7 @@ export const fixtures = {
       Empty: PlayerFixtureEmpty,
       Error: PlayerFixtureError,
       FreeText: PlayerFixtureFreeText,
+      Media: PlayerFixtureMedia,
       Picker: PlayerFixturePicker,
       QcmImage: PlayerFixtureQcmImage,
       Qcm: PlayerFixtureQcm,
@@ -1579,23 +1585,6 @@ export const dependencies = {
         }
       }
     },
-    "Answer": {
-      "parents": {
-        "MoleculeSlides": {
-          "SlidesPlayer": true
-        }
-      },
-      "children": {
-        "MoleculeQuestions": {
-          "FreeText": true,
-          "DropDown": true,
-          "Picker": true,
-          "QcmImage": true,
-          "Qcm": true,
-          "QuestionRange": true
-        }
-      }
-    },
     "RangeSlider": {
       "parents": {
         "MoleculeQuestions": {
@@ -1733,6 +1722,18 @@ export const dependencies = {
       "children": {
         "Molecule": {
           "SetupSlide": true
+        }
+      }
+    },
+    "Answer": {
+      "children": {
+        "MoleculeQuestions": {
+          "FreeText": true,
+          "DropDown": true,
+          "Picker": true,
+          "QcmImage": true,
+          "Qcm": true,
+          "QuestionRange": true
         }
       }
     },
@@ -2063,9 +2064,6 @@ export const dependencies = {
           "CardsGrid": true,
           "BrandTable": true
         },
-        "MoleculeSlides": {
-          "SlidesPlayer": true
-        },
         "MoleculeDashboard": {
           "NewsList": true
         },
@@ -2145,9 +2143,6 @@ export const dependencies = {
         "Organism": {
           "MoocHeader": true
         },
-        "MoleculeSlides": {
-          "SlidesPlayer": true
-        },
         "Molecule": {
           "News": true
         },
@@ -2192,18 +2187,6 @@ export const dependencies = {
         }
       },
       "children": {}
-    },
-    "Clue": {
-      "parents": {
-        "MoleculeSlides": {
-          "SlidesPlayer": true
-        }
-      },
-      "children": {
-        "Atom": {
-          "Loader": true
-        }
-      }
     },
     "Life": {
       "parents": {
@@ -2281,6 +2264,13 @@ export const dependencies = {
     },
     "CenteredText": {
       "children": {}
+    },
+    "Clue": {
+      "children": {
+        "Atom": {
+          "Loader": true
+        }
+      }
     },
     "InputCheckbox": {
       "children": {}
@@ -2385,16 +2375,8 @@ export const dependencies = {
         }
       },
       "children": {
-        "Atom": {
-          "Clue": true,
-          "Cta": true,
-          "Loader": true
-        },
         "MoleculeSlides": {
           "SlidesFooter": true
-        },
-        "Molecule": {
-          "Answer": true
         }
       }
     },
