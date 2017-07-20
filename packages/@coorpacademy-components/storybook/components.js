@@ -402,6 +402,7 @@ import SlidesFooterFixtureDisabled from '../src/molecule/slides/slides-footer/te
 import SlidesFooterFixtureHighlighted from '../src/molecule/slides/slides-footer/test/fixtures/highlighted';
 import SlidesFooterFixtureMediaSelected from '../src/molecule/slides/slides-footer/test/fixtures/media-selected';
 import SlidesFooterFixtureNotify from '../src/molecule/slides/slides-footer/test/fixtures/notify';
+import SlidesFooterFixtureOnlyClue from '../src/molecule/slides/slides-footer/test/fixtures/only-clue';
 import SlidesHeaderFixtureDefault from '../src/molecule/slides/slides-header/test/fixtures/default';
 import SlidesHeaderFixtureFreerun from '../src/molecule/slides/slides-header/test/fixtures/freerun';
 import SlidesHeaderFixtureNoSecondary from '../src/molecule/slides/slides-header/test/fixtures/no-secondary';
@@ -413,6 +414,7 @@ import SlidesPlayerFixtureFreeText from '../src/molecule/slides/slides-player/te
 import SlidesPlayerFixtureLoading from '../src/molecule/slides/slides-player/test/fixtures/loading';
 import SlidesPlayerFixtureMedia from '../src/molecule/slides/slides-player/test/fixtures/media';
 import SlidesPlayerFixtureNoQuestion from '../src/molecule/slides/slides-player/test/fixtures/no-question';
+import SlidesPlayerFixtureOnlyClue from '../src/molecule/slides/slides-player/test/fixtures/only-clue';
 import SlidesPlayerFixturePicker from '../src/molecule/slides/slides-player/test/fixtures/picker';
 import SlidesPlayerFixtureQcmImage from '../src/molecule/slides/slides-player/test/fixtures/qcm-image';
 import SlidesPlayerFixtureQcm from '../src/molecule/slides/slides-player/test/fixtures/qcm';
@@ -473,6 +475,7 @@ import PlayerFixtureEmpty from '../src/template/app-player/player/test/fixtures/
 import PlayerFixtureError from '../src/template/app-player/player/test/fixtures/error';
 import PlayerFixtureFreeText from '../src/template/app-player/player/test/fixtures/free-text';
 import PlayerFixtureMedia from '../src/template/app-player/player/test/fixtures/media';
+import PlayerFixtureOnlyClue from '../src/template/app-player/player/test/fixtures/only-clue';
 import PlayerFixturePicker from '../src/template/app-player/player/test/fixtures/picker';
 import PlayerFixtureQcmImage from '../src/template/app-player/player/test/fixtures/qcm-image';
 import PlayerFixtureQcm from '../src/template/app-player/player/test/fixtures/qcm';
@@ -1156,7 +1159,8 @@ export const fixtures = {
       Disabled: SlidesFooterFixtureDisabled,
       Highlighted: SlidesFooterFixtureHighlighted,
       MediaSelected: SlidesFooterFixtureMediaSelected,
-      Notify: SlidesFooterFixtureNotify
+      Notify: SlidesFooterFixtureNotify,
+      OnlyClue: SlidesFooterFixtureOnlyClue
     },
     SlidesHeader: {
       Default: SlidesHeaderFixtureDefault,
@@ -1172,6 +1176,7 @@ export const fixtures = {
       Loading: SlidesPlayerFixtureLoading,
       Media: SlidesPlayerFixtureMedia,
       NoQuestion: SlidesPlayerFixtureNoQuestion,
+      OnlyClue: SlidesPlayerFixtureOnlyClue,
       Picker: SlidesPlayerFixturePicker,
       QcmImage: SlidesPlayerFixtureQcmImage,
       Qcm: SlidesPlayerFixtureQcm,
@@ -1284,6 +1289,7 @@ export const fixtures = {
       Error: PlayerFixtureError,
       FreeText: PlayerFixtureFreeText,
       Media: PlayerFixtureMedia,
+      OnlyClue: PlayerFixtureOnlyClue,
       Picker: PlayerFixturePicker,
       QcmImage: PlayerFixtureQcmImage,
       Qcm: PlayerFixtureQcm,
