@@ -3,6 +3,11 @@
 @value black from colors;
 @value light from colors;
 
+.wrapper {
+  min-width: 100%;
+  text-align: center;
+}
+
 .answer {
   width: 100%;
   font-family: 'Open Sans';
@@ -15,7 +20,7 @@
   box-sizing: border-box;
   margin-bottom: 8px;
   cursor: pointer;
-  padding: 8px 32px;
+  padding: 11px 24px;
   line-height: 24px;
   white-space: normal;
 }
