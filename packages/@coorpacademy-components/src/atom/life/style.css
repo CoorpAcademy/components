@@ -175,6 +175,11 @@
 
 .heartNormalFail {
   composes: heartIcon;
+  opacity: 0;
+}
+
+.heartNormalAnimatedFail {
+  composes: heartNormalFail;
   animation-name: hideNormalHeart;
   animation-duration: 2s;
   animation-fill-mode: forwards;
@@ -187,6 +192,11 @@
 
 .heartBrokenFail {
   composes: heartIcon;
+  opacity: 1;
+}
+
+.heartBrokenAnimatedFail {
+  composes: heartBrokenFail;
   animation-name: showBrokenHeart;
   animation-duration: 2s;
   animation-fill-mode: forwards;

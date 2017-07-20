@@ -15,14 +15,33 @@ const MODES = {
 
 const Life = (props, context) => {
   const {skin} = context;
-  const {count = 3, fail = false, mode = 'default', className, style: customStyle} = props;
+  const {
+    animated = false,
+    count = 3,
+    fail = false,
+    mode = 'default',
+    className,
+    style: customStyle
+  } = props;
   const negativeColor = get('common.negative', skin);
   const white = get('common.white', skin);
+
+  const pickStyle = (successStyle, failStyle, animatedStyle) => {
+    if (fail) {
+      if (animated) return animatedStyle;
+      return failStyle;
+    }
+    return successStyle;
+  };
 
   return (
     <div className={classnames(MODES[mode], className)} style={customStyle}>
       <div className={style.livesCounterWrapper}>
-        <div className={fail ? style.previousLivesCounterFail : style.previousLivesCounterDefault}>
+        <div
+          className={
+            fail && animated ? style.previousLivesCounterFail : style.previousLivesCounterDefault
+          }
+        >
           {count + 1}
         </div>
         <div className={fail ? style.livesCounterFail : style.livesCounterDefault}>{count}</div>
@@ -30,14 +49,22 @@ const Life = (props, context) => {
       <div className={style.multiplier}>
         <div className={style.multiplierText}>x</div>
       </div>
-      <div className={fail ? style.heartWrapperFail : style.heartWrapperDefault}>
+      <div className={fail && animated ? style.heartWrapperFail : style.heartWrapperDefault}>
         <HeartIcon outline={white} outlineWidth={5} className={style.heartOutline} color={white} />
         <HeartIcon
-          className={fail ? style.heartNormalFail : style.heartNormalDefault}
+          className={pickStyle(
+            style.heartNormalDefault,
+            style.heartNormalFail,
+            style.heartNormalAnimatedFail
+          )}
           color={negativeColor}
         />
         <HeartBrokenIcon
-          className={fail ? style.heartBrokenFail : style.heartBrokenDefault}
+          className={pickStyle(
+            style.heartBrokenDefault,
+            style.heartBrokenFail,
+            style.heartBrokenAnimatedFail
+          )}
           color={negativeColor}
         />
       </div>
@@ -50,6 +77,7 @@ Life.contextTypes = {
 };
 
 Life.propTypes = {
+  animated: PropTypes.bool,
   mode: PropTypes.oneOf(keys(MODES)),
   count: PropTypes.number,
   fail: PropTypes.bool,
