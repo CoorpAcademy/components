@@ -87,7 +87,5 @@
 }
 
 @media mobile {
-  .button:last-child {
-    display: none;
-  }
+  
 }
