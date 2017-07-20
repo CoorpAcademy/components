@@ -27,7 +27,10 @@ ClueContent.propTypes = {
   text: Clue.propTypes.text
 };
 
-const MediaContent = ({resources}) => <ResourceBrowser resources={resources} />;
+const MediaContent = ({resources}) =>
+  <div className={style.resourcesWrapper}>
+    <ResourceBrowser resources={resources} />
+  </div>;
 
 MediaContent.propTypes = {
   resources: ResourceBrowser.propTypes.resources
