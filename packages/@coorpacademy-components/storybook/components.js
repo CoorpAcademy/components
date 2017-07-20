@@ -236,6 +236,7 @@ import AnswerFixtureDefault from '../src/molecule/answer/test/fixtures/default';
 import AnswerFixtureDropDown from '../src/molecule/answer/test/fixtures/drop-down';
 import AnswerFixturePicker from '../src/molecule/answer/test/fixtures/picker';
 import AnswerFixtureQcmImage from '../src/molecule/answer/test/fixtures/qcm-image';
+import AnswerFixtureQcmShort from '../src/molecule/answer/test/fixtures/qcm-short';
 import AnswerFixtureQcm from '../src/molecule/answer/test/fixtures/qcm';
 import AnswerFixtureRange from '../src/molecule/answer/test/fixtures/range';
 import BattleRequestFixtureDefault from '../src/molecule/battle-request/test/fixtures/default';
@@ -395,6 +396,7 @@ import QcmImageFixtureDefault from '../src/molecule/questions/qcm-image/test/fix
 import QcmImageFixtureNoSelected from '../src/molecule/questions/qcm-image/test/fixtures/no-selected';
 import QcmFixtureDefault from '../src/molecule/questions/qcm/test/fixtures/default';
 import QcmFixtureNoSelected from '../src/molecule/questions/qcm/test/fixtures/no-selected';
+import QcmFixtureShortAnswers from '../src/molecule/questions/qcm/test/fixtures/short-answers';
 import QuestionRangeFixtureDefault from '../src/molecule/questions/question-range/test/fixtures/default';
 import QuestionRangeFixtureNoSelected from '../src/molecule/questions/question-range/test/fixtures/no-selected';
 import SlidesFooterFixtureClueSelected from '../src/molecule/slides/slides-footer/test/fixtures/clue-selected';
@@ -418,6 +420,7 @@ import SlidesPlayerFixtureNoQuestion from '../src/molecule/slides/slides-player/
 import SlidesPlayerFixtureOnlyClue from '../src/molecule/slides/slides-player/test/fixtures/only-clue';
 import SlidesPlayerFixturePicker from '../src/molecule/slides/slides-player/test/fixtures/picker';
 import SlidesPlayerFixtureQcmImage from '../src/molecule/slides/slides-player/test/fixtures/qcm-image';
+import SlidesPlayerFixtureQcmShort from '../src/molecule/slides/slides-player/test/fixtures/qcm-short';
 import SlidesPlayerFixtureQcm from '../src/molecule/slides/slides-player/test/fixtures/qcm';
 import SlidesPlayerFixtureRange from '../src/molecule/slides/slides-player/test/fixtures/range';
 import SlidesPlayerFixtureWithMinHeight from '../src/molecule/slides/slides-player/test/fixtures/with-min-height';
@@ -479,6 +482,7 @@ import PlayerFixtureMedia from '../src/template/app-player/player/test/fixtures/
 import PlayerFixtureOnlyClue from '../src/template/app-player/player/test/fixtures/only-clue';
 import PlayerFixturePicker from '../src/template/app-player/player/test/fixtures/picker';
 import PlayerFixtureQcmImage from '../src/template/app-player/player/test/fixtures/qcm-image';
+import PlayerFixtureQcmShort from '../src/template/app-player/player/test/fixtures/qcm-short';
 import PlayerFixtureQcm from '../src/template/app-player/player/test/fixtures/qcm';
 import PlayerFixtureRange from '../src/template/app-player/player/test/fixtures/range';
 import PopinCorrectionFixtureCorrectClosed from '../src/template/app-player/popin-correction/test/fixtures/correct-closed';
@@ -875,6 +879,7 @@ export const fixtures = {
       DropDown: AnswerFixtureDropDown,
       Picker: AnswerFixturePicker,
       QcmImage: AnswerFixtureQcmImage,
+      QcmShort: AnswerFixtureQcmShort,
       Qcm: AnswerFixtureQcm,
       Range: AnswerFixtureRange
     },
@@ -1147,7 +1152,8 @@ export const fixtures = {
     },
     Qcm: {
       Default: QcmFixtureDefault,
-      NoSelected: QcmFixtureNoSelected
+      NoSelected: QcmFixtureNoSelected,
+      ShortAnswers: QcmFixtureShortAnswers
     },
     QuestionRange: {
       Default: QuestionRangeFixtureDefault,
@@ -1181,6 +1187,7 @@ export const fixtures = {
       OnlyClue: SlidesPlayerFixtureOnlyClue,
       Picker: SlidesPlayerFixturePicker,
       QcmImage: SlidesPlayerFixtureQcmImage,
+      QcmShort: SlidesPlayerFixtureQcmShort,
       Qcm: SlidesPlayerFixtureQcm,
       Range: SlidesPlayerFixtureRange,
       WithMinHeight: SlidesPlayerFixtureWithMinHeight
@@ -1294,6 +1301,7 @@ export const fixtures = {
       OnlyClue: PlayerFixtureOnlyClue,
       Picker: PlayerFixturePicker,
       QcmImage: PlayerFixtureQcmImage,
+      QcmShort: PlayerFixtureQcmShort,
       Qcm: PlayerFixtureQcm,
       Range: PlayerFixtureRange
     },
