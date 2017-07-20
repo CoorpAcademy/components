@@ -80,17 +80,17 @@ Stars.contextTypes = {
   skin: Provider.childContextTypes.skin
 };
 
-const Lifes = ({lives, fail}) => {
+const Lifes = ({lives, fail, animated}) => {
   if (isNil(lives)) return null;
 
-  return <Life fail={fail} count={lives} className={style.life} />;
+  return <Life fail={fail} count={lives} animated={animated} className={style.life} />;
 };
 
 const IconsPart = props => {
-  const {lives, fail, stars, rank} = props;
+  const {lives, fail, stars, rank, animated} = props;
   return (
     <div className={style.iconsWrapper}>
-      <Lifes lives={lives} fail={fail} />
+      <Lifes lives={lives} fail={fail} animated={animated} />
       <Stars stars={stars} />
       <Rank rank={rank} />
     </div>
@@ -139,7 +139,7 @@ const NextQuestionPart = props => {
 };
 
 const PopinHeader = (props, context) => {
-  const {fail, title, subtitle, lives, stars, rank, corrections, cta} = props;
+  const {animated, fail, title, subtitle, lives, stars, rank, corrections, cta} = props;
 
   return (
     <div className={style.header}>
@@ -147,6 +147,7 @@ const PopinHeader = (props, context) => {
         title={title}
         subtitle={subtitle}
         lives={lives}
+        animated={animated}
         stars={stars}
         rank={rank}
         fail={fail}
@@ -162,16 +163,17 @@ PopinHeader.contextTypes = {
 };
 
 PopinHeader.propTypes = {
-  fail: PropTypes.bool,
-  lives: PropTypes.number,
+  fail: Life.propTypes.fail,
+  lives: Life.propTypes.count,
+  animated: Life.propTypes.animated,
   stars: PropTypes.string,
   rank: PropTypes.string,
   subtitle: PropTypes.string,
   title: PropTypes.string,
   corrections: AnswersCorrection.propTypes.corrections,
   cta: PropTypes.shape({
-    title: PropTypes.string,
-    href: PropTypes.url
+    ...Link.propTypes,
+    title: PropTypes.string
   })
 };
 
