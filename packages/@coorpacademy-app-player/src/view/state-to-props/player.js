@@ -1,3 +1,4 @@
+import includes from 'lodash/fp/includes';
 import get from 'lodash/fp/get';
 import noop from 'lodash/fp/noop';
 import {
@@ -33,7 +34,7 @@ const playerProps = (options, store) => state => {
   const clue = getCurrentClue(state) || null;
   const route = getRoute(state);
   const resources = getResourcesProps(options, store)(state, slide);
-  const isAnswer = !ROUTES.includes(route);
+  const isAnswer = !includes(route, ROUTES);
   const clickClueHandler = () => dispatch(selectClue);
   const clickBackToAnswerHandler = () => dispatch(selectRoute('answer'));
   const clickCTAHandler = () =>
