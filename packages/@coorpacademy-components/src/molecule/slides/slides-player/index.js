@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import identity from 'lodash/fp/identity';
-import get from 'lodash/fp/getOr';
+import get from 'lodash/fp/get';
+import {ColorPropType} from '../../../util/proptypes';
 import Cta from '../../../atom/cta';
 import Provider from '../../../atom/provider';
 import Clue from '../../../atom/clue';
@@ -72,7 +73,8 @@ Step.propTypes = {
   step: PropTypes.shape({
     current: PropTypes.number.isRequired,
     total: PropTypes.number.isRequired
-  })
+  }),
+  color: ColorPropType
 };
 
 const Help = ({help}) =>
