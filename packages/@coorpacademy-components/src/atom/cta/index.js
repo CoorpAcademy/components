@@ -37,22 +37,20 @@ class CTA extends React.Component {
       target,
       light = false,
       small = false,
-      secondary = false,
       onClick
     } = this.props;
 
-    const primarySkinColor = getOr('#00B0FF', 'common.primary', skin);
+    const primaryColor = getOr('#00B0FF', 'common.primary', skin);
 
-    const primaryColor = light ? '#fff' : primarySkinColor;
-    const secondaryColor = light ? primarySkinColor : '#fff';
-
-    const backgroundColor = secondary ? 'transparent' : primaryColor;
-    const textColor = secondary ? primaryColor : secondaryColor;
-    const borderColor = primaryColor;
-
-    const hoverBackgroundColor = textColor;
-    const hoverTextColor = secondary ? secondaryColor : backgroundColor;
-    const hoverBorderColor = secondary ? textColor : secondaryColor;
+    const inlineStyle = !(this.state.hovered ^ light)
+      ? {
+          backgroundColor: primaryColor,
+          borderColor: primaryColor
+        }
+      : {
+          borderColor: primaryColor,
+          color: primaryColor
+        };
 
     return (
       <Link
@@ -61,13 +59,14 @@ class CTA extends React.Component {
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}
         target={target}
-        className={classnames(small ? style.smallButton : style.button, this.props.className)}
+        className={classnames(
+          style.button,
+          small ? style.smallButton : null,
+          light ? style.lightButton : null,
+          this.props.className
+        )}
         data-name={ctaName}
-        style={{
-          backgroundColor: this.state.hovered ? hoverBackgroundColor : backgroundColor,
-          borderColor: this.state.hovered ? hoverBorderColor : borderColor,
-          color: this.state.hovered ? hoverTextColor : textColor
-        }}
+        style={inlineStyle}
       >
         {submitValue}
       </Link>
@@ -86,8 +85,7 @@ CTA.propTypes = {
   target: Link.propTypes.target,
   name: PropTypes.string,
   light: PropTypes.bool,
-  small: PropTypes.bool,
-  secondary: PropTypes.bool
+  small: PropTypes.bool
 };
 
 export default CTA;
