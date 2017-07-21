@@ -145,8 +145,6 @@ import ClueFixtureLoading from '../src/atom/clue/test/fixtures/loading';
 import CtaFixtureDefaultSmall from '../src/atom/cta/test/fixtures/default-small';
 import CtaFixtureDefault from '../src/atom/cta/test/fixtures/default';
 import CtaFixtureLight from '../src/atom/cta/test/fixtures/light';
-import CtaFixtureSecondaryLight from '../src/atom/cta/test/fixtures/secondary-light';
-import CtaFixtureSecondary from '../src/atom/cta/test/fixtures/secondary';
 import HandleFixtureAxisX from '../src/atom/handle/test/fixtures/axis-x';
 import HandleFixtureAxisY from '../src/atom/handle/test/fixtures/axis-y';
 import HandleFixtureDefault from '../src/atom/handle/test/fixtures/default';
@@ -731,9 +729,7 @@ export const fixtures = {
     Cta: {
       DefaultSmall: CtaFixtureDefaultSmall,
       Default: CtaFixtureDefault,
-      Light: CtaFixtureLight,
-      SecondaryLight: CtaFixtureSecondaryLight,
-      Secondary: CtaFixtureSecondary
+      Light: CtaFixtureLight
     },
     Handle: {
       AxisX: HandleFixtureAxisX,
