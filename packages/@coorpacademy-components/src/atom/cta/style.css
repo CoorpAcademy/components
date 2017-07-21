@@ -42,13 +42,13 @@
 }
 
 .button:hover {
-  background-color: transparent;
+  background-color: white;
   border-color: brand;
   color: brand;
 }
 
 .lightButton {
-  background-color: transparent;
+  background-color: white;
   border-color: brand;
   color: brand;
 }
