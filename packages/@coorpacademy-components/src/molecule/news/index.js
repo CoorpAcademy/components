@@ -7,8 +7,6 @@ import style from './style.css';
 const News = (props, context) => {
   const {image, title, date, description, authorLogo, cta} = props;
 
-  cta.secondary = true;
-
   return (
     <div className={style.news}>
       <div className={style.image}>
@@ -33,7 +31,7 @@ const News = (props, context) => {
           <div className={style.author}>
             <img src={authorLogo} />
           </div>
-          <Cta {...cta} />
+          <Cta {...cta} light />
         </div>
       </div>
       <Link className={style.link} href={cta.href} target={cta.target} />

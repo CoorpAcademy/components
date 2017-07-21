@@ -1,3 +1,8 @@
+@value colors: "../../variables/colors.css";
+@value brand from colors;
+@value transparent from colors;
+@value white from colors;
+
 .button {
   border-width: 2px;
   border-style: solid;
@@ -8,14 +13,48 @@
   font-weight: 600;
   text-decoration: none;
   padding: 0 20px;
+}
+
+/*
+  Small button
+*/
+
+.button {
   height: 42px;
   line-height: 38px;
   border-radius: 23px;
 }
 
 .smallButton {
-  composes: button;
   height: 32px;
   line-height: 28px;
   border-radius: 18px;
+}
+
+/*
+  Light button
+*/
+
+.button {
+  background-color: brand;
+  border-color: brand;
+  color: white;
+}
+
+.button:hover {
+  background-color: transparent;
+  border-color: brand;
+  color: brand;
+}
+
+.lightButton {
+  background-color: transparent;
+  border-color: brand;
+  color: brand;
+}
+
+.lightButton:hover {
+  background-color: brand;
+  border-color: brand;
+  color: white;
 }
