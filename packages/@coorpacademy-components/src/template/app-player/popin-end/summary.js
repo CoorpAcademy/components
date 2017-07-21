@@ -124,7 +124,7 @@ const Summary = (props, context) => {
   const primary = getOr('#f0f', 'common.primary', skin);
 
   return (
-    <div className={style.wrapper}>
+    <div className={style.summaryWrapper}>
       <Header {...header} />
       <Action color={primary} {...action} />
       <Cards {...recommendation} />

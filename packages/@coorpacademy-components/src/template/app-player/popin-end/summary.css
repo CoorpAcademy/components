@@ -7,7 +7,7 @@
 @value positive from colors;
 @value dark from colors;
 
-.wrapper {
+.summaryWrapper {
   width: 100%;
   background-color: xtraLightGrey;
   border: 1px solid light;
