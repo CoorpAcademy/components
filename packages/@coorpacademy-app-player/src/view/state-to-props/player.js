@@ -1,6 +1,5 @@
 import includes from 'lodash/fp/includes';
 import get from 'lodash/fp/get';
-import noop from 'lodash/fp/noop';
 import {
   getCurrentProgression,
   getCurrentSlide,
@@ -82,12 +81,12 @@ const playerProps = (options, store) => state => {
         type: 'clue',
         selected: route === 'clue',
         onClick: clickClueHandler
-      },
-      {
-        title: translate('Coach'),
-        type: 'coach',
-        onClick: noop
       }
+      // {
+      //   title: translate('Coach'),
+      //   type: 'coach',
+      //   onClick: () => {})
+      // }
     ]
   };
 };
