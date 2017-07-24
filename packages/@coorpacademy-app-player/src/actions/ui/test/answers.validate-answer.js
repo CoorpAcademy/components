@@ -9,8 +9,6 @@ import {
   PROGRESSION_CREATE_ANSWER_FAILURE
 } from '../../api/progressions';
 import {UI_TOGGLE_ACCORDION} from '../../ui/corrections';
-import {RANK_FETCH_END_REQUEST, RANK_FETCH_END_SUCCESS} from '../../api/rank';
-import {RECO_FETCH_REQUEST, RECO_FETCH_SUCCESS} from '../../api/recommendations';
 import {ANSWER_FETCH_REQUEST, ANSWER_FETCH_SUCCESS, ANSWER_FETCH_FAILURE} from '../../api/answers';
 
 test(
@@ -302,7 +300,7 @@ test(
 );
 
 test(
-  'should submit last answer and fetch popin-end data',
+  'should submit last answer',
   macro,
   set('data.progressions.entities.foo.state.nextContent', {type: 'slide', ref: 'baz'})({}),
   t => ({
@@ -321,14 +319,6 @@ test(
         t.is(id, 'foo');
         return ['Bonne réponse'];
       }
-    },
-    LeaderBoard: {
-      getRank: () => {
-        return 1;
-      }
-    },
-    Recommendations: {
-      find: () => 'plop'
     }
   }),
   validateAnswer('foo', {answers: ['bar']}),
@@ -382,34 +372,6 @@ test(
         payload: ['Bonne réponse']
       },
       set('ui.answers.0.correction', 'Bonne réponse', {})
-    ],
-    [
-      {
-        type: RANK_FETCH_END_REQUEST
-      },
-      set('data.rank.end', null, {})
-    ],
-    [
-      {
-        type: RANK_FETCH_END_SUCCESS,
-        payload: 1
-      },
-      set('data.rank.end', 1, {})
-    ],
-    [
-      {
-        type: RECO_FETCH_REQUEST,
-        meta: {id: 'foo'}
-      },
-      set('data.recommendations.entities.foo', null, {})
-    ],
-    [
-      {
-        type: RECO_FETCH_SUCCESS,
-        meta: {id: 'foo'},
-        payload: 'plop'
-      },
-      set('data.recommendations.entities.foo', 'plop', {})
     ]
   ]
 );
