@@ -43,7 +43,7 @@
 
 .button:hover {
   color: white;
-  background-color: color(brand blackness(10%));
+  background-color: color(brand blackness(+10%));
 }
 
 .secondaryButton {

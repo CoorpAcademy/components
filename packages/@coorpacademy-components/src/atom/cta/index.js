@@ -38,8 +38,8 @@ class CTA extends React.Component {
 
     if (hovered)
       return {
-        backgroundColor: convert(`color(${primaryColor} blackness(10%))`),
-        borderColor: convert(`color(${primaryColor} blackness(10%))`)
+        backgroundColor: convert(`color(${primaryColor} blackness(+10%))`),
+        borderColor: convert(`color(${primaryColor} blackness(+10%))`)
       };
 
     if (secondary)
