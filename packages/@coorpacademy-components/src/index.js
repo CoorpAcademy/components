@@ -113,6 +113,7 @@ export SubscriptionPremium from './molecule/subscription-premium';
 export Tab from './atom/tab';
 export TabContent from './atom/tab-content';
 export Table from './molecule/table';
+export Template from './molecule/questions/template';
 export ThemeImage from './molecule/theme-image';
 export Title from './atom/title';
 export TitledCheckbox from './molecule/titled-checkbox';

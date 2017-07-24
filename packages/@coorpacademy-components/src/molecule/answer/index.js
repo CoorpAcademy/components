@@ -36,6 +36,8 @@ const Answer = props => {
         return <DropDown {...model} />;
       case 'range':
         return <QuestionRange {...model} />;
+      case 'template':
+        return <QuestionRange {...model} />;
     }
   };
   const answerView = buildAnswer(model);
@@ -50,7 +52,15 @@ const Answer = props => {
 
 Answer.propTypes = {
   model: PropTypes.shape({
-    type: PropTypes.oneOf(['picker', 'qcm', 'qcmImage', 'freeText', 'dropDown', 'range']).required
+    type: PropTypes.oneOf([
+      'picker',
+      'qcm',
+      'qcmImage',
+      'freeText',
+      'dropDown',
+      'range',
+      'template'
+    ]).required
   }),
   media: PropTypes.string
 };

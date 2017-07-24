@@ -1,0 +1,17 @@
+@value breakpoints: "../../../variables/breakpoints.css";
+@value mobile from breakpoints;
+
+.wrapper {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: solid 1px green;
+    margin: 0 auto;
+  }
+
+@media mobile {
+  .wrapper {
+    display: block;
+    width: 100%;
+  }
+}
