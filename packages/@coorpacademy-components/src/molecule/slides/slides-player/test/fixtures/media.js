@@ -1,4 +1,4 @@
-import Cta from '../../../../../atom/cta/test/fixtures/default';
+import Cta from '../../../../../atom/cta/test/fixtures/primary';
 import Footer from '../../../slides-footer/test/fixtures/media-selected';
 import ResourceBrowser from '../../../../../organism/resource-browser/test/fixtures/video-selected';
 

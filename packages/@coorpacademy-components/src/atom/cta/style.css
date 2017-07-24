@@ -4,8 +4,6 @@
 @value white from colors;
 
 .button {
-  border-width: 2px;
-  border-style: solid;
   display: inline-block;
   box-sizing: border-box;
   font-family: 'Open Sans';
@@ -32,29 +30,38 @@
 }
 
 /*
-  Light button
+  Secondary button
 */
 
 .button {
-  background-color: brand;
+  border-width: 2px;
+  border-style: solid;
   border-color: brand;
+  background-color: brand;
   color: white;
 }
 
 .button:hover {
+  color: white;
+  background-color: color(brand blackness(10%));
+}
+
+.secondaryButton {
   background-color: white;
   border-color: brand;
   color: brand;
 }
+
+.secondaryButton:hover {
+  border-color: transparent;
+}
+
+/*
+  Light button
+*/
 
 .lightButton {
   background-color: white;
-  border-color: brand;
+  border-color: transparent;
   color: brand;
-}
-
-.lightButton:hover {
-  background-color: brand;
-  border-color: brand;
-  color: white;
 }

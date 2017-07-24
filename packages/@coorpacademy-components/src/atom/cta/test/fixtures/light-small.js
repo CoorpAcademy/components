@@ -1,4 +1,4 @@
-import primary from './primary';
+import primary from './primary-small';
 
 export default {
   props: {

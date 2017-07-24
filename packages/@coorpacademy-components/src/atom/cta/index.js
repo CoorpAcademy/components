@@ -1,6 +1,7 @@
 import React from 'react';
+import {convert} from 'css-color-function';
 import PropTypes from 'prop-types';
-import getOr from 'lodash/fp/getOr';
+import get from 'lodash/fp/get';
 import classnames from 'classnames';
 import Provider from '../provider';
 import Link from '../link';
@@ -28,8 +29,37 @@ class CTA extends React.Component {
     }));
   }
 
-  render() {
+  getStyle() {
     const {skin} = this.context;
+    const {hovered = false} = this.state;
+    const {light = false, secondary = false} = this.props;
+
+    const primaryColor = get('common.primary', skin);
+
+    if (hovered)
+      return {
+        backgroundColor: convert(`color(${primaryColor} blackness(10%))`),
+        borderColor: convert(`color(${primaryColor} blackness(10%))`)
+      };
+
+    if (secondary)
+      return {
+        color: primaryColor,
+        borderColor: primaryColor
+      };
+
+    if (light)
+      return {
+        color: primaryColor
+      };
+
+    return {
+      borderColor: primaryColor,
+      backgroundColor: primaryColor
+    };
+  }
+
+  render() {
     const {
       submitValue = 'submit',
       name: ctaName,
@@ -37,20 +67,9 @@ class CTA extends React.Component {
       target,
       light = false,
       small = false,
+      secondary = false,
       onClick
     } = this.props;
-
-    const primaryColor = getOr('#00B0FF', 'common.primary', skin);
-
-    const inlineStyle = !(this.state.hovered ^ light)
-      ? {
-          backgroundColor: primaryColor,
-          borderColor: primaryColor
-        }
-      : {
-          borderColor: primaryColor,
-          color: primaryColor
-        };
 
     return (
       <Link
@@ -63,10 +82,11 @@ class CTA extends React.Component {
           style.button,
           small ? style.smallButton : null,
           light ? style.lightButton : null,
+          secondary ? style.secondaryButton : null,
           this.props.className
         )}
         data-name={ctaName}
-        style={inlineStyle}
+        style={this.getStyle()}
       >
         {submitValue}
       </Link>
