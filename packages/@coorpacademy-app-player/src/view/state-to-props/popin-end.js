@@ -50,7 +50,6 @@ const summaryHeader = ({translate}, {dispatch}) => state => {
         rank: extractRank(state),
         cta: {
           title: translate('Back to dashboard'),
-          subtitle: '',
           href: '/'
         }
       })

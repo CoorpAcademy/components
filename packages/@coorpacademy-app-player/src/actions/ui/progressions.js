@@ -1,9 +1,10 @@
 import get from 'lodash/fp/get';
 import {fetchProgression, fetchBestProgression} from '../api/progressions';
 import {fetchSlide} from '../api/slides';
-import {fetchStartRank} from '../api/rank';
+import {fetchEndRank, fetchStartRank} from '../api/rank';
 import {fetchExitNode} from '../api/exit-nodes';
 import {fetchChapter} from '../api/chapters';
+import {fetchRecommendations} from '../api/recommendations';
 import {
   getCurrentProgression,
   getCurrentProgressionId,
@@ -38,6 +39,8 @@ export const selectProgression = id => async (dispatch, getState) => {
     }
     case 'success':
     case 'failure': {
+      await dispatch(fetchEndRank(progressionId));
+      await dispatch(fetchRecommendations(progressionId));
       return dispatch(fetchExitNode(ref));
     }
   }
