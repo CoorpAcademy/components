@@ -142,9 +142,12 @@ import CheckboxFixtureDisabled from '../src/atom/checkbox/test/fixtures/disabled
 import CheckboxFixtureRequired from '../src/atom/checkbox/test/fixtures/required';
 import ClueFixtureDefault from '../src/atom/clue/test/fixtures/default';
 import ClueFixtureLoading from '../src/atom/clue/test/fixtures/loading';
-import CtaFixtureDefaultSmall from '../src/atom/cta/test/fixtures/default-small';
-import CtaFixtureDefault from '../src/atom/cta/test/fixtures/default';
+import CtaFixtureLightSmall from '../src/atom/cta/test/fixtures/light-small';
 import CtaFixtureLight from '../src/atom/cta/test/fixtures/light';
+import CtaFixturePrimarySmall from '../src/atom/cta/test/fixtures/primary-small';
+import CtaFixturePrimary from '../src/atom/cta/test/fixtures/primary';
+import CtaFixtureSecondarySmall from '../src/atom/cta/test/fixtures/secondary-small';
+import CtaFixtureSecondary from '../src/atom/cta/test/fixtures/secondary';
 import HandleFixtureAxisX from '../src/atom/handle/test/fixtures/axis-x';
 import HandleFixtureAxisY from '../src/atom/handle/test/fixtures/axis-y';
 import HandleFixtureDefault from '../src/atom/handle/test/fixtures/default';
@@ -727,9 +730,12 @@ export const fixtures = {
       Loading: ClueFixtureLoading
     },
     Cta: {
-      DefaultSmall: CtaFixtureDefaultSmall,
-      Default: CtaFixtureDefault,
-      Light: CtaFixtureLight
+      LightSmall: CtaFixtureLightSmall,
+      Light: CtaFixtureLight,
+      PrimarySmall: CtaFixturePrimarySmall,
+      Primary: CtaFixturePrimary,
+      SecondarySmall: CtaFixtureSecondarySmall,
+      Secondary: CtaFixtureSecondary
     },
     Handle: {
       AxisX: HandleFixtureAxisX,

@@ -1,4 +1,4 @@
-import Cta from '../../../../../atom/cta/test/fixtures/default';
+import Cta from '../../../../../atom/cta/test/fixtures/primary';
 import Footer from '../../../slides-footer/test/fixtures/only-clue';
 import Clue from '../../../../../atom/clue/test/fixtures/default';
 

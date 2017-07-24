@@ -45,6 +45,7 @@
     "@coorpacademy/nova-icons": "1.0.9",
     "autoprefixer": "^7.1.1",
     "classnames": "^2.2.5",
+    "css-color-function": "^1.3.0",
     "extended-proptypes": "^1.3.0",
     "file-loader": "^0.11.1",
     "hammerjs": "^2.0.8",

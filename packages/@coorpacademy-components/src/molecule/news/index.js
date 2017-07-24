@@ -31,7 +31,7 @@ const News = (props, context) => {
           <div className={style.author}>
             <img src={authorLogo} />
           </div>
-          <Cta {...cta} light />
+          <Cta {...cta} secondary />
         </div>
       </div>
       <Link className={style.link} href={cta.href} target={cta.target} />
