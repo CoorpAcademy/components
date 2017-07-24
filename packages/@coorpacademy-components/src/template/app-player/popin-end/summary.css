@@ -187,4 +187,9 @@
     text-align: center;
     padding: 0;
   }
+
+  .summaryWrapper {
+    box-shadow: none;
+    border: none;
+  }
 }
