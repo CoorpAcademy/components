@@ -55,42 +55,15 @@ function containsAnswer(
   );
 }
 
-function matchAnswerForBasic(
-  config: MicroLearningConfig,
-  question: BasicQuestion,
-  givenAnswer: Answer
-): Array<Array<PartialCorrection>> {
-  const allowedAnswers = question.content.answers;
-  const comparableGivenAnswer = map(toLower, givenAnswer);
-  const fm = new FuzzyMatching(flatten(allowedAnswers));
-  const maxTypos = question.content.maxTypos === 0
-    ? question.content.maxTypos
-    : question.content.maxTypos || config.maxTypos;
-
-  const isCorrect =
-    checkFuzzyAnswer(maxTypos, fm, comparableGivenAnswer[0]) ||
-    some(
-      allowedAnswer => containsAnswer(config, toLower(allowedAnswer[0]), comparableGivenAnswer[0]),
-      allowedAnswers
-    );
-  return [
-    [
-      {
-        answer: givenAnswer[0],
-        isCorrect
-      }
-    ]
-  ];
-}
-
 function isTextCorrect(
   config: MicroLearningConfig,
   allowedAnswers: Answer,
-  answer: string,
-  _maxTypos?: ?number
+  answerWithCase: string,
+  _maxTypos: ?number
 ): boolean {
   const fm = new FuzzyMatching(flatten(allowedAnswers));
   const maxTypos = _maxTypos === 0 ? _maxTypos : _maxTypos || config.maxTypos;
+  const answer = toLower(answerWithCase);
 
   return (
     checkFuzzyAnswer(maxTypos, fm, answer) ||
@@ -99,16 +72,30 @@ function isTextCorrect(
   );
 }
 
+function matchAnswerForBasic(
+  config: MicroLearningConfig,
+  question: BasicQuestion,
+  givenAnswer: Answer
+): Array<Array<PartialCorrection>> {
+  const isCorrect = isTextCorrect(
+    config,
+    question.content.answers.map(answers => answers[0]),
+    givenAnswer[0],
+    question.content.maxTypos
+  );
+
+  return [[{answer: givenAnswer[0], isCorrect}]];
+}
+
 function matchAnswerForTemplate(
   config: MicroLearningConfig,
   question: TemplateQuestion,
   givenAnswer: Answer
 ): Array<Array<PartialCorrection>> {
-  const allowedAnswers = question.content.answers;
   return [
     givenAnswer.map((answer, index) => ({
       answer,
-      isCorrect: allowedAnswers.some(allowedAnswer =>
+      isCorrect: question.content.answers.some(allowedAnswer =>
         isTextCorrect(
           config,
           [allowedAnswer[index]],
