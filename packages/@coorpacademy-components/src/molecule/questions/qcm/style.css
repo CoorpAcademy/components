@@ -1,11 +1,18 @@
+@value breakpoints: "../../../variables/breakpoints.css";
+@value mobile from breakpoints;
 @value colors: "../../../variables/colors.css";
 @value white from colors;
 @value black from colors;
 @value light from colors;
 
 .wrapper {
-  min-width: 100%;
   text-align: center;
+}
+
+@media mobile {
+  .wrapper {
+    min-width: 100%;
+  }
 }
 
 .answer {
