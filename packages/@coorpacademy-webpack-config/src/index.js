@@ -112,9 +112,6 @@ const createConfig = (NODE_ENV = 'development', additionalPlugins = []) => ({
           minRatio: 0.8
         }),
         new webpack.LoaderOptionsPlugin({
-          options: {
-            context: __dirname
-          },
           minimize: true,
           debug: false
         }),
