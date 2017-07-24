@@ -25,7 +25,6 @@ export const create = options => {
         primary: '#007bb3'
       }
     },
-    progression: '0',
     ...options
   });
 };
