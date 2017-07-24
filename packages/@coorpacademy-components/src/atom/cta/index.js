@@ -18,20 +18,20 @@ class CTA extends React.Component {
   }
 
   handleMouseEnter() {
-    this.setState(prevState => ({
+    return this.setState(prevState => ({
       hovered: true
     }));
   }
 
   handleMouseLeave() {
-    this.setState(prevState => ({
+    return this.setState(prevState => ({
       hovered: false
     }));
   }
 
   getStyle() {
     const {skin} = this.context;
-    const {hovered = false} = this.state;
+    const {hovered} = this.state;
     const {light = false, secondary = false} = this.props;
 
     const primaryColor = get('common.primary', skin);
