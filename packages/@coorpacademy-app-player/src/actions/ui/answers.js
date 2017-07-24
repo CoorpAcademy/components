@@ -1,12 +1,8 @@
-import get from 'lodash/fp/get';
 import remove from 'lodash/fp/remove';
 import includes from 'lodash/fp/includes';
 import isEmpty from 'lodash/fp/isEmpty';
 import {createAnswer} from '../api/progressions';
 import {fetchAnswer} from '../api/answers';
-import {fetchRecommendations} from '../api/recommendations';
-import {fetchEndRank} from '../api/rank';
-import {getCurrentContent} from '../../utils/state-extract';
 import {toggleAccordion} from './corrections';
 
 export const ANSWER_EDIT = {
@@ -61,17 +57,5 @@ export const validateAnswer = (progressionId, body) => async (dispatch, getState
       : await dispatch(toggleAccordion(1));
   }
 
-  const fetchAnswerResponse = await dispatch(fetchAnswer(progressionId, slideId, body.answers));
-
-  const currentContent = getCurrentContent(getState());
-
-  switch (get('type', currentContent)) {
-    case 'success':
-    case 'failure': {
-      await dispatch(fetchEndRank(progressionId));
-      return dispatch(fetchRecommendations(progressionId));
-    }
-  }
-
-  return fetchAnswerResponse;
+  return dispatch(fetchAnswer(progressionId, slideId, body.answers));
 };
