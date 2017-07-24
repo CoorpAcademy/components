@@ -30,11 +30,7 @@ module.exports = (storybookBaseConfig, configType) => {
         ],
         plugins: ['transform-object-assign']
       },
-      include: [
-        __dirname,
-        path.join(__dirname, '../storybook'),
-        path.join(__dirname, '../src')
-      ]
+      exclude: [/node_modules/]
     },
     {
       test: /\.css$/,
