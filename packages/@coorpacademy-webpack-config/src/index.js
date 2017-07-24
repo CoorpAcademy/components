@@ -5,7 +5,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import CompressionPlugin from 'compression-webpack-plugin';
 import {BundleAnalyzerPlugin} from 'webpack-bundle-analyzer';
 
-const hash = '[folder]__[local]';
+const hash = '[folder]_[local]-[hash:base64:5]';
 const componentCSS = new ExtractTextPlugin({
   filename: '[name].css',
   ignoreOrder: true

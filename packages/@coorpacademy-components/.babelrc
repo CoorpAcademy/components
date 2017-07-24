@@ -22,12 +22,6 @@
           {
             "mode": "wrap"
           }
-        ],
-        [
-          "css-modules-transform",
-          {
-            "generateScopedName": "[folder]__[local]"
-          }
         ]
       ]
     },
