@@ -1,30 +1,30 @@
 export default {
   props: {
-    "template": "{{inp81438}} {{sel31191}}",
-    "answers": [
+    template: 'la réponse est {{inp81438}}, {{sel31191}}.',
+    answerFields: [
       {
-        "type": "text",
-        "name": "inp81438",
-        "label": " ",
-        "placeholder": " ",
-        "value": "an answer",
+        type: 'text',
+        name: 'inp81438',
+        label: ' ',
+        placeholder: 'an answer',
+        value: '',
         onChange: value => console.log(value)
       },
       {
-        "type": "select",
-        "name": "sel31191",
-        "label": " ",
+        type: 'select',
+        name: 'sel31191',
+        label: ' ',
         onChange: value => console.log(value),
-        "options": [
+        options: [
           {
-            "name": "temporary",
-            "value": "sli_Nk2vje~E~.choice_VyloJkDEUb",
-            "selected": false
+            name: 'temporary',
+            value: 'sli_Nk2vje~E~.choice_VyloJkDEUb',
+            selected: true
           },
           {
-            "name": "exclusive",
-            "value": "sli_Nk2vje~E~.choice_Ek~jJyPNUZ",
-            "selected": false
+            name: 'exclusive',
+            value: 'sli_Nk2vje~E~.choice_Ek~jJyPNUZ',
+            selected: false
           }
         ]
       }

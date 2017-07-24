@@ -1,77 +1,47 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import DropDown from '../../questions/drop-down';
-import FreeText from '../../questions/free-text';
+import map from 'lodash/fp/map';
+import find from 'lodash/fp/find';
+import parseTemplateString from '../../../util/parse-template-string';
+import Select from '../../../atom/select';
+import DropDown from '../drop-down';
+import FreeText from '../free-text';
 import style from './style.css';
 
 const Template = props => {
-  const {template, answers} = props;
+  const totalTemplate = parseTemplateString(props.template);
 
-  const totalTemplate = {template};
+  const templateCompose = map.convert({cap: false})((part, key) => {
+    const type = part.type;
 
-  const transform = (template) => {
-
-    return //tableau
-  };
-
-  //tableau
-  [
-    {
-      type: 'string',
-      value: 'la réponse est'
-    },
-    {
-      type: 'answer',
-      value: 'inp81'
-    },
-    {
-      type: 'string',
-      value: ' '
-    },
-    {
-      type: 'answer',
-      value: 'sel79'
+    if (type === 'string') {
+      return <div className={style.string} key={key}>{part.value}</div>;
     }
-  ]
+    if (type === 'answerField') {
+      const field = find({name: part.value}, props.answerFields);
 
-  // Affichage
-  // map(tableau) ==> if (string) {value} 
-  //  if(answer) ==> va dans props(answers) celui qui correspond à la 'value' + afficher via type
-
-    // props : réponse, phrase
-
-    // récupérer template global
-    // le décomposer ==> récupérer les réponses "{{n}}"
-    // ==> récupérer text simple "sldfjsdlk"
-    // tout réafficher en dom
-
-
-  // const freeTextView = templatefreetext && !templatedropdown
-  //   ? <div>Metuentes igitur idem latrones Lycaoniam magna parte <FreeText {...props} />.</div>
-  //   : null;
-  // const dropDownView = templatedropdown && !templatefreetext
-  //   ? <div>Metuentes igitur idem latrones Lycaoniam magna parte <DropDown {...props} />.</div>
-  //   : null;
-  // const mixedView = templatefreetext && templatedropdown
-  //   ? <div>
-  //       Metuentes igitur idem latrones Lycaoniam magna parte <FreeText {...props} /> campestrem cum <DropDown {...props} />.
-  //     </div>
-  //   : null;
+      return field.type === 'text'
+        ? <FreeText {...field} key={part.value} />
+        : <DropDown {...field} key={part.value} />;
+    }
+  }, totalTemplate);
 
   return (
     <div className={style.wrapper}>
-      
+      {templateCompose}
     </div>
   );
 };
 
 const TextPropTypes = {
+  type: PropTypes.string,
   name: PropTypes.string,
   placeholder: PropTypes.string,
   value: PropTypes.string,
   onChange: PropTypes.func
 };
 const DropDownPropTypes = {
+  type: PropTypes.string,
   name: PropTypes.string,
   onChange: Select.propTypes.onChange,
   options: Select.propTypes.options
@@ -79,15 +49,10 @@ const DropDownPropTypes = {
 
 Template.propTypes = {
   template: PropTypes.string,
-  answers: PropTypes.oneOfType([
+  answerFields: PropTypes.oneOfType([
     PropTypes.shape(DropDownPropTypes),
     PropTypes.shape(TextPropTypes)
   ])
 };
-
-// Template.propTypes = {
-//   templatefreetext: PropTypes.bool,
-//   templatedropdown: PropTypes.bool
-// };
 
 export default Template;

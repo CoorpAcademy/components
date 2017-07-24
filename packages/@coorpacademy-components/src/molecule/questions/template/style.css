@@ -2,12 +2,16 @@
 @value mobile from breakpoints;
 
 .wrapper {
-    display: block;
-    width: 100%;
-    height: 100%;
-    border: solid 1px green;
-    margin: 0 auto;
-  }
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: solid 1px green;
+  margin: 0 auto;
+}
+
+.string {
+  width: 100%;
+}
 
 @media mobile {
   .wrapper {
