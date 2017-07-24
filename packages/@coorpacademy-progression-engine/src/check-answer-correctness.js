@@ -86,9 +86,17 @@ function matchAnswerForBasic(
 function isTextCorrect(
   config: MicroLearningConfig,
   allowedAnswers: Answer,
-  answer: string
+  answer: string,
+  _maxTypos?: ?number
 ): boolean {
-  return allowedAnswers.includes(answer);
+  const fm = new FuzzyMatching(flatten(allowedAnswers));
+  const maxTypos = _maxTypos === 0 ? _maxTypos : _maxTypos || config.maxTypos;
+
+  return (
+    checkFuzzyAnswer(maxTypos, fm, answer) ||
+    (maxTypos !== 0 &&
+      some(allowedAnswer => containsAnswer(config, toLower(allowedAnswer), answer), allowedAnswers))
+  );
 }
 
 function matchAnswerForTemplate(
@@ -101,7 +109,12 @@ function matchAnswerForTemplate(
     givenAnswer.map((answer, index) => ({
       answer,
       isCorrect: allowedAnswers.some(allowedAnswer =>
-        isTextCorrect(config, [allowedAnswer[index]], answer)
+        isTextCorrect(
+          config,
+          [allowedAnswer[index]],
+          toLower(answer),
+          question.content.choices[index].type === 'text' ? question.content.maxTypos : 0
+        )
       )
     }))
   ];

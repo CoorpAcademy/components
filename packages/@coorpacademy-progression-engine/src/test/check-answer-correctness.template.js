@@ -78,18 +78,55 @@ test('should allow typos in text inputs', t => {
   assertCorrect(t, engine, question, ['sauZt', 'parachute']);
   assertCorrect(t, engine, question, ['sauZZt', 'parachutee']);
   assertCorrect(t, engine, question, ['saut', 'pOrOchute']);
-  assertIncorrect(t, engine, question, ['sauZZZt', 'parachute'], [false, true]);
+  assertIncorrect(t, engine, question, ['sauZZZZZt', 'parachute'], [false, true]);
   assertIncorrect(t, engine, question, ['saut', 'parachutZZZe'], [true, false]);
 });
 
-test.skip('should allow additional characters on the sides of text inputs', t => {
-  const question = createQuestion([['saut']], ['text']);
+test('should use the maxTypos value from the question if available', t => {
+  const questionWithTypos0 = createQuestion([['parachute']], ['text'], 0);
+  const questionWithTypos3 = createQuestion([['parachute']], ['text'], 3);
 
-  assertCorrect(t, engine, question, ['saut']);
-  assertCorrect(t, engine, question, ['sautZZZZZ']);
-  assertCorrect(t, engine, question, ['ZZZZZsaut']);
-  assertCorrect(t, engine, question, ['ZZZZZsautZZZZZ']);
-  assertIncorrect(t, engine, question, ['sautZZZZZZ'], [false]);
-  assertIncorrect(t, engine, question, ['ZZZZZZsaut'], [false]);
-  assertIncorrect(t, engine, question, ['ZZZZZZsautZZZZZZ'], [false]);
+  assertCorrect(t, engine, questionWithTypos0, ['parachute']);
+  assertIncorrect(t, engine, questionWithTypos0, ['parachutZe'], [false]);
+
+  assertCorrect(t, engine, questionWithTypos3, ['parachute']);
+  assertCorrect(t, engine, questionWithTypos3, ['parachut']);
+  assertCorrect(t, engine, questionWithTypos3, ['parachu']);
+  assertCorrect(t, engine, questionWithTypos3, ['parach']);
+  assertIncorrect(t, engine, questionWithTypos3, ['parac'], [false]);
+});
+
+test('allowed answers should be made case insensitive', t => {
+  const question = createQuestion([['fooBAR', 'PARACHUTE']], ['text', 'text']);
+
+  assertCorrect(t, engine, question, ['fooBAR', 'PARACHUTE']);
+  assertCorrect(t, engine, question, ['foobar', 'parachute']);
+  assertCorrect(t, engine, question, ['FOOBAR', 'PARACHUTE']);
+  assertCorrect(t, engine, question, ['ZZZZZfooBAR', 'ZZZZZPARACHUTE']);
+  assertCorrect(t, engine, question, ['ZZZZZfoobar', 'ZZZZZparachute']);
+  assertCorrect(t, engine, question, ['ZZZZZFOOBAR', 'ZZZZZPARACHUTE']);
+});
+
+test('should allow additional characters on the sides of text inputs', t => {
+  const question = createQuestion([['parachute']], ['text']);
+
+  assertCorrect(t, engine, question, ['parachute']);
+  assertCorrect(t, engine, question, ['parachuteZZZZZ']);
+  assertCorrect(t, engine, question, ['ZZZZZparachute']);
+  assertCorrect(t, engine, question, ['ZZZZZparachuteZZZZZ']);
+  assertCorrect(t, engine, question, ['PARACHUTEZZZZ']);
+  assertIncorrect(t, engine, question, ['parachuteZZZZZZ'], [false]);
+  assertIncorrect(t, engine, question, ['ZZZZZZparachute'], [false]);
+  assertIncorrect(t, engine, question, ['ZZZZZZparachuteZZZZZZ'], [false]);
+});
+
+test('should not allow typos or additional characters for select inputs', t => {
+  const question = createQuestion([['parachute']], ['select']);
+
+  assertCorrect(t, engine, question, ['parachute']);
+  assertCorrect(t, engine, question, ['parachUTe']);
+  assertCorrect(t, engine, question, ['PARACHUTE']);
+  assertIncorrect(t, engine, question, ['parachOte'], [false]);
+  assertIncorrect(t, engine, question, ['parachuteZ'], [false]);
+  assertIncorrect(t, engine, question, ['Zparachute'], [false]);
 });
