@@ -27,5 +27,5 @@ test(
   {},
   ['foo']
 );
-test('should edit a template answer', macro, ['foo'], 'template', 'bar', ['bar']);
+test('should edit a template answer', macro, ['foo'], 'template', ['bar', 'foo'], ['bar', 'foo']);
 test('should edit a basic answer', macro, ['foo'], 'basic', 'bar', ['bar']);
