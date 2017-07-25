@@ -1,3 +1,4 @@
+import hook from '@coorpacademy/css-modules-require-hook';
 import get from 'lodash/fp/get';
 import some from 'lodash/fp/some';
 import identity from 'lodash/fp/identity';
@@ -16,6 +17,8 @@ import React from 'react';
 import ReactShallowRenderer from 'react-test-renderer/shallow';
 import components from './list-components';
 import fixtures from './list-fixtures';
+
+hook();
 
 const mapObject = mapValues.convert({cap: false});
 

@@ -1,0 +1,39 @@
+{
+  "name": "@coorpacademy/css-modules-require-hook",
+  "version": "0.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "files": [
+    "lib",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "cross-env babel src --out-dir lib -s --ignore test --copy-files",
+    "clean:build": "rimraf lib",
+    "clean": "npm run clean:build",
+    "prepublish": "npm run clean && npm run build --production"
+  },
+  "contributors": [
+    "Arthur Weber <arthur.weber@coorpacademy.com>",
+    "Christophe Dugne-Esquevin <christophe.dugne@coorpacademy.com>",
+    "Gaelle Leguet <gaelle.leguet@coorpacademy.com>",
+    "Jeroen Engels <jengels@coorpacademy.com>",
+    "Joan Ortega <joan.ortega@coorpacademy.com>",
+    "Julien Seren-Rosso <julien.seren-rosso@coorpacademy.com>"
+  ],
+  "dependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-preset-env": "^1.5.2",
+    "babel-preset-stage-1": "^6.24.1",
+    "css-modules-require-hook": "^4.0.6",
+    "generic-names": "^1.0.2",
+    "lodash": "^4.17.4"
+  },
+  "devDependencies": {
+    "babel-plugin-istanbul": "^4.1.4",
+    "cross-env": "^5.0.0",
+    "rimraf": "^2.6.1"
+  },
+  "author": "CoorpAcademy"
+}

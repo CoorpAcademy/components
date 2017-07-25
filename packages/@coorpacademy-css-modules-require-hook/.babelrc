@@ -1,0 +1,21 @@
+{
+  "presets": [
+    "stage-1",
+    [
+      "env",
+      {
+        "targets": {
+          "node": true
+        },
+        "loose": true
+      }
+    ]
+  ],
+  "env": {
+    "test": {
+      "plugins": [
+        "istanbul"
+      ]
+    }
+  }
+}

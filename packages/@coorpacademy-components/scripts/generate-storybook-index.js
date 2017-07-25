@@ -10,6 +10,7 @@ import components from '../src/util/list-components';
 import fixtures from '../src/util/list-fixtures';
 import dependencies from '../src/util/list-dependencies';
 
+
 const targetDir = join(__dirname, '../storybook');
 const removeExt = path => join(dirname(path), basename(path, '.js'));
 
