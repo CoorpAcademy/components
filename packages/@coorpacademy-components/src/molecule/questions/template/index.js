@@ -21,8 +21,8 @@ const Template = props => {
       const field = find({name: part.value}, props.answerFields);
 
       return field.type === 'text'
-        ? <FreeText {...field} key={part.value} />
-        : <DropDown {...field} key={part.value} />;
+        ? <FreeText {...field} key={part.value} className={style.field} />
+        : <DropDown {...field} key={part.value} className={style.field} />;
     }
   }, totalTemplate);
 

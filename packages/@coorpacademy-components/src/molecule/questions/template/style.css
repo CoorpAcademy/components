@@ -2,15 +2,26 @@
 @value mobile from breakpoints;
 
 .wrapper {
-  display: block;
-  width: 100%;
-  height: 100%;
-  border: solid 1px green;
+  display: flex;
+  width: auto;
+  align-items: center;
   margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  justify-content: center;
 }
 
 .string {
-  width: 100%;
+  font-family: "Open Sans";
+  font-weight: 700;
+  font-size: 14px;
+  margin: 0 8px;
+  box-sizing: border-box;
+}
+
+.field {
+  margin: 0;
+  box-sizing: border-box;
 }
 
 @media mobile {
