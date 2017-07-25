@@ -44,10 +44,10 @@ const qcmImageProps = (options, store) => (state, slide) => {
   };
 };
 
-const qcmTemplateProps = (options, store) => (state, slide) => {
+const templateProps = (options, store) => (state, slide) => {
   const {translate} = options;
   return {
-    type: 'freeText',
+    type: 'template',
     placeholder: translate('Type here'),
     value: pipe(getAnswerValues, head)(state),
     onChange: editAnswerAction(options, store)(state, slide)
@@ -77,8 +77,10 @@ const createGetAnswerProps = (options, store) => (state, slide) => {
       return basicProps(options, store)(state, slide);
 
     case 'template':
+      return templateProps(options, store)(state, slide);
+
     default:
-      return qcmTemplateProps(options, store)(state, slide);
+      return {};
   }
 };
 

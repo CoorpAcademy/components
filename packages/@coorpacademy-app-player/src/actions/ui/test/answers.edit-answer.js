@@ -9,6 +9,7 @@ const macro = (t, state, inputType, input, expected) => {
   t.deepEqual(action.payload, expected);
 };
 
+test('should return initiate state if undefined', macro, undefined, 'qcm', {label: 'bar'}, ['bar']);
 test('should check questionType or return same state', macro, ['foo'], 'bar', {}, ['foo']);
 test('should add a qcm choice', macro, ['foo'], 'qcm', {label: 'bar'}, ['foo', 'bar']);
 test('should remove a qcm choice', macro, ['foo'], 'qcm', {label: 'foo'}, []);
@@ -28,4 +29,3 @@ test(
 );
 test('should edit a template answer', macro, ['foo'], 'template', 'bar', ['bar']);
 test('should edit a basic answer', macro, ['foo'], 'basic', 'bar', ['bar']);
-test('should initiate state if undefined', macro, undefined, 'qcm', {label: 'bar'}, ['bar']);

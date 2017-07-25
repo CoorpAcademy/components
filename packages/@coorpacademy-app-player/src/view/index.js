@@ -15,14 +15,14 @@ import createLoadingView from './loading';
 const wrapInProvider = options => vNode => createElement(Provider, options, vNode);
 
 const hasNotProgression = pipe(getCurrentProgression, isNil);
-const hasNotContent = pipe(getCurrentContent, isNil);
+const hasNoContent = pipe(getCurrentContent, isNil);
 const matchRoute = route => pipe(getRoute, isEqual(route));
 const matchContentType = contentType => pipe(getCurrentContent, get('type'), isEqual(contentType));
 
 const createMapStateToProps = (options, store) =>
   cond([
     [hasNotProgression, createLoadingView(options, store)],
-    [hasNotContent, createLoadingView(options, store)],
+    [hasNoContent, createLoadingView(options, store)],
     [matchRoute('correction'), createPopinCorrectionView(options, store)],
     [matchContentType('slide'), createSlideView(options, store)],
     [matchContentType('success'), createPopinEndView(options, store)],

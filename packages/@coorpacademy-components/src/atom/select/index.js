@@ -93,6 +93,12 @@ const Select = (props, context) => {
   );
 };
 
+export const SelectOptionPropTypes = {
+  name: PropTypes.string.isRequired,
+  value: PropTypes.string,
+  selected: PropTypes.bool
+};
+
 Select.contextTypes = {
   skin: Provider.childContextTypes.skin
 };
@@ -104,13 +110,7 @@ Select.propTypes = {
   required: PropTypes.bool,
   onChange: PropTypes.func,
   theme: PropTypes.oneOf(keys(themeStyle)),
-  options: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      value: PropTypes.string,
-      selected: PropTypes.bool
-    })
-  ),
+  options: PropTypes.arrayOf(PropTypes.shape(SelectOptionPropTypes)),
   modified: PropTypes.bool
 };
 
