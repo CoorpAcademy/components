@@ -1,5 +1,6 @@
 @value breakpoints: "../../../../variables/breakpoints.css";
 @value mobile from breakpoints;
+@value tablet from breakpoints;
 @value colors: "../../../../variables/colors.css";
 @value negative from colors;
 @value light from colors;
@@ -37,6 +38,15 @@
   background-color: positive;
 }
 
+.correctionSectionEndSuccess {
+  composes: correctionSectionLoading;
+  background-color: positive;
+}
+
+.correctionSectionEndSuccess .titleElement {
+  padding-right: 225px;
+}
+
 .correctionSectionFail {
   composes: correctionSectionLoading;
   background-color: negative;
@@ -62,6 +72,7 @@
   margin: 0;
   font-weight: normal;
   margin-left: 35px;
+  padding-right: 130px;
 }
 
 .subtitle {
@@ -77,7 +88,6 @@
 
 .fullAnswer {
   composes: titleElement;
-  width: 50%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -173,19 +183,7 @@
   margin-left: 14px;
 }
 
-@media mobile {
-  .header {
-    flex-flow: column;
-    height: 150px;
-  }
-
-  .titleElement {
-    max-width: 300px;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow-x: hidden;
-  }
-
+@media tablet {
   .iconsWrapper {
     flex-flow: column;
     align-items: left;
@@ -210,5 +208,24 @@
     width: 0;
     height: 0;
     overflow: hidden;
+  }
+
+  .correctionSectionEndSuccess .titleElement {
+    padding-right: 130px;
+  }
+}
+
+@media mobile {
+  .header {
+    flex-flow: column;
+    height: 150px;
+  }
+
+  .titleElement {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    padding-right: 90px;
+    margin-left: 16px;
   }
 }

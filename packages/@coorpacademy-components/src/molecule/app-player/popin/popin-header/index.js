@@ -103,11 +103,11 @@ const buildClass = (value, success, fail, loading) => {
 };
 
 const CorrectionPart = props => {
-  const {fail, corrections = [], title, subtitle} = props;
+  const {fail, corrections = [], title, subtitle, stars, rank} = props;
   const isLoading = isNil(fail);
   const className = buildClass(
     fail,
-    style.correctionSectionSuccess,
+    stars && rank ? style.correctionSectionEndSuccess : style.correctionSectionSuccess,
     style.correctionSectionFail,
     style.correctionSectionLoading
   );
