@@ -44,13 +44,43 @@ const qcmImageProps = (options, store) => (state, slide) => {
   };
 };
 
+const templateTextProps = (translate, answer, choice) => {
+  return {
+    type: choice.type,
+    name: choice.name,
+    placeholder: translate('Type here'),
+    value: answer,
+    onChange: () => {} // TODO
+  };
+};
+
+const templateSelectProps = (answer, choice) => {
+  return {
+    type: choice.type,
+    name: choice.name,
+    options: choice.items.map((item, index) => {
+      return {
+        name: item.text,
+        value: item.value,
+        selected: (answer === undefined && index === 0) || item.value === answer,
+        onChange: () => {} // TODO
+      };
+    })
+  };
+};
+
 const templateProps = (options, store) => (state, slide) => {
   const {translate} = options;
+  const answers = getAnswerValues(state);
   return {
     type: 'template',
-    placeholder: translate('Type here'),
-    value: pipe(getAnswerValues, head)(state),
-    onChange: editAnswerAction(options, store)(state, slide)
+    template: slide.question.content.template,
+    answers: slide.question.content.choices.map(
+      (choice, index) =>
+        choice.type === 'text'
+          ? templateTextProps(translate, get(index, answers), choice)
+          : templateSelectProps(get(index, answers), choice)
+    )
   };
 };
 
