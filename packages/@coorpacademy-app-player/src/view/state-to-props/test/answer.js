@@ -60,6 +60,7 @@ test('should create edited template props', t => {
   t.is(typeof props.answers[0].onChange, 'function');
   t.is(props.answers[1].type, 'select');
   t.is(props.answers[1].name, 'sel31191');
+  t.is(typeof props.answers[1].onChange, 'function');
   const selectOptions = props.answers[1].options;
   t.true(Array.isArray(selectOptions));
   t.is(selectOptions.length, 2);
@@ -69,8 +70,6 @@ test('should create edited template props', t => {
   t.is(selectOptions[1].name, 'exclusive');
   t.is(selectOptions[1].value, 'sli_Nk2vje~E~.choice_Ek~jJyPNUZ');
   t.true(selectOptions[1].selected);
-  t.is(typeof selectOptions[0].onChange, 'function');
-  t.is(typeof selectOptions[1].onChange, 'function');
 });
 
 test('should select the first choice of a select field in a template question if there are no answers', t => {
@@ -144,20 +143,25 @@ test('should create edited qcmGraphic props', t => {
   t.is(isFunction(props.answers[0].onClick), true);
 });
 
-test.skip('should create action: edit-answer-template', t => {
+test('should create action: edit-answer-template', t => {
   const state = {
     ui: {
-      answers: {'1234': {value: ['foo']}},
+      answers: {'1234': {value: ['ABCDEFGH', 'sli_Nk2vje~E~.choice_Ek~jJyPNUZ']}},
       current: {progressionId: '1234'}
     }
   };
 
   const props = getAnswerProps(state, template);
-  const action = props.onChange('foo');
+  const textAction = props.answers[0].onChange('bar');
+  const selectAction = props.answers[1].onChange('bar');
 
-  t.is(action.type, ANSWER_EDIT.template);
-  t.is(action.payload[0], 'foo');
-  t.is(action.meta.progressionId, '1234');
+  t.is(textAction.type, ANSWER_EDIT.template);
+  t.deepEqual(textAction.payload, ['bar', 'sli_Nk2vje~E~.choice_Ek~jJyPNUZ']);
+  t.is(textAction.meta.progressionId, '1234');
+
+  t.is(selectAction.type, ANSWER_EDIT.template);
+  t.deepEqual(selectAction.payload, ['ABCDEFGH', 'bar']);
+  t.is(selectAction.meta.progressionId, '1234');
 });
 
 test('should create initial basic props', t => {

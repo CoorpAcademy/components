@@ -9,7 +9,7 @@ export const ANSWER_EDIT = {
   qcm: '@@answer/EDIT_QCM',
   qcmGraphic: '@@answer/EDIT_QCM_GRAPHIC',
   template: '@@answer/EDIT_TEMPLATE',
-  basic: '@@answer/EDIT_TEMPLATE'
+  basic: '@@answer/EDIT_BASIC'
 };
 
 const newState = (state = [], questionType, newValue) => {
@@ -25,8 +25,10 @@ const newState = (state = [], questionType, newValue) => {
       }
 
     case 'basic':
-    case 'template':
       return [newValue];
+
+    case 'template':
+      return newValue;
 
     default:
       return state;
