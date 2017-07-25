@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import filter from 'lodash/fp/filter';
 import head from 'lodash/fp/head';
 import pipe from 'lodash/fp/pipe';
-import Select from '../../../atom/select';
+import Select, {SelectOptionPropTypes} from '../../../atom/select';
 import style from './style.css';
 
 const DropDown = (props, context) => {
@@ -20,7 +21,9 @@ const DropDown = (props, context) => {
 
 DropDown.propTypes = {
   onChange: Select.propTypes.onChange,
-  options: Select.propTypes.options
+  options: PropTypes.arrayOf(
+    PropTypes.shape({...SelectOptionPropTypes, notAnOption: PropTypes.bool})
+  )
 };
 
 export default DropDown;

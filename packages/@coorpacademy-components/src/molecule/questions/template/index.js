@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import map from 'lodash/fp/map';
 import find from 'lodash/fp/find';
 import parseTemplateString from '../../../util/parse-template-string';
-import Select from '../../../atom/select';
 import DropDown from '../drop-down';
 import FreeText from '../free-text';
 import style from './style.css';
@@ -33,19 +32,15 @@ const Template = props => {
 };
 
 const TextPropTypes = {
+  ...DropDown.propTypes,
   type: PropTypes.string,
-  name: PropTypes.string,
-  label: PropTypes.string,
-  placeholder: PropTypes.string,
-  value: PropTypes.string,
-  onChange: PropTypes.func
+  name: PropTypes.string
 };
+
 const DropDownPropTypes = {
+  ...DropDown.propTypes,
   type: PropTypes.string,
-  name: PropTypes.string,
-  label: PropTypes.string,
-  onChange: Select.propTypes.onChange,
-  options: Select.propTypes.options
+  name: PropTypes.string
 };
 
 Template.propTypes = {

@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Picture from '../../atom/picture';
-import DropDown from '../../molecule/questions/drop-down';
-import FreeText from '../../molecule/questions/free-text';
-import Picker from '../../molecule/questions/picker';
-import Qcm from '../../molecule/questions/qcm';
-import QcmImage from '../../molecule/questions/qcm-image';
-import QuestionRange from '../../molecule/questions/question-range';
-import Template from '../../molecule/questions/template';
+import DropDown from '../questions/drop-down';
+import FreeText from '../questions/free-text';
+import Picker from '../questions/picker';
+import Qcm from '../questions/qcm';
+import QcmImage from '../questions/qcm-image';
+import QuestionRange from '../questions/question-range';
+import Template from '../questions/template';
 import style from './style.css';
 
 const MediaView = ({media}) => {

@@ -49,7 +49,7 @@ test('should create edited template props', t => {
   };
 
   const props = getAnswerProps(state, template);
-  t.is(props.type, 'freeText');
+  t.is(props.type, 'template');
   t.is(props.value, 'foo');
   t.is(isFunction(props.onChange), true);
 });
