@@ -1,4 +1,4 @@
-// // @flow
+// @flow
 import test from 'ava';
 import type {QCMQuestion, AcceptedAnswers} from '../types';
 import {assertCorrect, assertIncorrect} from './helpers/assert-check-answer-correctness';
