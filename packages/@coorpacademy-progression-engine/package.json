@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/progression-engine",
-  "version": "7.1.4",
+  "version": "7.1.5",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
