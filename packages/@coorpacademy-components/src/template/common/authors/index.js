@@ -92,7 +92,7 @@ class Authors extends React.Component {
                   }}
                 />
               </div>
-              <div className={style.toggle} onClick={this.handleToggleDisplay}>
+              <div data-name="more" className={style.toggle} onClick={this.handleToggleDisplay}>
                 {toggleLabel}
               </div>
             </div>
