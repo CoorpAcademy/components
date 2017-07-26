@@ -7,6 +7,7 @@ import Picker from '../../molecule/questions/picker';
 import Qcm from '../../molecule/questions/qcm';
 import QcmImage from '../../molecule/questions/qcm-image';
 import QuestionRange from '../../molecule/questions/question-range';
+import Template from '../../molecule/questions/template';
 import style from './style.css';
 
 const MediaView = ({media}) => {
