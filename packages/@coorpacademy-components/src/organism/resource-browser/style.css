@@ -97,6 +97,7 @@
   .default {
     flex-flow: column;
     height: auto;
+    width: 100%;
   }
 
   .playerWrapper {
