@@ -834,5 +834,57 @@
       },
       "medias": []
     }
+  },
+  {
+    "_id": "sli_Nk2vje~E~",
+    "klf": "You can have multiple type of fields for a template question",
+    "tips": "Some tips",
+    "chapter_id": "cha_EJRex7KQb",
+    "question": {
+      "type": "template",
+      "header": "Enter 'Text' and 'Select'",
+      "explanation": "Type your answers",
+      "content": {
+        "template": "The answer is {{inp81438}} and {{sel31191}}",
+        "matchOrder": true,
+        "maxTypos": null,
+        "answers": [
+          ["Text", "Select"]
+        ],
+        "choices": [
+          {
+            "type": "text",
+            "name": "inp81438",
+            "label": " ",
+            "placeholder": " ",
+            "_id": "596338e04af4cb8a08a94495",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            }
+          },
+          {
+            "type": "select",
+            "name": "sel31191",
+            "label": " ",
+            "_id": "596338e04af4cb8a08a94492",
+            "items": [
+              {
+                "text": "Select",
+                "value": "Select",
+                "_id": "596338e04af4cb8a08a94494"
+              },
+              {
+                "text": "Text",
+                "value": "Text",
+                "_id": "596338e04af4cb8a08a94493"
+              }
+            ]
+          }
+        ]
+      }
+    }
   }
 ]
