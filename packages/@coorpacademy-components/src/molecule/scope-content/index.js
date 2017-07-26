@@ -12,7 +12,7 @@ const ScopeContent = (props, context) => {
   const {translate, skin} = context;
   const {content} = props;
 
-  const lstitle = translate('At the end of this level, you will be able to:');
+  const lstitle = translate('At the end of this level, you will be able to_');
   const _chaptersTitle = translate('chapters');
 
   const time = getOr('', 'time', content);
