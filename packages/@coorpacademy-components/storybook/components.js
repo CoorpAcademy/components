@@ -1753,7 +1753,8 @@ export const dependencies = {
           "Picker": true,
           "QcmImage": true,
           "Qcm": true,
-          "QuestionRange": true
+          "QuestionRange": true,
+          "Template": true
         }
       }
     },
@@ -2534,6 +2535,11 @@ export const dependencies = {
       }
     },
     "Template": {
+      "parents": {
+        "Molecule": {
+          "Answer": true
+        }
+      },
       "children": {
         "MoleculeQuestions": {
           "DropDown": true,
