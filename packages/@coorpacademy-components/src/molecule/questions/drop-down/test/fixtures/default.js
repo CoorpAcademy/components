@@ -3,11 +3,13 @@ export default {
     options: [
       {
         name: 'There is no need for a password',
-        selected: false
+        selected: false,
+        validOption: true
       },
       {
         name: 'Lorem ipsum',
-        selected: false
+        selected: false,
+        validOption: true
       },
       {
         name: 'Lorem',
@@ -15,23 +17,28 @@ export default {
       },
       {
         name: 'You need to have a password',
-        selected: false
+        selected: false,
+        validOption: true
       },
       {
         name: 'Pouet',
-        selected: false
+        selected: false,
+        validOption: true
       },
       {
         name: 'Lorem ipsum dolor sit amet',
-        selected: false
+        selected: false,
+        validOption: true
       },
       {
         name: 'Lorem ipsum dolor',
-        selected: false
+        selected: false,
+        validOption: true
       },
       {
         name: 'all your base are belong to us',
-        selected: false
+        selected: false,
+        validOption: true
       }
     ],
     onChange: value => console.log(value)

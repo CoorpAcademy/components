@@ -67,12 +67,14 @@ test('should create edited template props', t => {
   t.is(selectOptions[0].name, 'temporary');
   t.is(selectOptions[0].value, 'sli_Nk2vje~E~.choice_VyloJkDEUb');
   t.false(selectOptions[0].selected);
+  t.true(selectOptions[0].validOption);
   t.is(selectOptions[1].name, 'exclusive');
   t.is(selectOptions[1].value, 'sli_Nk2vje~E~.choice_Ek~jJyPNUZ');
   t.true(selectOptions[1].selected);
+  t.true(selectOptions[1].validOption);
 });
 
-test('should select the first choice of a select field in a template question if there are no answers', t => {
+test('should add an invalid `select an answer` choice for a select field in a template question if there are no answers for it', t => {
   const state = {
     ui: {
       answers: {},
@@ -82,8 +84,18 @@ test('should select the first choice of a select field in a template question if
 
   const selectOptions = getAnswerProps(state, template).answers[1].options;
 
+  t.is(selectOptions.length, 3);
+  t.is(selectOptions[0].name, 'Select an answer');
   t.true(selectOptions[0].selected);
+  t.false(selectOptions[0].validOption);
+  t.is(selectOptions[1].name, 'temporary');
+  t.is(selectOptions[1].value, 'sli_Nk2vje~E~.choice_VyloJkDEUb');
   t.false(selectOptions[1].selected);
+  t.true(selectOptions[1].validOption);
+  t.is(selectOptions[2].name, 'exclusive');
+  t.is(selectOptions[2].value, 'sli_Nk2vje~E~.choice_Ek~jJyPNUZ');
+  t.false(selectOptions[2].selected);
+  t.true(selectOptions[2].validOption);
 });
 
 test('should create action: edit-answer-qcm', t => {

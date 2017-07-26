@@ -66,8 +66,24 @@ const templateTextProps = (options, store) => (state, slide, choice, index) => {
 };
 
 const templateSelectProps = (options, store) => (state, slide, choice, index) => {
+  const {translate} = options;
   const answers = getAnswerValues(state);
   const answer = get(index, answers);
+  const temporaryOption = {
+    name: translate('Select an answer'),
+    value: '',
+    validOption: false,
+    selected: true
+  };
+  const selectOptions = choice.items.map(item => {
+    return {
+      name: item.text,
+      value: item.value,
+      validOption: true,
+      selected: item.value === answer
+    };
+  });
+
   return {
     type: choice.type,
     name: choice.name,
@@ -75,13 +91,7 @@ const templateSelectProps = (options, store) => (state, slide, choice, index) =>
       updateTemplateAnswer(answers, index),
       editAnswerAction(options, store)(state, slide)
     ),
-    options: choice.items.map((item, itemIndex) => {
-      return {
-        name: item.text,
-        value: item.value,
-        selected: (answer === undefined && itemIndex === 0) || item.value === answer
-      };
-    })
+    options: answer === undefined ? [temporaryOption].concat(selectOptions) : selectOptions
   };
 };
 

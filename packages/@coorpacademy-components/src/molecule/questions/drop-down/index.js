@@ -10,7 +10,7 @@ const DropDown = (props, context) => {
   const {options, onChange} = props;
 
   const currentSelection = pipe(filter('selected'), head)(options);
-  const theme = currentSelection.notAnOption ? 'invalid' : 'question';
+  const theme = currentSelection.validOption === false ? 'invalid' : 'question';
 
   return (
     <div className={style.wrapper}>
@@ -22,7 +22,7 @@ const DropDown = (props, context) => {
 DropDown.propTypes = {
   onChange: Select.propTypes.onChange,
   options: PropTypes.arrayOf(
-    PropTypes.shape({...SelectOptionPropTypes, notAnOption: PropTypes.bool})
+    PropTypes.shape({...SelectOptionPropTypes, validOption: PropTypes.bool})
   )
 };
 
