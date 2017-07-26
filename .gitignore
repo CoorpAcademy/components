@@ -2,6 +2,7 @@ node_modules
 *-debug.log*
 lib
 es
+!packages/**/locales/es
 static
 dist
 .nyc_output
@@ -9,4 +10,3 @@ coverage
 .vscode
 .idea
 package-lock.json
-
