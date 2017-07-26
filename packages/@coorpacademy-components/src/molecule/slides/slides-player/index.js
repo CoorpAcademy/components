@@ -51,8 +51,8 @@ const Step = ({step, color}) => {
   const stepWidth = step.current / step.total * 100;
 
   return (
-    <div>
-      <div className={style.stepCount}>
+    <div data-name="step">
+      <div data-name="counter" className={style.stepCount}>
         <span style={{color}}>{step.current}</span>
         /{step.total}
       </div>
@@ -93,7 +93,7 @@ const ContentLayout = (props, context) => {
 
   return (
     <div className={style.contentWrapper} style={{backgroundColor: wrapperColor}}>
-      <div className={style.question}>
+      <div data-name="question" className={style.question}>
         {question}
       </div>
       {help ? <Help help={help} /> : null}
@@ -162,7 +162,7 @@ const SlidesPlayer = (props, context) => {
   const stepColor = get('common.primary', skin);
 
   return (
-    <div className={style.wrapper}>
+    <div className={style.wrapper} data-name="slidesPlayer">
       {step ? <Step step={step} color={stepColor} /> : null}
       <div className={style.guideWrapper}>
         <span>{translate('New media')}</span>

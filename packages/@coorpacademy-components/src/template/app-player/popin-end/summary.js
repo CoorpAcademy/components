@@ -40,7 +40,7 @@ const SimpleAction = ({color, prefix, title, button}) => {
 };
 
 const NextCourse = ({title, description, prefix, card}) =>
-  <div className={style.nextCourseWrapper}>
+  <div data-name="nextCourse" className={style.nextCourseWrapper}>
     <div className={style.nextCourseTexts}>
       <div className={style.nextCourseDescription}>
         {description}

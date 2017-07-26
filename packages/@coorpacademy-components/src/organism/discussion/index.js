@@ -41,7 +41,7 @@ function Discussion(props) {
     </div>;
 
   return (
-    <div className={style.thread}>
+    <div data-name="discussion" className={style.thread}>
       <h1>{title}</h1>
       {commentView}
       {threadsView}

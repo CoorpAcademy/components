@@ -79,31 +79,31 @@ class Filters extends React.Component {
     const animated = this.state.animated === true;
 
     const coursesView = courses !== undefined
-      ? <div className={style.choice}>
+      ? <div data-name="choice" className={style.choice}>
           <Select {...courses} />
         </div>
       : null;
 
     const thematicView = thematic !== undefined
-      ? <div className={style.choice}>
+      ? <div data-name="choice" className={style.choice}>
           <Select {...thematic} />
         </div>
       : null;
 
     const timerView = timer !== undefined
-      ? <div className={style.timerWrapper}>
+      ? <div data-name="choice" className={style.timerWrapper}>
           <RangeSlider {...timer} />
         </div>
       : null;
 
     const authorsView = authors !== undefined
-      ? <div className={style.choice}>
+      ? <div data-name="choice" className={style.choice}>
           <Select {...authors} />
         </div>
       : null;
 
     const sortView = sorting !== undefined
-      ? <div className={style.select}>
+      ? <div data-name="choice" className={style.select}>
           <Select {...sorting} />
         </div>
       : null;
@@ -115,24 +115,35 @@ class Filters extends React.Component {
       authors === undefined;
 
     return (
-      <div className={style.search} data-animated={animated}>
-        <div className={filtersActive ? style.activeDefault : style.default}>
-          <div className={style.title} data-name={'filters-button'} onClick={this.handleOpenFilter}>
+      <div data-name="search" className={style.search} data-animated={animated}>
+        <div
+          data-name="filter"
+          data-open={filtersActive}
+          className={filtersActive ? style.activeDefault : style.default}
+        >
+          <div className={style.title} data-name="filterButton" onClick={this.handleOpenFilter}>
             {filterTabLabel}
             <div className={style.arrow}>
               <ArrowDown color={darkColor} />
             </div>
           </div>
         </div>
-        <div className={sortingActive ? style.activeWrapperSortBy : style.wrapperSortBy}>
-          <div className={style.title} onClick={this.handleOpenSort}>
+        <div
+          data-name="sortBy"
+          data-open={sortingActive}
+          className={sortingActive ? style.activeWrapperSortBy : style.wrapperSortBy}
+        >
+          <div className={style.title} data-name="sortButton" onClick={this.handleOpenSort}>
             {sortTabLabel}
             <div className={style.arrow}>
               <ArrowDown color={darkColor} />
             </div>
           </div>
         </div>
-        <div className={filtersActive ? style.activeWrapperFilters : style.wrapperFilters}>
+        <div
+          data-name="filterWrapper"
+          className={filtersActive ? style.activeWrapperFilters : style.wrapperFilters}
+        >
           <div className={emptyFilters ? style.wrapperNone : style.wrapper}>
             {thematicView}
             {coursesView}
@@ -140,6 +151,7 @@ class Filters extends React.Component {
             {authorsView}
           </div>
           <div
+            data-name="cta"
             className={style.CTAfilter}
             style={{
               backgroundColor: defaultColor
@@ -149,9 +161,13 @@ class Filters extends React.Component {
             {filterCTALabel}
           </div>
         </div>
-        <div className={sortingActive ? style.activeSorting : style.sorting}>
+        <div
+          data-name="sortWrapper"
+          className={sortingActive ? style.activeSorting : style.sorting}
+        >
           {sortView}
           <div
+            data-name="cta"
             className={style.CTAfilter}
             style={{
               backgroundColor: defaultColor

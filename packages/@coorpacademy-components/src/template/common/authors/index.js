@@ -43,7 +43,7 @@ class Authors extends React.Component {
 
     const socialView = map.convert({cap: false})(
       (sociallink, i) =>
-        <div key={i} className={style.link}>
+        <div key={i} data-name="link" className={style.link}>
           <SocialLink {...sociallink} />
         </div>,
       sociallinks
@@ -56,19 +56,20 @@ class Authors extends React.Component {
       : null;
 
     return (
-      <div className={style.wrapper}>
+      <div data-name="authors" className={style.wrapper}>
         <div className={style.authorsWrapper}>
-          <div className={style.header}>
-            <div className={style.imgWrapper}>
+          <div data-name="header" className={style.header}>
+            <div data-name="image" className={style.imgWrapper}>
               <img src={image} />
             </div>
             <div className={style.descWrapper}>
-              <div className={style.title}>
+              <div data-name="title" className={style.title}>
                 {title}
               </div>
               <div className={style.linksWrapper}>
                 <span>{website}</span>
                 <Link
+                  data-name="linkSite"
                   className={style.linksite}
                   style={{
                     color: defaultColor
@@ -80,7 +81,10 @@ class Authors extends React.Component {
                 </Link>
                 {authorSocial}
               </div>
-              <div className={this.state.fullDisplay ? style.desc : style.shortDesc}>
+              <div
+                data-name="description"
+                className={this.state.fullDisplay ? style.desc : style.shortDesc}
+              >
                 <div
                   // eslint-disable-next-line react/no-danger
                   dangerouslySetInnerHTML={{

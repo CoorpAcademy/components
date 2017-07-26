@@ -103,10 +103,6 @@
   }
 }
 
-.none {
-  display: none;
-}
-
 @media mobile {
   .header:hover {
     background-color: light;

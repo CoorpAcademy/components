@@ -321,7 +321,7 @@ class MoocHeader extends React.Component {
               <div className={style.iconWrapper} style={iconWrapperStyle}>
                 <StarIcon className={style.stars} color={white} />
               </div>
-              <div className={style.label}>
+              <div data-name="value" className={style.label}>
                 {user.stats.stars.label}
               </div>
             </Link>
@@ -335,7 +335,7 @@ class MoocHeader extends React.Component {
                 <ChartsIcon className={style.ranking} color={white} />
               </div>
 
-              <div className={style.label}>
+              <div data-name="value" className={style.label}>
                 {user.stats.ranking.label}
               </div>
             </Link>

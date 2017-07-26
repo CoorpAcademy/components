@@ -14,7 +14,7 @@ const ScopeTabs = (props, context) => {
   const primary = getOr('#00B0FF', ['common', 'primary'], skin);
 
   return (
-    <ul className={style.tabs}>
+    <ul data-name="scopeTabs" className={style.tabs}>
       {levels &&
         levels.map((level, index) => {
           const handleClick = () => onClick(index);
@@ -47,6 +47,7 @@ const ScopeTabs = (props, context) => {
 
           return (
             <li
+              data-name="scopeTab"
               key={index}
               onClick={handleClick}
               className={isSelected ? style.currentTab : style.defaultTab}

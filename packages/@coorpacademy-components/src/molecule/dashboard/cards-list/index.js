@@ -214,16 +214,16 @@ class CardsList extends React.Component {
       ? null
       : <ArrowRight color={mediumColor} className={style.right} onClick={this.handleOnRight} />;
     const titleView = title && onShowMore
-      ? <span className={style.titleLink} onClick={onShowMore}>{title}</span>
-      : <span className={style.title}>{title}</span>;
+      ? <span data-name="title" className={style.titleLink} onClick={onShowMore}>{title}</span>
+      : <span data-name="title" className={style.title}>{title}</span>;
     const showMoreView = showMore && onShowMore
       ? <ShowMoreLink onShowMore={onShowMore} showMore={showMore} />
       : null;
     return (
-      <div className={style.wrapper} data-name="cards-list">
+      <div className={style.wrapper} data-name="cardsList">
         <div className={style.list}>
           <div className={style.listWrapper}>
-            <div>
+            <div data-name="header">
               {titleView}
               {showMoreView}
             </div>

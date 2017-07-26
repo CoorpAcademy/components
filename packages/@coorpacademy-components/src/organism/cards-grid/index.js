@@ -16,7 +16,7 @@ function CardsGrid(props) {
 
   const cards = map(cardProps => {
     return (
-      <div className={style.card} key={cardProps.key}>
+      <div data-name="cardGrid" className={style.card} key={cardProps.key}>
         <Card {...cardProps} />
       </div>
     );

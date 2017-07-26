@@ -9,24 +9,15 @@ import ArrowDown from '@coorpacademy/nova-icons/composition/navigation/arrow-dow
 import Provider from '../../atom/provider';
 import getClassState from '../../util/get-class-state';
 import style from './style.css';
-/* eslint-disable css-modules/no-unused-class */
-import invalidStyle from './theme-invalid.css';
-import filterStyle from './theme-filter.css';
-import headerStyle from './theme-header.css';
-import moocStyle from './theme-mooc.css';
-import questionStyle from './theme-question.css';
-import sortStyle from './theme-sort.css';
-import thematiquesStyle from './theme-thematiques.css';
-/* eslint-enable css-modules/no-unused-class */
 
 const themeStyle = {
-  filter: filterStyle.filter,
-  invalid: invalidStyle.invalid,
-  header: headerStyle.header,
-  mooc: moocStyle.mooc,
-  question: questionStyle.question,
-  sort: sortStyle.sort,
-  thematiques: thematiquesStyle.thematiques
+  filter: style.filter,
+  invalid: style.invalid,
+  header: style.header,
+  mooc: style.mooc,
+  question: style.question,
+  sort: style.sort,
+  thematiques: style.thematiques
 };
 
 const Select = (props, context) => {

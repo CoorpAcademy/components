@@ -27,7 +27,7 @@ const ForumComment = (props, context) => {
   );
 
   return (
-    <div className={style.container}>
+    <div data-name="forumComment" className={style.container}>
       <div className={style.wrapper}>
         {avatarView}
         <div className={style.comment}>

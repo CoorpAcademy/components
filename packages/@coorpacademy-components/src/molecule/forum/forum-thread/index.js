@@ -12,7 +12,7 @@ const ForumThread = props => {
   return (
     <div>
       <ForumPost {...props} />
-      <div className={style.answers}>
+      <div data-name="forumAnswers" className={style.answers}>
         {answersView}
       </div>
     </div>

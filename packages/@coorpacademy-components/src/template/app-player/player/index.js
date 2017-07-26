@@ -8,7 +8,7 @@ const SlidePlayer = props => {
   const {header, player} = props;
 
   return (
-    <div className={style.wrapper}>
+    <div data-name="slidePlayer" className={style.wrapper}>
       <SlidesHeader {...header} />
       <div className={style.playerWrapper}>
         <SlidesPlayer {...player} />

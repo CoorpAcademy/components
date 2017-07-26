@@ -50,7 +50,7 @@ const ResourceBrowser = props => {
   const SelectedResourceType = selectedResource && SELECTED_TYPES[selectedResource.type];
 
   return (
-    <div className={classnames(style.default, className)}>
+    <div data-name="resourceBrowser" className={classnames(style.default, className)}>
       <div className={style.playerWrapper}>
         {selectedResource ? <SelectedResourceType {...selectedResource} /> : null}
       </div>
