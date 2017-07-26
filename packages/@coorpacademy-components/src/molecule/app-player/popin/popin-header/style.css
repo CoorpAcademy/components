@@ -115,8 +115,6 @@
   composes: wrapper;
   composes: centerContent;
   justify-content: flex-end;
-
-
 }
 
 .life {
@@ -195,9 +193,11 @@
     width: 70px;
     right: 35px;
   }
+
   .section {
     height: auto;
   }
+
   .icon {
     width: 15px;
     height: 15px;

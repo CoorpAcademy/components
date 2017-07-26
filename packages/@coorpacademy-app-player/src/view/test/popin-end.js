@@ -35,7 +35,7 @@ test('should set properties for success popin', async t => {
   const card = props.summary.recommendation.cards[1];
   t.is(card.view, 'grid');
 
-  t.is(props.summary.footer.title, '__Back to dashboard');
+  t.is(props.summary.footer.title, '__Back to home');
   const exitHandler = props.summary.footer.onClick;
   await t.notThrows(exitHandler);
 });
@@ -67,7 +67,7 @@ test('should set properties for failure popin', async t => {
   const card = props.summary.recommendation.cards[1];
   t.is(card.view, 'grid');
 
-  t.is(props.summary.footer.title, '__Back to dashboard');
+  t.is(props.summary.footer.title, '__Back to home');
   const exitHandler = props.summary.footer.onClick;
   await t.notThrows(exitHandler);
 
@@ -98,7 +98,7 @@ test('should set properties for failure popin when losing rank', async t => {
   const card = props.summary.recommendation.cards[1];
   t.is(card.view, 'grid');
 
-  t.is(props.summary.footer.title, '__Back to dashboard');
+  t.is(props.summary.footer.title, '__Back to home');
   const exitHandler = props.summary.footer.onClick;
   await t.notThrows(exitHandler);
 });
