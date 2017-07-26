@@ -49,7 +49,7 @@ const summaryHeader = ({translate}, {dispatch}) => state => {
         stars: extractStars(state),
         rank: extractRank(state),
         cta: {
-          title: translate('Back to dashboard'),
+          title: translate('Back to home'),
           href: '/'
         }
       })
@@ -95,7 +95,7 @@ const extractAction = ({translate}, {dispatch}) => state => {
         get('nextChapter', recommendations) && {
           type: 'nextCourse',
           description: translate('Check out the next chapter in this course!'),
-          prefix: translate('Next chapter:'),
+          prefix: translate('Next chapter_'),
           ...recommendations.nextChapter
         }
     ],
@@ -103,7 +103,7 @@ const extractAction = ({translate}, {dispatch}) => state => {
       pipe(get('type'), isEqual('failure')),
       () => ({
         type: 'simple',
-        prefix: translate('Retry chapter:'),
+        prefix: translate('Retry chapter_'),
         title: getOr('', 'name')(getCurrentChapter(state)),
         button: {
           title: translate('Retry chapter'),
@@ -122,7 +122,7 @@ const popinEndStateToProps = (options, store) => state => {
   const exitNode = getCurrentExitNode(state);
 
   const footer = {
-    title: translate('Back to dashboard'),
+    title: translate('Back to home'),
     onClick: () => dispatch(exit)
   };
 
