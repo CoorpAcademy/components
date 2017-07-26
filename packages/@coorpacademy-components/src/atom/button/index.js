@@ -17,11 +17,13 @@ const ButtonContent = props => {
     children,
     type
   } = props;
+  const dataName = props['data-name'];
 
   switch (type) {
     case 'link':
       return (
         <Link
+          data-name={dataName}
           href={href}
           onClick={onClick}
           target={target}
@@ -34,7 +36,14 @@ const ButtonContent = props => {
 
     case 'a':
       return (
-        <a href={href} target={target} className={className} onClick={onClick} style={props.style}>
+        <a
+          data-name={dataName}
+          href={href}
+          target={target}
+          className={className}
+          onClick={onClick}
+          style={props.style}
+        >
           {submitValue || children}
         </a>
       );
@@ -42,6 +51,7 @@ const ButtonContent = props => {
     default:
       return (
         <LinkedInput
+          data-name={dataName}
           type={type}
           value={submitValue}
           disabled={disabled}

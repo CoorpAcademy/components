@@ -23,7 +23,7 @@ const Discipline = (props, context) => {
   } = props;
 
   return (
-    <div className={style.wrapper}>
+    <div data-name="discipline" className={style.wrapper}>
       <div className={style.header}>
         <DisciplineHeader image={image} video={video} title={title} description={description} />
       </div>

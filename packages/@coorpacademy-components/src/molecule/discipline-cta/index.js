@@ -31,6 +31,7 @@ const DisciplineCTA = (props, context) => {
   const startButton =
     start &&
     <a
+      data-name="start"
       className={style.start}
       onClick={start}
       style={{
@@ -42,12 +43,12 @@ const DisciplineCTA = (props, context) => {
 
   const buyButton =
     buy &&
-    <a className={style.buy} onClick={buy}>
+    <a data-name="buy" className={style.buy} onClick={buy}>
       {premium}
     </a>;
 
   return (
-    <div className={style.head}>
+    <div data-name="disciplineCta" className={style.head}>
       {startButton}
       {buyButton}
     </div>

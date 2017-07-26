@@ -34,6 +34,7 @@ const ScopeContent = (props, context) => {
   const ctaView =
     onClick &&
     <Button
+      data-name="cta"
       type="link"
       className={style.cta}
       onClick={onClick}
@@ -48,7 +49,14 @@ const ScopeContent = (props, context) => {
     const white = get('common.white', skin);
 
     return (
-      <Link key={index} className={style.media} onClick={handleClick} href={href} target={target}>
+      <Link
+        key={index}
+        data-name="media"
+        className={style.media}
+        onClick={handleClick}
+        href={href}
+        target={target}
+      >
         <div className={style.imgWrapper}>
           <img src={media.image} />
           {type === 'video' ? <PlayIcon className={style.play} color={white} /> : null}
@@ -61,19 +69,19 @@ const ScopeContent = (props, context) => {
   });
 
   const mediasView = _medias.length > 0
-    ? <div className={style.medias}>
+    ? <div data-name="medias" className={style.medias}>
         {medias}
       </div>
     : null;
 
   return (
-    <div>
-      <div className={style.desc}>
+    <div data-name="scopeContent">
+      <div data-name="description" className={style.desc}>
         <div className={style.infos}>
           <div className={style.title}>
             {title}
             <div>
-              <span className={style.time}>{time}</span>
+              <span data-name="duration" className={style.time}>{time}</span>
             </div>
           </div>
           {ctaView}

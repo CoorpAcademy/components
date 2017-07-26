@@ -29,7 +29,7 @@ const SearchPage = (props, context) => {
   return (
     <div>
       <Filters {...searchFilters} />
-      <div className={style.cardsWrapper}>
+      <div data-name="searchResult" className={style.cardsWrapper}>
         <div className={style.title}>{title}</div>
         {cardsView}
       </div>

@@ -26,18 +26,20 @@ const AccordionPart = (props, context) => {
   const closeIconClassName = !isOpen ? style.closeIconActivated : style.closeIcon;
 
   return (
-    <div>
+    <div data-name="accordionPart">
       <div className={isOpen ? style.openHeader : style.closedHeader} onClick={onClick}>
-        <div className={style.title}>
+        <div data-name="title" className={style.title}>
           {TitleIcon ? <TitleIcon className={style.titleIcon} color="inherit" /> : null}
           <h3 className={style.titleLabel}>{title}</h3>
         </div>
         <MoreIcon className={closeIconClassName} color={darkColor} />
         <LessIcon className={openIconClassName} color={mediumColor} />
       </div>
-      <div className={isOpen ? style.container : style.none}>
-        {content}
-      </div>
+      {isOpen
+        ? <div className={style.container}>
+            {content}
+          </div>
+        : null}
     </div>
   );
 };

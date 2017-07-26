@@ -31,7 +31,7 @@ const Resources = ({resources}) =>
   </div>;
 
 const SimpleText = ({text}) =>
-  <div className={style.simpleTextWrapper}>
+  <div data-name="simpleText" className={style.simpleTextWrapper}>
     <p className={style.simpleText}>{text}</p>
   </div>;
 
@@ -92,7 +92,7 @@ class PopinCorrection extends Component {
     });
 
     return (
-      <div ref={this.initWrapper} className={className}>
+      <div ref={this.initWrapper} className={className} data-name="popinCorrection">
         <div className={style.scrollWrapper}>
           <div className={isLoading ? style.loadingWrapper : style.wrapper}>
             <div className={isLoading ? style.loadingContent : style.content}>

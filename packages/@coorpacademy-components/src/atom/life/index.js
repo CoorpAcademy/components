@@ -35,7 +35,7 @@ const Life = (props, context) => {
   };
 
   return (
-    <div className={classnames(MODES[mode], className)} style={customStyle}>
+    <div data-name="life" className={classnames(MODES[mode], className)} style={customStyle}>
       <div className={style.livesCounterWrapper}>
         <div
           className={
@@ -44,7 +44,12 @@ const Life = (props, context) => {
         >
           {count + 1}
         </div>
-        <div className={fail ? style.livesCounterFail : style.livesCounterDefault}>{count}</div>
+        <div
+          data-name="counter"
+          className={fail ? style.livesCounterFail : style.livesCounterDefault}
+        >
+          {count}
+        </div>
       </div>
       <div className={style.multiplier}>
         <div className={style.multiplierText}>x</div>

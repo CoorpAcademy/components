@@ -52,13 +52,13 @@ const ForumPost = (props, context) => {
   }
 
   return (
-    <div className={rejected ? style.rejected : style.post}>
+    <div data-name="forumPost" className={rejected ? style.rejected : style.post}>
       <div className={style.image}>
         <Picture src={avatar} className={style.avatar} />
       </div>
       <div className={style.content}>
         <div>
-          <span className={style.author}>{author}</span>
+          <span data-name="author" className={style.author}>{author}</span>
           <span className={style.date}>{date}</span>
         </div>
         <div className={style.body}>

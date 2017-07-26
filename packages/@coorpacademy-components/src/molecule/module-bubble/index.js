@@ -22,10 +22,11 @@ const ModuleBubble = (props, context) => {
   const iconColor = getOr('#00B0FF', ['common', 'primary'], skin);
 
   return (
-    <div className={filtered ? style.filtered : style.modulewrapper} data-name="module-bubble">
+    <div className={filtered ? style.filtered : style.modulewrapper} data-name="moduleBubble">
       <div className={style.bubble} onClick={click}>
         <span className={style.bubbleBG} />
         <span
+          data-name="icon"
           className={disabled ? style.iconDisabled : style.icon}
           style={{
             color: iconColor

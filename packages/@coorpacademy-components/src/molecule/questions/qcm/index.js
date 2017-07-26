@@ -16,6 +16,7 @@ const QCM = (props, context) => {
 
     return (
       <div
+        data-name="answer"
         className={selected ? style.selected : style.answer}
         onClick={onClick}
         style={selectedStyle}
@@ -27,7 +28,7 @@ const QCM = (props, context) => {
   });
 
   return (
-    <div className={style.wrapper}>
+    <div data-name="qcm" className={style.wrapper}>
       {answersViews}
     </div>
   );

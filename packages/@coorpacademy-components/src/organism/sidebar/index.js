@@ -9,7 +9,7 @@ import style from './style.css';
 
 const SelectItem = props => {
   return (
-    <li className={style.selectItem}>
+    <li data-name="sidebarItemSelectItem" className={style.selectItem}>
       <span className={style.sidebarTitle}>{props.title}</span>
       <Select
         title={props.title}
@@ -50,7 +50,7 @@ const LinkItem = props => {
 
 const InfoItem = props => {
   return (
-    <ul className={style.infoItem}>
+    <ul data-name="sidebarItemInfo" className={style.infoItem}>
       <li className={style.infoItemTitle}>
         {props.title}
       </li>
@@ -72,9 +72,9 @@ const Sidebar = (props, context) => {
   const {skin} = context;
   const defaultColor = getOr('#00B0FF', 'common.primary', skin);
   return (
-    <div className={style.sidebar}>
+    <div data-name="sidebar" className={style.sidebar}>
       {sections.map((sidebarSection, idx) =>
-        <div className={style.sidebarPart} key={idx}>
+        <div data-name="sidebarPart" className={style.sidebarPart} key={idx}>
           <SidebarItems items={sidebarSection} color={defaultColor} />
         </div>
       )}

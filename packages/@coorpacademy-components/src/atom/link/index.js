@@ -56,6 +56,7 @@ class Link extends React.Component {
 
     return (
       <a
+        data-name="link"
         {...aProps}
         href={this.props.href ? createHref(this.props.href) : undefined}
         onClick={this.handleOnClick}

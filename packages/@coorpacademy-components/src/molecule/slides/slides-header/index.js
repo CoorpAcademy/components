@@ -38,12 +38,12 @@ const SlidesHeader = (props, context) => {
     : null;
 
   return (
-    <div className={classnames(style.wrapper, className)}>
+    <div data-name="slidesHeader" className={classnames(style.wrapper, className)}>
       <Link href={backHref} className={style.backLink}>
         <BackIcon className={style.backIcon} color="inherit" />
         <div className={style.primary}>
           {primarySubtitleView}
-          <div className={style.primaryTitle}>
+          <div data-name="primaryTitle" className={style.primaryTitle}>
             {primary.title}
           </div>
         </div>

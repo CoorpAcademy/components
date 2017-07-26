@@ -4,7 +4,7 @@ import style from './style.css';
 
 const Loader = ({className}) => {
   return (
-    <div className={classnames(style.container, className)}>
+    <div data-name="loader" className={classnames(style.container, className)}>
       <div className={style.dot} />
       <div className={style.dot} />
       <div className={style.dot} />

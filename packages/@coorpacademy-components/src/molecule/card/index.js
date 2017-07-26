@@ -29,12 +29,11 @@ const Card = (props, context) => {
   const {skin} = context;
   const {
     view = 'grid',
-    dataName,
     image,
     time,
     adaptiv,
     freerun,
-    disabled,
+    disabled = false,
     type,
     title,
     author,
@@ -75,7 +74,12 @@ const Card = (props, context) => {
   const loader = title && type ? null : <Loader />;
 
   return (
-    <div className={cardStyle} data-name={dataName}>
+    <div
+      className={cardStyle}
+      data-name="card"
+      data-lock={disabled}
+      data-type={freerun ? 'learner' : 'microlearning'}
+    >
       <div className={lazyClass} disabled={disabled}>
         <div
           className={style.imageWrapper}
@@ -85,7 +89,7 @@ const Card = (props, context) => {
           }}
         >
           {loader}
-          <div className={style.ctaWrapper} onClick={!disabled && onClick}>
+          <div data-name="cover" className={style.ctaWrapper} onClick={!disabled && onClick}>
             {freeRunIcon}
             {adaptivIcon}
             {timer}
@@ -93,8 +97,9 @@ const Card = (props, context) => {
           {disabled ? <div className={style.lockWrapper}>{lock}</div> : null}
         </div>
         {myprogress}
-        <div className={style.infoWrapper} onClick={!disabled && onClick}>
+        <div data-name="info" className={style.infoWrapper} onClick={!disabled && onClick}>
           <div
+            data-name="type"
             className={style.type}
             style={{
               color: !disabled && defaultColor
@@ -103,11 +108,11 @@ const Card = (props, context) => {
             {type}
           </div>
           <div className={style.title}>
-            <div title={title}>
+            <div data-name="title" title={title}>
               {title}
             </div>
           </div>
-          <div title={author} className={style.author}>
+          <div data-name="author" title={author} className={style.author}>
             {author}
           </div>
         </div>
@@ -122,7 +127,6 @@ Card.contextTypes = {
 
 Card.propTypes = {
   view: PropTypes.oneOf(keys(viewStyle)),
-  dataName: PropTypes.string,
   image: PropTypes.string,
   time: PropTypes.string,
   disabled: PropTypes.bool,

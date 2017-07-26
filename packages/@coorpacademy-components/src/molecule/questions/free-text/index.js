@@ -12,7 +12,7 @@ const FreeText = (props, {skin}) => {
   const handleChange = e => onChange(e.target.value);
 
   return (
-    <div className={style.wrapper}>
+    <div data-name="freeText" className={style.wrapper}>
       <LinkedInput
         type="text"
         className={style.input}

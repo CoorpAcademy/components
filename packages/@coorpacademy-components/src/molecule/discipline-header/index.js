@@ -28,12 +28,12 @@ class DisciplineHeader extends React.Component {
     const toggleLabel = this.state.fullDisplay ? translate('See less') : translate('Show more');
 
     return (
-      <div className={style.wrapper}>
+      <div data-name="disciplineHeader" className={style.wrapper}>
         <div className={style.imgWrapper}>
           <VideoIframe image={image} type={type} id={id} width="380px" height="250px" />
         </div>
         <div className={style.courseWrapper}>
-          <div className={style.title}>
+          <div data-name="title" className={style.title}>
             {title}
           </div>
           <div className={this.state.fullDisplay ? style.desc : style.shortDesc}>

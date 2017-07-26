@@ -29,12 +29,17 @@ const SlidesFooter = (props, context) => {
     const notifyView = notify ? <span className={style.notify} /> : null;
 
     return (
-      <div className={disabled ? style.disabled : className} key={key} onClick={onClick}>
+      <div
+        data-name="button"
+        className={disabled ? style.disabled : className}
+        key={key}
+        onClick={onClick}
+      >
         <div className={highlighted ? style.highlighted : style.logo}>
           {notifyView}
           <IconType color={xtraLightGrey} />
         </div>
-        <div className={style.title}>
+        <div data-name="title" className={style.title}>
           {title}
         </div>
       </div>
@@ -42,7 +47,7 @@ const SlidesFooter = (props, context) => {
   });
 
   return buttons.length > 0
-    ? <div className={style.wrapper}>
+    ? <div data-name="slidesFooter" className={style.wrapper}>
         {buttonsView}
       </div>
     : null;

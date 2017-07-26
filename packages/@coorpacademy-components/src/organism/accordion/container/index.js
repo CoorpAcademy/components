@@ -16,7 +16,7 @@ const Accordion = props => {
     const handleOnClick = () => onClick(key);
 
     return (
-      <div key={key} className={style.wrapper}>
+      <div data-name="accordion" key={key} className={style.wrapper}>
         <Part
           iconType={iconType}
           title={title}

@@ -85,7 +85,7 @@ class CTA extends React.Component {
           secondary ? style.secondaryButton : null,
           this.props.className
         )}
-        data-name={ctaName}
+        data-name={ctaName || 'cta'}
         style={this.getStyle()}
       >
         {submitValue}

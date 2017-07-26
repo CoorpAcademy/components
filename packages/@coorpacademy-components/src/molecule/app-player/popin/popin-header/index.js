@@ -28,7 +28,12 @@ const AnswersCorrection = ({corrections}) => {
   const answers = map(correction => {
     const key = `answer_${correction.answer}`;
     return (
-      <span key={key} className={correction.isCorrect ? style.correctAnswer : style.wrongAnswer}>
+      <span
+        key={key}
+        data-name="answer"
+        data-correct={correction.isCorrect}
+        className={correction.isCorrect ? style.correctAnswer : style.wrongAnswer}
+      >
         {correction.answer}
       </span>
     );
@@ -111,12 +116,13 @@ const CorrectionPart = props => {
     style.correctionSectionFail,
     style.correctionSectionLoading
   );
+  const state = buildClass(fail, 'success', 'fail', null);
 
   return (
-    <div className={className}>
+    <div data-name="correctionSection" data-state={state} className={className}>
       <div className={style.titlesWrapper}>
         {isLoading ? <Loader /> : null}
-        <h1 className={style.title}>{title}</h1>
+        <h1 data-name="title" className={style.title}>{title}</h1>
         <h2 className={style.subtitle}>{subtitle}</h2>
         {fail && corrections.length ? <AnswersCorrection corrections={corrections} /> : null}
       </div>
@@ -130,7 +136,7 @@ const NextQuestionPart = props => {
 
   return (
     <Link {...linkProps} className={style.nextSection}>
-      <div className={style.nextButton}>
+      <div data-name="nextButton" className={style.nextButton}>
         {title}
         <ArrowRight color="inherit" className={style.nextButtonIcon} />
       </div>
@@ -142,7 +148,7 @@ const PopinHeader = (props, context) => {
   const {animated, fail, title, subtitle, lives, stars, rank, corrections, cta} = props;
 
   return (
-    <div className={style.header}>
+    <div className={style.header} data-name="popinHeader">
       <CorrectionPart
         title={title}
         subtitle={subtitle}

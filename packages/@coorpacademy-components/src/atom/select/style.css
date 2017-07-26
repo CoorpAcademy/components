@@ -5,6 +5,7 @@
 @value dark from colors;
 @value light from colors;
 @value black from colors;
+@value white from colors;
 
 .default {
   display: flex;
@@ -105,4 +106,291 @@
 .default select[multiple] {
   padding: 0;
   height: 80px;
+}
+
+/*
+  Filter
+*/
+
+.filter label {
+  display: flex;
+  align-items: center;
+  position: relative;
+  flex-grow: 0;
+  flex-wrap: wrap;
+  height: auto;
+  margin: 0;
+}
+
+.filter .label {
+  display: block;
+  padding: 15px 30px 15px 15px;
+  font-size: 12px;
+  padding-right: 30px;
+  background: white;
+  text-transform: none;
+  text-align: initial;
+}
+
+.filter .title {
+  display: block;
+  width: 100%;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.filter select {
+  display: block;
+  width: 100%;
+  height: 50px;
+  background: white;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  outline: none;
+  appearance: none;
+  font-size: 12px;
+  padding: 0 15px;
+  color: dark;
+  cursor: pointer;
+}
+
+.filter .arrow {
+  top: 70%;
+}
+
+/*
+  No label
+*/
+
+.no-label {
+  composes: default;
+  position: relative;
+}
+
+.no-label label {
+  display: flex;
+  align-items: center;
+  height: 44px;
+  position: relative;
+  flex-grow: 0;
+}
+
+.no-label .label {
+  display: block;
+  padding: 0 30px 0 10px;
+  font-size: 14px;
+  border: 1px solid xtraLightGrey;
+  background: white;
+  border-radius: 2px;
+  height: 44px;
+  line-height: 42px;
+  box-sizing: border-box;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.no-label select {
+  font-family: "Open Sans";
+  text-transform: none;
+  padding: 0 15px;
+  height: 44px;
+  border-radius: 2px;
+  font-size: 15px;
+  color: black;
+  font-weight: normal;
+  margin-left: 0;
+  width: 230px;
+  cursor: pointer;
+  background: white;
+  border: 2px solid xtraLightGrey;
+}
+
+@media mobile {
+  .no-label select {
+    height: 100%;
+    width: 100%;
+    margin-left: 0;
+    border-radius: 0;
+  }
+
+  .no-label label {
+    display: block;
+    margin-right: 0;
+    width: 100%;
+    height: 44px;
+  }
+}
+
+/*
+  Invalid
+*/
+
+.invalid {
+  composes: no-label;
+}
+
+.invalid label {
+  height: 54px;
+  color: black;
+}
+
+.invalid .label {
+  font-size: 15px;
+  font-weight: 700;
+  border: 2px solid;
+  height: 54px;
+  line-height: 52px;
+  border-color: medium;
+}
+
+/*
+  Mooc
+*/
+
+.mooc {
+  composes: default;
+  width: 150px;
+}
+
+.mooc label {
+  margin: 0;
+  height: 35px;
+  border: 0;
+}
+
+.mooc select {
+  color: black;
+  height: 35px;
+  margin-left: 0;
+  width: auto;
+}
+
+.mooc .arrow,
+.mooc .title {
+  display: none;
+}
+
+@media mobile {
+  .mooc {
+    width: 40%;
+  }
+
+  .mooc select {
+    padding: 0;
+  }
+}
+
+/*
+  Question
+*/
+
+.question {
+  composes: no-label;
+}
+
+.question label {
+  height: 54px;
+}
+
+.question .label {
+  font-size: 15px;
+  font-weight: 700;
+  border: 2px solid;
+  height: 54px;
+  line-height: 52px;
+}
+
+/*
+  Sort
+*/
+
+.sort {
+  background: white;
+  margin-bottom: 10px;
+}
+
+.sort label {
+  display: flex;
+  align-items: center;
+  position: relative;
+  flex-grow: 0;
+  flex-wrap: wrap;
+  height: auto;
+  margin: 0;
+}
+
+.sort .label {
+  display: block;
+  padding: 15px 30px 15px 15px;
+  font-size: 12px;
+  padding-right: 30px;
+  background: white;
+  text-transform: none;
+  text-align: initial;
+}
+
+.sort .title {
+  display: block;
+  width: 100%;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.sort select {
+  display: block;
+  width: 100%;
+  height: 50px;
+  background: white;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  outline: none;
+  appearance: none;
+  font-size: 12px;
+  padding: 0 15px;
+  color: dark;
+  cursor: pointer;
+}
+
+/*
+  Thematiques
+*/
+
+.thematiques {
+  composes: no-label;
+}
+
+/*
+  Header
+*/
+
+.header {
+  composes: mooc;
+  width: auto;
+}
+
+.header select {
+  background-color: light;
+  border: 0;
+  font-weight: 700;
+  font-family: 'Open Sans';
+  color: dark;
+  padding: 0 30px 0 15px;
+  width: 150px;
+  cursor: pointer;
+}
+
+.header .arrow {
+  display: block;
+}
+
+@media mobile {
+  .header {
+    width: auto;
+  }
+
+  .header select {
+    padding: 0 30px 0 15px;
+  }
 }

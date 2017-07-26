@@ -61,7 +61,7 @@ const DisciplinePartners = (props, context) => {
 
     const aNameView =
       autName &&
-      <div className={style.authorName}>
+      <div data-name="authorName" className={style.authorName}>
         {autName}
       </div>;
 
@@ -93,7 +93,7 @@ const DisciplinePartners = (props, context) => {
   }, authors);
 
   return !isEmpty(authors)
-    ? <div className={style.colDetails}>
+    ? <div data-name="disciplinePartner" className={style.colDetails}>
         <CatalogSection title={authorLabel}>
           {authorsView}
         </CatalogSection>

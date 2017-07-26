@@ -9,7 +9,7 @@ import style from './style.css';
 
 const LoadedClue = ({brandColor, text}) => {
   return (
-    <div className={style.clueText}>
+    <div data-name="text" className={style.clueText}>
       <div className={style.logo}>
         <ClueIcon color={brandColor} />
       </div>
@@ -26,7 +26,7 @@ const Clue = (props, context) => {
   const isLoading = isNil(text);
 
   return (
-    <div className={style.wrapperClue}>
+    <div data-name="clue" className={style.wrapperClue}>
       <div className={isLoading ? style.loadingClue : style.clue}>
         {isLoading ? <Loader /> : <LoadedClue text={text} brandColor={brandColor} />}
       </div>
