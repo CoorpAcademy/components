@@ -18,8 +18,7 @@ const Template = props => {
       return <div className={style.string} key={key}>{part.value}</div>;
     }
     if (type === 'answerField') {
-      const field = find({name: part.value}, props.answerFields);
-
+      const field = find({name: part.value}, props.answers);
       return field.type === 'text'
         ? <FreeText {...field} key={part.value} className={style.field} />
         : <DropDown {...field} key={part.value} className={style.field} />;
@@ -36,6 +35,7 @@ const Template = props => {
 const TextPropTypes = {
   type: PropTypes.string,
   name: PropTypes.string,
+  label: PropTypes.string,
   placeholder: PropTypes.string,
   value: PropTypes.string,
   onChange: PropTypes.func
@@ -43,16 +43,16 @@ const TextPropTypes = {
 const DropDownPropTypes = {
   type: PropTypes.string,
   name: PropTypes.string,
+  label: PropTypes.string,
   onChange: Select.propTypes.onChange,
   options: Select.propTypes.options
 };
 
 Template.propTypes = {
   template: PropTypes.string,
-  answerFields: PropTypes.oneOfType([
-    PropTypes.shape(DropDownPropTypes),
-    PropTypes.shape(TextPropTypes)
-  ])
+  answers: PropTypes.arrayOf(
+    PropTypes.oneOfType([PropTypes.shape(DropDownPropTypes), PropTypes.shape(TextPropTypes)])
+  )
 };
 
 export default Template;

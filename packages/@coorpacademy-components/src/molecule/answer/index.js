@@ -37,7 +37,7 @@ const Answer = props => {
       case 'range':
         return <QuestionRange {...model} />;
       case 'template':
-        return <QuestionRange {...model} />;
+        return <Template {...model} />;
     }
   };
   const answerView = buildAnswer(model);

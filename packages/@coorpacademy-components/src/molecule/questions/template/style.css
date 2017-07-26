@@ -15,11 +15,11 @@
   font-family: "Open Sans";
   font-weight: 700;
   font-size: 14px;
-  margin: 0 8px;
+  margin: 0 4px;
   box-sizing: border-box;
 }
 
-.field {
+.field label {
   margin: 0;
   box-sizing: border-box;
 }

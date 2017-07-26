@@ -1,13 +1,13 @@
 export default {
   props: {
     template: 'la réponse est {{inp81438}}, {{sel31191}}.',
-    answerFields: [
+    answers: [
       {
         type: 'text',
         name: 'inp81438',
         label: ' ',
-        placeholder: 'an answer',
-        value: '',
+        placeholder: ' ',
+        value: 'an answer',
         onChange: value => console.log(value)
       },
       {
