@@ -4,6 +4,8 @@
 @value dark from colors;
 @value light from colors;
 @value xtraLightGrey from colors;
+@value breakpoints: "../../../variables/breakpoints.css";
+@value mobile from breakpoints;
 
 .header {
   position: relative;
@@ -103,4 +105,10 @@
 
 .none {
   display: none;
+}
+
+@media mobile {
+  .header:hover {
+    background-color: light;
+  }
 }
