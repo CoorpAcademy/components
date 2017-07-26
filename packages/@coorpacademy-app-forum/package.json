@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/app-forum",
-  "version": "5.3.77",
+  "version": "5.3.78",
   "description": "CoorpAcademy forum",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -34,7 +34,7 @@
     "webpack-dev-server": "^2.4.5"
   },
   "dependencies": {
-    "@coorpacademy/components": "5.4.44",
+    "@coorpacademy/components": "5.4.45",
     "@coorpacademy/webpack-config": "6.1.4",
     "lodash": "^4.17.4",
     "react": "^15.5.4",
