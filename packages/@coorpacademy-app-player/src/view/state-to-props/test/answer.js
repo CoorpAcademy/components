@@ -70,6 +70,22 @@ test('should create action: edit-answer-qcm', t => {
   t.is(action.meta.progressionId, '1234');
 });
 
+test('should create action: edit-answer-qcmGraphic', t => {
+  const state = {
+    ui: {
+      answers: {'1234': {value: ['Vrai']}},
+      current: {progressionId: '1234'}
+    }
+  };
+
+  const props = getAnswerProps(state, qcmGraphic);
+  const action = props.answers[1].onClick();
+
+  t.is(action.type, ANSWER_EDIT.qcmGraphic);
+  t.is(action.payload[1], 'Faux');
+  t.is(action.meta.progressionId, '1234');
+});
+
 test('should create initial qcmGraphic props', t => {
   const state = {};
   const props = getAnswerProps(state, qcmGraphic);
