@@ -95,7 +95,7 @@ const extractAction = ({translate}, {dispatch}) => state => {
         get('nextChapter', recommendations) && {
           type: 'nextCourse',
           description: translate('Check out the next chapter in this course!'),
-          prefix: translate('Next chapter:'),
+          prefix: translate('Next chapter#'),
           ...recommendations.nextChapter
         }
     ],
@@ -103,7 +103,7 @@ const extractAction = ({translate}, {dispatch}) => state => {
       pipe(get('type'), isEqual('failure')),
       () => ({
         type: 'simple',
-        prefix: translate('Retry chapter:'),
+        prefix: translate('Retry chapter#'),
         title: getOr('', 'name')(getCurrentChapter(state)),
         button: {
           title: translate('Retry chapter'),
