@@ -32,6 +32,7 @@
   height: 110px;
   margin-bottom: 16px;
   background-size: cover;
+  background-position: center center;
 }
 
 .titleWrapper {

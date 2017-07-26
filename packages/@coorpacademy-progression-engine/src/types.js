@@ -88,7 +88,7 @@ export type Answer = Array<string>;
 export type AcceptedAnswers = Array<Answer>;
 
 export type QCMQuestion = {
-  type: 'qcm' | 'qcmDrag',
+  type: 'qcm' | 'qcmDrag' | 'qcmGraphic',
   content: {
     answers: AcceptedAnswers
   }

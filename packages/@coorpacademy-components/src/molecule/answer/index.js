@@ -29,7 +29,7 @@ const Answer = props => {
         return <Picker {...model} />;
       case 'qcm':
         return <Qcm {...model} />;
-      case 'qcmImage':
+      case 'qcmGraphic':
         return <QcmImage {...model} />;
       case 'freeText':
         return <FreeText {...model} />;
@@ -56,7 +56,7 @@ Answer.propTypes = {
     type: PropTypes.oneOf([
       'picker',
       'qcm',
-      'qcmImage',
+      'qcmGraphic',
       'freeText',
       'dropDown',
       'range',
