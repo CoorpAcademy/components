@@ -6,6 +6,7 @@ import creategetAnswerProps from '../answer';
 import {ANSWER_EDIT} from '../../../actions/ui/answers';
 import basic from './fixtures/slides/basic';
 import qcm from './fixtures/slides/qcm';
+import qcmGraphic from './fixtures/slides/qcmGraphic';
 import template from './fixtures/slides/template';
 
 const options = {translate: identity};
@@ -69,6 +70,30 @@ test('should create action: edit-answer-qcm', t => {
   t.is(action.meta.progressionId, '1234');
 });
 
+test('should create initial qcmGraphic props', t => {
+  const state = {};
+  const props = getAnswerProps(state, qcmGraphic);
+  t.is(props.type, 'qcmGraphic');
+  t.is(reduce((acc, answer) => acc && answer.selected, true)(props.answers), false);
+});
+
+test('should create edited qcmGraphic props', t => {
+  const state = {
+    ui: {
+      answers: {'1234': {value: ['Vrai']}},
+      current: {progressionId: '1234'}
+    }
+  };
+
+  const props = getAnswerProps(state, qcmGraphic);
+  t.is(props.type, 'qcmGraphic');
+  t.is(reduce((acc, answer) => acc && answer.selected, true)(props.answers), false);
+  t.is(props.answers[0].title, 'Vrai');
+  t.is(props.answers[0].selected, true);
+  t.is(props.answers[1].title, 'Faux');
+  t.is(props.answers[1].selected, false);
+  t.is(isFunction(props.answers[0].onClick), true);
+});
 test('should create action: edit-answer-template', t => {
   const state = {
     ui: {
