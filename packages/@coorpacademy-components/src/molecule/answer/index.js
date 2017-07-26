@@ -7,6 +7,7 @@ import Picker from '../../molecule/questions/picker';
 import Qcm from '../../molecule/questions/qcm';
 import QcmImage from '../../molecule/questions/qcm-image';
 import QuestionRange from '../../molecule/questions/question-range';
+import Template from '../../molecule/questions/template';
 import style from './style.css';
 
 const MediaView = ({media}) => {
@@ -36,6 +37,8 @@ const Answer = props => {
         return <DropDown {...model} />;
       case 'range':
         return <QuestionRange {...model} />;
+      case 'template':
+        return <Template {...model} />;
     }
   };
   const answerView = buildAnswer(model);
@@ -50,7 +53,15 @@ const Answer = props => {
 
 Answer.propTypes = {
   model: PropTypes.shape({
-    type: PropTypes.oneOf(['picker', 'qcm', 'qcmGraphic', 'freeText', 'dropDown', 'range']).required
+    type: PropTypes.oneOf([
+      'picker',
+      'qcm',
+      'qcmGraphic',
+      'freeText',
+      'dropDown',
+      'range',
+      'template'
+    ]).required
   }),
   media: PropTypes.string
 };
