@@ -434,7 +434,11 @@ class MoocHeader extends React.Component {
 
     return (
       <div className={style.wrapper}>
-        <div className={this.state.isMenuOpen ? style.open : style.header}>
+        <div
+          data-name="moocHeader"
+          data-open={this.state.isMenuOpen}
+          className={this.state.isMenuOpen ? style.open : style.header}
+        >
           <div className={style.logoWrapper}>
             <div
               className={style.logoMobile}
