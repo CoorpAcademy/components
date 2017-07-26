@@ -1,0 +1,32 @@
+@value breakpoints: "../../../variables/breakpoints.css";
+@value mobile from breakpoints;
+
+.wrapper {
+  display: flex;
+  width: auto;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  justify-content: center;
+}
+
+.string {
+  font-family: "Open Sans";
+  font-weight: 700;
+  font-size: 14px;
+  margin: 0 4px;
+  box-sizing: border-box;
+}
+
+.field label {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@media mobile {
+  .wrapper {
+    display: block;
+    width: 100%;
+  }
+}

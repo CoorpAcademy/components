@@ -87,6 +87,7 @@ import Picker from '../src/molecule/questions/picker';
 import QcmImage from '../src/molecule/questions/qcm-image';
 import Qcm from '../src/molecule/questions/qcm';
 import QuestionRange from '../src/molecule/questions/question-range';
+import Template from '../src/molecule/questions/template';
 import SlidesFooter from '../src/molecule/slides/slides-footer';
 import SlidesHeader from '../src/molecule/slides/slides-header';
 import SlidesPlayer from '../src/molecule/slides/slides-player';
@@ -240,6 +241,7 @@ import AnswerFixtureQcmImage from '../src/molecule/answer/test/fixtures/qcm-imag
 import AnswerFixtureQcmShort from '../src/molecule/answer/test/fixtures/qcm-short';
 import AnswerFixtureQcm from '../src/molecule/answer/test/fixtures/qcm';
 import AnswerFixtureRange from '../src/molecule/answer/test/fixtures/range';
+import AnswerFixtureTemplate from '../src/molecule/answer/test/fixtures/template';
 import BattleRequestFixtureDefault from '../src/molecule/battle-request/test/fixtures/default';
 import BrandCardCreateFixtureDefault from '../src/molecule/brand-card-create/test/fixtures/default';
 import BrandCardFixtureDefault from '../src/molecule/brand-card/test/fixtures/default';
@@ -400,6 +402,7 @@ import QcmFixtureNoSelected from '../src/molecule/questions/qcm/test/fixtures/no
 import QcmFixtureShortAnswers from '../src/molecule/questions/qcm/test/fixtures/short-answers';
 import QuestionRangeFixtureDefault from '../src/molecule/questions/question-range/test/fixtures/default';
 import QuestionRangeFixtureNoSelected from '../src/molecule/questions/question-range/test/fixtures/no-selected';
+import TemplateFixtureDefault from '../src/molecule/questions/template/test/fixtures/default';
 import SlidesFooterFixtureClueSelected from '../src/molecule/slides/slides-footer/test/fixtures/clue-selected';
 import SlidesFooterFixtureDefault from '../src/molecule/slides/slides-footer/test/fixtures/default';
 import SlidesFooterFixtureDisabled from '../src/molecule/slides/slides-footer/test/fixtures/disabled';
@@ -645,7 +648,8 @@ export const components = {
     Picker,
     QcmImage,
     Qcm,
-    QuestionRange
+    QuestionRange,
+    Template
   },
   MoleculeSlides: {
     SlidesFooter,
@@ -883,7 +887,8 @@ export const fixtures = {
       QcmImage: AnswerFixtureQcmImage,
       QcmShort: AnswerFixtureQcmShort,
       Qcm: AnswerFixtureQcm,
-      Range: AnswerFixtureRange
+      Range: AnswerFixtureRange,
+      Template: AnswerFixtureTemplate
     },
     BattleRequest: {
       Default: BattleRequestFixtureDefault
@@ -1160,6 +1165,9 @@ export const fixtures = {
     QuestionRange: {
       Default: QuestionRangeFixtureDefault,
       NoSelected: QuestionRangeFixtureNoSelected
+    },
+    Template: {
+      Default: TemplateFixtureDefault
     }
   },
   MoleculeSlides: {
@@ -1751,7 +1759,8 @@ export const dependencies = {
           "Picker": true,
           "QcmImage": true,
           "Qcm": true,
-          "QuestionRange": true
+          "QuestionRange": true,
+          "Template": true
         }
       }
     },
@@ -2493,16 +2502,11 @@ export const dependencies = {
       },
       "children": {}
     },
-    "FreeText": {
-      "parents": {
-        "Molecule": {
-          "Answer": true
-        }
-      },
-      "children": {}
-    },
     "DropDown": {
       "parents": {
+        "MoleculeQuestions": {
+          "Template": true
+        },
         "Molecule": {
           "Answer": true
         }
@@ -2513,6 +2517,17 @@ export const dependencies = {
         }
       }
     },
+    "FreeText": {
+      "parents": {
+        "MoleculeQuestions": {
+          "Template": true
+        },
+        "Molecule": {
+          "Answer": true
+        }
+      },
+      "children": {}
+    },
     "QuestionRange": {
       "parents": {
         "Molecule": {
@@ -2522,6 +2537,19 @@ export const dependencies = {
       "children": {
         "Molecule": {
           "RangeSlider": true
+        }
+      }
+    },
+    "Template": {
+      "parents": {
+        "Molecule": {
+          "Answer": true
+        }
+      },
+      "children": {
+        "MoleculeQuestions": {
+          "DropDown": true,
+          "FreeText": true
         }
       }
     }
