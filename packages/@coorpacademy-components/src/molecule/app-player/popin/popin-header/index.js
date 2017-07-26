@@ -4,7 +4,6 @@ import compact from 'lodash/fp/compact';
 import flatten from 'lodash/fp/flatten';
 import get from 'lodash/fp/get';
 import isNil from 'lodash/fp/isNil';
-import map from 'lodash/fp/map';
 import pipe from 'lodash/fp/pipe';
 import times from 'lodash/fp/times';
 import zip from 'lodash/fp/zip';
@@ -25,8 +24,8 @@ const joinBySeparator = elements => {
 };
 
 const AnswersCorrection = ({corrections}) => {
-  const answers = map(correction => {
-    const key = `answer_${correction.answer}`;
+  const answers = corrections.map((correction, index) => {
+    const key = `answer_${index}`;
     return (
       <span
         key={key}
