@@ -28,7 +28,7 @@ const Answer = props => {
         return <Picker {...model} />;
       case 'qcm':
         return <Qcm {...model} />;
-      case 'qcmImage':
+      case 'qcmGraphic':
         return <QcmImage {...model} />;
       case 'freeText':
         return <FreeText {...model} />;
@@ -50,7 +50,7 @@ const Answer = props => {
 
 Answer.propTypes = {
   model: PropTypes.shape({
-    type: PropTypes.oneOf(['picker', 'qcm', 'qcmImage', 'freeText', 'dropDown', 'range']).required
+    type: PropTypes.oneOf(['picker', 'qcm', 'qcmGraphic', 'freeText', 'dropDown', 'range']).required
   }),
   media: PropTypes.string
 };

@@ -7,6 +7,7 @@ import {toggleAccordion} from './corrections';
 
 export const ANSWER_EDIT = {
   qcm: '@@answer/EDIT_QCM',
+  qcmGraphic: '@@answer/EDIT_QCM_GRAPHIC',
   template: '@@answer/EDIT_TEMPLATE',
   basic: '@@answer/EDIT_TEMPLATE'
 };
@@ -14,6 +15,7 @@ export const ANSWER_EDIT = {
 const newState = (state = [], questionType, newValue) => {
   switch (questionType) {
     case 'qcm':
+    case 'qcmGraphic':
       if (!newValue.label) return state;
 
       if (includes(newValue.label, state)) {

@@ -746,5 +746,93 @@
       },
       "medias": []
     }
+  },
+  {
+    "_id": "sli_V1zinOWt~",
+    "klf": "La révolution numérique a vu naître une nouvelle génération appelée génération Y. Les individus de cette génération ont vu Internet se démocratiser. Ils sont passionés par les outils numériques et avides d'information.",
+    "tips": "Certains affirment que la génération Y est appelée ainsi en référence à la forme des écouteurs portés par les jeunes Y.",
+    "chapter_id": "cha_Ny1BTxRp~",
+    "authors": [],
+    "context": {
+      "media": {
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      }
+    },
+    "meta": {
+      "updatedAt": "2017-07-25T20:59:31.925Z",
+      "createdAt": "2017-07-25T20:59:31.925Z"
+    },
+    "lessons": [
+      {
+        "_id": "59311efb7b2f920056a8ed5f",
+        "poster": "//static.coorpacademy.com/content/CoorpAcademy/content-partnerships-women-up/cockpit-partner-women-up/poster/vignette_womenup-1478108216371.png",
+        "description": "La révolution numérique",
+        "videoId": "189601796",
+        "mimeType": "application/vimeo",
+        "type": "video",
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      }
+    ],
+    "question": {
+      "type": "qcmGraphic",
+      "header": "La révolution numérique a permis l'émergence d'une nouvelle génération appelée génération Z. Vrai ou faux ?",
+      "explanation": "Sélectionnez la bonne réponse.",
+      "content": {
+        "maxTypos": null,
+        "choices": [
+          {
+            "_id": "59311efb7b2f920056a8ed62",
+            "value": "sli_V1zinOWt~.choice_41gQ8a-~K~",
+            "label": "Vrai",
+            "items": [],
+            "media": {
+              "type": "img",
+              "subtitles": [],
+              "posters": [],
+              "src": [
+                {
+                  "_id": "59311efb7b2f920056a8ed63",
+                  "url": "//static.coorpacademy.com/content/partner-women-up/fr/medias/img/choice/vrai_tick-1470664348611.png",
+                  "mimeType": "image/png"
+                }
+              ]
+            }
+          },
+          {
+            "_id": "59311efb7b2f920056a8ed60",
+            "value": "sli_V1zinOWt~.choice_4keY8T-~YZ",
+            "label": "Faux",
+            "items": [],
+            "media": {
+              "type": "img",
+              "subtitles": [],
+              "posters": [],
+              "src": [
+                {
+                  "_id": "59311efb7b2f920056a8ed61",
+                  "url": "//static.coorpacademy.com/content/partner-women-up/fr/medias/img/choice/faux_cross-1470664357972.png",
+                  "mimeType": "image/png"
+                }
+              ]
+            }
+          }
+        ],
+        "answers": [
+          [
+            "Faux"
+          ]
+        ],
+        "media": {
+          "subtitles": [],
+          "posters": [],
+          "src": []
+        }
+      },
+      "medias": []
+    }
   }
 ]

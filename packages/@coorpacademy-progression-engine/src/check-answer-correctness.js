@@ -165,6 +165,9 @@ function matchGivenAnswerToQuestion(
     case 'qcm': {
       return matchAnswerForUnorderedQCM(allowedAnswers, givenAnswer);
     }
+    case 'qcmGraphic': {
+      return matchAnswerForUnorderedQCM(allowedAnswers, givenAnswer);
+    }
     case 'qcmDrag': {
       return matchAnswerForOrderedQCM(allowedAnswers, givenAnswer);
     }
