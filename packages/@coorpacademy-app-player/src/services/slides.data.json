@@ -752,6 +752,7 @@
     "klf": "La révolution numérique a vu naître une nouvelle génération appelée génération Y. Les individus de cette génération ont vu Internet se démocratiser. Ils sont passionés par les outils numériques et avides d'information.",
     "tips": "Certains affirment que la génération Y est appelée ainsi en référence à la forme des écouteurs portés par les jeunes Y.",
     "chapter_id": "cha_Ny1BTxRp~",
+    "clue": "clue",
     "authors": [],
     "context": {
       "media": {
@@ -839,6 +840,7 @@
     "_id": "sli_Nk2vje~E~",
     "klf": "You can have multiple type of fields for a template question",
     "tips": "Some tips",
+    "clue": "clue",
     "chapter_id": "cha_EJRex7KQb",
     "question": {
       "type": "template",
