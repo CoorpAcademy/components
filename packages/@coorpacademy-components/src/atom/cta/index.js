@@ -33,29 +33,30 @@ class CTA extends React.Component {
     const {skin} = this.context;
     const {hovered} = this.state;
     const {light = false, secondary = false} = this.props;
+    const color = get('common.primary', skin);
 
-    const primaryColor = get('common.primary', skin);
-
-    if (hovered)
+    if (hovered) {
+      const darkenColor = convert(`color(${color} blackness(+10%))`);
       return {
-        backgroundColor: convert(`color(${primaryColor} blackness(+10%))`),
-        borderColor: convert(`color(${primaryColor} blackness(+10%))`)
+        backgroundColor: darkenColor,
+        borderColor: darkenColor
       };
+    }
 
     if (secondary)
       return {
-        color: primaryColor,
-        borderColor: primaryColor
+        color,
+        borderColor: color
       };
 
     if (light)
       return {
-        color: primaryColor
+        color
       };
 
     return {
-      borderColor: primaryColor,
-      backgroundColor: primaryColor
+      borderColor: color,
+      backgroundColor: color
     };
   }
 
