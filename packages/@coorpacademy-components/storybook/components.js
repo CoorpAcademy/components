@@ -413,6 +413,7 @@ import SlidesPlayerFixtureOnlyClue from '../src/molecule/slides/slides-player/te
 import SlidesPlayerFixtureQcmDrag from '../src/molecule/slides/slides-player/test/fixtures/qcm-drag';
 import SlidesPlayerFixtureQcmGraphic from '../src/molecule/slides/slides-player/test/fixtures/qcm-graphic';
 import SlidesPlayerFixtureQcmShort from '../src/molecule/slides/slides-player/test/fixtures/qcm-short';
+import SlidesPlayerFixtureQcmTemplate from '../src/molecule/slides/slides-player/test/fixtures/qcm-template';
 import SlidesPlayerFixtureQcm from '../src/molecule/slides/slides-player/test/fixtures/qcm';
 import SlidesPlayerFixtureRange from '../src/molecule/slides/slides-player/test/fixtures/range';
 import SlidesPlayerFixtureWithMinHeight from '../src/molecule/slides/slides-player/test/fixtures/with-min-height';
@@ -1172,6 +1173,7 @@ export const fixtures = {
       QcmDrag: SlidesPlayerFixtureQcmDrag,
       QcmGraphic: SlidesPlayerFixtureQcmGraphic,
       QcmShort: SlidesPlayerFixtureQcmShort,
+      QcmTemplate: SlidesPlayerFixtureQcmTemplate,
       Qcm: SlidesPlayerFixtureQcm,
       Range: SlidesPlayerFixtureRange,
       WithMinHeight: SlidesPlayerFixtureWithMinHeight
