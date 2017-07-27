@@ -78,4 +78,8 @@
     min-height: auto;
     padding: 8px 8px 0;
   }
+
+  .answer:hover {
+    background-color: white;
+  }
 }

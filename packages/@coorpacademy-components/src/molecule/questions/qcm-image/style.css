@@ -73,6 +73,10 @@
     overflow: hidden;
   }
 
+  .answer:hover {
+    background-color: white;
+  }
+
   .answer:last-child {
     margin-bottom: 0;
   }

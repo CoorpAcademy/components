@@ -9,12 +9,6 @@
   text-align: center;
 }
 
-@media mobile {
-  .wrapper {
-    min-width: 100%;
-  }
-}
-
 .answer {
   width: 100%;
   font-family: 'Open Sans';
@@ -43,4 +37,14 @@
 .selected {
   composes: answer;
   color: white;
+}
+
+@media mobile {
+  .wrapper {
+    min-width: 100%;
+  }
+
+  .answer:hover {
+    background-color: white;
+  }
 }
