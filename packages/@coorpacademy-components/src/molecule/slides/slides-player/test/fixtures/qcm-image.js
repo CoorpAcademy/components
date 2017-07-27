@@ -1,4 +1,4 @@
-import Answer from '../../../../../molecule/answer/test/fixtures/qcm-image';
+import Answer from '../../../../answer/test/fixtures/qcm-image';
 import Default from './default';
 
 const answerType = Answer.props;

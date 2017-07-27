@@ -1,4 +1,4 @@
-import FreeText from '../../../../molecule/questions/free-text/test/fixtures/default';
+import FreeText from '../../../questions/free-text/test/fixtures/default';
 
 export default {
   props: {

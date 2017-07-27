@@ -6,7 +6,7 @@ import {ColorPropType} from '../../../util/proptypes';
 import Cta from '../../../atom/cta';
 import Provider from '../../../atom/provider';
 import Clue from '../../../atom/clue';
-import Answer from '../../../molecule/answer';
+import Answer from '../../answer';
 import Loader from '../../../atom/loader';
 import ResourceBrowser from '../../../organism/resource-browser';
 import SlidesFooter from '../slides-footer';

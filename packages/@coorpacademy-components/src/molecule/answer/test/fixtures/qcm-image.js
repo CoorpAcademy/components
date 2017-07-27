@@ -1,4 +1,4 @@
-import QcmImage from '../../../../molecule/questions/qcm-image/test/fixtures/default';
+import QcmImage from '../../../questions/qcm-image/test/fixtures/default';
 
 const answerProps = QcmImage.props;
 

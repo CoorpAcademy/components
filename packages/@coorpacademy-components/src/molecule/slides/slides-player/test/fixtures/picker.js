@@ -1,4 +1,4 @@
-import Answer from '../../../../../molecule/answer/test/fixtures/picker';
+import Answer from '../../../../answer/test/fixtures/picker';
 import Default from './default';
 
 const answerType = Answer.props;

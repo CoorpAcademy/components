@@ -1,4 +1,4 @@
-import Picker from '../../../../molecule/questions/picker/test/fixtures/default';
+import Picker from '../../../questions/picker/test/fixtures/default';
 
 const answerProps = Picker.props;
 

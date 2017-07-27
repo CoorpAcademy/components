@@ -1,5 +1,5 @@
 import defaultsDeep from 'lodash/fp/defaultsDeep';
-import rangeslider from '../../../../molecule/range-slider/test/fixtures/steps-force-range';
+import rangeslider from '../../../range-slider/test/fixtures/steps-force-range';
 import Default from './zero';
 
 const timer = rangeslider.props;

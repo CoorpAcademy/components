@@ -1,6 +1,6 @@
 import dropdownsFilter from '../../../../atom/select/test/fixtures/filter';
 import dropdownsSort from '../../../../atom/select/test/fixtures/sort';
-import rangeslider from '../../../../molecule/range-slider/test/fixtures/steps-force-range';
+import rangeslider from '../../../range-slider/test/fixtures/steps-force-range';
 
 const selectFilter = dropdownsFilter.props;
 const selectSort = dropdownsSort.props;
