@@ -31,9 +31,6 @@ const newState = (state = [], questionType, newValue) => {
 
     case 'template':
       return newValue;
-
-    default:
-      return state;
   }
 };
 
