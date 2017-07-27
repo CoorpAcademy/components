@@ -169,7 +169,9 @@ function matchGivenAnswerToQuestion(
       return matchAnswerForUnorderedQCM(allowedAnswers, givenAnswer);
     }
     case 'qcmDrag': {
-      return matchAnswerForOrderedQCM(allowedAnswers, givenAnswer);
+      return question.content.matchOrder
+        ? matchAnswerForOrderedQCM(allowedAnswers, givenAnswer)
+        : matchAnswerForUnorderedQCM(allowedAnswers, givenAnswer);
     }
     default:
       return [[]];

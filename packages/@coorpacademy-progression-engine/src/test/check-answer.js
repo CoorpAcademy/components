@@ -51,10 +51,11 @@ test("should return the value of `isCorrect` in checkAnswerCorrectness's result 
   checkBothMethods(t, false, question, ['answer1', 'answer2']);
 });
 
-test("should return the value of `isCorrect` in checkAnswerCorrectness's result (qcmDrag)", t => {
+test("should return the value of `isCorrect` in checkAnswerCorrectness's result (qcmDrag, matchOrder=true)", t => {
   const question = {
     type: 'qcmDrag',
     content: {
+      matchOrder: true,
       answers: [['answer1', 'answer3'], ['answer2', 'answer4'], ['answer1', 'answer4']]
     }
   };
@@ -63,6 +64,22 @@ test("should return the value of `isCorrect` in checkAnswerCorrectness's result 
   checkBothMethods(t, true, question, ['answer2', 'answer4']);
   checkBothMethods(t, true, question, ['answer1', 'answer4']);
   checkBothMethods(t, false, question, ['answer4', 'answer1']);
+  checkBothMethods(t, false, question, ['answer1', 'answer2']);
+});
+
+test("should return the value of `isCorrect` in checkAnswerCorrectness's result (qcmDrag, matchOrder=false)", t => {
+  const question = {
+    type: 'qcmDrag',
+    content: {
+      matchOrder: false,
+      answers: [['answer1', 'answer3'], ['answer2', 'answer4'], ['answer1', 'answer4']]
+    }
+  };
+
+  checkBothMethods(t, true, question, ['answer1', 'answer3']);
+  checkBothMethods(t, true, question, ['answer2', 'answer4']);
+  checkBothMethods(t, true, question, ['answer1', 'answer4']);
+  checkBothMethods(t, true, question, ['answer4', 'answer1']);
   checkBothMethods(t, false, question, ['answer1', 'answer2']);
 });
 
