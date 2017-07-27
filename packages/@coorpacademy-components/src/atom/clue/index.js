@@ -19,7 +19,7 @@ const LoadedClue = ({brandColor, text, stars}) => {
 };
 
 const Clue = (props, context) => {
-  const {text, stars} = props;
+  const {text, starsDiff} = props;
   const {skin} = context;
   const brandColor = get('common.brand', skin);
 
@@ -30,7 +30,7 @@ const Clue = (props, context) => {
       <div className={isLoading ? style.loadingClue : style.clue}>
         {isLoading ? <Loader /> : <LoadedClue text={text} brandColor={brandColor} />}
       </div>
-      <div className={style.stars}>{stars}</div>
+      <div className={style.stars}>{starsDiff}</div>
     </div>
   );
 };
