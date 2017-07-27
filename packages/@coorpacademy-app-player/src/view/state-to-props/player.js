@@ -16,11 +16,6 @@ import {createGetAnswerProps, createGetHelp} from './answer';
 import getResourcesProps from './resources';
 
 const ROUTES = ['media', 'clue'];
-const CTA_STYLE = {
-  light: false,
-  small: false,
-  secondary: false
-};
 
 const playerProps = (options, store) => state => {
   const {translate} = options;
@@ -58,12 +53,16 @@ const playerProps = (options, store) => state => {
       ? {
           submitValue: translate('Validate'),
           onClick: clickCTAHandler,
-          ...CTA_STYLE
+          light: false,
+          small: false,
+          secondary: false
         }
       : {
-          submitValue: translate('Back'),
+          submitValue: translate('Back to question'),
           onClick: clickBackToAnswerHandler,
-          ...CTA_STYLE
+          light: false,
+          small: false,
+          secondary: true
         },
     help,
     answerType: {
