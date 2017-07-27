@@ -1,8 +1,8 @@
 {
   "common": {
     "primary": "#FF7043",
-    "good": "#24b694",
-    "bad": "#ed1c24"
+    "good": "#24B694",
+    "bad": "#ED1C24"
   },
   "images": {
     "logo": "https://static.coorpacademy.com/content/superman/raw/mazars_logo_large-1499872170838.jpg",
@@ -10,15 +10,15 @@
   },
   "texts": {
     "normal": "#191919",
-    "inverted": "#fff",
-    "placeholder": "#c6c6c6",
-    "mod-tree-label": "black"
+    "inverted": "#FFFFFF",
+    "placeholder": "#C6C6C6",
+    "mod-tree-label": "#000000"
   },
   "courses": [
-    "#0070b2",
-    "#3fc1c9",
-    "#e23e57",
-    "#ff855a"
+    "#0070B2",
+    "#3FC1C9",
+    "#E23E57",
+    "#FF855A"
   ],
   "icons": {
     "certification": "0xe600",
@@ -96,7 +96,7 @@
     "isValid": "#8BC34A",
     "isStarted": "#FF9800",
     "isRestarted": "#8BC34A",
-    "isLocked": "#a0f",
-    "isPaying": "#f0a"
+    "isLocked": "#AA00FF",
+    "isPaying": "#FF00AA"
   }
 }
