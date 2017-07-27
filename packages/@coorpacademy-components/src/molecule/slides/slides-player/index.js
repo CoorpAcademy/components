@@ -96,7 +96,7 @@ const ContentLayout = (props, context) => {
       <div data-name="question" className={style.question}>
         {question}
       </div>
-      {help ? <Help help={help} /> : null}
+      {help && typeClue === 'answer' ? <Help help={help} /> : null}
       <ContentType {...props} />
       <div className={style.ctaWrapper}>
         <Cta className={style.cta} {...cta} />
