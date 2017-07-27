@@ -1,7 +1,8 @@
 {
   "Access the lesson": "Просмотреть урок",
-  "Back to dashboard": "Вернуться на главную страницу",
+  "Back to home": "Back to home",
   "Back": "Назад",
+  "Check out the next chapter in this course!": "Check out the next chapter in this course!",
   "Clue": "Подсказка",
   "Coach": "Тренер",
   "Congratulations!": "Поздравляем!",
@@ -11,14 +12,17 @@
   "Good job": "Отличная работа",
   "Key point": "Ключевой момент",
   "Media": "Медиа",
+  "Next chapter_": "Next chapter:",
   "Next": "Следующий",
-  "O O O P S": "Ой ...",
+  "Ooops": "Ooops...",
   "Ouch": "Ох ...",
   "Related subjects": "Похожие темы:",
-  "Retry level": "Повторить уровень",
+  "Retry chapter": "Retry chapter",
+  "Retry chapter_": "Retry chapter:",
   "Select something below": "Выберите ниже",
+  "Select an answer": "Select an answer",
   "Type here": "Напечатайте здесь",
   "Validate": "Проверить",
   "Wrong answer": "Неправильный ответ",
-  "You are missing lives!": "У вас больше нет попыток!"
+  "You are out of lives!": "You are out of lives!"
 }

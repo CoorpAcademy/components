@@ -1,7 +1,8 @@
 {
   "Access the lesson": "Erişim ders",
-  "Back to dashboard": "Pano için",
+  "Back to home": "Back to home",
   "Back": "Geri",
+  "Check out the next chapter in this course!": "Check out the next chapter in this course!",
   "Clue": "İpucu",
   "Coach": "Koç",
   "Congratulations!": "Tebrikler!",
@@ -11,14 +12,17 @@
   "Good job": "Güzel iş",
   "Key point": "Önemli nokta",
   "Media": "Medya",
+  "Next chapter_": "Next chapter:",
   "Next": "Sonraki",
-  "O O O P S": "Ayy...",
+  "Ooops": "Ooops...",
   "Ouch": "Ah...",
   "Related subjects": "İlgili konular:",
-  "Retry level": "Düzeyi yeniden deneyin",
+  "Retry chapter": "Retry chapter",
+  "Retry chapter_": "Retry chapter:",
   "Select something below": "Aşağıda bir şey seçin",
+  "Select an answer": "Select an answer",
   "Type here": "Buraya yazın",
   "Validate": "Doğrulamak",
   "Wrong answer": "Yanlış cevap",
-  "You are missing lives!": "Hayatını eksik!"
+  "You are out of lives!": "You are out of lives!"
 }

@@ -1,7 +1,8 @@
 {
   "Access the lesson": "Přístup k poučení",
-  "Back to dashboard": "Zpět do řídicího panelu",
+  "Back to home": "Back to home",
   "Back": "Zpět",
+  "Check out the next chapter in this course!": "Check out the next chapter in this course!",
   "Clue": "Pomoci",
   "Coach": "Trenér",
   "Congratulations!": "Blahopřejeme!",
@@ -11,14 +12,17 @@
   "Good job": "Dobrá práce",
   "Key point": "Klíčový bod",
   "Media": "Média",
+  "Next chapter_": "Next chapter:",
   "Next": "Další",
-  "O O O P S": "O O O P S...",
+  "Ooops": "Ooops...",
   "Ouch": "Au...",
   "Related subjects": "Související témata:",
-  "Retry level": "Opakovat úroveň",
+  "Retry chapter": "Retry chapter",
+  "Retry chapter_": "Retry chapter:",
   "Select something below": "Vyberte něco níže",
+  "Select an answer": "Select an answer",
   "Type here": "Zadejte zde",
   "Validate": "Ověřit",
   "Wrong answer": "Špatná odpověď",
-  "You are missing lives!": "Postrádáte životy!"
+  "You are out of lives!": "You are out of lives!"
 }

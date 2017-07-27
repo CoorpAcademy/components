@@ -1,7 +1,8 @@
 {
   "Access the lesson": "Dostęp do lekcji",
-  "Back to dashboard": "Powrót do pulpitu nawigacyjnego",
+  "Back to home": "Back to home",
   "Back": "Wstecz",
+  "Check out the next chapter in this course!": "Check out the next chapter in this course!",
   "Clue": "Pojęcia",
   "Coach": "Trener",
   "Congratulations!": "Gratulacje!",
@@ -11,14 +12,17 @@
   "Good job": "Dobra robota",
   "Key point": "Kluczowym punktem",
   "Media": "Media",
+  "Next chapter_": "Next chapter:",
   "Next": "Następny",
-  "O O O P S": "OOOPS...",
+  "Ooops": "Ooops...",
   "Ouch": "Ojej...",
   "Related subjects": "Tematy pokrewne:",
-  "Retry level": "Ponów próbę poziom",
+  "Retry chapter": "Retry chapter",
+  "Retry chapter_": "Retry chapter:",
   "Select something below": "Wybierz coś poniżej",
+  "Select an answer": "Select an answer",
   "Type here": "Wpisz tutaj",
   "Validate": "Sprawdzić poprawność",
   "Wrong answer": "Błędnej odpowiedzi",
-  "You are missing lives!": "Brakuje Ci życie!"
+  "You are out of lives!": "You are out of lives!"
 }

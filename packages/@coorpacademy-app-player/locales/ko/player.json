@@ -1,7 +1,8 @@
 {
   "Access the lesson": "수업에 액세스",
-  "Back to dashboard": "대시보드를 다시",
+  "Back to home": "Back to home",
   "Back": "뒤로",
+  "Check out the next chapter in this course!": "Check out the next chapter in this course!",
   "Clue": "단서",
   "Coach": "코치",
   "Congratulations!": "축 하!",
@@ -11,14 +12,17 @@
   "Good job": "잘 했어요",
   "Key point": "핵심 포인트",
   "Media": "미디어",
+  "Next chapter_": "Next chapter:",
   "Next": "다음",
-  "O O O P S": "죄송합니다...",
+  "Ooops": "Ooops...",
   "Ouch": "아야...",
   "Related subjects": "관련된 과목:",
-  "Retry level": "레벨을 다시 시도",
+  "Retry chapter": "Retry chapter",
+  "Retry chapter_": "Retry chapter:",
   "Select something below": "아래 선택",
+  "Select an answer": "Select an answer",
   "Type here": "여기에 입력",
   "Validate": "유효성 검사",
   "Wrong answer": "틀린 답",
-  "You are missing lives!": "당신은 삶에 누락 되었습니다!"
+  "You are out of lives!": "You are out of lives!"
 }

@@ -1,7 +1,8 @@
 {
   "Access the lesson": "レッスンにアクセスします。",
-  "Back to dashboard": "ダッシュ ボードに戻る",
+  "Back to home": "Back to home",
   "Back": "戻る",
+  "Check out the next chapter in this course!": "Check out the next chapter in this course!",
   "Clue": "手掛かり",
   "Coach": "コーチ",
   "Congratulations!": "おめでとうございます!",
@@ -11,14 +12,17 @@
   "Good job": "よく出来ました",
   "Key point": "重要なポイント",
   "Media": "メディア",
+  "Next chapter_": "Next chapter:",
   "Next": "次に",
-  "O O O P S": "おっと...",
+  "Ooops": "Ooops...",
   "Ouch": "痛い.",
   "Related subjects": "科目:",
-  "Retry level": "レベルを再試行します。",
+  "Retry chapter": "Retry chapter",
+  "Retry chapter_": "Retry chapter:",
   "Select something below": "下に何かを選択します。",
+  "Select an answer": "Select an answer",
   "Type here": "ここに入力します。",
   "Validate": "検証",
   "Wrong answer": "間違いです",
-  "You are missing lives!": "生活を不足している!"
+  "You are out of lives!": "You are out of lives!"
 }

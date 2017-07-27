@@ -1,7 +1,8 @@
 {
   "Access the lesson": "Toegang tot de les",
-  "Back to dashboard": "Terug naar dashboard",
+  "Back to home": "Back to home",
   "Back": "Terug",
+  "Check out the next chapter in this course!": "Check out the next chapter in this course!",
   "Clue": "Helpen",
   "Coach": "Coach",
   "Congratulations!": "Gefeliciteerd!",
@@ -11,14 +12,17 @@
   "Good job": "Goed gedaan",
   "Key point": "Belangrijkste punt",
   "Media": "Media",
+  "Next chapter_": "Next chapter:",
   "Next": "Volgende",
-  "O O O P S": "O O O P S...",
+  "Ooops": "Ooops...",
   "Ouch": "Ouch...",
   "Related subjects": "Aanverwante onderwerpen:",
-  "Retry level": "Niveau opnieuw",
+  "Retry chapter": "Retry chapter",
+  "Retry chapter_": "Retry chapter:",
   "Select something below": "Selecteer iets hieronder",
+  "Select an answer": "Select an answer",
   "Type here": "Type hier",
   "Validate": "Valideren",
   "Wrong answer": "Fout antwoord",
-  "You are missing lives!": "Mist u leven!"
+  "You are out of lives!": "You are out of lives!"
 }

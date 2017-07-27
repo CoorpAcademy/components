@@ -1,7 +1,8 @@
 {
   "Access the lesson": "Hozzáférés a lecke",
-  "Back to dashboard": "Vissza a műszerfal",
+  "Back to home": "Back to home",
   "Back": "Vissza",
+  "Check out the next chapter in this course!": "Check out the next chapter in this course!",
   "Clue": "Nyom",
   "Coach": "Edző",
   "Congratulations!": "Gratulálok!",
@@ -11,14 +12,17 @@
   "Good job": "szép munka",
   "Key point": "Lényeges pont",
   "Media": "Média",
+  "Next chapter_": "Next chapter:",
   "Next": "Következő",
-  "O O O P S": "O O O P S...",
+  "Ooops": "Ooops...",
   "Ouch": "Jaj...",
   "Related subjects": "Kapcsolódó tantárgyak:",
-  "Retry level": "Szint újrakezdése",
+  "Retry chapter": "Retry chapter",
+  "Retry chapter_": "Retry chapter:",
   "Select something below": "Válassz valamit az alábbi",
+  "Select an answer": "Select an answer",
   "Type here": "Írja be az itt",
   "Validate": "Érvényesít",
   "Wrong answer": "Rossz válasz",
-  "You are missing lives!": "Életét hiányoznak!"
+  "You are out of lives!": "You are out of lives!"
 }

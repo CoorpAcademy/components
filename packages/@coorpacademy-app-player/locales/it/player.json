@@ -1,7 +1,8 @@
 {
   "Access the lesson": "Accesso la lezione",
-  "Back to dashboard": "Torna a cruscotto",
+  "Back to home": "Back to home",
   "Back": "Indietro",
+  "Check out the next chapter in this course!": "Check out the next chapter in this course!",
   "Clue": "Indizio",
   "Coach": "Allenatore",
   "Congratulations!": "Congratulazioni!",
@@ -11,14 +12,17 @@
   "Good job": "Ottimo lavoro",
   "Key point": "Punto chiave",
   "Media": "Media",
+  "Next chapter_": "Next chapter:",
   "Next": "Successivo",
-  "O O O P S": "O O O P S...",
+  "Ooops": "Ooops...",
   "Ouch": "Ahi...",
   "Related subjects": "Argomenti correlati:",
-  "Retry level": "Ritentare livello",
+  "Retry chapter": "Retry chapter",
+  "Retry chapter_": "Retry chapter:",
   "Select something below": "Selezionare qualcosa qui sotto",
+  "Select an answer": "Select an answer",
   "Type here": "Tipo qui",
   "Validate": "Convalidare",
   "Wrong answer": "Risposta è sbagliata",
-  "You are missing lives!": "Vi manca la vita!"
+  "You are out of lives!": "You are out of lives!"
 }

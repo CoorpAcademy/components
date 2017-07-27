@@ -1,7 +1,8 @@
 {
   "Access the lesson": "Отримати урок",
-  "Back to dashboard": "Назад до приладної панели",
+  "Back to home": "Back to home",
   "Back": "Назад",
+  "Check out the next chapter in this course!": "Check out the next chapter in this course!",
   "Clue": "Підказка",
   "Coach": "Тренер",
   "Congratulations!": "Вітаємо!",
@@ -11,14 +12,17 @@
   "Good job": "Гарна робота",
   "Key point": "Ключовий момент",
   "Media": "Медіа",
+  "Next chapter_": "Next chapter:",
   "Next": "Наступний",
-  "O O O P S": "Oй...",
+  "Ooops": "Ooops...",
   "Ouch": "Ох...",
   "Related subjects": "Суміжної тематики:",
-  "Retry level": "Повторити рівня",
+  "Retry chapter": "Retry chapter",
+  "Retry chapter_": "Retry chapter:",
   "Select something below": "Виберіть щось нижче",
+  "Select an answer": "Select an answer",
   "Type here": "Введіть тут",
   "Validate": "Перевіряти",
   "Wrong answer": "Невірну відповідь",
-  "You are missing lives!": "У вас більше немає спроб!"
+  "You are out of lives!": "You are out of lives!"
 }
