@@ -4,6 +4,7 @@ import {
   getCurrentProgression,
   getCurrentSlide,
   getCurrentProgressionId,
+  getProgressionConfig,
   getAnswerValues,
   getCurrentClue,
   getRoute,
@@ -22,6 +23,8 @@ const playerProps = (options, store) => state => {
   const {dispatch} = store;
 
   const progression = getCurrentProgression(state);
+  const progressionConfig = getProgressionConfig(state);
+  const starsPerAskingClue = get('starsPerAskingClue', progressionConfig);
   const slide = getCurrentSlide(state);
   const answer = createGetAnswerProps(options, store)(state, slide);
   const mediaQuestion = getQuestionMedia(state);
@@ -48,6 +51,7 @@ const playerProps = (options, store) => state => {
     step: get('state.step')(progression),
     question: get('question.header')(slide),
     verticalMargin: 260,
+    starsDiff: Math.abs(starsPerAskingClue),
     resources,
     cta: isAnswer
       ? {

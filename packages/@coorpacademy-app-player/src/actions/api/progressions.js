@@ -20,6 +20,25 @@ export const fetchProgression = id => (dispatch, getState, {services}) => {
   return dispatch(action);
 };
 
+export const PROGRESSION_CONFIG_FETCH_REQUEST = '@@progression/CONFIG_REQUEST';
+export const PROGRESSION_CONFIG_FETCH_SUCCESS = '@@progression/CONFIG_SUCCESS';
+export const PROGRESSION_CONFIG_FETCH_FAILURE = '@@progression/CONFIG_FAILURE';
+
+export const fetchProgressionConfig = () => (dispatch, getState, {services}) => {
+  const {Progressions} = services;
+
+  const action = buildTask({
+    types: [
+      PROGRESSION_CONFIG_FETCH_REQUEST,
+      PROGRESSION_CONFIG_FETCH_SUCCESS,
+      PROGRESSION_CONFIG_FETCH_FAILURE
+    ],
+    task: Progressions.getConfig
+  });
+
+  return dispatch(action);
+};
+
 export const PROGRESSION_CREATE_ANSWER_REQUEST = '@@progression/CREATE_ANSWER_REQUEST';
 export const PROGRESSION_CREATE_ANSWER_SUCCESS = '@@progression/CREATE_ANSWER_SUCCESS';
 export const PROGRESSION_CREATE_ANSWER_FAILURE = '@@progression/CREATE_ANSWER_FAILURE';

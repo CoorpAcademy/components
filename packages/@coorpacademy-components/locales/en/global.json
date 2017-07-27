@@ -65,5 +65,7 @@
   "USD": "$",
   "premium_unsubscribe_confirmation": "We confirm the cancelling of your subscription which will be effective starting from next month.\n\nIn the meantime, you can continue to enjoy our content on the Coorpacademy platform.",
   "New media": "New media",
-  "Select the correct option(s) below": "Select the correct option(s) below"
+  "Select the correct option(s) below": "Select the correct option(s) below",
+  "clue_stars_to_loose": "By watching this clue, you lost {{stars}} star",
+  "clue_stars_to_loose_plural": "By watching this clue, you lost {{stars}} stars"
 }
