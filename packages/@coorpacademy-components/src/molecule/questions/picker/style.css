@@ -23,7 +23,6 @@
   background-color: xtraLightGrey;
   padding: 16px 8px 8px 16px;
   margin-bottom: 36px;
-  min-height: 100px;
 }
 
 .emptyAnswers {
@@ -71,7 +70,12 @@
 }
 
 @media mobile {
+  .answers {
+    padding: 0;
+  }
+
   .selectedAnswers {
     min-height: auto;
+    padding: 8px 8px 0;
   }
 }
