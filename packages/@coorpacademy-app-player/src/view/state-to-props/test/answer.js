@@ -1,11 +1,11 @@
 import test from 'ava';
 import isFunction from 'lodash/fp/isFunction';
 import identity from 'lodash/fp/identity';
-import reduce from 'lodash/fp/reduce';
 import creategetAnswerProps from '../answer';
 import {ANSWER_EDIT} from '../../../actions/ui/answers';
 import basic from './fixtures/slides/basic';
 import qcm from './fixtures/slides/qcm';
+import qcmDrag from './fixtures/slides/qcmDrag';
 import qcmGraphic from './fixtures/slides/qcmGraphic';
 import template from './fixtures/slides/template';
 
@@ -17,7 +17,7 @@ test('should create initial qcm props', t => {
   const state = {};
   const props = getAnswerProps(state, qcm);
   t.is(props.type, 'qcm');
-  t.is(reduce((acc, answer) => acc && answer.selected, true)(props.answers), false);
+  t.true(props.answers.every(answer => answer.selected === false));
 });
 
 test('should create edited qcm props', t => {
@@ -30,14 +30,16 @@ test('should create edited qcm props', t => {
 
   const props = getAnswerProps(state, qcm);
   t.is(props.type, 'qcm');
-  t.is(reduce((acc, answer) => acc && answer.selected, true)(props.answers), false);
+  t.is(props.answers.length, 4);
   t.is(props.answers[0].title, 'Case 1');
-  t.is(props.answers[0].selected, true);
+  t.true(props.answers[0].selected);
   t.is(props.answers[1].title, 'Case 2');
-  t.is(props.answers[1].selected, false);
+  t.false(props.answers[1].selected);
   t.is(props.answers[2].title, 'Case 3');
-  t.is(props.answers[2].selected, true);
-  t.is(isFunction(props.answers[0].onClick), true);
+  t.true(props.answers[2].selected);
+  t.is(props.answers[3].title, 'Case 4');
+  t.false(props.answers[3].selected);
+  t.true(isFunction(props.answers[0].onClick));
 });
 
 test('should create edited template props', t => {
@@ -57,10 +59,10 @@ test('should create edited template props', t => {
   t.is(props.answers[0].name, 'inp81438');
   t.is(props.answers[0].placeholder, 'Type here');
   t.is(props.answers[0].value, 'foo');
-  t.is(typeof props.answers[0].onChange, 'function');
+  t.true(isFunction(props.answers[0].onChange));
   t.is(props.answers[1].type, 'select');
   t.is(props.answers[1].name, 'sel31191');
-  t.is(typeof props.answers[1].onChange, 'function');
+  t.true(isFunction(props.answers[1].onChange));
   const selectOptions = props.answers[1].options;
   t.true(Array.isArray(selectOptions));
   t.is(selectOptions.length, 2);
@@ -114,6 +116,32 @@ test('should create action: edit-answer-qcm', t => {
   t.is(action.meta.progressionId, '1234');
 });
 
+test('should create initial qcmGraphic props', t => {
+  const state = {};
+  const props = getAnswerProps(state, qcmGraphic);
+  t.is(props.type, 'qcmGraphic');
+  t.is(props.answers.length, 2);
+  t.true(props.answers.every(answer => answer.selected === false));
+});
+
+test('should create edited qcmGraphic props', t => {
+  const state = {
+    ui: {
+      answers: {'1234': {value: ['Vrai']}},
+      current: {progressionId: '1234'}
+    }
+  };
+
+  const props = getAnswerProps(state, qcmGraphic);
+  t.is(props.type, 'qcmGraphic');
+  t.is(props.answers.length, 2);
+  t.is(props.answers[0].title, 'Vrai');
+  t.true(props.answers[0].selected);
+  t.is(props.answers[1].title, 'Faux');
+  t.false(props.answers[1].selected);
+  t.true(isFunction(props.answers[0].onClick));
+});
+
 test('should create action: edit-answer-qcmGraphic', t => {
   const state = {
     ui: {
@@ -130,29 +158,77 @@ test('should create action: edit-answer-qcmGraphic', t => {
   t.is(action.meta.progressionId, '1234');
 });
 
-test('should create initial qcmGraphic props', t => {
+test('should create initial qcmDrag props', t => {
   const state = {};
-  const props = getAnswerProps(state, qcmGraphic);
-  t.is(props.type, 'qcmGraphic');
-  t.is(reduce((acc, answer) => acc && answer.selected, true)(props.answers), false);
+  const props = getAnswerProps(state, qcmDrag);
+  t.is(props.type, 'qcmDrag');
+  t.is(props.answers.length, 3);
+  t.is(props.answers[0].title, "L'ordinateur");
+  t.false(props.answers[0].selected);
+  t.true(isFunction(props.answers[0].onClick));
+  t.is(props.answers[1].title, 'La tablette');
+  t.false(props.answers[1].selected);
+  t.true(isFunction(props.answers[1].onClick));
+  t.is(props.answers[2].title, 'Le smartphone');
+  t.false(props.answers[2].selected);
+  t.true(isFunction(props.answers[2].onClick));
 });
 
-test('should create edited qcmGraphic props', t => {
+test('should create edited qcmDrag props', t => {
   const state = {
     ui: {
-      answers: {'1234': {value: ['Vrai']}},
+      answers: {'1234': {value: ['Le smartphone', "L'ordinateur"]}},
       current: {progressionId: '1234'}
     }
   };
 
-  const props = getAnswerProps(state, qcmGraphic);
-  t.is(props.type, 'qcmGraphic');
-  t.is(reduce((acc, answer) => acc && answer.selected, true)(props.answers), false);
-  t.is(props.answers[0].title, 'Vrai');
-  t.is(props.answers[0].selected, true);
-  t.is(props.answers[1].title, 'Faux');
-  t.is(props.answers[1].selected, false);
-  t.is(isFunction(props.answers[0].onClick), true);
+  const props = getAnswerProps(state, qcmDrag);
+  t.is(props.type, 'qcmDrag');
+  t.is(props.answers.length, 3);
+
+  t.is(props.answers[0].title, "L'ordinateur");
+  t.true(props.answers[0].selected);
+  t.is(props.answers[0].order, 1);
+  t.true(isFunction(props.answers[0].onClick));
+  t.is(props.answers[1].title, 'La tablette');
+  t.false(props.answers[1].selected);
+  t.true(isFunction(props.answers[1].onClick));
+  t.is(props.answers[2].title, 'Le smartphone');
+  t.true(props.answers[2].selected);
+  t.is(props.answers[2].order, 0);
+  t.true(isFunction(props.answers[2].onClick));
+});
+
+test('should create action: edit-answer-qcmDrag (answer selection)', t => {
+  const state = {
+    ui: {
+      answers: {'1234': {value: ['Le smartphone', "L'ordinateur"]}},
+      current: {progressionId: '1234'}
+    }
+  };
+
+  const props = getAnswerProps(state, qcmDrag);
+  const action = props.answers[1].onClick();
+
+  t.is(action.type, ANSWER_EDIT.qcmDrag);
+  t.deepEqual(action.payload, ['Le smartphone', "L'ordinateur", 'La tablette']);
+  t.is(action.meta.progressionId, '1234');
+});
+
+test('should create action: edit-answer-qcmDrag (answer removal)', t => {
+  const state = {
+    ui: {
+      answers: {'1234': {value: ['Le smartphone', "L'ordinateur"]}},
+      current: {progressionId: '1234'}
+    }
+  };
+
+  const props = getAnswerProps(state, qcmDrag);
+  const action = props.answers[2].onClick();
+
+  t.is(action.type, ANSWER_EDIT.qcmDrag);
+  t.deepEqual(action.payload, ["L'ordinateur"]);
+  t.is(action.meta.progressionId, '1234');
 });
 
 test('should create action: edit-answer-template', t => {

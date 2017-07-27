@@ -25,7 +25,7 @@ const Answer = props => {
     const {type} = model;
 
     switch (type) {
-      case 'picker':
+      case 'qcmDrag':
         return <Picker {...model} />;
       case 'qcm':
         return <Qcm {...model} />;
@@ -54,7 +54,7 @@ const Answer = props => {
 Answer.propTypes = {
   model: PropTypes.shape({
     type: PropTypes.oneOf([
-      'picker',
+      'qcmDrag',
       'qcm',
       'qcmGraphic',
       'freeText',

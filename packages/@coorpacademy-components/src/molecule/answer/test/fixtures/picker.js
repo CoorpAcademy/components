@@ -5,7 +5,7 @@ const answerProps = Picker.props;
 export default {
   props: {
     model: {
-      type: 'picker',
+      type: 'qcmDrag',
       ...answerProps
     }
   }

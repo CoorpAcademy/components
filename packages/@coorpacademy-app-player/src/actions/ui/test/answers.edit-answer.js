@@ -27,5 +27,9 @@ test(
   {},
   ['foo']
 );
+test('should add a qcmDrag choice', macro, ['foo'], 'qcmDrag', {label: 'bar'}, ['foo', 'bar']);
+test('should check qcmDrag has answer.label or return same state', macro, ['foo'], 'qcmDrag', {}, [
+  'foo'
+]);
 test('should edit a template answer', macro, ['foo'], 'template', ['bar', 'foo'], ['bar', 'foo']);
 test('should edit a basic answer', macro, ['foo'], 'basic', 'bar', ['bar']);

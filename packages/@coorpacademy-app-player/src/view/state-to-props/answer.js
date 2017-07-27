@@ -5,6 +5,7 @@ import map from 'lodash/fp/map';
 import get from 'lodash/fp/get';
 import set from 'lodash/fp/set';
 import toArray from 'lodash/fp/toArray';
+import indexOf from 'lodash/fp/indexOf';
 import {
   getChoices,
   getCurrentProgressionId,
@@ -29,22 +30,46 @@ const qcmProps = (options, store) => (state, slide) => {
   const _editAnswerAction = editAnswerAction(options, store)(state, slide);
   return {
     type: 'qcm',
-    answers: map(choice => ({
-      title: choice.label,
-      selected: includes(choice.label, answers),
-      onClick: () => _editAnswerAction(choice)
-    }))(getChoices(slide))
+    answers: map(
+      choice => ({
+        title: choice.label,
+        selected: includes(choice.label, answers),
+        onClick: () => _editAnswerAction(choice)
+      }),
+      getChoices(slide)
+    )
   };
 };
+
+const qcmDragProps = (options, store) => (state, slide) => {
+  const answers = getAnswerValues(state);
+  return {
+    type: 'qcmDrag',
+    answers: map(choice => {
+      const indexInAnswer = indexOf(choice.label, answers);
+      return {
+        title: choice.label,
+        selected: indexInAnswer !== -1,
+        order: indexInAnswer,
+        onClick: () => editAnswerAction(options, store)(state, slide)(choice)
+      };
+    }, getChoices(slide))
+  };
+};
+
 const qcmImageProps = (options, store) => (state, slide) => {
+  const answers = getAnswerValues(state);
   return {
     type: 'qcmGraphic',
-    answers: map(choice => ({
-      title: choice.label,
-      image: get('media.src.0.url', choice),
-      selected: pipe(getAnswerValues, includes(choice.label))(state),
-      onClick: () => editAnswerAction(options, store)(state, slide)(choice)
-    }))(getChoices(slide))
+    answers: map(
+      choice => ({
+        title: choice.label,
+        image: get('media.src.0.url', choice),
+        selected: includes(choice.label, answers),
+        onClick: () => editAnswerAction(options, store)(state, slide)(choice)
+      }),
+      getChoices(slide)
+    )
   };
 };
 
@@ -126,6 +151,9 @@ const createGetAnswerProps = (options, store) => (state, slide) => {
 
     case 'qcmGraphic':
       return qcmImageProps(options, store)(state, slide);
+
+    case 'qcmDrag':
+      return qcmDragProps(options, store)(state, slide);
 
     case 'basic':
       return basicProps(options, store)(state, slide);

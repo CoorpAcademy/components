@@ -369,13 +369,13 @@
           "src": []
         }
       },
-      "medias":[
+      "medias": [
         {
           "type": "img",
           "_id": "593eb72a187bd18c01283591",
           "subtitles": [],
           "posters": [],
-          "src":[
+          "src": [
             {
               "mimeType": "image/jpeg",
               "url": "https://api-staging.coorpacademy.com/api-service/medias?h=400&w=400&q=90&url=https://static.coorpacademy.com/content/ijoinchanel/en/slides/1B2_Q6/1B2-Q6-canap-v1.jpg",
@@ -885,6 +885,149 @@
               }
             ]
           }
+        ]
+      }
+    }
+  },
+  {
+    "_id": "9.C7.6",
+    "klf": "Savoir cliquer sur les vrais réponses",
+    "tips": "Des tips",
+    "chapter_id": "9.C7",
+    "chapter_ref": "9.C7",
+    "authors": [],
+    "context": {
+      "media": {
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      }
+    },
+    "meta": {
+      "updatedAt": "2016-06-30T13:52:16.648Z",
+      "createdAt": "2017-02-09T12:46:40.315Z"
+    },
+    "lessons": [
+      {
+        "type": "video",
+        "mimeType": "application/vimeo",
+        "videoId": "127157752",
+        "description": "Le paiment dématérialisé : dernière étape du rapprochement virtuel/réel",
+        "poster": "//static.coorpacademy.com/content/digital/fr/miniatures/video_miniature.jpg",
+        "_id": "5978690a48a0ff240092f3a5",
+        "subtitles": [],
+        "posters": [],
+        "views": {
+          "fromLesson": 4
+        },
+        "src": []
+      }
+    ],
+    "question": {
+      "type": "qcmDrag",
+      "header": "Cliquez sur les réponses vrais (n'importe quel ordre)",
+      "explanation": "Cliquez sur les bonnes réponses pour les déplacer dans la seconde colonne.",
+      "clue": "clue",
+      "content": {
+        "matchOrder": false,
+        "maxTypos": null,
+        "choices": [
+          {
+            "label": "Vrai 1",
+            "value": "sli_NkaegcmAY~o.choice_01"
+          },
+          {
+            "label": "Vrai 2",
+            "value": "sli_NkaegcmAY~o.choice_02"
+          },
+          {
+            "label": "Faux 1",
+            "value": "sli_NkaegcmAY~o.choice_03"
+          },
+          {
+            "label": "Faux 2",
+            "value": "sli_NkaegcmAY~o.choice_04"
+          },
+          {
+            "label": "Faux 3",
+            "value": "sli_NkaegcmAY~o.choice_05"
+          }
+        ],
+        "answers": [
+          [
+            "Vrai 2",
+            "Vrai 1"
+          ]
+        ],
+        "media": {
+          "subtitles": [],
+          "posters": [],
+          "src": []
+        }
+      },
+      "medias": []
+    }
+  },
+  {
+    "_id": "8.B2.2",
+    "klf": "Savoir cliquer sur les vrais réponses dans un ordre donné",
+    "tips": "Des tips",
+    "chapter_id": "8.B2",
+    "chapter_ref": "8.B2",
+    "authors": [],
+    "lessons": [
+      {
+        "type": "video",
+        "mimeType": "application/vimeo",
+        "videoId": "127718777",
+        "description": "Chiffres-clés du multi-écran",
+        "poster": "//static.coorpacademy.com/content/digital/fr/miniatures/video_miniature.jpg",
+        "_id": "5978690b48a0ff240092f4a3",
+        "subtitles": [],
+        "posters": [],
+        "views": {
+          "fromList": 63,
+          "fromLesson": 20
+        },
+        "src": []
+      }
+    ],
+    "question": {
+      "type": "qcmDrag",
+      "header": "Cliquez sur les réponses vrais dans l'ordre des numéros",
+      "explanation": "Cliquez sur les réponses dans le bon ordre.",
+      "clue": "clue",
+      "content": {
+        "matchOrder": true,
+        "maxTypos": null,
+        "choices": [
+          {
+            "label": "Vrai 1",
+            "value": "sli_VyZmMYQCFWj.choice_01"
+          },
+          {
+            "label": "Vrai 2",
+            "value": "sli_VyZmMYQCFWj.choice_02"
+          },
+          {
+            "label": "Vrai 3",
+            "value": "sli_VyZmMYQCFWj.choice_03"
+          },
+          {
+            "label": "Faux 1",
+            "value": "sli_VyZmMYQCFWj.choice_04"
+          },
+          {
+            "label": "Faux 2",
+            "value": "sli_VyZmMYQCFWj.choice_05"
+          }
+        ],
+        "answers": [
+          [
+            "Vrai 1",
+            "Vrai 2",
+            "Vrai 3"
+          ]
         ]
       }
     }
