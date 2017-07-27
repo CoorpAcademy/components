@@ -1,8 +1,8 @@
 import SlidesHeader from '../../../../../molecule/slides/slides-header/test/fixtures/default';
-import Picker from '../../../../../molecule/slides/slides-player/test/fixtures/picker';
+import QcmDrag from '../../../../../molecule/slides/slides-player/test/fixtures/qcm-drag';
 
 const headerProps = SlidesHeader.props;
-const playerProps = Picker.props;
+const playerProps = QcmDrag.props;
 
 export default {
   props: {

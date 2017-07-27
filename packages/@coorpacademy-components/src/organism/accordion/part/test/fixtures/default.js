@@ -1,10 +1,10 @@
 import React from 'react';
-import Picker from '../../../../../molecule/questions/picker';
-import fixture from '../../../../../molecule/questions/picker/test/fixtures/default';
+import QcmDrag from '../../../../../molecule/questions/qcm-drag';
+import fixture from '../../../../../molecule/questions/qcm-drag/test/fixtures/default';
 
 export default {
   props: {
-    title: 'Picker',
-    content: <Picker {...fixture.props} />
+    title: 'QcmDrag',
+    content: <QcmDrag {...fixture.props} />
   }
 };
