@@ -22,12 +22,6 @@ AnswerContent.propTypes = {
   answerType: PropTypes.shape(Answer.PropTypes)
 };
 
-const ClueContent = ({text}) => <Clue text={text} />;
-
-ClueContent.propTypes = {
-  text: Clue.propTypes.text
-};
-
 const MediaContent = ({resources}) =>
   <div className={style.resourcesWrapper}>
     <ResourceBrowser resources={resources} />
@@ -39,7 +33,7 @@ MediaContent.propTypes = {
 
 const CONTENT_TYPE = {
   answer: AnswerContent,
-  clue: ClueContent,
+  clue: Clue,
   media: MediaContent
 };
 

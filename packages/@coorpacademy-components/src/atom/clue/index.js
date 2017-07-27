@@ -7,7 +7,7 @@ import Provider from '../provider';
 import Loader from '../loader';
 import style from './style.css';
 
-const LoadedClue = ({brandColor, text}) => {
+const LoadedClue = ({brandColor, text, stars}) => {
   return (
     <div data-name="text" className={style.clueText}>
       <div className={style.logo}>
@@ -19,7 +19,7 @@ const LoadedClue = ({brandColor, text}) => {
 };
 
 const Clue = (props, context) => {
-  const {text} = props;
+  const {text, stars} = props;
   const {skin} = context;
   const brandColor = get('common.brand', skin);
 
@@ -30,6 +30,7 @@ const Clue = (props, context) => {
       <div className={isLoading ? style.loadingClue : style.clue}>
         {isLoading ? <Loader /> : <LoadedClue text={text} brandColor={brandColor} />}
       </div>
+      <div className={style.stars}>{stars}</div>
     </div>
   );
 };
@@ -39,7 +40,8 @@ Clue.contextTypes = {
 };
 
 Clue.propTypes = {
-  text: PropTypes.string
+  text: PropTypes.string,
+  stars: PropTypes.string
 };
 
 export default Clue;

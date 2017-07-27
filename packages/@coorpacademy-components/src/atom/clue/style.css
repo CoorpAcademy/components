@@ -6,6 +6,7 @@
 @value white from colors;
 @value medium from colors;
 @value brand from colors;
+@value grey from colors;
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
 
@@ -17,6 +18,7 @@
   justify-content: center;
   width: 100%;
   background-color: light;
+  margin-top: 56px;
 }
 
 .clue {
@@ -59,7 +61,22 @@
   right: 20px;
 }
 
+.stars {
+  font-family: 'Open Sans';
+  font-weight: 700;
+  font-size: 14px;
+  color: grey;
+  letter-spacing: 0;
+  width: 100%;
+  margin: 24px 0;
+  text-align: center;
+}
+
 @media mobile {
+  .wrapperClue {
+    margin-top: 24px;
+  }
+
   .clue {
     width: 70%;
   }

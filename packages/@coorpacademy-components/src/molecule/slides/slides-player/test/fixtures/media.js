@@ -19,7 +19,6 @@ export default {
       ...props,
       submitValue: 'Back to Question'
     },
-    help: 'En regardant cet indice, vous perdez 1 étoile',
     ...resourceProps,
     ...footerProps
   }
