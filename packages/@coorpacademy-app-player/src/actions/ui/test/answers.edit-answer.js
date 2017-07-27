@@ -4,13 +4,23 @@ import {ANSWER_EDIT, editAnswer} from '../answers';
 const macro = (t, state, inputType, input, expected) => {
   const action = editAnswer(state, inputType, '0', input);
 
+  t.not(action.type, undefined);
   t.is(action.type, ANSWER_EDIT[inputType]);
   t.is(action.meta.progressionId, '0');
   t.deepEqual(action.payload, expected);
 };
 
-test('should return initiate state if undefined', macro, undefined, 'qcm', {label: 'bar'}, ['bar']);
-test('should check questionType or return same state', macro, ['foo'], 'bar', {}, ['foo']);
+test('should throw an error if questionType is unknown', t => {
+  return t.throws(
+    () => editAnswer(['some answer'], 'bar', '0', ['some new answer']),
+    'Unknown question type "bar"'
+  );
+});
+
+test('should return initial state if state is undefined', macro, undefined, 'qcm', {label: 'bar'}, [
+  'bar'
+]);
+
 test('should add a qcm choice', macro, ['foo'], 'qcm', {label: 'bar'}, ['foo', 'bar']);
 test('should remove a qcm choice', macro, ['foo'], 'qcm', {label: 'foo'}, []);
 test('should check qcm has answer.label or return same state', macro, ['foo'], 'qcm', {}, ['foo']);

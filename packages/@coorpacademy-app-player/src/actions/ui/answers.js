@@ -38,8 +38,12 @@ const newState = (state = [], questionType, newValue) => {
 };
 
 export const editAnswer = (state, questionType, progressionId, newValue) => {
+  const type = ANSWER_EDIT[questionType];
+  if (!type) {
+    throw new Error('Unknown question type "bar"');
+  }
   return {
-    type: ANSWER_EDIT[questionType],
+    type,
     meta: {
       progressionId
     },
