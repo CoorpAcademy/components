@@ -57,7 +57,7 @@ const qcmDragProps = (options, store) => (state, slide) => {
   };
 };
 
-const qcmImageProps = (options, store) => (state, slide) => {
+const qcmGraphicProps = (options, store) => (state, slide) => {
   const answers = getAnswerValues(state);
   return {
     type: 'qcmGraphic',
@@ -150,7 +150,7 @@ const createGetAnswerProps = (options, store) => (state, slide) => {
       return qcmProps(options, store)(state, slide);
 
     case 'qcmGraphic':
-      return qcmImageProps(options, store)(state, slide);
+      return qcmGraphicProps(options, store)(state, slide);
 
     case 'qcmDrag':
       return qcmDragProps(options, store)(state, slide);

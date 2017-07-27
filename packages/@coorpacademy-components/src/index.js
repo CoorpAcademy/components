@@ -82,7 +82,7 @@ export ProgressBar from './molecule/progress-bar';
 export PromoCode from './atom/promo-code';
 export Provider from './atom/provider';
 export Qcm from './molecule/questions/qcm';
-export QcmImage from './molecule/questions/qcm-image';
+export QcmGraphic from './molecule/questions/qcm-graphic';
 export QuestionRange from './molecule/questions/question-range';
 export RangeSlider from './molecule/range-slider';
 export ResourceBrowser from './organism/resource-browser';
