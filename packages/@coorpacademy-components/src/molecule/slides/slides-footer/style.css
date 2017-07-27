@@ -85,3 +85,17 @@
   font-size: 13px;
   color: black;
 }
+
+@media mobile {
+  .button:hover {
+    background-color: xtraLightGrey;
+  }
+
+  .selected:hover {
+    background-color: light;
+  }
+
+  .disabled:hover {
+    background-color: xtraLightGrey;
+  }
+}

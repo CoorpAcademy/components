@@ -25,3 +25,9 @@
   justify-content: center;
   margin: 25px auto;
 }
+
+@media mobile {
+  .media {
+    margin: 0 auto 25px;
+  }
+}

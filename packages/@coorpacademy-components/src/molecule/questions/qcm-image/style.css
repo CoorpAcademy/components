@@ -70,6 +70,10 @@
     margin: 0 0 8px;
   }
 
+  .answer:hover {
+    background-color: white;
+  }
+
   .answer:last-child {
     margin-bottom: 0;
   }

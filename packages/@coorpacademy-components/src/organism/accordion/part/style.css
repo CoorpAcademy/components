@@ -104,7 +104,11 @@
 }
 
 @media mobile {
-  .header:hover {
+  .openHeader:hover {
+    background-color: xtraLightGrey;
+  }
+
+  .closedHeader:hover {
     background-color: light;
   }
 }

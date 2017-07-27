@@ -74,4 +74,8 @@
   .selectedAnswers {
     min-height: auto;
   }
+
+  .answer:hover {
+    background-color: white;
+  }
 }
