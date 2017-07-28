@@ -6,7 +6,6 @@ import CenteredText from '../src/atom/centered-text';
 import Checkbox from '../src/atom/checkbox';
 import Clue from '../src/atom/clue';
 import Cta from '../src/atom/cta';
-import Handle from '../src/atom/handle';
 import ImageUpload from '../src/atom/image-upload';
 import InputCheckbox from '../src/atom/input-checkbox';
 import InputColor from '../src/atom/input-color';
@@ -24,6 +23,7 @@ import PictureBackground from '../src/atom/picture-background';
 import Picture from '../src/atom/picture';
 import PromoCode from '../src/atom/promo-code';
 import Provider from '../src/atom/provider';
+import Range from '../src/atom/range';
 import ResourceMiniature from '../src/atom/resource-miniature';
 import Select from '../src/atom/select';
 import Slide from '../src/atom/slide';
@@ -56,7 +56,6 @@ import Pagination from '../src/molecule/pagination';
 import PaymentForm from '../src/molecule/payment-form';
 import ProductCard from '../src/molecule/product-card';
 import ProgressBar from '../src/molecule/progress-bar';
-import RangeSlider from '../src/molecule/range-slider';
 import ScopeContent from '../src/molecule/scope-content';
 import ScopeTabs from '../src/molecule/scope-tabs';
 import Search from '../src/molecule/search';
@@ -149,9 +148,6 @@ import CtaFixturePrimarySmall from '../src/atom/cta/test/fixtures/primary-small'
 import CtaFixturePrimary from '../src/atom/cta/test/fixtures/primary';
 import CtaFixtureSecondarySmall from '../src/atom/cta/test/fixtures/secondary-small';
 import CtaFixtureSecondary from '../src/atom/cta/test/fixtures/secondary';
-import HandleFixtureAxisX from '../src/atom/handle/test/fixtures/axis-x';
-import HandleFixtureAxisY from '../src/atom/handle/test/fixtures/axis-y';
-import HandleFixtureDefault from '../src/atom/handle/test/fixtures/default';
 import ImageUploadFixtureDesktop from '../src/atom/image-upload/test/fixtures/desktop';
 import ImageUploadFixtureEmail from '../src/atom/image-upload/test/fixtures/email';
 import ImageUploadFixtureLoading from '../src/atom/image-upload/test/fixtures/loading';
@@ -207,6 +203,8 @@ import PromoCodeFixtureDefault from '../src/atom/promo-code/test/fixtures/defaul
 import PromoCodeFixtureError from '../src/atom/promo-code/test/fixtures/error';
 import PromoCodeFixtureSuccess from '../src/atom/promo-code/test/fixtures/success';
 import ProviderFixtureDefault from '../src/atom/provider/test/fixtures/default';
+import RangeFixtureDefault from '../src/atom/range/test/fixtures/default';
+import RangeFixtureMulti from '../src/atom/range/test/fixtures/multi';
 import ResourceMiniatureFixturePdf from '../src/atom/resource-miniature/test/fixtures/pdf';
 import ResourceMiniatureFixtureSelectedPdf from '../src/atom/resource-miniature/test/fixtures/selected-pdf';
 import ResourceMiniatureFixtureSelectedVideo from '../src/atom/resource-miniature/test/fixtures/selected-video';
@@ -314,15 +312,6 @@ import PaymentFormFixtureWarning from '../src/molecule/payment-form/test/fixture
 import ProductCardFixtureDefault from '../src/molecule/product-card/test/fixtures/default';
 import ProgressBarFixtureDefault from '../src/molecule/progress-bar/test/fixtures/default';
 import ProgressBarFixtureMax from '../src/molecule/progress-bar/test/fixtures/max';
-import RangeSliderFixtureDefault from '../src/molecule/range-slider/test/fixtures/default';
-import RangeSliderFixtureMinmax from '../src/molecule/range-slider/test/fixtures/minmax';
-import RangeSliderFixtureOneHandleNoTrack from '../src/molecule/range-slider/test/fixtures/one-handle-no-track';
-import RangeSliderFixtureOneHandleWithSteps from '../src/molecule/range-slider/test/fixtures/one-handle-with-steps';
-import RangeSliderFixtureOneHandleWithTrack from '../src/molecule/range-slider/test/fixtures/one-handle-with-track';
-import RangeSliderFixtureStepsForceRange from '../src/molecule/range-slider/test/fixtures/steps-force-range';
-import RangeSliderFixtureSteps from '../src/molecule/range-slider/test/fixtures/steps';
-import RangeSliderFixtureWithBigTitle from '../src/molecule/range-slider/test/fixtures/with-big-title';
-import RangeSliderFixtureWithLabels from '../src/molecule/range-slider/test/fixtures/with-labels';
 import ScopeContentFixtureDefault from '../src/molecule/scope-content/test/fixtures/default';
 import ScopeContentFixtureEmpty from '../src/molecule/scope-content/test/fixtures/empty';
 import ScopeContentFixtureMedias from '../src/molecule/scope-content/test/fixtures/medias';
@@ -558,7 +547,6 @@ export const components = {
     Checkbox,
     Clue,
     Cta,
-    Handle,
     ImageUpload,
     InputCheckbox,
     InputColor,
@@ -576,6 +564,7 @@ export const components = {
     Picture,
     PromoCode,
     Provider,
+    Range,
     ResourceMiniature,
     Select,
     Slide,
@@ -610,7 +599,6 @@ export const components = {
     PaymentForm,
     ProductCard,
     ProgressBar,
-    RangeSlider,
     ScopeContent,
     ScopeTabs,
     Search,
@@ -741,11 +729,6 @@ export const fixtures = {
       SecondarySmall: CtaFixtureSecondarySmall,
       Secondary: CtaFixtureSecondary
     },
-    Handle: {
-      AxisX: HandleFixtureAxisX,
-      AxisY: HandleFixtureAxisY,
-      Default: HandleFixtureDefault
-    },
     ImageUpload: {
       Desktop: ImageUploadFixtureDesktop,
       Email: ImageUploadFixtureEmail,
@@ -834,6 +817,10 @@ export const fixtures = {
     },
     Provider: {
       Default: ProviderFixtureDefault
+    },
+    Range: {
+      Default: RangeFixtureDefault,
+      Multi: RangeFixtureMulti
     },
     ResourceMiniature: {
       Pdf: ResourceMiniatureFixturePdf,
@@ -1007,17 +994,6 @@ export const fixtures = {
     ProgressBar: {
       Default: ProgressBarFixtureDefault,
       Max: ProgressBarFixtureMax
-    },
-    RangeSlider: {
-      Default: RangeSliderFixtureDefault,
-      Minmax: RangeSliderFixtureMinmax,
-      OneHandleNoTrack: RangeSliderFixtureOneHandleNoTrack,
-      OneHandleWithSteps: RangeSliderFixtureOneHandleWithSteps,
-      OneHandleWithTrack: RangeSliderFixtureOneHandleWithTrack,
-      StepsForceRange: RangeSliderFixtureStepsForceRange,
-      Steps: RangeSliderFixtureSteps,
-      WithBigTitle: RangeSliderFixtureWithBigTitle,
-      WithLabels: RangeSliderFixtureWithLabels
     },
     ScopeContent: {
       Default: ScopeContentFixtureDefault,
@@ -1412,10 +1388,8 @@ export const dependencies = {
       },
       "children": {
         "Atom": {
+          "Range": true,
           "Select": true
-        },
-        "Molecule": {
-          "RangeSlider": true
         }
       }
     },
@@ -1608,21 +1582,6 @@ export const dependencies = {
           "InputColor": true,
           "InputSwitch": true,
           "InputText": true
-        }
-      }
-    },
-    "RangeSlider": {
-      "parents": {
-        "MoleculeQuestions": {
-          "QuestionRange": true
-        },
-        "Molecule": {
-          "Filters": true
-        }
-      },
-      "children": {
-        "Atom": {
-          "Handle": true
         }
       }
     },
@@ -2216,6 +2175,17 @@ export const dependencies = {
       },
       "children": {}
     },
+    "Range": {
+      "parents": {
+        "MoleculeQuestions": {
+          "QuestionRange": true
+        },
+        "Molecule": {
+          "Filters": true
+        }
+      },
+      "children": {}
+    },
     "Checkbox": {
       "parents": {
         "Molecule": {
@@ -2237,14 +2207,6 @@ export const dependencies = {
           "Loader": true
         }
       }
-    },
-    "Handle": {
-      "parents": {
-        "Molecule": {
-          "RangeSlider": true
-        }
-      },
-      "children": {}
     },
     "CatalogSection": {
       "parents": {
@@ -2535,8 +2497,8 @@ export const dependencies = {
         }
       },
       "children": {
-        "Molecule": {
-          "RangeSlider": true
+        "Atom": {
+          "Range": true
         }
       }
     },

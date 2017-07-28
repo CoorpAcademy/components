@@ -1,6 +1,6 @@
 import dropdownsFilter from '../../../../atom/select/test/fixtures/filter';
 import dropdownsSort from '../../../../atom/select/test/fixtures/sort';
-import rangeslider from '../../../range-slider/test/fixtures/steps-force-range';
+import rangeslider from '../../../../atom/range/test/fixtures/multi';
 
 const selectFilter = dropdownsFilter.props;
 const selectSort = dropdownsSort.props;
@@ -107,7 +107,11 @@ export default {
       ],
       onChange: value => console.log(value)
     },
-    timer,
+    timer: {
+      ...timer,
+      title: 'Time:',
+      subtitle: '2 mins - 3 hours +'
+    },
     onSearch: () => console.log('onSearch')
   }
 };

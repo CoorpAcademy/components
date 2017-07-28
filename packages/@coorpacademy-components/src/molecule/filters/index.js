@@ -4,7 +4,7 @@ import get from 'lodash/fp/get';
 import ArrowDown from '@coorpacademy/nova-icons/composition/navigation/arrow-down';
 import Select from '../../atom/select';
 import Provider from '../../atom/provider';
-import RangeSlider from '../range-slider';
+import RangeSlider from '../../atom/range';
 import style from './style.css';
 
 class Filters extends React.Component {
@@ -92,7 +92,11 @@ class Filters extends React.Component {
 
     const timerView = timer !== undefined
       ? <div data-name="choice" className={style.timerWrapper}>
-          <RangeSlider {...timer} />
+          <label>
+            <span className={style.timerTitle}>{timer.title}</span>
+            <p className={style.timerSubtitle}>{timer.subtitle}</p>
+            <RangeSlider {...timer} />
+          </label>
         </div>
       : null;
 
