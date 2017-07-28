@@ -1,8 +1,0 @@
-@value handleSize: 50px;
-
-.default {
-  width: handleSize;
-  height: handleSize;
-  border-radius: 50%;
-  background-color: negative;
-}

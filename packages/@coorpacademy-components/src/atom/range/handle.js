@@ -1,7 +1,9 @@
+import noop from 'lodash/fp/noop';
+import getOr from 'lodash/fp/getOr';
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
-import style from './style.css';
+import Provider from '../../atom/provider';
+import style from './handle.css';
 
 const Hammer = typeof window !== 'undefined' ? require('hammerjs') : undefined;
 
@@ -14,16 +16,18 @@ class Handle extends React.Component {
 
   componentDidMount() {
     if (Hammer) {
+      const {onPanStart = noop, onPanEnd = noop, onPan = noop} = this.props;
+
       this.hammer = new Hammer(this.handle);
-      this.hammer.on('panstart', this.props.onPanStart);
-      this.hammer.on('panend', this.props.onPanEnd);
+      this.hammer.on('panstart', onPanStart);
+      this.hammer.on('panend', onPanEnd);
 
       if (this.onX()) {
-        this.hammer.on('panleft panright', this.props.onPan);
+        this.hammer.on('panleft panright', onPan);
       }
 
       if (this.onY()) {
-        this.hammer.on('panup pandown', this.props.onPan);
+        this.hammer.on('panup pandown', onPan);
       }
     }
   }
@@ -37,11 +41,13 @@ class Handle extends React.Component {
   }
 
   onX() {
-    return this.props.axis === 'x' || this.props.axis === 'both';
+    const {axis = 'both'} = this.props;
+    return ['x', 'both'].includes(axis);
   }
 
   onY() {
-    return this.props.axis === 'y' || this.props.axis === 'both';
+    const {axis = 'both'} = this.props;
+    return ['y', 'both'].includes(axis);
   }
 
   setHandle(el) {
@@ -49,32 +55,27 @@ class Handle extends React.Component {
   }
 
   render() {
-    const {x, y} = this.props;
+    const {skin} = this.context;
+    const primaryColor = getOr('#00B0FF', 'common.primary', skin);
+    const borderColor = primaryColor;
 
     return (
       <div
-        className={classnames(style.default, this.props.className)}
+        style={{borderColor}}
+        className={style.default}
         ref={this.setHandle}
         data-name={'handle'}
-        style={{
-          ...this.props.style,
-          left: `${x}px`,
-          top: `${y}px`
-        }}
       />
     );
   }
 }
 
-Handle.defaultProps = {
-  axis: 'both'
+Handle.contextTypes = {
+  skin: Provider.childContextTypes.skin
 };
 
 Handle.propTypes = {
-  x: PropTypes.number,
-  y: PropTypes.number,
   axis: PropTypes.oneOf(['x', 'y', 'both']),
-  style: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
   onPan: PropTypes.func,
   onPanStart: PropTypes.func,
   onPanEnd: PropTypes.func

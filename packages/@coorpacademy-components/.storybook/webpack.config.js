@@ -1,4 +1,4 @@
-const hash = '[folder]__[local]';
+const hash = '[folder]_[local]-[hash:base64:5]';
 const path = require('path');
 const webpack = require('webpack');
 const lowerCase = require('lodash/fp/lowerCase');

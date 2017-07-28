@@ -144,6 +144,33 @@
   padding-bottom: 24px;
 }
 
+.timerTitle {
+  font-family: "Open Sans";
+  font-size: 15px;
+  text-transform: none;
+  color: dark;
+  width: 180px;
+  display: block;
+  width: 100%;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.timerSubtitle {
+  font-size: 14px;
+  font-family: "Open Sans";
+  font-weight: 400;
+  user-select: none;
+  color: dark;
+  text-align: center;
+  user-select: none;
+  width: auto;
+  padding: 0 7px;
+  border-radius: 25px;
+  display: table;
+  margin: 0 auto;
+}
+
 .choice label {
   margin: 0;
 }

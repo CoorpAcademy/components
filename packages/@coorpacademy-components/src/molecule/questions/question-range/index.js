@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import RangeSlider from '../../range-slider';
+import RangeSlider from '../../../atom/range';
 import style from './style.css';
 
 const QuestionRange = (props, context) => {

@@ -1,14 +1,53 @@
 @value colors: "../../variables/colors.css";
 @value black from colors;
 @value xtraLightGrey from colors;
+@value negative from colors;
 @value dark from colors;
-@value handleSize: 30px;
-@value handlePosition: translate3d(-15px,-13px,0);
+@value white from colors;
+@value brand from colors;
 
 .default {
+  padding: 15px;
+}
+
+.container {
   position: relative;
-  padding: 0 17px;
+}
+
+.track {
+  height: 6px;
+  width: 100%;
+  border-radius: 3px;
+  background-color: xtraLightGrey;
+  transform: translate3d(0, -50%, 0);
+  position: absolute;
+}
+
+.rail {
+  composes: track;
+  width: 0;
+  background-color: brand;
+}
+
+.handle {
+  background: white;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: white;
+  transform: translate3d(-50%, -50%, 0);
+  cursor: pointer;
   user-select: none;
+}
+
+/*
+.default {
+  position: relative;
+  margin: 17px;
+  user-select: none;
+  height: 0;
+  width: 100%;
 }
 
 .text {
@@ -72,8 +111,9 @@
   position: relative;
   height: 6px;
   width: 100%;
+  transform: translate3d(0, -50%, 0);
   border-radius: 10px;
-  background-color: xtraLightGrey;
+  background-color: black;
 }
 
 .track {
@@ -92,8 +132,8 @@
   position: absolute;
   width: handleSize;
   height: handleSize;
-  border-radius: 50%;
-  transform: handlePosition;
+  transform: translate3d(-50%, -50%, 0) translate3d(0, 3px, 0);
   cursor: pointer;
   user-select: none;
 }
+*/
