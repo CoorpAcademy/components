@@ -19,10 +19,9 @@ const LoadedClue = ({brandColor, text, stars}) => {
 };
 
 const Clue = (props, context) => {
-  const {text, starsDiff} = props;
-  const {skin, translate} = context;
+  const {text} = props;
+  const {skin} = context;
   const brandColor = get('common.brand', skin);
-  const starsToLoose = translate('clue_stars_to_loose', {count: starsDiff, stars: starsDiff});
   const isLoading = isNil(text);
 
   return (
@@ -30,19 +29,16 @@ const Clue = (props, context) => {
       <div className={isLoading ? style.loadingClue : style.clue}>
         {isLoading ? <Loader /> : <LoadedClue text={text} brandColor={brandColor} />}
       </div>
-      <div className={style.stars}>{starsToLoose}</div>
     </div>
   );
 };
 
 Clue.contextTypes = {
-  skin: Provider.childContextTypes.skin,
-  translate: Provider.childContextTypes.translate
+  skin: Provider.childContextTypes.skin
 };
 
 Clue.propTypes = {
-  text: PropTypes.string,
-  starsDiff: PropTypes.number
+  text: PropTypes.string
 };
 
 export default Clue;

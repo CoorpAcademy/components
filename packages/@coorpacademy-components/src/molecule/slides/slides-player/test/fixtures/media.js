@@ -9,6 +9,7 @@ const resourceProps = ResourceBrowser.props;
 export default {
   props: {
     typeClue: 'media',
+    starsDiff: 4,
     step: {
       current: 2,
       total: 6

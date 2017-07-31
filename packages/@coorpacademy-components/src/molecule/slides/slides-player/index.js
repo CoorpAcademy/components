@@ -16,24 +16,59 @@ import style from './style.css';
  * Content types
  */
 
+const ClueContent = (props, context) => {
+  const {text, starsDiff} = props;
+  const {translate} = context;
+  const starsToLoose = translate('clue_stars_to_loose', {count: Math.abs(starsDiff)});
+
+  return (
+    <div>
+      <Clue text={text} />
+      <div className={style.stars}>{starsToLoose}</div>
+    </div>
+  );
+};
+
+ClueContent.propTypes = {
+  text: PropTypes.string,
+  starsDiff: PropTypes.number
+};
+
+ClueContent.contextTypes = {
+  translate: Provider.childContextTypes.translate
+};
+
 const AnswerContent = ({answerType}) => <Answer {...answerType} />;
 
 AnswerContent.propTypes = {
   answerType: PropTypes.shape(Answer.PropTypes)
 };
 
-const MediaContent = ({resources}) =>
-  <div className={style.resourcesWrapper}>
-    <ResourceBrowser resources={resources} />
-  </div>;
+const MediaContent = (props, context) => {
+  const {resources, starsDiff} = props;
+  const {translate} = context;
+  const starsToWin = translate('media_stars_to_win', {count: Math.abs(starsDiff)});
+
+  return (
+    <div className={style.resourcesWrapper}>
+      <ResourceBrowser resources={resources} />
+      <div className={style.stars}>{starsToWin}</div>
+    </div>
+  );
+};
 
 MediaContent.propTypes = {
-  resources: ResourceBrowser.propTypes.resources
+  resources: ResourceBrowser.propTypes.resources,
+  starsDiff: PropTypes.number
+};
+
+MediaContent.contextTypes = {
+  translate: Provider.childContextTypes.translate
 };
 
 const CONTENT_TYPE = {
   answer: AnswerContent,
-  clue: Clue,
+  clue: ClueContent,
   media: MediaContent
 };
 
