@@ -1,7 +1,7 @@
 import test from 'ava';
 import isFunction from 'lodash/fp/isFunction';
 import identity from 'lodash/fp/identity';
-import creategetAnswerProps from '../answer';
+import {createGetAnswerProps, createGetHelp} from '../answer';
 import {ANSWER_EDIT} from '../../../actions/ui/answers';
 import basic from './fixtures/slides/basic';
 import qcm from './fixtures/slides/qcm';
@@ -11,7 +11,8 @@ import template from './fixtures/slides/template';
 
 const options = {translate: identity};
 const store = {dispatch: identity};
-const getAnswerProps = creategetAnswerProps(options, store);
+const getAnswerProps = createGetAnswerProps(options, store);
+const getHelp = createGetHelp(options, store);
 
 test('should create initial qcm props', t => {
   const state = {};
@@ -270,4 +271,11 @@ test('should create edited basic props', t => {
   t.is(props.type, 'freeText');
   t.is(props.value, 'foo');
   t.true(isFunction(props.onChange));
+});
+
+test('should provide an help subtitle depending on question.type', t => {
+  const help = getHelp(qcmDrag);
+  t.is(help, null);
+  const help2 = getHelp(qcm);
+  t.is(help2, 'Select something below');
 });
