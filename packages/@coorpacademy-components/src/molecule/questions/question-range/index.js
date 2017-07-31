@@ -20,7 +20,7 @@ const QuestionRange = (props, context) => {
       <span style={titleStyle} className={style.title}>{title}</span>
       <RangeSlider {...rangeProps} />
       <div className={style.labelWrapper}>
-        <span className={style.left}>{minLabel}</span>
+        <span className={style.label}>{minLabel}</span>
         <span className={style.label}>{maxLabel}</span>
       </div>
     </div>
