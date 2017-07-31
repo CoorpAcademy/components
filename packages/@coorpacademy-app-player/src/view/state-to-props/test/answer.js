@@ -47,7 +47,7 @@ test('should create edited qcm props', t => {
 test('should create edited template props', t => {
   const state = {
     ui: {
-      answers: {'1234': {value: ['foo', 'sli_Nk2vje~E~.choice_Ek~jJyPNUZ']}},
+      answers: {'1234': {value: ['foo', 'exclusive']}},
       current: {progressionId: '1234'}
     }
   };
@@ -69,11 +69,11 @@ test('should create edited template props', t => {
   t.true(Array.isArray(selectOptions));
   t.is(selectOptions.length, 2);
   t.is(selectOptions[0].name, 'temporary');
-  t.is(selectOptions[0].value, 'sli_Nk2vje~E~.choice_VyloJkDEUb');
+  t.is(selectOptions[0].value, 'temporary');
   t.false(selectOptions[0].selected);
   t.true(selectOptions[0].validOption);
   t.is(selectOptions[1].name, 'exclusive');
-  t.is(selectOptions[1].value, 'sli_Nk2vje~E~.choice_Ek~jJyPNUZ');
+  t.is(selectOptions[1].value, 'exclusive');
   t.true(selectOptions[1].selected);
   t.true(selectOptions[1].validOption);
 });
@@ -93,11 +93,11 @@ test('should add an invalid `select an answer` choice for a select field in a te
   t.true(selectOptions[0].selected);
   t.false(selectOptions[0].validOption);
   t.is(selectOptions[1].name, 'temporary');
-  t.is(selectOptions[1].value, 'sli_Nk2vje~E~.choice_VyloJkDEUb');
+  t.is(selectOptions[1].value, 'temporary');
   t.false(selectOptions[1].selected);
   t.true(selectOptions[1].validOption);
   t.is(selectOptions[2].name, 'exclusive');
-  t.is(selectOptions[2].value, 'sli_Nk2vje~E~.choice_Ek~jJyPNUZ');
+  t.is(selectOptions[2].value, 'exclusive');
   t.false(selectOptions[2].selected);
   t.true(selectOptions[2].validOption);
 });
@@ -261,7 +261,7 @@ test('should create action: edit-answer-qcmDrag (answer removal)', t => {
 test('should create action: edit-answer-template', t => {
   const state = {
     ui: {
-      answers: {'1234': {value: ['ABCDEFGH', 'sli_Nk2vje~E~.choice_Ek~jJyPNUZ']}},
+      answers: {'1234': {value: ['ABCDEFGH', 'exclusive']}},
       current: {progressionId: '1234'}
     }
   };
@@ -271,7 +271,7 @@ test('should create action: edit-answer-template', t => {
   const selectAction = props.answers[1].onChange('bar');
 
   t.is(textAction.type, ANSWER_EDIT.template);
-  t.deepEqual(textAction.payload, ['bar', 'sli_Nk2vje~E~.choice_Ek~jJyPNUZ']);
+  t.deepEqual(textAction.payload, ['bar', 'exclusive']);
   t.is(textAction.meta.progressionId, '1234');
 
   t.is(selectAction.type, ANSWER_EDIT.template);

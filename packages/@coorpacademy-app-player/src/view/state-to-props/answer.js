@@ -110,9 +110,9 @@ const templateSelectProps = (options, store) => (state, slide, choice, index) =>
   const selectOptions = choice.items.map(item => {
     return {
       name: item.text,
-      value: item.value,
+      value: item.text,
       validOption: true,
-      selected: item.value === answer
+      selected: item.text === answer
     };
   });
 
