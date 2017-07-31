@@ -68,7 +68,7 @@ test(
         t.is(id, 'foo');
         return 'foo';
       },
-      findBestOf: ref => {
+      findBestOf: (ref, id) => {
         t.is(ref, 'baz');
         return 16;
       }
@@ -184,7 +184,7 @@ test(
         t.is(id, 'foo');
         return 'foo';
       },
-      findBestOf: ref => {
+      findBestOf: (ref, id) => {
         t.is(ref, 'baz');
         return 16;
       }

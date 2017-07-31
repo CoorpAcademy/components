@@ -31,7 +31,7 @@ export const selectProgression = id => async (dispatch, getState) => {
 
   await dispatch(fetchStartRank());
   await dispatch(fetchChapter(chapterRef));
-  await dispatch(fetchBestProgression(chapterRef));
+  await dispatch(fetchBestProgression(chapterRef, progressionId));
 
   switch (type) {
     case 'slide': {
