@@ -5,7 +5,6 @@
 .wrapper {
   display: block;
   width: auto;
-  line-height: 58px;
   align-items: center;
   margin: 0 auto;
   padding: 0;
@@ -43,7 +42,7 @@
   }
 
   .wrapper div {
-    margin-bottom: 8px;
+    margin: 8px 0;
   }
 
   .wrapper div div select {
@@ -72,7 +71,7 @@
   }
 
   .wrapper div {
-    margin-bottom: 8px;
+    margin: 8px 0;
   }
 
   .wrapper div div select {
