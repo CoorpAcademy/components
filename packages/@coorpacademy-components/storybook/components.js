@@ -157,6 +157,7 @@ import ImageUploadFixtureEmail from '../src/atom/image-upload/test/fixtures/emai
 import ImageUploadFixtureLoading from '../src/atom/image-upload/test/fixtures/loading';
 import ImageUploadFixtureMobile from '../src/atom/image-upload/test/fixtures/mobile';
 import ImageUploadFixtureModified from '../src/atom/image-upload/test/fixtures/modified';
+import ImageUploadFixtureNoPreview from '../src/atom/image-upload/test/fixtures/no-preview';
 import ImageUploadFixtureWithoutImage from '../src/atom/image-upload/test/fixtures/without-image';
 import InputCheckboxFixtureChecked from '../src/atom/input-checkbox/test/fixtures/checked';
 import InputCheckboxFixtureDefault from '../src/atom/input-checkbox/test/fixtures/default';
@@ -752,6 +753,7 @@ export const fixtures = {
       Loading: ImageUploadFixtureLoading,
       Mobile: ImageUploadFixtureMobile,
       Modified: ImageUploadFixtureModified,
+      NoPreview: ImageUploadFixtureNoPreview,
       WithoutImage: ImageUploadFixtureWithoutImage
     },
     InputCheckbox: {
