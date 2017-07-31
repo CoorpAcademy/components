@@ -1,25 +1,15 @@
 export default {
   props: {
     template:
-      'la réponse est {{sel31191}} {{sel31192}} lorem ipsum {{sel31193}} Sed maximum est in amicitia parem esse inferiori. Saepe enim excellentiae quaedam sunt {{sel31194}}.',
+      'la réponse est {{inp81438}} {{sel31192}} lorem ipsum {{sel31193}} Sed maximum est in amicitia parem esse inferiori. Saepe enim excellentiae quaedam sunt {{sel31194}}.',
     answers: [
       {
-        type: 'select',
-        name: 'sel31191',
+        type: 'text',
+        name: 'inp81438',
         label: ' ',
-        onChange: value => console.log(value),
-        options: [
-          {
-            name: 'temporary',
-            value: 'sli_Nk2vje~E~.choice_VyloJkDEUb',
-            selected: true
-          },
-          {
-            name: 'exclusive',
-            value: 'sli_Nk2vje~E~.choice_Ek~jJyPNUZ',
-            selected: false
-          }
-        ]
+        placeholder: ' ',
+        value: 'an answer',
+        onChange: value => console.log(value)
       },
       {
         type: 'select',

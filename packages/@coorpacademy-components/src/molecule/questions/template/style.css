@@ -27,12 +27,17 @@
 .wrapper div {
   display: inline-block;
   width: auto;
+  margin: 8px 0;
 }
 
 .wrapper div div label {
   display: block;
   width: auto;
   margin-right: 0;
+}
+
+.wrapper div div select {
+  height: 53px;
 }
 
 @media mobile {
@@ -48,6 +53,7 @@
   .wrapper div div select {
     height: 100%;
     width: auto;
+    height: 53px;
     padding-right: 35px;
     box-sizing: border-box;
   }
@@ -77,6 +83,7 @@
   .wrapper div div select {
     height: 100%;
     width: auto;
+    height: 53px;
     padding-right: 35px;
     box-sizing: border-box;
   }
