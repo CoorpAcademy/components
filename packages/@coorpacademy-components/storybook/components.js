@@ -391,6 +391,7 @@ import QcmFixtureNoSelected from '../src/molecule/questions/qcm/test/fixtures/no
 import QcmFixtureShortAnswers from '../src/molecule/questions/qcm/test/fixtures/short-answers';
 import QuestionRangeFixtureDefault from '../src/molecule/questions/question-range/test/fixtures/default';
 import TemplateFixtureDefault from '../src/molecule/questions/template/test/fixtures/default';
+import TemplateFixtureMultiple from '../src/molecule/questions/template/test/fixtures/multiple';
 import SlidesFooterFixtureClueSelected from '../src/molecule/slides/slides-footer/test/fixtures/clue-selected';
 import SlidesFooterFixtureDefault from '../src/molecule/slides/slides-footer/test/fixtures/default';
 import SlidesFooterFixtureDisabled from '../src/molecule/slides/slides-footer/test/fixtures/disabled';
@@ -416,6 +417,7 @@ import SlidesPlayerFixtureQcmShort from '../src/molecule/slides/slides-player/te
 import SlidesPlayerFixtureQcmTemplate from '../src/molecule/slides/slides-player/test/fixtures/qcm-template';
 import SlidesPlayerFixtureQcm from '../src/molecule/slides/slides-player/test/fixtures/qcm';
 import SlidesPlayerFixtureRange from '../src/molecule/slides/slides-player/test/fixtures/range';
+import SlidesPlayerFixtureTemplate from '../src/molecule/slides/slides-player/test/fixtures/template';
 import SlidesPlayerFixtureWithMinHeight from '../src/molecule/slides/slides-player/test/fixtures/with-min-height';
 import ContainerFixtureDefault from '../src/organism/accordion/container/test/fixtures/default';
 import PartFixtureDefault from '../src/organism/accordion/part/test/fixtures/default';
@@ -1142,7 +1144,8 @@ export const fixtures = {
       Default: QuestionRangeFixtureDefault
     },
     Template: {
-      Default: TemplateFixtureDefault
+      Default: TemplateFixtureDefault,
+      Multiple: TemplateFixtureMultiple
     }
   },
   MoleculeSlides: {
@@ -1176,6 +1179,7 @@ export const fixtures = {
       QcmTemplate: SlidesPlayerFixtureQcmTemplate,
       Qcm: SlidesPlayerFixtureQcm,
       Range: SlidesPlayerFixtureRange,
+      Template: SlidesPlayerFixtureTemplate,
       WithMinHeight: SlidesPlayerFixtureWithMinHeight
     }
   },

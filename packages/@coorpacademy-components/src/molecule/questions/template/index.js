@@ -14,7 +14,7 @@ const Template = props => {
     const type = part.type;
 
     if (type === 'string') {
-      return <div className={style.string} key={key}>{part.value}</div>;
+      return part.value;
     }
     if (type === 'answerField') {
       const field = find({name: part.value}, props.answers);

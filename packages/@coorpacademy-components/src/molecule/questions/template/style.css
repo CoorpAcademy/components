@@ -1,22 +1,23 @@
 @value breakpoints: "../../../variables/breakpoints.css";
 @value mobile from breakpoints;
+@value tablet from breakpoints;
 
 .wrapper {
-  display: flex;
+  display: block;
   width: auto;
+  line-height: 58px;
   align-items: center;
   margin: 0 auto;
   padding: 0;
   box-sizing: border-box;
   justify-content: center;
-}
-
-.string {
   font-family: "Open Sans";
   font-weight: 700;
   font-size: 14px;
-  margin: 0 4px;
-  box-sizing: border-box;
+}
+
+.field {
+  display: inline-block;
 }
 
 .field label {
@@ -24,9 +25,71 @@
   box-sizing: border-box;
 }
 
+.wrapper div {
+  display: inline-block;
+  width: auto;
+}
+
+.wrapper div div label {
+  display: block;
+  width: auto;
+  margin-right: 0;
+}
+
 @media mobile {
   .wrapper {
+    padding: 8px 16px;
+    box-sizing: border-box;
+  }
+
+  .wrapper div {
+    margin-bottom: 8px;
+  }
+
+  .wrapper div div select {
+    height: 100%;
+    width: auto;
+    padding-right: 35px;
+    box-sizing: border-box;
+  }
+
+  .wrapper div div label {
     display: block;
-    width: 100%;
+    width: auto;
+    margin-right: 0;
+  }
+
+  .wrapper div {
+    display: inline-block;
+    width: auto;
+  }
+}
+
+@media tablet {
+  .wrapper {
+    padding: 8px 16px;
+    box-sizing: border-box;
+  }
+
+  .wrapper div {
+    margin-bottom: 8px;
+  }
+
+  .wrapper div div select {
+    height: 100%;
+    width: auto;
+    padding-right: 35px;
+    box-sizing: border-box;
+  }
+
+  .wrapper div div label {
+    display: block;
+    width: auto;
+    margin-right: 0;
+  }
+
+  .wrapper div {
+    display: inline-block;
+    width: auto;
   }
 }
