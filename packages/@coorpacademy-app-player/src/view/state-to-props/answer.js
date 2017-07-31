@@ -11,7 +11,6 @@ import size from 'lodash/fp/size';
 import set from 'lodash/fp/set';
 import isNil from 'lodash/fp/isNil';
 import rangeStep from 'lodash/fp/rangeStep';
-import toArray from 'lodash/fp/toArray';
 import toString from 'lodash/fp/toString'; // eslint-disable-line no-shadow
 import indexOf from 'lodash/fp/indexOf';
 import {
@@ -81,7 +80,7 @@ const qcmGraphicProps = (options, store) => (state, slide) => {
   };
 };
 
-const updateTemplateAnswer = (answers, index) => value => toArray(set(index, value, answers));
+const updateTemplateAnswer = (answers = [], index) => value => set(index, value, answers);
 
 const templateTextProps = (options, store) => (state, slide, choice, index) => {
   const {translate} = options;
