@@ -13,13 +13,13 @@ const context = {
   }
 };
 
-test('should call cardsWidth', t => {
+test('should be considered as hovered when mouse enters', t => {
   const wrapper = shallow(<Cta {...ctaFixture.props} />, {context});
   const instance = wrapper.instance();
 
   t.false(instance.state.hovered);
-  instance.handleMouseEnter();
+  wrapper.simulate('mouseenter');
   t.true(instance.state.hovered);
-  instance.handleMouseLeave();
+  wrapper.simulate('mouseleave');
   t.false(instance.state.hovered);
 });
