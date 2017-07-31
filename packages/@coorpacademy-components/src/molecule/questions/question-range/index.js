@@ -1,24 +1,41 @@
 import React from 'react';
+import getOr from 'lodash/fp/getOr';
 import PropTypes from 'prop-types';
+import Provider from '../../../atom/provider';
 import RangeSlider from '../../../atom/range';
 import style from './style.css';
 
 const QuestionRange = (props, context) => {
+  const {title, minLabel, maxLabel, ...rangeProps} = props;
+
+  const {skin} = context;
+  const defaultColor = getOr('#00B0FF', 'common.primary', skin);
+
+  const titleStyle = {
+    color: defaultColor
+  };
+
   return (
     <div className={style.wrapper}>
-      <RangeSlider {...props} />
+      <span style={titleStyle} className={style.title}>{title}</span>
+      <RangeSlider {...rangeProps} />
+      <div className={style.labelWrapper}>
+        <span className={style.left}>{minLabel}</span>
+        <span className={style.label}>{maxLabel}</span>
+      </div>
     </div>
   );
 };
 
+QuestionRange.contextTypes = {
+  skin: Provider.childContextTypes.skin
+};
+
 QuestionRange.propTypes = {
-  answers: PropTypes.arrayOf(
-    PropTypes.shape({
-      onChange: PropTypes.func,
-      leftLabel: PropTypes.string,
-      rightLabel: PropTypes.string
-    })
-  )
+  ...RangeSlider.propTypes,
+  title: PropTypes.string,
+  minLabel: PropTypes.string,
+  maxLabel: PropTypes.string
 };
 
 export default QuestionRange;

@@ -1,8 +1,35 @@
 @value breakpoints: "../../../variables/breakpoints.css";
 @value mobile from breakpoints;
+@value colors: "../../../variables/colors.css";
+@value brand from colors;
 
 .wrapper {
   width: 500px;
+}
+
+.title {
+  color: brand;
+  display: table;
+  font-family: "Open Sans";
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 auto 15px;
+  text-align: center;
+  user-select: none;
+  width: auto;
+}
+
+.labelWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.label {
+  color: black;
+  font-size: 15px;
+  font-weight: 700;
+  display: inline-block;
+  user-select: none;
 }
 
 @media mobile {

@@ -390,7 +390,6 @@ import QcmFixtureDefault from '../src/molecule/questions/qcm/test/fixtures/defau
 import QcmFixtureNoSelected from '../src/molecule/questions/qcm/test/fixtures/no-selected';
 import QcmFixtureShortAnswers from '../src/molecule/questions/qcm/test/fixtures/short-answers';
 import QuestionRangeFixtureDefault from '../src/molecule/questions/question-range/test/fixtures/default';
-import QuestionRangeFixtureNoSelected from '../src/molecule/questions/question-range/test/fixtures/no-selected';
 import TemplateFixtureDefault from '../src/molecule/questions/template/test/fixtures/default';
 import SlidesFooterFixtureClueSelected from '../src/molecule/slides/slides-footer/test/fixtures/clue-selected';
 import SlidesFooterFixtureDefault from '../src/molecule/slides/slides-footer/test/fixtures/default';
@@ -1139,8 +1138,7 @@ export const fixtures = {
       ShortAnswers: QcmFixtureShortAnswers
     },
     QuestionRange: {
-      Default: QuestionRangeFixtureDefault,
-      NoSelected: QuestionRangeFixtureNoSelected
+      Default: QuestionRangeFixtureDefault
     },
     Template: {
       Default: TemplateFixtureDefault
