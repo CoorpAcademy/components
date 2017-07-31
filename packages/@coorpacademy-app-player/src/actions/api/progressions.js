@@ -81,7 +81,11 @@ export const PROGRESSION_FETCH_BESTOF_REQUEST = '@@progression/FETCH_BESTOF_REQU
 export const PROGRESSION_FETCH_BESTOF_SUCCESS = '@@progression/FETCH_BESTOF_SUCCESS';
 export const PROGRESSION_FETCH_BESTOF_FAILURE = '@@progression/FETCH_BESTOF_FAILURE';
 
-export const fetchBestProgression = (contentRef, progressionId) => (dispatch, getState, {services}) => {
+export const fetchBestProgression = (contentRef, progressionId) => (
+  dispatch,
+  getState,
+  {services}
+) => {
   const {Progressions} = services;
 
   const action = buildTask({
