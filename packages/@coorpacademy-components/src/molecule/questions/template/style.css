@@ -7,7 +7,7 @@
   width: auto;
   align-items: center;
   margin: 0 auto;
-  padding: 0;
+  padding: 8px;
   box-sizing: border-box;
   justify-content: center;
   font-family: "Open Sans";
@@ -15,87 +15,15 @@
   font-size: 14px;
 }
 
-.field {
+.answerType {
   display: inline-block;
-}
-
-.field label {
-  margin: 0;
-  box-sizing: border-box;
-}
-
-.wrapper div {
-  display: inline-block;
-  width: auto;
   margin: 8px 0;
 }
 
-.wrapper div div label {
-  display: block;
-  width: auto;
-  margin-right: 0;
+.answerType .text {
+  border: solid 3px red;
 }
 
-.wrapper div div select {
-  height: 53px;
-}
-
-@media mobile {
-  .wrapper {
-    padding: 8px 16px;
-    box-sizing: border-box;
-  }
-
-  .wrapper div {
-    margin: 8px 0;
-  }
-
-  .wrapper div div select {
-    height: 100%;
-    width: auto;
-    height: 53px;
-    padding-right: 35px;
-    box-sizing: border-box;
-  }
-
-  .wrapper div div label {
-    display: block;
-    width: auto;
-    margin-right: 0;
-  }
-
-  .wrapper div {
-    display: inline-block;
-    width: auto;
-  }
-}
-
-@media tablet {
-  .wrapper {
-    padding: 8px 16px;
-    box-sizing: border-box;
-  }
-
-  .wrapper div {
-    margin: 8px 0;
-  }
-
-  .wrapper div div select {
-    height: 100%;
-    width: auto;
-    height: 53px;
-    padding-right: 35px;
-    box-sizing: border-box;
-  }
-
-  .wrapper div div label {
-    display: block;
-    width: auto;
-    margin-right: 0;
-  }
-
-  .wrapper div {
-    display: inline-block;
-    width: auto;
-  }
+.answerType .select {
+  margin-top: 2px;
 }

@@ -220,6 +220,7 @@ import SelectFixtureMultiple from '../src/atom/select/test/fixtures/multiple';
 import SelectFixtureQuestion from '../src/atom/select/test/fixtures/question';
 import SelectFixtureRequired from '../src/atom/select/test/fixtures/required';
 import SelectFixtureSort from '../src/atom/select/test/fixtures/sort';
+import SelectFixtureTemplate from '../src/atom/select/test/fixtures/template';
 import SelectFixtureThematiquesLong from '../src/atom/select/test/fixtures/thematiques-long';
 import SelectFixtureThematiques from '../src/atom/select/test/fixtures/thematiques';
 import SlideFixtureDefault from '../src/atom/slide/test/fixtures/default';
@@ -842,6 +843,7 @@ export const fixtures = {
       Question: SelectFixtureQuestion,
       Required: SelectFixtureRequired,
       Sort: SelectFixtureSort,
+      Template: SelectFixtureTemplate,
       ThematiquesLong: SelectFixtureThematiquesLong,
       Thematiques: SelectFixtureThematiques
     },

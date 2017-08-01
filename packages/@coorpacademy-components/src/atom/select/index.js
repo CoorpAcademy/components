@@ -17,7 +17,8 @@ const themeStyle = {
   mooc: style.mooc,
   question: style.question,
   sort: style.sort,
-  thematiques: style.thematiques
+  thematiques: style.thematiques,
+  template: style.template
 };
 
 const Select = (props, context) => {
@@ -65,11 +66,14 @@ const Select = (props, context) => {
   const black = get('common.black', skin);
   const color = get('common.primary', skin);
   const skinColor = {
-    color: theme === 'question' ? color : null
+    color: theme === 'question' || 'template' ? color : null
   };
 
   const arrowView = !multiple
-    ? <ArrowDown color={theme === 'question' ? color : black} className={style.arrow} />
+    ? <ArrowDown
+        color={theme === 'question' || 'template' ? color : black}
+        className={style.arrow}
+      />
     : null;
   const className = getClassState(style.default, style.modified, style.error, modified);
 

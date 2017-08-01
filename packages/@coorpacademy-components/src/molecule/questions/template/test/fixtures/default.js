@@ -12,6 +12,7 @@ export default {
       },
       {
         type: 'select',
+        theme: 'template',
         name: 'sel31191',
         label: ' ',
         onChange: value => console.log(value),
