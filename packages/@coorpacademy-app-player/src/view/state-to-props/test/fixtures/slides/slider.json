@@ -1,0 +1,74 @@
+{
+  "_id": "sli_41GXTiG8X",
+  "klf": "Il a connu les dinosaures.",
+  "tips": "Il a connu les dinosaures.",
+  "chapter_id": "5.C7",
+  "authors": [],
+  "context": {
+    "media": {
+      "subtitles": [],
+      "posters": [],
+      "src": []
+    }
+  },
+  "meta": {
+    "updatedAt": "2017-07-31T15:36:55.393Z",
+    "createdAt": "2017-07-31T15:36:55.393Z"
+  },
+  "lessons": [
+    {
+      "type": "video",
+      "mimeType": "application/vimeo",
+      "videoId": "191200830",
+      "description": "Universal Searches",
+      "poster": "//static.coorpacademy.com/content/up/fr/medias/img/poster/miniature_bleue_up.jpg",
+      "_id": "597f2b044434a45a0184b385",
+      "subtitles": [],
+      "posters": [],
+      "src": []
+    },
+    {
+      "type": "video",
+      "mimeType": "application/vimeo",
+      "videoId": "191168702",
+      "description": "A Short History of Search Engines",
+      "poster": "//static.coorpacademy.com/content/up/fr/medias/img/poster/miniature_bleue_up.jpg",
+      "_id": "597f2b044434a45a0184b384",
+      "subtitles": [],
+      "posters": [],
+      "src": []
+    }
+  ],
+  "question": {
+    "type": "slider",
+    "header": "Quel est l'age d'Éric ?",
+    "explanation": "Déplacez le curseur.",
+    "content": {
+      "id": "sli_41GXTiG8X.id",
+      "min": 0,
+      "max": 1000,
+      "step": 100,
+      "defaultValue": 500,
+      "unitLabel": "an(s)",
+      "maxTypos": null,
+      "choices": [],
+      "media": {
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      },
+      "answers": [
+        [
+          "100"
+        ],
+        [
+          "200"
+        ],
+        [
+          "300"
+        ]
+      ]
+    },
+    "medias": []
+  }
+}

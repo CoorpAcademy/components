@@ -8,6 +8,7 @@ import qcm from './fixtures/slides/qcm';
 import qcmDrag from './fixtures/slides/qcmDrag';
 import qcmGraphic from './fixtures/slides/qcm-graphic';
 import template from './fixtures/slides/template';
+import slider from './fixtures/slides/slider';
 
 const options = {translate: identity};
 const store = {dispatch: identity};
@@ -200,6 +201,31 @@ test('should create edited qcmDrag props', t => {
   t.true(isFunction(props.answers[2].onClick));
 });
 
+test('should create initial slider props', t => {
+  const state = {};
+  const props = getAnswerProps(state, slider);
+  t.is(props.type, 'slider');
+  t.is(props.placeholder, 'Déplacez le curseur.');
+  t.is(props.minLabel, '0 an(s)');
+  t.is(props.maxLabel, '1000 an(s)');
+  t.is(props.title, '500 an(s)');
+  t.is(props.value, 0.5);
+  t.true(isFunction(props.onChange));
+});
+
+test('should create edited slider props', t => {
+  const state = {
+    ui: {
+      answers: {'1234': {value: ['300']}},
+      current: {progressionId: '1234'}
+    }
+  };
+
+  const props = getAnswerProps(state, slider);
+  t.is(props.title, '300 an(s)');
+  t.is(props.value, 0.3);
+});
+
 test('should create action: edit-answer-qcmDrag (answer selection)', t => {
   const state = {
     ui: {
@@ -251,6 +277,22 @@ test('should create action: edit-answer-template', t => {
   t.is(selectAction.type, ANSWER_EDIT.template);
   t.deepEqual(selectAction.payload, ['ABCDEFGH', 'bar']);
   t.is(selectAction.meta.progressionId, '1234');
+});
+
+test('should create edited slider props', t => {
+  const state = {
+    ui: {
+      answers: {'1234': {value: ['500']}},
+      current: {progressionId: '1234'}
+    }
+  };
+
+  const props = getAnswerProps(state, slider);
+  const action = props.onChange(0.3);
+
+  t.is(action.type, ANSWER_EDIT.slider);
+  t.is(action.meta.progressionId, '1234');
+  t.deepEqual(action.payload, ['300']);
 });
 
 test('should create initial basic props', t => {
