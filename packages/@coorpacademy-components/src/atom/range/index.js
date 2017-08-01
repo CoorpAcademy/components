@@ -3,12 +3,15 @@ import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
 import noop from 'lodash/fp/noop';
 import set from 'lodash/fp/set';
-import pipe from 'lodash/fp/pipe';
+import clamp from 'lodash/fp/clamp';
 import Provider from '../provider';
 import Handle from './handle';
 import style from './style.css';
 
-const inRange = (min, max) => pipe(p => Math.max(min, p), p => Math.min(max, p));
+const valueOnTrack = (track, x) => {
+  const {left, right} = track.getBoundingClientRect();
+  return clamp(0, 1, (x - left) / (right - left));
+};
 
 // eslint-disable-next-line no-shadow
 class Range extends React.Component {
@@ -19,6 +22,7 @@ class Range extends React.Component {
 
     this.state = {value: multi ? value : [0, value]};
 
+    this.handleOnClick = this.handleOnClick.bind(this);
     this.setRefTrack = this.setRefTrack.bind(this);
     this.handleMinChange = this.handleMinChange.bind(this);
     this.handleMaxChange = this.handleMaxChange.bind(this);
@@ -40,18 +44,16 @@ class Range extends React.Component {
   }
 
   handleMinChange(e) {
-    this.handleChange(e, 0);
+    const newValue = valueOnTrack(this.track, e.srcEvent.x);
+    this.handleChange(newValue, 0);
   }
 
   handleMaxChange(e) {
-    this.handleChange(e, 1);
+    const newValue = valueOnTrack(this.track, e.srcEvent.x);
+    this.handleChange(newValue, 1);
   }
 
-  handleChange(changeEvent, valueIndex) {
-    const {srcEvent: {x: handleX}} = changeEvent;
-    const {left, right} = this.track.getBoundingClientRect();
-    const value = inRange(0, 1)((handleX - left) / (right - left));
-
+  handleChange(value, valueIndex) {
     const newValue = set(valueIndex, value, this.state.value);
 
     const [minValue, maxValue] = newValue;
@@ -67,6 +69,20 @@ class Range extends React.Component {
     this.setState(() => {
       return {value: newValues};
     });
+  }
+
+  handleOnClick(e) {
+    const {multi = false} = this.props;
+    const x = e.clientX;
+    const [left, right] = this.state.value;
+    const newValue = valueOnTrack(this.track, x);
+
+    if (!multi) {
+      this.handleChange(newValue, 1);
+    } else {
+      const closestHandle = Math.abs(newValue - left) < Math.abs(newValue - right) ? 0 : 1;
+      this.handleChange(newValue, closestHandle);
+    }
   }
 
   renderHandles() {
@@ -102,7 +118,7 @@ class Range extends React.Component {
     };
 
     return (
-      <div className={style.default}>
+      <div className={style.containerWrapper} onClick={this.handleOnClick}>
         <div className={style.container}>
           <div className={style.track} ref={this.setRefTrack} />
           <div className={style.rail} style={railStyle} />

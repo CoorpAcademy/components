@@ -281,7 +281,7 @@ test('should create action: edit-answer-template', t => {
   t.is(selectAction.meta.progressionId, '1234');
 });
 
-test('should create edited slider props', t => {
+test('should create action: edit-answer-slider', t => {
   const state = {
     ui: {
       answers: {'1234': {value: ['500']}},

@@ -3,16 +3,17 @@ import test from 'ava';
 import React from 'react';
 import {mount} from 'enzyme';
 import Range from '..'; // eslint-disable-line no-shadow
+import style from '../style.css'; // eslint-disable-line css-modules/no-unused-class
 
 const macro = (t, props, boundingRect, maxSrcEvent, maxExpected, minSrcEvent, minExpected) => {
   t.plan(minExpected ? 2 : 1);
 
   const expected = [maxExpected, minExpected];
-  const valideChange = value => {
+  const validChange = value => {
     t.deepEqual(value, expected.shift());
   };
 
-  const component = <Range {...props} onChange={valideChange} />;
+  const component = <Range {...props} onChange={validChange} />;
   const slider = mount(component);
   const instance = slider.instance();
 
@@ -84,4 +85,35 @@ test("should apply props's value on multi range", t => {
   t.deepEqual(slider.state().value, [0, 1]);
 
   slider.unmount();
+});
+
+test('should move handle when range is clicked (single)', t => {
+  t.plan(1);
+  const onChange = value => {
+    t.is(value, 0.2);
+  };
+
+  const wrapper = mount(<Range value={0.5} onChange={onChange} />);
+  const instance = wrapper.instance();
+  instance.track.getBoundingClientRect = () => ({left: 1000, right: 1100});
+  wrapper.find(`div.${style.containerWrapper}`).simulate('click', {clientX: 1020});
+});
+
+test('should move closest handle when range is clicked (multi)', t => {
+  const expectedValues = [[0.2, 0.7], [0.2, 0.9], [0.4, 0.9], [0.4, 0.7], [0, 0.7], [0, 1]];
+  t.plan(expectedValues.length);
+  const onChange = value => {
+    t.deepEqual(value, expectedValues.shift());
+  };
+
+  const wrapper = mount(<Range value={[0.3, 0.7]} onChange={onChange} multi />);
+  const instance = wrapper.instance();
+  instance.track.getBoundingClientRect = () => ({left: 1000, right: 1100});
+
+  wrapper.find(`div.${style.containerWrapper}`).simulate('click', {clientX: 1020});
+  wrapper.find(`div.${style.containerWrapper}`).simulate('click', {clientX: 1090});
+  wrapper.find(`div.${style.containerWrapper}`).simulate('click', {clientX: 1040});
+  wrapper.find(`div.${style.containerWrapper}`).simulate('click', {clientX: 1070});
+  wrapper.find(`div.${style.containerWrapper}`).simulate('click', {clientX: 1000});
+  wrapper.find(`div.${style.containerWrapper}`).simulate('click', {clientX: 1100});
 });
