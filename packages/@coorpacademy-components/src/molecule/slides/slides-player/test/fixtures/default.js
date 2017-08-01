@@ -1,6 +1,6 @@
 import Cta from '../../../../../atom/cta/test/fixtures/primary';
 import Footer from '../../../slides-footer/test/fixtures/default';
-import Answer from '../../../../../molecule/answer/test/fixtures/default';
+import Answer from '../../../../answer/test/fixtures/default';
 
 const {props} = Cta;
 const footerProps = Footer.props;

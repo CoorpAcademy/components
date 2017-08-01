@@ -6,7 +6,7 @@ import {ANSWER_EDIT} from '../../../actions/ui/answers';
 import basic from './fixtures/slides/basic';
 import qcm from './fixtures/slides/qcm';
 import qcmDrag from './fixtures/slides/qcmDrag';
-import qcmGraphic from './fixtures/slides/qcmGraphic';
+import qcmGraphic from './fixtures/slides/qcm-graphic';
 import template from './fixtures/slides/template';
 
 const options = {translate: identity};

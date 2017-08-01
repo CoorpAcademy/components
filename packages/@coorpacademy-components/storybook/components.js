@@ -83,8 +83,8 @@ import ForumPost from '../src/molecule/forum/forum-post';
 import ForumThread from '../src/molecule/forum/forum-thread';
 import DropDown from '../src/molecule/questions/drop-down';
 import FreeText from '../src/molecule/questions/free-text';
-import Picker from '../src/molecule/questions/picker';
-import QcmImage from '../src/molecule/questions/qcm-image';
+import QcmDrag from '../src/molecule/questions/qcm-drag';
+import QcmGraphic from '../src/molecule/questions/qcm-graphic';
 import Qcm from '../src/molecule/questions/qcm';
 import QuestionRange from '../src/molecule/questions/question-range';
 import Template from '../src/molecule/questions/template';
@@ -236,8 +236,8 @@ import TabFixtureDefault from '../src/atom/tab/test/fixtures/default';
 import TitleFixtureFixture from '../src/atom/title/test/fixtures/fixture';
 import AnswerFixtureDefault from '../src/molecule/answer/test/fixtures/default';
 import AnswerFixtureDropDown from '../src/molecule/answer/test/fixtures/drop-down';
-import AnswerFixturePicker from '../src/molecule/answer/test/fixtures/picker';
-import AnswerFixtureQcmImage from '../src/molecule/answer/test/fixtures/qcm-image';
+import AnswerFixtureQcmDrag from '../src/molecule/answer/test/fixtures/qcm-drag';
+import AnswerFixtureQcmGraphic from '../src/molecule/answer/test/fixtures/qcm-graphic';
 import AnswerFixtureQcmShort from '../src/molecule/answer/test/fixtures/qcm-short';
 import AnswerFixtureQcm from '../src/molecule/answer/test/fixtures/qcm';
 import AnswerFixtureRange from '../src/molecule/answer/test/fixtures/range';
@@ -393,10 +393,10 @@ import DropDownFixtureDefault from '../src/molecule/questions/drop-down/test/fix
 import DropDownFixtureNoSelected from '../src/molecule/questions/drop-down/test/fixtures/no-selected';
 import FreeTextFixtureDefault from '../src/molecule/questions/free-text/test/fixtures/default';
 import FreeTextFixtureWithDefaultValue from '../src/molecule/questions/free-text/test/fixtures/with-default-value';
-import PickerFixtureDefault from '../src/molecule/questions/picker/test/fixtures/default';
-import PickerFixtureNoSelected from '../src/molecule/questions/picker/test/fixtures/no-selected';
-import QcmImageFixtureDefault from '../src/molecule/questions/qcm-image/test/fixtures/default';
-import QcmImageFixtureNoSelected from '../src/molecule/questions/qcm-image/test/fixtures/no-selected';
+import QcmDragFixtureDefault from '../src/molecule/questions/qcm-drag/test/fixtures/default';
+import QcmDragFixtureNoSelected from '../src/molecule/questions/qcm-drag/test/fixtures/no-selected';
+import QcmGraphicFixtureDefault from '../src/molecule/questions/qcm-graphic/test/fixtures/default';
+import QcmGraphicFixtureNoSelected from '../src/molecule/questions/qcm-graphic/test/fixtures/no-selected';
 import QcmFixtureDefault from '../src/molecule/questions/qcm/test/fixtures/default';
 import QcmFixtureNoSelected from '../src/molecule/questions/qcm/test/fixtures/no-selected';
 import QcmFixtureShortAnswers from '../src/molecule/questions/qcm/test/fixtures/short-answers';
@@ -422,8 +422,8 @@ import SlidesPlayerFixtureLoading from '../src/molecule/slides/slides-player/tes
 import SlidesPlayerFixtureMedia from '../src/molecule/slides/slides-player/test/fixtures/media';
 import SlidesPlayerFixtureNoQuestion from '../src/molecule/slides/slides-player/test/fixtures/no-question';
 import SlidesPlayerFixtureOnlyClue from '../src/molecule/slides/slides-player/test/fixtures/only-clue';
-import SlidesPlayerFixturePicker from '../src/molecule/slides/slides-player/test/fixtures/picker';
-import SlidesPlayerFixtureQcmImage from '../src/molecule/slides/slides-player/test/fixtures/qcm-image';
+import SlidesPlayerFixtureQcmDrag from '../src/molecule/slides/slides-player/test/fixtures/qcm-drag';
+import SlidesPlayerFixtureQcmGraphic from '../src/molecule/slides/slides-player/test/fixtures/qcm-graphic';
 import SlidesPlayerFixtureQcmShort from '../src/molecule/slides/slides-player/test/fixtures/qcm-short';
 import SlidesPlayerFixtureQcm from '../src/molecule/slides/slides-player/test/fixtures/qcm';
 import SlidesPlayerFixtureRange from '../src/molecule/slides/slides-player/test/fixtures/range';
@@ -484,8 +484,8 @@ import PlayerFixtureError from '../src/template/app-player/player/test/fixtures/
 import PlayerFixtureFreeText from '../src/template/app-player/player/test/fixtures/free-text';
 import PlayerFixtureMedia from '../src/template/app-player/player/test/fixtures/media';
 import PlayerFixtureOnlyClue from '../src/template/app-player/player/test/fixtures/only-clue';
-import PlayerFixturePicker from '../src/template/app-player/player/test/fixtures/picker';
-import PlayerFixtureQcmImage from '../src/template/app-player/player/test/fixtures/qcm-image';
+import PlayerFixtureQcmDrag from '../src/template/app-player/player/test/fixtures/qcm-drag';
+import PlayerFixtureQcmGraphic from '../src/template/app-player/player/test/fixtures/qcm-graphic';
 import PlayerFixtureQcmShort from '../src/template/app-player/player/test/fixtures/qcm-short';
 import PlayerFixtureQcm from '../src/template/app-player/player/test/fixtures/qcm';
 import PlayerFixtureRange from '../src/template/app-player/player/test/fixtures/range';
@@ -645,8 +645,8 @@ export const components = {
   MoleculeQuestions: {
     DropDown,
     FreeText,
-    Picker,
-    QcmImage,
+    QcmDrag,
+    QcmGraphic,
     Qcm,
     QuestionRange,
     Template
@@ -883,8 +883,8 @@ export const fixtures = {
     Answer: {
       Default: AnswerFixtureDefault,
       DropDown: AnswerFixtureDropDown,
-      Picker: AnswerFixturePicker,
-      QcmImage: AnswerFixtureQcmImage,
+      QcmDrag: AnswerFixtureQcmDrag,
+      QcmGraphic: AnswerFixtureQcmGraphic,
       QcmShort: AnswerFixtureQcmShort,
       Qcm: AnswerFixtureQcm,
       Range: AnswerFixtureRange,
@@ -1149,13 +1149,13 @@ export const fixtures = {
       Default: FreeTextFixtureDefault,
       WithDefaultValue: FreeTextFixtureWithDefaultValue
     },
-    Picker: {
-      Default: PickerFixtureDefault,
-      NoSelected: PickerFixtureNoSelected
+    QcmDrag: {
+      Default: QcmDragFixtureDefault,
+      NoSelected: QcmDragFixtureNoSelected
     },
-    QcmImage: {
-      Default: QcmImageFixtureDefault,
-      NoSelected: QcmImageFixtureNoSelected
+    QcmGraphic: {
+      Default: QcmGraphicFixtureDefault,
+      NoSelected: QcmGraphicFixtureNoSelected
     },
     Qcm: {
       Default: QcmFixtureDefault,
@@ -1195,8 +1195,8 @@ export const fixtures = {
       Media: SlidesPlayerFixtureMedia,
       NoQuestion: SlidesPlayerFixtureNoQuestion,
       OnlyClue: SlidesPlayerFixtureOnlyClue,
-      Picker: SlidesPlayerFixturePicker,
-      QcmImage: SlidesPlayerFixtureQcmImage,
+      QcmDrag: SlidesPlayerFixtureQcmDrag,
+      QcmGraphic: SlidesPlayerFixtureQcmGraphic,
       QcmShort: SlidesPlayerFixtureQcmShort,
       Qcm: SlidesPlayerFixtureQcm,
       Range: SlidesPlayerFixtureRange,
@@ -1309,8 +1309,8 @@ export const fixtures = {
       FreeText: PlayerFixtureFreeText,
       Media: PlayerFixtureMedia,
       OnlyClue: PlayerFixtureOnlyClue,
-      Picker: PlayerFixturePicker,
-      QcmImage: PlayerFixtureQcmImage,
+      QcmDrag: PlayerFixtureQcmDrag,
+      QcmGraphic: PlayerFixtureQcmGraphic,
       QcmShort: PlayerFixtureQcmShort,
       Qcm: PlayerFixtureQcm,
       Range: PlayerFixtureRange
@@ -1756,8 +1756,8 @@ export const dependencies = {
         "MoleculeQuestions": {
           "FreeText": true,
           "DropDown": true,
-          "Picker": true,
-          "QcmImage": true,
+          "QcmDrag": true,
+          "QcmGraphic": true,
           "Qcm": true,
           "QuestionRange": true,
           "Template": true
@@ -1995,8 +1995,8 @@ export const dependencies = {
           "Slide": true
         },
         "MoleculeQuestions": {
-          "Picker": true,
-          "QcmImage": true,
+          "QcmDrag": true,
+          "QcmGraphic": true,
           "Qcm": true
         }
       }
@@ -2444,22 +2444,22 @@ export const dependencies = {
       },
       "children": {
         "MoleculeQuestions": {
-          "Picker": true
+          "QcmDrag": true
         }
       }
     },
     "Toggler": {
       "children": {
         "MoleculeQuestions": {
-          "Picker": true,
-          "QcmImage": true,
+          "QcmDrag": true,
+          "QcmGraphic": true,
           "Qcm": true
         }
       }
     }
   },
   "MoleculeQuestions": {
-    "Picker": {
+    "QcmDrag": {
       "parents": {
         "Organism": {
           "Slider": true
@@ -2474,7 +2474,7 @@ export const dependencies = {
       },
       "children": {}
     },
-    "QcmImage": {
+    "QcmGraphic": {
       "parents": {
         "Organism": {
           "Slider": true

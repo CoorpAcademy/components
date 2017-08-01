@@ -1,4 +1,4 @@
-import Qcm from '../../../../molecule/questions/qcm/test/fixtures/default';
+import Qcm from '../../../questions/qcm/test/fixtures/default';
 
 const answerProps = Qcm.props;
 

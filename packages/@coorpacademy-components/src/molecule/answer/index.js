@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import Picture from '../../atom/picture';
 import DropDown from '../questions/drop-down';
 import FreeText from '../questions/free-text';
-import Picker from '../questions/picker';
+import QcmDrag from '../questions/qcm-drag';
 import Qcm from '../questions/qcm';
-import QcmImage from '../questions/qcm-image';
+import QcmGraphic from '../questions/qcm-graphic';
 import QuestionRange from '../questions/question-range';
 import Template from '../questions/template';
 import style from './style.css';
@@ -26,11 +26,11 @@ const Answer = props => {
 
     switch (type) {
       case 'qcmDrag':
-        return <Picker {...model} />;
+        return <QcmDrag {...model} />;
       case 'qcm':
         return <Qcm {...model} />;
       case 'qcmGraphic':
-        return <QcmImage {...model} />;
+        return <QcmGraphic {...model} />;
       case 'freeText':
         return <FreeText {...model} />;
       case 'dropDown':

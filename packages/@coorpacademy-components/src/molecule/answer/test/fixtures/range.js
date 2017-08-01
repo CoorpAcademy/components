@@ -1,4 +1,4 @@
-import QuestionRange from '../../../../molecule/questions/question-range/test/fixtures/default';
+import QuestionRange from '../../../questions/question-range/test/fixtures/default';
 
 const answerProps = QuestionRange.props;
 

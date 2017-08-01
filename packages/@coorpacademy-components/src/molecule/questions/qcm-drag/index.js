@@ -6,7 +6,7 @@ import orderBy from 'lodash/fp/orderBy';
 import Provider from '../../../atom/provider';
 import style from './style.css';
 
-const Picker = (props, context) => {
+const QcmDrag = (props, context) => {
   const {answers} = props;
   const {translate} = context;
 
@@ -47,11 +47,11 @@ const Picker = (props, context) => {
   );
 };
 
-Picker.contextTypes = {
+QcmDrag.contextTypes = {
   translate: Provider.childContextTypes.translate
 };
 
-Picker.propTypes = {
+QcmDrag.propTypes = {
   answers: PropTypes.arrayOf(
     PropTypes.shape({
       onClick: PropTypes.func,
@@ -62,4 +62,4 @@ Picker.propTypes = {
   )
 };
 
-export default Picker;
+export default QcmDrag;

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ModuleBubble from '../../molecule/module-bubble';
+import ModuleBubble from '../module-bubble';
 import style from './style.css';
 
 function ModuleCard(props, context) {

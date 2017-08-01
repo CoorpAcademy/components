@@ -14,7 +14,7 @@ import Cta from '../../atom/cta';
 import Select from '../../atom/select';
 import InputSwitch from '../../atom/input-switch';
 import Link from '../../atom/link';
-import ImageSlider from '../../organism/mooc/image-slider';
+import ImageSlider from '../mooc/image-slider';
 import style from './style.css';
 
 class Theme extends React.Component {

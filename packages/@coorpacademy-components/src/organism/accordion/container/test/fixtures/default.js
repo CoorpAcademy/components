@@ -1,10 +1,10 @@
 import React from 'react';
-import QcmImage from '../../../../../molecule/questions/qcm-image';
+import QcmGraphic from '../../../../../molecule/questions/qcm-graphic';
 import Qcm from '../../../../../molecule/questions/qcm';
-import Picker from '../../../../../molecule/questions/picker';
-import pickerFixture from '../../../../../molecule/questions/picker/test/fixtures/default';
+import QcmDrag from '../../../../../molecule/questions/qcm-drag';
+import qcmDragFixture from '../../../../../molecule/questions/qcm-drag/test/fixtures/default';
 import qcmFixture from '../../../../../molecule/questions/qcm/test/fixtures/default';
-import qcmImageFixture from '../../../../../molecule/questions/qcm-image/test/fixtures/default';
+import qcmGraphicFixture from '../../../../../molecule/questions/qcm-graphic/test/fixtures/default';
 
 export default {
   props: {
@@ -17,13 +17,13 @@ export default {
         isOpen: true
       },
       {
-        title: 'Picker'
+        title: 'Qcm Drag'
       }
     ]
   },
   children: [
-    <QcmImage key="1" {...qcmImageFixture.props} />,
+    <QcmGraphic key="1" {...qcmGraphicFixture.props} />,
     <Qcm key="2" {...qcmFixture.props} />,
-    <Picker key="3" {...pickerFixture.props} />
+    <QcmDrag key="3" {...qcmDragFixture.props} />
   ]
 };

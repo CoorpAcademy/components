@@ -1,8 +1,8 @@
 import SlidesHeader from '../../../../../molecule/slides/slides-header/test/fixtures/default';
-import Picker from '../../../../../molecule/slides/slides-player/test/fixtures/picker';
+import QcmGraphic from '../../../../../molecule/slides/slides-player/test/fixtures/qcm-graphic';
 
 const headerProps = SlidesHeader.props;
-const playerProps = Picker.props;
+const playerProps = QcmGraphic.props;
 
 export default {
   props: {

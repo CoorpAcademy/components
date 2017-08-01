@@ -6,7 +6,7 @@ import get from 'lodash/fp/get';
 import keys from 'lodash/fp/keys';
 import map from 'lodash/fp/map';
 import ArrowDown from '@coorpacademy/nova-icons/composition/navigation/arrow-down';
-import Provider from '../../atom/provider';
+import Provider from '../provider';
 import getClassState from '../../util/get-class-state';
 import style from './style.css';
 

@@ -4,7 +4,7 @@ import get from 'lodash/fp/get';
 import ArrowDown from '@coorpacademy/nova-icons/composition/navigation/arrow-down';
 import Select from '../../atom/select';
 import Provider from '../../atom/provider';
-import RangeSlider from '../../molecule/range-slider';
+import RangeSlider from '../range-slider';
 import style from './style.css';
 
 class Filters extends React.Component {

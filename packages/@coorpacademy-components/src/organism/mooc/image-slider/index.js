@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import map from 'lodash/fp/map';
 import Slide from '../../../atom/slide';
-import Slider from '../../../organism/slider';
+import Slider from '../../slider';
 
 const ImageSlider = ({slides}) => {
   const myslides = map(slide => <Slide key={slide.title} {...slide} />, slides);
