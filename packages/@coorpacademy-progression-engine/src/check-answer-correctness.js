@@ -107,7 +107,7 @@ function matchAnswerForTemplate(
   ];
 }
 
-function matchAnswerForUnorderedQCM(
+function matchAnswerForUnorderedItems(
   allowedAnswers: AcceptedAnswers,
   givenAnswer: Answer
 ): Array<Array<PartialCorrection>> {
@@ -130,7 +130,7 @@ function matchAnswerForUnorderedQCM(
   });
 }
 
-function matchAnswerForOrderedQCM(
+function matchAnswerForOrderedItems(
   allowedAnswers: AcceptedAnswers,
   givenAnswer: Answer
 ): Array<Array<PartialCorrection>> {
@@ -163,15 +163,18 @@ function matchGivenAnswerToQuestion(
       return matchAnswerForTemplate(config, question, givenAnswer);
     }
     case 'qcm': {
-      return matchAnswerForUnorderedQCM(allowedAnswers, givenAnswer);
+      return matchAnswerForUnorderedItems(allowedAnswers, givenAnswer);
     }
     case 'qcmGraphic': {
-      return matchAnswerForUnorderedQCM(allowedAnswers, givenAnswer);
+      return matchAnswerForUnorderedItems(allowedAnswers, givenAnswer);
     }
     case 'qcmDrag': {
       return question.content.matchOrder
-        ? matchAnswerForOrderedQCM(allowedAnswers, givenAnswer)
-        : matchAnswerForUnorderedQCM(allowedAnswers, givenAnswer);
+        ? matchAnswerForOrderedItems(allowedAnswers, givenAnswer)
+        : matchAnswerForUnorderedItems(allowedAnswers, givenAnswer);
+    }
+    case 'slider': {
+      return matchAnswerForOrderedItems(allowedAnswers, givenAnswer);
     }
     default:
       return [[]];
