@@ -35,7 +35,7 @@ const Answer = props => {
         return <FreeText {...model} />;
       case 'dropDown':
         return <DropDown {...model} />;
-      case 'range':
+      case 'slider':
         return <QuestionRange {...model} />;
       case 'template':
         return <Template {...model} />;
