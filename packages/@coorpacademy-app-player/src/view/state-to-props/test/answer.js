@@ -1,14 +1,12 @@
 import test from 'ava';
 import isFunction from 'lodash/fp/isFunction';
 import identity from 'lodash/fp/identity';
-import unset from 'lodash/fp/unset';
 import {createGetAnswerProps, createGetHelp} from '../answer';
 import {ANSWER_EDIT} from '../../../actions/ui/answers';
 import basic from './fixtures/slides/basic';
 import qcm from './fixtures/slides/qcm';
 import qcmDrag from './fixtures/slides/qcmDrag';
 import qcmGraphic from './fixtures/slides/qcm-graphic';
-import slider from './fixtures/slides/slider';
 import template from './fixtures/slides/template';
 import slider from './fixtures/slides/slider';
 
@@ -292,9 +290,13 @@ test('should create action: edit-answer-slider', t => {
   const props = getAnswerProps(state, slider);
   const action = props.onChange(0.3);
 
-  t.is(action.type, ANSWER_EDIT.slider);
-  t.is(action.meta.progressionId, '1234');
-  t.deepEqual(action.payload, ['300']);
+  t.deepEqual(action, {
+    type: ANSWER_EDIT.slider,
+    payload: ['300'],
+    meta: {
+      progressionId: '1234'
+    }
+  });
 });
 
 test('should create initial basic props', t => {
@@ -322,41 +324,4 @@ test('should provide an help subtitle depending on question.type', t => {
   t.is(help, null);
   const help2 = getHelp(qcm);
   t.is(help2, 'Select something below');
-});
-
-test('should create initial slider props', t => {
-  const state = {};
-  const props = getAnswerProps(state, slider);
-  t.is(props.type, 'slider');
-});
-
-test('should create initial slider props', t => {
-  const state = {};
-  const sliderWithoutStep = unset('question.content.step', slider);
-  const props = getAnswerProps(state, slider);
-  t.is(props.type, 'slider');
-});
-
-test('should create edited slider props', t => {
-  const state = {
-    ui: {
-      answers: {'1234': {value: ['0']}},
-      current: {progressionId: '1234'}
-    }
-  };
-
-  const props = getAnswerProps(state, slider);
-  t.is(props.type, 'slider');
-  t.is(props.value, 0);
-  t.true(isFunction(props.onChange));
-
-  const action = props.onChange(0.5);
-  t.is(action.type, ANSWER_EDIT.slider);
-  t.deepEqual(action, {
-    type: ANSWER_EDIT.slider,
-    payload: ['500'],
-    meta: {
-      progressionId: '1234'
-    }
-  });
 });
