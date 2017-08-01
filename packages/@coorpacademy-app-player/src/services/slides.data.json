@@ -50,11 +50,7 @@
         "placeholder": " ",
         "maxTypos": null,
         "choices": [],
-        "answers": [
-          [
-            "Text"
-          ]
-        ],
+        "answers": [["Text"]],
         "media": {
           "subtitles": [],
           "posters": [],
@@ -160,11 +156,7 @@
             }
           }
         ],
-        "answers": [
-          [
-            "Bonne réponse"
-          ]
-        ],
+        "answers": [["Bonne réponse"]],
         "media": {
           "subtitles": [],
           "posters": [],
@@ -256,11 +248,7 @@
             }
           }
         ],
-        "answers": [
-          [
-            "Free Run"
-          ]
-        ],
+        "answers": [["Free Run"]],
         "media": {
           "subtitles": [],
           "posters": [],
@@ -334,11 +322,7 @@
       "explanation": "Sélectionnez la (les) bonne(s) réponse(s).",
       "content": {
         "maxTypos": null,
-        "answers": [
-          [
-            "Vrai"
-          ]
-        ],
+        "answers": [["Vrai"]],
         "choices": [
           {
             "_id": "59307529a2b39d0024eebfed",
@@ -479,11 +463,7 @@
             }
           }
         ],
-        "answers": [
-          [
-            "2"
-          ]
-        ],
+        "answers": [["2"]],
         "media": {
           "subtitles": [],
           "posters": [],
@@ -554,11 +534,7 @@
             }
           }
         ],
-        "answers": [
-          [
-            "4"
-          ]
-        ],
+        "answers": [["4"]],
         "media": {
           "subtitles": [],
           "posters": [],
@@ -632,11 +608,7 @@
             }
           }
         ],
-        "answers": [
-          [
-            "Boulevard Poissonnière"
-          ]
-        ],
+        "answers": [["Boulevard Poissonnière"]],
         "media": {
           "subtitles": [],
           "posters": [],
@@ -733,11 +705,7 @@
             }
           }
         ],
-        "answers": [
-          [
-            "C'est Paris !"
-          ]
-        ],
+        "answers": [["C'est Paris !"]],
         "media": {
           "subtitles": [],
           "posters": [],
@@ -822,11 +790,7 @@
             }
           }
         ],
-        "answers": [
-          [
-            "Faux"
-          ]
-        ],
+        "answers": [["Faux"]],
         "media": {
           "subtitles": [],
           "posters": [],
@@ -850,9 +814,7 @@
         "template": "The answer is {{inp81438}} and {{sel31191}}",
         "matchOrder": true,
         "maxTypos": null,
-        "answers": [
-          ["Text", "Select"]
-        ],
+        "answers": [["Text", "Select"]],
         "choices": [
           {
             "type": "text",
@@ -953,12 +915,7 @@
             "value": "sli_NkaegcmAY~o.choice_05"
           }
         ],
-        "answers": [
-          [
-            "Vrai 2",
-            "Vrai 1"
-          ]
-        ],
+        "answers": [["Vrai 2", "Vrai 1"]],
         "media": {
           "subtitles": [],
           "posters": [],
@@ -1022,13 +979,7 @@
             "value": "sli_VyZmMYQCFWj.choice_05"
           }
         ],
-        "answers": [
-          [
-            "Vrai 1",
-            "Vrai 2",
-            "Vrai 3"
-          ]
-        ]
+        "answers": [["Vrai 1", "Vrai 2", "Vrai 3"]]
       }
     }
   },
@@ -1092,9 +1043,16 @@
           "src": []
         },
         "answers": [
-            ["100"],
-            ["200"],
-            ["300"]
+          ["100"],
+          ["200"],
+          ["300"],
+          ["400"],
+          ["500"],
+          ["600"],
+          ["700"],
+          ["800"],
+          ["900"],
+          ["1000"]
         ]
       },
       "medias": []
