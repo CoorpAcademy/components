@@ -7,11 +7,13 @@ import PDFIcon from '@coorpacademy/nova-icons/line/files-office/file-office-pdf'
 import ResourceMiniature from '../../atom/resource-miniature';
 import Provider from '../../atom/provider';
 import Link from '../../atom/link';
-import VideoPlayer from '../../molecule/video-iframe';
+import VideoPlayer from '../../molecule/video-player';
 import style from './style.css';
 
-const SelectedVideo = ({videoId, autoplay = false}) =>
-  <VideoPlayer type="vimeo" id={videoId} height="100%" width="auto" autoplay={autoplay} />;
+const SelectedVideo = props => {
+  const {videoId, autoplay = false} = props;
+  return <VideoPlayer id={videoId} height="100%" width="auto" autoplay={autoplay} {...props} />;
+};
 
 const SelectedPDF = (props, context) => {
   const {description, mediaUrl} = props;
@@ -69,6 +71,7 @@ const resourcePropTypeBase = {
 const videoPropType = PropTypes.shape({
   ...resourcePropTypeBase,
   videoId: VideoPlayer.propTypes.id,
+  mimeType: VideoPlayer.propTypes.mimeType,
   autoplay: VideoPlayer.propTypes.autoplay
 });
 

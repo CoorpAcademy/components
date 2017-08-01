@@ -1,6 +1,6 @@
 export default {
   props: {
-    type: 'vimeo',
+    mimeType: 'application/vimeo',
     id: '178430038'
   }
 };

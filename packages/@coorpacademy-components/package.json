@@ -58,6 +58,7 @@
     "qs": "6.5.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "react-jw-player": "^1.9.1",
     "react-linked-input": "^15.5.1"
   },
   "devDependencies": {

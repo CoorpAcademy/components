@@ -49,6 +49,8 @@ const playerProps = (options, store) => state => {
   const getHelp = createGetHelp(options, store);
   const help = getHelp(slide);
 
+  console.dir(resources);
+
   return {
     typeClue: isAnswer ? 'answer' : route,
     text: clue,
