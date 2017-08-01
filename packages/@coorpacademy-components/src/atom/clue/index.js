@@ -22,7 +22,6 @@ const Clue = (props, context) => {
   const {text} = props;
   const {skin} = context;
   const brandColor = get('common.brand', skin);
-
   const isLoading = isNil(text);
 
   return (

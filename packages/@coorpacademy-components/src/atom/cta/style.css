@@ -11,6 +11,7 @@
   font-weight: 600;
   text-decoration: none;
   padding: 0 20px;
+  cursor: pointer;
 }
 
 /*
@@ -47,7 +48,7 @@
 }
 
 .secondaryButton {
-  background-color: white;
+  background-color: transparent;
   border-color: brand;
   color: brand;
 }

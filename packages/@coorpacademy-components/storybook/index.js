@@ -19,7 +19,7 @@ import {components, fixtures} from './components';
 
 const forEach = mapValues.convert({cap: false});
 const locales = {en, fr};
-const translate = createTranslate(locales.fr);
+const translate = createTranslate(locales.en);
 
 const context = {
   skin,

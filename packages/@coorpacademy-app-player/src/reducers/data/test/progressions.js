@@ -6,7 +6,8 @@ import {
   PROGRESSION_FETCH_FAILURE,
   PROGRESSION_CREATE_ANSWER_REQUEST,
   PROGRESSION_CREATE_ANSWER_SUCCESS,
-  PROGRESSION_REQUEST_CLUE_SUCCESS
+  PROGRESSION_REQUEST_CLUE_SUCCESS,
+  PROGRESSION_CONFIG_FETCH_SUCCESS
 } from '../../../actions/api/progressions';
 import macro from '../../test/helpers/macro';
 
@@ -125,4 +126,16 @@ test(
     payload: {bar: 'bar'}
   },
   {entities: {foo: {foo: 'foo', bar: 'bar'}}}
+);
+
+test(
+  'should feed progression config',
+  macro,
+  reducer,
+  {},
+  {
+    type: PROGRESSION_CONFIG_FETCH_SUCCESS,
+    payload: 'foo'
+  },
+  {config: 'foo'}
 );

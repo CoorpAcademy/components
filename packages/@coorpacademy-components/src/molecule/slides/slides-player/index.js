@@ -16,25 +16,54 @@ import style from './style.css';
  * Content types
  */
 
+const ClueContent = (props, context) => {
+  const {text, starsDiff} = props;
+  const {translate} = context;
+  const starsToLoose = translate('clue_stars_to_loose', {count: Math.abs(starsDiff)});
+
+  return (
+    <div className={style.clueWrapper}>
+      <Clue text={text} />
+      <div className={style.stars}>{starsToLoose}</div>
+    </div>
+  );
+};
+
+ClueContent.propTypes = {
+  text: PropTypes.string,
+  starsDiff: PropTypes.number
+};
+
+ClueContent.contextTypes = {
+  translate: Provider.childContextTypes.translate
+};
+
 const AnswerContent = ({answerType}) => <Answer {...answerType} />;
 
 AnswerContent.propTypes = {
   answerType: PropTypes.shape(Answer.PropTypes)
 };
 
-const ClueContent = ({text}) => <Clue text={text} />;
+const MediaContent = (props, context) => {
+  const {resources, starsDiff} = props;
+  const {translate} = context;
+  const starsToWin = translate('media_stars_to_win', {count: Math.abs(starsDiff)});
 
-ClueContent.propTypes = {
-  text: Clue.propTypes.text
+  return (
+    <div className={style.resourcesWrapper}>
+      <ResourceBrowser resources={resources} />
+      <div className={style.stars}>{starsToWin}</div>
+    </div>
+  );
 };
 
-const MediaContent = ({resources}) =>
-  <div className={style.resourcesWrapper}>
-    <ResourceBrowser resources={resources} />
-  </div>;
-
 MediaContent.propTypes = {
-  resources: ResourceBrowser.propTypes.resources
+  resources: ResourceBrowser.propTypes.resources,
+  starsDiff: PropTypes.number
+};
+
+MediaContent.contextTypes = {
+  translate: Provider.childContextTypes.translate
 };
 
 const CONTENT_TYPE = {
@@ -96,7 +125,7 @@ const ContentLayout = (props, context) => {
       <div data-name="question" className={style.question}>
         {question}
       </div>
-      {help ? <Help help={help} /> : null}
+      {help && typeClue === 'answer' ? <Help help={help} /> : null}
       <ContentType {...props} />
       <div className={style.ctaWrapper}>
         <Cta className={style.cta} {...cta} />

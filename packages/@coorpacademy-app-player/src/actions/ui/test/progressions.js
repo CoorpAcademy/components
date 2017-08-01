@@ -8,7 +8,9 @@ import {
   PROGRESSION_FETCH_SUCCESS,
   PROGRESSION_FETCH_FAILURE,
   PROGRESSION_FETCH_BESTOF_REQUEST,
-  PROGRESSION_FETCH_BESTOF_SUCCESS
+  PROGRESSION_FETCH_BESTOF_SUCCESS,
+  PROGRESSION_CONFIG_FETCH_REQUEST,
+  PROGRESSION_CONFIG_FETCH_SUCCESS
 } from '../../api/progressions';
 import {
   RANK_FETCH_START_REQUEST,
@@ -71,7 +73,8 @@ test(
       findBestOf: (ref, id) => {
         t.is(ref, 'baz');
         return 16;
-      }
+      },
+      getConfig: () => 42
     },
     Slides: {
       findById: id => {
@@ -159,6 +162,13 @@ test(
       },
       set('data.chapters.entities.baz.bestScore', 16, {})
     ],
+    {
+      type: PROGRESSION_CONFIG_FETCH_REQUEST
+    },
+    {
+      type: PROGRESSION_CONFIG_FETCH_SUCCESS,
+      payload: 42
+    },
     [
       {
         type: SLIDE_FETCH_REQUEST,
@@ -187,7 +197,8 @@ test(
       findBestOf: (ref, id) => {
         t.is(ref, 'baz');
         return 16;
-      }
+      },
+      getConfig: () => 42
     },
     ExitNodes: {
       findById: id => {
@@ -278,6 +289,13 @@ test(
       },
       set('data.chapters.entities.baz.bestScore', 16, {})
     ],
+    {
+      type: PROGRESSION_CONFIG_FETCH_REQUEST
+    },
+    {
+      type: PROGRESSION_CONFIG_FETCH_SUCCESS,
+      payload: 42
+    },
     [
       {
         type: RANK_FETCH_END_REQUEST

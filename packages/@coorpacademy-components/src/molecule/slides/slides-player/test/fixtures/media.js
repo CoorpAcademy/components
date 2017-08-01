@@ -9,6 +9,7 @@ const resourceProps = ResourceBrowser.props;
 export default {
   props: {
     typeClue: 'media',
+    starsDiff: 4,
     step: {
       current: 2,
       total: 6
@@ -19,7 +20,6 @@ export default {
       ...props,
       submitValue: 'Back to Question'
     },
-    help: 'En regardant cet indice, vous perdez 1 étoile',
     ...resourceProps,
     ...footerProps
   }

@@ -159,10 +159,29 @@
   flex-grow: 0.7;
 }
 
+.clueWrapper {
+  flex-grow: 0.7;
+}
+
+.stars {
+  font-family: 'Open Sans';
+  font-weight: 700;
+  font-size: 14px;
+  color: grey;
+  letter-spacing: 0;
+  width: 100%;
+  margin: 24px 0;
+  text-align: center;
+}
+
 @media mobile {
   .wrapper {
     box-shadow: none;
     border-radius: 0;
+  }
+
+  .resourcesWrapper {
+    width: 100%;
   }
 
   .contentWrapper {
@@ -196,7 +215,6 @@
     height: 53px;
     line-height: 53px;
     border-radius: 30px;
-    width: 100%;
   }
 
   .footer {

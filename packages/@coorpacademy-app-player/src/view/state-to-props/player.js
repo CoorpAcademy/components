@@ -4,6 +4,7 @@ import {
   getCurrentProgression,
   getCurrentSlide,
   getCurrentProgressionId,
+  getProgressionConfig,
   getAnswerValues,
   getCurrentClue,
   getRoute,
@@ -16,10 +17,9 @@ import {createGetAnswerProps, createGetHelp} from './answer';
 import getResourcesProps from './resources';
 
 const ROUTES = ['media', 'clue'];
-const CTA_STYLE = {
-  light: false,
-  small: false,
-  secondary: false
+const STARS_DIFF = {
+  media: 'starsPerResourceViewed',
+  clue: 'starsPerAskingClue'
 };
 
 const playerProps = (options, store) => state => {
@@ -27,12 +27,14 @@ const playerProps = (options, store) => state => {
   const {dispatch} = store;
 
   const progression = getCurrentProgression(state);
+  const progressionConfig = getProgressionConfig(state);
   const slide = getCurrentSlide(state);
   const answer = createGetAnswerProps(options, store)(state, slide);
   const mediaQuestion = getQuestionMedia(state);
   const clue = getCurrentClue(state) || null;
   const route = getRoute(state);
   const resources = getResourcesProps(options, store)(state, slide);
+  const starsDiff = (STARS_DIFF[route] && get(STARS_DIFF[route], progressionConfig)) || 0;
   const isAnswer = !includes(route, ROUTES);
   const clickClueHandler = () => dispatch(selectClue);
   const clickBackToAnswerHandler = () => dispatch(selectRoute('answer'));
@@ -53,17 +55,22 @@ const playerProps = (options, store) => state => {
     step: get('state.step')(progression),
     question: get('question.header')(slide),
     verticalMargin: 260,
+    starsDiff,
     resources,
     cta: isAnswer
       ? {
           submitValue: translate('Validate'),
           onClick: clickCTAHandler,
-          ...CTA_STYLE
+          light: false,
+          small: false,
+          secondary: false
         }
       : {
-          submitValue: translate('Back'),
+          submitValue: translate('Back to question'),
           onClick: clickBackToAnswerHandler,
-          ...CTA_STYLE
+          light: false,
+          small: false,
+          secondary: true
         },
     help,
     answerType: {

@@ -75,10 +75,10 @@ test('should display loading clue', async t => {
 
   t.is(playerProps.question, "Écrivez le mot Text dans l'input.\n");
   t.deepEqual(omit('onClick', playerProps.cta), {
-    submitValue: 'Back',
+    submitValue: 'Back to question',
     light: false,
     small: false,
-    secondary: false
+    secondary: true
   });
   await t.notThrows(playerProps.cta.onClick);
   t.is(playerProps.help, 'Select something below');
@@ -116,10 +116,10 @@ test('should display clue', async t => {
 
   t.is(playerProps.question, "Écrivez le mot Text dans l'input.\n");
   t.deepEqual(omit('onClick', playerProps.cta), {
-    submitValue: 'Back',
+    submitValue: 'Back to question',
     light: false,
     small: false,
-    secondary: false
+    secondary: true
   });
   await t.notThrows(playerProps.cta.onClick);
   t.is(playerProps.help, 'Select something below');
