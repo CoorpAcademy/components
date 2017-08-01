@@ -221,6 +221,7 @@ import SelectFixtureMooc from '../src/atom/select/test/fixtures/mooc';
 import SelectFixtureMultipleSelected from '../src/atom/select/test/fixtures/multiple-selected';
 import SelectFixtureMultiple from '../src/atom/select/test/fixtures/multiple';
 import SelectFixtureQuestion from '../src/atom/select/test/fixtures/question';
+import SelectFixtureRequiredWithTitle from '../src/atom/select/test/fixtures/required-with-title';
 import SelectFixtureRequired from '../src/atom/select/test/fixtures/required';
 import SelectFixtureSort from '../src/atom/select/test/fixtures/sort';
 import SelectFixtureThematiquesLong from '../src/atom/select/test/fixtures/thematiques-long';
@@ -853,6 +854,7 @@ export const fixtures = {
       MultipleSelected: SelectFixtureMultipleSelected,
       Multiple: SelectFixtureMultiple,
       Question: SelectFixtureQuestion,
+      RequiredWithTitle: SelectFixtureRequiredWithTitle,
       Required: SelectFixtureRequired,
       Sort: SelectFixtureSort,
       ThematiquesLong: SelectFixtureThematiquesLong,
