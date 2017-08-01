@@ -235,6 +235,7 @@ import SocialLinkFixtureFacebook from '../src/atom/social-link/test/fixtures/fac
 import SocialLinkFixtureTwitter from '../src/atom/social-link/test/fixtures/twitter';
 import SpinnerFixtureDefault from '../src/atom/spinner/test/fixtures/default';
 import TabContentFixtureDefault from '../src/atom/tab-content/test/fixtures/default';
+import TabContentFixtureHideContentBackground from '../src/atom/tab-content/test/fixtures/hide-content-background';
 import TabFixtureDefault from '../src/atom/tab/test/fixtures/default';
 import TitleFixtureFixture from '../src/atom/title/test/fixtures/fixture';
 import AnswerFixtureDefault from '../src/molecule/answer/test/fixtures/default';
@@ -876,7 +877,8 @@ export const fixtures = {
       Default: SpinnerFixtureDefault
     },
     TabContent: {
-      Default: TabContentFixtureDefault
+      Default: TabContentFixtureDefault,
+      HideContentBackground: TabContentFixtureHideContentBackground
     },
     Tab: {
       Default: TabFixtureDefault

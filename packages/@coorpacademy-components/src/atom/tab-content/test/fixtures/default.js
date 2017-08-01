@@ -1,6 +1,6 @@
 export default {
   props: {
-    activeContent: 'activeContent',
+    hideContentBackground: false,
     tabTitle: 'Tab title'
   }
 };

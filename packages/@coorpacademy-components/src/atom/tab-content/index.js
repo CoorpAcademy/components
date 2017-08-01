@@ -27,7 +27,8 @@ TabContent.contextTypes = {
 
 TabContent.propTypes = {
   tabTitle: PropTypes.string,
-  hideContentBackground: PropTypes.bool
+  hideContentBackground: PropTypes.bool,
+  children: PropTypes.node
 };
 
 export default TabContent;
