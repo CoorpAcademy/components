@@ -10,6 +10,7 @@ import style from './style.css';
 
 const inRange = (min, max) => pipe(p => Math.max(min, p), p => Math.min(max, p));
 
+// eslint-disable-next-line no-shadow
 class Range extends React.Component {
   constructor(props, context) {
     super(props, context);
