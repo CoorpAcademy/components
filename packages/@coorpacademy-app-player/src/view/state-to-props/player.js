@@ -12,7 +12,7 @@ import {
 import {validateAnswer} from '../../actions/ui/answers';
 import {selectRoute} from '../../actions/ui/route';
 import {selectClue} from '../../actions/ui/clues';
-import getAnswerProps from './answer';
+import {createGetAnswerProps, createGetHelp} from './answer';
 import getResourcesProps from './resources';
 
 const ROUTES = ['media', 'clue'];
@@ -28,7 +28,7 @@ const playerProps = (options, store) => state => {
 
   const progression = getCurrentProgression(state);
   const slide = getCurrentSlide(state);
-  const answer = getAnswerProps(options, store)(state, slide);
+  const answer = createGetAnswerProps(options, store)(state, slide);
   const mediaQuestion = getQuestionMedia(state);
   const clue = getCurrentClue(state) || null;
   const route = getRoute(state);
@@ -43,6 +43,9 @@ const playerProps = (options, store) => state => {
         slideId: slide._id
       })
     );
+
+  const getHelp = createGetHelp(options, store);
+  const help = getHelp(slide);
 
   return {
     typeClue: isAnswer ? 'answer' : route,
@@ -62,7 +65,7 @@ const playerProps = (options, store) => state => {
           onClick: clickBackToAnswerHandler,
           ...CTA_STYLE
         },
-    help: translate('Select something below'),
+    help,
     answerType: {
       model: answer,
       media: mediaQuestion
