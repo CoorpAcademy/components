@@ -10,7 +10,7 @@ import style from './style.css';
 
 const inRange = (min, max) => pipe(p => Math.max(min, p), p => Math.min(max, p));
 
-class RangeSlider extends React.Component {
+class Range extends React.Component {
   constructor(props, context) {
     super(props, context);
 
@@ -112,14 +112,14 @@ class RangeSlider extends React.Component {
   }
 }
 
-RangeSlider.contextTypes = {
+Range.contextTypes = {
   skin: Provider.childContextTypes.skin
 };
 
-RangeSlider.propTypes = {
+Range.propTypes = {
   onChange: PropTypes.func,
   multi: PropTypes.bool,
   value: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)])
 };
 
-export default RangeSlider;
+export default Range;
