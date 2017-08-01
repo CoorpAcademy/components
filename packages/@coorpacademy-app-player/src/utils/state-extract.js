@@ -1,6 +1,7 @@
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import pipe from 'lodash/fp/pipe';
+import toString from 'lodash/fp/toString'; // eslint-disable-line no-shadow
 
 const getId = get('_id');
 
@@ -24,7 +25,14 @@ export const getAnswers = state => {
   return getOr({}, ['ui', 'answers', progressionId])(state);
 };
 
-export const getAnswerValues = pipe(getAnswers, get('value'));
+export const getAnswerValues = (slide, state) => {
+  const answers = get('value', getAnswers(state));
+  const defaultValue = get('question.content.defaultValue', slide);
+  if (answers === undefined && defaultValue !== undefined) {
+    return [toString(defaultValue)];
+  }
+  return answers;
+};
 
 export const getSlide = id => state => {
   const entities = get('data.slides.entities')(state);
