@@ -22,7 +22,7 @@ const ClueContent = (props, context) => {
   const starsToLoose = translate('clue_stars_to_loose', {count: Math.abs(starsDiff)});
 
   return (
-    <div>
+    <div className={style.clueWrapper}>
       <Clue text={text} />
       <div className={style.stars}>{starsToLoose}</div>
     </div>

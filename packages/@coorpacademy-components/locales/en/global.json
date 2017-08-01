@@ -66,8 +66,9 @@
   "premium_unsubscribe_confirmation": "We confirm the cancelling of your subscription which will be effective starting from next month.\n\nIn the meantime, you can continue to enjoy our content on the Coorpacademy platform.",
   "New media": "New media",
   "Select the correct option(s) below": "Select the correct option(s) below",
-  "clue_stars_to_loose": "By watching this clue, you loose {{count}} star",
-  "clue_stars_to_loose_plural": "By watching this clue, you loose {{count}} stars",
-  "media_stars_to_win": "Watch this lesson and win {{count}} star",
-  "media_stars_to_win_plural": "Watch this lesson and win {{count}} stars"
+  "clue_stars_to_loose": "Unlocking the clue costs {{count}} star on each question",
+  "clue_stars_to_loose_plural": "Unlocking the clue costs {{count}} stars on each question",
+  "media_stars_to_win": "Win {{count}} additional star in this chapter the first time you watch the lesson!",
+  "media_stars_to_win_plural": "Win {{count}} additional stars in this chapter the first time you watch the lesson!",
+  "Open": "Open"
 }

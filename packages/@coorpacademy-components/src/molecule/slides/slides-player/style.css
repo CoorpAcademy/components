@@ -159,6 +159,10 @@
   flex-grow: 0.7;
 }
 
+.clueWrapper {
+  flex-grow: 0.7;
+}
+
 .stars {
   font-family: 'Open Sans';
   font-weight: 700;
