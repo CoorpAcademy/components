@@ -7,7 +7,7 @@ import Provider from '../provider';
 import Loader from '../loader';
 import style from './style.css';
 
-const LoadedClue = ({brandColor, text, stars}) => {
+const LoadedClue = ({brandColor, text}) => {
   return (
     <div data-name="text" className={style.clueText}>
       <div className={style.logo}>

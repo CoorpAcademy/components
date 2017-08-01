@@ -1,7 +1,7 @@
 import get from 'lodash/fp/get';
 import includes from 'lodash/fp/includes';
 import buildTask from '../../utils/redux-task';
-import {getProgression, getBestScore} from '../../utils/state-extract';
+import {getProgression, getBestScore, getProgressionConfig} from '../../utils/state-extract';
 
 export const PROGRESSION_FETCH_REQUEST = '@@progression/FETCH_REQUEST';
 export const PROGRESSION_FETCH_SUCCESS = '@@progression/FETCH_SUCCESS';
@@ -33,7 +33,8 @@ export const fetchProgressionConfig = () => (dispatch, getState, {services}) => 
       PROGRESSION_CONFIG_FETCH_SUCCESS,
       PROGRESSION_CONFIG_FETCH_FAILURE
     ],
-    task: Progressions.getConfig
+    task: Progressions.getConfig,
+    bailout: getProgressionConfig
   });
 
   return dispatch(action);
