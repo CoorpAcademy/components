@@ -3,8 +3,16 @@ import includes from 'lodash/fp/includes';
 import head from 'lodash/fp/head';
 import map from 'lodash/fp/map';
 import get from 'lodash/fp/get';
+import divide from 'lodash/fp/divide';
+import multiply from 'lodash/fp/multiply';
+import __ from 'lodash/fp/__';
+import round from 'lodash/fp/round';
+import size from 'lodash/fp/size';
 import set from 'lodash/fp/set';
+import isNil from 'lodash/fp/isNil';
+import rangeStep from 'lodash/fp/rangeStep';
 import toArray from 'lodash/fp/toArray';
+import debounce from 'lodash/fp/debounce';
 import indexOf from 'lodash/fp/indexOf';
 import {
   getChoices,
@@ -143,6 +151,38 @@ const basicProps = (options, store) => (state, slide) => {
   };
 };
 
+const toAnswer = values => {
+  const maxValue = size(values) - 1;
+  return position => {
+    return pipe(multiply(maxValue), round, get(__, values))(position);
+  };
+};
+
+const sliderProps = (options, store) => (state, slide) => {
+  const values = rangeStep(
+    slide.question.content.step || 1,
+    slide.question.content.min,
+    slide.question.content.max + 1
+  );
+
+  const stateValue = pipe(getAnswerValues, head)(state);
+  const currentValue = isNil(stateValue) ? slide.question.content.defaultValue : stateValue;
+
+  const indexValue = indexOf(currentValue, values);
+  const handleChange = editAnswerAction(options, store)(state, slide);
+  const sliderPosition = divide(indexValue, size(values) - 1);
+
+  return {
+    type: 'slider',
+    placeholder: slide.explanation,
+    minLabel: `${slide.question.content.min} ${slide.question.content.unitLabel}`,
+    maxLabel: `${slide.question.content.max} ${slide.question.content.unitLabel}`,
+    title: `${currentValue} ${slide.question.content.unitLabel}`,
+    value: sliderPosition,
+    onChange: pipe(toAnswer(values), handleChange)
+  };
+};
+
 const createGetAnswerProps = (options, store) => (state, slide) => {
   const type = getQuestionType(slide);
   switch (type) {
@@ -160,6 +200,9 @@ const createGetAnswerProps = (options, store) => (state, slide) => {
 
     case 'template':
       return templateProps(options, store)(state, slide);
+
+    case 'slider':
+      return sliderProps(options, store)(state, slide);
 
     default:
       return {};

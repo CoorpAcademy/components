@@ -10,7 +10,8 @@ export const ANSWER_EDIT = {
   qcmGraphic: '@@answer/EDIT_QCM_GRAPHIC',
   qcmDrag: '@@answer/EDIT_QCM_DRAG',
   template: '@@answer/EDIT_TEMPLATE',
-  basic: '@@answer/EDIT_BASIC'
+  basic: '@@answer/EDIT_BASIC',
+  slider: '@@answer/EDIT_SLIDER'
 };
 
 const newState = (state = [], questionType, newValue) => {
@@ -27,6 +28,7 @@ const newState = (state = [], questionType, newValue) => {
       }
 
     case 'basic':
+    case 'slider':
       return [newValue];
 
     case 'template':

@@ -11,7 +11,7 @@
 
 <script type="text/javascript">
   var pathname = window.location.pathname;
-  var progressionId = /^\/(\d)*/.exec(pathname)[1] || '0';
+  var progressionId = /^\/(.*)/.exec(pathname)[1] || '0';
 
   window.Coorpacademy.Player.create({
     container: document.getElementById('player'),
