@@ -6,7 +6,7 @@ export default {
     targetContent: 'tab',
     links: [
       {
-        title: 'Fremium title'
+        title: 'Freemium title'
       },
       {
         title: 'Premium title'
