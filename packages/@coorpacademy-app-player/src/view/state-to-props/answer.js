@@ -176,7 +176,7 @@ const sliderProps = (options, store) => (state, slide) => {
 
   return {
     type: 'slider',
-    placeholder: slide.explanation,
+    placeholder: slide.question.explanation,
     minLabel: `${slide.question.content.min} ${slide.question.content.unitLabel}`,
     maxLabel: `${slide.question.content.max} ${slide.question.content.unitLabel}`,
     title: `${currentValue} ${slide.question.content.unitLabel}`,
