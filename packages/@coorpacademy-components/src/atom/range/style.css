@@ -6,7 +6,7 @@
 @value white from colors;
 @value brand from colors;
 
-.default {
+.containerWrapper {
   padding: 15px;
 }
 
