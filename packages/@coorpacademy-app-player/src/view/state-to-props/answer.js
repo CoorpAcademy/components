@@ -12,7 +12,7 @@ import set from 'lodash/fp/set';
 import isNil from 'lodash/fp/isNil';
 import rangeStep from 'lodash/fp/rangeStep';
 import toArray from 'lodash/fp/toArray';
-import debounce from 'lodash/fp/debounce';
+import toString from 'lodash/fp/toString'; // eslint-disable-line no-shadow
 import indexOf from 'lodash/fp/indexOf';
 import {
   getChoices,
@@ -154,7 +154,7 @@ const basicProps = (options, store) => (state, slide) => {
 const toAnswer = values => {
   const maxValue = size(values) - 1;
   return position => {
-    return pipe(multiply(maxValue), round, get(__, values))(position);
+    return pipe(multiply(maxValue), round, get(__, values), toString)(position);
   };
 };
 
@@ -166,7 +166,9 @@ const sliderProps = (options, store) => (state, slide) => {
   );
 
   const stateValue = pipe(getAnswerValues, head)(state);
-  const currentValue = isNil(stateValue) ? slide.question.content.defaultValue : stateValue;
+  const currentValue = isNil(stateValue)
+    ? slide.question.content.defaultValue
+    : parseInt(stateValue);
 
   const indexValue = indexOf(currentValue, values);
   const handleChange = editAnswerAction(options, store)(state, slide);
