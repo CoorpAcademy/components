@@ -83,6 +83,23 @@ test("should return the value of `isCorrect` in checkAnswerCorrectness's result 
   checkBothMethods(t, false, question, ['answer1', 'answer2']);
 });
 
+test("should return the value of `isCorrect` in checkAnswerCorrectness's result (slider)", t => {
+  const question = {
+    type: 'slider',
+    content: {
+      matchOrder: false,
+      answers: [['100'], ['200'], ['300']]
+    }
+  };
+
+  checkBothMethods(t, true, question, ['100']);
+  checkBothMethods(t, true, question, ['200']);
+  checkBothMethods(t, true, question, ['300']);
+  checkBothMethods(t, false, question, ['400']);
+  checkBothMethods(t, false, question, ['101']);
+  checkBothMethods(t, false, question, ['foo']);
+});
+
 test('should return true when the question has an unknown type', t => {
   const question = {
     type: 'unknown',
@@ -91,5 +108,6 @@ test('should return true when the question has an unknown type', t => {
     }
   };
 
+  // $FlowFixMe Test when type is unknown, which is prohibited by the type checker
   checkBothMethods(t, true, question, []);
 });

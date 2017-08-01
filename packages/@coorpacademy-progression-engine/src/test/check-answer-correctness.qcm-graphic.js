@@ -1,6 +1,6 @@
 // @flow
 import test from 'ava';
-import type {QCMQuestion, AcceptedAnswers} from '../types';
+import type {QCMGraphicQuestion, AcceptedAnswers} from '../types';
 import {assertCorrect, assertIncorrect} from './helpers/assert-check-answer-correctness';
 
 const engine = {
@@ -8,7 +8,7 @@ const engine = {
   version: 'latest'
 };
 
-function createQuestion(answers: AcceptedAnswers): QCMQuestion {
+function createQuestion(answers: AcceptedAnswers): QCMGraphicQuestion {
   return {
     type: 'qcmGraphic',
     content: {

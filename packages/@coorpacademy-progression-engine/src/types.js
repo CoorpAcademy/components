@@ -88,7 +88,21 @@ export type Answer = Array<string>;
 export type AcceptedAnswers = Array<Answer>;
 
 export type QCMQuestion = {
-  type: 'qcm' | 'qcmGraphic',
+  type: 'qcm',
+  content: {
+    answers: AcceptedAnswers
+  }
+};
+
+export type QCMGraphicQuestion = {
+  type: 'qcmGraphic',
+  content: {
+    answers: AcceptedAnswers
+  }
+};
+
+export type SliderQuestion = {
+  type: 'slider',
   content: {
     answers: AcceptedAnswers
   }
@@ -124,19 +138,13 @@ export type TemplateQuestion = {
   }
 };
 
-export type UnknownQuestion = {
-  type: 'unknown',
-  content: {
-    answers: AcceptedAnswers
-  }
-};
-
 export type Question =
   | QCMQuestion
+  | QCMGraphicQuestion
   | QCMDragQuestion
+  | SliderQuestion
   | BasicQuestion
-  | TemplateQuestion
-  | UnknownQuestion;
+  | TemplateQuestion;
 
 export type Slide = {
   _id: string,
