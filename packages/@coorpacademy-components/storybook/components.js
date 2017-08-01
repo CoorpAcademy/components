@@ -172,6 +172,7 @@ import InputColorFixtureModified from '../src/atom/input-color/test/fixtures/mod
 import InputDoublestepFixtureDefault from '../src/atom/input-doublestep/test/fixtures/default';
 import InputReadonlyFixtureDefault from '../src/atom/input-readonly/test/fixtures/default';
 import InputSwitchFixtureChecked from '../src/atom/input-switch/test/fixtures/checked';
+import InputSwitchFixtureDisabled from '../src/atom/input-switch/test/fixtures/disabled';
 import InputSwitchFixtureModified from '../src/atom/input-switch/test/fixtures/modified';
 import InputSwitchFixtureNoTitle from '../src/atom/input-switch/test/fixtures/no-title';
 import InputSwitchFixtureSso from '../src/atom/input-switch/test/fixtures/sso';
@@ -779,6 +780,7 @@ export const fixtures = {
     },
     InputSwitch: {
       Checked: InputSwitchFixtureChecked,
+      Disabled: InputSwitchFixtureDisabled,
       Modified: InputSwitchFixtureModified,
       NoTitle: InputSwitchFixtureNoTitle,
       Sso: InputSwitchFixtureSso,
