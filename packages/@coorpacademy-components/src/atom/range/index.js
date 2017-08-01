@@ -3,15 +3,7 @@ import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
 import noop from 'lodash/fp/noop';
 import set from 'lodash/fp/set';
-import multiply from 'lodash/fp/multiply';
-import round from 'lodash/fp/round';
 import pipe from 'lodash/fp/pipe';
-import map from 'lodash/fp/map';
-import divide from 'lodash/fp/divide';
-import indexOf from 'lodash/fp/indexOf';
-import size from 'lodash/fp/size';
-import __ from 'lodash/fp/__';
-import isEqual from 'lodash/fp/isEqual';
 import Provider from '../provider';
 import Handle from './handle';
 import style from './style.css';
@@ -33,11 +25,8 @@ class RangeSlider extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     const {value, multi = false} = nextProps;
-    const {value: prevValue} = this.state;
 
     const nextValue = multi ? value : [0, value];
-
-    if (isEqual(nextValue, prevValue)) return;
 
     this.setState(() => ({
       multi,
@@ -73,8 +62,8 @@ class RangeSlider extends React.Component {
   onChange(newValues) {
     const {onChange = noop, multi = false} = this.props;
 
+    onChange(multi ? newValues : newValues[1]);
     this.setState(() => {
-      onChange(multi ? newValues : newValues[1]);
       return {value: newValues};
     });
   }

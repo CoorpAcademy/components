@@ -1716,7 +1716,6 @@ export const dependencies = {
           "QcmDrag": true,
           "QcmGraphic": true,
           "Qcm": true,
-          "QuestionRange": true,
           "Template": true
         }
       }
@@ -2488,18 +2487,6 @@ export const dependencies = {
       },
       "children": {}
     },
-    "QuestionRange": {
-      "parents": {
-        "Molecule": {
-          "Answer": true
-        }
-      },
-      "children": {
-        "Atom": {
-          "Range": true
-        }
-      }
-    },
     "Template": {
       "parents": {
         "Molecule": {
@@ -2510,6 +2497,13 @@ export const dependencies = {
         "MoleculeQuestions": {
           "DropDown": true,
           "FreeText": true
+        }
+      }
+    },
+    "QuestionRange": {
+      "children": {
+        "Atom": {
+          "Range": true
         }
       }
     }
