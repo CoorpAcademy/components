@@ -53,10 +53,50 @@ test('getAnswers should get answers from state', t => {
 });
 
 test("getAnswerValues should get answer's values from state", t => {
+  const slide = {
+    question: {
+      content: {
+        defaultValue: 500
+      }
+    }
+  };
   const answers = ['foo'];
   const state = pipe(set('ui.current.progressionId', '0'), set('ui.answers.0.value', answers))({});
 
-  t.is(getAnswerValues(state), answers);
+  t.is(getAnswerValues(slide, state), answers);
+});
+
+test('getAnswerValues should return defaultValue from slide if available and answers are not in state', t => {
+  const slide = {
+    question: {
+      content: {
+        defaultValue: 500
+      }
+    }
+  };
+  const state = set('ui.current.progressionId', '0', {});
+
+  t.deepEqual(getAnswerValues(slide, state), ['500']);
+});
+
+test('getAnswerValues should return undefined if answers are not in state and there is no default value for the slide', t => {
+  const slide = {};
+  const state = set('ui.current.progressionId', '0', {});
+
+  t.is(getAnswerValues(slide, state), undefined);
+});
+
+test('getAnswerValues should not use defaultValue from slide if answers is an empty array', t => {
+  const slide = {
+    question: {
+      content: {
+        defaultValue: 500
+      }
+    }
+  };
+  const state = pipe(set('ui.current.progressionId', '0'), set('ui.answers.0.value', []))({});
+
+  t.deepEqual(getAnswerValues(slide, state), []);
 });
 
 test("getQuestionType should get question's type from state", t => {
