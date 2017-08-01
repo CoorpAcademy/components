@@ -5,7 +5,9 @@ import PropTypes from 'prop-types';
 import Provider from '../../atom/provider';
 import style from './handle.css';
 
-const Hammer = typeof window !== 'undefined' ? require('hammerjs') : undefined;
+const Hammer = typeof window !== 'undefined'
+  ? require('hammerjs')
+  : /* istanbul ignore next */ undefined;
 
 class Handle extends React.Component {
   constructor(props, context) {
@@ -15,6 +17,7 @@ class Handle extends React.Component {
   }
 
   componentDidMount() {
+    /* istanbul ignore else */
     if (Hammer) {
       const {onPanStart = noop, onPanEnd = noop, onPan = noop} = this.props;
 
@@ -22,13 +25,7 @@ class Handle extends React.Component {
       this.hammer.on('panstart', onPanStart);
       this.hammer.on('panend', onPanEnd);
 
-      if (this.onX()) {
-        this.hammer.on('panleft panright', onPan);
-      }
-
-      if (this.onY()) {
-        this.hammer.on('panup pandown', onPan);
-      }
+      this.hammer.on('panleft panright', onPan);
     }
   }
 
@@ -38,16 +35,6 @@ class Handle extends React.Component {
       this.hammer.destroy();
     }
     this.hammer = null;
-  }
-
-  onX() {
-    const {axis = 'both'} = this.props;
-    return ['x', 'both'].includes(axis);
-  }
-
-  onY() {
-    const {axis = 'both'} = this.props;
-    return ['y', 'both'].includes(axis);
   }
 
   setHandle(el) {
@@ -75,7 +62,6 @@ Handle.contextTypes = {
 };
 
 Handle.propTypes = {
-  axis: PropTypes.oneOf(['x', 'y', 'both']),
   onPan: PropTypes.func,
   onPanStart: PropTypes.func,
   onPanEnd: PropTypes.func
