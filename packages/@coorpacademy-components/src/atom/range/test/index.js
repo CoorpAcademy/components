@@ -2,7 +2,7 @@ import 'jsdom-global/register';
 import test from 'ava';
 import React from 'react';
 import {mount} from 'enzyme';
-import RangeSlider from '..';
+import Range from '..'; // eslint-disable-line no-shadow
 
 const macro = (t, props, boundingRect, maxSrcEvent, maxExpected, minSrcEvent, minExpected) => {
   t.plan(minExpected ? 2 : 1);
@@ -12,7 +12,7 @@ const macro = (t, props, boundingRect, maxSrcEvent, maxExpected, minSrcEvent, mi
     t.deepEqual(value, expected.shift());
   };
 
-  const component = <RangeSlider {...props} onChange={valideChange} />;
+  const component = <Range {...props} onChange={valideChange} />;
   const slider = mount(component);
   const instance = slider.instance();
 
@@ -22,12 +22,12 @@ const macro = (t, props, boundingRect, maxSrcEvent, maxExpected, minSrcEvent, mi
   if (minSrcEvent) instance.handleMinChange({srcEvent: minSrcEvent});
 };
 
-test('should instanciate RangeSlider', macro, {value: 0.5}, {left: 10, right: 110}, {x: 60}, 0.5);
+test('should instanciate Range', macro, {value: 0.5}, {left: 10, right: 110}, {x: 60}, 0.5);
 test('should limit left hangle', macro, {value: 0.5}, {left: 10, right: 110}, {x: 0}, 0);
 test('should limit right hangle', macro, {value: 0.5}, {left: 10, right: 110}, {x: 120}, 1);
 
 test(
-  'should instanciate multi RangeSlider',
+  'should instanciate multi Range',
   macro,
   {multi: true, value: [0, 1]},
   {left: 10, right: 110},
@@ -57,7 +57,7 @@ test(
 );
 
 test("should apply props's value on simple range", t => {
-  const component = <RangeSlider />;
+  const component = <Range />;
   const slider = mount(component);
   const instance = slider.instance();
 
@@ -72,7 +72,7 @@ test("should apply props's value on simple range", t => {
 });
 
 test("should apply props's value on multi range", t => {
-  const component = <RangeSlider multi />;
+  const component = <Range multi />;
   const slider = mount(component);
   const instance = slider.instance();
 
