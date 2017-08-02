@@ -77,12 +77,15 @@ class Range extends React.Component {
     const [left, right] = this.state.value;
     const newValue = valueOnTrack(this.track, x);
 
-    if (!multi) {
-      this.handleChange(newValue, 1);
-    } else {
-      const closestHandle = Math.abs(newValue - left) < Math.abs(newValue - right) ? 0 : 1;
-      this.handleChange(newValue, closestHandle);
+    if (!multi) return this.handleChange(newValue, 1);
+
+    if (left === right) {
+      const isClickToTheLeft = left - newValue > 0;
+      return this.handleChange(newValue, isClickToTheLeft ? 0 : 1);
     }
+
+    const closestHandle = Math.abs(newValue - left) < Math.abs(newValue - right) ? 0 : 1;
+    return this.handleChange(newValue, closestHandle);
   }
 
   renderHandles() {
