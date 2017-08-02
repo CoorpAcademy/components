@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import VideoIframe from '../video-iframe';
-import {SrcPropType} from '../../util/proptypes';
 import JWPlayer from './jwplayer';
 
 const VideoPlayer = props => {
@@ -28,7 +27,6 @@ const VideoPlayer = props => {
 
 VideoPlayer.propTypes = {
   ...JWPlayer.propTypes,
-  mediaUrl: SrcPropType,
   mimeType: PropTypes.oneOf(['application/vimeo', 'video/mp4', 'application/youtube']).isRequired,
   width: PropTypes.string,
   height: PropTypes.string,

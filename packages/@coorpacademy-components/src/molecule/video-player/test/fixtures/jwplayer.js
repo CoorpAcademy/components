@@ -6,8 +6,9 @@ export default {
       file: 'https://simoocdigital.credit-agricole.fr/media/content/bigdata/159363386.mp4',
       playerScript: 'https://up-staging.coorpacademy.com/libs/jwplayer/7.10.7/jwplayer.js',
       licenseKey: 'yI8rSuuJ+fs7VdJzWjY4zGZU48UcOn+Gjg+FXZag16o=',
-      aspectRatio: '16:9',
       customProps: {
+        aspectratio: '16:9',
+        autostart: false,
         width: '100%',
         skin: {
           name: 'bekle'

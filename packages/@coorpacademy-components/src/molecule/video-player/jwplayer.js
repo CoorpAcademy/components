@@ -4,20 +4,20 @@ import ReactJWPlayer from 'react-jw-player';
 import {SrcPropType} from '../../util/proptypes';
 
 const JWPlayer = ({jwpOptions}) => {
-  return <ReactJWPlayer {...jwpOptions} />;
+  return <div><ReactJWPlayer {...jwpOptions} /></div>;
 };
 
 JWPlayer.propTypes = {
   jwpOptions: PropTypes.shape({
-    file: PropTypes.string,
-    aspectRatio: PropTypes.string,
+    file: SrcPropType,
     customProps: PropTypes.shape({
+      aspectratio: PropTypes.string,
+      width: PropTypes.string,
       skin: PropTypes.shape({
         name: PropTypes.string
       })
     }),
     licenseKey: PropTypes.string.isRequired,
-    mediaUrl: SrcPropType.isRequired,
     playerScript: SrcPropType.isRequired
   })
 };
