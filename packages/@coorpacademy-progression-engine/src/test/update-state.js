@@ -2,6 +2,7 @@
 import test from 'ava';
 import omit from 'lodash/fp/omit';
 import pick from 'lodash/fp/pick';
+import uniqueId from 'lodash/fp/uniqueId';
 import updateState from '../update-state';
 import createProgression from '../create-progression';
 import type {
@@ -17,6 +18,19 @@ const engine = {
   ref: 'microlearning',
   version: '1'
 };
+
+function chapterResourceViewedAction(chapter_ref: string): ChapterResourceViewedAction {
+  return Object.freeze({
+    type: 'resource',
+    payload: {
+      content: {
+        ref: uniqueId(),
+        type: 'resource',
+        chapter_ref
+      }
+    }
+  });
+}
 
 test('should return a valid state when there are no actions', t => {
   const content: Content = Object.freeze({
@@ -265,23 +279,12 @@ test('should update stars once when actions has several AskClueAction for the sa
 });
 
 test('should update stars after viewing a resource', t => {
-  const state: State = Object.freeze(stateForSecondSlide);
-
-  const action: ChapterResourceViewedAction = Object.freeze({
-    type: 'resource',
-    payload: {
-      content: {
-        ref: '5936600c50571fa407e7c4c4',
-        type: 'resource',
-        chapter_ref: '1.A1'
-      }
-    }
-  });
+  const state: State = Object.freeze(stateForFirstSlide);
 
   const omitChangedFields = omit(['viewedResources', 'stars']);
-  const newState = updateState(engine, state, [action, action]);
+  const newState = updateState(engine, state, [chapterResourceViewedAction('1.A1')]);
 
-  t.is(newState.stars, 8);
+  t.is(newState.stars, 4);
   t.deepEqual(newState.viewedResources, ['1.A1']);
   t.deepEqual(
     omitChangedFields(newState),
@@ -291,18 +294,7 @@ test('should update stars after viewing a resource', t => {
 });
 
 test('should update stars after viewing a resource (with different number of stars)', t => {
-  const state: State = Object.freeze(stateForSecondSlide);
-
-  const action: ChapterResourceViewedAction = Object.freeze({
-    type: 'resource',
-    payload: {
-      content: {
-        ref: '5936600c50571fa407e7c4c4',
-        type: 'resource',
-        chapter_ref: '1.A1'
-      }
-    }
-  });
+  const state: State = Object.freeze(stateForFirstSlide);
 
   const engineWithDifferentStars = {
     ref: 'microlearning',
@@ -310,10 +302,49 @@ test('should update stars after viewing a resource (with different number of sta
   };
 
   const omitChangedFields = omit(['viewedResources', 'stars']);
-  const newState = updateState(engineWithDifferentStars, state, [action, action]);
+  const newState = updateState(engineWithDifferentStars, state, [
+    chapterResourceViewedAction('1.A1')
+  ]);
 
-  t.is(newState.stars, 9);
+  t.is(newState.stars, 5);
   t.deepEqual(newState.viewedResources, ['1.A1']);
+  t.deepEqual(
+    omitChangedFields(newState),
+    omitChangedFields(state),
+    'Some fields that should not have been touched have been modified'
+  );
+});
+
+test('should only count stars for viewing a resource once for every chapter even if there are multiple resource viewing actions', t => {
+  const state: State = Object.freeze(stateForFirstSlide);
+
+  const omitChangedFields = omit(['viewedResources', 'stars']);
+  const newState = updateState(engine, state, [
+    chapterResourceViewedAction('1.A1'),
+    chapterResourceViewedAction('1.A1')
+  ]);
+
+  t.is(newState.stars, 4);
+  t.deepEqual(newState.viewedResources, ['1.A1']);
+  t.deepEqual(
+    omitChangedFields(newState),
+    omitChangedFields(state),
+    'Some fields that should not have been touched have been modified'
+  );
+});
+
+test('should count stars for viewing resources multiple times as long as they are for different chapters', t => {
+  const state: State = Object.freeze(stateForFirstSlide);
+
+  const omitChangedFields = omit(['viewedResources', 'stars']);
+  const newState = updateState(engine, state, [
+    chapterResourceViewedAction('1.A1'),
+    chapterResourceViewedAction('1.A1'),
+    chapterResourceViewedAction('1.A2')
+  ]);
+
+  t.is(newState.stars, 8);
+  t.deepEqual(newState.viewedResources, ['1.A1', '1.A2']);
   t.deepEqual(
     omitChangedFields(newState),
     omitChangedFields(state),
