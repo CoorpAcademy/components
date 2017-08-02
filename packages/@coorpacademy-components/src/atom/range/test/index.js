@@ -117,3 +117,27 @@ test('should move closest handle when range is clicked (multi)', t => {
   wrapper.find(`div.${style.containerWrapper}`).simulate('click', {clientX: 1000});
   wrapper.find(`div.${style.containerWrapper}`).simulate('click', {clientX: 1100});
 });
+
+test('should moveleft handle if the two handles have the same values and the click is on the left', t => {
+  const onChange = value => {
+    t.deepEqual(value, [0.4, 0.5]);
+  };
+
+  const wrapper = mount(<Range value={[0.5, 0.5]} onChange={onChange} multi />);
+  const instance = wrapper.instance();
+  instance.track.getBoundingClientRect = () => ({left: 0, right: 100});
+
+  wrapper.find(`div.${style.containerWrapper}`).simulate('click', {clientX: 40});
+});
+
+test('should move right handle if the two handles have the same values and the click is on the right', t => {
+  const onChange = value => {
+    t.deepEqual(value, [0.5, 0.6]);
+  };
+
+  const wrapper = mount(<Range value={[0.5, 0.5]} onChange={onChange} multi />);
+  const instance = wrapper.instance();
+  instance.track.getBoundingClientRect = () => ({left: 0, right: 100});
+
+  wrapper.find(`div.${style.containerWrapper}`).simulate('click', {clientX: 60});
+});
