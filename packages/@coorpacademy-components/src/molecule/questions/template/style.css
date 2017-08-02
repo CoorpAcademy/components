@@ -6,40 +6,13 @@
   display: block;
   width: auto;
   align-items: center;
-  margin: 0 auto;
   padding: 8px;
   box-sizing: border-box;
   justify-content: center;
   font-family: "Open Sans";
   font-weight: 700;
   font-size: 14px;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
   margin: 0 4px;
-  box-sizing: border-box;
->>>>>>> 9d7aba1... review fixes
-}
-
-.answerType {
-  display: inline-block;
-  margin: 8px 0;
-}
-
-.answerType .text {
-  border: solid 3px red;
-}
-
-<<<<<<< HEAD
-.answerType .select {
-  margin-top: 2px;
-=======
-@media mobile {
-  .wrapper {
-    display: block;
-    width: 100%;
-  }
-=======
 }
 
 .answerType {
@@ -53,6 +26,4 @@
 
 .answerType .select {
   margin-top: 2px;
->>>>>>> 6e8f6f3... fix review
->>>>>>> 9d7aba1... review fixes
 }
