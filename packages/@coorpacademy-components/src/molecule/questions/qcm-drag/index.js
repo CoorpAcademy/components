@@ -30,7 +30,11 @@ const QcmDrag = (props, context) => {
     );
   });
 
-  const emptyView = <span>{translate('Select the correct option(s) below')}</span>;
+  const emptyView = (
+    <span className={style.emptySpan}>
+      {translate('Select the correct option(s) below')}
+    </span>
+  );
 
   const SelectionBox = () =>
     <div className={selectedAnswersViews.length > 0 ? style.selectedAnswers : style.emptyAnswers}>
