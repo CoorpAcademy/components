@@ -23,7 +23,7 @@ const testConfigurations: Array<MicroLearningConfig> = [
     answerBoundaryLimit: 5,
     starsPerAskingClue: -1,
     starsPerCorrectAnswer: 4,
-    starsPerResourceViewed: 4
+    starsPerResourceViewed: 5
   }
 ];
 

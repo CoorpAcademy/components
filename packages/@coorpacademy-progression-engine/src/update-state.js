@@ -51,8 +51,8 @@ function viewedResources(config: MicroLearningConfig): (Array<string>, Action) =
   return (array: Array<string> = [], action: Action): Array<string> => {
     switch (action.type) {
       case 'resource': {
-        const requestedClueAction = (action: ChapterResourceViewedAction);
-        const chapterRef = requestedClueAction.payload.content.chapter_ref;
+        const resourceViewAction = (action: ChapterResourceViewedAction);
+        const chapterRef = resourceViewAction.payload.content.chapter_ref;
         return includes(chapterRef, array) ? array : concat(array, [chapterRef]);
       }
       default:
@@ -144,7 +144,7 @@ function stars(config: MicroLearningConfig): (number, Action, State) => number {
         const chapterRef = chapterResourceViewedAction.payload.content.chapter_ref;
         return includes(chapterRef, state.viewedResources)
           ? currentStars
-          : currentStars + config.starsPerCorrectAnswer;
+          : currentStars + config.starsPerResourceViewed;
       }
       default:
         return currentStars;
