@@ -19,10 +19,12 @@ const Template = props => {
       const fieldView = field.type === 'text'
         ? <FreeText {...field} className={style.text} />
         : <DropDown {...field} className={style.select} theme="template" />;
-      
-      return <div className={style.answerType} key={part.value}>
-        {fieldView}
-      </div>;
+
+      return (
+        <div className={style.answerType} key={part.value}>
+          {fieldView}
+        </div>
+      );
     }
   }, totalTemplate);
 
