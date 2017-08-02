@@ -8,10 +8,12 @@
 
 .containerWrapper {
   padding: 15px;
+  user-select: none;
 }
 
 .container {
   position: relative;
+  user-select: none;
 }
 
 .track {
@@ -21,6 +23,7 @@
   background-color: xtraLightGrey;
   transform: translate3d(0, -50%, 0);
   position: absolute;
+  user-select: none;
 }
 
 .rail {
@@ -28,6 +31,14 @@
   width: 0;
   background-color: brand;
 }
+
+.animatedRail {
+  composes: rail;
+  transition-property: width, left;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+}
+
 
 .handle {
   background: white;
@@ -39,4 +50,11 @@
   transform: translate3d(-50%, -50%, 0);
   cursor: pointer;
   user-select: none;
+}
+
+.animatedHandle {
+  composes: handle;
+  transition-property: left;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
 }
