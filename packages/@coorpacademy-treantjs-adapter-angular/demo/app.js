@@ -37,8 +37,8 @@ class BackgroundColorProvider extends React.Component {
     });
   }
 
-  shouldComponentUpdate(props, context) {
-    return !isEqual(props, this.props) || !isEqual(context, this.context);
+  shouldComponentUpdate(props, state) {
+    return !isEqual(props, this.props) || !isEqual(state, this.state);
   }
 
   render() {

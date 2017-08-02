@@ -18,25 +18,10 @@ class Range extends React.Component {
   constructor(props, context) {
     super(props, context);
 
-    const {multi = false, value = [0, 1]} = props;
-
-    this.state = {value: multi ? value : [0, value]};
-
-    this.handleOnClick = this.handleOnClick.bind(this);
+    this.handleClick = this.handleClick.bind(this);
     this.setRefTrack = this.setRefTrack.bind(this);
     this.handleMinChange = this.handleMinChange.bind(this);
     this.handleMaxChange = this.handleMaxChange.bind(this);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    const {value, multi = false} = nextProps;
-
-    const nextValue = multi ? value : [0, value];
-
-    this.setState(() => ({
-      multi,
-      value: nextValue
-    }));
   }
 
   setRefTrack(track) {
@@ -44,37 +29,43 @@ class Range extends React.Component {
   }
 
   handleMinChange(e) {
-    const newValue = valueOnTrack(this.track, e.srcEvent.x);
-    this.handleChange(newValue, 0);
+    e.srcEvent.stopPropagation();
+    e.srcEvent.preventDefault();
+    const newValue = valueOnTrack(this.track, e.srcEvent.clientX);
+    return this.handleChange(newValue, 0);
   }
 
   handleMaxChange(e) {
-    const newValue = valueOnTrack(this.track, e.srcEvent.x);
-    this.handleChange(newValue, 1);
+    e.srcEvent.stopPropagation();
+    e.srcEvent.preventDefault();
+    const newValue = valueOnTrack(this.track, e.srcEvent.clientX);
+    return this.handleChange(newValue, 1);
   }
 
   handleChange(value, valueIndex) {
-    const newValue = set(valueIndex, value, this.state.value);
+    const {multi = false} = this.props;
+    const prevValue = multi ? this.props.value : [0, this.props.value];
+
+    const newValue = set(valueIndex, value, prevValue);
 
     const [minValue, maxValue] = newValue;
-    if (minValue > maxValue) return;
+    if (minValue > maxValue) return this.triggerChange(prevValue);
 
-    this.onChange(newValue);
+    return this.triggerChange(newValue);
   }
 
-  onChange(newValues) {
+  triggerChange(newValues) {
     const {onChange = noop, multi = false} = this.props;
 
     onChange(multi ? newValues : newValues[1]);
-    this.setState(() => {
-      return {value: newValues};
-    });
   }
 
-  handleOnClick(e) {
+  handleClick(e) {
+    e.stopPropagation();
+    e.preventDefault();
     const {multi = false} = this.props;
+    const [left, right] = multi ? this.props.value : [0, this.props.value];
     const x = e.clientX;
-    const [left, right] = this.state.value;
     const newValue = valueOnTrack(this.track, x);
 
     if (!multi) return this.handleChange(newValue, 1);
@@ -90,16 +81,16 @@ class Range extends React.Component {
 
   renderHandles() {
     const {multi = false} = this.props;
-    const {value: [minValue, maxValue]} = this.state;
+    const [left, right] = multi ? this.props.value : [0, this.props.value];
 
     return (
       <div>
         {multi
-          ? <span className={style.handle} style={{left: `${minValue * 100}%`}}>
+          ? <span className={style.handle} style={{left: `${left * 100}%`}}>
               <Handle axis="x" onPan={this.handleMinChange} onPanEnd={this.handleMinChange} />
             </span>
           : null}
-        <span className={style.handle} style={{left: `${maxValue * 100}%`}}>
+        <span className={style.handle} style={{left: `${right * 100}%`}}>
           <Handle axis="x" onPan={this.handleMaxChange} onPanEnd={this.handleMaxChange} />
         </span>
       </div>
@@ -108,12 +99,12 @@ class Range extends React.Component {
 
   render() {
     const {skin} = this.context;
-
     const defaultColor = getOr('#00B0FF', 'common.primary', skin);
 
-    const {value: [minValue, maxValue]} = this.state;
-    const railWidth = maxValue - minValue;
-    const railLeft = minValue;
+    const {multi = false} = this.props;
+    const [left, right] = multi ? this.props.value : [0, this.props.value];
+    const railWidth = right - left;
+    const railLeft = left;
     const railStyle = {
       backgroundColor: defaultColor,
       width: `${railWidth * 100}%`,
@@ -121,7 +112,7 @@ class Range extends React.Component {
     };
 
     return (
-      <div className={style.containerWrapper} onClick={this.handleOnClick}>
+      <div className={style.containerWrapper} onClick={this.handleClick}>
         <div className={style.container}>
           <div className={style.track} ref={this.setRefTrack} />
           <div className={style.rail} style={railStyle} />
