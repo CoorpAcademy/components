@@ -13,15 +13,22 @@ const valueOnTrack = (track, x) => {
   return clamp(0, 1, (x - left) / (right - left));
 };
 
+const extractStateFromProps = props => {
+  const {multi = false, value = multi ? [0, 1] : 0} = props;
+  return {
+    multi,
+    value: multi ? value : [0, value]
+  };
+};
+
 // eslint-disable-next-line no-shadow
 class Range extends React.Component {
   constructor(props, context) {
     super(props, context);
 
-    const {multi, value} = props;
     this.state = {
-      pending: false,
-      value : multi ? value : [0, value]
+      ...extractStateFromProps(props),
+      pending: false
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -33,15 +40,11 @@ class Range extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const {value = [0, 1], multi = false} = nextProps;
     const {pending} = this.state;
 
     if (pending) return;
 
-    this.setState(() => ({
-      multi,
-      value : multi ? value : [0, value]
-    }));
+    this.setState(() => extractStateFromProps(nextProps));
   }
 
   setRefTrack(track) {
@@ -77,27 +80,29 @@ class Range extends React.Component {
   }
 
   handleChange(value, valueIndex, pending) {
-    const prevValue = this.state.value;
+    const {value: prevValue} = this.state;
 
     const newValue = set(valueIndex, value, prevValue);
 
     const [minValue, maxValue] = newValue;
 
-    const nextValue = (minValue > maxValue) ? prevValue: newValue;
+    const nextValue = minValue > maxValue ? prevValue : newValue;
 
     return this.setState(() => {
-      this.triggerChange(nextValue);
+      this.triggerChange(nextValue, pending);
       return {
         pending,
-        value: nextValue
+        value: pending ? nextValue : extractStateFromProps(this.props).value
       };
     });
   }
 
-  triggerChange(newValues) {
-    const {onChange = noop, multi = false} = this.props;
+  triggerChange(newValues, pending) {
+    const {onChange = noop, onChangeEnd = onChange, multi = false} = this.props;
 
-    onChange(multi ? newValues : newValues[1]);
+    const handle = pending ? onChange : onChangeEnd;
+
+    return handle(multi ? newValues : newValues[1]);
   }
 
   handleClick(e) {
@@ -124,11 +129,17 @@ class Range extends React.Component {
     return (
       <div>
         {multi
-          ? <span className={pending ? style.handle : style.animatedHandle} style={{left: `${left * 100}%`}}>
+          ? <span
+              className={pending ? style.handle : style.animatedHandle}
+              style={{left: `${left * 100}%`}}
+            >
               <Handle axis="x" onPan={this.handleMinChange} onPanEnd={this.handleMinChangeEnd} />
             </span>
           : null}
-        <span className={pending ? style.handle : style.animatedHandle} style={{left: `${right * 100}%`}}>
+        <span
+          className={pending ? style.handle : style.animatedHandle}
+          style={{left: `${right * 100}%`}}
+        >
           <Handle axis="x" onPan={this.handleMaxChange} onPanEnd={this.handleMaxChangeEnd} />
         </span>
       </div>
@@ -139,7 +150,7 @@ class Range extends React.Component {
     const {skin} = this.context;
     const defaultColor = getOr('#00B0FF', 'common.primary', skin);
 
-    const {value: [left, right], multi, pending} = this.state;
+    const {value: [left, right], pending} = this.state;
     const railWidth = right - left;
     const railLeft = left;
     const railStyle = {
@@ -166,7 +177,9 @@ Range.contextTypes = {
 
 Range.propTypes = {
   onChange: PropTypes.func,
+  onChangeEnd: PropTypes.func,
   multi: PropTypes.bool,
+  // eslint-disable-next-line react/no-unused-prop-types
   value: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)])
 };
 

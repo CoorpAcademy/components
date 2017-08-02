@@ -17,26 +17,34 @@ test('should instanciate Range without props', t => {
   const instance = slider.instance();
   instance.track.getBoundingClientRect = () => ({left: 0, right: 100});
   instance.handleMaxChange({srcEvent: defaultEvent});
+  slider.setProps({multi: true});
+  instance.handleMaxChangeEnd({srcEvent: defaultEvent});
   slider.unmount();
   t.pass();
 });
 
 const macro = (t, props, boundingRect, maxSrcEvent, maxExpected, minSrcEvent, minExpected) => {
-  t.plan(minExpected ? 2 : 1);
+  t.plan(minExpected ? 4 : 2);
 
-  const expected = [maxExpected, minExpected];
+  const expectedChange = [maxExpected, minExpected];
   const validChange = value => {
-    t.deepEqual(value, expected.shift());
+    t.deepEqual(value, expectedChange.shift());
+  };
+  const expectedChangeEnd = [maxExpected, minExpected];
+  const validChangeEnd = value => {
+    t.deepEqual(value, expectedChangeEnd.shift());
   };
 
-  const component = <Range {...props} onChange={validChange} />;
+  const component = <Range {...props} onChange={validChange} onChangeEnd={validChangeEnd} />;
   const slider = mount(component);
   const instance = slider.instance();
 
   instance.track.getBoundingClientRect = () => boundingRect;
 
   instance.handleMaxChange({srcEvent: {...defaultEvent, ...maxSrcEvent}});
+  instance.handleMaxChangeEnd({srcEvent: {...defaultEvent, ...maxSrcEvent}});
   if (minSrcEvent) instance.handleMinChange({srcEvent: {...defaultEvent, ...minSrcEvent}});
+  if (minSrcEvent) instance.handleMinChangeEnd({srcEvent: {...defaultEvent, ...minSrcEvent}});
 };
 
 test('should instanciate Range', macro, {value: 0.5}, {left: 10, right: 110}, {clientX: 60}, 0.5);
