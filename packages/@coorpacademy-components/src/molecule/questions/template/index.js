@@ -9,10 +9,8 @@ import style from './style.css';
 
 const Template = props => {
   const totalTemplate = parseTemplateString(props.template);
-
   const templateCompose = map.convert({cap: false})((part, key) => {
     const type = part.type;
-
     if (type === 'string') {
       return part.value;
     }
