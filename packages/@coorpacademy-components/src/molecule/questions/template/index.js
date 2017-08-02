@@ -12,17 +12,17 @@ const Template = props => {
   const templateCompose = map.convert({cap: false})((part, key) => {
     const type = part.type;
     if (type === 'string') {
-      return part.value;
+      return <span key={key}>{part.value}</span>;
     }
     if (type === 'answerField') {
       const field = find({name: part.value}, props.answers);
-      return field.type === 'text'
-        ? <div className={style.answerType}>
-            <FreeText {...field} key={part.value} className={style.text} />
-          </div>
-        : <div className={style.answerType}>
-            <DropDown {...field} key={part.value} className={style.select} theme="template" />
-          </div>;
+      const fieldView = field.type === 'text'
+        ? <FreeText {...field} className={style.text} />
+        : <DropDown {...field} className={style.select} theme="template" />;
+      
+      return <div className={style.answerType} key={part.value}>
+        {fieldView}
+      </div>;
     }
   }, totalTemplate);
 
