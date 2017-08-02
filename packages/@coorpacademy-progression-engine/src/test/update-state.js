@@ -290,6 +290,37 @@ test('should update stars after viewing a resource', t => {
   );
 });
 
+test('should update stars after viewing a resource (with different number of stars)', t => {
+  const state: State = Object.freeze(stateForSecondSlide);
+
+  const action: ChapterResourceViewedAction = Object.freeze({
+    type: 'resource',
+    payload: {
+      content: {
+        ref: '5936600c50571fa407e7c4c4',
+        type: 'resource',
+        chapter_ref: '1.A1'
+      }
+    }
+  });
+
+  const engineWithDifferentStars = {
+    ref: 'microlearning',
+    version: 'allow_typos_3'
+  };
+
+  const omitChangedFields = omit(['viewedResources', 'stars']);
+  const newState = updateState(engineWithDifferentStars, state, [action, action]);
+
+  t.is(newState.stars, 9);
+  t.deepEqual(newState.viewedResources, ['1.A1']);
+  t.deepEqual(
+    omitChangedFields(newState),
+    omitChangedFields(state),
+    'Some fields that should not have been touched have been modified'
+  );
+});
+
 test("should throw if the state's nextContent is not the same as the action's content", t => {
   const state: State = Object.freeze(stateForSecondSlide);
 
