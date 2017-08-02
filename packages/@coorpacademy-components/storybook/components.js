@@ -220,6 +220,7 @@ import SelectFixtureMultiple from '../src/atom/select/test/fixtures/multiple';
 import SelectFixtureQuestion from '../src/atom/select/test/fixtures/question';
 import SelectFixtureRequired from '../src/atom/select/test/fixtures/required';
 import SelectFixtureSort from '../src/atom/select/test/fixtures/sort';
+import SelectFixtureTemplate from '../src/atom/select/test/fixtures/template';
 import SelectFixtureThematiquesLong from '../src/atom/select/test/fixtures/thematiques-long';
 import SelectFixtureThematiques from '../src/atom/select/test/fixtures/thematiques';
 import SlideFixtureDefault from '../src/atom/slide/test/fixtures/default';
@@ -391,6 +392,7 @@ import QcmFixtureNoSelected from '../src/molecule/questions/qcm/test/fixtures/no
 import QcmFixtureShortAnswers from '../src/molecule/questions/qcm/test/fixtures/short-answers';
 import QuestionRangeFixtureDefault from '../src/molecule/questions/question-range/test/fixtures/default';
 import TemplateFixtureDefault from '../src/molecule/questions/template/test/fixtures/default';
+import TemplateFixtureMultiple from '../src/molecule/questions/template/test/fixtures/multiple';
 import SlidesFooterFixtureClueSelected from '../src/molecule/slides/slides-footer/test/fixtures/clue-selected';
 import SlidesFooterFixtureDefault from '../src/molecule/slides/slides-footer/test/fixtures/default';
 import SlidesFooterFixtureDisabled from '../src/molecule/slides/slides-footer/test/fixtures/disabled';
@@ -413,8 +415,10 @@ import SlidesPlayerFixtureOnlyClue from '../src/molecule/slides/slides-player/te
 import SlidesPlayerFixtureQcmDrag from '../src/molecule/slides/slides-player/test/fixtures/qcm-drag';
 import SlidesPlayerFixtureQcmGraphic from '../src/molecule/slides/slides-player/test/fixtures/qcm-graphic';
 import SlidesPlayerFixtureQcmShort from '../src/molecule/slides/slides-player/test/fixtures/qcm-short';
+import SlidesPlayerFixtureQcmTemplate from '../src/molecule/slides/slides-player/test/fixtures/qcm-template';
 import SlidesPlayerFixtureQcm from '../src/molecule/slides/slides-player/test/fixtures/qcm';
 import SlidesPlayerFixtureRange from '../src/molecule/slides/slides-player/test/fixtures/range';
+import SlidesPlayerFixtureTemplate from '../src/molecule/slides/slides-player/test/fixtures/template';
 import SlidesPlayerFixtureWithMinHeight from '../src/molecule/slides/slides-player/test/fixtures/with-min-height';
 import ContainerFixtureDefault from '../src/organism/accordion/container/test/fixtures/default';
 import PartFixtureDefault from '../src/organism/accordion/part/test/fixtures/default';
@@ -839,6 +843,7 @@ export const fixtures = {
       Question: SelectFixtureQuestion,
       Required: SelectFixtureRequired,
       Sort: SelectFixtureSort,
+      Template: SelectFixtureTemplate,
       ThematiquesLong: SelectFixtureThematiquesLong,
       Thematiques: SelectFixtureThematiques
     },
@@ -1141,7 +1146,8 @@ export const fixtures = {
       Default: QuestionRangeFixtureDefault
     },
     Template: {
-      Default: TemplateFixtureDefault
+      Default: TemplateFixtureDefault,
+      Multiple: TemplateFixtureMultiple
     }
   },
   MoleculeSlides: {
@@ -1172,8 +1178,10 @@ export const fixtures = {
       QcmDrag: SlidesPlayerFixtureQcmDrag,
       QcmGraphic: SlidesPlayerFixtureQcmGraphic,
       QcmShort: SlidesPlayerFixtureQcmShort,
+      QcmTemplate: SlidesPlayerFixtureQcmTemplate,
       Qcm: SlidesPlayerFixtureQcm,
       Range: SlidesPlayerFixtureRange,
+      Template: SlidesPlayerFixtureTemplate,
       WithMinHeight: SlidesPlayerFixtureWithMinHeight
     }
   },

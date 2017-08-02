@@ -394,3 +394,32 @@
     padding: 0 30px 0 15px;
   }
 }
+
+/*
+  Template
+*/
+.template {
+  composes: question;
+}
+
+.template select {
+  width: auto;
+  height: 54px;
+  padding-right: 35px;
+  box-sizing: border-box;
+}
+
+.template .label {
+  font-size: 15px;
+  font-weight: 700;
+  border: 2px solid;
+  height: 54px;
+  line-height: 52px;
+}
+
+.template label {
+  display: block;
+  width: auto;
+  margin-right: 0;
+  height: 54px;
+}

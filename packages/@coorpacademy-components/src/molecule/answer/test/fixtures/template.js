@@ -1,4 +1,4 @@
-import Template from '../../../questions/template/test/fixtures/default';
+import Template from '../../../questions/template/test/fixtures/multiple';
 
 export default {
   props: {

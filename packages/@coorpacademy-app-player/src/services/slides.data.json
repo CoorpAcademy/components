@@ -837,12 +837,12 @@
             "items": [
               {
                 "text": "Select",
-                "value": "Select",
+                "value": "sli_12345.choice_01",
                 "_id": "596338e04af4cb8a08a94494"
               },
               {
                 "text": "Text",
-                "value": "Text",
+                "value": "sli_12345.choice_02",
                 "_id": "596338e04af4cb8a08a94493"
               }
             ]

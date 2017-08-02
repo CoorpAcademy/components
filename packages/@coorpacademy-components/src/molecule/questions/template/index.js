@@ -9,18 +9,22 @@ import style from './style.css';
 
 const Template = props => {
   const totalTemplate = parseTemplateString(props.template);
-
   const templateCompose = map.convert({cap: false})((part, key) => {
     const type = part.type;
-
     if (type === 'string') {
-      return <div className={style.string} key={key}>{part.value}</div>;
+      return <span key={key}>{part.value}</span>;
     }
     if (type === 'answerField') {
       const field = find({name: part.value}, props.answers);
-      return field.type === 'text'
-        ? <FreeText {...field} key={part.value} className={style.field} />
-        : <DropDown {...field} key={part.value} className={style.field} />;
+      const fieldView = field.type === 'text'
+        ? <FreeText {...field} className={style.text} />
+        : <DropDown {...field} className={style.select} theme="template" />;
+
+      return (
+        <div className={style.answerType} key={part.value}>
+          {fieldView}
+        </div>
+      );
     }
   }, totalTemplate);
 

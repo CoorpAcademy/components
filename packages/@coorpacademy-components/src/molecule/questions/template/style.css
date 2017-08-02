@@ -1,32 +1,29 @@
 @value breakpoints: "../../../variables/breakpoints.css";
 @value mobile from breakpoints;
+@value tablet from breakpoints;
 
 .wrapper {
-  display: flex;
+  display: block;
   width: auto;
   align-items: center;
-  margin: 0 auto;
-  padding: 0;
+  padding: 8px;
   box-sizing: border-box;
   justify-content: center;
-}
-
-.string {
   font-family: "Open Sans";
   font-weight: 700;
   font-size: 14px;
   margin: 0 4px;
-  box-sizing: border-box;
 }
 
-.field label {
-  margin: 0;
-  box-sizing: border-box;
+.answerType {
+  display: inline-block;
+  margin: 8px 0;
 }
 
-@media mobile {
-  .wrapper {
-    display: block;
-    width: 100%;
-  }
+.answerType .text {
+  border: solid 3px red;
+}
+
+.answerType .select {
+  margin-top: 2px;
 }
