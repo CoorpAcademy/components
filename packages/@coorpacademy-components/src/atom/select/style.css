@@ -196,7 +196,7 @@
   padding: 0 15px;
   height: 44px;
   border-radius: 2px;
-  font-size: 15px;
+  font-size: 16px;
   color: black;
   font-weight: normal;
   margin-left: 0;
@@ -399,13 +399,13 @@
   Template
 */
 .template {
-  composes: question;
+  composes: no-label;
 }
 
 .template select {
   width: auto;
   height: 54px;
-  padding-right: 35px;
+  padding-right: 50px;
   box-sizing: border-box;
 }
 

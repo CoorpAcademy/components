@@ -5,7 +5,7 @@ const answerType = Answer.props;
 
 export default {
   props: {
-    typeClue: 'template',
+    typeClue: 'answer',
     ...Default.props,
     answerType
   }

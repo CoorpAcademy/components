@@ -66,12 +66,12 @@ const Select = (props, context) => {
   const black = get('common.black', skin);
   const color = get('common.primary', skin);
   const skinColor = {
-    color: theme === 'question' || 'template' ? color : null
+    color: theme === 'question' || theme === 'template' ? color : null
   };
 
   const arrowView = !multiple
     ? <ArrowDown
-        color={theme === 'question' || 'template' ? color : black}
+        color={theme === 'question' || theme === 'template' ? color : black}
         className={style.arrow}
       />
     : null;
