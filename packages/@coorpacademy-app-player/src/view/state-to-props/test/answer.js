@@ -279,6 +279,27 @@ test('should create action: edit-answer-template', t => {
   t.is(selectAction.meta.progressionId, '1234');
 });
 
+test('should create action: edit-answer-template (entering second field with no current answer existing)', t => {
+  const state = {
+    ui: {
+      answers: {},
+      current: {progressionId: '1234'}
+    }
+  };
+
+  const props = getAnswerProps(state, template);
+  const textAction = props.answers[0].onChange('bar');
+  const selectAction = props.answers[1].onChange('bar');
+
+  t.is(textAction.type, ANSWER_EDIT.template);
+  t.deepEqual(textAction.payload, ['bar']);
+  t.is(textAction.meta.progressionId, '1234');
+
+  t.is(selectAction.type, ANSWER_EDIT.template);
+  t.deepEqual(selectAction.payload, ['', 'bar']);
+  t.is(selectAction.meta.progressionId, '1234');
+});
+
 test('should create action: edit-answer-slider', t => {
   const state = {
     ui: {
@@ -297,27 +318,6 @@ test('should create action: edit-answer-slider', t => {
       progressionId: '1234'
     }
   });
-});
-
-test('should create action: edit-answer-template (entering second field with no current answer existing)', t => {
-  const state = {
-    ui: {
-      answers: {},
-      current: {progressionId: '1234'}
-    }
-  };
-
-  const props = getAnswerProps(state, template);
-  const textAction = props.answers[0].onChange('bar');
-  const selectAction = props.answers[1].onChange('bar');
-
-  t.is(textAction.type, ANSWER_EDIT.template);
-  t.deepEqual(textAction.payload, ['bar']);
-  t.is(textAction.meta.progressionId, '1234');
-
-  t.is(selectAction.type, ANSWER_EDIT.template);
-  t.deepEqual(selectAction.payload, [undefined, 'bar']);
-  t.is(selectAction.meta.progressionId, '1234');
 });
 
 test('should create initial basic props', t => {
