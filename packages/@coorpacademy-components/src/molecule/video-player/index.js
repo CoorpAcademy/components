@@ -4,7 +4,7 @@ import VideoIframe from '../video-iframe';
 import JWPlayer from './jwplayer';
 
 const VideoPlayer = props => {
-  const {mimeType, id, width = '100%', height = '400px'} = props;
+  const {mimeType, id, width = '100%', height = '400px', onPlay, onPause, onEnded} = props;
 
   switch (mimeType) {
     case 'application/vimeo':
@@ -17,6 +17,9 @@ const VideoPlayer = props => {
           height={height}
           frameBorder={0}
           allowFullScreen
+          onPlay={onPlay}
+          onPause={onPause}
+          onEnded={onEnded}
         />
       );
 
@@ -26,11 +29,8 @@ const VideoPlayer = props => {
 };
 
 VideoPlayer.propTypes = {
-  ...JWPlayer.propTypes,
   mimeType: PropTypes.oneOf(['application/vimeo', 'video/mp4', 'application/youtube']).isRequired,
-  width: PropTypes.string,
-  height: PropTypes.string,
-  id: PropTypes.string
+  ...PropTypes.oneOfType([JWPlayer.propTypes, VideoIframe.propTypes])
 };
 
 export default VideoPlayer;

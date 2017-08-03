@@ -6,16 +6,19 @@ import set from 'lodash/fp/set';
 import update from 'lodash/fp/update';
 import {getResourcesToPlay} from '../../utils/state-extract';
 import {selectResource} from '../../actions/ui/corrections';
+import {play, pause, ended} from '../../actions/ui/video';
 
 const getResourcesProps = (options, store) => (state, slide) => {
   const {dispatch} = store;
   const resourcesToPlay = getResourcesToPlay(state);
-
   const lessons = pipe(
     getOr([], 'lessons'),
     map(lesson => {
       return pipe(
         set('onClick', () => dispatch(selectResource(lesson._id))),
+        set('onPlay', () => dispatch(play(lesson._id))),
+        set('onPause', () => dispatch(pause(lesson._id))),
+        set('onEnded', () => dispatch(ended(lesson._id))),
         set('selected', lesson._id === resourcesToPlay),
         _lesson => {
           if (_lesson.type === 'pdf') {

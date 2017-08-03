@@ -70,9 +70,8 @@ const resourcePropTypeBase = {
 
 const videoPropType = PropTypes.shape({
   ...resourcePropTypeBase,
-  videoId: VideoPlayer.propTypes.id,
-  mimeType: VideoPlayer.propTypes.mimeType,
-  autoplay: VideoPlayer.propTypes.autoplay
+  ...VideoPlayer.propTypes,
+  videoId: VideoPlayer.propTypes.id
 });
 
 const pdfPropType = PropTypes.shape({
