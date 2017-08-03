@@ -6,10 +6,46 @@ import orderBy from 'lodash/fp/orderBy';
 import Provider from '../../../atom/provider';
 import style from './style.css';
 
-const QcmDrag = (props, context) => {
-  const {answers} = props;
-  const {translate} = context;
+const AnswersPropTypes = PropTypes.arrayOf(
+  PropTypes.shape({
+    onClick: PropTypes.func,
+    order: PropTypes.number,
+    selected: PropTypes.bool,
+    title: PropTypes.string
+  })
+);
 
+const EmptyView = (props, {translate}) =>
+  <span className={style.emptySpan}>
+    {translate('Select the correct option(s) below')}
+  </span>;
+
+EmptyView.contextTypes = {
+  translate: Provider.childContextTypes.translate
+};
+
+const Choices = ({answers}) => {
+  const answersViews = answers.map((answer, key) => {
+    const {onClick, title, selected} = answer;
+    return (
+      <div className={selected ? style.invisibleAnswer : style.answer} onClick={onClick} key={key}>
+        {title}
+      </div>
+    );
+  });
+
+  return (
+    <div>
+      {answersViews}
+    </div>
+  );
+};
+
+Choices.propTypes = {
+  answers: AnswersPropTypes
+};
+
+const SelectionBox = ({answers}) => {
   const selectedAnswers = pipe(filter('selected'), orderBy('order', 'asc'))(answers);
 
   const selectedAnswersViews = selectedAnswers.map((answer, key) => {
@@ -21,49 +57,39 @@ const QcmDrag = (props, context) => {
     );
   });
 
-  const answersViews = answers.map((answer, key) => {
-    const {onClick, title, selected} = answer;
+  if (selectedAnswersViews.length > 0) {
     return (
-      <div className={selected ? style.invisibleAnswer : style.answer} onClick={onClick} key={key}>
-        {title}
+      <div className={style.selectedAnswers}>
+        {selectedAnswersViews}
       </div>
     );
-  });
-
-  const emptyView = (
-    <span className={style.emptySpan}>
-      {translate('Select the correct option(s) below')}
-    </span>
-  );
-
-  const SelectionBox = () =>
-    <div className={selectedAnswersViews.length > 0 ? style.selectedAnswers : style.emptyAnswers}>
-      {selectedAnswersViews.length > 0 ? selectedAnswersViews : emptyView}
-    </div>;
-
-  return (
-    <div>
-      <SelectionBox />
-      <div className={style.answers}>
-        {answersViews}
+  } else {
+    return (
+      <div className={style.emptyAnswers}>
+        <EmptyView />
       </div>
-    </div>
-  );
+    );
+  }
 };
+
+SelectionBox.propTypes = {
+  answers: AnswersPropTypes
+};
+
+const QcmDrag = ({answers}, context) =>
+  <div>
+    <SelectionBox answers={answers} />
+    <div className={style.answers}>
+      <Choices answers={answers} />
+    </div>
+  </div>;
 
 QcmDrag.contextTypes = {
   translate: Provider.childContextTypes.translate
 };
 
 QcmDrag.propTypes = {
-  answers: PropTypes.arrayOf(
-    PropTypes.shape({
-      onClick: PropTypes.func,
-      order: PropTypes.number,
-      selected: PropTypes.bool,
-      title: PropTypes.string
-    })
-  )
+  answers: AnswersPropTypes
 };
 
 export default QcmDrag;
