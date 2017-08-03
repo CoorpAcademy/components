@@ -166,9 +166,7 @@ const sliderProps = (options, store) => (state, slide) => {
   );
 
   const stateValue = pipe(getAnswerValues, head)(slide, state);
-  const currentValue = isNil(stateValue)
-    ? slide.question.content.defaultValue
-    : parseInt(stateValue);
+  const currentValue = parseInt(stateValue);
 
   const indexValue = indexOf(currentValue, values);
   const handleChange = editAnswerAction(options, store)(state, slide);
