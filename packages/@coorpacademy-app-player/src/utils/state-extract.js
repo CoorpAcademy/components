@@ -58,6 +58,10 @@ export const getContent = state => {
   return get('content')(getCurrentProgression(state));
 };
 
+export const getEngine = state => {
+  return get('engine')(getCurrentProgression(state));
+};
+
 export const getPreviousSlide = state => {
   const id = get('state.content.ref')(getCurrentProgression(state));
   return getSlide(id)(state);

@@ -24,7 +24,7 @@ export const PROGRESSION_CONFIG_FETCH_REQUEST = '@@progression/CONFIG_REQUEST';
 export const PROGRESSION_CONFIG_FETCH_SUCCESS = '@@progression/CONFIG_SUCCESS';
 export const PROGRESSION_CONFIG_FETCH_FAILURE = '@@progression/CONFIG_FAILURE';
 
-export const fetchProgressionConfig = () => (dispatch, getState, {services}) => {
+export const fetchProgressionConfig = version => (dispatch, getState, {services}) => {
   const {Progressions} = services;
 
   const action = buildTask({
@@ -33,7 +33,7 @@ export const fetchProgressionConfig = () => (dispatch, getState, {services}) => 
       PROGRESSION_CONFIG_FETCH_SUCCESS,
       PROGRESSION_CONFIG_FETCH_FAILURE
     ],
-    task: Progressions.getConfig,
+    task: () => Progressions.getConfig(version),
     bailout: getProgressionConfig
   });
 
