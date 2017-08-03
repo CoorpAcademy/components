@@ -30,9 +30,9 @@ const mergeSkin = (skin = {}) => defaultsDeep(skin, DEFAULT_SKIN);
 
 class Provider extends React.Component {
   constructor(props, context) {
-    const {history, skin, translate} = props;
+    const {history, skin, translate, Vimeo} = props;
     super(props, context);
-    this.state = {history, skin: mergeSkin(skin), translate};
+    this.state = {history, skin: mergeSkin(skin), translate, Vimeo};
   }
 
   getChildContext() {
@@ -78,13 +78,17 @@ Provider.propTypes = {
   history: historyShape,
   skin: skinShape,
   translate: translateShape,
-  children: PropTypes.element.isRequired
+  children: PropTypes.element.isRequired,
+  Vimeo: PropTypes.shape({
+    common: PropTypes.func
+  })
 };
 
 Provider.childContextTypes = {
   history: historyShape,
   skin: skinShape,
-  translate: translateShape.isRequired
+  translate: translateShape.isRequired,
+  Vimeo: PropTypes.object
 };
 
 export default Provider;

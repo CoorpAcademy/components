@@ -49,7 +49,21 @@
         "_id": "5980934b7dfebe01618a57df",
         "subtitles": [],
         "posters": [],
-        "src": []
+        "src": [],
+        "jwpOptions": {
+          "customProps": {
+            "aspectratio": "16:9",
+            "autostart": false,
+            "skin": {
+              "name": "bekle"
+            },
+            "width": "100%"
+          },
+          "file": "https://simoocdigital.credit-agricole.fr/media/content/bigdata/159363386.mp4",
+          "licenseKey": "yI8rSuuJ+fs7VdJzWjY4zGZU48UcOn+Gjg+FXZag16o=",
+          "playerId": "5980934b7dfebe01618a57df",
+          "playerScript": "https://up-staging.coorpacademy.com/libs/jwplayer/7.10.7/jwplayer.js"
+        }
       }
     ],
     "question": {

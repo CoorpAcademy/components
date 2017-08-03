@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import qs from 'qs';
 import get from 'lodash/fp/get';
 import Picture from '../../atom/picture';
+import Provider from '../../atom/provider';
 import style from './style.css';
 
 const PROVIDERS = {
@@ -37,14 +38,17 @@ class VideoIframe extends React.Component {
   }
 
   componentDidMount() {
-    if (this.props.type === 'vimeo') {
-      if (!window.Vimeo) {
+    const {type} = this.props;
+    const {Vimeo} = this.context;
+
+    if (type === 'vimeo') {
+      if (!Vimeo) {
         // eslint-disable-next-line no-console
-        console.warn('Vimeo player not found, events are unplugged.');
+        console.warn('props.Vimeo not found, events are unplugged.');
         return;
       }
 
-      this.player = new window.Vimeo.Player(this.iframe);
+      this.player = new Vimeo.Player(this.iframe);
 
       this.player.on('play', this.handlePlay);
       this.player.on('pause', this.handlePause);
@@ -97,6 +101,10 @@ class VideoIframe extends React.Component {
     }
   }
 }
+
+VideoIframe.contextTypes = {
+  Vimeo: Provider.childContextTypes.Vimeo
+};
 
 VideoIframe.propTypes = {
   type: PropTypes.oneOf(Object.keys(PROVIDERS)),

@@ -23,7 +23,8 @@ const translate = createTranslate(locales.en);
 
 const context = {
   skin,
-  translate
+  translate,
+  Vimeo: window.Vimeo
 };
 
 const isColor = value => /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(value);

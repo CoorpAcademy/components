@@ -4,20 +4,23 @@ import map from 'lodash/fp/map';
 import pipe from 'lodash/fp/pipe';
 import set from 'lodash/fp/set';
 import update from 'lodash/fp/update';
-import {getResourcesToPlay, getContent} from '../../utils/state-extract';
+import {getResourcesToPlay, getContent, getCurrentSlide} from '../../utils/state-extract';
 import {selectResource} from '../../actions/ui/corrections';
 import {play, pause, ended} from '../../actions/ui/video';
 
 const getPayload = (state, resource) => ({
   resource: {
     ref: resource._id,
+    type: resource.type,
     version: '1'
   },
-  content: getContent(state)
+  slide: getCurrentSlide(state),
+  chapter: getContent(state)
 });
 
 const getResourcesProps = (options, store) => (state, slide) => {
   const {dispatch} = store;
+  const {Vimeo} = options;
   const resourcesToPlay = getResourcesToPlay(state);
 
   const lessons = pipe(
@@ -25,7 +28,8 @@ const getResourcesProps = (options, store) => (state, slide) => {
     map(lesson => {
       const payload = getPayload(state, lesson);
       return pipe(
-        set('onClick', () => dispatch(selectResource(payload))),
+        set('Vimeo', Vimeo),
+        set('onClick', () => dispatch(selectResource(lesson._id))),
         set('onPlay', () => dispatch(play(payload))),
         set('onPause', () => dispatch(pause(payload))),
         set('onEnded', () => dispatch(ended(payload))),
