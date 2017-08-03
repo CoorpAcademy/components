@@ -80,7 +80,8 @@ const qcmGraphicProps = (options, store) => (state, slide) => {
   };
 };
 
-const updateTemplateAnswer = (answers = [], index) => value => set(index, value, answers);
+const updateTemplateAnswer = (answers = [], index) => value =>
+  map(a => (isNil(a) ? '' : a), set(index, value, answers));
 
 const templateTextProps = (options, store) => (state, slide, choice, index) => {
   const {translate} = options;
