@@ -3,9 +3,39 @@ import PropTypes from 'prop-types';
 import ReactJWPlayer from 'react-jw-player';
 import {SrcPropType} from '../../util/proptypes';
 
-const JWPlayer = ({jwpOptions}) => {
-  return <div><ReactJWPlayer {...jwpOptions} /></div>;
-};
+class JWPlayer extends React.Component {
+  constructor(props, context) {
+    super(props, context);
+    this.handlePlay = this.handlePlay.bind(this);
+    this.handlePause = this.handlePause.bind(this);
+    this.handleEnded = this.handleEnded.bind(this);
+  }
+
+  handlePlay(e) {
+    this.props.onPlay && this.props.onPlay(e);
+  }
+
+  handlePause(e) {
+    this.props.onPause && this.props.onPause(e);
+  }
+
+  handleEnded(e) {
+    this.props.onEnded && this.props.onEnded(e);
+  }
+
+  render() {
+    return (
+      <div>
+        <ReactJWPlayer
+          onPlay={this.handlePlay}
+          onPause={this.handlePause}
+          onOneHundredPercent={this.handleEnded}
+          {...this.props.jwpOptions}
+        />
+      </div>
+    );
+  }
+}
 
 JWPlayer.propTypes = {
   jwpOptions: PropTypes.shape({
@@ -19,7 +49,10 @@ JWPlayer.propTypes = {
     }),
     licenseKey: PropTypes.string.isRequired,
     playerScript: SrcPropType.isRequired
-  })
+  }),
+  onPlay: PropTypes.func,
+  onPause: PropTypes.func,
+  onEnded: PropTypes.func
 };
 
 export default JWPlayer;

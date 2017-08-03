@@ -2,23 +2,17 @@ export const UI_VIDEO_PLAY = '@@ui/VIDEO_PLAY';
 export const UI_VIDEO_PAUSE = '@@ui/VIDEO_PAUSE';
 export const UI_VIDEO_ENDED = '@@ui/VIDEO_ENDED';
 
-export const play = lessonId => ({
+export const play = payload => ({
   type: UI_VIDEO_PLAY,
-  payload: {
-    lessonId
-  }
+  payload
 });
 
-export const pause = lessonId => ({
+export const pause = payload => ({
   type: UI_VIDEO_PAUSE,
-  payload: {
-    lessonId
-  }
+  payload
 });
 
-export const ended = lessonId => ({
+export const ended = payload => ({
   type: UI_VIDEO_ENDED,
-  payload: {
-    lessonId
-  }
+  payload
 });
