@@ -10,6 +10,7 @@ const FreeText = (props, {skin}) => {
   const {placeholder = '', value, defaultValue, onChange = noop} = props;
 
   const handleChange = e => onChange(e.target.value);
+  const skinView = value || defaultValue ? get('common.primary', skin) : null;
 
   return (
     <div data-name="freeText" className={style.wrapper}>
@@ -22,8 +23,8 @@ const FreeText = (props, {skin}) => {
         onInput={handleChange}
         onChange={noop}
         style={{
-          color: get('common.primary', skin),
-          borderColor: get('common.primary', skin)
+          color: skinView,
+          borderColor: skinView
         }}
       />
     </div>

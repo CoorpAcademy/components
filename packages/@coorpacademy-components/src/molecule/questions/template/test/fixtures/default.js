@@ -5,9 +5,9 @@ export default {
       {
         type: 'text',
         name: 'inp81438',
-        label: ' ',
-        placeholder: ' ',
-        value: 'an answer',
+        label: '',
+        placeholder: 'an answer',
+        value: 'This is my answer',
         onChange: value => console.log(value)
       },
       {

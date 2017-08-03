@@ -4,20 +4,21 @@
 
 .wrapper {
   display: block;
-  width: auto;
-  align-items: center;
+  width: 100%;
+  vertical-align: middle;
   padding: 8px;
   box-sizing: border-box;
-  justify-content: center;
   font-family: "Open Sans";
   font-weight: 700;
   font-size: 14px;
   margin: 0 4px;
+  text-align: center;
 }
 
 .answerType {
   display: inline-block;
   margin: 8px 0;
+  vertical-align: middle;
 }
 
 .answerType .text {

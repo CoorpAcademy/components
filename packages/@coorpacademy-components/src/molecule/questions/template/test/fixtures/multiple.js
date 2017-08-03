@@ -6,9 +6,9 @@ export default {
       {
         type: 'text',
         name: 'inp81438',
-        label: ' ',
-        placeholder: ' ',
-        value: 'an answer',
+        label: '',
+        placeholder: 'an answer',
+        value: '',
         onChange: value => console.log(value)
       },
       {
@@ -18,8 +18,9 @@ export default {
         onChange: value => console.log(value),
         options: [
           {
-            name: 'temporary',
+            name: 'Choisissez une réponse qui soit un mot long ou vraiment trop long',
             value: 'sli_Nk2vje~E~.choice_VyloJkDEUb',
+            validOption: false,
             selected: true
           },
           {
@@ -36,7 +37,7 @@ export default {
         onChange: value => console.log(value),
         options: [
           {
-            name: 'temporary',
+            name: 'Choisissez une réponse',
             value: 'sli_Nk2vje~E~.choice_VyloJkDEUb',
             selected: true
           },
@@ -54,7 +55,7 @@ export default {
         onChange: value => console.log(value),
         options: [
           {
-            name: 'temporary',
+            name: 'Choisissez une réponse',
             value: 'sli_Nk2vje~E~.choice_VyloJkDEUb',
             selected: true
           },
