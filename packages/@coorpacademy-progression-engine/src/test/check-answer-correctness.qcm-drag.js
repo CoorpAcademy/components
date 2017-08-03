@@ -79,6 +79,7 @@ function createQuestion(matchOrder: boolean, answers: AcceptedAnswers): QCMDragQ
     assertIncorrect(t, engine, question, ['answer1'], [true]);
     assertIncorrect(t, engine, question, ['answer2'], [true]);
     assertIncorrect(t, engine, question, ['answer5'], [false]);
+    assertIncorrect(t, engine, question, [], []);
   });
 
   test(`should return false when the given answer is different but looks like the accepted answers (matchOrder=${bool.toString()})`, t => {

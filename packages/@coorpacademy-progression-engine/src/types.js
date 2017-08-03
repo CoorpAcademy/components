@@ -75,7 +75,7 @@ export type Progression = {
 };
 
 export type PartialCorrection = {
-  answer: string,
+  answer: string | void,
   isCorrect: boolean
 };
 
