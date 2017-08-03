@@ -130,3 +130,33 @@ test('should not allow typos or additional characters for select inputs', t => {
   assertIncorrect(t, engine, question, ['parachuteZ'], [false]);
   assertIncorrect(t, engine, question, ['Zparachute'], [false]);
 });
+
+test('should return false when the given answer has more elements that the accepted answers', t => {
+  const question = createQuestion(
+    [['2', 'un'], ['deux', 'un'], ['saut', 'parachute']],
+    ['text', 'text']
+  );
+
+  assertIncorrect(t, engine, question, ['2', 'un', 'trois'], [true, true, false]);
+  assertIncorrect(t, engine, question, ['deux', 'un', 'trois'], [true, true, false]);
+  assertIncorrect(t, engine, question, ['saut', 'parachute', 'avion'], [true, true, false]);
+  assertIncorrect(
+    t,
+    engine,
+    question,
+    ['saut', 'parachute', 'avion', 'pilote'],
+    [true, true, false, false]
+  );
+});
+
+test('should return false when the given answer has less elements that the accepted answerss', t => {
+  const question = createQuestion(
+    [['2', 'un'], ['deux', 'un'], ['saut', 'parachute']],
+    ['text', 'text']
+  );
+
+  assertIncorrect(t, engine, question, ['2'], [true]);
+  assertIncorrect(t, engine, question, ['deux'], [true]);
+  assertIncorrect(t, engine, question, ['saut'], [true]);
+  assertIncorrect(t, engine, question, [], []);
+});

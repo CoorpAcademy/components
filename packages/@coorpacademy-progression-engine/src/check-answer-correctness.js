@@ -1,4 +1,5 @@
 // @flow
+import get from 'lodash/fp/get';
 import map from 'lodash/fp/map';
 import zip from 'lodash/fp/zip';
 import some from 'lodash/fp/some';
@@ -92,19 +93,23 @@ function matchAnswerForTemplate(
   question: TemplateQuestion,
   givenAnswer: Answer
 ): Array<Array<PartialCorrection>> {
-  return [
-    givenAnswer.map((answer, index) => ({
-      answer,
-      isCorrect: question.content.answers.some(allowedAnswer =>
-        isTextCorrect(
-          config,
-          [allowedAnswer[index]],
-          toLower(answer),
-          question.content.choices[index].type === 'text' ? question.content.maxTypos : 0
-        )
+  const result = givenAnswer.map((answer, index) => ({
+    answer,
+    isCorrect: question.content.answers.some(allowedAnswer =>
+      isTextCorrect(
+        config,
+        [allowedAnswer[index]],
+        toLower(answer),
+        get(['content', 'choices', index, 'type'], question) === 'text'
+          ? question.content.maxTypos
+          : 0
       )
-    }))
-  ];
+    )
+  }));
+  const missingAnswers = question.content.answers[0]
+    .slice(result.length)
+    .map(() => ({answer: undefined, isCorrect: false}));
+  return [result.concat(missingAnswers)];
 }
 
 function matchAnswerForUnorderedItems(

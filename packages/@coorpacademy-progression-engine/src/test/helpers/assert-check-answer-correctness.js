@@ -24,7 +24,7 @@ function assertIncorrect(
   t.is(
     givenAnswer.length,
     expectedCorrections.length,
-    'expected corrections should have the same length as givenAnswer'
+    'Expected corrections should have the same length as givenAnswer'
   );
   const result = checkAnswerCorrectness(engine, question, givenAnswer);
   t.false(result.isCorrect, 'Answer should have been considered as incorrect');

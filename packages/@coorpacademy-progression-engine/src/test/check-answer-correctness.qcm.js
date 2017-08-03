@@ -81,6 +81,7 @@ test('should return false when the given answer has less elements that the accep
   assertIncorrect(t, engine, question, ['answer1'], [true]);
   assertIncorrect(t, engine, question, ['answer2'], [true]);
   assertIncorrect(t, engine, question, ['answer5'], [false]);
+  assertIncorrect(t, engine, question, [], []);
 });
 
 test("should return false when the given answer isn't the same but resembles the accepted answers", t => {
