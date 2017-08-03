@@ -102,5 +102,28 @@
       },
       "lives": 0
     }
+  },
+  {
+    "_id": "template",
+    "engine": {
+      "ref": "microlearning",
+      "version": "1"
+    },
+    "content": {
+      "ref": "5.C7",
+      "type": "chapter"
+    },
+    "state": {
+      "slides": [],
+      "nextContent": {
+        "ref": "sli_Nk2vje~E~",
+        "type": "slide"
+      },
+      "lives": 1,
+      "step": {
+        "current": 1,
+        "total": 4
+      }
+    }
   }
 ]
