@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import map from 'lodash/fp/map';
-import Provider from '../provider';
 import style from './style.css';
 
-const Tab = (props, context) => {
+const Tab = props => {
   const handleTabClick = () => props.onClick(props.targetContent);
 
   return (
@@ -25,13 +24,11 @@ const Tab = (props, context) => {
   );
 };
 
-Tab.contextTypes = {
-  translate: Provider.childContextTypes.translate
-};
-
 Tab.propTypes = {
   title: PropTypes.string,
-  links: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string))
+  links: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)),
+  onClick: PropTypes.func,
+  targetContent: PropTypes.string
 };
 
 export default Tab;

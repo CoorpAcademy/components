@@ -153,6 +153,7 @@ import ImageUploadFixtureEmail from '../src/atom/image-upload/test/fixtures/emai
 import ImageUploadFixtureLoading from '../src/atom/image-upload/test/fixtures/loading';
 import ImageUploadFixtureMobile from '../src/atom/image-upload/test/fixtures/mobile';
 import ImageUploadFixtureModified from '../src/atom/image-upload/test/fixtures/modified';
+import ImageUploadFixtureNoPreview from '../src/atom/image-upload/test/fixtures/no-preview';
 import ImageUploadFixtureWithoutImage from '../src/atom/image-upload/test/fixtures/without-image';
 import InputCheckboxFixtureChecked from '../src/atom/input-checkbox/test/fixtures/checked';
 import InputCheckboxFixtureDefault from '../src/atom/input-checkbox/test/fixtures/default';
@@ -167,6 +168,7 @@ import InputColorFixtureModified from '../src/atom/input-color/test/fixtures/mod
 import InputDoublestepFixtureDefault from '../src/atom/input-doublestep/test/fixtures/default';
 import InputReadonlyFixtureDefault from '../src/atom/input-readonly/test/fixtures/default';
 import InputSwitchFixtureChecked from '../src/atom/input-switch/test/fixtures/checked';
+import InputSwitchFixtureDisabled from '../src/atom/input-switch/test/fixtures/disabled';
 import InputSwitchFixtureModified from '../src/atom/input-switch/test/fixtures/modified';
 import InputSwitchFixtureNoTitle from '../src/atom/input-switch/test/fixtures/no-title';
 import InputSwitchFixtureSso from '../src/atom/input-switch/test/fixtures/sso';
@@ -218,6 +220,7 @@ import SelectFixtureMooc from '../src/atom/select/test/fixtures/mooc';
 import SelectFixtureMultipleSelected from '../src/atom/select/test/fixtures/multiple-selected';
 import SelectFixtureMultiple from '../src/atom/select/test/fixtures/multiple';
 import SelectFixtureQuestion from '../src/atom/select/test/fixtures/question';
+import SelectFixtureRequiredWithTitle from '../src/atom/select/test/fixtures/required-with-title';
 import SelectFixtureRequired from '../src/atom/select/test/fixtures/required';
 import SelectFixtureSort from '../src/atom/select/test/fixtures/sort';
 import SelectFixtureTemplate from '../src/atom/select/test/fixtures/template';
@@ -231,6 +234,7 @@ import SocialLinkFixtureFacebook from '../src/atom/social-link/test/fixtures/fac
 import SocialLinkFixtureTwitter from '../src/atom/social-link/test/fixtures/twitter';
 import SpinnerFixtureDefault from '../src/atom/spinner/test/fixtures/default';
 import TabContentFixtureDefault from '../src/atom/tab-content/test/fixtures/default';
+import TabContentFixtureHideContentBackground from '../src/atom/tab-content/test/fixtures/hide-content-background';
 import TabFixtureDefault from '../src/atom/tab/test/fixtures/default';
 import TitleFixtureFixture from '../src/atom/title/test/fixtures/fixture';
 import AnswerFixtureDefault from '../src/molecule/answer/test/fixtures/default';
@@ -738,6 +742,7 @@ export const fixtures = {
       Loading: ImageUploadFixtureLoading,
       Mobile: ImageUploadFixtureMobile,
       Modified: ImageUploadFixtureModified,
+      NoPreview: ImageUploadFixtureNoPreview,
       WithoutImage: ImageUploadFixtureWithoutImage
     },
     InputCheckbox: {
@@ -762,6 +767,7 @@ export const fixtures = {
     },
     InputSwitch: {
       Checked: InputSwitchFixtureChecked,
+      Disabled: InputSwitchFixtureDisabled,
       Modified: InputSwitchFixtureModified,
       NoTitle: InputSwitchFixtureNoTitle,
       Sso: InputSwitchFixtureSso,
@@ -841,6 +847,7 @@ export const fixtures = {
       MultipleSelected: SelectFixtureMultipleSelected,
       Multiple: SelectFixtureMultiple,
       Question: SelectFixtureQuestion,
+      RequiredWithTitle: SelectFixtureRequiredWithTitle,
       Required: SelectFixtureRequired,
       Sort: SelectFixtureSort,
       Template: SelectFixtureTemplate,
@@ -861,7 +868,8 @@ export const fixtures = {
       Default: SpinnerFixtureDefault
     },
     TabContent: {
-      Default: TabContentFixtureDefault
+      Default: TabContentFixtureDefault,
+      HideContentBackground: TabContentFixtureHideContentBackground
     },
     Tab: {
       Default: TabFixtureDefault

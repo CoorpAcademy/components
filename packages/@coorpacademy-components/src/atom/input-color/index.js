@@ -5,7 +5,7 @@ import noop from 'lodash/fp/noop';
 import getClassState from '../../util/get-class-state';
 import style from './style.css';
 
-const InputText = props => {
+const InputColor = props => {
   const {
     title,
     placeholder,
@@ -46,7 +46,7 @@ const InputText = props => {
   );
 };
 
-InputText.propTypes = {
+InputColor.propTypes = {
   title: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
   defaultValue: PropTypes.string,
@@ -57,4 +57,4 @@ InputText.propTypes = {
   modified: PropTypes.bool
 };
 
-export default InputText;
+export default InputColor;
