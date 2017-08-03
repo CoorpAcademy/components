@@ -5,6 +5,7 @@
 @value light from colors;
 @value white from colors;
 @value black from colors;
+@value medium from colors;
 
 .answers {
   width: 100%;
@@ -31,13 +32,13 @@
   padding: 16px;
 }
 
-.emptyAnswers span {
+.emptySpan {
   width: 100%;
   text-align: center;
   font-family: 'Open Sans';
   font-size: 13px;
   font-weight: 600;
-  color: black;
+  color: medium;
 }
 
 .answer {
@@ -70,13 +71,8 @@
 }
 
 @media mobile {
-  .answers {
-    padding: 0;
-  }
-
   .selectedAnswers {
     min-height: auto;
-    padding: 8px 8px 0;
   }
 
   .answer:hover {
