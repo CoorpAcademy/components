@@ -13,8 +13,7 @@ export type GenericContent = {
 
 export type ResourceContent = {
   ref: string,
-  type: 'resource',
-  chapter_ref: string,
+  type: 'video' | 'pdf',
   version?: string
 };
 
@@ -42,7 +41,8 @@ export type AskClueAction = {
 export type ChapterResourceViewedAction = {
   type: 'resource',
   payload: {
-    content: ResourceContent
+    resource: ResourceContent,
+    chapter: Content
   }
 };
 

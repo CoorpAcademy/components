@@ -19,14 +19,19 @@ const engine = {
   version: '1'
 };
 
-function chapterResourceViewedAction(chapter_ref: string): ChapterResourceViewedAction {
+function chapterResourceViewedAction(chapterRef: string): ChapterResourceViewedAction {
   return Object.freeze({
     type: 'resource',
     payload: {
-      content: {
+      resource: {
         ref: uniqueId(),
-        type: 'resource',
-        chapter_ref
+        type: 'video',
+        version: '1'
+      },
+      chapter: {
+        ref: chapterRef,
+        type: 'chapter',
+        version: '1'
       }
     }
   });
