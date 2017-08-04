@@ -54,28 +54,28 @@ class Range extends React.Component {
   handleMinChange(e) {
     e.srcEvent.stopPropagation();
     e.srcEvent.preventDefault();
-    const newValue = valueOnTrack(this.track, e.srcEvent.clientX);
+    const newValue = valueOnTrack(this.track, e.center.x);
     return this.handleChange(newValue, 0, true);
   }
 
   handleMaxChange(e) {
     e.srcEvent.stopPropagation();
     e.srcEvent.preventDefault();
-    const newValue = valueOnTrack(this.track, e.srcEvent.clientX);
+    const newValue = valueOnTrack(this.track, e.center.x);
     return this.handleChange(newValue, 1, true);
   }
 
   handleMinChangeEnd(e) {
     e.srcEvent.stopPropagation();
     e.srcEvent.preventDefault();
-    const newValue = valueOnTrack(this.track, e.srcEvent.clientX);
+    const newValue = valueOnTrack(this.track, e.center.x);
     return this.handleChange(newValue, 0, false);
   }
 
   handleMaxChangeEnd(e) {
     e.srcEvent.stopPropagation();
     e.srcEvent.preventDefault();
-    const newValue = valueOnTrack(this.track, e.srcEvent.clientX);
+    const newValue = valueOnTrack(this.track, e.center.x);
     return this.handleChange(newValue, 1, false);
   }
 
