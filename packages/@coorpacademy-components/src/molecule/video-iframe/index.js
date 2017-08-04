@@ -44,7 +44,7 @@ class VideoIframe extends React.Component {
     if (type === 'vimeo') {
       if (!Vimeo) {
         // eslint-disable-next-line no-console
-        console.warn('props.Vimeo not found, events are unplugged.');
+        console.warn('Vimeo not found in context, events are unplugged.');
         return;
       }
 
