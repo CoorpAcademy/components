@@ -71,9 +71,7 @@ const Select = (props, context) => {
 
   const arrowView = !multiple
     ? <ArrowDown
-        color={
-          selected && (theme === 'question' || theme === 'template') ? color : black
-        }
+        color={selected && (theme === 'question' || theme === 'template') ? color : black}
         className={style.arrow}
       />
     : null;
