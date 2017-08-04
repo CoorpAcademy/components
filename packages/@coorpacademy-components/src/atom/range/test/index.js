@@ -16,14 +16,22 @@ test('should instanciate Range without props', t => {
   const slider = mount(component);
   const instance = slider.instance();
   instance.track.getBoundingClientRect = () => ({left: 0, right: 100});
-  instance.handleMaxChange({srcEvent: defaultEvent});
+  instance.handleMaxChange({srcEvent: defaultEvent, center: {}});
   slider.setProps({multi: true});
-  instance.handleMaxChangeEnd({srcEvent: defaultEvent});
+  instance.handleMaxChangeEnd({srcEvent: defaultEvent, center: {}});
   slider.unmount();
   t.pass();
 });
 
-const macro = (t, props, boundingRect, maxSrcEvent, maxExpected, minSrcEvent, minExpected) => {
+const macro = (
+  t,
+  props,
+  boundingRect,
+  maxCenterEvent,
+  maxExpected,
+  minCenterEvent,
+  minExpected
+) => {
   t.plan(minExpected ? 4 : 2);
 
   const expectedChange = [maxExpected, minExpected];
@@ -41,24 +49,26 @@ const macro = (t, props, boundingRect, maxSrcEvent, maxExpected, minSrcEvent, mi
 
   instance.track.getBoundingClientRect = () => boundingRect;
 
-  instance.handleMaxChange({srcEvent: {...defaultEvent, ...maxSrcEvent}});
-  instance.handleMaxChangeEnd({srcEvent: {...defaultEvent, ...maxSrcEvent}});
-  if (minSrcEvent) instance.handleMinChange({srcEvent: {...defaultEvent, ...minSrcEvent}});
-  if (minSrcEvent) instance.handleMinChangeEnd({srcEvent: {...defaultEvent, ...minSrcEvent}});
+  instance.handleMaxChange({srcEvent: {...defaultEvent}, center: maxCenterEvent});
+  instance.handleMaxChangeEnd({srcEvent: {...defaultEvent}, center: maxCenterEvent});
+  if (minCenterEvent)
+    instance.handleMinChange({srcEvent: {...defaultEvent}, center: minCenterEvent});
+  if (minCenterEvent)
+    instance.handleMinChangeEnd({srcEvent: {...defaultEvent}, center: minCenterEvent});
 };
 
-test('should instanciate Range', macro, {value: 0.5}, {left: 10, right: 110}, {clientX: 60}, 0.5);
-test('should limit left hangle', macro, {value: 0.5}, {left: 10, right: 110}, {clientX: 0}, 0);
-test('should limit right hangle', macro, {value: 0.5}, {left: 10, right: 110}, {clientX: 120}, 1);
+test('should instanciate Range', macro, {value: 0.5}, {left: 10, right: 110}, {x: 60}, 0.5);
+test('should limit left hangle', macro, {value: 0.5}, {left: 10, right: 110}, {x: 0}, 0);
+test('should limit right hangle', macro, {value: 0.5}, {left: 10, right: 110}, {x: 120}, 1);
 
 test(
   'should instanciate multi Range',
   macro,
   {multi: true, value: [0, 1]},
   {left: 10, right: 110},
-  {clientX: 60},
+  {x: 60},
   [0, 0.5],
-  {clientX: 20},
+  {x: 20},
   [0.1, 1]
 );
 test(
@@ -66,9 +76,9 @@ test(
   macro,
   {multi: true, value: [0, 1]},
   {left: 10, right: 110},
-  {clientX: 120},
+  {x: 120},
   [0, 1],
-  {clientX: 0},
+  {x: 0},
   [0, 1]
 );
 test(
@@ -76,9 +86,9 @@ test(
   macro,
   {multi: true, value: [0.4, 0.6]},
   {left: 0, right: 100},
-  {clientX: 30},
+  {x: 30},
   [0.4, 0.6],
-  {clientX: 70},
+  {x: 70},
   [0.4, 0.6]
 );
 
