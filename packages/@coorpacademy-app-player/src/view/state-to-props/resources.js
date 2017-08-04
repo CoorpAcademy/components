@@ -20,7 +20,6 @@ const getPayload = (state, resource) => ({
 
 const getResourcesProps = (options, store) => (state, slide) => {
   const {dispatch} = store;
-  const {Vimeo} = options;
   const resourcesToPlay = getResourcesToPlay(state);
 
   const lessons = pipe(
@@ -28,7 +27,6 @@ const getResourcesProps = (options, store) => (state, slide) => {
     map(lesson => {
       const payload = getPayload(state, lesson);
       return pipe(
-        set('Vimeo', Vimeo),
         set('onClick', () => dispatch(selectResource(lesson._id))),
         set('onPlay', () => dispatch(play(payload))),
         set('onPause', () => dispatch(pause(payload))),

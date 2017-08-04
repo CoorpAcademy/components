@@ -5,6 +5,14 @@ export default {
     resources: [
       {
         type: 'video',
+        poster: '//static.coorpacademy.com/content/digital/miniatures_cours/avance/1A1.png',
+        description: 'Le concept de Knowledge Graph',
+        mimeType: 'video/mp4',
+        _id: '590b862e2e967f64333ad45f',
+        subtitles: [],
+        posters: [],
+        src: [],
+        onClick: () => {},
         selected: true,
         ...JWPlayer.props
       }

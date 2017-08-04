@@ -29,8 +29,7 @@ const VideoPlayer = props => {
 };
 
 VideoPlayer.propTypes = {
-  mimeType: PropTypes.oneOf(['application/vimeo', 'video/mp4', 'application/youtube']).isRequired,
-  ...PropTypes.oneOfType([JWPlayer.propTypes, VideoIframe.propTypes])
+  mimeType: PropTypes.oneOf(['application/vimeo', 'video/mp4', 'application/youtube']).isRequired
 };
 
 export default VideoPlayer;
