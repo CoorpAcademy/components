@@ -27,14 +27,14 @@ export const selectProgression = id => async (dispatch, getState) => {
   if (response.error) return response;
 
   const progression = getCurrentProgression(getState());
-  const {version} = getEngine(getState());
+  const engine = getEngine(getState());
   const {ref, type} = getCurrentContent(getState());
   const chapterRef = get('content.ref', progression);
 
   await dispatch(fetchStartRank());
   await dispatch(fetchChapter(chapterRef));
   await dispatch(fetchBestProgression(chapterRef, progressionId));
-  await dispatch(fetchEngineConfig(version));
+  await dispatch(fetchEngineConfig(engine));
 
   switch (type) {
     case 'slide': {

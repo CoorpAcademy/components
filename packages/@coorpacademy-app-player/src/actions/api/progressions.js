@@ -24,12 +24,12 @@ export const ENGINE_CONFIG_FETCH_REQUEST = '@@progression/CONFIG_REQUEST';
 export const ENGINE_CONFIG_FETCH_SUCCESS = '@@progression/CONFIG_SUCCESS';
 export const ENGINE_CONFIG_FETCH_FAILURE = '@@progression/CONFIG_FAILURE';
 
-export const fetchEngineConfig = version => (dispatch, getState, {services}) => {
+export const fetchEngineConfig = engine => (dispatch, getState, {services}) => {
   const {Progressions} = services;
 
   const action = buildTask({
     types: [ENGINE_CONFIG_FETCH_REQUEST, ENGINE_CONFIG_FETCH_SUCCESS, ENGINE_CONFIG_FETCH_FAILURE],
-    task: () => Progressions.getConfig(version),
+    task: () => Progressions.getConfig(engine),
     bailout: getEngineConfig
   });
 
