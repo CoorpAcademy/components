@@ -405,7 +405,7 @@
 .template select {
   width: auto;
   height: 54px;
-  padding-right: 50px;
+  padding: 0 50px 0 0;
   box-sizing: border-box;
 }
 
