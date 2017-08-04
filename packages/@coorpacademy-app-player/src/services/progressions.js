@@ -15,7 +15,7 @@ import set from 'lodash/fp/set';
 import maxBy from 'lodash/fp/maxBy';
 import reduce from 'lodash/fp/reduce';
 import progressionsData from './progressions.data';
-import progressionConfigData from './progression-config.data';
+import engineConfigData from './progression-config.data';
 import slidesData from './slides.data';
 
 const slideStore = reduce(
@@ -38,7 +38,7 @@ export const findById = async id => {
 };
 
 // eslint-disable-next-line require-await
-export const getConfig = async () => progressionConfigData;
+export const getConfig = async () => engineConfigData;
 
 // eslint-disable-next-line require-await
 const findAllSlides = async () => {

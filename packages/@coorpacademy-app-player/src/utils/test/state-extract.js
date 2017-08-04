@@ -14,6 +14,7 @@ import {
   getCurrentProgression,
   getCurrentProgressionId,
   getCurrentSlide,
+  getEngine,
   getPreviousSlide,
   getQuestionType,
   getStartRank,
@@ -220,4 +221,13 @@ test('getResourcesToPlay should get resources to play from state', t => {
   const state = set('ui.corrections.playResource', true, {});
 
   t.true(getResourcesToPlay(state));
+});
+
+test('getEngine should get extract from state', t => {
+  const state = pipe(
+    set('ui.current.progressionId', '0'),
+    set('data.progressions.entities.0.engine', 42)
+  )({});
+
+  t.is(getEngine(state), 42);
 });

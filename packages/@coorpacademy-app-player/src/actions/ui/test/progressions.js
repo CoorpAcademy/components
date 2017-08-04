@@ -9,8 +9,8 @@ import {
   PROGRESSION_FETCH_FAILURE,
   PROGRESSION_FETCH_BESTOF_REQUEST,
   PROGRESSION_FETCH_BESTOF_SUCCESS,
-  PROGRESSION_CONFIG_FETCH_REQUEST,
-  PROGRESSION_CONFIG_FETCH_SUCCESS
+  ENGINE_CONFIG_FETCH_REQUEST,
+  ENGINE_CONFIG_FETCH_SUCCESS
 } from '../../api/progressions';
 import {
   RANK_FETCH_START_REQUEST,
@@ -119,7 +119,8 @@ test(
       pipe(
         set('data.progressions.entities.foo._id', 'foo'),
         set('data.progressions.entities.foo.state.nextContent', {type: 'slide', ref: 'bar'}),
-        set('data.progressions.entities.foo.content', {type: 'chapter', ref: 'baz'})
+        set('data.progressions.entities.foo.content', {type: 'chapter', ref: 'baz'}),
+        set('data.progressions.entities.foo.engine', {version: '1'})
       )({})
     ],
     [
@@ -163,10 +164,10 @@ test(
       set('data.chapters.entities.baz.bestScore', 16, {})
     ],
     {
-      type: PROGRESSION_CONFIG_FETCH_REQUEST
+      type: ENGINE_CONFIG_FETCH_REQUEST
     },
     {
-      type: PROGRESSION_CONFIG_FETCH_SUCCESS,
+      type: ENGINE_CONFIG_FETCH_SUCCESS,
       payload: 42
     },
     [
@@ -246,7 +247,8 @@ test(
       pipe(
         set('data.progressions.entities.foo._id', 'foo'),
         set('data.progressions.entities.foo.state.nextContent', {type: 'success', ref: 'bar'}),
-        set('data.progressions.entities.foo.content', {type: 'chapter', ref: 'baz'})
+        set('data.progressions.entities.foo.content', {type: 'chapter', ref: 'baz'}),
+        set('data.progressions.entities.foo.engine', {version: '1'})
       )({})
     ],
     [
@@ -290,10 +292,10 @@ test(
       set('data.chapters.entities.baz.bestScore', 16, {})
     ],
     {
-      type: PROGRESSION_CONFIG_FETCH_REQUEST
+      type: ENGINE_CONFIG_FETCH_REQUEST
     },
     {
-      type: PROGRESSION_CONFIG_FETCH_SUCCESS,
+      type: ENGINE_CONFIG_FETCH_SUCCESS,
       payload: 42
     },
     [

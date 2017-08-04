@@ -1,11 +1,12 @@
 import get from 'lodash/fp/get';
-import {fetchProgression, fetchProgressionConfig, fetchBestProgression} from '../api/progressions';
+import {fetchProgression, fetchEngineConfig, fetchBestProgression} from '../api/progressions';
 import {fetchSlide} from '../api/slides';
 import {fetchEndRank, fetchStartRank} from '../api/rank';
 import {fetchExitNode} from '../api/exit-nodes';
 import {fetchChapter} from '../api/chapters';
 import {fetchRecommendations} from '../api/recommendations';
 import {
+  getEngine,
   getCurrentProgression,
   getCurrentProgressionId,
   getCurrentContent
@@ -26,13 +27,14 @@ export const selectProgression = id => async (dispatch, getState) => {
   if (response.error) return response;
 
   const progression = getCurrentProgression(getState());
+  const engine = getEngine(getState());
   const {ref, type} = getCurrentContent(getState());
   const chapterRef = get('content.ref', progression);
 
   await dispatch(fetchStartRank());
   await dispatch(fetchChapter(chapterRef));
   await dispatch(fetchBestProgression(chapterRef, progressionId));
-  await dispatch(fetchProgressionConfig());
+  await dispatch(fetchEngineConfig(engine));
 
   switch (type) {
     case 'slide': {
