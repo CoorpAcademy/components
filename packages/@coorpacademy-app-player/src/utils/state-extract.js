@@ -13,7 +13,7 @@ export const getProgression = id => state => {
   return get(['data', 'progressions', 'entities', id], state);
 };
 
-export const getProgressionConfig = state => get(['data', 'progressions', 'config'], state);
+export const getEngineConfig = state => get(['data', 'progressions', 'config'], state);
 
 export const getCurrentProgression = state => {
   const id = getCurrentProgressionId(state);

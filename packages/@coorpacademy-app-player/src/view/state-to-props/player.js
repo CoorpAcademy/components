@@ -4,7 +4,7 @@ import {
   getCurrentProgression,
   getCurrentSlide,
   getCurrentProgressionId,
-  getProgressionConfig,
+  getEngineConfig,
   getAnswerValues,
   getCurrentClue,
   getRoute,
@@ -27,14 +27,14 @@ const playerProps = (options, store) => state => {
   const {dispatch} = store;
 
   const progression = getCurrentProgression(state);
-  const progressionConfig = getProgressionConfig(state);
+  const engineConfig = getEngineConfig(state);
   const slide = getCurrentSlide(state);
   const answer = createGetAnswerProps(options, store)(state, slide);
   const mediaQuestion = getQuestionMedia(state);
   const clue = getCurrentClue(state) || null;
   const route = getRoute(state);
   const resources = getResourcesProps(options, store)(state, slide);
-  const starsDiff = (STARS_DIFF[route] && get(STARS_DIFF[route], progressionConfig)) || 0;
+  const starsDiff = (STARS_DIFF[route] && get(STARS_DIFF[route], engineConfig)) || 0;
   const isAnswer = !includes(route, ROUTES);
   const clickClueHandler = () => dispatch(selectClue);
   const clickBackToAnswerHandler = () => dispatch(selectRoute('answer'));

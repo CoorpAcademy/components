@@ -7,7 +7,7 @@ import {
   PROGRESSION_CREATE_ANSWER_REQUEST,
   PROGRESSION_CREATE_ANSWER_SUCCESS,
   PROGRESSION_REQUEST_CLUE_SUCCESS,
-  PROGRESSION_CONFIG_FETCH_SUCCESS
+  ENGINE_CONFIG_FETCH_SUCCESS
 } from '../../../actions/api/progressions';
 import macro from '../../test/helpers/macro';
 
@@ -134,7 +134,7 @@ test(
   reducer,
   {},
   {
-    type: PROGRESSION_CONFIG_FETCH_SUCCESS,
+    type: ENGINE_CONFIG_FETCH_SUCCESS,
     payload: 'foo'
   },
   {config: 'foo'}
