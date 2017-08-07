@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import qs from 'qs';
 import get from 'lodash/fp/get';
+import noop from 'lodash/fp/noop';
 import Picture from '../../atom/picture';
 import Provider from '../../atom/provider';
 import style from './style.css';
@@ -31,10 +32,17 @@ const getUrl = ({type, id, ...opts}) =>
 class VideoIframe extends React.Component {
   constructor(props, context) {
     super(props, context);
+
+    const {
+      onPlay: handlePlay = noop,
+      onPause: handlePause = noop,
+      onEnded: handleEnded = noop
+    } = this.props;
+
     this.setRefIframe = this.setRefIframe.bind(this);
-    this.handlePlay = this.handlePlay.bind(this);
-    this.handlePause = this.handlePause.bind(this);
-    this.handleEnded = this.handleEnded.bind(this);
+    this.handlePlay = handlePlay;
+    this.handlePause = handlePause;
+    this.handleEnded = handleEnded;
   }
 
   componentDidMount() {
@@ -43,13 +51,10 @@ class VideoIframe extends React.Component {
 
     if (type === 'vimeo') {
       if (!Vimeo) {
-        // eslint-disable-next-line no-console
-        console.warn('Vimeo not found in context, events are unplugged.');
         return;
       }
 
       this.player = new Vimeo.Player(this.iframe);
-
       this.player.on('play', this.handlePlay);
       this.player.on('pause', this.handlePause);
       this.player.on('ended', this.handleEnded);
@@ -66,18 +71,6 @@ class VideoIframe extends React.Component {
 
   setRefIframe(iframe) {
     this.iframe = iframe;
-  }
-
-  handlePlay(e) {
-    this.props.onPlay && this.props.onPlay(e);
-  }
-
-  handlePause(e) {
-    this.props.onPause && this.props.onPause(e);
-  }
-
-  handleEnded(e) {
-    this.props.onEnded && this.props.onEnded(e);
   }
 
   render() {
