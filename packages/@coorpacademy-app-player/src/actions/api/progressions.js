@@ -1,7 +1,13 @@
 import get from 'lodash/fp/get';
 import includes from 'lodash/fp/includes';
 import buildTask from '../../utils/redux-task';
-import {getProgression, getBestScore, getEngineConfig} from '../../utils/state-extract';
+import {
+  getProgression,
+  getBestScore,
+  getEngineConfig,
+  getContent,
+  getCurrentSlide
+} from '../../utils/state-extract';
 
 export const PROGRESSION_FETCH_REQUEST = '@@progression/FETCH_REQUEST';
 export const PROGRESSION_FETCH_SUCCESS = '@@progression/FETCH_SUCCESS';
@@ -113,6 +119,44 @@ export const fetchBestProgression = (contentRef, progressionId) => (
     task: () => Progressions.findBestOf(contentRef, progressionId),
     bailout: getBestScore,
     meta: {chapterId: contentRef}
+  });
+
+  return dispatch(action);
+};
+
+export const PROGRESSION_RESOURCE_VIEWED_REQUEST = '@@progression/RESOURCE_VIEWED_REQUEST';
+export const PROGRESSION_RESOURCE_VIEWED_SUCCESS = '@@progression/RESOURCE_VIEWED_SUCCESS';
+export const PROGRESSION_RESOURCE_VIEWED_FAILURE = '@@progression/RESOURCE_VIEWED_FAILURE';
+
+export const markResourceAsViewed = (progressionId, resource) => (
+  dispatch,
+  getState,
+  {services}
+) => {
+  const {Progressions} = services;
+  const state = getState();
+  const {_id: ref, type} = resource;
+  const slide = getCurrentSlide(state);
+  const chapter = getContent(state);
+
+  const payload = {
+    resource: {
+      ref,
+      type,
+      version: '1'
+    },
+    slide,
+    chapter
+  };
+
+  const action = buildTask({
+    types: [
+      PROGRESSION_RESOURCE_VIEWED_REQUEST,
+      PROGRESSION_RESOURCE_VIEWED_SUCCESS,
+      PROGRESSION_RESOURCE_VIEWED_FAILURE
+    ],
+    task: () => Progressions.markResourceAsViewed(progressionId, payload),
+    meta: {progressionId, resource, chapter, slide}
   });
 
   return dispatch(action);

@@ -12,7 +12,8 @@ import {
   ENGINE_CONFIG_FETCH_SUCCESS,
   PROGRESSION_CREATE_ANSWER_REQUEST,
   PROGRESSION_CREATE_ANSWER_SUCCESS,
-  PROGRESSION_REQUEST_CLUE_SUCCESS
+  PROGRESSION_REQUEST_CLUE_SUCCESS,
+  PROGRESSION_RESOURCE_VIEWED_SUCCESS
 } from '../../actions/api/progressions';
 
 const dataProgressionsReducer = (state = {entities: {}}, action) => {
@@ -37,6 +38,7 @@ const dataProgressionsReducer = (state = {entities: {}}, action) => {
       return set(['config'], payload, state);
     }
     case PROGRESSION_REQUEST_CLUE_SUCCESS:
+    case PROGRESSION_RESOURCE_VIEWED_SUCCESS:
     case PROGRESSION_CREATE_ANSWER_SUCCESS: {
       const {payload, meta} = action;
       const {progressionId} = meta;

@@ -1,18 +1,21 @@
-export const UI_VIDEO_PLAY = '@@ui/VIDEO_PLAY';
+import {markResourceAsViewed} from '../api/progressions';
+import {getCurrentProgressionId} from '../../utils/state-extract';
+
 export const UI_VIDEO_PAUSE = '@@ui/VIDEO_PAUSE';
 export const UI_VIDEO_ENDED = '@@ui/VIDEO_ENDED';
 
-export const play = payload => ({
-  type: UI_VIDEO_PLAY,
-  payload
-});
+export const play = resource => (dispatch, getState) => {
+  const state = getState();
+  const progressionId = getCurrentProgressionId(state);
+  return dispatch(markResourceAsViewed(progressionId, resource));
+};
 
-export const pause = payload => ({
+export const pause = resource => ({
   type: UI_VIDEO_PAUSE,
-  payload
+  resource
 });
 
-export const ended = payload => ({
+export const ended = resource => ({
   type: UI_VIDEO_ENDED,
-  payload
+  resource
 });
