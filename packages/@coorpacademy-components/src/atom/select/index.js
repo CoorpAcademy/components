@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import filter from 'lodash/fp/filter';
 import find from 'lodash/fp/find';
 import get from 'lodash/fp/get';
@@ -76,9 +77,13 @@ const Select = (props, context) => {
       />
     : null;
   const className = getClassState(style.default, style.modified, style.error, modified);
+  const composedClassName = classnames(
+    theme ? themeStyle[theme] : className,
+    selected ? style.selected : style.unselected
+  );
 
   return (
-    <div className={theme ? themeStyle[theme] : className}>
+    <div className={composedClassName}>
       <label style={skinColor}>
         {titleView}
         <span className={style.label}>{selectedLabel}</span>
