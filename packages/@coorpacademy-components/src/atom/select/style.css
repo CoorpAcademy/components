@@ -4,6 +4,7 @@
 @value orange from colors;
 @value dark from colors;
 @value light from colors;
+@value medium from colors;
 @value black from colors;
 @value white from colors;
 
@@ -412,9 +413,16 @@
 .template .label {
   font-size: 15px;
   font-weight: 700;
-  border: 2px solid;
   height: 54px;
   line-height: 52px;
+}
+
+.selected.template .label {
+  border: 2px solid;
+}
+
+.unselected.template .label {
+  border: 2px solid medium;
 }
 
 .template label {
