@@ -18,6 +18,13 @@
   padding: 0 24px 0 32px;
 }
 
+.qcmDrag {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: auto;
+}
+
 .selectedAnswers {
   composes: answers;
   border: 2px dashed light;
