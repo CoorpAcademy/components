@@ -138,6 +138,8 @@ export const markResourceAsViewed = (progressionId, resource) => (
   const {_id: ref, type} = resource;
   const slide = getCurrentSlide(state);
   const chapter = getContent(state);
+  const progression = getProgression(progressionId)(state);
+  const viewedResources = get('state.viewedResources', progression);
 
   const payload = {
     resource: {
@@ -156,7 +158,8 @@ export const markResourceAsViewed = (progressionId, resource) => (
       PROGRESSION_RESOURCE_VIEWED_FAILURE
     ],
     task: () => Progressions.markResourceAsViewed(progressionId, payload),
-    meta: {progressionId, resource, chapter, slide}
+    bailout: () => includes(chapter.ref, viewedResources),
+    meta: {progressionId, resource}
   });
 
   return dispatch(action);

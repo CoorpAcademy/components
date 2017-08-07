@@ -9,9 +9,15 @@ import {
   PROGRESSION_RESOURCE_VIEWED_FAILURE
 } from '../progressions';
 
+const resource = {_id: 'resourceId', type: 'video'};
+const chapter = {ref: 'chapterRef', type: 'chapter'};
+
 const initState = pipe(
+  set('ui.current.progressionId', 'foo'),
   set('data.progressions.entities.foo._id', 'foo'),
-  set('data.progressions.entities.foo.state.nextContent.ref', 'bar')
+  set('data.progressions.entities.foo.state.nextContent.ref', 'slideRef'),
+  set('data.progressions.entities.foo.content', chapter),
+  set('data.slides.entities.slideRef', 'slide')
 );
 
 test(
@@ -22,29 +28,37 @@ test(
     Progressions: {
       markResourceAsViewed: (id, payload) => {
         t.is(id, 'foo');
-        t.deepEqual(payload, {content: {ref: 'bar', type: 'slide'}});
-        return 'baz';
+        t.deepEqual(payload, {
+          resource: {
+            ref: resource._id,
+            type: resource.type,
+            version: '1'
+          },
+          chapter,
+          slide: 'slide'
+        });
+        return 'resourceViewed';
       }
     }
   }),
-  markResourceAsViewed('foo', 'bar'),
+  markResourceAsViewed('foo', resource),
   [
     {
       type: PROGRESSION_RESOURCE_VIEWED_REQUEST,
-      meta: {progressionId: 'foo'}
+      meta: {progressionId: 'foo', resource}
     },
     {
       type: PROGRESSION_RESOURCE_VIEWED_SUCCESS,
-      meta: {progressionId: 'foo'},
-      payload: 'baz'
+      meta: {progressionId: 'foo', resource},
+      payload: 'resourceViewed'
     }
   ]
 );
 
 test(
-  'should prevent request if clue has already requested',
+  'should prevent request if resource has already been seen',
   macro,
-  pipe(initState, set('data.progressions.entities.foo.state.requestedClues', ['bar']))({}),
+  pipe(initState, set('data.progressions.entities.foo.state.viewedResources', [chapter.ref]))({}),
   t => ({
     Progressions: {
       markResourceAsViewed: (id, payload) => {
@@ -52,11 +66,11 @@ test(
       }
     }
   }),
-  markResourceAsViewed('foo', 'bar'),
+  markResourceAsViewed('foo', resource),
   [
     {
       type: PROGRESSION_RESOURCE_VIEWED_REQUEST,
-      meta: {progressionId: 'foo'}
+      meta: {progressionId: 'foo', resource}
     }
   ]
 );
@@ -69,20 +83,28 @@ test(
     Progressions: {
       markResourceAsViewed: (id, payload) => {
         t.is(id, 'foo');
-        t.deepEqual(payload, {content: {ref: 'bar', type: 'slide'}});
+        t.deepEqual(payload, {
+          resource: {
+            ref: resource._id,
+            type: resource.type,
+            version: '1'
+          },
+          chapter,
+          slide: 'slide'
+        });
         throw new Error();
       }
     }
   }),
-  markResourceAsViewed('foo', 'bar'),
+  markResourceAsViewed('foo', resource),
   [
     {
       type: PROGRESSION_RESOURCE_VIEWED_REQUEST,
-      meta: {progressionId: 'foo'}
+      meta: {progressionId: 'foo', resource}
     },
     {
       type: PROGRESSION_RESOURCE_VIEWED_FAILURE,
-      meta: {progressionId: 'foo'},
+      meta: {progressionId: 'foo', resource},
       error: true,
       payload: new Error()
     }
