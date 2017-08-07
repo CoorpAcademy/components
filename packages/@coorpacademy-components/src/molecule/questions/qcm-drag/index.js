@@ -35,7 +35,7 @@ const Choices = ({answers}) => {
   });
 
   return (
-    <div>
+    <div className={style.qcmDrag}>
       {answersViews}
     </div>
   );
@@ -77,7 +77,7 @@ SelectionBox.propTypes = {
 };
 
 const QcmDrag = ({answers}, context) =>
-  <div>
+  <div className={style.qcmDrag}>
     <SelectionBox answers={answers} />
     <div className={style.answers}>
       <Choices answers={answers} />

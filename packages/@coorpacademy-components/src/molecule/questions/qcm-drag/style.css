@@ -16,6 +16,14 @@
   box-sizing: border-box;
   margin-bottom: -8px;
   padding: 0 24px 0 32px;
+  justify-content: center;
+}
+
+.qcmDrag {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: auto;
 }
 
 .selectedAnswers {
