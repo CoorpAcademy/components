@@ -37,7 +37,8 @@ test(
           chapter,
           slide: 'slide'
         });
-        return 'resourceViewed';
+
+        return set('state.viewedResources', [chapter.ref], {});
       }
     }
   }),
@@ -50,7 +51,7 @@ test(
     {
       type: PROGRESSION_RESOURCE_VIEWED_SUCCESS,
       meta: {progressionId: 'foo', resource},
-      payload: 'resourceViewed'
+      payload: set('state.viewedResources', [chapter.ref], {})
     }
   ]
 );

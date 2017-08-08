@@ -4,8 +4,9 @@ import identity from 'lodash/fp/identity';
 import isArray from 'lodash/fp/isArray';
 import isFunction from 'lodash/fp/isFunction';
 import set from 'lodash/fp/set';
+import omit from 'lodash/fp/omit';
 import {UI_TOGGLE_ACCORDION, selectResource} from '../../actions/ui/corrections';
-import {UI_VIDEO_PLAY, UI_VIDEO_PAUSE, UI_VIDEO_ENDED} from '../../actions/ui/video';
+import {UI_VIDEO_PAUSE, UI_VIDEO_ENDED} from '../../actions/ui/video';
 import createMapStateToProps from '../popin-correction';
 import statePopinFailure from './fixtures/popin-correction/popin-failure';
 import statePopinSuccess from './fixtures/popin-correction/popin-success';
@@ -84,21 +85,15 @@ test('should trigger actions for resources', t => {
     const actionPlayVideo = onPlay();
     const actionPauseVideo = onPause();
     const actionEndedVideo = onEnded();
-    const payloadResource = {
-      ref: resource._id,
-      type: 'video',
-      version: '1'
-    };
+    const baseResource = omit(['onClick', 'onPause', 'onPlay', 'onEnded', 'selected'], resource);
 
     t.deepEqual(selectResource(resource._id), actionSelectResource);
+    t.true(isFunction(actionPlayVideo));
 
-    t.deepEqual(payloadResource, actionPlayVideo.payload.resource);
-    t.is(actionPlayVideo.type, UI_VIDEO_PLAY);
-
-    t.deepEqual(payloadResource, actionPauseVideo.payload.resource);
+    t.deepEqual(baseResource, actionPauseVideo.resource);
     t.is(actionPauseVideo.type, UI_VIDEO_PAUSE);
 
-    t.deepEqual(payloadResource, actionEndedVideo.payload.resource);
+    t.deepEqual(baseResource, actionEndedVideo.resource);
     t.is(actionEndedVideo.type, UI_VIDEO_ENDED);
   }, resources);
 });

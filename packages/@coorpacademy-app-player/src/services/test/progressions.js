@@ -1,14 +1,7 @@
 import test from 'ava';
 import isObject from 'lodash/fp/isObject';
 import isString from 'lodash/fp/isString';
-import {
-  create,
-  findById,
-  createAnswer,
-  findBestOf,
-  markResourceAsViewed,
-  requestClue
-} from '../progressions';
+import {create, findById, createAnswer, findBestOf, markResourceAsViewed} from '../progressions';
 
 const engine = {
   ref: 'microlearning',

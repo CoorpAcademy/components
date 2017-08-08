@@ -38,17 +38,14 @@ test('should call listeners within props', t => {
   video.unmount();
 });
 
-test('should warn when Vimeo is not within context', t => {
+test('should render properly when Vimeo is not within context', t => {
   const props = {
     type: 'vimeo',
     src: 'foo'
   };
 
   const component = <VideoIframe {...props} />;
-  try {
-    mount(component);
-    t.fail();
-  } catch (e) {
-    t.is(e.message, 'Vimeo not found in context, events are unplugged.');
-  }
+  const video = mount(component);
+  t.truthy(video.find('.iframe'));
+  video.unmount();
 });
