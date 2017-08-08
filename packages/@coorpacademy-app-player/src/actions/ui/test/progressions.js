@@ -74,7 +74,7 @@ test(
         t.is(ref, 'baz');
         return 16;
       },
-      getConfig: () => 42
+      getEngineConfig: () => 42
     },
     Slides: {
       findById: id => {
@@ -199,7 +199,7 @@ test(
         t.is(ref, 'baz');
         return 16;
       },
-      getConfig: () => 42
+      getEngineConfig: () => 42
     },
     ExitNodes: {
       findById: id => {
