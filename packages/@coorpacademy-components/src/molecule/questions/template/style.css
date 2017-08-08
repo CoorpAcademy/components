@@ -17,14 +17,10 @@
 
 .answerType {
   display: inline-block;
-  margin: 8px 0;
+  margin: 4px 0 8px;
   vertical-align: middle;
 }
 
 .answerType .text {
   border: solid 3px red;
-}
-
-.answerType .select {
-  margin-top: 2px;
 }

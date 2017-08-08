@@ -1,5 +1,8 @@
 @value breakpoints: "../../../variables/breakpoints.css";
 @value mobile from breakpoints;
+@value colors: "../../../variables/colors.css";
+@value medium from colors;
+@value black from colors;
 
 .input {
   font-family: "Open Sans";
@@ -7,11 +10,16 @@
   text-transform: none;
   padding: 0 15px;
   border: solid 2px;
+  border-color: medium;
   height: 50px;
   border-radius: 2px;
   font-size: 14px;
   width: 230px;
   outline: none;
+}
+
+.input::placeholder {
+  color: black;
 }
 
 .input:focus {
