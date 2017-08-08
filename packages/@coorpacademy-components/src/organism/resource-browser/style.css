@@ -2,6 +2,7 @@
 @value light from colors;
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
+@value tablet from breakpoints;
 
 .default {
   display: flex;
@@ -94,6 +95,28 @@
 }
 
 @media mobile {
+  .default {
+    flex-flow: column;
+    height: auto;
+    width: 100%;
+  }
+
+  .playerWrapper {
+    width: 100%;
+    max-width: 100vw;
+    height: 50vh;
+  }
+
+  .resourcesList {
+    display: flex;
+    flex-flow: column;
+    margin: 0;
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media tablet {
   .default {
     flex-flow: column;
     height: auto;

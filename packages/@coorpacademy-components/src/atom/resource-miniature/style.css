@@ -2,6 +2,7 @@
 @value light from colors;
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
+@value tablet from breakpoints;
 
 .resource {
   position: relative;
@@ -70,6 +71,25 @@
 }
 
 @media mobile {
+  .resource {
+    width: 100%;
+    height: 70px;
+    padding-left: 32px;
+    border-bottom: solid 2px white;
+    box-sizing: border-box;
+  }
+
+  .posterWrapper {
+    top: 12px;
+    left: 16px;
+  }
+
+  .description {
+    left: 105px;
+  }
+}
+
+@media tablet {
   .resource {
     width: 100%;
     height: 70px;
