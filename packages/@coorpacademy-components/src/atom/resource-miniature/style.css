@@ -1,5 +1,7 @@
 @value colors: "../../variables/colors.css";
 @value light from colors;
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
 
 .resource {
   position: relative;
@@ -65,4 +67,23 @@
 .selectedDescription {
   composes: description;
   font-weight: bold;
+}
+
+@media mobile {
+  .resource {
+    width: 100%;
+    height: 70px;
+    padding-left: 32px;
+    border-bottom: solid 2px white;
+    box-sizing: border-box;
+  }
+
+  .posterWrapper {
+    top: 12px;
+    left: 16px;
+  }
+
+  .description {
+    left: 105px;
+  }
 }
