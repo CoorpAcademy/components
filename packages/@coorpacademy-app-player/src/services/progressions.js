@@ -38,7 +38,7 @@ export const findById = async id => {
 };
 
 // eslint-disable-next-line require-await
-export const getConfig = async () => engineConfigData;
+export const getEngineConfig = async () => engineConfigData;
 
 // eslint-disable-next-line require-await
 const findAllSlides = async () => {
