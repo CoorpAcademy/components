@@ -11,7 +11,8 @@ export default {
         posters: [],
         src: [],
         selected: true,
-        onClick: () => {}
+        onClick: () => {},
+        onPlay: () => console.log('viewed pdf!')
       },
       {
         type: 'video',

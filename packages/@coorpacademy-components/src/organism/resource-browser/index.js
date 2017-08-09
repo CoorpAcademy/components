@@ -16,7 +16,7 @@ const SelectedVideo = props => {
 };
 
 const SelectedPDF = (props, context) => {
-  const {description, mediaUrl} = props;
+  const {description, mediaUrl, onPlay} = props;
   const {translate, skin} = context;
 
   const dark = get('common.dark', skin);
@@ -26,7 +26,7 @@ const SelectedPDF = (props, context) => {
     <div className={style.pdfFrame}>
       <PDFIcon color={dark} className={style.pdfIcon} />
       <div className={style.pdfDescription}>{description}</div>
-      <Link href={mediaUrl} target="_blank">
+      <Link href={mediaUrl} target="_blank" onClick={onPlay}>
         <div className={style.openPDFButton} style={{borderColor: brand, color: brand}}>
           <div className={style.openPDFButtonBackground} style={{backgroundColor: brand}} />
           <label className={style.openPDFButtonLabel}>{translate('Open')}</label>
@@ -75,7 +75,8 @@ const videoPropType = PropTypes.shape({
 
 const pdfPropType = PropTypes.shape({
   ...resourcePropTypeBase,
-  mediaUrl: PropTypes.string.isRequired
+  mediaUrl: PropTypes.string.isRequired,
+  onPlay: PropTypes.func
 });
 
 ResourceBrowser.propTypes = {
