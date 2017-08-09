@@ -1,40 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import VideoIframe from '../video-iframe';
-import Picture from '../../atom/picture';
-import style from './style.css';
+import JWPlayer from './jwplayer';
 
 const VideoPlayer = props => {
-  const {type, id, image, playVideo, width = '100%', height = '400px'} = props;
+  const {mimeType, id, width = '100%', height = '400px', onPlay, onPause, onEnded} = props;
 
-  return (
-    <div className={style.list}>
-      <div className={style.item}>
-        <input type="checkbox" id="toggler" checked={false} className={style.checkbox} />
-        <label htmlFor={'toggler'} className={style.togglerDisplay} onClick={playVideo}>
-          <Picture src={image} className={style.image} width={width} height={height} />
-        </label>
+  switch (mimeType) {
+    case 'application/vimeo':
+    case 'application/youtube':
+      return (
         <VideoIframe
-          type={type}
+          type={mimeType.split('application/')[1]}
           id={id}
           width={width}
           height={height}
           frameBorder={0}
-          className={style.iframe}
           allowFullScreen
+          onPlay={onPlay}
+          onPause={onPause}
+          onEnded={onEnded}
         />
-      </div>
-    </div>
-  );
+      );
+
+    case 'video/mp4':
+      return <JWPlayer {...props} />;
+  }
 };
 
 VideoPlayer.propTypes = {
-  type: PropTypes.oneOf(['vimeo', 'youtube']).isRequired,
-  playVideo: PropTypes.func,
-  image: PropTypes.string,
-  width: PropTypes.string,
-  height: PropTypes.string,
-  id: PropTypes.string
+  mimeType: PropTypes.oneOf(['application/vimeo', 'video/mp4', 'application/youtube']).isRequired
 };
 
 export default VideoPlayer;

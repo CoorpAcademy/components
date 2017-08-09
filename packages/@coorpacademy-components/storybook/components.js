@@ -350,7 +350,7 @@ import VideoIframeFixtureEmpty from '../src/molecule/video-iframe/test/fixtures/
 import VideoIframeFixtureImagePlaceholder from '../src/molecule/video-iframe/test/fixtures/image-placeholder';
 import VideoIframeFixtureYoutube from '../src/molecule/video-iframe/test/fixtures/youtube';
 import VideoPlayerFixtureDefault from '../src/molecule/video-player/test/fixtures/default';
-import VideoPlayerFixtureWithImage from '../src/molecule/video-player/test/fixtures/with-image';
+import VideoPlayerFixtureJwplayer from '../src/molecule/video-player/test/fixtures/jwplayer';
 import VideoPlayerFixtureYoutube from '../src/molecule/video-player/test/fixtures/youtube';
 import PopinHeaderFixtureFailMultipleAnswers from '../src/molecule/app-player/popin/popin-header/test/fixtures/fail-multiple-answers';
 import PopinHeaderFixtureFail from '../src/molecule/app-player/popin/popin-header/test/fixtures/fail';
@@ -459,6 +459,7 @@ import MoocHeaderFixtureLogged from '../src/organism/mooc-header/test/fixtures/l
 import MoocHeaderFixtureSliderMultiple from '../src/organism/mooc-header/test/fixtures/slider-multiple';
 import MoocHeaderFixtureSlider from '../src/organism/mooc-header/test/fixtures/slider';
 import PopinFixtureDefault from '../src/organism/popin/test/fixtures/default';
+import ResourceBrowserFixtureJwplayer from '../src/organism/resource-browser/test/fixtures/jwplayer';
 import ResourceBrowserFixturePdfSelected from '../src/organism/resource-browser/test/fixtures/pdf-selected';
 import ResourceBrowserFixtureVideoSelected from '../src/organism/resource-browser/test/fixtures/video-selected';
 import SettingsFixtureDefault from '../src/organism/settings/test/fixtures/default';
@@ -1071,7 +1072,7 @@ export const fixtures = {
     },
     VideoPlayer: {
       Default: VideoPlayerFixtureDefault,
-      WithImage: VideoPlayerFixtureWithImage,
+      Jwplayer: VideoPlayerFixtureJwplayer,
       Youtube: VideoPlayerFixtureYoutube
     }
   },
@@ -1260,6 +1261,7 @@ export const fixtures = {
       Default: PopinFixtureDefault
     },
     ResourceBrowser: {
+      Jwplayer: ResourceBrowserFixtureJwplayer,
       PdfSelected: ResourceBrowserFixturePdfSelected,
       VideoSelected: ResourceBrowserFixtureVideoSelected
     },
@@ -1620,15 +1622,6 @@ export const dependencies = {
       },
       "children": {}
     },
-    "VideoIframe": {
-      "parents": {
-        "Molecule": {
-          "VideoPlayer": true,
-          "DisciplineHeader": true
-        }
-      },
-      "children": {}
-    },
     "SetupSlide": {
       "parents": {
         "Molecule": {
@@ -1696,6 +1689,14 @@ export const dependencies = {
           "ModuleBubble": true
         }
       }
+    },
+    "VideoIframe": {
+      "parents": {
+        "Molecule": {
+          "DisciplineHeader": true
+        }
+      },
+      "children": {}
     },
     "SetupSections": {
       "parents": {
@@ -1797,14 +1798,7 @@ export const dependencies = {
       }
     },
     "VideoPlayer": {
-      "children": {
-        "Atom": {
-          "Picture": true
-        },
-        "Molecule": {
-          "VideoIframe": true
-        }
-      }
+      "children": {}
     }
   },
   "Organism": {
@@ -2096,7 +2090,6 @@ export const dependencies = {
           "ForumPost": true
         },
         "Molecule": {
-          "VideoPlayer": true,
           "DisciplinePartners": true,
           "BrandCard": true
         },

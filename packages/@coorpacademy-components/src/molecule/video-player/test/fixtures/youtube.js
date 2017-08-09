@@ -1,6 +1,6 @@
 export default {
   props: {
-    type: 'youtube',
+    mimeType: 'application/youtube',
     id: 'nLMZd05FQKc'
   }
 };

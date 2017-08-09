@@ -1,7 +1,7 @@
 import test from 'ava';
 import isObject from 'lodash/fp/isObject';
 import isString from 'lodash/fp/isString';
-import {create, findById, createAnswer, findBestOf} from '../progressions';
+import {create, findById, createAnswer, findBestOf, markResourceAsViewed} from '../progressions';
 
 const engine = {
   ref: 'microlearning',
@@ -49,4 +49,13 @@ test('should add answer action', async t => {
 
 test("should throw error if progression doesn't exist", t => {
   return t.throws(findById('unknown'));
+});
+
+test('should mark a resource as viewed', async t => {
+  const progression = await create({engine});
+  const result = await markResourceAsViewed(progression._id, {
+    chapter: {ref: progression.content.ref}
+  });
+
+  t.deepEqual(result.state.viewedResources, [progression.content.ref]);
 });

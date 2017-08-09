@@ -116,3 +116,15 @@ export const create = async progression => {
     ...newProgression
   });
 };
+
+export const markResourceAsViewed = async (progressionId, payload) => {
+  const progression = await findById(progressionId);
+  const action = {
+    type: 'resource',
+    payload
+  };
+
+  return pipe(update('state', state => updateState(progression.engine, state, [action])), save)(
+    progression
+  );
+};

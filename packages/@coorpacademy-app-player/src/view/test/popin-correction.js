@@ -4,7 +4,9 @@ import identity from 'lodash/fp/identity';
 import isArray from 'lodash/fp/isArray';
 import isFunction from 'lodash/fp/isFunction';
 import set from 'lodash/fp/set';
+import omit from 'lodash/fp/omit';
 import {UI_TOGGLE_ACCORDION, selectResource} from '../../actions/ui/corrections';
+import {UI_VIDEO_PAUSE, UI_VIDEO_ENDED} from '../../actions/ui/video';
 import createMapStateToProps from '../popin-correction';
 import statePopinFailure from './fixtures/popin-correction/popin-failure';
 import statePopinSuccess from './fixtures/popin-correction/popin-success';
@@ -12,8 +14,10 @@ import statePopinFailureMultipleAnswers from './fixtures/popin-correction/state-
 import testRendering from './helpers/render';
 
 const translate = key => `__${key}`;
+const Vimeo = {Player: () => true};
 const commonOptions = {
-  translate
+  translate,
+  Vimeo
 };
 
 const mapStateToProps = createMapStateToProps(commonOptions, {dispatch: identity});
@@ -67,11 +71,30 @@ test('should set properties to open resource tab if wrong answer and no resource
   t.is(resources.length, 2);
   t.true(resources[0].selected);
   t.false(resources[1].selected);
+});
+
+test('should trigger actions for resources', t => {
+  const vNode = mapStateToProps(statePopinFailure);
+  testRendering(vNode);
+  const {props} = vNode;
+  const resources = props.resources.value;
 
   forEach(resource => {
-    const {onClick} = resource;
-    const actionSelectRessource = onClick();
-    t.deepEqual(selectResource(resource._id), actionSelectRessource);
+    const {onClick, onPlay, onPause, onEnded} = resource;
+    const actionSelectResource = onClick();
+    const actionPlayVideo = onPlay();
+    const actionPauseVideo = onPause();
+    const actionEndedVideo = onEnded();
+    const baseResource = omit(['onClick', 'onPause', 'onPlay', 'onEnded', 'selected'], resource);
+
+    t.deepEqual(selectResource(resource._id), actionSelectResource);
+    t.true(isFunction(actionPlayVideo));
+
+    t.deepEqual(baseResource, actionPauseVideo.resource);
+    t.is(actionPauseVideo.type, UI_VIDEO_PAUSE);
+
+    t.deepEqual(baseResource, actionEndedVideo.resource);
+    t.is(actionEndedVideo.type, UI_VIDEO_ENDED);
   }, resources);
 });
 
