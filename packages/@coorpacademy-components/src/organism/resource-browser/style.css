@@ -1,5 +1,6 @@
 @value colors: "../../variables/colors.css";
 @value light from colors;
+@value white from colors;
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
 @value tablet from breakpoints;
@@ -28,7 +29,7 @@
   justify-content: center;
   width: 100%;
   height: 100%;
-  background-color: light;
+  background-color: white;
 }
 
 .pdfIcon {
