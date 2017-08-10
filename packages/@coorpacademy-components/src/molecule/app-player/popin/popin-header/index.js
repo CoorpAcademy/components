@@ -75,7 +75,7 @@ const Stars = ({stars}, {skin}) => {
       <div className={style.iconBubble}>
         <StarIcon className={style.icon} color={positive} />
       </div>
-      <span className={style.iconText}>{stars}</span>
+      <span data-name="iconText" className={style.iconText}>{stars}</span>
     </div>
   );
 };
