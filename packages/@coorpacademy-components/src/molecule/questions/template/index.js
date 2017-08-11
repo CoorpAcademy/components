@@ -29,7 +29,7 @@ const Template = props => {
   }, totalTemplate);
 
   return (
-    <div className={style.wrapper}>
+    <div data-name="template-wrapper" className={style.wrapper}>
       {templateCompose}
     </div>
   );

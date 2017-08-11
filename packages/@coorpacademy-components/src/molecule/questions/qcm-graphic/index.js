@@ -35,7 +35,7 @@ const QCMImage = (props, context) => {
   });
 
   return (
-    <div className={style.wrapper}>
+    <div data-name="qcm-graphic-wrapper" className={style.wrapper}>
       {answersViews}
     </div>
   );
