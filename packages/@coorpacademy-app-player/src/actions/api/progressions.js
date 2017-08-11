@@ -6,7 +6,8 @@ import {
   getBestScore,
   getEngineConfig,
   getContent,
-  getCurrentSlide
+  getCurrentSlide,
+  getPreviousSlide
 } from '../../utils/state-extract';
 
 export const PROGRESSION_FETCH_REQUEST = '@@progression/FETCH_REQUEST';
@@ -136,7 +137,7 @@ export const markResourceAsViewed = (progressionId, resource) => (
   const {Progressions} = services;
   const state = getState();
   const {_id: ref, type} = resource;
-  const slide = getCurrentSlide(state);
+  const slide = getCurrentSlide(state) || getPreviousSlide(state);
   const chapter = getContent(state);
   const progression = getProgression(progressionId)(state);
   const viewedResources = get('state.viewedResources', progression);
