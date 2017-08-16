@@ -2,7 +2,7 @@
   "All training": "Все обучение",
   "Answer": "Ответить",
   "assets": "активы",
-  "At the end of this level, you will be able to_": "At the end of this level, you will be able to:",
+  "At the end of this level, you will be able to_": "Пройдя этот уровень, вы сможете:",
   "author": "автор",
   "by {{name}}": "по {{name}}",
   "Catalog": "Каталог",
@@ -65,5 +65,10 @@
   "USD": "$",
   "premium_unsubscribe_confirmation": "Мы подтверждаем завершение вашей подписки, начиная от следующего месяца.\n\nТем временем, вы можете продолжать ваше обучение на платформе Coorpacademy.",
   "New media": "Новые видео",
-  "Select the correct option(s) below": "Выберите правильные опции, указанные ниже"
+  "Select the correct option(s) below": "Выберите правильные опции, указанные ниже",
+  "clue_stars_to_loose": "При использовании подсказок вы теряете {{count}} звезду на каждый вопрос",
+  "clue_stars_to_loose_plural": "При использовании подсказок вы теряете {{count}} звезд на каждый вопрос",
+  "media_stars_to_win": "Получи {{count}} дополнительную звезду в этой главе просмотрев урок впервые!",
+  "media_stars_to_win_plural": "Получи {{count}} дополнительных звезд в этой главе просмотрев урок впервые!",
+  "Open": "Открыть"
 }
