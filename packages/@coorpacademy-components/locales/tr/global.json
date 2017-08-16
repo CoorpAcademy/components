@@ -2,7 +2,7 @@
   "All training": "Tüm eğitim",
   "Answer": "Cevap",
   "assets": "varlıklar",
-  "At the end of this level, you will be able to_": "At the end of this level, you will be able to:",
+  "At the end of this level, you will be able to_": "Bu seviye sonunda mümkün olacak:",
   "author": "Yazar",
   "by {{name}}": "{{name}} tarafından",
   "Catalog": "Katalog",
@@ -65,5 +65,10 @@
   "USD": "$",
   "premium_unsubscribe_confirmation": "Biz sonraki month.\n\nIn bu arada başlayan etkili olacak aboneliğinizi iptal teyit, içerik Coorpacademy platform üzerinde zevk devam edebilirsiniz.",
   "New media": "Yeni medya",
-  "Select the correct option(s) below": "Aşağıda doğru seçenekleri seçin"
+  "Select the correct option(s) below": "Aşağıda doğru seçenekleri seçin",
+  "clue_stars_to_loose": "Her soru ipucu maliyeti {{count}} Star'da kilidini",
+  "clue_stars_to_loose_plural": "İpucu maliyeti {{count}} yıldız her soru üzerine kilidini",
+  "media_stars_to_win": "{{count}} bu bölüm ilk zamanında yıldız seni izlemem ek kazanın!",
+  "media_stars_to_win_plural": "{{count}} ek yıldız seni izlemem bu bölüm ilk zamanında kazanın!",
+  "Open": "Açık"
 }
