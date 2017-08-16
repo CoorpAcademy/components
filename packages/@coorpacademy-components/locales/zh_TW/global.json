@@ -2,7 +2,7 @@
   "All training": "所有的訓練",
   "Answer": "答案",
   "assets": "資產",
-  "At the end of this level, you will be able to_": "At the end of this level, you will be able to:",
+  "At the end of this level, you will be able to_": "在這個級別的最後，你將能夠：",
   "author": "作者",
   "by {{name}}": "透過{{name}}",
   "Catalog": "目錄",
@@ -65,5 +65,10 @@
   "USD": "＄",
   "premium_unsubscribe_confirmation": "我們確認您的訂閱之取消將從下個月開始生效。\n\n在這之前，您可繼續在 Coorpacademy 平台上享受我們的內容。",
   "New media": "新媒體",
-  "Select the correct option(s) below": "於下選擇正確選項（們）"
+  "Select the correct option(s) below": "於下選擇正確選項（們）",
+  "clue_stars_to_loose": "解除每個問題的線索費用{{count}}明星",
+  "clue_stars_to_loose_plural": "在每個問題上解開線索費用{{count}}顆星",
+  "media_stars_to_win": "第一次看本課時贏得{{count}}額外的星星！",
+  "media_stars_to_win_plural": "在本章第一次觀看課程時贏得{{count}}個額外的星星！",
+  "Open": "打開"
 }
