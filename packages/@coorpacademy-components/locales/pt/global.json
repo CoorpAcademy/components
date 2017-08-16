@@ -2,7 +2,7 @@
   "All training": "Todo o treinamento",
   "Answer": "Resposta",
   "assets": "ativos",
-  "At the end of this level, you will be able to_": "At the end of this level, you will be able to:",
+  "At the end of this level, you will be able to_": "No final deste nível, você será capaz de:",
   "author": "autor",
   "by {{name}}": "por {{name}}",
   "Catalog": "Catálogo",
@@ -65,5 +65,10 @@
   "USD": "$",
   "premium_unsubscribe_confirmation": "Confirmamos o cancelamento de sua inscrição que será efetivada a partir na próxima month.\n\nIn, entretanto, você pode continuar a apreciar nosso conteúdo na plataforma Coorpacademy.",
   "New media": "Novas mídias",
-  "Select the correct option(s) below": "Selecione as opções corretas abaixo"
+  "Select the correct option(s) below": "Selecione as opções corretas abaixo",
+  "clue_stars_to_loose": "Desbloquear a pista custos {{count}} estrela em cada pergunta",
+  "clue_stars_to_loose_plural": "Desbloqueando as estrelas de {{count}} de custos de pista sobre cada questão",
+  "media_stars_to_win": "Ganhe {{count}} adicionais de que estrela neste tempo capítulo o primeiro você assiste a lição!",
+  "media_stars_to_win_plural": "Ganhe {{count}} estrelas adicionais neste tempo capítulo o primeiro que você assiste a lição!",
+  "Open": "Aberto"
 }
