@@ -2,7 +2,7 @@
   "All training": "すべてのトレーニング",
   "Answer": "答え",
   "assets": "資産",
-  "At the end of this level, you will be able to_": "At the end of this level, you will be able to:",
+  "At the end of this level, you will be able to_": "このレベルの最後に、することができます。",
   "author": "著者",
   "by {{name}}": "{{name}} 前で",
   "Catalog": "カタログ",
@@ -65,5 +65,10 @@
   "USD": "$",
   "premium_unsubscribe_confirmation": "その間に次の month.\n\nIn から始まって有効になりますあなたのサブスクリプションのキャンセルを確認、Coorpacademy プラットフォームでコンテンツを享受し続けることができます。",
   "New media": "新しいメディア",
-  "Select the correct option(s) below": "以下の正しいオプションを選択します。"
+  "Select the correct option(s) below": "以下の正しいオプションを選択します。",
+  "clue_stars_to_loose": "各質問について手がかりコスト {{count}} スターのロックを解除",
+  "clue_stars_to_loose_plural": "各質問について手がかりコスト {{count}} 星のロックを解除",
+  "media_stars_to_win": "{{count}} 追加レッスンを見なければこの章最初の時間で 3 つ星を獲得!",
+  "media_stars_to_win_plural": "この章最初の時間のレッスンを見るの {{count}} 追加の星に勝つ!",
+  "Open": "オープン"
 }
