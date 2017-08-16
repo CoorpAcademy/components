@@ -2,7 +2,7 @@
   "All training": "Alle trainingen",
   "Answer": "Antwoord",
   "assets": "activa",
-  "At the end of this level, you will be able to_": "At the end of this level, you will be able to:",
+  "At the end of this level, you will be able to_": "Aan het einde van dit niveau, zal u zitten kundig voor:",
   "author": "Auteur",
   "by {{name}}": "door {{name}}",
   "Catalog": "Catalogus",
@@ -65,5 +65,10 @@
   "USD": "$",
   "premium_unsubscribe_confirmation": "Wij bevestigen de annulering van uw abonnement die effectief vanaf volgende month.\n\nIn de tussentijd zal zijn, kunt u blijven om onze inhoud op het platform van Coorpacademy te genieten.",
   "New media": "Nieuwe media",
-  "Select the correct option(s) below": "Selecteer de juiste optie hieronder"
+  "Select the correct option(s) below": "Selecteer de juiste optie hieronder",
+  "clue_stars_to_loose": "Ontsluiting van de aanwijzing kosten {{count}} ster op elke vraag",
+  "clue_stars_to_loose_plural": "Ontsluiting van de aanwijzing kosten {{count}} sterren op elke vraag",
+  "media_stars_to_win": "Win {{count}} extra dat ster in dit hoofdstuk de eerste keer u de les bekijken!",
+  "media_stars_to_win_plural": "{{count}} winnen extra sterren in dit hoofdstuk de eerste keer die u de les bekijken!",
+  "Open": "Open"
 }
