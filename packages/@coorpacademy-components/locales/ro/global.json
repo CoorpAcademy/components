@@ -2,7 +2,7 @@
   "All training": "Toate activitățile de formare",
   "Answer": "Răspuns",
   "assets": "bunuri",
-  "At the end of this level, you will be able to_": "At the end of this level, you will be able to:",
+  "At the end of this level, you will be able to_": "La sfârşitul acestui nivel, veţi putea să:",
   "author": "autor",
   "by {{name}}": "de către {{name}}",
   "Catalog": "Catalog",
@@ -65,5 +65,10 @@
   "USD": "$",
   "premium_unsubscribe_confirmation": "Confirmăm că anulează abonamentul care va fi eficace pornind de la următoarea month.\n\nIn între timp, puteţi continua să se bucure de conţinut noastre pe platforma Coorpacademy.",
   "New media": "Noile media",
-  "Select the correct option(s) below": "Selectaţi opţiunile corecte pe mai jos"
+  "Select the correct option(s) below": "Selectaţi opţiunile corecte pe mai jos",
+  "clue_stars_to_loose": "Deblocarea indiciu costurile {{count}} stea pe fiecare întrebare",
+  "clue_stars_to_loose_plural": "Deblocarea indiciu costurile {{count}} stele pe fiecare întrebare",
+  "media_stars_to_win": "Castiga {{count}} suplimentare stele în acest moment primul capitol te uiţi la lecţie!",
+  "media_stars_to_win_plural": "Castiga {{count}} stele suplimentare în capitolul primul de data aceasta tu uita-te la lecţie!",
+  "Open": "Deschis"
 }
