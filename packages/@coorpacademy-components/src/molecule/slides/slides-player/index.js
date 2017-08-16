@@ -66,9 +66,20 @@ MediaContent.contextTypes = {
   translate: Provider.childContextTypes.translate
 };
 
+const ContextContent = ({slideContext}) =>
+  <p className={style.context}>{slideContext.description}</p>;
+
+ContextContent.propTypes = {
+  slideContext: PropTypes.shape({
+    title: PropTypes.string,
+    description: PropTypes.string
+  })
+};
+
 const CONTENT_TYPE = {
   answer: AnswerContent,
   clue: ClueContent,
+  context: ContextContent,
   media: MediaContent
 };
 
@@ -126,7 +137,7 @@ const ContentLayout = (props, context) => {
   return (
     <div className={noPaddingRessources} style={{backgroundColor: wrapperColor}}>
       <div data-name="question" className={style.question}>
-        {question}
+        {typeClue === 'context' ? props.slideContext.title : question}
       </div>
       {help && typeClue === 'answer' ? <Help help={help} /> : null}
       <ContentType {...props} />
