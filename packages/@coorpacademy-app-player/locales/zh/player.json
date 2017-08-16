@@ -1,6 +1,6 @@
 {
   "Access the lesson": "进入课程",
-  "Back to home": "Back to home",
+  "Back to home": "回到家裡",
   "Back": "背部",
   "Check out the next chapter in this course!": "查看本课程的下一章!",
   "Clue": "意",
@@ -12,17 +12,18 @@
   "Good job": "做得好",
   "Key point": "关键",
   "Media": "媒体",
-  "Next chapter_": "Next chapter:",
+  "Next chapter_": "下一章：",
   "Next": "下一个",
   "Ooops": "哎呀",
   "Ouch": "哎哟...",
   "Related subjects": "相关主题：",
   "Retry chapter": "重试章节",
-  "Retry chapter_": "Retry chapter:",
+  "Retry chapter_": "重试章节：",
   "Select something below": "选择下面的东西",
-  "Select an answer": "Select an answer",
+  "Select an answer": "选择答案",
   "Type here": "在此输入",
   "Validate": "验证",
   "Wrong answer": "错误的答案",
-  "You are out of lives!": "您的尝试机会已用完！"
+  "You are out of lives!": "您的尝试机会已用完！",
+  "Back to question": "回到问题"
 }
