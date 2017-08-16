@@ -2,7 +2,7 @@
   "All training": "Minden képzési",
   "Answer": "Válasz",
   "assets": "eszközök",
-  "At the end of this level, you will be able to_": "At the end of this level, you will be able to:",
+  "At the end of this level, you will be able to_": "Ez a szint végén képesek lesznek:",
   "author": "Szerző",
   "by {{name}}": "{{name}} szerint",
   "Catalog": "Katalógus",
@@ -65,5 +65,10 @@
   "USD": "$",
   "premium_unsubscribe_confirmation": "Megerősítjük, hogy az érvénytelenítés az előfizetés, amely lesz hatásos, kezdve a következő month.\n\nIn időközben, továbbra is a tartalom a Coorpacademy platform.",
   "New media": "Új média",
-  "Select the correct option(s) below": "Válassza ki az alábbi megfelelő opciót"
+  "Select the correct option(s) below": "Válassza ki az alábbi megfelelő opciót",
+  "clue_stars_to_loose": "A nyom költségek {{count}} csillag minden kérdésre felszabadítása",
+  "clue_stars_to_loose_plural": "A nyom költségek {{count}} csillagok minden kérdésre felszabadítása",
+  "media_stars_to_win": "Nyerj {{count}} további csillag ebben a fejezetben az első időben figyelje a leckét!",
+  "media_stars_to_win_plural": "Nyerj {{count}} további csillag ebben a fejezetben az első időben nézni a leckét!",
+  "Open": "Nyitott"
 }
