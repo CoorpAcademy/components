@@ -16,7 +16,7 @@ import {selectClue} from '../../actions/ui/clues';
 import {createGetAnswerProps, createGetHelp} from './answer';
 import getResourcesProps from './resources';
 
-const ROUTES = ['media', 'clue'];
+const ROUTES = ['media', 'clue', 'context'];
 const STARS_DIFF = {
   media: 'starsPerResourceViewed',
   clue: 'starsPerAskingClue'
@@ -49,11 +49,26 @@ const playerProps = (options, store) => state => {
   const getHelp = createGetHelp(options, store);
   const help = getHelp(slide);
 
+  const slideContext = get('context', slide);
+  const contextButton = get('title', slideContext)
+    ? [
+        {
+          title: translate('Context'),
+          type: 'context',
+          selected: route === 'context',
+          onClick: () => {
+            return dispatch(selectRoute('context'));
+          }
+        }
+      ]
+    : [];
+
   return {
     typeClue: isAnswer ? 'answer' : route,
     text: clue,
     step: get('state.step')(progression),
     question: get('question.header')(slide),
+    slideContext,
     verticalMargin: 260,
     starsDiff,
     resources,
@@ -78,6 +93,7 @@ const playerProps = (options, store) => state => {
       media: mediaQuestion
     },
     buttons: [
+      ...contextButton,
       {
         title: translate('Media'),
         type: 'media',
