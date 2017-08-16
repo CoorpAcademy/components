@@ -2,7 +2,7 @@
   "All training": "Všechna školení",
   "Answer": "Odpověď",
   "assets": "aktiva",
-  "At the end of this level, you will be able to_": "At the end of this level, you will be able to:",
+  "At the end of this level, you will be able to_": "Na konci této úrovně bude schopen:",
   "author": "Autor",
   "by {{name}}": "podle {{name}}",
   "Catalog": "Katalog",
@@ -65,5 +65,10 @@
   "USD": "$",
   "premium_unsubscribe_confirmation": "Potvrdit zrušení předplatného, které budou účinné až od dalšího month.\n\nIn té doby, můžete i nadále využívat náš obsah na platformě Coorpacademy.",
   "New media": "Nová média",
-  "Select the correct option(s) below": "Vyberte správnou možnost níže"
+  "Select the correct option(s) below": "Vyberte správnou možnost níže",
+  "clue_stars_to_loose": "Odemknutí klíč star {{count}} náklady na každou otázku",
+  "clue_stars_to_loose_plural": "Odemknutí stopa hvězdy {{count}} náklady na každou otázku",
+  "media_stars_to_win": "Vyhrajte {{count}} další že hvězdy v této kapitole první době sledujete ponaučení!",
+  "media_stars_to_win_plural": "Vyhrajte {{count}} další hvězdy v této kapitole první době sledovat lekci!",
+  "Open": "Otevřené"
 }
