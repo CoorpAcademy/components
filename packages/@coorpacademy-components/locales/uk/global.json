@@ -2,7 +2,7 @@
   "All training": "Усі тренінги",
   "Answer": "Відповідь",
   "assets": "активи",
-  "At the end of this level, you will be able to_": "At the end of this level, you will be able to:",
+  "At the end of this level, you will be able to_": "Наприкінці цього рівня ви зможете:",
   "author": "автор",
   "by {{name}}": "за {{name}}",
   "Catalog": "Каталог",
@@ -65,5 +65,10 @@
   "USD": "$",
   "premium_unsubscribe_confirmation": "Ми підтвердити, скасувати підписку, який буде ефективним, починаючи з наступного month.\n\nIn той же час, ви можете продовжувати користуватися змісту нашого сайту на платформі Coorpacademy.",
   "New media": "Нове відео",
-  "Select the correct option(s) below": "Виберіть правильний(i)  варіант(и) нижче"
+  "Select the correct option(s) below": "Виберіть правильний(i)  варіант(и) нижче",
+  "clue_stars_to_loose": "Розблокування ключ витрати {{count}} зірка на кожне питання",
+  "clue_stars_to_loose_plural": "Розблокування ключ витрати {{count}} зірки на кожне питання",
+  "media_stars_to_win": "Виграти {{count}} додаткові зірки в цей розділ перший раз ви дивитися урок!",
+  "media_stars_to_win_plural": "Виграти {{count}} зірки в цей розділ перший раз ви дивитися урок!",
+  "Open": "Відкриті"
 }
