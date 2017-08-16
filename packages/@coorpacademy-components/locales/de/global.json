@@ -2,7 +2,7 @@
   "All training": "Alle Schulungen",
   "Answer": "Antwort",
   "assets": "Vermögenswerte",
-  "At the end of this level, you will be able to_": "At the end of this level, you will be able to:",
+  "At the end of this level, you will be able to_": "Am Ende dieser Stufe werden Sie in der Lage:",
   "author": "autor",
   "by {{name}}": "von {{name}}",
   "Catalog": "Katalog",
@@ -65,5 +65,10 @@
   "USD": "$",
   "premium_unsubscribe_confirmation": "Wir bestätigen die Kündigung Ihres Abonnements wirksam ab der nächsten month.\n\nIn der Zwischenzeit werden, Sie können weiterhin unsere Inhalte auf der Plattform Coorpacademy zu genießen.",
   "New media": "Neue Medien",
-  "Select the correct option(s) below": "Wählen Sie die richtigen Optionen unten"
+  "Select the correct option(s) below": "Wählen Sie die richtigen Optionen unten",
+  "clue_stars_to_loose": "Entriegelung des Ahnung Kosten {{count}} Sterns auf jede Frage",
+  "clue_stars_to_loose_plural": "Entsperren die Ahnung Kosten {{count}} Sterne auf jede Frage",
+  "media_stars_to_win": "{{count}} zusätzliche Sterne in dieser Zeit das erste Kapitel der Lektion ansehen zu gewinnen!",
+  "media_stars_to_win_plural": "Gewinnen Sie {{count}} weitere Sterne in dieses Kapitel das erste Mal Sie die Lektion ansehen!",
+  "Open": "Offen"
 }
