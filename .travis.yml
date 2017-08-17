@@ -18,7 +18,11 @@ cache:
   - packages/@coorpacademy-treantjs-adapter-dust/node_modules
   - packages/@coorpacademy-webpack-config/node_modules
 before_install:
+- npm install -g yarn@`cat package.json | jq -r '.engines.yarn'`
 - npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
+- ./scripts/heroku-prebuild.sh
+install:
+- yarn
 after_success: npm run codecov
 env:
   - CXX=g++-5
