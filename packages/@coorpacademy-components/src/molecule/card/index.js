@@ -81,39 +81,42 @@ const Card = (props, context) => {
       data-type={freerun ? 'learner' : 'microlearning'}
     >
       <div className={lazyClass} disabled={disabled}>
-        <div
-          className={style.imageWrapper}
-          style={{
-            backgroundColor: defaultColor,
-            backgroundImage: image ? `url('${image}')` : 'none'
-          }}
-        >
-          {loader}
-          <div data-name="cover" className={style.ctaWrapper} onClick={!disabled && onClick}>
-            {freeRunIcon}
-            {adaptivIcon}
-            {timer}
-          </div>
-          {disabled ? <div className={style.lockWrapper}>{lock}</div> : null}
-        </div>
-        {myprogress}
-        <div data-name="info" className={style.infoWrapper} onClick={!disabled && onClick}>
+        {disabled ? <div className={style.lockWrapper}>{lock}</div> : null}
+        <div disabled={disabled}>
           <div
-            data-name="type"
-            className={style.type}
+            className={style.imageWrapper}
             style={{
-              color: !disabled && defaultColor
+              backgroundColor: defaultColor,
+              backgroundImage: image ? `url('${image}')` : 'none'
             }}
           >
-            {type}
-          </div>
-          <div className={style.title}>
-            <div data-name="title" title={title}>
-              {title}
+            {loader}
+            <div data-name="cover" className={style.ctaWrapper} onClick={!disabled && onClick}>
+              {freeRunIcon}
+              {adaptivIcon}
+              {timer}
             </div>
+
           </div>
-          <div data-name="author" title={author} className={style.author}>
-            {author}
+          {myprogress}
+          <div data-name="info" className={style.infoWrapper} onClick={!disabled && onClick}>
+            <div
+              data-name="type"
+              className={style.type}
+              style={{
+                color: !disabled && defaultColor
+              }}
+            >
+              {type}
+            </div>
+            <div className={style.title}>
+              <div data-name="title" title={title}>
+                {title}
+              </div>
+            </div>
+            <div data-name="author" title={author} className={style.author}>
+              {author}
+            </div>
           </div>
         </div>
       </div>
