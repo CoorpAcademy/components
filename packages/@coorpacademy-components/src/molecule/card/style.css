@@ -8,6 +8,7 @@
 @value dark from colors;
 @value xtraLightGrey from colors;
 @value black from colors;
+@value white from colors;
 
 .default[disabled] {
   pointer-events: none;
@@ -59,10 +60,13 @@
   top: 0;
   right: 0;
   left: 0;
-  height: 125px;
+  height: 258px;
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 10;
+  opacity: 0.4;
+  background: white;
 }
 
 .lock {
@@ -237,6 +241,10 @@
 
   .list {
     width: 100%;
+  }
+
+  .list .lockWrapper {
+    height: 120px;
   }
 
   .list .default {
