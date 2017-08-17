@@ -17,7 +17,6 @@
     "stylelint": "stylelint '**/*.css'",
     "stylelint:fix": "npm run stylelint -- --fix",
     "nyc": "cross-env NODE_ENV=test nyc npm run ava",
-    "heroku-prebuild": "./scripts/heroku-prebuild.sh",
     "postinstall": "npm run bootstrap",
     "publish:beta": "lerna publish --npm-tag beta",
     "publish:canary": "lerna publish --canary --skip-git",
@@ -29,11 +28,6 @@
     "static": "lerna run --scope @coorpacademy/components --scope @coorpacademy/app-player static -- --production",
     "poststatic": "mkdirp static && cp -r packages/@coorpacademy-components/static static/components && cp -r packages/@coorpacademy-app-player/static static/app-player",
     "test": "npm run lint && npm run flow && npm run nyc"
-  },
-  "engines": {
-    "node": "8.3.0",
-    "npm": "5.3.0",
-    "yarn": "0.27.5"
   },
   "devDependencies": {
     "@ava/babel-preset-stage-4": "^1.1.0",
