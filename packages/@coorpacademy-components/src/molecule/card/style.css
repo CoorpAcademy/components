@@ -243,6 +243,10 @@
     width: 100%;
   }
 
+  .list .lockWrapper {
+    height: 120px;
+  }
+
   .list .default {
     width: 100%;
     height: 120px;
