@@ -18,9 +18,10 @@ cache:
   - packages/@coorpacademy-treantjs-adapter-dust/node_modules
   - packages/@coorpacademy-webpack-config/node_modules
 before_install:
-- npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
+- npm install -g yarn@`cat package.json | jq -r '.engines.yarn'`
+- ./scripts/prebuild.sh
 install:
-- yarn
+- yarn --frozen-lockfile
 after_success: npm run codecov
 env:
   - CXX=g++-5
