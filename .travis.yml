@@ -18,7 +18,6 @@ cache:
   - packages/@coorpacademy-treantjs-adapter-dust/node_modules
   - packages/@coorpacademy-webpack-config/node_modules
 before_install:
-- npm install -g yarn@`cat package.json | jq -r '.engines.yarn'`
 - npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
 install:
 - yarn
