@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unused-state */
 import isEqual from 'lodash/fp/isEqual';
 import angular from 'angular';
 import React from 'react';
