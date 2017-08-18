@@ -48,6 +48,7 @@ const ScopeTabs = (props, context) => {
           return (
             <li
               data-name="scopeTab"
+              data-index={index}
               key={index}
               onClick={handleClick}
               className={isSelected ? style.currentTab : style.defaultTab}
