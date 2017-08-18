@@ -2,15 +2,30 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import identity from 'lodash/fp/identity';
 import get from 'lodash/fp/get';
+import getOr from 'lodash/fp/getOr';
+import pipe from 'lodash/fp/pipe';
+import split from 'lodash/fp/split';
+import compact from 'lodash/fp/compact';
 import {ColorPropType} from '../../../util/proptypes';
 import Cta from '../../../atom/cta';
+import Picture from '../../../atom/picture';
 import Provider from '../../../atom/provider';
 import Clue from '../../../atom/clue';
 import Answer from '../../answer';
 import Loader from '../../../atom/loader';
+import VideoPlayer from '../../video-player';
+import PDF from '../../pdf';
 import ResourceBrowser from '../../../organism/resource-browser';
 import SlidesFooter from '../slides-footer';
 import style from './style.css';
+
+const MediaView = ({media}) => {
+  return (
+    <div className={style.contextMedia}>
+      <Picture src={media} />
+    </div>
+  );
+};
 
 /*
  * Content types
@@ -66,13 +81,90 @@ MediaContent.contextTypes = {
   translate: Provider.childContextTypes.translate
 };
 
-const ContextContent = ({slideContext}) =>
-  <p className={style.context}>{slideContext.description}</p>;
+const ContextImage = ({src}) => {
+  const images = src.map(({url, _id}) => <MediaView key={_id} media={url} />);
+  return <div>{images}</div>;
+};
+
+ContextImage.propTypes = {
+  src: PropTypes.arrayOf(
+    PropTypes.shape({
+      _id: PropTypes.string,
+      url: PropTypes.string
+    })
+  )
+};
+
+const ContextVideo = props => {
+  const videos = props.src.map(({videoId, mimeType}) =>
+    <VideoPlayer id={videoId} key={videoId} autoplay="false" mimeType={mimeType} />
+  );
+  return <div>{videos}</div>;
+};
+
+ContextVideo.propTypes = {
+  src: PropTypes.arrayOf(
+    PropTypes.shape({
+      _id: PropTypes.string,
+      mimeType: PropTypes.string,
+      url: PropTypes.string
+    })
+  )
+};
+
+const CONTEXT_MEDIA = {
+  img: ContextImage,
+  pdf: PDF,
+  video: ContextVideo
+};
+
+const ContextMedia = ({media}) => {
+  const ContentType = CONTEXT_MEDIA[media.type];
+  if (!ContentType) {
+    return null;
+  }
+  return (
+    <div className={style.contextWrapper}>
+      <ContentType {...media} />
+    </div>
+  );
+};
+
+ContextMedia.propTypes = {
+  media: PropTypes.oneOfType([
+    PropTypes.shape({
+      ...ContextImage.propTypes,
+      type: PropTypes.oneOf(['img'])
+    }),
+    PropTypes.shape({
+      ...PDF.propTypes,
+      type: PropTypes.oneOf(['pdf'])
+    }),
+    PropTypes.shape({
+      ...ContextVideo.propTypes,
+      type: PropTypes.oneOf(['video'])
+    })
+  ])
+};
+
+const ContextContent = ({slideContext}) => {
+  const descriptionParagraphs = pipe(getOr('', 'description'), split('\n'), compact)(slideContext);
+  const paragraphs = descriptionParagraphs.map((paragraph, index) =>
+    <p key={index} className={style.contextDescription}>{paragraph}</p>
+  );
+  return (
+    <div>
+      {slideContext.media ? <ContextMedia media={slideContext.media} /> : null}
+      {paragraphs}
+    </div>
+  );
+};
 
 ContextContent.propTypes = {
   slideContext: PropTypes.shape({
     title: PropTypes.string,
-    description: PropTypes.string
+    description: PropTypes.string,
+    media: PropTypes.shape(ContextMedia.propTypes)
   })
 };
 

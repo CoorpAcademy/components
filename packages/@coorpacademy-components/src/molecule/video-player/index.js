@@ -29,6 +29,12 @@ const VideoPlayer = props => {
 };
 
 VideoPlayer.propTypes = {
+  id: PropTypes.string,
+  width: PropTypes.string,
+  height: PropTypes.string,
+  onPlay: PropTypes.func,
+  onPause: PropTypes.func,
+  onEnded: PropTypes.func,
   mimeType: PropTypes.oneOf(['application/vimeo', 'video/mp4', 'application/youtube']).isRequired
 };
 

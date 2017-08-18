@@ -182,7 +182,7 @@
   box-sizing: border-box;
 }
 
-.context {
+.contextDescription {
   font-family: 'Open Sans';
   font-weight: 700;
   font-size: 14px;
@@ -190,6 +190,17 @@
   width: 100%;
   margin: 24px 0;
   padding: 0 9px;
+}
+
+.contextWrapper {
+  margin: 25px auto;
+}
+
+.contextMedia {
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media mobile {
@@ -245,5 +256,9 @@
     position: fixed;
     bottom: 0;
     width: 100%;
+  }
+
+  .contextMedia {
+    margin: 0 auto 25px;
   }
 }

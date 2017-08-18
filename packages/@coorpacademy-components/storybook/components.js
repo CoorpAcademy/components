@@ -54,6 +54,7 @@ import ModuleCard from '../src/molecule/module-card';
 import News from '../src/molecule/news';
 import Pagination from '../src/molecule/pagination';
 import PaymentForm from '../src/molecule/payment-form';
+import Pdf from '../src/molecule/pdf';
 import ProductCard from '../src/molecule/product-card';
 import ProgressBar from '../src/molecule/progress-bar';
 import ScopeContent from '../src/molecule/scope-content';
@@ -315,6 +316,7 @@ import PaginationFixtureDisabled from '../src/molecule/pagination/test/fixtures/
 import PaymentFormFixtureDefault from '../src/molecule/payment-form/test/fixtures/default';
 import PaymentFormFixtureError from '../src/molecule/payment-form/test/fixtures/error';
 import PaymentFormFixtureWarning from '../src/molecule/payment-form/test/fixtures/warning';
+import PdfFixtureDefault from '../src/molecule/pdf/test/fixtures/default';
 import ProductCardFixtureDefault from '../src/molecule/product-card/test/fixtures/default';
 import ProgressBarFixtureDefault from '../src/molecule/progress-bar/test/fixtures/default';
 import ProgressBarFixtureMax from '../src/molecule/progress-bar/test/fixtures/max';
@@ -410,6 +412,9 @@ import SlidesHeaderFixtureDefault from '../src/molecule/slides/slides-header/tes
 import SlidesHeaderFixtureFreerun from '../src/molecule/slides/slides-header/test/fixtures/freerun';
 import SlidesHeaderFixtureNoSecondary from '../src/molecule/slides/slides-header/test/fixtures/no-secondary';
 import SlidesPlayerFixtureClue from '../src/molecule/slides/slides-player/test/fixtures/clue';
+import SlidesPlayerFixtureContextWithImage from '../src/molecule/slides/slides-player/test/fixtures/context-with-image';
+import SlidesPlayerFixtureContextWithPdf from '../src/molecule/slides/slides-player/test/fixtures/context-with-pdf';
+import SlidesPlayerFixtureContextWithVideo from '../src/molecule/slides/slides-player/test/fixtures/context-with-video';
 import SlidesPlayerFixtureContext from '../src/molecule/slides/slides-player/test/fixtures/context';
 import SlidesPlayerFixtureDefault from '../src/molecule/slides/slides-player/test/fixtures/default';
 import SlidesPlayerFixtureDropDown from '../src/molecule/slides/slides-player/test/fixtures/drop-down';
@@ -478,6 +483,9 @@ import ImageSliderFixtureDefault from '../src/organism/mooc/image-slider/test/fi
 import ImageSliderFixtureMultipleSlides from '../src/organism/mooc/image-slider/test/fixtures/multiple-slides';
 import LoadingFixtureDefault from '../src/template/app-player/loading/test/fixtures/default';
 import PlayerFixtureClue from '../src/template/app-player/player/test/fixtures/clue';
+import PlayerFixtureContextWithImage from '../src/template/app-player/player/test/fixtures/context-with-image';
+import PlayerFixtureContextWithPdf from '../src/template/app-player/player/test/fixtures/context-with-pdf';
+import PlayerFixtureContextWithVideo from '../src/template/app-player/player/test/fixtures/context-with-video';
 import PlayerFixtureContext from '../src/template/app-player/player/test/fixtures/context';
 import PlayerFixtureDropDown from '../src/template/app-player/player/test/fixtures/drop-down';
 import PlayerFixtureEmpty from '../src/template/app-player/player/test/fixtures/empty';
@@ -609,6 +617,7 @@ export const components = {
     News,
     Pagination,
     PaymentForm,
+    Pdf,
     ProductCard,
     ProgressBar,
     ScopeContent,
@@ -1006,6 +1015,9 @@ export const fixtures = {
       Error: PaymentFormFixtureError,
       Warning: PaymentFormFixtureWarning
     },
+    Pdf: {
+      Default: PdfFixtureDefault
+    },
     ProductCard: {
       Default: ProductCardFixtureDefault
     },
@@ -1182,6 +1194,9 @@ export const fixtures = {
     },
     SlidesPlayer: {
       Clue: SlidesPlayerFixtureClue,
+      ContextWithImage: SlidesPlayerFixtureContextWithImage,
+      ContextWithPdf: SlidesPlayerFixtureContextWithPdf,
+      ContextWithVideo: SlidesPlayerFixtureContextWithVideo,
       Context: SlidesPlayerFixtureContext,
       Default: SlidesPlayerFixtureDefault,
       DropDown: SlidesPlayerFixtureDropDown,
@@ -1302,6 +1317,9 @@ export const fixtures = {
     },
     Player: {
       Clue: PlayerFixtureClue,
+      ContextWithImage: PlayerFixtureContextWithImage,
+      ContextWithPdf: PlayerFixtureContextWithPdf,
+      ContextWithVideo: PlayerFixtureContextWithVideo,
       Context: PlayerFixtureContext,
       DropDown: PlayerFixtureDropDown,
       Empty: PlayerFixtureEmpty,
@@ -1480,6 +1498,18 @@ export const dependencies = {
         }
       },
       "children": {}
+    },
+    "Pdf": {
+      "parents": {
+        "Organism": {
+          "ResourceBrowser": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Link": true
+        }
+      }
     },
     "MenuList": {
       "parents": {
@@ -1944,6 +1974,9 @@ export const dependencies = {
       "children": {
         "Atom": {
           "ResourceMiniature": true
+        },
+        "Molecule": {
+          "Pdf": true
         }
       }
     },
@@ -2025,6 +2058,7 @@ export const dependencies = {
           "Unsubscribe": true,
           "Table": true,
           "ScopeContent": true,
+          "Pdf": true,
           "Pagination": true,
           "News": true,
           "DisciplinePartners": true,
