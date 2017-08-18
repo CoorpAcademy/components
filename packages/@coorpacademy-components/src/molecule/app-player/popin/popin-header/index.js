@@ -106,10 +106,6 @@ const buildClass = (value, success, fail, loading) => {
   return value ? fail : success;
 };
 
-const state = ({fail}) => {
-  return buildClass(fail, 'success', 'fail', null);
-};
-
 const CorrectionPart = props => {
   const {fail, corrections = [], title, subtitle, stars, rank} = props;
   const isLoading = isNil(fail);
@@ -119,6 +115,7 @@ const CorrectionPart = props => {
     style.correctionSectionFail,
     style.correctionSectionLoading
   );
+  const state = buildClass(fail, 'success', 'fail', null);
 
   return (
     <div data-name="correctionSection" data-state={state} className={className}>
@@ -134,10 +131,10 @@ const CorrectionPart = props => {
 };
 
 const NextQuestionPart = props => {
-  const {title, ...linkProps} = props || {};
+  const {fail, title, ...linkProps} = props || {};
 
   return (
-    <Link {...linkProps} className={style.nextSection} data-name="nextLink" data-state={state}>
+    <Link {...linkProps} className={style.nextSection} data-name="nextLink" data-fail={fail}>
       <div data-name="nextButton" className={style.nextButton}>
         {title}
         <ArrowRight color="inherit" className={style.nextButtonIcon} />
