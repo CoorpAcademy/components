@@ -78,9 +78,9 @@ const Card = (props, context) => {
       className={cardStyle}
       data-name="card"
       data-lock={disabled}
-      data-type={freerun ? 'learner' : 'microlearning'}
+      data-type={freerun ? 'microlearning' : 'learner'}
     >
-      <div className={lazyClass} disabled={disabled}>
+      <div className={lazyClass} disabled={disabled} data-type={disabled ? 'lock' : 'unlock'}>
         {disabled ? <div className={style.lockWrapper}>{lock}</div> : null}
         <div disabled={disabled}>
           <div
