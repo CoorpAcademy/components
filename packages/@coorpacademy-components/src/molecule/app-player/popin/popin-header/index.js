@@ -131,10 +131,11 @@ const CorrectionPart = props => {
 };
 
 const NextQuestionPart = props => {
-  const {title, ...linkProps} = props || {};
+  const {fail, title, ...linkProps} = props || {};
+  const state = buildClass(fail, 'success', 'fail', null);
 
   return (
-    <Link {...linkProps} className={style.nextSection}>
+    <Link {...linkProps} className={style.nextSection} data-name="nextLink" data-state={state}>
       <div data-name="nextButton" className={style.nextButton}>
         {title}
         <ArrowRight color="inherit" className={style.nextButtonIcon} />
