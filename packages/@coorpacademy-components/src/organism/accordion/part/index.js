@@ -27,7 +27,11 @@ const AccordionPart = (props, context) => {
 
   return (
     <div data-name="accordionPart">
-      <div className={isOpen ? style.openHeader : style.closedHeader} onClick={onClick}>
+      <div
+        className={isOpen ? style.openHeader : style.closedHeader}
+        data-type={iconType}
+        onClick={onClick}
+      >
         <div data-name="title" className={style.title}>
           {TitleIcon ? <TitleIcon className={style.titleIcon} color="inherit" /> : null}
           <h3 className={style.titleLabel}>{title}</h3>
