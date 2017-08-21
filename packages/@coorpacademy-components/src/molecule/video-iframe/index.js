@@ -5,6 +5,7 @@ import get from 'lodash/fp/get';
 import noop from 'lodash/fp/noop';
 import Picture from '../../atom/picture';
 import Provider from '../../atom/provider';
+import {SrcPropType} from '../../util/proptypes';
 import style from './style.css';
 
 const PROVIDERS = {
@@ -104,6 +105,7 @@ VideoIframe.propTypes = {
   image: Picture.propTypes.src,
   width: PropTypes.string,
   height: PropTypes.string,
+  url: SrcPropType,
   id: PropTypes.string,
   autoplay: PropTypes.bool,
   onPlay: PropTypes.func,
