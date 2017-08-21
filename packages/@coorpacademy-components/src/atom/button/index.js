@@ -48,6 +48,7 @@ const ButtonContent = props => {
         </a>
       );
 
+    case 'c':
     default:
       return (
         <LinkedInput
