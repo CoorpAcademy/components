@@ -41,7 +41,7 @@ const ScopeTabs = (props, context) => {
 
           const bubble = has('status', level)
             ? <div className={style.module}>
-                <ModuleBubble {...level} onClick={handleClick} />
+                <ModuleBubble {index, ...level} onClick={handleClick} />
               </div>
             : null;
 
@@ -55,7 +55,7 @@ const ScopeTabs = (props, context) => {
               style={tabSkin}
             >
               {bubble}
-              <div className={style.name}>{level.name}</div>
+              <div className={style.name} data-index={index}>{level.name}</div>
               {arrow}
             </li>
           );

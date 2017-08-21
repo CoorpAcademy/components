@@ -12,7 +12,7 @@ const ModuleBubble = (props, context) => {
   const {skin} = context;
 
   // eslint-disable-next-line no-shadow
-  const {onClick, status, filtered, disabled} = props;
+  const {onClick, status, filtered, disabled, index} = props;
 
   const code = getOr('', ['icons', status], skin);
   const icon = String.fromCharCode(code);
@@ -27,6 +27,7 @@ const ModuleBubble = (props, context) => {
         <span className={style.bubbleBG} />
         <span
           data-name="icon"
+          data-index={index}
           className={disabled ? style.iconDisabled : style.icon}
           style={{
             color: iconColor
@@ -44,6 +45,7 @@ ModuleBubble.contextTypes = {
 };
 
 ModuleBubble.propTypes = {
+  index: PropTypes.number,
   disabled: PropTypes.bool,
   filtered: PropTypes.bool,
   status: PropTypes.string.isRequired,
