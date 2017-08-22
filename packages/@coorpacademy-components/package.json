@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/components",
-  "version": "5.4.70",
+  "version": "5.4.71",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -42,7 +42,7 @@
     "Julien Seren-Rosso <julien.seren-rosso@coorpacademy.com>"
   ],
   "dependencies": {
-    "@coorpacademy/nova-icons": "^1.0.9",
+    "@coorpacademy/nova-icons": "1.1.0",
     "@coorpacademy/react-jw-player": "1.9.2",
     "autoprefixer": "^7.1.1",
     "classnames": "^2.2.5",
