@@ -83,7 +83,7 @@ const playerProps = (options, store) => state => {
           secondary: false
         }
       : {
-          submitValue: translate('Back to question'),
+          submitValue: translate(route === 'context' ? 'Go to question' : 'Back to question'),
           onClick: clickBackToAnswerHandler,
           light: false,
           small: false,
