@@ -1,4 +1,4 @@
-import Default from './default';
+import Default from './vimeo';
 
 export default {
   props: {
