@@ -352,8 +352,9 @@ import VideoIframeFixtureDefault from '../src/molecule/video-iframe/test/fixture
 import VideoIframeFixtureEmpty from '../src/molecule/video-iframe/test/fixtures/empty';
 import VideoIframeFixtureImagePlaceholder from '../src/molecule/video-iframe/test/fixtures/image-placeholder';
 import VideoIframeFixtureYoutube from '../src/molecule/video-iframe/test/fixtures/youtube';
-import VideoPlayerFixtureDefault from '../src/molecule/video-player/test/fixtures/default';
 import VideoPlayerFixtureJwplayer from '../src/molecule/video-player/test/fixtures/jwplayer';
+import VideoPlayerFixtureKontiki from '../src/molecule/video-player/test/fixtures/kontiki';
+import VideoPlayerFixtureVimeo from '../src/molecule/video-player/test/fixtures/vimeo';
 import VideoPlayerFixtureYoutube from '../src/molecule/video-player/test/fixtures/youtube';
 import PopinHeaderFixtureFailMultipleAnswers from '../src/molecule/app-player/popin/popin-header/test/fixtures/fail-multiple-answers';
 import PopinHeaderFixtureFail from '../src/molecule/app-player/popin/popin-header/test/fixtures/fail';
@@ -1088,8 +1089,9 @@ export const fixtures = {
       Youtube: VideoIframeFixtureYoutube
     },
     VideoPlayer: {
-      Default: VideoPlayerFixtureDefault,
       Jwplayer: VideoPlayerFixtureJwplayer,
+      Kontiki: VideoPlayerFixtureKontiki,
+      Vimeo: VideoPlayerFixtureVimeo,
       Youtube: VideoPlayerFixtureYoutube
     }
   },
