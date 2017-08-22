@@ -41,7 +41,7 @@ const ScopeTabs = (props, context) => {
 
           const bubble = has('status', level)
             ? <div className={style.module}>
-                <ModuleBubble {index, ...level} onClick={handleClick} />
+                <ModuleBubble {...level} index={index} onClick={handleClick} />
               </div>
             : null;
 
