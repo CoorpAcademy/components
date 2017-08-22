@@ -27,6 +27,10 @@
 }
 
 @media mobile {
+  .wrapper {
+    margin: 0 8px;
+  }
+
   .media {
     margin: 0 auto 25px;
   }

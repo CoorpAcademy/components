@@ -243,7 +243,7 @@ const ContentLayout = (props, context) => {
   const {typeClue, question, cta, help} = props;
   const ContentType = CONTENT_TYPE[typeClue];
   const wrapperColor = typeClue === 'answer' ? 'white' : '#ECEFF1';
-  const noPaddingRessources = MediaContent
+  const noPaddingRessources = ContentType === MediaContent
     ? `${style.contentWrapperNoPadding}`
     : `${style.contentWrapper}`;
 
