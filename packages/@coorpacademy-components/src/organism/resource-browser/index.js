@@ -17,19 +17,31 @@ const SELECTED_TYPES = {
   pdf: PDF
 };
 
+const Resources = ({resources, className}) => {
+  if (!resources || resources.length === 1) {
+    return null;
+  }
+
+  return (
+    <div className={style.resourcesList}>
+      {resources.map(resource => <ResourceMiniature key={resource._id} {...resource} />)}
+    </div>
+  );
+};
+
 const ResourceBrowser = props => {
   const {resources, className} = props;
   const selectedResource = find(({selected}) => selected, resources);
   const SelectedResourceType = selectedResource && SELECTED_TYPES[selectedResource.type];
+  const wrapperStyle =
+    !resources || resources.length === 1 ? style.playerWrapperAlone : style.playerWrapper;
 
   return (
     <div data-name="resourceBrowser" className={classnames(style.default, className)}>
-      <div className={style.playerWrapper}>
+      <div className={wrapperStyle}>
         {selectedResource ? <SelectedResourceType {...selectedResource} /> : null}
       </div>
-      <div className={style.resourcesList}>
-        {resources.map(resource => <ResourceMiniature key={resource._id} {...resource} />)}
-      </div>
+      <Resources resources={resources} className={className} />
     </div>
   );
 };

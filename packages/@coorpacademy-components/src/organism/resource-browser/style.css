@@ -9,6 +9,7 @@
   display: flex;
   flex-flow: row;
   height: 352px;
+  width: 100%;
 }
 
 .resourcesList {
@@ -23,6 +24,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.playerWrapperAlone {
+  composes: playerWrapper;
+  width: 100%;
 }
 
 @media mobile {

@@ -5,7 +5,6 @@ import JWPlayer from './jwplayer';
 
 const VideoPlayer = props => {
   const {mimeType, id, url, width = '100%', height = '400px', onPlay, onPause, onEnded} = props;
-
   switch (mimeType) {
     case 'application/vimeo':
     case 'application/youtube':
