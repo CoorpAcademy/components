@@ -1,7 +1,9 @@
 import {parse} from 'url';
-import _createBrowserHistory from 'history/createBrowserHistory';
-import _createMemoryHistory from 'history/createMemoryHistory';
-import _createHashHistory from 'history/createHashHistory';
+import {
+  createBrowserHistory as _createBrowserHistory,
+  createMemoryHistory as _createMemoryHistory,
+  createHashHistory as _createHashHistory
+} from 'history';
 
 export const useBasename = createHistory => options => {
   const {basename = ''} = options || {};
