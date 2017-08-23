@@ -31,6 +31,7 @@ test(
   macro,
   pipe(
     set('ui.current.progressionId', 'foo'),
+    set('ui.route.foo', 'media'),
     set('data.progressions.entities.foo._id', 'foo'),
     set('data.progressions.entities.foo.state.nextContent.ref', 'slideRef'),
     set('data.progressions.entities.foo.content', chapter),
@@ -58,12 +59,12 @@ test(
   [
     {
       type: PROGRESSION_RESOURCE_VIEWED_REQUEST,
-      meta: {progressionId: 'foo', resource}
+      meta: {progressionId: 'foo', resource, location: 'media'}
     },
     [
       {
         type: PROGRESSION_RESOURCE_VIEWED_SUCCESS,
-        meta: {progressionId: 'foo', resource},
+        meta: {progressionId: 'foo', resource, location: 'media'},
         payload: set('state.viewedResources', [chapter.ref], {})
       },
       set('data.progressions.entities.foo.state.viewedResources', [chapter.ref], {})

@@ -7,7 +7,8 @@ import {
   getEngineConfig,
   getContent,
   getCurrentSlide,
-  getPreviousSlide
+  getPreviousSlide,
+  getRoute
 } from '../../utils/state-extract';
 
 export const PROGRESSION_FETCH_REQUEST = '@@progression/FETCH_REQUEST';
@@ -140,6 +141,7 @@ export const markResourceAsViewed = (progressionId, resource) => (
   const slide = getCurrentSlide(state) || getPreviousSlide(state);
   const chapter = getContent(state);
   const progression = getProgression(progressionId)(state);
+  const location = getRoute(state);
   const viewedResources = get('state.viewedResources', progression);
 
   const payload = {
@@ -158,9 +160,9 @@ export const markResourceAsViewed = (progressionId, resource) => (
       PROGRESSION_RESOURCE_VIEWED_SUCCESS,
       PROGRESSION_RESOURCE_VIEWED_FAILURE
     ],
-    task: () => Progressions.markResourceAsViewed(progressionId, payload),
+    task: () => Progressions.markResourceAsViewed(progressionId, payload, location),
     bailout: () => includes(chapter.ref, viewedResources),
-    meta: {progressionId, resource}
+    meta: {progressionId, resource, location}
   });
 
   return dispatch(action);
