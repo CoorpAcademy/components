@@ -1,7 +1,15 @@
 import test from 'ava';
 import isObject from 'lodash/fp/isObject';
 import isString from 'lodash/fp/isString';
-import {create, findById, createAnswer, findBestOf, markResourceAsViewed} from '../progressions';
+import {
+  create,
+  findById,
+  createAnswer,
+  findBestOf,
+  markResourceAsViewed,
+  getEngineConfig
+} from '../progressions';
+import engineConfigData from '../progression-config.data';
 
 const engine = {
   ref: 'microlearning',
@@ -58,4 +66,9 @@ test('should mark a resource as viewed', async t => {
   });
 
   t.deepEqual(result.state.viewedResources, [progression.content.ref]);
+});
+
+test('getEngineConfig should return the value in "./progression-config.data"', async t => {
+  const config = await getEngineConfig();
+  t.deepEqual(config, engineConfigData);
 });

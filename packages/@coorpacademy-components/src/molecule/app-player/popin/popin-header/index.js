@@ -131,10 +131,10 @@ const CorrectionPart = props => {
 };
 
 const NextQuestionPart = props => {
-  const {title, ...linkProps} = props || {};
+  const {fail, title, ...linkProps} = props || {};
 
   return (
-    <Link {...linkProps} className={style.nextSection}>
+    <Link {...linkProps} className={style.nextSection} data-name="nextLink" data-fail={fail}>
       <div data-name="nextButton" className={style.nextButton}>
         {title}
         <ArrowRight color="inherit" className={style.nextButtonIcon} />

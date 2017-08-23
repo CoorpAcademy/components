@@ -20,79 +20,9 @@
 .playerWrapper {
   height: 100%;
   width: 556px;
-}
-
-.pdfFrame {
   display: flex;
-  flex-flow: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100%;
-  background-color: white;
-}
-
-.pdfIcon {
-  width: 28px;
-  height: 28px;
-}
-
-.pdfDescription {
-  font-family: 'Open Sans';
-  font-weight: 600;
-  text-align: center;
-  font-size: 10px;
-  margin-top: 11px;
-}
-
-.openPDFButton {
-  position: relative;
-  border-width: 1px;
-  border-style: solid;
-  width: 100px;
-  height: 28px;
-  margin-top: 16px;
-  border-radius: 14px;
-  cursor: pointer;
-  overflow: hidden;
-  transition: transform 0.1s ease-out;
-  user-select: none;
-}
-
-.openPDFButtonBackground {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.openPDFButtonLabel {
-  display: block;
-  cursor: pointer;
-  position: absolute;
-  top: 6px;
-  left: 0;
-  right: 0;
-  text-align: center;
-  font-family: 'Open Sans';
-  font-size: 12px;
-  font-weight: bold;
-  color: inherit;
-  transition: color 0.3s;
-  user-select: none;
-}
-
-.openPDFButton:hover .openPDFButtonBackground {
-  opacity: 1;
-}
-
-.openPDFButton:hover .openPDFButtonLabel {
-  color: light;
-}
-
-.openPDFButton:active {
-  transform: scale(0.95);
 }
 
 @media mobile {

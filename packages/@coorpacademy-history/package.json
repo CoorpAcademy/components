@@ -28,7 +28,7 @@
     "Julien Seren-Rosso <julien.seren-rosso@coorpacademy.com>"
   ],
   "dependencies": {
-    "history": "^4.6.1",
+    "history": "^4.7.2",
     "lodash": "^4.17.4"
   },
   "devDependencies": {

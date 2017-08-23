@@ -93,22 +93,21 @@
 }
 
 .guideWrapper {
-  display: none;
   composes: infos;
   left: 0;
-  padding: 4px 10px 4px 5px;
+  padding: 4px 10px;
   border-bottom-right-radius: 12px;
   cursor: pointer;
 }
 
 .guideWrapper span {
-  margin-right: 5px;
+  animation: fade 2.5s infinite linear;
 }
 
-.guideWrapper::after {
-  display: inline-block;
-  content: '⨠';
-  transform: rotate(90deg);
+@keyframes fade {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
 }
 
 .question {
@@ -182,6 +181,27 @@
   box-sizing: border-box;
 }
 
+.contextDescription {
+  font-family: 'Open Sans';
+  font-weight: 700;
+  font-size: 14px;
+  color: grey;
+  width: 100%;
+  margin: 24px 0;
+  padding: 0 9px;
+}
+
+.contextWrapper {
+  margin: 25px auto;
+}
+
+.contextMedia {
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @media mobile {
   .wrapper {
     box-shadow: none;
@@ -202,10 +222,6 @@
   .contentWrapperNoPadding {
     composes: contentWrapper;
     padding: 32px 0 16px;
-  }
-
-  .guideWrapper {
-    display: none;
   }
 
   .question {
@@ -235,5 +251,9 @@
     position: fixed;
     bottom: 0;
     width: 100%;
+  }
+
+  .contextMedia {
+    margin: 0 auto 25px;
   }
 }

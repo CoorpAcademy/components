@@ -42,7 +42,7 @@ mapObject((components, componentType) =>
         t.true(undefined !== fixture.props || undefined !== fixture.children);
       });
 
-      test(`${it} › should be renderered`, t => {
+      test(`${it} › should be rendered`, t => {
         const vTree = (
           <Component {...fixture.props}>
             {children}
