@@ -70,6 +70,7 @@ test('should create player props for basic question', t => {
   t.is(props.answerType.model.type, 'freeText');
   t.true(isFunction(props.answerType.model.onChange));
   t.is(props.slideContext, undefined);
+  t.is(props.cta.submitValue, 'Validate');
 });
 
 test('should display context tab button if slide context is available', t => {
@@ -104,4 +105,36 @@ test('should display context tab button if slide context is available', t => {
   t.is(typeof props.buttons[0].onClick, 'function');
 
   props.buttons[0].onClick();
+});
+
+test('should display "Back to question" for the cta in the tabs', t => {
+  const state = {
+    data,
+    ui: {
+      current: {progressionId: 'foo'},
+      route: {
+        foo: 'media'
+      }
+    }
+  };
+
+  t.is(playerProps(state).cta.submitValue, 'Back to question');
+
+  state.ui.route.foo = 'clue';
+  t.is(playerProps(state).cta.submitValue, 'Back to question');
+});
+
+test('should display "Go to question" for the context tab cta', t => {
+  const state = {
+    data,
+    ui: {
+      current: {progressionId: 'foo'},
+      route: {
+        foo: 'context'
+      }
+    }
+  };
+
+  const props = playerProps(state);
+  t.is(props.cta.submitValue, 'Go to question');
 });
