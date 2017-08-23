@@ -21,7 +21,7 @@ const ResourceMiniature = (props, context) => {
   const posterOutlineColor = selected ? brand : white;
 
   return (
-    <div className={STYLE_TYPES[type]} onClick={handleOnClick}>
+    <div className={STYLE_TYPES[type]} onClick={handleOnClick} data-type={type}>
       <div className={style.posterWrapper} style={{borderColor: posterOutlineColor}}>
         <div className={style.poster} style={{backgroundImage: `url(${poster})`}} />
         {type === 'video' && !selected ? <PlayIcon color={white} className={style.icon} /> : null}
