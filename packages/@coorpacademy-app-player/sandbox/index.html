@@ -14,7 +14,7 @@
   var hash = window.location.hash;
   var search = window.location.search;
   var pathname = window.location.pathname;
-  var progressionId = (/^[\?\/#](.*)/.exec(hash || search || pathname) || [])[1] || '0';
+  var progressionId = (/[\?\/#]([^\/]*)$/.exec(hash || search || pathname) || [])[1] || '0';
 
   window.Coorpacademy.Player.create({
     container: document.getElementById('player'),
