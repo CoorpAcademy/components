@@ -22,12 +22,12 @@ const ResourceMiniature = (props, context) => {
 
   return (
     <div className={STYLE_TYPES[type]} onClick={handleOnClick}>
-      <div className={descriptionClassName}>{description}</div>
       <div className={style.posterWrapper} style={{borderColor: posterOutlineColor}}>
         <div className={style.poster} style={{backgroundImage: `url(${poster})`}} />
         {type === 'video' && !selected ? <PlayIcon color={white} className={style.icon} /> : null}
         {type === 'pdf' ? <PDFIcon className={style.icon} color={dark} /> : null}
       </div>
+      <div className={descriptionClassName}>{description}</div>
     </div>
   );
 };

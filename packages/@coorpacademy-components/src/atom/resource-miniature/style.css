@@ -10,6 +10,8 @@
   height: 47px;
   cursor: pointer;
   margin-bottom: 8px;
+  display: flex;
+  align-items: center;
 }
 
 .video {
@@ -21,9 +23,7 @@
 }
 
 .posterWrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -54,16 +54,10 @@
 }
 
 .description {
-  position: absolute;
-  top: 0;
-  left: 91px;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
   font-family: 'Open Sans';
   font-size: 11px;
+  margin-left: 16px;
+  max-width: 50vw;
 }
 
 .selectedDescription {
@@ -71,40 +65,13 @@
   font-weight: bold;
 }
 
-@media mobile {
-  .resource {
-    width: 100%;
-    height: 70px;
-    padding-left: 32px;
-    border-bottom: solid 2px white;
-    box-sizing: border-box;
-  }
-
-  .posterWrapper {
-    top: 12px;
-    left: 16px;
-  }
-
-  .description {
-    left: 105px;
-  }
-}
-
 @media tablet {
   .resource {
     width: 100%;
-    height: 70px;
-    padding-left: 32px;
+    height: 75px;
+    padding-left: 20px;
+    margin-bottom: 0;
     border-bottom: solid 2px white;
     box-sizing: border-box;
-  }
-
-  .posterWrapper {
-    top: 12px;
-    left: 16px;
-  }
-
-  .description {
-    left: 105px;
   }
 }
