@@ -5,6 +5,7 @@ import fromPairs from 'lodash/fp/fromPairs';
 import isFunction from 'lodash/fp/isFunction';
 import identity from 'lodash/fp/identity';
 import createPlayer from '../player';
+import {UI_SELECT_ROUTE} from '../../../actions/ui/route';
 import basicSlide from './fixtures/slides/basic';
 import contextSlide from './fixtures/slides/with-context';
 
@@ -72,6 +73,7 @@ test('should create player props for basic question', t => {
 });
 
 test('should display context tab button if slide context is available', t => {
+  t.plan(10);
   const state = {
     data,
     ui: {
@@ -79,7 +81,17 @@ test('should display context tab button if slide context is available', t => {
     }
   };
 
-  const props = playerProps(state);
+  const dispatch = action => {
+    t.deepEqual(action, {
+      type: UI_SELECT_ROUTE,
+      payload: 'context',
+      meta: {
+        progressionId: 'context'
+      }
+    });
+  };
+
+  const props = createPlayer(options, {dispatch: action => action(dispatch, () => state)})(state);
 
   t.is(typeof props.slideContext, 'object');
   t.is(props.slideContext.title, 'Some context title');
@@ -90,4 +102,6 @@ test('should display context tab button if slide context is available', t => {
   t.is(props.buttons[0].type, 'context');
   t.false(props.buttons[0].selected);
   t.is(typeof props.buttons[0].onClick, 'function');
+
+  props.buttons[0].onClick();
 });
