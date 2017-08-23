@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import identity from 'lodash/fp/identity';
+import find from 'lodash/fp/find';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import pipe from 'lodash/fp/pipe';
@@ -50,6 +51,26 @@ ClueContent.propTypes = {
 };
 
 ClueContent.contextTypes = {
+  translate: Provider.childContextTypes.translate
+};
+
+const NewMedia = (props, context) => {
+  const {translate} = context;
+  const {notify, onClick} = props;
+
+  return notify
+    ? <div className={style.guideWrapper} onClick={onClick} data-name="newMedia">
+        <span>{translate('New media')}</span>
+      </div>
+    : null;
+};
+
+NewMedia.propTypes = {
+  notify: PropTypes.bool,
+  onClick: PropTypes.func
+};
+
+NewMedia.contextTypes = {
   translate: Provider.childContextTypes.translate
 };
 
@@ -293,15 +314,15 @@ Content.propTypes = {
 
 const SlidesPlayer = (props, context) => {
   const {step, buttons} = props;
-  const {skin, translate = identity} = context;
+  const {skin} = context;
   const stepColor = get('common.primary', skin);
+  const mediaButton = find({type: 'media'}, buttons) || {};
+  const {notify = false, onClick = identity} = mediaButton;
 
   return (
     <div className={style.wrapper} data-name="slidesPlayer">
       {step ? <Step step={step} color={stepColor} /> : null}
-      <div className={style.guideWrapper}>
-        <span>{translate('New media')}</span>
-      </div>
+      <NewMedia notify={notify} onClick={onClick} />
       <Content {...props} />
       <div className={style.footer}>
         <SlidesFooter buttons={buttons} />

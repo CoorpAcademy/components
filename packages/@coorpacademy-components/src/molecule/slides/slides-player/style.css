@@ -93,22 +93,21 @@
 }
 
 .guideWrapper {
-  display: none;
   composes: infos;
   left: 0;
-  padding: 4px 10px 4px 5px;
+  padding: 4px 10px;
   border-bottom-right-radius: 12px;
   cursor: pointer;
 }
 
 .guideWrapper span {
-  margin-right: 5px;
+  animation: fade 2.5s infinite linear;
 }
 
-.guideWrapper::after {
-  display: inline-block;
-  content: '⨠';
-  transform: rotate(90deg);
+@keyframes fade {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
 }
 
 .question {
@@ -223,10 +222,6 @@
   .contentWrapperNoPadding {
     composes: contentWrapper;
     padding: 32px 0 16px;
-  }
-
-  .guideWrapper {
-    display: none;
   }
 
   .question {

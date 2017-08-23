@@ -45,6 +45,7 @@ test('should display slide', async t => {
 
   t.deepEqual(map(omit('onClick'), playerProps.buttons), [
     {
+      notify: true,
       title: 'Media',
       type: 'media',
       selected: false
@@ -86,6 +87,7 @@ test('should display loading clue', async t => {
 
   t.deepEqual(map(omit('onClick'), playerProps.buttons), [
     {
+      notify: true,
       title: 'Media',
       type: 'media',
       selected: false
@@ -127,6 +129,7 @@ test('should display clue', async t => {
 
   t.deepEqual(map(omit('onClick'), playerProps.buttons), [
     {
+      notify: true,
       title: 'Media',
       type: 'media',
       selected: false
