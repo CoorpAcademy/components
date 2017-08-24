@@ -9,7 +9,7 @@ import style from './style.css';
 
 const SelectedVideo = props => {
   const {videoId, autoplay = false} = props;
-  return <VideoPlayer id={videoId} height="100%" width="auto" autoplay={autoplay} {...props} />;
+  return <VideoPlayer id={videoId} height="100%" width="100%" autoplay={autoplay} {...props} />;
 };
 
 const SELECTED_TYPES = {

@@ -2,11 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import VideoIframe from '../video-iframe';
 import JWPlayer from './jwplayer';
+import Vimeo from './vimeo';
+import style from './style.css';
 
-const VideoPlayer = props => {
+const Player = props => {
   const {mimeType, id, url, width = '100%', height = '400px', onPlay, onPause, onEnded} = props;
   switch (mimeType) {
     case 'application/vimeo':
+      return <Vimeo {...props} video={id} className={style.wrapper} />;
+
     case 'application/youtube':
     case 'application/kontiki':
       return (
@@ -28,6 +32,11 @@ const VideoPlayer = props => {
       return <JWPlayer {...props} />;
   }
 };
+
+const VideoPlayer = props =>
+  <div className={style.wrapper}>
+    <Player {...props} />
+  </div>;
 
 VideoPlayer.propTypes = {
   id: PropTypes.string,

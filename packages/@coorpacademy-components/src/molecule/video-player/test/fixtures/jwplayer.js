@@ -17,6 +17,9 @@ export default {
           name: 'bekle'
         }
       }
-    }
+    },
+    onPlay: () => console.log('onPlay jwp'),
+    onPause: () => console.log('onPause jwp'),
+    onEnded: () => console.log('onEnded jwp')
   }
 };
