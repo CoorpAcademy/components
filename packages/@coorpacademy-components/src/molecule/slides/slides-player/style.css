@@ -131,10 +131,14 @@
 }
 
 .cta {
+  display: flex;
   padding-left: 25px;
   padding-right: 25px;
   font-size: 16px;
   font-family: 'Open Sans';
+  min-width: 160px;
+  align-items: center;
+  justify-content: center;
 }
 
 .cta:focus {

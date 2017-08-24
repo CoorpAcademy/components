@@ -7,15 +7,15 @@
 
 .wrapper {
   text-align: center;
-  width: 100%;
 }
 
 .answer {
   width: 100%;
+  max-width: 100%;
+  min-width: 80px;
   font-family: 'Open Sans';
   font-size: 15px;
   font-weight: 600;
-  color: black;
   background-color: white;
   border: 1px solid light;
   border-radius: 3px;
@@ -27,6 +27,11 @@
   white-space: normal;
 }
 
+.longestAnswer {
+  composes: answer;
+  width: auto;
+}
+
 .answer:last-child {
   margin-bottom: 0;
 }
@@ -35,14 +40,22 @@
   background-color: light;
 }
 
-.selected {
-  composes: answer;
+.unselectedAnswer {
+  color: black;
+}
+
+.selectedAnswer {
   color: white;
 }
 
 @media mobile {
   .wrapper {
     min-width: 100%;
+  }
+
+  .longestAnswer {
+    composes: answer;
+    width: 100%;
   }
 
   .answer:hover {

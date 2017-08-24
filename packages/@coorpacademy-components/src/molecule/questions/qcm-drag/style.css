@@ -60,7 +60,7 @@
   margin-right: 8px;
   margin-bottom: 8px;
   border-radius: 3px;
-  padding: 0 16px;
+  padding: 13px 16px;
   cursor: pointer;
 }
 
@@ -74,7 +74,7 @@
 
 .invisibleAnswer {
   composes: answer;
-  visibility: hidden;
+  display: none;
 }
 
 @media mobile {
