@@ -118,7 +118,7 @@ ContextImage.propTypes = {
 
 const ContextVideo = props => {
   const videos = props.src.map(({videoId, mimeType}) =>
-    <VideoPlayer id={videoId} key={videoId} autoplay="false" mimeType={mimeType} />
+    <VideoPlayer id={videoId} key={videoId} autoplay={false} mimeType={mimeType} />
   );
   return <div>{videos}</div>;
 };
