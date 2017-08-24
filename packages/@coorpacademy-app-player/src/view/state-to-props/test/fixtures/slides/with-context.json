@@ -1,0 +1,69 @@
+{
+  "_id": "1.B2.9",
+  "klf": "Some KFL",
+  "tips": "XXX",
+  "chapter_id": "cha_Ny1BTxRp~",
+  "authors": [],
+  "context": {
+    "title": "Some context title",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et scelerisque eros, eu gravida nibh. Nunc sodales vulputate maximus. Suspendisse sed libero ligula. Aenean nec ante et turpis sodales dignissim. Quisque a diam ex. Aliquam erat volutpat. Duis et vestibulum elit. Fusce vitae risus leo. Quisque sed egestas nisl, non bibendum sapien. Sed id tempus ante. Nulla dapibus non dui sed bibendum. Pellentesque venenatis justo elit, ac ultricies ligula lobortis eget. Fusce ornare, odio eu lobortis efficitur, tellus justo tristique tellus, eget ultrices elit leo sodales est. Cras egestas enim consequat justo sagittis gravida. Curabitur semper ante eget mi scelerisque, laoreet tincidunt enim pharetra. Integer commodo lorem risus, id ornare arcu pellentesque ac. Vestibulum porta quis dui quis dignissim. Praesent condimentum placerat sem nec commodo. Nam mollis enim ac commodo pellentesque. Sed et semper justo, sed luctus nisi. Maecenas dui nunc, rutrum quis pellentesque in, vehicula nec velit. Cras convallis leo vel enim tempus scelerisque.",
+    "media": {
+      "subtitles": [],
+      "posters": [],
+      "src": []
+    }
+  },
+  "meta": {
+    "updatedAt": "2017-06-13T12:15:40.321Z",
+    "createdAt": "2017-06-13T12:15:40.321Z"
+  },
+  "lessons": [
+    {
+      "type": "video",
+      "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B2.png",
+      "description": "Anatomie d'une page de résultats",
+      "mimeType": "application/vimeo",
+      "videoId": "88393119\n",
+      "_id": "590b862e2e967f64333ad456",
+      "subtitles": [],
+      "posters": [],
+      "src": []
+    }
+  ],
+  "question": {
+    "type": "basic",
+    "header": "Écrivez le mot Text dans l'input.\n",
+    "explanation": "Saisissez votre réponse.",
+    "content": {
+      "label": "Saisissez votre réponse.",
+      "placeholder": " ",
+      "maxTypos": null,
+      "choices": [],
+      "answers": [
+        [
+          "Text"
+        ]
+      ],
+      "media": {
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      }
+    },
+    "medias": [
+      {
+        "type": "img",
+        "_id": "593eb72a187bd18c01283591",
+        "subtitles": [],
+        "posters": [],
+        "src": [
+          {
+            "mimeType": "image/jpeg",
+            "url": "//static.coorpacademy.com/content/ijoinchanel/en/slides/1B2_Q6/1B2-Q6-canap-v1.jpg",
+            "_id": "593eb72a187bd18c01283592"
+          }
+        ]
+      }
+    ]
+  }
+}

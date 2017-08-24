@@ -5,6 +5,7 @@
   "Check out the next chapter in this course!": "このコースの次の章をチェックしてください!",
   "Clue": "手掛かり",
   "Coach": "コーチ",
+  "Context": "コンテキスト",
   "Congratulations!": "おめでとうございます!",
   "Correct answer": "正解:",
   "Did you know that?": "ご存知でしたか。",
@@ -25,5 +26,6 @@
   "Validate": "検証",
   "Wrong answer": "間違いです",
   "You are out of lives!": "あなたは生活の中からです!",
-  "Back to question": "問題に戻る"
+  "Back to question": "問題に戻る",
+  "Go to question": "質問に行く"
 }

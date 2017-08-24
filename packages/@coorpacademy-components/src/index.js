@@ -68,6 +68,7 @@ export Notification from './atom/notification';
 export Pagination from './molecule/pagination';
 export Part from './organism/accordion/part';
 export PaymentForm from './molecule/payment-form';
+export Pdf from './molecule/pdf';
 export Picture from './atom/picture';
 export PictureBackground from './atom/picture-background';
 export Player from './template/app-player/player';

@@ -1,13 +1,10 @@
 import React from 'react';
-import get from 'lodash/fp/get';
 import find from 'lodash/fp/find';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import PDFIcon from '@coorpacademy/nova-icons/line/files-office/file-office-pdf';
 import ResourceMiniature from '../../atom/resource-miniature';
-import Provider from '../../atom/provider';
-import Link from '../../atom/link';
 import VideoPlayer from '../../molecule/video-player';
+import PDF from '../../molecule/pdf';
 import style from './style.css';
 
 const SelectedVideo = props => {
@@ -15,35 +12,9 @@ const SelectedVideo = props => {
   return <VideoPlayer id={videoId} height="100%" width="auto" autoplay={autoplay} {...props} />;
 };
 
-const SelectedPDF = (props, context) => {
-  const {description, mediaUrl, onPlay} = props;
-  const {translate, skin} = context;
-
-  const dark = get('common.dark', skin);
-  const brand = get('common.brand', skin);
-
-  return (
-    <div className={style.pdfFrame}>
-      <PDFIcon color={dark} className={style.pdfIcon} />
-      <div className={style.pdfDescription}>{description}</div>
-      <Link href={mediaUrl} target="_blank" onClick={onPlay}>
-        <div className={style.openPDFButton} style={{borderColor: brand, color: brand}}>
-          <div className={style.openPDFButtonBackground} style={{backgroundColor: brand}} />
-          <label className={style.openPDFButtonLabel}>{translate('Open')}</label>
-        </div>
-      </Link>
-    </div>
-  );
-};
-
-SelectedPDF.contextTypes = {
-  translate: Provider.childContextTypes.translate,
-  skin: Provider.childContextTypes.skin
-};
-
 const SELECTED_TYPES = {
   video: SelectedVideo,
-  pdf: SelectedPDF
+  pdf: PDF
 };
 
 const ResourceBrowser = props => {

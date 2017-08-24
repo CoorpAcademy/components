@@ -1,5 +1,8 @@
+import Default from './vimeo';
+
 export default {
   props: {
+    ...Default.props,
     mimeType: 'video/mp4',
     jwpOptions: {
       playerId: '5980934b7dfebe01618a57df',

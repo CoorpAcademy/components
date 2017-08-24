@@ -1,4 +1,5 @@
 import test from 'ava';
+import omit from 'lodash/fp/omit';
 import isFunction from 'lodash/fp/isFunction';
 import identity from 'lodash/fp/identity';
 import {createGetAnswerProps, createGetHelp} from '../answer';
@@ -202,8 +203,21 @@ test('should create edited qcmDrag props', t => {
 });
 
 test('should create initial slider props', t => {
+  t.plan(8);
   const state = {};
-  const props = getAnswerProps(state, slider);
+
+  const dispatch = action => {
+    t.deepEqual(action, {
+      type: ANSWER_EDIT.slider,
+      meta: {
+        progressionId: undefined
+      },
+      payload: ['900']
+    });
+  };
+
+  const props = createGetAnswerProps(options, {dispatch})(state, slider);
+
   t.is(props.type, 'slider');
   t.is(props.placeholder, 'Déplacez le curseur.');
   t.is(props.minLabel, '0 an(s)');
@@ -211,6 +225,32 @@ test('should create initial slider props', t => {
   t.is(props.title, '500 an(s)');
   t.is(props.value, 0.5);
   t.true(isFunction(props.onChange));
+
+  props.onChange(0.87);
+});
+
+test('should default slider step to 1', t => {
+  t.plan(2);
+  const state = {};
+
+  const dispatch = action => {
+    t.deepEqual(action, {
+      type: ANSWER_EDIT.slider,
+      meta: {
+        progressionId: undefined
+      },
+      payload: ['870']
+    });
+  };
+
+  const props = createGetAnswerProps(options, {dispatch})(
+    state,
+    omit('question.content.step', slider)
+  );
+
+  t.true(isFunction(props.onChange));
+
+  props.onChange(0.87);
 });
 
 test('should create edited slider props', t => {

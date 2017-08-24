@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import keys from 'lodash/fp/keys';
 import MediaIcon from '@coorpacademy/nova-icons/solid/videos/video-clip-3';
 import ClueIcon from '@coorpacademy/nova-icons/solid/programming/programming-jigsaw';
+import ContextIcon from '@coorpacademy/nova-icons/solid/locations/compass-3';
 import CoachIcon from '@coorpacademy/nova-icons/solid/messages-and-chat/chat-bubbles-circle';
 import get from 'lodash/fp/get';
 import Provider from '../../../atom/provider';
@@ -11,7 +12,8 @@ import style from './style.css';
 const ICONS = {
   media: MediaIcon,
   clue: ClueIcon,
-  coach: CoachIcon
+  coach: CoachIcon,
+  context: ContextIcon
 };
 
 const SlidesFooter = (props, context) => {

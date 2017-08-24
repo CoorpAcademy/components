@@ -1,5 +1,6 @@
 import includes from 'lodash/fp/includes';
 import get from 'lodash/fp/get';
+import isEmpty from 'lodash/fp/isEmpty';
 import {
   getCurrentProgression,
   getCurrentSlide,
@@ -16,7 +17,7 @@ import {selectClue} from '../../actions/ui/clues';
 import {createGetAnswerProps, createGetHelp} from './answer';
 import getResourcesProps from './resources';
 
-const ROUTES = ['media', 'clue'];
+const ROUTES = ['media', 'clue', 'context'];
 const STARS_DIFF = {
   media: 'starsPerResourceViewed',
   clue: 'starsPerAskingClue'
@@ -34,6 +35,7 @@ const playerProps = (options, store) => state => {
   const clue = getCurrentClue(state) || null;
   const route = getRoute(state);
   const resources = getResourcesProps(options, store)(state, slide);
+  const notifyNewMedia = isEmpty(get('state.viewedResources', progression));
   const starsDiff = (STARS_DIFF[route] && get(STARS_DIFF[route], engineConfig)) || 0;
   const isAnswer = !includes(route, ROUTES);
   const clickClueHandler = () => dispatch(selectClue);
@@ -49,11 +51,26 @@ const playerProps = (options, store) => state => {
   const getHelp = createGetHelp(options, store);
   const help = getHelp(slide);
 
+  const slideContext = get('context', slide);
+  const contextButton = get('title', slideContext)
+    ? [
+        {
+          title: translate('Context'),
+          type: 'context',
+          selected: route === 'context',
+          onClick: () => {
+            return dispatch(selectRoute('context'));
+          }
+        }
+      ]
+    : [];
+
   return {
     typeClue: isAnswer ? 'answer' : route,
     text: clue,
     step: get('state.step')(progression),
     question: get('question.header')(slide),
+    slideContext,
     verticalMargin: 260,
     starsDiff,
     resources,
@@ -66,7 +83,7 @@ const playerProps = (options, store) => state => {
           secondary: false
         }
       : {
-          submitValue: translate('Back to question'),
+          submitValue: translate(route === 'context' ? 'Go to question' : 'Back to question'),
           onClick: clickBackToAnswerHandler,
           light: false,
           small: false,
@@ -78,13 +95,15 @@ const playerProps = (options, store) => state => {
       media: mediaQuestion
     },
     buttons: [
+      ...contextButton,
       {
         title: translate('Media'),
         type: 'media',
         selected: route === 'media',
         onClick: () => {
           return dispatch(selectRoute('media'));
-        }
+        },
+        notify: notifyNewMedia
       },
       {
         title: translate('Clue'),

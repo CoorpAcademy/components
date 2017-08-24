@@ -5,6 +5,7 @@
   "Check out the next chapter in this course!": "Scopri il prossimo capitolo di questo corso!",
   "Clue": "Indizio",
   "Coach": "Allenatore",
+  "Context": "Contesto",
   "Congratulations!": "Congratulazioni!",
   "Correct answer": "Risposta corretta:",
   "Did you know that?": "Lo sapevate che?",
@@ -25,5 +26,6 @@
   "Validate": "Convalidare",
   "Wrong answer": "Risposta è sbagliata",
   "You are out of lives!": "Sei fuori dalla vita!",
-  "Back to question": "Torna a mettere in discussione"
+  "Back to question": "Torna a mettere in discussione",
+  "Go to question": "Vai alla domanda"
 }

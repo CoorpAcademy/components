@@ -5,6 +5,7 @@
   "Check out the next chapter in this course!": "Check out the next chapter in this course!",
   "Clue": "Clue",
   "Coach": "Coach",
+  "Context": "Context",
   "Congratulations!": "Congratulations!",
   "Correct answer": "Correct answer:",
   "Did you know that?": "Did you know that?",
@@ -25,5 +26,6 @@
   "Validate": "Validate",
   "Wrong answer": "Wrong answer",
   "You are out of lives!": "You are out of lives!",
-  "Back to question": "Back to question"
+  "Back to question": "Back to question",
+  "Go to question": "Go to question"
 }

@@ -1,4 +1,5 @@
 import get from 'lodash/fp/get';
+import isNil from 'lodash/fp/isNil';
 import {fetchProgression, fetchEngineConfig, fetchBestProgression} from '../api/progressions';
 import {fetchSlide} from '../api/slides';
 import {fetchEndRank, fetchStartRank} from '../api/rank';
@@ -11,6 +12,7 @@ import {
   getCurrentProgressionId,
   getCurrentContent
 } from '../../utils/state-extract';
+import {selectRoute} from './route';
 
 export const UI_SELECT_PROGRESSION = '@@ui/SELECT_PROGRESSION';
 
@@ -38,7 +40,11 @@ export const selectProgression = id => async (dispatch, getState) => {
 
   switch (type) {
     case 'slide': {
-      return dispatch(fetchSlide(ref));
+      const slideResult = await dispatch(fetchSlide(ref));
+      if (isNil(get('payload.context.title', slideResult))) {
+        return slideResult;
+      }
+      return dispatch(selectRoute('context'));
     }
     case 'success':
     case 'failure': {

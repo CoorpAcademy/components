@@ -4,15 +4,17 @@ import VideoIframe from '../video-iframe';
 import JWPlayer from './jwplayer';
 
 const VideoPlayer = props => {
-  const {mimeType, id, width = '100%', height = '400px', onPlay, onPause, onEnded} = props;
+  const {mimeType, id, url, width = '100%', height = '400px', onPlay, onPause, onEnded} = props;
 
   switch (mimeType) {
     case 'application/vimeo':
     case 'application/youtube':
+    case 'application/kontiki':
       return (
         <VideoIframe
           type={mimeType.split('application/')[1]}
           id={id}
+          url={url}
           width={width}
           height={height}
           frameBorder={0}
@@ -29,7 +31,18 @@ const VideoPlayer = props => {
 };
 
 VideoPlayer.propTypes = {
-  mimeType: PropTypes.oneOf(['application/vimeo', 'video/mp4', 'application/youtube']).isRequired
+  id: PropTypes.string,
+  width: PropTypes.string,
+  height: PropTypes.string,
+  onPlay: PropTypes.func,
+  onPause: PropTypes.func,
+  onEnded: PropTypes.func,
+  mimeType: PropTypes.oneOf([
+    'application/kontiki',
+    'application/vimeo',
+    'application/youtube',
+    'video/mp4'
+  ]).isRequired
 };
 
 export default VideoPlayer;

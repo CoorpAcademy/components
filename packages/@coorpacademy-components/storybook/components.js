@@ -54,6 +54,7 @@ import ModuleCard from '../src/molecule/module-card';
 import News from '../src/molecule/news';
 import Pagination from '../src/molecule/pagination';
 import PaymentForm from '../src/molecule/payment-form';
+import Pdf from '../src/molecule/pdf';
 import ProductCard from '../src/molecule/product-card';
 import ProgressBar from '../src/molecule/progress-bar';
 import ScopeContent from '../src/molecule/scope-content';
@@ -315,6 +316,7 @@ import PaginationFixtureDisabled from '../src/molecule/pagination/test/fixtures/
 import PaymentFormFixtureDefault from '../src/molecule/payment-form/test/fixtures/default';
 import PaymentFormFixtureError from '../src/molecule/payment-form/test/fixtures/error';
 import PaymentFormFixtureWarning from '../src/molecule/payment-form/test/fixtures/warning';
+import PdfFixtureDefault from '../src/molecule/pdf/test/fixtures/default';
 import ProductCardFixtureDefault from '../src/molecule/product-card/test/fixtures/default';
 import ProgressBarFixtureDefault from '../src/molecule/progress-bar/test/fixtures/default';
 import ProgressBarFixtureMax from '../src/molecule/progress-bar/test/fixtures/max';
@@ -350,8 +352,9 @@ import VideoIframeFixtureDefault from '../src/molecule/video-iframe/test/fixture
 import VideoIframeFixtureEmpty from '../src/molecule/video-iframe/test/fixtures/empty';
 import VideoIframeFixtureImagePlaceholder from '../src/molecule/video-iframe/test/fixtures/image-placeholder';
 import VideoIframeFixtureYoutube from '../src/molecule/video-iframe/test/fixtures/youtube';
-import VideoPlayerFixtureDefault from '../src/molecule/video-player/test/fixtures/default';
 import VideoPlayerFixtureJwplayer from '../src/molecule/video-player/test/fixtures/jwplayer';
+import VideoPlayerFixtureKontiki from '../src/molecule/video-player/test/fixtures/kontiki';
+import VideoPlayerFixtureVimeo from '../src/molecule/video-player/test/fixtures/vimeo';
 import VideoPlayerFixtureYoutube from '../src/molecule/video-player/test/fixtures/youtube';
 import PopinHeaderFixtureFailMultipleAnswers from '../src/molecule/app-player/popin/popin-header/test/fixtures/fail-multiple-answers';
 import PopinHeaderFixtureFail from '../src/molecule/app-player/popin/popin-header/test/fixtures/fail';
@@ -405,10 +408,15 @@ import SlidesFooterFixtureHighlighted from '../src/molecule/slides/slides-footer
 import SlidesFooterFixtureMediaSelected from '../src/molecule/slides/slides-footer/test/fixtures/media-selected';
 import SlidesFooterFixtureNotify from '../src/molecule/slides/slides-footer/test/fixtures/notify';
 import SlidesFooterFixtureOnlyClue from '../src/molecule/slides/slides-footer/test/fixtures/only-clue';
+import SlidesFooterFixtureWithContext from '../src/molecule/slides/slides-footer/test/fixtures/with-context';
 import SlidesHeaderFixtureDefault from '../src/molecule/slides/slides-header/test/fixtures/default';
 import SlidesHeaderFixtureFreerun from '../src/molecule/slides/slides-header/test/fixtures/freerun';
 import SlidesHeaderFixtureNoSecondary from '../src/molecule/slides/slides-header/test/fixtures/no-secondary';
 import SlidesPlayerFixtureClue from '../src/molecule/slides/slides-player/test/fixtures/clue';
+import SlidesPlayerFixtureContextWithImage from '../src/molecule/slides/slides-player/test/fixtures/context-with-image';
+import SlidesPlayerFixtureContextWithPdf from '../src/molecule/slides/slides-player/test/fixtures/context-with-pdf';
+import SlidesPlayerFixtureContextWithVideo from '../src/molecule/slides/slides-player/test/fixtures/context-with-video';
+import SlidesPlayerFixtureContext from '../src/molecule/slides/slides-player/test/fixtures/context';
 import SlidesPlayerFixtureDefault from '../src/molecule/slides/slides-player/test/fixtures/default';
 import SlidesPlayerFixtureDropDown from '../src/molecule/slides/slides-player/test/fixtures/drop-down';
 import SlidesPlayerFixtureError from '../src/molecule/slides/slides-player/test/fixtures/error';
@@ -476,6 +484,10 @@ import ImageSliderFixtureDefault from '../src/organism/mooc/image-slider/test/fi
 import ImageSliderFixtureMultipleSlides from '../src/organism/mooc/image-slider/test/fixtures/multiple-slides';
 import LoadingFixtureDefault from '../src/template/app-player/loading/test/fixtures/default';
 import PlayerFixtureClue from '../src/template/app-player/player/test/fixtures/clue';
+import PlayerFixtureContextWithImage from '../src/template/app-player/player/test/fixtures/context-with-image';
+import PlayerFixtureContextWithPdf from '../src/template/app-player/player/test/fixtures/context-with-pdf';
+import PlayerFixtureContextWithVideo from '../src/template/app-player/player/test/fixtures/context-with-video';
+import PlayerFixtureContext from '../src/template/app-player/player/test/fixtures/context';
 import PlayerFixtureDropDown from '../src/template/app-player/player/test/fixtures/drop-down';
 import PlayerFixtureEmpty from '../src/template/app-player/player/test/fixtures/empty';
 import PlayerFixtureError from '../src/template/app-player/player/test/fixtures/error';
@@ -606,6 +618,7 @@ export const components = {
     News,
     Pagination,
     PaymentForm,
+    Pdf,
     ProductCard,
     ProgressBar,
     ScopeContent,
@@ -1003,6 +1016,9 @@ export const fixtures = {
       Error: PaymentFormFixtureError,
       Warning: PaymentFormFixtureWarning
     },
+    Pdf: {
+      Default: PdfFixtureDefault
+    },
     ProductCard: {
       Default: ProductCardFixtureDefault
     },
@@ -1073,8 +1089,9 @@ export const fixtures = {
       Youtube: VideoIframeFixtureYoutube
     },
     VideoPlayer: {
-      Default: VideoPlayerFixtureDefault,
       Jwplayer: VideoPlayerFixtureJwplayer,
+      Kontiki: VideoPlayerFixtureKontiki,
+      Vimeo: VideoPlayerFixtureVimeo,
       Youtube: VideoPlayerFixtureYoutube
     }
   },
@@ -1169,7 +1186,8 @@ export const fixtures = {
       Highlighted: SlidesFooterFixtureHighlighted,
       MediaSelected: SlidesFooterFixtureMediaSelected,
       Notify: SlidesFooterFixtureNotify,
-      OnlyClue: SlidesFooterFixtureOnlyClue
+      OnlyClue: SlidesFooterFixtureOnlyClue,
+      WithContext: SlidesFooterFixtureWithContext
     },
     SlidesHeader: {
       Default: SlidesHeaderFixtureDefault,
@@ -1178,6 +1196,10 @@ export const fixtures = {
     },
     SlidesPlayer: {
       Clue: SlidesPlayerFixtureClue,
+      ContextWithImage: SlidesPlayerFixtureContextWithImage,
+      ContextWithPdf: SlidesPlayerFixtureContextWithPdf,
+      ContextWithVideo: SlidesPlayerFixtureContextWithVideo,
+      Context: SlidesPlayerFixtureContext,
       Default: SlidesPlayerFixtureDefault,
       DropDown: SlidesPlayerFixtureDropDown,
       Error: SlidesPlayerFixtureError,
@@ -1297,6 +1319,10 @@ export const fixtures = {
     },
     Player: {
       Clue: PlayerFixtureClue,
+      ContextWithImage: PlayerFixtureContextWithImage,
+      ContextWithPdf: PlayerFixtureContextWithPdf,
+      ContextWithVideo: PlayerFixtureContextWithVideo,
+      Context: PlayerFixtureContext,
       DropDown: PlayerFixtureDropDown,
       Empty: PlayerFixtureEmpty,
       Error: PlayerFixtureError,
@@ -1474,6 +1500,18 @@ export const dependencies = {
         }
       },
       "children": {}
+    },
+    "Pdf": {
+      "parents": {
+        "Organism": {
+          "ResourceBrowser": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Link": true
+        }
+      }
     },
     "MenuList": {
       "parents": {
@@ -1938,6 +1976,9 @@ export const dependencies = {
       "children": {
         "Atom": {
           "ResourceMiniature": true
+        },
+        "Molecule": {
+          "Pdf": true
         }
       }
     },
@@ -2019,6 +2060,7 @@ export const dependencies = {
           "Unsubscribe": true,
           "Table": true,
           "ScopeContent": true,
+          "Pdf": true,
           "Pagination": true,
           "News": true,
           "DisciplinePartners": true,

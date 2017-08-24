@@ -5,6 +5,7 @@
   "Check out the next chapter in this course!": "Nézze meg a következő fejezet a tanfolyam!",
   "Clue": "Nyom",
   "Coach": "Edző",
+  "Context": "Kontextus",
   "Congratulations!": "Gratulálok!",
   "Correct answer": "Helyes válasz:",
   "Did you know that?": "Tudtad, hogy?",
@@ -25,5 +26,6 @@
   "Validate": "Érvényesít",
   "Wrong answer": "Rossz válasz",
   "You are out of lives!": "Az életét!",
-  "Back to question": "Vissza, hogy a szóban forgó"
+  "Back to question": "Vissza, hogy a szóban forgó",
+  "Go to question": "Kérdés megy"
 }

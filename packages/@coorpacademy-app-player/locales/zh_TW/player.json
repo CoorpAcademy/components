@@ -5,6 +5,7 @@
   "Check out the next chapter in this course!": "查看本課程的下一章！",
   "Clue": "幫助",
   "Coach": "教練",
+  "Context": "上下文",
   "Congratulations!": "恭喜！",
   "Correct answer": "正確答案",
   "Did you know that?": "你知道嗎？",
@@ -25,5 +26,6 @@
   "Validate": "驗證",
   "Wrong answer": "錯誤的答案",
   "You are out of lives!": "你是生命中的一生！",
-  "Back to question": "回到問題"
+  "Back to question": "回到問題",
+  "Go to question": "去問題"
 }
