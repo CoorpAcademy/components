@@ -26,7 +26,7 @@ const initState = pipe(
 test(
   'should mark the resource of the nextContent as viewed',
   macro,
-  initState({}),
+  initState(set('ui.route.foo', 'media', {})),
   t => ({
     Progressions: {
       markResourceAsViewed: (id, payload) => {
@@ -49,11 +49,11 @@ test(
   [
     {
       type: PROGRESSION_RESOURCE_VIEWED_REQUEST,
-      meta: {progressionId: 'foo', resource}
+      meta: {progressionId: 'foo', resource, location: 'media'}
     },
     {
       type: PROGRESSION_RESOURCE_VIEWED_SUCCESS,
-      meta: {progressionId: 'foo', resource},
+      meta: {progressionId: 'foo', resource, location: 'media'},
       payload: set('state.viewedResources', [chapter.ref], {})
     }
   ]
@@ -62,7 +62,11 @@ test(
 test(
   'should mark the resource of the content as viewed if nextContent is unavailable',
   macro,
-  pipe(initState, omit('data.progressions.entities.foo.state.nextContent.ref'))({}),
+  pipe(
+    initState,
+    omit('data.progressions.entities.foo.state.nextContent.ref'),
+    set('ui.route.foo', 'media')
+  )({}),
   t => ({
     Progressions: {
       markResourceAsViewed: (id, payload) => {
@@ -85,11 +89,11 @@ test(
   [
     {
       type: PROGRESSION_RESOURCE_VIEWED_REQUEST,
-      meta: {progressionId: 'foo', resource}
+      meta: {progressionId: 'foo', resource, location: 'media'}
     },
     {
       type: PROGRESSION_RESOURCE_VIEWED_SUCCESS,
-      meta: {progressionId: 'foo', resource},
+      meta: {progressionId: 'foo', resource, location: 'media'},
       payload: set('state.viewedResources', [chapter.ref], {})
     }
   ]
@@ -98,7 +102,11 @@ test(
 test(
   'should prevent request if resource has already been seen',
   macro,
-  pipe(initState, set('data.progressions.entities.foo.state.viewedResources', [chapter.ref]))({}),
+  pipe(
+    initState,
+    set('data.progressions.entities.foo.state.viewedResources', [chapter.ref]),
+    set('ui.route.foo', 'media')
+  )({}),
   t => ({
     Progressions: {
       markResourceAsViewed: (id, payload) => {
@@ -110,7 +118,7 @@ test(
   [
     {
       type: PROGRESSION_RESOURCE_VIEWED_REQUEST,
-      meta: {progressionId: 'foo', resource}
+      meta: {progressionId: 'foo', resource, location: 'media'}
     }
   ]
 );
@@ -118,7 +126,7 @@ test(
 test(
   'should return error if request failed',
   macro,
-  initState({}),
+  initState(set('ui.route.foo', 'media', {})),
   t => ({
     Progressions: {
       markResourceAsViewed: (id, payload) => {
@@ -140,11 +148,11 @@ test(
   [
     {
       type: PROGRESSION_RESOURCE_VIEWED_REQUEST,
-      meta: {progressionId: 'foo', resource}
+      meta: {progressionId: 'foo', resource, location: 'media'}
     },
     {
       type: PROGRESSION_RESOURCE_VIEWED_FAILURE,
-      meta: {progressionId: 'foo', resource},
+      meta: {progressionId: 'foo', resource, location: 'media'},
       error: true,
       payload: new Error()
     }

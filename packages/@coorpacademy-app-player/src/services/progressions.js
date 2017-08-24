@@ -117,7 +117,7 @@ export const create = async progression => {
   });
 };
 
-export const markResourceAsViewed = async (progressionId, payload) => {
+export const markResourceAsViewed = async (progressionId, payload, location) => {
   const progression = await findById(progressionId);
   const action = {
     type: 'resource',
