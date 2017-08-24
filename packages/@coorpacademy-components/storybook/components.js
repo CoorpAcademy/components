@@ -348,7 +348,6 @@ import TitledCheckboxFixtureNoBg from '../src/molecule/titled-checkbox/test/fixt
 import TitledCheckboxFixtureNotChecked from '../src/molecule/titled-checkbox/test/fixtures/not-checked';
 import UnsubscribeFixtureDefault from '../src/molecule/unsubscribe/test/fixtures/default';
 import UnsubscribeFixtureSubscribed from '../src/molecule/unsubscribe/test/fixtures/subscribed';
-import VideoIframeFixtureDefault from '../src/molecule/video-iframe/test/fixtures/default';
 import VideoIframeFixtureEmpty from '../src/molecule/video-iframe/test/fixtures/empty';
 import VideoIframeFixtureImagePlaceholder from '../src/molecule/video-iframe/test/fixtures/image-placeholder';
 import VideoIframeFixtureYoutube from '../src/molecule/video-iframe/test/fixtures/youtube';
@@ -1083,7 +1082,6 @@ export const fixtures = {
       Subscribed: UnsubscribeFixtureSubscribed
     },
     VideoIframe: {
-      Default: VideoIframeFixtureDefault,
       Empty: VideoIframeFixtureEmpty,
       ImagePlaceholder: VideoIframeFixtureImagePlaceholder,
       Youtube: VideoIframeFixtureYoutube

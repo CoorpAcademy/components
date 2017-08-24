@@ -1,4 +1,4 @@
-import video from '../../../video-iframe/test/fixtures/default';
+import video from '../../../video-iframe/test/fixtures/youtube';
 
 const {type, id} = video.props;
 
