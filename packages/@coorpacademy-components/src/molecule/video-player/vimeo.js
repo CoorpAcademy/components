@@ -107,6 +107,8 @@ class Vimeo extends React.Component {
   createPlayer() {
     const options = this.getInitialOptions();
     const {Vimeo: V} = this.context;
+    if (!V) return null;
+
     const {Player} = V;
     this.player = new Player(this.container, options);
 
