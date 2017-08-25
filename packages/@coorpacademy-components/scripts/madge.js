@@ -17,27 +17,22 @@ const config = {
   layout: 'sfdp'
 };
 
-madge(
-  join(__dirname, '../src/template'),
-  config
-).then(res => {
-  res.tree = walkerTree(removeIndex)(res.tree);
-  return res;
-}).then(res => res.image(
-  join(__dirname, '../doc/components.svg')
-)).then(writtenImagePath => {
-  console.log(`Image written to ${writtenImagePath}`);
-}, err =>
-  console.error(err) || process.exit(1)
-);
-
-const walkerTree = fun => pipe(
-  toPairs,
-  map(([node, deps]) => [
-    fun(node),
-    map(fun, deps)
-  ]),
-  fromPairs
-);
-
 const removeIndex = replace(/\/index$/, '');
+
+const walkerTree = fun =>
+  pipe(toPairs, map(([node, deps]) => [fun(node), map(fun, deps)]), fromPairs);
+
+madge(join(__dirname, '../src/template'), config)
+  .then(res => {
+    res.tree = walkerTree(removeIndex)(res.tree);
+    return res;
+  })
+  .then(res => res.image(join(__dirname, '../doc/components.svg')))
+  .then(writtenImagePath => {
+    console.log(`Image written to ${writtenImagePath}`);
+    return;
+  })
+  .catch(err => {
+    console.error(err);
+    process.exit(1); // eslint-disable-line unicorn/no-process-exit
+  });

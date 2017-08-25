@@ -10,7 +10,6 @@ import components from '../src/util/list-components';
 import fixtures from '../src/util/list-fixtures';
 import dependencies from '../src/util/list-dependencies';
 
-
 const targetDir = join(__dirname, '../storybook');
 const removeExt = path => join(dirname(path), basename(path, '.js'));
 
@@ -30,21 +29,13 @@ const _componentImports = pipe(
 const _componentTypes = pipe(
   mapObject((_components, type) => [
     `${type}: {
-${pipe(
-  mapObject((path, title) => `${title}`),
-  _join(',\n'),
-  indent
-)(_components)}
+${pipe(mapObject((path, title) => `${title}`), _join(',\n'), indent)(_components)}
 }`
   ]),
   _join(',\n')
 )(components);
 
-const _componentExport = [
-  'export const components = {',
-  indent(_componentTypes),
-  '};'
-];
+const _componentExport = ['export const components = {', indent(_componentTypes), '};'];
 
 const _fixtureImports = pipe(
   mapObject((titles, type) =>
@@ -56,7 +47,7 @@ const _fixtureImports = pipe(
             return `import ${title}Fixture${fixture} from '${slash(removeExt(relativePath))}';`;
           }),
           flatten
-        )(_fixtures),
+        )(_fixtures)
       ),
       flatten
     )(titles)
@@ -94,7 +85,11 @@ const _fixtureExports = [
   '};'
 ];
 
-const _dependenciesExports = `export const dependencies = ${JSON.stringify(dependencies, null, 2)};`;
+const _dependenciesExports = `export const dependencies = ${JSON.stringify(
+  dependencies,
+  null,
+  2
+)};`;
 
 const file = _join('\n', [
   '/* eslint-disable max-len */',
@@ -109,8 +104,6 @@ const file = _join('\n', [
   ''
 ]);
 
-if (!module.parent)
-  process.stdout.write(file);
+if (!module.parent) process.stdout.write(file);
 
 export default file;
-

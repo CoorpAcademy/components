@@ -73,7 +73,8 @@
   "overrides": [
     {
       "files": [
-        "packages/@coorpacademy-components/src/**/test/fixtures/*.js"
+        "packages/@coorpacademy-components/src/**/test/fixtures/*.js",
+        "packages/@coorpacademy-components/scripts/*.js"
       ],
       "rules": {
         "no-console": "off"

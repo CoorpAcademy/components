@@ -1,58 +1,59 @@
-const {camelCase, pascalCase} = require('change-case');
-const {queue} = require('async');
-const sax = require('sax');
-const mkdirp = require('mkdirp-promise');
 const fs = require('fs');
 const path = require('path');
-const walk = require('walk-promise');
-const minimist = require('minimist');
-const SVGO = require('svgo');
 const stream = require('stream');
+const sax = require('sax');
+const SVGO = require('svgo');
+const {queue} = require('async');
+const minimist = require('minimist');
+const walk = require('walk-promise');
+const mkdirp = require('mkdirp-promise');
+const {camelCase, pascalCase} = require('change-case');
 const whiteList = require('../icons');
 
 const MAX_SIMULTANEOUS_HANDLES = 100;
 
 const readQueue = queue(
-  ({fileName}, done) => fs.readFile(fileName, 'utf8', done)
-, MAX_SIMULTANEOUS_HANDLES);
+  ({fileName}, done) => fs.readFile(fileName, 'utf8', done),
+  MAX_SIMULTANEOUS_HANDLES
+);
 
 const writeQueue = queue(
-  ({fileName, data}, done) => fs.writeFile(fileName, data, done)
-, MAX_SIMULTANEOUS_HANDLES);
-
-
-const writeFile = (fileName, data) => new Promise(
-  (resolve, reject) => writeQueue.push({fileName, data}, (err) => {
-    if (err) reject(err);
-
-    resolve();
-  })
+  ({fileName, data}, done) => fs.writeFile(fileName, data, done),
+  MAX_SIMULTANEOUS_HANDLES
 );
+
+const writeFile = (fileName, data) =>
+  new Promise((resolve, reject) =>
+    writeQueue.push({fileName, data}, err => {
+      if (err) reject(err);
+
+      resolve();
+    })
+  );
 
 const formatAsFillColor = () => 'fill={activeColor}';
 const formatAsOutline = () => 'stroke={activeOutline} strokeWidth={activeOutlineWidth}';
-const keepOriginalFormat = (name, value) => `${camelCase(name)}="${value}"`;
+const keepOriginalFormat = (key, value) => `${camelCase(key)}="${value}"`;
 
 const formatAttributes = (attributes, outlineBlock = false) => {
-  const formatAttribute = (name, value) => {
-    const formater = (
-      (name === 'fill' && value != 'none' && !outlineBlock && formatAsFillColor)
-      || (name === 'fill' && value != 'none' && outlineBlock && formatAsOutline)
-      || keepOriginalFormat
-    );
+  const formatAttribute = (key, value) => {
+    const formatter =
+      (key === 'fill' && value !== 'none' && !outlineBlock && formatAsFillColor) ||
+      (key === 'fill' && value !== 'none' && outlineBlock && formatAsOutline) ||
+      keepOriginalFormat;
 
-    return formater(name, value);
+    return formatter(key, value);
   };
 
   const expressions = Object.keys(attributes)
-    .filter(name => name !== 'id')
-    .map(name => formatAttribute(name, attributes[name]))
+    .filter(key => key !== 'id')
+    .map(key => formatAttribute(key, attributes[key]))
     .join(' ');
 
   return expressions.length > 0 ? ` ${expressions}` : '';
 };
 
-const componentize = async (basename, svgData) => {
+const componentize = (basename, svgData) => {
   const inputStream = new stream.Readable();
   const componentName = `Nova${pascalCase(basename).replace('_', '')}`;
   const saxStream = sax.createStream(true, {lowercase: true});
@@ -68,18 +69,12 @@ const componentize = async (basename, svgData) => {
     meta.data += `${line || ''}\n`;
   };
 
-  const writeIndentedLine = line => writeLine(
-    `${Array(meta.indent).fill().map((_, i) => ' ').join('')}${line}`
-  );
+  const writeIndentedLine = line =>
+    writeLine(`${Array(meta.indent).fill().map((_, i) => ' ').join('')}${line}`);
 
   const writeSVGTag = opts => {
-    const {
-      name,
-      attributes,
-      closing = false,
-      autoclosing = false,
-      outlineBlock = false,
-    } = opts;
+    // eslint-disable-next-line no-shadow
+    const {name, attributes, closing = false, autoclosing = false, outlineBlock = false} = opts;
 
     if (autoclosing) {
       writeIndentedLine(`<${name}${formatAttributes(attributes, outlineBlock)} />`);
@@ -94,6 +89,7 @@ const componentize = async (basename, svgData) => {
     if (outlineBlock) meta.svgContent.push(opts);
   };
 
+  // eslint-disable-next-line no-shadow
   saxStream.on('opentag', ({name, attributes}) => {
     if (name === 'svg' && !meta.done) {
       writeLine(`import React, {Component} from 'react';`);
@@ -109,14 +105,22 @@ const componentize = async (basename, svgData) => {
       writeLine(`  }`);
       writeLine();
       writeLine(`  render() {`);
-      writeLine(`    const {color = '#757575', outline = null, outlineWidth = 1, hoverColor = color, ...baseProps} = this.props;`);
-      writeLine(`    const {hoverOutline = outline, hoverOutlineWidth = outlineWidth} = this.props;`);
+      writeLine(
+        `    const {color = '#757575', outline = null, outlineWidth = 1, hoverColor = color, ...baseProps} = this.props;`
+      );
+      writeLine(
+        `    const {hoverOutline = outline, hoverOutlineWidth = outlineWidth} = this.props;`
+      );
       writeLine(`    const activeColor = this.state.hovering ? hoverColor : color;`);
       writeLine(`    const activeOutline = this.state.hovering ? hoverOutline : outline;`);
-      writeLine(`    const activeOutlineWidth = this.state.hovering ? hoverOutlineWidth : outlineWidth;`);
+      writeLine(
+        `    const activeOutlineWidth = this.state.hovering ? hoverOutlineWidth : outlineWidth;`
+      );
       writeLine();
       writeLine(`    return (`);
-      writeLine(`      <IconBase viewBox="${attributes.viewBox}" {...baseProps} onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>`);
+      writeLine(
+        `      <IconBase viewBox="${attributes.viewBox}" {...baseProps} onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>`
+      );
       writeLine(`        {activeOutline ? (`);
       writeLine(`          <g>`);
 
@@ -130,6 +134,7 @@ const componentize = async (basename, svgData) => {
     }
   });
 
+  // eslint-disable-next-line no-shadow
   saxStream.on('closetag', name => {
     if (name === 'svg') {
       meta.open = false;
@@ -158,15 +163,14 @@ const componentize = async (basename, svgData) => {
   return new Promise(resolve => inputStream.on('end', () => resolve(meta.data)));
 };
 
-const optimizeSVG = fileName => new Promise(
-  resolve => (
+const optimizeSVG = fileName =>
+  new Promise(resolve =>
     readQueue.push({fileName}, (err, input) => {
       const svgo = new SVGO();
 
       svgo.optimize(input, ({data}) => resolve(data));
     })
-  )
-);
+  );
 
 const generateComponent = async ({destDir, dest, src, basename}) => {
   const optimizedSVG = await optimizeSVG(src);
@@ -179,39 +183,41 @@ const generateComponent = async ({destDir, dest, src, basename}) => {
 const generateComponents = async ({novaPath, category}) => {
   const srcPath = path.join(novaPath, 'SVG', category.src);
   const files = await walk(srcPath);
-  const tasks = files
-    .filter(({name}) => name.match(/\.svg$/))
-    .map(async ({root, name}) => {
-      const src = path.join(root, name);
-      const subcat = path.basename(path.dirname(src))
-        .match(/^([0-9]+\-)?(.*)$/)[2]
-        .toLowerCase()
-        .replace('&', '-and-');
-      const destDir = path.join(__dirname, '..', 'src', category.dest, subcat);
-      const basename = path.basename(src, '.svg');
-      const dest = path.join(destDir, `${basename}.js`);
-      const importName = path.join(`@coorpacademy/nova-icons/${category.dest}/${subcat}/${basename}`);
-      const isWhiteListed = whiteList.indexOf(importName) >= 0;
+  // eslint-disable-next-line no-shadow
+  const tasks = files.filter(({name}) => name.match(/\.svg$/)).map(({root, name}) => {
+    const src = path.join(root, name);
+    const subcat = path
+      .basename(path.dirname(src))
+      .match(/^([0-9]+-)?(.*)$/)[2]
+      .toLowerCase()
+      .replace('&', '-and-');
+    const destDir = path.join(__dirname, '..', 'src', category.dest, subcat);
+    const basename = path.basename(src, '.svg');
+    const dest = path.join(destDir, `${basename}.js`);
+    const importName = path.join(`@coorpacademy/nova-icons/${category.dest}/${subcat}/${basename}`);
+    const isWhiteListed = whiteList.indexOf(importName) >= 0;
 
-      return isWhiteListed ? generateComponent({destDir, dest, src, basename}) : null;
-    });
+    return isWhiteListed ? generateComponent({destDir, dest, src, basename}) : null;
+  });
 
   return Promise.all(tasks);
 };
 
-const runScript = async () => {
+const runScript = () => {
   const argv = minimist(process.argv.slice(2));
   const [novaPath = path.join(__dirname, '..', 'third-party', 'Nova-Icons')] = argv._;
 
-  return Promise.all(['Solid icons', 'Line icons', 'Composition icons'].map(
-    src => generateComponents({
-      novaPath,
-      category: {
-        src,
-        dest: src.split(' ')[0].toLowerCase()
-      }
-    })
-  ));
+  return Promise.all(
+    ['Solid icons', 'Line icons', 'Composition icons'].map(src =>
+      generateComponents({
+        novaPath,
+        category: {
+          src,
+          dest: src.split(' ')[0].toLowerCase()
+        }
+      })
+    )
+  );
 };
 
 runScript();
