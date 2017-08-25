@@ -3,6 +3,7 @@ import get from 'lodash/fp/get';
 import some from 'lodash/fp/some';
 import identity from 'lodash/fp/identity';
 import isEmpty from 'lodash/fp/isEmpty';
+import isFunction from 'lodash/fp/isFunction';
 import flatMap from 'lodash/fp/flatMap';
 import set from 'lodash/fp/set';
 import negate from 'lodash/fp/negate';
@@ -22,17 +23,26 @@ hook();
 
 const mapObject = mapValues.convert({cap: false});
 
+const shallowRender = (Component, props, children) => {
+  const shallowRenderer = new ReactShallowRenderer();
+  shallowRenderer.render(React.createElement(Component, props, children), {translate: identity});
+  return shallowRenderer.getRenderOutput();
+};
+
 const containsComponent = Component => vTree => {
   return some(vNode => {
-    if (get('type', vNode) === Component) return true;
+    const component = get('type', vNode);
+    if (component === Component) return true;
+    if (isFunction(component)) {
+      const _vTree = shallowRender(component, get('props', vNode), get('props.children', vNode));
+      return containsComponent(Component)(_vTree);
+    }
     return containsComponent(Component)(vNode);
   }, React.Children.toArray(get('props.children', vTree)));
 };
 
 const getChildren = Component => ({props, children}) => {
-  const shallowRenderer = new ReactShallowRenderer();
-  shallowRenderer.render(React.createElement(Component, props, children), {translate: identity});
-  const vTree = shallowRenderer.getRenderOutput();
+  const vTree = shallowRender(Component, props, children);
   return pipe(
     mapObject((folder, folderName) =>
       pipe(
