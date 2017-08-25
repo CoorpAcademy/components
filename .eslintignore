@@ -7,6 +7,7 @@ packages/*/es
 packages/*/static
 packages/*/coverage
 packages/@coorpacademy-components/storybook/components.js
+packages/@coorpacademy-components/src/**/test/fixtures.js
 packages/@coorpacademy-nova-icons/solid
 packages/@coorpacademy-nova-icons/line
 packages/@coorpacademy-nova-icons/composition
