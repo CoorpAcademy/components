@@ -17,8 +17,10 @@ const SELECTED_TYPES = {
   pdf: PDF
 };
 
+const hideResources = resources => !resources || resources.length < 2;
+
 const Resources = ({resources, className}) => {
-  if (!resources || resources.length === 1) {
+  if (hideResources(resources)) {
     return null;
   }
 
@@ -33,9 +35,7 @@ const ResourceBrowser = props => {
   const {resources, className} = props;
   const selectedResource = find(({selected}) => selected, resources);
   const SelectedResourceType = selectedResource && SELECTED_TYPES[selectedResource.type];
-  const wrapperStyle = !resources || resources.length === 1
-    ? style.playerWrapperAlone
-    : style.playerWrapper;
+  const wrapperStyle = hideResources(resources) ? style.playerWrapperAlone : style.playerWrapper;
 
   return (
     <div data-name="resourceBrowser" className={classnames(style.default, className)}>
