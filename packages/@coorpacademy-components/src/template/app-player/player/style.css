@@ -1,7 +1,5 @@
 @value breakpoints: "../../../variables/breakpoints.css";
-@value desktop from breakpoints;
 @value tablet from breakpoints;
-@value mobile from breakpoints;
 
 .wrapper {
   width: 100%;
@@ -23,9 +21,10 @@
   flex-grow: 1;
 }
 
-@media mobile {
+@media tablet {
   .playerWrapper {
     margin: 0;
     padding: 0;
+    max-width: 100vw;
   }
 }

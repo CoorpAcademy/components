@@ -1974,9 +1974,6 @@ export const dependencies = {
     },
     "ResourceBrowser": {
       "children": {
-        "Atom": {
-          "ResourceMiniature": true
-        },
         "Molecule": {
           "Pdf": true
         }
@@ -2159,14 +2156,6 @@ export const dependencies = {
       },
       "children": {}
     },
-    "ResourceMiniature": {
-      "parents": {
-        "Organism": {
-          "ResourceBrowser": true
-        }
-      },
-      "children": {}
-    },
     "Cta": {
       "parents": {
         "Organism": {
@@ -2323,6 +2312,9 @@ export const dependencies = {
       "children": {}
     },
     "Provider": {
+      "children": {}
+    },
+    "ResourceMiniature": {
       "children": {}
     },
     "Spinner": {

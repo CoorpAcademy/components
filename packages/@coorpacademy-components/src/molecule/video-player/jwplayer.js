@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ReactJWPlayer from '@coorpacademy/react-jw-player';
 import {SrcPropType} from '../../util/proptypes';
+import style from './jwplayer.css';
 
 class JWPlayer extends React.Component {
   constructor(props, context) {
@@ -25,7 +26,7 @@ class JWPlayer extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className={style.wrapper}>
         <ReactJWPlayer
           onPlay={this.handlePlay}
           onPause={this.handlePause}
