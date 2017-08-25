@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "preava": "npm run generate:fixtures",
     "ava": "cross-env NODE_ENV=test ava",
     "bootstrap": "lerna bootstrap --hoist",
     "build": "lerna run build",
@@ -8,6 +9,7 @@
     "doc": "lerna run --scope @coorpacademy/components doc",
     "flow": "flow check",
     "generate": "lerna exec --scope @coorpacademy/components -- npm run generate",
+    "generate:fixtures": "lerna exec --scope @coorpacademy/components -- npm run generate:fixtures",
     "init-component": "lerna exec --scope @coorpacademy/components -- npm run init-component",
     "lerna": "lerna",
     "lint": "npm run eslint && npm run stylelint",
