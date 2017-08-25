@@ -76,6 +76,7 @@
     "babel-preset-env": "^1.5.2",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-1": "^6.24.1",
+    "brandai-storybook": "^1.0.2",
     "change-case": "3.0.1",
     "compression-webpack-plugin": "^0.4.0",
     "cross-env": "^5.0.0",
