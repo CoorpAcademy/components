@@ -25,7 +25,8 @@ const _exports = pipe(
 `
 )(components);
 
-if (!module.parent)
+if (!module.parent) {
   process.stdout.write(_exports);
+}
 
 export default _exports;

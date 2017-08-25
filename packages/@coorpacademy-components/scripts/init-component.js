@@ -14,12 +14,12 @@
  *     +      /default.js (empty props)
 */
 
+const path = require('path');
 const {pascalCase} = require('change-case');
 const {outputFile} = require('fs-extra');
 const last = require('lodash/fp/last');
 const mkdirp = require('mkdirp-promise');
 const minimist = require('minimist');
-const path = require('path');
 
 const srcDir = () => path.join(__dirname, '..', 'src');
 const baseName = baseDir => last(baseDir.split(path.sep));
@@ -31,7 +31,7 @@ const createBaseDir = async relativePath => {
   return baseDir;
 };
 
-const writeComponentSource = async baseDir => {
+const writeComponentSource = baseDir => {
   const componentName = pascalCase(baseName(baseDir));
   const content = [
     `import React from 'react';`,
@@ -46,23 +46,15 @@ const writeComponentSource = async baseDir => {
   return outputFile(path.join(baseDir, 'index.js'), content);
 };
 
-const writeStyleSource = async baseDir => {
-  const content = [
-    '.default {}',
-    ''
-  ].join('\n');
+const writeStyleSource = baseDir => {
+  const content = ['.default {}', ''].join('\n');
 
   return outputFile(path.join(baseDir, 'style.css'), content);
 };
 
 const writeDefaultFixture = async baseDir => {
   const fixturesDir = path.join(baseDir, 'test', 'fixtures');
-  const content = [
-    'export default {',
-    '  props: {}',
-    '};',
-    ''
-  ].join('\n');
+  const content = ['export default {', '  props: {}', '};', ''].join('\n');
 
   await mkdirp(fixturesDir);
 
