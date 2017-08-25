@@ -92,37 +92,29 @@ const componentize = (basename, svgData) => {
   // eslint-disable-next-line no-shadow
   saxStream.on('opentag', ({name, attributes}) => {
     if (name === 'svg' && !meta.done) {
-      writeLine(`import React, {Component} from 'react';`);
-      writeLine(`import IconBase from 'react-icon-base';`);
-      writeLine();
-      writeLine(`class ${componentName} extends Component {`);
-      writeLine();
-      writeLine(`  constructor(props) {`);
-      writeLine(`    super(props);`);
-      writeLine(`    this.state = {hovering: false};`);
-      writeLine(`    this.handleMouseEnter = () => this.setState({hovering: true});`);
-      writeLine(`    this.handleMouseLeave = () => this.setState({hovering: false});`);
-      writeLine(`  }`);
-      writeLine();
-      writeLine(`  render() {`);
-      writeLine(
-        `    const {color = '#757575', outline = null, outlineWidth = 1, hoverColor = color, ...baseProps} = this.props;`
-      );
-      writeLine(
-        `    const {hoverOutline = outline, hoverOutlineWidth = outlineWidth} = this.props;`
-      );
-      writeLine(`    const activeColor = this.state.hovering ? hoverColor : color;`);
-      writeLine(`    const activeOutline = this.state.hovering ? hoverOutline : outline;`);
-      writeLine(
-        `    const activeOutlineWidth = this.state.hovering ? hoverOutlineWidth : outlineWidth;`
-      );
-      writeLine();
-      writeLine(`    return (`);
-      writeLine(
-        `      <IconBase viewBox="${attributes.viewBox}" {...baseProps} onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>`
-      );
-      writeLine(`        {activeOutline ? (`);
-      writeLine(`          <g>`);
+      writeLine(`import React, {Component} from 'react';
+import IconBase from 'react-icon-base';
+
+class ${componentName} extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {hovering: false};
+    this.handleMouseEnter = () => this.setState({hovering: true});
+    this.handleMouseLeave = () => this.setState({hovering: false});
+  }
+
+  render() {
+    const {color = '#757575', outline = null, outlineWidth = 1, hoverColor = color, ...baseProps} = this.props;
+    const {hoverOutline = outline, hoverOutlineWidth = outlineWidth} = this.props;
+    const activeColor = this.state.hovering ? hoverColor : color;
+    const activeOutline = this.state.hovering ? hoverOutline : outline;
+    const activeOutlineWidth = this.state.hovering ? hoverOutlineWidth : outlineWidth;
+
+    return (
+      <IconBase viewBox="${attributes.viewBox}" {...baseProps} onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
+        {activeOutline ? (
+          <g>`);
 
       meta.open = true;
     } else if (meta.open) {
@@ -140,15 +132,15 @@ const componentize = (basename, svgData) => {
       meta.open = false;
       meta.done = true;
       meta.indent = 8;
-      writeLine(`          </g>`);
-      writeLine(`        ) : null}`);
+      writeLine(`          </g>
+        ) : null}`);
       meta.svgContent.forEach(opts => writeSVGTag(Object.assign(opts, {outlineBlock: false})));
-      writeLine(`      </IconBase>`);
-      writeLine(`    );`);
-      writeLine(`  }`);
-      writeLine(`}`);
-      writeLine();
-      writeLine(`export default ${componentName};`);
+      writeLine(`      </IconBase>
+    );
+  }
+}
+
+export default ${componentName};`);
     } else if (meta.open) {
       if (name === 'g') {
         writeSVGTag({name, closing: true, outlineBlock: true});
