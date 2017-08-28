@@ -57,8 +57,9 @@ ClueContent.contextTypes = {
 const NewMedia = (props, context) => {
   const {translate} = context;
   const {notify, onClick} = props;
+  const showNewMedia = props.showNewMedia;
 
-  return notify
+  return notify && showNewMedia
     ? <div className={style.guideWrapper} onClick={onClick} data-name="newMedia">
         <span>{translate('New media')}</span>
       </div>
@@ -318,11 +319,12 @@ const SlidesPlayer = (props, context) => {
   const stepColor = get('common.primary', skin);
   const mediaButton = find({type: 'media'}, buttons) || {};
   const {notify = false, onClick = identity} = mediaButton;
+  const showNewMedia = props.showNewMedia;
 
   return (
     <div className={style.wrapper} data-name="slidesPlayer">
       {step ? <Step step={step} color={stepColor} /> : null}
-      <NewMedia notify={notify} onClick={onClick} />
+      <NewMedia notify={notify} showNewMedia={showNewMedia} onClick={onClick} />
       <Content {...props} />
       <div className={style.footer}>
         <SlidesFooter buttons={buttons} />
