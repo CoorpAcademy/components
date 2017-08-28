@@ -94,7 +94,7 @@ const playerProps = (options, store) => state => {
       model: answer,
       media: mediaQuestion
     },
-    showNewMedia: route === 'answer' || route === undefined,
+    showNewMedia: isNil(route) || route === 'answer',
     buttons: [
       ...contextButton,
       {
