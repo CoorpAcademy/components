@@ -1,5 +1,6 @@
 import test from 'ava';
 import map from 'lodash/fp/map';
+import set from 'lodash/fp/set';
 import pipe from 'lodash/fp/pipe';
 import fromPairs from 'lodash/fp/fromPairs';
 import isFunction from 'lodash/fp/isFunction';
@@ -36,7 +37,8 @@ const createProgression = slide => ({
     step: {
       total: 4,
       current: 1
-    }
+    },
+    viewedResources: []
   }
 });
 
@@ -137,4 +139,103 @@ test('should display "Go to question" for the context tab cta', t => {
 
   const props = playerProps(state);
   t.is(props.cta.submitValue, 'Go to question');
+});
+
+test('should display showNewMedia notification for the answer route', t => {
+  const state = {
+    data: {
+      progressions: {
+        entities: {
+          basic: createProgression(basicSlide)
+        }
+      }
+    },
+    ui: {
+      current: {progressionId: 'basic'},
+      route: {foo: 'answer'}
+    }
+  };
+
+  const props = playerProps(state);
+  t.is(props.showNewMedia, true);
+});
+
+test('should not display showNewMedia notification for the answer route', t => {
+  let state = {
+    data: {
+      progressions: {
+        entities: {
+          basic: createProgression(basicSlide)
+        }
+      }
+    },
+    ui: {
+      current: {progressionId: 'basic'},
+      route: {foo: 'answer'}
+    }
+  };
+
+  state = set('data.progressions.entities.basic.state.viewedResources', ['videoRef'], state);
+
+  const props = playerProps(state);
+  t.is(props.showNewMedia, false);
+});
+
+test('should display showNewMedia notification for the undefined route', t => {
+  const state = {
+    data: {
+      progressions: {
+        entities: {
+          basic: createProgression(basicSlide)
+        }
+      }
+    },
+    ui: {
+      current: {progressionId: 'basic'},
+      route: {foo: undefined}
+    }
+  };
+
+  const props = playerProps(state);
+  t.is(props.showNewMedia, true);
+});
+
+test('should not display showNewMedia notification for the undefined route', t => {
+  let state = {
+    data: {
+      progressions: {
+        entities: {
+          basic: createProgression(basicSlide)
+        }
+      }
+    },
+    ui: {
+      current: {progressionId: 'basic'},
+      route: {foo: undefined}
+    }
+  };
+
+  state = set('data.progressions.entities.basic.state.viewedResources', ['videoRef'], state);
+
+  const props = playerProps(state);
+  t.is(props.showNewMedia, false);
+});
+
+test('should not display showNewMedia notification for the other (clue || media) route', t => {
+  const state = {
+    data: {
+      progressions: {
+        entities: {
+          basic: createProgression(basicSlide)
+        }
+      }
+    },
+    ui: {
+      current: {progressionId: 'basic'},
+      route: {foo: 'clue'}
+    }
+  };
+
+  const props = playerProps(state);
+  t.is(props.showNewMedia, false);
 });
