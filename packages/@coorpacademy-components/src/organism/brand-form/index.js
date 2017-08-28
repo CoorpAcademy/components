@@ -44,7 +44,7 @@ function BrandForm(props, context) {
   const disabledSubmit = disabled || isPending || !isModified;
   const submitButton = onSubmit
     ? <div className={style.saveButton}>
-        <Button type="link" disabled={disabledSubmit} submitValue={submitValue} />
+        <Button type="submit" disabled={disabledSubmit} submitValue={submitValue} />
       </div>
     : null;
   const handleSubmit = e => {
