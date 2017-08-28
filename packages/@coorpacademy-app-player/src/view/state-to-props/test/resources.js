@@ -1,11 +1,12 @@
 import test from 'ava';
 import isArray from 'lodash/fp/isArray';
 import identity from 'lodash/fp/identity';
+import {mockTranslate} from '@coorpacademy/translate';
 import {getCurrentSlide} from '../../../utils/state-extract';
 import creategetResourcesProps from '../resources';
 import unselected from './fixtures/slides/videos';
 
-const options = {translate: identity};
+const options = {translate: mockTranslate};
 const store = {dispatch: identity};
 const getResourcesProps = creategetResourcesProps(options, store);
 

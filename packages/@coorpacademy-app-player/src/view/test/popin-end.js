@@ -1,17 +1,17 @@
 import test from 'ava';
-import identity from 'lodash/fp/identity';
 import set from 'lodash/fp/set';
+import identity from 'lodash/fp/identity';
+import {mockTranslate} from '@coorpacademy/translate';
 import popinEndStateToProps from '../popin-end';
 import success from './fixtures/popin-end/success';
 import fail from './fixtures/popin-end/fail';
 import testRendering from './helpers/render';
 
-const translate = key => `__${key}`;
-const commonOptions = {
-  translate
+const options = {
+  translate: mockTranslate
 };
 
-const toProps = popinEndStateToProps(commonOptions, {dispatch: identity});
+const toProps = popinEndStateToProps(options, {dispatch: identity});
 
 test('should set properties for success popin', async t => {
   const vNode = toProps(success);

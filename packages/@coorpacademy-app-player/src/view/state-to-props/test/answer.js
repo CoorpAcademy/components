@@ -2,6 +2,7 @@ import test from 'ava';
 import omit from 'lodash/fp/omit';
 import isFunction from 'lodash/fp/isFunction';
 import identity from 'lodash/fp/identity';
+import {mockTranslate} from '@coorpacademy/translate';
 import {createGetAnswerProps, createGetHelp} from '../answer';
 import {ANSWER_EDIT} from '../../../actions/ui/answers';
 import basic from './fixtures/slides/basic';
@@ -11,7 +12,7 @@ import qcmGraphic from './fixtures/slides/qcm-graphic';
 import template from './fixtures/slides/template';
 import slider from './fixtures/slides/slider';
 
-const options = {translate: identity};
+const options = {translate: mockTranslate};
 const store = {dispatch: identity};
 const getAnswerProps = createGetAnswerProps(options, store);
 const getHelp = createGetHelp(options, store);
@@ -60,7 +61,7 @@ test('should create edited template props', t => {
   t.is(props.answers.length, 2);
   t.is(props.answers[0].type, 'text');
   t.is(props.answers[0].name, 'inp81438');
-  t.is(props.answers[0].placeholder, 'Type here');
+  t.is(props.answers[0].placeholder, '__Type here');
   t.is(props.answers[0].value, 'foo');
   t.true(isFunction(props.answers[0].onChange));
   t.is(props.answers[1].type, 'select');
@@ -90,7 +91,7 @@ test('should add an invalid `select an answer` choice for a select field in a te
   const selectOptions = getAnswerProps(state, template).answers[1].options;
 
   t.is(selectOptions.length, 3);
-  t.is(selectOptions[0].name, 'Select an answer');
+  t.is(selectOptions[0].name, '__Select an answer');
   t.true(selectOptions[0].selected);
   t.false(selectOptions[0].validOption);
   t.is(selectOptions[1].name, 'temporary');
@@ -384,5 +385,5 @@ test('should provide an help subtitle depending on question.type', t => {
   const help = getHelp(qcmDrag);
   t.is(help, null);
   const help2 = getHelp(qcm);
-  t.is(help2, 'Select something below');
+  t.is(help2, '__Select something below');
 });
