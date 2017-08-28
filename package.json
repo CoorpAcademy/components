@@ -91,6 +91,7 @@
       "packages/**/es/**",
       "packages/**/lib/**",
       "packages/**/static/**",
+      "static/**",
       "packages/@coorpacademy-nova-icons/**"
     ],
     "cache": true,

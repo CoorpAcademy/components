@@ -30,9 +30,6 @@ class Vimeo extends React.Component {
 
   componentDidMount() {
     this.createPlayer();
-    setTimeout(() => {
-      this.updateProps(['width', 'height']);
-    }, 200);
   }
 
   componentDidUpdate(prevProps) {
@@ -42,7 +39,7 @@ class Vimeo extends React.Component {
 
   getInitialOptions() {
     return {
-      id: this.props.video,
+      id: this.props.id,
       width: this.props.width,
       height: this.props.height,
       autopause: this.props.autopause,
@@ -60,38 +57,11 @@ class Vimeo extends React.Component {
     propNames.forEach(_name => {
       const value = this.props[_name];
       switch (_name) {
-        case 'autopause':
-          player.setAutopause(value);
-          break;
-        case 'color':
-          player.setColor(value);
-          break;
-        case 'loop':
-          player.setLoop(value);
-          break;
-        case 'volume':
-          player.setVolume(value);
-          break;
-        case 'paused':
-          player
-            .getPaused()
-            .then(paused => {
-              if (value && !paused) {
-                return player.pause();
-              } else if (!value && paused) {
-                return player.play();
-              }
-              return null;
-            })
-            .catch(e => {
-              return null;
-            });
-          break;
         case 'width':
         case 'height':
-          this.player.element[_name] = value; // eslint-disable-line no-param-reassign
+          player.element[_name] = value; // eslint-disable-line no-param-reassign
           break;
-        case 'video':
+        case 'id':
           if (value) {
             player.loadVideo(value);
           } else {
@@ -111,6 +81,9 @@ class Vimeo extends React.Component {
 
     const {Player} = V;
     this.player = new Player(this.container, options);
+    this.player.on('loaded', () => {
+      this.updateProps(['width', 'height']);
+    });
 
     Object.keys(eventNames).forEach(dmName => {
       const reactName = eventNames[dmName];
@@ -120,10 +93,6 @@ class Vimeo extends React.Component {
         }
       });
     });
-
-    if (typeof this.props.volume === 'number') {
-      this.updateProps(['volume']);
-    }
   }
 
   refContainer(container) {
@@ -131,7 +100,7 @@ class Vimeo extends React.Component {
   }
 
   render() {
-    return <div id={this.props.id} className={this.props.className} ref={this.refContainer} />;
+    return <div className={this.props.className} ref={this.refContainer} />;
   }
 }
 
@@ -150,13 +119,9 @@ Vimeo.defaultProps = {
 
 Vimeo.propTypes = {
   /**
-     * A Vimeo video ID or URL.
+     * A Vimeo ID or URL.
      */
-  video: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  /**
-     * DOM ID for the player element.
-     */
-  id: PropTypes.string,
+  id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   /**
      * CSS className for the player element.
      */
@@ -174,11 +139,6 @@ Vimeo.propTypes = {
      * Pause the video.
      */
   paused: PropTypes.bool, // eslint-disable-line react/no-unused-prop-types
-
-  /**
-     *
-     */
-  volume: PropTypes.number,
 
   // Player parameters
   /**
