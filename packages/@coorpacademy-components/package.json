@@ -89,7 +89,7 @@
     "jsdom-global": "^3.0.2",
     "json-loader": "^0.5.4",
     "madge": "^1.6.0",
-    "minimist": "1.2.0",
+    "minimist": "^1.2.0",
     "mkdirp-promise": "5.0.1",
     "path-match": "^1.2.4",
     "postcss-loader": "^2.0.5",
