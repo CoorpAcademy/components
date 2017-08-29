@@ -56,17 +56,16 @@ ClueContent.contextTypes = {
 
 const NewMedia = (props, context) => {
   const {translate} = context;
-  const {notify, onClick} = props;
+  const {onClick} = props;
 
-  return notify
-    ? <div className={style.guideWrapper} onClick={onClick} data-name="newMedia">
-        <span>{translate('New media')}</span>
-      </div>
-    : null;
+  return (
+    <div className={style.guideWrapper} onClick={onClick} data-name="newMedia">
+      <span>{translate('New media')}</span>
+    </div>
+  );
 };
 
 NewMedia.propTypes = {
-  notify: PropTypes.bool,
   onClick: PropTypes.func
 };
 
@@ -313,16 +312,15 @@ Content.propTypes = {
  */
 
 const SlidesPlayer = (props, context) => {
-  const {step, buttons} = props;
+  const {step, buttons, showNewMedia = false} = props;
   const {skin} = context;
   const stepColor = get('common.primary', skin);
   const mediaButton = find({type: 'media'}, buttons) || {};
-  const {notify = false, onClick = identity} = mediaButton;
-
+  const {onClick = identity} = mediaButton;
   return (
     <div className={style.wrapper} data-name="slidesPlayer">
       {step ? <Step step={step} color={stepColor} /> : null}
-      <NewMedia notify={notify} onClick={onClick} />
+      {showNewMedia ? <NewMedia onClick={onClick} /> : null}
       <Content {...props} />
       <div className={style.footer}>
         <SlidesFooter buttons={buttons} />
@@ -340,7 +338,8 @@ SlidesPlayer.contextTypes = {
 
 SlidesPlayer.propTypes = {
   step: Step.propTypes.step,
-  buttons: SlidesFooter.propTypes.buttons
+  buttons: SlidesFooter.propTypes.buttons,
+  showNewMedia: PropTypes.bool
 };
 
 export default SlidesPlayer;

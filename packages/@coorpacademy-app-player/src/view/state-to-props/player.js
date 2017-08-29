@@ -1,5 +1,6 @@
 import includes from 'lodash/fp/includes';
 import get from 'lodash/fp/get';
+import isNil from 'lodash/fp/isNil';
 import isEmpty from 'lodash/fp/isEmpty';
 import {
   getCurrentProgression,
@@ -94,6 +95,7 @@ const playerProps = (options, store) => state => {
       model: answer,
       media: mediaQuestion
     },
+    showNewMedia: (isNil(route) || route === 'answer') && notifyNewMedia,
     buttons: [
       ...contextButton,
       {

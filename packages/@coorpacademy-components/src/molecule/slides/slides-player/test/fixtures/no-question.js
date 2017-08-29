@@ -13,6 +13,7 @@ export default {
       current: 2,
       total: 6
     },
+    showNewMedia: false,
     help: 'Select something below',
     cta: {
       ...props,

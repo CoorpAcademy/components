@@ -13,6 +13,7 @@ export default {
       current: 2,
       total: 6
     },
+    showNewMedia: false,
     question:
       'Amongst these businesses, which have suffered setbacks for not knowing how to putting users first?',
     help: 'Select something below',

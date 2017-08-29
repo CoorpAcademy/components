@@ -1,5 +1,6 @@
 import test from 'ava';
 import map from 'lodash/fp/map';
+import set from 'lodash/fp/set';
 import pipe from 'lodash/fp/pipe';
 import fromPairs from 'lodash/fp/fromPairs';
 import isFunction from 'lodash/fp/isFunction';
@@ -36,7 +37,8 @@ const createProgression = slide => ({
     step: {
       total: 4,
       current: 1
-    }
+    },
+    viewedResources: []
   }
 });
 
@@ -137,4 +139,67 @@ test('should display "Go to question" for the context tab cta', t => {
 
   const props = playerProps(state);
   t.is(props.cta.submitValue, 'Go to question');
+});
+
+test('should not display new media notification when user has seen the media', t => {
+  const state = {
+    data: {
+      progressions: {
+        entities: {
+          basic: set('state.viewedResources', ['videoRef'], createProgression(basicSlide))
+        }
+      }
+    },
+    ui: {
+      current: {progressionId: 'basic'},
+      route: {}
+    }
+  };
+
+  [undefined, 'clue', 'media', 'coach', 'answer'].forEach(route => {
+    const props = playerProps(set('ui.route.basic', route, state));
+    t.false(props.showNewMedia);
+  });
+});
+
+test('should display new media notification for the answer/undefined route when user has not seen the media', t => {
+  const state = {
+    data: {
+      progressions: {
+        entities: {
+          basic: createProgression(basicSlide)
+        }
+      }
+    },
+    ui: {
+      current: {progressionId: 'basic'},
+      route: {}
+    }
+  };
+
+  [undefined, 'answer'].forEach(route => {
+    const props = playerProps(set('ui.route.basic', route, state));
+    t.true(props.showNewMedia);
+  });
+});
+
+test('should not display new media notification for the other routes when user has not seen the media', t => {
+  const state = {
+    data: {
+      progressions: {
+        entities: {
+          basic: createProgression(basicSlide)
+        }
+      }
+    },
+    ui: {
+      current: {progressionId: 'basic'},
+      route: {}
+    }
+  };
+
+  ['media', 'coach', 'clue', 'foo'].forEach(route => {
+    const props = playerProps(set('ui.route.basic', route, state));
+    t.false(props.showNewMedia);
+  });
 });
