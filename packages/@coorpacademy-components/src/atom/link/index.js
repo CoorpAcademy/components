@@ -13,9 +13,7 @@ class Link extends React.Component {
     };
     this.handleMouseEnter = this.handleMouseEnter.bind(this);
     this.handleMouseLeave = this.handleMouseLeave.bind(this);
-    if (this.props.onClick) {
-      this.handleOnClick = this.handleOnClick.bind(this);
-    }
+    this.handleOnClick = this.handleOnClick.bind(this);
   }
 
   handleMouseEnter() {
@@ -37,8 +35,10 @@ class Link extends React.Component {
   handleOnClick(e) {
     this.props.onClick && this.props.onClick(e);
 
-    const onClick = pushToHistory(this.context)(this.props);
-    onClick(e);
+    if (!this.props.download) {
+      const onClick = pushToHistory(this.context)(this.props);
+      onClick(e);
+    }
   }
 
   render() {
