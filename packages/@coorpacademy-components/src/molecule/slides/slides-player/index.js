@@ -316,11 +316,11 @@ const SlidesPlayer = (props, context) => {
   const {skin} = context;
   const stepColor = get('common.primary', skin);
   const mediaButton = find({type: 'media'}, buttons) || {};
-  const {notify = false, onClick = identity} = mediaButton;
+  const {onClick = identity} = mediaButton;
   return (
     <div className={style.wrapper} data-name="slidesPlayer">
       {step ? <Step step={step} color={stepColor} /> : null}
-      {notify && showNewMedia ? <NewMedia onClick={onClick} /> : null}
+      {showNewMedia ? <NewMedia onClick={onClick} /> : null}
       <Content {...props} />
       <div className={style.footer}>
         <SlidesFooter buttons={buttons} />

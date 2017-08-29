@@ -95,7 +95,7 @@ const playerProps = (options, store) => state => {
       model: answer,
       media: mediaQuestion
     },
-    showNewMedia: isNil(route) || route === 'answer',
+    showNewMedia: (isNil(route) || route === 'answer') && notifyNewMedia,
     buttons: [
       ...contextButton,
       {

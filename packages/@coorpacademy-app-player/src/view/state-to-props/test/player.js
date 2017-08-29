@@ -2,6 +2,7 @@ import test from 'ava';
 import map from 'lodash/fp/map';
 import set from 'lodash/fp/set';
 import pipe from 'lodash/fp/pipe';
+import find from 'lodash/fp/find';
 import fromPairs from 'lodash/fp/fromPairs';
 import isFunction from 'lodash/fp/isFunction';
 import identity from 'lodash/fp/identity';
@@ -152,12 +153,12 @@ test('should not display new media notification when user has seen the media', t
     },
     ui: {
       current: {progressionId: 'basic'},
-      route: {foo: undefined}
+      route: {}
     }
   };
 
   [undefined, 'clue', 'media', 'coach', 'answer'].forEach(route => {
-    const props = playerProps(state);
+    const props = playerProps(set('ui.route.basic', route, state));
     t.false(props.showNewMedia);
   });
 });
@@ -173,12 +174,33 @@ test('should display new media notification for the answer/undefined route when 
     },
     ui: {
       current: {progressionId: 'basic'},
-      route: {foo: undefined}
+      route: {}
     }
   };
 
   [undefined, 'answer'].forEach(route => {
-    const props = playerProps(state);
+    const props = playerProps(set('ui.route.basic', route, state));
     t.true(props.showNewMedia);
+  });
+});
+
+test('should not display new media notification for the other routes when user has not seen the media', t => {
+  const state = {
+    data: {
+      progressions: {
+        entities: {
+          basic: createProgression(basicSlide)
+        }
+      }
+    },
+    ui: {
+      current: {progressionId: 'basic'},
+      route: {}
+    }
+  };
+
+  ['media', 'coach', 'clue', 'foo'].forEach(route => {
+    const props = playerProps(set('ui.route.basic', route, state));
+    t.false(props.showNewMedia);
   });
 });
