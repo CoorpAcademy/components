@@ -13,7 +13,9 @@ class Link extends React.Component {
     };
     this.handleMouseEnter = this.handleMouseEnter.bind(this);
     this.handleMouseLeave = this.handleMouseLeave.bind(this);
-    this.handleOnClick = this.handleOnClick.bind(this);
+    if (this.props.onClick) {
+      this.handleOnClick = this.handleOnClick.bind(this);
+    }
   }
 
   handleMouseEnter() {
@@ -81,6 +83,7 @@ Link.propTypes = {
   href: PropTypes.string,
   target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
   skinHover: PropTypes.bool,
+  download: PropTypes.bool,
   onClick: PropTypes.func,
   onMouseEnter: PropTypes.func,
   onMouseLeave: PropTypes.func

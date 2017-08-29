@@ -10,6 +10,7 @@ const ButtonContent = props => {
     color,
     submitValue = 'submit',
     disabled,
+    download,
     href,
     target,
     onClick,
@@ -25,6 +26,7 @@ const ButtonContent = props => {
         <Link
           data-name={dataName}
           href={href}
+          download={download}
           onClick={onClick}
           target={target}
           className={className}
@@ -98,6 +100,7 @@ Button.propTypes = {
   centered: PropTypes.bool,
   disabled: PropTypes.bool,
   href: PropTypes.string,
+  download: PropTypes.bool,
   target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
   onClick: PropTypes.func,
   children: PropTypes.node

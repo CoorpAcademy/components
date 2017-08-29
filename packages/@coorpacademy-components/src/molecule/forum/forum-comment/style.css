@@ -33,7 +33,7 @@
 }
 
 .comment textarea {
-  resize: none;
+  resize: vertical;
   outline: 0;
   text-transform: none;
   width: 100%;

@@ -121,6 +121,6 @@
 .visible {
   visibility: visible;
   margin: 10px 0;
-  height: 110px;
+  height: auto;
   opacity: 1;
 }
