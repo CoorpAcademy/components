@@ -161,7 +161,7 @@ export const markResourceAsViewed = (progressionId, resource) => (
       PROGRESSION_RESOURCE_VIEWED_FAILURE
     ],
     task: () => Progressions.markResourceAsViewed(progressionId, payload, location),
-    bailout: () => includes(chapter.ref, viewedResources),
+    bailout: () => includes(ref, get(chapter.ref, viewedResources)),
     meta: {progressionId, resource, location}
   });
 

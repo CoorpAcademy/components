@@ -164,3 +164,5 @@ export type MicroLearningConfig = {
 };
 
 export type Config = MicroLearningConfig;
+
+export type ViewedResources = Array<{chapterRef: string, resources: Array<string>}>;
