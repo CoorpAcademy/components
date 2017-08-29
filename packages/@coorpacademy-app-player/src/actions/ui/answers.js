@@ -1,6 +1,9 @@
+import get from 'lodash/fp/get';
+import getOr from 'lodash/fp/getOr';
 import remove from 'lodash/fp/remove';
 import includes from 'lodash/fp/includes';
 import isEmpty from 'lodash/fp/isEmpty';
+import {getContent, getPreviousSlide} from '../../utils/state-extract';
 import {createAnswer} from '../api/progressions';
 import {fetchAnswer} from '../api/answers';
 import {toggleAccordion} from './corrections';
@@ -58,12 +61,22 @@ export const validateAnswer = (progressionId, body) => async (dispatch, getState
   const slideId = progressionState.content.ref;
 
   const {viewedResources = [], isCorrect = false} = progressionState;
+
+  const state = getState();
+  const chapterRef = get('ref', getContent(state));
+  const slide = getPreviousSlide(state);
+  const lessons = get('lessons', slide);
+  const viewedResourcesForChapter = getOr([], chapterRef, viewedResources);
+
+  const hasViewedAllLessons =
+    viewedResourcesForChapter.length > 0 && viewedResourcesForChapter.length === lessons.length;
+
+  const shouldSeeResources = isEmpty(viewedResources) || !hasViewedAllLessons;
+
   if (isCorrect) {
     await dispatch(toggleAccordion(2));
   } else {
-    isEmpty(viewedResources)
-      ? await dispatch(toggleAccordion(0))
-      : await dispatch(toggleAccordion(1));
+    shouldSeeResources ? await dispatch(toggleAccordion(0)) : await dispatch(toggleAccordion(1));
   }
 
   return dispatch(fetchAnswer(progressionId, slideId, body.answers));

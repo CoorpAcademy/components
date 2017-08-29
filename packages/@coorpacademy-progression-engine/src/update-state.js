@@ -1,5 +1,7 @@
 // @flow
 
+import getOr from 'lodash/fp/getOr';
+import set from 'lodash/fp/set';
 import map from 'lodash/fp/map';
 import pipe from 'lodash/fp/pipe';
 import concat from 'lodash/fp/concat';
@@ -18,7 +20,8 @@ import type {
   Engine,
   MicroLearningConfig,
   State,
-  Step
+  Step,
+  ViewedResources
 } from './types';
 
 function isCorrect(config: MicroLearningConfig): (boolean, Action) => boolean {
@@ -48,15 +51,21 @@ function slides(config: MicroLearningConfig): (Array<string>, Action) => Array<s
 }
 
 function viewedResources(config: MicroLearningConfig): (Array<string>, Action) => Array<string> {
-  return (array: Array<string> = [], action: Action): Array<string> => {
+  return (resources: ViewedResources, action: Action): ViewedResources => {
     switch (action.type) {
       case 'resource': {
         const resourceViewAction = (action: ChapterResourceViewedAction);
         const chapterRef = resourceViewAction.payload.chapter.ref;
-        return includes(chapterRef, array) ? array : concat(array, [chapterRef]);
+        const resourceRef = resourceViewAction.payload.resource.ref;
+
+        const chapterResources = getOr([], chapterRef, resources);
+        const resourceAlreadyViewed = includes(resourceRef, chapterResources);
+
+        if (resourceAlreadyViewed) return resources;
+        return set([chapterRef], concat(chapterResources, resourceRef), resources);
       }
       default:
-        return array;
+        return resources;
     }
   };
 }
@@ -142,9 +151,12 @@ function stars(config: MicroLearningConfig): (number, Action, State) => number {
       case 'resource': {
         const chapterResourceViewedAction = (action: ChapterResourceViewedAction);
         const chapterRef = chapterResourceViewedAction.payload.chapter.ref;
-        return includes(chapterRef, state.viewedResources)
-          ? currentStars
-          : currentStars + config.starsPerResourceViewed;
+        const resourceRef = chapterResourceViewedAction.payload.resource.ref;
+
+        const chapterResources = getOr([], chapterRef, state.viewedResources);
+        const resourceAlreadyViewed = includes(resourceRef, chapterResources);
+
+        return resourceAlreadyViewed ? currentStars : currentStars + config.starsPerResourceViewed;
       }
       default:
         return currentStars;
@@ -191,9 +203,9 @@ const reduceAction = combineReducers([
   {key: 'slides', fn: slides},
   {key: 'lives', fn: lives},
   {key: 'step', fn: step},
-  {key: 'stars', fn: stars},
   {key: 'requestedClues', fn: requestedClues},
   {key: 'viewedResources', fn: viewedResources},
+  {key: 'stars', fn: stars},
   {key: 'content', fn: content},
   {key: 'nextContent', fn: nextContent}
 ]);
