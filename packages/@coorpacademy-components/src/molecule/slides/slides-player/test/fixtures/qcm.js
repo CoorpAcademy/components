@@ -8,7 +8,7 @@ export default {
     typeClue: 'answer',
     ...Default.props,
     answerType,
-    showNewMedia: false,
+    showNewMedia: true,
     buttons: [
       {
         title: 'Media',
