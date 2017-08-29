@@ -131,6 +131,7 @@ import ButtonFixtureClear from '../src/atom/button/test/fixtures/clear';
 import ButtonFixtureDark from '../src/atom/button/test/fixtures/dark';
 import ButtonFixtureDefault from '../src/atom/button/test/fixtures/default';
 import ButtonFixtureDisabled from '../src/atom/button/test/fixtures/disabled';
+import ButtonFixtureDownload from '../src/atom/button/test/fixtures/download';
 import ButtonFixtureLight from '../src/atom/button/test/fixtures/light';
 import ButtonFixtureLink from '../src/atom/button/test/fixtures/link';
 import ButtonFixtureSso from '../src/atom/button/test/fixtures/sso';
@@ -189,6 +190,7 @@ import LifeFixtureAnimatedFail from '../src/atom/life/test/fixtures/animated-fai
 import LifeFixtureDefault from '../src/atom/life/test/fixtures/default';
 import LifeFixtureFail from '../src/atom/life/test/fixtures/fail';
 import LifeFixtureSmall from '../src/atom/life/test/fixtures/small';
+import LinkFixtureDownload from '../src/atom/link/test/fixtures/download';
 import LinkFixtureHref from '../src/atom/link/test/fixtures/href';
 import LinkFixtureStyledLink from '../src/atom/link/test/fixtures/styled-link';
 import LoaderFixtureDefault from '../src/atom/loader/test/fixtures/default';
@@ -722,6 +724,7 @@ export const fixtures = {
       Dark: ButtonFixtureDark,
       Default: ButtonFixtureDefault,
       Disabled: ButtonFixtureDisabled,
+      Download: ButtonFixtureDownload,
       Light: ButtonFixtureLight,
       Link: ButtonFixtureLink,
       Sso: ButtonFixtureSso
@@ -812,6 +815,7 @@ export const fixtures = {
       Small: LifeFixtureSmall
     },
     Link: {
+      Download: LinkFixtureDownload,
       Href: LinkFixtureHref,
       StyledLink: LinkFixtureStyledLink
     },
