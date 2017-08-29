@@ -2,7 +2,6 @@ import test from 'ava';
 import map from 'lodash/fp/map';
 import set from 'lodash/fp/set';
 import pipe from 'lodash/fp/pipe';
-import find from 'lodash/fp/find';
 import fromPairs from 'lodash/fp/fromPairs';
 import isFunction from 'lodash/fp/isFunction';
 import identity from 'lodash/fp/identity';
