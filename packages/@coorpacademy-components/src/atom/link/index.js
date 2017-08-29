@@ -13,7 +13,9 @@ class Link extends React.Component {
     };
     this.handleMouseEnter = this.handleMouseEnter.bind(this);
     this.handleMouseLeave = this.handleMouseLeave.bind(this);
-    this.handleOnClick = this.handleOnClick.bind(this);
+    if (this.props.onClick) {
+      this.handleOnClick = this.handleOnClick.bind(this);
+    }
   }
 
   handleMouseEnter() {
