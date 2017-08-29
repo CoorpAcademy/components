@@ -59,6 +59,7 @@
     "react/no-array-index-key": "off",
     "react/no-multi-comp": "off",
     "react/no-set-state": "off",
+    "react/no-typos": "off",
     "react/prop-types": "off",
     "react/require-default-props": "off",
     "react/require-optimization": "off",

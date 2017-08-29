@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "@coorpacademy/components": "5.4.79",
-    "@coorpacademy/webpack-config": "6.1.4",
+    "@coorpacademy/webpack-config": "6.2.0",
     "lodash": "^4.17.4",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",

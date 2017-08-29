@@ -30,7 +30,7 @@
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
     "babel-plugin-istanbul": "^4.1.4",
-    "babel-polyfill": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.5.2",
     "browser-env": "^2.0.31",
     "cross-env": "^5.0.0",
@@ -41,7 +41,7 @@
   "dependencies": {
     "@coorpacademy/components": "5.4.79",
     "@coorpacademy/translate": "5.3.7",
-    "@coorpacademy/webpack-config": "6.1.4",
+    "@coorpacademy/webpack-config": "6.2.0",
     "lodash": "^4.17.4",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
