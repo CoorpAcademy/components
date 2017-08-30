@@ -13,7 +13,11 @@ export default {
         posters: [],
         src: [],
         selected: true,
-        onClick: () => {}
+        onClick: () => {},
+        onPlay: () => console.log('play'),
+        onPause: () => console.log('pause'),
+        onResume: () => console.log('resume'),
+        onEnded: () => console.log('end')
       },
       {
         type: 'video',
