@@ -66,7 +66,7 @@
   "premium_unsubscribe_confirmation": "Nous confirmons l’annulation de votre abonnement qui entrera en vigueur à partir de mois prochain.\n\nPendant ce temps, vous pouvez continuer à profiter de la formation sur la plateforme Coorpacademy.",
   "New media": "Nouvelle leçon",
   "Select the correct option(s) below": "Sélectionnez la ou les option(s) correcte(s) ci-dessous",
-  "clue_stars_to_loose": "En regardant un indice, vous perdez {{count}} étoiles par question",
+  "clue_stars_to_loose": "En regardant un indice, vous perdez {{count}} étoile par question",
   "clue_stars_to_loose_plural": "En regardant un indice, vous perdez {{count}} étoiles par question",
   "media_stars_to_win": "Gagnez {{count}} étoiles supplémentaires par chapitre en visionnant la leçon",
   "media_stars_to_win_plural": "Gagnez {{count}} étoiles supplémentaires par chapitre en visionnant la leçon",
