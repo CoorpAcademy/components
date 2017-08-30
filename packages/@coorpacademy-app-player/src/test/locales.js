@@ -1,10 +1,18 @@
+import path from 'path';
 import test from 'ava';
+import glob from 'glob';
+import omit from 'lodash/fp/omit';
 import locales from '../../locales/en/player';
+import localesUseMacro from '../../../../test/helpers/locales';
 
-const forbiddenCharacters = /:/;
+const files = glob
+  .sync(path.join(__dirname, '../**/*.js'))
+  .filter(file => !file.includes('/test/'));
 
-test('locales keys should not contain forbidden characters', t => {
-  Object.keys(locales).forEach(key => {
-    t.false(forbiddenCharacters.test(key));
-  });
-});
+test(
+  'All locale keys should be used, and used properly',
+  localesUseMacro,
+  __dirname,
+  files,
+  omit(['Coach'], locales)
+);

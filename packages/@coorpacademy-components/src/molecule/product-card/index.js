@@ -10,22 +10,22 @@ const ProductCard = (props, context) => {
   const {translate} = context;
 
   const descriptionItemTranslationKeys = [
-    'product_desc_culture',
-    'product_desc_partnership',
-    'product_desc_battle',
-    'product_desc_coach',
-    'product_desc_forum',
-    'product_desc_certificates'
+    translate('product_desc_culture'),
+    translate('product_desc_partnership'),
+    translate('product_desc_battle'),
+    translate('product_desc_coach'),
+    translate('product_desc_forum'),
+    translate('product_desc_certificates')
   ];
 
   const priceTemplate = translate('subscription_price');
   const priceValue = template(priceTemplate)({price, currency});
 
-  const items = descriptionItemTranslationKeys.map((itemTranslationKey, index) => {
+  const items = descriptionItemTranslationKeys.map((itemDescription, index) => {
     return (
       <div className={style.productDescriptionItem} key={index}>
         <img className={style.productCheckbox} src={checkImage} />
-        <div className={style.productDescriptionText}>{translate(itemTranslationKey)}</div>
+        <div className={style.productDescriptionText}>{itemDescription}</div>
       </div>
     );
   });
