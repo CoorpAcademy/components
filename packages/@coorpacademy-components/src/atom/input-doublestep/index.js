@@ -12,10 +12,8 @@ class InputDoublestep extends React.Component {
   }
 
   handleOpen() {
-    const newValue = !this.state.open;
-
-    this.setState(() => ({
-      open: newValue
+    this.setState(state => ({
+      open: !state.open
     }));
   }
 
@@ -27,9 +25,7 @@ class InputDoublestep extends React.Component {
       return onChange(e);
     };
 
-    const openForm = this.state.open === true;
-
-    const formView = !openForm
+    const formView = !this.state.open
       ? <span onClick={this.handleOpen} className={style.toggle}>{toggleValue}</span>
       : <div>
           <span onClick={this.handleOpen} className={style.cancel}>{cancelValue}</span>
