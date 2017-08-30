@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/server';
-import identity from 'lodash/fp/identity';
+import {mockTranslate} from '@coorpacademy/translate';
 import Provider from '../../atom/provider';
 
 const context = {
@@ -9,7 +9,7 @@ const context = {
       tree: 'dummy.url'
     }
   },
-  translate: identity
+  translate: mockTranslate
 };
 
 const renderComponent = (t, Component, fixture) => {

@@ -37,4 +37,11 @@ const createTranslate = locales => (key, data) => {
   );
 };
 
+export function mockTranslate(key, data) {
+  if (data) {
+    return `__${key}${JSON.stringify(data)}`;
+  }
+  return `__${key}`;
+}
+
 export default createTranslate;

@@ -2,6 +2,7 @@ import test from 'ava';
 import identity from 'lodash/fp/identity';
 import map from 'lodash/fp/map';
 import omit from 'lodash/fp/omit';
+import {mockTranslate} from '@coorpacademy/translate';
 import createMapStateToProps from '../slide';
 import stateHeader from './fixtures/progression-state';
 import stateSlide from './fixtures/player/slide';
@@ -9,7 +10,7 @@ import stateClue from './fixtures/player/clue';
 import stateLoadingClue from './fixtures/player/loading-clue';
 import testRendering from './helpers/render';
 
-const options = {translate: identity};
+const options = {translate: mockTranslate};
 const store = {dispatch: identity};
 const mapStateToProps = createMapStateToProps(options, store);
 
@@ -34,24 +35,24 @@ test('should display slide', async t => {
 
   t.is(playerProps.question, "Écrivez le mot Text dans l'input.\n");
   t.deepEqual(omit('onClick', playerProps.cta), {
-    submitValue: 'Validate',
+    submitValue: '__Validate',
     light: false,
     small: false,
     secondary: false
   });
   await t.notThrows(playerProps.cta.onClick);
-  t.is(playerProps.help, 'Select something below');
+  t.is(playerProps.help, '__Select something below');
   t.truthy(playerProps.answerType);
 
   t.deepEqual(map(omit('onClick'), playerProps.buttons), [
     {
       notify: true,
-      title: 'Media',
+      title: '__Media',
       type: 'media',
       selected: false
     },
     {
-      title: 'Clue',
+      title: '__Clue',
       type: 'clue',
       selected: false
     }
@@ -76,24 +77,24 @@ test('should display loading clue', async t => {
 
   t.is(playerProps.question, "Écrivez le mot Text dans l'input.\n");
   t.deepEqual(omit('onClick', playerProps.cta), {
-    submitValue: 'Back to question',
+    submitValue: '__Back to question',
     light: false,
     small: false,
     secondary: true
   });
   await t.notThrows(playerProps.cta.onClick);
-  t.is(playerProps.help, 'Select something below');
+  t.is(playerProps.help, '__Select something below');
   t.truthy(playerProps.answerType);
 
   t.deepEqual(map(omit('onClick'), playerProps.buttons), [
     {
       notify: true,
-      title: 'Media',
+      title: '__Media',
       type: 'media',
       selected: false
     },
     {
-      title: 'Clue',
+      title: '__Clue',
       type: 'clue',
       selected: true
     }
@@ -118,24 +119,24 @@ test('should display clue', async t => {
 
   t.is(playerProps.question, "Écrivez le mot Text dans l'input.\n");
   t.deepEqual(omit('onClick', playerProps.cta), {
-    submitValue: 'Back to question',
+    submitValue: '__Back to question',
     light: false,
     small: false,
     secondary: true
   });
   await t.notThrows(playerProps.cta.onClick);
-  t.is(playerProps.help, 'Select something below');
+  t.is(playerProps.help, '__Select something below');
   t.truthy(playerProps.answerType);
 
   t.deepEqual(map(omit('onClick'), playerProps.buttons), [
     {
       notify: true,
-      title: 'Media',
+      title: '__Media',
       type: 'media',
       selected: false
     },
     {
-      title: 'Clue',
+      title: '__Clue',
       type: 'clue',
       selected: true
     }

@@ -5,6 +5,7 @@ import isArray from 'lodash/fp/isArray';
 import isFunction from 'lodash/fp/isFunction';
 import set from 'lodash/fp/set';
 import omit from 'lodash/fp/omit';
+import {mockTranslate} from '@coorpacademy/translate';
 import {UI_TOGGLE_ACCORDION, selectResource} from '../../actions/ui/corrections';
 import {UI_VIDEO_PAUSE, UI_VIDEO_ENDED} from '../../actions/ui/video';
 import createMapStateToProps from '../popin-correction';
@@ -13,14 +14,13 @@ import statePopinSuccess from './fixtures/popin-correction/popin-success';
 import statePopinFailureMultipleAnswers from './fixtures/popin-correction/state-fail-multiple-answers';
 import testRendering from './helpers/render';
 
-const translate = key => `__${key}`;
 const Vimeo = {Player: () => true};
-const commonOptions = {
-  translate,
+const options = {
+  translate: mockTranslate,
   Vimeo
 };
 
-const mapStateToProps = createMapStateToProps(commonOptions, {dispatch: identity});
+const mapStateToProps = createMapStateToProps(options, {dispatch: identity});
 
 test('should set properties for success popin', t => {
   const vNode = mapStateToProps(statePopinSuccess);

@@ -5,12 +5,13 @@ import pipe from 'lodash/fp/pipe';
 import fromPairs from 'lodash/fp/fromPairs';
 import isFunction from 'lodash/fp/isFunction';
 import identity from 'lodash/fp/identity';
+import {mockTranslate} from '@coorpacademy/translate';
 import createPlayer from '../player';
 import {UI_SELECT_ROUTE} from '../../../actions/ui/route';
 import basicSlide from './fixtures/slides/basic';
 import contextSlide from './fixtures/slides/with-context';
 
-const options = {translate: identity};
+const options = {translate: mockTranslate};
 const store = {dispatch: identity};
 const playerProps = createPlayer(options, store);
 
@@ -72,7 +73,7 @@ test('should create player props for basic question', t => {
   t.is(props.answerType.model.type, 'freeText');
   t.true(isFunction(props.answerType.model.onChange));
   t.is(props.slideContext, undefined);
-  t.is(props.cta.submitValue, 'Validate');
+  t.is(props.cta.submitValue, '__Validate');
 });
 
 test('should display context tab button if slide context is available', t => {
@@ -101,7 +102,7 @@ test('should display context tab button if slide context is available', t => {
   t.is(typeof props.slideContext.description, 'string');
   t.is(props.slideContext.description, contextSlide.context.description);
   t.is(props.buttons.length, 3);
-  t.is(props.buttons[0].title, 'Context');
+  t.is(props.buttons[0].title, '__Context');
   t.is(props.buttons[0].type, 'context');
   t.false(props.buttons[0].selected);
   t.is(typeof props.buttons[0].onClick, 'function');
@@ -120,10 +121,10 @@ test('should display "Back to question" for the cta in the tabs', t => {
     }
   };
 
-  t.is(playerProps(state).cta.submitValue, 'Back to question');
+  t.is(playerProps(state).cta.submitValue, '__Back to question');
 
   state.ui.route.foo = 'clue';
-  t.is(playerProps(state).cta.submitValue, 'Back to question');
+  t.is(playerProps(state).cta.submitValue, '__Back to question');
 });
 
 test('should display "Go to question" for the context tab cta', t => {
@@ -138,7 +139,7 @@ test('should display "Go to question" for the context tab cta', t => {
   };
 
   const props = playerProps(state);
-  t.is(props.cta.submitValue, 'Go to question');
+  t.is(props.cta.submitValue, '__Go to question');
 });
 
 test('should not display new media notification when user has seen the media', t => {
