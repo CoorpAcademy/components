@@ -7,13 +7,16 @@ import Provider from '../provider';
 import Loader from '../loader';
 import style from './style.css';
 
-const LoadedClue = ({brandColor, text}) => {
+const LoadedClue = ({primaryColor, text}) => {
   return (
     <div data-name="text" className={style.clueText}>
       <div className={style.logo}>
-        <ClueIcon color={brandColor} />
+        <ClueIcon color={primaryColor} />
       </div>
-      {text}
+      <div
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{__html: text}}
+      />
     </div>
   );
 };

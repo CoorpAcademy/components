@@ -39,7 +39,8 @@
   background-color: medium;
 }
 
-.clueText {
+.clueText,
+.clueText a {
   font-family: 'Open Sans';
   font-style: italic;
   color: white;
