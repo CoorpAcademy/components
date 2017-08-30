@@ -25,6 +25,11 @@
   background-color: xtraLightGrey;
 }
 
+.image {
+  width: 100%;
+  height: auto;
+}
+
 .courseWrapper {
   display: inline-block;
   vertical-align: top;
