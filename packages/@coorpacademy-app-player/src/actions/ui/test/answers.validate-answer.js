@@ -219,7 +219,10 @@ test(
 test(
   'should submit answers with current content with wrong answer and viewed resources and refresh progression state',
   macro,
-  set('data.progressions.entities.foo.state.nextContent', {type: 'slide', ref: 'baz'})({}),
+  pipe(
+    set('data.progressions.entities.foo.state.nextContent', {type: 'slide', ref: 'baz'}),
+    set('data.progressions.entities.foo.content', {ref: 'chapter.ref'})
+  )({}),
   t => ({
     Progressions: {
       createAnswer: (id, payload) => {
@@ -262,7 +265,7 @@ test(
         payload: pipe(
           set('state.content.ref', 'baz'),
           set('state.isCorrect', false),
-          set('state.viewedResources', ['bar'])
+          set('state.viewedResources', {'chapter.ref': ['plop']})
         )({})
       },
       set('data.progressions.entities.foo', null, {})
