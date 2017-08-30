@@ -1,12 +1,14 @@
 // @flow
 
 import getOr from 'lodash/fp/getOr';
+import findIndex from 'lodash/fp/findIndex';
+import get from 'lodash/fp/get';
 import set from 'lodash/fp/set';
+import update from 'lodash/fp/update';
 import map from 'lodash/fp/map';
 import pipe from 'lodash/fp/pipe';
 import concat from 'lodash/fp/concat';
 import reduce from 'lodash/fp/reduce';
-import update from 'lodash/fp/update';
 import includes from 'lodash/fp/includes';
 import isEmpty from 'lodash/fp/isEmpty';
 import isEqual from 'lodash/fp/isEqual';
@@ -51,21 +53,34 @@ function slides(config: MicroLearningConfig): (Array<string>, Action) => Array<s
 }
 
 function viewedResources(config: MicroLearningConfig): (Array<string>, Action) => Array<string> {
-  return (resources: ViewedResources, action: Action): ViewedResources => {
+  return (currentViewedResources: ViewedResources = [], action: Action): ViewedResources => {
     switch (action.type) {
       case 'resource': {
         const resourceViewAction = (action: ChapterResourceViewedAction);
         const chapterRef = resourceViewAction.payload.chapter.ref;
         const resourceRef = resourceViewAction.payload.resource.ref;
+        const chapterIndex = findIndex({ref: chapterRef}, currentViewedResources);
 
-        const chapterResources = getOr([], chapterRef, resources);
+        if (chapterIndex === -1) {
+          return concat(currentViewedResources, {
+            type: 'chapter',
+            ref: chapterRef,
+            resources: [resourceRef]
+          });
+        }
+
+        const chapterResources = get('resources', currentViewedResources[chapterIndex]);
         const resourceAlreadyViewed = includes(resourceRef, chapterResources);
 
-        if (resourceAlreadyViewed) return resources;
-        return set([chapterRef], concat(chapterResources, resourceRef), resources);
+        if (resourceAlreadyViewed) return currentViewedResources;
+        return set(
+          [chapterIndex, 'resources'],
+          concat(chapterResources, resourceRef),
+          currentViewedResources
+        );
       }
       default:
-        return resources;
+        return currentViewedResources;
     }
   };
 }
