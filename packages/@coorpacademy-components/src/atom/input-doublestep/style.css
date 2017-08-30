@@ -30,6 +30,7 @@
   display: block;
   background-color: orange;
   cursor: pointer;
+  text-align: center;
 }
 
 .button {
@@ -48,36 +49,26 @@
 
 .cancel {
   composes: button;
-  display: none;
   border: 1px solid dark;
   color: dark;
   background-color: white;
   margin-right: 20px;
+  margin-bottom: 10px;
   font-weight: 600;
+  display: inline-block;
+  min-width: 110px;
 }
 
 .delete {
   composes: button;
-  display: none;
   border: 1px solid orange;
   color: orange;
   background-color: white;
-}
-
-.checkbox {
-  display: none;
-}
-
-.checkbox:checked ~ label .cancel {
+  margin-right: 20px;
+  margin-bottom: 10px;
+  font-weight: 600;
   display: inline-block;
-}
-
-.checkbox:checked ~ label .toggle {
-  display: none;
-}
-
-.checkbox:checked ~ .delete {
-  display: inline-block;
+  min-width: 110px;
 }
 
 .description {
