@@ -115,10 +115,9 @@ const CorrectionPart = props => {
     style.correctionSectionFail,
     style.correctionSectionLoading
   );
-  const state = buildClass(fail, 'success', 'fail', null);
 
   return (
-    <div data-name="correctionSection" data-state={state} className={className}>
+    <div data-name="correctionSection" className={className}>
       <div className={style.titlesWrapper}>
         {isLoading ? <Loader /> : null}
         <h1 data-name="title" className={style.title}>{title}</h1>
