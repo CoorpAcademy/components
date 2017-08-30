@@ -143,6 +143,7 @@ import CheckboxFixtureDefault from '../src/atom/checkbox/test/fixtures/default';
 import CheckboxFixtureDisabled from '../src/atom/checkbox/test/fixtures/disabled';
 import CheckboxFixtureRequired from '../src/atom/checkbox/test/fixtures/required';
 import ClueFixtureDefault from '../src/atom/clue/test/fixtures/default';
+import ClueFixtureLink from '../src/atom/clue/test/fixtures/link';
 import ClueFixtureLoading from '../src/atom/clue/test/fixtures/loading';
 import CtaFixtureLightSmall from '../src/atom/cta/test/fixtures/light-small';
 import CtaFixtureLight from '../src/atom/cta/test/fixtures/light';
@@ -743,6 +744,7 @@ export const fixtures = {
     },
     Clue: {
       Default: ClueFixtureDefault,
+      Link: ClueFixtureLink,
       Loading: ClueFixtureLoading
     },
     Cta: {
