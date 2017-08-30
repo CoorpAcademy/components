@@ -24,14 +24,14 @@ const LoadedClue = ({primaryColor, text}) => {
 const Clue = (props, context) => {
   const {text} = props;
   const {skin} = context;
-  const brandColor = get('common.brand', skin);
+  const primaryColor = get('common.primary', skin);
   const isLoading = isNil(text);
-  const inlineStyle = isLoading ? {} : {backgroundColor: brandColor};
+  const inlineStyle = isLoading ? {} : {backgroundColor: primaryColor};
 
   return (
     <div data-name="clue" className={style.wrapperClue}>
       <div className={isLoading ? style.loadingClue : style.clue} style={inlineStyle}>
-        {isLoading ? <Loader /> : <LoadedClue text={text} brandColor={brandColor} />}
+        {isLoading ? <Loader /> : <LoadedClue text={text} primaryColor={primaryColor} />}
       </div>
     </div>
   );
