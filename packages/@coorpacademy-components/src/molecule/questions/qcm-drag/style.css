@@ -30,7 +30,7 @@
   border: 2px dashed light;
   background-color: xtraLightGrey;
   padding: 16px 8px 8px 16px;
-  margin-bottom: 36px;
+  margin: 0 32px 36px;
 }
 
 .emptyAnswers {

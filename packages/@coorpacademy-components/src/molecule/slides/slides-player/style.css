@@ -130,7 +130,7 @@
   text-align: center;
 }
 
-.cta {
+.ctaWrapper > .cta {
   padding-left: 25px;
   padding-right: 25px;
   font-size: 16px;
@@ -139,7 +139,7 @@
   text-align: center;
 }
 
-.cta:focus {
+.ctaWrapper > .cta:focus {
   border: 3px solid;
 }
 
@@ -242,11 +242,12 @@
     width: 90%;
   }
 
-  .cta {
+  .ctaWrapper > .cta {
     font-size: 18px;
     height: 53px;
     line-height: 53px;
     border-radius: 30px;
+    width: 100%;
   }
 
   .footer {
