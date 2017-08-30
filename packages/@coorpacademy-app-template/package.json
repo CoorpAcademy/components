@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/app-template",
-  "version": "5.3.31",
+  "version": "5.3.32",
   "description": "CoorpAcademy redux application template",
   "main": "lib/index.js",
   "module": "es/index.js",
