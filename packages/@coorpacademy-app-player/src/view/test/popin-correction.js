@@ -7,7 +7,7 @@ import set from 'lodash/fp/set';
 import omit from 'lodash/fp/omit';
 import {mockTranslate} from '@coorpacademy/translate';
 import {UI_TOGGLE_ACCORDION, selectResource} from '../../actions/ui/corrections';
-import {UI_VIDEO_PAUSE, UI_VIDEO_ENDED} from '../../actions/ui/video';
+import {UI_VIDEO_RESUME, UI_VIDEO_PAUSE, UI_VIDEO_ENDED} from '../../actions/ui/video';
 import createMapStateToProps from '../popin-correction';
 import statePopinFailure from './fixtures/popin-correction/popin-failure';
 import statePopinSuccess from './fixtures/popin-correction/popin-success';
@@ -80,12 +80,16 @@ test('should trigger actions for resources', t => {
   const resources = props.resources.value;
 
   forEach(resource => {
-    const {onClick, onPlay, onPause, onEnded} = resource;
+    const {onClick, onPlay, onPause, onEnded, onResume} = resource;
     const actionSelectResource = onClick();
     const actionPlayVideo = onPlay();
     const actionPauseVideo = onPause();
+    const actionResumeVideo = onResume();
     const actionEndedVideo = onEnded();
-    const baseResource = omit(['onClick', 'onPause', 'onPlay', 'onEnded', 'selected'], resource);
+    const baseResource = omit(
+      ['onClick', 'onPause', 'onPlay', 'onEnded', 'onResume', 'selected'],
+      resource
+    );
 
     t.deepEqual(selectResource(resource._id), actionSelectResource);
     t.true(isFunction(actionPlayVideo));
@@ -95,6 +99,8 @@ test('should trigger actions for resources', t => {
 
     t.deepEqual(baseResource, actionEndedVideo.resource);
     t.is(actionEndedVideo.type, UI_VIDEO_ENDED);
+
+    t.is(actionResumeVideo.type, UI_VIDEO_RESUME);
   }, resources);
 });
 

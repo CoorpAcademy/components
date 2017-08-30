@@ -1,6 +1,7 @@
 import mapValues from 'lodash/fp/mapValues';
 import addTimeout from '../utils/add-timeout';
 
+import * as AnalyticsService from './analytics';
 import * as AnswersService from './answers';
 import * as ChaptersService from './chapters';
 import * as CluesService from './clues';
@@ -14,6 +15,7 @@ import * as SlidesService from './slides';
 const TIMEOUT = 0;
 const addTimeoutToService = mapValues(addTimeout(TIMEOUT));
 
+export const Analytics = addTimeoutToService(AnalyticsService);
 export const Answers = addTimeoutToService(AnswersService);
 export const Chapters = addTimeoutToService(ChaptersService);
 export const Clues = addTimeoutToService(CluesService);

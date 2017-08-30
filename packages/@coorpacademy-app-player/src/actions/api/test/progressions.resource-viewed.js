@@ -53,11 +53,11 @@ test(
   [
     {
       type: PROGRESSION_RESOURCE_VIEWED_REQUEST,
-      meta: {progressionId: 'foo', resource, location: 'media'}
+      meta: {progressionId: 'foo', resource}
     },
     {
       type: PROGRESSION_RESOURCE_VIEWED_SUCCESS,
-      meta: {progressionId: 'foo', resource, location: 'media'},
+      meta: {progressionId: 'foo', resource},
       payload: set(
         'state.viewedResources',
         [{ref: chapter.ref, type: 'chapter', resources: [resource._id]}],
@@ -101,11 +101,11 @@ test(
   [
     {
       type: PROGRESSION_RESOURCE_VIEWED_REQUEST,
-      meta: {progressionId: 'foo', resource, location: 'media'}
+      meta: {progressionId: 'foo', resource}
     },
     {
       type: PROGRESSION_RESOURCE_VIEWED_SUCCESS,
-      meta: {progressionId: 'foo', resource, location: 'media'},
+      meta: {progressionId: 'foo', resource},
       payload: set(
         'state.viewedResources',
         [{ref: chapter.ref, type: 'chapter', resources: [resource._id]}],
@@ -136,7 +136,7 @@ test(
   [
     {
       type: PROGRESSION_RESOURCE_VIEWED_REQUEST,
-      meta: {progressionId: 'foo', resource, location: 'media'}
+      meta: {progressionId: 'foo', resource}
     }
   ]
 );
@@ -166,11 +166,11 @@ test(
   [
     {
       type: PROGRESSION_RESOURCE_VIEWED_REQUEST,
-      meta: {progressionId: 'foo', resource, location: 'media'}
+      meta: {progressionId: 'foo', resource}
     },
     {
       type: PROGRESSION_RESOURCE_VIEWED_FAILURE,
-      meta: {progressionId: 'foo', resource, location: 'media'},
+      meta: {progressionId: 'foo', resource},
       error: true,
       payload: new Error()
     }
