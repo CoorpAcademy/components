@@ -115,10 +115,9 @@ const CorrectionPart = props => {
     style.correctionSectionFail,
     style.correctionSectionLoading
   );
-  const state = buildClass(fail, 'success', 'fail', null);
 
   return (
-    <div data-name="correctionSection" data-state={state} className={className}>
+    <div data-name="correctionSection" className={className}>
       <div className={style.titlesWrapper}>
         {isLoading ? <Loader /> : null}
         <h1 data-name="title" className={style.title}>{title}</h1>
@@ -131,10 +130,10 @@ const CorrectionPart = props => {
 };
 
 const NextQuestionPart = props => {
-  const {fail, title, ...linkProps} = props || {};
+  const {title, ...linkProps} = props || {};
 
   return (
-    <Link {...linkProps} className={style.nextSection} data-name="nextLink" data-fail={fail}>
+    <Link {...linkProps} className={style.nextSection} data-name="nextLink">
       <div data-name="nextButton" className={style.nextButton}>
         {title}
         <ArrowRight color="inherit" className={style.nextButtonIcon} />
@@ -147,7 +146,7 @@ const PopinHeader = (props, context) => {
   const {animated, fail, title, subtitle, lives, stars, rank, corrections, cta} = props;
 
   return (
-    <div className={style.header} data-name="popinHeader">
+    <div className={style.header} data-name="popinHeader" data-fail={fail}>
       <CorrectionPart
         title={title}
         subtitle={subtitle}
