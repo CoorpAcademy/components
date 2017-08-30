@@ -22,6 +22,7 @@ const getUrl = ({type, id, ...opts}) =>
 class VideoIframe extends React.Component {
   componentDidMount() {
     const {type} = this.props;
+
     if (type === 'kontiki') {
       const {onPlay = noop} = this.props;
       onPlay();
@@ -47,6 +48,7 @@ class VideoIframe extends React.Component {
 
 VideoIframe.contextTypes = {
   Vimeo: Provider.childContextTypes.Vimeo
+  // pourquoi Vimeo ???
 };
 
 VideoIframe.propTypes = {

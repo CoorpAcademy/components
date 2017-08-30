@@ -35,6 +35,7 @@ test('should call listeners within props, then remove them on willComponentUnmou
     video: 'foo',
     onPause: () => t.pass(),
     onPlay: () => t.pass(),
+    onResume: () => t.pass(),
     onEnd: () => t.pass()
   };
 
@@ -48,6 +49,7 @@ test('should call listeners within props, then remove them on willComponentUnmou
 
   instance.player.emit('play');
   instance.player.emit('pause');
+  instance.player.emit('play');
   instance.player.emit('ended');
 
   video.unmount();

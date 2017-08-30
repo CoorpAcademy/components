@@ -13,7 +13,9 @@ export default {
         posters: [],
         src: [],
         selected: true,
-        onClick: () => {}
+        onClick: () => {},
+        onPlay: () => console.log('play'),
+        onResume: () => console.log('resume')
       },
       {
         type: 'video',
