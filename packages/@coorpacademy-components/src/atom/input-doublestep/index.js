@@ -2,32 +2,54 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import style from './style.css';
 
-const InputDoublestep = props => {
-  const {title, toggleValue, cancelValue, onChange, description} = props;
+class InputDoublestep extends React.Component {
+  constructor(props, context) {
+    super(props);
+    this.state = {
+      open: false
+    };
+    this.handleOpen = this.handleOpen.bind(this);
+  }
 
-  const handleOnChange = e => {
-    e.preventDefault();
-    return onChange(e);
-  };
+  handleOpen() {
+    const newValue = !this.state.open;
 
-  return (
-    <div className={style.wrapper}>
-      <div className={style.value}>
-        <input type="checkbox" id={toggleValue} name={toggleValue} className={style.checkbox} />
-        <label htmlFor={toggleValue}>
-          <span className={style.toggle}>{toggleValue}</span>
-          <span className={style.cancel}>{cancelValue}</span>
-        </label>
-        <button onClick={handleOnChange} className={style.delete}>
-          {title}
-        </button>
+    this.setState(() => ({
+      open: newValue
+    }));
+  }
+
+  render() {
+    const {title, toggleValue, cancelValue, onChange, description} = this.props;
+
+    const handleOnChange = e => {
+      e.preventDefault();
+      return onChange(e);
+    };
+
+    const openForm = this.state.open === true;
+
+    const formView = !openForm
+      ? <span onClick={this.handleOpen} className={style.toggle}>{toggleValue}</span>
+      : <div>
+          <span onClick={this.handleOpen} className={style.cancel}>{cancelValue}</span>
+          <span onClick={handleOnChange} className={style.delete}>
+            {title}
+          </span>
+        </div>;
+
+    return (
+      <div className={style.wrapper}>
+        <div className={style.value}>
+          {formView}
+        </div>
+        <div className={style.description}>
+          {description}
+        </div>
       </div>
-      <div className={style.description}>
-        {description}
-      </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 InputDoublestep.propTypes = {
   title: PropTypes.string.isRequired,
