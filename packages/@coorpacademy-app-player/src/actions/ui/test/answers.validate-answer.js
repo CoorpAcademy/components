@@ -219,7 +219,8 @@ test(
 const initialState = pipe(
   set('state.content.ref', 'baz'),
   set('state.isCorrect', false),
-  set('state.viewedResources', [{type: 'chapter', ref: 'bar', resources: ['lesson_1']}])
+  set('content', {ref: 'chapter.ref'}),
+  set('state.viewedResources', [{type: 'chapter', ref: 'chapter.ref', resources: ['lesson_1']}])
 )({});
 
 test(
@@ -227,7 +228,7 @@ test(
   macro,
   pipe(
     set('data.progressions.entities.foo.state.nextContent', {type: 'slide', ref: 'baz'}),
-    set('data.progressions.entities.foo.content', {ref: 'chapter.ref'})
+    set('data.slides.entities.baz.lessons', ['lesson_1'])
   )({}),
   t => ({
     Progressions: {
@@ -265,8 +266,7 @@ test(
         type: PROGRESSION_CREATE_ANSWER_SUCCESS,
         meta: {progressionId: 'foo'},
         payload: initialState
-      },
-      set('data.progressions.entities.foo', null, {})
+      }
     ],
     [
       {

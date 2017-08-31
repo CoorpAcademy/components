@@ -4,7 +4,7 @@ import find from 'lodash/fp/find';
 import pipe from 'lodash/fp/pipe';
 import remove from 'lodash/fp/remove';
 import includes from 'lodash/fp/includes';
-import {getContent, getPreviousSlide} from '../../utils/state-extract';
+import {getSlide} from '../../utils/state-extract';
 import {createAnswer} from '../api/progressions';
 import {fetchAnswer} from '../api/answers';
 import {toggleAccordion} from './corrections';
@@ -58,14 +58,14 @@ export const validateAnswer = (progressionId, body) => async (dispatch, getState
   const createAnswerResponse = await dispatch(createAnswer(progressionId, body.answers));
   if (createAnswerResponse.error) return createAnswerResponse;
 
-  const progressionState = createAnswerResponse.payload.state;
-  const slideId = progressionState.content.ref;
+  const payload = createAnswerResponse.payload;
+  const progressionState = get('state', payload);
+  const slideId = get('content.ref', progressionState);
 
   const {viewedResources = [], isCorrect = false} = progressionState;
 
-  const state = getState();
-  const chapterRef = get('ref', getContent(state));
-  const slide = getPreviousSlide(state);
+  const chapterRef = get('content.ref', payload);
+  const slide = getSlide(slideId)(getState());
   const lessons = get('lessons', slide);
   const viewedResourcesForChapter = pipe(find({ref: chapterRef}), getOr([], 'resources'))(
     viewedResources
