@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import qs from 'qs';
 import noop from 'lodash/fp/noop';
-import Picture from '../../atom/picture';
 import Provider from '../../atom/provider';
 import {SrcPropType} from '../../util/proptypes';
 import style from './style.css';
@@ -30,23 +29,19 @@ class VideoIframe extends React.Component {
   }
 
   render() {
-    const {type, id, url, image, autoplay = false, width = '100%', height = '400px'} = this.props;
+    const {type, id, url, autoplay = false, width = '100%', height = '400px'} = this.props;
     const src = url || getUrl({type, id, autoplay});
 
-    if (src) {
-      return (
-        <iframe
-          src={src}
-          width={width}
-          height={height}
-          frameBorder={0}
-          className={style.iframe}
-          allowFullScreen
-        />
-      );
-    } else {
-      return <Picture className={style.image} src={image} />;
-    }
+    return (
+      <iframe
+        src={src}
+        width={width}
+        height={height}
+        frameBorder={0}
+        className={style.iframe}
+        allowFullScreen
+      />
+    );
   }
 }
 
@@ -56,7 +51,6 @@ VideoIframe.contextTypes = {
 
 VideoIframe.propTypes = {
   type: PropTypes.oneOf(Object.keys(PROVIDERS)),
-  image: Picture.propTypes.src,
   width: PropTypes.string,
   height: PropTypes.string,
   url: SrcPropType,

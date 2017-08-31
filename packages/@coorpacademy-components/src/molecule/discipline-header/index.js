@@ -1,8 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
-import VideoIframe from '../video-iframe';
+import VideoPlayer from '../video-player';
+import Picture from '../../atom/picture';
 import style from './style.css';
+
+const Preview = ({image, video}) => {
+  const mimeType = get('mimeType', video);
+  const id = get('id', video);
+
+  if (id) {
+    return <VideoPlayer mimeType={mimeType} id={id} width="380px" height="250px" />;
+  } else {
+    return <Picture className={style.image} src={image} />;
+  }
+};
+
+Preview.propTypes = {
+  image: Picture.propTypes.src,
+  video: PropTypes.shape(VideoPlayer.propTypes)
+};
 
 class DisciplineHeader extends React.Component {
   constructor(props) {
@@ -23,14 +40,12 @@ class DisciplineHeader extends React.Component {
     const {image, title, description, video} = this.props;
     const {translate} = this.context;
 
-    const type = get('type', video);
-    const id = get('id', video);
     const toggleLabel = this.state.fullDisplay ? translate('See less') : translate('Show more');
 
     return (
       <div data-name="disciplineHeader" className={style.wrapper}>
         <div className={style.imgWrapper}>
-          <VideoIframe image={image} type={type} id={id} width="380px" height="250px" />
+          <Preview image={image} video={video} />
         </div>
         <div className={style.courseWrapper}>
           <div data-name="title" className={style.title}>
@@ -58,13 +73,10 @@ DisciplineHeader.contextTypes = {
 };
 
 DisciplineHeader.propTypes = {
-  image: VideoIframe.propTypes.image,
   title: PropTypes.string,
   description: PropTypes.string,
-  video: PropTypes.shape({
-    type: PropTypes.oneOf(['vimeo', 'youtube']),
-    id: PropTypes.string
-  })
+  image: Preview.propTypes.image,
+  video: Preview.propTypes.video
 };
 
 export default DisciplineHeader;

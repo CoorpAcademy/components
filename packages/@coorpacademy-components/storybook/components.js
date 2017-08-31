@@ -1935,11 +1935,7 @@ export const dependencies = {
           "Discipline": true
         }
       },
-      "children": {
-        "Molecule": {
-          "VideoIframe": true
-        }
-      }
+      "children": {}
     },
     "DisciplinePartners": {
       "parents": {
@@ -2017,17 +2013,6 @@ export const dependencies = {
           "ModuleBubble": true
         }
       }
-    },
-    "VideoIframe": {
-      "parents": {
-        "TemplateCommon": {
-          "Discipline": true
-        },
-        "Molecule": {
-          "DisciplineHeader": true
-        }
-      },
-      "children": {}
     },
     "BattleRequest": {
       "parents": {
@@ -2422,6 +2407,9 @@ export const dependencies = {
           "Link": true
         }
       }
+    },
+    "VideoIframe": {
+      "children": {}
     },
     "VideoPlayer": {
       "children": {}
@@ -3150,8 +3138,7 @@ export const dependencies = {
           "DisciplineScope": true,
           "ModuleBubble": true,
           "ScopeContent": true,
-          "ScopeTabs": true,
-          "VideoIframe": true
+          "ScopeTabs": true
         }
       }
     },
