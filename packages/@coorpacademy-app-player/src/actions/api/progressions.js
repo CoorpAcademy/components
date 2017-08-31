@@ -1,6 +1,5 @@
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
-import pipe from 'lodash/fp/pipe';
 import find from 'lodash/fp/find';
 import includes from 'lodash/fp/includes';
 import buildTask from '../../utils/redux-task';
@@ -146,9 +145,6 @@ export const markResourceAsViewed = (progressionId, resource) => (
   const progression = getProgression(progressionId)(state);
   const location = getRoute(state);
   const viewedResources = getOr([], 'state.viewedResources', progression);
-  const viewedResourcesForChapter = pipe(find({ref: chapter.ref}), get('resources'))(
-    viewedResources
-  );
 
   const payload = {
     resource: {
@@ -167,7 +163,7 @@ export const markResourceAsViewed = (progressionId, resource) => (
       PROGRESSION_RESOURCE_VIEWED_FAILURE
     ],
     task: () => Progressions.markResourceAsViewed(progressionId, payload, location),
-    bailout: () => includes(ref, viewedResourcesForChapter),
+    bailout: () => Boolean(find({type: 'chapter', ref: chapter.ref}, viewedResources)),
     meta: {progressionId, resource, location}
   });
 
