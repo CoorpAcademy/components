@@ -1,5 +1,11 @@
 // @flow
 
+export type ViewedResource = {
+  type: 'chapter',
+  ref: string,
+  resources: Array<string>
+};
+
 export type Step = {
   current: number,
   total: number
@@ -26,7 +32,7 @@ export type State = {
   isCorrect: boolean,
   slides: Array<string>,
   requestedClues: Array<string>,
-  viewedResources: Array<string>,
+  viewedResources: Array<ViewedResource>,
   stars: number,
   step: Step
 };
@@ -164,9 +170,3 @@ export type MicroLearningConfig = {
 };
 
 export type Config = MicroLearningConfig;
-
-export type ViewedResources = Array<{
-  type: 'chapter',
-  ref: string,
-  resources: Array<string>
-}>;
