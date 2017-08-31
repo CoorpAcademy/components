@@ -216,6 +216,12 @@ test(
   ]
 );
 
+const initialState = pipe(
+  set('state.content.ref', 'baz'),
+  set('state.isCorrect', false),
+  set('state.viewedResources', [{type: 'chapter', ref: 'bar', resources: ['lesson_1']}])
+)({});
+
 test(
   'should submit answers with current content with wrong answer and viewed resources and refresh progression state',
   macro,
@@ -231,11 +237,7 @@ test(
           content: {type: 'slide', ref: 'baz'},
           answers: ['bar']
         });
-        return pipe(
-          set('state.content.ref', 'baz'),
-          set('state.isCorrect', false),
-          set('state.viewedResources', ['bar'])
-        )({});
+        return initialState;
       },
       findById: id => {
         t.is(id, 'foo');
@@ -262,11 +264,7 @@ test(
       {
         type: PROGRESSION_CREATE_ANSWER_SUCCESS,
         meta: {progressionId: 'foo'},
-        payload: pipe(
-          set('state.content.ref', 'baz'),
-          set('state.isCorrect', false),
-          set('state.viewedResources', {'chapter.ref': ['plop']})
-        )({})
+        payload: initialState
       },
       set('data.progressions.entities.foo', null, {})
     ],

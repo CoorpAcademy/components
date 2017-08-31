@@ -130,7 +130,7 @@ test(
 );
 
 test(
-  'should merge clue result with progression',
+  'should merge resource view result with progression',
   macro,
   reducer,
   {entities: {foo: {foo: 'foo'}}},
