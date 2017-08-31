@@ -62,10 +62,17 @@ test("should throw error if progression doesn't exist", t => {
 test('should mark a resource as viewed', async t => {
   const progression = await create({engine});
   const result = await markResourceAsViewed(progression._id, {
-    chapter: {ref: progression.content.ref}
+    chapter: {ref: progression.content.ref},
+    resource: {ref: 'foo'}
   });
 
-  t.deepEqual(result.state.viewedResources, [progression.content.ref]);
+  t.deepEqual(result.state.viewedResources, [
+    {
+      type: 'chapter',
+      ref: progression.content.ref,
+      resources: ['foo']
+    }
+  ]);
 });
 
 test('getEngineConfig should return the value in "./progression-config.data"', async t => {
