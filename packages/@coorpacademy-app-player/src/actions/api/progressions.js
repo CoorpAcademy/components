@@ -1,4 +1,5 @@
 import get from 'lodash/fp/get';
+import pipe from 'lodash/fp/pipe';
 import getOr from 'lodash/fp/getOr';
 import find from 'lodash/fp/find';
 import includes from 'lodash/fp/includes';
@@ -163,7 +164,10 @@ export const markResourceAsViewed = (progressionId, resource) => (
       PROGRESSION_RESOURCE_VIEWED_FAILURE
     ],
     task: () => Progressions.markResourceAsViewed(progressionId, payload, location),
-    bailout: () => Boolean(find({type: 'chapter', ref: chapter.ref}, viewedResources)),
+    bailout: () =>
+      pipe(find({type: 'chapter', ref: chapter.ref}), get('resources'), includes(ref))(
+        viewedResources
+      ),
     meta: {progressionId, resource, location}
   });
 
