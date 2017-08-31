@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/components",
-  "version": "5.4.84",
+  "version": "5.4.85",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -43,7 +43,7 @@
     "Julien Seren-Rosso <julien.seren-rosso@coorpacademy.com>"
   ],
   "dependencies": {
-    "@coorpacademy/nova-icons": "1.1.5",
+    "@coorpacademy/nova-icons": "1.1.6",
     "@coorpacademy/react-jw-player": "1.9.2",
     "autoprefixer": "^7.1.1",
     "classnames": "^2.2.5",
@@ -64,7 +64,7 @@
   },
   "devDependencies": {
     "@coorpacademy/css-modules-require-hook": "0.0.1",
-    "@coorpacademy/translate": "5.3.8",
+    "@coorpacademy/translate": "5.3.9",
     "@coorpacademy/webpack-config": "6.2.0",
     "@storybook/addon-knobs": "^3.1.8",
     "@storybook/addons": "^3.1.6",
