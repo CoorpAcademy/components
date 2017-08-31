@@ -41,7 +41,11 @@ test(
           slide: 'slide2'
         });
 
-        return set('state.viewedResources', [chapter.ref], {});
+        return set(
+          'state.viewedResources',
+          [{ref: chapter.ref, type: 'chapter', resources: [resource._id]}],
+          {}
+        );
       }
     }
   }),
@@ -54,7 +58,11 @@ test(
     {
       type: PROGRESSION_RESOURCE_VIEWED_SUCCESS,
       meta: {progressionId: 'foo', resource, location: 'media'},
-      payload: set('state.viewedResources', [chapter.ref], {})
+      payload: set(
+        'state.viewedResources',
+        [{ref: chapter.ref, type: 'chapter', resources: [resource._id]}],
+        {}
+      )
     }
   ]
 );
@@ -81,7 +89,11 @@ test(
           slide: 'slide1'
         });
 
-        return set('state.viewedResources', [chapter.ref], {});
+        return set(
+          'state.viewedResources',
+          [{ref: chapter.ref, type: 'chapter', resources: [resource._id]}],
+          {}
+        );
       }
     }
   }),
@@ -94,7 +106,11 @@ test(
     {
       type: PROGRESSION_RESOURCE_VIEWED_SUCCESS,
       meta: {progressionId: 'foo', resource, location: 'media'},
-      payload: set('state.viewedResources', [chapter.ref], {})
+      payload: set(
+        'state.viewedResources',
+        [{ref: chapter.ref, type: 'chapter', resources: [resource._id]}],
+        {}
+      )
     }
   ]
 );
@@ -104,7 +120,9 @@ test(
   macro,
   pipe(
     initState,
-    set('data.progressions.entities.foo.state.viewedResources', [chapter.ref]),
+    set('data.progressions.entities.foo.state.viewedResources', [
+      {ref: chapter.ref, type: 'chapter', resources: [resource._id]}
+    ]),
     set('ui.route.foo', 'media')
   )({}),
   t => ({
