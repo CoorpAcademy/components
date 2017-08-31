@@ -219,8 +219,8 @@ test(
 const initialState = pipe(
   set('state.content.ref', 'baz'),
   set('state.isCorrect', false),
-  set('content', {ref: 'chapter.ref'}),
-  set('state.viewedResources', [{type: 'chapter', ref: 'chapter.ref', resources: ['lesson_1']}])
+  set('content', {ref: '5.C7'}),
+  set('state.viewedResources', [{type: 'chapter', ref: '5.C7', resources: ['lesson_1']}])
 )({});
 
 test(
