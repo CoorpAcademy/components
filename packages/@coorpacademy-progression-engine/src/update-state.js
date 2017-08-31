@@ -1,6 +1,6 @@
 // @flow
 
-import getOr from 'lodash/fp/getOr';
+import find from 'lodash/fp/find';
 import findIndex from 'lodash/fp/findIndex';
 import get from 'lodash/fp/get';
 import set from 'lodash/fp/set';
@@ -23,7 +23,7 @@ import type {
   MicroLearningConfig,
   State,
   Step,
-  ViewedResources
+  ViewedResource
 } from './types';
 
 function isCorrect(config: MicroLearningConfig): (boolean, Action) => boolean {
@@ -52,8 +52,13 @@ function slides(config: MicroLearningConfig): (Array<string>, Action) => Array<s
   };
 }
 
-function viewedResources(config: MicroLearningConfig): (Array<string>, Action) => Array<string> {
-  return (currentViewedResources: ViewedResources = [], action: Action): ViewedResources => {
+function viewedResources(
+  config: MicroLearningConfig
+): (Array<ViewedResource>, Action) => Array<ViewedResource> {
+  return (
+    currentViewedResources: Array<ViewedResource> = [],
+    action: Action
+  ): Array<ViewedResource> => {
     switch (action.type) {
       case 'resource': {
         const resourceViewAction = (action: ChapterResourceViewedAction);
@@ -166,12 +171,13 @@ function stars(config: MicroLearningConfig): (number, Action, State) => number {
       case 'resource': {
         const chapterResourceViewedAction = (action: ChapterResourceViewedAction);
         const chapterRef = chapterResourceViewedAction.payload.chapter.ref;
-        const resourceRef = chapterResourceViewedAction.payload.resource.ref;
-
-        const chapterResources = getOr([], chapterRef, state.viewedResources);
-        const resourceAlreadyViewed = includes(resourceRef, chapterResources);
-
-        return resourceAlreadyViewed ? currentStars : currentStars + config.starsPerResourceViewed;
+        const chapterResourceAlreadyViewed = Boolean(
+          find({type: 'chapter', ref: chapterRef}, state.viewedResources)
+        );
+        if (chapterResourceAlreadyViewed) {
+          return currentStars;
+        }
+        return currentStars + config.starsPerResourceViewed;
       }
       default:
         return currentStars;
@@ -218,9 +224,9 @@ const reduceAction = combineReducers([
   {key: 'slides', fn: slides},
   {key: 'lives', fn: lives},
   {key: 'step', fn: step},
+  {key: 'stars', fn: stars},
   {key: 'requestedClues', fn: requestedClues},
   {key: 'viewedResources', fn: viewedResources},
-  {key: 'stars', fn: stars},
   {key: 'content', fn: content},
   {key: 'nextContent', fn: nextContent}
 ]);
