@@ -7,13 +7,19 @@ import style from './jwplayer.css';
 class JWPlayer extends React.Component {
   constructor(props, context) {
     super(props, context);
+    this.played = false;
     this.handlePlay = this.handlePlay.bind(this);
+    this.handleResume = this.handleResume.bind(this);
     this.handlePause = this.handlePause.bind(this);
     this.handleEnded = this.handleEnded.bind(this);
   }
 
   handlePlay(e) {
     this.props.onPlay && this.props.onPlay(e);
+  }
+
+  handleResume(e) {
+    this.props.onResume && this.props.onResume(e);
   }
 
   handlePause(e) {
@@ -29,6 +35,7 @@ class JWPlayer extends React.Component {
       <div className={style.wrapper}>
         <ReactJWPlayer
           onPlay={this.handlePlay}
+          onResume={this.handleResume}
           onPause={this.handlePause}
           onOneHundredPercent={this.handleEnded}
           {...this.props.jwpOptions}
@@ -52,6 +59,7 @@ JWPlayer.propTypes = {
     playerScript: SrcPropType.isRequired
   }),
   onPlay: PropTypes.func,
+  onResume: PropTypes.func,
   onPause: PropTypes.func,
   onEnded: PropTypes.func
 };

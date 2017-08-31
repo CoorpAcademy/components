@@ -2531,8 +2531,8 @@ export const dependencies = {
       },
       "children": {
         "Atom": {
-          "Link": true,
-          "ResourceMiniature": true
+          "ResourceMiniature": true,
+          "Link": true
         },
         "Molecule": {
           "Pdf": true

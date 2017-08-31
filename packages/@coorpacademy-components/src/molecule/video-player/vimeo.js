@@ -10,7 +10,7 @@ const eventNames = {
   ready: 'onReady',
   play: 'onPlay',
   pause: 'onPause',
-  ended: 'onEnd',
+  ended: 'onEnded',
   timeupdate: 'onTimeUpdate',
   progress: 'onProgress',
   seeked: 'onSeeked',
