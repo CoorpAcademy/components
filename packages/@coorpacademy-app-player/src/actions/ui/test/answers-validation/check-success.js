@@ -9,7 +9,7 @@ import {
   PROGRESSION_CREATE_ANSWER_SUCCESS
 } from '../../../api/progressions';
 import {ANSWER_FETCH_REQUEST, ANSWER_FETCH_SUCCESS} from '../../../api/answers';
-import {accordionIsOpenAt} from './shared';
+import {accordionIsOpenAt} from './helpers/shared';
 
 const successfullyFetchAnswers = [
   [
