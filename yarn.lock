@@ -63,13 +63,6 @@
     prettier "1.4.4"
     requireindex "^1.1.0"
 
-"@coorpacademy/react-jw-player@1.9.2":
-  version "1.9.2"
-  resolved "https://registry.npmjs.org/@coorpacademy/react-jw-player/-/react-jw-player-1.9.2.tgz#a50011eaa94b5d9c94bf9b0a8b957aa7fdc18c3b"
-  dependencies:
-    prop-types "^15.5.10"
-    react "^15.4.1"
-
 "@hypnosphi/fuse.js@^3.0.9":
   version "3.0.9"
   resolved "https://registry.npmjs.org/@hypnosphi/fuse.js/-/fuse.js-3.0.9.tgz#ea99f6121b4a8f065b4c71f85595db2714498807"
@@ -7597,6 +7590,13 @@ react-inspector@^2.1.1:
   dependencies:
     babel-runtime "^6.23.0"
     is-dom "^1.0.9"
+
+react-jw-player@1.10.0:
+  version "1.10.0"
+  resolved "https://registry.npmjs.org/react-jw-player/-/react-jw-player-1.10.0.tgz#0559818047d4b68d2b29c9b4bb66aeac17bacf86"
+  dependencies:
+    prop-types "^15.5.10"
+    react "^15.4.1"
 
 react-komposer@^1.9.0:
   version "1.13.1"
