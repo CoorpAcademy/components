@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ReactJWPlayer from '@coorpacademy/react-jw-player';
+import ReactJWPlayer from 'react-jw-player';
 import {SrcPropType} from '../../util/proptypes';
 import style from './jwplayer.css';
 
