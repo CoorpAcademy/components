@@ -64,6 +64,17 @@
           "playerId": "5980934b7dfebe01618a57df",
           "playerScript": "https://up-staging.coorpacademy.com/libs/jwplayer/7.10.7/jwplayer.js"
         }
+      },
+      {
+        "description": "La gestion du stress",
+        "mediaUrl": "https://www.performances.fr/formation-gestion-stress.html",
+        "mimeType": "application/pdf",
+        "poster": "//static.coorpacademy.com/content/CoorpAcademy/content-partnerships-institut-bocquet/cockpit-partner-institut-bocquet/poster/bocquet-1481283409059.jpg",
+        "posters": [],
+        "src": [],
+        "subtitles": [],
+        "type": "pdf",
+        "_id": "59a43ef725571101b488f1bb"
       }
     ],
     "question": {

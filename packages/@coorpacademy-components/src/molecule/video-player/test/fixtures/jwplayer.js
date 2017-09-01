@@ -19,6 +19,7 @@ export default {
       }
     },
     onPlay: () => console.log('onPlay jwp'),
+    onResume: () => console.log('onResume jwp'),
     onPause: () => console.log('onPause jwp'),
     onEnded: () => console.log('onEnded jwp')
   }
