@@ -8,7 +8,7 @@ import {
   PROGRESSION_CREATE_ANSWER_REQUEST,
   PROGRESSION_CREATE_ANSWER_SUCCESS
 } from '../../../api/progressions';
-import {accordionIsOpenAt, fetchCorrection} from './shared';
+import {accordionIsOpenAt, fetchCorrection} from './helpers/shared';
 
 const wrongAnswer = pipe(
   set('state.content.ref', 'baz'),
