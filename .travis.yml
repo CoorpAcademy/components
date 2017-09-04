@@ -1,7 +1,7 @@
-sudo: false
 language: node_js
+sudo: false
 node_js:
-- '8.4.0'
+  - '8.4.0'
 cache:
   directories:
   - node_modules
@@ -17,12 +17,14 @@ cache:
   - packages/@coorpacademy-treantjs-adapter-angular/node_modules
   - packages/@coorpacademy-treantjs-adapter-dust/node_modules
   - packages/@coorpacademy-webpack-config/node_modules
-before_install:
-- npm install -g yarn@`cat package.json | jq -r '.engines.yarn'`
-- ./scripts/prebuild.sh
 install:
-- yarn --frozen-lockfile
-after_success: npm run codecov
+  - npm install -g yarn@`cat package.json | jq -r '.engines.yarn // "~0.27.5"'`
+  - 'npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN'
+  - 'npm config set @coorpacademy:registry http://registry.npmjs.org/'
+  - 'yarn config set registry https://registry.npmjs.org/'
+  - yarn --frozen-lockfile
+script:
+  - npm test && npm run codecov
 env:
   - CXX=g++-5
 addons:
@@ -33,9 +35,18 @@ addons:
       - g++-5
 before_deploy: npm run static
 deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
-  local_dir: static
-  on:
-    branch: master
+  - provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN
+    local_dir: static
+    on:
+      branch: master
+  - provider: script
+    skip_cleanup: true
+    script: >-
+      yarn global add @coorpacademy/update-node && update-node
+      --nvmrc ./.nvmrc --package ./package.json --travis ./.travis.yml
+      --repo_slug $TRAVIS_REPO_SLUG --team_reviewers $TEAM_REVIEWERS --branch
+      "upgrade-nodejs" --base $TRAVIS_BRANCH --github_token $GH_TOKEN
+    on:
+      branch: autoupgrade-node
