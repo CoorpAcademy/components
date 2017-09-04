@@ -28,13 +28,15 @@ export type Content = GenericContent | ResourceContent;
 export type State = {
   content?: Content,
   nextContent: Content,
+  previousLives: number,
   lives: number,
   isCorrect: boolean,
   slides: Array<string>,
   requestedClues: Array<string>,
   viewedResources: Array<ViewedResource>,
   stars: number,
-  step: Step
+  step: Step,
+  usedJoker: boolean
 };
 
 export type AskClueAction = {
@@ -65,7 +67,16 @@ export type InitAction = {
   type: 'init'
 };
 
-export type Action = InitAction | AnswerAction | AskClueAction | ChapterResourceViewedAction;
+export type UseJokerAction = {
+  type: 'joker'
+};
+
+export type Action =
+  | InitAction
+  | AnswerAction
+  | AskClueAction
+  | UseJokerAction
+  | ChapterResourceViewedAction;
 
 export type Engine = {
   ref: string,

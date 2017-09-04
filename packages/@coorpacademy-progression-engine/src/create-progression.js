@@ -15,6 +15,7 @@ export default function createProgression(
   };
 
   const initialState: State = {
+    previousLives: config.lives,
     lives: config.lives,
     isCorrect: true,
     slides: [],
@@ -26,7 +27,8 @@ export default function createProgression(
       total: config.slidesToComplete
     },
     content: undefined,
-    nextContent: initialContent
+    nextContent: initialContent,
+    usedJoker: false
   };
 
   return {

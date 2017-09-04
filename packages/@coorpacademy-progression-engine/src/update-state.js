@@ -104,12 +104,33 @@ function requestedClues(config: MicroLearningConfig): (Array<string>, Action) =>
   };
 }
 
-function lives(config: MicroLearningConfig): (number, Action) => number {
-  return (amount: number = config.lives, action: Action): number => {
+function usedJoker(config: MicroLearningConfig): (boolean, Action, State) => boolean {
+  return (hasUsedJoker: boolean = false, action: Action, state: State): boolean => {
+    switch (action.type) {
+      case 'joker': {
+        return hasUsedJoker || (state.previousLives === 0 && state.lives === 1);
+      }
+      default:
+        return hasUsedJoker;
+    }
+  };
+}
+
+function previousLives(config: MicroLearningConfig): (number, Action, State) => number {
+  return (amount: number = config.lives, action: Action, state: State): number => {
+    return state.lives;
+  };
+}
+
+function lives(config: MicroLearningConfig): (number, Action, State) => number {
+  return (amount: number = config.lives, action: Action, state: State): number => {
     switch (action.type) {
       case 'answer': {
         const answerAction = (action: AnswerAction);
         return answerAction.payload.isCorrect ? amount : amount - 1;
+      }
+      case 'joker': {
+        return state.lives === 0 && !state.usedJoker ? amount + 1 : amount;
       }
       default:
         return amount;
@@ -207,26 +228,29 @@ function combineReducers(
   // eslint-disable-next-line flowtype/require-return-type
   const fns = map(({fn, key}) => {
     return (config: MicroLearningConfig, action: Action) => (state: State): State => {
-      validate(config)(state, action);
       const newState = update(key, value => fn(config)(value, action, state), state);
       return (newState: State);
     };
   }, fnMap);
 
   return (config: MicroLearningConfig): ((State, Action) => State) => {
-    return (state: State, action: Action): State =>
-      pipe(...map(fn => fn(config, action), fns))(state);
+    return (state: State, action: Action): State => {
+      validate(config)(state, action);
+      return pipe(...map(fn => fn(config, action), fns))(state);
+    };
   };
 }
 
 const reduceAction = combineReducers([
   {key: 'isCorrect', fn: isCorrect},
   {key: 'slides', fn: slides},
+  {key: 'previousLives', fn: previousLives},
   {key: 'lives', fn: lives},
   {key: 'step', fn: step},
   {key: 'stars', fn: stars},
   {key: 'requestedClues', fn: requestedClues},
   {key: 'viewedResources', fn: viewedResources},
+  {key: 'usedJoker', fn: usedJoker},
   {key: 'content', fn: content},
   {key: 'nextContent', fn: nextContent}
 ]);
