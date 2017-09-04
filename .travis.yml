@@ -1,22 +1,22 @@
 language: node_js
 sudo: false
 node_js:
-  - '8.4.0'
+  - 8.4.0
 cache:
   directories:
-  - node_modules
-  - packages/@coorpacademy-app-forum/node_modules
-  - packages/@coorpacademy-app-player/node_modules
-  - packages/@coorpacademy-app-template/node_modules
-  - packages/@coorpacademy-components-bundler/node_modules
-  - packages/@coorpacademy-components/node_modules
-  - packages/@coorpacademy-history/node_modules
-  - packages/@coorpacademy-progression-engine/node_modules
-  - packages/@coorpacademy-redux-history/node_modules
-  - packages/@coorpacademy-translate/node_modules
-  - packages/@coorpacademy-treantjs-adapter-angular/node_modules
-  - packages/@coorpacademy-treantjs-adapter-dust/node_modules
-  - packages/@coorpacademy-webpack-config/node_modules
+    - node_modules
+    - packages/@coorpacademy-app-forum/node_modules
+    - packages/@coorpacademy-app-player/node_modules
+    - packages/@coorpacademy-app-template/node_modules
+    - packages/@coorpacademy-components-bundler/node_modules
+    - packages/@coorpacademy-components/node_modules
+    - packages/@coorpacademy-history/node_modules
+    - packages/@coorpacademy-progression-engine/node_modules
+    - packages/@coorpacademy-redux-history/node_modules
+    - packages/@coorpacademy-translate/node_modules
+    - packages/@coorpacademy-treantjs-adapter-angular/node_modules
+    - packages/@coorpacademy-treantjs-adapter-dust/node_modules
+    - packages/@coorpacademy-webpack-config/node_modules
 install:
   - npm install -g yarn@`cat package.json | jq -r '.engines.yarn // "~0.27.5"'`
   - 'npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN'
@@ -39,14 +39,14 @@ deploy:
     skip_cleanup: true
     github_token: $GITHUB_TOKEN
     local_dir: static
-    on:
+    'on':
       branch: master
   - provider: script
     skip_cleanup: true
     script: >-
-      yarn global add @coorpacademy/update-node && update-node
-      --nvmrc ./.nvmrc --package ./package.json --travis ./.travis.yml
-      --repo_slug $TRAVIS_REPO_SLUG --team_reviewers $TEAM_REVIEWERS --branch
+      yarn global add @coorpacademy/update-node && update-node --nvmrc ./.nvmrc
+      --package ./package.json --travis ./.travis.yml --repo_slug
+      $TRAVIS_REPO_SLUG --team_reviewers $TEAM_REVIEWERS --branch
       "upgrade-nodejs" --base $TRAVIS_BRANCH --github_token $GH_TOKEN
-    on:
+    'on':
       branch: autoupgrade-node
