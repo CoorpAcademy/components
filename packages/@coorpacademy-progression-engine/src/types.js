@@ -34,7 +34,8 @@ export type State = {
   requestedClues: Array<string>,
   viewedResources: Array<ViewedResource>,
   stars: number,
-  step: Step
+  step: Step,
+  remainingLifeRequests: number
 };
 
 export type AskClueAction = {
@@ -65,7 +66,25 @@ export type InitAction = {
   type: 'init'
 };
 
-export type Action = InitAction | AnswerAction | AskClueAction | ChapterResourceViewedAction;
+export type ExtraLifeAcceptedAction = {
+  type: 'extraLifeAccepted',
+  payload: {
+    content: Content,
+    nextContent: Content
+  }
+};
+
+export type ExtraLifeRefusedAction = {
+  type: 'extraLifeRefused'
+};
+
+export type Action =
+  | InitAction
+  | AnswerAction
+  | AskClueAction
+  | ExtraLifeAcceptedAction
+  | ExtraLifeRefusedAction
+  | ChapterResourceViewedAction;
 
 export type Engine = {
   ref: string,
@@ -166,7 +185,8 @@ export type MicroLearningConfig = {
   answerBoundaryLimit: number,
   starsPerAskingClue: number,
   starsPerCorrectAnswer: number,
-  starsPerResourceViewed: number
+  starsPerResourceViewed: number,
+  remainingLifeRequests: number
 };
 
 export type Config = MicroLearningConfig;
