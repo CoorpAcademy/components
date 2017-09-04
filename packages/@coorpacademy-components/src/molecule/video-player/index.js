@@ -30,7 +30,14 @@ class Player extends React.Component {
     switch (mimeType) {
       case 'application/vimeo':
         return (
-          <Vimeo {...this.props} video={id} className={style.wrapper} onPlay={this.handleOnPlay} />
+          <Vimeo
+            {...this.props}
+            width={width}
+            height={height}
+            video={id}
+            className={style.wrapper}
+            onPlay={this.handleOnPlay}
+          />
         );
 
       case 'application/youtube':
