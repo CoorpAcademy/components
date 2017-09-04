@@ -35,11 +35,10 @@ const ResourceBrowser = props => {
   const {resources, className} = props;
   const selectedResource = find(({selected}) => selected, resources);
   const SelectedResourceType = selectedResource && SELECTED_TYPES[selectedResource.type];
-  const wrapperStyle = hideResources(resources) ? style.playerWrapperAlone : style.playerWrapper;
 
   return (
     <div data-name="resourceBrowser" className={classnames(style.default, className)}>
-      <div className={wrapperStyle}>
+      <div className={style.playerWrapper}>
         {selectedResource ? <SelectedResourceType {...selectedResource} /> : null}
       </div>
       <Resources resources={resources} className={className} />

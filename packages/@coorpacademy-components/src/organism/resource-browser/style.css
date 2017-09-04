@@ -6,8 +6,6 @@
 .default {
   display: flex;
   flex-flow: row;
-  height: 352px;
-  width: 100%;
 }
 
 .resourcesList {
@@ -17,16 +15,11 @@
 }
 
 .playerWrapper {
-  height: 100%;
+  height: 352px;
   width: 609px;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.playerWrapperAlone {
-  composes: playerWrapper;
-  width: 100%;
 }
 
 @media tablet {

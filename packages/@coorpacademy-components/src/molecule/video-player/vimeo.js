@@ -80,7 +80,11 @@ class Vimeo extends React.Component {
     if (!V) return null;
 
     const {Player} = V;
-    this.player = new Player(this.container, options);
+    this.player = new Player(this.container, {
+      ...options,
+      width: '1',
+      height: '1'
+    });
     this.player.on('loaded', () => {
       this.updateProps(['width', 'height']);
     });
