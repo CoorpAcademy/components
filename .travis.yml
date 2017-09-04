@@ -49,4 +49,4 @@ deploy:
       $TRAVIS_REPO_SLUG --team_reviewers $TEAM_REVIEWERS --branch
       "upgrade-nodejs" --base $TRAVIS_BRANCH --github_token $GH_TOKEN
     'on':
-      branch: autoupgrade-node
+      branch: master
