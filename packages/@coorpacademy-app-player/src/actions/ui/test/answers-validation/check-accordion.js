@@ -10,11 +10,7 @@ import {
 } from '../../../api/progressions';
 import {accordionIsOpenAt, fetchCorrection} from './helpers/shared';
 
-const wrongAnswer = pipe(
-  set('state.content.ref', 'baz'),
-  set('state.isCorrect', false),
-  set('content', {ref: '5.C7'})
-)({});
+const wrongAnswer = pipe(set('state.content.ref', 'baz'), set('state.isCorrect', false))({});
 
 const viewedOneLesson = set(
   'state.viewedResources',
@@ -30,6 +26,7 @@ const viewedThreeLessons = set(
 
 const stateWithSlideAndManyResources = pipe(
   set('data.progressions.entities.foo.state.nextContent', {type: 'slide', ref: 'baz'}),
+  set('data.progressions.entities.foo.content', {ref: '5.C7'}),
   set('data.slides.entities.baz.lessons', ['lesson_1', 'lesson_2', 'lesson_3'])
 )({});
 
