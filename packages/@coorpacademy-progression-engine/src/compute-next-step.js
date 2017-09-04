@@ -3,7 +3,7 @@ import map from 'lodash/fp/map';
 import sample from 'lodash/fp/sample';
 import without from 'lodash/fp/without';
 import type {State, Slide, Content, Engine, MicroLearningConfig} from './types';
-import {hasFinished, isAlive} from './util';
+import {hasFinished, isAlive, hasRemainingLifeRequests} from './util';
 import getConfig from './config';
 
 export default function computeNextStep(
@@ -14,10 +14,9 @@ export default function computeNextStep(
   const config = (getConfig(engine): MicroLearningConfig);
   // if no more lives, return failure endpoint
   if (!isAlive(state)) {
-    return {
-      ref: 'failExitNode',
-      type: 'failure'
-    };
+    return hasRemainingLifeRequests(state)
+      ? {ref: 'extraLife', type: 'node'}
+      : {ref: 'failExitNode', type: 'failure'};
   }
 
   // if all slides answered and still alive return success endpoint
