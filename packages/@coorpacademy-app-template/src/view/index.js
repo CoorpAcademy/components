@@ -1,18 +1,6 @@
 import {createElement} from 'react';
 import pipe from 'lodash/fp/pipe';
-import {increment, decrement} from '../actions';
-
-const createMapStateToProps = ({api}) => dispatch => (state, params) => {
-  const {counter} = state;
-
-  return {
-    counter,
-    onIncrement: () => dispatch(increment()),
-    onDecrement: () => dispatch(decrement())
-  };
-};
-
-export {createMapStateToProps};
+import createMapStateToProps from './state-to-props';
 
 const View = ({counter = 0, onIncrement, onDecrement}) =>
   createElement(
