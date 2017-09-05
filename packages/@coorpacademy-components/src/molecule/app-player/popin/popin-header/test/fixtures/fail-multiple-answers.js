@@ -1,6 +1,7 @@
 export default {
   props: {
     fail: true,
+    hasJoker: false,
     lives: 2,
     title: 'Aïe Aïe Aïe',
     subtitle: 'Mauvaise réponse',

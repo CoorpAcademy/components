@@ -360,6 +360,7 @@ import VideoPlayerFixtureVimeo from '../src/molecule/video-player/test/fixtures/
 import VideoPlayerFixtureYoutube from '../src/molecule/video-player/test/fixtures/youtube';
 import PopinHeaderFixtureFailMultipleAnswers from '../src/molecule/app-player/popin/popin-header/test/fixtures/fail-multiple-answers';
 import PopinHeaderFixtureFail from '../src/molecule/app-player/popin/popin-header/test/fixtures/fail';
+import PopinHeaderFixtureJoker from '../src/molecule/app-player/popin/popin-header/test/fixtures/joker';
 import PopinHeaderFixtureLoading from '../src/molecule/app-player/popin/popin-header/test/fixtures/loading';
 import PopinHeaderFixtureStarsRank from '../src/molecule/app-player/popin/popin-header/test/fixtures/stars-rank';
 import PopinHeaderFixtureSuccess from '../src/molecule/app-player/popin/popin-header/test/fixtures/success';
@@ -1103,6 +1104,7 @@ export const fixtures = {
     PopinHeader: {
       FailMultipleAnswers: PopinHeaderFixtureFailMultipleAnswers,
       Fail: PopinHeaderFixtureFail,
+      Joker: PopinHeaderFixtureJoker,
       Loading: PopinHeaderFixtureLoading,
       StarsRank: PopinHeaderFixtureStarsRank,
       Success: PopinHeaderFixtureSuccess

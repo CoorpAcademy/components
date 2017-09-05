@@ -1,6 +1,7 @@
 export default {
   props: {
     lives: 3,
+    hasJoker: false,
     fail: false,
     title: 'Good job',
     subtitle: 'Bonne réponse',

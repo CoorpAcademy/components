@@ -14,6 +14,15 @@
   height: 100px;
   width: 100%;
   font-family: 'Open Sans';
+  flex-wrap: wrap;
+}
+
+.headerTitle {
+  display: flex;
+  height: 100px;
+  width: 100%;
+  font-family: 'Open Sans';
+  position: relative;
 }
 
 .section {
@@ -49,6 +58,11 @@
 
 .correctionSectionFail {
   composes: correctionSectionLoading;
+  background-color: negative;
+}
+
+.correctionSectionFailGameOver {
+  composes: correctionSectionFail;
   background-color: negative;
 }
 
@@ -159,6 +173,13 @@
   min-height: 56px;
 }
 
+.nextSectionGameOver {
+  composes: nextSection;
+  background-color: negative;
+  color: white;
+  border-left: solid 1px white;
+}
+
 .nextButton {
   font-family: 'Open Sans';
   color: inherit;
@@ -183,6 +204,30 @@
   width: 20px;
   height: 20px;
   margin-left: 14px;
+}
+
+/*
+ * Joker Part
+ */
+.heart {
+  margin-right: 8px;
+  position: relative;
+  top: -1px;
+  width: 22px;
+  height: 22px;
+}
+
+.jokerContent {
+  display: block;
+  background-color: light;
+  border: solid 1px medium;
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  font-family: 'Open Sans';
+  font-size: 16px;
+  font-weight: 700;
+  color: dark;
 }
 
 @media tablet {
