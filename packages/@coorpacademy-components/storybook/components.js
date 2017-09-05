@@ -362,6 +362,7 @@ import VideoPlayerFixtureVimeo from '../src/molecule/video-player/test/fixtures/
 import VideoPlayerFixtureYoutube from '../src/molecule/video-player/test/fixtures/youtube';
 import PopinHeaderFixtureFailMultipleAnswers from '../src/molecule/app-player/popin/popin-header/test/fixtures/fail-multiple-answers';
 import PopinHeaderFixtureFail from '../src/molecule/app-player/popin/popin-header/test/fixtures/fail';
+import PopinHeaderFixtureJoker from '../src/molecule/app-player/popin/popin-header/test/fixtures/joker';
 import PopinHeaderFixtureLoading from '../src/molecule/app-player/popin/popin-header/test/fixtures/loading';
 import PopinHeaderFixtureStarsRank from '../src/molecule/app-player/popin/popin-header/test/fixtures/stars-rank';
 import PopinHeaderFixtureSuccess from '../src/molecule/app-player/popin/popin-header/test/fixtures/success';
@@ -512,6 +513,7 @@ import PopinCorrectionFixtureCorrectOpenResourcesWithVideo from '../src/template
 import PopinCorrectionFixtureCorrectOpenTips from '../src/template/app-player/popin-correction/test/fixtures/correct-open-tips';
 import PopinCorrectionFixtureCorrectWithoutResources from '../src/template/app-player/popin-correction/test/fixtures/correct-without-resources';
 import PopinCorrectionFixtureFailClosed from '../src/template/app-player/popin-correction/test/fixtures/fail-closed';
+import PopinCorrectionFixtureFailJokerOpenKlf from '../src/template/app-player/popin-correction/test/fixtures/fail-joker-open-klf';
 import PopinCorrectionFixtureFailMultipleAnswers from '../src/template/app-player/popin-correction/test/fixtures/fail-multiple-answers';
 import PopinCorrectionFixtureFailOpenKlf from '../src/template/app-player/popin-correction/test/fixtures/fail-open-klf';
 import PopinCorrectionFixtureFailOpenResourcesWithPdf from '../src/template/app-player/popin-correction/test/fixtures/fail-open-resources-with-pdf';
@@ -1108,6 +1110,7 @@ export const fixtures = {
     PopinHeader: {
       FailMultipleAnswers: PopinHeaderFixtureFailMultipleAnswers,
       Fail: PopinHeaderFixtureFail,
+      Joker: PopinHeaderFixtureJoker,
       Loading: PopinHeaderFixtureLoading,
       StarsRank: PopinHeaderFixtureStarsRank,
       Success: PopinHeaderFixtureSuccess
@@ -1354,6 +1357,7 @@ export const fixtures = {
       CorrectOpenTips: PopinCorrectionFixtureCorrectOpenTips,
       CorrectWithoutResources: PopinCorrectionFixtureCorrectWithoutResources,
       FailClosed: PopinCorrectionFixtureFailClosed,
+      FailJokerOpenKlf: PopinCorrectionFixtureFailJokerOpenKlf,
       FailMultipleAnswers: PopinCorrectionFixtureFailMultipleAnswers,
       FailOpenKlf: PopinCorrectionFixtureFailOpenKlf,
       FailOpenResourcesWithPdf: PopinCorrectionFixtureFailOpenResourcesWithPdf,
@@ -1553,9 +1557,6 @@ export const dependencies = {
         "MoleculeDashboard": {
           "StartBattle": true,
           "NewsList": true
-        },
-        "MoleculeAppPlayerPopin": {
-          "PopinHeader": true
         },
         "Molecule": {
           "Unsubscribe": true,
@@ -2737,7 +2738,6 @@ export const dependencies = {
       },
       "children": {
         "Atom": {
-          "Link": true,
           "Loader": true
         }
       }
@@ -2976,8 +2976,8 @@ export const dependencies = {
     "PopinCorrection": {
       "children": {
         "Atom": {
-          "Link": true,
           "Loader": true,
+          "Link": true,
           "ResourceMiniature": true
         },
         "MoleculeAppPlayerPopin": {
