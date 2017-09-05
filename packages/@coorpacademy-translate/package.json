@@ -39,5 +39,15 @@
     "cross-env": "^5.0.0",
     "rimraf": "^2.6.1"
   },
+  "ava": {
+    "files": [
+      "src/**/test/**/*.js"
+    ],
+    "require": [
+      "babel-register",
+      "babel-polyfill"
+    ],
+    "babel": "inherit"
+  },
   "author": "CoorpAcademy"
 }
