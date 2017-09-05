@@ -50,6 +50,11 @@ const services = result => t => ({
       t.is(id, 'foo');
       return ['Bonne réponse'];
     }
+  },
+  Analytics: {
+    sendProgressionAnalytics: () => {
+      t.pass();
+    }
   }
 });
 
@@ -76,7 +81,8 @@ test(
   stateWithSlideAndManyResources,
   services(viewedOneLesson),
   validateAnswer('foo', {answers: ['bar']}),
-  flatten([answer(viewedOneLesson), accordionIsOpenAt(0), fetchCorrection])
+  flatten([answer(viewedOneLesson), accordionIsOpenAt(0), fetchCorrection]),
+  12
 );
 
 test(
@@ -85,5 +91,6 @@ test(
   stateWithSlideAndManyResources,
   services(viewedThreeLessons),
   validateAnswer('foo', {answers: ['bar']}),
-  flatten([answer(viewedThreeLessons), accordionIsOpenAt(1), fetchCorrection])
+  flatten([answer(viewedThreeLessons), accordionIsOpenAt(1), fetchCorrection]),
+  12
 );

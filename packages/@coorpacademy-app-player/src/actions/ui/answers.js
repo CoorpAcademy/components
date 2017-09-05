@@ -59,6 +59,8 @@ export const validateAnswer = (progressionId, body) => async (dispatch, getState
   if (createAnswerResponse.error) return createAnswerResponse;
 
   const payload = createAnswerResponse.payload;
+  services.Analytics.sendProgressionAnalytics(payload.state.nextContent);
+
   const progressionState = get('state', payload);
   const slideId = get('content.ref', progressionState);
 

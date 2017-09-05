@@ -86,8 +86,14 @@ test(
           corrections: givenAnswer.map(answer => ({answer, isCorrect: false}))
         };
       }
+    },
+    Analytics: {
+      sendProgressionAnalytics: () => {
+        t.pass();
+      }
     }
   }),
   validateAnswer('foo', {answers: ['bar']}),
-  flatten([createCorrectAnswer, accordionIsOpenAt(2), successfullyFetchAnswers])
+  flatten([createCorrectAnswer, accordionIsOpenAt(2), successfullyFetchAnswers]),
+  12
 );

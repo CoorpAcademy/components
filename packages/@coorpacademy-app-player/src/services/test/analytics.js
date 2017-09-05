@@ -1,5 +1,5 @@
 import test from 'ava';
-import {sendViewedMediaAnalytics} from '../analytics';
+import {sendViewedMediaAnalytics, sendProgressionAnalytics} from '../analytics';
 
 test('populate dataLayer when empty', t => {
   global.window = {};
@@ -9,15 +9,32 @@ test('populate dataLayer when empty', t => {
 });
 
 test('verify viewMedia tag', t => {
-  t.plan(2);
+  t.plan(1);
   global.window = {
     dataLayer: {
       push: evt => {
         t.deepEqual(evt, {event: 'mediaViewed', mediaType: 'video', location: 'media'});
-        t.pass();
       }
     }
   };
 
   sendViewedMediaAnalytics({type: 'video'}, 'media');
+});
+
+test('verify sendProgressionAnalytics tag', t => {
+  t.plan(1);
+  global.window = {
+    dataLayer: {
+      push: evt => {
+        t.deepEqual(evt, {
+          event: 'finishProgression',
+          progression: {type: 'microlearning', state: 'success'}
+        });
+      }
+    }
+  };
+
+  sendProgressionAnalytics({
+    type: 'success'
+  });
 });
