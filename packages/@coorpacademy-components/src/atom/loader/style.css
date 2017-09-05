@@ -4,14 +4,14 @@
 @value brand from colors;
 @value battle from colors;
 @value TIME 3s;
-@value RED_INITIAL translate(-2.5px, 10px) rotate(45deg);
-@value RED_FINAL translate(-5px, -5px) rotate(45deg);
-@value BLUE_INITIAL translate(-2.5px, 40px) rotate(-45deg);
-@value BLUE_FINAL translate(-5px, 55px) rotate(-45deg);
-@value YELLOW_INITIAL translate(27.5px, 40px) rotate(225deg);
-@value YELLOW_FINAL translate(55px, 55px) rotate(225deg);
-@value GREEN_INITIAL translate(27.5px, 10px) rotate(135deg);
-@value GREEN_FINAL translate(55px, -5px) rotate(135deg);
+@value RED_INITIAL translate3d(-2.5px, 10px, 0) rotate3d(0, 0, 1, 45deg);
+@value RED_FINAL translate3d(-5px, -5px, 0) rotate3d(0, 0, 1, 45deg);
+@value BLUE_INITIAL translate3d(-2.5px, 40px, 0) rotate3d(0, 0, 1, -45deg);
+@value BLUE_FINAL translate3d(-5px, 55px, 0) rotate3d(0, 0, 1, -45deg);
+@value YELLOW_INITIAL translate3d(27.5px, 40px, 0) rotate3d(0, 0, 1, 225deg);
+@value YELLOW_FINAL translate3d(55px, 55px, 0) rotate3d(0, 0, 1, 225deg);
+@value GREEN_INITIAL translate3d(27.5px, 10px, 0) rotate3d(0, 0, 1, 135deg);
+@value GREEN_FINAL translate3d(55px, -5px, 0) rotate3d(0, 0, 1, 135deg);
 
 .container {
   position: absolute;
@@ -63,45 +63,45 @@
 
 @keyframes scale {
   0% {
-    transform: translate(-50%, -50%) scale(0.5);
+    transform: translate3d(-50%, -50%, 0) scale3d(0.5, 0.5, 1);
   }
 
   15% {
-    transform: translate(-50%, -50%) scale(0.2);
+    transform: translate3d(-50%, -50%, 0) scale3d(0.2, 0.2, 1);
   }
 
   33% {
-    transform: translate(-50%, -50%) scale(0.5);
+    transform: translate3d(-50%, -50%, 0) scale3d(0.5, 0.5, 1);
   }
 
   44% {
-    transform: translate(-50%, -50%) scale(0.5);
+    transform: translate3d(-50%, -50%, 0) scale3d(0.5, 0.5, 1);
   }
 
   50% {
-    transform: translate(-50%, -50%) scale(0.8);
+    transform: translate3d(-50%, -50%, 0) scale3d(0.8, 0.8, 1);
   }
 
   66% {
-    transform: translate(-50%, -50%) scale(0.5);
+    transform: translate3d(-50%, -50%, 0) scale3d(0.5, 0.5, 1);
   }
 
   77% {
-    transform: translate(-50%, -50%) scale(0.5);
+    transform: translate3d(-50%, -50%, 0) scale3d(0.5, 0.5, 1);
   }
 
   88% {
-    transform: translate(-50%, -50%) scale(0.3);
+    transform: translate3d(-50%, -50%, 0) scale3d(0.3, 0.3, 1);
   }
 
   100% {
-    transform: translate(-50%, -50%) scale(0.5);
+    transform: translate3d(-50%, -50%, 0) scale3d(0.5, 0.5, 1);
   }
 }
 
 @keyframes rotate {
   100% {
-    transform: rotate(360deg);
+    transform: rotate3d(0, 0, 1, 360deg);
   }
 }
 

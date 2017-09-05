@@ -1764,15 +1764,13 @@ export const dependencies = {
           "BrandTable": true
         },
         "MoleculeDashboard": {
-          "NewsList": true,
-          "CardsList": true
+          "NewsList": true
         },
         "MoleculeAppPlayerPopin": {
           "PopinHeader": true
         },
         "Molecule": {
           "SetupSections": true,
-          "Card": true,
           "BrandUploadBox": true
         },
         "Atom": {
@@ -1904,11 +1902,7 @@ export const dependencies = {
           "CardsList": true
         }
       },
-      "children": {
-        "Atom": {
-          "Loader": true
-        }
-      }
+      "children": {}
     },
     "Filters": {
       "parents": {
@@ -2658,9 +2652,6 @@ export const dependencies = {
       "children": {
         "Molecule": {
           "Card": true
-        },
-        "Atom": {
-          "Loader": true
         }
       }
     },
