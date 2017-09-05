@@ -6,7 +6,6 @@ import LockIcon from '@coorpacademy/nova-icons/solid/locks/lock-1';
 import ClockIcon from '@coorpacademy/nova-icons/composition/coorpacademy/clock';
 import AdaptivIcon from '@coorpacademy/nova-icons/composition/coorpacademy/adaptive';
 import TimerIcon from '@coorpacademy/nova-icons/composition/coorpacademy/timer';
-import Loader from '../../atom/loader';
 import Provider from '../../atom/provider';
 import style from './style.css';
 
@@ -71,7 +70,6 @@ const Card = (props, context) => {
     : null;
 
   const timer = time ? <Timer time={time} color={darkColor} /> : null;
-  const loader = title && type ? null : <Loader />;
 
   return (
     <div
@@ -90,7 +88,6 @@ const Card = (props, context) => {
               backgroundImage: image ? `url('${image}')` : 'none'
             }}
           >
-            {loader}
             <div data-name="cover" className={style.ctaWrapper} onClick={!disabled && onClick}>
               {freeRunIcon}
               {adaptivIcon}
