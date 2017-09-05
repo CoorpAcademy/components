@@ -10,7 +10,8 @@ const realConfigurations: Array<MicroLearningConfig> = [
     answerBoundaryLimit: 5,
     starsPerAskingClue: -1,
     starsPerCorrectAnswer: 4,
-    starsPerResourceViewed: 4
+    starsPerResourceViewed: 4,
+    jokers: 1
   }
 ];
 
@@ -23,7 +24,8 @@ const testConfigurations: Array<MicroLearningConfig> = [
     answerBoundaryLimit: 5,
     starsPerAskingClue: -1,
     starsPerCorrectAnswer: 4,
-    starsPerResourceViewed: 5
+    starsPerResourceViewed: 5,
+    jokers: 1
   }
 ];
 

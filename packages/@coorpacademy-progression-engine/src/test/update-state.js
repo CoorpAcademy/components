@@ -401,7 +401,7 @@ test('should add one life when using joker', t => {
   const newState = updateState(engine, state, [action]);
 
   t.is(newState.lives, 1);
-  t.is(newState.usedJoker, true);
+  t.is(newState.jokers, 0);
 });
 
 test('should not change life when trying to use joker another time', t => {
@@ -410,5 +410,5 @@ test('should not change life when trying to use joker another time', t => {
   const newState = updateState(engine, state, [action]);
 
   t.is(newState.lives, 0);
-  t.is(newState.usedJoker, true);
+  t.is(newState.jokers, 0);
 });

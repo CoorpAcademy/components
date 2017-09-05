@@ -104,14 +104,14 @@ function requestedClues(config: MicroLearningConfig): (Array<string>, Action) =>
   };
 }
 
-function usedJoker(config: MicroLearningConfig): (boolean, Action, State) => boolean {
-  return (hasUsedJoker: boolean = false, action: Action, state: State): boolean => {
+function jokers(config: MicroLearningConfig): (number, Action, State) => number {
+  return (count: number = config.jokers, action: Action, state: State): number => {
     switch (action.type) {
       case 'joker': {
-        return true;
+        return count > 0 ? count - 1 : count;
       }
       default:
-        return hasUsedJoker;
+        return count;
     }
   };
 }
@@ -124,7 +124,7 @@ function lives(config: MicroLearningConfig): (number, Action, State) => number {
         return answerAction.payload.isCorrect ? amount : amount - 1;
       }
       case 'joker': {
-        return state.lives === 0 && !state.usedJoker ? amount + 1 : amount;
+        return state.jokers > 0 ? amount + 1 : amount;
       }
       default:
         return amount;
@@ -243,7 +243,7 @@ const reduceAction = combineReducers([
   {key: 'stars', fn: stars},
   {key: 'requestedClues', fn: requestedClues},
   {key: 'viewedResources', fn: viewedResources},
-  {key: 'usedJoker', fn: usedJoker},
+  {key: 'jokers', fn: jokers},
   {key: 'content', fn: content},
   {key: 'nextContent', fn: nextContent}
 ]);

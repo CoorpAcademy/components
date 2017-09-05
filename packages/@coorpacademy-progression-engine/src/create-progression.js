@@ -27,7 +27,7 @@ export default function createProgression(
     },
     content: undefined,
     nextContent: initialContent,
-    usedJoker: false
+    jokers: config.jokers
   };
 
   return {

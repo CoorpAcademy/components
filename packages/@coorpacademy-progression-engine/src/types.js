@@ -35,7 +35,7 @@ export type State = {
   viewedResources: Array<ViewedResource>,
   stars: number,
   step: Step,
-  usedJoker: boolean
+  jokers: number
 };
 
 export type AskClueAction = {
@@ -176,7 +176,8 @@ export type MicroLearningConfig = {
   answerBoundaryLimit: number,
   starsPerAskingClue: number,
   starsPerCorrectAnswer: number,
-  starsPerResourceViewed: number
+  starsPerResourceViewed: number,
+  jokers: number
 };
 
 export type Config = MicroLearningConfig;
