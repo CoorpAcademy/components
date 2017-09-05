@@ -8,7 +8,7 @@ export const updateDiscussionTextareaAction = value => ({
   }
 });
 
-export const resetDiscussionTextareaAction = value => ({
+export const resetDiscussionTextareaAction = () => ({
   type: UI_RESET_DISCUSSION_TEXTAREA,
   payload: {}
 });
