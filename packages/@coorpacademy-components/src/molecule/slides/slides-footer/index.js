@@ -33,6 +33,7 @@ const SlidesFooter = (props, context) => {
     return (
       <div
         data-name="button"
+        data-type={type}
         className={disabled ? style.disabled : className}
         key={key}
         onClick={onClick}
