@@ -28,7 +28,6 @@ export type Content = GenericContent | ResourceContent;
 export type State = {
   content?: Content,
   nextContent: Content,
-  previousLives: number,
   lives: number,
   isCorrect: boolean,
   slides: Array<string>,

@@ -16,7 +16,6 @@ import {
   stateForFirstSlide,
   stateForSecondSlide,
   failProgressionState,
-  successProgressionState,
   usedJokerProgressionState
 } from './fixtures/states';
 
@@ -280,7 +279,7 @@ test('should update stars once when actions has several AskClueAction for the sa
     }
   });
 
-  const omitChangedFields = omit(['requestedClues', 'stars', 'previousLives']);
+  const omitChangedFields = omit(['requestedClues', 'stars']);
   const newState = updateState(engine, state, [action, action]);
 
   t.is(newState.stars, 3);
@@ -295,7 +294,7 @@ test('should update stars once when actions has several AskClueAction for the sa
 test('should update stars after viewing a resource', t => {
   const state: State = Object.freeze(stateForFirstSlide);
 
-  const omitChangedFields = omit(['viewedResources', 'stars', 'previousLives']);
+  const omitChangedFields = omit(['viewedResources', 'stars']);
   const newState = updateState(engine, state, [chapterResourceViewedAction('1.A1', 'lesson_1')]);
 
   t.is(newState.stars, 4);
@@ -315,7 +314,7 @@ test('should update stars after viewing a resource (with different number of sta
     version: 'allow_typos_3'
   };
 
-  const omitChangedFields = omit(['viewedResources', 'stars', 'previousLives']);
+  const omitChangedFields = omit(['viewedResources', 'stars']);
   const newState = updateState(engineWithDifferentStars, state, [
     chapterResourceViewedAction('1.A1', 'lesson_1')
   ]);
@@ -332,7 +331,7 @@ test('should update stars after viewing a resource (with different number of sta
 test('should only count stars for viewing a resource once for every chapter even if there are multiple resource viewing actions', t => {
   const state: State = Object.freeze(stateForFirstSlide);
 
-  const omitChangedFields = omit(['viewedResources', 'stars', 'previousLives']);
+  const omitChangedFields = omit(['viewedResources', 'stars']);
   const newState = updateState(engine, state, [
     chapterResourceViewedAction('1.A1', 'lesson_1'),
     chapterResourceViewedAction('1.A1', 'lesson_2'),
@@ -353,7 +352,7 @@ test('should only count stars for viewing a resource once for every chapter even
 test('should count stars for viewing resources multiple times as long as they are for different chapters', t => {
   const state: State = Object.freeze(stateForFirstSlide);
 
-  const omitChangedFields = omit(['viewedResources', 'stars', 'previousLives']);
+  const omitChangedFields = omit(['viewedResources', 'stars']);
   const newState = updateState(engine, state, [
     chapterResourceViewedAction('1.A1', 'lesson_1'),
     chapterResourceViewedAction('1.A1', 'lesson_1'),
@@ -403,15 +402,6 @@ test('should add one life when using joker', t => {
 
   t.is(newState.lives, 1);
   t.is(newState.usedJoker, true);
-});
-
-test('should not change life when trying to use joker and life > 0', t => {
-  const state: State = Object.freeze(successProgressionState);
-  const action: UseJokerAction = Object.freeze({type: 'joker'});
-  const newState = updateState(engine, state, [action]);
-
-  t.is(newState.lives, 1);
-  t.is(newState.usedJoker, false);
 });
 
 test('should not change life when trying to use joker another time', t => {

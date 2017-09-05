@@ -108,17 +108,11 @@ function usedJoker(config: MicroLearningConfig): (boolean, Action, State) => boo
   return (hasUsedJoker: boolean = false, action: Action, state: State): boolean => {
     switch (action.type) {
       case 'joker': {
-        return hasUsedJoker || (state.previousLives === 0 && state.lives === 1);
+        return true;
       }
       default:
         return hasUsedJoker;
     }
-  };
-}
-
-function previousLives(config: MicroLearningConfig): (number, Action, State) => number {
-  return (amount: number = config.lives, action: Action, state: State): number => {
-    return state.lives;
   };
 }
 
@@ -244,7 +238,6 @@ function combineReducers(
 const reduceAction = combineReducers([
   {key: 'isCorrect', fn: isCorrect},
   {key: 'slides', fn: slides},
-  {key: 'previousLives', fn: previousLives},
   {key: 'lives', fn: lives},
   {key: 'step', fn: step},
   {key: 'stars', fn: stars},

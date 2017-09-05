@@ -7,7 +7,6 @@ export const stateForFirstSlide: State = {
     ref: '1.A1.1',
     type: 'slide'
   },
-  previousLives: 1,
   lives: 1,
   stars: 0,
   slides: [],
@@ -30,7 +29,6 @@ export const stateForSecondSlide: State = {
     ref: '1.A1.2',
     type: 'slide'
   },
-  previousLives: 1,
   lives: 1,
   slides: ['1.A1.4'],
   requestedClues: [],
@@ -53,7 +51,6 @@ export const failProgressionState: State = {
     ref: '1.A1.2',
     type: 'slide'
   },
-  previousLives: 1,
   lives: 0,
   isCorrect: false,
   slides: ['1.A1.1', '1.A1.2'],
@@ -76,7 +73,6 @@ export const usedJokerProgressionState: State = {
     ref: '1.A1.2',
     type: 'slide'
   },
-  previousLives: 1,
   lives: 0,
   isCorrect: false,
   slides: ['1.A1.1', '1.A1.2'],
@@ -99,7 +95,6 @@ export const successProgressionState: State = {
     ref: '1.A1.4',
     type: 'slide'
   },
-  previousLives: 1,
   lives: 1,
   isCorrect: true,
   slides: ['1.A1.1', '1.A1.3', '1.A1.2', '1.A1.4'],

@@ -15,7 +15,6 @@ export default function createProgression(
   };
 
   const initialState: State = {
-    previousLives: config.lives,
     lives: config.lives,
     isCorrect: true,
     slides: [],
