@@ -2,7 +2,7 @@ import {createStore} from 'redux';
 import {render, unmountComponentAtNode} from 'react-dom';
 import createReducer from './reducers';
 import createMiddleware from './middlewares';
-import createMapStateToVnode from './views';
+import createMapStateToVnode from './view';
 import {fetchDiscussionAction} from './actions/api-fetch-discussion';
 
 const createUpdate = (container, {dispatch, getState}, options) => createMapStateToView => {
@@ -25,7 +25,7 @@ const create = options => {
   let unsubscribe = store.subscribe(update);
 
   if (module.hot) {
-    module.hot.accept('./view.js', function() {
+    module.hot.accept('./view', function() {
       unsubscribe();
       update = createUpdate(container, store, options)(require('./view').default);
       update();
