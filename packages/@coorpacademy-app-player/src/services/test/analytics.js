@@ -22,8 +22,8 @@ test('verify viewMedia tag', t => {
   sendViewedMediaAnalytics({type: 'video'}, 'media');
 });
 
-test('verify sendProgression tag', t => {
-  t.plan(2);
+test('verify sendProgressionAnalytics tag', t => {
+  t.plan(1);
   global.window = {
     dataLayer: {
       push: evt => {
