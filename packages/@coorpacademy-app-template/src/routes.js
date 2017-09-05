@@ -1,5 +1,5 @@
 import {createRouter} from '@coorpacademy/redux-router';
-import createView from './views';
+import createView from './view';
 
 const routes = [
   {

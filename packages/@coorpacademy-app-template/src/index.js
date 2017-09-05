@@ -27,7 +27,7 @@ const create = options => {
   let unsubscribe = store.subscribe(update);
 
   if (module.hot) {
-    module.hot.accept('./view.js', function() {
+    module.hot.accept('./view', function() {
       unsubscribe();
       update = createUpdate(container, store, options)(require('./view').default);
       update();
