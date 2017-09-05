@@ -1,6 +1,5 @@
 import test from 'ava';
-import {sendViewedMediaAnalytics} from '../analytics';
-import {sendProgressionAnalytics} from '../analytics';
+import {sendViewedMediaAnalytics, sendProgressionAnalytics} from '../analytics';
 
 test('populate dataLayer when empty', t => {
   global.window = {};
@@ -28,7 +27,10 @@ test('verify sendProgression tag', t => {
   global.window = {
     dataLayer: {
       push: evt => {
-        t.deepEqual(evt, {event: 'finishProgression', progression: { type: 'microlearning', state: 'success' }});
+        t.deepEqual(evt, {
+          event: 'finishProgression',
+          progression: {type: 'microlearning', state: 'success'}
+        });
         t.pass();
       }
     }
