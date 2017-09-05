@@ -50,6 +50,11 @@ const services = t => ({
       t.is(id, 'foo');
       return ['Bonne réponse'];
     }
+  },
+  Analytics: {
+    sendProgressionAnalytics: () => {
+      t.pass();
+    }
   }
 });
 
@@ -59,5 +64,6 @@ test(
   set('data.progressions.entities.foo.state.nextContent', {type: 'slide', ref: 'baz'})({}),
   services,
   validateAnswer('foo', {answers: ['bar']}),
-  flatten([answerAndGetSuccessExitNode, accordionIsOpenAt(0), fetchCorrection])
+  flatten([answerAndGetSuccessExitNode, accordionIsOpenAt(0), fetchCorrection]),
+  11
 );

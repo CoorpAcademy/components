@@ -79,6 +79,11 @@ test(
         t.is(id, 'foo');
         throw new Error();
       }
+    },
+    Analytics: {
+      sendProgressionAnalytics: () => {
+        t.pass();
+      }
     }
   }),
   validateAnswer('foo', {answers: ['bar']}),
@@ -129,5 +134,6 @@ test(
       error: true,
       payload: new Error()
     }
-  ]
+  ],
+  12
 );
