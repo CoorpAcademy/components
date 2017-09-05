@@ -108,12 +108,12 @@ const buildClass = (value, success, fail, loading) => {
 };
 
 const CorrectionPart = props => {
-  const {fail, corrections = [], title, subtitle, stars, rank, hasJoker} = props;
+  const {fail, corrections = [], title, subtitle, stars, rank, jokers} = props;
   const isLoading = isNil(fail);
   const className = buildClass(
     fail,
     stars && rank ? style.correctionSectionEndSuccess : style.correctionSectionSuccess,
-    hasJoker ? style.correctionSectionFailGameOver : style.correctionSectionFail,
+    jokers > 0 ? style.correctionSectionFail : style.correctionSectionFailGameOver,
     style.correctionSectionLoading
   );
 
@@ -155,12 +155,12 @@ const PopinHeader = (props, context) => {
     rank,
     corrections,
     cta,
-    hasJoker,
+    jokers,
     jokerContent
   } = props;
 
   const state = buildClass(fail, 'success', 'fail', null);
-  const jokerView = hasJoker
+  const jokerView = jokers === 0
     ? <div className={style.jokerContent}>
         <Heart color="#f73f52" width="20px" className={style.heart} />
         {jokerContent}
@@ -178,7 +178,7 @@ const PopinHeader = (props, context) => {
           stars={stars}
           rank={rank}
           fail={fail}
-          hasJoker={hasJoker}
+          jokers={jokers}
           corrections={corrections}
         />
         {NextQuestionPart(cta, context)}
@@ -194,7 +194,7 @@ PopinHeader.contextTypes = {
 
 PopinHeader.propTypes = {
   fail: Life.propTypes.fail,
-  hasJoker: PropTypes.bool,
+  jokers: PropTypes.bool,
   lives: Life.propTypes.count,
   animated: Life.propTypes.animated,
   stars: PropTypes.string,
