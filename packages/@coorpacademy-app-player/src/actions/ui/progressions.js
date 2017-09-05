@@ -31,11 +31,11 @@ export const selectProgression = id => async (dispatch, getState) => {
   const progression = getCurrentProgression(getState());
   const engine = getEngine(getState());
   const {ref, type} = getCurrentContent(getState());
-  const chapterRef = get('content.ref', progression);
+  const contentRef = get('content.ref', progression);
 
   await dispatch(fetchStartRank());
-  await dispatch(fetchChapter(chapterRef));
-  await dispatch(fetchBestProgression(chapterRef, progressionId));
+  await dispatch(fetchChapter(contentRef));
+  await dispatch(fetchBestProgression(contentRef, progressionId));
   await dispatch(fetchEngineConfig(engine));
 
   switch (type) {
