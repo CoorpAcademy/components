@@ -29,7 +29,6 @@ const LinkItem = props => {
   return (
     <Link
       onClick={handleOnClick}
-      skinHover
       data-name={props.name || `link-item-${props.index}`}
       style={{
         textDecoration: 'none',

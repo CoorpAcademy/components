@@ -224,7 +224,6 @@ class MoocHeader extends React.Component {
             data-name={`page-${pageName}`}
             href={page.href}
             className={page.selected ? style.activePage : style.page}
-            skinHover
             onClick={this.handleLinkClick}
             target={page.target || null}
             style={{
@@ -260,7 +259,6 @@ class MoocHeader extends React.Component {
             data-name={`page-more-${pageName}`}
             target={page.target || null}
             onClick={this.handleLinkClick}
-            skinHover
             style={{
               ...activeColor
             }}
@@ -377,7 +375,6 @@ class MoocHeader extends React.Component {
                 <Link
                   className={style.link}
                   href={options.href}
-                  skinHover
                   onClick={this.handleLinkClick}
                   target={options.target || null}
                 >
