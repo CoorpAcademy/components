@@ -194,7 +194,7 @@ PopinHeader.contextTypes = {
 
 PopinHeader.propTypes = {
   fail: Life.propTypes.fail,
-  jokers: PropTypes.string,
+  jokers: PropTypes.number,
   lives: Life.propTypes.count,
   animated: Life.propTypes.animated,
   stars: PropTypes.string,
