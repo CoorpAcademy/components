@@ -4,7 +4,6 @@ import compact from 'lodash/fp/compact';
 import flatten from 'lodash/fp/flatten';
 import get from 'lodash/fp/get';
 import isNil from 'lodash/fp/isNil';
-import isNumber from 'lodash/fp/isNumber';
 import pipe from 'lodash/fp/pipe';
 import times from 'lodash/fp/times';
 import zip from 'lodash/fp/zip';
@@ -114,7 +113,7 @@ const CorrectionPart = props => {
   const className = buildClass(
     fail,
     stars && rank ? style.correctionSectionEndSuccess : style.correctionSectionSuccess,
-    jokers > 0 ? style.correctionSectionFail : style.correctionSectionFailGameOver,
+    jokers > 0 ? style.correctionSectionFailGameOver : style.correctionSectionFail,
     style.correctionSectionLoading
   );
 
@@ -146,14 +145,13 @@ const NextQuestionPart = props => {
 };
 
 const JokerView = (props, {skin}) => {
-  const {jokers, jokerContent} = props;
+  const {jokerSentence} = props;
   const negative = get('common.negative', skin);
-  if (isNumber(jokers > 0)) return null;
 
   return (
-    <div className={style.jokerContent}>
+    <div className={style.jokerSentence}>
       <Heart color={negative} className={style.heart} />
-      {jokerContent}
+      {jokerSentence}
     </div>
   );
 };
@@ -174,7 +172,7 @@ const PopinHeader = (props, context) => {
     corrections,
     cta,
     jokers,
-    jokerContent
+    jokerSentence
   } = props;
 
   const state = buildClass(fail, 'success', 'fail', null);
@@ -195,7 +193,7 @@ const PopinHeader = (props, context) => {
         />
         {NextQuestionPart(cta, context)}
       </div>
-      <JokerView jokerContent={jokerContent} jokers={jokers} />
+      {jokers > 0 ? <JokerView jokerSentence={jokerSentence} jokers={jokers} /> : null}
     </div>
   );
 };
@@ -213,7 +211,7 @@ PopinHeader.propTypes = {
   rank: PropTypes.string,
   subtitle: PropTypes.string,
   title: PropTypes.string,
-  jokerContent: PropTypes.string,
+  jokerSentence: PropTypes.string,
   corrections: AnswersCorrection.propTypes.corrections,
   cta: PropTypes.shape({
     ...Link.propTypes,
