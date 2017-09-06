@@ -23,6 +23,7 @@
   width: 100%;
   font-family: 'Open Sans';
   position: relative;
+  z-index: 2;
 }
 
 .section {
@@ -209,6 +210,21 @@
 /*
  * Joker Part
  */
+
+@keyframes joker {
+  0% {
+    top: -60px;
+  }
+
+  90% {
+    top: 5px;
+  }
+
+  100% {
+    top: 0;
+  }
+}
+
 .heart {
   margin-right: 8px;
   position: relative;
@@ -228,6 +244,9 @@
   font-size: 16px;
   font-weight: 700;
   color: dark;
+  position: relative;
+  z-index: 1;
+  animation: joker 0.9s ease-out;
 }
 
 @media tablet {
