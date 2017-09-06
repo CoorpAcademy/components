@@ -11,12 +11,14 @@ export const sendViewedMediaAnalytics = (resource, location) => {
 
 export const sendProgressionAnalytics = nextContent => {
   window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({
-    event: 'finishProgression',
-    progression: {
-      type: 'microlearning',
-      state: nextContent.type
-    }
-  });
+  if (nextContent.type === 'success' || nextContent.type === 'failure') {
+    window.dataLayer.push({
+      event: 'finishProgression',
+      progression: {
+        type: 'microlearning',
+        state: nextContent.type
+      }
+    });
+  }
   return window.dataLayer;
 };
