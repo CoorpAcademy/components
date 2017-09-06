@@ -2,9 +2,11 @@
 import find from 'lodash/fp/find';
 import type {Config, Engine} from '../types';
 import microlearning from './microlearning';
+import learner from './learner';
 
 const engineConfigurations = {
-  microlearning
+  microlearning,
+  learner
 };
 
 export default function getEngineConfig(engine: Engine): Config {
