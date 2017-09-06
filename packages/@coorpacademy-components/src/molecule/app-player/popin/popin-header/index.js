@@ -4,6 +4,7 @@ import compact from 'lodash/fp/compact';
 import flatten from 'lodash/fp/flatten';
 import get from 'lodash/fp/get';
 import isNil from 'lodash/fp/isNil';
+import isNumber from 'lodash/fp/isNumber';
 import pipe from 'lodash/fp/pipe';
 import times from 'lodash/fp/times';
 import zip from 'lodash/fp/zip';
@@ -144,6 +145,23 @@ const NextQuestionPart = props => {
   );
 };
 
+const JokerView = (props, {skin}) => {
+  const {jokers, jokerContent} = props;
+  const negative = get('common.negative', skin);
+  if (isNumber(jokers > 0)) return null;
+
+  return (
+    <div className={style.jokerContent}>
+      <Heart color={negative} className={style.heart} />
+      {jokerContent}
+    </div>
+  );
+};
+
+JokerView.contextTypes = {
+  skin: Provider.childContextTypes.skin
+};
+
 const PopinHeader = (props, context) => {
   const {
     animated,
@@ -160,12 +178,6 @@ const PopinHeader = (props, context) => {
   } = props;
 
   const state = buildClass(fail, 'success', 'fail', null);
-  const jokerView = jokers === 0
-    ? <div className={style.jokerContent}>
-        <Heart color="#f73f52" width="20px" className={style.heart} />
-        {jokerContent}
-      </div>
-    : null;
 
   return (
     <div className={style.header} data-name="popinHeader" data-state={state}>
@@ -183,7 +195,7 @@ const PopinHeader = (props, context) => {
         />
         {NextQuestionPart(cta, context)}
       </div>
-      {jokerView}
+      <JokerView jokerContent={jokerContent} jokers={jokers} />
     </div>
   );
 };
