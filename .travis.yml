@@ -37,7 +37,7 @@ before_deploy: npm run static
 deploy:
   - provider: pages
     skip_cleanup: true
-    github_token: $GITHUB_TOKEN
+    github_token: $GH_TOKEN
     local_dir: static
     'on':
       branch: master
