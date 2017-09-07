@@ -1,11 +1,11 @@
-import {createStore, applyMiddleware} from 'redux';
-import ReduxThunk from 'redux-thunk';
+import {createStore} from 'redux';
 import last from 'lodash/fp/last';
 import head from 'lodash/fp/head';
 import size from 'lodash/fp/size';
 import isArray from 'lodash/fp/isArray';
 import map from 'lodash/fp/map';
 import defaultsDeep from 'lodash/fp/defaultsDeep';
+import createMiddleware from '../../../middlewares/index';
 
 const mapExpected = map(expected => (isArray(expected) ? expected : [expected]));
 
@@ -14,7 +14,7 @@ const actionMacro = async (t, state, createServices, action, expected, plan) => 
     t.plan(plan);
   }
   const options = {
-    services: createServices(t)
+    services: {Logger: {error: () => {}}, ...createServices(t)}
   };
   const expectedActions = mapExpected([{type: '@@redux/INIT'}, ...expected]);
   const {dispatch} = createStore(
@@ -24,7 +24,7 @@ const actionMacro = async (t, state, createServices, action, expected, plan) => 
       return defaultsDeep(_state, newState);
     },
     state,
-    applyMiddleware(ReduxThunk.withExtraArgument(options))
+    createMiddleware(options)
   );
 
   const result = await dispatch(action);

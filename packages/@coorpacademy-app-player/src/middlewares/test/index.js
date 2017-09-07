@@ -2,6 +2,14 @@ import test from 'ava';
 import {createStore} from 'redux';
 import createMiddleware from '../index';
 
+const appOptions = {
+  services: {
+    error: () => {
+      throw new Error('error logger should not have been called');
+    }
+  }
+};
+
 test('should apply redux-thunk', async t => {
   t.plan(5);
 
@@ -11,12 +19,12 @@ test('should apply redux-thunk', async t => {
       return state;
     },
     'state',
-    createMiddleware('options')
+    createMiddleware(appOptions)
   );
 
   await store.dispatch({type: 1});
   return store.dispatch((dispatch, getState, options) => {
-    t.is(options, 'options');
+    t.is(options, appOptions);
     t.is(getState(), 'state');
     return dispatch({
       type: 2
@@ -33,5 +41,5 @@ test('should enable devtools', t => {
     }
   };
 
-  createStore(state => state, 'state', createMiddleware('options'));
+  createStore(state => state, 'state', createMiddleware(appOptions));
 });

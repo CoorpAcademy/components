@@ -12,7 +12,7 @@ test('should create app', t => {
     translate: mockTranslate,
     container: el,
     services,
-    progressionId: '1'
+    progression: '0'
   });
 
   app.update();
