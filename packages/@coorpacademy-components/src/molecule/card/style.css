@@ -31,6 +31,11 @@
   animation: fadeIn 1s ease-out forwards;
 }
 
+.list.empty,
+.grid.empty {
+  opacity: 0.6;
+}
+
 .lazy {
   composes: default;
   pointer-events: none;
@@ -193,6 +198,10 @@
   text-transform: uppercase;
 }
 
+.type.empty::before {
+  content: '▅▅▅▅▅▅▅▅▅';
+}
+
 .default[disabled] .type {
   color: grey;
 }
@@ -202,6 +211,10 @@
   font-size: 18px;
   color: dark;
   letter-spacing: 0;
+}
+
+.title.empty::before {
+  content: '▅▅▅▅▅▅▅▅▅▅▅  ▅▅▅▅▅▅▅▅▅';
 }
 
 .title a {
@@ -222,6 +235,16 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.author.empty::before {
+  content: '▅▅▅▅▅▅▅▅▅';
+}
+
+.emptyIcon {
+  vertical-align: middle;
+  width: 80px;
+  height: 70px;
 }
 
 @keyframes progressbar {
