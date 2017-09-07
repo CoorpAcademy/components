@@ -11,6 +11,7 @@ import ArrowRight from '@coorpacademy/nova-icons/composition/navigation/arrow-ri
 import ChartsIcon from '@coorpacademy/nova-icons/composition/coorpacademy/charts';
 import StarIcon from '@coorpacademy/nova-icons/composition/coorpacademy/star';
 import Heart from '@coorpacademy/nova-icons/solid/vote-and-rewards/vote-heart';
+import classnames from 'classnames';
 import Loader from '../../../../atom/loader';
 import Life from '../../../../atom/life';
 import Link from '../../../../atom/link';
@@ -132,10 +133,13 @@ const CorrectionPart = props => {
 
 const NextQuestionPart = props => {
   const {title, isJoker, ...linkProps} = props || {};
-  const className = isJoker ? style.nextSectionGameOver : style.nextSection;
 
   return (
-    <Link className={className} data-name="nextLink" {...linkProps}>
+    <Link
+      className={classnames(style.nextSection, isJoker && style.gameOver)}
+      data-name="nextLink"
+      {...linkProps}
+    >
       <div data-name="nextButton" className={style.nextButton}>
         {title}
         <ArrowRight color="inherit" className={style.nextButtonIcon} />
@@ -178,7 +182,11 @@ const PopinHeader = (props, context) => {
   const state = buildClass(fail, 'success', 'fail', null);
 
   return (
-    <div className={style.header} data-name="popinHeader" data-state={state}>
+    <div
+      className={classnames(style.header, jokers && style.gameOverHeader)}
+      data-name="popinHeader"
+      data-state={state}
+    >
       <div className={style.headerTitle}>
         <CorrectionPart
           title={title}
