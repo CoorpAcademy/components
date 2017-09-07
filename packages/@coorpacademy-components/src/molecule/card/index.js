@@ -1,11 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import get from 'lodash/fp/get';
 import keys from 'lodash/fp/keys';
+import isEmpty from 'lodash/fp/isEmpty';
+import pick from 'lodash/fp/pick';
 import LockIcon from '@coorpacademy/nova-icons/solid/locks/lock-1';
 import ClockIcon from '@coorpacademy/nova-icons/composition/coorpacademy/clock';
 import AdaptivIcon from '@coorpacademy/nova-icons/composition/coorpacademy/adaptive';
 import TimerIcon from '@coorpacademy/nova-icons/composition/coorpacademy/timer';
+import PicturesIcon from '@coorpacademy/nova-icons/composition/coorpacademy/pictures';
 import Provider from '../../atom/provider';
 import style from './style.css';
 
@@ -41,13 +45,14 @@ const Card = (props, context) => {
   } = props;
 
   const lazyClass = title ? style.default : style.lazy;
-
+  const empty = isEmpty(pick(['title', 'type', 'author', 'image'], props));
   const defaultColor = get('common.primary', skin);
   const darkColor = get('common.dark', skin);
   const mediumColor = get('common.medium', skin);
+  const whiteColor = get('common.white', skin);
   const cardStyle = viewStyle[view];
 
-  const myprogress = !adaptiv
+  const myprogress = !adaptiv && !empty
     ? <div className={style.progressWrapper}>
         <div
           className={style.progress}
@@ -58,7 +63,9 @@ const Card = (props, context) => {
         />
       </div>
     : null;
-
+  const emptyIcon = empty
+    ? <PicturesIcon className={style.emptyIcon} color={whiteColor} background={defaultColor} />
+    : null;
   const freeRunIcon = freerun
     ? <div className={style.timerIconWrapper}>
         <TimerIcon className={style.freerunIcon} color={mediumColor} background={defaultColor} />
@@ -73,7 +80,7 @@ const Card = (props, context) => {
 
   return (
     <div
-      className={cardStyle}
+      className={classnames(cardStyle, empty ? style.empty : null)}
       data-name="card"
       data-lock={disabled}
       data-type={freerun ? 'microlearning' : 'learner'}
@@ -90,6 +97,7 @@ const Card = (props, context) => {
           >
             <div data-name="cover" className={style.ctaWrapper} onClick={!disabled && onClick}>
               {freeRunIcon}
+              {emptyIcon}
               {adaptivIcon}
               {timer}
             </div>
@@ -99,19 +107,23 @@ const Card = (props, context) => {
           <div data-name="info" className={style.infoWrapper} onClick={!disabled && onClick}>
             <div
               data-name="type"
-              className={style.type}
+              className={classnames(style.type, empty ? style.empty : null)}
               style={{
                 color: !disabled && defaultColor
               }}
             >
               {type}
             </div>
-            <div className={style.title}>
+            <div className={classnames(style.title, empty ? style.empty : null)}>
               <div data-name="title" title={title}>
                 {title}
               </div>
             </div>
-            <div data-name="author" title={author} className={style.author}>
+            <div
+              data-name="author"
+              title={author}
+              className={classnames(style.author, empty ? style.empty : null)}
+            >
               {author}
             </div>
           </div>
