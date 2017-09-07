@@ -229,10 +229,10 @@
 }
 
 /*
- * Joker Part
+ * remainingLifeRequests Part
  */
 
-@keyframes joker {
+@keyframes remainingLifeRequests {
   0% {
     top: 0;
   }
@@ -254,7 +254,7 @@
   height: 22px;
 }
 
-.jokerSentence {
+.remainingLifeRequestsSentence {
   display: block;
   background-color: light;
   border: solid 1px medium;
@@ -268,7 +268,7 @@
   position: absolute;
   top: 100px;
   z-index: 1;
-  animation: joker 0.9s ease-out;
+  animation: remainingLifeRequests 0.9s ease-out;
 }
 
 @media tablet {

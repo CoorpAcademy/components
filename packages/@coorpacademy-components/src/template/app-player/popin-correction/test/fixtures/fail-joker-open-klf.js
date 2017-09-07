@@ -7,11 +7,10 @@ export default defaultsDeep(failClosed, {
       open: true
     },
     header: {
-      jokers: 1,
-      jokerSentence: 'Bonus ! Récupérez une vie en regardant la leçon !',
+      remainingLifeRequests: 1,
+      remainingLifeRequestsSentence: 'Bonus ! Récupérez une vie en regardant la leçon !',
       cta: {
-        title: 'Game Over',
-        isJoker: true
+        title: 'Game Over'
       }
     }
   }

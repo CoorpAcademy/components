@@ -109,12 +109,12 @@ const buildClass = (value, success, fail, loading) => {
 };
 
 const CorrectionPart = props => {
-  const {fail, corrections = [], title, subtitle, stars, rank, jokers} = props;
+  const {fail, corrections = [], title, subtitle, stars, rank, remainingLifeRequests} = props;
   const isLoading = isNil(fail);
   const className = buildClass(
     fail,
     stars && rank ? style.correctionSectionEndSuccess : style.correctionSectionSuccess,
-    jokers > 0 ? style.correctionSectionFailGameOver : style.correctionSectionFail,
+    remainingLifeRequests > 0 ? style.correctionSectionFailGameOver : style.correctionSectionFail,
     style.correctionSectionLoading
   );
 
@@ -132,10 +132,15 @@ const CorrectionPart = props => {
 };
 
 const NextQuestionPart = props => {
-  const {title, isJoker, ...linkProps} = props || {};
+  const {cta, remainingLifeRequests} = props || {};
+  const {title, ...linkProps} = cta || {};
 
   return (
-    <Link className={classnames(style.nextSection, isJoker && style.gameOver)} data-name="nextLink" {...linkProps}>
+    <Link
+      className={classnames(style.nextSection, remainingLifeRequests > 0 && style.gameOver)}
+      data-name="nextLink"
+      {...linkProps}
+    >
       <div data-name="nextButton" className={style.nextButton}>
         {title}
         <ArrowRight color="inherit" className={style.nextButtonIcon} />
@@ -144,19 +149,19 @@ const NextQuestionPart = props => {
   );
 };
 
-const JokerView = (props, {skin}) => {
-  const {jokerSentence} = props;
+const RemainingLife = (props, {skin}) => {
+  const {remainingLifeRequestsSentence} = props;
   const negative = get('common.negative', skin);
 
   return (
-    <div className={style.jokerSentence}>
+    <div className={style.remainingLifeRequestsSentence}>
       <Heart color={negative} className={style.heart} />
-      {jokerSentence}
+      {remainingLifeRequestsSentence}
     </div>
   );
 };
 
-JokerView.contextTypes = {
+RemainingLife.contextTypes = {
   skin: Provider.childContextTypes.skin
 };
 
@@ -171,14 +176,18 @@ const PopinHeader = (props, context) => {
     rank,
     corrections,
     cta,
-    jokers,
-    jokerSentence
+    remainingLifeRequests,
+    remainingLifeRequestsSentence
   } = props;
 
   const state = buildClass(fail, 'success', 'fail', null);
 
   return (
-    <div className={classnames(style.header, jokers && style.gameOverHeader)} data-name="popinHeader" data-state={state}>
+    <div
+      className={classnames(style.header, remainingLifeRequests && style.gameOverHeader)}
+      data-name="popinHeader"
+      data-state={state}
+    >
       <div className={style.headerTitle}>
         <CorrectionPart
           title={title}
@@ -188,12 +197,17 @@ const PopinHeader = (props, context) => {
           stars={stars}
           rank={rank}
           fail={fail}
-          jokers={jokers}
+          remainingLifeRequests={remainingLifeRequests}
           corrections={corrections}
         />
-        {NextQuestionPart(cta, context)}
+        {NextQuestionPart({cta, remainingLifeRequests}, context)}
       </div>
-      {jokers > 0 ? <JokerView jokerSentence={jokerSentence} jokers={jokers} /> : null}
+      {remainingLifeRequests > 0
+        ? <RemainingLife
+            remainingLifeRequestsSentence={remainingLifeRequestsSentence}
+            remainingLifeRequests={remainingLifeRequests}
+          />
+        : null}
     </div>
   );
 };
@@ -204,14 +218,14 @@ PopinHeader.contextTypes = {
 
 PopinHeader.propTypes = {
   fail: Life.propTypes.fail,
-  jokers: PropTypes.number,
+  remainingLifeRequests: PropTypes.number,
   lives: Life.propTypes.count,
   animated: Life.propTypes.animated,
   stars: PropTypes.string,
   rank: PropTypes.string,
   subtitle: PropTypes.string,
   title: PropTypes.string,
-  jokerSentence: PropTypes.string,
+  remainingLifeRequestsSentence: PropTypes.string,
   corrections: AnswersCorrection.propTypes.corrections,
   cta: PropTypes.shape({
     ...Link.propTypes,
