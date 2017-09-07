@@ -104,10 +104,10 @@ function requestedClues(config: MicroLearningConfig): (Array<string>, Action) =>
   };
 }
 
-function jokers(config: MicroLearningConfig): (number, Action, State) => number {
-  return (count: number = config.jokers, action: Action, state: State): number => {
+function remainingLifeRequests(config: MicroLearningConfig): (number, Action, State) => number {
+  return (count: number = config.remainingLifeRequests, action: Action, state: State): number => {
     switch (action.type) {
-      case 'joker': {
+      case 'lifeRequest': {
         return count > 0 ? count - 1 : count;
       }
       default:
@@ -123,8 +123,8 @@ function lives(config: MicroLearningConfig): (number, Action, State) => number {
         const answerAction = (action: AnswerAction);
         return answerAction.payload.isCorrect ? amount : amount - 1;
       }
-      case 'joker': {
-        return state.jokers > 0 ? amount + 1 : amount;
+      case 'lifeRequest': {
+        return state.remainingLifeRequests > 0 ? amount + 1 : amount;
       }
       default:
         return amount;
@@ -243,7 +243,7 @@ const reduceAction = combineReducers([
   {key: 'stars', fn: stars},
   {key: 'requestedClues', fn: requestedClues},
   {key: 'viewedResources', fn: viewedResources},
-  {key: 'jokers', fn: jokers},
+  {key: 'remainingLifeRequests', fn: remainingLifeRequests},
   {key: 'content', fn: content},
   {key: 'nextContent', fn: nextContent}
 ]);

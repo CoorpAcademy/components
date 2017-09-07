@@ -11,7 +11,7 @@ const realConfigurations: Array<MicroLearningConfig> = [
     starsPerAskingClue: -1,
     starsPerCorrectAnswer: 4,
     starsPerResourceViewed: 4,
-    jokers: 1
+    remainingLifeRequests: 1
   }
 ];
 
@@ -25,7 +25,7 @@ const testConfigurations: Array<MicroLearningConfig> = [
     starsPerAskingClue: -1,
     starsPerCorrectAnswer: 4,
     starsPerResourceViewed: 5,
-    jokers: 1
+    remainingLifeRequests: 1
   }
 ];
 

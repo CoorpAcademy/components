@@ -35,7 +35,7 @@ export type State = {
   viewedResources: Array<ViewedResource>,
   stars: number,
   step: Step,
-  jokers: number
+  remainingLifeRequests: number
 };
 
 export type AskClueAction = {
@@ -66,15 +66,15 @@ export type InitAction = {
   type: 'init'
 };
 
-export type UseJokerAction = {
-  type: 'joker'
+export type RequestLifeAction = {
+  type: 'lifeRequest'
 };
 
 export type Action =
   | InitAction
   | AnswerAction
   | AskClueAction
-  | UseJokerAction
+  | RequestLifeAction
   | ChapterResourceViewedAction;
 
 export type Engine = {
@@ -177,7 +177,7 @@ export type MicroLearningConfig = {
   starsPerAskingClue: number,
   starsPerCorrectAnswer: number,
   starsPerResourceViewed: number,
-  jokers: number
+  remainingLifeRequests: number
 };
 
 export type Config = MicroLearningConfig;

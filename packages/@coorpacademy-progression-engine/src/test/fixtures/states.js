@@ -17,7 +17,7 @@ export const stateForFirstSlide: State = {
     current: 1,
     total: 4
   },
-  jokers: 1
+  remainingLifeRequests: 1
 };
 
 export const stateForSecondSlide: State = {
@@ -39,7 +39,7 @@ export const stateForSecondSlide: State = {
     current: 2,
     total: 4
   },
-  jokers: 1
+  remainingLifeRequests: 1
 };
 
 export const failProgressionState: State = {
@@ -61,7 +61,7 @@ export const failProgressionState: State = {
   requestedClues: [],
   viewedResources: [],
   stars: 4,
-  jokers: 1
+  remainingLifeRequests: 1
 };
 
 export const usedJokerProgressionState: State = {
@@ -83,7 +83,7 @@ export const usedJokerProgressionState: State = {
   requestedClues: [],
   viewedResources: [],
   stars: 4,
-  jokers: 0
+  remainingLifeRequests: 0
 };
 
 export const successProgressionState: State = {
@@ -105,5 +105,5 @@ export const successProgressionState: State = {
   requestedClues: [],
   viewedResources: [],
   stars: 16,
-  jokers: 1
+  remainingLifeRequests: 1
 };

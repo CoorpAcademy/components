@@ -10,7 +10,7 @@ import type {
   Content,
   State,
   ChapterResourceViewedAction,
-  UseJokerAction
+  RequestLifeAction
 } from '../types';
 import {
   stateForFirstSlide,
@@ -397,18 +397,18 @@ test("should throw if the state's nextContent is not the same as the action's co
 
 test('should add one life when using joker', t => {
   const state: State = Object.freeze(failProgressionState);
-  const action: UseJokerAction = Object.freeze({type: 'joker'});
+  const action: RequestLifeAction = Object.freeze({type: 'lifeRequest'});
   const newState = updateState(engine, state, [action]);
 
   t.is(newState.lives, 1);
-  t.is(newState.jokers, 0);
+  t.is(newState.remainingLifeRequests, 0);
 });
 
 test('should not change life when trying to use joker another time', t => {
   const state: State = Object.freeze(usedJokerProgressionState);
-  const action: UseJokerAction = Object.freeze({type: 'joker'});
+  const action: RequestLifeAction = Object.freeze({type: 'lifeRequest'});
   const newState = updateState(engine, state, [action]);
 
   t.is(newState.lives, 0);
-  t.is(newState.jokers, 0);
+  t.is(newState.remainingLifeRequests, 0);
 });

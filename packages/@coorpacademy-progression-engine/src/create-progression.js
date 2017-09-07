@@ -27,7 +27,7 @@ export default function createProgression(
     },
     content: undefined,
     nextContent: initialContent,
-    jokers: config.jokers
+    remainingLifeRequests: config.remainingLifeRequests
   };
 
   return {
