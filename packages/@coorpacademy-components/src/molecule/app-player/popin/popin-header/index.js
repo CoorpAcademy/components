@@ -135,11 +135,7 @@ const NextQuestionPart = props => {
   const {title, isJoker, ...linkProps} = props || {};
 
   return (
-    <Link
-      className={classnames(style.nextSection, isJoker && style.gameOver)}
-      data-name="nextLink"
-      {...linkProps}
-    >
+    <Link className={classnames(style.nextSection, isJoker && style.gameOver)} data-name="nextLink" {...linkProps}>
       <div data-name="nextButton" className={style.nextButton}>
         {title}
         <ArrowRight color="inherit" className={style.nextButtonIcon} />
@@ -182,11 +178,7 @@ const PopinHeader = (props, context) => {
   const state = buildClass(fail, 'success', 'fail', null);
 
   return (
-    <div
-      className={classnames(style.header, jokers && style.gameOverHeader)}
-      data-name="popinHeader"
-      data-state={state}
-    >
+    <div className={classnames(style.header, jokers && style.gameOverHeader)} data-name="popinHeader" data-state={state}>
       <div className={style.headerTitle}>
         <CorrectionPart
           title={title}
