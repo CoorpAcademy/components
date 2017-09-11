@@ -107,7 +107,7 @@ function requestedClues(config: MicroLearningConfig): (Array<string>, Action) =>
 function remainingLifeRequests(config: MicroLearningConfig): (number, Action, State) => number {
   return (count: number = config.remainingLifeRequests, action: Action, state: State): number => {
     switch (action.type) {
-      case 'acceptExtraLife': {
+      case 'extraLifeAccepted': {
         return count > 0 ? count - 1 : count;
       }
       default:
@@ -123,7 +123,7 @@ function lives(config: MicroLearningConfig): (number, Action, State) => number {
         const answerAction = (action: AnswerAction);
         return answerAction.payload.isCorrect ? amount : amount - 1;
       }
-      case 'acceptExtraLife': {
+      case 'extraLifeAccepted': {
         return state.remainingLifeRequests > 0 ? amount + 1 : amount;
       }
       default:
@@ -151,6 +151,10 @@ function nextContent(config: MicroLearningConfig): (Content, Action) => Content 
       case 'answer': {
         const answerAction = (action: AnswerAction);
         return answerAction.payload.nextContent;
+      }
+      case 'extraLifeAccepted': {
+        const acceptAction = (action: ExtraLifeAcceptedAction);
+        return acceptAction.payload.nextContent;
       }
       default:
         return c;

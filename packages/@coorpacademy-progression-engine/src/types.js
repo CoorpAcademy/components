@@ -66,20 +66,24 @@ export type InitAction = {
   type: 'init'
 };
 
-export type AcceptExtraLifeAction = {
-  type: 'acceptExtraLife'
+export type ExtraLifeAcceptedAction = {
+  type: 'extraLifeAccepted',
+  payload: {
+    content: Content,
+    nextContent: Content
+  }
 };
 
-export type RefuseExtraLifeAction = {
-  type: 'refuseExtraLife'
+export type ExtraLifeRefusedAction = {
+  type: 'extraLifeRefused'
 };
 
 export type Action =
   | InitAction
   | AnswerAction
   | AskClueAction
-  | AcceptExtraLifeAction
-  | RefuseExtraLifeAction
+  | ExtraLifeAcceptedAction
+  | ExtraLifeRefusedAction
   | ChapterResourceViewedAction;
 
 export type Engine = {
