@@ -32,13 +32,16 @@ export default {
         title: 'Danger Zone',
         fields: [
           {
-            title: 'Confirm',
+            confirmValue: 'Confirm',
             type: 'doublestep',
             toggleValue: 'Delete Platform',
             cancelValue: 'Cancel',
             description:
-              'Are you sure you want to delete your platform? Deleting your platform is irreversible!',
-            onChange: () => {}
+              "Deleting your platform is irreversible. Enter your brand's name (yolo1) below to confirm you want to permanently delete it.",
+            onClick: () => console.log('confirm'),
+            textValidation: true,
+            onChange: () => console.log('on change text'),
+            placeholder: "Brand's name"
           }
         ]
       }

@@ -1,7 +1,8 @@
 @value colors: "../../variables/colors.css";
 @value dark from colors;
 @value orange from colors;
-@value dark from colors;
+@value white from colors;
+@value light from colors;
 @value medium from colors;
 
 .wrapper {
@@ -16,6 +17,13 @@
   font-weight: 700;
   color: dark;
   margin-right: 20px;
+}
+
+.sectionConfirm {
+  background-color: medium;
+  text-align: center;
+  max-width: 500px;
+  padding: 20px 0;
 }
 
 .toggle {
@@ -50,31 +58,51 @@
 .cancel {
   composes: button;
   border: 1px solid dark;
-  color: dark;
-  background-color: white;
-  margin-right: 20px;
+  color: white;
+  background-color: dark;
+  margin-right: 10px;
   margin-bottom: 10px;
   font-weight: 600;
   display: inline-block;
-  min-width: 110px;
+  min-width: 120px;
 }
 
 .delete {
   composes: button;
   border: 1px solid orange;
-  color: orange;
-  background-color: white;
-  margin-right: 20px;
+  color: white;
+  background-color: orange;
+  margin-right: 5px;
   margin-bottom: 10px;
   font-weight: 600;
   display: inline-block;
-  min-width: 110px;
+  min-width: 120px;
+}
+
+.disabled {
+  composes: delete;
+  background-color: light;
+  border: 1px solid light;
 }
 
 .description {
   font-family: 'Open Sans';
   font-weight: 500;
-  font-size: 12px;
-  color: medium;
-  font-style: italic;
+  font-size: 14px;
+  color: white;
+  margin: 0 20px;
+}
+
+.input {
+  font-family: "Open Sans";
+  text-transform: none;
+  padding: 0 15px;
+  border: solid 2px light;
+  height: 50px;
+  border-radius: 2px;
+  font-size: 14px;
+  color: dark;
+  margin: 15px 0;
+  width: 230px;
+  appearance: none;
 }
