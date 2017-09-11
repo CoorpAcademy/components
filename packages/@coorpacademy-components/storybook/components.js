@@ -1552,9 +1552,6 @@ export const dependencies = {
           "StartBattle": true,
           "NewsList": true
         },
-        "MoleculeAppPlayerPopin": {
-          "PopinHeader": true
-        },
         "Molecule": {
           "Unsubscribe": true,
           "Table": true,
@@ -2744,7 +2741,6 @@ export const dependencies = {
       },
       "children": {
         "Atom": {
-          "Link": true,
           "Loader": true
         }
       }
@@ -2983,8 +2979,8 @@ export const dependencies = {
     "PopinCorrection": {
       "children": {
         "Atom": {
-          "Link": true,
           "Loader": true,
+          "Link": true,
           "ResourceMiniature": true
         },
         "MoleculeAppPlayerPopin": {

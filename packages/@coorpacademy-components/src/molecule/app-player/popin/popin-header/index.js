@@ -131,8 +131,7 @@ const CorrectionPart = props => {
   );
 };
 
-const NextQuestionPart = props => {
-  const {cta, remainingLifeRequests} = props || {};
+const NextQuestionPart = ({cta, remainingLifeRequests}, context) => {
   const {title, ...linkProps} = cta || {};
 
   return (
@@ -200,7 +199,8 @@ const PopinHeader = (props, context) => {
           remainingLifeRequests={remainingLifeRequests}
           corrections={corrections}
         />
-        {NextQuestionPart({cta, remainingLifeRequests}, context)}
+        <NextQuestionPart cta={cta} remainingLifeRequests={remainingLifeRequests} />
+
       </div>
       {remainingLifeRequests > 0
         ? <RemainingLife
