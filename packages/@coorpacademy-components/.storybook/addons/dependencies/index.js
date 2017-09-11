@@ -1,7 +1,4 @@
 import React from 'react';
-import addons from "@storybook/addons";
-import {renderToString} from 'react-dom/server';
-import {Provider} from '../../../src'
 
 class Decorator extends React.Component {
   constructor(props) {
@@ -18,7 +15,6 @@ class Decorator extends React.Component {
     this.setDependencies = this.setDependencies.bind(this);
   }
 
-
   componentWillMount() {
     this.channel.on('dependencies:set', this.setDependencies);
     this.channel.emit('dependencies:init', {});
@@ -34,14 +30,13 @@ class Decorator extends React.Component {
     this.channel.removeListener('dependencies:set', this.setDependencies);
   }
 
-  setDependencies(dependencies) {
-  }
+  setDependencies(dependencies) {} // eslint-disable-line class-methods-use-this
 
   render() {
     return this.story;
   }
 }
 
-export default story => (
-  <Decorator story={story}/>
-);
+const Storybook = story => <Decorator story={story} />;
+
+export default Storybook;

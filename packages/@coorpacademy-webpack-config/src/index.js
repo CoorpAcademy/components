@@ -1,15 +1,11 @@
 import {join} from 'path';
 import webpack from 'webpack';
-import BabiliPlugin from 'babili-webpack-plugin';
+import BabelMinifyPlugin from 'babel-minify-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import CompressionPlugin from 'compression-webpack-plugin';
 import {BundleAnalyzerPlugin} from 'webpack-bundle-analyzer';
 
 const hash = '[folder]_[local]-[hash:base64:5]';
-const componentCSS = new ExtractTextPlugin({
-  filename: '[name].css',
-  ignoreOrder: true
-});
 
 const createConfig = (NODE_ENV = 'development', additionalPlugins = []) => ({
   devtool: NODE_ENV === 'production' ? false : 'eval',
@@ -63,16 +59,16 @@ const createConfig = (NODE_ENV = 'development', additionalPlugins = []) => ({
       },
       {
         test: /\.css$/,
-        loader: componentCSS.extract({
+        use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
             {
               loader: 'css-loader',
               options: {
-                minimize: true,
+                minimize: NODE_ENV === 'production',
                 modules: true,
                 importLoaders: 1,
-                localIdentName: `${hash}`
+                localIdentName: hash
               }
             },
             {
@@ -97,7 +93,10 @@ const createConfig = (NODE_ENV = 'development', additionalPlugins = []) => ({
             NODE_ENV: JSON.stringify(NODE_ENV)
           }
         }),
-        componentCSS
+        new ExtractTextPlugin({
+          filename: '[name].css',
+          ignoreOrder: true
+        })
       ],
       additionalPlugins
     );
@@ -115,7 +114,7 @@ const createConfig = (NODE_ENV = 'development', additionalPlugins = []) => ({
           minimize: true,
           debug: false
         }),
-        new BabiliPlugin(
+        new BabelMinifyPlugin(
           {
             evaluate: false
           },

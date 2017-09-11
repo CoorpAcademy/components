@@ -1,11 +1,8 @@
 const hash = '[folder]_[local]-[hash:base64:5]';
 const path = require('path');
 const webpack = require('webpack');
-const lowerCase = require('lodash/fp/lowerCase');
 
 module.exports = (storybookBaseConfig, configType) => {
-  const NODE_ENV = lowerCase(configType);
-
   storybookBaseConfig.module.rules = [
     {
       test: /\.(ttf|otf|eot|svg|woff)$/,
