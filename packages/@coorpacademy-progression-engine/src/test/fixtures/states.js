@@ -61,10 +61,10 @@ export const failProgressionState: State = {
   requestedClues: [],
   viewedResources: [],
   stars: 4,
-  remainingLifeRequests: 1
+  remainingLifeRequests: 0
 };
 
-export const usedJokerProgressionState: State = {
+export const extraLifeProgressionState: State = {
   content: {
     ref: '1.A1.1',
     type: 'slide'
@@ -83,7 +83,7 @@ export const usedJokerProgressionState: State = {
   requestedClues: [],
   viewedResources: [],
   stars: 4,
-  remainingLifeRequests: 0
+  remainingLifeRequests: 1
 };
 
 export const successProgressionState: State = {

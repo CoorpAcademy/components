@@ -10,13 +10,13 @@ import type {
   Content,
   State,
   ChapterResourceViewedAction,
-  RequestLifeAction
+  AcceptExtraLifeAction
 } from '../types';
 import {
   stateForFirstSlide,
   stateForSecondSlide,
   failProgressionState,
-  usedJokerProgressionState
+  extraLifeProgressionState
 } from './fixtures/states';
 
 const engine = {
@@ -396,8 +396,8 @@ test("should throw if the state's nextContent is not the same as the action's co
 });
 
 test('should add one life when using joker', t => {
-  const state: State = Object.freeze(failProgressionState);
-  const action: RequestLifeAction = Object.freeze({type: 'lifeRequest'});
+  const state: State = Object.freeze(extraLifeProgressionState);
+  const action: AcceptExtraLifeAction = Object.freeze({type: 'acceptExtraLife'});
   const newState = updateState(engine, state, [action]);
 
   t.is(newState.lives, 1);
@@ -405,8 +405,8 @@ test('should add one life when using joker', t => {
 });
 
 test('should not change life when trying to use joker another time', t => {
-  const state: State = Object.freeze(usedJokerProgressionState);
-  const action: RequestLifeAction = Object.freeze({type: 'lifeRequest'});
+  const state: State = Object.freeze(failProgressionState);
+  const action: AcceptExtraLifeAction = Object.freeze({type: 'acceptExtraLife'});
   const newState = updateState(engine, state, [action]);
 
   t.is(newState.lives, 0);

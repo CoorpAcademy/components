@@ -66,15 +66,20 @@ export type InitAction = {
   type: 'init'
 };
 
-export type RequestLifeAction = {
-  type: 'lifeRequest'
+export type AcceptExtraLifeAction = {
+  type: 'acceptExtraLife'
+};
+
+export type RefuseExtraLifeAction = {
+  type: 'refuseExtraLife'
 };
 
 export type Action =
   | InitAction
   | AnswerAction
   | AskClueAction
-  | RequestLifeAction
+  | AcceptExtraLifeAction
+  | RefuseExtraLifeAction
   | ChapterResourceViewedAction;
 
 export type Engine = {
