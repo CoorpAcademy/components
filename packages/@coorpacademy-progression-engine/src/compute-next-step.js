@@ -15,7 +15,7 @@ export default function computeNextStep(
   // if no more lives, return failure endpoint
   if (!isAlive(state)) {
     return hasRemainingLifeRequests(state)
-      ? {ref: 'extraLifeNode', type: 'extraLife'}
+      ? {ref: 'extraLife', type: 'node'}
       : {ref: 'failExitNode', type: 'failure'};
   }
 
