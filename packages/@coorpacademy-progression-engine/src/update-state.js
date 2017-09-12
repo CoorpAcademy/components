@@ -20,6 +20,7 @@ import type {
   ChapterResourceViewedAction,
   Content,
   Engine,
+  ExtraLifeAcceptedAction,
   MicroLearningConfig,
   State,
   Step,

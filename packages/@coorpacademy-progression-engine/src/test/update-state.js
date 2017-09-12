@@ -397,18 +397,44 @@ test("should throw if the state's nextContent is not the same as the action's co
 
 test('should add one life when using joker', t => {
   const state: State = Object.freeze(extraLifeProgressionState);
-  const action: ExtraLifeAcceptedAction = Object.freeze({type: 'extraLifeAccepted'});
+  const action: ExtraLifeAcceptedAction = Object.freeze({
+    type: 'extraLifeAccepted',
+    payload: {
+      content: {
+        ref: '1.A1.200',
+        type: 'slide'
+      },
+      nextContent: {
+        ref: '1.A1.1',
+        type: 'slide'
+      }
+    }
+  });
   const newState = updateState(engine, state, [action]);
 
   t.is(newState.lives, 1);
   t.is(newState.remainingLifeRequests, 0);
+  t.is(newState.nextContent.type, 'slide');
 });
 
 test('should not change life when trying to use joker another time', t => {
   const state: State = Object.freeze(failProgressionState);
-  const action: ExtraLifeAcceptedAction = Object.freeze({type: 'extraLifeAccepted'});
+  const action: ExtraLifeAcceptedAction = Object.freeze({
+    type: 'extraLifeAccepted',
+    payload: {
+      content: {
+        ref: '1.A1.200',
+        type: 'slide'
+      },
+      nextContent: {
+        ref: '1.A1.1',
+        type: 'slide'
+      }
+    }
+  });
   const newState = updateState(engine, state, [action]);
 
   t.is(newState.lives, 0);
   t.is(newState.remainingLifeRequests, 0);
+  t.is(newState.nextContent.type, 'slide');
 });
