@@ -103,6 +103,50 @@ export const requestClue = (progressionId, slideId) => (dispatch, getState, {ser
   return dispatch(action);
 };
 
+export const PROGRESSION_EXTRALIGEREFUSED_REQUEST = '@@progression/EXTRALIGEREFUSED_REQUEST';
+export const PROGRESSION_EXTRALIGEREFUSED_SUCCESS = '@@progression/EXTRALIGEREFUSED_SUCCESS';
+export const PROGRESSION_EXTRALIGEREFUSED_FAILURE = '@@progression/EXTRALIGEREFUSED_FAILURE';
+
+export const requestExtralifeRefused = progressionId => (dispatch, getState, {services}) => {
+  const {Progressions} = services;
+  const state = getState();
+  const progression = getProgression(progressionId)(state);
+
+  const action = buildTask({
+    types: [
+      PROGRESSION_EXTRALIGEREFUSED_REQUEST,
+      PROGRESSION_EXTRALIGEREFUSED_SUCCESS,
+      PROGRESSION_EXTRALIGEREFUSED_FAILURE
+    ],
+    task: () => Progressions.requestExtralifeRefused(progressionId),
+    meta: {progressionId}
+  });
+
+  return dispatch(action);
+};
+
+export const PROGRESSION_EXTRALIFEACCEPTED_REQUEST = '@@progression/EXTRALIFEACCEPTED_REQUEST';
+export const PROGRESSION_EXTRALIFEACCEPTED_SUCCESS = '@@progression/EXTRALIFEACCEPTED_SUCCESS';
+export const PROGRESSION_EXTRALIFEACCEPTED_FAILURE = '@@progression/EXTRALIFEACCEPTED_FAILURE';
+
+export const requestExtralifeAccepted = progressionId => (dispatch, getState, {services}) => {
+  const {Progressions} = services;
+  const state = getState();
+  const progression = getProgression(progressionId)(state);
+
+  const action = buildTask({
+    types: [
+      PROGRESSION_EXTRALIFEACCEPTED_REQUEST,
+      PROGRESSION_EXTRALIFEACCEPTED_SUCCESS,
+      PROGRESSION_EXTRALIFEACCEPTED_FAILURE
+    ],
+    task: () => Progressions.requestExtralifeAccepted(progressionId),
+    meta: {progressionId}
+  });
+
+  return dispatch(action);
+};
+
 export const PROGRESSION_FETCH_BESTOF_REQUEST = '@@progression/FETCH_BESTOF_REQUEST';
 export const PROGRESSION_FETCH_BESTOF_SUCCESS = '@@progression/FETCH_BESTOF_SUCCESS';
 export const PROGRESSION_FETCH_BESTOF_FAILURE = '@@progression/FETCH_BESTOF_FAILURE';
