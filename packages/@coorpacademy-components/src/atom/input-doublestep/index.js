@@ -1,6 +1,70 @@
 import React from 'react';
+import LinkedInput from 'react-linked-input';
 import PropTypes from 'prop-types';
+import omit from 'lodash/fp/omit';
+import noop from 'lodash/fp/noop';
 import style from './style.css';
+
+const ConfirmationInput = ({onChange, placeholder = ''}) => {
+  const handleOnChange = e => {
+    return onChange(e.target.value);
+  };
+
+  return (
+    <div>
+      <LinkedInput
+        onInput={handleOnChange}
+        placeholder={placeholder}
+        className={style.input}
+        onChange={noop}
+      />
+    </div>
+  );
+};
+ConfirmationInput.propTypes = {
+  onChange: PropTypes.func,
+  placeholder: PropTypes.string
+};
+
+const Confirmation = props => {
+  const {
+    confirmValue,
+    confirmDisabled = false,
+    onConfirm,
+    description,
+    cancelValue,
+    onHandleClose,
+    onChange,
+    textValidation,
+    placeholder
+  } = props;
+
+  return (
+    <div className={style.sectionConfirm}>
+      <div className={style.description}>
+        {description}
+      </div>
+      {textValidation ? <ConfirmationInput onChange={onChange} placeholder={placeholder} /> : null}
+      <span onClick={onHandleClose} className={style.cancel}>{cancelValue}</span>
+      <span
+        onClick={confirmDisabled ? noop : onConfirm}
+        className={confirmDisabled ? style.disabled : style.delete}
+      >
+        {confirmValue}
+      </span>
+    </div>
+  );
+};
+Confirmation.propTypes = {
+  confirmValue: PropTypes.string.isRequired,
+  confirmDisabled: PropTypes.bool,
+  onConfirm: PropTypes.func.isRequired,
+  description: PropTypes.string,
+  cancelValue: PropTypes.string.isRequired,
+  onHandleClose: PropTypes.func.isRequired,
+  textValidation: PropTypes.bool,
+  ...ConfirmationInput.propTypes
+};
 
 class InputDoublestep extends React.Component {
   constructor(props, context) {
@@ -8,50 +72,46 @@ class InputDoublestep extends React.Component {
     this.state = {
       open: false
     };
-    this.handleOpen = this.handleOpen.bind(this);
+    this.handleToggle = this.handleToggle.bind(this);
   }
 
-  handleOpen() {
+  handleToggle() {
     this.setState(state => ({
       open: !state.open
     }));
   }
 
   render() {
-    const {title, toggleValue, cancelValue, onChange, description} = this.props;
+    const {toggleValue, onClick} = this.props;
 
-    const handleOnChange = e => {
+    const handleOnClick = e => {
       e.preventDefault();
-      return onChange(e);
+      return onClick(e);
     };
 
     const formView = !this.state.open
-      ? <span onClick={this.handleOpen} className={style.toggle}>{toggleValue}</span>
-      : <div>
-          <span onClick={this.handleOpen} className={style.cancel}>{cancelValue}</span>
-          <span onClick={handleOnChange} className={style.delete}>
-            {title}
-          </span>
-        </div>;
+      ? <span onClick={this.handleToggle} className={style.toggle}>{toggleValue}</span>
+      : <Confirmation
+          {...this.props}
+          onHandleClose={this.handleToggle}
+          onConfirm={handleOnClick}
+        />;
 
     return (
       <div className={style.wrapper}>
         <div className={style.value}>
           {formView}
         </div>
-        <div className={style.description}>
-          {description}
-        </div>
       </div>
     );
   }
 }
 
+const inputDoubleProps = omit(['onConfirm', 'onHandleClose'], {...Confirmation.propTypes});
+
 InputDoublestep.propTypes = {
-  title: PropTypes.string.isRequired,
   toggleValue: PropTypes.string.isRequired,
-  cancelValue: PropTypes.string.isRequired,
-  description: PropTypes.string,
-  onChange: PropTypes.func.isRequired
+  onClick: PropTypes.func.isRequired,
+  ...inputDoubleProps
 };
 export default InputDoublestep;

@@ -1,11 +1,11 @@
 export default {
   props: {
-    title: 'Confirm',
+    confirmValue: 'Confirm',
     type: 'doublestep',
     toggleValue: 'Delete Platform',
     cancelValue: 'Cancel',
     description:
       'Are you sure you want to delete your platform? Deleting your platform is irreversible!',
-    onChange: () => console.log('confirm')
+    onClick: () => console.log('confirm')
   }
 };
