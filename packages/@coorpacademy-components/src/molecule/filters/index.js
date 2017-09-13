@@ -79,19 +79,19 @@ class Filters extends React.Component {
     const animated = this.state.animated === true;
 
     const coursesView = courses !== undefined
-      ? <div data-name="choice" className={style.choice}>
+      ? <div data-name="choice" data-filter-type="Cursus" className={style.choice}>
           <Select {...courses} />
         </div>
       : null;
 
     const thematicView = thematic !== undefined
-      ? <div data-name="choice" className={style.choice}>
+      ? <div data-name="choice" data-filter-type="Collection" className={style.choice}>
           <Select {...thematic} />
         </div>
       : null;
 
     const timerView = timer !== undefined
-      ? <div data-name="choice" className={style.timerWrapper}>
+      ? <div data-name="choice" data-filter-type="Time" className={style.timerWrapper}>
           <label>
             <span className={style.timerTitle}>{timer.title}</span>
             <p className={style.timerSubtitle}>{timer.subtitle}</p>
@@ -101,7 +101,7 @@ class Filters extends React.Component {
       : null;
 
     const authorsView = authors !== undefined
-      ? <div data-name="choice" className={style.choice}>
+      ? <div data-name="choice" data-filter-type="Author" className={style.choice}>
           <Select {...authors} />
         </div>
       : null;
