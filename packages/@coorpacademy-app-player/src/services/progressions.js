@@ -50,9 +50,14 @@ export const save = progression => {
   return progression;
 };
 
-export const findBestOf = (contentRef, progressionId = null) => {
+export const findBestOf = (contentType, contentRef, progressionId = null) => {
   const bestProgression = pipe(
-    filter(p => get('content.ref', p) === contentRef && get('_id', p) !== progressionId),
+    filter(
+      p =>
+        get('content.type', p) === contentType &&
+        get('content.ref', p) === contentRef &&
+        get('_id', p) !== progressionId
+    ),
     maxBy(p => p.state.stars || 0)
   )(progressionsData);
   return bestProgression || set('state.stars', 0, {});

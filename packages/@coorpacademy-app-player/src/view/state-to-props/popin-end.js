@@ -6,7 +6,7 @@ import isEqual from 'lodash/fp/isEqual';
 import pipe from 'lodash/fp/pipe';
 import {retry, exit} from '../../actions/api/location';
 import {
-  getCurrentChapter,
+  getCurrentContent,
   getCurrentExitNode,
   getCurrentProgression,
   getRecommendations,
@@ -43,7 +43,7 @@ const summaryHeader = ({translate}, {dispatch}) => state => {
     [
       pipe(get('type'), isEqual('success')),
       () => ({
-        title: getOr('', 'name')(getCurrentChapter(state)),
+        title: getOr('', 'name')(getCurrentContent(state)),
         subtitle: translate('Congratulations!'),
         fail: false,
         stars: extractStars(state),
