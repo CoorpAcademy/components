@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/components",
-  "version": "5.4.92",
+  "version": "5.4.93",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -64,8 +64,8 @@
   },
   "devDependencies": {
     "@coorpacademy/css-modules-require-hook": "0.0.1",
-    "@coorpacademy/translate": "5.3.9",
-    "@coorpacademy/webpack-config": "6.2.0",
+    "@coorpacademy/translate": "5.3.10",
+    "@coorpacademy/webpack-config": "6.2.1",
     "@storybook/addon-knobs": "^3.1.8",
     "@storybook/addons": "^3.1.6",
     "@storybook/react": "^3.1.8",
