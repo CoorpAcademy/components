@@ -34,3 +34,9 @@
   background-color: xtraLightGrey;
   cursor: default;
 }
+
+.disabled {
+  composes: button;
+  background-color: xtraLightGrey;
+  cursor: default;
+}
