@@ -58,7 +58,7 @@ test('should return the extraLife endpoint when progressions has no more lives &
 
   const nextStep = computeNextStep(engine, slides, state);
   t.deepEqual(nextStep, {
-    ref: 'extraLifeNode',
-    type: 'extraLife'
+    ref: 'extraLife',
+    type: 'node'
   });
 });
