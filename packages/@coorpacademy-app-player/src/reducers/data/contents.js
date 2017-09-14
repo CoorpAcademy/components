@@ -17,23 +17,24 @@ const dataContentReducer = (state = {}, action) => {
     case CONTENT_FETCH_REQUEST: {
       const {meta} = action;
       const {type, ref} = meta;
-      return update([type, ref], content => content || null, state);
+      return update([type, 'entities', ref], content => content || null, state);
     }
     case CONTENT_FETCH_SUCCESS: {
       const {payload, meta} = action;
       const {type, ref} = meta;
-      return set([type, ref], payload, state);
+      return set([type, 'entities', ref], payload, state);
     }
     case CONTENT_FETCH_FAILURE: {
       const {meta} = action;
       const {type, ref} = meta;
-      if (pipe(get([type, ref]), isNull)(state)) return unset([type, ref], state);
+      if (pipe(get([type, 'entities', ref]), isNull)(state))
+        return unset([type, 'entities', ref], state);
       return state;
     }
     case PROGRESSION_FETCH_BESTOF_SUCCESS: {
       const {payload: progression, meta} = action;
       const {type, ref} = meta;
-      return set([type, ref, 'bestScore'], getOr(0, 'state.stars', progression), state);
+      return set([type, 'entities', ref, 'bestScore'], getOr(0, 'state.stars', progression), state);
     }
     default:
       return state;

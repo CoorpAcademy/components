@@ -11,11 +11,10 @@ test(
   {
     data: {
       answers: {entities: {}},
-      chapters: {entities: {}},
+      contents: {},
       clues: {entities: {}},
       exitNodes: {entities: {}},
       progressions: {entities: {}},
-      slides: {entities: {}},
       rank: {},
       recommendations: {entities: {}}
     },

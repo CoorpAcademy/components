@@ -41,7 +41,9 @@ test('should set properties for success popin', async t => {
 });
 
 test("should display +0 when user don't get higher score than his best score", t => {
-  const vNode = toProps(set(['data', 'chapters', 'entities', '1.B2', 'bestScore'], 20, success));
+  const vNode = toProps(
+    set(['data', 'contents', 'chapter', 'entities', '1.B2', 'bestScore'], 20, success)
+  );
   testRendering(vNode);
   const {props} = vNode;
   t.is(props.summary.header.stars, '+0');

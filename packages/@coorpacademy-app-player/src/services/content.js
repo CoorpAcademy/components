@@ -1,13 +1,14 @@
 import reduce from 'lodash/fp/reduce';
 import chaptersData from './chapters.data';
+import levelsData from './levels.data';
 import {findById} from './slides';
 
-const chapters = reduce(
-  (chapterMap, chapter) => chapterMap.set(chapter._id, chapter),
-  new Map(),
-  chaptersData
-);
+const toMap = reduce((map, object) => map.set(object._id, object), new Map());
 
+const chapters = toMap(chaptersData);
+const levels = toMap(levelsData);
+
+// eslint-disable-next-line import/prefer-default-export
 export const find = (type, ref) => {
   switch (type) {
     case 'chapter':
@@ -15,7 +16,8 @@ export const find = (type, ref) => {
       return Promise.reject(new Error('Chapter not found'));
 
     case 'level':
-      return {content: 'level-plop'};
+      if (levels.has(ref)) return Promise.resolve(levels.get(ref));
+      return Promise.reject(new Error('Level not found'));
 
     case 'slide':
       return findById(ref);
@@ -23,8 +25,4 @@ export const find = (type, ref) => {
     default:
       return Promise.reject(new Error(`unknown content type ${type}`));
   }
-};
-
-export const findAll = () => {
-  return Promise.resolve(Array.from(chapters.values()));
 };

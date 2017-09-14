@@ -3,24 +3,107 @@
     "answers": {
       "entities": {}
     },
-    "chapters": {
-      "entities": {
-        "5.C7": {
-          "_id": "5.C7",
-          "stars": 20,
-          "name": "Les réseaux sociaux au service du crowdfunding",
-          "meta": {
-            "updatedAt": "2017-01-26T09:19:06.874Z",
-            "createdAt": "2017-01-26T09:19:05.667Z"
-          },
-          "poster": {
-            "subtitles": [],
-            "posters": [],
-            "src": []
-          },
-          "isConditional": false,
-          "time": 8,
-          "bestScore": 12
+    "contents": {
+      "chapter": {
+        "entities": {
+          "5.C7": {
+            "_id": "5.C7",
+            "stars": 20,
+            "name": "Les réseaux sociaux au service du crowdfunding",
+            "meta": {
+              "updatedAt": "2017-01-26T09:19:06.874Z",
+              "createdAt": "2017-01-26T09:19:05.667Z"
+            },
+            "poster": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            },
+            "isConditional": false,
+            "time": 8,
+            "bestScore": 12
+          }
+        }
+      },
+      "slide": {
+        "entities": {
+          "1.B2.4": {
+            "_id": "1.B2.4",
+            "klf":
+              "Nous devons chouchouter nos clientes et les mettre à l'aise pendant leur attente.",
+            "tips": "Avez-vous récemment consulté les iPads ou le magazine 31 rue Cambon ?",
+            "chapter_id": "cha_Ny1BTxRp~",
+            "authors": [],
+            "context": {
+              "media": {
+                "subtitles": [],
+                "posters": [],
+                "src": []
+              }
+            },
+            "meta": {
+              "updatedAt": "2017-06-13T12:15:40.321Z",
+              "createdAt": "2017-06-13T12:15:40.321Z"
+            },
+            "lessons": [
+              {
+                "type": "video",
+                "poster":
+                  "https://api-staging.coorpacademy.com/api-service/medias?h=230&w=230&q=90&url=https://static.coorpacademy.com/content/digital/miniatures_cours/base/1B2.png",
+                "description": "Anatomie d'une page de résultats",
+                "mimeType": "application/vimeo",
+                "videoId": "88393119\n",
+                "_id": "590b862e2e967f64333ad456",
+                "subtitles": [],
+                "posters": [],
+                "src": []
+              },
+              {
+                "description": "Historique des moteurs de recherche",
+                "mimeType": "application/vimeo",
+                "poster":
+                  "https://api-staging.coorpacademy.com/api-service/medias?h=230&w=230&q=90&url=https://static.coorpacademy.com/content/digital/miniatures_cours/base/1B1.png",
+                "posters": [],
+                "src": [],
+                "subtitles": [],
+                "type": "video",
+                "videoId": "88546728\n",
+                "_id": "590b862e2e967f64333ad4fc"
+              }
+            ],
+            "question": {
+              "type": "basic",
+              "header": "Écrivez le mot Text dans l'input.\n",
+              "explanation": "Saisissez votre réponse.",
+              "content": {
+                "label": "Saisissez votre réponse.",
+                "placeholder": " ",
+                "maxTypos": null,
+                "choices": [],
+                "media": {
+                  "subtitles": [],
+                  "posters": [],
+                  "src": []
+                }
+              },
+              "medias": [
+                {
+                  "type": "img",
+                  "_id": "593eb72a187bd18c01283591",
+                  "subtitles": [],
+                  "posters": [],
+                  "src": [
+                    {
+                      "mimeType": "image/jpeg",
+                      "url":
+                        "https://api-staging.coorpacademy.com/api-service/medias?h=400&w=400&q=90&url=https://static.coorpacademy.com/content/ijoinchanel/en/slides/1B2_Q6/1B2-Q6-canap-v1.jpg",
+                      "_id": "593eb72a187bd18c01283592"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
         }
       }
     },
@@ -62,93 +145,12 @@
     },
     "recommendations": {
       "entities": {}
-    },
-    "slides": {
-      "entities": {
-        "1.B2.4": {
-          "_id": "1.B2.4",
-          "klf": "Nous devons chouchouter nos clientes et les mettre à l'aise pendant leur attente.",
-          "tips": "Avez-vous récemment consulté les iPads ou le magazine 31 rue Cambon ?",
-          "chapter_id": "cha_Ny1BTxRp~",
-          "authors": [],
-          "context": {
-            "media": {
-              "subtitles": [],
-              "posters": [],
-              "src": []
-            }
-          },
-          "meta": {
-            "updatedAt": "2017-06-13T12:15:40.321Z",
-            "createdAt": "2017-06-13T12:15:40.321Z"
-          },
-          "lessons": [
-            {
-              "type": "video",
-              "poster": "https://api-staging.coorpacademy.com/api-service/medias?h=230&w=230&q=90&url=https://static.coorpacademy.com/content/digital/miniatures_cours/base/1B2.png",
-              "description": "Anatomie d'une page de résultats",
-              "mimeType": "application/vimeo",
-              "videoId": "88393119\n",
-              "_id": "590b862e2e967f64333ad456",
-              "subtitles": [],
-              "posters": [],
-              "src": []
-            },
-            {
-              "description": "Historique des moteurs de recherche",
-              "mimeType": "application/vimeo",
-              "poster": "https://api-staging.coorpacademy.com/api-service/medias?h=230&w=230&q=90&url=https://static.coorpacademy.com/content/digital/miniatures_cours/base/1B1.png",
-              "posters": [],
-              "src": [],
-              "subtitles": [],
-              "type": "video",
-              "videoId": "88546728\n",
-              "_id": "590b862e2e967f64333ad4fc"
-            }
-          ],
-          "question": {
-            "type": "basic",
-            "header": "Écrivez le mot Text dans l'input.\n",
-            "explanation": "Saisissez votre réponse.",
-            "content": {
-              "label": "Saisissez votre réponse.",
-              "placeholder": " ",
-              "maxTypos": null,
-              "choices": [],
-              "media": {
-                "subtitles": [],
-                "posters": [],
-                "src": []
-              }
-            },
-            "medias": [
-              {
-                "type": "img",
-                "_id": "593eb72a187bd18c01283591",
-                "subtitles": [],
-                "posters": [],
-                "src": [
-                  {
-                    "mimeType": "image/jpeg",
-                    "url": "https://api-staging.coorpacademy.com/api-service/medias?h=400&w=400&q=90&url=https://static.coorpacademy.com/content/ijoinchanel/en/slides/1B2_Q6/1B2-Q6-canap-v1.jpg",
-                    "_id": "593eb72a187bd18c01283592"
-                  }
-                ]
-              }
-            ]
-          }
-        }
-      }
     }
   },
   "ui": {
     "answers": {},
     "corrections": {
-      "accordion": [
-        false,
-        false,
-        false
-      ],
+      "accordion": [false, false, false],
       "playResource": "590b862e2e967f64333ad456"
     },
     "current": {

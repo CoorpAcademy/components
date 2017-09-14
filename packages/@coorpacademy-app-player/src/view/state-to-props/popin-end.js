@@ -104,7 +104,7 @@ const extractAction = ({translate}, {dispatch}) => state => {
       () => ({
         type: 'simple',
         prefix: translate('Retry chapter_'),
-        title: getOr('', 'name')(getCurrentChapter(state)),
+        title: getOr('', 'name')(getCurrentContent(state)),
         button: {
           title: translate('Retry chapter'),
           onClick: () => dispatch(retry)

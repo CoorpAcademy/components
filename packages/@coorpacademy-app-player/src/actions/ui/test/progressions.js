@@ -18,11 +18,33 @@ import {
   RANK_FETCH_END_REQUEST,
   RANK_FETCH_END_SUCCESS
 } from '../../api/rank';
-import {SLIDE_FETCH_REQUEST, SLIDE_FETCH_SUCCESS} from '../../api/slides';
 import {EXIT_NODE_FETCH_REQUEST, EXIT_NODE_FETCH_SUCCESS} from '../../api/exit-nodes';
-import {CHAPTER_FETCH_REQUEST, CHAPTER_FETCH_SUCCESS} from '../../api/chapters';
+import {CONTENT_FETCH_REQUEST, CONTENT_FETCH_SUCCESS} from '../../api/contents';
 import {RECO_FETCH_REQUEST, RECO_FETCH_SUCCESS} from '../../api/recommendations';
 import {UI_SELECT_ROUTE} from '../route';
+
+const slide = {ref: 'bar'};
+const slideWithContext = {
+  ref: 'bar',
+  context: {title: 'some-title', description: 'some-description'}
+};
+
+const ContentService = (t, withContext) => ({
+  find: (type, ref) => {
+    switch (type) {
+      case 'chapter':
+        t.is(ref, 'baz');
+        return 'baz';
+
+      case 'slide':
+        t.is(ref, 'bar');
+        return withContext ? slideWithContext : slide;
+
+      default:
+        throw new Error();
+    }
+  }
+});
 
 test(
   'should select progression and fetch next ExitNode',
@@ -71,29 +93,18 @@ test(
         t.is(id, 'foo');
         return 'foo';
       },
-      findBestOf: (ref, id) => {
+      findBestOf: (type, ref, id) => {
         t.is(ref, 'baz');
         return 16;
       },
       getEngineConfig: () => 42
-    },
-    Slides: {
-      findById: id => {
-        t.is(id, 'bar');
-        return {ref: 'bar'};
-      }
     },
     LeaderBoard: {
       getRank: () => {
         return 1;
       }
     },
-    Chapters: {
-      findById: id => {
-        t.is(id, 'baz');
-        return 'baz';
-      }
-    }
+    Content: ContentService(t)
   }),
   selectProgression('foo'),
   [
@@ -139,30 +150,30 @@ test(
     ],
     [
       {
-        type: CHAPTER_FETCH_REQUEST,
-        meta: {id: 'baz'}
+        type: CONTENT_FETCH_REQUEST,
+        meta: {type: 'chapter', ref: 'baz'}
       },
-      set('data.chapters.entities.baz', null, {})
+      set('data.contents.chapter.entities.baz', null, {})
     ],
     {
-      type: CHAPTER_FETCH_SUCCESS,
-      meta: {id: 'baz'},
+      type: CONTENT_FETCH_SUCCESS,
+      meta: {type: 'chapter', ref: 'baz'},
       payload: 'baz'
     },
     [
       {
         type: PROGRESSION_FETCH_BESTOF_REQUEST,
-        meta: {chapterId: 'baz'}
+        meta: {type: 'chapter', ref: 'baz'}
       },
-      set('data.chapters.entities.baz.bestScore', null)({})
+      set('data.contents.chapter.entities.baz.bestScore', null)({})
     ],
     [
       {
         type: PROGRESSION_FETCH_BESTOF_SUCCESS,
-        meta: {chapterId: 'baz'},
+        meta: {type: 'chapter', ref: 'baz'},
         payload: 16
       },
-      set('data.chapters.entities.baz.bestScore', 16, {})
+      set('data.contents.chapter.entities.baz.bestScore', 16, {})
     ],
     {
       type: ENGINE_CONFIG_FETCH_REQUEST
@@ -173,15 +184,15 @@ test(
     },
     [
       {
-        type: SLIDE_FETCH_REQUEST,
-        meta: {id: 'bar'}
+        type: CONTENT_FETCH_REQUEST,
+        meta: {type: 'slide', ref: 'bar'}
       },
-      set('data.slides.entities.bar', null, {})
+      set('data.contents.slide.entities.bar', null, {})
     ],
     {
-      type: SLIDE_FETCH_SUCCESS,
-      meta: {id: 'bar'},
-      payload: {ref: 'bar'}
+      type: CONTENT_FETCH_SUCCESS,
+      meta: {type: 'slide', ref: 'bar'},
+      payload: slide
     }
   ]
 );
@@ -196,29 +207,18 @@ test(
         t.is(id, 'foo');
         return 'foo';
       },
-      findBestOf: (ref, id) => {
+      findBestOf: (type, ref, id) => {
         t.is(ref, 'baz');
         return 16;
       },
       getEngineConfig: () => 42
-    },
-    Slides: {
-      findById: id => {
-        t.is(id, 'bar');
-        return {ref: 'bar', context: {title: 'some-title', description: 'some-description'}};
-      }
     },
     LeaderBoard: {
       getRank: () => {
         return 1;
       }
     },
-    Chapters: {
-      findById: id => {
-        t.is(id, 'baz');
-        return 'baz';
-      }
-    }
+    Content: ContentService(t, true)
   }),
   selectProgression('foo'),
   [
@@ -264,30 +264,30 @@ test(
     ],
     [
       {
-        type: CHAPTER_FETCH_REQUEST,
-        meta: {id: 'baz'}
+        type: CONTENT_FETCH_REQUEST,
+        meta: {type: 'chapter', ref: 'baz'}
       },
-      set('data.chapters.entities.baz', null, {})
+      set('data.contents.chapter.entities.baz', null, {})
     ],
     {
-      type: CHAPTER_FETCH_SUCCESS,
-      meta: {id: 'baz'},
+      type: CONTENT_FETCH_SUCCESS,
+      meta: {type: 'chapter', ref: 'baz'},
       payload: 'baz'
     },
     [
       {
         type: PROGRESSION_FETCH_BESTOF_REQUEST,
-        meta: {chapterId: 'baz'}
+        meta: {type: 'chapter', ref: 'baz'}
       },
-      set('data.chapters.entities.baz.bestScore', null)({})
+      set('data.contents.chapter.entities.baz.bestScore', null)({})
     ],
     [
       {
         type: PROGRESSION_FETCH_BESTOF_SUCCESS,
-        meta: {chapterId: 'baz'},
+        meta: {type: 'chapter', ref: 'baz'},
         payload: 16
       },
-      set('data.chapters.entities.baz.bestScore', 16, {})
+      set('data.contents.chapter.entities.baz.bestScore', 16, {})
     ],
     {
       type: ENGINE_CONFIG_FETCH_REQUEST
@@ -298,15 +298,15 @@ test(
     },
     [
       {
-        type: SLIDE_FETCH_REQUEST,
-        meta: {id: 'bar'}
+        type: CONTENT_FETCH_REQUEST,
+        meta: {type: 'slide', ref: 'bar'}
       },
-      set('data.slides.entities.bar', null, {})
+      set('data.contents.slide.entities.bar', null, {})
     ],
     {
-      type: SLIDE_FETCH_SUCCESS,
-      meta: {id: 'bar'},
-      payload: {ref: 'bar', context: {title: 'some-title', description: 'some-description'}}
+      type: CONTENT_FETCH_SUCCESS,
+      meta: {type: 'slide', ref: 'bar'},
+      payload: slideWithContext
     },
     {
       type: UI_SELECT_ROUTE,
@@ -326,7 +326,7 @@ test(
         t.is(id, 'foo');
         return 'foo';
       },
-      findBestOf: (ref, id) => {
+      findBestOf: (type, ref, id) => {
         t.is(ref, 'baz');
         return 16;
       },
@@ -343,12 +343,7 @@ test(
         return 1;
       }
     },
-    Chapters: {
-      findById: id => {
-        t.is(id, 'baz');
-        return 'baz';
-      }
-    },
+    Content: ContentService(t),
     Recommendations: {
       find: () => 'plop'
     }
@@ -397,30 +392,30 @@ test(
     ],
     [
       {
-        type: CHAPTER_FETCH_REQUEST,
-        meta: {id: 'baz'}
+        type: CONTENT_FETCH_REQUEST,
+        meta: {type: 'chapter', ref: 'baz'}
       },
-      set('data.chapters.entities.baz', null, {})
+      set('data.contents.chapter.entities.baz', null, {})
     ],
     {
-      type: CHAPTER_FETCH_SUCCESS,
-      meta: {id: 'baz'},
+      type: CONTENT_FETCH_SUCCESS,
+      meta: {type: 'chapter', ref: 'baz'},
       payload: 'baz'
     },
     [
       {
         type: PROGRESSION_FETCH_BESTOF_REQUEST,
-        meta: {chapterId: 'baz'}
+        meta: {type: 'chapter', ref: 'baz'}
       },
-      set('data.chapters.entities.baz.bestScore', null, {})
+      set('data.contents.chapter.entities.baz.bestScore', null, {})
     ],
     [
       {
         type: PROGRESSION_FETCH_BESTOF_SUCCESS,
-        meta: {chapterId: 'baz'},
+        meta: {type: 'chapter', ref: 'baz'},
         payload: 16
       },
-      set('data.chapters.entities.baz.bestScore', 16, {})
+      set('data.contents.chapter.entities.baz.bestScore', 16, {})
     ],
     {
       type: ENGINE_CONFIG_FETCH_REQUEST
