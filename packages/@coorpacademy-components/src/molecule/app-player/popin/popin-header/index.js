@@ -110,7 +110,7 @@ const buildClass = (value, success, fail, loading) => {
 
 const CorrectionPart = props => {
   const {fail, corrections = [], title, subtitle, stars, rank, extraLife} = props;
-  const {active} = extraLife;
+  const {active: isExtraLife} = extraLife
   const isLoading = isNil(fail);
   const className = buildClass(
     fail,
@@ -134,7 +134,7 @@ const CorrectionPart = props => {
 
 const NextQuestionPart = ({cta, extraLife}, context) => {
   const {title, ...linkProps} = cta || {};
-  const {active} = extraLife;
+  const {active: isExtraLife} = extraLife
 
   return (
     <Link
@@ -181,7 +181,7 @@ const PopinHeader = (props, context) => {
   } = props;
 
   const state = buildClass(fail, 'success', 'fail', null);
-  const {active} = extraLife;
+  const {active: isExtraLife} = extraLife
 
   const RemainingLifePart = active ? <RemainingLife extraLife={extraLife} /> : null;
 
