@@ -31,7 +31,7 @@
 .gameOverHeader {
   height: 142px;
   background-color: white;
-  animation: biggerHeader 0.5s ease;
+  animation: biggerHeader 1s ease;
 }
 
 .headerTitle {
@@ -268,7 +268,7 @@
   position: absolute;
   top: 100px;
   z-index: 1;
-  animation: remainingLifeRequests 0.9s ease-out;
+  animation: remainingLifeRequests 1.4s ease-out;
 }
 
 @media tablet {
