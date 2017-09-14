@@ -3,6 +3,7 @@ import LinkedInput from 'react-linked-input';
 import PropTypes from 'prop-types';
 import omit from 'lodash/fp/omit';
 import noop from 'lodash/fp/noop';
+import Loader from '../loader';
 import style from './style.css';
 
 const ConfirmationInput = ({onChange, placeholder = ''}) => {
@@ -26,24 +27,21 @@ ConfirmationInput.propTypes = {
   placeholder: PropTypes.string
 };
 
-const Confirmation = props => {
+const ConfirmationForm = props => {
   const {
     confirmValue,
     confirmDisabled = false,
     onConfirm,
-    description,
     cancelValue,
     onHandleClose,
     onChange,
     textValidation,
-    placeholder
+    placeholder,
+    isPending = false
   } = props;
 
-  return (
-    <div className={style.sectionConfirm}>
-      <div className={style.description}>
-        {description}
-      </div>
+  const form = (
+    <div className={style.confirmForm}>
       {textValidation ? <ConfirmationInput onChange={onChange} placeholder={placeholder} /> : null}
       <span onClick={onHandleClose} className={style.cancel}>{cancelValue}</span>
       <span
@@ -54,16 +52,38 @@ const Confirmation = props => {
       </span>
     </div>
   );
+
+  return isPending
+    ? <div className={style.confirmForm}>
+        <Loader />
+      </div>
+    : form;
 };
-Confirmation.propTypes = {
+ConfirmationForm.propTypes = {
   confirmValue: PropTypes.string.isRequired,
   confirmDisabled: PropTypes.bool,
   onConfirm: PropTypes.func.isRequired,
-  description: PropTypes.string,
   cancelValue: PropTypes.string.isRequired,
   onHandleClose: PropTypes.func.isRequired,
   textValidation: PropTypes.bool,
+  isPending: PropTypes.bool,
   ...ConfirmationInput.propTypes
+};
+
+const Confirmation = props => {
+  const {description} = props;
+
+  return (
+    <div className={style.sectionConfirm}>
+      <div className={style.description}>
+        {description}
+      </div>
+      <ConfirmationForm {...props} />
+    </div>
+  );
+};
+Confirmation.propTypes = {
+  description: PropTypes.string
 };
 
 class InputDoublestep extends React.Component {
@@ -79,6 +99,9 @@ class InputDoublestep extends React.Component {
     this.setState(state => ({
       open: !state.open
     }));
+
+    const {onCloseConfirmation = noop, onOpenConfirmation = noop} = this.props;
+    this.state.open ? onCloseConfirmation() : onOpenConfirmation();
   }
 
   render() {
@@ -112,6 +135,8 @@ const inputDoubleProps = omit(['onConfirm', 'onHandleClose'], {...Confirmation.p
 InputDoublestep.propTypes = {
   toggleValue: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
+  onOpenConfirmation: PropTypes.func,
+  onCloseConfirmation: PropTypes.func,
   ...inputDoubleProps
 };
 export default InputDoublestep;
