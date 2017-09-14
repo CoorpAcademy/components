@@ -29,7 +29,7 @@ const ButtonContent = props => {
           download={download}
           onClick={onClick}
           target={target}
-          className={className}
+          className={disabled ? style.disabled : className}
           style={props.style}
         >
           {submitValue || children}
@@ -42,7 +42,7 @@ const ButtonContent = props => {
           data-name={dataName}
           href={href}
           target={target}
-          className={className}
+          className={disabled ? style.disabled : className}
           onClick={onClick}
           style={props.style}
         >
@@ -58,7 +58,7 @@ const ButtonContent = props => {
           value={submitValue}
           disabled={disabled}
           onClick={onClick}
-          className={className}
+          className={disabled ? style.disabled : className}
           style={{
             color,
             ...props.style
