@@ -110,12 +110,12 @@ const buildClass = (value, success, fail, loading) => {
 
 const CorrectionPart = props => {
   const {fail, corrections = [], title, subtitle, stars, rank, extraLife} = props;
-  const {active: isExtraLife} = extraLife
+  const {active: isExtraLife} = extraLife;
   const isLoading = isNil(fail);
   const className = buildClass(
     fail,
     stars && rank ? style.correctionSectionEndSuccess : style.correctionSectionSuccess,
-    active ? style.correctionSectionFailGameOver : style.correctionSectionFail,
+    isExtraLife ? style.correctionSectionFailGameOver : style.correctionSectionFail,
     style.correctionSectionLoading
   );
 
@@ -134,11 +134,11 @@ const CorrectionPart = props => {
 
 const NextQuestionPart = ({cta, extraLife}, context) => {
   const {title, ...linkProps} = cta || {};
-  const {active: isExtraLife} = extraLife
+  const {active: isExtraLife} = extraLife;
 
   return (
     <Link
-      className={classnames(style.nextSection, active && style.gameOver)}
+      className={classnames(style.nextSection, isExtraLife && style.gameOver)}
       data-name="nextLink"
       {...linkProps}
     >
@@ -181,13 +181,13 @@ const PopinHeader = (props, context) => {
   } = props;
 
   const state = buildClass(fail, 'success', 'fail', null);
-  const {active: isExtraLife} = extraLife
+  const {active: isExtraLife} = extraLife;
 
-  const RemainingLifePart = active ? <RemainingLife extraLife={extraLife} /> : null;
+  const RemainingLifePart = isExtraLife ? <RemainingLife extraLife={extraLife} /> : null;
 
   return (
     <div
-      className={classnames(style.header, active && style.gameOverHeader)}
+      className={classnames(style.header, isExtraLife && style.gameOverHeader)}
       data-name="popinHeader"
       data-state={state}
     >

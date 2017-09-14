@@ -8,7 +8,7 @@ export default defaultsDeep(failClosed, {
     },
     header: {
       extraLife: {
-        active: true, 
+        active: true,
         sentence: 'Bonus ! Récupérez une vie en regardant la leçon !'
       },
       cta: {
