@@ -366,9 +366,9 @@ import VideoPlayerFixtureJwplayer from '../src/molecule/video-player/test/fixtur
 import VideoPlayerFixtureKontiki from '../src/molecule/video-player/test/fixtures/kontiki';
 import VideoPlayerFixtureVimeo from '../src/molecule/video-player/test/fixtures/vimeo';
 import VideoPlayerFixtureYoutube from '../src/molecule/video-player/test/fixtures/youtube';
+import PopinHeaderFixtureExtralife from '../src/molecule/app-player/popin/popin-header/test/fixtures/extralife';
 import PopinHeaderFixtureFailMultipleAnswers from '../src/molecule/app-player/popin/popin-header/test/fixtures/fail-multiple-answers';
 import PopinHeaderFixtureFail from '../src/molecule/app-player/popin/popin-header/test/fixtures/fail';
-import PopinHeaderFixtureJoker from '../src/molecule/app-player/popin/popin-header/test/fixtures/joker';
 import PopinHeaderFixtureLoading from '../src/molecule/app-player/popin/popin-header/test/fixtures/loading';
 import PopinHeaderFixtureStarsRank from '../src/molecule/app-player/popin/popin-header/test/fixtures/stars-rank';
 import PopinHeaderFixtureSuccess from '../src/molecule/app-player/popin/popin-header/test/fixtures/success';
@@ -1122,9 +1122,9 @@ export const fixtures = {
   },
   MoleculeAppPlayerPopin: {
     PopinHeader: {
+      Extralife: PopinHeaderFixtureExtralife,
       FailMultipleAnswers: PopinHeaderFixtureFailMultipleAnswers,
       Fail: PopinHeaderFixtureFail,
-      Joker: PopinHeaderFixtureJoker,
       Loading: PopinHeaderFixtureLoading,
       StarsRank: PopinHeaderFixtureStarsRank,
       Success: PopinHeaderFixtureSuccess
