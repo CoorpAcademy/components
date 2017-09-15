@@ -100,7 +100,7 @@ export const requestExtralifeRefused = async progressionId => {
   const progression = await findById(progressionId);
 
   const action = {
-    type: 'requestExtralifeRefused'
+    type: 'extraLifeRefused'
   };
 
   return pipe(update('state', state => updateState(progression.engine, state, [action])), save)(
@@ -110,10 +110,16 @@ export const requestExtralifeRefused = async progressionId => {
 
 export const requestExtralifeAccepted = async progressionId => {
   const progression = await findById(progressionId);
+  const slides = await findAllSlides();
 
-  const action = {
-    type: 'requestExtralifeAccepted'
+  const feedNextContent = _action => {
+    const nextState = updateState(progression.engine, progression.state, [_action]);
+    return set('payload.nextContent', computeNextStep(progression.engine, slides, nextState))(
+      _action
+    );
   };
+
+  const action = feedNextContent({type: 'extraLifeAccepted', payload: {}});
 
   return pipe(update('state', state => updateState(progression.engine, state, [action])), save)(
     progression
