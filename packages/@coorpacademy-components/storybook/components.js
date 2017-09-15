@@ -170,6 +170,7 @@ import InputColorFixtureError from '../src/atom/input-color/test/fixtures/error'
 import InputColorFixtureModified from '../src/atom/input-color/test/fixtures/modified';
 import InputDoublestepFixtureDefault from '../src/atom/input-doublestep/test/fixtures/default';
 import InputDoublestepFixtureInputConfirmDisabled from '../src/atom/input-doublestep/test/fixtures/input-confirm-disabled';
+import InputDoublestepFixtureInputConfirmPending from '../src/atom/input-doublestep/test/fixtures/input-confirm-pending';
 import InputDoublestepFixtureInputConfirm from '../src/atom/input-doublestep/test/fixtures/input-confirm';
 import InputReadonlyFixtureDefault from '../src/atom/input-readonly/test/fixtures/default';
 import InputSwitchFixtureChecked from '../src/atom/input-switch/test/fixtures/checked';
@@ -784,6 +785,7 @@ export const fixtures = {
     InputDoublestep: {
       Default: InputDoublestepFixtureDefault,
       InputConfirmDisabled: InputDoublestepFixtureInputConfirmDisabled,
+      InputConfirmPending: InputDoublestepFixtureInputConfirmPending,
       InputConfirm: InputDoublestepFixtureInputConfirm
     },
     InputReadonly: {

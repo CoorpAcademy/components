@@ -52,9 +52,11 @@ function BrandForm(props, context) {
     return onSubmit(e);
   };
 
+  const cancelBackground = {backgroundColor: darkColor};
+
   const resetButton = onReset
     ? <div className={style.resetButton}>
-        <Button type="reset" submitValue={resetValue} />
+        <Button type="reset" submitValue={resetValue} style={cancelBackground} />
       </div>
     : null;
   const handleReset = e => {

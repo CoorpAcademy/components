@@ -11,6 +11,8 @@ export default {
     textValidation: true,
     onChange: e => console.log('on change text', e),
     placeholder: "Brand's name",
-    isPending: false
+    isPending: true,
+    onOpenConfirmation: () => console.log('open'),
+    onCloseConfirmation: () => console.log('close')
   }
 };
