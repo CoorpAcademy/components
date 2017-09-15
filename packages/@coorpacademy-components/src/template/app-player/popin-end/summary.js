@@ -38,13 +38,16 @@ const SimpleAction = ({color, prefix, title, button}) => {
     </div>
   );
 };
+SimpleAction.propTypes = {
+  color: PropTypes.string,
+  prefix: PropTypes.string,
+  title: PropTypes.string,
+  button: PropTypes.shape(Button.propTypes)
+};
 
-const NextCourse = ({title, description, prefix, card}) =>
+const NextCourse = ({title, prefix, card}) =>
   <div data-name="nextCourse" className={style.nextCourseWrapper}>
     <div className={style.nextCourseTexts}>
-      <div className={style.nextCourseDescription}>
-        {description}
-      </div>
       <div className={style.nextCoursePrefix}>
         {prefix}
       </div>
@@ -56,6 +59,11 @@ const NextCourse = ({title, description, prefix, card}) =>
       <Card {...card} dataName={'popin-end-next-course'} />
     </div>
   </div>;
+NextCourse.propTypes = {
+  title: PropTypes.string,
+  prefix: PropTypes.string,
+  card: PropTypes.shape(CardsList.propTypes)
+};
 
 const Subscribe = ({title, description, button, card}) => {
   const {title: buttonTitle, ...linkProps} = button;
@@ -82,6 +90,12 @@ const Subscribe = ({title, description, button, card}) => {
       </div>
     </div>
   );
+};
+Subscribe.propTypes = {
+  title: PropTypes.string,
+  description: PropTypes.string,
+  prefix: PropTypes.string,
+  card: PropTypes.shape(CardsList.propTypes)
 };
 
 const actions = {
