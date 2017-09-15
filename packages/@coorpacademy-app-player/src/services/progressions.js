@@ -108,6 +108,18 @@ export const requestExtralifeRefused = async progressionId => {
   );
 };
 
+export const requestExtralifeAccepted = async progressionId => {
+  const progression = await findById(progressionId);
+
+  const action = {
+    type: 'requestExtralifeAccepted'
+  };
+
+  return pipe(update('state', state => updateState(progression.engine, state, [action])), save)(
+    progression
+  );
+};
+
 export const create = async progression => {
   const _id = generateId();
   const slides = await findAllSlides();
