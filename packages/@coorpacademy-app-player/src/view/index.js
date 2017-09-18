@@ -6,7 +6,7 @@ import isNil from 'lodash/fp/isNil';
 import isEqual from 'lodash/fp/isEqual';
 import pipe from 'lodash/fp/pipe';
 import Provider from '@coorpacademy/components/es/atom/provider';
-import {getCurrentContent, getCurrentProgression, getRoute} from '../utils/state-extract';
+import {getStepContent, getCurrentProgression, getRoute} from '../utils/state-extract';
 import createPopinCorrectionView from './popin-correction';
 import createSlideView from './slide';
 import createPopinEndView from './popin-end';
@@ -15,9 +15,9 @@ import createLoadingView from './loading';
 const wrapInProvider = options => vNode => createElement(Provider, options, vNode);
 
 const hasNotProgression = pipe(getCurrentProgression, isNil);
-const hasNoContent = pipe(getCurrentContent, isNil);
+const hasNoContent = pipe(getStepContent, isNil);
 const matchRoute = route => pipe(getRoute, isEqual(route));
-const matchContentType = contentType => pipe(getCurrentContent, get('type'), isEqual(contentType));
+const matchContentType = contentType => pipe(getStepContent, get('type'), isEqual(contentType));
 
 const createMapStateToProps = (options, store) =>
   cond([

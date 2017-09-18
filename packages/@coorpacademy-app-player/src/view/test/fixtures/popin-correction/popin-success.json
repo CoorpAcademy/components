@@ -1,142 +1,137 @@
 {
   "data": {
-    "slides": {
-      "entities": {
-        "1.B2.4": {
-          "_id": "1.B2.4",
-          "klf": "Some KFL",
-          "tips": "XXX",
-          "chapter_id": "cha_Ny1BTxRp~",
-          "authors": [],
-          "context": {
-            "media": {
-              "subtitles": [],
-              "posters": [],
-              "src": []
-            }
-          },
-          "meta": {
-            "updatedAt": "2017-06-13T12:15:40.321Z",
-            "createdAt": "2017-06-13T12:15:40.321Z"
-          },
-          "lessons": [
-            {
-              "type": "video",
-              "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B2.png",
-              "description": "Anatomie d'une page de résultats",
-              "mimeType": "application/vimeo",
-              "videoId": "88393119\n",
-              "_id": "590b862e2e967f64333ad456",
-              "subtitles": [],
-              "posters": [],
-              "src": []
-            }
-          ],
-          "question": {
-            "type": "basic",
-            "header": "Écrivez le mot Text dans l'input.\n",
-            "explanation": "Saisissez votre réponse.",
-            "content": {
-              "label": "Saisissez votre réponse.",
-              "placeholder": " ",
-              "maxTypos": null,
-              "choices": [],
-              "answers": [
-                [
-                  "Text"
-                ]
-              ],
+    "contents": {
+      "slide": {
+        "entities": {
+          "1.B2.4": {
+            "_id": "1.B2.4",
+            "klf": "Some KFL",
+            "tips": "XXX",
+            "chapter_id": "cha_Ny1BTxRp~",
+            "authors": [],
+            "context": {
               "media": {
                 "subtitles": [],
                 "posters": [],
                 "src": []
               }
             },
-            "medias": []
-          }
-        },
-        "sli_Vy88~R-bX": {
-          "_id": "sli_Vy88~R-bX",
-          "klf": "Difficile hein !",
-          "tips": "Que 1 X 1 n'est pas 2 !",
-          "chapter_id": "cha_Ny1BTxRp~",
-          "authors": [],
-          "context": {
-            "media": {
-              "subtitles": [],
-              "posters": [],
-              "src": []
-            }
-          },
-          "meta": {
-            "updatedAt": "2017-06-06T13:49:35.256Z",
-            "createdAt": "2017-06-06T13:49:35.255Z"
-          },
-          "lessons": [
-            {
-              "_id": "5930752aa2b39d0024eebffb",
-              "description": "Hierarchie",
-              "mediaUrl": "//static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/raw/hierachie-contenu-1496311207505.pdf",
-              "mimeType": "application/pdf",
-              "type": "pdf",
-              "subtitles": [],
-              "posters": [],
-              "src": []
-            }
-          ],
-          "question": {
-            "type": "qcm",
-            "header": "Combien ça fait 1 + 1 ?",
-            "explanation": "Sélectionnez la (les) bonne(s) réponse(s).",
-            "content": {
-              "maxTypos": null,
-              "choices": [
-                {
-                  "_id": "5930752aa2b39d0024eebffe",
-                  "value": "sli_Vy88~R-bX.choice_EyWTW0O~X",
-                  "label": "0",
-                  "items": [],
-                  "media": {
-                    "subtitles": [],
-                    "posters": [],
-                    "src": []
-                  }
-                },
-                {
-                  "_id": "5930752aa2b39d0024eebffd",
-                  "value": "sli_Vy88~R-bX.choice_EJmabCuZX",
-                  "label": "1",
-                  "items": [],
-                  "media": {
-                    "subtitles": [],
-                    "posters": [],
-                    "src": []
-                  }
-                },
-                {
-                  "_id": "5930752aa2b39d0024eebffc",
-                  "value": "sli_Vy88~R-bX.choice_NyoT~C-~X",
-                  "label": "2",
-                  "items": [],
-                  "media": {
-                    "subtitles": [],
-                    "posters": [],
-                    "src": []
-                  }
+            "meta": {
+              "updatedAt": "2017-06-13T12:15:40.321Z",
+              "createdAt": "2017-06-13T12:15:40.321Z"
+            },
+            "lessons": [
+              {
+                "type": "video",
+                "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B2.png",
+                "description": "Anatomie d'une page de résultats",
+                "mimeType": "application/vimeo",
+                "videoId": "88393119\n",
+                "_id": "590b862e2e967f64333ad456",
+                "subtitles": [],
+                "posters": [],
+                "src": []
+              }
+            ],
+            "question": {
+              "type": "basic",
+              "header": "Écrivez le mot Text dans l'input.\n",
+              "explanation": "Saisissez votre réponse.",
+              "content": {
+                "label": "Saisissez votre réponse.",
+                "placeholder": " ",
+                "maxTypos": null,
+                "choices": [],
+                "answers": [["Text"]],
+                "media": {
+                  "subtitles": [],
+                  "posters": [],
+                  "src": []
                 }
-              ],
-              "answers": [
-                [
-                  "2"
-                ]
-              ],
+              },
+              "medias": []
+            }
+          },
+          "sli_Vy88~R-bX": {
+            "_id": "sli_Vy88~R-bX",
+            "klf": "Difficile hein !",
+            "tips": "Que 1 X 1 n'est pas 2 !",
+            "chapter_id": "cha_Ny1BTxRp~",
+            "authors": [],
+            "context": {
               "media": {
                 "subtitles": [],
                 "posters": [],
                 "src": []
               }
             },
-            "medias": []
+            "meta": {
+              "updatedAt": "2017-06-06T13:49:35.256Z",
+              "createdAt": "2017-06-06T13:49:35.255Z"
+            },
+            "lessons": [
+              {
+                "_id": "5930752aa2b39d0024eebffb",
+                "description": "Hierarchie",
+                "mediaUrl":
+                  "//static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/raw/hierachie-contenu-1496311207505.pdf",
+                "mimeType": "application/pdf",
+                "type": "pdf",
+                "subtitles": [],
+                "posters": [],
+                "src": []
+              }
+            ],
+            "question": {
+              "type": "qcm",
+              "header": "Combien ça fait 1 + 1 ?",
+              "explanation": "Sélectionnez la (les) bonne(s) réponse(s).",
+              "content": {
+                "maxTypos": null,
+                "choices": [
+                  {
+                    "_id": "5930752aa2b39d0024eebffe",
+                    "value": "sli_Vy88~R-bX.choice_EyWTW0O~X",
+                    "label": "0",
+                    "items": [],
+                    "media": {
+                      "subtitles": [],
+                      "posters": [],
+                      "src": []
+                    }
+                  },
+                  {
+                    "_id": "5930752aa2b39d0024eebffd",
+                    "value": "sli_Vy88~R-bX.choice_EJmabCuZX",
+                    "label": "1",
+                    "items": [],
+                    "media": {
+                      "subtitles": [],
+                      "posters": [],
+                      "src": []
+                    }
+                  },
+                  {
+                    "_id": "5930752aa2b39d0024eebffc",
+                    "value": "sli_Vy88~R-bX.choice_NyoT~C-~X",
+                    "label": "2",
+                    "items": [],
+                    "media": {
+                      "subtitles": [],
+                      "posters": [],
+                      "src": []
+                    }
+                  }
+                ],
+                "answers": [["2"]],
+                "media": {
+                  "subtitles": [],
+                  "posters": [],
+                  "src": []
+                }
+              },
+              "medias": []
+            }
           }
         }
       }
@@ -150,10 +145,7 @@
             "version": "1"
           },
           "state": {
-            "slides": [
-              "1.B2.4",
-              "sli_Vy88~R-bX"
-            ],
+            "slides": ["1.B2.4", "sli_Vy88~R-bX"],
             "nextContent": {
               "ref": "sli_VkcAWR-ZQ",
               "type": "slide"
@@ -179,9 +171,7 @@
       "entities": {
         "0": {
           "sli_Vy88~R-bX": {
-            "correctAnswer": [
-              "2"
-            ],
+            "correctAnswer": ["2"],
             "corrections": [
               {
                 "answer": "2",
@@ -199,9 +189,7 @@
   "ui": {
     "answers": {
       "0": {
-        "value": [
-          "2"
-        ]
+        "value": ["2"]
       }
     },
     "current": {

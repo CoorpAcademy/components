@@ -163,7 +163,7 @@ test("should display loading state when answer's result is not still received", 
 
 test('should display correction view when slide has not ressources', t => {
   const statePopinWithoutRessources = set(
-    ['data', 'slides', 'entities', '1.B2.4', 'lessons'],
+    ['data', 'contents', 'slide', 'entities', '1.B2.4', 'lessons'],
     [],
     statePopinFailure
   );

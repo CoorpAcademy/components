@@ -1,9 +1,0 @@
-{
-  "lives": 1,
-  "maxTypos": 2,
-  "slidesToComplete": 4,
-  "answerBoundaryLimit": 5,
-  "starsPerAskingClue": -1,
-  "starsPerCorrectAnswer": 4,
-  "starsPerResourceViewed": 4
-}

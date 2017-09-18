@@ -1,6 +1,7 @@
 import {
   createProgression,
   computeNextStep,
+  getConfig,
   checkAnswer,
   updateState
 } from '@coorpacademy/progression-engine';
@@ -15,7 +16,6 @@ import set from 'lodash/fp/set';
 import maxBy from 'lodash/fp/maxBy';
 import reduce from 'lodash/fp/reduce';
 import progressionsData from './progressions.data';
-import engineConfigData from './progression-config.data';
 import slidesData from './slides.data';
 
 const slideStore = reduce(
@@ -38,7 +38,9 @@ export const findById = async id => {
 };
 
 // eslint-disable-next-line require-await
-export const getEngineConfig = async () => engineConfigData;
+export const getEngineConfig = async engine => {
+  return getConfig(engine);
+};
 
 // eslint-disable-next-line require-await
 const findAllSlides = async () => {
@@ -50,15 +52,20 @@ export const save = progression => {
   return progression;
 };
 
-export const findBestOf = (contentRef, progressionId = null) => {
+export const findBestOf = (engine, contentType, contentRef, progressionId = null) => {
   const bestProgression = pipe(
-    filter(p => get('content.ref', p) === contentRef && get('_id', p) !== progressionId),
+    filter(
+      p =>
+        get('content.type', p) === contentType &&
+        get('content.ref', p) === contentRef &&
+        get('_id', p) !== progressionId
+    ),
     maxBy(p => p.state.stars || 0)
   )(progressionsData);
   return bestProgression || set('state.stars', 0, {});
 };
 
-export const createAnswer = async (progressionId, payload) => {
+export const createAnswer = async (engine, progressionId, payload) => {
   const userAnswers = getOr([''], 'answers', payload);
   const slideId = payload.content.ref;
   const slide = slideStore.get(slideId);
@@ -66,12 +73,10 @@ export const createAnswer = async (progressionId, payload) => {
   const slides = await findAllSlides();
 
   const action = pipe(
-    set('payload.isCorrect', checkAnswer(progression.engine, slide.question, userAnswers)),
+    set('payload.isCorrect', checkAnswer(engine, slide.question, userAnswers)),
     _action => {
-      const nextState = updateState(progression.engine, progression.state, [_action]);
-      return set('payload.nextContent', computeNextStep(progression.engine, slides, nextState))(
-        _action
-      );
+      const nextState = updateState(engine, progression.state, [_action]);
+      return set('payload.nextContent', computeNextStep(engine, slides, nextState))(_action);
     }
   )({
     type: 'answer',
@@ -83,7 +88,7 @@ export const createAnswer = async (progressionId, payload) => {
   );
 };
 
-export const requestClue = async (progressionId, payload) => {
+export const requestClue = async (engine, progressionId, payload) => {
   const progression = await findById(progressionId);
 
   const action = {
@@ -91,9 +96,7 @@ export const requestClue = async (progressionId, payload) => {
     payload
   };
 
-  return pipe(update('state', state => updateState(progression.engine, state, [action])), save)(
-    progression
-  );
+  return pipe(update('state', state => updateState(engine, state, [action])), save)(progression);
 };
 
 export const create = async progression => {
@@ -117,7 +120,7 @@ export const create = async progression => {
   });
 };
 
-export const markResourceAsViewed = async (progressionId, payload) => {
+export const markResourceAsViewed = async (engine, progressionId, payload) => {
   const progression = await findById(progressionId);
   const action = {
     type: 'resource',

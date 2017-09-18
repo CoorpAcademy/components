@@ -9,31 +9,38 @@ import {
   PROGRESSION_FETCH_BESTOF_FAILURE
 } from '../progressions';
 
+const progressionContent = {type: 'foo', ref: 'bar'};
+const state = pipe(
+  set('ui.current.progressionId', 'foo'),
+  set('data.progressions.entities.foo.content', progressionContent)
+)({});
+
 test(
   'should fetch best progression',
   macro,
-  {},
+  state,
   t => ({
     Progressions: {
-      findBestOf: ref => {
+      findBestOf: (type, ref, id) => {
+        t.is(type, 'foo');
         t.is(ref, 'bar');
         return 'baz';
       }
     }
   }),
-  fetchBestProgression('bar'),
+  fetchBestProgression(progressionContent),
   [
     {
       type: PROGRESSION_FETCH_BESTOF_REQUEST,
-      meta: {chapterId: 'bar'}
+      meta: progressionContent
     },
     [
       {
         type: PROGRESSION_FETCH_BESTOF_SUCCESS,
-        meta: {chapterId: 'bar'},
+        meta: progressionContent,
         payload: 'baz'
       },
-      set('data.chapters.entities.bar.bestScore', 'baz', {})
+      set('data.contents.chapter.entities.bar.bestScore', 'baz', {})
     ]
   ]
 );
@@ -43,21 +50,21 @@ test(
   macro,
   pipe(
     set('ui.current.progressionId', 'foo'),
-    set('data.progressions.entities.foo', {content: {ref: 'bar'}}),
-    set('data.chapters.entities.bar.bestScore', 12)
+    set('data.progressions.entities.foo', {content: {type: 'chapter', ref: 'bar'}}),
+    set('data.contents.chapter.entities.bar.bestScore', 12)
   )({}),
   t => ({
     Progressions: {
-      findBestOf: ref => {
+      findBestOf: (type, ref, id) => {
         t.fail();
       }
     }
   }),
-  fetchBestProgression('bar'),
+  fetchBestProgression(progressionContent),
   [
     {
       type: PROGRESSION_FETCH_BESTOF_REQUEST,
-      meta: {chapterId: 'bar'}
+      meta: progressionContent
     }
   ]
 );
@@ -65,24 +72,24 @@ test(
 test(
   'should return error if request failed',
   macro,
-  {},
+  state,
   t => ({
     Progressions: {
-      findBestOf: ref => {
+      findBestOf: (type, ref, id) => {
         t.is(ref, 'bar');
         throw new Error();
       }
     }
   }),
-  fetchBestProgression('bar'),
+  fetchBestProgression(progressionContent),
   [
     {
       type: PROGRESSION_FETCH_BESTOF_REQUEST,
-      meta: {chapterId: 'bar'}
+      meta: progressionContent
     },
     {
       type: PROGRESSION_FETCH_BESTOF_FAILURE,
-      meta: {chapterId: 'bar'},
+      meta: progressionContent,
       error: true,
       payload: new Error()
     }

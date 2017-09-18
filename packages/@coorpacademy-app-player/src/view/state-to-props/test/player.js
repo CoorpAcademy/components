@@ -44,8 +44,10 @@ const createProgression = slide => ({
 });
 
 const data = {
-  slides: {
-    entities: availableSlides
+  contents: {
+    slide: {
+      entities: availableSlides
+    }
   },
   progressions: {
     entities: {

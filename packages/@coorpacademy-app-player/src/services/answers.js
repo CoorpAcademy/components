@@ -14,7 +14,7 @@ const answerStore = reduce(
 );
 
 // eslint-disable-next-line import/prefer-default-export
-export const findById = async (progressionId, slideId, givenAnswers = []) => {
+export const findById = async (engine, progressionId, slideId, givenAnswers = []) => {
   const progression = await ProgressionsService.findById(progressionId);
   const slide = find({_id: slideId}, slidesData);
 
@@ -24,7 +24,7 @@ export const findById = async (progressionId, slideId, givenAnswers = []) => {
     answers: [correctAnswer]
   });
 
-  const {corrections} = checkAnswerCorrectness(progression.engine, question, givenAnswers);
+  const {corrections} = checkAnswerCorrectness(engine, question, givenAnswers);
 
   return {
     correctAnswer,

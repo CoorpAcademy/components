@@ -18,6 +18,7 @@ import {
   getPreviousSlide,
   getQuestionType,
   getStartRank,
+  getStepContent,
   getEndRank,
   getBestScore,
   getResourcesToPlay
@@ -112,7 +113,7 @@ test('getCurrentSlide should get current slide from state', t => {
   const state = pipe(
     set('ui.current.progressionId', '0'),
     set('data.progressions.entities', {'0': progression}),
-    set('data.slides.entities', {'0': slide})
+    set('data.contents.slide.entities', {'0': slide})
   )({});
 
   t.is(getCurrentSlide(state), slide);
@@ -136,12 +137,24 @@ test('getPreviousSlide should get previous slide from state', t => {
   const state = pipe(
     set('ui.current.progressionId', '0'),
     set('data.progressions.entities.0', progression),
-    set('data.slides.entities.0', slide)
+    set('data.contents.slide.entities.0', slide)
   )({});
   t.is(getPreviousSlide(state), slide);
 });
 
 test('getCurrentContent should get current content from state', t => {
+  const content = {ref: '0', type: 'slide'};
+  const progression = {content};
+  const state = pipe(
+    set('ui.current.progressionId', '0'),
+    set('data.contents.slide.entities.0', 'bar'),
+    set('data.progressions.entities', {'0': progression})
+  )({});
+
+  t.is(getCurrentContent(state), 'bar');
+});
+
+test('getStepContent should get progression.state.nextContent', t => {
   const content = {ref: '0', type: 'slide'};
   const progression = {state: {nextContent: content}};
   const state = pipe(
@@ -149,7 +162,7 @@ test('getCurrentContent should get current content from state', t => {
     set('data.progressions.entities', {'0': progression})
   )({});
 
-  t.is(getCurrentContent(state), content);
+  t.is(getStepContent(state), content);
 });
 
 test('getCorrection should get correction from state', t => {
@@ -165,7 +178,7 @@ test('getCurrentCorrection should get current correction from state', t => {
   const correction = ['Bonne réponse'];
   const state = pipe(
     set(`data.progressions.entities.${progression._id}`, progression),
-    set(`data.slides.entities.${slide._id}`, slide),
+    set(`data.contents.slide.entities.${slide._id}`, slide),
     set(`data.answers.entities.${progression._id}.${slide._id}`, correction),
     set('ui.current.progressionId', 'foo')
   )({});
@@ -192,13 +205,13 @@ test('getEndRank should get rank.end from state', t => {
   t.is(getEndRank(state), rank);
 });
 
-test('getBestScore should get bestScore from currentChapter', t => {
+test('getBestScore should get bestScore from current content', t => {
   const bestScore = 'foo';
-  const progression = {content: {ref: 'bar'}};
+  const progression = {content: {ref: 'bar', type: 'chapter'}};
   const state = pipe(
     set('ui.current.progressionId', '0'),
     set('data.progressions.entities', {'0': progression}),
-    set('data.chapters.entities.bar', {bestScore})
+    set('data.contents.chapter.entities.bar', {bestScore})
   )({});
   t.is(getBestScore(state), bestScore);
 });
@@ -209,7 +222,7 @@ test('getCurrentClue should get current clue from state', t => {
   const clue = 'Indice';
   const state = pipe(
     set(`data.progressions.entities.${progression._id}`, progression),
-    set(`data.slides.entities.${slide._id}`, slide),
+    set(`data.contents.slide.entities.${slide._id}`, slide),
     set(`data.clues.entities.${progression._id}.${slide._id}`, clue),
     set('ui.current.progressionId', 'foo')
   )({});
