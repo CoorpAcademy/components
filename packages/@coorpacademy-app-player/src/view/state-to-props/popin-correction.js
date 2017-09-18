@@ -59,7 +59,7 @@ const popinCorrectionStateToProps = (options, store) => state => {
             sentence: translate('Bonus ! Get an extra life by viewing the lesson')
           },
           cta: {
-            title: isExtraLifeActive ? translate('Game over') : translate('Next'),
+            title: progression.state.lives === 0 ? translate('Game over') : translate('Next'),
             onClick: progression.state.lives !== 0 ? resetProgression : requestExtralifeRefused
           },
           ...header
