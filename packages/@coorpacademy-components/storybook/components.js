@@ -10,6 +10,7 @@ import ImageUpload from '../src/atom/image-upload';
 import InputCheckbox from '../src/atom/input-checkbox';
 import InputColor from '../src/atom/input-color';
 import InputDoublestep from '../src/atom/input-doublestep';
+import InputHtml from '../src/atom/input-html';
 import InputReadonly from '../src/atom/input-readonly';
 import InputSwitch from '../src/atom/input-switch';
 import InputText from '../src/atom/input-text';
@@ -172,6 +173,9 @@ import InputDoublestepFixtureDefault from '../src/atom/input-doublestep/test/fix
 import InputDoublestepFixtureInputConfirmDisabled from '../src/atom/input-doublestep/test/fixtures/input-confirm-disabled';
 import InputDoublestepFixtureInputConfirmPending from '../src/atom/input-doublestep/test/fixtures/input-confirm-pending';
 import InputDoublestepFixtureInputConfirm from '../src/atom/input-doublestep/test/fixtures/input-confirm';
+import InputHtmlFixtureDefault from '../src/atom/input-html/test/fixtures/default';
+import InputHtmlFixtureEmpty from '../src/atom/input-html/test/fixtures/empty';
+import InputHtmlFixtureError from '../src/atom/input-html/test/fixtures/error';
 import InputReadonlyFixtureDefault from '../src/atom/input-readonly/test/fixtures/default';
 import InputSwitchFixtureChecked from '../src/atom/input-switch/test/fixtures/checked';
 import InputSwitchFixtureDisabled from '../src/atom/input-switch/test/fixtures/disabled';
@@ -578,6 +582,7 @@ export const components = {
     InputCheckbox,
     InputColor,
     InputDoublestep,
+    InputHtml,
     InputReadonly,
     InputSwitch,
     InputText,
@@ -787,6 +792,11 @@ export const fixtures = {
       InputConfirmDisabled: InputDoublestepFixtureInputConfirmDisabled,
       InputConfirmPending: InputDoublestepFixtureInputConfirmPending,
       InputConfirm: InputDoublestepFixtureInputConfirm
+    },
+    InputHtml: {
+      Default: InputHtmlFixtureDefault,
+      Empty: InputHtmlFixtureEmpty,
+      Error: InputHtmlFixtureError
     },
     InputReadonly: {
       Default: InputReadonlyFixtureDefault
@@ -1873,6 +1883,9 @@ export const dependencies = {
           "Loader": true
         }
       }
+    },
+    "InputHtml": {
+      "children": {}
     },
     "InputTextarea": {
       "children": {}

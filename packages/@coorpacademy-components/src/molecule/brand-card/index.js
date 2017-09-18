@@ -5,12 +5,24 @@ import Picture from '../../atom/picture';
 import style from './style.css';
 
 const BrandCard = props => {
-  const {title, edit, editHref, see, seeHref, image} = props;
-
+  const {title, edit, editHref, see, seeHref, image, description} = props;
+  const descriptionView = description
+    ? <div className={style.descriptionWrapper}>
+        <div className={style.description}>
+          <div
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{
+              __html: description
+            }}
+          />
+        </div>
+      </div>
+    : null;
   return (
     <div className={style.wrapper}>
       <div className={style.image}>
         <Picture className={style.picture} src={image} />
+        {descriptionView}
       </div>
       <div className={style.information}>
         <h3>{title}</h3>
@@ -29,6 +41,7 @@ const BrandCard = props => {
 
 BrandCard.propTypes = {
   title: PropTypes.string.isRequired,
+  description: PropTypes.string,
   edit: PropTypes.string.isRequired,
   editHref: PropTypes.string.isRequired,
   see: PropTypes.string.isRequired,

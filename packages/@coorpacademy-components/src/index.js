@@ -49,6 +49,7 @@ export ImageUpload from './atom/image-upload';
 export InputCheckbox from './atom/input-checkbox';
 export InputColor from './atom/input-color';
 export InputDoublestep from './atom/input-doublestep';
+export InputHtml from './atom/input-html';
 export InputReadonly from './atom/input-readonly';
 export InputSwitch from './atom/input-switch';
 export InputText from './atom/input-text';

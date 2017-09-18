@@ -11,6 +11,7 @@ import BrandUploadBox from '../brand-upload-box';
 import BrandDownloadBox from '../brand-download-box';
 import Button from '../../atom/button';
 import InputTextarea from '../../atom/input-textarea';
+import InputHTML from '../../atom/input-html';
 import InputDoublestep from '../../atom/input-doublestep';
 import ImageUpload from '../../atom/image-upload';
 import SetupSlider from '../setup-slider';
@@ -31,6 +32,8 @@ const BrandFormGroup = props => {
         return <InputSwitch {...field} />;
       case 'textarea':
         return <InputTextarea {...field} />;
+      case 'html':
+        return <InputHTML {...field} />;
       case 'doublestep':
         return <InputDoublestep {...field} />;
       case 'select':
