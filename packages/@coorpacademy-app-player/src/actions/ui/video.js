@@ -17,7 +17,7 @@ export const play = resource => async (dispatch, getState) => {
   if (isExtraLifeActive) {
     await dispatch(requestExtralifeAccepted(progressionId));
   }
-   
+
   return dispatch(markResourceAsViewed(progressionId, resource));
 };
 
