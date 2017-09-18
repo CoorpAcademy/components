@@ -11,16 +11,17 @@ import {
 } from '../progressions';
 
 const resource = {_id: 'resourceId', type: 'video'};
-const chapter = {ref: 'chapterRef', type: 'chapter'};
+const content = {ref: 'contentRef', type: 'chapter'};
 
 const initState = pipe(
   set('ui.current.progressionId', 'foo'),
   set('data.progressions.entities.foo._id', 'foo'),
   set('data.progressions.entities.foo.state.content.ref', 'slideRef'),
   set('data.progressions.entities.foo.state.nextContent.ref', 'nextSlideRef'),
-  set('data.progressions.entities.foo.content', chapter),
-  set('data.slides.entities.slideRef', 'slide1'),
-  set('data.slides.entities.nextSlideRef', 'slide2')
+  set('data.progressions.entities.foo.content', content),
+  set('data.contents.chapter.entities.contentRef', 'chapterContent'),
+  set('data.contents.slide.entities.slideRef', 'slide1'),
+  set('data.contents.slide.entities.nextSlideRef', 'slide2')
 );
 
 test(
@@ -37,13 +38,13 @@ test(
             type: resource.type,
             version: '1'
           },
-          chapter,
+          content,
           slide: 'slide2'
         });
 
         return set(
           'state.viewedResources',
-          [{ref: chapter.ref, type: 'chapter', resources: [resource._id]}],
+          [{ref: content.ref, type: 'chapter', resources: [resource._id]}],
           {}
         );
       }
@@ -60,7 +61,7 @@ test(
       meta: {progressionId: 'foo', resource},
       payload: set(
         'state.viewedResources',
-        [{ref: chapter.ref, type: 'chapter', resources: [resource._id]}],
+        [{ref: content.ref, type: 'chapter', resources: [resource._id]}],
         {}
       )
     }
@@ -85,13 +86,13 @@ test(
             type: resource.type,
             version: '1'
           },
-          chapter,
+          content,
           slide: 'slide1'
         });
 
         return set(
           'state.viewedResources',
-          [{ref: chapter.ref, type: 'chapter', resources: [resource._id]}],
+          [{ref: content.ref, type: 'chapter', resources: [resource._id]}],
           {}
         );
       }
@@ -108,7 +109,7 @@ test(
       meta: {progressionId: 'foo', resource},
       payload: set(
         'state.viewedResources',
-        [{ref: chapter.ref, type: 'chapter', resources: [resource._id]}],
+        [{ref: content.ref, type: 'chapter', resources: [resource._id]}],
         {}
       )
     }
@@ -121,7 +122,7 @@ test(
   pipe(
     initState,
     set('data.progressions.entities.foo.state.viewedResources', [
-      {ref: chapter.ref, type: 'chapter', resources: [resource._id]}
+      {ref: content.ref, type: 'chapter', resources: [resource._id]}
     ]),
     set('ui.route.foo', 'media')
   )({}),
@@ -155,7 +156,7 @@ test(
             type: resource.type,
             version: '1'
           },
-          chapter,
+          content,
           slide: 'slide2'
         });
         throw new Error();

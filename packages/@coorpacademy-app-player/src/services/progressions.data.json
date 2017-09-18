@@ -217,5 +217,28 @@
         "total": 4
       }
     }
+  },
+  {
+    "_id": "level1",
+    "engine": {
+      "ref": "learner",
+      "version": "1"
+    },
+    "content": {
+      "ref": "1.A",
+      "type": "level"
+    },
+    "state": {
+      "slides": [],
+      "nextContent": {
+        "ref": "1.B2.12",
+        "type": "slide"
+      },
+      "lives": 1,
+      "step": {
+        "current": 1,
+        "total": 4
+      }
+    }
   }
 ]

@@ -8,7 +8,7 @@ import {
   getProgression,
   getBestScore,
   getEngineConfig,
-  getContent,
+  getProgressionContent,
   getCurrentSlide,
   getPreviousSlide
 } from '../../utils/state-extract';
@@ -107,12 +107,13 @@ export const PROGRESSION_FETCH_BESTOF_REQUEST = '@@progression/FETCH_BESTOF_REQU
 export const PROGRESSION_FETCH_BESTOF_SUCCESS = '@@progression/FETCH_BESTOF_SUCCESS';
 export const PROGRESSION_FETCH_BESTOF_FAILURE = '@@progression/FETCH_BESTOF_FAILURE';
 
-export const fetchBestProgression = (contentRef, progressionId) => (
+export const fetchBestProgression = (progressionContent, progressionId) => (
   dispatch,
   getState,
   {services}
 ) => {
   const {Progressions} = services;
+  const {type, ref} = progressionContent;
 
   const action = buildTask({
     types: [
@@ -120,9 +121,9 @@ export const fetchBestProgression = (contentRef, progressionId) => (
       PROGRESSION_FETCH_BESTOF_SUCCESS,
       PROGRESSION_FETCH_BESTOF_FAILURE
     ],
-    task: () => Progressions.findBestOf(contentRef, progressionId),
+    task: () => Progressions.findBestOf(type, ref, progressionId),
     bailout: getBestScore,
-    meta: {chapterId: contentRef}
+    meta: {type, ref}
   });
 
   return dispatch(action);
@@ -141,7 +142,7 @@ export const markResourceAsViewed = (progressionId, resource) => (
   const state = getState();
   const {_id: ref, type} = resource;
   const slide = getCurrentSlide(state) || getPreviousSlide(state);
-  const chapter = getContent(state);
+  const progressionContent = getProgressionContent(state);
   const progression = getProgression(progressionId)(state);
   const viewedResources = getOr([], 'state.viewedResources', progression);
 
@@ -152,7 +153,7 @@ export const markResourceAsViewed = (progressionId, resource) => (
       version: '1'
     },
     slide,
-    chapter
+    content: progressionContent
   };
 
   const action = buildTask({
@@ -162,10 +163,7 @@ export const markResourceAsViewed = (progressionId, resource) => (
       PROGRESSION_RESOURCE_VIEWED_FAILURE
     ],
     task: () => Progressions.markResourceAsViewed(progressionId, payload),
-    bailout: () =>
-      pipe(find({type: 'chapter', ref: chapter.ref}), get('resources'), includes(ref))(
-        viewedResources
-      ),
+    bailout: () => pipe(find(progressionContent), get('resources'), includes(ref))(viewedResources),
     meta: {progressionId, resource}
   });
 
