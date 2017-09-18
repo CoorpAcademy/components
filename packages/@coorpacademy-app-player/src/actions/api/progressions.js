@@ -109,8 +109,6 @@ export const PROGRESSION_EXTRALIFEREFUSED_FAILURE = '@@progression/EXTRALIGEREFU
 
 export const requestExtralifeRefused = progressionId => (dispatch, getState, {services}) => {
   const {Progressions} = services;
-  // const state = getState();
-  // const progression = getProgression(progressionId)(state);
 
   const action = buildTask({
     types: [
@@ -131,8 +129,6 @@ export const PROGRESSION_EXTRALIFEACCEPTED_FAILURE = '@@progression/EXTRALIFEACC
 
 export const requestExtralifeAccepted = progressionId => (dispatch, getState, {services}) => {
   const {Progressions} = services;
-  // const state = getState();
-  // const progression = getProgression(progressionId)(state);
 
   const action = buildTask({
     types: [

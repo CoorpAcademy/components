@@ -87,14 +87,6 @@ export const getCurrentCorrection = state => {
   return getCorrection(getId(progression), getId(slide))(state);
 };
 
-export const getExtralifeRefused = (progressionId, slideId) => state => {
-  return get(['data', 'ExtralifeRefused', 'entities', progressionId], state);
-};
-
-export const getExtralifeAccepted = (progressionId, slideId) => state => {
-  return get(['data', 'ExtralifeAccepted', 'entities', progressionId], state);
-};
-
 export const getClue = (progressionId, slideId) => state => {
   return get(['data', 'clues', 'entities', progressionId, slideId], state);
 };
