@@ -1,5 +1,15 @@
 {
   "data": {
+    "contents": {
+      "slide": {"entities": {}},
+      "chapter": {
+        "entities": {
+          "5.C7": {
+            "name": "Les réseaux sociaux au service du crowdfunding"
+          }
+        }
+      }
+    },
     "progressions": {
       "entities": {
         "0": {
@@ -18,16 +28,6 @@
             "ref": "5.C7",
             "type": "chapter"
           }
-        }
-      }
-    },
-    "slides": {
-      "entities": {}
-    },
-    "chapters": {
-      "entities": {
-        "5.C7": {
-          "name": "Les réseaux sociaux au service du crowdfunding"
         }
       }
     }

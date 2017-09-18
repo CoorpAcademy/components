@@ -14,5 +14,21 @@
     },
     "isConditional": false,
     "time": 8
+  },
+  {
+    "_id": "5.C8",
+    "stars": 20,
+    "name": "Le chapter 2",
+    "meta": {
+      "updatedAt": "2017-01-26T09:19:06.874Z",
+      "createdAt": "2017-01-26T09:19:05.667Z"
+    },
+    "poster": {
+      "subtitles": [],
+      "posters": [],
+      "src": []
+    },
+    "isConditional": false,
+    "time": 8
   }
 ]
