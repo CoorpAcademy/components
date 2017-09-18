@@ -6,7 +6,7 @@ const realConfigurations: Array<MicroLearningConfig> = [
     version: '1',
     lives: 3,
     maxTypos: 2,
-    slidesToComplete: 4,
+    slidesToComplete: 6,
     answerBoundaryLimit: 5,
     starsPerAskingClue: -1,
     starsPerCorrectAnswer: 4,
@@ -17,9 +17,9 @@ const realConfigurations: Array<MicroLearningConfig> = [
 const testConfigurations: Array<MicroLearningConfig> = [
   {
     version: 'allow_typos_3',
-    lives: 1,
+    lives: 3,
     maxTypos: 3,
-    slidesToComplete: 4,
+    slidesToComplete: 8,
     answerBoundaryLimit: 5,
     starsPerAskingClue: -1,
     starsPerCorrectAnswer: 4,

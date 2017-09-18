@@ -18,7 +18,7 @@ test('should find a level', async t => {
 
 test('should tell when a level is not found', async t => {
   const error = await t.throws(find('level', 'unknownLevelId'));
-  t.is(error.message, 'Level not found');
+  t.is(error.message, 'Level unknownLevelId not found');
 });
 
 test('should find a chapter', async t => {
@@ -28,7 +28,7 @@ test('should find a chapter', async t => {
 
 test('should tell when a chapter is not found', async t => {
   const error = await t.throws(find('chapter', 'unknownChapterId'));
-  t.is(error.message, 'Chapter not found');
+  t.is(error.message, 'Chapter unknownChapterId not found');
 });
 
 test('should find a slide', async t => {
@@ -38,5 +38,5 @@ test('should find a slide', async t => {
 
 test('should tell when a slide is not found', async t => {
   const error = await t.throws(find('slide', 'unknownSlideId'));
-  t.is(error.message, 'Slide not found');
+  t.is(error.message, 'Slide unknownSlideId not found');
 });
