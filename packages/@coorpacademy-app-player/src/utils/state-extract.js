@@ -13,8 +13,6 @@ export const getProgression = id => state => {
   return get(['data', 'progressions', 'entities', id], state);
 };
 
-export const getEngineConfig = state => get(['data', 'progressions', 'config'], state);
-
 export const getCurrentProgression = state => {
   const id = getCurrentProgressionId(state);
   return getProgression(id)(state);
@@ -56,6 +54,11 @@ export const getStepContent = pipe(getCurrentProgression, get('state.nextContent
 
 export const getEngine = state => {
   return get('engine')(getCurrentProgression(state));
+};
+
+export const getEngineConfig = state => {
+  const engine = getEngine(state);
+  return get(['data', 'configs', 'entities', `${engine.ref}@${engine.version}`], state);
 };
 
 export const getPreviousSlide = state => {
