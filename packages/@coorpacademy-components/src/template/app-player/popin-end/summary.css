@@ -92,20 +92,14 @@
   max-width: 260px;
 }
 
-.nextCourseDescription {
-  composes: text;
-  font-size: 20px;
-  margin-bottom: 30px;
-}
-
 .nextCoursePrefix {
   composes: text;
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .nextCourseTitle {
   composes: text;
-  font-size: 25px;
+  font-size: 18px;
   font-weight: 700;
 }
 
@@ -126,11 +120,6 @@
     text-align: center;
     padding: 20px 30px 35px;
     max-width: 100%;
-  }
-
-  .nextCourseDescription {
-    font-size: 15px;
-    margin-bottom: 5px;
   }
 
   .nextCourseTitle,
