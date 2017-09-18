@@ -27,7 +27,7 @@ const viewedThreeLessons = set(
 const stateWithSlideAndManyResources = pipe(
   set('data.progressions.entities.foo.state.nextContent', {type: 'slide', ref: 'baz'}),
   set('data.progressions.entities.foo.content', {ref: '5.C7'}),
-  set('data.slides.entities.baz.lessons', ['lesson_1', 'lesson_2', 'lesson_3'])
+  set('data.contents.slide.entities.baz.lessons', ['lesson_1', 'lesson_2', 'lesson_3'])
 )({});
 
 const services = result => t => ({

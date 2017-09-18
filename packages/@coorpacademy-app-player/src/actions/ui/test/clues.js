@@ -16,7 +16,7 @@ test(
   pipe(
     set('ui.current.progressionId', 'foo'),
     set('data.progressions.entities.foo.state.nextContent.ref', 'bar'),
-    set('data.slides.entities.bar._id', 'bar')
+    set('data.contents.slide.entities.bar._id', 'bar')
   )({}),
   t => ({
     Progressions: {
@@ -96,7 +96,7 @@ test(
   pipe(
     set('ui.current.progressionId', 'foo'),
     set('data.progressions.entities.foo.state.nextContent.ref', 'bar'),
-    set('data.slides.entities.bar._id', 'bar')
+    set('data.contents.slide.entities.bar._id', 'bar')
   )({}),
   t => ({
     Progressions: {

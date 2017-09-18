@@ -1,12 +1,13 @@
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
-import {getCurrentProgression, getCurrentChapter} from '../../utils/state-extract';
+import {getCurrentProgression, getCurrentContent} from '../../utils/state-extract';
 
 const headerProps = (options, store) => state => {
+  const content = getCurrentContent(state);
   return {
     backHref: '/',
     primary: {
-      title: getOr('', 'name')(getCurrentChapter(state))
+      title: getOr('', 'name')(content)
     },
     lives: {
       count: get('state.lives')(getCurrentProgression(state))

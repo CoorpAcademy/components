@@ -1,7 +1,6 @@
 import constant from 'lodash/fp/constant';
-import get from 'lodash/fp/get';
 import buildTask from '../../utils/redux-task';
-import {getContent} from '../../utils/state-extract';
+import {getProgressionContent} from '../../utils/state-extract';
 
 export const LOCATION_RETRY_REQUEST = '@@location/RETRY_REQUEST';
 export const LOCATION_RETRY_SUCCESS = '@@location/RETRY_SUCCESS';
@@ -10,8 +9,7 @@ export const LOCATION_RETRY_FAILURE = '@@location/RETRY_FAILURE';
 export const retry = (dispatch, getState, {services}) => {
   const {Location} = services; // eslint-disable-line no-shadow
 
-  const content = getContent(getState());
-  const contentRef = get('ref', content);
+  const {ref: contentRef} = getProgressionContent(getState());
 
   const action = buildTask({
     types: [LOCATION_RETRY_REQUEST, LOCATION_RETRY_SUCCESS, LOCATION_RETRY_FAILURE],

@@ -1,16 +1,15 @@
 import get from 'lodash/fp/get';
 import isNil from 'lodash/fp/isNil';
 import {fetchProgression, fetchEngineConfig, fetchBestProgression} from '../api/progressions';
-import {fetchSlide} from '../api/slides';
 import {fetchEndRank, fetchStartRank} from '../api/rank';
 import {fetchExitNode} from '../api/exit-nodes';
-import {fetchChapter} from '../api/chapters';
+import {fetchContent} from '../api/contents';
 import {fetchRecommendations} from '../api/recommendations';
 import {
   getEngine,
-  getCurrentProgression,
+  getProgressionContent,
   getCurrentProgressionId,
-  getCurrentContent
+  getStepContent
 } from '../../utils/state-extract';
 import {selectRoute} from './route';
 
@@ -28,19 +27,19 @@ export const selectProgression = id => async (dispatch, getState) => {
   const response = await dispatch(fetchProgression(progressionId));
   if (response.error) return response;
 
-  const progression = getCurrentProgression(getState());
   const engine = getEngine(getState());
-  const {ref, type} = getCurrentContent(getState());
-  const contentRef = get('content.ref', progression);
+  const progressionContent = getProgressionContent(getState());
 
   await dispatch(fetchStartRank());
-  await dispatch(fetchChapter(contentRef));
-  await dispatch(fetchBestProgression(contentRef, progressionId));
+  await dispatch(fetchContent(progressionContent.type, progressionContent.ref));
+  await dispatch(fetchBestProgression(progressionContent, progressionId));
   await dispatch(fetchEngineConfig(engine));
+
+  const {ref, type} = getStepContent(getState());
 
   switch (type) {
     case 'slide': {
-      const slideResult = await dispatch(fetchSlide(ref));
+      const slideResult = await dispatch(fetchContent('slide', ref));
       if (isNil(get('payload.context.title', slideResult))) {
         return slideResult;
       }

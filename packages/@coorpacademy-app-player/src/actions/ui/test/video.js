@@ -21,7 +21,7 @@ import {
 } from '../../api/progressions';
 
 const resource = {_id: 'resourceId', type: 'video'};
-const chapter = {ref: 'chapterRef', type: 'chapter'};
+const content = {ref: 'chapterRef', type: 'chapter'};
 
 test('should dispatch video pause action', macro, {}, t => ({}), pause(resource), [
   {
@@ -52,8 +52,8 @@ test(
     set('ui.route.foo', 'media'),
     set('data.progressions.entities.foo._id', 'foo'),
     set('data.progressions.entities.foo.state.nextContent.ref', 'slideRef'),
-    set('data.progressions.entities.foo.content', chapter),
-    set('data.slides.entities.slideRef', 'slide')
+    set('data.progressions.entities.foo.content', content),
+    set('data.contents.slide.entities.slideRef', 'slide')
   )({}),
   t => ({
     Analytics: {
@@ -68,11 +68,11 @@ test(
             type: resource.type,
             version: '1'
           },
-          chapter,
+          content,
           slide: 'slide'
         });
 
-        return set('state.viewedResources', [chapter.ref], {});
+        return set('state.viewedResources', [content.ref], {});
       }
     }
   }),
@@ -95,9 +95,9 @@ test(
       {
         type: PROGRESSION_RESOURCE_VIEWED_SUCCESS,
         meta: {progressionId: 'foo', resource},
-        payload: set('state.viewedResources', [chapter.ref], {})
+        payload: set('state.viewedResources', [content.ref], {})
       },
-      set('data.progressions.entities.foo.state.viewedResources', [chapter.ref], {})
+      set('data.progressions.entities.foo.state.viewedResources', [content.ref], {})
     ]
   ]
 );

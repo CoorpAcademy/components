@@ -34,29 +34,25 @@ export const getAnswerValues = (slide, state) => {
   return answers;
 };
 
-export const getSlide = id => state => {
-  const entities = get('data.slides.entities')(state);
-  return get(id)(entities);
-};
-
-export const getChapter = id => state => {
-  const entities = get('data.chapters.entities')(state);
-  return get(id)(entities);
-};
-
-export const getCurrentChapter = state => {
-  const id = get('content.ref')(getCurrentProgression(state));
-  return getChapter(id)(state);
-};
+export const getSlide = id => pipe(get('data.contents.slide.entities'), get(id));
 
 export const getCurrentSlide = state => {
   const id = get('state.nextContent.ref')(getCurrentProgression(state));
   return getSlide(id)(state);
 };
 
-export const getContent = state => {
+export const getProgressionContent = state => {
   return get('content')(getCurrentProgression(state));
 };
+
+export const getContent = (type, ref) => get(['data', 'contents', type, 'entities', ref]);
+
+export const getCurrentContent = state => {
+  const {type, ref} = getProgressionContent(state);
+  return getContent(type, ref)(state);
+};
+
+export const getStepContent = pipe(getCurrentProgression, get('state.nextContent'));
 
 export const getEngine = state => {
   return get('engine')(getCurrentProgression(state));
@@ -104,8 +100,6 @@ export const getRoute = state => {
   return get(['ui', 'route', progressionId], state);
 };
 
-export const getCurrentContent = pipe(getCurrentProgression, get('state.nextContent'));
-
 export const getRecommendations = state => {
   const id = getCurrentProgressionId(state);
   return get(`data.recommendations.entities.${id}`, state);
@@ -113,7 +107,7 @@ export const getRecommendations = state => {
 
 export const getStartRank = get(`data.rank.start`);
 export const getEndRank = get(`data.rank.end`);
-export const getBestScore = pipe(getCurrentChapter, get('bestScore'));
+export const getBestScore = pipe(getCurrentContent, get('bestScore'));
 
 export const getQuestionMedia = state => {
   const slide = getCurrentSlide(state);

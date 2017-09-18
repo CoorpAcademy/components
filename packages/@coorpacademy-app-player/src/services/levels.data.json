@@ -1,0 +1,16 @@
+[
+  {
+    "_id": "1",
+    "name": "Level1",
+    "meta": {
+      "updatedAt": "2017-01-26T09:19:06.874Z",
+      "createdAt": "2017-01-26T09:19:05.667Z"
+    },
+    "poster": {
+      "subtitles": [],
+      "posters": [],
+      "src": []
+    },
+    "chapterIds": ["5.C7", "5.C8"]
+  }
+]

@@ -10,13 +10,6 @@
     "clues": {
       "entities": {}
     },
-    "chapters": {
-      "entities": {
-        "1.B2": {
-          "bestScore": 0
-        }
-      }
-    },
     "exitNodes": {
       "entities": {
         "successExitNode": {
@@ -80,7 +73,8 @@
           "nextChapter": {
             "card": {
               "view": "grid",
-              "image": "//static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/poster/1931716-40629814-640-360-1496310886550.jpg",
+              "image":
+                "//static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/poster/1931716-40629814-640-360-1496310886550.jpg",
               "time": "8m",
               "adaptiv": false,
               "certification": false,
@@ -96,7 +90,8 @@
           "list": [
             {
               "view": "grid",
-              "image": "//static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/poster/1931716-40629814-640-360-1496310886550.jpg",
+              "image":
+                "//static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/poster/1931716-40629814-640-360-1496310886550.jpg",
               "time": "8m",
               "adaptiv": false,
               "certification": false,
@@ -109,7 +104,8 @@
             },
             {
               "view": "grid",
-              "image": "//static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/poster/1931716-40629814-640-360-1496310886550.jpg",
+              "image":
+                "//static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/poster/1931716-40629814-640-360-1496310886550.jpg",
               "time": "8m",
               "adaptiv": false,
               "certification": false,
@@ -122,7 +118,8 @@
             },
             {
               "view": "grid",
-              "image": "//static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/poster/1931716-40629814-640-360-1496310886550.jpg",
+              "image":
+                "//static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/poster/1931716-40629814-640-360-1496310886550.jpg",
               "time": "8m",
               "adaptiv": false,
               "certification": false,
@@ -137,54 +134,63 @@
         }
       }
     },
-    "slides": {
-      "entities": {
-        "1.B2.4": {
-          "_id": "1.B2.4",
-          "klf": "Some KFL",
-          "tips": "XXX",
-          "chapter_id": "cha_Ny1BTxRp~",
-          "authors": [],
-          "context": {
-            "media": {
-              "subtitles": [],
-              "posters": [],
-              "src": []
-            }
-          },
-          "meta": {
-            "updatedAt": "2017-06-13T12:15:40.321Z",
-            "createdAt": "2017-06-13T12:15:40.321Z"
-          },
-          "lessons": [
-            {
-              "type": "video",
-              "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B2.png",
-              "description": "Anatomie d'une page de résultats",
-              "mimeType": "application/vimeo",
-              "videoId": "88393119\n",
-              "_id": "590b862e2e967f64333ad456",
-              "subtitles": [],
-              "posters": [],
-              "src": []
-            }
-          ],
-          "question": {
-            "type": "basic",
-            "header": "Écrivez le mot Text dans l'input.\n",
-            "explanation": "Saisissez votre réponse.",
-            "content": {
-              "label": "Saisissez votre réponse.",
-              "placeholder": " ",
-              "maxTypos": null,
-              "choices": [],
+    "contents": {
+      "chapter": {
+        "entities": {
+          "1.B2": {
+            "bestScore": 0
+          }
+        }
+      },
+      "slide": {
+        "entities": {
+          "1.B2.4": {
+            "_id": "1.B2.4",
+            "klf": "Some KFL",
+            "tips": "XXX",
+            "chapter_id": "cha_Ny1BTxRp~",
+            "authors": [],
+            "context": {
               "media": {
                 "subtitles": [],
                 "posters": [],
                 "src": []
               }
             },
-            "medias": []
+            "meta": {
+              "updatedAt": "2017-06-13T12:15:40.321Z",
+              "createdAt": "2017-06-13T12:15:40.321Z"
+            },
+            "lessons": [
+              {
+                "type": "video",
+                "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B2.png",
+                "description": "Anatomie d'une page de résultats",
+                "mimeType": "application/vimeo",
+                "videoId": "88393119\n",
+                "_id": "590b862e2e967f64333ad456",
+                "subtitles": [],
+                "posters": [],
+                "src": []
+              }
+            ],
+            "question": {
+              "type": "basic",
+              "header": "Écrivez le mot Text dans l'input.\n",
+              "explanation": "Saisissez votre réponse.",
+              "content": {
+                "label": "Saisissez votre réponse.",
+                "placeholder": " ",
+                "maxTypos": null,
+                "choices": [],
+                "media": {
+                  "subtitles": [],
+                  "posters": [],
+                  "src": []
+                }
+              },
+              "medias": []
+            }
           }
         }
       }
