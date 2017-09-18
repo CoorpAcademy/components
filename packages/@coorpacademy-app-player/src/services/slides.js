@@ -36,7 +36,7 @@ const appendJWPOptions = lesson => {
 
 // eslint-disable-next-line import/prefer-default-export,require-await
 export const findById = async id => {
-  if (!slideStore.has(id)) throw new Error('Slide not found');
+  if (!slideStore.has(id)) throw new Error(`Slide ${id} not found`);
   const slide = slideStore.get(id);
   return update('lessons', map(appendJWPOptions), slide);
 };
