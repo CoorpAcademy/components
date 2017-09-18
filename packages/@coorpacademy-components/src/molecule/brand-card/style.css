@@ -15,6 +15,48 @@
   background-color: white;
 }
 
+.image:hover .descriptionWrapper {
+  background: brand;
+  opacity: 0.95;
+  visibility: visible;
+  transform: translateY(0%);
+}
+
+.descriptionWrapper {
+  opacity: 0;
+  display: block;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition: all 0.5s cubic-bezier(0, 0, 0.2, 1);
+  color: white;
+  transform: translateY(-100%);
+}
+
+.description {
+  text-align: center;
+  font-family: 'Open Sans';
+  font-weight: 100;
+  font-size: 15px;
+  display: block;
+  width: 300px;
+  height: 200px;
+  line-height: 200px;
+}
+
+.description > p {
+  width: 100%;
+  padding: 0 15px;
+  vertical-align: middle;
+  display: inline-block;
+  line-height: 1.2;
+  text-align: center;
+  box-sizing: border-box;
+}
+
 .image {
   height: 200px;
   width: 100%;
@@ -24,6 +66,7 @@
   align-items: center;
   padding: 30px;
   box-sizing: border-box;
+  position: relative;
 }
 
 .picture {

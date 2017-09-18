@@ -1,0 +1,94 @@
+@value colors: "../../variables/colors.css";
+@value dark from colors;
+@value medium from colors;
+@value light from colors;
+@value negative from colors;
+
+.default {
+  display: flex;
+}
+
+.error {
+  composes: default;
+}
+
+.default label {
+  display: flex;
+  align-items: center;
+  position: relative;
+  flex-grow: 0;
+  margin-right: 20px;
+}
+
+.title {
+  font-family: "Open Sans";
+  font-size: 15px;
+  text-transform: none;
+  color: dark;
+  width: 180px;
+}
+
+.default textarea {
+  font-family: "Open Sans";
+  text-transform: none;
+  padding: 10px 15px;
+  border: solid 2px light;
+  height: 100px;
+  border-radius: 2px;
+  font-size: 14px;
+  color: dark;
+  width: 300px;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.contentWrapper {
+  width: 300px;
+  overflow: hidden;
+  margin: 0 15px;
+}
+
+.toggle {
+  padding: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.toggle:hover {
+  background: light;
+}
+
+.preview {
+  color: dark;
+  width: 300px;
+  padding: 10px 15px;
+  font-family: 'Open Sans';
+  font-weight: 100;
+  font-size: 15px;
+  display: block;
+  border: 1px dotted light;
+  box-sizing: border-box;
+  min-height: 100px;
+}
+
+.preview > p {
+  width: 100%;
+  vertical-align: middle;
+  display: inline-block;
+  line-height: 1.2;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.error textarea,
+.error .preview {
+  border-color: negative;
+}
+
+.description {
+  font-family: 'Open Sans';
+  font-weight: 500;
+  font-size: 12px;
+  color: medium;
+  font-style: italic;
+}

@@ -63,6 +63,14 @@
     prettier "1.4.4"
     requireindex "^1.1.0"
 
+"@coorpacademy/nova-icons@^1.1.8":
+  version "1.1.8"
+  resolved "https://registry.npmjs.org/@coorpacademy/nova-icons/-/nova-icons-1.1.8.tgz#a4afdcd2e52797fb211893ebd2f4caeece592eb5"
+  dependencies:
+    async "^2.4.1"
+    react "^15.5.4"
+    react-icon-base "^2.0.8"
+
 "@hypnosphi/fuse.js@^3.0.9":
   version "3.0.9"
   resolved "https://registry.npmjs.org/@hypnosphi/fuse.js/-/fuse.js-3.0.9.tgz#ea99f6121b4a8f065b4c71f85595db2714498807"
