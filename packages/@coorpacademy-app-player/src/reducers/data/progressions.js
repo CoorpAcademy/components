@@ -9,7 +9,6 @@ import {
   PROGRESSION_FETCH_SUCCESS,
   PROGRESSION_FETCH_REQUEST,
   PROGRESSION_FETCH_FAILURE,
-  ENGINE_CONFIG_FETCH_SUCCESS,
   PROGRESSION_CREATE_ANSWER_REQUEST,
   PROGRESSION_CREATE_ANSWER_SUCCESS,
   PROGRESSION_REQUEST_CLUE_SUCCESS,
@@ -32,10 +31,6 @@ const dataProgressionsReducer = (state = {entities: {}}, action) => {
       const {meta} = action;
       const {progressionId} = meta;
       return set(['entities', progressionId, 'state', 'isCorrect'], null, state);
-    }
-    case ENGINE_CONFIG_FETCH_SUCCESS: {
-      const {payload} = action;
-      return set(['config'], payload, state);
     }
     case PROGRESSION_REQUEST_CLUE_SUCCESS:
     case PROGRESSION_RESOURCE_VIEWED_SUCCESS:
