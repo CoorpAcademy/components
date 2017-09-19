@@ -46,6 +46,7 @@ const dataProgressionsReducer = (state = {entities: {}}, action) => {
     case PROGRESSION_CREATE_ANSWER_SUCCESS: {
       const {payload, meta} = action;
       const {progressionId} = meta;
+
       return update(
         ['entities', progressionId],
         progression => assign(progression, payload),

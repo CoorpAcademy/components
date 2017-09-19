@@ -132,7 +132,7 @@ const CorrectionPart = props => {
   );
 };
 
-const NextQuestionPart = ({cta, extraLife}, context) => {
+const NextQuestionPart = ({cta, extraLife}, props, context) => {
   const {title, ...linkProps} = cta || {};
   const {active: isExtraLife} = extraLife;
 
@@ -150,12 +150,13 @@ const NextQuestionPart = ({cta, extraLife}, context) => {
   );
 };
 
-const RemainingLife = ({extraLife}, {skin}) => {
+const RemainingLife = (props, {skin}) => {
+  const {extraLife} = props;
   const {sentence} = extraLife;
+  const {active: isExtraLife} = extraLife;
   const negative = get('common.negative', skin);
-
   return (
-    <div className={style.remainingLifeRequestsSentence}>
+    <div className={classnames(style.remainingLifeRequestsSentence, isExtraLife && style.askLife)}>
       <Heart color={negative} className={style.heart} />
       {sentence}
     </div>
@@ -182,7 +183,6 @@ const PopinHeader = (props, context) => {
 
   const state = buildClass(fail, 'success', 'fail', null);
   const {active: isExtraLife} = extraLife;
-
   const RemainingLifePart = isExtraLife ? <RemainingLife extraLife={extraLife} /> : null;
 
   return (
@@ -222,6 +222,7 @@ PopinHeader.propTypes = {
     sentence: PropTypes.string
   }),
   lives: Life.propTypes.count,
+  // revival: PropTypes.bool,
   animated: Life.propTypes.animated,
   stars: PropTypes.string,
   rank: PropTypes.string,

@@ -366,6 +366,7 @@ import VideoPlayerFixtureJwplayer from '../src/molecule/video-player/test/fixtur
 import VideoPlayerFixtureKontiki from '../src/molecule/video-player/test/fixtures/kontiki';
 import VideoPlayerFixtureVimeo from '../src/molecule/video-player/test/fixtures/vimeo';
 import VideoPlayerFixtureYoutube from '../src/molecule/video-player/test/fixtures/youtube';
+import PopinHeaderFixtureExtralifeAccepted from '../src/molecule/app-player/popin/popin-header/test/fixtures/extralife-accepted';
 import PopinHeaderFixtureExtralife from '../src/molecule/app-player/popin/popin-header/test/fixtures/extralife';
 import PopinHeaderFixtureFailMultipleAnswers from '../src/molecule/app-player/popin/popin-header/test/fixtures/fail-multiple-answers';
 import PopinHeaderFixtureFail from '../src/molecule/app-player/popin/popin-header/test/fixtures/fail';
@@ -1122,6 +1123,7 @@ export const fixtures = {
   },
   MoleculeAppPlayerPopin: {
     PopinHeader: {
+      ExtralifeAccepted: PopinHeaderFixtureExtralifeAccepted,
       Extralife: PopinHeaderFixtureExtralife,
       FailMultipleAnswers: PopinHeaderFixtureFailMultipleAnswers,
       Fail: PopinHeaderFixtureFail,

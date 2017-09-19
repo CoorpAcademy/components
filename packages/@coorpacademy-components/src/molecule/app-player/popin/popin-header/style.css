@@ -20,6 +20,16 @@
   }
 }
 
+@keyframes smallerHeader {
+  0% {
+    height: 142px;
+  }
+
+  100% {
+    height: 100px;
+  }
+}
+
 .header {
   display: flex;
   height: 100px;
@@ -39,7 +49,6 @@
   height: 100px;
   width: 100%;
   font-family: 'Open Sans';
-  position: absolute;
   top: 0;
   z-index: 2;
 }
@@ -246,6 +255,20 @@
   }
 }
 
+@keyframes addedLife {
+  0% {
+    top: 100px;
+  }
+
+  90% {
+    top: 107px;
+  }
+
+  100% {
+    top: 0;
+  }
+}
+
 .heart {
   margin-right: 8px;
   position: relative;
@@ -268,6 +291,9 @@
   position: absolute;
   top: 100px;
   z-index: 1;
+}
+
+.askLife {
   animation: remainingLifeRequests 1.4s ease-out;
 }
 
