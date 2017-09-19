@@ -27,8 +27,8 @@ export const selectProgression = id => async (dispatch, getState) => {
   const response = await dispatch(fetchProgression(progressionId));
   if (response.error) return response;
 
-  const engine = getEngine(getState());
   const progressionContent = getProgressionContent(getState());
+  const engine = getEngine(getState());
 
   await dispatch(fetchStartRank());
   await dispatch(fetchContent(progressionContent.type, progressionContent.ref));
