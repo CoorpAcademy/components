@@ -103,9 +103,9 @@ export const requestClue = (progressionId, slideId) => (dispatch, getState, {ser
   return dispatch(action);
 };
 
-export const PROGRESSION_EXTRALIFEREFUSED_REQUEST = '@@progression/EXTRALIGEREFUSED_REQUEST';
-export const PROGRESSION_EXTRALIFEREFUSED_SUCCESS = '@@progression/EXTRALIGEREFUSED_SUCCESS';
-export const PROGRESSION_EXTRALIFEREFUSED_FAILURE = '@@progression/EXTRALIGEREFUSED_FAILURE';
+export const PROGRESSION_EXTRALIFEREFUSED_REQUEST = '@@progression/EXTRALIFEREFUSED_REQUEST';
+export const PROGRESSION_EXTRALIFEREFUSED_SUCCESS = '@@progression/EXTRALIFEREFUSED_SUCCESS';
+export const PROGRESSION_EXTRALIFEREFUSED_FAILURE = '@@progression/EXTRALIFEREFUSED_FAILURE';
 
 export const requestExtralifeRefused = progressionId => (dispatch, getState, {services}) => {
   const {Progressions} = services;

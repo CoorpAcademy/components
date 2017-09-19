@@ -75,7 +75,11 @@ export type ExtraLifeAcceptedAction = {
 };
 
 export type ExtraLifeRefusedAction = {
-  type: 'extraLifeRefused'
+  type: 'extraLifeRefused',
+  payload: {
+    content: Content,
+    nextContent: Content
+  }
 };
 
 export type Action =
