@@ -1,7 +1,7 @@
 import 'jsdom-global/register';
 import test from 'ava';
 import React from 'react';
-import {shallow} from 'enzyme';
+import {shallow, mount} from 'enzyme';
 import omit from 'lodash/fp/omit';
 import replace from 'lodash/fp/replace';
 import InputHtml from '..';
@@ -73,15 +73,20 @@ test('should not crash if the onChange function has not been specified', t => {
   t.pass();
 });
 test('should not crash if the value has not been specified', t => {
-  t.plan(5);
+  t.plan(4);
   const previewStyle = `.${replace(' ', '.', style.preview)}`;
-  const wrapper = shallow(<InputHtml {...defaultFixture.props} />);
+  const wrapper = mount(<InputHtml {...defaultFixture.props} />);
 
-  t.is(wrapper.find(previewStyle).text(), 'Foo foo foo');
-  t.is(wrapper.find(previewStyle).html(), 'Foo <b>foo</b> foo');
+  t.is(
+    wrapper.find(previewStyle).html(),
+    '<div class="input-html__preview">Foo <b>foo</b> foo</div>'
+  );
   wrapper.setProps({value: undefined});
-  t.is(wrapper.find(previewStyle).text(), '');
+  t.is(
+    wrapper.find(previewStyle).html(),
+    '<div class="input-html__preview">Foo <b>foo</b> foo</div>'
+  );
   wrapper.setProps({value: 'text'});
-  t.is(wrapper.find(previewStyle).text(), 'text');
+  t.is(wrapper.find(previewStyle).html(), '<div class="input-html__preview">text</div>');
   t.pass();
 });
