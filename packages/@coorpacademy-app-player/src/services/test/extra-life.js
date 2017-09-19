@@ -6,7 +6,7 @@ const engine = {
   version: '1'
 };
 
-test('should add one extra life', async t => {
+test('should add one extra life if call accept', async t => {
   const progression = await Progressions.create({engine});
   const progressionWithAnswer = await Progressions.createAnswer(progression._id, {
     content: progression.state.nextContent,
@@ -21,4 +21,21 @@ test('should add one extra life', async t => {
 
   t.is(progressionWithAcceptedExtraLife.state.nextContent.type, 'slide');
   t.is(progressionWithAcceptedExtraLife.state.lives, 1);
+});
+
+test('should forward to failure if call refuse', async t => {
+  const progression = await Progressions.create({engine});
+  const progressionWithAnswer = await Progressions.createAnswer(progression._id, {
+    content: progression.state.nextContent,
+    answers: []
+  });
+
+  t.is(progressionWithAnswer.state.nextContent.ref, 'extraLife');
+
+  const progressionWithAcceptedExtraLife = await Progressions.requestExtralifeRefused(
+    progression._id
+  );
+
+  t.is(progressionWithAcceptedExtraLife.state.nextContent.type, 'failure');
+  t.is(progressionWithAcceptedExtraLife.state.lives, 0);
 });
