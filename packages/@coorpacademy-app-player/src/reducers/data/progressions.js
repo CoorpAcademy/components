@@ -46,6 +46,9 @@ const dataProgressionsReducer = (state = {entities: {}}, action) => {
     case PROGRESSION_CREATE_ANSWER_SUCCESS: {
       const {payload, meta} = action;
       const {progressionId} = meta;
+      const stateExtraLige = get('entities[0].state.nextContent.ref', state);
+      const stateSlide = get('entities[0].state.nextContent.type', state);
+      console.log('state', JSON.stringify(state, 2, 3), 'xtra: ', JSON.stringify(stateExtraLige, 2, 3));
       return update(
         ['entities', progressionId],
         progression => assign(progression, payload),
