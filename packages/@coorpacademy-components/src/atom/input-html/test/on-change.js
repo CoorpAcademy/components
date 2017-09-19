@@ -72,3 +72,16 @@ test('should not crash if the onChange function has not been specified', t => {
 
   t.pass();
 });
+test('should not crash if the value has not been specified', t => {
+  t.plan(5);
+  const previewStyle = `.${replace(' ', '.', style.preview)}`;
+  const wrapper = shallow(<InputHtml {...defaultFixture.props} />);
+
+  t.is(wrapper.find(previewStyle).text(), 'Foo foo foo');
+  t.is(wrapper.find(previewStyle).html(), 'Foo <b>foo</b> foo');
+  wrapper.setProps({value: undefined});
+  t.is(wrapper.find(previewStyle).text(), '');
+  wrapper.setProps({value: 'text'});
+  t.is(wrapper.find(previewStyle).text(), 'text');
+  t.pass();
+});

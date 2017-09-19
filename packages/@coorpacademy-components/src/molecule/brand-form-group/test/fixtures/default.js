@@ -11,6 +11,21 @@ export default {
         title: 'Platform name',
         value: 'Samsung',
         type: 'readonly'
+      },
+      {
+        title: 'Description',
+        value: '',
+        type: 'html'
+      },
+      {
+        title: 'TextArea',
+        value: '',
+        type: 'textarea'
+      },
+      {
+        title: 'Default field',
+        value: '',
+        type: 'unknow'
       }
     ]
   }
