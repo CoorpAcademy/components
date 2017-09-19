@@ -56,7 +56,6 @@ export const createAnswer = (progressionId, answers) => (dispatch, getState, {se
   const {Progressions} = services;
   const progression = getProgression(progressionId)(getState());
   const nextContent = progression.state.nextContent;
-  const engine = getEngine(getState());
 
   const action = buildTask({
     types: [
@@ -65,7 +64,7 @@ export const createAnswer = (progressionId, answers) => (dispatch, getState, {se
       PROGRESSION_CREATE_ANSWER_FAILURE
     ],
     task: () =>
-      Progressions.createAnswer(engine, progressionId, {
+      Progressions.postAnswers(progressionId, {
         content: nextContent,
         answers
       }),
@@ -83,8 +82,6 @@ export const requestClue = (progressionId, slideId) => (dispatch, getState, {ser
   const {Progressions} = services;
   const state = getState();
   const progression = getProgression(progressionId)(state);
-  const engine = getEngine(getState());
-
   const requestedClues = get('state.requestedClues', progression);
 
   const action = buildTask({
@@ -94,7 +91,7 @@ export const requestClue = (progressionId, slideId) => (dispatch, getState, {ser
       PROGRESSION_REQUEST_CLUE_FAILURE
     ],
     task: () =>
-      Progressions.requestClue(engine, progressionId, {
+      Progressions.requestClue(progressionId, {
         content: {
           ref: slideId,
           type: 'slide'
@@ -178,7 +175,7 @@ export const fetchBestProgression = (progressionContent, progressionId) => (
       PROGRESSION_FETCH_BESTOF_SUCCESS,
       PROGRESSION_FETCH_BESTOF_FAILURE
     ],
-    task: () => Progressions.findBestOf(engine, ref, progressionId),
+    task: () => Progressions.findBestOf(engine.ref, ref, progressionId),
     bailout: getBestScore,
     meta: {type, ref}
   });
@@ -202,7 +199,6 @@ export const markResourceAsViewed = (progressionId, resource) => (
   const progressionContent = getProgressionContent(state);
   const progression = getProgression(progressionId)(state);
   const viewedResources = getOr([], 'state.viewedResources', progression);
-  const engine = getEngineConfig(getState());
 
   const payload = {
     resource: {
@@ -220,7 +216,7 @@ export const markResourceAsViewed = (progressionId, resource) => (
       PROGRESSION_RESOURCE_VIEWED_SUCCESS,
       PROGRESSION_RESOURCE_VIEWED_FAILURE
     ],
-    task: () => Progressions.markResourceAsViewed(engine, progressionId, payload),
+    task: () => Progressions.markResourceAsViewed(progressionId, payload),
     bailout: () => pipe(find(progressionContent), get('resources'), includes(ref))(viewedResources),
     meta: {progressionId, resource}
   });
