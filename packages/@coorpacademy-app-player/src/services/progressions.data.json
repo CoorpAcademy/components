@@ -234,10 +234,10 @@
         "ref": "sli_41GXTiG8X",
         "type": "slide"
       },
-      "lives": 1,
+      "lives": 3,
       "step": {
         "current": 1,
-        "total": 4
+        "total": 8
       }
     }
   }
