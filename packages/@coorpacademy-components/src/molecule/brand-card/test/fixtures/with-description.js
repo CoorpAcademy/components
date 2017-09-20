@@ -2,6 +2,7 @@ export default {
   props: {
     title: 'Chanel iJoin',
     edit: 'Edit Platform',
+    description: '<p>C.C.I. Pays de la loire</p><p>Digital Culture</p>',
     editHref: '#',
     see: 'See Platform',
     seeHref: '#',

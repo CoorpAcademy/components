@@ -4,6 +4,7 @@ import noop from 'lodash/fp/noop';
 import getOr from 'lodash/fp/getOr';
 import PreviewIcon from '@coorpacademy/nova-icons/line/business/circle-view';
 import PencilIcon from '@coorpacademy/nova-icons/line/content-edition/pencil-2';
+import InputPreview from './input-preview';
 import style from './style.css';
 
 class InputHtml extends React.Component {
@@ -49,27 +50,20 @@ class InputHtml extends React.Component {
     const iconContent = !this.state.preview
       ? <PreviewIcon color={mediumColor} />
       : <PencilIcon color={mediumColor} />;
-    const viewContent = !this.state.preview
-      ? <textarea
-          name={title}
-          value={this.state.text}
-          placeholder={placeholder}
-          onInput={handleChange}
-          disabled={disabled}
-        />
-      : <div
-          className={style.preview}
-          // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={{
-            __html: this.state.text
-          }}
-        />;
     return (
       <div className={className}>
         <label>
           <span className={style.title}>{`${title} `}</span>
           <div className={style.contentWrapper}>
-            {viewContent}
+            <InputPreview
+              title={title}
+              text={this.state.text}
+              placeholder={placeholder}
+              handleChange={handleChange}
+              disabled={disabled}
+              preview={this.state.preview}
+              className={style.input}
+            />
           </div>
           <span className={style.toggle} onClick={handlePreview}>
             {iconContent}

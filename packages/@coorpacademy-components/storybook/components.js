@@ -259,6 +259,7 @@ import AnswerFixtureTemplate from '../src/molecule/answer/test/fixtures/template
 import BattleRequestFixtureDefault from '../src/molecule/battle-request/test/fixtures/default';
 import BrandCardCreateFixtureDefault from '../src/molecule/brand-card-create/test/fixtures/default';
 import BrandCardFixtureDefault from '../src/molecule/brand-card/test/fixtures/default';
+import BrandCardFixtureWithDescription from '../src/molecule/brand-card/test/fixtures/with-description';
 import BrandCreateFormFixtureDefault from '../src/molecule/brand-create-form/test/fixtures/default';
 import BrandCreateFormFixtureError from '../src/molecule/brand-create-form/test/fixtures/error';
 import BrandCreateFormFixtureLoading from '../src/molecule/brand-create-form/test/fixtures/loading';
@@ -933,7 +934,8 @@ export const fixtures = {
       Default: BrandCardCreateFixtureDefault
     },
     BrandCard: {
-      Default: BrandCardFixtureDefault
+      Default: BrandCardFixtureDefault,
+      WithDescription: BrandCardFixtureWithDescription
     },
     BrandCreateForm: {
       Default: BrandCreateFormFixtureDefault,
@@ -1874,6 +1876,22 @@ export const dependencies = {
       },
       "children": {}
     },
+    "InputHtml": {
+      "parents": {
+        "Molecule": {
+          "BrandFormGroup": true
+        }
+      },
+      "children": {}
+    },
+    "InputTextarea": {
+      "parents": {
+        "Molecule": {
+          "BrandFormGroup": true
+        }
+      },
+      "children": {}
+    },
     "CenteredText": {
       "children": {}
     },
@@ -1883,12 +1901,6 @@ export const dependencies = {
           "Loader": true
         }
       }
-    },
-    "InputHtml": {
-      "children": {}
-    },
-    "InputTextarea": {
-      "children": {}
     },
     "Label": {
       "children": {}
@@ -2068,11 +2080,13 @@ export const dependencies = {
       "children": {
         "Atom": {
           "InputSwitch": true,
+          "InputHtml": true,
           "InputReadonly": true,
+          "InputText": true,
+          "InputTextarea": true,
           "ImageUpload": true,
           "InputColor": true,
-          "Select": true,
-          "InputText": true
+          "Select": true
         },
         "Molecule": {
           "SetupSection": true,
