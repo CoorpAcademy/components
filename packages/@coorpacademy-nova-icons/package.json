@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/nova-icons",
-  "version": "1.1.8",
+  "version": "1.1.9",
   "description": "React components bank based on Nova SVG icons",
   "main": "index.js",
   "files": [
