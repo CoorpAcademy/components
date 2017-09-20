@@ -21,6 +21,7 @@ import type {
   Content,
   Engine,
   ExtraLifeAcceptedAction,
+  ExtraLifeRefusedAction,
   MicroLearningConfig,
   State,
   Step,
@@ -111,6 +112,9 @@ function remainingLifeRequests(config: MicroLearningConfig): (number, Action, St
       case 'extraLifeAccepted': {
         return count > 0 ? count - 1 : count;
       }
+      case 'extraLifeRefused': {
+        return 0;
+      }
       default:
         return count;
     }
@@ -156,6 +160,10 @@ function nextContent(config: MicroLearningConfig): (Content, Action) => Content 
       case 'extraLifeAccepted': {
         const acceptAction = (action: ExtraLifeAcceptedAction);
         return acceptAction.payload.nextContent;
+      }
+      case 'extraLifeRefused': {
+        const refuseAction = (action: ExtraLifeRefusedAction);
+        return refuseAction.payload.nextContent;
       }
       default:
         return c;
