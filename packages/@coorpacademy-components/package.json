@@ -43,7 +43,7 @@
     "Julien Seren-Rosso <julien.seren-rosso@coorpacademy.com>"
   ],
   "dependencies": {
-    "@coorpacademy/nova-icons": "1.1.9",
+    "@coorpacademy/nova-icons": "^1.1.9",
     "autoprefixer": "^7.1.1",
     "classnames": "^2.2.5",
     "css-color-function": "^1.3.0",
