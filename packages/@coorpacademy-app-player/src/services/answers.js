@@ -14,8 +14,9 @@ const answerStore = reduce(
 );
 
 // eslint-disable-next-line import/prefer-default-export
-export const findById = async (engine, progressionId, slideId, givenAnswers = []) => {
+export const findById = async (progressionId, slideId, givenAnswers = []) => {
   const progression = await ProgressionsService.findById(progressionId);
+  const {engine} = progression;
   const slide = find({_id: slideId}, slidesData);
 
   if (!includes(slideId, progression.state.slides)) throw new Error('Answers are not available');

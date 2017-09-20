@@ -1,15 +1,15 @@
 import test from 'ava';
 import isObject from 'lodash/fp/isObject';
 import isString from 'lodash/fp/isString';
+import {getConfig} from '@coorpacademy/progression-engine';
 import {
   create,
   findById,
-  createAnswer,
+  postAnswers,
   findBestOf,
   markResourceAsViewed,
   getEngineConfig
 } from '../progressions';
-import engineConfigData from '../progression-config.data';
 
 const engine = {
   ref: 'microlearning',
@@ -44,12 +44,11 @@ test('should find 0 stars when there is no best score so far', async t => {
 
 test('should add answer action', async t => {
   const progression = await create({engine});
-  const progressionWithAnswer = await createAnswer(progression._id, {
+  const progressionWithAnswer = await postAnswers(progression._id, {
     content: progression.state.nextContent,
     answers: ['bar']
   });
 
-  t.true(isString(progressionWithAnswer._id));
   t.true(isObject(progressionWithAnswer.state));
   t.true(isObject(progressionWithAnswer.state.nextContent));
   t.true(isString(progressionWithAnswer.state.nextContent.ref));
@@ -75,7 +74,7 @@ test('should mark a resource as viewed', async t => {
   ]);
 });
 
-test('getEngineConfig should return the value in "./progression-config.data"', async t => {
-  const config = await getEngineConfig();
-  t.deepEqual(config, engineConfigData);
+test('getEngineConfig should return the value from progression-engine', async t => {
+  const config = await getEngineConfig(engine);
+  t.deepEqual(config, getConfig(engine));
 });
