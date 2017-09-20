@@ -10,6 +10,7 @@ import ImageUpload from '../src/atom/image-upload';
 import InputCheckbox from '../src/atom/input-checkbox';
 import InputColor from '../src/atom/input-color';
 import InputDoublestep from '../src/atom/input-doublestep';
+import InputHtml from '../src/atom/input-html';
 import InputReadonly from '../src/atom/input-readonly';
 import InputSwitch from '../src/atom/input-switch';
 import InputText from '../src/atom/input-text';
@@ -172,6 +173,9 @@ import InputDoublestepFixtureDefault from '../src/atom/input-doublestep/test/fix
 import InputDoublestepFixtureInputConfirmDisabled from '../src/atom/input-doublestep/test/fixtures/input-confirm-disabled';
 import InputDoublestepFixtureInputConfirmPending from '../src/atom/input-doublestep/test/fixtures/input-confirm-pending';
 import InputDoublestepFixtureInputConfirm from '../src/atom/input-doublestep/test/fixtures/input-confirm';
+import InputHtmlFixtureDefault from '../src/atom/input-html/test/fixtures/default';
+import InputHtmlFixtureEmpty from '../src/atom/input-html/test/fixtures/empty';
+import InputHtmlFixtureError from '../src/atom/input-html/test/fixtures/error';
 import InputReadonlyFixtureDefault from '../src/atom/input-readonly/test/fixtures/default';
 import InputSwitchFixtureChecked from '../src/atom/input-switch/test/fixtures/checked';
 import InputSwitchFixtureDisabled from '../src/atom/input-switch/test/fixtures/disabled';
@@ -255,6 +259,7 @@ import AnswerFixtureTemplate from '../src/molecule/answer/test/fixtures/template
 import BattleRequestFixtureDefault from '../src/molecule/battle-request/test/fixtures/default';
 import BrandCardCreateFixtureDefault from '../src/molecule/brand-card-create/test/fixtures/default';
 import BrandCardFixtureDefault from '../src/molecule/brand-card/test/fixtures/default';
+import BrandCardFixtureWithDescription from '../src/molecule/brand-card/test/fixtures/with-description';
 import BrandCreateFormFixtureDefault from '../src/molecule/brand-create-form/test/fixtures/default';
 import BrandCreateFormFixtureError from '../src/molecule/brand-create-form/test/fixtures/error';
 import BrandCreateFormFixtureLoading from '../src/molecule/brand-create-form/test/fixtures/loading';
@@ -578,6 +583,7 @@ export const components = {
     InputCheckbox,
     InputColor,
     InputDoublestep,
+    InputHtml,
     InputReadonly,
     InputSwitch,
     InputText,
@@ -788,6 +794,11 @@ export const fixtures = {
       InputConfirmPending: InputDoublestepFixtureInputConfirmPending,
       InputConfirm: InputDoublestepFixtureInputConfirm
     },
+    InputHtml: {
+      Default: InputHtmlFixtureDefault,
+      Empty: InputHtmlFixtureEmpty,
+      Error: InputHtmlFixtureError
+    },
     InputReadonly: {
       Default: InputReadonlyFixtureDefault
     },
@@ -923,7 +934,8 @@ export const fixtures = {
       Default: BrandCardCreateFixtureDefault
     },
     BrandCard: {
-      Default: BrandCardFixtureDefault
+      Default: BrandCardFixtureDefault,
+      WithDescription: BrandCardFixtureWithDescription
     },
     BrandCreateForm: {
       Default: BrandCreateFormFixtureDefault,
@@ -1864,6 +1876,22 @@ export const dependencies = {
       },
       "children": {}
     },
+    "InputHtml": {
+      "parents": {
+        "Molecule": {
+          "BrandFormGroup": true
+        }
+      },
+      "children": {}
+    },
+    "InputTextarea": {
+      "parents": {
+        "Molecule": {
+          "BrandFormGroup": true
+        }
+      },
+      "children": {}
+    },
     "CenteredText": {
       "children": {}
     },
@@ -1873,9 +1901,6 @@ export const dependencies = {
           "Loader": true
         }
       }
-    },
-    "InputTextarea": {
-      "children": {}
     },
     "Label": {
       "children": {}
@@ -2055,11 +2080,13 @@ export const dependencies = {
       "children": {
         "Atom": {
           "InputSwitch": true,
+          "InputHtml": true,
           "InputReadonly": true,
+          "InputText": true,
+          "InputTextarea": true,
           "ImageUpload": true,
           "InputColor": true,
-          "Select": true,
-          "InputText": true
+          "Select": true
         },
         "Molecule": {
           "SetupSection": true,

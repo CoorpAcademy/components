@@ -1,0 +1,57 @@
+@value colors: "../../variables/colors.css";
+@value dark from colors;
+@value medium from colors;
+@value light from colors;
+@value negative from colors;
+
+.default {
+  display: flex;
+}
+
+.error {
+  composes: default;
+}
+
+.default label {
+  display: flex;
+  align-items: center;
+  position: relative;
+  flex-grow: 0;
+  margin-right: 20px;
+}
+
+.title {
+  font-family: "Open Sans";
+  font-size: 15px;
+  text-transform: none;
+  color: dark;
+  width: 180px;
+}
+
+.contentWrapper {
+  width: 300px;
+  overflow: hidden;
+  margin: 0 15px;
+}
+
+.toggle {
+  padding: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.toggle:hover {
+  background: light;
+}
+
+.error .input {
+  border-color: negative;
+}
+
+.description {
+  font-family: 'Open Sans';
+  font-weight: 500;
+  font-size: 12px;
+  color: medium;
+  font-style: italic;
+}

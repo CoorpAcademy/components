@@ -1,6 +1,7 @@
 @value colors: "../../variables/colors.css";
 @value orange from colors;
 @value xtraLightGrey from colors;
+@value light from colors;
 @value white from colors;
 
 .button {
@@ -30,9 +31,11 @@
   padding: 0 30px;
 }
 
+.button:disabled,
 .button input:disabled {
   background-color: xtraLightGrey;
   cursor: default;
+  color: light;
 }
 
 .disabled {

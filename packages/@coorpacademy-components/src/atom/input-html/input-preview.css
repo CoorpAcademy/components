@@ -1,0 +1,39 @@
+@value colors: "../../variables/colors.css";
+@value dark from colors;
+@value light from colors;
+
+.preview {
+  color: dark;
+  width: 300px;
+  padding: 10px 15px;
+  font-family: 'Open Sans';
+  font-weight: 100;
+  font-size: 15px;
+  display: block;
+  border: 1px dotted light;
+  box-sizing: border-box;
+  min-height: 100px;
+}
+
+.preview > p {
+  width: 100%;
+  vertical-align: middle;
+  display: inline-block;
+  line-height: 1.2;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+textarea {
+  font-family: "Open Sans";
+  text-transform: none;
+  padding: 10px 15px;
+  border: solid 2px light;
+  height: 100px;
+  border-radius: 2px;
+  font-size: 14px;
+  color: dark;
+  width: 300px;
+  resize: vertical;
+  box-sizing: border-box;
+}

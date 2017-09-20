@@ -15,6 +15,12 @@
   background-color: white;
 }
 
+.image:hover .descriptionWrapper {
+  opacity: 0.95;
+  visibility: visible;
+  transform: translateY(0%);
+}
+
 .image {
   height: 200px;
   width: 100%;
@@ -24,6 +30,7 @@
   align-items: center;
   padding: 30px;
   box-sizing: border-box;
+  position: relative;
 }
 
 .picture {
