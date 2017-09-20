@@ -30,7 +30,7 @@ const BrandCard = props => {
 
 BrandCard.propTypes = {
   title: PropTypes.string.isRequired,
-  description: Description.PropTypes.description,
+  description: PropTypes.string,
   edit: PropTypes.string.isRequired,
   editHref: PropTypes.string.isRequired,
   see: PropTypes.string.isRequired,
