@@ -52,25 +52,21 @@ export const save = progression => {
   return progression;
 };
 
-export const findBestOf = (engine, contentType, contentRef, progressionId = null) => {
+export const findBestOf = (engineRef, contentRef, progressionId = null) => {
   const bestProgression = pipe(
-    filter(
-      p =>
-        get('content.type', p) === contentType &&
-        get('content.ref', p) === contentRef &&
-        get('_id', p) !== progressionId
-    ),
+    filter(p => get('content.ref', p) === contentRef && get('_id', p) !== progressionId),
     maxBy(p => p.state.stars || 0)
   )(progressionsData);
   return bestProgression || set('state.stars', 0, {});
 };
 
-export const createAnswer = async (engine, progressionId, payload) => {
+export const postAnswers = async (progressionId, payload) => {
   const userAnswers = getOr([''], 'answers', payload);
   const slideId = payload.content.ref;
   const slide = slideStore.get(slideId);
   const progression = await findById(progressionId);
   const slides = await findAllSlides();
+  const {engine} = progression;
 
   const action = pipe(
     set('payload.isCorrect', checkAnswer(engine, slide.question, userAnswers)),
@@ -88,8 +84,9 @@ export const createAnswer = async (engine, progressionId, payload) => {
   );
 };
 
-export const requestClue = async (engine, progressionId, payload) => {
+export const requestClue = async (progressionId, payload) => {
   const progression = await findById(progressionId);
+  const {engine} = progression;
 
   const action = {
     type: 'clue',
@@ -144,8 +141,9 @@ export const create = async progression => {
   });
 };
 
-export const markResourceAsViewed = async (engine, progressionId, payload) => {
+export const markResourceAsViewed = async (progressionId, payload) => {
   const progression = await findById(progressionId);
+
   const action = {
     type: 'resource',
     payload
