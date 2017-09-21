@@ -14,8 +14,7 @@ export const stateForFirstSlide: State = {
   viewedResources: [],
   isCorrect: true,
   step: {
-    current: 1,
-    total: 4
+    current: 1
   }
 };
 
@@ -35,8 +34,7 @@ export const stateForSecondSlide: State = {
   isCorrect: true,
   stars: 4,
   step: {
-    current: 2,
-    total: 4
+    current: 2
   }
 };
 
@@ -53,8 +51,7 @@ export const failProgressionState: State = {
   isCorrect: false,
   slides: ['1.A1.1', '1.A1.2'],
   step: {
-    current: 3,
-    total: 4
+    current: 3
   },
   requestedClues: [],
   viewedResources: [],
@@ -74,8 +71,7 @@ export const successProgressionState: State = {
   isCorrect: true,
   slides: ['1.A1.1', '1.A1.3', '1.A1.2', '1.A1.4'],
   step: {
-    current: 4,
-    total: 4
+    current: 4
   },
   requestedClues: [],
   viewedResources: [],

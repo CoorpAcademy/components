@@ -7,8 +7,7 @@ export type ViewedResource = {
 };
 
 export type Step = {
-  current: number,
-  total: number
+  current: number
 };
 
 export type GenericContent = {

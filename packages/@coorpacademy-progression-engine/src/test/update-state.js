@@ -62,7 +62,7 @@ test('should return a valid state when there are no actions', t => {
   t.deepEqual(state.slides, []);
   t.deepEqual(state.requestedClues, []);
   t.deepEqual(state.viewedResources, []);
-  t.deepEqual(state.step, {current: 1, total: 4});
+  t.deepEqual(state.step, {current: 1});
 });
 
 test('should return a valid state when there are no actions and state is empty', t => {
@@ -82,7 +82,7 @@ test('should return a valid state when there are no actions and state is empty',
   t.deepEqual(state.slides, []);
   t.deepEqual(state.requestedClues, []);
   t.deepEqual(state.viewedResources, []);
-  t.deepEqual(state.step, {current: 1, total: 4});
+  t.deepEqual(state.step, {current: 1});
 });
 
 test('should update state when answering the first question correctly', t => {
@@ -111,7 +111,7 @@ test('should update state when answering the first question correctly', t => {
     '`isCorrect` should reflect the `isCorrect` field from the action payload'
   );
   t.deepEqual(newState.slides, ['1.A1.1'], 'answered slide should have been stored in `slides`');
-  t.deepEqual(newState.step, {current: 2, total: 4}, 'step progression is wrong');
+  t.deepEqual(newState.step, {current: 2}, 'step progression is wrong');
   t.deepEqual(newState.stars, 4, 'step progression is wrong');
   t.deepEqual(
     newState.content,
@@ -160,7 +160,7 @@ test('should update state when answering the another question correctly', t => {
     ['1.A1.4', '1.A1.2'],
     'answered slide should have been stored in `slides`'
   );
-  t.deepEqual(newState.step, {current: 3, total: 4}, 'step progression is wrong');
+  t.deepEqual(newState.step, {current: 3}, 'step progression is wrong');
   t.deepEqual(newState.stars, 8, 'step progression is wrong');
   t.deepEqual(
     newState.content,
@@ -205,7 +205,7 @@ test('should update state when answering a question incorrectly', t => {
     newState.isCorrect,
     '`isCorrect` should reflect the `isCorrect` field from the action payload'
   );
-  t.deepEqual(newState.step, {current: 3, total: 4}, 'step progression is wrong');
+  t.deepEqual(newState.step, {current: 3}, 'step progression is wrong');
   t.deepEqual(
     newState.slides,
     ['1.A1.4', '1.A1.2'],
@@ -387,4 +387,32 @@ test("should throw if the state's nextContent is not the same as the action's co
     () => updateState(engine, state, [action]),
     'The content of the progression state does not match the content of the given answer'
   );
+});
+
+test('should update step when answering a question', t => {
+  const state: State = Object.freeze({
+    ...stateForSecondSlide,
+    chapters: ['1.A1', '1.A2'],
+    step: {
+      current: 2
+    }
+  });
+
+  const action: AnswerAction = Object.freeze({
+    type: 'answer',
+    payload: {
+      content: {
+        ref: '1.A1.2',
+        type: 'slide'
+      },
+      nextContent: {
+        ref: '1.A1.1',
+        type: 'slide'
+      },
+      isCorrect: true
+    }
+  });
+
+  const newState = updateState(engine, state, [action]);
+  t.deepEqual(newState.step, {current: 3}, 'step progression is wrong');
 });
