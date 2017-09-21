@@ -12,7 +12,7 @@ const engine = {
 test('findById should return the correct answer and corrections for the given answer', async t => {
   const progression = await Progressions.create({engine});
   const answers = ['bar'];
-  const progressionWithAnswer = await Progressions.createAnswer(progression._id, {
+  const progressionWithAnswer = await Progressions.postAnswers(progression._id, {
     content: progression.state.nextContent,
     answers
   });

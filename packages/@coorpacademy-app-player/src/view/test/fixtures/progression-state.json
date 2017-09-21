@@ -13,6 +13,10 @@
     "progressions": {
       "entities": {
         "0": {
+          "engine": {
+            "ref": "microlearning",
+            "version": "1"
+          },
           "state": {
             "nextContent": {
               "ref": "0",

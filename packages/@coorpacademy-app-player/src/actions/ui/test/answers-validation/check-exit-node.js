@@ -36,7 +36,7 @@ const answerAndGetSuccessExitNode = [
 
 const services = t => ({
   Progressions: {
-    createAnswer: (id, payload) => {
+    postAnswers: (id, payload) => {
       t.is(id, 'foo');
       return set('state.content.ref', 'baz', {});
     },

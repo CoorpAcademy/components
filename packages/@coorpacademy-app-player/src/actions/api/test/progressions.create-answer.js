@@ -20,10 +20,10 @@ test(
   getState({}),
   t => ({
     Progressions: {
-      createAnswer: (id, payload) => {
+      postAnswers: (id, payload) => {
         t.is(id, 'foo');
         t.deepEqual(payload, {content: 'bar', answers: ['baz']});
-        return 'quz';
+        return 'qux';
       }
     }
   }),
@@ -36,7 +36,7 @@ test(
     {
       type: PROGRESSION_CREATE_ANSWER_SUCCESS,
       meta: {progressionId: 'foo'},
-      payload: 'quz'
+      payload: 'qux'
     }
   ]
 );
@@ -47,7 +47,7 @@ test(
   getState({}),
   t => ({
     Progressions: {
-      createAnswer: id => {
+      postAnswers: id => {
         t.is(id, 'foo');
         throw new Error();
       }
