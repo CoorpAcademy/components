@@ -1,14 +1,43 @@
 // @flow
 import map from 'lodash/fp/map';
+import find from 'lodash/fp/find';
 import sample from 'lodash/fp/sample';
+import indexOf from 'lodash/fp/indexOf';
 import without from 'lodash/fp/without';
+import intersection from 'lodash/fp/intersection';
 import type {State, Slide, Content, Engine, Config} from './types';
-import {hasFinished, isAlive, hasRemainingLifeRequests} from './util';
 import getConfig from './config';
+
+const isAlive = (state: State): boolean => state.lives > 0;
+const hasRemainingLifeRequests = (state: State): boolean => state.remainingLifeRequests > 0;
+
+const getSlidePool = (
+  config: Config,
+  slidePools: Array<{chapterId: string, slides: Array<Slide>}>,
+  state: State
+): {chapterId: string, slides: Array<Slide>} => {
+  const currentChapterPool = find(
+    ({slides}) => find({_id: state.nextContent.ref}, slides),
+    slidePools
+  );
+
+  const slidesAnsweredForThisChapter = intersection(
+    state.slides,
+    map('_id', currentChapterPool.slides)
+  );
+  if (slidesAnsweredForThisChapter.length >= config.slidesToComplete) {
+    const indexOfCurrentChapter = indexOf(
+      currentChapterPool.chapterId,
+      map('chapterId', slidePools)
+    );
+    return slidePools[indexOfCurrentChapter + 1];
+  }
+  return currentChapterPool;
+};
 
 export default function computeNextStep(
   engine: Engine,
-  slidePool: Array<Slide>,
+  slidePools: Array<{chapterId: string, slides: Array<Slide>}>,
   state: State
 ): Content {
   const config = (getConfig(engine): Config);
@@ -19,15 +48,17 @@ export default function computeNextStep(
       : {ref: 'failExitNode', type: 'failure'};
   }
 
-  // if all slides answered and still alive return success endpoint
-  if (hasFinished(config.slidesToComplete, state)) {
+  const slidePool = getSlidePool(config, slidePools, state);
+
+  // If user has answered all questions, return success endpoint
+  if (!slidePool) {
     return {
       ref: 'successExitNode',
       type: 'success'
     };
   }
 
-  const remainingSlides = without(state.slides, map('_id', slidePool));
+  const remainingSlides = without(state.slides, map('_id', slidePool.slides));
   const nextSlide = sample(remainingSlides);
 
   // with next slide return content object

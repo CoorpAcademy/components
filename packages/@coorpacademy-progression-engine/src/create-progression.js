@@ -22,8 +22,7 @@ export default function createProgression(
     requestedClues: [],
     viewedResources: [],
     step: {
-      current: 1,
-      total: config.slidesToComplete
+      current: 1
     },
     content: undefined,
     nextContent: initialContent,
