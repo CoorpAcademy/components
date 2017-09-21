@@ -116,9 +116,9 @@ test('should display "Back to question" for the cta in the tabs', t => {
   const state = {
     data,
     ui: {
-      current: {progressionId: 'foo'},
+      current: {progressionId: 'basic'},
       route: {
-        foo: 'media'
+        basic: 'media'
       }
     }
   };
@@ -133,9 +133,9 @@ test('should display "Go to question" for the context tab cta', t => {
   const state = {
     data,
     ui: {
-      current: {progressionId: 'foo'},
+      current: {progressionId: 'basic'},
       route: {
-        foo: 'context'
+        basic: 'context'
       }
     }
   };

@@ -20,7 +20,7 @@ test(
   })({}),
   t => ({
     Progressions: {
-      createAnswer: (id, payload) => {
+      postAnswers: (id, payload) => {
         t.is(id, 'foo');
         t.deepEqual(payload, {
           content: {type: 'slide', ref: 'baz'},
@@ -57,7 +57,7 @@ test(
   })({}),
   t => ({
     Progressions: {
-      createAnswer: (id, payload) => {
+      postAnswers: (id, payload) => {
         t.is(id, 'foo');
         t.deepEqual(payload, {
           content: {type: 'slide', ref: 'baz'},

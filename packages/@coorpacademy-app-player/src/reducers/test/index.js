@@ -11,6 +11,7 @@ test(
   {
     data: {
       answers: {entities: {}},
+      configs: {},
       contents: {},
       clues: {entities: {}},
       exitNodes: {entities: {}},
