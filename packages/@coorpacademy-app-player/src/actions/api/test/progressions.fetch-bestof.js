@@ -10,9 +10,12 @@ import {
 } from '../progressions';
 
 const progressionContent = {type: 'foo', ref: 'bar'};
+const engine = {ref: 'microlearning', version: '1'};
+
 const state = pipe(
   set('ui.current.progressionId', 'foo'),
-  set('data.progressions.entities.foo.content', progressionContent)
+  set('data.progressions.entities.foo.content', progressionContent),
+  set('data.progressions.entities.foo.engine', engine)
 )({});
 
 test(
@@ -21,14 +24,15 @@ test(
   state,
   t => ({
     Progressions: {
-      findBestOf: (type, ref, id) => {
-        t.is(type, 'foo');
-        t.is(ref, 'bar');
+      findBestOf: (engineRef, contentRef, id) => {
+        t.is(engineRef, 'microlearning');
+        t.is(contentRef, 'bar');
+        t.is(id, 'foo');
         return 'baz';
       }
     }
   }),
-  fetchBestProgression(progressionContent),
+  fetchBestProgression(progressionContent, 'foo'),
   [
     {
       type: PROGRESSION_FETCH_BESTOF_REQUEST,
@@ -50,17 +54,17 @@ test(
   macro,
   pipe(
     set('ui.current.progressionId', 'foo'),
-    set('data.progressions.entities.foo', {content: {type: 'chapter', ref: 'bar'}}),
+    set('data.progressions.entities.foo', {engine, content: {type: 'chapter', ref: 'bar'}}),
     set('data.contents.chapter.entities.bar.bestScore', 12)
   )({}),
   t => ({
     Progressions: {
-      findBestOf: (type, ref, id) => {
+      findBestOf: (engineRef, contentRef, id) => {
         t.fail();
       }
     }
   }),
-  fetchBestProgression(progressionContent),
+  fetchBestProgression(progressionContent, 'foo'),
   [
     {
       type: PROGRESSION_FETCH_BESTOF_REQUEST,
@@ -75,13 +79,13 @@ test(
   state,
   t => ({
     Progressions: {
-      findBestOf: (type, ref, id) => {
-        t.is(ref, 'bar');
+      findBestOf: (engineRef, contentRef, id) => {
+        t.is(contentRef, 'bar');
         throw new Error();
       }
     }
   }),
-  fetchBestProgression(progressionContent),
+  fetchBestProgression(progressionContent, 'foo'),
   [
     {
       type: PROGRESSION_FETCH_BESTOF_REQUEST,
