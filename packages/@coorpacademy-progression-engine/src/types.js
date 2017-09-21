@@ -169,4 +169,15 @@ export type MicroLearningConfig = {
   starsPerResourceViewed: number
 };
 
-export type Config = MicroLearningConfig;
+export type LearnerConfig = {
+  version: string,
+  lives: number,
+  maxTypos: number,
+  slidesToComplete: number,
+  answerBoundaryLimit: number,
+  starsPerAskingClue: number,
+  starsPerCorrectAnswer: number,
+  starsPerResourceViewed: number
+};
+
+export type Config = MicroLearningConfig | LearnerConfig;
