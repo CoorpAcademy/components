@@ -21,7 +21,7 @@ import type {
   AcceptedAnswers,
   Answer,
   Engine,
-  MicroLearningConfig
+  Config
 } from './types';
 
 // eslint-disable-next-line flowtype/no-weak-types
@@ -33,11 +33,7 @@ function checkFuzzyAnswer(maxTypos: number, fm: any, userAnswer: string): boolea
   return !!fm.get(userAnswer, {maxChanges: maxTypos}).value;
 }
 
-function containsAnswer(
-  config: MicroLearningConfig,
-  allowedAnswer: string,
-  givenAnswer: string
-): boolean {
+function containsAnswer(config: Config, allowedAnswer: string, givenAnswer: string): boolean {
   // Find the allowed answer in the given answer
   if (!includes(allowedAnswer, givenAnswer)) {
     // If not present
@@ -57,7 +53,7 @@ function containsAnswer(
 }
 
 function isTextCorrect(
-  config: MicroLearningConfig,
+  config: Config,
   allowedAnswers: Answer,
   answerWithCase: string,
   _maxTypos: ?number
@@ -74,7 +70,7 @@ function isTextCorrect(
 }
 
 function matchAnswerForBasic(
-  config: MicroLearningConfig,
+  config: Config,
   question: BasicQuestion,
   givenAnswer: Answer
 ): Array<Array<PartialCorrection>> {
@@ -89,7 +85,7 @@ function matchAnswerForBasic(
 }
 
 function matchAnswerForTemplate(
-  config: MicroLearningConfig,
+  config: Config,
   question: TemplateQuestion,
   givenAnswer: Answer
 ): Array<Array<PartialCorrection>> {
@@ -158,7 +154,7 @@ function matchGivenAnswerToQuestion(
   question: Question,
   givenAnswer: Answer
 ): Array<Array<PartialCorrection>> {
-  const config = (getConfig(engine): MicroLearningConfig);
+  const config = (getConfig(engine): Config);
   const allowedAnswers = question.content.answers;
   switch (question.type) {
     case 'basic': {
