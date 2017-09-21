@@ -180,7 +180,6 @@ function nextContent(config: Config): (Content, Action) => Content {
 function step(config: Config): (Step, Action, State) => Step {
   return (s: Step, action: Action, state: State): Step => {
     return {
-      total: config.slidesToComplete,
       current: state.slides.length + 1
     };
   };
