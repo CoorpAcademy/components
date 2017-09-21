@@ -132,7 +132,7 @@ test(
         set('data.progressions.entities.foo._id', 'foo'),
         set('data.progressions.entities.foo.state.nextContent', {type: 'slide', ref: 'bar'}),
         set('data.progressions.entities.foo.content', {type: 'chapter', ref: 'baz'}),
-        set('data.progressions.entities.foo.engine', {version: '1'})
+        set('data.progressions.entities.foo.engine', {ref: 'qux', version: 'quux'})
       )({})
     ],
     [
@@ -176,10 +176,12 @@ test(
       set('data.contents.chapter.entities.baz.bestScore', 16, {})
     ],
     {
-      type: ENGINE_CONFIG_FETCH_REQUEST
+      type: ENGINE_CONFIG_FETCH_REQUEST,
+      meta: {engine: {ref: 'qux', version: 'quux'}}
     },
     {
       type: ENGINE_CONFIG_FETCH_SUCCESS,
+      meta: {engine: {ref: 'qux', version: 'quux'}},
       payload: 42
     },
     [
@@ -246,7 +248,7 @@ test(
         set('data.progressions.entities.foo._id', 'foo'),
         set('data.progressions.entities.foo.state.nextContent', {type: 'slide', ref: 'bar'}),
         set('data.progressions.entities.foo.content', {type: 'chapter', ref: 'baz'}),
-        set('data.progressions.entities.foo.engine', {version: '1'})
+        set('data.progressions.entities.foo.engine', {ref: 'qux', version: 'quux'})
       )({})
     ],
     [
@@ -290,10 +292,12 @@ test(
       set('data.contents.chapter.entities.baz.bestScore', 16, {})
     ],
     {
-      type: ENGINE_CONFIG_FETCH_REQUEST
+      type: ENGINE_CONFIG_FETCH_REQUEST,
+      meta: {engine: {ref: 'qux', version: 'quux'}}
     },
     {
       type: ENGINE_CONFIG_FETCH_SUCCESS,
+      meta: {engine: {ref: 'qux', version: 'quux'}},
       payload: 42
     },
     [
@@ -374,7 +378,7 @@ test(
         set('data.progressions.entities.foo._id', 'foo'),
         set('data.progressions.entities.foo.state.nextContent', {type: 'success', ref: 'bar'}),
         set('data.progressions.entities.foo.content', {type: 'chapter', ref: 'baz'}),
-        set('data.progressions.entities.foo.engine', {version: '1'})
+        set('data.progressions.entities.foo.engine', {ref: 'qux', version: 'quux'})
       )({})
     ],
     [
@@ -418,10 +422,12 @@ test(
       set('data.contents.chapter.entities.baz.bestScore', 16, {})
     ],
     {
-      type: ENGINE_CONFIG_FETCH_REQUEST
+      type: ENGINE_CONFIG_FETCH_REQUEST,
+      meta: {engine: {ref: 'qux', version: 'quux'}}
     },
     {
       type: ENGINE_CONFIG_FETCH_SUCCESS,
+      meta: {engine: {ref: 'qux', version: 'quux'}},
       payload: 42
     },
     [
