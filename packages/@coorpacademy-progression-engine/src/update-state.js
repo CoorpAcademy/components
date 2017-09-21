@@ -22,13 +22,13 @@ import type {
   Engine,
   ExtraLifeAcceptedAction,
   ExtraLifeRefusedAction,
-  MicroLearningConfig,
+  Config,
   State,
   Step,
   ViewedResource
 } from './types';
 
-function isCorrect(config: MicroLearningConfig): (boolean, Action) => boolean {
+function isCorrect(config: Config): (boolean, Action) => boolean {
   return (state: boolean = true, action: Action): boolean => {
     switch (action.type) {
       case 'answer': {
@@ -41,7 +41,7 @@ function isCorrect(config: MicroLearningConfig): (boolean, Action) => boolean {
   };
 }
 
-function slides(config: MicroLearningConfig): (Array<string>, Action) => Array<string> {
+function slides(config: Config): (Array<string>, Action) => Array<string> {
   return (array: Array<string> = [], action: Action): Array<string> => {
     switch (action.type) {
       case 'answer': {
@@ -54,9 +54,7 @@ function slides(config: MicroLearningConfig): (Array<string>, Action) => Array<s
   };
 }
 
-function viewedResources(
-  config: MicroLearningConfig
-): (Array<ViewedResource>, Action) => Array<ViewedResource> {
+function viewedResources(config: Config): (Array<ViewedResource>, Action) => Array<ViewedResource> {
   return (
     currentViewedResources: Array<ViewedResource> = [],
     action: Action
@@ -92,7 +90,7 @@ function viewedResources(
   };
 }
 
-function requestedClues(config: MicroLearningConfig): (Array<string>, Action) => Array<string> {
+function requestedClues(config: Config): (Array<string>, Action) => Array<string> {
   return (array: Array<string> = [], action: Action): Array<string> => {
     switch (action.type) {
       case 'clue': {
@@ -106,7 +104,7 @@ function requestedClues(config: MicroLearningConfig): (Array<string>, Action) =>
   };
 }
 
-function remainingLifeRequests(config: MicroLearningConfig): (number, Action, State) => number {
+function remainingLifeRequests(config: Config): (number, Action, State) => number {
   return (count: number = config.remainingLifeRequests, action: Action, state: State): number => {
     switch (action.type) {
       case 'extraLifeAccepted': {
@@ -121,7 +119,7 @@ function remainingLifeRequests(config: MicroLearningConfig): (number, Action, St
   };
 }
 
-function lives(config: MicroLearningConfig): (number, Action, State) => number {
+function lives(config: Config): (number, Action, State) => number {
   return (amount: number = config.lives, action: Action, state: State): number => {
     switch (action.type) {
       case 'answer': {
@@ -137,7 +135,7 @@ function lives(config: MicroLearningConfig): (number, Action, State) => number {
   };
 }
 
-function content(config: MicroLearningConfig): (Content, Action) => Content {
+function content(config: Config): (Content, Action) => Content {
   return (c: Content, action: Action): Content => {
     switch (action.type) {
       case 'answer': {
@@ -158,7 +156,7 @@ function content(config: MicroLearningConfig): (Content, Action) => Content {
   };
 }
 
-function nextContent(config: MicroLearningConfig): (Content, Action) => Content {
+function nextContent(config: Config): (Content, Action) => Content {
   return (c: Content, action: Action): Content => {
     switch (action.type) {
       case 'answer': {
@@ -179,7 +177,7 @@ function nextContent(config: MicroLearningConfig): (Content, Action) => Content 
   };
 }
 
-function step(config: MicroLearningConfig): (Step, Action, State) => Step {
+function step(config: Config): (Step, Action, State) => Step {
   return (s: Step, action: Action, state: State): Step => {
     return {
       total: config.slidesToComplete,
@@ -188,7 +186,7 @@ function step(config: MicroLearningConfig): (Step, Action, State) => Step {
   };
 }
 
-function stars(config: MicroLearningConfig): (number, Action, State) => number {
+function stars(config: Config): (number, Action, State) => number {
   return (currentStars: number = 0, action: Action, state: State): number => {
     switch (action.type) {
       case 'answer': {
@@ -221,7 +219,7 @@ function stars(config: MicroLearningConfig): (number, Action, State) => number {
   };
 }
 
-function validate(config: MicroLearningConfig): (State, Action) => void {
+function validate(config: Config): (State, Action) => void {
   return (state: State, action: Action) => {
     switch (action.type) {
       case 'answer': {
@@ -239,16 +237,16 @@ function validate(config: MicroLearningConfig): (State, Action) => void {
 
 function combineReducers(
   fnMap: Array<{key: string, fn: Function}> // eslint-disable-line flowtype/no-weak-types
-): MicroLearningConfig => (State, Action) => State {
+): Config => (State, Action) => State {
   // eslint-disable-next-line flowtype/require-return-type
   const fns = map(({fn, key}) => {
-    return (config: MicroLearningConfig, action: Action) => (state: State): State => {
+    return (config: Config, action: Action) => (state: State): State => {
       const newState = update(key, value => fn(config)(value, action, state), state);
       return (newState: State);
     };
   }, fnMap);
 
-  return (config: MicroLearningConfig): ((State, Action) => State) => {
+  return (config: Config): ((State, Action) => State) => {
     return (state: State, action: Action): State => {
       validate(config)(state, action);
       return pipe(...map(fn => fn(config, action), fns))(state);
@@ -270,7 +268,7 @@ const reduceAction = combineReducers([
 ]);
 
 export default function updateState(engine: Engine, state: State, actions: Array<Action>): State {
-  const config = (getConfig(engine): MicroLearningConfig);
+  const config = (getConfig(engine): Config);
   if (isEmpty(actions)) {
     return reduce(reduceAction(config), state, [{type: 'init'}]);
   }

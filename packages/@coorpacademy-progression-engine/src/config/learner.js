@@ -1,12 +1,12 @@
 // @flow
-import type {MicroLearningConfig} from '../types';
+import type {LearnerConfig} from '../types';
 
-const realConfigurations: Array<MicroLearningConfig> = [
+const realConfigurations: Array<LearnerConfig> = [
   {
     version: '1',
     lives: 3,
     maxTypos: 2,
-    slidesToComplete: 6,
+    slidesToComplete: 4,
     answerBoundaryLimit: 5,
     starsPerAskingClue: -1,
     starsPerCorrectAnswer: 4,
@@ -15,7 +15,7 @@ const realConfigurations: Array<MicroLearningConfig> = [
   }
 ];
 
-const testConfigurations: Array<MicroLearningConfig> = [
+const testConfigurations: Array<LearnerConfig> = [
   {
     version: 'allow_typos_3',
     lives: 3,
