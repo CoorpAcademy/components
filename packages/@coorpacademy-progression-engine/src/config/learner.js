@@ -1,7 +1,7 @@
 // @flow
-import type {LearnerConfig} from '../types';
+import type {Config} from '../types';
 
-const realConfigurations: Array<LearnerConfig> = [
+const realConfigurations: Array<Config> = [
   {
     version: '1',
     lives: 3,
@@ -14,7 +14,7 @@ const realConfigurations: Array<LearnerConfig> = [
   }
 ];
 
-const testConfigurations: Array<LearnerConfig> = [
+const testConfigurations: Array<Config> = [
   {
     version: 'allow_typos_3',
     lives: 3,
