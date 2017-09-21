@@ -4,9 +4,9 @@ import pipe from 'lodash/fp/pipe';
 import macro from '../../test/helpers/macro';
 import {
   requestExtralifeAccepted,
-  PROGRESSION_EXTRALIFEREFUSED_REQUEST,
-  PROGRESSION_EXTRALIFEREFUSED_SUCCESS,
-  PROGRESSION_EXTRALIFEREFUSED_FAILURE
+  PROGRESSION_EXTRALIFEACCEPTED_REQUEST,
+  PROGRESSION_EXTRALIFEACCEPTED_SUCCESS,
+  PROGRESSION_EXTRALIFEACCEPTED_FAILURE
 } from '../progressions';
 
 const initState = pipe(
@@ -29,12 +29,40 @@ test(
   requestExtralifeAccepted('foo'),
   [
     {
-      type: PROGRESSION_EXTRALIFEREFUSED_REQUEST,
+      type: PROGRESSION_EXTRALIFEACCEPTED_REQUEST,
       meta: {progressionId: 'foo'}
     },
     {
-      type: PROGRESSION_EXTRALIFEREFUSED_SUCCESS,
+      type: PROGRESSION_EXTRALIFEACCEPTED_SUCCESS,
+      meta: {progressionId: 'foo'},
+      payload: 'baz'
+    }
+  ]
+);
+
+test(
+  'should refuse extra life',
+  macro,
+  initState({}),
+  t => ({
+    Progressions: {
+      requestExtralifeAccepted: id => {
+        t.is(id, 'foo');
+        throw new Error();
+      }
+    }
+  }),
+  requestExtralifeAccepted('foo'),
+  [
+    {
+      type: PROGRESSION_EXTRALIFEACCEPTED_REQUEST,
       meta: {progressionId: 'foo'}
+    },
+    {
+      type: PROGRESSION_EXTRALIFEACCEPTED_FAILURE,
+      meta: {progressionId: 'foo'},
+      error: true,
+      payload: new Error()
     }
   ]
 );
