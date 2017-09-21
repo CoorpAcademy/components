@@ -181,7 +181,7 @@ export type Slide = {
   question: Question
 };
 
-export type MicroLearningConfig = {
+export type Config = {
   version: string,
   lives: number,
   maxTypos: number,
@@ -192,16 +192,3 @@ export type MicroLearningConfig = {
   starsPerResourceViewed: number,
   remainingLifeRequests: number
 };
-
-export type LearnerConfig = {
-  version: string,
-  lives: number,
-  maxTypos: number,
-  slidesToComplete: number,
-  answerBoundaryLimit: number,
-  starsPerAskingClue: number,
-  starsPerCorrectAnswer: number,
-  starsPerResourceViewed: number
-};
-
-export type Config = MicroLearningConfig | LearnerConfig;
