@@ -5,6 +5,9 @@ import {
   checkAnswer,
   updateState
 } from '@coorpacademy/progression-engine';
+import map from 'lodash/fp/map';
+import toPairs from 'lodash/fp/toPairs';
+import groupBy from 'lodash/fp/groupBy';
 import uniqueId from 'lodash/fp/uniqueId';
 import update from 'lodash/fp/update';
 import pipe from 'lodash/fp/pipe';
@@ -42,9 +45,11 @@ export const getEngineConfig = async engine => {
   return getConfig(engine);
 };
 
-// eslint-disable-next-line require-await
-const findAllSlides = async () => {
-  return Array.from(slideStore.values());
+const createSlidePools = () => {
+  const allSlides = [...slideStore.values()];
+  return pipe(groupBy('chapter_id'), toPairs, map(([chapterId, slides]) => ({chapterId, slides})))(
+    allSlides
+  );
 };
 
 export const save = progression => {
@@ -65,14 +70,14 @@ export const postAnswers = async (progressionId, payload) => {
   const slideId = payload.content.ref;
   const slide = slideStore.get(slideId);
   const progression = await findById(progressionId);
-  const slides = await findAllSlides();
+  const slidePools = createSlidePools();
   const {engine} = progression;
 
   const action = pipe(
     set('payload.isCorrect', checkAnswer(engine, slide.question, userAnswers)),
     _action => {
       const nextState = updateState(engine, progression.state, [_action]);
-      return set('payload.nextContent', computeNextStep(engine, slides, nextState))(_action);
+      return set('payload.nextContent', computeNextStep(engine, slidePools, nextState))(_action);
     }
   )({
     type: 'answer',
@@ -98,12 +103,12 @@ export const requestClue = async (progressionId, payload) => {
 
 export const postExtraLife = async (progressionId, payload) => {
   const progression = await findById(progressionId);
-  const slides = await findAllSlides();
+  const slidePools = createSlidePools();
   const {content, isAccepted} = payload;
 
   const feedNextContent = _action => {
     const nextState = updateState(progression.engine, progression.state, [_action]);
-    return set('payload.nextContent', computeNextStep(progression.engine, slides, nextState))(
+    return set('payload.nextContent', computeNextStep(progression.engine, slidePools, nextState))(
       _action
     );
   };
@@ -120,16 +125,16 @@ export const postExtraLife = async (progressionId, payload) => {
   );
 };
 
+// eslint-disable-next-line require-await
 export const create = async progression => {
   const _id = generateId();
-  const slides = await findAllSlides();
-
+  const slidePools = createSlidePools();
   const chapter = {
     ref: 'cha_Ny1BTxRp~',
     type: 'chapter'
   };
   const initialContent = {
-    ref: sample(slides)._id,
+    ref: sample(slidePools[0].slides)._id,
     type: 'slide'
   };
 
