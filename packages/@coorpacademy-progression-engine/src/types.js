@@ -69,7 +69,6 @@ export type InitAction = {
 export type ExtraLifeAcceptedAction = {
   type: 'extraLifeAccepted',
   payload: {
-    content: Content,
     nextContent: Content
   }
 };
@@ -77,7 +76,6 @@ export type ExtraLifeAcceptedAction = {
 export type ExtraLifeRefusedAction = {
   type: 'extraLifeRefused',
   payload: {
-    content: Content,
     nextContent: Content
   }
 };

@@ -2,6 +2,7 @@
 import test from 'ava';
 import omit from 'lodash/fp/omit';
 import pick from 'lodash/fp/pick';
+import get from 'lodash/fp/get';
 import updateState from '../update-state';
 import createProgression from '../create-progression';
 import type {
@@ -15,7 +16,6 @@ import type {
 import {
   stateForFirstSlide,
   stateForSecondSlide,
-  failProgressionState,
   extraLifeProgressionState
 } from './fixtures/states';
 
@@ -400,10 +400,6 @@ test('should add one life when using joker', t => {
   const action: ExtraLifeAcceptedAction = Object.freeze({
     type: 'extraLifeAccepted',
     payload: {
-      content: {
-        ref: '1.A1.200',
-        type: 'slide'
-      },
       nextContent: {
         ref: '1.A1.1',
         type: 'slide'
@@ -415,26 +411,5 @@ test('should add one life when using joker', t => {
   t.is(newState.lives, 1);
   t.is(newState.remainingLifeRequests, 0);
   t.is(newState.nextContent.type, 'slide');
-});
-
-test('should not change life when trying to use joker another time', t => {
-  const state: State = Object.freeze(failProgressionState);
-  const action: ExtraLifeAcceptedAction = Object.freeze({
-    type: 'extraLifeAccepted',
-    payload: {
-      content: {
-        ref: '1.A1.200',
-        type: 'slide'
-      },
-      nextContent: {
-        ref: '1.A1.1',
-        type: 'slide'
-      }
-    }
-  });
-  const newState = updateState(engine, state, [action]);
-
-  t.is(newState.lives, 0);
-  t.is(newState.remainingLifeRequests, 0);
-  t.is(newState.nextContent.type, 'slide');
+  t.is(get('content.ref', newState), 'extraLife');
 });

@@ -144,6 +144,13 @@ function content(config: MicroLearningConfig): (Content, Action) => Content {
         const answerAction = (action: AnswerAction);
         return answerAction.payload.content;
       }
+      case 'extraLifeAccepted':
+      case 'extraLifeRefused': {
+        return {
+          type: 'node',
+          ref: 'extraLife'
+        };
+      }
       default:
         return c;
     }
