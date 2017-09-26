@@ -8,7 +8,8 @@ import pipe from 'lodash/fp/pipe';
 import {
   CONTENT_FETCH_REQUEST,
   CONTENT_FETCH_SUCCESS,
-  CONTENT_FETCH_FAILURE
+  CONTENT_FETCH_FAILURE,
+  CONTENT_INFO_FETCH_SUCCESS
 } from '../../actions/api/contents';
 import {PROGRESSION_FETCH_BESTOF_SUCCESS} from '../../actions/api/progressions';
 
@@ -30,6 +31,11 @@ const dataContentReducer = (state = {}, action) => {
       if (pipe(get([type, 'entities', ref]), isNull)(state))
         return unset([type, 'entities', ref], state);
       return state;
+    }
+    case CONTENT_INFO_FETCH_SUCCESS: {
+      const {payload: info, meta} = action;
+      const {type, ref} = meta;
+      return set([type, 'entities', ref, 'info'], info, state);
     }
     case PROGRESSION_FETCH_BESTOF_SUCCESS: {
       const {payload: progression, meta} = action;

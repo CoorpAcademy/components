@@ -17,8 +17,7 @@
       },
       "lives": 1,
       "step": {
-        "current": 1,
-        "total": 4
+        "current": 1
       }
     }
   },
@@ -38,7 +37,10 @@
         "ref": "sli_E1iEQRuZm",
         "type": "slide"
       },
-      "lives": 1
+      "lives": 1,
+      "step": {
+        "current": 1
+      }
     }
   },
   {
@@ -59,8 +61,7 @@
       },
       "lives": 1,
       "step": {
-        "current": 1,
-        "total": 4
+        "current": 1
       }
     }
   },
@@ -81,7 +82,10 @@
         "type": "success"
       },
       "lives": 1,
-      "stars": 12
+      "stars": 12,
+      "step": {
+        "current": 1
+      }
     }
   },
   {
@@ -100,7 +104,10 @@
         "ref": "failExitNode",
         "type": "failure"
       },
-      "lives": 0
+      "lives": 0,
+      "step": {
+        "current": 1
+      }
     }
   },
   {
@@ -121,8 +128,7 @@
       },
       "lives": 1,
       "step": {
-        "current": 1,
-        "total": 4
+        "current": 1
       }
     }
   },
@@ -144,8 +150,7 @@
       },
       "lives": 1,
       "step": {
-        "current": 1,
-        "total": 4
+        "current": 1
       }
     }
   },
@@ -167,8 +172,7 @@
       },
       "lives": 1,
       "step": {
-        "current": 1,
-        "total": 4
+        "current": 1
       }
     }
   },
@@ -190,8 +194,7 @@
       },
       "lives": 1,
       "step": {
-        "current": 1,
-        "total": 4
+        "current": 1
       }
     }
   },
@@ -213,8 +216,7 @@
       },
       "lives": 1,
       "step": {
-        "current": 1,
-        "total": 4
+        "current": 1
       }
     }
   },
@@ -236,8 +238,7 @@
       },
       "lives": 3,
       "step": {
-        "current": 1,
-        "total": 8
+        "current": 1
       }
     }
   }

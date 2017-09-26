@@ -16,6 +16,9 @@
                 "src": []
               }
             },
+            "info": {
+              "nbSlides": 4
+            },
             "meta": {
               "updatedAt": "2017-06-13T12:15:40.321Z",
               "createdAt": "2017-06-13T12:15:40.321Z"
@@ -152,7 +155,6 @@
             },
             "lives": 1,
             "step": {
-              "total": 4,
               "current": 3
             },
             "isCorrect": true,

@@ -50,6 +50,8 @@ export const getCurrentContent = state => {
   return getContent(type, ref)(state);
 };
 
+export const getContentInfo = pipe(getCurrentContent, get('info'));
+export const getNbSlides = pipe(getContentInfo, get('nbSlides'));
 export const getStepContent = pipe(getCurrentProgression, get('state.nextContent'));
 
 export const getEngine = state => {

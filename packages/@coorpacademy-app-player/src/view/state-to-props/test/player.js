@@ -36,7 +36,6 @@ const createProgression = slide => ({
     },
     lives: 1,
     step: {
-      total: 4,
       current: 1
     },
     viewedResources: []

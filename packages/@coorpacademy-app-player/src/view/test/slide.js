@@ -73,7 +73,7 @@ test('should display loading clue', async t => {
   t.is(playerProps.typeClue, 'clue');
   t.is(playerProps.text, null);
 
-  t.deepEqual(playerProps.step, {current: 2, total: 4});
+  t.deepEqual(playerProps.step, {current: 1, total: 1});
 
   t.is(playerProps.question, "Écrivez le mot Text dans l'input.\n");
   t.deepEqual(omit('onClick', playerProps.cta), {

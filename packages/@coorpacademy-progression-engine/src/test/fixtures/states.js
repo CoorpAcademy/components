@@ -1,6 +1,26 @@
 // @flow
 import {type State} from '../../types';
 
+export const stateBeforeGettingNextContent: State = {
+  content: {
+    ref: '1.A1.1',
+    type: 'slide'
+  },
+  nextContent: {
+    ref: '1.A1.1',
+    type: 'slide'
+  },
+  lives: 1,
+  stars: 0,
+  slides: [],
+  requestedClues: [],
+  viewedResources: [],
+  isCorrect: true,
+  step: {
+    current: 1
+  }
+};
+
 export const stateForFirstSlide: State = {
   content: undefined,
   nextContent: {
