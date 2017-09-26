@@ -1,10 +1,10 @@
 import set from 'lodash/fp/set';
-import {UI_EXTRALIFE_PENDING} from '../../actions/ui/video';
+import {UI_REVIVAL_PENDING} from '../../actions/ui/extra-life';
 
 const uiExtraLifeReducer = (state = {acceptPending: false}, action) => {
   switch (action.type) {
-    case UI_EXTRALIFE_PENDING: {
-      return set('acceptPending', true, state);
+    case UI_REVIVAL_PENDING: {
+      return set('acceptRevivalPending', true, state);
     }
     default:
       return state;
