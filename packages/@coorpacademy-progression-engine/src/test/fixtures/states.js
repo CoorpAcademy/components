@@ -16,7 +16,8 @@ export const stateForFirstSlide: State = {
   step: {
     current: 1,
     total: 4
-  }
+  },
+  remainingLifeRequests: 1
 };
 
 export const stateForSecondSlide: State = {
@@ -37,7 +38,8 @@ export const stateForSecondSlide: State = {
   step: {
     current: 2,
     total: 4
-  }
+  },
+  remainingLifeRequests: 1
 };
 
 export const failProgressionState: State = {
@@ -58,7 +60,30 @@ export const failProgressionState: State = {
   },
   requestedClues: [],
   viewedResources: [],
-  stars: 4
+  stars: 4,
+  remainingLifeRequests: 0
+};
+
+export const extraLifeProgressionState: State = {
+  content: {
+    ref: '1.A1.1',
+    type: 'slide'
+  },
+  nextContent: {
+    ref: '1.A1.2',
+    type: 'slide'
+  },
+  lives: 0,
+  isCorrect: false,
+  slides: ['1.A1.1', '1.A1.2'],
+  step: {
+    current: 3,
+    total: 4
+  },
+  requestedClues: [],
+  viewedResources: [],
+  stars: 4,
+  remainingLifeRequests: 1
 };
 
 export const successProgressionState: State = {
@@ -79,5 +104,6 @@ export const successProgressionState: State = {
   },
   requestedClues: [],
   viewedResources: [],
-  stars: 16
+  stars: 16,
+  remainingLifeRequests: 1
 };
