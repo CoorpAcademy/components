@@ -1,4 +1,4 @@
-import {requestExtralifeRefused} from '../api/progressions';
+import {refuseExtraLife} from '../api/progressions';
 import {selectProgression} from './progressions';
 
 export const UI_REVIVAL_PENDING = '@@ui/REVIVAL_PENDING';
@@ -8,6 +8,6 @@ export const pending = () => ({
 });
 
 export const refuseExtraLifeAndReset = progressionId => async dispatch => {
-  await dispatch(requestExtralifeRefused(progressionId));
+  await dispatch(refuseExtraLife(progressionId));
   return dispatch(selectProgression(progressionId));
 };

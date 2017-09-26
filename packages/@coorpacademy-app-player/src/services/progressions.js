@@ -107,12 +107,15 @@ export const refuseExtraLife = async progressionId => {
     );
   };
 
-  const action = feedNextContent({type: 'extraLifeRefused', payload: {
-    content: {
-      type: 'node',
-      ref: 'extraLife'
+  const action = feedNextContent({
+    type: 'extraLifeRefused',
+    payload: {
+      content: {
+        type: 'node',
+        ref: 'extraLife'
+      }
     }
-  }});
+  });
 
   return pipe(update('state', state => updateState(progression.engine, state, [action])), save)(
     progression
@@ -130,12 +133,15 @@ export const acceptExtraLife = async progressionId => {
     );
   };
 
-  const action = feedNextContent({type: 'extraLifeAccepted', payload: {
-    content: {
-      type: 'node',
-      ref: 'extraLife'
+  const action = feedNextContent({
+    type: 'extraLifeAccepted',
+    payload: {
+      content: {
+        type: 'node',
+        ref: 'extraLife'
+      }
     }
-  }});
+  });
 
   return pipe(update('state', state => updateState(progression.engine, state, [action])), save)(
     progression
