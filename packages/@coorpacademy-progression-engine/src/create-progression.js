@@ -26,7 +26,8 @@ export default function createProgression(
       total: config.slidesToComplete
     },
     content: undefined,
-    nextContent: initialContent
+    nextContent: initialContent,
+    remainingLifeRequests: config.remainingLifeRequests
   };
 
   return {

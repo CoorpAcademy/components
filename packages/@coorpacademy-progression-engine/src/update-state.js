@@ -20,6 +20,8 @@ import type {
   ChapterResourceViewedAction,
   Content,
   Engine,
+  ExtraLifeAcceptedAction,
+  ExtraLifeRefusedAction,
   MicroLearningConfig,
   State,
   Step,
@@ -104,12 +106,30 @@ function requestedClues(config: MicroLearningConfig): (Array<string>, Action) =>
   };
 }
 
-function lives(config: MicroLearningConfig): (number, Action) => number {
-  return (amount: number = config.lives, action: Action): number => {
+function remainingLifeRequests(config: MicroLearningConfig): (number, Action, State) => number {
+  return (count: number = config.remainingLifeRequests, action: Action, state: State): number => {
+    switch (action.type) {
+      case 'extraLifeAccepted': {
+        return count > 0 ? count - 1 : count;
+      }
+      case 'extraLifeRefused': {
+        return 0;
+      }
+      default:
+        return count;
+    }
+  };
+}
+
+function lives(config: MicroLearningConfig): (number, Action, State) => number {
+  return (amount: number = config.lives, action: Action, state: State): number => {
     switch (action.type) {
       case 'answer': {
         const answerAction = (action: AnswerAction);
         return answerAction.payload.isCorrect ? amount : amount - 1;
+      }
+      case 'extraLifeAccepted': {
+        return state.remainingLifeRequests > 0 ? amount + 1 : amount;
       }
       default:
         return amount;
@@ -136,6 +156,14 @@ function nextContent(config: MicroLearningConfig): (Content, Action) => Content 
       case 'answer': {
         const answerAction = (action: AnswerAction);
         return answerAction.payload.nextContent;
+      }
+      case 'extraLifeAccepted': {
+        const acceptAction = (action: ExtraLifeAcceptedAction);
+        return acceptAction.payload.nextContent;
+      }
+      case 'extraLifeRefused': {
+        const refuseAction = (action: ExtraLifeRefusedAction);
+        return refuseAction.payload.nextContent;
       }
       default:
         return c;
@@ -207,15 +235,16 @@ function combineReducers(
   // eslint-disable-next-line flowtype/require-return-type
   const fns = map(({fn, key}) => {
     return (config: MicroLearningConfig, action: Action) => (state: State): State => {
-      validate(config)(state, action);
       const newState = update(key, value => fn(config)(value, action, state), state);
       return (newState: State);
     };
   }, fnMap);
 
   return (config: MicroLearningConfig): ((State, Action) => State) => {
-    return (state: State, action: Action): State =>
-      pipe(...map(fn => fn(config, action), fns))(state);
+    return (state: State, action: Action): State => {
+      validate(config)(state, action);
+      return pipe(...map(fn => fn(config, action), fns))(state);
+    };
   };
 }
 
@@ -227,6 +256,7 @@ const reduceAction = combineReducers([
   {key: 'stars', fn: stars},
   {key: 'requestedClues', fn: requestedClues},
   {key: 'viewedResources', fn: viewedResources},
+  {key: 'remainingLifeRequests', fn: remainingLifeRequests},
   {key: 'content', fn: content},
   {key: 'nextContent', fn: nextContent}
 ]);

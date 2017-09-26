@@ -10,6 +10,8 @@ import zip from 'lodash/fp/zip';
 import ArrowRight from '@coorpacademy/nova-icons/composition/navigation/arrow-right';
 import ChartsIcon from '@coorpacademy/nova-icons/composition/coorpacademy/charts';
 import StarIcon from '@coorpacademy/nova-icons/composition/coorpacademy/star';
+import Heart from '@coorpacademy/nova-icons/solid/vote-and-rewards/vote-heart';
+import classnames from 'classnames';
 import Loader from '../../../../atom/loader';
 import Life from '../../../../atom/life';
 import Link from '../../../../atom/link';
@@ -107,12 +109,13 @@ const buildClass = (value, success, fail, loading) => {
 };
 
 const CorrectionPart = props => {
-  const {fail, corrections = [], title, subtitle, stars, rank} = props;
+  const {fail, corrections = [], title, subtitle, stars, rank, extraLife} = props;
+  const {active: isExtraLife} = extraLife;
   const isLoading = isNil(fail);
   const className = buildClass(
     fail,
     stars && rank ? style.correctionSectionEndSuccess : style.correctionSectionSuccess,
-    style.correctionSectionFail,
+    isExtraLife ? style.correctionSectionFailGameOver : style.correctionSectionFail,
     style.correctionSectionLoading
   );
 
@@ -129,11 +132,16 @@ const CorrectionPart = props => {
   );
 };
 
-const NextQuestionPart = props => {
-  const {title, ...linkProps} = props || {};
+const NextQuestionPart = ({cta, extraLife}, context) => {
+  const {title, ...linkProps} = cta || {};
+  const {active: isExtraLife} = extraLife;
 
   return (
-    <Link {...linkProps} className={style.nextSection} data-name="nextLink">
+    <Link
+      className={classnames(style.nextSection, isExtraLife && style.gameOver)}
+      data-name="nextLink"
+      {...linkProps}
+    >
       <div data-name="nextButton" className={style.nextButton}>
         {title}
         <ArrowRight color="inherit" className={style.nextButtonIcon} />
@@ -142,24 +150,63 @@ const NextQuestionPart = props => {
   );
 };
 
-const PopinHeader = (props, context) => {
-  const {animated, fail, title, subtitle, lives, stars, rank, corrections, cta} = props;
-
-  const state = buildClass(fail, 'success', 'fail', null);
+const RemainingLife = ({extraLife}, {skin}) => {
+  const {sentence} = extraLife;
+  const negative = get('common.negative', skin);
 
   return (
-    <div className={style.header} data-name="popinHeader" data-state={state}>
-      <CorrectionPart
-        title={title}
-        subtitle={subtitle}
-        lives={lives}
-        animated={animated}
-        stars={stars}
-        rank={rank}
-        fail={fail}
-        corrections={corrections}
-      />
-      {NextQuestionPart(cta, context)}
+    <div className={style.remainingLifeRequestsSentence}>
+      <Heart color={negative} className={style.heart} />
+      {sentence}
+    </div>
+  );
+};
+
+RemainingLife.contextTypes = {
+  skin: Provider.childContextTypes.skin
+};
+
+const PopinHeader = (props, context) => {
+  const {
+    animated,
+    fail,
+    title,
+    subtitle,
+    lives,
+    stars,
+    rank,
+    corrections,
+    cta,
+    extraLife = {}
+  } = props;
+
+  const state = buildClass(fail, 'success', 'fail', null);
+  const {active: isExtraLife} = extraLife;
+
+  const RemainingLifePart = isExtraLife ? <RemainingLife extraLife={extraLife} /> : null;
+
+  return (
+    <div
+      className={classnames(style.header, isExtraLife && style.gameOverHeader)}
+      data-name="popinHeader"
+      data-state={state}
+    >
+      <div className={style.headerTitle}>
+        <CorrectionPart
+          title={title}
+          subtitle={subtitle}
+          lives={lives}
+          animated={animated}
+          stars={stars}
+          rank={rank}
+          fail={fail}
+          extraLife={extraLife}
+          corrections={corrections}
+        />
+        <NextQuestionPart cta={cta} extraLife={extraLife} />
+
+      </div>
+      {RemainingLifePart}
     </div>
   );
 };
@@ -170,6 +217,10 @@ PopinHeader.contextTypes = {
 
 PopinHeader.propTypes = {
   fail: Life.propTypes.fail,
+  extraLife: PropTypes.shape({
+    active: PropTypes.bool,
+    sentence: PropTypes.string
+  }),
   lives: Life.propTypes.count,
   animated: Life.propTypes.animated,
   stars: PropTypes.string,

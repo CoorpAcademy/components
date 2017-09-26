@@ -3,7 +3,12 @@ import test from 'ava';
 import assign from 'lodash/fp/assign';
 import computeNextStep from '../compute-next-step';
 import slides from './fixtures/slides';
-import {stateForFirstSlide, failProgressionState, successProgressionState} from './fixtures/states';
+import {
+  stateForFirstSlide,
+  failProgressionState,
+  successProgressionState,
+  extraLifeProgressionState
+} from './fixtures/states';
 
 test('should return a new slide when user is still alive', t => {
   const engine = {
@@ -41,5 +46,19 @@ test('should return the success endpoint when progression state has answered all
   t.deepEqual(nextStep, {
     ref: 'successExitNode',
     type: 'success'
+  });
+});
+
+test('should return the extraLife endpoint when progressions has no more lives & at least one extra life', t => {
+  const engine = {
+    ref: 'microlearning',
+    version: '1'
+  };
+  const state = Object.freeze(extraLifeProgressionState);
+
+  const nextStep = computeNextStep(engine, slides, state);
+  t.deepEqual(nextStep, {
+    ref: 'extraLife',
+    type: 'node'
   });
 });

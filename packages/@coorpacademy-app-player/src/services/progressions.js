@@ -96,6 +96,42 @@ export const requestClue = async (progressionId, payload) => {
   );
 };
 
+export const requestExtralifeRefused = async progressionId => {
+  const progression = await findById(progressionId);
+  const slides = await findAllSlides();
+
+  const feedNextContent = _action => {
+    const nextState = updateState(progression.engine, progression.state, [_action]);
+    return set('payload.nextContent', computeNextStep(progression.engine, slides, nextState))(
+      _action
+    );
+  };
+
+  const action = feedNextContent({type: 'extraLifeRefused', payload: {}});
+
+  return pipe(update('state', state => updateState(progression.engine, state, [action])), save)(
+    progression
+  );
+};
+
+export const requestExtralifeAccepted = async progressionId => {
+  const progression = await findById(progressionId);
+  const slides = await findAllSlides();
+
+  const feedNextContent = _action => {
+    const nextState = updateState(progression.engine, progression.state, [_action]);
+    return set('payload.nextContent', computeNextStep(progression.engine, slides, nextState))(
+      _action
+    );
+  };
+
+  const action = feedNextContent({type: 'extraLifeAccepted', payload: {}});
+
+  return pipe(update('state', state => updateState(progression.engine, state, [action])), save)(
+    progression
+  );
+};
+
 export const create = async progression => {
   const _id = generateId();
   const slides = await findAllSlides();

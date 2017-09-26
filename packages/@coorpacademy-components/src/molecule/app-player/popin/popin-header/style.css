@@ -7,13 +7,41 @@
 @value positive from colors;
 @value medium from colors;
 @value dark from colors;
+@value black from colors;
 @value xtraLightGrey from colors;
+
+@keyframes biggerHeader {
+  0% {
+    height: 100px;
+  }
+
+  100% {
+    height: 142px;
+  }
+}
 
 .header {
   display: flex;
   height: 100px;
   width: 100%;
   font-family: 'Open Sans';
+  flex-wrap: wrap;
+}
+
+.gameOverHeader {
+  height: 142px;
+  background-color: white;
+  animation: biggerHeader 1s ease;
+}
+
+.headerTitle {
+  display: flex;
+  height: 100px;
+  width: 100%;
+  font-family: 'Open Sans';
+  position: absolute;
+  top: 0;
+  z-index: 2;
 }
 
 .section {
@@ -49,6 +77,11 @@
 
 .correctionSectionFail {
   composes: correctionSectionLoading;
+  background-color: negative;
+}
+
+.correctionSectionFailGameOver {
+  composes: correctionSectionFail;
   background-color: negative;
 }
 
@@ -159,6 +192,16 @@
   min-height: 56px;
 }
 
+.gameOver {
+  background-color: negative;
+  color: white;
+  border-left: solid 1px white;
+}
+
+.nextSection.gameOver:hover .nextButton {
+  color: black;
+}
+
 .nextButton {
   font-family: 'Open Sans';
   color: inherit;
@@ -183,6 +226,49 @@
   width: 20px;
   height: 20px;
   margin-left: 14px;
+}
+
+/*
+ * remainingLifeRequests Part
+ */
+
+@keyframes remainingLifeRequests {
+  0% {
+    top: 0;
+  }
+
+  90% {
+    top: 107px;
+  }
+
+  100% {
+    top: 100px;
+  }
+}
+
+.heart {
+  margin-right: 8px;
+  position: relative;
+  top: -1px;
+  width: 22px;
+  height: 22px;
+}
+
+.remainingLifeRequestsSentence {
+  display: block;
+  background-color: light;
+  border: solid 1px medium;
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  font-family: 'Open Sans';
+  font-size: 16px;
+  font-weight: 700;
+  color: dark;
+  position: absolute;
+  top: 100px;
+  z-index: 1;
+  animation: remainingLifeRequests 1.4s ease-out;
 }
 
 @media tablet {
