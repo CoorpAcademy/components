@@ -2,6 +2,7 @@
 import test from 'ava';
 import omit from 'lodash/fp/omit';
 import pick from 'lodash/fp/pick';
+import get from 'lodash/fp/get';
 import updateState from '../update-state';
 import createProgression from '../create-progression';
 import type {
@@ -9,9 +10,15 @@ import type {
   AskClueAction,
   Content,
   State,
-  ChapterResourceViewedAction
+  ChapterResourceViewedAction,
+  ExtraLifeAcceptedAction,
+  ExtraLifeRefusedAction
 } from '../types';
-import {stateForFirstSlide, stateForSecondSlide} from './fixtures/states';
+import {
+  stateForFirstSlide,
+  stateForSecondSlide,
+  extraLifeProgressionState
+} from './fixtures/states';
 
 const engine = {
   ref: 'microlearning',
@@ -387,4 +394,50 @@ test("should throw if the state's nextContent is not the same as the action's co
     () => updateState(engine, state, [action]),
     'The content of the progression state does not match the content of the given answer'
   );
+});
+
+test('should add one life when using extra life', t => {
+  const state: State = Object.freeze(extraLifeProgressionState);
+  const action: ExtraLifeAcceptedAction = Object.freeze({
+    type: 'extraLifeAccepted',
+    payload: {
+      content: {
+        type: 'node',
+        ref: 'extraLife'
+      },
+      nextContent: {
+        ref: '1.A1.1',
+        type: 'slide'
+      }
+    }
+  });
+  const newState = updateState(engine, state, [action]);
+
+  t.is(newState.lives, 1);
+  t.is(newState.remainingLifeRequests, 0);
+  t.is(newState.nextContent.type, 'slide');
+  t.is(get('content.ref', newState), 'extraLife');
+});
+
+test('should go to failure when refusing extra life', t => {
+  const state: State = Object.freeze(extraLifeProgressionState);
+  const action: ExtraLifeRefusedAction = Object.freeze({
+    type: 'extraLifeRefused',
+    payload: {
+      content: {
+        type: 'node',
+        ref: 'extraLife'
+      },
+      nextContent: {
+        ref: 'failExitNode',
+        type: 'failure'
+      }
+    }
+  });
+  const newState = updateState(engine, state, [action]);
+
+  t.is(newState.lives, 0);
+  t.is(newState.remainingLifeRequests, 0);
+  t.is(newState.nextContent.type, 'failure');
+  t.is(get('content.ref', newState), 'extraLife');
 });
