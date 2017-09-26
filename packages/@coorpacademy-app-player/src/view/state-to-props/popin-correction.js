@@ -8,7 +8,7 @@ import {
   getCurrentProgressionId,
   getPreviousSlide
 } from '../../utils/state-extract';
-import {refuseExtraLife} from '../../actions/ui/extra-life';
+import {refuseExtraLifeAndReset} from '../../actions/ui/extra-life';
 import {toggleAccordion} from '../../actions/ui/corrections';
 import {selectProgression} from '../../actions/ui/progressions';
 import getResourcesProps from './resources';
@@ -64,7 +64,7 @@ const popinCorrectionStateToProps = (options, store) => state => {
             title: progression.state.lives === 0 ? translate('Game over') : translate('Next'),
             onClick: progression.state.lives === 0 &&
               progression.state.nextContent.ref === 'extraLife'
-              ? () => dispatch(refuseExtraLife(progressionId))
+              ? () => dispatch(refuseExtraLifeAndReset(progressionId))
               : resetProgression
           },
           ...header

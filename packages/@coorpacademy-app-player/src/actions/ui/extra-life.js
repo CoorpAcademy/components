@@ -7,7 +7,7 @@ export const pending = () => ({
   type: UI_REVIVAL_PENDING
 });
 
-export const refuseExtraLife = progressionId => async dispatch => {
+export const refuseExtraLifeAndReset = progressionId => async dispatch => {
   await dispatch(requestExtralifeRefused(progressionId));
   return dispatch(selectProgression(progressionId));
 };

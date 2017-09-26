@@ -107,7 +107,7 @@ export const PROGRESSION_EXTRALIFEREFUSED_REQUEST = '@@progression/EXTRALIFEREFU
 export const PROGRESSION_EXTRALIFEREFUSED_SUCCESS = '@@progression/EXTRALIFEREFUSED_SUCCESS';
 export const PROGRESSION_EXTRALIFEREFUSED_FAILURE = '@@progression/EXTRALIFEREFUSED_FAILURE';
 
-export const requestExtralifeRefused = progressionId => (dispatch, getState, {services}) => {
+export const refuseExtraLife = progressionId => (dispatch, getState, {services}) => {
   const {Progressions} = services;
 
   const action = buildTask({
@@ -116,7 +116,7 @@ export const requestExtralifeRefused = progressionId => (dispatch, getState, {se
       PROGRESSION_EXTRALIFEREFUSED_SUCCESS,
       PROGRESSION_EXTRALIFEREFUSED_FAILURE
     ],
-    task: () => Progressions.requestExtralifeRefused(progressionId),
+    task: () => Progressions.refuseExtraLife(progressionId),
     meta: {progressionId}
   });
 
@@ -127,7 +127,7 @@ export const PROGRESSION_EXTRALIFEACCEPTED_REQUEST = '@@progression/EXTRALIFEACC
 export const PROGRESSION_EXTRALIFEACCEPTED_SUCCESS = '@@progression/EXTRALIFEACCEPTED_SUCCESS';
 export const PROGRESSION_EXTRALIFEACCEPTED_FAILURE = '@@progression/EXTRALIFEACCEPTED_FAILURE';
 
-export const requestExtralifeAccepted = progressionId => (dispatch, getState, {services}) => {
+export const acceptExtraLife = progressionId => (dispatch, getState, {services}) => {
   const {Progressions} = services;
 
   const action = buildTask({
@@ -136,7 +136,7 @@ export const requestExtralifeAccepted = progressionId => (dispatch, getState, {s
       PROGRESSION_EXTRALIFEACCEPTED_SUCCESS,
       PROGRESSION_EXTRALIFEACCEPTED_FAILURE
     ],
-    task: () => Progressions.requestExtralifeAccepted(progressionId),
+    task: () => Progressions.acceptExtraLife(progressionId),
     meta: {progressionId}
   });
 

@@ -15,7 +15,7 @@ test('should add one extra life if call accept', async t => {
 
   t.is(progressionWithAnswer.state.nextContent.ref, 'extraLife');
 
-  const progressionWithAcceptedExtraLife = await Progressions.requestExtralifeAccepted(
+  const progressionWithAcceptedExtraLife = await Progressions.acceptExtraLife(
     progression._id
   );
 
@@ -32,7 +32,7 @@ test('should forward to failure if call refuse', async t => {
 
   t.is(progressionWithAnswer.state.nextContent.ref, 'extraLife');
 
-  const progressionWithAcceptedExtraLife = await Progressions.requestExtralifeRefused(
+  const progressionWithAcceptedExtraLife = await Progressions.refuseExtraLife(
     progression._id
   );
 
