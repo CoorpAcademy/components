@@ -23,6 +23,9 @@
                 "src": []
               }
             },
+            "info": {
+              "nbSlides": 1
+            },
             "lessons": [
               {
                 "type": "video",
@@ -67,7 +70,7 @@
             "version": "1"
           },
           "content": {
-            "ref": "1.B2.3",
+            "ref": "1.B2.4",
             "type": "slide"
           },
           "state": {
@@ -82,8 +85,7 @@
             },
             "lives": 1,
             "step": {
-              "total": 4,
-              "current": 2
+              "current": 1
             },
             "isCorrect": false,
             "stars": 0,

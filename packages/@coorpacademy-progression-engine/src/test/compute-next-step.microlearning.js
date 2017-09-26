@@ -4,7 +4,7 @@ import type {State} from '../types';
 import computeNextStep from '../compute-next-step';
 import allSlides from './fixtures/slides';
 import {
-  stateForFirstSlide,
+  stateBeforeGettingNextContent,
   failProgressionState,
   successProgressionState,
   extraLifeProgressionState
@@ -24,7 +24,7 @@ const slides = [
 
 test('should return a new slide when user is still alive', t => {
   const state: State = Object.freeze({
-    ...stateForFirstSlide,
+    ...stateBeforeGettingNextContent,
     slides: ['1.A1.1']
   });
 

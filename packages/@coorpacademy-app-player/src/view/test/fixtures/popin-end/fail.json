@@ -48,7 +48,6 @@
             },
             "lives": 0,
             "step": {
-              "total": 4,
               "current": 2
             },
             "isCorrect": false,
@@ -175,6 +174,9 @@
           "1.B2": {
             "_id": "1.B2",
             "stars": 20,
+            "info": {
+              "nbSlides": 4
+            },
             "name": "Les réseaux sociaux au service du crowdfunding",
             "poster": {
               "subtitles": [],

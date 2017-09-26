@@ -48,7 +48,6 @@
             },
             "lives": 0,
             "step": {
-              "total": 4,
               "current": 2
             },
             "isCorrect": false,
@@ -138,7 +137,10 @@
       "chapter": {
         "entities": {
           "1.B2": {
-            "bestScore": 0
+            "bestScore": 0,
+            "info": {
+              "nbSlides": 4
+            }
           }
         }
       },

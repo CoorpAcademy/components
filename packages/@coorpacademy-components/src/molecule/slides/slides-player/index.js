@@ -202,13 +202,31 @@ const CONTENT_TYPE = {
   media: MediaContent
 };
 
-/*
- * Normal layouts
- */
+const Bar = ({current, total, color}) => {
+  if (!total) {
+    return null;
+  }
+
+  const stepWidth = current / total * 100;
+
+  return (
+    <div
+      className={style.stepBar}
+      style={{
+        backgroundColor: color,
+        width: `${stepWidth}%`
+      }}
+    />
+  );
+};
+
+Bar.propTypes = {
+  current: PropTypes.number.isRequired,
+  total: PropTypes.number,
+  color: ColorPropType
+};
 
 const Step = ({step, color}) => {
-  const stepWidth = step.current / step.total * 100;
-
   return (
     <div data-name="step">
       <div data-name="counter" className={style.stepCount}>
@@ -216,13 +234,7 @@ const Step = ({step, color}) => {
         /{step.total}
       </div>
       <div className={style.stepWrapper}>
-        <div
-          className={style.stepBar}
-          style={{
-            backgroundColor: color,
-            width: `${stepWidth}%`
-          }}
-        />
+        <Bar current={step.current} total={step.total} color={color} />
       </div>
     </div>
   );
@@ -230,8 +242,8 @@ const Step = ({step, color}) => {
 
 Step.propTypes = {
   step: PropTypes.shape({
-    current: PropTypes.number.isRequired,
-    total: PropTypes.number.isRequired
+    current: Bar.propTypes.current,
+    total: Bar.propTypes.total
   }),
   color: ColorPropType
 };

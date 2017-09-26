@@ -1,5 +1,6 @@
 // @flow
 import map from 'lodash/fp/map';
+import get from 'lodash/fp/get';
 import find from 'lodash/fp/find';
 import sample from 'lodash/fp/sample';
 import indexOf from 'lodash/fp/indexOf';
@@ -17,7 +18,7 @@ const getSlidePool = (
   state: State
 ): {chapterId: string, slides: Array<Slide>} => {
   const currentChapterPool = find(
-    ({slides}) => find({_id: state.nextContent.ref}, slides),
+    ({slides}) => find({_id: get('nextContent.ref', state)}, slides),
     slidePools
   );
 
