@@ -46,9 +46,8 @@ export const getEngineConfig = async engine => {
 };
 
 const createSlidePools = () => {
-  const allSlides = [...slideStore.values()];
   return pipe(groupBy('chapter_id'), toPairs, map(([chapterId, slides]) => ({chapterId, slides})))(
-    allSlides
+    slidesData
   );
 };
 

@@ -3,7 +3,8 @@ import reducer from '../contents';
 import {
   CONTENT_FETCH_REQUEST,
   CONTENT_FETCH_SUCCESS,
-  CONTENT_FETCH_FAILURE
+  CONTENT_FETCH_FAILURE,
+  CONTENT_INFO_FETCH_SUCCESS
 } from '../../../actions/api/contents';
 import {PROGRESSION_FETCH_BESTOF_SUCCESS} from '../../../actions/api/progressions';
 import macro from '../../test/helpers/macro';
@@ -98,4 +99,17 @@ test(
     payload: {state: {stars: 12}}
   },
   {foo: {entities: {bar: {bestScore: 12}}}}
+);
+
+test(
+  'should set content-info',
+  macro,
+  reducer,
+  {foo: {entities: {bar: {info: null}}}},
+  {
+    type: CONTENT_INFO_FETCH_SUCCESS,
+    meta: {type: 'foo', ref: 'bar'},
+    payload: {foo: 'bar'}
+  },
+  {foo: {entities: {bar: {info: {foo: 'bar'}}}}}
 );

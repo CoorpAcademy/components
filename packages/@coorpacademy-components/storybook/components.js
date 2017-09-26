@@ -437,6 +437,7 @@ import SlidesPlayerFixtureFreeText from '../src/molecule/slides/slides-player/te
 import SlidesPlayerFixtureLoading from '../src/molecule/slides/slides-player/test/fixtures/loading';
 import SlidesPlayerFixtureMedia from '../src/molecule/slides/slides-player/test/fixtures/media';
 import SlidesPlayerFixtureNoQuestion from '../src/molecule/slides/slides-player/test/fixtures/no-question';
+import SlidesPlayerFixtureNoTotal from '../src/molecule/slides/slides-player/test/fixtures/no-total';
 import SlidesPlayerFixtureOnlyClue from '../src/molecule/slides/slides-player/test/fixtures/only-clue';
 import SlidesPlayerFixtureQcmDrag from '../src/molecule/slides/slides-player/test/fixtures/qcm-drag';
 import SlidesPlayerFixtureQcmGraphic from '../src/molecule/slides/slides-player/test/fixtures/qcm-graphic';
@@ -1237,6 +1238,7 @@ export const fixtures = {
       Loading: SlidesPlayerFixtureLoading,
       Media: SlidesPlayerFixtureMedia,
       NoQuestion: SlidesPlayerFixtureNoQuestion,
+      NoTotal: SlidesPlayerFixtureNoTotal,
       OnlyClue: SlidesPlayerFixtureOnlyClue,
       QcmDrag: SlidesPlayerFixtureQcmDrag,
       QcmGraphic: SlidesPlayerFixtureQcmGraphic,

@@ -3,7 +3,7 @@ import isNil from 'lodash/fp/isNil';
 import {fetchProgression, fetchEngineConfig, fetchBestProgression} from '../api/progressions';
 import {fetchEndRank, fetchStartRank} from '../api/rank';
 import {fetchExitNode} from '../api/exit-nodes';
-import {fetchContent} from '../api/contents';
+import {fetchContent, fetchContentInfo} from '../api/contents';
 import {fetchRecommendations} from '../api/recommendations';
 import {
   getEngine,
@@ -34,6 +34,7 @@ export const selectProgression = id => async (dispatch, getState) => {
   await dispatch(fetchContent(progressionContent.type, progressionContent.ref));
   await dispatch(fetchBestProgression(progressionContent, progressionId));
   await dispatch(fetchEngineConfig(engine));
+  await dispatch(fetchContentInfo(progressionContent, engine));
 
   const {ref, type} = getStepContent(getState());
 

@@ -10,7 +10,8 @@ import {
   getAnswerValues,
   getCurrentClue,
   getRoute,
-  getQuestionMedia
+  getQuestionMedia,
+  getNbSlides
 } from '../../utils/state-extract';
 import {validateAnswer} from '../../actions/ui/answers';
 import {selectRoute} from '../../actions/ui/route';
@@ -69,7 +70,10 @@ const playerProps = (options, store) => state => {
   return {
     typeClue: isAnswer ? 'answer' : route,
     text: clue,
-    step: get('state.step')(progression),
+    step: {
+      current: get('state.step.current')(progression),
+      total: getNbSlides(state)
+    },
     question: get('question.header')(slide),
     slideContext,
     verticalMargin: 260,

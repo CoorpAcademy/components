@@ -19,7 +19,12 @@ import {
   RANK_FETCH_END_SUCCESS
 } from '../../api/rank';
 import {EXIT_NODE_FETCH_REQUEST, EXIT_NODE_FETCH_SUCCESS} from '../../api/exit-nodes';
-import {CONTENT_FETCH_REQUEST, CONTENT_FETCH_SUCCESS} from '../../api/contents';
+import {
+  CONTENT_FETCH_REQUEST,
+  CONTENT_FETCH_SUCCESS,
+  CONTENT_INFO_FETCH_REQUEST,
+  CONTENT_INFO_FETCH_SUCCESS
+} from '../../api/contents';
 import {RECO_FETCH_REQUEST, RECO_FETCH_SUCCESS} from '../../api/recommendations';
 import {UI_SELECT_ROUTE} from '../route';
 
@@ -43,6 +48,12 @@ const ContentService = (t, withContext) => ({
       default:
         throw new Error();
     }
+  },
+  getInfo: (contentRef, engineRef, version) => {
+    t.is(contentRef, 'baz');
+    t.is(engineRef, 'qux');
+    t.is(version, 'quux');
+    return 'info';
   }
 });
 
@@ -186,6 +197,18 @@ test(
     },
     [
       {
+        type: CONTENT_INFO_FETCH_REQUEST,
+        meta: {type: 'chapter', ref: 'baz'}
+      },
+      set('data.contents.chapter.entities.baz.info', null, {})
+    ],
+    {
+      type: CONTENT_INFO_FETCH_SUCCESS,
+      meta: {type: 'chapter', ref: 'baz'},
+      payload: 'info'
+    },
+    [
+      {
         type: CONTENT_FETCH_REQUEST,
         meta: {type: 'slide', ref: 'bar'}
       },
@@ -299,6 +322,18 @@ test(
       type: ENGINE_CONFIG_FETCH_SUCCESS,
       meta: {engine: {ref: 'qux', version: 'quux'}},
       payload: 42
+    },
+    [
+      {
+        type: CONTENT_INFO_FETCH_REQUEST,
+        meta: {type: 'chapter', ref: 'baz'}
+      },
+      set('data.contents.chapter.entities.baz.info', null, {})
+    ],
+    {
+      type: CONTENT_INFO_FETCH_SUCCESS,
+      meta: {type: 'chapter', ref: 'baz'},
+      payload: 'info'
     },
     [
       {
@@ -429,6 +464,18 @@ test(
       type: ENGINE_CONFIG_FETCH_SUCCESS,
       meta: {engine: {ref: 'qux', version: 'quux'}},
       payload: 42
+    },
+    [
+      {
+        type: CONTENT_INFO_FETCH_REQUEST,
+        meta: {type: 'chapter', ref: 'baz'}
+      },
+      set('data.contents.chapter.entities.baz.info', null, {})
+    ],
+    {
+      type: CONTENT_INFO_FETCH_SUCCESS,
+      meta: {type: 'chapter', ref: 'baz'},
+      payload: 'info'
     },
     [
       {

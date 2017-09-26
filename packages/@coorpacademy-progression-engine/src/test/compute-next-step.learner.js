@@ -3,7 +3,7 @@ import test from 'ava';
 import type {Slide, State} from '../types';
 import computeNextStep from '../compute-next-step';
 import allSlides from './fixtures/slides';
-import {stateForFirstSlide} from './fixtures/states';
+import {stateBeforeGettingNextContent} from './fixtures/states';
 
 const engine = {
   ref: 'learner',
@@ -23,7 +23,7 @@ const slidesByChapter: Array<{chapterId: string, slides: Array<Slide>}> = [
 
 test('should return a new slide when user is still alive', t => {
   const state: State = Object.freeze({
-    ...stateForFirstSlide,
+    ...stateBeforeGettingNextContent,
     nextContent: {
       type: 'slide',
       ref: '1.A1.1'
@@ -39,7 +39,7 @@ test('should return a new slide when user is still alive', t => {
 
 test('should return the fail endpoint, when user has no more lives', t => {
   const state: State = Object.freeze({
-    ...stateForFirstSlide,
+    ...stateBeforeGettingNextContent,
     nextContent: {
       type: 'slide',
       ref: '1.A1.1'
@@ -57,7 +57,7 @@ test('should return the fail endpoint, when user has no more lives', t => {
 
 test('should switch chapters when user has answered `config.slidesToComplete` number of slides of a chapter', t => {
   const state: State = Object.freeze({
-    ...stateForFirstSlide,
+    ...stateBeforeGettingNextContent,
     nextContent: {
       type: 'slide',
       ref: '1.A1.4'
@@ -72,7 +72,7 @@ test('should switch chapters when user has answered `config.slidesToComplete` nu
 
 test('should return the success endpoint when user has answered `config.slidesToComplete` number of slides of every chapter', t => {
   const state: State = Object.freeze({
-    ...stateForFirstSlide,
+    ...stateBeforeGettingNextContent,
     nextContent: {
       type: 'slide',
       ref: '2.A1.4'

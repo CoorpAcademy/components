@@ -16,6 +16,9 @@
                 "src": []
               }
             },
+            "info": {
+              "nbSlides": 4
+            },
             "lessons": [
               {
                 "type": "video",
@@ -93,7 +96,6 @@
             },
             "lives": 0,
             "step": {
-              "total": 4,
               "current": 2
             },
             "isCorrect": false,

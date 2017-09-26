@@ -4,7 +4,7 @@
     "klf": "Nous devons chouchouter nos clientes et les mettre à l'aise pendant leur attente.",
     "tips": "Avez-vous récemment consulté les iPads ou le magazine 31 rue Cambon ?",
     "clue": "… Century Fox.",
-    "chapter_id": "cha_Ny1BTxRp~",
+    "chapter_id": "5.C7",
     "authors": [],
     "context": {
       "media": {
@@ -115,7 +115,7 @@
     "klf": "Lire n'est pas difficile.",
     "tips": "Il y a pas mal de gens qui se trompent sans lire.",
     "clue": "… Century Fox.",
-    "chapter_id": "cha_Ny1BTxRp~",
+    "chapter_id": "5.C8",
     "authors": [],
     "context": {
       "media": {
@@ -207,7 +207,7 @@
     "klf": "Indeed, c'est Free Run",
     "tips": "Il y a aussi le mode classique qui s'appelle désormais Learner",
     "clue": "clue",
-    "chapter_id": "cha_Ny1BTxRp~",
+    "chapter_id": "5.C8",
     "authors": [],
     "context": {
       "media": {
@@ -305,7 +305,7 @@
     "klf": "Oui oui oui !",
     "tips": "Alors !",
     "clue": "clue",
-    "chapter_id": "cha_Ny1BTxRp~",
+    "chapter_id": "5.C8",
     "authors": [],
     "context": {
       "media": {
@@ -411,7 +411,7 @@
     "klf": "Difficile hein !",
     "tips": "Que 1 X 1 n'est pas 2 !",
     "clue": "clue",
-    "chapter_id": "cha_Ny1BTxRp~",
+    "chapter_id": "5.C8",
     "authors": [],
     "context": {
       "media": {
@@ -514,7 +514,7 @@
     "klf": "xxx",
     "tips": "xxx",
     "clue": "clue",
-    "chapter_id": "cha_Ny1BTxRp~",
+    "chapter_id": "5.C8",
     "__v": 0,
     "authors": [],
     "context": {
@@ -599,7 +599,7 @@
     "klf": "xxx",
     "tips": "xxx",
     "clue": "clue",
-    "chapter_id": "cha_Ny1BTxRp~",
+    "chapter_id": "5.C8",
     "__v": 0,
     "authors": [],
     "context": {
@@ -673,7 +673,7 @@
     "klf": "xxx",
     "tips": "xxx",
     "clue": "clue",
-    "chapter_id": "cha_Ny1BTxRp~",
+    "chapter_id": "5.C8",
     "__v": 0,
     "authors": [],
     "context": {
@@ -755,7 +755,7 @@
     "_id": "sli_V1zinOWt~",
     "klf": "La révolution numérique a vu naître une nouvelle génération appelée génération Y. Les individus de cette génération ont vu Internet se démocratiser. Ils sont passionés par les outils numériques et avides d'information.",
     "tips": "Certains affirment que la génération Y est appelée ainsi en référence à la forme des écouteurs portés par les jeunes Y.",
-    "chapter_id": "cha_Ny1BTxRp~",
+    "chapter_id": "5.C8",
     "clue": "clue",
     "authors": [],
     "context": {
@@ -841,7 +841,7 @@
     "klf": "You can have multiple type of fields for a template question",
     "tips": "Some tips",
     "clue": "clue",
-    "chapter_id": "cha_EJRex7KQb",
+    "chapter_id": "5.C7",
     "question": {
       "type": "template",
       "header": "Enter 'Text' and 'Select'",
@@ -891,8 +891,7 @@
     "_id": "9.C7.6",
     "klf": "Savoir cliquer sur les vrais réponses",
     "tips": "Des tips",
-    "chapter_id": "9.C7",
-    "chapter_ref": "9.C7",
+    "chapter_id": "5.C7",
     "authors": [],
     "context": {
       "media": {
@@ -965,8 +964,7 @@
     "_id": "8.B2.2",
     "klf": "Savoir cliquer sur les vrais réponses dans un ordre donné",
     "tips": "Des tips",
-    "chapter_id": "8.B2",
-    "chapter_ref": "8.B2",
+    "chapter_id": "5.C7",
     "authors": [],
     "lessons": [
       {
@@ -1098,7 +1096,7 @@
     "_id": "1.B2.9",
     "klf": "Some KLF",
     "tips": "XXX",
-    "chapter_id": "cha_Ny1BTxRp~",
+    "chapter_id": "5.C8",
     "authors": [],
     "context": {
       "title": "Some context title",
@@ -1167,7 +1165,7 @@
     "_id": "1.B2.10",
     "klf": "Some KLF",
     "tips": "XXX",
-    "chapter_id": "cha_Ny1BTxRp~",
+    "chapter_id": "5.C8",
     "authors": [],
     "context": {
       "title": "Some context title",
@@ -1241,7 +1239,7 @@
     "_id": "1.B2.11",
     "klf": "Some KLF",
     "tips": "XXX",
-    "chapter_id": "cha_Ny1BTxRp~",
+    "chapter_id": "5.C8",
     "authors": [],
     "context": {
       "title": "Some context title",
@@ -1315,7 +1313,7 @@
     "_id": "1.B2.12",
     "klf": "Some KLF",
     "tips": "XXX",
-    "chapter_id": "cha_Ny1BTxRp~",
+    "chapter_id": "5.C8",
     "authors": [],
     "context": {
       "title": "Some context title",

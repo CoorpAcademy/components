@@ -54,6 +54,9 @@
             "name": "chapter 1",
             "stars": 20,
             "freeRun": true,
+            "info": {
+              "nbSlides": 4
+            },
             "meta": {
               "updatedAt": "2017-06-29T14:39:19.495Z",
               "createdAt": "2017-06-01T10:13:25.708Z"
@@ -431,7 +434,6 @@
             "slides": ["sli_4ymMuMFb8", "sli_EyinLfF~X", "sli_4ymMuMFbB", "sli_NJ862PX7Q"],
             "lives": 0,
             "step": {
-              "total": 4,
               "current": 5
             },
             "stars": 12,
@@ -442,36 +444,6 @@
               "type": "slide"
             }
           },
-          "$promise": {
-            "$$state": {
-              "status": 1,
-              "value": {
-                "state": {
-                  "nextContent": {
-                    "ref": "failExitNode",
-                    "type": "failure"
-                  },
-                  "isCorrect": false,
-                  "slides": ["sli_4ymMuMFb8", "sli_EyinLfF~X", "sli_4ymMuMFbB", "sli_NJ862PX7Q"],
-                  "lives": 0,
-                  "step": {
-                    "total": 4,
-                    "current": 5
-                  },
-                  "stars": 12,
-                  "requestedClues": [],
-                  "viewedResources": [],
-                  "content": {
-                    "ref": "sli_NJ862PX7Q",
-                    "type": "slide"
-                  }
-                },
-                "correctAnswer": ["France", "Suisse"]
-              },
-              "processScheduled": false
-            }
-          },
-          "$resolved": true,
           "correctAnswer": ["France", "Suisse"]
         }
       }
