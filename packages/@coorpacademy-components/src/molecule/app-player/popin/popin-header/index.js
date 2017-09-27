@@ -86,17 +86,19 @@ Stars.contextTypes = {
   skin: Provider.childContextTypes.skin
 };
 
-const Lifes = ({lives, fail, animated}) => {
+const Lifes = ({lives, fail, animated, revival}) => {
   if (isNil(lives)) return null;
 
-  return <Life fail={fail} count={lives} animated={animated} className={style.life} />;
+  return (
+    <Life fail={fail} count={lives} animated={animated} revival={revival} className={style.life} />
+  );
 };
 
 const IconsPart = props => {
-  const {lives, fail, stars, rank, animated} = props;
+  const {lives, fail, stars, rank, animated, revival} = props;
   return (
     <div className={style.iconsWrapper}>
-      <Lifes lives={lives} fail={fail} animated={animated} />
+      <Lifes lives={lives} fail={fail} animated={animated} revival={revival} />
       <Stars stars={stars} />
       <Rank rank={rank} />
     </div>
@@ -223,6 +225,7 @@ const PopinHeader = (props, context) => {
           rank={rank}
           fail={fail}
           extraLife={extraLife}
+          revival={revival}
           corrections={corrections}
         />
         <NextQuestionPart cta={cta} extraLife={extraLife} revival={revival} />
