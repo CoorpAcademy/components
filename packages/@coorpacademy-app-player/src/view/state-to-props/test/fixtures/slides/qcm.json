@@ -3,7 +3,6 @@
   "question": {
     "type": "qcm",
     "header": "Quelles cases de QCM ne sont pas adjacentes ?",
-    "explanation": "(plusieurs réponses possibles)",
     "content": {
       "choices": [
         {

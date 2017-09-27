@@ -217,7 +217,7 @@ const createGetHelp = (options, store) => slide => {
       return null;
 
     default:
-      return translate('Select something below');
+      return get('question.explanation', slide) || translate('Select something below');
   }
 };
 
