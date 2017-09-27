@@ -8,16 +8,37 @@ import {
   getCurrentProgressionId,
   getPreviousSlide
 } from '../../utils/state-extract';
-import {refuseExtraLife} from '../../actions/ui/extra-life';
+import {acceptExtraLifeAndReset, refuseExtraLifeAndReset} from '../../actions/ui/extra-life';
 import {toggleAccordion} from '../../actions/ui/corrections';
 import {selectProgression} from '../../actions/ui/progressions';
 import getResourcesProps from './resources';
 
-const popinCorrectionStateToProps = (options, store) => state => {
+export const popinCorrectionCTAStateToProps = (options, store) => state => {
   const {translate} = options;
   const {dispatch} = store;
+  const progression = getCurrentProgression(state);
   const progressionId = getCurrentProgressionId(state);
-  const resetProgression = () => dispatch(selectProgression(progressionId));
+  const isExtraLifeActive = get('state.nextContent.ref', progression) === 'extraLife';
+  const isRevival = get('ui.extraLife.acceptRevivalPending', state);
+  const isDead = progression.state.lives === 0;
+  const handleRefuse = () => dispatch(refuseExtraLifeAndReset(progressionId));
+  const handleAccept = () => dispatch(acceptExtraLifeAndReset(progressionId));
+  const handleNext = () => dispatch(selectProgression(progressionId));
+
+  return isExtraLifeActive
+    ? {
+        title: isRevival ? translate('Next') : translate('Game over'),
+        onClick: isRevival ? handleAccept : handleRefuse
+      }
+    : {
+        title: isDead ? translate('Game over') : translate('Next'),
+        onClick: handleNext
+      };
+};
+
+export const popinCorrectionStateToProps = (options, store) => state => {
+  const {translate} = options;
+  const {dispatch} = store;
   const toggleAccordionSection = sectionId => dispatch(toggleAccordion(sectionId));
   const slide = getPreviousSlide(state);
   const progression = getCurrentProgression(state);
@@ -28,7 +49,7 @@ const popinCorrectionStateToProps = (options, store) => state => {
   const isCorrect = isNil(answerResult) ? null : get('state.isCorrect')(progression);
   const isLoading = isNil(isCorrect);
   const isExtraLifeActive = get('state.nextContent.ref', progression) === 'extraLife';
-  const isRevival = get('ui.extraLife.acceptPending', state);
+  const isRevival = get('ui.extraLife.acceptRevivalPending', state);
 
   const header = isNil(answerResult)
     ? {}
@@ -60,13 +81,7 @@ const popinCorrectionStateToProps = (options, store) => state => {
             active: isExtraLifeActive,
             sentence: translate('Bonus ! Get an extra life by viewing the lesson')
           },
-          cta: {
-            title: progression.state.lives === 0 ? translate('Game over') : translate('Next'),
-            onClick: progression.state.lives === 0 &&
-              progression.state.nextContent.ref === 'extraLife'
-              ? () => dispatch(refuseExtraLife(progressionId))
-              : resetProgression
-          },
+          cta: popinCorrectionCTAStateToProps(options, store)(state),
           ...header
         },
     question,
@@ -88,5 +103,3 @@ const popinCorrectionStateToProps = (options, store) => state => {
     onClick: toggleAccordionSection
   };
 };
-
-export default popinCorrectionStateToProps;
