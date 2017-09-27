@@ -1,3 +1,6 @@
+@value colors: "../../variables/colors.css";
+@value light from colors;
+
 .pdfFrame {
   display: flex;
   flex-flow: column;
@@ -20,7 +23,6 @@
 }
 
 .openPDFButton {
-  position: relative;
   border-width: 1px;
   border-style: solid;
   width: 100px;
