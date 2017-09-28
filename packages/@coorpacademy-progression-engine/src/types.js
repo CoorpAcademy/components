@@ -44,11 +44,11 @@ export type AskClueAction = {
   }
 };
 
-export type ChapterResourceViewedAction = {
+export type ContentResourceViewedAction = {
   type: 'resource',
   payload: {
     resource: ResourceContent,
-    chapter: Content
+    content: Content
   }
 };
 
@@ -87,7 +87,7 @@ export type Action =
   | AskClueAction
   | ExtraLifeAcceptedAction
   | ExtraLifeRefusedAction
-  | ChapterResourceViewedAction;
+  | ContentResourceViewedAction;
 
 export type Engine = {
   ref: string,

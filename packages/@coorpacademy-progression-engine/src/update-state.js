@@ -17,7 +17,7 @@ import type {
   Action,
   AnswerAction,
   AskClueAction,
-  ChapterResourceViewedAction,
+  ContentResourceViewedAction,
   Content,
   Engine,
   ExtraLifeAcceptedAction,
@@ -61,15 +61,16 @@ function viewedResources(config: Config): (Array<ViewedResource>, Action) => Arr
   ): Array<ViewedResource> => {
     switch (action.type) {
       case 'resource': {
-        const resourceViewAction = (action: ChapterResourceViewedAction);
-        const chapterRef = resourceViewAction.payload.chapter.ref;
+        const resourceViewAction = (action: ContentResourceViewedAction);
+        const contentRef = resourceViewAction.payload.content.ref;
+        const contentType = resourceViewAction.payload.content.type;
         const resourceRef = resourceViewAction.payload.resource.ref;
-        const chapterIndex = findIndex({ref: chapterRef}, currentViewedResources);
+        const chapterIndex = findIndex({ref: contentRef}, currentViewedResources);
 
         if (chapterIndex === -1) {
           return concat(currentViewedResources, {
-            type: 'chapter',
-            ref: chapterRef,
+            type: contentType,
+            ref: contentRef,
             resources: [resourceRef]
           });
         }
@@ -202,12 +203,13 @@ function stars(config: Config): (number, Action, State) => number {
           : currentStars + config.starsPerAskingClue;
       }
       case 'resource': {
-        const chapterResourceViewedAction = (action: ChapterResourceViewedAction);
-        const chapterRef = chapterResourceViewedAction.payload.chapter.ref;
-        const chapterResourceAlreadyViewed = Boolean(
-          find({type: 'chapter', ref: chapterRef}, state.viewedResources)
+        const contentResourceViewedAction = (action: ContentResourceViewedAction);
+        const contentRef = contentResourceViewedAction.payload.content.ref;
+        const contentType = contentResourceViewedAction.payload.content.type;
+        const contentResourceAlreadyViewed = Boolean(
+          find({type: contentType, ref: contentRef}, state.viewedResources)
         );
-        if (chapterResourceAlreadyViewed) {
+        if (contentResourceAlreadyViewed) {
           return currentStars;
         }
         return currentStars + config.starsPerResourceViewed;

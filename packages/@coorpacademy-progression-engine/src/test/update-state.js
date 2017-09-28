@@ -10,7 +10,7 @@ import type {
   AskClueAction,
   Content,
   State,
-  ChapterResourceViewedAction,
+  ContentResourceViewedAction,
   ExtraLifeAcceptedAction,
   ExtraLifeRefusedAction
 } from '../types';
@@ -25,10 +25,11 @@ const engine = {
   version: '1'
 };
 
-function chapterResourceViewedAction(
-  chapterRef: string,
+function contentResourceViewedAction(
+  contentType: string,
+  contentRef: string,
   lessonRef: string
-): ChapterResourceViewedAction {
+): ContentResourceViewedAction {
   return Object.freeze({
     type: 'resource',
     payload: {
@@ -37,9 +38,9 @@ function chapterResourceViewedAction(
         type: 'video',
         version: '1'
       },
-      chapter: {
-        ref: chapterRef,
-        type: 'chapter',
+      content: {
+        ref: contentRef,
+        type: contentType,
         version: '1'
       }
     }
@@ -296,7 +297,9 @@ test('should update stars after viewing a resource', t => {
   const state: State = Object.freeze(stateForFirstSlide);
 
   const omitChangedFields = omit(['viewedResources', 'stars']);
-  const newState = updateState(engine, state, [chapterResourceViewedAction('1.A1', 'lesson_1')]);
+  const newState = updateState(engine, state, [
+    contentResourceViewedAction('chapter', '1.A1', 'lesson_1')
+  ]);
 
   t.is(newState.stars, 4);
   t.deepEqual(newState.viewedResources, [{type: 'chapter', ref: '1.A1', resources: ['lesson_1']}]);
@@ -317,7 +320,7 @@ test('should update stars after viewing a resource (with different number of sta
 
   const omitChangedFields = omit(['viewedResources', 'stars']);
   const newState = updateState(engineWithDifferentStars, state, [
-    chapterResourceViewedAction('1.A1', 'lesson_1')
+    contentResourceViewedAction('chapter', '1.A1', 'lesson_1')
   ]);
 
   t.is(newState.stars, 5);
@@ -334,9 +337,9 @@ test('should only count stars for viewing a resource once for every chapter even
 
   const omitChangedFields = omit(['viewedResources', 'stars']);
   const newState = updateState(engine, state, [
-    chapterResourceViewedAction('1.A1', 'lesson_1'),
-    chapterResourceViewedAction('1.A1', 'lesson_2'),
-    chapterResourceViewedAction('1.A1', 'lesson_1')
+    contentResourceViewedAction('chapter', '1.A1', 'lesson_1'),
+    contentResourceViewedAction('chapter', '1.A1', 'lesson_2'),
+    contentResourceViewedAction('chapter', '1.A1', 'lesson_1')
   ]);
 
   t.is(newState.stars, 4);
@@ -355,9 +358,9 @@ test('should count stars for viewing resources multiple times as long as they ar
 
   const omitChangedFields = omit(['viewedResources', 'stars']);
   const newState = updateState(engine, state, [
-    chapterResourceViewedAction('1.A1', 'lesson_1'),
-    chapterResourceViewedAction('1.A1', 'lesson_1'),
-    chapterResourceViewedAction('1.A2', 'lesson_1')
+    contentResourceViewedAction('chapter', '1.A1', 'lesson_1'),
+    contentResourceViewedAction('chapter', '1.A1', 'lesson_1'),
+    contentResourceViewedAction('chapter', '1.A2', 'lesson_1')
   ]);
 
   t.is(newState.stars, 8);
