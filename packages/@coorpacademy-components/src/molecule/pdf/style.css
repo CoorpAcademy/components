@@ -23,6 +23,7 @@
 }
 
 .openPDFButton {
+  position: relative;
   border-width: 1px;
   border-style: solid;
   width: 100px;
