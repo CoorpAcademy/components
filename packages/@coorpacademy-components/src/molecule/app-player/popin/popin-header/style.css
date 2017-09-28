@@ -311,7 +311,7 @@
 .oneMoreLifegained {
   top: 0;
   animation: addedLife 1s ease-in;
-} 
+}
 
 @media tablet {
   .iconsWrapper {
