@@ -26,7 +26,7 @@ test(
         progressionId: null
       },
       extraLife: {
-        acceptPending: false
+        acceptRevivalPending: false
       },
       route: {}
     }
