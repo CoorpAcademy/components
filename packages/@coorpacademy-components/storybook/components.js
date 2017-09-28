@@ -194,6 +194,7 @@ import InputTextareaFixtureEmpty from '../src/atom/input-textarea/test/fixtures/
 import InputTextareaFixtureError from '../src/atom/input-textarea/test/fixtures/error';
 import LabelFixtureOneChild from '../src/atom/label/test/fixtures/one-child';
 import LabelFixtureTwoChildren from '../src/atom/label/test/fixtures/two-children';
+import LifeFixtureAnimatedExtraLife from '../src/atom/life/test/fixtures/animated-extra-life';
 import LifeFixtureAnimatedFail from '../src/atom/life/test/fixtures/animated-fail';
 import LifeFixtureDefault from '../src/atom/life/test/fixtures/default';
 import LifeFixtureFail from '../src/atom/life/test/fixtures/fail';
@@ -831,6 +832,7 @@ export const fixtures = {
       TwoChildren: LabelFixtureTwoChildren
     },
     Life: {
+      AnimatedExtraLife: LifeFixtureAnimatedExtraLife,
       AnimatedFail: LifeFixtureAnimatedFail,
       Default: LifeFixtureDefault,
       Fail: LifeFixtureFail,

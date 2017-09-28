@@ -20,15 +20,19 @@ const Life = (props, context) => {
     count = 3,
     fail = false,
     mode = 'default',
+    revival,
     className,
     style: customStyle
   } = props;
   const negativeColor = get('common.negative', skin);
   const white = get('common.white', skin);
 
-  const pickStyle = (successStyle, failStyle, animatedStyle) => {
+  const pickStyle = (successStyle, failStyle, animatedStyle, revivalStyle) => {
     if (fail) {
-      if (animated) return animatedStyle;
+      if (animated) {
+        if (revival) return revivalStyle;
+        return animatedStyle;
+      }
       return failStyle;
     }
     return successStyle;
@@ -39,7 +43,10 @@ const Life = (props, context) => {
       <div className={style.livesCounterWrapper}>
         <div
           className={
-            fail && animated ? style.previousLivesCounterFail : style.previousLivesCounterDefault
+            (
+              fail && animated ? style.previousLivesCounterFail : style.previousLivesCounterDefault,
+              revival && animated ? style.previousLivesRevival : style.previousLivesCounterFail
+            )
           }
         >
           {count + 1}
@@ -60,7 +67,8 @@ const Life = (props, context) => {
           className={pickStyle(
             style.heartNormalDefault,
             style.heartNormalFail,
-            style.heartNormalAnimatedFail
+            style.heartNormalAnimatedFail,
+            style.heartNormalRevival
           )}
           color={negativeColor}
         />
@@ -68,7 +76,8 @@ const Life = (props, context) => {
           className={pickStyle(
             style.heartBrokenDefault,
             style.heartBrokenFail,
-            style.heartBrokenAnimatedFail
+            style.heartBrokenAnimatedFail,
+            style.heartBrokenRevival
           )}
           color={negativeColor}
         />
@@ -82,6 +91,7 @@ Life.contextTypes = {
 };
 
 Life.propTypes = {
+  revival: PropTypes.bool,
   animated: PropTypes.bool,
   mode: PropTypes.oneOf(keys(MODES)),
   count: PropTypes.number,
