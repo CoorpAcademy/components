@@ -131,7 +131,7 @@
       "accordion": [true, false, false]
     },
     "extraLife": {
-      "acceptRevivalPending": "true"
+      "acceptRevivalPending": true
     }
   }
 }
