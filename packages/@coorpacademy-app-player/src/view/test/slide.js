@@ -41,7 +41,7 @@ test('should display slide', async t => {
     secondary: false
   });
   await t.notThrows(playerProps.cta.onClick);
-  t.is(playerProps.help, '__Select something below');
+  t.is(playerProps.help, 'Saisissez votre réponse.');
   t.truthy(playerProps.answerType);
 
   t.deepEqual(map(omit('onClick'), playerProps.buttons), [
@@ -83,7 +83,7 @@ test('should display loading clue', async t => {
     secondary: true
   });
   await t.notThrows(playerProps.cta.onClick);
-  t.is(playerProps.help, '__Select something below');
+  t.is(playerProps.help, 'Saisissez votre réponse.');
   t.truthy(playerProps.answerType);
 
   t.deepEqual(map(omit('onClick'), playerProps.buttons), [
@@ -125,7 +125,7 @@ test('should display clue', async t => {
     secondary: true
   });
   await t.notThrows(playerProps.cta.onClick);
-  t.is(playerProps.help, '__Select something below');
+  t.is(playerProps.help, 'Saisissez votre réponse.');
   t.truthy(playerProps.answerType);
 
   t.deepEqual(map(omit('onClick'), playerProps.buttons), [
