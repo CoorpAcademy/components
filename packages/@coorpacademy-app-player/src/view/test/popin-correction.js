@@ -12,6 +12,8 @@ import createMapStateToProps from '../popin-correction';
 import statePopinFailure from './fixtures/popin-correction/popin-failure';
 import statePopinSuccess from './fixtures/popin-correction/popin-success';
 import statePopinFailureMultipleAnswers from './fixtures/popin-correction/state-fail-multiple-answers';
+import statePopinExtraLife from './fixtures/popin-correction/popin-extra-life';
+import statePopinRevival from './fixtures/popin-correction/popin-revival';
 import testRendering from './helpers/render';
 
 const Vimeo = {Player: () => true};
@@ -198,4 +200,24 @@ test('should show correction on multiple answers for a slide', t => {
   t.true(props.resources.open);
   t.false(props.klf.open);
   t.false(props.tips.open);
+});
+
+test('should show correction for extra life state', t => {
+  const vNode = mapStateToProps(statePopinExtraLife);
+  testRendering(vNode);
+  const {props} = vNode;
+
+  t.is(props.header.lives, 0);
+  t.true(props.header.fail);
+  t.is(props.header.cta.title, '__Game over');
+});
+
+test('should show correction for revival state', t => {
+  const vNode = mapStateToProps(statePopinRevival);
+  testRendering(vNode);
+  const {props} = vNode;
+
+  t.is(props.header.lives, 0);
+  t.true(props.header.fail);
+  t.is(props.header.cta.title, '__Next');
 });
