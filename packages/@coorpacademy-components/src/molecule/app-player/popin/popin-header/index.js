@@ -10,6 +10,8 @@ import zip from 'lodash/fp/zip';
 import ArrowRight from '@coorpacademy/nova-icons/composition/navigation/arrow-right';
 import ChartsIcon from '@coorpacademy/nova-icons/composition/coorpacademy/charts';
 import StarIcon from '@coorpacademy/nova-icons/composition/coorpacademy/star';
+import Heart from '@coorpacademy/nova-icons/solid/vote-and-rewards/vote-heart';
+import classnames from 'classnames';
 import Loader from '../../../../atom/loader';
 import Life from '../../../../atom/life';
 import Link from '../../../../atom/link';
@@ -84,17 +86,19 @@ Stars.contextTypes = {
   skin: Provider.childContextTypes.skin
 };
 
-const Lifes = ({lives, fail, animated}) => {
+const Lifes = ({lives, fail, animated, revival}) => {
   if (isNil(lives)) return null;
 
-  return <Life fail={fail} count={lives} animated={animated} className={style.life} />;
+  return (
+    <Life fail={fail} count={lives} animated={animated} revival={revival} className={style.life} />
+  );
 };
 
 const IconsPart = props => {
-  const {lives, fail, stars, rank, animated} = props;
+  const {lives, fail, stars, rank, animated, revival} = props;
   return (
     <div className={style.iconsWrapper}>
-      <Lifes lives={lives} fail={fail} animated={animated} />
+      <Lifes lives={lives} fail={fail} animated={animated} revival={revival} />
       <Stars stars={stars} />
       <Rank rank={rank} />
     </div>
@@ -107,12 +111,13 @@ const buildClass = (value, success, fail, loading) => {
 };
 
 const CorrectionPart = props => {
-  const {fail, corrections = [], title, subtitle, stars, rank} = props;
+  const {fail, corrections = [], title, subtitle, stars, rank, extraLife} = props;
+  const {active: isExtraLife} = extraLife;
   const isLoading = isNil(fail);
   const className = buildClass(
     fail,
     stars && rank ? style.correctionSectionEndSuccess : style.correctionSectionSuccess,
-    style.correctionSectionFail,
+    isExtraLife ? style.correctionSectionFailGameOver : style.correctionSectionFail,
     style.correctionSectionLoading
   );
 
@@ -129,11 +134,22 @@ const CorrectionPart = props => {
   );
 };
 
-const NextQuestionPart = props => {
-  const {title, ...linkProps} = props || {};
+const NextQuestionPart = (props, context) => {
+  const {cta, extraLife, revival} = props;
+  const {title, ...linkProps} = cta || {};
+  const {active: isExtraLife} = extraLife;
+  const isRevival = revival;
 
   return (
-    <Link {...linkProps} className={style.nextSection} data-name="nextLink">
+    <Link
+      className={classnames(
+        style.nextSection,
+        isExtraLife && style.gameOver,
+        isRevival && style.oneMoreLife
+      )}
+      data-name="nextLink"
+      {...linkProps}
+    >
       <div data-name="nextButton" className={style.nextButton}>
         {title}
         <ArrowRight color="inherit" className={style.nextButtonIcon} />
@@ -142,24 +158,80 @@ const NextQuestionPart = props => {
   );
 };
 
-const PopinHeader = (props, context) => {
-  const {animated, fail, title, subtitle, lives, stars, rank, corrections, cta} = props;
-
-  const state = buildClass(fail, 'success', 'fail', null);
+const RemainingLife = (props, {skin}) => {
+  const {extraLife, revival} = props;
+  const {sentence} = extraLife;
+  const {active: isExtraLife} = extraLife;
+  const isRevival = revival;
+  const negative = get('common.negative', skin);
 
   return (
-    <div className={style.header} data-name="popinHeader" data-state={state}>
-      <CorrectionPart
-        title={title}
-        subtitle={subtitle}
-        lives={lives}
-        animated={animated}
-        stars={stars}
-        rank={rank}
-        fail={fail}
-        corrections={corrections}
-      />
-      {NextQuestionPart(cta, context)}
+    <div
+      className={classnames(
+        style.remainingLifeRequestsSentence,
+        isExtraLife && style.askLife,
+        isRevival && style.oneMoreLifegained
+      )}
+    >
+      <Heart color={negative} className={style.heart} />
+      {sentence}
+    </div>
+  );
+};
+
+RemainingLife.contextTypes = {
+  skin: Provider.childContextTypes.skin
+};
+
+const PopinHeader = (props, context) => {
+  const {
+    animated,
+    fail,
+    title,
+    subtitle,
+    lives,
+    stars,
+    rank,
+    corrections,
+    cta,
+    revival,
+    extraLife = {}
+  } = props;
+
+  const state = buildClass(fail, 'success', 'fail', null);
+  const {active: isExtraLife} = extraLife;
+  const isRevival = revival;
+  const RemainingLifePart = isExtraLife
+    ? <RemainingLife extraLife={extraLife} revival={revival} />
+    : null;
+
+  return (
+    <div
+      className={classnames(
+        style.header,
+        isExtraLife && style.gameOverHeader,
+        isRevival && style.revivalHeader
+      )}
+      data-name="popinHeader"
+      data-state={state}
+    >
+      <div className={style.headerTitle}>
+        <CorrectionPart
+          title={title}
+          subtitle={subtitle}
+          lives={lives}
+          animated={animated}
+          stars={stars}
+          rank={rank}
+          fail={fail}
+          extraLife={extraLife}
+          revival={revival}
+          corrections={corrections}
+        />
+        <NextQuestionPart cta={cta} extraLife={extraLife} revival={revival} />
+
+      </div>
+      {RemainingLifePart}
     </div>
   );
 };
@@ -170,7 +242,12 @@ PopinHeader.contextTypes = {
 
 PopinHeader.propTypes = {
   fail: Life.propTypes.fail,
+  extraLife: PropTypes.shape({
+    active: PropTypes.bool,
+    sentence: PropTypes.string
+  }),
   lives: Life.propTypes.count,
+  revival: PropTypes.bool,
   animated: Life.propTypes.animated,
   stars: PropTypes.string,
   rank: PropTypes.string,
