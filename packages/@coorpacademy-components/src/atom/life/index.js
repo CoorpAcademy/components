@@ -42,8 +42,9 @@ const Life = (props, context) => {
             style.previousLivesCounterDefault,
             style.previousLivesCounterDefault,
             style.previousLivesCounterFail,
-            style.previousLivesRevival
-          )}
+            style.previousLivesRevival  
+            )
+          }
         >
           {count + 1}
         </div>
