@@ -68,7 +68,7 @@ test(
             type: resource.type,
             version: '1'
           },
-          content,
+          chapter: content,
           slide: 'slide'
         });
 

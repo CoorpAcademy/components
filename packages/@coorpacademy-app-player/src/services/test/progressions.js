@@ -61,7 +61,7 @@ test("should throw error if progression doesn't exist", t => {
 test('should mark a resource as viewed', async t => {
   const progression = await create({engine});
   const result = await markResourceAsViewed(progression._id, {
-    content: {type: 'chapter', ref: progression.content.ref},
+    chapter: {type: 'chapter', ref: progression.content.ref},
     resource: {ref: 'foo'}
   });
 
