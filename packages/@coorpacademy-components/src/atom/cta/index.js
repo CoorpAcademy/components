@@ -87,6 +87,7 @@ class CTA extends React.Component {
           this.props.className
         )}
         data-name={ctaName || 'cta'}
+        data-type={target}
         style={this.getStyle()}
       >
         {submitValue}
