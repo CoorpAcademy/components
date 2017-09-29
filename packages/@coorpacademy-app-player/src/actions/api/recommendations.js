@@ -7,11 +7,11 @@ export const RECO_FETCH_FAILURE = '@@recommendation/FETCH_FAILURE';
 
 export const fetchRecommendations = progressionId => (dispatch, getState, {services}) => {
   const {Recommendations} = services;
-  const {ref: currentRef} = getProgressionContent(getState());
+  const {type, ref} = getProgressionContent(getState());
 
   const action = buildTask({
     types: [RECO_FETCH_REQUEST, RECO_FETCH_SUCCESS, RECO_FETCH_FAILURE],
-    task: () => Recommendations.find(currentRef),
+    task: () => Recommendations.find(type, ref),
     meta: {id: progressionId},
     bailout: getRecommendations
   });
