@@ -27,14 +27,10 @@ const Life = (props, context) => {
   const negativeColor = get('common.negative', skin);
   const white = get('common.white', skin);
 
-  const pickStyle = (successStyle, failStyle, animatedStyle, revivalStyle) => {
-    if (fail) {
-      if (animated) {
-        if (revival) return revivalStyle;
-        return animatedStyle;
-      }
-      return failStyle;
-    }
+  const pickStyle = (successStyle, failStyle, animatedFailStyle, revivalStyle) => {
+    if (revival) return revivalStyle;
+    if (fail && animated) return animatedFailStyle;
+    if (fail) return failStyle;
     return successStyle;
   };
 
@@ -42,12 +38,12 @@ const Life = (props, context) => {
     <div data-name="life" className={classnames(MODES[mode], className)} style={customStyle}>
       <div className={style.livesCounterWrapper}>
         <div
-          className={
-            (
-              fail && animated ? style.previousLivesCounterFail : style.previousLivesCounterDefault,
-              revival && animated ? style.previousLivesRevival : style.previousLivesCounterFail
-            )
-          }
+          className={pickStyle(
+            style.previousLivesCounterDefault,
+            style.previousLivesCounterDefault,
+            style.previousLivesCounterFail,
+            style.previousLivesRevival
+          )}
         >
           {count + 1}
         </div>

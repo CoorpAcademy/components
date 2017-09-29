@@ -145,7 +145,8 @@ const NextQuestionPart = (props, context) => {
       className={classnames(
         style.nextSection,
         isExtraLife && style.gameOver,
-        isRevival && style.oneMoreLife
+        isRevival && style.oneMoreLife,
+        !isExtraLife && !isRevival && style.gameOver
       )}
       data-name="nextLink"
       {...linkProps}

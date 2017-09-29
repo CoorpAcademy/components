@@ -4,6 +4,7 @@
 @value colors: "../../../../variables/colors.css";
 @value negative from colors;
 @value light from colors;
+@value xtraLightGrey from colors;
 @value positive from colors;
 @value medium from colors;
 @value dark from colors;
@@ -42,11 +43,13 @@
   height: 142px;
   background-color: white;
   animation: biggerHeader 1s ease;
+  animation-fill-mode: forwards;
 }
 
 .revivalHeader {
   height: 100px;
-  animation: smallerHeader 4s;
+  animation: smallerHeader 1s;
+  animation-fill-mode: forwards;
 }
 
 .headerTitle {
@@ -290,13 +293,13 @@
 
 .remainingLifeRequestsSentence {
   display: block;
-  background-color: light;
-  border: solid 1px medium;
+  background-color: xtraLightGrey;
+  border: solid 1px light;
   width: 100%;
   padding: 8px;
   box-sizing: border-box;
   font-family: 'Open Sans';
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 700;
   color: dark;
   position: absolute;
@@ -305,12 +308,16 @@
 }
 
 .askLife {
-  animation: remainingLifeRequests 1.4s ease-out;
+  top: 0;
+  animation: remainingLifeRequests 0.5s ease-out;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
 }
 
 .oneMoreLifegained {
   top: 0;
-  animation: addedLife 1s ease-in;
+  animation: addedLife 0.5s ease-in;
+  animation-fill-mode: forwards;
 }
 
 @media tablet {
@@ -352,6 +359,7 @@
 @media mobile {
   .header {
     flex-flow: column;
+    flex-wrap: nowrap;
     height: 150px;
   }
 
@@ -361,5 +369,10 @@
     overflow-x: hidden;
     padding-right: 90px;
     margin-left: 16px;
+  }
+
+  .remainingLifeRequestsSentence {
+    font-size: 12px;
+    top: 300px;
   }
 }
