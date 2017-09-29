@@ -13,27 +13,36 @@ import {toggleAccordion} from '../../actions/ui/corrections';
 import {selectProgression} from '../../actions/ui/progressions';
 import getResourcesProps from './resources';
 
-export const popinCorrectionCTAStateToProps = (options, store) => state => {
+const createExtraLifeCTA = (options, store) => state => {
+  const {translate} = options;
+  const {dispatch} = store;
+  const progressionId = getCurrentProgressionId(state);
+  const isRevival = get('ui.extraLife.acceptRevivalPending', state);
+  const updateProgression = isRevival ? acceptExtraLifeAndReset : refuseExtraLifeAndReset;
+  const title = translate(isRevival ? 'Next' : 'Game over');
+  const onClick = () => dispatch(updateProgression(progressionId));
+
+  return {title, onClick};
+};
+
+const createNoExtraLifeCTA = (options, store) => state => {
   const {translate} = options;
   const {dispatch} = store;
   const progression = getCurrentProgression(state);
   const progressionId = getCurrentProgressionId(state);
-  const isExtraLifeActive = get('state.nextContent.ref', progression) === 'extraLife';
-  const isRevival = get('ui.extraLife.acceptRevivalPending', state);
   const isDead = progression.state.lives === 0;
-  const handleRefuse = () => dispatch(refuseExtraLifeAndReset(progressionId));
-  const handleAccept = () => dispatch(acceptExtraLifeAndReset(progressionId));
-  const handleNext = () => dispatch(selectProgression(progressionId));
+  const title = translate(isDead ? 'Game over' : 'Next');
+  const onClick = () => dispatch(selectProgression(progressionId));
 
-  return isExtraLifeActive
-    ? {
-        title: isRevival ? translate('Next') : translate('Game over'),
-        onClick: isRevival ? handleAccept : handleRefuse
-      }
-    : {
-        title: isDead ? translate('Game over') : translate('Next'),
-        onClick: handleNext
-      };
+  return {title, onClick};
+};
+
+export const createHeaderCTA = (options, store) => state => {
+  const progression = getCurrentProgression(state);
+  const isExtraLifeActive = get('state.nextContent.ref', progression) === 'extraLife';
+  const createCTA = isExtraLifeActive ? createExtraLifeCTA : createNoExtraLifeCTA;
+
+  return createCTA(options, store)(state);
 };
 
 export const popinCorrectionStateToProps = (options, store) => state => {
@@ -79,9 +88,9 @@ export const popinCorrectionStateToProps = (options, store) => state => {
           corrections,
           extraLife: {
             active: isExtraLifeActive,
-            sentence: translate('Bonus ! Get an extra life by viewing the lesson')
+            sentence: translate('extra_life_suggestion')
           },
-          cta: popinCorrectionCTAStateToProps(options, store)(state),
+          cta: createHeaderCTA(options, store)(state),
           ...header
         },
     question,

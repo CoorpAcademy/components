@@ -5,7 +5,7 @@ import {UI_REVIVAL_PENDING} from '../../../actions/ui/extra-life';
 import macro from '../../test/helpers/macro';
 
 test(
-  'should initialized acceptRevivalPending to false',
+  'should initialize acceptRevivalPending to false',
   macro,
   reducer,
   undefined,
@@ -14,10 +14,12 @@ test(
 );
 
 test(
-  'should set current progression',
+  'should set acceptRevivalPending to true when revival action is sent',
   macro,
   reducer,
-  undefined,
+  {
+    acceptRevivalPending: false
+  },
   {
     type: UI_REVIVAL_PENDING
   },
@@ -27,7 +29,7 @@ test(
 );
 
 test(
-  'should set current progression',
+  'should reset acceptRevivalPending to false after each answer',
   macro,
   reducer,
   {
