@@ -356,11 +356,79 @@
   }
 }
 
+@keyframes mobileRemainingLifeRequests {
+  0% {
+    top: -100px;
+  }
+
+  90% {
+    top: 7px;
+  }
+
+  100% {
+    top: 0;
+  }
+}
+
+@keyframes mobileAddedLife {
+  0% {
+    top: 0;
+  }
+
+  90% {
+    top: 7px;
+  }
+
+  100% {
+    top: -100px;
+  }
+}
+
+@keyframes mobilepushcontent {
+  0% {
+    margin-bottom: 0;
+  }
+
+  100% {
+    margin-bottom: 50px;
+  }
+}
+
 @media mobile {
   .header {
     flex-flow: column;
     flex-wrap: nowrap;
+    height: 153px;
+    margin-bottom: 0;
+  }
+
+  .headerTitle {
+    display: block;
+    height: auto;
+    width: 100%;
+  }
+
+  .gameOverHeader {
     height: 150px;
+    animation: mobilepushcontent 0.5s ease-out;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+  }
+
+  .revivalHeader {
+    animation: mobilepushcontent 0.5s ease-out;
+    animation-delay: 1s;
+    animation-fill-mode: backwards;
+  }
+
+  .correctionSectionFailGameOver,
+  .correctionSectionFail {
+    height: 99px;
+  }
+
+  .gameOver {
+    border-left: 0;
+    border-top: solid 1px white;
   }
 
   .titleElement {
@@ -373,6 +441,20 @@
 
   .remainingLifeRequestsSentence {
     font-size: 12px;
-    top: 300px;
+    top: 0;
+    position: relative;
+  }
+
+  .askLife {
+    top: -100px;
+    animation: mobileRemainingLifeRequests 0.5s ease-out;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+  }
+
+  .oneMoreLifegained {
+    top: 0;
+    animation: mobileAddedLife 0.5s ease-in;
+    animation-fill-mode: forwards;
   }
 }
