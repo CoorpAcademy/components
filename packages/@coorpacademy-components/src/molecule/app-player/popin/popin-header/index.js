@@ -135,7 +135,7 @@ const CorrectionPart = props => {
 };
 
 const NextQuestionPart = (props, context) => {
-  const {cta, extraLife, revival} = props;
+  const {cta, extraLife, revival, fail} = props;
   const {title, ...linkProps} = cta || {};
   const {active: isExtraLife} = extraLife;
   const isRevival = revival;
@@ -146,7 +146,7 @@ const NextQuestionPart = (props, context) => {
         style.nextSection,
         isExtraLife && style.gameOver,
         isRevival && style.oneMoreLife,
-        !isExtraLife && !isRevival && style.gameOver
+        fail && !isExtraLife && !isRevival && style.gameOver
       )}
       data-name="nextLink"
       {...linkProps}

@@ -422,7 +422,8 @@
   }
 
   .correctionSectionFailGameOver,
-  .correctionSectionFail {
+  .correctionSectionFail,
+  .correctionSectionSuccess {
     height: 99px;
   }
 
