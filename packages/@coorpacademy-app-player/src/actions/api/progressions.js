@@ -207,7 +207,7 @@ export const markResourceAsViewed = (progressionId, resource) => (
       version: '1'
     },
     slide,
-    content: progressionContent
+    chapter: progressionContent
   };
 
   const action = buildTask({

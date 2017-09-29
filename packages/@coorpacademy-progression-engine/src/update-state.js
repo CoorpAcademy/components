@@ -62,8 +62,8 @@ function viewedResources(config: Config): (Array<ViewedResource>, Action) => Arr
     switch (action.type) {
       case 'resource': {
         const resourceViewAction = (action: ContentResourceViewedAction);
-        const contentRef = resourceViewAction.payload.content.ref;
-        const contentType = resourceViewAction.payload.content.type;
+        const contentRef = resourceViewAction.payload.chapter.ref;
+        const contentType = resourceViewAction.payload.chapter.type;
         const resourceRef = resourceViewAction.payload.resource.ref;
         const chapterIndex = findIndex({ref: contentRef}, currentViewedResources);
 
@@ -204,8 +204,8 @@ function stars(config: Config): (number, Action, State) => number {
       }
       case 'resource': {
         const contentResourceViewedAction = (action: ContentResourceViewedAction);
-        const contentRef = contentResourceViewedAction.payload.content.ref;
-        const contentType = contentResourceViewedAction.payload.content.type;
+        const contentRef = contentResourceViewedAction.payload.chapter.ref;
+        const contentType = contentResourceViewedAction.payload.chapter.type;
         const contentResourceAlreadyViewed = Boolean(
           find({type: contentType, ref: contentRef}, state.viewedResources)
         );
