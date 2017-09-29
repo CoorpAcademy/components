@@ -11,7 +11,8 @@ import {
 
 const initState = pipe(
   set('ui.current.progressionId', 'foo'),
-  set('data.progressions.entities.foo.content.ref', 'chapterRef')
+  set('data.progressions.entities.foo.content.ref', 'chapterRef'),
+  set('data.progressions.entities.foo.content.type', 'chapter')
 );
 
 test(
@@ -20,7 +21,8 @@ test(
   initState({}),
   t => ({
     Recommendations: {
-      find: ref => {
+      find: (type, ref) => {
+        t.is(type, 'chapter');
         t.is(ref, 'chapterRef');
         return 'bar';
       }
@@ -46,7 +48,7 @@ test(
   pipe(initState, set('data.recommendations.entities.foo', 'bar'))({}),
   t => ({
     Recommendations: {
-      find: ref => {
+      find: (type, ref) => {
         t.fail();
       }
     }
@@ -66,8 +68,9 @@ test(
   initState({}),
   t => ({
     Recommendations: {
-      find: ref => {
+      find: (type, ref) => {
         t.is(ref, 'chapterRef');
+        t.is(type, 'chapter');
         throw new Error();
       }
     }

@@ -18,7 +18,8 @@ export const stateBeforeGettingNextContent: State = {
   isCorrect: true,
   step: {
     current: 1
-  }
+  },
+  remainingLifeRequests: 1
 };
 
 export const stateForFirstSlide: State = {
