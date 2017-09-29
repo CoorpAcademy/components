@@ -87,6 +87,10 @@ export const getCurrentCorrection = state => {
   return getCorrection(getId(progression), getId(slide))(state);
 };
 
+export const getXtralife = (progressionId, slideId) => state => {
+  return get(['data', 'xtralife', 'entities', progressionId], state);
+};
+
 export const getClue = (progressionId, slideId) => state => {
   return get(['data', 'clues', 'entities', progressionId, slideId], state);
 };
