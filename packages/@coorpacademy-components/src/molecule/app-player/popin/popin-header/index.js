@@ -138,15 +138,14 @@ const NextQuestionPart = (props, context) => {
   const {cta, extraLife, revival, fail} = props;
   const {title, ...linkProps} = cta || {};
   const {active: isExtraLife} = extraLife;
-  const isRevival = revival;
 
   return (
     <Link
       className={classnames(
         style.nextSection,
         isExtraLife && style.gameOver,
-        isRevival && style.oneMoreLife,
-        fail && !isExtraLife && !isRevival && style.gameOver
+        revival && style.oneMoreLife,
+        fail && !isExtraLife && !revival && style.gameOver
       )}
       data-name="nextLink"
       {...linkProps}
@@ -162,7 +161,6 @@ const NextQuestionPart = (props, context) => {
 const RemainingLife = (props, {skin}) => {
   const {extraLife, revival} = props;
   const {sentence, active: isExtraLife} = extraLife;
-  const isRevival = revival;
   const negative = get('common.negative', skin);
 
   return (
@@ -170,7 +168,7 @@ const RemainingLife = (props, {skin}) => {
       className={classnames(
         style.remainingLifeRequestsSentence,
         isExtraLife && style.askLife,
-        isRevival && style.oneMoreLifegained
+        revival && style.oneMoreLifegained
       )}
     >
       <Heart color={negative} className={style.heart} />
@@ -200,7 +198,6 @@ const PopinHeader = (props, context) => {
 
   const state = buildClass(fail, 'success', 'fail', null);
   const {active: isExtraLife} = extraLife;
-  const isRevival = revival;
   const RemainingLifePart = isExtraLife
     ? <RemainingLife extraLife={extraLife} revival={revival} />
     : null;
@@ -210,7 +207,7 @@ const PopinHeader = (props, context) => {
       className={classnames(
         style.header,
         isExtraLife && style.gameOverHeader,
-        isRevival && style.revivalHeader
+        revival && style.revivalHeader
       )}
       data-name="popinHeader"
       data-state={state}
