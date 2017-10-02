@@ -26,5 +26,7 @@
   "Wrong answer": "Špatná odpověď",
   "You are out of lives!": "Jste mimo život!",
   "Back to question": "Zpět na otázku",
-  "Go to question": "Přejděte na otázku"
+  "Go to question": "Přejděte na otázku",
+  "extra_life_suggestion": "Bonus, získat extra život zobrazením ponaučení",
+  "Game over": "Konec hry"
 }
