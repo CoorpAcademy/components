@@ -1,7 +1,6 @@
 {
   "Access the lesson": "Hozzáférés a lecke",
   "Back to home": "Vissza a home",
-  "Back": "Vissza",
   "Check out the next chapter in this course!": "Nézze meg a következő fejezet a tanfolyam!",
   "Clue": "Nyom",
   "Coach": "Edző",
@@ -27,5 +26,7 @@
   "Wrong answer": "Rossz válasz",
   "You are out of lives!": "Az életét!",
   "Back to question": "Vissza, hogy a szóban forgó",
-  "Go to question": "Kérdés megy"
+  "Go to question": "Kérdés megy",
+  "extra_life_suggestion": "Bónusz, kap egy extra életet, megtekinti a leckét",
+  "Game over": "vége a játéknak"
 }
