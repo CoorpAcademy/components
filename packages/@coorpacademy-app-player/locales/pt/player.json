@@ -26,5 +26,7 @@
   "Wrong answer": "Resposta errada",
   "You are out of lives!": "Você está fora das vidas!",
   "Back to question": "Voltar à pergunta",
-  "Go to question": "Vá para pergunta"
+  "Go to question": "Vá para pergunta",
+  "extra_life_suggestion": "Bônus, obter uma vida extra, exibindo a lição",
+  "Game over": "Fim de jogo"
 }
