@@ -1,7 +1,6 @@
 {
   "Access the lesson": "Отримати урок",
   "Back to home": "Повернутися на головну",
-  "Back": "Назад",
   "Check out the next chapter in this course!": "Ознайомтеся з главою в цей курс!",
   "Clue": "Підказка",
   "Coach": "Тренер",
@@ -27,5 +26,7 @@
   "Wrong answer": "Невірну відповідь",
   "You are out of lives!": "У вас більше немає спроб!",
   "Back to question": "Назад до питання",
-  "Go to question": "Перейти до питання"
+  "Go to question": "Перейти до питання",
+  "extra_life_suggestion": "Бонус, отримаєте додаткове життя, переглядаючи урок",
+  "Game over": "Гра скінчилась"
 }
