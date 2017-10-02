@@ -26,5 +26,7 @@
   "Wrong answer": "錯誤的答案",
   "You are out of lives!": "你是生命中的一生！",
   "Back to question": "回到問題",
-  "Go to question": "去問題"
+  "Go to question": "去問題",
+  "extra_life_suggestion": "獎金，通過觀看課程獲得額外的生活",
+  "Game over": "遊戲結束"
 }
