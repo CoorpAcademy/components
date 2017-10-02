@@ -25,6 +25,9 @@ test(
       current: {
         progressionId: null
       },
+      extraLife: {
+        acceptRevivalPending: false
+      },
       route: {}
     }
   }

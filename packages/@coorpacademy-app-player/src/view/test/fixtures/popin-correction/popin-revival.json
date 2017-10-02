@@ -1,0 +1,137 @@
+{
+  "data": {
+    "slides": {
+      "entities": {
+        "1.B2.4": {
+          "_id": "1.B2.4",
+          "klf": "Some KFL",
+          "tips": "XXX",
+          "chapter_id": "cha_Ny1BTxRp~",
+          "authors": [],
+          "context": {
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            }
+          },
+          "lessons": [
+            {
+              "type": "video",
+              "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B2.png",
+              "description": "Anatomie d'une page de résultats",
+              "mimeType": "application/vimeo",
+              "videoId": "88393119\n",
+              "_id": "590b862e2e967f64333ad456",
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            },
+            {
+              "description": "Historique des moteurs de recherche",
+              "mimeType": "application/vimeo",
+              "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B1.png",
+              "posters": [],
+              "src": [],
+              "subtitles": [],
+              "type": "video",
+              "videoId": "88546728\n",
+              "_id": "590b862e2e967f64333ad4fc"
+            }
+          ],
+          "question": {
+            "type": "basic",
+            "header": "Écrivez le mot Text dans l'input.\n",
+            "explanation": "Saisissez votre réponse.",
+            "content": {
+              "label": "Saisissez votre réponse.",
+              "placeholder": " ",
+              "maxTypos":null,
+              "choices": [],
+              "answers": [
+                ["Text"]
+              ],
+              "media": {
+                "subtitles": [],
+                "posters": [],
+                "src": []
+              }
+            },
+            "medias": []
+          }
+        }
+      }
+    },
+    "answers": {
+      "entities": {
+        "0": {
+          "1.B2.4": {
+            "correctAnswer": [
+              "Text"
+            ],
+            "corrections": [
+              {
+                "answer": "Toto",
+                "isCorrect": false
+              }
+            ]
+          }
+        }
+      }
+    },
+    "progressions": {
+      "entities": {
+        "0": {
+          "_id": "0",
+          "engine": {
+            "ref": "microlearning",
+            "version": "1"
+          },
+          "state": {
+            "slides": [
+              "1.B2.4"
+            ],
+            "nextContent": {
+              "ref": "extraLife",
+              "type": "node"
+            },
+            "lives":0,
+            "step": {
+              "total":4,
+              "current":2
+            },
+            "isCorrect":false,
+            "stars":0,
+            "requestedClues": [],
+            "viewedResources": [],
+            "content": {
+              "ref": "1.B2.4",
+              "type": "slide"
+            }
+          }
+        }
+      }
+    },
+    "exitNodes": {
+      "entities": {}
+    }
+  },
+  "ui": {
+    "answers": {
+      "0": {
+        "value": [
+          "Toto"
+        ]
+      }
+    },
+    "current": {
+      "progressionId": "0"
+    },
+    "corrections": {
+      "accordion": [true, false, false]
+    },
+    "extraLife": {
+      "acceptRevivalPending": true
+    }
+  }
+}

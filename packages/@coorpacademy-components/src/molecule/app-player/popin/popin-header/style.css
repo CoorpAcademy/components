@@ -4,16 +4,61 @@
 @value colors: "../../../../variables/colors.css";
 @value negative from colors;
 @value light from colors;
+@value xtraLightGrey from colors;
 @value positive from colors;
 @value medium from colors;
 @value dark from colors;
+@value black from colors;
 @value xtraLightGrey from colors;
+
+@keyframes biggerHeader {
+  0% {
+    height: 100px;
+  }
+
+  100% {
+    height: 142px;
+  }
+}
+
+@keyframes smallerHeader {
+  0% {
+    height: 142px;
+  }
+
+  100% {
+    height: 100px;
+  }
+}
 
 .header {
   display: flex;
   height: 100px;
   width: 100%;
   font-family: 'Open Sans';
+  flex-wrap: wrap;
+}
+
+.gameOverHeader {
+  height: 142px;
+  background-color: white;
+  animation: biggerHeader 1s ease;
+  animation-fill-mode: forwards;
+}
+
+.revivalHeader {
+  height: 100px;
+  animation: smallerHeader 1s;
+  animation-fill-mode: forwards;
+}
+
+.headerTitle {
+  display: flex;
+  height: 100px;
+  width: 100%;
+  font-family: 'Open Sans';
+  top: 0;
+  z-index: 2;
 }
 
 .section {
@@ -49,6 +94,11 @@
 
 .correctionSectionFail {
   composes: correctionSectionLoading;
+  background-color: negative;
+}
+
+.correctionSectionFailGameOver {
+  composes: correctionSectionFail;
   background-color: negative;
 }
 
@@ -159,6 +209,22 @@
   min-height: 56px;
 }
 
+.gameOver {
+  background-color: negative;
+  color: white;
+  border-left: solid 1px white;
+}
+
+.oneMoreLife {
+  background-color: light;
+  color: medium;
+  transition: background 0.8s;
+}
+
+.nextSection.gameOver:hover .nextButton {
+  color: black;
+}
+
 .nextButton {
   font-family: 'Open Sans';
   color: inherit;
@@ -183,6 +249,75 @@
   width: 20px;
   height: 20px;
   margin-left: 14px;
+}
+
+/*
+ * remainingLifeRequests Part
+ */
+
+@keyframes remainingLifeRequests {
+  0% {
+    top: 0;
+  }
+
+  90% {
+    top: 107px;
+  }
+
+  100% {
+    top: 100px;
+  }
+}
+
+@keyframes addedLife {
+  0% {
+    top: 100px;
+  }
+
+  90% {
+    top: 107px;
+  }
+
+  100% {
+    top: 0;
+  }
+}
+
+.heart {
+  margin-right: 8px;
+  position: relative;
+  top: -1px;
+  width: 22px;
+  height: 22px;
+}
+
+.remainingLifeRequestsSentence {
+  display: block;
+  background-color: xtraLightGrey;
+  border: solid 1px light;
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  font-family: 'Open Sans';
+  font-size: 17px;
+  font-weight: 700;
+  color: dark;
+  position: absolute;
+  top: 100px;
+  z-index: 1;
+}
+
+.askLife {
+  top: 0;
+  animation: remainingLifeRequests 0.5s ease-out;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+
+.oneMoreLifegained {
+  top: 0;
+  animation: addedLife 0.5s ease-in;
+  animation-fill-mode: forwards;
 }
 
 @media tablet {
@@ -221,10 +356,80 @@
   }
 }
 
+@keyframes mobileRemainingLifeRequests {
+  0% {
+    top: -100px;
+  }
+
+  90% {
+    top: 7px;
+  }
+
+  100% {
+    top: 0;
+  }
+}
+
+@keyframes mobileAddedLife {
+  0% {
+    top: 0;
+  }
+
+  90% {
+    top: 7px;
+  }
+
+  100% {
+    top: -100px;
+  }
+}
+
+@keyframes mobilepushcontent {
+  0% {
+    margin-bottom: 0;
+  }
+
+  100% {
+    margin-bottom: 50px;
+  }
+}
+
 @media mobile {
   .header {
     flex-flow: column;
+    flex-wrap: nowrap;
+    height: 153px;
+    margin-bottom: 0;
+  }
+
+  .headerTitle {
+    display: block;
+    height: auto;
+    width: 100%;
+  }
+
+  .gameOverHeader {
     height: 150px;
+    animation: mobilepushcontent 0.5s ease-out;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+  }
+
+  .revivalHeader {
+    animation: mobilepushcontent 0.5s ease-out;
+    animation-delay: 1s;
+    animation-fill-mode: backwards;
+  }
+
+  .correctionSectionFailGameOver,
+  .correctionSectionFail,
+  .correctionSectionSuccess {
+    height: 99px;
+  }
+
+  .gameOver {
+    border-left: 0;
+    border-top: solid 1px white;
   }
 
   .titleElement {
@@ -233,5 +438,24 @@
     overflow-x: hidden;
     padding-right: 90px;
     margin-left: 16px;
+  }
+
+  .remainingLifeRequestsSentence {
+    font-size: 12px;
+    top: 0;
+    position: relative;
+  }
+
+  .askLife {
+    top: -100px;
+    animation: mobileRemainingLifeRequests 0.5s ease-out;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+  }
+
+  .oneMoreLifegained {
+    top: 0;
+    animation: mobileAddedLife 0.5s ease-in;
+    animation-fill-mode: forwards;
   }
 }

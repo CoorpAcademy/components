@@ -1,13 +1,17 @@
 export default {
   props: {
     fail: true,
-    jokers: 0,
-    lives: 2,
+    revival: true,
+    lives: 1,
     title: 'Aïe Aïe Aïe',
+    extraLife: {
+      active: false,
+      sentence: 'Bonus ! Récupérez une vie en regardant la leçon !'
+    },
     subtitle: 'Mauvaise réponse',
     corrections: [{answer: 'Je ne sais pas', isCorrect: false}],
     cta: {
-      title: 'Continuer',
+      title: 'Next',
       href: '#'
     }
   }

@@ -1,6 +1,7 @@
 export default {
   props: {
     fail: false,
+    remainingLifeRequests: 0,
     stars: '+30',
     rank: '+5',
     title: 'Big Data - Avancé',

@@ -20,17 +20,17 @@ const Life = (props, context) => {
     count = 3,
     fail = false,
     mode = 'default',
+    revival,
     className,
     style: customStyle
   } = props;
   const negativeColor = get('common.negative', skin);
   const white = get('common.white', skin);
 
-  const pickStyle = (successStyle, failStyle, animatedStyle) => {
-    if (fail) {
-      if (animated) return animatedStyle;
-      return failStyle;
-    }
+  const pickStyle = (successStyle, failStyle, animatedFailStyle, revivalStyle) => {
+    if (revival) return revivalStyle;
+    if (fail && animated) return animatedFailStyle;
+    if (fail) return failStyle;
     return successStyle;
   };
 
@@ -38,9 +38,12 @@ const Life = (props, context) => {
     <div data-name="life" className={classnames(MODES[mode], className)} style={customStyle}>
       <div className={style.livesCounterWrapper}>
         <div
-          className={
-            fail && animated ? style.previousLivesCounterFail : style.previousLivesCounterDefault
-          }
+          className={pickStyle(
+            style.previousLivesCounterDefault,
+            style.previousLivesCounterDefault,
+            style.previousLivesCounterFail,
+            style.previousLivesRevival
+          )}
         >
           {count + 1}
         </div>
@@ -60,7 +63,8 @@ const Life = (props, context) => {
           className={pickStyle(
             style.heartNormalDefault,
             style.heartNormalFail,
-            style.heartNormalAnimatedFail
+            style.heartNormalAnimatedFail,
+            style.heartNormalRevival
           )}
           color={negativeColor}
         />
@@ -68,7 +72,8 @@ const Life = (props, context) => {
           className={pickStyle(
             style.heartBrokenDefault,
             style.heartBrokenFail,
-            style.heartBrokenAnimatedFail
+            style.heartBrokenAnimatedFail,
+            style.heartBrokenRevival
           )}
           color={negativeColor}
         />
@@ -82,6 +87,7 @@ Life.contextTypes = {
 };
 
 Life.propTypes = {
+  revival: PropTypes.bool,
   animated: PropTypes.bool,
   mode: PropTypes.oneOf(keys(MODES)),
   count: PropTypes.number,
