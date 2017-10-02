@@ -1,7 +1,6 @@
 {
   "Access the lesson": "Acces Lecţia",
   "Back to home": "Înapoi la home",
-  "Back": "Spate",
   "Check out the next chapter in this course!": "A verifica afară capitolul următor în acest curs!",
   "Clue": "Indiciu",
   "Coach": "Antrenor",
@@ -27,5 +26,7 @@
   "Wrong answer": "Răspuns greşit",
   "You are out of lives!": "Tu eşti afară de vieţi!",
   "Back to question": "Înapoi la întrebarea",
-  "Go to question": "Du-te la întrebare"
+  "Go to question": "Du-te la întrebare",
+  "extra_life_suggestion": "Bonus, obţine o viaţă în plus prin vizualizarea Lecţia",
+  "Game over": "jocul s-a terminat"
 }
