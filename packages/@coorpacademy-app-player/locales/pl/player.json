@@ -1,7 +1,6 @@
 {
   "Access the lesson": "Dostęp do lekcji",
   "Back to home": "Powrót do domu",
-  "Back": "Wstecz",
   "Check out the next chapter in this course!": "Sprawdź kolejny rozdział w ten kurs!",
   "Clue": "Pojęcia",
   "Coach": "Trener",
@@ -27,5 +26,7 @@
   "Wrong answer": "Błędnej odpowiedzi",
   "You are out of lives!": "Jesteś z życia!",
   "Back to question": "Wróć do pytanie",
-  "Go to question": "Przejdź do pytania"
+  "Go to question": "Przejdź do pytania",
+  "extra_life_suggestion": "Bonus, otrzymasz dodatkowe życie, wyświetlając lekcji",
+  "Game over": "Koniec gry"
 }
