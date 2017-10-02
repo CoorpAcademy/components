@@ -1,7 +1,7 @@
 import test from 'ava';
 import reducer from '../extra-life';
-import {ANSWER_FETCH_REQUEST} from '../../../actions/api/answers';
 import {UI_REVIVAL_PENDING} from '../../../actions/ui/extra-life';
+import {PROGRESSION_EXTRALIFEACCEPTED_REQUEST} from '../../../actions/api/progressions';
 import macro from '../../test/helpers/macro';
 
 test(
@@ -29,14 +29,14 @@ test(
 );
 
 test(
-  'should reset acceptRevivalPending to false after each answer',
+  'should reset acceptRevivalPending to false when extra-life is accepted',
   macro,
   reducer,
   {
     acceptRevivalPending: true
   },
   {
-    type: ANSWER_FETCH_REQUEST
+    type: PROGRESSION_EXTRALIFEACCEPTED_REQUEST
   },
   {
     acceptRevivalPending: false
