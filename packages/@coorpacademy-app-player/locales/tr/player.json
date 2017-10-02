@@ -1,7 +1,6 @@
 {
   "Access the lesson": "Erişim ders",
   "Back to home": "Geri ana sayfa için",
-  "Back": "Geri",
   "Check out the next chapter in this course!": "Bu derste sonraki bölüme göz atın!",
   "Clue": "İpucu",
   "Coach": "Koç",
@@ -27,5 +26,7 @@
   "Wrong answer": "Yanlış cevap",
   "You are out of lives!": "Hayat dışarı vardır!",
   "Back to question": "Geri sorgulamaya",
-  "Go to question": "Soru gitmek"
+  "Go to question": "Soru gitmek",
+  "extra_life_suggestion": "Bonus, ders görüntüleyerek ilave bir hayat olsun",
+  "Game over": "Oyun Bitti"
 }
