@@ -1,7 +1,6 @@
 {
   "Access the lesson": "进入课程",
   "Back to home": "回到家裡",
-  "Back": "背部",
   "Check out the next chapter in this course!": "查看本课程的下一章!",
   "Clue": "意",
   "Coach": "教练",
@@ -27,5 +26,7 @@
   "Wrong answer": "错误的答案",
   "You are out of lives!": "您的尝试机会已用完！",
   "Back to question": "回到问题",
-  "Go to question": "去问题"
+  "Go to question": "去问题",
+  "extra_life_suggestion": "奖金，通过观看课程获得额外的生活",
+  "Game over": "游戏结束"
 }
