@@ -1,7 +1,6 @@
 {
   "Access the lesson": "Toegang tot de les",
   "Back to home": "Terug naar home",
-  "Back": "Terug",
   "Check out the next chapter in this course!": "Bekijk het volgende hoofdstuk in deze cursus!",
   "Clue": "Helpen",
   "Coach": "Coach",
@@ -27,5 +26,7 @@
   "Wrong answer": "Fout antwoord",
   "You are out of lives!": "Je bent buiten leven!",
   "Back to question": "Terug naar vraag",
-  "Go to question": "Ga naar vraag"
+  "Go to question": "Ga naar vraag",
+  "extra_life_suggestion": "Bonus, een extra leven krijgen door het bekijken van de les",
+  "Game over": "Afgelopen uit"
 }
