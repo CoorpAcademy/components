@@ -161,8 +161,7 @@ const NextQuestionPart = (props, context) => {
 
 const RemainingLife = (props, {skin}) => {
   const {extraLife, revival} = props;
-  const {sentence} = extraLife;
-  const {active: isExtraLife} = extraLife;
+  const {sentence, active: isExtraLife} = extraLife;
   const isRevival = revival;
   const negative = get('common.negative', skin);
 
