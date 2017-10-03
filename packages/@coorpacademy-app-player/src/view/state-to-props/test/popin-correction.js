@@ -37,8 +37,7 @@ const services = {
     findById: identity,
     findBestOf: identity,
     getEngineConfig: identity,
-    acceptExtraLife: identity,
-    refuseExtraLife: identity
+    postExtraLife: identity
   },
   Slides: {
     findById: identity

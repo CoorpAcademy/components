@@ -1,5 +1,6 @@
 import test from 'ava';
 import set from 'lodash/fp/set';
+import get from 'lodash/fp/get';
 import pipe from 'lodash/fp/pipe';
 import macro from '../../test/helpers/macro';
 import {
@@ -15,18 +16,26 @@ import {
 
 const initState = pipe(
   set('data.progressions.entities.foo._id', 'foo'),
-  set('data.progressions.entities.foo.state.nextContent', 'bar')
+  set('data.progressions.entities.foo.state.nextContent', {
+    type: 'node',
+    ref: 'extraLife'
+  })
 );
 
 test(
-  'should accept extra life',
+  'should call accept extra life and succeed',
   macro,
   initState({}),
   t => ({
     Progressions: {
-      acceptExtraLife: id => {
+      postExtraLife: (id, payload) => {
+        const isAccepted = get('isAccepted', payload);
+        const contentRef = get('content.ref', payload);
+
+        t.true(isAccepted);
+        t.is(contentRef, 'extraLife');
         t.is(id, 'foo');
-        return 'baz';
+        return 'foo';
       }
     }
   }),
@@ -39,19 +48,25 @@ test(
     {
       type: PROGRESSION_EXTRALIFEACCEPTED_SUCCESS,
       meta: {progressionId: 'foo'},
-      payload: 'baz'
+      payload: 'foo'
     }
   ]
 );
 
 test(
-  'should refuse extra life',
+  'should call accept extra life and fail',
   macro,
   initState({}),
   t => ({
     Progressions: {
-      acceptExtraLife: id => {
+      postExtraLife: (id, payload) => {
+        const isAccepted = get('isAccepted', payload);
+        const contentRef = get('content.ref', payload);
+
+        t.true(isAccepted);
+        t.is(contentRef, 'extraLife');
         t.is(id, 'foo');
+
         throw new Error();
       }
     }
@@ -72,14 +87,19 @@ test(
 );
 
 test(
-  'should refuse extra life',
+  'should call refuse extra life and succeed',
   macro,
   initState({}),
   t => ({
     Progressions: {
-      refuseExtraLife: id => {
+      postExtraLife: (id, payload) => {
+        const isAccepted = get('isAccepted', payload);
+        const contentRef = get('content.ref', payload);
+
+        t.false(isAccepted);
+        t.is(contentRef, 'extraLife');
         t.is(id, 'foo');
-        return 'baz';
+        return 'foo';
       }
     }
   }),
@@ -92,19 +112,25 @@ test(
     {
       type: PROGRESSION_EXTRALIFEREFUSED_SUCCESS,
       meta: {progressionId: 'foo'},
-      payload: 'baz'
+      payload: 'foo'
     }
   ]
 );
 
 test(
-  'should refuse extra life',
+  'should call refuse extra life and fail',
   macro,
   initState({}),
   t => ({
     Progressions: {
-      refuseExtraLife: id => {
+      postExtraLife: (id, payload) => {
+        const isAccepted = get('isAccepted', payload);
+        const contentRef = get('content.ref', payload);
+
+        t.false(isAccepted);
+        t.is(contentRef, 'extraLife');
         t.is(id, 'foo');
+
         throw new Error();
       }
     }

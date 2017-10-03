@@ -109,6 +109,8 @@ export const PROGRESSION_EXTRALIFEREFUSED_FAILURE = '@@progression/EXTRALIFEREFU
 
 export const refuseExtraLife = progressionId => (dispatch, getState, {services}) => {
   const {Progressions} = services;
+  const progression = getProgression(progressionId)(getState());
+  const nextContent = get('state.nextContent', progression);
 
   const action = buildTask({
     types: [
@@ -116,7 +118,11 @@ export const refuseExtraLife = progressionId => (dispatch, getState, {services})
       PROGRESSION_EXTRALIFEREFUSED_SUCCESS,
       PROGRESSION_EXTRALIFEREFUSED_FAILURE
     ],
-    task: () => Progressions.refuseExtraLife(progressionId),
+    task: () =>
+      Progressions.postExtraLife(progressionId, {
+        content: nextContent,
+        isAccepted: false
+      }),
     meta: {progressionId}
   });
 
@@ -129,6 +135,8 @@ export const PROGRESSION_EXTRALIFEACCEPTED_FAILURE = '@@progression/EXTRALIFEACC
 
 export const acceptExtraLife = progressionId => (dispatch, getState, {services}) => {
   const {Progressions} = services;
+  const progression = getProgression(progressionId)(getState());
+  const nextContent = get('state.nextContent', progression);
 
   const action = buildTask({
     types: [
@@ -136,7 +144,11 @@ export const acceptExtraLife = progressionId => (dispatch, getState, {services})
       PROGRESSION_EXTRALIFEACCEPTED_SUCCESS,
       PROGRESSION_EXTRALIFEACCEPTED_FAILURE
     ],
-    task: () => Progressions.acceptExtraLife(progressionId),
+    task: () =>
+      Progressions.postExtraLife(progressionId, {
+        content: nextContent,
+        isAccepted: true
+      }),
     meta: {progressionId}
   });
 
