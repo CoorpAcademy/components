@@ -21,9 +21,13 @@ import {
   RANK_FETCH_END_REQUEST,
   RANK_FETCH_END_SUCCESS
 } from '../../../actions/api/rank';
-import {SLIDE_FETCH_REQUEST, SLIDE_FETCH_SUCCESS} from '../../../actions/api/slides';
+import {
+  CONTENT_FETCH_REQUEST,
+  CONTENT_FETCH_SUCCESS,
+  CONTENT_INFO_FETCH_REQUEST,
+  CONTENT_INFO_FETCH_SUCCESS
+} from '../../../actions/api/contents';
 import {EXIT_NODE_FETCH_REQUEST, EXIT_NODE_FETCH_SUCCESS} from '../../../actions/api/exit-nodes';
-import {CHAPTER_FETCH_REQUEST, CHAPTER_FETCH_SUCCESS} from '../../../actions/api/chapters';
 import {RECO_FETCH_REQUEST, RECO_FETCH_SUCCESS} from '../../../actions/api/recommendations';
 import {UI_SELECT_PROGRESSION} from '../../../actions/ui/progressions';
 import popinExtraLife from '../../test/fixtures/popin-correction/popin-extra-life';
@@ -39,14 +43,12 @@ const services = {
     getEngineConfig: identity,
     postExtraLife: identity
   },
-  Slides: {
-    findById: identity
+  Content: {
+    find: identity,
+    getInfo: identity
   },
   LeaderBoard: {
     getRank: identity
-  },
-  Chapters: {
-    findById: identity
   },
   Recommendations: {
     find: identity
@@ -91,14 +93,15 @@ test('should create a "Next" CTA when entering a success popin', async t => {
     PROGRESSION_FETCH_REQUEST,
     RANK_FETCH_START_REQUEST,
     RANK_FETCH_START_SUCCESS,
-    CHAPTER_FETCH_REQUEST,
-    CHAPTER_FETCH_SUCCESS,
+    CONTENT_FETCH_REQUEST,
     PROGRESSION_FETCH_BESTOF_REQUEST,
     PROGRESSION_FETCH_BESTOF_SUCCESS,
+
     ENGINE_CONFIG_FETCH_REQUEST,
     ENGINE_CONFIG_FETCH_SUCCESS,
-    SLIDE_FETCH_REQUEST,
-    SLIDE_FETCH_SUCCESS
+    CONTENT_INFO_FETCH_REQUEST,
+    CONTENT_FETCH_REQUEST,
+    CONTENT_FETCH_SUCCESS
   ]);
 
   t.deepEqual(metaOf(PROGRESSION_FETCH_REQUEST, dispatched), {id: progressionId});
@@ -118,12 +121,12 @@ test('should create a "Game over" CTA when entering a success popin', async t =>
     PROGRESSION_FETCH_REQUEST,
     RANK_FETCH_START_REQUEST,
     RANK_FETCH_START_SUCCESS,
-    CHAPTER_FETCH_REQUEST,
-    CHAPTER_FETCH_SUCCESS,
+    CONTENT_FETCH_REQUEST,
     PROGRESSION_FETCH_BESTOF_REQUEST,
     PROGRESSION_FETCH_BESTOF_SUCCESS,
     ENGINE_CONFIG_FETCH_REQUEST,
     ENGINE_CONFIG_FETCH_SUCCESS,
+    CONTENT_INFO_FETCH_REQUEST,
     RANK_FETCH_END_REQUEST,
     RANK_FETCH_END_SUCCESS,
     RECO_FETCH_REQUEST,
@@ -151,12 +154,13 @@ test('should create a "Refuse" CTA when entering an extra-life popin', async t =
     PROGRESSION_FETCH_REQUEST,
     RANK_FETCH_START_REQUEST,
     RANK_FETCH_START_SUCCESS,
-    CHAPTER_FETCH_REQUEST,
-    CHAPTER_FETCH_SUCCESS,
+    CONTENT_FETCH_REQUEST,
     PROGRESSION_FETCH_BESTOF_REQUEST,
     PROGRESSION_FETCH_BESTOF_SUCCESS,
     ENGINE_CONFIG_FETCH_REQUEST,
-    ENGINE_CONFIG_FETCH_SUCCESS
+    ENGINE_CONFIG_FETCH_SUCCESS,
+    CONTENT_INFO_FETCH_REQUEST,
+    CONTENT_INFO_FETCH_SUCCESS
   ]);
 
   t.deepEqual(metaOf(PROGRESSION_FETCH_REQUEST, dispatched), {id: progressionId});
@@ -178,12 +182,13 @@ test('should create a "Accept" CTA when entering a revival popin', async t => {
     PROGRESSION_FETCH_REQUEST,
     RANK_FETCH_START_REQUEST,
     RANK_FETCH_START_SUCCESS,
-    CHAPTER_FETCH_REQUEST,
-    CHAPTER_FETCH_SUCCESS,
+    CONTENT_FETCH_REQUEST,
     PROGRESSION_FETCH_BESTOF_REQUEST,
     PROGRESSION_FETCH_BESTOF_SUCCESS,
     ENGINE_CONFIG_FETCH_REQUEST,
-    ENGINE_CONFIG_FETCH_SUCCESS
+    ENGINE_CONFIG_FETCH_SUCCESS,
+    CONTENT_INFO_FETCH_REQUEST,
+    CONTENT_INFO_FETCH_SUCCESS
   ]);
 
   t.deepEqual(metaOf(PROGRESSION_FETCH_REQUEST, dispatched), {id: progressionId});

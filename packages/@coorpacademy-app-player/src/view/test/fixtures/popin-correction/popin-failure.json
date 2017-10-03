@@ -88,6 +88,10 @@
             "ref": "microlearning",
             "version": "1"
           },
+          "content": {
+            "ref": "1.B2.4",
+            "type": "slide"
+          },
           "state": {
             "slides": ["1.B2.4"],
             "nextContent": {

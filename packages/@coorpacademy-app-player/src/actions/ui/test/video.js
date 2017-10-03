@@ -113,7 +113,7 @@ test(
       type: 'node',
       ref: 'extraLife'
     }),
-    set('data.progressions.entities.foo.content', chapter),
+    set('data.progressions.entities.foo.content', content),
     set('data.slides.entities.slideRef', 'slide')
   )({}),
   t => ({

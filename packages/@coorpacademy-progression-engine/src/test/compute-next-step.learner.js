@@ -3,7 +3,7 @@ import test from 'ava';
 import type {Slide, State} from '../types';
 import computeNextStep from '../compute-next-step';
 import allSlides from './fixtures/slides';
-import {stateBeforeGettingNextContent} from './fixtures/states';
+import {stateBeforeGettingNextContent, failProgressionState} from './fixtures/states';
 
 const engine = {
   ref: 'learner',
@@ -39,7 +39,7 @@ test('should return a new slide when user is still alive', t => {
 
 test('should return the fail endpoint, when user has no more lives', t => {
   const state: State = Object.freeze({
-    ...stateBeforeGettingNextContent,
+    ...failProgressionState,
     nextContent: {
       type: 'slide',
       ref: '1.A1.1'

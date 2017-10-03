@@ -75,7 +75,8 @@ export const postAnswers = async (progressionId, payload) => {
   const action = pipe(
     set('payload.isCorrect', checkAnswer(engine, slide.question, userAnswers)),
     _action => {
-      const nextState = updateState(engine, progression.state, [_action]);
+      let nextState = updateState(engine, progression.state, [_action]);
+      nextState = set('nextContent', nextState.content, nextState);
       return set('payload.nextContent', computeNextStep(engine, slidePools, nextState))(_action);
     }
   )({
@@ -106,7 +107,8 @@ export const postExtraLife = async (progressionId, payload) => {
   const {content, isAccepted} = payload;
 
   const feedNextContent = _action => {
-    const nextState = updateState(progression.engine, progression.state, [_action]);
+    let nextState = updateState(progression.engine, progression.state, [_action]);
+    nextState = set('nextContent', progression.state.content, nextState);
     return set('payload.nextContent', computeNextStep(progression.engine, slidePools, nextState))(
       _action
     );

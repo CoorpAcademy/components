@@ -8,7 +8,7 @@ const engine = {
 
 test('should add one extra life if call accept', async t => {
   const progression = await Progressions.create({engine});
-  const progressionWithAnswer = await Progressions.createAnswer(progression._id, {
+  const progressionWithAnswer = await Progressions.postAnswers(progression._id, {
     content: progression.state.nextContent,
     answers: []
   });
@@ -26,7 +26,7 @@ test('should add one extra life if call accept', async t => {
 
 test('should forward to failure if call refuse', async t => {
   const progression = await Progressions.create({engine});
-  const progressionWithAnswer = await Progressions.createAnswer(progression._id, {
+  const progressionWithAnswer = await Progressions.postAnswers(progression._id, {
     content: progression.state.nextContent,
     answers: []
   });

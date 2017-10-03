@@ -10,9 +10,7 @@ export const fetchContent = (type, ref) => (dispatch, getState, {services}) => {
 
   const action = buildTask({
     types: [CONTENT_FETCH_REQUEST, CONTENT_FETCH_SUCCESS, CONTENT_FETCH_FAILURE],
-    task: () => {
-      return Content.find(type, ref);
-    },
+    task: () => Content.find(type, ref),
     meta: {type, ref},
     bailout: getContent(type, ref)
   });
@@ -29,9 +27,7 @@ export const fetchContentInfo = (content, engine) => (dispatch, getState, {servi
 
   const action = buildTask({
     types: [CONTENT_INFO_FETCH_REQUEST, CONTENT_INFO_FETCH_SUCCESS, CONTENT_INFO_FETCH_FAILURE],
-    task: () => {
-      return Content.getInfo(content.ref, engine.ref, engine.version);
-    },
+    task: () => Content.getInfo(content.ref, engine.ref, engine.version),
     meta: content,
     bailout: getContentInfo
   });
