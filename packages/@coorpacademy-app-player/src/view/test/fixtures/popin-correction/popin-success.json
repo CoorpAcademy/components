@@ -147,10 +147,14 @@
             "ref": "microlearning",
             "version": "1"
           },
+          "content": {
+            "ref": "1.B2.4",
+            "type": "slide"
+          },
           "state": {
-            "slides": ["1.B2.4", "sli_Vy88~R-bX"],
+            "slides": ["1.B2.4", "sli_Nk2vje~E~"],
             "nextContent": {
-              "ref": "sli_VkcAWR-ZQ",
+              "ref": "sli_Nk2vje~E~",
               "type": "slide"
             },
             "lives": 1,
