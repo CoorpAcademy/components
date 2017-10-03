@@ -1,6 +1,7 @@
 import test from 'ava';
 import pipe from 'lodash/fp/pipe';
 import set from 'lodash/fp/set';
+import get from 'lodash/fp/get';
 import macro from '../../test/helpers/macro';
 import {
   UI_REVIVAL_PENDING,
@@ -30,7 +31,7 @@ test(
   pipe(
     set('ui.current.progressionId', 'foo'),
     set('data.progressions.entities.foo._id', 'foo'),
-    set('data.progressions.entities.foo.content', {type: 'node', ref: 'extraLife'})
+    set('data.progressions.entities.foo.nextContent', {type: 'node', ref: 'extraLife'})
   )({}),
   t => ({
     Progressions: {
@@ -38,7 +39,10 @@ test(
         t.is(id, 'foo');
         throw new Error();
       },
-      refuseExtraLife: id => {
+      postExtraLife: (id, payload) => {
+        const isAccepted = get('isAccepted', payload);
+
+        t.false(isAccepted);
         t.is(id, 'foo');
         return 'foo';
       }
@@ -84,7 +88,7 @@ test(
   pipe(
     set('ui.current.progressionId', 'foo'),
     set('data.progressions.entities.foo._id', 'foo'),
-    set('data.progressions.entities.foo.content', {type: 'node', ref: 'extraLife'})
+    set('data.progressions.entities.foo.nextContent', {type: 'node', ref: 'extraLife'})
   )({}),
   t => ({
     Progressions: {
@@ -92,8 +96,10 @@ test(
         t.is(id, 'foo');
         throw new Error();
       },
-      acceptExtraLife: id => {
-        t.is(id, 'foo');
+      postExtraLife: (id, payload) => {
+        const isAccepted = get('isAccepted', payload);
+
+        t.true(isAccepted);
         return 'foo';
       }
     }
