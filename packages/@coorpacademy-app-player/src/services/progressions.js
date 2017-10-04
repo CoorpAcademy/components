@@ -96,9 +96,10 @@ export const requestClue = async (progressionId, payload) => {
   );
 };
 
-export const refuseExtraLife = async progressionId => {
+export const postExtraLife = async (progressionId, payload) => {
   const progression = await findById(progressionId);
   const slides = await findAllSlides();
+  const {content, isAccepted} = payload;
 
   const feedNextContent = _action => {
     const nextState = updateState(progression.engine, progression.state, [_action]);
@@ -108,38 +109,9 @@ export const refuseExtraLife = async progressionId => {
   };
 
   const action = feedNextContent({
-    type: 'extraLifeRefused',
+    type: isAccepted ? 'extraLifeAccepted' : 'extraLifeRefused',
     payload: {
-      content: {
-        type: 'node',
-        ref: 'extraLife'
-      }
-    }
-  });
-
-  return pipe(update('state', state => updateState(progression.engine, state, [action])), save)(
-    progression
-  );
-};
-
-export const acceptExtraLife = async progressionId => {
-  const progression = await findById(progressionId);
-  const slides = await findAllSlides();
-
-  const feedNextContent = _action => {
-    const nextState = updateState(progression.engine, progression.state, [_action]);
-    return set('payload.nextContent', computeNextStep(progression.engine, slides, nextState))(
-      _action
-    );
-  };
-
-  const action = feedNextContent({
-    type: 'extraLifeAccepted',
-    payload: {
-      content: {
-        type: 'node',
-        ref: 'extraLife'
-      }
+      content
     }
   });
 
