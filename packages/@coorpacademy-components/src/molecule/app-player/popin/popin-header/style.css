@@ -40,16 +40,18 @@
 }
 
 .gameOverHeader {
-  height: 142px;
+  height: 100px;
   background-color: white;
   animation: biggerHeader 1s ease;
+  animation-delay: 2s;
   animation-fill-mode: forwards;
 }
 
 .revivalHeader {
-  height: 100px;
+  height: 142px;
   animation: smallerHeader 1s;
   animation-fill-mode: forwards;
+  animation-delay: 2s;
 }
 
 .headerTitle {
@@ -310,14 +312,15 @@
 .askLife {
   top: 0;
   animation: remainingLifeRequests 0.5s ease-out;
-  animation-delay: 1s;
+  animation-delay: 2.1s;
   animation-fill-mode: forwards;
 }
 
 .oneMoreLifegained {
-  top: 0;
+  top: 100px;
   animation: addedLife 0.5s ease-in;
   animation-fill-mode: forwards;
+  animation-delay: 2.1s;
 }
 
 @media tablet {
