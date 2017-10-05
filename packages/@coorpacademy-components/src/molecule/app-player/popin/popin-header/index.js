@@ -225,7 +225,7 @@ const PopinHeader = (props, context) => {
           revival={revival}
           corrections={corrections}
         />
-        <NextQuestionPart cta={cta} extraLife={extraLife} revival={revival} />
+        <NextQuestionPart cta={cta} extraLife={extraLife} revival={revival} fail={fail} />
 
       </div>
       {RemainingLifePart}
