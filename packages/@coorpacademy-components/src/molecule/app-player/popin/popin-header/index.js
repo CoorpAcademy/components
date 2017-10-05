@@ -138,19 +138,23 @@ const NextQuestionPart = (props, context) => {
   const {cta, extraLife, revival, fail} = props;
   const {title, ...linkProps} = cta || {};
   const {active: isExtraLife} = extraLife;
+  const isGameOver = !revival && (fail || isExtraLife);
 
   return (
     <Link
       className={classnames(
         style.nextSection,
-        isExtraLife && style.gameOver,
-        revival && style.oneMoreLife,
-        fail && !isExtraLife && !revival && style.gameOver
+        isGameOver && style.gameOver,
+        revival && style.oneMoreLife
       )}
       data-name="nextLink"
       {...linkProps}
     >
-      <div data-name="nextButton" className={style.nextButton}>
+      <div
+        data-name="nextButton"
+        data-next={isGameOver ? 'gameOver' : 'success'}
+        className={style.nextButton}
+      >
         {title}
         <ArrowRight color="inherit" className={style.nextButtonIcon} />
       </div>
@@ -225,7 +229,7 @@ const PopinHeader = (props, context) => {
           revival={revival}
           corrections={corrections}
         />
-        <NextQuestionPart cta={cta} extraLife={extraLife} revival={revival} />
+        <NextQuestionPart cta={cta} extraLife={extraLife} revival={revival} fail={fail} />
 
       </div>
       {RemainingLifePart}
