@@ -18,12 +18,14 @@ const hasNotProgression = pipe(getCurrentProgression, isNil);
 const hasNoContent = pipe(getCurrentContent, isNil);
 const matchRoute = route => pipe(getRoute, isEqual(route));
 const matchContentType = contentType => pipe(getCurrentContent, get('type'), isEqual(contentType));
+const matchContentRef = contentType => pipe(getCurrentContent, get('ref'), isEqual(contentType));
 
-const createMapStateToProps = (options, store) =>
+export const createMapStateToProps = (options, store) =>
   cond([
     [hasNotProgression, createLoadingView(options, store)],
     [hasNoContent, createLoadingView(options, store)],
     [matchRoute('correction'), createPopinCorrectionView(options, store)],
+    [matchContentRef('extraLife'), createPopinCorrectionView(options, store)],
     [matchContentType('slide'), createSlideView(options, store)],
     [matchContentType('success'), createPopinEndView(options, store)],
     [matchContentType('failure'), createPopinEndView(options, store)],
