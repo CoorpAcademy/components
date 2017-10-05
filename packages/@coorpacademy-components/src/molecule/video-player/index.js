@@ -1,17 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import isEqual from 'lodash/fp/isEqual';
 import VideoIframe from '../video-iframe';
 import JWPlayer from './jwplayer';
 import Vimeo from './vimeo';
 import style from './style.css';
 
-class Player extends React.Component {
+class VideoPlayer extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
       played: false
     };
     this.handleOnPlay = this.handleOnPlay.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (!isEqual(nextProps.id, this.props.id)) this.setState(() => ({played: false}));
   }
 
   handleOnPlay(e) {
@@ -25,7 +30,7 @@ class Player extends React.Component {
     });
   }
 
-  render() {
+  renderPlayer() {
     const {mimeType, id, url, width = '100%', height = '400px', onPause, onEnded} = this.props;
     switch (mimeType) {
       case 'application/vimeo':
@@ -61,12 +66,15 @@ class Player extends React.Component {
         return <JWPlayer {...this.props} />;
     }
   }
-}
 
-const VideoPlayer = props =>
-  <div className={style.wrapper}>
-    <Player {...props} />
-  </div>;
+  render() {
+    return (
+      <div className={style.wrapper}>
+        {this.renderPlayer()}
+      </div>
+    );
+  }
+}
 
 VideoPlayer.propTypes = {
   id: PropTypes.string,

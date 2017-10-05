@@ -2402,6 +2402,14 @@ export const dependencies = {
       },
       "children": {}
     },
+    "VideoIframe": {
+      "parents": {
+        "Molecule": {
+          "VideoPlayer": true
+        }
+      },
+      "children": {}
+    },
     "Answer": {
       "children": {
         "Atom": {
@@ -2442,11 +2450,12 @@ export const dependencies = {
         }
       }
     },
-    "VideoIframe": {
-      "children": {}
-    },
     "VideoPlayer": {
-      "children": {}
+      "children": {
+        "Molecule": {
+          "VideoIframe": true
+        }
+      }
     }
   },
   "Organism": {
