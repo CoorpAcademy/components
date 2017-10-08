@@ -1,8 +1,8 @@
 import createTranslate from '@coorpacademy/translate';
 import localesComponents from '@coorpacademy/components/locales/en/global';
-import localesAppPlayer from '../locales/en/player';
-import {create as createApp} from '../src';
-import * as Services from '../src/services';
+import localesAppPlayer from '../../../locales/en/player';
+import {create as createApp} from '..';
+import * as Services from '../../redux/services';
 
 // eslint-disable-next-line import/prefer-default-export
 export const create = options => {
