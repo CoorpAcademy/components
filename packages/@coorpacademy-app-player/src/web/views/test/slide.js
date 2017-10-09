@@ -3,10 +3,10 @@ import identity from 'lodash/fp/identity';
 import map from 'lodash/fp/map';
 import omit from 'lodash/fp/omit';
 import {mockTranslate} from '@coorpacademy/translate';
-import stateHeader from '../../../redux/view/test/fixtures/progression-state';
-import stateSlide from '../../../redux/view/test/fixtures/player/slide';
-import stateClue from '../../../redux/view/test/fixtures/player/clue';
-import stateLoadingClue from '../../../redux/view/test/fixtures/player/loading-clue';
+import stateHeader from '../../../store/view/test/fixtures/progression-state';
+import stateSlide from '../../../store/view/test/fixtures/player/slide';
+import stateClue from '../../../store/view/test/fixtures/player/clue';
+import stateLoadingClue from '../../../store/view/test/fixtures/player/loading-clue';
 import stateToVNode from './helpers/state-to-vnode';
 import testRendering from './helpers/render';
 

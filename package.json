@@ -95,8 +95,6 @@
       "packages/**/lib/**",
       "packages/**/static/**",
       "static/**",
-      "packages/@coorpacademy-app-player/src/web/sandbox/**",
-      "packages/@coorpacademy-app-player/src/web/webpack.config.js",
       "packages/@coorpacademy-nova-icons/**"
     ],
     "cache": true,

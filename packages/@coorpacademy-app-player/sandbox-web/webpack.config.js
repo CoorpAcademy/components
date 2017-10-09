@@ -3,7 +3,7 @@ const pipe = require('lodash/fp/pipe');
 const config = require('../webpack.config');
 
 const entry = {
-  Player: ['babel-polyfill', './src/web/sandbox']
+  Player: ['babel-polyfill', './sandbox-web']
 };
 
 module.exports = pipe(set('entry', entry), set('devServer.disableHostCheck', true))(config);
