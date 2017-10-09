@@ -85,6 +85,7 @@ const playerProps = (options, store) => state => {
           onClick: clickCTAHandler,
           light: false,
           small: false,
+          name: 'validateAnswerCTA',
           secondary: false
         }
       : {
@@ -92,6 +93,7 @@ const playerProps = (options, store) => state => {
           onClick: clickBackToAnswerHandler,
           light: false,
           small: false,
+          name: 'backToQuestionCTA',
           secondary: true
         },
     help,

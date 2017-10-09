@@ -36,6 +36,7 @@ test('should display slide', async t => {
   t.is(playerProps.question, "Écrivez le mot Text dans l'input.\n");
   t.deepEqual(omit('onClick', playerProps.cta), {
     submitValue: '__Validate',
+    name: 'validateAnswerCTA',
     light: false,
     small: false,
     secondary: false
@@ -78,6 +79,7 @@ test('should display loading clue', async t => {
   t.is(playerProps.question, "Écrivez le mot Text dans l'input.\n");
   t.deepEqual(omit('onClick', playerProps.cta), {
     submitValue: '__Back to question',
+    name: 'backToQuestionCTA',
     light: false,
     small: false,
     secondary: true
@@ -120,6 +122,7 @@ test('should display clue', async t => {
   t.is(playerProps.question, "Écrivez le mot Text dans l'input.\n");
   t.deepEqual(omit('onClick', playerProps.cta), {
     submitValue: '__Back to question',
+    name: 'backToQuestionCTA',
     light: false,
     small: false,
     secondary: true
