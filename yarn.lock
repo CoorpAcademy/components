@@ -1841,6 +1841,13 @@ braces@^1.8.2:
     preserve "^0.2.0"
     repeat-element "^1.1.2"
 
+brandai-storybook@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.npmjs.org/brandai-storybook/-/brandai-storybook-1.0.2.tgz#8452ec71f9c72c0ffa2344d5b5cc661f5a0af800"
+  dependencies:
+    babel-runtime "^6.11.6"
+    lodash "^4.17.4"
+
 brcast@^3.0.0:
   version "3.0.1"
   resolved "https://registry.npmjs.org/brcast/-/brcast-3.0.1.tgz#6256a8349b20de9eed44257a9b24d71493cd48dd"
