@@ -20,7 +20,7 @@
           "state": {
             "nextContent": {
               "ref": "0",
-              "type": "slides"
+              "type": "slide"
             },
             "lives": 3,
             "step": {

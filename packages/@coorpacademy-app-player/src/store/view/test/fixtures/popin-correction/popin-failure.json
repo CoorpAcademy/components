@@ -129,6 +129,9 @@
     },
     "corrections": {
       "accordion": [true, false, false]
+    },
+    "route": {
+      "0": "correction"
     }
   }
 }

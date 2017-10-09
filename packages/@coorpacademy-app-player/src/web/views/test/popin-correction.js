@@ -6,14 +6,14 @@ import isFunction from 'lodash/fp/isFunction';
 import set from 'lodash/fp/set';
 import omit from 'lodash/fp/omit';
 import {mockTranslate} from '@coorpacademy/translate';
-import {UI_TOGGLE_ACCORDION, selectResource} from '../../actions/ui/corrections';
-import {UI_VIDEO_RESUME, UI_VIDEO_PAUSE, UI_VIDEO_ENDED} from '../../actions/ui/video';
-import createMapStateToProps from '../popin-correction';
-import statePopinFailure from './fixtures/popin-correction/popin-failure';
-import statePopinSuccess from './fixtures/popin-correction/popin-success';
-import statePopinFailureMultipleAnswers from './fixtures/popin-correction/state-fail-multiple-answers';
-import statePopinExtraLife from './fixtures/popin-correction/popin-extra-life';
-import statePopinRevival from './fixtures/popin-correction/popin-revival';
+import {UI_TOGGLE_ACCORDION, selectResource} from '../../../store/actions/ui/corrections';
+import {UI_VIDEO_RESUME, UI_VIDEO_PAUSE, UI_VIDEO_ENDED} from '../../../store/actions/ui/video';
+import statePopinFailure from '../../../store/view/test/fixtures/popin-correction/popin-failure';
+import statePopinSuccess from '../../../store/view/test/fixtures/popin-correction/popin-success';
+import statePopinFailureMultipleAnswers from '../../../store/view/test/fixtures/popin-correction/state-fail-multiple-answers';
+import statePopinExtraLife from '../../../store/view/test/fixtures/popin-correction/popin-extra-life';
+import statePopinRevival from '../../../store/view/test/fixtures/popin-correction/popin-revival';
+import stateToVNode from './helpers/state-to-vnode';
 import testRendering from './helpers/render';
 
 const Vimeo = {Player: () => true};
@@ -22,10 +22,10 @@ const options = {
   Vimeo
 };
 
-const mapStateToProps = createMapStateToProps(options, {dispatch: identity});
+const mapStateToVNode = stateToVNode(options, {dispatch: identity});
 
 test('should set properties for success popin', t => {
-  const vNode = mapStateToProps(statePopinSuccess);
+  const vNode = mapStateToVNode(statePopinSuccess);
   testRendering(vNode);
   const {props} = vNode;
 
@@ -54,7 +54,7 @@ test('should set properties for success popin', t => {
 });
 
 test('should set properties to open resource tab if wrong answer and no resource viewed', t => {
-  const vNode = mapStateToProps(statePopinFailure);
+  const vNode = mapStateToVNode(statePopinFailure);
   testRendering(vNode);
   const {props} = vNode;
 
@@ -76,7 +76,7 @@ test('should set properties to open resource tab if wrong answer and no resource
 });
 
 test('should trigger actions for resources', t => {
-  const vNode = mapStateToProps(statePopinFailure);
+  const vNode = mapStateToVNode(statePopinFailure);
   testRendering(vNode);
   const {props} = vNode;
   const resources = props.resources.value;
@@ -107,7 +107,7 @@ test('should trigger actions for resources', t => {
 });
 
 test('should set properties when selecting second resource', t => {
-  const vNode = mapStateToProps(
+  const vNode = mapStateToVNode(
     set('ui.corrections.playResource', '590b862e2e967f64333ad4fc', statePopinFailure)
   );
   testRendering(vNode);
@@ -134,7 +134,7 @@ test('should set properties when selecting second resource', t => {
 test('should display loading when correction is not still fetched', t => {
   const statePopinLoading = set('data.answers.entities.0.sli_Vy88~R-bX', null, statePopinSuccess);
 
-  const vNode = mapStateToProps(statePopinLoading);
+  const vNode = mapStateToVNode(statePopinLoading);
   testRendering(vNode);
   const {props} = vNode;
 
@@ -152,7 +152,7 @@ test("should display loading state when answer's result is not still received", 
     statePopinSuccess
   );
 
-  const vNode = mapStateToProps(statePopinLoading);
+  const vNode = mapStateToVNode(statePopinLoading);
   testRendering(vNode);
   const {props} = vNode;
 
@@ -169,7 +169,7 @@ test('should display correction view when slide has not ressources', t => {
     [],
     statePopinFailure
   );
-  const vNode = mapStateToProps(statePopinWithoutRessources);
+  const vNode = mapStateToVNode(statePopinWithoutRessources);
   testRendering(vNode);
   const {props} = vNode;
 
@@ -184,7 +184,7 @@ test('should display correction view when slide has not ressources', t => {
 });
 
 test('should show correction on multiple answers for a slide', t => {
-  const vNode = mapStateToProps(statePopinFailureMultipleAnswers);
+  const vNode = mapStateToVNode(statePopinFailureMultipleAnswers);
   testRendering(vNode);
   const {props} = vNode;
 
@@ -203,7 +203,7 @@ test('should show correction on multiple answers for a slide', t => {
 });
 
 test('should show correction for extra life state', t => {
-  const vNode = mapStateToProps(statePopinExtraLife);
+  const vNode = mapStateToVNode(statePopinExtraLife);
   testRendering(vNode);
   const {props} = vNode;
 
@@ -213,7 +213,7 @@ test('should show correction for extra life state', t => {
 });
 
 test('should show correction for revival state', t => {
-  const vNode = mapStateToProps(statePopinRevival);
+  const vNode = mapStateToVNode(statePopinRevival);
   testRendering(vNode);
   const {props} = vNode;
 

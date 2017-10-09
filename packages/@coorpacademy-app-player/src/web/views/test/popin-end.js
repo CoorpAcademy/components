@@ -2,19 +2,19 @@ import test from 'ava';
 import set from 'lodash/fp/set';
 import identity from 'lodash/fp/identity';
 import {mockTranslate} from '@coorpacademy/translate';
-import popinEndStateToProps from '../popin-end';
-import success from './fixtures/popin-end/success';
-import fail from './fixtures/popin-end/fail';
+import success from '../../../store/view/test/fixtures/popin-end/success';
+import fail from '../../../store/view/test/fixtures/popin-end/fail';
+import stateToVNode from './helpers/state-to-vnode';
 import testRendering from './helpers/render';
 
 const options = {
   translate: mockTranslate
 };
 
-const toProps = popinEndStateToProps(options, {dispatch: identity});
+const toVNode = stateToVNode(options, {dispatch: identity});
 
 test('should set properties for success popin', async t => {
-  const vNode = toProps(success);
+  const vNode = toVNode(success);
   testRendering(vNode);
   const {props} = vNode;
 
@@ -41,7 +41,7 @@ test('should set properties for success popin', async t => {
 });
 
 test("should display +0 when user don't get higher score than his best score", t => {
-  const vNode = toProps(
+  const vNode = toVNode(
     set(['data', 'contents', 'chapter', 'entities', '1.B2', 'bestScore'], 20, success)
   );
   testRendering(vNode);
@@ -50,7 +50,7 @@ test("should display +0 when user don't get higher score than his best score", t
 });
 
 test('should set properties for failure popin', async t => {
-  const vNode = toProps(fail);
+  const vNode = toVNode(fail);
   testRendering(vNode);
   const {props} = vNode;
 
@@ -83,7 +83,7 @@ test('should set properties for failure popin', async t => {
 });
 
 test('should set properties for failure popin when losing rank', async t => {
-  const vNode = toProps(set('data.rank.start', 90, fail));
+  const vNode = toVNode(set('data.rank.start', 90, fail));
   testRendering(vNode);
   const {props} = vNode;
 

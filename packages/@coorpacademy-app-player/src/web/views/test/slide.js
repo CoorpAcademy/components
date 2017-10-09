@@ -3,19 +3,19 @@ import identity from 'lodash/fp/identity';
 import map from 'lodash/fp/map';
 import omit from 'lodash/fp/omit';
 import {mockTranslate} from '@coorpacademy/translate';
-import createMapStateToProps from '../slide';
-import stateHeader from './fixtures/progression-state';
-import stateSlide from './fixtures/player/slide';
-import stateClue from './fixtures/player/clue';
-import stateLoadingClue from './fixtures/player/loading-clue';
+import stateHeader from '../../../store/view/test/fixtures/progression-state';
+import stateSlide from '../../../store/view/test/fixtures/player/slide';
+import stateClue from '../../../store/view/test/fixtures/player/clue';
+import stateLoadingClue from '../../../store/view/test/fixtures/player/loading-clue';
+import stateToVNode from './helpers/state-to-vnode';
 import testRendering from './helpers/render';
 
 const options = {translate: mockTranslate};
 const store = {dispatch: identity};
-const mapStateToProps = createMapStateToProps(options, store);
+const mapStateToVNode = stateToVNode(options, store);
 
 test('should display header', t => {
-  const vNode = mapStateToProps(stateHeader);
+  const vNode = mapStateToVNode(stateHeader);
   testRendering(vNode);
   const {props: {header: headerProps}} = vNode;
 
@@ -24,7 +24,7 @@ test('should display header', t => {
 });
 
 test('should display slide', async t => {
-  const vNode = mapStateToProps(stateSlide);
+  const vNode = mapStateToVNode(stateSlide);
   testRendering(vNode);
   const {props: {player: playerProps}} = vNode;
 
@@ -67,7 +67,7 @@ test('should display slide', async t => {
 });
 
 test('should display loading clue', async t => {
-  const vNode = mapStateToProps(stateLoadingClue);
+  const vNode = mapStateToVNode(stateLoadingClue);
   testRendering(vNode);
   const {props: {player: playerProps}} = vNode;
 
@@ -110,7 +110,7 @@ test('should display loading clue', async t => {
 });
 
 test('should display clue', async t => {
-  const vNode = mapStateToProps(stateClue);
+  const vNode = mapStateToVNode(stateClue);
   testRendering(vNode);
   const {props: {player: playerProps}} = vNode;
 

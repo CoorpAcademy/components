@@ -203,6 +203,9 @@
     },
     "corrections": {
       "accordion": [false, false, true]
+    },
+    "route": {
+      "0": "correction"
     }
   }
 }

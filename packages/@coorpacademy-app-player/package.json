@@ -2,8 +2,8 @@
   "name": "@coorpacademy/app-player",
   "version": "7.0.0",
   "description": "CoorpAcademy player [freerun, learner, battles]",
-  "main": "lib/index.js",
-  "module": "es/index.js",
+  "main": "lib/web/index.js",
+  "module": "es/web/index.js",
   "files": [
     "es",
     "lib",
@@ -20,9 +20,9 @@
     "clean:static": "npm run static",
     "clean": "npm run clean:build && npm run clean:static",
     "prepublish": "npm run clean && npm run build --production",
-    "static": "webpack --progress --output-path static/dist/ --config sandbox/webpack.config.js",
-    "poststatic": "cp sandbox/index.html static/index.html",
-    "start": "cross-env BABEL_ENV=es webpack-dev-server --config sandbox/webpack.config.js --content-base sandbox --host 0.0.0.0 --history-api-fallback true --hot true"
+    "static": "webpack --progress --output-path static/dist/ --config sandbox-web/webpack.config.js",
+    "poststatic": "cp sandbox-web/index.html static/index.html",
+    "start": "cross-env BABEL_ENV=es webpack-dev-server --config sandbox-web/webpack.config.js --content-base sandbox-web --host 0.0.0.0 --history-api-fallback true --hot true"
   },
   "homepage": "https://github.com/CoorpAcademy/components/packages/@coorpacademy-app-player#readme",
   "devDependencies": {
