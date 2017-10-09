@@ -1,7 +1,7 @@
 import test from 'ava';
 import browserEnv from 'browser-env';
 import {mockTranslate} from '@coorpacademy/translate';
-import * as services from '../services';
+import * as services from '../../redux/services';
 import {create} from '..';
 
 browserEnv(['window', 'document', 'navigator']);

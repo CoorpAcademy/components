@@ -1,9 +1,8 @@
 import __ from 'lodash/fp/__';
 import mapValues from 'lodash/fp/mapValues';
 import pipe from 'lodash/fp/pipe';
-// import Player from '@coorpacademy/components/es/template/app-player/player';
-import createHeaderStateToProps from './state-to-props/header';
-import createPlayerStateToProps from './state-to-props/player';
+import createHeaderStateToProps from './header';
+import createPlayerStateToProps from './player';
 
 // eslint-disable-next-line import/prefer-default-export
 export const createSlideStateToProps = (options, dispatch) => {

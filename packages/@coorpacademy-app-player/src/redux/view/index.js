@@ -7,7 +7,8 @@ import pipe from 'lodash/fp/pipe';
 import {getStepContent, getCurrentProgression, getRoute} from '../utils/state-extract';
 import {popinCorrectionStateToProps} from './state-to-props/popin-correction';
 import popinEndStateToProps from './state-to-props/popin-end';
-import {createSlideStateToProps} from './slide';
+import loadingStateToProps from './state-to-props/loading';
+import {createSlideStateToProps} from './state-to-props/slide';
 
 const hasNotProgression = pipe(getCurrentProgression, isNil);
 const hasNoContent = pipe(getStepContent, isNil);
@@ -16,20 +17,29 @@ const matchContentType = contentType => pipe(getStepContent, get('type'), isEqua
 const matchContentRef = contentType => pipe(getStepContent, get('ref'), isEqual(contentType));
 
 // eslint-disable-next-line import/prefer-default-export
-export const createStateToView = (options, store, views, createView) =>
+export const selectMapStateToVNode = (options, store, views, createStateToVNode) =>
   cond([
-    [hasNotProgression, createView(views.loading, state => ({}))],
-    [hasNoContent, createView(views.loading, state => ({}))],
+    [hasNotProgression, createStateToVNode(views.loading, loadingStateToProps)],
+    [hasNoContent, createStateToVNode(views.loading, loadingStateToProps)],
     [
       matchRoute('correction'),
-      createView(views.popinCorrection, popinCorrectionStateToProps(options, store))
+      createStateToVNode(views.popinCorrection, popinCorrectionStateToProps(options, store))
     ],
     [
       matchContentRef('extraLife'),
-      createView(views.popinCorrection, popinCorrectionStateToProps(options, store))
+      createStateToVNode(views.popinCorrection, popinCorrectionStateToProps(options, store))
     ],
-    [matchContentType('slide'), createView(views.player, createSlideStateToProps(options, store))],
-    [matchContentType('success'), createView(views.popinEnd, popinEndStateToProps(options, store))],
-    [matchContentType('failure'), createView(views.popinEnd, popinEndStateToProps(options, store))],
-    [constant(true), createView(views.loading, state => ({}))]
+    [
+      matchContentType('slide'),
+      createStateToVNode(views.player, createSlideStateToProps(options, store))
+    ],
+    [
+      matchContentType('success'),
+      createStateToVNode(views.popinEnd, popinEndStateToProps(options, store))
+    ],
+    [
+      matchContentType('failure'),
+      createStateToVNode(views.popinEnd, popinEndStateToProps(options, store))
+    ],
+    [constant(true), createStateToVNode(views.loading, loadingStateToProps)]
   ]);

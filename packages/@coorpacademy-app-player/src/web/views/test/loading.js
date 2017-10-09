@@ -1,16 +1,10 @@
 import test from 'ava';
-import noop from 'lodash/fp/noop';
-import {mockTranslate} from '@coorpacademy/translate';
-import loadingStateToProps from '../loading';
 import testRendering from './helpers/render';
+import stateToVNode from './helpers/state-to-vnode';
 
-const options = {
-  translate: mockTranslate
-};
-
-const toProps = loadingStateToProps(options, {dispatch: noop});
+const mapStateToVNode = stateToVNode({}, {});
 
 test('should display loading view', t => {
-  const vNode = toProps();
+  const vNode = mapStateToVNode({});
   t.notThrows(() => testRendering(vNode));
 });

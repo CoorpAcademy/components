@@ -2,8 +2,8 @@ import test from 'ava';
 import {mockTranslate} from '@coorpacademy/translate';
 import identity from 'lodash/fp/identity';
 import get from 'lodash/fp/get';
-import {createMapStateToProps} from '..';
-import statePopinExtraLife from './fixtures/popin-correction/popin-extra-life';
+import {popinCorrectionStateToProps} from '../../../redux/view/state-to-props/popin-correction';
+import statePopinExtraLife from '../../../redux/view/test/fixtures/popin-correction/popin-extra-life';
 
 const Vimeo = {Player: () => true};
 const options = {
@@ -11,10 +11,10 @@ const options = {
   Vimeo
 };
 
-const mapStateToProps = createMapStateToProps(options, {dispatch: identity});
+const mapStateToProps = popinCorrectionStateToProps(options, {dispatch: identity});
 
 test('should open popin-correction if current content ref is extraLife', t => {
-  const {props} = mapStateToProps(statePopinExtraLife);
+  const props = mapStateToProps(statePopinExtraLife);
 
   t.is(get('header.lives', props), 0);
   t.is(get('header.cta.title', props), '__Game over');
