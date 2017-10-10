@@ -1799,6 +1799,7 @@ export const dependencies = {
           "PopinHeader": true
         },
         "Molecule": {
+          "VideoPlayer": true,
           "SetupSections": true,
           "BrandUploadBox": true
         },
@@ -2460,6 +2461,9 @@ export const dependencies = {
       "children": {
         "Molecule": {
           "VideoIframe": true
+        },
+        "Atom": {
+          "Loader": true
         }
       }
     }

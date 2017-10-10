@@ -5,6 +5,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Provider from '../../atom/provider';
+import Loader from '../../atom/loader';
 
 const eventNames = {
   ready: 'onReady',
@@ -26,6 +27,9 @@ class Vimeo extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.refContainer = this.refContainer.bind(this);
+    this.state = {
+      isLoading: true
+    };
   }
 
   componentDidMount() {
@@ -87,6 +91,9 @@ class Vimeo extends React.Component {
     });
     this.player.on('loaded', () => {
       this.updateProps(['width', 'height']);
+      this.setState(state => ({
+        isLoading: false
+      }));
     });
 
     Object.keys(eventNames).forEach(dmName => {
@@ -104,7 +111,11 @@ class Vimeo extends React.Component {
   }
 
   render() {
-    return <div className={this.props.className} ref={this.refContainer} />;
+    return (
+      <div className={this.props.className} ref={this.refContainer}>
+        {this.state.isLoading ? <Loader /> : null}
+      </div>
+    );
   }
 }
 
