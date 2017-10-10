@@ -37,7 +37,12 @@
   font-size: 15px;
 }
 
-.cancelSubscriptionLink {
+.homeLink {
+  margin-left: 0.25em;
+}
+
+.cancelSubscriptionLink,
+.homeLink {
   text-decoration: none;
   color: brand;
 }
