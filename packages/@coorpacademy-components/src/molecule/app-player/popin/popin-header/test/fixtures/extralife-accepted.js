@@ -7,7 +7,7 @@ export default {
     title: 'Aïe Aïe Aïe',
     extraLife: {
       active: true,
-      sentence: 'Bonus ! Récupérez une vie en regardant la leçon !'
+      sentence: 'Bonus ! Récupérez 1 vie en regardant la leçon !'
     },
     subtitle: 'Mauvaise réponse',
     corrections: [{answer: 'Je ne sais pas', isCorrect: false}],

@@ -59,7 +59,7 @@ Answer.propTypes = {
       'qcmGraphic',
       'freeText',
       'dropDown',
-      'range',
+      'slider',
       'template'
     ]).required
   }),

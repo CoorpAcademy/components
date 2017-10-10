@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import compact from 'lodash/fp/compact';
+import isEmpty from 'lodash/fp/isEmpty';
 import flatten from 'lodash/fp/flatten';
 import get from 'lodash/fp/get';
 import isNil from 'lodash/fp/isNil';
@@ -11,6 +12,7 @@ import ArrowRight from '@coorpacademy/nova-icons/composition/navigation/arrow-ri
 import ChartsIcon from '@coorpacademy/nova-icons/composition/coorpacademy/charts';
 import StarIcon from '@coorpacademy/nova-icons/composition/coorpacademy/star';
 import Heart from '@coorpacademy/nova-icons/solid/vote-and-rewards/vote-heart';
+import HeartBroken from '@coorpacademy/nova-icons/composition/coorpacademy/broken-heart';
 import classnames from 'classnames';
 import Loader from '../../../../atom/loader';
 import Life from '../../../../atom/life';
@@ -140,21 +142,35 @@ const NextQuestionPart = (props, context) => {
   const {active: isExtraLife} = extraLife;
   const isGameOver = !revival && (fail || isExtraLife);
 
+  let dataNext;
+  if (fail) {
+    if (isEmpty(extraLife)) {
+      dataNext = 'redo-content';
+    } else if (revival) {
+      dataNext = 'continue-used-extra-life';
+    } else if (isExtraLife) {
+      dataNext = 'game-over-with-extra-life';
+    } else {
+      dataNext = 'game-over-without-extra-life';
+    }
+  } else if (isEmpty(extraLife)) {
+    dataNext = 'home';
+  } else {
+    dataNext = 'continue-success';
+  }
+
   return (
     <Link
       className={classnames(
         style.nextSection,
         isGameOver && style.gameOver,
-        revival && style.oneMoreLife
+        (isEmpty(extraLife) || revival) && style.oneMoreLife
       )}
       data-name="nextLink"
       {...linkProps}
     >
-      <div
-        data-name="nextButton"
-        data-next={isGameOver ? 'gameOver' : 'success'}
-        className={style.nextButton}
-      >
+
+      <div data-name="nextButton" data-next={dataNext} className={style.nextButton}>
         {title}
         <ArrowRight color="inherit" className={style.nextButtonIcon} />
       </div>
@@ -164,7 +180,7 @@ const NextQuestionPart = (props, context) => {
 
 const RemainingLife = (props, {skin}) => {
   const {extraLife, revival} = props;
-  const {sentence, active: isExtraLife} = extraLife;
+  const {sentence, active: isExtraLife, exhausted} = extraLife;
   const negative = get('common.negative', skin);
   const white = get('common.white', skin);
 
@@ -173,10 +189,13 @@ const RemainingLife = (props, {skin}) => {
       className={classnames(
         style.remainingLifeRequestsSentence,
         isExtraLife && style.askLife,
-        revival && style.oneMoreLifegained
+        revival && style.oneMoreLifegained,
+        exhausted && style.exhaustedLife
       )}
     >
-      <Heart color={negative} outline={white} outlineWidth={3} className={style.heart} />
+      {exhausted
+        ? <HeartBroken color={negative} outline={white} outlineWidth={2} className={style.heart} />
+        : <Heart color={negative} outline={white} outlineWidth={2} className={style.heart} />}
       {sentence}
     </div>
   );
@@ -202,8 +221,8 @@ const PopinHeader = (props, context) => {
   } = props;
 
   const state = buildClass(fail, 'success', 'fail', null);
-  const {active: isExtraLife} = extraLife;
-  const RemainingLifePart = isExtraLife
+  const {active: isExtraLife, exhausted} = extraLife;
+  const RemainingLifePart = isExtraLife || exhausted
     ? <RemainingLife extraLife={extraLife} revival={revival} />
     : null;
 
@@ -212,7 +231,8 @@ const PopinHeader = (props, context) => {
       className={classnames(
         style.header,
         isExtraLife && style.gameOverHeader,
-        revival && style.revivalHeader
+        revival && style.revivalHeader,
+        exhausted && style.exhaustedLifeHeader
       )}
       data-name="popinHeader"
       data-state={state}
@@ -246,7 +266,8 @@ PopinHeader.propTypes = {
   fail: Life.propTypes.fail,
   extraLife: PropTypes.shape({
     active: PropTypes.bool,
-    sentence: PropTypes.string
+    sentence: PropTypes.string,
+    exhausted: PropTypes.bool
   }),
   lives: Life.propTypes.count,
   revival: PropTypes.bool,

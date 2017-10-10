@@ -59,6 +59,7 @@ export const popinCorrectionStateToProps = (options, store) => state => {
   const isLoading = isNil(isCorrect);
   const isExtraLifeActive = get('state.nextContent.ref', progression) === 'extraLife';
   const isRevival = get('ui.extraLife.acceptRevivalPending', state);
+  const exhausted = !isRevival && !isCorrect && !isExtraLifeActive;
 
   const header = isNil(answerResult)
     ? {}
@@ -88,7 +89,10 @@ export const popinCorrectionStateToProps = (options, store) => state => {
           corrections,
           extraLife: {
             active: isExtraLifeActive,
-            sentence: translate('extra_life_suggestion')
+            sentence: exhausted
+              ? translate('exhausted_extra_life_suggestion')
+              : translate('extra_life_suggestion'),
+            exhausted
           },
           cta: createHeaderCTA(options, store)(state),
           ...header
