@@ -9,7 +9,6 @@
 @value medium from colors;
 @value dark from colors;
 @value black from colors;
-@value xtraLightGrey from colors;
 
 @keyframes biggerHeader {
   0% {
@@ -43,7 +42,7 @@
   height: 100px;
   background-color: white;
   animation: biggerHeader 1s ease;
-  animation-delay: 2s;
+  animation-delay: 1s;
   animation-fill-mode: forwards;
 }
 
@@ -51,7 +50,7 @@
   height: 142px;
   animation: smallerHeader 1s;
   animation-fill-mode: forwards;
-  animation-delay: 2s;
+  animation-delay: 0s;
 }
 
 .headerTitle {
@@ -61,6 +60,7 @@
   font-family: 'Open Sans';
   top: 0;
   z-index: 2;
+  border-bottom: solid 1px light;
 }
 
 .section {
@@ -199,6 +199,7 @@
 
 .nextSection {
   composes: section;
+  composes: hoverFill from '../../../../atom/button/hover-fill.css';
   position: relative;
   cursor: pointer;
   display: flex;
@@ -209,22 +210,24 @@
   color: medium;
   flex: 1;
   min-height: 56px;
+  border-left: solid 1px light;
+}
+
+.nextSection::before {
+  background-color: grey;
+  opacity: 0.15;
 }
 
 .gameOver {
   background-color: negative;
   color: white;
-  border-left: solid 1px white;
 }
 
 .oneMoreLife {
   background-color: light;
   color: medium;
-  transition: background 0.8s;
-}
-
-.nextSection.gameOver:hover .nextButton {
-  color: black;
+  transition: background 1s linear 0.6s,
+                   color 0.7s linear 0.6s;
 }
 
 .nextButton {
@@ -238,13 +241,8 @@
   align-items: center;
   background-color: transparent;
   border-radius: none;
-  border: none;
   outline: none;
   transition: color 0.3s;
-}
-
-.nextSection:hover .nextButton {
-  color: dark;
 }
 
 .nextButtonIcon {
@@ -262,10 +260,6 @@
     top: 0;
   }
 
-  90% {
-    top: 107px;
-  }
-
   100% {
     top: 100px;
   }
@@ -274,10 +268,6 @@
 @keyframes addedLife {
   0% {
     top: 100px;
-  }
-
-  90% {
-    top: 107px;
   }
 
   100% {
@@ -295,15 +285,14 @@
 
 .remainingLifeRequestsSentence {
   display: block;
-  background-color: xtraLightGrey;
-  border: solid 1px light;
+  background-color: negative;
   width: 100%;
   padding: 8px;
   box-sizing: border-box;
   font-family: 'Open Sans';
-  font-size: 17px;
+  font-size: 14px;
   font-weight: 700;
-  color: dark;
+  color: white;
   position: absolute;
   top: 100px;
   z-index: 1;
@@ -312,7 +301,7 @@
 .askLife {
   top: 0;
   animation: remainingLifeRequests 0.5s ease-out;
-  animation-delay: 2.1s;
+  animation-delay: 1s;
   animation-fill-mode: forwards;
 }
 
@@ -320,7 +309,7 @@
   top: 100px;
   animation: addedLife 0.5s ease-in;
   animation-fill-mode: forwards;
-  animation-delay: 2.1s;
+  animation-delay: 0s;
 }
 
 @media tablet {
@@ -431,8 +420,7 @@
   }
 
   .gameOver {
-    border-left: 0;
-    border-top: solid 1px white;
+    border-top: solid 1px light;
   }
 
   .titleElement {

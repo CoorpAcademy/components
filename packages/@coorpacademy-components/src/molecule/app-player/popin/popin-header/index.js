@@ -166,6 +166,7 @@ const RemainingLife = (props, {skin}) => {
   const {extraLife, revival} = props;
   const {sentence, active: isExtraLife} = extraLife;
   const negative = get('common.negative', skin);
+  const white = get('common.white', skin);
 
   return (
     <div
@@ -175,7 +176,7 @@ const RemainingLife = (props, {skin}) => {
         revival && style.oneMoreLifegained
       )}
     >
-      <Heart color={negative} className={style.heart} />
+      <Heart color={negative} outline={white} outlineWidth={3} className={style.heart} />
       {sentence}
     </div>
   );

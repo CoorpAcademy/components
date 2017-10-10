@@ -3,6 +3,7 @@ export default {
     fail: true,
     lives: 0,
     title: 'Aïe Aïe Aïe',
+    animated: true,
     extraLife: {
       active: true, // remainingLifeRequests
       sentence: 'Bonus ! Récupérez une vie en regardant la leçon !' // remainingLifeRequestsSentence
