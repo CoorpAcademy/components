@@ -1,0 +1,22 @@
+@value colors: "../../../../variables/colors.css";
+@value light from colors;
+
+.wrapper {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  background-color: light;
+}
+
+.livesWrapper {
+  background-color: light;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.life {
+  margin-right: 16px;
+}

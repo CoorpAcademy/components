@@ -1,4 +1,4 @@
-import SlidesHeader from '../../../../../molecule/slides/slides-header/test/fixtures/default';
+import SlidesHeader from '../../player-header/test/fixtures/learner';
 import QuestionRange from '../../../../../molecule/slides/slides-player/test/fixtures/range';
 
 const headerProps = SlidesHeader.props;

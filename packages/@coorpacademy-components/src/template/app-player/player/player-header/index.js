@@ -1,0 +1,44 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import Link from '../../../../atom/link';
+import Life from '../../../../atom/life';
+import Learner from './learner';
+import Microlearning from './microlearning';
+import style from './style.css';
+
+const PlayerHeaders = {
+  learner: Learner,
+  microlearning: Microlearning
+};
+
+const PlayerHeader = (props, context) => {
+  const {type, lives} = props;
+  const Header = PlayerHeaders[type];
+
+  return (
+    <div data-name="slidesHeader" className={style.wrapper}>
+      <Header {...props} />
+      <div className={style.livesWrapper}>
+        <Life {...lives} className={style.life} mode="small" />
+      </div>
+    </div>
+  );
+};
+
+PlayerHeader.propTypes = {
+  type: PropTypes.oneOf(['learner', 'microlearning']),
+  content: PropTypes.shape({
+    href: Link.propTypes.href,
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string
+  }),
+  subcontent: PropTypes.shape({
+    title: PropTypes.string,
+    subtitle: PropTypes.string
+  }),
+  lives: PropTypes.shape({
+    count: PropTypes.number.isRequired
+  })
+};
+
+export default PlayerHeader;
