@@ -38,7 +38,7 @@ function contentResourceViewedAction(
         type: 'video',
         version: '1'
       },
-      chapter: {
+      content: {
         ref: contentRef,
         type: contentType,
         version: '1'

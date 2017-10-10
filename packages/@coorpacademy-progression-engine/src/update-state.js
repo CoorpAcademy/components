@@ -62,12 +62,12 @@ function viewedResources(config: Config): (Array<ViewedResource>, Action) => Arr
     switch (action.type) {
       case 'resource': {
         const resourceViewAction = (action: ContentResourceViewedAction);
-        const contentRef = resourceViewAction.payload.chapter.ref;
-        const contentType = resourceViewAction.payload.chapter.type;
+        const contentRef = resourceViewAction.payload.content.ref;
+        const contentType = resourceViewAction.payload.content.type;
         const resourceRef = resourceViewAction.payload.resource.ref;
-        const chapterIndex = findIndex({ref: contentRef}, currentViewedResources);
+        const contentIndex = findIndex({ref: contentRef}, currentViewedResources);
 
-        if (chapterIndex === -1) {
+        if (contentIndex === -1) {
           return concat(currentViewedResources, {
             type: contentType,
             ref: contentRef,
@@ -75,13 +75,13 @@ function viewedResources(config: Config): (Array<ViewedResource>, Action) => Arr
           });
         }
 
-        const chapterResources = get('resources', currentViewedResources[chapterIndex]);
-        const resourceAlreadyViewed = includes(resourceRef, chapterResources);
+        const contentResources = get('resources', currentViewedResources[contentIndex]);
+        const resourceAlreadyViewed = includes(resourceRef, contentResources);
 
         if (resourceAlreadyViewed) return currentViewedResources;
         return set(
-          [chapterIndex, 'resources'],
-          concat(chapterResources, resourceRef),
+          [contentIndex, 'resources'],
+          concat(contentResources, resourceRef),
           currentViewedResources
         );
       }
@@ -204,8 +204,8 @@ function stars(config: Config): (number, Action, State) => number {
       }
       case 'resource': {
         const contentResourceViewedAction = (action: ContentResourceViewedAction);
-        const contentRef = contentResourceViewedAction.payload.chapter.ref;
-        const contentType = contentResourceViewedAction.payload.chapter.type;
+        const contentRef = contentResourceViewedAction.payload.content.ref;
+        const contentType = contentResourceViewedAction.payload.content.type;
         const contentResourceAlreadyViewed = Boolean(
           find({type: contentType, ref: contentRef}, state.viewedResources)
         );

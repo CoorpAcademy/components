@@ -48,7 +48,7 @@ export type ContentResourceViewedAction = {
   type: 'resource',
   payload: {
     resource: ResourceContent,
-    chapter: Content
+    content: Content
   }
 };
 
