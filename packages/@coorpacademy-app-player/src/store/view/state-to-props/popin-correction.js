@@ -90,8 +90,8 @@ export const popinCorrectionStateToProps = (options, store) => state => {
           extraLife: {
             active: isExtraLifeActive,
             sentence: exhausted
-              ? translate('exhausted_extra_life_suggestion')
-              : translate('extra_life_suggestion'),
+              ? translate('Sorry, you have used your bonus!')
+              : translate('Bonus! Get an extra life by watching the lesson below!'),
             exhausted
           },
           cta: createHeaderCTA(options, store)(state),
