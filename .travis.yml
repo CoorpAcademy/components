@@ -49,3 +49,47 @@ deploy:
       "upgrade-nodejs" --base $TRAVIS_BRANCH --github_token $GH_TOKEN
     'on':
       branch: master
+  - provider: script
+    script: >-
+      curl -s -X POST
+      -H "Content-Type: application/json"
+      -H "Accept: application/json"
+      -H "Travis-API-Version: 3"
+      -H "Authorization: token $TRAVIS_TOKEN"
+      -d '{"request":{"Branch":"master"}}'
+      https://api.travis-ci.com/repo/CoorpAcademy%2Fcoorpacademy/requests
+    'on':
+      tags: true
+  - provider: script
+    script: >-
+      curl -s -X POST
+      -H "Content-Type: application/json"
+      -H "Accept: application/json"
+      -H "Travis-API-Version: 3"
+      -H "Authorization: token $TRAVIS_TOKEN"
+      -d '{"request":{"Branch":"master"}}'
+      https://api.travis-ci.com/repo/CoorpAcademy%2Fcockpit/requests
+    'on':
+      tags: true
+  - provider: script
+    script: >-
+      curl -s -X POST
+      -H "Content-Type: application/json"
+      -H "Accept: application/json"
+      -H "Travis-API-Version: 3"
+      -H "Authorization: token $TRAVIS_TOKEN"
+      -d '{"request":{"Branch":"master"}}'
+      https://api.travis-ci.com/repo/CoorpAcademy%2Fstore/requests
+    'on':
+      tags: true
+  - provider: script
+    script: >-
+      curl -s -X POST
+      -H "Content-Type: application/json"
+      -H "Accept: application/json"
+      -H "Travis-API-Version: 3"
+      -H "Authorization: token $TRAVIS_TOKEN"
+      -d '{"request":{"Branch":"master"}}'
+      https://api.travis-ci.com/repo/CoorpAcademy%2Fapi-progression/requests
+    'on':
+      tags: true
