@@ -57,7 +57,7 @@
   height: 138px;
   animation: smallerHeader 0.5s ease-out;
   animation-fill-mode: forwards;
-  animation-delay: 0s;
+  animation-delay: 1.6s;
 }
 
 .headerTitle {
@@ -237,7 +237,7 @@
 .oneMoreLife {
   background-color: light;
   color: medium;
-  transition: background 1s linear 0.6s, color 0.7s linear 0.6s;
+  transition: background 0.6s linear 1.6s, color 0.3s linear 1.6s;
 }
 
 .nextButton {
@@ -326,7 +326,7 @@
   top: 100px;
   animation: addedLife 0.5s ease-in;
   animation-fill-mode: forwards;
-  animation-delay: 0s;
+  animation-delay: 1.6s;
 }
 
 @media tablet {
@@ -370,10 +370,6 @@
     top: -100px;
   }
 
-  90% {
-    top: 7px;
-  }
-
   100% {
     top: 0;
   }
@@ -382,10 +378,6 @@
 @keyframes mobileAddedLife {
   0% {
     top: 0;
-  }
-
-  90% {
-    top: 7px;
   }
 
   100% {
@@ -436,8 +428,9 @@
     height: 99px;
   }
 
-  .gameOver {
+  .nextSection {
     border-top: solid 1px light;
+    border-left: none;
   }
 
   .titleElement {
@@ -458,6 +451,13 @@
     top: -100px;
     animation: mobileRemainingLifeRequests 0.5s ease-out;
     animation-delay: 1s;
+    animation-fill-mode: forwards;
+  }
+
+  .exhaustedLife {
+    top: -100px;
+    animation: mobileRemainingLifeRequests 0.5s ease-out;
+    animation-delay: 1.2s;
     animation-fill-mode: forwards;
   }
 

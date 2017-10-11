@@ -194,8 +194,8 @@ const RemainingLife = (props, {skin}) => {
       )}
     >
       {exhausted
-        ? <HeartBroken color={negative} outline={white} outlineWidth={2} className={style.heart} />
-        : <Heart color={negative} outline={white} outlineWidth={2} className={style.heart} />}
+        ? <HeartBroken color={negative} outline={white} outlineWidth={3} className={style.heart} />
+        : <Heart color={negative} outline={white} outlineWidth={4} className={style.heart} />}
       {sentence}
     </div>
   );
