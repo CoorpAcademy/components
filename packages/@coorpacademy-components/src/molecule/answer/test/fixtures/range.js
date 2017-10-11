@@ -5,7 +5,7 @@ const answerProps = QuestionRange.props;
 export default {
   props: {
     model: {
-      type: 'range',
+      type: 'slider',
       ...answerProps
     }
   }

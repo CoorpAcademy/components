@@ -178,6 +178,11 @@
   100% { opacity: 0; }
 }
 
+@keyframes show {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
 .heartOutline {
   composes: heartIcon;
 }
@@ -189,6 +194,10 @@
 
 .heartNormalRevival {
   composes: heartNormalDefault;
+  opacity: 0;
+  animation-name: show;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
 }
 
 .heartNormalFail {
@@ -210,7 +219,7 @@
 
 .heartBrokenRevival {
   composes: heartBrokenDefault;
-  opacity: 0;
+  opacity: 1;
 }
 
 .heartBrokenFail {

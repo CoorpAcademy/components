@@ -63,12 +63,10 @@ const Card = (props, context) => {
         />
       </div>
     : null;
-  const emptyIcon = empty
-    ? <PicturesIcon className={style.emptyIcon} color={whiteColor} background={defaultColor} />
-    : null;
+  const emptyIcon = empty ? <PicturesIcon className={style.emptyIcon} color={whiteColor} /> : null;
   const freeRunIcon = freerun
     ? <div className={style.timerIconWrapper}>
-        <TimerIcon className={style.freerunIcon} color={mediumColor} background={defaultColor} />
+        <TimerIcon className={style.freerunIcon} color={mediumColor} />
       </div>
     : null;
   const adaptivIcon = adaptiv ? <AdaptivBubble color="white" background={defaultColor} /> : null;

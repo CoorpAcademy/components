@@ -368,6 +368,7 @@ import VideoPlayerFixtureJwplayer from '../src/molecule/video-player/test/fixtur
 import VideoPlayerFixtureKontiki from '../src/molecule/video-player/test/fixtures/kontiki';
 import VideoPlayerFixtureVimeo from '../src/molecule/video-player/test/fixtures/vimeo';
 import VideoPlayerFixtureYoutube from '../src/molecule/video-player/test/fixtures/youtube';
+import PopinHeaderFixtureExhaustedExtralife from '../src/molecule/app-player/popin/popin-header/test/fixtures/exhausted-extralife';
 import PopinHeaderFixtureExtralifeAccepted from '../src/molecule/app-player/popin/popin-header/test/fixtures/extralife-accepted';
 import PopinHeaderFixtureExtralife from '../src/molecule/app-player/popin/popin-header/test/fixtures/extralife';
 import PopinHeaderFixtureFailMultipleAnswers from '../src/molecule/app-player/popin/popin-header/test/fixtures/fail-multiple-answers';
@@ -1129,6 +1130,7 @@ export const fixtures = {
   },
   MoleculeAppPlayerPopin: {
     PopinHeader: {
+      ExhaustedExtralife: PopinHeaderFixtureExhaustedExtralife,
       ExtralifeAccepted: PopinHeaderFixtureExtralifeAccepted,
       Extralife: PopinHeaderFixtureExtralife,
       FailMultipleAnswers: PopinHeaderFixtureFailMultipleAnswers,
@@ -1471,7 +1473,8 @@ export const dependencies = {
           "QuestionRange": true
         },
         "Molecule": {
-          "Filters": true
+          "Filters": true,
+          "Answer": true
         }
       },
       "children": {}
@@ -1799,6 +1802,7 @@ export const dependencies = {
           "PopinHeader": true
         },
         "Molecule": {
+          "VideoPlayer": true,
           "SetupSections": true,
           "BrandUploadBox": true
         },
@@ -2420,7 +2424,8 @@ export const dependencies = {
       "children": {
         "Atom": {
           "Picture": true,
-          "Select": true
+          "Select": true,
+          "Range": true
         },
         "MoleculeQuestions": {
           "FreeText": true,
@@ -2428,6 +2433,7 @@ export const dependencies = {
           "QcmDrag": true,
           "QcmGraphic": true,
           "Qcm": true,
+          "QuestionRange": true,
           "Template": true
         }
       }
@@ -2460,6 +2466,9 @@ export const dependencies = {
       "children": {
         "Molecule": {
           "VideoIframe": true
+        },
+        "Atom": {
+          "Loader": true
         }
       }
     }
@@ -2903,6 +2912,18 @@ export const dependencies = {
       },
       "children": {}
     },
+    "QuestionRange": {
+      "parents": {
+        "Molecule": {
+          "Answer": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Range": true
+        }
+      }
+    },
     "Template": {
       "parents": {
         "Molecule": {
@@ -2916,13 +2937,6 @@ export const dependencies = {
         "MoleculeQuestions": {
           "DropDown": true,
           "FreeText": true
-        }
-      }
-    },
-    "QuestionRange": {
-      "children": {
-        "Atom": {
-          "Range": true
         }
       }
     }
