@@ -16,9 +16,8 @@ export default {
     onBackToCatalogButtonClick: () => {},
     activeContent: 'my-subscription',
     tabTitle: 'Tab title',
-    isPromoCode: false,
+    isPromoCode: true,
     subscriptionPremiumDescriptionDate: '24/04/2017',
-    subscriptionPremiumDescriptionPrice: '9.90',
     checkImage: 'http://iconshow.me/media/images/Mixed/small-n-flat-icon/png2/256/-sign-check.png'
   }
 };

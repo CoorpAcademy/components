@@ -352,6 +352,7 @@ import SsmenuListFixtureFormations from '../src/molecule/ssmenu-list/test/fixtur
 import SsmenuListFixtureSolutions from '../src/molecule/ssmenu-list/test/fixtures/solutions';
 import SubscriptionFreemiumFixtureDefault from '../src/molecule/subscription-freemium/test/fixtures/default';
 import SubscriptionPremiumFixtureDefault from '../src/molecule/subscription-premium/test/fixtures/default';
+import SubscriptionPremiumFixturePromoCode from '../src/molecule/subscription-premium/test/fixtures/promo-code';
 import TableFixtureDefault from '../src/molecule/table/test/fixtures/default';
 import TableFixtureNoOptions from '../src/molecule/table/test/fixtures/no-options';
 import ThemeImageFixtureBg from '../src/molecule/theme-image/test/fixtures/bg';
@@ -489,6 +490,7 @@ import ResourceBrowserFixtureVideoSelected from '../src/organism/resource-browse
 import SettingsFixtureDefault from '../src/organism/settings/test/fixtures/default';
 import SettingsFixtureFreemium from '../src/organism/settings/test/fixtures/freemium';
 import SettingsFixturePremium from '../src/organism/settings/test/fixtures/premium';
+import SettingsFixturePromoCode from '../src/organism/settings/test/fixtures/promo-code';
 import SetupHeaderFixtureDefault from '../src/organism/setup-header/test/fixtures/default';
 import SidebarFixtureAnalytics from '../src/organism/sidebar/test/fixtures/analytics';
 import SidebarFixtureCustom from '../src/organism/sidebar/test/fixtures/custom';
@@ -1094,7 +1096,8 @@ export const fixtures = {
       Default: SubscriptionFreemiumFixtureDefault
     },
     SubscriptionPremium: {
-      Default: SubscriptionPremiumFixtureDefault
+      Default: SubscriptionPremiumFixtureDefault,
+      PromoCode: SubscriptionPremiumFixturePromoCode
     },
     Table: {
       Default: TableFixtureDefault,
@@ -1325,7 +1328,8 @@ export const fixtures = {
     Settings: {
       Default: SettingsFixtureDefault,
       Freemium: SettingsFixtureFreemium,
-      Premium: SettingsFixturePremium
+      Premium: SettingsFixturePremium,
+      PromoCode: SettingsFixturePromoCode
     },
     SetupHeader: {
       Default: SetupHeaderFixtureDefault
