@@ -38,7 +38,7 @@ test(
             type: resource.type,
             version: '1'
           },
-          chapter: content,
+          content,
           slide: 'slide2'
         });
 
@@ -86,7 +86,7 @@ test(
             type: resource.type,
             version: '1'
           },
-          chapter: content,
+          content,
           slide: 'slide1'
         });
 
@@ -156,7 +156,7 @@ test(
             type: resource.type,
             version: '1'
           },
-          chapter: content,
+          content,
           slide: 'slide2'
         });
         throw new Error();
