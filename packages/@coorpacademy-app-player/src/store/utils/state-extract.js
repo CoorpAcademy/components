@@ -19,6 +19,16 @@ export const getCurrentProgression = state => {
   return getProgression(id)(state);
 };
 
+export const getCurrentEngine = state => {
+  const progression = getCurrentProgression(state);
+  return get(['engine'], progression);
+};
+
+export const isCurrentEngineMicrolearning = state => {
+  const engine = getCurrentEngine(state);
+  return get('ref', engine) === 'microlearning';
+};
+
 export const getAnswers = state => {
   const progressionId = getCurrentProgressionId(state);
   return getOr({}, ['ui', 'answers', progressionId])(state);

@@ -12,7 +12,8 @@ import {
   getRecommendations,
   getBestScore,
   getStartRank,
-  getEndRank
+  getEndRank,
+  isCurrentEngineMicrolearning
 } from '../../utils/state-extract';
 import headerProps from './header';
 
@@ -39,6 +40,7 @@ const extractStars = state => {
 
 const summaryHeader = ({translate}, {dispatch}) => state => {
   const progression = getCurrentProgression(state);
+  const retrySuffixKey = isCurrentEngineMicrolearning(state) ? 'chapter' : 'level';
   return cond([
     [
       pipe(get('type'), isEqual('success')),
@@ -64,7 +66,7 @@ const summaryHeader = ({translate}, {dispatch}) => state => {
         rank: extractRank(state),
         stars: null,
         cta: {
-          title: translate('Retry chapter'),
+          title: translate(`Retry ${retrySuffixKey}`),
           onClick: () => dispatch(retry)
         }
       })
@@ -88,6 +90,8 @@ const extractRecommendation = ({translate}, store) => state => {
 
 const extractAction = ({translate}, {dispatch}) => state => {
   const recommendations = getRecommendations(state);
+  const progression = getCurrentProgression(state);
+  const nextRetrySuffixKey = isCurrentEngineMicrolearning(state) ? 'chapter' : 'level';
   return cond([
     [
       pipe(get('type'), isEqual('success')),
@@ -95,7 +99,7 @@ const extractAction = ({translate}, {dispatch}) => state => {
         get('nextChapter', recommendations) && {
           type: 'nextCourse',
           description: translate('Check out the next chapter in this course!'),
-          prefix: translate('Next chapter_'),
+          prefix:  translate(`Next ${nextRetrySuffixKey}_`) ,
           ...recommendations.nextChapter
         }
     ],
@@ -103,10 +107,10 @@ const extractAction = ({translate}, {dispatch}) => state => {
       pipe(get('type'), isEqual('failure')),
       () => ({
         type: 'simple',
-        prefix: translate('Retry chapter_'),
+        prefix: translate(`Retry ${nextRetrySuffixKey}_`),
         title: getOr('', 'name')(getCurrentContent(state)),
         button: {
-          title: translate('Retry chapter'),
+          title: translate(`Retry ${nextRetrySuffixKey}`),
           onClick: () => dispatch(retry)
         }
       })
