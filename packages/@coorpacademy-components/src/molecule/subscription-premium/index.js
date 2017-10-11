@@ -85,6 +85,7 @@ SubscriptionPremiumDetails.contextTypes = {
 
 SubscriptionPremiumDetails.propTypes = {
   checkImage: PropTypes.string,
+  isPromoCode: PropTypes.bool.isRequired,
   subscriptionPremiumDescriptionDate: PropTypes.string,
   subscriptionPremiumDescriptionPrice: PropTypes.string,
   subscriptionPremiumDescriptionLink: PropTypes.string
