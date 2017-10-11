@@ -9,6 +9,7 @@ coverage:
     patch: off
     project:
       default: false
+      appForum: off
       appPlayer:
         target: 100%
         paths: "packages/@coorpacademy-app-player"
@@ -44,18 +45,4 @@ coverage:
         paths: "packages/@coorpacademy-webpack-config"
       repository:
         paths: "!packages/"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
