@@ -8,7 +8,7 @@ const headerContent = (engineRef, state) => {
   switch (engineRef) {
     case 'learner':
       return {
-        title: 'todo get level name',
+        title: getOr('', 'name')(content),
         details: get('level')(content)
       };
     case 'microlearning':

@@ -11,7 +11,6 @@
   min-width: 0;
   height: 100%;
   display: flex;
-  cursor: pointer;
   background-color: xtraLightGrey;
 }
 
@@ -26,6 +25,7 @@
   display: flex;
   align-items: center;
   text-decoration: none;
+  cursor: pointer;
   max-width: 100%;
 }
 
