@@ -1,0 +1,45 @@
+{
+  "data": {
+    "contents": {
+      "slide": {"entities": {}},
+      "level": {
+        "entities": {
+          "1": {
+            "name": "level1",
+            "level": "base"
+          }
+        }
+      }
+    },
+    "progressions": {
+      "entities": {
+        "0": {
+          "engine": {
+            "ref": "learner",
+            "version": "1"
+          },
+          "state": {
+            "nextContent": {
+              "ref": "0",
+              "type": "slide"
+            },
+            "lives": 3,
+            "step": {
+              "current": 0,
+              "total": 4
+            }
+          },
+          "content": {
+            "ref": "1",
+            "type": "level"
+          }
+        }
+      }
+    }
+  },
+  "ui": {
+    "current": {
+      "progressionId": "0"
+    }
+  }
+}

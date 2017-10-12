@@ -10,7 +10,11 @@ import {
   exit,
   LOCATION_EXIT_REQUEST,
   LOCATION_EXIT_SUCCESS,
-  LOCATION_EXIT_FAILURE
+  LOCATION_EXIT_FAILURE,
+  back,
+  LOCATION_BACK_REQUEST,
+  LOCATION_BACK_SUCCESS,
+  LOCATION_BACK_FAILURE
 } from '../location';
 
 test(
@@ -113,6 +117,52 @@ test(
     },
     {
       type: LOCATION_EXIT_FAILURE,
+      error: true,
+      payload: new Error()
+    }
+  ]
+);
+test(
+  'should call back location service and dispatch SUCCESS action',
+  macro,
+  {},
+  t => ({
+    Location: {
+      back: () => {
+        return 'foo';
+      }
+    }
+  }),
+  back,
+  [
+    {
+      type: LOCATION_BACK_REQUEST
+    },
+    {
+      type: LOCATION_BACK_SUCCESS,
+      payload: 'foo'
+    }
+  ]
+);
+
+test(
+  'should call back location service and dispatch FAILURE action on error',
+  macro,
+  {},
+  t => ({
+    Location: {
+      back: () => {
+        throw new Error();
+      }
+    }
+  }),
+  back,
+  [
+    {
+      type: LOCATION_BACK_REQUEST
+    },
+    {
+      type: LOCATION_BACK_FAILURE,
       error: true,
       payload: new Error()
     }

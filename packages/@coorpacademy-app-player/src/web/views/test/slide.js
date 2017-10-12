@@ -3,7 +3,8 @@ import identity from 'lodash/fp/identity';
 import map from 'lodash/fp/map';
 import omit from 'lodash/fp/omit';
 import {mockTranslate} from '@coorpacademy/translate';
-import stateHeader from '../../../store/view/test/fixtures/progression-state';
+import microlearningHeader from '../../../store/view/test/fixtures/progression-state';
+import learnerHeader from '../../../store/view/test/fixtures/progression-learner';
 import stateSlide from '../../../store/view/test/fixtures/player/slide';
 import stateClue from '../../../store/view/test/fixtures/player/clue';
 import stateLoadingClue from '../../../store/view/test/fixtures/player/loading-clue';
@@ -14,12 +15,25 @@ const options = {translate: mockTranslate};
 const store = {dispatch: identity};
 const mapStateToVNode = stateToVNode(options, store);
 
-test('should display header', t => {
-  const vNode = mapStateToVNode(stateHeader);
+test('should display microlearning header', t => {
+  const vNode = mapStateToVNode(microlearningHeader);
   testRendering(vNode);
   const {props: {header: headerProps}} = vNode;
 
-  t.deepEqual(headerProps.primary, {title: 'Les réseaux sociaux au service du crowdfunding'});
+  t.is(headerProps.type, 'microlearning');
+  t.is(headerProps.content.title, 'Les réseaux sociaux au service du crowdfunding');
+  t.is(headerProps.subcontent, null);
+  t.deepEqual(headerProps.lives, {count: 3});
+});
+
+test('should display learner header', t => {
+  const vNode = mapStateToVNode(learnerHeader);
+  testRendering(vNode);
+  const {props: {header: headerProps}} = vNode;
+
+  t.is(headerProps.type, 'learner');
+  t.is(headerProps.content.title, 'level1');
+  t.is(headerProps.content.details, 'base');
   t.deepEqual(headerProps.lives, {count: 3});
 });
 
