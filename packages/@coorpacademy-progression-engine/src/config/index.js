@@ -15,7 +15,7 @@ export default function getConfig(engine: Engine): Config {
     throw new Error(`Unknown engine ${engine.ref}`);
   }
   return (
-    find({version: engine.version}, engineConfiguration.configurations) ||
+    find({version: engine.version || 'latest'}, engineConfiguration.configurations) ||
     engineConfiguration.defaultConfiguration
   );
 }

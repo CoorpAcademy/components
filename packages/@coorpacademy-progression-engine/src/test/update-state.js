@@ -47,6 +47,35 @@ function contentResourceViewedAction(
   });
 }
 
+const wrongAnswerAction: AnswerAction = Object.freeze({
+  type: 'answer',
+  payload: {
+    content: {
+      ref: '1.A1.2',
+      type: 'slide'
+    },
+    nextContent: {
+      ref: '1.A1.1',
+      type: 'slide'
+    },
+    isCorrect: false
+  }
+});
+
+const extraLifeAcceptedAction: ExtraLifeAcceptedAction = Object.freeze({
+  type: 'extraLifeAccepted',
+  payload: {
+    content: {
+      type: 'node',
+      ref: 'extraLife'
+    },
+    nextContent: {
+      ref: '1.A1.1',
+      type: 'slide'
+    }
+  }
+});
+
 test('should return a valid state when there are no actions', t => {
   const content: Content = Object.freeze({
     type: 'chapter',
@@ -58,7 +87,7 @@ test('should return a valid state when there are no actions', t => {
     type: 'slide',
     ref: '1.A1.1'
   });
-  const progression = createProgression(engine, content, initialContent);
+  const progression = createProgression(engine, content, initialContent, false);
 
   const state = updateState(engine, progression.state, []);
 
@@ -190,23 +219,8 @@ test('should update state when answering the another question correctly', t => {
 test('should update state when answering a question incorrectly', t => {
   const state: State = Object.freeze(stateForSecondSlide);
 
-  const action: AnswerAction = Object.freeze({
-    type: 'answer',
-    payload: {
-      content: {
-        ref: '1.A1.2',
-        type: 'slide'
-      },
-      nextContent: {
-        ref: '1.A1.1',
-        type: 'slide'
-      },
-      isCorrect: false
-    }
-  });
-
   const pickUnchangedFields = pick(['stars', 'requestedClues', 'viewedResources']);
-  const newState = updateState(engine, state, [action]);
+  const newState = updateState(engine, state, [wrongAnswerAction]);
 
   t.true(newState.lives === 0, '`lives` should have been decremented');
   t.false(
@@ -226,7 +240,7 @@ test('should update state when answering a question incorrectly', t => {
   );
   t.deepEqual(
     newState.nextContent,
-    action.payload.nextContent,
+    wrongAnswerAction.payload.nextContent,
     "`nextContent` should be updated to be the action's `nextContent`"
   );
   t.deepEqual(
@@ -234,6 +248,30 @@ test('should update state when answering a question incorrectly', t => {
     pickUnchangedFields(state),
     'Some fields that should not have been touched have been modified'
   );
+});
+
+test('should set livesDisabled to false when it is undefined', t => {
+  const actions = [wrongAnswerAction];
+  const stateUndefined = updateState(
+    engine,
+    Object.freeze({...stateForSecondSlide, livesDisabled: undefined}),
+    actions
+  );
+  const stateFalse = updateState(
+    engine,
+    Object.freeze({...stateForSecondSlide, livesDisabled: false}),
+    actions
+  );
+  t.false(stateUndefined.livesDisabled);
+  t.deepEqual(stateUndefined, stateFalse);
+});
+
+test('should not decrement lives when answering a question incorrectly when lives are disabled', t => {
+  const state: State = Object.freeze({...stateForSecondSlide, livesDisabled: true});
+
+  const newState = updateState(engine, state, [wrongAnswerAction]);
+  t.is(newState.lives, 1, '`lives` should not have been decremented');
+  t.true(newState.livesDisabled);
 });
 
 test('should update state when asking for a clue', t => {
@@ -401,25 +439,20 @@ test("should throw if the state's nextContent is not the same as the action's co
 
 test('should add one life when using extra life', t => {
   const state: State = Object.freeze(extraLifeProgressionState);
-  const action: ExtraLifeAcceptedAction = Object.freeze({
-    type: 'extraLifeAccepted',
-    payload: {
-      content: {
-        type: 'node',
-        ref: 'extraLife'
-      },
-      nextContent: {
-        ref: '1.A1.1',
-        type: 'slide'
-      }
-    }
-  });
-  const newState = updateState(engine, state, [action]);
+  const newState = updateState(engine, state, [extraLifeAcceptedAction]);
 
   t.is(newState.lives, 1);
   t.is(newState.remainingLifeRequests, 0);
   t.is(newState.nextContent.type, 'slide');
   t.is(get('content.ref', newState), 'extraLife');
+});
+
+test('should not add a life when accepting an extraLife when lives are disabled', t => {
+  const state: State = Object.freeze({...extraLifeProgressionState, livesDisabled: true});
+
+  const newState = updateState(engine, state, [extraLifeAcceptedAction]);
+  t.is(newState.lives, 0, '`lives` should not have been incremented');
+  t.true(newState.livesDisabled);
 });
 
 test('should go to failure when refusing extra life', t => {
