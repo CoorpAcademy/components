@@ -27,6 +27,7 @@
   "You are out of lives!": "У вас больше нет попыток!",
   "Back to question": "Вернуться к вопросу",
   "Go to question": "Перейти к вопросу",
-  "extra_life_suggestion": "Бонус, получите дополнительную жизнь, просмотрев урок",
+  "Bonus! Get an extra life by watching the lesson below!": "Бонус! Получите дополнительную жизнь, просмотрев урок ниже!",
+  "Sorry, you have used your bonus!": "К сожалению, вы использовали ваш бонус!",
   "Game over": "Игра закончена"
 }
