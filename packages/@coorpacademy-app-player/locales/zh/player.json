@@ -27,6 +27,7 @@
   "You are out of lives!": "您的尝试机会已用完！",
   "Back to question": "回到问题",
   "Go to question": "去问题",
-  "extra_life_suggestion": "奖金，通过观看课程获得额外的生活",
+  "Bonus! Get an extra life by watching the lesson below!": "奖金，通过观看课程获得额外的生活下面",
+  "Sorry, you have used your bonus!": "对不起，你使用了你的奖金！",
   "Game over": "游戏结束"
 }
