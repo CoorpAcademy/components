@@ -21,6 +21,7 @@ import {
   RANK_FETCH_END_REQUEST,
   RANK_FETCH_END_SUCCESS
 } from '../../../actions/api/rank';
+import {ANSWER_FETCH_REQUEST, ANSWER_FETCH_SUCCESS} from '../../../actions/api/answers';
 import {
   CONTENT_FETCH_REQUEST,
   CONTENT_FETCH_SUCCESS,
@@ -37,6 +38,9 @@ import popinSuccess from '../../test/fixtures/popin-correction/popin-success';
 import {getCurrentProgressionId} from '../../../utils/state-extract';
 
 const services = {
+  Answers: {
+    findById: identity
+  },
   Progressions: {
     findById: identity,
     findBestOf: identity,
@@ -160,7 +164,10 @@ test('should create a "Refuse" CTA when entering an extra-life popin', async t =
     ENGINE_CONFIG_FETCH_REQUEST,
     ENGINE_CONFIG_FETCH_SUCCESS,
     CONTENT_INFO_FETCH_REQUEST,
-    CONTENT_INFO_FETCH_SUCCESS
+    CONTENT_INFO_FETCH_SUCCESS,
+    CONTENT_FETCH_REQUEST,
+    ANSWER_FETCH_REQUEST,
+    ANSWER_FETCH_SUCCESS
   ]);
 
   t.deepEqual(metaOf(PROGRESSION_FETCH_REQUEST, dispatched), {id: progressionId});
@@ -188,7 +195,10 @@ test('should create a "Accept" CTA when entering a revival popin', async t => {
     ENGINE_CONFIG_FETCH_REQUEST,
     ENGINE_CONFIG_FETCH_SUCCESS,
     CONTENT_INFO_FETCH_REQUEST,
-    CONTENT_INFO_FETCH_SUCCESS
+    CONTENT_INFO_FETCH_SUCCESS,
+    CONTENT_FETCH_REQUEST,
+    ANSWER_FETCH_REQUEST,
+    ANSWER_FETCH_SUCCESS
   ]);
 
   t.deepEqual(metaOf(PROGRESSION_FETCH_REQUEST, dispatched), {id: progressionId});

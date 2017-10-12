@@ -52,13 +52,12 @@ export const selectProgression = id => async (dispatch, getState) => {
       switch (ref) {
         case 'extraLife': {
           const prevContent = getPrevStepContent(getState());
-          await dispatch(fetchContent(prevContent.type, prevContent.ref))
+          await dispatch(fetchContent(prevContent.type, prevContent.ref));
           return dispatch(fetchAnswer(progressionId, get('ref', prevContent), []));
         }
       }
-      break;
     }
-    case 'success':
+    case 'success': // eslint-disable-line no-fallthrough
     case 'failure': {
       await dispatch(fetchEndRank(progressionId));
       await dispatch(fetchRecommendations(progressionId));
