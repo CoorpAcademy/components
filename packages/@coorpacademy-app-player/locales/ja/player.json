@@ -27,6 +27,7 @@
   "You are out of lives!": "あなたは生活の中からです!",
   "Back to question": "問題に戻る",
   "Go to question": "質問に行く",
-  "extra_life_suggestion": "ボーナス レッスンを表示することによって余分な生活を得る",
+  "Bonus! Get an extra life by watching the lesson below!": "ボーナス!余分な生活を取得するには、以下のレッスンを見て!",
+  "Sorry, you have used your bonus!": "申し訳ありませんが、あなたのボーナスを使用している!",
   "Game over": "ゲームは終わりました"
 }
