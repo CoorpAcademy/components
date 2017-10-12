@@ -9,6 +9,17 @@
   background-color: light;
 }
 
+.backIcon {
+  width: 16px;
+  height: 16px;
+  margin: 0 10px;
+  color: inherit;
+  stroke: inherit;
+  stroke-width: 1px;
+  transition: all 0.3s;
+  min-width: 16px;
+}
+
 .livesWrapper {
   background-color: light;
   display: flex;

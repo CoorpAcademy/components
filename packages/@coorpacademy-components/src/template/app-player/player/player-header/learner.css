@@ -5,50 +5,46 @@
 @value dark from colors;
 @value light from colors;
 @value black from colors;
+@value medium from colors;
 
 .wrapper {
-  display: flex;
-}
-
-.contentWrapper {
-  color: dark;
+  min-width: 0;
   height: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  background-color: xtraLightGrey;
-  max-width: calc(100% - 65px);
   cursor: pointer;
-}
-
-.contentWrapper:hover {
-  background-color: light;
+  background-color: xtraLightGrey;
 }
 
 .backIcon {
-  width: 16px;
-  height: 16px;
-  margin: 0 10px;
+  composes: backIcon from './style.css';
+}
+
+.contentWrapper {
+  padding-right: 16px;
   color: dark;
   stroke: dark;
-  stroke-width: 1px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  max-width: 100%;
+}
+
+.contentWrapper:hover {
+  color: medium;
+  stroke: medium;
 }
 
 .content {
   min-width: 0;
-  padding-right: 16px;
-  box-sizing: border-box;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  cursor: pointer;
 }
 
 .contentTitle {
   font-family: 'Open Sans';
   font-size: 16px;
-  color: dark;
+  color: inherit;
   font-weight: 700;
   white-space: nowrap;
   overflow: hidden;
@@ -65,13 +61,11 @@
 
 .subcontent {
   min-width: 0;
-  cursor: pointer;
   flex-grow: 2;
   height: 100%;
   background-color: light;
   display: flex;
   padding: 0 16px;
-  justify-content: flex-start;
   align-items: center;
 }
 

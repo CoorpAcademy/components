@@ -4,16 +4,8 @@
 @value xtraLightGrey from colors;
 @value dark from colors;
 @value light from colors;
+@value medium from colors;
 @value black from colors;
-
-.backIcon {
-  width: 16px;
-  height: 16px;
-  margin: 0 10px;
-  color: dark;
-  stroke: dark;
-  stroke-width: 1px;
-}
 
 .content {
   min-width: 0;
@@ -22,12 +14,24 @@
   display: flex;
   align-items: center;
   cursor: pointer;
+  text-decoration: none;
+  color: dark;
+  stroke: dark;
+}
+
+.content:hover {
+  color: medium;
+  stroke: medium;
+}
+
+.backIcon {
+  composes: backIcon from './style.css';
 }
 
 .contentTitle {
   font-family: 'Open Sans';
   font-size: 13px;
-  color: dark;
+  color: inherit;
   font-weight: 500;
   white-space: nowrap;
   overflow: hidden;
