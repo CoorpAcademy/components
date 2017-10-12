@@ -137,28 +137,31 @@ const CorrectionPart = props => {
 };
 
 const NextQuestionPart = (props, context) => {
-  const {cta, extraLife, revival, fail} = props;
+  const {cta, extraLife, revival, fail, lives} = props;
   const {title, ...linkProps} = cta || {};
   const {active: isExtraLife} = extraLife;
-  const isGameOver = !revival && (fail || isExtraLife);
+  const isGameOver = !lives && !revival && (fail || isExtraLife);
 
   let dataNext;
   if (fail) {
-    if (isEmpty(extraLife)) {
-      dataNext = 'redo-content';
-    } else if (revival) {
-      dataNext = 'continue-used-extra-life';
-    } else if (isExtraLife) {
-      dataNext = 'game-over-with-extra-life';
+    if (!lives) {
+      if (isEmpty(extraLife)) {
+        dataNext = 'redo-content';
+      } else if (revival) {
+        dataNext = 'continue-used-extra-life';
+      } else if (isExtraLife) {
+        dataNext = 'game-over-with-extra-life';
+      } else {
+        dataNext = 'game-over-without-extra-life';
+      }
     } else {
-      dataNext = 'game-over-without-extra-life';
+      dataNext = 'continue-faillure';
     }
   } else if (isEmpty(extraLife)) {
     dataNext = 'home';
   } else {
     dataNext = 'continue-success';
   }
-
   return (
     <Link
       className={classnames(
@@ -250,7 +253,13 @@ const PopinHeader = (props, context) => {
           revival={revival}
           corrections={corrections}
         />
-        <NextQuestionPart cta={cta} extraLife={extraLife} revival={revival} fail={fail} />
+        <NextQuestionPart
+          cta={cta}
+          extraLife={extraLife}
+          revival={revival}
+          fail={fail}
+          lives={lives}
+        />
 
       </div>
       {RemainingLifePart}

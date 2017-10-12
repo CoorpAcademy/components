@@ -59,8 +59,8 @@ export const popinCorrectionStateToProps = (options, store) => state => {
   const isLoading = isNil(isCorrect);
   const isExtraLifeActive = get('state.nextContent.ref', progression) === 'extraLife';
   const isRevival = get('ui.extraLife.acceptRevivalPending', state);
-  const exhausted = !isRevival && !isCorrect && !isExtraLifeActive;
-
+  const isDead = progression.state.lives === 0;
+  const exhausted = isDead && !isRevival && !isCorrect && !isExtraLifeActive;
   const header = isNil(answerResult)
     ? {}
     : {
