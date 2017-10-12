@@ -32,8 +32,12 @@ addons:
       - ubuntu-toolchain-r-test
     packages:
       - g++-5
-before_deploy: npm run static
 deploy:
+  - provider: script
+    skip_cleanup: true
+    script: npm run static
+    'on':
+      branch: master
   - provider: pages
     skip_cleanup: true
     github_token: $GH_TOKEN
@@ -50,6 +54,7 @@ deploy:
     'on':
       branch: master
   - provider: script
+    skip_cleanup: true
     script: >-
       curl -s -X POST -H "Content-Type: application/json" -H "Accept:
       application/json" -H "Travis-API-Version: 3" -H "Authorization: token
@@ -58,22 +63,25 @@ deploy:
     'on':
       tags: true
   - provider: script
+    skip_cleanup: true
     script: >-
       curl -s -X POST -H "Content-Type: application/json" -H "Accept:
       application/json" -H "Travis-API-Version: 3" -H "Authorization: token
       $TRAVIS_TOKEN" -d '{"request":{"Branch":"master"}}'
-      https://api.travis-ci.com/repo/CoorpAcademy%2Fcockpit/requests
+      https://api.travis-ci.com/repo/CoorpAcademy%2Fcoorpacademy-cockpit/requests
     'on':
       tags: true
   - provider: script
+    skip_cleanup: true
     script: >-
       curl -s -X POST -H "Content-Type: application/json" -H "Accept:
       application/json" -H "Travis-API-Version: 3" -H "Authorization: token
       $TRAVIS_TOKEN" -d '{"request":{"Branch":"master"}}'
-      https://api.travis-ci.com/repo/CoorpAcademy%2Fstore/requests
+      https://api.travis-ci.com/repo/CoorpAcademy%2Fcoorpacademy-store/requests
     'on':
       tags: true
   - provider: script
+    skip_cleanup: true
     script: >-
       curl -s -X POST -H "Content-Type: application/json" -H "Accept:
       application/json" -H "Travis-API-Version: 3" -H "Authorization: token
