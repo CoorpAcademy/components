@@ -4,7 +4,7 @@ import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import isEqual from 'lodash/fp/isEqual';
 import pipe from 'lodash/fp/pipe';
-import {retry, exit} from '../../actions/api/location';
+import {retry, exit} from '../../actions/ui/location';
 import {
   getCurrentContent,
   getCurrentExitNode,

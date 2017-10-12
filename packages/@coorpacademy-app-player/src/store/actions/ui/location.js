@@ -36,3 +36,19 @@ export const exit = (dispatch, getState, {services}) => {
 
   return dispatch(action);
 };
+
+export const LOCATION_BACK_REQUEST = '@@location/BACK_REQUEST';
+export const LOCATION_BACK_SUCCESS = '@@location/BACK_SUCCESS';
+export const LOCATION_BACK_FAILURE = '@@location/BACK_FAILURE';
+
+export const back = (dispatch, getState, {services}) => {
+  const {Location} = services; // eslint-disable-line no-shadow
+
+  const action = buildTask({
+    types: [LOCATION_BACK_REQUEST, LOCATION_BACK_SUCCESS, LOCATION_BACK_FAILURE],
+    task: () => Location.back(),
+    bailout: constant(false)
+  });
+
+  return dispatch(action);
+};

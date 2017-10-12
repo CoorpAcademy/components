@@ -2,7 +2,7 @@ export default {
   props: {
     type: 'learner',
     content: {
-      href: '#',
+      onClick: () => console.log('onClick learner'),
       title: 'Du management classique au nouveau blablabla',
       details: 'Basic'
     },

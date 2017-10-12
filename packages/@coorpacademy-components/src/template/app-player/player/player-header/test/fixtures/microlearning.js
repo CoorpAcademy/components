@@ -2,7 +2,7 @@ export default {
   props: {
     type: 'microlearning',
     content: {
-      href: '#',
+      onClick: () => console.log('onClick microlearning'),
       title: 'Du management classique au nouveau blablabla'
     },
     lives: {

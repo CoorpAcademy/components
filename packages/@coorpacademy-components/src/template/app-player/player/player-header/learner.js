@@ -6,12 +6,12 @@ import Link from '../../../../atom/link';
 import Provider from '../../../../atom/provider';
 import style from './learner.css';
 
-const Content = ({href, title, details}, context) => {
+const Content = ({onClick, title, details}, context) => {
   const {skin} = context;
   const primarySkinColor = get('common.primary', skin);
 
   return (
-    <Link href={href} className={style.contentWrapper}>
+    <Link onClick={onClick} className={style.contentWrapper}>
       <BackIcon className={style.backIcon} color="inherit" />
       <div className={style.content}>
         <div
@@ -54,7 +54,7 @@ const LearnerHeader = (props, context) => {
 
 LearnerHeader.propTypes = {
   content: PropTypes.shape({
-    href: Link.propTypes.href,
+    onClick: Link.propTypes.onClick,
     title: PropTypes.string.isRequired,
     subtitle: PropTypes.string
   }).isRequired,
