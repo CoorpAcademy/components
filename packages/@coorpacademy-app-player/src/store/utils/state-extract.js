@@ -53,6 +53,7 @@ export const getCurrentContent = state => {
 export const getContentInfo = pipe(getCurrentContent, get('info'));
 export const getNbSlides = pipe(getContentInfo, get('nbSlides'));
 export const getStepContent = pipe(getCurrentProgression, get('state.nextContent'));
+export const getPrevStepContent = pipe(getCurrentProgression, get('state.content'));
 
 export const getEngine = state => {
   return get('engine')(getCurrentProgression(state));

@@ -5,11 +5,13 @@ import {fetchEndRank, fetchStartRank} from '../api/rank';
 import {fetchExitNode} from '../api/exit-nodes';
 import {fetchContent, fetchContentInfo} from '../api/contents';
 import {fetchRecommendations} from '../api/recommendations';
+import {fetchAnswer} from '../api/answers';
 import {
   getEngine,
   getProgressionContent,
   getCurrentProgressionId,
-  getStepContent
+  getStepContent,
+  getPrevStepContent
 } from '../../utils/state-extract';
 import {selectRoute} from './route';
 
@@ -45,6 +47,16 @@ export const selectProgression = id => async (dispatch, getState) => {
         return slideResult;
       }
       return dispatch(selectRoute('context'));
+    }
+    case 'node': {
+      switch (ref) {
+        case 'extraLife': {
+          const prevContent = getPrevStepContent(getState());
+          await dispatch(fetchContent(prevContent.type, prevContent.ref))
+          return dispatch(fetchAnswer(progressionId, get('ref', prevContent), []));
+        }
+      }
+      break;
     }
     case 'success':
     case 'failure': {
