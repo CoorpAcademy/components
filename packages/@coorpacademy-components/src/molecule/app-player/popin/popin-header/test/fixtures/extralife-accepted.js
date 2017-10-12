@@ -3,7 +3,7 @@ export default {
     fail: true,
     revival: true,
     animated: true,
-    lives: 1,
+    lives: 0,
     title: 'Aïe Aïe Aïe',
     extraLife: {
       active: true,
