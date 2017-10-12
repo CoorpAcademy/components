@@ -27,6 +27,7 @@
   "You are out of lives!": "Hayat dışarı vardır!",
   "Back to question": "Geri sorgulamaya",
   "Go to question": "Soru gitmek",
-  "extra_life_suggestion": "Bonus, ders görüntüleyerek ilave bir hayat olsun",
+  "Bonus! Get an extra life by watching the lesson below!": "Bonus! Ekstra bir hayat dersi aşağıda izleyerek alın!",
+  "Sorry, you have used your bonus!": "Üzgünüz, bonus kullanılan!",
   "Game over": "Oyun Bitti"
 }
