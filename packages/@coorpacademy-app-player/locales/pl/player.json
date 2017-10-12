@@ -27,6 +27,7 @@
   "You are out of lives!": "Jesteś z życia!",
   "Back to question": "Wróć do pytanie",
   "Go to question": "Przejdź do pytania",
-  "extra_life_suggestion": "Bonus, otrzymasz dodatkowe życie, wyświetlając lekcji",
+  "Bonus! Get an extra life by watching the lesson below!": "Bonus! Obserwując lekcji poniżej, otrzymasz dodatkowe życie!",
+  "Sorry, you have used your bonus!": "Przepraszamy użyłeś bonus!",
   "Game over": "Koniec gry"
 }
