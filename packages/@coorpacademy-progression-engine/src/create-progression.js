@@ -5,9 +5,10 @@ import type {Content, Progression, State, Engine} from './types';
 export default function createProgression(
   engine: Engine,
   content: Content,
-  initialContent: Content
+  initialContent: Content,
+  livesDisabled: boolean
 ): Progression {
-  const config = getConfig({ref: engine.ref, version: 'latest'});
+  const config = getConfig({ref: engine.ref, version: engine.version});
 
   const currentEngine = {
     ref: engine.ref,
@@ -16,6 +17,7 @@ export default function createProgression(
 
   const initialState: State = {
     lives: config.lives,
+    livesDisabled: Boolean(livesDisabled || config.livesDisabled),
     isCorrect: true,
     slides: [],
     stars: 0,

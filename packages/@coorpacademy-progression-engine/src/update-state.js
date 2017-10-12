@@ -28,6 +28,12 @@ import type {
   ViewedResource
 } from './types';
 
+function livesDisabled(config: Config): (boolean, Action) => boolean {
+  return (state: boolean = false, action: Action): boolean => {
+    return state;
+  };
+}
+
 function isCorrect(config: Config): (boolean, Action) => boolean {
   return (state: boolean = true, action: Action): boolean => {
     switch (action.type) {
@@ -122,6 +128,9 @@ function remainingLifeRequests(config: Config): (number, Action, State) => numbe
 
 function lives(config: Config): (number, Action, State) => number {
   return (amount: number = config.lives, action: Action, state: State): number => {
+    if (state.livesDisabled) {
+      return amount;
+    }
     switch (action.type) {
       case 'answer': {
         const answerAction = (action: AnswerAction);
@@ -256,6 +265,7 @@ function combineReducers(
 }
 
 const reduceAction = combineReducers([
+  {key: 'livesDisabled', fn: livesDisabled},
   {key: 'isCorrect', fn: isCorrect},
   {key: 'slides', fn: slides},
   {key: 'lives', fn: lives},

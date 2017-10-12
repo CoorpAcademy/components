@@ -5,6 +5,7 @@ const realConfigurations: Array<Config> = [
   {
     version: '1',
     lives: 1,
+    livesDisabled: false,
     maxTypos: 2,
     slidesToComplete: 4,
     answerBoundaryLimit: 5,
@@ -19,6 +20,7 @@ const testConfigurations: Array<Config> = [
   {
     version: 'allow_typos_3',
     lives: 1,
+    livesDisabled: false,
     maxTypos: 3,
     slidesToComplete: 4,
     answerBoundaryLimit: 5,

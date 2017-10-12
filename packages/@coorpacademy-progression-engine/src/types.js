@@ -28,6 +28,7 @@ export type State = {
   content?: Content,
   nextContent: Content,
   lives: number,
+  livesDisabled?: boolean,
   isCorrect: boolean,
   slides: Array<string>,
   requestedClues: Array<string>,
@@ -183,6 +184,7 @@ export type Slide = {
 export type Config = {
   version: string,
   lives: number,
+  livesDisabled: boolean,
   maxTypos: number,
   slidesToComplete: number,
   answerBoundaryLimit: number,

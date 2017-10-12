@@ -11,6 +11,7 @@ export const stateBeforeGettingNextContent: State = {
     type: 'node'
   },
   lives: 1,
+  livesDisabled: false,
   stars: 0,
   slides: ['1.A1.1'],
   requestedClues: [],
@@ -29,6 +30,7 @@ export const stateForFirstSlide: State = {
     type: 'slide'
   },
   lives: 1,
+  livesDisabled: false,
   stars: 0,
   slides: [],
   requestedClues: [],
@@ -50,6 +52,7 @@ export const stateForSecondSlide: State = {
     type: 'slide'
   },
   lives: 1,
+  livesDisabled: false,
   slides: ['1.A1.4'],
   requestedClues: [],
   viewedResources: [],
@@ -71,6 +74,7 @@ export const failProgressionState: State = {
     type: 'node'
   },
   lives: 0,
+  livesDisabled: false,
   isCorrect: false,
   slides: ['1.A1.1', '1.A1.2'],
   step: {
@@ -92,6 +96,7 @@ export const extraLifeProgressionState: State = {
     type: 'node'
   },
   lives: 0,
+  livesDisabled: false,
   isCorrect: false,
   slides: ['1.A1.1', '1.A1.2'],
   step: {
@@ -114,6 +119,7 @@ export const successProgressionState: State = {
     type: 'node'
   },
   lives: 1,
+  livesDisabled: false,
   isCorrect: true,
   slides: ['1.A1.1', '1.A1.3', '1.A1.2', '1.A1.4'],
   step: {
