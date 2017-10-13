@@ -24,19 +24,19 @@ const Lives = ({lives}, context) => {
 };
 
 Lives.propTypes = {
-  lives: Link.propTypes.livesPropTypes.shape({
+  lives: PropTypes.shape({
     count: PropTypes.number.isRequired
   })
 };
 
 const PlayerHeader = (props, context) => {
-  const {type, lives} = props;
+  const {type} = props;
   const Header = PlayerHeaders[type];
 
   return (
     <div data-name="slidesHeader" className={style.wrapper}>
       <Header {...props} />
-      <Lives {...lives} />
+      <Lives {...props} />
     </div>
   );
 };

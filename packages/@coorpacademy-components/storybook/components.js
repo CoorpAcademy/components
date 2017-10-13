@@ -540,6 +540,7 @@ import PopinEndFixtureSubscribe from '../src/template/app-player/popin-end/test/
 import PopinEndFixtureWithRecommendations from '../src/template/app-player/popin-end/test/fixtures/with-recommendations';
 import PlayerHeaderFixtureLearner from '../src/template/app-player/player/player-header/test/fixtures/learner';
 import PlayerHeaderFixtureMicrolearning from '../src/template/app-player/player/player-header/test/fixtures/microlearning';
+import PlayerHeaderFixtureNoLives from '../src/template/app-player/player/player-header/test/fixtures/no-lives';
 import BrandCreateFixtureDefault from '../src/template/back-office/brand-create/test/fixtures/default';
 import BrandCreateFixtureError from '../src/template/back-office/brand-create/test/fixtures/error';
 import BrandCreateFixtureLoading from '../src/template/back-office/brand-create/test/fixtures/loading';
@@ -1403,7 +1404,8 @@ export const fixtures = {
   TemplateAppPlayerPlayer: {
     PlayerHeader: {
       Learner: PlayerHeaderFixtureLearner,
-      Microlearning: PlayerHeaderFixtureMicrolearning
+      Microlearning: PlayerHeaderFixtureMicrolearning,
+      NoLives: PlayerHeaderFixtureNoLives
     }
   },
   TemplateBackOffice: {
@@ -1827,18 +1829,6 @@ export const dependencies = {
       },
       "children": {}
     },
-    "Life": {
-      "parents": {
-        "TemplateAppPlayerPlayer": {
-          "PlayerHeader": true
-        },
-        "TemplateAppPlayer": {
-          "PopinEnd": true,
-          "Player": true
-        }
-      },
-      "children": {}
-    },
     "ResourceMiniature": {
       "parents": {
         "TemplateAppPlayer": {
@@ -1917,6 +1907,9 @@ export const dependencies = {
       }
     },
     "Label": {
+      "children": {}
+    },
+    "Life": {
       "children": {}
     },
     "PictureBackground": {
@@ -2754,11 +2747,7 @@ export const dependencies = {
           "Player": true
         }
       },
-      "children": {
-        "Atom": {
-          "Life": true
-        }
-      }
+      "children": {}
     }
   },
   "MoleculeAppPlayerPopin": {
@@ -3024,9 +3013,6 @@ export const dependencies = {
     },
     "Player": {
       "children": {
-        "Atom": {
-          "Life": true
-        },
         "MoleculeSlides": {
           "SlidesFooter": true,
           "SlidesPlayer": true
@@ -3060,9 +3046,6 @@ export const dependencies = {
     },
     "PopinEnd": {
       "children": {
-        "Atom": {
-          "Life": true
-        },
         "TemplateAppPlayerPlayer": {
           "PlayerHeader": true
         }
