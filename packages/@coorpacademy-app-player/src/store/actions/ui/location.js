@@ -1,6 +1,6 @@
 import constant from 'lodash/fp/constant';
 import buildTask from '../../utils/redux-task';
-import {getProgressionContent} from '../../utils/state-extract';
+import {getProgressionContent, getCurrentContent} from '../../utils/state-extract';
 
 export const LOCATION_RETRY_REQUEST = '@@location/RETRY_REQUEST';
 export const LOCATION_RETRY_SUCCESS = '@@location/RETRY_SUCCESS';
@@ -43,10 +43,12 @@ export const LOCATION_BACK_FAILURE = '@@location/BACK_FAILURE';
 
 export const back = (dispatch, getState, {services}) => {
   const {Location} = services; // eslint-disable-line no-shadow
+  const content = getCurrentContent(getState());
+  const {disciplineRef, level: levelName} = content;
 
   const action = buildTask({
     types: [LOCATION_BACK_REQUEST, LOCATION_BACK_SUCCESS, LOCATION_BACK_FAILURE],
-    task: () => Location.back(),
+    task: () => Location.back(disciplineRef, levelName),
     bailout: constant(false)
   });
 

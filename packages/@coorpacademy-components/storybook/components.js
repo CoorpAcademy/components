@@ -1829,6 +1829,18 @@ export const dependencies = {
       },
       "children": {}
     },
+    "Life": {
+      "parents": {
+        "TemplateAppPlayerPlayer": {
+          "PlayerHeader": true
+        },
+        "TemplateAppPlayer": {
+          "PopinEnd": true,
+          "Player": true
+        }
+      },
+      "children": {}
+    },
     "ResourceMiniature": {
       "parents": {
         "TemplateAppPlayer": {
@@ -1907,9 +1919,6 @@ export const dependencies = {
       }
     },
     "Label": {
-      "children": {}
-    },
-    "Life": {
       "children": {}
     },
     "PictureBackground": {
@@ -2747,7 +2756,11 @@ export const dependencies = {
           "Player": true
         }
       },
-      "children": {}
+      "children": {
+        "Atom": {
+          "Life": true
+        }
+      }
     }
   },
   "MoleculeAppPlayerPopin": {
@@ -3013,6 +3026,9 @@ export const dependencies = {
     },
     "Player": {
       "children": {
+        "Atom": {
+          "Life": true
+        },
         "MoleculeSlides": {
           "SlidesFooter": true,
           "SlidesPlayer": true
@@ -3046,6 +3062,9 @@ export const dependencies = {
     },
     "PopinEnd": {
       "children": {
+        "Atom": {
+          "Life": true
+        },
         "TemplateAppPlayerPlayer": {
           "PlayerHeader": true
         }

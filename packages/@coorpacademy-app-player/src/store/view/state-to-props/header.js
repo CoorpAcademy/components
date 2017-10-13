@@ -35,7 +35,7 @@ const headerSubcontent = (engineRef, state) => {
       const chapter = getContent('chapter', chapterId)(state);
       const level = getCurrentContent(state);
       const chapterIds = get('chapterIds', level);
-      const details = chapterIds
+      const details = chapterId && chapterIds
         ? `${1 + indexOf(chapterId, chapterIds)}/${chapterIds.length}`
         : null;
 

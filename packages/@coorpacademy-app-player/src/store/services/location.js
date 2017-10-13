@@ -6,6 +6,6 @@ export const retry = () => {
   window.location.reload();
 };
 
-export const back = () => {
+export const back = (disciplineRef, levelName) => {
   window.location.reload();
 };
