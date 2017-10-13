@@ -493,6 +493,7 @@ import SettingsFixturePromoCode from '../src/organism/settings/test/fixtures/pro
 import SetupHeaderFixtureDefault from '../src/organism/setup-header/test/fixtures/default';
 import SidebarFixtureAnalytics from '../src/organism/sidebar/test/fixtures/analytics';
 import SidebarFixtureCustom from '../src/organism/sidebar/test/fixtures/custom';
+import SidebarFixtureDashboards from '../src/organism/sidebar/test/fixtures/dashboards';
 import SidebarFixtureDefault from '../src/organism/sidebar/test/fixtures/default';
 import SliderFixtureDefault from '../src/organism/slider/test/fixtures/default';
 import SliderFixtureMultipleSlides from '../src/organism/slider/test/fixtures/multiple-slides';
@@ -1338,6 +1339,7 @@ export const fixtures = {
     Sidebar: {
       Analytics: SidebarFixtureAnalytics,
       Custom: SidebarFixtureCustom,
+      Dashboards: SidebarFixtureDashboards,
       Default: SidebarFixtureDefault
     },
     Slider: {

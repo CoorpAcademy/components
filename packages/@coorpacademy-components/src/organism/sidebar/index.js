@@ -1,11 +1,34 @@
 import React from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
+import LinkedInput from 'react-linked-input';
+import noop from 'lodash/fp/noop';
 import getOr from 'lodash/fp/getOr';
 import Link from '../../atom/link/index';
 import Provider from '../../atom/provider';
 import Select from '../../atom/select/index';
 import style from './style.css';
+
+const InputTextItem = props => {
+  const {title, placeholder = '', value, defaultValue, handleOnChange = noop, disabled} = props;
+  const handleChange = e => handleOnChange(e.target.value);
+  return (
+    <li data-name="sidebarItemSelectItem" className={style.selectItem}>
+      <span className={style.sidebarTitle}>{title}</span>
+      <LinkedInput
+        type="text"
+        name={title}
+        className={style.input}
+        placeholder={placeholder}
+        defaultValue={defaultValue}
+        value={value}
+        onInput={handleChange}
+        disabled={disabled}
+        onChange={noop}
+      />
+    </li>
+  );
+};
 
 const SelectItem = props => {
   return (
@@ -73,11 +96,11 @@ const Sidebar = (props, context) => {
   const defaultColor = getOr('#00B0FF', 'common.primary', skin);
   return (
     <div data-name="sidebar" className={style.sidebar}>
-      {sections.map((sidebarSection, idx) =>
+      {sections.map((sidebarSection, idx) => (
         <div data-name="sidebarPart" className={style.sidebarPart} key={idx}>
           <SidebarItems items={sidebarSection} color={defaultColor} />
         </div>
-      )}
+      ))}
     </div>
   );
 };
@@ -85,9 +108,9 @@ const Sidebar = (props, context) => {
 const SidebarItems = props => {
   return (
     <ul className={style.sectionItems}>
-      {props.items.map((item, index) =>
+      {props.items.map((item, index) => (
         <SidebarItem item={item} key={index} index={index} color={props.color} />
-      )}
+      ))}
     </ul>
   );
 };
@@ -116,6 +139,17 @@ const SidebarItem = ({item, color, index}) => {
       );
     case 'info':
       return <InfoItem title={item.title} info={item.value} color={color} />;
+    case 'inputtext':
+      return (
+        <InputTextItem
+          title={item.title}
+          placeholder={item.placeholder}
+          value={item.value}
+          defaultValue={item.defaultValue}
+          handleOnChange={item.onChange}
+          disabled={item.disabled}
+        />
+      );
     default:
       return null;
   }
@@ -133,6 +167,15 @@ const LinkProptype = PropTypes.shape({
   name: PropTypes.string,
   onClick: PropTypes.func
 });
+const InputTextProptype = PropTypes.shape({
+  title: PropTypes.string.isRequired,
+  type: PropTypes.oneOf(['inputtext']).isRequired,
+  disabled: PropTypes.bool,
+  defaultValue: PropTypes.string,
+  value: PropTypes.string,
+  placeholder: PropTypes.string,
+  onChange: PropTypes.func
+});
 const SelectProptype = PropTypes.shape({
   title: PropTypes.string.isRequired,
   type: PropTypes.oneOf(['select']).isRequired,
@@ -145,7 +188,12 @@ const SelectProptype = PropTypes.shape({
   ).isRequired,
   onChange: PropTypes.func
 });
-const SectionProptype = PropTypes.oneOfType([InfoProptype, SelectProptype, LinkProptype]);
+const SectionProptype = PropTypes.oneOfType([
+  InfoProptype,
+  SelectProptype,
+  LinkProptype,
+  InputTextProptype
+]);
 Sidebar.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.oneOfType([SectionProptype, PropTypes.arrayOf(SectionProptype).isRequired])
