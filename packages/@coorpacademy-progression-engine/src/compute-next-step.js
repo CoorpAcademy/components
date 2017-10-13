@@ -2,8 +2,10 @@
 import map from 'lodash/fp/map';
 import get from 'lodash/fp/get';
 import find from 'lodash/fp/find';
+import pipe from 'lodash/fp/pipe';
 import sample from 'lodash/fp/sample';
 import indexOf from 'lodash/fp/indexOf';
+import last from 'lodash/fp/last';
 import without from 'lodash/fp/without';
 import intersection from 'lodash/fp/intersection';
 import type {State, Slide, Content, Engine, Config} from './types';
@@ -17,10 +19,8 @@ const getSlidePool = (
   slidePools: Array<{chapterId: string, slides: Array<Slide>}>,
   state: State
 ): {chapterId: string, slides: Array<Slide>} => {
-  const currentChapterPool = find(
-    ({slides}) => find({_id: get('nextContent.ref', state)}, slides),
-    slidePools
-  );
+  const lastSlideRef = pipe(get('slides'), last)(state);
+  const currentChapterPool = find(({slides}) => find({_id: lastSlideRef}, slides), slidePools);
 
   const slidesAnsweredForThisChapter = intersection(
     state.slides,
