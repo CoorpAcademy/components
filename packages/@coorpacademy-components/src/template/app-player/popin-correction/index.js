@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import defer from 'lodash/fp/defer';
 import isNil from 'lodash/fp/isNil';
 import omit from 'lodash/fp/omit';
-import partial from 'lodash/fp/partial';
 import CheckIcon from '@coorpacademy/nova-icons/composition/coorpacademy/check';
 import Loader from '../../../atom/loader';
 import ResourceBrowser from '../../../organism/resource-browser';
@@ -17,13 +16,6 @@ const extractTabs = items =>
 
     return {iconType: type, title: item.title, isOpen: item.open};
   });
-
-const wrapHeaderClick = ({cta = {}, ...opts}, clickWrapper) => {
-  const {onClick, ...ctaContent} = cta;
-  const wrappedClick = partial(clickWrapper, [onClick]);
-
-  return {cta: {onClick: wrappedClick, ...ctaContent}, ...opts};
-};
 
 const Resources = ({resources}) =>
   <div className={style.browserWrapper}>
@@ -84,19 +76,13 @@ class PopinCorrection extends Component {
     const tabs = extractTabs({resources, klf, tips});
     const isLoading = isNil(header.lives);
     const className = this.state.open ? style.openOverlay : style.overlay;
-    const delayedHeader = wrapHeaderClick(header, headerClick => {
-      if (this.state.open) {
-        this.wrapper.addEventListener('transitionend', headerClick);
-        this.setState({open: false});
-      }
-    });
 
     return (
       <div ref={this.initWrapper} className={className} data-name="popinCorrection">
         <div className={style.scrollWrapper}>
           <div className={isLoading ? style.loadingWrapper : style.wrapper}>
             <div className={isLoading ? style.loadingContent : style.content}>
-              <PopinHeader {...delayedHeader} animated />
+              <PopinHeader {...header} animated />
               <Question {...question} />
               <Accordion tabProps={tabs} onClick={onClick} oneTabOnly>
                 <Resources resources={resources} />

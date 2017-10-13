@@ -6,7 +6,7 @@ import once from 'lodash/fp/once';
 import Link from '..';
 
 test('should call listeners within props', t => {
-  t.plan(5);
+  t.plan(3);
 
   const props = {
     onClick: once(() => t.pass()),
@@ -14,16 +14,11 @@ test('should call listeners within props', t => {
     onMouseLeave: once(() => t.pass())
   };
 
-  const e = {
-    stopPropagation: () => t.pass(),
-    preventDefault: () => t.pass()
-  };
-
   const component = <Link {...props} />;
   const link = mount(component);
 
   link.instance().handleMouseEnter();
   link.instance().handleMouseLeave();
-  link.instance().handleOnClick(e);
+  link.instance().handleOnClick();
   link.unmount();
 });

@@ -33,11 +33,7 @@ class Link extends React.Component {
   }
 
   handleOnClick(e) {
-    if (this.props.onClick) {
-      this.props.onClick(e);
-      e.stopPropagation();
-      e.preventDefault();
-    }
+    if (this.props.onClick) this.props.onClick(e);
 
     if (!this.props.download) {
       const onClick = pushToHistory(this.context)(this.props);
