@@ -44,7 +44,7 @@ export const fetchNextContent = (type, ref) => (dispatch, getState, {services}) 
 
   const action = buildTask({
     types: [NEXT_CONTENT_FETCH_REQUEST, NEXT_CONTENT_FETCH_SUCCESS, NEXT_CONTENT_FETCH_FAILURE],
-    task: () => Content.next(type, ref),
+    task: () => Content.getNextContent(type, ref),
     meta: {type, ref}
   });
 
