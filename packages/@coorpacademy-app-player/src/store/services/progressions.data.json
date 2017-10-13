@@ -16,6 +16,7 @@
         "type": "slide"
       },
       "lives": 1,
+      "livesDisabled": false,
       "step": {
         "current": 1
       }
@@ -40,6 +41,7 @@
         "type": "slide"
       },
       "lives": 1,
+      "livesDisabled": false,
       "step": {
         "current": 1
       }
@@ -62,6 +64,7 @@
         "type": "slide"
       },
       "lives": 1,
+      "livesDisabled": false,
       "step": {
         "current": 1
       }
@@ -89,6 +92,7 @@
         "type": "success"
       },
       "lives": 1,
+      "livesDisabled": false,
       "stars": 12,
       "step": {
         "current": 1
@@ -112,6 +116,7 @@
         "type": "failure"
       },
       "lives": 0,
+      "livesDisabled": false,
       "step": {
         "current": 1
       }
@@ -134,6 +139,7 @@
         "type": "slide"
       },
       "lives": 1,
+      "livesDisabled": false,
       "step": {
         "current": 1
       }
@@ -156,6 +162,7 @@
         "type": "slide"
       },
       "lives": 1,
+      "livesDisabled": false,
       "step": {
         "current": 1
       }
@@ -178,6 +185,7 @@
         "type": "slide"
       },
       "lives": 1,
+      "livesDisabled": false,
       "step": {
         "current": 1
       }
@@ -200,6 +208,7 @@
         "type": "slide"
       },
       "lives": 1,
+      "livesDisabled": false,
       "step": {
         "current": 1
       }
@@ -222,6 +231,7 @@
         "type": "slide"
       },
       "lives": 1,
+      "livesDisabled": false,
       "step": {
         "current": 1
       }
@@ -244,6 +254,30 @@
         "type": "slide"
       },
       "lives": 3,
+      "livesDisabled": false,
+      "step": {
+        "current": 1
+      }
+    }
+  },
+  {
+    "_id": "livesDisabled",
+    "engine": {
+      "ref": "learner",
+      "version": "1"
+    },
+    "content": {
+      "ref": "1.A",
+      "type": "level"
+    },
+    "state": {
+      "slides": [],
+      "nextContent": {
+        "ref": "sli_41GXTiG8X",
+        "type": "slide"
+      },
+      "lives": 3,
+      "livesDisabled": true,
       "step": {
         "current": 1
       }

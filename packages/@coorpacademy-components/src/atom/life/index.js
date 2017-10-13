@@ -27,6 +27,10 @@ const Life = (props, context) => {
   const negativeColor = get('common.negative', skin);
   const white = get('common.white', skin);
 
+  if (count === null) {
+    return null;
+  }
+
   const pickStyle = (successStyle, failStyle, animatedFailStyle, revivalStyle) => {
     if (revival) return revivalStyle;
     if (fail && animated) return animatedFailStyle;

@@ -82,7 +82,7 @@ class PopinCorrection extends Component {
   render() {
     const {header = {}, question, resources, klf, tips, onClick} = this.props;
     const tabs = extractTabs({resources, klf, tips});
-    const isLoading = isNil(header.lives);
+    const isLoading = isNil(header.fail);
     const className = this.state.open ? style.openOverlay : style.overlay;
     const delayedHeader = wrapHeaderClick(header, headerClick => {
       if (this.state.open) {
