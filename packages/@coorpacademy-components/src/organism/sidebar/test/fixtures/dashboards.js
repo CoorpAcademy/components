@@ -3,7 +3,7 @@ export default {
     items: [
       [
         {
-          title: 'Engagement',
+          title: 'Analytics Engagement',
           type: 'link',
           onClick: value => {
             console.log('Clicked on Engagement', value);
@@ -12,19 +12,19 @@ export default {
           name: 'analytics.dashboard'
         },
         {
-          title: 'Per User',
+          title: 'Analytics User',
           type: 'link',
           name: 'analytics.users'
         },
         {
-          title: 'Per Module',
+          title: 'Analytics Content',
           type: 'link',
           name: 'analytics.modules'
         },
         {
-          title: 'Exports',
+          title: 'Analytics Partners',
           type: 'link',
-          name: 'analytics.exports'
+          name: 'analytics.partners'
         }
       ],
       [
@@ -32,6 +32,18 @@ export default {
           title: 'Dashboard Engagement',
           type: 'info',
           value: 'blablabla dashboard engagament'
+        },
+        {
+          title: 'Platform',
+          type: 'inputtext',
+          onChange: value => console.log('NEW platform', value),
+          defaultValue: 'up'
+        },
+        {
+          title: 'Provider',
+          type: 'inputtext',
+          onChange: value => console.log('NEW provider', value),
+          defaultValue: 'ALL'
         },
         {
           title: 'Version',
@@ -50,12 +62,6 @@ export default {
             }
           ]
         },
-        {
-          title: 'Platform',
-          type: 'inputtext',
-          onChange: value => console.log('NEW platform', value),
-          defaultValue: 'up'
-        }
       ]
     ]
   }
