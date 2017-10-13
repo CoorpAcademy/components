@@ -28,9 +28,10 @@ import {
 import {RECO_FETCH_REQUEST, RECO_FETCH_SUCCESS} from '../../api/recommendations';
 import {UI_SELECT_ROUTE} from '../route';
 
-const slide = {ref: 'bar'};
+const slide = {ref: 'bar', chapter_id: 'baz'};
 const slideWithContext = {
   ref: 'bar',
+  chapter_id: 'baz',
   context: {title: 'some-title', description: 'some-description'}
 };
 
@@ -214,10 +215,17 @@ test(
       },
       set('data.contents.slide.entities.bar', null, {})
     ],
+    [
+      {
+        type: CONTENT_FETCH_SUCCESS,
+        meta: {type: 'slide', ref: 'bar'},
+        payload: slide
+      },
+      set('data.contents.slide.entities.bar', slide, {})
+    ],
     {
-      type: CONTENT_FETCH_SUCCESS,
-      meta: {type: 'slide', ref: 'bar'},
-      payload: slide
+      type: CONTENT_FETCH_REQUEST,
+      meta: {type: 'chapter', ref: 'baz'}
     }
   ]
 );
@@ -342,10 +350,17 @@ test(
       },
       set('data.contents.slide.entities.bar', null, {})
     ],
+    [
+      {
+        type: CONTENT_FETCH_SUCCESS,
+        meta: {type: 'slide', ref: 'bar'},
+        payload: slideWithContext
+      },
+      set('data.contents.slide.entities.bar', slideWithContext, {})
+    ],
     {
-      type: CONTENT_FETCH_SUCCESS,
-      meta: {type: 'slide', ref: 'bar'},
-      payload: slideWithContext
+      type: CONTENT_FETCH_REQUEST,
+      meta: {type: 'chapter', ref: 'baz'}
     },
     {
       type: UI_SELECT_ROUTE,

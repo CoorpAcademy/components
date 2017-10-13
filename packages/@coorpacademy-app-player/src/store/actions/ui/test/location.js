@@ -125,7 +125,11 @@ test(
 test(
   'should call back location service and dispatch SUCCESS action',
   macro,
-  {},
+  pipe(
+    set('ui.current.progressionId', '0'),
+    set('data.contents.level.entities.foo', {}),
+    set('data.progressions.entities.0.content', {type: 'level', ref: 'foo'})
+  )({}),
   t => ({
     Location: {
       back: () => {
@@ -148,7 +152,11 @@ test(
 test(
   'should call back location service and dispatch FAILURE action on error',
   macro,
-  {},
+  pipe(
+    set('ui.current.progressionId', '0'),
+    set('data.contents.level.entities.foo', {}),
+    set('data.progressions.entities.0.content', {type: 'level', ref: 'foo'})
+  )({}),
   t => ({
     Location: {
       back: () => {

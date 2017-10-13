@@ -105,6 +105,8 @@ test('should create a "Next" CTA when entering a success popin', async t => {
     ENGINE_CONFIG_FETCH_SUCCESS,
     CONTENT_INFO_FETCH_REQUEST,
     CONTENT_FETCH_REQUEST,
+    CONTENT_FETCH_SUCCESS,
+    CONTENT_FETCH_REQUEST,
     CONTENT_FETCH_SUCCESS
   ]);
 

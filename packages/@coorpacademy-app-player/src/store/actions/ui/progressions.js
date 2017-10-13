@@ -45,10 +45,10 @@ export const selectProgression = id => async (dispatch, getState) => {
     case 'slide': {
       const slideResult = await dispatch(fetchContent('slide', ref));
       const chapterId = getCurrentChapterId(getState());
-      await dispatch(fetchContent('chapter', chapterId));
+      const chapterResult = await dispatch(fetchContent('chapter', chapterId));
 
       if (isNil(get('payload.context.title', slideResult))) {
-        return slideResult;
+        return chapterResult;
       }
       return dispatch(selectRoute('context'));
     }
