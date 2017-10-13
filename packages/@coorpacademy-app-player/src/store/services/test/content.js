@@ -7,7 +7,7 @@ import {getConfig} from '@coorpacademy/progression-engine';
 import chaptersData from '../chapters.data';
 import slidesData from '../slides.data';
 import levelsData from '../levels.data';
-import {find, getInfo} from '../content';
+import {find, getInfo, getNextContent} from '../content';
 
 test('should throw error if content type is unknown', t => {
   return t.throws(find('unknown', 'foo'));
@@ -15,7 +15,7 @@ test('should throw error if content type is unknown', t => {
 
 test('should find a level', async t => {
   const level = head(levelsData);
-  t.deepEqual(await find('level', level._id), level);
+  t.deepEqual(await find('level', level.ref), level);
 });
 
 test('should tell when a level is not found', async t => {
@@ -64,4 +64,16 @@ test('should count slides for chapter', async t => {
   });
 
   t.deepEqual(info, {nbSlides: maxNbSlides});
+});
+
+test('should return level coach as next for given advanced level', async t => {
+  const nextContent = await getNextContent('level', '1.A');
+  t.is(nextContent.level, 'coach');
+  t.is(nextContent.ref, '1.C');
+});
+
+test('should return empty when given level', async t => {
+  const nextContent = await getNextContent('level', '1.A');
+  t.is(nextContent.level, 'coach');
+  t.is(nextContent.ref, '1.C');
 });

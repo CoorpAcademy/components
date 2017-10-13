@@ -1,15 +1,17 @@
 import get from 'lodash/fp/get';
 import pipe from 'lodash/fp/pipe';
 import reduce from 'lodash/fp/reduce';
+import find_ from 'lodash/fp/find';
 import {getConfig} from '@coorpacademy/progression-engine';
 import chaptersData from './chapters.data';
 import levelsData from './levels.data';
 import {findById} from './slides';
 
-const toMap = reduce((map, object) => map.set(object._id, object));
+const toMapById = reduce((map, object) => map.set(object._id, object));
+const toMapByRef = reduce((map, object) => map.set(object.ref, object));
 
-const chapters = toMap(new Map(), chaptersData);
-const levels = toMap(new Map(), levelsData);
+const chapters = toMapById(new Map(), chaptersData);
+const levels = toMapByRef(new Map(), levelsData);
 
 // eslint-disable-next-line import/prefer-default-export
 export const find = (type, ref) => {
@@ -51,4 +53,25 @@ function getNbSlides(contentRef, engineRef, version) {
 export const getInfo = (contentRef, engineRef, version) => {
   const nbSlides = getNbSlides(contentRef, engineRef, version);
   return {nbSlides};
+};
+
+export const getNextContent = (type, ref) => {
+  switch (type) {
+    case 'level':
+      if (levels.has(ref)) {
+        const {name, level} = levels.get(ref);
+        if (level === 'coach') {
+          return Promise.resolve({});
+        }
+
+        const nextLevel = level === 'basic' ? 'advanced' : 'coach';
+        const filter = {level: nextLevel, name};
+        const nextContent = find_(filter, levelsData);
+
+        return Promise.resolve(nextContent);
+      }
+      break;
+    default:
+      return Promise.resolve({});
+  }
 };

@@ -1,5 +1,6 @@
 import set from 'lodash/fp/set';
 import update from 'lodash/fp/update';
+import isEmpty from 'lodash/fp/isEmpty';
 import isNull from 'lodash/fp/isNull';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
@@ -9,7 +10,8 @@ import {
   CONTENT_FETCH_REQUEST,
   CONTENT_FETCH_SUCCESS,
   CONTENT_FETCH_FAILURE,
-  CONTENT_INFO_FETCH_SUCCESS
+  CONTENT_INFO_FETCH_SUCCESS,
+  NEXT_CONTENT_FETCH_SUCCESS
 } from '../../actions/api/contents';
 import {PROGRESSION_FETCH_BESTOF_SUCCESS} from '../../actions/api/progressions';
 
@@ -19,6 +21,14 @@ const dataContentReducer = (state = {}, action) => {
       const {meta} = action;
       const {type, ref} = meta;
       return update([type, 'entities', ref], content => content || null, state);
+    }
+    case NEXT_CONTENT_FETCH_SUCCESS: {
+      const {payload, meta} = action;
+      const {type} = meta;
+      if (isEmpty(payload)) {
+        return state;
+      }
+      return set([type, 'entities', payload.ref], payload, state);
     }
     case CONTENT_FETCH_SUCCESS: {
       const {payload, meta} = action;
