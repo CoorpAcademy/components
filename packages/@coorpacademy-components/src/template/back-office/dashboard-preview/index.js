@@ -73,4 +73,21 @@ const DashboardPreview = Layout(props => {
   );
 });
 
+DashboardPreview.propTypes = {
+  dashboards: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired
+    })
+  ),
+  currentDashboard: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    currentVersion: PropTypes.string.isRequired,
+    versions: PropTypes.shape({}).isRequired,
+    url: PropTypes.string.isRequired,
+    schema: PropTypes.arrayOf(PropTypes.string)
+  })
+};
+
 export default DashboardPreview;
