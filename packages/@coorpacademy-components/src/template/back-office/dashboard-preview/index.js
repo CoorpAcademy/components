@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import noop from 'lodash/fp/noop';
 import Layout from '../layout';
 import Sidebar from '../../../organism/sidebar';
+import Loader from '../../app-player/loading';
+import Title from '../../../atom/title';
 import style from './style.css';
 
 const defaultInputParam = {
@@ -20,7 +22,7 @@ const DashboardPreview = Layout(props => {
     onUpdateField = noop
   } = props;
 
-  if (!currentDashboard) return <p>Loading...</p>;
+  if (!currentDashboard) return <Loader />;
 
   const dahsboardList = dashboards.map(d => ({
     title: d.name,
@@ -53,11 +55,17 @@ const DashboardPreview = Layout(props => {
 
   return (
     <div className={style.container}>
-      <Sidebar items={[dahsboardList, [dashboardDescription, ...paramInputs, dashboardVersion]]} />
-      <h1>
-        {currentDashboard.name}
-      </h1>
-      <iframe href={currentDashboard.url} />
+      <div className={style.dashboardAside}>
+        <Sidebar
+          items={[dahsboardList, [dashboardDescription, ...paramInputs, dashboardVersion]]}
+        />
+      </div>
+      <div className={style.dashboardContent}>
+        <Title>
+          {currentDashboard.name}
+        </Title>
+        <iframe href={currentDashboard.url} />
+      </div>
     </div>
   );
 });
