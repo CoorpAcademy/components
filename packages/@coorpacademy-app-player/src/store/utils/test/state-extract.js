@@ -15,6 +15,7 @@ import {
   getCurrentProgressionId,
   getCurrentSlide,
   getEngine,
+  getLives,
   getPreviousSlide,
   getQuestionType,
   getStartRank,
@@ -236,11 +237,35 @@ test('getResourcesToPlay should get resources to play from state', t => {
   t.true(getResourcesToPlay(state));
 });
 
-test('getEngine should get extract from state', t => {
+test('getEngine should extract engine from state', t => {
   const state = pipe(
     set('ui.current.progressionId', '0'),
     set('data.progressions.entities.0.engine', 42)
   )({});
 
   t.is(getEngine(state), 42);
+});
+
+test('getLives should get lives from state', t => {
+  const progression = {
+    state: {lives: 100, livesDisabled: false}
+  };
+  const state = pipe(
+    set('ui.current.progressionId', '0'),
+    set('data.progressions.entities', {'0': progression})
+  )({});
+
+  t.is(getLives(state), 100);
+});
+
+test('getLives should return null if lives are disabled for the current progression', t => {
+  const progression = {
+    state: {lives: 100, livesDisabled: true}
+  };
+  const state = pipe(
+    set('ui.current.progressionId', '0'),
+    set('data.progressions.entities', {'0': progression})
+  )({});
+
+  t.is(getLives(state), null);
 });

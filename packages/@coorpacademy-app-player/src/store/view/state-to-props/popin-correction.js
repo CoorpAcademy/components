@@ -6,6 +6,7 @@ import {
   getCurrentCorrection,
   getCurrentProgression,
   getCurrentProgressionId,
+  getLives,
   getPreviousSlide
 } from '../../utils/state-extract';
 import {acceptExtraLifeAndReset, refuseExtraLifeAndReset} from '../../actions/ui/extra-life';
@@ -67,7 +68,7 @@ export const popinCorrectionStateToProps = (options, store) => state => {
         title: translate(isCorrect ? 'Good job' : 'Ouch'),
         subtitle: translate(isCorrect ? 'Good answer' : 'Wrong answer'),
         fail: isLoading ? null : !isCorrect,
-        lives: progression.state.lives
+        lives: getLives(state)
       };
 
   const question = {

@@ -198,6 +198,7 @@ import LifeFixtureAnimatedExtraLife from '../src/atom/life/test/fixtures/animate
 import LifeFixtureAnimatedFail from '../src/atom/life/test/fixtures/animated-fail';
 import LifeFixtureDefault from '../src/atom/life/test/fixtures/default';
 import LifeFixtureFail from '../src/atom/life/test/fixtures/fail';
+import LifeFixtureNull from '../src/atom/life/test/fixtures/null';
 import LifeFixtureSmall from '../src/atom/life/test/fixtures/small';
 import LinkFixtureDownload from '../src/atom/link/test/fixtures/download';
 import LinkFixtureHref from '../src/atom/link/test/fixtures/href';
@@ -840,6 +841,7 @@ export const fixtures = {
       AnimatedFail: LifeFixtureAnimatedFail,
       Default: LifeFixtureDefault,
       Fail: LifeFixtureFail,
+      Null: LifeFixtureNull,
       Small: LifeFixtureSmall
     },
     Link: {

@@ -121,3 +121,8 @@ export const getQuestionMedia = state => {
 };
 
 export const getResourcesToPlay = state => get('ui.corrections.playResource', state);
+
+export const getLives = state => {
+  const progression = getCurrentProgression(state);
+  return progression.state.livesDisabled ? null : get('state.lives', progression);
+};
