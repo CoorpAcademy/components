@@ -1,6 +1,13 @@
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
-import {getEngine, getLives, getCurrentContent} from '../../utils/state-extract';
+import indexOf from 'lodash/fp/indexOf';
+import {
+  getContent,
+  getCurrentChapterId,
+  getEngine,
+  getLives,
+  getCurrentContent
+} from '../../utils/state-extract';
 import {back} from '../../actions/ui/location';
 
 const headerContent = (engineRef, state) => {
@@ -23,11 +30,20 @@ const headerContent = (engineRef, state) => {
 
 const headerSubcontent = (engineRef, state) => {
   switch (engineRef) {
-    case 'learner':
+    case 'learner': {
+      const chapterId = getCurrentChapterId(state);
+      const chapter = getContent('chapter', chapterId)(state);
+      const level = getCurrentContent(state);
+      const chapterIds = get('chapterIds', level);
+      const details = chapterIds
+        ? `${1 + indexOf(chapterId, chapterIds)}/${chapterIds.length}`
+        : null;
+
       return {
-        title: 'todo get chapter name',
-        details: 'todo i/n'
+        title: getOr('', 'name', chapter),
+        details
       };
+    }
     case 'microlearning':
     default:
       return null;

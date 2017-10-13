@@ -5,6 +5,7 @@ import toString from 'lodash/fp/toString'; // eslint-disable-line no-shadow
 
 const getId = get('_id');
 
+export const getChapterId = get('chapter_id');
 export const getChoices = get('question.content.choices');
 export const getCurrentProgressionId = get('ui.current.progressionId');
 export const getQuestionType = get('question.type');
@@ -54,6 +55,7 @@ export const getContentInfo = pipe(getCurrentContent, get('info'));
 export const getNbSlides = pipe(getContentInfo, get('nbSlides'));
 export const getStepContent = pipe(getCurrentProgression, get('state.nextContent'));
 export const getPrevStepContent = pipe(getCurrentProgression, get('state.content'));
+export const getCurrentChapterId = pipe(getCurrentSlide, getChapterId);
 
 export const getEngine = state => {
   return get('engine')(getCurrentProgression(state));
