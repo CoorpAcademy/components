@@ -145,7 +145,7 @@ function content(config: Config): (Content, Action) => Content {
       }
       case 'extraLifeAccepted': {
         const acceptAction = (action: ExtraLifeAcceptedAction);
-        return acceptAction.payload.content;
+        return state.remainingLifeRequests > 0 ? acceptAction.payload.nextContent : c;
       }
       case 'extraLifeRefused': {
         const refuseAction = (action: ExtraLifeRefusedAction);
@@ -166,7 +166,7 @@ function nextContent(config: Config): (Content, Action) => Content {
       }
       case 'extraLifeAccepted': {
         const acceptAction = (action: ExtraLifeAcceptedAction);
-        return acceptAction.payload.nextContent;
+        return state.remainingLifeRequests > 0 ? acceptAction.payload.nextContent : c;
       }
       case 'extraLifeRefused': {
         const refuseAction = (action: ExtraLifeRefusedAction);
