@@ -23,10 +23,7 @@ const slides = [
 ];
 
 test('should return a new slide when user is still alive', t => {
-  const state: State = Object.freeze({
-    ...stateBeforeGettingNextContent,
-    slides: ['1.A1.1']
-  });
+  const state: State = Object.freeze(stateBeforeGettingNextContent);
 
   const nextStep = computeNextStep(engine, slides, state);
   t.not(nextStep.ref, '1.A1.1');
