@@ -441,8 +441,7 @@ test('should not be able to accept extra life if has no remaining life request',
 
   const newState = updateState(engine, state, [action]);
 
-  t.is(newState.lives, 0);
-  t.is(newState.remainingLifeRequests, 0);
+  t.deepEqual(newState, state);
 });
 
 test('should go to failure when refusing extra life', t => {
