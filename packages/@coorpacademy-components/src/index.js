@@ -29,6 +29,7 @@ export Container from './organism/accordion/container';
 export CoorpHeader from './template/common/coorp-header';
 export Cta from './atom/cta';
 export Dashboard from './template/common/dashboard';
+export DashboardPreview from './template/back-office/dashboard-preview';
 export Discipline from './template/common/discipline';
 export DisciplineCta from './molecule/discipline-cta';
 export DisciplineHeader from './molecule/discipline-header';
