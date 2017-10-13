@@ -61,7 +61,7 @@ export default {
               selected: false
             }
           ]
-        },
+        }
       ]
     ]
   }

@@ -4,7 +4,6 @@ import noop from 'lodash/fp/noop';
 import Layout from '../layout';
 import Sidebar from '../../../organism/sidebar';
 import Loader from '../../app-player/loading';
-import Title from '../../../atom/title';
 import style from './style.css';
 
 const defaultInputParam = {
@@ -64,10 +63,7 @@ const DashboardPreview = Layout(props => {
         <h1 className={style.dashboardTitle}>
           {currentDashboard.name}
         </h1>
-        <iframe
-          src={currentDashboard.url}
-          className={style.dashboardIframe}
-        />
+        <iframe src={currentDashboard.url} className={style.dashboardIframe} />
       </div>
     </div>
   );
