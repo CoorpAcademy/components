@@ -61,10 +61,13 @@ const DashboardPreview = Layout(props => {
         />
       </div>
       <div className={style.dashboardContent}>
-        <Title>
+        <h1 className={style.dashboardTitle}>
           {currentDashboard.name}
-        </Title>
-        <iframe href={currentDashboard.url} />
+        </h1>
+        <iframe
+          src={currentDashboard.url}
+          className={style.dashboardIframe}
+        />
       </div>
     </div>
   );

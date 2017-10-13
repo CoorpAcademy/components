@@ -26,7 +26,8 @@ export default {
         v3: 'aa-ee-bb-cc-dd-xx'
       },
       currentVersion: 'v2',
-      schema: ['platform', 'provider']
+      schema: ['platform', 'provider'],
+      url: 'https://coorpacademy.github.io/'
     }
   }
 };
