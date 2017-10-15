@@ -19,24 +19,73 @@
   width: 100%;
   background-color: light;
   margin-top: 56px;
+  perspective: 1000px;
 }
 
-.clue {
+.clueCard {
+  transition: 1s;
+  transition-delay: 0s;
+  transform-style: preserve-3d;
+  position: relative;
+  padding: 32px;
+  width: 447px;
+  height: 239px;
+  box-sizing: content-box;
+}
+
+.flip {
+  transform: rotateX(180deg);
+}
+
+.back,
+.front {
   background: brand;
   border: 10px solid white;
   padding: 32px;
   text-align: center;
-  width: 427px;
   height: 219px;
   display: flex;
   align-items: center;
-  position: relative;
-  transition: background-color 0.3s ease-out;
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
-.loadingClue {
-  composes: clue;
-  background-color: medium;
+.back {
+  z-index: 2;
+  transform: rotateX(0deg);
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.front {
+  transform: rotateX(180deg);
+}
+
+.backContent {
+  flex-direction: column;
+  justify-content: space-around;
+  display: flex;
+  align-items: center;
+  backface-visibility: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.loading {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.stars {
+  padding-top: 50px;
+  font-family: 'Open Sans';
+  font-style: italic;
+  color: white;
+  display: block;
+  width: 100%;
 }
 
 .clueText,
@@ -67,7 +116,7 @@
     margin-top: 24px;
   }
 
-  .clue {
+  .clueCard {
     width: 70%;
   }
 }

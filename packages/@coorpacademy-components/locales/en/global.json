@@ -52,5 +52,6 @@
   "clue_stars_to_loose_plural": "Unlocking the clue costs {{count}} stars on each question",
   "media_stars_to_win": "Win {{count}} additional star in this chapter the first time you watch the lesson!",
   "media_stars_to_win_plural": "Win {{count}} additional stars in this chapter the first time you watch the lesson!",
-  "Open": "Open"
+  "Open": "Open",
+  "See clue": "See clue"
 }

@@ -39,6 +39,7 @@
   border-style: solid;
   border-color: brand;
   background-color: brand;
+  transition: background 0.5s, color 0.5s, border 0.5s;
   color: white;
 }
 
