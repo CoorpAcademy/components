@@ -138,7 +138,7 @@ const CorrectionPart = props => {
 
 const NextQuestionPart = (props, context) => {
   const {cta, extraLife, revival, fail, lives} = props;
-  const {title, type = 'correction', ...linkProps} = cta || {};
+  const {title, type = 'correction', nextStepTitle, ...linkProps} = cta || {};
   const {active: isExtraLife} = extraLife;
   const isGameOver = !lives && !revival && (fail || isExtraLife);
 
@@ -166,6 +166,11 @@ const NextQuestionPart = (props, context) => {
   } else {
     dataNext = 'continue-success';
   }
+
+  const nextStep = nextStepTitle
+    ? <div className={style.nextStepTitle}>{nextStepTitle}</div>
+    : null;
+
   return (
     <Link
       className={classnames(
@@ -177,10 +182,12 @@ const NextQuestionPart = (props, context) => {
       data-next={dataNext}
       {...linkProps}
     >
-
-      <div data-name="nextButton" className={style.nextButton}>
-        {title}
-        <ArrowRight color="inherit" className={style.nextButtonIcon} />
+      <div className={style.wrapperNextSection}>
+        <div data-name="nextButton" data-next={dataNext} className={style.nextButton}>
+          {title}
+          <ArrowRight color="inherit" className={style.nextButtonIcon} />
+        </div>
+        {nextStep}
       </div>
     </Link>
   );
@@ -294,7 +301,8 @@ PopinHeader.propTypes = {
   cta: PropTypes.shape({
     ...Link.propTypes,
     title: PropTypes.string,
-    type: PropTypes.type
+    type: PropTypes.type,
+    nextStepTitle: PropTypes.string
   })
 };
 
