@@ -155,19 +155,19 @@ const SidebarItem = ({item, color, index}) => {
   }
 };
 
-const InfoProptype = PropTypes.shape({
+InfoItem.propTypes = PropTypes.shape({
   title: PropTypes.string.isRequired,
   type: PropTypes.oneOf(['info']).isRequired,
   value: PropTypes.string.isRequired
 });
-const LinkProptype = PropTypes.shape({
+LinkItem.propTypes = PropTypes.shape({
   title: PropTypes.string.isRequired,
   type: PropTypes.oneOf(['link']).isRequired,
   selected: PropTypes.bool,
   name: PropTypes.string,
   onClick: PropTypes.func
 });
-const InputTextProptype = PropTypes.shape({
+InputTextItem.propTypes = PropTypes.shape({
   title: PropTypes.string.isRequired,
   type: PropTypes.oneOf(['inputtext']).isRequired,
   disabled: PropTypes.bool,
@@ -176,7 +176,7 @@ const InputTextProptype = PropTypes.shape({
   placeholder: PropTypes.string,
   onChange: PropTypes.func
 });
-const SelectProptype = PropTypes.shape({
+SelectItem.propTypes = PropTypes.shape({
   title: PropTypes.string.isRequired,
   type: PropTypes.oneOf(['select']).isRequired,
   options: PropTypes.arrayOf(
@@ -189,10 +189,10 @@ const SelectProptype = PropTypes.shape({
   onChange: PropTypes.func
 });
 const SectionProptype = PropTypes.oneOfType([
-  InfoProptype,
-  SelectProptype,
-  LinkProptype,
-  InputTextProptype
+  InfoItem.propTypes,
+  SelectItem.propTypes,
+  LinkItem.propTypes,
+  InputTextItem.propTypes
 ]);
 Sidebar.propTypes = {
   items: PropTypes.arrayOf(
