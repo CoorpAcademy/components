@@ -41,11 +41,10 @@ export const LOCATION_BACK_FAILURE = '@@location/BACK_FAILURE';
 export const back = (dispatch, getState, {services}) => {
   const {Location} = services; // eslint-disable-line no-shadow
   const content = getCurrentContent(getState());
-  const {disciplineRef, level: levelName} = content;
 
   const action = buildTask({
     types: [LOCATION_BACK_REQUEST, LOCATION_BACK_SUCCESS, LOCATION_BACK_FAILURE],
-    task: () => Location.back(disciplineRef, levelName)
+    task: () => Location.back(content)
   });
 
   return dispatch(action);
