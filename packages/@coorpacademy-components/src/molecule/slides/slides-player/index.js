@@ -141,9 +141,6 @@ const CONTEXT_MEDIA = {
 
 const ContextMedia = ({media}) => {
   const ContentType = CONTEXT_MEDIA[media.type];
-  if (!ContentType) {
-    return null;
-  }
   return (
     <div className={style.contextWrapper}>
       <ContentType {...media} />
