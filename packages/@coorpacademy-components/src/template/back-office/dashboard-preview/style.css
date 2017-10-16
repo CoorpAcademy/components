@@ -14,9 +14,8 @@
 }
 
 .dashboardAside {
-  padding: 0;
-  padding-top: 50px;
-  min-width: 200px;
+  padding: 55px 20px 20px 20px;
+  min-width: 250px;
   display: table-cell;
   vertical-align: top;
 }
