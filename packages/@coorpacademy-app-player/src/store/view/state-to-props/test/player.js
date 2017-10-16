@@ -126,6 +126,10 @@ test('should display "Back to question" for the cta in the tabs', t => {
   t.is(playerProps(state).cta.submitValue, '__Back to question');
 
   state.ui.route.foo = 'clue';
+
+  t.is(typeof playerProps(state).onClickSeeClue, 'function');
+  playerProps(state).onClickSeeClue();
+
   t.is(playerProps(state).cta.submitValue, '__Back to question');
 });
 

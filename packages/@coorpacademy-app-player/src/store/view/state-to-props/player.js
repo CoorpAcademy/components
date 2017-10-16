@@ -15,7 +15,7 @@ import {
 } from '../../utils/state-extract';
 import {validateAnswer} from '../../actions/ui/answers';
 import {selectRoute} from '../../actions/ui/route';
-import {selectClue} from '../../actions/ui/clues';
+import {selectClue, getClue} from '../../actions/ui/clues';
 import {createGetAnswerProps, createGetHelp} from './answer';
 import getResourcesProps from './resources';
 
@@ -41,6 +41,7 @@ const playerProps = (options, store) => state => {
   const starsDiff = (STARS_DIFF[route] && get(STARS_DIFF[route], engineConfig)) || 0;
   const isAnswer = !includes(route, ROUTES);
   const clickClueHandler = () => dispatch(selectClue);
+  const clickSeeClueHandler = () => dispatch(getClue);
   const clickBackToAnswerHandler = () => dispatch(selectRoute('answer'));
   const clickCTAHandler = () =>
     dispatch(
@@ -70,6 +71,7 @@ const playerProps = (options, store) => state => {
   return {
     typeClue: isAnswer ? 'answer' : route,
     text: clue,
+    onClickSeeClue: clickSeeClueHandler,
     step: {
       current: get('state.step.current')(progression),
       total: getNbSlides(state)

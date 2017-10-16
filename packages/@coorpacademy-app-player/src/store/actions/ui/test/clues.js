@@ -2,13 +2,31 @@ import test from 'ava';
 import set from 'lodash/fp/set';
 import pipe from 'lodash/fp/pipe';
 import macro from '../../test/helpers/macro';
-import {selectClue} from '../clues';
+import {getClue, selectClue} from '../clues';
 import {UI_SELECT_ROUTE} from '../route';
 import {
   PROGRESSION_REQUEST_CLUE_REQUEST,
   PROGRESSION_REQUEST_CLUE_SUCCESS
 } from '../../api/progressions';
 import {CLUE_FETCH_REQUEST, CLUE_FETCH_SUCCESS} from '../../api/clues';
+
+test(
+  'should set state with selected clue',
+  macro,
+  set('ui.current.progressionId', 'foo')({}),
+  t => ({}),
+  selectClue,
+  [
+    [
+      {
+        type: UI_SELECT_ROUTE,
+        meta: {progressionId: 'foo'},
+        payload: 'clue'
+      },
+      set('ui.route.foo', 'clue', {})
+    ]
+  ]
+);
 
 test(
   'should unlock and fetch clue',
@@ -41,16 +59,8 @@ test(
       }
     }
   }),
-  selectClue,
+  getClue,
   [
-    [
-      {
-        type: UI_SELECT_ROUTE,
-        meta: {progressionId: 'foo'},
-        payload: 'clue'
-      },
-      set('ui.route.foo', 'clue', {})
-    ],
     [
       {
         type: PROGRESSION_REQUEST_CLUE_REQUEST,
@@ -121,16 +131,8 @@ test(
       }
     }
   }),
-  selectClue,
+  getClue,
   [
-    [
-      {
-        type: UI_SELECT_ROUTE,
-        meta: {progressionId: 'foo'},
-        payload: 'clue'
-      },
-      set('ui.route.foo', 'clue', {})
-    ],
     [
       {
         type: PROGRESSION_REQUEST_CLUE_REQUEST,

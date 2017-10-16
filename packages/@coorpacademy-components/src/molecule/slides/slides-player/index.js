@@ -33,25 +33,19 @@ const MediaView = ({media}) => {
  */
 
 const ClueContent = (props, context) => {
-  const {text, starsDiff} = props;
-  const {translate} = context;
-  const starsToLoose = translate('clue_stars_to_loose', {count: Math.abs(starsDiff)});
+  const {text, starsDiff, onClickSeeClue} = props;
 
   return (
     <div className={style.clueWrapper}>
-      <Clue text={text} />
-      <div className={style.stars}>{starsToLoose}</div>
+      <Clue text={text} starsDiff={starsDiff} onClick={onClickSeeClue} />
     </div>
   );
 };
 
 ClueContent.propTypes = {
   text: PropTypes.string,
-  starsDiff: PropTypes.number
-};
-
-ClueContent.contextTypes = {
-  translate: Provider.childContextTypes.translate
+  starsDiff: PropTypes.number,
+  onClickSeeClue: PropTypes.func
 };
 
 const NewMedia = (props, context) => {
@@ -147,9 +141,6 @@ const CONTEXT_MEDIA = {
 
 const ContextMedia = ({media}) => {
   const ContentType = CONTEXT_MEDIA[media.type];
-  if (!ContentType) {
-    return null;
-  }
   return (
     <div className={style.contextWrapper}>
       <ContentType {...media} />

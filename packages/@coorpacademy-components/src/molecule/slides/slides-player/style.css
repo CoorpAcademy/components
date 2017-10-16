@@ -71,7 +71,7 @@
   height: 4px;
   border-radius: 3px;
   border-bottom-left-radius: 0;
-  transition: width 0.2s linear;
+  transition: width 0.5s linear 0.3s;
 }
 
 .infos {
@@ -168,6 +168,7 @@
 
 .clueWrapper {
   flex-grow: 0.7;
+  width: 100%;
 }
 
 .stars {

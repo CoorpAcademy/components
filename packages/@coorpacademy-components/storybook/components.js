@@ -1665,7 +1665,8 @@ export const dependencies = {
           "News": true
         },
         "Atom": {
-          "Slide": true
+          "Slide": true,
+          "Clue": true
         }
       },
       "children": {}
@@ -1809,8 +1810,7 @@ export const dependencies = {
           "BrandUploadBox": true
         },
         "Atom": {
-          "ImageUpload": true,
-          "Clue": true
+          "ImageUpload": true
         }
       },
       "children": {}
@@ -1915,7 +1915,7 @@ export const dependencies = {
     "Clue": {
       "children": {
         "Atom": {
-          "Loader": true
+          "Cta": true
         }
       }
     },
