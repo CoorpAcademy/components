@@ -20,11 +20,10 @@ const headerContent = (engineRef, state) => {
         details: get('level')(content)
       };
     case 'microlearning':
+    default:
       return {
         title: getOr('', 'name')(content)
       };
-    default:
-      return null;
   }
 };
 

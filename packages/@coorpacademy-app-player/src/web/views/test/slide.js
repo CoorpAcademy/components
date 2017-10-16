@@ -2,6 +2,7 @@ import test from 'ava';
 import identity from 'lodash/fp/identity';
 import map from 'lodash/fp/map';
 import omit from 'lodash/fp/omit';
+import isFunction from 'lodash/fp/isFunction';
 import {mockTranslate} from '@coorpacademy/translate';
 import microlearningHeader from '../../../store/view/test/fixtures/progression-state';
 import learnerHeader from '../../../store/view/test/fixtures/progression-learner';
@@ -24,9 +25,14 @@ test('should display microlearning header', t => {
   t.is(headerProps.content.title, 'Les réseaux sociaux au service du crowdfunding');
   t.is(headerProps.subcontent, null);
   t.deepEqual(headerProps.lives, {count: 3});
+
+  const onClick = headerProps.content.onClick;
+  t.true(isFunction(onClick));
+  const actionOnClick = onClick();
+  t.true(isFunction(actionOnClick));
 });
 
-test('should display learner header', t => {
+test('should display learner header with chapter num', t => {
   const vNode = mapStateToVNode(learnerHeader);
   testRendering(vNode);
   const {props: {header: headerProps}} = vNode;
@@ -34,7 +40,33 @@ test('should display learner header', t => {
   t.is(headerProps.type, 'learner');
   t.is(headerProps.content.title, 'level1');
   t.is(headerProps.content.details, 'base');
+  t.is(headerProps.subcontent.title, 'chapter2!');
+  t.is(headerProps.subcontent.details, '2/2');
   t.deepEqual(headerProps.lives, {count: 3});
+
+  const onClick = headerProps.content.onClick;
+  t.true(isFunction(onClick));
+  const actionOnClick = onClick();
+  t.true(isFunction(actionOnClick));
+});
+
+test('should display learner header with no chapter nums', t => {
+  const state = omit('data.contents.level.entities.1.chapterIds', learnerHeader);
+  const vNode = mapStateToVNode(state);
+  testRendering(vNode);
+  const {props: {header: headerProps}} = vNode;
+
+  t.is(headerProps.type, 'learner');
+  t.is(headerProps.content.title, 'level1');
+  t.is(headerProps.content.details, 'base');
+  t.is(headerProps.subcontent.title, 'chapter2!');
+  t.is(headerProps.subcontent.details, null);
+  t.deepEqual(headerProps.lives, {count: 3});
+
+  const onClick = headerProps.content.onClick;
+  t.true(isFunction(onClick));
+  const actionOnClick = onClick();
+  t.true(isFunction(actionOnClick));
 });
 
 test('should display slide', async t => {
