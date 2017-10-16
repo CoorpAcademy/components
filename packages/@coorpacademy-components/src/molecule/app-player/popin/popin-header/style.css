@@ -492,4 +492,12 @@
     animation: mobileAddedLife 0.5s ease-in;
     animation-fill-mode: forwards;
   }
+
+  .wrapperNextSection {
+    height: 54px;
+  }
+
+  .nextStepTitle {
+    width: 177px;
+  }
 }
