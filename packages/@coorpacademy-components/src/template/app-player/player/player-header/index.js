@@ -1,3 +1,4 @@
+import isNil from 'lodash/fp/isNil';
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from '../../../../atom/link';
@@ -12,7 +13,7 @@ const PlayerHeaders = {
 };
 
 const Lives = ({lives}, context) => {
-  if (!lives) {
+  if (isNil(lives)) {
     return null;
   }
 

@@ -1,4 +1,3 @@
-import constant from 'lodash/fp/constant';
 import buildTask from '../../utils/redux-task';
 import {getProgressionContent, getCurrentContent} from '../../utils/state-extract';
 
@@ -14,7 +13,6 @@ export const retry = (dispatch, getState, {services}) => {
   const action = buildTask({
     types: [LOCATION_RETRY_REQUEST, LOCATION_RETRY_SUCCESS, LOCATION_RETRY_FAILURE],
     task: () => Location.retry(contentRef),
-    bailout: constant(false),
     meta: {contentRef}
   });
 
@@ -30,8 +28,7 @@ export const exit = (dispatch, getState, {services}) => {
 
   const action = buildTask({
     types: [LOCATION_EXIT_REQUEST, LOCATION_EXIT_SUCCESS, LOCATION_EXIT_FAILURE],
-    task: () => Location.exit(),
-    bailout: constant(false)
+    task: () => Location.exit()
   });
 
   return dispatch(action);
@@ -48,8 +45,7 @@ export const back = (dispatch, getState, {services}) => {
 
   const action = buildTask({
     types: [LOCATION_BACK_REQUEST, LOCATION_BACK_SUCCESS, LOCATION_BACK_FAILURE],
-    task: () => Location.back(disciplineRef, levelName),
-    bailout: constant(false)
+    task: () => Location.back(disciplineRef, levelName)
   });
 
   return dispatch(action);
