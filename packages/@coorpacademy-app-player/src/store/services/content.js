@@ -56,22 +56,18 @@ export const getInfo = (contentRef, engineRef, version) => {
 };
 
 export const getNextContent = (type, ref) => {
-  switch (type) {
-    case 'level':
-      if (levels.has(ref)) {
-        const {name, level} = levels.get(ref);
-        if (level === 'coach') {
-          return Promise.resolve({});
-        }
-
-        const nextLevel = level === 'basic' ? 'advanced' : 'coach';
-        const filter = {level: nextLevel, name};
-        const nextContent = find_(filter, levelsData);
-
-        return Promise.resolve(nextContent);
-      }
-      break;
-    default:
+  if (levels.has(ref)) {
+    const {name, level} = levels.get(ref);
+    if (level === 'coach') {
       return Promise.resolve({});
+    }
+
+    const nextLevel = level === 'base' ? 'advanced' : 'coach';
+    const filter = {level: nextLevel, name};
+    const nextContent = find_(filter, levelsData);
+
+    return Promise.resolve(nextContent);
   }
+
+  return Promise.resolve({});
 };

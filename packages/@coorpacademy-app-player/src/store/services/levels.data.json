@@ -1,5 +1,20 @@
 [
   {
+    "ref": "1.B",
+    "name": "Level1",
+    "level": "base",
+    "meta": {
+      "updatedAt": "2017-01-26T09:19:06.874Z",
+      "createdAt": "2017-01-26T09:19:05.667Z"
+    },
+    "poster": {
+      "subtitles": [],
+      "posters": [],
+      "src": []
+    },
+    "chapterIds": ["1.B1", "1.B2"]
+  },
+  {
     "ref": "1.A",
     "name": "Level1",
     "level": "advanced",
@@ -28,5 +43,20 @@
       "src": []
     },
     "chapterIds": ["1.C1", "1.C2"]
+  },
+  {
+    "ref": "2.B",
+    "name": "Level21",
+    "level": "base",
+    "meta": {
+      "updatedAt": "2017-01-26T09:19:06.874Z",
+      "createdAt": "2017-01-26T09:19:05.667Z"
+    },
+    "poster": {
+      "subtitles": [],
+      "posters": [],
+      "src": []
+    },
+    "chapterIds": ["2.B1", "2.B2"]
   }
 ]

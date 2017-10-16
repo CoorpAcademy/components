@@ -2,6 +2,7 @@ import test from 'ava';
 import get from 'lodash/fp/get';
 import head from 'lodash/fp/head';
 import unset from 'lodash/fp/unset';
+import isEmpty from 'lodash/fp/isEmpty';
 import pipe from 'lodash/fp/pipe';
 import {getConfig} from '@coorpacademy/progression-engine';
 import chaptersData from '../chapters.data';
@@ -72,8 +73,17 @@ test('should return level coach as next for given advanced level', async t => {
   t.is(nextContent.ref, '1.C');
 });
 
-test('should return empty when given level', async t => {
-  const nextContent = await getNextContent('level', '1.A');
-  t.is(nextContent.level, 'coach');
-  t.is(nextContent.ref, '1.C');
+test('should return empty when given level is coach', async t => {
+  const nextContent = await getNextContent('level', '1.C');
+  t.true(isEmpty(nextContent));
+});
+
+test('should return empty when given level has not next level', async t => {
+  const nextContent = await getNextContent('level', '2.B');
+  t.true(isEmpty(nextContent));
+});
+
+test('should return empty when given another type of content', async t => {
+  const nextContent = await getNextContent('chapter', '1.C1');
+  t.true(isEmpty(nextContent));
 });

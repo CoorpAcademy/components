@@ -52,6 +52,7 @@ test('should display learner header with chapter num', t => {
 
 test('should display learner header with no chapter nums', t => {
   const state = omit('data.contents.level.entities.1.chapterIds', learnerHeader);
+
   const vNode = mapStateToVNode(state);
   testRendering(vNode);
   const {props: {header: headerProps}} = vNode;

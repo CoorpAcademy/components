@@ -30,3 +30,13 @@ test('should reload page on back', t => {
   };
   Location.back();
 });
+
+test('should reload page on nextLevel', t => {
+  t.plan(1);
+  global.window = {
+    location: {
+      reload: () => t.pass()
+    }
+  };
+  Location.nextLevel();
+});

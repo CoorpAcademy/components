@@ -145,9 +145,11 @@ export const getLives = state => {
 };
 
 export const getNextContent = state => {
-  const nextContentRef = get('ui.current.nextContentRef', state);
-  if (nextContentRef)  {
-    return get(['data', 'contents', 'level', 'entities', nextContentRef], state);
+  const {type, ref} = getProgressionContent(state);
+  const nextContentRef = get(['data', 'contents', 'nextContent', ref], state);
+
+  if (nextContentRef) {
+    return get(['data', 'contents', type, 'entities', nextContentRef], state);
   }
   return;
 };

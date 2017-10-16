@@ -59,11 +59,16 @@ export const nextLevel = (dispatch, getState, {services}) => {
 
   const nextContent = getNextContent(getState());
 
-  const action = buildTask({
-    types: [LOCATION_NEXT_CONTENT_REQUEST, LOCATION_NEXT_CONTENT_SUCCESS, LOCATION_NEXT_CONTENT_FAILURE],
-    task: () => Location.nextLevel(nextContent.ref),
-    bailout: constant(false)
-  });
+  if (nextContent) {
+    const action = buildTask({
+      types: [
+        LOCATION_NEXT_CONTENT_REQUEST,
+        LOCATION_NEXT_CONTENT_SUCCESS,
+        LOCATION_NEXT_CONTENT_FAILURE
+      ],
+      task: () => Location.nextLevel(nextContent.ref)
+    });
 
-  return dispatch(action);
+    return dispatch(action);
+  }
 };
