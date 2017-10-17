@@ -2,6 +2,7 @@ import getOr from 'lodash/fp/getOr';
 import get from 'lodash/fp/get';
 import isNil from 'lodash/fp/isNil';
 import join from 'lodash/fp/join';
+import indexOf from 'lodash/fp/indexOf';
 import {
   getCurrentCorrection,
   getCurrentProgression,
@@ -45,9 +46,16 @@ const createNoExtraLifeCTA = (options, store) => state => {
   const previousChapterId = get('chapter_id', previousSlide);
   const isNewChapter = previousChapterId !== currentChapterId;
 
+  const levelId = get('content.ref', progression);
+  const chapterIds = get(['data', 'contents', 'level', 'entities', levelId, 'chapterIds'], state);
+  const chapterIdsLength = chapterIds.length;
+  const indexChapter = indexOf(currentChapterId, chapterIds) + 1;
+
+  const nextChapterTitle = `${indexChapter}/${chapterIdsLength} ${currentChapterName}`;
+
   const onClick = () => dispatch(selectProgression(progressionId));
 
-  return {title, onClick, nextStepTitle: isNewChapter ? currentChapterName : null};
+  return {title, onClick, nextStepTitle: isNewChapter ? nextChapterTitle : null};
 };
 
 export const createHeaderCTA = (options, store) => state => {
