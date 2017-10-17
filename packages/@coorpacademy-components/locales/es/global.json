@@ -52,5 +52,6 @@
   "clue_stars_to_loose_plural": "Desbloqueo de las estrellas de {{count}} costos de pista en cada pregunta",
   "media_stars_to_win": "¡Ganar más que estrellas en este tiempo del capítulo la primera ver la lección de {{count}}!",
   "media_stars_to_win_plural": "¡Ganar {{count}} adicionales estrellas en este tiempo del capítulo la primera que ver la lección!",
-  "Open": "Abierto"
+  "Open": "Abierto",
+  "See clue": "Ver pista"
 }
