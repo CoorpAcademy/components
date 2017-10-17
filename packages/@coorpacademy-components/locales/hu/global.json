@@ -52,5 +52,6 @@
   "clue_stars_to_loose_plural": "A nyom költségek {{count}} csillagok minden kérdésre felszabadítása",
   "media_stars_to_win": "Nyerj {{count}} további csillag ebben a fejezetben az első időben figyelje a leckét!",
   "media_stars_to_win_plural": "Nyerj {{count}} további csillag ebben a fejezetben az első időben nézni a leckét!",
-  "Open": "Nyitott"
+  "Open": "Nyitott",
+  "See clue": "Lásd a nyom"
 }
