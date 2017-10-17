@@ -56,11 +56,11 @@ LearnerHeader.propTypes = {
   content: PropTypes.shape({
     onClick: Link.propTypes.onClick,
     title: PropTypes.string.isRequired,
-    subtitle: PropTypes.string
+    details: PropTypes.string
   }).isRequired,
   subcontent: PropTypes.shape({
     title: PropTypes.string.isRequired,
-    subtitle: PropTypes.string
+    details: PropTypes.string
   }).isRequired
 };
 
