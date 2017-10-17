@@ -8,7 +8,7 @@ import {
   getCurrentProgressionId,
   getLives,
   getPreviousSlide,
-  getCurrentContent
+  getCurrentSlide
 } from '../../utils/state-extract';
 import {acceptExtraLifeAndReset, refuseExtraLifeAndReset} from '../../actions/ui/extra-life';
 import {toggleAccordion} from '../../actions/ui/corrections';
@@ -32,13 +32,22 @@ const createNoExtraLifeCTA = (options, store) => state => {
   const {dispatch} = store;
   const progression = getCurrentProgression(state);
   const progressionId = getCurrentProgressionId(state);
-  const currentContent = getCurrentContent(state);
   const isDead = progression.state.lives === 0;
   const title = translate(isDead ? 'Game over' : 'Next');
-  const nextStepTitle = get('name', currentContent);
+
+  const currentSlide = getCurrentSlide(state);
+  const currentChapterId = get('chapter_id', currentSlide);
+  const currentChapterName = get(
+    ['data', 'contents', 'chapter', 'entities', currentChapterId, 'name'],
+    state
+  );
+  const previousSlide = getPreviousSlide(state);
+  const previousChapterId = get('chapter_id', previousSlide);
+  const isNewChapter = previousChapterId !== currentChapterId;
+
   const onClick = () => dispatch(selectProgression(progressionId));
 
-  return {title, onClick, nextStepTitle};
+  return {title, onClick, nextStepTitle: isNewChapter ? currentChapterName : null};
 };
 
 export const createHeaderCTA = (options, store) => state => {
