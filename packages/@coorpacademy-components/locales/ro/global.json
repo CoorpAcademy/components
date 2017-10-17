@@ -52,5 +52,6 @@
   "clue_stars_to_loose_plural": "Deblocarea indiciu costurile {{count}} stele pe fiecare întrebare",
   "media_stars_to_win": "Castiga {{count}} suplimentare stele în acest moment primul capitol te uiţi la lecţie!",
   "media_stars_to_win_plural": "Castiga {{count}} stele suplimentare în capitolul primul de data aceasta tu uita-te la lecţie!",
-  "Open": "Deschis"
+  "Open": "Deschis",
+  "See clue": "A se vedea indiciu"
 }
