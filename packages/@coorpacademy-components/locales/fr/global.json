@@ -52,5 +52,6 @@
   "clue_stars_to_loose_plural": "En regardant un indice, vous perdez {{count}} étoiles par question",
   "media_stars_to_win": "Gagnez {{count}} étoiles supplémentaires par chapitre en visionnant la leçon",
   "media_stars_to_win_plural": "Gagnez {{count}} étoiles supplémentaires par chapitre en visionnant la leçon",
-  "Open": "Ouvrir"
+  "Open": "Ouvrir",
+  "See clue": "Voir l'indice"
 }
