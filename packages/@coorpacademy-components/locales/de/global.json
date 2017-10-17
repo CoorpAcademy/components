@@ -52,5 +52,6 @@
   "clue_stars_to_loose_plural": "Entsperren die Ahnung Kosten {{count}} Sterne auf jede Frage",
   "media_stars_to_win": "{{count}} zusätzliche Sterne in dieser Zeit das erste Kapitel der Lektion ansehen zu gewinnen!",
   "media_stars_to_win_plural": "Gewinnen Sie {{count}} weitere Sterne in dieses Kapitel das erste Mal Sie die Lektion ansehen!",
-  "Open": "Offen"
+  "Open": "Offen",
+  "See clue": "Siehe Hinweis"
 }
