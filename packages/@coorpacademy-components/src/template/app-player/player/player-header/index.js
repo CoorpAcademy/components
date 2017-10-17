@@ -47,11 +47,11 @@ PlayerHeader.propTypes = {
   content: PropTypes.shape({
     href: Link.propTypes.href,
     title: PropTypes.string.isRequired,
-    subtitle: PropTypes.string
+    details: PropTypes.string
   }),
   subcontent: PropTypes.shape({
     title: PropTypes.string,
-    subtitle: PropTypes.string
+    details: PropTypes.string
   }),
   lives: Lives.propTypes.lives
 };
