@@ -52,5 +52,6 @@
   "clue_stars_to_loose_plural": "각 질문에 단서 비용 {{count}} 별을 잠금 해제",
   "media_stars_to_win": "{{count}}이 장 처음으로에서 스타 레슨 시계 추가 기자!",
   "media_stars_to_win_plural": "이 장 처음으로 수업을 보고 {{count}} 추가 별을 승리!",
-  "Open": "오픈"
+  "Open": "오픈",
+  "See clue": "단서를 참조"
 }
