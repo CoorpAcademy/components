@@ -52,5 +52,6 @@
   "clue_stars_to_loose_plural": "在每個問題上解開線索費用{{count}}顆星",
   "media_stars_to_win": "第一次看本課時贏得{{count}}額外的星星！",
   "media_stars_to_win_plural": "在本章第一次觀看課程時贏得{{count}}個額外的星星！",
-  "Open": "打開"
+  "Open": "打開",
+  "See clue": "见索引"
 }
