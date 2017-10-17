@@ -52,5 +52,6 @@
   "clue_stars_to_loose_plural": "Ontsluiting van de aanwijzing kosten {{count}} sterren op elke vraag",
   "media_stars_to_win": "Win {{count}} extra dat ster in dit hoofdstuk de eerste keer u de les bekijken!",
   "media_stars_to_win_plural": "{{count}} winnen extra sterren in dit hoofdstuk de eerste keer die u de les bekijken!",
-  "Open": "Open"
+  "Open": "Open",
+  "See clue": "Zie aanwijzing"
 }
