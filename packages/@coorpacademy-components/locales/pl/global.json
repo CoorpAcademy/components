@@ -52,5 +52,6 @@
   "clue_stars_to_loose_plural": "Odblokowywanie pojęcia kosztów {{count}} gwiazd na każde pytanie",
   "media_stars_to_win": "Wygraj {{count}} dodatkowe, gwiazda w tym rozdziale pierwszym razem obejrzeć lekcję!",
   "media_stars_to_win_plural": "Wygraj {{count}} dodatkowe gwiazdki w ten rozdział pierwszy czas obejrzeć lekcję!",
-  "Open": "Otwarte"
+  "Open": "Otwarte",
+  "See clue": "Zobacz pojęcia"
 }
