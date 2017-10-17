@@ -90,7 +90,7 @@ export const InfoItem = props => {
   );
 };
 
-export const Sidebar = (props, context) => {
+const Sidebar = (props, context) => {
   const sections = Array.isArray(props.items[0]) ? props.items : [props.items];
   const {skin} = context;
   const defaultColor = getOr('#00B0FF', 'common.primary', skin);
@@ -157,19 +157,19 @@ const SidebarItem = ({item, color, index}) => {
 
 InfoItem.propTypes = PropTypes.shape({
   title: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['info']).isRequired,
+  type: PropTypes.oneOf(['info']),
   value: PropTypes.string.isRequired
 });
 LinkItem.propTypes = PropTypes.shape({
   title: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['link']).isRequired,
+  type: PropTypes.oneOf(['link']),
   selected: PropTypes.bool,
   name: PropTypes.string,
   onClick: PropTypes.func
 });
 InputTextItem.propTypes = PropTypes.shape({
   title: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['inputtext']).isRequired,
+  type: PropTypes.oneOf(['inputtext']),
   disabled: PropTypes.bool,
   defaultValue: PropTypes.string,
   value: PropTypes.string,
@@ -178,7 +178,7 @@ InputTextItem.propTypes = PropTypes.shape({
 });
 SelectItem.propTypes = PropTypes.shape({
   title: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['select']).isRequired,
+  type: PropTypes.oneOf(['select']),
   options: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,

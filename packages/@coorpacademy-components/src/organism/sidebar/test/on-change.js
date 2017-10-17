@@ -22,9 +22,9 @@ test('should call the onChange function with the value of the target', t => {
   const wrapper = mount(<InputTextItem {...defaultFixture.props} handleOnChange={onChange} />);
 
   t.is(wrapper.find(inputStyle).exists(), true);
-  t.is(wrapper.find('text').exists(), true);
+  t.is(wrapper.find('input').exists(), true);
 
-  wrapper.find('text').simulate('change', {
+  wrapper.find('input').simulate('change', {
     target: {
       value: 'foo'
     }
@@ -40,9 +40,9 @@ test('should not crash if the onChange function has not been specified', t => {
   const wrapper = mount(<InputTextItem {...defaultFixture.props} />);
 
   t.is(wrapper.find(inputStyle).exists(), true);
-  t.is(wrapper.find('text').exists(), true);
+  t.is(wrapper.find('input').exists(), true);
 
-  wrapper.find('text').simulate('change', {
+  wrapper.find('input').simulate('change', {
     target: {
       value: 'foo'
     }
