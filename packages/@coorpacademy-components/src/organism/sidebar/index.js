@@ -9,7 +9,7 @@ import Provider from '../../atom/provider';
 import Select from '../../atom/select/index';
 import style from './style.css';
 
-const InputTextItem = props => {
+export const InputTextItem = props => {
   const {title, placeholder = '', value, defaultValue, handleOnChange = noop, disabled} = props;
   const handleChange = e => handleOnChange(e.target.value);
   return (
@@ -30,7 +30,7 @@ const InputTextItem = props => {
   );
 };
 
-const SelectItem = props => {
+export const SelectItem = props => {
   return (
     <li data-name="sidebarItemSelectItem" className={style.selectItem}>
       <span className={style.sidebarTitle}>{props.title}</span>
@@ -44,7 +44,7 @@ const SelectItem = props => {
   );
 };
 
-const LinkItem = props => {
+export const LinkItem = props => {
   const handleOnClick = e => {
     e.preventDefault();
     props.handleOnClick && props.handleOnClick(e);
@@ -71,7 +71,7 @@ const LinkItem = props => {
   );
 };
 
-const InfoItem = props => {
+export const InfoItem = props => {
   return (
     <ul data-name="sidebarItemInfo" className={style.infoItem}>
       <li className={style.infoItemTitle}>
@@ -90,7 +90,7 @@ const InfoItem = props => {
   );
 };
 
-const Sidebar = (props, context) => {
+export const Sidebar = (props, context) => {
   const sections = Array.isArray(props.items[0]) ? props.items : [props.items];
   const {skin} = context;
   const defaultColor = getOr('#00B0FF', 'common.primary', skin);
