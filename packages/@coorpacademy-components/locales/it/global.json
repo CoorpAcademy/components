@@ -52,5 +52,6 @@
   "clue_stars_to_loose_plural": "Sbloccare le stelle {{count}} costi di indizio su ogni questione",
   "media_stars_to_win": "Vincere {{count}} ulteriori che stelle in questo capitolo il primo tempo è guardare la lezione!",
   "media_stars_to_win_plural": "Vincere {{count}} ulteriori stelle in questo capitolo il primo tempo che è guardare la lezione!",
-  "Open": "Aperto"
+  "Open": "Aperto",
+  "See clue": "Vedere indizio"
 }
