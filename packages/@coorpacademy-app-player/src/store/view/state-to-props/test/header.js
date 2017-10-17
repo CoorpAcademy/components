@@ -1,6 +1,7 @@
 import test from 'ava';
 import set from 'lodash/fp/set';
 import identity from 'lodash/fp/identity';
+import omit from 'lodash/fp/omit';
 import {mockTranslate} from '@coorpacademy/translate';
 import createHeader from '../header';
 import basicSlide from './fixtures/slides/basic';
@@ -53,15 +54,8 @@ test('should create header with the number of lives in the state', t => {
   const ui = {current: {progressionId: 'basic'}};
   const state = {data, ui};
   const props = headerProps(state);
-
-  t.deepEqual(props, {
-    backHref: '/',
-    primary: {
-      title: ''
-    },
-    lives: {
-      count: 100
-    }
+  t.deepEqual(props.lives, {
+    count: 100
   });
 });
 
@@ -70,14 +64,8 @@ test('should read title from the content when available', t => {
   const state = {data: set('progressions.entities.basic.content.ref', '1.B2', data), ui};
   const props = headerProps(state);
 
-  t.deepEqual(props, {
-    backHref: '/',
-    primary: {
-      title: 'some-title'
-    },
-    lives: {
-      count: 100
-    }
+  t.deepEqual(omit('onClick', props.content), {
+    title: 'some-title'
   });
 });
 
@@ -86,13 +74,7 @@ test('should set lives to null if lives are disabled in the progression', t => {
   const state = {data: set('progressions.entities.basic.state.livesDisabled', true, data), ui};
   const props = headerProps(state);
 
-  t.deepEqual(props, {
-    backHref: '/',
-    primary: {
-      title: ''
-    },
-    lives: {
-      count: null
-    }
+  t.deepEqual(props.lives, {
+    count: null
   });
 });

@@ -1,13 +1,14 @@
 export default {
   props: {
-    backHref: '#',
-    primary: {
+    type: 'learner',
+    content: {
+      onClick: () => console.log('onClick learner'),
       title: 'Du management classique au nouveau blablabla',
-      subtitle: 'Basic'
+      details: 'Basic'
     },
-    secondary: {
+    subcontent: {
       title: 'Data-driven strategies and battle tested techniques',
-      subtitle: '2/8'
+      details: '2/8'
     },
     lives: {
       count: 3

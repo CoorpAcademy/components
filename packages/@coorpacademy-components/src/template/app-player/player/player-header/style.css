@@ -1,0 +1,33 @@
+@value colors: "../../../../variables/colors.css";
+@value light from colors;
+
+.wrapper {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  background-color: light;
+}
+
+.backIcon {
+  width: 16px;
+  height: 16px;
+  margin: 0 10px;
+  color: inherit;
+  stroke: inherit;
+  stroke-width: 1px;
+  transition: all 0.3s;
+  min-width: 16px;
+}
+
+.livesWrapper {
+  background-color: light;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.life {
+  margin-right: 16px;
+}

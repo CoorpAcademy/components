@@ -1,0 +1,48 @@
+@value breakpoints: "../../../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value colors: "../../../../variables/colors.css";
+@value xtraLightGrey from colors;
+@value dark from colors;
+@value light from colors;
+@value medium from colors;
+@value black from colors;
+
+.content {
+  min-width: 0;
+  padding-right: 16px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  color: dark;
+  stroke: dark;
+}
+
+.content:hover {
+  color: medium;
+  stroke: medium;
+}
+
+.backIcon {
+  composes: backIcon from './style.css';
+}
+
+.contentTitle {
+  font-family: 'Open Sans';
+  font-size: 13px;
+  color: inherit;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.3s;
+  max-width: 100%;
+}
+
+@media mobile {
+  .content {
+    max-width: none;
+    width: 100%;
+  }
+}

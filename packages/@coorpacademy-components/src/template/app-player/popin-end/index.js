@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SlidesHeader from '../../../molecule/slides/slides-header';
+import Header from '../player/player-header';
 import Summary from './summary';
 import style from './style.css';
 
@@ -13,14 +13,16 @@ const PopinEnd = props => {
   const {header, summary} = props;
   return (
     <div data-name="popinEnd" className={style.wrapper}>
-      <SlidesHeader {...header} className={style.slidesHeader} />
+      <div className={style.slidesHeader}>
+        <Header {...header} />
+      </div>
       <Content {...summary} />
     </div>
   );
 };
 
 PopinEnd.propTypes = {
-  header: PropTypes.shape(SlidesHeader.propTypes),
+  header: PropTypes.shape(Header.propTypes),
   summary: PropTypes.shape(Summary.propTypes)
 };
 

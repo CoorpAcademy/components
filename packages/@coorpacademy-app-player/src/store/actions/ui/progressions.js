@@ -7,6 +7,7 @@ import {fetchContent, fetchContentInfo} from '../api/contents';
 import {fetchRecommendations} from '../api/recommendations';
 import {fetchAnswer} from '../api/answers';
 import {
+  getCurrentChapterId,
   getEngine,
   getProgressionContent,
   getCurrentProgressionId,
@@ -43,8 +44,11 @@ export const selectProgression = id => async (dispatch, getState) => {
   switch (type) {
     case 'slide': {
       const slideResult = await dispatch(fetchContent('slide', ref));
+      const chapterId = getCurrentChapterId(getState());
+      const chapterResult = await dispatch(fetchContent('chapter', chapterId));
+
       if (isNil(get('payload.context.title', slideResult))) {
-        return slideResult;
+        return chapterResult;
       }
       return dispatch(selectRoute('context'));
     }

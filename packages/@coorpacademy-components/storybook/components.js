@@ -90,7 +90,6 @@ import Qcm from '../src/molecule/questions/qcm';
 import QuestionRange from '../src/molecule/questions/question-range';
 import Template from '../src/molecule/questions/template';
 import SlidesFooter from '../src/molecule/slides/slides-footer';
-import SlidesHeader from '../src/molecule/slides/slides-header';
 import SlidesPlayer from '../src/molecule/slides/slides-player';
 import Container from '../src/organism/accordion/container';
 import Part from '../src/organism/accordion/part';
@@ -116,6 +115,7 @@ import Loading from '../src/template/app-player/loading';
 import Player from '../src/template/app-player/player';
 import PopinCorrection from '../src/template/app-player/popin-correction';
 import PopinEnd from '../src/template/app-player/popin-end';
+import PlayerHeader from '../src/template/app-player/player/player-header';
 import BrandCreate from '../src/template/back-office/brand-create';
 import BrandList from '../src/template/back-office/brand-list';
 import BrandUpdate from '../src/template/back-office/brand-update';
@@ -425,9 +425,6 @@ import SlidesFooterFixtureMediaSelected from '../src/molecule/slides/slides-foot
 import SlidesFooterFixtureNotify from '../src/molecule/slides/slides-footer/test/fixtures/notify';
 import SlidesFooterFixtureOnlyClue from '../src/molecule/slides/slides-footer/test/fixtures/only-clue';
 import SlidesFooterFixtureWithContext from '../src/molecule/slides/slides-footer/test/fixtures/with-context';
-import SlidesHeaderFixtureDefault from '../src/molecule/slides/slides-header/test/fixtures/default';
-import SlidesHeaderFixtureFreerun from '../src/molecule/slides/slides-header/test/fixtures/freerun';
-import SlidesHeaderFixtureNoSecondary from '../src/molecule/slides/slides-header/test/fixtures/no-secondary';
 import SlidesPlayerFixtureClue from '../src/molecule/slides/slides-player/test/fixtures/clue';
 import SlidesPlayerFixtureContextWithImage from '../src/molecule/slides/slides-player/test/fixtures/context-with-image';
 import SlidesPlayerFixtureContextWithPdf from '../src/molecule/slides/slides-player/test/fixtures/context-with-pdf';
@@ -541,6 +538,9 @@ import PopinEndFixtureNextCourse from '../src/template/app-player/popin-end/test
 import PopinEndFixtureSimpleAction from '../src/template/app-player/popin-end/test/fixtures/simple-action';
 import PopinEndFixtureSubscribe from '../src/template/app-player/popin-end/test/fixtures/subscribe';
 import PopinEndFixtureWithRecommendations from '../src/template/app-player/popin-end/test/fixtures/with-recommendations';
+import PlayerHeaderFixtureLearner from '../src/template/app-player/player/player-header/test/fixtures/learner';
+import PlayerHeaderFixtureMicrolearning from '../src/template/app-player/player/player-header/test/fixtures/microlearning';
+import PlayerHeaderFixtureNoLives from '../src/template/app-player/player/player-header/test/fixtures/no-lives';
 import BrandCreateFixtureDefault from '../src/template/back-office/brand-create/test/fixtures/default';
 import BrandCreateFixtureError from '../src/template/back-office/brand-create/test/fixtures/error';
 import BrandCreateFixtureLoading from '../src/template/back-office/brand-create/test/fixtures/loading';
@@ -684,7 +684,6 @@ export const components = {
   },
   MoleculeSlides: {
     SlidesFooter,
-    SlidesHeader,
     SlidesPlayer
   },
   OrganismAccordion: {
@@ -718,6 +717,9 @@ export const components = {
     Player,
     PopinCorrection,
     PopinEnd
+  },
+  TemplateAppPlayerPlayer: {
+    PlayerHeader
   },
   TemplateBackOffice: {
     BrandCreate,
@@ -1227,11 +1229,6 @@ export const fixtures = {
       OnlyClue: SlidesFooterFixtureOnlyClue,
       WithContext: SlidesFooterFixtureWithContext
     },
-    SlidesHeader: {
-      Default: SlidesHeaderFixtureDefault,
-      Freerun: SlidesHeaderFixtureFreerun,
-      NoSecondary: SlidesHeaderFixtureNoSecondary
-    },
     SlidesPlayer: {
       Clue: SlidesPlayerFixtureClue,
       ContextWithImage: SlidesPlayerFixtureContextWithImage,
@@ -1404,6 +1401,13 @@ export const fixtures = {
       WithRecommendations: PopinEndFixtureWithRecommendations
     }
   },
+  TemplateAppPlayerPlayer: {
+    PlayerHeader: {
+      Learner: PlayerHeaderFixtureLearner,
+      Microlearning: PlayerHeaderFixtureMicrolearning,
+      NoLives: PlayerHeaderFixtureNoLives
+    }
+  },
   TemplateBackOffice: {
     BrandCreate: {
       Default: BrandCreateFixtureDefault,
@@ -1565,9 +1569,7 @@ export const dependencies = {
           "BrandCreate": true
         },
         "TemplateAppPlayer": {
-          "PopinEnd": true,
-          "PopinCorrection": true,
-          "Player": true
+          "PopinCorrection": true
         },
         "Organism": {
           "SetupHeader": true,
@@ -1579,9 +1581,6 @@ export const dependencies = {
           "BrandUpload": true,
           "BrandTable": true,
           "BrandForm": true
-        },
-        "MoleculeSlides": {
-          "SlidesHeader": true
         },
         "MoleculeDashboard": {
           "StartBattle": true,
@@ -1832,12 +1831,12 @@ export const dependencies = {
     },
     "Life": {
       "parents": {
+        "TemplateAppPlayerPlayer": {
+          "PlayerHeader": true
+        },
         "TemplateAppPlayer": {
           "PopinEnd": true,
           "Player": true
-        },
-        "MoleculeSlides": {
-          "SlidesHeader": true
         }
       },
       "children": {}
@@ -2749,8 +2748,8 @@ export const dependencies = {
       }
     }
   },
-  "MoleculeSlides": {
-    "SlidesHeader": {
+  "TemplateAppPlayerPlayer": {
+    "PlayerHeader": {
       "parents": {
         "TemplateAppPlayer": {
           "PopinEnd": true,
@@ -2759,31 +2758,7 @@ export const dependencies = {
       },
       "children": {
         "Atom": {
-          "Life": true,
-          "Link": true
-        }
-      }
-    },
-    "SlidesFooter": {
-      "parents": {
-        "TemplateAppPlayer": {
-          "Player": true
-        },
-        "MoleculeSlides": {
-          "SlidesPlayer": true
-        }
-      },
-      "children": {}
-    },
-    "SlidesPlayer": {
-      "parents": {
-        "TemplateAppPlayer": {
-          "Player": true
-        }
-      },
-      "children": {
-        "MoleculeSlides": {
-          "SlidesFooter": true
+          "Life": true
         }
       }
     }
@@ -2839,6 +2814,31 @@ export const dependencies = {
           "QcmDrag": true,
           "QcmGraphic": true,
           "Qcm": true
+        }
+      }
+    }
+  },
+  "MoleculeSlides": {
+    "SlidesFooter": {
+      "parents": {
+        "TemplateAppPlayer": {
+          "Player": true
+        },
+        "MoleculeSlides": {
+          "SlidesPlayer": true
+        }
+      },
+      "children": {}
+    },
+    "SlidesPlayer": {
+      "parents": {
+        "TemplateAppPlayer": {
+          "Player": true
+        }
+      },
+      "children": {
+        "MoleculeSlides": {
+          "SlidesFooter": true
         }
       }
     }
@@ -3027,13 +3027,14 @@ export const dependencies = {
     "Player": {
       "children": {
         "Atom": {
-          "Life": true,
-          "Link": true
+          "Life": true
         },
         "MoleculeSlides": {
           "SlidesFooter": true,
-          "SlidesHeader": true,
           "SlidesPlayer": true
+        },
+        "TemplateAppPlayerPlayer": {
+          "PlayerHeader": true
         }
       }
     },
@@ -3062,11 +3063,10 @@ export const dependencies = {
     "PopinEnd": {
       "children": {
         "Atom": {
-          "Life": true,
-          "Link": true
+          "Life": true
         },
-        "MoleculeSlides": {
-          "SlidesHeader": true
+        "TemplateAppPlayerPlayer": {
+          "PlayerHeader": true
         }
       }
     }

@@ -1,11 +1,12 @@
 export default {
   props: {
-    backHref: '#',
-    primary: {
+    type: 'microlearning',
+    content: {
+      onClick: () => console.log('onClick microlearning'),
       title: 'Du management classique au nouveau blablabla'
     },
     lives: {
-      count: 3
+      count: 1
     }
   }
 };

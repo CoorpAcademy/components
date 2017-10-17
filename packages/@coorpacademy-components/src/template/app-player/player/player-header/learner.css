@@ -1,56 +1,49 @@
-@value breakpoints: "../../../variables/breakpoints.css";
+@value breakpoints: "../../../../variables/breakpoints.css";
 @value mobile from breakpoints;
-@value colors: "../../../variables/colors.css";
+@value colors: "../../../../variables/colors.css";
 @value xtraLightGrey from colors;
 @value dark from colors;
-@value medium from colors;
-@value white from colors;
 @value light from colors;
-@value negative from colors;
 @value black from colors;
+@value medium from colors;
 
 .wrapper {
-  width: 100%;
-  height: 60px;
-  display: flex;
-  justify-content: space-between;
-  background-color: xtraLightGrey;
-}
-
-.backLink {
-  color: medium;
-  display: flex;
+  min-width: 0;
   height: 100%;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  max-width: calc(100% - 65px);
-}
-
-.backLink:hover {
-  color: dark;
+  display: flex;
+  background-color: xtraLightGrey;
 }
 
 .backIcon {
-  width: 32px;
-  height: 16px;
-  margin-left: 8px;
-  transition: color 0.3s;
+  composes: backIcon from './style.css';
 }
 
-.primary {
-  min-width: 0;
-  background-color: xtraLightGrey;
+.contentWrapper {
   padding-right: 16px;
-  box-sizing: border-box;
+  color: dark;
+  stroke: dark;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+  max-width: 100%;
+}
+
+.contentWrapper:hover {
+  color: medium;
+  stroke: medium;
+}
+
+.content {
+  min-width: 0;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
 }
 
-.primaryTitle {
+.contentTitle {
   font-family: 'Open Sans';
-  font-size: 15px;
+  font-size: 16px;
   color: inherit;
   font-weight: 700;
   white-space: nowrap;
@@ -60,26 +53,25 @@
   max-width: 100%;
 }
 
-.primarySubtitle {
+.contentDetails {
   font-family: 'Open Sans';
   font-size: 10px;
   font-weight: 700;
 }
 
-.secondary {
+.subcontent {
   min-width: 0;
   flex-grow: 2;
   height: 100%;
   background-color: light;
   display: flex;
   padding: 0 16px;
-  justify-content: flex-start;
   align-items: center;
 }
 
-.secondaryTitle {
+.subcontentTitle {
   font-family: 'Open Sans';
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 500;
   color: black;
   white-space: nowrap;
@@ -87,7 +79,7 @@
   text-overflow: ellipsis;
 }
 
-.secondarySubtitle {
+.subcontentDetails {
   font-family: 'Open Sans';
   font-size: 15px;
   font-weight: 700;
@@ -95,25 +87,13 @@
   margin-right: 10px;
 }
 
-.livesWrapper {
-  background-color: light;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.life {
-  margin-right: 16px;
-}
-
 @media mobile {
-  .primary {
+  .content {
     max-width: none;
     width: 100%;
   }
 
-  .secondary {
+  .subcontent {
     display: none;
   }
 }

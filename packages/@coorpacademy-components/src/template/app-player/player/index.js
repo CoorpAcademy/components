@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SlidesHeader from '../../../molecule/slides/slides-header';
 import SlidesPlayer from '../../../molecule/slides/slides-player';
+import Header from './player-header';
 import style from './style.css';
 
 const SlidePlayer = props => {
@@ -9,7 +9,7 @@ const SlidePlayer = props => {
 
   return (
     <div data-name="slidePlayer" className={style.wrapper}>
-      <SlidesHeader {...header} />
+      <Header {...header} />
       <div className={style.playerWrapper}>
         <SlidesPlayer {...player} />
       </div>
@@ -18,7 +18,7 @@ const SlidePlayer = props => {
 };
 
 SlidePlayer.propTypes = {
-  header: PropTypes.shape(SlidesHeader.propTypes),
+  header: PropTypes.shape(Header.propTypes),
   player: PropTypes.shape(SlidesPlayer.propTypes)
 };
 

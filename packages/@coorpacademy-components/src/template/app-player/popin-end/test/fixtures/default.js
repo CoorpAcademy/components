@@ -1,4 +1,4 @@
-import SlidesHeader from '../../../../../molecule/slides/slides-header/test/fixtures/default';
+import SlidesHeader from '../../../player/player-header/test/fixtures/learner';
 
 const headerProps = SlidesHeader.props;
 

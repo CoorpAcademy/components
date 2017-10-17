@@ -20,3 +20,13 @@ test('should reload page on exit', t => {
   };
   Location.exit();
 });
+
+test('should reload page on back', t => {
+  t.plan(1);
+  global.window = {
+    location: {
+      reload: () => t.pass()
+    }
+  };
+  Location.back();
+});
