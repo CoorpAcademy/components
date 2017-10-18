@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import noop from 'lodash/fp/noop';
+import get from 'lodash/fp/get';
 import Layout from '../layout';
 import Sidebar from '../../../organism/sidebar';
 import Loader from '../../app-player/loading';
@@ -12,24 +13,7 @@ const defaultInputParam = {
   population_ref: 'ALL'
 };
 
-const DashboardPreview = Layout(props => {
-  const {
-    dashboards = [],
-    currentDashboard,
-    onSelectDashboard = noop,
-    onUpdateVersion = noop,
-    onUpdateField = noop
-  } = props;
-
-  if (!currentDashboard) return <Loader />;
-
-  const dahsboardList = dashboards.map(d => ({
-    title: d.name,
-    type: 'link',
-    onClick: onSelectDashboard,
-    selected: d.name === currentDashboard.name
-  }));
-
+const currentDashboardSidebarSection = ({currentDashboard, onUpdateVersion, onUpdateField}) => {
   const dashboardDescription = {
     title: currentDashboard.name,
     type: 'info',
@@ -51,19 +35,45 @@ const DashboardPreview = Layout(props => {
     onChange: onUpdateField,
     value: defaultInputParam[schema]
   }));
+  return [dashboardDescription, ...paramInputs, dashboardVersion];
+};
+
+const DashboardPreview = Layout(props => {
+  const {
+    dashboards = [],
+    currentDashboard,
+    onSelectDashboard = noop,
+    onUpdateVersion = noop,
+    onUpdateField = noop
+  } = props;
+
+  if (!dashboards || dashboards.length === 0) return <Loader />;
+
+  const dahsboardList = dashboards.map(d => ({
+    title: d.name,
+    type: 'link',
+    onClick: onSelectDashboard,
+    selected: d.name === get('name', currentDashboard)
+  }));
+
+  const sidebar = [dahsboardList];
+  if (currentDashboard)
+    sidebar.push(
+      currentDashboardSidebarSection({currentDashboard, onUpdateVersion, onUpdateField})
+    );
 
   return (
     <div className={style.container}>
       <div className={style.dashboardAside}>
-        <Sidebar
-          items={[dahsboardList, [dashboardDescription, ...paramInputs, dashboardVersion]]}
-        />
+        <Sidebar items={sidebar} />
       </div>
       <div className={style.dashboardContent}>
         <h1 className={style.dashboardTitle}>
-          {currentDashboard.name}
+          {currentDashboard ? currentDashboard.name : 'No Selected Dashboard'}
         </h1>
-        <iframe src={currentDashboard.url} className={style.dashboardIframe} />
+        {currentDashboard
+          ? <iframe src={currentDashboard.url} className={style.dashboardIframe} />
+          : <div>Select a dashboard on the Sidebar</div>}
       </div>
     </div>
   );

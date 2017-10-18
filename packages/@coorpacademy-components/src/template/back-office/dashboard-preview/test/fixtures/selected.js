@@ -16,6 +16,18 @@ export default {
         name: 'Analytics Partners',
         description: 'Stats de consommation du contenu du partenaire'
       }
-    ]
+    ],
+    currentDashboard: {
+      name: 'Analytics Content',
+      description: 'Stats de consommation du contenu',
+      versions: {
+        v1: 'aa-ee-bb-cc-dd',
+        v2: 'aa-ee-bb-cc-dd-ff',
+        v3: 'aa-ee-bb-cc-dd-xx'
+      },
+      currentVersion: 'v2',
+      schema: ['platform', 'provider'],
+      url: 'https://coorpacademy.github.io/'
+    }
   }
 };

@@ -568,6 +568,7 @@ import BrandUpdateFixtureUsersList from '../src/template/back-office/brand-updat
 import BrandUpdateFixtureUsers from '../src/template/back-office/brand-update/test/fixtures/users';
 import DashboardPreviewFixtureDefault from '../src/template/back-office/dashboard-preview/test/fixtures/default';
 import DashboardPreviewFixtureLoading from '../src/template/back-office/dashboard-preview/test/fixtures/loading';
+import DashboardPreviewFixtureSelected from '../src/template/back-office/dashboard-preview/test/fixtures/selected';
 import AuthorsFixtureDefault from '../src/template/common/authors/test/fixtures/default';
 import AuthorsFixtureNoSocials from '../src/template/common/authors/test/fixtures/no-socials';
 import CoorpHeaderFixtureProduction from '../src/template/common/coorp-header/test/fixtures/production';
@@ -1446,7 +1447,8 @@ export const fixtures = {
     },
     DashboardPreview: {
       Default: DashboardPreviewFixtureDefault,
-      Loading: DashboardPreviewFixtureLoading
+      Loading: DashboardPreviewFixtureLoading,
+      Selected: DashboardPreviewFixtureSelected
     }
   },
   TemplateCommon: {
