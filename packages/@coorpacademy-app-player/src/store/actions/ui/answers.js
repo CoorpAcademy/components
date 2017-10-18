@@ -79,7 +79,9 @@ export const validateAnswer = (progressionId, body) => async (dispatch, getState
   if (isCorrect) {
     await dispatch(toggleAccordion(2));
   } else {
-    !hasViewedAllLessons ? await dispatch(toggleAccordion(0)) : await dispatch(toggleAccordion(1));
+    !hasViewedAllLessons || get('state.nextContent.ref', payload) === 'extraLife'
+      ? await dispatch(toggleAccordion(0))
+      : await dispatch(toggleAccordion(1));
   }
 
   return dispatch(fetchAnswer(progressionId, slideId, body.answers));

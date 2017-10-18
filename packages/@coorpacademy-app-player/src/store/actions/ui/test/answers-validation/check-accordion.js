@@ -24,6 +24,12 @@ const viewedThreeLessons = set(
   wrongAnswer
 );
 
+const extraLifeAndViewedThreeLessons = set(
+  'state.nextContent',
+  {type: 'node', ref: 'extraLife'},
+  viewedThreeLessons
+);
+
 const stateWithSlideAndManyResources = pipe(
   set('data.progressions.entities.foo.state.nextContent', {type: 'slide', ref: 'baz'}),
   set('data.progressions.entities.foo.content', {ref: '5.C7'}),
@@ -92,5 +98,15 @@ test(
   services(viewedThreeLessons),
   validateAnswer('foo', {answers: ['bar']}),
   flatten([answer(viewedThreeLessons), accordionIsOpenAt(1), fetchCorrection]),
+  12
+);
+
+test(
+  'should see video opened during extra life, even if all lessons have been watched',
+  macro,
+  stateWithSlideAndManyResources,
+  services(extraLifeAndViewedThreeLessons),
+  validateAnswer('foo', {answers: ['bar']}),
+  flatten([answer(extraLifeAndViewedThreeLessons), accordionIsOpenAt(0), fetchCorrection]),
   12
 );
