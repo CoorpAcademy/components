@@ -49,7 +49,7 @@ const DashboardPreview = Layout(props => {
     title: schema,
     type: 'inputtext',
     onChange: onUpdateField,
-    defaultValue: defaultInputParam[schema]
+    value: defaultInputParam[schema]
   }));
 
   return (
