@@ -120,7 +120,7 @@ const SidebarItem = ({item, color, index}) => {
         <SelectItem
           title={item.title}
           options={item.options}
-          handleOnChange={item.onChange}
+          handleOnChange={item.handleOnChange}
           color={color}
         />
       );
@@ -128,7 +128,7 @@ const SidebarItem = ({item, color, index}) => {
       return (
         <LinkItem
           title={item.title}
-          handleOnClick={item.onClick}
+          handleOnClick={item.handleOnClick}
           name={item.name}
           index={index}
           selected={item.selected || false}
@@ -143,7 +143,7 @@ const SidebarItem = ({item, color, index}) => {
           title={item.title}
           placeholder={item.placeholder}
           value={item.value}
-          handleOnChange={item.onChange}
+          handleOnChange={item.handleOnChange}
           disabled={item.disabled}
         />
       );

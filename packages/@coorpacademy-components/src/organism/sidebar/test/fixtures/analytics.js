@@ -5,7 +5,7 @@ export default {
         {
           title: 'Provider',
           type: 'select',
-          onChange: value => console.log('NEW provider', value),
+          handleOnChange: value => console.log('NEW provider', value),
           options: [
             {
               name: 'ALL',
@@ -27,7 +27,7 @@ export default {
         {
           title: 'Population',
           type: 'select',
-          onChange: value => console.log('NEW population', value),
+          handleOnChange: value => console.log('NEW population', value),
           options: [
             {
               name: 'ALL',
@@ -49,7 +49,7 @@ export default {
         {
           title: 'Engagement',
           type: 'link',
-          onClick: value => {
+          handleOnClick: value => {
             console.log('Clicked on Engagement', value);
           },
           selected: true,

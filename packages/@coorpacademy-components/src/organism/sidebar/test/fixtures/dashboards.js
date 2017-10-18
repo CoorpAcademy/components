@@ -5,7 +5,7 @@ export default {
         {
           title: 'Analytics Engagement',
           type: 'link',
-          onClick: value => {
+          handleOnClick: value => {
             console.log('Clicked on Engagement', value);
           },
           selected: true,
@@ -36,19 +36,19 @@ export default {
         {
           title: 'Platform',
           type: 'inputtext',
-          onChange: value => console.log('NEW platform', value),
+          handleOnChange: value => console.log('NEW platform', value),
           value: 'up'
         },
         {
           title: 'Provider',
           type: 'inputtext',
-          onChange: value => console.log('NEW provider', value),
+          handleOnChange: value => console.log('NEW provider', value),
           value: 'ALL'
         },
         {
           title: 'Version',
           type: 'select',
-          onChange: value => console.log('NEW version', value),
+          handleOnChange: value => console.log('NEW version', value),
           options: [
             {
               name: 'v1',
