@@ -10,8 +10,8 @@ import Select from '../../atom/select/index';
 import style from './style.css';
 
 export const InputTextItem = props => {
-  const {title, placeholder = '', value, defaultValue, handleOnChange = noop, disabled} = props;
-  const handleChange = e => handleOnChange(e.target.value);
+  const {title, placeholder = '', value, handleOnChange = noop, disabled} = props;
+  const onChange = e => handleOnChange(e.target.value);
   return (
     <li data-name="sidebarItemSelectItem" className={style.selectItem}>
       <span className={style.sidebarTitle}>{title}</span>
@@ -20,11 +20,9 @@ export const InputTextItem = props => {
         name={title}
         className={style.input}
         placeholder={placeholder}
-        defaultValue={defaultValue}
         value={value}
-        onInput={handleChange}
         disabled={disabled}
-        onChange={noop}
+        onChange={onChange}
       />
     </li>
   );
@@ -84,7 +82,7 @@ export const InfoItem = props => {
           color: props.color
         }}
       >
-        {props.info}
+        {props.value}
       </li>
     </ul>
   );
@@ -138,14 +136,13 @@ const SidebarItem = ({item, color, index}) => {
         />
       );
     case 'info':
-      return <InfoItem title={item.title} info={item.value} color={color} />;
+      return <InfoItem title={item.title} value={item.value} color={color} />;
     case 'inputtext':
       return (
         <InputTextItem
           title={item.title}
           placeholder={item.placeholder}
           value={item.value}
-          defaultValue={item.defaultValue}
           handleOnChange={item.onChange}
           disabled={item.disabled}
         />
@@ -154,31 +151,26 @@ const SidebarItem = ({item, color, index}) => {
       return null;
   }
 };
-
-InfoItem.propTypes = PropTypes.shape({
+const InfoItemSchema = {
   title: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['info']),
   value: PropTypes.string.isRequired
-});
-LinkItem.propTypes = PropTypes.shape({
+};
+const LinkItemSchema = {
   title: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['link']),
   selected: PropTypes.bool,
   name: PropTypes.string,
   onClick: PropTypes.func
-});
-InputTextItem.propTypes = PropTypes.shape({
+};
+const InputTextItemSchema = {
   title: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['inputtext']),
   disabled: PropTypes.bool,
-  defaultValue: PropTypes.string,
-  value: PropTypes.string,
+  value: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   onChange: PropTypes.func
-});
-SelectItem.propTypes = PropTypes.shape({
+};
+
+const SelectItemSchema = {
   title: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['select']),
   options: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
@@ -187,12 +179,17 @@ SelectItem.propTypes = PropTypes.shape({
     })
   ).isRequired,
   onChange: PropTypes.func
-});
+};
+
+InfoItem.propTypes = InfoItemSchema;
+LinkItem.propTypes = LinkItemSchema;
+InputTextItem.propTypes = InputTextItemSchema;
+SelectItem.propTypes = SelectItemSchema;
 const SectionProptype = PropTypes.oneOfType([
-  InfoItem.propTypes,
-  SelectItem.propTypes,
-  LinkItem.propTypes,
-  InputTextItem.propTypes
+  PropTypes.shape({...InfoItemSchema, type: PropTypes.oneOf(['info']).isRequired}),
+  PropTypes.shape({...LinkItemSchema, type: PropTypes.oneOf(['link']).isRequired}),
+  PropTypes.shape({...InputTextItemSchema, type: PropTypes.oneOf(['inputtext']).isRequired}),
+  PropTypes.shape({...SelectItemSchema, type: PropTypes.oneOf(['select']).isRequired})
 ]);
 Sidebar.propTypes = {
   items: PropTypes.arrayOf(

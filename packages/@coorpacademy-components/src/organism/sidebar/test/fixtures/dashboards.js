@@ -37,13 +37,13 @@ export default {
           title: 'Platform',
           type: 'inputtext',
           onChange: value => console.log('NEW platform', value),
-          defaultValue: 'up'
+          value: 'up'
         },
         {
           title: 'Provider',
           type: 'inputtext',
           onChange: value => console.log('NEW provider', value),
-          defaultValue: 'ALL'
+          value: 'ALL'
         },
         {
           title: 'Version',
