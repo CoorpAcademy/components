@@ -19,7 +19,7 @@ test('should call the onChange function with the value of the target', t => {
     t.is(value, 'foo');
   };
 
-  const wrapper = mount(<InputTextItem {...defaultFixture} handleOnChange={onChange} />);
+  const wrapper = mount(<InputTextItem {...defaultFixture} onChange={onChange} />);
 
   t.true(wrapper.find(inputStyle).exists());
   t.true(wrapper.find('input').exists());

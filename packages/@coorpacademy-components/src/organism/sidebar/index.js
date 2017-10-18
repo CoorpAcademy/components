@@ -10,8 +10,8 @@ import Select from '../../atom/select/index';
 import style from './style.css';
 
 export const InputTextItem = props => {
-  const {title, placeholder = '', value, handleOnChange = noop, disabled} = props;
-  const onChange = e => handleOnChange(e.target.value);
+  const {title, placeholder = '', value, onChange = noop, disabled} = props;
+  const handleOnChange = e => onChange(e.target.value);
   return (
     <li data-name="sidebarItemSelectItem" className={style.selectItem}>
       <span className={style.sidebarTitle}>{title}</span>
@@ -22,7 +22,7 @@ export const InputTextItem = props => {
         placeholder={placeholder}
         value={value}
         disabled={disabled}
-        onChange={onChange}
+        onChange={handleOnChange}
       />
     </li>
   );
@@ -34,7 +34,7 @@ export const SelectItem = props => {
       <span className={style.sidebarTitle}>{props.title}</span>
       <Select
         title={props.title}
-        onChange={props.handleOnChange}
+        onChange={props.onChange}
         theme="header"
         options={props.options}
       />
@@ -45,7 +45,7 @@ export const SelectItem = props => {
 export const LinkItem = props => {
   const handleOnClick = e => {
     e.preventDefault();
-    props.handleOnClick && props.handleOnClick(e);
+    props.onClick && props.onClick(e);
   };
   return (
     <Link
@@ -114,13 +114,15 @@ const SidebarItems = props => {
 };
 
 const SidebarItem = ({item, color, index}) => {
+  const handleOnChange = item.onChange;
+  const handleOnClick = item.onClick;
   switch (item.type) {
     case 'select':
       return (
         <SelectItem
           title={item.title}
           options={item.options}
-          handleOnChange={item.handleOnChange}
+          onChange={handleOnChange}
           color={color}
         />
       );
@@ -128,7 +130,7 @@ const SidebarItem = ({item, color, index}) => {
       return (
         <LinkItem
           title={item.title}
-          handleOnClick={item.handleOnClick}
+          onClick={handleOnClick}
           name={item.name}
           index={index}
           selected={item.selected || false}
@@ -143,7 +145,7 @@ const SidebarItem = ({item, color, index}) => {
           title={item.title}
           placeholder={item.placeholder}
           value={item.value}
-          handleOnChange={item.handleOnChange}
+          onChange={handleOnChange}
           disabled={item.disabled}
         />
       );
