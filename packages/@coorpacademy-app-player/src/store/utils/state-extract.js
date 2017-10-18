@@ -19,6 +19,21 @@ export const getCurrentProgression = state => {
   return getProgression(id)(state);
 };
 
+export const getCurrentEngine = state => {
+  const progression = getCurrentProgression(state);
+  return get(['engine'], progression);
+};
+
+export const isCurrentEngineMicrolearning = state => {
+  const engine = getCurrentEngine(state);
+  return get('ref', engine) === 'microlearning';
+};
+
+export const isCurrentEngineLearner = state => {
+  const engine = getCurrentEngine(state);
+  return get('ref', engine) === 'learner';
+};
+
 export const getAnswers = state => {
   const progressionId = getCurrentProgressionId(state);
   return getOr({}, ['ui', 'answers', progressionId])(state);
@@ -127,4 +142,14 @@ export const getResourcesToPlay = state => get('ui.corrections.playResource', st
 export const getLives = state => {
   const progression = getCurrentProgression(state);
   return progression.state.livesDisabled ? null : get('state.lives', progression);
+};
+
+export const getNextContent = state => {
+  const {type, ref} = getProgressionContent(state);
+  const nextContentRef = get(['data', 'contents', 'nextContent', ref], state);
+
+  if (nextContentRef) {
+    return get(['data', 'contents', type, 'entities', nextContentRef], state);
+  }
+  return;
 };

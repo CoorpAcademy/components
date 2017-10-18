@@ -9,3 +9,7 @@ export const retry = () => {
 export const back = content => {
   window.location.reload();
 };
+
+export const nextLevel = () => {
+  window.location.reload();
+};

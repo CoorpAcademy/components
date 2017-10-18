@@ -4,15 +4,18 @@ import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import isEqual from 'lodash/fp/isEqual';
 import pipe from 'lodash/fp/pipe';
-import {retry, exit} from '../../actions/ui/location';
+import {retry, exit, nextLevel} from '../../actions/ui/location';
 import {
   getCurrentContent,
   getCurrentExitNode,
   getCurrentProgression,
+  getNextContent,
   getRecommendations,
   getBestScore,
   getStartRank,
-  getEndRank
+  getEndRank,
+  isCurrentEngineMicrolearning,
+  isCurrentEngineLearner
 } from '../../utils/state-extract';
 import headerProps from './header';
 
@@ -39,6 +42,23 @@ const extractStars = state => {
 
 const summaryHeader = ({translate}, {dispatch}) => state => {
   const progression = getCurrentProgression(state);
+  const successCta = {
+    title: translate('Back to home'),
+    href: '/'
+  };
+
+  if (isCurrentEngineLearner(state)) {
+    const level = get('level', getCurrentContent(state));
+    if (level === 'advanced' || level === 'base') {
+      const nextContent = getNextContent(state);
+      if (nextContent) {
+        successCta.title = translate('Next level');
+        successCta.href = null;
+        successCta.onClick = () => dispatch(nextLevel);
+      }
+    }
+  }
+
   return cond([
     [
       pipe(get('type'), isEqual('success')),
@@ -48,10 +68,7 @@ const summaryHeader = ({translate}, {dispatch}) => state => {
         fail: false,
         stars: extractStars(state),
         rank: extractRank(state),
-        cta: {
-          title: translate('Back to home'),
-          href: '/'
-        }
+        cta: successCta
       })
     ],
     [
@@ -64,7 +81,9 @@ const summaryHeader = ({translate}, {dispatch}) => state => {
         rank: extractRank(state),
         stars: null,
         cta: {
-          title: translate('Retry chapter'),
+          title: isCurrentEngineMicrolearning(state)
+            ? translate('Retry chapter')
+            : translate('Retry level'),
           onClick: () => dispatch(retry)
         }
       })
@@ -95,7 +114,9 @@ const extractAction = ({translate}, {dispatch}) => state => {
         get('nextChapter', recommendations) && {
           type: 'nextCourse',
           description: translate('Check out the next chapter in this course!'),
-          prefix: translate('Next chapter_'),
+          prefix: isCurrentEngineMicrolearning(state)
+            ? translate('Next chapter_')
+            : translate('Next level_'),
           ...recommendations.nextChapter
         }
     ],
@@ -103,10 +124,14 @@ const extractAction = ({translate}, {dispatch}) => state => {
       pipe(get('type'), isEqual('failure')),
       () => ({
         type: 'simple',
-        prefix: translate('Retry chapter_'),
+        prefix: isCurrentEngineMicrolearning(state)
+          ? translate('Retry chapter_')
+          : translate('Retry level_'),
         title: getOr('', 'name')(getCurrentContent(state)),
         button: {
-          title: translate('Retry chapter'),
+          title: isCurrentEngineMicrolearning(state)
+            ? translate('Retry chapter')
+            : translate('Retry level'),
           onClick: () => dispatch(retry)
         }
       })

@@ -23,7 +23,9 @@ import {
   CONTENT_FETCH_REQUEST,
   CONTENT_FETCH_SUCCESS,
   CONTENT_INFO_FETCH_REQUEST,
-  CONTENT_INFO_FETCH_SUCCESS
+  CONTENT_INFO_FETCH_SUCCESS,
+  NEXT_CONTENT_FETCH_REQUEST,
+  NEXT_CONTENT_FETCH_SUCCESS
 } from '../../api/contents';
 import {RECO_FETCH_REQUEST, RECO_FETCH_SUCCESS} from '../../api/recommendations';
 import {UI_SELECT_ROUTE} from '../route';
@@ -491,6 +493,208 @@ test(
       type: CONTENT_INFO_FETCH_SUCCESS,
       meta: {type: 'chapter', ref: 'baz'},
       payload: 'info'
+    },
+    [
+      {
+        type: RANK_FETCH_END_REQUEST
+      },
+      set('data.rank.end', null, {})
+    ],
+    [
+      {
+        type: RANK_FETCH_END_SUCCESS,
+        payload: 1
+      },
+      set('data.rank.end', 1, {})
+    ],
+    [
+      {
+        type: RECO_FETCH_REQUEST,
+        meta: {id: 'foo'}
+      },
+      set('data.recommendations.entities.foo', null, {})
+    ],
+    [
+      {
+        type: RECO_FETCH_SUCCESS,
+        meta: {id: 'foo'},
+        payload: 'plop'
+      },
+      set('data.recommendations.entities.foo', 'plop', {})
+    ],
+    [
+      {
+        type: EXIT_NODE_FETCH_REQUEST,
+        meta: {id: 'bar'}
+      },
+      set('data.exitNodes.entities.bar', null, {})
+    ],
+    {
+      type: EXIT_NODE_FETCH_SUCCESS,
+      meta: {id: 'bar'},
+      payload: 'bar'
+    }
+  ]
+);
+
+test(
+  'should select learner progression and fetch next ExitNode and Next Level',
+  macro,
+  {},
+  t => ({
+    Progressions: {
+      findById: id => {
+        t.is(id, 'foo');
+        return 'foo';
+      },
+      findBestOf: (type, ref, id) => {
+        t.is(type, 'learner');
+        t.is(ref, '1B');
+        t.is(id, 'foo');
+        return 32;
+      },
+      getEngineConfig: () => 42
+    },
+    ExitNodes: {
+      findById: id => {
+        t.is(id, 'bar');
+        return 'bar';
+      }
+    },
+    LeaderBoard: {
+      getRank: () => {
+        return 1;
+      }
+    },
+    Content: {
+      find: (type, ref) => {
+        if (ref === '1B') {
+          return {ref: '1B', level: 'base'};
+        }
+      },
+      getInfo: (contentRef, engineRef, version) => {
+        t.is(contentRef, '1B');
+        t.is(engineRef, 'learner');
+        t.is(version, '1');
+        return 'info';
+      },
+      getNextContent: (type, ref) => {
+        t.is(type, 'level');
+        t.is(ref, '1B');
+        return {
+          ref: '1A',
+          level: 'advanced'
+        };
+      }
+    },
+    Recommendations: {
+      find: () => 'plop'
+    }
+  }),
+  selectProgression('foo'),
+  [
+    [
+      {
+        type: UI_SELECT_PROGRESSION,
+        payload: {id: 'foo'}
+      },
+      set('ui.current.progressionId', 'foo', {})
+    ],
+    [
+      {
+        type: PROGRESSION_FETCH_REQUEST,
+        meta: {id: 'foo'}
+      },
+      set('data.progressions.entities.foo', null, {})
+    ],
+    [
+      {
+        type: PROGRESSION_FETCH_SUCCESS,
+        meta: {id: 'foo'},
+        payload: 'foo'
+      },
+      pipe(
+        set('data.progressions.entities.foo._id', 'foo'),
+        set('data.progressions.entities.foo.state.nextContent', {type: 'success', ref: 'bar'}),
+        set('data.progressions.entities.foo.content', {type: 'level', ref: '1B'}),
+        set('data.progressions.entities.foo.engine', {ref: 'learner', version: '1'})
+      )({})
+    ],
+    [
+      {
+        type: RANK_FETCH_START_REQUEST
+      },
+      set('data.rank.start', null, {})
+    ],
+    [
+      {
+        type: RANK_FETCH_START_SUCCESS,
+        payload: 1
+      },
+      set('data.rank.start', 1, {})
+    ],
+    [
+      {
+        type: CONTENT_FETCH_REQUEST,
+        meta: {type: 'level', ref: '1B'}
+      },
+      set('data.contents.levels.entities.1B', null, {})
+    ],
+    {
+      type: CONTENT_FETCH_SUCCESS,
+      meta: {type: 'level', ref: '1B'},
+      payload: {level: 'base', ref: '1B'}
+    },
+    [
+      {
+        type: PROGRESSION_FETCH_BESTOF_REQUEST,
+        meta: {type: 'level', ref: '1B'}
+      },
+      set('data.contents.levels.entities.1B.bestScore', null, {})
+    ],
+    [
+      {
+        type: PROGRESSION_FETCH_BESTOF_SUCCESS,
+        meta: {type: 'level', ref: '1B'},
+        payload: 32
+      },
+      set('data.contents.levels.entities.1B.bestScore', 32, {})
+    ],
+    {
+      type: ENGINE_CONFIG_FETCH_REQUEST,
+      meta: {engine: {ref: 'learner', version: '1'}}
+    },
+    {
+      type: ENGINE_CONFIG_FETCH_SUCCESS,
+      meta: {engine: {ref: 'learner', version: '1'}},
+      payload: 42
+    },
+    [
+      {
+        type: CONTENT_INFO_FETCH_REQUEST,
+        meta: {type: 'level', ref: '1B'}
+      },
+      set('data.contents.levels.entities.1B.info', null, {})
+    ],
+    {
+      type: CONTENT_INFO_FETCH_SUCCESS,
+      meta: {type: 'level', ref: '1B'},
+      payload: 'info'
+    },
+    [
+      {
+        type: NEXT_CONTENT_FETCH_REQUEST,
+        meta: {type: 'level', ref: '1B'}
+      },
+      set('ui.current.nextContentRef.1B', null, {})
+    ],
+    {
+      type: NEXT_CONTENT_FETCH_SUCCESS,
+      meta: {type: 'level', ref: '1B'},
+      payload: {
+        level: 'advanced',
+        ref: '1A'
+      }
     },
     [
       {
