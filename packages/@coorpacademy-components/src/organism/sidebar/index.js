@@ -1,19 +1,40 @@
 import React from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
+import LinkedInput from 'react-linked-input';
+import noop from 'lodash/fp/noop';
 import getOr from 'lodash/fp/getOr';
 import Link from '../../atom/link/index';
 import Provider from '../../atom/provider';
 import Select from '../../atom/select/index';
 import style from './style.css';
 
-const SelectItem = props => {
+export const InputTextItem = props => {
+  const {title, placeholder = '', value, onChange = noop, disabled} = props;
+  const handleOnChange = e => onChange(e.target.value);
+  return (
+    <li data-name="sidebarItemSelectItem" className={style.selectItem}>
+      <span className={style.sidebarTitle}>{title}</span>
+      <LinkedInput
+        type="text"
+        name={title}
+        className={style.input}
+        placeholder={placeholder}
+        value={value}
+        disabled={disabled}
+        onChange={handleOnChange}
+      />
+    </li>
+  );
+};
+
+export const SelectItem = props => {
   return (
     <li data-name="sidebarItemSelectItem" className={style.selectItem}>
       <span className={style.sidebarTitle}>{props.title}</span>
       <Select
         title={props.title}
-        onChange={props.handleOnChange}
+        onChange={props.onChange}
         theme="header"
         options={props.options}
       />
@@ -21,10 +42,10 @@ const SelectItem = props => {
   );
 };
 
-const LinkItem = props => {
+export const LinkItem = props => {
   const handleOnClick = e => {
     e.preventDefault();
-    props.handleOnClick && props.handleOnClick(e);
+    props.onClick && props.onClick(e);
   };
   return (
     <Link
@@ -48,7 +69,7 @@ const LinkItem = props => {
   );
 };
 
-const InfoItem = props => {
+export const InfoItem = props => {
   return (
     <ul data-name="sidebarItemInfo" className={style.infoItem}>
       <li className={style.infoItemTitle}>
@@ -61,7 +82,7 @@ const InfoItem = props => {
           color: props.color
         }}
       >
-        {props.info}
+        {props.value}
       </li>
     </ul>
   );
@@ -93,13 +114,15 @@ const SidebarItems = props => {
 };
 
 const SidebarItem = ({item, color, index}) => {
+  const handleOnChange = item.onChange;
+  const handleOnClick = item.onClick;
   switch (item.type) {
     case 'select':
       return (
         <SelectItem
           title={item.title}
           options={item.options}
-          handleOnChange={item.onChange}
+          onChange={handleOnChange}
           color={color}
         />
       );
@@ -107,7 +130,7 @@ const SidebarItem = ({item, color, index}) => {
       return (
         <LinkItem
           title={item.title}
-          handleOnClick={item.onClick}
+          onClick={handleOnClick}
           name={item.name}
           index={index}
           selected={item.selected || false}
@@ -115,27 +138,41 @@ const SidebarItem = ({item, color, index}) => {
         />
       );
     case 'info':
-      return <InfoItem title={item.title} info={item.value} color={color} />;
+      return <InfoItem title={item.title} value={item.value} color={color} />;
+    case 'inputtext':
+      return (
+        <InputTextItem
+          title={item.title}
+          placeholder={item.placeholder}
+          value={item.value}
+          onChange={handleOnChange}
+          disabled={item.disabled}
+        />
+      );
     default:
       return null;
   }
 };
-
-const InfoProptype = PropTypes.shape({
+const InfoItemSchema = {
   title: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['info']).isRequired,
   value: PropTypes.string.isRequired
-});
-const LinkProptype = PropTypes.shape({
+};
+const LinkItemSchema = {
   title: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['link']).isRequired,
   selected: PropTypes.bool,
   name: PropTypes.string,
   onClick: PropTypes.func
-});
-const SelectProptype = PropTypes.shape({
+};
+const InputTextItemSchema = {
   title: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['select']).isRequired,
+  disabled: PropTypes.bool,
+  value: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
+  onChange: PropTypes.func
+};
+
+const SelectItemSchema = {
+  title: PropTypes.string.isRequired,
   options: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
@@ -144,8 +181,18 @@ const SelectProptype = PropTypes.shape({
     })
   ).isRequired,
   onChange: PropTypes.func
-});
-const SectionProptype = PropTypes.oneOfType([InfoProptype, SelectProptype, LinkProptype]);
+};
+
+InfoItem.propTypes = InfoItemSchema;
+LinkItem.propTypes = LinkItemSchema;
+InputTextItem.propTypes = InputTextItemSchema;
+SelectItem.propTypes = SelectItemSchema;
+const SectionProptype = PropTypes.oneOfType([
+  PropTypes.shape({...InfoItemSchema, type: PropTypes.oneOf(['info']).isRequired}),
+  PropTypes.shape({...LinkItemSchema, type: PropTypes.oneOf(['link']).isRequired}),
+  PropTypes.shape({...InputTextItemSchema, type: PropTypes.oneOf(['inputtext']).isRequired}),
+  PropTypes.shape({...SelectItemSchema, type: PropTypes.oneOf(['select']).isRequired})
+]);
 Sidebar.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.oneOfType([SectionProptype, PropTypes.arrayOf(SectionProptype).isRequired])

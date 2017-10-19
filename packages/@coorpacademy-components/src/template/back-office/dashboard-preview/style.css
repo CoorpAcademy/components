@@ -1,0 +1,42 @@
+@value breakpoints: "../../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value tablet from breakpoints;
+@value desktop from breakpoints;
+@value colors: "../../../variables/colors.css";
+@value black from colors;
+
+.container {
+  padding: 40px 0 0;
+  overflow: hidden;
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+
+.dashboardAside {
+  padding: 55px 20px 20px;
+  min-width: 250px;
+  display: table-cell;
+  vertical-align: top;
+}
+
+.dashboardContent {
+  display: table-cell;
+  width: 100%;
+  text-align: center;
+  padding-right: 40px;
+  padding-bottom: 40px;
+}
+
+.dashboardTitle {
+  font-family: "Open Sans";
+  font-size: 24px;
+  color: black;
+}
+
+.dashboardIframe {
+  width: 100%;
+  height: 95%;
+}
+
+/* TODO: mobile rendering */

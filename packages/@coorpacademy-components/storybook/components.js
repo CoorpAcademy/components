@@ -119,6 +119,7 @@ import PlayerHeader from '../src/template/app-player/player/player-header';
 import BrandCreate from '../src/template/back-office/brand-create';
 import BrandList from '../src/template/back-office/brand-list';
 import BrandUpdate from '../src/template/back-office/brand-update';
+import DashboardPreview from '../src/template/back-office/dashboard-preview';
 import Authors from '../src/template/common/authors';
 import CoorpHeader from '../src/template/common/coorp-header';
 import Dashboard from '../src/template/common/dashboard';
@@ -493,6 +494,7 @@ import SettingsFixturePromoCode from '../src/organism/settings/test/fixtures/pro
 import SetupHeaderFixtureDefault from '../src/organism/setup-header/test/fixtures/default';
 import SidebarFixtureAnalytics from '../src/organism/sidebar/test/fixtures/analytics';
 import SidebarFixtureCustom from '../src/organism/sidebar/test/fixtures/custom';
+import SidebarFixtureDashboards from '../src/organism/sidebar/test/fixtures/dashboards';
 import SidebarFixtureDefault from '../src/organism/sidebar/test/fixtures/default';
 import SliderFixtureDefault from '../src/organism/slider/test/fixtures/default';
 import SliderFixtureMultipleSlides from '../src/organism/slider/test/fixtures/multiple-slides';
@@ -564,6 +566,9 @@ import BrandUpdateFixtureUsersImportSuccessful from '../src/template/back-office
 import BrandUpdateFixtureUsersImport from '../src/template/back-office/brand-update/test/fixtures/users-import';
 import BrandUpdateFixtureUsersList from '../src/template/back-office/brand-update/test/fixtures/users-list';
 import BrandUpdateFixtureUsers from '../src/template/back-office/brand-update/test/fixtures/users';
+import DashboardPreviewFixtureDefault from '../src/template/back-office/dashboard-preview/test/fixtures/default';
+import DashboardPreviewFixtureLoading from '../src/template/back-office/dashboard-preview/test/fixtures/loading';
+import DashboardPreviewFixtureSelected from '../src/template/back-office/dashboard-preview/test/fixtures/selected';
 import AuthorsFixtureDefault from '../src/template/common/authors/test/fixtures/default';
 import AuthorsFixtureNoSocials from '../src/template/common/authors/test/fixtures/no-socials';
 import CoorpHeaderFixtureProduction from '../src/template/common/coorp-header/test/fixtures/production';
@@ -724,7 +729,8 @@ export const components = {
   TemplateBackOffice: {
     BrandCreate,
     BrandList,
-    BrandUpdate
+    BrandUpdate,
+    DashboardPreview
   },
   TemplateCommon: {
     Authors,
@@ -1338,6 +1344,7 @@ export const fixtures = {
     Sidebar: {
       Analytics: SidebarFixtureAnalytics,
       Custom: SidebarFixtureCustom,
+      Dashboards: SidebarFixtureDashboards,
       Default: SidebarFixtureDefault
     },
     Slider: {
@@ -1437,6 +1444,11 @@ export const fixtures = {
       UsersImport: BrandUpdateFixtureUsersImport,
       UsersList: BrandUpdateFixtureUsersList,
       Users: BrandUpdateFixtureUsers
+    },
+    DashboardPreview: {
+      Default: DashboardPreviewFixtureDefault,
+      Loading: DashboardPreviewFixtureLoading,
+      Selected: DashboardPreviewFixtureSelected
     }
   },
   TemplateCommon: {
@@ -1564,6 +1576,7 @@ export const dependencies = {
           "Authors": true
         },
         "TemplateBackOffice": {
+          "DashboardPreview": true,
           "BrandUpdate": true,
           "BrandList": true,
           "BrandCreate": true
@@ -1609,6 +1622,7 @@ export const dependencies = {
           "Discipline": true
         },
         "TemplateBackOffice": {
+          "DashboardPreview": true,
           "BrandUpdate": true,
           "BrandList": true,
           "BrandCreate": true
@@ -2491,6 +2505,30 @@ export const dependencies = {
         }
       }
     },
+    "SetupHeader": {
+      "parents": {
+        "TemplateBackOffice": {
+          "DashboardPreview": true,
+          "BrandUpdate": true,
+          "BrandList": true,
+          "BrandCreate": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Link": true,
+          "Picture": true
+        }
+      }
+    },
+    "Sidebar": {
+      "parents": {
+        "TemplateBackOffice": {
+          "DashboardPreview": true
+        }
+      },
+      "children": {}
+    },
     "BrandForm": {
       "parents": {
         "TemplateBackOffice": {
@@ -2518,21 +2556,6 @@ export const dependencies = {
           "SetupSlider": true,
           "BrandDownloadBox": true,
           "BrandUploadBox": true
-        }
-      }
-    },
-    "SetupHeader": {
-      "parents": {
-        "TemplateBackOffice": {
-          "BrandUpdate": true,
-          "BrandList": true,
-          "BrandCreate": true
-        }
-      },
-      "children": {
-        "Atom": {
-          "Link": true,
-          "Picture": true
         }
       }
     },
@@ -2675,9 +2698,6 @@ export const dependencies = {
           "SubscriptionPremium": true
         }
       }
-    },
-    "Sidebar": {
-      "children": {}
     },
     "Slider": {
       "children": {
@@ -3142,6 +3162,18 @@ export const dependencies = {
           "SetupHeader": true,
           "BrandUpload": true,
           "BrandTable": true
+        }
+      }
+    },
+    "DashboardPreview": {
+      "children": {
+        "Atom": {
+          "Link": true,
+          "Picture": true
+        },
+        "Organism": {
+          "SetupHeader": true,
+          "Sidebar": true
         }
       }
     }

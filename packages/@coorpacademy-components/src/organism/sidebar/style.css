@@ -11,8 +11,7 @@
 
 .sidebar {
   color: dark;
-  max-width: 200px;
-  margin: 10px;
+  width: 100%;
   font-family: 'Open Sans';
 }
 
@@ -62,4 +61,16 @@
 .infoItemContent {
   padding: 12px;
   border-left: 3px solid;
+}
+
+.input {
+  font-family: "Open Sans";
+  text-transform: none;
+  padding: 0 15px;
+  border: solid 1px light;
+  height: 40px;
+  border-radius: 2px;
+  font-size: 14px;
+  color: dark;
+  width: 80%;
 }
