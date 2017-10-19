@@ -172,7 +172,7 @@ const ContextContent = ({slideContext}) => {
   );
   return (
     <div>
-      {slideContext.media ? <ContextMedia media={slideContext.media} /> : null}
+      {get('media.type', slideContext) ? <ContextMedia media={slideContext.media} /> : null}
       {paragraphs}
     </div>
   );

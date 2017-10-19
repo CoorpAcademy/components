@@ -37,6 +37,11 @@
   transform: rotateX(180deg);
 }
 
+.flip .back {
+  opacity: 0;
+  transition: opacity 0s linear 0.4s;
+}
+
 .back,
 .front {
   background: brand;
@@ -46,7 +51,6 @@
   height: 219px;
   display: flex;
   align-items: center;
-  backface-visibility: hidden;
   position: absolute;
   top: 0;
   left: 0;
