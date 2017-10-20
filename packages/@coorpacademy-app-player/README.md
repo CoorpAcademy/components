@@ -44,3 +44,15 @@ ui: {
   }
 }
 ```
+
+# react-native
+```
+  > react-native run-android
+```
+
+```
+  ios:  'Press Cmd+R to reload'
+        'Cmd+D or shake for dev menu'
+  android: 'Double tap R on your keyboard to reload'
+           'Shake or press menu button for dev menu'
+```

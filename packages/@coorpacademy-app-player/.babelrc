@@ -1,6 +1,6 @@
 {
   "presets": [
-    "stage-1"
+    "stage-1", "react-native"
   ],
   "env": {
     "commonjs": {
