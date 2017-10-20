@@ -12,9 +12,6 @@ import style from './style.css';
 const LoadedClue = ({primaryColor, text}) => {
   return (
     <div data-name="text" className={style.clueText}>
-      <div className={style.logo}>
-        <ClueIcon color={primaryColor} />
-      </div>
       <div
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{__html: text}}
@@ -72,9 +69,6 @@ class Clue extends React.Component {
           <div className={style.back} style={inlineStyle}>
             {isLoading ? <Loader /> : null}
             <div className={classnames(style.backContent, isLoading && style.loading)}>
-              <div className={style.logo}>
-                <ClueIcon color={primaryColor} />
-              </div>
               <div className={style.stars}>{starsToLoose}</div>
               <Cta submitValue={seeClueCta} secondary light onClick={this.handleClick} />
             </div>
