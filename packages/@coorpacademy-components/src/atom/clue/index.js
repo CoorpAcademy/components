@@ -2,14 +2,13 @@ import React from 'react';
 import get from 'lodash/fp/get';
 import isEmpty from 'lodash/fp/isEmpty';
 import PropTypes from 'prop-types';
-import ClueIcon from '@coorpacademy/nova-icons/solid/programming/programming-jigsaw';
 import classnames from 'classnames';
 import Provider from '../provider';
 import Loader from '../loader';
 import Cta from '../cta';
 import style from './style.css';
 
-const LoadedClue = ({primaryColor, text}) => {
+const LoadedClue = ({text}) => {
   return (
     <div data-name="text" className={style.clueText}>
       <div
@@ -74,7 +73,7 @@ class Clue extends React.Component {
             </div>
           </div>
           <div className={style.front} style={inlineStyle}>
-            <LoadedClue text={text} primaryColor={primaryColor} />
+            <LoadedClue text={text} />
           </div>
         </div>
       </div>
