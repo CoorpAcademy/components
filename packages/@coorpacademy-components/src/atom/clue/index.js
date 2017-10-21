@@ -2,19 +2,15 @@ import React from 'react';
 import get from 'lodash/fp/get';
 import isEmpty from 'lodash/fp/isEmpty';
 import PropTypes from 'prop-types';
-import ClueIcon from '@coorpacademy/nova-icons/solid/programming/programming-jigsaw';
 import classnames from 'classnames';
 import Provider from '../provider';
 import Loader from '../loader';
 import Cta from '../cta';
 import style from './style.css';
 
-const LoadedClue = ({primaryColor, text}) => {
+const LoadedClue = ({text}) => {
   return (
     <div data-name="text" className={style.clueText}>
-      <div className={style.logo}>
-        <ClueIcon color={primaryColor} />
-      </div>
       <div
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{__html: text}}
@@ -72,15 +68,12 @@ class Clue extends React.Component {
           <div className={style.back} style={inlineStyle}>
             {isLoading ? <Loader /> : null}
             <div className={classnames(style.backContent, isLoading && style.loading)}>
-              <div className={style.logo}>
-                <ClueIcon color={primaryColor} />
-              </div>
               <div className={style.stars}>{starsToLoose}</div>
               <Cta submitValue={seeClueCta} secondary light onClick={this.handleClick} />
             </div>
           </div>
           <div className={style.front} style={inlineStyle}>
-            <LoadedClue text={text} primaryColor={primaryColor} />
+            <LoadedClue text={text} />
           </div>
         </div>
       </div>
