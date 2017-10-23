@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import noop from 'lodash/fp/noop';
 import get from 'lodash/fp/get';
+import kebabCase from 'lodash/fp/kebabCase';
 import Layout from '../layout';
 import Sidebar from '../../../organism/sidebar';
 import Loader from '../../app-player/loading';
@@ -22,17 +23,17 @@ const currentDashboardSidebarSection = ({currentDashboard, onUpdateVersion, onUp
   const dashboardVersion = {
     title: 'Version',
     type: 'select',
-    onChange: onUpdateVersion,
+    onChange: selectedVersion => onUpdateVersion(selectedVersion),
     options: Object.keys(currentDashboard.versions).map(v => ({
       name: v,
-      value: currentDashboard.versions[v],
+      value: v,
       selected: v === currentDashboard.currentVersion
     }))
   };
   const paramInputs = currentDashboard.schema.map(schema => ({
     title: schema,
     type: 'inputtext',
-    onChange: onUpdateField,
+    onChange: newValue => onUpdateField(schema, newValue),
     value: defaultInputParam[schema]
   }));
   return [dashboardDescription, ...paramInputs, dashboardVersion];
@@ -51,8 +52,9 @@ const DashboardPreview = Layout(props => {
 
   const dahsboardList = dashboards.map(d => ({
     title: d.name,
+    name: kebabCase(d.name),
     type: 'link',
-    onClick: onSelectDashboard,
+    onClick: () => onSelectDashboard(kebabCase(d.name)),
     selected: d.name === get('name', currentDashboard)
   }));
 
