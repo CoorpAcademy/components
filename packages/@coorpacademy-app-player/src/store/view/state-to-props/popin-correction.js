@@ -37,22 +37,24 @@ const createNoExtraLifeCTA = (options, store) => state => {
   const isDead = progression.state.lives === 0;
   const title = translate(isDead ? 'Game over' : 'Next');
 
-  const currentSlide = getCurrentSlide(state);
-  const currentChapterId = get('chapter_id', currentSlide);
-  const currentChapterName = get(
-    ['data', 'contents', 'chapter', 'entities', currentChapterId, 'name'],
-    state
-  );
-  const previousSlide = getPreviousSlide(state);
-  const previousChapterId = get('chapter_id', previousSlide);
-  const isNewChapter = previousChapterId !== currentChapterId;
+  if (progression.content.type === 'level') {
+    const currentSlide = getCurrentSlide(state);
+    const currentChapterId = get('chapter_id', currentSlide);
+    const currentChapterName = get(
+      ['data', 'contents', 'chapter', 'entities', currentChapterId, 'name'],
+      state
+    );
+    const previousSlide = getPreviousSlide(state);
+    const previousChapterId = get('chapter_id', previousSlide);
+    const isNewChapter = previousChapterId !== currentChapterId;
 
-  const levelId = get('content.ref', progression);
-  const chapterIds = get(['data', 'contents', 'level', 'entities', levelId, 'chapterIds'], state);
-  const chapterIdsLength = chapterIds.length;
-  const indexChapter = indexOf(currentChapterId, chapterIds) + 1;
+    const levelId = get('content.ref', progression);
+    const chapterIds = get(['data', 'contents', 'level', 'entities', levelId, 'chapterIds'], state);
+    const chapterIdsLength = chapterIds.length;
+    const indexChapter = indexOf(currentChapterId, chapterIds) + 1;
 
-  const nextChapterTitle = `${indexChapter}/${chapterIdsLength} ${currentChapterName}`;
+    const nextChapterTitle = `${indexChapter}/${chapterIdsLength} ${currentChapterName}`;
+  }
 
   const onClick = () => dispatch(selectProgression(progressionId));
   const type = 'correction';

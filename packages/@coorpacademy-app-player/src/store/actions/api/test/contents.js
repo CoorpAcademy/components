@@ -1,8 +1,10 @@
+
 import test from 'ava';
 import set from 'lodash/fp/set';
 import macro from '../../test/helpers/macro';
 import {
   fetchContent,
+  fetchSlideChapter,
   CONTENT_FETCH_REQUEST,
   CONTENT_FETCH_SUCCESS,
   CONTENT_FETCH_FAILURE
@@ -81,6 +83,44 @@ test(
       meta: {ref: 'foo', type: 'contentType'},
       error: true,
       payload: new Error()
+    }
+  ]
+);
+
+test(
+  'should record chapter in state',
+  macro,
+  {},
+  t => ({
+    Content: {
+      find: (type, ref) => {
+        if (type === 'slide') {
+          return {chapter_id: 'chapId', _id: ref}
+        } else if (type === 'chapter') {
+          return {_id: ref}
+        }
+      }
+    }
+  }),
+  fetchSlideChapter('slideRef'),
+  [
+    {
+      type: CONTENT_FETCH_REQUEST,
+      meta: {ref: 'slideRef', type: 'slide'}
+    },
+    {
+      type: CONTENT_FETCH_SUCCESS,
+      meta: {ref: 'slideRef', type: 'slide'},
+      payload: {chapter_id: 'chapId', _id: 'slideRef'}
+    },
+    {
+      type: CONTENT_FETCH_REQUEST,
+      meta: {type: 'chapter', ref: 'chapId'}
+    },
+    {
+      type: CONTENT_FETCH_SUCCESS,
+      meta: {type: 'chapter', ref: 'chapId'},
+      payload: {_id: 'chapId'}
     }
   ]
 );
