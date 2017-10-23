@@ -28,6 +28,9 @@ export default {
       currentVersion: 'v2',
       schema: ['platform', 'provider'],
       url: 'https://coorpacademy.github.io/'
-    }
+    },
+    onSelectDashboard: dashboard => console.log('SELECTED', dashboard),
+    onUpdateVersion: version => console.log('VERSION', version),
+    onUpdateField: (field, value) => console.log('UPDATE', field, value)
   }
 };

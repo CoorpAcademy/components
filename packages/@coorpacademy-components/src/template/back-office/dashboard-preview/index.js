@@ -98,7 +98,8 @@ DashboardPreview.propTypes = {
   }),
   onSelectDashboard: PropTypes.func,
   onUpdateVersion: PropTypes.func,
-  onUpdateField: PropTypes.func
+  onUpdateField: PropTypes.func,
+  inputParams: PropTypes.shape({})
 };
 
 export default DashboardPreview;
