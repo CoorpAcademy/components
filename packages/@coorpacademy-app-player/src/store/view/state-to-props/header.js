@@ -17,7 +17,7 @@ const headerContent = (engineRef, state) => {
     case 'learner':
       return {
         title: getOr('', 'name')(content),
-        details: get('level')(content)
+        details: get('levelTranslation')(content)
       };
     case 'microlearning':
     default:

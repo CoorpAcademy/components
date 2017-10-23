@@ -20,6 +20,7 @@
           "1": {
             "name": "level1",
             "level": "base",
+            "levelTranslation": "base-translation",
             "chapterIds": ["chapter1", "chapter2"]
           }
         }
