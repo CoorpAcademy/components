@@ -1,33 +1,48 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value tablet from breakpoints;
 @value colors: "../../variables/colors.css";
 @value light from colors;
+@value dark from colors;
+@value xtraLightGrey from colors;
+
+.header {
+  background-color: xtraLightGrey;
+  border-bottom: solid 1px light;
+  padding: 27px 30px;
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
+}
 
 .thread {
-  width: 80%;
+  width: 100%;
   margin: auto;
   overflow: hidden;
+  border: solid 1px light;
+  padding-bottom: 20px;
 }
 
 .thread h1 {
   font-family: 'Open Sans';
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 24px;
-  font-weight: normal;
-  margin: 20px auto;
-}
-
-.thread h1::after,
-.thread h1::before {
-  content: "";
-  display: inline-block;
-  height: 1px;
-  width: 30px;
-  margin: 0 20px;
-  vertical-align: middle;
-  background: light;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+  color: dark;
+  margin: 0;
+  padding: 0 0 27px;
 }
 
 .loader {
   position: relative;
   height: 100px;
+}
+
+@media tablet {
+  .header {
+    padding: 16px;
+  }
+
+  .thread h1 {
+    padding: 0;
+  }
 }

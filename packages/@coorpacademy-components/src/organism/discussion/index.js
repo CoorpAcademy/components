@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import {SrcPropType} from '../../util/proptypes';
 import ForumComment from '../../molecule/forum/forum-comment';
 import ForumThread from '../../molecule/forum/forum-thread';
@@ -18,7 +19,8 @@ function Discussion(props) {
     onChange,
     hideComments,
     textareaDisabled,
-    postDisabled
+    postDisabled,
+    className
   } = props;
 
   const threadsView = threads.map(thread => <ForumThread key={thread.id} {...thread} />);
@@ -28,6 +30,7 @@ function Discussion(props) {
     <ForumComment
       avatar={avatar}
       value={value}
+      newPost
       onPost={onPost}
       onChange={onChange}
       textareaDisabled={textareaDisabled}
@@ -41,24 +44,27 @@ function Discussion(props) {
     </div>;
 
   return (
-    <div data-name="discussion" className={style.thread}>
-      <h1>{title}</h1>
-      {commentView}
+    <div data-name="discussion" className={classnames(style.thread, className)}>
+      <div className={style.header}>
+        <h1>{title}</h1>
+        {commentView}
+      </div>
       {threadsView}
       {loader}
     </div>
   );
 }
-
 Discussion.propTypes = {
   avatar: SrcPropType,
   loading: PropTypes.bool,
   value: PropTypes.string,
+  title: PropTypes.string,
   onPost: PropTypes.func,
   onChange: PropTypes.func,
   threads: PropTypes.arrayOf(PropTypes.shape(postConditions)),
   textareaDisabled: PropTypes.bool,
-  postDisabled: PropTypes.bool
+  postDisabled: PropTypes.bool,
+  className: PropTypes.string
 };
 
 export default Discussion;

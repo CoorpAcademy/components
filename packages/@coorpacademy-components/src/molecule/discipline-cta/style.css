@@ -26,8 +26,8 @@
   margin-bottom: 15px;
 }
 
-.head a:hover {
-  color: white;
+.head a:last-child {
+  margin-bottom: 0;
 }
 
 .head a span span {

@@ -1,5 +1,6 @@
 import React from 'react';
 import identity from 'lodash/fp/identity';
+import get from 'lodash/fp/get';
 import Provider from '../../../atom/provider';
 import Picture from '../../../atom/picture';
 import threadShape from '../post-conditions';
@@ -7,7 +8,7 @@ import ForumComment from '../forum-comment';
 import style from './style.css';
 
 const ForumPost = (props, context) => {
-  const {translate} = context;
+  const {translate, skin} = context;
   const {
     author,
     avatar,
@@ -36,6 +37,7 @@ const ForumPost = (props, context) => {
     onModerate,
     onDelete
   } = props;
+  const color = get('common.primary', skin);
 
   const infoDeleted = translate('This message has been removed by its author');
   const answerLabel = translate('Answer');
@@ -53,12 +55,14 @@ const ForumPost = (props, context) => {
 
   return (
     <div data-name="forumPost" className={rejected ? style.rejected : style.post}>
-      <div className={style.image}>
-        <Picture src={avatar} className={style.avatar} />
+      <div className={style.avatarWrapper}>
+        <div className={style.image}>
+          <Picture src={avatar} className={style.avatar} />
+        </div>
+        <span data-name="author" className={style.author}>{author}</span>
       </div>
       <div className={style.content}>
         <div>
-          <span data-name="author" className={style.author}>{author}</span>
           <span className={style.date}>{date}</span>
         </div>
         <div className={style.body}>
@@ -66,6 +70,7 @@ const ForumPost = (props, context) => {
             className={style.action}
             onClick={onAnswer}
             style={{
+              color,
               display: answerable && !deleted && !rejected ? 'block' : 'none'
             }}
           >
@@ -76,6 +81,7 @@ const ForumPost = (props, context) => {
             className={style.action}
             onClick={onEdit}
             style={{
+              color,
               display: editable ? 'block' : 'none'
             }}
           >
@@ -86,6 +92,7 @@ const ForumPost = (props, context) => {
             className={style.action}
             onClick={onDelete}
             style={{
+              color,
               display: editable ? 'block' : 'none'
             }}
           >
@@ -96,6 +103,7 @@ const ForumPost = (props, context) => {
             className={style.action}
             onClick={onModerate}
             style={{
+              color,
               display: rejectable ? 'block' : 'none'
             }}
           >
@@ -134,7 +142,8 @@ const ForumPost = (props, context) => {
 };
 
 ForumPost.contextTypes = {
-  translate: Provider.childContextTypes.translate
+  translate: Provider.childContextTypes.translate,
+  skin: Provider.childContextTypes.skin
 };
 
 ForumPost.propTypes = {

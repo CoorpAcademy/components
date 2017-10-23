@@ -8,24 +8,24 @@
 .scope {
   display: block;
   width: 100%;
-  margin: 0 0 40px;
+  margin: 0;
   background: white;
 }
 
 @media desktop {
   .scope {
-    margin: 25px 0 40px;
+    margin: 25px 0 0;
   }
 }
 
 @media tablet {
   .scope {
-    margin: 25px 0 40px;
+    margin: 25px 0 0;
   }
 }
 
 @media mobile {
   .scope {
-    margin: 35px 0 40px;
+    margin: 35px 0 0;
   }
 }

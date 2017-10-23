@@ -167,6 +167,13 @@
   text-align: left;
 }
 
+.discussion {
+  border: 1px solid light;
+  border-top: none;
+  box-sizing: border-box;
+  min-width: 100%;
+}
+
 @media tablet {
   .cta {
     float: none;

@@ -15,7 +15,7 @@ const ButtonContent = props => {
     href,
     target,
     onClick,
-    className,
+    className = style.button,
     children,
     type
   } = props;
@@ -29,6 +29,7 @@ const ButtonContent = props => {
           href={href}
           download={download}
           onClick={onClick}
+          disabled={disabled}
           target={target}
           className={className}
           style={props.style}
@@ -42,6 +43,7 @@ const ButtonContent = props => {
         <a
           data-name={dataName}
           href={href}
+          disabled={disabled}
           target={target}
           className={className}
           onClick={onClick}
@@ -96,7 +98,8 @@ Button.propTypes = {
   download: PropTypes.bool,
   target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
   onClick: PropTypes.func,
-  children: PropTypes.node
+  children: PropTypes.node,
+  className: PropTypes.string
 };
 
 export default Button;

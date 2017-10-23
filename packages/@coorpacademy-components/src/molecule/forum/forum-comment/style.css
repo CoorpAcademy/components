@@ -1,25 +1,45 @@
+@value breakpoints: "../../../variables/breakpoints.css";
+@value tablet from breakpoints;
 @value colors: "../../../variables/colors.css";
 @value medium from colors;
 @value negative from colors;
 @value light from colors;
+@value white from colors;
 @value dark from colors;
+@value brand from colors;
 
 .container {
-  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-top: 10px;
+}
+
+.container.newPost {
+  flex-direction: row;
 }
 
 .wrapper {
   display: flex;
+  flex: 1 0 auto;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.wrapper.newPost {
+  width: auto;
+  margin-bottom: 0;
 }
 
 .image {
   background-color: light;
-  border-radius: 3px;
   overflow: hidden;
-  width: 50px;
-  height: 50px;
-  margin-right: 10px;
+  width: 41px;
+  height: 41px;
   flex-shrink: 0;
+  border-radius: 50%;
+  border: none;
+  margin: auto 27px auto 0;
 }
 
 .image img {
@@ -39,8 +59,9 @@
   width: 100%;
   margin: 0 auto;
   padding: 5px;
-  border: solid 2px light;
-  border-radius: 2px;
+  border: solid 1px light;
+  border-radius: 3px;
+  background-color: white;
   font-size: 14px;
   font-family: 'Open Sans';
   white-space: pre-wrap;
@@ -50,13 +71,49 @@
 }
 
 .post {
-  float: right;
-  margin-top: 10px;
+  padding: 0 0 0 30px;
+  vertical-align: middle;
+  display: block;
+  margin: auto 0;
+}
+
+.post > .disabledButton {
+  cursor: none;
+  line-height: inherit;
+  min-width: auto;
+  border-radius: 100px;
+  background-color: brand;
+  padding: 13px 31px;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
 }
 
 .post > .button {
-  background-color: dark;
-  min-width: 100px;
-  width: 100px;
-  padding: 0;
+  border-radius: 100px;
+  background-color: brand;
+  padding: 13px 31px;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+}
+
+@media tablet {
+  .container.newPost {
+    flex-direction: column;
+  }
+
+  .wrapper.newPost {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .post > .button,
+  .post > .disabledButton {
+    padding: 13px 20px;
+  }
+
+  .image {
+    margin: auto 16px auto 0;
+  }
 }
