@@ -23,9 +23,11 @@
 .livesWrapper {
   background-color: light;
   display: flex;
+  flex-shrink: 0;
   align-items: center;
   justify-content: center;
   position: relative;
+  margin-left: 16px;
 }
 
 .life {
