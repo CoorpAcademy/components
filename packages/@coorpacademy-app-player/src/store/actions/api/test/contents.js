@@ -1,4 +1,3 @@
-
 import test from 'ava';
 import set from 'lodash/fp/set';
 import macro from '../../test/helpers/macro';
@@ -95,9 +94,9 @@ test(
     Content: {
       find: (type, ref) => {
         if (type === 'slide') {
-          return {chapter_id: 'chapId', _id: ref}
+          return {chapter_id: 'chapId', _id: ref};
         } else if (type === 'chapter') {
-          return {_id: ref}
+          return {_id: ref};
         }
       }
     }

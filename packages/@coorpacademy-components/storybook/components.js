@@ -372,7 +372,7 @@ import PopinHeaderFixtureExtralife from '../src/molecule/app-player/popin/popin-
 import PopinHeaderFixtureFailMultipleAnswers from '../src/molecule/app-player/popin/popin-header/test/fixtures/fail-multiple-answers';
 import PopinHeaderFixtureFail from '../src/molecule/app-player/popin/popin-header/test/fixtures/fail';
 import PopinHeaderFixtureLoading from '../src/molecule/app-player/popin/popin-header/test/fixtures/loading';
-import PopinHeaderFixtureNextChapiter from '../src/molecule/app-player/popin/popin-header/test/fixtures/next-chapiter';
+import PopinHeaderFixtureNextChapter from '../src/molecule/app-player/popin/popin-header/test/fixtures/next-chapter';
 import PopinHeaderFixtureStarsRank from '../src/molecule/app-player/popin/popin-header/test/fixtures/stars-rank';
 import PopinHeaderFixtureSuccess from '../src/molecule/app-player/popin/popin-header/test/fixtures/success';
 import BattleRequestListFixtureDefault from '../src/molecule/dashboard/battle-request-list/test/fixtures/default';
@@ -1141,7 +1141,7 @@ export const fixtures = {
       FailMultipleAnswers: PopinHeaderFixtureFailMultipleAnswers,
       Fail: PopinHeaderFixtureFail,
       Loading: PopinHeaderFixtureLoading,
-      NextChapiter: PopinHeaderFixtureNextChapiter,
+      NextChapter: PopinHeaderFixtureNextChapter,
       StarsRank: PopinHeaderFixtureStarsRank,
       Success: PopinHeaderFixtureSuccess
     }

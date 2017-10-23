@@ -5,7 +5,7 @@ import pipe from 'lodash/fp/pipe';
 import remove from 'lodash/fp/remove';
 import includes from 'lodash/fp/includes';
 import {
-  getSlide, 
+  getSlide,
   getProgressionContent,
   getCurrentContent,
   getProgressionNextContentRef
