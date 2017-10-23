@@ -7,13 +7,13 @@ import {fetchContent, fetchContentInfo, fetchSlideChapter} from '../api/contents
 import {fetchRecommendations} from '../api/recommendations';
 import {fetchAnswer} from '../api/answers';
 import {
-  getCurrentChapterId,
   getEngine,
   getProgressionContent,
   getCurrentProgressionId,
   getStepContent,
   getPrevStepContent,
-  getSlide
+  getSlide,
+  fetchNextContent
 } from '../../utils/state-extract';
 import {selectRoute} from './route';
 

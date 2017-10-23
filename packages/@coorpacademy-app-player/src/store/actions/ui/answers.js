@@ -5,14 +5,12 @@ import pipe from 'lodash/fp/pipe';
 import remove from 'lodash/fp/remove';
 import includes from 'lodash/fp/includes';
 import {
-  getSlide, 
-  getProgressionContent,
-  getCurrentContent,
-  getProgressionNextContentRef
+  getSlide,
+  getProgressionContent
 } from '../../utils/state-extract';
 import {createAnswer} from '../api/progressions';
 import {fetchAnswer} from '../api/answers';
-import {fetchContent, fetchSlideChapter} from '../api/contents';
+import {fetchSlideChapter} from '../api/contents';
 import {toggleAccordion} from './corrections';
 
 export const ANSWER_EDIT = {
