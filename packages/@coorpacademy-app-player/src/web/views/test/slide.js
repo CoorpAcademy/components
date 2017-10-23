@@ -39,7 +39,7 @@ test('should display learner header with chapter num', t => {
 
   t.is(headerProps.type, 'learner');
   t.is(headerProps.content.title, 'level1');
-  t.is(headerProps.content.details, 'base');
+  t.is(headerProps.content.details, 'base-translation');
   t.is(headerProps.subcontent.title, 'chapter2!');
   t.is(headerProps.subcontent.details, '2/2');
   t.deepEqual(headerProps.lives, {count: 3});
@@ -59,7 +59,7 @@ test('should display learner header with no chapter nums', t => {
 
   t.is(headerProps.type, 'learner');
   t.is(headerProps.content.title, 'level1');
-  t.is(headerProps.content.details, 'base');
+  t.is(headerProps.content.details, 'base-translation');
   t.is(headerProps.subcontent.title, 'chapter2!');
   t.is(headerProps.subcontent.details, null);
   t.deepEqual(headerProps.lives, {count: 3});
