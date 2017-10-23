@@ -138,7 +138,7 @@ const CorrectionPart = props => {
 
 const NextQuestionPart = (props, context) => {
   const {cta, extraLife, revival, fail, lives} = props;
-  const {title, ...linkProps} = cta || {};
+  const {title, nextStepTitle, ...linkProps} = cta || {};
   const {active: isExtraLife} = extraLife;
   const isGameOver = !lives && !revival && (fail || isExtraLife);
 
@@ -162,6 +162,11 @@ const NextQuestionPart = (props, context) => {
   } else {
     dataNext = 'continue-success';
   }
+
+  const nextStep = nextStepTitle
+    ? <div className={style.nextStepTitle}>{nextStepTitle}</div>
+    : null;
+
   return (
     <Link
       className={classnames(
@@ -172,10 +177,12 @@ const NextQuestionPart = (props, context) => {
       data-name="nextLink"
       {...linkProps}
     >
-
-      <div data-name="nextButton" data-next={dataNext} className={style.nextButton}>
-        {title}
-        <ArrowRight color="inherit" className={style.nextButtonIcon} />
+      <div className={style.wrapperNextSection}>
+        <div data-name="nextButton" data-next={dataNext} className={style.nextButton}>
+          {title}
+          <ArrowRight color="inherit" className={style.nextButtonIcon} />
+        </div>
+        {nextStep}
       </div>
     </Link>
   );
@@ -288,7 +295,8 @@ PopinHeader.propTypes = {
   corrections: AnswersCorrection.propTypes.corrections,
   cta: PropTypes.shape({
     ...Link.propTypes,
-    title: PropTypes.string
+    title: PropTypes.string,
+    nextStepTitle: PropTypes.string
   })
 };
 

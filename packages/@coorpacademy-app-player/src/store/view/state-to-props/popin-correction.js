@@ -2,12 +2,14 @@ import getOr from 'lodash/fp/getOr';
 import get from 'lodash/fp/get';
 import isNil from 'lodash/fp/isNil';
 import join from 'lodash/fp/join';
+import indexOf from 'lodash/fp/indexOf';
 import {
   getCurrentCorrection,
   getCurrentProgression,
   getCurrentProgressionId,
   getLives,
-  getPreviousSlide
+  getPreviousSlide,
+  getCurrentSlide
 } from '../../utils/state-extract';
 import {acceptExtraLifeAndReset, refuseExtraLifeAndReset} from '../../actions/ui/extra-life';
 import {toggleAccordion} from '../../actions/ui/corrections';
@@ -33,9 +35,29 @@ const createNoExtraLifeCTA = (options, store) => state => {
   const progressionId = getCurrentProgressionId(state);
   const isDead = progression.state.lives === 0;
   const title = translate(isDead ? 'Game over' : 'Next');
+
+  if (progression.content.type === 'level') {
+    const currentSlide = getCurrentSlide(state);
+    const currentChapterId = get('chapter_id', currentSlide);
+    const currentChapterName = get(
+      ['data', 'contents', 'chapter', 'entities', currentChapterId, 'name'],
+      state
+    );
+    const previousSlide = getPreviousSlide(state);
+    const previousChapterId = get('chapter_id', previousSlide);
+    const isNewChapter = previousChapterId !== currentChapterId;
+
+    const levelId = get('content.ref', progression);
+    const chapterIds = get(['data', 'contents', 'level', 'entities', levelId, 'chapterIds'], state);
+    const chapterIdsLength = chapterIds.length;
+    const indexChapter = indexOf(currentChapterId, chapterIds) + 1;
+
+    const nextChapterTitle = `${indexChapter}/${chapterIdsLength} ${currentChapterName}`;
+  }
+
   const onClick = () => dispatch(selectProgression(progressionId));
 
-  return {title, onClick};
+  return {title, onClick, nextStepTitle: isNewChapter ? nextChapterTitle : null};
 };
 
 export const createHeaderCTA = (options, store) => state => {

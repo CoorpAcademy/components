@@ -3,13 +3,10 @@ import set from 'lodash/fp/set';
 import macro from '../../test/helpers/macro';
 import {
   fetchContent,
-  fetchNextContent,
+  fetchSlideChapter,
   CONTENT_FETCH_REQUEST,
   CONTENT_FETCH_SUCCESS,
-  CONTENT_FETCH_FAILURE,
-  NEXT_CONTENT_FETCH_REQUEST,
-  NEXT_CONTENT_FETCH_SUCCESS,
-  NEXT_CONTENT_FETCH_FAILURE
+  CONTENT_FETCH_FAILURE
 } from '../contents';
 
 test(
@@ -90,56 +87,39 @@ test(
 );
 
 test(
-  'should fecth next content',
+  'should record chapter in state',
   macro,
   {},
   t => ({
     Content: {
-      getNextContent: (type, ref) => {
-        t.is(type, 'contentType');
-        t.is(ref, 'foo');
-        return ref;
+      find: (type, ref) => {
+        if (type === 'slide') {
+          return {chapter_id: 'chapId', _id: ref};
+        } else if (type === 'chapter') {
+          return {_id: ref};
+        }
       }
     }
   }),
-  fetchNextContent('contentType', 'foo'),
+  fetchSlideChapter('slideRef'),
   [
     {
-      type: NEXT_CONTENT_FETCH_REQUEST,
-      meta: {ref: 'foo', type: 'contentType'}
+      type: CONTENT_FETCH_REQUEST,
+      meta: {ref: 'slideRef', type: 'slide'}
     },
     {
-      type: NEXT_CONTENT_FETCH_SUCCESS,
-      meta: {ref: 'foo', type: 'contentType'},
-      payload: 'foo'
-    }
-  ]
-);
-
-test(
-  'should return error if request failed when fetching next content',
-  macro,
-  {},
-  t => ({
-    Content: {
-      getNextContent: (type, ref) => {
-        t.is(type, 'contentType');
-        t.is(ref, 'foo');
-        throw new Error();
-      }
-    }
-  }),
-  fetchNextContent('contentType', 'foo'),
-  [
-    {
-      type: NEXT_CONTENT_FETCH_REQUEST,
-      meta: {ref: 'foo', type: 'contentType'}
+      type: CONTENT_FETCH_SUCCESS,
+      meta: {ref: 'slideRef', type: 'slide'},
+      payload: {chapter_id: 'chapId', _id: 'slideRef'}
     },
     {
-      type: NEXT_CONTENT_FETCH_FAILURE,
-      meta: {ref: 'foo', type: 'contentType'},
-      error: true,
-      payload: new Error()
+      type: CONTENT_FETCH_REQUEST,
+      meta: {type: 'chapter', ref: 'chapId'}
+    },
+    {
+      type: CONTENT_FETCH_SUCCESS,
+      meta: {type: 'chapter', ref: 'chapId'},
+      payload: {_id: 'chapId'}
     }
   ]
 );
