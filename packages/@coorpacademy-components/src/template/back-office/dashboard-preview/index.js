@@ -14,7 +14,12 @@ const defaultInputParam = {
   population_ref: 'ALL'
 };
 
-const currentDashboardSidebarSection = ({currentDashboard, onUpdateVersion, onUpdateField}) => {
+const currentDashboardSidebarSection = ({
+  currentDashboard,
+  onUpdateVersion,
+  onUpdateField,
+  inputParam
+}) => {
   const dashboardDescription = {
     title: currentDashboard.name,
     type: 'info',
@@ -34,7 +39,7 @@ const currentDashboardSidebarSection = ({currentDashboard, onUpdateVersion, onUp
     title: schema,
     type: 'inputtext',
     onChange: newValue => onUpdateField(schema, newValue),
-    value: defaultInputParam[schema]
+    value: inputParam[schema]
   }));
   return [dashboardDescription, ...paramInputs, dashboardVersion];
 };
@@ -45,7 +50,8 @@ const DashboardPreview = Layout(props => {
     currentDashboard,
     onSelectDashboard = noop,
     onUpdateVersion = noop,
-    onUpdateField = noop
+    onUpdateField = noop,
+    inputParams = {}
   } = props;
 
   if (!dashboards || dashboards.length === 0) return <Loader />;
@@ -59,10 +65,16 @@ const DashboardPreview = Layout(props => {
   }));
 
   const sidebar = [dahsboardList];
-  if (currentDashboard)
+  if (currentDashboard) {
     sidebar.push(
-      currentDashboardSidebarSection({currentDashboard, onUpdateVersion, onUpdateField})
+      currentDashboardSidebarSection({
+        currentDashboard,
+        onUpdateVersion,
+        onUpdateField,
+        inputParam: {...defaultInputParam, ...inputParams}
+      })
     );
+  }
 
   return (
     <div className={style.container}>
