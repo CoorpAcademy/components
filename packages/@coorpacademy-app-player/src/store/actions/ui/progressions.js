@@ -3,11 +3,10 @@ import isNil from 'lodash/fp/isNil';
 import {fetchProgression, fetchEngineConfig, fetchBestProgression} from '../api/progressions';
 import {fetchEndRank, fetchStartRank} from '../api/rank';
 import {fetchExitNode} from '../api/exit-nodes';
-import {fetchContent, fetchContentInfo, fetchSlideChapter} from '../api/contents';
+import {fetchContent, fetchContentInfo, fetchSlideChapter, fetchNextContent} from '../api/contents';
 import {fetchRecommendations} from '../api/recommendations';
 import {fetchAnswer} from '../api/answers';
 import {
-  getCurrentChapterId,
   getEngine,
   getProgressionContent,
   getCurrentProgressionId,
