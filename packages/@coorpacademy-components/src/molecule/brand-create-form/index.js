@@ -35,7 +35,7 @@ const BrandCreateForm = props => {
             {field.label}
           </label>
         </div>
-        <Button type="submit" disabled={disabled} submitValue={submitValue} centered />
+        <Button type="submit" disabled={disabled} submitValue={submitValue} />
       </form>
     </div>
   );

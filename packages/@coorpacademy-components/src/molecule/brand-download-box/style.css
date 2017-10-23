@@ -21,8 +21,7 @@
   width: 80%;
 }
 
-.button {
-  composes: button from '../../atom/button/style.css';
+.wrapper > .button {
   background-color: dark;
 }
 
