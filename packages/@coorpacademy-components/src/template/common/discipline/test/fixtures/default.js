@@ -11,7 +11,7 @@ import ForumComment from '../../../../../molecule/forum/forum-comment/test/fixtu
 const thread = Thread.props;
 const thread2 = ThreadDeep.props;
 
-const threads = [thread, thread2, thread, thread2].map(update('id', () => uniqueId()));
+const threads = [thread, thread2].map(update('id', () => uniqueId()));
 
 const {title, description, video} = disciplineHeader.props;
 const {start, buy, startLabel, buyLabel} = disciplineCTA.props;

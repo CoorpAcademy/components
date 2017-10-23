@@ -137,7 +137,8 @@ ScopeContent.propTypes = {
         title: PropTypes.string,
         image: PropTypes.string
       })
-    )
+    ),
+    discussion: PropTypes.shape(Discussion.propTypes)
   })
 };
 

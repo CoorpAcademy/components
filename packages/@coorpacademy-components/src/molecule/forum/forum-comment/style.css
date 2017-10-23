@@ -79,20 +79,18 @@
 
 .post > .disabledButton {
   cursor: none;
-  line-height: inherit;
   min-width: auto;
+  line-height: 50px;
   border-radius: 100px;
-  background-color: brand;
-  padding: 13px 31px;
   font-size: 14px;
   font-weight: bold;
   color: white;
 }
 
 .post > .button {
+  min-width: auto;
+  line-height: 50px;
   border-radius: 100px;
-  background-color: brand;
-  padding: 13px 31px;
   font-size: 14px;
   font-weight: bold;
   color: white;
@@ -110,7 +108,7 @@
 
   .post > .button,
   .post > .disabledButton {
-    padding: 13px 20px;
+    line-height: 34px;
   }
 
   .image {

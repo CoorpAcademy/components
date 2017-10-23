@@ -4,7 +4,6 @@ export default {
   props: {
     ...ForumComment.props,
     title: 'New discussion',
-    threads: [],
     postDisabled: true
   }
 };
