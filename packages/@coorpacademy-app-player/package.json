@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/app-player",
-  "version": "7.1.15",
+  "version": "7.1.16",
   "description": "CoorpAcademy player [freerun, learner, battles]",
   "main": "lib/web/index.js",
   "module": "es/web/index.js",
@@ -39,7 +39,7 @@
     "webpack-dev-server": "^2.4.5"
   },
   "dependencies": {
-    "@coorpacademy/components": "5.4.124",
+    "@coorpacademy/components": "5.4.125",
     "@coorpacademy/translate": "5.3.10",
     "@coorpacademy/webpack-config": "6.2.1",
     "lodash": "^4.17.4",
