@@ -36,6 +36,7 @@ const createNoExtraLifeCTA = (options, store) => state => {
   const progressionId = getCurrentProgressionId(state);
   const isDead = progression.state.lives === 0;
   const title = translate(isDead ? 'Game over' : 'Next');
+  let nextStepTitle = null;
 
   if (progression.content.type === 'level') {
     const currentSlide = getCurrentSlide(state);
@@ -54,12 +55,13 @@ const createNoExtraLifeCTA = (options, store) => state => {
     const indexChapter = indexOf(currentChapterId, chapterIds) + 1;
 
     const nextChapterTitle = `${indexChapter}/${chapterIdsLength} ${currentChapterName}`;
+    nextStepTitle = isNewChapter ? nextChapterTitle : null;
   }
 
   const onClick = () => dispatch(selectProgression(progressionId));
   const type = 'correction';
 
-  return {title, onClick, type, nextStepTitle: sNewChapter ? nextChapterTitle : null};
+  return {title, onClick, type, nextStepTitle};
 };
 
 export const createHeaderCTA = (options, store) => state => {

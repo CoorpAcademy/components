@@ -1,7 +1,8 @@
 import buildTask from '../../utils/redux-task';
 import {
   getContent,
-  getContentInfo
+  getContentInfo,
+  getSlide
 } from '../../utils/state-extract';
 
 export const CONTENT_FETCH_REQUEST = '@@content/FETCH_REQUEST';
@@ -39,8 +40,8 @@ export const fetchContentInfo = (content, engine) => (dispatch, getState, {servi
 };
 
 export const fetchSlideChapter = slideRef => async (dispatch, getState, {services}) => {
-  const slideResult = await dispatch(fetchContent('slide', slideRef));
-  const chapterResult = await dispatch(fetchContent('chapter', slideResult.payload.chapter_id));
+  await dispatch(fetchContent('slide', slideRef));
+  const slide = getSlide(slideRef)(getState());
 
-  return chapterResult;
+  return dispatch(fetchContent('chapter', slide.chapter_id));
 };
