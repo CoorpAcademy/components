@@ -4,10 +4,7 @@ import {
   CONTENT_FETCH_REQUEST,
   CONTENT_FETCH_SUCCESS,
   CONTENT_FETCH_FAILURE,
-  CONTENT_INFO_FETCH_SUCCESS,
-  NEXT_CONTENT_FETCH_REQUEST,
-  NEXT_CONTENT_FETCH_SUCCESS,
-  NEXT_CONTENT_FETCH_FAILURE
+  CONTENT_INFO_FETCH_SUCCESS
 } from '../../../actions/api/contents';
 import {PROGRESSION_FETCH_BESTOF_SUCCESS} from '../../../actions/api/progressions';
 import macro from '../../test/helpers/macro';
@@ -115,62 +112,4 @@ test(
     payload: {foo: 'bar'}
   },
   {foo: {entities: {bar: {info: {foo: 'bar'}}}}}
-);
-
-test(
-  'should set state when next-content request in launched',
-  macro,
-  reducer,
-  {},
-  {
-    type: NEXT_CONTENT_FETCH_REQUEST,
-    meta: {type: 'level', ref: '1.B'},
-    payload: {}
-  },
-  {
-    nextContent: {'1.B': null}
-  }
-);
-
-test(
-  'should set next-content when payload contains data',
-  macro,
-  reducer,
-  {},
-  {
-    type: NEXT_CONTENT_FETCH_SUCCESS,
-    meta: {type: 'level', ref: '1.B'},
-    payload: {ref: '1.A', level: 'advanced'}
-  },
-  {
-    level: {entities: {'1.A': {ref: '1.A', level: 'advanced'}}},
-    nextContent: {'1.B': '1.A'}
-  }
-);
-
-test(
-  'should return same state when next-content action has empty payload',
-  macro,
-  reducer,
-  {foo: {entities: {bar: {info: null}}}},
-  {
-    type: NEXT_CONTENT_FETCH_SUCCESS,
-    meta: {type: 'level', ref: '1.B'},
-    payload: {}
-  },
-  {foo: {entities: {bar: {info: null}}}}
-);
-
-test(
-  'should set state when next-content request in launched',
-  macro,
-  reducer,
-  {nextContent: {'1.B': null}},
-  {
-    type: NEXT_CONTENT_FETCH_FAILURE,
-    meta: {type: 'level', ref: '1.B'}
-  },
-  {
-    nextContent: {}
-  }
 );

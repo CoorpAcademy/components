@@ -1,7 +1,6 @@
 import get from 'lodash/fp/get';
 import pipe from 'lodash/fp/pipe';
 import reduce from 'lodash/fp/reduce';
-import find_ from 'lodash/fp/find';
 import {getConfig} from '@coorpacademy/progression-engine';
 import chaptersData from './chapters.data';
 import levelsData from './levels.data';
@@ -53,21 +52,4 @@ function getNbSlides(contentRef, engineRef, version) {
 export const getInfo = (contentRef, engineRef, version) => {
   const nbSlides = getNbSlides(contentRef, engineRef, version);
   return {nbSlides};
-};
-
-export const getNextContent = (type, ref) => {
-  if (levels.has(ref)) {
-    const {name, level} = levels.get(ref);
-    if (level === 'coach') {
-      return Promise.resolve({});
-    }
-
-    const nextLevel = level === 'base' ? 'advanced' : 'coach';
-    const filter = {level: nextLevel, name};
-    const nextContent = find_(filter, levelsData);
-
-    return Promise.resolve(nextContent);
-  }
-
-  return Promise.resolve({});
 };
