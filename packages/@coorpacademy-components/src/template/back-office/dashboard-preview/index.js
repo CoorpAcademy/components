@@ -93,7 +93,10 @@ DashboardPreview.propTypes = {
     versions: PropTypes.shape({}).isRequired,
     url: PropTypes.string.isRequired,
     schema: PropTypes.arrayOf(PropTypes.string)
-  })
+  }),
+  onSelectDashboard: PropTypes.func,
+  onUpdateVersion: PropTypes.func,
+  onUpdateField: PropTypes.func
 };
 
 export default DashboardPreview;
