@@ -171,7 +171,7 @@ const ContextContent = ({slideContext}) => {
     <p key={index} className={style.contextDescription}>{paragraph}</p>
   );
   return (
-    <div>
+    <div className={style.context}>
       {get('media.type', slideContext) ? <ContextMedia media={slideContext.media} /> : null}
       {paragraphs}
     </div>
