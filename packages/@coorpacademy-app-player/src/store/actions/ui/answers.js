@@ -4,10 +4,15 @@ import find from 'lodash/fp/find';
 import pipe from 'lodash/fp/pipe';
 import remove from 'lodash/fp/remove';
 import includes from 'lodash/fp/includes';
-import {getSlide, getProgressionContent} from '../../utils/state-extract';
+import {
+  getSlide, 
+  getProgressionContent,
+  getCurrentContent,
+  getProgressionNextContentRef
+} from '../../utils/state-extract';
 import {createAnswer} from '../api/progressions';
 import {fetchAnswer} from '../api/answers';
-import {fetchContent} from '../api/contents';
+import {fetchContent, fetchSlideChapter} from '../api/contents';
 import {toggleAccordion} from './corrections';
 
 export const ANSWER_EDIT = {
@@ -80,11 +85,7 @@ export const validateAnswer = (progressionId, body) => async (dispatch, getState
   if (isCorrect) {
     await dispatch(toggleAccordion(2));
     if (payload.state.nextContent.type === 'slide') {
-      const nextSlideResponse = await dispatch(
-        fetchContent('slide', get('nextContent.ref', progressionState))
-      );
-      const nextChapterId = get('payload.chapter_id', nextSlideResponse);
-      await dispatch(fetchContent('chapter', nextChapterId));
+      await dispatch(fetchSlideChapter(get('nextContent.ref', progressionState)));
     }
   } else {
     !hasViewedAllLessons || get('state.nextContent.ref', payload) === 'extraLife'

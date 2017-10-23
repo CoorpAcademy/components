@@ -10,6 +10,8 @@ export const getChoices = get('question.content.choices');
 export const getCurrentProgressionId = get('ui.current.progressionId');
 export const getQuestionType = get('question.type');
 
+export const getProgressionNextContentRef = get('nextContent.ref');
+
 export const getProgression = id => state => {
   return get(['data', 'progressions', 'entities', id], state);
 };

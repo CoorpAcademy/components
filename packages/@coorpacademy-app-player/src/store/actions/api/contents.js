@@ -1,5 +1,5 @@
 import buildTask from '../../utils/redux-task';
-import {getContent, getContentInfo} from '../../utils/state-extract';
+import {getContent, getContentInfo, getSlide, getProgressionContent} from '../../utils/state-extract';
 
 export const CONTENT_FETCH_REQUEST = '@@content/FETCH_REQUEST';
 export const CONTENT_FETCH_SUCCESS = '@@content/FETCH_SUCCESS';
@@ -35,18 +35,9 @@ export const fetchContentInfo = (content, engine) => (dispatch, getState, {servi
   return dispatch(action);
 };
 
-export const NEXT_CONTENT_FETCH_REQUEST = '@@next-content/FETCH_REQUEST';
-export const NEXT_CONTENT_FETCH_SUCCESS = '@@next-content/FETCH_SUCCESS';
-export const NEXT_CONTENT_FETCH_FAILURE = '@@next-content/FETCH_FAILURE';
+export const fetchSlideChapter = (slideRef) => async (dispatch, getState, {services}) => {
+  const slideResult = await dispatch(fetchContent('slide', slideRef));
+  const chapterResult = await dispatch(fetchContent('chapter', slideResult.payload.chapter_id));
 
-export const fetchNextContent = (type, ref) => (dispatch, getState, {services}) => {
-  const {Content} = services;
-
-  const action = buildTask({
-    types: [NEXT_CONTENT_FETCH_REQUEST, NEXT_CONTENT_FETCH_SUCCESS, NEXT_CONTENT_FETCH_FAILURE],
-    task: () => Content.getNextContent(type, ref),
-    meta: {type, ref}
-  });
-
-  return dispatch(action);
+  return chapterResult;
 };

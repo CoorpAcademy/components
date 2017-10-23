@@ -3,7 +3,7 @@ import isNil from 'lodash/fp/isNil';
 import {fetchProgression, fetchEngineConfig, fetchBestProgression} from '../api/progressions';
 import {fetchEndRank, fetchStartRank} from '../api/rank';
 import {fetchExitNode} from '../api/exit-nodes';
-import {fetchContent, fetchContentInfo, fetchNextContent} from '../api/contents';
+import {fetchContent, fetchContentInfo, fetchSlideChapter} from '../api/contents';
 import {fetchRecommendations} from '../api/recommendations';
 import {fetchAnswer} from '../api/answers';
 import {
@@ -12,7 +12,8 @@ import {
   getProgressionContent,
   getCurrentProgressionId,
   getStepContent,
-  getPrevStepContent
+  getPrevStepContent,
+  getSlide
 } from '../../utils/state-extract';
 import {selectRoute} from './route';
 
@@ -43,11 +44,10 @@ export const selectProgression = id => async (dispatch, getState) => {
 
   switch (type) {
     case 'slide': {
-      const slideResult = await dispatch(fetchContent('slide', ref));
-      const chapterId = getCurrentChapterId(getState());
-      const chapterResult = await dispatch(fetchContent('chapter', chapterId));
+      const chapterResult = await dispatch(fetchSlideChapter(ref));
+      const slideResult = getSlide(id)(getState());
 
-      if (isNil(get('payload.context.title', slideResult))) {
+      if (isNil(get('context.title', slideResult))) {
         return chapterResult;
       }
       return dispatch(selectRoute('context'));
