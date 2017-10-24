@@ -5,6 +5,7 @@ import get from 'lodash/fp/get';
 import kebabCase from 'lodash/fp/kebabCase';
 import Layout from '../layout';
 import Sidebar from '../../../organism/sidebar';
+import Popin from '../../../organism/popin';
 import Loader from '../../app-player/loading';
 import style from './style.css';
 
@@ -51,8 +52,10 @@ const DashboardPreview = Layout(props => {
     onSelectDashboard = noop,
     onUpdateVersion = noop,
     onUpdateField = noop,
+    onErrorRedirect = noop,
     inputParams = {},
-    url
+    url,
+    error
   } = props;
 
   if (!dashboards || dashboards.length === 0) return <Loader />;
@@ -91,7 +94,14 @@ const DashboardPreview = Layout(props => {
         <h1 className={style.dashboardTitle}>
           {currentDashboard ? currentDashboard.name : 'No Selected Dashboard'}
         </h1>
-        {currentDashboard ? selectedDashboard() : <div>Select a dashboard on the Sidebar</div>}
+        {currentDashboard && !error ? selectedDashboard() : <div>Select a dashboard on the Sidebar</div>}
+        {error ? <Popin
+          header="Error Happened"
+          ctaLabel="Redirect to dashboards home"
+          content={`<p>${error}</p>`}
+          ctaOnClick={onErrorRedirect}
+          closeOnClick={onErrorRedirect}
+        /> : null}
       </div>
     </div>
   );
@@ -115,6 +125,7 @@ DashboardPreview.propTypes = {
   onSelectDashboard: PropTypes.func,
   onUpdateVersion: PropTypes.func,
   onUpdateField: PropTypes.func,
+  onErrorRedirect: PropTypes.func,
   inputParams: PropTypes.shape({})
 };
 
