@@ -11,6 +11,7 @@ export default {
   edition: PropTypes.string,
   showAnswerBox: PropTypes.bool,
   showEditBox: PropTypes.bool,
+  mainPost: PropTypes.bool,
   onAnswer: PropTypes.func,
   onEdit: PropTypes.func,
   onPostAnswer: PropTypes.func,

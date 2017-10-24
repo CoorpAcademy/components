@@ -13,9 +13,13 @@
 .post {
   opacity: 0;
   display: flex;
-  padding: 16px 30px 0 0;
+  padding: 10px 30px 10px 0;
   text-align: left;
   animation: fadeIn 1s ease-out forwards;
+}
+
+.mainPost {
+  border-bottom: 1px solid light;
 }
 
 @keyframes fadeIn {
@@ -71,7 +75,7 @@
 }
 
 .date {
-  color: medium;
+  color: color(medium lightness(70%));
   font-family: Open Sans;
   font-size: 13px;
   padding-bottom: 8px;
@@ -86,7 +90,7 @@
 .message {
   width: 100%;
   font-size: 15px;
-  line-height: 15px;
+  line-height: 18px;
   text-align: left;
   white-space: pre-wrap;
   word-wrap: break-word;

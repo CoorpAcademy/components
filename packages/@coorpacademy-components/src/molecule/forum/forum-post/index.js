@@ -1,6 +1,7 @@
 import React from 'react';
 import identity from 'lodash/fp/identity';
 import get from 'lodash/fp/get';
+import classnames from 'classnames';
 import Provider from '../../../atom/provider';
 import Picture from '../../../atom/picture';
 import threadShape from '../post-conditions';
@@ -21,6 +22,7 @@ const ForumPost = (props, context) => {
     answerable = true,
     editable = false,
     rejectable = false,
+    mainPost = false,
     rejected = false,
     deleted = false,
     edition,
@@ -54,7 +56,13 @@ const ForumPost = (props, context) => {
   }
 
   return (
-    <div data-name="forumPost" className={rejected ? style.rejected : style.post}>
+    <div
+      data-name="forumPost"
+      className={classnames(
+        mainPost ? style.mainPost : null,
+        rejected ? style.rejected : style.post
+      )}
+    >
       <div className={style.avatarWrapper}>
         <div className={style.image}>
           <Picture src={avatar} className={style.avatar} />

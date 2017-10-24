@@ -23,7 +23,7 @@ function Discussion(props) {
     className
   } = props;
 
-  const threadsView = threads.map(thread => <ForumThread key={thread.id} {...thread} />);
+  const threadsView = threads.map(thread => <ForumThread key={thread.id} {...thread} mainPost />);
 
   const commentView =
     !hideComments &&
