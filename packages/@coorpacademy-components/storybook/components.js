@@ -2535,18 +2535,6 @@ export const dependencies = {
       },
       "children": {}
     },
-    "Popin": {
-      "parents": {
-        "TemplateBackOffice": {
-          "DashboardPreview": true
-        }
-      },
-      "children": {
-        "Atom": {
-          "Button": true
-        }
-      }
-    },
     "BrandForm": {
       "parents": {
         "TemplateBackOffice": {
@@ -2694,6 +2682,13 @@ export const dependencies = {
         },
         "OrganismMooc": {
           "ImageSlider": true
+        }
+      }
+    },
+    "Popin": {
+      "children": {
+        "Atom": {
+          "Button": true
         }
       }
     },
@@ -3191,8 +3186,7 @@ export const dependencies = {
         },
         "Organism": {
           "SetupHeader": true,
-          "Sidebar": true,
-          "Popin": true
+          "Sidebar": true
         },
         "TemplateAppPlayer": {
           "Loading": true
