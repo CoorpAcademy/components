@@ -13,7 +13,7 @@
 .post {
   opacity: 0;
   display: flex;
-  padding: 10px 30px 10px 0;
+  padding: 10px 30px 15px 0;
   text-align: left;
   animation: fadeIn 1s ease-out forwards;
 }
