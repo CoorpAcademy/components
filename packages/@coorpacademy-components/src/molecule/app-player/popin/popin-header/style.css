@@ -210,13 +210,12 @@
   position: relative;
   cursor: pointer;
   display: flex;
+  flex-grow: 1;
   justify-content: center;
   background-color: light;
   transition: flex-grow 0.3s;
   text-decoration: none;
   color: medium;
-  flex: 1;
-  min-height: 56px;
   border-left: solid 1px light;
 }
 
@@ -252,6 +251,7 @@
   background-color: transparent;
   border-radius: none;
   outline: none;
+  min-height: 56px;
   transition: color 0.3s;
 }
 
