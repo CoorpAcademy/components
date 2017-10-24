@@ -34,7 +34,7 @@
   height: 110px;
   margin-bottom: 16px;
   background-size: contain;
-  background: no-repeat;
+  background-repeat: no-repeat;
   background-position: center center;
 }
 
