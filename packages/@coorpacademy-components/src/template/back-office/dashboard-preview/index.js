@@ -51,7 +51,8 @@ const DashboardPreview = Layout(props => {
     onSelectDashboard = noop,
     onUpdateVersion = noop,
     onUpdateField = noop,
-    inputParams = {}
+    inputParams = {},
+    url
   } = props;
 
   if (!dashboards || dashboards.length === 0) return <Loader />;
@@ -76,6 +77,11 @@ const DashboardPreview = Layout(props => {
     );
   }
 
+  const selectedDashboard = () =>
+    url
+      ? <iframe src={url} className={style.dashboardIframe} />
+      : <div className={style.loading}><Loader /></div>;
+
   return (
     <div className={style.container}>
       <div className={style.dashboardAside}>
@@ -85,9 +91,7 @@ const DashboardPreview = Layout(props => {
         <h1 className={style.dashboardTitle}>
           {currentDashboard ? currentDashboard.name : 'No Selected Dashboard'}
         </h1>
-        {currentDashboard
-          ? <iframe src={currentDashboard.url} className={style.dashboardIframe} />
-          : <div>Select a dashboard on the Sidebar</div>}
+        {currentDashboard ? selectedDashboard() : <div>Select a dashboard on the Sidebar</div>}
       </div>
     </div>
   );
@@ -105,9 +109,9 @@ DashboardPreview.propTypes = {
     description: PropTypes.string.isRequired,
     currentVersion: PropTypes.string.isRequired,
     versions: PropTypes.shape({}).isRequired,
-    url: PropTypes.string.isRequired,
     schema: PropTypes.arrayOf(PropTypes.string)
   }),
+  url: PropTypes.string,
   onSelectDashboard: PropTypes.func,
   onUpdateVersion: PropTypes.func,
   onUpdateField: PropTypes.func,
