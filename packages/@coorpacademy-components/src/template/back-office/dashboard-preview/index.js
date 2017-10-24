@@ -5,8 +5,8 @@ import get from 'lodash/fp/get';
 import kebabCase from 'lodash/fp/kebabCase';
 import Layout from '../layout';
 import Sidebar from '../../../organism/sidebar';
-import Popin from '../../../organism/popin';
 import Loader from '../../app-player/loading';
+import Popine from './popine';
 import style from './style.css';
 
 const defaultInputParam = {
@@ -95,7 +95,7 @@ const DashboardPreview = Layout(props => {
           {currentDashboard ? currentDashboard.name : 'No Selected Dashboard'}
         </h1>
         {currentDashboard && !error ? selectedDashboard() : <div>Select a dashboard on the Sidebar</div>}
-        {error ? <Popin
+        {error ? <Popine
           header="Error Happened"
           ctaLabel="Redirect to dashboards home"
           content={`<p>${error}</p>`}
