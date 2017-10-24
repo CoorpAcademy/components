@@ -3,7 +3,6 @@ import test from 'ava';
 import React from 'react';
 import {mount} from 'enzyme';
 import DashboardPreview from '..';
-import style from '../style.css'; // eslint-disable-line css-modules/no-unused-class
 
 import defaultFixture from './fixtures/selected';
 
