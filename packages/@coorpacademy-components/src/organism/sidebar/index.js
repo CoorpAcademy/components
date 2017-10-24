@@ -13,7 +13,7 @@ export const InputTextItem = props => {
   const {title, placeholder = '', value, onChange = noop, disabled} = props;
   const handleOnChange = e => onChange(e.target.value);
   return (
-    <li data-name="sidebarItemSelectItem" className={style.selectItem}>
+    <li data-name={props.name || `inputtext-item-${props.index}`} className={style.selectItem}>
       <span className={style.sidebarTitle}>{title}</span>
       <LinkedInput
         type="text"
@@ -30,7 +30,7 @@ export const InputTextItem = props => {
 
 export const SelectItem = props => {
   return (
-    <li data-name="sidebarItemSelectItem" className={style.selectItem}>
+    <li data-name={props.name || `select-item-${props.index}`} className={style.selectItem}>
       <span className={style.sidebarTitle}>{props.title}</span>
       <Select
         title={props.title}
@@ -71,7 +71,7 @@ export const LinkItem = props => {
 
 export const InfoItem = props => {
   return (
-    <ul data-name="sidebarItemInfo" className={style.infoItem}>
+    <ul data-name={props.name || `item-info-${props.index}`} className={style.infoItem}>
       <li className={style.infoItemTitle}>
         {props.title}
       </li>
@@ -95,7 +95,7 @@ const Sidebar = (props, context) => {
   return (
     <div data-name="sidebar" className={style.sidebar}>
       {sections.map((sidebarSection, idx) =>
-        <div data-name="sidebarPart" className={style.sidebarPart} key={idx}>
+        <div data-name={`sidebarpart-${idx + 1}`} className={style.sidebarPart} key={idx}>
           <SidebarItems items={sidebarSection} color={defaultColor} />
         </div>
       )}
@@ -121,6 +121,8 @@ const SidebarItem = ({item, color, index}) => {
       return (
         <SelectItem
           title={item.title}
+          name={item.name}
+          index={index}
           options={item.options}
           onChange={handleOnChange}
           color={color}
@@ -138,11 +140,21 @@ const SidebarItem = ({item, color, index}) => {
         />
       );
     case 'info':
-      return <InfoItem title={item.title} value={item.value} color={color} />;
+      return (
+        <InfoItem
+          title={item.title}
+          name={item.name}
+          index={index}
+          value={item.value}
+          color={color}
+        />
+      );
     case 'inputtext':
       return (
         <InputTextItem
           title={item.title}
+          name={item.name}
+          index={index}
           placeholder={item.placeholder}
           value={item.value}
           onChange={handleOnChange}
@@ -155,6 +167,7 @@ const SidebarItem = ({item, color, index}) => {
 };
 const InfoItemSchema = {
   title: PropTypes.string.isRequired,
+  name: PropTypes.string,
   value: PropTypes.string.isRequired
 };
 const LinkItemSchema = {
@@ -165,6 +178,7 @@ const LinkItemSchema = {
 };
 const InputTextItemSchema = {
   title: PropTypes.string.isRequired,
+  name: PropTypes.string,
   disabled: PropTypes.bool,
   value: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
@@ -173,6 +187,7 @@ const InputTextItemSchema = {
 
 const SelectItemSchema = {
   title: PropTypes.string.isRequired,
+  name: PropTypes.string,
   options: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
