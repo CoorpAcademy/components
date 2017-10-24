@@ -86,18 +86,22 @@ test(
   ]
 );
 
-test(
+test.only(
   'should record chapter in state',
   macro,
   {},
   t => ({
     Content: {
       find: (type, ref) => {
+        console.log(type, ref);
         if (type === 'slide') {
+          t.is(ref, 'slideRef');
           return {chapter_id: 'chapId', _id: ref};
         } else if (type === 'chapter') {
+          t.is(ref, 'chapId');
           return {_id: ref};
         }
+        t.fail();
       }
     }
   }),

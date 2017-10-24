@@ -7,6 +7,7 @@ export const CONTENT_FETCH_FAILURE = '@@content/FETCH_FAILURE';
 
 export const fetchContent = (type, ref) => (dispatch, getState, {services}) => {
   const {Content} = services;
+  //console.log('pouet');
 
   const action = buildTask({
     types: [CONTENT_FETCH_REQUEST, CONTENT_FETCH_SUCCESS, CONTENT_FETCH_FAILURE],
@@ -14,6 +15,7 @@ export const fetchContent = (type, ref) => (dispatch, getState, {services}) => {
     meta: {type, ref},
     bailout: getContent(type, ref)
   });
+  //console.log(getContent(type, ref));
 
   return dispatch(action);
 };
@@ -52,8 +54,13 @@ export const fetchNextContent = (type, ref) => (dispatch, getState, {services}) 
 };
 
 export const fetchSlideChapter = slideRef => async (dispatch, getState, {services}) => {
-  await dispatch(fetchContent('slide', slideRef));
+  const res = dispatch(fetchContent('slide', slideRef));
+  //console.log('dispatch', res)
+  await res.then(a => console.log('dispatch result', a));
+  // await dispatch(fetchContent('slide', slideRef));
   const slide = getSlide(slideRef)(getState());
+  // console.log(getState());
+  // console.log(slideRef);
 
   return dispatch(fetchContent('chapter', slide.chapter_id));
 };

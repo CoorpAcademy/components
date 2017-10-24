@@ -1,6 +1,7 @@
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import pipe from 'lodash/fp/pipe';
+import isEmpty from 'lodash/fp/isEmpty';
 import toString from 'lodash/fp/toString'; // eslint-disable-line no-shadow
 
 const getId = get('_id');
@@ -50,7 +51,7 @@ export const getAnswerValues = (slide, state) => {
   return answers;
 };
 
-export const getSlide = id => pipe(get('data.contents.slide.entities'), get(id));
+export const getSlide = id => get(['data', 'contents', 'slide', 'entities', id]);
 
 export const getCurrentSlide = state => {
   const id = get('state.nextContent.ref')(getCurrentProgression(state));
@@ -138,6 +139,7 @@ export const getQuestionMedia = state => {
   const slide = getCurrentSlide(state);
   return get('question.medias.0.src.0.url', slide);
 };
+
 
 export const getResourcesToPlay = state => get('ui.corrections.playResource', state);
 
