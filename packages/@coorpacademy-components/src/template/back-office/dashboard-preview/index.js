@@ -29,6 +29,7 @@ const currentDashboardSidebarSection = ({
   const dashboardVersion = {
     title: 'Version',
     type: 'select',
+    name: 'version-field',
     onChange: onUpdateVersion,
     options: Object.keys(currentDashboard.versions).map(v => ({
       name: v,
@@ -38,6 +39,7 @@ const currentDashboardSidebarSection = ({
   };
   const paramInputs = currentDashboard.schema.map(schema => ({
     title: schema,
+    name: `${kebabCase(schema)}-field`,
     type: 'inputtext',
     onChange: newValue => onUpdateField(schema, newValue),
     value: inputParam[schema]
@@ -62,7 +64,7 @@ const DashboardPreview = Layout(props => {
 
   const dahsboardList = dashboards.map(d => ({
     title: d.name,
-    name: kebabCase(d.name),
+    name: `${kebabCase(d.name)}-link`,
     type: 'link',
     onClick: () => onSelectDashboard(kebabCase(d.name)),
     selected: d.name === get('name', currentDashboard)
@@ -94,14 +96,18 @@ const DashboardPreview = Layout(props => {
         <h1 className={style.dashboardTitle}>
           {currentDashboard ? currentDashboard.name : 'No Selected Dashboard'}
         </h1>
-        {currentDashboard && !error ? selectedDashboard() : <div>Select a dashboard on the Sidebar</div>}
-        {error ? <Popine
-          header="Error Happened"
-          ctaLabel="Redirect to dashboards home"
-          content={`<p>${error}</p>`}
-          ctaOnClick={onErrorRedirect}
-          closeOnClick={onErrorRedirect}
-        /> : null}
+        {currentDashboard && !error
+          ? selectedDashboard()
+          : <div>Select a dashboard on the Sidebar</div>}
+        {error
+          ? <Popine
+              header="Error Happened"
+              ctaLabel="Redirect to dashboards home"
+              content={`<p>${error}</p>`}
+              ctaOnClick={onErrorRedirect}
+              closeOnClick={onErrorRedirect}
+            />
+          : null}
       </div>
     </div>
   );
