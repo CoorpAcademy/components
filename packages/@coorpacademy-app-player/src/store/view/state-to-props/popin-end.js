@@ -9,7 +9,6 @@ import {
   getCurrentContent,
   getCurrentExitNode,
   getCurrentProgression,
-  getNextContent,
   getRecommendations,
   getBestScore,
   getStartRank,
@@ -50,8 +49,9 @@ const summaryHeader = ({translate}, {dispatch}) => state => {
   if (isCurrentEngineLearner(state)) {
     const level = get('level', getCurrentContent(state));
     if (level === 'advanced' || level === 'base') {
-      const nextContent = getNextContent(state);
-      if (nextContent) {
+      const recommendations = getRecommendations(state);
+      const _nextLevel = get('nextLevel', recommendations);
+      if (_nextLevel) {
         successCta.title = translate('Next level');
         successCta.href = null;
         successCta.onClick = () => dispatch(nextLevel);
@@ -110,15 +110,30 @@ const extractAction = ({translate}, {dispatch}) => state => {
   return cond([
     [
       pipe(get('type'), isEqual('success')),
-      () =>
-        get('nextChapter', recommendations) && {
-          type: 'nextCourse',
-          description: translate('Check out the next chapter in this course!'),
-          prefix: isCurrentEngineMicrolearning(state)
-            ? translate('Next chapter_')
-            : translate('Next level_'),
-          ...recommendations.nextChapter
+      () => {
+        if (get('nextChapter', recommendations)) {
+          return {
+            type: 'nextCourse',
+            description: translate('Check out the next chapter in this course!'),
+            prefix: translate('Next chapter_'),
+            ...recommendations.nextChapter
+          };
         }
+        if (get('nextLevel', recommendations)) {
+          const _nextLevel = get('nextLevel', recommendations);
+          const title = getOr('', 'name')(getCurrentContent(state));
+          return {
+            type: 'simple',
+            prefix: translate('Next level_'),
+            title: `${title} - ${_nextLevel.level}`,
+            button: {
+              title: translate('Next level'),
+              href: null,
+              onClick: () => dispatch(nextLevel)
+            }
+          };
+        }
+      }
     ],
     [
       pipe(get('type'), isEqual('failure')),

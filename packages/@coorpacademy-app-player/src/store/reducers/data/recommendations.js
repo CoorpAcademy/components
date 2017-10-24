@@ -20,6 +20,12 @@ const dataRecommendationsReducer = (state = {entities: {}}, action) => {
     case RECO_FETCH_SUCCESS: {
       const {payload, meta} = action;
       const {id} = meta;
+
+      const {list, nextLevel = null} = payload;
+      if (nextLevel) {
+        const {level, ref} = nextLevel;
+        return set(['entities', id], {list, nextLevel: {level, ref}}, state);
+      }
       return set(['entities', id], payload, state);
     }
     case RECO_FETCH_FAILURE: {

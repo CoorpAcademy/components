@@ -144,12 +144,13 @@ export const getLives = state => {
   return progression.state.livesDisabled ? null : get('state.lives', progression);
 };
 
-export const getNextContent = state => {
-  const {type, ref} = getProgressionContent(state);
-  const nextContentRef = get(['data', 'contents', 'nextContent', ref], state);
-
-  if (nextContentRef) {
-    return get(['data', 'contents', type, 'entities', nextContentRef], state);
+export const getNextContentFromRecommendations = state => {
+  const {type} = getProgressionContent(state);
+  const recommendations = getRecommendations(state);
+  switch (type) {
+    case 'level':
+      return get('nextLevel', recommendations);
+    case 'chapter':
+      return get('nextChapter', recommendations);
   }
-  return;
 };

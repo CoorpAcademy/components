@@ -26,3 +26,31 @@ test('should find recommendations for learner with base level', async t => {
     }
   });
 });
+
+test('should find recommendations for learner with advanced level', async t => {
+  t.deepEqual(await find('level', '1.A'), {
+    list: recommendations,
+    nextLevel: {
+      ref: '1.C',
+      name: 'Level1',
+      level: 'coach',
+      meta: {
+        updatedAt: '2017-01-26T09:19:06.874Z',
+        createdAt: '2017-01-26T09:19:05.667Z'
+      },
+      poster: {
+        subtitles: [],
+        posters: [],
+        src: []
+      },
+      chapterIds: ['1.C1', '1.C2']
+    }
+  });
+});
+
+test('should find recommendations for learner with coach level', async t => {
+  t.deepEqual(await find('level', '1.C'), {
+    list: recommendations,
+    nextLevel: null
+  });
+});

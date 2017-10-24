@@ -1,4 +1,7 @@
 import test from 'ava';
+import pipe from 'lodash/fp/pipe';
+import pick from 'lodash/fp/pick';
+import set from 'lodash/fp/set';
 import reducer from '../recommendations';
 import {
   RECO_FETCH_REQUEST,
@@ -6,6 +9,9 @@ import {
   RECO_FETCH_FAILURE
 } from '../../../actions/api/recommendations';
 import macro from '../../test/helpers/macro';
+
+import chapterRecommendations from '../../../view/test/fixtures/recommendations/chapter-recommendations';
+import levelRecommendations from '../../../view/test/fixtures/recommendations/level-recommendations';
 
 test('should have initial value', macro, reducer, undefined, {}, {entities: {}});
 
@@ -46,16 +52,32 @@ test(
 );
 
 test(
-  'should set entity on success',
+  'should set chapter recommendations on success',
   macro,
   reducer,
   {},
   {
     type: RECO_FETCH_SUCCESS,
     meta: {id: 'foo'},
-    payload: 'foo'
+    payload: chapterRecommendations
   },
-  {entities: {foo: 'foo'}}
+  {entities: {foo: chapterRecommendations}}
+);
+
+test(
+  'should set learner recommendations on success',
+  macro,
+  reducer,
+  {},
+  {
+    type: RECO_FETCH_SUCCESS,
+    meta: {id: 'foo'},
+    payload: levelRecommendations
+  },
+  pipe(
+    set('entities.foo.list', levelRecommendations.list),
+    set('entities.foo.nextLevel', pick(['level', 'ref'], levelRecommendations.nextLevel))
+  )({})
 );
 
 test(
