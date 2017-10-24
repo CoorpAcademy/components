@@ -28,7 +28,7 @@ const currentDashboardSidebarSection = ({
   const dashboardVersion = {
     title: 'Version',
     type: 'select',
-    onChange: selectedVersion => onUpdateVersion(selectedVersion),
+    onChange: onUpdateVersion,
     options: Object.keys(currentDashboard.versions).map(v => ({
       name: v,
       value: v,
