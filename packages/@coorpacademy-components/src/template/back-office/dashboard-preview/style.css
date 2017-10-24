@@ -9,8 +9,7 @@
   padding: 40px 0 0;
   overflow: hidden;
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  flex-flow: row nowrap;
   justify-content: space-around;
 }
 
@@ -40,10 +39,5 @@
   width: 100%;
   height: 95%;
 }
-
-.loading {
-  /* TODO NOW */
-}
-
 
 /* TODO: mobile rendering */
