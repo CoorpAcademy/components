@@ -33,13 +33,14 @@
   align-items: center;
   height: 110px;
   margin-bottom: 16px;
-  background-size: cover;
+  background-size: contain;
+  background: no-repeat;
   background-position: center center;
 }
 
 .titleWrapper {
   font-family: 'Open Sans';
-  font-size: 15px;
+  font-size: 19px;
   line-height: 20px;
   font-weight: 600;
   padding: 0 8px;
@@ -84,7 +85,7 @@
 
   .imageWrapper {
     height: 66px;
-    width: 86px;
+    width: 113px;
     margin-bottom: 0;
     margin-right: 16px;
     flex-shrink: 0;
