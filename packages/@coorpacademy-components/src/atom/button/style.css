@@ -16,7 +16,7 @@
 
 .buttonContent {
   padding: 0 30px;
-  display: inline-block;
+  display: block;
   text-transform: inherit;
   background-color: transparent;
   color: #fff;
