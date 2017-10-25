@@ -43,7 +43,8 @@ const summaryHeader = ({translate}, {dispatch}) => state => {
   const progression = getCurrentProgression(state);
   const successCta = {
     title: translate('Back to home'),
-    href: '/'
+    href: '/',
+    type: 'home'
   };
 
   if (isCurrentEngineLearner(state)) {
@@ -55,6 +56,7 @@ const summaryHeader = ({translate}, {dispatch}) => state => {
         successCta.title = translate('Next level');
         successCta.href = null;
         successCta.onClick = () => dispatch(nextLevel);
+        successCta.type = 'next-level';
       }
     }
   }

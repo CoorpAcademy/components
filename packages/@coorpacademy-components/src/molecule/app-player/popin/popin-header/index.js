@@ -138,7 +138,7 @@ const CorrectionPart = props => {
 
 const NextQuestionPart = (props, context) => {
   const {cta, extraLife, revival, fail, lives} = props;
-  const {title, ...linkProps} = cta || {};
+  const {title, type = 'correction', ...linkProps} = cta || {};
   const {active: isExtraLife} = extraLife;
   const isGameOver = !lives && !revival && (fail || isExtraLife);
 
@@ -155,10 +155,14 @@ const NextQuestionPart = (props, context) => {
         dataNext = 'game-over-without-extra-life';
       }
     } else {
-      dataNext = 'continue-faillure';
+      dataNext = 'continue-failure';
     }
   } else if (isEmpty(extraLife)) {
-    dataNext = 'home';
+    if (type === 'next-level') {
+      dataNext = 'next-level';
+    } else {
+      dataNext = 'home';
+    }
   } else {
     dataNext = 'continue-success';
   }
@@ -289,7 +293,8 @@ PopinHeader.propTypes = {
   corrections: AnswersCorrection.propTypes.corrections,
   cta: PropTypes.shape({
     ...Link.propTypes,
-    title: PropTypes.string
+    title: PropTypes.string,
+    type: PropTypes.type
   })
 };
 

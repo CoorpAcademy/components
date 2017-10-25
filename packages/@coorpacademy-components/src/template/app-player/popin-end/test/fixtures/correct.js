@@ -14,6 +14,7 @@ export default defaultsDeep(loading, {
         cta: {
           title: 'Next level',
           subtitle: 'Big Data - Coach',
+          type: 'next-level',
           href: '#'
         }
       },
