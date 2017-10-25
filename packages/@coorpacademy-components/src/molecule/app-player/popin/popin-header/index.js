@@ -170,10 +170,11 @@ const NextQuestionPart = (props, context) => {
         (isEmpty(extraLife) || revival) && style.oneMoreLife
       )}
       data-name="nextLink"
+      data-next={dataNext}
       {...linkProps}
     >
 
-      <div data-name="nextButton" data-next={dataNext} className={style.nextButton}>
+      <div data-name="nextButton" className={style.nextButton}>
         {title}
         <ArrowRight color="inherit" className={style.nextButtonIcon} />
       </div>
