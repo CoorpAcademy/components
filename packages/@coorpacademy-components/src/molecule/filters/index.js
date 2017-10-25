@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
+import isEmpty from 'lodash/fp/isEmpty';
+import map from 'lodash/fp/map';
 import ArrowDown from '@coorpacademy/nova-icons/composition/navigation/arrow-down';
 import Select from '../../atom/select';
 import Provider from '../../atom/provider';
@@ -69,8 +71,41 @@ class Filters extends React.Component {
       filterCTALabel,
       filterTabLabel,
       sortCTALabel,
-      sortTabLabel
+      sortTabLabel,
+      filters
     } = this.props;
+
+    const buildFilter = (filter, index) => {
+      const {type, fieldName} = filter;
+      switch (type) {
+        case 'select':
+          return (
+            <div
+              data-name="choice"
+              data-filter-type={fieldName}
+              className={style.choice}
+              key={index}
+            >
+              <Select {...filter} />
+            </div>
+          );
+        case 'range':
+          return (
+            <div
+              data-name="choice"
+              data-filter-type={fieldName}
+              className={style.timerWrapper}
+              key={index}
+            >
+              <label>
+                <span className={style.timerTitle}>{filter.title}</span>
+                <p className={style.timerSubtitle}>{filter.subtitle}</p>
+                <RangeSlider {...filter} />
+              </label>
+            </div>
+          );
+      }
+    };
     const {skin} = this.context;
     const defaultColor = get('common.primary', skin);
     const darkColor = get('common.dark', skin);
@@ -78,6 +113,7 @@ class Filters extends React.Component {
     const sortingActive = this.state.sorted === true;
     const animated = this.state.animated === true;
 
+    const filtersList = map.convert({cap: false})(buildFilter, filters);
     const coursesView = courses !== undefined
       ? <div data-name="choice" data-filter-type="Cursus" className={style.choice}>
           <Select {...courses} />
@@ -116,7 +152,8 @@ class Filters extends React.Component {
       thematic === undefined &&
       timer === undefined &&
       courses === undefined &&
-      authors === undefined;
+      authors === undefined &&
+      isEmpty(filters);
 
     return (
       <div data-name="search" className={style.search} data-animated={animated}>
@@ -153,6 +190,7 @@ class Filters extends React.Component {
             {coursesView}
             {timerView}
             {authorsView}
+            {filtersList}
           </div>
           <div
             data-name="cta"
@@ -201,6 +239,11 @@ Filters.propTypes = {
   timer: PropTypes.shape(RangeSlider.propTypes),
   courses: PropTypes.shape(Select.propTypes),
   authors: PropTypes.shape(Select.propTypes),
+  filters: PropTypes.arrayOf(
+    PropTypes.shape({
+      type: PropTypes.oneOf(['select', 'range']).required
+    })
+  ),
   sorting: PropTypes.shape(Select.propTypes),
   onSearch: PropTypes.func,
   onToggleFilters: PropTypes.func,

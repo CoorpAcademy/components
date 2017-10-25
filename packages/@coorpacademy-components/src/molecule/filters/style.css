@@ -234,7 +234,7 @@
 }
 
 .activeWrapperFilters {
-  max-height: 170px;
+  max-height: 270px;
   overflow: hidden;
   padding: 0 15px;
   opacity: 1;
@@ -244,6 +244,7 @@
 .activeWrapperFilters .wrapper {
   display: flex;
   justify-content: flex-start;
+  flex-wrap: wrap;
 }
 
 .activeWrapperFilters .wrapper label {
@@ -312,7 +313,7 @@
   }
 
   .activeWrapperFilters {
-    max-height: 280px;
+    max-height: 380px;
   }
 
   .wrapperFilters .wrapper,
@@ -347,7 +348,7 @@
   }
 
   .activeWrapperFilters {
-    max-height: 550px;
+    max-height: 850px;
   }
 
   .wrapper {
