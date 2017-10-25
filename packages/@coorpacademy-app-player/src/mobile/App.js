@@ -1,22 +1,16 @@
 /**
  * https://github.com/facebook/react-native
- * @flow
  */
-import React, { Component } from 'react';
+import React, {Component} from 'react';
+// eslint-disable-next-line no-shadow
+import {StyleSheet, Text, View} from 'react-native';
+import pipe from 'lodash/fp/pipe';
+import identity from 'lodash/fp/identity';
 
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
-
-import {selectMapStateToVNode} from '../store/view';
+// import {selectMapStateToVNode} from '../store/view';
 import * as Services from '../store/services';
 import start from '../store/start';
 import createStore from '../store';
-import pipe from 'lodash/fp/pipe';
-import identity from 'lodash/fp/identity';
 
 export const createStateToVNode = (template, mapStateToProps) => pipe(mapStateToProps, identity);
 
@@ -26,6 +20,20 @@ export const views = {
   popinEnd: null,
   popinCorrection: null
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF'
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5
+  }
+});
 
 const options = {
   translate: identity,
@@ -64,24 +72,8 @@ export default class App extends Component<{}> {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.instructions}>
-          {JSON.stringify(this.store.getState(), null, 2)}
-        </Text>
+        <Text style={styles.instructions}>{JSON.stringify(this.store.getState(), null, 2)}</Text>
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF'
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5
-  }
-});
