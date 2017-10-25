@@ -535,6 +535,7 @@ import PopinEndFixtureLoading from '../src/template/app-player/popin-end/test/fi
 import PopinEndFixtureNextCourse from '../src/template/app-player/popin-end/test/fixtures/next-course';
 import PopinEndFixtureSimpleAction from '../src/template/app-player/popin-end/test/fixtures/simple-action';
 import PopinEndFixtureSubscribe from '../src/template/app-player/popin-end/test/fixtures/subscribe';
+import PopinEndFixtureWithLoadingRecommendations from '../src/template/app-player/popin-end/test/fixtures/with-loading-recommendations';
 import PopinEndFixtureWithRecommendations from '../src/template/app-player/popin-end/test/fixtures/with-recommendations';
 import PlayerHeaderFixtureLearner from '../src/template/app-player/player/player-header/test/fixtures/learner';
 import PlayerHeaderFixtureMicrolearning from '../src/template/app-player/player/player-header/test/fixtures/microlearning';
@@ -1399,6 +1400,7 @@ export const fixtures = {
       NextCourse: PopinEndFixtureNextCourse,
       SimpleAction: PopinEndFixtureSimpleAction,
       Subscribe: PopinEndFixtureSubscribe,
+      WithLoadingRecommendations: PopinEndFixtureWithLoadingRecommendations,
       WithRecommendations: PopinEndFixtureWithRecommendations
     }
   },
@@ -2503,6 +2505,25 @@ export const dependencies = {
         }
       }
     },
+    "Discussion": {
+      "parents": {
+        "TemplateCommon": {
+          "Discipline": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Button": true,
+          "Picture": true,
+          "Loader": true
+        },
+        "MoleculeForum": {
+          "ForumComment": true,
+          "ForumPost": true,
+          "ForumThread": true
+        }
+      }
+    },
     "SetupHeader": {
       "parents": {
         "TemplateBackOffice": {
@@ -2631,20 +2652,6 @@ export const dependencies = {
         }
       }
     },
-    "Discussion": {
-      "children": {
-        "Atom": {
-          "Button": true,
-          "Picture": true,
-          "Loader": true
-        },
-        "MoleculeForum": {
-          "ForumComment": true,
-          "ForumPost": true,
-          "ForumThread": true
-        }
-      }
-    },
     "Header": {
       "children": {
         "Atom": {
@@ -2707,6 +2714,73 @@ export const dependencies = {
           "QcmDrag": true,
           "QcmGraphic": true,
           "Qcm": true
+        }
+      }
+    }
+  },
+  "MoleculeForum": {
+    "ForumComment": {
+      "parents": {
+        "TemplateCommon": {
+          "Discipline": true
+        },
+        "Organism": {
+          "Discussion": true
+        },
+        "MoleculeForum": {
+          "ForumThread": true,
+          "ForumPost": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Button": true
+        }
+      }
+    },
+    "ForumPost": {
+      "parents": {
+        "TemplateCommon": {
+          "Discipline": true
+        },
+        "Organism": {
+          "Discussion": true
+        },
+        "MoleculeForum": {
+          "ForumThread": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Button": true,
+          "Picture": true
+        },
+        "MoleculeForum": {
+          "ForumComment": true
+        }
+      }
+    },
+    "ForumThread": {
+      "parents": {
+        "TemplateCommon": {
+          "Discipline": true
+        },
+        "Organism": {
+          "Discussion": true
+        },
+        "MoleculeForum": {
+          "ForumThread": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Button": true,
+          "Picture": true
+        },
+        "MoleculeForum": {
+          "ForumComment": true,
+          "ForumPost": true,
+          "ForumThread": true
         }
       }
     }
@@ -3036,64 +3110,6 @@ export const dependencies = {
       }
     }
   },
-  "MoleculeForum": {
-    "ForumComment": {
-      "parents": {
-        "Organism": {
-          "Discussion": true
-        },
-        "MoleculeForum": {
-          "ForumThread": true,
-          "ForumPost": true
-        }
-      },
-      "children": {
-        "Atom": {
-          "Button": true
-        }
-      }
-    },
-    "ForumPost": {
-      "parents": {
-        "Organism": {
-          "Discussion": true
-        },
-        "MoleculeForum": {
-          "ForumThread": true
-        }
-      },
-      "children": {
-        "Atom": {
-          "Button": true,
-          "Picture": true
-        },
-        "MoleculeForum": {
-          "ForumComment": true
-        }
-      }
-    },
-    "ForumThread": {
-      "parents": {
-        "Organism": {
-          "Discussion": true
-        },
-        "MoleculeForum": {
-          "ForumThread": true
-        }
-      },
-      "children": {
-        "Atom": {
-          "Button": true,
-          "Picture": true
-        },
-        "MoleculeForum": {
-          "ForumComment": true,
-          "ForumPost": true,
-          "ForumThread": true
-        }
-      }
-    }
-  },
   "TemplateBackOffice": {
     "BrandCreate": {
       "children": {
@@ -3226,11 +3242,11 @@ export const dependencies = {
     "Discipline": {
       "children": {
         "Atom": {
+          "Button": true,
           "CatalogSection": true,
           "Link": true,
           "Picture": true,
-          "SocialLink": true,
-          "Button": true
+          "SocialLink": true
         },
         "Molecule": {
           "DisciplineCta": true,
@@ -3240,6 +3256,14 @@ export const dependencies = {
           "ModuleBubble": true,
           "ScopeContent": true,
           "ScopeTabs": true
+        },
+        "MoleculeForum": {
+          "ForumComment": true,
+          "ForumPost": true,
+          "ForumThread": true
+        },
+        "Organism": {
+          "Discussion": true
         }
       }
     },

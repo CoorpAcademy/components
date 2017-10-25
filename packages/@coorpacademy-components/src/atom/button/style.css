@@ -7,7 +7,6 @@
 .button {
   composes: hoverFill from './hover-fill.css';
   min-width: 200px;
-  background-color: orange;
   text-transform: inherit;
   border-radius: 2px;
   line-height: 52px;
@@ -18,7 +17,7 @@
   padding: 0 30px;
   display: block;
   text-transform: inherit;
-  background-color: transparent;
+  background-color: orange;
   color: #fff;
   font-family: Open Sans;
   font-weight: 600;

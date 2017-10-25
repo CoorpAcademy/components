@@ -6,6 +6,7 @@ import PlayIcon from '@coorpacademy/nova-icons/line/audio/audio-control-play';
 import Button from '../../atom/button';
 import Link from '../../atom/link';
 import Provider from '../../atom/provider';
+import Discussion from '../../organism/discussion';
 import style from './style.css';
 
 const ScopeContent = (props, context) => {
@@ -107,6 +108,9 @@ const ScopeContent = (props, context) => {
       </div>
 
       {mediasView}
+      {get('discussion', content)
+        ? <Discussion className={style.discussion} {...content.discussion} />
+        : null}
     </div>
   );
 };
@@ -133,7 +137,8 @@ ScopeContent.propTypes = {
         title: PropTypes.string,
         image: PropTypes.string
       })
-    )
+    ),
+    discussion: PropTypes.shape(Discussion.propTypes)
   })
 };
 

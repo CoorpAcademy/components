@@ -1,20 +1,24 @@
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
+@value tablet from breakpoints;
 @value colors: "../../variables/colors.css";
 @value dark from colors;
 @value xtraLightGrey from colors;
+@value light from colors;
 @value white from colors;
 
 .authorLink {
   width: 100%;
-  margin: 16px 0;
+  margin: 10px 0;
 }
 
 .authorLink a {
   font-family: 'Open Sans';
-  font-weight: 700;
-  font-size: 12px;
+  font-weight: 600;
   text-decoration: none;
+  font-size: 12px;
+  letter-spacing: -0.2px;
+  text-align: left;
 }
 
 .authorLink a:hover {
@@ -37,9 +41,10 @@
 .authorName {
   font-family: 'Open Sans';
   font-size: 14px;
-  font-weight: bold;
+  font-weight: 600;
   color: dark;
   letter-spacing: -0.22px;
+  text-align: left;
 }
 
 .logoContainer {
@@ -69,6 +74,7 @@
   box-sizing: border-box;
   background: xtraLightGrey;
   border: 1px solid xtraLightGrey;
+  border-top: 1px solid light;
 }
 
 .links {
@@ -79,7 +85,14 @@
 }
 
 .authorWrapper {
-  margin-bottom: 30px;
+  max-width: 260px;
+  display: inline-block;
+  margin: 0 10px 30px 0;
+  border: 1px solid light;
+}
+
+.authorWrapper:last-child {
+  margin: 0 10px 0 0;
 }
 
 .colDetails {
@@ -87,4 +100,25 @@
   vertical-align: top;
   flex-shrink: 3;
   flex-grow: 1;
+}
+
+.colDetails > * {
+  text-align: left;
+}
+
+@media tablet {
+  .authorWrapper {
+    margin: 0 10px 0 0;
+  }
+}
+
+@media mobile {
+  .authorWrapper {
+    max-width: 100%;
+    margin: 0 0 30px;
+  }
+
+  .authorWrapper:last-child {
+    margin: 0;
+  }
 }

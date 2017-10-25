@@ -1,3 +1,22 @@
+@value breakpoints: "../../../variables/breakpoints.css";
+@value tablet from breakpoints;
+@value colors: "../../../variables/colors.css";
+@value light from colors;
+
 .answers {
   padding-left: 50px;
+}
+
+.mainPost {
+  border-bottom: 1px solid light;
+}
+
+.mainPost:last-child {
+  border-bottom: none;
+}
+
+@media tablet {
+  .answers {
+    padding-left: 30px;
+  }
 }

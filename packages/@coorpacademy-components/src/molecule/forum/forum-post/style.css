@@ -1,15 +1,25 @@
+@value breakpoints: "../../../variables/breakpoints.css";
+@value tablet from breakpoints;
 @value time: 0.3s;
 @value colors: "../../../variables/colors.css";
 @value medium from colors;
 @value orangeAdd from colors;
 @value negative from colors;
+@value black from colors;
+@value brand from colors;
+@value light from colors;
+@value xtraLightGrey from colors;
 
 .post {
   opacity: 0;
   display: flex;
-  padding: 16px 0;
+  padding: 10px 30px 15px 0;
   text-align: left;
   animation: fadeIn 1s ease-out forwards;
+}
+
+.mainPost {
+  border-bottom: 1px solid light;
 }
 
 @keyframes fadeIn {
@@ -30,12 +40,19 @@
 }
 
 .image {
-  margin-right: 10px;
-  width: 50px;
-  height: 50px;
+  width: 41px;
+  height: 41px;
   overflow: hidden;
-  border-radius: 2px;
+  border-radius: 50%;
   flex-shrink: 0;
+  border: 1px solid xtraLightGrey;
+}
+
+.avatarWrapper {
+  display: flex;
+  flex-direction: column;
+  min-width: 105px;
+  align-items: center;
 }
 
 .avatar {
@@ -49,14 +66,20 @@
 }
 
 .author {
-  font-weight: 700;
-  font-size: 14px;
-  margin-right: 10px;
+  font-family: Open Sans;
+  font-size: 13px;
+  font-weight: bold;
+  text-align: center;
+  color: medium;
+  padding-top: 8px;
 }
 
 .date {
-  color: medium;
-  font-size: 11px;
+  color: color(medium lightness(70%));
+  font-family: Open Sans;
+  font-size: 13px;
+  padding-bottom: 8px;
+  display: block;
 }
 
 .body {
@@ -66,11 +89,15 @@
 
 .message {
   width: 100%;
-  margin: 5px 0;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 15px;
+  line-height: 18px;
+  text-align: left;
   white-space: pre-wrap;
   word-wrap: break-word;
+  font-family: Open Sans;
+  color: black;
+  padding-bottom: 8px;
+  display: block;
 }
 
 .deletedMessage {
@@ -79,16 +106,15 @@
 }
 
 .action {
-  font-size: 12px;
+  font-size: 14px;
   margin: 0 14px 0 0;
-  color: #b0b0b0;
   transition: all time ease-in-out;
   cursor: pointer;
   order: 1;
-}
-
-.action:hover {
-  color: #333;
+  font-family: Open Sans;
+  font-weight: bold;
+  text-align: left;
+  color: brand;
 }
 
 /* ---------------------------------------------------------------------------- */
@@ -120,7 +146,14 @@
 
 .visible {
   visibility: visible;
-  margin: 10px 0;
+  margin: 0;
   height: auto;
   opacity: 1;
+  order: 3;
+}
+
+@media tablet {
+  .avatarWrapper {
+    min-width: 80px;
+  }
 }

@@ -54,11 +54,11 @@
     order: 2;
   }
 
-  .content {
+  .partners {
     order: 3;
   }
 
-  .partners {
+  .content {
     order: 4;
   }
 }
