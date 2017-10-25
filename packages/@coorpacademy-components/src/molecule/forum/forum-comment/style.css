@@ -78,10 +78,14 @@
 }
 
 .post > .disabledButton {
-  cursor: none;
+  cursor: default;
   min-width: auto;
   line-height: 45px;
   border-radius: 100px;
+}
+
+.post > .disabledButton::after {
+  opacity: 0;
 }
 
 .post > .button {

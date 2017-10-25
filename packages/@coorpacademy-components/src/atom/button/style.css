@@ -18,7 +18,7 @@
   display: block;
   text-transform: inherit;
   background-color: orange;
-  color: #fff;
+  color: white;
   font-family: Open Sans;
   font-weight: 600;
   font-size: 13px;
@@ -29,6 +29,7 @@
   border-radius: inherit;
   border: none;
   width: 100%;
+  user-select: none;
 }
 
 .buttonContent:disabled {
