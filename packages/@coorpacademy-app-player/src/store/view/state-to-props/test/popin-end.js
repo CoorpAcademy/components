@@ -123,6 +123,13 @@ test('should create a "Retry Level" CTA after failure on learner progression', t
   t.is(cta.title, '__Retry level');
   t.true(isFunction(cta.onClick));
   t.falsy(cta.href);
+
+  const action = get('summary.action', props);
+  t.is(action.prefix, '__Retry level_');
+  t.is(action.title, 'La recherche en ligne - Base');
+
+  const buttonCta = get('button', action);
+  t.is(buttonCta.title, '__Retry level');
 });
 
 test('should create a "Retry Chapter" CTA after failure on microlearning progression', t => {

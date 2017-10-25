@@ -139,19 +139,30 @@ const extractAction = ({translate}, {dispatch}) => state => {
     ],
     [
       pipe(get('type'), isEqual('failure')),
-      () => ({
-        type: 'simple',
-        prefix: isCurrentEngineMicrolearning(state)
-          ? translate('Retry chapter_')
-          : translate('Retry level_'),
-        title: getOr('', 'name')(getCurrentContent(state)),
-        button: {
-          title: isCurrentEngineMicrolearning(state)
-            ? translate('Retry chapter')
-            : translate('Retry level'),
-          onClick: () => dispatch(retry)
+      () => {
+        const currentContent = getCurrentContent(state);
+        let title = getOr('', 'name', currentContent);
+        if (isCurrentEngineLearner(state)) {
+          title = `${getOr('', 'name', currentContent)} - ${getOr(
+            '',
+            'levelTranslation',
+            currentContent
+          )}`;
         }
-      })
+        return {
+          type: 'simple',
+          prefix: isCurrentEngineMicrolearning(state)
+            ? translate('Retry chapter_')
+            : translate('Retry level_'),
+          title,
+          button: {
+            title: isCurrentEngineMicrolearning(state)
+              ? translate('Retry chapter')
+              : translate('Retry level'),
+            onClick: () => dispatch(retry)
+          }
+        };
+      }
     ],
     [constant(true), constant(null)]
   ]);
