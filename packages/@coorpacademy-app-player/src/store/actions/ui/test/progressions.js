@@ -23,9 +23,7 @@ import {
   CONTENT_FETCH_REQUEST,
   CONTENT_FETCH_SUCCESS,
   CONTENT_INFO_FETCH_REQUEST,
-  CONTENT_INFO_FETCH_SUCCESS,
-  NEXT_CONTENT_FETCH_REQUEST,
-  NEXT_CONTENT_FETCH_SUCCESS
+  CONTENT_INFO_FETCH_SUCCESS
 } from '../../api/contents';
 import {RECO_FETCH_REQUEST, RECO_FETCH_SUCCESS} from '../../api/recommendations';
 import {UI_SELECT_ROUTE} from '../route';
@@ -537,6 +535,42 @@ test(
   ]
 );
 
+const recommendationFixture = {
+  recommendations: {
+    hits: [
+      {
+        type: 'course',
+        ref: '12',
+        modules: [
+          {
+            ref: '12B',
+            level: 'base',
+            creditsToAccess: 1,
+            isConditional: false
+          },
+          {
+            ref: '12A',
+            level: 'advanced',
+            creditsToAccess: 1,
+            isConditional: false
+          },
+          {
+            ref: '12C',
+            level: 'coach',
+            creditsToAccess: 0,
+            isConditional: false
+          }
+        ]
+      }
+    ]
+  },
+  nextLevel: {
+    level: 'advanced',
+    ref: '1A',
+    chapterIds: ['1A1', '1A2', '1A3']
+  }
+};
+
 test(
   'should select learner progression and fetch next ExitNode and Next Level',
   macro,
@@ -577,18 +611,14 @@ test(
         t.is(engineRef, 'learner');
         t.is(version, '1');
         return 'info';
-      },
-      getNextContent: (type, ref) => {
-        t.is(type, 'level');
-        t.is(ref, '1B');
-        return {
-          ref: '1A',
-          level: 'advanced'
-        };
       }
     },
     Recommendations: {
-      find: () => 'plop'
+      find: (type, ref) => {
+        t.is(type, 'level');
+        t.is(ref, '1B');
+        return recommendationFixture;
+      }
     }
   }),
   selectProgression('foo'),
@@ -683,21 +713,6 @@ test(
     },
     [
       {
-        type: NEXT_CONTENT_FETCH_REQUEST,
-        meta: {type: 'level', ref: '1B'}
-      },
-      set('ui.current.nextContentRef.1B', null, {})
-    ],
-    {
-      type: NEXT_CONTENT_FETCH_SUCCESS,
-      meta: {type: 'level', ref: '1B'},
-      payload: {
-        level: 'advanced',
-        ref: '1A'
-      }
-    },
-    [
-      {
         type: RANK_FETCH_END_REQUEST
       },
       set('data.rank.end', null, {})
@@ -720,9 +735,9 @@ test(
       {
         type: RECO_FETCH_SUCCESS,
         meta: {id: 'foo'},
-        payload: 'plop'
+        payload: recommendationFixture
       },
-      set('data.recommendations.entities.foo', 'plop', {})
+      set('data.recommendations.entities.foo', recommendationFixture, {})
     ],
     [
       {

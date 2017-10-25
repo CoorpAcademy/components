@@ -2,7 +2,7 @@
   "data": {
     "answers": {
       "entities": {
-        "59e476fcc4cca0001d85bca6": {
+        "idProgression1234": {
           "1.B1.2": {
             "correctAnswer": [
               "Le Pagerank, c’est-à-dire l’algorithme de mesure quantitatif de la popularité d’une page web\n"
@@ -95,6 +95,8 @@
             "_id": "59bf86f5d0e29a28b6b19d90",
             "timeAlloted": 20,
             "level": "base",
+            "levelTranslation": "Base",
+            "name": "La recherche en ligne",
             "ref": "1.B",
             "eligibleBattle": true,
             "rewards": [],
@@ -122,39 +124,8 @@
             "info": {
               "nbSlides": 8
             }
-          },
-          "1.A": {
-            "_id": "59bf86f5d0e29a28b6b19d8f",
-            "timeAlloted": 20,
-            "level": "advanced",
-            "ref": "1.A",
-            "eligibleBattle": true,
-            "rewards": [],
-            "creditsToAccess": 0,
-            "infiniteLives": false,
-            "isConditional": false,
-            "data": [],
-            "stats": {
-              "userTriesCount": 0,
-              "userDoneCount": 0
-            },
-            "chapterIds": [
-              "1.A1",
-              "1.A2"
-            ],
-            "acquiredSkills": [
-              "discipline_1.module_avance.skill1",
-              "discipline_1.module_avance.skill2",
-              "discipline_1.module_avance.skill3",
-              "discipline_1.module_avance.skill4",
-              "discipline_1.module_avance.skill5"
-            ],
-            "external_refs": []
           }
         }
-      },
-      "nextContent": {
-        "1.B": "1.A"
       }
     },
     "clues": {
@@ -177,8 +148,8 @@
     },
     "progressions": {
       "entities": {
-        "59e476fcc4cca0001d85bca6": {
-          "_id": "59e476fcc4cca0001d85bca6",
+        "idProgression1234": {
+          "_id": "idProgression1234",
           "userId": "59d5e8c19405e1ccfca5df8c",
           "content": {
             "ref": "1.B",
@@ -232,7 +203,60 @@
       "end": 1
     },
     "recommendations": {
-      "entities": {}
+      "entities": {
+        "idProgression1234" : {
+          "list": [
+            {
+              "view": "grid",
+              "image": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/default/7a2-1503484226173.jpg&h=300&w=300&q=90",
+              "time": "5m",
+              "adaptiv": false,
+              "freerun": true,
+              "certification": false,
+              "type": "chapitre",
+              "title": "Que font les marques pour le consommateur ?",
+              "author": "Coorpacademy",
+              "progress": "0%",
+              "key": "7.A2",
+              "disabled": true
+            },
+            {
+              "view": "grid",
+              "image": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/default/7a2-1503484226173.jpg&h=300&w=300&q=90",
+              "time": "5m",
+              "adaptiv": false,
+              "freerun": true,
+              "certification": false,
+              "type": "chapitre",
+              "title": "Que font les marques pour le consommateur ?",
+              "author": "Coorpacademy",
+              "progress": "0%",
+              "key": "7.A2",
+              "disabled": true
+            },
+            {
+              "view": "grid",
+              "image": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/default/7a2-1503484226173.jpg&h=300&w=300&q=90",
+              "time": "5m",
+              "adaptiv": false,
+              "freerun": true,
+              "certification": false,
+              "type": "chapitre",
+              "title": "Que font les marques pour le consommateur ?",
+              "author": "Coorpacademy",
+              "progress": "0%",
+              "key": "7.A2",
+              "disabled": true
+            }
+          ],
+          "nextLevel": {
+            "level": "advanced",
+            "levelTranslation": "Avancé",
+            "name": "La recherche en ligne",
+            "ref": "1.A"
+          }
+        }
+      }
     }
   },
   "ui": {
@@ -246,7 +270,7 @@
       "playResource": ""
     },
     "current": {
-      "progressionId": "59e476fcc4cca0001d85bca6"
+      "progressionId": "idProgression1234"
     },
     "extraLife": {
       "acceptRevivalPending": false

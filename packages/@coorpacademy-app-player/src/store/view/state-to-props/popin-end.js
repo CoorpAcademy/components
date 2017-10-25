@@ -9,7 +9,6 @@ import {
   getCurrentContent,
   getCurrentExitNode,
   getCurrentProgression,
-  getNextContent,
   getRecommendations,
   getBestScore,
   getStartRank,
@@ -44,17 +43,20 @@ const summaryHeader = ({translate}, {dispatch}) => state => {
   const progression = getCurrentProgression(state);
   const successCta = {
     title: translate('Back to home'),
-    href: '/'
+    href: '/',
+    type: 'home'
   };
 
   if (isCurrentEngineLearner(state)) {
     const level = get('level', getCurrentContent(state));
     if (level === 'advanced' || level === 'base') {
-      const nextContent = getNextContent(state);
-      if (nextContent) {
+      const recommendations = getRecommendations(state);
+      const _nextLevel = get('nextLevel', recommendations);
+      if (_nextLevel) {
         successCta.title = translate('Next level');
         successCta.href = null;
         successCta.onClick = () => dispatch(nextLevel);
+        successCta.type = 'next-level';
       }
     }
   }
@@ -110,31 +112,57 @@ const extractAction = ({translate}, {dispatch}) => state => {
   return cond([
     [
       pipe(get('type'), isEqual('success')),
-      () =>
-        get('nextChapter', recommendations) && {
-          type: 'nextCourse',
-          description: translate('Check out the next chapter in this course!'),
-          prefix: isCurrentEngineMicrolearning(state)
-            ? translate('Next chapter_')
-            : translate('Next level_'),
-          ...recommendations.nextChapter
+      () => {
+        if (get('nextChapter', recommendations)) {
+          return {
+            type: 'nextCourse',
+            description: translate('Check out the next chapter in this course!'),
+            prefix: translate('Next chapter_'),
+            ...recommendations.nextChapter
+          };
         }
+        if (get('nextLevel', recommendations)) {
+          const _nextLevel = get('nextLevel', recommendations);
+          const {name, levelTranslation} = _nextLevel;
+          return {
+            type: 'simple',
+            prefix: translate('Next level_'),
+            title: `${name} - ${levelTranslation}`,
+            button: {
+              title: translate('Next level'),
+              href: null,
+              onClick: () => dispatch(nextLevel)
+            }
+          };
+        }
+      }
     ],
     [
       pipe(get('type'), isEqual('failure')),
-      () => ({
-        type: 'simple',
-        prefix: isCurrentEngineMicrolearning(state)
-          ? translate('Retry chapter_')
-          : translate('Retry level_'),
-        title: getOr('', 'name')(getCurrentContent(state)),
-        button: {
-          title: isCurrentEngineMicrolearning(state)
-            ? translate('Retry chapter')
-            : translate('Retry level'),
-          onClick: () => dispatch(retry)
+      () => {
+        const currentContent = getCurrentContent(state);
+        let title = getOr('', 'name', currentContent);
+        if (isCurrentEngineLearner(state)) {
+          title = `${getOr('', 'name', currentContent)} - ${getOr(
+            '',
+            'levelTranslation',
+            currentContent
+          )}`;
         }
-      })
+        return {
+          type: 'simple',
+          prefix: isCurrentEngineMicrolearning(state)
+            ? translate('Retry chapter_')
+            : translate('Retry level_'),
+          title,
+          button: {
+            title: isCurrentEngineMicrolearning(state)
+              ? translate('Retry chapter')
+              : translate('Retry level'),
+            onClick: () => dispatch(retry)
+          }
+        };
+      }
     ],
     [constant(true), constant(null)]
   ]);

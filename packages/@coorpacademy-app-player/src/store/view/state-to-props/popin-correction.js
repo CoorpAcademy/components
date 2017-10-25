@@ -22,8 +22,9 @@ const createExtraLifeCTA = (options, store) => state => {
   const updateProgression = isRevival ? acceptExtraLifeAndReset : refuseExtraLifeAndReset;
   const title = translate(isRevival ? 'Next' : 'Game over');
   const onClick = () => dispatch(updateProgression(progressionId));
+  const type = 'correction';
 
-  return {title, onClick};
+  return {title, onClick, type};
 };
 
 const createNoExtraLifeCTA = (options, store) => state => {
@@ -34,8 +35,9 @@ const createNoExtraLifeCTA = (options, store) => state => {
   const isDead = progression.state.lives === 0;
   const title = translate(isDead ? 'Game over' : 'Next');
   const onClick = () => dispatch(selectProgression(progressionId));
+  const type = 'correction';
 
-  return {title, onClick};
+  return {title, onClick, type};
 };
 
 export const createHeaderCTA = (options, store) => state => {

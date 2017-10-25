@@ -10,6 +10,13 @@ export default defaultsDeep(correct, {
         prefix: 'Next chapter:',
         title: 'Le prochain chapitre qui a un titre vraiment trop long',
         card: Card.props
+      },
+      header: {
+        cta: {
+          title: 'Home',
+          type: 'home',
+          href: '#'
+        }
       }
     }
   }

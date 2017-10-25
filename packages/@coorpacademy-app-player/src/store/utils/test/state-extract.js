@@ -22,7 +22,8 @@ import {
   getStepContent,
   getEndRank,
   getBestScore,
-  getResourcesToPlay
+  getResourcesToPlay,
+  getNextContentFromRecommendations
 } from '../state-extract';
 
 test('getChoices should get choices from state', t => {
@@ -268,4 +269,32 @@ test('getLives should return null if lives are disabled for the current progress
   )({});
 
   t.is(getLives(state), null);
+});
+
+test('getNextContentFromRecommendations should return nextChapter if microlearning progression', t => {
+  const progression = {
+    content: {ref: '1.B1', type: 'chapter'},
+    state: {lives: 100, livesDisabled: true}
+  };
+  const state = pipe(
+    set('ui.current.progressionId', 'id'),
+    set('data.progressions.entities.id', progression),
+    set('data.recommendations.entities.id', {list: [], nextChapter: {ref: '1.B2'}})
+  )({});
+
+  t.deepEqual(getNextContentFromRecommendations(state), {ref: '1.B2'});
+});
+
+test('getNextContentFromRecommendations should return nextChapter if learner progression', t => {
+  const progression = {
+    content: {ref: '1.B', type: 'level'},
+    state: {lives: 100, livesDisabled: true}
+  };
+  const state = pipe(
+    set('ui.current.progressionId', 'id'),
+    set('data.progressions.entities.id', progression),
+    set('data.recommendations.entities.id', {list: [], nextLevel: {ref: '1.A'}})
+  )({});
+
+  t.deepEqual(getNextContentFromRecommendations(state), {ref: '1.A'});
 });

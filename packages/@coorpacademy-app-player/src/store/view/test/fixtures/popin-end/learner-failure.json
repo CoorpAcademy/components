@@ -61,6 +61,8 @@
             "_id": "59bf86f5d0e29a28b6b19d90",
             "timeAlloted": 20,
             "level": "base",
+            "levelTranslation": "Base",
+            "name": "La recherche en ligne",
             "ref": "1.B",
             "eligibleBattle": true,
             "rewards": [],
@@ -93,6 +95,8 @@
             "_id": "59bf86f5d0e29a28b6b19d8f",
             "timeAlloted": 20,
             "level": "advanced",
+            "levelTranslation": "Advanced",
+            "name": "La recherche en ligne",
             "ref": "1.A",
             "eligibleBattle": true,
             "rewards": [],
@@ -141,9 +145,6 @@
           }
         }
       }
-    },
-    "nextContent": {
-      "1.B": "1.A"
     },
     "progressions": {
       "entities": {
