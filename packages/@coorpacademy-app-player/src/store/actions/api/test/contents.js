@@ -86,14 +86,13 @@ test(
   ]
 );
 
-test.only(
+test(
   'should record chapter in state',
   macro,
   {},
   t => ({
     Content: {
       find: (type, ref) => {
-        console.log(type, ref);
         if (type === 'slide') {
           t.is(ref, 'slideRef');
           return {chapter_id: 'chapId', _id: ref};

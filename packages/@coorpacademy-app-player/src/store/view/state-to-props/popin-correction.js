@@ -9,8 +9,7 @@ import {
   getCurrentProgressionId,
   getLives,
   getPreviousSlide,
-  getCurrentSlide,
-  getResourcesViewed
+  getCurrentSlide
 } from '../../utils/state-extract';
 import {acceptExtraLifeAndReset, refuseExtraLifeAndReset} from '../../actions/ui/extra-life';
 import {toggleAccordion} from '../../actions/ui/corrections';
@@ -29,7 +28,6 @@ const createExtraLifeCTA = (options, store) => state => {
 
   return {title, onClick, type};
 };
-
 
 const createNoExtraLifeCTA = (options, store) => state => {
   const {translate} = options;

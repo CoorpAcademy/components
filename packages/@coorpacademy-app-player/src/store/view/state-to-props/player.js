@@ -3,8 +3,6 @@ import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import isNil from 'lodash/fp/isNil';
 import isEmpty from 'lodash/fp/isEmpty';
-import indexOf from 'lodash/fp/indexOf';
-import isEqual from 'lodash/fp/isEqual';
 import intersection from 'lodash/fp/intersection';
 import map from 'lodash/fp/map';
 import flatMap from 'lodash/fp/flatMap';
@@ -17,8 +15,7 @@ import {
   getCurrentClue,
   getRoute,
   getQuestionMedia,
-  getNbSlides,
-  getPreviousSlide
+  getNbSlides
 } from '../../utils/state-extract';
 import {validateAnswer} from '../../actions/ui/answers';
 import {selectRoute} from '../../actions/ui/route';
