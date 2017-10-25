@@ -11,7 +11,7 @@
     "build": "cross-env babel src --out-dir lib -s --ignore test --copy-files",
     "clean:build": "rimraf lib",
     "clean": "npm run clean:build",
-    "prepublish": "npm run clean && npm run build --production"
+    "prepare": "npm run clean && npm run build --production"
   },
   "contributors": [
     "Arthur Weber <arthur.weber@coorpacademy.com>",

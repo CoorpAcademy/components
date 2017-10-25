@@ -27,7 +27,7 @@
     "generate:storybook": "cross-env BABEL_ENV=commonjs babel-node scripts/generate-storybook-index.js > storybook/components.js",
     "generate": "npm run generate:index && npm run generate:storybook && npm run generate:fixtures",
     "init-component": "node scripts/init-component.js",
-    "prepublish": "npm run clean && npm run build --production",
+    "prepare": "npm run clean && npm run build --production",
     "prestart": "npm run generate:index && npm run generate:storybook",
     "start": "npm run storybook:dev",
     "static": "npm run storybook:export",

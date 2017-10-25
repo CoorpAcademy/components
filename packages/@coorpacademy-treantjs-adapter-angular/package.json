@@ -17,7 +17,7 @@
     "clean:build:es": "rimraf es",
     "clean:build": "npm run clean:build:commonjs && npm run clean:build:es",
     "clean": "npm run clean:build",
-    "prepublish": "npm run clean && npm run build --production",
+    "prepare": "npm run clean && npm run build --production",
     "start": "cross-env BABEL_ENV=commonjs babel-node demo/index.js"
   },
   "contributors": [
