@@ -1,8 +1,9 @@
 {
+  "private": true,
   "scripts": {
+    "prepare": "lerna run prepare",
     "preava": "npm run generate:fixtures",
     "ava": "cross-env NODE_ENV=test ava",
-    "bootstrap": "lerna bootstrap --hoist",
     "build": "lerna run build",
     "clean": "lerna run clean && lerna clean --yes",
     "codecov": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
@@ -19,7 +20,6 @@
     "stylelint": "stylelint '**/*.css'",
     "stylelint:fix": "npm run stylelint -- --fix",
     "nyc": "cross-env NODE_ENV=test nyc npm run ava",
-    "postinstall": "npm run bootstrap",
     "publish:beta": "lerna publish --npm-tag beta",
     "publish:canary": "lerna publish --canary --exact --cd-version=patch --skip-git",
     "publish:latest": "lerna publish --exact",
@@ -36,6 +36,9 @@
     "npm": "^5.4.2",
     "yarn": "^1.2.1"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "devDependencies": {
     "@ava/babel-preset-stage-4": "^1.1.0",
     "@coorpacademy/eslint-plugin-coorpacademy": "^6.0.1",
