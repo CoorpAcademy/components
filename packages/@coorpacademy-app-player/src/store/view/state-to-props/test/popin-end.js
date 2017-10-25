@@ -58,7 +58,7 @@ test('should create a "Next Level" CTA after success on learner progression', as
 
   const action = get('summary.action', props);
   t.is(action.prefix, '__Next level_');
-  t.is(action.title, ' - advanced');
+  t.is(action.title, 'La recherche en ligne - Avancé');
 
   const buttonCta = get('button', action);
   t.is(buttonCta.title, '__Next level');

@@ -76,7 +76,10 @@ test(
   },
   pipe(
     set('entities.foo.list', levelRecommendations.list),
-    set('entities.foo.nextLevel', pick(['level', 'ref'], levelRecommendations.nextLevel))
+    set(
+      'entities.foo.nextLevel',
+      pick(['level', 'ref', 'levelTranslation', 'name'], levelRecommendations.nextLevel)
+    )
   )({})
 );
 

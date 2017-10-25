@@ -249,6 +249,8 @@
           ],
           "nextLevel": {
             "level": "advanced",
+            "levelTranslation": "Avancé",
+            "name": "La recherche en ligne",
             "ref": "1.A"
           }
         }

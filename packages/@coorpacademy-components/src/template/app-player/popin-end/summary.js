@@ -17,12 +17,12 @@ const Header = props => <PopinHeader {...props} />;
 const SimpleAction = ({color, prefix, title, button}) => {
   const {title: buttonTitle, ...linkProps} = button;
   return (
-    <div className={style.simpleWrapper}>
+    <div data-name="simpleAction" className={style.simpleWrapper}>
       <div className={style.simpleTexts}>
-        <span className={style.simplePrefix}>
+        <span data-name="simplePrefix" className={style.simplePrefix}>
           {prefix}
         </span>
-        <span className={style.simpleTitle}>
+        <span data-name="simpleTitle" className={style.simpleTitle}>
           {title}
         </span>
       </div>

@@ -123,11 +123,11 @@ const extractAction = ({translate}, {dispatch}) => state => {
         }
         if (get('nextLevel', recommendations)) {
           const _nextLevel = get('nextLevel', recommendations);
-          const title = getOr('', 'name')(getCurrentContent(state));
+          const {name, levelTranslation} = _nextLevel;
           return {
             type: 'simple',
             prefix: translate('Next level_'),
-            title: `${title} - ${_nextLevel.level}`,
+            title: `${name} - ${levelTranslation}`,
             button: {
               title: translate('Next level'),
               href: null,

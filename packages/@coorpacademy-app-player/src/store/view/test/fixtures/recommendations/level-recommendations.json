@@ -45,6 +45,8 @@
     "_id": "59ea157dff3eb820d4b67089",
     "timeAlloted": 20,
     "level": "advanced",
+    "levelTranslation": "Avancé",
+    "name": "La recherche en ligne",
     "ref": "1.A",
     "eligibleBattle": true,
     "rewards": [],

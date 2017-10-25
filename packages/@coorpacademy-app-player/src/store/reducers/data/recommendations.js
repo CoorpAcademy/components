@@ -23,8 +23,12 @@ const dataRecommendationsReducer = (state = {entities: {}}, action) => {
 
       const {list, nextLevel = null} = payload;
       if (nextLevel) {
-        const {level, ref} = nextLevel;
-        return set(['entities', id], {list, nextLevel: {level, ref}}, state);
+        const {level, ref, levelTranslation, name} = nextLevel;
+        return set(
+          ['entities', id],
+          {list, nextLevel: {level, ref, levelTranslation, name}},
+          state
+        );
       }
       return set(['entities', id], payload, state);
     }
