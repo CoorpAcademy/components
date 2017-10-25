@@ -303,7 +303,7 @@ import DisciplineScopeFixtureEmpty from '../src/molecule/discipline-scope/test/f
 import DisciplineScopeFixtureMedias from '../src/molecule/discipline-scope/test/fixtures/medias';
 import DisciplineScopeFixtureWithOnclick from '../src/molecule/discipline-scope/test/fixtures/with-onclick';
 import FiltersFixtureDefault from '../src/molecule/filters/test/fixtures/default';
-import FiltersFixtureFiltersList from '../src/molecule/filters/test/fixtures/filtersList';
+import FiltersFixtureFiltersList from '../src/molecule/filters/test/fixtures/filters-list';
 import FiltersFixtureOne from '../src/molecule/filters/test/fixtures/one';
 import FiltersFixtureOnlyTimer from '../src/molecule/filters/test/fixtures/only-timer';
 import FiltersFixtureOpenSorts from '../src/molecule/filters/test/fixtures/open-sorts';
