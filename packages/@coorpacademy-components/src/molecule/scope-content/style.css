@@ -8,12 +8,6 @@
 @value light from colors;
 @value grey from colors;
 
-.cta {
-  composes: button from '../../atom/button/style.css';
-  float: right;
-  width: auto;
-}
-
 .desc {
   display: block;
   box-sizing: border-box;
@@ -30,6 +24,10 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
+}
+
+.infos > .cta {
+  width: auto;
 }
 
 .title {

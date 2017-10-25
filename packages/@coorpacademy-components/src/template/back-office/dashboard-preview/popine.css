@@ -54,15 +54,6 @@
   max-width: 100%;
 }
 
-.button {
-  composes: button from '../../../atom/button/style.css';
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  margin-bottom: 30px;
-  cursor: pointer;
-}
-
 @media mobile {
   .popin {
     width: 100%;

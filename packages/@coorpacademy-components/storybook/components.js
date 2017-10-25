@@ -126,15 +126,11 @@ import Dashboard from '../src/template/common/dashboard';
 import Discipline from '../src/template/common/discipline';
 import SearchPage from '../src/template/common/search-page';
 import ButtonFixtureA from '../src/atom/button/test/fixtures/a';
-import ButtonFixtureBlue from '../src/atom/button/test/fixtures/blue';
-import ButtonFixtureCentered from '../src/atom/button/test/fixtures/centered';
 import ButtonFixtureClassName from '../src/atom/button/test/fixtures/class-name';
 import ButtonFixtureClear from '../src/atom/button/test/fixtures/clear';
-import ButtonFixtureDark from '../src/atom/button/test/fixtures/dark';
 import ButtonFixtureDefault from '../src/atom/button/test/fixtures/default';
 import ButtonFixtureDisabled from '../src/atom/button/test/fixtures/disabled';
 import ButtonFixtureDownload from '../src/atom/button/test/fixtures/download';
-import ButtonFixtureLight from '../src/atom/button/test/fixtures/light';
 import ButtonFixtureLink from '../src/atom/button/test/fixtures/link';
 import ButtonFixtureSso from '../src/atom/button/test/fixtures/sso';
 import CatalogSectionFixtureList from '../src/atom/catalog-section/test/fixtures/list';
@@ -746,15 +742,11 @@ export const fixtures = {
   Atom: {
     Button: {
       A: ButtonFixtureA,
-      Blue: ButtonFixtureBlue,
-      Centered: ButtonFixtureCentered,
       ClassName: ButtonFixtureClassName,
       Clear: ButtonFixtureClear,
-      Dark: ButtonFixtureDark,
       Default: ButtonFixtureDefault,
       Disabled: ButtonFixtureDisabled,
       Download: ButtonFixtureDownload,
-      Light: ButtonFixtureLight,
       Link: ButtonFixtureLink,
       Sso: ButtonFixtureSso
     },

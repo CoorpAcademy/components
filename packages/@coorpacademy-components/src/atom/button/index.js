@@ -1,6 +1,7 @@
 import React from 'react';
 import LinkedInput from 'react-linked-input';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import {ColorPropType} from '../../util/proptypes';
 import Link from '../link';
 import style from './style.css';
@@ -29,7 +30,7 @@ const ButtonContent = props => {
           download={download}
           onClick={onClick}
           target={target}
-          className={disabled ? style.disabled : className}
+          className={className}
           style={props.style}
         >
           {submitValue || children}
@@ -42,7 +43,7 @@ const ButtonContent = props => {
           data-name={dataName}
           href={href}
           target={target}
-          className={disabled ? style.disabled : className}
+          className={className}
           onClick={onClick}
           style={props.style}
         >
@@ -58,7 +59,7 @@ const ButtonContent = props => {
           value={submitValue}
           disabled={disabled}
           onClick={onClick}
-          className={disabled ? style.disabled : className}
+          className={className}
           style={{
             color,
             ...props.style
@@ -69,35 +70,27 @@ const ButtonContent = props => {
 };
 
 const Button = ({children, ...props}) => {
-  const {className = style.button, centered, type = 'submit'} = props;
-
-  const centeredStyle = centered
-    ? {
-        margin: '0 auto',
-        display: 'block'
-      }
-    : {};
+  const {className, type = 'submit'} = props;
 
   return (
-    <ButtonContent
-      {...props}
-      type={type}
-      className={className}
-      style={{
-        ...props.style,
-        ...centeredStyle
-      }}
-    >
-      {children}
-    </ButtonContent>
+    <div className={classnames([style.button, className])}>
+      <ButtonContent
+        {...props}
+        type={type}
+        className={style.buttonContent}
+        style={{
+          ...props.style
+        }}
+      >
+        {children}
+      </ButtonContent>
+    </div>
   );
 };
 
 Button.propTypes = {
-  background: ColorPropType,
   color: ColorPropType,
   submitValue: PropTypes.string,
-  centered: PropTypes.bool,
   disabled: PropTypes.bool,
   href: PropTypes.string,
   download: PropTypes.bool,
