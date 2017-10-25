@@ -22,7 +22,9 @@
     "prepare": "npm run clean && npm run build --production",
     "static": "webpack --progress --output-path static/dist/ --config sandbox-web/webpack.config.js",
     "poststatic": "cp sandbox-web/index.html static/index.html",
-    "start": "cross-env BABEL_ENV=es webpack-dev-server --config sandbox-web/webpack.config.js --content-base sandbox-web --host 0.0.0.0 --history-api-fallback true --hot true"
+    "start": "cross-env BABEL_ENV=es webpack-dev-server --config sandbox-web/webpack.config.js --content-base sandbox-web --host 0.0.0.0 --history-api-fallback true --hot true",
+    "android": "react-native run-android",
+    "ios": "react-native run-ios"
   },
   "homepage": "https://github.com/CoorpAcademy/components/packages/@coorpacademy-app-player#readme",
   "devDependencies": {

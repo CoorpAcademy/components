@@ -99,6 +99,7 @@
       "packages/**/lib/**",
       "packages/**/static/**",
       "static/**",
+      "packages/@coorpacademy-app-player/src/mobile",
       "packages/@coorpacademy-nova-icons/**",
       "flow-typed/**"
     ],
