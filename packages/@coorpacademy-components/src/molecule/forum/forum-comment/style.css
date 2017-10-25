@@ -79,22 +79,15 @@
 
 .post > .disabledButton {
   cursor: none;
-  background-color: light;
   min-width: auto;
   line-height: 45px;
   border-radius: 100px;
-  font-size: 14px;
-  font-weight: bold;
-  color: white;
 }
 
 .post > .button {
   min-width: auto;
   line-height: 45px;
   border-radius: 100px;
-  font-size: 14px;
-  font-weight: bold;
-  color: white;
 }
 
 @media tablet {
