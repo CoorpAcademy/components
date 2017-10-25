@@ -16,6 +16,7 @@ export default {
         name: 'Analytics Partners',
         description: 'Stats de consommation du contenu du partenaire'
       }
-    ]
+    ],
+    onSelectDashboard: dashboard => console.log('SELECTED', dashboard)
   }
 };

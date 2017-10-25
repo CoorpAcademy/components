@@ -568,6 +568,8 @@ import BrandUpdateFixtureUsersList from '../src/template/back-office/brand-updat
 import BrandUpdateFixtureUsers from '../src/template/back-office/brand-update/test/fixtures/users';
 import DashboardPreviewFixtureDefault from '../src/template/back-office/dashboard-preview/test/fixtures/default';
 import DashboardPreviewFixtureLoading from '../src/template/back-office/dashboard-preview/test/fixtures/loading';
+import DashboardPreviewFixtureSelectedError from '../src/template/back-office/dashboard-preview/test/fixtures/selected-error';
+import DashboardPreviewFixtureSelectedLoading from '../src/template/back-office/dashboard-preview/test/fixtures/selected-loading';
 import DashboardPreviewFixtureSelected from '../src/template/back-office/dashboard-preview/test/fixtures/selected';
 import AuthorsFixtureDefault from '../src/template/common/authors/test/fixtures/default';
 import AuthorsFixtureNoSocials from '../src/template/common/authors/test/fixtures/no-socials';
@@ -1448,6 +1450,8 @@ export const fixtures = {
     DashboardPreview: {
       Default: DashboardPreviewFixtureDefault,
       Loading: DashboardPreviewFixtureLoading,
+      SelectedError: DashboardPreviewFixtureSelectedError,
+      SelectedLoading: DashboardPreviewFixtureSelectedLoading,
       Selected: DashboardPreviewFixtureSelected
     }
   },
@@ -1530,6 +1534,7 @@ export const dependencies = {
           "Discipline": true
         },
         "TemplateBackOffice": {
+          "DashboardPreview": true,
           "BrandUpdate": true,
           "BrandCreate": true
         },
@@ -1684,6 +1689,39 @@ export const dependencies = {
       },
       "children": {}
     },
+    "Loader": {
+      "parents": {
+        "TemplateBackOffice": {
+          "DashboardPreview": true,
+          "BrandUpdate": true
+        },
+        "TemplateAppPlayer": {
+          "PopinCorrection": true,
+          "Loading": true
+        },
+        "Organism": {
+          "Discussion": true,
+          "CardsGrid": true,
+          "BrandUpload": true,
+          "BrandTable": true
+        },
+        "MoleculeDashboard": {
+          "NewsList": true
+        },
+        "MoleculeAppPlayerPopin": {
+          "PopinHeader": true
+        },
+        "Molecule": {
+          "VideoPlayer": true,
+          "SetupSections": true,
+          "BrandUploadBox": true
+        },
+        "Atom": {
+          "ImageUpload": true
+        }
+      },
+      "children": {}
+    },
     "ImageUpload": {
       "parents": {
         "TemplateBackOffice": {
@@ -1792,38 +1830,6 @@ export const dependencies = {
         },
         "Organism": {
           "BrandForm": true
-        }
-      },
-      "children": {}
-    },
-    "Loader": {
-      "parents": {
-        "TemplateBackOffice": {
-          "BrandUpdate": true
-        },
-        "TemplateAppPlayer": {
-          "PopinCorrection": true,
-          "Loading": true
-        },
-        "Organism": {
-          "Discussion": true,
-          "CardsGrid": true,
-          "BrandUpload": true,
-          "BrandTable": true
-        },
-        "MoleculeDashboard": {
-          "NewsList": true
-        },
-        "MoleculeAppPlayerPopin": {
-          "PopinHeader": true
-        },
-        "Molecule": {
-          "VideoPlayer": true,
-          "SetupSections": true,
-          "BrandUploadBox": true
-        },
-        "Atom": {
-          "ImageUpload": true
         }
       },
       "children": {}
@@ -2768,6 +2774,66 @@ export const dependencies = {
       }
     }
   },
+  "TemplateAppPlayer": {
+    "Loading": {
+      "parents": {
+        "TemplateBackOffice": {
+          "DashboardPreview": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Loader": true
+        }
+      }
+    },
+    "Player": {
+      "children": {
+        "Atom": {
+          "Life": true
+        },
+        "MoleculeSlides": {
+          "SlidesFooter": true,
+          "SlidesPlayer": true
+        },
+        "TemplateAppPlayerPlayer": {
+          "PlayerHeader": true
+        }
+      }
+    },
+    "PopinCorrection": {
+      "children": {
+        "Atom": {
+          "Loader": true,
+          "Link": true,
+          "ResourceMiniature": true
+        },
+        "MoleculeAppPlayerPopin": {
+          "PopinHeader": true
+        },
+        "OrganismAccordion": {
+          "Container": true,
+          "Part": true
+        },
+        "Molecule": {
+          "Pdf": true
+        },
+        "Organism": {
+          "ResourceBrowser": true
+        }
+      }
+    },
+    "PopinEnd": {
+      "children": {
+        "Atom": {
+          "Life": true
+        },
+        "TemplateAppPlayerPlayer": {
+          "PlayerHeader": true
+        }
+      }
+    }
+  },
   "TemplateAppPlayerPlayer": {
     "PlayerHeader": {
       "parents": {
@@ -3036,61 +3102,6 @@ export const dependencies = {
       }
     }
   },
-  "TemplateAppPlayer": {
-    "Loading": {
-      "children": {
-        "Atom": {
-          "Loader": true
-        }
-      }
-    },
-    "Player": {
-      "children": {
-        "Atom": {
-          "Life": true
-        },
-        "MoleculeSlides": {
-          "SlidesFooter": true,
-          "SlidesPlayer": true
-        },
-        "TemplateAppPlayerPlayer": {
-          "PlayerHeader": true
-        }
-      }
-    },
-    "PopinCorrection": {
-      "children": {
-        "Atom": {
-          "Loader": true,
-          "Link": true,
-          "ResourceMiniature": true
-        },
-        "MoleculeAppPlayerPopin": {
-          "PopinHeader": true
-        },
-        "OrganismAccordion": {
-          "Container": true,
-          "Part": true
-        },
-        "Molecule": {
-          "Pdf": true
-        },
-        "Organism": {
-          "ResourceBrowser": true
-        }
-      }
-    },
-    "PopinEnd": {
-      "children": {
-        "Atom": {
-          "Life": true
-        },
-        "TemplateAppPlayerPlayer": {
-          "PlayerHeader": true
-        }
-      }
-    }
-  },
   "TemplateBackOffice": {
     "BrandCreate": {
       "children": {
@@ -3169,11 +3180,16 @@ export const dependencies = {
       "children": {
         "Atom": {
           "Link": true,
-          "Picture": true
+          "Picture": true,
+          "Button": true,
+          "Loader": true
         },
         "Organism": {
           "SetupHeader": true,
           "Sidebar": true
+        },
+        "TemplateAppPlayer": {
+          "Loading": true
         }
       }
     }

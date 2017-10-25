@@ -1,0 +1,72 @@
+@value breakpoints: "../../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value colors: "../../../variables/colors.css";
+@value dark from colors;
+@value light from colors;
+@value grey from colors;
+
+.default {
+  z-index: 20;
+  top: 0;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.7);
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.popin {
+  position: absolute;
+  width: 460px;
+  overflow: auto;
+  background: white;
+  padding-bottom: 20px;
+  margin: 100px -340px 200px;
+  top: 0;
+  left: 50%;
+  box-shadow: 0 0 15px 0 rgba(166, 166, 166, 0.84);
+}
+
+.header {
+  display: flex;
+  width: 100%;
+  height: 35px;
+  background: light;
+  align-items: center;
+  justify-content: center;
+  color: grey;
+  font-size: 15px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.content {
+  color: dark;
+  padding: 20px 0;
+  box-sizing: border-box;
+}
+
+.content img,
+.content iframe {
+  max-width: 100%;
+}
+
+.button {
+  composes: button from '../../../atom/button/style.css';
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+@media mobile {
+  .popin {
+    width: 100%;
+    left: 0;
+    margin: 0;
+  }
+}

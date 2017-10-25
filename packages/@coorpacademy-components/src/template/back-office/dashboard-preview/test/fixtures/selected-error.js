@@ -28,7 +28,9 @@ export default {
       currentVersion: 'v2',
       schema: ['platform', 'provider']
     },
-    url: 'https://coorpacademy.github.io/',
+    url: null,
+    error: 'Shit happened',
+    onErrorRedirect: () => console.log('REDIRECT TO BE DONE'),
     onSelectDashboard: dashboard => console.log('SELECTED', dashboard),
     onUpdateVersion: version => console.log('VERSION', version),
     onUpdateField: (field, value) => console.log('UPDATE', field, value),

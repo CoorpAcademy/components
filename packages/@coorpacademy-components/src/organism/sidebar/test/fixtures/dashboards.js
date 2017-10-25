@@ -31,22 +31,26 @@ export default {
         {
           title: 'Dashboard Engagement',
           type: 'info',
+          name: 'stats-dashboard',
           value: 'blablabla dashboard engagament'
         },
         {
           title: 'Platform',
+          name: 'dashboard-platform',
           type: 'inputtext',
           onChange: value => console.log('NEW platform', value),
           value: 'up'
         },
         {
           title: 'Provider',
+          name: 'dashboard-provider',
           type: 'inputtext',
           onChange: value => console.log('NEW provider', value),
           value: 'ALL'
         },
         {
           title: 'Version',
+          name: 'dashboard-version',
           type: 'select',
           onChange: value => console.log('NEW version', value),
           options: [

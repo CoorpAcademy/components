@@ -2,9 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import noop from 'lodash/fp/noop';
 import get from 'lodash/fp/get';
+import kebabCase from 'lodash/fp/kebabCase';
 import Layout from '../layout';
 import Sidebar from '../../../organism/sidebar';
 import Loader from '../../app-player/loading';
+import Popine from './popine';
 import style from './style.css';
 
 const defaultInputParam = {
@@ -13,7 +15,12 @@ const defaultInputParam = {
   population_ref: 'ALL'
 };
 
-const currentDashboardSidebarSection = ({currentDashboard, onUpdateVersion, onUpdateField}) => {
+const currentDashboardSidebarSection = ({
+  currentDashboard,
+  onUpdateVersion,
+  onUpdateField,
+  inputParam
+}) => {
   const dashboardDescription = {
     title: currentDashboard.name,
     type: 'info',
@@ -22,18 +29,20 @@ const currentDashboardSidebarSection = ({currentDashboard, onUpdateVersion, onUp
   const dashboardVersion = {
     title: 'Version',
     type: 'select',
+    name: 'version-field',
     onChange: onUpdateVersion,
     options: Object.keys(currentDashboard.versions).map(v => ({
       name: v,
-      value: currentDashboard.versions[v],
+      value: v,
       selected: v === currentDashboard.currentVersion
     }))
   };
   const paramInputs = currentDashboard.schema.map(schema => ({
     title: schema,
+    name: `${kebabCase(schema)}-field`,
     type: 'inputtext',
-    onChange: onUpdateField,
-    value: defaultInputParam[schema]
+    onChange: newValue => onUpdateField(schema, newValue),
+    value: inputParam[schema]
   }));
   return [dashboardDescription, ...paramInputs, dashboardVersion];
 };
@@ -44,23 +53,37 @@ const DashboardPreview = Layout(props => {
     currentDashboard,
     onSelectDashboard = noop,
     onUpdateVersion = noop,
-    onUpdateField = noop
+    onUpdateField = noop,
+    onErrorRedirect = noop,
+    inputParams = {},
+    url,
+    error
   } = props;
 
   if (!dashboards || dashboards.length === 0) return <Loader />;
 
   const dahsboardList = dashboards.map(d => ({
     title: d.name,
+    name: `${kebabCase(d.name)}-link`,
     type: 'link',
-    onClick: onSelectDashboard,
+    onClick: () => onSelectDashboard(kebabCase(d.name)),
     selected: d.name === get('name', currentDashboard)
   }));
 
   const sidebar = [dahsboardList];
-  if (currentDashboard)
+  if (currentDashboard) {
     sidebar.push(
-      currentDashboardSidebarSection({currentDashboard, onUpdateVersion, onUpdateField})
+      currentDashboardSidebarSection({
+        currentDashboard,
+        onUpdateVersion,
+        onUpdateField,
+        inputParam: {...defaultInputParam, ...inputParams}
+      })
     );
+  }
+
+  const selectedDashboard = () =>
+    url ? <iframe src={url} className={style.dashboardIframe} /> : <Loader />;
 
   return (
     <div className={style.container}>
@@ -71,9 +94,18 @@ const DashboardPreview = Layout(props => {
         <h1 className={style.dashboardTitle}>
           {currentDashboard ? currentDashboard.name : 'No Selected Dashboard'}
         </h1>
-        {currentDashboard
-          ? <iframe src={currentDashboard.url} className={style.dashboardIframe} />
+        {currentDashboard && !error
+          ? selectedDashboard()
           : <div>Select a dashboard on the Sidebar</div>}
+        {error
+          ? <Popine
+              header="Error Happened"
+              ctaLabel="Redirect to dashboards home"
+              content={`<p>${error}</p>`}
+              ctaOnClick={onErrorRedirect}
+              closeOnClick={onErrorRedirect}
+            />
+          : null}
       </div>
     </div>
   );
@@ -91,9 +123,14 @@ DashboardPreview.propTypes = {
     description: PropTypes.string.isRequired,
     currentVersion: PropTypes.string.isRequired,
     versions: PropTypes.shape({}).isRequired,
-    url: PropTypes.string.isRequired,
     schema: PropTypes.arrayOf(PropTypes.string)
-  })
+  }),
+  url: PropTypes.string,
+  onSelectDashboard: PropTypes.func,
+  onUpdateVersion: PropTypes.func,
+  onUpdateField: PropTypes.func,
+  onErrorRedirect: PropTypes.func,
+  inputParams: PropTypes.shape({})
 };
 
 export default DashboardPreview;
