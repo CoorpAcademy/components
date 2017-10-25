@@ -8,14 +8,15 @@
   overflow: hidden;
 }
 
-.hoverFill::before {
+.hoverFill::after {
   content: "";
   position: absolute;
   top: 0;
-  z-index: -1;
   bottom: 0;
   left: 0;
   right: 0;
+  background-color: #fff;
+  opacity: 0.15;
   transform: scaleX(0) skewX(70deg);
   transform-origin: 50%;
   transition-property: transform;
@@ -23,8 +24,8 @@
   transition-timing-function: ease-out;
 }
 
-.hoverFill:hover::before,
-.hoverFill:focus::before,
-.hoverFill:active::before {
+.hoverFill:hover::after,
+.hoverFill:focus::after,
+.hoverFill:active::after {
   transform: scaleX(2) skewX(25deg);
 }

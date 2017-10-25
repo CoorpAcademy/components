@@ -219,7 +219,7 @@
   border-left: solid 1px light;
 }
 
-.nextSection::before {
+.nextSection::after {
   background-color: grey;
   opacity: 0.15;
 }
@@ -229,7 +229,7 @@
   color: white;
 }
 
-.gameOver::before {
+.gameOver::after {
   background-color: black;
 }
 

@@ -89,10 +89,8 @@ const Button = ({children, ...props}) => {
 };
 
 Button.propTypes = {
-  background: ColorPropType,
   color: ColorPropType,
   submitValue: PropTypes.string,
-  centered: PropTypes.bool,
   disabled: PropTypes.bool,
   href: PropTypes.string,
   download: PropTypes.bool,

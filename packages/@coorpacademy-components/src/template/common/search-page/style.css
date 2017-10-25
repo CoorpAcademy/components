@@ -38,8 +38,7 @@
   background: white;
 }
 
-.clear {
-  composes: button from '../../../atom/button/style.css';
+.noresults > .clear {
   border-radius: 45px;
   height: 40px;
   line-height: 40px;

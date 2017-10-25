@@ -41,8 +41,9 @@
   background-color: positive;
 }
 
-.buy::before {
-  background-color: color(positive blackness(20%));
+.buy::after {
+  background-color: white;
+  opacity: 0.15;
 }
 
 .start {
@@ -50,7 +51,7 @@
   cursor: pointer;
 }
 
-.start::before {
+.start::after {
   background-color: white;
   opacity: 0.15;
 }
