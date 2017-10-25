@@ -54,9 +54,9 @@
   margin-top: 10px;
 }
 
-.button {
-  composes: button from '../../../atom/button/style.css';
+.post > .button {
   background-color: dark;
+  min-width: 100px;
   width: 100px;
   padding: 0;
 }

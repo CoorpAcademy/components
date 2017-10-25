@@ -31,10 +31,8 @@ const Popine = (props, context) => {
         </div>
         <Button
           type="link"
-          className={style.button}
           onClick={ctaOnClick}
           submitValue={ctaLabel}
-          centered
           style={{
             backgroundColor: primary
           }}

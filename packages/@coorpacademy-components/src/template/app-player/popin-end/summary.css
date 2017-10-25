@@ -80,7 +80,6 @@
 }
 
 .simpleButton {
-  composes: button from '../../../atom/button/style.css';
   margin-top: 25px;
   border-radius: 30px;
 }
@@ -143,7 +142,7 @@
 
 .subscribeTexts {
   text-align: right;
-  padding: 70px 109px 70px 20;
+  padding: 70px 109px 70px 20px;
 }
 
 .subscribeDescription {
@@ -163,7 +162,6 @@
 }
 
 .subscribeButton {
-  composes: button from '../../../atom/button/style.css';
   background-color: positive;
   border-radius: 30px;
   text-transform: none;
