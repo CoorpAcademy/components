@@ -12,7 +12,6 @@ const ForumComment = (props, context) => {
   const {avatar, onPost, onChange, value, textareaDisabled, postDisabled, newPost = false} = props;
 
   const primary = get('common.primary', skin);
-  const light = get('common.light', skin);
 
   const avatarView =
     avatar &&
@@ -27,9 +26,6 @@ const ForumComment = (props, context) => {
         onClick={onPost}
         disabled={postDisabled}
         submitValue={translate('Post')}
-        style={{
-          backgroundColor: postDisabled ? light : primary
-        }}
         className={postDisabled ? style.disabledButton : style.button}
       />
     </div>
