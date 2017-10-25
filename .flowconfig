@@ -6,8 +6,10 @@
 .*/node_modules/conventional-changelog-core/
 .*/node_modules/graphviz/
 .*/node_modules/babel-plugin-transform-react-remove-prop-types/
+.*/node_modules/metro-bundler/
 .*/node_modules/stylelint/
 .*/node_modules/radium/
+.*/node_modules/react-native/
 
 [include]
 packages/*/src
