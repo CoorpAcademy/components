@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
+import noop from 'lodash/fp/noop';
 import classnames from 'classnames';
 import {SrcPropType} from '../../../util/proptypes';
 import Provider from '../../../atom/provider';
@@ -24,7 +25,7 @@ const ForumComment = (props, context) => {
     <div className={style.post}>
       <Button
         type="link"
-        onClick={onPost}
+        onClick={!postDisabled ? onPost : noop}
         disabled={postDisabled}
         submitValue={translate('Post')}
         style={{

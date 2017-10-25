@@ -72,10 +72,11 @@
   text-align: center;
   color: medium;
   padding-top: 8px;
+  max-width: 90px;
 }
 
 .date {
-  color: color(medium lightness(70%));
+  color: color(medium lightness(80%));
   font-family: Open Sans;
   font-size: 13px;
   padding-bottom: 8px;
@@ -115,6 +116,10 @@
   font-weight: bold;
   text-align: left;
   color: brand;
+}
+
+.action:hover {
+  opacity: 0.8;
 }
 
 /* ---------------------------------------------------------------------------- */
