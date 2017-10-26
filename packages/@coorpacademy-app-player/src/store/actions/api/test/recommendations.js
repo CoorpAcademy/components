@@ -39,7 +39,8 @@ test(
       meta: {id: 'foo'},
       payload: 'bar'
     }
-  ]
+  ],
+  2
 );
 
 test(
@@ -59,7 +60,8 @@ test(
       type: RECO_FETCH_REQUEST,
       meta: {id: 'foo'}
     }
-  ]
+  ],
+  0
 );
 
 test(
@@ -67,11 +69,16 @@ test(
   macro,
   initState({}),
   t => ({
+    Logger: {
+      error(err) {
+        t.is(err.message, 'some error');
+      }
+    },
     Recommendations: {
       find: (type, ref) => {
         t.is(ref, 'chapterRef');
         t.is(type, 'chapter');
-        throw new Error();
+        throw new Error('some error');
       }
     }
   }),
@@ -85,7 +92,8 @@ test(
       type: RECO_FETCH_FAILURE,
       meta: {id: 'foo'},
       error: true,
-      payload: new Error()
+      payload: new Error('some error')
     }
-  ]
+  ],
+  3
 );

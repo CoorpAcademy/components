@@ -41,8 +41,5 @@ export const fetchSlideChapter = slideRef => async (dispatch, getState, {service
     return slideFetchResult;
   }
   const slide = getSlide(slideRef)(getState());
-  if (!slide) {
-    return slideFetchResult;
-  }
   return dispatch(fetchContent('chapter', slide.chapter_id));
 };

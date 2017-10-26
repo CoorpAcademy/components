@@ -65,7 +65,8 @@ test(
         {}
       )
     }
-  ]
+  ],
+  2
 );
 
 test(
@@ -113,7 +114,8 @@ test(
         {}
       )
     }
-  ]
+  ],
+  2
 );
 
 test(
@@ -139,7 +141,8 @@ test(
       type: PROGRESSION_RESOURCE_VIEWED_REQUEST,
       meta: {progressionId: 'foo', resource}
     }
-  ]
+  ],
+  0
 );
 
 test(
@@ -147,6 +150,11 @@ test(
   macro,
   initState(set('ui.route.foo', 'media', {})),
   t => ({
+    Logger: {
+      error(err) {
+        t.is(err.message, 'some error');
+      }
+    },
     Progressions: {
       markResourceAsViewed: (id, payload) => {
         t.is(id, 'foo');
@@ -159,7 +167,7 @@ test(
           content,
           slide: 'slide2'
         });
-        throw new Error();
+        throw new Error('some error');
       }
     }
   }),
@@ -173,7 +181,8 @@ test(
       type: PROGRESSION_RESOURCE_VIEWED_FAILURE,
       meta: {progressionId: 'foo', resource},
       error: true,
-      payload: new Error()
+      payload: new Error('some error')
     }
-  ]
+  ],
+  3
 );

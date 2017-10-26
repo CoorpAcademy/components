@@ -38,7 +38,8 @@ test(
       meta: {progressionId: 'foo'},
       payload: 'baz'
     }
-  ]
+  ],
+  2
 );
 
 test(
@@ -58,7 +59,8 @@ test(
       type: PROGRESSION_REQUEST_CLUE_REQUEST,
       meta: {progressionId: 'foo'}
     }
-  ]
+  ],
+  0
 );
 
 test(
@@ -66,11 +68,16 @@ test(
   macro,
   initState({}),
   t => ({
+    Logger: {
+      error(err) {
+        t.is(err.message, 'some error');
+      }
+    },
     Progressions: {
       requestClue: (id, payload) => {
         t.is(id, 'foo');
         t.deepEqual(payload, {content: {ref: 'bar', type: 'slide'}});
-        throw new Error();
+        throw new Error('some error');
       }
     }
   }),
@@ -84,7 +91,8 @@ test(
       type: PROGRESSION_REQUEST_CLUE_FAILURE,
       meta: {progressionId: 'foo'},
       error: true,
-      payload: new Error()
+      payload: new Error('some error')
     }
-  ]
+  ],
+  3
 );

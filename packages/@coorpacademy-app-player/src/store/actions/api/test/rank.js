@@ -19,6 +19,7 @@ test(
   t => ({
     LeaderBoard: {
       getRank: () => {
+        t.pass();
         return 1;
       }
     }
@@ -32,7 +33,8 @@ test(
       type: RANK_FETCH_START_SUCCESS,
       payload: 1
     }
-  ]
+  ],
+  1
 );
 
 test(
@@ -42,6 +44,7 @@ test(
   t => ({
     LeaderBoard: {
       getRank: () => {
+        t.pass();
         return 1;
       }
     }
@@ -55,7 +58,8 @@ test(
       type: RANK_FETCH_END_SUCCESS,
       payload: 1
     }
-  ]
+  ],
+  1
 );
 
 test(
@@ -74,7 +78,8 @@ test(
     {
       type: RANK_FETCH_START_REQUEST
     }
-  ]
+  ],
+  0
 );
 
 test(
@@ -82,9 +87,15 @@ test(
   macro,
   {},
   t => ({
+    Logger: {
+      error(err) {
+        t.is(err.message, 'some error');
+      }
+    },
     LeaderBoard: {
       getRank: () => {
-        throw new Error();
+        t.pass();
+        throw new Error('some error');
       }
     }
   }),
@@ -96,9 +107,10 @@ test(
     {
       type: RANK_FETCH_START_FAILURE,
       error: true,
-      payload: new Error()
+      payload: new Error('some error')
     }
-  ]
+  ],
+  2
 );
 
 test(
@@ -106,9 +118,15 @@ test(
   macro,
   {},
   t => ({
+    Logger: {
+      error(err) {
+        t.is(err.message, 'some error');
+      }
+    },
     LeaderBoard: {
       getRank: () => {
-        throw new Error();
+        t.pass();
+        throw new Error('some error');
       }
     }
   }),
@@ -120,7 +138,8 @@ test(
     {
       type: RANK_FETCH_END_FAILURE,
       error: true,
-      payload: new Error()
+      payload: new Error('some error')
     }
-  ]
+  ],
+  2
 );

@@ -3,6 +3,7 @@ import pipe from 'lodash/fp/pipe';
 import set from 'lodash/fp/set';
 import flatten from 'lodash/fp/flatten';
 import macro from '../../../test/helpers/macro';
+import mockContentService from '../../../test/helpers/mock-content-service';
 import {validateAnswer} from '../../answers';
 import {
   PROGRESSION_CREATE_ANSWER_REQUEST,
@@ -19,13 +20,13 @@ const wrongAnswer = pipe(
 
 const viewedOneLesson = set(
   'state.viewedResources',
-  [{type: 'chapter', ref: '5.C7', resources: ['lesson_1']}],
+  [{type: 'chapter', ref: 'chapId', resources: ['lesson_1']}],
   wrongAnswer
 );
 
 const viewedThreeLessons = set(
   'state.viewedResources',
-  [{type: 'chapter', ref: '5.C7', resources: ['lesson_1', 'lesson_2', 'lesson_3']}],
+  [{type: 'chapter', ref: 'chapId', resources: ['lesson_1', 'lesson_2', 'lesson_3']}],
   wrongAnswer
 );
 
@@ -37,24 +38,15 @@ const extraLifeAndViewedThreeLessons = set(
 
 const stateWithSlideAndManyResources = pipe(
   set('data.progressions.entities.foo.state.nextContent', {type: 'slide', ref: 'baz'}),
-  set('data.progressions.entities.foo.content', {ref: '5.C7'}),
+  set('data.progressions.entities.foo.content', {ref: 'chapId'}),
   set('data.contents.slide.entities.baz', {
-    chapter_id: '5.C7',
+    chapter_id: 'chapId',
     lessons: ['lesson_1', 'lesson_2', 'lesson_3']
   })
 )({});
 
 const services = result => t => ({
-  Content: {
-    find: (type, ref) => {
-      if (type === 'slide') {
-        return {_id: ref, chapter_id: '5.C7'};
-      }
-      if (type === 'chapter') {
-        return {_id: ref};
-      }
-    }
-  },
+  Content: mockContentService(t),
   Progressions: {
     postAnswers: (id, payload) => {
       t.is(id, 'foo');
@@ -83,20 +75,15 @@ const services = result => t => ({
 });
 
 const answer = result => [
-  [
-    {
-      type: PROGRESSION_CREATE_ANSWER_REQUEST,
-      meta: {progressionId: 'foo'}
-    },
-    set('ui.current.progressionId', 'foo', {})
-  ],
-  [
-    {
-      type: PROGRESSION_CREATE_ANSWER_SUCCESS,
-      meta: {progressionId: 'foo'},
-      payload: result
-    }
-  ]
+  {
+    type: PROGRESSION_CREATE_ANSWER_REQUEST,
+    meta: {progressionId: 'foo'}
+  },
+  {
+    type: PROGRESSION_CREATE_ANSWER_SUCCESS,
+    meta: {progressionId: 'foo'},
+    payload: result
+  }
 ];
 
 const contentFetchActions = [
@@ -111,16 +98,16 @@ const contentFetchActions = [
     type: CONTENT_FETCH_REQUEST,
     meta: {
       type: 'chapter',
-      ref: '5.C7'
+      ref: 'chapId'
     }
   },
   {
     type: CONTENT_FETCH_SUCCESS,
     meta: {
       type: 'chapter',
-      ref: '5.C7'
+      ref: 'chapId'
     },
-    payload: {_id: '5.C7'}
+    payload: {_id: 'chapId', foo: 'baz'}
   }
 ];
 
@@ -131,7 +118,7 @@ test(
   services(viewedOneLesson),
   validateAnswer('foo', {answers: ['bar']}),
   flatten([answer(viewedOneLesson), contentFetchActions, accordionIsOpenAt(0), fetchCorrection]),
-  15
+  5
 );
 
 test(
@@ -141,7 +128,7 @@ test(
   services(viewedThreeLessons),
   validateAnswer('foo', {answers: ['bar']}),
   flatten([answer(viewedThreeLessons), contentFetchActions, accordionIsOpenAt(1), fetchCorrection]),
-  15
+  5
 );
 
 test(
@@ -151,5 +138,5 @@ test(
   services(extraLifeAndViewedThreeLessons),
   validateAnswer('foo', {answers: ['bar']}),
   flatten([answer(extraLifeAndViewedThreeLessons), accordionIsOpenAt(0), fetchCorrection]),
-  12
+  4
 );

@@ -31,7 +31,8 @@ test(
       meta: {id: 'foo'},
       payload: 'foo'
     }
-  ]
+  ],
+  1
 );
 
 test(
@@ -51,7 +52,8 @@ test(
       type: PROGRESSION_FETCH_REQUEST,
       meta: {id: 'foo'}
     }
-  ]
+  ],
+  0
 );
 
 test(
@@ -59,10 +61,15 @@ test(
   macro,
   {},
   t => ({
+    Logger: {
+      error(err) {
+        t.is(err.message, 'some error');
+      }
+    },
     Progressions: {
       findById: id => {
         t.is(id, 'foo');
-        throw new Error();
+        throw new Error('some error');
       }
     }
   }),
@@ -76,7 +83,8 @@ test(
       type: PROGRESSION_FETCH_FAILURE,
       meta: {id: 'foo'},
       error: true,
-      payload: new Error()
+      payload: new Error('some error')
     }
-  ]
+  ],
+  2
 );

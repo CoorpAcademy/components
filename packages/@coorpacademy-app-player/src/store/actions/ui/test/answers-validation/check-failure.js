@@ -19,14 +19,9 @@ test(
     ref: 'baz'
   })({}),
   t => ({
-    Content: {
-      find: (type, ref) => {
-        if (type === 'slide') {
-          return {_id: ref, chapter_id: '5.C7'};
-        }
-        if (type === 'chapter') {
-          return {_id: ref};
-        }
+    Logger: {
+      error(err) {
+        t.is(err.message, 'some error');
       }
     },
     Progressions: {
@@ -36,26 +31,24 @@ test(
           content: {type: 'slide', ref: 'baz'},
           answers: ['bar']
         });
-        throw new Error();
+        throw new Error('some error');
       }
     }
   }),
   validateAnswer('foo', {answers: ['bar']}),
   [
-    [
-      {
-        type: PROGRESSION_CREATE_ANSWER_REQUEST,
-        meta: {progressionId: 'foo'}
-      },
-      set('ui.current.progressionId', 'foo', {})
-    ],
+    {
+      type: PROGRESSION_CREATE_ANSWER_REQUEST,
+      meta: {progressionId: 'foo'}
+    },
     {
       type: PROGRESSION_CREATE_ANSWER_FAILURE,
       meta: {progressionId: 'foo'},
       error: true,
-      payload: new Error()
+      payload: new Error('some error')
     }
-  ]
+  ],
+  3
 );
 
 test(
@@ -66,14 +59,9 @@ test(
     ref: 'baz'
   })({}),
   t => ({
-    Content: {
-      find: (type, ref) => {
-        if (type === 'slide') {
-          return {_id: ref, chapter_id: '5.C7'};
-        }
-        if (type === 'chapter') {
-          return {_id: ref};
-        }
+    Logger: {
+      error(err) {
+        t.is(err.message, 'some error');
       }
     },
     Progressions: {
@@ -89,16 +77,12 @@ test(
           set('state.isCorrect', false),
           set('state.viewedResources', [])
         )({});
-      },
-      findById: id => {
-        t.is(id, 'foo');
-        return 'foo';
       }
     },
     Answers: {
       findById: id => {
         t.is(id, 'foo');
-        throw new Error();
+        throw new Error('some error');
       }
     },
     Analytics: {
@@ -109,47 +93,33 @@ test(
   }),
   validateAnswer('foo', {answers: ['bar']}),
   [
-    [
-      {
-        type: PROGRESSION_CREATE_ANSWER_REQUEST,
-        meta: {progressionId: 'foo'}
-      },
-      set('ui.current.progressionId', 'foo', {})
-    ],
-    [
-      {
-        type: PROGRESSION_CREATE_ANSWER_SUCCESS,
-        meta: {progressionId: 'foo'},
-        payload: pipe(
-          set('state.content.ref', 'baz'),
-          set('state.nextContent', {type: 'success', ref: 'successExitNode'}),
-          set('state.isCorrect', false),
-          set('state.viewedResources', [])
-        )({})
-      },
-      set('data.progressions.entities.foo.state.nextContent', {
-        type: 'success',
-        ref: 'successExitNode'
-      })
-    ],
-    [
-      {
-        type: UI_TOGGLE_ACCORDION,
-        payload: {
-          id: 0
-        }
+    {
+      type: PROGRESSION_CREATE_ANSWER_REQUEST,
+      meta: {progressionId: 'foo'}
+    },
+    {
+      type: PROGRESSION_CREATE_ANSWER_SUCCESS,
+      meta: {progressionId: 'foo'},
+      payload: pipe(
+        set('state.content.ref', 'baz'),
+        set('state.nextContent', {type: 'success', ref: 'successExitNode'}),
+        set('state.isCorrect', false),
+        set('state.viewedResources', [])
+      )({})
+    },
+    {
+      type: UI_TOGGLE_ACCORDION,
+      payload: {
+        id: 0
       }
-    ],
-    [
-      {
-        type: ANSWER_FETCH_REQUEST,
-        meta: {
-          progressionId: 'foo',
-          slideId: 'baz'
-        }
-      },
-      set('ui.answers.0.correction', null, {})
-    ],
+    },
+    {
+      type: ANSWER_FETCH_REQUEST,
+      meta: {
+        progressionId: 'foo',
+        slideId: 'baz'
+      }
+    },
     {
       type: ANSWER_FETCH_FAILURE,
       meta: {
@@ -157,8 +127,8 @@ test(
         slideId: 'baz'
       },
       error: true,
-      payload: new Error()
+      payload: new Error('some error')
     }
   ],
-  12
+  5
 );

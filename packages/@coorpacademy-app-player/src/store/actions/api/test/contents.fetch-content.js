@@ -32,19 +32,18 @@ test(
       meta: {ref: 'foo', type: 'contentType'},
       payload: 'foo'
     }
-  ]
+  ],
+  2
 );
 
 test(
-  'should prevent request if content already fetched',
+  'should prevent request if content is already fetched',
   macro,
   set('data.contents.contentType.entities.foo', 'fooContent', {}),
   t => ({
     Content: {
-      find: (type, ref) => {
-        t.is(type, 'contentType');
-        t.is(ref, 'foo');
-        return ref;
+      find() {
+        t.fail();
       }
     }
   }),
@@ -54,7 +53,8 @@ test(
       type: CONTENT_FETCH_REQUEST,
       meta: {ref: 'foo', type: 'contentType'}
     }
-  ]
+  ],
+  0
 );
 
 test(
@@ -62,11 +62,16 @@ test(
   macro,
   {},
   t => ({
+    Logger: {
+      error(err) {
+        t.is(err.message, 'some error');
+      }
+    },
     Content: {
       find: (type, ref) => {
         t.is(type, 'contentType');
         t.is(ref, 'foo');
-        throw new Error();
+        throw new Error('some error');
       }
     }
   }),
@@ -80,7 +85,8 @@ test(
       type: CONTENT_FETCH_FAILURE,
       meta: {ref: 'foo', type: 'contentType'},
       error: true,
-      payload: new Error()
+      payload: new Error('some error')
     }
-  ]
+  ],
+  3
 );

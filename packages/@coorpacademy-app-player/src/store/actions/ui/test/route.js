@@ -11,15 +11,13 @@ test(
   t => ({}),
   selectRoute('clue'),
   [
-    [
-      {
-        type: UI_SELECT_ROUTE,
-        meta: {progressionId: 'foo'},
-        payload: 'clue'
-      },
-      set('ui.route.foo', 'clue', {})
-    ]
-  ]
+    {
+      type: UI_SELECT_ROUTE,
+      meta: {progressionId: 'foo'},
+      payload: 'clue'
+    }
+  ],
+  0
 );
 
 test(
@@ -29,13 +27,11 @@ test(
   t => ({}),
   selectRoute('clue'),
   [
-    [
-      {
-        type: UI_SELECT_ROUTE,
-        meta: {progressionId: 'foo'},
-        payload: null
-      },
-      set('ui.route.foo', null, {})
-    ]
-  ]
+    {
+      type: UI_SELECT_ROUTE,
+      meta: {progressionId: 'foo'},
+      payload: null
+    }
+  ],
+  0
 );

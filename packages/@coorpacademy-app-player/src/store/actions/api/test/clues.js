@@ -27,7 +27,8 @@ test(
       meta: {progressionId: 'foo', slideId: 'bar'},
       payload: 'baz'
     }
-  ]
+  ],
+  2
 );
 
 test(
@@ -47,7 +48,8 @@ test(
       type: CLUE_FETCH_REQUEST,
       meta: {progressionId: 'foo', slideId: 'bar'}
     }
-  ]
+  ],
+  0
 );
 
 test(
@@ -55,11 +57,16 @@ test(
   macro,
   {},
   t => ({
+    Logger: {
+      error(err) {
+        t.is(err.message, 'some error');
+      }
+    },
     Clues: {
       findById: (progressionId, slideId) => {
         t.is(progressionId, 'foo');
         t.is(slideId, 'bar');
-        throw new Error();
+        throw new Error('some error');
       }
     }
   }),
@@ -73,7 +80,8 @@ test(
       type: CLUE_FETCH_FAILURE,
       meta: {progressionId: 'foo', slideId: 'bar'},
       error: true,
-      payload: new Error()
+      payload: new Error('some error')
     }
-  ]
+  ],
+  3
 );
