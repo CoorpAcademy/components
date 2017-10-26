@@ -89,8 +89,13 @@ const DashboardPreview = Layout(props => {
   }
 
   const selectedDashboard = () =>
-    url ? <iframe src={url} className={style.dashboardIframe} frameBorder="0" /> : <Loader />;
-
+    url
+      ? <iframe src={url} className={style.dashboardIframe} frameBorder="0" />
+      : error ? null : <Loader />;
+  const unselectedDashboard = () =>
+    error
+      ? null
+      : <div className={style.dashboardNoSelection}>Select a dashboard on the Sidebar</div>;
   return (
     <div className={style.container}>
       <div className={style.dashboardAside}>
@@ -100,9 +105,7 @@ const DashboardPreview = Layout(props => {
         <h1 className={style.dashboardTitle}>
           {currentDashboard ? currentDashboard.name : 'No Selected Dashboard'}
         </h1>
-        {currentDashboard && !error
-          ? selectedDashboard()
-          : <div>Select a dashboard on the Sidebar</div>}
+        {currentDashboard ? selectedDashboard() : unselectedDashboard()}
         {error
           ? <Popine
               header="Error Happened"

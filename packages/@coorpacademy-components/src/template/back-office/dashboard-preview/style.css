@@ -17,12 +17,11 @@
 .dashboardAside {
   padding: 70px 20px 20px;
   min-width: 250px;
-  display: table-cell;
   vertical-align: top;
 }
 
 .dashboardContent {
-  display: table-cell;
+  font-family: "Open Sans";
   width: 100%;
   text-align: center;
   padding-right: 40px;
@@ -31,7 +30,6 @@
 }
 
 .dashboardTitle {
-  font-family: "Open Sans";
   font-size: 24px;
   color: dark;
   border: 1px solid light;
@@ -41,6 +39,12 @@
 .dashboardIframe {
   width: 100%;
   height: 95%;
+}
+
+.dashboardNoSelection {
+  font-size: 20px;
+  padding: 40px;
+  color: dark;
 }
 
 /* TODO: mobile rendering */
