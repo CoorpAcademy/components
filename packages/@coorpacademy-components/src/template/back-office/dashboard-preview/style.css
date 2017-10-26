@@ -3,7 +3,8 @@
 @value tablet from breakpoints;
 @value desktop from breakpoints;
 @value colors: "../../../variables/colors.css";
-@value black from colors;
+@value dark from colors;
+@value light from colors;
 
 .container {
   padding: 40px 0 0;
@@ -14,7 +15,7 @@
 }
 
 .dashboardAside {
-  padding: 55px 20px 20px;
+  padding: 70px 20px 20px;
   min-width: 250px;
   display: table-cell;
   vertical-align: top;
@@ -32,7 +33,9 @@
 .dashboardTitle {
   font-family: "Open Sans";
   font-size: 24px;
-  color: black;
+  color: dark;
+  border: 1px solid light;
+  padding: 10px;
 }
 
 .dashboardIframe {
