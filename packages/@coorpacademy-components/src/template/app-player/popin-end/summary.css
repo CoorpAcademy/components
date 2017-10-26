@@ -58,7 +58,7 @@
 }
 
 @media mobile {
-  .actionWrapper {
+  .simpleWrapper {
     display: none;
   }
 }
