@@ -4,9 +4,9 @@ import getOr from 'lodash/fp/getOr';
 import stopPropagation from '../../../util/bubbling';
 import Provider from '../../../atom/provider';
 import Button from '../../../atom/button';
-import style from './popine.css';
+import style from './dashboard-popin.css';
 
-const Popine = (props, context) => {
+const DashboardPopin = (props, context) => {
   const {skin} = context;
 
   const {ctaLabel, ctaOnClick, header, closeOnClick, content} = props;
@@ -42,11 +42,11 @@ const Popine = (props, context) => {
   );
 };
 
-Popine.contextTypes = {
+DashboardPopin.contextTypes = {
   skin: Provider.childContextTypes.skin
 };
 
-Popine.propTypes = {
+DashboardPopin.propTypes = {
   ctaLabel: PropTypes.string,
   ctaOnClick: PropTypes.func,
   closeOnClick: PropTypes.func,
@@ -54,4 +54,4 @@ Popine.propTypes = {
   content: PropTypes.string
 };
 
-export default Popine;
+export default DashboardPopin;

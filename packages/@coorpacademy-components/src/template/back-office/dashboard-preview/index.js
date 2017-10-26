@@ -8,7 +8,7 @@ import Layout from '../layout';
 import Sidebar from '../../../organism/sidebar';
 import Provider from '../../../atom/provider';
 import Loader from '../../app-player/loading';
-import Popine from './popine';
+import DashboardPopin from './dashboard-popin';
 import style from './style.css';
 
 const currentDashboardSidebarSection = ({
@@ -61,7 +61,7 @@ const DashboardPreview = (props, context) => {
   if (!dashboards || dashboards.length === 0) {
     if (error)
       return (
-        <Popine
+        <DashboardPopin
           header="Error Happened"
           ctaLabel="Reload"
           content={`<p>${error}</p>`}
@@ -113,7 +113,7 @@ const DashboardPreview = (props, context) => {
         </h1>
         {currentDashboard ? selectedDashboard() : unselectedDashboard()}
         {error
-          ? <Popine
+          ? <DashboardPopin
               header="Error Happened"
               ctaLabel="Redirect to dashboards home"
               content={`<p>${error}</p>`}
