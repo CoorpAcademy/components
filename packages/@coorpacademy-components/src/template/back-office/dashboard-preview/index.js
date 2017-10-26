@@ -56,6 +56,7 @@ const Dashboard = props => {
         </div>
       );
     }
+    return null;
   };
   return (
     <div>
@@ -68,16 +69,15 @@ const Dashboard = props => {
 };
 
 const ErrorPopin = ({onErrorRedirect, ctaLabel, error}) => {
-  if (error)
-    return (
-      <DashboardPopin
+  return error
+    ? <DashboardPopin
         header="Error Happened"
         ctaLabel={ctaLabel}
         content={`<p>${error}</p>`}
         ctaOnClick={onErrorRedirect}
         closeOnClick={onErrorRedirect}
       />
-    );
+    : null;
 };
 
 const DashboardPreview = (props, context) => {
