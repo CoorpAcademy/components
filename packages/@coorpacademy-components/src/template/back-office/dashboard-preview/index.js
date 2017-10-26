@@ -9,17 +9,11 @@ import Loader from '../../app-player/loading';
 import Popine from './popine';
 import style from './style.css';
 
-const defaultInputParam = {
-  platform: 'up',
-  provider: 'ALL',
-  population_ref: 'ALL'
-};
-
 const currentDashboardSidebarSection = ({
   currentDashboard,
   onUpdateVersion,
   onUpdateField,
-  inputParam
+  inputParams
 }) => {
   const dashboardDescription = {
     title: currentDashboard.name,
@@ -42,7 +36,7 @@ const currentDashboardSidebarSection = ({
     name: `${kebabCase(schema)}-field`,
     type: 'inputtext',
     onChange: newValue => onUpdateField(schema, newValue),
-    value: inputParam[schema]
+    value: inputParams[schema] || ''
   }));
   return [dashboardDescription, ...paramInputs, dashboardVersion];
 };
@@ -89,7 +83,7 @@ const DashboardPreview = Layout(props => {
         currentDashboard,
         onUpdateVersion,
         onUpdateField,
-        inputParam: {...defaultInputParam, ...inputParams}
+        inputParams
       })
     );
   }
