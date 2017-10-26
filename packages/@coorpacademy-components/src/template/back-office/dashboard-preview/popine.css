@@ -19,15 +19,16 @@
 }
 
 .popin {
-  position: absolute;
+  position: fixed;
   width: 460px;
   overflow: auto;
   background: white;
+  text-align: center;
   padding-bottom: 20px;
-  margin: 100px -340px 200px;
-  top: 0;
+  top: 50%;
   left: 50%;
   box-shadow: 0 0 15px 0 rgba(166, 166, 166, 0.84);
+  transform: translate(-50%, -50%);
 }
 
 .header {
