@@ -1,8 +1,12 @@
 import test from 'ava';
-import identity from 'lodash/fp/identity';
 import map from 'lodash/fp/map';
-import isFunction from 'lodash/fp/isFunction';
+import set from 'lodash/fp/set';
 import find from 'lodash/fp/find';
+import omit from 'lodash/fp/omit';
+import identity from 'lodash/fp/identity';
+import {mockTranslate} from '@coorpacademy/translate';
+import cloneDeep from 'lodash/fp/cloneDeep';
+import isFunction from 'lodash/fp/isFunction';
 import {createHeaderCTA} from '../popin-correction';
 import {
   PROGRESSION_FETCH_REQUEST,
@@ -35,6 +39,7 @@ import popinExtraLife from '../../test/fixtures/popin-correction/popin-extra-lif
 import popinFailure from '../../test/fixtures/popin-correction/popin-failure';
 import popinRevival from '../../test/fixtures/popin-correction/popin-revival';
 import popinSuccess from '../../test/fixtures/popin-correction/popin-success';
+import popinNextLevel from '../../test/fixtures/popin-correction/popin-next-level';
 import {getCurrentProgressionId} from '../../../utils/state-extract';
 
 const services = {
@@ -48,7 +53,13 @@ const services = {
     postExtraLife: identity
   },
   Content: {
-    find: identity,
+    find: (type, ref) => {
+      if (type === 'slide') {
+        return Promise.resolve({chapter_id: 'chapId', _id: ref, foo: 'bar'});
+      } else if (type === 'chapter') {
+        return Promise.resolve({_id: ref, foo: 'baz'});
+      }
+    },
     getInfo: identity
   },
   LeaderBoard: {
@@ -65,10 +76,13 @@ const services = {
 const createDispatch = state => async action => {
   const dispatched = [];
   const getState = () => state;
-  const dispatch = maybeAction =>
-    isFunction(maybeAction)
-      ? maybeAction(dispatch, getState, {services})
-      : dispatched.push(maybeAction);
+  const dispatch = maybeAction => {
+    if (!isFunction(maybeAction)) {
+      dispatched.push(maybeAction);
+      return maybeAction;
+    }
+    return maybeAction(dispatch, getState, {services});
+  };
 
   await dispatch(action);
 
@@ -85,13 +99,16 @@ const metaOf = (actionType, actions) => {
 
 test('should create a "Next" CTA when entering a success popin', async t => {
   const state = popinSuccess;
-  const translate = identity;
   const progressionId = getCurrentProgressionId(state);
   const dispatch = createDispatch(state);
-  const cta = createHeaderCTA({translate}, {dispatch})(state);
-  const dispatched = await cta.onClick();
+  const cta = createHeaderCTA({translate: mockTranslate}, {dispatch})(state);
 
-  t.is(cta.title, 'Next');
+  t.deepEqual(omit('onClick', cta), {
+    type: 'correction',
+    title: '__Next',
+    nextStepTitle: null
+  });
+  const dispatched = await cta.onClick();
   t.deepEqual(actionTypes(dispatched), [
     UI_SELECT_PROGRESSION,
     PROGRESSION_FETCH_REQUEST,
@@ -105,7 +122,6 @@ test('should create a "Next" CTA when entering a success popin', async t => {
     ENGINE_CONFIG_FETCH_SUCCESS,
     CONTENT_INFO_FETCH_REQUEST,
     CONTENT_FETCH_REQUEST,
-    CONTENT_FETCH_SUCCESS,
     CONTENT_FETCH_REQUEST,
     CONTENT_FETCH_SUCCESS
   ]);
@@ -115,13 +131,16 @@ test('should create a "Next" CTA when entering a success popin', async t => {
 
 test('should create a "Game over" CTA when entering a success popin', async t => {
   const state = popinFailure;
-  const translate = identity;
   const progressionId = getCurrentProgressionId(state);
   const dispatch = createDispatch(state);
-  const cta = createHeaderCTA({translate}, {dispatch})(state);
-  const dispatched = await cta.onClick();
+  const cta = createHeaderCTA({translate: mockTranslate}, {dispatch})(state);
 
-  t.is(cta.title, 'Game over');
+  t.deepEqual(omit('onClick', cta), {
+    type: 'correction',
+    title: '__Game over',
+    nextStepTitle: null
+  });
+  const dispatched = await cta.onClick();
   t.deepEqual(actionTypes(dispatched), [
     UI_SELECT_PROGRESSION,
     PROGRESSION_FETCH_REQUEST,
@@ -146,13 +165,16 @@ test('should create a "Game over" CTA when entering a success popin', async t =>
 
 test('should create a "Refuse" CTA when entering an extra-life popin', async t => {
   const state = popinExtraLife;
-  const translate = identity;
   const progressionId = getCurrentProgressionId(state);
   const dispatch = createDispatch(state);
-  const cta = createHeaderCTA({translate}, {dispatch})(state);
-  const dispatched = await cta.onClick();
+  const cta = createHeaderCTA({translate: mockTranslate}, {dispatch})(state);
 
-  t.is(cta.title, 'Game over');
+  t.deepEqual(omit('onClick', cta), {
+    type: 'correction',
+    title: '__Game over',
+    nextStepTitle: null
+  });
+  const dispatched = await cta.onClick();
   t.deepEqual(actionTypes(dispatched), [
     PROGRESSION_EXTRALIFEREFUSED_REQUEST,
     PROGRESSION_EXTRALIFEREFUSED_SUCCESS,
@@ -175,15 +197,18 @@ test('should create a "Refuse" CTA when entering an extra-life popin', async t =
   t.deepEqual(metaOf(PROGRESSION_FETCH_REQUEST, dispatched), {id: progressionId});
 });
 
-test('should create a "Accept" CTA when entering a revival popin', async t => {
+test('should create an "Accept" CTA when entering a revival popin', async t => {
   const state = popinRevival;
-  const translate = identity;
   const progressionId = getCurrentProgressionId(state);
   const dispatch = createDispatch(state);
-  const cta = createHeaderCTA({translate}, {dispatch})(state);
-  const dispatched = await cta.onClick();
+  const cta = createHeaderCTA({translate: mockTranslate}, {dispatch})(state);
 
-  t.is(cta.title, 'Next');
+  t.deepEqual(omit('onClick', cta), {
+    type: 'correction',
+    title: '__Next',
+    nextStepTitle: null
+  });
+  const dispatched = await cta.onClick();
   t.deepEqual(actionTypes(dispatched), [
     PROGRESSION_EXTRALIFEACCEPTED_REQUEST,
     PROGRESSION_EXTRALIFEACCEPTED_SUCCESS,
@@ -204,4 +229,55 @@ test('should create a "Accept" CTA when entering a revival popin', async t => {
   ]);
 
   t.deepEqual(metaOf(PROGRESSION_FETCH_REQUEST, dispatched), {id: progressionId});
+});
+
+test('should return null for the next content title if the progression content is not a level', t => {
+  const state = cloneDeep(popinNextLevel);
+  state.data.progressions.entities[0].content.type = 'chapter';
+  const dispatch = createDispatch(state);
+  const cta = createHeaderCTA({translate: mockTranslate}, {dispatch})(state);
+
+  t.deepEqual(omit('onClick', cta), {
+    type: 'correction',
+    title: '__Next',
+    nextStepTitle: null
+  });
+});
+
+test('should return null for the next content title if the previous and current slide are in the same chapter', t => {
+  const state = cloneDeep(popinNextLevel);
+  const currentSlideRef = state.data.progressions.entities[0].state.nextContent.ref;
+  const prevSlideRef = state.data.progressions.entities[0].state.content.ref;
+  state.data.contents.slide.entities[currentSlideRef].chapter_id =
+    state.data.contents.slide.entities[prevSlideRef].chapter_id;
+  const dispatch = createDispatch(state);
+  const cta = createHeaderCTA({translate: mockTranslate}, {dispatch})(state);
+
+  t.deepEqual(omit('onClick', cta), {
+    type: 'correction',
+    title: '__Next',
+    nextStepTitle: null
+  });
+});
+
+test('should return null for the next content title if slide, chapter or level content are not found', t => {
+  const state = cloneDeep(popinNextLevel);
+  const dispatch = createDispatch(state);
+  const createHeader = createHeaderCTA({translate: mockTranslate}, {dispatch});
+
+  t.is(createHeader(set('data.contents.slide', {}, state)).nextStepTitle, null);
+  t.is(createHeader(set('data.contents.chapter', {}, state)).nextStepTitle, null);
+  t.is(createHeader(set('data.contents.level', {}, state)).nextStepTitle, null);
+});
+
+test('should return the index of the next chapter out of the total number of chapters along with its title', t => {
+  const state = cloneDeep(popinNextLevel);
+  const dispatch = createDispatch(state);
+  const cta = createHeaderCTA({translate: mockTranslate}, {dispatch})(state);
+
+  t.deepEqual(omit('onClick', cta), {
+    type: 'correction',
+    title: '__Next',
+    nextStepTitle: '2/4 Some chapter name'
+  });
 });
