@@ -1,6 +1,6 @@
 @value colors: "../../variables/colors.css";
 @value black from colors;
-@value xtraLightGrey from colors;
+@value light from colors;
 @value negative from colors;
 @value dark from colors;
 @value white from colors;
@@ -20,7 +20,7 @@
   height: 6px;
   width: 100%;
   border-radius: 3px;
-  background-color: xtraLightGrey;
+  background-color: light;
   transform: translate3d(0, -50%, 0);
   position: absolute;
   user-select: none;
