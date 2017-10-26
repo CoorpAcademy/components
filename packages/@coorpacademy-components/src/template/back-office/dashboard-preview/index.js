@@ -43,6 +43,20 @@ const currentDashboardSidebarSection = ({
   return [dashboardDescription, ...paramInputs, dashboardVersion];
 };
 
+const Dashboard = props => {
+  const {url, error, selected, defaultColor} = props;
+  if (selected) {
+    if (url) return <iframe src={url} className={style.dashboardIframe} frameBorder="0" />;
+    if (!error) return <Loader />;
+  } else if (!error) {
+    return (
+      <div className={style.dashboardNoSelection} style={{color: defaultColor}}>
+        Select a dashboard on the Sidebar
+      </div>
+    );
+  }
+};
+
 const DashboardPreview = (props, context) => {
   const {
     dashboards = [],
@@ -92,16 +106,6 @@ const DashboardPreview = (props, context) => {
     );
   }
 
-  const selectedDashboard = () => {
-    if (url) return <iframe src={url} className={style.dashboardIframe} frameBorder="0" />;
-    if (!error) return <Loader />;
-  };
-  const unselectedDashboard = () =>
-    error
-      ? null
-      : <div className={style.dashboardNoSelection} style={{color: defaultColor}}>
-          Select a dashboard on the Sidebar
-        </div>;
   return (
     <div className={style.container}>
       <div className={style.dashboardAside}>
@@ -111,7 +115,12 @@ const DashboardPreview = (props, context) => {
         <h1 className={style.dashboardTitle}>
           {currentDashboard ? currentDashboard.name : 'No Selected Dashboard'}
         </h1>
-        {currentDashboard ? selectedDashboard() : unselectedDashboard()}
+        <Dashboard
+          defaultColor={defaultColor}
+          error={error}
+          selected={currentDashboard}
+          url={url}
+        />
         {error
           ? <DashboardPopin
               header="Error Happened"
