@@ -74,15 +74,16 @@ export const validateAnswer = (progressionId, body) => async (dispatch, getState
     viewedResources
   );
 
-  const hasViewedAllLessons =
-    viewedResourcesForContent.length > 0 && viewedResourcesForContent.length === lessons.length;
+  if (payload.state.nextContent.type === 'slide') {
+    await dispatch(fetchSlideChapter(get('nextContent.ref', progressionState)));
+  }
 
   if (isCorrect) {
     await dispatch(toggleAccordion(2));
-    if (payload.state.nextContent.type === 'slide') {
-      await dispatch(fetchSlideChapter(get('nextContent.ref', progressionState)));
-    }
   } else {
+    const hasViewedAllLessons =
+      viewedResourcesForContent.length > 0 && viewedResourcesForContent.length === lessons.length;
+
     !hasViewedAllLessons || get('state.nextContent.ref', payload) === 'extraLife'
       ? await dispatch(toggleAccordion(0))
       : await dispatch(toggleAccordion(1));
