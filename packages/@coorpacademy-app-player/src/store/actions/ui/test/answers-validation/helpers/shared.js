@@ -1,5 +1,37 @@
 import {UI_TOGGLE_ACCORDION} from '../../../../ui/corrections';
 import {ANSWER_FETCH_REQUEST, ANSWER_FETCH_SUCCESS} from '../../../../api/answers';
+import {UI_PROGRESSION_UPDATED} from '../../../../ui/progressions';
+import {
+  SEND_PROGRESSION_ANALYTICS_REQUEST,
+  SEND_PROGRESSION_ANALYTICS_SUCCESS
+} from '../../../../api/analytics';
+
+export const progressionUpdated = [
+  [
+    {
+      type: UI_PROGRESSION_UPDATED,
+      meta: {
+        id: 'foo'
+      }
+    }
+  ],
+  [
+    {
+      type: SEND_PROGRESSION_ANALYTICS_REQUEST,
+      meta: {
+        id: 'foo'
+      }
+    }
+  ],
+  [
+    {
+      type: SEND_PROGRESSION_ANALYTICS_SUCCESS,
+      meta: {
+        id: 'foo'
+      }
+    }
+  ]
+];
 
 export const accordionIsOpenAt = i => [
   {

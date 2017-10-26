@@ -28,6 +28,7 @@ const reduxTask = ({bailout = constant(false), meta, task, types}) => async (
       payload: data
     });
   } catch (err) {
+    console.log(err);
     return pipe(setMeta(meta), dispatch)({
       type: FAILURE,
       error: true,

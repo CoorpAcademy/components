@@ -11,7 +11,7 @@ import {
 } from '../../../api/progressions';
 import {ANSWER_FETCH_REQUEST, ANSWER_FETCH_SUCCESS} from '../../../api/answers';
 import {CONTENT_FETCH_REQUEST, CONTENT_FETCH_SUCCESS} from '../../../api/contents';
-import {accordionIsOpenAt} from './helpers/shared';
+import {accordionIsOpenAt, progressionUpdated} from './helpers/shared';
 
 const postAnswersPayload = pipe(
   set('state.content.ref', 'baz'),
@@ -92,10 +92,16 @@ const createCorrectAnswer = [
 test(
   'should submit answers with the current content and refresh progression state',
   macro,
-  set('data.progressions.entities.foo.state.nextContent', {
-    type: 'slide',
-    ref: 'baz'
-  })({}),
+  pipe(
+    set('data.progressions.entities.foo.engine', {
+      ref: 'learner',
+      version: '1'
+    }),
+    set('data.progressions.entities.foo.state.nextContent', {
+      type: 'slide',
+      ref: 'baz'
+    })
+  )({}),
   t => ({
     Content: mockContentService(t),
     Progressions: {
@@ -122,7 +128,9 @@ test(
       }
     },
     Analytics: {
-      sendProgressionAnalytics: () => {
+      sendProgressionAnalytics: (engineRef, nextContent) => {
+        t.is(engineRef, 'learner');
+        t.deepEqual(nextContent, {type: 'slide', ref: 'baz'});
         t.pass();
       }
     }
@@ -132,7 +140,8 @@ test(
     createCorrectAnswer,
     contentFetchActions,
     accordionIsOpenAt(2),
+    progressionUpdated,
     successfullyFetchAnswers
   ]),
-  6
+  7
 );

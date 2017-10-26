@@ -9,7 +9,7 @@ import {
   PROGRESSION_CREATE_ANSWER_SUCCESS
 } from '../../../api/progressions';
 import {ANSWER_FETCH_REQUEST, ANSWER_FETCH_SUCCESS} from '../../../api/answers';
-import {accordionIsOpenAt} from './helpers/shared';
+import {accordionIsOpenAt, progressionUpdated} from './helpers/shared';
 
 const services = t => ({
   Progressions: {
@@ -58,6 +58,7 @@ test(
       )({})
     },
     accordionIsOpenAt(0),
+    progressionUpdated,
     {
       type: ANSWER_FETCH_REQUEST,
       meta: {
@@ -74,5 +75,5 @@ test(
       payload: ['Bonne réponse']
     }
   ]),
-  3
+  4
 );

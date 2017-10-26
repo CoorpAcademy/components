@@ -12,6 +12,7 @@ import {
   ended
 } from '../video';
 import {UI_REVIVAL_PENDING} from '../extra-life';
+import {UI_PROGRESSION_UPDATED} from '../progressions';
 
 import {MEDIA_VIEWED_ANALYTICS_REQUEST, MEDIA_VIEWED_ANALYTICS_SUCCESS} from '../../api/analytics';
 
@@ -76,12 +77,19 @@ test(
     set('ui.route.foo', 'media'),
     set('data.progressions.entities.foo._id', 'foo'),
     set('data.progressions.entities.foo.state.nextContent.ref', 'slideRef'),
+    set('data.progressions.entities.foo.engine', {
+      version: '1',
+      ref: 'microlearning'
+    }),
     set('data.progressions.entities.foo.content', content),
     set('data.contents.slide.entities.slideRef', 'slide')
   )({}),
   t => ({
     Analytics: {
       sendViewedMediaAnalytics: (media, location) => {
+        t.pass();
+      },
+      sendProgressionAnalytics: () => {
         t.pass();
       }
     },
@@ -121,9 +129,13 @@ test(
       type: PROGRESSION_RESOURCE_VIEWED_SUCCESS,
       meta: {progressionId: 'foo', resource},
       payload: set('state.viewedResources', [content.ref], {})
+    },
+    {
+      type: UI_PROGRESSION_UPDATED,
+      meta: {id: 'foo'}
     }
   ],
-  3
+  4
 );
 
 test(
@@ -137,12 +149,19 @@ test(
       type: 'node',
       ref: 'extraLife'
     }),
+    set('data.progressions.entities.foo.engine', {
+      version: '1',
+      ref: 'microlearning'
+    }),
     set('data.progressions.entities.foo.content', content),
     set('data.contents.slide.entities.slideRef', 'slide')
   )({}),
   t => ({
     Analytics: {
       sendViewedMediaAnalytics: (media, location) => {
+        t.pass();
+      },
+      sendProgressionAnalytics: () => {
         t.pass();
       }
     },
@@ -175,7 +194,11 @@ test(
       type: PROGRESSION_RESOURCE_VIEWED_SUCCESS,
       meta: {progressionId: 'foo', resource},
       payload: 'foo'
+    },
+    {
+      type: UI_PROGRESSION_UPDATED,
+      payload: {id: 'foo'}
     }
   ],
-  2
+  3
 );

@@ -49,7 +49,7 @@ test('should set properties for success popin', t => {
   const actionToggleAccordion = toggleAccordionHandler(0);
   t.deepEqual(actionToggleAccordion, {
     type: UI_TOGGLE_ACCORDION,
-    payload: {id: 0}
+    meta: {id: 0}
   });
 });
 
