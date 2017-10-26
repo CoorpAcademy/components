@@ -565,6 +565,7 @@ import BrandUpdateFixtureUsersImport from '../src/template/back-office/brand-upd
 import BrandUpdateFixtureUsersList from '../src/template/back-office/brand-update/test/fixtures/users-list';
 import BrandUpdateFixtureUsers from '../src/template/back-office/brand-update/test/fixtures/users';
 import DashboardPreviewFixtureDefault from '../src/template/back-office/dashboard-preview/test/fixtures/default';
+import DashboardPreviewFixtureError from '../src/template/back-office/dashboard-preview/test/fixtures/error';
 import DashboardPreviewFixtureLoading from '../src/template/back-office/dashboard-preview/test/fixtures/loading';
 import DashboardPreviewFixtureSelectedError from '../src/template/back-office/dashboard-preview/test/fixtures/selected-error';
 import DashboardPreviewFixtureSelectedLoading from '../src/template/back-office/dashboard-preview/test/fixtures/selected-loading';
@@ -1445,6 +1446,7 @@ export const fixtures = {
     },
     DashboardPreview: {
       Default: DashboardPreviewFixtureDefault,
+      Error: DashboardPreviewFixtureError,
       Loading: DashboardPreviewFixtureLoading,
       SelectedError: DashboardPreviewFixtureSelectedError,
       SelectedLoading: DashboardPreviewFixtureSelectedLoading,
