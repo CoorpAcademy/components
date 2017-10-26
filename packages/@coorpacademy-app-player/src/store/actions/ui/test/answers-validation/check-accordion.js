@@ -8,9 +8,14 @@ import {
   PROGRESSION_CREATE_ANSWER_REQUEST,
   PROGRESSION_CREATE_ANSWER_SUCCESS
 } from '../../../api/progressions';
+import {CONTENT_FETCH_REQUEST, CONTENT_FETCH_SUCCESS} from '../../../api/contents';
 import {accordionIsOpenAt, fetchCorrection} from './helpers/shared';
 
-const wrongAnswer = pipe(set('state.content.ref', 'baz'), set('state.isCorrect', false))({});
+const wrongAnswer = pipe(
+  set('state.content.ref', 'baz'),
+  set('state.nextContent', {type: 'slide', ref: 'baz'}),
+  set('state.isCorrect', false)
+)({});
 
 const viewedOneLesson = set(
   'state.viewedResources',
@@ -33,10 +38,23 @@ const extraLifeAndViewedThreeLessons = set(
 const stateWithSlideAndManyResources = pipe(
   set('data.progressions.entities.foo.state.nextContent', {type: 'slide', ref: 'baz'}),
   set('data.progressions.entities.foo.content', {ref: '5.C7'}),
-  set('data.contents.slide.entities.baz.lessons', ['lesson_1', 'lesson_2', 'lesson_3'])
+  set('data.contents.slide.entities.baz', {
+    chapter_id: '5.C7',
+    lessons: ['lesson_1', 'lesson_2', 'lesson_3']
+  })
 )({});
 
 const services = result => t => ({
+  Content: {
+    find: (type, ref) => {
+      if (type === 'slide') {
+        return {_id: ref, chapter_id: '5.C7'};
+      }
+      if (type === 'chapter') {
+        return {_id: ref};
+      }
+    }
+  },
   Progressions: {
     postAnswers: (id, payload) => {
       t.is(id, 'foo');
@@ -81,14 +99,39 @@ const answer = result => [
   ]
 ];
 
+const contentFetchActions = [
+  {
+    type: CONTENT_FETCH_REQUEST,
+    meta: {
+      type: 'slide',
+      ref: 'baz'
+    }
+  },
+  {
+    type: CONTENT_FETCH_REQUEST,
+    meta: {
+      type: 'chapter',
+      ref: '5.C7'
+    }
+  },
+  {
+    type: CONTENT_FETCH_SUCCESS,
+    meta: {
+      type: 'chapter',
+      ref: '5.C7'
+    },
+    payload: {_id: '5.C7'}
+  }
+];
+
 test(
   'should provide a wrong answer and see klf opened',
   macro,
   stateWithSlideAndManyResources,
   services(viewedOneLesson),
   validateAnswer('foo', {answers: ['bar']}),
-  flatten([answer(viewedOneLesson), accordionIsOpenAt(0), fetchCorrection]),
-  12
+  flatten([answer(viewedOneLesson), contentFetchActions, accordionIsOpenAt(0), fetchCorrection]),
+  15
 );
 
 test(
@@ -97,8 +140,8 @@ test(
   stateWithSlideAndManyResources,
   services(viewedThreeLessons),
   validateAnswer('foo', {answers: ['bar']}),
-  flatten([answer(viewedThreeLessons), accordionIsOpenAt(1), fetchCorrection]),
-  12
+  flatten([answer(viewedThreeLessons), contentFetchActions, accordionIsOpenAt(1), fetchCorrection]),
+  15
 );
 
 test(

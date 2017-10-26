@@ -19,30 +19,24 @@ const postAnswersPayload = pipe(
 )({});
 
 const contentFetchActions = [
-  [
-    {
-      type: CONTENT_FETCH_REQUEST,
-      meta: {
-        type: 'slide',
-        ref: 'baz'
-      }
+  {
+    type: CONTENT_FETCH_REQUEST,
+    meta: {
+      type: 'slide',
+      ref: 'baz'
+    }
+  },
+  {
+    type: CONTENT_FETCH_SUCCESS,
+    meta: {
+      type: 'slide',
+      ref: 'baz'
     },
-    set('ui.answers.0.correction', null, {})
-  ],
-  [
-    {
-      type: CONTENT_FETCH_SUCCESS,
-      meta: {
-        type: 'slide',
-        ref: 'baz'
-      },
-      payload: {
-        _id: 'baz',
-        chapterId: 'chapId'
-      }
-    },
-    set('ui.answers.0.correction', 'Bonne réponse', {})
-  ]
+    payload: {
+      _id: 'baz',
+      chapterId: 'chapId'
+    }
+  }
 ];
 
 const successfullyFetchAnswers = [
