@@ -39,18 +39,6 @@ export const NEXT_CONTENT_FETCH_REQUEST = '@@next-content/FETCH_REQUEST';
 export const NEXT_CONTENT_FETCH_SUCCESS = '@@next-content/FETCH_SUCCESS';
 export const NEXT_CONTENT_FETCH_FAILURE = '@@next-content/FETCH_FAILURE';
 
-export const fetchNextContent = (type, ref) => (dispatch, getState, {services}) => {
-  const {Content} = services;
-
-  const action = buildTask({
-    types: [NEXT_CONTENT_FETCH_REQUEST, NEXT_CONTENT_FETCH_SUCCESS, NEXT_CONTENT_FETCH_FAILURE],
-    task: () => Content.getNextContent(type, ref),
-    meta: {type, ref}
-  });
-
-  return dispatch(action);
-};
-
 export const fetchSlideChapter = slideRef => async (dispatch, getState, {services}) => {
   const slideFetchResult = await dispatch(fetchContent('slide', slideRef));
   if (slideFetchResult.error) {
