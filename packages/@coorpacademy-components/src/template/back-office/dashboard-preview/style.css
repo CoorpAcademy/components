@@ -43,8 +43,8 @@
 
 .dashboardNoSelection {
   font-size: 20px;
+  font-weight: bold;
   padding: 40px;
-  color: dark;
 }
 
 /* TODO: mobile rendering */

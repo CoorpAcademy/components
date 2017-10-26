@@ -2,9 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import noop from 'lodash/fp/noop';
 import get from 'lodash/fp/get';
+import getOr from 'lodash/fp/getOr';
 import kebabCase from 'lodash/fp/kebabCase';
 import Layout from '../layout';
 import Sidebar from '../../../organism/sidebar';
+import Provider from '../../../atom/provider';
 import Loader from '../../app-player/loading';
 import Popine from './popine';
 import style from './style.css';
@@ -41,7 +43,7 @@ const currentDashboardSidebarSection = ({
   return [dashboardDescription, ...paramInputs, dashboardVersion];
 };
 
-const DashboardPreview = Layout(props => {
+const DashboardPreview = Layout((props, context) => {
   const {
     dashboards = [],
     currentDashboard,
@@ -53,6 +55,9 @@ const DashboardPreview = Layout(props => {
     url,
     error
   } = props;
+  console.log('CONTEXT', context);
+  const {skin} = context;
+  const defaultColor = getOr('#00B0FF', 'common.primary', skin);
 
   if (!dashboards || dashboards.length === 0) {
     if (error)
@@ -88,14 +93,16 @@ const DashboardPreview = Layout(props => {
     );
   }
 
-  const selectedDashboard = () =>
-    url
-      ? <iframe src={url} className={style.dashboardIframe} frameBorder="0" />
-      : error ? null : <Loader />;
+  const selectedDashboard = () => {
+    if (url) return <iframe src={url} className={style.dashboardIframe} frameBorder="0" />;
+    if (!error) return <Loader />;
+  };
   const unselectedDashboard = () =>
     error
       ? null
-      : <div className={style.dashboardNoSelection}>Select a dashboard on the Sidebar</div>;
+      : <div className={style.dashboardNoSelection} style={{color: defaultColor}}>
+          Select a dashboard on the Sidebar
+        </div>;
   return (
     <div className={style.container}>
       <div className={style.dashboardAside}>
@@ -118,6 +125,8 @@ const DashboardPreview = Layout(props => {
       </div>
     </div>
   );
+}, {
+  skin: Provider.childContextTypes.skin
 });
 
 DashboardPreview.propTypes = {
