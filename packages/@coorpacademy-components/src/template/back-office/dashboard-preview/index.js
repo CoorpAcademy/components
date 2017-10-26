@@ -60,7 +60,19 @@ const DashboardPreview = Layout(props => {
     error
   } = props;
 
-  if (!dashboards || dashboards.length === 0) return <Loader />;
+  if (!dashboards || dashboards.length === 0) {
+    if (error)
+      return (
+        <Popine
+          header="Error Happened"
+          ctaLabel="Reload"
+          content={`<p>${error}</p>`}
+          ctaOnClick={onErrorRedirect}
+          closeOnClick={onErrorRedirect}
+        />
+      );
+    return <Loader />;
+  }
 
   const dahsboardList = dashboards.map(d => ({
     title: d.name,
