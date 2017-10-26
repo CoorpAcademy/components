@@ -123,22 +123,19 @@ const DashboardPreview = (props, context) => {
 
   return (
     <div className={style.container}>
-      <div className={style.dashboardAside}>
-        <Sidebar items={sidebar} />
-      </div>
-      <div className={style.dashboardContent}>
-        <Dashboard
-          defaultColor={defaultColor}
-          error={error}
-          selected={currentDashboard}
-          url={url}
-        />
-        <ErrorPopin
-          ctaLabel="Redirect to Dashboard Home"
-          error={error}
-          onErrorRedirect={onErrorRedirect}
-        />
-      </div>
+      <Sidebar items={sidebar} className={style.dashboardAside} />
+      <Dashboard
+        className={style.dashboardContent}
+        defaultColor={defaultColor}
+        error={error}
+        selected={currentDashboard}
+        url={url}
+      />
+      <ErrorPopin
+        ctaLabel="Redirect to Dashboard Home"
+        error={error}
+        onErrorRedirect={onErrorRedirect}
+      />
     </div>
   );
 };
