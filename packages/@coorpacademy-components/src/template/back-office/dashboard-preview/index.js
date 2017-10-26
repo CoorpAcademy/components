@@ -45,16 +45,39 @@ const currentDashboardSidebarSection = ({
 
 const Dashboard = props => {
   const {url, error, selected, defaultColor} = props;
-  if (selected) {
-    if (url) return <iframe src={url} className={style.dashboardIframe} frameBorder="0" />;
-    if (!error) return <Loader />;
-  } else if (!error) {
+  const body = () => {
+    if (selected) {
+      if (url) return <iframe src={url} className={style.dashboardIframe} frameBorder="0" />;
+      if (!error) return <Loader />;
+    } else if (!error) {
+      return (
+        <div className={style.dashboardNoSelection} style={{color: defaultColor}}>
+          Select a dashboard on the Sidebar
+        </div>
+      );
+    }
+  };
+  return (
+    <div>
+      <h1 className={style.dashboardTitle}>
+        {selected ? selected.name : 'No Selected Dashboard'}
+      </h1>
+      {body()}
+    </div>
+  );
+};
+
+const ErrorPopin = ({onErrorRedirect, ctaLabel, error}) => {
+  if (error)
     return (
-      <div className={style.dashboardNoSelection} style={{color: defaultColor}}>
-        Select a dashboard on the Sidebar
-      </div>
+      <DashboardPopin
+        header="Error Happened"
+        ctaLabel={ctaLabel}
+        content={`<p>${error}</p>`}
+        ctaOnClick={onErrorRedirect}
+        closeOnClick={onErrorRedirect}
+      />
     );
-  }
 };
 
 const DashboardPreview = (props, context) => {
@@ -74,15 +97,7 @@ const DashboardPreview = (props, context) => {
 
   if (!dashboards || dashboards.length === 0) {
     if (error)
-      return (
-        <DashboardPopin
-          header="Error Happened"
-          ctaLabel="Reload"
-          content={`<p>${error}</p>`}
-          ctaOnClick={onErrorRedirect}
-          closeOnClick={onErrorRedirect}
-        />
-      );
+      return <ErrorPopin ctaLabel="Reload" error={error} onErrorRedirect={onErrorRedirect} />;
     return <Loader />;
   }
 
@@ -112,24 +127,17 @@ const DashboardPreview = (props, context) => {
         <Sidebar items={sidebar} />
       </div>
       <div className={style.dashboardContent}>
-        <h1 className={style.dashboardTitle}>
-          {currentDashboard ? currentDashboard.name : 'No Selected Dashboard'}
-        </h1>
         <Dashboard
           defaultColor={defaultColor}
           error={error}
           selected={currentDashboard}
           url={url}
         />
-        {error
-          ? <DashboardPopin
-              header="Error Happened"
-              ctaLabel="Redirect to dashboards home"
-              content={`<p>${error}</p>`}
-              ctaOnClick={onErrorRedirect}
-              closeOnClick={onErrorRedirect}
-            />
-          : null}
+        <ErrorPopin
+          ctaLabel="Redirect to Dashboard Home"
+          error={error}
+          onErrorRedirect={onErrorRedirect}
+        />
       </div>
     </div>
   );
