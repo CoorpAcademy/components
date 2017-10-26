@@ -43,7 +43,7 @@ const currentDashboardSidebarSection = ({
   return [dashboardDescription, ...paramInputs, dashboardVersion];
 };
 
-const DashboardPreview = Layout((props, context) => {
+const DashboardPreview = (props, context) => {
   const {
     dashboards = [],
     currentDashboard,
@@ -55,7 +55,6 @@ const DashboardPreview = Layout((props, context) => {
     url,
     error
   } = props;
-  console.log('CONTEXT', context);
   const {skin} = context;
   const defaultColor = getOr('#00B0FF', 'common.primary', skin);
 
@@ -125,9 +124,10 @@ const DashboardPreview = Layout((props, context) => {
       </div>
     </div>
   );
-}, {
+};
+DashboardPreview.contextTypes = {
   skin: Provider.childContextTypes.skin
-});
+};
 
 DashboardPreview.propTypes = {
   dashboards: PropTypes.arrayOf(
@@ -151,4 +151,4 @@ DashboardPreview.propTypes = {
   inputParams: PropTypes.shape({})
 };
 
-export default DashboardPreview;
+export default Layout(DashboardPreview);
