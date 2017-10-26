@@ -83,7 +83,7 @@ const DashboardPreview = Layout(props => {
   }
 
   const selectedDashboard = () =>
-    url ? <iframe src={url} className={style.dashboardIframe} /> : <Loader />;
+    url ? <iframe src={url} className={style.dashboardIframe} frameBorder="0" /> : <Loader />;
 
   return (
     <div className={style.container}>
