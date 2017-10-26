@@ -17,7 +17,7 @@ cache:
     - packages/@coorpacademy-treantjs-adapter-dust/node_modules
     - packages/@coorpacademy-webpack-config/node_modules
 install:
-  - npm install -g yarn@`cat package.json | jq -r '.engines.yarn // "~0.27.5"'`
+  - npm install -g yarn@`cat package.json | jq -r '.engines.yarn // "^1.2.1"'`
   - 'npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN'
   - 'npm config set @coorpacademy:registry http://registry.npmjs.org/'
   - 'yarn config set registry https://registry.npmjs.org/'
@@ -47,7 +47,7 @@ deploy:
   - provider: script
     skip_cleanup: true
     script: >-
-      yarn global add @coorpacademy/update-node && update-node --nvmrc ./.nvmrc
+      npm i -g @coorpacademy/update-node && update-node --nvmrc ./.nvmrc
       --package ./package.json --travis ./.travis.yml --repo_slug
       $TRAVIS_REPO_SLUG --team_reviewers $TEAM_REVIEWERS --branch
       "upgrade-nodejs" --base $TRAVIS_BRANCH --github_token $GH_TOKEN
