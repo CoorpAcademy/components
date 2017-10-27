@@ -1,6 +1,7 @@
 import 'jsdom-global/register';
 import test from 'ava';
 import React from 'react';
+import PropTypes from 'prop-types';
 import {mount} from 'enzyme';
 import DashboardPreview from '..';
 
@@ -14,7 +15,13 @@ test('should call the onSelectDashboard function with the value of the target', 
     t.is(value, 'analytics-content');
   };
 
-  const wrapper = mount(<DashboardPreview {...defaultFixture.props} onSelectDashboard={onClick} />);
+  const wrapper = mount(
+    <DashboardPreview {...defaultFixture.props} onSelectDashboard={onClick} />,
+    {
+      context: {translate: id => id},
+      childContextTypes: {translate: PropTypes.func}
+    }
+  );
 
   t.true(wrapper.find(selector).exists());
 
@@ -25,7 +32,11 @@ test('should not crash if the onChange function has not been specified', t => {
   t.plan(1);
   const selector = 'a[data-name="analytics-content-link"]';
   const wrapper = mount(
-    <DashboardPreview {...defaultFixture.props} onSelectDashboard={undefined} />
+    <DashboardPreview {...defaultFixture.props} onSelectDashboard={undefined} />,
+    {
+      context: {translate: id => id},
+      childContextTypes: {translate: PropTypes.func}
+    }
   );
 
   t.true(wrapper.find(selector).exists());

@@ -90,7 +90,6 @@ const ErrorPopin = ({onErrorRedirect, ctaLabel, error}, {translate}) => {
 };
 
 ErrorPopin.contextTypes = {
-  skin: Provider.childContextTypes.skin,
   translate: Provider.childContextTypes.translate
 };
 
