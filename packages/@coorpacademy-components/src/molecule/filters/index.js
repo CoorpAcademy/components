@@ -1,13 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
-import isEmpty from 'lodash/fp/isEmpty';
-import map from 'lodash/fp/map';
 import ArrowDown from '@coorpacademy/nova-icons/composition/navigation/arrow-down';
 import Select from '../../atom/select';
 import Provider from '../../atom/provider';
-import RangeSlider from '../../atom/range';
 import style from './style.css';
+import FiltersWrapper from './filters-wrapper';
 
 class Filters extends React.Component {
   constructor(props, context) {
@@ -75,37 +73,6 @@ class Filters extends React.Component {
       filters
     } = this.props;
 
-    const buildFilter = (filter, index) => {
-      const {type, fieldName} = filter;
-      switch (type) {
-        case 'select':
-          return (
-            <div
-              data-name="choice"
-              data-filter-type={fieldName}
-              className={style.choice}
-              key={index}
-            >
-              <Select {...filter} />
-            </div>
-          );
-        case 'range':
-          return (
-            <div
-              data-name="choice"
-              data-filter-type={fieldName}
-              className={style.timerWrapper}
-              key={index}
-            >
-              <label>
-                <span className={style.timerTitle}>{filter.title}</span>
-                <p className={style.timerSubtitle}>{filter.subtitle}</p>
-                <RangeSlider {...filter} />
-              </label>
-            </div>
-          );
-      }
-    };
     const {skin} = this.context;
     const defaultColor = get('common.primary', skin);
     const darkColor = get('common.dark', skin);
@@ -113,47 +80,11 @@ class Filters extends React.Component {
     const sortingActive = this.state.sorted === true;
     const animated = this.state.animated === true;
 
-    const filtersList = map.convert({cap: false})(buildFilter, filters);
-    const coursesView = courses !== undefined
-      ? <div data-name="choice" data-filter-type="Cursus" className={style.choice}>
-          <Select {...courses} />
-        </div>
-      : null;
-
-    const thematicView = thematic !== undefined
-      ? <div data-name="choice" data-filter-type="Collection" className={style.choice}>
-          <Select {...thematic} />
-        </div>
-      : null;
-
-    const timerView = timer !== undefined
-      ? <div data-name="choice" data-filter-type="Time" className={style.timerWrapper}>
-          <label>
-            <span className={style.timerTitle}>{timer.title}</span>
-            <p className={style.timerSubtitle}>{timer.subtitle}</p>
-            <RangeSlider {...timer} />
-          </label>
-        </div>
-      : null;
-
-    const authorsView = authors !== undefined
-      ? <div data-name="choice" data-filter-type="Author" className={style.choice}>
-          <Select {...authors} />
-        </div>
-      : null;
-
     const sortView = sorting !== undefined
       ? <div data-name="choice" className={style.select}>
           <Select {...sorting} />
         </div>
       : null;
-
-    const emptyFilters =
-      thematic === undefined &&
-      timer === undefined &&
-      courses === undefined &&
-      authors === undefined &&
-      isEmpty(filters);
 
     return (
       <div data-name="search" className={style.search} data-animated={animated}>
@@ -185,13 +116,14 @@ class Filters extends React.Component {
           data-name="filterWrapper"
           className={filtersActive ? style.activeWrapperFilters : style.wrapperFilters}
         >
-          <div className={emptyFilters ? style.wrapperNone : style.wrapper}>
-            {thematicView}
-            {coursesView}
-            {timerView}
-            {authorsView}
-            {filtersList}
-          </div>
+          <FiltersWrapper
+            className={style.wrapper}
+            filters={filters}
+            thematic={thematic}
+            timer={timer}
+            courses={courses}
+            authors={authors}
+          />
           <div
             data-name="cta"
             className={style.CTAfilter}
@@ -235,15 +167,11 @@ Filters.propTypes = {
   sortTabLabel: PropTypes.string,
   openFilters: PropTypes.bool,
   openSorts: PropTypes.bool,
-  thematic: PropTypes.shape(Select.propTypes),
-  timer: PropTypes.shape(RangeSlider.propTypes),
-  courses: PropTypes.shape(Select.propTypes),
-  authors: PropTypes.shape(Select.propTypes),
-  filters: PropTypes.arrayOf(
-    PropTypes.shape({
-      type: PropTypes.oneOf(['select', 'range']).required
-    })
-  ),
+  thematic: FiltersWrapper.propTypes.thematic,
+  timer: FiltersWrapper.propTypes.timer,
+  courses: FiltersWrapper.propTypes.courses,
+  authors: FiltersWrapper.propTypes.authors,
+  filters: FiltersWrapper.propTypes.filters,
   sorting: PropTypes.shape(Select.propTypes),
   onSearch: PropTypes.func,
   onToggleFilters: PropTypes.func,

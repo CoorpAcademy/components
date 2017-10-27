@@ -42,6 +42,7 @@ export default {
     filters: [
       {
         type: 'select',
+        fieldName: 'Thematic',
         ...selectFilter,
         title: 'Thematic:',
         options: [
@@ -66,6 +67,7 @@ export default {
       {
         type: 'select',
         ...selectFilter,
+        fieldName: 'Authors',
         title: 'Authors:',
         options: [
           {
@@ -91,6 +93,7 @@ export default {
       {
         type: 'select',
         ...selectFilter,
+        fieldName: 'Courses',
         title: 'Learning Paths:',
         options: [
           {
@@ -119,6 +122,7 @@ export default {
       {
         type: 'range',
         ...timer,
+        fieldName: 'Time',
         title: 'Time:',
         subtitle: '2 mins - 3 hours +'
       }

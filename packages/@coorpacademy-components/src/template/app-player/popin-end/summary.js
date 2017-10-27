@@ -159,7 +159,7 @@ Summary.propTypes = {
     onClick: PropTypes.func
   }),
   action: PropTypes.shape({
-    type: PropTypes.oneOf(keys(actions)).required
+    type: PropTypes.oneOf(keys(actions)).isRequired
   }),
   recommendation: PropTypes.shape(CardsList.propTypes)
 };
