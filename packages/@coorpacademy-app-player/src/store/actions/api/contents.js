@@ -35,10 +35,6 @@ export const fetchContentInfo = (content, engine) => (dispatch, getState, {servi
   return dispatch(action);
 };
 
-export const NEXT_CONTENT_FETCH_REQUEST = '@@next-content/FETCH_REQUEST';
-export const NEXT_CONTENT_FETCH_SUCCESS = '@@next-content/FETCH_SUCCESS';
-export const NEXT_CONTENT_FETCH_FAILURE = '@@next-content/FETCH_FAILURE';
-
 export const fetchSlideChapter = slideRef => async (dispatch, getState, {services}) => {
   const slideFetchResult = await dispatch(fetchContent('slide', slideRef));
   if (slideFetchResult.error) {

@@ -127,13 +127,10 @@ test(
           set('state.viewedResources', [])
         )({})
       },
-      pipe(
-        set('data.progressions.entities.foo', null),
-        set('data.progressions.entities.foo.state.nextContent', {
-          type: 'success',
-          ref: 'successExitNode'
-        })
-      )({})
+      set('data.progressions.entities.foo.state.nextContent', {
+        type: 'success',
+        ref: 'successExitNode'
+      })
     ],
     [
       {
