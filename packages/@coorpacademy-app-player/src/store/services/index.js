@@ -3,6 +3,7 @@ import addTimeout from '../utils/add-timeout';
 
 import * as AnalyticsService from './analytics';
 import * as AnswersService from './answers';
+import * as CoachService from './coach';
 import * as ContentService from './content';
 import * as CluesService from './clues';
 import * as ExitNodesService from './exit-nodes';
@@ -16,6 +17,7 @@ const addTimeoutToService = mapValues(addTimeout(TIMEOUT));
 
 export const Analytics = addTimeoutToService(AnalyticsService);
 export const Answers = addTimeoutToService(AnswersService);
+export const Coach = addTimeoutToService(CoachService);
 export const Content = addTimeoutToService(ContentService);
 export const Clues = addTimeoutToService(CluesService);
 export const ExitNodes = addTimeoutToService(ExitNodesService);

@@ -20,6 +20,7 @@ import {
 import {validateAnswer} from '../../actions/ui/answers';
 import {selectRoute} from '../../actions/ui/route';
 import {selectClue, getClue} from '../../actions/ui/clues';
+import {startChat} from '../../actions/ui/coach';
 import {createGetAnswerProps, createGetHelp} from './answer';
 import getResourcesProps from './resources';
 
@@ -74,6 +75,31 @@ const playerProps = (options, store) => state => {
       ]
     : [];
 
+  const buttons = [
+    ...contextButton,
+    {
+      title: translate('Media'),
+      type: 'media',
+      selected: route === 'media',
+      onClick: () => dispatch(selectRoute('media')),
+      notify: notifyNewMedia
+    },
+    {
+      title: translate('Clue'),
+      type: 'clue',
+      selected: route === 'clue',
+      onClick: clickClueHandler
+    }
+  ];
+  const isCoachAvailable = true; // TODO bind with data from sockets
+  if (isCoachAvailable) {
+    buttons.push({
+      title: translate('Coach'),
+      type: 'coach',
+      onClick: () => dispatch(startChat())
+    });
+  }
+
   return {
     typeClue: isAnswer ? 'answer' : route,
     text: clue,
@@ -110,29 +136,7 @@ const playerProps = (options, store) => state => {
       media: mediaQuestion
     },
     showNewMedia: (isNil(route) || route === 'answer') && notifyNewMedia,
-    buttons: [
-      ...contextButton,
-      {
-        title: translate('Media'),
-        type: 'media',
-        selected: route === 'media',
-        onClick: () => {
-          return dispatch(selectRoute('media'));
-        },
-        notify: notifyNewMedia
-      },
-      {
-        title: translate('Clue'),
-        type: 'clue',
-        selected: route === 'clue',
-        onClick: clickClueHandler
-      }
-      // {
-      //   title: translate('Coach'),
-      //   type: 'coach',
-      //   onClick: () => {})
-      // }
-    ]
+    buttons
   };
 };
 
