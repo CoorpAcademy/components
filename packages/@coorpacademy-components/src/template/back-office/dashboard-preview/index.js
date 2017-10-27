@@ -38,21 +38,25 @@ const currentDashboardSidebarSection = ({
     name: `${kebabCase(schema)}-field`,
     type: 'inputtext',
     onChange: newValue => onUpdateField(schema, newValue),
-    value: inputParams[schema] || ''
+    value: getOr('', 'schema', inputParams)
   }));
   return [dashboardDescription, ...paramInputs, dashboardVersion];
 };
 
-const Dashboard = props => {
-  const {url, error, selected, defaultColor} = props;
+const Dashboard = (props, context) => {
+  const {url, error, selected} = props;
+  const {skin, translate} = context;
   const body = () => {
     if (selected) {
       if (url) return <iframe src={url} className={style.dashboardIframe} frameBorder="0" />;
       if (!error) return <Loader />;
     } else if (!error) {
       return (
-        <div className={style.dashboardNoSelection} style={{color: defaultColor}}>
-          Select a dashboard on the Sidebar
+        <div
+          className={style.dashboardNoSelection}
+          style={{color: getOr('#00B0FF', 'common.primary', skin)}}
+        >
+          {translate('Select a dashboard on the Sidebar')}
         </div>
       );
     }
@@ -61,23 +65,33 @@ const Dashboard = props => {
   return (
     <div>
       <h1 className={style.dashboardTitle}>
-        {selected ? selected.name : 'No Selected Dashboard'}
+        {getOr(translate('No Selected Dashboard'), 'name', selected)}
       </h1>
       {body()}
     </div>
   );
 };
+Dashboard.contextTypes = {
+  skin: Provider.childContextTypes.skin,
+  translate: Provider.childContextTypes.translate
+};
 
-const ErrorPopin = ({onErrorRedirect, ctaLabel, error}) => {
+const ErrorPopin = ({onErrorRedirect, ctaLabel, error}, {translate}) => {
   return error
     ? <DashboardPopin
-        header="Error Happened"
+        header={translate('Error Happened')}
         ctaLabel={ctaLabel}
-        content={`<p>${error}</p>`}
         ctaOnClick={onErrorRedirect}
         closeOnClick={onErrorRedirect}
-      />
+      >
+        <p>{error}</p>
+      </DashboardPopin>
     : null;
+};
+
+ErrorPopin.contextTypes = {
+  skin: Provider.childContextTypes.skin,
+  translate: Provider.childContextTypes.translate
 };
 
 const DashboardPreview = (props, context) => {
@@ -92,12 +106,17 @@ const DashboardPreview = (props, context) => {
     url,
     error
   } = props;
-  const {skin} = context;
-  const defaultColor = getOr('#00B0FF', 'common.primary', skin);
+  const {translate} = context;
 
   if (!dashboards || dashboards.length === 0) {
     if (error)
-      return <ErrorPopin ctaLabel="Reload" error={error} onErrorRedirect={onErrorRedirect} />;
+      return (
+        <ErrorPopin
+          ctaLabel={translate('Reload')}
+          error={error}
+          onErrorRedirect={onErrorRedirect}
+        />
+      );
     return <Loader />;
   }
 
@@ -109,9 +128,9 @@ const DashboardPreview = (props, context) => {
     selected: d.name === get('name', currentDashboard)
   }));
 
-  const sidebar = [dahsboardList];
+  const sidebarItems = [dahsboardList];
   if (currentDashboard) {
-    sidebar.push(
+    sidebarItems.push(
       currentDashboardSidebarSection({
         currentDashboard,
         onUpdateVersion,
@@ -123,16 +142,15 @@ const DashboardPreview = (props, context) => {
 
   return (
     <div className={style.container}>
-      <Sidebar items={sidebar} className={style.dashboardAside} />
+      <Sidebar items={sidebarItems} className={style.dashboardAside} />
       <Dashboard
         className={style.dashboardContent}
-        defaultColor={defaultColor}
         error={error}
         selected={currentDashboard}
         url={url}
       />
       <ErrorPopin
-        ctaLabel="Redirect to Dashboard Home"
+        ctaLabel={translate('Redirect to Dashboard Home')}
         error={error}
         onErrorRedirect={onErrorRedirect}
       />
@@ -140,7 +158,8 @@ const DashboardPreview = (props, context) => {
   );
 };
 DashboardPreview.contextTypes = {
-  skin: Provider.childContextTypes.skin
+  skin: Provider.childContextTypes.skin,
+  translate: Provider.childContextTypes.translate
 };
 
 DashboardPreview.propTypes = {
