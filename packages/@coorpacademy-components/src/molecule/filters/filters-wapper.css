@@ -1,0 +1,103 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value desktop from breakpoints;
+@value mobile from breakpoints;
+@value tablet from breakpoints;
+@value colors: "../../variables/colors.css";
+@value dark from colors;
+
+.wrapperNone {
+  display: none;
+}
+
+.wrapper {
+  display: flex;
+  padding: 65px 25px 7px;
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.choice {
+  width: 25%;
+  padding: 5px 1%;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.timerWrapper {
+  composes: choice;
+  padding-bottom: 24px;
+}
+
+.timerTitle {
+  color: dark;
+  display: block;
+  font-family: "Open Sans";
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-transform: none;
+  width: 100%;
+}
+
+.timerSubtitle {
+  border-radius: 25px;
+  color: dark;
+  display: table;
+  font-family: "Open Sans";
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0 auto;
+  padding: 0 7px;
+  text-align: center;
+  user-select: none;
+  width: auto;
+}
+
+.choice label {
+  margin: 0;
+}
+
+.choice label span {
+  font-size: 13px;
+  color: DARK;
+  user-select: none;
+}
+
+.choice select {
+  background: transparent;
+}
+
+@media tablet {
+  .wrapper {
+    flex-wrap: wrap;
+    padding: 65px 10px 0;
+    justify-content: space-between;
+  }
+
+  .choice {
+    width: 50%;
+    padding: 12px 3%;
+  }
+
+  .timerWrapper {
+    padding-bottom: 24px;
+  }
+}
+
+@media mobile {
+  .wrapper {
+    padding: 65px 0 0;
+  }
+
+  .choice {
+    padding: 10px 0;
+    width: 100%;
+  }
+
+  .timerWrapper {
+    padding-bottom: 24px;
+  }
+}

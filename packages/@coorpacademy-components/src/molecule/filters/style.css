@@ -20,10 +20,6 @@
   border-bottom: 1px solid light;
 }
 
-.wrapperNone {
-  display: none;
-}
-
 .default {
   display: none;
   padding: 25px 0;
@@ -51,15 +47,6 @@
   align-items: center;
   justify-content: center;
   background: white;
-}
-
-.wrapper {
-  display: flex;
-  flex-wrap: nowrap;
-  padding: 65px 25px 7px;
-  box-sizing: border-box;
-  width: 100%;
-  height: auto;
 }
 
 .title {
@@ -132,57 +119,6 @@
   background: xtraLightGrey;
 }
 
-.choice {
-  width: 25%;
-  padding: 5px 1%;
-  position: relative;
-  box-sizing: border-box;
-}
-
-.timerWrapper {
-  composes: choice;
-  padding-bottom: 24px;
-}
-
-.timerTitle {
-  color: dark;
-  display: block;
-  font-family: "Open Sans";
-  font-size: 15px;
-  font-weight: 700;
-  margin-bottom: 10px;
-  text-transform: none;
-  width: 100%;
-}
-
-.timerSubtitle {
-  border-radius: 25px;
-  color: dark;
-  display: table;
-  font-family: "Open Sans";
-  font-size: 14px;
-  font-weight: 400;
-  margin: 0 auto;
-  padding: 0 7px;
-  text-align: center;
-  user-select: none;
-  width: auto;
-}
-
-.choice label {
-  margin: 0;
-}
-
-.choice label span {
-  font-size: 13px;
-  color: DARK;
-  user-select: none;
-}
-
-.choice select {
-  background: transparent;
-}
-
 .default {
   border-right: solid 1px light;
   border-bottom: solid 1px light;
@@ -234,16 +170,10 @@
 }
 
 .activeWrapperFilters {
-  max-height: 170px;
+  max-height: 270px;
   overflow: hidden;
   padding: 0 15px;
   opacity: 1;
-}
-
-.wrapperFilters .wrapper,
-.activeWrapperFilters .wrapper {
-  display: flex;
-  justify-content: flex-start;
 }
 
 .activeWrapperFilters .wrapper label {
@@ -293,31 +223,12 @@
 }
 
 @media tablet {
-  .wrapper {
-    flex-wrap: wrap;
-    padding: 65px 10px 0;
-  }
-
   .search {
     border-top: 1px solid light;
   }
 
-  .choice {
-    width: 50%;
-    padding: 12px 3%;
-  }
-
-  .timerWrapper {
-    padding-bottom: 24px;
-  }
-
   .activeWrapperFilters {
-    max-height: 280px;
-  }
-
-  .wrapperFilters .wrapper,
-  .activeWrapperFilters .wrapper {
-    justify-content: space-between;
+    max-height: 380px;
   }
 
   .select {
@@ -347,20 +258,7 @@
   }
 
   .activeWrapperFilters {
-    max-height: 550px;
-  }
-
-  .wrapper {
-    padding: 65px 0 0;
-  }
-
-  .choice {
-    padding: 10px 0;
-    width: 100%;
-  }
-
-  .timerWrapper {
-    padding-bottom: 24px;
+    max-height: 850px;
   }
 
   .sorting,

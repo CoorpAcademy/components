@@ -61,7 +61,7 @@ Answer.propTypes = {
       'dropDown',
       'slider',
       'template'
-    ]).required
+    ]).isRequired
   }),
   media: PropTypes.string
 };
