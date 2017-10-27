@@ -1532,7 +1532,6 @@ export const dependencies = {
           "Discipline": true
         },
         "TemplateBackOffice": {
-          "DashboardPreview": true,
           "BrandUpdate": true,
           "BrandCreate": true
         },
@@ -3193,7 +3192,6 @@ export const dependencies = {
         "Atom": {
           "Link": true,
           "Picture": true,
-          "Button": true,
           "Loader": true
         },
         "Organism": {
