@@ -324,4 +324,3 @@ test('should return null for the next content title if next content is an extral
     nextStepTitle: null
   });
 });
-
