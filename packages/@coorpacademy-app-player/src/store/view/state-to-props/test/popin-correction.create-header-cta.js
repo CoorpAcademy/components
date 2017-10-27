@@ -281,3 +281,47 @@ test('should return the index of the next chapter out of the total number of cha
     nextStepTitle: '2/4 Some chapter name'
   });
 });
+
+test('should return null for the next content title if next content is an exitnode', t => {
+  const state = cloneDeep(popinNextLevel);
+  const dispatch = createDispatch(state);
+  state.data.progressions.entities[0].state.nextContent = {
+    type: 'exitnode',
+    ref: 'successExitNode'
+  };
+
+  const ctaSuccess = createHeaderCTA({translate: mockTranslate}, {dispatch})(state);
+  t.deepEqual(omit('onClick', ctaSuccess), {
+    type: 'correction',
+    title: '__Next',
+    nextStepTitle: null
+  });
+
+  state.data.progressions.entities[0].state.nextContent = {
+    type: 'exitnode',
+    ref: 'failureExitNode'
+  };
+  const ctaFailure = createHeaderCTA({translate: mockTranslate}, {dispatch})(state);
+  t.deepEqual(omit('onClick', ctaFailure), {
+    type: 'correction',
+    title: '__Next',
+    nextStepTitle: null
+  });
+});
+
+test('should return null for the next content title if next content is an extralife', t => {
+  const state = cloneDeep(popinNextLevel);
+  const dispatch = createDispatch(state);
+  state.data.progressions.entities[0].state.nextContent = {
+    type: 'node',
+    ref: 'extralife'
+  };
+
+  const cta = createHeaderCTA({translate: mockTranslate}, {dispatch})(state);
+  t.deepEqual(omit('onClick', cta), {
+    type: 'correction',
+    title: '__Next',
+    nextStepTitle: null
+  });
+});
+

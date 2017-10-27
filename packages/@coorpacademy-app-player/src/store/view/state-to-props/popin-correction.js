@@ -59,7 +59,7 @@ const extraLifeCTAProps = ({translate}, {dispatch}) => state => {
   return {
     title: translate(isRevival ? 'Next' : 'Game over'),
     onClick: () => dispatch(updateProgression(progressionId)),
-    nextStepTitle: isRevival ? getNextStepTitle(state) : null
+    nextStepTitle: null
   };
 };
 
