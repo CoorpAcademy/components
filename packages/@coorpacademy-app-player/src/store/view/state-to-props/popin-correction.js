@@ -58,7 +58,8 @@ const extraLifeCTAProps = ({translate}, {dispatch}) => state => {
 
   return {
     title: translate(isRevival ? 'Next' : 'Game over'),
-    onClick: () => dispatch(updateProgression(progressionId))
+    onClick: () => dispatch(updateProgression(progressionId)),
+    nextStepTitle: isRevival ? getNextStepTitle(state) : null
   };
 };
 
@@ -69,7 +70,8 @@ const noExtraLifeCTAProps = ({translate}, {dispatch}) => state => {
 
   return {
     title: translate(isDead ? 'Game over' : 'Next'),
-    onClick: () => dispatch(selectProgression(progressionId))
+    onClick: () => dispatch(selectProgression(progressionId)),
+    nextStepTitle: isDead ? null : getNextStepTitle(state)
   };
 };
 
@@ -77,13 +79,13 @@ export const createHeaderCTA = (options, store) => state => {
   const progression = getCurrentProgression(state);
   const isExtraLifeActive = get('state.nextContent.ref', progression) === 'extraLife';
   const ctaProps = isExtraLifeActive ? extraLifeCTAProps : noExtraLifeCTAProps;
-  const {title, onClick} = ctaProps(options, store)(state);
+  const {title, onClick, nextStepTitle} = ctaProps(options, store)(state);
 
   return {
     title,
     onClick,
     type: 'correction',
-    nextStepTitle: getNextStepTitle(state)
+    nextStepTitle
   };
 };
 
