@@ -97,7 +97,7 @@ const Sidebar = (props, context) => {
     <div data-name="sidebar" className={style.sidebar}>
       {sections.map((sidebarSection, idx) =>
         <div data-name={`sidebarpart-${idx + 1}`} className={style.sidebarPart} key={idx}>
-          <SidebarItems items={sidebarSection} color={defaultColor} />
+          <SidebarItems items={sidebarSection} color={defaultColor}/>
         </div>
       )}
     </div>
@@ -108,7 +108,7 @@ const SidebarItems = props => {
   return (
     <ul className={style.sectionItems}>
       {props.items.map((item, index) =>
-        <SidebarItem item={item} key={index} index={index} color={props.color} />
+        <SidebarItem item={item} key={index} index={index} color={props.color}/>
       )}
     </ul>
   );
@@ -133,6 +133,7 @@ const SidebarItem = ({item, color, index}) => {
       return (
         <LinkItem
           title={item.title}
+          href={item.href}
           onClick={handleOnClick}
           name={item.name}
           index={index}
