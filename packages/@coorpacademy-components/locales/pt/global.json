@@ -53,5 +53,10 @@
   "media_stars_to_win": "Ganhe {{count}} adicionais de que estrela neste tempo capítulo o primeiro você assiste a lição!",
   "media_stars_to_win_plural": "Ganhe {{count}} estrelas adicionais neste tempo capítulo o primeiro que você assiste a lição!",
   "Open": "Aberto",
-  "See clue": "Ver a pista"
+  "See clue": "Ver a pista",
+  "Reload": "Recarga",
+  "An Error Occurred": "Ocorreu um erro",
+  "No Selected Dashboard": "Nenhum painel selecionado",
+  "Select a dashboard in the Sidebar": "Selecione um painel na barra lateral",
+  "Back to Dashboard Home": "Volta para casa de Dashboard"
 }
