@@ -53,5 +53,10 @@
   "media_stars_to_win": "Win {{count}} extra dat ster in dit hoofdstuk de eerste keer u de les bekijken!",
   "media_stars_to_win_plural": "{{count}} winnen extra sterren in dit hoofdstuk de eerste keer die u de les bekijken!",
   "Open": "Open",
-  "See clue": "Zie aanwijzing"
+  "See clue": "Zie aanwijzing",
+  "Reload": "Reload",
+  "An Error Occurred": "Er is een fout opgetreden",
+  "No Selected Dashboard": "Geen geselecteerde Dashboard",
+  "Select a dashboard in the Sidebar": "Selecteer een dashboard in de zijbalk",
+  "Back to Dashboard Home": "Terug naar Home pagina Dashboard"
 }
