@@ -33,6 +33,7 @@ export default {
     onUpdateVersion: version => console.log('VERSION', version),
     onUpdateField: (field, value) => console.log('UPDATE', field, value),
     inputParams: {
+      platform: 'up',
       provider: 'connect'
     }
   }

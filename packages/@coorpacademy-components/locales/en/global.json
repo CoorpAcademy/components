@@ -53,5 +53,10 @@
   "media_stars_to_win": "Win {{count}} additional star in this chapter the first time you watch the lesson!",
   "media_stars_to_win_plural": "Win {{count}} additional stars in this chapter the first time you watch the lesson!",
   "Open": "Open",
-  "See clue": "See clue"
+  "See clue": "See clue",
+  "Reload": "Reload",
+  "Error Happened": "Error Happened",
+  "No Selected Dashboard": "No Selected Dashboard",
+  "Select a dashboard on the Sidebar": "Select a dashboard on the Sidebar",
+  "Redirect to Dashboard Home": "Redirect to Dashboard Home"
 }

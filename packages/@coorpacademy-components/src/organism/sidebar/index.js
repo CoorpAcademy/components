@@ -51,6 +51,7 @@ export const LinkItem = props => {
     <Link
       onClick={handleOnClick}
       skinHover
+      href={props.href}
       data-name={props.name || `link-item-${props.index}`}
       style={{
         textDecoration: 'none',
@@ -174,6 +175,7 @@ const LinkItemSchema = {
   title: PropTypes.string.isRequired,
   selected: PropTypes.bool,
   name: PropTypes.string,
+  href: PropTypes.string,
   onClick: PropTypes.func
 };
 const InputTextItemSchema = {

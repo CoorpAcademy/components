@@ -2,24 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import noop from 'lodash/fp/noop';
 import get from 'lodash/fp/get';
+import getOr from 'lodash/fp/getOr';
 import kebabCase from 'lodash/fp/kebabCase';
 import Layout from '../layout';
 import Sidebar from '../../../organism/sidebar';
+import Provider from '../../../atom/provider';
 import Loader from '../../app-player/loading';
-import Popine from './popine';
+import DashboardPopin from './dashboard-popin';
 import style from './style.css';
-
-const defaultInputParam = {
-  platform: 'up',
-  provider: 'ALL',
-  population_ref: 'ALL'
-};
 
 const currentDashboardSidebarSection = ({
   currentDashboard,
   onUpdateVersion,
   onUpdateField,
-  inputParam
+  inputParams
 }) => {
   const dashboardDescription = {
     title: currentDashboard.name,
@@ -42,12 +38,62 @@ const currentDashboardSidebarSection = ({
     name: `${kebabCase(schema)}-field`,
     type: 'inputtext',
     onChange: newValue => onUpdateField(schema, newValue),
-    value: inputParam[schema]
+    value: getOr('', 'schema', inputParams)
   }));
   return [dashboardDescription, ...paramInputs, dashboardVersion];
 };
 
-const DashboardPreview = Layout(props => {
+const Dashboard = (props, context) => {
+  const {url, error, selected} = props;
+  const {skin, translate} = context;
+  const body = () => {
+    if (selected) {
+      if (url) return <iframe src={url} className={style.dashboardIframe} frameBorder="0" />;
+      if (!error) return <Loader />;
+    } else if (!error) {
+      return (
+        <div
+          className={style.dashboardNoSelection}
+          style={{color: getOr('#00B0FF', 'common.primary', skin)}}
+        >
+          {translate('Select a dashboard on the Sidebar')}
+        </div>
+      );
+    }
+    return null;
+  };
+  return (
+    <div>
+      <h1 className={style.dashboardTitle}>
+        {getOr(translate('No Selected Dashboard'), 'name', selected)}
+      </h1>
+      {body()}
+    </div>
+  );
+};
+Dashboard.contextTypes = {
+  skin: Provider.childContextTypes.skin,
+  translate: Provider.childContextTypes.translate
+};
+
+const ErrorPopin = ({onErrorRedirect, ctaLabel, error}, {translate}) => {
+  return error
+    ? <DashboardPopin
+        header={translate('Error Happened')}
+        ctaLabel={ctaLabel}
+        ctaOnClick={onErrorRedirect}
+        closeOnClick={onErrorRedirect}
+      >
+        <p>{error}</p>
+      </DashboardPopin>
+    : null;
+};
+
+ErrorPopin.contextTypes = {
+  translate: Provider.childContextTypes.translate
+};
+
+const DashboardPreview = (props, context) => {
   const {
     dashboards = [],
     currentDashboard,
@@ -59,8 +105,19 @@ const DashboardPreview = Layout(props => {
     url,
     error
   } = props;
+  const {translate} = context;
 
-  if (!dashboards || dashboards.length === 0) return <Loader />;
+  if (!dashboards || dashboards.length === 0) {
+    if (error)
+      return (
+        <ErrorPopin
+          ctaLabel={translate('Reload')}
+          error={error}
+          onErrorRedirect={onErrorRedirect}
+        />
+      );
+    return <Loader />;
+  }
 
   const dahsboardList = dashboards.map(d => ({
     title: d.name,
@@ -70,46 +127,39 @@ const DashboardPreview = Layout(props => {
     selected: d.name === get('name', currentDashboard)
   }));
 
-  const sidebar = [dahsboardList];
+  const sidebarItems = [dahsboardList];
   if (currentDashboard) {
-    sidebar.push(
+    sidebarItems.push(
       currentDashboardSidebarSection({
         currentDashboard,
         onUpdateVersion,
         onUpdateField,
-        inputParam: {...defaultInputParam, ...inputParams}
+        inputParams
       })
     );
   }
 
-  const selectedDashboard = () =>
-    url ? <iframe src={url} className={style.dashboardIframe} /> : <Loader />;
-
   return (
     <div className={style.container}>
-      <div className={style.dashboardAside}>
-        <Sidebar items={sidebar} />
-      </div>
-      <div className={style.dashboardContent}>
-        <h1 className={style.dashboardTitle}>
-          {currentDashboard ? currentDashboard.name : 'No Selected Dashboard'}
-        </h1>
-        {currentDashboard && !error
-          ? selectedDashboard()
-          : <div>Select a dashboard on the Sidebar</div>}
-        {error
-          ? <Popine
-              header="Error Happened"
-              ctaLabel="Redirect to dashboards home"
-              content={`<p>${error}</p>`}
-              ctaOnClick={onErrorRedirect}
-              closeOnClick={onErrorRedirect}
-            />
-          : null}
-      </div>
+      <Sidebar items={sidebarItems} className={style.dashboardAside} />
+      <Dashboard
+        className={style.dashboardContent}
+        error={error}
+        selected={currentDashboard}
+        url={url}
+      />
+      <ErrorPopin
+        ctaLabel={translate('Redirect to Dashboard Home')}
+        error={error}
+        onErrorRedirect={onErrorRedirect}
+      />
     </div>
   );
-});
+};
+DashboardPreview.contextTypes = {
+  skin: Provider.childContextTypes.skin,
+  translate: Provider.childContextTypes.translate
+};
 
 DashboardPreview.propTypes = {
   dashboards: PropTypes.arrayOf(
@@ -133,4 +183,4 @@ DashboardPreview.propTypes = {
   inputParams: PropTypes.shape({})
 };
 
-export default DashboardPreview;
+export default Layout(DashboardPreview);

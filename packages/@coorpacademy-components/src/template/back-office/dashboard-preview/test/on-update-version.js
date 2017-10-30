@@ -1,6 +1,7 @@
 import 'jsdom-global/register';
 import test from 'ava';
 import React from 'react';
+import PropTypes from 'prop-types';
 import {mount} from 'enzyme';
 import DashboardPreview from '..';
 
@@ -14,7 +15,10 @@ test('should call the onUpdateVersion function with the value of the target', t 
     t.is(value, 'foo');
   };
 
-  const wrapper = mount(<DashboardPreview {...defaultFixture.props} onUpdateVersion={onChange} />);
+  const wrapper = mount(<DashboardPreview {...defaultFixture.props} onUpdateVersion={onChange} />, {
+    context: {translate: id => id},
+    childContextTypes: {translate: PropTypes.func}
+  });
 
   t.true(wrapper.find(selector).exists());
 
@@ -28,7 +32,13 @@ test('should call the onUpdateVersion function with the value of the target', t 
 test('should not crash if the onUpdateVersion function has not been specified', t => {
   t.plan(1);
   const selector = 'li[data-name="version-field"] select';
-  const wrapper = mount(<DashboardPreview {...defaultFixture.props} onUpdateVersion={undefined} />);
+  const wrapper = mount(
+    <DashboardPreview {...defaultFixture.props} onUpdateVersion={undefined} />,
+    {
+      context: {translate: id => id},
+      childContextTypes: {translate: PropTypes.func}
+    }
+  );
 
   t.true(wrapper.find(selector).exists());
 

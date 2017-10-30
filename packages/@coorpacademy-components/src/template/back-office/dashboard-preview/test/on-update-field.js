@@ -1,6 +1,7 @@
 import 'jsdom-global/register';
 import test from 'ava';
 import React from 'react';
+import PropTypes from 'prop-types';
 import {mount} from 'enzyme';
 import DashboardPreview from '..';
 
@@ -15,7 +16,10 @@ test('should call the onUpdateField function with the value of the target', t =>
     t.is(value, 'toto');
   };
 
-  const wrapper = mount(<DashboardPreview {...defaultFixture.props} onUpdateField={onChange} />);
+  const wrapper = mount(<DashboardPreview {...defaultFixture.props} onUpdateField={onChange} />, {
+    context: {translate: id => id},
+    childContextTypes: {translate: PropTypes.func}
+  });
 
   t.true(wrapper.find(selector).exists());
 
@@ -29,7 +33,10 @@ test('should call the onUpdateField function with the value of the target', t =>
 test('should not crash if the onUpdateField function has not been specified', t => {
   t.plan(1);
   const selector = 'li[data-name="platform-field"] input';
-  const wrapper = mount(<DashboardPreview {...defaultFixture.props} onUpdateField={undefined} />);
+  const wrapper = mount(<DashboardPreview {...defaultFixture.props} onUpdateField={undefined} />, {
+    context: {translate: id => id},
+    childContextTypes: {translate: PropTypes.func}
+  });
 
   t.true(wrapper.find(selector).exists());
 
