@@ -56,7 +56,7 @@ const Dashboard = (props, context) => {
           className={style.dashboardNoSelection}
           style={{color: getOr('#00B0FF', 'common.primary', skin)}}
         >
-          {translate('Select a dashboard on the Sidebar')}
+          {translate('dashboard_select')}
         </div>
       );
     }
@@ -65,7 +65,7 @@ const Dashboard = (props, context) => {
   return (
     <div className={style.dashboardSelection}>
       <h1 className={style.dashboardTitle}>
-        {getOr(translate('No Selected Dashboard'), 'name', selected)}
+        {getOr(translate('dashboard_unselected'), 'name', selected)}
       </h1>
       {body()}
     </div>
@@ -79,7 +79,7 @@ Dashboard.contextTypes = {
 const ErrorPopin = ({onErrorRedirect, ctaLabel, error}, {translate}) => {
   return error
     ? <DashboardPopin
-        header={translate('Error Happened')}
+        header={translate('dashboard_error')}
         ctaLabel={ctaLabel}
         ctaOnClick={onErrorRedirect}
         closeOnClick={onErrorRedirect}
@@ -147,7 +147,7 @@ const DashboardPreview = (props, context) => {
       <div className={style.dashboardContent}>
         <Dashboard error={error} selected={currentDashboard} url={url} />
         <ErrorPopin
-          ctaLabel={translate('Redirect to Dashboard Home')}
+          ctaLabel={translate('dashboard_redirect')}
           error={error}
           onErrorRedirect={onErrorRedirect}
         />
