@@ -53,5 +53,10 @@
   "media_stars_to_win": "第一次看本课时赢得{{count}}额外的星星！",
   "media_stars_to_win_plural": "在本章第一次观看课程时赢得{{count}}个额外的星星！",
   "Open": "Open",
-  "See clue": "见索引"
+  "See clue": "见索引",
+  "Reload": "刷新",
+  "An Error Occurred": "发生错误",
+  "No Selected Dashboard": "没有选择的仪表板",
+  "Select a dashboard in the Sidebar": "选择侧栏中的信息中心",
+  "Back to Dashboard Home": "返回仪表板主页"
 }
