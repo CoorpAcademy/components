@@ -141,18 +141,17 @@ const DashboardPreview = (props, context) => {
 
   return (
     <div className={style.container}>
-      <Sidebar items={sidebarItems} className={style.dashboardAside} />
-      <Dashboard
-        className={style.dashboardContent}
-        error={error}
-        selected={currentDashboard}
-        url={url}
-      />
-      <ErrorPopin
-        ctaLabel={translate('Redirect to Dashboard Home')}
-        error={error}
-        onErrorRedirect={onErrorRedirect}
-      />
+      <div className={style.dashboardAside}>
+        <Sidebar items={sidebarItems} />
+      </div>
+      <div className={style.dashboardContent}>
+        <Dashboard error={error} selected={currentDashboard} url={url} />
+        <ErrorPopin
+          ctaLabel={translate('Redirect to Dashboard Home')}
+          error={error}
+          onErrorRedirect={onErrorRedirect}
+        />
+      </div>
     </div>
   );
 };
