@@ -38,7 +38,7 @@ const currentDashboardSidebarSection = ({
     name: `${kebabCase(schema)}-field`,
     type: 'inputtext',
     onChange: newValue => onUpdateField(schema, newValue),
-    value: getOr('', 'schema', inputParams)
+    value: getOr('', schema, inputParams)
   }));
   return [dashboardDescription, ...paramInputs, dashboardVersion];
 };
@@ -56,14 +56,14 @@ const Dashboard = (props, context) => {
           className={style.dashboardNoSelection}
           style={{color: getOr('#00B0FF', 'common.primary', skin)}}
         >
-          {translate('Select a dashboard on the Sidebar')}
+          {translate('Select a dashboard in the Sidebar')}
         </div>
       );
     }
     return null;
   };
   return (
-    <div>
+    <div className={style.dashboardSelection}>
       <h1 className={style.dashboardTitle}>
         {getOr(translate('No Selected Dashboard'), 'name', selected)}
       </h1>
@@ -79,7 +79,7 @@ Dashboard.contextTypes = {
 const ErrorPopin = ({onErrorRedirect, ctaLabel, error}, {translate}) => {
   return error
     ? <DashboardPopin
-        header={translate('Error Happened')}
+        header={translate('An Error Occurred')}
         ctaLabel={ctaLabel}
         ctaOnClick={onErrorRedirect}
         closeOnClick={onErrorRedirect}
@@ -123,6 +123,7 @@ const DashboardPreview = (props, context) => {
     title: d.name,
     name: `${kebabCase(d.name)}-link`,
     type: 'link',
+    href: d.href,
     onClick: () => onSelectDashboard(kebabCase(d.name)),
     selected: d.name === get('name', currentDashboard)
   }));
@@ -141,18 +142,17 @@ const DashboardPreview = (props, context) => {
 
   return (
     <div className={style.container}>
-      <Sidebar items={sidebarItems} className={style.dashboardAside} />
-      <Dashboard
-        className={style.dashboardContent}
-        error={error}
-        selected={currentDashboard}
-        url={url}
-      />
-      <ErrorPopin
-        ctaLabel={translate('Redirect to Dashboard Home')}
-        error={error}
-        onErrorRedirect={onErrorRedirect}
-      />
+      <div className={style.dashboardAside}>
+        <Sidebar items={sidebarItems} />
+      </div>
+      <div className={style.dashboardContent}>
+        <Dashboard error={error} selected={currentDashboard} url={url} />
+        <ErrorPopin
+          ctaLabel={translate('Back to Dashboard Home')}
+          error={error}
+          onErrorRedirect={onErrorRedirect}
+        />
+      </div>
     </div>
   );
 };
@@ -165,6 +165,7 @@ DashboardPreview.propTypes = {
   dashboards: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
+      href: PropTypes.string,
       description: PropTypes.string.isRequired
     })
   ),

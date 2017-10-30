@@ -7,7 +7,7 @@
 @value light from colors;
 
 .container {
-  padding: 40px 0 0;
+  padding: 10px 0 0;
   overflow: hidden;
   display: flex;
   flex-flow: row nowrap;
@@ -24,9 +24,15 @@
   font-family: "Open Sans";
   width: 100%;
   text-align: center;
-  padding-right: 40px;
-  padding-bottom: 40px;
+  padding-right: 20px;
+  padding-bottom: 20px;
   position: relative;
+}
+
+.dashboardSelection {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .dashboardTitle {
@@ -34,11 +40,13 @@
   color: dark;
   border: 1px solid light;
   padding: 10px;
+  flex-grow: 0;
 }
 
 .dashboardIframe {
   width: 100%;
-  height: 95%;
+  height: 100%;
+  flex-grow: 1;
 }
 
 .dashboardNoSelection {

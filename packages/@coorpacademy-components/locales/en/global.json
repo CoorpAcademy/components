@@ -55,8 +55,8 @@
   "Open": "Open",
   "See clue": "See clue",
   "Reload": "Reload",
-  "Error Happened": "Error Happened",
+  "An Error Occurred": "An Error Occurred",
   "No Selected Dashboard": "No Selected Dashboard",
-  "Select a dashboard on the Sidebar": "Select a dashboard on the Sidebar",
-  "Redirect to Dashboard Home": "Redirect to Dashboard Home"
+  "Select a dashboard in the Sidebar": "Select a dashboard in the Sidebar",
+  "Back to Dashboard Home": "Back to Dashboard Home"
 }
