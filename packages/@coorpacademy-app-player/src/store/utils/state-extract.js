@@ -48,7 +48,7 @@ export const getAnswerValues = (slide, state) => {
   return answers;
 };
 
-export const getSlide = id => pipe(get('data.contents.slide.entities'), get(id));
+export const getSlide = id => get(['data', 'contents', 'slide', 'entities', id]);
 
 export const getCurrentSlide = state => {
   const id = get('state.nextContent.ref')(getCurrentProgression(state));

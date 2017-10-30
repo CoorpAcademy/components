@@ -1,7 +1,11 @@
 import includes from 'lodash/fp/includes';
 import get from 'lodash/fp/get';
+import getOr from 'lodash/fp/getOr';
 import isNil from 'lodash/fp/isNil';
 import isEmpty from 'lodash/fp/isEmpty';
+import intersection from 'lodash/fp/intersection';
+import map from 'lodash/fp/map';
+import flatMap from 'lodash/fp/flatMap';
 import {
   getCurrentProgression,
   getCurrentSlide,
@@ -37,7 +41,9 @@ const playerProps = (options, store) => state => {
   const clue = getCurrentClue(state) || null;
   const route = getRoute(state);
   const resources = getResourcesProps(options, store)(state, slide);
-  const notifyNewMedia = isEmpty(get('state.viewedResources', progression));
+  const currentLessons = map('_id', get('lessons', slide));
+  const viewedResources = flatMap('resources', getOr([], 'state.viewedResources', progression));
+  const notifyNewMedia = isEmpty(intersection(currentLessons, viewedResources));
   const starsDiff = (STARS_DIFF[route] && get(STARS_DIFF[route], engineConfig)) || 0;
   const isAnswer = !includes(route, ROUTES);
   const clickClueHandler = () => dispatch(selectClue);

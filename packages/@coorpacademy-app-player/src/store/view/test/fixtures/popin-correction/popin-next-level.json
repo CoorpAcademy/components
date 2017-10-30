@@ -60,7 +60,7 @@
             "klf": "You can have multiple type of fields for a template question",
             "tips": "Some tips",
             "clue": "clue",
-            "chapter_id": "5.C7",
+            "chapter_id": "1.B2",
             "question": {
               "type": "template",
               "header": "Enter 'Text' and 'Select'",
@@ -188,6 +188,20 @@
             }
           }
         }
+      },
+      "level": {
+        "entities": {
+          "1.B": {
+            "chapterIds": ["1.B1", "1.B2", "1.B3", "1.B4"]
+          }
+        }
+      },
+      "chapter": {
+        "entities": {
+          "1.B2": {
+            "name": "Some chapter name"
+          }
+        }
       }
     },
     "progressions": {
@@ -199,8 +213,8 @@
             "version": "1"
           },
           "content": {
-            "ref": "1.B2.4",
-            "type": "slide"
+            "ref": "1.B",
+            "type": "level"
           },
           "state": {
             "slides": ["1.B2.4", "sli_Nk2vje~E~"],

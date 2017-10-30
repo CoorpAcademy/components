@@ -9,7 +9,35 @@ import {
   PROGRESSION_CREATE_ANSWER_SUCCESS
 } from '../../../api/progressions';
 import {ANSWER_FETCH_REQUEST, ANSWER_FETCH_SUCCESS} from '../../../api/answers';
+import {CONTENT_FETCH_REQUEST, CONTENT_FETCH_SUCCESS} from '../../../api/contents';
 import {accordionIsOpenAt} from './helpers/shared';
+
+const postAnswersPayload = pipe(
+  set('state.content.ref', 'baz'),
+  set('state.nextContent', {type: 'slide', ref: 'baz'}),
+  set('state.isCorrect', true)
+)({});
+
+const contentFetchActions = [
+  {
+    type: CONTENT_FETCH_REQUEST,
+    meta: {
+      type: 'slide',
+      ref: 'baz'
+    }
+  },
+  {
+    type: CONTENT_FETCH_SUCCESS,
+    meta: {
+      type: 'slide',
+      ref: 'baz'
+    },
+    payload: {
+      _id: 'baz',
+      chapterId: 'chapId'
+    }
+  }
+];
 
 const successfullyFetchAnswers = [
   [
@@ -50,7 +78,7 @@ const createCorrectAnswer = [
     {
       type: PROGRESSION_CREATE_ANSWER_SUCCESS,
       meta: {progressionId: 'foo'},
-      payload: pipe(set('state.content.ref', 'baz'), set('state.isCorrect', true))({})
+      payload: postAnswersPayload
     },
     set('data.progressions.entities.foo', null, {})
   ]
@@ -71,7 +99,7 @@ test(
           content: {type: 'slide', ref: 'baz'},
           answers: ['bar']
         });
-        return pipe(set('state.content.ref', 'baz'), set('state.isCorrect', true))({});
+        return postAnswersPayload;
       },
       findById: id => {
         t.is(id, 'foo');
@@ -91,9 +119,21 @@ test(
       sendProgressionAnalytics: () => {
         t.pass();
       }
+    },
+    Content: {
+      find: (type, ref) => {
+        t.is(type, 'slide');
+        t.is(ref, 'baz');
+        return {_id: ref, chapterId: 'chapId'};
+      }
     }
   }),
   validateAnswer('foo', {answers: ['bar']}),
-  flatten([createCorrectAnswer, accordionIsOpenAt(2), successfullyFetchAnswers]),
-  12
+  flatten([
+    createCorrectAnswer,
+    contentFetchActions,
+    accordionIsOpenAt(2),
+    successfullyFetchAnswers
+  ]),
+  16
 );

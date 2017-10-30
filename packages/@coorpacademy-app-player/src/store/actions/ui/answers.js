@@ -7,6 +7,7 @@ import includes from 'lodash/fp/includes';
 import {getSlide, getProgressionContent} from '../../utils/state-extract';
 import {createAnswer} from '../api/progressions';
 import {fetchAnswer} from '../api/answers';
+import {fetchSlideChapter} from '../api/contents';
 import {toggleAccordion} from './corrections';
 
 export const ANSWER_EDIT = {
@@ -73,12 +74,16 @@ export const validateAnswer = (progressionId, body) => async (dispatch, getState
     viewedResources
   );
 
-  const hasViewedAllLessons =
-    viewedResourcesForContent.length > 0 && viewedResourcesForContent.length === lessons.length;
+  if (payload.state.nextContent.type === 'slide') {
+    await dispatch(fetchSlideChapter(get('nextContent.ref', progressionState)));
+  }
 
   if (isCorrect) {
     await dispatch(toggleAccordion(2));
   } else {
+    const hasViewedAllLessons =
+      viewedResourcesForContent.length > 0 && viewedResourcesForContent.length === lessons.length;
+
     !hasViewedAllLessons || get('state.nextContent.ref', payload) === 'extraLife'
       ? await dispatch(toggleAccordion(0))
       : await dispatch(toggleAccordion(1));

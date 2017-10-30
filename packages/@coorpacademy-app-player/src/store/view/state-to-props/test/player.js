@@ -148,30 +148,38 @@ test('should display "Go to question" for the context tab cta', t => {
   t.is(props.cta.submitValue, '__Go to question');
 });
 
-test('should not display new media notification when user has seen the media', t => {
+test('should display new media notification when user has not seen any media for the current slide', t => {
+  const progression = createProgression(basicSlide);
+  progression.state.viewedResources = [
+    {
+      resources: ['1234']
+    }
+  ];
   const state = {
     data: {
+      contents: data.contents,
       progressions: {
         entities: {
-          basic: set('state.viewedResources', ['videoRef'], createProgression(basicSlide))
+          basic: progression
         }
       }
     },
     ui: {
       current: {progressionId: 'basic'},
-      route: {}
+      route: {
+        basic: 'answer'
+      }
     }
   };
 
-  [undefined, 'clue', 'media', 'coach', 'answer'].forEach(route => {
-    const props = playerProps(set('ui.route.basic', route, state));
-    t.false(props.showNewMedia);
-  });
+  const props = playerProps(state);
+  t.true(props.showNewMedia);
 });
 
-test('should display new media notification for the answer/undefined route when user has not seen the media', t => {
+test('should display new media notification for the answer/undefined route when user has not seen any media', t => {
   const state = {
     data: {
+      contents: data.contents,
       progressions: {
         entities: {
           basic: createProgression(basicSlide)
@@ -190,9 +198,10 @@ test('should display new media notification for the answer/undefined route when 
   });
 });
 
-test('should not display new media notification for the other routes when user has not seen the media', t => {
+test('should not display new media notification for the other routes when user has not seen any media', t => {
   const state = {
     data: {
+      contents: data.contents,
       progressions: {
         entities: {
           basic: createProgression(basicSlide)
@@ -209,4 +218,32 @@ test('should not display new media notification for the other routes when user h
     const props = playerProps(set('ui.route.basic', route, state));
     t.false(props.showNewMedia);
   });
+});
+
+test('should not display new media notification when user has seen at least one media of the current slide', t => {
+  const progression = createProgression(basicSlide);
+  progression.state.viewedResources = [
+    {
+      resources: [basicSlide.lessons[0]._id]
+    }
+  ];
+  const state = {
+    data: {
+      contents: data.contents,
+      progressions: {
+        entities: {
+          basic: progression
+        }
+      }
+    },
+    ui: {
+      current: {progressionId: 'basic'},
+      route: {
+        basic: 'answer'
+      }
+    }
+  };
+
+  const props = playerProps(state);
+  t.false(props.showNewMedia);
 });

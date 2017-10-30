@@ -19,6 +19,16 @@ test(
     ref: 'baz'
   })({}),
   t => ({
+    Content: {
+      find: (type, ref) => {
+        if (type === 'slide') {
+          return {_id: ref, chapter_id: '5.C7'};
+        }
+        if (type === 'chapter') {
+          return {_id: ref};
+        }
+      }
+    },
     Progressions: {
       postAnswers: (id, payload) => {
         t.is(id, 'foo');
@@ -56,6 +66,16 @@ test(
     ref: 'baz'
   })({}),
   t => ({
+    Content: {
+      find: (type, ref) => {
+        if (type === 'slide') {
+          return {_id: ref, chapter_id: '5.C7'};
+        }
+        if (type === 'chapter') {
+          return {_id: ref};
+        }
+      }
+    },
     Progressions: {
       postAnswers: (id, payload) => {
         t.is(id, 'foo');
@@ -65,6 +85,7 @@ test(
         });
         return pipe(
           set('state.content.ref', 'baz'),
+          set('state.nextContent', {type: 'success', ref: 'successExitNode'}),
           set('state.isCorrect', false),
           set('state.viewedResources', [])
         )({});
@@ -101,11 +122,15 @@ test(
         meta: {progressionId: 'foo'},
         payload: pipe(
           set('state.content.ref', 'baz'),
+          set('state.nextContent', {type: 'success', ref: 'successExitNode'}),
           set('state.isCorrect', false),
           set('state.viewedResources', [])
         )({})
       },
-      set('data.progressions.entities.foo', null, {})
+      set('data.progressions.entities.foo.state.nextContent', {
+        type: 'success',
+        ref: 'successExitNode'
+      })
     ],
     [
       {
