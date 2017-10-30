@@ -53,5 +53,10 @@
   "media_stars_to_win": "Nyerj {{count}} további csillag ebben a fejezetben az első időben figyelje a leckét!",
   "media_stars_to_win_plural": "Nyerj {{count}} további csillag ebben a fejezetben az első időben nézni a leckét!",
   "Open": "Nyitott",
-  "See clue": "Lásd a nyom"
+  "See clue": "Lásd a nyom",
+  "Reload": "Újratöltés",
+  "An Error Occurred": "Hiba történt a",
+  "No Selected Dashboard": "Nincs kiválasztott irányítópult",
+  "Select a dashboard in the Sidebar": "Jelöljön ki egy irányítópult a tálaló",
+  "Back to Dashboard Home": "Vissza a Dashboard Home"
 }
