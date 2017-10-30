@@ -53,5 +53,10 @@
   "media_stars_to_win": "Castiga {{count}} suplimentare stele în acest moment primul capitol te uiţi la lecţie!",
   "media_stars_to_win_plural": "Castiga {{count}} stele suplimentare în capitolul primul de data aceasta tu uita-te la lecţie!",
   "Open": "Deschis",
-  "See clue": "A se vedea indiciu"
+  "See clue": "A se vedea indiciu",
+  "Reload": "Reîncărcare",
+  "An Error Occurred": "A apărut o eroare",
+  "No Selected Dashboard": "Nici un tablou de bord selectate",
+  "Select a dashboard in the Sidebar": "Selectaţi un tablou de bord în bara laterală",
+  "Back to Dashboard Home": "Înapoi la tabloul de bord Home"
 }
