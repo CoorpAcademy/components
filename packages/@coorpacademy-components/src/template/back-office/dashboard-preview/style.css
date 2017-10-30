@@ -7,7 +7,7 @@
 @value light from colors;
 
 .container {
-  padding: 40px 0 0;
+  padding: 10px 0 0;
   overflow: hidden;
   display: flex;
   flex-flow: row nowrap;
@@ -24,8 +24,8 @@
   font-family: "Open Sans";
   width: 100%;
   text-align: center;
-  padding-right: 40px;
-  padding-bottom: 40px;
+  padding-right: 20px;
+  padding-bottom: 20px;
   position: relative;
 }
 
