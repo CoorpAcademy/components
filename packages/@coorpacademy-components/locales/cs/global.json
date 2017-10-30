@@ -53,5 +53,10 @@
   "media_stars_to_win": "Vyhrajte {{count}} další že hvězdy v této kapitole první době sledujete ponaučení!",
   "media_stars_to_win_plural": "Vyhrajte {{count}} další hvězdy v této kapitole první době sledovat lekci!",
   "Open": "Otevřené",
-  "See clue": "Viz Nápověda"
+  "See clue": "Viz Nápověda",
+  "Reload": "Znovu načíst",
+  "An Error Occurred": "Došlo k chybě",
+  "No Selected Dashboard": "Žádný vybraný řídicí panel",
+  "Select a dashboard in the Sidebar": "V postranním panelu vyberte řídicí panel",
+  "Back to Dashboard Home": "Zpět na domovskou stránku řídicího panelu"
 }
