@@ -123,6 +123,7 @@ const DashboardPreview = (props, context) => {
     title: d.name,
     name: `${kebabCase(d.name)}-link`,
     type: 'link',
+    href: d.href,
     onClick: () => onSelectDashboard(kebabCase(d.name)),
     selected: d.name === get('name', currentDashboard)
   }));
@@ -164,6 +165,7 @@ DashboardPreview.propTypes = {
   dashboards: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
+      href: PropTypes.string,
       description: PropTypes.string.isRequired
     })
   ),
