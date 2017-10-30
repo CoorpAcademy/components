@@ -53,5 +53,10 @@
   "media_stars_to_win": "Vincere {{count}} ulteriori che stelle in questo capitolo il primo tempo è guardare la lezione!",
   "media_stars_to_win_plural": "Vincere {{count}} ulteriori stelle in questo capitolo il primo tempo che è guardare la lezione!",
   "Open": "Aperto",
-  "See clue": "Vedere indizio"
+  "See clue": "Vedere indizio",
+  "Reload": "Reload",
+  "An Error Occurred": "Si è verificato un errore",
+  "No Selected Dashboard": "Nessuna Dashboard selezionato",
+  "Select a dashboard in the Sidebar": "Selezionare un dashboard nella barra laterale",
+  "Back to Dashboard Home": "Torna alla Home di Dashboard"
 }
