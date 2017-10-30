@@ -38,7 +38,7 @@ const currentDashboardSidebarSection = ({
     name: `${kebabCase(schema)}-field`,
     type: 'inputtext',
     onChange: newValue => onUpdateField(schema, newValue),
-    value: getOr('', 'schema', inputParams)
+    value: getOr('', schema, inputParams)
   }));
   return [dashboardDescription, ...paramInputs, dashboardVersion];
 };
