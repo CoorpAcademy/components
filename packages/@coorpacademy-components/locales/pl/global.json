@@ -53,5 +53,10 @@
   "media_stars_to_win": "Wygraj {{count}} dodatkowe, gwiazda w tym rozdziale pierwszym razem obejrzeć lekcję!",
   "media_stars_to_win_plural": "Wygraj {{count}} dodatkowe gwiazdki w ten rozdział pierwszy czas obejrzeć lekcję!",
   "Open": "Otwarte",
-  "See clue": "Zobacz pojęcia"
+  "See clue": "Zobacz pojęcia",
+  "Reload": "Załaduj ponownie",
+  "An Error Occurred": "Wystąpił błąd",
+  "No Selected Dashboard": "Nie ma wybranego pulpitu nawigacyjnego",
+  "Select a dashboard in the Sidebar": "Wybierz pulpit na pasku bocznym",
+  "Back to Dashboard Home": "Powrót do domu pulpitu nawigacyjnego"
 }
