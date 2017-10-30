@@ -63,7 +63,7 @@ const Dashboard = (props, context) => {
     return null;
   };
   return (
-    <div>
+    <div className={style.dashboardSelection}>
       <h1 className={style.dashboardTitle}>
         {getOr(translate('No Selected Dashboard'), 'name', selected)}
       </h1>

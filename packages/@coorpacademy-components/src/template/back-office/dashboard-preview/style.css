@@ -29,16 +29,24 @@
   position: relative;
 }
 
+.dashboardSelection {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 .dashboardTitle {
   font-size: 24px;
   color: dark;
   border: 1px solid light;
   padding: 10px;
+  flex-grow: 0;
 }
 
 .dashboardIframe {
   width: 100%;
-  height: 95%;
+  height: 100%;
+  flex-grow: 1;
 }
 
 .dashboardNoSelection {
