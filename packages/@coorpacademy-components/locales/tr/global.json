@@ -53,5 +53,10 @@
   "media_stars_to_win": "{{count}} bu bölüm ilk zamanında yıldız seni izlemem ek kazanın!",
   "media_stars_to_win_plural": "{{count}} ek yıldız seni izlemem bu bölüm ilk zamanında kazanın!",
   "Open": "Açık",
-  "See clue": "İpucu görmek"
+  "See clue": "İpucu görmek",
+  "Reload": "Yeniden yükle",
+  "An Error Occurred": "Bir hata oluştu",
+  "No Selected Dashboard": "Seçili Pano",
+  "Select a dashboard in the Sidebar": "Kenar Çubuğu'nda bir Pano seçin",
+  "Back to Dashboard Home": "Pano evine"
 }
