@@ -53,5 +53,10 @@
   "media_stars_to_win": "{{count}}이 장 처음으로에서 스타 레슨 시계 추가 기자!",
   "media_stars_to_win_plural": "이 장 처음으로 수업을 보고 {{count}} 추가 별을 승리!",
   "Open": "오픈",
-  "See clue": "단서를 참조"
+  "See clue": "단서를 참조",
+  "Reload": "다시 로드",
+  "An Error Occurred": "오류가 발생 했습니다.",
+  "No Selected Dashboard": "아니 선택 된 대시보드",
+  "Select a dashboard in the Sidebar": "사이드바에서 대시보드를 선택",
+  "Back to Dashboard Home": "대시보드 홈으로 돌아가기"
 }
