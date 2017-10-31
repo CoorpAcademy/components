@@ -44,7 +44,7 @@ export const SelectItem = props => {
 
 export const LinkItem = props => {
   const handleOnClick = e => {
-    e.preventDefault();
+    if (!props.href) e.preventDefault();
     props.onClick && props.onClick(e);
   };
   return (
