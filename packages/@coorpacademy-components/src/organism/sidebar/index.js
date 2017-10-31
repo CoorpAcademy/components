@@ -133,6 +133,7 @@ const SidebarItem = ({item, color, index}) => {
       return (
         <LinkItem
           title={item.title}
+          href={item.href}
           onClick={handleOnClick}
           name={item.name}
           index={index}

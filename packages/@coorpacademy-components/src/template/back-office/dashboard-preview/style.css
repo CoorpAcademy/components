@@ -12,6 +12,10 @@
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  top: 80px;  /* header height */
 }
 
 .dashboardAside {
