@@ -40,7 +40,8 @@
     "Gaelle Leguet <gaelle.leguet@coorpacademy.com>",
     "Jeroen Engels <jengels@coorpacademy.com>",
     "Joan Ortega <joan.ortega@coorpacademy.com>",
-    "Julien Seren-Rosso <julien.seren-rosso@coorpacademy.com>"
+    "Julien Seren-Rosso <julien.seren-rosso@coorpacademy.com>",
+    "Adrien Becchis <adrien.becchis@coorpacademy.com>"
   ],
   "dependencies": {
     "@coorpacademy/nova-icons": "1.1.15",
