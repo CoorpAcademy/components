@@ -49,7 +49,6 @@ const getNextChapterTitle = (state, progression) => {
 const getNextStepTitle = state => {
   const progression = getCurrentProgression(state);
   return isNewChapter(state, progression) ? getNextChapterTitle(state, progression) : null;
-  
 };
 
 const extraLifeCTAProps = ({translate}, {dispatch}) => state => {
