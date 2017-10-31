@@ -44,7 +44,6 @@ export const SelectItem = props => {
 
 export const LinkItem = props => {
   const handleOnClick = e => {
-    e.preventDefault();
     props.onClick && props.onClick(e);
   };
   return (
@@ -163,8 +162,6 @@ const SidebarItem = ({item, color, index}) => {
           disabled={item.disabled}
         />
       );
-    default:
-      return null;
   }
 };
 const InfoItemSchema = {
