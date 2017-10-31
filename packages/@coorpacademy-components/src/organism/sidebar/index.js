@@ -162,8 +162,6 @@ const SidebarItem = ({item, color, index}) => {
           disabled={item.disabled}
         />
       );
-    default:
-      return null;
   }
 };
 const InfoItemSchema = {
