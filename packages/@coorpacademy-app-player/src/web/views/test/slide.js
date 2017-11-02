@@ -103,11 +103,12 @@ test('should display slide', async t => {
       title: '__Clue',
       type: 'clue',
       selected: false
+    },
+    {
+      disabled: true,
+      title: '__Coach',
+      type: 'coach'
     }
-    // {
-    //   title: 'Coach',
-    //   type: 'coach'
-    // }
   ]);
 
   return Promise.all(map(button => t.notThrows(button.onClick), playerProps.buttons));
@@ -146,11 +147,12 @@ test('should display loading clue', async t => {
       title: '__Clue',
       type: 'clue',
       selected: true
+    },
+    {
+      disabled: true,
+      title: '__Coach',
+      type: 'coach'
     }
-    // {
-    //   title: 'Coach',
-    //   type: 'coach'
-    // }
   ]);
 
   return Promise.all(map(button => t.notThrows(button.onClick), playerProps.buttons));
@@ -189,11 +191,12 @@ test('should display clue', async t => {
       title: '__Clue',
       type: 'clue',
       selected: true
+    },
+    {
+      disabled: true,
+      title: '__Coach',
+      type: 'coach'
     }
-    // {
-    //   title: 'Coach',
-    //   type: 'coach'
-    // }
   ]);
 
   return Promise.all(map(button => t.notThrows(button.onClick), playerProps.buttons));

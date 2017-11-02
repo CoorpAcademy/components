@@ -154,3 +154,5 @@ export const getNextContentFromRecommendations = state => {
       return get('nextChapter', recommendations);
   }
 };
+
+export const getCoaches = getOr(0, 'ui.coaches.availableCoaches');

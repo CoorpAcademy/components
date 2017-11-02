@@ -7,6 +7,7 @@ import intersection from 'lodash/fp/intersection';
 import map from 'lodash/fp/map';
 import flatMap from 'lodash/fp/flatMap';
 import {
+  getCoaches,
   getCurrentProgression,
   getCurrentSlide,
   getCurrentProgressionId,
@@ -20,7 +21,7 @@ import {
 import {validateAnswer} from '../../actions/ui/answers';
 import {selectRoute} from '../../actions/ui/route';
 import {selectClue, getClue} from '../../actions/ui/clues';
-import {startChat} from '../../actions/ui/coach';
+import {startChat} from '../../actions/ui/coaches';
 import {createGetAnswerProps, createGetHelp} from './answer';
 import getResourcesProps from './resources';
 
@@ -75,6 +76,7 @@ const playerProps = (options, store) => state => {
       ]
     : [];
 
+  const availableCoaches = getCoaches(state);
   const buttons = [
     ...contextButton,
     {
@@ -89,16 +91,14 @@ const playerProps = (options, store) => state => {
       type: 'clue',
       selected: route === 'clue',
       onClick: clickClueHandler
-    }
-  ];
-  const isCoachAvailable = true; // TODO bind with data from sockets
-  if (isCoachAvailable) {
-    buttons.push({
+    },
+    {
       title: translate('Coach'),
       type: 'coach',
+      disabled: availableCoaches === 0,
       onClick: () => dispatch(startChat())
-    });
-  }
+    }
+  ];
 
   return {
     typeClue: isAnswer ? 'answer' : route,

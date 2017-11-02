@@ -57,11 +57,12 @@ const data = {
   }
 };
 
-test('should create player props for basic question', t => {
+test('should create player props for basic question and show coaches', t => {
   const state = {
     data,
     ui: {
-      current: {progressionId: 'basic'}
+      current: {progressionId: 'basic'},
+      coaches: {availableCoaches: 1}
     }
   };
 
@@ -76,6 +77,10 @@ test('should create player props for basic question', t => {
   t.true(isFunction(props.answerType.model.onChange));
   t.is(props.slideContext, undefined);
   t.is(props.cta.submitValue, '__Validate');
+
+  t.is(props.buttons.length, 3);
+  t.is(props.buttons[2].title, '__Coach');
+  t.is(props.buttons[2].type, 'coach');
 });
 
 test('should display context tab button if slide context is available', t => {
@@ -103,7 +108,7 @@ test('should display context tab button if slide context is available', t => {
   t.is(props.slideContext.title, 'Some context title');
   t.is(typeof props.slideContext.description, 'string');
   t.is(props.slideContext.description, contextSlide.context.description);
-  t.is(props.buttons.length, 3);
+  t.is(props.buttons.length, 4);
   t.is(props.buttons[0].title, '__Context');
   t.is(props.buttons[0].type, 'context');
   t.false(props.buttons[0].selected);

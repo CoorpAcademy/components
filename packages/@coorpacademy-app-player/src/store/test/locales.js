@@ -1,7 +1,6 @@
 import path from 'path';
 import test from 'ava';
 import glob from 'glob';
-import omit from 'lodash/fp/omit';
 import locales from '../../../locales/en/player';
 import localesUseMacro from '../../../../../test/helpers/locales';
 
@@ -14,5 +13,5 @@ test(
   localesUseMacro,
   __dirname,
   files,
-  omit(['Coach'], locales)
+  locales
 );
