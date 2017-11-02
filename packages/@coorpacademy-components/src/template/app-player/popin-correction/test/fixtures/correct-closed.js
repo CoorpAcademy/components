@@ -73,11 +73,11 @@ export default defaultsDeep(loading, {
     },
     klf: {
       value:
-        "Les éco-innovations sont divisées en 3 catégories : intégrées, radicales et économie de la fonctionnalité. La dernière consiste à remplacer un produit par un service. C'est par exemple le cas du système Vélib'."
+        "Les éco-innovations sont divisées en <b>3 catégories</b> : intégrées, radicales et économie de la fonctionnalité. La dernière consiste à remplacer un produit par un service. C'est par exemple le cas du système Vélib'."
     },
     tips: {
       value:
-        'Les smart cities, ou villes intelligentes, portent des solutions dans lesquelles se conjuguent les 3 types d’éco-innovations. En France, il en existait vingt début 2016, la plus grande étant Paris.'
+        '<a href="http://www.google.com" target="_blank">Les smart cities</a>, ou villes intelligentes, portent des solutions dans lesquelles se conjuguent les 3 types d’éco-innovations. En France, il en existait vingt début 2016, la plus grande étant Paris.'
     },
     onClick: id => console.log(id)
   }
