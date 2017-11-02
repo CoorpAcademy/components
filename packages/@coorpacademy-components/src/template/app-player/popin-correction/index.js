@@ -24,7 +24,13 @@ const Resources = ({resources}) =>
 
 const SimpleText = ({text}) =>
   <div data-name="simpleText" className={style.simpleTextWrapper}>
-    <p className={style.simpleText}>{text}</p>
+    <p
+      className={style.simpleText}
+      // eslint-disable-next-line react/no-danger
+      dangerouslySetInnerHTML={{
+        __html: text
+      }}
+    />
   </div>;
 
 SimpleText.propTypes = {
