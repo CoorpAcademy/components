@@ -22,7 +22,8 @@ test(
     }
   }),
   NORMAL_ACTION,
-  [NORMAL_ACTION]
+  [NORMAL_ACTION],
+  0
 );
 
 test(
@@ -32,14 +33,13 @@ test(
   t => ({
     Logger: {
       error: e => {
-        t.pass();
         t.deepEqual(e, payloadError);
       }
     }
   }),
   ERROR_ACTION,
   [ERROR_ACTION],
-  6
+  1
 );
 
 test(
@@ -49,12 +49,13 @@ test(
   t => ({
     Logger: {
       error: e => {
-        throw loggerError;
+        t.fail();
       }
     }
   }),
   NORMAL_ACTION,
-  [NORMAL_ACTION]
+  [NORMAL_ACTION],
+  0
 );
 
 test(
@@ -64,6 +65,7 @@ test(
   t => ({
     Logger: {
       error: e => {
+        t.pass();
         throw loggerError;
       }
     }
@@ -78,5 +80,6 @@ test(
       }
     },
     ERROR_ACTION
-  ]
+  ],
+  1
 );

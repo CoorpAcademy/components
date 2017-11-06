@@ -17,15 +17,13 @@ test(
   t => ({}),
   selectClue,
   [
-    [
-      {
-        type: UI_SELECT_ROUTE,
-        meta: {progressionId: 'foo'},
-        payload: 'clue'
-      },
-      set('ui.route.foo', 'clue', {})
-    ]
-  ]
+    {
+      type: UI_SELECT_ROUTE,
+      meta: {progressionId: 'foo'},
+      payload: 'clue'
+    }
+  ],
+  0
 );
 
 test(
@@ -54,50 +52,38 @@ test(
       findById: (progressionId, slideId) => {
         t.is(progressionId, 'foo');
         t.is(slideId, 'bar');
-
         return ['Clue'];
       }
     }
   }),
   getClue,
   [
-    [
-      {
-        type: PROGRESSION_REQUEST_CLUE_REQUEST,
-        meta: {progressionId: 'foo'}
+    {
+      type: PROGRESSION_REQUEST_CLUE_REQUEST,
+      meta: {progressionId: 'foo'}
+    },
+    {
+      type: PROGRESSION_REQUEST_CLUE_SUCCESS,
+      meta: {progressionId: 'foo'},
+      payload: set('state.requestdClues', ['bar'], {})
+    },
+    {
+      type: CLUE_FETCH_REQUEST,
+      meta: {
+        progressionId: 'foo',
+        slideId: 'bar'
+      }
+    },
+    {
+      type: CLUE_FETCH_SUCCESS,
+      meta: {
+        progressionId: 'foo',
+        slideId: 'bar'
       },
-      set('ui.current.progressionId', 'foo', {})
-    ],
-    [
-      {
-        type: PROGRESSION_REQUEST_CLUE_SUCCESS,
-        meta: {progressionId: 'foo'},
-        payload: set('state.requestdClues', ['bar'], {})
-      },
-      set('data.progressions.entities.foo.state.requestedClues', ['bar'], {})
-    ],
-    [
-      {
-        type: CLUE_FETCH_REQUEST,
-        meta: {
-          progressionId: 'foo',
-          slideId: 'bar'
-        }
-      },
-      set('api.clues.foo.bar', null, {})
-    ],
-    [
-      {
-        type: CLUE_FETCH_SUCCESS,
-        meta: {
-          progressionId: 'foo',
-          slideId: 'bar'
-        },
-        payload: ['Clue']
-      },
-      set('api.clues.foo.bar', ['Clue'], {})
-    ]
-  ]
+      payload: ['Clue']
+    }
+  ],
+  4
 );
 
 test(
@@ -118,7 +104,6 @@ test(
             type: 'slide'
           }
         });
-
         return set('state.requestdClues', ['bar'], {});
       }
     },
@@ -126,48 +111,36 @@ test(
       findById: (progressionId, slideId) => {
         t.is(progressionId, 'foo');
         t.is(slideId, 'bar');
-
         return ['Clue'];
       }
     }
   }),
   getClue,
   [
-    [
-      {
-        type: PROGRESSION_REQUEST_CLUE_REQUEST,
-        meta: {progressionId: 'foo'}
+    {
+      type: PROGRESSION_REQUEST_CLUE_REQUEST,
+      meta: {progressionId: 'foo'}
+    },
+    {
+      type: PROGRESSION_REQUEST_CLUE_SUCCESS,
+      meta: {progressionId: 'foo'},
+      payload: set('state.requestdClues', ['bar'], {})
+    },
+    {
+      type: CLUE_FETCH_REQUEST,
+      meta: {
+        progressionId: 'foo',
+        slideId: 'bar'
+      }
+    },
+    {
+      type: CLUE_FETCH_SUCCESS,
+      meta: {
+        progressionId: 'foo',
+        slideId: 'bar'
       },
-      set('ui.current.progressionId', 'foo', {})
-    ],
-    [
-      {
-        type: PROGRESSION_REQUEST_CLUE_SUCCESS,
-        meta: {progressionId: 'foo'},
-        payload: set('state.requestdClues', ['bar'], {})
-      },
-      set('data.progressions.entities.foo.state.requestedClues', ['bar'], {})
-    ],
-    [
-      {
-        type: CLUE_FETCH_REQUEST,
-        meta: {
-          progressionId: 'foo',
-          slideId: 'bar'
-        }
-      },
-      set('api.clues.foo.bar', null, {})
-    ],
-    [
-      {
-        type: CLUE_FETCH_SUCCESS,
-        meta: {
-          progressionId: 'foo',
-          slideId: 'bar'
-        },
-        payload: ['Clue']
-      },
-      set('api.clues.foo.bar', ['Clue'], {})
-    ]
-  ]
+      payload: ['Clue']
+    }
+  ],
+  4
 );

@@ -38,7 +38,8 @@ test(
       meta: {progressionId: 'foo'},
       payload: 'qux'
     }
-  ]
+  ],
+  2
 );
 
 test(
@@ -46,10 +47,15 @@ test(
   macro,
   getState({}),
   t => ({
+    Logger: {
+      error(err) {
+        t.is(err.message, 'some error');
+      }
+    },
     Progressions: {
       postAnswers: id => {
         t.is(id, 'foo');
-        throw new Error();
+        throw new Error('some error');
       }
     }
   }),
@@ -63,7 +69,8 @@ test(
       type: PROGRESSION_CREATE_ANSWER_FAILURE,
       meta: {progressionId: 'foo'},
       error: true,
-      payload: new Error()
+      payload: new Error('some error')
     }
-  ]
+  ],
+  2
 );

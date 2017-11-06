@@ -47,7 +47,8 @@ test(
       meta: {contentRef: 'foo'},
       payload: 'foo'
     }
-  ]
+  ],
+  1
 );
 
 test(
@@ -58,10 +59,15 @@ test(
     set('data.progressions.entities.0.content.ref', 'foo')
   )({}),
   t => ({
+    Logger: {
+      error(err) {
+        t.is(err.message, 'some error');
+      }
+    },
     Location: {
       retry: contentRef => {
         t.is(contentRef, 'foo');
-        throw new Error();
+        throw new Error('some error');
       }
     }
   }),
@@ -75,9 +81,10 @@ test(
       type: LOCATION_RETRY_FAILURE,
       meta: {contentRef: 'foo'},
       error: true,
-      payload: new Error()
+      payload: new Error('some error')
     }
-  ]
+  ],
+  2
 );
 
 test(
@@ -87,6 +94,7 @@ test(
   t => ({
     Location: {
       exit: () => {
+        t.pass();
         return 'foo';
       }
     }
@@ -100,7 +108,8 @@ test(
       type: LOCATION_EXIT_SUCCESS,
       payload: 'foo'
     }
-  ]
+  ],
+  1
 );
 
 test(
@@ -108,9 +117,15 @@ test(
   macro,
   {},
   t => ({
+    Logger: {
+      error(err) {
+        t.is(err.message, 'some error');
+      }
+    },
     Location: {
       exit: () => {
-        throw new Error();
+        t.pass();
+        throw new Error('some error');
       }
     }
   }),
@@ -122,9 +137,10 @@ test(
     {
       type: LOCATION_EXIT_FAILURE,
       error: true,
-      payload: new Error()
+      payload: new Error('some error')
     }
-  ]
+  ],
+  2
 );
 
 test(
@@ -138,6 +154,7 @@ test(
   t => ({
     Location: {
       back: () => {
+        t.pass();
         return 'foo';
       }
     }
@@ -151,7 +168,8 @@ test(
       type: LOCATION_BACK_SUCCESS,
       payload: 'foo'
     }
-  ]
+  ],
+  1
 );
 
 test(
@@ -163,9 +181,15 @@ test(
     set('data.progressions.entities.0.content', {type: 'level', ref: 'foo'})
   )({}),
   t => ({
+    Logger: {
+      error(err) {
+        t.is(err.message, 'some error');
+      }
+    },
     Location: {
       back: () => {
-        throw new Error();
+        t.pass();
+        throw new Error('some error');
       }
     }
   }),
@@ -177,9 +201,10 @@ test(
     {
       type: LOCATION_BACK_FAILURE,
       error: true,
-      payload: new Error()
+      payload: new Error('some error')
     }
-  ]
+  ],
+  2
 );
 
 test(
@@ -209,7 +234,7 @@ test(
       payload: '1.A'
     }
   ],
-  6
+  1
 );
 
 test(
@@ -222,10 +247,15 @@ test(
     set(['data', 'contents', 'level', 'entities', '1.B'], {ref: '1.B', level: 'base'})
   )({}),
   t => ({
+    Logger: {
+      error(err) {
+        t.is(err.message, 'some error');
+      }
+    },
     Location: {
       nextLevel: contentRef => {
         t.is(contentRef, '1.A');
-        throw new Error();
+        throw new Error('some error');
       }
     }
   }),
@@ -237,10 +267,10 @@ test(
     {
       type: LOCATION_NEXT_CONTENT_FAILURE,
       error: true,
-      payload: new Error()
+      payload: new Error('some error')
     }
   ],
-  6
+  2
 );
 
 test(
@@ -261,5 +291,5 @@ test(
   }),
   nextLevel,
   [],
-  3
+  0
 );

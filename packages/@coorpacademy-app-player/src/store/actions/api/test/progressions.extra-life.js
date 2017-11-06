@@ -50,7 +50,8 @@ test(
       meta: {progressionId: 'foo'},
       payload: 'foo'
     }
-  ]
+  ],
+  3
 );
 
 test(
@@ -58,6 +59,11 @@ test(
   macro,
   initState({}),
   t => ({
+    Logger: {
+      error(err) {
+        t.is(err.message, 'some error');
+      }
+    },
     Progressions: {
       postExtraLife: (id, payload) => {
         const isAccepted = get('isAccepted', payload);
@@ -67,7 +73,7 @@ test(
         t.is(contentRef, 'extraLife');
         t.is(id, 'foo');
 
-        throw new Error();
+        throw new Error('some error');
       }
     }
   }),
@@ -81,9 +87,10 @@ test(
       type: PROGRESSION_EXTRALIFEACCEPTED_FAILURE,
       meta: {progressionId: 'foo'},
       error: true,
-      payload: new Error()
+      payload: new Error('some error')
     }
-  ]
+  ],
+  4
 );
 
 test(
@@ -114,7 +121,8 @@ test(
       meta: {progressionId: 'foo'},
       payload: 'foo'
     }
-  ]
+  ],
+  3
 );
 
 test(
@@ -122,6 +130,11 @@ test(
   macro,
   initState({}),
   t => ({
+    Logger: {
+      error(err) {
+        t.is(err.message, 'some error');
+      }
+    },
     Progressions: {
       postExtraLife: (id, payload) => {
         const isAccepted = get('isAccepted', payload);
@@ -131,7 +144,7 @@ test(
         t.is(contentRef, 'extraLife');
         t.is(id, 'foo');
 
-        throw new Error();
+        throw new Error('some error');
       }
     }
   }),
@@ -145,7 +158,8 @@ test(
       type: PROGRESSION_EXTRALIFEREFUSED_FAILURE,
       meta: {progressionId: 'foo'},
       error: true,
-      payload: new Error()
+      payload: new Error('some error')
     }
-  ]
+  ],
+  4
 );

@@ -8,53 +8,16 @@ import {
   PROGRESSION_CREATE_ANSWER_REQUEST,
   PROGRESSION_CREATE_ANSWER_SUCCESS
 } from '../../../api/progressions';
-import {CONTENT_FETCH_REQUEST, CONTENT_FETCH_SUCCESS} from '../../../api/contents';
-import {accordionIsOpenAt, fetchCorrection} from './helpers/shared';
-
-const answerAndGetSuccessExitNode = [
-  [
-    {
-      type: PROGRESSION_CREATE_ANSWER_REQUEST,
-      meta: {progressionId: 'foo'}
-    },
-    set('ui.current.progressionId', 'foo', {})
-  ],
-  [
-    {
-      type: PROGRESSION_CREATE_ANSWER_SUCCESS,
-      meta: {progressionId: 'foo'},
-      payload: pipe(
-        set('state.content.ref', 'baz'),
-        set('state.nextContent', {type: 'slide', ref: 'baz'})
-      )({})
-    },
-    pipe(
-      set('data.progressions.entities.foo', null),
-      set('data.progressions.entities.foo.state.nextContent', {
-        type: 'success',
-        ref: 'successExitNode'
-      })
-    )({})
-  ]
-];
+import {ANSWER_FETCH_REQUEST, ANSWER_FETCH_SUCCESS} from '../../../api/answers';
+import {accordionIsOpenAt} from './helpers/shared';
 
 const services = t => ({
-  Content: {
-    find: (type, ref) => {
-      if (type === 'slide') {
-        return {_id: ref, chapter_id: 'chapId'};
-      }
-      if (type === 'chapter') {
-        return {_id: ref};
-      }
-    }
-  },
   Progressions: {
     postAnswers: (id, payload) => {
       t.is(id, 'foo');
       return pipe(
-        set('state.content.ref', 'baz'),
-        set('state.nextContent', {type: 'slide', ref: 'baz'})
+        set('state.content.ref', 'slideRef'),
+        set('state.nextContent', {type: 'success', ref: 'successExitNode'})
       )({});
     },
     findById: id => {
@@ -75,35 +38,41 @@ const services = t => ({
   }
 });
 
-const contentFetchActions = [
-  {
-    type: CONTENT_FETCH_REQUEST,
-    meta: {
-      type: 'slide',
-      ref: 'baz'
-    }
-  },
-  {
-    type: CONTENT_FETCH_SUCCESS,
-    meta: {
-      type: 'slide',
-      ref: 'baz'
-    },
-    payload: {_id: 'baz', chapter_id: 'chapId'}
-  }
-];
-
 test(
   'should submit last answer',
   macro,
-  set('data.progressions.entities.foo.state.nextContent', {type: 'slide', ref: 'baz'})({}),
+  set('data.progressions.entities.foo.state.nextContent', {type: 'slide', ref: 'slideRef'})({}),
   services,
   validateAnswer('foo', {answers: ['bar']}),
   flatten([
-    answerAndGetSuccessExitNode,
-    contentFetchActions,
+    {
+      type: PROGRESSION_CREATE_ANSWER_REQUEST,
+      meta: {progressionId: 'foo'}
+    },
+    {
+      type: PROGRESSION_CREATE_ANSWER_SUCCESS,
+      meta: {progressionId: 'foo'},
+      payload: pipe(
+        set('state.content.ref', 'slideRef'),
+        set('state.nextContent', {type: 'success', ref: 'successExitNode'})
+      )({})
+    },
     accordionIsOpenAt(0),
-    fetchCorrection
+    {
+      type: ANSWER_FETCH_REQUEST,
+      meta: {
+        progressionId: 'foo',
+        slideId: 'slideRef'
+      }
+    },
+    {
+      type: ANSWER_FETCH_SUCCESS,
+      meta: {
+        progressionId: 'foo',
+        slideId: 'slideRef'
+      },
+      payload: ['Bonne réponse']
+    }
   ]),
-  13
+  3
 );

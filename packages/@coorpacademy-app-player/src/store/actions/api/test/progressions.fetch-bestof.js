@@ -38,15 +38,13 @@ test(
       type: PROGRESSION_FETCH_BESTOF_REQUEST,
       meta: progressionContent
     },
-    [
-      {
-        type: PROGRESSION_FETCH_BESTOF_SUCCESS,
-        meta: progressionContent,
-        payload: 'baz'
-      },
-      set('data.contents.chapter.entities.bar.bestScore', 'baz', {})
-    ]
-  ]
+    {
+      type: PROGRESSION_FETCH_BESTOF_SUCCESS,
+      meta: progressionContent,
+      payload: 'baz'
+    }
+  ],
+  3
 );
 
 test(
@@ -70,7 +68,8 @@ test(
       type: PROGRESSION_FETCH_BESTOF_REQUEST,
       meta: progressionContent
     }
-  ]
+  ],
+  0
 );
 
 test(
@@ -78,10 +77,15 @@ test(
   macro,
   state,
   t => ({
+    Logger: {
+      error(err) {
+        t.is(err.message, 'some error');
+      }
+    },
     Progressions: {
       findBestOf: (engineRef, contentRef, id) => {
         t.is(contentRef, 'bar');
-        throw new Error();
+        throw new Error('some error');
       }
     }
   }),
@@ -95,7 +99,8 @@ test(
       type: PROGRESSION_FETCH_BESTOF_FAILURE,
       meta: progressionContent,
       error: true,
-      payload: new Error()
+      payload: new Error('some error')
     }
-  ]
+  ],
+  2
 );

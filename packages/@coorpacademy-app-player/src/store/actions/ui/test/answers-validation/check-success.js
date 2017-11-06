@@ -3,6 +3,7 @@ import pipe from 'lodash/fp/pipe';
 import set from 'lodash/fp/set';
 import flatten from 'lodash/fp/flatten';
 import macro from '../../../test/helpers/macro';
+import mockContentService from '../../../test/helpers/mock-content-service';
 import {validateAnswer} from '../../answers';
 import {
   PROGRESSION_CREATE_ANSWER_REQUEST,
@@ -14,7 +15,7 @@ import {accordionIsOpenAt} from './helpers/shared';
 
 const postAnswersPayload = pipe(
   set('state.content.ref', 'baz'),
-  set('state.nextContent', {type: 'slide', ref: 'baz'}),
+  set('state.nextContent', {type: 'slide', ref: 'slideRef'}),
   set('state.isCorrect', true)
 )({});
 
@@ -23,65 +24,69 @@ const contentFetchActions = [
     type: CONTENT_FETCH_REQUEST,
     meta: {
       type: 'slide',
-      ref: 'baz'
+      ref: 'slideRef'
     }
   },
   {
     type: CONTENT_FETCH_SUCCESS,
     meta: {
       type: 'slide',
-      ref: 'baz'
+      ref: 'slideRef'
     },
     payload: {
-      _id: 'baz',
-      chapterId: 'chapId'
+      _id: 'slideRef',
+      chapter_id: 'chapId',
+      foo: 'bar'
     }
+  },
+  {
+    type: CONTENT_FETCH_REQUEST,
+    meta: {
+      type: 'chapter',
+      ref: 'chapId'
+    }
+  },
+  {
+    type: CONTENT_FETCH_SUCCESS,
+    meta: {
+      type: 'chapter',
+      ref: 'chapId'
+    },
+    payload: {_id: 'chapId', foo: 'baz'}
   }
 ];
 
 const successfullyFetchAnswers = [
-  [
-    {
-      type: ANSWER_FETCH_REQUEST,
-      meta: {
-        progressionId: 'foo',
-        slideId: 'baz'
-      }
+  {
+    type: ANSWER_FETCH_REQUEST,
+    meta: {
+      progressionId: 'foo',
+      slideId: 'baz'
+    }
+  },
+  {
+    type: ANSWER_FETCH_SUCCESS,
+    meta: {
+      progressionId: 'foo',
+      slideId: 'baz'
     },
-    set('ui.answers.0.correction', null, {})
-  ],
-  [
-    {
-      type: ANSWER_FETCH_SUCCESS,
-      meta: {
-        progressionId: 'foo',
-        slideId: 'baz'
-      },
-      payload: {
-        correctAnswer: ['Bonne réponse'],
-        corrections: [{answer: 'bar', isCorrect: false}]
-      }
-    },
-    set('ui.answers.0.correction', 'Bonne réponse', {})
-  ]
+    payload: {
+      correctAnswer: ['Bonne réponse'],
+      corrections: [{answer: 'bar', isCorrect: false}]
+    }
+  }
 ];
 
 const createCorrectAnswer = [
-  [
-    {
-      type: PROGRESSION_CREATE_ANSWER_REQUEST,
-      meta: {progressionId: 'foo'}
-    },
-    set('ui.current.progressionId', 'foo', {})
-  ],
-  [
-    {
-      type: PROGRESSION_CREATE_ANSWER_SUCCESS,
-      meta: {progressionId: 'foo'},
-      payload: postAnswersPayload
-    },
-    set('data.progressions.entities.foo', null, {})
-  ]
+  {
+    type: PROGRESSION_CREATE_ANSWER_REQUEST,
+    meta: {progressionId: 'foo'}
+  },
+  {
+    type: PROGRESSION_CREATE_ANSWER_SUCCESS,
+    meta: {progressionId: 'foo'},
+    payload: postAnswersPayload
+  }
 ];
 
 test(
@@ -92,6 +97,7 @@ test(
     ref: 'baz'
   })({}),
   t => ({
+    Content: mockContentService(t),
     Progressions: {
       postAnswers: (id, payload) => {
         t.is(id, 'foo');
@@ -119,13 +125,6 @@ test(
       sendProgressionAnalytics: () => {
         t.pass();
       }
-    },
-    Content: {
-      find: (type, ref) => {
-        t.is(type, 'slide');
-        t.is(ref, 'baz');
-        return {_id: ref, chapterId: 'chapId'};
-      }
     }
   }),
   validateAnswer('foo', {answers: ['bar']}),
@@ -135,5 +134,5 @@ test(
     accordionIsOpenAt(2),
     successfullyFetchAnswers
   ]),
-  16
+  6
 );

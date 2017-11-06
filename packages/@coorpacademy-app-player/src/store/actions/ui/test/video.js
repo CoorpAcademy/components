@@ -23,26 +23,50 @@ import {
 const resource = {_id: 'resourceId', type: 'video'};
 const content = {ref: 'chapterRef', type: 'chapter'};
 
-test('should dispatch video pause action', macro, {}, t => ({}), pause(resource), [
-  {
-    type: UI_VIDEO_PAUSE,
-    resource
-  }
-]);
+test(
+  'should dispatch video pause action',
+  macro,
+  {},
+  t => ({}),
+  pause(resource),
+  [
+    {
+      type: UI_VIDEO_PAUSE,
+      resource
+    }
+  ],
+  0
+);
 
-test('should dispatch video ended action', macro, {}, t => ({}), ended(resource), [
-  {
-    type: UI_VIDEO_ENDED,
-    resource
-  }
-]);
+test(
+  'should dispatch video ended action',
+  macro,
+  {},
+  t => ({}),
+  ended(resource),
+  [
+    {
+      type: UI_VIDEO_ENDED,
+      resource
+    }
+  ],
+  0
+);
 
-test('should dispatch video resume action', macro, {}, t => ({}), resume(resource), [
-  {
-    type: UI_VIDEO_RESUME,
-    resource
-  }
-]);
+test(
+  'should dispatch video resume action',
+  macro,
+  {},
+  t => ({}),
+  resume(resource),
+  [
+    {
+      type: UI_VIDEO_RESUME,
+      resource
+    }
+  ],
+  0
+);
 
 test(
   'should dispatch video play action and forward to mark a resource as viewed',
@@ -57,7 +81,9 @@ test(
   )({}),
   t => ({
     Analytics: {
-      sendViewedMediaAnalytics: (media, location) => {}
+      sendViewedMediaAnalytics: (media, location) => {
+        t.pass();
+      }
     },
     Progressions: {
       markResourceAsViewed: (progressionId, payload) => {
@@ -91,19 +117,17 @@ test(
       type: PROGRESSION_RESOURCE_VIEWED_REQUEST,
       meta: {progressionId: 'foo', resource}
     },
-    [
-      {
-        type: PROGRESSION_RESOURCE_VIEWED_SUCCESS,
-        meta: {progressionId: 'foo', resource},
-        payload: set('state.viewedResources', [content.ref], {})
-      },
-      set('data.progressions.entities.foo.state.viewedResources', [content.ref], {})
-    ]
-  ]
+    {
+      type: PROGRESSION_RESOURCE_VIEWED_SUCCESS,
+      meta: {progressionId: 'foo', resource},
+      payload: set('state.viewedResources', [content.ref], {})
+    }
+  ],
+  3
 );
 
 test(
-  'should dispatch video play action and forward to mark a resource as viewed',
+  'should dispatch video play action and forward to mark a resource as viewed when requesting an extra life',
   macro,
   pipe(
     set('ui.current.progressionId', 'foo'),
@@ -114,11 +138,13 @@ test(
       ref: 'extraLife'
     }),
     set('data.progressions.entities.foo.content', content),
-    set('data.slides.entities.slideRef', 'slide')
+    set('data.contents.slide.entities.slideRef', 'slide')
   )({}),
   t => ({
     Analytics: {
-      sendViewedMediaAnalytics: (media, location) => {}
+      sendViewedMediaAnalytics: (media, location) => {
+        t.pass();
+      }
     },
     Progressions: {
       markResourceAsViewed: (progressionId, payload) => {
@@ -145,12 +171,11 @@ test(
       type: PROGRESSION_RESOURCE_VIEWED_REQUEST,
       meta: {progressionId: 'foo', resource}
     },
-    [
-      {
-        type: PROGRESSION_RESOURCE_VIEWED_SUCCESS,
-        meta: {progressionId: 'foo', resource},
-        payload: 'foo'
-      }
-    ]
-  ]
+    {
+      type: PROGRESSION_RESOURCE_VIEWED_SUCCESS,
+      meta: {progressionId: 'foo', resource},
+      payload: 'foo'
+    }
+  ],
+  2
 );
