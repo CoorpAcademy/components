@@ -67,10 +67,12 @@ const noExtraLifeCTAProps = ({translate}, {dispatch}) => state => {
   const progression = getCurrentProgression(state);
   const progressionId = getCurrentProgressionId(state);
   const isDead = progression.state.lives === 0;
-  const chapterTitle = isNewChapter(state, progression) ? 'Next Chapter' : 'Next';
+  const chapterTitle = isNewChapter(state, progression)
+    ? translate('Next chapter')
+    : translate('Next');
 
   return {
-    title: translate(isDead ? 'Game over' : chapterTitle),
+    title: isDead ? translate('Game over') : chapterTitle,
     onClick: () => dispatch(selectProgression(progressionId)),
     nextStepTitle: isDead ? null : getNextStepTitle(state)
   };

@@ -277,7 +277,7 @@ test('should return the index of the next chapter out of the total number of cha
 
   t.deepEqual(omit('onClick', cta), {
     type: 'correction',
-    title: '__Next Chapter',
+    title: '__Next chapter',
     nextStepTitle: '2/4 Some chapter name'
   });
 });
@@ -293,7 +293,7 @@ test('should return null for the next content title if next content is an exitno
   const ctaSuccess = createHeaderCTA({translate: mockTranslate}, {dispatch})(state);
   t.deepEqual(omit('onClick', ctaSuccess), {
     type: 'correction',
-    title: '__Next Chapter',
+    title: '__Next chapter',
     nextStepTitle: null
   });
 
@@ -304,7 +304,7 @@ test('should return null for the next content title if next content is an exitno
   const ctaFailure = createHeaderCTA({translate: mockTranslate}, {dispatch})(state);
   t.deepEqual(omit('onClick', ctaFailure), {
     type: 'correction',
-    title: '__Next Chapter',
+    title: '__Next chapter',
     nextStepTitle: null
   });
 });
@@ -320,7 +320,7 @@ test('should return null for the next content title if next content is an extral
   const cta = createHeaderCTA({translate: mockTranslate}, {dispatch})(state);
   t.deepEqual(omit('onClick', cta), {
     type: 'correction',
-    title: '__Next Chapter',
+    title: '__Next chapter',
     nextStepTitle: null
   });
 });
