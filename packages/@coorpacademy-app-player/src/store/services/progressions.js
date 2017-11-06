@@ -109,7 +109,9 @@ export const postExtraLife = async (progressionId, payload) => {
   const feedNextContent = _action => {
     let nextState = updateState(progression.engine, progression.state, [_action]);
     nextState = set('nextContent', progression.state.content, nextState);
-    return set('payload.nextContent', computeNextStep(progression.engine, slidePools, nextState))(
+    return set(
+      'payload.nextContent',
+      computeNextStep(progression.engine, slidePools, nextState),
       _action
     );
   };

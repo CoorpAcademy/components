@@ -137,7 +137,7 @@ export const getQuestionMedia = state => {
   return get('question.medias.0.src.0.url', slide);
 };
 
-export const getResourcesToPlay = state => get('ui.corrections.playResource', state);
+export const getResourceToPlay = state => get('ui.corrections.playResource', state);
 
 export const getLives = state => {
   const progression = getCurrentProgression(state);

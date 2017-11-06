@@ -31,6 +31,12 @@ const STARS_DIFF = {
   clue: 'starsPerAskingClue'
 };
 
+const shouldDisplayNewMedia = (slide, progression) => {
+  const currentLessons = map('ref', get('lessons', slide));
+  const viewedResources = flatMap('resources', getOr([], 'state.viewedResources', progression));
+  return isEmpty(intersection(currentLessons, viewedResources));
+};
+
 const playerProps = (options, store) => state => {
   const {translate} = options;
   const {dispatch} = store;
@@ -43,10 +49,9 @@ const playerProps = (options, store) => state => {
   const clue = getCurrentClue(state) || null;
   const route = getRoute(state);
   const resources = getResourcesProps(options, store)(state, slide);
-  const currentLessons = map('_id', get('lessons', slide));
-  const viewedResources = flatMap('resources', getOr([], 'state.viewedResources', progression));
-  const notifyNewMedia = isEmpty(intersection(currentLessons, viewedResources));
-  const starsDiff = (STARS_DIFF[route] && get(STARS_DIFF[route], engineConfig)) || 0;
+  const help = createGetHelp(options, store)(slide);
+  const notifyNewMedia = shouldDisplayNewMedia(slide, progression);
+  const starsDiff = get(STARS_DIFF[route], engineConfig) || 0;
   const isAnswer = !includes(route, ROUTES);
   const clickClueHandler = () => dispatch(selectClue);
   const clickSeeClueHandler = () => dispatch(getClue);
@@ -58,9 +63,6 @@ const playerProps = (options, store) => state => {
         slideId: slide._id
       })
     );
-
-  const getHelp = createGetHelp(options, store);
-  const help = getHelp(slide);
 
   const slideContext = get('context', slide);
   const contextButton = get('title', slideContext)
