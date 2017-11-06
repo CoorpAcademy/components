@@ -22,7 +22,7 @@ import {
   getStepContent,
   getEndRank,
   getBestScore,
-  getResourcesToPlay,
+  getResourceToPlay,
   getNextContentFromRecommendations
 } from '../state-extract';
 
@@ -232,10 +232,10 @@ test('getCurrentClue should get current clue from state', t => {
   t.is(getCurrentClue(state), clue);
 });
 
-test('getResourcesToPlay should get resources to play from state', t => {
+test('getResourceToPlay should get resources to play from state', t => {
   const state = set('ui.corrections.playResource', true, {});
 
-  t.true(getResourcesToPlay(state));
+  t.true(getResourceToPlay(state));
 });
 
 test('getEngine should extract engine from state', t => {
