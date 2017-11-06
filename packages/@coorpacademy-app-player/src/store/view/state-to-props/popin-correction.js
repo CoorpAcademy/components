@@ -18,7 +18,7 @@ import getResourcesProps from './resources';
 
 const isNewChapter = (state, progression) => {
   if (progression.content.type !== 'level') {
-    return false;
+    return null;
   }
   const currentSlide = getCurrentSlide(state);
   const currentChapterId = get('chapter_id', currentSlide);
@@ -67,9 +67,12 @@ const noExtraLifeCTAProps = ({translate}, {dispatch}) => state => {
   const progression = getCurrentProgression(state);
   const progressionId = getCurrentProgressionId(state);
   const isDead = progression.state.lives === 0;
+  const chapterTitle = isNewChapter(state, progression)
+    ? translate('Next chapter')
+    : translate('Next');
 
   return {
-    title: translate(isDead ? 'Game over' : 'Next'),
+    title: isDead ? translate('Game over') : chapterTitle,
     onClick: () => dispatch(selectProgression(progressionId)),
     nextStepTitle: isDead ? null : getNextStepTitle(state)
   };

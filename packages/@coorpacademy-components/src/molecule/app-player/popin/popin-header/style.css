@@ -250,7 +250,7 @@
 
 .nextButton {
   font-family: 'Open Sans';
-  color: inherit;
+  color: dark;
   font-size: 16px;
   font-weight: bold;
   margin-right: 1rem;
@@ -260,14 +260,16 @@
   background-color: transparent;
   border-radius: none;
   outline: none;
-  min-height: 56px;
+  min-height: 30px;
   transition: color 0.3s;
 }
 
 .nextButtonIcon {
   width: 20px;
   height: 20px;
-  margin-left: 14px;
+  padding: 0;
+  box-sizing: border-box;
+  margin-left: 2px;
 }
 
 .nextStepTitle {
