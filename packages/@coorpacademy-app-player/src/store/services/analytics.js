@@ -9,7 +9,7 @@ export const sendViewedMediaAnalytics = (resource, location) => {
   return window.dataLayer;
 };
 
-export const sendProgressionAnalytics = (nextContent, engineRef) => {
+export const sendProgressionAnalytics = (engineRef, nextContent) => {
   window.dataLayer = window.dataLayer || [];
   if (nextContent.type === 'success' || nextContent.type === 'failure') {
     window.dataLayer.push({

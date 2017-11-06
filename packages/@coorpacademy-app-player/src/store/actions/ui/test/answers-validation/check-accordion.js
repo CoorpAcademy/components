@@ -37,6 +37,7 @@ const extraLifeAndViewedThreeLessons = set(
 );
 
 const stateWithSlideAndManyResources = pipe(
+  set('ui.current.progressionId', 'foo'),
   set('data.progressions.entities.foo.engine', {version: '1', ref: 'learner'}),
   set('data.progressions.entities.foo.state.nextContent', {type: 'slide', ref: 'baz'}),
   set('data.progressions.entities.foo.content', {ref: 'chapId'}),
@@ -71,8 +72,8 @@ const services = result => t => ({
   Analytics: {
     sendProgressionAnalytics: (engineRef, nextContent) => {
       t.is(engineRef, 'learner');
-      t.deepEqual(nextContent, {type: 'slide', ref: 'baz'});
-      t.pass();
+      t.deepEqual(nextContent, result.state.nextContent);
+      return 'sent';
     }
   }
 });

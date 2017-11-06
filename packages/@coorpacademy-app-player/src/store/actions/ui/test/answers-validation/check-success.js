@@ -93,6 +93,7 @@ test(
   'should submit answers with the current content and refresh progression state',
   macro,
   pipe(
+    set('ui.current.progressionId', 'foo'),
     set('data.progressions.entities.foo.engine', {
       ref: 'learner',
       version: '1'
@@ -130,8 +131,8 @@ test(
     Analytics: {
       sendProgressionAnalytics: (engineRef, nextContent) => {
         t.is(engineRef, 'learner');
-        t.deepEqual(nextContent, {type: 'slide', ref: 'baz'});
-        t.pass();
+        t.deepEqual(nextContent, postAnswersPayload.state.nextContent);
+        return 'sent';
       }
     }
   }),

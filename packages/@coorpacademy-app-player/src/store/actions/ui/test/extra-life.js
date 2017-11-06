@@ -61,8 +61,8 @@ test(
     Analytics: {
       sendProgressionAnalytics: (engineRef, nextContent) => {
         t.is(engineRef, 'microlearning');
-        t.deepEqual(nextContent, {type: 'node', ref: 'extraLife'});
-        t.pass();
+        t.deepEqual(nextContent, {type: 'slide', ref: 'slideRef'});
+        return 'sent';
       }
     },
     Content: mockContentService(t),
@@ -134,7 +134,8 @@ test(
       type: SEND_PROGRESSION_ANALYTICS_SUCCESS,
       meta: {
         id: 'foo'
-      }
+      },
+      payload: 'sent'
     },
     {
       type: UI_SELECT_PROGRESSION,
@@ -205,7 +206,7 @@ test(
       meta: {type: 'chapter', ref: 'chapId'}
     }
   ],
-  10
+  12
 );
 
 test(
@@ -222,8 +223,8 @@ test(
     Analytics: {
       sendProgressionAnalytics: (engineRef, nextContent) => {
         t.is(engineRef, 'microlearning');
-        t.deepEqual(nextContent, {type: 'node', ref: 'extraLife'});
-        t.pass();
+        t.deepEqual(nextContent, {type: 'slide', ref: 'slideRef'});
+        return 'sent';
       }
     },
     Content: mockContentService(t),
@@ -291,25 +292,8 @@ test(
       type: SEND_PROGRESSION_ANALYTICS_SUCCESS,
       meta: {
         id: 'foo'
-      }
-    },
-    {
-      type: UI_PROGRESSION_UPDATED,
-      meta: {
-        id: 'foo'
-      }
-    },
-    {
-      type: SEND_PROGRESSION_ANALYTICS_REQUEST,
-      meta: {
-        id: 'foo'
-      }
-    },
-    {
-      type: SEND_PROGRESSION_ANALYTICS_SUCCESS,
-      meta: {
-        id: 'foo'
-      }
+      },
+      payload: 'sent'
     },
     {
       type: UI_SELECT_PROGRESSION,
@@ -380,5 +364,5 @@ test(
       meta: {type: 'chapter', ref: 'chapId'}
     }
   ],
-  10
+  12
 );

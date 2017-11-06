@@ -32,8 +32,10 @@ const services = t => ({
     }
   },
   Analytics: {
-    sendProgressionAnalytics: () => {
-      t.pass();
+    sendProgressionAnalytics: (engineRef, nextContent) => {
+      t.is(engineRef, 'learner');
+      t.deepEqual(nextContent, {type: 'success', ref: 'successExitNode'});
+      return 'sent';
     }
   }
 });
@@ -41,7 +43,14 @@ const services = t => ({
 test(
   'should submit last answer',
   macro,
-  set('data.progressions.entities.foo.state.nextContent', {type: 'slide', ref: 'slideRef'})({}),
+  pipe(
+    set('ui.current.progressionId', 'foo'),
+    set('data.progressions.entities.foo.engine', {
+      ref: 'learner',
+      version: '1'
+    }),
+    set('data.progressions.entities.foo.state.nextContent', {type: 'slide', ref: 'slideRef'})
+  )({}),
   services,
   validateAnswer('foo', {answers: ['bar']}),
   flatten([

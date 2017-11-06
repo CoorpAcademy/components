@@ -14,7 +14,12 @@ import {
 import {UI_REVIVAL_PENDING} from '../extra-life';
 import {UI_PROGRESSION_UPDATED} from '../progressions';
 
-import {MEDIA_VIEWED_ANALYTICS_REQUEST, MEDIA_VIEWED_ANALYTICS_SUCCESS} from '../../api/analytics';
+import {
+  MEDIA_VIEWED_ANALYTICS_REQUEST,
+  MEDIA_VIEWED_ANALYTICS_SUCCESS,
+  SEND_PROGRESSION_ANALYTICS_REQUEST,
+  SEND_PROGRESSION_ANALYTICS_SUCCESS
+} from '../../api/analytics';
 
 import {
   PROGRESSION_RESOURCE_VIEWED_REQUEST,
@@ -91,6 +96,7 @@ test(
       },
       sendProgressionAnalytics: () => {
         t.pass();
+        return 'qux';
       }
     },
     Progressions: {
@@ -133,6 +139,15 @@ test(
     {
       type: UI_PROGRESSION_UPDATED,
       meta: {id: 'foo'}
+    },
+    {
+      type: SEND_PROGRESSION_ANALYTICS_REQUEST,
+      meta: {id: 'foo'}
+    },
+    {
+      type: SEND_PROGRESSION_ANALYTICS_SUCCESS,
+      meta: {id: 'foo'},
+      payload: 'qux'
     }
   ],
   4
@@ -163,6 +178,7 @@ test(
       },
       sendProgressionAnalytics: () => {
         t.pass();
+        return 'qux';
       }
     },
     Progressions: {
@@ -197,7 +213,16 @@ test(
     },
     {
       type: UI_PROGRESSION_UPDATED,
-      payload: {id: 'foo'}
+      meta: {id: 'foo'}
+    },
+    {
+      type: SEND_PROGRESSION_ANALYTICS_REQUEST,
+      meta: {id: 'foo'}
+    },
+    {
+      type: SEND_PROGRESSION_ANALYTICS_SUCCESS,
+      meta: {id: 'foo'},
+      payload: 'qux'
     }
   ],
   3

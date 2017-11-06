@@ -7,30 +7,25 @@ import {
 } from '../../../../api/analytics';
 
 export const progressionUpdated = [
-  [
-    {
-      type: UI_PROGRESSION_UPDATED,
-      meta: {
-        id: 'foo'
-      }
+  {
+    type: UI_PROGRESSION_UPDATED,
+    meta: {
+      id: 'foo'
     }
-  ],
-  [
-    {
-      type: SEND_PROGRESSION_ANALYTICS_REQUEST,
-      meta: {
-        id: 'foo'
-      }
+  },
+  {
+    type: SEND_PROGRESSION_ANALYTICS_REQUEST,
+    meta: {
+      id: 'foo'
     }
-  ],
-  [
-    {
-      type: SEND_PROGRESSION_ANALYTICS_SUCCESS,
-      meta: {
-        id: 'foo'
-      }
-    }
-  ]
+  },
+  {
+    type: SEND_PROGRESSION_ANALYTICS_SUCCESS,
+    meta: {
+      id: 'foo'
+    },
+    payload: 'sent'
+  }
 ];
 
 export const accordionIsOpenAt = i => [
