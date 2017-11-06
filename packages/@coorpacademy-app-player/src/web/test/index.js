@@ -1,21 +1,9 @@
 import test from 'ava';
-import browserEnv from 'browser-env';
-import {mockTranslate} from '@coorpacademy/translate';
-import * as services from '../../store/services';
-import {create} from '..';
+import puppeteer from 'puppeteer';
+import createEngine from '../scenario/engine';
+import {runInsidePage} from '../scenario/helper';
+import failureScenario from '../scenario/microlearning/failure';
 
-browserEnv(['window', 'document', 'navigator']);
+const MICROLEARNING_URL = 'http://localhost:8080';
 
-test('should create app', t => {
-  const el = document.createElement('div');
-  const app = create({
-    translate: mockTranslate,
-    container: el,
-    services,
-    progression: '0'
-  });
-
-  app.update();
-  app.unsubscribe();
-  t.pass();
-});
+test('should fail', runInsidePage(failureScenario, MICROLEARNING_URL));
