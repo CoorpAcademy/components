@@ -10,7 +10,8 @@ import {
   PROGRESSION_RESOURCE_VIEWED_FAILURE
 } from '../progressions';
 
-const resource = {_id: 'resourceId', type: 'video'};
+const resource = {_id: 'resourceId', ref: 'resourceRef', type: 'video'};
+const resourceWithoutRef = {_id: 'resourceId', type: 'pdf'};
 const content = {ref: 'contentRef', type: 'chapter'};
 
 const initState = pipe(
@@ -34,8 +35,9 @@ test(
         t.is(id, 'foo');
         t.deepEqual(payload, {
           resource: {
-            ref: resource._id,
-            type: resource.type,
+            _id: 'resourceId',
+            ref: 'resourceRef',
+            type: 'video',
             version: '1'
           },
           content,
@@ -44,7 +46,7 @@ test(
 
         return set(
           'state.viewedResources',
-          [{ref: content.ref, type: 'chapter', resources: [resource._id]}],
+          [{ref: 'contentRef', type: 'chapter', resources: ['resourceRef']}],
           {}
         );
       }
@@ -61,7 +63,53 @@ test(
       meta: {progressionId: 'foo', resource},
       payload: set(
         'state.viewedResources',
-        [{ref: content.ref, type: 'chapter', resources: [resource._id]}],
+        [{ref: 'contentRef', type: 'chapter', resources: ['resourceRef']}],
+        {}
+      )
+    }
+  ],
+  2
+);
+
+test(
+  'should use resource._id as the ref if the resource has no ref',
+  macro,
+  initState(set('ui.route.foo', 'media', {})),
+  t => ({
+    Progressions: {
+      markResourceAsViewed: (id, payload) => {
+        t.is(id, 'foo');
+        t.deepEqual(payload, {
+          resource: {
+            _id: 'resourceId',
+            ref: 'resourceId',
+            type: 'pdf',
+            version: '1'
+          },
+          content,
+          slide: 'slide2'
+        });
+
+        return set(
+          'state.viewedResources',
+          [{ref: 'contentRef', type: 'chapter', resources: ['resourceId']}],
+          {}
+        );
+      }
+    }
+  }),
+  markResourceAsViewed('foo', resourceWithoutRef),
+  [
+    {
+      type: PROGRESSION_RESOURCE_VIEWED_REQUEST,
+      meta: {progressionId: 'foo', resource: resourceWithoutRef}
+    },
+    {
+      type: PROGRESSION_RESOURCE_VIEWED_SUCCESS,
+      meta: {progressionId: 'foo', resource: resourceWithoutRef},
+      payload: set(
+        'state.viewedResources',
+        [{ref: 'contentRef', type: 'chapter', resources: ['resourceId']}],
         {}
       )
     }
@@ -83,8 +131,9 @@ test(
         t.is(id, 'foo');
         t.deepEqual(payload, {
           resource: {
-            ref: resource._id,
-            type: resource.type,
+            _id: 'resourceId',
+            ref: 'resourceRef',
+            type: 'video',
             version: '1'
           },
           content,
@@ -93,7 +142,7 @@ test(
 
         return set(
           'state.viewedResources',
-          [{ref: content.ref, type: 'chapter', resources: [resource._id]}],
+          [{ref: 'contentRef', type: 'chapter', resources: ['resourceRef']}],
           {}
         );
       }
@@ -110,7 +159,7 @@ test(
       meta: {progressionId: 'foo', resource},
       payload: set(
         'state.viewedResources',
-        [{ref: content.ref, type: 'chapter', resources: [resource._id]}],
+        [{ref: 'contentRef', type: 'chapter', resources: ['resourceRef']}],
         {}
       )
     }
@@ -124,7 +173,7 @@ test(
   pipe(
     initState,
     set('data.progressions.entities.foo.state.viewedResources', [
-      {ref: content.ref, type: 'chapter', resources: [resource._id]}
+      {ref: 'contentRef', type: 'chapter', resources: ['resourceRef']}
     ]),
     set('ui.route.foo', 'media')
   )({}),
@@ -160,8 +209,9 @@ test(
         t.is(id, 'foo');
         t.deepEqual(payload, {
           resource: {
-            ref: resource._id,
-            type: resource.type,
+            _id: 'resourceId',
+            ref: 'resourceRef',
+            type: 'video',
             version: '1'
           },
           content,

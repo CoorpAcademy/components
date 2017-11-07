@@ -20,7 +20,7 @@ import {
   PROGRESSION_RESOURCE_VIEWED_SUCCESS
 } from '../../api/progressions';
 
-const resource = {_id: 'resourceId', type: 'video'};
+const resource = {_id: 'resourceId', ref: 'resourceRef', type: 'video'};
 const content = {ref: 'chapterRef', type: 'chapter'};
 
 test(
@@ -90,8 +90,9 @@ test(
         t.is(progressionId, 'foo');
         t.deepEqual(payload, {
           resource: {
-            ref: resource._id,
-            type: resource.type,
+            _id: 'resourceId',
+            ref: 'resourceRef',
+            type: 'video',
             version: '1'
           },
           content,
