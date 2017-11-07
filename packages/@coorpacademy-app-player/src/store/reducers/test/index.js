@@ -21,6 +21,9 @@ test(
     },
     ui: {
       answers: {},
+      coaches: {
+        availableCoaches: 0
+      },
       corrections: {},
       current: {
         progressionId: null

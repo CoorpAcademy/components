@@ -15,6 +15,10 @@ test('should create app', t => {
     progression: '0'
   });
 
+  app.updateCoaches({
+    chatStarted: false,
+    coachForDiscipline: []
+  });
   app.update();
   app.unsubscribe();
   t.pass();
