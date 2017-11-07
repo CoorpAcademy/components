@@ -229,7 +229,7 @@ test('should not display new media notification when user has seen at least one 
   const progression = createProgression(basicSlide);
   progression.state.viewedResources = [
     {
-      resources: [basicSlide.lessons[0]._id]
+      resources: [basicSlide.lessons[0].ref]
     }
   ];
   const state = {

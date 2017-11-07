@@ -194,7 +194,7 @@ export const markResourceAsViewed = (progressionId, resource) => (
 ) => {
   const {Progressions} = services;
   const state = getState();
-  const {_id: ref, type} = resource;
+  const {_id, ref = _id, type} = resource;
   const slide = getCurrentSlide(state) || getPreviousSlide(state);
   const progressionContent = getProgressionContent(state);
   const progression = getProgression(progressionId)(state);
@@ -202,6 +202,7 @@ export const markResourceAsViewed = (progressionId, resource) => (
 
   const payload = {
     resource: {
+      _id,
       ref,
       type,
       version: '1'
