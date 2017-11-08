@@ -9,7 +9,7 @@ import {
   PROGRESSION_CREATE_ANSWER_SUCCESS
 } from '../../../api/progressions';
 import {ANSWER_FETCH_REQUEST, ANSWER_FETCH_SUCCESS} from '../../../api/answers';
-import {accordionIsOpenAt} from './helpers/shared';
+import {accordionIsOpenAt, progressionUpdated} from './helpers/shared';
 
 const services = t => ({
   Progressions: {
@@ -32,8 +32,10 @@ const services = t => ({
     }
   },
   Analytics: {
-    sendProgressionAnalytics: () => {
-      t.pass();
+    sendProgressionAnalytics: (engineRef, nextContent) => {
+      t.is(engineRef, 'learner');
+      t.deepEqual(nextContent, {type: 'success', ref: 'successExitNode'});
+      return 'sent';
     }
   }
 });
@@ -41,7 +43,14 @@ const services = t => ({
 test(
   'should submit last answer',
   macro,
-  set('data.progressions.entities.foo.state.nextContent', {type: 'slide', ref: 'slideRef'})({}),
+  pipe(
+    set('ui.current.progressionId', 'foo'),
+    set('data.progressions.entities.foo.engine', {
+      ref: 'learner',
+      version: '1'
+    }),
+    set('data.progressions.entities.foo.state.nextContent', {type: 'slide', ref: 'slideRef'})
+  )({}),
   services,
   validateAnswer('foo', {answers: ['bar']}),
   flatten([
@@ -58,6 +67,7 @@ test(
       )({})
     },
     accordionIsOpenAt(0),
+    progressionUpdated,
     {
       type: ANSWER_FETCH_REQUEST,
       meta: {
@@ -74,5 +84,5 @@ test(
       payload: ['Bonne réponse']
     }
   ]),
-  3
+  4
 );

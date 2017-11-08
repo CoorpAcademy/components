@@ -8,6 +8,7 @@ import {getSlide, getProgressionContent} from '../../utils/state-extract';
 import {createAnswer} from '../api/progressions';
 import {fetchAnswer} from '../api/answers';
 import {fetchSlideChapter} from '../api/contents';
+import {progressionUpdated} from './progressions';
 import {toggleAccordion} from './corrections';
 
 export const ANSWER_EDIT = {
@@ -60,15 +61,15 @@ export const validateAnswer = (progressionId, body) => async (dispatch, getState
   if (createAnswerResponse.error) return createAnswerResponse;
 
   const payload = createAnswerResponse.payload;
-  services.Analytics.sendProgressionAnalytics(payload.state.nextContent);
 
   const progressionState = get('state', payload);
   const slideId = get('content.ref', progressionState);
 
   const {viewedResources = [], isCorrect = false} = progressionState;
 
-  const progressionContent = getProgressionContent(getState());
-  const slide = getSlide(slideId)(getState());
+  const state = getState();
+  const progressionContent = getProgressionContent(state);
+  const slide = getSlide(slideId)(state);
   const lessons = get('lessons', slide);
   const viewedResourcesForContent = pipe(find(progressionContent), getOr([], 'resources'))(
     viewedResources
@@ -89,5 +90,6 @@ export const validateAnswer = (progressionId, body) => async (dispatch, getState
       : await dispatch(toggleAccordion(1));
   }
 
+  await dispatch(progressionUpdated(progressionId));
   return dispatch(fetchAnswer(progressionId, slideId, body.answers));
 };

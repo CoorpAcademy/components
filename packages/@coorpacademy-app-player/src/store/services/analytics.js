@@ -9,13 +9,13 @@ export const sendViewedMediaAnalytics = (resource, location) => {
   return window.dataLayer;
 };
 
-export const sendProgressionAnalytics = nextContent => {
+export const sendProgressionAnalytics = (engineRef, nextContent) => {
   window.dataLayer = window.dataLayer || [];
   if (nextContent.type === 'success' || nextContent.type === 'failure') {
     window.dataLayer.push({
       event: 'finishProgression',
       progression: {
-        type: 'microlearning',
+        type: engineRef,
         state: nextContent.type
       }
     });

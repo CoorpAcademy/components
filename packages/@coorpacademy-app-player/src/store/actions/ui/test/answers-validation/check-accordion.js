@@ -10,7 +10,7 @@ import {
   PROGRESSION_CREATE_ANSWER_SUCCESS
 } from '../../../api/progressions';
 import {CONTENT_FETCH_REQUEST, CONTENT_FETCH_SUCCESS} from '../../../api/contents';
-import {accordionIsOpenAt, fetchCorrection} from './helpers/shared';
+import {accordionIsOpenAt, fetchCorrection, progressionUpdated} from './helpers/shared';
 
 const wrongAnswer = pipe(
   set('state.content.ref', 'baz'),
@@ -37,6 +37,8 @@ const extraLifeAndViewedThreeLessons = set(
 );
 
 const stateWithSlideAndManyResources = pipe(
+  set('ui.current.progressionId', 'foo'),
+  set('data.progressions.entities.foo.engine', {version: '1', ref: 'learner'}),
   set('data.progressions.entities.foo.state.nextContent', {type: 'slide', ref: 'baz'}),
   set('data.progressions.entities.foo.content', {ref: 'chapId'}),
   set('data.contents.slide.entities.baz', {
@@ -68,8 +70,10 @@ const services = result => t => ({
     }
   },
   Analytics: {
-    sendProgressionAnalytics: () => {
-      t.pass();
+    sendProgressionAnalytics: (engineRef, nextContent) => {
+      t.is(engineRef, 'learner');
+      t.deepEqual(nextContent, result.state.nextContent);
+      return 'sent';
     }
   }
 });
@@ -117,8 +121,14 @@ test(
   stateWithSlideAndManyResources,
   services(viewedOneLesson),
   validateAnswer('foo', {answers: ['bar']}),
-  flatten([answer(viewedOneLesson), contentFetchActions, accordionIsOpenAt(0), fetchCorrection]),
-  5
+  flatten([
+    answer(viewedOneLesson),
+    contentFetchActions,
+    accordionIsOpenAt(0),
+    progressionUpdated,
+    fetchCorrection
+  ]),
+  6
 );
 
 test(
@@ -127,8 +137,14 @@ test(
   stateWithSlideAndManyResources,
   services(viewedThreeLessons),
   validateAnswer('foo', {answers: ['bar']}),
-  flatten([answer(viewedThreeLessons), contentFetchActions, accordionIsOpenAt(1), fetchCorrection]),
-  5
+  flatten([
+    answer(viewedThreeLessons),
+    contentFetchActions,
+    accordionIsOpenAt(1),
+    progressionUpdated,
+    fetchCorrection
+  ]),
+  6
 );
 
 test(
@@ -137,6 +153,11 @@ test(
   stateWithSlideAndManyResources,
   services(extraLifeAndViewedThreeLessons),
   validateAnswer('foo', {answers: ['bar']}),
-  flatten([answer(extraLifeAndViewedThreeLessons), accordionIsOpenAt(0), fetchCorrection]),
-  4
+  flatten([
+    answer(extraLifeAndViewedThreeLessons),
+    accordionIsOpenAt(0),
+    progressionUpdated,
+    fetchCorrection
+  ]),
+  5
 );

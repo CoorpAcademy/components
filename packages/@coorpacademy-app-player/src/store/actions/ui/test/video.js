@@ -12,8 +12,14 @@ import {
   ended
 } from '../video';
 import {UI_REVIVAL_PENDING} from '../extra-life';
+import {UI_PROGRESSION_UPDATED} from '../progressions';
 
-import {MEDIA_VIEWED_ANALYTICS_REQUEST, MEDIA_VIEWED_ANALYTICS_SUCCESS} from '../../api/analytics';
+import {
+  MEDIA_VIEWED_ANALYTICS_REQUEST,
+  MEDIA_VIEWED_ANALYTICS_SUCCESS,
+  SEND_PROGRESSION_ANALYTICS_REQUEST,
+  SEND_PROGRESSION_ANALYTICS_SUCCESS
+} from '../../api/analytics';
 
 import {
   PROGRESSION_RESOURCE_VIEWED_REQUEST,
@@ -76,6 +82,10 @@ test(
     set('ui.route.foo', 'media'),
     set('data.progressions.entities.foo._id', 'foo'),
     set('data.progressions.entities.foo.state.nextContent.ref', 'slideRef'),
+    set('data.progressions.entities.foo.engine', {
+      version: '1',
+      ref: 'microlearning'
+    }),
     set('data.progressions.entities.foo.content', content),
     set('data.contents.slide.entities.slideRef', 'slide')
   )({}),
@@ -83,6 +93,10 @@ test(
     Analytics: {
       sendViewedMediaAnalytics: (media, location) => {
         t.pass();
+      },
+      sendProgressionAnalytics: () => {
+        t.pass();
+        return 'qux';
       }
     },
     Progressions: {
@@ -122,9 +136,22 @@ test(
       type: PROGRESSION_RESOURCE_VIEWED_SUCCESS,
       meta: {progressionId: 'foo', resource},
       payload: set('state.viewedResources', [content.ref], {})
+    },
+    {
+      type: UI_PROGRESSION_UPDATED,
+      meta: {id: 'foo'}
+    },
+    {
+      type: SEND_PROGRESSION_ANALYTICS_REQUEST,
+      meta: {id: 'foo'}
+    },
+    {
+      type: SEND_PROGRESSION_ANALYTICS_SUCCESS,
+      meta: {id: 'foo'},
+      payload: 'qux'
     }
   ],
-  3
+  4
 );
 
 test(
@@ -138,6 +165,10 @@ test(
       type: 'node',
       ref: 'extraLife'
     }),
+    set('data.progressions.entities.foo.engine', {
+      version: '1',
+      ref: 'microlearning'
+    }),
     set('data.progressions.entities.foo.content', content),
     set('data.contents.slide.entities.slideRef', 'slide')
   )({}),
@@ -145,6 +176,10 @@ test(
     Analytics: {
       sendViewedMediaAnalytics: (media, location) => {
         t.pass();
+      },
+      sendProgressionAnalytics: () => {
+        t.pass();
+        return 'qux';
       }
     },
     Progressions: {
@@ -176,7 +211,20 @@ test(
       type: PROGRESSION_RESOURCE_VIEWED_SUCCESS,
       meta: {progressionId: 'foo', resource},
       payload: 'foo'
+    },
+    {
+      type: UI_PROGRESSION_UPDATED,
+      meta: {id: 'foo'}
+    },
+    {
+      type: SEND_PROGRESSION_ANALYTICS_REQUEST,
+      meta: {id: 'foo'}
+    },
+    {
+      type: SEND_PROGRESSION_ANALYTICS_SUCCESS,
+      meta: {id: 'foo'},
+      payload: 'qux'
     }
   ],
-  2
+  3
 );

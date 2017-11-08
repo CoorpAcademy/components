@@ -34,7 +34,5 @@ test('verify sendProgressionAnalytics tag', t => {
     }
   };
 
-  sendProgressionAnalytics({
-    type: 'success'
-  });
+  sendProgressionAnalytics('microlearning', {type: 'success'});
 });

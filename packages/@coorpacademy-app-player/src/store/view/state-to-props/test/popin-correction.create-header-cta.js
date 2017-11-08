@@ -25,6 +25,10 @@ import {
   RANK_FETCH_END_REQUEST,
   RANK_FETCH_END_SUCCESS
 } from '../../../actions/api/rank';
+import {
+  SEND_PROGRESSION_ANALYTICS_REQUEST,
+  SEND_PROGRESSION_ANALYTICS_SUCCESS
+} from '../../../actions/api/analytics';
 import {ANSWER_FETCH_REQUEST, ANSWER_FETCH_SUCCESS} from '../../../actions/api/answers';
 import {
   CONTENT_FETCH_REQUEST,
@@ -34,7 +38,7 @@ import {
 } from '../../../actions/api/contents';
 import {EXIT_NODE_FETCH_REQUEST, EXIT_NODE_FETCH_SUCCESS} from '../../../actions/api/exit-nodes';
 import {RECO_FETCH_REQUEST, RECO_FETCH_SUCCESS} from '../../../actions/api/recommendations';
-import {UI_SELECT_PROGRESSION} from '../../../actions/ui/progressions';
+import {UI_SELECT_PROGRESSION, UI_PROGRESSION_UPDATED} from '../../../actions/ui/progressions';
 import popinExtraLife from '../../test/fixtures/popin-correction/popin-extra-life';
 import popinFailure from '../../test/fixtures/popin-correction/popin-failure';
 import popinRevival from '../../test/fixtures/popin-correction/popin-revival';
@@ -45,6 +49,9 @@ import {getCurrentProgressionId} from '../../../utils/state-extract';
 const services = {
   Answers: {
     findById: identity
+  },
+  Analytics: {
+    sendProgressionAnalytics: identity
   },
   Progressions: {
     findById: identity,
@@ -175,9 +182,14 @@ test('should create a "Refuse" CTA when entering an extra-life popin', async t =
     nextStepTitle: null
   });
   const dispatched = await cta.onClick();
-  t.deepEqual(actionTypes(dispatched), [
+  const actions = actionTypes(dispatched);
+
+  t.deepEqual(actions, [
     PROGRESSION_EXTRALIFEREFUSED_REQUEST,
     PROGRESSION_EXTRALIFEREFUSED_SUCCESS,
+    UI_PROGRESSION_UPDATED,
+    SEND_PROGRESSION_ANALYTICS_REQUEST,
+    SEND_PROGRESSION_ANALYTICS_SUCCESS,
     UI_SELECT_PROGRESSION,
     PROGRESSION_FETCH_REQUEST,
     RANK_FETCH_START_REQUEST,
@@ -212,6 +224,9 @@ test('should create an "Accept" CTA when entering a revival popin', async t => {
   t.deepEqual(actionTypes(dispatched), [
     PROGRESSION_EXTRALIFEACCEPTED_REQUEST,
     PROGRESSION_EXTRALIFEACCEPTED_SUCCESS,
+    UI_PROGRESSION_UPDATED,
+    SEND_PROGRESSION_ANALYTICS_REQUEST,
+    SEND_PROGRESSION_ANALYTICS_SUCCESS,
     UI_SELECT_PROGRESSION,
     PROGRESSION_FETCH_REQUEST,
     RANK_FETCH_START_REQUEST,

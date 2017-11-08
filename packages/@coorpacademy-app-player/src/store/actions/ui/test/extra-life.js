@@ -9,7 +9,7 @@ import {
   acceptExtraLifeAndReset,
   refuseExtraLifeAndReset
 } from '../extra-life';
-import {UI_SELECT_PROGRESSION} from '../progressions';
+import {UI_SELECT_PROGRESSION, UI_PROGRESSION_UPDATED} from '../progressions';
 import {
   PROGRESSION_FETCH_REQUEST,
   PROGRESSION_EXTRALIFEACCEPTED_REQUEST,
@@ -28,6 +28,10 @@ import {
   CONTENT_INFO_FETCH_REQUEST,
   CONTENT_INFO_FETCH_SUCCESS
 } from '../../api/contents';
+import {
+  SEND_PROGRESSION_ANALYTICS_REQUEST,
+  SEND_PROGRESSION_ANALYTICS_SUCCESS
+} from '../../api/analytics';
 
 test(
   'should dispatch revival pending',
@@ -54,6 +58,13 @@ test(
     set('data.progressions.entities.foo.state.content', {type: 'slide', ref: '1.A2.1'})
   )({}),
   t => ({
+    Analytics: {
+      sendProgressionAnalytics: (engineRef, nextContent) => {
+        t.is(engineRef, 'microlearning');
+        t.deepEqual(nextContent, {type: 'slide', ref: 'slideRef'});
+        return 'sent';
+      }
+    },
     Content: mockContentService(t),
     Progressions: {
       findById: id => {
@@ -108,6 +119,25 @@ test(
       }
     },
     {
+      type: UI_PROGRESSION_UPDATED,
+      meta: {
+        id: 'foo'
+      }
+    },
+    {
+      type: SEND_PROGRESSION_ANALYTICS_REQUEST,
+      meta: {
+        id: 'foo'
+      }
+    },
+    {
+      type: SEND_PROGRESSION_ANALYTICS_SUCCESS,
+      meta: {
+        id: 'foo'
+      },
+      payload: 'sent'
+    },
+    {
       type: UI_SELECT_PROGRESSION,
       payload: {id: 'foo'}
     },
@@ -176,7 +206,7 @@ test(
       meta: {type: 'chapter', ref: 'chapId'}
     }
   ],
-  10
+  12
 );
 
 test(
@@ -190,6 +220,13 @@ test(
     set('data.progressions.entities.foo.state.content', {type: 'slide', ref: '1.A2.1'})
   )({}),
   t => ({
+    Analytics: {
+      sendProgressionAnalytics: (engineRef, nextContent) => {
+        t.is(engineRef, 'microlearning');
+        t.deepEqual(nextContent, {type: 'slide', ref: 'slideRef'});
+        return 'sent';
+      }
+    },
     Content: mockContentService(t),
     Progressions: {
       findBestOf: (type, ref, id) => {
@@ -240,6 +277,25 @@ test(
       }
     },
     {
+      type: UI_PROGRESSION_UPDATED,
+      meta: {
+        id: 'foo'
+      }
+    },
+    {
+      type: SEND_PROGRESSION_ANALYTICS_REQUEST,
+      meta: {
+        id: 'foo'
+      }
+    },
+    {
+      type: SEND_PROGRESSION_ANALYTICS_SUCCESS,
+      meta: {
+        id: 'foo'
+      },
+      payload: 'sent'
+    },
+    {
       type: UI_SELECT_PROGRESSION,
       payload: {id: 'foo'}
     },
@@ -308,5 +364,5 @@ test(
       meta: {type: 'chapter', ref: 'chapId'}
     }
   ],
-  10
+  12
 );

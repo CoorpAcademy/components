@@ -8,7 +8,24 @@ import {
   PROGRESSION_REQUEST_CLUE_REQUEST,
   PROGRESSION_REQUEST_CLUE_SUCCESS
 } from '../../api/progressions';
+import {UI_PROGRESSION_UPDATED} from '../progressions';
 import {CLUE_FETCH_REQUEST, CLUE_FETCH_SUCCESS} from '../../api/clues';
+import {
+  SEND_PROGRESSION_ANALYTICS_REQUEST,
+  SEND_PROGRESSION_ANALYTICS_SUCCESS
+} from '../../api/analytics';
+
+const slide = {
+  ref: 'bar',
+  type: 'slide'
+};
+
+const setNextContent = set('data.progressions.entities.foo.state.nextContent', slide);
+
+const requestedCluePayload = pipe(
+  set('state.requestedClues', ['bar']),
+  set('state.nextContent', slide)
+)({});
 
 test(
   'should set state with selected clue',
@@ -31,10 +48,18 @@ test(
   macro,
   pipe(
     set('ui.current.progressionId', 'foo'),
-    set('data.progressions.entities.foo.state.nextContent.ref', 'bar'),
+    set('data.progressions.entities.foo.engine', {ref: 'microlearning', version: 1}),
+    setNextContent,
     set('data.contents.slide.entities.bar._id', 'bar')
   )({}),
   t => ({
+    Analytics: {
+      sendProgressionAnalytics: (engineRef, nextContent) => {
+        t.is(engineRef, 'microlearning');
+        t.deepEqual(nextContent, {type: 'slide', ref: 'bar'});
+        return 'sent';
+      }
+    },
     Progressions: {
       requestClue: (progressionId, payload) => {
         t.is(progressionId, 'foo');
@@ -45,7 +70,7 @@ test(
           }
         });
 
-        return set('state.requestdClues', ['bar'], {});
+        return requestedCluePayload;
       }
     },
     Clues: {
@@ -65,7 +90,7 @@ test(
     {
       type: PROGRESSION_REQUEST_CLUE_SUCCESS,
       meta: {progressionId: 'foo'},
-      payload: set('state.requestdClues', ['bar'], {})
+      payload: requestedCluePayload
     },
     {
       type: CLUE_FETCH_REQUEST,
@@ -81,66 +106,26 @@ test(
         slideId: 'bar'
       },
       payload: ['Clue']
-    }
-  ],
-  4
-);
-
-test(
-  'should unlock and fetch clue',
-  macro,
-  pipe(
-    set('ui.current.progressionId', 'foo'),
-    set('data.progressions.entities.foo.state.nextContent.ref', 'bar'),
-    set('data.contents.slide.entities.bar._id', 'bar')
-  )({}),
-  t => ({
-    Progressions: {
-      requestClue: (progressionId, payload) => {
-        t.is(progressionId, 'foo');
-        t.deepEqual(payload, {
-          content: {
-            ref: 'bar',
-            type: 'slide'
-          }
-        });
-        return set('state.requestdClues', ['bar'], {});
-      }
-    },
-    Clues: {
-      findById: (progressionId, slideId) => {
-        t.is(progressionId, 'foo');
-        t.is(slideId, 'bar');
-        return ['Clue'];
-      }
-    }
-  }),
-  getClue,
-  [
-    {
-      type: PROGRESSION_REQUEST_CLUE_REQUEST,
-      meta: {progressionId: 'foo'}
     },
     {
-      type: PROGRESSION_REQUEST_CLUE_SUCCESS,
-      meta: {progressionId: 'foo'},
-      payload: set('state.requestdClues', ['bar'], {})
-    },
-    {
-      type: CLUE_FETCH_REQUEST,
+      type: UI_PROGRESSION_UPDATED,
       meta: {
-        progressionId: 'foo',
-        slideId: 'bar'
+        id: 'foo'
       }
     },
     {
-      type: CLUE_FETCH_SUCCESS,
+      type: SEND_PROGRESSION_ANALYTICS_REQUEST,
       meta: {
-        progressionId: 'foo',
-        slideId: 'bar'
+        id: 'foo'
+      }
+    },
+    {
+      type: SEND_PROGRESSION_ANALYTICS_SUCCESS,
+      meta: {
+        id: 'foo'
       },
-      payload: ['Clue']
+      payload: 'sent'
     }
   ],
-  4
+  6
 );

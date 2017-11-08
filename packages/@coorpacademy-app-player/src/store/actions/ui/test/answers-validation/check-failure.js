@@ -1,6 +1,7 @@
 import test from 'ava';
 import pipe from 'lodash/fp/pipe';
 import set from 'lodash/fp/set';
+import flatten from 'lodash/fp/flatten';
 import macro from '../../../test/helpers/macro';
 import {validateAnswer} from '../../answers';
 import {UI_TOGGLE_ACCORDION} from '../../../ui/corrections';
@@ -10,14 +11,22 @@ import {
   PROGRESSION_CREATE_ANSWER_FAILURE
 } from '../../../api/progressions';
 import {ANSWER_FETCH_REQUEST, ANSWER_FETCH_FAILURE} from '../../../api/answers';
+import {progressionUpdated} from './helpers/shared';
 
 test(
   'should dispatch failure on request fail',
   macro,
-  set('data.progressions.entities.foo.state.nextContent', {
-    type: 'slide',
-    ref: 'baz'
-  })({}),
+  pipe(
+    set('ui.current.progressionId', 'foo'),
+    set('data.progressions.entities.foo.engine', {
+      ref: 'learner',
+      version: '1'
+    }),
+    set('data.progressions.entities.foo.state.nextContent', {
+      type: 'slide',
+      ref: 'baz'
+    })
+  )({}),
   t => ({
     Logger: {
       error(err) {
@@ -54,10 +63,17 @@ test(
 test(
   'should dispatch failure when answers request fail',
   macro,
-  set('data.progressions.entities.foo.state.nextContent', {
-    type: 'slide',
-    ref: 'baz'
-  })({}),
+  pipe(
+    set('ui.current.progressionId', 'foo'),
+    set('data.progressions.entities.foo.engine', {
+      ref: 'learner',
+      version: '1'
+    }),
+    set('data.progressions.entities.foo.state.nextContent', {
+      type: 'slide',
+      ref: 'baz'
+    })
+  )({}),
   t => ({
     Logger: {
       error(err) {
@@ -86,13 +102,15 @@ test(
       }
     },
     Analytics: {
-      sendProgressionAnalytics: () => {
-        t.pass();
+      sendProgressionAnalytics: (engineRef, nextContent) => {
+        t.is(engineRef, 'learner');
+        t.deepEqual(nextContent, {type: 'success', ref: 'successExitNode'});
+        return 'sent';
       }
     }
   }),
   validateAnswer('foo', {answers: ['bar']}),
-  [
+  flatten([
     {
       type: PROGRESSION_CREATE_ANSWER_REQUEST,
       meta: {progressionId: 'foo'}
@@ -113,6 +131,7 @@ test(
         id: 0
       }
     },
+    progressionUpdated,
     {
       type: ANSWER_FETCH_REQUEST,
       meta: {
@@ -129,6 +148,6 @@ test(
       error: true,
       payload: new Error('some error')
     }
-  ],
-  5
+  ]),
+  6
 );
