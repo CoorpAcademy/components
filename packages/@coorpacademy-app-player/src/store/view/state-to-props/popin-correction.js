@@ -3,6 +3,7 @@ import get from 'lodash/fp/get';
 import isNil from 'lodash/fp/isNil';
 import join from 'lodash/fp/join';
 import indexOf from 'lodash/fp/indexOf';
+import includes from 'lodash/fp/includes';
 import {
   getCurrentCorrection,
   getCurrentProgression,
@@ -17,8 +18,11 @@ import {selectProgression} from '../../actions/ui/progressions';
 import getResourcesProps from './resources';
 
 const isNewChapter = (state, progression) => {
-  if (progression.content.type !== 'level') {
-    return null;
+  if (
+    progression.content.type !== 'level' ||
+    includes(progression.state.nextContent.type, ['success', 'failure'])
+  ) {
+    return false;
   }
   const currentSlide = getCurrentSlide(state);
   const currentChapterId = get('chapter_id', currentSlide);
