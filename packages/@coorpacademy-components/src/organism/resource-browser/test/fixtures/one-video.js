@@ -9,6 +9,7 @@ export default {
         poster:
           '//static.coorpacademy.com/content/CoorpAcademy/content-partnerships-svp/cockpit-partner-svp/poster/poster-1480426784168.jpg',
         _id: '590b9be24f7b862e0046e577',
+        ref: 'resource_1.ref',
         subtitles: [],
         posters: [],
         src: [],

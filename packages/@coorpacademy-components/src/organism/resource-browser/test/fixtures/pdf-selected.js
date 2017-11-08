@@ -7,6 +7,7 @@ export default {
         mediaUrl:
           'https://static.coorpacademy.com/content/CoorpAcademy/content/cockpit-mooc-technique/raw/hierachie-contenu-1494494029567.pdf',
         _id: '590b9be24f7b862e0046e577',
+        ref: 'resource_1.ref',
         subtitles: [],
         posters: [],
         src: [],
@@ -21,6 +22,7 @@ export default {
         mimeType: 'application/vimeo',
         videoId: '89404998\n',
         _id: '590b862e2e967f64333ad45f',
+        ref: 'resource_2.ref',
         subtitles: [],
         posters: [],
         src: [],
