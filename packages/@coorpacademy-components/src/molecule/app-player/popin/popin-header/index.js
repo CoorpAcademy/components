@@ -112,6 +112,16 @@ const buildClass = (value, success, fail, loading) => {
   return value ? fail : success;
 };
 
+const getLinkStyle = ({isGameOver, extraLife, revival}) => {
+  if (isEmpty(extraLife) || revival) {
+    return style.oneMoreLife;
+  } else if (isGameOver) {
+    return style.gameOver;
+  } else {
+    return null;
+  }
+};
+
 const CorrectionPart = props => {
   const {fail, corrections = [], title, subtitle, stars, rank, extraLife} = props;
   const {active: isExtraLife} = extraLife;
@@ -173,11 +183,7 @@ const NextQuestionPart = (props, context) => {
 
   return (
     <Link
-      className={classnames(
-        style.nextSection,
-        isGameOver && style.gameOver,
-        (isEmpty(extraLife) || revival) && style.oneMoreLife
-      )}
+      className={classnames(style.nextSection, getLinkStyle({isGameOver, extraLife, revival}))}
       data-name="nextLink"
       data-next={dataNext}
       {...linkProps}

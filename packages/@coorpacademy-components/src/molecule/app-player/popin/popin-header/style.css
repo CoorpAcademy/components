@@ -226,6 +226,9 @@
 
 .gameOver {
   background-color: negative;
+}
+
+.gameOver .nextButton {
   color: white;
 }
 
