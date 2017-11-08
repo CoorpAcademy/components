@@ -1,5 +1,6 @@
 import React from 'react';
 import find from 'lodash/fp/find';
+import omit from 'lodash/fp/omit';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import ResourceMiniature from '../../atom/resource-miniature';
@@ -26,7 +27,9 @@ const Resources = ({resources, className}) => {
 
   return (
     <div className={style.resourcesList}>
-      {resources.map(resource => <ResourceMiniature key={resource._id} {...resource} />)}
+      {resources.map(resource =>
+        <ResourceMiniature key={resource._id} {...omit('ref', resource)} />
+      )}
     </div>
   );
 };

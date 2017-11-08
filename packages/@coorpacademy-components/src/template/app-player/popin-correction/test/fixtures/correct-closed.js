@@ -10,6 +10,7 @@ const resourceValues = [
     poster:
       '//static.coorpacademy.com/content/CoorpAcademy/content-partnerships-svp/cockpit-partner-svp/poster/poster-1480426784168.jpg',
     _id: '590b9be24f7b862e0046e577',
+    ref: 'resource_1.ref',
     subtitles: [],
     posters: [],
     src: [],
@@ -21,6 +22,7 @@ const resourceValues = [
     mediaUrl:
       '//static.coorpacademy.com/content/CoorpAcademy/content/cockpit-mooc-technique/raw/hierachie-contenu-1494494029567.pdf',
     _id: '590b9be24f7b862e0046e575',
+    ref: 'resource_2.ref',
     subtitles: [],
     posters: [],
     src: [],
@@ -34,6 +36,7 @@ const resourceValues = [
     mimeType: 'application/vimeo',
     videoId: '89404998\n',
     _id: '590b862e2e967f64333ad45f',
+    ref: 'resource_3.ref',
     subtitles: [],
     posters: [],
     src: [],

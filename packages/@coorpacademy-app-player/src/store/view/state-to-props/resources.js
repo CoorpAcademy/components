@@ -4,6 +4,7 @@ import map from 'lodash/fp/map';
 import pipe from 'lodash/fp/pipe';
 import set from 'lodash/fp/set';
 import some from 'lodash/fp/some';
+import omit from 'lodash/fp/omit';
 import {getResourceToPlay} from '../../utils/state-extract';
 import {selectResource} from '../../actions/ui/corrections';
 import {play, pause, resume, ended} from '../../actions/ui/video';
@@ -15,7 +16,7 @@ const getResourcesProps = (options, store) => (state, slide) => {
   const lessons = pipe(
     getOr([], 'lessons'),
     map(lesson => ({
-      ...lesson,
+      ...omit('ref', lesson),
       onClick: () => dispatch(selectResource(lesson._id)),
       onPlay: () => dispatch(play(lesson)),
       onResume: () => dispatch(resume(lesson)),
