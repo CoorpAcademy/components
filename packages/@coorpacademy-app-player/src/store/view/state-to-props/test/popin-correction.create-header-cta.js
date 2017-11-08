@@ -43,6 +43,7 @@ import popinExtraLife from '../../test/fixtures/popin-correction/popin-extra-lif
 import popinFailure from '../../test/fixtures/popin-correction/popin-failure';
 import popinRevival from '../../test/fixtures/popin-correction/popin-revival';
 import popinSuccess from '../../test/fixtures/popin-correction/popin-success';
+import popinSuccessNode from '../../test/fixtures/popin-correction/popin-success-node';
 import popinNextLevel from '../../test/fixtures/popin-correction/popin-next-level';
 import {getCurrentProgressionId} from '../../../utils/state-extract';
 
@@ -136,7 +137,43 @@ test('should create a "Next" CTA when entering a success popin', async t => {
   t.deepEqual(metaOf(PROGRESSION_FETCH_REQUEST, dispatched), {id: progressionId});
 });
 
-test('should create a "Game over" CTA when entering a success popin', async t => {
+test('should create a "Next" CTA when entering a success exit popin', async t => {
+  const state = popinSuccessNode;
+  const progressionId = getCurrentProgressionId(state);
+  const dispatch = createDispatch(state);
+  const cta = createHeaderCTA({translate: mockTranslate}, {dispatch})(state);
+
+  t.deepEqual(omit('onClick', cta), {
+    type: 'correction',
+    title: '__Next',
+    nextStepTitle: null
+  });
+  const dispatched = await cta.onClick();
+  t.deepEqual(actionTypes(dispatched), [
+    UI_SELECT_PROGRESSION,
+    PROGRESSION_FETCH_REQUEST,
+    RANK_FETCH_START_REQUEST,
+    RANK_FETCH_START_SUCCESS,
+    CONTENT_FETCH_REQUEST,
+    CONTENT_FETCH_SUCCESS,
+    PROGRESSION_FETCH_BESTOF_REQUEST,
+    PROGRESSION_FETCH_BESTOF_SUCCESS,
+    ENGINE_CONFIG_FETCH_REQUEST,
+    ENGINE_CONFIG_FETCH_SUCCESS,
+    CONTENT_INFO_FETCH_REQUEST,
+    CONTENT_INFO_FETCH_SUCCESS,
+    RANK_FETCH_END_REQUEST,
+    RANK_FETCH_END_SUCCESS,
+    RECO_FETCH_REQUEST,
+    RECO_FETCH_SUCCESS,
+    EXIT_NODE_FETCH_REQUEST,
+    EXIT_NODE_FETCH_SUCCESS
+  ]);
+
+  t.deepEqual(metaOf(PROGRESSION_FETCH_REQUEST, dispatched), {id: progressionId});
+});
+
+test('should create a "Game over" CTA when entering a failure exit popin', async t => {
   const state = popinFailure;
   const progressionId = getCurrentProgressionId(state);
   const dispatch = createDispatch(state);
