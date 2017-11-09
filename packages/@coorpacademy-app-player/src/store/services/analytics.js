@@ -9,14 +9,21 @@ export const sendViewedMediaAnalytics = (resource, location) => {
   return window.dataLayer;
 };
 
-export const sendProgressionAnalytics = (engineRef, nextContent) => {
+export const sendProgressionAnalytics = (currentProgression, engineConfig) => {
+  const state = currentProgression.state;
   window.dataLayer = window.dataLayer || [];
-  if (nextContent.type === 'success' || nextContent.type === 'failure') {
+
+  if (state.nextContent.type === 'success' || state.nextContent.type === 'failure') {
+    const nbExtraLifeUsed =
+      state.remainingLifeRequests < 0
+        ? 0
+        : engineConfig.remainingLifeRequests - state.remainingLifeRequests;
     window.dataLayer.push({
       event: 'finishProgression',
       progression: {
-        type: engineRef,
-        state: nextContent.type
+        type: currentProgression.engine.ref,
+        state: state.nextContent.type,
+        nbExtraLifeUsed
       }
     });
   }

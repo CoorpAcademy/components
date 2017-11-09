@@ -13,6 +13,7 @@ import getConfig from './config';
 
 const isAlive = (state: State): boolean => state.lives > 0;
 const hasRemainingLifeRequests = (state: State): boolean => state.remainingLifeRequests > 0;
+const stepIsAlreadyExtraLife = (state: State): boolean => get('content.ref', state) === 'extraLife';
 
 const getSlidePool = (
   config: Config,
@@ -44,7 +45,7 @@ export default function computeNextStep(
   const config = (getConfig(engine): Config);
   // if no more lives, return failure endpoint
   if (!isAlive(state)) {
-    return hasRemainingLifeRequests(state)
+    return !stepIsAlreadyExtraLife(state) && hasRemainingLifeRequests(state)
       ? {ref: 'extraLife', type: 'node'}
       : {ref: 'failExitNode', type: 'failure'};
   }

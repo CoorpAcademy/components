@@ -12,7 +12,7 @@ const realConfigurations: Array<Config> = [
     starsPerAskingClue: -1,
     starsPerCorrectAnswer: 4,
     starsPerResourceViewed: 4,
-    remainingLifeRequests: 1
+    remainingLifeRequests: 3
   }
 ];
 
