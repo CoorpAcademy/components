@@ -9,25 +9,17 @@
     "@coorpacademy/coorpacademy",
     "flowtype",
     "flowtype-errors",
-    "css-modules",
-    "react"
+    "css-modules"
   ],
   "extends": [
     "plugin:@coorpacademy/coorpacademy/core",
     "plugin:@coorpacademy/coorpacademy/ava",
     "plugin:@coorpacademy/coorpacademy/es20XX",
     "plugin:@coorpacademy/coorpacademy/lodash-fp",
-    "plugin:@coorpacademy/coorpacademy/prettier",
-    "plugin:react/all"
+    "plugin:@coorpacademy/coorpacademy/react",
+    "plugin:@coorpacademy/coorpacademy/prettier"
   ],
   "parser": "babel-eslint",
-  "parserOptions": {
-    "ecmaVersion": 2017,
-    "ecmaFeatures": {
-      "jsx": true
-    },
-    "sourceType": "module"
-  },
   "rules": {
     "ava/no-ignored-test-files": ["error", {"files": ["**/test/**/*.js"]}],
     "css-modules/no-undef-class": "error",
@@ -46,24 +38,7 @@
     "import/no-extraneous-dependencies": "off",
     "no-shadow": ["error", {"builtinGlobals": true, "hoist": "all", "allow": ["Promise", "history", "location", "find", "name", "Notification"]}],
     "promise/no-native": "off",
-    "react/closing-bracket-location": "off",
-    "react/forbid-component-props": "off",
-    "react/forbid-foreign-prop-types": "off",
-    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
-    "react/jsx-indent-props": "off",
-    "react/jsx-indent": "off",
-    "react/jsx-max-props-per-line": "off",
-    "react/jsx-no-literals": "off",
-    "react/jsx-sort-props": "off",
-    "react/jsx-wrap-multilines": "off",
-    "react/no-array-index-key": "off",
-    "react/no-multi-comp": "off",
-    "react/no-set-state": "off",
-    "react/no-typos": "off",
-    "react/prop-types": "off",
-    "react/require-default-props": "off",
-    "react/require-optimization": "off",
-    "react/sort-prop-types": "off"
+    "react/prop-types": "off"
   },
   "settings": {
     "import/ignore": ["node_modules", "\\.css$"],
