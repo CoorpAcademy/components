@@ -40,7 +40,7 @@ export const sendProgressionAnalytics = progressionId => (dispatch, getState, {s
       SEND_PROGRESSION_ANALYTICS_FAILURE
     ],
     task: () => Analytics.sendProgressionAnalytics(currentProgression, engineConfig),
-    meta: {currentProgression, engineConfig}
+    meta: {id: progressionId}
   });
 
   return dispatch(action);

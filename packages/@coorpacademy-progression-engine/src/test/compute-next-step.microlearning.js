@@ -7,7 +7,8 @@ import {
   stateBeforeGettingNextContent,
   failProgressionState,
   successProgressionState,
-  extraLifeProgressionState
+  extraLifeProgressionState,
+  extraLifeAlreadyRefusedProgressionState
 } from './fixtures/states';
 
 const engine = {
@@ -56,5 +57,15 @@ test('should return the extraLife endpoint when progressions has no more lives &
   t.deepEqual(nextStep, {
     ref: 'extraLife',
     type: 'node'
+  });
+});
+
+test('should return the failure endpoint when progression has at least one remaining extra life and extraLife has already just been refused', t => {
+  const state = Object.freeze(extraLifeAlreadyRefusedProgressionState);
+
+  const nextStep = computeNextStep(engine, slides, state);
+  t.deepEqual(nextStep, {
+    ref: 'failExitNode',
+    type: 'failure'
   });
 });

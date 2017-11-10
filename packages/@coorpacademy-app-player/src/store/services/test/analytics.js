@@ -1,4 +1,6 @@
 import test from 'ava';
+import set from 'lodash/fp/set';
+import pipe from 'lodash/fp/pipe';
 import {sendViewedMediaAnalytics, sendProgressionAnalytics} from '../analytics';
 
 test('populate dataLayer when empty', t => {
@@ -28,11 +30,19 @@ test('verify sendProgressionAnalytics tag', t => {
       push: evt => {
         t.deepEqual(evt, {
           event: 'finishProgression',
-          progression: {type: 'microlearning', state: 'success'}
+          progression: {type: 'microlearning', state: 'success', nbExtraLifeUsed: 2}
         });
       }
     }
   };
 
-  sendProgressionAnalytics('microlearning', {type: 'success'});
+  const currentProgression = pipe(
+    set('engine.ref', 'microlearning'),
+    set('state.nextContent.type', 'success'),
+    set('state.remainingLifeRequests', 1)
+  )({});
+
+  const engineConfig = {remainingLifeRequests: 3};
+
+  sendProgressionAnalytics(currentProgression, engineConfig);
 });

@@ -473,7 +473,7 @@ test('should go to failure when refusing extra life', t => {
   const newState = updateState(engine, state, [action]);
 
   t.is(newState.lives, 0);
-  t.is(newState.remainingLifeRequests, 0);
+  t.is(newState.remainingLifeRequests, 1);
   t.is(newState.nextContent.type, 'failure');
   t.is(get('content.ref', newState), 'extraLife');
 });

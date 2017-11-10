@@ -70,9 +70,9 @@ const services = result => t => ({
     }
   },
   Analytics: {
-    sendProgressionAnalytics: (engineRef, nextContent) => {
-      t.is(engineRef, 'learner');
-      t.deepEqual(nextContent, result.state.nextContent);
+    sendProgressionAnalytics: (currentProgression, engineConfig) => {
+      t.is(currentProgression.engine.ref, 'learner');
+      t.deepEqual(currentProgression.state.nextContent, result.state.nextContent);
       return 'sent';
     }
   }
