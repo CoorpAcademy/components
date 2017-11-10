@@ -14,11 +14,9 @@ const InputSwitch = props => {
 
   const titleView = title ? <span className={style.title}>{`${title} `}</span> : null;
 
-  const descriptionView = description
-    ? <div className={style.description}>
-        {description}
-      </div>
-    : null;
+  const descriptionView = description ? (
+    <div className={style.description}>{description}</div>
+  ) : null;
   const className = getClassState(style.default, style.modified, null, modified);
 
   return (

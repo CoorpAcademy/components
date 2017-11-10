@@ -35,22 +35,14 @@ const BattleRequest = (props, context) => {
       <div className={style.info}>
         <div className={style.name}>
           {username}
-          <span>
-            {challengeLabel}
-          </span>
+          <span>{challengeLabel}</span>
         </div>
         <div className={style.discipline}>
-          <div className={style.disciplineName}>
-            {discipline}
-          </div>
-          <div className={style.level}>
-            {level}
-          </div>
+          <div className={style.disciplineName}>{discipline}</div>
+          <div className={style.level}>{level}</div>
         </div>
       </div>
-      <div className={style.start}>
-        {startLabel}
-      </div>
+      <div className={style.start}>{startLabel}</div>
       <ArrowRightIcon className={style.arrow} color={light} />
     </Link>
   );

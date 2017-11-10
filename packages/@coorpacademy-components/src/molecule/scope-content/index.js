@@ -32,8 +32,7 @@ const ScopeContent = (props, context) => {
 
   const chapters = _chapters.map((chapter, index) => <li key={index}>{chapter.name}</li>);
 
-  const ctaView =
-    onClick &&
+  const ctaView = onClick && (
     <Button
       data-name="cta"
       type="link"
@@ -43,7 +42,8 @@ const ScopeContent = (props, context) => {
       style={{
         backgroundColor: get('common.primary', skin)
       }}
-    />;
+    />
+  );
 
   const medias = _medias.map((media, index) => {
     const {onClick: handleClick, href = '#', target, type} = media;
@@ -62,18 +62,17 @@ const ScopeContent = (props, context) => {
           <img src={media.image} />
           {type === 'video' ? <PlayIcon className={style.play} color={white} /> : null}
         </div>
-        <div className={style.mediaTitle}>
-          {media.title}
-        </div>
+        <div className={style.mediaTitle}>{media.title}</div>
       </Link>
     );
   });
 
-  const mediasView = _medias.length > 0
-    ? <div data-name="medias" className={style.medias}>
+  const mediasView =
+    _medias.length > 0 ? (
+      <div data-name="medias" className={style.medias}>
         {medias}
       </div>
-    : null;
+    ) : null;
 
   return (
     <div data-name="scopeContent">
@@ -82,35 +81,29 @@ const ScopeContent = (props, context) => {
           <div className={style.title}>
             {title}
             <div>
-              <span data-name="duration" className={style.time}>{time}</span>
+              <span data-name="duration" className={style.time}>
+                {time}
+              </span>
             </div>
           </div>
           {ctaView}
         </div>
         <div className={style.skills}>
-          <div className={style.coltitle}>
-            {skillsTitle}
-          </div>
-          <ul className={style.dottedlist}>
-            {skills}
-          </ul>
+          <div className={style.coltitle}>{skillsTitle}</div>
+          <ul className={style.dottedlist}>{skills}</ul>
         </div>
         <div className={style.column}>
-          <div className={style.coltitle}>
-            {chaptersTitle}
-          </div>
+          <div className={style.coltitle}>{chaptersTitle}</div>
           <div>
-            <ul className={style.roundedlist}>
-              {chapters}
-            </ul>
+            <ul className={style.roundedlist}>{chapters}</ul>
           </div>
         </div>
       </div>
 
       {mediasView}
-      {get('discussion', content)
-        ? <Discussion className={style.discussion} {...content.discussion} />
-        : null}
+      {get('discussion', content) ? (
+        <Discussion className={style.discussion} {...content.discussion} />
+      ) : null}
     </div>
   );
 };

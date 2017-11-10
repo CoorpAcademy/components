@@ -24,14 +24,14 @@ function BrandForm(props, context) {
   const {skin} = context;
   const darkColor = get('common.dark', skin);
 
-  const backView =
-    back &&
+  const backView = back && (
     <p className={style.back}>
       <ArrowLeft color={darkColor} className={style.arrowBack} />
       <Link href={back.link} className={style.backDesc}>
         {back.desc}
       </Link>
-    </p>;
+    </p>
+  );
 
   const brandGroups = groups.map((group, index) => {
     return (
@@ -42,11 +42,11 @@ function BrandForm(props, context) {
   });
 
   const disabledSubmit = disabled || isPending || !isModified;
-  const submitButton = onSubmit
-    ? <div className={style.saveButton}>
-        <Button type="submit" disabled={disabledSubmit} submitValue={submitValue} />
-      </div>
-    : null;
+  const submitButton = onSubmit ? (
+    <div className={style.saveButton}>
+      <Button type="submit" disabled={disabledSubmit} submitValue={submitValue} />
+    </div>
+  ) : null;
   const handleSubmit = e => {
     e.preventDefault();
     return onSubmit(e);
@@ -54,11 +54,11 @@ function BrandForm(props, context) {
 
   const cancelBackground = {backgroundColor: darkColor};
 
-  const resetButton = onReset
-    ? <div className={style.resetButton}>
-        <Button type="reset" submitValue={resetValue} style={cancelBackground} />
-      </div>
-    : null;
+  const resetButton = onReset ? (
+    <div className={style.resetButton}>
+      <Button type="reset" submitValue={resetValue} style={cancelBackground} />
+    </div>
+  ) : null;
   const handleReset = e => {
     e.preventDefault();
     return onReset(e);

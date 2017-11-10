@@ -35,11 +35,12 @@ Content.contextTypes = {
   skin: Provider.childContextTypes.skin
 };
 
-const Subcontent = ({title, details}, context) =>
+const Subcontent = ({title, details}, context) => (
   <div className={style.subcontent}>
     <div className={style.subcontentDetails}>{details}</div>
     <div className={style.subcontentTitle}>{title}</div>
-  </div>;
+  </div>
+);
 
 const LearnerHeader = (props, context) => {
   const {content, subcontent} = props;

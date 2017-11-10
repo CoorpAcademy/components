@@ -61,13 +61,11 @@ forEach((folder, folderName) => {
     const stories = storiesOf(`${folderName}.${componentName}`, module);
     stories.addDecorator(withKnobs);
     forEach(({props, children}, fixtureName) => {
-      stories.add(fixtureName, () =>
+      stories.add(fixtureName, () => (
         <Provider {...context}>
-          <Component {...toKnobs(props)}>
-            {children}
-          </Component>
+          <Component {...toKnobs(props)}>{children}</Component>
         </Provider>
-      );
+      ));
     }, componentFixtures);
   }, folder);
 }, components);

@@ -59,24 +59,16 @@ class ImageUpload extends React.Component {
         </div>
       );
     } else {
-      previewView = (
-        <span>
-          {previewLabel}
-        </span>
-      );
+      previewView = <span>{previewLabel}</span>;
     }
 
     return (
       <div className={style.wrapper}>
         <div className={style.title}>{title}</div>
-        <div className={modified ? style.modified : style.previewWrapper}>
-          {previewView}
-        </div>
+        <div className={modified ? style.modified : style.previewWrapper}>{previewView}</div>
         <div className={this.state.dragging ? style.dragging : style.inputWrapper} id={idBox}>
           <UploadIcon className={style.arrow} color={brandColor} />
-          <div className={style.uploadLabel}>
-            {uploadLabel}
-          </div>
+          <div className={style.uploadLabel}>{uploadLabel}</div>
           <input
             type="file"
             accept="image/*"

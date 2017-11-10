@@ -39,11 +39,7 @@ const SetupSlide = props => {
 
   const fieldsList = map.convert({cap: false})(buildField, fields);
 
-  return (
-    <div className={style.wrapper}>
-      {fieldsList}
-    </div>
-  );
+  return <div className={style.wrapper}>{fieldsList}</div>;
 };
 
 SetupSlide.propTypes = {

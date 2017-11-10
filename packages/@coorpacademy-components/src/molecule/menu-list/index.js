@@ -16,11 +16,11 @@ const MenuList = props => {
   const MenuitemDiv = menuItems.map((item, index) => {
     const {title, href, type, subItems, outgoing = false} = item;
 
-    const subItemsView =
-      !isNil(subItems) &&
+    const subItemsView = !isNil(subItems) && (
       <div className={style.subNav}>
         <SsMenuList items={item.subItems} />
-      </div>;
+      </div>
+    );
 
     return (
       <li key={index} className={type ? buttonStyle[type] : style.item}>
@@ -38,9 +38,7 @@ const MenuList = props => {
       <label htmlFor="toggle" className={style.toggler}>
         ≡
       </label>
-      <ul className={style.list}>
-        {MenuitemDiv}
-      </ul>
+      <ul className={style.list}>{MenuitemDiv}</ul>
     </div>
   );
 };

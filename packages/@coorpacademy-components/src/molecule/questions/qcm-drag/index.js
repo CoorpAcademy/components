@@ -15,10 +15,9 @@ const AnswersPropTypes = PropTypes.arrayOf(
   })
 );
 
-const EmptyView = (props, {translate}) =>
-  <span className={style.emptySpan}>
-    {translate('Select the correct option(s) below')}
-  </span>;
+const EmptyView = (props, {translate}) => (
+  <span className={style.emptySpan}>{translate('Select the correct option(s) below')}</span>
+);
 
 EmptyView.contextTypes = {
   translate: Provider.childContextTypes.translate
@@ -34,11 +33,7 @@ const Choices = ({answers}) => {
     );
   });
 
-  return (
-    <div className={style.qcmDrag}>
-      {answersViews}
-    </div>
-  );
+  return <div className={style.qcmDrag}>{answersViews}</div>;
 };
 
 Choices.propTypes = {
@@ -58,11 +53,7 @@ const SelectionBox = ({answers}) => {
   });
 
   if (selectedAnswersViews.length > 0) {
-    return (
-      <div className={style.selectedAnswers}>
-        {selectedAnswersViews}
-      </div>
-    );
+    return <div className={style.selectedAnswers}>{selectedAnswersViews}</div>;
   } else {
     return (
       <div className={style.emptyAnswers}>
@@ -76,13 +67,14 @@ SelectionBox.propTypes = {
   answers: AnswersPropTypes
 };
 
-const QcmDrag = ({answers}, context) =>
+const QcmDrag = ({answers}, context) => (
   <div className={style.qcmDrag}>
     <SelectionBox answers={answers} />
     <div data-name="qcm-drag-answers" className={style.answers}>
       <Choices answers={answers} />
     </div>
-  </div>;
+  </div>
+);
 
 QcmDrag.contextTypes = {
   translate: Provider.childContextTypes.translate

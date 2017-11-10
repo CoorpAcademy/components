@@ -15,9 +15,7 @@ const SetupHeader = props => {
         <div className={style.avatar}>
           <img src={image} />
         </div>
-        <div className={style.username}>
-          {username}
-        </div>
+        <div className={style.username}>{username}</div>
       </div>
       <div className={style.logo}>
         <Link href={href}>
@@ -26,9 +24,7 @@ const SetupHeader = props => {
         </Link>
       </div>
       <div className={style.logout}>
-        <Link href={logout}>
-          {logoutValue}
-        </Link>
+        <Link href={logout}>{logoutValue}</Link>
       </div>
     </div>
   );

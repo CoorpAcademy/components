@@ -42,18 +42,21 @@ class Authors extends React.Component {
     const toggleLabel = this.state.fullDisplay ? translate('See less') : translate('Show more');
 
     const socialView = map.convert({cap: false})(
-      (sociallink, i) =>
+      (sociallink, i) => (
         <div key={i} data-name="link" className={style.link}>
           <SocialLink {...sociallink} />
-        </div>,
+        </div>
+      ),
       sociallinks
     );
 
-    const authorSocial = socialView.length > 0
-      ? <div className={style.links}>
-          <span>{socialTitle}</span>{socialView}
+    const authorSocial =
+      socialView.length > 0 ? (
+        <div className={style.links}>
+          <span>{socialTitle}</span>
+          {socialView}
         </div>
-      : null;
+      ) : null;
 
     return (
       <div data-name="authors" className={style.wrapper}>
@@ -97,9 +100,7 @@ class Authors extends React.Component {
               </div>
             </div>
           </div>
-          <div className={style.cardsTitle}>
-            {cardsTitle}
-          </div>
+          <div className={style.cardsTitle}>{cardsTitle}</div>
           <CardsGrid {...cards} />
         </div>
       </div>

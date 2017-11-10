@@ -41,11 +41,12 @@ class Theme extends React.Component {
 
   render() {
     const {selected, primaryColor, title, handleClick, name: themeName} = this.props;
-    const activeColor = this.state.hovered || selected
-      ? {
-          color: primaryColor
-        }
-      : null;
+    const activeColor =
+      this.state.hovered || selected
+        ? {
+            color: primaryColor
+          }
+        : null;
 
     return (
       <div
@@ -193,11 +194,10 @@ class MoocHeader extends React.Component {
             aria-haspopup="true"
             data-name="thematique"
           >
-            {currentTheme.title}<ArrowDown color={mediumColor} className={style.caret} />
+            {currentTheme.title}
+            <ArrowDown color={mediumColor} className={style.caret} />
           </div>
-          <div className={style.optionsGroup}>
-            {optionsView}
-          </div>
+          <div className={style.optionsGroup}>{optionsView}</div>
         </div>
       );
     }
@@ -210,11 +210,8 @@ class MoocHeader extends React.Component {
             }
           : null;
 
-        const battlesView = page.counter > 0
-          ? <div className={style.battlesCounter}>
-              {page.counter}
-            </div>
-          : null;
+        const battlesView =
+          page.counter > 0 ? <div className={style.battlesCounter}>{page.counter}</div> : null;
 
         const {name: pageName = index} = page;
 
@@ -275,11 +272,10 @@ class MoocHeader extends React.Component {
           {displayedPages}
           <div className={style.more}>
             <div className={style.currentOption} aria-haspopup="true" data-name="page-more">
-              {moreLabel}<ArrowDown color={mediumColor} className={style.caret} />
+              {moreLabel}
+              <ArrowDown color={mediumColor} className={style.caret} />
             </div>
-            <div className={style.optionsGroup}>
-              {optionsView}
-            </div>
+            <div className={style.optionsGroup}>{optionsView}</div>
           </div>
         </div>
       );
@@ -290,16 +286,13 @@ class MoocHeader extends React.Component {
         return <Cta key={index} {...cta} />;
       });
 
-      linksView = (
-        <div className={style.links}>
-          {ctas}
-        </div>
-      );
+      linksView = <div className={style.links}>{ctas}</div>;
     }
 
     if (user) {
-      notificationsView = user.notifications > 0
-        ? <div
+      notificationsView =
+        user.notifications > 0 ? (
+          <div
             className={style.notifications}
             style={{
               backgroundColor: primaryColor
@@ -307,7 +300,7 @@ class MoocHeader extends React.Component {
           >
             {user.notifications}
           </div>
-        : null;
+        ) : null;
 
       userView = (
         <div className={style.user}>
@@ -348,9 +341,7 @@ class MoocHeader extends React.Component {
               <div className={style.iconWrapper} style={iconWrapperStyle}>
                 <TrophyIcon className={style.badge} color={white} />
               </div>
-              <div className={style.label}>
-                {user.stats.badge.label}
-              </div>
+              <div className={style.label}>{user.stats.badge.label}</div>
             </Link>
           </div>
           <div className={style.avatarWrapper}>
@@ -396,9 +387,7 @@ class MoocHeader extends React.Component {
 
             settingView = (
               <div data-name={`setting-${settingName}`} className={style.setting} key={settingName}>
-                <span className={style.label}>
-                  {title}
-                </span>
+                <span className={style.label}>{title}</span>
                 <Select {...selectProps} />
               </div>
             );
@@ -412,9 +401,7 @@ class MoocHeader extends React.Component {
 
             settingView = (
               <div data-name={`setting-${settingName}`} className={style.setting} key={settingName}>
-                <span className={style.label}>
-                  {title}
-                </span>
+                <span className={style.label}>{title}</span>
                 <InputSwitch {...switchProps} />
               </div>
             );
@@ -426,11 +413,11 @@ class MoocHeader extends React.Component {
       });
     }
 
-    const sliderView = slider
-      ? <div data-name="slider" className={style.slider}>
-          <ImageSlider {...slider} />
-        </div>
-      : null;
+    const sliderView = slider ? (
+      <div data-name="slider" className={style.slider}>
+        <ImageSlider {...slider} />
+      </div>
+    ) : null;
 
     return (
       <div className={style.wrapper}>

@@ -32,11 +32,7 @@ const Table = (props, context) => {
         );
       });
 
-      return hasOptions
-        ? <div className={style.options}>
-            {optionsView}
-          </div>
-        : null;
+      return hasOptions ? <div className={style.options}>{optionsView}</div> : null;
     };
 
     const OptionsIcon = (hasOptions && (filtered ? FunnelIcon : ArrowDown)) || null;
@@ -45,9 +41,7 @@ const Table = (props, context) => {
       <th key={cIndex}>
         <div className={hasOptions ? style.toggle : style.noOptions}>
           <Checkbox id={title} name={title} checked className={style.checkbox} />
-          <label htmlFor={title}>
-            {title}
-          </label>
+          <label htmlFor={title}>{title}</label>
           {options.length > 0 ? createOptionsView(options) : null}
           <div className={style.optionsIconWrapper}>
             {hasOptions ? <OptionsIcon color={mediumColor} className={style.optionsIcon} /> : null}
@@ -85,13 +79,9 @@ const Table = (props, context) => {
     <div className={style.wrapper}>
       <table className={style.table}>
         <thead>
-          <tr>
-            {headerView}
-          </tr>
+          <tr>{headerView}</tr>
         </thead>
-        <tbody>
-          {bodyView}
-        </tbody>
+        <tbody>{bodyView}</tbody>
       </table>
     </div>
   );

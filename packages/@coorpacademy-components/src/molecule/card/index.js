@@ -18,15 +18,17 @@ const viewStyle = {
   list: style.list
 };
 
-const Timer = ({time, color}) =>
+const Timer = ({time, color}) => (
   <div className={style.timer}>
     <ClockIcon className={style.clockIcon} color={color} /> {time}
-  </div>;
+  </div>
+);
 
-const AdaptivBubble = ({background, color}) =>
+const AdaptivBubble = ({background, color}) => (
   <div className={style.adaptiv} style={{backgroundColor: background}}>
     <AdaptivIcon className={style.adaptivIcon} color={color} />
-  </div>;
+  </div>
+);
 
 const Card = (props, context) => {
   const {skin} = context;
@@ -52,8 +54,9 @@ const Card = (props, context) => {
   const whiteColor = get('common.white', skin);
   const cardStyle = viewStyle[view];
 
-  const myprogress = !adaptiv && !empty
-    ? <div className={style.progressWrapper}>
+  const myprogress =
+    !adaptiv && !empty ? (
+      <div className={style.progressWrapper}>
         <div
           className={style.progress}
           style={{
@@ -62,17 +65,17 @@ const Card = (props, context) => {
           }}
         />
       </div>
-    : null;
+    ) : null;
   const emptyIcon = empty ? <PicturesIcon className={style.emptyIcon} color={whiteColor} /> : null;
-  const freeRunIcon = freerun
-    ? <div className={style.timerIconWrapper}>
-        <TimerIcon className={style.freerunIcon} color={mediumColor} />
-      </div>
-    : null;
+  const freeRunIcon = freerun ? (
+    <div className={style.timerIconWrapper}>
+      <TimerIcon className={style.freerunIcon} color={mediumColor} />
+    </div>
+  ) : null;
   const adaptivIcon = adaptiv ? <AdaptivBubble color="white" background={defaultColor} /> : null;
-  const lock = disabled
-    ? <LockIcon color={darkColor} className={style.lock} outline={mediumColor} />
-    : null;
+  const lock = disabled ? (
+    <LockIcon color={darkColor} className={style.lock} outline={mediumColor} />
+  ) : null;
 
   const timer = time ? <Timer time={time} color={darkColor} /> : null;
 
@@ -99,7 +102,6 @@ const Card = (props, context) => {
               {adaptivIcon}
               {timer}
             </div>
-
           </div>
           {myprogress}
           <div data-name="info" className={style.infoWrapper} onClick={!disabled && onClick}>

@@ -28,11 +28,7 @@ const Accordion = props => {
     );
   }, children);
 
-  return (
-    <div>
-      {accordion}
-    </div>
-  );
+  return <div>{accordion}</div>;
 };
 
 Accordion.propTypes = {

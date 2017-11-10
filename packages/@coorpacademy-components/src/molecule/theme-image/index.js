@@ -15,7 +15,6 @@ function ThemeImage({image}, {skin}) {
 
   return (
     <div className={style.wrapper}>
-
       <div className={style.default}>
         <div className={style.background} style={defaultStyle} />
       </div>

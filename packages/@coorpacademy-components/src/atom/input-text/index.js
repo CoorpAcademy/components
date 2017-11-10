@@ -38,9 +38,7 @@ const InputText = props => {
           onChange={noop}
         />
       </label>
-      <div className={style.description}>
-        {description}
-      </div>
+      <div className={style.description}>{description}</div>
     </div>
   );
 };

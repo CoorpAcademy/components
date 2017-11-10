@@ -77,16 +77,16 @@ Dashboard.contextTypes = {
 };
 
 const ErrorPopin = ({onErrorRedirect, ctaLabel, error}, {translate}) => {
-  return error
-    ? <DashboardPopin
-        header={translate('An Error Occurred')}
-        ctaLabel={ctaLabel}
-        ctaOnClick={onErrorRedirect}
-        closeOnClick={onErrorRedirect}
-      >
-        <p>{error}</p>
-      </DashboardPopin>
-    : null;
+  return error ? (
+    <DashboardPopin
+      header={translate('An Error Occurred')}
+      ctaLabel={ctaLabel}
+      ctaOnClick={onErrorRedirect}
+      closeOnClick={onErrorRedirect}
+    >
+      <p>{error}</p>
+    </DashboardPopin>
+  ) : null;
 };
 
 ErrorPopin.contextTypes = {

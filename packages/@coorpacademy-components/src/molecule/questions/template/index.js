@@ -16,9 +16,12 @@ const Template = props => {
     }
     if (type === 'answerField') {
       const field = find({name: part.value}, props.answers);
-      const fieldView = field.type === 'text'
-        ? <FreeText {...field} className={style.text} />
-        : <DropDown {...field} theme="template" />;
+      const fieldView =
+        field.type === 'text' ? (
+          <FreeText {...field} className={style.text} />
+        ) : (
+          <DropDown {...field} theme="template" />
+        );
 
       return (
         <div className={style.answerType} key={part.value}>

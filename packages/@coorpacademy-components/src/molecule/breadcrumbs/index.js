@@ -44,12 +44,8 @@ const Breadcrumbs = props => {
 
   return (
     <div className={style.wrapper}>
-      <div>
-        {breadcrumbsList}
-      </div>
-      <div>
-        {linksList}
-      </div>
+      <div>{breadcrumbsList}</div>
+      <div>{linksList}</div>
     </div>
   );
 };

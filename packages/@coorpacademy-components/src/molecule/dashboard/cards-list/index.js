@@ -206,19 +206,25 @@ class CardsList extends React.Component {
       );
     }, cards);
 
-    const leftArrowView = this.state.left.hidden
-      ? null
-      : <ArrowLeft color={mediumColor} className={style.left} onClick={this.handleOnLeft} />;
+    const leftArrowView = this.state.left.hidden ? null : (
+      <ArrowLeft color={mediumColor} className={style.left} onClick={this.handleOnLeft} />
+    );
 
-    const rightArrowView = this.state.right.hidden
-      ? null
-      : <ArrowRight color={mediumColor} className={style.right} onClick={this.handleOnRight} />;
-    const titleView = title && onShowMore
-      ? <span data-name="title" className={style.titleLink} onClick={onShowMore}>{title}</span>
-      : <span data-name="title" className={style.title}>{title}</span>;
-    const showMoreView = showMore && onShowMore
-      ? <ShowMoreLink onShowMore={onShowMore} showMore={showMore} />
-      : null;
+    const rightArrowView = this.state.right.hidden ? null : (
+      <ArrowRight color={mediumColor} className={style.right} onClick={this.handleOnRight} />
+    );
+    const titleView =
+      title && onShowMore ? (
+        <span data-name="title" className={style.titleLink} onClick={onShowMore}>
+          {title}
+        </span>
+      ) : (
+        <span data-name="title" className={style.title}>
+          {title}
+        </span>
+      );
+    const showMoreView =
+      showMore && onShowMore ? <ShowMoreLink onShowMore={onShowMore} showMore={showMore} /> : null;
     return (
       <div className={style.wrapper} data-name="cardsList">
         <div className={style.list}>

@@ -14,17 +14,19 @@ const SearchPage = (props, context) => {
   const {skin} = context;
   const defaultColor = getOr('#00B0FF', 'common.primary', skin);
 
-  const cardsView = isEmpty(cards.list)
-    ? <div className={style.noresults}>
-        <div>{noresultsfound}</div>
-        <Button
-          className={style.clear}
-          style={{background: defaultColor}}
-          {...clearFilters}
-          type="link"
-        />
-      </div>
-    : <CardsGrid {...cards} />;
+  const cardsView = isEmpty(cards.list) ? (
+    <div className={style.noresults}>
+      <div>{noresultsfound}</div>
+      <Button
+        className={style.clear}
+        style={{background: defaultColor}}
+        {...clearFilters}
+        type="link"
+      />
+    </div>
+  ) : (
+    <CardsGrid {...cards} />
+  );
 
   return (
     <div>

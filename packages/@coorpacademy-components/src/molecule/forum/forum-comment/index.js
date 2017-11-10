@@ -15,11 +15,11 @@ const ForumComment = (props, context) => {
   const primary = get('common.primary', skin);
   const light = get('common.light', skin);
 
-  const avatarView =
-    avatar &&
+  const avatarView = avatar && (
     <div className={style.image}>
       <img src={avatar} />
-    </div>;
+    </div>
+  );
 
   const button = (
     <div className={style.post}>

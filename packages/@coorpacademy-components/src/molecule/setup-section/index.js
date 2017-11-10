@@ -18,13 +18,9 @@ const SetupSection = (props, context) => {
 
   return (
     <div className={style.wrapper}>
-      <div className={style.title}>
-        {title}
-      </div>
+      <div className={style.title}>{title}</div>
       <div className={style.settings}>
-        <div className={style.label}>
-          {translate('Show')}
-        </div>
+        <div className={style.label}>{translate('Show')}</div>
         <InputSwitch {...display} />
         <ArrowDownIcon
           color={colorUp}

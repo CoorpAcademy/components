@@ -20,11 +20,7 @@ const BrandTabs = props => {
 
   const tabsList = tabs.map(buildTab);
 
-  return (
-    <div className={style.wrapper}>
-      {tabsList}
-    </div>
-  );
+  return <div className={style.wrapper}>{tabsList}</div>;
 };
 
 BrandTabs.propTypes = {

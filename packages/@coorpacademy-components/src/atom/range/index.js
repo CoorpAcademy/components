@@ -128,14 +128,14 @@ class Range extends React.Component {
 
     return (
       <div>
-        {multi
-          ? <span
-              className={pending ? style.handle : style.animatedHandle}
-              style={{left: `${left * 100}%`}}
-            >
-              <Handle axis="x" onPan={this.handleMinChange} onPanEnd={this.handleMinChangeEnd} />
-            </span>
-          : null}
+        {multi ? (
+          <span
+            className={pending ? style.handle : style.animatedHandle}
+            style={{left: `${left * 100}%`}}
+          >
+            <Handle axis="x" onPan={this.handleMinChange} onPanEnd={this.handleMinChangeEnd} />
+          </span>
+        ) : null}
         <span
           className={pending ? style.handle : style.animatedHandle}
           style={{left: `${right * 100}%`}}

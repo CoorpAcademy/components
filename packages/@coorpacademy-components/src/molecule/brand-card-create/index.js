@@ -12,7 +12,9 @@ const BrandCardCreate = props => {
       <div className={style.circle2} />
       <div className={style.circle3} />
       <div className={style.edit}>
-        <Link href={editHref}><span>{edit}</span></Link>
+        <Link href={editHref}>
+          <span>{edit}</span>
+        </Link>
       </div>
     </div>
   );

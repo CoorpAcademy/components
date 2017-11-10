@@ -30,20 +30,21 @@ const ScopeTabs = (props, context) => {
 
           const last = index === levels.length - 1;
 
-          const arrow = isSelected && !last
-            ? <span
+          const arrow =
+            isSelected && !last ? (
+              <span
                 className={style.arrow}
                 style={{
                   borderColor: `transparent transparent transparent ${primary}`
                 }}
               />
-            : null;
+            ) : null;
 
-          const bubble = has('status', level)
-            ? <div className={style.module}>
-                <ModuleBubble {...level} onClick={handleClick} />
-              </div>
-            : null;
+          const bubble = has('status', level) ? (
+            <div className={style.module}>
+              <ModuleBubble {...level} onClick={handleClick} />
+            </div>
+          ) : null;
 
           return (
             <li

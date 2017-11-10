@@ -7,9 +7,8 @@ import style from './style.css';
 const BrandCreateForm = props => {
   const {title, subtitle, description, field, onSubmit, submitValue, isPending, isModified} = props;
 
-  const wrapperClass = isModified || isPending || field.error
-    ? style.modifiedWrapper
-    : style.wrapper;
+  const wrapperClass =
+    isModified || isPending || field.error ? style.modifiedWrapper : style.wrapper;
   const fieldClass = field.error ? style.error : style.default;
   const disabled = isPending || !isModified;
   const handleChange = e => field.onChange(e.target.value);
@@ -21,9 +20,7 @@ const BrandCreateForm = props => {
       </div>
       <form className={style.content} onSubmit={onSubmit}>
         <h2>{subtitle}</h2>
-        <div className={style.description}>
-          {description}
-        </div>
+        <div className={style.description}>{description}</div>
         <div className={fieldClass}>
           <label>
             <LinkedInput

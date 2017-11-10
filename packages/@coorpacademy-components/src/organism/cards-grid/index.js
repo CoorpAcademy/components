@@ -8,11 +8,11 @@ import style from './style.css';
 function CardsGrid(props) {
   const {list = [], loading = false} = props;
 
-  const loader =
-    loading &&
+  const loader = loading && (
     <div className={style.loader}>
       <Loader />
-    </div>;
+    </div>
+  );
 
   const cards = map(cardProps => {
     return (

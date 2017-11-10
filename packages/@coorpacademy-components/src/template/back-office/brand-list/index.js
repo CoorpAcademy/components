@@ -28,9 +28,7 @@ const BrandList = Layout(props => {
   return (
     <div className={style.container}>
       <div className={style.wrapper}>
-        <GridList>
-          {brandCards}
-        </GridList>
+        <GridList>{brandCards}</GridList>
       </div>
     </div>
   );

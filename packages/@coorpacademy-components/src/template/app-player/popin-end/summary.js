@@ -45,20 +45,17 @@ SimpleAction.propTypes = {
   button: PropTypes.shape(Button.propTypes)
 };
 
-const NextCourse = ({title, prefix, card}) =>
+const NextCourse = ({title, prefix, card}) => (
   <div data-name="nextCourse" className={style.nextCourseWrapper}>
     <div className={style.nextCourseTexts}>
-      <div className={style.nextCoursePrefix}>
-        {prefix}
-      </div>
-      <div className={style.nextCourseTitle}>
-        {title}
-      </div>
+      <div className={style.nextCoursePrefix}>{prefix}</div>
+      <div className={style.nextCourseTitle}>{title}</div>
     </div>
     <div className={style.nextCourseCard}>
       <Card {...card} dataName={'popin-end-next-course'} />
     </div>
-  </div>;
+  </div>
+);
 NextCourse.propTypes = {
   title: PropTypes.string,
   prefix: PropTypes.string,
@@ -70,12 +67,8 @@ const Subscribe = ({title, description, button, card}) => {
   return (
     <div className={style.subscribeWrapper}>
       <div className={style.subscribeTexts}>
-        <div className={style.subscribeDescription}>
-          {description}
-        </div>
-        <div className={style.subscribeTitle}>
-          {title}
-        </div>
+        <div className={style.subscribeDescription}>{description}</div>
+        <div className={style.subscribeTitle}>{title}</div>
         <div className={style.subscribeButtonWrapper}>
           <Button
             type="link"
@@ -111,17 +104,20 @@ const Action = props => {
   return Type ? <Type {...actionProps} /> : null;
 };
 
-const CardsLoader = () =>
+const CardsLoader = () => (
   <div className={style.loaderWrapper}>
     <Loader />
-  </div>;
+  </div>
+);
 
 const Cards = props =>
-  get('cards', props) === null
-    ? <CardsLoader />
-    : (props.cards && <CardsList {...props} dataName={'popin-end-recommendation'} />) || null;
+  get('cards', props) === null ? (
+    <CardsLoader />
+  ) : (
+    (props.cards && <CardsList {...props} dataName={'popin-end-recommendation'} />) || null
+  );
 
-const Footer = ({title, color, ...linkProps}) =>
+const Footer = ({title, color, ...linkProps}) => (
   <Link
     style={{
       color
@@ -130,7 +126,8 @@ const Footer = ({title, color, ...linkProps}) =>
     {...linkProps}
   >
     {title}
-  </Link>;
+  </Link>
+);
 
 const Summary = (props, context) => {
   const {header, recommendation, footer, action} = props;

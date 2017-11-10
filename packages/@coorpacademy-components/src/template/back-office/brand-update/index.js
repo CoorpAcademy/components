@@ -43,12 +43,8 @@ const BrandUpdate = Layout(props => {
       <div>
         <BrandTabs tabs={tabs} />
       </div>
-      <div className={style.notifications}>
-        {notificationsList}
-      </div>
-      <div className={style.contentWrapper}>
-        {contentView(content)}
-      </div>
+      <div className={style.notifications}>{notificationsList}</div>
+      <div className={style.contentWrapper}>{contentView(content)}</div>
     </div>
   );
 });

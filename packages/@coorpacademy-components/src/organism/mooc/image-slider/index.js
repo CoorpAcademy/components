@@ -7,11 +7,7 @@ import Slider from '../../slider';
 const ImageSlider = ({slides}) => {
   const myslides = map(slide => <Slide key={slide.title} {...slide} />, slides);
 
-  return (
-    <Slider>
-      {myslides}
-    </Slider>
-  );
+  return <Slider>{myslides}</Slider>;
 };
 
 ImageSlider.propTypes = {
