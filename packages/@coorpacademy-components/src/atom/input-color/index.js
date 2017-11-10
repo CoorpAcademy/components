@@ -39,9 +39,7 @@ const InputColor = props => {
         />
         <span className={style.preview} style={inlineStyle} />
       </label>
-      <div className={style.description}>
-        {description}
-      </div>
+      <div className={style.description}>{description}</div>
     </div>
   );
 };

@@ -33,9 +33,7 @@ const TitledCheckbox = (props, context) => {
         </span>
         <Checkbox className={style.input} checked={state.checked} onChange={handleChange} />
       </label>
-      <span title={label}>
-        {label}
-      </span>
+      <span title={label}>{label}</span>
     </div>
   );
 };

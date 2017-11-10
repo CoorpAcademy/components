@@ -5,9 +5,8 @@ import PropTypes from 'prop-types';
 import Provider from '../../atom/provider';
 import style from './handle.css';
 
-const Hammer = typeof window !== 'undefined'
-  ? require('hammerjs')
-  : /* istanbul ignore next */ undefined;
+const Hammer =
+  typeof window !== 'undefined' ? require('hammerjs') : /* istanbul ignore next */ undefined;
 
 class Handle extends React.Component {
   constructor(props, context) {

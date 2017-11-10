@@ -43,7 +43,9 @@ const ConfirmationForm = props => {
   const form = (
     <div className={style.confirmForm}>
       {textValidation ? <ConfirmationInput onChange={onChange} placeholder={placeholder} /> : null}
-      <span onClick={onHandleClose} className={style.cancel}>{cancelValue}</span>
+      <span onClick={onHandleClose} className={style.cancel}>
+        {cancelValue}
+      </span>
       <span
         onClick={confirmDisabled ? noop : onConfirm}
         className={confirmDisabled ? style.disabled : style.delete}
@@ -53,11 +55,13 @@ const ConfirmationForm = props => {
     </div>
   );
 
-  return isPending
-    ? <div className={style.confirmForm}>
-        <Loader />
-      </div>
-    : form;
+  return isPending ? (
+    <div className={style.confirmForm}>
+      <Loader />
+    </div>
+  ) : (
+    form
+  );
 };
 ConfirmationForm.propTypes = {
   confirmValue: PropTypes.string.isRequired,
@@ -75,9 +79,7 @@ const Confirmation = props => {
 
   return (
     <div className={style.sectionConfirm}>
-      <div className={style.description}>
-        {description}
-      </div>
+      <div className={style.description}>{description}</div>
       <ConfirmationForm {...props} />
     </div>
   );
@@ -112,19 +114,17 @@ class InputDoublestep extends React.Component {
       return onClick(e);
     };
 
-    const formView = !this.state.open
-      ? <span onClick={this.handleToggle} className={style.toggle}>{toggleValue}</span>
-      : <Confirmation
-          {...this.props}
-          onHandleClose={this.handleToggle}
-          onConfirm={handleOnClick}
-        />;
+    const formView = !this.state.open ? (
+      <span onClick={this.handleToggle} className={style.toggle}>
+        {toggleValue}
+      </span>
+    ) : (
+      <Confirmation {...this.props} onHandleClose={this.handleToggle} onConfirm={handleOnClick} />
+    );
 
     return (
       <div className={style.wrapper}>
-        <div className={style.value}>
-          {formView}
-        </div>
+        <div className={style.value}>{formView}</div>
       </div>
     );
   }

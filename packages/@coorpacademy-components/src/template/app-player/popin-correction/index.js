@@ -17,12 +17,13 @@ const extractTabs = items =>
     return {iconType: type, title: item.title, isOpen: item.open};
   });
 
-const Resources = ({resources}) =>
+const Resources = ({resources}) => (
   <div className={style.browserWrapper}>
     <ResourceBrowser resources={resources.value} className={style.browser} />
-  </div>;
+  </div>
+);
 
-const SimpleText = ({text}) =>
+const SimpleText = ({text}) => (
   <div data-name="simpleText" className={style.simpleTextWrapper}>
     <p
       className={style.simpleText}
@@ -31,13 +32,14 @@ const SimpleText = ({text}) =>
         __html: text
       }}
     />
-  </div>;
+  </div>
+);
 
 SimpleText.propTypes = {
   text: PropTypes.string
 };
 
-const Question = ({header, answer, answerPrefix}) =>
+const Question = ({header, answer, answerPrefix}) => (
   <div className={style.question}>
     <p className={style.questionHeader}>{header}</p>
     <div className={style.answerWrapper}>
@@ -45,7 +47,8 @@ const Question = ({header, answer, answerPrefix}) =>
       {answerPrefix ? <span className={style.answerPrefix}>{answerPrefix}</span> : null}
       <span className={style.answer}>{answer}</span>
     </div>
-  </div>;
+  </div>
+);
 
 Question.propTypes = {
   header: PropTypes.string,

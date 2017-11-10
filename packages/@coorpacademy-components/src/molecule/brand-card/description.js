@@ -5,18 +5,18 @@ import style from './description.css';
 
 const Description = (props, context) => {
   const {className, description} = props;
-  return description
-    ? <div className={classnames(style.descriptionWrapper, className)}>
-        <div className={style.description}>
-          <div
-            // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={{
-              __html: description
-            }}
-          />
-        </div>
+  return description ? (
+    <div className={classnames(style.descriptionWrapper, className)}>
+      <div className={style.description}>
+        <div
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{
+            __html: description
+          }}
+        />
       </div>
-    : null;
+    </div>
+  ) : null;
 };
 
 Description.propTypes = {

@@ -18,17 +18,9 @@ const renderComponent = (t, Component, fixture) => {
     'fixture should have props or children'
   );
 
-  const vTree = (
-    <Component {...fixture.props}>
-      {fixture.children}
-    </Component>
-  );
+  const vTree = <Component {...fixture.props}>{fixture.children}</Component>;
 
-  const wrappedVTree = (
-    <Provider {...context}>
-      {vTree}
-    </Provider>
-  );
+  const wrappedVTree = <Provider {...context}>{vTree}</Provider>;
 
   return ReactDOM.renderToStaticMarkup(wrappedVTree);
 };

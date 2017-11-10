@@ -67,7 +67,9 @@ const ForumPost = (props, context) => {
         <div className={style.image}>
           <Picture src={avatar} className={style.avatar} />
         </div>
-        <span data-name="author" className={style.author}>{author}</span>
+        <span data-name="author" className={style.author}>
+          {author}
+        </span>
       </div>
       <div className={style.content}>
         <div>
@@ -118,9 +120,7 @@ const ForumPost = (props, context) => {
             {rejected ? putBackLabel : rejectLabel}
           </span>
 
-          <div className={messageClassName}>
-            {deleted ? infoDeleted : message}
-          </div>
+          <div className={messageClassName}>{deleted ? infoDeleted : message}</div>
 
           <div className={`${style.edition} ${showEditBox ? style.visible : ''}`}>
             <ForumComment

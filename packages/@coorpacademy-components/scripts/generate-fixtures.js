@@ -19,7 +19,9 @@ function generateTestFile(type, filePath, compName, compFixtures) {
   const fixtureTests = Object.keys(compFixtures)
     .map(
       key =>
-        `test('${type} › ${compName} › ${key} › should be rendered', renderComponentMacro, ${compName}, fixture${key});`
+        `test('${type} › ${compName} › ${key} › should be rendered', renderComponentMacro, ${
+          compName
+        }, fixture${key});`
     )
     .join('\n')
     .trim();

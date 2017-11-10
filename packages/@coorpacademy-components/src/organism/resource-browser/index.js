@@ -27,9 +27,9 @@ const Resources = ({resources, className}) => {
 
   return (
     <div className={style.resourcesList}>
-      {resources.map(resource =>
+      {resources.map(resource => (
         <ResourceMiniature key={resource._id} {...omit('ref', resource)} />
-      )}
+      ))}
     </div>
   );
 };

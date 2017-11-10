@@ -70,12 +70,12 @@ const Select = (props, context) => {
     color: selected && (theme === 'question' || theme === 'template') ? color : null
   };
 
-  const arrowView = !multiple
-    ? <ArrowDown
-        color={selected && (theme === 'question' || theme === 'template') ? color : black}
-        className={style.arrow}
-      />
-    : null;
+  const arrowView = !multiple ? (
+    <ArrowDown
+      color={selected && (theme === 'question' || theme === 'template') ? color : black}
+      className={style.arrow}
+    />
+  ) : null;
   const className = getClassState(style.default, style.modified, style.error, modified);
   const composedClassName = classnames(
     theme ? themeStyle[theme] : className,

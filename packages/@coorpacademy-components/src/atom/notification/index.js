@@ -16,7 +16,8 @@ const NotificationComponent = props => {
 
   return (
     <div className={className}>
-      <span>!</span>{message}
+      <span>!</span>
+      {message}
     </div>
   );
 };

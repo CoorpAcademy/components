@@ -20,7 +20,11 @@ import Link from '../../../../atom/link';
 import Provider from '../../../../atom/provider';
 import style from './style.css';
 
-const separator = index => <span key={index} className={style.answerSeparator}>/</span>;
+const separator = index => (
+  <span key={index} className={style.answerSeparator}>
+    /
+  </span>
+);
 
 const joinBySeparator = elements => {
   const separators = times(separator, elements.length - 1);
@@ -79,7 +83,9 @@ const Stars = ({stars}, {skin}) => {
       <div className={style.iconBubble}>
         <StarIcon className={style.icon} color={positive} />
       </div>
-      <span data-name="iconText" className={style.iconText}>{stars}</span>
+      <span data-name="iconText" className={style.iconText}>
+        {stars}
+      </span>
     </div>
   );
 };
@@ -137,7 +143,9 @@ const CorrectionPart = props => {
     <div data-name="correctionSection" className={className}>
       <div className={style.titlesWrapper}>
         {isLoading ? <Loader /> : null}
-        <h1 data-name="title" className={style.title}>{title}</h1>
+        <h1 data-name="title" className={style.title}>
+          {title}
+        </h1>
         <h2 className={style.subtitle}>{subtitle}</h2>
         {fail && corrections.length ? <AnswersCorrection corrections={corrections} /> : null}
       </div>
@@ -177,9 +185,9 @@ const NextQuestionPart = (props, context) => {
     dataNext = 'continue-success';
   }
 
-  const nextStep = nextStepTitle
-    ? <div className={style.nextStepTitle}>{nextStepTitle}</div>
-    : null;
+  const nextStep = nextStepTitle ? (
+    <div className={style.nextStepTitle}>{nextStepTitle}</div>
+  ) : null;
 
   return (
     <Link
@@ -214,9 +222,11 @@ const RemainingLife = (props, {skin}) => {
         exhausted && style.exhaustedLife
       )}
     >
-      {exhausted
-        ? <HeartBroken color={negative} outline={white} outlineWidth={3} className={style.heart} />
-        : <Heart color={negative} outline={white} outlineWidth={4} className={style.heart} />}
+      {exhausted ? (
+        <HeartBroken color={negative} outline={white} outlineWidth={3} className={style.heart} />
+      ) : (
+        <Heart color={negative} outline={white} outlineWidth={4} className={style.heart} />
+      )}
       {sentence}
     </div>
   );
@@ -243,9 +253,8 @@ const PopinHeader = (props, context) => {
 
   const state = buildClass(fail, 'success', 'fail', null);
   const {active: isExtraLife, exhausted} = extraLife;
-  const RemainingLifePart = isExtraLife || exhausted
-    ? <RemainingLife extraLife={extraLife} revival={revival} />
-    : null;
+  const RemainingLifePart =
+    isExtraLife || exhausted ? <RemainingLife extraLife={extraLife} revival={revival} /> : null;
 
   return (
     <div
@@ -278,7 +287,6 @@ const PopinHeader = (props, context) => {
           fail={fail}
           lives={lives}
         />
-
       </div>
       {RemainingLifePart}
     </div>

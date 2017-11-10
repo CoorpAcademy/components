@@ -28,11 +28,7 @@ const SetupSections = (props, context) => {
     });
   }
 
-  return (
-    <div>
-      {sectionsView}
-    </div>
-  );
+  return <div>{sectionsView}</div>;
 };
 
 SetupSections.propTypes = {

@@ -110,7 +110,7 @@ ContextImage.propTypes = {
 };
 
 const ContextVideo = props => {
-  const videos = props.src.map(({videoId, mimeType, width, height}) =>
+  const videos = props.src.map(({videoId, mimeType, width, height}) => (
     <VideoPlayer
       id={videoId}
       key={videoId}
@@ -119,7 +119,7 @@ const ContextVideo = props => {
       width={width}
       height={height}
     />
-  );
+  ));
   return <div>{videos}</div>;
 };
 
@@ -167,9 +167,11 @@ ContextMedia.propTypes = {
 
 const ContextContent = ({slideContext}) => {
   const descriptionParagraphs = pipe(getOr('', 'description'), split('\n'), compact)(slideContext);
-  const paragraphs = descriptionParagraphs.map((paragraph, index) =>
-    <p key={index} className={style.contextDescription}>{paragraph}</p>
-  );
+  const paragraphs = descriptionParagraphs.map((paragraph, index) => (
+    <p key={index} className={style.contextDescription}>
+      {paragraph}
+    </p>
+  ));
   return (
     <div className={style.context}>
       {get('media.type', slideContext) ? <ContextMedia media={slideContext.media} /> : null}
@@ -239,10 +241,7 @@ Step.propTypes = {
   color: ColorPropType
 };
 
-const Help = ({help}) =>
-  <div className={style.helpView}>
-    {help}
-  </div>;
+const Help = ({help}) => <div className={style.helpView}>{help}</div>;
 
 Help.propTypes = {
   help: PropTypes.string
@@ -252,9 +251,8 @@ const ContentLayout = (props, context) => {
   const {typeClue, question, cta, help} = props;
   const ContentType = CONTENT_TYPE[typeClue];
   const wrapperColor = typeClue === 'answer' ? 'white' : '#ECEFF1';
-  const noPaddingRessources = ContentType === MediaContent
-    ? `${style.contentWrapperNoPadding}`
-    : `${style.contentWrapper}`;
+  const noPaddingRessources =
+    ContentType === MediaContent ? `${style.contentWrapperNoPadding}` : `${style.contentWrapper}`;
 
   return (
     <div className={noPaddingRessources} style={{backgroundColor: wrapperColor}}>
@@ -285,26 +283,28 @@ ContentLayout.propTypes = {
  * Loading
  */
 
-const LoadingLayout = () =>
+const LoadingLayout = () => (
   <div className={style.loading}>
     <Loader />
-  </div>;
+  </div>
+);
 
 const LoadedLayout = ({question, step, ...props}) =>
-  question && step
-    ? <ContentLayout question={question} step={step} {...props} />
-    : <LoadingLayout />;
+  question && step ? (
+    <ContentLayout question={question} step={step} {...props} />
+  ) : (
+    <LoadingLayout />
+  );
 
 /*
  * Errors
  */
 
-const ErrorMessage = ({errorMsg}) =>
+const ErrorMessage = ({errorMsg}) => (
   <div className={style.contentWrapper}>
-    <div className={style.error}>
-      {errorMsg}
-    </div>
-  </div>;
+    <div className={style.error}>{errorMsg}</div>
+  </div>
+);
 
 ErrorMessage.propTypes = {
   errorMsg: PropTypes.string

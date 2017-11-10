@@ -8,12 +8,8 @@ function ModuleCard(props, context) {
 
   return (
     <div className={style.default} data-name="module-card" onClick={onClick}>
-      <div className={style.title}>
-        {label}
-      </div>
-      <div className={style.level}>
-        {level}
-      </div>
+      <div className={style.title}>{label}</div>
+      <div className={style.level}>{level}</div>
       <div className={style.module}>
         <ModuleBubble {...props} onClick={onClick} />
       </div>

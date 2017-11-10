@@ -134,128 +134,128 @@ Vimeo.defaultProps = {
 
 Vimeo.propTypes = {
   /**
-     * A Vimeo ID or URL.
-     */
+   * A Vimeo ID or URL.
+   */
   id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   /**
-     * CSS className for the player element.
-     */
+   * CSS className for the player element.
+   */
   className: PropTypes.string,
   /**
-     * Width of the player element.
-     */
+   * Width of the player element.
+   */
   width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   /**
-     * Height of the player element.
-     */
+   * Height of the player element.
+   */
   height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 
   /**
-     * Pause the video.
-     */
+   * Pause the video.
+   */
   paused: PropTypes.bool, // eslint-disable-line react/no-unused-prop-types
 
   // Player parameters
   /**
-     * Pause this video automatically when another one plays.
-     */
+   * Pause this video automatically when another one plays.
+   */
   autopause: PropTypes.bool,
 
   /**
-     * Automatically start playback of the video. Note that this won’t work on
-     * some devices.
-     */
+   * Automatically start playback of the video. Note that this won’t work on
+   * some devices.
+   */
   autoplay: PropTypes.bool,
 
   /**
-     * Show the byline on the video.
-     */
+   * Show the byline on the video.
+   */
   showByline: PropTypes.bool,
 
   /**
-     * Specify the color of the video controls. Colors may be overridden by the
-     * embed settings of the video.
-     */
+   * Specify the color of the video controls. Colors may be overridden by the
+   * embed settings of the video.
+   */
   color: PropTypes.string,
 
   /**
-     * Play the video again when it reaches the end.
-     */
+   * Play the video again when it reaches the end.
+   */
   loop: PropTypes.bool,
 
   /**
-     * Show the portrait on the video.
-     */
+   * Show the portrait on the video.
+   */
   showPortrait: PropTypes.bool,
 
   /**
-     * Show the title on the video.
-     */
+   * Show the title on the video.
+   */
   showTitle: PropTypes.bool,
 
   // Events
   /* eslint-disable react/no-unused-prop-types */
 
   /**
-     * Sent when the Vimeo player API has loaded.
-     */
+   * Sent when the Vimeo player API has loaded.
+   */
   onReady: PropTypes.func,
   /**
-     * Sent when the player triggers an error.
-     */
+   * Sent when the player triggers an error.
+   */
   onError: PropTypes.func,
   /**
-     * Triggered when the video plays.
-     */
+   * Triggered when the video plays.
+   */
   onPlay: PropTypes.func,
   /**
-     * Triggered when the video pauses.
-     */
+   * Triggered when the video pauses.
+   */
   onPause: PropTypes.func,
   /**
-     * Triggered any time the video playback reaches the end.
-     * Note: when `loop` is turned on, the ended event will not fire.
-     */
+   * Triggered any time the video playback reaches the end.
+   * Note: when `loop` is turned on, the ended event will not fire.
+   */
   onEnd: PropTypes.func,
   /**
-     * Triggered as the `currentTime` of the video updates. It generally fires
-     * every 250ms, but it may vary depending on the browser.
-     */
+   * Triggered as the `currentTime` of the video updates. It generally fires
+   * every 250ms, but it may vary depending on the browser.
+   */
   onTimeUpdate: PropTypes.func,
   /**
-     * Triggered as the video is loaded. Reports back the amount of the video
-     * that has been buffered.
-     */
+   * Triggered as the video is loaded. Reports back the amount of the video
+   * that has been buffered.
+   */
   onProgress: PropTypes.func,
   /**
-     * Triggered when the player seeks to a specific time. An `onTimeUpdate`
-     * event will also be fired at the same time.
-     */
+   * Triggered when the player seeks to a specific time. An `onTimeUpdate`
+   * event will also be fired at the same time.
+   */
   onSeeked: PropTypes.func,
   /**
-     * Triggered when the active text track (captions/subtitles) changes. The
-     * values will be `null` if text tracks are turned off.
-     */
+   * Triggered when the active text track (captions/subtitles) changes. The
+   * values will be `null` if text tracks are turned off.
+   */
   onTextTrackChange: PropTypes.func,
   /**
-     * Triggered when the active cue for the current text track changes. It also
-     * fires when the active text track changes. There may be multiple cues
-     * active.
-     */
+   * Triggered when the active cue for the current text track changes. It also
+   * fires when the active text track changes. There may be multiple cues
+   * active.
+   */
   onCueChange: PropTypes.func,
   /**
-     * Triggered when the current time hits a registered cue point.
-     */
+   * Triggered when the current time hits a registered cue point.
+   */
   onCuePoint: PropTypes.func,
   /**
-     * Triggered when the volume in the player changes. Some devices do not
-     * support setting the volume of the video independently from the system
-     * volume, so this event will never fire on those devices.
-     */
+   * Triggered when the volume in the player changes. Some devices do not
+   * support setting the volume of the video independently from the system
+   * volume, so this event will never fire on those devices.
+   */
   onVolumeChange: PropTypes.func,
   /**
-     * Triggered when a new video is loaded in the player.
-     */
+   * Triggered when a new video is loaded in the player.
+   */
   onLoaded: PropTypes.func
 
   /* eslint-enable react/no-unused-prop-types */

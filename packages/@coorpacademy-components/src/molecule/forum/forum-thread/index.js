@@ -6,9 +6,9 @@ import style from './style.css';
 
 const ForumThread = props => {
   const {answers = [], mainPost = false} = props;
-  const answersView = answers.map((answerProps, index) =>
+  const answersView = answers.map((answerProps, index) => (
     <ForumThread key={index} {...answerProps} />
-  );
+  ));
 
   return (
     <div className={mainPost ? style.mainPost : null}>

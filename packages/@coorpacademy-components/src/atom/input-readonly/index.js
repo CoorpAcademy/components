@@ -7,15 +7,9 @@ const InputReadonly = props => {
 
   return (
     <div className={style.wrapper}>
-      <div className={style.title}>
-        {title}
-      </div>
-      <div className={style.value}>
-        {value}
-      </div>
-      <div className={style.description}>
-        {description}
-      </div>
+      <div className={style.title}>{title}</div>
+      <div className={style.value}>{value}</div>
+      <div className={style.description}>{description}</div>
     </div>
   );
 };

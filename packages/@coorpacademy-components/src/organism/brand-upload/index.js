@@ -22,20 +22,20 @@ const BrandUpload = (props, context) => {
   const {skin} = context;
   const darkColor = get('common.dark', skin);
 
-  const notificationsItems = notifications.map((notif, index) =>
+  const notificationsItems = notifications.map((notif, index) => (
     <div className={notificationStyle[notif.type]} key={index}>
       <span>{notif.message}</span>
     </div>
-  );
+  ));
 
-  const backView =
-    back &&
+  const backView = back && (
     <p className={style.back}>
       <ArrowLeft color={darkColor} className={style.arrowBack} />
       <Link href={back.link} className={style.backDesc}>
         {back.desc}
       </Link>
-    </p>;
+    </p>
+  );
 
   return (
     <div className={style.wrapper}>
@@ -46,9 +46,7 @@ const BrandUpload = (props, context) => {
       {download && <DownloadBox {...download} />}
       <UploadBox {...upload} />
       {progress && <ProgressBar {...progress} className={style.progress} />}
-      <ul className={style.notifications}>
-        {notificationsItems}
-      </ul>
+      <ul className={style.notifications}>{notificationsItems}</ul>
     </div>
   );
 };

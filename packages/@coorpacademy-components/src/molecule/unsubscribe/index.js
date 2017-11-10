@@ -10,11 +10,9 @@ const Unsubscribe = (props, context) => {
 
   return (
     <div>
-      {!props.hasUnsubscribed &&
+      {!props.hasUnsubscribed && (
         <div className={style.unsubscribe}>
-          <div className={style.description}>
-            {translate('confirm_unsubscribe')}
-          </div>
+          <div className={style.description}>{translate('confirm_unsubscribe')}</div>
           <div className={style.buttonContainer}>
             <Link className={style.keepSubscriptionButton} href={moocUrl}>
               {translate('keep_subscription')}
@@ -25,11 +23,13 @@ const Unsubscribe = (props, context) => {
               {translate('unsubscribe')}
             </button>
           </div>
-        </div>}
-      {props.hasUnsubscribed &&
+        </div>
+      )}
+      {props.hasUnsubscribed && (
         <div className={style.unsubscribeConfirmation}>
           {translate('premium_unsubscribe_confirmation')}
-        </div>}
+        </div>
+      )}
     </div>
   );
 };

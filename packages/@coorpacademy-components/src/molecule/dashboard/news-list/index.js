@@ -13,12 +13,12 @@ const NewsList = (props, context) => {
     </div>
   );
 
-  const moreView = more
-    ? // eslint-disable-next-line react/jsx-handler-names
-      <div className={style.more} onClick={more.onClick}>
-        {more.label}
-      </div>
-    : null;
+  const moreView = more ? (
+    // eslint-disable-next-line react/jsx-handler-names
+    <div className={style.more} onClick={more.onClick}>
+      {more.label}
+    </div>
+  ) : null;
 
   const cardsView = news.map((nws, key) => {
     return (
@@ -31,9 +31,7 @@ const NewsList = (props, context) => {
   return (
     <div className={style.wrapper} data-name="news-list">
       <div className={style.list}>
-        <div className={style.title}>
-          {title}
-        </div>
+        <div className={style.title}>{title}</div>
         {cardsView}
         {loading ? loadingView : moreView}
       </div>

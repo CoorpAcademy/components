@@ -53,36 +53,35 @@ const DisciplinePartners = (props, context) => {
       </div>
     );
 
-    const socialView = socialLinks.map((social, i) =>
+    const socialView = socialLinks.map((social, i) => (
       <div key={i} className={style.link}>
         <SocialLink {...social} />
       </div>
-    );
+    ));
 
-    const aNameView =
-      autName &&
+    const aNameView = autName && (
       <div data-name="authorName" className={style.authorName}>
         {autName}
-      </div>;
+      </div>
+    );
 
-    const logoView = authorLogo
-      ? <div className={style.logoContainer}>
-          <Link className={style.logoLink} href={authorLogo.href} target={'_blank'}>
-            <Picture className={style.logo} src={authorLogo.src} />
-          </Link>
-        </div>
-      : null;
+    const logoView = authorLogo ? (
+      <div className={style.logoContainer}>
+        <Link className={style.logoLink} href={authorLogo.href} target={'_blank'}>
+          <Picture className={style.logo} src={authorLogo.src} />
+        </Link>
+      </div>
+    ) : null;
 
-    const authorContent = authorHref || aNameView || socialView
-      ? <div className={style.authorContent}>
+    const authorContent =
+      authorHref || aNameView || socialView ? (
+        <div className={style.authorContent}>
           {autName ? aNameView : null}
           {moreDetails ? moreInfoView : null}
           {!moreDetails && authorHref ? linkView : null}
-          <div className={style.links}>
-            {socialView}
-          </div>
+          <div className={style.links}>{socialView}</div>
         </div>
-      : null;
+      ) : null;
 
     return (
       <div key={index} className={style.authorWrapper}>
@@ -92,13 +91,11 @@ const DisciplinePartners = (props, context) => {
     );
   }, authors);
 
-  return !isEmpty(authors)
-    ? <div data-name="disciplinePartner" className={style.colDetails}>
-        <CatalogSection title={authorLabel}>
-          {authorsView}
-        </CatalogSection>
-      </div>
-    : null;
+  return !isEmpty(authors) ? (
+    <div data-name="disciplinePartner" className={style.colDetails}>
+      <CatalogSection title={authorLabel}>{authorsView}</CatalogSection>
+    </div>
+  ) : null;
 };
 
 DisciplinePartners.contextTypes = {

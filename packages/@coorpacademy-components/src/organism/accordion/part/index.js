@@ -39,11 +39,7 @@ const AccordionPart = (props, context) => {
         <MoreIcon className={closeIconClassName} color={darkColor} />
         <LessIcon className={openIconClassName} color={mediumColor} />
       </div>
-      {isOpen
-        ? <div className={style.container}>
-            {content}
-          </div>
-        : null}
+      {isOpen ? <div className={style.container}>{content}</div> : null}
     </div>
   );
 };

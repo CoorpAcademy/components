@@ -11,12 +11,8 @@ const TabContent = (props, context) => {
     : style.greyBackground;
   return (
     <div className={style.content}>
-      <div className={style.contentTitle}>
-        {tabTitle}
-      </div>
-      <div className={backgroundClassName}>
-        {props.children}
-      </div>
+      <div className={style.contentTitle}>{tabTitle}</div>
+      <div className={backgroundClassName}>{props.children}</div>
     </div>
   );
 };

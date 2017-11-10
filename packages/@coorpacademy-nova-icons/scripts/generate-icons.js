@@ -70,7 +70,12 @@ const componentize = (basename, svgData) => {
   };
 
   const writeIndentedLine = line =>
-    writeLine(`${Array(meta.indent).fill().map((_, i) => ' ').join('')}${line}`);
+    writeLine(
+      `${Array(meta.indent)
+        .fill()
+        .map((_, i) => ' ')
+        .join('')}${line}`
+    );
 
   const writeSVGTag = opts => {
     // eslint-disable-next-line no-shadow
@@ -112,7 +117,9 @@ class ${componentName} extends Component {
     const activeOutlineWidth = this.state.hovering ? hoverOutlineWidth : outlineWidth;
 
     return (
-      <IconBase viewBox="${attributes.viewBox}" {...baseProps} onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
+      <IconBase viewBox="${
+        attributes.viewBox
+      }" {...baseProps} onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
         {activeOutline ? (
           <g>`);
 

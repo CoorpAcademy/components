@@ -24,9 +24,7 @@ const InputTextarea = props => {
           }}
         />
       </label>
-      <div className={style.description}>
-        {description}
-      </div>
+      <div className={style.description}>{description}</div>
     </div>
   );
 };

@@ -25,14 +25,10 @@ const PromoCode = (props, context) => {
           {translate('zuora_discount_code_submit')}
         </button>
       </div>
-      {promoCodeDescription &&
-        <div className={style.promoCodeDescription}>
-          - {promoCodeDescription}
-        </div>}
-      {promoCodeError &&
-        <div className={style.promoCodeError}>
-          - {promoCodeError}
-        </div>}
+      {promoCodeDescription && (
+        <div className={style.promoCodeDescription}>- {promoCodeDescription}</div>
+      )}
+      {promoCodeError && <div className={style.promoCodeError}>- {promoCodeError}</div>}
     </div>
   );
 };

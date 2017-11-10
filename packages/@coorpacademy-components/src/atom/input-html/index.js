@@ -47,9 +47,11 @@ class InputHtml extends React.Component {
         preview: !state.preview
       }));
     };
-    const iconContent = !this.state.preview
-      ? <PreviewIcon color={mediumColor} />
-      : <PencilIcon color={mediumColor} />;
+    const iconContent = !this.state.preview ? (
+      <PreviewIcon color={mediumColor} />
+    ) : (
+      <PencilIcon color={mediumColor} />
+    );
     return (
       <div className={className}>
         <label>
@@ -69,9 +71,7 @@ class InputHtml extends React.Component {
             {iconContent}
           </span>
         </label>
-        <div className={style.description}>
-          {description}
-        </div>
+        <div className={style.description}>{description}</div>
       </div>
     );
   }

@@ -49,11 +49,11 @@ const SlidesFooter = (props, context) => {
     );
   });
 
-  return buttons.length > 0
-    ? <div data-name="slidesFooter" className={style.wrapper}>
-        {buttonsView}
-      </div>
-    : null;
+  return buttons.length > 0 ? (
+    <div data-name="slidesFooter" className={style.wrapper}>
+      {buttonsView}
+    </div>
+  ) : null;
 };
 
 SlidesFooter.contextTypes = {

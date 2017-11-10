@@ -80,11 +80,12 @@ class Filters extends React.Component {
     const sortingActive = this.state.sorted === true;
     const animated = this.state.animated === true;
 
-    const sortView = sorting !== undefined
-      ? <div data-name="choice" className={style.select}>
+    const sortView =
+      sorting !== undefined ? (
+        <div data-name="choice" className={style.select}>
           <Select {...sorting} />
         </div>
-      : null;
+      ) : null;
 
     return (
       <div data-name="search" className={style.search} data-animated={animated}>

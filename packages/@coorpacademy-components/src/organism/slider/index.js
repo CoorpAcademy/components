@@ -96,21 +96,23 @@ class Slider extends React.Component {
 
     const currentSlide = get(this.state.currentSlide, children);
     const controlColor = getOr(false, 'light', currentSlide) ? '#FFF' : '#000';
-    const leftControl = totalSlide > 1
-      ? <ArrowLeft
+    const leftControl =
+      totalSlide > 1 ? (
+        <ArrowLeft
           className={style.leftControl}
           color={controlColor}
           onClick={this.handlePreviousSlide}
         />
-      : null;
+      ) : null;
 
-    const rightControl = totalSlide > 1
-      ? <ArrowRight
+    const rightControl =
+      totalSlide > 1 ? (
+        <ArrowRight
           className={style.rightControl}
           color={controlColor}
           onClick={this.handleNextSlide}
         />
-      : null;
+      ) : null;
 
     return (
       <div className={style.slidesWrapper} ref={this.setSlider}>

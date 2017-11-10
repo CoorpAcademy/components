@@ -16,11 +16,12 @@ const BrandTable = props => {
     </div>
   );
 
-  const tableView = rows.length > 0
-    ? <Table rows={rows} columns={columns} />
-    : <div className={style.empty}>
-        {emptyValue}
-      </div>;
+  const tableView =
+    rows.length > 0 ? (
+      <Table rows={rows} columns={columns} />
+    ) : (
+      <div className={style.empty}>{emptyValue}</div>
+    );
 
   return (
     <div className={style.wrapper}>
@@ -35,9 +36,7 @@ const BrandTable = props => {
           <Pagination {...pagination} />
         </div>
       </div>
-      <div>
-        {isPending ? pendingView : tableView}
-      </div>
+      <div>{isPending ? pendingView : tableView}</div>
       <div />
     </div>
   );

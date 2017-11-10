@@ -17,7 +17,9 @@ const QuestionRange = (props, context) => {
 
   return (
     <div className={style.wrapper}>
-      <span style={titleStyle} className={style.title}>{title}</span>
+      <span style={titleStyle} className={style.title}>
+        {title}
+      </span>
       <Range {...rangeProps} />
       <div className={style.labelWrapper}>
         <span className={style.label}>{minLabel}</span>

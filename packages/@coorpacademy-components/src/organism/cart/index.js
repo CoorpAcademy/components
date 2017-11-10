@@ -24,7 +24,9 @@ const Cart = (props, context) => {
         </div>
         <div className={style.paymentBlock}>
           <PaymentForm {...paymentFormProps} />
-          <Link className={style.backButton} href={backUrl}>{translate('back_to_catalog')}</Link>
+          <Link className={style.backButton} href={backUrl}>
+            {translate('back_to_catalog')}
+          </Link>
         </div>
       </div>
     </div>

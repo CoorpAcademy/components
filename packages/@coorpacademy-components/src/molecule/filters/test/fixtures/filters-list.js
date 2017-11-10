@@ -78,7 +78,7 @@ export default {
           {
             name:
               'World Health Organization - Mental Health Policy' +
-                'and Service Development, Michelle Funk and Nathalie Drew',
+              'and Service Development, Michelle Funk and Nathalie Drew',
             value: 'WHO',
             selected: true
           },
