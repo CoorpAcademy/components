@@ -7,6 +7,7 @@
 @value xtraLightGrey from colors;
 @value light from colors;
 @value white from colors;
+@value transparent from colors;
 
 .search {
   display: block;

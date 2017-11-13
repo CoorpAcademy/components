@@ -6,6 +6,7 @@
 @value white from colors;
 @value light from colors;
 @value dark from colors;
+@value transparent from colors;
 
 .list {
   list-style-type: none;

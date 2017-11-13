@@ -9,6 +9,7 @@
 @value medium from colors;
 @value dark from colors;
 @value black from colors;
+@value transparent from colors;
 
 @keyframes biggerHeader {
   0% {

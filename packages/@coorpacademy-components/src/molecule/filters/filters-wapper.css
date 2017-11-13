@@ -4,6 +4,7 @@
 @value tablet from breakpoints;
 @value colors: "../../variables/colors.css";
 @value dark from colors;
+@value transparent from colors;
 
 .wrapperNone {
   display: none;

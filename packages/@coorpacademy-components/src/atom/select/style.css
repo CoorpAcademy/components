@@ -8,6 +8,7 @@
 @value black from colors;
 @value white from colors;
 @value xtraLightGrey from colors;
+@value transparent from colors;
 
 .default {
   display: flex;

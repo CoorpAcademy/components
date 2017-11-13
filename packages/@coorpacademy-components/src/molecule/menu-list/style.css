@@ -9,6 +9,7 @@
 @value dark from colors;
 @value brand from colors;
 @value light from colors;
+@value transparent from colors;
 
 .toggleBox {
   position: absolute;
