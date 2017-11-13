@@ -7,7 +7,6 @@
 @value white from colors;
 @value dark from colors;
 @value medium from colors;
-@value black from colors;
 
 .sidebar {
   color: dark;

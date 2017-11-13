@@ -6,6 +6,7 @@
 @value orangeAdd from colors;
 @value grey from colors;
 @value positive from colors;
+@value black from colors;
 
 .wrapper {
   width: 100%;

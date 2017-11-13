@@ -7,7 +7,6 @@
 @value grey from colors;
 @value dark from colors;
 @value xtraLightGrey from colors;
-@value black from colors;
 @value white from colors;
 
 .default[disabled] {

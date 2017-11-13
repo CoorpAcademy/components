@@ -3,7 +3,6 @@
 @value medium from colors;
 @value positive from colors;
 @value white from colors;
-@value black from colors;
 @value tablet from "../../../variables/breakpoints.css";
 
 @keyframes fadeInOverlay {
