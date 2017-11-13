@@ -1,3 +1,5 @@
+@value colors: "../../../variables/colors.css";
+@value dark from colors;
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
 @value tablet from breakpoints;
@@ -32,7 +34,7 @@
   position: relative;
   font-family: "Open Sans";
   font-size: 20px;
-  color: #37474f;
+  color: dark;
   font-weight: 800;
   margin-bottom: 20px;
 }
