@@ -4,6 +4,7 @@
 @value dark from colors;
 @value light from colors;
 @value grey from colors;
+@value white from colors;
 
 .default {
   z-index: 20;

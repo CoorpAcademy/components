@@ -1,6 +1,7 @@
 @value colors: "../../variables/colors.css";
 @value brand from colors;
 @value dark from colors;
+@value white from colors;
 @value primaryAdd3 from colors;
 @value primaryAdd2 from colors;
 
