@@ -120,3 +120,21 @@ test(
     }
   ]
 );
+
+test(
+  'should catch sync error',
+  macro,
+  {
+    types: ['request', 'success', 'failure']
+  },
+  [
+    {
+      type: 'request'
+    },
+    {
+      type: 'failure',
+      error: true,
+      payload: new TypeError('task is not a function')
+    }
+  ]
+);

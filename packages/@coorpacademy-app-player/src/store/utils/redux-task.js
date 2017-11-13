@@ -22,7 +22,7 @@ const reduxTask = ({bailout = constant(false), meta, task, types}) => async (
   }
 
   try {
-    const data = await Promise.resolve(task(dispatch, getState, options));
+    const data = await Promise.resolve().then(() => task(dispatch, getState, options));
     return pipe(setMeta(meta), dispatch)({
       type: SUCCESS,
       payload: data
