@@ -1,6 +1,3 @@
-@value colors: "../../variables/colors.css";
-@value light from colors;
-@value white from colors;
 @value mobile, tablet from "../../variables/breakpoints.css";
 
 .default {
