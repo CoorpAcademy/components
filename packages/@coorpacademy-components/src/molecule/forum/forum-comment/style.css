@@ -1,7 +1,6 @@
 @value breakpoints: "../../../variables/breakpoints.css";
 @value tablet from breakpoints;
 @value colors: "../../../variables/colors.css";
-@value medium from colors;
 @value negative from colors;
 @value light from colors;
 @value white from colors;
