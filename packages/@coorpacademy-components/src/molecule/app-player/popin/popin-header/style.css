@@ -4,7 +4,6 @@
 @value colors: "../../../../variables/colors.css";
 @value negative from colors;
 @value light from colors;
-@value xtraLightGrey from colors;
 @value positive from colors;
 @value medium from colors;
 @value dark from colors;
