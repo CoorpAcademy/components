@@ -54,9 +54,9 @@ test(
   )({}),
   t => ({
     Analytics: {
-      sendProgressionAnalytics: (engineRef, nextContent) => {
-        t.is(engineRef, 'microlearning');
-        t.deepEqual(nextContent, {type: 'slide', ref: 'bar'});
+      sendProgressionAnalytics: (currentProgression, engineConfig) => {
+        t.is(currentProgression.engine.ref, 'microlearning');
+        t.deepEqual(currentProgression.state.nextContent, {type: 'slide', ref: 'bar'});
         return 'sent';
       }
     },

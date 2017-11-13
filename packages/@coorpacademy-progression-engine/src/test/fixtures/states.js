@@ -109,6 +109,29 @@ export const extraLifeProgressionState: State = {
   remainingLifeRequests: 1
 };
 
+export const extraLifeAlreadyRefusedProgressionState: State = {
+  content: {
+    ref: 'extraLife',
+    type: 'node'
+  },
+  nextContent: {
+    ref: 'none',
+    type: 'node'
+  },
+  lives: 0,
+  livesDisabled: false,
+  isCorrect: false,
+  slides: ['1.A1.1', '1.A1.2'],
+  step: {
+    current: 3,
+    total: 4
+  },
+  requestedClues: [],
+  viewedResources: [],
+  stars: 4,
+  remainingLifeRequests: 4
+};
+
 export const successProgressionState: State = {
   content: {
     ref: '1.A1.4',

@@ -117,9 +117,6 @@ function remainingLifeRequests(config: Config): (number, Action, State) => numbe
       case 'extraLifeAccepted': {
         return count > 0 ? count - 1 : count;
       }
-      case 'extraLifeRefused': {
-        return 0;
-      }
       default:
         return count;
     }

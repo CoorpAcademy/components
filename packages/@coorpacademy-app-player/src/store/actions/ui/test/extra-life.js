@@ -59,9 +59,9 @@ test(
   )({}),
   t => ({
     Analytics: {
-      sendProgressionAnalytics: (engineRef, nextContent) => {
-        t.is(engineRef, 'microlearning');
-        t.deepEqual(nextContent, {type: 'slide', ref: 'slideRef'});
+      sendProgressionAnalytics: (currentProgression, engineConfig) => {
+        t.is(currentProgression.engine.ref, 'microlearning');
+        t.deepEqual(currentProgression.state.nextContent, {type: 'slide', ref: 'slideRef'});
         return 'sent';
       }
     },
@@ -221,9 +221,9 @@ test(
   )({}),
   t => ({
     Analytics: {
-      sendProgressionAnalytics: (engineRef, nextContent) => {
-        t.is(engineRef, 'microlearning');
-        t.deepEqual(nextContent, {type: 'slide', ref: 'slideRef'});
+      sendProgressionAnalytics: (currentProgression, engineConfig) => {
+        t.is(currentProgression.engine.ref, 'microlearning');
+        t.deepEqual(currentProgression.state.nextContent, {type: 'slide', ref: 'slideRef'});
         return 'sent';
       }
     },

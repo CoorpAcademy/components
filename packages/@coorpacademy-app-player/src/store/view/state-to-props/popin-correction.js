@@ -8,6 +8,7 @@ import {
   getCurrentCorrection,
   getCurrentProgression,
   getCurrentProgressionId,
+  getEngineConfig,
   getLives,
   getPreviousSlide,
   getCurrentSlide
@@ -101,7 +102,10 @@ export const popinCorrectionStateToProps = (options, store) => state => {
   const {dispatch} = store;
   const toggleAccordionSection = sectionId => dispatch(toggleAccordion(sectionId));
   const slide = getPreviousSlide(state);
+  const engineConfig = getEngineConfig(state);
   const progression = getCurrentProgression(state);
+  const isExtraLifeAvailable = get('remainingLifeRequests', engineConfig) > 0;
+  const remainingLifeRequests = get('state.remainingLifeRequests', progression);
   const accordion = get('ui.corrections.accordion', state);
   const answerResult = getCurrentCorrection(state);
   const correctAnswer = get('correctAnswer', answerResult) || [];
@@ -110,8 +114,7 @@ export const popinCorrectionStateToProps = (options, store) => state => {
   const isLoading = isNil(isCorrect);
   const isExtraLifeActive = get('state.nextContent.ref', progression) === 'extraLife';
   const isRevival = get('ui.extraLife.acceptRevivalPending', state);
-  const isDead = progression.state.lives === 0;
-  const exhausted = isDead && !isRevival && !isCorrect && !isExtraLifeActive;
+  const exhausted = isExtraLifeAvailable && remainingLifeRequests === 0;
   const header = isNil(answerResult)
     ? {}
     : {

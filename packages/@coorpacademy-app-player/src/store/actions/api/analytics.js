@@ -1,5 +1,5 @@
 import buildTask from '../../utils/redux-task';
-import {getRoute, getCurrentEngine, getStepContent} from '../../utils/state-extract';
+import {getRoute, getCurrentProgression, getEngineConfig} from '../../utils/state-extract';
 
 export const MEDIA_VIEWED_ANALYTICS_REQUEST = '@@analytics/MEDIA_VIEWED_REQUEST';
 export const MEDIA_VIEWED_ANALYTICS_SUCCESS = '@@analytics/MEDIA_VIEWED_SUCCESS';
@@ -30,8 +30,8 @@ export const SEND_PROGRESSION_ANALYTICS_FAILURE = '@@analytics/SEND_PROGRESSION_
 export const sendProgressionAnalytics = progressionId => (dispatch, getState, {services}) => {
   const {Analytics} = services;
   const state = getState();
-  const engine = getCurrentEngine(state);
-  const nextContent = getStepContent(state);
+  const currentProgression = getCurrentProgression(state);
+  const engineConfig = getEngineConfig(state);
 
   const action = buildTask({
     types: [
@@ -39,7 +39,7 @@ export const sendProgressionAnalytics = progressionId => (dispatch, getState, {s
       SEND_PROGRESSION_ANALYTICS_SUCCESS,
       SEND_PROGRESSION_ANALYTICS_FAILURE
     ],
-    task: () => Analytics.sendProgressionAnalytics(engine.ref, nextContent),
+    task: () => Analytics.sendProgressionAnalytics(currentProgression, engineConfig),
     meta: {id: progressionId}
   });
 

@@ -5,6 +5,7 @@ import {
   checkAnswer,
   updateState
 } from '@coorpacademy/progression-engine';
+import defaultsDeep from 'lodash/fp/defaultsDeep';
 import map from 'lodash/fp/map';
 import toPairs from 'lodash/fp/toPairs';
 import groupBy from 'lodash/fp/groupBy';
@@ -29,7 +30,18 @@ const slideStore = reduce(
 
 const generateId = () => uniqueId('progression');
 const progressionStore = reduce(
-  (progressionMap, progression) => progressionMap.set(progression._id, progression),
+  (progressionMap, progression) =>
+    progressionMap.set(
+      progression._id,
+      defaultsDeep(
+        {
+          state: {
+            remainingLifeRequests: getConfig(progression.engine).remainingLifeRequests
+          }
+        },
+        progression
+      )
+    ),
   new Map(),
   progressionsData
 );
@@ -142,7 +154,6 @@ export const create = async progression => {
   };
 
   const newProgression = createProgression(progression.engine, chapter, initialContent);
-
   return save({
     _id,
     ...newProgression

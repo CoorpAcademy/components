@@ -102,9 +102,12 @@ test(
       }
     },
     Analytics: {
-      sendProgressionAnalytics: (engineRef, nextContent) => {
-        t.is(engineRef, 'learner');
-        t.deepEqual(nextContent, {type: 'success', ref: 'successExitNode'});
+      sendProgressionAnalytics: (currentProgression, engineConfig) => {
+        t.is(currentProgression.engine.ref, 'learner');
+        t.deepEqual(currentProgression.state.nextContent, {
+          type: 'success',
+          ref: 'successExitNode'
+        });
         return 'sent';
       }
     }
