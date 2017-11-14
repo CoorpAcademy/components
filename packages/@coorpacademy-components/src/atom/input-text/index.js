@@ -1,5 +1,4 @@
 import React from 'react';
-import LinkedInput from 'react-linked-input';
 import PropTypes from 'prop-types';
 import noop from 'lodash/fp/noop';
 import getClassState from '../../util/get-class-state';
@@ -26,7 +25,7 @@ const InputText = props => {
     <div className={className}>
       <label>
         <span className={style.title}>{title}</span>
-        <LinkedInput
+        <input
           type="text"
           name={title}
           className={style.input}
