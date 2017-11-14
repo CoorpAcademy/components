@@ -21,13 +21,13 @@ const dataProgressionsReducer = (state = {entities: {}}, action) => {
   switch (action.type) {
     case PROGRESSION_FETCH_SUCCESS: {
       const {payload, meta} = action;
-      const {id} = meta;
-      return set(['entities', id], payload, state);
+      const {progressionId} = meta;
+      return set(['entities', progressionId], payload, state);
     }
     case PROGRESSION_FETCH_REQUEST: {
       const {meta} = action;
-      const {id} = meta;
-      return update(['entities', id], progression => progression || null, state);
+      const {progressionId} = meta;
+      return update(['entities', progressionId], progression => progression || null, state);
     }
     case PROGRESSION_CREATE_ANSWER_REQUEST: {
       const {meta} = action;
@@ -35,9 +35,9 @@ const dataProgressionsReducer = (state = {entities: {}}, action) => {
       return set(['entities', progressionId, 'state', 'isCorrect'], null, state);
     }
     case PROGRESSION_REQUEST_CLUE_SUCCESS:
+    case PROGRESSION_RESOURCE_VIEWED_SUCCESS:
     case PROGRESSION_EXTRALIFEREFUSED_SUCCESS:
     case PROGRESSION_EXTRALIFEACCEPTED_SUCCESS:
-    case PROGRESSION_RESOURCE_VIEWED_SUCCESS:
     case PROGRESSION_CREATE_ANSWER_SUCCESS: {
       const {payload, meta} = action;
       const {progressionId} = meta;

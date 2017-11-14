@@ -172,3 +172,15 @@ export const markResourceAsViewed = async (progressionId, payload) => {
     progression
   );
 };
+
+export const hasViewedExtraLifeResource = async progressionId => {
+  const progression = await findById(progressionId);
+
+  const action = {
+    type: 'extraLifeResource'
+  };
+
+  return pipe(update('state', state => updateState(progression.engine, state, [action])), save)(
+    progression
+  );
+};
