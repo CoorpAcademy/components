@@ -107,6 +107,7 @@ import Header from '../src/organism/header';
 import Hero from '../src/organism/hero';
 import MoocHeader from '../src/organism/mooc-header';
 import Popin from '../src/organism/popin';
+import Progression from '../src/organism/progression';
 import ResourceBrowser from '../src/organism/resource-browser';
 import Settings from '../src/organism/settings';
 import SetupHeader from '../src/organism/setup-header';
@@ -487,6 +488,8 @@ import MoocHeaderFixtureLogged from '../src/organism/mooc-header/test/fixtures/l
 import MoocHeaderFixtureSliderMultiple from '../src/organism/mooc-header/test/fixtures/slider-multiple';
 import MoocHeaderFixtureSlider from '../src/organism/mooc-header/test/fixtures/slider';
 import PopinFixtureDefault from '../src/organism/popin/test/fixtures/default';
+import ProgressionFixtureDefault from '../src/organism/progression/test/fixtures/default';
+import ProgressionFixtureEmpty from '../src/organism/progression/test/fixtures/empty';
 import ResourceBrowserFixtureJwplayer from '../src/organism/resource-browser/test/fixtures/jwplayer';
 import ResourceBrowserFixtureOneVideo from '../src/organism/resource-browser/test/fixtures/one-video';
 import ResourceBrowserFixturePdfSelected from '../src/organism/resource-browser/test/fixtures/pdf-selected';
@@ -718,6 +721,7 @@ export const components = {
     Hero,
     MoocHeader,
     Popin,
+    Progression,
     ResourceBrowser,
     Settings,
     SetupHeader,
@@ -1342,6 +1346,10 @@ export const fixtures = {
     Popin: {
       Default: PopinFixtureDefault
     },
+    Progression: {
+      Default: ProgressionFixtureDefault,
+      Empty: ProgressionFixtureEmpty
+    },
     ResourceBrowser: {
       Jwplayer: ResourceBrowserFixtureJwplayer,
       OneVideo: ResourceBrowserFixtureOneVideo,
@@ -1496,6 +1504,1815 @@ export const fixtures = {
     SearchPage: {
       Default: SearchPageFixtureDefault,
       NoResult: SearchPageFixtureNoResult
+    }
+  }
+};
+
+export const dependencies = {
+  "Atom": {
+    "Range": {
+      "parents": {
+        "TemplateCommon": {
+          "SearchPage": true
+        },
+        "MoleculeQuestions": {
+          "QuestionRange": true
+        },
+        "Molecule": {
+          "Filters": true,
+          "Answer": true
+        }
+      },
+      "children": {}
+    },
+    "Select": {
+      "parents": {
+        "TemplateCommon": {
+          "SearchPage": true
+        },
+        "TemplateBackOffice": {
+          "BrandUpdate": true
+        },
+        "Organism": {
+          "MoocHeader": true,
+          "BrandForm": true
+        },
+        "MoleculeQuestions": {
+          "Template": true,
+          "DropDown": true
+        },
+        "Molecule": {
+          "SetupSlider": true,
+          "SetupSlide": true,
+          "Filters": true,
+          "BrandFormGroup": true,
+          "Answer": true
+        }
+      },
+      "children": {}
+    },
+    "Button": {
+      "parents": {
+        "TemplateCommon": {
+          "SearchPage": true,
+          "Discipline": true
+        },
+        "TemplateBackOffice": {
+          "BrandUpdate": true,
+          "BrandCreate": true
+        },
+        "Organism": {
+          "Popin": true,
+          "Discussion": true,
+          "BrandUpload": true,
+          "BrandForm": true
+        },
+        "MoleculeForum": {
+          "ForumThread": true,
+          "ForumPost": true,
+          "ForumComment": true
+        },
+        "Molecule": {
+          "ScopeContent": true,
+          "DisciplineScope": true,
+          "BrandDownloadBox": true,
+          "BrandCreateForm": true
+        }
+      },
+      "children": {}
+    },
+    "CatalogSection": {
+      "parents": {
+        "TemplateCommon": {
+          "Discipline": true
+        },
+        "Molecule": {
+          "DisciplinePartners": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Picture": true
+        }
+      }
+    },
+    "Link": {
+      "parents": {
+        "TemplateCommon": {
+          "Discipline": true,
+          "Dashboard": true,
+          "Authors": true
+        },
+        "TemplateBackOffice": {
+          "DashboardPreview": true,
+          "BrandUpdate": true,
+          "BrandList": true,
+          "BrandCreate": true
+        },
+        "TemplateAppPlayer": {
+          "PopinCorrection": true
+        },
+        "Organism": {
+          "SetupHeader": true,
+          "Settings": true,
+          "ResourceBrowser": true,
+          "MoocHeader": true,
+          "Hero": true,
+          "Cart": true,
+          "BrandUpload": true,
+          "BrandTable": true,
+          "BrandForm": true
+        },
+        "MoleculeDashboard": {
+          "StartBattle": true,
+          "NewsList": true
+        },
+        "Molecule": {
+          "Unsubscribe": true,
+          "Table": true,
+          "ScopeContent": true,
+          "Pdf": true,
+          "Pagination": true,
+          "News": true,
+          "DisciplineScope": true,
+          "DisciplinePartners": true,
+          "Breadcrumbs": true,
+          "BrandTabs": true,
+          "BrandCard": true,
+          "BrandCardCreate": true
+        }
+      },
+      "children": {}
+    },
+    "Picture": {
+      "parents": {
+        "TemplateCommon": {
+          "Discipline": true
+        },
+        "TemplateBackOffice": {
+          "DashboardPreview": true,
+          "BrandUpdate": true,
+          "BrandList": true,
+          "BrandCreate": true
+        },
+        "Organism": {
+          "SetupHeader": true,
+          "Header": true,
+          "Discussion": true
+        },
+        "MoleculeForum": {
+          "ForumThread": true,
+          "ForumPost": true
+        },
+        "Molecule": {
+          "DisciplinePartners": true,
+          "BrandCard": true,
+          "Answer": true
+        },
+        "Atom": {
+          "CatalogSection": true
+        }
+      },
+      "children": {}
+    },
+    "SocialLink": {
+      "parents": {
+        "TemplateCommon": {
+          "Discipline": true,
+          "Authors": true
+        },
+        "Molecule": {
+          "DisciplinePartners": true
+        }
+      },
+      "children": {}
+    },
+    "Cta": {
+      "parents": {
+        "TemplateCommon": {
+          "Dashboard": true
+        },
+        "OrganismMooc": {
+          "ImageSlider": true
+        },
+        "Organism": {
+          "Slider": true,
+          "MoocHeader": true
+        },
+        "MoleculeDashboard": {
+          "NewsList": true
+        },
+        "Molecule": {
+          "News": true
+        },
+        "Atom": {
+          "Slide": true,
+          "Clue": true
+        }
+      },
+      "children": {}
+    },
+    "Loader": {
+      "parents": {
+        "TemplateBackOffice": {
+          "DashboardPreview": true,
+          "BrandUpdate": true
+        },
+        "TemplateAppPlayer": {
+          "PopinCorrection": true,
+          "Loading": true
+        },
+        "Organism": {
+          "Discussion": true,
+          "CardsGrid": true,
+          "BrandUpload": true,
+          "BrandTable": true
+        },
+        "MoleculeDashboard": {
+          "NewsList": true
+        },
+        "MoleculeAppPlayerPopin": {
+          "PopinHeader": true
+        },
+        "Molecule": {
+          "VideoPlayer": true,
+          "SetupSections": true,
+          "BrandUploadBox": true
+        },
+        "Atom": {
+          "ImageUpload": true
+        }
+      },
+      "children": {}
+    },
+    "ImageUpload": {
+      "parents": {
+        "TemplateBackOffice": {
+          "BrandUpdate": true
+        },
+        "Organism": {
+          "BrandForm": true
+        },
+        "Molecule": {
+          "SetupSlider": true,
+          "SetupSlide": true,
+          "BrandFormGroup": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Loader": true
+        }
+      }
+    },
+    "InputSwitch": {
+      "parents": {
+        "TemplateBackOffice": {
+          "BrandUpdate": true
+        },
+        "Organism": {
+          "MoocHeader": true,
+          "BrandForm": true
+        },
+        "Molecule": {
+          "SetupSlider": true,
+          "SetupSlide": true,
+          "SetupSections": true,
+          "SetupSection": true,
+          "BrandFormGroup": true
+        }
+      },
+      "children": {}
+    },
+    "InputDoublestep": {
+      "parents": {
+        "TemplateBackOffice": {
+          "BrandUpdate": true
+        },
+        "Organism": {
+          "BrandForm": true
+        }
+      },
+      "children": {}
+    },
+    "InputReadonly": {
+      "parents": {
+        "TemplateBackOffice": {
+          "BrandUpdate": true
+        },
+        "Organism": {
+          "BrandForm": true
+        },
+        "Molecule": {
+          "BrandFormGroup": true
+        }
+      },
+      "children": {}
+    },
+    "Notification": {
+      "parents": {
+        "TemplateBackOffice": {
+          "BrandUpdate": true,
+          "BrandCreate": true
+        }
+      },
+      "children": {}
+    },
+    "InputColor": {
+      "parents": {
+        "TemplateBackOffice": {
+          "BrandUpdate": true
+        },
+        "Organism": {
+          "BrandForm": true
+        },
+        "Molecule": {
+          "BrandFormGroup": true
+        }
+      },
+      "children": {}
+    },
+    "InputText": {
+      "parents": {
+        "TemplateBackOffice": {
+          "BrandUpdate": true
+        },
+        "Organism": {
+          "BrandForm": true
+        },
+        "Molecule": {
+          "BrandFormGroup": true
+        }
+      },
+      "children": {}
+    },
+    "InputCheckbox": {
+      "parents": {
+        "TemplateBackOffice": {
+          "BrandUpdate": true
+        },
+        "Organism": {
+          "BrandForm": true
+        }
+      },
+      "children": {}
+    },
+    "Checkbox": {
+      "parents": {
+        "TemplateBackOffice": {
+          "BrandUpdate": true
+        },
+        "Organism": {
+          "BrandTable": true
+        },
+        "Molecule": {
+          "TitledCheckbox": true,
+          "Table": true
+        }
+      },
+      "children": {}
+    },
+    "Life": {
+      "parents": {
+        "TemplateAppPlayerPlayer": {
+          "PlayerHeader": true
+        },
+        "TemplateAppPlayer": {
+          "PopinEnd": true,
+          "Player": true
+        }
+      },
+      "children": {}
+    },
+    "ResourceMiniature": {
+      "parents": {
+        "TemplateAppPlayer": {
+          "PopinCorrection": true
+        },
+        "Organism": {
+          "ResourceBrowser": true
+        }
+      },
+      "children": {}
+    },
+    "Slide": {
+      "parents": {
+        "OrganismMooc": {
+          "ImageSlider": true
+        },
+        "Organism": {
+          "Slider": true,
+          "MoocHeader": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Cta": true
+        }
+      }
+    },
+    "TabContent": {
+      "parents": {
+        "Organism": {
+          "Settings": true
+        }
+      },
+      "children": {}
+    },
+    "Tab": {
+      "parents": {
+        "Organism": {
+          "Settings": true
+        }
+      },
+      "children": {}
+    },
+    "PromoCode": {
+      "parents": {
+        "Organism": {
+          "Cart": true
+        }
+      },
+      "children": {}
+    },
+    "InputHtml": {
+      "parents": {
+        "Molecule": {
+          "BrandFormGroup": true
+        }
+      },
+      "children": {}
+    },
+    "InputTextarea": {
+      "parents": {
+        "Molecule": {
+          "BrandFormGroup": true
+        }
+      },
+      "children": {}
+    },
+    "CenteredText": {
+      "children": {}
+    },
+    "Clue": {
+      "children": {
+        "Atom": {
+          "Cta": true
+        }
+      }
+    },
+    "Label": {
+      "children": {}
+    },
+    "PictureBackground": {
+      "children": {}
+    },
+    "Provider": {
+      "children": {}
+    },
+    "Spinner": {
+      "children": {}
+    },
+    "Title": {
+      "children": {}
+    }
+  },
+  "Molecule": {
+    "Card": {
+      "parents": {
+        "TemplateCommon": {
+          "SearchPage": true,
+          "Dashboard": true,
+          "Authors": true
+        },
+        "Organism": {
+          "CardsGrid": true
+        },
+        "MoleculeDashboard": {
+          "CardsList": true
+        }
+      },
+      "children": {}
+    },
+    "Filters": {
+      "parents": {
+        "TemplateCommon": {
+          "SearchPage": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Range": true,
+          "Select": true
+        }
+      }
+    },
+    "DisciplineCta": {
+      "parents": {
+        "TemplateCommon": {
+          "Discipline": true
+        }
+      },
+      "children": {}
+    },
+    "DisciplineHeader": {
+      "parents": {
+        "TemplateCommon": {
+          "Discipline": true
+        }
+      },
+      "children": {}
+    },
+    "DisciplinePartners": {
+      "parents": {
+        "TemplateCommon": {
+          "Discipline": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "CatalogSection": true,
+          "Link": true,
+          "Picture": true,
+          "SocialLink": true
+        }
+      }
+    },
+    "DisciplineScope": {
+      "parents": {
+        "TemplateCommon": {
+          "Discipline": true
+        }
+      },
+      "children": {
+        "Molecule": {
+          "ModuleBubble": true,
+          "ScopeContent": true,
+          "ScopeTabs": true
+        },
+        "Atom": {
+          "Link": true,
+          "Button": true
+        }
+      }
+    },
+    "ModuleBubble": {
+      "parents": {
+        "TemplateCommon": {
+          "Discipline": true
+        },
+        "Molecule": {
+          "ScopeTabs": true,
+          "ModuleCard": true,
+          "DisciplineScope": true
+        }
+      },
+      "children": {}
+    },
+    "ScopeContent": {
+      "parents": {
+        "TemplateCommon": {
+          "Discipline": true
+        },
+        "Molecule": {
+          "DisciplineScope": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Link": true,
+          "Button": true
+        }
+      }
+    },
+    "ScopeTabs": {
+      "parents": {
+        "TemplateCommon": {
+          "Discipline": true
+        },
+        "Molecule": {
+          "DisciplineScope": true
+        }
+      },
+      "children": {
+        "Molecule": {
+          "ModuleBubble": true
+        }
+      }
+    },
+    "BattleRequest": {
+      "parents": {
+        "TemplateCommon": {
+          "Dashboard": true
+        },
+        "MoleculeDashboard": {
+          "BattleRequestList": true
+        }
+      },
+      "children": {}
+    },
+    "News": {
+      "parents": {
+        "TemplateCommon": {
+          "Dashboard": true
+        },
+        "MoleculeDashboard": {
+          "NewsList": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Cta": true,
+          "Link": true
+        }
+      }
+    },
+    "BrandFormGroup": {
+      "parents": {
+        "TemplateBackOffice": {
+          "BrandUpdate": true
+        },
+        "Organism": {
+          "BrandForm": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "InputSwitch": true,
+          "InputHtml": true,
+          "InputReadonly": true,
+          "InputText": true,
+          "InputTextarea": true,
+          "ImageUpload": true,
+          "InputColor": true,
+          "Select": true
+        },
+        "Molecule": {
+          "SetupSection": true,
+          "SetupSections": true,
+          "SetupSlide": true,
+          "SetupSlider": true
+        }
+      }
+    },
+    "BrandTabs": {
+      "parents": {
+        "TemplateBackOffice": {
+          "BrandUpdate": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Link": true
+        }
+      }
+    },
+    "Breadcrumbs": {
+      "parents": {
+        "TemplateBackOffice": {
+          "BrandUpdate": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Link": true
+        }
+      }
+    },
+    "SetupSection": {
+      "parents": {
+        "TemplateBackOffice": {
+          "BrandUpdate": true
+        },
+        "Organism": {
+          "BrandForm": true
+        },
+        "Molecule": {
+          "SetupSections": true,
+          "BrandFormGroup": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "InputSwitch": true
+        }
+      }
+    },
+    "SetupSections": {
+      "parents": {
+        "TemplateBackOffice": {
+          "BrandUpdate": true
+        },
+        "Organism": {
+          "BrandForm": true
+        },
+        "Molecule": {
+          "BrandFormGroup": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "InputSwitch": true,
+          "Loader": true
+        },
+        "Molecule": {
+          "SetupSection": true
+        }
+      }
+    },
+    "SetupSlide": {
+      "parents": {
+        "TemplateBackOffice": {
+          "BrandUpdate": true
+        },
+        "Organism": {
+          "BrandForm": true
+        },
+        "Molecule": {
+          "SetupSlider": true,
+          "BrandFormGroup": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "ImageUpload": true,
+          "InputSwitch": true,
+          "Select": true
+        }
+      }
+    },
+    "SetupSlider": {
+      "parents": {
+        "TemplateBackOffice": {
+          "BrandUpdate": true
+        },
+        "Organism": {
+          "BrandForm": true
+        },
+        "Molecule": {
+          "BrandFormGroup": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "ImageUpload": true,
+          "InputSwitch": true,
+          "Select": true
+        },
+        "Molecule": {
+          "SetupSlide": true
+        }
+      }
+    },
+    "BrandDownloadBox": {
+      "parents": {
+        "TemplateBackOffice": {
+          "BrandUpdate": true
+        },
+        "Organism": {
+          "BrandUpload": true,
+          "BrandForm": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Button": true
+        }
+      }
+    },
+    "BrandUploadBox": {
+      "parents": {
+        "TemplateBackOffice": {
+          "BrandUpdate": true
+        },
+        "Organism": {
+          "BrandUpload": true,
+          "BrandForm": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Loader": true
+        }
+      }
+    },
+    "ProgressBar": {
+      "parents": {
+        "TemplateBackOffice": {
+          "BrandUpdate": true
+        },
+        "Organism": {
+          "BrandUpload": true
+        }
+      },
+      "children": {}
+    },
+    "Pagination": {
+      "parents": {
+        "TemplateBackOffice": {
+          "BrandUpdate": true
+        },
+        "Organism": {
+          "BrandTable": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Link": true
+        }
+      }
+    },
+    "Search": {
+      "parents": {
+        "TemplateBackOffice": {
+          "BrandUpdate": true
+        },
+        "Organism": {
+          "BrandTable": true
+        }
+      },
+      "children": {}
+    },
+    "Table": {
+      "parents": {
+        "TemplateBackOffice": {
+          "BrandUpdate": true
+        },
+        "Organism": {
+          "BrandTable": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Checkbox": true,
+          "Link": true
+        }
+      }
+    },
+    "BrandCardCreate": {
+      "parents": {
+        "TemplateBackOffice": {
+          "BrandList": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Link": true
+        }
+      }
+    },
+    "BrandCard": {
+      "parents": {
+        "TemplateBackOffice": {
+          "BrandList": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Link": true,
+          "Picture": true
+        }
+      }
+    },
+    "BrandCreateForm": {
+      "parents": {
+        "TemplateBackOffice": {
+          "BrandCreate": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Button": true
+        }
+      }
+    },
+    "Pdf": {
+      "parents": {
+        "TemplateAppPlayer": {
+          "PopinCorrection": true
+        },
+        "Organism": {
+          "ResourceBrowser": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Link": true
+        }
+      }
+    },
+    "SubscriptionFreemium": {
+      "parents": {
+        "Organism": {
+          "Settings": true
+        }
+      },
+      "children": {}
+    },
+    "SubscriptionPremium": {
+      "parents": {
+        "Organism": {
+          "Settings": true
+        }
+      },
+      "children": {}
+    },
+    "MenuList": {
+      "parents": {
+        "Organism": {
+          "Header": true
+        }
+      },
+      "children": {
+        "Molecule": {
+          "SsmenuList": true
+        }
+      }
+    },
+    "SsmenuList": {
+      "parents": {
+        "Organism": {
+          "Header": true
+        },
+        "Molecule": {
+          "MenuList": true
+        }
+      },
+      "children": {}
+    },
+    "PaymentForm": {
+      "parents": {
+        "Organism": {
+          "Cart": true
+        }
+      },
+      "children": {}
+    },
+    "ProductCard": {
+      "parents": {
+        "Organism": {
+          "Cart": true
+        }
+      },
+      "children": {}
+    },
+    "VideoIframe": {
+      "parents": {
+        "Molecule": {
+          "VideoPlayer": true
+        }
+      },
+      "children": {}
+    },
+    "Answer": {
+      "children": {
+        "Atom": {
+          "Picture": true,
+          "Select": true,
+          "Range": true
+        },
+        "MoleculeQuestions": {
+          "FreeText": true,
+          "DropDown": true,
+          "QcmDrag": true,
+          "QcmGraphic": true,
+          "Qcm": true,
+          "QuestionRange": true,
+          "Template": true
+        }
+      }
+    },
+    "ModuleCard": {
+      "children": {
+        "Molecule": {
+          "ModuleBubble": true
+        }
+      }
+    },
+    "ThemeImage": {
+      "children": {}
+    },
+    "TitledCheckbox": {
+      "children": {
+        "Atom": {
+          "Checkbox": true
+        }
+      }
+    },
+    "Unsubscribe": {
+      "children": {
+        "Atom": {
+          "Link": true
+        }
+      }
+    },
+    "VideoPlayer": {
+      "children": {
+        "Molecule": {
+          "VideoIframe": true
+        },
+        "Atom": {
+          "Loader": true
+        }
+      }
+    }
+  },
+  "Organism": {
+    "CardsGrid": {
+      "parents": {
+        "TemplateCommon": {
+          "SearchPage": true,
+          "Authors": true
+        }
+      },
+      "children": {
+        "Molecule": {
+          "Card": true
+        },
+        "Atom": {
+          "Loader": true
+        }
+      }
+    },
+    "Discussion": {
+      "parents": {
+        "TemplateCommon": {
+          "Discipline": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Button": true,
+          "Picture": true,
+          "Loader": true
+        },
+        "MoleculeForum": {
+          "ForumComment": true,
+          "ForumPost": true,
+          "ForumThread": true
+        }
+      }
+    },
+    "SetupHeader": {
+      "parents": {
+        "TemplateBackOffice": {
+          "DashboardPreview": true,
+          "BrandUpdate": true,
+          "BrandList": true,
+          "BrandCreate": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Link": true,
+          "Picture": true
+        }
+      }
+    },
+    "Sidebar": {
+      "parents": {
+        "TemplateBackOffice": {
+          "DashboardPreview": true
+        }
+      },
+      "children": {}
+    },
+    "BrandForm": {
+      "parents": {
+        "TemplateBackOffice": {
+          "BrandUpdate": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "ImageUpload": true,
+          "InputSwitch": true,
+          "Select": true,
+          "Button": true,
+          "InputDoublestep": true,
+          "InputReadonly": true,
+          "InputColor": true,
+          "InputText": true,
+          "InputCheckbox": true,
+          "Link": true
+        },
+        "Molecule": {
+          "BrandFormGroup": true,
+          "SetupSection": true,
+          "SetupSections": true,
+          "SetupSlide": true,
+          "SetupSlider": true,
+          "BrandDownloadBox": true,
+          "BrandUploadBox": true
+        }
+      }
+    },
+    "BrandUpload": {
+      "parents": {
+        "TemplateBackOffice": {
+          "BrandUpdate": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Button": true,
+          "Link": true,
+          "Loader": true
+        },
+        "Molecule": {
+          "BrandDownloadBox": true,
+          "BrandUploadBox": true,
+          "ProgressBar": true
+        }
+      }
+    },
+    "BrandTable": {
+      "parents": {
+        "TemplateBackOffice": {
+          "BrandUpdate": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Checkbox": true,
+          "Link": true,
+          "Loader": true
+        },
+        "Molecule": {
+          "Pagination": true,
+          "Search": true,
+          "Table": true
+        }
+      }
+    },
+    "GridList": {
+      "parents": {
+        "TemplateBackOffice": {
+          "BrandList": true
+        }
+      },
+      "children": {}
+    },
+    "ResourceBrowser": {
+      "parents": {
+        "TemplateAppPlayer": {
+          "PopinCorrection": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "ResourceMiniature": true,
+          "Link": true
+        },
+        "Molecule": {
+          "Pdf": true
+        }
+      }
+    },
+    "Cart": {
+      "children": {
+        "Atom": {
+          "Link": true,
+          "PromoCode": true
+        },
+        "Molecule": {
+          "PaymentForm": true,
+          "ProductCard": true
+        }
+      }
+    },
+    "Header": {
+      "children": {
+        "Atom": {
+          "Picture": true
+        },
+        "Molecule": {
+          "MenuList": true,
+          "SsmenuList": true
+        }
+      }
+    },
+    "Hero": {
+      "children": {
+        "Atom": {
+          "Link": true
+        }
+      }
+    },
+    "MoocHeader": {
+      "children": {
+        "Atom": {
+          "Cta": true,
+          "InputSwitch": true,
+          "Link": true,
+          "Select": true,
+          "Slide": true
+        },
+        "OrganismMooc": {
+          "ImageSlider": true
+        }
+      }
+    },
+    "Popin": {
+      "children": {
+        "Atom": {
+          "Button": true
+        }
+      }
+    },
+    "Progression": {
+      "children": {}
+    },
+    "Settings": {
+      "children": {
+        "Atom": {
+          "Link": true,
+          "TabContent": true,
+          "Tab": true
+        },
+        "Molecule": {
+          "SubscriptionFreemium": true,
+          "SubscriptionPremium": true
+        }
+      }
+    },
+    "Slider": {
+      "children": {
+        "Atom": {
+          "Cta": true,
+          "Slide": true
+        },
+        "MoleculeQuestions": {
+          "QcmDrag": true,
+          "QcmGraphic": true,
+          "Qcm": true
+        }
+      }
+    }
+  },
+  "MoleculeForum": {
+    "ForumComment": {
+      "parents": {
+        "TemplateCommon": {
+          "Discipline": true
+        },
+        "Organism": {
+          "Discussion": true
+        },
+        "MoleculeForum": {
+          "ForumThread": true,
+          "ForumPost": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Button": true
+        }
+      }
+    },
+    "ForumPost": {
+      "parents": {
+        "TemplateCommon": {
+          "Discipline": true
+        },
+        "Organism": {
+          "Discussion": true
+        },
+        "MoleculeForum": {
+          "ForumThread": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Button": true,
+          "Picture": true
+        },
+        "MoleculeForum": {
+          "ForumComment": true
+        }
+      }
+    },
+    "ForumThread": {
+      "parents": {
+        "TemplateCommon": {
+          "Discipline": true
+        },
+        "Organism": {
+          "Discussion": true
+        },
+        "MoleculeForum": {
+          "ForumThread": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Button": true,
+          "Picture": true
+        },
+        "MoleculeForum": {
+          "ForumComment": true,
+          "ForumPost": true,
+          "ForumThread": true
+        }
+      }
+    }
+  },
+  "MoleculeDashboard": {
+    "BattleRequestList": {
+      "parents": {
+        "TemplateCommon": {
+          "Dashboard": true
+        }
+      },
+      "children": {
+        "Molecule": {
+          "BattleRequest": true
+        }
+      }
+    },
+    "CardsList": {
+      "parents": {
+        "TemplateCommon": {
+          "Dashboard": true
+        }
+      },
+      "children": {
+        "Molecule": {
+          "Card": true
+        }
+      }
+    },
+    "NewsList": {
+      "parents": {
+        "TemplateCommon": {
+          "Dashboard": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Cta": true,
+          "Link": true,
+          "Loader": true
+        },
+        "Molecule": {
+          "News": true
+        }
+      }
+    },
+    "StartBattle": {
+      "parents": {
+        "TemplateCommon": {
+          "Dashboard": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Link": true
+        }
+      }
+    }
+  },
+  "TemplateAppPlayer": {
+    "Loading": {
+      "parents": {
+        "TemplateBackOffice": {
+          "DashboardPreview": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Loader": true
+        }
+      }
+    },
+    "Player": {
+      "children": {
+        "Atom": {
+          "Life": true
+        },
+        "MoleculeSlides": {
+          "SlidesFooter": true,
+          "SlidesPlayer": true
+        },
+        "TemplateAppPlayerPlayer": {
+          "PlayerHeader": true
+        }
+      }
+    },
+    "PopinCorrection": {
+      "children": {
+        "Atom": {
+          "Loader": true,
+          "Link": true,
+          "ResourceMiniature": true
+        },
+        "MoleculeAppPlayerPopin": {
+          "PopinHeader": true
+        },
+        "OrganismAccordion": {
+          "Container": true,
+          "Part": true
+        },
+        "Molecule": {
+          "Pdf": true
+        },
+        "Organism": {
+          "ResourceBrowser": true
+        }
+      }
+    },
+    "PopinEnd": {
+      "children": {
+        "Atom": {
+          "Life": true
+        },
+        "TemplateAppPlayerPlayer": {
+          "PlayerHeader": true
+        }
+      }
+    }
+  },
+  "TemplateAppPlayerPlayer": {
+    "PlayerHeader": {
+      "parents": {
+        "TemplateAppPlayer": {
+          "PopinEnd": true,
+          "Player": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Life": true
+        }
+      }
+    }
+  },
+  "MoleculeAppPlayerPopin": {
+    "PopinHeader": {
+      "parents": {
+        "TemplateAppPlayer": {
+          "PopinCorrection": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Loader": true
+        }
+      }
+    }
+  },
+  "OrganismAccordion": {
+    "Container": {
+      "parents": {
+        "TemplateAppPlayer": {
+          "PopinCorrection": true
+        }
+      },
+      "children": {
+        "MoleculeQuestions": {
+          "Qcm": true
+        },
+        "OrganismAccordion": {
+          "Part": true
+        }
+      }
+    },
+    "Part": {
+      "parents": {
+        "TemplateAppPlayer": {
+          "PopinCorrection": true
+        },
+        "OrganismAccordion": {
+          "Container": true
+        }
+      },
+      "children": {
+        "MoleculeQuestions": {
+          "QcmDrag": true
+        }
+      }
+    },
+    "Toggler": {
+      "children": {
+        "MoleculeQuestions": {
+          "QcmDrag": true,
+          "QcmGraphic": true,
+          "Qcm": true
+        }
+      }
+    }
+  },
+  "MoleculeSlides": {
+    "SlidesFooter": {
+      "parents": {
+        "TemplateAppPlayer": {
+          "Player": true
+        },
+        "MoleculeSlides": {
+          "SlidesPlayer": true
+        }
+      },
+      "children": {}
+    },
+    "SlidesPlayer": {
+      "parents": {
+        "TemplateAppPlayer": {
+          "Player": true
+        }
+      },
+      "children": {
+        "MoleculeSlides": {
+          "SlidesFooter": true
+        }
+      }
+    }
+  },
+  "MoleculeQuestions": {
+    "QcmDrag": {
+      "parents": {
+        "Organism": {
+          "Slider": true
+        },
+        "OrganismAccordion": {
+          "Toggler": true,
+          "Part": true
+        },
+        "Molecule": {
+          "Answer": true
+        }
+      },
+      "children": {}
+    },
+    "QcmGraphic": {
+      "parents": {
+        "Organism": {
+          "Slider": true
+        },
+        "OrganismAccordion": {
+          "Toggler": true
+        },
+        "Molecule": {
+          "Answer": true
+        }
+      },
+      "children": {}
+    },
+    "Qcm": {
+      "parents": {
+        "Organism": {
+          "Slider": true
+        },
+        "OrganismAccordion": {
+          "Toggler": true,
+          "Container": true
+        },
+        "Molecule": {
+          "Answer": true
+        }
+      },
+      "children": {}
+    },
+    "DropDown": {
+      "parents": {
+        "MoleculeQuestions": {
+          "Template": true
+        },
+        "Molecule": {
+          "Answer": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Select": true
+        }
+      }
+    },
+    "FreeText": {
+      "parents": {
+        "MoleculeQuestions": {
+          "Template": true
+        },
+        "Molecule": {
+          "Answer": true
+        }
+      },
+      "children": {}
+    },
+    "QuestionRange": {
+      "parents": {
+        "Molecule": {
+          "Answer": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Range": true
+        }
+      }
+    },
+    "Template": {
+      "parents": {
+        "Molecule": {
+          "Answer": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Select": true
+        },
+        "MoleculeQuestions": {
+          "DropDown": true,
+          "FreeText": true
+        }
+      }
+    }
+  },
+  "OrganismMooc": {
+    "ImageSlider": {
+      "parents": {
+        "Organism": {
+          "MoocHeader": true
+        }
+      },
+      "children": {
+        "Atom": {
+          "Cta": true,
+          "Slide": true
+        }
+      }
+    }
+  },
+  "TemplateBackOffice": {
+    "BrandCreate": {
+      "children": {
+        "Atom": {
+          "Button": true,
+          "Link": true,
+          "Picture": true,
+          "Notification": true
+        },
+        "Molecule": {
+          "BrandCreateForm": true
+        },
+        "Organism": {
+          "SetupHeader": true
+        }
+      }
+    },
+    "BrandList": {
+      "children": {
+        "Atom": {
+          "Link": true,
+          "Picture": true
+        },
+        "Molecule": {
+          "BrandCardCreate": true,
+          "BrandCard": true
+        },
+        "Organism": {
+          "GridList": true,
+          "SetupHeader": true
+        }
+      }
+    },
+    "BrandUpdate": {
+      "children": {
+        "Atom": {
+          "Button": true,
+          "ImageUpload": true,
+          "InputSwitch": true,
+          "Link": true,
+          "Picture": true,
+          "Select": true,
+          "InputDoublestep": true,
+          "InputReadonly": true,
+          "Notification": true,
+          "InputColor": true,
+          "InputText": true,
+          "InputCheckbox": true,
+          "Loader": true,
+          "Checkbox": true
+        },
+        "Molecule": {
+          "BrandFormGroup": true,
+          "BrandTabs": true,
+          "Breadcrumbs": true,
+          "SetupSection": true,
+          "SetupSections": true,
+          "SetupSlide": true,
+          "SetupSlider": true,
+          "BrandDownloadBox": true,
+          "BrandUploadBox": true,
+          "ProgressBar": true,
+          "Pagination": true,
+          "Search": true,
+          "Table": true
+        },
+        "Organism": {
+          "BrandForm": true,
+          "SetupHeader": true,
+          "BrandUpload": true,
+          "BrandTable": true
+        }
+      }
+    },
+    "DashboardPreview": {
+      "children": {
+        "Atom": {
+          "Link": true,
+          "Picture": true,
+          "Loader": true
+        },
+        "Organism": {
+          "SetupHeader": true,
+          "Sidebar": true
+        },
+        "TemplateAppPlayer": {
+          "Loading": true
+        }
+      }
+    }
+  },
+  "TemplateCommon": {
+    "Authors": {
+      "children": {
+        "Atom": {
+          "Link": true,
+          "SocialLink": true
+        },
+        "Molecule": {
+          "Card": true
+        },
+        "Organism": {
+          "CardsGrid": true
+        }
+      }
+    },
+    "CoorpHeader": {
+      "children": {}
+    },
+    "Dashboard": {
+      "children": {
+        "Atom": {
+          "Cta": true,
+          "Link": true
+        },
+        "Molecule": {
+          "BattleRequest": true,
+          "Card": true,
+          "News": true
+        },
+        "MoleculeDashboard": {
+          "BattleRequestList": true,
+          "CardsList": true,
+          "NewsList": true,
+          "StartBattle": true
+        }
+      }
+    },
+    "Discipline": {
+      "children": {
+        "Atom": {
+          "Button": true,
+          "CatalogSection": true,
+          "Link": true,
+          "Picture": true,
+          "SocialLink": true
+        },
+        "Molecule": {
+          "DisciplineCta": true,
+          "DisciplineHeader": true,
+          "DisciplinePartners": true,
+          "DisciplineScope": true,
+          "ModuleBubble": true,
+          "ScopeContent": true,
+          "ScopeTabs": true
+        },
+        "MoleculeForum": {
+          "ForumComment": true,
+          "ForumPost": true,
+          "ForumThread": true
+        },
+        "Organism": {
+          "Discussion": true
+        }
+      }
+    },
+    "SearchPage": {
+      "children": {
+        "Atom": {
+          "Range": true,
+          "Select": true,
+          "Button": true
+        },
+        "Molecule": {
+          "Card": true,
+          "Filters": true
+        },
+        "Organism": {
+          "CardsGrid": true
+        }
+      }
     }
   }
 };
