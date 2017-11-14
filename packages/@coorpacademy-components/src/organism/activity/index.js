@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import style from './style.css';
 
-const Progression = (props, context) => {
+const Activity = (props, context) => {
   const {skin} = context;
 
   const {} = props;
@@ -16,8 +16,8 @@ const Progression = (props, context) => {
 
 
 
-Progression.propTypes = {
+Activity.propTypes = {
   
 };
 
-export default Progression;
+export default Activity;

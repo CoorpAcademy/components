@@ -94,6 +94,7 @@ import SlidesPlayer from '../src/molecule/slides/slides-player';
 import Container from '../src/organism/accordion/container';
 import Part from '../src/organism/accordion/part';
 import Toggler from '../src/organism/accordion/toggler';
+import Activity from '../src/organism/activity';
 import BrandForm from '../src/organism/brand-form';
 import BrandTable from '../src/organism/brand-table';
 import BrandUpload from '../src/organism/brand-upload';
@@ -105,7 +106,6 @@ import Header from '../src/organism/header';
 import Hero from '../src/organism/hero';
 import MoocHeader from '../src/organism/mooc-header';
 import Popin from '../src/organism/popin';
-import Progression from '../src/organism/progression';
 import ResourceBrowser from '../src/organism/resource-browser';
 import Settings from '../src/organism/settings';
 import SetupHeader from '../src/organism/setup-header';
@@ -452,6 +452,8 @@ import PartFixtureDefault from '../src/organism/accordion/part/test/fixtures/def
 import PartFixtureOpen from '../src/organism/accordion/part/test/fixtures/open';
 import TogglerFixtureAllAreOpenable from '../src/organism/accordion/toggler/test/fixtures/all-are-openable';
 import TogglerFixtureOnlyOne from '../src/organism/accordion/toggler/test/fixtures/only-one';
+import ActivityFixtureDefault from '../src/organism/activity/test/fixtures/default';
+import ActivityFixtureEmpty from '../src/organism/activity/test/fixtures/empty';
 import BrandFormFixtureDashboard from '../src/organism/brand-form/test/fixtures/dashboard';
 import BrandFormFixtureDefault from '../src/organism/brand-form/test/fixtures/default';
 import BrandFormFixtureGeneralSettings from '../src/organism/brand-form/test/fixtures/general-settings';
@@ -482,8 +484,6 @@ import MoocHeaderFixtureLogged from '../src/organism/mooc-header/test/fixtures/l
 import MoocHeaderFixtureSliderMultiple from '../src/organism/mooc-header/test/fixtures/slider-multiple';
 import MoocHeaderFixtureSlider from '../src/organism/mooc-header/test/fixtures/slider';
 import PopinFixtureDefault from '../src/organism/popin/test/fixtures/default';
-import ProgressionFixtureDefault from '../src/organism/progression/test/fixtures/default';
-import ProgressionFixtureEmpty from '../src/organism/progression/test/fixtures/empty';
 import ResourceBrowserFixtureJwplayer from '../src/organism/resource-browser/test/fixtures/jwplayer';
 import ResourceBrowserFixtureOneVideo from '../src/organism/resource-browser/test/fixtures/one-video';
 import ResourceBrowserFixturePdfSelected from '../src/organism/resource-browser/test/fixtures/pdf-selected';
@@ -702,6 +702,7 @@ export const components = {
     Toggler
   },
   Organism: {
+    Activity,
     BrandForm,
     BrandTable,
     BrandUpload,
@@ -713,7 +714,6 @@ export const components = {
     Hero,
     MoocHeader,
     Popin,
-    Progression,
     ResourceBrowser,
     Settings,
     SetupHeader,
@@ -1278,6 +1278,10 @@ export const fixtures = {
     }
   },
   Organism: {
+    Activity: {
+      Default: ActivityFixtureDefault,
+      Empty: ActivityFixtureEmpty
+    },
     BrandForm: {
       Dashboard: BrandFormFixtureDashboard,
       Default: BrandFormFixtureDefault,
@@ -1329,10 +1333,6 @@ export const fixtures = {
     },
     Popin: {
       Default: PopinFixtureDefault
-    },
-    Progression: {
-      Default: ProgressionFixtureDefault,
-      Empty: ProgressionFixtureEmpty
     },
     ResourceBrowser: {
       Jwplayer: ResourceBrowserFixtureJwplayer,
@@ -2653,6 +2653,9 @@ export const dependencies = {
         }
       }
     },
+    "Activity": {
+      "children": {}
+    },
     "Cart": {
       "children": {
         "Atom": {
@@ -2703,9 +2706,6 @@ export const dependencies = {
           "Button": true
         }
       }
-    },
-    "Progression": {
-      "children": {}
     },
     "Settings": {
       "children": {
