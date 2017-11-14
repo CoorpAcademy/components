@@ -1,0 +1,11 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value colors: "../../variables/colors.css";
+@value dark from colors;
+@value light from colors;
+@value grey from colors;
+@value white from colors;
+
+.default {
+ border: solid 1px red;
+}

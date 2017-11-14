@@ -81,6 +81,7 @@ export PopinEnd from './template/app-player/popin-end';
 export PopinHeader from './molecule/app-player/popin/popin-header';
 export ProductCard from './molecule/product-card';
 export ProgressBar from './molecule/progress-bar';
+export Progression from './organism/progression';
 export PromoCode from './atom/promo-code';
 export Provider from './atom/provider';
 export Qcm from './molecule/questions/qcm';
