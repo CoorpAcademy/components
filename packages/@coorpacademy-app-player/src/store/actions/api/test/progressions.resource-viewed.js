@@ -19,6 +19,7 @@ const initState = pipe(
   set('data.progressions.entities.foo._id', 'foo'),
   set('data.progressions.entities.foo.state.content.ref', 'slideRef'),
   set('data.progressions.entities.foo.state.nextContent.ref', 'nextSlideRef'),
+  set('data.progressions.entities.foo.state.hasViewedExtraLifeResource', false),
   set('data.progressions.entities.foo.content', content),
   set('data.contents.chapter.entities.contentRef', 'chapterContent'),
   set('data.contents.slide.entities.slideRef', 'slide1'),
@@ -40,6 +41,7 @@ test(
             type: 'video',
             version: '1'
           },
+          isExtraLife: false,
           content,
           slide: 'slide2'
         });
@@ -86,6 +88,7 @@ test(
             type: 'pdf',
             version: '1'
           },
+          isExtraLife: false,
           content,
           slide: 'slide2'
         });
@@ -136,6 +139,7 @@ test(
             type: 'video',
             version: '1'
           },
+          isExtraLife: false,
           content,
           slide: 'slide1'
         });
@@ -168,19 +172,31 @@ test(
 );
 
 test(
-  'should prevent request if resource has already been seen',
+  'should mark the the extra-life content as viewed if isExtraLife == true',
   macro,
-  pipe(
-    initState,
-    set('data.progressions.entities.foo.state.viewedResources', [
-      {ref: 'contentRef', type: 'chapter', resources: ['resourceRef']}
-    ]),
-    set('ui.route.foo', 'media')
-  )({}),
+  pipe(initState, set('data.progressions.entities.foo.state.nextContent.ref', 'extraLife'))({}),
   t => ({
     Progressions: {
       markResourceAsViewed: (id, payload) => {
-        t.fail();
+        t.is(id, 'foo');
+        t.deepEqual(payload, {
+          resource: {
+            _id: 'resourceId',
+            ref: 'resourceRef',
+            type: 'video',
+            version: '1'
+          },
+          isExtraLife: true,
+          content,
+          slide: 'slide1'
+        });
+
+        return pipe(
+          set('state.viewedResources', [
+            {ref: 'contentRef', type: 'chapter', resources: ['resourceRef']}
+          ]),
+          set('state.hasViewedExtraLifeResource', true)
+        )({});
       }
     }
   }),
@@ -189,9 +205,19 @@ test(
     {
       type: PROGRESSION_RESOURCE_VIEWED_REQUEST,
       meta: {progressionId: 'foo', resource}
+    },
+    {
+      type: PROGRESSION_RESOURCE_VIEWED_SUCCESS,
+      meta: {progressionId: 'foo', resource},
+      payload: pipe(
+        set('state.viewedResources', [
+          {ref: 'contentRef', type: 'chapter', resources: ['resourceRef']}
+        ]),
+        set('state.hasViewedExtraLifeResource', true)
+      )({})
     }
   ],
-  0
+  2
 );
 
 test(
@@ -214,6 +240,7 @@ test(
             type: 'video',
             version: '1'
           },
+          isExtraLife: false,
           content,
           slide: 'slide2'
         });

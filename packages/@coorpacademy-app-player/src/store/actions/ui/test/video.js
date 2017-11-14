@@ -11,7 +11,6 @@ import {
   resume,
   ended
 } from '../video';
-import {UI_REVIVAL_PENDING} from '../extra-life';
 import {UI_PROGRESSION_UPDATED} from '../progressions';
 
 import {
@@ -109,6 +108,7 @@ test(
             type: 'video',
             version: '1'
           },
+          isExtraLife: false,
           content,
           slide: 'slide'
         });
@@ -185,6 +185,7 @@ test(
     Progressions: {
       markResourceAsViewed: (progressionId, payload) => {
         t.is(progressionId, 'foo');
+        t.is(payload.isExtraLife, true);
         return 'foo';
       }
     }
@@ -199,9 +200,6 @@ test(
       type: MEDIA_VIEWED_ANALYTICS_SUCCESS,
       meta: {resource, location: 'media'},
       payload: undefined
-    },
-    {
-      type: UI_REVIVAL_PENDING
     },
     {
       type: PROGRESSION_RESOURCE_VIEWED_REQUEST,
@@ -226,5 +224,5 @@ test(
       payload: 'qux'
     }
   ],
-  3
+  4
 );

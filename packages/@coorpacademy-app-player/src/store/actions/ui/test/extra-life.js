@@ -3,12 +3,7 @@ import pipe from 'lodash/fp/pipe';
 import set from 'lodash/fp/set';
 import macro from '../../test/helpers/macro';
 import mockContentService from '../../test/helpers/mock-content-service';
-import {
-  UI_REVIVAL_PENDING,
-  pending,
-  acceptExtraLifeAndReset,
-  refuseExtraLifeAndReset
-} from '../extra-life';
+import {acceptExtraLifeAndReset, refuseExtraLifeAndReset} from '../extra-life';
 import {UI_SELECT_PROGRESSION, UI_PROGRESSION_UPDATED} from '../progressions';
 import {
   PROGRESSION_FETCH_REQUEST,
@@ -32,20 +27,6 @@ import {
   SEND_PROGRESSION_ANALYTICS_REQUEST,
   SEND_PROGRESSION_ANALYTICS_SUCCESS
 } from '../../api/analytics';
-
-test(
-  'should dispatch revival pending',
-  macro,
-  {},
-  t => ({}),
-  pending(),
-  [
-    {
-      type: UI_REVIVAL_PENDING
-    }
-  ],
-  0
-);
 
 test(
   'should dispatch refuse and reset progression',

@@ -20,7 +20,8 @@ export const stateBeforeGettingNextContent: State = {
   step: {
     current: 1
   },
-  remainingLifeRequests: 1
+  remainingLifeRequests: 1,
+  hasViewedExtraLifeResource: false
 };
 
 export const stateForFirstSlide: State = {
@@ -39,7 +40,8 @@ export const stateForFirstSlide: State = {
   step: {
     current: 1
   },
-  remainingLifeRequests: 1
+  remainingLifeRequests: 1,
+  hasViewedExtraLifeResource: false
 };
 
 export const stateForSecondSlide: State = {
@@ -61,7 +63,8 @@ export const stateForSecondSlide: State = {
   step: {
     current: 2
   },
-  remainingLifeRequests: 1
+  remainingLifeRequests: 1,
+  hasViewedExtraLifeResource: false
 };
 
 export const failProgressionState: State = {
@@ -83,7 +86,8 @@ export const failProgressionState: State = {
   requestedClues: [],
   viewedResources: [],
   stars: 4,
-  remainingLifeRequests: 0
+  remainingLifeRequests: 0,
+  hasViewedExtraLifeResource: false
 };
 
 export const extraLifeProgressionState: State = {
@@ -106,7 +110,8 @@ export const extraLifeProgressionState: State = {
   requestedClues: [],
   viewedResources: [],
   stars: 4,
-  remainingLifeRequests: 1
+  remainingLifeRequests: 1,
+  hasViewedExtraLifeResource: false
 };
 
 export const extraLifeAlreadyRefusedProgressionState: State = {
@@ -129,7 +134,8 @@ export const extraLifeAlreadyRefusedProgressionState: State = {
   requestedClues: [],
   viewedResources: [],
   stars: 4,
-  remainingLifeRequests: 4
+  remainingLifeRequests: 4,
+  hasViewedExtraLifeResource: false
 };
 
 export const successProgressionState: State = {
@@ -151,5 +157,6 @@ export const successProgressionState: State = {
   requestedClues: [],
   viewedResources: [],
   stars: 16,
-  remainingLifeRequests: 1
+  remainingLifeRequests: 1,
+  hasViewedExtraLifeResource: false
 };

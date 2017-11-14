@@ -28,7 +28,8 @@ const engine = {
 function contentResourceViewedAction(
   contentType: string,
   contentRef: string,
-  lessonRef: string
+  lessonRef: string,
+  isExtraLife: boolean = false
 ): ContentResourceViewedAction {
   return Object.freeze({
     type: 'resource',
@@ -38,6 +39,7 @@ function contentResourceViewedAction(
         type: 'video',
         version: '1'
       },
+      isExtraLife,
       content: {
         ref: contentRef,
         type: contentType,
@@ -348,6 +350,15 @@ test('should update stars after viewing a resource', t => {
   );
 });
 
+test('should update extra-life accepted status after viewing an extra-life resource', t => {
+  const state: State = Object.freeze(stateForFirstSlide);
+  const newState = updateState(engine, state, [
+    contentResourceViewedAction('chapter', '1.A1', 'lesson_1', true)
+  ]);
+
+  t.is(newState.hasViewedExtraLifeResource, true);
+});
+
 test('should update stars after viewing a resource (with different number of stars)', t => {
   const state: State = Object.freeze(stateForFirstSlide);
 
@@ -445,6 +456,7 @@ test('should add one life when using extra life', t => {
   t.is(newState.remainingLifeRequests, 0);
   t.is(newState.nextContent.type, 'slide');
   t.is(get('content.ref', newState), 'extraLife');
+  t.is(newState.hasViewedExtraLifeResource, false);
 });
 
 test('should not add a life when accepting an extraLife when lives are disabled', t => {
@@ -453,6 +465,7 @@ test('should not add a life when accepting an extraLife when lives are disabled'
   const newState = updateState(engine, state, [extraLifeAcceptedAction]);
   t.is(newState.lives, 0, '`lives` should not have been incremented');
   t.true(newState.livesDisabled);
+  t.is(newState.hasViewedExtraLifeResource, false);
 });
 
 test('should go to failure when refusing extra life', t => {
@@ -504,4 +517,5 @@ test('should update step when answering a question', t => {
 
   const newState = updateState(engine, state, [action]);
   t.deepEqual(newState.step, {current: 3}, 'step progression is wrong');
+  t.is(newState.hasViewedExtraLifeResource, false);
 });
