@@ -105,6 +105,7 @@ import Header from '../src/organism/header';
 import Hero from '../src/organism/hero';
 import MoocHeader from '../src/organism/mooc-header';
 import Popin from '../src/organism/popin';
+import Progression from '../src/organism/progression';
 import ResourceBrowser from '../src/organism/resource-browser';
 import Settings from '../src/organism/settings';
 import SetupHeader from '../src/organism/setup-header';
@@ -481,6 +482,8 @@ import MoocHeaderFixtureLogged from '../src/organism/mooc-header/test/fixtures/l
 import MoocHeaderFixtureSliderMultiple from '../src/organism/mooc-header/test/fixtures/slider-multiple';
 import MoocHeaderFixtureSlider from '../src/organism/mooc-header/test/fixtures/slider';
 import PopinFixtureDefault from '../src/organism/popin/test/fixtures/default';
+import ProgressionFixtureDefault from '../src/organism/progression/test/fixtures/default';
+import ProgressionFixtureEmpty from '../src/organism/progression/test/fixtures/empty';
 import ResourceBrowserFixtureJwplayer from '../src/organism/resource-browser/test/fixtures/jwplayer';
 import ResourceBrowserFixtureOneVideo from '../src/organism/resource-browser/test/fixtures/one-video';
 import ResourceBrowserFixturePdfSelected from '../src/organism/resource-browser/test/fixtures/pdf-selected';
@@ -710,6 +713,7 @@ export const components = {
     Hero,
     MoocHeader,
     Popin,
+    Progression,
     ResourceBrowser,
     Settings,
     SetupHeader,
@@ -1325,6 +1329,10 @@ export const fixtures = {
     },
     Popin: {
       Default: PopinFixtureDefault
+    },
+    Progression: {
+      Default: ProgressionFixtureDefault,
+      Empty: ProgressionFixtureEmpty
     },
     ResourceBrowser: {
       Jwplayer: ResourceBrowserFixtureJwplayer,
@@ -2695,6 +2703,9 @@ export const dependencies = {
           "Button": true
         }
       }
+    },
+    "Progression": {
+      "children": {}
     },
     "Settings": {
       "children": {
