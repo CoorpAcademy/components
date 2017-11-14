@@ -1,12 +1,7 @@
 @value colors: "../../variables/colors.css";
-@value medium from colors;
-@value dark from colors;
 @value light from colors;
-@value black from colors;
 @value white from colors;
-@value medium from colors;
 @value brand from colors;
-@value grey from colors;
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
 

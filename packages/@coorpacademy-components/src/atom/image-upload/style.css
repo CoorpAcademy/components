@@ -3,7 +3,6 @@
 @value dark from colors;
 @value medium from colors;
 @value battle from colors;
-@value white from colors;
 
 .wrapper {
   width: 360px;

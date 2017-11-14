@@ -4,7 +4,6 @@
 @value desktop from breakpoints;
 @value colors: "../../../variables/colors.css";
 @value white from colors;
-@value medium from colors;
 @value battle from colors;
 @value black from colors;
 @value light from colors;

@@ -7,6 +7,7 @@
 @value white from colors;
 @value light from colors;
 @value grey from colors;
+@value black from colors;
 
 .desc {
   display: block;

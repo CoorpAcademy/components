@@ -1,5 +1,6 @@
 @value colors: "../../variables/colors.css";
 @value brand from colors;
+@value negative from colors;
 
 .default {
   background-color: negative;

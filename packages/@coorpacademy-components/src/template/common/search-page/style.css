@@ -3,9 +3,9 @@
 @value tablet from breakpoints;
 @value mobile from breakpoints;
 @value colors: "../../../variables/colors.css";
-@value light from colors;
 @value xtraLightGrey from colors;
 @value dark from colors;
+@value white from colors;
 
 .cardsWrapper {
   display: block;

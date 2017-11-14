@@ -2,9 +2,7 @@
 @value dark from colors;
 @value medium from colors;
 @value positive from colors;
-@value xtraLightGrey from colors;
 @value white from colors;
-@value black from colors;
 @value tablet from "../../../variables/breakpoints.css";
 
 @keyframes fadeInOverlay {
@@ -23,7 +21,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #404040;
+  background-color: color(dark lightness(30%));
   margin: 0;
   padding: 0;
   z-index: 100;

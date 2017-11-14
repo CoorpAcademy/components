@@ -13,6 +13,8 @@
         "ignoreProperties": ["composes", "compose-with"]
       }
     ],
+    "color-no-hex": true,
+    "color-named": "always-where-possible",
     "at-rule-no-unknown": [
       true,
       {

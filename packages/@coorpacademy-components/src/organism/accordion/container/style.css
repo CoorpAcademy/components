@@ -1,6 +1,3 @@
-@value colors: "../../../variables/colors.css";
-@value medium from colors;
-
 .wrapper {
   width: 100%;
   box-sizing: border-box;

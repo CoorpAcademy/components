@@ -1,3 +1,5 @@
+@value colors: "../../../variables/colors.css";
+@value white from colors;
 @value breakpoints: "../../../variables/breakpoints.css";
 @value tablet from breakpoints;
 
@@ -7,7 +9,7 @@
   display: flex;
   flex-direction: column;
   flex-grow: inherit;
-  background-color: #fff;
+  background-color: white;
 }
 
 .playerWrapper {

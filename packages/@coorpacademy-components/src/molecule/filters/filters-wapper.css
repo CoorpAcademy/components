@@ -4,6 +4,7 @@
 @value tablet from breakpoints;
 @value colors: "../../variables/colors.css";
 @value dark from colors;
+@value transparent from colors;
 
 .wrapperNone {
   display: none;
@@ -62,7 +63,7 @@
 
 .choice label span {
   font-size: 13px;
-  color: DARK;
+  color: dark;
   user-select: none;
 }
 

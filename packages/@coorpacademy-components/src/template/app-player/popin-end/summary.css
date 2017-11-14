@@ -3,6 +3,8 @@
 @value tablet from breakpoints;
 @value colors: "../../../variables/colors.css";
 @value xtraLightGrey from colors;
+@value grey from colors;
+@value white from colors;
 @value light from colors;
 @value positive from colors;
 @value dark from colors;
