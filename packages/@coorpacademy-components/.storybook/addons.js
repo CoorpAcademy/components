@@ -1,6 +1,5 @@
 import '@storybook/addons';
 import '@storybook/addon-knobs/register';
-import './addons/dependencies/register';
 import register from 'brandai-storybook';
 
 register({
