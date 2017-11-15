@@ -24,7 +24,7 @@ const BrandCreateForm = props => {
             <input
               type="text"
               placeholder={field.placeholder}
-              value={field.value}
+              defaultValue={field.value}
               onInput={handleChange}
             />
             {field.label}
