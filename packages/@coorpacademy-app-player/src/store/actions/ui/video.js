@@ -1,9 +1,7 @@
-import get from 'lodash/fp/get';
 import {sendMediaViewed} from '../api/analytics';
 import {markResourceAsViewed} from '../api/progressions';
 import {progressionUpdated} from '../ui/progressions';
-import {getCurrentProgressionId, getCurrentProgression} from '../../utils/state-extract';
-import {pending} from './extra-life';
+import {getCurrentProgressionId} from '../../utils/state-extract';
 
 export const UI_VIDEO_PAUSE = '@@ui/VIDEO_PAUSE';
 export const UI_VIDEO_RESUME = '@@ui/UI_VIDEO_RESUME';
@@ -11,14 +9,9 @@ export const UI_VIDEO_ENDED = '@@ui/VIDEO_ENDED';
 
 export const play = resource => async (dispatch, getState) => {
   const state = getState();
-  const progression = getCurrentProgression(state);
-  const isExtraLifeActive = get('state.nextContent.ref', progression) === 'extraLife';
   const progressionId = getCurrentProgressionId(state);
-  await dispatch(sendMediaViewed(resource));
-  if (isExtraLifeActive) {
-    await dispatch(pending());
-  }
 
+  await dispatch(sendMediaViewed(resource));
   await dispatch(markResourceAsViewed(progressionId, resource));
   return dispatch(progressionUpdated(progressionId));
 };

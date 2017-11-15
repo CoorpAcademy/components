@@ -222,6 +222,7 @@ test('should update state when answering a question incorrectly', t => {
   const pickUnchangedFields = pick(['stars', 'requestedClues', 'viewedResources']);
   const newState = updateState(engine, state, [wrongAnswerAction]);
 
+  t.is(newState.hasViewedAResourceAtThisStep, false);
   t.true(newState.lives === 0, '`lives` should have been decremented');
   t.false(
     newState.isCorrect,
@@ -334,7 +335,7 @@ test('should update stars once when actions has several AskClueAction for the sa
 test('should update stars after viewing a resource', t => {
   const state: State = Object.freeze(stateForFirstSlide);
 
-  const omitChangedFields = omit(['viewedResources', 'stars']);
+  const omitChangedFields = omit(['viewedResources', 'stars', 'hasViewedAResourceAtThisStep']);
   const newState = updateState(engine, state, [
     contentResourceViewedAction('chapter', '1.A1', 'lesson_1')
   ]);
@@ -356,7 +357,7 @@ test('should update stars after viewing a resource (with different number of sta
     version: 'allow_typos_3'
   };
 
-  const omitChangedFields = omit(['viewedResources', 'stars']);
+  const omitChangedFields = omit(['viewedResources', 'stars', 'hasViewedAResourceAtThisStep']);
   const newState = updateState(engineWithDifferentStars, state, [
     contentResourceViewedAction('chapter', '1.A1', 'lesson_1')
   ]);
@@ -373,7 +374,7 @@ test('should update stars after viewing a resource (with different number of sta
 test('should only count stars for viewing a resource once for every chapter even if there are multiple resource viewing actions', t => {
   const state: State = Object.freeze(stateForFirstSlide);
 
-  const omitChangedFields = omit(['viewedResources', 'stars']);
+  const omitChangedFields = omit(['viewedResources', 'stars', 'hasViewedAResourceAtThisStep']);
   const newState = updateState(engine, state, [
     contentResourceViewedAction('chapter', '1.A1', 'lesson_1'),
     contentResourceViewedAction('chapter', '1.A1', 'lesson_2'),
@@ -394,7 +395,7 @@ test('should only count stars for viewing a resource once for every chapter even
 test('should count stars for viewing resources multiple times as long as they are for different chapters', t => {
   const state: State = Object.freeze(stateForFirstSlide);
 
-  const omitChangedFields = omit(['viewedResources', 'stars']);
+  const omitChangedFields = omit(['viewedResources', 'stars', 'hasViewedAResourceAtThisStep']);
   const newState = updateState(engine, state, [
     contentResourceViewedAction('chapter', '1.A1', 'lesson_1'),
     contentResourceViewedAction('chapter', '1.A1', 'lesson_1'),
@@ -445,6 +446,7 @@ test('should add one life when using extra life', t => {
   t.is(newState.remainingLifeRequests, 0);
   t.is(newState.nextContent.type, 'slide');
   t.is(get('content.ref', newState), 'extraLife');
+  t.is(newState.hasViewedAResourceAtThisStep, false);
 });
 
 test('should not add a life when accepting an extraLife when lives are disabled', t => {
@@ -453,6 +455,7 @@ test('should not add a life when accepting an extraLife when lives are disabled'
   const newState = updateState(engine, state, [extraLifeAcceptedAction]);
   t.is(newState.lives, 0, '`lives` should not have been incremented');
   t.true(newState.livesDisabled);
+  t.is(newState.hasViewedAResourceAtThisStep, false);
 });
 
 test('should go to failure when refusing extra life', t => {
@@ -504,4 +507,5 @@ test('should update step when answering a question', t => {
 
   const newState = updateState(engine, state, [action]);
   t.deepEqual(newState.step, {current: 3}, 'step progression is wrong');
+  t.is(newState.hasViewedAResourceAtThisStep, false);
 });

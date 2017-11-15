@@ -23,7 +23,8 @@ import {
   getEndRank,
   getBestScore,
   getResourceToPlay,
-  getNextContentFromRecommendations
+  getNextContentFromRecommendations,
+  hasViewedAResourceAtThisStep
 } from '../state-extract';
 
 test('getChoices should get choices from state', t => {
@@ -165,6 +166,16 @@ test('getStepContent should get progression.state.nextContent', t => {
   )({});
 
   t.is(getStepContent(state), content);
+});
+
+test('hasViewedAResourceAtThisStep should get progression.state.hasViewedAResourceAtThisStep', t => {
+  const progression = {state: {hasViewedAResourceAtThisStep: 'foo'}};
+  const state = pipe(
+    set('ui.current.progressionId', '0'),
+    set('data.progressions.entities', {'0': progression})
+  )({});
+
+  t.is(hasViewedAResourceAtThisStep(state), 'foo');
 });
 
 test('getCorrection should get correction from state', t => {

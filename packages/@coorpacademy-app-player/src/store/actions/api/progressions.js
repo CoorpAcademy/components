@@ -1,7 +1,4 @@
 import get from 'lodash/fp/get';
-import pipe from 'lodash/fp/pipe';
-import getOr from 'lodash/fp/getOr';
-import find from 'lodash/fp/find';
 import includes from 'lodash/fp/includes';
 import buildTask from '../../utils/redux-task';
 import {
@@ -197,8 +194,6 @@ export const markResourceAsViewed = (progressionId, resource) => (
   const {_id, ref = _id, type} = resource;
   const slide = getCurrentSlide(state) || getPreviousSlide(state);
   const progressionContent = getProgressionContent(state);
-  const progression = getProgression(progressionId)(state);
-  const viewedResources = getOr([], 'state.viewedResources', progression);
 
   const payload = {
     resource: {
@@ -218,7 +213,6 @@ export const markResourceAsViewed = (progressionId, resource) => (
       PROGRESSION_RESOURCE_VIEWED_FAILURE
     ],
     task: () => Progressions.markResourceAsViewed(progressionId, payload),
-    bailout: () => pipe(find(progressionContent), get('resources'), includes(ref))(viewedResources),
     meta: {progressionId, resource}
   });
 
