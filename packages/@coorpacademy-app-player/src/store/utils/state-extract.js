@@ -71,9 +71,9 @@ export const getNbSlides = pipe(getContentInfo, get('nbSlides'));
 export const getStepContent = pipe(getCurrentProgression, get('state.nextContent'));
 export const getPrevStepContent = pipe(getCurrentProgression, get('state.content'));
 export const getCurrentChapterId = pipe(getCurrentSlide, getChapterId);
-export const hasViewedExtraLifeResource = pipe(
+export const hasViewedAResourceAtThisStep = pipe(
   getCurrentProgression,
-  get('state.hasViewedExtraLifeResource')
+  get('state.hasViewedAResourceAtThisStep')
 );
 
 export const getEngine = state => {

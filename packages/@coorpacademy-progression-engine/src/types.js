@@ -36,7 +36,7 @@ export type State = {
   stars: number,
   step: Step,
   remainingLifeRequests: number,
-  hasViewedExtraLifeResource: boolean
+  hasViewedAResourceAtThisStep: boolean
 };
 
 export type AskClueAction = {
@@ -50,8 +50,7 @@ export type ContentResourceViewedAction = {
   type: 'resource',
   payload: {
     resource: ResourceContent,
-    content: Content,
-    isExtraLife: boolean
+    content: Content
   }
 };
 

@@ -108,7 +108,6 @@ test(
             type: 'video',
             version: '1'
           },
-          isExtraLife: false,
           content,
           slide: 'slide'
         });
@@ -185,7 +184,6 @@ test(
     Progressions: {
       markResourceAsViewed: (progressionId, payload) => {
         t.is(progressionId, 'foo');
-        t.is(payload.isExtraLife, true);
         return 'foo';
       }
     }
@@ -224,5 +222,5 @@ test(
       payload: 'qux'
     }
   ],
-  4
+  3
 );

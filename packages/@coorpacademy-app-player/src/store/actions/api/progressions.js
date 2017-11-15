@@ -194,8 +194,6 @@ export const markResourceAsViewed = (progressionId, resource) => (
   const {_id, ref = _id, type} = resource;
   const slide = getCurrentSlide(state) || getPreviousSlide(state);
   const progressionContent = getProgressionContent(state);
-  const progression = getProgression(progressionId)(state);
-  const isExtraLife = get('state.nextContent.ref', progression) === 'extraLife';
 
   const payload = {
     resource: {
@@ -204,7 +202,6 @@ export const markResourceAsViewed = (progressionId, resource) => (
       type,
       version: '1'
     },
-    isExtraLife,
     slide,
     content: progressionContent
   };

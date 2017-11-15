@@ -29,7 +29,7 @@ export default function createProgression(
     content: undefined,
     nextContent: initialContent,
     remainingLifeRequests: config.remainingLifeRequests,
-    hasViewedExtraLifeResource: false
+    hasViewedAResourceAtThisStep: false
   };
 
   return {

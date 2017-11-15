@@ -14,12 +14,17 @@ const resource = {_id: 'resourceId', ref: 'resourceRef', type: 'video'};
 const resourceWithoutRef = {_id: 'resourceId', type: 'pdf'};
 const content = {ref: 'contentRef', type: 'chapter'};
 
+const stateForViewedResource = pipe(
+  set('state.viewedResources', [{ref: 'contentRef', type: 'chapter', resources: ['resourceRef']}]),
+  set('state.hasViewedAResourceAtThisStep', true)
+)({});
+
 const initState = pipe(
   set('ui.current.progressionId', 'foo'),
   set('data.progressions.entities.foo._id', 'foo'),
   set('data.progressions.entities.foo.state.content.ref', 'slideRef'),
   set('data.progressions.entities.foo.state.nextContent.ref', 'nextSlideRef'),
-  set('data.progressions.entities.foo.state.hasViewedExtraLifeResource', false),
+  set('data.progressions.entities.foo.state.hasViewedAResourceAtThisStep', false),
   set('data.progressions.entities.foo.content', content),
   set('data.contents.chapter.entities.contentRef', 'chapterContent'),
   set('data.contents.slide.entities.slideRef', 'slide1'),
@@ -41,16 +46,11 @@ test(
             type: 'video',
             version: '1'
           },
-          isExtraLife: false,
           content,
           slide: 'slide2'
         });
 
-        return set(
-          'state.viewedResources',
-          [{ref: 'contentRef', type: 'chapter', resources: ['resourceRef']}],
-          {}
-        );
+        return stateForViewedResource;
       }
     }
   }),
@@ -63,11 +63,7 @@ test(
     {
       type: PROGRESSION_RESOURCE_VIEWED_SUCCESS,
       meta: {progressionId: 'foo', resource},
-      payload: set(
-        'state.viewedResources',
-        [{ref: 'contentRef', type: 'chapter', resources: ['resourceRef']}],
-        {}
-      )
+      payload: stateForViewedResource
     }
   ],
   2
@@ -88,16 +84,11 @@ test(
             type: 'pdf',
             version: '1'
           },
-          isExtraLife: false,
           content,
           slide: 'slide2'
         });
 
-        return set(
-          'state.viewedResources',
-          [{ref: 'contentRef', type: 'chapter', resources: ['resourceId']}],
-          {}
-        );
+        return stateForViewedResource;
       }
     }
   }),
@@ -110,11 +101,7 @@ test(
     {
       type: PROGRESSION_RESOURCE_VIEWED_SUCCESS,
       meta: {progressionId: 'foo', resource: resourceWithoutRef},
-      payload: set(
-        'state.viewedResources',
-        [{ref: 'contentRef', type: 'chapter', resources: ['resourceId']}],
-        {}
-      )
+      payload: stateForViewedResource
     }
   ],
   2
@@ -139,16 +126,11 @@ test(
             type: 'video',
             version: '1'
           },
-          isExtraLife: false,
           content,
           slide: 'slide1'
         });
 
-        return set(
-          'state.viewedResources',
-          [{ref: 'contentRef', type: 'chapter', resources: ['resourceRef']}],
-          {}
-        );
+        return stateForViewedResource;
       }
     }
   }),
@@ -161,60 +143,7 @@ test(
     {
       type: PROGRESSION_RESOURCE_VIEWED_SUCCESS,
       meta: {progressionId: 'foo', resource},
-      payload: set(
-        'state.viewedResources',
-        [{ref: 'contentRef', type: 'chapter', resources: ['resourceRef']}],
-        {}
-      )
-    }
-  ],
-  2
-);
-
-test(
-  'should mark the the extra-life content as viewed if isExtraLife == true',
-  macro,
-  pipe(initState, set('data.progressions.entities.foo.state.nextContent.ref', 'extraLife'))({}),
-  t => ({
-    Progressions: {
-      markResourceAsViewed: (id, payload) => {
-        t.is(id, 'foo');
-        t.deepEqual(payload, {
-          resource: {
-            _id: 'resourceId',
-            ref: 'resourceRef',
-            type: 'video',
-            version: '1'
-          },
-          isExtraLife: true,
-          content,
-          slide: 'slide1'
-        });
-
-        return pipe(
-          set('state.viewedResources', [
-            {ref: 'contentRef', type: 'chapter', resources: ['resourceRef']}
-          ]),
-          set('state.hasViewedExtraLifeResource', true)
-        )({});
-      }
-    }
-  }),
-  markResourceAsViewed('foo', resource),
-  [
-    {
-      type: PROGRESSION_RESOURCE_VIEWED_REQUEST,
-      meta: {progressionId: 'foo', resource}
-    },
-    {
-      type: PROGRESSION_RESOURCE_VIEWED_SUCCESS,
-      meta: {progressionId: 'foo', resource},
-      payload: pipe(
-        set('state.viewedResources', [
-          {ref: 'contentRef', type: 'chapter', resources: ['resourceRef']}
-        ]),
-        set('state.hasViewedExtraLifeResource', true)
-      )({})
+      payload: stateForViewedResource
     }
   ],
   2
@@ -240,7 +169,6 @@ test(
             type: 'video',
             version: '1'
           },
-          isExtraLife: false,
           content,
           slide: 'slide2'
         });
