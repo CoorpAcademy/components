@@ -2,6 +2,7 @@ const {readdir, stat} = require('fs');
 const {join, relative, resolve: _resolve} = require('path');
 const {Readable, Transform, Writable} = require('stream');
 const minimatch = require('minimatch');
+const {sortBy, identity} = require('lodash/fp');
 
 const fromCallback = fn => (...args) =>
   new Promise((resolve, reject) =>
@@ -13,6 +14,11 @@ const fromCallback = fn => (...args) =>
 
 const readdirP = fromCallback(readdir);
 const statP = fromCallback(stat);
+
+const sortDirsFilesP = files =>
+  Promise.all(files.map(file => Promise.all([file, statP(file).then(s => s.isDirectory())]))).then(
+    pairsFileIsDirectory => sortBy('1', pairsFileIsDirectory).map(([file]) => file)
+  );
 
 class DirectoryReadable extends Readable {
   constructor(directory, options) {
@@ -30,8 +36,10 @@ class DirectoryReadable extends Readable {
 
     this.readed = true;
     readdirP(this.directory)
+      .then(files => files.map(file => join(this.directory, file)))
+      .then(sortDirsFilesP)
       .then(files => {
-        files.forEach(file => this.push(join(this.directory, file)));
+        files.forEach(file => this.push(file));
         return this.push(null);
       })
       .catch(err => this.emit('error', err));

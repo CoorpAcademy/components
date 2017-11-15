@@ -16,7 +16,7 @@ const createComponentFixturesStream = componentDir => {
   const parseFilePath = pipe(split('/'), folders => {
     const fixture = pipe(last, removeExt, pascalCase)(folders);
     const title = pipe(slice(0, -3), last, pascalCase)(folders);
-    const type = pipe(slice(0, -3), _join('-'), pascalCase)(folders);
+    const type = pipe(slice(0, -4), _join('-'), pascalCase)(folders);
     const path = join(componentDir, ...folders);
 
     return {
@@ -26,8 +26,6 @@ const createComponentFixturesStream = componentDir => {
       path
     };
   });
-
-  console.log({parseFilePath, componentDir});
 
   return createComponentFileStream(
     componentDir,
