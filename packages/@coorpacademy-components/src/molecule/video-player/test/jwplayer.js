@@ -1,8 +1,11 @@
 import 'jsdom-global/register';
 import test from 'ava';
 import React from 'react';
-import {mount} from 'enzyme';
+import {mount, configure} from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import JWPlayer from '../jwplayer';
+
+configure({adapter: new Adapter()});
 
 test('should call listeners within props, then remove them on willComponentUnmount', t => {
   t.plan(4);

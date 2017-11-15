@@ -1,9 +1,12 @@
 import 'jsdom-global/register';
 import test from 'ava';
 import React from 'react';
-import {shallow} from 'enzyme';
+import {shallow, configure} from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import InputCheckbox from '..';
 import defaultFixture from './fixtures/default';
+
+configure({adapter: new Adapter()});
 
 test('should call the onChange function with the checked value of the target', t => {
   t.plan(2);
