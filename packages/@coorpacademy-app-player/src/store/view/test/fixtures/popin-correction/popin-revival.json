@@ -112,6 +112,7 @@
             "stars": 0,
             "requestedClues": [],
             "viewedResources": [],
+            "hasViewedAResourceAtThisStep": true,
             "content": {
               "ref": "1.B2.4",
               "type": "slide"
@@ -141,9 +142,6 @@
         false,
         false
       ]
-    },
-    "extraLife": {
-      "acceptRevivalPending": true
     }
   }
 }

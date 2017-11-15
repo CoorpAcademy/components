@@ -11,7 +11,8 @@ import {
   getEngineConfig,
   getLives,
   getPreviousSlide,
-  getCurrentSlide
+  getCurrentSlide,
+  hasViewedAResourceAtThisStep
 } from '../../utils/state-extract';
 import {acceptExtraLifeAndReset, refuseExtraLifeAndReset} from '../../actions/ui/extra-life';
 import {toggleAccordion} from '../../actions/ui/corrections';
@@ -58,7 +59,7 @@ const getNextStepTitle = state => {
 
 const extraLifeCTAProps = ({translate}, {dispatch}) => state => {
   const progressionId = getCurrentProgressionId(state);
-  const isRevival = get('ui.extraLife.acceptRevivalPending', state);
+  const isRevival = hasViewedAResourceAtThisStep(state);
   const updateProgression = isRevival ? acceptExtraLifeAndReset : refuseExtraLifeAndReset;
 
   return {
@@ -113,7 +114,7 @@ export const popinCorrectionStateToProps = (options, store) => state => {
   const isCorrect = isNil(answerResult) ? null : get('state.isCorrect')(progression);
   const isLoading = isNil(isCorrect);
   const isExtraLifeActive = get('state.nextContent.ref', progression) === 'extraLife';
-  const isRevival = get('ui.extraLife.acceptRevivalPending', state);
+  const isRevival = hasViewedAResourceAtThisStep(state);
   const exhausted = isExtraLifeAvailable && !isCorrect && remainingLifeRequests === 0;
   const header = isNil(answerResult)
     ? {}

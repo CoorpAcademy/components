@@ -14,11 +14,17 @@ const resource = {_id: 'resourceId', ref: 'resourceRef', type: 'video'};
 const resourceWithoutRef = {_id: 'resourceId', type: 'pdf'};
 const content = {ref: 'contentRef', type: 'chapter'};
 
+const stateForViewedResource = pipe(
+  set('state.viewedResources', [{ref: 'contentRef', type: 'chapter', resources: ['resourceRef']}]),
+  set('state.hasViewedAResourceAtThisStep', true)
+)({});
+
 const initState = pipe(
   set('ui.current.progressionId', 'foo'),
   set('data.progressions.entities.foo._id', 'foo'),
   set('data.progressions.entities.foo.state.content.ref', 'slideRef'),
   set('data.progressions.entities.foo.state.nextContent.ref', 'nextSlideRef'),
+  set('data.progressions.entities.foo.state.hasViewedAResourceAtThisStep', false),
   set('data.progressions.entities.foo.content', content),
   set('data.contents.chapter.entities.contentRef', 'chapterContent'),
   set('data.contents.slide.entities.slideRef', 'slide1'),
@@ -44,11 +50,7 @@ test(
           slide: 'slide2'
         });
 
-        return set(
-          'state.viewedResources',
-          [{ref: 'contentRef', type: 'chapter', resources: ['resourceRef']}],
-          {}
-        );
+        return stateForViewedResource;
       }
     }
   }),
@@ -61,11 +63,7 @@ test(
     {
       type: PROGRESSION_RESOURCE_VIEWED_SUCCESS,
       meta: {progressionId: 'foo', resource},
-      payload: set(
-        'state.viewedResources',
-        [{ref: 'contentRef', type: 'chapter', resources: ['resourceRef']}],
-        {}
-      )
+      payload: stateForViewedResource
     }
   ],
   2
@@ -90,11 +88,7 @@ test(
           slide: 'slide2'
         });
 
-        return set(
-          'state.viewedResources',
-          [{ref: 'contentRef', type: 'chapter', resources: ['resourceId']}],
-          {}
-        );
+        return stateForViewedResource;
       }
     }
   }),
@@ -107,11 +101,7 @@ test(
     {
       type: PROGRESSION_RESOURCE_VIEWED_SUCCESS,
       meta: {progressionId: 'foo', resource: resourceWithoutRef},
-      payload: set(
-        'state.viewedResources',
-        [{ref: 'contentRef', type: 'chapter', resources: ['resourceId']}],
-        {}
-      )
+      payload: stateForViewedResource
     }
   ],
   2
@@ -140,11 +130,7 @@ test(
           slide: 'slide1'
         });
 
-        return set(
-          'state.viewedResources',
-          [{ref: 'contentRef', type: 'chapter', resources: ['resourceRef']}],
-          {}
-        );
+        return stateForViewedResource;
       }
     }
   }),
@@ -157,41 +143,10 @@ test(
     {
       type: PROGRESSION_RESOURCE_VIEWED_SUCCESS,
       meta: {progressionId: 'foo', resource},
-      payload: set(
-        'state.viewedResources',
-        [{ref: 'contentRef', type: 'chapter', resources: ['resourceRef']}],
-        {}
-      )
+      payload: stateForViewedResource
     }
   ],
   2
-);
-
-test(
-  'should prevent request if resource has already been seen',
-  macro,
-  pipe(
-    initState,
-    set('data.progressions.entities.foo.state.viewedResources', [
-      {ref: 'contentRef', type: 'chapter', resources: ['resourceRef']}
-    ]),
-    set('ui.route.foo', 'media')
-  )({}),
-  t => ({
-    Progressions: {
-      markResourceAsViewed: (id, payload) => {
-        t.fail();
-      }
-    }
-  }),
-  markResourceAsViewed('foo', resource),
-  [
-    {
-      type: PROGRESSION_RESOURCE_VIEWED_REQUEST,
-      meta: {progressionId: 'foo', resource}
-    }
-  ],
-  0
 );
 
 test(

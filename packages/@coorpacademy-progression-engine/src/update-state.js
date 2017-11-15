@@ -184,6 +184,23 @@ function nextContent(config: Config): (Content, Action) => Content {
   };
 }
 
+function hasViewedAResourceAtThisStep(config: Config): (boolean, Action) => boolean {
+  return (hasAlreadyViewed: boolean = false, action: Action): boolean => {
+    switch (action.type) {
+      case 'resource': {
+        return true;
+      }
+      case 'answer':
+      case 'extraLifeAccepted':
+      case 'extraLifeRefused': {
+        return false;
+      }
+      default:
+        return hasAlreadyViewed;
+    }
+  };
+}
+
 function step(config: Config): (Step, Action, State) => Step {
   return (s: Step, action: Action, state: State): Step => {
     return {
@@ -271,6 +288,7 @@ const reduceAction = combineReducers([
   {key: 'requestedClues', fn: requestedClues},
   {key: 'viewedResources', fn: viewedResources},
   {key: 'remainingLifeRequests', fn: remainingLifeRequests},
+  {key: 'hasViewedAResourceAtThisStep', fn: hasViewedAResourceAtThisStep},
   {key: 'content', fn: content},
   {key: 'nextContent', fn: nextContent}
 ]);

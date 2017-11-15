@@ -1,12 +1,6 @@
 import {acceptExtraLife, refuseExtraLife} from '../api/progressions';
 import {selectProgression, progressionUpdated} from './progressions';
 
-export const UI_REVIVAL_PENDING = '@@ui/REVIVAL_PENDING';
-
-export const pending = () => ({
-  type: UI_REVIVAL_PENDING
-});
-
 const reset = progressionId => async dispatch => {
   await dispatch(progressionUpdated(progressionId));
   return dispatch(selectProgression(progressionId));

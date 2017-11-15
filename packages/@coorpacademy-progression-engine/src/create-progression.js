@@ -28,7 +28,8 @@ export default function createProgression(
     },
     content: undefined,
     nextContent: initialContent,
-    remainingLifeRequests: config.remainingLifeRequests
+    remainingLifeRequests: config.remainingLifeRequests,
+    hasViewedAResourceAtThisStep: false
   };
 
   return {

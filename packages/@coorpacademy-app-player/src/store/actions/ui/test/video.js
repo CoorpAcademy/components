@@ -11,7 +11,6 @@ import {
   resume,
   ended
 } from '../video';
-import {UI_REVIVAL_PENDING} from '../extra-life';
 import {UI_PROGRESSION_UPDATED} from '../progressions';
 
 import {
@@ -199,9 +198,6 @@ test(
       type: MEDIA_VIEWED_ANALYTICS_SUCCESS,
       meta: {resource, location: 'media'},
       payload: undefined
-    },
-    {
-      type: UI_REVIVAL_PENDING
     },
     {
       type: PROGRESSION_RESOURCE_VIEWED_REQUEST,

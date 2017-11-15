@@ -35,9 +35,9 @@ const dataProgressionsReducer = (state = {entities: {}}, action) => {
       return set(['entities', progressionId, 'state', 'isCorrect'], null, state);
     }
     case PROGRESSION_REQUEST_CLUE_SUCCESS:
+    case PROGRESSION_RESOURCE_VIEWED_SUCCESS:
     case PROGRESSION_EXTRALIFEREFUSED_SUCCESS:
     case PROGRESSION_EXTRALIFEACCEPTED_SUCCESS:
-    case PROGRESSION_RESOURCE_VIEWED_SUCCESS:
     case PROGRESSION_CREATE_ANSWER_SUCCESS: {
       const {payload, meta} = action;
       const {progressionId} = meta;
