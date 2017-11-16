@@ -8,6 +8,7 @@ import Button from '../../../atom/button';
 import Link from '../../../atom/link';
 import Loader from '../../../atom/loader';
 import Card from '../../../molecule/card';
+import ForumComment from '../../../molecule/forum/forum-comment';
 import CardsList from '../../../molecule/dashboard/cards-list';
 import PopinHeader from '../../../molecule/app-player/popin/popin-header';
 import style from './summary.css';
@@ -45,6 +46,26 @@ SimpleAction.propTypes = {
   button: PropTypes.shape(Button.propTypes)
 };
 
+const SocialSharing = (props, context) => {
+  const { translate } = context;
+  return (
+    <div data-name="socialSharing" className={style.socialSharing}>
+      <div data-name="socialSharingLinkedin" className={style.socialSharingLinkedin}>
+        <div className={style.socialSharingText}>{translate('socialSharingText')}</div>
+        <div className={style.socialSharingButton}>
+          <a data-name="socialSharingLinkedinButton" href="https://www.linkedin.com/profile/add?startTask=CERTIFICATION_NAME" rel="nofollow" target="_blank">
+            <img src={translate('socialSharingLinkedinImg')} alt={translate('socialSharingButtonLinkedImgAlt')} />
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+SocialSharing.contextTypes = {
+  translate: Provider.childContextTypes.translate
+};
+
 const NextCourse = ({title, prefix, card}) => (
   <div data-name="nextCourse" className={style.nextCourseWrapper}>
     <div className={style.nextCourseTexts}>
@@ -54,6 +75,7 @@ const NextCourse = ({title, prefix, card}) => (
     <div className={style.nextCourseCard}>
       <Card {...card} dataName={'popin-end-next-course'} />
     </div>
+    <SocialSharing/>
   </div>
 );
 NextCourse.propTypes = {
@@ -139,6 +161,7 @@ const Summary = (props, context) => {
       <Header {...header} />
       <Action color={primary} {...action} />
       <Cards {...recommendation} />
+      <ForumComment />
       <Footer color={primary} {...footer} />
     </div>
   );

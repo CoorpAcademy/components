@@ -194,3 +194,35 @@
     border: none;
   }
 }
+
+/* ------------- socialSharing */
+.socialSharing {
+  display: flex;
+  align-items: center;
+  margin-top: 31px;
+  padding: 24px;
+}
+
+.socialSharing{
+  border-top: 2px solid #E9ECEF;
+}
+
+.socialSharing, .socialSharingLinkedin{
+  width: 100%;
+}
+
+.socialSharingLinkedin div{
+  display: inline-block;
+  height: 20px;
+}
+
+.socialSharingText{
+  color: #546e7a;
+  font-size: 16px;
+  font-weight: 700;
+  margin-right: 1rem;
+  margin-left: 1rem;
+  background-color: transparent;
+  outline: none;
+  min-height: 30px;
+}
