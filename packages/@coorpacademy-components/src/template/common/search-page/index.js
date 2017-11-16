@@ -18,6 +18,7 @@ const SearchPage = (props, context) => {
     <div className={style.noresults}>
       <div>{noresultsfound}</div>
       <Button
+        data-name="searchPageClear"
         className={style.clear}
         style={{background: defaultColor}}
         {...clearFilters}
