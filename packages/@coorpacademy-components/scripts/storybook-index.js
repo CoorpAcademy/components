@@ -103,7 +103,10 @@ export const fixtures = {
   );
 };
 
-module.exports = createComponentIndexStream;
+module.exports.createComponentIndexStream = createComponentIndexStream;
+module.exports.createComponentFixtureIndexStream = createComponentFixtureIndexStream;
+module.exports.createComponentExportIndexStream = createComponentExportIndexStream;
+module.exports.createComponentFixtureExportIndexStream = createComponentFixtureExportIndexStream;
 
 if (!module.parent) {
   const target = resolve(process.cwd(), process.argv.pop());

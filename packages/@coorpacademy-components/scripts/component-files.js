@@ -1,19 +1,13 @@
+const {promisify} = require('util');
 const {readdir, stat} = require('fs');
 const {join, relative, resolve: _resolve} = require('path');
 const {Readable, Transform, Writable} = require('stream');
 const minimatch = require('minimatch');
-const {sortBy, identity} = require('lodash/fp');
+const sortBy = require('lodash/fp/sortBy');
+const memoize = require('lodash/fp/memoize');
 
-const fromCallback = fn => (...args) =>
-  new Promise((resolve, reject) =>
-    fn(...args, (err, data) => {
-      if (err) return reject(err);
-      resolve(data);
-    })
-  );
-
-const readdirP = fromCallback(readdir);
-const statP = fromCallback(stat);
+const readdirP = memoize(promisify(readdir));
+const statP = memoize(promisify(stat));
 
 const sortDirsFilesP = files =>
   Promise.all(files.map(file => Promise.all([file, statP(file).then(s => s.isDirectory())]))).then(
