@@ -1,8 +1,9 @@
 // @flow
 import test from 'ava';
-import type {Slide, State} from '../types';
+import type {Slide} from '../../../common/types';
+import type {State} from '../types';
 import computeNextStep from '../compute-next-step';
-import allSlides from './fixtures/slides';
+import allSlides from '../../../common/test/fixtures/slides';
 import {stateBeforeGettingNextContent, failProgressionState} from './fixtures/states';
 
 const engine = {
