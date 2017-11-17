@@ -4,15 +4,13 @@ import find from 'lodash/fp/find';
 import findIndex from 'lodash/fp/findIndex';
 import get from 'lodash/fp/get';
 import set from 'lodash/fp/set';
-import update from 'lodash/fp/update';
-import map from 'lodash/fp/map';
-import pipe from 'lodash/fp/pipe';
 import concat from 'lodash/fp/concat';
 import reduce from 'lodash/fp/reduce';
 import includes from 'lodash/fp/includes';
 import isEmpty from 'lodash/fp/isEmpty';
-import isEqual from 'lodash/fp/isEqual';
 import getConfig from './config';
+import combineReducers from './combine-reducers';
+
 import type {
   Action,
   AnswerAction,
@@ -243,42 +241,7 @@ function stars(config: Config): (number, Action, State) => number {
   };
 }
 
-function validate(config: Config): (State, Action) => void {
-  return (state: State, action: Action) => {
-    switch (action.type) {
-      case 'answer': {
-        const answerAction = (action: AnswerAction);
-        if (!isEqual(state.nextContent, answerAction.payload.content)) {
-          throw new Error(
-            'The content of the progression state does not match the content of the given answer'
-          );
-        }
-        break;
-      }
-    }
-  };
-}
-
-function combineReducers(
-  fnMap: Array<{key: string, fn: Function}> // eslint-disable-line flowtype/no-weak-types
-): Config => (State, Action) => State {
-  // eslint-disable-next-line flowtype/require-return-type
-  const fns = map(({fn, key}) => {
-    return (config: Config, action: Action) => (state: State): State => {
-      const newState = update(key, value => fn(config)(value, action, state), state);
-      return (newState: State);
-    };
-  }, fnMap);
-
-  return (config: Config): ((State, Action) => State) => {
-    return (state: State, action: Action): State => {
-      validate(config)(state, action);
-      return pipe(...map(fn => fn(config, action), fns))(state);
-    };
-  };
-}
-
-const reduceAction = combineReducers([
+const reduceActionLearner = combineReducers([
   {key: 'livesDisabled', fn: livesDisabled},
   {key: 'isCorrect', fn: isCorrect},
   {key: 'slides', fn: slides},
@@ -293,10 +256,39 @@ const reduceAction = combineReducers([
   {key: 'nextContent', fn: nextContent}
 ]);
 
-export default function updateState(engine: Engine, state: State, actions: Array<Action>): State {
-  const config = (getConfig(engine): Config);
+const reduceLearner = (config, state, actions): State => {
   if (isEmpty(actions)) {
-    return reduce(reduceAction(config), state, [{type: 'init'}]);
+    return reduce(reduceActionLearner(config), state, [{type: 'init'}]);
   }
-  return reduce(reduceAction(config), state, actions);
+  return reduce(reduceActionLearner(config), state, actions);
+};
+
+const reduceActionRacing = combineReducers([{key: 'nextContent', fn: nextContent}]);
+
+const reduceRacing = (config, state, actions, options): State => {
+  const {userId} = options;
+  const player = find('teams', team => find player, state);
+  const playerActions = filter actions by userId
+
+  if (isEmpty(actions)) {
+    return reduce(reduceActionRacing(config), state, [{type: 'init'}]);
+  }
+  return reduce(reduceActionRacing(config), state, actions);
+};
+
+const reducers = {
+  learner: reduceLearner,
+  microlearning: reduceLearner,
+  racing: reduceRacing
+};
+
+export default function updateState(
+  engine: Engine,
+  state: State,
+  actions: Array<Action>,
+  options: Object // eslint-disable-line flowtype/no-weak-types
+): State {
+  const config = (getConfig(engine): Config);
+  const reducer = reducers[engine.ref];
+  return reducer(config, state, actions, options);
 }

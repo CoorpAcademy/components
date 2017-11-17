@@ -1,14 +1,14 @@
 // @flow
 import getConfig from './config';
-import type {Content, Progression, State, Engine} from './types';
+import type {Content, Progression, State, Engine, InitialStateOptions} from './types';
 
 export default function createProgression(
   engine: Engine,
   content: Content,
-  initialContent: Content,
-  livesDisabled: boolean
+  initialStateOptions: InitialStateOptions
 ): Progression {
   const config = getConfig({ref: engine.ref, version: engine.version});
+  const {nextContent, livesDisabled, teams} = initialStateOptions;
 
   const currentEngine = {
     ref: engine.ref,
@@ -27,9 +27,10 @@ export default function createProgression(
       current: 1
     },
     content: undefined,
-    nextContent: initialContent,
+    nextContent,
     remainingLifeRequests: config.remainingLifeRequests,
-    hasViewedAResourceAtThisStep: false
+    hasViewedAResourceAtThisStep: false,
+    teams
   };
 
   return {

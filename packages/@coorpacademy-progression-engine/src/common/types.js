@@ -1,5 +1,12 @@
 // @flow
 
+export type User = {
+  id: string,
+  displayName: string
+};
+
+export type Team = Array<User>;
+
 export type ViewedResource = {
   type: 'chapter',
   ref: string,
@@ -24,21 +31,6 @@ export type ResourceContent = {
 
 export type Content = GenericContent | ResourceContent;
 
-export type State = {
-  content?: Content,
-  nextContent: Content,
-  lives: number,
-  livesDisabled?: boolean,
-  isCorrect: boolean,
-  slides: Array<string>,
-  requestedClues: Array<string>,
-  viewedResources: Array<ViewedResource>,
-  stars: number,
-  step: Step,
-  remainingLifeRequests: number,
-  hasViewedAResourceAtThisStep: boolean
-};
-
 export type AskClueAction = {
   type: 'clue',
   payload: {
@@ -58,6 +50,7 @@ export type AnswerAction = {
   type: 'answer',
   payload: {
     content: Content,
+    author: User | Array<User>,
     nextContent: Content,
     isCorrect: boolean
   }
@@ -180,17 +173,4 @@ export type Slide = {
   _id: string,
   chapter_id: string,
   question: Question
-};
-
-export type Config = {
-  version: string,
-  lives: number,
-  livesDisabled: boolean,
-  maxTypos: number,
-  slidesToComplete: number,
-  answerBoundaryLimit: number,
-  starsPerAskingClue: number,
-  starsPerCorrectAnswer: number,
-  starsPerResourceViewed: number,
-  remainingLifeRequests: number
 };

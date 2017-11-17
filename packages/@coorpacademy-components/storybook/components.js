@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 
+import Avatar from './../src/atom/avatar';
 import Button from './../src/atom/button';
 import CatalogSection from './../src/atom/catalog-section';
 import CenteredText from './../src/atom/centered-text';
@@ -120,6 +121,10 @@ import PlayerHeader from './../src/template/app-player/player/player-header';
 import Player from './../src/template/app-player/player';
 import PopinCorrection from './../src/template/app-player/popin-correction';
 import PopinEnd from './../src/template/app-player/popin-end';
+import LandingFooter from './../src/template/app-racing/landing/landing-footer';
+import LandingHeader from './../src/template/app-racing/landing/landing-header';
+import PlayersList from './../src/template/app-racing/landing/players-list';
+import Landing from './../src/template/app-racing/landing';
 import BrandCreate from './../src/template/back-office/brand-create';
 import BrandList from './../src/template/back-office/brand-list';
 import BrandUpdate from './../src/template/back-office/brand-update';
@@ -129,6 +134,10 @@ import CoorpHeader from './../src/template/common/coorp-header';
 import Dashboard from './../src/template/common/dashboard';
 import Discipline from './../src/template/common/discipline';
 import SearchPage from './../src/template/common/search-page';
+import AvatarFixtureBigOval from '../src/atom/avatar/test/fixtures/big-oval';
+import AvatarFixtureBigRound from '../src/atom/avatar/test/fixtures/big-round';
+import AvatarFixtureSmallOval from '../src/atom/avatar/test/fixtures/small-oval';
+import AvatarFixtureSmallRound from '../src/atom/avatar/test/fixtures/small-round';
 import ButtonFixtureA from '../src/atom/button/test/fixtures/a';
 import ButtonFixtureClassName from '../src/atom/button/test/fixtures/class-name';
 import ButtonFixtureClear from '../src/atom/button/test/fixtures/clear';
@@ -556,6 +565,10 @@ import PopinEndFixtureSimpleAction from '../src/template/app-player/popin-end/te
 import PopinEndFixtureSubscribe from '../src/template/app-player/popin-end/test/fixtures/subscribe';
 import PopinEndFixtureWithLoadingRecommendations from '../src/template/app-player/popin-end/test/fixtures/with-loading-recommendations';
 import PopinEndFixtureWithRecommendations from '../src/template/app-player/popin-end/test/fixtures/with-recommendations';
+import LandingFooterFixtureDefault from '../src/template/app-racing/landing/landing-footer/test/fixtures/default';
+import LandingHeaderFixtureDefault from '../src/template/app-racing/landing/landing-header/test/fixtures/default';
+import PlayersListFixtureDefault from '../src/template/app-racing/landing/players-list/test/fixtures/default';
+import LandingFixtureDefault from '../src/template/app-racing/landing/test/fixtures/default';
 import BrandCreateFixtureDefault from '../src/template/back-office/brand-create/test/fixtures/default';
 import BrandCreateFixtureError from '../src/template/back-office/brand-create/test/fixtures/error';
 import BrandCreateFixtureLoading from '../src/template/back-office/brand-create/test/fixtures/loading';
@@ -603,6 +616,7 @@ import SearchPageFixtureNoResult from '../src/template/common/search-page/test/f
 
 export const components = {
   Atom: {
+    Avatar,
     Button,
     CatalogSection,
     CenteredText,
@@ -748,6 +762,14 @@ export const components = {
   TemplateAppPlayerPlayer: {
     PlayerHeader
   },
+  TemplateAppRacingLanding: {
+    LandingFooter,
+    LandingHeader,
+    PlayersList
+  },
+  TemplateAppRacing: {
+    Landing
+  },
   TemplateBackOffice: {
     BrandCreate,
     BrandList,
@@ -765,6 +787,12 @@ export const components = {
 
 export const fixtures = {
   Atom: {
+    Avatar: {
+      AvatarFixtureBigOval,
+      AvatarFixtureBigRound,
+      AvatarFixtureSmallOval,
+      AvatarFixtureSmallRound
+    },
     Button: {
       A: ButtonFixtureA,
       ClassName: ButtonFixtureClassName,
@@ -1455,6 +1483,22 @@ export const fixtures = {
       Learner: PlayerHeaderFixtureLearner,
       Microlearning: PlayerHeaderFixtureMicrolearning,
       NoLives: PlayerHeaderFixtureNoLives
+    }
+  },
+  TemplateAppRacingLanding: {
+    LandingFooter: {
+      LandingFooterFixtureDefault
+    },
+    LandingHeader: {
+      LandingHeaderFixtureDefault
+    },
+    PlayersList: {
+      PlayersListFixtureDefault
+    }
+  },
+  TemplateAppRacing: {
+    Landing: {
+      LandingFixtureDefault
     }
   },
   TemplateBackOffice: {
