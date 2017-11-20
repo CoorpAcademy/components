@@ -533,6 +533,8 @@ import PopinCorrectionFixtureFailOpenResourcesWithPdf from '../src/template/app-
 import PopinCorrectionFixtureFailOpenResourcesWithVideo from '../src/template/app-player/popin-correction/test/fixtures/fail-open-resources-with-video';
 import PopinCorrectionFixtureFailOpenTips from '../src/template/app-player/popin-correction/test/fixtures/fail-open-tips';
 import PopinCorrectionFixtureLoading from '../src/template/app-player/popin-correction/test/fixtures/loading';
+import PopinEndFixtureCommentSent from '../src/template/app-player/popin-end/test/fixtures/comment-sent';
+import PopinEndFixtureComment from '../src/template/app-player/popin-end/test/fixtures/comment';
 import PopinEndFixtureCorrect from '../src/template/app-player/popin-end/test/fixtures/correct';
 import PopinEndFixtureDefault from '../src/template/app-player/popin-end/test/fixtures/default';
 import PopinEndFixtureFail from '../src/template/app-player/popin-end/test/fixtures/fail';
@@ -1399,6 +1401,8 @@ export const fixtures = {
       PopinCorrectionFixtureLoading
     },
     PopinEnd: {
+      PopinEndFixtureCommentSent,
+      PopinEndFixtureComment,
       PopinEndFixtureCorrect,
       PopinEndFixtureDefault,
       PopinEndFixtureFail,

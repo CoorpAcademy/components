@@ -39,6 +39,14 @@ const extractStars = state => {
   return stars > bestScore ? `+${stars - bestScore}` : '+0';
 };
 
+const comment = ({translate}, {dispatch}) => state => {
+  return {
+    value: get('ui.comment.text', state),
+    onChange: event => dispatch(editComment(event.target.value)),
+    onPost: dispatch()
+  };
+};
+
 const summaryHeader = ({translate}, {dispatch}) => state => {
   const progression = getCurrentProgression(state);
   const successCta = {
@@ -185,6 +193,7 @@ const popinEndStateToProps = (options, store) => state => {
       header: summaryHeader(options, store)(state)(exitNode),
       action: extractAction(options, store)(state)(exitNode),
       recommendation: extractRecommendation(options, store)(state),
+      comment: comment(options, store)(state),
       footer
     }
   };

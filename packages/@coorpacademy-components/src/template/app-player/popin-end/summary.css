@@ -207,11 +207,11 @@
   border-top: 2px solid #E9ECEF;
 }
 
-.socialSharing, .socialSharingLinkedin{
+.socialSharing, .linkedinWrapper{
   width: 100%;
 }
 
-.socialSharingLinkedin div{
+.linkedinWrapper div{
   display: inline-block;
   height: 20px;
 }

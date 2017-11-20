@@ -52,10 +52,9 @@ const SocialSharing = (props, context) => {
     <div data-name="socialSharing" className={style.socialSharing}>
       <div data-name="socialSharingLinkedin" className={style.socialSharingLinkedin}>
         <div className={style.socialSharingText}>{translate('socialSharingText')}</div>
-        <div className={style.socialSharingButton}>
-          <a data-name="socialSharingLinkedinButton" href="https://www.linkedin.com/profile/add?startTask=CERTIFICATION_NAME" rel="nofollow" target="_blank">
-            <img src={translate('socialSharingLinkedinImg')} alt={translate('socialSharingButtonLinkedImgAlt')} />
-          </a>
+        <div className={style.linkedinWrapper}>
+          <span className={style.linkedinMessage}>{translate('socialSharingText')}</span>
+          <Button type="link" className={style.linkedinButton} href="" submitValue=""/>
         </div>
       </div>
     </div>
@@ -132,6 +131,15 @@ const CardsLoader = () => (
   </div>
 );
 
+const Comment = props => {
+  const {isSent, value, onPost, onChange} = props;
+  if (isSent) {
+    const log = "log"
+    return <span>{log}</span>;
+  }
+  return <ForumComment value={value} onPost={onPost} onChange={onChange} />;
+};
+
 const Cards = props =>
   get('cards', props) === null ? (
     <CardsLoader />
@@ -152,7 +160,7 @@ const Footer = ({title, color, ...linkProps}) => (
 );
 
 const Summary = (props, context) => {
-  const {header, recommendation, footer, action} = props;
+  const {header, recommendation, comment, footer, action} = props;
   const {skin} = context;
   const primary = getOr('#f0f', 'common.primary', skin);
 
@@ -161,7 +169,7 @@ const Summary = (props, context) => {
       <Header {...header} />
       <Action color={primary} {...action} />
       <Cards {...recommendation} />
-      <ForumComment />
+      <Comment {...comment} />
       <Footer color={primary} {...footer} />
     </div>
   );
