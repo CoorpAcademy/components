@@ -111,13 +111,20 @@ const CardsLoader = () => (
   </div>
 );
 
-const Comment = props => {
+const CommentSection = props => {
   const {isSent, value, onPost, onChange} = props;
   if (isSent) {
     const log = "log"
     return <span>{log}</span>;
   }
   return <ForumComment value={value} onPost={onPost} onChange={onChange} />;
+};
+
+CommentSection.propTypes = {
+  isSent: PropTypes.bool,
+  value: PropTypes.string,
+  onPost: PropTypes.func,
+  onChange: PropTypes.func
 };
 
 const Cards = props =>
@@ -149,7 +156,7 @@ const Summary = (props, context) => {
       <Header {...header} />
       <Action color={primary} {...action} />
       <Cards {...recommendation} />
-      <Comment {...comment} />
+      <CommentSection {...comment} />
       <Footer color={primary} {...footer} />
     </div>
   );
@@ -166,6 +173,7 @@ Summary.propTypes = {
     href: PropTypes.url,
     onClick: PropTypes.func
   }),
+  comment: PropTypes.shape(CommentSection.propTypes),
   action: PropTypes.shape({
     type: PropTypes.oneOf(keys(actions)).isRequired
   }),
