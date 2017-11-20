@@ -1,10 +1,13 @@
 import 'jsdom-global/register';
 import test from 'ava';
 import React from 'react';
-import {shallow} from 'enzyme';
+import {shallow, configure} from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import InputTextarea from '..';
 import omit from 'lodash/fp/omit';
 import defaultFixture from './fixtures/default';
+
+configure({adapter: new Adapter()});
 
 test('should call the onChange function with the value of the target', t => {
   t.plan(1);

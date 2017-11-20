@@ -1,5 +1,4 @@
 import React from 'react';
-import LinkedInput from 'react-linked-input';
 import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
 import SearchIcon from '@coorpacademy/nova-icons/composition/coorpacademy/search';
@@ -15,7 +14,7 @@ const Search = (props, context) => {
   return (
     <div>
       <SearchIcon color={medium} className={style.icon} />
-      <LinkedInput
+      <input
         className={style.search}
         type="text"
         name="search"

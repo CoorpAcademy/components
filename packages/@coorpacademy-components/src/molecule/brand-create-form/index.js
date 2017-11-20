@@ -1,5 +1,4 @@
 import React from 'react';
-import LinkedInput from 'react-linked-input';
 import PropTypes from 'prop-types';
 import Button from '../../atom/button';
 import style from './style.css';
@@ -12,7 +11,6 @@ const BrandCreateForm = props => {
   const fieldClass = field.error ? style.error : style.default;
   const disabled = isPending || !isModified;
   const handleChange = e => field.onChange(e.target.value);
-
   return (
     <div className={wrapperClass}>
       <div className={style.header}>
@@ -23,10 +21,10 @@ const BrandCreateForm = props => {
         <div className={style.description}>{description}</div>
         <div className={fieldClass}>
           <label>
-            <LinkedInput
+            <input
               type="text"
               placeholder={field.placeholder}
-              value={field.value}
+              defaultValue={field.value}
               onInput={handleChange}
             />
             {field.label}

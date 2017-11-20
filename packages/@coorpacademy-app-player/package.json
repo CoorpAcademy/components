@@ -43,8 +43,8 @@
     "@coorpacademy/translate": "5.3.11",
     "@coorpacademy/webpack-config": "6.2.2",
     "lodash": "^4.17.4",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
+    "react": "^16.1.1",
+    "react-dom": "^16.1.1",
     "redux": "^3.6.0",
     "redux-thunk": "^2.2.0"
   },

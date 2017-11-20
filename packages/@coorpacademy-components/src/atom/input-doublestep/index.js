@@ -1,5 +1,4 @@
 import React from 'react';
-import LinkedInput from 'react-linked-input';
 import PropTypes from 'prop-types';
 import omit from 'lodash/fp/omit';
 import noop from 'lodash/fp/noop';
@@ -13,7 +12,7 @@ const ConfirmationInput = ({onChange, placeholder = ''}) => {
 
   return (
     <div>
-      <LinkedInput
+      <input
         onInput={handleOnChange}
         placeholder={placeholder}
         className={style.input}

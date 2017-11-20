@@ -1,5 +1,4 @@
 import React from 'react';
-import LinkedInput from 'react-linked-input';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {ColorPropType} from '../../util/proptypes';
@@ -55,7 +54,7 @@ const ButtonContent = props => {
 
     default:
       return (
-        <LinkedInput
+        <input
           data-name={dataName}
           type={type}
           value={submitValue}

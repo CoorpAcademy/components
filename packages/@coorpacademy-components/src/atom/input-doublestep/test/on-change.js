@@ -2,10 +2,13 @@ import 'jsdom-global/register';
 import test from 'ava';
 import {replace} from 'lodash/fp';
 import React from 'react';
-import {mount} from 'enzyme';
+import {mount, configure} from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import InputDoublestep from '..';
 import style from '../style.css'; // eslint-disable-line css-modules/no-unused-class
 import inputConfirmFixture from './fixtures/input-confirm';
+
+configure({adapter: new Adapter()});
 
 test('should call the onChange function on change with inputConfirm fixture', t => {
   const deleteStyle = `.${replace(' ', '.', style.delete)}`;

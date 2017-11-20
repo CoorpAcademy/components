@@ -1,10 +1,13 @@
 import 'jsdom-global/register';
 import test from 'ava';
 import React from 'react';
-import {mount} from 'enzyme';
+import {mount, configure} from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import replace from 'lodash/fp/replace';
 import {InputTextItem} from '..';
 import style from '../style.css'; // eslint-disable-line css-modules/no-unused-class
+
+configure({adapter: new Adapter()});
 
 const defaultFixture = {
   title: 'Bar',

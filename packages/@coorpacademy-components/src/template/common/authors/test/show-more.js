@@ -2,10 +2,13 @@ import 'jsdom-global/register';
 import test from 'ava';
 import {replace} from 'lodash/fp';
 import React from 'react';
-import {mount} from 'enzyme';
+import {mount, configure} from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import Authors from '..';
 import style from '../style.css'; // eslint-disable-line css-modules/no-unused-class
 import authorFixture from './fixtures/default';
+
+configure({adapter: new Adapter()});
 
 test('should show more', t => {
   const context = {

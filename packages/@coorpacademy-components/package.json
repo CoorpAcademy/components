@@ -56,20 +56,18 @@
     "postcss-color-function": "^4.0.0",
     "postcss-easy-import": "^2.1.0",
     "postcss-modules-values-replace": "^1.2.1",
-    "prop-types": "^15.5.10",
     "qs": "6.5.0",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
-    "react-jw-player": "1.10.0",
-    "react-linked-input": "^15.5.1"
+    "react": "^16.1.1",
+    "react-dom": "^16.1.1",
+    "react-jw-player": "1.10.0"
   },
   "devDependencies": {
     "@coorpacademy/css-modules-require-hook": "0.0.2",
     "@coorpacademy/translate": "5.3.11",
     "@coorpacademy/webpack-config": "6.2.2",
-    "@storybook/addon-knobs": "^3.1.8",
-    "@storybook/addons": "^3.1.6",
-    "@storybook/react": "^3.1.8",
+    "@storybook/addon-knobs": "^3.2.15",
+    "@storybook/addons": "^3.2.15",
+    "@storybook/react": "^3.2.15",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
@@ -83,7 +81,8 @@
     "compression-webpack-plugin": "^1.0.0",
     "concurrently": "^3.5.0",
     "cross-env": "^5.0.0",
-    "enzyme": "^2.8.2",
+    "enzyme": "^3.2.0",
+    "enzyme-adapter-react-16": "^1.1.0",
     "express": "^4.15.3",
     "extract-text-webpack-plugin": "^3.0.0",
     "fs-extra": "3.0.1",
@@ -96,8 +95,8 @@
     "mkdirp-promise": "5.0.1",
     "path-match": "^1.2.4",
     "postcss-loader": "^2.0.5",
-    "prop-types": "^15.5.10",
-    "react-test-renderer": "^15.5.4",
+    "prop-types": "^15.6.0",
+    "react-test-renderer": "^16.1.1",
     "rimraf": "^2.6.1",
     "slash": "^1.0.0",
     "style-loader": "^0.18.1",
@@ -112,7 +111,8 @@
     ],
     "require": [
       "babel-register",
-      "babel-polyfill"
+      "babel-polyfill",
+      "../../test/helpers/throw-warning"
     ],
     "babel": "inherit"
   },

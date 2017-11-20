@@ -1,12 +1,15 @@
 import 'jsdom-global/register';
 import test from 'ava';
 import React from 'react';
-import {shallow, mount} from 'enzyme';
+import {shallow, mount, configure} from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import omit from 'lodash/fp/omit';
 import replace from 'lodash/fp/replace';
 import InputHtml from '..';
 import style from '../style.css'; // eslint-disable-line css-modules/no-unused-class
 import defaultFixture from './fixtures/default';
+
+configure({adapter: new Adapter()});
 
 test('should call the onChange function with the value of the target', t => {
   t.plan(15);
