@@ -2,10 +2,13 @@ import 'jsdom-global/register';
 import test from 'ava';
 import React from 'react';
 import PropTypes from 'prop-types';
-import {mount} from 'enzyme';
+import {mount, configure} from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import DashboardPreview from '..';
 
 import defaultFixture from './fixtures/selected';
+
+configure({adapter: new Adapter()});
 
 test('should call the onUpdateField function with the value of the target', t => {
   t.plan(3);

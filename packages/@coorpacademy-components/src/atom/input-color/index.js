@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import LinkedInput from 'react-linked-input';
 import noop from 'lodash/fp/noop';
 import getClassState from '../../util/get-class-state';
 import style from './style.css';
@@ -27,7 +26,7 @@ const InputColor = props => {
     <div className={className}>
       <label>
         <span className={style.title}>{`${title} `}</span>
-        <LinkedInput
+        <input
           type="text"
           name={title}
           className={style.input}

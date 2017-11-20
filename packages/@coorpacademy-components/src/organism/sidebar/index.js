@@ -1,7 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
-import LinkedInput from 'react-linked-input';
 import noop from 'lodash/fp/noop';
 import getOr from 'lodash/fp/getOr';
 import Link from '../../atom/link/index';
@@ -15,7 +14,7 @@ export const InputTextItem = props => {
   return (
     <li data-name={props.name || `inputtext-item-${props.index}`} className={style.selectItem}>
       <span className={style.sidebarTitle}>{title}</span>
-      <LinkedInput
+      <input
         type="text"
         name={title}
         className={style.input}

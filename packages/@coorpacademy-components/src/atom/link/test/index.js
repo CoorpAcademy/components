@@ -1,9 +1,12 @@
 import 'jsdom-global/register';
 import test from 'ava';
 import React from 'react';
-import {mount} from 'enzyme';
+import {mount, configure} from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import once from 'lodash/fp/once';
 import Link from '..';
+
+configure({adapter: new Adapter()});
 
 test('should call listeners within props', t => {
   t.plan(3);

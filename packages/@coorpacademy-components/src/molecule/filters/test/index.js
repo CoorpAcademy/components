@@ -1,8 +1,11 @@
 import 'jsdom-global/register';
 import test from 'ava';
 import React from 'react';
-import {mount} from 'enzyme';
+import {mount, configure} from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import Filters from '..';
+
+configure({adapter: new Adapter()});
 
 test('mount Filters with enzyme', t => {
   t.plan(9);

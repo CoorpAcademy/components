@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import get from 'lodash/fp/get';
+import noop from 'lodash/fp/noop';
 import keys from 'lodash/fp/keys';
 import isEmpty from 'lodash/fp/isEmpty';
 import pick from 'lodash/fp/pick';
@@ -96,7 +97,7 @@ const Card = (props, context) => {
               backgroundImage: image ? `url('${image}')` : 'none'
             }}
           >
-            <div data-name="cover" className={style.ctaWrapper} onClick={!disabled && onClick}>
+            <div data-name="cover" className={style.ctaWrapper} onClick={disabled ? noop : onClick}>
               {freeRunIcon}
               {emptyIcon}
               {adaptivIcon}
@@ -104,7 +105,7 @@ const Card = (props, context) => {
             </div>
           </div>
           {myprogress}
-          <div data-name="info" className={style.infoWrapper} onClick={!disabled && onClick}>
+          <div data-name="info" className={style.infoWrapper} onClick={disabled ? noop : onClick}>
             <div
               data-name="type"
               className={classnames(style.type, empty ? style.empty : null)}
