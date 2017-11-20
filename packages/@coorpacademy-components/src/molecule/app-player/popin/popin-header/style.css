@@ -171,6 +171,30 @@
   align-items: center;
 }
 
+@keyframes bump {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+    fill: yellow;
+  }
+
+  80% {
+    transform: scale(0.9);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.bumped {
+  animation: bump 0.3s ease;
+  animation-fill-mode: forwards;
+}
+
 .iconsWrapper {
   composes: wrapper;
   composes: centerContent;
