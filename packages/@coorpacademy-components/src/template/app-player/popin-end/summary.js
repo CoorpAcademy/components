@@ -46,25 +46,6 @@ SimpleAction.propTypes = {
   button: PropTypes.shape(Button.propTypes)
 };
 
-const SocialSharing = (props, context) => {
-  const { translate } = context;
-  return (
-    <div data-name="socialSharing" className={style.socialSharing}>
-      <div data-name="socialSharingLinkedin" className={style.socialSharingLinkedin}>
-        <div className={style.socialSharingText}>{translate('socialSharingText')}</div>
-        <div className={style.linkedinWrapper}>
-          <span className={style.linkedinMessage}>{translate('socialSharingText')}</span>
-          <Button type="link" className={style.linkedinButton} href="" submitValue=""/>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-SocialSharing.contextTypes = {
-  translate: Provider.childContextTypes.translate
-};
-
 const NextCourse = ({title, prefix, card}) => (
   <div data-name="nextCourse" className={style.nextCourseWrapper}>
     <div className={style.nextCourseTexts}>
@@ -74,7 +55,6 @@ const NextCourse = ({title, prefix, card}) => (
     <div className={style.nextCourseCard}>
       <Card {...card} dataName={'popin-end-next-course'} />
     </div>
-    <SocialSharing/>
   </div>
 );
 NextCourse.propTypes = {
