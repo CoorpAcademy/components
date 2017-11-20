@@ -94,6 +94,7 @@ import SlidesPlayer from '../src/molecule/slides/slides-player';
 import Container from '../src/organism/accordion/container';
 import Part from '../src/organism/accordion/part';
 import Toggler from '../src/organism/accordion/toggler';
+import ActivityPage from '../src/organism/activity-page';
 import Activity from '../src/organism/activity';
 import BrandForm from '../src/organism/brand-form';
 import BrandTable from '../src/organism/brand-table';
@@ -452,6 +453,8 @@ import PartFixtureDefault from '../src/organism/accordion/part/test/fixtures/def
 import PartFixtureOpen from '../src/organism/accordion/part/test/fixtures/open';
 import TogglerFixtureAllAreOpenable from '../src/organism/accordion/toggler/test/fixtures/all-are-openable';
 import TogglerFixtureOnlyOne from '../src/organism/accordion/toggler/test/fixtures/only-one';
+import ActivityPageFixtureDefault from '../src/organism/activity-page/test/fixtures/default';
+import ActivityPageFixtureEmpty from '../src/organism/activity-page/test/fixtures/empty';
 import ActivityFixtureDefault from '../src/organism/activity/test/fixtures/default';
 import ActivityFixtureEmpty from '../src/organism/activity/test/fixtures/empty';
 import BrandFormFixtureDashboard from '../src/organism/brand-form/test/fixtures/dashboard';
@@ -702,6 +705,7 @@ export const components = {
     Toggler
   },
   Organism: {
+    ActivityPage,
     Activity,
     BrandForm,
     BrandTable,
@@ -1278,6 +1282,10 @@ export const fixtures = {
     }
   },
   Organism: {
+    ActivityPage: {
+      Default: ActivityPageFixtureDefault,
+      Empty: ActivityPageFixtureEmpty
+    },
     Activity: {
       Default: ActivityFixtureDefault,
       Empty: ActivityFixtureEmpty
@@ -2652,6 +2660,9 @@ export const dependencies = {
           "Pdf": true
         }
       }
+    },
+    "ActivityPage": {
+      "children": {}
     },
     "Activity": {
       "children": {}
