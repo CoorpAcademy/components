@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 
+import AnimationLoop from './../src/atom/animation-loop';
 import Button from './../src/atom/button';
 import CatalogSection from './../src/atom/catalog-section';
 import CenteredText from './../src/atom/centered-text';
@@ -125,6 +126,7 @@ import CoorpHeader from './../src/template/common/coorp-header';
 import Dashboard from './../src/template/common/dashboard';
 import Discipline from './../src/template/common/discipline';
 import SearchPage from './../src/template/common/search-page';
+import AnimationLoopFixtureCounter from '../src/atom/animation-loop/test/fixtures/counter';
 import ButtonFixtureA from '../src/atom/button/test/fixtures/a';
 import ButtonFixtureClassName from '../src/atom/button/test/fixtures/class-name';
 import ButtonFixtureClear from '../src/atom/button/test/fixtures/clear';
@@ -589,6 +591,7 @@ import SearchPageFixtureNoResult from '../src/template/common/search-page/test/f
 
 export const components = {
   Atom: {
+    AnimationLoop,
     Button,
     CatalogSection,
     CenteredText,
@@ -745,6 +748,9 @@ export const components = {
 
 export const fixtures = {
   Atom: {
+    AnimationLoop: {
+      AnimationLoopFixtureCounter
+    },
     Button: {
       ButtonFixtureA,
       ButtonFixtureClassName,

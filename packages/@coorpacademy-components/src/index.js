@@ -1,3 +1,4 @@
+export AnimationLoop from './atom/animation-loop';
 export Button from './atom/button';
 export CatalogSection from './atom/catalog-section';
 export CenteredText from './atom/centered-text';

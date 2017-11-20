@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Header from '../player/player-header';
 import Summary from './summary';
-import {DefaultAnimator} from './animator';
+import Animator from './animator';
 import style from './style.css';
 
 const Content = props => (
@@ -29,9 +29,9 @@ PopinEnd.propTypes = {
 };
 
 const AnimatedPopinEnd = props => (
-  <DefaultAnimator>
+  <Animator>
     <PopinEnd {...props} />
-  </DefaultAnimator>
+  </Animator>
 );
 
 export default AnimatedPopinEnd;
