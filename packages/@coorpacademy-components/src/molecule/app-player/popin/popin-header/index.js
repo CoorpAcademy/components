@@ -57,11 +57,11 @@ AnswersCorrection.propTypes = {
   )
 };
 
-const Rank = ({rank}, {skin}) => {
+const Rank = ({bumpRank, rank}, {skin}) => {
   const positive = get('common.positive', skin);
   if (isNil(rank)) return null;
   return (
-    <div className={style.centerContent}>
+    <div className={classnames(style.centerContent, bumpRank && style.bumped)}>
       <div className={style.iconBubble}>
         <ChartsIcon className={style.icon} color={positive} />
       </div>
@@ -71,15 +71,16 @@ const Rank = ({rank}, {skin}) => {
 };
 
 Rank.contextTypes = {
+  bumpRank: PropTypes.bool,
   skin: Provider.childContextTypes.skin
 };
 
-const Stars = ({stars}, {skin}) => {
+const Stars = ({bumpStars, stars}, {skin}) => {
   const positive = get('common.positive', skin);
   if (isNil(stars)) return null;
 
   return (
-    <div className={style.centerContent}>
+    <div className={classnames(style.centerContent, bumpStars && style.bumped)}>
       <div className={style.iconBubble}>
         <StarIcon className={style.icon} color={positive} />
       </div>
@@ -91,6 +92,7 @@ const Stars = ({stars}, {skin}) => {
 };
 
 Stars.contextTypes = {
+  bumpStars: PropTypes.bool,
   skin: Provider.childContextTypes.skin
 };
 
@@ -103,12 +105,12 @@ const Lifes = ({lives, fail, animated, revival}) => {
 };
 
 const IconsPart = props => {
-  const {lives, fail, stars, rank, animated, revival} = props;
+  const {bumpStars, bumpRank, lives, fail, stars, rank, animated, revival} = props;
   return (
     <div className={style.iconsWrapper}>
       <Lifes lives={lives} fail={fail} animated={animated} revival={revival} />
-      <Stars stars={stars} />
-      <Rank rank={rank} />
+      <Stars stars={stars} bumpStars={bumpStars} />
+      <Rank rank={rank} bumpRank={bumpRank} />
     </div>
   );
 };
@@ -239,6 +241,8 @@ RemainingLife.contextTypes = {
 const PopinHeader = (props, context) => {
   const {
     animated,
+    bumpRank,
+    bumpStars,
     fail,
     title,
     subtitle,
@@ -279,6 +283,8 @@ const PopinHeader = (props, context) => {
           extraLife={extraLife}
           revival={revival}
           corrections={corrections}
+          bumpRank={bumpRank}
+          bumpStars={bumpStars}
         />
         <NextQuestionPart
           cta={cta}
