@@ -126,7 +126,7 @@ import CoorpHeader from '../src/template/common/coorp-header';
 import Dashboard from '../src/template/common/dashboard';
 import Discipline from '../src/template/common/discipline';
 import SearchPage from '../src/template/common/search-page';
-import AnimationLoopFixtureCounter from '../src/atom/animation-loop/test/fixtures/counter';
+import AnimationLoopFixtureChronometer from '../src/atom/animation-loop/test/fixtures/chronometer';
 import ButtonFixtureA from '../src/atom/button/test/fixtures/a';
 import ButtonFixtureClassName from '../src/atom/button/test/fixtures/class-name';
 import ButtonFixtureClear from '../src/atom/button/test/fixtures/clear';
@@ -536,6 +536,7 @@ import PopinEndFixtureCorrect from '../src/template/app-player/popin-end/test/fi
 import PopinEndFixtureDefault from '../src/template/app-player/popin-end/test/fixtures/default';
 import PopinEndFixtureFail from '../src/template/app-player/popin-end/test/fixtures/fail';
 import PopinEndFixtureLoading from '../src/template/app-player/popin-end/test/fixtures/loading';
+import PopinEndFixtureNegativeRank from '../src/template/app-player/popin-end/test/fixtures/negative-rank';
 import PopinEndFixtureNextCourse from '../src/template/app-player/popin-end/test/fixtures/next-course';
 import PopinEndFixtureSimpleAction from '../src/template/app-player/popin-end/test/fixtures/simple-action';
 import PopinEndFixtureSubscribe from '../src/template/app-player/popin-end/test/fixtures/subscribe';
@@ -748,7 +749,7 @@ export const components = {
 export const fixtures = {
   Atom: {
     AnimationLoop: {
-      Counter: AnimationLoopFixtureCounter
+      Chronometer: AnimationLoopFixtureChronometer
     },
     Button: {
       A: ButtonFixtureA,
@@ -1408,6 +1409,7 @@ export const fixtures = {
       Default: PopinEndFixtureDefault,
       Fail: PopinEndFixtureFail,
       Loading: PopinEndFixtureLoading,
+      NegativeRank: PopinEndFixtureNegativeRank,
       NextCourse: PopinEndFixtureNextCourse,
       SimpleAction: PopinEndFixtureSimpleAction,
       Subscribe: PopinEndFixtureSubscribe,
