@@ -114,7 +114,7 @@ const CardsLoader = () => (
 const CommentSection = props => {
   const {isSent, value, onPost, onChange} = props;
   if (isSent) {
-    const log = "log"
+    const log = 'log';
     return <span>{log}</span>;
   }
   return <ForumComment value={value} onPost={onPost} onChange={onChange} />;
