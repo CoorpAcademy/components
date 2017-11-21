@@ -1,5 +1,4 @@
 export Activity from './organism/activity';
-export ActivityPage from './organism/activity-page';
 export Answer from './molecule/answer';
 export Authors from './template/common/authors';
 export BattleRequest from './molecule/battle-request';

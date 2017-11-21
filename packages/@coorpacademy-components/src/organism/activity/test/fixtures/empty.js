@@ -1,3 +1,7 @@
 export default {
-  props: {}
+  props: {
+    title: 'Start learning & discover your activity',
+    subtitle: 'Begin a course now',
+    cta: 'start learning'
+  }
 };
