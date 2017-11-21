@@ -1,16 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const AnimationFrameType = PropTypes.shape({
-  dt: PropTypes.number.isRequired,
-  index: PropTypes.number.isRequired
+export const AnimationPropType = PropTypes.shape({
+  time: PropTypes.number.isRequired
 });
 
 class AnimationLoop extends React.Component {
   state = {
-    dt: 0,
-    frameIndex: 0,
-    lastFrameTime: null,
+    startTime: null,
     timerId: null
   };
 
@@ -22,37 +19,23 @@ class AnimationLoop extends React.Component {
     cancelAnimationFrame(this.state.timerId);
   }
 
-  start() {
+  start = () =>
     this.setState({
-      frameIndex: 0,
-      lastFrameTime: Date.now(),
+      startTime: Date.now(),
       timerId: requestAnimationFrame(this.step)
     });
-  }
 
-  step = () => {
-    const now = Date.now();
-    const dt = now - this.state.lastFrameTime;
-    const isNewFrame = dt >= this.props.period;
-
+  step = () =>
     this.setState({
-      dt: isNewFrame ? dt : this.state.dt,
-      lastFrameTime: isNewFrame ? now : this.state.lastFrameTime,
-      frameIndex: isNewFrame ? this.state.frameIndex + 1 : this.state.frameIndex,
       timerId: requestAnimationFrame(this.step)
     });
-  };
 
   render() {
     const child = React.Children.only(this.props.children);
-    const {dt, frameIndex: index} = this.state;
+    const animation = {time: Date.now() - this.state.startTime};
 
-    return React.cloneElement(child, {frame: {dt, index}});
+    return React.cloneElement(child, {animation});
   }
 }
-
-AnimationLoop.propTypes = {
-  period: PropTypes.number.isRequired
-};
 
 export default AnimationLoop;

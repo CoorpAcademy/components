@@ -1,12 +1,14 @@
 import test from 'ava';
 import {
-  FIRST_FRAME,
+  BEGIN_TIME,
+  ANIMATION_PERIOD,
   getTargetedValue,
   updateCounter,
   formatCounter,
-  updateChildProps
+  computeSummaryCounters
 } from '../animator';
 import correctFixture from './fixtures/correct';
+import negativeRankFixture from './fixtures/negative-rank';
 
 test('should return 0 if regex does not match', t => {
   const value = getTargetedValue({foo: '+++5'}, 'foo');
@@ -26,6 +28,12 @@ test('should return targeted value if regex match', t => {
   t.is(value, 5);
 });
 
+test('should return targeted value if negative regex match', t => {
+  const value = getTargetedValue({foo: '-5'}, 'foo');
+
+  t.is(value, -5);
+});
+
 test('should return 0 at frame 0', t => {
   const value = updateCounter(100, 0);
 
@@ -33,7 +41,7 @@ test('should return 0 at frame 0', t => {
 });
 
 test('should return target after last frame', t => {
-  const value = updateCounter(100, {index: FIRST_FRAME + 100});
+  const value = updateCounter(100, {time: BEGIN_TIME + 100 * ANIMATION_PERIOD});
 
   t.is(value, 100);
 });
@@ -53,17 +61,33 @@ test('should format counter if present in original props', t => {
 });
 
 test('should set counters in child props to 0 at first frame', t => {
-  const frame = {index: 0};
-  const newProps = updateChildProps(correctFixture.props, {frame});
+  const animation = {time: 0};
+  const newProps = computeSummaryCounters(correctFixture.props, {animation});
 
   t.is(newProps.summary.header.stars, '+0');
   t.is(newProps.summary.header.rank, '+0');
 });
 
 test('should set counters in child props to target after last frame', t => {
-  const frame = {index: FIRST_FRAME + 29};
-  const newProps = updateChildProps(correctFixture.props, {frame});
+  const animation = {time: BEGIN_TIME + 29 * ANIMATION_PERIOD};
+  const newProps = computeSummaryCounters(correctFixture.props, {animation});
 
   t.is(newProps.summary.header.stars, '+29');
   t.is(newProps.summary.header.rank, '+5');
+});
+
+test('should set counters in child props to target if negative, at first frame', t => {
+  const animation = {time: 0};
+  const newProps = computeSummaryCounters(negativeRankFixture.props, {animation});
+
+  t.is(newProps.summary.header.stars, '+0');
+  t.is(newProps.summary.header.rank, '-5');
+});
+
+test('should set counters in child props to target if negative, after last frame', t => {
+  const animation = {time: BEGIN_TIME + 29 * ANIMATION_PERIOD};
+  const newProps = computeSummaryCounters(negativeRankFixture.props, {animation});
+
+  t.is(newProps.summary.header.stars, '+29');
+  t.is(newProps.summary.header.rank, '-5');
 });

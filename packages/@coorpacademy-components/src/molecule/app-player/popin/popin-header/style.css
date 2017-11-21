@@ -169,6 +169,7 @@
 .centerContent {
   display: flex;
   align-items: center;
+  min-width: 110px;
 }
 
 @keyframes bump {
