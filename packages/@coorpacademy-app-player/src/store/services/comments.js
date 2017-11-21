@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/prefer-default-export
-export const postComment = text => {
+export const post = text => {
   console.log(text);
   return;
 };

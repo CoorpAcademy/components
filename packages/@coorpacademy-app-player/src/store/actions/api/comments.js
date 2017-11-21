@@ -1,3 +1,4 @@
+import get from 'lodash/fp/get';
 import buildTask from '../../utils/redux-task';
 
 export const SEND_POST_COMMENT_REQUEST = '@@comment/SEND_POST_REQUEST';
@@ -5,11 +6,12 @@ export const SEND_POST_COMMENT_SUCCESS = '@@comment/SEND_POST_SUCCESS';
 export const SEND_POST_COMMENT_FAILURE = '@@comment/SEND_POST_FAILURE';
 
 export const postComment = progressionId => (dispatch, getState, {services}) => {
-  const {Comment} = services;
+  const {Comments} = services;
+  const message = get('ui.comment.text', getState());
 
   const action = buildTask({
     types: [SEND_POST_COMMENT_REQUEST, SEND_POST_COMMENT_SUCCESS, SEND_POST_COMMENT_FAILURE],
-    task: () => Comment.postComment(get(ui.comment.text)),
+    task: () => Comments.post(message),
     meta: {id: progressionId}
   });
 

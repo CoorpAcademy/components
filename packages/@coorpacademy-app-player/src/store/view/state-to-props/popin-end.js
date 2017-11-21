@@ -5,13 +5,15 @@ import getOr from 'lodash/fp/getOr';
 import isEqual from 'lodash/fp/isEqual';
 import pipe from 'lodash/fp/pipe';
 import {retry, exit, nextLevel} from '../../actions/ui/location';
-import {editComment, postComment} from '../../actions/ui/comment';
+import {editComment} from '../../actions/ui/comment';
+import {postComment} from '../../actions/api/comments';
 import {
   getCurrentContent,
   getCurrentExitNode,
   getCurrentProgression,
   getRecommendations,
   getBestScore,
+  getCurrentProgressionId,
   getStartRank,
   getEndRank,
   isCurrentEngineMicrolearning,
@@ -41,10 +43,11 @@ const extractStars = state => {
 };
 
 const comment = ({translate}, {dispatch}) => state => {
+  const progressionId = getCurrentProgressionId(state);
   return {
     value: get('ui.comment.text', state),
     onChange: e => dispatch(editComment(e.target.value)),
-    onPost: e => dispatch(postComment)
+    onPost: e => dispatch(postComment(progressionId))
   };
 };
 
