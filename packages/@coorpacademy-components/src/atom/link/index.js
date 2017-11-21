@@ -6,40 +6,34 @@ import Provider from '../provider';
 import pushToHistory from '../../util/navigation';
 
 class Link extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      hovered: false
-    };
-    this.handleMouseEnter = this.handleMouseEnter.bind(this);
-    this.handleMouseLeave = this.handleMouseLeave.bind(this);
-    this.handleOnClick = this.handleOnClick.bind(this);
-  }
+  state = {
+    hovered: false
+  };
 
-  handleMouseEnter() {
+  handleMouseEnter = () => {
     this.setState(prevState => ({
       hovered: true
     }));
 
     this.props.onMouseEnter && this.props.onMouseEnter();
-  }
+  };
 
-  handleMouseLeave() {
+  handleMouseLeave = () => {
     this.setState(prevState => ({
       hovered: false
     }));
 
     this.props.onMouseLeave && this.props.onMouseLeave();
-  }
+  };
 
-  handleOnClick(e) {
+  handleOnClick = e => {
     if (this.props.onClick) this.props.onClick(e);
 
     if (!this.props.download) {
       const onClick = pushToHistory(this.context)(this.props);
       onClick(e);
     }
-  }
+  };
 
   render() {
     const {skin, history: {createHref = identity} = {}} = this.context;
