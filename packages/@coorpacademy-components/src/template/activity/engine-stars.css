@@ -1,0 +1,139 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value tablet from breakpoints;
+@value colors: "../../variables/colors.css";
+@value dark from colors;
+@value black from colors;
+@value light from colors;
+@value grey from colors;
+@value white from colors;
+@value xtraLightGrey from colors;
+
+.engineStars {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 153px;
+  border-left: solid 1px light;
+  padding: 0 8px 21px 16px;
+  box-sizing: border-box;
+  position: relative;
+  flex: 1 2;
+}
+
+.engineIcon {
+  position: absolute;
+  top: 0;
+  right: 15px;
+  width: 50px;
+  height: 48px;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.score {
+  display: flex;
+  font-family: 'Open Sans';
+  font-size: 24px;
+  font-weight: bold;
+  text-align: left;
+  align-items: flex-end;
+  align-content: flex-end;
+  color: dark;
+  margin: 0 0 4px;
+  padding: 0;
+  box-sizing: border-box;
+  height: 27px;
+}
+
+.score p {
+  height: 27px;
+  padding: 0;
+  margin: 0 8px 0 0;
+  box-sizing: border-box;
+}
+
+.score span {
+  height: 27px;
+}
+
+.scoreTitle {
+  display: block;
+  height: auto;
+  font-family: 'Open Sans';
+  font-size: 13px;
+  text-align: left;
+  color: dark;
+}
+
+.iconStar {
+  width: 15px;
+  height: 15px;
+  margin-left: 4px;
+}
+
+.iconHeader {
+  width: 25px;
+  height: 25px;
+}
+
+@media tablet, mobile {
+  .engineStars {
+    width: auto;
+    height: 50px;
+    flex: 1 2;
+    justify-content: center;
+    padding-bottom: 0;
+  }
+
+  .engineStars:first-child {
+    border-left: none;
+  }
+
+  .engineIcon {
+    width: 27px;
+    height: 26px;
+    right: 8px;
+  }
+
+  .score {
+    height: 23px;
+    font-size: 17px;
+    display: flex;
+    align-items: flex-end;
+    align-content: flex-end;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  .score p {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    height: 23px;
+  }
+
+  .score span {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    height: 23px;
+  }
+
+  .scoreTitle {
+    font-size: 11px;
+  }
+
+  .iconHeader {
+    width: 13px;
+    height: 13px;
+  }
+}

@@ -8,12 +8,14 @@
   background-color: xtraLightGrey;
   border-radius: 5px;
   position: relative;
+  overflow: hidden;
 }
 
 .progress {
   background-color: brand;
   border-radius: 5px;
   height: 100%;
+  animation: progressbar 2s ease-in-out;
 }
 
 .texts {
@@ -41,4 +43,10 @@
 .percentage {
   composes: text;
   margin-right: 10px;
+}
+
+@keyframes progressbar {
+  0% {
+    width: 0;
+  }
 }

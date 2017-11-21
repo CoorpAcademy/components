@@ -113,6 +113,7 @@ export Settings from './organism/settings';
 export SetupHeader from './organism/setup-header';
 export Sidebar from './organism/sidebar';
 export Slider from './organism/slider';
+export Activity from './template/activity';
 export Loading from './template/app-player/loading';
 export PlayerHeader from './template/app-player/player/player-header';
 export Player from './template/app-player/player';
