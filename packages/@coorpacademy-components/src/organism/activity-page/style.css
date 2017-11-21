@@ -50,7 +50,7 @@
     width: 80%;
     min-width: 482px;
     box-sizing: border-box;
-    margin: 24px 0;
+    margin: 24px 0 24px 32px;
 }
 
 .wrapperCta span {
@@ -78,27 +78,24 @@
 
 .totalStars {
   display: flex;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
-  // flex-direction: column;
   width: 375px;
   height: 68px;
-  border-radius: 3px;
-  order: 99;
-  position: relative;
-  z-index: 3;
+  border-bottom-right-radius: 3px;
+  justify-content: center;
+  align-items: center;
 }
 
 .totalStars p {
   width: 69px;
-  margin: 14px 0 6px 0;
   padding: 0;
+  margin: 0;
   height: auto;
   font-family: OpenSans;
   font-size: 24px;
   font-weight: bold;
   color: white;
+  text-align: right;
+  margin-right: 8px;
 }
 
 .totalStars span {
@@ -106,21 +103,22 @@
   height: auto;
   font-family: OpenSans;
   font-size: 13px;
-  font-weight: bold;
-  text-align: center;
+  font-size: 15px;
+  text-align: left;
   color: white;
 }
 
 .myStars {
   width: 375px;
   height: 221px;
-  // display: flex;
-  // flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .allStars {
   width: 375px;
-  height: 68px;
+  height: 153px;
   display: flex;
   flex-direction: row;
 }
@@ -130,9 +128,9 @@
     flex-direction: column;
     justify-content: flex-end;
     width: 124px;
-    height: 166px;
+    height: 153px;
     border-left: solid 1px light;
-    padding: 0 8px 24px 16px;
+    padding: 0 8px 21px 16px;
     box-sizing: border-box;
     position: relative;
 }
@@ -152,8 +150,8 @@
 }
 
 .iconHeaderMicrolearning {
-  width: 24px;
-  height: 23px;
+  width: 13px;
+  height: 13px;
 }
 
 .score {
@@ -244,13 +242,13 @@
 
 .iconBubble {
     background-color: white;
-    width: 43px;
-    height: 43px;
+    width: 23px;
+    height: 23px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 8px;
+    margin: 0;
 }
 
 .stars {

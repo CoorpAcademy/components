@@ -7,17 +7,9 @@ const Activity = (props, context) => {
 
   const {} = props;
 
-  return (
-    <div className={style.default}>
-      coin
-    </div>
-  );
+  return <div className={style.default}>coin</div>;
 };
 
-
-
-Activity.propTypes = {
-  
-};
+Activity.propTypes = {};
 
 export default Activity;

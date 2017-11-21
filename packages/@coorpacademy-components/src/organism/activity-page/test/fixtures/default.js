@@ -10,30 +10,32 @@ export default {
     boltStars: 230,
     recommandation: '',
     cta: 'Start Learning',
-    progressions: [{
-      completion: 30,
-      stars: '400',
-      label: 'Big Data',
-      level: 'Basic',
-      state: 'Continue learning',
-      type: 'course'
-    },
-    {
-      completion: 100,
-      stars: '700',
-      label: 'Prospectives',
-      level: 'Coach',
-      state: 'Redo this course',
-      type: 'chapter'
-    },
-    {
-      completion: 0,
-      stars: '400',
-      label: 'Lead generation',
-      level: 'Advanced',
-      state: 'Start learning',
-      type: 'chapter'
-    }],
+    progressions: [
+      {
+        completion: 30,
+        stars: '400',
+        label: 'Big Data',
+        level: 'Basic',
+        state: 'Continue learning',
+        type: 'course'
+      },
+      {
+        completion: 100,
+        stars: '700',
+        label: 'Prospectives',
+        level: 'Coach',
+        state: 'Redo this course',
+        type: 'chapter'
+      },
+      {
+        completion: 0,
+        stars: '400',
+        label: 'Lead generation',
+        level: 'Advanced',
+        state: 'Start learning',
+        type: 'chapter'
+      }
+    ],
     options: [
       {
         name: 'Digital',
@@ -44,6 +46,7 @@ export default {
         name: 'Esprit du temps',
         value: 'Esprit du temps',
         selected: false
-      }]    
+      }
+    ]
   }
 };
