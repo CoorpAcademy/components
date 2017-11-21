@@ -8,7 +8,7 @@ import Button from '../../../atom/button';
 import Link from '../../../atom/link';
 import Loader from '../../../atom/loader';
 import Card from '../../../molecule/card';
-import ForumComment from '../../../molecule/forum/forum-comment';
+import Discussion from '../../..//organism/discussion/index';
 import CardsList from '../../../molecule/dashboard/cards-list';
 import PopinHeader from '../../../molecule/app-player/popin/popin-header';
 import style from './summary.css';
@@ -117,7 +117,15 @@ const CommentSection = props => {
     const log = 'log';
     return <span>{log}</span>;
   }
-  return <ForumComment value={value} onPost={onPost} onChange={onChange} />;
+
+  return (
+    <Discussion
+      title="Donnez votre avis sur ce cours"
+      value={value}
+      onPost={onPost}
+      onChange={onChange}
+    />
+  );
 };
 
 CommentSection.propTypes = {
