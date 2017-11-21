@@ -23,7 +23,9 @@ module.exports = (storybookBaseConfig, configType) => {
               modules: false,
               loose: true
             }
-          ]
+          ],
+          "stage-1",
+          "react"
         ],
         plugins: ['transform-object-assign']
       },
