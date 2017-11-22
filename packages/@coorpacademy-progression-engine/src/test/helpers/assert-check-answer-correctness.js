@@ -1,5 +1,7 @@
 // @flow
-import {map, pipe, zip} from 'lodash/fp';
+import map from 'lodash/fp/map';
+import pipe from 'lodash/fp/pipe';
+import zip from 'lodash/fp/zip';
 import checkAnswerCorrectness from '../../check-answer-correctness';
 import type {Question, Answer, Engine} from '../../types';
 

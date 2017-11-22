@@ -1,130 +1,130 @@
 /* eslint-disable max-len */
 
-import Button from '../src/atom/button';
-import CatalogSection from '../src/atom/catalog-section';
-import CenteredText from '../src/atom/centered-text';
-import Checkbox from '../src/atom/checkbox';
-import Clue from '../src/atom/clue';
-import Cta from '../src/atom/cta';
-import ImageUpload from '../src/atom/image-upload';
-import InputCheckbox from '../src/atom/input-checkbox';
-import InputColor from '../src/atom/input-color';
-import InputDoublestep from '../src/atom/input-doublestep';
-import InputHtml from '../src/atom/input-html';
-import InputReadonly from '../src/atom/input-readonly';
-import InputSwitch from '../src/atom/input-switch';
-import InputText from '../src/atom/input-text';
-import InputTextarea from '../src/atom/input-textarea';
-import Label from '../src/atom/label';
-import Life from '../src/atom/life';
-import Link from '../src/atom/link';
-import Loader from '../src/atom/loader';
-import Notification from '../src/atom/notification';
-import PictureBackground from '../src/atom/picture-background';
-import Picture from '../src/atom/picture';
-import PromoCode from '../src/atom/promo-code';
-import Provider from '../src/atom/provider';
-import Range from '../src/atom/range';
-import ResourceMiniature from '../src/atom/resource-miniature';
-import Select from '../src/atom/select';
-import Slide from '../src/atom/slide';
-import SocialLink from '../src/atom/social-link';
-import Spinner from '../src/atom/spinner';
-import TabContent from '../src/atom/tab-content';
-import Tab from '../src/atom/tab';
-import Title from '../src/atom/title';
-import Answer from '../src/molecule/answer';
-import BattleRequest from '../src/molecule/battle-request';
-import BrandCardCreate from '../src/molecule/brand-card-create';
-import BrandCard from '../src/molecule/brand-card';
-import BrandCreateForm from '../src/molecule/brand-create-form';
-import BrandDownloadBox from '../src/molecule/brand-download-box';
-import BrandFormGroup from '../src/molecule/brand-form-group';
-import BrandTabs from '../src/molecule/brand-tabs';
-import BrandUploadBox from '../src/molecule/brand-upload-box';
-import Breadcrumbs from '../src/molecule/breadcrumbs';
-import Card from '../src/molecule/card';
-import DisciplineCta from '../src/molecule/discipline-cta';
-import DisciplineHeader from '../src/molecule/discipline-header';
-import DisciplinePartners from '../src/molecule/discipline-partners';
-import DisciplineScope from '../src/molecule/discipline-scope';
-import Filters from '../src/molecule/filters';
-import MenuList from '../src/molecule/menu-list';
-import ModuleBubble from '../src/molecule/module-bubble';
-import ModuleCard from '../src/molecule/module-card';
-import News from '../src/molecule/news';
-import Pagination from '../src/molecule/pagination';
-import PaymentForm from '../src/molecule/payment-form';
-import Pdf from '../src/molecule/pdf';
-import ProductCard from '../src/molecule/product-card';
-import ProgressBar from '../src/molecule/progress-bar';
-import ScopeContent from '../src/molecule/scope-content';
-import ScopeTabs from '../src/molecule/scope-tabs';
-import Search from '../src/molecule/search';
-import SetupSection from '../src/molecule/setup-section';
-import SetupSections from '../src/molecule/setup-sections';
-import SetupSlide from '../src/molecule/setup-slide';
-import SetupSlider from '../src/molecule/setup-slider';
-import SsmenuList from '../src/molecule/ssmenu-list';
-import SubscriptionFreemium from '../src/molecule/subscription-freemium';
-import SubscriptionPremium from '../src/molecule/subscription-premium';
-import Table from '../src/molecule/table';
-import ThemeImage from '../src/molecule/theme-image';
-import TitledCheckbox from '../src/molecule/titled-checkbox';
-import Unsubscribe from '../src/molecule/unsubscribe';
-import VideoIframe from '../src/molecule/video-iframe';
-import VideoPlayer from '../src/molecule/video-player';
-import PopinHeader from '../src/molecule/app-player/popin/popin-header';
-import BattleRequestList from '../src/molecule/dashboard/battle-request-list';
-import CardsList from '../src/molecule/dashboard/cards-list';
-import NewsList from '../src/molecule/dashboard/news-list';
-import StartBattle from '../src/molecule/dashboard/start-battle';
-import ForumComment from '../src/molecule/forum/forum-comment';
-import ForumPost from '../src/molecule/forum/forum-post';
-import ForumThread from '../src/molecule/forum/forum-thread';
-import DropDown from '../src/molecule/questions/drop-down';
-import FreeText from '../src/molecule/questions/free-text';
-import QcmDrag from '../src/molecule/questions/qcm-drag';
-import QcmGraphic from '../src/molecule/questions/qcm-graphic';
-import Qcm from '../src/molecule/questions/qcm';
-import QuestionRange from '../src/molecule/questions/question-range';
-import Template from '../src/molecule/questions/template';
-import SlidesFooter from '../src/molecule/slides/slides-footer';
-import SlidesPlayer from '../src/molecule/slides/slides-player';
-import Container from '../src/organism/accordion/container';
-import Part from '../src/organism/accordion/part';
-import Toggler from '../src/organism/accordion/toggler';
-import BrandForm from '../src/organism/brand-form';
-import BrandTable from '../src/organism/brand-table';
-import BrandUpload from '../src/organism/brand-upload';
-import CardsGrid from '../src/organism/cards-grid';
-import Cart from '../src/organism/cart';
-import Discussion from '../src/organism/discussion';
-import GridList from '../src/organism/grid-list';
-import Header from '../src/organism/header';
-import Hero from '../src/organism/hero';
-import MoocHeader from '../src/organism/mooc-header';
-import Popin from '../src/organism/popin';
-import ResourceBrowser from '../src/organism/resource-browser';
-import Settings from '../src/organism/settings';
-import SetupHeader from '../src/organism/setup-header';
-import Sidebar from '../src/organism/sidebar';
-import Slider from '../src/organism/slider';
-import ImageSlider from '../src/organism/mooc/image-slider';
-import Loading from '../src/template/app-player/loading';
-import Player from '../src/template/app-player/player';
-import PopinCorrection from '../src/template/app-player/popin-correction';
-import PopinEnd from '../src/template/app-player/popin-end';
-import PlayerHeader from '../src/template/app-player/player/player-header';
-import BrandCreate from '../src/template/back-office/brand-create';
-import BrandList from '../src/template/back-office/brand-list';
-import BrandUpdate from '../src/template/back-office/brand-update';
-import DashboardPreview from '../src/template/back-office/dashboard-preview';
-import Authors from '../src/template/common/authors';
-import CoorpHeader from '../src/template/common/coorp-header';
-import Dashboard from '../src/template/common/dashboard';
-import Discipline from '../src/template/common/discipline';
-import SearchPage from '../src/template/common/search-page';
+import Button from './../src/atom/button';
+import CatalogSection from './../src/atom/catalog-section';
+import CenteredText from './../src/atom/centered-text';
+import Checkbox from './../src/atom/checkbox';
+import Clue from './../src/atom/clue';
+import Cta from './../src/atom/cta';
+import ImageUpload from './../src/atom/image-upload';
+import InputCheckbox from './../src/atom/input-checkbox';
+import InputColor from './../src/atom/input-color';
+import InputDoublestep from './../src/atom/input-doublestep';
+import InputHtml from './../src/atom/input-html';
+import InputReadonly from './../src/atom/input-readonly';
+import InputSwitch from './../src/atom/input-switch';
+import InputText from './../src/atom/input-text';
+import InputTextarea from './../src/atom/input-textarea';
+import Label from './../src/atom/label';
+import Life from './../src/atom/life';
+import Link from './../src/atom/link';
+import Loader from './../src/atom/loader';
+import Notification from './../src/atom/notification';
+import Picture from './../src/atom/picture';
+import PictureBackground from './../src/atom/picture-background';
+import PromoCode from './../src/atom/promo-code';
+import Provider from './../src/atom/provider';
+import Range from './../src/atom/range';
+import ResourceMiniature from './../src/atom/resource-miniature';
+import Select from './../src/atom/select';
+import Slide from './../src/atom/slide';
+import SocialLink from './../src/atom/social-link';
+import Spinner from './../src/atom/spinner';
+import Tab from './../src/atom/tab';
+import TabContent from './../src/atom/tab-content';
+import Title from './../src/atom/title';
+import Answer from './../src/molecule/answer';
+import PopinHeader from './../src/molecule/app-player/popin/popin-header';
+import BattleRequest from './../src/molecule/battle-request';
+import BrandCard from './../src/molecule/brand-card';
+import BrandCardCreate from './../src/molecule/brand-card-create';
+import BrandCreateForm from './../src/molecule/brand-create-form';
+import BrandDownloadBox from './../src/molecule/brand-download-box';
+import BrandFormGroup from './../src/molecule/brand-form-group';
+import BrandTabs from './../src/molecule/brand-tabs';
+import BrandUploadBox from './../src/molecule/brand-upload-box';
+import Breadcrumbs from './../src/molecule/breadcrumbs';
+import Card from './../src/molecule/card';
+import BattleRequestList from './../src/molecule/dashboard/battle-request-list';
+import CardsList from './../src/molecule/dashboard/cards-list';
+import NewsList from './../src/molecule/dashboard/news-list';
+import StartBattle from './../src/molecule/dashboard/start-battle';
+import DisciplineCta from './../src/molecule/discipline-cta';
+import DisciplineHeader from './../src/molecule/discipline-header';
+import DisciplinePartners from './../src/molecule/discipline-partners';
+import DisciplineScope from './../src/molecule/discipline-scope';
+import Filters from './../src/molecule/filters';
+import ForumComment from './../src/molecule/forum/forum-comment';
+import ForumPost from './../src/molecule/forum/forum-post';
+import ForumThread from './../src/molecule/forum/forum-thread';
+import MenuList from './../src/molecule/menu-list';
+import ModuleBubble from './../src/molecule/module-bubble';
+import ModuleCard from './../src/molecule/module-card';
+import News from './../src/molecule/news';
+import Pagination from './../src/molecule/pagination';
+import PaymentForm from './../src/molecule/payment-form';
+import Pdf from './../src/molecule/pdf';
+import ProductCard from './../src/molecule/product-card';
+import ProgressBar from './../src/molecule/progress-bar';
+import DropDown from './../src/molecule/questions/drop-down';
+import FreeText from './../src/molecule/questions/free-text';
+import Qcm from './../src/molecule/questions/qcm';
+import QcmDrag from './../src/molecule/questions/qcm-drag';
+import QcmGraphic from './../src/molecule/questions/qcm-graphic';
+import QuestionRange from './../src/molecule/questions/question-range';
+import Template from './../src/molecule/questions/template';
+import ScopeContent from './../src/molecule/scope-content';
+import ScopeTabs from './../src/molecule/scope-tabs';
+import Search from './../src/molecule/search';
+import SetupSection from './../src/molecule/setup-section';
+import SetupSections from './../src/molecule/setup-sections';
+import SetupSlide from './../src/molecule/setup-slide';
+import SetupSlider from './../src/molecule/setup-slider';
+import SlidesFooter from './../src/molecule/slides/slides-footer';
+import SlidesPlayer from './../src/molecule/slides/slides-player';
+import SsmenuList from './../src/molecule/ssmenu-list';
+import SubscriptionFreemium from './../src/molecule/subscription-freemium';
+import SubscriptionPremium from './../src/molecule/subscription-premium';
+import Table from './../src/molecule/table';
+import ThemeImage from './../src/molecule/theme-image';
+import TitledCheckbox from './../src/molecule/titled-checkbox';
+import Unsubscribe from './../src/molecule/unsubscribe';
+import VideoIframe from './../src/molecule/video-iframe';
+import VideoPlayer from './../src/molecule/video-player';
+import Container from './../src/organism/accordion/container';
+import Part from './../src/organism/accordion/part';
+import Toggler from './../src/organism/accordion/toggler';
+import BrandForm from './../src/organism/brand-form';
+import BrandTable from './../src/organism/brand-table';
+import BrandUpload from './../src/organism/brand-upload';
+import CardsGrid from './../src/organism/cards-grid';
+import Cart from './../src/organism/cart';
+import Discussion from './../src/organism/discussion';
+import GridList from './../src/organism/grid-list';
+import Header from './../src/organism/header';
+import Hero from './../src/organism/hero';
+import ImageSlider from './../src/organism/mooc/image-slider';
+import MoocHeader from './../src/organism/mooc-header';
+import Popin from './../src/organism/popin';
+import ResourceBrowser from './../src/organism/resource-browser';
+import Settings from './../src/organism/settings';
+import SetupHeader from './../src/organism/setup-header';
+import Sidebar from './../src/organism/sidebar';
+import Slider from './../src/organism/slider';
+import Loading from './../src/template/app-player/loading';
+import PlayerHeader from './../src/template/app-player/player/player-header';
+import Player from './../src/template/app-player/player';
+import PopinCorrection from './../src/template/app-player/popin-correction';
+import PopinEnd from './../src/template/app-player/popin-end';
+import BrandCreate from './../src/template/back-office/brand-create';
+import BrandList from './../src/template/back-office/brand-list';
+import BrandUpdate from './../src/template/back-office/brand-update';
+import DashboardPreview from './../src/template/back-office/dashboard-preview';
+import Authors from './../src/template/common/authors';
+import CoorpHeader from './../src/template/common/coorp-header';
+import Dashboard from './../src/template/common/dashboard';
+import Discipline from './../src/template/common/discipline';
+import SearchPage from './../src/template/common/search-page';
 import ButtonFixtureA from '../src/atom/button/test/fixtures/a';
 import ButtonFixtureClassName from '../src/atom/button/test/fixtures/class-name';
 import ButtonFixtureClear from '../src/atom/button/test/fixtures/clear';
@@ -204,13 +204,13 @@ import LoaderFixtureDefault from '../src/atom/loader/test/fixtures/default';
 import NotificationFixtureDefault from '../src/atom/notification/test/fixtures/default';
 import NotificationFixtureError from '../src/atom/notification/test/fixtures/error';
 import NotificationFixtureWarning from '../src/atom/notification/test/fixtures/warning';
+import PictureFixtureDefault from '../src/atom/picture/test/fixtures/default';
+import PictureFixtureEmpty from '../src/atom/picture/test/fixtures/empty';
+import PictureFixtureSimpleSrc from '../src/atom/picture/test/fixtures/simple-src';
 import PictureBackgroundFixtureContain from '../src/atom/picture-background/test/fixtures/contain';
 import PictureBackgroundFixtureCover from '../src/atom/picture-background/test/fixtures/cover';
 import PictureBackgroundFixtureDefault from '../src/atom/picture-background/test/fixtures/default';
 import PictureBackgroundFixtureDesktop from '../src/atom/picture-background/test/fixtures/desktop';
-import PictureFixtureDefault from '../src/atom/picture/test/fixtures/default';
-import PictureFixtureEmpty from '../src/atom/picture/test/fixtures/empty';
-import PictureFixtureSimpleSrc from '../src/atom/picture/test/fixtures/simple-src';
 import PromoCodeFixtureDefault from '../src/atom/promo-code/test/fixtures/default';
 import PromoCodeFixtureError from '../src/atom/promo-code/test/fixtures/error';
 import PromoCodeFixtureSuccess from '../src/atom/promo-code/test/fixtures/success';
@@ -243,9 +243,9 @@ import SlideFixtureRight from '../src/atom/slide/test/fixtures/right';
 import SocialLinkFixtureFacebook from '../src/atom/social-link/test/fixtures/facebook';
 import SocialLinkFixtureTwitter from '../src/atom/social-link/test/fixtures/twitter';
 import SpinnerFixtureDefault from '../src/atom/spinner/test/fixtures/default';
+import TabFixtureDefault from '../src/atom/tab/test/fixtures/default';
 import TabContentFixtureDefault from '../src/atom/tab-content/test/fixtures/default';
 import TabContentFixtureHideContentBackground from '../src/atom/tab-content/test/fixtures/hide-content-background';
-import TabFixtureDefault from '../src/atom/tab/test/fixtures/default';
 import TitleFixtureFixture from '../src/atom/title/test/fixtures/fixture';
 import AnswerFixtureDefault from '../src/molecule/answer/test/fixtures/default';
 import AnswerFixtureDropDown from '../src/molecule/answer/test/fixtures/drop-down';
@@ -255,10 +255,19 @@ import AnswerFixtureQcmShort from '../src/molecule/answer/test/fixtures/qcm-shor
 import AnswerFixtureQcm from '../src/molecule/answer/test/fixtures/qcm';
 import AnswerFixtureRange from '../src/molecule/answer/test/fixtures/range';
 import AnswerFixtureTemplate from '../src/molecule/answer/test/fixtures/template';
+import PopinHeaderFixtureExhaustedExtralife from '../src/molecule/app-player/popin/popin-header/test/fixtures/exhausted-extralife';
+import PopinHeaderFixtureExtralifeAccepted from '../src/molecule/app-player/popin/popin-header/test/fixtures/extralife-accepted';
+import PopinHeaderFixtureExtralife from '../src/molecule/app-player/popin/popin-header/test/fixtures/extralife';
+import PopinHeaderFixtureFailMultipleAnswers from '../src/molecule/app-player/popin/popin-header/test/fixtures/fail-multiple-answers';
+import PopinHeaderFixtureFail from '../src/molecule/app-player/popin/popin-header/test/fixtures/fail';
+import PopinHeaderFixtureLoading from '../src/molecule/app-player/popin/popin-header/test/fixtures/loading';
+import PopinHeaderFixtureNextChapter from '../src/molecule/app-player/popin/popin-header/test/fixtures/next-chapter';
+import PopinHeaderFixtureStarsRank from '../src/molecule/app-player/popin/popin-header/test/fixtures/stars-rank';
+import PopinHeaderFixtureSuccess from '../src/molecule/app-player/popin/popin-header/test/fixtures/success';
 import BattleRequestFixtureDefault from '../src/molecule/battle-request/test/fixtures/default';
-import BrandCardCreateFixtureDefault from '../src/molecule/brand-card-create/test/fixtures/default';
 import BrandCardFixtureDefault from '../src/molecule/brand-card/test/fixtures/default';
 import BrandCardFixtureWithDescription from '../src/molecule/brand-card/test/fixtures/with-description';
+import BrandCardCreateFixtureDefault from '../src/molecule/brand-card-create/test/fixtures/default';
 import BrandCreateFormFixtureDefault from '../src/molecule/brand-create-form/test/fixtures/default';
 import BrandCreateFormFixtureError from '../src/molecule/brand-create-form/test/fixtures/error';
 import BrandCreateFormFixtureLoading from '../src/molecule/brand-create-form/test/fixtures/loading';
@@ -288,6 +297,16 @@ import CardFixtureDisabled from '../src/molecule/card/test/fixtures/disabled';
 import CardFixtureEmpty from '../src/molecule/card/test/fixtures/empty';
 import CardFixtureFreerunAndDisabled from '../src/molecule/card/test/fixtures/freerun-and-disabled';
 import CardFixtureFreerun from '../src/molecule/card/test/fixtures/freerun';
+import BattleRequestListFixtureDefault from '../src/molecule/dashboard/battle-request-list/test/fixtures/default';
+import BattleRequestListFixtureEmpty from '../src/molecule/dashboard/battle-request-list/test/fixtures/empty';
+import CardsListFixtureDefault from '../src/molecule/dashboard/cards-list/test/fixtures/default';
+import CardsListFixtureManyEmpty from '../src/molecule/dashboard/cards-list/test/fixtures/many-empty';
+import CardsListFixtureMany from '../src/molecule/dashboard/cards-list/test/fixtures/many';
+import NewsListFixtureDefault from '../src/molecule/dashboard/news-list/test/fixtures/default';
+import NewsListFixtureLoading from '../src/molecule/dashboard/news-list/test/fixtures/loading';
+import NewsListFixtureMore from '../src/molecule/dashboard/news-list/test/fixtures/more';
+import StartBattleFixtureDefault from '../src/molecule/dashboard/start-battle/test/fixtures/default';
+import StartBattleFixtureHref from '../src/molecule/dashboard/start-battle/test/fixtures/href';
 import DisciplineCtaFixtureDefault from '../src/molecule/discipline-cta/test/fixtures/default';
 import DisciplineCtaFixtureNoStart from '../src/molecule/discipline-cta/test/fixtures/no-start';
 import DisciplineHeaderFixtureDefault from '../src/molecule/discipline-header/test/fixtures/default';
@@ -312,6 +331,22 @@ import FiltersFixtureThree from '../src/molecule/filters/test/fixtures/three';
 import FiltersFixtureTwoOpened from '../src/molecule/filters/test/fixtures/two-opened';
 import FiltersFixtureTwo from '../src/molecule/filters/test/fixtures/two';
 import FiltersFixtureZero from '../src/molecule/filters/test/fixtures/zero';
+import ForumCommentFixtureDefault from '../src/molecule/forum/forum-comment/test/fixtures/default';
+import ForumCommentFixturePostDisabled from '../src/molecule/forum/forum-comment/test/fixtures/post-disabled';
+import ForumCommentFixtureTextareaDisabled from '../src/molecule/forum/forum-comment/test/fixtures/textarea-disabled';
+import ForumPostFixtureDefault from '../src/molecule/forum/forum-post/test/fixtures/default';
+import ForumPostFixtureDeleted from '../src/molecule/forum/forum-post/test/fixtures/deleted';
+import ForumPostFixtureEditable from '../src/molecule/forum/forum-post/test/fixtures/editable';
+import ForumPostFixtureNotEditableNotRejectable from '../src/molecule/forum/forum-post/test/fixtures/not-editable-not-rejectable';
+import ForumPostFixturePostsLocked from '../src/molecule/forum/forum-post/test/fixtures/posts-locked';
+import ForumPostFixtureRejectable from '../src/molecule/forum/forum-post/test/fixtures/rejectable';
+import ForumPostFixtureRejected from '../src/molecule/forum/forum-post/test/fixtures/rejected';
+import ForumPostFixtureShowAnswerBox from '../src/molecule/forum/forum-post/test/fixtures/show-answer-box';
+import ForumPostFixtureShowEditBox from '../src/molecule/forum/forum-post/test/fixtures/show-edit-box';
+import ForumPostFixtureTextareasLocked from '../src/molecule/forum/forum-post/test/fixtures/textareas-locked';
+import ForumThreadFixtureDeepAnswers from '../src/molecule/forum/forum-thread/test/fixtures/deep-answers';
+import ForumThreadFixtureDefault from '../src/molecule/forum/forum-thread/test/fixtures/default';
+import ForumThreadFixtureWithAnswers from '../src/molecule/forum/forum-thread/test/fixtures/with-answers';
 import MenuListFixtureDefault from '../src/molecule/menu-list/test/fixtures/default';
 import ModuleBubbleFixtureDefault from '../src/molecule/module-bubble/test/fixtures/default';
 import ModuleBubbleFixtureDisabled from '../src/molecule/module-bubble/test/fixtures/disabled';
@@ -331,6 +366,20 @@ import PdfFixtureDefault from '../src/molecule/pdf/test/fixtures/default';
 import ProductCardFixtureDefault from '../src/molecule/product-card/test/fixtures/default';
 import ProgressBarFixtureDefault from '../src/molecule/progress-bar/test/fixtures/default';
 import ProgressBarFixtureMax from '../src/molecule/progress-bar/test/fixtures/max';
+import DropDownFixtureDefault from '../src/molecule/questions/drop-down/test/fixtures/default';
+import DropDownFixtureNoSelected from '../src/molecule/questions/drop-down/test/fixtures/no-selected';
+import FreeTextFixtureDefault from '../src/molecule/questions/free-text/test/fixtures/default';
+import FreeTextFixtureWithDefaultValue from '../src/molecule/questions/free-text/test/fixtures/with-default-value';
+import QcmFixtureDefault from '../src/molecule/questions/qcm/test/fixtures/default';
+import QcmFixtureNoSelected from '../src/molecule/questions/qcm/test/fixtures/no-selected';
+import QcmFixtureShortAnswers from '../src/molecule/questions/qcm/test/fixtures/short-answers';
+import QcmDragFixtureDefault from '../src/molecule/questions/qcm-drag/test/fixtures/default';
+import QcmDragFixtureNoSelected from '../src/molecule/questions/qcm-drag/test/fixtures/no-selected';
+import QcmGraphicFixtureDefault from '../src/molecule/questions/qcm-graphic/test/fixtures/default';
+import QcmGraphicFixtureNoSelected from '../src/molecule/questions/qcm-graphic/test/fixtures/no-selected';
+import QuestionRangeFixtureDefault from '../src/molecule/questions/question-range/test/fixtures/default';
+import TemplateFixtureDefault from '../src/molecule/questions/template/test/fixtures/default';
+import TemplateFixtureMultiple from '../src/molecule/questions/template/test/fixtures/multiple';
 import ScopeContentFixtureDefault from '../src/molecule/scope-content/test/fixtures/default';
 import ScopeContentFixtureEmpty from '../src/molecule/scope-content/test/fixtures/empty';
 import ScopeContentFixtureMedias from '../src/molecule/scope-content/test/fixtures/medias';
@@ -345,77 +394,6 @@ import SetupSectionsFixtureDefault from '../src/molecule/setup-sections/test/fix
 import SetupSectionsFixtureLoading from '../src/molecule/setup-sections/test/fixtures/loading';
 import SetupSlideFixtureDefault from '../src/molecule/setup-slide/test/fixtures/default';
 import SetupSliderFixtureDefault from '../src/molecule/setup-slider/test/fixtures/default';
-import SsmenuListFixtureCoorpacademy from '../src/molecule/ssmenu-list/test/fixtures/coorpacademy';
-import SsmenuListFixtureEmpty from '../src/molecule/ssmenu-list/test/fixtures/empty';
-import SsmenuListFixtureFormations from '../src/molecule/ssmenu-list/test/fixtures/formations';
-import SsmenuListFixtureSolutions from '../src/molecule/ssmenu-list/test/fixtures/solutions';
-import SubscriptionFreemiumFixtureDefault from '../src/molecule/subscription-freemium/test/fixtures/default';
-import SubscriptionPremiumFixtureDefault from '../src/molecule/subscription-premium/test/fixtures/default';
-import SubscriptionPremiumFixturePromoCode from '../src/molecule/subscription-premium/test/fixtures/promo-code';
-import TableFixtureDefault from '../src/molecule/table/test/fixtures/default';
-import TableFixtureNoOptions from '../src/molecule/table/test/fixtures/no-options';
-import ThemeImageFixtureBg from '../src/molecule/theme-image/test/fixtures/bg';
-import TitledCheckboxFixtureChecked from '../src/molecule/titled-checkbox/test/fixtures/checked';
-import TitledCheckboxFixtureNoBg from '../src/molecule/titled-checkbox/test/fixtures/no-bg';
-import TitledCheckboxFixtureNotChecked from '../src/molecule/titled-checkbox/test/fixtures/not-checked';
-import UnsubscribeFixtureDefault from '../src/molecule/unsubscribe/test/fixtures/default';
-import UnsubscribeFixtureSubscribed from '../src/molecule/unsubscribe/test/fixtures/subscribed';
-import VideoIframeFixtureEmpty from '../src/molecule/video-iframe/test/fixtures/empty';
-import VideoIframeFixtureImagePlaceholder from '../src/molecule/video-iframe/test/fixtures/image-placeholder';
-import VideoIframeFixtureYoutube from '../src/molecule/video-iframe/test/fixtures/youtube';
-import VideoPlayerFixtureJwplayer from '../src/molecule/video-player/test/fixtures/jwplayer';
-import VideoPlayerFixtureKontiki from '../src/molecule/video-player/test/fixtures/kontiki';
-import VideoPlayerFixtureVimeo from '../src/molecule/video-player/test/fixtures/vimeo';
-import VideoPlayerFixtureYoutube from '../src/molecule/video-player/test/fixtures/youtube';
-import PopinHeaderFixtureExhaustedExtralife from '../src/molecule/app-player/popin/popin-header/test/fixtures/exhausted-extralife';
-import PopinHeaderFixtureExtralifeAccepted from '../src/molecule/app-player/popin/popin-header/test/fixtures/extralife-accepted';
-import PopinHeaderFixtureExtralife from '../src/molecule/app-player/popin/popin-header/test/fixtures/extralife';
-import PopinHeaderFixtureFailMultipleAnswers from '../src/molecule/app-player/popin/popin-header/test/fixtures/fail-multiple-answers';
-import PopinHeaderFixtureFail from '../src/molecule/app-player/popin/popin-header/test/fixtures/fail';
-import PopinHeaderFixtureLoading from '../src/molecule/app-player/popin/popin-header/test/fixtures/loading';
-import PopinHeaderFixtureNextChapter from '../src/molecule/app-player/popin/popin-header/test/fixtures/next-chapter';
-import PopinHeaderFixtureStarsRank from '../src/molecule/app-player/popin/popin-header/test/fixtures/stars-rank';
-import PopinHeaderFixtureSuccess from '../src/molecule/app-player/popin/popin-header/test/fixtures/success';
-import BattleRequestListFixtureDefault from '../src/molecule/dashboard/battle-request-list/test/fixtures/default';
-import BattleRequestListFixtureEmpty from '../src/molecule/dashboard/battle-request-list/test/fixtures/empty';
-import CardsListFixtureDefault from '../src/molecule/dashboard/cards-list/test/fixtures/default';
-import CardsListFixtureManyEmpty from '../src/molecule/dashboard/cards-list/test/fixtures/many-empty';
-import CardsListFixtureMany from '../src/molecule/dashboard/cards-list/test/fixtures/many';
-import NewsListFixtureDefault from '../src/molecule/dashboard/news-list/test/fixtures/default';
-import NewsListFixtureLoading from '../src/molecule/dashboard/news-list/test/fixtures/loading';
-import NewsListFixtureMore from '../src/molecule/dashboard/news-list/test/fixtures/more';
-import StartBattleFixtureDefault from '../src/molecule/dashboard/start-battle/test/fixtures/default';
-import StartBattleFixtureHref from '../src/molecule/dashboard/start-battle/test/fixtures/href';
-import ForumCommentFixtureDefault from '../src/molecule/forum/forum-comment/test/fixtures/default';
-import ForumCommentFixturePostDisabled from '../src/molecule/forum/forum-comment/test/fixtures/post-disabled';
-import ForumCommentFixtureTextareaDisabled from '../src/molecule/forum/forum-comment/test/fixtures/textarea-disabled';
-import ForumPostFixtureDefault from '../src/molecule/forum/forum-post/test/fixtures/default';
-import ForumPostFixtureDeleted from '../src/molecule/forum/forum-post/test/fixtures/deleted';
-import ForumPostFixtureEditable from '../src/molecule/forum/forum-post/test/fixtures/editable';
-import ForumPostFixtureNotEditableNotRejectable from '../src/molecule/forum/forum-post/test/fixtures/not-editable-not-rejectable';
-import ForumPostFixturePostsLocked from '../src/molecule/forum/forum-post/test/fixtures/posts-locked';
-import ForumPostFixtureRejectable from '../src/molecule/forum/forum-post/test/fixtures/rejectable';
-import ForumPostFixtureRejected from '../src/molecule/forum/forum-post/test/fixtures/rejected';
-import ForumPostFixtureShowAnswerBox from '../src/molecule/forum/forum-post/test/fixtures/show-answer-box';
-import ForumPostFixtureShowEditBox from '../src/molecule/forum/forum-post/test/fixtures/show-edit-box';
-import ForumPostFixtureTextareasLocked from '../src/molecule/forum/forum-post/test/fixtures/textareas-locked';
-import ForumThreadFixtureDeepAnswers from '../src/molecule/forum/forum-thread/test/fixtures/deep-answers';
-import ForumThreadFixtureDefault from '../src/molecule/forum/forum-thread/test/fixtures/default';
-import ForumThreadFixtureWithAnswers from '../src/molecule/forum/forum-thread/test/fixtures/with-answers';
-import DropDownFixtureDefault from '../src/molecule/questions/drop-down/test/fixtures/default';
-import DropDownFixtureNoSelected from '../src/molecule/questions/drop-down/test/fixtures/no-selected';
-import FreeTextFixtureDefault from '../src/molecule/questions/free-text/test/fixtures/default';
-import FreeTextFixtureWithDefaultValue from '../src/molecule/questions/free-text/test/fixtures/with-default-value';
-import QcmDragFixtureDefault from '../src/molecule/questions/qcm-drag/test/fixtures/default';
-import QcmDragFixtureNoSelected from '../src/molecule/questions/qcm-drag/test/fixtures/no-selected';
-import QcmGraphicFixtureDefault from '../src/molecule/questions/qcm-graphic/test/fixtures/default';
-import QcmGraphicFixtureNoSelected from '../src/molecule/questions/qcm-graphic/test/fixtures/no-selected';
-import QcmFixtureDefault from '../src/molecule/questions/qcm/test/fixtures/default';
-import QcmFixtureNoSelected from '../src/molecule/questions/qcm/test/fixtures/no-selected';
-import QcmFixtureShortAnswers from '../src/molecule/questions/qcm/test/fixtures/short-answers';
-import QuestionRangeFixtureDefault from '../src/molecule/questions/question-range/test/fixtures/default';
-import TemplateFixtureDefault from '../src/molecule/questions/template/test/fixtures/default';
-import TemplateFixtureMultiple from '../src/molecule/questions/template/test/fixtures/multiple';
 import SlidesFooterFixtureClueSelected from '../src/molecule/slides/slides-footer/test/fixtures/clue-selected';
 import SlidesFooterFixtureDefault from '../src/molecule/slides/slides-footer/test/fixtures/default';
 import SlidesFooterFixtureDisabled from '../src/molecule/slides/slides-footer/test/fixtures/disabled';
@@ -446,6 +424,28 @@ import SlidesPlayerFixtureQcm from '../src/molecule/slides/slides-player/test/fi
 import SlidesPlayerFixtureRange from '../src/molecule/slides/slides-player/test/fixtures/range';
 import SlidesPlayerFixtureTemplate from '../src/molecule/slides/slides-player/test/fixtures/template';
 import SlidesPlayerFixtureWithMinHeight from '../src/molecule/slides/slides-player/test/fixtures/with-min-height';
+import SsmenuListFixtureCoorpacademy from '../src/molecule/ssmenu-list/test/fixtures/coorpacademy';
+import SsmenuListFixtureEmpty from '../src/molecule/ssmenu-list/test/fixtures/empty';
+import SsmenuListFixtureFormations from '../src/molecule/ssmenu-list/test/fixtures/formations';
+import SsmenuListFixtureSolutions from '../src/molecule/ssmenu-list/test/fixtures/solutions';
+import SubscriptionFreemiumFixtureDefault from '../src/molecule/subscription-freemium/test/fixtures/default';
+import SubscriptionPremiumFixtureDefault from '../src/molecule/subscription-premium/test/fixtures/default';
+import SubscriptionPremiumFixturePromoCode from '../src/molecule/subscription-premium/test/fixtures/promo-code';
+import TableFixtureDefault from '../src/molecule/table/test/fixtures/default';
+import TableFixtureNoOptions from '../src/molecule/table/test/fixtures/no-options';
+import ThemeImageFixtureBg from '../src/molecule/theme-image/test/fixtures/bg';
+import TitledCheckboxFixtureChecked from '../src/molecule/titled-checkbox/test/fixtures/checked';
+import TitledCheckboxFixtureNoBg from '../src/molecule/titled-checkbox/test/fixtures/no-bg';
+import TitledCheckboxFixtureNotChecked from '../src/molecule/titled-checkbox/test/fixtures/not-checked';
+import UnsubscribeFixtureDefault from '../src/molecule/unsubscribe/test/fixtures/default';
+import UnsubscribeFixtureSubscribed from '../src/molecule/unsubscribe/test/fixtures/subscribed';
+import VideoIframeFixtureEmpty from '../src/molecule/video-iframe/test/fixtures/empty';
+import VideoIframeFixtureImagePlaceholder from '../src/molecule/video-iframe/test/fixtures/image-placeholder';
+import VideoIframeFixtureYoutube from '../src/molecule/video-iframe/test/fixtures/youtube';
+import VideoPlayerFixtureJwplayer from '../src/molecule/video-player/test/fixtures/jwplayer';
+import VideoPlayerFixtureKontiki from '../src/molecule/video-player/test/fixtures/kontiki';
+import VideoPlayerFixtureVimeo from '../src/molecule/video-player/test/fixtures/vimeo';
+import VideoPlayerFixtureYoutube from '../src/molecule/video-player/test/fixtures/youtube';
 import ContainerFixtureDefault from '../src/organism/accordion/container/test/fixtures/default';
 import PartFixtureDefault from '../src/organism/accordion/part/test/fixtures/default';
 import PartFixtureOpen from '../src/organism/accordion/part/test/fixtures/open';
@@ -476,6 +476,8 @@ import HeaderFixtureDefault from '../src/organism/header/test/fixtures/default';
 import HeroFixtureDefault from '../src/organism/hero/test/fixtures/default';
 import HeroFixtureNoTouch from '../src/organism/hero/test/fixtures/no-touch';
 import HeroFixtureTouch from '../src/organism/hero/test/fixtures/touch';
+import ImageSliderFixtureDefault from '../src/organism/mooc/image-slider/test/fixtures/default';
+import ImageSliderFixtureMultipleSlides from '../src/organism/mooc/image-slider/test/fixtures/multiple-slides';
 import MoocHeaderFixtureDefault from '../src/organism/mooc-header/test/fixtures/default';
 import MoocHeaderFixtureLogged from '../src/organism/mooc-header/test/fixtures/logged';
 import MoocHeaderFixtureSliderMultiple from '../src/organism/mooc-header/test/fixtures/slider-multiple';
@@ -496,9 +498,10 @@ import SidebarFixtureDashboards from '../src/organism/sidebar/test/fixtures/dash
 import SidebarFixtureDefault from '../src/organism/sidebar/test/fixtures/default';
 import SliderFixtureDefault from '../src/organism/slider/test/fixtures/default';
 import SliderFixtureMultipleSlides from '../src/organism/slider/test/fixtures/multiple-slides';
-import ImageSliderFixtureDefault from '../src/organism/mooc/image-slider/test/fixtures/default';
-import ImageSliderFixtureMultipleSlides from '../src/organism/mooc/image-slider/test/fixtures/multiple-slides';
 import LoadingFixtureDefault from '../src/template/app-player/loading/test/fixtures/default';
+import PlayerHeaderFixtureLearner from '../src/template/app-player/player/player-header/test/fixtures/learner';
+import PlayerHeaderFixtureMicrolearning from '../src/template/app-player/player/player-header/test/fixtures/microlearning';
+import PlayerHeaderFixtureNoLives from '../src/template/app-player/player/player-header/test/fixtures/no-lives';
 import PlayerFixtureClue from '../src/template/app-player/player/test/fixtures/clue';
 import PlayerFixtureContextWithImage from '../src/template/app-player/player/test/fixtures/context-with-image';
 import PlayerFixtureContextWithPdf from '../src/template/app-player/player/test/fixtures/context-with-pdf';
@@ -539,9 +542,6 @@ import PopinEndFixtureSimpleAction from '../src/template/app-player/popin-end/te
 import PopinEndFixtureSubscribe from '../src/template/app-player/popin-end/test/fixtures/subscribe';
 import PopinEndFixtureWithLoadingRecommendations from '../src/template/app-player/popin-end/test/fixtures/with-loading-recommendations';
 import PopinEndFixtureWithRecommendations from '../src/template/app-player/popin-end/test/fixtures/with-recommendations';
-import PlayerHeaderFixtureLearner from '../src/template/app-player/player/player-header/test/fixtures/learner';
-import PlayerHeaderFixtureMicrolearning from '../src/template/app-player/player/player-header/test/fixtures/microlearning';
-import PlayerHeaderFixtureNoLives from '../src/template/app-player/player/player-header/test/fixtures/no-lives';
 import BrandCreateFixtureDefault from '../src/template/back-office/brand-create/test/fixtures/default';
 import BrandCreateFixtureError from '../src/template/back-office/brand-create/test/fixtures/error';
 import BrandCreateFixtureLoading from '../src/template/back-office/brand-create/test/fixtures/loading';
@@ -609,8 +609,8 @@ export const components = {
     Link,
     Loader,
     Notification,
-    PictureBackground,
     Picture,
+    PictureBackground,
     PromoCode,
     Provider,
     Range,
@@ -619,15 +619,15 @@ export const components = {
     Slide,
     SocialLink,
     Spinner,
-    TabContent,
     Tab,
+    TabContent,
     Title
   },
   Molecule: {
     Answer,
     BattleRequest,
-    BrandCardCreate,
     BrandCard,
+    BrandCardCreate,
     BrandCreateForm,
     BrandDownloadBox,
     BrandFormGroup,
@@ -683,9 +683,9 @@ export const components = {
   MoleculeQuestions: {
     DropDown,
     FreeText,
+    Qcm,
     QcmDrag,
     QcmGraphic,
-    Qcm,
     QuestionRange,
     Template
   },
@@ -742,744 +742,745 @@ export const components = {
     SearchPage
   }
 };
+
 export const fixtures = {
   Atom: {
     Button: {
-      A: ButtonFixtureA,
-      ClassName: ButtonFixtureClassName,
-      Clear: ButtonFixtureClear,
-      Default: ButtonFixtureDefault,
-      Disabled: ButtonFixtureDisabled,
-      Download: ButtonFixtureDownload,
-      Link: ButtonFixtureLink,
-      Sso: ButtonFixtureSso
+      ButtonFixtureA,
+      ButtonFixtureClassName,
+      ButtonFixtureClear,
+      ButtonFixtureDefault,
+      ButtonFixtureDisabled,
+      ButtonFixtureDownload,
+      ButtonFixtureLink,
+      ButtonFixtureSso
     },
     CatalogSection: {
-      List: CatalogSectionFixtureList,
-      Picture: CatalogSectionFixturePicture
+      CatalogSectionFixtureList,
+      CatalogSectionFixturePicture
     },
     CenteredText: {
-      Default: CenteredTextFixtureDefault
+      CenteredTextFixtureDefault
     },
     Checkbox: {
-      Checked: CheckboxFixtureChecked,
-      Default: CheckboxFixtureDefault,
-      Disabled: CheckboxFixtureDisabled,
-      Required: CheckboxFixtureRequired
+      CheckboxFixtureChecked,
+      CheckboxFixtureDefault,
+      CheckboxFixtureDisabled,
+      CheckboxFixtureRequired
     },
     Clue: {
-      Default: ClueFixtureDefault,
-      Link: ClueFixtureLink,
-      Loading: ClueFixtureLoading
+      ClueFixtureDefault,
+      ClueFixtureLink,
+      ClueFixtureLoading
     },
     Cta: {
-      LightSmall: CtaFixtureLightSmall,
-      Light: CtaFixtureLight,
-      PrimarySmall: CtaFixturePrimarySmall,
-      Primary: CtaFixturePrimary,
-      SecondarySmall: CtaFixtureSecondarySmall,
-      Secondary: CtaFixtureSecondary
+      CtaFixtureLightSmall,
+      CtaFixtureLight,
+      CtaFixturePrimarySmall,
+      CtaFixturePrimary,
+      CtaFixtureSecondarySmall,
+      CtaFixtureSecondary
     },
     ImageUpload: {
-      Desktop: ImageUploadFixtureDesktop,
-      Email: ImageUploadFixtureEmail,
-      Loading: ImageUploadFixtureLoading,
-      Mobile: ImageUploadFixtureMobile,
-      Modified: ImageUploadFixtureModified,
-      NoPreview: ImageUploadFixtureNoPreview,
-      WithoutImage: ImageUploadFixtureWithoutImage
+      ImageUploadFixtureDesktop,
+      ImageUploadFixtureEmail,
+      ImageUploadFixtureLoading,
+      ImageUploadFixtureMobile,
+      ImageUploadFixtureModified,
+      ImageUploadFixtureNoPreview,
+      ImageUploadFixtureWithoutImage
     },
     InputCheckbox: {
-      Checked: InputCheckboxFixtureChecked,
-      Default: InputCheckboxFixtureDefault,
-      Disabled: InputCheckboxFixtureDisabled,
-      Error: InputCheckboxFixtureError,
-      Modified: InputCheckboxFixtureModified,
-      Required: InputCheckboxFixtureRequired
+      InputCheckboxFixtureChecked,
+      InputCheckboxFixtureDefault,
+      InputCheckboxFixtureDisabled,
+      InputCheckboxFixtureError,
+      InputCheckboxFixtureModified,
+      InputCheckboxFixtureRequired
     },
     InputColor: {
-      Default: InputColorFixtureDefault,
-      Empty: InputColorFixtureEmpty,
-      Error: InputColorFixtureError,
-      Modified: InputColorFixtureModified
+      InputColorFixtureDefault,
+      InputColorFixtureEmpty,
+      InputColorFixtureError,
+      InputColorFixtureModified
     },
     InputDoublestep: {
-      Default: InputDoublestepFixtureDefault,
-      InputConfirmDisabled: InputDoublestepFixtureInputConfirmDisabled,
-      InputConfirmPending: InputDoublestepFixtureInputConfirmPending,
-      InputConfirm: InputDoublestepFixtureInputConfirm
+      InputDoublestepFixtureDefault,
+      InputDoublestepFixtureInputConfirmDisabled,
+      InputDoublestepFixtureInputConfirmPending,
+      InputDoublestepFixtureInputConfirm
     },
     InputHtml: {
-      Default: InputHtmlFixtureDefault,
-      Empty: InputHtmlFixtureEmpty,
-      Error: InputHtmlFixtureError
+      InputHtmlFixtureDefault,
+      InputHtmlFixtureEmpty,
+      InputHtmlFixtureError
     },
     InputReadonly: {
-      Default: InputReadonlyFixtureDefault
+      InputReadonlyFixtureDefault
     },
     InputSwitch: {
-      Checked: InputSwitchFixtureChecked,
-      Disabled: InputSwitchFixtureDisabled,
-      Modified: InputSwitchFixtureModified,
-      NoTitle: InputSwitchFixtureNoTitle,
-      Sso: InputSwitchFixtureSso,
-      Unchecked: InputSwitchFixtureUnchecked
+      InputSwitchFixtureChecked,
+      InputSwitchFixtureDisabled,
+      InputSwitchFixtureModified,
+      InputSwitchFixtureNoTitle,
+      InputSwitchFixtureSso,
+      InputSwitchFixtureUnchecked
     },
     InputText: {
-      Default: InputTextFixtureDefault,
-      Disabled: InputTextFixtureDisabled,
-      Empty: InputTextFixtureEmpty,
-      Error: InputTextFixtureError,
-      Modified: InputTextFixtureModified,
-      Required: InputTextFixtureRequired
+      InputTextFixtureDefault,
+      InputTextFixtureDisabled,
+      InputTextFixtureEmpty,
+      InputTextFixtureError,
+      InputTextFixtureModified,
+      InputTextFixtureRequired
     },
     InputTextarea: {
-      Default: InputTextareaFixtureDefault,
-      Empty: InputTextareaFixtureEmpty,
-      Error: InputTextareaFixtureError
+      InputTextareaFixtureDefault,
+      InputTextareaFixtureEmpty,
+      InputTextareaFixtureError
     },
     Label: {
-      OneChild: LabelFixtureOneChild,
-      TwoChildren: LabelFixtureTwoChildren
+      LabelFixtureOneChild,
+      LabelFixtureTwoChildren
     },
     Life: {
-      AnimatedExtraLife: LifeFixtureAnimatedExtraLife,
-      AnimatedFail: LifeFixtureAnimatedFail,
-      Default: LifeFixtureDefault,
-      Fail: LifeFixtureFail,
-      Null: LifeFixtureNull,
-      Small: LifeFixtureSmall
+      LifeFixtureAnimatedExtraLife,
+      LifeFixtureAnimatedFail,
+      LifeFixtureDefault,
+      LifeFixtureFail,
+      LifeFixtureNull,
+      LifeFixtureSmall
     },
     Link: {
-      Download: LinkFixtureDownload,
-      Href: LinkFixtureHref,
-      StyledLink: LinkFixtureStyledLink
+      LinkFixtureDownload,
+      LinkFixtureHref,
+      LinkFixtureStyledLink
     },
     Loader: {
-      Default: LoaderFixtureDefault
+      LoaderFixtureDefault
     },
     Notification: {
-      Default: NotificationFixtureDefault,
-      Error: NotificationFixtureError,
-      Warning: NotificationFixtureWarning
-    },
-    PictureBackground: {
-      Contain: PictureBackgroundFixtureContain,
-      Cover: PictureBackgroundFixtureCover,
-      Default: PictureBackgroundFixtureDefault,
-      Desktop: PictureBackgroundFixtureDesktop
+      NotificationFixtureDefault,
+      NotificationFixtureError,
+      NotificationFixtureWarning
     },
     Picture: {
-      Default: PictureFixtureDefault,
-      Empty: PictureFixtureEmpty,
-      SimpleSrc: PictureFixtureSimpleSrc
+      PictureFixtureDefault,
+      PictureFixtureEmpty,
+      PictureFixtureSimpleSrc
+    },
+    PictureBackground: {
+      PictureBackgroundFixtureContain,
+      PictureBackgroundFixtureCover,
+      PictureBackgroundFixtureDefault,
+      PictureBackgroundFixtureDesktop
     },
     PromoCode: {
-      Default: PromoCodeFixtureDefault,
-      Error: PromoCodeFixtureError,
-      Success: PromoCodeFixtureSuccess
+      PromoCodeFixtureDefault,
+      PromoCodeFixtureError,
+      PromoCodeFixtureSuccess
     },
     Provider: {
-      Default: ProviderFixtureDefault
+      ProviderFixtureDefault
     },
     Range: {
-      Default: RangeFixtureDefault,
-      Multi: RangeFixtureMulti
+      RangeFixtureDefault,
+      RangeFixtureMulti
     },
     ResourceMiniature: {
-      Pdf: ResourceMiniatureFixturePdf,
-      SelectedPdf: ResourceMiniatureFixtureSelectedPdf,
-      SelectedVideo: ResourceMiniatureFixtureSelectedVideo,
-      Video: ResourceMiniatureFixtureVideo
+      ResourceMiniatureFixturePdf,
+      ResourceMiniatureFixtureSelectedPdf,
+      ResourceMiniatureFixtureSelectedVideo,
+      ResourceMiniatureFixtureVideo
     },
     Select: {
-      Default: SelectFixtureDefault,
-      Disabled: SelectFixtureDisabled,
-      Filter: SelectFixtureFilter,
-      Invalid: SelectFixtureInvalid,
-      Modified: SelectFixtureModified,
-      Mooc: SelectFixtureMooc,
-      MultipleSelected: SelectFixtureMultipleSelected,
-      Multiple: SelectFixtureMultiple,
-      Question: SelectFixtureQuestion,
-      RequiredWithTitle: SelectFixtureRequiredWithTitle,
-      Required: SelectFixtureRequired,
-      Sort: SelectFixtureSort,
-      Template: SelectFixtureTemplate,
-      ThematiquesLong: SelectFixtureThematiquesLong,
-      Thematiques: SelectFixtureThematiques
+      SelectFixtureDefault,
+      SelectFixtureDisabled,
+      SelectFixtureFilter,
+      SelectFixtureInvalid,
+      SelectFixtureModified,
+      SelectFixtureMooc,
+      SelectFixtureMultipleSelected,
+      SelectFixtureMultiple,
+      SelectFixtureQuestion,
+      SelectFixtureRequiredWithTitle,
+      SelectFixtureRequired,
+      SelectFixtureSort,
+      SelectFixtureTemplate,
+      SelectFixtureThematiquesLong,
+      SelectFixtureThematiques
     },
     Slide: {
-      Default: SlideFixtureDefault,
-      Left: SlideFixtureLeft,
-      Light: SlideFixtureLight,
-      Right: SlideFixtureRight
+      SlideFixtureDefault,
+      SlideFixtureLeft,
+      SlideFixtureLight,
+      SlideFixtureRight
     },
     SocialLink: {
-      Facebook: SocialLinkFixtureFacebook,
-      Twitter: SocialLinkFixtureTwitter
+      SocialLinkFixtureFacebook,
+      SocialLinkFixtureTwitter
     },
     Spinner: {
-      Default: SpinnerFixtureDefault
-    },
-    TabContent: {
-      Default: TabContentFixtureDefault,
-      HideContentBackground: TabContentFixtureHideContentBackground
+      SpinnerFixtureDefault
     },
     Tab: {
-      Default: TabFixtureDefault
+      TabFixtureDefault
+    },
+    TabContent: {
+      TabContentFixtureDefault,
+      TabContentFixtureHideContentBackground
     },
     Title: {
-      Fixture: TitleFixtureFixture
+      TitleFixtureFixture
     }
   },
   Molecule: {
     Answer: {
-      Default: AnswerFixtureDefault,
-      DropDown: AnswerFixtureDropDown,
-      QcmDrag: AnswerFixtureQcmDrag,
-      QcmGraphic: AnswerFixtureQcmGraphic,
-      QcmShort: AnswerFixtureQcmShort,
-      Qcm: AnswerFixtureQcm,
-      Range: AnswerFixtureRange,
-      Template: AnswerFixtureTemplate
+      AnswerFixtureDefault,
+      AnswerFixtureDropDown,
+      AnswerFixtureQcmDrag,
+      AnswerFixtureQcmGraphic,
+      AnswerFixtureQcmShort,
+      AnswerFixtureQcm,
+      AnswerFixtureRange,
+      AnswerFixtureTemplate
     },
     BattleRequest: {
-      Default: BattleRequestFixtureDefault
-    },
-    BrandCardCreate: {
-      Default: BrandCardCreateFixtureDefault
+      BattleRequestFixtureDefault
     },
     BrandCard: {
-      Default: BrandCardFixtureDefault,
-      WithDescription: BrandCardFixtureWithDescription
+      BrandCardFixtureDefault,
+      BrandCardFixtureWithDescription
+    },
+    BrandCardCreate: {
+      BrandCardCreateFixtureDefault
     },
     BrandCreateForm: {
-      Default: BrandCreateFormFixtureDefault,
-      Error: BrandCreateFormFixtureError,
-      Loading: BrandCreateFormFixtureLoading,
-      Modified: BrandCreateFormFixtureModified
+      BrandCreateFormFixtureDefault,
+      BrandCreateFormFixtureError,
+      BrandCreateFormFixtureLoading,
+      BrandCreateFormFixtureModified
     },
     BrandDownloadBox: {
-      Default: BrandDownloadBoxFixtureDefault,
-      Sso: BrandDownloadBoxFixtureSso
+      BrandDownloadBoxFixtureDefault,
+      BrandDownloadBoxFixtureSso
     },
     BrandFormGroup: {
-      Dashboard: BrandFormGroupFixtureDashboard,
-      Default: BrandFormGroupFixtureDefault,
-      Images: BrandFormGroupFixtureImages,
-      Lookandfeel: BrandFormGroupFixtureLookandfeel,
-      Roles: BrandFormGroupFixtureRoles,
-      Slider: BrandFormGroupFixtureSlider,
-      Sso: BrandFormGroupFixtureSso
+      BrandFormGroupFixtureDashboard,
+      BrandFormGroupFixtureDefault,
+      BrandFormGroupFixtureImages,
+      BrandFormGroupFixtureLookandfeel,
+      BrandFormGroupFixtureRoles,
+      BrandFormGroupFixtureSlider,
+      BrandFormGroupFixtureSso
     },
     BrandTabs: {
-      Default: BrandTabsFixtureDefault,
-      Lookandfeel: BrandTabsFixtureLookandfeel,
-      Sso: BrandTabsFixtureSso,
-      Users: BrandTabsFixtureUsers
+      BrandTabsFixtureDefault,
+      BrandTabsFixtureLookandfeel,
+      BrandTabsFixtureSso,
+      BrandTabsFixtureUsers
     },
     BrandUploadBox: {
-      Default: BrandUploadBoxFixtureDefault,
-      Loading: BrandUploadBoxFixtureLoading,
-      Sso: BrandUploadBoxFixtureSso
+      BrandUploadBoxFixtureDefault,
+      BrandUploadBoxFixtureLoading,
+      BrandUploadBoxFixtureSso
     },
     Breadcrumbs: {
-      Default: BreadcrumbsFixtureDefault
+      BreadcrumbsFixtureDefault
     },
     Card: {
-      AdaptivAndDisabled: CardFixtureAdaptivAndDisabled,
-      Adaptiv: CardFixtureAdaptiv,
-      Catalogue: CardFixtureCatalogue,
-      Default: CardFixtureDefault,
-      Disabled: CardFixtureDisabled,
-      Empty: CardFixtureEmpty,
-      FreerunAndDisabled: CardFixtureFreerunAndDisabled,
-      Freerun: CardFixtureFreerun
+      CardFixtureAdaptivAndDisabled,
+      CardFixtureAdaptiv,
+      CardFixtureCatalogue,
+      CardFixtureDefault,
+      CardFixtureDisabled,
+      CardFixtureEmpty,
+      CardFixtureFreerunAndDisabled,
+      CardFixtureFreerun
     },
     DisciplineCta: {
-      Default: DisciplineCtaFixtureDefault,
-      NoStart: DisciplineCtaFixtureNoStart
+      DisciplineCtaFixtureDefault,
+      DisciplineCtaFixtureNoStart
     },
     DisciplineHeader: {
-      Default: DisciplineHeaderFixtureDefault,
-      NoVideoNoImage: DisciplineHeaderFixtureNoVideoNoImage,
-      NoVideo: DisciplineHeaderFixtureNoVideo
+      DisciplineHeaderFixtureDefault,
+      DisciplineHeaderFixtureNoVideoNoImage,
+      DisciplineHeaderFixtureNoVideo
     },
     DisciplinePartners: {
-      Default: DisciplinePartnersFixtureDefault,
-      DoubleAuthors: DisciplinePartnersFixtureDoubleAuthors,
-      MoreInfo: DisciplinePartnersFixtureMoreInfo,
-      NoAuthor: DisciplinePartnersFixtureNoAuthor,
-      Nosite: DisciplinePartnersFixtureNosite
+      DisciplinePartnersFixtureDefault,
+      DisciplinePartnersFixtureDoubleAuthors,
+      DisciplinePartnersFixtureMoreInfo,
+      DisciplinePartnersFixtureNoAuthor,
+      DisciplinePartnersFixtureNosite
     },
     DisciplineScope: {
-      Default: DisciplineScopeFixtureDefault,
-      Empty: DisciplineScopeFixtureEmpty,
-      Medias: DisciplineScopeFixtureMedias,
-      WithOnclick: DisciplineScopeFixtureWithOnclick
+      DisciplineScopeFixtureDefault,
+      DisciplineScopeFixtureEmpty,
+      DisciplineScopeFixtureMedias,
+      DisciplineScopeFixtureWithOnclick
     },
     Filters: {
-      Default: FiltersFixtureDefault,
-      FiltersList: FiltersFixtureFiltersList,
-      One: FiltersFixtureOne,
-      OnlyTimer: FiltersFixtureOnlyTimer,
-      OpenSorts: FiltersFixtureOpenSorts,
-      Opened: FiltersFixtureOpened,
-      Three: FiltersFixtureThree,
-      TwoOpened: FiltersFixtureTwoOpened,
-      Two: FiltersFixtureTwo,
-      Zero: FiltersFixtureZero
+      FiltersFixtureDefault,
+      FiltersFixtureFiltersList,
+      FiltersFixtureOne,
+      FiltersFixtureOnlyTimer,
+      FiltersFixtureOpenSorts,
+      FiltersFixtureOpened,
+      FiltersFixtureThree,
+      FiltersFixtureTwoOpened,
+      FiltersFixtureTwo,
+      FiltersFixtureZero
     },
     MenuList: {
-      Default: MenuListFixtureDefault
+      MenuListFixtureDefault
     },
     ModuleBubble: {
-      Default: ModuleBubbleFixtureDefault,
-      Disabled: ModuleBubbleFixtureDisabled
+      ModuleBubbleFixtureDefault,
+      ModuleBubbleFixtureDisabled
     },
     ModuleCard: {
-      Active: ModuleCardFixtureActive,
-      Restarted: ModuleCardFixtureRestarted
+      ModuleCardFixtureActive,
+      ModuleCardFixtureRestarted
     },
     News: {
-      Default: NewsFixtureDefault,
-      LongDescription: NewsFixtureLongDescription,
-      LongTitle: NewsFixtureLongTitle,
-      SmallDesciption: NewsFixtureSmallDesciption,
-      SmallTitle: NewsFixtureSmallTitle
+      NewsFixtureDefault,
+      NewsFixtureLongDescription,
+      NewsFixtureLongTitle,
+      NewsFixtureSmallDesciption,
+      NewsFixtureSmallTitle
     },
     Pagination: {
-      Default: PaginationFixtureDefault,
-      Disabled: PaginationFixtureDisabled
+      PaginationFixtureDefault,
+      PaginationFixtureDisabled
     },
     PaymentForm: {
-      Default: PaymentFormFixtureDefault,
-      Error: PaymentFormFixtureError,
-      Warning: PaymentFormFixtureWarning
+      PaymentFormFixtureDefault,
+      PaymentFormFixtureError,
+      PaymentFormFixtureWarning
     },
     Pdf: {
-      Default: PdfFixtureDefault
+      PdfFixtureDefault
     },
     ProductCard: {
-      Default: ProductCardFixtureDefault
+      ProductCardFixtureDefault
     },
     ProgressBar: {
-      Default: ProgressBarFixtureDefault,
-      Max: ProgressBarFixtureMax
+      ProgressBarFixtureDefault,
+      ProgressBarFixtureMax
     },
     ScopeContent: {
-      Default: ScopeContentFixtureDefault,
-      Empty: ScopeContentFixtureEmpty,
-      Medias: ScopeContentFixtureMedias,
-      WithOnclick: ScopeContentFixtureWithOnclick
+      ScopeContentFixtureDefault,
+      ScopeContentFixtureEmpty,
+      ScopeContentFixtureMedias,
+      ScopeContentFixtureWithOnclick
     },
     ScopeTabs: {
-      Default: ScopeTabsFixtureDefault,
-      Empty: ScopeTabsFixtureEmpty
+      ScopeTabsFixtureDefault,
+      ScopeTabsFixtureEmpty
     },
     Search: {
-      Default: SearchFixtureDefault
+      SearchFixtureDefault
     },
     SetupSection: {
-      Default: SetupSectionFixtureDefault,
-      First: SetupSectionFixtureFirst,
-      Other: SetupSectionFixtureOther
+      SetupSectionFixtureDefault,
+      SetupSectionFixtureFirst,
+      SetupSectionFixtureOther
     },
     SetupSections: {
-      Default: SetupSectionsFixtureDefault,
-      Loading: SetupSectionsFixtureLoading
+      SetupSectionsFixtureDefault,
+      SetupSectionsFixtureLoading
     },
     SetupSlide: {
-      Default: SetupSlideFixtureDefault
+      SetupSlideFixtureDefault
     },
     SetupSlider: {
-      Default: SetupSliderFixtureDefault
+      SetupSliderFixtureDefault
     },
     SsmenuList: {
-      Coorpacademy: SsmenuListFixtureCoorpacademy,
-      Empty: SsmenuListFixtureEmpty,
-      Formations: SsmenuListFixtureFormations,
-      Solutions: SsmenuListFixtureSolutions
+      SsmenuListFixtureCoorpacademy,
+      SsmenuListFixtureEmpty,
+      SsmenuListFixtureFormations,
+      SsmenuListFixtureSolutions
     },
     SubscriptionFreemium: {
-      Default: SubscriptionFreemiumFixtureDefault
+      SubscriptionFreemiumFixtureDefault
     },
     SubscriptionPremium: {
-      Default: SubscriptionPremiumFixtureDefault,
-      PromoCode: SubscriptionPremiumFixturePromoCode
+      SubscriptionPremiumFixtureDefault,
+      SubscriptionPremiumFixturePromoCode
     },
     Table: {
-      Default: TableFixtureDefault,
-      NoOptions: TableFixtureNoOptions
+      TableFixtureDefault,
+      TableFixtureNoOptions
     },
     ThemeImage: {
-      Bg: ThemeImageFixtureBg
+      ThemeImageFixtureBg
     },
     TitledCheckbox: {
-      Checked: TitledCheckboxFixtureChecked,
-      NoBg: TitledCheckboxFixtureNoBg,
-      NotChecked: TitledCheckboxFixtureNotChecked
+      TitledCheckboxFixtureChecked,
+      TitledCheckboxFixtureNoBg,
+      TitledCheckboxFixtureNotChecked
     },
     Unsubscribe: {
-      Default: UnsubscribeFixtureDefault,
-      Subscribed: UnsubscribeFixtureSubscribed
+      UnsubscribeFixtureDefault,
+      UnsubscribeFixtureSubscribed
     },
     VideoIframe: {
-      Empty: VideoIframeFixtureEmpty,
-      ImagePlaceholder: VideoIframeFixtureImagePlaceholder,
-      Youtube: VideoIframeFixtureYoutube
+      VideoIframeFixtureEmpty,
+      VideoIframeFixtureImagePlaceholder,
+      VideoIframeFixtureYoutube
     },
     VideoPlayer: {
-      Jwplayer: VideoPlayerFixtureJwplayer,
-      Kontiki: VideoPlayerFixtureKontiki,
-      Vimeo: VideoPlayerFixtureVimeo,
-      Youtube: VideoPlayerFixtureYoutube
+      VideoPlayerFixtureJwplayer,
+      VideoPlayerFixtureKontiki,
+      VideoPlayerFixtureVimeo,
+      VideoPlayerFixtureYoutube
     }
   },
   MoleculeAppPlayerPopin: {
     PopinHeader: {
-      ExhaustedExtralife: PopinHeaderFixtureExhaustedExtralife,
-      ExtralifeAccepted: PopinHeaderFixtureExtralifeAccepted,
-      Extralife: PopinHeaderFixtureExtralife,
-      FailMultipleAnswers: PopinHeaderFixtureFailMultipleAnswers,
-      Fail: PopinHeaderFixtureFail,
-      Loading: PopinHeaderFixtureLoading,
-      NextChapter: PopinHeaderFixtureNextChapter,
-      StarsRank: PopinHeaderFixtureStarsRank,
-      Success: PopinHeaderFixtureSuccess
+      PopinHeaderFixtureExhaustedExtralife,
+      PopinHeaderFixtureExtralifeAccepted,
+      PopinHeaderFixtureExtralife,
+      PopinHeaderFixtureFailMultipleAnswers,
+      PopinHeaderFixtureFail,
+      PopinHeaderFixtureLoading,
+      PopinHeaderFixtureNextChapter,
+      PopinHeaderFixtureStarsRank,
+      PopinHeaderFixtureSuccess
     }
   },
   MoleculeDashboard: {
     BattleRequestList: {
-      Default: BattleRequestListFixtureDefault,
-      Empty: BattleRequestListFixtureEmpty
+      BattleRequestListFixtureDefault,
+      BattleRequestListFixtureEmpty
     },
     CardsList: {
-      Default: CardsListFixtureDefault,
-      ManyEmpty: CardsListFixtureManyEmpty,
-      Many: CardsListFixtureMany
+      CardsListFixtureDefault,
+      CardsListFixtureManyEmpty,
+      CardsListFixtureMany
     },
     NewsList: {
-      Default: NewsListFixtureDefault,
-      Loading: NewsListFixtureLoading,
-      More: NewsListFixtureMore
+      NewsListFixtureDefault,
+      NewsListFixtureLoading,
+      NewsListFixtureMore
     },
     StartBattle: {
-      Default: StartBattleFixtureDefault,
-      Href: StartBattleFixtureHref
+      StartBattleFixtureDefault,
+      StartBattleFixtureHref
     }
   },
   MoleculeForum: {
     ForumComment: {
-      Default: ForumCommentFixtureDefault,
-      PostDisabled: ForumCommentFixturePostDisabled,
-      TextareaDisabled: ForumCommentFixtureTextareaDisabled
+      ForumCommentFixtureDefault,
+      ForumCommentFixturePostDisabled,
+      ForumCommentFixtureTextareaDisabled
     },
     ForumPost: {
-      Default: ForumPostFixtureDefault,
-      Deleted: ForumPostFixtureDeleted,
-      Editable: ForumPostFixtureEditable,
-      NotEditableNotRejectable: ForumPostFixtureNotEditableNotRejectable,
-      PostsLocked: ForumPostFixturePostsLocked,
-      Rejectable: ForumPostFixtureRejectable,
-      Rejected: ForumPostFixtureRejected,
-      ShowAnswerBox: ForumPostFixtureShowAnswerBox,
-      ShowEditBox: ForumPostFixtureShowEditBox,
-      TextareasLocked: ForumPostFixtureTextareasLocked
+      ForumPostFixtureDefault,
+      ForumPostFixtureDeleted,
+      ForumPostFixtureEditable,
+      ForumPostFixtureNotEditableNotRejectable,
+      ForumPostFixturePostsLocked,
+      ForumPostFixtureRejectable,
+      ForumPostFixtureRejected,
+      ForumPostFixtureShowAnswerBox,
+      ForumPostFixtureShowEditBox,
+      ForumPostFixtureTextareasLocked
     },
     ForumThread: {
-      DeepAnswers: ForumThreadFixtureDeepAnswers,
-      Default: ForumThreadFixtureDefault,
-      WithAnswers: ForumThreadFixtureWithAnswers
+      ForumThreadFixtureDeepAnswers,
+      ForumThreadFixtureDefault,
+      ForumThreadFixtureWithAnswers
     }
   },
   MoleculeQuestions: {
     DropDown: {
-      Default: DropDownFixtureDefault,
-      NoSelected: DropDownFixtureNoSelected
+      DropDownFixtureDefault,
+      DropDownFixtureNoSelected
     },
     FreeText: {
-      Default: FreeTextFixtureDefault,
-      WithDefaultValue: FreeTextFixtureWithDefaultValue
-    },
-    QcmDrag: {
-      Default: QcmDragFixtureDefault,
-      NoSelected: QcmDragFixtureNoSelected
-    },
-    QcmGraphic: {
-      Default: QcmGraphicFixtureDefault,
-      NoSelected: QcmGraphicFixtureNoSelected
+      FreeTextFixtureDefault,
+      FreeTextFixtureWithDefaultValue
     },
     Qcm: {
-      Default: QcmFixtureDefault,
-      NoSelected: QcmFixtureNoSelected,
-      ShortAnswers: QcmFixtureShortAnswers
+      QcmFixtureDefault,
+      QcmFixtureNoSelected,
+      QcmFixtureShortAnswers
+    },
+    QcmDrag: {
+      QcmDragFixtureDefault,
+      QcmDragFixtureNoSelected
+    },
+    QcmGraphic: {
+      QcmGraphicFixtureDefault,
+      QcmGraphicFixtureNoSelected
     },
     QuestionRange: {
-      Default: QuestionRangeFixtureDefault
+      QuestionRangeFixtureDefault
     },
     Template: {
-      Default: TemplateFixtureDefault,
-      Multiple: TemplateFixtureMultiple
+      TemplateFixtureDefault,
+      TemplateFixtureMultiple
     }
   },
   MoleculeSlides: {
     SlidesFooter: {
-      ClueSelected: SlidesFooterFixtureClueSelected,
-      Default: SlidesFooterFixtureDefault,
-      Disabled: SlidesFooterFixtureDisabled,
-      Highlighted: SlidesFooterFixtureHighlighted,
-      MediaSelected: SlidesFooterFixtureMediaSelected,
-      Notify: SlidesFooterFixtureNotify,
-      OnlyClue: SlidesFooterFixtureOnlyClue,
-      WithContext: SlidesFooterFixtureWithContext
+      SlidesFooterFixtureClueSelected,
+      SlidesFooterFixtureDefault,
+      SlidesFooterFixtureDisabled,
+      SlidesFooterFixtureHighlighted,
+      SlidesFooterFixtureMediaSelected,
+      SlidesFooterFixtureNotify,
+      SlidesFooterFixtureOnlyClue,
+      SlidesFooterFixtureWithContext
     },
     SlidesPlayer: {
-      Clue: SlidesPlayerFixtureClue,
-      ContextWithImage: SlidesPlayerFixtureContextWithImage,
-      ContextWithPdf: SlidesPlayerFixtureContextWithPdf,
-      ContextWithVideo: SlidesPlayerFixtureContextWithVideo,
-      Context: SlidesPlayerFixtureContext,
-      Default: SlidesPlayerFixtureDefault,
-      DropDown: SlidesPlayerFixtureDropDown,
-      Error: SlidesPlayerFixtureError,
-      FreeText: SlidesPlayerFixtureFreeText,
-      Loading: SlidesPlayerFixtureLoading,
-      Media: SlidesPlayerFixtureMedia,
-      NoQuestion: SlidesPlayerFixtureNoQuestion,
-      NoTotal: SlidesPlayerFixtureNoTotal,
-      OnlyClue: SlidesPlayerFixtureOnlyClue,
-      QcmDrag: SlidesPlayerFixtureQcmDrag,
-      QcmGraphic: SlidesPlayerFixtureQcmGraphic,
-      QcmShort: SlidesPlayerFixtureQcmShort,
-      QcmTemplate: SlidesPlayerFixtureQcmTemplate,
-      Qcm: SlidesPlayerFixtureQcm,
-      Range: SlidesPlayerFixtureRange,
-      Template: SlidesPlayerFixtureTemplate,
-      WithMinHeight: SlidesPlayerFixtureWithMinHeight
+      SlidesPlayerFixtureClue,
+      SlidesPlayerFixtureContextWithImage,
+      SlidesPlayerFixtureContextWithPdf,
+      SlidesPlayerFixtureContextWithVideo,
+      SlidesPlayerFixtureContext,
+      SlidesPlayerFixtureDefault,
+      SlidesPlayerFixtureDropDown,
+      SlidesPlayerFixtureError,
+      SlidesPlayerFixtureFreeText,
+      SlidesPlayerFixtureLoading,
+      SlidesPlayerFixtureMedia,
+      SlidesPlayerFixtureNoQuestion,
+      SlidesPlayerFixtureNoTotal,
+      SlidesPlayerFixtureOnlyClue,
+      SlidesPlayerFixtureQcmDrag,
+      SlidesPlayerFixtureQcmGraphic,
+      SlidesPlayerFixtureQcmShort,
+      SlidesPlayerFixtureQcmTemplate,
+      SlidesPlayerFixtureQcm,
+      SlidesPlayerFixtureRange,
+      SlidesPlayerFixtureTemplate,
+      SlidesPlayerFixtureWithMinHeight
     }
   },
   OrganismAccordion: {
     Container: {
-      Default: ContainerFixtureDefault
+      ContainerFixtureDefault
     },
     Part: {
-      Default: PartFixtureDefault,
-      Open: PartFixtureOpen
+      PartFixtureDefault,
+      PartFixtureOpen
     },
     Toggler: {
-      AllAreOpenable: TogglerFixtureAllAreOpenable,
-      OnlyOne: TogglerFixtureOnlyOne
+      TogglerFixtureAllAreOpenable,
+      TogglerFixtureOnlyOne
     }
   },
   Organism: {
     BrandForm: {
-      Dashboard: BrandFormFixtureDashboard,
-      Default: BrandFormFixtureDefault,
-      GeneralSettings: BrandFormFixtureGeneralSettings,
-      Lookandfeel: BrandFormFixtureLookandfeel,
-      Sso: BrandFormFixtureSso,
-      UserEdit: BrandFormFixtureUserEdit
+      BrandFormFixtureDashboard,
+      BrandFormFixtureDefault,
+      BrandFormFixtureGeneralSettings,
+      BrandFormFixtureLookandfeel,
+      BrandFormFixtureSso,
+      BrandFormFixtureUserEdit
     },
     BrandTable: {
-      Default: BrandTableFixtureDefault,
-      Empty: BrandTableFixtureEmpty,
-      Loading: BrandTableFixtureLoading
+      BrandTableFixtureDefault,
+      BrandTableFixtureEmpty,
+      BrandTableFixtureLoading
     },
     BrandUpload: {
-      Default: BrandUploadFixtureDefault,
-      Loading: BrandUploadFixtureLoading
+      BrandUploadFixtureDefault,
+      BrandUploadFixtureLoading
     },
     CardsGrid: {
-      Catalog: CardsGridFixtureCatalog,
-      Empty: CardsGridFixtureEmpty,
-      Loading: CardsGridFixtureLoading,
-      Many: CardsGridFixtureMany
+      CardsGridFixtureCatalog,
+      CardsGridFixtureEmpty,
+      CardsGridFixtureLoading,
+      CardsGridFixtureMany
     },
     Cart: {
-      Default: CartFixtureDefault
+      CartFixtureDefault
     },
     Discussion: {
-      Default: DiscussionFixtureDefault,
-      LoadingMore: DiscussionFixtureLoadingMore,
-      Moderation: DiscussionFixtureModeration,
-      NewDiscussion: DiscussionFixtureNewDiscussion
+      DiscussionFixtureDefault,
+      DiscussionFixtureLoadingMore,
+      DiscussionFixtureModeration,
+      DiscussionFixtureNewDiscussion
     },
     GridList: {
-      Default: GridListFixtureDefault
+      GridListFixtureDefault
     },
     Header: {
-      Default: HeaderFixtureDefault
+      HeaderFixtureDefault
     },
     Hero: {
-      Default: HeroFixtureDefault,
-      NoTouch: HeroFixtureNoTouch,
-      Touch: HeroFixtureTouch
+      HeroFixtureDefault,
+      HeroFixtureNoTouch,
+      HeroFixtureTouch
     },
     MoocHeader: {
-      Default: MoocHeaderFixtureDefault,
-      Logged: MoocHeaderFixtureLogged,
-      SliderMultiple: MoocHeaderFixtureSliderMultiple,
-      Slider: MoocHeaderFixtureSlider
+      MoocHeaderFixtureDefault,
+      MoocHeaderFixtureLogged,
+      MoocHeaderFixtureSliderMultiple,
+      MoocHeaderFixtureSlider
     },
     Popin: {
-      Default: PopinFixtureDefault
+      PopinFixtureDefault
     },
     ResourceBrowser: {
-      Jwplayer: ResourceBrowserFixtureJwplayer,
-      OneVideo: ResourceBrowserFixtureOneVideo,
-      PdfSelected: ResourceBrowserFixturePdfSelected,
-      VideoSelected: ResourceBrowserFixtureVideoSelected
+      ResourceBrowserFixtureJwplayer,
+      ResourceBrowserFixtureOneVideo,
+      ResourceBrowserFixturePdfSelected,
+      ResourceBrowserFixtureVideoSelected
     },
     Settings: {
-      Default: SettingsFixtureDefault,
-      Freemium: SettingsFixtureFreemium,
-      Premium: SettingsFixturePremium,
-      PromoCode: SettingsFixturePromoCode
+      SettingsFixtureDefault,
+      SettingsFixtureFreemium,
+      SettingsFixturePremium,
+      SettingsFixturePromoCode
     },
     SetupHeader: {
-      Default: SetupHeaderFixtureDefault
+      SetupHeaderFixtureDefault
     },
     Sidebar: {
-      Analytics: SidebarFixtureAnalytics,
-      Custom: SidebarFixtureCustom,
-      Dashboards: SidebarFixtureDashboards,
-      Default: SidebarFixtureDefault
+      SidebarFixtureAnalytics,
+      SidebarFixtureCustom,
+      SidebarFixtureDashboards,
+      SidebarFixtureDefault
     },
     Slider: {
-      Default: SliderFixtureDefault,
-      MultipleSlides: SliderFixtureMultipleSlides
+      SliderFixtureDefault,
+      SliderFixtureMultipleSlides
     }
   },
   OrganismMooc: {
     ImageSlider: {
-      Default: ImageSliderFixtureDefault,
-      MultipleSlides: ImageSliderFixtureMultipleSlides
+      ImageSliderFixtureDefault,
+      ImageSliderFixtureMultipleSlides
     }
   },
   TemplateAppPlayer: {
     Loading: {
-      Default: LoadingFixtureDefault
+      LoadingFixtureDefault
     },
     Player: {
-      Clue: PlayerFixtureClue,
-      ContextWithImage: PlayerFixtureContextWithImage,
-      ContextWithPdf: PlayerFixtureContextWithPdf,
-      ContextWithVideo: PlayerFixtureContextWithVideo,
-      Context: PlayerFixtureContext,
-      DropDown: PlayerFixtureDropDown,
-      Empty: PlayerFixtureEmpty,
-      Error: PlayerFixtureError,
-      FreeText: PlayerFixtureFreeText,
-      Media: PlayerFixtureMedia,
-      OnlyClue: PlayerFixtureOnlyClue,
-      QcmDrag: PlayerFixtureQcmDrag,
-      QcmGraphic: PlayerFixtureQcmGraphic,
-      QcmShort: PlayerFixtureQcmShort,
-      Qcm: PlayerFixtureQcm,
-      Range: PlayerFixtureRange
+      PlayerFixtureClue,
+      PlayerFixtureContextWithImage,
+      PlayerFixtureContextWithPdf,
+      PlayerFixtureContextWithVideo,
+      PlayerFixtureContext,
+      PlayerFixtureDropDown,
+      PlayerFixtureEmpty,
+      PlayerFixtureError,
+      PlayerFixtureFreeText,
+      PlayerFixtureMedia,
+      PlayerFixtureOnlyClue,
+      PlayerFixtureQcmDrag,
+      PlayerFixtureQcmGraphic,
+      PlayerFixtureQcmShort,
+      PlayerFixtureQcm,
+      PlayerFixtureRange
     },
     PopinCorrection: {
-      CorrectClosed: PopinCorrectionFixtureCorrectClosed,
-      CorrectNextChapter: PopinCorrectionFixtureCorrectNextChapter,
-      CorrectOpenKlf: PopinCorrectionFixtureCorrectOpenKlf,
-      CorrectOpenResourcesWithPdf: PopinCorrectionFixtureCorrectOpenResourcesWithPdf,
-      CorrectOpenResourcesWithVideo: PopinCorrectionFixtureCorrectOpenResourcesWithVideo,
-      CorrectOpenTips: PopinCorrectionFixtureCorrectOpenTips,
-      CorrectWithoutResources: PopinCorrectionFixtureCorrectWithoutResources,
-      FailClosed: PopinCorrectionFixtureFailClosed,
-      FailJokerOpenKlf: PopinCorrectionFixtureFailJokerOpenKlf,
-      FailMultipleAnswers: PopinCorrectionFixtureFailMultipleAnswers,
-      FailOpenKlf: PopinCorrectionFixtureFailOpenKlf,
-      FailOpenResourcesWithPdf: PopinCorrectionFixtureFailOpenResourcesWithPdf,
-      FailOpenResourcesWithVideo: PopinCorrectionFixtureFailOpenResourcesWithVideo,
-      FailOpenTips: PopinCorrectionFixtureFailOpenTips,
-      Loading: PopinCorrectionFixtureLoading
+      PopinCorrectionFixtureCorrectClosed,
+      PopinCorrectionFixtureCorrectNextChapter,
+      PopinCorrectionFixtureCorrectOpenKlf,
+      PopinCorrectionFixtureCorrectOpenResourcesWithPdf,
+      PopinCorrectionFixtureCorrectOpenResourcesWithVideo,
+      PopinCorrectionFixtureCorrectOpenTips,
+      PopinCorrectionFixtureCorrectWithoutResources,
+      PopinCorrectionFixtureFailClosed,
+      PopinCorrectionFixtureFailJokerOpenKlf,
+      PopinCorrectionFixtureFailMultipleAnswers,
+      PopinCorrectionFixtureFailOpenKlf,
+      PopinCorrectionFixtureFailOpenResourcesWithPdf,
+      PopinCorrectionFixtureFailOpenResourcesWithVideo,
+      PopinCorrectionFixtureFailOpenTips,
+      PopinCorrectionFixtureLoading
     },
     PopinEnd: {
-      Correct: PopinEndFixtureCorrect,
-      Default: PopinEndFixtureDefault,
-      Fail: PopinEndFixtureFail,
-      Loading: PopinEndFixtureLoading,
-      NextCourse: PopinEndFixtureNextCourse,
-      SimpleAction: PopinEndFixtureSimpleAction,
-      Subscribe: PopinEndFixtureSubscribe,
-      WithLoadingRecommendations: PopinEndFixtureWithLoadingRecommendations,
-      WithRecommendations: PopinEndFixtureWithRecommendations
+      PopinEndFixtureCorrect,
+      PopinEndFixtureDefault,
+      PopinEndFixtureFail,
+      PopinEndFixtureLoading,
+      PopinEndFixtureNextCourse,
+      PopinEndFixtureSimpleAction,
+      PopinEndFixtureSubscribe,
+      PopinEndFixtureWithLoadingRecommendations,
+      PopinEndFixtureWithRecommendations
     }
   },
   TemplateAppPlayerPlayer: {
     PlayerHeader: {
-      Learner: PlayerHeaderFixtureLearner,
-      Microlearning: PlayerHeaderFixtureMicrolearning,
-      NoLives: PlayerHeaderFixtureNoLives
+      PlayerHeaderFixtureLearner,
+      PlayerHeaderFixtureMicrolearning,
+      PlayerHeaderFixtureNoLives
     }
   },
   TemplateBackOffice: {
     BrandCreate: {
-      Default: BrandCreateFixtureDefault,
-      Error: BrandCreateFixtureError,
-      Loading: BrandCreateFixtureLoading,
-      Modified: BrandCreateFixtureModified
+      BrandCreateFixtureDefault,
+      BrandCreateFixtureError,
+      BrandCreateFixtureLoading,
+      BrandCreateFixtureModified
     },
     BrandList: {
-      Default: BrandListFixtureDefault,
-      Loading: BrandListFixtureLoading
+      BrandListFixtureDefault,
+      BrandListFixtureLoading
     },
     BrandUpdate: {
-      Dashboard: BrandUpdateFixtureDashboard,
-      Default: BrandUpdateFixtureDefault,
-      GeneralSettingsSuccess: BrandUpdateFixtureGeneralSettingsSuccess,
-      GeneralSettings: BrandUpdateFixtureGeneralSettings,
-      LookandfeelError: BrandUpdateFixtureLookandfeelError,
-      LookandfeelModified: BrandUpdateFixtureLookandfeelModified,
-      LookandfeelPending: BrandUpdateFixtureLookandfeelPending,
-      LookandfeelSuccess: BrandUpdateFixtureLookandfeelSuccess,
-      Lookandfeel: BrandUpdateFixtureLookandfeel,
-      SsoActivate: BrandUpdateFixtureSsoActivate,
-      Sso: BrandUpdateFixtureSso,
-      UsersEdit: BrandUpdateFixtureUsersEdit,
-      UsersImportLoading: BrandUpdateFixtureUsersImportLoading,
-      UsersImportSuccessful: BrandUpdateFixtureUsersImportSuccessful,
-      UsersImport: BrandUpdateFixtureUsersImport,
-      UsersList: BrandUpdateFixtureUsersList,
-      Users: BrandUpdateFixtureUsers
+      BrandUpdateFixtureDashboard,
+      BrandUpdateFixtureDefault,
+      BrandUpdateFixtureGeneralSettingsSuccess,
+      BrandUpdateFixtureGeneralSettings,
+      BrandUpdateFixtureLookandfeelError,
+      BrandUpdateFixtureLookandfeelModified,
+      BrandUpdateFixtureLookandfeelPending,
+      BrandUpdateFixtureLookandfeelSuccess,
+      BrandUpdateFixtureLookandfeel,
+      BrandUpdateFixtureSsoActivate,
+      BrandUpdateFixtureSso,
+      BrandUpdateFixtureUsersEdit,
+      BrandUpdateFixtureUsersImportLoading,
+      BrandUpdateFixtureUsersImportSuccessful,
+      BrandUpdateFixtureUsersImport,
+      BrandUpdateFixtureUsersList,
+      BrandUpdateFixtureUsers
     },
     DashboardPreview: {
-      Default: DashboardPreviewFixtureDefault,
-      Error: DashboardPreviewFixtureError,
-      Loading: DashboardPreviewFixtureLoading,
-      SelectedError: DashboardPreviewFixtureSelectedError,
-      SelectedLoading: DashboardPreviewFixtureSelectedLoading,
-      Selected: DashboardPreviewFixtureSelected
+      DashboardPreviewFixtureDefault,
+      DashboardPreviewFixtureError,
+      DashboardPreviewFixtureLoading,
+      DashboardPreviewFixtureSelectedError,
+      DashboardPreviewFixtureSelectedLoading,
+      DashboardPreviewFixtureSelected
     }
   },
   TemplateCommon: {
     Authors: {
-      Default: AuthorsFixtureDefault,
-      NoSocials: AuthorsFixtureNoSocials
+      AuthorsFixtureDefault,
+      AuthorsFixtureNoSocials
     },
     CoorpHeader: {
-      Production: CoorpHeaderFixtureProduction,
-      Staging: CoorpHeaderFixtureStaging
+      CoorpHeaderFixtureProduction,
+      CoorpHeaderFixtureStaging
     },
     Dashboard: {
-      Default: DashboardFixtureDefault,
-      EmptyRequests: DashboardFixtureEmptyRequests
+      DashboardFixtureDefault,
+      DashboardFixtureEmptyRequests
     },
     Discipline: {
-      Default: DisciplineFixtureDefault,
-      DoubleAuthor: DisciplineFixtureDoubleAuthor,
-      Empty: DisciplineFixtureEmpty,
-      Loading: DisciplineFixtureLoading,
-      NoAuthor: DisciplineFixtureNoAuthor,
-      NoVideo: DisciplineFixtureNoVideo,
-      WithOnclick: DisciplineFixtureWithOnclick
+      DisciplineFixtureDefault,
+      DisciplineFixtureDoubleAuthor,
+      DisciplineFixtureEmpty,
+      DisciplineFixtureLoading,
+      DisciplineFixtureNoAuthor,
+      DisciplineFixtureNoVideo,
+      DisciplineFixtureWithOnclick
     },
     SearchPage: {
-      Default: SearchPageFixtureDefault,
-      NoResult: SearchPageFixtureNoResult
+      SearchPageFixtureDefault,
+      SearchPageFixtureNoResult
     }
   }
 };

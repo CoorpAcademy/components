@@ -34,5 +34,4 @@ madge(join(__dirname, '../src/template'), config)
   })
   .catch(err => {
     console.error(err);
-    process.exit(1); // eslint-disable-line unicorn/no-process-exit
   });
