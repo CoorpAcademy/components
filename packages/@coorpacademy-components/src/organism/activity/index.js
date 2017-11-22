@@ -5,6 +5,7 @@ import BoltIcon from '@coorpacademy/nova-icons/composition/coorpacademy/bolt';
 import ArrowRightIcon from '@coorpacademy/nova-icons/composition/navigation/arrow-right';
 import GraduationIcon from '@coorpacademy/nova-icons/solid/school-and-science/graduation-hat';
 import get from 'lodash/fp/get';
+import map from 'lodash/fp/map';
 import PropTypes from 'prop-types';
 import Provider from '../../atom/provider';
 import Cta from '../../atom/cta';
@@ -42,7 +43,8 @@ class Progression extends React.Component {
       boltStars,
       boltTitle,
       courseStars,
-      courseTitle
+      courseTitle,
+      url
     } = this.props;
     const {skin} = this.context;
     const headerEmpty = (
@@ -133,7 +135,7 @@ class Progression extends React.Component {
       </div>
     );
 
-    const allProgressions = progressions.map((progression, index) => {
+    const allProgressions = map(progressions, (progression, index) => {
       const learningIcon =
         progression.type === 'course' ? (
           <GraduationIcon className={style.iconType} color={dark} />
@@ -168,6 +170,7 @@ class Progression extends React.Component {
                 style={{
                   color: primary
                 }}
+                href={url}
               >
                 {progression.state} <ArrowRightIcon color={primary} />
               </Link>
@@ -212,6 +215,7 @@ Progression.propTypes = {
   boltStars: PropTypes.string,
   courseTitle: PropTypes.string,
   courseStars: PropTypes.string,
+  url: PropTypes.string,
   progressions: PropTypes.arrayOf({
     completion: PropTypes.string,
     stars: PropTypes.number,

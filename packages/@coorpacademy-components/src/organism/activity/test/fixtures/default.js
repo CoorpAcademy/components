@@ -11,7 +11,7 @@ export default {
     microlearningStars: 70,
     boltTitle: 'Battles',
     boltStars: 230,
-    recommandation: '',
+    url: '/#',
     cta: 'Start Learning',
     progressions: [
       {
