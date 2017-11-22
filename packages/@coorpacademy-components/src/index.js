@@ -1,3 +1,4 @@
+export AnimationLoop from './atom/animation-loop';
 export Answer from './molecule/answer';
 export Authors from './template/common/authors';
 export BattleRequest from './molecule/battle-request';
