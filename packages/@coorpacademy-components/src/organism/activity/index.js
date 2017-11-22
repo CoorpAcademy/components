@@ -212,24 +212,27 @@ Progression.propTypes = {
   microlearningStars: PropTypes.number,
   microlearningTitle: PropTypes.string,
   boltTitle: PropTypes.string,
-  boltStars: PropTypes.string,
+  boltStars: PropTypes.number,
   courseTitle: PropTypes.string,
-  courseStars: PropTypes.string,
+  courseStars: PropTypes.number,
   url: PropTypes.string,
-  progressions: PropTypes.arrayOf({
-    completion: PropTypes.string,
-    stars: PropTypes.number,
-    label: PropTypes.string,
-    level: PropTypes.string,
-    state: PropTypes.string,
-    type: PropTypes.string
-  }),
-
-  options: PropTypes.arrayOf({
-    name: PropTypes.string,
-    value: PropTypes.string,
-    selected: PropTypes.bool
-  }),
+  progressions: PropTypes.arrayOf(
+    PropTypes.objectOf({
+      completion: PropTypes.number,
+      stars: PropTypes.number,
+      label: PropTypes.string,
+      level: PropTypes.string,
+      state: PropTypes.string,
+      type: PropTypes.string
+    })
+  ),
+  options: PropTypes.arrayOf(
+    PropTypes.objectOf({
+      name: PropTypes.string,
+      value: PropTypes.string,
+      selected: PropTypes.bool
+    })
+  ),
   onChange: Select.propTypes.onChange
 };
 

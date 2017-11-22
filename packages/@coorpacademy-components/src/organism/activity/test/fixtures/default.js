@@ -16,7 +16,7 @@ export default {
     progressions: [
       {
         completion: 30,
-        stars: '400',
+        stars: 400,
         label: 'Big Data',
         level: 'Basic',
         state: 'Continue learning',
@@ -24,7 +24,7 @@ export default {
       },
       {
         completion: 100,
-        stars: '700',
+        stars: 700,
         label: 'Prospectives',
         level: 'Coach',
         state: 'Redo this course',
@@ -32,7 +32,7 @@ export default {
       },
       {
         completion: 0,
-        stars: '400',
+        stars: 400,
         label: 'Lead generation',
         level: 'Advanced',
         state: 'Start learning',
