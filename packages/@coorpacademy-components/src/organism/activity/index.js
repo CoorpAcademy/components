@@ -4,11 +4,7 @@ import TimerIcon from '@coorpacademy/nova-icons/composition/coorpacademy/timer';
 import BoltIcon from '@coorpacademy/nova-icons/composition/coorpacademy/bolt';
 import ArrowRightIcon from '@coorpacademy/nova-icons/composition/navigation/arrow-right';
 import GraduationIcon from '@coorpacademy/nova-icons/solid/school-and-science/graduation-hat';
-import isEmpty from 'lodash/fp/isEmpty';
 import get from 'lodash/fp/get';
-import pipe from 'lodash/fp/pipe';
-import head from 'lodash/fp/head';
-import filter from 'lodash/fp/filter';
 import PropTypes from 'prop-types';
 import Provider from '../../atom/provider';
 import Cta from '../../atom/cta';
@@ -20,29 +16,23 @@ import style from './style.css';
 class Progression extends React.Component {
   constructor(props, context) {
     super(props, context);
-    this.state = {
-      isLoading: false
-    };
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick(e) {
     e.stopPropagation();
     e.preventDefault();
-    const {text, onClick} = this.props;
+    const {onClick} = this.props;
     onClick && onClick(e);
-    const isLoading = isEmpty(text);
-    return this.setState(() => {
-      return {
-        isLoading
-      };
-    });
   }
   render() {
     const {
       title,
       subtitle,
       cta,
+      headerRecommandationTitle,
+      headerRecommandationSubtitle,
+      headerCourseTitle,
       progressions,
       totalStars,
       microlearningStars,
@@ -55,7 +45,6 @@ class Progression extends React.Component {
       courseTitle
     } = this.props;
     const {skin} = this.context;
-    const currentSelection = pipe(filter('selected'), head)(options);
     const headerEmpty = (
       <div className={style.headerEmpty}>
         <div className={style.title}>{title}</div>
@@ -73,9 +62,9 @@ class Progression extends React.Component {
         <div className={style.wrapperCta}>
           <Select theme="invalid" options={options} onChange={onChange} />
           <div>
-            <p>Start learning to discover your activity</p>
+            <p>{headerRecommandationTitle}</p>
             <span>
-              We recommend<p>BigData</p>
+              {headerRecommandationSubtitle} <p>{headerCourseTitle}</p>
             </span>
             <Cta submitValue={cta} primary onClick={this.handleClick} className={style.cta} />
           </div>
@@ -147,9 +136,9 @@ class Progression extends React.Component {
     const allProgressions = progressions.map((progression, index) => {
       const learningIcon =
         progression.type === 'course' ? (
-          <GraduationIcon className={style.iconType} color={primary} />
+          <GraduationIcon className={style.iconType} color={dark} />
         ) : (
-          <TimerIcon className={style.iconType} color={primary} />
+          <TimerIcon className={style.iconType} color={dark} />
         );
       if (progression.completion > 0) {
         return (
@@ -212,6 +201,9 @@ Progression.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
   cta: PropTypes.string,
+  headerRecommandationTitle: PropTypes.string,
+  headerRecommandationSubtitle: PropTypes.string,
+  headerCourseTitle: PropTypes.string,
   onClick: PropTypes.func,
   totalStars: PropTypes.number,
   microlearningStars: PropTypes.number,

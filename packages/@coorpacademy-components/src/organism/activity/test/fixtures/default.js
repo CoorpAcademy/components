@@ -2,6 +2,9 @@ export default {
   props: {
     theme: 'digital',
     totalStars: 400,
+    headerRecommandationTitle: 'Start learning to discover your activity',
+    headerRecommandationSubtitle: 'We recommend',
+    headerCourseTitle: 'BigData',
     courseTitle: 'Courses',
     courseStars: 100,
     microlearningTitle: 'MicroLearning',

@@ -45,12 +45,12 @@
 }
 
 .wrapperCta {
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    min-width: 482px;
-    box-sizing: border-box;
-    margin: 24px 0 24px 32px;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  min-width: 482px;
+  box-sizing: border-box;
+  margin: 24px 0 24px 32px;
 }
 
 .wrapperCta span {
@@ -64,7 +64,7 @@
 }
 
 .wrapperCta span p {
-    margin: 0 8px 0 4px;
+  margin: 0 8px 0 4px;
 }
 
 .wrapperCta p {
@@ -77,8 +77,8 @@
 }
 
 .iconHeader {
-    width: 25px;
-    height: 25px;
+  width: 25px;
+  height: 25px;
 }
 
 .totalStars {
@@ -129,29 +129,29 @@
 }
 
 .microlearningStars {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    width: 124px;
-    height: 153px;
-    border-left: solid 1px light;
-    padding: 0 8px 21px 16px;
-    box-sizing: border-box;
-    position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 124px;
+  height: 153px;
+  border-left: solid 1px light;
+  padding: 0 8px 21px 16px;
+  box-sizing: border-box;
+  position: relative;
 }
 
 .iconMicroLearning {
-    position: absolute;
-    top: 0;
-    right: 8px;
-    width: 50px;
-    height: 48px;
-    border-bottom-right-radius: 8px;
-    border-bottom-left-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
+  position: absolute;
+  top: 0;
+  right: 8px;
+  width: 50px;
+  height: 48px;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }
 
 .iconHeaderMicrolearning {
@@ -181,30 +181,30 @@
 }
 
 .core {
-    margin-top: 24px
-} 
+  margin-top: 24px;
+}
 
 .title {
-    display: block;
-    text-align: center;
-    width: 100%;
-    height: auto;
-    font-weight: bold;
-    font-size: 25px;
+  display: block;
+  text-align: center;
+  width: 100%;
+  height: auto;
+  font-weight: bold;
+  font-size: 25px;
 }
 
 .subtitle {
-    display: block;
-    width: 100%;
-    height: auto;
-    font-weight: normal;
-    font-size: 17px;
-    text-align: center;
-    margin-top: 8px;
+  display: block;
+  width: 100%;
+  height: auto;
+  font-weight: normal;
+  font-size: 17px;
+  text-align: center;
+  margin-top: 8px;
 }
 
 .cta {
-    margin-top: 40px;
+  margin-top: 40px;
 }
 
 .completion {
@@ -215,7 +215,7 @@
 }
 
 .completion p {
-    display: none;
+  display: none;
 }
 
 .wrapperTitle {
@@ -225,9 +225,9 @@
 }
 
 .iconType {
-    width: 19px;
-    height: 16px;
-    margin-right: 16px;
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
 }
 
 .label {
@@ -240,17 +240,20 @@
   color: dark;
 }
 
-.wrapperProgression {}
+.wrapperProgression {
+  margin: 0;
+  padding: 0;
+}
 
 .iconBubble {
-    background-color: white;
-    width: 23px;
-    height: 23px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
+  background-color: white;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
 }
 
 .stars {
@@ -261,16 +264,15 @@
   font-weight: bold;
   text-align: right;
   justify-content: flex-end;
-  color: #00b0ff;
   margin-left: 16px;
   display: flex;
   align-items: center;
 }
 
 .iconStar {
-    width: 15px;
-    height: 15px;
-    margin-left: 4px;
+  width: 15px;
+  height: 15px;
+  margin-left: 4px;
 }
 
 .state {
@@ -282,19 +284,16 @@
   font-size: 12px;
   font-weight: bold;
   text-align: left;
-  color: #00b0ff;
   margin-top: 8px;
 }
 
 .state a {
-  width: 30%; 
+  width: 30%;
   margin: 0;
   padding: 0;
-
 }
 
 .level {
-  width: auto;
   height: 17px;
   font-family: OpenSans;
   font-size: 12px;
@@ -308,7 +307,7 @@
 
 .separation {
   display: block;
-  margin: 24px 0;  
+  margin: 24px 0;
   width: 100%;
   height: 1px;
   background-color: light;
