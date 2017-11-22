@@ -1,33 +1,46 @@
-import {promisify} from 'util';
 import {readFile} from 'fs';
-import {execFile} from 'child_process';
 import {join} from 'path';
 import test from 'ava';
+import {Observable} from 'rxjs/Rx';
+import split from 'lodash/fp/split';
+import {readComponentIndex$} from '../../scripts/component-index';
+import {readStorybookIndex$} from '../../scripts/storybook-index';
 
-const readFileP = promisify(readFile);
-const execFileP = promisify(execFile);
+const readFile$ = file =>
+  Observable.bindNodeCallback(readFile)(file, 'utf8')
+    .map(split('\n'))
+    .concatMap(Observable.from);
 
 test('index should be up to date', async t => {
-  const content = readFileP(join(__dirname, '../index.js'), 'utf8');
-  const expected = execFileP('node', ['scripts/component-index.js', 'src', 'src/index.js'], {
-    cwd: join(__dirname, '../..'),
-    encoding: 'utf8'
-  }).then(({stdout}) => stdout);
+  const cwd = join(__dirname, '..');
+  const target = join(__dirname, '../index.js');
+  const expected$ = readComponentIndex$(cwd, target).concat(Observable.of(''));
+  const actual$ = readFile$(target);
 
-  t.deepEqual(await content, await expected, 'run `npm run generate:index` command');
+  t.true(
+    await expected$
+      .sequenceEqual(actual$, (expected, actual) => {
+        t.deepEqual(expected, actual, 'run `npm run generate:index` command');
+        return true;
+      })
+      .toPromise(),
+    "Component's index is not complete, run `npm run generate:index` command"
+  );
 });
 
 test("storybook's index should be up to date", async t => {
-  const content = readFileP(join(__dirname, '../../storybook/components.js'), 'utf8');
+  const cwd = join(__dirname, '..');
+  const target = join(__dirname, '../../storybook/components.js');
+  const expected$ = readStorybookIndex$(cwd, target).concat(Observable.of(''));
+  const actual$ = readFile$(target);
 
-  const expected = execFileP(
-    'node',
-    ['scripts/storybook-index.js', 'src', 'storybook/components.js'],
-    {
-      cwd: join(__dirname, '../..'),
-      encoding: 'utf8'
-    }
-  ).then(({stdout}) => stdout);
-
-  t.deepEqual(await content, await expected, 'run `npm run generate:storybook` command');
+  t.true(
+    await expected$
+      .sequenceEqual(actual$, (expected, actual) => {
+        t.deepEqual(expected, actual, 'run `npm run generate:storybook` command');
+        return true;
+      })
+      .toPromise(),
+    "Storybook's index is not complete, run `npm run generate:storybook` command"
+  );
 });

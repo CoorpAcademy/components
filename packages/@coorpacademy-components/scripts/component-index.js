@@ -1,25 +1,20 @@
-const {Transform} = require('stream');
-const {relative, resolve, dirname} = require('path');
-const createComponentStream = require('./components');
+const {relative, dirname} = require('path');
+const {readComponents$} = require('./observables/components');
 
-const createComponentIndexStream = (cwd, target) => {
-  return createComponentStream(cwd).pipe(
-    new Transform({
-      objectMode: true,
-      transform(chunk, encoding, callback) {
-        const {title, path} = chunk;
-        const relativePath = relative(dirname(target), path);
-        const line = `export ${title} from './${relativePath}';\n`;
-        callback(null, line);
-      }
-    })
-  );
-};
+const readComponentIndex$ = (cwd, target) =>
+  readComponents$(cwd).map(({title, path}) => {
+    const relativePath = relative(dirname(target), path);
+    return `export ${title} from './${relativePath}';`;
+  });
 
-module.exports = createComponentIndexStream;
+module.exports.readComponentIndex$ = readComponentIndex$;
 
 if (!module.parent) {
+  const {resolve} = require('path');
   const target = resolve(process.cwd(), process.argv.pop());
   const cwd = resolve(process.cwd(), process.argv.pop());
-  createComponentIndexStream(cwd, target).pipe(process.stdout);
+  readComponentIndex$(cwd, target).subscribe(
+    line => process.stdout.write(`${line}\n`),
+    console.error
+  );
 }

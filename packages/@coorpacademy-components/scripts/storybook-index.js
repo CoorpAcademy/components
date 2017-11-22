@@ -1,127 +1,100 @@
-const {Transform} = require('stream');
-const {relative, resolve, dirname} = require('path');
-const {set, mapValues, join, pipe, map, keys, values} = require('lodash/fp');
-const createComponentStream = require('./components');
-const createComponentFixtureStream = require('./component-fixtures');
+const {relative, dirname} = require('path');
+const {Observable} = require('rxjs/Observable');
+const set = require('lodash/fp/set');
+const mapValues = require('lodash/fp/mapValues');
+const join = require('lodash/fp/join');
+const pipe = require('lodash/fp/pipe');
+const keys = require('lodash/fp/keys');
+const values = require('lodash/fp/values');
+const split = require('lodash/fp/split');
+const map = require('lodash/fp/map');
+const {readComponents$} = require('./observables/components');
+const {readFixtures$} = require('./observables/fixtures');
+
+const readComponentImports$ = (cwd, target) =>
+  readComponents$(cwd).map(({title, path}) => {
+    const relativePath = relative(dirname(target), path);
+    return `import ${title} from './${relativePath}';`;
+  });
+
+const readFixtureImports$ = (cwd, target) =>
+  readFixtures$(cwd).map(({title, fixture, fixturePath}) => {
+    const relativePath = relative(dirname(target), fixturePath);
+    return `import ${title}Fixture${fixture} from '${relativePath}';`;
+  });
 
 const mapValuesWithKey = mapValues.convert({cap: false});
 
-const createComponentIndexStream = (cwd, target) => {
-  return createComponentStream(cwd).pipe(
-    new Transform({
-      objectMode: true,
-      transform(chunk, encoding, callback) {
-        const {title, path} = chunk;
-        const relativePath = relative(dirname(target), path);
-        const line = `export ${title} from './${relativePath}';\n`;
-        callback(null, line);
-      }
-    })
-  );
-};
-const createComponentFixtureIndexStream = (cwd, target) => {
-  return createComponentFixtureStream(cwd).pipe(
-    new Transform({
-      objectMode: true,
-      transform(chunk, encoding, callback) {
-        const {fixture, title, path} = chunk;
-        const relativePath = relative(dirname(target), path);
-        const line = `export ${title}Fixture${fixture} from './${relativePath}';\n`;
-        callback(null, line);
-      }
-    })
-  );
-};
-const createComponentExportIndexStream = (cwd, target) => {
-  return createComponentStream(cwd).pipe(
-    new Transform({
-      objectMode: true,
-      transform(chunk, encoding, callback) {
-        const {title, type} = chunk;
-        this.map = set([type, title], true, this.map);
-        callback(null);
-      },
-      flush(callback) {
-        const types = pipe(
-          mapValuesWithKey((titles, type) => {
-            return `${type}: {\n    ${pipe(keys, join(',\n    '))(titles)}\n  }`;
-          }),
-          values,
-          join(',\n  ')
-        )(this.map);
-        this.push(`
+const readComponentExports$ = cwd =>
+  readComponents$(cwd)
+    .reduce((acc, {title, type, path}) => set([type, title], path, acc), {})
+    .concatMap(
+      pipe(
+        mapValuesWithKey((titles, type) => {
+          return pipe(keys, join(',\n    '), s => `${type}: {\n    ${s}\n  }`)(titles);
+        }),
+        values,
+        join(',\n  '),
+        s => `
 export const components = {
-  ${types}
-};
-`);
+  ${s}
+};`,
+        split('\n'),
+        Observable.from
+      )
+    );
 
-        callback(null);
-      }
-    })
-  );
-};
-const createComponentFixtureExportIndexStream = (cwd, target) => {
-  return createComponentFixtureStream(cwd).pipe(
-    new Transform({
-      objectMode: true,
-      transform(chunk, encoding, callback) {
-        const {title, type, fixture} = chunk;
-        this.map = set([type, title, fixture], true, this.map);
-        callback(null);
-      },
-      flush(callback) {
-        this.push(
-          pipe(
-            mapValuesWithKey((titles, type) => {
+const readFixtureExports$ = cwd =>
+  readFixtures$(cwd)
+    .reduce(
+      (acc, {title, type, fixture, fixturePath}) => set([type, title, fixture], fixturePath, acc),
+      {}
+    )
+    .concatMap(
+      pipe(
+        mapValuesWithKey((titles, type) => {
+          return pipe(
+            mapValuesWithKey((fixtures, title) => {
               return pipe(
-                mapValuesWithKey((fixtures, title) => {
-                  return pipe(
-                    keys,
-                    map(fixture => `${title}Fixture${fixture}`),
-                    join(',\n      '),
-                    s => `${title}: {\n      ${s}\n    }`
-                  )(fixtures);
-                }),
-                values,
-                join(',\n    '),
-                s => `${type}: {\n    ${s}\n  }`
-              )(titles);
+                keys,
+                map(fixture => `${title}Fixture${fixture}`),
+                join(',\n      '),
+                s => `${title}: {\n      ${s}\n    }`
+              )(fixtures);
             }),
             values,
-            join(',\n  '),
-            s => `
+            join(',\n    '),
+            s => `${type}: {\n    ${s}\n  }`
+          )(titles);
+        }),
+        values,
+        join(',\n  '),
+        s => `
 export const fixtures = {
   ${s}
-};
-`
-          )(this.map)
-        );
+};`,
+        split('\n'),
+        Observable.from
+      )
+    );
 
-        callback(null);
-      }
-    })
-  );
-};
+const readStorybookIndex$ = (cwd, target) =>
+  Observable.of(
+    Observable.of('/* eslint-disable max-len */', ''),
+    readComponentImports$(cwd, target),
+    readFixtureImports$(cwd, target),
+    readComponentExports$(cwd, target),
+    readFixtureExports$(cwd, target)
+  ).concatAll();
 
-module.exports.createComponentIndexStream = createComponentIndexStream;
-module.exports.createComponentFixtureIndexStream = createComponentFixtureIndexStream;
-module.exports.createComponentExportIndexStream = createComponentExportIndexStream;
-module.exports.createComponentFixtureExportIndexStream = createComponentFixtureExportIndexStream;
+module.exports.readStorybookIndex$ = readStorybookIndex$;
 
 if (!module.parent) {
+  const {resolve} = require('path');
   const target = resolve(process.cwd(), process.argv.pop());
   const cwd = resolve(process.cwd(), process.argv.pop());
-  const componentIndexStream = createComponentIndexStream(cwd, target);
-  const componentFixtureIndexStream = createComponentFixtureIndexStream(cwd, target);
-  const componentExportIndexStream = createComponentExportIndexStream(cwd, target);
-  const componentFixtureExportIndexStream = createComponentFixtureExportIndexStream(cwd, target);
-
-  process.stdout.write(`/* eslint-disable max-len */\n\n`);
-
-  componentIndexStream.pipe(process.stdout);
-  componentIndexStream.on('end', () => componentFixtureIndexStream.pipe(process.stdout));
-  componentFixtureIndexStream.on('end', () => componentExportIndexStream.pipe(process.stdout));
-  componentFixtureIndexStream.on('end', () =>
-    componentFixtureExportIndexStream.pipe(process.stdout)
+  readStorybookIndex$(cwd, target).subscribe(
+    line => process.stdout.write(`${line}\n`),
+    console.error
   );
 }
