@@ -62,8 +62,14 @@ class Progression extends React.Component {
     const headerProgression = (
       <div className={style.headerProgression}>
         <div className={style.wrapperCta}>
-          <Select theme="invalid" options={options} onChange={onChange} />
-          <div>
+          <Select
+            borderClassName={style.selectBorder}
+            className={style.select}
+            theme="invalid"
+            options={options}
+            onChange={onChange}
+          />
+          <div className={style.recommandationWrapper}>
             <p>{headerRecommandationTitle}</p>
             <span>
               {headerRecommandationSubtitle} <p>{headerCourseTitle}</p>

@@ -12,6 +12,7 @@
 
 .default {
   display: flex;
+  width: 230px;
 }
 
 .error {
@@ -29,6 +30,7 @@
   position: relative;
   flex-grow: 0;
   margin-right: 20px;
+  width: 100%;
 }
 
 .title {
@@ -36,7 +38,7 @@
   font-size: 15px;
   text-transform: none;
   color: dark;
-  width: 180px;
+  width: calc(100% - 50px);
 }
 
 .label {
@@ -62,7 +64,7 @@
   font-size: 14px;
   color: dark;
   margin-left: 20px;
-  width: 230px;
+  width: 100%;
   outline: none;
   appearance: none;
   cursor: pointer;
@@ -78,7 +80,7 @@
   font-size: 14px;
   color: dark;
   margin-left: 20px;
-  width: 230px;
+  width: 100%;
   outline: none;
   appearance: none;
   cursor: pointer;
@@ -203,7 +205,7 @@
   color: black;
   font-weight: normal;
   margin-left: 0;
-  width: 230px;
+  width: 100%;
   cursor: pointer;
   background: white;
   border: 2px solid xtraLightGrey;
@@ -253,7 +255,7 @@
 
 .mooc {
   composes: default;
-  width: 150px;
+  width: calc(100% - 80px);
 }
 
 .mooc label {
@@ -380,7 +382,7 @@
   font-family: 'Open Sans';
   color: dark;
   padding: 0 30px 0 15px;
-  width: 150px;
+  width: calc(100% - 80px);
   cursor: pointer;
 }
 

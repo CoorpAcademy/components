@@ -1,5 +1,6 @@
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
+@value tablet from breakpoints;
 @value colors: "../../variables/colors.css";
 @value dark from colors;
 @value black from colors;
@@ -312,4 +313,81 @@
   width: 100%;
   height: 1px;
   background-color: light;
+}
+
+@media tablet, mobile {
+  .default {
+    margin: 0;
+  }
+
+  .headerProgression {
+    flex-direction: column;
+    height: auto;
+    padding: 0;
+  }
+
+  .recommandationWrapper {
+    display: none;
+  }
+
+  .wrapperCta {
+    width: 100%;
+    margin: 0;
+  }
+
+  .wrapperCta > .select {
+    width: 100%;
+  }
+
+  .wrapperCta > .select .selectBorder {
+    border: 0;
+  }
+
+  .myStars,
+  .allStars,
+  .totalStars {
+    width: 100%;
+  }
+
+  .allStars,
+  .totalStars {
+    height: 50px;
+  }
+
+  .myStars {
+    height: auto;
+  }
+
+  .allStars {
+    border-top: 1px solid light;
+  }
+
+  .microlearningStars {
+    width: auto;
+    height: 50px;
+    flex: 1 2;
+    justify-content: end;
+  }
+
+  .score {
+    font-size: 17px;
+  }
+
+  .scoreTitle {
+    font-size: 11px;
+  }
+
+  .iconMicroLearning {
+    width: 27px;
+    height: 26px;
+  }
+
+  .iconHeader {
+    width: 13px;
+    height: 13px;
+  }
+
+  .core {
+    margin: 24px 16px 0;
+  }
 }
