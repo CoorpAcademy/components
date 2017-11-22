@@ -217,7 +217,7 @@ Progression.propTypes = {
   courseStars: PropTypes.number,
   url: PropTypes.string,
   progressions: PropTypes.arrayOf(
-    PropTypes.objectOf({
+    PropTypes.shape({
       completion: PropTypes.number,
       stars: PropTypes.number,
       label: PropTypes.string,
@@ -227,7 +227,7 @@ Progression.propTypes = {
     })
   ),
   options: PropTypes.arrayOf(
-    PropTypes.objectOf({
+    PropTypes.shape({
       name: PropTypes.string,
       value: PropTypes.string,
       selected: PropTypes.bool
