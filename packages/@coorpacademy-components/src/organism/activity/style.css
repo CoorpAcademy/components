@@ -240,10 +240,7 @@
   color: dark;
 }
 
-.icon {
-    width: 26px;
-    height: 26px;
-}
+.wrapperProgression {}
 
 .iconBubble {
     background-color: white;
@@ -289,10 +286,11 @@
   margin-top: 8px;
 }
 
-.state p {
-  width: 20%; 
+.state a {
+  width: 30%; 
   margin: 0;
   padding: 0;
+
 }
 
 .level {
@@ -304,6 +302,8 @@
   text-align: right;
   color: dark;
   width: 80%;
+  position: relative;
+  right: 0;
 }
 
 .separation {

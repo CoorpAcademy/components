@@ -2,9 +2,9 @@ import React from 'react';
 import StarIcon from '@coorpacademy/nova-icons/composition/coorpacademy/star';
 import TimerIcon from '@coorpacademy/nova-icons/composition/coorpacademy/timer';
 import BoltIcon from '@coorpacademy/nova-icons/composition/coorpacademy/bolt';
-import GraduationIcon from '@coorpacademy/nova-icons/composition/coorpacademy/graduation-hat';
-import map from 'lodash/fp/map';
-import getOr from 'lodash/fp/getOr';
+import ArrowRightIcon from '@coorpacademy/nova-icons/composition/navigation/arrow-right';
+import GraduationIcon from '@coorpacademy/nova-icons/solid/school-and-science/graduation-hat';
+import isEmpty from 'lodash/fp/isEmpty';
 import get from 'lodash/fp/get';
 import pipe from 'lodash/fp/pipe';
 import head from 'lodash/fp/head';
@@ -13,6 +13,7 @@ import PropTypes from 'prop-types';
 import Provider from '../../atom/provider';
 import Cta from '../../atom/cta';
 import ProgressBar from '../../molecule/progress-bar';
+import Link from '../../atom/link';
 import Select from '../../atom/select';
 import style from './style.css';
 
@@ -45,12 +46,9 @@ class Progression extends React.Component {
       progressions,
       totalStars,
       microlearningStars,
-      label,
       options,
       onChange,
-      type,
       microlearningTitle,
-      submitValue,
       boltStars,
       boltTitle,
       courseStars,
@@ -58,8 +56,6 @@ class Progression extends React.Component {
     } = this.props;
     const {skin} = this.context;
     const currentSelection = pipe(filter('selected'), head)(options);
-    const defaultTheme = currentSelection.validOption === false ? 'invalid' : 'question';
-    const theme = getOr(defaultTheme, 'theme', this.props);
     const headerEmpty = (
       <div className={style.headerEmpty}>
         <div className={style.title}>{title}</div>
@@ -71,8 +67,6 @@ class Progression extends React.Component {
     const dark = get('common.dark', skin);
     const light = get('common.light', skin);
     const primary = get('common.primary', skin);
-    const xtraLightGrey = get('common.xtraLightGrey', skin);
-    const positive = get('common.positive', skin);
 
     const headerProgression = (
       <div className={style.headerProgression}>
@@ -95,10 +89,10 @@ class Progression extends React.Component {
                   backgroundColor: light
                 }}
               >
-                <TimerIcon className={style.iconHeader} color={dark} width="30" />
+                <GraduationIcon className={style.iconHeader} color={dark} width="30" />
               </span>
               <div className={style.score}>
-                {courseStars} <GraduationIcon className={style.iconStar} color={dark} />
+                {courseStars} <StarIcon className={style.iconStar} color={dark} />
               </div>
               <div className={style.scoreTitle}>{courseTitle}</div>
             </div>
@@ -140,7 +134,7 @@ class Progression extends React.Component {
               backgroundColor: primary
             }}
           >
-            <span>Total:</span>            
+            <span>Total:</span>
             <p>{totalStars}</p>
             <div className={style.iconBubble}>
               <StarIcon className={style.iconHeaderMicrolearning} color={primary} />
@@ -152,7 +146,7 @@ class Progression extends React.Component {
 
     const allProgressions = progressions.map((progression, index) => {
       const learningIcon =
-        progression.type == 'course' ? (
+        progression.type === 'course' ? (
           <GraduationIcon className={style.iconType} color={primary} />
         ) : (
           <TimerIcon className={style.iconType} color={primary} />
@@ -172,9 +166,22 @@ class Progression extends React.Component {
                 {progression.stars} <StarIcon className={style.iconStar} color={primary} />
               </div>
             </div>
-            <ProgressBar className={style.completion} value={progression.completion} max="100" />
+            <ProgressBar
+              className={style.completion}
+              value={progression.completion}
+              max="100"
+              style={{
+                backgroundColor: primary
+              }}
+            />
             <div className={style.state}>
-              <p>{progression.state} </p>
+              <Link
+                style={{
+                  color: primary
+                }}
+              >
+                {progression.state} <ArrowRightIcon color={primary} />
+              </Link>
               <span className={style.level}>{progression.level}</span>
             </div>
             <div className={style.separation} />
