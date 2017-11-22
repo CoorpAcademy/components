@@ -1,7 +1,5 @@
 @value breakpoints: "../../variables/breakpoints.css";
-@value mobile from breakpoints;
 @value tablet from breakpoints;
-@value desktop from breakpoints;
 @value colors: "../../variables/colors.css";
 @value light from colors;
 @value white from colors;
@@ -492,6 +490,7 @@
     padding: 10px 0;
     height: 100%;
     box-sizing: border-box;
+    min-width: 120px;
   }
 
   .logoMobile img {
