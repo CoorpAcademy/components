@@ -131,8 +131,6 @@ export const popinCorrectionStateToProps = (options, store) => state => {
     answer: join(', ', correctAnswer)
   };
 
-  const comment = isCorrect ? {comment} : null;
-
   const resources = getResourcesProps(options, store)(state, slide);
 
   return {

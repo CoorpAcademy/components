@@ -181,6 +181,9 @@ const extractAction = ({translate}, {dispatch}) => state => {
 };
 
 const popinEndStateToProps = (options, store) => state => {
+  const progression = getCurrentProgression(state);
+  const isCorrect = get('state.isCorrect')(progression);
+
   const {translate} = options;
   const {dispatch} = store;
 
@@ -197,7 +200,7 @@ const popinEndStateToProps = (options, store) => state => {
       header: summaryHeader(options, store)(state)(exitNode),
       action: extractAction(options, store)(state)(exitNode),
       recommendation: extractRecommendation(options, store)(state),
-      comment: comment(options, store)(state),
+      comment: isCorrect ? comment(options, store)(state) : null,
       footer
     }
   };
