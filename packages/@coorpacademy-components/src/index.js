@@ -32,39 +32,6 @@ export Tab from './atom/tab';
 export TabContent from './atom/tab-content';
 export Title from './atom/title';
 export Activity from './organism/activity';
-export Button from './atom/button';
-export CatalogSection from './atom/catalog-section';
-export CenteredText from './atom/centered-text';
-export Checkbox from './atom/checkbox';
-export Clue from './atom/clue';
-export Cta from './atom/cta';
-export ImageUpload from './atom/image-upload';
-export InputCheckbox from './atom/input-checkbox';
-export InputColor from './atom/input-color';
-export InputDoublestep from './atom/input-doublestep';
-export InputHtml from './atom/input-html';
-export InputReadonly from './atom/input-readonly';
-export InputSwitch from './atom/input-switch';
-export InputText from './atom/input-text';
-export InputTextarea from './atom/input-textarea';
-export Label from './atom/label';
-export Life from './atom/life';
-export Link from './atom/link';
-export Loader from './atom/loader';
-export Notification from './atom/notification';
-export Picture from './atom/picture';
-export PictureBackground from './atom/picture-background';
-export PromoCode from './atom/promo-code';
-export Provider from './atom/provider';
-export Range from './atom/range';
-export ResourceMiniature from './atom/resource-miniature';
-export Select from './atom/select';
-export Slide from './atom/slide';
-export SocialLink from './atom/social-link';
-export Spinner from './atom/spinner';
-export Tab from './atom/tab';
-export TabContent from './atom/tab-content';
-export Title from './atom/title';
 export Answer from './molecule/answer';
 export PopinHeader from './molecule/app-player/popin/popin-header';
 export BattleRequest from './molecule/battle-request';
@@ -158,7 +125,3 @@ export CoorpHeader from './template/common/coorp-header';
 export Dashboard from './template/common/dashboard';
 export Discipline from './template/common/discipline';
 export SearchPage from './template/common/search-page';
-<<<<<<< HEAD
-=======
->>>>>>> rebase
->>>>>>> rebase
