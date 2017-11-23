@@ -160,6 +160,10 @@ export const create = async progression => {
   });
 };
 
+export const postComment = async (progressionId, comment) => {
+  console.log(comment);
+};
+
 export const markResourceAsViewed = async (progressionId, payload) => {
   const progression = await findById(progressionId);
 
