@@ -34,7 +34,7 @@ class Progression extends React.Component {
       headerRecommandationTitle,
       headerRecommandationSubtitle,
       headerCourseTitle,
-      progressions,
+      progressions = [],
       totalStars,
       microlearningStars,
       options,
@@ -135,7 +135,7 @@ class Progression extends React.Component {
       </div>
     );
 
-    const allProgressions = map(progressions, (progression, index) => {
+    const allProgressions = progressions.map((progression, index) => {
       const learningIcon =
         progression.type === 'course' ? (
           <GraduationIcon className={style.iconType} color={dark} />

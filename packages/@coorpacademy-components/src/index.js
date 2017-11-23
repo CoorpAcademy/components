@@ -31,7 +31,6 @@ export Spinner from './atom/spinner';
 export Tab from './atom/tab';
 export TabContent from './atom/tab-content';
 export Title from './atom/title';
-export Activity from './organism/activity';
 export Answer from './molecule/answer';
 export PopinHeader from './molecule/app-player/popin/popin-header';
 export BattleRequest from './molecule/battle-request';
