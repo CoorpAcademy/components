@@ -5,8 +5,7 @@ import getOr from 'lodash/fp/getOr';
 import isEqual from 'lodash/fp/isEqual';
 import pipe from 'lodash/fp/pipe';
 import {retry, exit, nextLevel} from '../../actions/ui/location';
-import {editComment} from '../../actions/ui/comment';
-import {postComment} from '../../actions/api/comments';
+import {editComment, postComment} from '../../actions/ui/comment';
 import {
   getCurrentContent,
   getCurrentExitNode,
@@ -45,6 +44,7 @@ const extractStars = state => {
 const comment = ({translate}, {dispatch}) => state => {
   const progressionId = getCurrentProgressionId(state);
   return {
+    isSent: get('ui.comment.isSent', state),
     value: get('ui.comment.text', state),
     onChange: e => dispatch(editComment(e.target.value)),
     onPost: e => dispatch(postComment(progressionId))
