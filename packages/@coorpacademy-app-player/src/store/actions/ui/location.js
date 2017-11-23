@@ -54,6 +54,26 @@ export const back = (dispatch, getState, {services}) => {
   return dispatch(action);
 };
 
+export const LOCATION_SEE_COMMENT_REQUEST = '@@location/SEE_COMMENT_REQUEST';
+export const LOCATION_SEE_COMMENT_SUCCESS = '@@location/SEE_COMMENT_SUCCESS';
+export const LOCATION_SEE_COMMENT_FAILURE = '@@location/SEE_COMMENT_FAILURE';
+
+export const seeComment = (dispatch, getState, {services}) => {
+  const {Location} = services; // eslint-disable-line no-shadow
+  const content = getCurrentContent(getState());
+
+  const action = buildTask({
+    types: [
+      LOCATION_SEE_COMMENT_REQUEST,
+      LOCATION_SEE_COMMENT_SUCCESS,
+      LOCATION_SEE_COMMENT_FAILURE
+    ],
+    task: () => Location.seeComment(content)
+  });
+
+  return dispatch(action);
+};
+
 export const LOCATION_NEXT_CONTENT_REQUEST = '@@location/LOCATION_NEXT_CONTENT_REQUEST';
 export const LOCATION_NEXT_CONTENT_SUCCESS = '@@location/LOCATION_NEXT_CONTENT_SUCCESS';
 export const LOCATION_NEXT_CONTENT_FAILURE = '@@location/LOCATION_NEXT_CONTENT_FAILURE';

@@ -13,3 +13,7 @@ export const back = content => {
 export const nextLevel = () => {
   window.location.reload();
 };
+
+export const seeComment = () => {
+  window.location.reload();
+};

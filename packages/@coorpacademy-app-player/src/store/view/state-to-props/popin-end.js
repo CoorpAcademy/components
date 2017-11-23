@@ -4,7 +4,7 @@ import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import isEqual from 'lodash/fp/isEqual';
 import pipe from 'lodash/fp/pipe';
-import {retry, exit, nextLevel} from '../../actions/ui/location';
+import {retry, exit, nextLevel, seeComment} from '../../actions/ui/location';
 import {editComment, postComment} from '../../actions/ui/comment';
 import {
   getCurrentContent,
@@ -47,7 +47,7 @@ const comment = ({translate}, {dispatch}) => state => {
     title: translate('Share your opinion on this course'),
     commentSectionTitle: translate('Thank you for your review !'),
     confirmationLinkText: translate('See your comment and those of your peers.'),
-    onClick: translate('https://up.coorpacademy.com/discipline/'),
+    onClick: e => dispatch(seeComment),
     isSent: get('ui.comment.isSent', state),
     value: get('ui.comment.text', state),
     onChange: e => dispatch(editComment(e.target.value)),
