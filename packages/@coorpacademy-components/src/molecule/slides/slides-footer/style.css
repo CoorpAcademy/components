@@ -99,4 +99,8 @@
   .disabled:hover {
     background-color: xtraLightGrey;
   }
+
+  .coach {
+    display: none;
+  }
 }
