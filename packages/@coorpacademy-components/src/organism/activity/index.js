@@ -5,7 +5,6 @@ import BoltIcon from '@coorpacademy/nova-icons/composition/coorpacademy/bolt';
 import ArrowRightIcon from '@coorpacademy/nova-icons/composition/navigation/arrow-right';
 import GraduationIcon from '@coorpacademy/nova-icons/solid/school-and-science/graduation-hat';
 import get from 'lodash/fp/get';
-import map from 'lodash/fp/map';
 import PropTypes from 'prop-types';
 import Provider from '../../atom/provider';
 import Cta from '../../atom/cta';
@@ -166,7 +165,7 @@ class Progression extends React.Component {
             <ProgressBar
               className={style.completion}
               value={progression.completion}
-              max="100"
+              max={100}
               style={{
                 backgroundColor: primary
               }}
