@@ -1279,8 +1279,8 @@ export const fixtures = {
   },
   Organism: {
     Activity: {
-      Default: ActivityFixtureDefault,
-      Empty: ActivityFixtureEmpty
+      ActivityFixtureDefault,
+      ActivityFixtureEmpty
     },
     BrandForm: {
       BrandFormFixtureDashboard,
