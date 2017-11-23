@@ -6,9 +6,10 @@ import keys from 'lodash/fp/keys';
 import Provider from '../../../atom/provider';
 import Button from '../../../atom/button';
 import Link from '../../../atom/link';
+import Discussion from '../../../organism/discussion';
+import CheckIcon from '@coorpacademy/nova-icons/solid/status/check-circle-2';
 import Loader from '../../../atom/loader';
 import Card from '../../../molecule/card';
-import Discussion from '../../..//organism/discussion/index';
 import CardsList from '../../../molecule/dashboard/cards-list';
 import PopinHeader from '../../../molecule/app-player/popin/popin-header';
 import style from './summary.css';
@@ -112,27 +113,41 @@ const CardsLoader = () => (
 );
 
 const CommentSection = props => {
-  const {isSent, value, onPost, onChange} = props;
+  const {
+    title,
+    isSent,
+    value,
+    onPost,
+    onChange,
+    onClick,
+    commentSectionTitle,
+    confirmationLinkText
+  } = props;
   if (isSent) {
-    const log = 'log';
-    return <span>{log}</span>;
+    return (
+      <div className={style.commentSectionWrapper}>
+        <CheckIcon className={style.commentSectionIcon} />
+        <div className={style.commentSectionTitleWrapper}>
+          <p className={style.commentSectionTitle}>{commentSectionTitle}</p>
+          <Link onClick={onClick} className={style.commentSectionLink}>
+            {confirmationLinkText}
+          </Link>
+        </div>
+      </div>
+    );
   }
-
-  return (
-    <Discussion
-      title="Donnez votre avis sur ce cours"
-      value={value}
-      onPost={onPost}
-      onChange={onChange}
-    />
-  );
+  return <Discussion title={title} value={value} onPost={onPost} onChange={onChange} />;
 };
 
 CommentSection.propTypes = {
+  title: PropTypes.string,
   isSent: PropTypes.bool,
   value: PropTypes.string,
   onPost: PropTypes.func,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  commentSectionTitle: PropTypes.string,
+  confirmationLinkText: PropTypes.string,
+  onClick: PropTypes.string
 };
 
 const Cards = props =>

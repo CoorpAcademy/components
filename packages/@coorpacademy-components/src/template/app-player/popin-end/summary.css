@@ -4,6 +4,7 @@
 @value colors: "../../../variables/colors.css";
 @value xtraLightGrey from colors;
 @value grey from colors;
+@value medium from colors;
 @value white from colors;
 @value light from colors;
 @value positive from colors;
@@ -193,4 +194,51 @@
     box-shadow: none;
     border: none;
   }
+}
+
+/* ------------- CommentSection */
+
+.commentSectionWrapper{
+    padding: 70px 0;
+    text-align: center;
+}
+
+.commentSectionIcon{
+    position: relative;
+    top: -25px;
+    margin-right: 5px;
+    height: 26px;
+    width: 29px;
+}
+
+.commentSectionIcon path{
+
+}
+
+.commentSectionTitleWrapper{
+    display: inline-block;
+}
+
+.commentSectionTitle{
+    font-family: Open Sans;
+    text-align: left;
+    color: #546e7a;
+    font-size: 16px;
+    font-weight: 700;
+    background-color: transparent;
+    outline: none;
+    -webkit-transition: color .3s;
+    transition: color .3s;
+    margin: 0;
+}
+
+.commentSectionLink {
+    font-family: Open Sans;
+    color: dark;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.commentSectionLink:hover {
+  color: medium;
 }

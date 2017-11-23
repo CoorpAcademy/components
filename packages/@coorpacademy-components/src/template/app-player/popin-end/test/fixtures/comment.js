@@ -5,8 +5,9 @@ export default defaultsDeep(correct, {
   props: {
     summary: {
       comment: {
+        title: 'Donnez votre avis sur ce cours',
         isSent: false,
-        value: 'value',
+        value: '',
         onPost: () => console.log('onPost'),
         onChange: () => console.log('onChange')
       }

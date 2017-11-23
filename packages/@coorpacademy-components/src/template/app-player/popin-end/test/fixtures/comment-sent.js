@@ -5,6 +5,9 @@ export default defaultsDeep(correct, {
   props: {
     summary: {
       comment: {
+        commentSectionTitle: 'Merci pour votre avis !',
+        confirmationLinkText: 'Voir votre commentaire et ceux de vos pairs',
+        onClick: 'https://up.coorpacademy.com/discipline/',
         isSent: true
       }
     }
