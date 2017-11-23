@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import keys from 'lodash/fp/keys';
+import CheckIcon from '@coorpacademy/nova-icons/solid/status/check-circle-2';
 import Provider from '../../../atom/provider';
 import Button from '../../../atom/button';
 import Link from '../../../atom/link';
 import Discussion from '../../../organism/discussion';
-import CheckIcon from '@coorpacademy/nova-icons/solid/status/check-circle-2';
 import Loader from '../../../atom/loader';
 import Card from '../../../molecule/card';
 import CardsList from '../../../molecule/dashboard/cards-list';
@@ -173,13 +173,14 @@ const Summary = (props, context) => {
   const {header, recommendation, comment, footer, action} = props;
   const {skin} = context;
   const primary = getOr('#f0f', 'common.primary', skin);
+  const comment = props.comment ? <CommentSection {...comment} /> : null;
 
   return (
     <div className={style.summaryWrapper}>
       <Header {...header} />
       <Action color={primary} {...action} />
       <Cards {...recommendation} />
-      <CommentSection {...comment} />
+      {comment}
       <Footer color={primary} {...footer} />
     </div>
   );
