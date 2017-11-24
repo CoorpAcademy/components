@@ -6,7 +6,8 @@ import {UI_SELECT_PROGRESSION} from '../../actions/ui/progressions';
 const uiCommentReducer = (state = {text: null, isSent: false}, action) => {
   switch (action.type) {
     case UI_SELECT_PROGRESSION: {
-      return pipe(set('text', null), set('isSent', false))(state);
+      return pipe(set(
+        'text', null), set('isSent', false))(state);
     }
     case UI_POST_COMMENT: {
       return set('isSent', true, state);
