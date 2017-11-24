@@ -29,8 +29,6 @@ export type ResourceContent = {
   version?: string
 };
 
-export type Content = GenericContent | ResourceContent;
-
 export type AskClueAction = {
   type: 'clue',
   payload: {
