@@ -1,0 +1,28 @@
+@value colors: "../../../../variables/colors.css";
+@value light from colors;
+@value medium from colors;
+
+.playersList {
+  font-family: 'Open Sans';
+  width: 100%;
+}
+
+.playerListItem {
+  display: flex;
+  flex-flow: row;
+  margin-top: 10px;
+  align-items: center;
+}
+
+.playerListItem:first-of-type {
+  margin-top: 0;
+}
+
+.playerName {
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.listItemDisabled {
+  color: medium;
+}
