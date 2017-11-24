@@ -256,8 +256,7 @@ import TabFixtureDefault from '../src/atom/tab/test/fixtures/default';
 import TabContentFixtureDefault from '../src/atom/tab-content/test/fixtures/default';
 import TabContentFixtureHideContentBackground from '../src/atom/tab-content/test/fixtures/hide-content-background';
 import TitleFixtureFixture from '../src/atom/title/test/fixtures/fixture';
-import TransitionFixtureStart from '../src/atom/transition/test/fixtures/start';
-import TransitionFixtureStop from '../src/atom/transition/test/fixtures/stop';
+import TransitionFixtureFlipSquare from '../src/atom/transition/test/fixtures/flip-square';
 import AnswerFixtureDefault from '../src/molecule/answer/test/fixtures/default';
 import AnswerFixtureDropDown from '../src/molecule/answer/test/fixtures/drop-down';
 import AnswerFixtureQcmDrag from '../src/molecule/answer/test/fixtures/qcm-drag';
@@ -961,8 +960,7 @@ export const fixtures = {
       TitleFixtureFixture
     },
     Transition: {
-      TransitionFixtureStart,
-      TransitionFixtureStop
+      TransitionFixtureFlipSquare
     }
   },
   Molecule: {
