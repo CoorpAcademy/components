@@ -31,7 +31,7 @@ test(
     set('ui.current.progressionId', '0'),
     set(['data', 'progressions', 'entities', '0'], {content: {ref: '1.B', type: 'level'}}),
     set(['data', 'contents', 'level', 'entities', '1.B'], {ref: '1.B', level: 'base'}),
-    set(['ui.comment.text', 'bar'])
+    set('ui.comment.text', 'bar')
   )({}),
   t => ({
     Comments: {
@@ -50,14 +50,52 @@ test(
       payload: {}
     },
     {
-      types: SEND_POST_COMMENT_REQUEST,
+      type: SEND_POST_COMMENT_REQUEST,
       meta: {id: 'foo'}
     },
     {
-      types: SEND_POST_COMMENT_SUCCESS,
+      type: SEND_POST_COMMENT_SUCCESS,
       payload: true,
       meta: {id: 'foo'}
     }
   ],
-  0
+  3
+);
+
+test(
+  'should call post comment and dispatch FAILURE action on post comment action',
+  macro,
+  pipe(
+    set('ui.current.progressionId', '0'),
+    set(['data', 'progressions', 'entities', '0'], {content: {ref: '1.B', type: 'level'}}),
+    set(['data', 'contents', 'level', 'entities', '1.B'], {ref: '1.B', level: 'base'}),
+    set('ui.comment.text', 'bar')
+  )({}),
+  t => ({
+    Comments: {
+      post: (content, message) => {
+        t.is(content.ref, '1.B');
+        t.is(content.level, 'base');
+        t.is(message, 'bar');
+        throw new Error('some error');
+      }
+    }
+  }),
+  postComment('foo'),
+  [
+    {
+      type: UI_POST_COMMENT,
+      payload: {}
+    },
+    {
+      type: SEND_POST_COMMENT_REQUEST,
+      meta: {id: 'foo'}
+    },
+    {
+      type: SEND_POST_COMMENT_FAILURE,
+      payload: new Error('some error'),
+      meta: {id: 'foo'}
+    }
+  ],
+  3
 );

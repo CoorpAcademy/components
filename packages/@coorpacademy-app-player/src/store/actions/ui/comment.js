@@ -14,5 +14,5 @@ export const postComment = progressionId => async dispatch => {
     type: UI_POST_COMMENT,
     payload: {}
   });
-  dispatch(post(progressionId));
+  return dispatch(post(progressionId));
 };
