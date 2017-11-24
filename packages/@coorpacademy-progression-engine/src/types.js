@@ -31,6 +31,12 @@ export type ResourceContent = {
 
 export type Content = GenericContent | ResourceContent;
 
+export type InitialStateOptions = {
+  nextContent: Content,
+  livesDisabled: boolean,
+  teams: Array<Team>
+};
+
 export type State = {
   teams?: Array<Team>,
   content?: Content,
