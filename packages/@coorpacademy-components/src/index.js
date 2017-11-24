@@ -1,4 +1,6 @@
+export Animation from './atom/animation';
 export AnimationLoop from './atom/animation-loop';
+export AnimationOrchestrator from './atom/animation-orchestrator';
 export Button from './atom/button';
 export CatalogSection from './atom/catalog-section';
 export CenteredText from './atom/centered-text';
@@ -32,6 +34,7 @@ export Spinner from './atom/spinner';
 export Tab from './atom/tab';
 export TabContent from './atom/tab-content';
 export Title from './atom/title';
+export Transition from './atom/transition';
 export Answer from './molecule/answer';
 export PopinHeader from './molecule/app-player/popin/popin-header';
 export BattleRequest from './molecule/battle-request';

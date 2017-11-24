@@ -8,6 +8,9 @@ import isNil from 'lodash/fp/isNil';
 import pipe from 'lodash/fp/pipe';
 import times from 'lodash/fp/times';
 import zip from 'lodash/fp/zip';
+import round from 'lodash/fp/round';
+import _parseInt from 'lodash/fp/parseInt';
+import multiply from 'lodash/fp/multiply';
 import ArrowRight from '@coorpacademy/nova-icons/composition/navigation/arrow-right';
 import ChartsIcon from '@coorpacademy/nova-icons/composition/coorpacademy/charts';
 import StarIcon from '@coorpacademy/nova-icons/composition/coorpacademy/star';
@@ -17,6 +20,7 @@ import classnames from 'classnames';
 import Loader from '../../../../atom/loader';
 import Life from '../../../../atom/life';
 import Link from '../../../../atom/link';
+import Animation, {EASE_OUT_CUBIC} from '../../../../atom/animation';
 import Provider from '../../../../atom/provider';
 import style from './style.css';
 
@@ -75,17 +79,25 @@ Rank.contextTypes = {
   skin: Provider.childContextTypes.skin
 };
 
-const Stars = ({bumpStars, stars}, {skin}) => {
+const formatPlusSign = value => (value >= 0 ? '+' : '') + value;
+
+const Stars = ({bumpStars, stars, animated, onAnimationEnd}, {skin}) => {
   const positive = get('common.positive', skin);
   if (isNil(stars)) return null;
 
   return (
-    <div className={classnames(style.centerContent, bumpStars && style.bumped)}>
-      <div className={style.iconBubble}>
-        <StarIcon className={style.icon} color={positive} />
-      </div>
+    <div className={style.centerContent}>
+      <Animation animated bezier={EASE_OUT_CUBIC} duration={2000}>
+        {progress => (
+          <div className={classnames(style.iconBubble, progress < 1 ? '' : style.bumped)}>
+            <StarIcon className={style.icon} color={positive} />
+          </div>
+        )}
+      </Animation>
       <span data-name="iconText" className={style.iconText}>
-        {stars}
+        <Animation animated bezier={EASE_OUT_CUBIC} duration={2000}>
+          {progress => pipe(_parseInt(10), multiply(progress), round, formatPlusSign)(stars)}
+        </Animation>
       </span>
     </div>
   );
