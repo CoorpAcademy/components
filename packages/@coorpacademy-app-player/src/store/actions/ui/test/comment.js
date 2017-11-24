@@ -72,6 +72,11 @@ test(
     set('ui.comment.text', 'bar')
   )({}),
   t => ({
+    Logger: {
+      error(err) {
+        t.is(err.message, 'some error');
+      }
+    },
     Comments: {
       post: (content, message) => {
         t.is(content.ref, '1.B');
@@ -93,9 +98,10 @@ test(
     },
     {
       type: SEND_POST_COMMENT_FAILURE,
+      error: true,
       payload: new Error('some error'),
       meta: {id: 'foo'}
     }
   ],
-  3
+  4
 );
