@@ -41,6 +41,7 @@ export DisciplineScope from './molecule/discipline-scope';
 export Discussion from './organism/discussion';
 export DropDown from './molecule/questions/drop-down';
 export Filters from './molecule/filters';
+export FlippableSquare from './atom/transition/test/fixtures/flippable-square';
 export ForumComment from './molecule/forum/forum-comment';
 export ForumPost from './molecule/forum/forum-post';
 export ForumThread from './molecule/forum/forum-thread';

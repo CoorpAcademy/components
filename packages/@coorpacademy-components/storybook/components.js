@@ -37,6 +37,7 @@ import TabContent from '../src/atom/tab-content';
 import Tab from '../src/atom/tab';
 import Title from '../src/atom/title';
 import Transition from '../src/atom/transition';
+import FlippableSquare from '../src/atom/transition/test/fixtures/flippable-square';
 import Answer from '../src/molecule/answer';
 import BattleRequest from '../src/molecule/battle-request';
 import BrandCardCreate from '../src/molecule/brand-card-create';
@@ -256,8 +257,7 @@ import TabContentFixtureDefault from '../src/atom/tab-content/test/fixtures/defa
 import TabContentFixtureHideContentBackground from '../src/atom/tab-content/test/fixtures/hide-content-background';
 import TabFixtureDefault from '../src/atom/tab/test/fixtures/default';
 import TitleFixtureFixture from '../src/atom/title/test/fixtures/fixture';
-import TransitionFixtureStart from '../src/atom/transition/test/fixtures/start';
-import TransitionFixtureStop from '../src/atom/transition/test/fixtures/stop';
+import TransitionFixtureFlipSquare from '../src/atom/transition/test/fixtures/flip-square';
 import AnswerFixtureDefault from '../src/molecule/answer/test/fixtures/default';
 import AnswerFixtureDropDown from '../src/molecule/answer/test/fixtures/drop-down';
 import AnswerFixtureQcmDrag from '../src/molecule/answer/test/fixtures/qcm-drag';
@@ -639,6 +639,9 @@ export const components = {
     Title,
     Transition
   },
+  AtomTransitionTestFixtures: {
+    FlippableSquare
+  },
   Molecule: {
     Answer,
     BattleRequest,
@@ -960,8 +963,7 @@ export const fixtures = {
       Fixture: TitleFixtureFixture
     },
     Transition: {
-      Start: TransitionFixtureStart,
-      Stop: TransitionFixtureStop
+      FlipSquare: TransitionFixtureFlipSquare
     }
   },
   Molecule: {
