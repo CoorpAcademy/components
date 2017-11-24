@@ -1,0 +1,63 @@
+import test from 'ava';
+import pipe from 'lodash/fp/pipe';
+import set from 'lodash/fp/set';
+import macro from '../../test/helpers/macro';
+import {editComment, UI_EDIT_COMMENT, postComment, UI_POST_COMMENT} from '../comment';
+import {
+  SEND_POST_COMMENT_REQUEST,
+  SEND_POST_COMMENT_SUCCESS,
+  SEND_POST_COMMENT_FAILURE
+} from '../../api/comments';
+
+test(
+  'should call edit comment and dispatch edit comment action',
+  macro,
+  {},
+  t => ({}),
+  editComment('foo'),
+  [
+    {
+      type: UI_EDIT_COMMENT,
+      payload: {text: 'foo'}
+    }
+  ],
+  0
+);
+
+test(
+  'should call post comment and dispatch SUCCESS action on post comment action',
+  macro,
+  pipe(
+    set('ui.current.progressionId', '0'),
+    set(['data', 'progressions', 'entities', '0'], {content: {ref: '1.B', type: 'level'}}),
+    set(['data', 'contents', 'level', 'entities', '1.B'], {ref: '1.B', level: 'base'}),
+    set(['ui.comment.text', 'bar'])
+  )({}),
+  t => ({
+    Comments: {
+      post: (content, message) => {
+        t.is(content.ref, '1.B');
+        t.is(content.level, 'base');
+        t.is(message, 'bar');
+        return true;
+      }
+    }
+  }),
+  postComment('foo'),
+  [
+    {
+      type: UI_POST_COMMENT,
+      payload: {}
+    },
+    {
+      types: SEND_POST_COMMENT_REQUEST,
+      meta: {id: 'foo'}
+    },
+    {
+      types: SEND_POST_COMMENT_SUCCESS,
+      payload: true,
+      meta: {id: 'foo'}
+    }
+  ],
+  0
+);
