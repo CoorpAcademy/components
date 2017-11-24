@@ -1,6 +1,8 @@
 /* eslint-disable max-len */
 
 import AnimationLoop from '../src/atom/animation-loop';
+import AnimationOrchestrator from '../src/atom/animation-orchestrator';
+import Animation from '../src/atom/animation';
 import Button from '../src/atom/button';
 import CatalogSection from '../src/atom/catalog-section';
 import CenteredText from '../src/atom/centered-text';
@@ -34,6 +36,7 @@ import Spinner from '../src/atom/spinner';
 import TabContent from '../src/atom/tab-content';
 import Tab from '../src/atom/tab';
 import Title from '../src/atom/title';
+import Transition from '../src/atom/transition';
 import Answer from '../src/molecule/answer';
 import BattleRequest from '../src/molecule/battle-request';
 import BrandCardCreate from '../src/molecule/brand-card-create';
@@ -127,6 +130,10 @@ import Dashboard from '../src/template/common/dashboard';
 import Discipline from '../src/template/common/discipline';
 import SearchPage from '../src/template/common/search-page';
 import AnimationLoopFixtureChronometer from '../src/atom/animation-loop/test/fixtures/chronometer';
+import AnimationOrchestratorFixtureParallel from '../src/atom/animation-orchestrator/test/fixtures/parallel';
+import AnimationOrchestratorFixtureSeries from '../src/atom/animation-orchestrator/test/fixtures/series';
+import AnimationFixtureStart from '../src/atom/animation/test/fixtures/start';
+import AnimationFixtureStop from '../src/atom/animation/test/fixtures/stop';
 import ButtonFixtureA from '../src/atom/button/test/fixtures/a';
 import ButtonFixtureClassName from '../src/atom/button/test/fixtures/class-name';
 import ButtonFixtureClear from '../src/atom/button/test/fixtures/clear';
@@ -249,6 +256,8 @@ import TabContentFixtureDefault from '../src/atom/tab-content/test/fixtures/defa
 import TabContentFixtureHideContentBackground from '../src/atom/tab-content/test/fixtures/hide-content-background';
 import TabFixtureDefault from '../src/atom/tab/test/fixtures/default';
 import TitleFixtureFixture from '../src/atom/title/test/fixtures/fixture';
+import TransitionFixtureStart from '../src/atom/transition/test/fixtures/start';
+import TransitionFixtureStop from '../src/atom/transition/test/fixtures/stop';
 import AnswerFixtureDefault from '../src/molecule/answer/test/fixtures/default';
 import AnswerFixtureDropDown from '../src/molecule/answer/test/fixtures/drop-down';
 import AnswerFixtureQcmDrag from '../src/molecule/answer/test/fixtures/qcm-drag';
@@ -593,6 +602,8 @@ import SearchPageFixtureNoResult from '../src/template/common/search-page/test/f
 export const components = {
   Atom: {
     AnimationLoop,
+    AnimationOrchestrator,
+    Animation,
     Button,
     CatalogSection,
     CenteredText,
@@ -625,7 +636,8 @@ export const components = {
     Spinner,
     TabContent,
     Tab,
-    Title
+    Title,
+    Transition
   },
   Molecule: {
     Answer,
@@ -750,6 +762,14 @@ export const fixtures = {
   Atom: {
     AnimationLoop: {
       Chronometer: AnimationLoopFixtureChronometer
+    },
+    AnimationOrchestrator: {
+      Parallel: AnimationOrchestratorFixtureParallel,
+      Series: AnimationOrchestratorFixtureSeries
+    },
+    Animation: {
+      Start: AnimationFixtureStart,
+      Stop: AnimationFixtureStop
     },
     Button: {
       A: ButtonFixtureA,
@@ -938,6 +958,10 @@ export const fixtures = {
     },
     Title: {
       Fixture: TitleFixtureFixture
+    },
+    Transition: {
+      Start: TransitionFixtureStart,
+      Stop: TransitionFixtureStop
     }
   },
   Molecule: {

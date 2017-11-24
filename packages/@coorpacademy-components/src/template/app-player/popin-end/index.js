@@ -29,9 +29,9 @@ PopinEnd.propTypes = {
 };
 
 const AnimatedPopinEnd = props => (
-  <Animator>
-    <PopinEnd {...props} />
-  </Animator>
+  // <Animator>
+  <PopinEnd {...props} />
+  // </Animator>
 );
 
 export default AnimatedPopinEnd;

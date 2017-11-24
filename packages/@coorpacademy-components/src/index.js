@@ -1,4 +1,6 @@
+export Animation from './atom/animation';
 export AnimationLoop from './atom/animation-loop';
+export AnimationOrchestrator from './atom/animation-orchestrator';
 export Answer from './molecule/answer';
 export Authors from './template/common/authors';
 export BattleRequest from './molecule/battle-request';
@@ -121,6 +123,7 @@ export ThemeImage from './molecule/theme-image';
 export Title from './atom/title';
 export TitledCheckbox from './molecule/titled-checkbox';
 export Toggler from './organism/accordion/toggler';
+export Transition from './atom/transition';
 export Unsubscribe from './molecule/unsubscribe';
 export VideoIframe from './molecule/video-iframe';
 export VideoPlayer from './molecule/video-player';
