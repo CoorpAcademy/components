@@ -180,7 +180,8 @@ const Summary = (props, context) => {
   const {header, recommendation, comment, footer, action} = props;
   const {skin} = context;
   const primary = getOr('#f0f', 'common.primary', skin);
-  const commentView = comment ? <CommentSection {...comment} /> : null;
+  const commentView = comment && header ? <CommentSection {...comment} /> : null;
+  const footerView = footer && header ? <Footer color={primary} {...footer} /> : null;
 
   return (
     <div className={style.summaryWrapper}>
@@ -188,7 +189,7 @@ const Summary = (props, context) => {
       <Action color={primary} {...action} />
       <Cards {...recommendation} />
       {commentView}
-      <Footer color={primary} {...footer} />
+      {footerView}
     </div>
   );
 };
