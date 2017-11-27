@@ -198,45 +198,52 @@
 
 /* ------------- CommentSection */
 
-.commentSectionWrapper{
-    padding: 70px 0;
+.commentSectionWrapper {
+  padding: 70px 0;
+  text-align: center;
+}
+
+.commentSectionIcon {
+  position: relative;
+  top: -25px;
+  margin-right: 5px;
+  height: 26px;
+  width: 29px;
+}
+
+.commentSectionTitleWrapper {
+  display: inline-block;
+}
+
+.commentSectionTitle {
+  font-family: Open Sans;
+  text-align: left;
+  color: #546e7a;
+  font-size: 16px;
+  font-weight: 700;
+  background-color: transparent;
+  outline: none;
+  -webkit-transition: color .3s;
+  transition: color .3s;
+  margin: 0;
+}
+
+@media mobile {
+  .commentSectionTitle {
     text-align: center;
-}
+  }
 
-.commentSectionIcon{
+  .commentSectionIcon {
     position: relative;
-    top: -25px;
-    margin-right: 5px;
-    height: 26px;
-    width: 29px;
-}
-
-.commentSectionIcon path{
-
-}
-
-.commentSectionTitleWrapper{
-    display: inline-block;
-}
-
-.commentSectionTitle{
-    font-family: Open Sans;
-    text-align: left;
-    color: #546e7a;
-    font-size: 16px;
-    font-weight: 700;
-    background-color: transparent;
-    outline: none;
-    -webkit-transition: color .3s;
-    transition: color .3s;
-    margin: 0;
+    left: 80px;
+  }
 }
 
 .commentSectionLink {
-    font-family: Open Sans;
-    color: dark;
-    text-decoration: underline;
-    cursor: pointer;
+  font-family: Open Sans;
+  color: dark;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .commentSectionLink:hover {
