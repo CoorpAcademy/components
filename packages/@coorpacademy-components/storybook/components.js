@@ -33,6 +33,7 @@ import Select from './../src/atom/select';
 import Slide from './../src/atom/slide';
 import SocialLink from './../src/atom/social-link';
 import Spinner from './../src/atom/spinner';
+import Swapper from './../src/atom/swapper';
 import Tab from './../src/atom/tab';
 import TabContent from './../src/atom/tab-content';
 import Title from './../src/atom/title';
@@ -252,6 +253,7 @@ import SlideFixtureRight from '../src/atom/slide/test/fixtures/right';
 import SocialLinkFixtureFacebook from '../src/atom/social-link/test/fixtures/facebook';
 import SocialLinkFixtureTwitter from '../src/atom/social-link/test/fixtures/twitter';
 import SpinnerFixtureDefault from '../src/atom/spinner/test/fixtures/default';
+import SwapperFixtureDefault from '../src/atom/swapper/test/fixtures/default';
 import TabFixtureDefault from '../src/atom/tab/test/fixtures/default';
 import TabContentFixtureDefault from '../src/atom/tab-content/test/fixtures/default';
 import TabContentFixtureHideContentBackground from '../src/atom/tab-content/test/fixtures/hide-content-background';
@@ -633,6 +635,7 @@ export const components = {
     Slide,
     SocialLink,
     Spinner,
+    Swapper,
     Tab,
     TabContent,
     Title,
@@ -948,6 +951,9 @@ export const fixtures = {
     },
     Spinner: {
       SpinnerFixtureDefault
+    },
+    Swapper: {
+      SwapperFixtureDefault
     },
     Tab: {
       TabFixtureDefault

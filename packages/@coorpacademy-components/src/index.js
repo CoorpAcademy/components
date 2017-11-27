@@ -31,6 +31,7 @@ export Select from './atom/select';
 export Slide from './atom/slide';
 export SocialLink from './atom/social-link';
 export Spinner from './atom/spinner';
+export Swapper from './atom/swapper';
 export Tab from './atom/tab';
 export TabContent from './atom/tab-content';
 export Title from './atom/title';

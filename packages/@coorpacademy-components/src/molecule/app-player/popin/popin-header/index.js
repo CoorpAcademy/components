@@ -21,6 +21,8 @@ import Loader from '../../../../atom/loader';
 import Life from '../../../../atom/life';
 import Link from '../../../../atom/link';
 import Animation, {EASE_OUT_CUBIC} from '../../../../atom/animation';
+import Transition from '../../../../atom/transition';
+import AnimationOrchestrator, {AnimationAdapter} from '../../../../atom/animation-orchestrator';
 import Provider from '../../../../atom/provider';
 import style from './style.css';
 
@@ -61,16 +63,26 @@ AnswersCorrection.propTypes = {
   )
 };
 
-const Rank = ({bumpRank, rank}, {skin}) => {
+const formatPlusSign = value => (value >= 0 ? '+' : '') + value;
+
+const Rank = ({bumpRank, rank, animated, onAnimationEnd}, {skin}) => {
   const positive = get('common.positive', skin);
   if (isNil(rank)) return null;
   return (
-    <div className={classnames(style.centerContent, bumpRank && style.bumped)}>
-      <div className={style.iconBubble}>
-        <ChartsIcon className={style.icon} color={positive} />
+    <AnimationOrchestrator animated={animated} onAnimationEnd={onAnimationEnd}>
+      <div className={style.centerContent}>
+        <Transition name="label" after="counter" className={style.bumped}>
+          <div className={style.iconBubble}>
+            <ChartsIcon className={style.icon} color={positive} />
+          </div>
+        </Transition>
+        <span className={style.iconText}>
+          <Animation name="counter" bezier={EASE_OUT_CUBIC} duration={1000}>
+            {progress => pipe(_parseInt(10), multiply(progress), round, formatPlusSign)(rank)}
+          </Animation>
+        </span>
       </div>
-      <span className={style.iconText}>{rank}</span>
-    </div>
+    </AnimationOrchestrator>
   );
 };
 
@@ -79,27 +91,25 @@ Rank.contextTypes = {
   skin: Provider.childContextTypes.skin
 };
 
-const formatPlusSign = value => (value >= 0 ? '+' : '') + value;
-
 const Stars = ({bumpStars, stars, animated, onAnimationEnd}, {skin}) => {
   const positive = get('common.positive', skin);
   if (isNil(stars)) return null;
 
   return (
-    <div className={style.centerContent}>
-      <Animation animated bezier={EASE_OUT_CUBIC} duration={2000}>
-        {progress => (
-          <div className={classnames(style.iconBubble, progress < 1 ? '' : style.bumped)}>
+    <AnimationOrchestrator animated={animated} onAnimationEnd={onAnimationEnd}>
+      <div className={style.centerContent}>
+        <Transition name="label" after="counter" className={style.bumped}>
+          <div className={style.iconBubble}>
             <StarIcon className={style.icon} color={positive} />
           </div>
-        )}
-      </Animation>
-      <span data-name="iconText" className={style.iconText}>
-        <Animation animated bezier={EASE_OUT_CUBIC} duration={2000}>
-          {progress => pipe(_parseInt(10), multiply(progress), round, formatPlusSign)(stars)}
-        </Animation>
-      </span>
-    </div>
+        </Transition>
+        <span data-name="iconText" className={style.iconText}>
+          <Animation name="counter" bezier={EASE_OUT_CUBIC} duration={1000}>
+            {progress => pipe(_parseInt(10), multiply(progress), round, formatPlusSign)(stars)}
+          </Animation>
+        </span>
+      </div>
+    </AnimationOrchestrator>
   );
 };
 
@@ -119,11 +129,18 @@ const Lifes = ({lives, fail, animated, revival}) => {
 const IconsPart = props => {
   const {bumpStars, bumpRank, lives, fail, stars, rank, animated, revival} = props;
   return (
-    <div className={style.iconsWrapper}>
-      <Lifes lives={lives} fail={fail} animated={animated} revival={revival} />
-      <Stars stars={stars} bumpStars={bumpStars} />
-      <Rank rank={rank} bumpRank={bumpRank} />
-    </div>
+    <AnimationOrchestrator animated>
+      <div className={style.iconsWrapper}>
+        <Lifes lives={lives} fail={fail} animated={animated} revival={revival} />
+
+        <AnimationAdapter name="stars">
+          <Stars stars={stars} bumpStars={bumpStars} />
+        </AnimationAdapter>
+        <AnimationAdapter name="rank" after="stars">
+          <Rank rank={rank} bumpRank={bumpRank} />
+        </AnimationAdapter>
+      </div>
+    </AnimationOrchestrator>
   );
 };
 

@@ -6,10 +6,10 @@ import isEqual from 'lodash/fp/isEqual';
  * from https://github.com/facebook/react/blob/master/src/addons/shallowCompare.js
  */
 const shallowCompare = (instance, nextProps, nextState, nextContext) => {
-  return (
-    !isEqual(instance.props, nextProps) ||
-    !isEqual(instance.state, nextState) ||
-    !isEqual(instance.context, nextContext)
+  return !(
+    isEqual(instance.props, nextProps) &&
+    isEqual(instance.state, nextState) &&
+    isEqual(instance.context, nextContext)
   );
 };
 

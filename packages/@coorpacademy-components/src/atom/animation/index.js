@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import min from 'lodash/fp/min';
+import noop from 'lodash/fp/noop';
 import bezier from 'cubic-bezier';
 
 const EPSILON = 1000;
@@ -96,7 +97,7 @@ class Animation extends React.Component {
         const {progress} = this.state;
         if (progress < 1) return this.startAnimation();
 
-        const {onAnimationEnd = () => {}, name} = this.props;
+        const {onAnimationEnd = noop, name} = this.props;
         onAnimationEnd(name);
       }
     );
@@ -117,7 +118,7 @@ class Animation extends React.Component {
 }
 
 Animation.propTypes = {
-  name: PropTypes.string.optional,
+  name: PropTypes.string,
   bezier: PropTypes.func,
   duration: PropTypes.number,
   onAnimationEnd: PropTypes.func.optional,
