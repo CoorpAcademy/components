@@ -46,7 +46,14 @@ const SlidesFooter = (props, context) => {
     const notifyView = notify ? <span className={style.notify} /> : null;
 
     return (
-      <div data-name="button" data-type={type} className={className} key={key} onClick={onClick}>
+      <div
+        data-name="button"
+        data-type={type}
+        data-selected={selected}
+        className={className}
+        key={key}
+        onClick={onClick}
+      >
         <div className={highlighted ? style.highlighted : style.logo}>
           {notifyView}
           <IconType color={xtraLightGrey} />
