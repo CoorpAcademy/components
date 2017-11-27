@@ -7,7 +7,7 @@ export default defaultsDeep(correct, {
       comment: {
         commentSectionTitle: 'Merci pour votre avis !',
         confirmationLinkText: 'Voir votre commentaire et ceux de vos pairs',
-        onClick: 'https://up.coorpacademy.com/discipline/',
+        onClick: () => console.log('onClick'),
         isSent: true
       }
     }
