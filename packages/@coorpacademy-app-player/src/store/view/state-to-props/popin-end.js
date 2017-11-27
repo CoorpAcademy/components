@@ -5,7 +5,7 @@ import getOr from 'lodash/fp/getOr';
 import isEqual from 'lodash/fp/isEqual';
 import pipe from 'lodash/fp/pipe';
 import {retry, exit, nextLevel, seeComment} from '../../actions/ui/location';
-import {editComment, postComment} from '../../actions/ui/comment';
+import {editComment, postComment} from '../../actions/ui/comments';
 import {
   getCurrentContent,
   getCurrentExitNode,

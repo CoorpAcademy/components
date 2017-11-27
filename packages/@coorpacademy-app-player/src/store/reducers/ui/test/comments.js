@@ -1,6 +1,6 @@
 import test from 'ava';
-import reducer from '../comment';
-import {UI_EDIT_COMMENT, UI_POST_COMMENT} from '../../../actions/ui/comment';
+import reducer from '../comments';
+import {UI_EDIT_COMMENT, UI_POST_COMMENT} from '../../../actions/ui/comments';
 import {UI_SELECT_PROGRESSION} from '../../../actions/ui/progressions';
 import macro from '../../test/helpers/macro';
 

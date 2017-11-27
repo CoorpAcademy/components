@@ -2,7 +2,7 @@ import test from 'ava';
 import pipe from 'lodash/fp/pipe';
 import set from 'lodash/fp/set';
 import macro from '../../test/helpers/macro';
-import {editComment, UI_EDIT_COMMENT, postComment, UI_POST_COMMENT} from '../comment';
+import {editComment, UI_EDIT_COMMENT, postComment, UI_POST_COMMENT} from '../comments';
 import {
   SEND_POST_COMMENT_REQUEST,
   SEND_POST_COMMENT_SUCCESS,

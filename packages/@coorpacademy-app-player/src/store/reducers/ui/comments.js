@@ -1,6 +1,6 @@
 import set from 'lodash/fp/set';
 import pipe from 'lodash/fp/pipe';
-import {UI_EDIT_COMMENT, UI_POST_COMMENT} from '../../actions/ui/comment';
+import {UI_EDIT_COMMENT, UI_POST_COMMENT} from '../../actions/ui/comments';
 import {UI_SELECT_PROGRESSION} from '../../actions/ui/progressions';
 
 const uiCommentReducer = (state = {text: null, isSent: false}, action) => {

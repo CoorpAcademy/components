@@ -9,16 +9,24 @@ import {mockTranslate} from '@coorpacademy/translate';
 import popinEnd from '../popin-end';
 import {
   LOCATION_NEXT_CONTENT_REQUEST,
-  LOCATION_NEXT_CONTENT_SUCCESS
+  LOCATION_NEXT_CONTENT_SUCCESS,
+  LOCATION_SEE_COMMENT_REQUEST,
+  LOCATION_SEE_COMMENT_SUCCESS
 } from '../../../actions/ui/location';
+import {UI_EDIT_COMMENT, UI_POST_COMMENT} from '../../../actions/ui/comments';
+import {SEND_POST_COMMENT_REQUEST, SEND_POST_COMMENT_SUCCESS} from '../../../actions/api/comments';
 
 import popinLearnerSuccess from '../../test/fixtures/popin-end/learner-success';
 import popinLearnerFailure from '../../test/fixtures/popin-end/learner-failure';
 import popinMicrolearningFailure from '../../test/fixtures/popin-end/fail';
 
 const services = {
+  Comments: {
+    post: identity
+  },
   Location: {
-    nextLevel: identity
+    nextLevel: identity,
+    seeComment: identity
   }
 };
 
@@ -66,6 +74,37 @@ test('should create a "Next Level" CTA after success on learner progression', as
   t.deepEqual(actionTypes(dispatchedActionCta), [
     LOCATION_NEXT_CONTENT_REQUEST,
     LOCATION_NEXT_CONTENT_SUCCESS
+  ]);
+});
+
+test('should write, send, and go see a comment after success on learner progression', async t => {
+  const dispatch = createDispatch(popinLearnerSuccess);
+  const props = popinEnd(options, {dispatch})(popinLearnerSuccess);
+
+  const comment = get('summary.comment', props);
+  const onChange = get('onChange', comment);
+  t.true(isFunction(onChange));
+  const dispatchedOnChange = await onChange({target: {value: 'foo'}});
+
+  t.deepEqual(actionTypes(dispatchedOnChange), [UI_EDIT_COMMENT]);
+
+  const onPost = get('onPost', comment);
+  t.true(isFunction(onPost));
+  const dispatchedOnPost = await onPost();
+
+  t.deepEqual(actionTypes(dispatchedOnPost), [
+    UI_POST_COMMENT,
+    SEND_POST_COMMENT_REQUEST,
+    SEND_POST_COMMENT_SUCCESS
+  ]);
+
+  const onClick = get('onClick', comment);
+  t.true(isFunction(onClick));
+  const dispatchedOnClick = await onClick();
+
+  t.deepEqual(actionTypes(dispatchedOnClick), [
+    LOCATION_SEE_COMMENT_REQUEST,
+    LOCATION_SEE_COMMENT_SUCCESS
   ]);
 });
 
