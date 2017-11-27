@@ -65,6 +65,7 @@ const playerProps = (options, store) => state => {
     );
 
   const slideContext = get('context', slide);
+  const slideLessons = get('lessons', slide);
   const contextButton = get('title', slideContext)
     ? [
         {
@@ -85,6 +86,7 @@ const playerProps = (options, store) => state => {
       title: translate('Media'),
       type: 'media',
       selected: route === 'media',
+      disabled: isEmpty(slideLessons),
       onClick: () => dispatch(selectRoute('media')),
       notify: notifyNewMedia
     },
