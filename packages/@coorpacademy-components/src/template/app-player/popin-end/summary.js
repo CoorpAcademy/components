@@ -149,7 +149,7 @@ CommentSection.propTypes = {
   onChange: PropTypes.func,
   commentSectionTitle: PropTypes.string,
   confirmationLinkText: PropTypes.string,
-  onClick: PropTypes.string
+  onClick: PropTypes.func
 };
 
 const Cards = props =>
