@@ -198,44 +198,55 @@
 
 /* ------------- CommentSection */
 
-.commentSectionWrapper {
+.commentSection {
+  width: 100%;
   padding: 70px 0;
   text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 30%;
+}
+
+.commentSectionIconWrapper {
+  text-align: right;
+  margin-right: 5px;
 }
 
 .commentSectionIcon {
-  position: relative;
-  top: -25px;
-  margin-right: 5px;
-  height: 26px;
+  height: 29px;
   width: 29px;
 }
 
-.commentSectionTitleWrapper {
-  display: inline-block;
+.commentSectionTexts {
+  text-align: left;
+  margin: 0;
 }
 
-.commentSectionTitle {
+.commentSectionTexts p {
   font-family: Open Sans;
-  text-align: left;
-  color: #546e7a;
-  font-size: 16px;
+  color: dark;
+  font-size: 19px;
   font-weight: 700;
   background-color: transparent;
   outline: none;
-  -webkit-transition: color .3s;
-  transition: color .3s;
+  transition: color 0.3s;
   margin: 0;
 }
 
 @media mobile {
-  .commentSectionTitle {
-    text-align: center;
+  .commentSection {
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
   }
 
-  .commentSectionIcon {
-    position: relative;
-    left: 80px;
+  .commentSectionTexts {
+    text-align: center;
+    width: 100%;
+  }
+
+  .commentSectionTitle {
+    text-align: center;
   }
 }
 

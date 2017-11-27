@@ -125,10 +125,12 @@ const CommentSection = props => {
   } = props;
   if (isSent) {
     return (
-      <div className={style.commentSectionWrapper}>
-        <CheckIcon className={style.commentSectionIcon} />
-        <div className={style.commentSectionTitleWrapper}>
-          <p className={style.commentSectionTitle}>{commentSectionTitle}</p>
+      <div className={style.commentSection}>
+        <div className={style.commentSectionIconWrapper}>
+          <CheckIcon className={style.commentSectionIcon} />
+        </div>
+        <div className={style.commentSectionTexts}>
+          <p>{commentSectionTitle}</p>
           <Link onClick={onClick} className={style.commentSectionLink}>
             {confirmationLinkText}
           </Link>
