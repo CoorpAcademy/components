@@ -121,8 +121,10 @@ import PlayerHeader from './../src/template/app-player/player/player-header';
 import Player from './../src/template/app-player/player';
 import PopinCorrection from './../src/template/app-player/popin-correction';
 import PopinEnd from './../src/template/app-player/popin-end';
+import LandingFooter from './../src/template/app-racing/landing/landing-footer';
 import LandingHeader from './../src/template/app-racing/landing/landing-header';
 import PlayersList from './../src/template/app-racing/landing/players-list';
+import Landing from './../src/template/app-racing/landing';
 import BrandCreate from './../src/template/back-office/brand-create';
 import BrandList from './../src/template/back-office/brand-list';
 import BrandUpdate from './../src/template/back-office/brand-update';
@@ -563,8 +565,10 @@ import PopinEndFixtureSimpleAction from '../src/template/app-player/popin-end/te
 import PopinEndFixtureSubscribe from '../src/template/app-player/popin-end/test/fixtures/subscribe';
 import PopinEndFixtureWithLoadingRecommendations from '../src/template/app-player/popin-end/test/fixtures/with-loading-recommendations';
 import PopinEndFixtureWithRecommendations from '../src/template/app-player/popin-end/test/fixtures/with-recommendations';
+import LandingFooterFixtureDefault from '../src/template/app-racing/landing/landing-footer/test/fixtures/default';
 import LandingHeaderFixtureDefault from '../src/template/app-racing/landing/landing-header/test/fixtures/default';
 import PlayersListFixtureDefault from '../src/template/app-racing/landing/players-list/test/fixtures/default';
+import LandingFixtureDefault from '../src/template/app-racing/landing/test/fixtures/default';
 import BrandCreateFixtureDefault from '../src/template/back-office/brand-create/test/fixtures/default';
 import BrandCreateFixtureError from '../src/template/back-office/brand-create/test/fixtures/error';
 import BrandCreateFixtureLoading from '../src/template/back-office/brand-create/test/fixtures/loading';
@@ -759,8 +763,12 @@ export const components = {
     PlayerHeader
   },
   TemplateAppRacingLanding: {
+    LandingFooter,
     LandingHeader,
     PlayersList
+  },
+  TemplateAppRacing: {
+    Landing
   },
   TemplateBackOffice: {
     BrandCreate,
@@ -1478,11 +1486,19 @@ export const fixtures = {
     }
   },
   TemplateAppRacingLanding: {
+    LandingFooter: {
+      LandingFooterFixtureDefault
+    },
     LandingHeader: {
       Default: LandingHeaderFixtureDefault
     },
     PlayersList: {
       Default: PlayersListFixtureDefault
+    }
+  },
+  TemplateAppRacing: {
+    Landing: {
+      LandingFixtureDefault
     }
   },
   TemplateBackOffice: {
