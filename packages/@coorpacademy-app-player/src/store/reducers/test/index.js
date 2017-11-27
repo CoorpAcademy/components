@@ -26,7 +26,7 @@ test(
       },
       comment: {
         isSent: false,
-        text: null,
+        text: null
       },
       corrections: {},
       current: {
