@@ -219,7 +219,7 @@ Bar.propTypes = {
   color: ColorPropType
 };
 
-const Step = ({step, color}) => {
+const Step = ({progressionStep, step, color}) => {
   return (
     <div data-name="step">
       <div data-name="counter" className={style.stepCount}>
@@ -227,17 +227,20 @@ const Step = ({step, color}) => {
         /{step.total}
       </div>
       <div className={style.stepWrapper}>
-        <Bar current={step.current} total={step.total} color={color} />
+        <Bar current={progressionStep.current} total={progressionStep.total} color={color} />
       </div>
     </div>
   );
 };
 
+const stepPropType = PropTypes.shape({
+  current: Bar.propTypes.current,
+  total: Bar.propTypes.total
+});
+
 Step.propTypes = {
-  step: PropTypes.shape({
-    current: Bar.propTypes.current,
-    total: Bar.propTypes.total
-  }),
+  step: stepPropType,
+  progressionStep: stepPropType,
   color: ColorPropType
 };
 
@@ -322,14 +325,14 @@ Content.propTypes = {
  */
 
 const SlidesPlayer = (props, context) => {
-  const {step, buttons, showNewMedia = false} = props;
+  const {progressionStep, step, buttons, showNewMedia = false} = props;
   const {skin} = context;
   const stepColor = get('common.primary', skin);
   const mediaButton = find({type: 'media'}, buttons) || {};
   const {onClick = identity} = mediaButton;
   return (
     <div className={style.wrapper} data-name="slidesPlayer">
-      {step ? <Step step={step} color={stepColor} /> : null}
+      {step ? <Step step={step} progressionStep={progressionStep} color={stepColor} /> : null}
       {showNewMedia ? <NewMedia onClick={onClick} /> : null}
       <Content {...props} />
       <div className={style.footer}>
@@ -347,7 +350,8 @@ SlidesPlayer.contextTypes = {
 };
 
 SlidesPlayer.propTypes = {
-  step: Step.propTypes.step,
+  progressionStep: stepPropType,
+  step: stepPropType,
   buttons: SlidesFooter.propTypes.buttons,
   showNewMedia: PropTypes.bool
 };

@@ -102,14 +102,17 @@ const playerProps = (options, store) => state => {
     }
   ];
 
+  const step = {
+    current: get('state.step.current')(progression),
+    total: getNbSlides(state)
+  };
+
   return {
+    step,
+    progressionStep: step,
     typeClue: isAnswer ? 'answer' : route,
     text: clue,
     onClickSeeClue: clickSeeClueHandler,
-    step: {
-      current: get('state.step.current')(progression),
-      total: getNbSlides(state)
-    },
     question: get('question.header')(slide),
     slideContext,
     verticalMargin: 260,

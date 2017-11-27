@@ -64,7 +64,7 @@ SummaryCounterAnimation.propTypes = {
 };
 
 const Animator = props => (
-  <AnimationLoop period={ANIMATION_PERIOD}>
+  <AnimationLoop>
     <SummaryCounterAnimation>{props.children}</SummaryCounterAnimation>
   </AnimationLoop>
 );
