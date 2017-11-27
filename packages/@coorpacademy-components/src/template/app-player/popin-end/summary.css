@@ -1,7 +1,7 @@
-@value breakpoints: "../../../variables/breakpoints.css";
+@value breakpoints: '../../../variables/breakpoints.css';
 @value mobile from breakpoints;
 @value tablet from breakpoints;
-@value colors: "../../../variables/colors.css";
+@value colors: '../../../variables/colors.css';
 @value xtraLightGrey from colors;
 @value grey from colors;
 @value medium from colors;
@@ -12,11 +12,14 @@
 
 .summaryWrapper {
   width: 100%;
-  background-color: xtraLightGrey;
   border: 1px solid light;
   border-radius: 3px;
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.07);
   overflow: hidden;
+}
+
+.cardsWrapper {
+  background-color: xtraLightGrey;
 }
 
 .loaderWrapper {
@@ -206,7 +209,7 @@
   flex-wrap: wrap;
   margin: 0 30%;
   opacity: 0;
-  animation: fadeIn 1s forwards cubic-bezier(.18,.89,.31,1.53);
+  animation: fadeIn 1s forwards cubic-bezier(0.18, 0.89, 0.31, 1.53);
 }
 
 @keyframes fadeIn {
@@ -266,6 +269,7 @@
 
 .commentSectionLink {
   font-family: Open Sans;
+  font-size: 12px;
   color: dark;
   text-decoration: underline;
   cursor: pointer;

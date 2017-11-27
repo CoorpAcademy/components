@@ -156,7 +156,12 @@ const Cards = props =>
   get('cards', props) === null ? (
     <CardsLoader />
   ) : (
-    (props.cards && <CardsList {...props} dataName={'popin-end-recommendation'} />) || null
+    (props.cards && (
+      <div className={style.cardsWrapper}>
+        <CardsList {...props} dataName={'popin-end-recommendation'} />
+      </div>
+    )) ||
+    null
   );
 
 const Footer = ({title, color, ...linkProps}) => (
