@@ -15,7 +15,7 @@ const Accordion = props => {
     const iconType = get([key, 'iconType'], tabProps);
     const handleOnClick = () => onClick(key);
 
-    return (
+    return child ? (
       <div data-name="accordion" key={key} className={style.wrapper}>
         <Part
           iconType={iconType}
@@ -25,6 +25,8 @@ const Accordion = props => {
           onClick={handleOnClick}
         />
       </div>
+    ) : (
+      <div data-name="accordion" key={key} className={style.wrapperHidden} />
     );
   }, children);
 

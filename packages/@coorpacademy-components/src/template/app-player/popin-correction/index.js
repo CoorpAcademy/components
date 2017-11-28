@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import defer from 'lodash/fp/defer';
 import isNil from 'lodash/fp/isNil';
+import isEmpty from 'lodash/fp/isEmpty';
+import getOr from 'lodash/fp/getOr';
 import omit from 'lodash/fp/omit';
 import CheckIcon from '@coorpacademy/nova-icons/composition/coorpacademy/check';
 import Loader from '../../../atom/loader';
@@ -13,7 +15,6 @@ import style from './style.css';
 const extractTabs = items =>
   Object.keys(items).map(type => {
     const item = items[type];
-
     return {iconType: type, title: item.title, isOpen: item.open};
   });
 
@@ -82,6 +83,7 @@ class PopinCorrection extends Component {
 
   render() {
     const {header = {}, question, resources, klf, tips, onClick} = this.props;
+
     const tabs = extractTabs({resources, klf, tips});
     const isLoading = isNil(header.fail);
     const className = this.state.open ? style.openOverlay : style.overlay;
@@ -94,7 +96,9 @@ class PopinCorrection extends Component {
               <PopinHeader {...header} animated />
               <Question {...question} />
               <Accordion tabProps={tabs} onClick={onClick} oneTabOnly>
-                <Resources resources={resources} />
+                {isEmpty(getOr([], 'value', resources)) ? null : (
+                  <Resources resources={resources} />
+                )}
                 <SimpleText text={klf.value} />
                 <SimpleText text={tips.value} />
               </Accordion>

@@ -34,7 +34,7 @@ const STARS_DIFF = {
 const shouldDisplayNewMedia = (slide, progression) => {
   const currentLessons = map('ref', get('lessons', slide));
   const viewedResources = flatMap('resources', getOr([], 'state.viewedResources', progression));
-  return isEmpty(intersection(currentLessons, viewedResources));
+  return isEmpty(intersection(currentLessons, viewedResources)) && !isEmpty(currentLessons);
 };
 
 const playerProps = (options, store) => state => {
@@ -65,6 +65,7 @@ const playerProps = (options, store) => state => {
     );
 
   const slideContext = get('context', slide);
+  const slideLessons = get('lessons', slide);
   const contextButton = get('title', slideContext)
     ? [
         {
@@ -85,6 +86,7 @@ const playerProps = (options, store) => state => {
       title: translate('Media'),
       type: 'media',
       selected: route === 'media',
+      disabled: isEmpty(slideLessons),
       onClick: () => dispatch(selectRoute('media')),
       notify: notifyNewMedia
     },
