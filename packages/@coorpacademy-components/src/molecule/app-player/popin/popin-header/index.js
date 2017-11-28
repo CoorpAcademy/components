@@ -20,9 +20,9 @@ import classnames from 'classnames';
 import Loader from '../../../../atom/loader';
 import Life from '../../../../atom/life';
 import Link from '../../../../atom/link';
-import Animation, {EASE_OUT_CUBIC} from '../../../../atom/animation';
-import Transition from '../../../../atom/transition';
-import AnimationOrchestrator, {AnimationAdapter} from '../../../../atom/animation-orchestrator';
+import Animation, {EASE_OUT_CUBIC} from '../../../../hoc/animation';
+import Transition from '../../../../hoc/transition';
+import AnimationOrchestrator, {AnimationAdapter} from '../../../../hoc/animation-orchestrator';
 import Provider from '../../../../atom/provider';
 import style from './style.css';
 

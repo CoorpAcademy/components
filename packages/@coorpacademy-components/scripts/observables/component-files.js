@@ -3,7 +3,7 @@ const {walkDirectory$} = require('./walk-directory');
 
 const readComponentFiles$ = cwd =>
   walkDirectory$(cwd)
-    .filter(minimatch.filter('**/+(atom|molecule|organism|template)/**/index.js'))
+    .filter(minimatch.filter('**/+(atom|molecule|organism|template|hoc)/**/index.js'))
     .filter(minimatch.filter('**/!(test|layout)/index.js'));
 
 module.exports.readComponentFiles$ = readComponentFiles$;

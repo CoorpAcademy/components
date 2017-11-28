@@ -3,7 +3,7 @@ const {walkDirectory$} = require('./walk-directory');
 
 const readFixtureFiles$ = cwd =>
   walkDirectory$(cwd).filter(
-    minimatch.filter('**/+(atom|molecule|organism|template)/**/test/fixtures/*.js')
+    minimatch.filter('**/+(atom|molecule|organism|template|hoc)/**/test/fixtures/*.js')
   );
 
 module.exports.readFixtureFiles$ = readFixtureFiles$;
