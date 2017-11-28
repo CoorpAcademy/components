@@ -67,7 +67,7 @@
   "ava": {
     "concurrency": 8,
     "files": [
-      "**/test/**/*.js"
+      "packages/@coorpacademy-components/**/test/**/*.js"
     ],
     "require": [
       "babel-register",

@@ -1,8 +1,5 @@
 /* eslint-disable max-len */
 
-import Animation from './../src/atom/animation';
-import AnimationLoop from './../src/atom/animation-loop';
-import AnimationOrchestrator from './../src/atom/animation-orchestrator';
 import Button from './../src/atom/button';
 import CatalogSection from './../src/atom/catalog-section';
 import CenteredText from './../src/atom/centered-text';
@@ -33,11 +30,13 @@ import Select from './../src/atom/select';
 import Slide from './../src/atom/slide';
 import SocialLink from './../src/atom/social-link';
 import Spinner from './../src/atom/spinner';
-import Swapper from './../src/atom/swapper';
 import Tab from './../src/atom/tab';
 import TabContent from './../src/atom/tab-content';
 import Title from './../src/atom/title';
-import Transition from './../src/atom/transition';
+import Animation from './../src/hoc/animation';
+import AnimationOrchestrator from './../src/hoc/animation-orchestrator';
+import Swapper from './../src/hoc/swapper';
+import Transition from './../src/hoc/transition';
 import Answer from './../src/molecule/answer';
 import PopinHeader from './../src/molecule/app-player/popin/popin-header';
 import BattleRequest from './../src/molecule/battle-request';
@@ -130,11 +129,6 @@ import CoorpHeader from './../src/template/common/coorp-header';
 import Dashboard from './../src/template/common/dashboard';
 import Discipline from './../src/template/common/discipline';
 import SearchPage from './../src/template/common/search-page';
-import AnimationFixtureStart from '../src/atom/animation/test/fixtures/start';
-import AnimationFixtureStop from '../src/atom/animation/test/fixtures/stop';
-import AnimationLoopFixtureChronometer from '../src/atom/animation-loop/test/fixtures/chronometer';
-import AnimationOrchestratorFixtureParallel from '../src/atom/animation-orchestrator/test/fixtures/parallel';
-import AnimationOrchestratorFixtureSeries from '../src/atom/animation-orchestrator/test/fixtures/series';
 import ButtonFixtureA from '../src/atom/button/test/fixtures/a';
 import ButtonFixtureClassName from '../src/atom/button/test/fixtures/class-name';
 import ButtonFixtureClear from '../src/atom/button/test/fixtures/clear';
@@ -253,12 +247,16 @@ import SlideFixtureRight from '../src/atom/slide/test/fixtures/right';
 import SocialLinkFixtureFacebook from '../src/atom/social-link/test/fixtures/facebook';
 import SocialLinkFixtureTwitter from '../src/atom/social-link/test/fixtures/twitter';
 import SpinnerFixtureDefault from '../src/atom/spinner/test/fixtures/default';
-import SwapperFixtureDefault from '../src/atom/swapper/test/fixtures/default';
 import TabFixtureDefault from '../src/atom/tab/test/fixtures/default';
 import TabContentFixtureDefault from '../src/atom/tab-content/test/fixtures/default';
 import TabContentFixtureHideContentBackground from '../src/atom/tab-content/test/fixtures/hide-content-background';
 import TitleFixtureFixture from '../src/atom/title/test/fixtures/fixture';
-import TransitionFixtureFlipSquare from '../src/atom/transition/test/fixtures/flip-square';
+import AnimationFixtureStart from '../src/hoc/animation/test/fixtures/start';
+import AnimationFixtureStop from '../src/hoc/animation/test/fixtures/stop';
+import AnimationOrchestratorFixtureParallel from '../src/hoc/animation-orchestrator/test/fixtures/parallel';
+import AnimationOrchestratorFixtureSeries from '../src/hoc/animation-orchestrator/test/fixtures/series';
+import SwapperFixtureDefault from '../src/hoc/swapper/test/fixtures/default';
+import TransitionFixtureFlipSquare from '../src/hoc/transition/test/fixtures/flip-square';
 import AnswerFixtureDefault from '../src/molecule/answer/test/fixtures/default';
 import AnswerFixtureDropDown from '../src/molecule/answer/test/fixtures/drop-down';
 import AnswerFixtureQcmDrag from '../src/molecule/answer/test/fixtures/qcm-drag';
@@ -602,9 +600,6 @@ import SearchPageFixtureNoResult from '../src/template/common/search-page/test/f
 
 export const components = {
   Atom: {
-    Animation,
-    AnimationLoop,
-    AnimationOrchestrator,
     Button,
     CatalogSection,
     CenteredText,
@@ -635,10 +630,14 @@ export const components = {
     Slide,
     SocialLink,
     Spinner,
-    Swapper,
     Tab,
     TabContent,
-    Title,
+    Title
+  },
+  Hoc: {
+    Animation,
+    AnimationOrchestrator,
+    Swapper,
     Transition
   },
   Molecule: {
@@ -763,17 +762,6 @@ export const components = {
 
 export const fixtures = {
   Atom: {
-    Animation: {
-      AnimationFixtureStart,
-      AnimationFixtureStop
-    },
-    AnimationLoop: {
-      AnimationLoopFixtureChronometer
-    },
-    AnimationOrchestrator: {
-      AnimationOrchestratorFixtureParallel,
-      AnimationOrchestratorFixtureSeries
-    },
     Button: {
       ButtonFixtureA,
       ButtonFixtureClassName,
@@ -952,9 +940,6 @@ export const fixtures = {
     Spinner: {
       SpinnerFixtureDefault
     },
-    Swapper: {
-      SwapperFixtureDefault
-    },
     Tab: {
       TabFixtureDefault
     },
@@ -964,6 +949,19 @@ export const fixtures = {
     },
     Title: {
       TitleFixtureFixture
+    }
+  },
+  Hoc: {
+    Animation: {
+      AnimationFixtureStart,
+      AnimationFixtureStop
+    },
+    AnimationOrchestrator: {
+      AnimationOrchestratorFixtureParallel,
+      AnimationOrchestratorFixtureSeries
+    },
+    Swapper: {
+      SwapperFixtureDefault
     },
     Transition: {
       TransitionFixtureFlipSquare

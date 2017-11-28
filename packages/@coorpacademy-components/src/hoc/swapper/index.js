@@ -41,7 +41,11 @@ class Swapper extends React.Component {
   render() {
     const {init} = this.state;
     const {children, ...props} = this.props;
-    return React.Children.map(children, child => (init ? React.cloneElement(child, props) : child));
+
+    const child = React.Children.only(children);
+
+    if (init) return React.cloneElement(child, props)
+    return child;
   }
 }
 

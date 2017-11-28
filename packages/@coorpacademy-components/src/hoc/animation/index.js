@@ -118,11 +118,11 @@ class Animation extends React.Component {
 }
 
 Animation.propTypes = {
-  name: PropTypes.string,
-  bezier: PropTypes.func,
-  duration: PropTypes.number,
-  onAnimationEnd: PropTypes.func.optional,
-  animated: PropTypes.bool.optional
+  name: PropTypes.string.isRequired,
+  bezier: PropTypes.func.isRequired,
+  duration: PropTypes.number.isRequired,
+  onAnimationEnd: PropTypes.func,
+  animated: PropTypes.bool
 };
 
 export default Animation;

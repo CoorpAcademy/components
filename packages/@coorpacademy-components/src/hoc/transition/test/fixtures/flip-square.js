@@ -16,6 +16,7 @@ const FlippableSquare = props => (
 
 export default {
   props: {
+    name: 'flippableSquare',
     animated: false,
     className: style.flipped,
     onTransitionEnd: () => console.log('flip done !')

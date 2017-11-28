@@ -30,9 +30,9 @@ const AnimationAdapter = ({animated, onAnimationEnd = noop, name, children}) => 
 };
 
 AnimationAdapter.propTypes = {
-  name: PropTypes.string,
-  onAnimationEnd: PropTypes.func.optional,
-  animated: PropTypes.bool.optional
+  name: PropTypes.string.isRequired,
+  onAnimationEnd: PropTypes.func,
+  animated: PropTypes.bool
 };
 
 const pickByWithKey = pickBy.convert({cap: true});
@@ -149,8 +149,8 @@ class AnimationOrchestrator extends React.Component {
 }
 
 AnimationOrchestrator.propTypes = {
-  onAnimationEnd: PropTypes.func.optional,
-  animated: PropTypes.bool.optional
+  onAnimationEnd: PropTypes.func,
+  animated: PropTypes.bool
 };
 
 export default AnimationOrchestrator;

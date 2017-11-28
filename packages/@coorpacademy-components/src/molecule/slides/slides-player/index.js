@@ -15,7 +15,7 @@ import Provider from '../../../atom/provider';
 import Clue from '../../../atom/clue';
 import Answer from '../../answer';
 import Loader from '../../../atom/loader';
-import Swapper from '../../../atom/swapper';
+import Swapper from '../../../hoc/swapper';
 import VideoPlayer from '../../video-player';
 import PDF from '../../pdf';
 import ResourceBrowser from '../../../organism/resource-browser';

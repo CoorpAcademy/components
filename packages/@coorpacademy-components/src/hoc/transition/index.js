@@ -12,7 +12,7 @@ const Transition = props => {
     const {props: {className: propClassName}} = child;
 
     const handlerAnimationEnd = () => {
-      onAnimationEnd(name);
+      return onAnimationEnd(name);
     };
 
     return React.cloneElement(child, {
@@ -24,9 +24,9 @@ const Transition = props => {
 };
 
 Transition.propTypes = {
-  name: PropTypes.string,
-  onAnimationEnd: PropTypes.func.optional,
-  animated: PropTypes.bool.optional
+  name: PropTypes.string.isRequired,
+  onAnimationEnd: PropTypes.func,
+  animated: PropTypes.bool
 };
 
 export default Transition;
