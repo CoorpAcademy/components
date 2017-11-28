@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
-import compact from 'lodash/fp/compact';
 import map from 'lodash/fp/map';
 import noop from 'lodash/fp/noop';
 import Part from '../part';
@@ -16,7 +15,7 @@ const Accordion = props => {
     const iconType = get([key, 'iconType'], tabProps);
     const handleOnClick = () => onClick(key);
 
-    return (
+    return child ? (
       <div data-name="accordion" key={key} className={style.wrapper}>
         <Part
           iconType={iconType}
@@ -26,8 +25,10 @@ const Accordion = props => {
           onClick={handleOnClick}
         />
       </div>
+    ) : (
+      <div data-name="accordion" key={key} className={style.wrapperHidden} />
     );
-  }, compact(children));
+  }, children);
 
   return <div>{accordion}</div>;
 };

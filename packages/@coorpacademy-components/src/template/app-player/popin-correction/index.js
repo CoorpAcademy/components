@@ -5,7 +5,6 @@ import isNil from 'lodash/fp/isNil';
 import isEmpty from 'lodash/fp/isEmpty';
 import getOr from 'lodash/fp/getOr';
 import omit from 'lodash/fp/omit';
-import compact from 'lodash/fp/compact';
 import CheckIcon from '@coorpacademy/nova-icons/composition/coorpacademy/check';
 import Loader from '../../../atom/loader';
 import ResourceBrowser from '../../../organism/resource-browser';
@@ -16,7 +15,6 @@ import style from './style.css';
 const extractTabs = items =>
   Object.keys(items).map(type => {
     const item = items[type];
-    if (type === 'resources' && isEmpty(getOr([], 'value', item))) return null;
     return {iconType: type, title: item.title, isOpen: item.open};
   });
 
@@ -86,7 +84,7 @@ class PopinCorrection extends Component {
   render() {
     const {header = {}, question, resources, klf, tips, onClick} = this.props;
 
-    const tabs = compact(extractTabs({resources, klf, tips}));
+    const tabs = extractTabs({resources, klf, tips});
     const isLoading = isNil(header.fail);
     const className = this.state.open ? style.openOverlay : style.overlay;
 
