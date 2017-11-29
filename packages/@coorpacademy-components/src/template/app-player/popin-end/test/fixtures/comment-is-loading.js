@@ -9,9 +9,11 @@ export default defaultsDeep(base, {
         action: null,
         title: 'Donnez votre avis sur ce cours',
         isSent: false,
-        value: '',
-        onPost: () => console.log('onPost'),
-        onChange: () => console.log('onChange')
+        edition: {
+          value: '',
+          onPost: () => console.log('onPost'),
+          onChange: () => console.log('onChange')
+        }
       }
     }
   }

@@ -44,14 +44,18 @@ const extractStars = state => {
 const comment = ({translate}, {dispatch}) => state => {
   const progressionId = getCurrentProgressionId(state);
   return {
-    title: translate('Share your opinion on this course'),
-    commentSectionTitle: translate('Thank you for your review!'),
-    confirmationLinkText: translate('See your comment and those of your peers.'),
-    onClick: e => dispatch(seeComment),
     isSent: get('ui.comments.isSent', state),
-    value: get('ui.comments.text', state),
-    onChange: e => dispatch(editComment(e.target.value)),
-    onPost: e => dispatch(postComment(progressionId))
+    confirmation: {
+      commentSectionTitle: translate('Thank you for your review!'),
+      confirmationLinkText: translate('See your comment and those of your peers.'),
+      onClick: e => dispatch(seeComment)
+    },
+    edition: {
+      title: translate('Share your opinion on this course'),
+      value: get('ui.comments.text', state),
+      onChange: e => dispatch(editComment(e.target.value)),
+      onPost: e => dispatch(postComment(progressionId))
+    }
   };
 };
 

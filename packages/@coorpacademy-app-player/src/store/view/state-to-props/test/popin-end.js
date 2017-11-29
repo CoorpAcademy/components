@@ -86,15 +86,15 @@ test('should write, send, and go see a comment after success on learner progress
 
   const comment = props.summary.comment;
   t.is(comment.isSent, true);
-  t.is(comment.value, 'textToSend');
+  t.is(comment.edition.value, 'textToSend');
 
-  const onChange = comment.onChange;
+  const onChange = comment.edition.onChange;
   t.true(isFunction(onChange));
   const dispatchedOnChange = await onChange({target: {value: 'foo'}});
 
   t.deepEqual(actionTypes(dispatchedOnChange), [UI_EDIT_COMMENT]);
 
-  const onPost = comment.onPost;
+  const onPost = comment.edition.onPost;
   t.true(isFunction(onPost));
   const dispatchedOnPost = await onPost();
 
@@ -104,7 +104,7 @@ test('should write, send, and go see a comment after success on learner progress
     SEND_POST_COMMENT_SUCCESS
   ]);
 
-  const onClick = comment.onClick;
+  const onClick = comment.confirmation.onClick;
   t.true(isFunction(onClick));
   const dispatchedOnClick = await onClick();
 

@@ -137,9 +137,9 @@ CommentConfirmation.propTypes = {
 };
 
 const CommentSection = props => {
-  const {isSent} = props;
+  const {isSent, edition, confirmation} = props;
   if (isSent) {
-    const {onClick, commentSectionTitle, confirmationLinkText} = props;
+    const {onClick, commentSectionTitle, confirmationLinkText} = confirmation;
     return (
       <CommentConfirmation
         onClick={onClick}
@@ -149,19 +149,23 @@ const CommentSection = props => {
     );
   }
 
-  const {title, value, onPost, onChange} = props;
+  const {title, value, onPost, onChange} = edition;
   return <Discussion title={title} value={value} onPost={onPost} onChange={onChange} />;
 };
 
 CommentSection.propTypes = {
-  title: Discussion.propTypes.title,
   isSent: PropTypes.bool,
-  value: Discussion.propTypes.value,
-  onPost: Discussion.propTypes.onPost,
-  onChange: Discussion.propTypes.onChange,
-  commentSectionTitle: CommentConfirmation.propTypes.commentSectionTitle,
-  confirmationLinkText: CommentConfirmation.propTypes.confirmationLinkText,
-  onClick: CommentConfirmation.propTypes.onClick
+  edition: PropTypes.shape({
+    title: Discussion.propTypes.title,
+    value: Discussion.propTypes.value,
+    onPost: Discussion.propTypes.onPost,
+    onChange: Discussion.propTypes.onChange
+  }),
+  confirmation: PropTypes.shape({
+    commentSectionTitle: CommentConfirmation.propTypes.commentSectionTitle,
+    confirmationLinkText: CommentConfirmation.propTypes.confirmationLinkText,
+    onClick: CommentConfirmation.propTypes.onClick
+  })
 };
 
 const Cards = props =>

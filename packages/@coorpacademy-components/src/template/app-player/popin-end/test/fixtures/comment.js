@@ -5,11 +5,13 @@ export default defaultsDeep(correct, {
   props: {
     summary: {
       comment: {
-        title: 'Donnez votre avis sur ce cours',
         isSent: false,
-        value: '',
-        onPost: () => console.log('onPost'),
-        onChange: () => console.log('onChange')
+        edition: {
+          title: 'Donnez votre avis sur ce cours',
+          value: '',
+          onPost: () => console.log('onPost'),
+          onChange: () => console.log('onChange')
+        }
       }
     }
   }
