@@ -309,8 +309,7 @@ test(
   t => ({
     Location: {
       seeComment: content => {
-        t.is(content.ref, '1.B');
-        t.is(content.level, 'base');
+        t.deepEqual(content, {ref: '1.B', level: 'base'});
         return 'foo';
       }
     }

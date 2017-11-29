@@ -21,8 +21,7 @@ test(
   t => ({
     Comments: {
       post: (content, message) => {
-        t.is(content.ref, '1.B');
-        t.is(content.level, 'base');
+        t.deepEqual(content, {ref: '1.B', level: 'base'});
         t.is(message, 'bar');
         return true;
       }
@@ -60,8 +59,7 @@ test(
     },
     Comments: {
       post: (content, message) => {
-        t.is(content.ref, '1.B');
-        t.is(content.level, 'base');
+        t.deepEqual(content, {ref: '1.B', level: 'base'});
         t.is(message, 'bar');
         throw new Error('some error');
       }
