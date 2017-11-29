@@ -43,7 +43,7 @@ test(
 );
 
 test(
-  'should call post comment and dispatch FAILURE action on post comment action',
+  'should call post comment and dispatch FAILURE when posting fails',
   macro,
   pipe(
     set('ui.current.progressionId', '0'),

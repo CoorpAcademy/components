@@ -112,44 +112,56 @@ const CardsLoader = () => (
   </div>
 );
 
-const CommentSection = props => {
-  const {
-    title,
-    isSent,
-    value,
-    onPost,
-    onChange,
-    onClick,
-    commentSectionTitle,
-    confirmationLinkText
-  } = props;
-  if (isSent) {
-    return (
-      <div className={style.commentSection}>
-        <div className={style.commentSectionIconWrapper}>
-          <CheckIcon className={style.commentSectionIcon} />
-        </div>
-        <div className={style.commentSectionTexts}>
-          <p>{commentSectionTitle}</p>
-          <Link onClick={onClick} className={style.commentSectionLink}>
-            {confirmationLinkText}
-          </Link>
-        </div>
+const CommentConfirmation = props => {
+  const {onClick, commentSectionTitle, confirmationLinkText} = props;
+
+  return (
+    <div className={style.commentSection}>
+      <div className={style.commentSectionIconWrapper}>
+        <CheckIcon className={style.commentSectionIcon} />
       </div>
+      <div className={style.commentSectionTexts}>
+        <p>{commentSectionTitle}</p>
+        <Link onClick={onClick} className={style.commentSectionLink}>
+          {confirmationLinkText}
+        </Link>
+      </div>
+    </div>
+  );
+};
+
+CommentConfirmation.propTypes = {
+  commentSectionTitle: PropTypes.string.isRequired,
+  confirmationLinkText: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired
+};
+
+const CommentSection = props => {
+  const {isSent} = props;
+  if (isSent) {
+    const {onClick, commentSectionTitle, confirmationLinkText} = props;
+    return (
+      <CommentConfirmation
+        onClick={onClick}
+        commentSectionTitle={commentSectionTitle}
+        confirmationLinkText={confirmationLinkText}
+      />
     );
   }
+
+  const {title, value, onPost, onChange} = props;
   return <Discussion title={title} value={value} onPost={onPost} onChange={onChange} />;
 };
 
 CommentSection.propTypes = {
-  title: PropTypes.string,
+  title: Discussion.propTypes.title,
   isSent: PropTypes.bool,
-  value: PropTypes.string,
-  onPost: PropTypes.func,
-  onChange: PropTypes.func,
-  commentSectionTitle: PropTypes.string,
-  confirmationLinkText: PropTypes.string,
-  onClick: PropTypes.func
+  value: Discussion.propTypes.value,
+  onPost: Discussion.propTypes.onPost,
+  onChange: Discussion.propTypes.onChange,
+  commentSectionTitle: CommentConfirmation.propTypes.commentSectionTitle,
+  confirmationLinkText: CommentConfirmation.propTypes.confirmationLinkText,
+  onClick: CommentConfirmation.propTypes.onClick
 };
 
 const Cards = props =>

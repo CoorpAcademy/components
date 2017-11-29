@@ -342,8 +342,8 @@ test(
       }
     },
     Location: {
-      seeComment: () => {
-        t.pass();
+      seeComment: content => {
+        t.deepEqual(content, {ref: '1.B', type: 'level'});
         throw new Error('some error');
       }
     }
