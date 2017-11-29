@@ -1,4 +1,4 @@
-import 'jsdom-global/register';
+import browserEnv from 'browser-env';
 import test from 'ava';
 import React from 'react';
 import classnames from 'classnames';
@@ -7,6 +7,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import noop from 'lodash/fp/noop';
 import Transition from '..';
 
+browserEnv();
 configure({adapter: new Adapter()});
 
 class CSSTransitionFaker extends React.Component {

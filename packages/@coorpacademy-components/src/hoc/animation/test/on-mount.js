@@ -6,7 +6,6 @@ import Adapter from 'enzyme-adapter-react-16';
 import toString from 'lodash/fp/toString';
 import Animation, {LINEAR} from '..';
 
-browserEnv();
 browserEnv({pretendToBeVisual: true});
 configure({adapter: new Adapter()});
 
