@@ -11,6 +11,10 @@ import {
   LOCATION_EXIT_REQUEST,
   LOCATION_EXIT_SUCCESS,
   LOCATION_EXIT_FAILURE,
+  seeComment,
+  LOCATION_SEE_COMMENT_REQUEST,
+  LOCATION_SEE_COMMENT_SUCCESS,
+  LOCATION_SEE_COMMENT_FAILURE,
   back,
   LOCATION_BACK_REQUEST,
   LOCATION_BACK_SUCCESS,
@@ -292,4 +296,68 @@ test(
   nextLevel,
   [],
   0
+);
+
+test(
+  'should call see comment and dispatch SUCCESS action',
+  macro,
+  pipe(
+    set('ui.current.progressionId', '0'),
+    set(['data', 'progressions', 'entities', '0'], {content: {ref: '1.B', type: 'level'}}),
+    set(['data', 'contents', 'level', 'entities', '1.B'], {ref: '1.B', level: 'base'})
+  )({}),
+  t => ({
+    Location: {
+      seeComment: content => {
+        t.deepEqual(content, {ref: '1.B', level: 'base'});
+        return 'foo';
+      }
+    }
+  }),
+  seeComment,
+  [
+    {
+      type: LOCATION_SEE_COMMENT_REQUEST
+    },
+    {
+      type: LOCATION_SEE_COMMENT_SUCCESS,
+      payload: 'foo'
+    }
+  ],
+  1
+);
+
+test(
+  'should call see comment and dispatch FAILURE action on error',
+  macro,
+  pipe(
+    set('ui.current.progressionId', '0'),
+    set(['data', 'progressions', 'entities', '0'], {content: {ref: '1.B', type: 'level'}}),
+    set(['data', 'contents', 'level', 'entities', '1.B'], {ref: '1.B', level: 'base'})
+  )({}),
+  t => ({
+    Logger: {
+      error(err) {
+        t.is(err.message, 'some error');
+      }
+    },
+    Location: {
+      seeComment: content => {
+        t.deepEqual(content, {ref: '1.B', level: 'base'});
+        throw new Error('some error');
+      }
+    }
+  }),
+  seeComment,
+  [
+    {
+      type: LOCATION_SEE_COMMENT_REQUEST
+    },
+    {
+      type: LOCATION_SEE_COMMENT_FAILURE,
+      error: true,
+      payload: new Error('some error')
+    }
+  ],
+  2
 );

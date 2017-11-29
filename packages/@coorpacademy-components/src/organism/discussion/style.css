@@ -6,7 +6,6 @@
 @value xtraLightGrey from colors;
 
 .header {
-  background-color: xtraLightGrey;
   border-bottom: solid 1px light;
   padding: 27px 30px;
   display: inline-block;

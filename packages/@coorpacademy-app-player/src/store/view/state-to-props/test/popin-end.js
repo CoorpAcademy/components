@@ -1,5 +1,4 @@
 import test from 'ava';
-import get from 'lodash/fp/get';
 import map from 'lodash/fp/map';
 import set from 'lodash/fp/set';
 import pipe from 'lodash/fp/pipe';
@@ -9,16 +8,24 @@ import {mockTranslate} from '@coorpacademy/translate';
 import popinEnd from '../popin-end';
 import {
   LOCATION_NEXT_CONTENT_REQUEST,
-  LOCATION_NEXT_CONTENT_SUCCESS
+  LOCATION_NEXT_CONTENT_SUCCESS,
+  LOCATION_SEE_COMMENT_REQUEST,
+  LOCATION_SEE_COMMENT_SUCCESS
 } from '../../../actions/ui/location';
+import {UI_EDIT_COMMENT, UI_POST_COMMENT} from '../../../actions/ui/comments';
+import {SEND_POST_COMMENT_REQUEST, SEND_POST_COMMENT_SUCCESS} from '../../../actions/api/comments';
 
 import popinLearnerSuccess from '../../test/fixtures/popin-end/learner-success';
 import popinLearnerFailure from '../../test/fixtures/popin-end/learner-failure';
 import popinMicrolearningFailure from '../../test/fixtures/popin-end/fail';
 
 const services = {
+  Comments: {
+    post: identity
+  },
   Location: {
-    nextLevel: identity
+    nextLevel: identity,
+    seeComment: identity
   }
 };
 
@@ -42,11 +49,11 @@ test('should create a "Next Level" CTA after success on learner progression', as
   const dispatch = createDispatch(popinLearnerSuccess);
   const props = popinEnd(options, {dispatch})(popinLearnerSuccess);
 
-  const header = get('summary.header', props);
+  const header = props.summary.header;
   t.is(header.rank, '+1');
   t.is(header.stars, '+2');
 
-  const cta = get('cta', header);
+  const cta = header.cta;
   t.is(cta.title, '__Next level');
   t.true(isFunction(cta.onClick));
   t.falsy(cta.href);
@@ -56,17 +63,61 @@ test('should create a "Next Level" CTA after success on learner progression', as
     LOCATION_NEXT_CONTENT_SUCCESS
   ]);
 
-  const action = get('summary.action', props);
+  const action = props.summary.action;
   t.is(action.prefix, '__Next level_');
   t.is(action.title, 'La recherche en ligne - Avancé');
 
-  const buttonCta = get('button', action);
+  const buttonCta = action.button;
   t.is(buttonCta.title, '__Next level');
   const dispatchedActionCta = await buttonCta.onClick();
   t.deepEqual(actionTypes(dispatchedActionCta), [
     LOCATION_NEXT_CONTENT_REQUEST,
     LOCATION_NEXT_CONTENT_SUCCESS
   ]);
+});
+
+test('should write, send, and go see a comment after success on learner progression', async t => {
+  const state = pipe(set('ui.comments.isSent', true), set('ui.comments.text', 'textToSend'))(
+    popinLearnerSuccess
+  );
+
+  const dispatch = createDispatch(state);
+  const props = popinEnd(options, {dispatch})(state);
+
+  const comment = props.summary.comment;
+  t.is(comment.isSent, true);
+  t.is(comment.edition.value, 'textToSend');
+
+  const onChange = comment.edition.onChange;
+  t.true(isFunction(onChange));
+  const dispatchedOnChange = await onChange({target: {value: 'foo'}});
+
+  t.deepEqual(actionTypes(dispatchedOnChange), [UI_EDIT_COMMENT]);
+
+  const onPost = comment.edition.onPost;
+  t.true(isFunction(onPost));
+  const dispatchedOnPost = await onPost();
+
+  t.deepEqual(actionTypes(dispatchedOnPost), [
+    UI_POST_COMMENT,
+    SEND_POST_COMMENT_REQUEST,
+    SEND_POST_COMMENT_SUCCESS
+  ]);
+
+  const onClick = comment.confirmation.onClick;
+  t.true(isFunction(onClick));
+  const dispatchedOnClick = await onClick();
+
+  t.deepEqual(actionTypes(dispatchedOnClick), [
+    LOCATION_SEE_COMMENT_REQUEST,
+    LOCATION_SEE_COMMENT_SUCCESS
+  ]);
+});
+
+test('should not see comment section when answer is not correct', t => {
+  const dispatch = createDispatch(popinLearnerFailure);
+  const props = popinEnd(options, {dispatch})(popinLearnerFailure);
+  t.is(props.summary.comment, null);
 });
 
 test('should create a "Back to Home" CTA after success on learner progression with coach content', t => {
@@ -78,18 +129,16 @@ test('should create a "Back to Home" CTA after success on learner progression wi
   const dispatch = createDispatch(state);
   const props = popinEnd(options, {dispatch})(state);
 
-  const header = get('summary.header', props);
+  const header = props.summary.header;
   t.is(header.rank, '+1');
   t.is(header.stars, '+2');
 
-  const cta = get('cta', header);
+  const cta = header.cta;
   t.is(cta.title, '__Back to home');
   t.falsy(cta.onClick);
   t.is(cta.href, '/');
 
-  const action = get('summary.action', props);
-  const buttonCta = get('button', action);
-  t.falsy(buttonCta);
+  t.falsy(props.summary.action);
 });
 
 test('should create a "Back to Home" CTA after success on learner progression with content with only base level', t => {
@@ -102,11 +151,11 @@ test('should create a "Back to Home" CTA after success on learner progression wi
   const dispatch = createDispatch(state);
   const props = popinEnd(options, {dispatch})(state);
 
-  const header = get('summary.header', props);
+  const header = props.summary.header;
   t.is(header.rank, '+1');
   t.is(header.stars, '+2');
 
-  const cta = get('cta', header);
+  const cta = header.cta;
   t.is(cta.title, '__Back to home');
   t.falsy(cta.onClick);
   t.is(cta.href, '/');
@@ -116,19 +165,19 @@ test('should create a "Retry Level" CTA after failure on learner progression', t
   const dispatch = createDispatch(popinLearnerFailure);
   const props = popinEnd(options, {dispatch})(popinLearnerFailure);
 
-  const header = get('summary.header', props);
+  const header = props.summary.header;
   t.is(header.rank, '-1');
 
-  const cta = get('summary.header.cta', props);
+  const cta = props.summary.header.cta;
   t.is(cta.title, '__Retry level');
   t.true(isFunction(cta.onClick));
   t.falsy(cta.href);
 
-  const action = get('summary.action', props);
+  const action = props.summary.action;
   t.is(action.prefix, '__Retry level_');
   t.is(action.title, 'La recherche en ligne - Base');
 
-  const buttonCta = get('button', action);
+  const buttonCta = action.button;
   t.is(buttonCta.title, '__Retry level');
 });
 
@@ -136,11 +185,11 @@ test('should create a "Retry Chapter" CTA after failure on microlearning progres
   const dispatch = createDispatch(popinMicrolearningFailure);
   const props = popinEnd(options, {dispatch})(popinMicrolearningFailure);
 
-  const header = get('summary.header', props);
+  const header = props.summary.header;
   t.falsy(header.rank);
   t.falsy(header.stars);
 
-  const cta = get('summary.header.cta', props);
+  const cta = props.summary.header.cta;
   t.is(cta.title, '__Retry chapter');
   t.true(isFunction(cta.onClick));
   t.falsy(cta.href);

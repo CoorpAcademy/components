@@ -24,6 +24,10 @@ test(
       coaches: {
         availableCoaches: 0
       },
+      comments: {
+        isSent: false,
+        text: null
+      },
       corrections: {},
       current: {
         progressionId: null

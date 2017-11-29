@@ -40,3 +40,13 @@ test('should reload page on nextLevel', t => {
   };
   Location.nextLevel();
 });
+
+test('should reload page on seeComment', t => {
+  t.plan(1);
+  global.window = {
+    location: {
+      reload: () => t.pass()
+    }
+  };
+  Location.seeComment();
+});

@@ -4,13 +4,15 @@ import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import isEqual from 'lodash/fp/isEqual';
 import pipe from 'lodash/fp/pipe';
-import {retry, exit, nextLevel} from '../../actions/ui/location';
+import {retry, exit, nextLevel, seeComment} from '../../actions/ui/location';
+import {editComment, postComment} from '../../actions/ui/comments';
 import {
   getCurrentContent,
   getCurrentExitNode,
   getCurrentProgression,
   getRecommendations,
   getBestScore,
+  getCurrentProgressionId,
   getStartRank,
   getEndRank,
   isCurrentEngineMicrolearning,
@@ -37,6 +39,24 @@ const extractStars = state => {
   const bestScore = getBestScore(state);
 
   return stars > bestScore ? `+${stars - bestScore}` : '+0';
+};
+
+const comment = ({translate}, {dispatch}) => state => {
+  const progressionId = getCurrentProgressionId(state);
+  return {
+    isSent: get('ui.comments.isSent', state),
+    confirmation: {
+      commentSectionTitle: translate('Thank you for your review!'),
+      confirmationLinkText: translate('See your comment and those of your peers.'),
+      onClick: e => dispatch(seeComment)
+    },
+    edition: {
+      title: translate('Share your opinion on this course'),
+      value: get('ui.comments.text', state),
+      onChange: e => dispatch(editComment(e.target.value)),
+      onPost: e => dispatch(postComment(progressionId))
+    }
+  };
 };
 
 const summaryHeader = ({translate}, {dispatch}) => state => {
@@ -169,6 +189,9 @@ const extractAction = ({translate}, {dispatch}) => state => {
 };
 
 const popinEndStateToProps = (options, store) => state => {
+  const progression = getCurrentProgression(state);
+  const isCorrect = get('state.isCorrect')(progression);
+
   const {translate} = options;
   const {dispatch} = store;
 
@@ -185,6 +208,7 @@ const popinEndStateToProps = (options, store) => state => {
       header: summaryHeader(options, store)(state)(exitNode),
       action: extractAction(options, store)(state)(exitNode),
       recommendation: extractRecommendation(options, store)(state),
+      comment: isCorrect ? comment(options, store)(state) : null,
       footer
     }
   };
