@@ -1,4 +1,4 @@
-import 'jsdom-global/register';
+import browserEnv from 'browser-env';
 import test from 'ava';
 import {replace} from 'lodash/fp';
 import React from 'react';
@@ -8,6 +8,7 @@ import InputDoublestep from '..';
 import style from '../style.css'; // eslint-disable-line css-modules/no-unused-class
 import inputConfirmFixture from './fixtures/input-confirm';
 
+browserEnv();
 configure({adapter: new Adapter()});
 
 test('should call the onChange function on change with inputConfirm fixture', t => {

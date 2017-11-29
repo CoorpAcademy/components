@@ -1,4 +1,4 @@
-import 'jsdom-global/register';
+import browserEnv from 'browser-env';
 import test from 'ava';
 import React from 'react';
 import {shallow, configure} from 'enzyme';
@@ -7,6 +7,7 @@ import InputTextarea from '..';
 import omit from 'lodash/fp/omit';
 import defaultFixture from './fixtures/default';
 
+browserEnv();
 configure({adapter: new Adapter()});
 
 test('should call the onChange function with the value of the target', t => {

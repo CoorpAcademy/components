@@ -1,4 +1,4 @@
-import 'jsdom-global/register';
+import browserEnv from 'browser-env';
 import test from 'ava';
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -7,6 +7,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import DashboardPreview from '..';
 import defaultFixture from './fixtures/selected';
 
+browserEnv();
 configure({adapter: new Adapter()});
 
 test('should call the onUpdateVersion function with the value of the target', t => {

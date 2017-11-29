@@ -1,4 +1,4 @@
-import 'jsdom-global/register';
+import browserEnv from 'browser-env';
 import EventEmitter from 'events'; // eslint-disable-line fp/no-events
 import test from 'ava';
 import React from 'react';
@@ -6,6 +6,7 @@ import {mount, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import Vimeo from '../vimeo';
 
+browserEnv();
 configure({adapter: new Adapter()});
 
 class Player extends EventEmitter {

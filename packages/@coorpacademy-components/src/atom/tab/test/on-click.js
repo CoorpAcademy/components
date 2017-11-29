@@ -1,4 +1,4 @@
-import 'jsdom-global/register';
+import browserEnv from 'browser-env';
 import test from 'ava';
 import React from 'react';
 import {shallow, configure} from 'enzyme';
@@ -7,6 +7,7 @@ import Tab from '..';
 import style from '../style.css'; // eslint-disable-line css-modules/no-unused-class
 import defaultFixture from './fixtures/default';
 
+browserEnv();
 configure({adapter: new Adapter()});
 
 test('should call onClick with the targetContent value', t => {

@@ -54,8 +54,7 @@ class Animation extends React.Component {
   }
 
   componentWillUnmount() {
-    const {requestID} = this;
-    if (requestID) cancelAnimationFrame(requestID);
+    this.stopAnimation();
   }
 
   requestID = null;
@@ -72,6 +71,8 @@ class Animation extends React.Component {
     if (!requestID) return;
 
     cancelAnimationFrame(requestID);
+    this.requestID = null;
+
     this.setState(() => ({
       lastTimestamp: null,
       requestID: null

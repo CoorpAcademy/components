@@ -1,4 +1,4 @@
-import 'jsdom-global/register';
+import browserEnv from 'browser-env';
 import test from 'ava';
 import React from 'react';
 import {shallow, configure} from 'enzyme';
@@ -7,6 +7,7 @@ import Provider from '..';
 import noop from 'lodash/fp/noop';
 import defaultFixture from './fixtures/default';
 
+browserEnv();
 configure({adapter: new Adapter()});
 
 test('should re-render element when updating props', t => {

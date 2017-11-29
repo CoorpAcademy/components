@@ -1,4 +1,4 @@
-import 'jsdom-global/register';
+import browserEnv from 'browser-env';
 import test from 'ava';
 import {replace} from 'lodash/fp';
 import React from 'react';
@@ -8,6 +8,7 @@ import Authors from '..';
 import style from '../style.css'; // eslint-disable-line css-modules/no-unused-class
 import authorFixture from './fixtures/default';
 
+browserEnv();
 configure({adapter: new Adapter()});
 
 test('should show more', t => {
