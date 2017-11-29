@@ -40,7 +40,7 @@ const pickByWithKey = pickBy.convert({cap: true});
 const walker = (type, handler) => children => {
   return React.Children.map(children, (child, index) => {
     if (isString(child)) return child;
-    const newChild = child.type === type ? handler(child) || child : child;
+    const newChild = child.type === type ? handler(child) : child;
     if (React.Children.count(newChild.props.children) === 0) return newChild;
     return React.cloneElement(newChild, {}, walker(type, handler)(newChild.props.children));
   });
@@ -75,7 +75,7 @@ const mergeAnimationStates = (animations, children) => {
   )(animations);
 };
 
-class AnimationOrchestrator extends React.Component {
+class AnimationScheduler extends React.Component {
   state = {
     animations: mergeAnimationStates({}, this.props.children)
   };
@@ -124,20 +124,6 @@ class AnimationOrchestrator extends React.Component {
     });
   }
 
-  createAnimationEnd(handler) {
-    this.animations.set;
-
-    return name => {
-      this.setState(() => {
-        return {
-          [name]: true
-        };
-      });
-
-      return handler(name);
-    };
-  }
-
   render() {
     const {children} = this.props;
     return pipe(
@@ -148,11 +134,11 @@ class AnimationOrchestrator extends React.Component {
   }
 }
 
-AnimationOrchestrator.propTypes = {
+AnimationScheduler.propTypes = {
   onAnimationEnd: PropTypes.func,
   animated: PropTypes.bool
 };
 
-export default AnimationOrchestrator;
+export default AnimationScheduler;
 
 export {AnimationAdapter};

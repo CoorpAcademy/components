@@ -22,7 +22,7 @@ import Life from '../../../../atom/life';
 import Link from '../../../../atom/link';
 import Animation, {EASE_OUT_CUBIC} from '../../../../hoc/animation';
 import Transition from '../../../../hoc/transition';
-import AnimationOrchestrator, {AnimationAdapter} from '../../../../hoc/animation-orchestrator';
+import AnimationScheduler, {AnimationAdapter} from '../../../../hoc/animation-scheduler';
 import Provider from '../../../../atom/provider';
 import style from './style.css';
 
@@ -69,7 +69,7 @@ const Rank = ({bumpRank, rank, animated, onAnimationEnd}, {skin}) => {
   const positive = get('common.positive', skin);
   if (isNil(rank)) return null;
   return (
-    <AnimationOrchestrator animated={animated} onAnimationEnd={onAnimationEnd}>
+    <AnimationScheduler animated={animated} onAnimationEnd={onAnimationEnd}>
       <div className={style.centerContent}>
         <Transition name="label" after="counter" className={style.bumped}>
           <div className={style.iconBubble}>
@@ -82,7 +82,7 @@ const Rank = ({bumpRank, rank, animated, onAnimationEnd}, {skin}) => {
           </Animation>
         </span>
       </div>
-    </AnimationOrchestrator>
+    </AnimationScheduler>
   );
 };
 
@@ -96,7 +96,7 @@ const Stars = ({bumpStars, stars, animated, onAnimationEnd}, {skin}) => {
   if (isNil(stars)) return null;
 
   return (
-    <AnimationOrchestrator animated={animated} onAnimationEnd={onAnimationEnd}>
+    <AnimationScheduler animated={animated} onAnimationEnd={onAnimationEnd}>
       <div className={style.centerContent}>
         <Transition name="label" after="counter" className={style.bumped}>
           <div className={style.iconBubble}>
@@ -109,7 +109,7 @@ const Stars = ({bumpStars, stars, animated, onAnimationEnd}, {skin}) => {
           </Animation>
         </span>
       </div>
-    </AnimationOrchestrator>
+    </AnimationScheduler>
   );
 };
 
@@ -129,7 +129,7 @@ const Lifes = ({lives, fail, animated, revival}) => {
 const IconsPart = props => {
   const {bumpStars, bumpRank, lives, fail, stars, rank, animated, revival} = props;
   return (
-    <AnimationOrchestrator animated>
+    <AnimationScheduler animated>
       <div className={style.iconsWrapper}>
         <Lifes lives={lives} fail={fail} animated={animated} revival={revival} />
 
@@ -140,7 +140,7 @@ const IconsPart = props => {
           <Rank rank={rank} bumpRank={bumpRank} />
         </AnimationAdapter>
       </div>
-    </AnimationOrchestrator>
+    </AnimationScheduler>
   );
 };
 

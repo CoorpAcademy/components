@@ -32,7 +32,7 @@ export Tab from './atom/tab';
 export TabContent from './atom/tab-content';
 export Title from './atom/title';
 export Animation from './hoc/animation';
-export AnimationOrchestrator from './hoc/animation-orchestrator';
+export AnimationScheduler from './hoc/animation-scheduler';
 export Swapper from './hoc/swapper';
 export Transition from './hoc/transition';
 export Answer from './molecule/answer';

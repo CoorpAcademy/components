@@ -34,7 +34,7 @@ import Tab from './../src/atom/tab';
 import TabContent from './../src/atom/tab-content';
 import Title from './../src/atom/title';
 import Animation from './../src/hoc/animation';
-import AnimationOrchestrator from './../src/hoc/animation-orchestrator';
+import AnimationScheduler from './../src/hoc/animation-scheduler';
 import Swapper from './../src/hoc/swapper';
 import Transition from './../src/hoc/transition';
 import Answer from './../src/molecule/answer';
@@ -253,8 +253,8 @@ import TabContentFixtureHideContentBackground from '../src/atom/tab-content/test
 import TitleFixtureFixture from '../src/atom/title/test/fixtures/fixture';
 import AnimationFixtureStart from '../src/hoc/animation/test/fixtures/start';
 import AnimationFixtureStop from '../src/hoc/animation/test/fixtures/stop';
-import AnimationOrchestratorFixtureParallel from '../src/hoc/animation-orchestrator/test/fixtures/parallel';
-import AnimationOrchestratorFixtureSeries from '../src/hoc/animation-orchestrator/test/fixtures/series';
+import AnimationSchedulerFixtureParallel from '../src/hoc/animation-scheduler/test/fixtures/parallel';
+import AnimationSchedulerFixtureSeries from '../src/hoc/animation-scheduler/test/fixtures/series';
 import SwapperFixtureDefault from '../src/hoc/swapper/test/fixtures/default';
 import TransitionFixtureFlipSquare from '../src/hoc/transition/test/fixtures/flip-square';
 import AnswerFixtureDefault from '../src/molecule/answer/test/fixtures/default';
@@ -636,7 +636,7 @@ export const components = {
   },
   Hoc: {
     Animation,
-    AnimationOrchestrator,
+    AnimationScheduler,
     Swapper,
     Transition
   },
@@ -956,9 +956,9 @@ export const fixtures = {
       AnimationFixtureStart,
       AnimationFixtureStop
     },
-    AnimationOrchestrator: {
-      AnimationOrchestratorFixtureParallel,
-      AnimationOrchestratorFixtureSeries
+    AnimationScheduler: {
+      AnimationSchedulerFixtureParallel,
+      AnimationSchedulerFixtureSeries
     },
     Swapper: {
       SwapperFixtureDefault
