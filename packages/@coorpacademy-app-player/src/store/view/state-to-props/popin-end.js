@@ -48,8 +48,8 @@ const comment = ({translate}, {dispatch}) => state => {
     commentSectionTitle: translate('Thank you for your review!'),
     confirmationLinkText: translate('See your comment and those of your peers.'),
     onClick: e => dispatch(seeComment),
-    isSent: get('ui.comment.isSent', state),
-    value: get('ui.comment.text', state),
+    isSent: get('ui.comments.isSent', state),
+    value: get('ui.comments.text', state),
     onChange: e => dispatch(editComment(e.target.value)),
     onPost: e => dispatch(postComment(progressionId))
   };

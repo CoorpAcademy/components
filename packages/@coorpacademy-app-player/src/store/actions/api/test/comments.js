@@ -16,7 +16,7 @@ test(
     set('ui.current.progressionId', '0'),
     set(['data', 'progressions', 'entities', '0'], {content: {ref: '1.B', type: 'level'}}),
     set(['data', 'contents', 'level', 'entities', '1.B'], {ref: '1.B', level: 'base'}),
-    set('ui.comment.text', 'bar')
+    set('ui.comments.text', 'bar')
   )({}),
   t => ({
     Comments: {
@@ -39,7 +39,7 @@ test(
       meta: {id: 'foo'}
     }
   ],
-  3
+  2
 );
 
 test(
@@ -49,7 +49,7 @@ test(
     set('ui.current.progressionId', '0'),
     set(['data', 'progressions', 'entities', '0'], {content: {ref: '1.B', type: 'level'}}),
     set(['data', 'contents', 'level', 'entities', '1.B'], {ref: '1.B', level: 'base'}),
-    set('ui.comment.text', 'bar')
+    set('ui.comments.text', 'bar')
   )({}),
   t => ({
     Logger: {
@@ -78,5 +78,5 @@ test(
       meta: {id: 'foo'}
     }
   ],
-  4
+  3
 );

@@ -24,7 +24,7 @@ test(
       coaches: {
         availableCoaches: 0
       },
-      comment: {
+      comments: {
         isSent: false,
         text: null
       },

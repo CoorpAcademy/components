@@ -324,7 +324,7 @@ test(
       payload: 'foo'
     }
   ],
-  2
+  1
 );
 
 test(
@@ -343,7 +343,7 @@ test(
     },
     Location: {
       seeComment: content => {
-        t.deepEqual(content, {ref: '1.B', type: 'level'});
+        t.deepEqual(content, {ref: '1.B', level: 'base'});
         throw new Error('some error');
       }
     }
