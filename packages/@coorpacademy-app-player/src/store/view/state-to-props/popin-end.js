@@ -45,7 +45,7 @@ const comment = ({translate}, {dispatch}) => state => {
   const progressionId = getCurrentProgressionId(state);
   return {
     title: translate('Share your opinion on this course'),
-    commentSectionTitle: translate('Thank you for your review !'),
+    commentSectionTitle: translate('Thank you for your review!'),
     confirmationLinkText: translate('See your comment and those of your peers.'),
     onClick: e => dispatch(seeComment),
     isSent: get('ui.comment.isSent', state),
