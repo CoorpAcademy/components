@@ -5,8 +5,6 @@ import {mount, shallow, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import noop from 'lodash/fp/noop';
 import AnimationScheduler, {AnimationAdapter} from '..';
-import Animation, {LINEAR} from '../../animation';
-import Transition from '../../transition';
 
 browserEnv({pretendToBeVisual: true});
 configure({adapter: new Adapter()});
