@@ -109,8 +109,6 @@ class AnimationScheduler extends React.Component {
     });
   }
 
-  // updateAnimationState(children) {}
-
   processAnimation(child) {
     const {animated: parentAnimated} = this.props;
     const {animated, onAnimationEnd = noop, after} = child.props;

@@ -86,6 +86,13 @@ const Rank = ({fail, rank, animated, onAnimationEnd}, {skin}) => {
   );
 };
 
+Rank.propTypes = {
+  fail: PropTypes.bool,
+  rank: PropTypes.string,
+  animated: Animation.propTypes.animated,
+  onAnimationEnd: Animation.propTypes.onAnimationEnd
+};
+
 Rank.contextTypes = {
   skin: Provider.childContextTypes.skin
 };
@@ -112,6 +119,13 @@ const Stars = ({fail, stars, animated, onAnimationEnd}, {skin}) => {
   );
 };
 
+Stars.propTypes = {
+  fail: PropTypes.bool,
+  stars: PropTypes.string,
+  animated: Animation.propTypes.animated,
+  onAnimationEnd: Animation.propTypes.onAnimationEnd
+};
+
 Stars.contextTypes = {
   skin: Provider.childContextTypes.skin
 };
@@ -122,6 +136,13 @@ const Lifes = ({lives, fail, animated, revival}) => {
   return (
     <Life fail={fail} count={lives} animated={animated} revival={revival} className={style.life} />
   );
+};
+
+Lifes.propTypes = {
+  lives: Life.propTypes.count,
+  fail: Life.propTypes.fail,
+  animated: Life.propTypes.animated,
+  revival: Life.propTypes.revival
 };
 
 const IconsPart = props => {
@@ -140,6 +161,15 @@ const IconsPart = props => {
       </div>
     </AnimationScheduler>
   );
+};
+
+IconsPart.propTypes = {
+  lives: Lifes.propTypes.lives,
+  fail: Lifes.propTypes.fail,
+  stars: Stars.propTypes.stars,
+  rank: Rank.propTypes.rank,
+  animated: AnimationScheduler.propTypes.animated,
+  revival: PropTypes.bool
 };
 
 const buildClass = (value, success, fail, loading) => {

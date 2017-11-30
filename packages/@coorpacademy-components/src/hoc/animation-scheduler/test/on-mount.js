@@ -114,7 +114,7 @@ test('AnimationAdapter should call onAnimationEnd', t => {
   );
 });
 
-test('AnimationAdapter should ', t => {
+test('AnimationAdapter should accept name property', t => {
   return t.notThrows(() =>
     shallow(
       <AnimationAdapter name="animation">

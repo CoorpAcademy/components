@@ -197,14 +197,14 @@ const CONTENT_TYPE = {
   media: MediaContent
 };
 
-const Bar = ({total, color, ...props}) => {
-  const current = max([props.current, 0]);
+const Bar = ({total, color, current}) => {
+  const _current = max([current, 0]);
 
   if (!total) {
     return null;
   }
 
-  const stepWidth = current / total * 100;
+  const stepWidth = _current / total * 100;
 
   return (
     <div

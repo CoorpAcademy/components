@@ -63,7 +63,7 @@ class Animation extends React.Component {
     const {requestID} = this;
 
     if (requestID) cancelAnimationFrame(requestID);
-    this.requestID = requestAnimationFrame(this.tic.bind(this));
+    this.requestID = requestAnimationFrame(this.tick.bind(this));
   }
 
   stopAnimation() {
@@ -79,7 +79,7 @@ class Animation extends React.Component {
     }));
   }
 
-  tic(timestamp) {
+  tick(timestamp) {
     this.setState(
       prevState => {
         const {lastTimestamp} = prevState;
