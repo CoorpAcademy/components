@@ -44,6 +44,8 @@ const extractStars = state => {
 
 const comment = ({translate}, {dispatch}) => state => {
   const progressionId = getCurrentProgressionId(state);
+  const content = getCurrentContent(state);
+  const message = get('ui.comments.text', state);
   return {
     isSent: get('ui.comments.isSent', state),
     confirmation: {
@@ -55,7 +57,7 @@ const comment = ({translate}, {dispatch}) => state => {
       title: translate('Share your opinion on this course'),
       value: get('ui.comments.text', state),
       onChange: e => dispatch(editComment(e.target.value)),
-      onPost: e => dispatch(postComment(progressionId))
+      onPost: e => dispatch(postComment(progressionId, content, message))
     }
   };
 };

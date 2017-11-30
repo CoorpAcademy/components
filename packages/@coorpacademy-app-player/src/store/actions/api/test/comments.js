@@ -14,9 +14,7 @@ test(
   macro,
   pipe(
     set('ui.current.progressionId', '0'),
-    set(['data', 'progressions', 'entities', '0'], {content: {ref: '1.B', type: 'level'}}),
-    set(['data', 'contents', 'level', 'entities', '1.B'], {ref: '1.B', level: 'base'}),
-    set('ui.comments.text', 'bar')
+    set(['data', 'progressions', 'entities', '0'], {content: {ref: '1.B', type: 'level'}})
   )({}),
   t => ({
     Comments: {
@@ -27,7 +25,7 @@ test(
       }
     }
   }),
-  postComment('foo'),
+  postComment('foo', {ref: '1.B', level: 'base'}, 'bar'),
   [
     {
       type: SEND_POST_COMMENT_REQUEST,
@@ -47,9 +45,7 @@ test(
   macro,
   pipe(
     set('ui.current.progressionId', '0'),
-    set(['data', 'progressions', 'entities', '0'], {content: {ref: '1.B', type: 'level'}}),
-    set(['data', 'contents', 'level', 'entities', '1.B'], {ref: '1.B', level: 'base'}),
-    set('ui.comments.text', 'bar')
+    set(['data', 'progressions', 'entities', '0'], {content: {ref: '1.B', type: 'level'}})
   )({}),
   t => ({
     Logger: {
@@ -65,7 +61,7 @@ test(
       }
     }
   }),
-  postComment('foo'),
+  postComment('foo', {ref: '1.B', level: 'base'}, 'bar'),
   [
     {
       type: SEND_POST_COMMENT_REQUEST,
