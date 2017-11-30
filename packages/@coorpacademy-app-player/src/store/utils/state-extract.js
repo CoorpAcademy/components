@@ -110,6 +110,11 @@ export const getCurrentCorrection = state => {
   return getCorrection(getId(progression), getId(slide))(state);
 };
 
+export const isCommentSent = state => {
+  const progressionId = getCurrentProgressionId(state);
+  return get(['data', 'comments', 'entities', progressionId, 'isSent'], state);
+};
+
 export const getClue = (progressionId, slideId) => state => {
   return get(['data', 'clues', 'entities', progressionId, slideId], state);
 };

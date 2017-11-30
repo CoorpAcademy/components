@@ -29,12 +29,12 @@ test(
   [
     {
       type: SEND_POST_COMMENT_REQUEST,
-      meta: {id: 'foo'}
+      meta: {progressionId: 'foo'}
     },
     {
       type: SEND_POST_COMMENT_SUCCESS,
       payload: true,
-      meta: {id: 'foo'}
+      meta: {progressionId: 'foo'}
     }
   ],
   2
@@ -65,13 +65,13 @@ test(
   [
     {
       type: SEND_POST_COMMENT_REQUEST,
-      meta: {id: 'foo'}
+      meta: {progressionId: 'foo'}
     },
     {
       type: SEND_POST_COMMENT_FAILURE,
       error: true,
       payload: new Error('some error'),
-      meta: {id: 'foo'}
+      meta: {progressionId: 'foo'}
     }
   ],
   3

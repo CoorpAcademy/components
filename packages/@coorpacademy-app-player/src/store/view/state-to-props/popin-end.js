@@ -16,6 +16,7 @@ import {
   getCurrentProgressionId,
   getStartRank,
   getEndRank,
+  isCommentSent,
   isCurrentEngineMicrolearning,
   isCurrentEngineLearner
 } from '../../utils/state-extract';
@@ -47,7 +48,7 @@ const comment = ({translate}, {dispatch}) => state => {
   const content = getCurrentContent(state);
   const message = get('ui.comments.text', state);
   return {
-    isSent: get('ui.comments.isSent', state),
+    isSent: isCommentSent(state),
     confirmation: {
       commentSectionTitle: translate('Thank you for your review!'),
       confirmationLinkText: translate('See your comment and those of your peers.'),

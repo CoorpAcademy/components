@@ -14,7 +14,7 @@ export const postComment = (progressionId, content, message) => (
   const action = buildTask({
     types: [SEND_POST_COMMENT_REQUEST, SEND_POST_COMMENT_SUCCESS, SEND_POST_COMMENT_FAILURE],
     task: () => Comments.post(content, message),
-    meta: {id: progressionId}
+    meta: {progressionId}
   });
 
   return dispatch(action);

@@ -77,9 +77,10 @@ test('should create a "Next Level" CTA after success on learner progression', as
 });
 
 test('should write, send, and go see a comment after success on learner progression', async t => {
-  const state = pipe(set('ui.comments.isSent', true), set('ui.comments.text', 'textToSend'))(
-    popinLearnerSuccess
-  );
+  const state = pipe(
+    set('data.comments.entities.idProgression1234.isSent', true),
+    set('ui.comments.text', 'textToSend')
+  )(popinLearnerSuccess);
 
   const dispatch = createDispatch(state);
   const props = popinEnd(options, {dispatch})(state);
