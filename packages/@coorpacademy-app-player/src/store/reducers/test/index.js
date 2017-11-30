@@ -11,6 +11,7 @@ test(
   {
     data: {
       answers: {entities: {}},
+      comments: {entities: {}},
       configs: {},
       contents: {},
       clues: {entities: {}},
@@ -25,7 +26,6 @@ test(
         availableCoaches: 0
       },
       comments: {
-        isSent: false,
         text: null
       },
       corrections: {},

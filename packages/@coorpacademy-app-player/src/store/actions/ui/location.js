@@ -39,12 +39,10 @@ export const LOCATION_BACK_SUCCESS = '@@location/BACK_SUCCESS';
 export const LOCATION_BACK_FAILURE = '@@location/BACK_FAILURE';
 
 export const back = (dispatch, getState, {services}) => {
+  const content = getCurrentContent(getState());
   const action = buildTask({
     types: [LOCATION_BACK_REQUEST, LOCATION_BACK_SUCCESS, LOCATION_BACK_FAILURE],
-    task: () => {
-      const content = getCurrentContent(getState());
-      return services.Location.back(content);
-    }
+    task: () => services.Location.back(content)
   });
 
   return dispatch(action);
@@ -55,16 +53,14 @@ export const LOCATION_SEE_COMMENT_SUCCESS = '@@location/SEE_COMMENT_SUCCESS';
 export const LOCATION_SEE_COMMENT_FAILURE = '@@location/SEE_COMMENT_FAILURE';
 
 export const seeComment = (dispatch, getState, {services}) => {
+  const content = getCurrentContent(getState());
   const action = buildTask({
     types: [
       LOCATION_SEE_COMMENT_REQUEST,
       LOCATION_SEE_COMMENT_SUCCESS,
       LOCATION_SEE_COMMENT_FAILURE
     ],
-    task: () => {
-      const content = getCurrentContent(getState());
-      return services.Location.seeComment(content);
-    }
+    task: () => services.Location.seeComment(content)
   });
 
   return dispatch(action);

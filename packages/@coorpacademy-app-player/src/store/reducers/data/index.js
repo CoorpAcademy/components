@@ -1,5 +1,6 @@
 import {combineReducers} from 'redux';
 import answers from './answers';
+import comments from './comments';
 import configs from './configs';
 import contents from './contents';
 import clues from './clues';
@@ -10,6 +11,7 @@ import recommendations from './recommendations';
 
 export default combineReducers({
   answers,
+  comments,
   configs,
   contents,
   clues,

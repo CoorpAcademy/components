@@ -5,7 +5,8 @@ import getOr from 'lodash/fp/getOr';
 import isEqual from 'lodash/fp/isEqual';
 import pipe from 'lodash/fp/pipe';
 import {retry, exit, nextLevel, seeComment} from '../../actions/ui/location';
-import {editComment, postComment} from '../../actions/ui/comments';
+import {editComment} from '../../actions/ui/comments';
+import {postComment} from '../../actions/api/comments';
 import {
   getCurrentContent,
   getCurrentExitNode,
@@ -15,6 +16,7 @@ import {
   getCurrentProgressionId,
   getStartRank,
   getEndRank,
+  isCommentSent,
   isCurrentEngineMicrolearning,
   isCurrentEngineLearner
 } from '../../utils/state-extract';
@@ -43,8 +45,10 @@ const extractStars = state => {
 
 const comment = ({translate}, {dispatch}) => state => {
   const progressionId = getCurrentProgressionId(state);
+  const content = getCurrentContent(state);
+  const message = get('ui.comments.text', state);
   return {
-    isSent: get('ui.comments.isSent', state),
+    isSent: isCommentSent(state),
     confirmation: {
       commentSectionTitle: translate('Thank you for your review!'),
       confirmationLinkText: translate('See your comment and those of your peers.'),
@@ -54,7 +58,7 @@ const comment = ({translate}, {dispatch}) => state => {
       title: translate('Share your opinion on this course'),
       value: get('ui.comments.text', state),
       onChange: e => dispatch(editComment(e.target.value)),
-      onPost: e => dispatch(postComment(progressionId))
+      onPost: e => dispatch(postComment(progressionId, content, message))
     }
   };
 };

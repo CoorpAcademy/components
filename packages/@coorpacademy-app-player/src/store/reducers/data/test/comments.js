@@ -1,10 +1,10 @@
 import test from 'ava';
 import reducer from '../comments';
-import {UI_EDIT_COMMENT} from '../../../actions/ui/comments';
+import {SEND_POST_COMMENT_REQUEST} from '../../../actions/api/comments';
 import {UI_SELECT_PROGRESSION} from '../../../actions/ui/progressions';
 import macro from '../../test/helpers/macro';
 
-test('should have initial value', macro, reducer, undefined, {}, {text: null});
+test('should have initial value', macro, reducer, undefined, {}, {entities: {}});
 
 test(
   'should reset comment as not sent',
@@ -17,19 +17,17 @@ test(
       id: 'foo'
     }
   },
-  {text: null}
+  {entities: {foo: {isSent: false}}}
 );
 
 test(
-  'should edit message',
+  'should set status as sent',
   macro,
   reducer,
-  {text: 'foo'},
+  {entities: {foo: {isSent: false}}},
   {
-    type: UI_EDIT_COMMENT,
-    payload: {
-      text: 'bar'
-    }
+    type: SEND_POST_COMMENT_REQUEST,
+    meta: {progressionId: 'foo'}
   },
-  {text: 'bar'}
+  {entities: {foo: {isSent: true}}}
 );

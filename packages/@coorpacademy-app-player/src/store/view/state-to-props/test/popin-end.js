@@ -12,7 +12,7 @@ import {
   LOCATION_SEE_COMMENT_REQUEST,
   LOCATION_SEE_COMMENT_SUCCESS
 } from '../../../actions/ui/location';
-import {UI_EDIT_COMMENT, UI_POST_COMMENT} from '../../../actions/ui/comments';
+import {UI_EDIT_COMMENT} from '../../../actions/ui/comments';
 import {SEND_POST_COMMENT_REQUEST, SEND_POST_COMMENT_SUCCESS} from '../../../actions/api/comments';
 
 import popinLearnerSuccess from '../../test/fixtures/popin-end/learner-success';
@@ -77,9 +77,10 @@ test('should create a "Next Level" CTA after success on learner progression', as
 });
 
 test('should write, send, and go see a comment after success on learner progression', async t => {
-  const state = pipe(set('ui.comments.isSent', true), set('ui.comments.text', 'textToSend'))(
-    popinLearnerSuccess
-  );
+  const state = pipe(
+    set('data.comments.entities.idProgression1234.isSent', true),
+    set('ui.comments.text', 'textToSend')
+  )(popinLearnerSuccess);
 
   const dispatch = createDispatch(state);
   const props = popinEnd(options, {dispatch})(state);
@@ -99,7 +100,6 @@ test('should write, send, and go see a comment after success on learner progress
   const dispatchedOnPost = await onPost();
 
   t.deepEqual(actionTypes(dispatchedOnPost), [
-    UI_POST_COMMENT,
     SEND_POST_COMMENT_REQUEST,
     SEND_POST_COMMENT_SUCCESS
   ]);
