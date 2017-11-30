@@ -1,6 +1,7 @@
 import set from 'lodash/fp/set';
 import pipe from 'lodash/fp/pipe';
-import {UI_EDIT_COMMENT, UI_POST_COMMENT} from '../../actions/ui/comments';
+import {UI_EDIT_COMMENT} from '../../actions/ui/comments';
+import {SEND_POST_COMMENT_REQUEST} from '../../actions/api/comments';
 import {UI_SELECT_PROGRESSION} from '../../actions/ui/progressions';
 
 const uiCommentReducer = (state = {text: null, isSent: false}, action) => {
@@ -8,7 +9,7 @@ const uiCommentReducer = (state = {text: null, isSent: false}, action) => {
     case UI_SELECT_PROGRESSION: {
       return pipe(set('text', null), set('isSent', false))(state);
     }
-    case UI_POST_COMMENT: {
+    case SEND_POST_COMMENT_REQUEST: {
       return set('isSent', true, state);
     }
     case UI_EDIT_COMMENT: {

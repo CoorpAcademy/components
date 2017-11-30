@@ -2,8 +2,9 @@ import test from 'ava';
 import pipe from 'lodash/fp/pipe';
 import set from 'lodash/fp/set';
 import macro from '../../test/helpers/macro';
-import {editComment, UI_EDIT_COMMENT, postComment, UI_POST_COMMENT} from '../comments';
+import {editComment, UI_EDIT_COMMENT} from '../comments';
 import {
+  postComment,
   SEND_POST_COMMENT_REQUEST,
   SEND_POST_COMMENT_SUCCESS,
   SEND_POST_COMMENT_FAILURE
@@ -45,10 +46,6 @@ test(
   postComment('foo'),
   [
     {
-      type: UI_POST_COMMENT,
-      payload: {}
-    },
-    {
       type: SEND_POST_COMMENT_REQUEST,
       meta: {id: 'foo'}
     },
@@ -86,10 +83,6 @@ test(
   }),
   postComment('foo'),
   [
-    {
-      type: UI_POST_COMMENT,
-      payload: {}
-    },
     {
       type: SEND_POST_COMMENT_REQUEST,
       meta: {id: 'foo'}

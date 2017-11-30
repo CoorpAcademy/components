@@ -1,6 +1,7 @@
 import test from 'ava';
 import reducer from '../comments';
-import {UI_EDIT_COMMENT, UI_POST_COMMENT} from '../../../actions/ui/comments';
+import {UI_EDIT_COMMENT} from '../../../actions/ui/comments';
+import {SEND_POST_COMMENT_REQUEST} from '../../../actions/api/comments';
 import {UI_SELECT_PROGRESSION} from '../../../actions/ui/progressions';
 import macro from '../../test/helpers/macro';
 
@@ -25,7 +26,7 @@ test(
   macro,
   reducer,
   {text: 'foo', isSent: false},
-  {type: UI_POST_COMMENT},
+  {type: SEND_POST_COMMENT_REQUEST},
   {text: 'foo', isSent: true}
 );
 
