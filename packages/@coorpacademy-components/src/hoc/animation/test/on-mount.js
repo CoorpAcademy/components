@@ -3,7 +3,7 @@ import test from 'ava';
 import React from 'react';
 import {shallow, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import toString from 'lodash/fp/toString';
+import _toString from 'lodash/fp/toString';
 import Animation, {LINEAR} from '..';
 
 browserEnv({pretendToBeVisual: true});
@@ -14,7 +14,7 @@ const nextFrame = () => new Promise(requestAnimationFrame);
 test('should increase progression each frame', async t => {
   const wrapper = shallow(
     <Animation name="test" bezier={LINEAR} duration={1000}>
-      {toString}
+      {_toString}
     </Animation>
   );
 
@@ -34,13 +34,13 @@ test('should increase progression each frame', async t => {
   wrapper.update();
 
   const firstFrameValue = LINEAR(wrapper.state('progress'));
-  t.deepEqual(wrapper.text(), toString(firstFrameValue));
+  t.deepEqual(wrapper.text(), _toString(firstFrameValue));
 
   await nextFrame();
   wrapper.update();
 
   const secondFrameValue = LINEAR(wrapper.state('progress'));
-  t.deepEqual(wrapper.text(), toString(secondFrameValue));
+  t.deepEqual(wrapper.text(), _toString(secondFrameValue));
   t.true(firstFrameValue < secondFrameValue);
 
   // Pause
@@ -51,7 +51,7 @@ test('should increase progression each frame', async t => {
   wrapper.update();
 
   const thirdFrameValue = LINEAR(wrapper.state('progress'));
-  t.deepEqual(wrapper.text(), toString(thirdFrameValue));
+  t.deepEqual(wrapper.text(), _toString(thirdFrameValue));
   t.deepEqual(secondFrameValue, thirdFrameValue);
 
   wrapper.unmount();
@@ -60,7 +60,7 @@ test('should increase progression each frame', async t => {
 test('should start and stop on receive props', async t => {
   const wrapper = shallow(
     <Animation name="test" bezier={LINEAR} duration={1000} animated>
-      {toString}
+      {_toString}
     </Animation>
   );
 
@@ -72,7 +72,7 @@ test('should start and stop on receive props', async t => {
 
   const firstFrameValue = LINEAR(wrapper.state('progress'));
   t.true(firstFrameValue > 0);
-  t.deepEqual(wrapper.text(), toString(firstFrameValue));
+  t.deepEqual(wrapper.text(), _toString(firstFrameValue));
 
   wrapper.setProps({});
   await nextFrame();
@@ -80,7 +80,7 @@ test('should start and stop on receive props', async t => {
 
   const secondFrameValue = LINEAR(wrapper.state('progress'));
   t.true(secondFrameValue > firstFrameValue);
-  t.deepEqual(wrapper.text(), toString(secondFrameValue));
+  t.deepEqual(wrapper.text(), _toString(secondFrameValue));
 
   wrapper.setProps({animated: undefined});
   await nextFrame();
@@ -88,7 +88,7 @@ test('should start and stop on receive props', async t => {
 
   const thirdFrameValue = LINEAR(wrapper.state('progress'));
   t.deepEqual(thirdFrameValue, secondFrameValue);
-  t.deepEqual(wrapper.text(), toString(thirdFrameValue));
+  t.deepEqual(wrapper.text(), _toString(thirdFrameValue));
 
   wrapper.setProps({});
   await nextFrame();
@@ -96,7 +96,7 @@ test('should start and stop on receive props', async t => {
 
   const fourthFrameValue = LINEAR(wrapper.state('progress'));
   t.deepEqual(fourthFrameValue, thirdFrameValue);
-  t.deepEqual(wrapper.text(), toString(fourthFrameValue));
+  t.deepEqual(wrapper.text(), _toString(fourthFrameValue));
 
   wrapper.setProps({animated: true});
   await nextFrame();
@@ -107,7 +107,7 @@ test('should start and stop on receive props', async t => {
 test('should call onAnimationEnd', async t => {
   const wrapper = shallow(
     <Animation name="test" bezier={LINEAR} duration={1} animated>
-      {toString}
+      {_toString}
     </Animation>
   );
 
@@ -121,7 +121,7 @@ test('should call onAnimationEnd', async t => {
 
   const wrapperWithoutHandler = shallow(
     <Animation name="test" bezier={LINEAR} duration={1} animated>
-      {toString}
+      {_toString}
     </Animation>
   );
 

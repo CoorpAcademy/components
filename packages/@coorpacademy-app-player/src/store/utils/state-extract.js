@@ -1,7 +1,7 @@
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import pipe from 'lodash/fp/pipe';
-import toString from 'lodash/fp/toString'; // eslint-disable-line no-shadow
+import _toString from 'lodash/fp/toString';
 
 const getId = get('_id');
 
@@ -43,7 +43,7 @@ export const getAnswerValues = (slide, state) => {
   const answers = get('value', getAnswers(state));
   const defaultValue = get('question.content.defaultValue', slide);
   if (answers === undefined && defaultValue !== undefined) {
-    return [toString(defaultValue)];
+    return [_toString(defaultValue)];
   }
   return answers;
 };

@@ -36,7 +36,7 @@
     "flowtype/use-flow-type": "error",
     "fp/no-class": "off",
     "import/no-extraneous-dependencies": "off",
-    "no-shadow": ["error", {"builtinGlobals": true, "hoist": "all", "allow": ["Promise", "history", "location", "find", "name", "toString", "Notification", "Animation"]}],
+    "no-shadow": ["error", {"builtinGlobals": true, "hoist": "all", "allow": ["Promise", "history", "location", "find", "name", "Notification", "Animation"]}],
     "promise/no-native": "off",
     "react/prop-types": "off"
   },
