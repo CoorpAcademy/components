@@ -1,4 +1,4 @@
-import 'jsdom-global/register';
+import browserEnv from 'browser-env';
 import test from 'ava';
 import React from 'react';
 import {shallow, configure} from 'enzyme';
@@ -6,6 +6,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import ImageUpload from '..';
 import desktopFixture from './fixtures/desktop';
 
+browserEnv();
 configure({adapter: new Adapter()});
 
 test('should set state to dragging when user starts dragging', t => {

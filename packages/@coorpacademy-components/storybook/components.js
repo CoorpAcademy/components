@@ -33,6 +33,10 @@ import Spinner from './../src/atom/spinner';
 import Tab from './../src/atom/tab';
 import TabContent from './../src/atom/tab-content';
 import Title from './../src/atom/title';
+import Animation from './../src/hoc/animation';
+import AnimationScheduler from './../src/hoc/animation-scheduler';
+import Swapper from './../src/hoc/swapper';
+import Transition from './../src/hoc/transition';
 import Answer from './../src/molecule/answer';
 import PopinHeader from './../src/molecule/app-player/popin/popin-header';
 import BattleRequest from './../src/molecule/battle-request';
@@ -247,6 +251,12 @@ import TabFixtureDefault from '../src/atom/tab/test/fixtures/default';
 import TabContentFixtureDefault from '../src/atom/tab-content/test/fixtures/default';
 import TabContentFixtureHideContentBackground from '../src/atom/tab-content/test/fixtures/hide-content-background';
 import TitleFixtureFixture from '../src/atom/title/test/fixtures/fixture';
+import AnimationFixtureStart from '../src/hoc/animation/test/fixtures/start';
+import AnimationFixtureStop from '../src/hoc/animation/test/fixtures/stop';
+import AnimationSchedulerFixtureParallel from '../src/hoc/animation-scheduler/test/fixtures/parallel';
+import AnimationSchedulerFixtureSeries from '../src/hoc/animation-scheduler/test/fixtures/series';
+import SwapperFixtureDefault from '../src/hoc/swapper/test/fixtures/default';
+import TransitionFixtureFlipSquare from '../src/hoc/transition/test/fixtures/flip-square';
 import AnswerFixtureDefault from '../src/molecule/answer/test/fixtures/default';
 import AnswerFixtureDropDown from '../src/molecule/answer/test/fixtures/drop-down';
 import AnswerFixtureQcmDrag from '../src/molecule/answer/test/fixtures/qcm-drag';
@@ -540,6 +550,7 @@ import PopinEndFixtureCorrect from '../src/template/app-player/popin-end/test/fi
 import PopinEndFixtureDefault from '../src/template/app-player/popin-end/test/fixtures/default';
 import PopinEndFixtureFail from '../src/template/app-player/popin-end/test/fixtures/fail';
 import PopinEndFixtureLoading from '../src/template/app-player/popin-end/test/fixtures/loading';
+import PopinEndFixtureNegativeRank from '../src/template/app-player/popin-end/test/fixtures/negative-rank';
 import PopinEndFixtureNextCourse from '../src/template/app-player/popin-end/test/fixtures/next-course';
 import PopinEndFixtureSimpleAction from '../src/template/app-player/popin-end/test/fixtures/simple-action';
 import PopinEndFixtureSubscribe from '../src/template/app-player/popin-end/test/fixtures/subscribe';
@@ -625,6 +636,12 @@ export const components = {
     Tab,
     TabContent,
     Title
+  },
+  Hoc: {
+    Animation,
+    AnimationScheduler,
+    Swapper,
+    Transition
   },
   Molecule: {
     Answer,
@@ -935,6 +952,22 @@ export const fixtures = {
     },
     Title: {
       TitleFixtureFixture
+    }
+  },
+  Hoc: {
+    Animation: {
+      AnimationFixtureStart,
+      AnimationFixtureStop
+    },
+    AnimationScheduler: {
+      AnimationSchedulerFixtureParallel,
+      AnimationSchedulerFixtureSeries
+    },
+    Swapper: {
+      SwapperFixtureDefault
+    },
+    Transition: {
+      TransitionFixtureFlipSquare
     }
   },
   Molecule: {
@@ -1409,6 +1442,7 @@ export const fixtures = {
       PopinEndFixtureDefault,
       PopinEndFixtureFail,
       PopinEndFixtureLoading,
+      PopinEndFixtureNegativeRank,
       PopinEndFixtureNextCourse,
       PopinEndFixtureSimpleAction,
       PopinEndFixtureSubscribe,

@@ -1,10 +1,11 @@
-import 'jsdom-global/register';
+import browserEnv from 'browser-env';
 import test from 'ava';
 import React from 'react';
 import {mount, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import VideoIframe from '..';
 
+browserEnv();
 configure({adapter: new Adapter()});
 
 test('should render properly a kontiki iframe', t => {

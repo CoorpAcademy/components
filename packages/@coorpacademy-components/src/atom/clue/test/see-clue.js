@@ -1,4 +1,4 @@
-import 'jsdom-global/register';
+import browserEnv from 'browser-env';
 import test from 'ava';
 import React from 'react';
 import {mount, configure} from 'enzyme';
@@ -8,6 +8,7 @@ import Clue from '..';
 import style from '../style.css'; // eslint-disable-line css-modules/no-unused-class
 import defaultFixture from './fixtures/default';
 
+browserEnv();
 configure({adapter: new Adapter()});
 
 test('should See the clue', t => {

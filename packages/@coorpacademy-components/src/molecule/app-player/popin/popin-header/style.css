@@ -169,6 +169,31 @@
 .centerContent {
   display: flex;
   align-items: center;
+  min-width: 110px;
+}
+
+@keyframes bump {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+    fill: yellow;
+  }
+
+  80% {
+    transform: scale(0.9);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.bumped {
+  animation: bump 0.3s ease;
+  animation-fill-mode: forwards;
 }
 
 .iconsWrapper {
@@ -456,7 +481,8 @@
 
   .correctionSectionFailGameOver,
   .correctionSectionFail,
-  .correctionSectionSuccess {
+  .correctionSectionSuccess,
+  .correctionSectionEndSuccess {
     height: 99px;
   }
 

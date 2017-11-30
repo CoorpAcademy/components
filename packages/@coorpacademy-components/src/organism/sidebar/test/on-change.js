@@ -1,4 +1,4 @@
-import 'jsdom-global/register';
+import browserEnv from 'browser-env';
 import test from 'ava';
 import React from 'react';
 import {mount, configure} from 'enzyme';
@@ -7,6 +7,7 @@ import replace from 'lodash/fp/replace';
 import {InputTextItem} from '..';
 import style from '../style.css'; // eslint-disable-line css-modules/no-unused-class
 
+browserEnv();
 configure({adapter: new Adapter()});
 
 const defaultFixture = {

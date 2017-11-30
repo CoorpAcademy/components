@@ -8,6 +8,9 @@ import isNil from 'lodash/fp/isNil';
 import pipe from 'lodash/fp/pipe';
 import times from 'lodash/fp/times';
 import zip from 'lodash/fp/zip';
+import round from 'lodash/fp/round';
+import _parseInt from 'lodash/fp/parseInt';
+import multiply from 'lodash/fp/multiply';
 import ArrowRight from '@coorpacademy/nova-icons/composition/navigation/arrow-right';
 import ChartsIcon from '@coorpacademy/nova-icons/composition/coorpacademy/charts';
 import StarIcon from '@coorpacademy/nova-icons/composition/coorpacademy/star';
@@ -17,6 +20,9 @@ import classnames from 'classnames';
 import Loader from '../../../../atom/loader';
 import Life from '../../../../atom/life';
 import Link from '../../../../atom/link';
+import Animation, {EASE_OUT_CUBIC} from '../../../../hoc/animation';
+import Transition from '../../../../hoc/transition';
+import AnimationScheduler, {AnimationAdapter} from '../../../../hoc/animation-scheduler';
 import Provider from '../../../../atom/provider';
 import style from './style.css';
 
@@ -57,37 +63,67 @@ AnswersCorrection.propTypes = {
   )
 };
 
-const Rank = ({rank}, {skin}) => {
+const formatPlusSign = value => (value >= 0 ? '+' : '') + value;
+
+const Rank = ({fail, rank, animated, onAnimationEnd}, {skin}) => {
   const positive = get('common.positive', skin);
-  if (isNil(rank)) return null;
+  if (fail || isNil(rank)) return null;
   return (
-    <div className={style.centerContent}>
-      <div className={style.iconBubble}>
-        <ChartsIcon className={style.icon} color={positive} />
+    <AnimationScheduler animated={animated} onAnimationEnd={onAnimationEnd}>
+      <div className={style.centerContent}>
+        <Transition name="label" after="counter" className={style.bumped}>
+          <div className={style.iconBubble}>
+            <ChartsIcon className={style.icon} color={positive} />
+          </div>
+        </Transition>
+        <span className={style.iconText}>
+          <Animation name="counter" bezier={EASE_OUT_CUBIC} duration={1000}>
+            {progress => pipe(_parseInt(10), multiply(progress), round, formatPlusSign)(rank)}
+          </Animation>
+        </span>
       </div>
-      <span className={style.iconText}>{rank}</span>
-    </div>
+    </AnimationScheduler>
   );
+};
+
+Rank.propTypes = {
+  fail: PropTypes.bool,
+  rank: PropTypes.string,
+  animated: Animation.propTypes.animated,
+  onAnimationEnd: Animation.propTypes.onAnimationEnd
 };
 
 Rank.contextTypes = {
   skin: Provider.childContextTypes.skin
 };
 
-const Stars = ({stars}, {skin}) => {
+const Stars = ({fail, stars, animated, onAnimationEnd}, {skin}) => {
   const positive = get('common.positive', skin);
-  if (isNil(stars)) return null;
+  if (fail || isNil(stars)) return null;
 
   return (
-    <div className={style.centerContent}>
-      <div className={style.iconBubble}>
-        <StarIcon className={style.icon} color={positive} />
+    <AnimationScheduler animated={animated} onAnimationEnd={onAnimationEnd}>
+      <div className={style.centerContent}>
+        <Transition name="label" after="counter" className={style.bumped}>
+          <div className={style.iconBubble}>
+            <StarIcon className={style.icon} color={positive} />
+          </div>
+        </Transition>
+        <span data-name="iconText" className={style.iconText}>
+          <Animation name="counter" bezier={EASE_OUT_CUBIC} duration={1000}>
+            {progress => pipe(_parseInt(10), multiply(progress), round, formatPlusSign)(stars)}
+          </Animation>
+        </span>
       </div>
-      <span data-name="iconText" className={style.iconText}>
-        {stars}
-      </span>
-    </div>
+    </AnimationScheduler>
   );
+};
+
+Stars.propTypes = {
+  fail: PropTypes.bool,
+  stars: PropTypes.string,
+  animated: Animation.propTypes.animated,
+  onAnimationEnd: Animation.propTypes.onAnimationEnd
 };
 
 Stars.contextTypes = {
@@ -102,15 +138,38 @@ const Lifes = ({lives, fail, animated, revival}) => {
   );
 };
 
+Lifes.propTypes = {
+  lives: Life.propTypes.count,
+  fail: Life.propTypes.fail,
+  animated: Life.propTypes.animated,
+  revival: Life.propTypes.revival
+};
+
 const IconsPart = props => {
   const {lives, fail, stars, rank, animated, revival} = props;
   return (
-    <div className={style.iconsWrapper}>
-      <Lifes lives={lives} fail={fail} animated={animated} revival={revival} />
-      <Stars stars={stars} />
-      <Rank rank={rank} />
-    </div>
+    <AnimationScheduler animated>
+      <div className={style.iconsWrapper}>
+        <Lifes lives={lives} fail={fail} animated={animated} revival={revival} />
+
+        <AnimationAdapter name="stars">
+          <Stars stars={stars} fail={fail} />
+        </AnimationAdapter>
+        <AnimationAdapter name="rank" after="stars">
+          <Rank rank={rank} fail={fail} />
+        </AnimationAdapter>
+      </div>
+    </AnimationScheduler>
   );
+};
+
+IconsPart.propTypes = {
+  lives: Lifes.propTypes.lives,
+  fail: Lifes.propTypes.fail,
+  stars: Stars.propTypes.stars,
+  rank: Rank.propTypes.rank,
+  animated: AnimationScheduler.propTypes.animated,
+  revival: PropTypes.bool
 };
 
 const buildClass = (value, success, fail, loading) => {

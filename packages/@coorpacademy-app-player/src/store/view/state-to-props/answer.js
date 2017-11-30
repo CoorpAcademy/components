@@ -11,7 +11,7 @@ import size from 'lodash/fp/size';
 import set from 'lodash/fp/set';
 import isNil from 'lodash/fp/isNil';
 import rangeStep from 'lodash/fp/rangeStep';
-import toString from 'lodash/fp/toString'; // eslint-disable-line no-shadow
+import _toString from 'lodash/fp/toString';
 import indexOf from 'lodash/fp/indexOf';
 import {
   getChoices,
@@ -154,7 +154,7 @@ const basicProps = (options, store) => (state, slide) => {
 const toAnswer = values => {
   const maxValue = size(values) - 1;
   return position => {
-    return pipe(multiply(maxValue), round, get(__, values), toString)(position);
+    return pipe(multiply(maxValue), round, get(__, values), _toString)(position);
   };
 };
 

@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import identity from 'lodash/fp/identity';
+import compact from 'lodash/fp/compact';
 import find from 'lodash/fp/find';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
+import identity from 'lodash/fp/identity';
+import max from 'lodash/fp/max';
 import pipe from 'lodash/fp/pipe';
 import split from 'lodash/fp/split';
-import compact from 'lodash/fp/compact';
 import {ColorPropType} from '../../../util/proptypes';
 import Cta from '../../../atom/cta';
 import Picture from '../../../atom/picture';
@@ -14,6 +15,7 @@ import Provider from '../../../atom/provider';
 import Clue from '../../../atom/clue';
 import Answer from '../../answer';
 import Loader from '../../../atom/loader';
+import Swapper from '../../../hoc/swapper';
 import VideoPlayer from '../../video-player';
 import PDF from '../../pdf';
 import ResourceBrowser from '../../../organism/resource-browser';
@@ -195,12 +197,14 @@ const CONTENT_TYPE = {
   media: MediaContent
 };
 
-const Bar = ({current, total, color}) => {
+const Bar = ({total, color, current}) => {
+  const _current = max([current, 0]);
+
   if (!total) {
     return null;
   }
 
-  const stepWidth = current / total * 100;
+  const stepWidth = _current / total * 100;
 
   return (
     <div
@@ -227,7 +231,9 @@ const Step = ({step, color}) => {
         /{step.total}
       </div>
       <div className={style.stepWrapper}>
-        <Bar current={step.current} total={step.total} color={color} />
+        <Swapper color={color} {...step} current={step.current - 1}>
+          <Bar color={color} {...step} />
+        </Swapper>
       </div>
     </div>
   );
