@@ -65,9 +65,9 @@ AnswersCorrection.propTypes = {
 
 const formatPlusSign = value => (value >= 0 ? '+' : '') + value;
 
-const Rank = ({bumpRank, rank, animated, onAnimationEnd}, {skin}) => {
+const Rank = ({fail, rank, animated, onAnimationEnd}, {skin}) => {
   const positive = get('common.positive', skin);
-  if (isNil(rank)) return null;
+  if (fail || isNil(rank)) return null;
   return (
     <AnimationScheduler animated={animated} onAnimationEnd={onAnimationEnd}>
       <div className={style.centerContent}>
@@ -87,13 +87,12 @@ const Rank = ({bumpRank, rank, animated, onAnimationEnd}, {skin}) => {
 };
 
 Rank.contextTypes = {
-  bumpRank: PropTypes.bool,
   skin: Provider.childContextTypes.skin
 };
 
-const Stars = ({bumpStars, stars, animated, onAnimationEnd}, {skin}) => {
+const Stars = ({fail, stars, animated, onAnimationEnd}, {skin}) => {
   const positive = get('common.positive', skin);
-  if (isNil(stars)) return null;
+  if (fail || isNil(stars)) return null;
 
   return (
     <AnimationScheduler animated={animated} onAnimationEnd={onAnimationEnd}>
@@ -114,7 +113,6 @@ const Stars = ({bumpStars, stars, animated, onAnimationEnd}, {skin}) => {
 };
 
 Stars.contextTypes = {
-  bumpStars: PropTypes.bool,
   skin: Provider.childContextTypes.skin
 };
 
@@ -127,17 +125,17 @@ const Lifes = ({lives, fail, animated, revival}) => {
 };
 
 const IconsPart = props => {
-  const {bumpStars, bumpRank, lives, fail, stars, rank, animated, revival} = props;
+  const {lives, fail, stars, rank, animated, revival} = props;
   return (
     <AnimationScheduler animated>
       <div className={style.iconsWrapper}>
         <Lifes lives={lives} fail={fail} animated={animated} revival={revival} />
 
         <AnimationAdapter name="stars">
-          <Stars stars={stars} bumpStars={bumpStars} />
+          <Stars stars={stars} fail={fail} />
         </AnimationAdapter>
         <AnimationAdapter name="rank" after="stars">
-          <Rank rank={rank} bumpRank={bumpRank} />
+          <Rank rank={rank} fail={fail} />
         </AnimationAdapter>
       </div>
     </AnimationScheduler>
@@ -270,8 +268,6 @@ RemainingLife.contextTypes = {
 const PopinHeader = (props, context) => {
   const {
     animated,
-    bumpRank,
-    bumpStars,
     fail,
     title,
     subtitle,
@@ -312,8 +308,6 @@ const PopinHeader = (props, context) => {
           extraLife={extraLife}
           revival={revival}
           corrections={corrections}
-          bumpRank={bumpRank}
-          bumpStars={bumpStars}
         />
         <NextQuestionPart
           cta={cta}

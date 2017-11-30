@@ -39,7 +39,7 @@ const pickByWithKey = pickBy.convert({cap: true});
 
 const walker = (type, handler) => children => {
   return React.Children.map(children, (child, index) => {
-    if (isString(child)) return child;
+    if (isNil(child) || isString(child)) return child;
     const newChild = child.type === type ? handler(child) : child;
     if (React.Children.count(newChild.props.children) === 0) return newChild;
     return React.cloneElement(newChild, {}, walker(type, handler)(newChild.props.children));
