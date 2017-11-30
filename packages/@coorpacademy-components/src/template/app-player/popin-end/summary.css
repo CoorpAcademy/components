@@ -201,6 +201,10 @@
 
 /* ------------- CommentSection */
 
+.discussionWrapper{
+  border-top: 1px solid light;
+}
+
 .commentSection {
   width: 100%;
   padding: 70px 0;
