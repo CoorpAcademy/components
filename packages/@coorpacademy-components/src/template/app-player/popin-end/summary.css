@@ -201,7 +201,7 @@
 
 /* ------------- CommentSection */
 
-.discussionWrapper{
+.discussionWrapper {
   border-top: 1px solid light;
 }
 
@@ -219,12 +219,10 @@
 @keyframes fadeIn {
   0% {
     opacity: 0;
-    margin-left: 100%;
   }
 
   100% {
     opacity: 1;
-    margin-left: 30%;
   }
 }
 
@@ -264,18 +262,6 @@
   .commentSectionTexts {
     text-align: center;
     width: 100%;
-  }
-
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-      margin-left: 100%;
-    }
-
-    100% {
-      opacity: 1;
-      margin-left: 0;
-    }
   }
 }
 
