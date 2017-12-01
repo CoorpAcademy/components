@@ -9,6 +9,7 @@ import {popinCorrectionStateToProps} from './state-to-props/popin-correction';
 import popinEndStateToProps from './state-to-props/popin-end';
 import loadingStateToProps from './state-to-props/loading';
 import {createSlideStateToProps} from './state-to-props/slide';
+import {createLandingStateToProps} from './state-to-props/landing'
 
 const hasNotProgression = pipe(getCurrentProgression, isNil);
 const hasNoContent = pipe(getStepContent, isNil);
@@ -18,28 +19,4 @@ const matchContentRef = contentType => pipe(getStepContent, get('ref'), isEqual(
 
 // eslint-disable-next-line import/prefer-default-export
 export const selectMapStateToVNode = (options, store, views, createStateToVNode) =>
-  cond([
-    [hasNotProgression, createStateToVNode(views.loading, loadingStateToProps)],
-    [hasNoContent, createStateToVNode(views.loading, loadingStateToProps)],
-    [
-      matchRoute('correction'),
-      createStateToVNode(views.popinCorrection, popinCorrectionStateToProps(options, store))
-    ],
-    [
-      matchContentRef('extraLife'),
-      createStateToVNode(views.popinCorrection, popinCorrectionStateToProps(options, store))
-    ],
-    [
-      matchContentType('slide'),
-      createStateToVNode(views.player, createSlideStateToProps(options, store))
-    ],
-    [
-      matchContentType('success'),
-      createStateToVNode(views.popinEnd, popinEndStateToProps(options, store))
-    ],
-    [
-      matchContentType('failure'),
-      createStateToVNode(views.popinEnd, popinEndStateToProps(options, store))
-    ],
-    [constant(true), createStateToVNode(views.loading, loadingStateToProps)]
-  ]);
+  createStateToVNode(views.landing, createLandingStateToProps(options, store));
