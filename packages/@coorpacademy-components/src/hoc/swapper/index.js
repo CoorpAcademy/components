@@ -20,7 +20,7 @@ class Swapper extends React.Component {
     const {children, ...props} = this.props;
     const child = React.Children.only(children);
 
-    return init ? child : React.cloneElement(child, props);
+    return init ? React.cloneElement(child, props) : child;
   }
 }
 

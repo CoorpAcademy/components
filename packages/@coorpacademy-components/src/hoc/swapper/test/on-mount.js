@@ -41,7 +41,8 @@ test('should not apply new props before next frame', t => {
 
   t.deepEqual(props, {
     'data-name': 'test',
-    'data-selected': false
+    'data-selected': true,
+    'data-more': 42
   });
 });
 
@@ -57,7 +58,6 @@ test('should apply new props after next frame', async t => {
 
   return t.deepEqual(props, {
     'data-name': 'test',
-    'data-selected': true,
-    'data-more': 42
+    'data-selected': false
   });
 });
