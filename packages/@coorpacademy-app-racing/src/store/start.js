@@ -1,9 +1,9 @@
-import {joinTeam} from './actions/api/progressions';
+import {openGame} from './actions/ui/games';
 
-const start = ({progression}, {dispatch}) => {
+const start = ({progressionId, userId}, {dispatch}) => {
   /* istanbul ignore if  */
 
-  return dispatch(joinTeam(progression));
+  return dispatch(openGame(progressionId, userId));
 };
 
 export default start;
