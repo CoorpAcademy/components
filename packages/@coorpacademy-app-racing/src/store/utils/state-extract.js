@@ -8,6 +8,7 @@ const getId = get('_id');
 export const getChapterId = get('chapter_id');
 export const getChoices = get('question.content.choices');
 export const getCurrentProgressionId = get('ui.current.progressionId');
+export const getCurrentUserId = get('ui.current.userId');
 export const getQuestionType = get('question.type');
 
 export const getProgression = id => state => {
