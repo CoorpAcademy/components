@@ -1,0 +1,30 @@
+[
+  {
+    "_id": "5809d933c762494a60eb589f",
+    "ref": "successExitNode",
+    "type": "success",
+    "meta": {
+      "updatedAt": "2017-06-05T08:36:49.954Z",
+      "createdAt": "2017-06-05T08:36:49.954Z"
+    },
+    "media": {
+      "subtitles": [],
+      "posters": [],
+      "src": []
+    }
+  },
+  {
+    "_id": "5809d933c762494a60eb58a0",
+    "ref": "failExitNode",
+    "type": "failure",
+    "meta": {
+      "updatedAt": "2017-06-05T08:36:49.956Z",
+      "createdAt": "2017-06-05T08:36:49.956Z"
+    },
+    "media": {
+      "subtitles": [],
+      "posters": [],
+      "src": []
+    }
+  }
+]
