@@ -57,7 +57,7 @@ const readFixtureExports$ = cwd =>
             mapValuesWithKey((fixtures, title) => {
               return pipe(
                 keys,
-                map(fixture => `${title}Fixture${fixture}`),
+                map(fixture => `${fixture}: ${title}Fixture${fixture}`),
                 join(',\n      '),
                 s => `${title}: {\n      ${s}\n    }`
               )(fixtures);
