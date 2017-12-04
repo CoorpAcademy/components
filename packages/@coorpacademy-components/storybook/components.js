@@ -180,6 +180,7 @@ import InputHtmlFixtureError from '../src/atom/input-html/test/fixtures/error';
 import InputReadonlyFixtureDefault from '../src/atom/input-readonly/test/fixtures/default';
 import InputSwitchFixtureChecked from '../src/atom/input-switch/test/fixtures/checked';
 import InputSwitchFixtureDisabled from '../src/atom/input-switch/test/fixtures/disabled';
+import InputSwitchFixtureFirst from '../src/atom/input-switch/test/fixtures/first';
 import InputSwitchFixtureModified from '../src/atom/input-switch/test/fixtures/modified';
 import InputSwitchFixtureNoTitle from '../src/atom/input-switch/test/fixtures/no-title';
 import InputSwitchFixtureSso from '../src/atom/input-switch/test/fixtures/sso';
@@ -189,6 +190,7 @@ import InputTextFixtureDisabled from '../src/atom/input-text/test/fixtures/disab
 import InputTextFixtureEmpty from '../src/atom/input-text/test/fixtures/empty';
 import InputTextFixtureError from '../src/atom/input-text/test/fixtures/error';
 import InputTextFixtureModified from '../src/atom/input-text/test/fixtures/modified';
+import InputTextFixtureNotitle from '../src/atom/input-text/test/fixtures/notitle';
 import InputTextFixtureRequired from '../src/atom/input-text/test/fixtures/required';
 import InputTextareaFixtureDefault from '../src/atom/input-textarea/test/fixtures/default';
 import InputTextareaFixtureEmpty from '../src/atom/input-textarea/test/fixtures/empty';
@@ -288,6 +290,7 @@ import BrandFormGroupFixtureDashboard from '../src/molecule/brand-form-group/tes
 import BrandFormGroupFixtureDefault from '../src/molecule/brand-form-group/test/fixtures/default';
 import BrandFormGroupFixtureImages from '../src/molecule/brand-form-group/test/fixtures/images';
 import BrandFormGroupFixtureLookandfeel from '../src/molecule/brand-form-group/test/fixtures/lookandfeel';
+import BrandFormGroupFixturePwdprivacy from '../src/molecule/brand-form-group/test/fixtures/pwdprivacy';
 import BrandFormGroupFixtureRoles from '../src/molecule/brand-form-group/test/fixtures/roles';
 import BrandFormGroupFixtureSlider from '../src/molecule/brand-form-group/test/fixtures/slider';
 import BrandFormGroupFixtureSso from '../src/molecule/brand-form-group/test/fixtures/sso';
@@ -839,20 +842,22 @@ export const fixtures = {
       Default: InputReadonlyFixtureDefault
     },
     InputSwitch: {
-      Checked: InputSwitchFixtureChecked,
-      Disabled: InputSwitchFixtureDisabled,
-      Modified: InputSwitchFixtureModified,
-      NoTitle: InputSwitchFixtureNoTitle,
-      Sso: InputSwitchFixtureSso,
-      Unchecked: InputSwitchFixtureUnchecked
+      InputSwitchFixtureChecked,
+      InputSwitchFixtureDisabled,
+      InputSwitchFixtureFirst,
+      InputSwitchFixtureModified,
+      InputSwitchFixtureNoTitle,
+      InputSwitchFixtureSso,
+      InputSwitchFixtureUnchecked
     },
     InputText: {
-      Default: InputTextFixtureDefault,
-      Disabled: InputTextFixtureDisabled,
-      Empty: InputTextFixtureEmpty,
-      Error: InputTextFixtureError,
-      Modified: InputTextFixtureModified,
-      Required: InputTextFixtureRequired
+      InputTextFixtureDefault,
+      InputTextFixtureDisabled,
+      InputTextFixtureEmpty,
+      InputTextFixtureError,
+      InputTextFixtureModified,
+      InputTextFixtureNotitle,
+      InputTextFixtureRequired
     },
     InputTextarea: {
       Default: InputTextareaFixtureDefault,
@@ -1002,13 +1007,14 @@ export const fixtures = {
       Sso: BrandDownloadBoxFixtureSso
     },
     BrandFormGroup: {
-      Dashboard: BrandFormGroupFixtureDashboard,
-      Default: BrandFormGroupFixtureDefault,
-      Images: BrandFormGroupFixtureImages,
-      Lookandfeel: BrandFormGroupFixtureLookandfeel,
-      Roles: BrandFormGroupFixtureRoles,
-      Slider: BrandFormGroupFixtureSlider,
-      Sso: BrandFormGroupFixtureSso
+      BrandFormGroupFixtureDashboard,
+      BrandFormGroupFixtureDefault,
+      BrandFormGroupFixtureImages,
+      BrandFormGroupFixtureLookandfeel,
+      BrandFormGroupFixturePwdprivacy,
+      BrandFormGroupFixtureRoles,
+      BrandFormGroupFixtureSlider,
+      BrandFormGroupFixtureSso
     },
     BrandTabs: {
       Default: BrandTabsFixtureDefault,

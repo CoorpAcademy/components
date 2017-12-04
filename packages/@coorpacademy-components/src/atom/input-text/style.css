@@ -47,6 +47,21 @@
   width: 230px;
 }
 
+.istitle .title {
+  display: none;
+}
+
+.istitle {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  align-content: center;
+}
+
+.istitle .description {
+  margin-left: 8px;
+}
+
 .error .input {
   border-color: negative;
 }

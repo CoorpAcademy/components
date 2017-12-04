@@ -1,3 +1,5 @@
+import BrandFormGroupPwdPrivacy from '../../../../molecule/brand-form-group/test/fixtures/pwdprivacy';
+
 export default {
   props: {
     groups: [
@@ -28,6 +30,7 @@ export default {
           }
         ]
       },
+      BrandFormGroupPwdPrivacy.props,
       {
         title: 'Danger Zone',
         fields: [

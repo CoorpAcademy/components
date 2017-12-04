@@ -97,3 +97,16 @@
   font-style: italic;
   margin-left: 20px;
 }
+
+.isFirst {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  composes: default;
+}
+
+.isFirst .title {
+  display: flex;
+  align-items: center;
+  align-content: center;
+}

@@ -6,7 +6,16 @@ import getClassState from '../../util/get-class-state';
 import style from './style.css';
 
 const InputSwitch = props => {
-  const {title, id, value, disabled, onChange = noop, description, modified = false} = props;
+  const {
+    title,
+    id,
+    value,
+    disabled,
+    onChange = noop,
+    description,
+    isFirst,
+    modified = false
+  } = props;
 
   const idSwitch = id || uniqueId('input-switch-');
   const isDisabled = disabled ? 'disabled' : '';
@@ -17,7 +26,14 @@ const InputSwitch = props => {
   const descriptionView = description ? (
     <div className={style.description}>{description}</div>
   ) : null;
-  const className = getClassState(style.default, style.modified, null, modified);
+  const className = getClassState(
+    style.default,
+    style.modified,
+    style.isFirst,
+    null,
+    modified,
+    isFirst
+  );
 
   return (
     <div className={className}>
@@ -42,6 +58,7 @@ InputSwitch.propTypes = {
   id: PropTypes.string,
   value: PropTypes.bool,
   disabled: PropTypes.bool,
+  isFirst: PropTypes.bool,
   onChange: PropTypes.func,
   description: PropTypes.string,
   modified: PropTypes.bool

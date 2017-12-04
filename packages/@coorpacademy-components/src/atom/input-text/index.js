@@ -11,6 +11,7 @@ const InputText = props => {
     defaultValue,
     onChange = noop,
     error,
+    istitle,
     description,
     disabled,
     required,
@@ -19,7 +20,15 @@ const InputText = props => {
 
   const title = `${props.title}${required ? '*' : ''} :`;
   const handleChange = e => onChange(e.target.value);
-  const className = getClassState(style.default, style.modified, style.error, modified, error);
+  const className = getClassState(
+    style.default,
+    style.modified,
+    style.error,
+    style.istitle,
+    modified,
+    error,
+    istitle
+  );
 
   return (
     <div className={className}>
@@ -43,10 +52,11 @@ const InputText = props => {
 };
 
 InputText.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   placeholder: PropTypes.string,
   defaultValue: PropTypes.string,
   disabled: PropTypes.bool,
+  istitle: PropTypes.bool,
   required: PropTypes.bool,
   value: PropTypes.string,
   error: PropTypes.string,
