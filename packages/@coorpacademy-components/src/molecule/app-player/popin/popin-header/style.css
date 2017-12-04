@@ -1,7 +1,7 @@
-@value breakpoints: "../../../../variables/breakpoints.css";
+@value breakpoints: '../../../../variables/breakpoints.css';
 @value mobile from breakpoints;
 @value tablet from breakpoints;
-@value colors: "../../../../variables/colors.css";
+@value colors: '../../../../variables/colors.css';
 @value negative from colors;
 @value light from colors;
 @value grey from colors;
@@ -291,6 +291,7 @@
   outline: none;
   min-height: 30px;
   transition: color 0.3s;
+  transform: scale(1); /* fixes a diplay bug safari v10, v11 */
 }
 
 .nextButtonIcon {
