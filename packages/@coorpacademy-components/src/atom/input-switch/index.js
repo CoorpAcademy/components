@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import noop from 'lodash/fp/noop';
 import uniqueId from 'lodash/fp/uniqueId';
+import classnames from 'classnames';
 import getClassState from '../../util/get-class-state';
 import style from './style.css';
 
@@ -26,17 +27,10 @@ const InputSwitch = props => {
   const descriptionView = description ? (
     <div className={style.description}>{description}</div>
   ) : null;
-  const className = getClassState(
-    style.default,
-    style.modified,
-    style.isFirst,
-    null,
-    modified,
-    isFirst
-  );
+  const className = getClassState(style.default, style.modified, null, modified);
 
   return (
-    <div className={className}>
+    <div className={classnames(className, isFirst && style.isFirst)}>
       {titleView}
       <input
         type="checkbox"

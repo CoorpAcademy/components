@@ -5,7 +5,7 @@ const {props} = Default;
 
 export default {
   props: defaultsDeep(props, {
-    istitle: true,
+    isTitle: false,
     description: 'lorem ipsum sigma beta gamma'
   })
 };

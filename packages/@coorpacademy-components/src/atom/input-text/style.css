@@ -47,18 +47,18 @@
   width: 230px;
 }
 
-.istitle .title {
+.isNoTitle .title {
   display: none;
 }
 
-.istitle {
+.isNoTitle {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
   align-content: center;
 }
 
-.istitle .description {
+.isNoTitle .description {
   margin-left: 8px;
 }
 
