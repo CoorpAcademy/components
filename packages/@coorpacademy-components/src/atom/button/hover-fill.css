@@ -1,9 +1,9 @@
-@value colors: "../../variables/colors.css";
+@value colors: '../../variables/colors.css';
 @value white from colors;
 
 .hoverFill {
   display: inline-block;
-  transform: translateZ(0);
+  transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   position: relative;
   transition-property: background-color;
@@ -12,7 +12,7 @@
 }
 
 .hoverFill::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   bottom: 0;
@@ -21,7 +21,7 @@
   pointer-events: none;
   background-color: white;
   opacity: 0.15;
-  transform: scaleX(0) skewX(70deg);
+  transform: scale3d(0, 1, 1) skewX(70deg);
   transform-origin: 50%;
   transition-property: transform;
   transition-duration: 0.3s;
@@ -31,5 +31,5 @@
 .hoverFill:hover::after,
 .hoverFill:focus::after,
 .hoverFill:active::after {
-  transform: scaleX(2) skewX(25deg);
+  transform: scale3d(2, 1, 1) skewX(25deg);
 }
