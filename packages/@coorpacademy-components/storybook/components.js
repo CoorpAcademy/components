@@ -766,761 +766,761 @@ export const components = {
 export const fixtures = {
   Atom: {
     Button: {
-      ButtonFixtureA,
-      ButtonFixtureClassName,
-      ButtonFixtureClear,
-      ButtonFixtureDefault,
-      ButtonFixtureDisabled,
-      ButtonFixtureDownload,
-      ButtonFixtureLink,
-      ButtonFixtureSso
+      A: ButtonFixtureA,
+      ClassName: ButtonFixtureClassName,
+      Clear: ButtonFixtureClear,
+      Default: ButtonFixtureDefault,
+      Disabled: ButtonFixtureDisabled,
+      Download: ButtonFixtureDownload,
+      Link: ButtonFixtureLink,
+      Sso: ButtonFixtureSso
     },
     CatalogSection: {
-      CatalogSectionFixtureList,
-      CatalogSectionFixturePicture
+      List: CatalogSectionFixtureList,
+      Picture: CatalogSectionFixturePicture
     },
     CenteredText: {
-      CenteredTextFixtureDefault
+      Default: CenteredTextFixtureDefault
     },
     Checkbox: {
-      CheckboxFixtureChecked,
-      CheckboxFixtureDefault,
-      CheckboxFixtureDisabled,
-      CheckboxFixtureRequired
+      Checked: CheckboxFixtureChecked,
+      Default: CheckboxFixtureDefault,
+      Disabled: CheckboxFixtureDisabled,
+      Required: CheckboxFixtureRequired
     },
     Clue: {
-      ClueFixtureDefault,
-      ClueFixtureLink,
-      ClueFixtureLoading
+      Default: ClueFixtureDefault,
+      Link: ClueFixtureLink,
+      Loading: ClueFixtureLoading
     },
     Cta: {
-      CtaFixtureLightSmall,
-      CtaFixtureLight,
-      CtaFixturePrimarySmall,
-      CtaFixturePrimary,
-      CtaFixtureSecondarySmall,
-      CtaFixtureSecondary
+      LightSmall: CtaFixtureLightSmall,
+      Light: CtaFixtureLight,
+      PrimarySmall: CtaFixturePrimarySmall,
+      Primary: CtaFixturePrimary,
+      SecondarySmall: CtaFixtureSecondarySmall,
+      Secondary: CtaFixtureSecondary
     },
     ImageUpload: {
-      ImageUploadFixtureDesktop,
-      ImageUploadFixtureEmail,
-      ImageUploadFixtureLoading,
-      ImageUploadFixtureMobile,
-      ImageUploadFixtureModified,
-      ImageUploadFixtureNoPreview,
-      ImageUploadFixtureWithoutImage
+      Desktop: ImageUploadFixtureDesktop,
+      Email: ImageUploadFixtureEmail,
+      Loading: ImageUploadFixtureLoading,
+      Mobile: ImageUploadFixtureMobile,
+      Modified: ImageUploadFixtureModified,
+      NoPreview: ImageUploadFixtureNoPreview,
+      WithoutImage: ImageUploadFixtureWithoutImage
     },
     InputCheckbox: {
-      InputCheckboxFixtureChecked,
-      InputCheckboxFixtureDefault,
-      InputCheckboxFixtureDisabled,
-      InputCheckboxFixtureError,
-      InputCheckboxFixtureModified,
-      InputCheckboxFixtureRequired
+      Checked: InputCheckboxFixtureChecked,
+      Default: InputCheckboxFixtureDefault,
+      Disabled: InputCheckboxFixtureDisabled,
+      Error: InputCheckboxFixtureError,
+      Modified: InputCheckboxFixtureModified,
+      Required: InputCheckboxFixtureRequired
     },
     InputColor: {
-      InputColorFixtureDefault,
-      InputColorFixtureEmpty,
-      InputColorFixtureError,
-      InputColorFixtureModified
+      Default: InputColorFixtureDefault,
+      Empty: InputColorFixtureEmpty,
+      Error: InputColorFixtureError,
+      Modified: InputColorFixtureModified
     },
     InputDoublestep: {
-      InputDoublestepFixtureDefault,
-      InputDoublestepFixtureInputConfirmDisabled,
-      InputDoublestepFixtureInputConfirmPending,
-      InputDoublestepFixtureInputConfirm
+      Default: InputDoublestepFixtureDefault,
+      InputConfirmDisabled: InputDoublestepFixtureInputConfirmDisabled,
+      InputConfirmPending: InputDoublestepFixtureInputConfirmPending,
+      InputConfirm: InputDoublestepFixtureInputConfirm
     },
     InputHtml: {
-      InputHtmlFixtureDefault,
-      InputHtmlFixtureEmpty,
-      InputHtmlFixtureError
+      Default: InputHtmlFixtureDefault,
+      Empty: InputHtmlFixtureEmpty,
+      Error: InputHtmlFixtureError
     },
     InputReadonly: {
-      InputReadonlyFixtureDefault
+      Default: InputReadonlyFixtureDefault
     },
     InputSwitch: {
-      InputSwitchFixtureChecked,
-      InputSwitchFixtureDisabled,
-      InputSwitchFixtureModified,
-      InputSwitchFixtureNoTitle,
-      InputSwitchFixtureSso,
-      InputSwitchFixtureUnchecked
+      Checked: InputSwitchFixtureChecked,
+      Disabled: InputSwitchFixtureDisabled,
+      Modified: InputSwitchFixtureModified,
+      NoTitle: InputSwitchFixtureNoTitle,
+      Sso: InputSwitchFixtureSso,
+      Unchecked: InputSwitchFixtureUnchecked
     },
     InputText: {
-      InputTextFixtureDefault,
-      InputTextFixtureDisabled,
-      InputTextFixtureEmpty,
-      InputTextFixtureError,
-      InputTextFixtureModified,
-      InputTextFixtureRequired
+      Default: InputTextFixtureDefault,
+      Disabled: InputTextFixtureDisabled,
+      Empty: InputTextFixtureEmpty,
+      Error: InputTextFixtureError,
+      Modified: InputTextFixtureModified,
+      Required: InputTextFixtureRequired
     },
     InputTextarea: {
-      InputTextareaFixtureDefault,
-      InputTextareaFixtureEmpty,
-      InputTextareaFixtureError
+      Default: InputTextareaFixtureDefault,
+      Empty: InputTextareaFixtureEmpty,
+      Error: InputTextareaFixtureError
     },
     Label: {
-      LabelFixtureOneChild,
-      LabelFixtureTwoChildren
+      OneChild: LabelFixtureOneChild,
+      TwoChildren: LabelFixtureTwoChildren
     },
     Life: {
-      LifeFixtureAnimatedExtraLife,
-      LifeFixtureAnimatedFail,
-      LifeFixtureDefault,
-      LifeFixtureFail,
-      LifeFixtureNull,
-      LifeFixtureSmall
+      AnimatedExtraLife: LifeFixtureAnimatedExtraLife,
+      AnimatedFail: LifeFixtureAnimatedFail,
+      Default: LifeFixtureDefault,
+      Fail: LifeFixtureFail,
+      Null: LifeFixtureNull,
+      Small: LifeFixtureSmall
     },
     Link: {
-      LinkFixtureDownload,
-      LinkFixtureHref,
-      LinkFixtureStyledLink
+      Download: LinkFixtureDownload,
+      Href: LinkFixtureHref,
+      StyledLink: LinkFixtureStyledLink
     },
     Loader: {
-      LoaderFixtureDefault
+      Default: LoaderFixtureDefault
     },
     Notification: {
-      NotificationFixtureDefault,
-      NotificationFixtureError,
-      NotificationFixtureWarning
+      Default: NotificationFixtureDefault,
+      Error: NotificationFixtureError,
+      Warning: NotificationFixtureWarning
     },
     Picture: {
-      PictureFixtureDefault,
-      PictureFixtureEmpty,
-      PictureFixtureSimpleSrc
+      Default: PictureFixtureDefault,
+      Empty: PictureFixtureEmpty,
+      SimpleSrc: PictureFixtureSimpleSrc
     },
     PictureBackground: {
-      PictureBackgroundFixtureContain,
-      PictureBackgroundFixtureCover,
-      PictureBackgroundFixtureDefault,
-      PictureBackgroundFixtureDesktop
+      Contain: PictureBackgroundFixtureContain,
+      Cover: PictureBackgroundFixtureCover,
+      Default: PictureBackgroundFixtureDefault,
+      Desktop: PictureBackgroundFixtureDesktop
     },
     PromoCode: {
-      PromoCodeFixtureDefault,
-      PromoCodeFixtureError,
-      PromoCodeFixtureSuccess
+      Default: PromoCodeFixtureDefault,
+      Error: PromoCodeFixtureError,
+      Success: PromoCodeFixtureSuccess
     },
     Provider: {
-      ProviderFixtureDefault
+      Default: ProviderFixtureDefault
     },
     Range: {
-      RangeFixtureDefault,
-      RangeFixtureMulti
+      Default: RangeFixtureDefault,
+      Multi: RangeFixtureMulti
     },
     ResourceMiniature: {
-      ResourceMiniatureFixturePdf,
-      ResourceMiniatureFixtureSelectedPdf,
-      ResourceMiniatureFixtureSelectedVideo,
-      ResourceMiniatureFixtureVideo
+      Pdf: ResourceMiniatureFixturePdf,
+      SelectedPdf: ResourceMiniatureFixtureSelectedPdf,
+      SelectedVideo: ResourceMiniatureFixtureSelectedVideo,
+      Video: ResourceMiniatureFixtureVideo
     },
     Select: {
-      SelectFixtureDefault,
-      SelectFixtureDisabled,
-      SelectFixtureFilter,
-      SelectFixtureInvalid,
-      SelectFixtureModified,
-      SelectFixtureMooc,
-      SelectFixtureMultipleSelected,
-      SelectFixtureMultiple,
-      SelectFixtureQuestion,
-      SelectFixtureRequiredWithTitle,
-      SelectFixtureRequired,
-      SelectFixtureSort,
-      SelectFixtureTemplate,
-      SelectFixtureThematiquesLong,
-      SelectFixtureThematiques
+      Default: SelectFixtureDefault,
+      Disabled: SelectFixtureDisabled,
+      Filter: SelectFixtureFilter,
+      Invalid: SelectFixtureInvalid,
+      Modified: SelectFixtureModified,
+      Mooc: SelectFixtureMooc,
+      MultipleSelected: SelectFixtureMultipleSelected,
+      Multiple: SelectFixtureMultiple,
+      Question: SelectFixtureQuestion,
+      RequiredWithTitle: SelectFixtureRequiredWithTitle,
+      Required: SelectFixtureRequired,
+      Sort: SelectFixtureSort,
+      Template: SelectFixtureTemplate,
+      ThematiquesLong: SelectFixtureThematiquesLong,
+      Thematiques: SelectFixtureThematiques
     },
     Slide: {
-      SlideFixtureDefault,
-      SlideFixtureLeft,
-      SlideFixtureLight,
-      SlideFixtureRight
+      Default: SlideFixtureDefault,
+      Left: SlideFixtureLeft,
+      Light: SlideFixtureLight,
+      Right: SlideFixtureRight
     },
     SocialLink: {
-      SocialLinkFixtureFacebook,
-      SocialLinkFixtureTwitter
+      Facebook: SocialLinkFixtureFacebook,
+      Twitter: SocialLinkFixtureTwitter
     },
     Spinner: {
-      SpinnerFixtureDefault
+      Default: SpinnerFixtureDefault
     },
     Tab: {
-      TabFixtureDefault
+      Default: TabFixtureDefault
     },
     TabContent: {
-      TabContentFixtureDefault,
-      TabContentFixtureHideContentBackground
+      Default: TabContentFixtureDefault,
+      HideContentBackground: TabContentFixtureHideContentBackground
     },
     Title: {
-      TitleFixtureFixture
+      Fixture: TitleFixtureFixture
     }
   },
   Hoc: {
     Animation: {
-      AnimationFixtureStart,
-      AnimationFixtureStop
+      Start: AnimationFixtureStart,
+      Stop: AnimationFixtureStop
     },
     AnimationScheduler: {
-      AnimationSchedulerFixtureParallel,
-      AnimationSchedulerFixtureSeries
+      Parallel: AnimationSchedulerFixtureParallel,
+      Series: AnimationSchedulerFixtureSeries
     },
     Swapper: {
-      SwapperFixtureDefault
+      Default: SwapperFixtureDefault
     },
     Transition: {
-      TransitionFixtureFlipSquare
+      FlipSquare: TransitionFixtureFlipSquare
     }
   },
   Molecule: {
     Answer: {
-      AnswerFixtureDefault,
-      AnswerFixtureDropDown,
-      AnswerFixtureQcmDrag,
-      AnswerFixtureQcmGraphic,
-      AnswerFixtureQcmShort,
-      AnswerFixtureQcm,
-      AnswerFixtureRange,
-      AnswerFixtureTemplate
+      Default: AnswerFixtureDefault,
+      DropDown: AnswerFixtureDropDown,
+      QcmDrag: AnswerFixtureQcmDrag,
+      QcmGraphic: AnswerFixtureQcmGraphic,
+      QcmShort: AnswerFixtureQcmShort,
+      Qcm: AnswerFixtureQcm,
+      Range: AnswerFixtureRange,
+      Template: AnswerFixtureTemplate
     },
     BattleRequest: {
-      BattleRequestFixtureDefault
+      Default: BattleRequestFixtureDefault
     },
     BrandCard: {
-      BrandCardFixtureDefault,
-      BrandCardFixtureWithDescription
+      Default: BrandCardFixtureDefault,
+      WithDescription: BrandCardFixtureWithDescription
     },
     BrandCardCreate: {
-      BrandCardCreateFixtureDefault
+      Default: BrandCardCreateFixtureDefault
     },
     BrandCreateForm: {
-      BrandCreateFormFixtureDefault,
-      BrandCreateFormFixtureError,
-      BrandCreateFormFixtureLoading,
-      BrandCreateFormFixtureModified
+      Default: BrandCreateFormFixtureDefault,
+      Error: BrandCreateFormFixtureError,
+      Loading: BrandCreateFormFixtureLoading,
+      Modified: BrandCreateFormFixtureModified
     },
     BrandDownloadBox: {
-      BrandDownloadBoxFixtureDefault,
-      BrandDownloadBoxFixtureSso
+      Default: BrandDownloadBoxFixtureDefault,
+      Sso: BrandDownloadBoxFixtureSso
     },
     BrandFormGroup: {
-      BrandFormGroupFixtureDashboard,
-      BrandFormGroupFixtureDefault,
-      BrandFormGroupFixtureImages,
-      BrandFormGroupFixtureLookandfeel,
-      BrandFormGroupFixtureRoles,
-      BrandFormGroupFixtureSlider,
-      BrandFormGroupFixtureSso
+      Dashboard: BrandFormGroupFixtureDashboard,
+      Default: BrandFormGroupFixtureDefault,
+      Images: BrandFormGroupFixtureImages,
+      Lookandfeel: BrandFormGroupFixtureLookandfeel,
+      Roles: BrandFormGroupFixtureRoles,
+      Slider: BrandFormGroupFixtureSlider,
+      Sso: BrandFormGroupFixtureSso
     },
     BrandTabs: {
-      BrandTabsFixtureDefault,
-      BrandTabsFixtureLookandfeel,
-      BrandTabsFixtureSso,
-      BrandTabsFixtureUsers
+      Default: BrandTabsFixtureDefault,
+      Lookandfeel: BrandTabsFixtureLookandfeel,
+      Sso: BrandTabsFixtureSso,
+      Users: BrandTabsFixtureUsers
     },
     BrandUploadBox: {
-      BrandUploadBoxFixtureDefault,
-      BrandUploadBoxFixtureLoading,
-      BrandUploadBoxFixtureSso
+      Default: BrandUploadBoxFixtureDefault,
+      Loading: BrandUploadBoxFixtureLoading,
+      Sso: BrandUploadBoxFixtureSso
     },
     Breadcrumbs: {
-      BreadcrumbsFixtureDefault
+      Default: BreadcrumbsFixtureDefault
     },
     Card: {
-      CardFixtureAdaptivAndDisabled,
-      CardFixtureAdaptiv,
-      CardFixtureCatalogue,
-      CardFixtureDefault,
-      CardFixtureDisabled,
-      CardFixtureEmpty,
-      CardFixtureFreerunAndDisabled,
-      CardFixtureFreerun
+      AdaptivAndDisabled: CardFixtureAdaptivAndDisabled,
+      Adaptiv: CardFixtureAdaptiv,
+      Catalogue: CardFixtureCatalogue,
+      Default: CardFixtureDefault,
+      Disabled: CardFixtureDisabled,
+      Empty: CardFixtureEmpty,
+      FreerunAndDisabled: CardFixtureFreerunAndDisabled,
+      Freerun: CardFixtureFreerun
     },
     DisciplineCta: {
-      DisciplineCtaFixtureDefault,
-      DisciplineCtaFixtureNoStart
+      Default: DisciplineCtaFixtureDefault,
+      NoStart: DisciplineCtaFixtureNoStart
     },
     DisciplineHeader: {
-      DisciplineHeaderFixtureDefault,
-      DisciplineHeaderFixtureNoVideoNoImage,
-      DisciplineHeaderFixtureNoVideo
+      Default: DisciplineHeaderFixtureDefault,
+      NoVideoNoImage: DisciplineHeaderFixtureNoVideoNoImage,
+      NoVideo: DisciplineHeaderFixtureNoVideo
     },
     DisciplinePartners: {
-      DisciplinePartnersFixtureDefault,
-      DisciplinePartnersFixtureDoubleAuthors,
-      DisciplinePartnersFixtureMoreInfo,
-      DisciplinePartnersFixtureNoAuthor,
-      DisciplinePartnersFixtureNosite
+      Default: DisciplinePartnersFixtureDefault,
+      DoubleAuthors: DisciplinePartnersFixtureDoubleAuthors,
+      MoreInfo: DisciplinePartnersFixtureMoreInfo,
+      NoAuthor: DisciplinePartnersFixtureNoAuthor,
+      Nosite: DisciplinePartnersFixtureNosite
     },
     DisciplineScope: {
-      DisciplineScopeFixtureDefault,
-      DisciplineScopeFixtureEmpty,
-      DisciplineScopeFixtureMedias,
-      DisciplineScopeFixtureWithOnclick
+      Default: DisciplineScopeFixtureDefault,
+      Empty: DisciplineScopeFixtureEmpty,
+      Medias: DisciplineScopeFixtureMedias,
+      WithOnclick: DisciplineScopeFixtureWithOnclick
     },
     Filters: {
-      FiltersFixtureDefault,
-      FiltersFixtureFiltersList,
-      FiltersFixtureOne,
-      FiltersFixtureOnlyTimer,
-      FiltersFixtureOpenSorts,
-      FiltersFixtureOpened,
-      FiltersFixtureThree,
-      FiltersFixtureTwoOpened,
-      FiltersFixtureTwo,
-      FiltersFixtureZero
+      Default: FiltersFixtureDefault,
+      FiltersList: FiltersFixtureFiltersList,
+      One: FiltersFixtureOne,
+      OnlyTimer: FiltersFixtureOnlyTimer,
+      OpenSorts: FiltersFixtureOpenSorts,
+      Opened: FiltersFixtureOpened,
+      Three: FiltersFixtureThree,
+      TwoOpened: FiltersFixtureTwoOpened,
+      Two: FiltersFixtureTwo,
+      Zero: FiltersFixtureZero
     },
     MenuList: {
-      MenuListFixtureDefault
+      Default: MenuListFixtureDefault
     },
     ModuleBubble: {
-      ModuleBubbleFixtureDefault,
-      ModuleBubbleFixtureDisabled
+      Default: ModuleBubbleFixtureDefault,
+      Disabled: ModuleBubbleFixtureDisabled
     },
     ModuleCard: {
-      ModuleCardFixtureActive,
-      ModuleCardFixtureRestarted
+      Active: ModuleCardFixtureActive,
+      Restarted: ModuleCardFixtureRestarted
     },
     News: {
-      NewsFixtureDefault,
-      NewsFixtureLongDescription,
-      NewsFixtureLongTitle,
-      NewsFixtureSmallDesciption,
-      NewsFixtureSmallTitle
+      Default: NewsFixtureDefault,
+      LongDescription: NewsFixtureLongDescription,
+      LongTitle: NewsFixtureLongTitle,
+      SmallDesciption: NewsFixtureSmallDesciption,
+      SmallTitle: NewsFixtureSmallTitle
     },
     Pagination: {
-      PaginationFixtureDefault,
-      PaginationFixtureDisabled
+      Default: PaginationFixtureDefault,
+      Disabled: PaginationFixtureDisabled
     },
     PaymentForm: {
-      PaymentFormFixtureDefault,
-      PaymentFormFixtureError,
-      PaymentFormFixtureWarning
+      Default: PaymentFormFixtureDefault,
+      Error: PaymentFormFixtureError,
+      Warning: PaymentFormFixtureWarning
     },
     Pdf: {
-      PdfFixtureDefault
+      Default: PdfFixtureDefault
     },
     ProductCard: {
-      ProductCardFixtureDefault
+      Default: ProductCardFixtureDefault
     },
     ProgressBar: {
-      ProgressBarFixtureDefault,
-      ProgressBarFixtureMax
+      Default: ProgressBarFixtureDefault,
+      Max: ProgressBarFixtureMax
     },
     ScopeContent: {
-      ScopeContentFixtureDefault,
-      ScopeContentFixtureEmpty,
-      ScopeContentFixtureMedias,
-      ScopeContentFixtureWithOnclick
+      Default: ScopeContentFixtureDefault,
+      Empty: ScopeContentFixtureEmpty,
+      Medias: ScopeContentFixtureMedias,
+      WithOnclick: ScopeContentFixtureWithOnclick
     },
     ScopeTabs: {
-      ScopeTabsFixtureDefault,
-      ScopeTabsFixtureEmpty
+      Default: ScopeTabsFixtureDefault,
+      Empty: ScopeTabsFixtureEmpty
     },
     Search: {
-      SearchFixtureDefault
+      Default: SearchFixtureDefault
     },
     SetupSection: {
-      SetupSectionFixtureDefault,
-      SetupSectionFixtureFirst,
-      SetupSectionFixtureOther
+      Default: SetupSectionFixtureDefault,
+      First: SetupSectionFixtureFirst,
+      Other: SetupSectionFixtureOther
     },
     SetupSections: {
-      SetupSectionsFixtureDefault,
-      SetupSectionsFixtureLoading
+      Default: SetupSectionsFixtureDefault,
+      Loading: SetupSectionsFixtureLoading
     },
     SetupSlide: {
-      SetupSlideFixtureDefault
+      Default: SetupSlideFixtureDefault
     },
     SetupSlider: {
-      SetupSliderFixtureDefault
+      Default: SetupSliderFixtureDefault
     },
     SsmenuList: {
-      SsmenuListFixtureCoorpacademy,
-      SsmenuListFixtureEmpty,
-      SsmenuListFixtureFormations,
-      SsmenuListFixtureSolutions
+      Coorpacademy: SsmenuListFixtureCoorpacademy,
+      Empty: SsmenuListFixtureEmpty,
+      Formations: SsmenuListFixtureFormations,
+      Solutions: SsmenuListFixtureSolutions
     },
     SubscriptionFreemium: {
-      SubscriptionFreemiumFixtureDefault
+      Default: SubscriptionFreemiumFixtureDefault
     },
     SubscriptionPremium: {
-      SubscriptionPremiumFixtureDefault,
-      SubscriptionPremiumFixturePromoCode
+      Default: SubscriptionPremiumFixtureDefault,
+      PromoCode: SubscriptionPremiumFixturePromoCode
     },
     Table: {
-      TableFixtureDefault,
-      TableFixtureNoOptions
+      Default: TableFixtureDefault,
+      NoOptions: TableFixtureNoOptions
     },
     ThemeImage: {
-      ThemeImageFixtureBg
+      Bg: ThemeImageFixtureBg
     },
     TitledCheckbox: {
-      TitledCheckboxFixtureChecked,
-      TitledCheckboxFixtureNoBg,
-      TitledCheckboxFixtureNotChecked
+      Checked: TitledCheckboxFixtureChecked,
+      NoBg: TitledCheckboxFixtureNoBg,
+      NotChecked: TitledCheckboxFixtureNotChecked
     },
     Unsubscribe: {
-      UnsubscribeFixtureDefault,
-      UnsubscribeFixtureSubscribed
+      Default: UnsubscribeFixtureDefault,
+      Subscribed: UnsubscribeFixtureSubscribed
     },
     VideoIframe: {
-      VideoIframeFixtureEmpty,
-      VideoIframeFixtureImagePlaceholder,
-      VideoIframeFixtureYoutube
+      Empty: VideoIframeFixtureEmpty,
+      ImagePlaceholder: VideoIframeFixtureImagePlaceholder,
+      Youtube: VideoIframeFixtureYoutube
     },
     VideoPlayer: {
-      VideoPlayerFixtureJwplayer,
-      VideoPlayerFixtureKontiki,
-      VideoPlayerFixtureVimeo,
-      VideoPlayerFixtureYoutube
+      Jwplayer: VideoPlayerFixtureJwplayer,
+      Kontiki: VideoPlayerFixtureKontiki,
+      Vimeo: VideoPlayerFixtureVimeo,
+      Youtube: VideoPlayerFixtureYoutube
     }
   },
   MoleculeAppPlayerPopin: {
     PopinHeader: {
-      PopinHeaderFixtureExhaustedExtralife,
-      PopinHeaderFixtureExtralifeAccepted,
-      PopinHeaderFixtureExtralife,
-      PopinHeaderFixtureFailMultipleAnswers,
-      PopinHeaderFixtureFail,
-      PopinHeaderFixtureLoading,
-      PopinHeaderFixtureNextChapter,
-      PopinHeaderFixtureStarsRank,
-      PopinHeaderFixtureSuccess
+      ExhaustedExtralife: PopinHeaderFixtureExhaustedExtralife,
+      ExtralifeAccepted: PopinHeaderFixtureExtralifeAccepted,
+      Extralife: PopinHeaderFixtureExtralife,
+      FailMultipleAnswers: PopinHeaderFixtureFailMultipleAnswers,
+      Fail: PopinHeaderFixtureFail,
+      Loading: PopinHeaderFixtureLoading,
+      NextChapter: PopinHeaderFixtureNextChapter,
+      StarsRank: PopinHeaderFixtureStarsRank,
+      Success: PopinHeaderFixtureSuccess
     }
   },
   MoleculeDashboard: {
     BattleRequestList: {
-      BattleRequestListFixtureDefault,
-      BattleRequestListFixtureEmpty
+      Default: BattleRequestListFixtureDefault,
+      Empty: BattleRequestListFixtureEmpty
     },
     CardsList: {
-      CardsListFixtureDefault,
-      CardsListFixtureManyEmpty,
-      CardsListFixtureMany
+      Default: CardsListFixtureDefault,
+      ManyEmpty: CardsListFixtureManyEmpty,
+      Many: CardsListFixtureMany
     },
     NewsList: {
-      NewsListFixtureDefault,
-      NewsListFixtureLoading,
-      NewsListFixtureMore
+      Default: NewsListFixtureDefault,
+      Loading: NewsListFixtureLoading,
+      More: NewsListFixtureMore
     },
     StartBattle: {
-      StartBattleFixtureDefault,
-      StartBattleFixtureHref
+      Default: StartBattleFixtureDefault,
+      Href: StartBattleFixtureHref
     }
   },
   MoleculeForum: {
     ForumComment: {
-      ForumCommentFixtureDefault,
-      ForumCommentFixturePostDisabled,
-      ForumCommentFixtureTextareaDisabled
+      Default: ForumCommentFixtureDefault,
+      PostDisabled: ForumCommentFixturePostDisabled,
+      TextareaDisabled: ForumCommentFixtureTextareaDisabled
     },
     ForumPost: {
-      ForumPostFixtureDefault,
-      ForumPostFixtureDeleted,
-      ForumPostFixtureEditable,
-      ForumPostFixtureNotEditableNotRejectable,
-      ForumPostFixturePostsLocked,
-      ForumPostFixtureRejectable,
-      ForumPostFixtureRejected,
-      ForumPostFixtureShowAnswerBox,
-      ForumPostFixtureShowEditBox,
-      ForumPostFixtureTextareasLocked
+      Default: ForumPostFixtureDefault,
+      Deleted: ForumPostFixtureDeleted,
+      Editable: ForumPostFixtureEditable,
+      NotEditableNotRejectable: ForumPostFixtureNotEditableNotRejectable,
+      PostsLocked: ForumPostFixturePostsLocked,
+      Rejectable: ForumPostFixtureRejectable,
+      Rejected: ForumPostFixtureRejected,
+      ShowAnswerBox: ForumPostFixtureShowAnswerBox,
+      ShowEditBox: ForumPostFixtureShowEditBox,
+      TextareasLocked: ForumPostFixtureTextareasLocked
     },
     ForumThread: {
-      ForumThreadFixtureDeepAnswers,
-      ForumThreadFixtureDefault,
-      ForumThreadFixtureWithAnswers
+      DeepAnswers: ForumThreadFixtureDeepAnswers,
+      Default: ForumThreadFixtureDefault,
+      WithAnswers: ForumThreadFixtureWithAnswers
     }
   },
   MoleculeQuestions: {
     DropDown: {
-      DropDownFixtureDefault,
-      DropDownFixtureNoSelected
+      Default: DropDownFixtureDefault,
+      NoSelected: DropDownFixtureNoSelected
     },
     FreeText: {
-      FreeTextFixtureDefault,
-      FreeTextFixtureWithDefaultValue
+      Default: FreeTextFixtureDefault,
+      WithDefaultValue: FreeTextFixtureWithDefaultValue
     },
     Qcm: {
-      QcmFixtureDefault,
-      QcmFixtureNoSelected,
-      QcmFixtureShortAnswers
+      Default: QcmFixtureDefault,
+      NoSelected: QcmFixtureNoSelected,
+      ShortAnswers: QcmFixtureShortAnswers
     },
     QcmDrag: {
-      QcmDragFixtureDefault,
-      QcmDragFixtureNoSelected
+      Default: QcmDragFixtureDefault,
+      NoSelected: QcmDragFixtureNoSelected
     },
     QcmGraphic: {
-      QcmGraphicFixtureDefault,
-      QcmGraphicFixtureNoSelected
+      Default: QcmGraphicFixtureDefault,
+      NoSelected: QcmGraphicFixtureNoSelected
     },
     QuestionRange: {
-      QuestionRangeFixtureDefault
+      Default: QuestionRangeFixtureDefault
     },
     Template: {
-      TemplateFixtureDefault,
-      TemplateFixtureMultiple
+      Default: TemplateFixtureDefault,
+      Multiple: TemplateFixtureMultiple
     }
   },
   MoleculeSlides: {
     SlidesFooter: {
-      SlidesFooterFixtureClueSelected,
-      SlidesFooterFixtureDefault,
-      SlidesFooterFixtureDisabled,
-      SlidesFooterFixtureHighlighted,
-      SlidesFooterFixtureMediaSelected,
-      SlidesFooterFixtureNotify,
-      SlidesFooterFixtureOnlyClue,
-      SlidesFooterFixtureWithContext
+      ClueSelected: SlidesFooterFixtureClueSelected,
+      Default: SlidesFooterFixtureDefault,
+      Disabled: SlidesFooterFixtureDisabled,
+      Highlighted: SlidesFooterFixtureHighlighted,
+      MediaSelected: SlidesFooterFixtureMediaSelected,
+      Notify: SlidesFooterFixtureNotify,
+      OnlyClue: SlidesFooterFixtureOnlyClue,
+      WithContext: SlidesFooterFixtureWithContext
     },
     SlidesPlayer: {
-      SlidesPlayerFixtureClue,
-      SlidesPlayerFixtureContextWithImage,
-      SlidesPlayerFixtureContextWithPdf,
-      SlidesPlayerFixtureContextWithVideo,
-      SlidesPlayerFixtureContext,
-      SlidesPlayerFixtureDefault,
-      SlidesPlayerFixtureDropDown,
-      SlidesPlayerFixtureError,
-      SlidesPlayerFixtureFreeText,
-      SlidesPlayerFixtureLoading,
-      SlidesPlayerFixtureMedia,
-      SlidesPlayerFixtureNoQuestion,
-      SlidesPlayerFixtureNoTotal,
-      SlidesPlayerFixtureOnlyClue,
-      SlidesPlayerFixtureQcmDrag,
-      SlidesPlayerFixtureQcmGraphic,
-      SlidesPlayerFixtureQcmShort,
-      SlidesPlayerFixtureQcmTemplate,
-      SlidesPlayerFixtureQcm,
-      SlidesPlayerFixtureRange,
-      SlidesPlayerFixtureTemplate,
-      SlidesPlayerFixtureWithMinHeight
+      Clue: SlidesPlayerFixtureClue,
+      ContextWithImage: SlidesPlayerFixtureContextWithImage,
+      ContextWithPdf: SlidesPlayerFixtureContextWithPdf,
+      ContextWithVideo: SlidesPlayerFixtureContextWithVideo,
+      Context: SlidesPlayerFixtureContext,
+      Default: SlidesPlayerFixtureDefault,
+      DropDown: SlidesPlayerFixtureDropDown,
+      Error: SlidesPlayerFixtureError,
+      FreeText: SlidesPlayerFixtureFreeText,
+      Loading: SlidesPlayerFixtureLoading,
+      Media: SlidesPlayerFixtureMedia,
+      NoQuestion: SlidesPlayerFixtureNoQuestion,
+      NoTotal: SlidesPlayerFixtureNoTotal,
+      OnlyClue: SlidesPlayerFixtureOnlyClue,
+      QcmDrag: SlidesPlayerFixtureQcmDrag,
+      QcmGraphic: SlidesPlayerFixtureQcmGraphic,
+      QcmShort: SlidesPlayerFixtureQcmShort,
+      QcmTemplate: SlidesPlayerFixtureQcmTemplate,
+      Qcm: SlidesPlayerFixtureQcm,
+      Range: SlidesPlayerFixtureRange,
+      Template: SlidesPlayerFixtureTemplate,
+      WithMinHeight: SlidesPlayerFixtureWithMinHeight
     }
   },
   OrganismAccordion: {
     Container: {
-      ContainerFixtureDefault
+      Default: ContainerFixtureDefault
     },
     Part: {
-      PartFixtureDefault,
-      PartFixtureOpen
+      Default: PartFixtureDefault,
+      Open: PartFixtureOpen
     },
     Toggler: {
-      TogglerFixtureAllAreOpenable,
-      TogglerFixtureOnlyOne
+      AllAreOpenable: TogglerFixtureAllAreOpenable,
+      OnlyOne: TogglerFixtureOnlyOne
     }
   },
   Organism: {
     BrandForm: {
-      BrandFormFixtureDashboard,
-      BrandFormFixtureDefault,
-      BrandFormFixtureGeneralSettings,
-      BrandFormFixtureLookandfeel,
-      BrandFormFixtureSso,
-      BrandFormFixtureUserEdit
+      Dashboard: BrandFormFixtureDashboard,
+      Default: BrandFormFixtureDefault,
+      GeneralSettings: BrandFormFixtureGeneralSettings,
+      Lookandfeel: BrandFormFixtureLookandfeel,
+      Sso: BrandFormFixtureSso,
+      UserEdit: BrandFormFixtureUserEdit
     },
     BrandTable: {
-      BrandTableFixtureDefault,
-      BrandTableFixtureEmpty,
-      BrandTableFixtureLoading
+      Default: BrandTableFixtureDefault,
+      Empty: BrandTableFixtureEmpty,
+      Loading: BrandTableFixtureLoading
     },
     BrandUpload: {
-      BrandUploadFixtureDefault,
-      BrandUploadFixtureLoading
+      Default: BrandUploadFixtureDefault,
+      Loading: BrandUploadFixtureLoading
     },
     CardsGrid: {
-      CardsGridFixtureCatalog,
-      CardsGridFixtureEmpty,
-      CardsGridFixtureLoading,
-      CardsGridFixtureMany
+      Catalog: CardsGridFixtureCatalog,
+      Empty: CardsGridFixtureEmpty,
+      Loading: CardsGridFixtureLoading,
+      Many: CardsGridFixtureMany
     },
     Cart: {
-      CartFixtureDefault
+      Default: CartFixtureDefault
     },
     Discussion: {
-      DiscussionFixtureDefault,
-      DiscussionFixtureLoadingMore,
-      DiscussionFixtureModeration,
-      DiscussionFixtureNewDiscussion
+      Default: DiscussionFixtureDefault,
+      LoadingMore: DiscussionFixtureLoadingMore,
+      Moderation: DiscussionFixtureModeration,
+      NewDiscussion: DiscussionFixtureNewDiscussion
     },
     GridList: {
-      GridListFixtureDefault
+      Default: GridListFixtureDefault
     },
     Header: {
-      HeaderFixtureDefault
+      Default: HeaderFixtureDefault
     },
     Hero: {
-      HeroFixtureDefault,
-      HeroFixtureNoTouch,
-      HeroFixtureTouch
+      Default: HeroFixtureDefault,
+      NoTouch: HeroFixtureNoTouch,
+      Touch: HeroFixtureTouch
     },
     MoocHeader: {
-      MoocHeaderFixtureDefault,
-      MoocHeaderFixtureLogged,
-      MoocHeaderFixtureSliderMultiple,
-      MoocHeaderFixtureSlider
+      Default: MoocHeaderFixtureDefault,
+      Logged: MoocHeaderFixtureLogged,
+      SliderMultiple: MoocHeaderFixtureSliderMultiple,
+      Slider: MoocHeaderFixtureSlider
     },
     Popin: {
-      PopinFixtureDefault
+      Default: PopinFixtureDefault
     },
     ResourceBrowser: {
-      ResourceBrowserFixtureJwplayer,
-      ResourceBrowserFixtureOneVideo,
-      ResourceBrowserFixturePdfSelected,
-      ResourceBrowserFixtureVideoSelected
+      Jwplayer: ResourceBrowserFixtureJwplayer,
+      OneVideo: ResourceBrowserFixtureOneVideo,
+      PdfSelected: ResourceBrowserFixturePdfSelected,
+      VideoSelected: ResourceBrowserFixtureVideoSelected
     },
     Settings: {
-      SettingsFixtureDefault,
-      SettingsFixtureFreemium,
-      SettingsFixturePremium,
-      SettingsFixturePromoCode
+      Default: SettingsFixtureDefault,
+      Freemium: SettingsFixtureFreemium,
+      Premium: SettingsFixturePremium,
+      PromoCode: SettingsFixturePromoCode
     },
     SetupHeader: {
-      SetupHeaderFixtureDefault
+      Default: SetupHeaderFixtureDefault
     },
     Sidebar: {
-      SidebarFixtureAnalytics,
-      SidebarFixtureCustom,
-      SidebarFixtureDashboards,
-      SidebarFixtureDefault
+      Analytics: SidebarFixtureAnalytics,
+      Custom: SidebarFixtureCustom,
+      Dashboards: SidebarFixtureDashboards,
+      Default: SidebarFixtureDefault
     },
     Slider: {
-      SliderFixtureDefault,
-      SliderFixtureMultipleSlides
+      Default: SliderFixtureDefault,
+      MultipleSlides: SliderFixtureMultipleSlides
     }
   },
   OrganismMooc: {
     ImageSlider: {
-      ImageSliderFixtureDefault,
-      ImageSliderFixtureMultipleSlides
+      Default: ImageSliderFixtureDefault,
+      MultipleSlides: ImageSliderFixtureMultipleSlides
     }
   },
   TemplateAppPlayer: {
     Loading: {
-      LoadingFixtureDefault
+      Default: LoadingFixtureDefault
     },
     Player: {
-      PlayerFixtureClue,
-      PlayerFixtureContextWithImage,
-      PlayerFixtureContextWithPdf,
-      PlayerFixtureContextWithVideo,
-      PlayerFixtureContext,
-      PlayerFixtureDropDown,
-      PlayerFixtureEmpty,
-      PlayerFixtureError,
-      PlayerFixtureFreeText,
-      PlayerFixtureMedia,
-      PlayerFixtureOnlyClue,
-      PlayerFixtureQcmDrag,
-      PlayerFixtureQcmGraphic,
-      PlayerFixtureQcmShort,
-      PlayerFixtureQcm,
-      PlayerFixtureRange
+      Clue: PlayerFixtureClue,
+      ContextWithImage: PlayerFixtureContextWithImage,
+      ContextWithPdf: PlayerFixtureContextWithPdf,
+      ContextWithVideo: PlayerFixtureContextWithVideo,
+      Context: PlayerFixtureContext,
+      DropDown: PlayerFixtureDropDown,
+      Empty: PlayerFixtureEmpty,
+      Error: PlayerFixtureError,
+      FreeText: PlayerFixtureFreeText,
+      Media: PlayerFixtureMedia,
+      OnlyClue: PlayerFixtureOnlyClue,
+      QcmDrag: PlayerFixtureQcmDrag,
+      QcmGraphic: PlayerFixtureQcmGraphic,
+      QcmShort: PlayerFixtureQcmShort,
+      Qcm: PlayerFixtureQcm,
+      Range: PlayerFixtureRange
     },
     PopinCorrection: {
-      PopinCorrectionFixtureCorrectClosed,
-      PopinCorrectionFixtureCorrectNextChapter,
-      PopinCorrectionFixtureCorrectOpenKlf,
-      PopinCorrectionFixtureCorrectOpenResourcesWithPdf,
-      PopinCorrectionFixtureCorrectOpenResourcesWithVideo,
-      PopinCorrectionFixtureCorrectOpenTips,
-      PopinCorrectionFixtureCorrectWithoutResources,
-      PopinCorrectionFixtureFailClosed,
-      PopinCorrectionFixtureFailJokerOpenKlf,
-      PopinCorrectionFixtureFailMultipleAnswers,
-      PopinCorrectionFixtureFailOpenKlf,
-      PopinCorrectionFixtureFailOpenResourcesWithPdf,
-      PopinCorrectionFixtureFailOpenResourcesWithVideo,
-      PopinCorrectionFixtureFailOpenTips,
-      PopinCorrectionFixtureLoading
+      CorrectClosed: PopinCorrectionFixtureCorrectClosed,
+      CorrectNextChapter: PopinCorrectionFixtureCorrectNextChapter,
+      CorrectOpenKlf: PopinCorrectionFixtureCorrectOpenKlf,
+      CorrectOpenResourcesWithPdf: PopinCorrectionFixtureCorrectOpenResourcesWithPdf,
+      CorrectOpenResourcesWithVideo: PopinCorrectionFixtureCorrectOpenResourcesWithVideo,
+      CorrectOpenTips: PopinCorrectionFixtureCorrectOpenTips,
+      CorrectWithoutResources: PopinCorrectionFixtureCorrectWithoutResources,
+      FailClosed: PopinCorrectionFixtureFailClosed,
+      FailJokerOpenKlf: PopinCorrectionFixtureFailJokerOpenKlf,
+      FailMultipleAnswers: PopinCorrectionFixtureFailMultipleAnswers,
+      FailOpenKlf: PopinCorrectionFixtureFailOpenKlf,
+      FailOpenResourcesWithPdf: PopinCorrectionFixtureFailOpenResourcesWithPdf,
+      FailOpenResourcesWithVideo: PopinCorrectionFixtureFailOpenResourcesWithVideo,
+      FailOpenTips: PopinCorrectionFixtureFailOpenTips,
+      Loading: PopinCorrectionFixtureLoading
     },
     PopinEnd: {
-      PopinEndFixtureCommentIsLoading,
-      PopinEndFixtureCommentSent,
-      PopinEndFixtureComment,
-      PopinEndFixtureCorrect,
-      PopinEndFixtureDefault,
-      PopinEndFixtureFail,
-      PopinEndFixtureLoading,
-      PopinEndFixtureNegativeRank,
-      PopinEndFixtureNextCourse,
-      PopinEndFixtureSimpleAction,
-      PopinEndFixtureSubscribe,
-      PopinEndFixtureWithLoadingRecommendations,
-      PopinEndFixtureWithRecommendations
+      CommentIsLoading: PopinEndFixtureCommentIsLoading,
+      CommentSent: PopinEndFixtureCommentSent,
+      Comment: PopinEndFixtureComment,
+      Correct: PopinEndFixtureCorrect,
+      Default: PopinEndFixtureDefault,
+      Fail: PopinEndFixtureFail,
+      Loading: PopinEndFixtureLoading,
+      NegativeRank: PopinEndFixtureNegativeRank,
+      NextCourse: PopinEndFixtureNextCourse,
+      SimpleAction: PopinEndFixtureSimpleAction,
+      Subscribe: PopinEndFixtureSubscribe,
+      WithLoadingRecommendations: PopinEndFixtureWithLoadingRecommendations,
+      WithRecommendations: PopinEndFixtureWithRecommendations
     }
   },
   TemplateAppPlayerPlayer: {
     PlayerHeader: {
-      PlayerHeaderFixtureLearner,
-      PlayerHeaderFixtureMicrolearning,
-      PlayerHeaderFixtureNoLives
+      Learner: PlayerHeaderFixtureLearner,
+      Microlearning: PlayerHeaderFixtureMicrolearning,
+      NoLives: PlayerHeaderFixtureNoLives
     }
   },
   TemplateBackOffice: {
     BrandCreate: {
-      BrandCreateFixtureDefault,
-      BrandCreateFixtureError,
-      BrandCreateFixtureLoading,
-      BrandCreateFixtureModified
+      Default: BrandCreateFixtureDefault,
+      Error: BrandCreateFixtureError,
+      Loading: BrandCreateFixtureLoading,
+      Modified: BrandCreateFixtureModified
     },
     BrandList: {
-      BrandListFixtureDefault,
-      BrandListFixtureLoading
+      Default: BrandListFixtureDefault,
+      Loading: BrandListFixtureLoading
     },
     BrandUpdate: {
-      BrandUpdateFixtureDashboard,
-      BrandUpdateFixtureDefault,
-      BrandUpdateFixtureGeneralSettingsSuccess,
-      BrandUpdateFixtureGeneralSettings,
-      BrandUpdateFixtureLookandfeelError,
-      BrandUpdateFixtureLookandfeelModified,
-      BrandUpdateFixtureLookandfeelPending,
-      BrandUpdateFixtureLookandfeelSuccess,
-      BrandUpdateFixtureLookandfeel,
-      BrandUpdateFixtureSsoActivate,
-      BrandUpdateFixtureSso,
-      BrandUpdateFixtureUsersEdit,
-      BrandUpdateFixtureUsersImportLoading,
-      BrandUpdateFixtureUsersImportSuccessful,
-      BrandUpdateFixtureUsersImport,
-      BrandUpdateFixtureUsersList,
-      BrandUpdateFixtureUsers
+      Dashboard: BrandUpdateFixtureDashboard,
+      Default: BrandUpdateFixtureDefault,
+      GeneralSettingsSuccess: BrandUpdateFixtureGeneralSettingsSuccess,
+      GeneralSettings: BrandUpdateFixtureGeneralSettings,
+      LookandfeelError: BrandUpdateFixtureLookandfeelError,
+      LookandfeelModified: BrandUpdateFixtureLookandfeelModified,
+      LookandfeelPending: BrandUpdateFixtureLookandfeelPending,
+      LookandfeelSuccess: BrandUpdateFixtureLookandfeelSuccess,
+      Lookandfeel: BrandUpdateFixtureLookandfeel,
+      SsoActivate: BrandUpdateFixtureSsoActivate,
+      Sso: BrandUpdateFixtureSso,
+      UsersEdit: BrandUpdateFixtureUsersEdit,
+      UsersImportLoading: BrandUpdateFixtureUsersImportLoading,
+      UsersImportSuccessful: BrandUpdateFixtureUsersImportSuccessful,
+      UsersImport: BrandUpdateFixtureUsersImport,
+      UsersList: BrandUpdateFixtureUsersList,
+      Users: BrandUpdateFixtureUsers
     },
     DashboardPreview: {
-      DashboardPreviewFixtureDefault,
-      DashboardPreviewFixtureError,
-      DashboardPreviewFixtureLoading,
-      DashboardPreviewFixtureSelectedError,
-      DashboardPreviewFixtureSelectedLoading,
-      DashboardPreviewFixtureSelected
+      Default: DashboardPreviewFixtureDefault,
+      Error: DashboardPreviewFixtureError,
+      Loading: DashboardPreviewFixtureLoading,
+      SelectedError: DashboardPreviewFixtureSelectedError,
+      SelectedLoading: DashboardPreviewFixtureSelectedLoading,
+      Selected: DashboardPreviewFixtureSelected
     }
   },
   TemplateCommon: {
     Authors: {
-      AuthorsFixtureDefault,
-      AuthorsFixtureNoSocials
+      Default: AuthorsFixtureDefault,
+      NoSocials: AuthorsFixtureNoSocials
     },
     CoorpHeader: {
-      CoorpHeaderFixtureProduction,
-      CoorpHeaderFixtureStaging
+      Production: CoorpHeaderFixtureProduction,
+      Staging: CoorpHeaderFixtureStaging
     },
     Dashboard: {
-      DashboardFixtureDefault,
-      DashboardFixtureEmptyRequests
+      Default: DashboardFixtureDefault,
+      EmptyRequests: DashboardFixtureEmptyRequests
     },
     Discipline: {
-      DisciplineFixtureDefault,
-      DisciplineFixtureDoubleAuthor,
-      DisciplineFixtureEmpty,
-      DisciplineFixtureLoading,
-      DisciplineFixtureNoAuthor,
-      DisciplineFixtureNoVideo,
-      DisciplineFixtureWithOnclick
+      Default: DisciplineFixtureDefault,
+      DoubleAuthor: DisciplineFixtureDoubleAuthor,
+      Empty: DisciplineFixtureEmpty,
+      Loading: DisciplineFixtureLoading,
+      NoAuthor: DisciplineFixtureNoAuthor,
+      NoVideo: DisciplineFixtureNoVideo,
+      WithOnclick: DisciplineFixtureWithOnclick
     },
     SearchPage: {
-      SearchPageFixtureDefault,
-      SearchPageFixtureNoResult
+      Default: SearchPageFixtureDefault,
+      NoResult: SearchPageFixtureNoResult
     }
   }
 };
