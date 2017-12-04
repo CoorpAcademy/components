@@ -8,7 +8,7 @@ import concat from 'lodash/fp/concat';
 import reduce from 'lodash/fp/reduce';
 import includes from 'lodash/fp/includes';
 import isEmpty from 'lodash/fp/isEmpty';
-import getConfig from '../../config';
+import getConfig from './config';
 import combineReducers from './combine-reducers';
 
 import type {
@@ -24,7 +24,7 @@ import type {
   State,
   Step,
   ViewedResource
-} from '../../common/types';
+} from './types';
 
 function livesDisabled(config: Config): (boolean, Action) => boolean {
   return (state: boolean = false, action: Action): boolean => {
@@ -241,7 +241,7 @@ function stars(config: Config): (number, Action, State) => number {
   };
 }
 
-const reduceAction = combineReducers([
+const reduceActionLearner = combineReducers([
   {key: 'livesDisabled', fn: livesDisabled},
   {key: 'isCorrect', fn: isCorrect},
   {key: 'slides', fn: slides},
@@ -256,6 +256,32 @@ const reduceAction = combineReducers([
   {key: 'nextContent', fn: nextContent}
 ]);
 
+const reduceLearner = (config, state, actions): State => {
+  if (isEmpty(actions)) {
+    return reduce(reduceActionLearner(config), state, [{type: 'init'}]);
+  }
+  return reduce(reduceActionLearner(config), state, actions);
+};
+
+const reduceActionRacing = combineReducers([{key: 'nextContent', fn: nextContent}]);
+
+const reduceRacing = (config, state, actions, options): State => {
+  const {userId} = options;
+  const player = find('teams', team => find player, state);
+  const playerActions = filter actions by userId
+
+  if (isEmpty(actions)) {
+    return reduce(reduceActionRacing(config), state, [{type: 'init'}]);
+  }
+  return reduce(reduceActionRacing(config), state, actions);
+};
+
+const reducers = {
+  learner: reduceLearner,
+  microlearning: reduceLearner,
+  racing: reduceRacing
+};
+
 export default function updateState(
   engine: Engine,
   state: State,
@@ -263,9 +289,6 @@ export default function updateState(
   options: Object // eslint-disable-line flowtype/no-weak-types
 ): State {
   const config = (getConfig(engine): Config);
-
-  if (isEmpty(actions)) {
-    return reduce(reduceAction(config), state, [{type: 'init'}]);
-  }
-  return reduce(reduceAction(config), state, actions);
+  const reducer = reducers[engine.ref];
+  return reducer(config, state, actions, options);
 }
