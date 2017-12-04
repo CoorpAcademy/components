@@ -265,7 +265,24 @@ export default function updateState(
   const config = (getConfig(engine): Config);
 
   if (isEmpty(actions)) {
-    return reduce(reduceAction(config), state, [{type: 'init'}]);
+    return reduce(reduceActionRacing(config), state, [{type: 'init'}]);
   }
-  return reduce(reduceAction(config), state, actions);
+  return reduce(reduceActionRacing(config), state, actions);
+};
+
+const reducers = {
+  learner: reduceLearner,
+  microlearning: reduceLearner,
+  racing: reduceRacing
+};
+
+export default function updateState(
+  engine: Engine,
+  state: State,
+  actions: Array<Action>,
+  options: Object // eslint-disable-line flowtype/no-weak-types
+): State {
+  const config = (getConfig(engine): Config);
+  const reducer = reducers[engine.ref];
+  return reducer(config, state, actions, options);
 }
