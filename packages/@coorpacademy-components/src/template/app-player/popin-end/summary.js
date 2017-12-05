@@ -138,6 +138,10 @@ CommentConfirmation.propTypes = {
   onClick: PropTypes.func.isRequired
 };
 
+CommentConfirmation.contextTypes = {
+  skin: Provider.childContextTypes.skin
+};
+
 const CommentSection = props => {
   const {isSent, edition, confirmation} = props;
   if (isSent) {
