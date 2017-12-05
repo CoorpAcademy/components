@@ -288,9 +288,9 @@ import BrandDownloadBoxFixtureDefault from '../src/molecule/brand-download-box/t
 import BrandDownloadBoxFixtureSso from '../src/molecule/brand-download-box/test/fixtures/sso';
 import BrandFormGroupFixtureDashboard from '../src/molecule/brand-form-group/test/fixtures/dashboard';
 import BrandFormGroupFixtureDefault from '../src/molecule/brand-form-group/test/fixtures/default';
+import BrandFormGroupFixtureDoublefield from '../src/molecule/brand-form-group/test/fixtures/doublefield';
 import BrandFormGroupFixtureImages from '../src/molecule/brand-form-group/test/fixtures/images';
 import BrandFormGroupFixtureLookandfeel from '../src/molecule/brand-form-group/test/fixtures/lookandfeel';
-import BrandFormGroupFixturePwdprivacy from '../src/molecule/brand-form-group/test/fixtures/pwdprivacy';
 import BrandFormGroupFixtureRoles from '../src/molecule/brand-form-group/test/fixtures/roles';
 import BrandFormGroupFixtureSlider from '../src/molecule/brand-form-group/test/fixtures/slider';
 import BrandFormGroupFixtureSso from '../src/molecule/brand-form-group/test/fixtures/sso';
@@ -842,22 +842,22 @@ export const fixtures = {
       Default: InputReadonlyFixtureDefault
     },
     InputSwitch: {
-      InputSwitchFixtureChecked,
-      InputSwitchFixtureDisabled,
-      InputSwitchFixtureFirst,
-      InputSwitchFixtureModified,
-      InputSwitchFixtureNoTitle,
-      InputSwitchFixtureSso,
-      InputSwitchFixtureUnchecked
+      Checked: InputSwitchFixtureChecked,
+      Disabled: InputSwitchFixtureDisabled,
+      First: InputSwitchFixtureFirst,
+      Modified: InputSwitchFixtureModified,
+      NoTitle: InputSwitchFixtureNoTitle,
+      Sso: InputSwitchFixtureSso,
+      Unchecked: InputSwitchFixtureUnchecked
     },
     InputText: {
-      InputTextFixtureDefault,
-      InputTextFixtureDisabled,
-      InputTextFixtureEmpty,
-      InputTextFixtureError,
-      InputTextFixtureModified,
-      InputTextFixtureNotitle,
-      InputTextFixtureRequired
+      Default: InputTextFixtureDefault,
+      Disabled: InputTextFixtureDisabled,
+      Empty: InputTextFixtureEmpty,
+      Error: InputTextFixtureError,
+      Modified: InputTextFixtureModified,
+      Notitle: InputTextFixtureNotitle,
+      Required: InputTextFixtureRequired
     },
     InputTextarea: {
       Default: InputTextareaFixtureDefault,
@@ -1007,14 +1007,14 @@ export const fixtures = {
       Sso: BrandDownloadBoxFixtureSso
     },
     BrandFormGroup: {
-      BrandFormGroupFixtureDashboard,
-      BrandFormGroupFixtureDefault,
-      BrandFormGroupFixtureImages,
-      BrandFormGroupFixtureLookandfeel,
-      BrandFormGroupFixturePwdprivacy,
-      BrandFormGroupFixtureRoles,
-      BrandFormGroupFixtureSlider,
-      BrandFormGroupFixtureSso
+      Dashboard: BrandFormGroupFixtureDashboard,
+      Default: BrandFormGroupFixtureDefault,
+      Doublefield: BrandFormGroupFixtureDoublefield,
+      Images: BrandFormGroupFixtureImages,
+      Lookandfeel: BrandFormGroupFixtureLookandfeel,
+      Roles: BrandFormGroupFixtureRoles,
+      Slider: BrandFormGroupFixtureSlider,
+      Sso: BrandFormGroupFixtureSso
     },
     BrandTabs: {
       Default: BrandTabsFixtureDefault,

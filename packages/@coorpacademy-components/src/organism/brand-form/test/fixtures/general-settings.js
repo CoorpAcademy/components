@@ -1,4 +1,4 @@
-import BrandFormGroupPwdPrivacy from '../../../../molecule/brand-form-group/test/fixtures/pwdprivacy';
+import BrandFormGroupPwdPrivacy from '../../../../molecule/brand-form-group/test/fixtures/doublefield';
 
 export default {
   props: {
