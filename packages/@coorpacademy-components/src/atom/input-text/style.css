@@ -7,6 +7,9 @@
 
 .default {
   display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  align-content: center;
 }
 
 .error {
@@ -47,15 +50,12 @@
   width: 230px;
 }
 
-.isNoTitle .title {
-  display: none;
+.isNoTitle input {
+  margin-left: 0;
 }
 
-.isNoTitle {
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  align-content: center;
+.isNoTitle .title {
+  display: none;
 }
 
 .isNoTitle .description {

@@ -2,20 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import noop from 'lodash/fp/noop';
 import uniqueId from 'lodash/fp/uniqueId';
-import classnames from 'classnames';
 import getClassState from '../../util/get-class-state';
 import style from './style.css';
 
 const InputSwitch = props => {
-  const {
-    title,
-    id,
-    value,
-    disabled,
-    onChange = noop,
-    description,
-    modified = false
-  } = props;
+  const {title, id, value, disabled, onChange = noop, description, modified = false} = props;
 
   const idSwitch = id || uniqueId('input-switch-');
   const isDisabled = disabled ? 'disabled' : '';
