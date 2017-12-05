@@ -7,6 +7,9 @@
 
 .default {
   display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  align-content: center;
 }
 
 .error {
@@ -45,6 +48,18 @@
   color: dark;
   margin-left: 20px;
   width: 230px;
+}
+
+.isNoTitle input {
+  margin-left: 0;
+}
+
+.isNoTitle .title {
+  display: none;
+}
+
+.isNoTitle .description {
+  margin-left: 8px;
 }
 
 .error .input {

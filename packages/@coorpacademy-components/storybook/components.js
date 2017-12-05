@@ -189,6 +189,7 @@ import InputTextFixtureDisabled from '../src/atom/input-text/test/fixtures/disab
 import InputTextFixtureEmpty from '../src/atom/input-text/test/fixtures/empty';
 import InputTextFixtureError from '../src/atom/input-text/test/fixtures/error';
 import InputTextFixtureModified from '../src/atom/input-text/test/fixtures/modified';
+import InputTextFixtureNotitle from '../src/atom/input-text/test/fixtures/notitle';
 import InputTextFixtureRequired from '../src/atom/input-text/test/fixtures/required';
 import InputTextareaFixtureDefault from '../src/atom/input-textarea/test/fixtures/default';
 import InputTextareaFixtureEmpty from '../src/atom/input-textarea/test/fixtures/empty';
@@ -286,6 +287,7 @@ import BrandDownloadBoxFixtureDefault from '../src/molecule/brand-download-box/t
 import BrandDownloadBoxFixtureSso from '../src/molecule/brand-download-box/test/fixtures/sso';
 import BrandFormGroupFixtureDashboard from '../src/molecule/brand-form-group/test/fixtures/dashboard';
 import BrandFormGroupFixtureDefault from '../src/molecule/brand-form-group/test/fixtures/default';
+import BrandFormGroupFixtureDoublefield from '../src/molecule/brand-form-group/test/fixtures/doublefield';
 import BrandFormGroupFixtureImages from '../src/molecule/brand-form-group/test/fixtures/images';
 import BrandFormGroupFixtureLookandfeel from '../src/molecule/brand-form-group/test/fixtures/lookandfeel';
 import BrandFormGroupFixtureRoles from '../src/molecule/brand-form-group/test/fixtures/roles';
@@ -852,6 +854,7 @@ export const fixtures = {
       Empty: InputTextFixtureEmpty,
       Error: InputTextFixtureError,
       Modified: InputTextFixtureModified,
+      Notitle: InputTextFixtureNotitle,
       Required: InputTextFixtureRequired
     },
     InputTextarea: {
@@ -1004,6 +1007,7 @@ export const fixtures = {
     BrandFormGroup: {
       Dashboard: BrandFormGroupFixtureDashboard,
       Default: BrandFormGroupFixtureDefault,
+      Doublefield: BrandFormGroupFixtureDoublefield,
       Images: BrandFormGroupFixtureImages,
       Lookandfeel: BrandFormGroupFixtureLookandfeel,
       Roles: BrandFormGroupFixtureRoles,
