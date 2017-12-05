@@ -8,6 +8,8 @@
 
 .default {
   display: flex;
+  align-items: center;
+  align-content: center;
 }
 
 .modified {
@@ -87,6 +89,9 @@
   width: 180px;
   margin-right: 20px;
   min-height: 50px;
+  display: flex;
+  align-items: center;
+  align-content: center;
 }
 
 .description {
@@ -96,17 +101,4 @@
   color: medium;
   font-style: italic;
   margin-left: 20px;
-}
-
-.isFirst {
-  display: flex;
-  align-items: center;
-  align-content: center;
-  composes: default;
-}
-
-.isFirst .title {
-  display: flex;
-  align-items: center;
-  align-content: center;
 }

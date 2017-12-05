@@ -14,7 +14,6 @@ const InputSwitch = props => {
     disabled,
     onChange = noop,
     description,
-    isFirst,
     modified = false
   } = props;
 
@@ -30,7 +29,7 @@ const InputSwitch = props => {
   const className = getClassState(style.default, style.modified, null, modified);
 
   return (
-    <div className={classnames(className, isFirst && style.isFirst)}>
+    <div className={className}>
       {titleView}
       <input
         type="checkbox"
@@ -52,7 +51,6 @@ InputSwitch.propTypes = {
   id: PropTypes.string,
   value: PropTypes.bool,
   disabled: PropTypes.bool,
-  isFirst: PropTypes.bool,
   onChange: PropTypes.func,
   description: PropTypes.string,
   modified: PropTypes.bool

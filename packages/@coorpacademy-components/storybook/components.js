@@ -180,7 +180,6 @@ import InputHtmlFixtureError from '../src/atom/input-html/test/fixtures/error';
 import InputReadonlyFixtureDefault from '../src/atom/input-readonly/test/fixtures/default';
 import InputSwitchFixtureChecked from '../src/atom/input-switch/test/fixtures/checked';
 import InputSwitchFixtureDisabled from '../src/atom/input-switch/test/fixtures/disabled';
-import InputSwitchFixtureFirst from '../src/atom/input-switch/test/fixtures/first';
 import InputSwitchFixtureModified from '../src/atom/input-switch/test/fixtures/modified';
 import InputSwitchFixtureNoTitle from '../src/atom/input-switch/test/fixtures/no-title';
 import InputSwitchFixtureSso from '../src/atom/input-switch/test/fixtures/sso';
@@ -844,7 +843,6 @@ export const fixtures = {
     InputSwitch: {
       Checked: InputSwitchFixtureChecked,
       Disabled: InputSwitchFixtureDisabled,
-      First: InputSwitchFixtureFirst,
       Modified: InputSwitchFixtureModified,
       NoTitle: InputSwitchFixtureNoTitle,
       Sso: InputSwitchFixtureSso,
