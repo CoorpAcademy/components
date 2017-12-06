@@ -2,7 +2,6 @@
 import test from 'ava';
 import type {State} from '../types';
 import computeNextStep from '../compute-next-step';
-import allSlides from './fixtures/slides';
 import {
   stateBeforeGettingNextContent,
   failProgressionState,
@@ -19,7 +18,7 @@ const engine = {
 const slides = [
   {
     chapterId: '1.A1',
-    slides: allSlides.filter(slide => slide.chapter_id === '1.A1')
+    slides: ['1.A1.1', '1.A1.2', '1.A1.3', '1.A1.5', '1.A1.4']
   }
 ];
 

@@ -58,9 +58,11 @@ export const getEngineConfig = async engine => {
 };
 
 const createSlidePools = () => {
-  return pipe(groupBy('chapter_id'), toPairs, map(([chapterId, slides]) => ({chapterId, slides})))(
-    slidesData
-  );
+  return pipe(
+    groupBy('chapter_id'),
+    toPairs,
+    map(([chapterId, slides]) => ({chapterId, slides: map('_id', slides)}))
+  )(slidesData);
 };
 
 export const save = progression => {
@@ -149,7 +151,7 @@ export const create = async progression => {
     type: 'chapter'
   };
   const initialContent = {
-    ref: sample(slidePools[0].slides)._id,
+    ref: sample(slidePools[0].slides),
     type: 'slide'
   };
 

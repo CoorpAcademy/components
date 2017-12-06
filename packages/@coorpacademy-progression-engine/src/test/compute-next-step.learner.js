@@ -1,8 +1,7 @@
 // @flow
 import test from 'ava';
-import type {Slide, State} from '../types';
+import type {State} from '../types';
 import computeNextStep from '../compute-next-step';
-import allSlides from './fixtures/slides';
 import {stateBeforeGettingNextContent, failProgressionState} from './fixtures/states';
 
 const engine = {
@@ -10,14 +9,14 @@ const engine = {
   version: '1'
 };
 
-const slidesByChapter: Array<{chapterId: string, slides: Array<Slide>}> = [
+const slidesByChapter: Array<{chapterId: string, slides: Array<string>}> = [
   {
     chapterId: '1.A1',
-    slides: allSlides.filter(slide => slide.chapter_id === '1.A1')
+    slides: ['1.A1.1', '1.A1.2', '1.A1.3', '1.A1.5', '1.A1.4']
   },
   {
     chapterId: '2.A1',
-    slides: allSlides.filter(slide => slide.chapter_id === '2.A1')
+    slides: ['2.A1.1', '2.A1.2', '2.A1.3', '2.A1.5', '2.A1.4']
   }
 ];
 
