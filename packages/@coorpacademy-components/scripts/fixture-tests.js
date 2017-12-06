@@ -14,6 +14,7 @@ const readFixtureTests$ = (cwd, macro) =>
       Observable.concat(
         Observable.of(
           `import test from 'ava';`,
+          `import _ from 'lodash';`,
           `import renderComponentMacro from '${join(
             relative(testPath, dirname(macro)),
             basename(macro, '.js')
@@ -24,7 +25,18 @@ const readFixtureTests$ = (cwd, macro) =>
           ({fixture, fixturePath}) =>
             `import fixture${fixture} from './${relative(testPath, fixturePath)}';`
         ),
-        Observable.of(''),
+        Observable.of(
+          ``,
+          `test('${type} › ${title} > should have valid propTypes', t => {`,
+          `  t.pass();`,
+          `  _.forEach(${title}.propTypes, (value, key) => {`,
+          `    t.not(value, undefined, \`PropType for "${type}.${
+            title
+          }.propTypes.$\{key}" may not be undefined. Did you mistype the propTypes definition?\`);`,
+          `  });`,
+          `});`,
+          ``
+        ),
         readComponentFixtures$({title, path, type}).map(
           ({fixture}) =>
             `test('${type} › ${title} › ${pascalCase(
