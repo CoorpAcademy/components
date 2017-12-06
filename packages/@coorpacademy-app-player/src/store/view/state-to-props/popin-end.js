@@ -51,7 +51,7 @@ const comment = ({translate}, {dispatch}) => state => {
     isSent: isCommentSent(state),
     confirmation: {
       commentSectionTitle: translate('Thank you for your review!'),
-      confirmationLinkText: translate('See your comment and those of your peers.'),
+      confirmationLinkText: translate('See your comment and those of your peers'),
       onClick: e => dispatch(seeComment)
     },
     edition: {
