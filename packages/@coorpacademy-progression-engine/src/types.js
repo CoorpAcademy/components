@@ -179,7 +179,8 @@ export type Question =
 export type Slide = {
   _id: string,
   chapter_id: string,
-  question: Question
+  question: Question,
+  position?: ?number
 };
 
 export type Config = {
