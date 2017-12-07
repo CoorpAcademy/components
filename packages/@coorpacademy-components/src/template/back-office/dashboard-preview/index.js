@@ -71,6 +71,15 @@ const Dashboard = (props, context) => {
     </div>
   );
 };
+
+Dashboard.propTypes = {
+  url: PropTypes.string,
+  error: PropTypes.string,
+  selected: PropTypes.shape({
+    name: PropTypes.string
+  })
+};
+
 Dashboard.contextTypes = {
   skin: Provider.childContextTypes.skin,
   translate: Provider.childContextTypes.translate
@@ -87,6 +96,12 @@ const ErrorPopin = ({onErrorRedirect, ctaLabel, error}, {translate}) => {
       <p>{error}</p>
     </DashboardPopin>
   ) : null;
+};
+
+ErrorPopin.propTypes = {
+  onErrorRedirect: PropTypes.func.isRequired,
+  ctaLabel: PropTypes.string.isRequired,
+  error: PropTypes.string
 };
 
 ErrorPopin.contextTypes = {
@@ -119,7 +134,7 @@ const DashboardPreview = (props, context) => {
     return <Loader />;
   }
 
-  const dahsboardList = dashboards.map(d => ({
+  const dashboardList = dashboards.map(d => ({
     title: d.name,
     name: `${kebabCase(d.name)}-link`,
     type: 'link',
@@ -128,7 +143,7 @@ const DashboardPreview = (props, context) => {
     selected: d.name === get('name', currentDashboard)
   }));
 
-  const sidebarItems = [dahsboardList];
+  const sidebarItems = [dashboardList];
   if (currentDashboard) {
     sidebarItems.push(
       currentDashboardSidebarSection({
@@ -156,6 +171,7 @@ const DashboardPreview = (props, context) => {
     </div>
   );
 };
+
 DashboardPreview.contextTypes = {
   skin: Provider.childContextTypes.skin,
   translate: Provider.childContextTypes.translate
@@ -177,6 +193,7 @@ DashboardPreview.propTypes = {
     schema: PropTypes.arrayOf(PropTypes.string)
   }),
   url: PropTypes.string,
+  error: PropTypes.string,
   onSelectDashboard: PropTypes.func,
   onUpdateVersion: PropTypes.func,
   onUpdateField: PropTypes.func,
