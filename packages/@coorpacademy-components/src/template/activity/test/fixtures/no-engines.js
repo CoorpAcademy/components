@@ -4,7 +4,7 @@ export default {
     mainSubtitle: 'Houw is your progress going in your course?',
     total: {
       stars: 0,
-      label: 'Total: '
+      label: 'Total:'
     },
     recommendation: {
       title: 'Start learning to discover your activity',

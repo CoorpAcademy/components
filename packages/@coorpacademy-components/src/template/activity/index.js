@@ -47,10 +47,10 @@ class Progression extends React.Component {
         <Loader />
       </div>
     );
-    const allProgressions = progressions.map((progression, index) => (
-      <ProgressionItem {...progression} key={index} />
+    const allProgressions = progressions.map(progression => (
+      <ProgressionItem {...progression} key={progression.ref} />
     ));
-    const engineTabs = engines.map((engine, index) => <EngineStars {...engine} key={index} />);
+    const engineTabs = engines.map(engine => <EngineStars {...engine} key={engine.type} />);
     const coreProgression = <div className={style.core}>{allProgressions}</div>;
     const themeSelect = !isEmpty(themeFilter.options) && (
       <Select
@@ -123,12 +123,14 @@ Progression.propTypes = {
   mainTitle: PropTypes.string.isRequired,
   mainSubtitle: PropTypes.string.isRequired,
   total: PropTypes.shape({
-    label: PropTypes.string,
-    stars: PropTypes.number
+    label: PropTypes.string.isRequired,
+    stars: PropTypes.number.isRequired
   }).isRequired,
   engines: PropTypes.arrayOf(PropTypes.shape(EngineStars.propTypes)),
   loading: PropTypes.bool.isRequired,
-  progressions: PropTypes.arrayOf(PropTypes.shape(ProgressionItem.propTypes)),
+  progressions: PropTypes.arrayOf(
+    PropTypes.shape({...ProgressionItem.propTypes, ref: PropTypes.string.isRequired})
+  ),
   themeFilter: PropTypes.shape({
     options: Select.propTypes.options.isRequired,
     onChange: Select.propTypes.onChange

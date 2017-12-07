@@ -4,7 +4,7 @@ export default {
     mainSubtitle: 'How is your progress going in your course?',
     total: {
       stars: 400,
-      label: 'Total: '
+      label: 'Total:'
     },
     recommendation: {
       title: 'Start learning to discover your activity',
@@ -33,6 +33,7 @@ export default {
     ],
     progressions: [
       {
+        ref: '05',
         completion: 30,
         stars: 400,
         label: 'Big Data',
@@ -45,6 +46,7 @@ export default {
         }
       },
       {
+        ref: '04',
         completion: 100,
         stars: 700,
         label: 'Prospectives',
@@ -57,6 +59,7 @@ export default {
         }
       },
       {
+        ref: '03',
         completion: 0,
         stars: 400,
         label: 'Lead generation',
