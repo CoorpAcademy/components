@@ -15,6 +15,7 @@ const ProgressBar = props => {
       <div
         className={style.progress}
         style={{
+          ...props.style,
           width: `${percentage}%`
         }}
       />
@@ -30,7 +31,8 @@ ProgressBar.propTypes = {
   className: PropTypes.string,
   value: PropTypes.number.isRequired,
   max: PropTypes.number.isRequired,
-  desc: PropTypes.string
+  desc: PropTypes.string,
+  style: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))
 };
 
 export default ProgressBar;

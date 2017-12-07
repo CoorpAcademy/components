@@ -115,6 +115,7 @@ import Settings from './../src/organism/settings';
 import SetupHeader from './../src/organism/setup-header';
 import Sidebar from './../src/organism/sidebar';
 import Slider from './../src/organism/slider';
+import Activity from './../src/template/activity';
 import Loading from './../src/template/app-player/loading';
 import PlayerHeader from './../src/template/app-player/player/player-header';
 import Player from './../src/template/app-player/player';
@@ -510,6 +511,9 @@ import SidebarFixtureDashboards from '../src/organism/sidebar/test/fixtures/dash
 import SidebarFixtureDefault from '../src/organism/sidebar/test/fixtures/default';
 import SliderFixtureDefault from '../src/organism/slider/test/fixtures/default';
 import SliderFixtureMultipleSlides from '../src/organism/slider/test/fixtures/multiple-slides';
+import ActivityFixtureDefault from '../src/template/activity/test/fixtures/default';
+import ActivityFixtureEmpty from '../src/template/activity/test/fixtures/empty';
+import ActivityFixtureNoEngines from '../src/template/activity/test/fixtures/no-engines';
 import LoadingFixtureDefault from '../src/template/app-player/loading/test/fixtures/default';
 import PlayerHeaderFixtureLearner from '../src/template/app-player/player/player-header/test/fixtures/learner';
 import PlayerHeaderFixtureMicrolearning from '../src/template/app-player/player/player-header/test/fixtures/microlearning';
@@ -740,6 +744,9 @@ export const components = {
   },
   OrganismMooc: {
     ImageSlider
+  },
+  Template: {
+    Activity
   },
   TemplateAppPlayer: {
     Loading,
@@ -1397,6 +1404,13 @@ export const fixtures = {
     ImageSlider: {
       Default: ImageSliderFixtureDefault,
       MultipleSlides: ImageSliderFixtureMultipleSlides
+    }
+  },
+  Template: {
+    Activity: {
+      Default: ActivityFixtureDefault,
+      Empty: ActivityFixtureEmpty,
+      NoEngines: ActivityFixtureNoEngines
     }
   },
   TemplateAppPlayer: {
