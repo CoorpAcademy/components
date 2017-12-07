@@ -325,6 +325,7 @@ import DisciplineCtaFixtureNoStart from '../src/molecule/discipline-cta/test/fix
 import DisciplineHeaderFixtureDefault from '../src/molecule/discipline-header/test/fixtures/default';
 import DisciplineHeaderFixtureNoVideoNoImage from '../src/molecule/discipline-header/test/fixtures/no-video-no-image';
 import DisciplineHeaderFixtureNoVideo from '../src/molecule/discipline-header/test/fixtures/no-video';
+import DisciplineHeaderFixturePortaitRatio from '../src/molecule/discipline-header/test/fixtures/portait-ratio';
 import DisciplinePartnersFixtureDefault from '../src/molecule/discipline-partners/test/fixtures/default';
 import DisciplinePartnersFixtureDoubleAuthors from '../src/molecule/discipline-partners/test/fixtures/double-authors';
 import DisciplinePartnersFixtureMoreInfo from '../src/molecule/discipline-partners/test/fixtures/more-info';
@@ -1052,7 +1053,8 @@ export const fixtures = {
     DisciplineHeader: {
       Default: DisciplineHeaderFixtureDefault,
       NoVideoNoImage: DisciplineHeaderFixtureNoVideoNoImage,
-      NoVideo: DisciplineHeaderFixtureNoVideo
+      NoVideo: DisciplineHeaderFixtureNoVideo,
+      PortaitRatio: DisciplineHeaderFixturePortaitRatio
     },
     DisciplinePartners: {
       Default: DisciplinePartnersFixtureDefault,

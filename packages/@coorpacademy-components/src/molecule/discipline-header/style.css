@@ -75,8 +75,9 @@
 
   .imgWrapper {
     flex: none;
-    height: auto;
     text-align: center;
+    height: auto;
+    max-height: 30vh;
   }
 
   .courseWrapper {
