@@ -6,7 +6,7 @@ import {create} from '..';
 
 browserEnv(['window', 'document', 'navigator']);
 
-test('should create app', t => {
+test('should create app', async t => {
   const el = document.createElement('div');
   const app = create({
     translate: mockTranslate,
@@ -15,10 +15,13 @@ test('should create app', t => {
     progression: '0'
   });
 
-  app.updateCoaches({
+  await app.updateCoaches({
     chatStarted: false,
     coachForDiscipline: []
   });
+
+  await app.selectProgression('1');
+
   app.update();
   app.unsubscribe();
   t.pass();

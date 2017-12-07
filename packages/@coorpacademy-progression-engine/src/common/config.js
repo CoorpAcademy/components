@@ -1,9 +1,9 @@
 // @flow
 import find from 'lodash/fp/find';
-import type {Config, Engine} from '../types';
-import microlearning from './microlearning';
-import learner from './learner';
-import racing from './racing';
+import microlearning from '../engines/microlearning/config';
+import learner from '../engines/learner/config';
+
+import type {Config, Engine} from './types';
 
 const engineConfigurations = {
   microlearning,

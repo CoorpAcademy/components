@@ -112,13 +112,15 @@ const CardsLoader = () => (
   </div>
 );
 
-const CommentConfirmation = props => {
+const CommentConfirmation = (props, context) => {
   const {onClick, commentSectionTitle, confirmationLinkText} = props;
+  const {skin} = context;
+  const dark = get('common.dark', skin);
 
   return (
     <div className={style.commentSection}>
       <div className={style.commentSectionIconWrapper}>
-        <CheckIcon className={style.commentSectionIcon} />
+        <CheckIcon className={style.commentSectionIcon} color={dark} />
       </div>
       <div className={style.commentSectionTexts}>
         <p>{commentSectionTitle}</p>
@@ -134,6 +136,10 @@ CommentConfirmation.propTypes = {
   commentSectionTitle: PropTypes.string.isRequired,
   confirmationLinkText: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired
+};
+
+CommentConfirmation.contextTypes = {
+  skin: Provider.childContextTypes.skin
 };
 
 const CommentSection = props => {

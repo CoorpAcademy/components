@@ -1,5 +1,5 @@
 // @flow
-import type {Config} from '../types';
+import type {Config} from './types';
 
 const realConfigurations: Array<Config> = [
   {

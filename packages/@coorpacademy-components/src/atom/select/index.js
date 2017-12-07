@@ -25,6 +25,8 @@ const themeStyle = {
 const Select = (props, context) => {
   const {
     options = [],
+    className,
+    borderClassName,
     onChange,
     multiple = false,
     disabled,
@@ -76,17 +78,18 @@ const Select = (props, context) => {
       className={style.arrow}
     />
   ) : null;
-  const className = getClassState(style.default, style.modified, style.error, modified);
+  const behaviourClassName = getClassState(style.default, style.modified, style.error, modified);
   const composedClassName = classnames(
-    theme ? themeStyle[theme] : className,
-    selected ? style.selected : style.unselected
+    theme ? themeStyle[theme] : behaviourClassName,
+    selected ? style.selected : style.unselected,
+    className
   );
 
   return (
     <div className={composedClassName}>
       <label style={skinColor}>
         {titleView}
-        <span className={style.label}>{selectedLabel}</span>
+        <span className={classnames(style.label, borderClassName)}>{selectedLabel}</span>
         {arrowView}
         <select
           title={selectedLabel}
@@ -114,6 +117,8 @@ Select.contextTypes = {
 
 Select.propTypes = {
   title: PropTypes.string,
+  className: PropTypes.string,
+  borderClassName: PropTypes.string,
   disabled: PropTypes.bool,
   multiple: PropTypes.bool,
   required: PropTypes.bool,

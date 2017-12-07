@@ -3,6 +3,7 @@ import {createElement} from 'react';
 import pipe from 'lodash/fp/pipe';
 import Provider from '@coorpacademy/components/es/atom/provider';
 import {selectMapStateToVNode} from '../store/view';
+import {selectProgression} from '../store/actions/ui/progressions';
 import {updateCoaches} from '../store/actions/ui/coaches';
 import start from '../store/start';
 import createStore from '../store';
@@ -43,12 +44,13 @@ const create = options => {
 
   start(options, store);
 
+  const {dispatch} = store;
   return {
-    updateCoaches: coachState => {
-      const {dispatch} = store;
-      return dispatch(updateCoaches(coachState));
-    },
     update: () => update(),
+
+    updateCoaches: coachState => dispatch(updateCoaches(coachState)),
+    selectProgression: id => dispatch(selectProgression(id)),
+
     unsubscribe: () => {
       unmountComponentAtNode(container);
       return unsubscribe();

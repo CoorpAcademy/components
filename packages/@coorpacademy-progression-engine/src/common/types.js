@@ -1,5 +1,20 @@
 // @flow
 
+import type {
+  Config as LearnerConfig,
+  InitialStateOptions as LearnerInitialStateOptions,
+  State as LearnerState
+} from '../engines/learner/types';
+import type {
+  Config as MicrolearningConfig,
+  InitialStateOptions as MicrolearningInitialStateOptions,
+  State as MicrolearningState
+} from '../engines/microlearning/types';
+
+export type Config = LearnerConfig | MicrolearningConfig;
+export type InitialStateOptions = LearnerInitialStateOptions | MicrolearningInitialStateOptions;
+export type State = LearnerState | MicrolearningState;
+
 export type User = {
   id: string,
   displayName: string
@@ -91,7 +106,7 @@ export type Engine = {
 
 export type Progression = {
   content: Content,
-  initialState: State,
+  initialState: InitialStateOptions,
   state: State,
   actions: Array<Action>,
   engine: Engine
@@ -172,5 +187,6 @@ export type Question =
 export type Slide = {
   _id: string,
   chapter_id: string,
-  question: Question
+  question: Question,
+  position?: ?number
 };

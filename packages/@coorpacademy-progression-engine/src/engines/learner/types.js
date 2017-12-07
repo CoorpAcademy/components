@@ -1,13 +1,13 @@
 // @flow
 
+import type {Content, ViewedResource, Step} from '../../common/types';
+
 export type InitialStateOptions = {
   nextContent: Content,
-  livesDisabled: boolean,
-  teams: Array<Team>
+  livesDisabled: boolean
 };
 
 export type State = {
-  teams?: Array<Team>,
   content?: Content,
   nextContent: Content,
   lives: number,

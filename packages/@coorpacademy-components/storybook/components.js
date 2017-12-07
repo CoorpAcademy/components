@@ -116,6 +116,7 @@ import Settings from './../src/organism/settings';
 import SetupHeader from './../src/organism/setup-header';
 import Sidebar from './../src/organism/sidebar';
 import Slider from './../src/organism/slider';
+import Activity from './../src/template/activity';
 import Loading from './../src/template/app-player/loading';
 import PlayerHeader from './../src/template/app-player/player/player-header';
 import Player from './../src/template/app-player/player';
@@ -198,6 +199,7 @@ import InputTextFixtureDisabled from '../src/atom/input-text/test/fixtures/disab
 import InputTextFixtureEmpty from '../src/atom/input-text/test/fixtures/empty';
 import InputTextFixtureError from '../src/atom/input-text/test/fixtures/error';
 import InputTextFixtureModified from '../src/atom/input-text/test/fixtures/modified';
+import InputTextFixtureNotitle from '../src/atom/input-text/test/fixtures/notitle';
 import InputTextFixtureRequired from '../src/atom/input-text/test/fixtures/required';
 import InputTextareaFixtureDefault from '../src/atom/input-textarea/test/fixtures/default';
 import InputTextareaFixtureEmpty from '../src/atom/input-textarea/test/fixtures/empty';
@@ -295,6 +297,7 @@ import BrandDownloadBoxFixtureDefault from '../src/molecule/brand-download-box/t
 import BrandDownloadBoxFixtureSso from '../src/molecule/brand-download-box/test/fixtures/sso';
 import BrandFormGroupFixtureDashboard from '../src/molecule/brand-form-group/test/fixtures/dashboard';
 import BrandFormGroupFixtureDefault from '../src/molecule/brand-form-group/test/fixtures/default';
+import BrandFormGroupFixtureDoublefield from '../src/molecule/brand-form-group/test/fixtures/doublefield';
 import BrandFormGroupFixtureImages from '../src/molecule/brand-form-group/test/fixtures/images';
 import BrandFormGroupFixtureLookandfeel from '../src/molecule/brand-form-group/test/fixtures/lookandfeel';
 import BrandFormGroupFixtureRoles from '../src/molecule/brand-form-group/test/fixtures/roles';
@@ -331,6 +334,7 @@ import DisciplineCtaFixtureNoStart from '../src/molecule/discipline-cta/test/fix
 import DisciplineHeaderFixtureDefault from '../src/molecule/discipline-header/test/fixtures/default';
 import DisciplineHeaderFixtureNoVideoNoImage from '../src/molecule/discipline-header/test/fixtures/no-video-no-image';
 import DisciplineHeaderFixtureNoVideo from '../src/molecule/discipline-header/test/fixtures/no-video';
+import DisciplineHeaderFixturePortaitRatio from '../src/molecule/discipline-header/test/fixtures/portait-ratio';
 import DisciplinePartnersFixtureDefault from '../src/molecule/discipline-partners/test/fixtures/default';
 import DisciplinePartnersFixtureDoubleAuthors from '../src/molecule/discipline-partners/test/fixtures/double-authors';
 import DisciplinePartnersFixtureMoreInfo from '../src/molecule/discipline-partners/test/fixtures/more-info';
@@ -517,6 +521,9 @@ import SidebarFixtureDashboards from '../src/organism/sidebar/test/fixtures/dash
 import SidebarFixtureDefault from '../src/organism/sidebar/test/fixtures/default';
 import SliderFixtureDefault from '../src/organism/slider/test/fixtures/default';
 import SliderFixtureMultipleSlides from '../src/organism/slider/test/fixtures/multiple-slides';
+import ActivityFixtureDefault from '../src/template/activity/test/fixtures/default';
+import ActivityFixtureEmpty from '../src/template/activity/test/fixtures/empty';
+import ActivityFixtureNoEngines from '../src/template/activity/test/fixtures/no-engines';
 import LoadingFixtureDefault from '../src/template/app-player/loading/test/fixtures/default';
 import PlayerHeaderFixtureLearner from '../src/template/app-player/player/player-header/test/fixtures/learner';
 import PlayerHeaderFixtureMicrolearning from '../src/template/app-player/player/player-header/test/fixtures/microlearning';
@@ -753,6 +760,9 @@ export const components = {
   OrganismMooc: {
     ImageSlider
   },
+  Template: {
+    Activity
+  },
   TemplateAppPlayer: {
     Loading,
     Player,
@@ -880,6 +890,7 @@ export const fixtures = {
       Empty: InputTextFixtureEmpty,
       Error: InputTextFixtureError,
       Modified: InputTextFixtureModified,
+      Notitle: InputTextFixtureNotitle,
       Required: InputTextFixtureRequired
     },
     InputTextarea: {
@@ -1032,6 +1043,7 @@ export const fixtures = {
     BrandFormGroup: {
       Dashboard: BrandFormGroupFixtureDashboard,
       Default: BrandFormGroupFixtureDefault,
+      Doublefield: BrandFormGroupFixtureDoublefield,
       Images: BrandFormGroupFixtureImages,
       Lookandfeel: BrandFormGroupFixtureLookandfeel,
       Roles: BrandFormGroupFixtureRoles,
@@ -1069,7 +1081,8 @@ export const fixtures = {
     DisciplineHeader: {
       Default: DisciplineHeaderFixtureDefault,
       NoVideoNoImage: DisciplineHeaderFixtureNoVideoNoImage,
-      NoVideo: DisciplineHeaderFixtureNoVideo
+      NoVideo: DisciplineHeaderFixtureNoVideo,
+      PortaitRatio: DisciplineHeaderFixturePortaitRatio
     },
     DisciplinePartners: {
       Default: DisciplinePartnersFixtureDefault,
@@ -1421,6 +1434,13 @@ export const fixtures = {
     ImageSlider: {
       Default: ImageSliderFixtureDefault,
       MultipleSlides: ImageSliderFixtureMultipleSlides
+    }
+  },
+  Template: {
+    Activity: {
+      Default: ActivityFixtureDefault,
+      Empty: ActivityFixtureEmpty,
+      NoEngines: ActivityFixtureNoEngines
     }
   },
   TemplateAppPlayer: {
