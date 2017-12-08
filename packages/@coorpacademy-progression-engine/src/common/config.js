@@ -2,6 +2,7 @@
 import find from 'lodash/fp/find';
 import microlearning from '../engines/microlearning/config';
 import learner from '../engines/learner/config';
+import racing from '../engines/racing/config';
 
 import type {Config, Engine} from './types';
 

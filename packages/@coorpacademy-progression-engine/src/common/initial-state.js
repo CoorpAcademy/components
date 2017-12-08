@@ -1,11 +1,13 @@
 // @flow
 import microlearning from '../engines/microlearning/initial-state';
 import learner from '../engines/learner/initial-state';
+import racing from '../engines/racing/initial-state';
 import type {Config, Engine, InitialStateOptions, State} from './types';
 
 const engineInitialStateFactory = {
   microlearning,
-  learner
+  learner,
+  racing
 };
 
 export default function create(

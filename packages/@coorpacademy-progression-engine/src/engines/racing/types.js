@@ -1,18 +1,26 @@
 // @flow
 
-export type User = {
-  id: string,
-  displayName: string
+import type {AnswerAction, User, Team} from '../../common/types';
+
+export type JoinAction = {
+  type: 'joinTeam',
+  payload: {
+    author: User
+  }
 };
 
-export type Team = Array<User>;
+export type CurrentNode = {
+  type: 'waiting-for-race' | 'waiting-for-team' | 'answering' | 'done'
+};
+
+export type Action = AnswerAction | JoinAction;
 
 export type InitialStateOptions = {
   teams: Array<Team>
 };
 
 export type State = {
-  teams?: Array<Team>
+  teams: Array<Team>
 };
 
 export type Config = {

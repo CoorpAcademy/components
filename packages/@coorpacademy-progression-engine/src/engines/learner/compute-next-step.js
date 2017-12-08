@@ -3,12 +3,19 @@ import map from 'lodash/fp/map';
 import get from 'lodash/fp/get';
 import find from 'lodash/fp/find';
 import pipe from 'lodash/fp/pipe';
-import sample from 'lodash/fp/sample';
+import shuffle from 'lodash/fp/shuffle';
+import sortBy from 'lodash/fp/sortBy';
+import isNumber from 'lodash/fp/isNumber';
+import negate from 'lodash/fp/negate';
+import head from 'lodash/fp/head';
 import indexOf from 'lodash/fp/indexOf';
+import __ from 'lodash/fp/__';
 import last from 'lodash/fp/last';
-import without from 'lodash/fp/without';
+import filter from 'lodash/fp/filter';
+import includes from 'lodash/fp/includes';
 import intersection from 'lodash/fp/intersection';
-import type {State, Slide, Content, Engine, Config} from './types';
+import type {Content, Engine, Slide} from '../../common/types';
+import type {State, Config} from './types';
 import getConfig from './config';
 
 const isAlive = (state: State): boolean => state.lives > 0;
@@ -37,6 +44,10 @@ const getSlidePool = (
   return currentChapterPool;
 };
 
+const sortByPosition = sortBy(({position}) => (isNumber(position) ? -position : 0));
+
+const pickNextSlide = pipe(shuffle, sortByPosition, head);
+
 export default function computeNextStep(
   engine: Engine,
   slidePools: Array<{chapterId: string, slides: Array<Slide>}>,
@@ -60,8 +71,11 @@ export default function computeNextStep(
     };
   }
 
-  const remainingSlides = without(state.slides, map('_id', slidePool.slides));
-  const nextSlide = sample(remainingSlides);
+  const remainingSlides = filter(
+    pipe(get('_id'), negate(includes(__, state.slides))),
+    slidePool.slides
+  );
+  const nextSlide = pipe(pickNextSlide, get('_id'))(remainingSlides);
 
   // with next slide return content object
   return {
