@@ -1,5 +1,27 @@
 // @flow
 
+import type {
+  Config as LearnerConfig,
+  InitialStateOptions as LearnerInitialStateOptions,
+  State as LearnerState
+} from '../engines/learner/types';
+import type {
+  Config as MicrolearningConfig,
+  InitialStateOptions as MicrolearningInitialStateOptions,
+  State as MicrolearningState
+} from '../engines/microlearning/types';
+
+export type Config = LearnerConfig | MicrolearningConfig;
+export type InitialStateOptions = LearnerInitialStateOptions | MicrolearningInitialStateOptions;
+export type State = LearnerState | MicrolearningState;
+
+export type User = {
+  id: string,
+  displayName: string
+};
+
+export type Team = Array<User>;
+
 export type ViewedResource = {
   type: 'chapter',
   ref: string,
@@ -24,21 +46,6 @@ export type ResourceContent = {
 
 export type Content = GenericContent | ResourceContent;
 
-export type State = {
-  content?: Content,
-  nextContent: Content,
-  lives: number,
-  livesDisabled?: boolean,
-  isCorrect: boolean,
-  slides: Array<string>,
-  requestedClues: Array<string>,
-  viewedResources: Array<ViewedResource>,
-  stars: number,
-  step: Step,
-  remainingLifeRequests: number,
-  hasViewedAResourceAtThisStep: boolean
-};
-
 export type AskClueAction = {
   type: 'clue',
   payload: {
@@ -58,6 +65,7 @@ export type AnswerAction = {
   type: 'answer',
   payload: {
     content: Content,
+    author: User | Array<User>,
     nextContent: Content,
     isCorrect: boolean
   }
@@ -98,7 +106,7 @@ export type Engine = {
 
 export type Progression = {
   content: Content,
-  initialState: State,
+  initialState: InitialStateOptions,
   state: State,
   actions: Array<Action>,
   engine: Engine
@@ -181,17 +189,4 @@ export type Slide = {
   chapter_id: string,
   question: Question,
   position?: ?number
-};
-
-export type Config = {
-  version: string,
-  lives: number,
-  livesDisabled: boolean,
-  maxTypos: number,
-  slidesToComplete: number,
-  answerBoundaryLimit: number,
-  starsPerAskingClue: number,
-  starsPerCorrectAnswer: number,
-  starsPerResourceViewed: number,
-  remainingLifeRequests: number
 };

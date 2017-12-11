@@ -4,16 +4,16 @@ import omit from 'lodash/fp/omit';
 import pick from 'lodash/fp/pick';
 import get from 'lodash/fp/get';
 import updateState from '../update-state';
-import createProgression from '../create-progression';
+import createProgression from '../../../common/create-progression';
+import type {State} from '../types';
 import type {
   AnswerAction,
   AskClueAction,
   Content,
-  State,
   ContentResourceViewedAction,
   ExtraLifeAcceptedAction,
   ExtraLifeRefusedAction
-} from '../types';
+} from '../../../common/types';
 import {
   stateForFirstSlide,
   stateForSecondSlide,
