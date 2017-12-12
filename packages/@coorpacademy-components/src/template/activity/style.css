@@ -46,7 +46,6 @@
 }
 
 .headerProgression .cta {
-  margin-top: 16px;
   border-radius: 30px;
   line-height: 42px;
   min-width: auto;
@@ -62,30 +61,27 @@
   width: 80%;
   min-width: 482px;
   box-sizing: border-box;
-  margin: 24px 0 24px 32px;
-}
-
-.wrapperCta span {
-  font-family: 'Open Sans';
-  font-size: 17px;
-  font-weight: 300;
-  text-align: left;
-  color: dark;
-  display: flex;
-  flex-direction: row;
-}
-
-.wrapperCta span p {
-  margin: 0 8px 0 4px;
+  margin: 24px 24px 24px 32px;
 }
 
 .wrapperCta p {
   font-family: 'Open Sans';
-  font-size: 17px;
+  font-size: 15px;
+  font-weight: 300;
+  text-align: left;
+  color: dark;
+  display: inline-block;
+  margin: 0 0 10px;
+  width: 100%;
+}
+
+.wrapperCta p .course {
+  font-family: 'Open Sans';
+  font-size: 15px;
   font-weight: bold;
   text-align: left;
   color: dark;
-  margin: 8px 0;
+  margin: 0 8px 0 4px;
 }
 
 .iconHeader {
@@ -96,7 +92,6 @@
 .totalStars {
   display: flex;
   width: 100%;
-  min-width: 375px;
   height: 68px;
   border-bottom-right-radius: 3px;
   justify-content: center;
@@ -136,14 +131,11 @@
   height: 153px;
   display: flex;
   flex-direction: row;
+  min-width: 180px;
 }
 
 .core {
   margin-top: 24px;
-}
-
-.cta {
-  margin-top: 40px;
 }
 
 .wrapperProgression {
@@ -230,7 +222,6 @@
 
   .totalStars {
     height: 50px;
-    min-width: 100%;
   }
 
   .myStars {
@@ -239,6 +230,8 @@
 
   .allStars {
     border-top: 1px solid light;
+    min-width: 100%;
+    max-width: 100%;
   }
 
   .iconHeader {
