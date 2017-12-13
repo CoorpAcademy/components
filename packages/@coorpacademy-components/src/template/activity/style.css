@@ -201,7 +201,8 @@
   .wrapperCta select {
     width: 100%;
   }
-  .wrapperCta  label {
+
+  .wrapperCta label {
     width: 100%;
     margin: 0;
   }
@@ -218,10 +219,6 @@
   .allStars,
   .totalStars {
     width: 100%;
-  }
-
-  .allStars {
-    
   }
 
   .totalStars {
