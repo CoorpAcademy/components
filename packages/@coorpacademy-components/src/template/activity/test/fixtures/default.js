@@ -22,7 +22,7 @@ export default {
       },
       {
         type: 'microlearning',
-        title: 'MicroLearning',
+        title: 'Microlearning',
         stars: 70
       },
       {

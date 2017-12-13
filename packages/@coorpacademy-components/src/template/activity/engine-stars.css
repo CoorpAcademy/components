@@ -19,6 +19,7 @@
   box-sizing: border-box;
   position: relative;
   flex: 1 2;
+  min-width: 110px;
 }
 
 .engineIcon {
