@@ -2,7 +2,8 @@
 import microlearning from '../engines/microlearning/initial-state';
 import learner from '../engines/learner/initial-state';
 import racing from '../engines/racing/initial-state';
-import type {Config, Engine, InitialStateOptions, State} from './types';
+import getConfig from './config';
+import type {Engine, InitialStateOptions, State} from './types';
 
 const engineInitialStateFactory = {
   microlearning,
@@ -10,12 +11,12 @@ const engineInitialStateFactory = {
   racing
 };
 
-export default function create(
+export default function createInitialState(
   engine: Engine,
-  config: Config,
   initialStateOptions: InitialStateOptions
 ): State {
-  const createInitialState = engineInitialStateFactory[engine.ref];
-  const initialState = createInitialState(config, initialStateOptions);
+  const config = getConfig({ref: engine.ref, version: engine.version});
+  const _createInitialState = engineInitialStateFactory[engine.ref];
+  const initialState = _createInitialState(config, initialStateOptions);
   return initialState;
 }

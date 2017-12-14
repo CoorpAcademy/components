@@ -15,9 +15,9 @@ import last from 'lodash/fp/last';
 import filter from 'lodash/fp/filter';
 import includes from 'lodash/fp/includes';
 import intersection from 'lodash/fp/intersection';
+import getConfig from '../../common/config';
 import type {Content, Engine, Slide} from '../../common/types';
 import type {State, Config} from './types';
-import getConfig from './config';
 
 const isAlive = (state: State): boolean => state.lives > 0;
 const hasRemainingLifeRequests = (state: State): boolean => state.remainingLifeRequests > 0;
