@@ -19,6 +19,7 @@
   box-sizing: border-box;
   position: relative;
   flex: 1 2;
+  min-width: 126px;
 }
 
 .engineIcon {
@@ -84,10 +85,10 @@
 @media tablet, mobile {
   .engineStars {
     width: auto;
-    height: 50px;
+    height: 80px;
     flex: 1 2;
-    justify-content: center;
-    padding-bottom: 0;
+    justify-content: flex-end;
+    padding-bottom: 10px;
   }
 
   .engineStars:first-child {

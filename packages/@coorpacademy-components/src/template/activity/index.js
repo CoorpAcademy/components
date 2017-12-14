@@ -63,10 +63,11 @@ class Progression extends React.Component {
     );
     const recommendationSection = !isEmpty(recommendation) && (
       <div className={style.recommendationWrapper}>
-        <span>{recommendation.title}</span>
-        <span>
-          {recommendation.subtitle} <p>{recommendation.courseTitle}</p>
-        </span>
+        <p>{recommendation.title}</p>
+        <p>
+          <span>{recommendation.subtitle}</span>
+          <span className={style.course}>{recommendation.courseTitle}</span>
+        </p>
         <Button
           type="link"
           onClick={this.handleClick}

@@ -8,6 +8,7 @@ import sortBy from 'lodash/fp/sortBy';
 import isNumber from 'lodash/fp/isNumber';
 import negate from 'lodash/fp/negate';
 import head from 'lodash/fp/head';
+import isEmpty from 'lodash/fp/isEmpty';
 import indexOf from 'lodash/fp/indexOf';
 import __ from 'lodash/fp/__';
 import last from 'lodash/fp/last';
@@ -22,18 +23,19 @@ const isAlive = (state: State): boolean => state.lives > 0;
 const hasRemainingLifeRequests = (state: State): boolean => state.remainingLifeRequests > 0;
 const stepIsAlreadyExtraLife = (state: State): boolean => get('content.ref', state) === 'extraLife';
 
-const getSlidePool = (
-  config: Config,
-  slidePools: Array<{chapterId: string, slides: Array<Slide>}>,
-  state: State
-): {chapterId: string, slides: Array<Slide>} => {
+type SlidePool = {
+  chapterId: string,
+  slides: Array<Slide>
+};
+
+const nextSlidePool = (config: Config, slidePools: Array<SlidePool>, state: State): SlidePool => {
   const lastSlideRef = pipe(get('slides'), last)(state);
   const currentChapterPool = find(({slides}) => find({_id: lastSlideRef}, slides), slidePools);
-
   const slidesAnsweredForThisChapter = intersection(
     state.slides,
     map('_id', currentChapterPool.slides)
   );
+
   if (slidesAnsweredForThisChapter.length >= config.slidesToComplete) {
     const indexOfCurrentChapter = indexOf(
       currentChapterPool.chapterId,
@@ -41,8 +43,12 @@ const getSlidePool = (
     );
     return slidePools[indexOfCurrentChapter + 1];
   }
+
   return currentChapterPool;
 };
+
+const getSlidePool = (config: Config, slidePools: Array<SlidePool>, state: State): SlidePool =>
+  isEmpty(get('slides', state)) ? head(slidePools) : nextSlidePool(config, slidePools, state);
 
 const sortByPosition = sortBy(({position}) => (isNumber(position) ? -position : 0));
 
