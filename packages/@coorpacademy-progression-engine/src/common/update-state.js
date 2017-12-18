@@ -16,12 +16,12 @@ const update = (config: Config, reduceAction) => (state: State, actions: Array<A
   reduce(reduceAction(config), state, actions);
 
 export default function updateState(engine: Engine, state: State, actions: Array<Action>): State {
-  console.log('---------- updateState common');
   const reducer = reducers[engine.ref];
   const config = (getConfig(engine): Config);
 
-  console.log('---------- config');
-  console.log(config);
+  console.log('---------- update-state', config);
+  console.dir({state}, {depth: null});
+  console.dir({actions}, {depth: null});
 
   if (!reducer) {
     throw new Error(`Unknown engine ${engine.ref}`);

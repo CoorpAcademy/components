@@ -39,9 +39,7 @@ export default function combineReducers(
   }, fnMap);
 
   return (config: Config): ((State, Action) => State) => {
-    console.log('--------- 1');
     return (state: State, action: Action): State => {
-      console.log('--------- 2');
       validate(config)(state, action);
       return pipe(...map(fn => fn(config, action), fns))(state);
     };

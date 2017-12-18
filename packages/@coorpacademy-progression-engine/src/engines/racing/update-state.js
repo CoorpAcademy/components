@@ -1,6 +1,8 @@
 // @flow
 
 import findIndex from 'lodash/fp/findIndex';
+import has from 'lodash/fp/has';
+import negate from 'lodash/fp/negate';
 import combineReducers from '../../common/combine-reducers';
 
 import type {Team} from '../../common/types';
@@ -29,7 +31,7 @@ function userId(config: Config): (string, Action) => string {
   return (_userId: string, action: Action): string => {
     switch (action.type) {
       case 'joinTeam': {
-        return action.payload.author.userId;
+        return action.payload.author;
       }
       default:
         return _userId;
@@ -37,22 +39,23 @@ function userId(config: Config): (string, Action) => string {
   };
 }
 
-const findSlot = (teams: Array<Team>, expectedUserId: string | void): [number, number] => {
+const getFreeTeamKey = key => (action: Action, state: State): Array<number | string> => {
   let playerIndex = -1;
   const teamIndex = findIndex((players: Team): boolean => {
-    playerIndex = findIndex({userId: expectedUserId}, players);
+    playerIndex = findIndex(negate(has('userId')), players);
     return playerIndex !== -1;
-  }, teams);
-  return [(teamIndex: number), (playerIndex: number)];
-};
+  }, state.teams);
 
-const getFreeTeamKey = key => (action: Action, state: State): Array<number | string> => {
-  const [teamIndex, playerIndex] = findSlot(state.teams, undefined);
   return ['teams', teamIndex, playerIndex, key];
 };
 
 const getUserTeamKey = key => (action: Action, state: State): Array<number | string> => {
-  const [teamIndex, playerIndex] = findSlot(state.teams, action.payload.author.userId);
+  let playerIndex = -1;
+  const teamIndex = findIndex((players: Team): boolean => {
+    playerIndex = findIndex({userId: action.payload.author}, players);
+    return playerIndex !== -1;
+  }, state.teams);
+
   return ['teams', teamIndex, playerIndex, key];
 };
 
