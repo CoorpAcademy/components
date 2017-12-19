@@ -24,7 +24,17 @@ export type ResourceContent = {
 
 export type Content = GenericContent | ResourceContent;
 
+export type Answer = Array<string>;
+export type AcceptedAnswers = Array<Answer>;
+
+export type AllAnswers = Array<{
+  slideRef: string,
+  answer: Answer,
+  isCorrect?: boolean
+}>;
+
 export type State = {
+  allAnswers: AllAnswers,
   content?: Content,
   nextContent: Content,
   lives: number,
@@ -114,9 +124,6 @@ export type AnswerCorrection = {
   corrections: Array<PartialCorrection>
 };
 
-export type Answer = Array<string>;
-export type AcceptedAnswers = Array<Answer>;
-
 export type QCMQuestion = {
   type: 'qcm',
   content: {
@@ -194,4 +201,55 @@ export type Config = {
   starsPerCorrectAnswer: number,
   starsPerResourceViewed: number,
   remainingLifeRequests: number
+};
+
+type ConditionType =
+  | 'checkCurrentAnswer'
+  | 'checkPreviousAnswers'
+  | 'checkIsCorrect'
+  | 'checkVariables';
+
+export type Condition = {
+  type: ConditionType,
+  operator: 'IN' | 'EQUALS' | 'GTE' | 'LTE',
+  values: Array<string | number>
+};
+
+export type Instruction = {
+  field: string,
+  type: 'add' | 'set',
+  value: number | boolean
+};
+
+export type ChapterRule = {
+  source: Content,
+  destination: Content,
+  instructions: Array<Instruction>,
+  conditions: Array<Condition>,
+  ref: string
+};
+
+export type SlidePools = Array<{
+  conditions: Array<Condition>,
+  ref: string
+}>;
+
+export type SlidePool = {
+  chapterId: string,
+  slides: Array<Slide>
+};
+
+export type NextStepParams = {
+  isAccepted?: boolean,
+  godmode?: boolean,
+  answer?: Answer,
+  currentSlide: Slide,
+  chapterRules?: Array<ChapterRule>,
+  slidePools?: Array<SlidePool>
+};
+
+export type NextStepPayload = {
+  nextContent: Content,
+  isCorrect?: boolean,
+  instructions?: Array<Instruction>
 };

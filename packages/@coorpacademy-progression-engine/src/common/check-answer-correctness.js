@@ -1,5 +1,6 @@
 // @flow
 import get from 'lodash/fp/get';
+import set from 'lodash/fp/set';
 import map from 'lodash/fp/map';
 import zip from 'lodash/fp/zip';
 import some from 'lodash/fp/some';
@@ -182,6 +183,17 @@ function matchGivenAnswerToQuestion(
   }
 }
 
+const getAnswers = (question: Question): AcceptedAnswers => {
+  switch (question.type) {
+    case 'slider': {
+      const [, ...answers] = question.content.answers;
+      return answers;
+    }
+    default:
+      return question.content.answers;
+  }
+};
+
 export default function checkAnswerCorrectness(
   engine: Engine,
   question: Question,
@@ -193,3 +205,26 @@ export default function checkAnswerCorrectness(
     corrections: filter(item => item.answer !== undefined, bestMatch)
   };
 }
+
+export const getCorrection = (
+  progression: Progression,
+  question: Question,
+  givenAnswers: Answer,
+  godmode: boolean
+): AnswerCorrection => {
+  if (godmode) {
+    return {
+      isCorrect: true,
+      corrections: givenAnswers.map(answer => ({
+        answer,
+        isCorrect: true
+      }))
+    };
+  }
+
+  return checkAnswerCorrectness(
+    progression.engine,
+    set('content.answers', getAnswers(question), question),
+    givenAnswers
+  );
+};
