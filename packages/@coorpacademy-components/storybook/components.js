@@ -245,7 +245,7 @@ import SelectFixtureThematiques from '../src/atom/select/test/fixtures/thematiqu
 import SlideFixtureDefault from '../src/atom/slide/test/fixtures/default';
 import SlideFixtureLeft from '../src/atom/slide/test/fixtures/left';
 import SlideFixtureLight from '../src/atom/slide/test/fixtures/light';
-import SlideFixtureNoCta from '../src/atom/slide/test/fixtures/noCta';
+import SlideFixtureNoCta from '../src/atom/slide/test/fixtures/no-cta';
 import SlideFixtureRight from '../src/atom/slide/test/fixtures/right';
 import SocialLinkFixtureFacebook from '../src/atom/social-link/test/fixtures/facebook';
 import SocialLinkFixtureTwitter from '../src/atom/social-link/test/fixtures/twitter';
