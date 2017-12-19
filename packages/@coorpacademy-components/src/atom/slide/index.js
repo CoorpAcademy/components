@@ -7,8 +7,11 @@ const Slide = props => {
   const {cover, title, surtitle, cta, light, alignment = 'center'} = props;
 
   const imgCover = cover;
-  cta ? cta.light = light : null;
-  cta ? <Cta {...cta} /> : null;
+  const ctaView = cta ? <Cta {...cta} /> : null;
+
+  if (cta) {
+    cta.light = light;
+  }
 
   return (
     <div
@@ -25,7 +28,7 @@ const Slide = props => {
       >
         <h2 className={style.surtitle}>{surtitle}</h2>
         <h1 className={style.title}>{title}</h1>
-        {cta}
+        {ctaView}
       </div>
     </div>
   );
