@@ -39,6 +39,8 @@ function userId(config: Config): (string, Action) => string {
   };
 }
 
+const updateEveryone
+
 const getFreeTeamKey = key => (action: Action, state: State): Array<number | string> => {
   let playerIndex = -1;
   const teamIndex = findIndex((players: Team): boolean => {
@@ -59,9 +61,24 @@ const getUserTeamKey = key => (action: Action, state: State): Array<number | str
   return ['teams', teamIndex, playerIndex, key];
 };
 
-const reduceAction = combineReducers([
-  {key: getFreeTeamKey('userId'), fn: userId},
-  {key: getUserTeamKey('currentNode'), fn: currentNode}
-]);
+const updateEveryone = (config: Config): (State, Action) => State {
+  console.log('--------------- updateEveryone');
+  return (state: State, action: Action) => {
+    console.log('--------------- return state');
+    console.log(action);
+    console.log('-----');
+    console.log(state);
+    console.log('---------------');
+    return state;
+  };
+};
+
+const reduceAction = pipe(
+  combineReducers([
+    {key: getFreeTeamKey('userId'), fn: userId},
+    {key: getUserTeamKey('currentNode'), fn: currentNode}
+  ],
+  updateEveryone
+);
 
 export default reduceAction;
