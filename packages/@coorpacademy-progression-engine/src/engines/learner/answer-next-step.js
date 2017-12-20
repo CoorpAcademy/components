@@ -1,5 +1,6 @@
 // @flow
 import get from 'lodash/fp/get';
+import map from 'lodash/fp/map';
 import type {Config, NextStepParams, NextStepPayload, Progression, State} from '../../common/types';
 import {getCorrection} from '../../common/check-answer-correctness';
 import getConfig from '../../common/config';
@@ -8,25 +9,21 @@ import selectNextSlide from './select-next-slide';
 const hasRemainingLifeRequests = (state: State): boolean => state.remainingLifeRequests > 0;
 const stepIsAlreadyExtraLife = (state: State): boolean => get('content.ref', state) === 'extraLife';
 
+const checkParams = (params: NextStepParams, fields: Array<string>, context: string) =>
+  map(field => {
+    if (!params[field]) {
+      throw new Error(`${field} is required for ${context}`);
+    }
+  }, fields);
+
 export default function nextStepForAnswer(
   progression: Progression,
   params: NextStepParams
 ): NextStepPayload {
+  checkParams(params, ['currentSlide', 'slidePools', 'answer'], 'learner.nextStepForAnswer');
+
   const {engine, state} = progression;
   const {answer, currentSlide, godmode = false, slidePools} = params;
-
-  if (!slidePools) {
-    throw new Error('params.slidePools is required for learner.nextStepForAnswer');
-  }
-
-  if (!currentSlide) {
-    throw new Error('params.currentSlide is required for learner.nextStepForAnswer');
-  }
-
-  if (!answer) {
-    throw new Error('params.answer is required for adaptive.nextStepForAnswer');
-  }
-
   const config = (getConfig(engine): Config);
   const {isCorrect} = getCorrection(progression, currentSlide.question, answer, godmode);
 
@@ -37,10 +34,10 @@ export default function nextStepForAnswer(
       : {nextContent: {ref: 'failExitNode', type: 'failure'}};
   }
 
-  const nextSlide = selectNextSlide(config, slidePools, state);
+  const nextSlideId = selectNextSlide(config, slidePools, state);
 
   // If user has answered all questions, return success endpoint
-  if (!nextSlide) {
+  if (!nextSlideId) {
     return {
       isCorrect,
       nextContent: {
@@ -54,7 +51,7 @@ export default function nextStepForAnswer(
   return {
     isCorrect,
     nextContent: {
-      ref: nextSlide._id,
+      ref: nextSlideId,
       type: 'slide'
     }
   };

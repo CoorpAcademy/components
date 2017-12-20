@@ -14,13 +14,14 @@ import includes from 'lodash/fp/includes';
 import FuzzyMatching from 'fuzzy-matching';
 import getConfig from './config';
 import type {
+  AcceptedAnswers,
+  Answer,
+  AnswerCorrection,
   Question,
   BasicQuestion,
   TemplateQuestion,
   PartialCorrection,
-  AnswerCorrection,
-  AcceptedAnswers,
-  Answer,
+  Progression,
   Engine,
   Config
 } from './types';

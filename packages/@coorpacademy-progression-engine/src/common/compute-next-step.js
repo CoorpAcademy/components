@@ -1,5 +1,6 @@
 // @flow
 import has from 'lodash/fp/has';
+import get from 'lodash/fp/get';
 import learnerNextStepForAnswer from '../engines/learner/answer-next-step';
 import learnerNextStepForExtraLife from '../engines/learner/extra-life-next-step';
 import adaptiveNextStepForAnswer from '../engines/adaptive/answer-next-step';
@@ -9,7 +10,13 @@ const getComputer = (
   progression: Progression,
   params: NextStepParams
 ): ((progression: Progression, params: NextStepParams) => NextStepPayload) => {
-  switch (progression.engine.ref) {
+  const engineRef = get('engine.ref', progression);
+
+  if (!engineRef) {
+    throw new Error('Bad format for Progression');
+  }
+
+  switch (engineRef) {
     case 'learner':
     case 'microlearning': {
       if (has('isAccepted', params)) {
@@ -31,6 +38,7 @@ const getComputer = (
         /*
           to check:
             params.answer
+            params.currentSlide
             params.slidePools
          */
         return learnerNextStepForAnswer;

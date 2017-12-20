@@ -46,7 +46,7 @@ export default function selectNextSlide(
   config: Config,
   slidePools: Array<SlidePool>,
   state: State
-): Slide | null {
+): string | null {
   const slidePool = getSlidePool(config, slidePools, state);
 
   // If user has answered all questions, return success endpoint
@@ -58,6 +58,6 @@ export default function selectNextSlide(
     pipe(get('_id'), negate(includes(__, state.slides))),
     slidePool.slides
   );
-  const nextSlide = pipe(pickNextSlide, get('_id'))(remainingSlides);
-  return nextSlide;
+  const nextSlideId = pipe(pickNextSlide, get('_id'))(remainingSlides);
+  return nextSlideId;
 }
