@@ -3,6 +3,7 @@
 import findIndex from 'lodash/fp/findIndex';
 import has from 'lodash/fp/has';
 import negate from 'lodash/fp/negate';
+import pipe from 'lodash/fp/pipe';
 import combineReducers from '../../common/combine-reducers';
 
 import type {Team} from '../../common/types';
@@ -39,8 +40,6 @@ function userId(config: Config): (string, Action) => string {
   };
 }
 
-const updateEveryone
-
 const getFreeTeamKey = key => (action: Action, state: State): Array<number | string> => {
   let playerIndex = -1;
   const teamIndex = findIndex((players: Team): boolean => {
@@ -61,23 +60,17 @@ const getUserTeamKey = key => (action: Action, state: State): Array<number | str
   return ['teams', teamIndex, playerIndex, key];
 };
 
-const updateEveryone = (config: Config): (State, Action) => State {
-  console.log('--------------- updateEveryone');
-  return (state: State, action: Action) => {
-    console.log('--------------- return state');
-    console.log(action);
-    console.log('-----');
-    console.log(state);
-    console.log('---------------');
+function updateEveryone(config: Config): (State, Action) => State {
+  return (state: State, action: Action): State => {
     return state;
   };
-};
+}
 
 const reduceAction = pipe(
   combineReducers([
     {key: getFreeTeamKey('userId'), fn: userId},
     {key: getUserTeamKey('currentNode'), fn: currentNode}
-  ],
+  ]),
   updateEveryone
 );
 
