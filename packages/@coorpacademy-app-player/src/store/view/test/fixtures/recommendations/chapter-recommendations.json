@@ -10,7 +10,7 @@
       "type": "chapitre",
       "title": "Chapter 3",
       "author": "Superman",
-      "progress": "0%",
+      "progress": 0,
       "key": "cha_4JsRkM-I7",
       "disabled": false
     },
@@ -24,7 +24,7 @@
       "type": "chapitre",
       "title": "Chapter 2",
       "author": "Superman",
-      "progress": "0%",
+      "progress": 0,
       "key": "cha_NyZ4M0YQ7",
       "disabled": false
     },
@@ -38,7 +38,7 @@
       "type": "cours",
       "title": "La recherche en ligne",
       "author": ", ",
-      "progress": "0%",
+      "progress": 0,
       "key": "17",
       "disabled": false
     }
@@ -54,7 +54,7 @@
       "type": "chapitre",
       "title": "Chapter 3",
       "author": "Superman",
-      "progress": "0%",
+      "progress": 0,
       "key": "cha_4JsRkM-I7",
       "disabled": false
     },
