@@ -1,9 +1,9 @@
 // @flow
 import has from 'lodash/fp/has';
 import get from 'lodash/fp/get';
-import learnerNextStepForAnswer from '../engines/learner/answer-next-step';
-import learnerNextStepForExtraLife from '../engines/learner/extra-life-next-step';
-import adaptiveNextStepForAnswer from '../engines/adaptive/answer-next-step';
+import learnerNextStepForAnswer from './learner/answer-next-step';
+import learnerNextStepForExtraLife from './extra-life';
+import adaptiveNextStepForAnswer from './adaptive/answer-next-step';
 import type {Progression, NextStepParams, NextStepPayload} from './types';
 
 const getComputer = (

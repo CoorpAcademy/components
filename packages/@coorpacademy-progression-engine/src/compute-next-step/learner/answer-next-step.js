@@ -1,10 +1,10 @@
 // @flow
 import get from 'lodash/fp/get';
 import map from 'lodash/fp/map';
-import type {Config, NextStepParams, NextStepPayload, Progression, State} from '../../common/types';
-import {getCorrection} from '../../common/check-answer-correctness';
-import getConfig from '../../common/config';
-import selectNextSlide from './select-next-slide';
+import type {Config, NextStepParams, NextStepPayload, Progression, State} from '../../types';
+import {getCorrection} from '../../check-answer-correctness';
+import getConfig from '../../config';
+import selectNextSlide from '../select-next-slide';
 
 const hasRemainingLifeRequests = (state: State): boolean => state.remainingLifeRequests > 0;
 const stepIsAlreadyExtraLife = (state: State): boolean => get('content.ref', state) === 'extraLife';

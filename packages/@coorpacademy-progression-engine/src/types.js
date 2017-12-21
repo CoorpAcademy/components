@@ -203,14 +203,10 @@ export type Config = {
   remainingLifeRequests: number
 };
 
-type ConditionType =
-  | 'checkCurrentAnswer'
-  | 'checkPreviousAnswers'
-  | 'checkIsCorrect'
-  | 'checkVariables';
-
 export type Condition = {
-  type: ConditionType,
+  scope: 'currentAnswer' | 'previousAnswers' | 'variable',
+  field: 'isCorrect' | 'answer' | string,
+  ref?: string,
   operator: 'IN' | 'EQUALS' | 'GTE' | 'LTE',
   values: Array<string | number>
 };

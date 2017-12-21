@@ -1,6 +1,6 @@
 // @flow
-import type {Config, Progression, NextStepParams, NextStepPayload} from '../../common/types';
-import getConfig from '../../common/config';
+import type {Config, Progression, NextStepParams, NextStepPayload} from '../types';
+import getConfig from '../config';
 import selectNextSlide from './select-next-slide';
 
 export default function nextStepForExtraLife(
@@ -15,15 +15,15 @@ export default function nextStepForExtraLife(
       throw new Error('params.slidePools is required for learner.nextStepForExtraLife');
     }
 
-    const nextSlide = selectNextSlide(config, slidePools, state);
+    const nextSlideId = selectNextSlide(config, slidePools, state);
 
-    if (!nextSlide) {
+    if (!nextSlideId) {
       return {nextContent: {ref: 'failExitNode', type: 'failure'}};
     }
 
     return {
       nextContent: {
-        ref: nextSlide._id,
+        ref: nextSlideId,
         type: 'slide'
       }
     };

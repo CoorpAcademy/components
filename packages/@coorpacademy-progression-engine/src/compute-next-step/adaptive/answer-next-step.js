@@ -1,5 +1,5 @@
 // @flow
-import type {ChapterRule, Progression, NextStepParams, NextStepPayload} from '../../common/types';
+import type {ChapterRule, Progression, NextStepParams, NextStepPayload} from '../../types';
 import selectRule from './select-rule';
 
 export default function nextStepForAnswer(

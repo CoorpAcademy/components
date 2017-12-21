@@ -15,7 +15,7 @@ import negate from 'lodash/fp/negate';
 import pipe from 'lodash/fp/pipe';
 import sortBy from 'lodash/fp/sortBy';
 import shuffle from 'lodash/fp/shuffle';
-import type {Config, Slide, SlidePool, State} from '../../common/types';
+import type {Config, SlidePool, State} from '../types';
 
 const sortByPosition = sortBy(({position}) => (isNumber(position) ? -position : 0));
 const pickNextSlide = pipe(shuffle, sortByPosition, head);
