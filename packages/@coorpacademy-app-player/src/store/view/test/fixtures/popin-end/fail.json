@@ -80,7 +80,7 @@
               "type": "chapitre",
               "title": "chapter 1",
               "author": "Superman",
-              "progress": "0%",
+              "progress": 0,
               "key": "cha_Ny1BTxRp~",
               "disabled": false
             },
@@ -94,7 +94,7 @@
               "type": "chapitre",
               "title": "chapter 1",
               "author": "Superman",
-              "progress": "0%",
+              "progress": 0,
               "key": "cha_Ny1BTxRp~",
               "disabled": false
             },
@@ -108,7 +108,7 @@
               "type": "chapitre",
               "title": "chapter 1",
               "author": "Superman",
-              "progress": "0%",
+              "progress": 0,
               "key": "cha_Ny1BTxRp~",
               "disabled": false
             }

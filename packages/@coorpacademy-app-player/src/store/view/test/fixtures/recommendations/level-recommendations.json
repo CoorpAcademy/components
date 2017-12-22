@@ -10,7 +10,7 @@
       "type": "cours",
       "title": "La recherche en ligne",
       "author": ", ",
-      "progress": "0%",
+      "progress": 0,
       "key": "17",
       "disabled": false
     },
@@ -23,7 +23,7 @@
       "type": "cours",
       "title": "Panorama des acteurs globaux et locaux",
       "author": "",
-      "progress": "0%",
+      "progress": 0,
       "key": "04",
       "disabled": false
     },
@@ -36,7 +36,7 @@
       "type": "cours",
       "title": "Le phénomène Big Data",
       "author": "",
-      "progress": "0%",
+      "progress": 0,
       "key": "10",
       "disabled": false
     }
