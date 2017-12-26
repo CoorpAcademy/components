@@ -9,7 +9,7 @@ export default {
     title: 'From Mass Market to One to One targeting Lorem ipsum',
     author: 'Coorpacademy',
     cta: 'Continue Chapter',
-    progress: '65%',
+    progress: 0.65,
     onClick: () => console.log('click everywhere')
   }
 };

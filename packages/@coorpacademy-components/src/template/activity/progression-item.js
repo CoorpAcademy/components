@@ -60,7 +60,7 @@ const ProgressionItem = (props, context) => {
       </div>
       <ProgressBar
         className={style.completion}
-        value={completion}
+        value={completion * 100}
         max={100}
         style={{backgroundColor: primary}}
       />

@@ -9,6 +9,6 @@ export default {
     type: 'chapter',
     freerun: true,
     time: '2h',
-    progress: '0%'
+    progress: 0
   })
 };

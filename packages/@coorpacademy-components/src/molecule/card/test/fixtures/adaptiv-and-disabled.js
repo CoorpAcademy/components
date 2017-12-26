@@ -8,6 +8,6 @@ export default {
     disabled: true,
     adaptiv: true,
     time: '14mn',
-    progress: '0%'
+    progress: 0
   })
 };

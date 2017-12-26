@@ -61,7 +61,7 @@ const Card = (props, context) => {
         <div
           className={style.progress}
           style={{
-            width: progress,
+            width: `${progress * 100}%`,
             backgroundColor: defaultColor
           }}
         />
@@ -148,7 +148,7 @@ Card.propTypes = {
   type: PropTypes.string,
   title: PropTypes.string,
   author: PropTypes.string,
-  progress: PropTypes.string,
+  progress: PropTypes.number,
   onClick: PropTypes.func
 };
 

@@ -216,7 +216,7 @@
               "type": "chapitre",
               "title": "Que font les marques pour le consommateur ?",
               "author": "Coorpacademy",
-              "progress": "0%",
+              "progress": 0,
               "key": "7.A2",
               "disabled": true
             },
@@ -230,7 +230,7 @@
               "type": "chapitre",
               "title": "Que font les marques pour le consommateur ?",
               "author": "Coorpacademy",
-              "progress": "0%",
+              "progress": 0,
               "key": "7.A2",
               "disabled": true
             },
@@ -244,7 +244,7 @@
               "type": "chapitre",
               "title": "Que font les marques pour le consommateur ?",
               "author": "Coorpacademy",
-              "progress": "0%",
+              "progress": 0,
               "key": "7.A2",
               "disabled": true
             }

@@ -34,7 +34,7 @@ export default {
     progressions: [
       {
         ref: '05',
-        completion: 30,
+        completion: 0.3,
         stars: 400,
         label: 'Big Data',
         level: 'Basic',
@@ -47,7 +47,7 @@ export default {
       },
       {
         ref: '04',
-        completion: 100,
+        completion: 1,
         stars: 700,
         label: 'Prospectives',
         level: 'Coach',
