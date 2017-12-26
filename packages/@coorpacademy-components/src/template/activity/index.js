@@ -1,6 +1,7 @@
 import React from 'react';
 import StarIcon from '@coorpacademy/nova-icons/composition/coorpacademy/star';
 import get from 'lodash/fp/get';
+import omit from 'lodash/fp/omit';
 import isEmpty from 'lodash/fp/isEmpty';
 import PropTypes from 'prop-types';
 import Provider from '../../atom/provider';
@@ -48,7 +49,7 @@ class Progression extends React.Component {
       </div>
     );
     const allProgressions = progressions.map(progression => (
-      <ProgressionItem {...progression} key={progression.ref} />
+      <ProgressionItem {...omit(['ref'], progression)} key={progression.ref} />
     ));
     const engineTabs = engines.map(engine => <EngineStars {...engine} key={engine.type} />);
     const coreProgression = <div className={style.core}>{allProgressions}</div>;
