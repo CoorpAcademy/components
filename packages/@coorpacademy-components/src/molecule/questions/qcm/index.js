@@ -29,9 +29,11 @@ const QCM = (props, context) => {
         onClick={onClick}
         style={selectedStyle}
         key={key}
-      >
-        {title}
-      </div>
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{
+          __html: title
+        }}
+      />
     );
   });
 

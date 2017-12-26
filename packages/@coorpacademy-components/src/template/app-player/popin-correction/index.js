@@ -42,11 +42,23 @@ SimpleText.propTypes = {
 
 const Question = ({header, answer, answerPrefix}) => (
   <div className={style.question}>
-    <p className={style.questionHeader}>{header}</p>
+    <p
+      className={style.questionHeader}
+      // eslint-disable-next-line react/no-danger
+      dangerouslySetInnerHTML={{
+        __html: header
+      }}
+    />
     <div className={style.answerWrapper}>
       <CheckIcon className={style.checkIcon} color="inherit" />
       {answerPrefix ? <span className={style.answerPrefix}>{answerPrefix}</span> : null}
-      <span className={style.answer}>{answer}</span>
+      <span
+        className={style.answer}
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{
+          __html: answer
+        }}
+      />
     </div>
   </div>
 );

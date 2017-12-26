@@ -12,7 +12,15 @@ const Template = props => {
   const templateCompose = map.convert({cap: false})((part, key) => {
     const type = part.type;
     if (type === 'string') {
-      return <span key={key}>{part.value}</span>;
+      return (
+        <span
+          key={key}
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{
+            __html: part.value
+          }}
+        />
+      );
     }
     if (type === 'answerField') {
       const field = find({name: part.value}, props.answers);

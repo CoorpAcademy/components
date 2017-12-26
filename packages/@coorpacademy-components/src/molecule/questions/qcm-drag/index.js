@@ -27,9 +27,15 @@ const Choices = ({answers}) => {
   const answersViews = answers.map((answer, key) => {
     const {onClick, title, selected} = answer;
     return (
-      <div className={selected ? style.invisibleAnswer : style.answer} onClick={onClick} key={key}>
-        {title}
-      </div>
+      <div
+        className={selected ? style.invisibleAnswer : style.answer}
+        onClick={onClick}
+        key={key}
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{
+          __html: title
+        }}
+      />
     );
   });
 
@@ -46,9 +52,15 @@ const SelectionBox = ({answers}) => {
   const selectedAnswersViews = selectedAnswers.map((answer, key) => {
     const {onClick, title} = answer;
     return (
-      <div className={style.selectedAnswer} onClick={onClick} key={key}>
-        {title}
-      </div>
+      <div
+        className={style.selectedAnswer}
+        onClick={onClick}
+        key={key}
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{
+          __html: title
+        }}
+      />
     );
   });
 

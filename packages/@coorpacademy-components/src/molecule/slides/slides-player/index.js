@@ -170,9 +170,14 @@ ContextMedia.propTypes = {
 const ContextContent = ({slideContext}) => {
   const descriptionParagraphs = pipe(getOr('', 'description'), split('\n'), compact)(slideContext);
   const paragraphs = descriptionParagraphs.map((paragraph, index) => (
-    <p key={index} className={style.contextDescription}>
-      {paragraph}
-    </p>
+    <p
+      key={index}
+      className={style.contextDescription}
+      // eslint-disable-next-line react/no-danger
+      dangerouslySetInnerHTML={{
+        __html: paragraph
+      }}
+    />
   ));
   return (
     <div className={style.context}>
@@ -262,9 +267,14 @@ const ContentLayout = (props, context) => {
 
   return (
     <div className={noPaddingRessources} style={{backgroundColor: wrapperColor}}>
-      <div data-name="question" className={style.question}>
-        {typeClue === 'context' ? props.slideContext.title : question}
-      </div>
+      <div
+        data-name="question"
+        className={style.question}
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{
+          __html: typeClue === 'context' ? props.slideContext.title : question
+        }}
+      />
       {help && typeClue === 'answer' ? <Help help={help} /> : null}
       <ContentType {...props} />
       <div className={style.ctaWrapper}>

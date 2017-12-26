@@ -27,7 +27,13 @@ const QCMImage = (props, context) => {
             backgroundImage: `url(${image})`
           }}
         />
-        <div className={style.titleWrapper}>{title}</div>
+        <div
+          className={style.titleWrapper}
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{
+            __html: title
+          }}
+        />
       </div>
     );
   });

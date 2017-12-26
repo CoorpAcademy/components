@@ -46,9 +46,11 @@ const AnswersCorrection = ({corrections}) => {
         data-name="answer"
         data-correct={correction.isCorrect}
         className={correction.isCorrect ? style.correctAnswer : style.wrongAnswer}
-      >
-        {correction.answer}
-      </span>
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{
+          __html: correction.answer
+        }}
+      />
     );
   }, corrections);
   return <p className={style.fullAnswer}>{joinBySeparator(answers)}</p>;
