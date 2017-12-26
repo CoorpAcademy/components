@@ -17,13 +17,30 @@ const QuestionRange = (props, context) => {
 
   return (
     <div className={style.wrapper}>
-      <span style={titleStyle} className={style.title}>
-        {title}
-      </span>
+      <span
+        style={titleStyle}
+        className={style.title}
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{
+          __html: title
+        }}
+      />
       <Range {...rangeProps} />
       <div className={style.labelWrapper}>
-        <span className={style.label}>{minLabel}</span>
-        <span className={style.label}>{maxLabel}</span>
+        <span
+          className={style.label}
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{
+            __html: minLabel
+          }}
+        />
+        <span
+          className={style.label}
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{
+            __html: maxLabel
+          }}
+        />
       </div>
     </div>
   );
