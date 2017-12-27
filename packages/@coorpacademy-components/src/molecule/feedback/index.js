@@ -2,38 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Provider from '../../atom/provider';
+import ResourceBrowser from '../../organism/resource-browser'
 import style from './style.css';
 
-const viewStyle = {
-  grid: style.grid,
-  list: style.list
-};
-
-const Timer = ({time, color}) => (
-  <div className={style.timer}>
-    <ClockIcon className={style.clockIcon} color={color} /> {time}
-  </div>
-);
-
-const AdaptivBubble = ({background, color}) => (
-  <div className={style.adaptiv} style={{backgroundColor: background}}>
-    <AdaptivIcon className={style.adaptivIcon} color={color} />
-  </div>
-);
-
-const Adaptive = (props, context) => {
+const Feedback = (props, context) => {
   const {skin} = context;
   const {
     title,
     type,
     description,
-    media
+    resources
   } = props;
 
   return (
     <div
-      className={style.adaptiveWrapper}
-      data-name="adaptive"
+      className={style.feedbackWrapper}
+      data-name="feedback"
     >
       <div className={style.title}>{title}</div>
       <div className={style.descWrapper}>
@@ -41,26 +25,23 @@ const Adaptive = (props, context) => {
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{__html: description}}
         />
-        <div className={style.resource}><img src={media.src[0].url}/></div>
-      </div>
+        <div className={style.resource}>
+          <ResourceBrowser resource={resources[0]} />
+        </div>
+      </div>  
     </div>
   );
 };
 
-Adaptive.contextTypes = {
+Feedback.contextTypes = {
   skin: Provider.childContextTypes.skin
 };
 
-Adaptive.propTypes = {
+Feedback.propTypes = {
   title: PropTypes.string,
   type: PropTypes.string,
   description: PropTypes.string,
-  media: PropTypes.shape({
-    type: PropTypes.string,
-    src: PropTypes.arrayOf(PropTypes.shape({
-      url: PropTypes.string
-    }))
-  }),
+  resources: PropTypes.checkPropTypes(ResourceBrowser.propTypes.resources)
 };
 
-export default Adaptive;
+export default Feedback;

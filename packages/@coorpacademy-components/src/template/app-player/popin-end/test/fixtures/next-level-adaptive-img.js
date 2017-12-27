@@ -20,13 +20,13 @@ export default defaultsDeep(correct, {
       },
       action: {
         type: 'nextCourse',
-        prefix: 'Next Level:',
-        title: 'Le prochain Niveau qui a un titre vraiment trop long',
+        prefix: 'Next chapter:',
+        title: 'Le prochain chapitre qui a un titre vraiment trop long',
         card: Card.props
       },
       header: {
         cta: {
-          title: 'Next Level',
+          title: 'Home',
           type: 'home',
           href: '#'
         }

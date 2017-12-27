@@ -10,15 +10,18 @@
 @value white from colors;
 
 
-.adaptiveWrapper {
+.feedbackWrapper {
   width: 100%;
   border-bottom: solid 2px light;
   padding: 40px 32px;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .title {
-  width: 849px;
+  width: 100%;
   height: 34px;
   margin-bottom: 20px;
   font-family: 'OpenSans';
