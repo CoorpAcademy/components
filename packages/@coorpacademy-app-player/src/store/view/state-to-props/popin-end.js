@@ -4,6 +4,7 @@ import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import isEqual from 'lodash/fp/isEqual';
 import pipe from 'lodash/fp/pipe';
+import omit from 'lodash/fp/omit';
 import {retry, exit, nextLevel, seeComment} from '../../actions/ui/location';
 import {editComment} from '../../actions/ui/comments';
 import {postComment} from '../../actions/api/comments';
@@ -192,6 +193,20 @@ const extractAction = ({translate}, {dispatch}) => state => {
   ]);
 };
 
+const extractFeedback = exitNode => {
+  if (!exitNode) {
+    return null;
+  }
+
+  const {title, description, media, type} = exitNode;
+  return {
+    title,
+    type,
+    description,
+    media: omit(['subtitles', 'posters'], media)
+  };
+};
+
 const popinEndStateToProps = (options, store) => state => {
   const progression = getCurrentProgression(state);
   const isCorrect = get('state.isCorrect')(progression);
@@ -211,6 +226,7 @@ const popinEndStateToProps = (options, store) => state => {
     summary: {
       header: summaryHeader(options, store)(state)(exitNode),
       action: extractAction(options, store)(state)(exitNode),
+      feedback: extractFeedback(exitNode),
       recommendation: extractRecommendation(options, store)(state),
       comment: isCorrect ? comment(options, store)(state) : null,
       footer
