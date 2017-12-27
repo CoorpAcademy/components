@@ -35,6 +35,7 @@ export Animation from './hoc/animation';
 export AnimationScheduler from './hoc/animation-scheduler';
 export Swapper from './hoc/swapper';
 export Transition from './hoc/transition';
+export Adaptive from './molecule/adaptive';
 export Answer from './molecule/answer';
 export PopinHeader from './molecule/app-player/popin/popin-header';
 export BattleRequest from './molecule/battle-request';

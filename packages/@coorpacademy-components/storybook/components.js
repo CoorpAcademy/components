@@ -37,6 +37,7 @@ import Animation from './../src/hoc/animation';
 import AnimationScheduler from './../src/hoc/animation-scheduler';
 import Swapper from './../src/hoc/swapper';
 import Transition from './../src/hoc/transition';
+import Adaptive from './../src/molecule/adaptive';
 import Answer from './../src/molecule/answer';
 import PopinHeader from './../src/molecule/app-player/popin/popin-header';
 import BattleRequest from './../src/molecule/battle-request';
@@ -261,6 +262,8 @@ import AnimationSchedulerFixtureParallel from '../src/hoc/animation-scheduler/te
 import AnimationSchedulerFixtureSeries from '../src/hoc/animation-scheduler/test/fixtures/series';
 import SwapperFixtureDefault from '../src/hoc/swapper/test/fixtures/default';
 import TransitionFixtureFlipSquare from '../src/hoc/transition/test/fixtures/flip-square';
+import AdaptiveFixtureDefault from '../src/molecule/adaptive/test/fixtures/default';
+import AdaptiveFixtureEmpty from '../src/molecule/adaptive/test/fixtures/empty';
 import AnswerFixtureDefault from '../src/molecule/answer/test/fixtures/default';
 import AnswerFixtureDropDown from '../src/molecule/answer/test/fixtures/drop-down';
 import AnswerFixtureQcmDrag from '../src/molecule/answer/test/fixtures/qcm-drag';
@@ -564,6 +567,7 @@ import PopinEndFixtureFail from '../src/template/app-player/popin-end/test/fixtu
 import PopinEndFixtureLoading from '../src/template/app-player/popin-end/test/fixtures/loading';
 import PopinEndFixtureNegativeRank from '../src/template/app-player/popin-end/test/fixtures/negative-rank';
 import PopinEndFixtureNextCourse from '../src/template/app-player/popin-end/test/fixtures/next-course';
+import PopinEndFixtureNextLevelAdaptiveImg from '../src/template/app-player/popin-end/test/fixtures/next-level-adaptive-img';
 import PopinEndFixtureSimpleAction from '../src/template/app-player/popin-end/test/fixtures/simple-action';
 import PopinEndFixtureSubscribe from '../src/template/app-player/popin-end/test/fixtures/subscribe';
 import PopinEndFixtureWithLoadingRecommendations from '../src/template/app-player/popin-end/test/fixtures/with-loading-recommendations';
@@ -656,6 +660,7 @@ export const components = {
     Transition
   },
   Molecule: {
+    Adaptive,
     Answer,
     BattleRequest,
     BrandCard,
@@ -989,6 +994,10 @@ export const fixtures = {
     }
   },
   Molecule: {
+    Adaptive: {
+      Default: AdaptiveFixtureDefault,
+      Empty: AdaptiveFixtureEmpty
+    },
     Answer: {
       Default: AnswerFixtureDefault,
       DropDown: AnswerFixtureDropDown,
@@ -1476,6 +1485,7 @@ export const fixtures = {
       Loading: PopinEndFixtureLoading,
       NegativeRank: PopinEndFixtureNegativeRank,
       NextCourse: PopinEndFixtureNextCourse,
+      NextLevelAdaptiveImg: PopinEndFixtureNextLevelAdaptiveImg,
       SimpleAction: PopinEndFixtureSimpleAction,
       Subscribe: PopinEndFixtureSubscribe,
       WithLoadingRecommendations: PopinEndFixtureWithLoadingRecommendations,

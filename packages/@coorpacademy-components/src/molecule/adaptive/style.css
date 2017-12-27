@@ -1,0 +1,47 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value desktop from breakpoints;
+@value tablet from breakpoints;
+@value mobile from breakpoints;
+@value colors: "../../variables/colors.css";
+@value light from colors;
+@value grey from colors;
+@value dark from colors;
+@value xtraLightGrey from colors;
+@value white from colors;
+
+
+.adaptiveWrapper {
+  width: 100%;
+  border-bottom: solid 2px light;
+  padding: 40px 32px;
+  box-sizing: border-box;
+}
+
+.title {
+  width: 849px;
+  height: 34px;
+  font-family: 'OpenSans';
+  font-size: 25px;
+  font-weight: bold;
+  text-align: left;
+  color: dark;
+}
+
+.description {
+  width: 476px;
+  height: 252px;
+  font-family: 'OpenSans';
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: -0.1px;
+  text-align: left;
+  color: dark;
+}
+
+@media tablet {
+  
+}
+
+@media mobile {
+  
+}

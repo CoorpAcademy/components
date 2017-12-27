@@ -86,6 +86,7 @@ const Subscribe = ({title, description, button, card}) => {
     </div>
   );
 };
+
 Subscribe.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
