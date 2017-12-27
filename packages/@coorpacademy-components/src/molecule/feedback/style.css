@@ -20,6 +20,7 @@
 .title {
   width: 849px;
   height: 34px;
+  margin-bottom: 20px;
   font-family: 'OpenSans';
   font-size: 25px;
   font-weight: bold;
@@ -27,15 +28,32 @@
   color: dark;
 }
 
+.descWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
+
 .description {
   width: 476px;
   height: 252px;
+  margin-right: 32px;
   font-family: 'OpenSans';
   font-size: 13px;
   font-weight: bold;
   letter-spacing: -0.1px;
   text-align: left;
   color: dark;
+}
+
+.resource {
+  min-width: 341px;
+  max-width: 400px;
+  min-height: 241px;
+  max-height: 400px;
+  overflow: hidden;
+
 }
 
 @media tablet {

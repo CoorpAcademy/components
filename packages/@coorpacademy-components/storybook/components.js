@@ -37,7 +37,6 @@ import Animation from './../src/hoc/animation';
 import AnimationScheduler from './../src/hoc/animation-scheduler';
 import Swapper from './../src/hoc/swapper';
 import Transition from './../src/hoc/transition';
-import Adaptive from './../src/molecule/adaptive';
 import Answer from './../src/molecule/answer';
 import PopinHeader from './../src/molecule/app-player/popin/popin-header';
 import BattleRequest from './../src/molecule/battle-request';
@@ -58,6 +57,7 @@ import DisciplineCta from './../src/molecule/discipline-cta';
 import DisciplineHeader from './../src/molecule/discipline-header';
 import DisciplinePartners from './../src/molecule/discipline-partners';
 import DisciplineScope from './../src/molecule/discipline-scope';
+import Feedback from './../src/molecule/feedback';
 import Filters from './../src/molecule/filters';
 import ForumComment from './../src/molecule/forum/forum-comment';
 import ForumPost from './../src/molecule/forum/forum-post';
@@ -262,8 +262,6 @@ import AnimationSchedulerFixtureParallel from '../src/hoc/animation-scheduler/te
 import AnimationSchedulerFixtureSeries from '../src/hoc/animation-scheduler/test/fixtures/series';
 import SwapperFixtureDefault from '../src/hoc/swapper/test/fixtures/default';
 import TransitionFixtureFlipSquare from '../src/hoc/transition/test/fixtures/flip-square';
-import AdaptiveFixtureDefault from '../src/molecule/adaptive/test/fixtures/default';
-import AdaptiveFixtureEmpty from '../src/molecule/adaptive/test/fixtures/empty';
 import AnswerFixtureDefault from '../src/molecule/answer/test/fixtures/default';
 import AnswerFixtureDropDown from '../src/molecule/answer/test/fixtures/drop-down';
 import AnswerFixtureQcmDrag from '../src/molecule/answer/test/fixtures/qcm-drag';
@@ -340,6 +338,8 @@ import DisciplineScopeFixtureDefault from '../src/molecule/discipline-scope/test
 import DisciplineScopeFixtureEmpty from '../src/molecule/discipline-scope/test/fixtures/empty';
 import DisciplineScopeFixtureMedias from '../src/molecule/discipline-scope/test/fixtures/medias';
 import DisciplineScopeFixtureWithOnclick from '../src/molecule/discipline-scope/test/fixtures/with-onclick';
+import FeedbackFixtureDefault from '../src/molecule/feedback/test/fixtures/default';
+import FeedbackFixtureEmpty from '../src/molecule/feedback/test/fixtures/empty';
 import FiltersFixtureDefault from '../src/molecule/filters/test/fixtures/default';
 import FiltersFixtureFiltersList from '../src/molecule/filters/test/fixtures/filters-list';
 import FiltersFixtureOne from '../src/molecule/filters/test/fixtures/one';
@@ -660,7 +660,6 @@ export const components = {
     Transition
   },
   Molecule: {
-    Adaptive,
     Answer,
     BattleRequest,
     BrandCard,
@@ -676,6 +675,7 @@ export const components = {
     DisciplineHeader,
     DisciplinePartners,
     DisciplineScope,
+    Feedback,
     Filters,
     MenuList,
     ModuleBubble,
@@ -994,10 +994,6 @@ export const fixtures = {
     }
   },
   Molecule: {
-    Adaptive: {
-      Default: AdaptiveFixtureDefault,
-      Empty: AdaptiveFixtureEmpty
-    },
     Answer: {
       Default: AnswerFixtureDefault,
       DropDown: AnswerFixtureDropDown,
@@ -1084,6 +1080,10 @@ export const fixtures = {
       Empty: DisciplineScopeFixtureEmpty,
       Medias: DisciplineScopeFixtureMedias,
       WithOnclick: DisciplineScopeFixtureWithOnclick
+    },
+    Feedback: {
+      Default: FeedbackFixtureDefault,
+      Empty: FeedbackFixtureEmpty
     },
     Filters: {
       Default: FiltersFixtureDefault,

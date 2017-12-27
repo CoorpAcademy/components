@@ -36,12 +36,12 @@ const Adaptive = (props, context) => {
       data-name="adaptive"
     >
       <div className={style.title}>{title}</div>
-      <div>
+      <div className={style.descWrapper}>
         <div className={style.description}
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{__html: description}}
         />
-        <div><img src={media.src[0].url} /></div>
+        <div className={style.resource}><img src={media.src[0].url}/></div>
       </div>
     </div>
   );
