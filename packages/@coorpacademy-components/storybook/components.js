@@ -77,6 +77,7 @@ import QcmDrag from './../src/molecule/questions/qcm-drag';
 import QcmGraphic from './../src/molecule/questions/qcm-graphic';
 import QuestionRange from './../src/molecule/questions/question-range';
 import Template from './../src/molecule/questions/template';
+import ResourcePlayer from './../src/molecule/resource-player';
 import ScopeContent from './../src/molecule/scope-content';
 import ScopeTabs from './../src/molecule/scope-tabs';
 import Search from './../src/molecule/search';
@@ -395,6 +396,9 @@ import QcmGraphicFixtureNoSelected from '../src/molecule/questions/qcm-graphic/t
 import QuestionRangeFixtureDefault from '../src/molecule/questions/question-range/test/fixtures/default';
 import TemplateFixtureDefault from '../src/molecule/questions/template/test/fixtures/default';
 import TemplateFixtureMultiple from '../src/molecule/questions/template/test/fixtures/multiple';
+import ResourcePlayerFixtureImage from '../src/molecule/resource-player/test/fixtures/image';
+import ResourcePlayerFixturePdf from '../src/molecule/resource-player/test/fixtures/pdf';
+import ResourcePlayerFixtureVimeo from '../src/molecule/resource-player/test/fixtures/vimeo';
 import ScopeContentFixtureDefault from '../src/molecule/scope-content/test/fixtures/default';
 import ScopeContentFixtureEmpty from '../src/molecule/scope-content/test/fixtures/empty';
 import ScopeContentFixtureMedias from '../src/molecule/scope-content/test/fixtures/medias';
@@ -677,6 +681,7 @@ export const components = {
     Pdf,
     ProductCard,
     ProgressBar,
+    ResourcePlayer,
     ScopeContent,
     ScopeTabs,
     Search,
@@ -1119,6 +1124,11 @@ export const fixtures = {
     ProgressBar: {
       Default: ProgressBarFixtureDefault,
       Max: ProgressBarFixtureMax
+    },
+    ResourcePlayer: {
+      Image: ResourcePlayerFixtureImage,
+      Pdf: ResourcePlayerFixturePdf,
+      Vimeo: ResourcePlayerFixtureVimeo
     },
     ScopeContent: {
       Default: ScopeContentFixtureDefault,
