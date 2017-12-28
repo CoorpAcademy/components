@@ -13,8 +13,6 @@ const ResourcePlayer = props => {
       return <Pdf {...childProps} />;
     case 'video':
       return <VideoPlayer id={videoId} height="100%" width="100%" {...childProps} />;
-    default:
-      return null;
   }
 };
 
