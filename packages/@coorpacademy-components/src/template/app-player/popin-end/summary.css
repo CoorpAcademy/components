@@ -199,14 +199,6 @@
   }
 }
 
-/* ------------- Adaptive */
-
-.adaptiveWrapper {
-  composes: actionWrapper;
-  padding: 40px 32px;
-  box-sizing: border-box;
-}
-
 /* ------------- CommentSection */
 
 .discussionWrapper {
