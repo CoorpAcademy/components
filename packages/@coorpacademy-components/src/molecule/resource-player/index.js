@@ -16,17 +16,17 @@ const ResourcePlayer = props => {
   }
 };
 
-const resourceType = PropTypes.oneOf(['img', 'pdf', 'video']);
+const isType = name => PropTypes.oneOf([name]);
 
 const videoPropType = PropTypes.shape({
-  type: resourceType,
+  type: isType('video').isRequired,
   _id: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   ...VideoPlayer.propTypes
 });
 
 const pdfPropType = PropTypes.shape({
-  type: resourceType,
+  type: isType('pdf').isRequired,
   _id: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   mediaUrl: PropTypes.string.isRequired,
@@ -34,7 +34,7 @@ const pdfPropType = PropTypes.shape({
 });
 
 const imgPropType = PropTypes.shape({
-  type: resourceType,
+  type: isType('img').isRequired,
   url: PropTypes.string.isRequired
 });
 
