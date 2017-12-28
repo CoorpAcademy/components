@@ -75,6 +75,7 @@ export QcmDrag from './molecule/questions/qcm-drag';
 export QcmGraphic from './molecule/questions/qcm-graphic';
 export QuestionRange from './molecule/questions/question-range';
 export Template from './molecule/questions/template';
+export ResourcePlayer from './molecule/resource-player';
 export ScopeContent from './molecule/scope-content';
 export ScopeTabs from './molecule/scope-tabs';
 export Search from './molecule/search';
