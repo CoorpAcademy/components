@@ -18,7 +18,9 @@ export const stateForFirstSlide: State = {
     current: 1
   },
   remainingLifeRequests: 1,
-  hasViewedAResourceAtThisStep: false
+  hasViewedAResourceAtThisStep: false,
+  allAnswers: [],
+  variables: {}
 };
 
 export const stateForSecondSlide: State = {
@@ -41,7 +43,9 @@ export const stateForSecondSlide: State = {
     current: 2
   },
   remainingLifeRequests: 1,
-  hasViewedAResourceAtThisStep: false
+  hasViewedAResourceAtThisStep: false,
+  allAnswers: [],
+  variables: {}
 };
 
 export const extraLifeProgressionState: State = {
@@ -65,5 +69,7 @@ export const extraLifeProgressionState: State = {
   viewedResources: [],
   stars: 4,
   remainingLifeRequests: 1,
-  hasViewedAResourceAtThisStep: true
+  hasViewedAResourceAtThisStep: true,
+  allAnswers: [],
+  variables: {}
 };

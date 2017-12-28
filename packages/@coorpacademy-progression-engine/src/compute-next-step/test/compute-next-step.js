@@ -6,7 +6,7 @@ import merge from 'lodash/fp/merge';
 import pipe from 'lodash/fp/pipe';
 import find from 'lodash/fp/find';
 import omit from 'lodash/fp/omit';
-import type {State} from '../../types';
+import type {State, Content} from '../../types';
 import computeNextStep from '..';
 import allSlides from './fixtures/slides';
 import {stateBeforeGettingNextContent} from './fixtures/states';
@@ -31,11 +31,11 @@ const slides = [
 test('should return the slide with higher priority from slides', t => {
   const state: State = Object.freeze(stateBeforeGettingNextContent);
 
-  const nextStep = computeNextStep(engine, slides, state);
+  const nextStep: Content = computeNextStep(engine, slides, state);
 
   t.is(nextStep.ref, pipe(find({position: 1}), get('_id'))(prioritySlides));
 
-  const nextState = {
+  const nextState: State = {
     ...state,
     content: nextStep,
     slides: [...state.slides, nextStep.ref]

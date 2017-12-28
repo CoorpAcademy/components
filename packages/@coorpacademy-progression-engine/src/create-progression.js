@@ -26,10 +26,11 @@ export default function createProgression(
     step: {
       current: 1
     },
-    content: undefined,
     nextContent: initialContent,
     remainingLifeRequests: config.remainingLifeRequests,
-    hasViewedAResourceAtThisStep: false
+    hasViewedAResourceAtThisStep: false,
+    allAnswers: [],
+    variables: {}
   };
 
   return {
