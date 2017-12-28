@@ -339,7 +339,12 @@ import DisciplineScopeFixtureEmpty from '../src/molecule/discipline-scope/test/f
 import DisciplineScopeFixtureMedias from '../src/molecule/discipline-scope/test/fixtures/medias';
 import DisciplineScopeFixtureWithOnclick from '../src/molecule/discipline-scope/test/fixtures/with-onclick';
 import FeedbackFixtureDefault from '../src/molecule/feedback/test/fixtures/default';
-import FeedbackFixtureEmpty from '../src/molecule/feedback/test/fixtures/empty';
+import FeedbackFixtureFailExitNode from '../src/molecule/feedback/test/fixtures/fail-exit-node';
+import FeedbackFixtureFailureWithTitleAndDescriptionAndVideo from '../src/molecule/feedback/test/fixtures/failure-with-title-and-description-and-video';
+import FeedbackFixtureSuccessExitNode from '../src/molecule/feedback/test/fixtures/success-exit-node';
+import FeedbackFixtureSuccessWithTitleAndDescriptionAndImage from '../src/molecule/feedback/test/fixtures/success-with-title-and-description-and-image';
+import FeedbackFixtureSuccessWithTitleAndDescriptionAndPdf from '../src/molecule/feedback/test/fixtures/success-with-title-and-description-and-pdf';
+import FeedbackFixtureSuccessWithTitleAndDescription from '../src/molecule/feedback/test/fixtures/success-with-title-and-description';
 import FiltersFixtureDefault from '../src/molecule/filters/test/fixtures/default';
 import FiltersFixtureFiltersList from '../src/molecule/filters/test/fixtures/filters-list';
 import FiltersFixtureOne from '../src/molecule/filters/test/fixtures/one';
@@ -1083,7 +1088,12 @@ export const fixtures = {
     },
     Feedback: {
       Default: FeedbackFixtureDefault,
-      Empty: FeedbackFixtureEmpty
+      FailExitNode: FeedbackFixtureFailExitNode,
+      FailureWithTitleAndDescriptionAndVideo: FeedbackFixtureFailureWithTitleAndDescriptionAndVideo,
+      SuccessExitNode: FeedbackFixtureSuccessExitNode,
+      SuccessWithTitleAndDescriptionAndImage: FeedbackFixtureSuccessWithTitleAndDescriptionAndImage,
+      SuccessWithTitleAndDescriptionAndPdf: FeedbackFixtureSuccessWithTitleAndDescriptionAndPdf,
+      SuccessWithTitleAndDescription: FeedbackFixtureSuccessWithTitleAndDescription
     },
     Filters: {
       Default: FiltersFixtureDefault,

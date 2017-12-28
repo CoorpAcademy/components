@@ -1,6 +1,5 @@
 export default {
   props: {
-    ref: 'biba-exit-node-A',
     type: 'success',
     title: 'VOTRE ATOUT SÉDUCTION: LA GLAM ATTITUDE (MAJORITÉ DE A)',
     description:

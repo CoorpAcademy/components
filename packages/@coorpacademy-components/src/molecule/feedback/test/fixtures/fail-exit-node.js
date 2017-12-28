@@ -1,7 +1,6 @@
 export default {
   props: {
-    ref: 'successExitNode',
-    type: 'success',
+    type: 'failure',
     media: {
       subtitles: [],
       posters: [],

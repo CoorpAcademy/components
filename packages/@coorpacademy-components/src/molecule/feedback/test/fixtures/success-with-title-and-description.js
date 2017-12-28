@@ -1,6 +1,5 @@
 export default {
   props: {
-    ref: 'biba-exit-node-B',
     type: 'success',
     title: 'VOTRE ATOUT SÉDUCTION: L’HUMOUR HAUT DE GAMME (MAJORITÉ DE B)',
     description:

@@ -1,6 +1,5 @@
 export default {
   props: {
-    ref: 'biba-exit-node-D',
     type: 'failure',
     title: 'Pourquoi vous échouez là où d’autres réussissent?',
     description:

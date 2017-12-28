@@ -1,6 +1,5 @@
 export default {
   props: {
-    ref: 'biba-exit-node-C',
     type: 'success',
     title: 'VOTRE ATOUT SÉDUCTION: LA VIVACITÉ D’ESPRIT (MAJORITÉ DE C).',
     description:

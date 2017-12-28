@@ -1,10 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ResourceBrowser from '../../organism/resource-browser';
+import getOr from 'lodash/fp/getOr';
+import ResourcePlayer from '../resource-player';
 import style from './style.css';
 
 const Feedback = (props, context) => {
-  const {title, description, resources} = props;
+  const {media, title, description} = props;
+  const resource = media.type && {
+    ...media,
+    ...getOr({}, 'src.0', media)
+  };
 
   return (
     <div className={style.feedbackWrapper} data-name="feedback">
@@ -15,9 +20,7 @@ const Feedback = (props, context) => {
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{__html: description}}
         />
-        <div className={style.resource}>
-          <ResourceBrowser resource={resources[0]} />
-        </div>
+        <div className={style.resource}>{resource && <ResourcePlayer {...resource} />}</div>
       </div>
     </div>
   );
@@ -25,8 +28,7 @@ const Feedback = (props, context) => {
 
 Feedback.propTypes = {
   title: PropTypes.string,
-  description: PropTypes.string,
-  resources: PropTypes.checkPropTypes(ResourceBrowser.propTypes.resources)
+  description: PropTypes.string
 };
 
 export default Feedback;
