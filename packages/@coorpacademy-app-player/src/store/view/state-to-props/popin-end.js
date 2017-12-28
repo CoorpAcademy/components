@@ -198,10 +198,9 @@ const extractFeedback = exitNode => {
     return null;
   }
 
-  const {title, description, media, type} = exitNode;
+  const {title, description, media} = exitNode;
   return {
     title,
-    type,
     description,
     media: omit(['subtitles', 'posters'], media)
   };
