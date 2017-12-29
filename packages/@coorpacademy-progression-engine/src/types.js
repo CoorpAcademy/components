@@ -1,5 +1,12 @@
 // @flow
 
+export type User = {
+  id: string,
+  displayName: string
+};
+
+export type Team = Array<User>;
+
 export type ViewedResource = {
   type: 'chapter',
   ref: string,
@@ -24,7 +31,14 @@ export type ResourceContent = {
 
 export type Content = GenericContent | ResourceContent;
 
+export type InitialStateOptions = {
+  nextContent: Content,
+  livesDisabled: boolean,
+  teams: Array<Team>
+};
+
 export type State = {
+  teams?: Array<Team>,
   content?: Content,
   nextContent: Content,
   lives: number,
@@ -58,6 +72,7 @@ export type AnswerAction = {
   type: 'answer',
   payload: {
     content: Content,
+    author: User | Array<User>,
     nextContent: Content,
     isCorrect: boolean
   }
