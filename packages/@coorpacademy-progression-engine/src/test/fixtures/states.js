@@ -1,5 +1,5 @@
 // @flow
-import {type State} from '../../types';
+import {type State} from '../../common/types';
 
 export const stateBeforeGettingNextContent: State = {
   content: {

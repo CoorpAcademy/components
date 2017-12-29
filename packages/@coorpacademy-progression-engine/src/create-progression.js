@@ -16,6 +16,7 @@ export default function createProgression(
   };
 
   const initialState: State = {
+    allAnswers: [],
     lives: config.lives,
     livesDisabled: Boolean(livesDisabled || config.livesDisabled),
     isCorrect: true,

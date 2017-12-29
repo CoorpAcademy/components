@@ -1,65 +1,64 @@
 // @flow
 import test from 'ava';
-import filter from 'lodash/fp/filter';
-import get from 'lodash/fp/get';
-import merge from 'lodash/fp/merge';
-import pipe from 'lodash/fp/pipe';
-import find from 'lodash/fp/find';
-import omit from 'lodash/fp/omit';
-import type {State} from '../types';
+import type {Engine, Progression, State} from '../types';
 import computeNextStep from '../compute-next-step';
-import allSlides from './fixtures/slides';
-import {stateBeforeGettingNextContent} from './fixtures/states';
 
-const engine = {
+const engine: Engine = {
   ref: 'microlearning',
   version: '1'
 };
 
-const prioritySlides = pipe(
-  filter({chapter_id: '1.A1'}),
-  merge([{position: 0}, {position: 0}, {position: 0}, {position: 1}, {position: 0}])
-)(allSlides);
+test('should check Progression within params ', t => {
+  const message = 'Bad format for Progression';
+  t.plan(3);
 
-const slides = [
-  {
-    chapterId: '1.A1',
-    slides: prioritySlides
+  try {
+    // $FlowFixMe
+    computeNextStep({});
+    t.fail();
+  } catch (e) {
+    t.is(e.message, message);
   }
-];
 
-test('should return the slide with higher priority from slides', t => {
-  const state: State = Object.freeze(stateBeforeGettingNextContent);
+  try {
+    computeNextStep(null);
+    t.fail();
+  } catch (e) {
+    t.is(e.message, message);
+  }
 
-  const nextStep = computeNextStep(engine, slides, state);
-
-  t.is(nextStep.ref, pipe(find({position: 1}), get('_id'))(prioritySlides));
-
-  const nextState = {
-    ...state,
-    content: nextStep,
-    slides: [...state.slides, nextStep.ref]
-  };
-
-  const nextNextStep = computeNextStep(engine, slides, nextState);
-
-  t.is(find({_id: nextNextStep.ref}, prioritySlides).position, 0);
+  try {
+    computeNextStep();
+    t.fail();
+  } catch (e) {
+    t.is(e.message, message);
+  }
 });
 
-test('should return first slide pool if no slides in state', t => {
-  const state: State = omit(['slides'], stateBeforeGettingNextContent);
-
-  const nextStep = computeNextStep(engine, slides, state);
-
-  t.is(nextStep.ref, pipe(find({position: 1}), get('_id'))(prioritySlides));
-
-  const nextState = {
-    ...state,
-    content: nextStep,
-    slides: [nextStep.ref]
+test('should check Progression within params ', t => {
+  const engine: Engine = {
+    ref: 'foo'
   };
 
-  const nextNextStep = computeNextStep(engine, slides, nextState);
+  const message = `Unknown engine ${engine.ref}`;
 
-  t.is(find({_id: nextNextStep.ref}, prioritySlides).position, 0);
+  try {
+    computeNextStep({engine});
+    t.fail();
+  } catch (e) {
+    t.is(e.message, message);
+  }
+});
+
+test('should not find computer without NextStepParams', t => {
+  const message = 'Could not find any computer for those params';
+  const state = {};
+  const progression: Progression = {engine, state};
+
+  try {
+    computeNextStep(progression, {});
+    t.fail();
+  } catch (e) {
+    t.is(e.message, message);
+  }
 });
