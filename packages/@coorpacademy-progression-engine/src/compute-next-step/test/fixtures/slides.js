@@ -1,5 +1,5 @@
 // @flow
-import {type Slide} from '../../types';
+import {type Slide} from '../../../types';
 
 const slides: Array<Slide> = [
   {

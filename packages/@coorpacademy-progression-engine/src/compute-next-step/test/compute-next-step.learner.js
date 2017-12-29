@@ -1,7 +1,7 @@
 // @flow
 import test from 'ava';
-import type {Slide, State} from '../types';
-import computeNextStep from '../compute-next-step';
+import type {Slide, State} from '../../types';
+import computeNextStep from '..';
 import allSlides from './fixtures/slides';
 import {stateBeforeGettingNextContent, failProgressionState} from './fixtures/states';
 
