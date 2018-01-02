@@ -81,6 +81,7 @@ const matchWithState = (state: GenericState) => (chapterRules: ChapterRule): boo
         // $FlowFixMe
         return checkCondition(operator, values, value);
       }
+      /* istanbul ignore next */
       default: {
         return false;
       }

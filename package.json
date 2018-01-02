@@ -49,7 +49,7 @@
     "babel-preset-stage-1": "^6.24.1",
     "babel-register": "^6.26.0",
     "codecov": "^2.3.0",
-    "concurrently": "^3.5.0",
+    "concurrently": "^3.5.1",
     "cross-env": "^5.0.0",
     "eslint": "^4.10.0",
     "eslint-plugin-css-modules": "^2.7.5",
