@@ -6,8 +6,8 @@
 .resourcePlayer.image .img {
   display: block;
   position: absolute;
-  height: auto;
-  width: 100%;
+  min-height: 100%;
+  min-width: 100%;
   top: 50%;
   transform: translate(0, -50%);
 }
