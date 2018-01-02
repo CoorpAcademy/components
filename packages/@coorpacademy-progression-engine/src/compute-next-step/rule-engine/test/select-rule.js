@@ -1,7 +1,8 @@
 // @flow
 import test from 'ava';
 import type {Content, GenericState} from '../../../types';
-import selectRule, {DEFAULT_SOURCE, type ChapterRule} from '../select-rule';
+import selectRule, {DEFAULT_SOURCE} from '../select-rule';
+import type {ChapterRule} from '../types';
 
 const createState = (content): GenericState => ({
   content,
@@ -86,7 +87,7 @@ const chapterRules: Array<ChapterRule> = [
         values: [2]
       }
     ],
-    priority: 0,
+    priority: 2,
     ref: 'low_priority'
   },
   {
@@ -103,7 +104,7 @@ const chapterRules: Array<ChapterRule> = [
         values: [2]
       }
     ],
-    priority: 2,
+    priority: 0,
     ref: 'high_priority'
   },
   {

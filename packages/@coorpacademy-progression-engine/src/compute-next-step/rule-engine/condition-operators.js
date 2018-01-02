@@ -6,9 +6,6 @@ import negate from 'lodash/fp/negate';
 import sortBy from 'lodash/fp/sortBy';
 
 const IN = <T>(expectedValues: Array<T>, value: T): boolean => {
-  // TODO We may need to look at whether the order of items is important.
-  // We need to extract that from the slide or add an addition operator for when the order matters.
-  // Or maybe this is not important anymore, but we need to take a look at this before shipping.
   return expectedValues.some(isEqual(value));
 };
 

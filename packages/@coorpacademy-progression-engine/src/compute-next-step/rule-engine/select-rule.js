@@ -3,57 +3,26 @@ import isEqual from 'lodash/fp/isEqual';
 import filter from 'lodash/fp/filter';
 import sortBy from 'lodash/fp/sortBy';
 import type {Content, GenericState} from '../../types';
+import type {ChapterRule} from './types';
 import checkCondition from './condition-operators';
-
-type Target =
-  | {
-      scope: 'variable',
-      field: 'lives' | 'stars' | string
-    }
-  | {
-      scope: 'slide',
-      ref: string,
-      field: 'isCorrect' | 'answer'
-    };
-
-type Condition =
-  | {
-      target: Target,
-      operator: 'EQUALS' | 'NOT_EQUALS' | 'IN' | 'NOT_IN',
-      values: Array<number | boolean | string | Array<string>>
-    }
-  | {
-      target: Target,
-      operator: 'LT' | 'LTE' | 'GT' | 'GTE' | 'BETWEEN' | 'NOT_BETWEEN',
-      values: Array<number>
-    };
-
-type Instruction = {
-  field: string,
-  type: 'add',
-  value: number
-};
-
-export type ChapterRule = {
-  source: Content,
-  destination: Content,
-  instructions: Array<Instruction>,
-  conditions: Array<Condition>,
-  priority: number,
-  ref?: string
-};
 
 export const DEFAULT_SOURCE = {
   type: 'slide',
   ref: ''
 };
+
 const isCurrentSlide = (source: ?Content) => (chapterRule: ChapterRule): boolean => {
   const currentsource = source || DEFAULT_SOURCE;
   return isEqual(currentsource)(chapterRule.source);
 };
 
-const matchWithState = (state: GenericState) => (chapterRules: ChapterRule): boolean => {
-  const conditions = chapterRules.conditions;
+const isSameType = refValue => (value): boolean => {
+  if (Array.isArray(value) && Array.isArray(refValue)) return value.every(isSameType(refValue[0]));
+  return typeof refValue === typeof value;
+};
+
+const matchWithState = (state: GenericState) => (chapterRule: ChapterRule): boolean => {
+  const conditions = chapterRule.conditions;
   return conditions.every((condition): boolean => {
     const {target, operator, values} = condition;
     switch (target.scope) {
@@ -65,8 +34,9 @@ const matchWithState = (state: GenericState) => (chapterRules: ChapterRule): boo
         if (!answerRecord) return false;
 
         const value = answerRecord[field];
-        // $FlowFixMe
-        return checkCondition(operator, values, value);
+        const typedValues = values.filter(isSameType(value));
+
+        return checkCondition(operator, typedValues, value);
       }
       case 'variable': {
         const {field} = target;
@@ -78,8 +48,9 @@ const matchWithState = (state: GenericState) => (chapterRules: ChapterRule): boo
 
         const value = variables[field];
         if (!value) return false;
-        // $FlowFixMe
-        return checkCondition(operator, values, value);
+
+        const typedValues = values.filter(isSameType(value));
+        return checkCondition(operator, typedValues, value);
       }
       /* istanbul ignore next */
       default: {
@@ -91,9 +62,7 @@ const matchWithState = (state: GenericState) => (chapterRules: ChapterRule): boo
 
 const selectRule = (rules: Array<ChapterRule>, state: GenericState): ?ChapterRule => {
   const targetedChapterRules: Array<ChapterRule> = filter(isCurrentSlide(state.content))(rules);
-  const sortedChapterRules: Array<ChapterRule> = sortBy(chapterRule => -chapterRule.priority)(
-    targetedChapterRules
-  );
+  const sortedChapterRules: Array<ChapterRule> = sortBy('priority')(targetedChapterRules);
 
   return sortedChapterRules.find(matchWithState(state)) || null;
 };
