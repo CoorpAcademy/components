@@ -1,0 +1,17 @@
+.resourcePlayer.image {
+  overflow: hidden;
+  position: relative;
+}
+
+.resourcePlayer.image .img {
+  display: block;
+  position: absolute;
+  height: auto;
+  width: 100%;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.resourcePlayer.video {
+  background-color: black;
+}

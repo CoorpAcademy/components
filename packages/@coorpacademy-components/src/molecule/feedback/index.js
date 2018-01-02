@@ -12,7 +12,7 @@ const Feedback = (props, context) => {
   };
 
   return (
-    <div className={style.feedbackWrapper} data-name="feedback">
+    <div className={style.feedback} data-name="feedback">
       <div className={style.title}>{title}</div>
       <div className={style.descWrapper}>
         <div
@@ -20,7 +20,7 @@ const Feedback = (props, context) => {
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{__html: description}}
         />
-        <div className={style.resource}>{resource && <ResourcePlayer {...resource} />}</div>
+        {resource && <ResourcePlayer className={style.resourcePlayer} resource={resource} />}
       </div>
     </div>
   );

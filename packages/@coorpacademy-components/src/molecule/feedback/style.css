@@ -9,7 +9,7 @@
 @value xtraLightGrey from colors;
 @value white from colors;
 
-.feedbackWrapper {
+.feedback {
   width: 100%;
   border-bottom: solid 2px light;
   padding: 40px 32px;
@@ -49,10 +49,9 @@
   color: dark;
 }
 
-.resource {
-  min-width: 341px;
-  max-width: 400px;
-  min-height: 241px;
-  max-height: 400px;
-  overflow: hidden;
+.feedback .resourcePlayer {
+  display: flex;
+  justify-content: flex-start;
+  width: 341px;
+  height: 241px;
 }

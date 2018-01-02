@@ -29,9 +29,9 @@ const ResourceBrowser = props => {
 
   return (
     <div data-name="resourceBrowser" className={classnames(style.default, className)}>
-      <div className={style.playerWrapper}>
-        {selectedResource && <ResourcePlayer {...selectedResource} />}
-      </div>
+      {selectedResource && (
+        <ResourcePlayer className={style.resourcePlayer} resource={selectedResource} />
+      )}
       <Resources resources={resources} className={className} />
     </div>
   );
