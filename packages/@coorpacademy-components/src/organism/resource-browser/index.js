@@ -38,7 +38,7 @@ const ResourceBrowser = props => {
 };
 
 ResourceBrowser.propTypes = {
-  resources: PropTypes.arrayOf(ResourcePlayer.propType)
+  resources: PropTypes.arrayOf(ResourcePlayer.propType.resource)
 };
 
 export default ResourceBrowser;

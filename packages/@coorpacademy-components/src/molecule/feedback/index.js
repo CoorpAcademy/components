@@ -5,24 +5,33 @@ import ResourcePlayer from '../resource-player';
 import style from './style.css';
 
 const Feedback = (props, context) => {
-  const {media, title, description} = props;
-  const resource = media.type && {
-    ...media,
-    ...getOr({}, 'src.0', media)
-  };
+  const {media, mediaDescription, title, description} = props;
+  const resource = media &&
+    media.type && {
+      ...media,
+      ...getOr({}, 'src.0', media)
+    };
 
   return (
-    <div className={style.feedback} data-name="feedback">
-      <div className={style.title}>{title}</div>
-      <div className={style.descWrapper}>
-        <div
-          className={style.description}
-          // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={{__html: description}}
-        />
-        {resource && <ResourcePlayer className={style.resourcePlayer} resource={resource} />}
+    ((resource || title || description) && (
+      <div className={style.feedback} data-name="feedback">
+        <div className={style.title}>{title}</div>
+        <div className={style.descWrapper}>
+          <div
+            className={style.description}
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{__html: description}}
+          />
+          {resource && (
+            <div>
+              <ResourcePlayer className={style.resourcePlayer} resource={resource} />
+              <div className={style.mediaDescription}>{mediaDescription}</div>
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+    )) ||
+    ''
   );
 };
 

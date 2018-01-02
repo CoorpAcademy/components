@@ -11,7 +11,7 @@ const PDF = (props, context) => {
   const {translate, skin} = context;
 
   const white = get('common.white', skin);
-  const brand = get('common.brand', skin);
+  const primary = get('common.primary', skin);
 
   return (
     <div className={style.pdfFrame}>
@@ -19,7 +19,7 @@ const PDF = (props, context) => {
       <div className={style.pdfDescription}>{description}</div>
       <Link href={mediaUrl} target="_blank" onClick={onPlay}>
         <div className={style.openPDFButton}>
-          <div className={style.openPDFButtonBackground} style={{backgroundColor: brand}} />
+          <div className={style.openPDFButtonBackground} style={{backgroundColor: primary}} />
           <label className={style.openPDFButtonLabel}>{translate('Open')}</label>
         </div>
       </Link>

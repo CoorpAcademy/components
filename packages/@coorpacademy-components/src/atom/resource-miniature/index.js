@@ -17,8 +17,8 @@ const ResourceMiniature = (props, context) => {
   const descriptionClassName = selected ? style.selectedDescription : style.description;
   const dark = get('common.dark', skin);
   const white = get('common.white', skin);
-  const brand = get('common.brand', skin);
-  const posterOutlineColor = selected ? brand : white;
+  const primary = get('common.primary', skin);
+  const posterOutlineColor = selected ? primary : white;
 
   return (
     <div className={STYLE_TYPES[type]} onClick={handleOnClick} data-type={type}>

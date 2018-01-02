@@ -9,9 +9,23 @@ const TYPE_IMAGE = 'img';
 const TYPE_PDF = 'pdf';
 const TYPE_VIDEO = 'video';
 
+const ResourceElement = props => {
+  const {resource} = props;
+  const {type, url, videoId, ...childProps} = resource;
+
+  switch (type) {
+    case TYPE_IMAGE:
+      return <img className={style.img} src={url} />;
+    case TYPE_PDF:
+      return <Pdf {...childProps} />;
+    case TYPE_VIDEO:
+      return <VideoPlayer id={videoId} height="100%" width="100%" {...childProps} />;
+  }
+};
+
 const ResourcePlayer = props => {
   const {className: customClassName, resource} = props;
-  const {type, url: imgSrc, videoId, ...childProps} = resource;
+  const {type} = resource;
   const className = classnames(
     style.resourcePlayer,
     {
@@ -23,13 +37,7 @@ const ResourcePlayer = props => {
 
   return (
     <div className={className}>
-      {
-        {
-          [TYPE_IMAGE]: <img className={style.img} src={imgSrc} />,
-          [TYPE_PDF]: <Pdf {...childProps} />,
-          [TYPE_VIDEO]: <VideoPlayer id={videoId} height="100%" width="100%" {...childProps} />
-        }[type]
-      }
+      <ResourceElement {...props} />
     </div>
   );
 };
@@ -38,17 +46,15 @@ const isType = name => PropTypes.oneOf([name]);
 
 const videoPropType = PropTypes.shape({
   type: isType(TYPE_VIDEO).isRequired,
-  _id: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   ...VideoPlayer.propTypes
 });
 
 const pdfPropType = PropTypes.shape({
   type: isType(TYPE_PDF).isRequired,
-  _id: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   mediaUrl: PropTypes.string.isRequired,
-  onPlay: PropTypes.func
+  ...Pdf.propTypes
 });
 
 const imgPropType = PropTypes.shape({

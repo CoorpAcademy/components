@@ -6,6 +6,7 @@
 @value light from colors;
 @value grey from colors;
 @value dark from colors;
+@value medium from colors;
 @value xtraLightGrey from colors;
 @value white from colors;
 
@@ -16,7 +17,6 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  flex: 1;
 }
 
 .title {
@@ -33,12 +33,10 @@
   width: 100%;
   display: flex;
   flex-direction: row;
-  flex: 1;
 }
 
 .description {
   width: 476px;
-  height: 252px;
   margin-right: 32px;
   font-family: 'OpenSans';
   font-size: 13px;
@@ -46,6 +44,14 @@
   letter-spacing: -0.1px;
   text-align: left;
   color: dark;
+}
+
+.mediaDescription {
+  width: 341px;
+  font-family: 'OpenSans';
+  font-size: 12px;
+  margin-top: 4px;
+  color: medium;
 }
 
 .feedback .resourcePlayer {
@@ -75,5 +81,10 @@
     width: 100vw;
     height: auto;
     margin-right: 0;
+  }
+
+  .mediaDescription {
+    width: 100vw;
+    margin-bottom: 8px;
   }
 }

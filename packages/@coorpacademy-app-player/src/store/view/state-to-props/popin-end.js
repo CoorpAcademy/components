@@ -5,7 +5,6 @@ import getOr from 'lodash/fp/getOr';
 import isEqual from 'lodash/fp/isEqual';
 import pipe from 'lodash/fp/pipe';
 import omit from 'lodash/fp/omit';
-import isEmpty from 'lodash/fp/isEmpty';
 import {retry, exit, nextLevel, seeComment} from '../../actions/ui/location';
 import {editComment} from '../../actions/ui/comments';
 import {postComment} from '../../actions/api/comments';
@@ -195,17 +194,11 @@ const extractAction = ({translate}, {dispatch}) => state => {
 };
 
 const extractFeedback = exitNode => {
-  if (!exitNode) {
-    return null;
-  }
-
-  const {title, description, media} = exitNode;
-  const feedback = {
-    title,
-    description,
-    media: omit(['subtitles', 'posters'], media)
+  return {
+    title: get('title', exitNode),
+    description: get('description', exitNode),
+    media: omit(['ref', 'subtitles', 'posters'], get('media', exitNode))
   };
-  return isEmpty(feedback) ? null : feedback;
 };
 
 const popinEndStateToProps = (options, store) => state => {
