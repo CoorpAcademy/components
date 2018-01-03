@@ -444,29 +444,29 @@ test(
       payload: 'info'
     },
     {
-      type: RANK_FETCH_END_REQUEST
+      type: RECO_FETCH_REQUEST,
+      meta: {id: 'foo'}
     },
     {
-      type: RANK_FETCH_END_SUCCESS,
-      payload: 1
+      type: RANK_FETCH_END_REQUEST
     },
     {
       type: NEXT_CONTENT_FETCH_REQUEST,
       meta: {id: 'foo'}
     },
     {
-      type: NEXT_CONTENT_FETCH_SUCCESS,
-      meta: {id: 'foo'},
-      payload: 'plip'
-    },
-    {
-      type: RECO_FETCH_REQUEST,
-      meta: {id: 'foo'}
-    },
-    {
       type: RECO_FETCH_SUCCESS,
       meta: {id: 'foo'},
       payload: 'plop'
+    },
+    {
+      type: RANK_FETCH_END_SUCCESS,
+      payload: 1
+    },
+    {
+      type: NEXT_CONTENT_FETCH_SUCCESS,
+      meta: {id: 'foo'},
+      payload: 'plip'
     },
     {
       type: EXIT_NODE_FETCH_REQUEST,
@@ -649,29 +649,29 @@ test(
       payload: 'info'
     },
     {
-      type: RANK_FETCH_END_REQUEST
+      type: RECO_FETCH_REQUEST,
+      meta: {id: 'foo'}
     },
     {
-      type: RANK_FETCH_END_SUCCESS,
-      payload: 1
+      type: RANK_FETCH_END_REQUEST
     },
     {
       type: NEXT_CONTENT_FETCH_REQUEST,
       meta: {id: 'foo'}
     },
     {
-      type: NEXT_CONTENT_FETCH_SUCCESS,
-      meta: {id: 'foo'},
-      payload: recommendationFixture.nextLevel
-    },
-    {
-      type: RECO_FETCH_REQUEST,
-      meta: {id: 'foo'}
-    },
-    {
       type: RECO_FETCH_SUCCESS,
       meta: {id: 'foo'},
       payload: recommendationFixture.recommendations
+    },
+    {
+      type: RANK_FETCH_END_SUCCESS,
+      payload: 1
+    },
+    {
+      type: NEXT_CONTENT_FETCH_SUCCESS,
+      meta: {id: 'foo'},
+      payload: recommendationFixture.nextLevel
     },
     {
       type: EXIT_NODE_FETCH_REQUEST,

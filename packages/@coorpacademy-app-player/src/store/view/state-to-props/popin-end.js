@@ -1,5 +1,6 @@
 import cond from 'lodash/fp/cond';
 import constant from 'lodash/fp/constant';
+import omit from 'lodash/fp/omit';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import isArray from 'lodash/fp/isArray';
@@ -144,7 +145,7 @@ const extractAction = ({translate}, {dispatch}) => state => {
             type: 'nextCourse',
             description: translate('Check out the next chapter in this course!'),
             prefix: translate('Next chapter_'),
-            ...nextContent
+            ...omit('type', nextContent)
           };
         } else if (nextContent) {
           // then it is a level
