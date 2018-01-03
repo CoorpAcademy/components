@@ -2,7 +2,7 @@ import buildTask from '../../utils/redux-task';
 import {
   getProgressionContent,
   getCurrentContent,
-  getNextContentFromRecommendations
+  getNextContent
 } from '../../utils/state-extract';
 
 export const LOCATION_RETRY_REQUEST = '@@location/RETRY_REQUEST';
@@ -71,7 +71,7 @@ export const LOCATION_NEXT_CONTENT_SUCCESS = '@@location/LOCATION_NEXT_CONTENT_S
 export const LOCATION_NEXT_CONTENT_FAILURE = '@@location/LOCATION_NEXT_CONTENT_FAILURE';
 
 export const nextLevel = (dispatch, getState, {services}) => {
-  const nextContent = getNextContentFromRecommendations(getState());
+  const nextContent = getNextContent(getState());
 
   if (nextContent) {
     const action = buildTask({

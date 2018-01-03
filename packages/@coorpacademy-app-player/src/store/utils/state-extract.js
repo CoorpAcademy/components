@@ -139,7 +139,7 @@ export const getRecommendations = state => {
 
 export const getNextContent = state => {
   const id = getCurrentProgressionId(state);
-  return get(`data.nextcontent.entities.${id}`, state);
+  return get(`data.nextContent.entities.${id}`, state);
 };
 
 export const getStartRank = get(`data.rank.start`);
@@ -156,18 +156,6 @@ export const getResourceToPlay = state => get('ui.corrections.playResource', sta
 export const getLives = state => {
   const progression = getCurrentProgression(state);
   return progression.state.livesDisabled ? null : get('state.lives', progression);
-};
-
-//FIXME: adapt
-export const getNextContentFromRecommendations = state => {
-  const {type} = getProgressionContent(state);
-  const recommendations = getRecommendations(state);
-  switch (type) {
-    case 'level':
-      return get('nextLevel', recommendations);
-    case 'chapter':
-      return get('nextChapter', recommendations);
-  }
 };
 
 export const getCoaches = getOr(0, 'ui.coaches.availableCoaches');
