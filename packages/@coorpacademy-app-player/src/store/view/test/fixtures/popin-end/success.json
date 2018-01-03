@@ -21,6 +21,13 @@
             "createdAt": "2017-06-05T08:36:49.954Z"
           },
           "media": {
+            "ref": "5930752aa2b39d0024eebffb",
+            "_id": "5930752aa2b39d0024eebffb",
+            "description": "Hierarchie",
+            "mediaUrl":
+              "//static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/raw/hierachie-contenu-1496311207505.pdf",
+            "mimeType": "application/pdf",
+            "type": "pdf",
             "subtitles": [],
             "posters": [],
             "src": []

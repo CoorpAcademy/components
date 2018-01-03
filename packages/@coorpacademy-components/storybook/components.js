@@ -57,6 +57,7 @@ import DisciplineCta from './../src/molecule/discipline-cta';
 import DisciplineHeader from './../src/molecule/discipline-header';
 import DisciplinePartners from './../src/molecule/discipline-partners';
 import DisciplineScope from './../src/molecule/discipline-scope';
+import Feedback from './../src/molecule/feedback';
 import Filters from './../src/molecule/filters';
 import ForumComment from './../src/molecule/forum/forum-comment';
 import ForumPost from './../src/molecule/forum/forum-post';
@@ -337,6 +338,13 @@ import DisciplineScopeFixtureDefault from '../src/molecule/discipline-scope/test
 import DisciplineScopeFixtureEmpty from '../src/molecule/discipline-scope/test/fixtures/empty';
 import DisciplineScopeFixtureMedias from '../src/molecule/discipline-scope/test/fixtures/medias';
 import DisciplineScopeFixtureWithOnclick from '../src/molecule/discipline-scope/test/fixtures/with-onclick';
+import FeedbackFixtureDefault from '../src/molecule/feedback/test/fixtures/default';
+import FeedbackFixtureFailExitNode from '../src/molecule/feedback/test/fixtures/fail-exit-node';
+import FeedbackFixtureFailureWithTitleAndDescriptionAndVideo from '../src/molecule/feedback/test/fixtures/failure-with-title-and-description-and-video';
+import FeedbackFixtureSuccessExitNode from '../src/molecule/feedback/test/fixtures/success-exit-node';
+import FeedbackFixtureSuccessWithTitleAndDescriptionAndImage from '../src/molecule/feedback/test/fixtures/success-with-title-and-description-and-image';
+import FeedbackFixtureSuccessWithTitleAndDescriptionAndPdf from '../src/molecule/feedback/test/fixtures/success-with-title-and-description-and-pdf';
+import FeedbackFixtureSuccessWithTitleAndDescription from '../src/molecule/feedback/test/fixtures/success-with-title-and-description';
 import FiltersFixtureDefault from '../src/molecule/filters/test/fixtures/default';
 import FiltersFixtureFiltersList from '../src/molecule/filters/test/fixtures/filters-list';
 import FiltersFixtureOne from '../src/molecule/filters/test/fixtures/one';
@@ -564,6 +572,7 @@ import PopinEndFixtureFail from '../src/template/app-player/popin-end/test/fixtu
 import PopinEndFixtureLoading from '../src/template/app-player/popin-end/test/fixtures/loading';
 import PopinEndFixtureNegativeRank from '../src/template/app-player/popin-end/test/fixtures/negative-rank';
 import PopinEndFixtureNextCourse from '../src/template/app-player/popin-end/test/fixtures/next-course';
+import PopinEndFixtureNextLevelAdaptiveImg from '../src/template/app-player/popin-end/test/fixtures/next-level-adaptive-img';
 import PopinEndFixtureSimpleAction from '../src/template/app-player/popin-end/test/fixtures/simple-action';
 import PopinEndFixtureSubscribe from '../src/template/app-player/popin-end/test/fixtures/subscribe';
 import PopinEndFixtureWithLoadingRecommendations from '../src/template/app-player/popin-end/test/fixtures/with-loading-recommendations';
@@ -671,6 +680,7 @@ export const components = {
     DisciplineHeader,
     DisciplinePartners,
     DisciplineScope,
+    Feedback,
     Filters,
     MenuList,
     ModuleBubble,
@@ -1076,6 +1086,15 @@ export const fixtures = {
       Medias: DisciplineScopeFixtureMedias,
       WithOnclick: DisciplineScopeFixtureWithOnclick
     },
+    Feedback: {
+      Default: FeedbackFixtureDefault,
+      FailExitNode: FeedbackFixtureFailExitNode,
+      FailureWithTitleAndDescriptionAndVideo: FeedbackFixtureFailureWithTitleAndDescriptionAndVideo,
+      SuccessExitNode: FeedbackFixtureSuccessExitNode,
+      SuccessWithTitleAndDescriptionAndImage: FeedbackFixtureSuccessWithTitleAndDescriptionAndImage,
+      SuccessWithTitleAndDescriptionAndPdf: FeedbackFixtureSuccessWithTitleAndDescriptionAndPdf,
+      SuccessWithTitleAndDescription: FeedbackFixtureSuccessWithTitleAndDescription
+    },
     Filters: {
       Default: FiltersFixtureDefault,
       FiltersList: FiltersFixtureFiltersList,
@@ -1476,6 +1495,7 @@ export const fixtures = {
       Loading: PopinEndFixtureLoading,
       NegativeRank: PopinEndFixtureNegativeRank,
       NextCourse: PopinEndFixtureNextCourse,
+      NextLevelAdaptiveImg: PopinEndFixtureNextLevelAdaptiveImg,
       SimpleAction: PopinEndFixtureSimpleAction,
       Subscribe: PopinEndFixtureSubscribe,
       WithLoadingRecommendations: PopinEndFixtureWithLoadingRecommendations,

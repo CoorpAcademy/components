@@ -10,6 +10,7 @@ import Link from '../../../atom/link';
 import Discussion from '../../../organism/discussion';
 import Loader from '../../../atom/loader';
 import Card from '../../../molecule/card';
+import Feedback from '../../../molecule/feedback';
 import CardsList from '../../../molecule/dashboard/cards-list';
 import PopinHeader from '../../../molecule/app-player/popin/popin-header';
 import style from './summary.css';
@@ -86,6 +87,7 @@ const Subscribe = ({title, description, button, card}) => {
     </div>
   );
 };
+
 Subscribe.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
@@ -199,7 +201,7 @@ const Footer = ({title, color, ...linkProps}) => (
 );
 
 const Summary = (props, context) => {
-  const {header, recommendation, comment, footer, action} = props;
+  const {header, recommendation, comment, footer, action, feedback} = props;
   const {skin} = context;
   const primary = getOr('#f0f', 'common.primary', skin);
   const commentView =
@@ -209,10 +211,12 @@ const Summary = (props, context) => {
       </div>
     ) : null;
   const footerView = footer && header ? <Footer color={primary} {...footer} /> : null;
+  const feedbackView = feedback ? <Feedback {...feedback} /> : null;
 
   return (
     <div className={style.summaryWrapper}>
       <Header {...header} />
+      {feedbackView}
       <Action color={primary} {...action} />
       <Cards {...recommendation} />
       {commentView}
@@ -236,7 +240,8 @@ Summary.propTypes = {
   action: PropTypes.shape({
     type: PropTypes.oneOf(keys(actions)).isRequired
   }),
-  recommendation: PropTypes.shape(CardsList.propTypes)
+  recommendation: PropTypes.shape(CardsList.propTypes),
+  feedback: PropTypes.shape(Feedback.propTypes)
 };
 
 export default Summary;

@@ -1,0 +1,89 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value desktop from breakpoints;
+@value tablet from breakpoints;
+@value mobile from breakpoints;
+@value colors: "../../variables/colors.css";
+@value light from colors;
+@value grey from colors;
+@value dark from colors;
+@value medium from colors;
+@value xtraLightGrey from colors;
+@value white from colors;
+
+.feedback {
+  width: 100%;
+  border-bottom: solid 2px light;
+  padding: 40px 32px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  width: 100%;
+  margin-bottom: 20px;
+  font-family: 'Open Sans';
+  font-size: 25px;
+  font-weight: bold;
+  text-align: left;
+  color: dark;
+}
+
+.descWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.description {
+  width: 476px;
+  margin-right: 32px;
+  font-family: 'Open Sans';
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: -0.1px;
+  text-align: left;
+  color: dark;
+}
+
+.mediaDescription {
+  width: 341px;
+  font-family: 'Open Sans';
+  font-size: 12px;
+  margin-top: 4px;
+  color: medium;
+}
+
+.feedback .resourcePlayer {
+  display: flex;
+  justify-content: flex-start;
+  width: 341px;
+  height: 241px;
+}
+
+@media tablet {
+  .feedback {
+    border-bottom: none;
+    padding: 0;
+  }
+
+  .descWrapper {
+    flex-direction: column-reverse;
+  }
+
+  .feedback .resourcePlayer {
+    width: 100vw;
+    height: 50vw;
+  }
+
+  .description {
+    width: 100%;
+    height: auto;
+    margin-right: 0;
+  }
+
+  .mediaDescription {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+}

@@ -12,7 +12,7 @@
   height: 100%;
 }
 
-.playerWrapper {
+.resourcePlayer {
   height: 352px;
   width: 609px;
   display: flex;
@@ -27,7 +27,7 @@
     width: 100%;
   }
 
-  .playerWrapper {
+  .resourcePlayer {
     width: 100%;
     min-width: 100vw;
     height: 56.25vw;
