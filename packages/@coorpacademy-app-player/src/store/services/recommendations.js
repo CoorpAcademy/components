@@ -10,6 +10,7 @@ const levels = toMapByRef(new Map(), levelsData);
 export const find = (type, ref) => {
   switch (type) {
     case 'chapter':
+      // TODO : flatten list structure
       return Promise.resolve({list: recommendations});
     case 'level':
       return Promise.resolve({list: recommendations});

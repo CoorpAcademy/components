@@ -7,7 +7,8 @@ import pipe from 'lodash/fp/pipe';
 import {
   RECO_FETCH_REQUEST,
   RECO_FETCH_SUCCESS,
-  RECO_FETCH_FAILURE
+  RECO_FETCH_FAILURE,
+  RECO_NEXT_FETCH_SUCCESS
 } from '../../actions/api/recommendations';
 
 const dataRecommendationsReducer = (state = {entities: {}}, action) => {
@@ -21,16 +22,18 @@ const dataRecommendationsReducer = (state = {entities: {}}, action) => {
       const {payload, meta} = action;
       const {id} = meta;
 
-      const {list, nextLevel = null} = payload;
+      const {list} = payload;
+      return set(['entities', id, 'list'], list, state);
+    }
+    case RECO_NEXT_FETCH_SUCCESS: {
+      const {payload, meta} = action;
+      const {id} = meta;
+      const nextLevel = payload;
       if (nextLevel) {
         const {level, ref, levelTranslation, name} = nextLevel;
-        return set(
-          ['entities', id],
-          {list, nextLevel: {level, ref, levelTranslation, name}},
-          state
-        );
+        return set(['entities', id, 'nextLevel'], {level, ref, levelTranslation, name}, state);
       }
-      return set(['entities', id], payload, state);
+      return set(['entities', id, 'nextLevel'], null, state);
     }
     case RECO_FETCH_FAILURE: {
       const {meta} = action;
