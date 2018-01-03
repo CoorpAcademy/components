@@ -27,3 +27,7 @@ export const find = (type, ref) => {
       return getLevelRecommendation(ref);
   }
 };
+
+export const getNext = (type, ref) => {
+  return Promise.reject(new Error());
+};
