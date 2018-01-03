@@ -50,6 +50,7 @@ function contentResourceViewedAction(
 const wrongAnswerAction: AnswerAction = Object.freeze({
   type: 'answer',
   payload: {
+    answer: ['foo'],
     content: {
       ref: '1.A1.2',
       type: 'slide'
@@ -128,6 +129,7 @@ test('should update state when answering the first question correctly', t => {
   const action: AnswerAction = Object.freeze({
     type: 'answer',
     payload: {
+      answer: ['foo'],
       content: {
         ref: '1.A1.1',
         type: 'slide'
@@ -173,6 +175,7 @@ test('should update state when answering the another question correctly', t => {
   const action: AnswerAction = Object.freeze({
     type: 'answer',
     payload: {
+      answer: ['foo'],
       content: {
         ref: '1.A1.2',
         type: 'slide'
@@ -420,6 +423,7 @@ test("should throw if the state's nextContent is not the same as the action's co
   const action: AnswerAction = Object.freeze({
     type: 'answer',
     payload: {
+      answer: ['foo'],
       content: {
         ref: '1.A1.200',
         type: 'slide'
@@ -493,6 +497,7 @@ test('should update step when answering a question', t => {
   const action: AnswerAction = Object.freeze({
     type: 'answer',
     payload: {
+      answer: ['foo'],
       content: {
         ref: '1.A1.2',
         type: 'slide'

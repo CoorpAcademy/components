@@ -10,6 +10,8 @@ export type Step = {
   current: number
 };
 
+export type Answer = Array<string>;
+
 export type GenericContent = {
   ref: string,
   type: string,
@@ -24,9 +26,15 @@ export type ResourceContent = {
 
 export type Content = GenericContent | ResourceContent;
 
-export type State = {
+export type AnswerRecord = {
+  slideRef: string,
+  answer: Answer,
+  isCorrect: boolean
+};
+
+export type GenericState = {
   content?: Content,
-  nextContent: Content,
+  nextContent?: Content,
   lives: number,
   livesDisabled?: boolean,
   isCorrect: boolean,
@@ -36,8 +44,15 @@ export type State = {
   stars: number,
   step: Step,
   remainingLifeRequests: number,
-  hasViewedAResourceAtThisStep: boolean
+  hasViewedAResourceAtThisStep: boolean,
+  allAnswers: Array<AnswerRecord>,
+  variables: {[string]: string | boolean | number}
 };
+
+export type State = {
+  nextContent: Content,
+  content?: Content
+} & GenericState;
 
 export type AskClueAction = {
   type: 'clue',
@@ -59,6 +74,7 @@ export type AnswerAction = {
   payload: {
     content: Content,
     nextContent: Content,
+    answer: Answer,
     isCorrect: boolean
   }
 };
@@ -114,7 +130,6 @@ export type AnswerCorrection = {
   corrections: Array<PartialCorrection>
 };
 
-export type Answer = Array<string>;
 export type AcceptedAnswers = Array<Answer>;
 
 export type QCMQuestion = {

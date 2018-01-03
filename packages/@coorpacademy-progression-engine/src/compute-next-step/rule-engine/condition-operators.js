@@ -1,53 +1,61 @@
 // @flow
-import sortBy from 'lodash/fp/sortBy';
-import negate from 'lodash/fp/negate';
+import gt from 'lodash/fp/gt';
 import isEqual from 'lodash/fp/isEqual';
+import lt from 'lodash/fp/lt';
+import negate from 'lodash/fp/negate';
+import sortBy from 'lodash/fp/sortBy';
 
-// eslint-disable-next-line flowtype/no-weak-types
-const IN = (expectedValues: Array<any>, value: any): boolean => {
-  // TODO We may need to look at whether the order of items is important.
-  // We need to extract that from the slide or add an addition operator for when the order matters.
-  // Or maybe this is not important anymore, but we need to take a look at this before shipping.
+const IN = <T>(expectedValues: Array<T>, value: T): boolean => {
   return expectedValues.some(isEqual(value));
 };
 
-// eslint-disable-next-line flowtype/no-weak-types
-const EQUALS = (expectedValues: Array<any>, value: any): boolean => {
-  return isEqual(expectedValues[0], value);
+const NOT_IN: <T>(expectedValues: Array<T>, value: T) => boolean = negate(IN);
+
+const EQUALS = <T>(expectedValues: Array<T>, value: T): boolean => {
+  return isEqual(expectedValues[0])(value);
 };
 
-const BETWEEN = (expectedValues: Array<number>, value: number): boolean => {
-  const [min, max] = sortBy(v => v, expectedValues);
-  return min <= value && value <= max;
+const NOT_EQUALS: <T>(expectedValues: Array<T>, value: T) => boolean = negate(EQUALS);
+
+const LT = <T>(expectedValues: Array<T>, value: T): boolean => {
+  return lt(value)(expectedValues[0]);
 };
 
-const LT = (expectedValues: Array<number>, value: number): boolean => {
-  return value < expectedValues[0];
+const GT = <T>(expectedValues: Array<T>, value: T): boolean => {
+  return gt(value)(expectedValues[0]);
 };
 
-const GT = (expectedValues: Array<number>, value: number): boolean => {
-  return value > expectedValues[0];
+const LTE: <T>(expectedValues: Array<T>, value: T) => boolean = negate(GT);
+const GTE: <T>(expectedValues: Array<T>, value: T) => boolean = negate(LT);
+
+const BETWEEN = <T>(expectedValues: Array<T>, value: T): boolean => {
+  const [min: T, max: T]: Array<T> = sortBy(v => v)(expectedValues);
+  return GTE([min], value) && LTE([max], value);
 };
+
+const NOT_BETWEEN: <T>(expectedValues: Array<T>, value: T) => boolean = negate(BETWEEN);
 
 const operators = {
-  IN,
-  NOT_IN: negate(IN),
-  EQUALS,
-  NOT_EQUALS: negate(EQUALS),
   BETWEEN,
-  NOT_BETWEEN: negate(BETWEEN),
-  LT,
-  GTE: negate(LT),
+  EQUALS,
   GT,
-  LTE: negate(GT)
+  GTE,
+  IN,
+  LT,
+  LTE,
+  NOT_BETWEEN,
+  NOT_EQUALS,
+  NOT_IN
 };
 
-const checkCondition = (
-  operator: $Keys<typeof operators>,
-  expectedValues: any, // eslint-disable-line flowtype/no-weak-types
-  value: any // eslint-disable-line flowtype/no-weak-types
+export type OperatorKeys = $Keys<typeof operators>;
+
+const checkCondition = <T>(
+  operatorKey: OperatorKeys,
+  expectedValues: Array<T>,
+  value: T
 ): boolean => {
-  return operators[operator](expectedValues, value);
+  return operators[operatorKey](expectedValues, value);
 };
 
 export default checkCondition;

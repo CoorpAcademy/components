@@ -1,18 +1,18 @@
 // @flow
 import test from 'ava';
-import _checkCondition from '../condition-operators';
+import checkCondition from '../condition-operators';
 
-const checkCondition = (t, [opNormal, opNegative]) => (
+const testCondition = (t, [opNormal, opNegative]) => <T>(
   expectedResult: boolean,
-  expectedValues: any, // eslint-disable-line flowtype/no-weak-types
-  value: any // eslint-disable-line flowtype/no-weak-types
+  expectedValues: Array<T>,
+  value: T
 ) => {
-  t.is(_checkCondition(opNormal, expectedValues, value), expectedResult);
-  t.is(_checkCondition(opNegative, expectedValues, value), !expectedResult);
+  t.is(checkCondition(opNormal, expectedValues, value), expectedResult);
+  t.is(checkCondition(opNegative, expectedValues, value), !expectedResult);
 };
 
 test('should return true for IN (false for NOT_IN) condition if value is among the expected values', t => {
-  const check = checkCondition(t, ['IN', 'NOT_IN']);
+  const check = testCondition(t, ['IN', 'NOT_IN']);
 
   check(true, [1, 2, 3], 1);
   check(true, [1, 2, 3], 2);
@@ -22,7 +22,7 @@ test('should return true for IN (false for NOT_IN) condition if value is among t
 });
 
 test('should return false for IN (true for NOT_IN) condition if value is not among the expected values', t => {
-  const check = checkCondition(t, ['IN', 'NOT_IN']);
+  const check = testCondition(t, ['IN', 'NOT_IN']);
 
   check(false, [1, 2, 3], 4);
   check(false, [1, 2, 3], -1);
@@ -34,7 +34,7 @@ test('should return false for IN (true for NOT_IN) condition if value is not amo
 });
 
 test('should return true for EQUALS (false for NOT_EQUALS) condition if value is among the first expected value', t => {
-  const check = checkCondition(t, ['EQUALS', 'NOT_EQUALS']);
+  const check = testCondition(t, ['EQUALS', 'NOT_EQUALS']);
 
   check(true, [1], 1);
   check(true, [1, 2, 3], 1);
@@ -43,7 +43,7 @@ test('should return true for EQUALS (false for NOT_EQUALS) condition if value is
 });
 
 test('should return false for EQUALS (true for NOT_EQUALS) condition if value is not the first expected value', t => {
-  const check = checkCondition(t, ['EQUALS', 'NOT_EQUALS']);
+  const check = testCondition(t, ['EQUALS', 'NOT_EQUALS']);
 
   check(false, [1], 4);
   check(false, [1, 4], 4);
@@ -56,7 +56,7 @@ test('should return false for EQUALS (true for NOT_EQUALS) condition if value is
 });
 
 test('should return true for BETWEEN (false for NOT_BETWEEN) condition if value is between the two first elements (included)', t => {
-  const check = checkCondition(t, ['BETWEEN', 'NOT_BETWEEN']);
+  const check = testCondition(t, ['BETWEEN', 'NOT_BETWEEN']);
 
   check(true, [5, 10], 8);
   check(true, [5, 10], 5);
@@ -66,7 +66,7 @@ test('should return true for BETWEEN (false for NOT_BETWEEN) condition if value 
 });
 
 test('should return "false" for BETWEEN (false for NOT_BETWEEN) condition if value is not between the two first elements', t => {
-  const check = checkCondition(t, ['BETWEEN', 'NOT_BETWEEN']);
+  const check = testCondition(t, ['BETWEEN', 'NOT_BETWEEN']);
 
   check(false, [5, 10], 4);
   check(false, [5, 10], 10.001);
@@ -76,7 +76,7 @@ test('should return "false" for BETWEEN (false for NOT_BETWEEN) condition if val
 });
 
 test('should return true for LT (false for GTE) condition if value is less than expected value', t => {
-  const check = checkCondition(t, ['LT', 'GTE']);
+  const check = testCondition(t, ['LT', 'GTE']);
 
   check(true, [1], 0);
   check(true, [1], -10);
@@ -84,7 +84,7 @@ test('should return true for LT (false for GTE) condition if value is less than 
 });
 
 test('should return false for LT (true for GTE) condition if value is greater or equal than expected value', t => {
-  const check = checkCondition(t, ['LT', 'GTE']);
+  const check = testCondition(t, ['LT', 'GTE']);
 
   check(false, [1], 10);
   check(false, [1], 1);
@@ -93,7 +93,7 @@ test('should return false for LT (true for GTE) condition if value is greater or
 });
 
 test('should return true for GT (false for LTE) condition if value is greater than expected value', t => {
-  const check = checkCondition(t, ['GT', 'LTE']);
+  const check = testCondition(t, ['GT', 'LTE']);
 
   check(true, [1], 10);
   check(true, [-5], 0);
@@ -101,7 +101,7 @@ test('should return true for GT (false for LTE) condition if value is greater th
 });
 
 test('should return false for GT (true for GTE) condition if value is less or equal than expected value', t => {
-  const check = checkCondition(t, ['GT', 'LTE']);
+  const check = testCondition(t, ['GT', 'LTE']);
 
   check(false, [1], 0);
   check(false, [1], -10);

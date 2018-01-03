@@ -21,7 +21,9 @@ export const stateBeforeGettingNextContent: State = {
     current: 1
   },
   remainingLifeRequests: 1,
-  hasViewedAResourceAtThisStep: false
+  hasViewedAResourceAtThisStep: false,
+  allAnswers: [],
+  variables: {}
 };
 
 export const failProgressionState: State = {
@@ -44,7 +46,9 @@ export const failProgressionState: State = {
   viewedResources: [],
   stars: 4,
   remainingLifeRequests: 0,
-  hasViewedAResourceAtThisStep: false
+  hasViewedAResourceAtThisStep: false,
+  allAnswers: [],
+  variables: {}
 };
 
 export const extraLifeProgressionState: State = {
@@ -68,7 +72,9 @@ export const extraLifeProgressionState: State = {
   viewedResources: [],
   stars: 4,
   remainingLifeRequests: 1,
-  hasViewedAResourceAtThisStep: true
+  hasViewedAResourceAtThisStep: true,
+  allAnswers: [],
+  variables: {}
 };
 
 export const extraLifeAlreadyRefusedProgressionState: State = {
@@ -92,7 +98,9 @@ export const extraLifeAlreadyRefusedProgressionState: State = {
   viewedResources: [],
   stars: 4,
   remainingLifeRequests: 4,
-  hasViewedAResourceAtThisStep: false
+  hasViewedAResourceAtThisStep: false,
+  allAnswers: [],
+  variables: {}
 };
 
 export const successProgressionState: State = {
@@ -115,5 +123,7 @@ export const successProgressionState: State = {
   viewedResources: [],
   stars: 16,
   remainingLifeRequests: 1,
-  hasViewedAResourceAtThisStep: false
+  hasViewedAResourceAtThisStep: false,
+  allAnswers: [],
+  variables: {}
 };
