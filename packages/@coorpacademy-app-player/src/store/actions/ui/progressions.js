@@ -75,9 +75,11 @@ export const selectProgression = id => async (dispatch, getState) => {
     }
     case 'success': // eslint-disable-line no-fallthrough
     case 'failure': {
-      await dispatch(fetchEndRank(progressionId));
-      await dispatch(fetchNext(progressionId));
-      await dispatch(fetchRecommendations(progressionId));
+      dispatch(fetchRecommendations(progressionId));
+      await Promise.all([
+        dispatch(fetchEndRank(progressionId)),
+        dispatch(fetchNext(progressionId))
+      ]);
       return dispatch(fetchExitNode(ref));
     }
   }
