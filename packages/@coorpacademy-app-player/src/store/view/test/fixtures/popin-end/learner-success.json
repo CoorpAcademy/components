@@ -204,8 +204,7 @@
     },
     "recommendations": {
       "entities": {
-        "idProgression1234" : {
-          "list": [
+        "idProgression1234" : [
             {
               "view": "grid",
               "image": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/default/7a2-1503484226173.jpg&h=300&w=300&q=90",
@@ -248,13 +247,17 @@
               "key": "7.A2",
               "disabled": true
             }
-          ],
-          "nextLevel": {
-            "level": "advanced",
-            "levelTranslation": "Avancé",
-            "name": "La recherche en ligne",
-            "ref": "1.A"
-          }
+          ]
+
+      }
+    },
+    "nextContent": {
+      "entities": {
+        "idProgression1234": {
+          "level": "advanced",
+          "levelTranslation": "Avancé",
+          "name": "La recherche en ligne",
+          "ref": "1.A"
         }
       }
     }

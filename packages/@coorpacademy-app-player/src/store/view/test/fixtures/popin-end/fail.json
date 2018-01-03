@@ -68,8 +68,8 @@
     },
     "recommendations": {
       "entities": {
-        "0": {
-          "list": [
+        "0":
+          [
             {
               "view": "grid",
               "image":
@@ -113,7 +113,6 @@
               "disabled": false
             }
           ]
-        }
       }
     },
     "contents": {
