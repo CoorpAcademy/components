@@ -1,35 +1,36 @@
 // @flow
-import assign from 'lodash/fp/assign';
 import reduce from 'lodash/fp/reduce';
 import set from 'lodash/fp/set';
 import update from 'lodash/fp/update';
-import type {State} from '../../types';
 import type {Instruction, Variables} from './types';
 
-const apply = (target: Variables, instruction: Instruction): Variables => {
+type FlattenVariables = {[string]: string | boolean | number};
+
+const apply = (variables: FlattenVariables, instruction: Instruction): FlattenVariables => {
   const {type, value, field} = instruction;
+
   switch (type) {
     case 'set':
-      return set(field, value, target);
+      return set(field, value, variables);
     case 'add':
-      return update(field, v => v + value, target);
+      return update(field, v => v + value, variables);
     default:
-      return target;
+      return variables;
   }
 };
 
-const updateState = (instructions: Array<Instruction>) => (state: State): State => {
+const updateVariables = (instructions: Array<Instruction>) => (fromState: Variables): Variables => {
   const {lives, stars, ...variables} = reduce(
     apply,
     {
-      lives: state.lives,
-      stars: state.stars,
-      ...state.variables
+      lives: fromState.lives,
+      stars: fromState.stars,
+      ...fromState.variables
     },
     instructions
   );
 
-  return assign(state, {lives, stars, variables});
+  return {lives, stars, variables};
 };
 
-export default updateState;
+export default updateVariables;
