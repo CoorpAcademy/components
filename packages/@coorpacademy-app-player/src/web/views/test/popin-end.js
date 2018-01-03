@@ -30,7 +30,7 @@ test('should set properties for success popin', async t => {
 
   t.is(props.summary.action.type, 'nextCourse');
   t.is(props.summary.action.title, 'Chapter 2');
-  t.is(props.summary.action.card.view, 'grid');
+  t.is(props.summary.action.view, 'grid'); // TODO check was for some reason card.view
 
   const card = props.summary.recommendation.cards[1];
   t.is(card.view, 'grid');
