@@ -137,6 +137,11 @@ export const getRecommendations = state => {
   return get(`data.recommendations.entities.${id}`, state);
 };
 
+export const getNextContent = state => {
+  const id = getCurrentProgressionId(state);
+  return get(`data.nextcontent.entities.${id}`, state);
+};
+
 export const getStartRank = get(`data.rank.start`);
 export const getEndRank = get(`data.rank.end`);
 export const getBestScore = pipe(getCurrentContent, get('bestScore'));

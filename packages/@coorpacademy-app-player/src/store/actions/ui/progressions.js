@@ -5,6 +5,7 @@ import {fetchEndRank, fetchStartRank} from '../api/rank';
 import {fetchExitNode} from '../api/exit-nodes';
 import {fetchContent, fetchContentInfo, fetchSlideChapter} from '../api/contents';
 import {fetchRecommendations} from '../api/recommendations';
+import {fetchNext} from '../api/next-content';
 import {sendProgressionAnalytics} from '../api/analytics';
 import {fetchAnswer} from '../api/answers';
 import {
@@ -75,6 +76,7 @@ export const selectProgression = id => async (dispatch, getState) => {
     case 'success': // eslint-disable-line no-fallthrough
     case 'failure': {
       await dispatch(fetchEndRank(progressionId));
+      await dispatch(fetchNext(progressionId));
       await dispatch(fetchRecommendations(progressionId));
       return dispatch(fetchExitNode(ref));
     }
