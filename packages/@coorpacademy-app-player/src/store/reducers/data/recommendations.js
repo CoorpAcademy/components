@@ -21,8 +21,7 @@ const dataRecommendationsReducer = (state = {entities: {}}, action) => {
       const {payload, meta} = action;
       const {id} = meta;
 
-      const {list} = payload;
-      return set(['entities', id, 'list'], list, state);
+      return set(['entities', id, 'list'], payload, state);
     }
     case RECO_FETCH_FAILURE: {
       const {meta} = action;

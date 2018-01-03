@@ -8,18 +8,12 @@ const levels = toMapByRef(new Map(), levelsData);
 
 // eslint-disable-next-line import/prefer-default-export
 export const find = (type, ref) => {
-  switch (type) {
-    case 'chapter':
-      // TODO : flatten list structure
-      return Promise.resolve({list: recommendations});
-    case 'level':
-      return Promise.resolve({list: recommendations});
-  }
+  return Promise.resolve(recommendations);
 };
 
 const getNextLevel = ref => {
   const {name, level} = levels.get(ref);
-  if (level === 'coach') return Promise.resolve(null);
+  if (level === 'coach') return Promise.resolve(undefined);
   const _nextLevel = level === 'base' ? 'advanced' : 'coach';
   const filter = {level: _nextLevel, name};
   const nextLevel = _find(filter, levelsData);
@@ -29,7 +23,7 @@ const getNextLevel = ref => {
 export const getNext = (type, ref) => {
   switch (type) {
     case 'chapter':
-      return Promise.resolve(null);
+      return Promise.resolve(undefined);
     case 'level':
       return getNextLevel(ref);
   }
