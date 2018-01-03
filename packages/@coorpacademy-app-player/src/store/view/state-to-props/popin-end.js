@@ -2,10 +2,12 @@ import cond from 'lodash/fp/cond';
 import constant from 'lodash/fp/constant';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
+import isArray from 'lodash/fp/isArray';
 import isEqual from 'lodash/fp/isEqual';
 import pick from 'lodash/fp/pick';
 import pipe from 'lodash/fp/pipe';
 import omit from 'lodash/fp/omit';
+import isNull from 'lodash/fp/isNull';
 import {retry, exit, nextLevel, seeComment} from '../../actions/ui/location';
 import {editComment} from '../../actions/ui/comments';
 import {postComment} from '../../actions/api/comments';
@@ -123,7 +125,7 @@ const summaryHeader = ({translate}, {dispatch}) => state => {
 const extractRecommendation = ({translate}, store) => state => {
   const recommendations = getRecommendations(state);
   const list = get('list', recommendations);
-  const hasRecommendations = list && list.length > 0;
+  const hasRecommendations = isNull(list) || isArray(list);
 
   const recommendation = hasRecommendations && {
     title: translate('Related subjects'),
