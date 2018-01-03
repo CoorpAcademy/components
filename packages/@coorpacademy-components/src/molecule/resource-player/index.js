@@ -5,9 +5,9 @@ import Pdf from '../pdf';
 import VideoPlayer from '../video-player';
 import style from './style.css';
 
-const TYPE_IMAGE = 'img';
-const TYPE_PDF = 'pdf';
-const TYPE_VIDEO = 'video';
+export const TYPE_IMAGE = 'img';
+export const TYPE_PDF = 'pdf';
+export const TYPE_VIDEO = 'video';
 
 const ResourceElement = props => {
   const {resource} = props;

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
-import ResourcePlayer from '../resource-player';
+import ResourcePlayer, {TYPE_IMAGE, TYPE_VIDEO, TYPE_PDF} from '../resource-player';
 import style from './style.css';
 
 const Feedback = (props, context) => {
@@ -37,7 +37,12 @@ const Feedback = (props, context) => {
 
 Feedback.propTypes = {
   title: PropTypes.string,
-  description: PropTypes.string
+  description: PropTypes.string,
+  media: PropTypes.shape({
+    type: PropTypes.oneOf([TYPE_IMAGE, TYPE_PDF, TYPE_VIDEO]),
+    src: PropTypes.array
+  }),
+  mediaDescription: PropTypes.string
 };
 
 export default Feedback;

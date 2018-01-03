@@ -22,7 +22,7 @@
 .title {
   width: 100%;
   margin-bottom: 20px;
-  font-family: 'OpenSans';
+  font-family: 'Open Sans';
   font-size: 25px;
   font-weight: bold;
   text-align: left;
@@ -38,7 +38,7 @@
 .description {
   width: 476px;
   margin-right: 32px;
-  font-family: 'OpenSans';
+  font-family: 'Open Sans';
   font-size: 13px;
   font-weight: bold;
   letter-spacing: -0.1px;
@@ -48,7 +48,7 @@
 
 .mediaDescription {
   width: 341px;
-  font-family: 'OpenSans';
+  font-family: 'Open Sans';
   font-size: 12px;
   margin-top: 4px;
   color: medium;
@@ -73,18 +73,17 @@
 
   .feedback .resourcePlayer {
     width: 100vw;
-    height: auto;
     height: 50vw;
   }
 
   .description {
-    width: 100vw;
+    width: 100%;
     height: auto;
     margin-right: 0;
   }
 
   .mediaDescription {
-    width: 100vw;
+    width: 100%;
     margin-bottom: 8px;
   }
 }
