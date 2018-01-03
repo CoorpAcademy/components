@@ -210,3 +210,9 @@ export type Config = {
   starsPerResourceViewed: number,
   remainingLifeRequests: number
 };
+
+export type Instruction = {
+  field: string,
+  type: 'add' | 'set',
+  value: number | string | boolean
+};
