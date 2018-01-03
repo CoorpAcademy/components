@@ -38,6 +38,10 @@ import {
 } from '../../../actions/api/contents';
 import {EXIT_NODE_FETCH_REQUEST, EXIT_NODE_FETCH_SUCCESS} from '../../../actions/api/exit-nodes';
 import {RECO_FETCH_REQUEST, RECO_FETCH_SUCCESS} from '../../../actions/api/recommendations';
+import {
+  NEXT_CONTENT_FETCH_REQUEST,
+  NEXT_CONTENT_FETCH_SUCCESS
+} from '../../../actions/api/next-content';
 import {UI_SELECT_PROGRESSION, UI_PROGRESSION_UPDATED} from '../../../actions/ui/progressions';
 import popinExtraLife from '../../test/fixtures/popin-correction/popin-extra-life';
 import popinFailure from '../../test/fixtures/popin-correction/popin-failure';
@@ -74,7 +78,8 @@ const services = {
     getRank: identity
   },
   Recommendations: {
-    find: identity
+    find: identity,
+    getNext: identity
   },
   ExitNodes: {
     findById: identity
@@ -164,6 +169,8 @@ test('should create a "Next" CTA when entering a success exit popin', async t =>
     CONTENT_INFO_FETCH_SUCCESS,
     RANK_FETCH_END_REQUEST,
     RANK_FETCH_END_SUCCESS,
+    NEXT_CONTENT_FETCH_REQUEST,
+    NEXT_CONTENT_FETCH_SUCCESS,
     RECO_FETCH_REQUEST,
     RECO_FETCH_SUCCESS,
     EXIT_NODE_FETCH_REQUEST,
@@ -198,6 +205,8 @@ test('should create a "Game over" CTA when entering a failure exit popin', async
     CONTENT_INFO_FETCH_REQUEST,
     RANK_FETCH_END_REQUEST,
     RANK_FETCH_END_SUCCESS,
+    NEXT_CONTENT_FETCH_REQUEST,
+    NEXT_CONTENT_FETCH_SUCCESS,
     RECO_FETCH_REQUEST,
     RECO_FETCH_SUCCESS,
     EXIT_NODE_FETCH_REQUEST,

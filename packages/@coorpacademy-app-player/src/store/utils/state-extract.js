@@ -158,6 +158,7 @@ export const getLives = state => {
   return progression.state.livesDisabled ? null : get('state.lives', progression);
 };
 
+//FIXME: adapt
 export const getNextContentFromRecommendations = state => {
   const {type} = getProgressionContent(state);
   const recommendations = getRecommendations(state);
