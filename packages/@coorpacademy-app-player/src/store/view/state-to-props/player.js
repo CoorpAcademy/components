@@ -8,6 +8,7 @@ import map from 'lodash/fp/map';
 import flatMap from 'lodash/fp/flatMap';
 import {
   getCoaches,
+  getCurrentContent,
   getCurrentProgression,
   getCurrentSlide,
   getCurrentProgressionId,
@@ -35,6 +36,19 @@ const shouldDisplayNewMedia = (slide, progression) => {
   const currentLessons = map('ref', get('lessons', slide));
   const viewedResources = flatMap('resources', getOr([], 'state.viewedResources', progression));
   return isEmpty(intersection(currentLessons, viewedResources)) && !isEmpty(currentLessons);
+};
+
+const getProgressionStep = state => {
+  const progression = getCurrentProgression(state);
+  const content = getCurrentContent(state);
+  const isAdaptive = getOr(false, 'isConditional', content);
+
+  return !isAdaptive
+    ? {
+        current: get('state.step.current')(progression),
+        total: getNbSlides(state)
+      }
+    : null;
 };
 
 const playerProps = (options, store) => state => {
@@ -108,11 +122,8 @@ const playerProps = (options, store) => state => {
     typeClue: isAnswer ? 'answer' : route,
     text: clue,
     onClickSeeClue: clickSeeClueHandler,
-    step: {
-      current: get('state.step.current')(progression),
-      total: getNbSlides(state)
-    },
     question: get('question.header')(slide),
+    step: getProgressionStep(state),
     slideContext,
     verticalMargin: 260,
     starsDiff,

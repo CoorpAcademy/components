@@ -306,11 +306,7 @@ const LoadingLayout = () => (
 );
 
 const LoadedLayout = ({question, step, ...props}) =>
-  question && step ? (
-    <ContentLayout question={question} step={step} {...props} />
-  ) : (
-    <LoadingLayout />
-  );
+  question ? <ContentLayout question={question} step={step} {...props} /> : <LoadingLayout />;
 
 /*
  * Errors

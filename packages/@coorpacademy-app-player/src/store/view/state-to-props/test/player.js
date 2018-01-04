@@ -8,6 +8,7 @@ import identity from 'lodash/fp/identity';
 import {mockTranslate} from '@coorpacademy/translate';
 import createPlayer from '../player';
 import {UI_SELECT_ROUTE} from '../../../actions/ui/route';
+import learnerProgressionStateFixture from '../../test/fixtures/progression-learner';
 import basicSlide from './fixtures/slides/basic';
 import contextSlide from './fixtures/slides/with-context';
 
@@ -251,4 +252,26 @@ test('should not display new media notification when user has seen at least one 
 
   const props = playerProps(state);
   t.false(props.showNewMedia);
+});
+
+test('should feed step prop in non-adaptive mode', t => {
+  const state = set(
+    'data.contents.level.entities.1.info.nbSlides',
+    12,
+    learnerProgressionStateFixture
+  );
+  const props = playerProps(state);
+
+  t.deepEqual(props.step, {current: 0, total: 12});
+});
+
+test('should not feed step prop in adaptive mode', t => {
+  const state = pipe(
+    set('data.contents.level.entities.1.info.nbSlides', 12),
+    set('data.contents.level.entities.1.isConditional', true)
+  )(learnerProgressionStateFixture);
+
+  const props = playerProps(state);
+
+  t.falsy(props.step);
 });
