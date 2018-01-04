@@ -43,12 +43,12 @@ const getProgressionStep = state => {
   const content = getCurrentContent(state);
   const isAdaptive = getOr(false, 'isConditional', content);
 
-  return (
-    !isAdaptive && {
-      current: get('state.step.current')(progression),
-      total: getNbSlides(state)
-    }
-  );
+  return !isAdaptive
+    ? {
+        current: get('state.step.current')(progression),
+        total: getNbSlides(state)
+      }
+    : null;
 };
 
 const playerProps = (options, store) => state => {
