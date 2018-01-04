@@ -34,4 +34,10 @@ type ChapterRule = {
   ref?: string
 };
 
-export type {ChapterRule, Condition, Instruction, OperatorKeys, Target};
+type Variables = {
+  lives: number,
+  stars: number,
+  variables: {[string]: string | boolean | number}
+};
+
+export type {ChapterRule, Condition, Instruction, OperatorKeys, Target, Variables};

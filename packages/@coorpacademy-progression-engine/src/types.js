@@ -32,6 +32,9 @@ export type AnswerRecord = {
   isCorrect: boolean
 };
 
+export type Variable = string | boolean | number;
+export type Variables = {[string]: Variable};
+
 export type GenericState = {
   content?: Content,
   nextContent?: Content,
@@ -46,7 +49,7 @@ export type GenericState = {
   remainingLifeRequests: number,
   hasViewedAResourceAtThisStep: boolean,
   allAnswers: Array<AnswerRecord>,
-  variables: {[string]: string | boolean | number}
+  variables: Variables
 };
 
 export type State = {
