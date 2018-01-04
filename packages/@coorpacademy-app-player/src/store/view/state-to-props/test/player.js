@@ -273,5 +273,5 @@ test('should not feed step prop in adaptive mode', t => {
 
   const props = playerProps(state);
 
-  t.false('step' in props);
+  t.falsy(props.step);
 });

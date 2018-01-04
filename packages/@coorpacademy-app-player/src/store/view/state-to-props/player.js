@@ -1,7 +1,6 @@
 import includes from 'lodash/fp/includes';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
-import set from 'lodash/fp/set';
 import isNil from 'lodash/fp/isNil';
 import isEmpty from 'lodash/fp/isEmpty';
 import intersection from 'lodash/fp/intersection';
@@ -39,21 +38,17 @@ const shouldDisplayNewMedia = (slide, progression) => {
   return isEmpty(intersection(currentLessons, viewedResources)) && !isEmpty(currentLessons);
 };
 
-const setProgressionStep = (props, state) => {
+const getProgressionStep = state => {
   const progression = getCurrentProgression(state);
   const content = getCurrentContent(state);
   const isAdaptive = getOr(false, 'isConditional', content);
 
-  return !isAdaptive
-    ? set(
-        'step',
-        {
-          current: get('state.step.current')(progression),
-          total: getNbSlides(state)
-        },
-        props
-      )
-    : props;
+  return (
+    !isAdaptive && {
+      current: get('state.step.current')(progression),
+      total: getNbSlides(state)
+    }
+  );
 };
 
 const playerProps = (options, store) => state => {
@@ -123,11 +118,12 @@ const playerProps = (options, store) => state => {
     }
   ];
 
-  const props = {
+  return {
     typeClue: isAnswer ? 'answer' : route,
     text: clue,
     onClickSeeClue: clickSeeClueHandler,
     question: get('question.header')(slide),
+    step: getProgressionStep(state),
     slideContext,
     verticalMargin: 260,
     starsDiff,
@@ -157,8 +153,6 @@ const playerProps = (options, store) => state => {
     showNewMedia: (isNil(route) || route === 'answer') && notifyNewMedia,
     buttons
   };
-
-  return setProgressionStep(props, state);
 };
 
 export default playerProps;
