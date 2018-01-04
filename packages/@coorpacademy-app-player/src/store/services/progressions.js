@@ -1,8 +1,8 @@
 import {
   createProgression,
   computeNextStep,
+  newComputeNextStep,
   getConfig,
-  checkAnswer,
   updateState
 } from '@coorpacademy/progression-engine';
 import defaultsDeep from 'lodash/fp/defaultsDeep';
@@ -19,6 +19,7 @@ import getOr from 'lodash/fp/getOr';
 import set from 'lodash/fp/set';
 import maxBy from 'lodash/fp/maxBy';
 import reduce from 'lodash/fp/reduce';
+import {getByContent as getChapterRulesByContent} from './chapter-rules';
 import progressionsData from './progressions.data';
 import slidesData from './slides.data';
 
@@ -82,21 +83,29 @@ export const postAnswer = async (progressionId, payload) => {
   const slide = slideStore.get(slideId);
   const progression = await findById(progressionId);
   const slidePools = createSlidePools();
-  const {engine} = progression;
+  const {engine, content, state} = progression;
+  const chapterRules = await getChapterRulesByContent(content);
 
-  const action = pipe(
-    set('payload.isCorrect', checkAnswer(engine, slide.question, userAnswer)),
-    _action => {
-      let nextState = updateState(engine, progression.state, [_action]);
-      nextState = set('nextContent', nextState.content, nextState);
-      return set('payload.nextContent', computeNextStep(engine, slidePools, nextState))(_action);
-    }
-  )({
-    type: 'answer',
-    payload
+  const {nextContent, instructions, isCorrect} = newComputeNextStep(engine, state, {
+    currentSlide: slide,
+    answer: userAnswers,
+    godMode: false,
+
+    slidePools,
+    chapterRules
   });
 
-  return pipe(update('state', state => updateState(progression.engine, state, [action])), save)(
+  const action = {
+    type: 'answer',
+    payload: {
+      ...payload,
+      isCorrect,
+      nextContent,
+      instructions
+    }
+  };
+
+  return pipe(update('state', _state => updateState(progression.engine, _state, [action])), save)(
     progression
   );
 };

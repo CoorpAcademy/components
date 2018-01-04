@@ -53,8 +53,9 @@ export type OperatorKeys = $Keys<typeof operators>;
 const checkCondition = <T>(
   operatorKey: OperatorKeys,
   expectedValues: Array<T>,
-  value: T
+  value: ?T
 ): boolean => {
+  if (value === null || value === undefined) return false;
   return operators[operatorKey](expectedValues, value);
 };
 

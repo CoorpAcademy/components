@@ -47,7 +47,7 @@ const matchWithState = (state: GenericState) => (chapterRule: ChapterRule): bool
         };
 
         const value = variables[field];
-        if (!value) return false;
+        if (value === undefined && value === null) return false;
 
         const typedValues = values.filter(isSameType(value));
         return checkCondition(operator, typedValues, value);

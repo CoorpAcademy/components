@@ -1,11 +1,12 @@
 import get from 'lodash/fp/get';
+import isNull from 'lodash/fp/isNull';
 import remove from 'lodash/fp/remove';
 import includes from 'lodash/fp/includes';
 import hasSeenLesson from '../../utils/has-seen-lesson';
 import {createAnswer} from '../api/progressions';
 import {fetchAnswer} from '../api/answers';
 import {fetchSlideChapter} from '../api/contents';
-import {progressionUpdated} from './progressions';
+import {progressionUpdated, selectProgression} from './progressions';
 import {toggleAccordion, ACCORDION_KLF, ACCORDION_TIPS, ACCORDION_LESSON} from './corrections';
 
 export const ANSWER_EDIT = {
@@ -70,6 +71,8 @@ export const validateAnswer = (progressionId, body) => async (dispatch, getState
   if (get('nextContent.type', progressionState) === 'slide') {
     await dispatch(fetchSlideChapter(nextContentRef));
   }
+
+  if (isNull(isCorrect)) return dispatch(selectProgression(progressionId));
 
   if (isCorrect) {
     await dispatch(toggleAccordion(ACCORDION_TIPS));

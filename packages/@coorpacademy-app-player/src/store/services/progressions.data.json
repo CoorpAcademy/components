@@ -1,5 +1,5 @@
-[
-  {
+{
+  "0": {
     "_id": "0",
     "engine": {
       "ref": "microlearning",
@@ -19,10 +19,12 @@
       "livesDisabled": false,
       "step": {
         "current": 1
-      }
+      },
+      "allAnswers": [],
+      "variables": {}
     }
   },
-  {
+  "1": {
     "_id": "1",
     "engine": {
       "ref": "microlearning",
@@ -44,10 +46,12 @@
       "livesDisabled": false,
       "step": {
         "current": 1
-      }
+      },
+      "allAnswers": [],
+      "variables": {}
     }
   },
-  {
+  "slider": {
     "_id": "slider",
     "engine": {
       "ref": "microlearning",
@@ -67,10 +71,12 @@
       "livesDisabled": false,
       "step": {
         "current": 1
-      }
+      },
+      "allAnswers": [],
+      "variables": {}
     }
   },
-  {
+  "2": {
     "_id": "2",
     "engine": {
       "ref": "microlearning",
@@ -96,10 +102,12 @@
       "stars": 12,
       "step": {
         "current": 1
-      }
+      },
+      "allAnswers": [],
+      "variables": {}
     }
   },
-  {
+  "3": {
     "_id": "3",
     "engine": {
       "ref": "microlearning",
@@ -119,10 +127,12 @@
       "livesDisabled": false,
       "step": {
         "current": 1
-      }
+      },
+      "allAnswers": [],
+      "variables": {}
     }
   },
-  {
+  "template": {
     "_id": "template",
     "engine": {
       "ref": "microlearning",
@@ -142,10 +152,12 @@
       "livesDisabled": false,
       "step": {
         "current": 1
-      }
+      },
+      "allAnswers": [],
+      "variables": {}
     }
   },
-  {
+  "context": {
     "_id": "context",
     "engine": {
       "ref": "microlearning",
@@ -165,10 +177,12 @@
       "livesDisabled": false,
       "step": {
         "current": 1
-      }
+      },
+      "allAnswers": [],
+      "variables": {}
     }
   },
-  {
+  "context2": {
     "_id": "context2",
     "engine": {
       "ref": "microlearning",
@@ -188,10 +202,12 @@
       "livesDisabled": false,
       "step": {
         "current": 1
-      }
+      },
+      "allAnswers": [],
+      "variables": {}
     }
   },
-  {
+  "context3": {
     "_id": "context3",
     "engine": {
       "ref": "microlearning",
@@ -211,10 +227,12 @@
       "livesDisabled": false,
       "step": {
         "current": 1
-      }
+      },
+      "allAnswers": [],
+      "variables": {}
     }
   },
-  {
+  "context4": {
     "_id": "context4",
     "engine": {
       "ref": "microlearning",
@@ -234,10 +252,12 @@
       "livesDisabled": false,
       "step": {
         "current": 1
-      }
+      },
+      "allAnswers": [],
+      "variables": {}
     }
   },
-  {
+  "level1": {
     "_id": "level1",
     "engine": {
       "ref": "learner",
@@ -257,10 +277,12 @@
       "livesDisabled": false,
       "step": {
         "current": 1
-      }
+      },
+      "allAnswers": [],
+      "variables": {}
     }
   },
-  {
+  "livesDisabled": {
     "_id": "livesDisabled",
     "engine": {
       "ref": "learner",
@@ -280,10 +302,12 @@
       "livesDisabled": true,
       "step": {
         "current": 1
-      }
+      },
+      "allAnswers": [],
+      "variables": {}
     }
   },
-  {
+  "extraLife": {
     "_id": "extraLife",
     "content": {
       "ref": "5.C7",
@@ -317,7 +341,42 @@
       "stars": 0,
       "requestedClues": [],
       "viewedResources": [],
-      "remainingLifeRequests": 1
+      "remainingLifeRequests": 1,
+      "allAnswers": [],
+      "variables": {}
+    }
+  },
+  "adaptive": {
+    "_id": "adaptive",
+    "content": {
+      "ref": "cha_N19MiQrYG",
+      "type": "chapter"
+    },
+    "meta": {
+      "updatedAt": "2017-10-12T13:43:17.114Z",
+      "createdAt": "2017-10-12T13:43:17.114Z"
+    },
+    "engine": {
+      "ref": "microlearning",
+      "version": "1"
+    },
+    "state": {
+      "nextContent": {
+        "ref": "sli_4yHKRmBtz",
+        "type": "slide"
+      },
+      "isCorrect": false,
+      "slides": [],
+      "lives": 0,
+      "step": {
+        "current": 1
+      },
+      "stars": 0,
+      "requestedClues": [],
+      "viewedResources": [],
+      "remainingLifeRequests": 1,
+      "allAnswers": [],
+      "variables": {}
     }
   }
-]
+}
