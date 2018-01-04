@@ -19,6 +19,7 @@ import getOr from 'lodash/fp/getOr';
 import set from 'lodash/fp/set';
 import maxBy from 'lodash/fp/maxBy';
 import reduce from 'lodash/fp/reduce';
+import {isContentAdaptive} from '../utils/state-extract';
 import {find as findContent} from './content';
 import progressionsData from './progressions.data';
 import slidesData from './slides.data';
@@ -80,9 +81,8 @@ export const findBestOf = (engineRef, contentRef, progressionId = null) => {
 export const computeIsCorrect = async (progression, question, answers) => {
   const {content: {type: contentType, ref: contentRef}} = progression;
   const content = await findContent(contentType, contentRef);
-  const isAdaptive = getOr(false, 'isConditional', content);
 
-  return !isAdaptive ? checkAnswer(progression.engine, question, answers) : null;
+  return !isContentAdaptive(content) ? checkAnswer(progression.engine, question, answers) : null;
 };
 
 export const postAnswers = async (progressionId, payload) => {
