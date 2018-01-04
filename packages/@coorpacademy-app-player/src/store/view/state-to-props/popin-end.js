@@ -1,6 +1,5 @@
 import cond from 'lodash/fp/cond';
 import constant from 'lodash/fp/constant';
-import omit from 'lodash/fp/omit';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import isArray from 'lodash/fp/isArray';
