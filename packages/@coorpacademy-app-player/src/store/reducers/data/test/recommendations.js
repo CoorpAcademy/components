@@ -1,6 +1,4 @@
 import test from 'ava';
-import pipe from 'lodash/fp/pipe';
-import pick from 'lodash/fp/pick';
 import set from 'lodash/fp/set';
 import reducer from '../recommendations';
 import {

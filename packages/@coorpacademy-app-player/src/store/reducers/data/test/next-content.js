@@ -1,5 +1,4 @@
 import test from 'ava';
-import pick from 'lodash/fp/pick';
 import set from 'lodash/fp/set';
 import reducer from '../next-content';
 import {

@@ -1,9 +1,5 @@
 import buildTask from '../../utils/redux-task';
-import {
-  getProgressionContent,
-  getCurrentContent,
-  getNextContent
-} from '../../utils/state-extract';
+import {getProgressionContent, getCurrentContent, getNextContent} from '../../utils/state-extract';
 
 export const LOCATION_RETRY_REQUEST = '@@location/RETRY_REQUEST';
 export const LOCATION_RETRY_SUCCESS = '@@location/RETRY_SUCCESS';
