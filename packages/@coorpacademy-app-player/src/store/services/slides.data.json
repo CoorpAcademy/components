@@ -1,5 +1,5 @@
-[
-  {
+{
+  "1.B2.4": {
     "_id": "1.B2.4",
     "klf": "Nous devons chouchouter nos clientes et les mettre à l'aise pendant leur attente.",
     "tips": "Avez-vous récemment consulté les iPads ou le magazine 31 rue Cambon ?",
@@ -111,7 +111,7 @@
       ]
     }
   },
-  {
+  "sli_VkcAWR-ZQ": {
     "_id": "sli_VkcAWR-ZQ",
     "klf": "Lire n'est pas difficile.",
     "tips": "Il y a pas mal de gens qui se trompent sans lire.",
@@ -203,7 +203,7 @@
       "medias": []
     }
   },
-  {
+  "sli_E1iEQRuZm": {
     "_id": "sli_E1iEQRuZm",
     "klf": "Indeed, c'est Free Run",
     "tips": "Il y a aussi le mode classique qui s'appelle désormais Learner",
@@ -302,7 +302,7 @@
       "medias": []
     }
   },
-  {
+  "sli_4kl~7RubX": {
     "_id": "sli_4kl~7RubX",
     "klf": "Oui oui oui !",
     "tips": "Alors !",
@@ -409,7 +409,7 @@
       ]
     }
   },
-  {
+  "sli_Vy88~R-bX": {
     "_id": "sli_Vy88~R-bX",
     "klf": "Difficile hein !",
     "tips": "Que 1 X 1 n'est pas 2 !",
@@ -513,7 +513,7 @@
       "medias": []
     }
   },
-  {
+  "sli_EyinLfF~X": {
     "_id": "sli_EyinLfF~X",
     "klf": "xxx",
     "tips": "xxx",
@@ -599,7 +599,7 @@
       ]
     }
   },
-  {
+  "sli_VktuuzFW7": {
     "_id": "sli_VktuuzFW7",
     "klf": "xxx",
     "tips": "xxx",
@@ -674,7 +674,7 @@
       ]
     }
   },
-  {
+  "sli_4ymMuMFb7": {
     "_id": "sli_4ymMuMFb7",
     "klf": "xxx",
     "tips": "xxx",
@@ -758,7 +758,7 @@
       "medias": []
     }
   },
-  {
+  "sli_V1zinOWt~": {
     "_id": "sli_V1zinOWt~",
     "klf": "La révolution numérique a vu naître une nouvelle génération appelée génération Y. Les individus de cette génération ont vu Internet se démocratiser. Ils sont passionés par les outils numériques et avides d'information.",
     "tips": "Certains affirment que la génération Y est appelée ainsi en référence à la forme des écouteurs portés par les jeunes Y.",
@@ -844,7 +844,7 @@
       "medias": []
     }
   },
-  {
+  "sli_Nk2vje~E~": {
     "_id": "sli_Nk2vje~E~",
     "klf": "You can have multiple type of fields for a template question",
     "tips": "Some tips",
@@ -896,7 +896,7 @@
       }
     }
   },
-  {
+  "9.C7.6": {
     "_id": "9.C7.6",
     "klf": "Savoir cliquer sur les vrais réponses",
     "tips": "Des tips",
@@ -970,7 +970,7 @@
       "medias": []
     }
   },
-  {
+  "8.B2.2": {
     "_id": "8.B2.2",
     "klf": "Savoir cliquer sur les vrais réponses dans un ordre donné",
     "tips": "Des tips",
@@ -1028,7 +1028,7 @@
       }
     }
   },
-  {
+  "sli_41GXTiG8X": {
     "_id": "sli_41GXTiG8X",
     "klf": "Il a connu les dinosaures.",
     "tips": "Il a connu les dinosaures.",
@@ -1104,7 +1104,7 @@
       "medias": []
     }
   },
-  {
+  "1.B2.9": {
     "_id": "1.B2.9",
     "klf": "Some KLF",
     "tips": "XXX",
@@ -1174,7 +1174,7 @@
       ]
     }
   },
-  {
+  "1.B2.10": {
     "_id": "1.B2.10",
     "klf": "Some KLF",
     "tips": "XXX",
@@ -1249,7 +1249,7 @@
       ]
     }
   },
-  {
+  "1.B2.11": {
     "_id": "1.B2.11",
     "klf": "Some KLF",
     "tips": "XXX",
@@ -1324,7 +1324,7 @@
       ]
     }
   },
-  {
+  "1.B2.12": {
     "_id": "1.B2.12",
     "klf": "Some KLF",
     "tips": "XXX",
@@ -1394,5 +1394,1827 @@
         }
       ]
     }
+  },
+
+  "sli_41SKtnyqM": {
+    "_id": "sli_41SKtnyqM",
+    "universalRef": "sli_41SKtnyqM",
+    "discipline": "dis_4kbxoQrKf",
+    "module": "mod_4JvGsXBFz",
+    "question": {
+      "type": "qcm",
+      "header": "Vous retournez dans le passé ?",
+      "explanation": "Sélectionnez la bonne réponse.",
+      "content": {
+        "choices": [
+          {
+            "id": "sli_41SKtnyqM.id",
+            "label": "J'y vais !",
+            "value": "sli_41SKtnyqM.choice_EkAb531qf"
+          }
+        ],
+        "answers": [
+          []
+        ]
+      }
+    },
+    "context": {
+      "title": "Seconde chance",
+      "description": "Chanceux comme vous êtes, vous avez trouvé un moyen de retourner un peu dans le passé... Mais pas suffisamment pour empêcher le plantage de votre site."
+    },
+    "klf": "",
+    "tips": "",
+    "lessons": [],
+    "chapter_id": "cha_N19MiQrYG"
+  },
+  "sli_41b4cs8tf": {
+    "_id": "sli_41b4cs8tf",
+    "universalRef": "sli_41b4cs8tf",
+    "discipline": "dis_4kbxoQrKf",
+    "module": "mod_4JvGsXBFz",
+    "question": {
+      "type": "qcm",
+      "header": "Voilà, vous vous êtes lancé, et plutôt avec succès ! C'est le moment du bilan…",
+      "explanation": "Sélectionnez la bonne réponse.",
+      "content": {
+        "choices": [
+          {
+            "id": "sli_41b4cs8tf.id",
+            "label": "Je lis mon bilan",
+            "value": "sli_41b4cs8tf.choice_4JkWToLYM"
+          }
+        ],
+        "answers": [
+          []
+        ]
+      }
+    },
+    "context": {
+      "title": "Lancement terminé !",
+      "description": "Vous avez choisi de vous intéresser à votre nombre de fans, de followers… Pourquoi pas, cela vous donnera une idée du nombre de personnes que vous êtes susceptible de toucher. Mais c'est une mesure assez peu précise, car des personnes peuvent être fan de votre page sans jamais voir vos publications. Pour une meilleure étude de votre public, regardez votre nombre de vues et, encore mieux, le taux d'engagement de vos publications.",
+      "media": {
+        "type": "img",
+        "src": [
+          {
+            "mimeType": "image/jpeg",
+            "url": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/context/shutterstock_263567153-1487780913464.jpg&h=400&w=400&q=90"
+          }
+        ]
+      }
+    },
+    "klf": "",
+    "tips": "",
+    "lessons": [],
+    "chapter_id": "cha_N19MiQrYG"
+  },
+  "sli_41mswoIKG": {
+    "_id": "sli_41mswoIKG",
+    "universalRef": "sli_41mswoIKG",
+    "discipline": "dis_4kbxoQrKf",
+    "module": "mod_4JvGsXBFz",
+    "question": {
+      "type": "qcm",
+      "header": "Les réseaux sociaux vous ont bien aidé à vous faire connaître. Pour améliorer votre notoriété, vous décidez de regarder de plus près les analytics de vos publications. Quelle donnée analysez-vous en priorité ?",
+      "explanation": "Sélectionnez la bonne réponse.",
+      "content": {
+        "choices": [
+          {
+            "id": "sli_41mswoIKG.id",
+            "label": "Le taux d'engagement, c'est-à-dire les interactions générées par vos publications (retweets, likes…)",
+            "value": "sli_41mswoIKG.choice_NJDTvjUKG"
+          },
+          {
+            "id": "sli_41mswoIKG.id",
+            "label": "Le nombre de vues sur vos publications",
+            "value": "sli_41mswoIKG.choice_V1-awi8tf"
+          },
+          {
+            "id": "sli_41mswoIKG.id",
+            "label": "Votre nombre de fans, followers…",
+            "value": "sli_41mswoIKG.choice_4ytpwj8Yz"
+          }
+        ],
+        "answers": [
+          []
+        ]
+      }
+    },
+    "context": {
+      "title": "Les réseaux sociaux vous aident !",
+      "description": "Vous avez choisi Periscope pour diffuser l'événement en live. Bonne idée ! L'application revendique plus de 10 millions de comptes dans le monde. Votre audience aura un sentiment d'exclusivité et de proximité, puisqu'elle peut interagir avec vous grâce aux commentaires. En plus, votre vidéo peut être sauvegardée.",
+      "media": {
+        "type": "img",
+        "src": [
+          {
+            "mimeType": "image/jpeg",
+            "url": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/context/shutterstock_222391963-1489757220507.jpg&h=400&w=400&q=90"
+          }
+        ]
+      }
+    },
+    "klf": "",
+    "tips": "",
+    "lessons": [],
+    "chapter_id": "cha_N19MiQrYG"
+  },
+  "sli_41rMkNrKM": {
+    "_id": "sli_41rMkNrKM",
+    "universalRef": "sli_41rMkNrKM",
+    "discipline": "dis_4kbxoQrKf",
+    "module": "mod_4JvGsXBFz",
+    "question": {
+      "type": "qcm",
+      "header": " Quelle option choisissez-vous ? Site clé en main ou site sur mesure ?",
+      "explanation": "Sélectionnez la bonne réponse.",
+      "content": {
+        "choices": [
+          {
+            "id": "sli_41rMkNrKM.id",
+            "label": "Le site clé en main",
+            "value": "sli_41rMkNrKM.choice_EJoEyEBKz"
+          },
+          {
+            "id": "sli_41rMkNrKM.id",
+            "label": "Le site sur mesure",
+            "value": "sli_41rMkNrKM.choice_VyT41NSYM"
+          }
+        ],
+        "answers": [
+          []
+        ]
+      }
+    },
+    "context": {
+      "title": "Choisir son type de site",
+      "description": "Vous avez décidé de vous lancer. La première étape est de créer votre site web. Vous avez deux possibilités. Soit vous optez pour un site clé en main, qui vous permettra d'avoir un service technique réactif. Soit vous choisissez un site sur mesure, qui correspondra exactement à ce que vous avez imaginé.",
+      "media": {
+        "type": "img",
+        "src": [
+          {
+            "mimeType": "image/jpeg",
+            "url": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/context/shutterstock_223244350-1487684117088.jpg&h=400&w=400&q=90"
+          }
+        ]
+      }
+    },
+    "klf": "",
+    "tips": "",
+    "lessons": [],
+    "chapter_id": "cha_N19MiQrYG"
+  },
+  "sli_41zl0FLKG": {
+    "_id": "sli_41zl0FLKG",
+    "universalRef": "sli_41zl0FLKG",
+    "discipline": "dis_4kbxoQrKf",
+    "module": "mod_4JvGsXBFz",
+    "question": {
+      "type": "qcm",
+      "header": "Vous décidez de retransmettre le défilé en vidéo : c'est bon pour votre image et cela vous rapprochera de vos fans. Quel outil choisissez-vous ?",
+      "explanation": "Sélectionnez la bonne réponse.",
+      "content": {
+        "choices": [
+          {
+            "id": "sli_41zl0FLKG.id",
+            "label": "Facebook Live",
+            "value": "sli_41zl0FLKG.choice_NyZvRKLtz"
+          },
+          {
+            "id": "sli_41zl0FLKG.id",
+            "label": "YouTube",
+            "value": "sli_41zl0FLKG.choice_VkGDCtUKf"
+          },
+          {
+            "id": "sli_41zl0FLKG.id",
+            "label": "Periscope",
+            "value": "sli_41zl0FLKG.choice_EymwCKIYf"
+          }
+        ],
+        "answers": [
+          []
+        ]
+      }
+    },
+    "context": {
+      "title": "Communication sur les réseaux sociaux",
+      "description": "Vous avez décidé de vous mettre vraiment aux réseaux sociaux, c'est bien ! Mais 10 fois par jour, c'est peut-être un peu trop, vous risquez de lasser vos potentiels clients. Mais vous arrivez tout de même à faire remonter votre trafic, et vos ventes explosent. C'est un vrai conte de fée : on parle de vous sur les réseaux sociaux et dans les médias, vos produits s'arrachent… Vous avez même reçu une invitation pour assister au défilé d'un grand créateur, au premier rang !",
+      "media": {
+        "type": "img",
+        "src": [
+          {
+            "mimeType": "image/jpeg",
+            "url": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/context/shutterstock_222391963-1487773546365.jpg&h=400&w=400&q=90"
+          }
+        ]
+      }
+    },
+    "klf": "",
+    "tips": "",
+    "lessons": [],
+    "chapter_id": "cha_N19MiQrYG"
+  },
+  "sli_4JAILP8Fz": {
+    "_id": "sli_4JAILP8Fz",
+    "universalRef": "sli_4JAILP8Fz",
+    "discipline": "dis_4kbxoQrKf",
+    "module": "mod_4JvGsXBFz",
+    "question": {
+      "type": "qcm",
+      "header": "Votre site a été inaccessible pendant 8 heures. Forcément, votre trafic a fortement baissé. Il faut agir pour redresser la situation. Mais comment ?",
+      "explanation": "Sélectionnez la bonne réponse.",
+      "content": {
+        "choices": [
+          {
+            "id": "sli_4JAILP8Fz.id",
+            "label": "Vous décidez d'être plus offensif sur les réseaux sociaux",
+            "value": "sli_4JAILP8Fz.choice_4Jpn8wUtz"
+          },
+          {
+            "id": "sli_4JAILP8Fz.id",
+            "label": "Vous envoyez une newsletter à tous ceux qui ont créé un compte sur votre site",
+            "value": "sli_4JAILP8Fz.choice_NkRn8v8tG"
+          },
+          {
+            "id": "sli_4JAILP8Fz.id",
+            "label": "Vous décidez de vous lancer sur une marketplace, c'est-à-dire un site d'e-commerce qui sert de plateforme de vente à plusieurs marques, afin de disposer d'un nouveau canal de vente et de tenter de faire remonter votre trafic",
+            "value": "sli_4JAILP8Fz.choice_EJy6LP8Kz"
+          }
+        ],
+        "answers": [
+          []
+        ]
+      }
+    },
+    "context": {
+      "title": "Plantage du site",
+      "description": "\"Aïe, le site a été victime de son succès. Merci pour votre enthousiasme, promis nous réparons ça au plus vite ! On vous prévient dès que vous pouvez faire vos emplettes !\" Voilà le message que vous avez posté sur vos réseaux sociaux pour avertir du plantage de votre site. C'est une bonne idée, vos clients, ou futurs clients, remarqueront votre implication. S'ils commentent votre publication, vous pourrez même engager une conversation avec eux !",
+      "media": {
+        "type": "img",
+        "src": [
+          {
+            "mimeType": "image/jpeg",
+            "url": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/context/shutterstock_201035246-1487763423338.jpg&h=400&w=400&q=90"
+          }
+        ]
+      }
+    },
+    "klf": "",
+    "tips": "",
+    "lessons": [],
+    "chapter_id": "cha_N19MiQrYG"
+  },
+  "sli_4JKjVY8Kz": {
+    "_id": "sli_4JKjVY8Kz",
+    "universalRef": "sli_4JKjVY8Kz",
+    "discipline": "dis_4kbxoQrKf",
+    "module": "mod_4JvGsXBFz",
+    "question": {
+      "type": "qcm",
+      "header": "Comment vous y prenez-vous pour être plus offensif sur les réseaux sociaux ?",
+      "explanation": "Sélectionnez la bonne réponse.",
+      "content": {
+        "choices": [
+          {
+            "id": "sli_4JKjVY8Kz.id",
+            "label": "Vous publiez 10 fois par jour sur chaque réseau social",
+            "value": "sli_4JKjVY8Kz.choice_EkxJrK8Kz"
+          },
+          {
+            "id": "sli_4JKjVY8Kz.id",
+            "label": "Vous publiez au moins 2 fois par jour",
+            "value": "sli_4JKjVY8Kz.choice_V1~krt8tG"
+          },
+          {
+            "id": "sli_4JKjVY8Kz.id",
+            "label": "Vous utilisez un outil pour savoir à quelle fréquence et à quel moment publier",
+            "value": "sli_4JKjVY8Kz.choice_EJe~JBYLYG"
+          }
+        ],
+        "answers": [
+          []
+        ]
+      }
+    },
+    "context": {
+      "title": "À l'attaque des réseaux sociaux",
+      "description": "Vous avez décidé d'être plus offensif sur les réseaux sociaux. C'est une bonne chose. En étant au plus près de vos potentiels clients, vous pourrez répondre au mieux à leurs besoins. C'est un bon outil pour travailler votre image et augmenter votre trafic.",
+      "media": {
+        "type": "img",
+        "src": [
+          {
+            "mimeType": "image/jpeg",
+            "url": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/context/shutterstock_174838673-1487771119781.jpg&h=400&w=400&q=90"
+          }
+        ]
+      }
+    },
+    "klf": "",
+    "tips": "",
+    "lessons": [],
+    "chapter_id": "cha_N19MiQrYG"
+  },
+  "sli_4k26mv8KG": {
+    "_id": "sli_4k26mv8KG",
+    "universalRef": "sli_4k26mv8KG",
+    "discipline": "dis_4kbxoQrKf",
+    "module": "mod_4JvGsXBFz",
+    "question": {
+      "type": "qcm",
+      "header": "Heureusement, vous avez peut-être une solution… Vous voulez essayer ?",
+      "explanation": "Sélectionnez la bonne réponse.",
+      "content": {
+        "choices": [
+          {
+            "id": "sli_4k26mv8KG.id",
+            "label": "Oui !",
+            "value": "sli_4k26mv8KG.choice_VkdMVwLtz"
+          }
+        ],
+        "answers": [
+          []
+        ]
+      }
+    },
+    "context": {
+      "title": "Oups, mauvaise stratégie !",
+      "description": "Aïe, vous avez payé une entreprise pour poster de faux commentaires positifs. C'est illégal ! Vous pourriez être poursuivi pour pratique commerciale trompeuse…",
+      "media": {
+        "type": "img",
+        "src": [
+          {
+            "mimeType": "image/jpeg",
+            "url": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/context/shutterstock_582975019-1487762917479.jpg&h=400&w=400&q=90"
+          }
+        ]
+      }
+    },
+    "klf": "",
+    "tips": "",
+    "lessons": [],
+    "chapter_id": "cha_N19MiQrYG"
+  },
+  "sli_4kIFWvUFG": {
+    "_id": "sli_4kIFWvUFG",
+    "universalRef": "sli_4kIFWvUFG",
+    "discipline": "dis_4kbxoQrKf",
+    "module": "mod_4JvGsXBFz",
+    "question": {
+      "type": "qcm",
+      "header": "Mais votre client a eu le temps de vous faire de la mauvaise publicité. C'est un bad buzz ! Conséquence : votre trafic a chuté. Il faut agir ! Que faites-vous ?",
+      "explanation": "Sélectionnez la bonne réponse.",
+      "content": {
+        "choices": [
+          {
+            "id": "sli_4kIFWvUFG.id",
+            "label": "Vous choisissez d'essayer de relancer votre trafic en publiant davantage sur les réseaux sociaux, et donc être plus visible",
+            "value": "sli_4kIFWvUFG.choice_NkaoWP8Ff"
+          },
+          {
+            "id": "sli_4kIFWvUFG.id",
+            "label": "Vous décidez d'envoyer une newsletter à tous ceux qui ont créé un compte sur votre site mais n'ont pas encore acheté pour leur offrir un code promo",
+            "value": "sli_4kIFWvUFG.choice_4JeTjbwLFG"
+          },
+          {
+            "id": "sli_4kIFWvUFG.id",
+            "label": "Le bad buzz est passé, alors les visites vont bien finir par remonter également… Vous décidez de ne rien faire",
+            "value": "sli_4kIFWvUFG.choice_4y0ibv8YM"
+          },
+          {
+            "id": "sli_4kIFWvUFG.id",
+            "label": "Vous décidez de vous lancer sur une marketplace, comme Amazon, pour disposer d'un nouveau canal de vente",
+            "value": "sli_4kIFWvUFG.choice_Nyq7zP8Kf"
+          }
+        ],
+        "answers": [
+          []
+        ]
+      }
+    },
+    "context": {
+      "title": "Mea Culpa et offre commerciale",
+      "description": "Vous avez fait votre mea culpa et avez proposé à votre client une offre commerciale. Bien vu, cela va permettre de redorer un peu votre image.",
+      "media": {
+        "type": "img",
+        "src": [
+          {
+            "mimeType": "image/jpeg",
+            "url": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/context/shutterstock_349413722-1487762245717.jpg&h=400&w=400&q=90"
+          }
+        ]
+      }
+    },
+    "klf": "",
+    "tips": "",
+    "lessons": [],
+    "chapter_id": "cha_N19MiQrYG"
+  },
+  "sli_4kmHuoIFz": {
+    "_id": "sli_4kmHuoIFz",
+    "universalRef": "sli_4kmHuoIFz",
+    "discipline": "dis_4kbxoQrKf",
+    "module": "mod_4JvGsXBFz",
+    "question": {
+      "type": "qcm",
+      "header": "Voilà, vous vous êtes lancé, et plutôt avec succès ! C'est le moment du bilan…",
+      "explanation": "Sélectionnez la bonne réponse.",
+      "content": {
+        "choices": [
+          {
+            "id": "sli_4kmHuoIFz.id",
+            "label": "Je lis mon bilan",
+            "value": "sli_4kmHuoIFz.choice_Nkf6-j8KG"
+          }
+        ],
+        "answers": [
+          []
+        ]
+      }
+    },
+    "context": {
+      "title": "Lancement terminé !",
+      "description": "Vous avez choisi d'observer les taux d'engagement de vos différentes publications. C'est une bonne idée. Une publication peut être beaucoup vue sans susciter l'intérêt de ses lecteurs. Mais si les internautes interagissent, cela signifie qu'elle a un impact sur eux.",
+      "media": {
+        "type": "img",
+        "src": [
+          {
+            "mimeType": "image/jpeg",
+            "url": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/context/shutterstock_263567153-1487780240999.jpg&h=400&w=400&q=90"
+          }
+        ]
+      }
+    },
+    "klf": "",
+    "tips": "",
+    "lessons": [],
+    "chapter_id": "cha_N19MiQrYG"
+  },
+  "sli_4y1Zct8Kf": {
+    "_id": "sli_4y1Zct8Kf",
+    "universalRef": "sli_4y1Zct8Kf",
+    "discipline": "dis_4kbxoQrKf",
+    "module": "mod_4JvGsXBFz",
+    "question": {
+      "type": "qcm",
+      "header": "Heureusement, vous avez réussi à vous faire inviter au défilé d'un grand créateur. Pour gagner en notoriété et vous rapprocher de vos fans, vous décidez de retransmettre l'événement en vidéo. Quel outil choisissez-vous ?",
+      "explanation": "Sélectionnez la bonne réponse.",
+      "content": {
+        "choices": [
+          {
+            "id": "sli_4y1Zct8Kf.id",
+            "label": "Facebook live",
+            "value": "sli_4y1Zct8Kf.choice_NJfEqY8FM"
+          },
+          {
+            "id": "sli_4y1Zct8Kf.id",
+            "label": "YouTube",
+            "value": "sli_4y1Zct8Kf.choice_41749FIYM"
+          },
+          {
+            "id": "sli_4y1Zct8Kf.id",
+            "label": "Periscope",
+            "value": "sli_4y1Zct8Kf.choice_NJ44cFLYG"
+          }
+        ],
+        "answers": [
+          []
+        ]
+      }
+    },
+    "context": {
+      "title": "Code promo limité aux 100 premiers acheteurs",
+      "description": "Vous avez peur de perdre trop d'argent si tout le monde profite du code promo et décidez de le limiter aux 100 premiers acheteurs. Cela va vous permettre de mieux contrôler votre budget, mais risque d'avoir un impact négatif sur votre image, surtout si vous ne prévenez personne !",
+      "media": {
+        "type": "img",
+        "src": [
+          {
+            "mimeType": "image/jpeg",
+            "url": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/context/shutterstock_222391963-1487772469774.jpg&h=400&w=400&q=90"
+          }
+        ]
+      }
+    },
+    "klf": "",
+    "tips": "",
+    "lessons": [],
+    "chapter_id": "cha_N19MiQrYG"
+  },
+  "sli_4y68-VrYM": {
+    "_id": "sli_4y68-VrYM",
+    "universalRef": "sli_4y68-VrYM",
+    "discipline": "dis_4kbxoQrKf",
+    "module": "mod_4JvGsXBFz",
+    "question": {
+      "type": "qcm",
+      "header": "Une autre façon d'être visible sur le web est d'utiliser les réseaux sociaux. Mais vous n'avez pas les moyens d'embaucher un community manager. Vous décidez donc d'être présent sur seulement deux d'entre eux. Lesquels ?",
+      "explanation": "Sélectionnez la bonne réponse.",
+      "content": {
+        "choices": [
+          {
+            "id": "sli_4y68-VrYM.id",
+            "label": "Instagram et Facebook",
+            "value": "sli_4y68-VrYM.choice_VJRK-Ertz"
+          },
+          {
+            "id": "sli_4y68-VrYM.id",
+            "label": "Twitter et Instagram",
+            "value": "sli_4y68-VrYM.choice_Ey1c-NHKz"
+          },
+          {
+            "id": "sli_4y68-VrYM.id",
+            "label": "Facebook et Snapchat",
+            "value": "sli_4y68-VrYM.choice_Ekxqu4rtG"
+          },
+          {
+            "id": "sli_4y68-VrYM.id",
+            "label": "Twitter et LinkedIn",
+            "value": "sli_4y68-VrYM.choice_EJgx5dVBYf"
+          }
+        ],
+        "answers": [
+          []
+        ]
+      }
+    },
+    "context": {
+      "title": "Référencement naturel",
+      "description": "Vous avez choisi de travailler uniquement sur votre référencement naturel. Cela vous permettra d'avoir une bonne visibilité. Mais attention, cela prend souvent un peu de temps. Veillez également à avoir les compétences nécessaires, car si vous faites appel à une entreprise spécialisée, cela risque de vous coûter trop cher !",
+      "media": {
+        "type": "img",
+        "src": [
+          {
+            "mimeType": "image/jpeg",
+            "url": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/context/shutterstock_174393956-1489749251215.jpg&h=400&w=400&q=90"
+          }
+        ]
+      }
+    },
+    "klf": "",
+    "tips": "",
+    "lessons": [],
+    "chapter_id": "cha_N19MiQrYG"
+  },
+  "sli_4yHKRmBtz": {
+    "_id": "sli_4yHKRmBtz",
+    "universalRef": "sli_4yHKRmBtz",
+    "discipline": "dis_4kbxoQrKf",
+    "module": "mod_4JvGsXBFz",
+    "question": {
+      "type": "qcm",
+      "header": "Alors, prêt à vous lancer ?",
+      "explanation": "Sélectionnez la bonne réponse.",
+      "content": {
+        "choices": [
+          {
+            "id": "sli_4yHKRmBtz.id",
+            "label": "J'y vais !",
+            "value": "sli_4yHKRmBtz.choice_4JukJ4HtM"
+          }
+        ],
+        "answers": [
+          []
+        ]
+      }
+    },
+    "context": {
+      "title": "Présentation",
+      "description": "Jeune designer passionné(e) par les nouvelles technologies, vous venez de mettre au point un tissu révolutionnaire : sa couleur s'adapte à celle des vêtements portés ! Vous l’avez testé auprès de vos amis et ils ont adoré. Vous décidez donc de commercialiser vos produits, en ciblant les 25-35 ans.\nSeulement, une fois vos chemises, manteaux et autres sacs à main créés, il ne vous reste pas beaucoup de moyens pour vous lancer... Impossible donc d’ouvrir une boutique physique. La solution ? Passer par Internet ! Mais pour que votre affaire marche, votre stratégie web doit être efficace…",
+      "media": {
+        "type": "img",
+        "src": [
+          {
+            "mimeType": "image/jpeg",
+            "url": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/context/shutterstock_365392142-min-1487684060717.jpg&h=400&w=400&q=90"
+          }
+        ]
+      }
+    },
+    "klf": "",
+    "tips": "",
+    "lessons": [],
+    "chapter_id": "cha_N19MiQrYG"
+  },
+  "sli_E11-JBrFz": {
+    "_id": "sli_E11-JBrFz",
+    "universalRef": "sli_E11-JBrFz",
+    "discipline": "dis_4kbxoQrKf",
+    "module": "mod_4JvGsXBFz",
+    "question": {
+      "type": "qcm",
+      "header": "L'un de vos clients s'est trompé de taille lors de sa commande. Il vous a renvoyé le produit, mais n'a toujours pas reçu son nouveau colis : il semble avoir été perdu par La Poste ! Que faites-vous ?",
+      "explanation": "Sélectionnez la bonne réponse.",
+      "content": {
+        "choices": [
+          {
+            "id": "sli_E11-JBrFz.id",
+            "label": "Vous estimez que c'est La Poste qui est en cause et conseillez à votre client de s'adresser directement à elle",
+            "value": "sli_E11-JBrFz.choice_EJPnyHBKM"
+          },
+          {
+            "id": "sli_E11-JBrFz.id",
+            "label": "Vous dites à votre client de se tourner vers La Poste, mais lui garantissez l'envoi d'un nouveau colis si le sien est définitivement perdu",
+            "value": "sli_E11-JBrFz.choice_N1u21BStM"
+          },
+          {
+            "id": "sli_E11-JBrFz.id",
+            "label": "Vous prenez sur vous d'envoyer directement un nouveau produit à votre client",
+            "value": "sli_E11-JBrFz.choice_4ygdnkrHKf"
+          }
+        ],
+        "answers": [
+          []
+        ]
+      }
+    },
+    "context": {
+      "title": "Instagram et Twitter",
+      "description": "Le choix d'Instagram est judicieux. 25 % de ses 600 millions d'utilisateurs mensuels (2016) ont entre 25 et 34 ans, ce qui correspond à votre cible. Toutefois, Twitter a deux fois moins d'utilisateurs mensuels (317 millions en 2016) et leurs interactions avec les marques sont moins nombreuses sur ce réseau social que sur Facebook ou Instagram.\nTwitter et d'Instagram reste malgré tout un bon choix. Vous êtes plus visible et vos ventes augmentent de façon encourageante.",
+      "media": {
+        "type": "img",
+        "src": [
+          {
+            "mimeType": "image/jpeg",
+            "url": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/context/shutterstock_174838673-1489749311420.jpg&h=400&w=400&q=90"
+          }
+        ]
+      }
+    },
+    "klf": "",
+    "tips": "",
+    "lessons": [],
+    "chapter_id": "cha_N19MiQrYG"
+  },
+  "sli_E1NpkPItM": {
+    "_id": "sli_E1NpkPItM",
+    "universalRef": "sli_E1NpkPItM",
+    "discipline": "dis_4kbxoQrKf",
+    "module": "mod_4JvGsXBFz",
+    "question": {
+      "type": "qcm",
+      "header": "Pour être davantage visible en ligne, vous décidez d'être plus offensif sur les réseaux sociaux. Mais comment vous y prenez-vous ?",
+      "explanation": "Sélectionnez la bonne réponse.",
+      "content": {
+        "choices": [
+          {
+            "id": "sli_E1NpkPItM.id",
+            "label": "Vous publiez 10 fois par jour sur chaque réseau social",
+            "value": "sli_E1NpkPItM.choice_VJt-gvLFf"
+          },
+          {
+            "id": "sli_E1NpkPItM.id",
+            "label": "Vous publiez au moins 2 fois par jour",
+            "value": "sli_E1NpkPItM.choice_EkqOgP8KG"
+          },
+          {
+            "id": "sli_E1NpkPItM.id",
+            "label": "Vous utilisez un outil pour savoir à quel moment publier",
+            "value": "sli_E1NpkPItM.choice_4ksOxPUYz"
+          }
+        ],
+        "answers": [
+          []
+        ]
+      }
+    },
+    "context": {
+      "title": "Marketplace",
+      "description": "Vous avez décidé de vous lancer également sur une marketplace, comme Etsy par exemple. C'est une bonne idée dans la mesure où cela vous offre un autre canal de distribution… En revanche, vous reverserez une partie de vos ventes au site que vous avez choisi. Sans compter que vous serez à côté d'éventuels concurrents. Il faudra donc bien travailler votre image en ligne pour vous démarquer.",
+      "media": {
+        "type": "img",
+        "src": [
+          {
+            "mimeType": "image/jpeg",
+            "url": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/context/marketplace-1489742921680.jpg&h=400&w=400&q=90"
+          }
+        ]
+      }
+    },
+    "klf": "",
+    "tips": "",
+    "lessons": [],
+    "chapter_id": "cha_N19MiQrYG"
+  },
+  "sli_EkVzFFLYG": {
+    "_id": "sli_EkVzFFLYG",
+    "universalRef": "sli_EkVzFFLYG",
+    "discipline": "dis_4kbxoQrKf",
+    "module": "mod_4JvGsXBFz",
+    "question": {
+      "type": "qcm",
+      "header": "Vous décidez de retransmettre cet événement en vidéo : c'est bon pour votre image et cela vous rapprochera de vos fans. Quel outil choisissez-vous ?",
+      "explanation": "Sélectionnez la bonne réponse.",
+      "content": {
+        "choices": [
+          {
+            "id": "sli_EkVzFFLYG.id",
+            "label": "Facebook live\t\t\t \t\t\t \t\t\t \t\t\t \t\t\t \t\t\t \t\t\t \t\t\t",
+            "value": "sli_EkVzFFLYG.choice_NJHItKUFM"
+          },
+          {
+            "id": "sli_EkVzFFLYG.id",
+            "label": "YouTube",
+            "value": "sli_EkVzFFLYG.choice_EJ8UttItf"
+          },
+          {
+            "id": "sli_EkVzFFLYG.id",
+            "label": "Periscope",
+            "value": "sli_EkVzFFLYG.choice_4kPIKKUFM"
+          }
+        ],
+        "answers": [
+          []
+        ]
+      }
+    },
+    "context": {
+      "title": "Rectification de la newsletter",
+      "description": "Vous avez envoyé un erratum pour annoncer que le code promo s'appliquait en fait à tout le monde, et non pas qu'aux inscrits qui n'avaient jamais commandé chez vous. De nombreuses personnes en ont profité... plus que ce que vous aviez prévu ! Cela aurait pu vous faire perdre de l'argent, mais vous vous en sortez bien. Vos ventes repartent. On parle désormais de vous sur les réseaux sociaux et dans les médias. Vous avez réussi à être invité au défilé d'un grand créateur, au premier rang !",
+      "media": {
+        "type": "img",
+        "src": [
+          {
+            "mimeType": "image/jpeg",
+            "url": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/context/shutterstock_222391963-1487772273050.jpg&h=400&w=400&q=90"
+          }
+        ]
+      }
+    },
+    "klf": "",
+    "tips": "",
+    "lessons": [],
+    "chapter_id": "cha_N19MiQrYG"
+  },
+  "sli_Ey5u3ULYG": {
+    "_id": "sli_Ey5u3ULYG",
+    "universalRef": "sli_Ey5u3ULYG",
+    "discipline": "dis_4kbxoQrKf",
+    "module": "mod_4JvGsXBFz",
+    "question": {
+      "type": "qcm",
+      "header": "Effectivement, votre client s'est impatienté. Sans attendre un éventuel renvoi de produit, il s'est plaint sur les réseaux sociaux... Comment réagissez-vous ?",
+      "explanation": "Sélectionnez la bonne réponse.",
+      "content": {
+        "choices": [
+          {
+            "id": "sli_Ey5u3ULYG.id",
+            "label": "Vous faites votre mea culpa et lui proposez une offre commerciale pour vous rattraper\t\t \t\t\t \t\t\t",
+            "value": "sli_Ey5u3ULYG.choice_EJvRn8UKf"
+          },
+          {
+            "id": "sli_Ey5u3ULYG.id",
+            "label": "Vous faites votre mea culpa, mais ne proposez rien",
+            "value": "sli_Ey5u3ULYG.choice_4y-0nULFz"
+          },
+          {
+            "id": "sli_Ey5u3ULYG.id",
+            "label": "Vous engagez une entreprise spécialisée pour qu'elle poste de faux commentaires positifs",
+            "value": "sli_Ey5u3ULYG.choice_V1YR38IYf"
+          }
+        ],
+        "answers": [
+          []
+        ]
+      }
+    },
+    "context": {
+      "title": "Renvoi vers La Poste",
+      "description": "Vous avez renvoyé votre client dont le colis s'est perdu vers La Poste, en lui garantissant un renvoi de produit si jamais le problème n'était pas réglé. Ce geste commercial est une bonne idée, même si vous n'êtes effectivement pas responsable de la situation. Mais il y a un risque : votre client peut penser que vous gérez mal ce genre d'incidents...",
+      "media": {
+        "type": "img",
+        "src": [
+          {
+            "mimeType": "image/jpeg",
+            "url": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/context/shutterstock_217072999-1489750377627.jpg&h=400&w=400&q=90"
+          }
+        ]
+      }
+    },
+    "klf": "",
+    "tips": "",
+    "lessons": [],
+    "chapter_id": "cha_N19MiQrYG"
+  },
+  "sli_EyQmVVHYf": {
+    "_id": "sli_EyQmVVHYf",
+    "universalRef": "sli_EyQmVVHYf",
+    "discipline": "dis_4kbxoQrKf",
+    "module": "mod_4JvGsXBFz",
+    "question": {
+      "type": "qcm",
+      "header": "Vous avez maintenant un problème de visibilité : lorsqu'un client cherche votre site sur les moteurs de recherche comme Google, il n'apparaît pas sur la première page de résultats. Comment y remédier ?",
+      "explanation": "Sélectionnez la bonne réponse.",
+      "content": {
+        "choices": [
+          {
+            "id": "sli_EyQmVVHYf.id",
+            "label": "En optant pour un référencement naturel, c'est-à-dire l'utilisation de mots-clés stratégiques pour remonter dans les résultats",
+            "value": "sli_EyQmVVHYf.choice_Eyk8EVSKM"
+          },
+          {
+            "id": "sli_EyQmVVHYf.id",
+            "label": "En optant pour un référencement payant, c'est-à-dire l'achat aux enchères de mots-clés permettant d'être mieux placé dans les résultats",
+            "value": "sli_EyQmVVHYf.choice_Eyxk8NVSYf"
+          },
+          {
+            "id": "sli_EyQmVVHYf.id",
+            "label": "En optant pour une solution hybride, utilisant les deux types de référencement",
+            "value": "sli_EyQmVVHYf.choice_4kgLE4Stz"
+          }
+        ],
+        "answers": [
+          []
+        ]
+      }
+    },
+    "context": {
+      "title": "Site clé en main",
+      "description": "Vous avez choisi une solution clé en main et vous avez bien raison ! En effet, c'est la solution la plus adaptée à votre situation, car cela coûte moins cher qu'un site sur mesure. En cas de problème, vous bénéficierez d'un service technique efficace. De plus, aujourd'hui, la plupart des formules proposent des sites en responsive design, c'est-à-dire qui s'adaptent au type d'écran sur lequel il est consulté (ordinateur, mobile...).",
+      "media": {
+        "type": "img",
+        "src": [
+          {
+            "mimeType": "image/jpeg",
+            "url": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/context/shutterstock_158080031-1489749158119.jpg&h=400&w=400&q=90"
+          }
+        ]
+      }
+    },
+    "klf": "",
+    "tips": "",
+    "lessons": [],
+    "chapter_id": "cha_N19MiQrYG"
+  },
+  "sli_EyoeviUYG": {
+    "_id": "sli_EyoeviUYG",
+    "universalRef": "sli_EyoeviUYG",
+    "discipline": "dis_4kbxoQrKf",
+    "module": "mod_4JvGsXBFz",
+    "question": {
+      "type": "qcm",
+      "header": "Les réseaux sociaux vous ont bien aidé à vous faire connaître. Pour améliorer votre notoriété, vous décidez de regarder de plus près les analytics de vos publications. Quelle donnée analysez-vous en priorité ?",
+      "explanation": "Sélectionnez la bonne réponse.",
+      "content": {
+        "choices": [
+          {
+            "id": "sli_EyoeviUYG.id",
+            "label": "Le taux d'engagement, c'est-à-dire les interactions générées par vos publications (retweets, likes…)",
+            "value": "sli_EyoeviUYG.choice_EJb4DjUKG"
+          },
+          {
+            "id": "sli_EyoeviUYG.id",
+            "label": "Le nombre de vues sur vos publications",
+            "value": "sli_EyoeviUYG.choice_EJl~EPsUKM"
+          },
+          {
+            "id": "sli_EyoeviUYG.id",
+            "label": "Votre nombre de fans, followers…",
+            "value": "sli_EyoeviUYG.choice_N1f4PsIYf"
+          }
+        ],
+        "answers": [
+          []
+        ]
+      }
+    },
+    "context": {
+      "title": "Les réseaux sociaux vous aident !",
+      "description": "Vous avez choisi de diffuser l'événement sur YouTube. Seul problème, vous ne pouvez pas le faire en direct depuis votre téléphone si vous n'avez pas au moins 10 000 abonnés. Ce sera donc en différé. Mais YouTube compte plus d'un milliard d'utilisateurs et un tiers s'intéresse au lifestyle (cuisine, beauté, mode...). Si vous arrivez à être visible, vous pouvez toucher une large audience. En plus, vous laisserez une trace et pourrez être référencé.",
+      "media": {
+        "type": "img",
+        "src": [
+          {
+            "mimeType": "image/jpeg",
+            "url": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/context/shutterstock_222391963-1489757204007.jpg&h=400&w=400&q=90"
+          }
+        ]
+      }
+    },
+    "klf": "",
+    "tips": "",
+    "lessons": [],
+    "chapter_id": "cha_N19MiQrYG"
+  },
+  "sli_EyolUFUYz": {
+    "_id": "sli_EyolUFUYz",
+    "universalRef": "sli_EyolUFUYz",
+    "discipline": "dis_4kbxoQrKf",
+    "module": "mod_4JvGsXBFz",
+    "question": {
+      "type": "qcm",
+      "header": "Vous avez envoyé votre newsletter à tous vos contacts et pas seulement à vos clients inscrits qui n'ont pas encore commandé chez vous. C’est la cata ! Comment pouvez-vous rattraper le coup ?",
+      "explanation": "Sélectionnez la bonne réponse.",
+      "content": {
+        "choices": [
+          {
+            "id": "sli_EyolUFUYz.id",
+            "label": "Vous renvoyez un erratum en précisant qu'en réalité, le code promo est valable pour tout le monde",
+            "value": "sli_EyolUFUYz.choice_E1ZsUYLtM"
+          },
+          {
+            "id": "sli_EyolUFUYz.id",
+            "label": "Vous ne renvoyez pas de newsletter mais modifiez votre code promo, sans le dire, pour qu'il ne s'applique qu'aux 100 premiers acheteurs",
+            "value": "sli_EyolUFUYz.choice_VkApLYUKz"
+          },
+          {
+            "id": "sli_EyolUFUYz.id",
+            "label": "Vous ne renvoyez rien et attendez de voir quelles vont être les réactions",
+            "value": "sli_EyolUFUYz.choice_NJz0LKIYM"
+          },
+          {
+            "id": "sli_EyolUFUYz.id",
+            "label": "Vous décidez de vous lancer sur une marketplace, comme Amazon, pour contrebalancer une potentielle baisse de chiffre d'affaires liée au code promo",
+            "value": "sli_EyolUFUYz.choice_V1cJPFLKz"
+          }
+        ],
+        "answers": [
+          []
+        ]
+      }
+    },
+    "context": {
+      "title": "La newsletter",
+      "description": "Vous avez décidé d'envoyer une newsletter à toutes les personnes qui se sont inscrites sur votre site, en leur offrant un code promo. C'est une bonne idée : cela peut permettre d'améliorer votre image, mais aussi de booster vos ventes.",
+      "media": {
+        "type": "img",
+        "src": [
+          {
+            "mimeType": "image/jpeg",
+            "url": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/context/shutterstock_381074428-1489661377864.jpg&h=400&w=400&q=90"
+          }
+        ]
+      }
+    },
+    "klf": "",
+    "tips": "",
+    "lessons": [],
+    "chapter_id": "cha_N19MiQrYG"
+  },
+  "sli_EywU6LIKM": {
+    "_id": "sli_EywU6LIKM",
+    "universalRef": "sli_EywU6LIKM",
+    "discipline": "dis_4kbxoQrKf",
+    "module": "mod_4JvGsXBFz",
+    "question": {
+      "type": "qcm",
+      "header": "Génial, vos ventes explosent ! Mais votre site ne supporte pas la charge de toutes ces visites… Vous faites le nécessaire pour résoudre le problème. Mais décidez-vous de communiquer sur les réseaux sociaux ?",
+      "explanation": "Sélectionnez la bonne réponse.",
+      "content": {
+        "choices": [
+          {
+            "id": "sli_EywU6LIKM.id",
+            "label": "Oui, il faut prévenir vos potentiels clients qu'ils n'ont pas accès au site pour l'instant",
+            "value": "sli_EywU6LIKM.choice_4Jpd6UItM"
+          },
+          {
+            "id": "sli_EywU6LIKM.id",
+            "label": "Non, ce n'est l'affaire que de quelques heures, cela vous ferait perdre du temps",
+            "value": "sli_EywU6LIKM.choice_VyR-T8UKz"
+          },
+          {
+            "id": "sli_EywU6LIKM.id",
+            "label": "Oui… mais pour annoncer que vous vous lancez également sur une marketplace, c'est-à-dire un site d'e-commerce qui sert de plateforme de vente à plusieurs marques. Le but : ne pas perdre de ventes potentielles",
+            "value": "sli_EywU6LIKM.choice_V1xYa8UFG"
+          }
+        ],
+        "answers": [
+          []
+        ]
+      }
+    },
+    "context": {
+      "title": "Renvoi du produit au client",
+      "description": "Vous avez choisi de renvoyer directement un produit à votre client dont le produit s'était perdu. Cette décision vous coûte un peu, mais elle donne une très bonne image de votre entreprise. D'ailleurs, votre client est ravi de votre réaction. Et ça tombe bien : c'est l'attaché de presse d'une star de cinéma ! Désormais, celle-ci se promène partout avec vos produits, ce qui vous fait une pub d'enfer !",
+      "media": {
+        "type": "img",
+        "src": [
+          {
+            "mimeType": "image/jpeg",
+            "url": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/context/shutterstock_217072999-1489750401282.jpg&h=400&w=400&q=90"
+          }
+        ]
+      }
+    },
+    "klf": "",
+    "tips": "",
+    "lessons": [],
+    "chapter_id": "cha_N19MiQrYG"
+  },
+  "sli_N10Yv21cG": {
+    "_id": "sli_N10Yv21cG",
+    "universalRef": "sli_N10Yv21cG",
+    "discipline": "dis_4kbxoQrKf",
+    "module": "mod_4JvGsXBFz",
+    "question": {
+      "type": "qcm",
+      "header": "Voilà, vous vous êtes lancé, et plutôt avec succès ! C'est le moment du bilan…",
+      "explanation": "Sélectionnez la bonne réponse.",
+      "content": {
+        "choices": [
+          {
+            "id": "sli_N10Yv21cG.id",
+            "label": "Je lis mon bilan",
+            "value": "sli_N10Yv21cG.choice_4JBFOnk9z"
+          }
+        ],
+        "answers": [
+          []
+        ]
+      }
+    },
+    "context": {
+      "title": "Lancement terminé !",
+      "description": "Vous avez choisi de vous intéresser au nombre de vues que génère chacune de vos publications. C'est intéressant, car cela vous donne une idée de la visibilité de vos publications. Par contre, cela ne vous indiquera pas leur impact potentiel. Pour cela, préférez le taux d'engagement.",
+      "media": {
+        "type": "img",
+        "src": [
+          {
+            "mimeType": "image/jpeg",
+            "url": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/context/shutterstock_263567153-1488380902283.jpg&h=400&w=400&q=90"
+          }
+        ]
+      }
+    },
+    "klf": "",
+    "tips": "",
+    "lessons": [],
+    "chapter_id": "cha_N19MiQrYG"
+  },
+  "sli_N154j4SYM": {
+    "_id": "sli_N154j4SYM",
+    "universalRef": "sli_N154j4SYM",
+    "discipline": "dis_4kbxoQrKf",
+    "module": "mod_4JvGsXBFz",
+    "question": {
+      "type": "qcm",
+      "header": "Une autre façon d'être visible sur le web est d'utiliser les réseaux sociaux. Mais vous n'avez pas les moyens d'embaucher un community manager. Vous décidez donc d'être présent sur seulement deux d'entre eux. Lesquels ?",
+      "explanation": "Sélectionnez la bonne réponse.",
+      "content": {
+        "choices": [
+          {
+            "id": "sli_N154j4SYM.id",
+            "label": "Instagram et Facebook",
+            "value": "sli_N154j4SYM.choice_NyQPsErtM"
+          },
+          {
+            "id": "sli_N154j4SYM.id",
+            "label": "Twitter et Instagram",
+            "value": "sli_N154j4SYM.choice_NkEvsVBKz"
+          },
+          {
+            "id": "sli_N154j4SYM.id",
+            "label": "Facebook et Snapchat",
+            "value": "sli_N154j4SYM.choice_Nkx4PsNSFf"
+          },
+          {
+            "id": "sli_N154j4SYM.id",
+            "label": "Twitter et LinkedIn",
+            "value": "sli_N154j4SYM.choice_4krDjNSYf"
+          }
+        ],
+        "answers": [
+          []
+        ]
+      }
+    },
+    "context": {
+      "title": "Référencement payant",
+      "description": "Vous avez opté pour un référencement uniquement payant. Cela ne peut être une solution qu'à court terme. Si vous ne fonctionnez qu'avec des dépenses publicitaires, vous risquez de ne pas tenir votre budget !",
+      "media": {
+        "type": "img",
+        "src": [
+          {
+            "mimeType": "image/jpeg",
+            "url": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/context/shutterstock_174393956-1489749267381.jpg&h=400&w=400&q=90"
+          }
+        ]
+      }
+    },
+    "klf": "",
+    "tips": "",
+    "lessons": [],
+    "chapter_id": "cha_N19MiQrYG"
+  },
+  "sli_NJDaVErKf": {
+    "_id": "sli_NJDaVErKf",
+    "universalRef": "sli_NJDaVErKf",
+    "discipline": "dis_4kbxoQrKf",
+    "module": "mod_4JvGsXBFz",
+    "question": {
+      "type": "qcm",
+      "header": "Vous avez maintenant un problème de visibilité : lorsqu'un client cherche votre site sur les moteurs de recherche comme Google, il n'apparaît pas sur la première page de résultats. Comment y remédier ?",
+      "explanation": "Sélectionnez la bonne réponse.",
+      "content": {
+        "choices": [
+          {
+            "id": "sli_NJDaVErKf.id",
+            "label": "En optant pour un référencement naturel, c'est-à-dire l'utilisation de mots-clés stratégiques pour remonter dans les résultats",
+            "value": "sli_NJDaVErKf.choice_419yrEHtG"
+          },
+          {
+            "id": "sli_NJDaVErKf.id",
+            "label": "En optant pour un référencement payant, c'est-à-dire l'achat aux enchères de mots-clés permettant d'être mieux placé dans les résultats",
+            "value": "sli_NJDaVErKf.choice_VJsySNBYM"
+          },
+          {
+            "id": "sli_NJDaVErKf.id",
+            "label": "En optant pour une solution hybride, utilisant les deux types de référencement",
+            "value": "sli_NJDaVErKf.choice_Ek21rNHtz"
+          }
+        ],
+        "answers": [
+          []
+        ]
+      }
+    },
+    "context": {
+      "title": "Site sur mesure",
+      "description": "Le site sur mesure est une bonne solution pour avoir une vitrine virtuelle à votre image. Veillez à faire un bon cahier des charges, en demandant notamment un site en responsive design, c'est-à-dire qui s'adapte au type d'écran sur lequel il est consulté (ordinateur, mobile...). Cependant, attention à votre budget ! Cette option coûte plus cher. En cas de budget limité, il vaut sans doute mieux choisir un site clé en main, comme les plateformes Jimdo ou Wix.",
+      "media": {
+        "type": "img",
+        "src": [
+          {
+            "mimeType": "image/jpeg",
+            "url": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/context/shutterstock_158080031-1489749194748.jpg&h=400&w=400&q=90"
+          }
+        ]
+      }
+    },
+    "klf": "",
+    "tips": "",
+    "lessons": [],
+    "chapter_id": "cha_N19MiQrYG"
+  },
+  "sli_NJhVLoLKG": {
+    "_id": "sli_NJhVLoLKG",
+    "universalRef": "sli_NJhVLoLKG",
+    "discipline": "dis_4kbxoQrKf",
+    "module": "mod_4JvGsXBFz",
+    "question": {
+      "type": "qcm",
+      "header": "Les réseaux sociaux vous ont bien aidé à vous faire connaître. Pour améliorer votre notoriété, vous décidez de regarder de plus près les analytics de vos publications. Quelle donnée analysez-vous en priorité ?",
+      "explanation": "Sélectionnez la bonne réponse.",
+      "content": {
+        "choices": [
+          {
+            "id": "sli_NJhVLoLKG.id",
+            "label": "Le taux d'engagement, c'est-à-dire les interactions générées par vos publications (retweets, likes…)",
+            "value": "sli_NJhVLoLKG.choice_4yNuUo8tz"
+          },
+          {
+            "id": "sli_NJhVLoLKG.id",
+            "label": "Le nombre de vues sur vos publications",
+            "value": "sli_NJhVLoLKG.choice_NJBuIo8tz"
+          },
+          {
+            "id": "sli_NJhVLoLKG.id",
+            "label": "Votre nombre de fans, followers…",
+            "value": "sli_NJhVLoLKG.choice_4ylHdUo8FG"
+          }
+        ],
+        "answers": [
+          []
+        ]
+      }
+    },
+    "context": {
+      "title": "Les réseaux sociaux vous aident !",
+      "description": "Vous avez choisi de retransmettre le défilé sur Facebook Live, quitte à vous y inscrire si vous n'aviez pas choisi d'être présent sur ce réseau social. C'est une bonne idée, car cela vous permettra de vous rapprocher de vos fans. D'abord en leur permettant d'être au coeur d'un événement exceptionnel. Ensuite, en interagissant avec eux, en répondant à leurs commentaires en direct, par exemple. N'hésitez pas à l'utiliser de nouveau !",
+      "media": {
+        "type": "img",
+        "src": [
+          {
+            "mimeType": "image/jpeg",
+            "url": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/context/shutterstock_222391963-1489757174146.jpg&h=400&w=400&q=90"
+          }
+        ]
+      }
+    },
+    "klf": "",
+    "tips": "",
+    "lessons": [],
+    "chapter_id": "cha_N19MiQrYG"
+  },
+  "sli_NkRzsKLFf": {
+    "_id": "sli_NkRzsKLFf",
+    "universalRef": "sli_NkRzsKLFf",
+    "discipline": "dis_4kbxoQrKf",
+    "module": "mod_4JvGsXBFz",
+    "question": {
+      "type": "qcm",
+      "header": "Heureusement, vous avez peut-être une solution… Vous voulez essayer ?",
+      "explanation": "Sélectionnez la bonne réponse.",
+      "content": {
+        "choices": [
+          {
+            "id": "sli_NkRzsKLFf.id",
+            "label": "Oui !",
+            "value": "sli_NkRzsKLFf.choice_NJTLiYItG"
+          }
+        ],
+        "answers": [
+          []
+        ]
+      }
+    },
+    "context": {
+      "title": "Oups, mauvaise stratégie !",
+      "description": "Eh oui ! Il aurait été judicieux d’envoyer une nouvelle newsletter. Vos clients sont un peu perdus face à votre stratégie de communication. Votre trafic a continué de baisser et les recettes se font maigres…",
+      "media": {
+        "type": "img",
+        "src": [
+          {
+            "mimeType": "image/jpeg",
+            "url": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/context/shutterstock_582975019-1487772704612.jpg&h=400&w=400&q=90"
+          }
+        ]
+      }
+    },
+    "klf": "",
+    "tips": "",
+    "lessons": [],
+    "chapter_id": "cha_N19MiQrYG"
+  },
+  "sli_V11S8VStf": {
+    "_id": "sli_V11S8VStf",
+    "universalRef": "sli_V11S8VStf",
+    "discipline": "dis_4kbxoQrKf",
+    "module": "mod_4JvGsXBFz",
+    "question": {
+      "type": "qcm",
+      "header": "Une autre façon d'être visible sur le web est d'utiliser les réseaux sociaux. Mais vous n'avez pas les moyens d'embaucher un community manager. Vous décidez donc d'être présent sur seulement deux d'entre eux. Lesquels ?",
+      "explanation": "Sélectionnez la bonne réponse.",
+      "content": {
+        "choices": [
+          {
+            "id": "sli_V11S8VStf.id",
+            "label": "Instagram et Facebook",
+            "value": "sli_V11S8VStf.choice_E1b58EHKf"
+          },
+          {
+            "id": "sli_V11S8VStf.id",
+            "label": "Twitter et Instagram",
+            "value": "sli_V11S8VStf.choice_4yQqUNBKf"
+          },
+          {
+            "id": "sli_V11S8VStf.id",
+            "label": "Facebook et Snapchat",
+            "value": "sli_V11S8VStf.choice_41gmqINHYM"
+          },
+          {
+            "id": "sli_V11S8VStf.id",
+            "label": "Twitter et LinkedIn",
+            "value": "sli_V11S8VStf.choice_NyS9I4BYG"
+          }
+        ],
+        "answers": [
+          []
+        ]
+      }
+    },
+    "context": {
+      "title": "Référencement payant et référencement naturel",
+      "description": "Vous avez opté pour l'utilisation à la fois du référencement naturel et payant. C'est une bonne idée ! Si vous pensez bien à définir un budget maximal, le référencement payant vous permettra d'être visible rapidement. Pendant ce temps-là, votre stratégie de référencement naturel vous permettra de vous installer à long terme en bonne place.",
+      "media": {
+        "type": "img",
+        "src": [
+          {
+            "mimeType": "image/jpeg",
+            "url": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/context/shutterstock_174393956-1489749230282.jpg&h=400&w=400&q=90"
+          }
+        ]
+      }
+    },
+    "klf": "",
+    "tips": "",
+    "lessons": [],
+    "chapter_id": "cha_N19MiQrYG"
+  },
+  "sli_V1Iv-YUKf": {
+    "_id": "sli_V1Iv-YUKf",
+    "universalRef": "sli_V1Iv-YUKf",
+    "discipline": "dis_4kbxoQrKf",
+    "module": "mod_4JvGsXBFz",
+    "question": {
+      "type": "qcm",
+      "header": "Heureusement, vous avez peut-être une solution… Vous voulez essayer ?",
+      "explanation": "Sélectionnez la bonne réponse.",
+      "content": {
+        "choices": [
+          {
+            "id": "sli_V1Iv-YUKf.id",
+            "label": "Oui !",
+            "value": "sli_V1Iv-YUKf.choice_EydK-YLKf"
+          }
+        ],
+        "answers": [
+          []
+        ]
+      }
+    },
+    "context": {
+      "title": "Oups, mauvaise stratégie !",
+      "description": "Face à la baisse de votre trafic, vous avez décidé de ne rien faire en attendant que les visites remontent toutes seules… Mais ça ne marche pas ! Entre bad buzz et absence de réaction de votre part, les internautes se détournent vraiment de votre marque, et votre affaire est en péril.",
+      "media": {
+        "type": "img",
+        "src": [
+          {
+            "mimeType": "image/jpeg",
+            "url": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/context/shutterstock_582975019-1487772049510.jpg&h=400&w=400&q=90"
+          }
+        ]
+      }
+    },
+    "klf": "",
+    "tips": "",
+    "lessons": [],
+    "chapter_id": "cha_N19MiQrYG"
+  },
+  "sli_V1alSsVjf": {
+    "_id": "sli_V1alSsVjf",
+    "universalRef": "sli_V1alSsVjf",
+    "discipline": "dis_4kbxoQrKf",
+    "module": "mod_4JvGsXBFz",
+    "question": {
+      "type": "qcm",
+      "header": "Heureusement, vous avez peut-être une solution… Voulez-vous essayer ?",
+      "explanation": "Sélectionnez la bonne réponse.",
+      "content": {
+        "choices": [
+          {
+            "id": "sli_V1alSsVjf.id",
+            "label": "Oui !",
+            "value": "sli_V1alSsVjf.choice_EJz4HsNiM"
+          }
+        ],
+        "answers": [
+          []
+        ]
+      }
+    },
+    "context": {
+      "title": "Erreur !",
+      "description": "Vous n'avez pas envoyé de nouvelle newsletter. Beaucoup d'internautes n'ont pas compris votre stratégie de communication, d'autres ont bien profité du code promo... Mais votre trafic continue de baisser. Apparemment, votre marque ne fait vraiment pas recette !",
+      "media": {
+        "type": "img",
+        "src": [
+          {
+            "mimeType": "image/jpeg",
+            "url": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/context/shutterstock_582975019-1489745446675.jpg&h=400&w=400&q=90"
+          }
+        ]
+      }
+    },
+    "klf": "",
+    "tips": "",
+    "lessons": [],
+    "chapter_id": "cha_N19MiQrYG"
+  },
+  "sli_V1pXrDIFG": {
+    "_id": "sli_V1pXrDIFG",
+    "universalRef": "sli_V1pXrDIFG",
+    "discipline": "dis_4kbxoQrKf",
+    "module": "mod_4JvGsXBFz",
+    "question": {
+      "type": "qcm",
+      "header": "Vous repartez dans le passé ?",
+      "explanation": "Sélectionnez la bonne réponse.",
+      "content": {
+        "choices": [
+          {
+            "id": "sli_V1pXrDIFG.id",
+            "label": "Oui, j'y retourne !",
+            "value": "sli_V1pXrDIFG.choice_VJROrPUFG"
+          }
+        ],
+        "answers": [
+          []
+        ]
+      }
+    },
+    "context": {
+      "title": "Seconde chance",
+      "description": "Chanceux comme vous êtes, vous avez trouvé un moyen de retourner un peu dans le passé… Mais pas suffisamment pour empêcher le bad buzz.",
+      "media": {
+        "type": "img",
+        "src": [
+          {
+            "mimeType": "image/jpeg",
+            "url": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/context/shutterstock_583635064-1489661015032.jpeg&h=400&w=400&q=90"
+          }
+        ]
+      }
+    },
+    "klf": "",
+    "tips": "",
+    "lessons": [],
+    "chapter_id": "cha_N19MiQrYG"
+  },
+  "sli_VJ2hk58tM": {
+    "_id": "sli_VJ2hk58tM",
+    "universalRef": "sli_VJ2hk58tM",
+    "discipline": "dis_4kbxoQrKf",
+    "module": "mod_4JvGsXBFz",
+    "question": {
+      "type": "qcm",
+      "header": "Vous décidez de retransmettre le défilé en vidéo : c'est bon pour votre image et cela vous rapprochera de vos fans. Quel format choisissez-vous ?",
+      "explanation": "Sélectionnez la bonne réponse.",
+      "content": {
+        "choices": [
+          {
+            "id": "sli_VJ2hk58tM.id",
+            "label": "Facebook Live",
+            "value": "sli_VJ2hk58tM.choice_41Vkx5ItG"
+          },
+          {
+            "id": "sli_VJ2hk58tM.id",
+            "label": "YouTube",
+            "value": "sli_VJ2hk58tM.choice_N1BkecUYz"
+          },
+          {
+            "id": "sli_VJ2hk58tM.id",
+            "label": "Periscope",
+            "value": "sli_VJ2hk58tM.choice_4JUJe58Ff"
+          }
+        ],
+        "answers": [
+          []
+        ]
+      }
+    },
+    "context": {
+      "title": "Communication sur les réseaux sociaux",
+      "description": "Vous publiez 2 fois par jour. C'est un bon début. L'idéal est d'adapter votre nombre de publications selon le réseau social. Par exemple, 1 à 3 par jour pour Facebook ou Instagram, entre 3 et 5 pour Twitter... En tout cas, votre stratégie sur les réseaux semble faire remonter votre trafic, et vos ventes explosent. C'est un vrai conte de fée : on parle de vous sur les réseaux sociaux et dans les médias, vos produits s'arrachent… Vous avez même reçu une invitation pour assister au défilé d'un grand créateur, au premier rang !",
+      "media": {
+        "type": "img",
+        "src": [
+          {
+            "mimeType": "image/jpeg",
+            "url": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/context/shutterstock_222391963-1487773877308.jpg&h=400&w=400&q=90"
+          }
+        ]
+      }
+    },
+    "klf": "",
+    "tips": "",
+    "lessons": [],
+    "chapter_id": "cha_N19MiQrYG"
+  },
+  "sli_VkPKMPUYG": {
+    "_id": "sli_VkPKMPUYG",
+    "universalRef": "sli_VkPKMPUYG",
+    "discipline": "dis_4kbxoQrKf",
+    "module": "mod_4JvGsXBFz",
+    "question": {
+      "type": "qcm",
+      "header": "Mais votre client a eu le temps de vous faire de la mauvaise publicité. C'est un bad buzz ! Conséquence : votre trafic a chuté. Il faut agir ! Que faites-vous ?",
+      "explanation": "Sélectionnez la bonne réponse.",
+      "content": {
+        "choices": [
+          {
+            "id": "sli_VkPKMPUYG.id",
+            "label": "Vous choisissez d'essayer de relancer votre trafic en publiant davantage sur les réseaux sociaux, et donc être plus visible",
+            "value": "sli_VkPKMPUYG.choice_EyLSQPLFz"
+          },
+          {
+            "id": "sli_VkPKMPUYG.id",
+            "label": "Vous décidez d'envoyer une newsletter à tous ceux qui ont créé un compte sur votre site mais n'ont pas encore acheté pour leur offrir un code promo",
+            "value": "sli_VkPKMPUYG.choice_41wH7DUYG"
+          },
+          {
+            "id": "sli_VkPKMPUYG.id",
+            "label": "Le bad buzz est passé, alors les visites vont bien finir par remonter également… Vous décidez de ne rien faire",
+            "value": "sli_VkPKMPUYG.choice_NydSmwItM"
+          },
+          {
+            "id": "sli_VkPKMPUYG.id",
+            "label": "Vous décidez de vous lancer sur une marketplace, comme Amazon, pour disposer d'un nouveau canal de vente et tenter de faire remonter votre trafic",
+            "value": "sli_VkPKMPUYG.choice_VkFBXDUYf"
+          }
+        ],
+        "answers": [
+          []
+        ]
+      }
+    },
+    "context": {
+      "title": "Mea Culpa",
+      "description": "Vous faites votre mea culpa. C'est bien, votre image en sera améliorée. Mais pour qu'elle le soit encore plus, peut-être auriez-vous pu faire un geste commercial ?  En effet, ne pas faire d'offre commerciale peut avoir des effets négatifs.",
+      "media": {
+        "type": "img",
+        "src": [
+          {
+            "mimeType": "image/jpeg",
+            "url": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/context/shutterstock_348916043-1487762583912.jpg&h=400&w=400&q=90"
+          }
+        ]
+      }
+    },
+    "klf": "",
+    "tips": "",
+    "lessons": [],
+    "chapter_id": "cha_N19MiQrYG"
+  },
+  "sli_VkTR~HrFG": {
+    "_id": "sli_VkTR~HrFG",
+    "universalRef": "sli_VkTR~HrFG",
+    "discipline": "dis_4kbxoQrKf",
+    "module": "mod_4JvGsXBFz",
+    "question": {
+      "type": "qcm",
+      "header": "L'un de vos clients s'est trompé de taille lors de sa commande. Il vous a renvoyé le produit, mais n'a toujours pas reçu son nouveau colis : il semble avoir été perdu par La Poste ! Que faites-vous ?",
+      "explanation": "Sélectionnez la bonne réponse.",
+      "content": {
+        "choices": [
+          {
+            "id": "sli_VkTR~HrFG.id",
+            "label": "Vous estimez que c'est La Poste qui est en cause et conseillez à votre client de s'adresser directement à elle",
+            "value": "sli_VkTR~HrFG.choice_4kO7GBBtz"
+          },
+          {
+            "id": "sli_VkTR~HrFG.id",
+            "label": "Vous dites à votre client de se tourner vers La Poste, mais lui garantissez l'envoi d'un nouveau colis si le sien est définitivement perdu",
+            "value": "sli_VkTR~HrFG.choice_NJKXzSHtz"
+          },
+          {
+            "id": "sli_VkTR~HrFG.id",
+            "label": "Vous prenez sur vous d'envoyer directement un nouveau produit à votre client",
+            "value": "sli_VkTR~HrFG.choice_NklFXzHBtf"
+          }
+        ],
+        "answers": [
+          []
+        ]
+      }
+    },
+    "context": {
+      "title": "Twitter et LinkedIn",
+      "description": "500 millions de tweets sont envoyés chaque jour, mais les interactions des utilisateurs de Twitter avec les marques sont moins nombreuses que sur Facebook ou Instagram. Initialement, LinkedIn est un réseau social destiné à la mise en relation professionnelle plus qu'à la mise en avant d'un produit. Des marques s'y sont pourtant lancées, mais généralement avec des pages adossées à leur compte entreprise. Opter pour ces deux réseaux sociaux n'est donc pas le meilleur choix pour développer votre visibilité. Malgré tout, vos ventes augmentent progressivement.",
+      "media": {
+        "type": "img",
+        "src": [
+          {
+            "mimeType": "image/jpeg",
+            "url": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/context/shutterstock_174838673-1489749417430.jpg&h=400&w=400&q=90"
+          }
+        ]
+      }
+    },
+    "klf": "",
+    "tips": "",
+    "lessons": [],
+    "chapter_id": "cha_N19MiQrYG"
+  },
+  "sli_VkncTNSFz": {
+    "_id": "sli_VkncTNSFz",
+    "universalRef": "sli_VkncTNSFz",
+    "discipline": "dis_4kbxoQrKf",
+    "module": "mod_4JvGsXBFz",
+    "question": {
+      "type": "qcm",
+      "header": "L'un de vos clients s'est trompé de taille lors de sa commande. Il vous a renvoyé le produit, mais n'a toujours pas reçu son nouveau colis : il semble avoir été perdu par La Poste ! Que faites-vous ?",
+      "explanation": "Sélectionnez la bonne réponse.",
+      "content": {
+        "choices": [
+          {
+            "id": "sli_VkncTNSFz.id",
+            "label": "Vous estimez que c'est La Poste qui est en cause et conseillez à votre client de s'adresser directement à elle",
+            "value": "sli_VkncTNSFz.choice_VJxCaEHKG"
+          },
+          {
+            "id": "sli_VkncTNSFz.id",
+            "label": "Vous dites à votre client de se tourner vers La Poste, mais lui garantissez l'envoi d'un nouveau colis si le sien s'est définitivement perdu",
+            "value": "sli_VkncTNSFz.choice_4yllRaNrFG"
+          },
+          {
+            "id": "sli_VkncTNSFz.id",
+            "label": "Vous prenez sur vous d'envoyer directement un nouveau produit à votre client",
+            "value": "sli_VkncTNSFz.choice_EybR64Htz"
+          }
+        ],
+        "answers": [
+          []
+        ]
+      }
+    },
+    "context": {
+      "title": "Instagram et Facebook",
+      "description": "Le choix de vous lancer sur Instagram et Facebook est judicieux. Facebook est incontournable. Réseau social le plus utilisé, il rassemblait 1,79 milliard d'utilisateurs actifs dans le monde chaque mois, en 2016. Quant à Instagram, 25% des utilisateurs ont entre 25 et 34 ans, ce qui correspond à votre cible.\nVous êtes beaucoup plus visible et vos ventes augmentent de façon encourageante !",
+      "media": {
+        "type": "img",
+        "src": [
+          {
+            "mimeType": "image/jpeg",
+            "url": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/context/shutterstock_174838673-1489749290737.jpg&h=400&w=400&q=90"
+          }
+        ]
+      }
+    },
+    "klf": "",
+    "tips": "",
+    "lessons": [],
+    "chapter_id": "cha_N19MiQrYG"
+  },
+  "sli_Vkxrri8tf": {
+    "_id": "sli_Vkxrri8tf",
+    "universalRef": "sli_Vkxrri8tf",
+    "discipline": "dis_4kbxoQrKf",
+    "module": "mod_4JvGsXBFz",
+    "question": {
+      "type": "qcm",
+      "header": "Vous décidez de retransmettre le défilé en vidéo : c'est bon pour votre image et cela vous rapprochera de vos fans. Quel outil choisissez-vous ?",
+      "explanation": "Sélectionnez la bonne réponse.",
+      "content": {
+        "choices": [
+          {
+            "id": "sli_Vkxrri8tf.id",
+            "label": "Facebook Live",
+            "value": "sli_Vkxrri8tf.choice_VJpy8i8YG"
+          },
+          {
+            "id": "sli_Vkxrri8tf.id",
+            "label": "YouTube",
+            "value": "sli_Vkxrri8tf.choice_EJxa1Uo8YM"
+          },
+          {
+            "id": "sli_Vkxrri8tf.id",
+            "label": "Periscope",
+            "value": "sli_Vkxrri8tf.choice_Vy01IsLFG"
+          }
+        ],
+        "answers": [
+          []
+        ]
+      }
+    },
+    "context": {
+      "title": "Choix d'un outil adapté",
+      "description": "Vous utilisez un outil adapté, comme Buffer, pour gérer votre présence sur les réseaux sociaux. C'est une très bonne idée ! Cela vous permettra de savoir quelles publications fonctionnent le mieux pour vous aider à adapter les suivantes. Vous pouvez même en programmer certaines. Grâce à cela, vous avez beaucoup de succès et vos ventes explosent. C'est un vrai conte de fée : on parle de vous sur les réseaux sociaux et dans les médias, vos produits s'arrachent… Vous avez même reçu une invitation pour assister au défilé d'un grand créateur, au premier rang.",
+      "media": {
+        "type": "img",
+        "src": [
+          {
+            "mimeType": "image/jpeg",
+            "url": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/context/shutterstock_222391963-1489660663678.jpg&h=400&w=400&q=90"
+          }
+        ]
+      }
+    },
+    "klf": "",
+    "tips": "",
+    "lessons": [],
+    "chapter_id": "cha_N19MiQrYG"
+  },
+  "sli_Vy5-xBBtz": {
+    "_id": "sli_Vy5-xBBtz",
+    "universalRef": "sli_Vy5-xBBtz",
+    "discipline": "dis_4kbxoQrKf",
+    "module": "mod_4JvGsXBFz",
+    "question": {
+      "type": "qcm",
+      "header": "L'un de vos clients s'est trompé de taille lors de sa commande. Il vous a renvoyé le produit, mais n'a toujours pas reçu son nouveau colis : il semble avoir été perdu par La Poste ! Que faites-vous ?",
+      "explanation": "Sélectionnez la bonne réponse.",
+      "content": {
+        "choices": [
+          {
+            "id": "sli_Vy5-xBBtz.id",
+            "label": "Vous estimez que c'est La Poste qui est en cause et conseillez à votre client de s'adresser directement à elle",
+            "value": "sli_Vy5-xBBtz.choice_NkYQZrrYz"
+          },
+          {
+            "id": "sli_Vy5-xBBtz.id",
+            "label": "Vous dites à votre client de se tourner vers La Poste, mais lui garantissez l'envoi d'un nouveau colis si le sien est définitivement perdu",
+            "value": "sli_Vy5-xBBtz.choice_4JlKX~rHKf"
+          },
+          {
+            "id": "sli_Vy5-xBBtz.id",
+            "label": "Vous prenez sur vous d'envoyer directement un nouveau produit à votre client",
+            "value": "sli_Vy5-xBBtz.choice_Ek9mbHBYG"
+          }
+        ],
+        "answers": [
+          []
+        ]
+      }
+    },
+    "context": {
+      "title": "Facebook et Snapchat",
+      "description": "Le choix de vous lancer sur Facebook est judicieux. Ce réseau social est incontournable. Il est le plus utilisé, avec 1,79 milliard d'utilisateurs actifs dans le monde chaque mois en 2016. 760 millions de snap étaient envoyés dans le monde chaque jour la même année. C'est conséquent. Mais 71% de ses utilisateurs ont moins de 25 ans, ce qui ne correspond pas à votre cible.\nVous êtes plus visible et vos ventes augmentent de façon encourageante !",
+      "media": {
+        "type": "img",
+        "src": [
+          {
+            "mimeType": "image/jpeg",
+            "url": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/context/shutterstock_174838673-1489749330122.jpg&h=400&w=400&q=90"
+          }
+        ]
+      }
+    },
+    "klf": "",
+    "tips": "",
+    "lessons": [],
+    "chapter_id": "cha_N19MiQrYG"
+  },
+  "sli_VyEpFHBFf": {
+    "_id": "sli_VyEpFHBFf",
+    "universalRef": "sli_VyEpFHBFf",
+    "discipline": "dis_4kbxoQrKf",
+    "module": "mod_4JvGsXBFz",
+    "question": {
+      "type": "qcm",
+      "header": "Votre décision n'a pas plu à votre client. Il est mécontent… et le fait savoir sur les réseaux sociaux ! Comment réagissez-vous ?",
+      "explanation": "Sélectionnez la bonne réponse.",
+      "content": {
+        "choices": [
+          {
+            "id": "sli_VyEpFHBFf.id",
+            "label": "Vous faites votre mea culpa et lui proposez une offre commerciale pour vous rattraper",
+            "value": "sli_VyEpFHBFf.choice_E1eZeLrtM"
+          },
+          {
+            "id": "sli_VyEpFHBFf.id",
+            "label": "Vous faites votre mea culpa, mais ne proposez rien",
+            "value": "sli_VyEpFHBFf.choice_VkQWlUrtz"
+          },
+          {
+            "id": "sli_VyEpFHBFf.id",
+            "label": "Vous engagez une entreprise spécialisée pour qu'elle poste de faux commentaires positifs",
+            "value": "sli_VyEpFHBFf.choice_NyEZg8Stz"
+          }
+        ],
+        "answers": [
+          []
+        ]
+      }
+    },
+    "context": {
+      "title": "Renvoi vers La Poste",
+      "description": "Vous avez décidé de simplement renvoyer votre client dont le colis s'est perdu vers La Poste. Effectivement, ce n'est pas de votre responsabilité. Mais attention à l'image que vous renvoyez…",
+      "media": {
+        "type": "img",
+        "src": [
+          {
+            "mimeType": "image/jpeg",
+            "url": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/context/shutterstock_217072999-1489749984164.jpg&h=400&w=400&q=90"
+          }
+        ]
+      }
+    },
+    "klf": "",
+    "tips": "",
+    "lessons": [],
+    "chapter_id": "cha_N19MiQrYG"
+  },
+  "sli_VyuQDwIFz": {
+    "_id": "sli_VyuQDwIFz",
+    "universalRef": "sli_VyuQDwIFz",
+    "discipline": "dis_4kbxoQrKf",
+    "module": "mod_4JvGsXBFz",
+    "question": {
+      "type": "qcm",
+      "header": "Vous décidez d'envoyer une newsletter à toutes les personnes inscrites sur votre site mais n'ont pas encore acheté, en leur offrant un code promo. Malheureusement, vous l'avez envoyée à tous vos contacts. C’est la cata ! Comment pouvez-vous rattraper le coup ?",
+      "explanation": "Sélectionnez la bonne réponse.",
+      "content": {
+        "choices": [
+          {
+            "id": "sli_VyuQDwIFz.id",
+            "label": "Vous renvoyez un erratum en précisant qu'en réalité, le code promo est valable pour tout le monde",
+            "value": "sli_VyuQDwIFz.choice_VJlIwwLYM"
+          },
+          {
+            "id": "sli_VyuQDwIFz.id",
+            "label": "Vous ne renvoyez pas de newsletter mais modifiez, sans le dire, votre code promo pour qu'il ne s'applique qu'aux 100 premiers acheteurs",
+            "value": "sli_VyuQDwIFz.choice_EJ~Uvw8Kz"
+          },
+          {
+            "id": "sli_VyuQDwIFz.id",
+            "label": "Vous ne renvoyez rien et attendez de voir quelles vont être les réactions",
+            "value": "sli_VyuQDwIFz.choice_VyzLwvUFz"
+          },
+          {
+            "id": "sli_VyuQDwIFz.id",
+            "label": "Vous décidez de vous lancer sur une marketplace, c'est-à-dire un site d'e-commerce qui sert de plateforme de vente à plusieurs marques, pour disposer d'un nouveau canal de vente. Le but : faire plus de ventes pour compenser l'éventuelle perte générée par le code promo",
+            "value": "sli_VyuQDwIFz.choice_NJxf8vvUKf"
+          }
+        ],
+        "answers": [
+          []
+        ]
+      }
+    },
+    "context": {
+      "title": "Manque de communication sur les réseaux sociaux",
+      "description": "Vous n'avez pas communiqué sur les réseau sociaux sur le plantage de votre site. Ce n'est pas très grave… tant qu'il ne dure pas trop longtemps. Malheureusement, votre site a été inaccessible pendant 8 heures ! Le lendemain matin, en voyant la grosse baisse de trafic de votre site, vous vous dites qu'il faut agir.",
+      "media": {
+        "type": "img",
+        "src": [
+          {
+            "mimeType": "image/jpeg",
+            "url": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/context/shutterstock_218622694-1489756937485.jpg&h=400&w=400&q=90"
+          }
+        ]
+      }
+    },
+    "klf": "",
+    "tips": "",
+    "lessons": [],
+    "chapter_id": "cha_N19MiQrYG"
   }
-]
+}

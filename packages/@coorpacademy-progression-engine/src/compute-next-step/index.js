@@ -14,8 +14,20 @@ import last from 'lodash/fp/last';
 import filter from 'lodash/fp/filter';
 import includes from 'lodash/fp/includes';
 import intersection from 'lodash/fp/intersection';
-import type {State, Slide, Content, Engine, Config} from '../types';
+import type {
+  State,
+  Slide,
+  Content,
+  Engine,
+  Config,
+  Answer,
+  AnswerAction,
+  IsCorrect
+} from '../types';
+import checkAnswer from '../check-answer';
 import getConfig from '../config';
+import type {ChapterRule, Instruction, Condition} from './rule-engine/types';
+import selectRule from './rule-engine/select-rule';
 
 const isAlive = (state: State): boolean => state.lives > 0;
 const hasRemainingLifeRequests = (state: State): boolean => state.remainingLifeRequests > 0;
@@ -57,7 +69,7 @@ const pickNextSlide = pipe(shuffle, sortByPosition, head);
 
 export default function computeNextStep(
   engine: Engine,
-  slidePools: Array<{chapterId: string, slides: Array<Slide>}>,
+  slidePools: Array<SlidePool>,
   state: State
 ): Content {
   const config = (getConfig(engine): Config);
@@ -90,3 +102,74 @@ export default function computeNextStep(
     type: 'slide'
   };
 }
+
+type ComputeNextStepOptions = {
+  currentSlide: Slide,
+  answer: Answer,
+  godMode: $PropertyType<$PropertyType<AnswerAction, 'payload'>, 'godMode'>,
+
+  slidePools: Array<SlidePool>,
+  chapterRules: ?Array<ChapterRule>
+};
+
+type ComputeNextStepReturn = {
+  nextContent: Content,
+  instructions: ?Array<Instruction>,
+  isCorrect: ?IsCorrect
+};
+
+const isTargetingIsCorrect = (condition: Condition): boolean =>
+  condition.target.scope === 'slide' && condition.target.field === 'isCorrect';
+
+const getIsCorrect = (isCorrect: ?IsCorrect, chapterRule: ChapterRule): ?IsCorrect => {
+  if (chapterRule.conditions.some(isTargetingIsCorrect)) return isCorrect;
+  return null;
+};
+
+export const newComputeNextStep = (
+  engine: Engine,
+  state: State,
+  params: ComputeNextStepOptions
+): ?ComputeNextStepReturn => {
+  const {chapterRules, currentSlide, answer} = params;
+  const isCorrect = checkAnswer(engine, currentSlide.question, answer);
+
+  const nextState = {
+    ...state,
+    content: state.nextContent,
+    isCorrect,
+    slides: [...state.slides, state.nextContent.ref],
+    lives: isCorrect ? state.lives - 1 : state.lives,
+    allAnswers: [
+      ...state.allAnswers,
+      {
+        slideRef: currentSlide._id,
+        answer,
+        isCorrect
+      }
+    ]
+  };
+
+  if (Array.isArray(chapterRules) && chapterRules.length > 0) {
+    const chapterRule = selectRule(chapterRules, nextState);
+
+    if (!chapterRule) return null;
+
+    return {
+      nextContent: chapterRule.destination,
+      instructions: chapterRule.instructions,
+      isCorrect: getIsCorrect(isCorrect, chapterRule)
+    };
+  }
+
+  // @todo apply fake answer action to state
+
+  const {slidePools} = params;
+  const nextContent = computeNextStep(engine, slidePools, nextState);
+
+  return {
+    nextContent,
+    instructions: null,
+    isCorrect
+  };
+};

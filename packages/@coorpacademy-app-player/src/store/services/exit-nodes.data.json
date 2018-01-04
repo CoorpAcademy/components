@@ -1,6 +1,5 @@
-[
-  {
-    "_id": "5809d933c762494a60eb589f",
+{
+  "successExitNode": {
     "ref": "successExitNode",
     "type": "success",
     "meta": {
@@ -22,8 +21,7 @@
       ]
     }
   },
-  {
-    "_id": "5809d933c762494a60eb58a0",
+  "failExitNode": {
     "ref": "failExitNode",
     "type": "failure",
     "title": "C'est dommage, vous avez pas réussi à finir",
@@ -44,5 +42,50 @@
       "updatedAt": "2017-06-05T08:36:49.956Z",
       "createdAt": "2017-06-05T08:36:49.956Z"
     }
+  },
+  "exi_NJAo0oUFM": {
+    "ref": "exi_NJAo0oUFM",
+    "type": "success",
+    "media": {
+      "type": "img",
+      "src": [
+        {
+          "mimeType": "image/jpeg",
+          "url": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/poster/good-profil-1489743193796.jpg&h=400&w=400&q=90"
+        }
+      ]
+    },
+    "title": "Vous êtes un as de la stratégie web !",
+    "description": "Félicitations ! Votre commerce marche très bien, vous avez même réussi à ouvrir un pop up store, et les perspectives sont bonnes. Dans l'ensemble, vous avez fait de bons choix et vous avez bien réagi lors de votre lancement sur le web. Si vous voulez transmettre votre expérience à de nouveaux entrepreneurs, voici ce que vous pourriez leur expliquer : il faut faire des choix cohérents avec son budget ; pour être visible sur les moteurs de recherche, l'idéal est de combiner référencement naturel et payant ; il est indispensable d'être présent sur les réseaux sociaux, mais pas nécessairement sur tous, commencez par ceux qui correspondent à votre cible commerciale ; en cas de problème, l'absence de réaction est souvent mal interprétée, mieux vaut toujours communiquer."
+  },
+  "exi_Nyol13UFz": {
+    "ref": "exi_Nyol13UFz",
+    "type": "success",
+    "media": {
+      "type": "img",
+      "src": [
+        {
+          "mimeType": "image/jpeg",
+          "url": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/poster/profil-moyen-1489743207274.jpg&h=400&w=400&q=90"
+        }
+      ]
+    },
+    "title": "Bien joué !",
+    "description": "Bravo, vous vous en êtes plutôt bien sorti et votre affaire marche assez bien. Certains de vos choix auraient pu être affinés. Pour la suite, n'oubliez pas :  il faut faire des choix cohérents avec votre budget ; pour être visible sur les moteurs de recherche, l'idéal est de combiner référencement naturel et payant ; il est indispensable d'être présent sur les réseaux sociaux, mais pas nécessairement sur tous, commencez par ceux qui correspondent à votre cible commerciale ; en cas de problème, l'absence de réaction est souvent mal interprétée, mieux vaut toujours communiquer."
+  },
+  "exi_VJJm13IYf": {
+    "ref": "exi_VJJm13IYf",
+    "type": "success",
+    "media": {
+      "type": "img",
+      "src": [
+        {
+          "mimeType": "image/jpeg",
+          "url": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/poster/bad-profil-1489743216202.jpg&h=400&w=400&q=90"
+        }
+      ]
+    },
+    "title": "Vous vous en êtes tiré !",
+    "description": "Vous vous en êtes sorti ! Mais vous avez traversé quelques difficultés… Voici un petit récapitulatif des éléments auxquels il faut faire attention : il faut faire des choix cohérents avec son budget ; pour être visible sur les moteurs de recherche, l'idéal est de combiner référencement naturel et payant ; il est indispensable d'être présent sur les réseaux sociaux, mais pas nécessairement sur tous, commencez par ceux qui correspondent à votre cible commerciale ; en cas de problème, l'absence de réaction est souvent mal interprétée, mieux vaut toujours communiquer."
   }
-]
+}
