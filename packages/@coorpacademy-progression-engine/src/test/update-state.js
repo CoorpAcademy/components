@@ -203,6 +203,14 @@ test('should update state when answering the another question correctly', t => {
   t.deepEqual(newState.step, {current: 3}, 'step progression is wrong');
   t.deepEqual(newState.stars, 8, 'step progression is wrong');
   t.deepEqual(
+    newState.allAnswers,
+    [
+      {slideRef: '1.A1.4', isCorrect: true, answer: ['bar']},
+      {slideRef: '1.A1.2', isCorrect: true, answer: ['foo']}
+    ],
+    'answer should have been stored in `allAnswers`'
+  );
+  t.deepEqual(
     newState.content,
     state.nextContent,
     '`content` should be updated to be the previous `nextContent`'
