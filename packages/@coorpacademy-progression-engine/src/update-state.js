@@ -15,6 +15,7 @@ import getConfig from './config';
 import type {
   Action,
   AnswerAction,
+  AnswerRecord,
   AskClueAction,
   ContentResourceViewedAction,
   Content,
@@ -251,6 +252,24 @@ function stars(config: Config): (number, Action, State) => number {
   };
 }
 
+function allAnswers(config: Config): (Array<AnswerRecord>, Action, State) => Array<AnswerRecord> {
+  return (answers: Array<AnswerRecord>, action: Action, state: State): Array<AnswerRecord> => {
+    switch (action.type) {
+      case 'answer': {
+        const answerAction = (action: AnswerAction);
+        const answer = {
+          slideRef: get('payload.content.ref', answerAction),
+          isCorrect: get('payload.isCorrect', answerAction),
+          answer: get('payload.answer', answerAction)
+        };
+        return concat(answers, answer);
+      }
+      default:
+        return answers;
+    }
+  };
+}
+
 function validate(config: Config): (State, Action) => void {
   return (state: State, action: Action) => {
     switch (action.type) {
@@ -298,7 +317,8 @@ const reduceAction = combineReducers([
   {key: 'remainingLifeRequests', fn: remainingLifeRequests},
   {key: 'hasViewedAResourceAtThisStep', fn: hasViewedAResourceAtThisStep},
   {key: 'content', fn: content},
-  {key: 'nextContent', fn: nextContent}
+  {key: 'nextContent', fn: nextContent},
+  {key: 'allAnswers', fn: allAnswers}
 ]);
 
 export default function updateState(engine: Engine, state: State, actions: Array<Action>): State {
