@@ -1,0 +1,4394 @@
+{
+  "cha_N19MiQrYG": {
+    "_id": "59564bb2479ce0c58b7ffa94",
+    "chapterRef": "cha_N19MiQrYG",
+    "ref": "CR. cha_N19MiQrYG",
+    "meta": {
+      "updatedAt": "2018-01-09T11:10:00.849Z",
+      "createdAt": "2018-01-09T11:10:00.849Z"
+    },
+    "rules": [
+      {
+        "ref": "cha_N19MiQrYG.star-step-q1",
+        "conditions": [],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_4yHKRmBtz"
+        },
+        "source": {
+          "type": "slide",
+          "ref": ""
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "set",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q1-to-q2",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "J'y vais !"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_4yHKRmBtz",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_41rMkNrKM"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_4yHKRmBtz"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q2-to-q3",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Le site clé en main"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_41rMkNrKM",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_EyQmVVHYf"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_41rMkNrKM"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 10
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q2-to-q4",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Le site sur mesure"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_41rMkNrKM",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_NJDaVErKf"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_41rMkNrKM"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q3-to-q6",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "En optant pour un référencement naturel, c'est-à-dire l'utilisation de mots-clés stratégiques pour remonter dans les résultats"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_EyQmVVHYf",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_4y68-VrYM"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_EyQmVVHYf"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q3-to-q7",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "En optant pour un référencement payant, c'est-à-dire l'achat aux enchères de mots-clés permettant d'être mieux placé dans les résultats"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_EyQmVVHYf",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_N154j4SYM"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_EyQmVVHYf"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q3-to-q5",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "En optant pour une solution hybride, utilisant les deux types de référencement"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_EyQmVVHYf",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_V11S8VStf"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_EyQmVVHYf"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 10
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q4-to-q6",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "En optant pour un référencement naturel, c'est-à-dire l'utilisation de mots-clés stratégiques pour remonter dans les résultats"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_NJDaVErKf",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_4y68-VrYM"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_NJDaVErKf"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q4-to-q7",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "En optant pour un référencement payant, c'est-à-dire l'achat aux enchères de mots-clés permettant d'être mieux placé dans les résultats"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_NJDaVErKf",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_N154j4SYM"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_NJDaVErKf"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q4-to-q5",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "En optant pour une solution hybride, utilisant les deux types de référencement"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_NJDaVErKf",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_V11S8VStf"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_NJDaVErKf"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 10
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q6-to-q10",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Instagram et Facebook"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_4y68-VrYM",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_VkncTNSFz"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_4y68-VrYM"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 10
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q6-to-q11",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Twitter et Instagram"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_4y68-VrYM",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_E11-JBrFz"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_4y68-VrYM"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q6-to-q12",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Facebook et Snapchat"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_4y68-VrYM",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_Vy5-xBBtz"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_4y68-VrYM"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q6-to-q13",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Twitter et LinkedIn"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_4y68-VrYM",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_VkTR~HrFG"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_4y68-VrYM"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q7-to-q10",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Instagram et Facebook"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_N154j4SYM",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_VkncTNSFz"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_N154j4SYM"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 10
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q7-to-q11",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Twitter et Instagram"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_N154j4SYM",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_E11-JBrFz"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_N154j4SYM"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q7-to-q12",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Facebook et Snapchat"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_N154j4SYM",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_Vy5-xBBtz"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_N154j4SYM"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q7-to-q13",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Twitter et LinkedIn"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_N154j4SYM",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_VkTR~HrFG"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_N154j4SYM"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q5-to-q10",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Instagram et Facebook"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_V11S8VStf",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_VkncTNSFz"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_V11S8VStf"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 10
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q5-to-q11",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Twitter et Instagram"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_V11S8VStf",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_E11-JBrFz"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_V11S8VStf"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q5-to-q12",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Facebook et Snapchat"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_V11S8VStf",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_Vy5-xBBtz"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_V11S8VStf"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q5-to-q13",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Twitter et LinkedIn"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_V11S8VStf",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_VkTR~HrFG"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_V11S8VStf"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q10-to-q14",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous estimez que c'est La Poste qui est en cause et conseillez à votre client de s'adresser directement à elle"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_VkncTNSFz",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_VyEpFHBFf"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_VkncTNSFz"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q10-to-q15",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous dites à votre client de se tourner vers La Poste, mais lui garantissez l'envoi d'un nouveau colis si le sien s'est définitivement perdu"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_VkncTNSFz",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_Ey5u3ULYG"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_VkncTNSFz"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q10-to-q16",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous prenez sur vous d'envoyer directement un nouveau produit à votre client"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_VkncTNSFz",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_EywU6LIKM"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_VkncTNSFz"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 10
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q11-to-q14",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous estimez que c'est La Poste qui est en cause et conseillez à votre client de s'adresser directement à elle"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_E11-JBrFz",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_VyEpFHBFf"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_E11-JBrFz"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q11-to-q15",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous dites à votre client de se tourner vers La Poste, mais lui garantissez l'envoi d'un nouveau colis si le sien est définitivement perdu"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_E11-JBrFz",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_Ey5u3ULYG"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_E11-JBrFz"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q11-to-q16",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous prenez sur vous d'envoyer directement un nouveau produit à votre client"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_E11-JBrFz",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_EywU6LIKM"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_E11-JBrFz"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 10
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q12-to-q14",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous estimez que c'est La Poste qui est en cause et conseillez à votre client de s'adresser directement à elle"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_Vy5-xBBtz",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_VyEpFHBFf"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_Vy5-xBBtz"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q12-to-q15",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous dites à votre client de se tourner vers La Poste, mais lui garantissez l'envoi d'un nouveau colis si le sien est définitivement perdu"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_Vy5-xBBtz",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_Ey5u3ULYG"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_Vy5-xBBtz"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q12-to-q16",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous prenez sur vous d'envoyer directement un nouveau produit à votre client"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_Vy5-xBBtz",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_EywU6LIKM"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_Vy5-xBBtz"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 10
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q13-to-q14",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous estimez que c'est La Poste qui est en cause et conseillez à votre client de s'adresser directement à elle"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_VkTR~HrFG",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_VyEpFHBFf"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_VkTR~HrFG"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q13-to-q15",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous dites à votre client de se tourner vers La Poste, mais lui garantissez l'envoi d'un nouveau colis si le sien est définitivement perdu"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_VkTR~HrFG",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_Ey5u3ULYG"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_VkTR~HrFG"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q13-to-q16",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous prenez sur vous d'envoyer directement un nouveau produit à votre client"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_VkTR~HrFG",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_EywU6LIKM"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_VkTR~HrFG"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 10
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q14-to-q17",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous faites votre mea culpa et lui proposez une offre commerciale pour vous rattraper"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_VyEpFHBFf",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_4kIFWvUFG"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_VyEpFHBFf"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 10
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q14-to-q18",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous faites votre mea culpa, mais ne proposez rien"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_VyEpFHBFf",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_VkPKMPUYG"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_VyEpFHBFf"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q14-to-q19",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous engagez une entreprise spécialisée pour qu'elle poste de faux commentaires positifs"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_VyEpFHBFf",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_4k26mv8KG"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_VyEpFHBFf"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q15-to-q17",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous faites votre mea culpa et lui proposez une offre commerciale pour vous rattraper\t\t \t\t\t \t\t\t"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_Ey5u3ULYG",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_4kIFWvUFG"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_Ey5u3ULYG"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 10
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q15-to-q18",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous faites votre mea culpa, mais ne proposez rien"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_Ey5u3ULYG",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_VkPKMPUYG"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_Ey5u3ULYG"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q15-to-q19",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous engagez une entreprise spécialisée pour qu'elle poste de faux commentaires positifs"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_Ey5u3ULYG",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_4k26mv8KG"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_Ey5u3ULYG"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q16-to-q21",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Oui, il faut prévenir vos potentiels clients qu'ils n'ont pas accès au site pour l'instant"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_EywU6LIKM",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_4JAILP8Fz"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_EywU6LIKM"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 10
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q16-to-q22",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Non, ce n'est l'affaire que de quelques heures, cela vous ferait perdre du temps"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_EywU6LIKM",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_VyuQDwIFz"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_EywU6LIKM"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q16-to-q38",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Oui… mais pour annoncer que vous vous lancez également sur une marketplace, c'est-à-dire un site d'e-commerce qui sert de plateforme de vente à plusieurs marques. Le but : ne pas perdre de ventes potentielles"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_EywU6LIKM",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_E1NpkPItM"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_EywU6LIKM"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q17-to-q23",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous choisissez d'essayer de relancer votre trafic en publiant davantage sur les réseaux sociaux, et donc être plus visible"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_4kIFWvUFG",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_4JKjVY8Kz"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_4kIFWvUFG"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q17-to-q24",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous décidez d'envoyer une newsletter à tous ceux qui ont créé un compte sur votre site mais n'ont pas encore acheté pour leur offrir un code promo"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_4kIFWvUFG",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_EyolUFUYz"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_4kIFWvUFG"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q17-to-q25",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Le bad buzz est passé, alors les visites vont bien finir par remonter également… Vous décidez de ne rien faire"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_4kIFWvUFG",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_V1Iv-YUKf"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_4kIFWvUFG"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q17-to-q38",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous décidez de vous lancer sur une marketplace, comme Amazon, pour disposer d'un nouveau canal de vente"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_4kIFWvUFG",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_E1NpkPItM"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_4kIFWvUFG"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q18-to-q23",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous choisissez d'essayer de relancer votre trafic en publiant davantage sur les réseaux sociaux, et donc être plus visible"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_VkPKMPUYG",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_4JKjVY8Kz"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_VkPKMPUYG"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q18-to-q24",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous décidez d'envoyer une newsletter à tous ceux qui ont créé un compte sur votre site mais n'ont pas encore acheté pour leur offrir un code promo"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_VkPKMPUYG",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_EyolUFUYz"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_VkPKMPUYG"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q18-to-q25",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Le bad buzz est passé, alors les visites vont bien finir par remonter également… Vous décidez de ne rien faire"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_VkPKMPUYG",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_V1Iv-YUKf"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_VkPKMPUYG"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q18-to-q38",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous décidez de vous lancer sur une marketplace, comme Amazon, pour disposer d'un nouveau canal de vente et tenter de faire remonter votre trafic"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_VkPKMPUYG",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_E1NpkPItM"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_VkPKMPUYG"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q19-to-q20",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Oui !"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_4k26mv8KG",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_V1pXrDIFG"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_4k26mv8KG"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q21-to-q23",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous décidez d'être plus offensif sur les réseaux sociaux"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_4JAILP8Fz",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_4JKjVY8Kz"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_4JAILP8Fz"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q21-to-q24",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous envoyez une newsletter à tous ceux qui ont créé un compte sur votre site"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_4JAILP8Fz",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_EyolUFUYz"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_4JAILP8Fz"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q21-to-q38",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous décidez de vous lancer sur une marketplace, c'est-à-dire un site d'e-commerce qui sert de plateforme de vente à plusieurs marques, afin de disposer d'un nouveau canal de vente et de tenter de faire remonter votre trafic"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_4JAILP8Fz",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_E1NpkPItM"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_4JAILP8Fz"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q22-to-q26",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous renvoyez un erratum en précisant qu'en réalité, le code promo est valable pour tout le monde"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_VyuQDwIFz",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_EkVzFFLYG"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_VyuQDwIFz"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 10
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q22-to-q27",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous ne renvoyez pas de newsletter mais modifiez, sans le dire, votre code promo pour qu'il ne s'applique qu'aux 100 premiers acheteurs"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_VyuQDwIFz",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_4y1Zct8Kf"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_VyuQDwIFz"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q22-to-q28",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous ne renvoyez rien et attendez de voir quelles vont être les réactions"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_VyuQDwIFz",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_NkRzsKLFf"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_VyuQDwIFz"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q22-to-q38",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous décidez de vous lancer sur une marketplace, c'est-à-dire un site d'e-commerce qui sert de plateforme de vente à plusieurs marques, pour disposer d'un nouveau canal de vente. Le but : faire plus de ventes pour compenser l'éventuelle perte générée par le code promo"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_VyuQDwIFz",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_E1NpkPItM"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_VyuQDwIFz"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q25-to-q20",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Oui !"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_V1Iv-YUKf",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_V1pXrDIFG"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_V1Iv-YUKf"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q23-to-q29",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous publiez 10 fois par jour sur chaque réseau social"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_4JKjVY8Kz",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_41zl0FLKG"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_4JKjVY8Kz"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q23-to-q30",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous publiez au moins 2 fois par jour"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_4JKjVY8Kz",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_VJ2hk58tM"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_4JKjVY8Kz"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q23-to-q31",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous utilisez un outil pour savoir à quelle fréquence et à quel moment publier"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_4JKjVY8Kz",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_Vkxrri8tf"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_4JKjVY8Kz"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 10
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q24-to-q26",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous renvoyez un erratum en précisant qu'en réalité, le code promo est valable pour tout le monde"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_EyolUFUYz",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_EkVzFFLYG"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_EyolUFUYz"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 10
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q24-to-q27",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous ne renvoyez pas de newsletter mais modifiez votre code promo, sans le dire, pour qu'il ne s'applique qu'aux 100 premiers acheteurs"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_EyolUFUYz",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_4y1Zct8Kf"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_EyolUFUYz"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q24-to-q50",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous ne renvoyez rien et attendez de voir quelles vont être les réactions"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_EyolUFUYz",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_V1alSsVjf"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_EyolUFUYz"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q24-to-q38",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous décidez de vous lancer sur une marketplace, comme Amazon, pour contrebalancer une potentielle baisse de chiffre d'affaires liée au code promo"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_EyolUFUYz",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_E1NpkPItM"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_EyolUFUYz"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q26-to-q32",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Facebook live\t\t\t \t\t\t \t\t\t \t\t\t \t\t\t \t\t\t \t\t\t \t\t\t"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_EkVzFFLYG",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_NJhVLoLKG"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_EkVzFFLYG"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 10
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q26-to-q33",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "YouTube"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_EkVzFFLYG",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_EyoeviUYG"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_EkVzFFLYG"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q26-to-q34",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Periscope"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_EkVzFFLYG",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_41mswoIKG"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_EkVzFFLYG"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 10
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q27-to-q32",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Facebook live"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_4y1Zct8Kf",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_NJhVLoLKG"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_4y1Zct8Kf"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 10
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q27-to-q33",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "YouTube"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_4y1Zct8Kf",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_EyoeviUYG"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_4y1Zct8Kf"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q27-to-q34",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Periscope"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_4y1Zct8Kf",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_41mswoIKG"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_4y1Zct8Kf"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 10
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q28-to-q40",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Oui !"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_NkRzsKLFf",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_41SKtnyqM"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_NkRzsKLFf"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q38-to-q29",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous publiez 10 fois par jour sur chaque réseau social"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_E1NpkPItM",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_41zl0FLKG"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_E1NpkPItM"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q38-to-q30",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous publiez au moins 2 fois par jour"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_E1NpkPItM",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_VJ2hk58tM"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_E1NpkPItM"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q38-to-q31",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous utilisez un outil pour savoir à quel moment publier"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_E1NpkPItM",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_Vkxrri8tf"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_E1NpkPItM"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 10
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q29-to-q32",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Facebook Live"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_41zl0FLKG",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_NJhVLoLKG"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_41zl0FLKG"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 10
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q29-to-q33",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "YouTube"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_41zl0FLKG",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_EyoeviUYG"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_41zl0FLKG"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q29-to-q34",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Periscope"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_41zl0FLKG",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_41mswoIKG"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_41zl0FLKG"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 10
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q30-to-q32",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Facebook Live"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_VJ2hk58tM",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_NJhVLoLKG"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_VJ2hk58tM"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 10
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q30-to-q33",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "YouTube"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_VJ2hk58tM",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_EyoeviUYG"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_VJ2hk58tM"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q30-to-q34",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Periscope"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_VJ2hk58tM",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_41mswoIKG"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_VJ2hk58tM"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 10
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q31-to-q32",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Facebook Live"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_Vkxrri8tf",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_NJhVLoLKG"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_Vkxrri8tf"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 10
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q31-to-q33",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "YouTube"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_Vkxrri8tf",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_EyoeviUYG"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_Vkxrri8tf"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q31-to-q34",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Periscope"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_Vkxrri8tf",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_41mswoIKG"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_Vkxrri8tf"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 10
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q32-to-q35",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Le taux d'engagement, c'est-à-dire les interactions générées par vos publications (retweets, likes…)"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_NJhVLoLKG",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_4kmHuoIFz"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_NJhVLoLKG"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 10
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q32-to-q36",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Le nombre de vues sur vos publications"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_NJhVLoLKG",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_N10Yv21cG"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_NJhVLoLKG"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q32-to-q37",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Votre nombre de fans, followers…"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_NJhVLoLKG",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_41b4cs8tf"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_NJhVLoLKG"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q33-to-q35",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Le taux d'engagement, c'est-à-dire les interactions générées par vos publications (retweets, likes…)"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_EyoeviUYG",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_4kmHuoIFz"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_EyoeviUYG"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 10
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q33-to-q36",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Le nombre de vues sur vos publications"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_EyoeviUYG",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_N10Yv21cG"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_EyoeviUYG"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q50-to-q20",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Oui !"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_V1alSsVjf",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_V1pXrDIFG"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_V1alSsVjf"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q33-to-q37",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Votre nombre de fans, followers…"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_EyoeviUYG",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_41b4cs8tf"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_EyoeviUYG"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q34-to-q35",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Le taux d'engagement, c'est-à-dire les interactions générées par vos publications (retweets, likes…)"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_41mswoIKG",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_4kmHuoIFz"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_41mswoIKG"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 10
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q34-to-q36",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Le nombre de vues sur vos publications"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_41mswoIKG",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_N10Yv21cG"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_41mswoIKG"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q34-to-q37",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Votre nombre de fans, followers…"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_41mswoIKG",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_41b4cs8tf"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_41mswoIKG"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q20-q10A-to-q14",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Oui, j'y retourne !"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_V1pXrDIFG",
+              "field": "answer"
+            }
+          },
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous estimez que c'est La Poste qui est en cause et conseillez à votre client de s'adresser directement à elle"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_VkncTNSFz",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_VyEpFHBFf"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_V1pXrDIFG"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "set",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q20-q11A-to-q14",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Oui, j'y retourne !"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_V1pXrDIFG",
+              "field": "answer"
+            }
+          },
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous estimez que c'est La Poste qui est en cause et conseillez à votre client de s'adresser directement à elle"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_E11-JBrFz",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_VyEpFHBFf"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_V1pXrDIFG"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "set",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q20-q12A-to-q14",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Oui, j'y retourne !"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_V1pXrDIFG",
+              "field": "answer"
+            }
+          },
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous estimez que c'est La Poste qui est en cause et conseillez à votre client de s'adresser directement à elle"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_Vy5-xBBtz",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_VyEpFHBFf"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_V1pXrDIFG"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "set",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q20-q13A-to-q14",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Oui, j'y retourne !"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_V1pXrDIFG",
+              "field": "answer"
+            }
+          },
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous estimez que c'est La Poste qui est en cause et conseillez à votre client de s'adresser directement à elle"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_VkTR~HrFG",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_VyEpFHBFf"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_V1pXrDIFG"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "set",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q20-q10B-to-q15",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Oui, j'y retourne !"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_V1pXrDIFG",
+              "field": "answer"
+            }
+          },
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous dites à votre client de se tourner vers La Poste, mais lui garantissez l'envoi d'un nouveau colis si le sien s'est définitivement perdu"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_VkncTNSFz",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_Ey5u3ULYG"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_V1pXrDIFG"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "set",
+            "value": 10
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q20-q11B-to-q15",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Oui, j'y retourne !"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_V1pXrDIFG",
+              "field": "answer"
+            }
+          },
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous dites à votre client de se tourner vers La Poste, mais lui garantissez l'envoi d'un nouveau colis si le sien est définitivement perdu"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_E11-JBrFz",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_Ey5u3ULYG"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_V1pXrDIFG"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "set",
+            "value": 10
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q20-q11C-to-q16",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Oui, j'y retourne !"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_V1pXrDIFG",
+              "field": "answer"
+            }
+          },
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous prenez sur vous d'envoyer directement un nouveau produit à votre client"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_E11-JBrFz",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_EywU6LIKM"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_V1pXrDIFG"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "set",
+            "value": 10
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q20-q12B-to-q15",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Oui, j'y retourne !"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_V1pXrDIFG",
+              "field": "answer"
+            }
+          },
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous dites à votre client de se tourner vers La Poste, mais lui garantissez l'envoi d'un nouveau colis si le sien est définitivement perdu"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_Vy5-xBBtz",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_Ey5u3ULYG"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_V1pXrDIFG"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "set",
+            "value": 10
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q20-q13B-to-q15",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Oui, j'y retourne !"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_V1pXrDIFG",
+              "field": "answer"
+            }
+          },
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous dites à votre client de se tourner vers La Poste, mais lui garantissez l'envoi d'un nouveau colis si le sien est définitivement perdu"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_VkTR~HrFG",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_Ey5u3ULYG"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_V1pXrDIFG"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "set",
+            "value": 10
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q20-q10C-to-q16",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Oui, j'y retourne !"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_V1pXrDIFG",
+              "field": "answer"
+            }
+          },
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous prenez sur vous d'envoyer directement un nouveau produit à votre client"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_VkncTNSFz",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_EywU6LIKM"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_V1pXrDIFG"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "set",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q20-q12C-to-q16",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Oui, j'y retourne !"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_V1pXrDIFG",
+              "field": "answer"
+            }
+          },
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous prenez sur vous d'envoyer directement un nouveau produit à votre client"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_Vy5-xBBtz",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_EywU6LIKM"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_V1pXrDIFG"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "set",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q20-q13C-to-q16",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Oui, j'y retourne !"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_V1pXrDIFG",
+              "field": "answer"
+            }
+          },
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Vous prenez sur vous d'envoyer directement un nouveau produit à votre client"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_VkTR~HrFG",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_EywU6LIKM"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_V1pXrDIFG"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "set",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q40-to-q21",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "J'y vais !"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_41SKtnyqM",
+              "field": "answer"
+            }
+          },
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Oui, il faut prévenir vos potentiels clients qu'ils n'ont pas accès au site pour l'instant"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_EywU6LIKM",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_4JAILP8Fz"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_41SKtnyqM"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "set",
+            "value": 25
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q40-to-q22",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "J'y vais !"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_41SKtnyqM",
+              "field": "answer"
+            }
+          },
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Non, ce n'est l'affaire que de quelques heures, cela vous ferait perdre du temps"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_EywU6LIKM",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_VyuQDwIFz"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_41SKtnyqM"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "set",
+            "value": 20
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q40-to-q38",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "J'y vais !"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_41SKtnyqM",
+              "field": "answer"
+            }
+          },
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Oui… mais pour annoncer que vous vous lancez également sur une marketplace, c'est-à-dire un site d'e-commerce qui sert de plateforme de vente à plusieurs marques. Le but : ne pas perdre de ventes potentielles"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_EywU6LIKM",
+              "field": "answer"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "slide",
+          "ref": "sli_E1NpkPItM"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_41SKtnyqM"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "set",
+            "value": 20
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q35-to-P1",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Je lis mon bilan"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_4kmHuoIFz",
+              "field": "answer"
+            }
+          },
+          {
+            "operator": "GTE",
+            "values": [
+              70
+            ],
+            "target": {
+              "scope": "variable",
+              "field": "stars"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "success",
+          "ref": "exi_NJAo0oUFM"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_4kmHuoIFz"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q35-to-P2",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Je lis mon bilan"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_4kmHuoIFz",
+              "field": "answer"
+            }
+          },
+          {
+            "operator": "GTE",
+            "values": [
+              50
+            ],
+            "target": {
+              "scope": "variable",
+              "field": "stars"
+            }
+          },
+          {
+            "operator": "LT",
+            "values": [
+              70
+            ],
+            "target": {
+              "scope": "variable",
+              "field": "stars"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "exitNode",
+          "ref": "exi_Nyol13UFz"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_4kmHuoIFz"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q35-to-P3",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Je lis mon bilan"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_4kmHuoIFz",
+              "field": "answer"
+            }
+          },
+          {
+            "operator": "LT",
+            "values": [
+              50
+            ],
+            "target": {
+              "scope": "variable",
+              "field": "stars"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "exitNode",
+          "ref": "exi_VJJm13IYf"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_4kmHuoIFz"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q36-to-P1",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Je lis mon bilan"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_N10Yv21cG",
+              "field": "answer"
+            }
+          },
+          {
+            "operator": "GTE",
+            "values": [
+              70
+            ],
+            "target": {
+              "scope": "variable",
+              "field": "stars"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "success",
+          "ref": "exi_NJAo0oUFM"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_N10Yv21cG"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q36-to-P2",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Je lis mon bilan"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_N10Yv21cG",
+              "field": "answer"
+            }
+          },
+          {
+            "operator": "GTE",
+            "values": [
+              50
+            ],
+            "target": {
+              "scope": "variable",
+              "field": "stars"
+            }
+          },
+          {
+            "operator": "LT",
+            "values": [
+              70
+            ],
+            "target": {
+              "scope": "variable",
+              "field": "stars"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "success",
+          "ref": "exi_Nyol13UFz"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_N10Yv21cG"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q36-to-P3",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Je lis mon bilan"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_N10Yv21cG",
+              "field": "answer"
+            }
+          },
+          {
+            "operator": "LT",
+            "values": [
+              50
+            ],
+            "target": {
+              "scope": "variable",
+              "field": "stars"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "success",
+          "ref": "exi_VJJm13IYf"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_N10Yv21cG"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q37-to-P1",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Je lis mon bilan"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_41b4cs8tf",
+              "field": "answer"
+            }
+          },
+          {
+            "operator": "GTE",
+            "values": [
+              70
+            ],
+            "target": {
+              "scope": "variable",
+              "field": "stars"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "success",
+          "ref": "exi_NJAo0oUFM"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_41b4cs8tf"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q37-to-P2",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Je lis mon bilan"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_41b4cs8tf",
+              "field": "answer"
+            }
+          },
+          {
+            "operator": "GTE",
+            "values": [
+              50
+            ],
+            "target": {
+              "scope": "variable",
+              "field": "stars"
+            }
+          },
+          {
+            "operator": "LT",
+            "values": [
+              70
+            ],
+            "target": {
+              "scope": "variable",
+              "field": "stars"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "success",
+          "ref": "exi_Nyol13UFz"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_41b4cs8tf"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "ref": "cha_N19MiQrYG.step-q37-to-P3",
+        "conditions": [
+          {
+            "operator": "IN",
+            "values": [
+              [
+                "Je lis mon bilan"
+              ]
+            ],
+            "target": {
+              "scope": "slide",
+              "ref": "sli_41b4cs8tf",
+              "field": "answer"
+            }
+          },
+          {
+            "operator": "LT",
+            "values": [
+              50
+            ],
+            "target": {
+              "scope": "variable",
+              "field": "stars"
+            }
+          }
+        ],
+        "priority": 10,
+        "destination": {
+          "type": "exitNode",
+          "ref": "exi_VJJm13IYf"
+        },
+        "source": {
+          "type": "slide",
+          "ref": "sli_41b4cs8tf"
+        },
+        "instructions": [
+          {
+            "field": "stars",
+            "type": "add",
+            "value": 0
+          }
+        ]
+      }
+    ]
+  }
+}

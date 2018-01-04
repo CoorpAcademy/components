@@ -12,6 +12,8 @@ export type Step = {
 
 export type Answer = Array<string>;
 
+export type IsCorrect = ?boolean;
+
 export type GenericContent = {
   ref: string,
   type: string,
@@ -29,7 +31,7 @@ export type Content = GenericContent | ResourceContent;
 export type AnswerRecord = {
   slideRef: string,
   answer: Answer,
-  isCorrect: boolean
+  isCorrect: IsCorrect
 };
 
 export type Variable = string | boolean | number;
@@ -40,7 +42,7 @@ export type GenericState = {
   nextContent?: Content,
   lives: number,
   livesDisabled?: boolean,
-  isCorrect: boolean,
+  isCorrect: IsCorrect,
   slides: Array<string>,
   requestedClues: Array<string>,
   viewedResources: Array<ViewedResource>,
@@ -78,7 +80,8 @@ export type AnswerAction = {
     content: Content,
     nextContent: Content,
     answer: Answer,
-    isCorrect: boolean
+    isCorrect: IsCorrect,
+    godMode?: boolean
   }
 };
 
@@ -125,11 +128,11 @@ export type Progression = {
 
 export type PartialCorrection = {
   answer: string | void,
-  isCorrect: boolean
+  isCorrect: IsCorrect
 };
 
 export type AnswerCorrection = {
-  isCorrect: boolean,
+  isCorrect: IsCorrect,
   corrections: Array<PartialCorrection>
 };
 

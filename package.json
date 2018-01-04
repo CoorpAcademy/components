@@ -26,7 +26,7 @@
     "publish:latest": "lerna publish --exact",
     "start:angular": "lerna exec --scope @coorpacademy/treantjs-adapter-angular -- npm start",
     "start:components": "lerna run --parallel --scope @coorpacademy/components start",
-    "start:app-player": "concurrently \"lerna exec --scope @coorpacademy/components -- npm run build:es -- --watch\" \"lerna exec --scope @coorpacademy/progression-engine -- npm run build:es -- --watch\" \"lerna run --scope @coorpacademy/app-player start\"",
+    "start:app-player": "concurrently \"lerna exec --scope @coorpacademy/components -- npm run build:es -- --watch\" \"lerna exec --scope @coorpacademy/progression-engine -- npm run build:babel:es -- --watch\" \"lerna run --scope @coorpacademy/app-player start\"",
     "prestatic": "rimraf static",
     "static": "lerna run --scope @coorpacademy/components --scope @coorpacademy/app-player static -- --production",
     "poststatic": "mkdirp static && cp -r packages/@coorpacademy-components/static static/components && cp -r packages/@coorpacademy-app-player/static static/app-player",

@@ -3,17 +3,21 @@ import unset from 'lodash/fp/unset';
 import isNull from 'lodash/fp/isNull';
 import {
   PROGRESSION_CREATE_ANSWER_REQUEST,
-  PROGRESSION_CREATE_ANSWER_SUCCESS,
-  PROGRESSION_CREATE_ANSWER_FAILURE
+  PROGRESSION_CREATE_ANSWER_SUCCESS
 } from '../../actions/api/progressions';
 import {UI_SELECT_ROUTE} from '../../actions/ui/route';
 import {UI_SELECT_PROGRESSION} from '../../actions/ui/progressions';
 
 const uiRouteReducer = (state = {}, {type, payload, meta}) => {
   switch (type) {
-    case PROGRESSION_CREATE_ANSWER_REQUEST:
-    case PROGRESSION_CREATE_ANSWER_SUCCESS:
-    case PROGRESSION_CREATE_ANSWER_FAILURE: {
+    case PROGRESSION_CREATE_ANSWER_SUCCESS: {
+      const {progressionId} = meta;
+      const {state: {isCorrect}} = payload;
+
+      if (!isNull(isCorrect)) return state;
+      return unset(progressionId, state);
+    }
+    case PROGRESSION_CREATE_ANSWER_REQUEST: {
       const {progressionId} = meta;
       return set(progressionId, 'correction', state);
     }
