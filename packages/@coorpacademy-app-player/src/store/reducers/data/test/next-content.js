@@ -67,7 +67,7 @@ test(
 );
 
 test(
-  'should set next level recommendations on success',
+  'should set next level on success',
   macro,
   reducer,
   {},
@@ -77,6 +77,19 @@ test(
     payload: levelRecommendations.nextLevel
   },
   set('entities.foo', levelRecommendations.nextLevel, {})
+);
+
+test(
+  'should unset next level when none is available',
+  macro,
+  reducer,
+  {entities: {foo: levelRecommendations.nextLevel}},
+  {
+    type: NEXT_CONTENT_FETCH_SUCCESS,
+    meta: {id: 'foo'},
+    payload: undefined
+  },
+  {entities: {}}
 );
 
 test(
