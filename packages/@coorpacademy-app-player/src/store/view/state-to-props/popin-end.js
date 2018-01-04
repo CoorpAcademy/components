@@ -139,12 +139,12 @@ const extractAction = ({translate}, {dispatch}) => state => {
     [
       pipe(get('type'), isEqual('success')),
       () => {
-        if (get('type', nextContent) === 'chapitre') {
+        if (get('nextContentType', nextContent) === 'chapter') {
           return {
             type: 'nextCourse',
             description: translate('Check out the next chapter in this course!'),
             prefix: translate('Next chapter_'),
-            ...omit('type', nextContent)
+            ...nextContent
           };
         } else if (nextContent) {
           // then it is a level
