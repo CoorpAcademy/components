@@ -319,5 +319,28 @@
       "viewedResources": [],
       "remainingLifeRequests": 1
     }
+  },
+  {
+    "_id": "adaptive",
+    "engine": {
+      "ref": "learner",
+      "version": "1"
+    },
+    "content": {
+      "ref": "3.A",
+      "type": "level"
+    },
+    "state": {
+      "slides": [],
+      "nextContent": {
+        "ref": "sli_41GXTiG8X",
+        "type": "slide"
+      },
+      "lives": 3,
+      "livesDisabled": false,
+      "step": {
+        "current": 1
+      }
+    }
   }
 ]

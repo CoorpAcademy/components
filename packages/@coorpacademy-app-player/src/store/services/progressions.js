@@ -19,6 +19,7 @@ import getOr from 'lodash/fp/getOr';
 import set from 'lodash/fp/set';
 import maxBy from 'lodash/fp/maxBy';
 import reduce from 'lodash/fp/reduce';
+import {find as findContent} from './content';
 import progressionsData from './progressions.data';
 import slidesData from './slides.data';
 
@@ -76,22 +77,28 @@ export const findBestOf = (engineRef, contentRef, progressionId = null) => {
   return bestProgression || set('state.stars', 0, {});
 };
 
+export const computeIsCorrect = async (progression, question, answers) => {
+  const {content: {type: contentType, ref: contentRef}} = progression;
+  const content = await findContent(contentType, contentRef);
+  const isAdaptive = getOr(false, 'isConditional', content);
+
+  return !isAdaptive ? checkAnswer(progression.engine, question, answers) : null;
+};
+
 export const postAnswers = async (progressionId, payload) => {
   const userAnswers = getOr([''], 'answers', payload);
   const slideId = payload.content.ref;
   const slide = slideStore.get(slideId);
   const progression = await findById(progressionId);
   const slidePools = createSlidePools();
+  const isCorrect = await computeIsCorrect(progression, slide.question, userAnswers);
   const {engine} = progression;
 
-  const action = pipe(
-    set('payload.isCorrect', checkAnswer(engine, slide.question, userAnswers)),
-    _action => {
-      let nextState = updateState(engine, progression.state, [_action]);
-      nextState = set('nextContent', nextState.content, nextState);
-      return set('payload.nextContent', computeNextStep(engine, slidePools, nextState))(_action);
-    }
-  )({
+  const action = pipe(set('payload.isCorrect', isCorrect), _action => {
+    let nextState = updateState(engine, progression.state, [_action]);
+    nextState = set('nextContent', nextState.content, nextState);
+    return set('payload.nextContent', computeNextStep(engine, slidePools, nextState))(_action);
+  })({
     type: 'answer',
     payload
   });
