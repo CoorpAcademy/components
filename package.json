@@ -11,6 +11,7 @@
     "flow": "flow check",
     "generate": "lerna exec --scope @coorpacademy/components -- npm run generate",
     "generate:fixtures": "lerna exec --scope @coorpacademy/components -- npm run generate:fixtures",
+    "generate:types": "node flow-typed/custom/lodash-fp.build.js",
     "init-component": "lerna exec --scope @coorpacademy/components -- npm run init-component",
     "lerna": "lerna",
     "lint": "npm run eslint && npm run stylelint",
@@ -98,7 +99,8 @@
       "packages/**/lib/**",
       "packages/**/static/**",
       "static/**",
-      "packages/@coorpacademy-nova-icons/**"
+      "packages/@coorpacademy-nova-icons/**",
+      "flow-typed/**"
     ],
     "cache": true,
     "require": "babel-register",

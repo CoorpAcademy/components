@@ -3,7 +3,6 @@
 import find from 'lodash/fp/find';
 import findIndex from 'lodash/fp/findIndex';
 import get from 'lodash/fp/get';
-import set from 'lodash/fp/set';
 import update from 'lodash/fp/update';
 import map from 'lodash/fp/map';
 import pipe from 'lodash/fp/pipe';
@@ -73,23 +72,32 @@ function viewedResources(config: Config): (Array<ViewedResource>, Action) => Arr
         const resourceRef = resourceViewAction.payload.resource.ref;
         const contentIndex = findIndex({ref: contentRef}, currentViewedResources);
 
+        if (contentType !== 'chapter') return currentViewedResources;
+
         if (contentIndex === -1) {
-          return concat(currentViewedResources, {
-            type: contentType,
-            ref: contentRef,
-            resources: [resourceRef]
-          });
+          return concat(currentViewedResources)([
+            {
+              ref: contentRef,
+              resources: [resourceRef],
+              type: contentType
+            }
+          ]);
         }
 
-        const contentResources = get('resources', currentViewedResources[contentIndex]);
+        const contentResources: Array<string> = get(
+          'resources',
+          currentViewedResources[contentIndex]
+        );
         const resourceAlreadyViewed = includes(resourceRef, contentResources);
 
         if (resourceAlreadyViewed) return currentViewedResources;
-        return set(
-          [contentIndex, 'resources'],
-          concat(contentResources, resourceRef),
-          currentViewedResources
-        );
+        // return currentViewedResources, contentIndex, resourceRef;
+        const newViewedResources = [...currentViewedResources];
+        newViewedResources[contentIndex] = {
+          ...newViewedResources[contentIndex],
+          resources: concat(newViewedResources[contentIndex].resources, [resourceRef])
+        };
+        return newViewedResources;
       }
       default:
         return currentViewedResources;

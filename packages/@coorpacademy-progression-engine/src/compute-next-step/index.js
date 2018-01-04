@@ -4,13 +4,12 @@ import get from 'lodash/fp/get';
 import find from 'lodash/fp/find';
 import pipe from 'lodash/fp/pipe';
 import shuffle from 'lodash/fp/shuffle';
+import first from 'lodash/fp/first';
 import sortBy from 'lodash/fp/sortBy';
-import isNumber from 'lodash/fp/isNumber';
 import negate from 'lodash/fp/negate';
 import head from 'lodash/fp/head';
 import isEmpty from 'lodash/fp/isEmpty';
 import indexOf from 'lodash/fp/indexOf';
-import __ from 'lodash/fp/__';
 import last from 'lodash/fp/last';
 import filter from 'lodash/fp/filter';
 import includes from 'lodash/fp/includes';
@@ -29,10 +28,11 @@ type SlidePool = {
 
 const nextSlidePool = (config: Config, slidePools: Array<SlidePool>, state: State): SlidePool => {
   const lastSlideRef = pipe(get('slides'), last)(state);
-  const currentChapterPool = find(({slides}) => find({_id: lastSlideRef}, slides), slidePools);
+  const currentChapterPool =
+    find(({slides}) => find({_id: lastSlideRef}, slides), slidePools) || first(slidePools);
   const slidesAnsweredForThisChapter = intersection(
     state.slides,
-    map('_id', currentChapterPool.slides)
+    map('_id')(currentChapterPool.slides)
   );
 
   if (slidesAnsweredForThisChapter.length >= config.slidesToComplete) {
@@ -49,7 +49,9 @@ const nextSlidePool = (config: Config, slidePools: Array<SlidePool>, state: Stat
 const getSlidePool = (config: Config, slidePools: Array<SlidePool>, state: State): SlidePool =>
   isEmpty(get('slides', state)) ? head(slidePools) : nextSlidePool(config, slidePools, state);
 
-const sortByPosition = sortBy(({position}) => (isNumber(position) ? -position : 0));
+const sortByPosition = sortBy(
+  (slide: Slide) => (typeof slide.position === 'number' ? -slide.position : 0)
+);
 
 const pickNextSlide = pipe(shuffle, sortByPosition, head);
 
@@ -77,7 +79,7 @@ export default function computeNextStep(
   }
 
   const remainingSlides = filter(
-    pipe(get('_id'), negate(includes(__, state.slides))),
+    pipe(get('_id'), negate((slideId: string) => includes(slideId, state.slides))),
     slidePool.slides
   );
   const nextSlide = pipe(pickNextSlide, get('_id'))(remainingSlides);

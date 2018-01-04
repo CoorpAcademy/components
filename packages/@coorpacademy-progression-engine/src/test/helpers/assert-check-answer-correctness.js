@@ -32,8 +32,7 @@ function assertIncorrect(
   t.false(result.isCorrect, 'Answer should have been considered as incorrect');
   t.deepEqual(
     result.corrections,
-    pipe(zip, map(([answer, isCorrect]) => ({answer, isCorrect})))(
-      givenAnswer,
+    pipe(zip(givenAnswer), map(([answer, isCorrect]) => ({answer, isCorrect})))(
       expectedCorrections
     ),
     'Some sub-answers were not correctly marked as correct'

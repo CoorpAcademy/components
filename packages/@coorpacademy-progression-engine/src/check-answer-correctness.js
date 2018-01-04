@@ -1,15 +1,17 @@
 // @flow
-import get from 'lodash/fp/get';
-import map from 'lodash/fp/map';
-import zip from 'lodash/fp/zip';
-import some from 'lodash/fp/some';
 import every from 'lodash/fp/every';
-import maxBy from 'lodash/fp/maxBy';
 import filter from 'lodash/fp/filter';
-import flatten from 'lodash/fp/flatten';
-import reverse from 'lodash/fp/reverse';
-import toLower from 'lodash/fp/toLower';
+import get from 'lodash/fp/get';
 import includes from 'lodash/fp/includes';
+import join from 'lodash/fp/join';
+import map from 'lodash/fp/map';
+import maxBy from 'lodash/fp/maxBy';
+import pipe from 'lodash/fp/pipe';
+import reverse from 'lodash/fp/reverse';
+import some from 'lodash/fp/some';
+import split from 'lodash/fp/split';
+import toLower from 'lodash/fp/toLower';
+import zip from 'lodash/fp/zip';
 import FuzzyMatching from 'fuzzy-matching';
 import getConfig from './config';
 import type {
@@ -24,8 +26,9 @@ import type {
   Config
 } from './types';
 
-// eslint-disable-next-line flowtype/no-weak-types
-function checkFuzzyAnswer(maxTypos: number, fm: any, userAnswer: string): boolean {
+const reverseString = pipe(split(''), reverse, join(''));
+
+function checkFuzzyAnswer(maxTypos: number, fm: FuzzyMatching, userAnswer: string): boolean {
   if (!userAnswer || userAnswer.length === 0) {
     return false;
   }
@@ -43,7 +46,7 @@ function containsAnswer(config: Config, allowedAnswer: string, givenAnswer: stri
   // Get the non-space characters surrounding the answer and make sure that there are not too many.
   const limit = config.answerBoundaryLimit;
   const [first, second] = givenAnswer.split(allowedAnswer);
-  const indexOfSpaceInFirst = reverse(first).indexOf(' ');
+  const indexOfSpaceInFirst = reverseString(first).indexOf(' ');
   const indexOfSpaceInSecond = second.indexOf(' ');
 
   return (
@@ -58,7 +61,7 @@ function isTextCorrect(
   answerWithCase: string,
   _maxTypos: ?number
 ): boolean {
-  const fm = new FuzzyMatching(flatten(allowedAnswers));
+  const fm = new FuzzyMatching(allowedAnswers);
   const maxTypos = _maxTypos === 0 ? _maxTypos : _maxTypos || config.maxTypos;
   const answer = toLower(answerWithCase);
 
@@ -96,7 +99,7 @@ function matchAnswerForTemplate(
         config,
         [allowedAnswer[index]],
         toLower(answer),
-        get(['content', 'choices', index, 'type'], question) === 'text'
+        get(['content', 'choices', `${index}`, 'type'], question) === 'text'
           ? question.content.maxTypos
           : 0
       )
@@ -114,8 +117,7 @@ function matchAnswerForUnorderedItems(
 ): Array<Array<PartialCorrection>> {
   const lowerGivenAnswer = map(toLower, givenAnswer);
 
-  // eslint-disable-next-line flowtype/require-return-type
-  return allowedAnswers.map(allowedAnswer => {
+  return allowedAnswers.map((allowedAnswer): Array<PartialCorrection> => {
     const lowerAllowedAnswer = map(toLower, allowedAnswer);
     const givenAnswersMap = map(
       answer => ({
@@ -135,10 +137,8 @@ function matchAnswerForOrderedItems(
   allowedAnswers: AcceptedAnswers,
   givenAnswer: Answer
 ): Array<Array<PartialCorrection>> {
-  // eslint-disable-next-line flowtype/require-return-type
-  return map(allowedAnswer => {
-    // eslint-disable-next-line flowtype/require-return-type
-    return map(([givenAnswerPart, allowedAnswerPart]) => {
+  return map((allowedAnswer): Array<PartialCorrection> => {
+    return map(([givenAnswerPart, allowedAnswerPart]): PartialCorrection => {
       return {
         answer: givenAnswerPart,
         isCorrect: toLower(givenAnswerPart) === toLower(allowedAnswerPart)
