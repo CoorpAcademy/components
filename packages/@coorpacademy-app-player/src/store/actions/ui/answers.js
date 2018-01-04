@@ -1,6 +1,7 @@
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import find from 'lodash/fp/find';
+import isNull from 'lodash/fp/isNull';
 import pipe from 'lodash/fp/pipe';
 import remove from 'lodash/fp/remove';
 import includes from 'lodash/fp/includes';
@@ -8,7 +9,7 @@ import {getSlide, getProgressionContent} from '../../utils/state-extract';
 import {createAnswer} from '../api/progressions';
 import {fetchAnswer} from '../api/answers';
 import {fetchSlideChapter} from '../api/contents';
-import {progressionUpdated} from './progressions';
+import {progressionUpdated, selectProgression} from './progressions';
 import {toggleAccordion} from './corrections';
 
 export const ANSWER_EDIT = {
@@ -78,6 +79,8 @@ export const validateAnswer = (progressionId, body) => async (dispatch, getState
   if (payload.state.nextContent.type === 'slide') {
     await dispatch(fetchSlideChapter(get('nextContent.ref', progressionState)));
   }
+
+  if (isNull(isCorrect)) return dispatch(selectProgression(progressionId));
 
   if (isCorrect) {
     await dispatch(toggleAccordion(2));
