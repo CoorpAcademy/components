@@ -124,18 +124,21 @@
     "nextContent": {
       "entities": {
         "0": {
-          "view": "grid",
-          "image":
-          "//static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/poster/1931716-40629814-640-360-1496310886550.jpg",
-          "time": "8m",
-          "adaptiv": false,
-          "certification": false,
-          "type": "chapitre",
-          "title": "Chapter 2",
-          "author": "Superman",
-          "progress": 0,
-          "key": "cha_NyZ4M0YQ7",
-          "disabled": false
+          "card": {
+            "view": "grid",
+            "image": "//static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/poster/1931716-40629814-640-360-1496310886550.jpg",
+            "time": "8m",
+            "adaptiv": false,
+            "certification": false,
+            "type": "chapitre",
+            "title": "Chapter 2",
+            "author": "Superman",
+            "progress": 0,
+            "key": "cha_NyZ4M0YQ7",
+            "disabled": false
+          },
+          "nextContentType": "chapter",
+          "title": "Chapter 2"
         }
       }
     },

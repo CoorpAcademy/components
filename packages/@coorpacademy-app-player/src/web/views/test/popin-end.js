@@ -13,7 +13,7 @@ const options = {
 
 const toVNode = stateToVNode(options, {dispatch: identity});
 
-test('should set properties for success popin', async t => {
+test('should set properties for success popin for microlearning', async t => {
   const vNode = toVNode(success);
   testRendering(vNode);
   const {props} = vNode;
@@ -30,7 +30,7 @@ test('should set properties for success popin', async t => {
 
   t.is(props.summary.action.type, 'nextCourse');
   t.is(props.summary.action.title, 'Chapter 2');
-  t.is(props.summary.action.view, 'grid'); // TODO check was for some reason card.view
+  t.is(props.summary.action.card.view, 'grid');
 
   const card = props.summary.recommendation.cards[1];
   t.is(card.view, 'grid');
