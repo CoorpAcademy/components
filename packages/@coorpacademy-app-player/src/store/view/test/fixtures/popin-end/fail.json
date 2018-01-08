@@ -68,51 +68,50 @@
     },
     "recommendations": {
       "entities": {
-        "0":
-          [
-            {
-              "view": "grid",
-              "image":
-                "//static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/poster/1931716-40629814-640-360-1496310886550.jpg",
-              "time": "8m",
-              "adaptiv": false,
-              "certification": false,
-              "type": "chapitre",
-              "title": "chapter 1",
-              "author": "Superman",
-              "progress": 0,
-              "key": "cha_Ny1BTxRp~",
-              "disabled": false
-            },
-            {
-              "view": "grid",
-              "image":
-                "//static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/poster/1931716-40629814-640-360-1496310886550.jpg",
-              "time": "8m",
-              "adaptiv": false,
-              "certification": false,
-              "type": "chapitre",
-              "title": "chapter 1",
-              "author": "Superman",
-              "progress": 0,
-              "key": "cha_Ny1BTxRp~",
-              "disabled": false
-            },
-            {
-              "view": "grid",
-              "image":
-                "//static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/poster/1931716-40629814-640-360-1496310886550.jpg",
-              "time": "8m",
-              "adaptiv": false,
-              "certification": false,
-              "type": "chapitre",
-              "title": "chapter 1",
-              "author": "Superman",
-              "progress": 0,
-              "key": "cha_Ny1BTxRp~",
-              "disabled": false
-            }
-          ]
+        "0": [
+          {
+            "view": "grid",
+            "image":
+              "//static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/poster/1931716-40629814-640-360-1496310886550.jpg",
+            "time": "8m",
+            "adaptiv": false,
+            "certification": false,
+            "type": "chapitre",
+            "title": "chapter 1",
+            "author": "Superman",
+            "progress": 0,
+            "key": "cha_Ny1BTxRp~",
+            "disabled": false
+          },
+          {
+            "view": "grid",
+            "image":
+              "//static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/poster/1931716-40629814-640-360-1496310886550.jpg",
+            "time": "8m",
+            "adaptiv": false,
+            "certification": false,
+            "type": "chapitre",
+            "title": "chapter 1",
+            "author": "Superman",
+            "progress": 0,
+            "key": "cha_Ny1BTxRp~",
+            "disabled": false
+          },
+          {
+            "view": "grid",
+            "image":
+              "//static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/poster/1931716-40629814-640-360-1496310886550.jpg",
+            "time": "8m",
+            "adaptiv": false,
+            "certification": false,
+            "type": "chapitre",
+            "title": "chapter 1",
+            "author": "Superman",
+            "progress": 0,
+            "key": "cha_Ny1BTxRp~",
+            "disabled": false
+          }
+        ]
       }
     },
     "contents": {
