@@ -2,12 +2,12 @@
 
 import concat from 'lodash/fp/concat';
 import get from 'lodash/fp/get';
-import type {Action, AnswerAction, AnswerRecord, Config, State} from '../types';
+import type {Action, AnswerAction, AnswerRecord, Config} from '../types';
 
 export default function allAnswers(
   config: Config
-): (Array<AnswerRecord>, Action, State) => Array<AnswerRecord> {
-  return (answers: Array<AnswerRecord>, action: Action, state: State): Array<AnswerRecord> => {
+): (Array<AnswerRecord>, Action) => Array<AnswerRecord> {
+  return (answers: Array<AnswerRecord>, action: Action): Array<AnswerRecord> => {
     switch (action.type) {
       case 'answer': {
         const answerAction = (action: AnswerAction);
