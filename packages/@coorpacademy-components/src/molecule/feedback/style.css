@@ -56,7 +56,8 @@
 
 .feedback .resourcePlayer {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
+  align-items: center;
   width: 341px;
   height: 241px;
 }
