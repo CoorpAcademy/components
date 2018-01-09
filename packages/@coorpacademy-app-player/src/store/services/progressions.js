@@ -80,7 +80,7 @@ export const findBestOf = (engineRef, contentRef, progressionId = null) => {
 
 export const transformAdaptiveProgression = async progression => {
   const {content: {type: contentType, ref: contentRef}} = progression;
-  const content = await findContent(contentType, contentRef);
+  const content = await findContent(contentType, contentRef).catch(() => null);
 
   return isContentAdaptive(content) ? set('state.isCorrect', null, progression) : progression;
 };
