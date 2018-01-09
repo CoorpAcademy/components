@@ -55,8 +55,6 @@
 }
 
 .feedback .resourcePlayer {
-  display: flex;
-  justify-content: flex-start;
   width: 341px;
   height: 241px;
 }
