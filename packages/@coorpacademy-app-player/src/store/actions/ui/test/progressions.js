@@ -455,6 +455,10 @@ test(
       meta: {id: 'foo'}
     },
     {
+      type: EXIT_NODE_FETCH_REQUEST,
+      meta: {id: 'bar'}
+    },
+    {
       type: RECO_FETCH_SUCCESS,
       meta: {id: 'foo'},
       payload: 'plop'
@@ -467,10 +471,6 @@ test(
       type: NEXT_CONTENT_FETCH_SUCCESS,
       meta: {id: 'foo'},
       payload: 'plip'
-    },
-    {
-      type: EXIT_NODE_FETCH_REQUEST,
-      meta: {id: 'bar'}
     },
     {
       type: EXIT_NODE_FETCH_SUCCESS,
@@ -660,6 +660,10 @@ test(
       meta: {id: 'foo'}
     },
     {
+      type: EXIT_NODE_FETCH_REQUEST,
+      meta: {id: 'bar'}
+    },
+    {
       type: RECO_FETCH_SUCCESS,
       meta: {id: 'foo'},
       payload: recommendationFixture.recommendations
@@ -672,10 +676,6 @@ test(
       type: NEXT_CONTENT_FETCH_SUCCESS,
       meta: {id: 'foo'},
       payload: recommendationFixture.nextLevel
-    },
-    {
-      type: EXIT_NODE_FETCH_REQUEST,
-      meta: {id: 'bar'}
     },
     {
       type: EXIT_NODE_FETCH_SUCCESS,

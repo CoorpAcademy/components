@@ -1,4 +1,5 @@
 import get from 'lodash/fp/get';
+import last from 'lodash/fp/last';
 import isNil from 'lodash/fp/isNil';
 import {fetchProgression, fetchEngineConfig, fetchBestProgression} from '../api/progressions';
 import {fetchEndRank, fetchStartRank} from '../api/rank';
@@ -75,12 +76,12 @@ export const selectProgression = id => async (dispatch, getState) => {
     }
     case 'success': // eslint-disable-line no-fallthrough
     case 'failure': {
-      dispatch(fetchRecommendations(progressionId));
-      await Promise.all([
+      return Promise.all([
+        dispatch(fetchRecommendations(progressionId)),
         dispatch(fetchEndRank(progressionId)),
-        dispatch(fetchNext(progressionId))
-      ]);
-      return dispatch(fetchExitNode(ref));
+        dispatch(fetchNext(progressionId)),
+        dispatch(fetchExitNode(ref))
+      ]).then(last);
     }
   }
 };
