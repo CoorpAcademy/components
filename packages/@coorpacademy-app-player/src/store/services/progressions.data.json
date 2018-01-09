@@ -338,6 +338,7 @@
       },
       "lives": 3,
       "livesDisabled": false,
+      "remainingLifeRequests": 0,
       "step": {
         "current": 1
       }

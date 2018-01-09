@@ -78,20 +78,23 @@ export const findBestOf = (engineRef, contentRef, progressionId = null) => {
   return bestProgression || set('state.stars', 0, {});
 };
 
-export const computeIsCorrect = async (progression, question, answers) => {
+export const transformAdaptiveProgression = async progression => {
   const {content: {type: contentType, ref: contentRef}} = progression;
   const content = await findContent(contentType, contentRef);
 
-  return !isContentAdaptive(content) ? checkAnswer(progression.engine, question, answers) : null;
+  return isContentAdaptive(content) ? set('state.isCorrect', null, progression) : progression;
 };
+
+export const updateProgression = action => progression =>
+  set('state', updateState(progression.engine, progression.state, [action]), progression);
 
 export const postAnswers = async (progressionId, payload) => {
   const userAnswers = getOr([''], 'answers', payload);
   const slideId = payload.content.ref;
   const slide = slideStore.get(slideId);
   const progression = await findById(progressionId);
+  const isCorrect = checkAnswer(progression.engine, slide.question, userAnswers);
   const slidePools = createSlidePools();
-  const isCorrect = await computeIsCorrect(progression, slide.question, userAnswers);
   const {engine} = progression;
 
   const action = pipe(set('payload.isCorrect', isCorrect), _action => {
@@ -103,9 +106,10 @@ export const postAnswers = async (progressionId, payload) => {
     payload
   });
 
-  return pipe(update('state', state => updateState(progression.engine, state, [action])), save)(
-    progression
-  );
+  return Promise.resolve(progression)
+    .then(updateProgression(action))
+    .then(transformAdaptiveProgression)
+    .then(save);
 };
 
 export const requestClue = async (progressionId, payload) => {
@@ -142,9 +146,10 @@ export const postExtraLife = async (progressionId, payload) => {
     }
   });
 
-  return pipe(update('state', state => updateState(progression.engine, state, [action])), save)(
-    progression
-  );
+  return Promise.resolve(progression)
+    .then(updateProgression(action))
+    .then(transformAdaptiveProgression)
+    .then(save);
 };
 
 // eslint-disable-next-line require-await
