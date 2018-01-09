@@ -55,9 +55,6 @@
 }
 
 .feedback .resourcePlayer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 341px;
   height: 241px;
 }
