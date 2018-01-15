@@ -1,16 +1,19 @@
 import get from 'lodash/fp/get';
 import pipe from 'lodash/fp/pipe';
 import reduce from 'lodash/fp/reduce';
+import values from 'lodash/fp/values';
 import {getConfig} from '@coorpacademy/progression-engine';
 import chaptersData from './chapters.data';
 import levelsData from './levels.data';
 import {findById} from './slides';
 
-const toMapById = reduce((map, object) => map.set(object._id, object));
-const toMapByRef = reduce((map, object) => map.set(object.ref, object));
+const mayBy = key =>
+  pipe(values, reduce((map, object) => map.set(get(key, object), object), new Map()));
+const toMapById = mayBy('_id');
+const toMapByRef = mayBy('ref');
 
-const chapters = toMapById(new Map(), chaptersData);
-const levels = toMapByRef(new Map(), levelsData);
+const chapters = toMapById(chaptersData);
+const levels = toMapByRef(levelsData);
 
 // eslint-disable-next-line import/prefer-default-export
 export const find = (type, ref) => {

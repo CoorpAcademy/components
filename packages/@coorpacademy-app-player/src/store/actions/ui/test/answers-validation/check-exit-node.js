@@ -13,7 +13,7 @@ import {accordionIsOpenAt, progressionUpdated} from './helpers/shared';
 
 const services = t => ({
   Progressions: {
-    postAnswers: (id, payload) => {
+    postAnswer: (id, payload) => {
       t.is(id, 'foo');
       return pipe(
         set('state.content.ref', 'slideRef'),
@@ -52,7 +52,7 @@ test(
     set('data.progressions.entities.foo.state.nextContent', {type: 'slide', ref: 'slideRef'})
   )({}),
   services,
-  validateAnswer('foo', {answers: ['bar']}),
+  validateAnswer('foo', {answer: ['bar']}),
   flatten([
     {
       type: PROGRESSION_CREATE_ANSWER_REQUEST,

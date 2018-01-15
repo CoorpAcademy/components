@@ -5,7 +5,7 @@ import {getConfig} from '@coorpacademy/progression-engine';
 import {
   create,
   findById,
-  postAnswers,
+  postAnswer,
   findBestOf,
   markResourceAsViewed,
   getEngineConfig
@@ -44,9 +44,9 @@ test('should find 0 stars when there is no best score so far', async t => {
 
 test('should add answer action', async t => {
   const progression = await create({engine});
-  const progressionWithAnswer = await postAnswers(progression._id, {
+  const progressionWithAnswer = await postAnswer(progression._id, {
     content: progression.state.nextContent,
-    answers: ['bar']
+    answer: ['bar']
   });
 
   t.true(isObject(progressionWithAnswer.state));

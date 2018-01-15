@@ -3,18 +3,21 @@ import get from 'lodash/fp/get';
 import head from 'lodash/fp/head';
 import unset from 'lodash/fp/unset';
 import pipe from 'lodash/fp/pipe';
+import values from 'lodash/fp/values';
 import {getConfig} from '@coorpacademy/progression-engine';
 import chaptersData from '../chapters.data';
 import slidesData from '../slides.data';
 import levelsData from '../levels.data';
 import {find, getInfo} from '../content';
 
+const first = pipe(values, head);
+
 test('should throw error if content type is unknown', t => {
   return t.throws(find('unknown', 'foo'));
 });
 
 test('should find a level', async t => {
-  const level = head(levelsData);
+  const level = first(levelsData);
   t.deepEqual(await find('level', level.ref), level);
 });
 
@@ -24,7 +27,7 @@ test('should tell when a level is not found', async t => {
 });
 
 test('should find a chapter', async t => {
-  const chapter = head(chaptersData);
+  const chapter = first(chaptersData);
   t.deepEqual(await find('chapter', chapter._id), chapter);
 });
 
@@ -34,7 +37,7 @@ test('should tell when a chapter is not found', async t => {
 });
 
 test('should find a slide', async t => {
-  const slide = pipe(head, unset('clue'), unset('question.content.answers'))(slidesData);
+  const slide = pipe(first, unset('clue'), unset('question.content.answers'))(slidesData);
   t.deepEqual(await find('slide', slide._id), slide);
 });
 

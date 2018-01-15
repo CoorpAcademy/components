@@ -15,15 +15,15 @@ const getState = pipe(
 );
 
 test(
-  'should post answers',
+  'should post answer',
   macro,
   getState({}),
   t => ({
     Progressions: {
-      postAnswers: (id, payload) => {
+      postAnswer: (id, payload) => {
         t.is(id, 'foo');
-        t.deepEqual(payload, {content: 'bar', answers: ['baz']});
-        return 'qux';
+        t.deepEqual(payload, {content: 'bar', answer: ['baz']});
+        return {state: {}};
       }
     }
   }),
@@ -31,12 +31,12 @@ test(
   [
     {
       type: PROGRESSION_CREATE_ANSWER_REQUEST,
-      meta: {progressionId: 'foo'}
+      meta: {progressionId: 'foo', answer: ['baz'], content: 'bar'}
     },
     {
       type: PROGRESSION_CREATE_ANSWER_SUCCESS,
-      meta: {progressionId: 'foo'},
-      payload: 'qux'
+      meta: {progressionId: 'foo', answer: ['baz'], content: 'bar'},
+      payload: {state: {}}
     }
   ],
   2
@@ -53,7 +53,7 @@ test(
       }
     },
     Progressions: {
-      postAnswers: id => {
+      postAnswer: id => {
         t.is(id, 'foo');
         throw new Error('some error');
       }
@@ -63,11 +63,11 @@ test(
   [
     {
       type: PROGRESSION_CREATE_ANSWER_REQUEST,
-      meta: {progressionId: 'foo'}
+      meta: {progressionId: 'foo', answer: ['baz'], content: 'bar'}
     },
     {
       type: PROGRESSION_CREATE_ANSWER_FAILURE,
-      meta: {progressionId: 'foo'},
+      meta: {progressionId: 'foo', answer: ['baz'], content: 'bar'},
       error: true,
       payload: new Error('some error')
     }
