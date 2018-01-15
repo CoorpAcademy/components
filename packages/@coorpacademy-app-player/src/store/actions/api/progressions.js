@@ -68,7 +68,7 @@ export const createAnswer = (progressionId, answer) => (dispatch, getState, {ser
     meta: {
       progressionId,
       content: nextContent,
-      answers
+      answer
     }
   });
 

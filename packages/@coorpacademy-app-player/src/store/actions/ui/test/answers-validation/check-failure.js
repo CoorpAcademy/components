@@ -61,7 +61,7 @@ test(
 );
 
 test(
-  'should dispatch failure when answers request fail',
+  'should dispatch failure when answer request fail',
   macro,
   pipe(
     set('ui.current.progressionId', 'foo'),

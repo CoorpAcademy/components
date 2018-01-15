@@ -1,5 +1,5 @@
-[
-  {
+{
+  "1.B": {
     "ref": "1.B",
     "name": "Level1",
     "level": "base",
@@ -14,7 +14,7 @@
     },
     "chapterIds": ["1.B1", "1.B2"]
   },
-  {
+  "1.A": {
     "ref": "1.A",
     "name": "Level1",
     "level": "advanced",
@@ -29,7 +29,7 @@
     },
     "chapterIds": ["5.C7", "5.C8"]
   },
-  {
+  "1.C": {
     "ref": "1.C",
     "name": "Level1",
     "level": "coach",
@@ -44,7 +44,7 @@
     },
     "chapterIds": ["1.C1", "1.C2"]
   },
-  {
+  "2.B": {
     "ref": "2.B",
     "name": "Level21",
     "level": "base",
@@ -59,4 +59,4 @@
     },
     "chapterIds": ["2.B1", "2.B2"]
   }
-]
+}

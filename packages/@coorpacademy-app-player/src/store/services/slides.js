@@ -1,13 +1,15 @@
 import get from 'lodash/fp/get';
-import set from 'lodash/fp/set';
 import map from 'lodash/fp/map';
 import pipe from 'lodash/fp/pipe';
-import update from 'lodash/fp/update';
 import reduce from 'lodash/fp/reduce';
+import set from 'lodash/fp/set';
 import unset from 'lodash/fp/unset';
+import update from 'lodash/fp/update';
+import values from 'lodash/fp/values';
 import slidesData from './slides.data';
 
 const slideStore = pipe(
+  values,
   map(pipe(unset('clue'), unset('question.content.answers'))),
   reduce((slideMap, slide) => slideMap.set(slide._id, slide), new Map())
 )(slidesData);

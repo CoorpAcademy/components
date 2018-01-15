@@ -139,7 +139,7 @@ export const newComputeNextStep = (
     content: state.nextContent,
     isCorrect,
     slides: [...state.slides, state.nextContent.ref],
-    lives: isCorrect ? state.lives - 1 : state.lives,
+    lives: isCorrect ? state.lives : state.lives - 1,
     allAnswers: [
       ...state.allAnswers,
       {
