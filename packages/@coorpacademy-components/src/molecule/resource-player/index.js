@@ -15,7 +15,7 @@ const ResourceElement = props => {
 
   switch (type) {
     case TYPE_IMAGE:
-      return <img className={style.img} src={url} />;
+      return <div className={style.img} style={{backgroundImage: `url(${url})`}} />;
     case TYPE_PDF:
       return <Pdf {...childProps} />;
     case TYPE_VIDEO:
