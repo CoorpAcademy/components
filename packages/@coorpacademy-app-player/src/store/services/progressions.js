@@ -88,7 +88,7 @@ export const postAnswer = async (progressionId, payload) => {
 
   const {nextContent, instructions, isCorrect} = newComputeNextStep(engine, state, {
     currentSlide: slide,
-    answer: userAnswers,
+    answer: userAnswer,
     godMode: false,
 
     slidePools,
