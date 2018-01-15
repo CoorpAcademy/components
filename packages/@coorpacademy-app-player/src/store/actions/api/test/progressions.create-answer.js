@@ -23,7 +23,7 @@ test(
       postAnswer: (id, payload) => {
         t.is(id, 'foo');
         t.deepEqual(payload, {content: 'bar', answer: ['baz']});
-        return 'qux';
+        return {state: {}};
       }
     }
   }),
@@ -31,12 +31,12 @@ test(
   [
     {
       type: PROGRESSION_CREATE_ANSWER_REQUEST,
-      meta: {progressionId: 'foo'}
+      meta: {progressionId: 'foo', answer: ['baz'], content: 'bar'}
     },
     {
       type: PROGRESSION_CREATE_ANSWER_SUCCESS,
-      meta: {progressionId: 'foo'},
-      payload: 'qux'
+      meta: {progressionId: 'foo', answer: ['baz'], content: 'bar'},
+      payload: {state: {}}
     }
   ],
   2
@@ -63,11 +63,11 @@ test(
   [
     {
       type: PROGRESSION_CREATE_ANSWER_REQUEST,
-      meta: {progressionId: 'foo'}
+      meta: {progressionId: 'foo', answer: ['baz'], content: 'bar'}
     },
     {
       type: PROGRESSION_CREATE_ANSWER_FAILURE,
-      meta: {progressionId: 'foo'},
+      meta: {progressionId: 'foo', answer: ['baz'], content: 'bar'},
       error: true,
       payload: new Error('some error')
     }

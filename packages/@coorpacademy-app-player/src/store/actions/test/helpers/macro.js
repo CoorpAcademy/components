@@ -25,6 +25,7 @@ const actionMacro = async (
     Logger: {
       error: err => {
         t.log(`Unexpected error was logged: ${err.message}`);
+        t.log(err.stack);
         t.fail();
       }
     }
