@@ -56,11 +56,25 @@ test(
   flatten([
     {
       type: PROGRESSION_CREATE_ANSWER_REQUEST,
-      meta: {progressionId: 'foo'}
+      meta: {
+        progressionId: 'foo',
+        answer: ['bar'],
+        content: {
+          ref: 'slideRef',
+          type: 'slide'
+        }
+      }
     },
     {
       type: PROGRESSION_CREATE_ANSWER_SUCCESS,
-      meta: {progressionId: 'foo'},
+      meta: {
+        progressionId: 'foo',
+        answer: ['bar'],
+        content: {
+          ref: 'slideRef',
+          type: 'slide'
+        }
+      },
       payload: pipe(
         set('state.content.ref', 'slideRef'),
         set('state.nextContent', {type: 'success', ref: 'successExitNode'})
