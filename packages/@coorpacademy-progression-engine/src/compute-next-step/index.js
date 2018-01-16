@@ -25,6 +25,7 @@ import type {
   IsCorrect
 } from '../types';
 import checkAnswer from '../check-answer';
+import updateState from '../update-state';
 import getConfig from '../config';
 import type {ChapterRule, Instruction, Condition} from './rule-engine/types';
 import selectRule from './rule-engine/select-rule';
@@ -126,6 +127,11 @@ const getIsCorrect = (isCorrect: ?IsCorrect, chapterRule: ChapterRule): ?IsCorre
   return null;
 };
 
+const EMPTY_NODE = {
+  type: 'node',
+  ref: 'empty'
+};
+
 export const newComputeNextStep = (
   engine: Engine,
   state: State,
@@ -134,21 +140,17 @@ export const newComputeNextStep = (
   const {chapterRules, currentSlide, answer} = params;
   const isCorrect = checkAnswer(engine, currentSlide.question, answer);
 
-  const nextState = {
-    ...state,
-    content: state.nextContent,
-    isCorrect,
-    slides: [...state.slides, state.nextContent.ref],
-    lives: isCorrect ? state.lives : state.lives - 1,
-    allAnswers: [
-      ...state.allAnswers,
-      {
-        slideRef: currentSlide._id,
+  const nextState = updateState(engine, state, [
+    {
+      type: 'answer',
+      payload: {
+        content: state.nextContent,
+        nextContent: EMPTY_NODE,
         answer,
         isCorrect
       }
-    ]
-  };
+    }
+  ]);
 
   if (Array.isArray(chapterRules) && chapterRules.length > 0) {
     const chapterRule = selectRule(chapterRules, nextState);
@@ -161,8 +163,6 @@ export const newComputeNextStep = (
       isCorrect: getIsCorrect(isCorrect, chapterRule)
     };
   }
-
-  // @todo apply fake answer action to state
 
   const {slidePools} = params;
   const nextContent = computeNextStep(engine, slidePools, nextState);

@@ -80,11 +80,25 @@ const successfullyFetchAnswer = [
 const createCorrectAnswer = [
   {
     type: PROGRESSION_CREATE_ANSWER_REQUEST,
-    meta: {progressionId: 'foo'}
+    meta: {
+      progressionId: 'foo',
+      answer: ['bar'],
+      content: {
+        ref: 'baz',
+        type: 'slide'
+      }
+    }
   },
   {
     type: PROGRESSION_CREATE_ANSWER_SUCCESS,
-    meta: {progressionId: 'foo'},
+    meta: {
+      progressionId: 'foo',
+      answer: ['bar'],
+      content: {
+        ref: 'baz',
+        type: 'slide'
+      }
+    },
     payload: postAnswerPayload
   }
 ];
