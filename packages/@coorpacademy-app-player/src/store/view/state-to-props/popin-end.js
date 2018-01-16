@@ -3,6 +3,7 @@ import constant from 'lodash/fp/constant';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import isEqual from 'lodash/fp/isEqual';
+import pick from 'lodash/fp/pick';
 import pipe from 'lodash/fp/pipe';
 import omit from 'lodash/fp/omit';
 import {retry, exit, nextLevel, seeComment} from '../../actions/ui/location';
@@ -193,13 +194,10 @@ const extractAction = ({translate}, {dispatch}) => state => {
   ]);
 };
 
-const extractFeedback = exitNode => {
-  return {
-    title: get('title', exitNode),
-    description: get('description', exitNode),
-    media: omit(['ref', 'subtitles', 'posters'], get('media', exitNode))
-  };
-};
+const extractFeedback = pipe(
+  pick(['title', 'description', 'media', 'mediaDescription']),
+  omit(['media.ref', 'media.subtitles', 'media.posters'])
+);
 
 const popinEndStateToProps = (options, store) => state => {
   const progression = getCurrentProgression(state);
