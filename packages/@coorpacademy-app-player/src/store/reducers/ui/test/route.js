@@ -1,7 +1,10 @@
 import test from 'ava';
 import reducer from '../route';
 import {UI_SELECT_ROUTE} from '../../../actions/ui/route';
-import {PROGRESSION_CREATE_ANSWER_REQUEST} from '../../../actions/api/progressions';
+import {
+  PROGRESSION_CREATE_ANSWER_REQUEST,
+  PROGRESSION_CREATE_ANSWER_SUCCESS
+} from '../../../actions/api/progressions';
 import macro from '../../test/helpers/macro';
 
 test('should have initial value', macro, reducer, undefined, {}, {});
@@ -54,5 +57,51 @@ test(
   },
   {
     foo: 'correction'
+  }
+);
+
+test(
+  'should keep on correction route',
+  macro,
+  reducer,
+  {
+    foo: 'correction'
+  },
+  {
+    type: PROGRESSION_CREATE_ANSWER_REQUEST,
+    meta: {
+      progressionId: 'foo'
+    },
+    payload: {
+      state: {
+        isCorrect: true
+      }
+    }
+  },
+  {
+    foo: 'correction'
+  }
+);
+
+test(
+  'should quit correction route to slide if isCorrect is null',
+  macro,
+  reducer,
+  {
+    foo: 'correction'
+  },
+  {
+    type: PROGRESSION_CREATE_ANSWER_SUCCESS,
+    meta: {
+      progressionId: 'foo'
+    },
+    payload: {
+      state: {
+        isCorrect: null
+      }
+    }
+  },
+  {
+    foo: 'slide'
   }
 );

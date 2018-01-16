@@ -165,3 +165,5 @@ export const getNextContentFromRecommendations = state => {
 };
 
 export const getCoaches = getOr(0, 'ui.coaches.availableCoaches');
+
+export const isContentAdaptive = getOr(false, 'isConditional');

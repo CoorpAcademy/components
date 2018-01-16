@@ -1,3 +1,4 @@
+import get from 'lodash/fp/get';
 import set from 'lodash/fp/set';
 import unset from 'lodash/fp/unset';
 import isNull from 'lodash/fp/isNull';
@@ -11,11 +12,16 @@ import {UI_SELECT_PROGRESSION} from '../../actions/ui/progressions';
 
 const uiRouteReducer = (state = {}, {type, payload, meta}) => {
   switch (type) {
-    case PROGRESSION_CREATE_ANSWER_REQUEST:
+    case PROGRESSION_CREATE_ANSWER_REQUEST: {
+      const {progressionId} = meta;
+
+      return set(progressionId, 'correction', state);
+    }
     case PROGRESSION_CREATE_ANSWER_SUCCESS:
     case PROGRESSION_CREATE_ANSWER_FAILURE: {
       const {progressionId} = meta;
-      return set(progressionId, 'correction', state);
+
+      return get('state.isCorrect', payload) === null ? set(progressionId, 'slide', state) : state;
     }
     case UI_SELECT_PROGRESSION: {
       const {id: progressionId} = payload;

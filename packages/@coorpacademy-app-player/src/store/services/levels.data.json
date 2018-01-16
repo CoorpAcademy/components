@@ -58,5 +58,21 @@
       "src": []
     },
     "chapterIds": ["2.B1", "2.B2"]
+  },
+  {
+    "ref": "3.A",
+    "name": "Level31",
+    "level": "base",
+    "isConditional": true,
+    "meta": {
+      "updatedAt": "2017-01-26T09:19:06.874Z",
+      "createdAt": "2017-01-26T09:19:05.667Z"
+    },
+    "poster": {
+      "subtitles": [],
+      "posters": [],
+      "src": []
+    },
+    "chapterIds": ["5.C7"]
   }
 ]

@@ -1,6 +1,7 @@
 import test from 'ava';
 import isObject from 'lodash/fp/isObject';
 import isString from 'lodash/fp/isString';
+import find from 'lodash/fp/find';
 import {getConfig} from '@coorpacademy/progression-engine';
 import {
   create,
@@ -10,6 +11,7 @@ import {
   markResourceAsViewed,
   getEngineConfig
 } from '../progressions';
+import progressionFixtures from '../progressions.data';
 
 const engine = {
   ref: 'microlearning',
@@ -52,6 +54,17 @@ test('should add answer action', async t => {
   t.true(isObject(progressionWithAnswer.state));
   t.true(isObject(progressionWithAnswer.state.nextContent));
   t.true(isString(progressionWithAnswer.state.nextContent.ref));
+  t.is(progressionWithAnswer.state.isCorrect, false);
+});
+
+test('should put isCorrect to null in case of adaptive content', async t => {
+  const progression = find(({_id}) => _id === 'adaptive', progressionFixtures);
+  const progressionWithAnswer = await postAnswers(progression._id, {
+    content: progression.state.nextContent,
+    answers: ['bar']
+  });
+
+  t.is(progressionWithAnswer.state.isCorrect, null);
 });
 
 test("should throw error if progression doesn't exist", t => {
