@@ -88,7 +88,7 @@ test('should return a valid state when there are no actions', t => {
     type: 'slide',
     ref: '1.A1.1'
   });
-  const progression = createProgression(engine, content, initialContent, false);
+  const progression = createProgression(engine, content, initialContent, {livesDisabled: false});
 
   const state = updateState(engine, progression.state, []);
 
