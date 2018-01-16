@@ -35,3 +35,11 @@ test('should not modify lives for any other type of action', t => {
   const result = lives(config)(5, askClueAction, stateForSecondSlide);
   t.is(result, 5);
 });
+
+test('should not increment lives counter if there are no more remainingLifeRequests', t => {
+  const result = lives(config)(0, extraLifeAcceptedAction, {
+    ...stateForSecondSlide,
+    remainingLifeRequests: 0
+  });
+  t.is(result, 0);
+});
