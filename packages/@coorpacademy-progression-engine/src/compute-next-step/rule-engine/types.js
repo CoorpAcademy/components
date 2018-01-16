@@ -21,8 +21,8 @@ type Condition = {
 
 type Instruction = {
   field: string,
-  type: 'add',
-  value: number
+  type: 'add' | 'set',
+  value: number | boolean | string
 };
 
 type ChapterRule = {

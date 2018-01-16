@@ -9,7 +9,7 @@ import matches from 'lodash/fp/matches';
 import type {State, Content, Slide} from '../../types';
 import computeNextStep from '..';
 import allSlides from './fixtures/slides';
-import {stateBeforeGettingNextContent} from './fixtures/states';
+import {stateBeforeGettingNextContent, firstState} from './fixtures/states';
 
 const engine = {
   ref: 'microlearning',
@@ -27,6 +27,15 @@ const prioritySlides: Array<Slide> = pipe(
   merge([{position: 0}, {position: 0}, {position: 0}, {position: 1}, {position: 0}])
 )(allSlides);
 
+const slide1A11: ?Slide = find(
+  {
+    _id: '1.A1.1'
+  },
+  allSlides
+);
+
+if (!slide1A11) throw new Error('Slide `1.A1.1` not found');
+
 const slides = [
   {
     chapterId: '1.A1',
@@ -43,34 +52,56 @@ const getId = (slide: ?Slide) => {
 const tryfindHigherPrioritySlideId = pipe(findHigherPrioritySlide, getId);
 
 test('should return the slide with higher priority from slides', t => {
-  const state: State = Object.freeze(stateBeforeGettingNextContent);
+  const state = firstState;
 
-  const nextStep: Content = computeNextStep(engine, slides, state);
+  const {nextContent} =
+    computeNextStep(engine, state, {
+      currentSlide: slide1A11,
+      answer: [],
+      godMode: true,
 
-  t.is(nextStep.ref, tryfindHigherPrioritySlideId(prioritySlides));
+      slidePools: slides
+    }) || {};
+
+  t.is(nextContent.ref, tryfindHigherPrioritySlideId(prioritySlides));
 
   const nextState: State = {
     ...state,
-    content: nextStep,
-    slides: [...state.slides, nextStep.ref]
+    content: nextContent,
+    slides: [...state.slides, nextContent.ref]
   };
 
-  const nextNextStep = computeNextStep(engine, slides, nextState);
+  const {nextContent: nextNextContent} =
+    computeNextStep(engine, nextState, {
+      currentSlide: slide1A11,
+      answer: [],
+      godMode: true,
 
-  t.is((find({_id: nextNextStep.ref}, prioritySlides) || {}).position, 0);
+      slidePools: slides
+    }) || {};
+
+  t.is((find({_id: nextNextContent.ref}, prioritySlides) || {}).position, 0);
 });
 
 test('should return first slide pool if no slides in state', t => {
-  const state: State = omit(['slides'], stateBeforeGettingNextContent);
+  // const state: State = omit(['slides'], stateBeforeGettingNextContent);
+  const state = firstState;
 
-  const nextStep = computeNextStep(engine, slides, state);
+  const {nextContent} =
+    computeNextStep(engine, state, {
+      currentSlide: slide1A11,
+      answer: [],
+      godMode: true,
 
-  t.is(nextStep.ref, tryfindHigherPrioritySlideId(prioritySlides));
+      slidePools: slides
+    }) || {};
+
+  t.is(nextContent.ref, tryfindHigherPrioritySlideId(prioritySlides));
 
   const nextState = {
     ...state,
-    content: nextStep,
-    slides: [nextStep.ref]
+    content: nextContent,
+    slides: [nextContent.ref]
   };
 
   const nextNextStep = computeNextStep(engine, slides, nextState);

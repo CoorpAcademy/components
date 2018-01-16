@@ -26,6 +26,27 @@ export const stateBeforeGettingNextContent: State = {
   variables: {}
 };
 
+export const firstState: State = {
+  nextContent: {
+    ref: '1.A1.1',
+    type: 'slide'
+  },
+  lives: 1,
+  livesDisabled: false,
+  stars: 0,
+  slides: [],
+  requestedClues: [],
+  viewedResources: [],
+  step: {
+    current: 0
+  },
+  isCorrect: null,
+  remainingLifeRequests: 1,
+  hasViewedAResourceAtThisStep: false,
+  allAnswers: [],
+  variables: {}
+};
+
 export const failProgressionState: State = {
   content: {
     ref: '1.A1.2',
