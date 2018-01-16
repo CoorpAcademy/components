@@ -19,7 +19,7 @@ export const findById = async (progressionId, slideId, givenAnswers = []) => {
   const {engine} = progression;
   const slide = find({_id: slideId}, slidesData);
 
-  if (!includes(slideId, progression.state.slides)) throw new Error('Answers are not available');
+  if (!includes(slideId, progression.state.slides)) throw new Error('Answer is not available');
   const correctAnswer = answerStore.get(slideId);
   const question = assign(slide.question, {
     answers: [correctAnswer]

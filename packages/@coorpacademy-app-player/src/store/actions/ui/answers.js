@@ -57,7 +57,7 @@ export const editAnswer = (state, questionType, progressionId, newValue) => {
 };
 
 export const validateAnswer = (progressionId, body) => async (dispatch, getState, {services}) => {
-  const createAnswerResponse = await dispatch(createAnswer(progressionId, body.answers));
+  const createAnswerResponse = await dispatch(createAnswer(progressionId, body.answer));
   if (createAnswerResponse.error) return createAnswerResponse;
 
   const payload = createAnswerResponse.payload;
@@ -91,5 +91,5 @@ export const validateAnswer = (progressionId, body) => async (dispatch, getState
   }
 
   await dispatch(progressionUpdated(progressionId));
-  return dispatch(fetchAnswer(progressionId, slideId, body.answers));
+  return dispatch(fetchAnswer(progressionId, slideId, body.answer));
 };

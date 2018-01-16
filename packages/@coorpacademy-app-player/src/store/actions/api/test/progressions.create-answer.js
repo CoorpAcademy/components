@@ -15,14 +15,14 @@ const getState = pipe(
 );
 
 test(
-  'should post answers',
+  'should post answer',
   macro,
   getState({}),
   t => ({
     Progressions: {
-      postAnswers: (id, payload) => {
+      postAnswer: (id, payload) => {
         t.is(id, 'foo');
-        t.deepEqual(payload, {content: 'bar', answers: ['baz']});
+        t.deepEqual(payload, {content: 'bar', answer: ['baz']});
         return 'qux';
       }
     }
@@ -53,7 +53,7 @@ test(
       }
     },
     Progressions: {
-      postAnswers: id => {
+      postAnswer: id => {
         t.is(id, 'foo');
         throw new Error('some error');
       }

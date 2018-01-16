@@ -73,7 +73,7 @@ const playerProps = (options, store) => state => {
   const clickCTAHandler = () =>
     dispatch(
       validateAnswer(getCurrentProgressionId(state), {
-        answers: getAnswerValues(slide, state),
+        answer: getAnswerValues(slide, state),
         slideId: slide._id
       })
     );

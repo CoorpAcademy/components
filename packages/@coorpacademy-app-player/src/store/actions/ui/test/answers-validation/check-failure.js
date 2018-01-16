@@ -34,17 +34,17 @@ test(
       }
     },
     Progressions: {
-      postAnswers: (id, payload) => {
+      postAnswer: (id, payload) => {
         t.is(id, 'foo');
         t.deepEqual(payload, {
           content: {type: 'slide', ref: 'baz'},
-          answers: ['bar']
+          answer: ['bar']
         });
         throw new Error('some error');
       }
     }
   }),
-  validateAnswer('foo', {answers: ['bar']}),
+  validateAnswer('foo', {answer: ['bar']}),
   [
     {
       type: PROGRESSION_CREATE_ANSWER_REQUEST,
@@ -81,11 +81,11 @@ test(
       }
     },
     Progressions: {
-      postAnswers: (id, payload) => {
+      postAnswer: (id, payload) => {
         t.is(id, 'foo');
         t.deepEqual(payload, {
           content: {type: 'slide', ref: 'baz'},
-          answers: ['bar']
+          answer: ['bar']
         });
         return pipe(
           set('state.content.ref', 'baz'),
@@ -112,7 +112,7 @@ test(
       }
     }
   }),
-  validateAnswer('foo', {answers: ['bar']}),
+  validateAnswer('foo', {answer: ['bar']}),
   flatten([
     {
       type: PROGRESSION_CREATE_ANSWER_REQUEST,
