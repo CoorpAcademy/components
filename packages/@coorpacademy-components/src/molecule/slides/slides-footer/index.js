@@ -32,13 +32,13 @@ const SlidesFooter = (props, context) => {
   const xtraLightGrey = get('common.xtraLightGrey', skin);
 
   const buttonsView = buttons.map((button, key) => {
-    const {disabled, notify, selected, highlighted, title, type, onClick} = button;
-
+    const {disabled, hasClue, notify, selected, highlighted, title, type, onClick} = button;
     const IconType = get([type, 'icon'], TABS);
 
     const className = classnames(
       style.button,
       get([type, 'className'], TABS),
+      hasClue === false && style.disabled,
       selected && style.selected,
       disabled && style.disabled
     );
@@ -80,6 +80,7 @@ SlidesFooter.propTypes = {
   buttons: PropTypes.arrayOf(
     PropTypes.shape({
       disabled: PropTypes.bool,
+      hasClue: PropTypes.bool,
       notify: PropTypes.bool,
       selected: PropTypes.bool,
       highlighted: PropTypes.bool,
