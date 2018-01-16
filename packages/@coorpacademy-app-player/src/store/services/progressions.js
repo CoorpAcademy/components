@@ -76,8 +76,8 @@ export const findBestOf = (engineRef, contentRef, progressionId = null) => {
   return bestProgression || set('state.stars', 0, {});
 };
 
-export const postAnswers = async (progressionId, payload) => {
-  const userAnswers = getOr([''], 'answers', payload);
+export const postAnswer = async (progressionId, payload) => {
+  const userAnswer = getOr([''], 'answer', payload);
   const slideId = payload.content.ref;
   const slide = slideStore.get(slideId);
   const progression = await findById(progressionId);
@@ -85,7 +85,7 @@ export const postAnswers = async (progressionId, payload) => {
   const {engine} = progression;
 
   const action = pipe(
-    set('payload.isCorrect', checkAnswer(engine, slide.question, userAnswers)),
+    set('payload.isCorrect', checkAnswer(engine, slide.question, userAnswer)),
     _action => {
       let nextState = updateState(engine, progression.state, [_action]);
       nextState = set('nextContent', nextState.content, nextState);

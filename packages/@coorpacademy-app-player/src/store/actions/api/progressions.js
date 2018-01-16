@@ -49,7 +49,7 @@ export const PROGRESSION_CREATE_ANSWER_REQUEST = '@@progression/CREATE_ANSWER_RE
 export const PROGRESSION_CREATE_ANSWER_SUCCESS = '@@progression/CREATE_ANSWER_SUCCESS';
 export const PROGRESSION_CREATE_ANSWER_FAILURE = '@@progression/CREATE_ANSWER_FAILURE';
 
-export const createAnswer = (progressionId, answers) => (dispatch, getState, {services}) => {
+export const createAnswer = (progressionId, answer) => (dispatch, getState, {services}) => {
   const {Progressions} = services;
   const progression = getProgression(progressionId)(getState());
   const nextContent = progression.state.nextContent;
@@ -61,9 +61,9 @@ export const createAnswer = (progressionId, answers) => (dispatch, getState, {se
       PROGRESSION_CREATE_ANSWER_FAILURE
     ],
     task: () =>
-      Progressions.postAnswers(progressionId, {
+      Progressions.postAnswer(progressionId, {
         content: nextContent,
-        answers
+        answer
       }),
     meta: {progressionId}
   });

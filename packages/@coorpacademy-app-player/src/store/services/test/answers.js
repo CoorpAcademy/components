@@ -11,21 +11,21 @@ const engine = {
 
 test('findById should return the correct answer and corrections for the given answer', async t => {
   const progression = await Progressions.create({engine});
-  const answers = ['bar'];
-  const progressionWithAnswer = await Progressions.postAnswers(progression._id, {
+  const answer = ['bar'];
+  const progressionWithAnswer = await Progressions.postAnswer(progression._id, {
     content: progression.state.nextContent,
-    answers
+    answer
   });
   const slide = find({_id: progressionWithAnswer.state.content.ref}, slidesData);
 
-  const correctAnswers = await findById(
+  const correctAnswer = await findById(
     progressionWithAnswer._id,
     progressionWithAnswer.state.content.ref,
-    answers
+    answer
   );
 
-  t.deepEqual(correctAnswers.correctAnswer, slide.question.content.answers[0]);
-  t.deepEqual(correctAnswers.corrections, [{answer: 'bar', isCorrect: false}]);
+  t.deepEqual(correctAnswer.correctAnswer, slide.question.content.answers[0]);
+  t.deepEqual(correctAnswer.corrections, [{answer: 'bar', isCorrect: false}]);
 
   const correctAnswersWithoutGivenAnswer = await findById(
     progressionWithAnswer._id,
@@ -39,6 +39,6 @@ test("findById should throw error if slide doesn't exist", async t => {
   const progression = await Progressions.create({engine});
   return t.throws(
     findById(progression._id, progression.state.nextContent.ref, ['foo', 'bar']),
-    'Answers are not available'
+    'Answer is not available'
   );
 });

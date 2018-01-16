@@ -13,7 +13,7 @@ import {ANSWER_FETCH_REQUEST, ANSWER_FETCH_SUCCESS} from '../../../api/answers';
 import {CONTENT_FETCH_REQUEST, CONTENT_FETCH_SUCCESS} from '../../../api/contents';
 import {accordionIsOpenAt, progressionUpdated} from './helpers/shared';
 
-const postAnswersPayload = pipe(
+const postAnswerPayload = pipe(
   set('state.content.ref', 'baz'),
   set('state.nextContent', {type: 'slide', ref: 'slideRef'}),
   set('state.isCorrect', true)
@@ -56,7 +56,7 @@ const contentFetchActions = [
   }
 ];
 
-const successfullyFetchAnswers = [
+const successfullyFetchAnswer = [
   {
     type: ANSWER_FETCH_REQUEST,
     meta: {
@@ -85,12 +85,12 @@ const createCorrectAnswer = [
   {
     type: PROGRESSION_CREATE_ANSWER_SUCCESS,
     meta: {progressionId: 'foo'},
-    payload: postAnswersPayload
+    payload: postAnswerPayload
   }
 ];
 
 test(
-  'should submit answers with the current content and refresh progression state',
+  'should submit answer with the current content and refresh progression state',
   macro,
   pipe(
     set('ui.current.progressionId', 'foo'),
@@ -106,13 +106,13 @@ test(
   t => ({
     Content: mockContentService(t),
     Progressions: {
-      postAnswers: (id, payload) => {
+      postAnswer: (id, payload) => {
         t.is(id, 'foo');
         t.deepEqual(payload, {
           content: {type: 'slide', ref: 'baz'},
-          answers: ['bar']
+          answer: ['bar']
         });
-        return postAnswersPayload;
+        return postAnswerPayload;
       },
       findById: id => {
         t.is(id, 'foo');
@@ -131,18 +131,18 @@ test(
     Analytics: {
       sendProgressionAnalytics: (currentProgression, engineConfig) => {
         t.is(currentProgression.engine.ref, 'learner');
-        t.deepEqual(currentProgression.state.nextContent, postAnswersPayload.state.nextContent);
+        t.deepEqual(currentProgression.state.nextContent, postAnswerPayload.state.nextContent);
         return 'sent';
       }
     }
   }),
-  validateAnswer('foo', {answers: ['bar']}),
+  validateAnswer('foo', {answer: ['bar']}),
   flatten([
     createCorrectAnswer,
     contentFetchActions,
     accordionIsOpenAt(2),
     progressionUpdated,
-    successfullyFetchAnswers
+    successfullyFetchAnswer
   ]),
   7
 );

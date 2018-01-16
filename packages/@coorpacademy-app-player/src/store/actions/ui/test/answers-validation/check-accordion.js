@@ -50,11 +50,11 @@ const stateWithSlideAndManyResources = pipe(
 const services = result => t => ({
   Content: mockContentService(t),
   Progressions: {
-    postAnswers: (id, payload) => {
+    postAnswer: (id, payload) => {
       t.is(id, 'foo');
       t.deepEqual(payload, {
         content: {type: 'slide', ref: 'baz'},
-        answers: ['bar']
+        answer: ['bar']
       });
       return result;
     },
@@ -120,7 +120,7 @@ test(
   macro,
   stateWithSlideAndManyResources,
   services(viewedOneLesson),
-  validateAnswer('foo', {answers: ['bar']}),
+  validateAnswer('foo', {answer: ['bar']}),
   flatten([
     answer(viewedOneLesson),
     contentFetchActions,
@@ -136,7 +136,7 @@ test(
   macro,
   stateWithSlideAndManyResources,
   services(viewedThreeLessons),
-  validateAnswer('foo', {answers: ['bar']}),
+  validateAnswer('foo', {answer: ['bar']}),
   flatten([
     answer(viewedThreeLessons),
     contentFetchActions,
@@ -152,7 +152,7 @@ test(
   macro,
   stateWithSlideAndManyResources,
   services(extraLifeAndViewedThreeLessons),
-  validateAnswer('foo', {answers: ['bar']}),
+  validateAnswer('foo', {answer: ['bar']}),
   flatten([
     answer(extraLifeAndViewedThreeLessons),
     accordionIsOpenAt(0),
