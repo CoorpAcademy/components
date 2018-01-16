@@ -269,6 +269,23 @@ test("should select chapterRule with 'variables' scope", t => {
         {
           target: {
             scope: 'variable',
+            field: 'foo'
+          },
+          operator: 'EQUALS',
+          values: [1]
+        }
+      ],
+      priority: 0,
+      ref: 'lives'
+    },
+    {
+      source,
+      destination,
+      instructions: [],
+      conditions: [
+        {
+          target: {
+            scope: 'variable',
             field: 'lives'
           },
           operator: 'GTE',

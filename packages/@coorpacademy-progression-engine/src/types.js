@@ -1,5 +1,7 @@
 // @flow
 
+import type {Instruction} from './compute-next-step/rule-engine/types';
+
 export type ViewedResource = {
   type: 'chapter',
   ref: string,
@@ -81,7 +83,8 @@ export type AnswerAction = {
     nextContent: Content,
     answer: Answer,
     isCorrect: IsCorrect,
-    godMode?: boolean
+    godMode?: boolean,
+    instructions?: Array<Instruction>
   }
 };
 
@@ -118,10 +121,16 @@ export type Engine = {
   version: string
 };
 
+export type Configuration = {
+  instructions?: Array<Instruction>,
+  nextContent?: Content
+};
+
 export type Progression = {
   content: Content,
-  initialState: State,
-  state: State,
+  // initialState: State,
+  configuration?: Configuration,
+  // state: State,
   actions: Array<Action>,
   engine: Engine
 };

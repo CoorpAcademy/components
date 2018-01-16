@@ -68,11 +68,11 @@ const sortByPosition = sortBy(
 
 const pickNextSlide = pipe(shuffle, sortByPosition, head);
 
-export default function computeNextStep(
+const simpleComputeNextStep = (
   engine: Engine,
   slidePools: Array<SlidePool>,
   state: State
-): Content {
+): Content => {
   const config = (getConfig(engine): Config);
   // if no more lives, return failure endpoint
   if (!isAlive(state)) {
@@ -102,7 +102,7 @@ export default function computeNextStep(
     ref: nextSlide,
     type: 'slide'
   };
-}
+};
 
 type ComputeNextStepOptions = {
   currentSlide: Slide,
@@ -110,7 +110,7 @@ type ComputeNextStepOptions = {
   godMode: $PropertyType<$PropertyType<AnswerAction, 'payload'>, 'godMode'>,
 
   slidePools: Array<SlidePool>,
-  chapterRules: ?Array<ChapterRule>
+  chapterRules?: Array<ChapterRule>
 };
 
 type ComputeNextStepReturn = {
@@ -132,13 +132,13 @@ const EMPTY_NODE = {
   ref: 'empty'
 };
 
-export const newComputeNextStep = (
+export default function computeNextStep(
   engine: Engine,
   state: State,
   params: ComputeNextStepOptions
-): ?ComputeNextStepReturn => {
-  const {chapterRules, currentSlide, answer} = params;
-  const isCorrect = checkAnswer(engine, currentSlide.question, answer);
+): ?ComputeNextStepReturn {
+  const {chapterRules, currentSlide, answer, godMode} = params;
+  const isCorrect = godMode || checkAnswer(engine, currentSlide.question, answer);
 
   const nextState = updateState(engine, state, [
     {
@@ -165,11 +165,11 @@ export const newComputeNextStep = (
   }
 
   const {slidePools} = params;
-  const nextContent = computeNextStep(engine, slidePools, nextState);
+  const nextContent = simpleComputeNextStep(engine, slidePools, nextState);
 
   return {
     nextContent,
     instructions: null,
     isCorrect
   };
-};
+}
