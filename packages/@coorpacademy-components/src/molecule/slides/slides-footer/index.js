@@ -38,9 +38,8 @@ const SlidesFooter = (props, context) => {
     const className = classnames(
       style.button,
       get([type, 'className'], TABS),
-      hasClue === false && style.disabled,
       selected && style.selected,
-      disabled && style.disabled
+      (disabled || !hasClue && type === "clue") && style.disabled
     );
 
     const notifyView = notify ? <span className={style.notify} /> : null;

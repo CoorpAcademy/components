@@ -4,6 +4,7 @@
     "klf": "Nous devons chouchouter nos clientes et les mettre à l'aise pendant leur attente.",
     "tips": "Avez-vous récemment consulté les iPads ou le magazine 31 rue Cambon ?",
     "clue": "… Century Fox.",
+    "hasClue" : true,
     "chapter_id": "5.C7",
     "authors": [],
     "context": {
@@ -114,7 +115,7 @@
     "_id": "sli_VkcAWR-ZQ",
     "klf": "Lire n'est pas difficile.",
     "tips": "Il y a pas mal de gens qui se trompent sans lire.",
-    "clue": "… Century Fox.",
+    "hasClue" : false,
     "chapter_id": "5.C8",
     "authors": [],
     "context": {
@@ -207,6 +208,7 @@
     "klf": "Indeed, c'est Free Run",
     "tips": "Il y a aussi le mode classique qui s'appelle désormais Learner",
     "clue": "clue",
+    "hasClue" : true,
     "chapter_id": "5.C8",
     "authors": [],
     "context": {
@@ -305,6 +307,7 @@
     "klf": "Oui oui oui !",
     "tips": "Alors !",
     "clue": "clue",
+    "hasClue" : true,
     "chapter_id": "5.C8",
     "authors": [],
     "context": {
@@ -411,6 +414,7 @@
     "klf": "Difficile hein !",
     "tips": "Que 1 X 1 n'est pas 2 !",
     "clue": "clue",
+    "hasClue" : true,
     "chapter_id": "5.C8",
     "authors": [],
     "context": {
@@ -514,6 +518,7 @@
     "klf": "xxx",
     "tips": "xxx",
     "clue": "clue",
+    "hasClue" : true,
     "chapter_id": "5.C8",
     "__v": 0,
     "authors": [],
@@ -599,6 +604,7 @@
     "klf": "xxx",
     "tips": "xxx",
     "clue": "clue",
+    "hasClue" : true,
     "chapter_id": "5.C8",
     "__v": 0,
     "authors": [],
@@ -673,6 +679,7 @@
     "klf": "xxx",
     "tips": "xxx",
     "clue": "clue",
+    "hasClue" : true,
     "chapter_id": "5.C8",
     "__v": 0,
     "authors": [],
@@ -757,6 +764,7 @@
     "tips": "Certains affirment que la génération Y est appelée ainsi en référence à la forme des écouteurs portés par les jeunes Y.",
     "chapter_id": "5.C8",
     "clue": "clue",
+    "hasClue" : true,
     "authors": [],
     "context": {
       "media": {
@@ -841,6 +849,7 @@
     "klf": "You can have multiple type of fields for a template question",
     "tips": "Some tips",
     "clue": "clue",
+    "hasClue" : true,
     "chapter_id": "5.C7",
     "question": {
       "type": "template",
@@ -892,6 +901,7 @@
     "klf": "Savoir cliquer sur les vrais réponses",
     "tips": "Des tips",
     "chapter_id": "5.C7",
+    "hasClue" : false,
     "authors": [],
     "context": {
       "media": {
@@ -965,6 +975,7 @@
     "klf": "Savoir cliquer sur les vrais réponses dans un ordre donné",
     "tips": "Des tips",
     "chapter_id": "5.C7",
+    "hasClue" : false,
     "authors": [],
     "lessons": [
       {
@@ -1022,6 +1033,7 @@
     "klf": "Il a connu les dinosaures.",
     "tips": "Il a connu les dinosaures.",
     "chapter_id": "5.C7",
+    "hasClue" : false,
     "authors": [],
     "context": {
       "media": {
@@ -1097,6 +1109,7 @@
     "klf": "Some KLF",
     "tips": "XXX",
     "chapter_id": "5.C8",
+    "hasClue" : false,
     "authors": [],
     "context": {
       "title": "Some context title",
@@ -1166,6 +1179,7 @@
     "klf": "Some KLF",
     "tips": "XXX",
     "chapter_id": "5.C8",
+    "hasClue" : false,
     "authors": [],
     "context": {
       "title": "Some context title",
@@ -1239,6 +1253,7 @@
     "_id": "1.B2.11",
     "klf": "Some KLF",
     "tips": "XXX",
+    "hasClue" : false,
     "chapter_id": "5.C8",
     "authors": [],
     "context": {
@@ -1314,6 +1329,7 @@
     "klf": "Some KLF",
     "tips": "XXX",
     "chapter_id": "5.C8",
+    "hasClue" : false,
     "authors": [],
     "context": {
       "title": "Some context title",
