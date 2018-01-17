@@ -1,12 +1,5 @@
 {
   "data": {
-    "clues": {
-      "entities": {
-        "0": {
-          "1.B2.4": "Clue"
-        }
-      }
-    },
     "contents": {
       "slide": {
         "entities": {
@@ -14,7 +7,7 @@
             "_id": "1.B2.4",
             "klf": "Some KLF",
             "tips": "XXX",
-            "hasClue": true,
+            "hasClue": false,
             "chapter_id": "cha_Ny1BTxRp~",
             "authors": [],
             "context": {
@@ -110,9 +103,6 @@
     "current": {
       "progressionId": "0"
     },
-    "corrections": {},
-    "route": {
-      "0": "clue"
-    }
+    "corrections": {}
   }
 }

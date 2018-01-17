@@ -8,7 +8,8 @@ export default {
       {
         title: 'Clue',
         type: 'clue',
-        selected: true
+        selected: true,
+        hasClue: true
       }
     ]
   }

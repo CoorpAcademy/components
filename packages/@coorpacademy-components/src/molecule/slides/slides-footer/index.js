@@ -33,7 +33,6 @@ const SlidesFooter = (props, context) => {
 
   const buttonsView = buttons.map((button, key) => {
     const {disabled, notify, selected, highlighted, title, type, onClick} = button;
-
     const IconType = get([type, 'icon'], TABS);
 
     const className = classnames(

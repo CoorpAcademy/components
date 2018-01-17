@@ -8,7 +8,8 @@ export default {
       },
       {
         title: 'Clue',
-        type: 'clue'
+        type: 'clue',
+        hasClue: true
       },
       {
         title: 'Coach',
