@@ -587,6 +587,7 @@ import BrandUpdateFixtureDashboard from '../src/template/back-office/brand-updat
 import BrandUpdateFixtureDefault from '../src/template/back-office/brand-update/test/fixtures/default';
 import BrandUpdateFixtureGeneralSettingsSuccess from '../src/template/back-office/brand-update/test/fixtures/general-settings-success';
 import BrandUpdateFixtureGeneralSettings from '../src/template/back-office/brand-update/test/fixtures/general-settings';
+import BrandUpdateFixtureLoader from '../src/template/back-office/brand-update/test/fixtures/loader';
 import BrandUpdateFixtureLookandfeelError from '../src/template/back-office/brand-update/test/fixtures/lookandfeel-error';
 import BrandUpdateFixtureLookandfeelModified from '../src/template/back-office/brand-update/test/fixtures/lookandfeel-modified';
 import BrandUpdateFixtureLookandfeelPending from '../src/template/back-office/brand-update/test/fixtures/lookandfeel-pending';
@@ -1525,6 +1526,7 @@ export const fixtures = {
       Default: BrandUpdateFixtureDefault,
       GeneralSettingsSuccess: BrandUpdateFixtureGeneralSettingsSuccess,
       GeneralSettings: BrandUpdateFixtureGeneralSettings,
+      Loader: BrandUpdateFixtureLoader,
       LookandfeelError: BrandUpdateFixtureLookandfeelError,
       LookandfeelModified: BrandUpdateFixtureLookandfeelModified,
       LookandfeelPending: BrandUpdateFixtureLookandfeelPending,
