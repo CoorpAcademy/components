@@ -137,6 +137,11 @@ export const getRecommendations = state => {
   return get(`data.recommendations.entities.${id}`, state);
 };
 
+export const getNextContent = state => {
+  const id = getCurrentProgressionId(state);
+  return get(`data.nextContent.entities.${id}`, state);
+};
+
 export const getStartRank = get(`data.rank.start`);
 export const getEndRank = get(`data.rank.end`);
 export const getBestScore = pipe(getCurrentContent, get('bestScore'));
@@ -151,17 +156,6 @@ export const getResourceToPlay = state => get('ui.corrections.playResource', sta
 export const getLives = state => {
   const progression = getCurrentProgression(state);
   return progression.state.livesDisabled ? null : get('state.lives', progression);
-};
-
-export const getNextContentFromRecommendations = state => {
-  const {type} = getProgressionContent(state);
-  const recommendations = getRecommendations(state);
-  switch (type) {
-    case 'level':
-      return get('nextLevel', recommendations);
-    case 'chapter':
-      return get('nextChapter', recommendations);
-  }
 };
 
 export const getCoaches = getOr(0, 'ui.coaches.availableCoaches');

@@ -125,7 +125,7 @@ test('should not see comment section when answer is not correct', t => {
 test('should create a "Back to Home" CTA after success on learner progression with coach content', t => {
   const state = pipe(
     set(['data', 'contents', 'level', 'entities', '1.B', 'level'], 'coach'),
-    set('data.recommendations.entities.idProgression1234.nextLevel', null)
+    set('data.nextContent.entities.idProgression1234', null)
   )(popinLearnerSuccess);
 
   const dispatch = createDispatch(state);
@@ -145,7 +145,7 @@ test('should create a "Back to Home" CTA after success on learner progression wi
 
 test('should create a "Back to Home" CTA after success on learner progression with content with only base level', t => {
   const state = set(
-    ['data', 'recommendations', 'entities', 'idProgression1234', 'nextLevel'],
+    ['data', 'nextContent', 'entities', 'idProgression1234'],
     null,
     popinLearnerSuccess
   );

@@ -3,6 +3,7 @@ import answers from './answers';
 import comments from './comments';
 import configs from './configs';
 import contents from './contents';
+import nextContent from './next-content';
 import clues from './clues';
 import exitNodes from './exit-nodes';
 import progressions from './progressions';
@@ -18,5 +19,6 @@ export default combineReducers({
   exitNodes,
   progressions,
   rank,
-  recommendations
+  recommendations,
+  nextContent
 });

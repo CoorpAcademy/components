@@ -1,11 +1,11 @@
 import test from 'ava';
 import set from 'lodash/fp/set';
-import reducer from '../recommendations';
+import reducer from '../next-content';
 import {
-  RECO_FETCH_REQUEST,
-  RECO_FETCH_SUCCESS,
-  RECO_FETCH_FAILURE
-} from '../../../actions/api/recommendations';
+  NEXT_CONTENT_FETCH_REQUEST,
+  NEXT_CONTENT_FETCH_SUCCESS,
+  NEXT_CONTENT_FETCH_FAILURE
+} from '../../../actions/api/next-content';
 import macro from '../../test/helpers/macro';
 
 import chapterRecommendations from '../../../view/test/fixtures/recommendations/chapter-recommendations';
@@ -19,7 +19,7 @@ test(
   reducer,
   {},
   {
-    type: RECO_FETCH_REQUEST,
+    type: NEXT_CONTENT_FETCH_REQUEST,
     meta: {id: 'foo'}
   },
   {entities: {foo: null}}
@@ -31,7 +31,7 @@ test(
   reducer,
   {},
   {
-    type: RECO_FETCH_REQUEST,
+    type: NEXT_CONTENT_FETCH_REQUEST,
     meta: {id: 'foo'}
   },
   {entities: {foo: null}}
@@ -43,36 +43,53 @@ test(
   reducer,
   {entities: {foo: 'foo'}},
   {
-    type: RECO_FETCH_REQUEST,
+    type: NEXT_CONTENT_FETCH_REQUEST,
     meta: {id: 'foo'}
   },
   {entities: {foo: 'foo'}}
 );
 
 test(
-  'should set chapter recommendations on success',
+  'should set next chapter on success',
   macro,
   reducer,
   {},
   {
-    type: RECO_FETCH_SUCCESS,
+    type: NEXT_CONTENT_FETCH_SUCCESS,
     meta: {id: 'foo'},
-    payload: chapterRecommendations.list
+    payload: chapterRecommendations.nextChapter.card
   },
-  {entities: {foo: chapterRecommendations.list}}
+  {
+    entities: {
+      foo: chapterRecommendations.nextChapter.card
+    }
+  }
 );
 
 test(
-  'should set learner recommendations on success',
+  'should set next level on success',
   macro,
   reducer,
   {},
   {
-    type: RECO_FETCH_SUCCESS,
+    type: NEXT_CONTENT_FETCH_SUCCESS,
     meta: {id: 'foo'},
-    payload: levelRecommendations.list
+    payload: levelRecommendations.nextLevel
   },
-  set('entities.foo', levelRecommendations.list, {})
+  set('entities.foo', levelRecommendations.nextLevel, {})
+);
+
+test(
+  'should unset next level when none is available',
+  macro,
+  reducer,
+  {entities: {foo: levelRecommendations.nextLevel}},
+  {
+    type: NEXT_CONTENT_FETCH_SUCCESS,
+    meta: {id: 'foo'},
+    payload: undefined
+  },
+  {entities: {}}
 );
 
 test(
@@ -81,7 +98,7 @@ test(
   reducer,
   {entities: {foo: null}},
   {
-    type: RECO_FETCH_FAILURE,
+    type: NEXT_CONTENT_FETCH_FAILURE,
     meta: {id: 'foo'},
     error: true,
     payload: {}
@@ -95,7 +112,7 @@ test(
   reducer,
   {entities: {foo: 'foo'}},
   {
-    type: RECO_FETCH_FAILURE,
+    type: NEXT_CONTENT_FETCH_FAILURE,
     meta: {id: 'foo'},
     error: true,
     payload: {}

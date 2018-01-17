@@ -24,6 +24,7 @@ import {
   CONTENT_INFO_FETCH_SUCCESS
 } from '../../api/contents';
 import {RECO_FETCH_REQUEST, RECO_FETCH_SUCCESS} from '../../api/recommendations';
+import {NEXT_CONTENT_FETCH_REQUEST, NEXT_CONTENT_FETCH_SUCCESS} from '../../api/next-content';
 import {UI_SELECT_ROUTE} from '../route';
 
 const slide = {_id: 'bar', chapter_id: 'baz', foo: 1};
@@ -373,7 +374,8 @@ test(
     },
     Content: ContentService(t, false),
     Recommendations: {
-      find: () => 'plop'
+      find: () => 'plop',
+      getNext: () => 'plip'
     }
   }),
   selectProgression('foo'),
@@ -442,15 +444,19 @@ test(
       payload: 'info'
     },
     {
+      type: RECO_FETCH_REQUEST,
+      meta: {id: 'foo'}
+    },
+    {
       type: RANK_FETCH_END_REQUEST
     },
     {
-      type: RANK_FETCH_END_SUCCESS,
-      payload: 1
+      type: NEXT_CONTENT_FETCH_REQUEST,
+      meta: {id: 'foo'}
     },
     {
-      type: RECO_FETCH_REQUEST,
-      meta: {id: 'foo'}
+      type: EXIT_NODE_FETCH_REQUEST,
+      meta: {id: 'bar'}
     },
     {
       type: RECO_FETCH_SUCCESS,
@@ -458,8 +464,13 @@ test(
       payload: 'plop'
     },
     {
-      type: EXIT_NODE_FETCH_REQUEST,
-      meta: {id: 'bar'}
+      type: RANK_FETCH_END_SUCCESS,
+      payload: 1
+    },
+    {
+      type: NEXT_CONTENT_FETCH_SUCCESS,
+      meta: {id: 'foo'},
+      payload: 'plip'
     },
     {
       type: EXIT_NODE_FETCH_SUCCESS,
@@ -563,7 +574,12 @@ test(
       find: (type, ref) => {
         t.is(type, 'level');
         t.is(ref, '1B');
-        return recommendationFixture;
+        return recommendationFixture.recommendations;
+      },
+      getNext: (type, ref) => {
+        t.is(type, 'level');
+        t.is(ref, '1B');
+        return recommendationFixture.nextLevel;
       }
     }
   }),
@@ -633,24 +649,33 @@ test(
       payload: 'info'
     },
     {
+      type: RECO_FETCH_REQUEST,
+      meta: {id: 'foo'}
+    },
+    {
       type: RANK_FETCH_END_REQUEST
+    },
+    {
+      type: NEXT_CONTENT_FETCH_REQUEST,
+      meta: {id: 'foo'}
+    },
+    {
+      type: EXIT_NODE_FETCH_REQUEST,
+      meta: {id: 'bar'}
+    },
+    {
+      type: RECO_FETCH_SUCCESS,
+      meta: {id: 'foo'},
+      payload: recommendationFixture.recommendations
     },
     {
       type: RANK_FETCH_END_SUCCESS,
       payload: 1
     },
     {
-      type: RECO_FETCH_REQUEST,
-      meta: {id: 'foo'}
-    },
-    {
-      type: RECO_FETCH_SUCCESS,
+      type: NEXT_CONTENT_FETCH_SUCCESS,
       meta: {id: 'foo'},
-      payload: recommendationFixture
-    },
-    {
-      type: EXIT_NODE_FETCH_REQUEST,
-      meta: {id: 'bar'}
+      payload: recommendationFixture.nextLevel
     },
     {
       type: EXIT_NODE_FETCH_SUCCESS,
@@ -658,5 +683,5 @@ test(
       payload: 'bar'
     }
   ],
-  13
+  15
 );
