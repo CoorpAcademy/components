@@ -7,6 +7,7 @@ import {mockTranslate} from '@coorpacademy/translate';
 import microlearningHeader from '../../../store/view/test/fixtures/progression-state';
 import learnerHeader from '../../../store/view/test/fixtures/progression-learner';
 import stateSlide from '../../../store/view/test/fixtures/player/slide';
+import stateNoClue from '../../../store/view/test/fixtures/player/no-clue';
 import stateClue from '../../../store/view/test/fixtures/player/clue';
 import stateLoadingClue from '../../../store/view/test/fixtures/player/loading-clue';
 import stateToVNode from './helpers/state-to-vnode';
@@ -197,6 +198,35 @@ test('should display clue', async t => {
       type: 'clue',
       selected: true,
       disabled: false
+    },
+    {
+      disabled: true,
+      title: '__Coach',
+      type: 'coach'
+    }
+  ]);
+
+  return Promise.all(map(button => t.notThrows(button.onClick), playerProps.buttons));
+});
+
+test('should disable clue button is slide has no clue', t => {
+  const vNode = mapStateToVNode(stateNoClue);
+  testRendering(vNode);
+  const {props: {player: playerProps}} = vNode;
+
+  t.deepEqual(map(omit('onClick'), playerProps.buttons), [
+    {
+      notify: true,
+      disabled: false,
+      title: '__Media',
+      type: 'media',
+      selected: false
+    },
+    {
+      title: '__Clue',
+      type: 'clue',
+      selected: false,
+      disabled: true
     },
     {
       disabled: true,
