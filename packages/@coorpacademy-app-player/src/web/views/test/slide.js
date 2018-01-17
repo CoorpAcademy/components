@@ -103,7 +103,8 @@ test('should display slide', async t => {
     {
       title: '__Clue',
       type: 'clue',
-      selected: false
+      selected: false,
+      disabled: false
     },
     {
       disabled: true,
@@ -148,7 +149,8 @@ test('should display loading clue', async t => {
     {
       title: '__Clue',
       type: 'clue',
-      selected: true
+      selected: true,
+      disabled: false
     },
     {
       disabled: true,
@@ -193,7 +195,8 @@ test('should display clue', async t => {
     {
       title: '__Clue',
       type: 'clue',
-      selected: true
+      selected: true,
+      disabled: false
     },
     {
       disabled: true,
