@@ -235,3 +235,8 @@ export type Config = {
   starsPerResourceViewed: number,
   remainingLifeRequests: number
 };
+
+export type SlidePool = {
+  chapterId: string,
+  slides: Array<Slide>
+};

@@ -1,7 +1,16 @@
 // @flow
 import getConfig from './config';
-import type {Content, Progression, State, Engine, Configuration} from './types';
-import type {Instruction} from './compute-next-step/rule-engine/types';
+import type {
+  Content,
+  Progression,
+  NewProgression,
+  State,
+  Engine,
+  EngineOptions,
+  Configuration,
+  SlidePool
+} from './types';
+import type {ChapterRule, Instruction} from './compute-next-step/rule-engine/types';
 import updateVariables from './compute-next-step/rule-engine/apply-instructions';
 
 export const createStateFromConfig = (
@@ -17,6 +26,21 @@ type CreateProgressionOptions = {
   instructions?: Array<Instruction>,
   livesDisabled?: boolean
 } | void;
+
+type AvailableContent = {
+  slidePools: Array<SlidePool>,
+  chapterRules?: Array<ChapterRule>
+};
+
+export const newCreateProgression = (
+  engine: Engine,
+  engineOptions: EngineOptions,
+  {slidePools, chapterRules}: AvailableContent
+): NewProgression => {
+  // TODO Implement function
+  // $FlowFixMe
+  return null;
+};
 
 export default function createProgression(
   engine: Engine,

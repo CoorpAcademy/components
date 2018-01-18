@@ -22,7 +22,8 @@ import type {
   Config,
   Answer,
   AnswerAction,
-  IsCorrect
+  IsCorrect,
+  SlidePool
 } from '../types';
 import checkAnswer from '../check-answer';
 import updateState from '../update-state';
@@ -33,11 +34,6 @@ import selectRule from './rule-engine/select-rule';
 const isAlive = (state: State): boolean => state.lives > 0;
 const hasRemainingLifeRequests = (state: State): boolean => state.remainingLifeRequests > 0;
 const stepIsAlreadyExtraLife = (state: State): boolean => get('content.ref', state) === 'extraLife';
-
-type SlidePool = {
-  chapterId: string,
-  slides: Array<Slide>
-};
 
 const nextSlidePool = (config: Config, slidePools: Array<SlidePool>, state: State): SlidePool => {
   const lastSlideRef = pipe(get('slides'), last)(state);
