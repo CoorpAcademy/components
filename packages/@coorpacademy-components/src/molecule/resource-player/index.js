@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import omit from 'lodash/fp/omit';
 import Pdf from '../pdf';
 import VideoPlayer from '../video-player';
 import style from './style.css';
@@ -11,7 +12,7 @@ export const TYPE_VIDEO = 'video';
 
 const ResourceElement = props => {
   const {resource} = props;
-  const {type, url, videoId, ...childProps} = resource;
+  const {type, url, videoId, ...childProps} = omit('id', resource);
 
   switch (type) {
     case TYPE_IMAGE:

@@ -1,5 +1,6 @@
 import test from 'ava';
 import map from 'lodash/fp/map';
+import get from 'lodash/fp/get';
 import set from 'lodash/fp/set';
 import pipe from 'lodash/fp/pipe';
 import fromPairs from 'lodash/fp/fromPairs';
@@ -9,6 +10,7 @@ import {mockTranslate} from '@coorpacademy/translate';
 import createPlayer from '../player';
 import {UI_SELECT_ROUTE} from '../../../actions/ui/route';
 import learnerProgressionStateFixture from '../../test/fixtures/progression-learner';
+import viewingLessonStateFixture from './fixtures/viewing-lesson';
 import basicSlide from './fixtures/slides/basic';
 import contextSlide from './fixtures/slides/with-context';
 
@@ -274,4 +276,10 @@ test('should not feed step prop in adaptive mode', t => {
   const props = playerProps(state);
 
   t.falsy(props.step);
+});
+
+test('should not send an id prop in resources', t => {
+  const props = playerProps(viewingLessonStateFixture);
+
+  t.falsy(get('resources.0.id', props));
 });
