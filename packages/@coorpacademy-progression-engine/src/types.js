@@ -225,3 +225,9 @@ export type Config = {
   starsPerResourceViewed: number,
   remainingLifeRequests: number
 };
+
+export type CreateProgressionOptions = {
+  instructions?: Array<Instruction>,
+  livesDisabled?: boolean,
+  nextContent: GenericContent
+} | void;
