@@ -10,8 +10,8 @@ import type {
   Configuration,
   SlidePool
 } from './types';
-import type {ChapterRule, Instruction} from './compute-next-step/rule-engine/types';
-import updateVariables from './compute-next-step/rule-engine/apply-instructions';
+import type {ChapterRule, Instruction} from './rule-engine/types';
+import updateVariables from './rule-engine/apply-instructions';
 
 export const createStateFromConfig = (
   initialState: State,

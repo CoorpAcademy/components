@@ -1,6 +1,6 @@
 // @flow
 
-import type {Instruction} from './compute-next-step/rule-engine/types';
+import type {Instruction} from './rule-engine/types';
 
 export type ViewedResource = {
   type: 'chapter',
