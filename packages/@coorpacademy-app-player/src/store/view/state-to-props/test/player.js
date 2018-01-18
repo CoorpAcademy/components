@@ -10,7 +10,6 @@ import {mockTranslate} from '@coorpacademy/translate';
 import createPlayer from '../player';
 import {UI_SELECT_ROUTE} from '../../../actions/ui/route';
 import learnerProgressionStateFixture from '../../test/fixtures/progression-learner';
-import viewingLessonStateFixture from './fixtures/viewing-lesson';
 import basicSlide from './fixtures/slides/basic';
 import contextSlide from './fixtures/slides/with-context';
 
@@ -279,7 +278,7 @@ test('should not feed step prop in adaptive mode', t => {
 });
 
 test('should not send an id prop in resources', t => {
-  const props = playerProps(viewingLessonStateFixture);
+  const props = playerProps(learnerProgressionStateFixture);
 
-  t.falsy(get('resources.0.id', props));
+  t.false('id' in get('resources.0', props));
 });

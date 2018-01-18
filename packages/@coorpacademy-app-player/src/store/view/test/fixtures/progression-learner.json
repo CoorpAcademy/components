@@ -4,7 +4,23 @@
       "slide": {
         "entities": {
           "0": {
-            "chapter_id": "chapter2"
+            "chapter_id": "chapter2",
+            "lessons": [
+              {
+                "_id": "5a21127459e9b1002853be55",
+                "poster":
+                  "https://api-staging.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-bfm/cockpit-bfm/default/lafranceatout-1507106331318.jpg&h=250&w=250&q=90",
+                "description": "La France a tout pour réussir - oct. 1/4",
+                "videoId": "236612175",
+                "mimeType": "application/vimeo",
+                "ref": "les_EJDG6tpo7",
+                "type": "video",
+                "subtitles": [],
+                "posters": [],
+                "src": [],
+                "id": "5a21127459e9b1002853be55"
+              }
+            ]
           }
         }
       },
