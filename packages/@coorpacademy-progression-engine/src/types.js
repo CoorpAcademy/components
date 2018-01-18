@@ -121,6 +121,10 @@ export type Engine = {
   version: string
 };
 
+export type EngineOptions = {
+  livesDisabled: boolean
+};
+
 export type Configuration = {
   instructions?: Array<Instruction>,
   nextContent?: Content
@@ -133,6 +137,12 @@ export type Progression = {
   // state: State,
   actions: Array<Action>,
   engine: Engine
+};
+
+export type NewProgression = {
+  engine: Engine,
+  engineOptions: EngineOptions,
+  actions: Array<Action>
 };
 
 export type PartialCorrection = {
