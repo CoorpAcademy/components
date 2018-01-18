@@ -2,7 +2,7 @@
 import reduce from 'lodash/fp/reduce';
 import set from 'lodash/fp/set';
 import update from 'lodash/fp/update';
-import type {State, Variables, Variable} from '../../types';
+import type {State, Variables, Variable} from '../types';
 import type {Instruction} from './types';
 
 const apply = <T: Variables>(variables: T, instruction: Instruction): T => {

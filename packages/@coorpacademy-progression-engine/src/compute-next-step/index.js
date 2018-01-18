@@ -29,8 +29,8 @@ import type {
 import checkAnswer from '../check-answer';
 import updateState from '../update-state';
 import getConfig from '../config';
-import type {ChapterRule, Instruction, Condition} from './rule-engine/types';
-import selectRule from './rule-engine/select-rule';
+import type {ChapterRule, Instruction, Condition} from '../rule-engine/types';
+import selectRule from '../rule-engine/select-rule';
 
 const isAlive = (state: State): boolean => state.lives > 0;
 const hasRemainingLifeRequests = (state: State): boolean => state.remainingLifeRequests > 0;
