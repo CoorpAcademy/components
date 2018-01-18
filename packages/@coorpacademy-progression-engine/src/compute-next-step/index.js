@@ -19,6 +19,7 @@ import type {
   Slide,
   Content,
   Engine,
+  EngineOptions,
   Config,
   Answer,
   AnswerAction,
@@ -169,3 +170,32 @@ export default function computeNextStep(
     isCorrect
   };
 }
+
+type GivenAnswer = {
+  currentSlide: Slide,
+  answer: Answer,
+  godMode: $PropertyType<$PropertyType<AnswerAction, 'payload'>, 'godMode'>
+};
+
+type AvailableContent = {
+  slidePools: Array<SlidePool>,
+  chapterRules?: Array<ChapterRule>
+};
+
+type Result = {
+  instructions: Array<Instruction>,
+  nextContent: Content,
+  isCorrect?: ?boolean
+};
+
+export const newComputeNextStep = (
+  engine: Engine,
+  engineoptions: EngineOptions,
+  state: State,
+  {currentSlide, answer, godMode}: GivenAnswer,
+  {slidePools, chapterRules}: AvailableContent
+): Result => {
+  // TODO Implement function
+  // $FlowFixMe
+  return null;
+};
