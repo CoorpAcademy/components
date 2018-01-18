@@ -5,5 +5,5 @@ import {newCreateProgression} from '../create-progression';
 test('should...', t => {
   // TODO implement
   // $FlowFixMe
-  t.deepEqual(newCreateProgression(null), {});
+  t.is(newCreateProgression(null, null, {}), null);
 });
