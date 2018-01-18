@@ -2,7 +2,7 @@
 import isEqual from 'lodash/fp/isEqual';
 import filter from 'lodash/fp/filter';
 import sortBy from 'lodash/fp/sortBy';
-import type {Content, GenericState} from '../../types';
+import type {Content, GenericState} from '../types';
 import type {ChapterRule} from './types';
 import checkCondition from './condition-operators';
 

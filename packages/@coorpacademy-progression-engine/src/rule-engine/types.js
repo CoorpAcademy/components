@@ -1,5 +1,5 @@
 // @flow
-import type {Content} from '../../types';
+import type {Content} from '../types';
 import type {OperatorKeys} from './condition-operators';
 
 type Target =
