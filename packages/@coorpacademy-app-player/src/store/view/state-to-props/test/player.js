@@ -280,5 +280,5 @@ test('should not feed step prop in adaptive mode', t => {
 test('should not send an id prop in resources', t => {
   const props = playerProps(learnerProgressionStateFixture);
 
-  t.false('id' in get('resources.0', props));
+  t.is(get('resources.0.id', props), undefined);
 });
