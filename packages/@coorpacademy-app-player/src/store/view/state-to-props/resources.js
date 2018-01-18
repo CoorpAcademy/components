@@ -16,7 +16,7 @@ const getResourcesProps = (options, store) => (state, slide) => {
   const lessons = pipe(
     getOr([], 'lessons'),
     map(lesson => ({
-      ...omit('ref', lesson),
+      ...omit(['id', 'ref'], lesson),
       onClick: () => dispatch(selectResource(lesson._id)),
       onPlay: () => dispatch(play(lesson)),
       onResume: () => dispatch(resume(lesson)),
