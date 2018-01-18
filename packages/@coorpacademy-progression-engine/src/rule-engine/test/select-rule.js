@@ -1,6 +1,6 @@
 // @flow
 import test from 'ava';
-import type {Content, GenericState} from '../../../types';
+import type {Content, GenericState} from '../../types';
 import selectRule, {DEFAULT_SOURCE} from '../select-rule';
 import type {ChapterRule} from '../types';
 
