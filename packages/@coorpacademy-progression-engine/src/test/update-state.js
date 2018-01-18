@@ -4,7 +4,7 @@ import omit from 'lodash/fp/omit';
 import pick from 'lodash/fp/pick';
 import get from 'lodash/fp/get';
 import updateState from '../update-state';
-import createProgression from '../create-progression';
+// import createProgression from '../create-progression';
 import type {
   AnswerAction,
   AskClueAction,
@@ -77,31 +77,31 @@ const extraLifeAcceptedAction: ExtraLifeAcceptedAction = Object.freeze({
   }
 });
 
-test('should return a valid state when there are no actions', t => {
-  const content: Content = Object.freeze({
-    type: 'chapter',
-    ref: '1.A1',
-    version: '1.0.0'
-  });
+// test('should return a valid state when there are no actions', t => {
+//   const content: Content = Object.freeze({
+//     type: 'chapter',
+//     ref: '1.A1',
+//     version: '1.0.0'
+//   });
 
-  const initialContent: Content = Object.freeze({
-    type: 'slide',
-    ref: '1.A1.1'
-  });
-  const progression = createProgression(engine, content, initialContent, {livesDisabled: false});
+//   const initialContent: Content = Object.freeze({
+//     type: 'slide',
+//     ref: '1.A1.1'
+//   });
+//   const progression = createProgression(engine, content, initialContent, {livesDisabled: false});
 
-  const state = updateState(engine, progression.state, []);
+//   const state = updateState(engine, progression.state, []);
 
-  t.is(state.lives, 1);
-  t.is(state.stars, 0);
-  t.true(state.isCorrect);
-  t.is(state.content, undefined);
-  t.deepEqual(state.nextContent, initialContent);
-  t.deepEqual(state.slides, []);
-  t.deepEqual(state.requestedClues, []);
-  t.deepEqual(state.viewedResources, []);
-  t.deepEqual(state.step, {current: 1});
-});
+//   t.is(state.lives, 1);
+//   t.is(state.stars, 0);
+//   t.true(state.isCorrect);
+//   t.is(state.content, undefined);
+//   t.deepEqual(state.nextContent, initialContent);
+//   t.deepEqual(state.slides, []);
+//   t.deepEqual(state.requestedClues, []);
+//   t.deepEqual(state.viewedResources, []);
+//   t.deepEqual(state.step, {current: 1});
+// });
 
 test('should return a valid state when there are no actions and state is empty', t => {
   const initialContent: Content = Object.freeze({

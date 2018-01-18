@@ -126,7 +126,7 @@ export type EngineOptions = {
 };
 
 export type Configuration = {
-  instructions?: Array<Instruction>,
+  instructions?: ?Array<Instruction>,
   nextContent?: Content
 };
 
