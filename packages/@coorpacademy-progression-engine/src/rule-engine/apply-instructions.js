@@ -12,7 +12,19 @@ const apply = <T: Variables>(variables: T, instruction: Instruction): T => {
     case 'set':
       return set(field, value, variables);
     case 'add':
-      return update(field, (v: Variable): Variable => v + value, variables);
+      return update(
+        field,
+        (v: Variable): Variable => {
+          if (
+            typeof v === typeof value &&
+            (typeof v === 'number' || typeof v === 'string') &&
+            (typeof value === 'number' || typeof value === 'string')
+          )
+            return v + value;
+          return v;
+        },
+        variables
+      );
     default:
       return variables;
   }
