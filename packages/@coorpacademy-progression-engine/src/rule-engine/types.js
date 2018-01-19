@@ -34,10 +34,12 @@ type ChapterRule = {
   ref?: string
 };
 
+type ChapterRulePool = Array<{ref: string, rules: Array<ChapterRule>}>;
+
 type Variables = {
   lives: number,
   stars: number,
   variables: {[string]: string | boolean | number}
 };
 
-export type {ChapterRule, Condition, Instruction, OperatorKeys, Target, Variables};
+export type {ChapterRule, ChapterRulePool, Condition, Instruction, OperatorKeys, Target, Variables};
