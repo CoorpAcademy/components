@@ -9,12 +9,12 @@ const sortByPosition = sortBy(
   (slide: Slide) => (typeof slide.position === 'number' ? -slide.position : 0)
 );
 
-const selectRule = (rules: Array<SlidePool>): ?Slide => {
-  if (rules.length === 0) {
+const selectInitialSlide = (slidePools: Array<SlidePool>): ?Slide => {
+  if (slidePools.length === 0) {
     return null;
   }
 
-  return pipe(shuffle, sortByPosition, head)(rules[0].slides);
+  return pipe(shuffle, sortByPosition, head)(slidePools[0].slides);
 };
 
-export default selectRule;
+export default selectInitialSlide;
