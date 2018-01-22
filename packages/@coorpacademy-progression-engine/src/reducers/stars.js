@@ -16,7 +16,7 @@ export default function stars(config: Config): (number, Action, State) => number
     switch (action.type) {
       case 'answer': {
         const answerAction = (action: AnswerAction);
-        return answerAction.payload.isCorrect
+        return !answerAction.payload.instructions && answerAction.payload.isCorrect
           ? currentStars + config.starsPerCorrectAnswer
           : currentStars;
       }
