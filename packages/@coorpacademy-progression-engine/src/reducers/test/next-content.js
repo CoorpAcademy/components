@@ -6,7 +6,8 @@ import {
   answerAction,
   extraLifeAcceptedAction,
   extraLifeRefusedAction,
-  askClueAction
+  askClueAction,
+  moveAction
 } from './fixtures/actions';
 import {microlearning} from './fixtures/engines';
 
@@ -37,6 +38,14 @@ test('should return nextContent when action type is extraLifeRefused', t => {
   t.deepEqual(result, {
     ref: 'failExitNode',
     type: 'failure'
+  });
+});
+
+test('should return nextContent when action type is move', t => {
+  const result = nextContent(config)(_nextContent, moveAction);
+  t.deepEqual(result, {
+    ref: '1.A1.1',
+    type: 'slide'
   });
 });
 

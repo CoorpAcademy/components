@@ -1,29 +1,15 @@
 // @flow
 
-import type {
-  Action,
-  AnswerAction,
-  Config,
-  Content,
-  ExtraLifeAcceptedAction,
-  ExtraLifeRefusedAction
-} from '../types';
+import type {Action, Config, Content} from '../types';
 
 export default function nextContent(config: Config): (Content, Action) => Content {
   return (c: Content, action: Action): Content => {
     switch (action.type) {
-      case 'answer': {
-        const answerAction = (action: AnswerAction);
-        return answerAction.payload.nextContent;
-      }
-      case 'extraLifeAccepted': {
-        const acceptAction = (action: ExtraLifeAcceptedAction);
-        return acceptAction.payload.nextContent;
-      }
-      case 'extraLifeRefused': {
-        const refuseAction = (action: ExtraLifeRefusedAction);
-        return refuseAction.payload.nextContent;
-      }
+      case 'answer':
+      case 'extraLifeAccepted':
+      case 'extraLifeRefused':
+      case 'move':
+        return action.payload.nextContent;
       default:
         return c;
     }
