@@ -20,6 +20,23 @@ test('should return updated lives when action type is answer with isCorrect fals
   t.is(result, 2);
 });
 
+test('should not change lives when action has instructions and its type is answer with isCorrect false', t => {
+  const action = set(
+    'payload.instructions',
+    [
+      {
+        value: 1,
+        type: 'add',
+        field: 'A'
+      }
+    ],
+    answerAction
+  );
+  const result = lives(config)(3, action, stateForSecondSlide);
+
+  t.is(result, 3);
+});
+
 test('should not modify lives when action type is answer with isCorrect true', t => {
   const action = set('payload.isCorrect', true, answerAction);
   const result = lives(config)(1, action, stateForSecondSlide);
@@ -29,6 +46,22 @@ test('should not modify lives when action type is answer with isCorrect true', t
 test('should update lives when action type is extraLifeAccepted', t => {
   const result = lives(config)(0, extraLifeAcceptedAction, stateForSecondSlide);
   t.is(result, 1);
+});
+
+test('should not change lives when action has instructions and its type is extraLifeAccepted', t => {
+  const action = set(
+    'payload.instructions',
+    [
+      {
+        value: 1,
+        type: 'add',
+        field: 'A'
+      }
+    ],
+    extraLifeAcceptedAction
+  );
+  const result = lives(config)(0, action, stateForSecondSlide);
+  t.is(result, 0);
 });
 
 test('should not modify lives for any other type of action', t => {

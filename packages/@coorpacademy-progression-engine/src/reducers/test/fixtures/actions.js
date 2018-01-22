@@ -4,7 +4,8 @@ import type {
   AnswerAction,
   AskClueAction,
   ExtraLifeAcceptedAction,
-  ExtraLifeRefusedAction
+  ExtraLifeRefusedAction,
+  MoveAction
 } from '../../../types';
 
 export const answerAction: AnswerAction = Object.freeze({
@@ -57,6 +58,16 @@ export const extraLifeRefusedAction: ExtraLifeRefusedAction = Object.freeze({
     nextContent: {
       ref: 'failExitNode',
       type: 'failure'
+    }
+  }
+});
+
+export const moveAction: MoveAction = Object.freeze({
+  type: 'move',
+  payload: {
+    nextContent: {
+      ref: '1.A1.1',
+      type: 'slide'
     }
   }
 });
