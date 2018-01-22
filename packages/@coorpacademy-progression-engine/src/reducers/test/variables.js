@@ -3,7 +3,7 @@ import test from 'ava';
 import set from 'lodash/fp/set';
 import getConfig from '../../config';
 import variables from '../variables';
-import {answerAction} from './fixtures/actions';
+import {answerAction, moveAction} from './fixtures/actions';
 import {learner} from './fixtures/engines';
 import {stateForFirstSlide} from './fixtures/states';
 
@@ -28,4 +28,18 @@ test('should extract instructions from answerAction and apply them to state', t 
   t.is(newState.lives, 4);
   t.is(newState.stars, 2);
   t.is(newState.variables.reverse, false);
+});
+
+test('should extract instructions from moveAction and apply them to state', t => {
+  const state = stateForFirstSlide;
+  const moveActionWithInstructions = set(
+    'payload.instructions',
+    [{value: 0, type: 'set', field: 'foo'}, {value: 10, type: 'set', field: 'bar'}],
+    moveAction
+  );
+
+  const newState = variables(config)(state, moveActionWithInstructions);
+
+  t.is(newState.variables.foo, 0);
+  t.is(newState.variables.bar, 10);
 });
