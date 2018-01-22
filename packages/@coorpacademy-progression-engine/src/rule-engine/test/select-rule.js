@@ -151,12 +151,15 @@ test('should select right chapter from source and priority', t => {
   t.is(actualChapterRule.ref, 'high_priority');
 });
 
+test('should select chapterRule with empty source if state is null', t => {
+  const rule = selectRule(chapterRules, null);
+  t.is(rule && rule.ref, '3');
+});
+
 test('should select chapterRule with empty source if state has no content', t => {
   const state = {...defaultState, content: undefined};
-
-  const actualChapterRule = selectRule(chapterRules, state) || {};
-
-  t.is(actualChapterRule.ref, '3');
+  const rule = selectRule(chapterRules, state);
+  t.is(rule && rule.ref, '3');
 });
 
 test('should return no chapterRule if any match', t => {
