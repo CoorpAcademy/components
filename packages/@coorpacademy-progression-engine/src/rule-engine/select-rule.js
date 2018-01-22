@@ -1,4 +1,5 @@
 // @flow
+import head from 'lodash/fp/head';
 import isEqual from 'lodash/fp/isEqual';
 import filter from 'lodash/fp/filter';
 import sortBy from 'lodash/fp/sortBy';
@@ -11,9 +12,10 @@ export const DEFAULT_SOURCE = {
   ref: ''
 };
 
-const isCurrentSlide = (source: ?Content) => (chapterRule: ChapterRule): boolean => {
-  const currentsource = source || DEFAULT_SOURCE;
-  return isEqual(currentsource)(chapterRule.source);
+const isCurrentSlide = (source: ?Content = DEFAULT_SOURCE) => (
+  chapterRule: ChapterRule
+): boolean => {
+  return isEqual(source, chapterRule.source);
 };
 
 const isSameType = refValue => (value): boolean => {
@@ -58,10 +60,16 @@ const matchWithState = (state: GenericState) => (chapterRule: ChapterRule): bool
   });
 };
 
-const selectRule = (rules: Array<ChapterRule>, state: GenericState): ?ChapterRule => {
-  const targetedChapterRules: Array<ChapterRule> = filter(isCurrentSlide(state.content))(rules);
-  const sortedChapterRules: Array<ChapterRule> = sortBy('priority')(targetedChapterRules);
+const selectRule = (rules: Array<ChapterRule>, state: ?GenericState): ?ChapterRule => {
+  const targetedChapterRules: Array<ChapterRule> = filter(
+    isCurrentSlide(state ? state.content : undefined),
+    rules
+  );
+  const sortedChapterRules: Array<ChapterRule> = sortBy('priority', targetedChapterRules);
 
+  if (!state) {
+    return head(sortedChapterRules);
+  }
   return sortedChapterRules.find(matchWithState(state)) || null;
 };
 
