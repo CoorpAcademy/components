@@ -4,11 +4,10 @@ import omit from 'lodash/fp/omit';
 import pick from 'lodash/fp/pick';
 import get from 'lodash/fp/get';
 import updateState from '../update-state';
-// import createProgression from '../create-progression';
+import getConfig from '../config';
 import type {
   AnswerAction,
   AskClueAction,
-  Content,
   State,
   ContentResourceViewedAction,
   ExtraLifeAcceptedAction,
@@ -24,6 +23,7 @@ const engine = {
   ref: 'microlearning',
   version: '1'
 };
+const config = getConfig(engine);
 
 function contentResourceViewedAction(
   contentType: string,
@@ -88,7 +88,7 @@ const extraLifeAcceptedAction: ExtraLifeAcceptedAction = Object.freeze({
 //     type: 'slide',
 //     ref: '1.A1.1'
 //   });
-//   const progression = createProgression(engine, content, initialContent, {livesDisabled: false});
+//   const progression = createProgression(engine, content, {livesDisabled: false}, initialContent);
 
 //   const state = updateState(engine, progression.state, []);
 
@@ -104,19 +104,14 @@ const extraLifeAcceptedAction: ExtraLifeAcceptedAction = Object.freeze({
 // });
 
 test('should return a valid state when there are no actions and state is empty', t => {
-  const initialContent: Content = Object.freeze({
-    type: 'slide',
-    ref: '1.A1.1'
-  });
-
   // $FlowFixMe
-  const state = updateState(engine, {nextContent: initialContent}, []);
+  const state = updateState(getConfig(engine), {}, []);
 
   t.is(state.lives, 1);
   t.is(state.stars, 0);
   t.true(state.isCorrect);
   t.is(state.content, undefined);
-  t.deepEqual(state.nextContent, initialContent);
+  t.deepEqual(state.nextContent, undefined);
   t.deepEqual(state.slides, []);
   t.deepEqual(state.requestedClues, []);
   t.deepEqual(state.viewedResources, []);
@@ -143,7 +138,7 @@ test('should update state when answering the first question correctly', t => {
   });
 
   const pickUnchangedFields = pick(['lives', 'requestedClues', 'viewedResources']);
-  const newState = updateState(engine, state, [action]);
+  const newState = updateState(config, state, [action]);
 
   t.true(
     newState.isCorrect,
@@ -189,7 +184,7 @@ test('should update state when answering the another question correctly', t => {
   });
 
   const pickUnchangedFields = pick(['lives', 'requestedClues', 'viewedResources']);
-  const newState = updateState(engine, state, [action]);
+  const newState = updateState(config, state, [action]);
 
   t.true(
     newState.isCorrect,
@@ -231,7 +226,7 @@ test('should update state when answering a question incorrectly', t => {
   const state: State = Object.freeze(stateForSecondSlide);
 
   const pickUnchangedFields = pick(['stars', 'requestedClues', 'viewedResources']);
-  const newState = updateState(engine, state, [wrongAnswerAction]);
+  const newState = updateState(config, state, [wrongAnswerAction]);
 
   t.is(newState.hasViewedAResourceAtThisStep, false);
   t.true(newState.lives === 0, '`lives` should have been decremented');
@@ -265,12 +260,12 @@ test('should update state when answering a question incorrectly', t => {
 test('should set livesDisabled to false when it is undefined', t => {
   const actions = [wrongAnswerAction];
   const stateUndefined = updateState(
-    engine,
+    config,
     Object.freeze({...stateForSecondSlide, livesDisabled: undefined}),
     actions
   );
   const stateFalse = updateState(
-    engine,
+    config,
     Object.freeze({...stateForSecondSlide, livesDisabled: false}),
     actions
   );
@@ -281,7 +276,7 @@ test('should set livesDisabled to false when it is undefined', t => {
 test('should not decrement lives when answering a question incorrectly when lives are disabled', t => {
   const state: State = Object.freeze({...stateForSecondSlide, livesDisabled: true});
 
-  const newState = updateState(engine, state, [wrongAnswerAction]);
+  const newState = updateState(config, state, [wrongAnswerAction]);
   t.is(newState.lives, 1, '`lives` should not have been decremented');
   t.true(newState.livesDisabled);
 });
@@ -307,7 +302,7 @@ test('should update state when asking for a clue', t => {
     'isCorrect',
     'step'
   ]);
-  const newState = updateState(engine, state, [action]);
+  const newState = updateState(config, state, [action]);
 
   t.is(newState.stars, 3);
   t.deepEqual(newState.requestedClues, ['1.A1.2']);
@@ -332,7 +327,7 @@ test('should update stars once when actions has several AskClueAction for the sa
   });
 
   const omitChangedFields = omit(['requestedClues', 'stars']);
-  const newState = updateState(engine, state, [action, action]);
+  const newState = updateState(config, state, [action, action]);
 
   t.is(newState.stars, 3);
   t.deepEqual(newState.requestedClues, ['1.A1.2']);
@@ -347,7 +342,7 @@ test('should update stars after viewing a resource', t => {
   const state: State = Object.freeze(stateForFirstSlide);
 
   const omitChangedFields = omit(['viewedResources', 'stars', 'hasViewedAResourceAtThisStep']);
-  const newState = updateState(engine, state, [
+  const newState = updateState(config, state, [
     contentResourceViewedAction('chapter', '1.A1', 'lesson_1')
   ]);
 
@@ -362,14 +357,14 @@ test('should update stars after viewing a resource', t => {
 
 test('should update stars after viewing a resource (with different number of stars)', t => {
   const state: State = Object.freeze(stateForFirstSlide);
-
   const engineWithDifferentStars = {
     ref: 'microlearning',
     version: 'allow_typos_3'
   };
+  const configWithDifferentStars = getConfig(engineWithDifferentStars);
 
   const omitChangedFields = omit(['viewedResources', 'stars', 'hasViewedAResourceAtThisStep']);
-  const newState = updateState(engineWithDifferentStars, state, [
+  const newState = updateState(configWithDifferentStars, state, [
     contentResourceViewedAction('chapter', '1.A1', 'lesson_1')
   ]);
 
@@ -384,9 +379,8 @@ test('should update stars after viewing a resource (with different number of sta
 
 test('should only count stars for viewing a resource once for every chapter even if there are multiple resource viewing actions', t => {
   const state: State = Object.freeze(stateForFirstSlide);
-
   const omitChangedFields = omit(['viewedResources', 'stars', 'hasViewedAResourceAtThisStep']);
-  const newState = updateState(engine, state, [
+  const newState = updateState(config, state, [
     contentResourceViewedAction('chapter', '1.A1', 'lesson_1'),
     contentResourceViewedAction('chapter', '1.A1', 'lesson_2'),
     contentResourceViewedAction('chapter', '1.A1', 'lesson_1')
@@ -407,7 +401,7 @@ test('should count stars for viewing resources multiple times as long as they ar
   const state: State = Object.freeze(stateForFirstSlide);
 
   const omitChangedFields = omit(['viewedResources', 'stars', 'hasViewedAResourceAtThisStep']);
-  const newState = updateState(engine, state, [
+  const newState = updateState(config, state, [
     contentResourceViewedAction('chapter', '1.A1', 'lesson_1'),
     contentResourceViewedAction('chapter', '1.A1', 'lesson_1'),
     contentResourceViewedAction('chapter', '1.A2', 'lesson_1')
@@ -427,7 +421,6 @@ test('should count stars for viewing resources multiple times as long as they ar
 
 test("should throw if the state's nextContent is not the same as the action's content", t => {
   const state: State = Object.freeze(stateForSecondSlide);
-
   const action: AnswerAction = Object.freeze({
     type: 'answer',
     payload: {
@@ -445,14 +438,15 @@ test("should throw if the state's nextContent is not the same as the action's co
   });
 
   t.throws(
-    () => updateState(engine, state, [action]),
+    () => updateState(config, state, [action]),
     'The content of the progression state does not match the content of the given answer'
   );
 });
 
 test('should add one life when using extra life', t => {
   const state: State = Object.freeze(extraLifeProgressionState);
-  const newState = updateState(engine, state, [extraLifeAcceptedAction]);
+
+  const newState = updateState(config, state, [extraLifeAcceptedAction]);
 
   t.is(newState.lives, 1);
   t.is(newState.remainingLifeRequests, 0);
@@ -464,7 +458,7 @@ test('should add one life when using extra life', t => {
 test('should not add a life when accepting an extraLife when lives are disabled', t => {
   const state: State = Object.freeze({...extraLifeProgressionState, livesDisabled: true});
 
-  const newState = updateState(engine, state, [extraLifeAcceptedAction]);
+  const newState = updateState(config, state, [extraLifeAcceptedAction]);
   t.is(newState.lives, 0, '`lives` should not have been incremented');
   t.true(newState.livesDisabled);
   t.is(newState.hasViewedAResourceAtThisStep, false);
@@ -485,7 +479,7 @@ test('should go to failure when refusing extra life', t => {
       }
     }
   });
-  const newState = updateState(engine, state, [action]);
+  const newState = updateState(config, state, [action]);
 
   t.is(newState.lives, 0);
   t.is(newState.remainingLifeRequests, 1);
@@ -518,7 +512,7 @@ test('should update step when answering a question', t => {
     }
   });
 
-  const newState = updateState(engine, state, [action]);
+  const newState = updateState(config, state, [action]);
   t.deepEqual(newState.step, {current: 3}, 'step progression is wrong');
   t.is(newState.hasViewedAResourceAtThisStep, false);
 });
