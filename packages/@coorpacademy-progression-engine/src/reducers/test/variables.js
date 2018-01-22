@@ -43,3 +43,10 @@ test('should extract instructions from moveAction and apply them to state', t =>
   t.is(newState.variables.foo, 0);
   t.is(newState.variables.bar, 10);
 });
+
+test('should not update variables if there are no instructions into moveAction', t => {
+  const state = stateForFirstSlide;
+  const newState = variables(config)(state, moveAction);
+
+  t.deepEqual(newState.variables, {});
+});
