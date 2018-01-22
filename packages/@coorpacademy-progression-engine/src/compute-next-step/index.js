@@ -136,8 +136,8 @@ export default function computeNextStep(
 ): ?ComputeNextStepReturn {
   const {chapterRules, currentSlide, answer, godMode} = params;
   const isCorrect = godMode || checkAnswer(engine, currentSlide.question, answer);
-
-  const nextState = updateState(engine, state, [
+  const config = (getConfig(engine): Config);
+  const nextState = updateState(config, state, [
     {
       type: 'answer',
       payload: {
