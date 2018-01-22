@@ -96,7 +96,7 @@ export type MoveAction = {
   type: 'move',
   payload: {
     nextContent: Content,
-    instuctions?: Array<Instruction>
+    instructions?: Array<Instruction>
   }
 };
 
