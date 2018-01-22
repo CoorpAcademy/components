@@ -7,7 +7,7 @@ import type {Action, AnswerAction, AnswerRecord, Config} from '../types';
 export default function allAnswers(
   config: Config
 ): (Array<AnswerRecord>, Action) => Array<AnswerRecord> {
-  return (answers: Array<AnswerRecord>, action: Action): Array<AnswerRecord> => {
+  return (answers: Array<AnswerRecord> = [], action: Action): Array<AnswerRecord> => {
     switch (action.type) {
       case 'answer': {
         const answerAction = (action: AnswerAction);

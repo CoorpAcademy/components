@@ -5,7 +5,6 @@ import map from 'lodash/fp/map';
 import pipe from 'lodash/fp/pipe';
 import reduce from 'lodash/fp/reduce';
 import isEmpty from 'lodash/fp/isEmpty';
-import getConfig from './config';
 import allAnswers from './reducers/all-answers';
 import content from './reducers/content';
 import hasViewedAResourceAtThisStep from './reducers/has-viewed-a-resource-at-this-step';
@@ -21,7 +20,7 @@ import step from './reducers/step';
 import validate from './reducers/validate';
 import viewedResources from './reducers/viewed-resources';
 import variables from './reducers/variables';
-import type {Action, Engine, Config, State} from './types';
+import type {Action, Config, State} from './types';
 
 function combineReducers(
   fnMap: Array<{key?: string, fn: Function}> // eslint-disable-line flowtype/no-weak-types
@@ -60,8 +59,7 @@ const reduceAction = combineReducers([
   {fn: variables}
 ]);
 
-export default function updateState(engine: Engine, state: State, actions: Array<Action>): State {
-  const config = (getConfig(engine): Config);
+export default function updateState(config: Config, state: State, actions: Array<Action>): State {
   if (isEmpty(actions)) {
     return reduce(reduceAction(config), state, [{type: 'init'}]);
   }
