@@ -23,7 +23,6 @@ import type {
   Config,
   Answer,
   AnswerAction,
-  IsCorrect,
   SlidePool
 } from '../types';
 import checkAnswer from '../check-answer';
@@ -113,13 +112,30 @@ type ComputeNextStepOptions = {
 type ComputeNextStepReturn = {
   nextContent: Content,
   instructions: ?Array<Instruction>,
-  isCorrect: ?IsCorrect
+  isCorrect: ?boolean
+};
+
+type GivenAnswer = {
+  currentSlide: ?Slide,
+  answer: Answer,
+  godMode: $PropertyType<$PropertyType<AnswerAction, 'payload'>, 'godMode'>
+};
+
+type AvailableContent = {
+  slidePools: Array<SlidePool>,
+  chapterRules?: Array<ChapterRule>
+};
+
+type Result = {
+  nextContent: Content,
+  instructions: ?Array<Instruction>,
+  isCorrect: ?boolean
 };
 
 const isTargetingIsCorrect = (condition: Condition): boolean =>
   condition.target.scope === 'slide' && condition.target.field === 'isCorrect';
 
-const getIsCorrect = (isCorrect: ?IsCorrect, chapterRule: ChapterRule): ?IsCorrect => {
+const getIsCorrect = (isCorrect: boolean, chapterRule: ChapterRule): ?boolean => {
   if (chapterRule.conditions.some(isTargetingIsCorrect)) return isCorrect;
   return null;
 };
@@ -171,31 +187,86 @@ export default function computeNextStep(
   };
 }
 
-type GivenAnswer = {
-  currentSlide: Slide,
-  answer: Answer,
-  godMode: $PropertyType<$PropertyType<AnswerAction, 'payload'>, 'godMode'>
+const computeConfig = (engine: Engine, engineOptions: EngineOptions): Config => {
+  const config = getConfig(engine);
+  return {...config, ...engineOptions};
 };
 
-type AvailableContent = {
+const slidesCNS = (
+  config: Config,
+  engine: Engine,
   slidePools: Array<SlidePool>,
-  chapterRules?: Array<ChapterRule>
-};
+  isCorrect: boolean,
+  state: State
+): Content => {
+  const nextState = updateState(engine, state, [
+    {
+      type: 'answer',
+      payload: {
+        content: state.nextContent,
+        nextContent: EMPTY_NODE,
+        answer: [],
+        isCorrect
+      }
+    }
+  ]);
 
-type Result = {
-  instructions: Array<Instruction>,
-  nextContent: Content,
-  isCorrect?: ?boolean
+  if (!config.livesDisabled && !isAlive(nextState)) {
+    return !stepIsAlreadyExtraLife(state) && hasRemainingLifeRequests(state)
+      ? {type: 'node', ref: 'extraLife'}
+      : {type: 'failure', ref: 'failExitNode'};
+  }
+
+  const slidePool = getSlidePool(config, slidePools, state);
+
+  // If user has answered all questions, return success endpoint
+  if (!slidePool) {
+    return {
+      type: 'success',
+      ref: 'successExitNode'
+    };
+  }
+
+  const remainingSlides = filter(
+    pipe(get('_id'), (slideId: string) => !includes(slideId, state.slides)),
+    slidePool.slides
+  );
+  return {
+    type: 'slide',
+    ref: pickNextSlide(remainingSlides)._id
+  };
 };
 
 export const newComputeNextStep = (
   engine: Engine,
-  engineoptions: EngineOptions,
+  engineOptions: EngineOptions,
   state: State,
   {currentSlide, answer, godMode}: GivenAnswer,
   {slidePools, chapterRules}: AvailableContent
 ): Result => {
-  // TODO Implement function
-  // $FlowFixMe
-  return null;
+  const config = computeConfig(engine, engineOptions);
+  const isCorrect =
+    godMode || Boolean(currentSlide && checkAnswer(engine, currentSlide.question, answer));
+
+  if (Array.isArray(chapterRules) && chapterRules.length > 0) {
+    // TODO test this branch
+    const chapterRule = selectRule(chapterRules, state);
+    if (!chapterRule) {
+      throw new Error('Could not find a chapter rule to select.');
+    }
+
+    return {
+      nextContent: chapterRule.destination,
+      instructions: chapterRule.instructions,
+      isCorrect: getIsCorrect(isCorrect, chapterRule)
+    };
+  }
+
+  const nextContent = slidesCNS(config, engine, slidePools, isCorrect, state);
+
+  return {
+    nextContent,
+    instructions: undefined,
+    isCorrect
+  };
 };
