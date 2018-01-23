@@ -1,4 +1,5 @@
 // @flow
+import get from 'lodash/fp/get';
 import head from 'lodash/fp/head';
 import pipe from 'lodash/fp/pipe';
 import sortBy from 'lodash/fp/sortBy';
@@ -14,7 +15,7 @@ const selectInitialSlide = (slidePools: Array<SlidePool>): ?Slide => {
     return null;
   }
 
-  return pipe(shuffle, sortByPosition, head)(slidePools[0].slides);
+  return pipe(head, get('slides'), shuffle, sortByPosition, head)(slidePools);
 };
 
 export default selectInitialSlide;
