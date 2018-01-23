@@ -15,6 +15,42 @@ const slidesByChapter = (slides: Array<Slide>): Array<SlidePool> => [
   }
 ];
 
+test('should check params  on createInitialAction', t => {
+  // $FlowFixMe
+  t.throws(createInitialAction, 'param AvailableContent is mandatory to create an initial Action');
+});
+
+test('should check adaptive params on createInitialAction', t => {
+  t.throws(
+    () =>
+      // $FlowFixMe
+      createInitialAction({
+        chapterRulePool: []
+      }),
+    'No rule could be selected within this ChapterRulePool: could not create an adaptive initial Action'
+  );
+});
+
+test('should check params content to create an initial action', t => {
+  t.throws(
+    () =>
+      // $FlowFixMe
+      createInitialAction({}),
+    'provide either a ChapterRulePool or a SlidePools to create an initial Action'
+  );
+});
+
+test('should check whether an initial slide is found to create an initial action', t => {
+  t.throws(
+    () =>
+      // $FlowFixMe
+      createInitialAction({
+        slidePools: []
+      }),
+    'No initial slide found within this SlidePools: could not create an initial Action'
+  );
+});
+
 test('should create an initial action from a slidePools', t => {
   const slidePools = slidesByChapter(allSlides);
   const action = createInitialAction({
