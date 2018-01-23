@@ -3,12 +3,12 @@ import {type State} from '../../../types';
 
 export const stateBeforeGettingNextContent: State = {
   content: {
-    ref: '1.A1.1',
+    ref: '1.A1.2',
     type: 'slide'
   },
   nextContent: {
-    ref: 'none',
-    type: 'node'
+    ref: '1.A1.1',
+    type: 'slide'
   },
   lives: 1,
   livesDisabled: false,
@@ -66,6 +66,31 @@ export const failProgressionState: State = {
   requestedClues: [],
   viewedResources: [],
   stars: 4,
+  remainingLifeRequests: 0,
+  hasViewedAResourceAtThisStep: false,
+  allAnswers: [],
+  variables: {}
+};
+
+export const oneLifeLeftState: State = {
+  content: {
+    ref: '1.A1.1',
+    type: 'slide'
+  },
+  nextContent: {
+    ref: '1.A1.2',
+    type: 'slide'
+  },
+  lives: 1,
+  livesDisabled: false,
+  isCorrect: false,
+  slides: ['1.A1.4', '1.A1.1', '1.A1.2'],
+  step: {
+    current: 3
+  },
+  requestedClues: [],
+  viewedResources: [],
+  stars: 0,
   remainingLifeRequests: 0,
   hasViewedAResourceAtThisStep: false,
   allAnswers: [],
