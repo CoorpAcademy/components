@@ -4,7 +4,7 @@ import checkAnswer from './check-answer';
 import checkAnswerCorrectness from './check-answer-correctness';
 import createState from './create-state';
 import updateState from './update-state';
-import createProgression, {createStateFromConfig} from './create-progression';
+import createProgression from './create-progression';
 import getConfig from './config';
 
 export {
@@ -15,6 +15,5 @@ export {
   createState,
   updateState,
   createProgression,
-  createStateFromConfig,
   getConfig
 };
