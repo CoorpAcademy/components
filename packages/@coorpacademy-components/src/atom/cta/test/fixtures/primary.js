@@ -1,7 +1,7 @@
 export default {
   props: {
     submitValue: 'Coorpacademy',
-    href: '#',
+    onClick: () => console.log('click!'),
     target: '_self'
   }
 };

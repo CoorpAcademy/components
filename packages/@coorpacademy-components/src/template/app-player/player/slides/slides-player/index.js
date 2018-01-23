@@ -258,8 +258,18 @@ Help.propTypes = {
   help: PropTypes.string
 };
 
+const ValidateButton = ({cta}) => (
+  <div className={style.ctaWrapper}>
+    <Cta className={style.cta} {...cta} />
+  </div>
+);
+
+ValidateButton.propTypes = {
+  help: PropTypes.string
+};
+
 const ContentLayout = (props, context) => {
-  const {typeClue, question, cta, help} = props;
+  const {typeClue, question, help} = props;
   const ContentType = CONTENT_TYPE[typeClue];
   const wrapperColor = typeClue === 'answer' ? 'white' : '#ECEFF1';
   const noPaddingRessources =
@@ -277,9 +287,7 @@ const ContentLayout = (props, context) => {
       />
       {help && typeClue === 'answer' ? <Help help={help} /> : null}
       <ContentType {...props} />
-      <div className={style.ctaWrapper}>
-        <Cta className={style.cta} {...cta} />
-      </div>
+      <ValidateButton {...props} />
     </div>
   );
 };

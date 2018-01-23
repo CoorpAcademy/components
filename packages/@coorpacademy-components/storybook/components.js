@@ -150,6 +150,7 @@ import CheckboxFixtureRequired from '../src/atom/checkbox/test/fixtures/required
 import ClueFixtureDefault from '../src/atom/clue/test/fixtures/default';
 import ClueFixtureLink from '../src/atom/clue/test/fixtures/link';
 import ClueFixtureLoading from '../src/atom/clue/test/fixtures/loading';
+import CtaFixtureDisabled from '../src/atom/cta/test/fixtures/disabled';
 import CtaFixtureLightSmall from '../src/atom/cta/test/fixtures/light-small';
 import CtaFixtureLight from '../src/atom/cta/test/fixtures/light';
 import CtaFixturePrimarySmall from '../src/atom/cta/test/fixtures/primary-small';
@@ -507,6 +508,7 @@ import SlidesFooterFixtureDefault from '../src/template/app-player/player/slides
 import SlidesFooterFixtureDisabled from '../src/template/app-player/player/slides/slides-footer/test/fixtures/disabled';
 import SlidesFooterFixtureHighlighted from '../src/template/app-player/player/slides/slides-footer/test/fixtures/highlighted';
 import SlidesFooterFixtureMediaSelected from '../src/template/app-player/player/slides/slides-footer/test/fixtures/media-selected';
+import SlidesFooterFixtureNoClue from '../src/template/app-player/player/slides/slides-footer/test/fixtures/no-clue';
 import SlidesFooterFixtureNotify from '../src/template/app-player/player/slides/slides-footer/test/fixtures/notify';
 import SlidesFooterFixtureOnlyClue from '../src/template/app-player/player/slides/slides-footer/test/fixtures/only-clue';
 import SlidesFooterFixtureWithContext from '../src/template/app-player/player/slides/slides-footer/test/fixtures/with-context';
@@ -824,6 +826,7 @@ export const fixtures = {
       Loading: ClueFixtureLoading
     },
     Cta: {
+      Disabled: CtaFixtureDisabled,
       LightSmall: CtaFixtureLightSmall,
       Light: CtaFixtureLight,
       PrimarySmall: CtaFixturePrimarySmall,
@@ -1485,6 +1488,7 @@ export const fixtures = {
       Disabled: SlidesFooterFixtureDisabled,
       Highlighted: SlidesFooterFixtureHighlighted,
       MediaSelected: SlidesFooterFixtureMediaSelected,
+      NoClue: SlidesFooterFixtureNoClue,
       Notify: SlidesFooterFixtureNotify,
       OnlyClue: SlidesFooterFixtureOnlyClue,
       WithContext: SlidesFooterFixtureWithContext
