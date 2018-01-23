@@ -86,8 +86,6 @@ import SetupSection from './../src/molecule/setup-section';
 import SetupSections from './../src/molecule/setup-sections';
 import SetupSlide from './../src/molecule/setup-slide';
 import SetupSlider from './../src/molecule/setup-slider';
-import SlidesFooter from './../src/molecule/slides/slides-footer';
-import SlidesPlayer from './../src/molecule/slides/slides-player';
 import SsmenuList from './../src/molecule/ssmenu-list';
 import SubscriptionFreemium from './../src/molecule/subscription-freemium';
 import SubscriptionPremium from './../src/molecule/subscription-premium';
@@ -120,6 +118,8 @@ import Slider from './../src/organism/slider';
 import Activity from './../src/template/activity';
 import Loading from './../src/template/app-player/loading';
 import PlayerHeader from './../src/template/app-player/player/player-header';
+import SlidesFooter from './../src/template/app-player/player/slides/slides-footer';
+import SlidesPlayer from './../src/template/app-player/player/slides/slides-player';
 import Player from './../src/template/app-player/player';
 import PopinCorrection from './../src/template/app-player/popin-correction';
 import PopinEnd from './../src/template/app-player/popin-end';
@@ -421,39 +421,6 @@ import SetupSectionsFixtureDefault from '../src/molecule/setup-sections/test/fix
 import SetupSectionsFixtureLoading from '../src/molecule/setup-sections/test/fixtures/loading';
 import SetupSlideFixtureDefault from '../src/molecule/setup-slide/test/fixtures/default';
 import SetupSliderFixtureDefault from '../src/molecule/setup-slider/test/fixtures/default';
-import SlidesFooterFixtureClueSelected from '../src/molecule/slides/slides-footer/test/fixtures/clue-selected';
-import SlidesFooterFixtureDefault from '../src/molecule/slides/slides-footer/test/fixtures/default';
-import SlidesFooterFixtureDisabled from '../src/molecule/slides/slides-footer/test/fixtures/disabled';
-import SlidesFooterFixtureHighlighted from '../src/molecule/slides/slides-footer/test/fixtures/highlighted';
-import SlidesFooterFixtureMediaSelected from '../src/molecule/slides/slides-footer/test/fixtures/media-selected';
-import SlidesFooterFixtureNoClue from '../src/molecule/slides/slides-footer/test/fixtures/no-clue';
-import SlidesFooterFixtureNotify from '../src/molecule/slides/slides-footer/test/fixtures/notify';
-import SlidesFooterFixtureOnlyClue from '../src/molecule/slides/slides-footer/test/fixtures/only-clue';
-import SlidesFooterFixtureWithContext from '../src/molecule/slides/slides-footer/test/fixtures/with-context';
-import SlidesPlayerFixtureClue from '../src/molecule/slides/slides-player/test/fixtures/clue';
-import SlidesPlayerFixtureContextWithImage from '../src/molecule/slides/slides-player/test/fixtures/context-with-image';
-import SlidesPlayerFixtureContextWithPdf from '../src/molecule/slides/slides-player/test/fixtures/context-with-pdf';
-import SlidesPlayerFixtureContextWithVideo from '../src/molecule/slides/slides-player/test/fixtures/context-with-video';
-import SlidesPlayerFixtureContext from '../src/molecule/slides/slides-player/test/fixtures/context';
-import SlidesPlayerFixtureDefault from '../src/molecule/slides/slides-player/test/fixtures/default';
-import SlidesPlayerFixtureDropDown from '../src/molecule/slides/slides-player/test/fixtures/drop-down';
-import SlidesPlayerFixtureError from '../src/molecule/slides/slides-player/test/fixtures/error';
-import SlidesPlayerFixtureFreeText from '../src/molecule/slides/slides-player/test/fixtures/free-text';
-import SlidesPlayerFixtureLoading from '../src/molecule/slides/slides-player/test/fixtures/loading';
-import SlidesPlayerFixtureMedia from '../src/molecule/slides/slides-player/test/fixtures/media';
-import SlidesPlayerFixtureNoClue from '../src/molecule/slides/slides-player/test/fixtures/no-clue';
-import SlidesPlayerFixtureNoQuestion from '../src/molecule/slides/slides-player/test/fixtures/no-question';
-import SlidesPlayerFixtureNoStep from '../src/molecule/slides/slides-player/test/fixtures/no-step';
-import SlidesPlayerFixtureNoTotal from '../src/molecule/slides/slides-player/test/fixtures/no-total';
-import SlidesPlayerFixtureOnlyClue from '../src/molecule/slides/slides-player/test/fixtures/only-clue';
-import SlidesPlayerFixtureQcmDrag from '../src/molecule/slides/slides-player/test/fixtures/qcm-drag';
-import SlidesPlayerFixtureQcmGraphic from '../src/molecule/slides/slides-player/test/fixtures/qcm-graphic';
-import SlidesPlayerFixtureQcmShort from '../src/molecule/slides/slides-player/test/fixtures/qcm-short';
-import SlidesPlayerFixtureQcmTemplate from '../src/molecule/slides/slides-player/test/fixtures/qcm-template';
-import SlidesPlayerFixtureQcm from '../src/molecule/slides/slides-player/test/fixtures/qcm';
-import SlidesPlayerFixtureRange from '../src/molecule/slides/slides-player/test/fixtures/range';
-import SlidesPlayerFixtureTemplate from '../src/molecule/slides/slides-player/test/fixtures/template';
-import SlidesPlayerFixtureWithMinHeight from '../src/molecule/slides/slides-player/test/fixtures/with-min-height';
 import SsmenuListFixtureCoorpacademy from '../src/molecule/ssmenu-list/test/fixtures/coorpacademy';
 import SsmenuListFixtureEmpty from '../src/molecule/ssmenu-list/test/fixtures/empty';
 import SsmenuListFixtureFormations from '../src/molecule/ssmenu-list/test/fixtures/formations';
@@ -535,6 +502,38 @@ import LoadingFixtureDefault from '../src/template/app-player/loading/test/fixtu
 import PlayerHeaderFixtureLearner from '../src/template/app-player/player/player-header/test/fixtures/learner';
 import PlayerHeaderFixtureMicrolearning from '../src/template/app-player/player/player-header/test/fixtures/microlearning';
 import PlayerHeaderFixtureNoLives from '../src/template/app-player/player/player-header/test/fixtures/no-lives';
+import SlidesFooterFixtureClueSelected from '../src/template/app-player/player/slides/slides-footer/test/fixtures/clue-selected';
+import SlidesFooterFixtureDefault from '../src/template/app-player/player/slides/slides-footer/test/fixtures/default';
+import SlidesFooterFixtureDisabled from '../src/template/app-player/player/slides/slides-footer/test/fixtures/disabled';
+import SlidesFooterFixtureHighlighted from '../src/template/app-player/player/slides/slides-footer/test/fixtures/highlighted';
+import SlidesFooterFixtureMediaSelected from '../src/template/app-player/player/slides/slides-footer/test/fixtures/media-selected';
+import SlidesFooterFixtureNotify from '../src/template/app-player/player/slides/slides-footer/test/fixtures/notify';
+import SlidesFooterFixtureOnlyClue from '../src/template/app-player/player/slides/slides-footer/test/fixtures/only-clue';
+import SlidesFooterFixtureWithContext from '../src/template/app-player/player/slides/slides-footer/test/fixtures/with-context';
+import SlidesPlayerFixtureClue from '../src/template/app-player/player/slides/slides-player/test/fixtures/clue';
+import SlidesPlayerFixtureContextWithImage from '../src/template/app-player/player/slides/slides-player/test/fixtures/context-with-image';
+import SlidesPlayerFixtureContextWithPdf from '../src/template/app-player/player/slides/slides-player/test/fixtures/context-with-pdf';
+import SlidesPlayerFixtureContextWithVideo from '../src/template/app-player/player/slides/slides-player/test/fixtures/context-with-video';
+import SlidesPlayerFixtureContext from '../src/template/app-player/player/slides/slides-player/test/fixtures/context';
+import SlidesPlayerFixtureDefault from '../src/template/app-player/player/slides/slides-player/test/fixtures/default';
+import SlidesPlayerFixtureDropDown from '../src/template/app-player/player/slides/slides-player/test/fixtures/drop-down';
+import SlidesPlayerFixtureError from '../src/template/app-player/player/slides/slides-player/test/fixtures/error';
+import SlidesPlayerFixtureFreeText from '../src/template/app-player/player/slides/slides-player/test/fixtures/free-text';
+import SlidesPlayerFixtureLoading from '../src/template/app-player/player/slides/slides-player/test/fixtures/loading';
+import SlidesPlayerFixtureMedia from '../src/template/app-player/player/slides/slides-player/test/fixtures/media';
+import SlidesPlayerFixtureNoClue from '../src/template/app-player/player/slides/slides-player/test/fixtures/no-clue';
+import SlidesPlayerFixtureNoQuestion from '../src/template/app-player/player/slides/slides-player/test/fixtures/no-question';
+import SlidesPlayerFixtureNoStep from '../src/template/app-player/player/slides/slides-player/test/fixtures/no-step';
+import SlidesPlayerFixtureNoTotal from '../src/template/app-player/player/slides/slides-player/test/fixtures/no-total';
+import SlidesPlayerFixtureOnlyClue from '../src/template/app-player/player/slides/slides-player/test/fixtures/only-clue';
+import SlidesPlayerFixtureQcmDrag from '../src/template/app-player/player/slides/slides-player/test/fixtures/qcm-drag';
+import SlidesPlayerFixtureQcmGraphic from '../src/template/app-player/player/slides/slides-player/test/fixtures/qcm-graphic';
+import SlidesPlayerFixtureQcmShort from '../src/template/app-player/player/slides/slides-player/test/fixtures/qcm-short';
+import SlidesPlayerFixtureQcmTemplate from '../src/template/app-player/player/slides/slides-player/test/fixtures/qcm-template';
+import SlidesPlayerFixtureQcm from '../src/template/app-player/player/slides/slides-player/test/fixtures/qcm';
+import SlidesPlayerFixtureRange from '../src/template/app-player/player/slides/slides-player/test/fixtures/range';
+import SlidesPlayerFixtureTemplate from '../src/template/app-player/player/slides/slides-player/test/fixtures/template';
+import SlidesPlayerFixtureWithMinHeight from '../src/template/app-player/player/slides/slides-player/test/fixtures/with-min-height';
 import PlayerFixtureClue from '../src/template/app-player/player/test/fixtures/clue';
 import PlayerFixtureContextWithImage from '../src/template/app-player/player/test/fixtures/context-with-image';
 import PlayerFixtureContextWithPdf from '../src/template/app-player/player/test/fixtures/context-with-pdf';
@@ -737,10 +736,6 @@ export const components = {
     QuestionRange,
     Template
   },
-  MoleculeSlides: {
-    SlidesFooter,
-    SlidesPlayer
-  },
   OrganismAccordion: {
     Container,
     Part,
@@ -778,6 +773,10 @@ export const components = {
   },
   TemplateAppPlayerPlayer: {
     PlayerHeader
+  },
+  TemplateAppPlayerPlayerSlides: {
+    SlidesFooter,
+    SlidesPlayer
   },
   TemplateBackOffice: {
     BrandCreate,
@@ -1310,45 +1309,6 @@ export const fixtures = {
       Multiple: TemplateFixtureMultiple
     }
   },
-  MoleculeSlides: {
-    SlidesFooter: {
-      ClueSelected: SlidesFooterFixtureClueSelected,
-      Default: SlidesFooterFixtureDefault,
-      Disabled: SlidesFooterFixtureDisabled,
-      Highlighted: SlidesFooterFixtureHighlighted,
-      MediaSelected: SlidesFooterFixtureMediaSelected,
-      NoClue: SlidesFooterFixtureNoClue,
-      Notify: SlidesFooterFixtureNotify,
-      OnlyClue: SlidesFooterFixtureOnlyClue,
-      WithContext: SlidesFooterFixtureWithContext
-    },
-    SlidesPlayer: {
-      Clue: SlidesPlayerFixtureClue,
-      ContextWithImage: SlidesPlayerFixtureContextWithImage,
-      ContextWithPdf: SlidesPlayerFixtureContextWithPdf,
-      ContextWithVideo: SlidesPlayerFixtureContextWithVideo,
-      Context: SlidesPlayerFixtureContext,
-      Default: SlidesPlayerFixtureDefault,
-      DropDown: SlidesPlayerFixtureDropDown,
-      Error: SlidesPlayerFixtureError,
-      FreeText: SlidesPlayerFixtureFreeText,
-      Loading: SlidesPlayerFixtureLoading,
-      Media: SlidesPlayerFixtureMedia,
-      NoClue: SlidesPlayerFixtureNoClue,
-      NoQuestion: SlidesPlayerFixtureNoQuestion,
-      NoStep: SlidesPlayerFixtureNoStep,
-      NoTotal: SlidesPlayerFixtureNoTotal,
-      OnlyClue: SlidesPlayerFixtureOnlyClue,
-      QcmDrag: SlidesPlayerFixtureQcmDrag,
-      QcmGraphic: SlidesPlayerFixtureQcmGraphic,
-      QcmShort: SlidesPlayerFixtureQcmShort,
-      QcmTemplate: SlidesPlayerFixtureQcmTemplate,
-      Qcm: SlidesPlayerFixtureQcm,
-      Range: SlidesPlayerFixtureRange,
-      Template: SlidesPlayerFixtureTemplate,
-      WithMinHeight: SlidesPlayerFixtureWithMinHeight
-    }
-  },
   OrganismAccordion: {
     Container: {
       Default: ContainerFixtureDefault
@@ -1516,6 +1476,44 @@ export const fixtures = {
       Learner: PlayerHeaderFixtureLearner,
       Microlearning: PlayerHeaderFixtureMicrolearning,
       NoLives: PlayerHeaderFixtureNoLives
+    }
+  },
+  TemplateAppPlayerPlayerSlides: {
+    SlidesFooter: {
+      ClueSelected: SlidesFooterFixtureClueSelected,
+      Default: SlidesFooterFixtureDefault,
+      Disabled: SlidesFooterFixtureDisabled,
+      Highlighted: SlidesFooterFixtureHighlighted,
+      MediaSelected: SlidesFooterFixtureMediaSelected,
+      Notify: SlidesFooterFixtureNotify,
+      OnlyClue: SlidesFooterFixtureOnlyClue,
+      WithContext: SlidesFooterFixtureWithContext
+    },
+    SlidesPlayer: {
+      Clue: SlidesPlayerFixtureClue,
+      ContextWithImage: SlidesPlayerFixtureContextWithImage,
+      ContextWithPdf: SlidesPlayerFixtureContextWithPdf,
+      ContextWithVideo: SlidesPlayerFixtureContextWithVideo,
+      Context: SlidesPlayerFixtureContext,
+      Default: SlidesPlayerFixtureDefault,
+      DropDown: SlidesPlayerFixtureDropDown,
+      Error: SlidesPlayerFixtureError,
+      FreeText: SlidesPlayerFixtureFreeText,
+      Loading: SlidesPlayerFixtureLoading,
+      Media: SlidesPlayerFixtureMedia,
+      NoClue: SlidesPlayerFixtureNoClue,
+      NoQuestion: SlidesPlayerFixtureNoQuestion,
+      NoStep: SlidesPlayerFixtureNoStep,
+      NoTotal: SlidesPlayerFixtureNoTotal,
+      OnlyClue: SlidesPlayerFixtureOnlyClue,
+      QcmDrag: SlidesPlayerFixtureQcmDrag,
+      QcmGraphic: SlidesPlayerFixtureQcmGraphic,
+      QcmShort: SlidesPlayerFixtureQcmShort,
+      QcmTemplate: SlidesPlayerFixtureQcmTemplate,
+      Qcm: SlidesPlayerFixtureQcm,
+      Range: SlidesPlayerFixtureRange,
+      Template: SlidesPlayerFixtureTemplate,
+      WithMinHeight: SlidesPlayerFixtureWithMinHeight
     }
   },
   TemplateBackOffice: {
