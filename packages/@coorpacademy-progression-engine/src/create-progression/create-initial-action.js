@@ -11,7 +11,9 @@ const learnerInitialAction = (slidePools: Array<SlidePool>): MoveAction => {
   const slide = selectInitialSlide(slidePools);
 
   if (!slide) {
-    throw new Error('');
+    throw new Error(
+      'No initial slide found within this SlidePools: could not create an initial Action'
+    );
   }
 
   return {
@@ -29,7 +31,9 @@ const adaptiveInitialAction = (chapterRulePool: ChapterRulePool): MoveAction => 
   const rule = pipe(head, get('rules'), rules => selectRule(rules, null))(chapterRulePool);
 
   if (!rule) {
-    throw new Error('');
+    throw new Error(
+      'No rule could be selected within this ChapterRulePool: could not create an adaptive initial Action'
+    );
   }
 
   const {instructions, destination} = rule;
@@ -44,7 +48,7 @@ const adaptiveInitialAction = (chapterRulePool: ChapterRulePool): MoveAction => 
 
 const createInitialAction = (availableContent: AvailableContent): MoveAction => {
   if (!availableContent) {
-    throw new Error('');
+    throw new Error('param AvailableContent is mandatory to create an initial Action');
   }
 
   const {chapterRulePool, slidePools} = availableContent;
@@ -54,7 +58,7 @@ const createInitialAction = (availableContent: AvailableContent): MoveAction => 
   }
 
   if (!slidePools) {
-    throw new Error('');
+    throw new Error('provide either a ChapterRulePool or a SlidePools to create an initial Action');
   }
 
   return learnerInitialAction(slidePools);
