@@ -79,10 +79,67 @@ test('should create player props for basic question and show coaches', t => {
   t.true(isFunction(props.answerType.model.onChange));
   t.is(props.slideContext, undefined);
   t.is(props.cta.submitValue, '__Validate');
+  t.is(props.cta.disabled, true);
 
   t.is(props.buttons.length, 3);
   t.is(props.buttons[2].title, '__Coach');
   t.is(props.buttons[2].type, 'coach');
+});
+
+test('should enable the validate button when there is an answer', t => {
+  const state = {
+    data,
+    ui: {
+      current: {progressionId: 'basic'},
+      answers: {basic: {value: ['foo']}}
+    }
+  };
+
+  const props = playerProps(state);
+
+  t.is(props.cta.disabled, false);
+});
+
+test('should disable the validate button when there the text answer has been deleted', t => {
+  const state = {
+    data,
+    ui: {
+      current: {progressionId: 'basic'},
+      answers: {basic: {value: ['']}}
+    }
+  };
+
+  const props = playerProps(state);
+
+  t.is(props.cta.disabled, true);
+});
+
+test('should disable the validate button when no answer is provided', t => {
+  const state = {
+    data,
+    ui: {
+      current: {progressionId: 'basic'},
+      answers: {}
+    }
+  };
+
+  const props = playerProps(state);
+
+  t.is(props.cta.disabled, true);
+});
+
+test('should disable the validate button when a previous selected answer has been unselected', t => {
+  const state = {
+    data,
+    ui: {
+      current: {progressionId: 'basic'},
+      answers: {basic: {value: []}}
+    }
+  };
+
+  const props = playerProps(state);
+
+  t.is(props.cta.disabled, true);
 });
 
 test('should display context tab button if slide context is available', t => {
