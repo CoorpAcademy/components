@@ -1,9 +1,9 @@
 // @flow
-import type {Config, NewProgression, State} from './types';
+import type {Config, Progression, State} from './types';
 import getConfig from './config';
 import updateState from './update-state';
 
-const createState = (progression: NewProgression): State => {
+const createState = (progression: Progression): State => {
   const engineConfig: Config = getConfig(progression.engine);
   const config: Config = {...engineConfig, ...progression.engineOptions};
 

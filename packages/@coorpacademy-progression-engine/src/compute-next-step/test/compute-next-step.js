@@ -6,7 +6,7 @@ import assign from 'lodash/fp/assign';
 import pipe from 'lodash/fp/pipe';
 import find from 'lodash/fp/find';
 import type {Engine, EngineOptions, State, Slide} from '../../types';
-import {newComputeNextStep} from '..';
+import computeNextStep from '..';
 import allSlides from './fixtures/slides';
 import {
   firstState,
@@ -66,13 +66,7 @@ test('should return the slide with the highest position if any slides have a pos
     godMode: true
   };
 
-  const result1 = newComputeNextStep(
-    engine,
-    engineOptions,
-    firstState,
-    givenAnswer,
-    availableContent
-  );
+  const result1 = computeNextStep(engine, engineOptions, firstState, givenAnswer, availableContent);
   t.deepEqual(result1, {
     nextContent: {
       type: 'slide',
@@ -89,7 +83,7 @@ test('should return the slide with the highest position if any slides have a pos
     slides: [...firstState.slides, result1.nextContent.ref]
   };
 
-  const result2 = newComputeNextStep(
+  const result2 = computeNextStep(
     engine,
     engineOptions,
     stateWithAdditionalSlide,
@@ -116,7 +110,7 @@ test('should return a new slide when user is still alive', t => {
     godMode: true
   };
 
-  const result = newComputeNextStep(engine, engineOptions, state, givenAnswer, availableContent);
+  const result = computeNextStep(engine, engineOptions, state, givenAnswer, availableContent);
   t.deepEqual(omit(['nextContent.ref'], result), {
     nextContent: {type: 'slide'},
     instructions: undefined,
@@ -135,7 +129,7 @@ test("should return the fail endpoint when user has no more lives and can't requ
     godMode: false
   };
 
-  const result = newComputeNextStep(engine, engineOptions, state, givenAnswer, availableContent);
+  const result = computeNextStep(engine, engineOptions, state, givenAnswer, availableContent);
   t.deepEqual(result, {
     nextContent: {ref: 'failExitNode', type: 'failure'},
     instructions: undefined,
@@ -153,7 +147,7 @@ test('should return the extraLife when user has no more lives but can request li
     godMode: false
   };
 
-  const result = newComputeNextStep(engine, engineOptions, state, givenAnswer, availableContent);
+  const result = computeNextStep(engine, engineOptions, state, givenAnswer, availableContent);
   t.deepEqual(result, {
     nextContent: {ref: 'extraLife', type: 'node'},
     instructions: undefined,
@@ -172,7 +166,7 @@ test('should return a new slide, when user has no more lives but lives are disab
     godMode: false
   };
 
-  const resultForEngine = newComputeNextStep(
+  const resultForEngine = computeNextStep(
     livesDisabledEngine,
     engineOptions,
     state,
@@ -190,7 +184,7 @@ test('should return a new slide, when user has no more lives but lives are disab
     'does not work when lives are disabled in engine config'
   );
 
-  const resultForEngineConfig = newComputeNextStep(
+  const resultForEngineConfig = computeNextStep(
     engine,
     {livesDisabled: true},
     state,
@@ -219,7 +213,7 @@ test('should return the failure endpoint when progression has at least one remai
     godMode: false
   };
 
-  const result = newComputeNextStep(engine, engineOptions, state, givenAnswer, availableContent);
+  const result = computeNextStep(engine, engineOptions, state, givenAnswer, availableContent);
   t.deepEqual(result, {
     nextContent: {ref: 'failExitNode', type: 'failure'},
     instructions: undefined,

@@ -1,9 +1,9 @@
 // @flow
 import test from 'ava';
 import createState from '../create-state';
-import type {Content, MoveAction, NewProgression} from '../types';
+import type {Content, MoveAction, Progression} from '../types';
 
-const progression: NewProgression = {
+const progression: Progression = {
   engine: {
     ref: 'microlearning',
     version: '1'
