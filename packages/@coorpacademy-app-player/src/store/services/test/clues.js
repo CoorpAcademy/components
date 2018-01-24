@@ -13,7 +13,7 @@ const engine = {
 };
 
 test('should findById', async t => {
-  const progression = await Progressions.create({engine});
+  const progression = await Progressions.create(engine);
   const nextContent = progression.state.nextContent;
   const progressionWithClue = await Progressions.requestClue(progression._id, {
     content: nextContent
@@ -25,7 +25,7 @@ test('should findById', async t => {
 });
 
 test("should throw error if slide doesn't exist", async t => {
-  const progression = await Progressions.create({engine});
+  const progression = await Progressions.create(engine);
   const corruptProgression = Progressions.save(
     pipe(set('state.content.ref', 'unknown'), set('state.requestedClues', ['unknown']))(progression)
   );
@@ -33,6 +33,6 @@ test("should throw error if slide doesn't exist", async t => {
 });
 
 test("should throw error if clue haven't been requested", async t => {
-  const progression = await Progressions.create({engine});
+  const progression = await Progressions.create(engine);
   return t.throws(findById(progression._id, 'unknown'), 'Clue is not available');
 });

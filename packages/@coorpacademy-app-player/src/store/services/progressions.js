@@ -1,5 +1,6 @@
 import {
   createProgression,
+  createState,
   computeNextStep,
   newComputeNextStep,
   getConfig,
@@ -13,7 +14,6 @@ import uniqueId from 'lodash/fp/uniqueId';
 import update from 'lodash/fp/update';
 import pipe from 'lodash/fp/pipe';
 import filter from 'lodash/fp/filter';
-import sample from 'lodash/fp/sample';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import set from 'lodash/fp/set';
@@ -77,37 +77,48 @@ export const findBestOf = (engineRef, contentRef, progressionId = null) => {
   return bestProgression || set('state.stars', 0, {});
 };
 
+const addActionAndSaveProgression = (progression, action) => {
+  const newProgression = update('actions', actions => actions.concat(action), progression);
+  const newState = createState(newProgression);
+  return pipe(set('state', newState), save)(newProgression);
+};
+
 export const postAnswer = async (progressionId, payload) => {
   const userAnswer = getOr([''], 'answer', payload);
   const slideId = payload.content.ref;
   const slide = slideStore.get(slideId);
   const progression = await findById(progressionId);
   const slidePools = createSlidePools();
-  const {engine, content, state} = progression;
+  const {engine, engineOptions, content} = progression;
+  const state = createState(progression);
   const chapterRules = await getChapterRulesByContent(content);
-
-  const {nextContent, instructions, isCorrect} = newComputeNextStep(engine, state, {
+  const givenAnswer = {
     currentSlide: slide,
     answer: userAnswer,
-    godMode: false,
-
+    godMode: false
+  };
+  const availableContent = {
     slidePools,
     chapterRules
-  });
+  };
+
+  const nextContent = newComputeNextStep(
+    engine,
+    engineOptions,
+    state,
+    givenAnswer,
+    availableContent
+  );
 
   const action = {
     type: 'answer',
     payload: {
       ...payload,
-      isCorrect,
-      nextContent,
-      instructions
+      ...nextContent
     }
   };
 
-  return pipe(update('state', _state => updateState(progression.engine, _state, [action])), save)(
-    progression
-  );
+  return addActionAndSaveProgression(progression, action);
 };
 
 export const requestClue = async (progressionId, payload) => {
@@ -150,22 +161,21 @@ export const postExtraLife = async (progressionId, payload) => {
 };
 
 // eslint-disable-next-line require-await
-export const create = async progression => {
+export const create = async engine => {
   const _id = generateId();
   const slidePools = createSlidePools();
   const chapter = {
     ref: 'cha_Ny1BTxRp~',
     type: 'chapter'
   };
-  const initialContent = {
-    ref: sample(slidePools[0].slides)._id,
-    type: 'slide'
-  };
 
-  const newProgression = createProgression(progression.engine, chapter, initialContent);
+  const newProgression = createProgression(engine, chapter, {}, {slidePools});
+  const state = createState(newProgression);
+
   return save({
+    ...newProgression,
     _id,
-    ...newProgression
+    state
   });
 };
 
