@@ -36,7 +36,6 @@ export const createRouterMiddleware = routeDefinitions => {
   const routes = map(
     ({path, actions, action}) => ({
       match: isString(path) ? createMatch(path) : path,
-      actions,
       action
     }),
     routeDefinitions
@@ -46,17 +45,11 @@ export const createRouterMiddleware = routeDefinitions => {
     if (action.type === LOCATION) {
       const currentPathname = get('route.pathname', store.getState());
       const pathname = getOr(currentPathname, 'payload.pathname', action);
-      const {match, actions: multipleActions, action: singleAction} = find(
-        route => route.match(pathname),
-        routes
-      );
-      const actions = singleAction ? [singleAction] : multipleActions;
+      const {match, action: routeAction} = find(route => route.match(pathname), routes);
       const params = match(pathname);
-
       const updatedAction = await next(action); // eslint-disable-line callback-return
-      const state = store.getState();
 
-      await Promise.all(map(_action => _action(store.dispatch, {state, params}, store), actions));
+      await store.dispatch(routeAction(params));
       return constant(updatedAction);
     }
 
