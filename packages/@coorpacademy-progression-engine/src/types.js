@@ -135,21 +135,7 @@ export type EngineOptions = {
   livesDisabled?: boolean
 };
 
-export type Configuration = {
-  instructions?: ?Array<Instruction>,
-  nextContent?: Content
-};
-
 export type Progression = {
-  content: Content,
-  // initialState: State,
-  configuration?: Configuration,
-  // state: State,
-  actions: Array<Action>,
-  engine: Engine
-};
-
-export type NewProgression = {
   content: Content,
   engine: Engine,
   engineOptions: EngineOptions,

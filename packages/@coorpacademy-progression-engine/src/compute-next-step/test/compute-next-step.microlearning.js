@@ -2,7 +2,7 @@
 import test from 'ava';
 import filter from 'lodash/fp/filter';
 import type {Engine, EngineOptions, State, Slide} from '../../types';
-import {newComputeNextStep} from '..';
+import computeNextStep from '..';
 import allSlides from './fixtures/slides';
 import {successProgressionState} from './fixtures/states';
 
@@ -31,7 +31,7 @@ test('should return the success endpoint when user has answered `config.slidesTo
     godMode: true
   };
 
-  const result = newComputeNextStep(engine, engineOptions, state, givenAnswer, availableContent);
+  const result = computeNextStep(engine, engineOptions, state, givenAnswer, availableContent);
   t.deepEqual(result, {
     nextContent: {ref: 'successExitNode', type: 'success'},
     instructions: undefined,
