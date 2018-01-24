@@ -68,7 +68,7 @@
   "ava": {
     "concurrency": 8,
     "files": [
-      "packages/@coorpacademy-progression-engine/src/**/test/**/*.js"
+      "**/test/**/*.js"
     ],
     "require": [
       "babel-register",
@@ -86,7 +86,7 @@
   },
   "nyc": {
     "include": [
-      "packages/@coorpacademy-progression-engine/src/**"
+      "packages/**/src/**"
     ],
     "reporter": [
       "lcov",
