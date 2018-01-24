@@ -3,7 +3,7 @@ import test from 'ava';
 import omit from 'lodash/fp/omit';
 import filter from 'lodash/fp/filter';
 import type {Engine, EngineOptions, State, Slide} from '../../types';
-import {newComputeNextStep} from '..';
+import computeNextStep from '..';
 import allSlides from './fixtures/slides';
 import {stateBeforeGettingNextContent} from './fixtures/states';
 
@@ -36,7 +36,7 @@ test('should return a slide from slide pools if chapter rules is undefined or em
     godMode: true
   };
 
-  const result = newComputeNextStep(engine, engineOptions, state, givenAnswer, availableContent);
+  const result = computeNextStep(engine, engineOptions, state, givenAnswer, availableContent);
   t.deepEqual(omit(['nextContent.ref'], result), {
     nextContent: {type: 'slide'},
     instructions: undefined,

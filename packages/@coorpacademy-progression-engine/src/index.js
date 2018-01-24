@@ -1,5 +1,5 @@
 // @flow
-import computeNextStep, {newComputeNextStep} from './compute-next-step';
+import computeNextStep from './compute-next-step';
 import checkAnswer from './check-answer';
 import checkAnswerCorrectness from './check-answer-correctness';
 import createState from './create-state';
@@ -9,7 +9,6 @@ import getConfig from './config';
 
 export {
   computeNextStep,
-  newComputeNextStep,
   checkAnswer,
   checkAnswerCorrectness,
   createState,
