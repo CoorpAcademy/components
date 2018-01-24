@@ -3,7 +3,7 @@ import test from 'ava';
 import omit from 'lodash/fp/omit';
 import filter from 'lodash/fp/filter';
 import type {Engine, EngineOptions, State, Slide} from '../../types';
-import {newComputeNextStep} from '..';
+import computeNextStep from '..';
 import allSlides from './fixtures/slides';
 import {stateBeforeGettingNextContent} from './fixtures/states';
 
@@ -43,7 +43,7 @@ test('should switch chapters when user has answered `config.slidesToComplete` nu
     godMode: true
   };
 
-  const result = newComputeNextStep(engine, engineOptions, state, givenAnswer, availableContent);
+  const result = computeNextStep(engine, engineOptions, state, givenAnswer, availableContent);
   t.deepEqual(omit(['nextContent.ref'], result), {
     nextContent: {type: 'slide'},
     instructions: undefined,
@@ -69,7 +69,7 @@ test('should return the success endpoint when user has answered `config.slidesTo
     godMode: true
   };
 
-  const result = newComputeNextStep(engine, engineOptions, state, givenAnswer, availableContent);
+  const result = computeNextStep(engine, engineOptions, state, givenAnswer, availableContent);
   t.deepEqual(result, {
     nextContent: {ref: 'successExitNode', type: 'success'},
     instructions: undefined,
