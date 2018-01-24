@@ -6,17 +6,14 @@ const LOCATION = 'location';
 const createLocation = pathname => ({type: LOCATION, payload: {pathname}});
 
 test('should dispatch action', t => {
-  t.plan(2);
+  t.plan(1);
 
-  const routerMiddleware = createRouterMiddleware(
-    [
-      {
-        path: '*',
-        action: params => params
-      }
-    ],
-    LOCATION
-  );
+  const routerMiddleware = createRouterMiddleware([
+    {
+      path: '*',
+      action: params => params
+    }
+  ]);
 
   const locationAction = createLocation('/');
 
@@ -26,21 +23,18 @@ test('should dispatch action', t => {
 });
 
 test('should support function as path', t => {
-  t.plan(2);
+  t.plan(1);
 
-  const routerMiddleware = createRouterMiddleware(
-    [
-      {
-        path: () => false,
-        action: params => params
-      },
-      {
-        path: () => true,
-        action: params => params
-      }
-    ],
-    LOCATION
-  );
+  const routerMiddleware = createRouterMiddleware([
+    {
+      path: () => false,
+      action: params => params
+    },
+    {
+      path: () => true,
+      action: params => params
+    }
+  ]);
 
   const locationAction = createLocation();
 
@@ -50,17 +44,14 @@ test('should support function as path', t => {
 });
 
 test("should extract url's params", t => {
-  t.plan(2);
+  t.plan(1);
 
-  const routerMiddleware = createRouterMiddleware(
-    [
-      {
-        path: '/:foo',
-        action: params => params
-      }
-    ],
-    LOCATION
-  );
+  const routerMiddleware = createRouterMiddleware([
+    {
+      path: '/:foo',
+      action: params => params
+    }
+  ]);
 
   const locationAction = createLocation('/foo');
 
@@ -72,15 +63,12 @@ test("should extract url's params", t => {
 test("shouldn't dispatch action", t => {
   t.plan(1);
 
-  const routerMiddleware = createRouterMiddleware(
-    [
-      {
-        path: '/:foo',
-        action: params => params
-      }
-    ],
-    LOCATION
-  );
+  const routerMiddleware = createRouterMiddleware([
+    {
+      path: '/:foo',
+      action: params => params
+    }
+  ]);
 
   const otherAction = {type: 'other'};
 
@@ -90,25 +78,22 @@ test("shouldn't dispatch action", t => {
 });
 
 test("should respect route's order", t => {
-  t.plan(6);
+  t.plan(3);
 
-  const routerMiddleware = createRouterMiddleware(
-    [
-      {
-        path: '/:foo/:bar',
-        action: params => ({order: 0, params})
-      },
-      {
-        path: '/:foo',
-        action: params => ({order: 1, params})
-      },
-      {
-        path: '*',
-        action: params => ({order: 2, params})
-      }
-    ],
-    LOCATION
-  );
+  const routerMiddleware = createRouterMiddleware([
+    {
+      path: '/:foo/:bar',
+      action: params => ({order: 0, params})
+    },
+    {
+      path: '/:foo',
+      action: params => ({order: 1, params})
+    },
+    {
+      path: '*',
+      action: params => ({order: 2, params})
+    }
+  ]);
 
   return Promise.all(
     map(
