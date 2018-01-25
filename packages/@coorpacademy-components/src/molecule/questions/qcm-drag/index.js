@@ -48,12 +48,12 @@ Choices.propTypes = {
 
 const SelectionBox = ({answers}) => {
   const selectedAnswers = pipe(filter('selected'), orderBy('order', 'asc'))(answers);
-
   const selectedAnswersViews = selectedAnswers.map((answer, key) => {
     const {onClick, title} = answer;
     return (
       <div
         className={style.selectedAnswer}
+        data-selected="true"
         onClick={onClick}
         key={key}
         // eslint-disable-next-line react/no-danger
