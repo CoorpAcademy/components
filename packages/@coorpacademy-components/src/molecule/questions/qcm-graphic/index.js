@@ -13,12 +13,11 @@ const QCMImage = (props, context) => {
 
     const primarySkinColor = getOr('#00B0FF', 'common.primary', skin);
     const selectedStyle = selected ? {backgroundColor: primarySkinColor} : null;
-    const dataSelected = selected ? true : null;
     return (
       <div
         className={selected ? style.selected : style.answer}
         onClick={onClick}
-        data-selected={dataSelected}
+        data-selected={selected}
         style={selectedStyle}
         key={key}
       >
