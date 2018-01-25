@@ -1,6 +1,6 @@
 import get from 'lodash/fp/get';
 import includes from 'lodash/fp/includes';
-import buildTask from '../../utils/redux-task';
+import buildTask from '@coorpacademy/redux-task';
 import {
   getProgression,
   getBestScore,

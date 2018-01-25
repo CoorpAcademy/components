@@ -1,4 +1,4 @@
-import buildTask from '../../utils/redux-task';
+import buildTask from '@coorpacademy/redux-task';
 import {getClue} from '../../utils/state-extract';
 
 export const CLUE_FETCH_REQUEST = '@@clue/CREATE_REQUEST';

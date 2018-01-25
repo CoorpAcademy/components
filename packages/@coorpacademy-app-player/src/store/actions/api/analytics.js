@@ -1,4 +1,4 @@
-import buildTask from '../../utils/redux-task';
+import buildTask from '@coorpacademy/redux-task';
 import {getRoute, getCurrentProgression, getEngineConfig} from '../../utils/state-extract';
 
 export const MEDIA_VIEWED_ANALYTICS_REQUEST = '@@analytics/MEDIA_VIEWED_REQUEST';

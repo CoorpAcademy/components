@@ -42,6 +42,7 @@
     "@coorpacademy/components": "6.2.9",
     "@coorpacademy/translate": "5.3.11",
     "@coorpacademy/webpack-config": "6.2.2",
+    "@coorpacademy/redux-task": "^0.0.1",
     "lodash": "^4.17.4",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",

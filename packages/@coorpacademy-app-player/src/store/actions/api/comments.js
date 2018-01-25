@@ -1,4 +1,4 @@
-import buildTask from '../../utils/redux-task';
+import buildTask from '@coorpacademy/redux-task';
 
 export const SEND_POST_COMMENT_REQUEST = '@@comment/SEND_POST_REQUEST';
 export const SEND_POST_COMMENT_SUCCESS = '@@comment/SEND_POST_SUCCESS';
