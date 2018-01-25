@@ -265,7 +265,7 @@ const ValidateButton = ({cta}) => (
 );
 
 ValidateButton.propTypes = {
-  help: PropTypes.string
+  cta: PropTypes.shape(Cta.propTypes)
 };
 
 const ContentLayout = (props, context) => {

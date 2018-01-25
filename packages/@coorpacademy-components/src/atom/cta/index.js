@@ -2,6 +2,7 @@ import React from 'react';
 import {convert} from 'css-color-function';
 import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
+import noop from 'lodash/fp/noop';
 import classnames from 'classnames';
 import Provider from '../provider';
 import Link from '../link';
@@ -85,7 +86,7 @@ class CTA extends React.Component {
     return (
       <Link
         href={href}
-        onClick={!disabled && onClick}
+        onClick={disabled ? noop : onClick}
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}
         target={target}

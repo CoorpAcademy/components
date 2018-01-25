@@ -84,6 +84,7 @@ test('should display slide', async t => {
   t.is(playerProps.question, "Écrivez le mot Text dans l'input.\n");
   t.deepEqual(omit('onClick', playerProps.cta), {
     submitValue: '__Validate',
+    disabled: true,
     name: 'validateAnswerCTA',
     light: false,
     small: false,
