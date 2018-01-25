@@ -1,4 +1,5 @@
 // @flow
+import get from 'lodash/fp/get';
 import head from 'lodash/fp/head';
 import isEqual from 'lodash/fp/isEqual';
 import filter from 'lodash/fp/filter';
@@ -12,10 +13,14 @@ export const DEFAULT_SOURCE = {
   ref: ''
 };
 
-const isCurrentSlide = (source: ?Content = DEFAULT_SOURCE) => (
+const isRuleAvailable = (source: ?Content = DEFAULT_SOURCE) => (
   chapterRule: ChapterRule
 ): boolean => {
-  return isEqual(source, chapterRule.source);
+  const isSameSource = isEqual(source, chapterRule.source);
+  const hasSameType = (source && source.type) === chapterRule.source.type;
+  const isGlobalRule = hasSameType && get('source.ref', chapterRule) === '*';
+
+  return isSameSource || isGlobalRule;
 };
 
 const isSameType = refValue => (value): boolean => {
@@ -62,7 +67,7 @@ const matchWithState = (state: GenericState) => (chapterRule: ChapterRule): bool
 
 const selectRule = (rules: Array<ChapterRule>, state: ?GenericState): ?ChapterRule => {
   const targetedChapterRules: Array<ChapterRule> = filter(
-    isCurrentSlide(state ? state.content : undefined),
+    isRuleAvailable(state ? state.content : undefined),
     rules
   );
   const sortedChapterRules: Array<ChapterRule> = sortBy('priority', targetedChapterRules);

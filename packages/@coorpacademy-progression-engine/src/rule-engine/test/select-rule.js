@@ -376,3 +376,47 @@ test("should select chapterRule with 'variables' scope", t => {
   const nocustomChapterRule = selectRule(slideScopedRules, nocustomState);
   t.is(nocustomChapterRule, null, "Don't support 'variable' scoped target with custom field");
 });
+
+test("should select a rule with source.ref:'*'", t => {
+  const value = 111;
+  const baseRule = {
+    source,
+    destination,
+    instructions: [],
+    conditions: [
+      {
+        target: {
+          scope: 'variable',
+          field: 'foo'
+        },
+        operator: 'EQUALS',
+        values: [value]
+      }
+    ],
+    ref: '1'
+  };
+
+  const sameSourceLowPriority = {
+    ...baseRule,
+    priority: 1
+  };
+
+  const globalSourceHighPriority = {
+    ...baseRule,
+    source: {
+      type: 'slide',
+      ref: '*'
+    },
+    priority: 0
+  };
+
+  const rules = [sameSourceLowPriority, globalSourceHighPriority];
+
+  const state = {
+    ...defaultState,
+    variables: {foo: value}
+  };
+
+  const selectedRule = selectRule(rules, state);
+  t.deepEqual(selectedRule, globalSourceHighPriority);
+});
