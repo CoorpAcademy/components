@@ -1,12 +1,12 @@
 import test from 'ava';
 import map from 'lodash/fp/map';
 import {createRouterMiddleware} from '..';
+import {LOCATION} from '@coorpacademy/redux-history';
 
-const LOCATION = 'location';
 const createLocation = pathname => ({type: LOCATION, payload: {pathname}});
 
 test('should dispatch action', t => {
-  t.plan(1);
+  t.plan(2);
 
   const routerMiddleware = createRouterMiddleware([
     {
@@ -18,12 +18,13 @@ test('should dispatch action', t => {
   const locationAction = createLocation('/');
 
   return routerMiddleware({
+    getState: () => ({pathname: '/'}),
     dispatch: action => t.deepEqual({0: '/'}, action)
   })(action => t.is(locationAction, action))(locationAction);
 });
 
 test('should support function as path', t => {
-  t.plan(1);
+  t.plan(2);
 
   const routerMiddleware = createRouterMiddleware([
     {
@@ -39,12 +40,13 @@ test('should support function as path', t => {
   const locationAction = createLocation();
 
   return routerMiddleware({
+    getState: () => ({pathname: '/'}),
     dispatch: action => t.deepEqual(true, action)
   })(action => t.is(locationAction, action))(locationAction);
 });
 
 test("should extract url's params", t => {
-  t.plan(1);
+  t.plan(2);
 
   const routerMiddleware = createRouterMiddleware([
     {
@@ -56,6 +58,7 @@ test("should extract url's params", t => {
   const locationAction = createLocation('/foo');
 
   return routerMiddleware({
+    getState: () => ({pathname: '/'}),
     dispatch: action => t.deepEqual({foo: 'foo'}, action)
   })(action => t.is(locationAction, action))(locationAction);
 });
@@ -73,12 +76,13 @@ test("shouldn't dispatch action", t => {
   const otherAction = {type: 'other'};
 
   return routerMiddleware({
+    getState: () => ({pathname: '/'}),
     dispatch: () => t.fail()
   })(action => t.is(otherAction, action))(otherAction);
 });
 
 test("should respect route's order", t => {
-  t.plan(3);
+  t.plan(6);
 
   const routerMiddleware = createRouterMiddleware([
     {
@@ -100,6 +104,7 @@ test("should respect route's order", t => {
       ([pathname, params]) => {
         const locationAction = createLocation(pathname);
         return routerMiddleware({
+          getState: () => ({pathname}),
           dispatch: action => t.deepEqual(params, action)
         })(action => t.is(locationAction, action))(locationAction);
       },
