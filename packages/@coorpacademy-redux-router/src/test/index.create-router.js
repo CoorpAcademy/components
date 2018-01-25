@@ -74,17 +74,17 @@ test("should respect route's order", t => {
     {
       path: '/:foo/:bar',
       // eslint-disable-next-line no-shadow
-      view1
+      view: view1
     },
     {
       path: '/:foo',
       // eslint-disable-next-line no-shadow
-      view2
+      view: view2
     },
     {
       path: '*',
       // eslint-disable-next-line no-shadow
-      view3
+      view: view3
     }
   ]);
 
