@@ -2,7 +2,6 @@ import {
   createProgression,
   createState,
   computeNextStep,
-  newComputeNextStep,
   getConfig,
   updateState
 } from '@coorpacademy/progression-engine';
@@ -102,13 +101,7 @@ export const postAnswer = async (progressionId, payload) => {
     chapterRules
   };
 
-  const nextContent = newComputeNextStep(
-    engine,
-    engineOptions,
-    state,
-    givenAnswer,
-    availableContent
-  );
+  const nextContent = computeNextStep(engine, engineOptions, state, givenAnswer, availableContent);
 
   const action = {
     type: 'answer',
@@ -137,15 +130,17 @@ export const postExtraLife = async (progressionId, payload) => {
   const progression = await findById(progressionId);
   const slidePools = createSlidePools();
   const {content, isAccepted} = payload;
-
   const feedNextContent = _action => {
     let nextState = updateState(progression.engine, progression.state, [_action]);
     nextState = set('nextContent', progression.state.content, nextState);
-    return set(
-      'payload.nextContent',
-      computeNextStep(progression.engine, slidePools, nextState),
-      _action
+    const nextContent = computeNextStep(
+      progression.engine,
+      progression.engineOptions,
+      nextState,
+      {}, // TODO should be able to be null
+      {slidePools}
     );
+    return set('payload.nextContent', nextContent, _action);
   };
 
   const action = feedNextContent({
