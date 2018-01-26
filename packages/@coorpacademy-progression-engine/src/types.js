@@ -81,8 +81,8 @@ export type AnswerAction = {
     nextContent: Content,
     answer: Answer,
     isCorrect: ?boolean,
-    godMode?: boolean,
-    instructions?: Array<Instruction>
+    godMode: ?boolean,
+    instructions: Array<Instruction> | null
   }
 };
 

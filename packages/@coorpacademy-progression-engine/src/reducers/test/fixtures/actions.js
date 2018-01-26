@@ -20,7 +20,9 @@ export const answerAction: AnswerAction = Object.freeze({
       ref: '1.A1.1',
       type: 'slide'
     },
-    isCorrect: false
+    isCorrect: false,
+    godMode: false,
+    instructions: null
   }
 });
 
@@ -44,7 +46,8 @@ export const extraLifeAcceptedAction: ExtraLifeAcceptedAction = Object.freeze({
     nextContent: {
       ref: '1.A1.1',
       type: 'slide'
-    }
+    },
+    instructions: null
   }
 });
 
