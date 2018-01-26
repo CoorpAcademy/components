@@ -1,4 +1,4 @@
-import buildTask from '../../utils/redux-task';
+import buildTask from '@coorpacademy/redux-task';
 import {getExitNode} from '../../utils/state-extract';
 
 export const EXIT_NODE_FETCH_REQUEST = '@@exit_node/FETCH_REQUEST';

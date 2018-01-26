@@ -1,5 +1,5 @@
+import buildTask from '@coorpacademy/redux-task';
 import {getStartRank} from '../../utils/state-extract';
-import buildTask from '../../utils/redux-task';
 
 export const RANK_FETCH_START_REQUEST = '@@rank/FETCH_START_REQUEST';
 export const RANK_FETCH_START_SUCCESS = '@@rank/FETCH_START_SUCCESS';

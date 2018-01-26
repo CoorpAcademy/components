@@ -1,4 +1,4 @@
-import buildTask from '../../utils/redux-task';
+import buildTask from '@coorpacademy/redux-task';
 import {getProgressionContent} from '../../utils/state-extract';
 
 export const START_CHAT_REQUEST = '@@ui/START_CHAT_REQUEST';

@@ -4,7 +4,7 @@ import ReduxThunk from 'redux-thunk';
 import constant from 'lodash/fp/constant';
 import size from 'lodash/fp/size';
 import last from 'lodash/fp/last';
-import createTask from '../redux-task';
+import createTask from '..';
 
 const macro = async (t, input, expected) => {
   t.plan(2 + size(expected));
