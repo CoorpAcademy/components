@@ -1,0 +1,15 @@
+.teams {
+  display: flex;
+  width: 100%;
+  flex-flow: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.teamBuilder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+}

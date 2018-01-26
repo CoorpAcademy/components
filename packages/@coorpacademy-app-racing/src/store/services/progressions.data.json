@@ -1,0 +1,38 @@
+[
+  {
+    "_id": "0",
+    "engine": {
+      "ref": "racing",
+      "version": "1"
+    },
+    "content": {
+      "ref": "ALL",
+      "type": "collection"
+    },
+    "state": {
+      "nextContent" : {
+          "ref" : "init-teams",
+          "type" : "node"
+      },
+      "livesDisabled" : false,
+      "teams" : [
+        [
+          {
+            "_id": "5a21720440e8d3268ee44fa2"
+          },
+          {
+            "_id": "5a21720440e8d3268ee44fa1"
+          }
+        ],
+        [
+          {
+            "_id" : "me"
+          },
+          {
+            "_id" : "5a21720440e8d3268ee44fa3"
+          }
+        ]
+      ]
+    }
+  }
+]

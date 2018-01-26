@@ -1,5 +1,11 @@
 // @flow
 
+export type User = {
+  userId: string
+};
+
+export type Team = Array<User>;
+
 import type {
   Config as LearnerConfig,
   InitialStateOptions as LearnerInitialStateOptions,
@@ -71,10 +77,6 @@ export type AnswerAction = {
   }
 };
 
-export type InitAction = {
-  type: 'init'
-};
-
 export type ExtraLifeAcceptedAction = {
   type: 'extraLifeAccepted',
   payload: {
@@ -92,7 +94,6 @@ export type ExtraLifeRefusedAction = {
 };
 
 export type Action =
-  | InitAction
   | AnswerAction
   | AskClueAction
   | ExtraLifeAcceptedAction
@@ -106,7 +107,7 @@ export type Engine = {
 
 export type Progression = {
   content: Content,
-  initialState: InitialStateOptions,
+  initialStateOptions: InitialStateOptions,
   state: State,
   actions: Array<Action>,
   engine: Engine

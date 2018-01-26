@@ -1,0 +1,63 @@
+{
+  "list": [
+    {
+      "view": "grid",
+      "image": "https://api-staging.coorpacademy.com/api-service-dev/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/poster/1931716-40629814-640-360-1496310886550.jpg&h=300&w=300&q=90",
+      "time": "8m",
+      "adaptiv": false,
+      "freerun": true,
+      "certification": false,
+      "type": "chapitre",
+      "title": "Chapter 3",
+      "author": "Superman",
+      "progress": "0%",
+      "key": "cha_4JsRkM-I7",
+      "disabled": false
+    },
+    {
+      "view": "grid",
+      "image": "https://api-staging.coorpacademy.com/api-service-dev/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/poster/1931716-40629814-640-360-1496310886550.jpg&h=300&w=300&q=90",
+      "time": "8m",
+      "adaptiv": false,
+      "freerun": true,
+      "certification": false,
+      "type": "chapitre",
+      "title": "Chapter 2",
+      "author": "Superman",
+      "progress": "0%",
+      "key": "cha_NyZ4M0YQ7",
+      "disabled": false
+    },
+    {
+      "view": "grid",
+      "image": "https://api-staging.coorpacademy.com/api-service-dev/medias?url=https://static.coorpacademy.com/content/page_discipline/1_recherche_en_ligne.jpg&h=300&w=300&q=90",
+      "time": "1h",
+      "adaptiv": false,
+      "freerun": false,
+      "certification": false,
+      "type": "cours",
+      "title": "La recherche en ligne",
+      "author": ", ",
+      "progress": "0%",
+      "key": "17",
+      "disabled": false
+    }
+  ],
+  "nextChapter": {
+    "card": {
+      "view": "grid",
+      "image": "https://api-staging.coorpacademy.com/api-service-dev/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/poster/1931716-40629814-640-360-1496310886550.jpg&h=300&w=300&q=90",
+      "time": "8m",
+      "adaptiv": false,
+      "freerun": true,
+      "certification": false,
+      "type": "chapitre",
+      "title": "Chapter 3",
+      "author": "Superman",
+      "progress": "0%",
+      "key": "cha_4JsRkM-I7",
+      "disabled": false
+    },
+    "title": "Chapter 3"
+  }
+}

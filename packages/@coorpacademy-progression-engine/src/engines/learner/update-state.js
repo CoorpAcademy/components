@@ -5,11 +5,8 @@ import findIndex from 'lodash/fp/findIndex';
 import get from 'lodash/fp/get';
 import set from 'lodash/fp/set';
 import concat from 'lodash/fp/concat';
-import reduce from 'lodash/fp/reduce';
 import includes from 'lodash/fp/includes';
-import isEmpty from 'lodash/fp/isEmpty';
-import getConfig from '../../config';
-import combineReducers from './combine-reducers';
+import combineReducers from '../../common/combine-reducers';
 
 import type {
   Action,
@@ -17,7 +14,6 @@ import type {
   AskClueAction,
   ContentResourceViewedAction,
   Content,
-  Engine,
   ExtraLifeAcceptedAction,
   ExtraLifeRefusedAction,
   Config,
@@ -256,16 +252,4 @@ const reduceAction = combineReducers([
   {key: 'nextContent', fn: nextContent}
 ]);
 
-export default function updateState(
-  engine: Engine,
-  state: State,
-  actions: Array<Action>,
-  options: Object // eslint-disable-line flowtype/no-weak-types
-): State {
-  const config = (getConfig(engine): Config);
-
-  if (isEmpty(actions)) {
-    return reduce(reduceAction(config), state, [{type: 'init'}]);
-  }
-  return reduce(reduceAction(config), state, actions);
-}
+export default reduceAction;

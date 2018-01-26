@@ -1,0 +1,12 @@
+.footer {
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+  font-family: 'Open Sans';
+  width: 100%;
+}
+
+.readyMessage {
+  margin-top: 5px;
+  font-size: 11px;
+}

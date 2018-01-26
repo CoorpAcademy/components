@@ -18,7 +18,7 @@ export default function createProgression(
   return {
     content,
     initialStateOptions,
-    state: createInitialState(engine, config, initialStateOptions),
+    state: createInitialState(engine, initialStateOptions),
     actions: [],
     engine: currentEngine
   };

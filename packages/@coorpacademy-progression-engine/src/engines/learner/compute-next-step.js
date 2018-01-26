@@ -8,31 +8,34 @@ import sortBy from 'lodash/fp/sortBy';
 import isNumber from 'lodash/fp/isNumber';
 import negate from 'lodash/fp/negate';
 import head from 'lodash/fp/head';
+import isEmpty from 'lodash/fp/isEmpty';
 import indexOf from 'lodash/fp/indexOf';
 import __ from 'lodash/fp/__';
 import last from 'lodash/fp/last';
 import filter from 'lodash/fp/filter';
 import includes from 'lodash/fp/includes';
 import intersection from 'lodash/fp/intersection';
-import type {State, Slide, Content, Engine, Config} from './types';
-import getConfig from './config';
+import getConfig from '../../common/config';
+import type {Content, Engine, Slide} from '../../common/types';
+import type {State, Config} from './types';
 
 const isAlive = (state: State): boolean => state.lives > 0;
 const hasRemainingLifeRequests = (state: State): boolean => state.remainingLifeRequests > 0;
 const stepIsAlreadyExtraLife = (state: State): boolean => get('content.ref', state) === 'extraLife';
 
-const getSlidePool = (
-  config: Config,
-  slidePools: Array<{chapterId: string, slides: Array<Slide>}>,
-  state: State
-): {chapterId: string, slides: Array<Slide>} => {
+type SlidePool = {
+  chapterId: string,
+  slides: Array<Slide>
+};
+
+const nextSlidePool = (config: Config, slidePools: Array<SlidePool>, state: State): SlidePool => {
   const lastSlideRef = pipe(get('slides'), last)(state);
   const currentChapterPool = find(({slides}) => find({_id: lastSlideRef}, slides), slidePools);
-
   const slidesAnsweredForThisChapter = intersection(
     state.slides,
     map('_id', currentChapterPool.slides)
   );
+
   if (slidesAnsweredForThisChapter.length >= config.slidesToComplete) {
     const indexOfCurrentChapter = indexOf(
       currentChapterPool.chapterId,
@@ -40,8 +43,12 @@ const getSlidePool = (
     );
     return slidePools[indexOfCurrentChapter + 1];
   }
+
   return currentChapterPool;
 };
+
+const getSlidePool = (config: Config, slidePools: Array<SlidePool>, state: State): SlidePool =>
+  isEmpty(get('slides', state)) ? head(slidePools) : nextSlidePool(config, slidePools, state);
 
 const sortByPosition = sortBy(({position}) => (isNumber(position) ? -position : 0));
 

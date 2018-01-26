@@ -1,0 +1,9 @@
+.landingPage {
+  display: flex;
+  flex-flow: column;
+  max-width: 320px;
+  padding: 10px;
+  justify-content: space-around;
+  min-height: 100%;
+  height: auto;
+}
