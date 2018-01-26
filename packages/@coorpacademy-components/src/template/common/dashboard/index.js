@@ -29,7 +29,7 @@ const BrandFormGroup = props => {
     const sectionView = buildSectionComponent(section);
 
     return (
-      <div key={index} className={style.section}>
+      <div key={index}>
         {sectionView}
       </div>
     );
