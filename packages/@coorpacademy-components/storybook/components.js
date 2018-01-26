@@ -135,6 +135,7 @@ import CoorpHeader from './../src/template/common/coorp-header';
 import Dashboard from './../src/template/common/dashboard';
 import Discipline from './../src/template/common/discipline';
 import SearchPage from './../src/template/common/search-page';
+import TeamBuilder from './../src/template/team-builder';
 import AvatarFixtureBigOval from '../src/atom/avatar/test/fixtures/big-oval';
 import AvatarFixtureBigRound from '../src/atom/avatar/test/fixtures/big-round';
 import AvatarFixtureSmallOval from '../src/atom/avatar/test/fixtures/small-oval';
@@ -620,6 +621,7 @@ import DisciplineFixtureNoVideo from '../src/template/common/discipline/test/fix
 import DisciplineFixtureWithOnclick from '../src/template/common/discipline/test/fixtures/with-onclick';
 import SearchPageFixtureDefault from '../src/template/common/search-page/test/fixtures/default';
 import SearchPageFixtureNoResult from '../src/template/common/search-page/test/fixtures/no-result';
+import TeamBuilderFixtureDefault from '../src/template/team-builder/test/fixtures/default';
 
 export const components = {
   Atom: {
@@ -761,7 +763,8 @@ export const components = {
     ImageSlider
   },
   Template: {
-    Activity
+    Activity,
+    TeamBuilder
   },
   TemplateAppPlayer: {
     Loading,
@@ -1441,6 +1444,9 @@ export const fixtures = {
       Default: ActivityFixtureDefault,
       Empty: ActivityFixtureEmpty,
       NoEngines: ActivityFixtureNoEngines
+    },
+    TeamBuilder: {
+      Default: TeamBuilderFixtureDefault
     }
   },
   TemplateAppPlayer: {
@@ -1507,7 +1513,7 @@ export const fixtures = {
   },
   TemplateAppRacingLanding: {
     LandingFooter: {
-      LandingFooterFixtureDefault
+      Default: LandingFooterFixtureDefault
     },
     LandingHeader: {
       Default: LandingHeaderFixtureDefault
@@ -1518,7 +1524,7 @@ export const fixtures = {
   },
   TemplateAppRacing: {
     Landing: {
-      LandingFixtureDefault
+      Default: LandingFixtureDefault
     }
   },
   TemplateBackOffice: {
