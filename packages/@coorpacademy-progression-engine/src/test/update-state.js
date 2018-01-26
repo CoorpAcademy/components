@@ -59,7 +59,9 @@ const wrongAnswerAction: AnswerAction = Object.freeze({
       ref: '1.A1.1',
       type: 'slide'
     },
-    isCorrect: false
+    isCorrect: false,
+    godMode: false,
+    instructions: null
   }
 });
 
@@ -73,7 +75,8 @@ const extraLifeAcceptedAction: ExtraLifeAcceptedAction = Object.freeze({
     nextContent: {
       ref: '1.A1.1',
       type: 'slide'
-    }
+    },
+    instructions: null
   }
 });
 
@@ -133,7 +136,9 @@ test('should update state when answering the first question correctly', t => {
         ref: '1.A1.2',
         type: 'slide'
       },
-      isCorrect: true
+      isCorrect: true,
+      godMode: false,
+      instructions: null
     }
   });
 
@@ -179,7 +184,9 @@ test('should update state when answering the another question correctly', t => {
         ref: '1.A1.1',
         type: 'slide'
       },
-      isCorrect: true
+      isCorrect: true,
+      godMode: false,
+      instructions: null
     }
   });
 
@@ -433,7 +440,9 @@ test("should throw if the state's nextContent is not the same as the action's co
         ref: '1.A1.1',
         type: 'slide'
       },
-      isCorrect: true
+      isCorrect: true,
+      godMode: false,
+      instructions: null
     }
   });
 
@@ -508,7 +517,9 @@ test('should update step when answering a question', t => {
         ref: '1.A1.1',
         type: 'slide'
       },
-      isCorrect: true
+      isCorrect: true,
+      godMode: false,
+      instructions: null
     }
   });
 
