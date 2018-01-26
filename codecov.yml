@@ -30,6 +30,8 @@ coverage:
       reduxRouter:
         target: 100%
         paths: "packages/@coorpacademy-redux-router"
+      reduxTask:
+        paths: "packages/@coorpacademy-redux-task"
       translate:
         target: 100%
         paths: "packages/@coorpacademy-translate"
@@ -42,8 +44,6 @@ coverage:
       webpackConfig:
         target: 100%
         paths: "packages/@coorpacademy-webpack-config"
-      repository:
-        paths: "!packages/"
 
 
 
