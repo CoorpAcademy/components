@@ -26,15 +26,8 @@ const slidePools = [
 const getCurrentSlide = (slides: Array<Slide>, state: State): ?Slide =>
   slides.find(s => s._id === (state.content && state.content.ref));
 
-test('should switch chapters when user has answered `config.slidesToComplete` number of slides of a chapter', t => {
-  const state: State = Object.freeze({
-    ...stateBeforeGettingNextContent,
-    nextContent: {
-      type: 'slide',
-      ref: '1.A1.4'
-    },
-    slides: ['1.A1.1', '1.A1.2', '1.A1.3', '1.A1.4']
-  });
+test('should return a slide from slide pools if chapter rules is undefined or empty', t => {
+  const state: State = Object.freeze(stateBeforeGettingNextContent);
   const currentSlide = getCurrentSlide(allSlides, state);
   const availableContent = {slidePools};
   const givenAnswer = {
@@ -49,30 +42,7 @@ test('should switch chapters when user has answered `config.slidesToComplete` nu
     instructions: undefined,
     isCorrect: true
   });
-  t.regex(result.nextContent.ref, /^2\.A1\.\d+$/);
+  t.regex(result.nextContent.ref, /^1\.A1\.[2-9]+$/);
 });
 
-test('should return the success endpoint when user has answered `config.slidesToComplete` number of slides of every chapter', t => {
-  const state: State = Object.freeze({
-    ...stateBeforeGettingNextContent,
-    nextContent: {
-      type: 'slide',
-      ref: '2.A1.4'
-    },
-    slides: ['1.A1.1', '1.A1.2', '1.A1.3', '1.A1.4', '2.A1.1', '2.A1.2', '2.A1.3', '2.A1.4']
-  });
-  const currentSlide = getCurrentSlide(allSlides, state);
-  const availableContent = {slidePools};
-  const givenAnswer = {
-    currentSlide,
-    answer: [],
-    godMode: true
-  };
-
-  const result = computeNextStep(engine, engineOptions, state, givenAnswer, availableContent);
-  t.deepEqual(result, {
-    nextContent: {ref: 'successExitNode', type: 'success'},
-    instructions: undefined,
-    isCorrect: true
-  });
-});
+// TODO Add more tests related to adaptive
