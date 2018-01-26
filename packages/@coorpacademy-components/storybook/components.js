@@ -137,6 +137,7 @@ import TemplateCommonCoorpHeader from './../src/template/common/coorp-header';
 import TemplateCommonDashboard from './../src/template/common/dashboard';
 import TemplateCommonDiscipline from './../src/template/common/discipline';
 import TemplateCommonSearchPage from './../src/template/common/search-page';
+import TemplateTeamBuilder from './../src/template/team-builder';
 import AtomButtonFixtureA from '../src/atom/button/test/fixtures/a';
 import AtomButtonFixtureClassName from '../src/atom/button/test/fixtures/class-name';
 import AtomButtonFixtureClear from '../src/atom/button/test/fixtures/clear';
@@ -665,6 +666,7 @@ import TemplateCommonDisciplineFixtureWithOnclick from '../src/template/common/d
 import TemplateCommonSearchPageFixtureDefault from '../src/template/common/search-page/test/fixtures/default';
 import TemplateCommonSearchPageFixtureNoResultWithRecommendations from '../src/template/common/search-page/test/fixtures/no-result-with-recommendations';
 import TemplateCommonSearchPageFixtureNoResult from '../src/template/common/search-page/test/fixtures/no-result';
+import TemplateTeamBuilderFixtureDefault from '../src/template/team-builder/test/fixtures/default';
 
 export const components = {
   Atom: {
@@ -803,7 +805,8 @@ export const components = {
     OrganismMoocImageSlider
   },
   Template: {
-    TemplateActivity
+    TemplateActivity,
+    TemplateTeamBuilder
   },
   TemplateAppPlayer: {
     TemplateAppPlayerLoading,
@@ -1477,6 +1480,9 @@ export const fixtures = {
       Default: TemplateActivityFixtureDefault,
       Empty: TemplateActivityFixtureEmpty,
       NoEngines: TemplateActivityFixtureNoEngines
+    },
+    TemplateTeamBuilder: {
+      Default: TemplateTeamBuilderFixtureDefault
     }
   },
   TemplateAppPlayer: {
