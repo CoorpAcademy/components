@@ -53,8 +53,14 @@ const nextSlidePool = (config: Config, slidePools: Array<SlidePool>, state: Stat
   return currentChapterPool;
 };
 
-const getSlidePool = (config: Config, slidePools: Array<SlidePool>, state: State): SlidePool =>
-  isEmpty(get('slides', state)) ? head(slidePools) : nextSlidePool(config, slidePools, state);
+const getSlidePool = (
+  config: Config,
+  slidePools: Array<SlidePool>,
+  state: State | null
+): SlidePool =>
+  !state || isEmpty(get('slides', state))
+    ? head(slidePools)
+    : nextSlidePool(config, slidePools, state);
 
 const sortByPosition = sortBy(
   (slide: Slide) => (typeof slide.position === 'number' ? -slide.position : 0)
@@ -99,9 +105,9 @@ const computeNextSlide = (
   config: Config,
   slidePools: Array<SlidePool>,
   isCorrect: boolean,
-  state: State
+  state: State | null
 ): Content => {
-  if (hasNoMoreLives(config, state, isCorrect)) {
+  if (state && hasNoMoreLives(config, state, isCorrect)) {
     return !stepIsAlreadyExtraLife(state) && hasRemainingLifeRequests(state)
       ? {type: 'node', ref: 'extraLife'}
       : {type: 'failure', ref: 'failExitNode'};
@@ -118,7 +124,7 @@ const computeNextSlide = (
   }
 
   const remainingSlides = filter(
-    pipe(get('_id'), (slideId: string) => !includes(slideId, state.slides)),
+    pipe(get('_id'), (slideId: string) => !state || !includes(slideId, state.slides)),
     slidePool.slides
   );
   return {
@@ -130,14 +136,14 @@ const computeNextSlide = (
 const computeNextStep = (
   engine: Engine,
   engineOptions: EngineOptions,
-  _state: State,
+  _state: State | null,
   {slidePools, chapterRulePool}: AvailableContent,
-  action: PartialAnswerActionWithIsCorrect | PartialExtraLifeAcceptedAction
+  action: PartialAnswerActionWithIsCorrect | PartialExtraLifeAcceptedAction | null
 ): Result => {
   const config = computeConfig(engine, engineOptions);
-  const isCorrect = action.type === 'answer' && action.payload.isCorrect;
-  const state: State =
-    action.type === 'extraLifeAccepted'
+  const isCorrect = !!action && action.type === 'answer' && action.payload.isCorrect;
+  const state: State | null =
+    !!action && action.type === 'extraLifeAccepted' && _state
       ? {
           ..._state,
           lives: _state.lives + 1,

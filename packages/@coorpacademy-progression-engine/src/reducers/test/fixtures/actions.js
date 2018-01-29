@@ -68,6 +68,7 @@ export const extraLifeRefusedAction: ExtraLifeRefusedAction = Object.freeze({
 export const moveAction: MoveAction = Object.freeze({
   type: 'move',
   payload: {
+    instructions: null,
     nextContent: {
       ref: '1.A1.1',
       type: 'slide'
