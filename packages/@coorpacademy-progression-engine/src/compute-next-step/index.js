@@ -8,6 +8,7 @@ import type {
   EngineOptions,
   ExtraLifeAcceptedAction,
   ExtraLifeRefusedAction,
+  MoveAction,
   State,
   Slide
 } from '../types';
@@ -25,6 +26,27 @@ export type PartialAnswerAction = $ReadOnly<{
     godMode: boolean
   }
 }>;
+
+export const computeInitialStep = (
+  engine: Engine,
+  engineOptions: EngineOptions,
+  availableContent: AvailableContent
+): MoveAction => {
+  const {nextContent, instructions} = computeNextStep(
+    engine,
+    engineOptions,
+    null,
+    availableContent,
+    null
+  );
+  return {
+    type: 'move',
+    payload: {
+      instructions,
+      nextContent
+    }
+  };
+};
 
 export const computeNextStepAfterAnswer = (
   engine: Engine,
