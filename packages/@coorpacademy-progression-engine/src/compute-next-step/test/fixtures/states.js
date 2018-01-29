@@ -123,6 +123,32 @@ export const extraLifeProgressionState: State = {
   variables: {}
 };
 
+export const extraLifeState: State = {
+  content: {
+    ref: '1.A1.2',
+    type: 'slide'
+  },
+  nextContent: {
+    ref: 'extraLife',
+    type: 'node'
+  },
+  lives: 0,
+  livesDisabled: false,
+  isCorrect: false,
+  slides: ['1.A1.1', '1.A1.2'],
+  step: {
+    current: 3,
+    total: 4
+  },
+  requestedClues: [],
+  viewedResources: [],
+  stars: 4,
+  remainingLifeRequests: 1,
+  hasViewedAResourceAtThisStep: true,
+  allAnswers: [],
+  variables: {}
+};
+
 export const extraLifeAlreadyRefusedProgressionState: State = {
   content: {
     ref: 'extraLife',

@@ -111,8 +111,7 @@ export type ExtraLifeRefusedAction = {
   type: 'extraLifeRefused',
   payload: {
     content: Content,
-    nextContent: Content,
-    instructions?: Array<Instruction>
+    nextContent: Content
   }
 };
 
