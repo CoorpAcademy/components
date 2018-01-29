@@ -6,6 +6,7 @@ import type {
   Content,
   Engine,
   EngineOptions,
+  ExtraLifeRefusedAction,
   State,
   Slide
 } from '../types';
@@ -58,6 +59,20 @@ export const computeNextStepAfterAnswer = (
       nextContent,
       isCorrect,
       instructions
+    }
+  };
+};
+
+export const computeNextStepOnRefuseExtraLife = (
+  engine: Engine,
+  engineOptions: EngineOptions,
+  state: State
+): ExtraLifeRefusedAction => {
+  return {
+    type: 'extraLifeRefused',
+    payload: {
+      content: {ref: 'extraLife', type: 'node'},
+      nextContent: {ref: 'failExitNode', type: 'failure'}
     }
   };
 };
