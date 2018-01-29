@@ -91,6 +91,10 @@ export type PartialAnswerActionWithIsCorrect = {
   }
 };
 
+export type PartialExtraLifeAcceptedAction = {
+  type: 'extraLifeAccepted'
+};
+
 const computeNextSlide = (
   config: Config,
   slidePools: Array<SlidePool>,
@@ -126,12 +130,20 @@ const computeNextSlide = (
 const computeNextStep = (
   engine: Engine,
   engineOptions: EngineOptions,
-  state: State,
+  _state: State,
   {slidePools, chapterRulePool}: AvailableContent,
-  action: PartialAnswerActionWithIsCorrect
+  action: PartialAnswerActionWithIsCorrect | PartialExtraLifeAcceptedAction
 ): Result => {
   const config = computeConfig(engine, engineOptions);
-  const isCorrect = Boolean(action && action.payload.isCorrect);
+  const isCorrect = action.type === 'answer' && action.payload.isCorrect;
+  const state: State =
+    action.type === 'extraLifeAccepted'
+      ? {
+          ..._state,
+          lives: _state.lives + 1,
+          remainingLifeRequests: _state.remainingLifeRequests - 1
+        }
+      : _state;
 
   if (Array.isArray(chapterRulePool) && chapterRulePool.length > 0) {
     // TODO Add coverage
