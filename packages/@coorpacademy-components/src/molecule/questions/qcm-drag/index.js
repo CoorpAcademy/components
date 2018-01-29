@@ -29,6 +29,7 @@ const Choices = ({answers}) => {
     return (
       <div
         className={selected ? style.invisibleAnswer : style.answer}
+        data-name="answer"
         onClick={onClick}
         key={key}
         // eslint-disable-next-line react/no-danger
