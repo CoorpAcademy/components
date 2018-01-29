@@ -6,12 +6,16 @@ import type {
   Content,
   Engine,
   EngineOptions,
+  ExtraLifeAcceptedAction,
   ExtraLifeRefusedAction,
   State,
   Slide
 } from '../types';
 import checkAnswer from '../check-answer';
-import computeNextStep, {type PartialAnswerActionWithIsCorrect} from './compute-next-step';
+import computeNextStep, {
+  type PartialAnswerActionWithIsCorrect,
+  type PartialExtraLifeAcceptedAction
+} from './compute-next-step';
 
 export type PartialAnswerAction = $ReadOnly<{
   type: 'answer',
@@ -58,6 +62,30 @@ export const computeNextStepAfterAnswer = (
       godMode: action.payload.godMode,
       nextContent,
       isCorrect,
+      instructions
+    }
+  };
+};
+
+export const computeNextStepOnAcceptExtraLife = (
+  engine: Engine,
+  engineOptions: EngineOptions,
+  state: State,
+  availableContent: AvailableContent
+): ExtraLifeAcceptedAction => {
+  const partialAnswerAction: PartialExtraLifeAcceptedAction = {type: 'extraLifeAccepted'};
+  const {nextContent, instructions} = computeNextStep(
+    engine,
+    engineOptions,
+    state,
+    availableContent,
+    partialAnswerAction
+  );
+  return {
+    type: 'extraLifeAccepted',
+    payload: {
+      content: {ref: 'extraLife', type: 'node'},
+      nextContent,
       instructions
     }
   };
