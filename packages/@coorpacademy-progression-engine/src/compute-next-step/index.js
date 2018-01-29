@@ -126,5 +126,3 @@ export const computeNextStepOnRefuseExtraLife = (
     }
   };
 };
-
-export default computeNextStep;
