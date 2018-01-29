@@ -131,6 +131,7 @@ test('progression should have "move" action that links to a random slide from th
     {
       type: 'move',
       payload: {
+        instructions: null,
         nextContent: {
           type: 'slide'
         }

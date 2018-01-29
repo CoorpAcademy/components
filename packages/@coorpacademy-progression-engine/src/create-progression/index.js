@@ -1,7 +1,7 @@
 // @flow
 import getConfig from '../config';
 import type {AvailableContent, Content, Progression, Engine, EngineOptions} from '../types';
-import createInitialAction from './create-initial-action';
+import {computeInitialStep} from '../compute-next-step';
 
 const createProgression = (
   engine: Engine,
@@ -10,7 +10,7 @@ const createProgression = (
   availableContent: AvailableContent
 ): Progression => {
   const config = getConfig({ref: engine.ref, version: engine.version});
-  const initialAction = createInitialAction(availableContent);
+  const initialAction = computeInitialStep(engine, engineOptions, availableContent);
 
   return {
     engine: {
