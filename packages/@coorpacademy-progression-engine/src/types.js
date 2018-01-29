@@ -103,7 +103,7 @@ export type ExtraLifeAcceptedAction = {
   payload: {
     content: Content,
     nextContent: Content,
-    instructions?: Array<Instruction>
+    instructions: Array<Instruction> | null
   }
 };
 
