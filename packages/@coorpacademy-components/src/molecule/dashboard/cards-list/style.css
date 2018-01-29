@@ -73,7 +73,7 @@
 
 .card {
   box-sizing: border-box;
-  padding: 8px 8px 8px;
+  padding: 8px;
   min-width: 274px;
 }
 
@@ -128,7 +128,7 @@
 
 @media mobile {
   .wrapper {
-    padding: 16px 8px 0px;
+    padding: 16px 8px 0;
   }
 
   .list {

@@ -28,11 +28,7 @@ const BrandFormGroup = props => {
   const buildSection = (section, index) => {
     const sectionView = buildSectionComponent(section);
 
-    return (
-      <div key={index}>
-        {sectionView}
-      </div>
-    );
+    return <div key={index}>{sectionView}</div>;
   };
 
   const sectionsList = sections.map(buildSection);
