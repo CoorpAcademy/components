@@ -1,8 +1,11 @@
 // @flow
 import test from 'ava';
-import type {Slide, SlidePool} from '../../types';
-import createInitialAction from '../create-initial-action';
-import allSlides from '../../compute-next-step/test/fixtures/slides';
+import {computeInitialStep} from '..';
+import type {Engine, EngineOptions, Slide, SlidePool} from '../../types';
+import allSlides from './fixtures/slides';
+
+const engine: Engine = {ref: 'learner', version: '1'};
+const engineOptions: EngineOptions = {};
 
 const slidesByChapter = (slides: Array<Slide>): Array<SlidePool> => [
   {
@@ -15,50 +18,34 @@ const slidesByChapter = (slides: Array<Slide>): Array<SlidePool> => [
   }
 ];
 
-test('should check params  on createInitialAction', t => {
-  // $FlowFixMe
-  t.throws(createInitialAction, 'param AvailableContent is mandatory to create an initial Action');
-});
-
-test('should check adaptive params on createInitialAction', t => {
+test('should check adaptive params on computeInitialStep', t => {
   t.throws(
-    () =>
-      // $FlowFixMe
-      createInitialAction({
-        chapterRulePool: []
-      }),
-    'No rule could be selected within this ChapterRulePool: could not create an adaptive initial Action'
+    () => computeInitialStep(engine, engineOptions, {chapterRulePool: []}),
+    'Available content should have at least some slides or chapter rules'
   );
 });
 
 test('should check params content to create an initial action', t => {
   t.throws(
-    () =>
-      // $FlowFixMe
-      createInitialAction({}),
-    'provide either a ChapterRulePool or a SlidePools to create an initial Action'
+    () => computeInitialStep(engine, engineOptions, {}),
+    'Available content should have at least some slides or chapter rules'
   );
 });
 
 test('should check whether an initial slide is found to create an initial action', t => {
   t.throws(
-    () =>
-      // $FlowFixMe
-      createInitialAction({
-        slidePools: []
-      }),
-    'No initial slide found within this SlidePools: could not create an initial Action'
+    () => computeInitialStep(engine, engineOptions, {slidePools: []}),
+    'Available content should have at least some slides or chapter rules'
   );
 });
 
 test('should create an initial action from a slidePools', t => {
   const slidePools = slidesByChapter(allSlides);
-  const action = createInitialAction({
-    slidePools
-  });
+  const action = computeInitialStep(engine, engineOptions, {slidePools});
 
   t.is(action.type, 'move');
   t.is(action.payload.nextContent.type, 'slide');
+  t.is(action.payload.instructions, null);
   t.regex(action.payload.nextContent.ref, /^1\.A1\.[1-9]+$/);
 });
 
@@ -103,9 +90,7 @@ test('should create an adaptive initial Action', t => {
     }
   ];
 
-  const action = createInitialAction({
-    chapterRulePool
-  });
+  const action = computeInitialStep(engine, engineOptions, {chapterRulePool});
 
   t.deepEqual(action, {
     type: 'move',
