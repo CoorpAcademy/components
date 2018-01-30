@@ -30,7 +30,7 @@ test('should switch chapters when user has answered `config.slidesToComplete` nu
       type: 'slide',
       ref: '1.A1.4'
     },
-    slides: ['1.A1.1', '1.A1.2', '1.A1.3', '1.A1.4']
+    slides: ['1.A1.1', '1.A1.2', '1.A1.3']
   });
   const currentSlide = getSlide(allSlides, state.nextContent);
   const partialAction: PartialAnswerAction = {
@@ -71,7 +71,7 @@ test('should return the success endpoint when user has answered `config.slidesTo
       type: 'slide',
       ref: '2.A1.4'
     },
-    slides: ['1.A1.1', '1.A1.2', '1.A1.3', '1.A1.4', '2.A1.1', '2.A1.2', '2.A1.3', '2.A1.4']
+    slides: ['1.A1.1', '1.A1.2', '1.A1.3', '1.A1.4', '2.A1.1', '2.A1.2', '2.A1.3']
   });
   const currentSlide = getSlide(allSlides, state.nextContent);
   const partialAction: PartialAnswerAction = {
