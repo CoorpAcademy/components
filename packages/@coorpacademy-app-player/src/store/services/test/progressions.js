@@ -28,7 +28,7 @@ test('should create progression', async t => {
       engine,
       content: {type: 'chapter', ref: 'cha_Ny1BTxRp~'},
       engineOptions: {},
-      actions: [{type: 'move', payload: {nextContent: {type: 'slide'}}}]
+      actions: [{type: 'move', payload: {instructions: null, nextContent: {type: 'slide'}}}]
     }
   );
 });
