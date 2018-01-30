@@ -4,7 +4,7 @@ import head from 'lodash/fp/head';
 import isEqual from 'lodash/fp/isEqual';
 import filter from 'lodash/fp/filter';
 import sortBy from 'lodash/fp/sortBy';
-import type {Content, GenericState} from '../types';
+import type {Content, State} from '../types';
 import type {ChapterRule} from './types';
 import checkCondition from './condition-operators';
 
@@ -13,9 +13,7 @@ export const DEFAULT_SOURCE = {
   ref: ''
 };
 
-const isRuleAvailable = (source: ?Content = DEFAULT_SOURCE) => (
-  chapterRule: ChapterRule
-): boolean => {
+const isRuleAvailable = (source: Content) => (chapterRule: ChapterRule): boolean => {
   const isSameSource = isEqual(source, chapterRule.source);
   const hasSameType = (source && source.type) === chapterRule.source.type;
   const isGlobalRule = hasSameType && get('source.ref', chapterRule) === '*';
@@ -28,7 +26,7 @@ const isSameType = refValue => (value): boolean => {
   return typeof refValue === typeof value;
 };
 
-const matchWithState = (state: GenericState) => (chapterRule: ChapterRule): boolean => {
+const matchWithState = (state: State) => (chapterRule: ChapterRule): boolean => {
   const conditions = chapterRule.conditions;
   return conditions.every((condition): boolean => {
     const {target, operator, values} = condition;
@@ -65,9 +63,9 @@ const matchWithState = (state: GenericState) => (chapterRule: ChapterRule): bool
   });
 };
 
-const selectRule = (rules: Array<ChapterRule>, state: ?GenericState): ?ChapterRule => {
+const selectRule = (rules: Array<ChapterRule>, state: State | null): ?ChapterRule => {
   const targetedChapterRules: Array<ChapterRule> = filter(
-    isRuleAvailable(state ? state.content : undefined),
+    isRuleAvailable(state ? state.nextContent : DEFAULT_SOURCE),
     rules
   );
   const sortedChapterRules: Array<ChapterRule> = sortBy('priority', targetedChapterRules);
