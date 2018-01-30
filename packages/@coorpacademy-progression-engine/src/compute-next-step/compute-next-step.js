@@ -28,8 +28,17 @@ import getConfig from '../config';
 import type {ChapterRule, Instruction, Condition} from '../rule-engine/types';
 import selectRule from '../rule-engine/select-rule';
 
-const hasNoMoreLives = (config: Config, state: State, isCorrect: boolean): boolean =>
-  !config.livesDisabled && (state.lives <= 0 || (state.lives === 1 && !isCorrect));
+const hasNoMoreLives = (
+  config: Config,
+  state: State,
+  isCorrect: boolean,
+  consumeLastLive: boolean
+): boolean => {
+  const livesEnabled = !config.livesDisabled;
+  const isLastLive = state.lives === 1 && !isCorrect;
+  const noMoreLives = state.lives <= 0;
+  return livesEnabled && (noMoreLives || (consumeLastLive && isLastLive));
+};
 const hasRemainingLifeRequests = (state: State): boolean => state.remainingLifeRequests > 0;
 const stepIsAlreadyExtraLife = (state: State): boolean => get('content.ref', state) === 'extraLife';
 
@@ -105,9 +114,10 @@ const computeNextSlide = (
   config: Config,
   slidePools: Array<SlidePool>,
   isCorrect: boolean,
+  consumeLastLive: boolean,
   state: State | null
 ): Content => {
-  if (state && hasNoMoreLives(config, state, isCorrect)) {
+  if (state && hasNoMoreLives(config, state, isCorrect, consumeLastLive)) {
     return !stepIsAlreadyExtraLife(state) && hasRemainingLifeRequests(state)
       ? {type: 'node', ref: 'extraLife'}
       : {type: 'failure', ref: 'failExitNode'};
@@ -172,7 +182,8 @@ const computeNextStep = (
   }
 
   if (Array.isArray(slidePools) && slidePools.length > 0) {
-    const nextContent = computeNextSlide(config, slidePools, isCorrect, state);
+    const consumeLastLive = !!action && action.type === 'answer';
+    const nextContent = computeNextSlide(config, slidePools, isCorrect, consumeLastLive, state);
     return {
       nextContent,
       instructions: null,
