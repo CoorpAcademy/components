@@ -1,6 +1,6 @@
 // @flow
 
-import type {Instruction, ChapterRulePool} from './rule-engine/types';
+import type {Instruction, ChapterRule} from './rule-engine/types';
 
 export type Step = {
   current: number
@@ -232,12 +232,10 @@ export type Config = {
   remainingLifeRequests: number
 };
 
-export type SlidePool = {
-  chapterId: string,
-  slides: Array<Slide>
+export type ChapterContent = {
+  ref: string,
+  slides: Array<Slide>,
+  rules: Array<ChapterRule> | null
 };
 
-export type AvailableContent = {
-  slidePools?: Array<SlidePool>,
-  chapterRulePool?: ChapterRulePool
-};
+export type AvailableContent = Array<ChapterContent>;
