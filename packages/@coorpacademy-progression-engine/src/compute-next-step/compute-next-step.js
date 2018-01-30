@@ -133,23 +133,29 @@ const computeNextSlide = (
   };
 };
 
+type PartialAction = PartialAnswerActionWithIsCorrect | PartialExtraLifeAcceptedAction | null;
+
+const applyActionToState = (state: State | null, action: PartialAction): State | null => {
+  if (!action || action.type !== 'extraLifeAccepted' || !state) {
+    return state;
+  }
+  return {
+    ...state,
+    lives: state.lives + 1,
+    remainingLifeRequests: state.remainingLifeRequests - 1
+  };
+};
+
 const computeNextStep = (
   engine: Engine,
   engineOptions: EngineOptions,
   _state: State | null,
   {slidePools, chapterRulePool}: AvailableContent,
-  action: PartialAnswerActionWithIsCorrect | PartialExtraLifeAcceptedAction | null
+  action: PartialAction
 ): Result => {
   const config = computeConfig(engine, engineOptions);
   const isCorrect = !!action && action.type === 'answer' && action.payload.isCorrect;
-  const state: State | null =
-    !!action && action.type === 'extraLifeAccepted' && _state
-      ? {
-          ..._state,
-          lives: _state.lives + 1,
-          remainingLifeRequests: _state.remainingLifeRequests - 1
-        }
-      : _state;
+  const state = applyActionToState(_state, action);
 
   if (Array.isArray(chapterRulePool) && chapterRulePool.length > 0) {
     // TODO Add coverage
