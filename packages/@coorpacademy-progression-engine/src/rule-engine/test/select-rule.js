@@ -1,11 +1,11 @@
 // @flow
 import test from 'ava';
-import type {Content, GenericState} from '../../types';
+import type {Content, State} from '../../types';
 import selectRule, {DEFAULT_SOURCE} from '../select-rule';
 import type {ChapterRule} from '../types';
 
-const createState = (content): GenericState => ({
-  content,
+const createState = (nextContent): State => ({
+  nextContent,
   lives: 3,
   stars: 0,
   livesDisabled: true,
@@ -37,8 +37,8 @@ const destination: Content = {
   ref: '1.A1.2'
 };
 
-const defaultState: GenericState = {
-  content: source,
+const defaultState: State = {
+  nextContent: source,
   lives: 2,
   stars: 0,
   livesDisabled: true,
@@ -156,14 +156,8 @@ test('should select chapterRule with empty source if state is null', t => {
   t.is(rule && rule.ref, '3');
 });
 
-test('should select chapterRule with empty source if state has no content', t => {
-  const state = {...defaultState, content: undefined};
-  const rule = selectRule(chapterRules, state);
-  t.is(rule && rule.ref, '3');
-});
-
-test('should return no chapterRule if any match', t => {
-  const state = {...defaultState, content: {type: 'slide', ref: 'noop'}};
+test('should return no chapterRule if none match', t => {
+  const state = {...defaultState, nextContent: {type: 'slide', ref: 'noop'}};
 
   const actualChapterRule = selectRule(chapterRules, state);
   t.is(actualChapterRule, null);
