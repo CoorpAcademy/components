@@ -3,15 +3,14 @@ import map from 'lodash/fp/map';
 import get from 'lodash/fp/get';
 import find from 'lodash/fp/find';
 import pipe from 'lodash/fp/pipe';
-import shuffle from 'lodash/fp/shuffle';
-import first from 'lodash/fp/first';
-import sortBy from 'lodash/fp/sortBy';
 import head from 'lodash/fp/head';
-import isEmpty from 'lodash/fp/isEmpty';
-import indexOf from 'lodash/fp/indexOf';
 import last from 'lodash/fp/last';
 import filter from 'lodash/fp/filter';
+import sortBy from 'lodash/fp/sortBy';
+import shuffle from 'lodash/fp/shuffle';
+import isEmpty from 'lodash/fp/isEmpty';
 import includes from 'lodash/fp/includes';
+import findIndex from 'lodash/fp/findIndex';
 import intersection from 'lodash/fp/intersection';
 import type {
   State,
@@ -21,8 +20,8 @@ import type {
   EngineOptions,
   Config,
   Answer,
-  SlidePool,
-  AvailableContent
+  AvailableContent,
+  ChapterContent
 } from '../types';
 import getConfig from '../config';
 import type {ChapterRule, Instruction, Condition} from '../rule-engine/types';
@@ -33,34 +32,38 @@ const hasNoMoreLives = (config: Config, state: State): boolean =>
 const hasRemainingLifeRequests = (state: State): boolean => state.remainingLifeRequests > 0;
 const stepIsAlreadyExtraLife = (state: State): boolean => get('content.ref', state) === 'extraLife';
 
-const nextSlidePool = (config: Config, slidePools: Array<SlidePool>, state: State): SlidePool => {
+const nextSlidePool = (
+  config: Config,
+  availableContent: AvailableContent,
+  state: State
+): ChapterContent | null => {
   const lastSlideRef = pipe(get('slides'), last)(state);
-  const currentChapterPool =
-    find(({slides}) => find({_id: lastSlideRef}, slides), slidePools) || first(slidePools);
+  const _currentIndex: number = findIndex(
+    ({slides}: ChapterContent): boolean => !!find({_id: lastSlideRef}, slides),
+    availableContent
+  );
+  const currentIndex = _currentIndex !== -1 ? _currentIndex : 0;
+  const currentChapterPool: ChapterContent | null = availableContent[currentIndex] || null;
   const slidesAnsweredForThisChapter = intersection(
     state.slides,
-    map('_id')(currentChapterPool.slides)
+    (currentChapterPool && map('_id', currentChapterPool.slides)) || []
   );
 
   if (slidesAnsweredForThisChapter.length >= config.slidesToComplete) {
-    const indexOfCurrentChapter = indexOf(
-      currentChapterPool.chapterId,
-      map('chapterId', slidePools)
-    );
-    return slidePools[indexOfCurrentChapter + 1];
+    return availableContent[currentIndex + 1] || null;
   }
 
   return currentChapterPool;
 };
 
-const getSlidePool = (
+const getChapterContent = (
   config: Config,
-  slidePools: Array<SlidePool>,
+  availableContent: AvailableContent,
   state: State | null
-): SlidePool =>
+): ChapterContent | null =>
   !state || isEmpty(get('slides', state))
-    ? head(slidePools)
-    : nextSlidePool(config, slidePools, state);
+    ? head(availableContent)
+    : nextSlidePool(config, availableContent, state);
 
 const sortByPosition = sortBy(
   (slide: Slide) => (typeof slide.position === 'number' ? -slide.position : 0)
@@ -103,7 +106,7 @@ export type PartialExtraLifeAcceptedAction = {
 
 const computeNextSlide = (
   config: Config,
-  slidePools: Array<SlidePool>,
+  chapterContent: ChapterContent,
   state: State | null
 ): Content => {
   if (state && hasNoMoreLives(config, state)) {
@@ -112,19 +115,9 @@ const computeNextSlide = (
       : {type: 'failure', ref: 'failExitNode'};
   }
 
-  const slidePool = getSlidePool(config, slidePools, state);
-
-  // If user has answered all questions, return success endpoint
-  if (!slidePool) {
-    return {
-      type: 'success',
-      ref: 'successExitNode'
-    };
-  }
-
   const remainingSlides = filter(
     pipe(get('_id'), (slideId: string) => !state || !includes(slideId, state.slides)),
-    slidePool.slides
+    chapterContent.slides
   );
   return {
     type: 'slide',
@@ -135,18 +128,28 @@ const computeNextSlide = (
 type PartialAction = PartialAnswerActionWithIsCorrect | PartialExtraLifeAcceptedAction | null;
 
 const applyActionToState = (state: State | null, action: PartialAction): State | null => {
-  if (!action || action.type !== 'extraLifeAccepted' || !state) {
+  if (!action || !state) {
     return state;
   }
-  return {
-    ...state,
-    lives: state.lives + 1,
-    remainingLifeRequests: state.remainingLifeRequests - 1
-  };
+
+  // TODO Concat slides on answer action. Write test
+
+  if (action.type === 'extraLifeAccepted') {
+    return {
+      ...state,
+      lives: state.lives + 1,
+      remainingLifeRequests: state.remainingLifeRequests - 1
+    };
+  }
+  return state;
 };
 
-const decrementLivesOnIncorrectAnswer = (action: PartialAction, state: State): State => {
-  if (action && action.type === 'answer' && !action.payload.isCorrect) {
+const decrementLivesOnIncorrectAnswer = (
+  action: PartialAction,
+  state: State | null
+): State | null => {
+  // Should only be used in a non-adaptive context
+  if (state && action && action.type === 'answer' && !action.payload.isCorrect) {
     return {
       ...state,
       lives: state.lives - 1
@@ -159,16 +162,29 @@ const computeNextStep = (
   engine: Engine,
   engineOptions: EngineOptions,
   _state: State | null,
-  {slidePools, chapterRulePool}: AvailableContent,
+  availableContent: AvailableContent,
   action: PartialAction
 ): Result => {
   const config = computeConfig(engine, engineOptions);
   const isCorrect = !!action && action.type === 'answer' && action.payload.isCorrect;
   const state = applyActionToState(_state, action);
+  const chapterContent = getChapterContent(config, availableContent, state);
 
-  if (Array.isArray(chapterRulePool) && chapterRulePool.length > 0) {
+  // If user has answered all questions, return success endpoint
+  if (!chapterContent) {
+    return {
+      nextContent: {
+        type: 'success',
+        ref: 'successExitNode'
+      },
+      instructions: null,
+      isCorrect
+    };
+  }
+
+  if (Array.isArray(chapterContent.rules) && chapterContent.rules.length > 0) {
     // TODO Add coverage
-    const chapterRule = selectRule(chapterRulePool[0].rules, state);
+    const chapterRule = selectRule(chapterContent.rules, state);
     if (!chapterRule) {
       throw new Error('Could not find a chapter rule to select.');
     }
@@ -180,9 +196,9 @@ const computeNextStep = (
     };
   }
 
-  if (Array.isArray(slidePools) && slidePools.length > 0) {
+  if (Array.isArray(chapterContent.slides) && chapterContent.slides.length > 0) {
     const stateWithDecrementedLives = decrementLivesOnIncorrectAnswer(action, state);
-    const nextContent = computeNextSlide(config, slidePools, stateWithDecrementedLives);
+    const nextContent = computeNextSlide(config, chapterContent, stateWithDecrementedLives);
     return {
       nextContent,
       instructions: null,
