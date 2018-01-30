@@ -132,7 +132,12 @@ const applyActionToState = (state: State | null, action: PartialAction): State |
     return state;
   }
 
-  // TODO Concat slides on answer action. Write test
+  if (action.type === 'answer') {
+    return {
+      ...state,
+      slides: state.slides.concat(state.nextContent.ref)
+    };
+  }
 
   if (action.type === 'extraLifeAccepted') {
     return {
@@ -141,6 +146,7 @@ const applyActionToState = (state: State | null, action: PartialAction): State |
       remainingLifeRequests: state.remainingLifeRequests - 1
     };
   }
+
   return state;
 };
 
