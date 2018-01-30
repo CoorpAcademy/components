@@ -24,7 +24,7 @@
   "failExitNode": {
     "ref": "failExitNode",
     "type": "failure",
-    "title": "C'est dommage, vous avez pas réussi à finir",
+    "title": "C'est dommage, vous n'avez pas réussi à finir",
     "description": "Au premier abord, il faut que vous révisiez vos cours.",
     "media": {
       "type": "img",

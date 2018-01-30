@@ -1,9 +1,10 @@
 import {
   createProgression,
   createState,
-  computeNextStep,
-  getConfig,
-  updateState
+  computeNextStepAfterAnswer,
+  computeNextStepOnAcceptExtraLife,
+  computeNextStepOnRefuseExtraLife,
+  getConfig
 } from '@coorpacademy/progression-engine';
 import defaultsDeep from 'lodash/fp/defaultsDeep';
 import map from 'lodash/fp/map';
@@ -37,7 +38,15 @@ const progressionStore = reduce(
         {
           state: {
             remainingLifeRequests: getConfig(progression.engine).remainingLifeRequests
-          }
+          },
+          actions: [
+            {
+              type: 'move',
+              payload: {
+                nextContent: progression.state.nextContent
+              }
+            }
+          ]
         },
         progression
       )
@@ -91,68 +100,65 @@ export const postAnswer = async (progressionId, payload) => {
   const {engine, engineOptions, content} = progression;
   const state = createState(progression);
   const chapterRules = await getChapterRulesByContent(content);
-  const givenAnswer = {
-    currentSlide: slide,
-    answer: userAnswer,
-    godMode: false
+
+  const partialAnswerAction = {
+    type: 'answer',
+    payload: {
+      content: payload.content,
+      answer: userAnswer,
+      godMode: false
+    }
   };
+
   const availableContent = {
     slidePools,
     chapterRules
   };
 
-  const nextContent = computeNextStep(engine, engineOptions, state, givenAnswer, availableContent);
-
-  const action = {
-    type: 'answer',
-    payload: {
-      ...payload,
-      ...nextContent
-    }
-  };
+  const action = computeNextStepAfterAnswer(
+    engine,
+    engineOptions,
+    state,
+    availableContent,
+    slide,
+    partialAnswerAction
+  );
 
   return addActionAndSaveProgression(progression, action);
 };
 
 export const requestClue = async (progressionId, payload) => {
   const progression = await findById(progressionId);
-  const {engine} = progression;
 
   const action = {
     type: 'clue',
     payload
   };
 
-  return pipe(update('state', state => updateState(engine, state, [action])), save)(progression);
+  return addActionAndSaveProgression(progression, action);
+};
+
+const createExtraLifeAction = (isAccepted, engine, engineOptions, state, availableContent) => {
+  const compute = isAccepted ? computeNextStepOnAcceptExtraLife : computeNextStepOnRefuseExtraLife;
+  return compute(engine, engineOptions, state, availableContent);
 };
 
 export const postExtraLife = async (progressionId, payload) => {
   const progression = await findById(progressionId);
   const slidePools = createSlidePools();
-  const {content, isAccepted} = payload;
-  const feedNextContent = _action => {
-    let nextState = updateState(progression.engine, progression.state, [_action]);
-    nextState = set('nextContent', progression.state.content, nextState);
-    const nextContent = computeNextStep(
-      progression.engine,
-      progression.engineOptions,
-      nextState,
-      {}, // TODO should be able to be null
-      {slidePools}
-    );
-    return set('payload.nextContent', nextContent, _action);
-  };
+  const {isAccepted} = payload;
 
-  const action = feedNextContent({
-    type: isAccepted ? 'extraLifeAccepted' : 'extraLifeRefused',
-    payload: {
-      content
+  const action = createExtraLifeAction(
+    isAccepted,
+    progression.engine,
+    progression.engineOptions,
+    progression.state,
+    {
+      slidePools
     }
-  });
-
-  return pipe(update('state', state => updateState(progression.engine, state, [action])), save)(
-    progression
   );
+
+  return addActionAndSaveProgression(progression, action);
 };
 
 // eslint-disable-next-line require-await
@@ -182,7 +188,5 @@ export const markResourceAsViewed = async (progressionId, payload) => {
     payload
   };
 
-  return pipe(update('state', state => updateState(progression.engine, state, [action])), save)(
-    progression
-  );
+  return addActionAndSaveProgression(progression, action);
 };

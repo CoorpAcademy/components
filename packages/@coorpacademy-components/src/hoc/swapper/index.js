@@ -8,11 +8,15 @@ class Swapper extends React.Component {
   };
 
   componentDidMount() {
-    this.requestID = requestAnimationFrame(() => this.setState(() => ({init: false})));
+    if (typeof requestAnimationFrame !== 'undefined') {
+      this.requestID = requestAnimationFrame(() => this.setState(() => ({init: false})));
+    }
   }
 
   componentWillUnmount() {
-    safeCancelAnimationFrame(this.requestID);
+    if (this.requestID !== undefined) {
+      safeCancelAnimationFrame(this.requestID);
+    }
   }
 
   render() {
