@@ -2,19 +2,20 @@
 import test from 'ava';
 import map from 'lodash/fp/map';
 import omit from 'lodash/fp/omit';
-import type {Content, Engine, EngineOptions, Slide, SlidePool} from '../../types';
-import type {ChapterRulePool} from '../../rule-engine/types';
+import type {AvailableContent, Content, Engine, EngineOptions} from '../../types';
 import createProgression from '..';
 import allSlides from '../../compute-next-step/test/fixtures/slides';
 
-const slidesByChapter = (slides: Array<Slide>): Array<SlidePool> => [
+const availableContentWithSlides: AvailableContent = [
   {
-    chapterId: '1.A1',
-    slides: slides.filter(slide => slide.chapter_id === '1.A1')
+    ref: '1.A1',
+    slides: allSlides.filter(slide => slide.chapter_id === '1.A1'),
+    rules: []
   },
   {
-    chapterId: '2.A1',
-    slides: slides.filter(slide => slide.chapter_id === '2.A1')
+    ref: '2.A1',
+    slides: allSlides.filter(slide => slide.chapter_id === '2.A1'),
+    rules: []
   }
 ];
 
@@ -38,9 +39,10 @@ const initialRule = {
   priority: 10
 };
 
-const chapterRulePool: ChapterRulePool = [
+const availableContentWithRules: AvailableContent = [
   {
     ref: '1.A1',
+    slides: [],
     rules: [
       initialRule,
       {
@@ -72,8 +74,7 @@ test('should create a new progression with the latest version of the engine and 
   const engineOptions: EngineOptions = {
     livesDisabled: true
   };
-  const availableContent = {chapterRulePool};
-  const progression = createProgression(engine, content, engineOptions, availableContent);
+  const progression = createProgression(engine, content, engineOptions, availableContentWithRules);
 
   t.deepEqual(
     Object.keys(progression).sort(),
@@ -100,8 +101,7 @@ test("progression should have 'move' action that links to the initial rule's des
   const engineOptions: EngineOptions = {
     livesDisabled: true
   };
-  const availableContent = {chapterRulePool};
-  const progression = createProgression(engine, content, engineOptions, availableContent);
+  const progression = createProgression(engine, content, engineOptions, availableContentWithRules);
   t.deepEqual(progression.actions, [
     {
       type: 'move',
@@ -125,8 +125,7 @@ test('progression should have "move" action that links to a random slide from th
   const engineOptions: EngineOptions = {
     livesDisabled: true
   };
-  const availableContent = {slidePools: slidesByChapter(allSlides)};
-  const progression = createProgression(engine, content, engineOptions, availableContent);
+  const progression = createProgression(engine, content, engineOptions, availableContentWithSlides);
   t.deepEqual(map(omit(['payload.nextContent.ref']), progression.actions), [
     {
       type: 'move',

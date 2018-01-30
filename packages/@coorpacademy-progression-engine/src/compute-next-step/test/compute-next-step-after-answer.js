@@ -4,30 +4,27 @@ import omit from 'lodash/fp/omit';
 import pipe from 'lodash/fp/pipe';
 import assign from 'lodash/fp/assign';
 import filter from 'lodash/fp/filter';
-import type {Engine, EngineOptions, State, Slide} from '../../types';
+import type {AvailableContent, Engine, EngineOptions, State, Slide} from '../../types';
 import {computeNextStepAfterAnswer, type PartialAnswerAction} from '..';
 import allSlides from './fixtures/slides';
 import getSlide from './helpers/get-slide';
 import {firstState, stateBeforeGettingNextContent, oneLifeLeftState} from './fixtures/states';
 
-const engine: Engine = {
-  ref: 'learner',
-  version: '1'
-};
+const engine: Engine = {ref: 'learner', version: '1'};
 const engineOptions: EngineOptions = {};
+const availableContent: AvailableContent = [
+  {
+    ref: '1.A1',
+    slides: filter({chapter_id: '1.A1'}, allSlides),
+    rules: null
+  }
+];
 
 const merge = arr2 => (arr: Array<Slide>): Array<Slide> => {
   return arr.map((v, i): Slide => {
     return assign(v, arr2[i]);
   });
 };
-
-const slidePools = [
-  {
-    chapterId: '1.A1',
-    slides: filter({chapter_id: '1.A1'}, allSlides)
-  }
-];
 
 test('should return the slide with the highest position if any slides have a position', t => {
   const state: State = Object.freeze(firstState);
@@ -42,14 +39,13 @@ test('should return the slide with the highest position if any slides have a pos
       {position: 0}
     ])
   )(allSlides);
-  const availableContent = {
-    slidePools: [
-      {
-        chapterId: '1.A1',
-        slides: prioritySlides
-      }
-    ]
-  };
+  const _availableContent: AvailableContent = [
+    {
+      ref: '1.A1',
+      slides: prioritySlides,
+      rules: null
+    }
+  ];
   const partialAction: PartialAnswerAction = {
     type: 'answer',
     payload: {
@@ -63,7 +59,7 @@ test('should return the slide with the highest position if any slides have a pos
     engine,
     engineOptions,
     state,
-    availableContent,
+    _availableContent,
     currentSlide,
     partialAction
   );
@@ -90,7 +86,7 @@ test('should return the slide with the highest position if any slides have a pos
     engine,
     engineOptions,
     stateWithAdditionalSlide,
-    availableContent,
+    _availableContent,
     currentSlide,
     partialAction
   );
@@ -110,7 +106,6 @@ test('should return the slide with the highest position if any slides have a pos
 test('should return a new slide when user is still alive', t => {
   const state: State = Object.freeze(stateBeforeGettingNextContent);
   const currentSlide = getSlide(allSlides, state.nextContent);
-  const availableContent = {slidePools};
   const partialAction: PartialAnswerAction = {
     type: 'answer',
     payload: {
@@ -145,7 +140,6 @@ test('should return a new slide when user is still alive', t => {
 test("should return the fail endpoint when user has no more lives and can't request more lives", t => {
   const state: State = Object.freeze(oneLifeLeftState);
   const currentSlide = getSlide(allSlides, state.nextContent);
-  const availableContent = {slidePools};
   const partialAction: PartialAnswerAction = {
     type: 'answer',
     payload: {
@@ -179,7 +173,6 @@ test("should return the fail endpoint when user has no more lives and can't requ
 test('should return the extraLife when user has no more lives but can request lives', t => {
   const state: State = Object.freeze({...oneLifeLeftState, remainingLifeRequests: 1});
   const currentSlide = getSlide(allSlides, state.nextContent);
-  const availableContent = {slidePools};
   const partialAction: PartialAnswerAction = {
     type: 'answer',
     payload: {
@@ -213,7 +206,6 @@ test('should return the extraLife when user has no more lives but can request li
 test('should return a new slide, when user has no more lives but lives are disabled', t => {
   const state: State = Object.freeze(oneLifeLeftState);
   const currentSlide = getSlide(allSlides, state.nextContent);
-  const availableContent = {slidePools};
   const livesDisabledEngine = {ref: 'learner', version: 'livesDisabled'};
   const partialAction: PartialAnswerAction = {
     type: 'answer',
