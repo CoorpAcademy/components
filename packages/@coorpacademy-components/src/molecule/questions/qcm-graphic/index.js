@@ -18,12 +18,12 @@ const QCMImage = (props, context) => {
         className={selected ? style.selected : style.answer}
         onClick={onClick}
         data-selected={selected}
-        data-name="answerGraphic"
         style={selectedStyle}
         key={key}
       >
         <div
           className={style.imageWrapper}
+          data-name="answerGraphic"
           style={{
             backgroundImage: `url(${image})`
           }}
