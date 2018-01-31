@@ -28,17 +28,8 @@ import getConfig from '../config';
 import type {ChapterRule, Instruction, Condition} from '../rule-engine/types';
 import selectRule from '../rule-engine/select-rule';
 
-const hasNoMoreLives = (
-  config: Config,
-  state: State,
-  isCorrect: boolean,
-  consumeLastLive: boolean
-): boolean => {
-  const livesEnabled = !config.livesDisabled;
-  const isLastLive = state.lives === 1 && !isCorrect;
-  const noMoreLives = state.lives <= 0;
-  return livesEnabled && (noMoreLives || (consumeLastLive && isLastLive));
-};
+const hasNoMoreLives = (config: Config, state: State): boolean =>
+  !config.livesDisabled && state.lives <= 0;
 const hasRemainingLifeRequests = (state: State): boolean => state.remainingLifeRequests > 0;
 const stepIsAlreadyExtraLife = (state: State): boolean => get('content.ref', state) === 'extraLife';
 
@@ -113,11 +104,9 @@ export type PartialExtraLifeAcceptedAction = {
 const computeNextSlide = (
   config: Config,
   slidePools: Array<SlidePool>,
-  isCorrect: boolean,
-  consumeLastLive: boolean,
   state: State | null
 ): Content => {
-  if (state && hasNoMoreLives(config, state, isCorrect, consumeLastLive)) {
+  if (state && hasNoMoreLives(config, state)) {
     return !stepIsAlreadyExtraLife(state) && hasRemainingLifeRequests(state)
       ? {type: 'node', ref: 'extraLife'}
       : {type: 'failure', ref: 'failExitNode'};
@@ -156,6 +145,16 @@ const applyActionToState = (state: State | null, action: PartialAction): State |
   };
 };
 
+const decrementLivesOnIncorrectAnswer = (action: PartialAction, state: State): State => {
+  if (action && action.type === 'answer' && !action.payload.isCorrect) {
+    return {
+      ...state,
+      lives: state.lives - 1
+    };
+  }
+  return state;
+};
+
 const computeNextStep = (
   engine: Engine,
   engineOptions: EngineOptions,
@@ -182,8 +181,8 @@ const computeNextStep = (
   }
 
   if (Array.isArray(slidePools) && slidePools.length > 0) {
-    const consumeLastLive = !!action && action.type === 'answer';
-    const nextContent = computeNextSlide(config, slidePools, isCorrect, consumeLastLive, state);
+    const stateWithDecrementedLives = decrementLivesOnIncorrectAnswer(action, state);
+    const nextContent = computeNextSlide(config, slidePools, stateWithDecrementedLives);
     return {
       nextContent,
       instructions: null,

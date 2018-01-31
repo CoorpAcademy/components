@@ -138,25 +138,21 @@ export const requestClue = async (progressionId, payload) => {
   return addActionAndSaveProgression(progression, action);
 };
 
-const createExtraLifeAction = (isAccepted, engine, engineOptions, state, availableContent) => {
-  const compute = isAccepted ? computeNextStepOnAcceptExtraLife : computeNextStepOnRefuseExtraLife;
-  return compute(engine, engineOptions, state, availableContent);
-};
-
 export const postExtraLife = async (progressionId, payload) => {
   const progression = await findById(progressionId);
   const slidePools = createSlidePools();
-  const {isAccepted} = payload;
-
-  const action = createExtraLifeAction(
-    isAccepted,
-    progression.engine,
-    progression.engineOptions,
-    progression.state,
-    {
-      slidePools
-    }
-  );
+  const action = payload.isAccepted
+    ? computeNextStepOnAcceptExtraLife(
+        progression.engine,
+        progression.engineOptions,
+        progression.state,
+        {slidePools}
+      )
+    : computeNextStepOnRefuseExtraLife(
+        progression.engine,
+        progression.engineOptions,
+        progression.state
+      );
 
   return addActionAndSaveProgression(progression, action);
 };
