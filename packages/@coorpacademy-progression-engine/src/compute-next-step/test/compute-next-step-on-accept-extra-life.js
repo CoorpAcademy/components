@@ -21,7 +21,11 @@ const slidePools = [
 ];
 
 test('should return an action linking to a new slide', t => {
-  const state: State = Object.freeze(stateBeforeGettingNextContent);
+  const state: State = Object.freeze({
+    ...stateBeforeGettingNextContent,
+    lives: 0
+  });
+
   const availableContent = {slidePools};
 
   const result = computeNextStepOnAcceptExtraLife(engine, engineOptions, state, availableContent);
