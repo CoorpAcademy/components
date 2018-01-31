@@ -26,6 +26,7 @@ import type {
 import getConfig from '../config';
 import type {ChapterRule, Instruction, Condition} from '../rule-engine/types';
 import selectRule from '../rule-engine/select-rule';
+import updateVariables from '../rule-engine/apply-instructions';
 
 const hasNoMoreLives = (config: Config, state: State): boolean =>
   !config.livesDisabled && state.lives <= 0;
@@ -37,6 +38,9 @@ const nextSlidePool = (
   availableContent: AvailableContent,
   state: State
 ): ChapterContent | null => {
+  if (state.nextContent.type === 'chapter') {
+    return find({ref: state.nextContent.ref}, availableContent) || null;
+  }
   const lastSlideRef = pipe(get('slides'), last)(state);
   const _currentIndex: number = findIndex(
     ({slides}: ChapterContent): boolean => !!find({_id: lastSlideRef}, slides),
@@ -164,6 +168,27 @@ const decrementLivesOnIncorrectAnswer = (
   return state;
 };
 
+const switchChapter = (chapterRule: ChapterRule, state: State | null): State | null => {
+  if (!state) {
+    return state;
+  }
+  return updateVariables(chapterRule.instructions)({
+    ...state,
+    nextContent: chapterRule.destination
+  });
+};
+
+const selectRuleMatchingState = (
+  rules: Array<ChapterRule>,
+  _state: State | null
+): ChapterRule | null => {
+  const state =
+    _state && _state.nextContent.type === 'chapter'
+      ? {..._state, nextContent: {type: 'slide', ref: ''}}
+      : _state;
+  return selectRule(rules, state);
+};
+
 const computeNextStep = (
   engine: Engine,
   engineOptions: EngineOptions,
@@ -175,7 +200,6 @@ const computeNextStep = (
   const isCorrect = !!action && action.type === 'answer' && action.payload.isCorrect;
   const state = applyActionToState(_state, action);
   const chapterContent = getChapterContent(config, availableContent, state);
-
   // If user has answered all questions, return success endpoint
   if (!chapterContent) {
     return {
@@ -189,10 +213,24 @@ const computeNextStep = (
   }
 
   if (Array.isArray(chapterContent.rules) && chapterContent.rules.length > 0) {
-    // TODO Add coverage
-    const chapterRule = selectRule(chapterContent.rules, state);
+    const chapterRule = selectRuleMatchingState(chapterContent.rules, state);
     if (!chapterRule) {
       throw new Error('Could not find a chapter rule to select.');
+    }
+
+    if (chapterRule.destination.type === 'chapter') {
+      const res = computeNextStep(
+        engine,
+        engineOptions,
+        switchChapter(chapterRule, state),
+        availableContent,
+        null
+      );
+      return {
+        nextContent: res.nextContent,
+        instructions: chapterRule.instructions.concat(res.instructions || []),
+        isCorrect: getIsCorrect(isCorrect, chapterRule)
+      };
     }
 
     return {
