@@ -7,8 +7,8 @@ import head from 'lodash/fp/head';
 import last from 'lodash/fp/last';
 import filter from 'lodash/fp/filter';
 import sortBy from 'lodash/fp/sortBy';
+import isEqual from 'lodash/fp/isEqual';
 import shuffle from 'lodash/fp/shuffle';
-import isEmpty from 'lodash/fp/isEmpty';
 import includes from 'lodash/fp/includes';
 import findIndex from 'lodash/fp/findIndex';
 import intersection from 'lodash/fp/intersection';
@@ -33,13 +33,38 @@ const hasNoMoreLives = (config: Config, state: State): boolean =>
 const hasRemainingLifeRequests = (state: State): boolean => state.remainingLifeRequests > 0;
 const stepIsAlreadyExtraLife = (state: State): boolean => get('content.ref', state) === 'extraLife';
 
+export type PartialAnswerActionWithIsCorrect = {
+  type: 'answer',
+  payload: {
+    answer: Answer,
+    content: Content,
+    godMode: boolean,
+    isCorrect: boolean
+  }
+};
+export type PartialExtraLifeAcceptedAction = {
+  type: 'extraLifeAccepted'
+};
+
+type PartialAction = PartialAnswerActionWithIsCorrect | PartialExtraLifeAcceptedAction | null;
+type ChapterContentSelection = {
+  currentChapterContent: ChapterContent | null,
+  nextChapterContent: ChapterContent | null,
+  temporaryNextContent: Content
+};
+
 const nextSlidePool = (
   config: Config,
   availableContent: AvailableContent,
   state: State
-): ChapterContent | null => {
+): ChapterContentSelection => {
   if (state.nextContent.type === 'chapter') {
-    return find({ref: state.nextContent.ref}, availableContent) || null;
+    const content = find({ref: state.nextContent.ref}, availableContent) || null;
+    return {
+      currentChapterContent: content,
+      nextChapterContent: content,
+      temporaryNextContent: {type: 'slide', ref: ''}
+    };
   }
   const lastSlideRef = pipe(get('slides'), last)(state);
   const _currentIndex: number = findIndex(
@@ -54,20 +79,42 @@ const nextSlidePool = (
   );
 
   if (slidesAnsweredForThisChapter.length >= config.slidesToComplete) {
-    return availableContent[currentIndex + 1] || null;
+    return {
+      currentChapterContent: currentChapterPool,
+      nextChapterContent: availableContent[currentIndex + 1] || null,
+      temporaryNextContent: {type: 'slide', ref: ''}
+    };
   }
 
-  return currentChapterPool;
+  return {
+    currentChapterContent: currentChapterPool,
+    nextChapterContent: currentChapterPool,
+    temporaryNextContent: state.nextContent
+  };
 };
 
 const getChapterContent = (
   config: Config,
   availableContent: AvailableContent,
   state: State | null
-): ChapterContent | null =>
-  !state || isEmpty(get('slides', state))
-    ? head(availableContent)
-    : nextSlidePool(config, availableContent, state);
+): ChapterContentSelection => {
+  const firstContent = head(availableContent);
+  if (!state) {
+    return {
+      currentChapterContent: firstContent,
+      nextChapterContent: firstContent,
+      temporaryNextContent: {type: 'slide', ref: ''}
+    };
+  }
+  if (state.slides.length === 0) {
+    return {
+      currentChapterContent: firstContent,
+      nextChapterContent: firstContent,
+      temporaryNextContent: state.nextContent
+    };
+  }
+  return nextSlidePool(config, availableContent, state);
+};
 
 const sortByPosition = sortBy(
   (slide: Slide) => (typeof slide.position === 'number' ? -slide.position : 0)
@@ -94,20 +141,6 @@ type Result = {
   isCorrect: ?boolean
 };
 
-export type PartialAnswerActionWithIsCorrect = {
-  type: 'answer',
-  payload: {
-    answer: Answer,
-    content: Content,
-    godMode: boolean,
-    isCorrect: boolean
-  }
-};
-
-export type PartialExtraLifeAcceptedAction = {
-  type: 'extraLifeAccepted'
-};
-
 const computeNextSlide = (
   config: Config,
   chapterContent: ChapterContent,
@@ -128,8 +161,6 @@ const computeNextSlide = (
     ref: pickNextSlide(remainingSlides)._id
   };
 };
-
-type PartialAction = PartialAnswerActionWithIsCorrect | PartialExtraLifeAcceptedAction | null;
 
 const applyActionToState = (state: State | null, action: PartialAction): State | null => {
   if (!action || !state) {
@@ -168,7 +199,10 @@ const decrementLivesOnIncorrectAnswer = (
   return state;
 };
 
-const switchChapter = (chapterRule: ChapterRule, state: State | null): State | null => {
+const prepareStateToSwitchChapters = (
+  chapterRule: ChapterRule,
+  state: State | null
+): State | null => {
   if (!state) {
     return state;
   }
@@ -178,15 +212,27 @@ const switchChapter = (chapterRule: ChapterRule, state: State | null): State | n
   });
 };
 
-const selectRuleMatchingState = (
-  rules: Array<ChapterRule>,
-  _state: State | null
-): ChapterRule | null => {
-  const state =
-    _state && _state.nextContent.type === 'chapter'
-      ? {..._state, nextContent: {type: 'slide', ref: ''}}
-      : _state;
-  return selectRule(rules, state);
+const computeNextStepForNewChapter = (
+  engine: Engine,
+  engineOptions: EngineOptions,
+  state: State | null,
+  chapterRule: ChapterRule,
+  isCorrect: boolean,
+  availableContent: AvailableContent
+): Result => {
+  // eslint-disable-next-line no-use-before-define
+  const nextStep = computeNextStep(
+    engine,
+    engineOptions,
+    prepareStateToSwitchChapters(chapterRule, state),
+    availableContent,
+    null
+  );
+  return {
+    nextContent: nextStep.nextContent,
+    instructions: chapterRule.instructions.concat(nextStep.instructions || []),
+    isCorrect: getIsCorrect(isCorrect, chapterRule)
+  };
 };
 
 const computeNextStep = (
@@ -199,9 +245,13 @@ const computeNextStep = (
   const config = computeConfig(engine, engineOptions);
   const isCorrect = !!action && action.type === 'answer' && action.payload.isCorrect;
   const state = applyActionToState(_state, action);
-  const chapterContent = getChapterContent(config, availableContent, state);
+  const {currentChapterContent, nextChapterContent, temporaryNextContent} = getChapterContent(
+    config,
+    availableContent,
+    state
+  );
   // If user has answered all questions, return success endpoint
-  if (!chapterContent) {
+  if (!nextChapterContent) {
     return {
       nextContent: {
         type: 'success',
@@ -212,37 +262,41 @@ const computeNextStep = (
     };
   }
 
-  if (Array.isArray(chapterContent.rules) && chapterContent.rules.length > 0) {
-    const chapterRule = selectRuleMatchingState(chapterContent.rules, state);
+  if (Array.isArray(nextChapterContent.rules) && nextChapterContent.rules.length > 0) {
+    const chapterRule = selectRule(nextChapterContent.rules, {
+      ...state,
+      nextContent: temporaryNextContent
+    });
     if (!chapterRule) {
       throw new Error('Could not find a chapter rule to select.');
     }
 
     if (chapterRule.destination.type === 'chapter') {
-      const res = computeNextStep(
+      return computeNextStepForNewChapter(
         engine,
         engineOptions,
-        switchChapter(chapterRule, state),
-        availableContent,
-        null
+        state,
+        chapterRule,
+        isCorrect,
+        availableContent
       );
-      return {
-        nextContent: res.nextContent,
-        instructions: chapterRule.instructions.concat(res.instructions || []),
-        isCorrect: getIsCorrect(isCorrect, chapterRule)
-      };
     }
 
     return {
       nextContent: chapterRule.destination,
       instructions: chapterRule.instructions,
-      isCorrect: getIsCorrect(isCorrect, chapterRule)
+      isCorrect: isEqual(currentChapterContent, nextChapterContent)
+        ? getIsCorrect(isCorrect, chapterRule)
+        : isCorrect
     };
   }
 
-  if (Array.isArray(chapterContent.slides) && chapterContent.slides.length > 0) {
-    const stateWithDecrementedLives = decrementLivesOnIncorrectAnswer(action, state);
-    const nextContent = computeNextSlide(config, chapterContent, stateWithDecrementedLives);
+  if (Array.isArray(nextChapterContent.slides) && nextChapterContent.slides.length > 0) {
+    const stateWithDecrementedLives = decrementLivesOnIncorrectAnswer(action, {
+      ...state,
+      nextContent: temporaryNextContent
+    });
+    const nextContent = computeNextSlide(config, nextChapterContent, stateWithDecrementedLives);
     return {
       nextContent,
       instructions: null,
