@@ -18,6 +18,7 @@ const QCMImage = (props, context) => {
         className={selected ? style.selected : style.answer}
         onClick={onClick}
         data-selected={selected}
+        data-name="answerGraphic"
         style={selectedStyle}
         key={key}
       >
