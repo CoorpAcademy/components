@@ -115,7 +115,7 @@ test('should return a new slide when user is still alive', t => {
     }
   };
 
-  const resultAction = computeNextStepAfterAnswer(
+  const result = computeNextStepAfterAnswer(
     engine,
     engineOptions,
     state,
@@ -123,7 +123,7 @@ test('should return a new slide when user is still alive', t => {
     currentSlide,
     partialAction
   );
-  t.deepEqual(omit(['payload.nextContent.ref'], resultAction), {
+  t.deepEqual(omit(['payload.nextContent.ref'], result), {
     type: 'answer',
     payload: {
       answer: [],
@@ -134,7 +134,7 @@ test('should return a new slide when user is still alive', t => {
       isCorrect: true
     }
   });
-  t.regex(resultAction.payload.nextContent.ref, /^1\.A1\.[2-9]+$/);
+  t.regex(result.payload.nextContent.ref, /^1\.A1\.[2-9]+$/);
 });
 
 test("should return the fail endpoint when user has no more lives and can't request more lives", t => {
@@ -265,4 +265,50 @@ test('should return a new slide, when user has no more lives but lives are disab
     /^1\.A1\.[2-9]+$/,
     'does not work when lives are disabled in engine options'
   );
+});
+
+test('should return isCorrect=true when the answer is correct and godmode is false', t => {
+  const state: State = Object.freeze(stateBeforeGettingNextContent);
+  const currentSlide = getSlide(allSlides, state.nextContent);
+  const partialAction: PartialAnswerAction = {
+    type: 'answer',
+    payload: {
+      answer: ['foo', 'bar'],
+      content: state.nextContent,
+      godMode: false
+    }
+  };
+
+  const result = computeNextStepAfterAnswer(
+    engine,
+    engineOptions,
+    state,
+    availableContent,
+    currentSlide,
+    partialAction
+  );
+  t.true(result.payload.isCorrect);
+});
+
+test('should return isCorrect=false when the answer is incorrect and godmode is false', t => {
+  const state: State = Object.freeze(stateBeforeGettingNextContent);
+  const currentSlide = getSlide(allSlides, state.nextContent);
+  const partialAction: PartialAnswerAction = {
+    type: 'answer',
+    payload: {
+      answer: ['this is not the answer'],
+      content: state.nextContent,
+      godMode: false
+    }
+  };
+
+  const result = computeNextStepAfterAnswer(
+    engine,
+    engineOptions,
+    state,
+    availableContent,
+    currentSlide,
+    partialAction
+  );
+  t.false(result.payload.isCorrect);
 });
