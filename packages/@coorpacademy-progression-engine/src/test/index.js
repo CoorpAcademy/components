@@ -3,7 +3,6 @@ import test from 'ava';
 import {
   checkAnswer,
   checkAnswerCorrectness,
-  computeInitialStep,
   computeNextStepAfterAnswer,
   computeNextStepOnAcceptExtraLife,
   computeNextStepOnRefuseExtraLife,
@@ -18,10 +17,6 @@ test('should export checkAnswer', t => {
 
 test('should export checkAnswerCorrectness', t => {
   t.is(typeof checkAnswerCorrectness, 'function');
-});
-
-test('should export computeInitialStep', t => {
-  t.is(typeof computeInitialStep, 'function');
 });
 
 test('should export computeNextStepAfterAnswer', t => {
