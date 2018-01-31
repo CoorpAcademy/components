@@ -1,6 +1,5 @@
 // @flow
 import {
-  computeInitialStep,
   computeNextStepAfterAnswer,
   computeNextStepOnAcceptExtraLife,
   computeNextStepOnRefuseExtraLife
@@ -14,7 +13,6 @@ import getConfig from './config';
 export {
   checkAnswer,
   checkAnswerCorrectness,
-  computeInitialStep,
   computeNextStepAfterAnswer,
   computeNextStepOnAcceptExtraLife,
   computeNextStepOnRefuseExtraLife,
