@@ -23,6 +23,7 @@ const QCMImage = (props, context) => {
       >
         <div
           className={style.imageWrapper}
+          data-name="answerGraphic"
           style={{
             backgroundImage: `url(${image})`
           }}
