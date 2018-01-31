@@ -1,6 +1,60 @@
 // @flow
 import {type Slide} from '../../../types';
 
+const slide1_A_14 = {
+  _id: '1.A1.4',
+  klf:
+    "Le Knowledge Graph vampirise 40% d'une page de résultats. Certes, toutes les requêtes ne sont pas concernées, mais si votre activité peut en profiter, vous avez là une merveilleuse vitrine !\n",
+  tips: 'Un conseil : cherchez un lien entre votre activité et le Knowledge Graph.\n',
+  chapter_id: '1.A1',
+  authors: [],
+  context: {
+    media: {
+      subtitles: [],
+      posters: [],
+      src: []
+    }
+  },
+  meta: {
+    updatedAt: '2017-05-30T13:01:53.025Z',
+    createdAt: '2017-05-30T13:01:53.025Z'
+  },
+  lessons: [
+    {
+      type: 'video',
+      poster: '//static.coorpacademy.com/content/digital/miniatures_cours/avance/1A1.png',
+      description: 'Le concept de Knowledge Graph',
+      mimeType: 'application/vimeo',
+      videoId: '89404998\n',
+      _id: '590b862e2e967f64333ad46f',
+      subtitles: [],
+      posters: [],
+      src: []
+    }
+  ],
+  question: {
+    type: 'qcm',
+    header: "Quelle proportion du volume d'une page de résultats occupe le Knowledge Graph ?",
+    explanation: 'Faites glisser le curseur.',
+    content: {
+      id: 'discipline_1.module_avance.chapter_1.slide_4.title',
+      min: 0,
+      max: 100,
+      defaultValue: 0,
+      unitLabel: '%\n',
+      maxTypos: null,
+      choices: [],
+      media: {
+        subtitles: [],
+        posters: [],
+        src: []
+      },
+      answers: []
+    },
+    medias: []
+  }
+};
+
 const slides: Array<Slide> = [
   {
     _id: '1.A1.1',
@@ -361,59 +415,9 @@ const slides: Array<Slide> = [
       medias: []
     }
   },
-  {
-    _id: '1.A1.4',
-    klf:
-      "Le Knowledge Graph vampirise 40% d'une page de résultats. Certes, toutes les requêtes ne sont pas concernées, mais si votre activité peut en profiter, vous avez là une merveilleuse vitrine !\n",
-    tips: 'Un conseil : cherchez un lien entre votre activité et le Knowledge Graph.\n',
-    chapter_id: '1.A1',
-    authors: [],
-    context: {
-      media: {
-        subtitles: [],
-        posters: [],
-        src: []
-      }
-    },
-    meta: {
-      updatedAt: '2017-05-30T13:01:53.025Z',
-      createdAt: '2017-05-30T13:01:53.025Z'
-    },
-    lessons: [
-      {
-        type: 'video',
-        poster: '//static.coorpacademy.com/content/digital/miniatures_cours/avance/1A1.png',
-        description: 'Le concept de Knowledge Graph',
-        mimeType: 'application/vimeo',
-        videoId: '89404998\n',
-        _id: '590b862e2e967f64333ad46f',
-        subtitles: [],
-        posters: [],
-        src: []
-      }
-    ],
-    question: {
-      type: 'qcm',
-      header: "Quelle proportion du volume d'une page de résultats occupe le Knowledge Graph ?",
-      explanation: 'Faites glisser le curseur.',
-      content: {
-        id: 'discipline_1.module_avance.chapter_1.slide_4.title',
-        min: 0,
-        max: 100,
-        defaultValue: 0,
-        unitLabel: '%\n',
-        maxTypos: null,
-        choices: [],
-        media: {
-          subtitles: [],
-          posters: [],
-          src: []
-        },
-        answers: []
-      },
-      medias: []
-    }
-  },
+  slide1_A_14,
+  {...slide1_A_14, _id: '1.A1.6'},
+  {...slide1_A_14, _id: '1.A1.7'},
   {
     _id: '2.A1.1',
     chapter_id: '2.A1',
