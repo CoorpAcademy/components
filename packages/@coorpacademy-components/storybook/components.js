@@ -426,6 +426,7 @@ import SlidesFooterFixtureDefault from '../src/molecule/slides/slides-footer/tes
 import SlidesFooterFixtureDisabled from '../src/molecule/slides/slides-footer/test/fixtures/disabled';
 import SlidesFooterFixtureHighlighted from '../src/molecule/slides/slides-footer/test/fixtures/highlighted';
 import SlidesFooterFixtureMediaSelected from '../src/molecule/slides/slides-footer/test/fixtures/media-selected';
+import SlidesFooterFixtureNoClue from '../src/molecule/slides/slides-footer/test/fixtures/no-clue';
 import SlidesFooterFixtureNotify from '../src/molecule/slides/slides-footer/test/fixtures/notify';
 import SlidesFooterFixtureOnlyClue from '../src/molecule/slides/slides-footer/test/fixtures/only-clue';
 import SlidesFooterFixtureWithContext from '../src/molecule/slides/slides-footer/test/fixtures/with-context';
@@ -440,6 +441,7 @@ import SlidesPlayerFixtureError from '../src/molecule/slides/slides-player/test/
 import SlidesPlayerFixtureFreeText from '../src/molecule/slides/slides-player/test/fixtures/free-text';
 import SlidesPlayerFixtureLoading from '../src/molecule/slides/slides-player/test/fixtures/loading';
 import SlidesPlayerFixtureMedia from '../src/molecule/slides/slides-player/test/fixtures/media';
+import SlidesPlayerFixtureNoClue from '../src/molecule/slides/slides-player/test/fixtures/no-clue';
 import SlidesPlayerFixtureNoQuestion from '../src/molecule/slides/slides-player/test/fixtures/no-question';
 import SlidesPlayerFixtureNoStep from '../src/molecule/slides/slides-player/test/fixtures/no-step';
 import SlidesPlayerFixtureNoTotal from '../src/molecule/slides/slides-player/test/fixtures/no-total';
@@ -543,6 +545,7 @@ import PlayerFixtureEmpty from '../src/template/app-player/player/test/fixtures/
 import PlayerFixtureError from '../src/template/app-player/player/test/fixtures/error';
 import PlayerFixtureFreeText from '../src/template/app-player/player/test/fixtures/free-text';
 import PlayerFixtureMedia from '../src/template/app-player/player/test/fixtures/media';
+import PlayerFixtureNoClue from '../src/template/app-player/player/test/fixtures/no-clue';
 import PlayerFixtureOnlyClue from '../src/template/app-player/player/test/fixtures/only-clue';
 import PlayerFixtureQcmDrag from '../src/template/app-player/player/test/fixtures/qcm-drag';
 import PlayerFixtureQcmGraphic from '../src/template/app-player/player/test/fixtures/qcm-graphic';
@@ -588,6 +591,7 @@ import BrandUpdateFixtureDashboard from '../src/template/back-office/brand-updat
 import BrandUpdateFixtureDefault from '../src/template/back-office/brand-update/test/fixtures/default';
 import BrandUpdateFixtureGeneralSettingsSuccess from '../src/template/back-office/brand-update/test/fixtures/general-settings-success';
 import BrandUpdateFixtureGeneralSettings from '../src/template/back-office/brand-update/test/fixtures/general-settings';
+import BrandUpdateFixtureLoader from '../src/template/back-office/brand-update/test/fixtures/loader';
 import BrandUpdateFixtureLookandfeelError from '../src/template/back-office/brand-update/test/fixtures/lookandfeel-error';
 import BrandUpdateFixtureLookandfeelModified from '../src/template/back-office/brand-update/test/fixtures/lookandfeel-modified';
 import BrandUpdateFixtureLookandfeelPending from '../src/template/back-office/brand-update/test/fixtures/lookandfeel-pending';
@@ -1313,6 +1317,7 @@ export const fixtures = {
       Disabled: SlidesFooterFixtureDisabled,
       Highlighted: SlidesFooterFixtureHighlighted,
       MediaSelected: SlidesFooterFixtureMediaSelected,
+      NoClue: SlidesFooterFixtureNoClue,
       Notify: SlidesFooterFixtureNotify,
       OnlyClue: SlidesFooterFixtureOnlyClue,
       WithContext: SlidesFooterFixtureWithContext
@@ -1329,6 +1334,7 @@ export const fixtures = {
       FreeText: SlidesPlayerFixtureFreeText,
       Loading: SlidesPlayerFixtureLoading,
       Media: SlidesPlayerFixtureMedia,
+      NoClue: SlidesPlayerFixtureNoClue,
       NoQuestion: SlidesPlayerFixtureNoQuestion,
       NoStep: SlidesPlayerFixtureNoStep,
       NoTotal: SlidesPlayerFixtureNoTotal,
@@ -1463,6 +1469,7 @@ export const fixtures = {
       Error: PlayerFixtureError,
       FreeText: PlayerFixtureFreeText,
       Media: PlayerFixtureMedia,
+      NoClue: PlayerFixtureNoClue,
       OnlyClue: PlayerFixtureOnlyClue,
       QcmDrag: PlayerFixtureQcmDrag,
       QcmGraphic: PlayerFixtureQcmGraphic,
@@ -1527,6 +1534,7 @@ export const fixtures = {
       Default: BrandUpdateFixtureDefault,
       GeneralSettingsSuccess: BrandUpdateFixtureGeneralSettingsSuccess,
       GeneralSettings: BrandUpdateFixtureGeneralSettings,
+      Loader: BrandUpdateFixtureLoader,
       LookandfeelError: BrandUpdateFixtureLookandfeelError,
       LookandfeelModified: BrandUpdateFixtureLookandfeelModified,
       LookandfeelPending: BrandUpdateFixtureLookandfeelPending,

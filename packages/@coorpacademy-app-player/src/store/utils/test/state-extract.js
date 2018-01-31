@@ -23,7 +23,7 @@ import {
   getEndRank,
   getBestScore,
   getResourceToPlay,
-  getNextContentFromRecommendations,
+  getNextContent,
   hasViewedAResourceAtThisStep
 } from '../state-extract';
 
@@ -282,7 +282,7 @@ test('getLives should return null if lives are disabled for the current progress
   t.is(getLives(state), null);
 });
 
-test('getNextContentFromRecommendations should return nextChapter if microlearning progression', t => {
+test('getNextContent should return nextChapter if microlearning progression', t => {
   const progression = {
     content: {ref: '1.B1', type: 'chapter'},
     state: {lives: 100, livesDisabled: true}
@@ -290,13 +290,13 @@ test('getNextContentFromRecommendations should return nextChapter if microlearni
   const state = pipe(
     set('ui.current.progressionId', 'id'),
     set('data.progressions.entities.id', progression),
-    set('data.recommendations.entities.id', {list: [], nextChapter: {ref: '1.B2'}})
+    set('data.nextContent.entities.id', {ref: '1.B2'})
   )({});
 
-  t.deepEqual(getNextContentFromRecommendations(state), {ref: '1.B2'});
+  t.deepEqual(getNextContent(state), {ref: '1.B2'});
 });
 
-test('getNextContentFromRecommendations should return nextChapter if learner progression', t => {
+test('getNextContent should return nextChapter if learner progression', t => {
   const progression = {
     content: {ref: '1.B', type: 'level'},
     state: {lives: 100, livesDisabled: true}
@@ -304,8 +304,8 @@ test('getNextContentFromRecommendations should return nextChapter if learner pro
   const state = pipe(
     set('ui.current.progressionId', 'id'),
     set('data.progressions.entities.id', progression),
-    set('data.recommendations.entities.id', {list: [], nextLevel: {ref: '1.A'}})
+    set('data.nextContent.entities.id', {ref: '1.A'})
   )({});
 
-  t.deepEqual(getNextContentFromRecommendations(state), {ref: '1.A'});
+  t.deepEqual(getNextContent(state), {ref: '1.A'});
 });

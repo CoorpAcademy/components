@@ -1,4 +1,4 @@
-import buildTask from '../../utils/redux-task';
+import buildTask from '@coorpacademy/redux-task';
 
 export const ANSWER_FETCH_REQUEST = '@@answer/FETCH_REQUEST';
 export const ANSWER_FETCH_SUCCESS = '@@answer/FETCH_SUCCESS';

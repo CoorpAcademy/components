@@ -3,98 +3,96 @@ import map from 'lodash/fp/map';
 import set from 'lodash/fp/set';
 import {createRouter} from '..';
 
-test('should call view funciton with options, dispatch, state and params', t => {
+test('should return view funciton with params', t => {
   t.plan(1);
 
-  const options = {};
+  // const options = {};
 
-  const state = set('route.pathname', '/', {});
-  const dispatch = () => {};
+  const route = set('pathname', '/', {});
+  // const dispatch = () => {};
+  const view = () => 'I am a view';
 
   const router = createRouter([
     {
       path: '*',
       // eslint-disable-next-line no-shadow
-      view: options => dispatch => (state, params) => ({
-        options,
-        dispatch,
-        state,
-        params
-      })
+      view
     }
-  ])(options)(dispatch);
+  ]);
 
-  t.deepEqual(router(state), {
-    options,
-    dispatch,
-    state,
-    params: {0: '/'}
+  t.deepEqual(router(route), {
+    params: {0: '/'},
+    view
   });
 });
 
 test('should support function as path', t => {
   t.plan(1);
 
-  const state = set('route.pathname', '/foo', {});
+  const route = set('pathname', '/foo', {});
+  const path = () => ({0: '/'});
+  const view = () => true;
 
   const router = createRouter([
     {
-      path: () => false,
-      // eslint-disable-next-line no-shadow
-      view: () => () => (state, params) => params
+      path,
+      view
     },
     {
-      path: () => true,
-      // eslint-disable-next-line no-shadow
-      view: () => () => (state, params) => params
+      path,
+      view
     }
-  ])()();
+  ]);
 
-  t.deepEqual(router(state), true);
+  t.deepEqual(router(route), {params: {0: '/'}, view});
 });
 
 test("should extract url's params", t => {
   t.plan(1);
 
-  const state = set('route.pathname', '/foo', {});
+  const route = set('pathname', '/foo', {});
+  const view = () => true;
 
   const router = createRouter([
     {
       path: '/:foo',
       // eslint-disable-next-line no-shadow
-      view: () => () => (state, params) => params
+      view
     }
-  ])()();
+  ]);
 
-  t.deepEqual(router(state), {foo: 'foo'});
+  t.deepEqual(router(route), {params: {foo: 'foo'}, view});
 });
 
 test("should respect route's order", t => {
   t.plan(3);
+  const view1 = () => true;
+  const view2 = () => true;
+  const view3 = () => true;
 
   const router = createRouter([
     {
       path: '/:foo/:bar',
       // eslint-disable-next-line no-shadow
-      view: () => () => (state, params) => ({order: 0, params})
+      view: view1
     },
     {
       path: '/:foo',
       // eslint-disable-next-line no-shadow
-      view: () => () => (state, params) => ({order: 1, params})
+      view: view2
     },
     {
       path: '*',
       // eslint-disable-next-line no-shadow
-      view: () => () => (state, params) => ({order: 2, params})
+      view: view3
     }
-  ])()();
+  ]);
 
   return Promise.all(
-    map(([pathname, params]) => t.deepEqual(router(set('route.pathname', pathname, {})), params), [
-      ['/foo/bar', {order: 0, params: {foo: 'foo', bar: 'bar'}}],
-      ['/foo', {order: 1, params: {foo: 'foo'}}],
-      ['/', {order: 2, params: {0: '/'}}]
+    map(([pathname, res]) => t.deepEqual(router({pathname}), res), [
+      ['/foo/bar', {view: view1, params: {foo: 'foo', bar: 'bar'}}],
+      ['/foo', {view: view2, params: {foo: 'foo'}}],
+      ['/', {view: view3, params: {0: '/'}}]
     ])
   );
 });

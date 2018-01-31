@@ -1,6 +1,4 @@
 import test from 'ava';
-import pipe from 'lodash/fp/pipe';
-import pick from 'lodash/fp/pick';
 import set from 'lodash/fp/set';
 import reducer from '../recommendations';
 import {
@@ -59,9 +57,9 @@ test(
   {
     type: RECO_FETCH_SUCCESS,
     meta: {id: 'foo'},
-    payload: chapterRecommendations
+    payload: chapterRecommendations.list
   },
-  {entities: {foo: chapterRecommendations}}
+  {entities: {foo: chapterRecommendations.list}}
 );
 
 test(
@@ -72,15 +70,9 @@ test(
   {
     type: RECO_FETCH_SUCCESS,
     meta: {id: 'foo'},
-    payload: levelRecommendations
+    payload: levelRecommendations.list
   },
-  pipe(
-    set('entities.foo.list', levelRecommendations.list),
-    set(
-      'entities.foo.nextLevel',
-      pick(['level', 'ref', 'levelTranslation', 'name'], levelRecommendations.nextLevel)
-    )
-  )({})
+  set('entities.foo', levelRecommendations.list, {})
 );
 
 test(

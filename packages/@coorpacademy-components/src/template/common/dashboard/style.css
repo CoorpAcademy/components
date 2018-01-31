@@ -10,9 +10,3 @@
   background-color: white;
   padding-bottom: 20px;
 }
-
-@media desktop {
-  .section {
-    padding-bottom: 20px;
-  }
-}

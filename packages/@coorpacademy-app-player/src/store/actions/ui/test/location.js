@@ -217,7 +217,7 @@ test(
   pipe(
     set('ui.current.progressionId', '0'),
     set(['data', 'progressions', 'entities', '0'], {content: {ref: '1.B', type: 'level'}}),
-    set(['data', 'recommendations', 'entities', '0', 'nextLevel'], {ref: '1.A'}),
+    set(['data', 'nextContent', 'entities', '0'], {ref: '1.A'}),
     set(['data', 'contents', 'level', 'entities', '1.B'], {ref: '1.B', level: 'base'})
   )({}),
   t => ({
@@ -247,7 +247,7 @@ test(
   pipe(
     set('ui.current.progressionId', '0'),
     set(['data', 'progressions', 'entities', '0'], {content: {ref: '1.B', type: 'level'}}),
-    set(['data', 'recommendations', 'entities', '0', 'nextLevel'], {ref: '1.A'}),
+    set(['data', 'nextContent', 'entities', '0'], {ref: '1.A'}),
     set(['data', 'contents', 'level', 'entities', '1.B'], {ref: '1.B', level: 'base'})
   )({}),
   t => ({
@@ -283,7 +283,7 @@ test(
   pipe(
     set('ui.current.progressionId', '0'),
     set(['data', 'progressions', 'entities', '0'], {content: {ref: '1.B', type: 'level'}}),
-    set(['data', 'recommendations', 'entities', '0', 'nextLevel'], null),
+    set(['data', 'nextContent', 'entities', '0'], null),
     set(['data', 'contents', 'level', 'entities', '1.B'], {ref: '1.B', level: 'base'})
   )({}),
   t => ({

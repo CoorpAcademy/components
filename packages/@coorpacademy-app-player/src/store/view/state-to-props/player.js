@@ -79,6 +79,7 @@ const playerProps = (options, store) => state => {
     );
 
   const slideContext = get('context', slide);
+  const hasClue = get('hasClue', slide);
   const slideLessons = get('lessons', slide);
   const contextButton = get('title', slideContext)
     ? [
@@ -108,6 +109,7 @@ const playerProps = (options, store) => state => {
       title: translate('Clue'),
       type: 'clue',
       selected: route === 'clue',
+      disabled: !hasClue,
       onClick: clickClueHandler
     },
     {

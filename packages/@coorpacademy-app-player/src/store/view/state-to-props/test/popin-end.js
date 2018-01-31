@@ -1,4 +1,5 @@
 import test from 'ava';
+import get from 'lodash/fp/get';
 import map from 'lodash/fp/map';
 import set from 'lodash/fp/set';
 import pipe from 'lodash/fp/pipe';
@@ -6,6 +7,7 @@ import identity from 'lodash/fp/identity';
 import isFunction from 'lodash/fp/isFunction';
 import {mockTranslate} from '@coorpacademy/translate';
 import popinEnd from '../popin-end';
+import {getCurrentProgressionId} from '../../../utils/state-extract';
 import {
   LOCATION_NEXT_CONTENT_REQUEST,
   LOCATION_NEXT_CONTENT_SUCCESS,
@@ -123,7 +125,7 @@ test('should not see comment section when answer is not correct', t => {
 test('should create a "Back to Home" CTA after success on learner progression with coach content', t => {
   const state = pipe(
     set(['data', 'contents', 'level', 'entities', '1.B', 'level'], 'coach'),
-    set('data.recommendations.entities.idProgression1234.nextLevel', null)
+    set('data.nextContent.entities.idProgression1234', null)
   )(popinLearnerSuccess);
 
   const dispatch = createDispatch(state);
@@ -143,7 +145,7 @@ test('should create a "Back to Home" CTA after success on learner progression wi
 
 test('should create a "Back to Home" CTA after success on learner progression with content with only base level', t => {
   const state = set(
-    ['data', 'recommendations', 'entities', 'idProgression1234', 'nextLevel'],
+    ['data', 'nextContent', 'entities', 'idProgression1234'],
     null,
     popinLearnerSuccess
   );
@@ -193,4 +195,45 @@ test('should create a "Retry Chapter" CTA after failure on microlearning progres
   t.is(cta.title, '__Retry chapter');
   t.true(isFunction(cta.onClick));
   t.falsy(cta.href);
+});
+
+test('should extract feedback content from exit node', t => {
+  const ref = 'biba-exit-node-A';
+  const progressionId = getCurrentProgressionId(popinMicrolearningFailure);
+  const state = pipe(
+    set(`data.exitNodes.entities.${ref}`, {
+      ref,
+      _id: '5a4e2adbd56b8b7ddab06532',
+      type: 'success',
+      title: 'biba_exit_node_A.title',
+      description: 'biba_exit_node_A.description',
+      mediaDescription: 'biba_exit_node_A.media.description',
+      media: {
+        ref: 'biba_exit_node_A-media',
+        type: 'pdf',
+        mediaUrl: 'biba_exit_node_A.media.pdf.mediaUrl',
+        mimeType: 'application/pdf',
+        description: 'biba_exit_node_A.media.pdf.description',
+        subtitles: 'biba_exit_node_A.media.pdf.subtitles',
+        posters: []
+      },
+      __v: 0
+    }),
+    set(`data.progressions.entities.${progressionId}.state.nextContent.ref`, ref)
+  )(popinMicrolearningFailure);
+
+  const dispatch = createDispatch(state);
+  const props = popinEnd(options, {dispatch})(state);
+
+  t.deepEqual(get('summary.feedback', props), {
+    title: 'biba_exit_node_A.title',
+    description: 'biba_exit_node_A.description',
+    mediaDescription: 'biba_exit_node_A.media.description',
+    media: {
+      type: 'pdf',
+      description: 'biba_exit_node_A.media.pdf.description',
+      mimeType: 'application/pdf',
+      mediaUrl: 'biba_exit_node_A.media.pdf.mediaUrl'
+    }
+  });
 });

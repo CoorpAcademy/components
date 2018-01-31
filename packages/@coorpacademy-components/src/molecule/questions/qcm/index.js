@@ -28,6 +28,7 @@ const QCM = (props, context) => {
         className={className}
         onClick={onClick}
         style={selectedStyle}
+        data-selected={selected}
         key={key}
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{

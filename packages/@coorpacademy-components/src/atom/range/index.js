@@ -162,7 +162,7 @@ class Range extends React.Component {
     return (
       <div className={style.containerWrapper} onClick={this.handleClick}>
         <div className={style.container}>
-          <div className={style.track} ref={this.setRefTrack} />
+          <div className={style.track} data-name="sliderTrack" ref={this.setRefTrack} />
           <div className={pending ? style.rail : style.animatedRail} style={railStyle} />
           {this.renderHandles()}
         </div>

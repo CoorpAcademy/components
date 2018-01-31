@@ -14,6 +14,7 @@
             "_id": "1.B2.4",
             "klf": "Some KLF",
             "tips": "XXX",
+            "hasClue": true,
             "chapter_id": "cha_Ny1BTxRp~",
             "authors": [],
             "context": {

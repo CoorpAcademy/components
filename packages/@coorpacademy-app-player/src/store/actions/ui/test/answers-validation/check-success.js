@@ -104,7 +104,7 @@ const createCorrectAnswer = [
 ];
 
 test(
-  'should submit answers with the current content and refresh progression state',
+  'should submit answer with the current content and refresh progression state',
   macro,
   pipe(
     set('ui.current.progressionId', 'foo'),

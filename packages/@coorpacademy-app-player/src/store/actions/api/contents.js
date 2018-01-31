@@ -1,4 +1,4 @@
-import buildTask from '../../utils/redux-task';
+import buildTask from '@coorpacademy/redux-task';
 import {getContent, getContentInfo, getSlide} from '../../utils/state-extract';
 
 export const CONTENT_FETCH_REQUEST = '@@content/FETCH_REQUEST';

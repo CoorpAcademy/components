@@ -120,6 +120,19 @@
     prettier "^1.7.4"
     requireindex "^1.1.0"
 
+"@coorpacademy/redux-history@^3.7.3":
+  version "3.7.3"
+  resolved "https://registry.npmjs.org/@coorpacademy/redux-history/-/redux-history-3.7.3.tgz#f938a913ea228c694be7ae1b1eef7a15f6a55001"
+  dependencies:
+    lodash "^4.14.1"
+
+"@coorpacademy/redux-router@5.3.10":
+  version "5.3.10"
+  resolved "https://registry.npmjs.org/@coorpacademy/redux-router/-/redux-router-5.3.10.tgz#7fb8d7cbfa9578cc0e085ea036b7ec24693e06ed"
+  dependencies:
+    lodash "^4.17.4"
+    path-match "^1.2.4"
+
 "@hypnosphi/fuse.js@^3.0.9":
   version "3.0.9"
   resolved "https://registry.npmjs.org/@hypnosphi/fuse.js/-/fuse.js-3.0.9.tgz#ea99f6121b4a8f065b4c71f85595db2714498807"
@@ -6192,7 +6205,7 @@ lodash@3.7.x:
   version "3.7.0"
   resolved "https://registry.npmjs.org/lodash/-/lodash-3.7.0.tgz#3678bd8ab995057c07ade836ed2ef087da811d45"
 
-lodash@4.x.x, lodash@^4.0.0, lodash@^4.0.1, lodash@^4.1.0, lodash@^4.11.1, lodash@^4.13.1, lodash@^4.14.0, lodash@^4.15.0, lodash@^4.17.2, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.5.0, lodash@^4.5.1:
+lodash@4.x.x, lodash@^4.0.0, lodash@^4.0.1, lodash@^4.1.0, lodash@^4.11.1, lodash@^4.13.1, lodash@^4.14.0, lodash@^4.14.1, lodash@^4.15.0, lodash@^4.17.2, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.5.0, lodash@^4.5.1:
   version "4.17.4"
   resolved "https://registry.npmjs.org/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 

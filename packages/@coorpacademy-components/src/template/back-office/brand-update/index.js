@@ -6,6 +6,7 @@ import BrandForm from '../../../organism/brand-form';
 import BrandTable from '../../../organism/brand-table';
 import BrandUpload from '../../../organism/brand-upload';
 import Notification from '../../../atom/notification';
+import Loader from '../../../atom/loader';
 import Layout from '../layout';
 import style from './style.css';
 
@@ -21,8 +22,8 @@ const BrandUpdate = Layout(props => {
   });
 
   const contentView = cont => {
+    if (!cont) return <Loader />;
     const {type} = cont;
-
     switch (type) {
       case 'form':
         return <BrandForm {...cont} />;
@@ -80,7 +81,7 @@ BrandUpdate.propTypes = {
   ),
   content: PropTypes.shape({
     type: PropTypes.oneOf(['form', 'list', 'upload'])
-  }).isRequired
+  })
 };
 
 export default BrandUpdate;

@@ -2,9 +2,12 @@ import cond from 'lodash/fp/cond';
 import constant from 'lodash/fp/constant';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
+import isArray from 'lodash/fp/isArray';
 import isEqual from 'lodash/fp/isEqual';
+import pick from 'lodash/fp/pick';
 import pipe from 'lodash/fp/pipe';
 import omit from 'lodash/fp/omit';
+import isNull from 'lodash/fp/isNull';
 import {retry, exit, nextLevel, seeComment} from '../../actions/ui/location';
 import {editComment} from '../../actions/ui/comments';
 import {postComment} from '../../actions/api/comments';
@@ -12,6 +15,7 @@ import {
   getCurrentContent,
   getCurrentExitNode,
   getCurrentProgression,
+  getNextContent,
   getRecommendations,
   getBestScore,
   getCurrentProgressionId,
@@ -75,8 +79,7 @@ const summaryHeader = ({translate}, {dispatch}) => state => {
   if (isCurrentEngineLearner(state)) {
     const level = get('level', getCurrentContent(state));
     if (level === 'advanced' || level === 'base') {
-      const recommendations = getRecommendations(state);
-      const _nextLevel = get('nextLevel', recommendations);
+      const _nextLevel = getNextContent(state);
       if (_nextLevel) {
         successCta.title = translate('Next level');
         successCta.href = null;
@@ -121,34 +124,31 @@ const summaryHeader = ({translate}, {dispatch}) => state => {
 
 const extractRecommendation = ({translate}, store) => state => {
   const recommendations = getRecommendations(state);
-  const list = get('list', recommendations);
-  const hasRecommendations = list && list.length > 0;
+  const hasRecommendations = isNull(recommendations) || isArray(recommendations);
 
-  const recommendation = hasRecommendations && {
-    title: translate('Related subjects'),
-    cards: list
-  };
-
-  return recommendation;
+  if (hasRecommendations)
+    return {
+      title: translate('Related subjects'),
+      cards: recommendations
+    };
 };
 
 const extractAction = ({translate}, {dispatch}) => state => {
-  const recommendations = getRecommendations(state);
+  const nextContent = getNextContent(state);
   return cond([
     [
       pipe(get('type'), isEqual('success')),
       () => {
-        if (get('nextChapter', recommendations)) {
+        if (get('nextContentType', nextContent) === 'chapter') {
           return {
             type: 'nextCourse',
             description: translate('Check out the next chapter in this course!'),
             prefix: translate('Next chapter_'),
-            ...recommendations.nextChapter
+            ...nextContent
           };
-        }
-        if (get('nextLevel', recommendations)) {
-          const _nextLevel = get('nextLevel', recommendations);
-          const {name, levelTranslation} = _nextLevel;
+        } else if (nextContent) {
+          // then it is a level
+          const {name, levelTranslation} = nextContent;
           return {
             type: 'simple',
             prefix: translate('Next level_'),
@@ -193,13 +193,10 @@ const extractAction = ({translate}, {dispatch}) => state => {
   ]);
 };
 
-const extractFeedback = exitNode => {
-  return {
-    title: get('title', exitNode),
-    description: get('description', exitNode),
-    media: omit(['ref', 'subtitles', 'posters'], get('media', exitNode))
-  };
-};
+const extractFeedback = pipe(
+  pick(['title', 'description', 'media', 'mediaDescription']),
+  omit(['media.ref', 'media.subtitles', 'media.posters'])
+);
 
 const popinEndStateToProps = (options, store) => state => {
   const progression = getCurrentProgression(state);

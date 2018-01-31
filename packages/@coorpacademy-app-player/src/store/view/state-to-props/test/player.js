@@ -1,5 +1,6 @@
 import test from 'ava';
 import map from 'lodash/fp/map';
+import get from 'lodash/fp/get';
 import set from 'lodash/fp/set';
 import pipe from 'lodash/fp/pipe';
 import fromPairs from 'lodash/fp/fromPairs';
@@ -274,4 +275,10 @@ test('should not feed step prop in adaptive mode', t => {
   const props = playerProps(state);
 
   t.falsy(props.step);
+});
+
+test('should not send an id prop in resources', t => {
+  const props = playerProps(learnerProgressionStateFixture);
+
+  t.is(get('resources.0.id', props), undefined);
 });

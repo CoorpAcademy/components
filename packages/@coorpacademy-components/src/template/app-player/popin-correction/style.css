@@ -84,7 +84,7 @@
 
 .text {
   font-family: 'Open Sans';
-  font-size: 13px;
+  font-size: 15px;
   margin: 0;
 }
 
@@ -106,7 +106,6 @@
 
 .questionHeader {
   composes: text;
-  font-size: 12px;
   color: medium;
   padding: 5px 22px;
 }
@@ -121,21 +120,19 @@
 }
 
 .checkIcon {
-  width: 13px;
-  height: 13px;
+  width: 14px;
+  height: 14px;
   margin-right: 8px;
 }
 
 .answerPrefix {
   composes: text;
-  font-size: 14px;
   margin-right: 5px;
 }
 
 .answer {
   composes: text;
   font-weight: 700;
-  font-size: 14px;
 }
 
 /* Resources -------------- */
@@ -152,7 +149,7 @@
 }
 
 .simpleTextWrapper {
-  padding: 16px 30px 16px 71px;
+  padding: 8px 30px 24px 71px;
 }
 
 .simpleText {

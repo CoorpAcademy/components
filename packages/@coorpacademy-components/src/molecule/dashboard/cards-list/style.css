@@ -6,7 +6,7 @@
 @value dark from colors;
 
 .wrapper {
-  padding: 20px 30px 10px;
+  padding: 16px 30px 8px;
   position: relative;
 }
 
@@ -26,7 +26,7 @@
   font-size: 19px;
   font-weight: 600;
   color: dark;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   display: inline-block;
 }
 
@@ -67,14 +67,13 @@
 .cards {
   display: flex;
   overflow: hidden;
-  padding-bottom: 10px;
   margin-left: -8px;
   margin-right: -8px;
 }
 
 .card {
   box-sizing: border-box;
-  padding: 8px 8px 16px;
+  padding: 8px;
   min-width: 274px;
 }
 
@@ -129,7 +128,7 @@
 
 @media mobile {
   .wrapper {
-    padding: 16px 8px 8px;
+    padding: 16px 8px 0;
   }
 
   .list {
@@ -142,7 +141,6 @@
 
   .card {
     width: 100%;
-    margin-bottom: 8px;
     flex: 0 0 272px;
   }
 

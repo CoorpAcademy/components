@@ -56,11 +56,11 @@
 .notify {
   position: absolute;
   background-color: orangeAdd;
-  width: 10px;
-  height: 10px;
-  border-radius: 5px;
-  top: 0;
-  right: 0;
+  width: 15px;
+  height: 15px;
+  border-radius: 8px;
+  top: -3px;
+  right: -3px;
 }
 
 .logo {
