@@ -393,7 +393,7 @@ test('should return the slide of a new chapter when a rule requests to change to
       isCorrect: null
     }
   });
-  t.regex(resultAction.payload.nextContent.ref, /^2\.A1\.[2-9]+$/);
+  t.regex(resultAction.payload.nextContent.ref, /^2\.A1\.[1-9]+$/);
 });
 
 test('should concatenate the instructions from all intermediary rules when switching chapters', t => {
@@ -451,6 +451,50 @@ test("should apply the instructions from last chapter's rule before selecting a 
       nextContent: {type: 'slide', ref: '2.A1.2'},
       instructions: [{field: 'bar', type: 'set', value: 'I was in 1.A1.7'}],
       isCorrect: null
+    }
+  });
+});
+
+test('should be able to switch from a non-adaptive chapter to an adaptive chapter', t => {
+  const state: State = Object.freeze({
+    ...adaptiveState,
+    nextContent: {
+      type: 'slide',
+      ref: '1.A1.4'
+    },
+    slides: ['1.A1.1', '1.A1.2', '1.A1.3']
+  });
+  const availableContentWithNoRulesInFirstChapter: AvailableContent = [
+    {
+      ref: '1.A1',
+      slides: filter({chapter_id: '1.A1'}, allSlides),
+      rules: null
+    },
+    {
+      ref: '2.A1',
+      slides: filter({chapter_id: '2.A1'}, allSlides),
+      rules: rulesFor2A1
+    }
+  ];
+
+  const currentSlide = getSlide(allSlides, state.nextContent);
+  const result = computeNextStepAfterAnswer(
+    engine,
+    engineOptions,
+    state,
+    availableContentWithNoRulesInFirstChapter,
+    currentSlide,
+    partialAction(state)
+  );
+  t.deepEqual(result, {
+    type: 'answer',
+    payload: {
+      answer: [],
+      content: state.nextContent,
+      godMode: true,
+      nextContent: {type: 'slide', ref: '2.A1.1'},
+      instructions: [{field: 'baz', type: 'set', value: 'some value'}],
+      isCorrect: true
     }
   });
 });
