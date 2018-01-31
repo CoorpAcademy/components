@@ -104,6 +104,32 @@ const rulesFor1A1 = [
   {
     source: {
       type: 'slide',
+      ref: '1.A1.5'
+    },
+    destination: {
+      type: 'chapter',
+      ref: '2.A1'
+    },
+    instructions: [{field: 'bar', type: 'set', value: 'chapter_change'}],
+    conditions: [],
+    priority: 5
+  },
+  {
+    source: {
+      type: 'slide',
+      ref: '1.A1.7'
+    },
+    destination: {
+      type: 'chapter',
+      ref: '2.A1'
+    },
+    instructions: [{field: 'bar', type: 'set', value: 'I was in 1.A1.7'}],
+    conditions: [],
+    priority: 10
+  },
+  {
+    source: {
+      type: 'slide',
       ref: '*'
     },
     destination: {
@@ -113,6 +139,56 @@ const rulesFor1A1 = [
     instructions: [],
     conditions: [],
     priority: 100
+  }
+];
+const rulesFor2A1 = [
+  {
+    source: {
+      type: 'slide',
+      ref: ''
+    },
+    destination: {
+      type: 'slide',
+      ref: '2.A1.2'
+    },
+    instructions: [],
+    conditions: [
+      {
+        target: {
+          scope: 'variable',
+          field: 'bar'
+        },
+        operator: 'EQUALS',
+        values: ['I was in 1.A1.7']
+      }
+    ],
+    priority: 5
+  },
+  {
+    source: {
+      type: 'slide',
+      ref: ''
+    },
+    destination: {
+      type: 'slide',
+      ref: '2.A1.1'
+    },
+    instructions: [{field: 'baz', type: 'set', value: 'some value'}],
+    conditions: [],
+    priority: 10
+  },
+  {
+    source: {
+      type: 'slide',
+      ref: '2.A1.1'
+    },
+    destination: {
+      type: 'slide',
+      ref: '2.A1.2'
+    },
+    instructions: [],
+    conditions: [],
+    priority: 10
   }
 ];
 
@@ -125,7 +201,7 @@ const availableContent: AvailableContent = [
   {
     ref: '2.A1',
     slides: filter({chapter_id: '2.A1'}, allSlides),
-    rules: null
+    rules: rulesFor2A1
   }
 ];
 
@@ -154,18 +230,30 @@ const adaptiveState: State = {
   variables: {}
 };
 
-test('should return a slide from slide pools if chapter rules is null or empty for that given chapter', t => {
+test('should return a slide from the list of slides if the current chapter has no rules', t => {
   const state: State = Object.freeze({
     ...adaptiveState,
     nextContent: {type: 'slide', ref: '2.A1.1'}
   });
   const currentSlide = getSlide(allSlides, state.nextContent);
+  const availableContentWithSlides: AvailableContent = [
+    {
+      ref: '1.A1',
+      slides: filter({chapter_id: '1.A1'}, allSlides),
+      rules: rulesFor1A1
+    },
+    {
+      ref: '2.A1',
+      slides: filter({chapter_id: '2.A1'}, allSlides),
+      rules: null
+    }
+  ];
 
   const resultAction = computeNextStepAfterAnswer(
     engine,
     engineOptions,
     state,
-    availableContent,
+    availableContentWithSlides,
     currentSlide,
     partialAction(state)
   );
@@ -213,7 +301,7 @@ test('should match the rule with "*" source whatever state.nextContent may be', 
     ...adaptiveState,
     nextContent: {
       type: 'slide',
-      ref: '1.A1.5'
+      ref: '1.A1.6'
     }
   });
   const currentSlide = getSlide(allSlides, state.nextContent);
@@ -262,6 +350,106 @@ test("should only select a rule if it matches the rules's conditions", t => {
       godMode: true,
       nextContent: {type: 'slide', ref: '1.A1.5'},
       instructions: [],
+      isCorrect: null
+    }
+  });
+});
+
+test('should return the slide of a new chapter when a rule requests to change to a different chapter that does not have rules', t => {
+  const state: State = Object.freeze({
+    ...adaptiveState,
+    nextContent: {type: 'slide', ref: '1.A1.5'}
+  });
+  const currentSlide = getSlide(allSlides, state.nextContent);
+  const availableContentWithSlides: AvailableContent = [
+    {
+      ref: '1.A1',
+      slides: filter({chapter_id: '1.A1'}, allSlides),
+      rules: rulesFor1A1
+    },
+    {
+      ref: '2.A1',
+      slides: filter({chapter_id: '2.A1'}, allSlides),
+      rules: null
+    }
+  ];
+
+  const resultAction = computeNextStepAfterAnswer(
+    engine,
+    engineOptions,
+    state,
+    availableContentWithSlides,
+    currentSlide,
+    partialAction(state)
+  );
+  t.deepEqual(omit(['payload.nextContent.ref'], resultAction), {
+    type: 'answer',
+    payload: {
+      answer: [],
+      content: state.nextContent,
+      godMode: true,
+      nextContent: {type: 'slide'},
+      instructions: [{field: 'bar', type: 'set', value: 'chapter_change'}],
+      isCorrect: null
+    }
+  });
+  t.regex(resultAction.payload.nextContent.ref, /^2\.A1\.[2-9]+$/);
+});
+
+test('should concatenate the instructions from all intermediary rules when switching chapters', t => {
+  const state: State = Object.freeze({
+    ...adaptiveState,
+    nextContent: {type: 'slide', ref: '1.A1.5'}
+  });
+  const currentSlide = getSlide(allSlides, state.nextContent);
+
+  const resultAction = computeNextStepAfterAnswer(
+    engine,
+    engineOptions,
+    state,
+    availableContent,
+    currentSlide,
+    partialAction(state)
+  );
+  t.deepEqual(resultAction, {
+    type: 'answer',
+    payload: {
+      answer: [],
+      content: state.nextContent,
+      godMode: true,
+      nextContent: {type: 'slide', ref: '2.A1.1'},
+      instructions: [
+        {field: 'bar', type: 'set', value: 'chapter_change'},
+        {field: 'baz', type: 'set', value: 'some value'}
+      ],
+      isCorrect: null
+    }
+  });
+});
+
+test("should apply the instructions from last chapter's rule before selecting a new rule from the next chapter when switching chapters", t => {
+  const state: State = Object.freeze({
+    ...adaptiveState,
+    nextContent: {type: 'slide', ref: '1.A1.7'}
+  });
+  const currentSlide = getSlide(allSlides, state.nextContent);
+
+  const resultAction = computeNextStepAfterAnswer(
+    engine,
+    engineOptions,
+    state,
+    availableContent,
+    currentSlide,
+    partialAction(state)
+  );
+  t.deepEqual(resultAction, {
+    type: 'answer',
+    payload: {
+      answer: [],
+      content: state.nextContent,
+      godMode: true,
+      nextContent: {type: 'slide', ref: '2.A1.2'},
+      instructions: [{field: 'bar', type: 'set', value: 'I was in 1.A1.7'}],
       isCorrect: null
     }
   });

@@ -63,7 +63,7 @@ const matchWithState = (state: State) => (chapterRule: ChapterRule): boolean => 
   });
 };
 
-const selectRule = (rules: Array<ChapterRule>, state: State | null): ?ChapterRule => {
+const selectRule = (rules: Array<ChapterRule>, state: State | null): ChapterRule | null => {
   const targetedChapterRules: Array<ChapterRule> = filter(
     isRuleAvailable(state ? state.nextContent : DEFAULT_SOURCE),
     rules
