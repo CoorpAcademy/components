@@ -598,3 +598,42 @@ test('should use slide scoped instructions to select right rule', t => {
     }
   });
 });
+
+test('should always use rules to select nextContent, even if the number of answered slides is > config.slidesToComplete', t => {
+  const state: State = Object.freeze({
+    ...adaptiveState,
+    nextContent: {
+      type: 'slide',
+      ref: '1.A1.2'
+    },
+    slides: ['1.A1.1', '1.A1.3', '1.A1.4', '1.A1.5', '1.A1.6']
+  });
+  const availableContentWithSlideScopedRules: AvailableContent = [
+    {
+      ref: '1.A1',
+      slides: filter({chapter_id: '1.A1'}, allSlides),
+      rules: rulesFor1A2
+    }
+  ];
+
+  const currentSlide = getSlide(allSlides, state.nextContent);
+  const result = computeNextStepAfterAnswer(
+    engine,
+    engineOptions,
+    state,
+    availableContentWithSlideScopedRules,
+    currentSlide,
+    partialAction(state)
+  );
+  t.deepEqual(result, {
+    type: 'answer',
+    payload: {
+      answer: [],
+      content: state.nextContent,
+      godMode: true,
+      nextContent: {type: 'slide', ref: '1.A1.3'},
+      instructions: [{field: 'stars', type: 'add', value: 4}],
+      isCorrect: true
+    }
+  });
+});
