@@ -191,6 +191,66 @@ const rulesFor2A1 = [
     priority: 10
   }
 ];
+const rulesFor1A2 = [
+  {
+    source: {
+      type: 'slide',
+      ref: '1.A1.2'
+    },
+    destination: {
+      type: 'slide',
+      ref: '1.A1.3'
+    },
+    instructions: [
+      {
+        value: 4,
+        type: 'add',
+        field: 'stars'
+      }
+    ],
+    conditions: [
+      {
+        target: {
+          scope: 'slide',
+          ref: '1.A1.2',
+          field: 'isCorrect'
+        },
+        operator: 'EQUALS',
+        values: [true]
+      }
+    ],
+    priority: 5
+  },
+  {
+    source: {
+      type: 'slide',
+      ref: '1.A1.2'
+    },
+    destination: {
+      type: 'slide',
+      ref: '1.A1.4'
+    },
+    instructions: [
+      {
+        value: 0,
+        type: 'add',
+        field: 'stars'
+      }
+    ],
+    conditions: [
+      {
+        target: {
+          scope: 'slide',
+          ref: '1.A1.2',
+          field: 'isCorrect'
+        },
+        operator: 'EQUALS',
+        values: [false]
+      }
+    ],
+    priority: 5
+  }
+];
 
 const availableContent: AvailableContent = [
   {
@@ -494,6 +554,46 @@ test('should be able to switch from a non-adaptive chapter to an adaptive chapte
       godMode: true,
       nextContent: {type: 'slide', ref: '2.A1.1'},
       instructions: [{field: 'baz', type: 'set', value: 'some value'}],
+      isCorrect: true
+    }
+  });
+});
+
+test('should use slide scoped instructions to select right rule', t => {
+  const state: State = Object.freeze({
+    ...adaptiveState,
+    nextContent: {type: 'slide', ref: '1.A1.2'}
+  });
+  const availableContentWithSlideScopedRules: AvailableContent = [
+    {
+      ref: '1.A1',
+      slides: filter({chapter_id: '1.A1'}, allSlides),
+      rules: rulesFor1A2
+    },
+    {
+      ref: '2.A1',
+      slides: filter({chapter_id: '2.A1'}, allSlides),
+      rules: rulesFor2A1
+    }
+  ];
+
+  const currentSlide = getSlide(allSlides, state.nextContent);
+  const result = computeNextStepAfterAnswer(
+    engine,
+    engineOptions,
+    state,
+    availableContentWithSlideScopedRules,
+    currentSlide,
+    partialAction(state)
+  );
+  t.deepEqual(result, {
+    type: 'answer',
+    payload: {
+      answer: [],
+      content: state.nextContent,
+      godMode: true,
+      nextContent: {type: 'slide', ref: '1.A1.3'},
+      instructions: [{field: 'stars', type: 'add', value: 4}],
       isCorrect: true
     }
   });
