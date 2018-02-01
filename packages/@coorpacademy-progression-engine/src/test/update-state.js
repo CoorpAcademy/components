@@ -281,9 +281,9 @@ test('should set livesDisabled to false when it is undefined', t => {
 });
 
 test('should not decrement lives when answering a question incorrectly when lives are disabled', t => {
-  const state: State = Object.freeze({...stateForSecondSlide, livesDisabled: true});
+  const state: State = Object.freeze(stateForSecondSlide);
 
-  const newState = updateState(config, state, [wrongAnswerAction]);
+  const newState = updateState({...config, livesDisabled: true}, state, [wrongAnswerAction]);
   t.is(newState.lives, 1, '`lives` should not have been decremented');
   t.true(newState.livesDisabled);
 });
@@ -465,9 +465,9 @@ test('should add one life when using extra life', t => {
 });
 
 test('should not add a life when accepting an extraLife when lives are disabled', t => {
-  const state: State = Object.freeze({...extraLifeProgressionState, livesDisabled: true});
+  const state: State = Object.freeze(extraLifeProgressionState);
 
-  const newState = updateState(config, state, [extraLifeAcceptedAction]);
+  const newState = updateState({...config, livesDisabled: true}, state, [extraLifeAcceptedAction]);
   t.is(newState.lives, 0, '`lives` should not have been incremented');
   t.true(newState.livesDisabled);
   t.is(newState.hasViewedAResourceAtThisStep, false);
