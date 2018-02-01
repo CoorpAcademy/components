@@ -8,6 +8,7 @@ import last from 'lodash/fp/last';
 import filter from 'lodash/fp/filter';
 import sortBy from 'lodash/fp/sortBy';
 import isEqual from 'lodash/fp/isEqual';
+import isEmpty from 'lodash/fp/isEmpty';
 import shuffle from 'lodash/fp/shuffle';
 import includes from 'lodash/fp/includes';
 import findIndex from 'lodash/fp/findIndex';
@@ -33,6 +34,14 @@ const hasNoMoreLives = (config: Config, state: State): boolean =>
   !config.livesDisabled && state.lives <= 0;
 const hasRemainingLifeRequests = (state: State): boolean => state.remainingLifeRequests > 0;
 const stepIsAlreadyExtraLife = (state: State): boolean => get('content.ref', state) === 'extraLife';
+
+const hasRulesToApply = (chapterContent: ChapterContent | null): boolean => {
+  return !!(
+    chapterContent &&
+    Array.isArray(chapterContent.rules) &&
+    !isEmpty(chapterContent.rules)
+  );
+};
 
 export type PartialAnswerActionWithIsCorrect = {
   type: 'answer',
@@ -79,7 +88,11 @@ const nextSlidePool = (
     (currentChapterPool && map('_id', currentChapterPool.slides)) || []
   );
 
-  if (slidesAnsweredForThisChapter.length >= config.slidesToComplete) {
+  const isChapterCompleted = slidesAnsweredForThisChapter.length >= config.slidesToComplete;
+  const hasRules = hasRulesToApply(currentChapterPool);
+  const shouldChangeChapter = !hasRules && isChapterCompleted;
+
+  if (shouldChangeChapter) {
     return {
       currentChapterContent: currentChapterPool,
       nextChapterContent: availableContent[currentIndex + 1] || null,
@@ -252,8 +265,11 @@ const computeNextStep = (
     availableContent,
     state
   );
+
+  const hasRules = hasRulesToApply(nextChapterContent);
+
   // If user has answered all questions, return success endpoint
-  if (!nextChapterContent) {
+  if (!hasRules && !nextChapterContent) {
     return {
       nextContent: {
         type: 'success',
@@ -264,8 +280,9 @@ const computeNextStep = (
     };
   }
 
-  if (Array.isArray(nextChapterContent.rules) && nextChapterContent.rules.length > 0) {
+  if (hasRules) {
     const allAnswers: Array<AnswerRecord> = (!!state && state.allAnswers) || [];
+    // $FlowFixMe nextChapterContent.rules = array not emtpy -> checked by hasRulesToApply
     const chapterRule = selectRule(nextChapterContent.rules, {
       ...state,
       nextContent: temporaryNextContent,
@@ -302,7 +319,11 @@ const computeNextStep = (
     };
   }
 
-  if (Array.isArray(nextChapterContent.slides) && nextChapterContent.slides.length > 0) {
+  if (
+    nextChapterContent &&
+    Array.isArray(nextChapterContent.slides) &&
+    nextChapterContent.slides.length > 0
+  ) {
     const stateWithDecrementedLives = decrementLivesOnIncorrectAnswer(action, {
       ...state,
       nextContent: temporaryNextContent
