@@ -7,9 +7,6 @@ import {
   getConfig
 } from '@coorpacademy/progression-engine';
 import defaultsDeep from 'lodash/fp/defaultsDeep';
-import map from 'lodash/fp/map';
-import toPairs from 'lodash/fp/toPairs';
-import groupBy from 'lodash/fp/groupBy';
 import uniqueId from 'lodash/fp/uniqueId';
 import update from 'lodash/fp/update';
 import pipe from 'lodash/fp/pipe';
@@ -19,8 +16,8 @@ import getOr from 'lodash/fp/getOr';
 import set from 'lodash/fp/set';
 import maxBy from 'lodash/fp/maxBy';
 import reduce from 'lodash/fp/reduce';
-import {getByContent as getChapterRulesByContent} from './chapter-rules';
 import progressionsData from './progressions.data';
+import chapterRulesData from './chapter-rules.data';
 import slidesData from './slides.data';
 
 const slideStore = reduce(
@@ -28,6 +25,18 @@ const slideStore = reduce(
   new Map(),
   slidesData
 );
+
+const toMapByChapterRef = reduce((map, object) => map.set(object.chapterRef, object));
+const chapterRules = toMapByChapterRef(new Map(), chapterRulesData);
+
+const getChapterRulesByContent = ({type, ref}) => {
+  switch (type) {
+    case 'chapter':
+      return Promise.resolve(chapterRules.get(ref)).then(get('rules'));
+    default:
+      return Promise.reject(new Error(`Cannot fetch ChapterRules of ${type}`));
+  }
+};
 
 const generateId = () => uniqueId('progression');
 const progressionStore = reduce(
@@ -66,9 +75,14 @@ export const getEngineConfig = async engine => {
   return getConfig(engine);
 };
 
-const createSlidePools = () => {
-  return pipe(groupBy('chapter_id'), toPairs, map(([chapterId, slides]) => ({chapterId, slides})))(
-    slidesData
+const getAvailableContent = content => {
+  const chapters = [content];
+  return Promise.all(
+    chapters.map(async chapter => ({
+      ref: chapter.ref,
+      slides: filter({chapter_id: chapter.ref}, slidesData),
+      rules: await getChapterRulesByContent(chapter)
+    }))
   );
 };
 
@@ -96,10 +110,8 @@ export const postAnswer = async (progressionId, payload) => {
   const slideId = payload.content.ref;
   const slide = slideStore.get(slideId);
   const progression = await findById(progressionId);
-  const slidePools = createSlidePools();
   const {engine, engineOptions, content} = progression;
   const state = createState(progression);
-  const chapterRules = await getChapterRulesByContent(content);
 
   const partialAnswerAction = {
     type: 'answer',
@@ -109,12 +121,7 @@ export const postAnswer = async (progressionId, payload) => {
       godMode: false
     }
   };
-
-  const availableContent = {
-    slidePools,
-    chapterRules
-  };
-
+  const availableContent = await getAvailableContent(content);
   const action = computeNextStepAfterAnswer(
     engine,
     engineOptions,
@@ -140,13 +147,12 @@ export const requestClue = async (progressionId, payload) => {
 
 export const postExtraLife = async (progressionId, payload) => {
   const progression = await findById(progressionId);
-  const slidePools = createSlidePools();
   const action = payload.isAccepted
     ? computeNextStepOnAcceptExtraLife(
         progression.engine,
         progression.engineOptions,
         progression.state,
-        {slidePools}
+        await getAvailableContent(progression.content)
       )
     : computeNextStepOnRefuseExtraLife(
         progression.engine,
@@ -158,15 +164,15 @@ export const postExtraLife = async (progressionId, payload) => {
 };
 
 // eslint-disable-next-line require-await
-export const create = async engine => {
+export const create = async (engine, chapterRef) => {
   const _id = generateId();
-  const slidePools = createSlidePools();
   const chapter = {
-    ref: 'cha_Ny1BTxRp~',
+    ref: chapterRef,
     type: 'chapter'
   };
 
-  const newProgression = createProgression(engine, chapter, {}, {slidePools});
+  const availableContent = await getAvailableContent(chapter);
+  const newProgression = createProgression(engine, chapter, {}, availableContent);
   const state = createState(newProgression);
 
   return save({
