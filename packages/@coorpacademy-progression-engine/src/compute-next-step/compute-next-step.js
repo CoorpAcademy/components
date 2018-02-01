@@ -21,7 +21,8 @@ import type {
   Config,
   Answer,
   AvailableContent,
-  ChapterContent
+  ChapterContent,
+  AnswerRecord
 } from '../types';
 import getConfig from '../config';
 import type {ChapterRule, Instruction, Condition} from '../rule-engine/types';
@@ -244,6 +245,7 @@ const computeNextStep = (
 ): Result => {
   const config = computeConfig(engine, engineOptions);
   const isCorrect = !!action && action.type === 'answer' && action.payload.isCorrect;
+  const answer = (!!action && action.type === 'answer' && action.payload.answer) || [];
   const state = applyActionToState(_state, action);
   const {currentChapterContent, nextChapterContent, temporaryNextContent} = getChapterContent(
     config,
@@ -263,9 +265,18 @@ const computeNextStep = (
   }
 
   if (Array.isArray(nextChapterContent.rules) && nextChapterContent.rules.length > 0) {
+    const allAnswers: Array<AnswerRecord> = (!!state && state.allAnswers) || [];
     const chapterRule = selectRule(nextChapterContent.rules, {
       ...state,
-      nextContent: temporaryNextContent
+      nextContent: temporaryNextContent,
+      allAnswers: [
+        ...allAnswers,
+        {
+          slideRef: temporaryNextContent.ref,
+          answer,
+          isCorrect
+        }
+      ]
     });
     if (!chapterRule) {
       throw new Error('Could not find a chapter rule to select.');
