@@ -17,7 +17,7 @@ const availableContent: AvailableContent = [
   {
     ref: '2.A1',
     slides: filter({chapter_id: '2.A1'}, allSlides),
-    rules: null
+    rules: []
   }
 ];
 
