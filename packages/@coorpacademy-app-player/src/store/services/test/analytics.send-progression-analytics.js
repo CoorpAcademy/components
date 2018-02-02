@@ -13,7 +13,7 @@ test('should send a `finishProgression` event to the tag manager when finishing 
       push: evt => {
         t.deepEqual(evt, {
           event: 'finishProgression',
-          progression: {type: 'microlearning', state: 'success', nbExtraLifeUsed: 2}
+          progression: {type: 'microlearning', state: 'success', extraLife: 2}
         });
       }
     }
@@ -36,7 +36,7 @@ test('should send a `finishProgression` event to the tag manager when failing a 
       push: evt => {
         t.deepEqual(evt, {
           event: 'finishProgression',
-          progression: {type: 'microlearning', state: 'failure', nbExtraLifeUsed: 2}
+          progression: {type: 'microlearning', state: 'failure', extraLife: 2}
         });
       }
     }
