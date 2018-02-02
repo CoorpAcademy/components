@@ -1,7 +1,7 @@
 import pipe from 'lodash/fp/pipe';
 import reduce from 'lodash/fp/reduce';
 import values from 'lodash/fp/values';
-import exitNodesData from './exit-nodes.data';
+import exitNodesData from './fixtures/exit-nodes';
 
 const exitNodeStore = pipe(
   values,

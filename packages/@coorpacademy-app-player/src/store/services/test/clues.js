@@ -5,7 +5,7 @@ import pipe from 'lodash/fp/pipe';
 import set from 'lodash/fp/set';
 import {findById} from '../clues';
 import * as Progressions from '../progressions';
-import slidesData from '../slides.data';
+import slidesData from '../fixtures/slides';
 
 const engine = {
   ref: 'microlearning',

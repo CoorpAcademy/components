@@ -3,8 +3,8 @@ import pipe from 'lodash/fp/pipe';
 import reduce from 'lodash/fp/reduce';
 import values from 'lodash/fp/values';
 import {getConfig} from '@coorpacademy/progression-engine';
-import chaptersData from './chapters.data';
-import levelsData from './levels.data';
+import chaptersData from './fixtures/chapters';
+import levelsData from './fixtures/levels';
 import {findById} from './slides';
 
 const mayBy = key =>

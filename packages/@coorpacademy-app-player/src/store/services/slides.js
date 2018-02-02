@@ -6,7 +6,7 @@ import set from 'lodash/fp/set';
 import unset from 'lodash/fp/unset';
 import update from 'lodash/fp/update';
 import values from 'lodash/fp/values';
-import slidesData from './slides.data';
+import slidesData from './fixtures/slides';
 
 const slideStore = pipe(
   values,
