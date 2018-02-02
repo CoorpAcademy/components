@@ -7,15 +7,33 @@ import mockContentService from '../../../test/helpers/mock-content-service';
 import {validateAnswer} from '../../answers';
 import {
   PROGRESSION_CREATE_ANSWER_REQUEST,
-  PROGRESSION_CREATE_ANSWER_SUCCESS
+  PROGRESSION_CREATE_ANSWER_SUCCESS,
+  PROGRESSION_FETCH_REQUEST,
+  PROGRESSION_FETCH_BESTOF_REQUEST,
+  PROGRESSION_FETCH_BESTOF_SUCCESS,
+  ENGINE_CONFIG_FETCH_REQUEST,
+  ENGINE_CONFIG_FETCH_SUCCESS
 } from '../../../api/progressions';
-import {CONTENT_FETCH_REQUEST, CONTENT_FETCH_SUCCESS} from '../../../api/contents';
+import {RANK_FETCH_START_REQUEST, RANK_FETCH_START_SUCCESS} from '../../../api/rank';
+import {UI_SELECT_PROGRESSION} from '../../progressions';
+import {
+  CONTENT_FETCH_REQUEST,
+  CONTENT_FETCH_SUCCESS,
+  CONTENT_INFO_FETCH_REQUEST,
+  CONTENT_INFO_FETCH_SUCCESS
+} from '../../../api/contents';
 import {accordionIsOpenAt, fetchCorrection, progressionUpdated} from './helpers/shared';
 
 const wrongAnswer = pipe(
   set('state.content.ref', 'baz'),
   set('state.nextContent', {type: 'slide', ref: 'baz'}),
   set('state.isCorrect', false)
+)({});
+
+const adaptiveNoAnswer = pipe(
+  set('state.content.ref', 'baz'),
+  set('state.nextContent', {type: 'slide', ref: 'baz'}),
+  set('state.isCorrect', null)
 )({});
 
 const viewedOneLesson = set(
@@ -38,9 +56,9 @@ const extraLifeAndViewedThreeLessons = set(
 
 const stateWithSlideAndManyResources = pipe(
   set('ui.current.progressionId', 'foo'),
-  set('data.progressions.entities.foo.engine', {version: '1', ref: 'learner'}),
+  set('data.progressions.entities.foo.engine', {version: '1', ref: 'microlearning'}),
   set('data.progressions.entities.foo.state.nextContent', {type: 'slide', ref: 'baz'}),
-  set('data.progressions.entities.foo.content', {ref: 'chapId'}),
+  set('data.progressions.entities.foo.content', {type: 'chapter', ref: 'chapId'}),
   set('data.contents.slide.entities.baz', {
     chapter_id: 'chapId',
     lessons: ['lesson_1', 'lesson_2', 'lesson_3']
@@ -58,9 +76,17 @@ const services = result => t => ({
       });
       return result;
     },
+    findBestOf: (type, ref, id) => {
+      t.is(ref, 'chapId');
+      return 16;
+    },
     findById: id => {
       t.is(id, 'foo');
       return 'foo';
+    },
+    getEngineConfig: () => {
+      t.pass();
+      return 42;
     }
   },
   Answers: {
@@ -69,9 +95,15 @@ const services = result => t => ({
       return ['Bonne réponse'];
     }
   },
+  LeaderBoard: {
+    getRank: () => {
+      t.pass();
+      return 1;
+    }
+  },
   Analytics: {
     sendProgressionAnalytics: (currentProgression, engineConfig) => {
-      t.is(currentProgression.engine.ref, 'learner');
+      t.is(currentProgression.engine.ref, 'microlearning');
       t.deepEqual(currentProgression.state.nextContent, result.state.nextContent);
       return 'sent';
     }
@@ -174,4 +206,72 @@ test(
     fetchCorrection
   ]),
   5
+);
+
+test(
+  'should not show toggle accordeon and not fetch correction when `isCorrect` is null',
+  macro,
+  stateWithSlideAndManyResources,
+  services(adaptiveNoAnswer),
+  validateAnswer('foo', {answer: ['bar']}),
+  flatten([
+    answer(set('state.isCorrect', null, adaptiveNoAnswer)),
+    contentFetchActions,
+    {
+      type: UI_SELECT_PROGRESSION,
+      payload: {id: 'foo'}
+    },
+    {
+      type: PROGRESSION_FETCH_REQUEST,
+      meta: {id: 'foo'}
+    },
+
+    {
+      type: RANK_FETCH_START_REQUEST
+    },
+    {
+      type: RANK_FETCH_START_SUCCESS,
+      payload: 1
+    },
+    {
+      type: CONTENT_FETCH_REQUEST,
+      meta: {type: 'chapter', ref: 'chapId'}
+    },
+    {
+      type: PROGRESSION_FETCH_BESTOF_REQUEST,
+      meta: {type: 'chapter', ref: 'chapId'}
+    },
+    {
+      type: PROGRESSION_FETCH_BESTOF_SUCCESS,
+      meta: {type: 'chapter', ref: 'chapId'},
+      payload: 16
+    },
+    {
+      type: ENGINE_CONFIG_FETCH_REQUEST,
+      meta: {engine: {ref: 'microlearning', version: '1'}}
+    },
+    {
+      type: ENGINE_CONFIG_FETCH_SUCCESS,
+      meta: {engine: {ref: 'microlearning', version: '1'}},
+      payload: 42
+    },
+    {
+      type: CONTENT_INFO_FETCH_REQUEST,
+      meta: {type: 'chapter', ref: 'chapId'}
+    },
+    {
+      type: CONTENT_INFO_FETCH_SUCCESS,
+      meta: {type: 'chapter', ref: 'chapId'},
+      payload: {nbSlides: 20}
+    },
+    {
+      type: CONTENT_FETCH_REQUEST,
+      meta: {type: 'slide', ref: 'baz'}
+    },
+    {
+      type: CONTENT_FETCH_REQUEST,
+      meta: {type: 'chapter', ref: 'chapId'}
+    }
+  ]),
+  9
 );
