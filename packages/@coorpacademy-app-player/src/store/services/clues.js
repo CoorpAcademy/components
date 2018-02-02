@@ -1,6 +1,6 @@
 import includes from 'lodash/fp/includes';
 import reduce from 'lodash/fp/reduce';
-import slidesData from './slides.data';
+import slidesData from './fixtures/slides';
 import * as ProgressionsService from './progressions';
 
 const clueStore = reduce(

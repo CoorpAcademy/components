@@ -1,5 +1,5 @@
 import test from 'ava';
-import recommendations from '../recommendations.data';
+import recommendations from '../fixtures/recommendations';
 import {find} from '../recommendations';
 
 test('should find recommendations for free run', async t => {
