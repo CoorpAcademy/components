@@ -4,7 +4,8 @@ import {
   computeNextStepAfterAnswer,
   computeNextStepOnAcceptExtraLife,
   computeNextStepOnRefuseExtraLife,
-  getConfig
+  getConfig,
+  getConfigForProgression
 } from '@coorpacademy/progression-engine';
 import defaultsDeep from 'lodash/fp/defaultsDeep';
 import uniqueId from 'lodash/fp/uniqueId';
@@ -16,9 +17,9 @@ import getOr from 'lodash/fp/getOr';
 import set from 'lodash/fp/set';
 import maxBy from 'lodash/fp/maxBy';
 import reduce from 'lodash/fp/reduce';
-import progressionsData from './progressions.data';
-import chapterRulesData from './chapter-rules.data';
-import slidesData from './slides.data';
+import progressionsData from './fixtures/progressions';
+import chapterRulesData from './fixtures/chapter-rules';
+import slidesData from './fixtures/slides';
 
 const slideStore = reduce(
   (slideMap, slide) => slideMap.set(slide._id, slide),
@@ -105,7 +106,6 @@ export const postAnswer = async (progressionId, payload) => {
   const slideId = payload.content.ref;
   const slide = slideStore.get(slideId);
   const progression = await findById(progressionId);
-  const {engine, engineOptions, content} = progression;
   const state = createState(progression);
 
   const partialAnswerAction = {
@@ -116,10 +116,10 @@ export const postAnswer = async (progressionId, payload) => {
       godMode: false
     }
   };
-  const availableContent = await getAvailableContent(content);
+  const availableContent = await getAvailableContent(progression.content);
+  const config = getConfigForProgression(progression);
   const action = computeNextStepAfterAnswer(
-    engine,
-    engineOptions,
+    config,
     state,
     availableContent,
     slide,
@@ -142,18 +142,14 @@ export const requestClue = async (progressionId, payload) => {
 
 export const postExtraLife = async (progressionId, payload) => {
   const progression = await findById(progressionId);
+  const config = getConfigForProgression(progression);
   const action = payload.isAccepted
     ? computeNextStepOnAcceptExtraLife(
-        progression.engine,
-        progression.engineOptions,
+        config,
         progression.state,
         await getAvailableContent(progression.content)
       )
-    : computeNextStepOnRefuseExtraLife(
-        progression.engine,
-        progression.engineOptions,
-        progression.state
-      );
+    : computeNextStepOnRefuseExtraLife(config, progression.state);
 
   return addActionAndSaveProgression(progression, action);
 };

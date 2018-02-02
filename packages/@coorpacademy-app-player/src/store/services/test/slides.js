@@ -3,7 +3,7 @@ import head from 'lodash/fp/head';
 import pipe from 'lodash/fp/pipe';
 import values from 'lodash/fp/values';
 import unset from 'lodash/fp/unset';
-import slidesData from '../slides.data';
+import slidesData from '../fixtures/slides';
 import {findById} from '../slides';
 
 test('should findById', async t => {
