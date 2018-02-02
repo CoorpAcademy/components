@@ -2,7 +2,7 @@ import test from 'ava';
 import head from 'lodash/fp/head';
 import pipe from 'lodash/fp/pipe';
 import values from 'lodash/fp/values';
-import exitNodesData from '../exit-nodes.data';
+import exitNodesData from '../fixtures/exit-nodes';
 import {findById} from '../exit-nodes';
 
 const first = pipe(values, head);

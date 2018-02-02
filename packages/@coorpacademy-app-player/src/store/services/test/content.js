@@ -5,9 +5,9 @@ import unset from 'lodash/fp/unset';
 import pipe from 'lodash/fp/pipe';
 import values from 'lodash/fp/values';
 import {getConfig} from '@coorpacademy/progression-engine';
-import chaptersData from '../chapters.data';
-import slidesData from '../slides.data';
-import levelsData from '../levels.data';
+import chaptersData from '../fixtures/chapters';
+import slidesData from '../fixtures/slides';
+import levelsData from '../fixtures/levels';
 import {find, getInfo} from '../content';
 
 const first = pipe(values, head);
