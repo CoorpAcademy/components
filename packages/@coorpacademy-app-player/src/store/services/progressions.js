@@ -29,13 +29,8 @@ const slideStore = reduce(
 const toMapByChapterRef = reduce((map, object) => map.set(object.chapterRef, object));
 const chapterRules = toMapByChapterRef(new Map(), chapterRulesData);
 
-const getChapterRulesByContent = ({type, ref}) => {
-  switch (type) {
-    case 'chapter':
-      return Promise.resolve(chapterRules.get(ref)).then(get('rules'));
-    default:
-      return Promise.reject(new Error(`Cannot fetch ChapterRules of ${type}`));
-  }
+const getChapterRulesByContent = ref => {
+  return get('rules', chapterRules.get(ref));
 };
 
 const generateId = () => uniqueId('progression');
@@ -81,7 +76,7 @@ const getAvailableContent = content => {
     chapters.map(async chapter => ({
       ref: chapter.ref,
       slides: filter({chapter_id: chapter.ref}, slidesData),
-      rules: await getChapterRulesByContent(chapter)
+      rules: await getChapterRulesByContent(chapter.ref)
     }))
   );
 };
