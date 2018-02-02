@@ -23,7 +23,7 @@ export const sendProgressionAnalytics = (currentProgression, engineConfig) => {
       progression: {
         type: currentProgression.engine.ref,
         state: state.nextContent.type,
-        nbExtraLifeUsed
+        extraLife: engineConfig.remainingLifeRequests - state.remainingLifeRequests
       }
     });
   }
