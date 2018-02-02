@@ -1,7 +1,7 @@
 import reduce from 'lodash/fp/reduce';
 import _find from 'lodash/fp/find';
-import recommendations from './recommendations.data';
-import levelsData from './levels.data';
+import recommendations from './fixtures/recommendations';
+import levelsData from './fixtures/levels';
 
 const levels = reduce((map, object) => map.set(object.ref, object), new Map(), levelsData);
 

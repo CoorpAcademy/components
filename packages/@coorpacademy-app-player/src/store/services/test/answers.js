@@ -2,7 +2,7 @@ import test from 'ava';
 import find from 'lodash/fp/find';
 import {findById} from '../answers';
 import * as Progressions from '../progressions';
-import slidesData from '../slides.data';
+import slidesData from '../fixtures/slides';
 
 const engine = {
   ref: 'microlearning',
