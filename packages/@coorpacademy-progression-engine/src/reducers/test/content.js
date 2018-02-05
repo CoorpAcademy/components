@@ -1,6 +1,6 @@
 // @flow
 import test from 'ava';
-import getConfig from '../../config';
+import {getConfig} from '../../config';
 import content from '../content';
 import {
   answerAction,

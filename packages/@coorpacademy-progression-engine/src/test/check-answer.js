@@ -1,6 +1,6 @@
 // @flow
 import test from 'ava';
-import getConfig from '../config';
+import {getConfig} from '../config';
 import checkAnswer from '../check-answer';
 import checkAnswerCorrectness from '../check-answer-correctness';
 import type {Answer, Config, Question} from '../types';
