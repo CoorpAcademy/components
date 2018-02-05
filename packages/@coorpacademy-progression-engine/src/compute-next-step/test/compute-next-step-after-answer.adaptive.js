@@ -2,13 +2,13 @@
 import test from 'ava';
 import omit from 'lodash/fp/omit';
 import filter from 'lodash/fp/filter';
-import type {AvailableContent, Engine, EngineOptions, State} from '../../types';
+import getConfig from '../../config';
+import type {AvailableContent, Config, State} from '../../types';
 import {computeNextStepAfterAnswer, type PartialAnswerAction} from '..';
 import allSlides from './fixtures/slides';
 import getSlide from './helpers/get-slide';
 
-const engine: Engine = {ref: 'learner', version: '1'};
-const engineOptions: EngineOptions = {};
+const config: Config = getConfig({ref: 'learner', version: '1'});
 const partialAction = (state: State): PartialAnswerAction => ({
   type: 'answer',
   payload: {
@@ -310,8 +310,7 @@ test('should return a slide from the list of slides if the current chapter has n
   ];
 
   const resultAction = computeNextStepAfterAnswer(
-    engine,
-    engineOptions,
+    config,
     state,
     availableContentWithSlides,
     currentSlide,
@@ -339,8 +338,7 @@ test('should return the slide from the chapter rules matching the source with th
   const currentSlide = getSlide(allSlides, state.nextContent);
 
   const resultAction = computeNextStepAfterAnswer(
-    engine,
-    engineOptions,
+    config,
     state,
     availableContent,
     currentSlide,
@@ -370,8 +368,7 @@ test('should match the rule with "*" source whatever state.nextContent may be', 
   const currentSlide = getSlide(allSlides, state.nextContent);
 
   const resultAction = computeNextStepAfterAnswer(
-    engine,
-    engineOptions,
+    config,
     state,
     availableContent,
     currentSlide,
@@ -398,8 +395,7 @@ test("should only select a rule if it matches the rules's conditions", t => {
   const currentSlide = getSlide(allSlides, state.nextContent);
 
   const resultAction = computeNextStepAfterAnswer(
-    engine,
-    engineOptions,
+    config,
     state,
     availableContent,
     currentSlide,
@@ -438,8 +434,7 @@ test('should return the slide of a new chapter when a rule requests to change to
   ];
 
   const resultAction = computeNextStepAfterAnswer(
-    engine,
-    engineOptions,
+    config,
     state,
     availableContentWithSlides,
     currentSlide,
@@ -470,8 +465,7 @@ test('should concatenate the instructions from all intermediary rules when switc
   const currentSlide = getSlide(allSlides, state.nextContent);
 
   const resultAction = computeNextStepAfterAnswer(
-    engine,
-    engineOptions,
+    config,
     state,
     availableContent,
     currentSlide,
@@ -501,8 +495,7 @@ test("should apply the instructions from last chapter's rule before selecting a 
   const currentSlide = getSlide(allSlides, state.nextContent);
 
   const resultAction = computeNextStepAfterAnswer(
-    engine,
-    engineOptions,
+    config,
     state,
     availableContent,
     currentSlide,
@@ -545,8 +538,7 @@ test('should be able to switch from a non-adaptive chapter to an adaptive chapte
 
   const currentSlide = getSlide(allSlides, state.nextContent);
   const result = computeNextStepAfterAnswer(
-    engine,
-    engineOptions,
+    config,
     state,
     availableContentWithNoRulesInFirstChapter,
     currentSlide,
@@ -585,8 +577,7 @@ test('should use slide scoped instructions to select right rule', t => {
 
   const currentSlide = getSlide(allSlides, state.nextContent);
   const result = computeNextStepAfterAnswer(
-    engine,
-    engineOptions,
+    config,
     state,
     availableContentWithSlideScopedRules,
     currentSlide,
@@ -624,8 +615,7 @@ test('should always use rules to select nextContent, even if the number of answe
 
   const currentSlide = getSlide(allSlides, state.nextContent);
   const result = computeNextStepAfterAnswer(
-    engine,
-    engineOptions,
+    config,
     state,
     availableContentWithSlideScopedRules,
     currentSlide,
@@ -669,8 +659,7 @@ test('should return null when switching to new chapter but no content could be f
   const currentSlide = getSlide(allSlides, state.nextContent);
   t.is(
     computeNextStepAfterAnswer(
-      engine,
-      engineOptions,
+      config,
       state,
       availableContentWithNoContentInSecondChapter,
       currentSlide,
@@ -729,8 +718,7 @@ test("should return null when there are no rules matching the progression's cond
   const currentSlide = getSlide(allSlides, state.nextContent);
   t.is(
     computeNextStepAfterAnswer(
-      engine,
-      engineOptions,
+      config,
       state,
       availableContentWithNoContentInSecondChapter,
       currentSlide,

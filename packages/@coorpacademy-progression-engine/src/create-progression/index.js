@@ -9,8 +9,11 @@ const createProgression = (
   engineOptions: EngineOptions,
   availableContent: AvailableContent
 ): Progression | null => {
-  const config = getConfig({ref: engine.ref, version: engine.version});
-  const initialAction = computeInitialStep(engine, engineOptions, availableContent);
+  const config = {
+    ...getConfig({ref: engine.ref, version: engine.version}),
+    ...engineOptions
+  };
+  const initialAction = computeInitialStep(config, availableContent);
 
   if (!initialAction) {
     return null;
