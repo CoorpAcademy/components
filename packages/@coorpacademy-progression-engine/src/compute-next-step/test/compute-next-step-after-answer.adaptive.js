@@ -2,7 +2,7 @@
 import test from 'ava';
 import omit from 'lodash/fp/omit';
 import filter from 'lodash/fp/filter';
-import getConfig from '../../config';
+import {getConfig} from '../../config';
 import type {AvailableContent, Config, State} from '../../types';
 import {computeNextStepAfterAnswer, type PartialAnswerAction} from '..';
 import allSlides from './fixtures/slides';

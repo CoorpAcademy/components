@@ -1,6 +1,6 @@
 // @flow
 import test from 'ava';
-import getConfig from '../../config';
+import {getConfig} from '../../config';
 import remainingLifeRequests from '../remaining-life-requests';
 import {answerAction, extraLifeAcceptedAction} from './fixtures/actions';
 import {microlearning} from './fixtures/engines';
