@@ -13,7 +13,6 @@ import split from 'lodash/fp/split';
 import toLower from 'lodash/fp/toLower';
 import zip from 'lodash/fp/zip';
 import FuzzyMatching from 'fuzzy-matching';
-import getConfig from './config';
 import type {
   Question,
   BasicQuestion,
@@ -22,7 +21,6 @@ import type {
   AnswerCorrection,
   AcceptedAnswers,
   Answer,
-  Engine,
   Config
 } from './types';
 
@@ -150,11 +148,10 @@ function matchAnswerForOrderedItems(
 const findBestMatch = maxBy(correction => filter('isCorrect', correction).length);
 
 function matchGivenAnswerToQuestion(
-  engine: Engine,
+  config: Config,
   question: Question,
   givenAnswer: Answer
 ): Array<Array<PartialCorrection>> {
-  const config = (getConfig(engine): Config);
   const allowedAnswers = question.content.answers;
   switch (question.type) {
     case 'basic': {
@@ -183,11 +180,11 @@ function matchGivenAnswerToQuestion(
 }
 
 export default function checkAnswerCorrectness(
-  engine: Engine,
+  config: Config,
   question: Question,
   givenAnswer: Answer
 ): AnswerCorrection {
-  const bestMatch = findBestMatch(matchGivenAnswerToQuestion(engine, question, givenAnswer));
+  const bestMatch = findBestMatch(matchGivenAnswerToQuestion(config, question, givenAnswer));
   return {
     isCorrect: every('isCorrect', bestMatch),
     corrections: filter(item => item.answer !== undefined, bestMatch)
