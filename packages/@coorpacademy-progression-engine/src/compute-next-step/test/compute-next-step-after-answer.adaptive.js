@@ -317,6 +317,9 @@ test('should return a slide from the list of slides if the current chapter has n
     currentSlide,
     partialAction(state)
   );
+  if (!resultAction) {
+    throw new Error('action should not be falsy');
+  }
   t.deepEqual(omit(['payload.nextContent.ref'], resultAction), {
     type: 'answer',
     payload: {
@@ -442,6 +445,9 @@ test('should return the slide of a new chapter when a rule requests to change to
     currentSlide,
     partialAction(state)
   );
+  if (!resultAction) {
+    throw new Error('action should not be falsy');
+  }
   t.deepEqual(omit(['payload.nextContent.ref'], resultAction), {
     type: 'answer',
     payload: {
@@ -636,4 +642,100 @@ test('should always use rules to select nextContent, even if the number of answe
       isCorrect: true
     }
   });
+});
+
+test('should return null when switching to new chapter but no content could be found for the chapter', t => {
+  const state: State = Object.freeze({
+    ...adaptiveState,
+    nextContent: {
+      type: 'slide',
+      ref: '1.A1.4'
+    },
+    slides: ['1.A1.1', '1.A1.2', '1.A1.3']
+  });
+  const availableContentWithNoContentInSecondChapter: AvailableContent = [
+    {
+      ref: '1.A1',
+      slides: filter({chapter_id: '1.A1'}, allSlides),
+      rules: null
+    },
+    {
+      ref: '2.A1',
+      slides: [],
+      rules: null
+    }
+  ];
+
+  const currentSlide = getSlide(allSlides, state.nextContent);
+  t.is(
+    computeNextStepAfterAnswer(
+      engine,
+      engineOptions,
+      state,
+      availableContentWithNoContentInSecondChapter,
+      currentSlide,
+      partialAction(state)
+    ),
+    null
+  );
+});
+
+test("should return null when there are no rules matching the progression's conditions", t => {
+  const state: State = Object.freeze(adaptiveState);
+  const availableContentWithNoContentInSecondChapter: AvailableContent = [
+    {
+      ref: '1.A1',
+      slides: filter({chapter_id: '1.A1'}, allSlides),
+      rules: [
+        {
+          source: {
+            type: 'slide',
+            ref: 'i do not exist'
+          },
+          destination: {
+            type: 'slide',
+            ref: '1.A1.3'
+          },
+          instructions: [{field: 'foo', type: 'set', value: 'highest_priority'}],
+          conditions: [],
+          priority: 0
+        },
+        {
+          source: {
+            type: 'slide',
+            ref: '1.A1.1'
+          },
+          destination: {
+            type: 'slide',
+            ref: '1.A1.3'
+          },
+          instructions: [{field: 'foo', type: 'set', value: 'higher_priority'}],
+          conditions: [
+            {
+              target: {
+                scope: 'variable',
+                field: 'unknown variable'
+              },
+              operator: 'EQUALS',
+              values: [2]
+            }
+          ],
+          priority: 5
+        }
+      ]
+    }
+  ];
+
+  const currentSlide = getSlide(allSlides, state.nextContent);
+  t.is(
+    computeNextStepAfterAnswer(
+      engine,
+      engineOptions,
+      state,
+      availableContentWithNoContentInSecondChapter,
+      currentSlide,
+      partialAction(state)
+    ),
+    null
+  );
 });

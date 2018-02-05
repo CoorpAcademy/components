@@ -26,6 +26,15 @@ const merge = arr2 => (arr: Array<Slide>): Array<Slide> => {
   });
 };
 
+const createPartialAction = (state: State): PartialAnswerAction => ({
+  type: 'answer',
+  payload: {
+    answer: [],
+    content: state.nextContent,
+    godMode: false
+  }
+});
+
 test('should return the slide with the highest position if any slides have a position', t => {
   const state: State = Object.freeze(firstState);
   const currentSlide = getSlide(allSlides, state.nextContent);
@@ -63,6 +72,9 @@ test('should return the slide with the highest position if any slides have a pos
     currentSlide,
     partialAction
   );
+  if (!result1) {
+    throw new Error('action should not be falsy');
+  }
   t.deepEqual(result1, {
     type: 'answer',
     payload: {
@@ -90,6 +102,9 @@ test('should return the slide with the highest position if any slides have a pos
     currentSlide,
     partialAction
   );
+  if (!result2) {
+    throw new Error('action should not be falsy');
+  }
   t.deepEqual(omit(['payload.nextContent.ref'], result2), {
     type: 'answer',
     payload: {
@@ -123,6 +138,9 @@ test('should return a new slide when user is still alive', t => {
     currentSlide,
     partialAction
   );
+  if (!result) {
+    throw new Error('action should not be falsy');
+  }
   t.deepEqual(omit(['payload.nextContent.ref'], result), {
     type: 'answer',
     payload: {
@@ -140,14 +158,7 @@ test('should return a new slide when user is still alive', t => {
 test("should return the fail endpoint when user has no more lives and can't request more lives", t => {
   const state: State = Object.freeze(oneLifeLeftState);
   const currentSlide = getSlide(allSlides, state.nextContent);
-  const partialAction: PartialAnswerAction = {
-    type: 'answer',
-    payload: {
-      answer: [],
-      content: state.nextContent,
-      godMode: false
-    }
-  };
+  const partialAction = createPartialAction(state);
 
   const result = computeNextStepAfterAnswer(
     engine,
@@ -173,14 +184,7 @@ test("should return the fail endpoint when user has no more lives and can't requ
 test('should return the extraLife when user has no more lives but can request lives', t => {
   const state: State = Object.freeze({...oneLifeLeftState, remainingLifeRequests: 1});
   const currentSlide = getSlide(allSlides, state.nextContent);
-  const partialAction: PartialAnswerAction = {
-    type: 'answer',
-    payload: {
-      answer: [],
-      content: state.nextContent,
-      godMode: false
-    }
-  };
+  const partialAction = createPartialAction(state);
 
   const result = computeNextStepAfterAnswer(
     engine,
@@ -207,14 +211,7 @@ test('should return a new slide, when user has no more lives but lives are disab
   const state: State = Object.freeze(oneLifeLeftState);
   const currentSlide = getSlide(allSlides, state.nextContent);
   const livesDisabledEngine = {ref: 'learner', version: 'livesDisabled'};
-  const partialAction: PartialAnswerAction = {
-    type: 'answer',
-    payload: {
-      answer: [],
-      content: state.nextContent,
-      godMode: false
-    }
-  };
+  const partialAction = createPartialAction(state);
 
   const resultForEngine = computeNextStepAfterAnswer(
     livesDisabledEngine,
@@ -224,6 +221,10 @@ test('should return a new slide, when user has no more lives but lives are disab
     currentSlide,
     partialAction
   );
+
+  if (!resultForEngine) {
+    throw new Error('action should not be falsy');
+  }
   t.deepEqual(omit(['payload.nextContent.ref'], resultForEngine), {
     type: 'answer',
     payload: {
@@ -249,6 +250,10 @@ test('should return a new slide, when user has no more lives but lives are disab
     currentSlide,
     partialAction
   );
+
+  if (!resultForEngineConfig) {
+    throw new Error('action should not be falsy');
+  }
   t.deepEqual(omit(['payload.nextContent.ref'], resultForEngineConfig), {
     type: 'answer',
     payload: {
@@ -287,6 +292,9 @@ test('should return isCorrect=true when the answer is correct and godmode is fal
     currentSlide,
     partialAction
   );
+  if (!result) {
+    throw new Error('action should not be falsy');
+  }
   t.true(result.payload.isCorrect);
 });
 
@@ -310,5 +318,19 @@ test('should return isCorrect=false when the answer is incorrect and godmode is 
     currentSlide,
     partialAction
   );
+  if (!result) {
+    throw new Error('action should not be falsy');
+  }
   t.false(result.payload.isCorrect);
+});
+
+test('should return null if there is no available content', t => {
+  const state: State = Object.freeze(stateBeforeGettingNextContent);
+  const currentSlide = getSlide(allSlides, state.nextContent);
+  const partialAction = createPartialAction(state);
+
+  t.is(
+    computeNextStepAfterAnswer(engine, engineOptions, state, [], currentSlide, partialAction),
+    null
+  );
 });
