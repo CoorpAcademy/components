@@ -21,30 +21,19 @@ const availableContent: AvailableContent = [
   }
 ];
 
-// TODO Handle error cases
-// test('should check adaptive params on computeInitialStep', t => {
-//   t.throws(
-//     () => computeInitialStep(engine, engineOptions, {chapterRulePool: []}),
-//     'Available content should have at least some slides or chapter rules'
-//   );
-// });
-//
-// test('should check params content to create an initial action', t => {
-//   t.throws(
-//     () => computeInitialStep(engine, engineOptions, {}),
-//     'Available content should have at least some slides or chapter rules'
-//   );
-// });
-//
-// test('should check whether an initial slide is found to create an initial action', t => {
-//   t.throws(
-//     () => computeInitialStep(engine, engineOptions, {slidePools: []}),
-//     'Available content should have at least some slides or chapter rules'
-//   );
-// });
+test('should return null if availableContent is empty', t => {
+  t.is(computeInitialStep(engine, engineOptions, []), null);
+});
+
+test('should return null if there are no slides for the first chapter', t => {
+  t.is(computeInitialStep(engine, engineOptions, [{ref: '1.A1', slides: [], rules: null}]), null);
+});
 
 test('should create an initial action from the slides', t => {
   const action = computeInitialStep(engine, engineOptions, availableContent);
+  if (!action) {
+    throw new Error('action should not be falsy');
+  }
 
   t.deepEqual(omit(['payload.nextContent.ref'], action), {
     type: 'move',
