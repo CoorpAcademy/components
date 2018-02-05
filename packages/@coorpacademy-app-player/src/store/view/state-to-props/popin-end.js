@@ -21,6 +21,7 @@ import {
   getCurrentProgressionId,
   getStartRank,
   getEndRank,
+  getLives,
   isCommentSent,
   isCurrentEngineMicrolearning,
   isCurrentEngineLearner
@@ -105,9 +106,12 @@ const summaryHeader = ({translate}, {dispatch}) => state => {
       pipe(get('type'), isEqual('failure')),
       () => ({
         title: translate('Ooops'),
-        subtitle: translate('You are out of lives!'),
+        subtitle:
+          get('state.lives')(progression) === 0
+            ? translate('You are out of lives!')
+            : translate('Game over'),
         fail: true,
-        lives: get('state.lives')(progression),
+        lives: getLives(state),
         rank: extractRank(state),
         stars: null,
         cta: {
