@@ -4,7 +4,7 @@ import omit from 'lodash/fp/omit';
 import pick from 'lodash/fp/pick';
 import get from 'lodash/fp/get';
 import updateState from '../update-state';
-import getConfig from '../config';
+import {getConfig} from '../config';
 import type {
   AnswerAction,
   AskClueAction,
@@ -364,11 +364,7 @@ test('should update stars after viewing a resource', t => {
 
 test('should update stars after viewing a resource (with different number of stars)', t => {
   const state: State = Object.freeze(stateForFirstSlide);
-  const engineWithDifferentStars = {
-    ref: 'microlearning',
-    version: 'allow_typos_3'
-  };
-  const configWithDifferentStars = getConfig(engineWithDifferentStars);
+  const configWithDifferentStars = {...config, starsPerResourceViewed: 5};
 
   const omitChangedFields = omit(['viewedResources', 'stars', 'hasViewedAResourceAtThisStep']);
   const newState = updateState(configWithDifferentStars, state, [
