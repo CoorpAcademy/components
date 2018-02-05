@@ -50,6 +50,9 @@ test('should switch chapters when user has answered `config.slidesToComplete` nu
     currentSlide,
     partialAction
   );
+  if (!result) {
+    throw new Error('action should not be falsy');
+  }
   t.deepEqual(omit(['payload.nextContent.ref'], result), {
     type: 'answer',
     payload: {
