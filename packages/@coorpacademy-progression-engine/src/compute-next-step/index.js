@@ -31,14 +31,13 @@ export const computeInitialStep = (
   engine: Engine,
   engineOptions: EngineOptions,
   availableContent: AvailableContent
-): MoveAction => {
-  const {nextContent, instructions} = computeNextStep(
-    engine,
-    engineOptions,
-    null,
-    availableContent,
-    null
-  );
+): MoveAction | null => {
+  const initialStep = computeNextStep(engine, engineOptions, null, availableContent, null);
+  if (!initialStep) {
+    return null;
+  }
+
+  const {nextContent, instructions} = initialStep;
   return {
     type: 'move',
     payload: {
@@ -55,7 +54,7 @@ export const computeNextStepAfterAnswer = (
   availableContent: AvailableContent,
   currentSlide: Slide,
   action: PartialAnswerAction
-): AnswerAction => {
+): AnswerAction | null => {
   const answerIsCorrect =
     action.payload.godMode || checkAnswer(engine, currentSlide.question, action.payload.answer);
 
@@ -69,13 +68,18 @@ export const computeNextStepAfterAnswer = (
     }
   };
 
-  const {nextContent, instructions, isCorrect} = computeNextStep(
+  const stepResult = computeNextStep(
     engine,
     engineOptions,
     state,
     availableContent,
     actionWithIsCorrect
   );
+  if (!stepResult) {
+    return null;
+  }
+
+  const {nextContent, instructions, isCorrect} = stepResult;
   return {
     type: 'answer',
     payload: {
@@ -94,15 +98,20 @@ export const computeNextStepOnAcceptExtraLife = (
   engineOptions: EngineOptions,
   state: State,
   availableContent: AvailableContent
-): ExtraLifeAcceptedAction => {
+): ExtraLifeAcceptedAction | null => {
   const partialAnswerAction: PartialExtraLifeAcceptedAction = {type: 'extraLifeAccepted'};
-  const {nextContent, instructions} = computeNextStep(
+  const stepResult = computeNextStep(
     engine,
     engineOptions,
     state,
     availableContent,
     partialAnswerAction
   );
+  if (!stepResult) {
+    return null;
+  }
+
+  const {nextContent, instructions} = stepResult;
   return {
     type: 'extraLifeAccepted',
     payload: {

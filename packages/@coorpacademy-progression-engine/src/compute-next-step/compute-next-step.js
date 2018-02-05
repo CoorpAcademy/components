@@ -107,7 +107,7 @@ const nextSlidePool = (
   };
 };
 
-const getChapterContent = (
+const _getChapterContent = (
   config: Config,
   availableContent: AvailableContent,
   state: State | null
@@ -128,6 +128,18 @@ const getChapterContent = (
     };
   }
   return nextSlidePool(config, availableContent, state);
+};
+
+const getChapterContent = (
+  config: Config,
+  availableContent: AvailableContent,
+  state: State | null
+): ChapterContentSelection | null => {
+  const res = _getChapterContent(config, availableContent, state);
+  if (!res.currentChapterContent) {
+    return null;
+  }
+  return res;
 };
 
 const sortByPosition = sortBy(
@@ -153,7 +165,7 @@ type Result = {
   nextContent: Content,
   instructions: Array<Instruction> | null,
   isCorrect: ?boolean
-};
+} | null;
 
 const computeNextSlide = (
   config: Config,
@@ -242,6 +254,11 @@ const computeNextStepForNewChapter = (
     availableContent,
     null
   );
+
+  if (!nextStep) {
+    return null;
+  }
+
   return {
     nextContent: nextStep.nextContent,
     instructions: chapterRule.instructions.concat(nextStep.instructions || []),
@@ -260,12 +277,13 @@ const computeNextStep = (
   const isCorrect = !!action && action.type === 'answer' && action.payload.isCorrect;
   const answer = (!!action && action.type === 'answer' && action.payload.answer) || [];
   const state = applyActionToState(_state, action);
-  const {currentChapterContent, nextChapterContent, temporaryNextContent} = getChapterContent(
-    config,
-    availableContent,
-    state
-  );
+  const chapterContent = getChapterContent(config, availableContent, state);
 
+  if (!chapterContent) {
+    return null;
+  }
+
+  const {currentChapterContent, nextChapterContent, temporaryNextContent} = chapterContent;
   const hasRules = hasRulesToApply(nextChapterContent);
 
   // If user has answered all questions, return success endpoint
@@ -296,7 +314,7 @@ const computeNextStep = (
       ]
     });
     if (!chapterRule) {
-      throw new Error('Could not find a chapter rule to select.');
+      return null;
     }
 
     if (chapterRule.destination.type === 'chapter') {
@@ -336,8 +354,7 @@ const computeNextStep = (
     };
   }
 
-  // TODO missing coverage
-  throw new Error('Available content should have at least some slides or chapter rules');
+  return null;
 };
 
 export default computeNextStep;
