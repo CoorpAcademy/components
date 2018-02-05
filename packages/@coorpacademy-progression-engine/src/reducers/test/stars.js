@@ -2,7 +2,7 @@
 import test from 'ava';
 import pipe from 'lodash/fp/pipe';
 import set from 'lodash/fp/set';
-import getConfig from '../../config';
+import {getConfig} from '../../config';
 import stars from '../stars';
 import {answerAction, askClueAction, resourceAction} from './fixtures/actions';
 import {microlearning} from './fixtures/engines';
