@@ -20,6 +20,9 @@ test('should return an action linking to a new slide', t => {
     }
   ];
   const result = computeNextStepOnAcceptExtraLife(engine, engineOptions, state, availableContent);
+  if (!result) {
+    throw new Error('action should not be falsy');
+  }
   t.deepEqual(omit(['payload.nextContent.ref'], result), {
     type: 'extraLifeAccepted',
     payload: {
@@ -29,6 +32,11 @@ test('should return an action linking to a new slide', t => {
     }
   });
   t.regex(result.payload.nextContent.ref, /^1\.A1\.[2-9]+$/);
+});
+
+test('should return null if there is no available content', t => {
+  const availableContent: AvailableContent = [];
+  t.is(computeNextStepOnAcceptExtraLife(engine, engineOptions, state, availableContent), null);
 });
 
 test('should not apply the lives increment twice when switching chapters', t => {

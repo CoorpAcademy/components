@@ -75,6 +75,9 @@ test('should create a new progression with the latest version of the engine and 
     livesDisabled: true
   };
   const progression = createProgression(engine, content, engineOptions, availableContentWithRules);
+  if (!progression) {
+    throw new Error('progression should not be falsy');
+  }
 
   t.deepEqual(
     Object.keys(progression).sort(),
@@ -102,6 +105,9 @@ test("progression should have 'move' action that links to the initial rule's des
     livesDisabled: true
   };
   const progression = createProgression(engine, content, engineOptions, availableContentWithRules);
+  if (!progression) {
+    throw new Error('progression should not be falsy');
+  }
   t.deepEqual(progression.actions, [
     {
       type: 'move',
@@ -126,6 +132,9 @@ test('progression should have "move" action that links to a random slide from th
     livesDisabled: true
   };
   const progression = createProgression(engine, content, engineOptions, availableContentWithSlides);
+  if (!progression) {
+    throw new Error('progression should not be falsy');
+  }
   t.deepEqual(map(omit(['payload.nextContent.ref']), progression.actions), [
     {
       type: 'move',
@@ -139,4 +148,19 @@ test('progression should have "move" action that links to a random slide from th
   ]);
   // $FlowFixMe
   t.regex(progression.actions[0].payload.nextContent.ref, /^1\.A1\.[1-9]+$/);
+});
+
+test('should return null if no there is no available content', t => {
+  const engine: Engine = {
+    ref: 'learner',
+    version: 'latest'
+  };
+  const content: Content = {
+    ref: '1.A1',
+    type: 'module'
+  };
+  const engineOptions: EngineOptions = {
+    livesDisabled: true
+  };
+  t.is(createProgression(engine, content, engineOptions, []), null);
 });
