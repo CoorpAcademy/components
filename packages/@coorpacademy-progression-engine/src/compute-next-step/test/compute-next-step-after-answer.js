@@ -4,14 +4,14 @@ import omit from 'lodash/fp/omit';
 import pipe from 'lodash/fp/pipe';
 import assign from 'lodash/fp/assign';
 import filter from 'lodash/fp/filter';
-import type {AvailableContent, Engine, EngineOptions, State, Slide} from '../../types';
+import getConfig from '../../config';
+import type {AvailableContent, Config, State, Slide} from '../../types';
 import {computeNextStepAfterAnswer, type PartialAnswerAction} from '..';
 import allSlides from './fixtures/slides';
 import getSlide from './helpers/get-slide';
 import {firstState, stateBeforeGettingNextContent, oneLifeLeftState} from './fixtures/states';
 
-const engine: Engine = {ref: 'learner', version: '1'};
-const engineOptions: EngineOptions = {};
+const config: Config = getConfig({ref: 'learner', version: '1'});
 const availableContent: AvailableContent = [
   {
     ref: '1.A1',
@@ -65,8 +65,7 @@ test('should return the slide with the highest position if any slides have a pos
   };
 
   const result1 = computeNextStepAfterAnswer(
-    engine,
-    engineOptions,
+    config,
     state,
     _availableContent,
     currentSlide,
@@ -95,8 +94,7 @@ test('should return the slide with the highest position if any slides have a pos
   };
 
   const result2 = computeNextStepAfterAnswer(
-    engine,
-    engineOptions,
+    config,
     stateWithAdditionalSlide,
     _availableContent,
     currentSlide,
@@ -131,8 +129,7 @@ test('should return a new slide when user is still alive', t => {
   };
 
   const result = computeNextStepAfterAnswer(
-    engine,
-    engineOptions,
+    config,
     state,
     availableContent,
     currentSlide,
@@ -161,8 +158,7 @@ test("should return the fail endpoint when user has no more lives and can't requ
   const partialAction = createPartialAction(state);
 
   const result = computeNextStepAfterAnswer(
-    engine,
-    engineOptions,
+    config,
     state,
     availableContent,
     currentSlide,
@@ -187,8 +183,7 @@ test('should return the extraLife when user has no more lives but can request li
   const partialAction = createPartialAction(state);
 
   const result = computeNextStepAfterAnswer(
-    engine,
-    engineOptions,
+    config,
     state,
     availableContent,
     currentSlide,
@@ -210,22 +205,21 @@ test('should return the extraLife when user has no more lives but can request li
 test('should return a new slide, when user has no more lives but lives are disabled', t => {
   const state: State = Object.freeze(oneLifeLeftState);
   const currentSlide = getSlide(allSlides, state.nextContent);
-  const livesDisabledEngine = {ref: 'learner', version: 'livesDisabled'};
   const partialAction = createPartialAction(state);
+  const livesDisabledConfig: Config = {...config, livesDisabled: true};
 
-  const resultForEngine = computeNextStepAfterAnswer(
-    livesDisabledEngine,
-    engineOptions,
+  const result = computeNextStepAfterAnswer(
+    livesDisabledConfig,
     state,
     availableContent,
     currentSlide,
     partialAction
   );
 
-  if (!resultForEngine) {
+  if (!result) {
     throw new Error('action should not be falsy');
   }
-  t.deepEqual(omit(['payload.nextContent.ref'], resultForEngine), {
+  t.deepEqual(omit(['payload.nextContent.ref'], result), {
     type: 'answer',
     payload: {
       answer: [],
@@ -237,38 +231,9 @@ test('should return a new slide, when user has no more lives but lives are disab
     }
   });
   t.regex(
-    resultForEngine.payload.nextContent.ref,
+    result.payload.nextContent.ref,
     /^1\.A1\.[2-9]+$/,
     'does not work when lives are disabled in engine config'
-  );
-
-  const resultForEngineConfig = computeNextStepAfterAnswer(
-    engine,
-    {livesDisabled: true},
-    state,
-    availableContent,
-    currentSlide,
-    partialAction
-  );
-
-  if (!resultForEngineConfig) {
-    throw new Error('action should not be falsy');
-  }
-  t.deepEqual(omit(['payload.nextContent.ref'], resultForEngineConfig), {
-    type: 'answer',
-    payload: {
-      answer: [],
-      content: state.nextContent,
-      godMode: false,
-      nextContent: {type: 'slide'},
-      instructions: null,
-      isCorrect: false
-    }
-  });
-  t.regex(
-    resultForEngineConfig.payload.nextContent.ref,
-    /^1\.A1\.[2-9]+$/,
-    'does not work when lives are disabled in engine options'
   );
 });
 
@@ -285,8 +250,7 @@ test('should return isCorrect=true when the answer is correct and godmode is fal
   };
 
   const result = computeNextStepAfterAnswer(
-    engine,
-    engineOptions,
+    config,
     state,
     availableContent,
     currentSlide,
@@ -311,8 +275,7 @@ test('should return isCorrect=false when the answer is incorrect and godmode is 
   };
 
   const result = computeNextStepAfterAnswer(
-    engine,
-    engineOptions,
+    config,
     state,
     availableContent,
     currentSlide,
@@ -329,8 +292,5 @@ test('should return null if there is no available content', t => {
   const currentSlide = getSlide(allSlides, state.nextContent);
   const partialAction = createPartialAction(state);
 
-  t.is(
-    computeNextStepAfterAnswer(engine, engineOptions, state, [], currentSlide, partialAction),
-    null
-  );
+  t.is(computeNextStepAfterAnswer(config, state, [], currentSlide, partialAction), null);
 });

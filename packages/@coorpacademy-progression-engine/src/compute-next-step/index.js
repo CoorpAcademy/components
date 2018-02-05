@@ -4,8 +4,7 @@ import type {
   AnswerAction,
   AvailableContent,
   Content,
-  Engine,
-  EngineOptions,
+  Config,
   ExtraLifeAcceptedAction,
   ExtraLifeRefusedAction,
   MoveAction,
@@ -28,11 +27,10 @@ export type PartialAnswerAction = $ReadOnly<{
 }>;
 
 export const computeInitialStep = (
-  engine: Engine,
-  engineOptions: EngineOptions,
+  config: Config,
   availableContent: AvailableContent
 ): MoveAction | null => {
-  const initialStep = computeNextStep(engine, engineOptions, null, availableContent, null);
+  const initialStep = computeNextStep(config, null, availableContent, null);
   if (!initialStep) {
     return null;
   }
@@ -48,15 +46,14 @@ export const computeInitialStep = (
 };
 
 export const computeNextStepAfterAnswer = (
-  engine: Engine,
-  engineOptions: EngineOptions,
+  config: Config,
   state: State,
   availableContent: AvailableContent,
   currentSlide: Slide,
   action: PartialAnswerAction
 ): AnswerAction | null => {
   const answerIsCorrect =
-    action.payload.godMode || checkAnswer(engine, currentSlide.question, action.payload.answer);
+    action.payload.godMode || checkAnswer(config, currentSlide.question, action.payload.answer);
 
   const actionWithIsCorrect: PartialAnswerActionWithIsCorrect = {
     type: 'answer',
@@ -68,13 +65,7 @@ export const computeNextStepAfterAnswer = (
     }
   };
 
-  const stepResult = computeNextStep(
-    engine,
-    engineOptions,
-    state,
-    availableContent,
-    actionWithIsCorrect
-  );
+  const stepResult = computeNextStep(config, state, availableContent, actionWithIsCorrect);
   if (!stepResult) {
     return null;
   }
@@ -94,19 +85,12 @@ export const computeNextStepAfterAnswer = (
 };
 
 export const computeNextStepOnAcceptExtraLife = (
-  engine: Engine,
-  engineOptions: EngineOptions,
+  config: Config,
   state: State,
   availableContent: AvailableContent
 ): ExtraLifeAcceptedAction | null => {
   const partialAnswerAction: PartialExtraLifeAcceptedAction = {type: 'extraLifeAccepted'};
-  const stepResult = computeNextStep(
-    engine,
-    engineOptions,
-    state,
-    availableContent,
-    partialAnswerAction
-  );
+  const stepResult = computeNextStep(config, state, availableContent, partialAnswerAction);
   if (!stepResult) {
     return null;
   }
@@ -123,8 +107,7 @@ export const computeNextStepOnAcceptExtraLife = (
 };
 
 export const computeNextStepOnRefuseExtraLife = (
-  engine: Engine,
-  engineOptions: EngineOptions,
+  config: Config,
   state: State
 ): ExtraLifeRefusedAction => {
   return {

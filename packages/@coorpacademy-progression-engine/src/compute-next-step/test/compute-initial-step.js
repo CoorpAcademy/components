@@ -2,12 +2,12 @@
 import test from 'ava';
 import omit from 'lodash/fp/omit';
 import filter from 'lodash/fp/filter';
+import getConfig from '../../config';
 import {computeInitialStep} from '..';
-import type {AvailableContent, Engine, EngineOptions} from '../../types';
+import type {AvailableContent, Config} from '../../types';
 import allSlides from './fixtures/slides';
 
-const engine: Engine = {ref: 'learner', version: '1'};
-const engineOptions: EngineOptions = {};
+const config: Config = getConfig({ref: 'learner', version: '1'});
 const availableContent: AvailableContent = [
   {
     ref: '1.A1',
@@ -22,15 +22,15 @@ const availableContent: AvailableContent = [
 ];
 
 test('should return null if availableContent is empty', t => {
-  t.is(computeInitialStep(engine, engineOptions, []), null);
+  t.is(computeInitialStep(config, []), null);
 });
 
 test('should return null if there are no slides for the first chapter', t => {
-  t.is(computeInitialStep(engine, engineOptions, [{ref: '1.A1', slides: [], rules: null}]), null);
+  t.is(computeInitialStep(config, [{ref: '1.A1', slides: [], rules: null}]), null);
 });
 
 test('should create an initial action from the slides', t => {
-  const action = computeInitialStep(engine, engineOptions, availableContent);
+  const action = computeInitialStep(config, availableContent);
   if (!action) {
     throw new Error('action should not be falsy');
   }
@@ -89,7 +89,7 @@ test('should create an adaptive initial Action', t => {
     }
   ];
 
-  const action = computeInitialStep(engine, engineOptions, content);
+  const action = computeInitialStep(config, content);
 
   t.deepEqual(action, {
     type: 'move',

@@ -2,13 +2,13 @@
 import test from 'ava';
 import omit from 'lodash/fp/omit';
 import filter from 'lodash/fp/filter';
-import type {AvailableContent, Engine, EngineOptions, State} from '../../types';
+import getConfig from '../../config';
+import type {AvailableContent, Config, State} from '../../types';
 import {computeNextStepOnAcceptExtraLife} from '..';
 import allSlides from './fixtures/slides';
 import {stateBeforeGettingNextContent} from './fixtures/states';
 
-const engine: Engine = {ref: 'learner', version: '1'};
-const engineOptions: EngineOptions = {};
+const config: Config = getConfig({ref: 'learner', version: '1'});
 const state: State = {...stateBeforeGettingNextContent, lives: 0};
 
 test('should return an action linking to a new slide', t => {
@@ -19,7 +19,7 @@ test('should return an action linking to a new slide', t => {
       rules: null
     }
   ];
-  const result = computeNextStepOnAcceptExtraLife(engine, engineOptions, state, availableContent);
+  const result = computeNextStepOnAcceptExtraLife(config, state, availableContent);
   if (!result) {
     throw new Error('action should not be falsy');
   }
@@ -36,7 +36,7 @@ test('should return an action linking to a new slide', t => {
 
 test('should return null if there is no available content', t => {
   const availableContent: AvailableContent = [];
-  t.is(computeNextStepOnAcceptExtraLife(engine, engineOptions, state, availableContent), null);
+  t.is(computeNextStepOnAcceptExtraLife(config, state, availableContent), null);
 });
 
 test('should not apply the lives increment twice when switching chapters', t => {
@@ -90,7 +90,7 @@ test('should not apply the lives increment twice when switching chapters', t => 
     }
   ];
 
-  const result = computeNextStepOnAcceptExtraLife(engine, engineOptions, state, availableContent);
+  const result = computeNextStepOnAcceptExtraLife(config, state, availableContent);
   t.deepEqual(result, {
     type: 'extraLifeAccepted',
     payload: {
