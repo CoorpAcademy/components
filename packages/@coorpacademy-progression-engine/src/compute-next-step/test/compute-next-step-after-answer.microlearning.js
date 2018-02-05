@@ -1,14 +1,14 @@
 // @flow
 import test from 'ava';
 import filter from 'lodash/fp/filter';
-import type {AvailableContent, Engine, EngineOptions, State} from '../../types';
+import getConfig from '../../config';
+import type {AvailableContent, Config, State} from '../../types';
 import {computeNextStepAfterAnswer, type PartialAnswerAction} from '..';
 import allSlides from './fixtures/slides';
 import getSlide from './helpers/get-slide';
 import {stateBeforeGettingNextContent} from './fixtures/states';
 
-const engine: Engine = {ref: 'microlearning', version: '1'};
-const engineOptions: EngineOptions = {};
+const config: Config = getConfig({ref: 'microlearning', version: '1'});
 const availableContent: AvailableContent = [
   {
     ref: '1.A1',
@@ -37,8 +37,7 @@ test('should return the success endpoint when user has answered `config.slidesTo
   };
 
   const result = computeNextStepAfterAnswer(
-    engine,
-    engineOptions,
+    config,
     state,
     availableContent,
     currentSlide,

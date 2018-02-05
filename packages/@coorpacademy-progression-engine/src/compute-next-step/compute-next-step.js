@@ -17,15 +17,12 @@ import type {
   State,
   Slide,
   Content,
-  Engine,
-  EngineOptions,
   Config,
   Answer,
   AvailableContent,
   ChapterContent,
   AnswerRecord
 } from '../types';
-import getConfig from '../config';
 import type {ChapterRule, Instruction, Condition} from '../rule-engine/types';
 import selectRule from '../rule-engine/select-rule';
 import updateVariables from '../rule-engine/apply-instructions';
@@ -156,11 +153,6 @@ const getIsCorrect = (isCorrect: boolean, chapterRule: ChapterRule): ?boolean =>
   return null;
 };
 
-const computeConfig = (engine: Engine, engineOptions: EngineOptions): Config => {
-  const config = getConfig(engine);
-  return {...config, ...engineOptions};
-};
-
 type Result = {
   nextContent: Content,
   instructions: Array<Instruction> | null,
@@ -239,8 +231,7 @@ const prepareStateToSwitchChapters = (
 };
 
 const computeNextStepForNewChapter = (
-  engine: Engine,
-  engineOptions: EngineOptions,
+  config: Config,
   state: State | null,
   chapterRule: ChapterRule,
   isCorrect: boolean,
@@ -248,8 +239,7 @@ const computeNextStepForNewChapter = (
 ): Result => {
   // eslint-disable-next-line no-use-before-define
   const nextStep = computeNextStep(
-    engine,
-    engineOptions,
+    config,
     prepareStateToSwitchChapters(chapterRule, state),
     availableContent,
     null
@@ -267,13 +257,11 @@ const computeNextStepForNewChapter = (
 };
 
 const computeNextStep = (
-  engine: Engine,
-  engineOptions: EngineOptions,
+  config: Config,
   _state: State | null,
   availableContent: AvailableContent,
   action: PartialAction
 ): Result => {
-  const config = computeConfig(engine, engineOptions);
   const isCorrect = !!action && action.type === 'answer' && action.payload.isCorrect;
   const answer = (!!action && action.type === 'answer' && action.payload.answer) || [];
   const state = applyActionToState(_state, action);
@@ -318,14 +306,7 @@ const computeNextStep = (
     }
 
     if (chapterRule.destination.type === 'chapter') {
-      return computeNextStepForNewChapter(
-        engine,
-        engineOptions,
-        state,
-        chapterRule,
-        isCorrect,
-        availableContent
-      );
+      return computeNextStepForNewChapter(config, state, chapterRule, isCorrect, availableContent);
     }
 
     return {
