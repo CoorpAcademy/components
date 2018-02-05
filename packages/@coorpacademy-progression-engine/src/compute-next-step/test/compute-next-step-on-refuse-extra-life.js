@@ -1,6 +1,6 @@
 // @flow
 import test from 'ava';
-import getConfig from '../../config';
+import {getConfig} from '../../config';
 import type {Config, State} from '../../types';
 import {computeNextStepOnRefuseExtraLife} from '..';
 import {extraLifeState} from './fixtures/states';

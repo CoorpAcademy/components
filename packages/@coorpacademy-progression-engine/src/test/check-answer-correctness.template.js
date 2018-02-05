@@ -1,7 +1,7 @@
 // @flow
 import assert from 'assert';
 import test from 'ava';
-import getConfig from '../config';
+import {getConfig} from '../config';
 import type {AcceptedAnswers, Config, TemplateQuestion} from '../types';
 import {assertCorrect, assertIncorrect} from './helpers/assert-check-answer-correctness';
 

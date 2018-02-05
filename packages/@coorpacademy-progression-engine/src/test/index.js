@@ -8,7 +8,8 @@ import {
   computeNextStepOnRefuseExtraLife,
   createProgression,
   createState,
-  getConfig
+  getConfig,
+  getConfigForProgression
 } from '..';
 
 test('should export checkAnswer', t => {
@@ -41,4 +42,8 @@ test('should export createProgression', t => {
 
 test('should export getConfig', t => {
   t.is(typeof getConfig, 'function');
+});
+
+test('should export getConfigForProgression', t => {
+  t.is(typeof getConfigForProgression, 'function');
 });

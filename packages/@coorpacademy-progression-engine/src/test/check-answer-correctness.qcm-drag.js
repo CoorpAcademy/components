@@ -1,6 +1,6 @@
 // @flow
 import test from 'ava';
-import getConfig from '../config';
+import {getConfig} from '../config';
 import type {AcceptedAnswers, Config, QCMDragQuestion} from '../types';
 import {assertCorrect, assertIncorrect} from './helpers/assert-check-answer-correctness';
 

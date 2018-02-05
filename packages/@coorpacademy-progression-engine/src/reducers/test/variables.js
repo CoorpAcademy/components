@@ -1,7 +1,7 @@
 // @flow
 import test from 'ava';
 import set from 'lodash/fp/set';
-import getConfig from '../../config';
+import {getConfig} from '../../config';
 import variables from '../variables';
 import {answerAction, moveAction} from './fixtures/actions';
 import {learner} from './fixtures/engines';
