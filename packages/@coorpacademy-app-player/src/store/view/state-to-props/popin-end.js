@@ -70,7 +70,7 @@ const comment = ({translate}, {dispatch}) => state => {
 };
 
 const summaryHeader = ({translate}, {dispatch}) => state => {
-  const progression = getCurrentProgression(state);
+  const lives = getLives(state);
   const successCta = {
     title: translate('Back to home'),
     href: '/',
@@ -107,11 +107,11 @@ const summaryHeader = ({translate}, {dispatch}) => state => {
       () => ({
         title: translate('Ooops'),
         subtitle:
-          get('state.lives')(progression) === 0
+          lives === 0
             ? translate('You are out of lives!')
             : translate('Game over'),
         fail: true,
-        lives: getLives(state),
+        lives: lives,
         rank: extractRank(state),
         stars: null,
         cta: {
