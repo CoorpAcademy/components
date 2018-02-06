@@ -65,6 +65,10 @@
     padding: 0;
   }
 
+  .title {
+    margin: 16px 8px;
+  }
+
   .descWrapper {
     flex-direction: column-reverse;
   }
@@ -76,6 +80,8 @@
 
   .description {
     width: 100%;
+    padding: 0 8px 8px;
+    box-sizing: border-box;
     height: auto;
     margin-right: 0;
   }
