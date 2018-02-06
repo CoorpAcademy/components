@@ -1,6 +1,6 @@
-import Cta from '../../../../../atom/cta/test/fixtures/primary';
+import Cta from '../../../../../../../atom/cta/test/fixtures/primary';
 import Footer from '../../../slides-footer/test/fixtures/with-context';
-import ResourceBrowser from '../../../../../organism/resource-browser/test/fixtures/video-selected';
+import ResourceBrowser from '../../../../../../../organism/resource-browser/test/fixtures/video-selected';
 
 const {props} = Cta;
 const footerProps = Footer.props;

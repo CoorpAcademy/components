@@ -1,8 +1,8 @@
 import includes from 'lodash/fp/includes';
+import isEmpty from 'lodash/fp/isEmpty';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import isNil from 'lodash/fp/isNil';
-import isEmpty from 'lodash/fp/isEmpty';
 import intersection from 'lodash/fp/intersection';
 import map from 'lodash/fp/map';
 import flatMap from 'lodash/fp/flatMap';
@@ -120,6 +120,10 @@ const playerProps = (options, store) => state => {
     }
   ];
 
+  const answers = getAnswerValues(slide, state);
+  const ctaDisabled =
+    answers === undefined || isEmpty(answers) || (answers.length === 1 && isEmpty(answers[0]));
+
   return {
     typeClue: isAnswer ? 'answer' : route,
     text: clue,
@@ -137,7 +141,8 @@ const playerProps = (options, store) => state => {
           light: false,
           small: false,
           name: 'validateAnswerCTA',
-          secondary: false
+          secondary: false,
+          disabled: ctaDisabled
         }
       : {
           submitValue: translate(route === 'context' ? 'Go to question' : 'Back to question'),

@@ -2,6 +2,7 @@
 @value brand from colors;
 @value transparent from colors;
 @value white from colors;
+@value grey from colors;
 
 .button {
   display: inline-block;
@@ -28,6 +29,11 @@
   height: 32px;
   line-height: 28px;
   border-radius: 18px;
+}
+
+.disabled {
+  color: white;
+  background-color: grey;
 }
 
 /*

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SlidesPlayer from '../../../molecule/slides/slides-player';
+import SlidesPlayer from './slides/slides-player';
 import Header from './player-header';
 import style from './style.css';
 

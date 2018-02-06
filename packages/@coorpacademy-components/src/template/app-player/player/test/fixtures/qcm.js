@@ -1,5 +1,5 @@
 import SlidesHeader from '../../player-header/test/fixtures/learner';
-import Qcm from '../../../../../molecule/slides/slides-player/test/fixtures/qcm';
+import Qcm from '../../slides/slides-player/test/fixtures/qcm';
 
 const headerProps = SlidesHeader.props;
 const playerProps = Qcm.props;

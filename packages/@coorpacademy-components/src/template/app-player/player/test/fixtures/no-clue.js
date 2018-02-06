@@ -1,5 +1,5 @@
 import SlidesHeader from '../../player-header/test/fixtures/learner';
-import NoClue from '../../../../../molecule/slides/slides-player/test/fixtures/no-clue';
+import NoClue from '../../slides/slides-player/test/fixtures/no-clue';
 
 const headerProps = SlidesHeader.props;
 const playerProps = NoClue.props;

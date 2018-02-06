@@ -7,7 +7,7 @@ import ClueIcon from '@coorpacademy/nova-icons/solid/programming/programming-jig
 import ContextIcon from '@coorpacademy/nova-icons/solid/locations/compass-3';
 import CoachIcon from '@coorpacademy/nova-icons/solid/messages-and-chat/chat-bubbles-circle';
 import get from 'lodash/fp/get';
-import Provider from '../../../atom/provider';
+import Provider from '../../../../../atom/provider';
 import style from './style.css';
 
 const TABS = {

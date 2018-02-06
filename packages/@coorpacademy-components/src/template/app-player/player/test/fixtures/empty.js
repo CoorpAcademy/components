@@ -1,5 +1,5 @@
 import SlidesHeader from '../../player-header/test/fixtures/learner';
-import Load from '../../../../../molecule/slides/slides-player/test/fixtures/loading';
+import Load from '../../slides/slides-player/test/fixtures/loading';
 
 const headerProps = SlidesHeader.props;
 const playerProps = Load.props;

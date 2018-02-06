@@ -1,6 +1,6 @@
-import Cta from '../../../../../atom/cta/test/fixtures/primary';
+import Cta from '../../../../../../../atom/cta/test/fixtures/primary';
 import Footer from '../../../slides-footer/test/fixtures/default';
-import Answer from '../../../../answer/test/fixtures/default';
+import Answer from '../../../../../../../molecule/answer/test/fixtures/default';
 
 const {props} = Cta;
 const footerProps = Footer.props;
@@ -14,8 +14,6 @@ export default {
       total: 6
     },
     showNewMedia: false,
-    question:
-      'Amongst these businesses, which have suffered setbacks for not knowing how to putting users first?',
     help: 'Select something below',
     cta: {
       ...props,

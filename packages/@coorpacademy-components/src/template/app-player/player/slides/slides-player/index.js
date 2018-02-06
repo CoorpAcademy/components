@@ -8,17 +8,17 @@ import identity from 'lodash/fp/identity';
 import max from 'lodash/fp/max';
 import pipe from 'lodash/fp/pipe';
 import split from 'lodash/fp/split';
-import {ColorPropType} from '../../../util/proptypes';
-import Cta from '../../../atom/cta';
-import Picture from '../../../atom/picture';
-import Provider from '../../../atom/provider';
-import Clue from '../../../atom/clue';
-import Answer from '../../answer';
-import Loader from '../../../atom/loader';
-import Swapper from '../../../hoc/swapper';
-import VideoPlayer from '../../video-player';
-import PDF from '../../pdf';
-import ResourceBrowser from '../../../organism/resource-browser';
+import {ColorPropType} from '../../../../../util/proptypes';
+import Cta from '../../../../../atom/cta';
+import Picture from '../../../../../atom/picture';
+import Provider from '../../../../../atom/provider';
+import Clue from '../../../../../atom/clue';
+import Answer from '../../../../../molecule/answer';
+import Loader from '../../../../../atom/loader';
+import Swapper from '../../../../../hoc/swapper';
+import VideoPlayer from '../../../../../molecule/video-player';
+import PDF from '../../../../../molecule/pdf';
+import ResourceBrowser from '../../../../../organism/resource-browser';
 import SlidesFooter from '../slides-footer';
 import style from './style.css';
 
@@ -258,8 +258,18 @@ Help.propTypes = {
   help: PropTypes.string
 };
 
+const ValidateButton = ({cta}) => (
+  <div className={style.ctaWrapper}>
+    <Cta className={style.cta} {...cta} />
+  </div>
+);
+
+ValidateButton.propTypes = {
+  cta: PropTypes.shape(Cta.propTypes)
+};
+
 const ContentLayout = (props, context) => {
-  const {typeClue, question, cta, help} = props;
+  const {typeClue, question, help} = props;
   const ContentType = CONTENT_TYPE[typeClue];
   const wrapperColor = typeClue === 'answer' ? 'white' : '#ECEFF1';
   const noPaddingRessources =
@@ -277,9 +287,7 @@ const ContentLayout = (props, context) => {
       />
       {help && typeClue === 'answer' ? <Help help={help} /> : null}
       <ContentType {...props} />
-      <div className={style.ctaWrapper}>
-        <Cta className={style.cta} {...cta} />
-      </div>
+      <ValidateButton {...props} />
     </div>
   );
 };
