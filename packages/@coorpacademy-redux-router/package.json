@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/redux-router",
-  "version": "5.4.3",
+  "version": "5.4.4-0",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
