@@ -75,6 +75,10 @@ function matchAnswerForBasic(
   question: BasicQuestion,
   givenAnswer: Answer
 ): Array<Array<PartialCorrection>> {
+  if (question.content.answers.length === 0) {
+    return [];
+  }
+
   const isCorrect = isTextCorrect(
     config,
     question.content.answers.map(answers => answers[0]),
@@ -90,6 +94,10 @@ function matchAnswerForTemplate(
   question: TemplateQuestion,
   givenAnswer: Answer
 ): Array<Array<PartialCorrection>> {
+  if (question.content.answers.length === 0) {
+    return [];
+  }
+
   const result = givenAnswer.map((answer, index) => ({
     answer,
     isCorrect: question.content.answers.some(allowedAnswer =>
@@ -184,7 +192,15 @@ export default function checkAnswerCorrectness(
   question: Question,
   givenAnswer: Answer
 ): AnswerCorrection {
-  const bestMatch = findBestMatch(matchGivenAnswerToQuestion(config, question, givenAnswer));
+  const matches = matchGivenAnswerToQuestion(config, question, givenAnswer);
+  if (matches.length === 0) {
+    return {
+      isCorrect: false,
+      corrections: []
+    };
+  }
+
+  const bestMatch: Array<PartialCorrection> = findBestMatch(matches);
   return {
     isCorrect: every('isCorrect', bestMatch),
     corrections: filter(item => item.answer !== undefined, bestMatch)

@@ -3,7 +3,11 @@ import assert from 'assert';
 import test from 'ava';
 import {getConfig} from '../config';
 import type {AcceptedAnswers, Config, TemplateQuestion} from '../types';
-import {assertCorrect, assertIncorrect} from './helpers/assert-check-answer-correctness';
+import {
+  assertCorrect,
+  assertIncorrect,
+  assertIncorrectEmptyAnswer
+} from './helpers/assert-check-answer-correctness';
 
 const config: Config = getConfig({ref: 'microlearning', version: 'latest'});
 
@@ -157,4 +161,19 @@ test('should return false when the given answer has less elements that the accep
   assertIncorrect(t, config, question, ['deux'], [true]);
   assertIncorrect(t, config, question, ['saut'], [true]);
   assertIncorrect(t, config, question, [], []);
+});
+
+test('should return false when there are no correct answers', t => {
+  const question = {
+    type: 'template',
+    content: {
+      matchOrder: true,
+      choices: [{type: 'text'}, {type: 'text'}],
+      answers: []
+    }
+  };
+
+  assertIncorrectEmptyAnswer(t, config, question, []);
+  assertIncorrectEmptyAnswer(t, config, question, ['foo']);
+  assertIncorrectEmptyAnswer(t, config, question, ['foo', 'bar']);
 });

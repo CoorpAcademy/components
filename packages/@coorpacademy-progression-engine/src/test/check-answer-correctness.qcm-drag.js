@@ -2,7 +2,11 @@
 import test from 'ava';
 import {getConfig} from '../config';
 import type {AcceptedAnswers, Config, QCMDragQuestion} from '../types';
-import {assertCorrect, assertIncorrect} from './helpers/assert-check-answer-correctness';
+import {
+  assertCorrect,
+  assertIncorrect,
+  assertIncorrectEmptyAnswer
+} from './helpers/assert-check-answer-correctness';
 
 const config: Config = getConfig({ref: 'microlearning', version: 'latest'});
 
@@ -109,4 +113,11 @@ test('should return true when the given answer is in the accepted answers but va
   assertCorrect(t, config, question, ['answer3', 'answer1']);
   assertCorrect(t, config, question, ['answer4', 'answer2']);
   assertCorrect(t, config, question, ['answer4', 'answer1']);
+});
+
+test('should return false when there are no correct answers', t => {
+  const question = createQuestion(false, []);
+
+  assertIncorrectEmptyAnswer(t, config, question, []);
+  assertIncorrectEmptyAnswer(t, config, question, ['foo']);
 });

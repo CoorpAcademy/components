@@ -2,7 +2,11 @@
 import test from 'ava';
 import {getConfig} from '../config';
 import type {AcceptedAnswers, Config, SliderQuestion} from '../types';
-import {assertCorrect, assertIncorrect} from './helpers/assert-check-answer-correctness';
+import {
+  assertCorrect,
+  assertIncorrect,
+  assertIncorrectEmptyAnswer
+} from './helpers/assert-check-answer-correctness';
 
 const config: Config = getConfig({ref: 'microlearning', version: 'latest'});
 
@@ -35,4 +39,11 @@ test('should return false when the given answer is not in the accepted answers',
   assertIncorrect(t, config, question, ['2'], [false]);
   assertIncorrect(t, config, question, ['NaN'], [false]);
   assertIncorrect(t, config, question, ['foo'], [false]);
+});
+
+test('should return false when there are no correct answers', t => {
+  const question = createQuestion([]);
+
+  assertIncorrectEmptyAnswer(t, config, question, []);
+  assertIncorrectEmptyAnswer(t, config, question, ['100']);
 });
