@@ -21,8 +21,6 @@ export default function viewedResources(
         const resourceRef = resourceViewAction.payload.resource.ref;
         const contentIndex = findIndex({ref: contentRef}, currentViewedResources);
 
-        if (contentType !== 'chapter') return currentViewedResources;
-
         if (contentIndex === -1) {
           return concat(currentViewedResources)([
             {

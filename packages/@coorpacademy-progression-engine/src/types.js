@@ -1,11 +1,5 @@
 // @flow
 
-export type ViewedResource = {
-  type: 'chapter',
-  ref: string,
-  resources: Array<string>
-};
-
 export type Step = {
   current: number
 };
@@ -25,6 +19,12 @@ export type ResourceContent = {
 };
 
 export type Content = GenericContent | ResourceContent;
+
+export type ViewedResource = {
+  type: $PropertyType<Content, 'type'>,
+  ref: string,
+  resources: Array<string>
+};
 
 export type AnswerRecord = {
   slideRef: string,
