@@ -6,7 +6,7 @@ import checkAnswerCorrectness from '../../check-answer-correctness';
 import type {Question, Answer, Config} from '../../types';
 
 // eslint-disable-next-line flowtype/no-weak-types
-function assertCorrect(t: any, config: Config, question: Question, givenAnswer: Answer) {
+export function assertCorrect(t: any, config: Config, question: Question, givenAnswer: Answer) {
   const result = checkAnswerCorrectness(config, question, givenAnswer);
   t.true(result.isCorrect, 'Answer should have been considered as correct');
   t.deepEqual(
@@ -16,7 +16,7 @@ function assertCorrect(t: any, config: Config, question: Question, givenAnswer: 
   );
 }
 
-function assertIncorrect(
+export function assertIncorrect(
   t: any, // eslint-disable-line flowtype/no-weak-types
   config: Config,
   question: Question,
@@ -39,4 +39,14 @@ function assertIncorrect(
   );
 }
 
-export {assertCorrect, assertIncorrect};
+export function assertIncorrectEmptyAnswer(
+  t: any, // eslint-disable-line flowtype/no-weak-types
+  config: Config,
+  question: Question,
+  givenAnswer: Answer
+) {
+  t.deepEqual(checkAnswerCorrectness(config, question, givenAnswer), {
+    isCorrect: false,
+    corrections: []
+  });
+}

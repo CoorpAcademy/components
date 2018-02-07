@@ -2,7 +2,11 @@
 import test from 'ava';
 import {getConfig} from '../config';
 import type {AcceptedAnswers, BasicQuestion, Config} from '../types';
-import {assertCorrect, assertIncorrect} from './helpers/assert-check-answer-correctness';
+import {
+  assertCorrect,
+  assertIncorrect,
+  assertIncorrectEmptyAnswer
+} from './helpers/assert-check-answer-correctness';
 
 const config: Config = getConfig({ref: 'microlearning', version: 'latest'});
 const configWithTypos = {...config, maxTypos: 3};
@@ -189,4 +193,11 @@ test("should return false when the given answer isn't defined", t => {
   const question = createQuestion([['Guillaume Tell']]);
 
   assertIncorrect(t, config, question, [], []);
+});
+
+test('should return false when there are no correct answers', t => {
+  const question = createQuestion([]);
+
+  assertIncorrectEmptyAnswer(t, config, question, []);
+  assertIncorrectEmptyAnswer(t, config, question, ['foo']);
 });
