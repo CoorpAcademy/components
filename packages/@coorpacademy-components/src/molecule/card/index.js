@@ -55,18 +55,17 @@ const Card = (props, context) => {
   const whiteColor = get('common.white', skin);
   const cardStyle = viewStyle[view];
 
-  const myprogress =
-    !adaptiv && !empty ? (
-      <div className={style.progressWrapper}>
-        <div
-          className={style.progress}
-          style={{
-            width: `${progress * 100}%`,
-            backgroundColor: defaultColor
-          }}
-        />
-      </div>
-    ) : null;
+  const myprogress = !empty ? (
+    <div className={style.progressWrapper}>
+      <div
+        className={style.progress}
+        style={{
+          width: `${progress * 100}%`,
+          backgroundColor: defaultColor
+        }}
+      />
+    </div>
+  ) : null;
   const emptyIcon = empty ? <PicturesIcon className={style.emptyIcon} color={whiteColor} /> : null;
   const freeRunIcon = freerun ? (
     <div className={style.timerIconWrapper}>
