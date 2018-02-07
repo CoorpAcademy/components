@@ -13,6 +13,7 @@
   text-decoration: none;
   padding: 0 20px;
   cursor: pointer;
+  user-select: none;
 }
 
 /*
@@ -34,6 +35,7 @@
 .disabled {
   color: white;
   background-color: grey;
+  cursor: auto;
 }
 
 /*
