@@ -2,7 +2,11 @@
 import test from 'ava';
 import {getConfig} from '../config';
 import type {AcceptedAnswers, Config, QCMGraphicQuestion} from '../types';
-import {assertCorrect, assertIncorrect} from './helpers/assert-check-answer-correctness';
+import {
+  assertCorrect,
+  assertIncorrect,
+  assertIncorrectEmptyAnswer
+} from './helpers/assert-check-answer-correctness';
 
 const config: Config = getConfig({ref: 'microlearning', version: 'latest'});
 
@@ -86,4 +90,11 @@ test("should return false when the given answer isn't the same but resembles the
   const question = createQuestion([['answer2']]);
 
   assertIncorrect(t, config, question, ['answe2r'], [false]);
+});
+
+test('should return false when there are no correct answers', t => {
+  const question = createQuestion([]);
+
+  assertIncorrectEmptyAnswer(t, config, question, []);
+  assertIncorrectEmptyAnswer(t, config, question, ['foo']);
 });
