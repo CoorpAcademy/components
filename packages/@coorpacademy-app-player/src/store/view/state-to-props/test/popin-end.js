@@ -128,7 +128,7 @@ test('should not see comment section when answer is not correct', t => {
 test("should not see lives and 'You are out of lives!' message", t => {
   const dispatch = createDispatch(popinLearnerAdaptiveFailure);
   const props = popinEnd(options, {dispatch})(popinLearnerAdaptiveFailure);
-  t.is(props.summary.header.subtitle, '__Game over');
+  t.is(props.summary.header.subtitle, '__Nice try!');
   t.is(props.summary.header.lives, null);
 });
 

@@ -106,7 +106,7 @@ const summaryHeader = ({translate}, {dispatch}) => state => {
       pipe(get('type'), isEqual('failure')),
       () => ({
         title: translate('Ooops'),
-        subtitle: lives === 0 ? translate('You are out of lives!') : translate('Game over'),
+        subtitle: lives === 0 ? translate('You are out of lives!') : translate('Nice try!'),
         fail: true,
         lives,
         rank: extractRank(state),
