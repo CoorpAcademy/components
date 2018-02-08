@@ -21,7 +21,7 @@
     "stylelint": "stylelint '**/*.css'",
     "stylelint:fix": "npm run stylelint -- --fix",
     "nyc": "cross-env NODE_ENV=test nyc npm run ava",
-    "publish:beta": "lerna publish --npm-tag beta",
+    "publish:beta": "lerna publish --npm-tag beta --exact",
     "publish:canary": "lerna publish --canary --exact --cd-version=patch --skip-git",
     "publish:latest": "lerna publish --exact",
     "start:angular": "lerna exec --scope @coorpacademy/treantjs-adapter-angular -- npm start",
