@@ -3,9 +3,6 @@ import isEmpty from 'lodash/fp/isEmpty';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import isNil from 'lodash/fp/isNil';
-import intersection from 'lodash/fp/intersection';
-import map from 'lodash/fp/map';
-import flatMap from 'lodash/fp/flatMap';
 import {
   getCoaches,
   getCurrentContent,
@@ -19,6 +16,7 @@ import {
   getQuestionMedia,
   getNbSlides
 } from '../../utils/state-extract';
+import hasSeenLesson from '../../utils/has-seen-lesson';
 import {validateAnswer} from '../../actions/ui/answers';
 import {selectRoute} from '../../actions/ui/route';
 import {selectClue, getClue} from '../../actions/ui/clues';
@@ -30,12 +28,6 @@ const ROUTES = ['media', 'clue', 'context'];
 const STARS_DIFF = {
   media: 'starsPerResourceViewed',
   clue: 'starsPerAskingClue'
-};
-
-const shouldDisplayNewMedia = (slide, progression) => {
-  const currentLessons = map('ref', get('lessons', slide));
-  const viewedResources = flatMap('resources', getOr([], 'state.viewedResources', progression));
-  return isEmpty(intersection(currentLessons, viewedResources)) && !isEmpty(currentLessons);
 };
 
 const getProgressionStep = state => {
@@ -55,7 +47,6 @@ const playerProps = (options, store) => state => {
   const {translate} = options;
   const {dispatch} = store;
 
-  const progression = getCurrentProgression(state);
   const engineConfig = getEngineConfig(state);
   const slide = getCurrentSlide(state);
   const answer = createGetAnswerProps(options, store)(state, slide);
@@ -64,7 +55,7 @@ const playerProps = (options, store) => state => {
   const route = getRoute(state);
   const resources = getResourcesProps(options, store)(state, slide);
   const help = createGetHelp(options, store)(slide);
-  const notifyNewMedia = shouldDisplayNewMedia(slide, progression);
+  const notifyNewMedia = !hasSeenLesson(state);
   const starsDiff = get(STARS_DIFF[route], engineConfig) || 0;
   const isAnswer = !includes(route, ROUTES);
   const clickClueHandler = () => dispatch(selectClue);
