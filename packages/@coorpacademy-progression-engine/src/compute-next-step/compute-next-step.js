@@ -60,7 +60,7 @@ type ChapterContentSelection = {
   temporaryNextContent: Content
 };
 
-const nextSlidePool = (
+export const nextSlidePool = (
   config: Config,
   availableContent: AvailableContent,
   state: State
@@ -115,13 +115,6 @@ const _getChapterContent = (
       currentChapterContent: firstContent,
       nextChapterContent: firstContent,
       temporaryNextContent: {type: 'slide', ref: ''}
-    };
-  }
-  if (state.slides.length === 0) {
-    return {
-      currentChapterContent: firstContent,
-      nextChapterContent: firstContent,
-      temporaryNextContent: state.nextContent
     };
   }
   return nextSlidePool(config, availableContent, state);
@@ -217,7 +210,7 @@ const decrementLivesOnIncorrectAnswer = (
   return state;
 };
 
-const prepareStateToSwitchChapters = (
+export const prepareStateToSwitchChapters = (
   chapterRule: ChapterRule,
   state: State | null
 ): State | null => {
@@ -230,7 +223,7 @@ const prepareStateToSwitchChapters = (
   });
 };
 
-const computeNextStepForNewChapter = (
+export const computeNextStepForNewChapter = (
   config: Config,
   state: State | null,
   chapterRule: ChapterRule,
