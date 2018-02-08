@@ -1,8 +1,10 @@
 import test from 'ava';
+import map from 'lodash/fp/map';
 import pipe from 'lodash/fp/pipe';
 import set from 'lodash/fp/set';
 import flatten from 'lodash/fp/flatten';
 import macro from '../../../test/helpers/macro';
+import {ACCORDION_KLF, ACCORDION_TIPS, ACCORDION_LESSON} from '../../corrections';
 import mockContentService from '../../../test/helpers/mock-content-service';
 import {validateAnswer} from '../../answers';
 import {
@@ -11,6 +13,12 @@ import {
 } from '../../../api/progressions';
 import {CONTENT_FETCH_REQUEST, CONTENT_FETCH_SUCCESS} from '../../../api/contents';
 import {accordionIsOpenAt, fetchCorrection, progressionUpdated} from './helpers/shared';
+
+const correctAnswer = pipe(
+  set('state.content.ref', 'baz'),
+  set('state.nextContent', {type: 'slide', ref: 'baz'}),
+  set('state.isCorrect', true)
+)({});
 
 const wrongAnswer = pipe(
   set('state.content.ref', 'baz'),
@@ -43,7 +51,7 @@ const stateWithSlideAndManyResources = pipe(
   set('data.progressions.entities.foo.content', {ref: 'chapId'}),
   set('data.contents.slide.entities.baz', {
     chapter_id: 'chapId',
-    lessons: ['lesson_1', 'lesson_2', 'lesson_3']
+    lessons: map(_id => ({_id}), ['lesson_1', 'lesson_2', 'lesson_3'])
   })
 )({});
 
@@ -116,6 +124,38 @@ const contentFetchActions = [
 ];
 
 test(
+  'should provide a correct answer and see tips opened',
+  macro,
+  stateWithSlideAndManyResources,
+  services(correctAnswer),
+  validateAnswer('foo', {answer: ['bar']}),
+  flatten([
+    answer(correctAnswer),
+    contentFetchActions,
+    accordionIsOpenAt(ACCORDION_TIPS),
+    progressionUpdated,
+    fetchCorrection
+  ]),
+  6
+);
+
+test(
+  'should provide a wrong answer and see lesson opened',
+  macro,
+  stateWithSlideAndManyResources,
+  services(wrongAnswer),
+  validateAnswer('foo', {answer: ['bar']}),
+  flatten([
+    answer(wrongAnswer),
+    contentFetchActions,
+    accordionIsOpenAt(ACCORDION_LESSON),
+    progressionUpdated,
+    fetchCorrection
+  ]),
+  6
+);
+
+test(
   'should provide a wrong answer and see klf opened',
   macro,
   stateWithSlideAndManyResources,
@@ -124,23 +164,7 @@ test(
   flatten([
     answer(viewedOneLesson),
     contentFetchActions,
-    accordionIsOpenAt(0),
-    progressionUpdated,
-    fetchCorrection
-  ]),
-  6
-);
-
-test(
-  'should provide a wrong answer and see video opened',
-  macro,
-  stateWithSlideAndManyResources,
-  services(viewedThreeLessons),
-  validateAnswer('foo', {answer: ['bar']}),
-  flatten([
-    answer(viewedThreeLessons),
-    contentFetchActions,
-    accordionIsOpenAt(1),
+    accordionIsOpenAt(ACCORDION_KLF),
     progressionUpdated,
     fetchCorrection
   ]),
@@ -155,7 +179,7 @@ test(
   validateAnswer('foo', {answer: ['bar']}),
   flatten([
     answer(extraLifeAndViewedThreeLessons),
-    accordionIsOpenAt(0),
+    accordionIsOpenAt(ACCORDION_LESSON),
     progressionUpdated,
     fetchCorrection
   ]),

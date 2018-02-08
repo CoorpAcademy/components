@@ -1,15 +1,12 @@
 import get from 'lodash/fp/get';
-import getOr from 'lodash/fp/getOr';
-import find from 'lodash/fp/find';
-import pipe from 'lodash/fp/pipe';
 import remove from 'lodash/fp/remove';
 import includes from 'lodash/fp/includes';
-import {getSlide, getProgressionContent} from '../../utils/state-extract';
+import hasSeenLesson from '../../utils/has-seen-lesson';
 import {createAnswer} from '../api/progressions';
 import {fetchAnswer} from '../api/answers';
 import {fetchSlideChapter} from '../api/contents';
 import {progressionUpdated} from './progressions';
-import {toggleAccordion} from './corrections';
+import {toggleAccordion, ACCORDION_KLF, ACCORDION_TIPS, ACCORDION_LESSON} from './corrections';
 
 export const ANSWER_EDIT = {
   qcm: '@@answer/EDIT_QCM',
@@ -64,30 +61,22 @@ export const validateAnswer = (progressionId, body) => async (dispatch, getState
 
   const progressionState = get('state', payload);
   const slideId = get('content.ref', progressionState);
+  const nextContentRef = get('nextContent.ref', progressionState);
 
-  const {viewedResources = [], isCorrect = false} = progressionState;
+  const {isCorrect = false} = progressionState;
 
   const state = getState();
-  const progressionContent = getProgressionContent(state);
-  const slide = getSlide(slideId)(state);
-  const lessons = get('lessons', slide);
-  const viewedResourcesForContent = pipe(find(progressionContent), getOr([], 'resources'))(
-    viewedResources
-  );
 
-  if (payload.state.nextContent.type === 'slide') {
-    await dispatch(fetchSlideChapter(get('nextContent.ref', progressionState)));
+  if (get('nextContent.type', progressionState) === 'slide') {
+    await dispatch(fetchSlideChapter(nextContentRef));
   }
 
   if (isCorrect) {
-    await dispatch(toggleAccordion(2));
+    await dispatch(toggleAccordion(ACCORDION_TIPS));
+  } else if (nextContentRef !== 'extraLife' && hasSeenLesson(state)) {
+    await dispatch(toggleAccordion(ACCORDION_KLF));
   } else {
-    const hasViewedAllLessons =
-      viewedResourcesForContent.length > 0 && viewedResourcesForContent.length === lessons.length;
-
-    !hasViewedAllLessons || get('state.nextContent.ref', payload) === 'extraLife'
-      ? await dispatch(toggleAccordion(0))
-      : await dispatch(toggleAccordion(1));
+    await dispatch(toggleAccordion(ACCORDION_LESSON));
   }
 
   await dispatch(progressionUpdated(progressionId));
