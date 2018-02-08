@@ -72,7 +72,12 @@ test(
     set('data.progressions.entities.foo.state.nextContent', {
       type: 'slide',
       ref: 'baz'
-    })
+    }),
+    set('data.contents.slide.entities.baz.lessons', [
+      {
+        _id: 'lesson_id'
+      }
+    ])
   )({}),
   t => ({
     Logger: {
