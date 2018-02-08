@@ -51,7 +51,7 @@ const stateWithSlideAndManyResources = pipe(
   set('data.progressions.entities.foo.content', {ref: 'chapId'}),
   set('data.contents.slide.entities.baz', {
     chapter_id: 'chapId',
-    lessons: map(_id => ({_id}), ['lesson_1', 'lesson_2', 'lesson_3'])
+    lessons: map(ref => ({ref}), ['lesson_1', 'lesson_2', 'lesson_3'])
   })
 )({});
 

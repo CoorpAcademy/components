@@ -24,7 +24,7 @@ const hasSeenLesson = state => {
   );
 
   return (
-    isEmpty(lessons) || any(_id => includes(_id, map('_id', lessons)), viewedResourcesForContent)
+    isEmpty(lessons) || any(ref => includes(ref, map('ref', lessons)), viewedResourcesForContent)
   );
 };
 
