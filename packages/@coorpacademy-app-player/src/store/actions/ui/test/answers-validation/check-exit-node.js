@@ -50,7 +50,7 @@ test(
       version: '1'
     }),
     set('data.progressions.entities.foo.state.nextContent', {type: 'slide', ref: 'slideRef'}),
-    set('data.contents.slide.entities.slideRef.lessons', [{_id: 'lesson_id'}])
+    set('data.contents.slide.entities.slideRef.lessons', [{ref: 'lesson_ref'}])
   )({}),
   services,
   validateAnswer('foo', {answer: ['bar']}),

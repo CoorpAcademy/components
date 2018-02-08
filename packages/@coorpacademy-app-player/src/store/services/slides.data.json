@@ -20,6 +20,7 @@
     },
     "lessons": [
       {
+        "ref": "88393119",
         "type": "video",
         "poster": "https://api-staging.coorpacademy.com/api-service/medias?h=230&w=230&q=90&url=https://static.coorpacademy.com/content/digital/miniatures_cours/base/1B2.png",
         "description": "Anatomie d'une page de résultats",
@@ -31,6 +32,7 @@
         "src": []
       },
       {
+        "ref": "88546728",
         "description": "Historique des moteurs de recherche",
         "mimeType": "application/vimeo",
         "poster": "https://api-staging.coorpacademy.com/api-service/medias?h=230&w=230&q=90&url=https://static.coorpacademy.com/content/digital/miniatures_cours/base/1B1.png",
@@ -42,6 +44,7 @@
         "_id": "590b862e2e967f64333ad4fc"
       },
       {
+        "ref": "159363386",
         "type": "video",
         "mimeType": "video/mp4",
         "mediaUrl": "https://simoocdigital.credit-agricole.fr/media/content/bigdata/159363386.mp4",
@@ -67,6 +70,7 @@
         }
       },
       {
+        "ref": "1481283409059",
         "description": "La gestion du stress",
         "mediaUrl": "https://www.performances.fr/formation-gestion-stress.html",
         "mimeType": "application/pdf",
@@ -131,6 +135,7 @@
     },
     "lessons": [
       {
+        "ref": "88393119",
         "type": "video",
         "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B2.png",
         "description": "Anatomie d'une page de résultats",
@@ -142,6 +147,7 @@
         "src": []
       },
       {
+        "ref": "88546728",
         "description": "Historique des moteurs de recherche",
         "mimeType": "application/vimeo",
         "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B1.png",
@@ -153,6 +159,7 @@
         "_id": "590b862e2e967f64333ad4fc"
       },
       {
+        "ref": "1496311207505",
         "_id": "59307529a2b39d0024eebff3",
         "description": "Hierarchie",
         "mediaUrl": "//static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/raw/hierachie-contenu-1496311207505.pdf",
@@ -224,6 +231,7 @@
     },
     "lessons": [
       {
+        "ref": "88393119",
         "type": "video",
         "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B2.png",
         "description": "Anatomie d'une page de résultats",
@@ -235,6 +243,7 @@
         "src": []
       },
       {
+        "ref": "88546728",
         "description": "Historique des moteurs de recherche",
         "mimeType": "application/vimeo",
         "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B1.png",
@@ -246,6 +255,7 @@
         "_id": "590b862e2e967f64333ad4fc"
       },
       {
+        "ref": "1496311207505",
         "_id": "5930752aa2b39d0024eebff8",
         "description": "Hierarchie",
         "mediaUrl": "//static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/raw/hierachie-contenu-1496311207505.pdf",
@@ -323,6 +333,7 @@
     },
     "lessons": [
       {
+        "ref": "88393119",
         "type": "video",
         "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B2.png",
         "description": "Anatomie d'une page de résultats",
@@ -334,6 +345,7 @@
         "src": []
       },
       {
+        "ref": "88546728",
         "description": "Historique des moteurs de recherche",
         "mimeType": "application/vimeo",
         "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B1.png",
@@ -345,6 +357,7 @@
         "_id": "590b862e2e967f64333ad4fc"
       },
       {
+        "ref": "1496311207505",
         "_id": "59307529a2b39d0024eebfeb",
         "description": "Hierarchie",
         "mediaUrl": "//static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/raw/hierachie-contenu-1496311207505.pdf",
@@ -430,6 +443,7 @@
     },
     "lessons": [
       {
+        "ref": "88393119",
         "type": "video",
         "poster": "https://api-staging.coorpacademy.com/api-service/medias?h=230&w=230&q=90&url=https://static.coorpacademy.com/content/digital/miniatures_cours/base/1B2.png",
         "description": "Anatomie d'une page de résultats",
@@ -441,6 +455,7 @@
         "src": []
       },
       {
+        "ref": "88546728",
         "description": "Historique des moteurs de recherche",
         "mimeType": "application/vimeo",
         "poster": "https://api-staging.coorpacademy.com/api-service/medias?h=230&w=230&q=90&url=https://static.coorpacademy.com/content/digital/miniatures_cours/base/1B1.png",
@@ -452,6 +467,7 @@
         "_id": "590b862e2e967f64333ad4fc"
       },
       {
+        "ref": "1496311207505",
         "_id": "5930752aa2b39d0024eebffb",
         "description": "Hierarchie",
         "mediaUrl": "https://api-staging.coorpacademy.com/api-service/medias?h=230&w=230&q=90&url=https://static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/raw/hierachie-contenu-1496311207505.pdf",
@@ -696,6 +712,7 @@
     },
     "lessons": [
       {
+        "ref": "88393119",
         "type": "video",
         "poster": "https://api-staging.coorpacademy.com/api-service/medias?h=230&w=230&q=90&url=https://static.coorpacademy.com/content/digital/miniatures_cours/base/1B2.png",
         "description": "Anatomie d'une page de résultats",
@@ -707,6 +724,7 @@
         "src": []
       },
       {
+        "ref": "88546728",
         "description": "Historique des moteurs de recherche",
         "mimeType": "application/vimeo",
         "poster": "https://api-staging.coorpacademy.com/api-service/medias?h=230&w=230&q=90&url=https://static.coorpacademy.com/content/digital/miniatures_cours/base/1B1.png",
@@ -779,6 +797,7 @@
     },
     "lessons": [
       {
+        "ref": "189601796",
         "_id": "59311efb7b2f920056a8ed5f",
         "poster": "//static.coorpacademy.com/content/CoorpAcademy/content-partnerships-women-up/cockpit-partner-women-up/poster/vignette_womenup-1478108216371.png",
         "description": "La révolution numérique",
@@ -916,6 +935,7 @@
     },
     "lessons": [
       {
+        "ref": "127157752",
         "type": "video",
         "mimeType": "application/vimeo",
         "videoId": "127157752",
@@ -979,6 +999,7 @@
     "authors": [],
     "lessons": [
       {
+        "ref": "127718777",
         "type": "video",
         "mimeType": "application/vimeo",
         "videoId": "127718777",
@@ -1048,6 +1069,7 @@
     },
     "lessons": [
       {
+        "ref": "191200830",
         "type": "video",
         "mimeType": "application/vimeo",
         "videoId": "191200830",
@@ -1059,6 +1081,7 @@
         "src": []
       },
       {
+        "ref": "191168702",
         "type": "video",
         "mimeType": "application/vimeo",
         "videoId": "191168702",
@@ -1126,6 +1149,7 @@
     },
     "lessons": [
       {
+        "ref": "88393119",
         "type": "video",
         "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B2.png",
         "description": "Anatomie d'une page de résultats",
@@ -1201,6 +1225,7 @@
     },
     "lessons": [
       {
+        "ref": "88393119",
         "type": "video",
         "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B2.png",
         "description": "Anatomie d'une page de résultats",
@@ -1276,6 +1301,7 @@
     },
     "lessons": [
       {
+        "ref": "88393119",
         "type": "video",
         "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B2.png",
         "description": "Anatomie d'une page de résultats",
@@ -1347,6 +1373,7 @@
     },
     "lessons": [
       {
+        "ref": "88393119",
         "type": "video",
         "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B2.png",
         "description": "Anatomie d'une page de résultats",

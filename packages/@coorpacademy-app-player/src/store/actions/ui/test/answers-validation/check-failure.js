@@ -75,7 +75,7 @@ test(
     }),
     set('data.contents.slide.entities.baz.lessons', [
       {
-        _id: 'lesson_id'
+        ref: 'lesson_ref'
       }
     ])
   )({}),

@@ -47,7 +47,7 @@ test('should return true if slide lessons is an empty array', t => {
 test('should return true if at least one lesson has been seen', t => {
   const state = Object.freeze(slideFixture);
   const slide = getCurrentSlide(state);
-  const result = hasSeenAnyLesson(setViewedResources(slide.lessons[0]._id)(state));
+  const result = hasSeenAnyLesson(setViewedResources(slide.lessons[0].ref)(state));
 
   return t.is(result, true);
 });
@@ -62,7 +62,7 @@ test('should return true if side is at previous step and at least one lesson has
         type: 'slide',
         ref: slide._id
       }),
-      setViewedResources(slide.lessons[0]._id)
+      setViewedResources(slide.lessons[0].ref)
     )(state)
   );
 
