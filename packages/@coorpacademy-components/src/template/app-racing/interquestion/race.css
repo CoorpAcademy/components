@@ -1,0 +1,48 @@
+@value colors: "../../../variables/colors.css";
+@value dark from colors;
+@value medium from colors;
+
+.race {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+}
+
+.start, .arrival {
+  flex: 145 1000;
+  width: 100%;
+  font-family: 'Open Sans';
+  display: flex;
+  justify-content: center;
+  font-size: 1.2em;
+}
+
+.arrival {
+  top: 0;
+  align-items: flex-start;
+  border-bottom: 1px dashed medium;
+  color: dark;
+}
+
+.start {
+  bottom: 0;
+  align-items: flex-end;
+  background-color: dark;
+  color: white;
+}
+
+.cars {
+  display: flex;
+  position: relative;
+  width: 100%;
+  flex: 710 1000;
+  align-items: flex-end;
+  justify-content: space-around;
+  overflow: hidden;
+}
+
+.car {
+  width: 2em;
+}

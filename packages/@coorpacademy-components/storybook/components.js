@@ -126,6 +126,8 @@ import TemplateAppPlayerPlayer from './../src/template/app-player/player';
 import TemplateAppPlayerPopinCorrection from './../src/template/app-player/popin-correction';
 import TemplateAppPlayerPopinEnd from './../src/template/app-player/popin-end';
 import TemplateAppPlayerPopinHeader from './../src/template/app-player/popin-header';
+import TemplateAppRacingInterquestion from './../src/template/app-racing/interquestion';
+import TemplateAppRacingRace from './../src/template/app-racing/race';
 import TemplateBackOfficeBrandCreate from './../src/template/back-office/brand-create';
 import TemplateBackOfficeBrandList from './../src/template/back-office/brand-list';
 import TemplateBackOfficeBrandUpdate from './../src/template/back-office/brand-update';
@@ -613,6 +615,8 @@ import TemplateAppPlayerPopinHeaderFixtureLoading from '../src/template/app-play
 import TemplateAppPlayerPopinHeaderFixtureNextChapter from '../src/template/app-player/popin-header/test/fixtures/next-chapter';
 import TemplateAppPlayerPopinHeaderFixtureStarsRank from '../src/template/app-player/popin-header/test/fixtures/stars-rank';
 import TemplateAppPlayerPopinHeaderFixtureSuccess from '../src/template/app-player/popin-header/test/fixtures/success';
+import TemplateAppRacingInterquestionFixtureDefault from '../src/template/app-racing/interquestion/test/fixtures/default';
+import TemplateAppRacingRaceFixtureDefault from '../src/template/app-racing/race/test/fixtures/default';
 import TemplateBackOfficeBrandCreateFixtureDefault from '../src/template/back-office/brand-create/test/fixtures/default';
 import TemplateBackOfficeBrandCreateFixtureError from '../src/template/back-office/brand-create/test/fixtures/error';
 import TemplateBackOfficeBrandCreateFixtureLoading from '../src/template/back-office/brand-create/test/fixtures/loading';
@@ -814,6 +818,10 @@ export const components = {
   TemplateAppPlayerPlayerSlides: {
     TemplateAppPlayerPlayerSlidesSlidesFooter,
     TemplateAppPlayerPlayerSlidesSlidesPlayer
+  },
+  TemplateAppRacing: {
+    TemplateAppRacingInterquestion,
+    TemplateAppRacingRace
   },
   TemplateBackOffice: {
     TemplateBackOfficeBrandCreate,
@@ -1585,6 +1593,14 @@ export const fixtures = {
       Range: TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureRange,
       Template: TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureTemplate,
       WithMinHeight: TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureWithMinHeight
+    }
+  },
+  TemplateAppRacing: {
+    TemplateAppRacingInterquestion: {
+      Default: TemplateAppRacingInterquestionFixtureDefault
+    },
+    TemplateAppRacingRace: {
+      Default: TemplateAppRacingRaceFixtureDefault
     }
   },
   TemplateBackOffice: {
