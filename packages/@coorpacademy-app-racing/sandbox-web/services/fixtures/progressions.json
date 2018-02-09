@@ -1,0 +1,131 @@
+{
+  "0": {
+    "_id": "0",
+    "userId": "user_1",
+    "content": {
+      "ref": "5.C7",
+      "type": "chapter"
+    },
+    "meta": {
+      "updatedAt": "2018-02-09T14:43:57.921Z",
+      "createdAt": "2018-02-09T14:43:57.919Z"
+    },
+    "engineOptions": {
+      "goal": 20
+    },
+    "engine": {
+      "ref": "racing",
+      "version": "1"
+    },
+    "actions": [
+      {
+        "type": "racing-setup",
+        "payload": {
+          "teams": {
+            "0": {
+              "players": ["user_1"],
+              "step": 0
+            },
+            "1": {
+              "players": ["user_3", "user_4"],
+              "step": 0
+            }
+          },
+          "users": {
+            "user_1": {
+              "id": "user_1",
+              "team": 0,
+              "isCorrect": false,
+              "slides": [],
+              "questionNum": 1,
+              "nextContent": {
+                "type": "slide",
+                "ref": "1.B2.4"
+              }
+            },
+            "user_3": {
+              "id": "user_3",
+              "team": 1,
+              "isCorrect": false,
+              "slides": [],
+              "questionNum": 1,
+              "nextContent": {
+                "type": "slide",
+                "ref": "1.B2.4"
+              }
+            },
+            "user_4": {
+              "id": "user_4",
+              "team": 1,
+              "isCorrect": false,
+              "slides": [],
+              "questionNum": 1,
+              "nextContent": {
+                "type": "slide",
+                "ref": "1.B2.4"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "state": {
+      "teams": {
+        "0": {
+          "players": ["user_1", "user_2"],
+          "step": 0
+        },
+        "1": {
+          "players": ["user_3", "user_4"],
+          "step": 0
+        }
+      },
+      "users": {
+        "user_1": {
+          "id": "user_1",
+          "team": 0,
+          "isCorrect": false,
+          "slides": [],
+          "questionNum": 1,
+          "nextContent": {
+            "type": "slide",
+            "ref": "1.B2.4"
+          }
+        },
+        "user_2": {
+          "id": "user_2",
+          "team": 0,
+          "isCorrect": false,
+          "slides": [],
+          "questionNum": 1,
+          "nextContent": {
+            "type": "slide",
+            "ref": "1.B2.4"
+          }
+        },
+        "user_3": {
+          "id": "user_3",
+          "team": 1,
+          "isCorrect": false,
+          "slides": [],
+          "questionNum": 1,
+          "nextContent": {
+            "type": "slide",
+            "ref": "1.B2.4"
+          }
+        },
+        "user_4": {
+          "id": "user_4",
+          "team": 1,
+          "isCorrect": false,
+          "slides": [],
+          "questionNum": 1,
+          "nextContent": {
+            "type": "slide",
+            "ref": "1.B2.4"
+          }
+        }
+      }
+    }
+  }
+}

@@ -10,6 +10,7 @@ import {stateBeforeGettingNextContent} from './fixtures/states';
 
 const config: Config = getConfig({ref: 'learner', version: '1'});
 const state: State = {...stateBeforeGettingNextContent, lives: 0};
+const authors = ['foo'];
 
 test('should return an action linking to a new slide', t => {
   const availableContent: AvailableContent = [
@@ -19,12 +20,13 @@ test('should return an action linking to a new slide', t => {
       rules: null
     }
   ];
-  const result = computeNextStepOnAcceptExtraLife(config, state, availableContent);
+  const result = computeNextStepOnAcceptExtraLife(config, state, availableContent, authors);
   if (!result) {
     throw new Error('action should not be falsy');
   }
   t.deepEqual(omit(['payload.nextContent.ref'], result), {
     type: 'extraLifeAccepted',
+    authors: ['foo'],
     payload: {
       content: {ref: 'extraLife', type: 'node'},
       nextContent: {type: 'slide'},
@@ -36,7 +38,7 @@ test('should return an action linking to a new slide', t => {
 
 test('should return null if there is no available content', t => {
   const availableContent: AvailableContent = [];
-  t.is(computeNextStepOnAcceptExtraLife(config, state, availableContent), null);
+  t.is(computeNextStepOnAcceptExtraLife(config, state, availableContent, authors), null);
 });
 
 test('should not apply the lives increment twice when switching chapters', t => {
@@ -90,9 +92,10 @@ test('should not apply the lives increment twice when switching chapters', t => 
     }
   ];
 
-  const result = computeNextStepOnAcceptExtraLife(config, state, availableContent);
+  const result = computeNextStepOnAcceptExtraLife(config, state, availableContent, authors);
   t.deepEqual(result, {
     type: 'extraLifeAccepted',
+    authors: ['foo'],
     payload: {
       content: {ref: 'extraLife', type: 'node'},
       nextContent: {type: 'slide', ref: '2.A1.2'},
