@@ -3,11 +3,12 @@ import test from 'ava';
 import omit from 'lodash/fp/omit';
 import pick from 'lodash/fp/pick';
 import get from 'lodash/fp/get';
-import updateState from '../update-state';
+import updateState from '../update-state-learner';
 import {getConfig} from '../config';
 import type {
   AnswerAction,
   AskClueAction,
+  Config,
   State,
   ContentResourceViewedAction,
   ExtraLifeAcceptedAction,
@@ -23,7 +24,7 @@ const engine = {
   ref: 'microlearning',
   version: '1'
 };
-const config = getConfig(engine);
+const config = (getConfig(engine): Config);
 
 function contentResourceViewedAction(
   contentType: string,
@@ -32,6 +33,7 @@ function contentResourceViewedAction(
 ): ContentResourceViewedAction {
   return Object.freeze({
     type: 'resource',
+    authors: ['bar'],
     payload: {
       resource: {
         ref: lessonRef,
@@ -49,6 +51,7 @@ function contentResourceViewedAction(
 
 const wrongAnswerAction: AnswerAction = Object.freeze({
   type: 'answer',
+  authors: ['bar'],
   payload: {
     answer: ['foo'],
     content: {
@@ -67,6 +70,7 @@ const wrongAnswerAction: AnswerAction = Object.freeze({
 
 const extraLifeAcceptedAction: ExtraLifeAcceptedAction = Object.freeze({
   type: 'extraLifeAccepted',
+  authors: ['bar'],
   payload: {
     content: {
       type: 'node',
@@ -126,6 +130,7 @@ test('should update state when answering the first question correctly', t => {
 
   const action: AnswerAction = Object.freeze({
     type: 'answer',
+    authors: ['bar'],
     payload: {
       answer: ['foo'],
       content: {
@@ -174,6 +179,7 @@ test('should update state when answering the another question correctly', t => {
 
   const action: AnswerAction = Object.freeze({
     type: 'answer',
+    authors: ['bar'],
     payload: {
       answer: ['foo'],
       content: {
@@ -293,6 +299,7 @@ test('should update state when asking for a clue', t => {
 
   const action: AskClueAction = Object.freeze({
     type: 'clue',
+    authors: ['bar'],
     payload: {
       content: {
         ref: '1.A1.2',
@@ -325,6 +332,7 @@ test('should update stars once when actions has several AskClueAction for the sa
 
   const action: AskClueAction = Object.freeze({
     type: 'clue',
+    authors: ['bar'],
     payload: {
       content: {
         ref: '1.A1.2',
@@ -426,6 +434,7 @@ test("should throw if the state's nextContent is not the same as the action's co
   const state: State = Object.freeze(stateForSecondSlide);
   const action: AnswerAction = Object.freeze({
     type: 'answer',
+    authors: ['bar'],
     payload: {
       answer: ['foo'],
       content: {
@@ -473,6 +482,7 @@ test('should go to failure when refusing extra life', t => {
   const state: State = Object.freeze(extraLifeProgressionState);
   const action: ExtraLifeRefusedAction = Object.freeze({
     type: 'extraLifeRefused',
+    authors: ['bar'],
     payload: {
       content: {
         type: 'node',
@@ -503,6 +513,7 @@ test('should update step when answering a question', t => {
 
   const action: AnswerAction = Object.freeze({
     type: 'answer',
+    authors: ['bar'],
     payload: {
       answer: ['foo'],
       content: {
