@@ -48,11 +48,25 @@ test(
   [
     {
       type: PROGRESSION_CREATE_ANSWER_REQUEST,
-      meta: {progressionId: 'foo'}
+      meta: {
+        progressionId: 'foo',
+        answer: ['bar'],
+        content: {
+          ref: 'baz',
+          type: 'slide'
+        }
+      }
     },
     {
       type: PROGRESSION_CREATE_ANSWER_FAILURE,
-      meta: {progressionId: 'foo'},
+      meta: {
+        progressionId: 'foo',
+        answer: ['bar'],
+        content: {
+          ref: 'baz',
+          type: 'slide'
+        }
+      },
       error: true,
       payload: new Error('some error')
     }
@@ -61,7 +75,7 @@ test(
 );
 
 test(
-  'should dispatch failure when answers request fail',
+  'should dispatch failure when answer request fail',
   macro,
   pipe(
     set('ui.current.progressionId', 'foo'),
@@ -121,11 +135,25 @@ test(
   flatten([
     {
       type: PROGRESSION_CREATE_ANSWER_REQUEST,
-      meta: {progressionId: 'foo'}
+      meta: {
+        progressionId: 'foo',
+        answer: ['bar'],
+        content: {
+          ref: 'baz',
+          type: 'slide'
+        }
+      }
     },
     {
       type: PROGRESSION_CREATE_ANSWER_SUCCESS,
-      meta: {progressionId: 'foo'},
+      meta: {
+        progressionId: 'foo',
+        answer: ['bar'],
+        content: {
+          ref: 'baz',
+          type: 'slide'
+        }
+      },
       payload: pipe(
         set('state.content.ref', 'baz'),
         set('state.nextContent', {type: 'success', ref: 'successExitNode'}),

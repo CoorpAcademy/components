@@ -1,5 +1,7 @@
 // @flow
 
+import type {Instruction, ChapterRule} from './rule-engine/types';
+
 export type Step = {
   current: number
 };
@@ -29,7 +31,7 @@ export type ViewedResource = {
 export type AnswerRecord = {
   slideRef: string,
   answer: Answer,
-  isCorrect: boolean
+  isCorrect: ?boolean
 };
 
 export type Variable = string | boolean | number;
@@ -40,7 +42,7 @@ export type GenericState = {
   nextContent?: Content,
   lives: number,
   livesDisabled?: boolean,
-  isCorrect: boolean,
+  isCorrect: ?boolean,
   slides: Array<string>,
   requestedClues: Array<string>,
   viewedResources: Array<ViewedResource>,
@@ -78,7 +80,9 @@ export type AnswerAction = {
     content: Content,
     nextContent: Content,
     answer: Answer,
-    isCorrect: boolean
+    isCorrect: ?boolean,
+    godMode: ?boolean,
+    instructions: Array<Instruction> | null
   }
 };
 
@@ -86,11 +90,20 @@ export type InitAction = {
   type: 'init'
 };
 
+export type MoveAction = {
+  type: 'move',
+  payload: {
+    nextContent: Content,
+    instructions: Array<Instruction> | null
+  }
+};
+
 export type ExtraLifeAcceptedAction = {
   type: 'extraLifeAccepted',
   payload: {
     content: Content,
-    nextContent: Content
+    nextContent: Content,
+    instructions: Array<Instruction> | null
   }
 };
 
@@ -104,28 +117,33 @@ export type ExtraLifeRefusedAction = {
 
 export type Action =
   | InitAction
+  | MoveAction
   | AnswerAction
   | AskClueAction
   | ExtraLifeAcceptedAction
   | ExtraLifeRefusedAction
-  | ContentResourceViewedAction;
+  | ContentResourceViewedAction
+  | MoveAction;
 
 export type Engine = {
   ref: string,
   version: string
 };
 
+export type EngineOptions = {
+  livesDisabled?: boolean
+};
+
 export type Progression = {
   content: Content,
-  initialState: State,
-  state: State,
-  actions: Array<Action>,
-  engine: Engine
+  engine: Engine,
+  engineOptions: EngineOptions,
+  actions: Array<Action>
 };
 
 export type PartialCorrection = {
   answer: string | void,
-  isCorrect: boolean
+  isCorrect: ?boolean
 };
 
 export type AnswerCorrection = {
@@ -213,3 +231,11 @@ export type Config = {
   starsPerResourceViewed: number,
   remainingLifeRequests: number
 };
+
+export type ChapterContent = {
+  ref: string,
+  slides: Array<Slide>,
+  rules: Array<ChapterRule> | null
+};
+
+export type AvailableContent = Array<ChapterContent>;

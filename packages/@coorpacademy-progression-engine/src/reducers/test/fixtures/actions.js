@@ -4,7 +4,8 @@ import type {
   AnswerAction,
   AskClueAction,
   ExtraLifeAcceptedAction,
-  ExtraLifeRefusedAction
+  ExtraLifeRefusedAction,
+  MoveAction
 } from '../../../types';
 
 export const answerAction: AnswerAction = Object.freeze({
@@ -19,7 +20,9 @@ export const answerAction: AnswerAction = Object.freeze({
       ref: '1.A1.1',
       type: 'slide'
     },
-    isCorrect: false
+    isCorrect: false,
+    godMode: false,
+    instructions: null
   }
 });
 
@@ -43,7 +46,8 @@ export const extraLifeAcceptedAction: ExtraLifeAcceptedAction = Object.freeze({
     nextContent: {
       ref: '1.A1.1',
       type: 'slide'
-    }
+    },
+    instructions: null
   }
 });
 
@@ -57,6 +61,17 @@ export const extraLifeRefusedAction: ExtraLifeRefusedAction = Object.freeze({
     nextContent: {
       ref: 'failExitNode',
       type: 'failure'
+    }
+  }
+});
+
+export const moveAction: MoveAction = Object.freeze({
+  type: 'move',
+  payload: {
+    instructions: null,
+    nextContent: {
+      ref: '1.A1.1',
+      type: 'slide'
     }
   }
 });

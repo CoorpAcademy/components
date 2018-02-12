@@ -1,5 +1,5 @@
 // @flow
-import type {Content} from '../../types';
+import type {Content} from '../types';
 import type {OperatorKeys} from './condition-operators';
 
 type Target =
@@ -21,8 +21,8 @@ type Condition = {
 
 type Instruction = {
   field: string,
-  type: 'add',
-  value: number
+  type: 'add' | 'set',
+  value: number | boolean | string
 };
 
 type ChapterRule = {

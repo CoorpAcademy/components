@@ -19,6 +19,7 @@ import {SEND_POST_COMMENT_REQUEST, SEND_POST_COMMENT_SUCCESS} from '../../../act
 
 import popinLearnerSuccess from '../../test/fixtures/popin-end/learner-success';
 import popinLearnerFailure from '../../test/fixtures/popin-end/learner-failure';
+import popinLearnerAdaptiveFailure from '../../test/fixtures/popin-end/learner-adaptive-failure';
 import popinMicrolearningFailure from '../../test/fixtures/popin-end/fail';
 
 const services = {
@@ -120,6 +121,15 @@ test('should not see comment section when answer is not correct', t => {
   const dispatch = createDispatch(popinLearnerFailure);
   const props = popinEnd(options, {dispatch})(popinLearnerFailure);
   t.is(props.summary.comment, null);
+  t.is(props.summary.header.subtitle, '__You are out of lives!');
+  t.is(props.summary.header.lives, 0);
+});
+
+test("should not see lives and 'You are out of lives!' message", t => {
+  const dispatch = createDispatch(popinLearnerAdaptiveFailure);
+  const props = popinEnd(options, {dispatch})(popinLearnerAdaptiveFailure);
+  t.is(props.summary.header.subtitle, '__Nice try!');
+  t.is(props.summary.header.lives, null);
 });
 
 test('should create a "Back to Home" CTA after success on learner progression with coach content', t => {

@@ -1,8 +1,10 @@
 // @flow
+import get from 'lodash/fp/get';
+import head from 'lodash/fp/head';
 import isEqual from 'lodash/fp/isEqual';
 import filter from 'lodash/fp/filter';
 import sortBy from 'lodash/fp/sortBy';
-import type {Content, GenericState} from '../../types';
+import type {Content, State} from '../types';
 import type {ChapterRule} from './types';
 import checkCondition from './condition-operators';
 
@@ -11,9 +13,12 @@ export const DEFAULT_SOURCE = {
   ref: ''
 };
 
-const isCurrentSlide = (source: ?Content) => (chapterRule: ChapterRule): boolean => {
-  const currentsource = source || DEFAULT_SOURCE;
-  return isEqual(currentsource)(chapterRule.source);
+const isRuleAvailable = (source: Content) => (chapterRule: ChapterRule): boolean => {
+  const isSameSource = isEqual(source, chapterRule.source);
+  const hasSameType = (source && source.type) === chapterRule.source.type;
+  const isGlobalRule = hasSameType && get('source.ref', chapterRule) === '*';
+
+  return isSameSource || isGlobalRule;
 };
 
 const isSameType = refValue => (value): boolean => {
@@ -21,7 +26,7 @@ const isSameType = refValue => (value): boolean => {
   return typeof refValue === typeof value;
 };
 
-const matchWithState = (state: GenericState) => (chapterRule: ChapterRule): boolean => {
+const matchWithState = (state: State) => (chapterRule: ChapterRule): boolean => {
   const conditions = chapterRule.conditions;
   return conditions.every((condition): boolean => {
     const {target, operator, values} = condition;
@@ -47,8 +52,6 @@ const matchWithState = (state: GenericState) => (chapterRule: ChapterRule): bool
         };
 
         const value = variables[field];
-        if (!value) return false;
-
         const typedValues = values.filter(isSameType(value));
         return checkCondition(operator, typedValues, value);
       }
@@ -60,10 +63,16 @@ const matchWithState = (state: GenericState) => (chapterRule: ChapterRule): bool
   });
 };
 
-const selectRule = (rules: Array<ChapterRule>, state: GenericState): ?ChapterRule => {
-  const targetedChapterRules: Array<ChapterRule> = filter(isCurrentSlide(state.content))(rules);
-  const sortedChapterRules: Array<ChapterRule> = sortBy('priority')(targetedChapterRules);
+const selectRule = (rules: Array<ChapterRule>, state: State | null): ChapterRule | null => {
+  const targetedChapterRules: Array<ChapterRule> = filter(
+    isRuleAvailable(state ? state.nextContent : DEFAULT_SOURCE),
+    rules
+  );
+  const sortedChapterRules: Array<ChapterRule> = sortBy('priority', targetedChapterRules);
 
+  if (!state) {
+    return head(sortedChapterRules);
+  }
   return sortedChapterRules.find(matchWithState(state)) || null;
 };
 

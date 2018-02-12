@@ -13,7 +13,6 @@ import split from 'lodash/fp/split';
 import toLower from 'lodash/fp/toLower';
 import zip from 'lodash/fp/zip';
 import FuzzyMatching from 'fuzzy-matching';
-import getConfig from './config';
 import type {
   Question,
   BasicQuestion,
@@ -22,7 +21,6 @@ import type {
   AnswerCorrection,
   AcceptedAnswers,
   Answer,
-  Engine,
   Config
 } from './types';
 
@@ -77,6 +75,10 @@ function matchAnswerForBasic(
   question: BasicQuestion,
   givenAnswer: Answer
 ): Array<Array<PartialCorrection>> {
+  if (question.content.answers.length === 0) {
+    return [];
+  }
+
   const isCorrect = isTextCorrect(
     config,
     question.content.answers.map(answers => answers[0]),
@@ -92,6 +94,10 @@ function matchAnswerForTemplate(
   question: TemplateQuestion,
   givenAnswer: Answer
 ): Array<Array<PartialCorrection>> {
+  if (question.content.answers.length === 0) {
+    return [];
+  }
+
   const result = givenAnswer.map((answer, index) => ({
     answer,
     isCorrect: question.content.answers.some(allowedAnswer =>
@@ -150,11 +156,10 @@ function matchAnswerForOrderedItems(
 const findBestMatch = maxBy(correction => filter('isCorrect', correction).length);
 
 function matchGivenAnswerToQuestion(
-  engine: Engine,
+  config: Config,
   question: Question,
   givenAnswer: Answer
 ): Array<Array<PartialCorrection>> {
-  const config = (getConfig(engine): Config);
   const allowedAnswers = question.content.answers;
   switch (question.type) {
     case 'basic': {
@@ -183,11 +188,19 @@ function matchGivenAnswerToQuestion(
 }
 
 export default function checkAnswerCorrectness(
-  engine: Engine,
+  config: Config,
   question: Question,
   givenAnswer: Answer
 ): AnswerCorrection {
-  const bestMatch = findBestMatch(matchGivenAnswerToQuestion(engine, question, givenAnswer));
+  const matches = matchGivenAnswerToQuestion(config, question, givenAnswer);
+  if (matches.length === 0) {
+    return {
+      isCorrect: false,
+      corrections: []
+    };
+  }
+
+  const bestMatch: Array<PartialCorrection> = findBestMatch(matches);
   return {
     isCorrect: every('isCorrect', bestMatch),
     corrections: filter(item => item.answer !== undefined, bestMatch)

@@ -1,18 +1,16 @@
 // @flow
 import test from 'ava';
+import {getConfig} from '../config';
 import checkAnswer from '../check-answer';
 import checkAnswerCorrectness from '../check-answer-correctness';
-import type {Answer, Engine, Question} from '../types';
+import type {Answer, Config, Question} from '../types';
 
-const engine: Engine = {
-  ref: 'microlearning',
-  version: 'latest'
-};
+const config: Config = getConfig({ref: 'microlearning', version: 'latest'});
 
 // eslint-disable-next-line flowtype/no-weak-types
 function checkBothMethods(t: any, expected: boolean, question: Question, givenAnswer: Answer) {
-  t.is(checkAnswerCorrectness(engine, question, givenAnswer).isCorrect, expected);
-  t.is(checkAnswer(engine, question, givenAnswer), expected);
+  t.is(checkAnswerCorrectness(config, question, givenAnswer).isCorrect, expected);
+  t.is(checkAnswer(config, question, givenAnswer), expected);
 }
 
 test("should return the value of `isCorrect` in checkAnswerCorrectness's result (basic)", t => {

@@ -21,6 +21,7 @@ import {
   getCurrentProgressionId,
   getStartRank,
   getEndRank,
+  getLives,
   isCommentSent,
   isCurrentEngineMicrolearning,
   isCurrentEngineLearner
@@ -69,7 +70,7 @@ const comment = ({translate}, {dispatch}) => state => {
 };
 
 const summaryHeader = ({translate}, {dispatch}) => state => {
-  const progression = getCurrentProgression(state);
+  const lives = getLives(state);
   const successCta = {
     title: translate('Back to home'),
     href: '/',
@@ -105,9 +106,9 @@ const summaryHeader = ({translate}, {dispatch}) => state => {
       pipe(get('type'), isEqual('failure')),
       () => ({
         title: translate('Ooops'),
-        subtitle: translate('You are out of lives!'),
+        subtitle: lives === 0 ? translate('You are out of lives!') : translate('Nice try!'),
         fail: true,
-        lives: get('state.lives')(progression),
+        lives,
         rank: extractRank(state),
         stars: null,
         cta: {

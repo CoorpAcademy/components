@@ -28,7 +28,9 @@ test('should return new variables with instructions to set initial attributes', 
 test('should return new variables with instructions to update attributes', t => {
   const instructions = [
     {value: 1, type: 'add', field: 'A'},
-    {value: 4, type: 'add', field: 'stars'}
+    {value: 4, type: 'add', field: 'stars'},
+    {value: 'foo', type: 'add', field: 'B'},
+    {value: 'baz', type: 'add', field: 'C'}
   ];
 
   const fromState = {
@@ -36,10 +38,17 @@ test('should return new variables with instructions to update attributes', t => 
     stars: 4,
     variables: {
       A: 0,
+      B: 0,
+      C: 'bar',
       reverse: false
     }
   };
-  const expectedVariables = pipe(set('stars', 8), set('variables.A', 1))(fromState);
+  const expectedVariables = pipe(
+    set('stars', 8),
+    set('variables.A', 1),
+    set('variables.B', 0),
+    set('variables.C', 'barbaz')
+  )(fromState);
 
   const variables = applyInstructions(instructions)(fromState);
 

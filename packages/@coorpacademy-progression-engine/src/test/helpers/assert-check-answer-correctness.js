@@ -3,11 +3,11 @@ import map from 'lodash/fp/map';
 import pipe from 'lodash/fp/pipe';
 import zip from 'lodash/fp/zip';
 import checkAnswerCorrectness from '../../check-answer-correctness';
-import type {Question, Answer, Engine} from '../../types';
+import type {Question, Answer, Config} from '../../types';
 
 // eslint-disable-next-line flowtype/no-weak-types
-function assertCorrect(t: any, engine: Engine, question: Question, givenAnswer: Answer) {
-  const result = checkAnswerCorrectness(engine, question, givenAnswer);
+export function assertCorrect(t: any, config: Config, question: Question, givenAnswer: Answer) {
+  const result = checkAnswerCorrectness(config, question, givenAnswer);
   t.true(result.isCorrect, 'Answer should have been considered as correct');
   t.deepEqual(
     result.corrections,
@@ -16,9 +16,9 @@ function assertCorrect(t: any, engine: Engine, question: Question, givenAnswer: 
   );
 }
 
-function assertIncorrect(
+export function assertIncorrect(
   t: any, // eslint-disable-line flowtype/no-weak-types
-  engine: Engine,
+  config: Config,
   question: Question,
   givenAnswer: Answer,
   expectedCorrections: Array<boolean>
@@ -28,7 +28,7 @@ function assertIncorrect(
     expectedCorrections.length,
     'Expected corrections should have the same length as givenAnswer'
   );
-  const result = checkAnswerCorrectness(engine, question, givenAnswer);
+  const result = checkAnswerCorrectness(config, question, givenAnswer);
   t.false(result.isCorrect, 'Answer should have been considered as incorrect');
   t.deepEqual(
     result.corrections,
@@ -39,4 +39,14 @@ function assertIncorrect(
   );
 }
 
-export {assertCorrect, assertIncorrect};
+export function assertIncorrectEmptyAnswer(
+  t: any, // eslint-disable-line flowtype/no-weak-types
+  config: Config,
+  question: Question,
+  givenAnswer: Answer
+) {
+  t.deepEqual(checkAnswerCorrectness(config, question, givenAnswer), {
+    isCorrect: false,
+    corrections: []
+  });
+}

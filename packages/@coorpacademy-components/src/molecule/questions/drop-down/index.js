@@ -1,19 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import filter from 'lodash/fp/filter';
-import getOr from 'lodash/fp/getOr';
-import head from 'lodash/fp/head';
-import pipe from 'lodash/fp/pipe';
+import find from 'lodash/fp/find';
 import Select, {SelectOptionPropTypes} from '../../../atom/select';
 import style from './style.css';
 
 const DropDown = (props, context) => {
   const {options, onChange} = props;
 
-  const currentSelection = pipe(filter('selected'), head)(options);
-  const defaultTheme = currentSelection.validOption === false ? 'invalid' : 'question';
+  const currentSelection = find('selected', options);
+  const defaultTheme =
+    !currentSelection || currentSelection.validOption === false ? 'invalid' : 'question';
 
-  const theme = getOr(defaultTheme, 'theme', props);
+  const theme = props.theme || defaultTheme;
 
   return (
     <div className={style.wrapper}>

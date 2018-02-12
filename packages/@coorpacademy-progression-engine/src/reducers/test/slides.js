@@ -1,6 +1,6 @@
 // @flow
 import test from 'ava';
-import getConfig from '../../config';
+import {getConfig} from '../../config';
 import slides from '../slides';
 import {answerAction, askClueAction} from './fixtures/actions';
 import {microlearning} from './fixtures/engines';

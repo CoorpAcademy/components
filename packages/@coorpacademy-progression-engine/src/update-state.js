@@ -5,7 +5,6 @@ import map from 'lodash/fp/map';
 import pipe from 'lodash/fp/pipe';
 import reduce from 'lodash/fp/reduce';
 import isEmpty from 'lodash/fp/isEmpty';
-import getConfig from './config';
 import allAnswers from './reducers/all-answers';
 import content from './reducers/content';
 import hasViewedAResourceAtThisStep from './reducers/has-viewed-a-resource-at-this-step';
@@ -20,14 +19,16 @@ import stars from './reducers/stars';
 import step from './reducers/step';
 import validate from './reducers/validate';
 import viewedResources from './reducers/viewed-resources';
-import type {Action, Engine, Config, State} from './types';
+import variables from './reducers/variables';
+import type {Action, Config, State} from './types';
 
 function combineReducers(
-  fnMap: Array<{key: string, fn: Function}> // eslint-disable-line flowtype/no-weak-types
+  fnMap: Array<{key?: string, fn: Function}> // eslint-disable-line flowtype/no-weak-types
 ): Config => (State, Action) => State {
   // eslint-disable-next-line flowtype/require-return-type
   const fns = map(({fn, key}) => {
     return (config: Config, action: Action) => (state: State): State => {
+      if (!key) return fn(config)(state, action);
       const newState = update(key, value => fn(config)(value, action, state), state);
       return (newState: State);
     };
@@ -54,11 +55,11 @@ const reduceAction = combineReducers([
   {key: 'hasViewedAResourceAtThisStep', fn: hasViewedAResourceAtThisStep},
   {key: 'content', fn: content},
   {key: 'nextContent', fn: nextContent},
-  {key: 'allAnswers', fn: allAnswers}
+  {key: 'allAnswers', fn: allAnswers},
+  {fn: variables}
 ]);
 
-export default function updateState(engine: Engine, state: State, actions: Array<Action>): State {
-  const config = (getConfig(engine): Config);
+export default function updateState(config: Config, state: State, actions: Array<Action>): State {
   if (isEmpty(actions)) {
     return reduce(reduceAction(config), state, [{type: 'init'}]);
   }

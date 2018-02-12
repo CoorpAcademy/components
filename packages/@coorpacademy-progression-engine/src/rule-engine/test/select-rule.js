@@ -1,11 +1,11 @@
 // @flow
 import test from 'ava';
-import type {Content, GenericState} from '../../../types';
+import type {Content, State} from '../../types';
 import selectRule, {DEFAULT_SOURCE} from '../select-rule';
 import type {ChapterRule} from '../types';
 
-const createState = (content): GenericState => ({
-  content,
+const createState = (nextContent): State => ({
+  nextContent,
   lives: 3,
   stars: 0,
   livesDisabled: true,
@@ -37,8 +37,8 @@ const destination: Content = {
   ref: '1.A1.2'
 };
 
-const defaultState: GenericState = {
-  content: source,
+const defaultState: State = {
+  nextContent: source,
   lives: 2,
   stars: 0,
   livesDisabled: true,
@@ -151,16 +151,13 @@ test('should select right chapter from source and priority', t => {
   t.is(actualChapterRule.ref, 'high_priority');
 });
 
-test('should select chapterRule with empty source if state has no content', t => {
-  const state = {...defaultState, content: undefined};
-
-  const actualChapterRule = selectRule(chapterRules, state) || {};
-
-  t.is(actualChapterRule.ref, '3');
+test('should select chapterRule with empty source if state is null', t => {
+  const rule = selectRule(chapterRules, null);
+  t.is(rule && rule.ref, '3');
 });
 
-test('should return no chapterRule if any match', t => {
-  const state = {...defaultState, content: {type: 'slide', ref: 'noop'}};
+test('should return no chapterRule if none match', t => {
+  const state = {...defaultState, nextContent: {type: 'slide', ref: 'noop'}};
 
   const actualChapterRule = selectRule(chapterRules, state);
   t.is(actualChapterRule, null);
@@ -269,6 +266,23 @@ test("should select chapterRule with 'variables' scope", t => {
         {
           target: {
             scope: 'variable',
+            field: 'foo'
+          },
+          operator: 'EQUALS',
+          values: [1]
+        }
+      ],
+      priority: 0,
+      ref: 'lives'
+    },
+    {
+      source,
+      destination,
+      instructions: [],
+      conditions: [
+        {
+          target: {
+            scope: 'variable',
             field: 'lives'
           },
           operator: 'GTE',
@@ -355,4 +369,48 @@ test("should select chapterRule with 'variables' scope", t => {
   const nocustomState = defaultState;
   const nocustomChapterRule = selectRule(slideScopedRules, nocustomState);
   t.is(nocustomChapterRule, null, "Don't support 'variable' scoped target with custom field");
+});
+
+test("should select a rule with source.ref:'*'", t => {
+  const value = 111;
+  const baseRule = {
+    source,
+    destination,
+    instructions: [],
+    conditions: [
+      {
+        target: {
+          scope: 'variable',
+          field: 'foo'
+        },
+        operator: 'EQUALS',
+        values: [value]
+      }
+    ],
+    ref: '1'
+  };
+
+  const sameSourceLowPriority = {
+    ...baseRule,
+    priority: 1
+  };
+
+  const globalSourceHighPriority = {
+    ...baseRule,
+    source: {
+      type: 'slide',
+      ref: '*'
+    },
+    priority: 0
+  };
+
+  const rules = [sameSourceLowPriority, globalSourceHighPriority];
+
+  const state = {
+    ...defaultState,
+    variables: {foo: value}
+  };
+
+  const selectedRule = selectRule(rules, state);
+  t.deepEqual(selectedRule, globalSourceHighPriority);
 });

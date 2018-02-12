@@ -1,4 +1,5 @@
 import test from 'ava';
+import omit from 'lodash/fp/omit';
 import isObject from 'lodash/fp/isObject';
 import isString from 'lodash/fp/isString';
 import {getConfig} from '@coorpacademy/progression-engine';
@@ -16,18 +17,51 @@ const engine = {
   version: '1'
 };
 
-test('should create progression', async t => {
-  const {_id, state} = await create({engine});
+test('should create progression for a non-adaptive chapter', async t => {
+  const progression = await create(engine, '5.C7');
+  t.true(isString(progression._id));
+  t.true(isString(progression.actions[0].payload.nextContent.ref));
+  t.is(progression.state.nextContent.ref, progression.actions[0].payload.nextContent.ref);
+  t.deepEqual(
+    omit(['_id', 'state', ['actions', 0, 'payload', 'nextContent', 'ref']], progression),
+    {
+      engine,
+      content: {type: 'chapter', ref: '5.C7'},
+      engineOptions: {},
+      actions: [{type: 'move', payload: {instructions: null, nextContent: {type: 'slide'}}}]
+    }
+  );
+});
 
-  t.true(isString(_id));
-  t.true(isObject(state));
-  t.true(isObject(state.nextContent));
-  t.true(isString(state.nextContent.ref));
-  t.is(state.nextContent.type, 'slide');
+test('should create progression for an adaptive chapter', async t => {
+  const progression = await create(engine, 'cha_N19MiQrYG');
+  t.true(isString(progression._id));
+  t.true(isString(progression.actions[0].payload.nextContent.ref));
+  t.is(progression.state.nextContent.ref, progression.actions[0].payload.nextContent.ref);
+  t.deepEqual(omit(['_id', 'state'], progression), {
+    engine,
+    content: {type: 'chapter', ref: 'cha_N19MiQrYG'},
+    engineOptions: {},
+    actions: [
+      {
+        type: 'move',
+        payload: {
+          instructions: [
+            {
+              field: 'stars',
+              type: 'set',
+              value: 0
+            }
+          ],
+          nextContent: {type: 'slide', ref: 'sli_4yHKRmBtz'}
+        }
+      }
+    ]
+  });
 });
 
 test('should find progression', async t => {
-  const progression = await create({engine});
+  const progression = await create(engine, '5.C7');
 
   t.deepEqual(await findById(progression._id), progression);
 });
@@ -43,7 +77,7 @@ test('should find 0 stars when there is no best score so far', async t => {
 });
 
 test('should add answer action', async t => {
-  const progression = await create({engine});
+  const progression = await create(engine, '5.C7');
   const progressionWithAnswer = await postAnswer(progression._id, {
     content: progression.state.nextContent,
     answer: ['bar']
@@ -59,7 +93,7 @@ test("should throw error if progression doesn't exist", t => {
 });
 
 test('should mark a resource as viewed', async t => {
-  const progression = await create({engine});
+  const progression = await create(engine, '5.C7');
   const result = await markResourceAsViewed(progression._id, {
     content: {type: 'chapter', ref: progression.content.ref},
     resource: {ref: 'foo'}

@@ -1,16 +1,23 @@
 // @flow
-import computeNextStep from './compute-next-step';
+import {
+  computeNextStepAfterAnswer,
+  computeNextStepOnAcceptExtraLife,
+  computeNextStepOnRefuseExtraLife
+} from './compute-next-step';
 import checkAnswer from './check-answer';
 import checkAnswerCorrectness from './check-answer-correctness';
-import updateState from './update-state';
+import createState from './create-state';
 import createProgression from './create-progression';
-import getConfig from './config';
+import {getConfig, getConfigForProgression} from './config';
 
 export {
-  computeNextStep,
   checkAnswer,
   checkAnswerCorrectness,
-  updateState,
+  computeNextStepAfterAnswer,
+  computeNextStepOnAcceptExtraLife,
+  computeNextStepOnRefuseExtraLife,
+  createState,
   createProgression,
-  getConfig
+  getConfig,
+  getConfigForProgression
 };
