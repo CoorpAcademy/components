@@ -17,7 +17,7 @@ const notificationStyle = {
 };
 
 const BrandUpload = (props, context) => {
-  const {title = '', back, download, upload, progress, notifications} = props;
+  const {title = '', back, download, oneLoginTokens, upload, progress, notifications} = props;
 
   const {skin} = context;
   const darkColor = get('common.dark', skin);
@@ -36,10 +36,19 @@ const BrandUpload = (props, context) => {
       </Link>
     </p>
   );
+  const oneLoginTokensView = oneLoginTokens && (
+    <div>
+      <div className={style.title}>
+        <h3>{oneLoginTokens.title}</h3>
+      </div>
+      {oneLoginTokens.download && <DownloadBox {...oneLoginTokens.download} />}
+    </div>
+  );
 
   return (
     <div className={style.wrapper}>
       {backView}
+      {oneLoginTokensView}
       <div className={style.title}>
         <h3>{title}</h3>
       </div>
@@ -58,6 +67,10 @@ BrandUpload.contextTypes = {
 BrandUpload.propTypes = {
   title: PropTypes.string,
   download: PropTypes.shape(DownloadBox.propTypes),
+  oneLoginTokens: PropTypes.shape({
+    title: PropTypes.string,
+    download: PropTypes.shape(DownloadBox.propTypes)
+  }),
   progress: PropTypes.shape({
     value: PropTypes.number.isRequired,
     max: PropTypes.number.isRequired,

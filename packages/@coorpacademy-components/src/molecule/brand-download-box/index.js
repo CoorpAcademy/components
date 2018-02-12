@@ -7,7 +7,7 @@ import Provider from '../../atom/provider';
 import style from './style.css';
 
 const BrandDownloadBox = (props, context) => {
-  const {title = '', warning = '', description = '', href = '', submitValue = ''} = props;
+  const {title = '', warning = '', description = '', href = '', onClick, submitValue = ''} = props;
   const {skin} = context;
   const negativeColor = get('common.negative', skin);
 
@@ -27,7 +27,14 @@ const BrandDownloadBox = (props, context) => {
   return (
     <div className={style.wrapper}>
       {type}
-      <Button className={style.button} type="link" download href={href} submitValue={submitValue} />
+      <Button
+        className={style.button}
+        type="link"
+        download
+        href={href}
+        onClick={onClick}
+        submitValue={submitValue}
+      />
     </div>
   );
 };
@@ -41,6 +48,7 @@ BrandDownloadBox.propTypes = {
   warning: PropTypes.string,
   description: PropTypes.string,
   href: PropTypes.string,
+  onClick: PropTypes.func,
   submitValue: PropTypes.string
 };
 

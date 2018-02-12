@@ -289,6 +289,7 @@ import BrandCreateFormFixtureError from '../src/molecule/brand-create-form/test/
 import BrandCreateFormFixtureLoading from '../src/molecule/brand-create-form/test/fixtures/loading';
 import BrandCreateFormFixtureModified from '../src/molecule/brand-create-form/test/fixtures/modified';
 import BrandDownloadBoxFixtureDefault from '../src/molecule/brand-download-box/test/fixtures/default';
+import BrandDownloadBoxFixtureDownloadOneLoginTokens from '../src/molecule/brand-download-box/test/fixtures/downloadOneLoginTokens';
 import BrandDownloadBoxFixtureSso from '../src/molecule/brand-download-box/test/fixtures/sso';
 import BrandFormGroupFixtureDashboard from '../src/molecule/brand-form-group/test/fixtures/dashboard';
 import BrandFormGroupFixtureDefault from '../src/molecule/brand-form-group/test/fixtures/default';
@@ -1034,6 +1035,7 @@ export const fixtures = {
     },
     BrandDownloadBox: {
       Default: BrandDownloadBoxFixtureDefault,
+      DownloadOneLoginTokens: BrandDownloadBoxFixtureDownloadOneLoginTokens,
       Sso: BrandDownloadBoxFixtureSso
     },
     BrandFormGroup: {
