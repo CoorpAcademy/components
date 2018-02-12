@@ -1,0 +1,26 @@
+.screen {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  display: flex;
+  flex-flow: column;
+}
+
+.layoutSection {
+  width: 100%;
+}
+
+.sectionHeader {
+  height: 13vw;
+}
+
+.sectionRace {
+  height: 88vw;
+}
+
+.sectionCTA {
+  flex: 1;
+}
