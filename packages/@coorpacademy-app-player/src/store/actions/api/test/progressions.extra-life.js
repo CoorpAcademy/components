@@ -28,11 +28,9 @@ test(
   initState({}),
   t => ({
     Progressions: {
-      postExtraLife: (id, payload) => {
-        const isAccepted = get('isAccepted', payload);
+      acceptExtraLife: (id, payload) => {
         const contentRef = get('content.ref', payload);
 
-        t.true(isAccepted);
         t.is(contentRef, 'extraLife');
         t.is(id, 'foo');
         return 'foo';
@@ -51,7 +49,7 @@ test(
       payload: 'foo'
     }
   ],
-  3
+  2
 );
 
 test(
@@ -65,11 +63,9 @@ test(
       }
     },
     Progressions: {
-      postExtraLife: (id, payload) => {
-        const isAccepted = get('isAccepted', payload);
+      acceptExtraLife: (id, payload) => {
         const contentRef = get('content.ref', payload);
 
-        t.true(isAccepted);
         t.is(contentRef, 'extraLife');
         t.is(id, 'foo');
 
@@ -90,7 +86,7 @@ test(
       payload: new Error('some error')
     }
   ],
-  4
+  3
 );
 
 test(
@@ -99,11 +95,9 @@ test(
   initState({}),
   t => ({
     Progressions: {
-      postExtraLife: (id, payload) => {
-        const isAccepted = get('isAccepted', payload);
+      refuseExtraLife: (id, payload) => {
         const contentRef = get('content.ref', payload);
 
-        t.false(isAccepted);
         t.is(contentRef, 'extraLife');
         t.is(id, 'foo');
         return 'foo';
@@ -122,7 +116,7 @@ test(
       payload: 'foo'
     }
   ],
-  3
+  2
 );
 
 test(
@@ -136,11 +130,9 @@ test(
       }
     },
     Progressions: {
-      postExtraLife: (id, payload) => {
-        const isAccepted = get('isAccepted', payload);
+      refuseExtraLife: (id, payload) => {
         const contentRef = get('content.ref', payload);
 
-        t.false(isAccepted);
         t.is(contentRef, 'extraLife');
         t.is(id, 'foo');
 
@@ -161,5 +153,5 @@ test(
       payload: new Error('some error')
     }
   ],
-  4
+  3
 );

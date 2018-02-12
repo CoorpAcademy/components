@@ -62,7 +62,8 @@ const services = {
     findById: identity,
     findBestOf: identity,
     getEngineConfig: identity,
-    postExtraLife: identity
+    acceptExtraLife: identity,
+    refuseExtraLife: identity
   },
   Content: {
     find: (type, ref) => {

@@ -121,9 +121,8 @@ export const refuseExtraLife = progressionId => (dispatch, getState, {services})
       PROGRESSION_EXTRALIFEREFUSED_FAILURE
     ],
     task: () =>
-      Progressions.postExtraLife(progressionId, {
-        content: nextContent,
-        isAccepted: false
+      Progressions.refuseExtraLife(progressionId, {
+        content: nextContent
       }),
     meta: {progressionId}
   });
@@ -147,9 +146,8 @@ export const acceptExtraLife = progressionId => (dispatch, getState, {services})
       PROGRESSION_EXTRALIFEACCEPTED_FAILURE
     ],
     task: () =>
-      Progressions.postExtraLife(progressionId, {
-        content: nextContent,
-        isAccepted: true
+      Progressions.acceptExtraLife(progressionId, {
+        content: nextContent
       }),
     meta: {progressionId}
   });
