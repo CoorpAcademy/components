@@ -3,8 +3,8 @@ import test from 'ava';
 import omit from 'lodash/fp/omit';
 import filter from 'lodash/fp/filter';
 import {getConfig} from '../../config';
-import type {AvailableContent, Config, State} from '../../types';
-import {computeNextStepAfterAnswer, type PartialAnswerAction} from '..';
+import type {AnswerAction, AvailableContent, Config, State} from '../../types';
+import {computeNextStepAfterAnswer} from '..';
 import allSlides from './fixtures/slides';
 import getSlide from './helpers/get-slide';
 import {stateBeforeGettingNextContent} from './fixtures/states';
@@ -33,11 +33,14 @@ test('should switch chapters when user has answered `config.slidesToComplete` nu
     slides: ['1.A1.1', '1.A1.2', '1.A1.3']
   });
   const currentSlide = getSlide(allSlides, state.nextContent);
-  const partialAction: PartialAnswerAction = {
+  const partialAction: AnswerAction = {
     type: 'answer',
     payload: {
       answer: [],
       content: state.nextContent,
+      nextContent: state.nextContent,
+      instructions: null,
+      isCorrect: null,
       godMode: true
     }
   };
@@ -76,11 +79,14 @@ test('should return the success endpoint when user has answered `config.slidesTo
     slides: ['1.A1.1', '1.A1.2', '1.A1.3', '1.A1.4', '2.A1.1', '2.A1.2', '2.A1.3']
   });
   const currentSlide = getSlide(allSlides, state.nextContent);
-  const partialAction: PartialAnswerAction = {
+  const partialAction: AnswerAction = {
     type: 'answer',
     payload: {
       answer: [],
       content: state.nextContent,
+      nextContent: state.nextContent,
+      instructions: null,
+      isCorrect: null,
       godMode: true
     }
   };

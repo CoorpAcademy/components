@@ -3,17 +3,20 @@ import test from 'ava';
 import omit from 'lodash/fp/omit';
 import filter from 'lodash/fp/filter';
 import {getConfig} from '../../config';
-import type {AvailableContent, Config, State} from '../../types';
-import {computeNextStepAfterAnswer, type PartialAnswerAction} from '..';
+import type {AnswerAction, AvailableContent, Config, State} from '../../types';
+import {computeNextStepAfterAnswer} from '..';
 import allSlides from './fixtures/slides';
 import getSlide from './helpers/get-slide';
 
 const config: Config = getConfig({ref: 'learner', version: '1'});
-const partialAction = (state: State): PartialAnswerAction => ({
+const partialAction = (state: State): AnswerAction => ({
   type: 'answer',
   payload: {
     answer: [],
     content: state.nextContent,
+    nextContent: state.nextContent,
+    instructions: null,
+    isCorrect: null,
     godMode: true
   }
 });

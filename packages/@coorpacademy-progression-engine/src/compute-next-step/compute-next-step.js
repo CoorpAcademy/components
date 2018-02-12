@@ -18,7 +18,7 @@ import type {
   Slide,
   Content,
   Config,
-  Answer,
+  Action,
   AvailableContent,
   ChapterContent,
   AnswerRecord
@@ -26,6 +26,7 @@ import type {
 import type {ChapterRule, Instruction, Condition} from '../rule-engine/types';
 import selectRule from '../rule-engine/select-rule';
 import updateVariables from '../rule-engine/apply-instructions';
+import updateState from '../update-state';
 
 const hasNoMoreLives = (config: Config, state: State): boolean =>
   !config.livesDisabled && state.lives <= 0;
@@ -40,20 +41,6 @@ const hasRulesToApply = (chapterContent: ChapterContent | null): boolean => {
   );
 };
 
-export type PartialAnswerActionWithIsCorrect = {
-  type: 'answer',
-  payload: {
-    answer: Answer,
-    content: Content,
-    godMode: boolean,
-    isCorrect: boolean
-  }
-};
-export type PartialExtraLifeAcceptedAction = {
-  type: 'extraLifeAccepted'
-};
-
-type PartialAction = PartialAnswerActionWithIsCorrect | PartialExtraLifeAcceptedAction | null;
 type ChapterContentSelection = {
   currentChapterContent: ChapterContent | null,
   nextChapterContent: ChapterContent | null,
@@ -173,43 +160,6 @@ const computeNextSlide = (
   };
 };
 
-const applyActionToState = (state: State | null, action: PartialAction): State | null => {
-  if (!action || !state) {
-    return state;
-  }
-
-  if (action.type === 'answer') {
-    return {
-      ...state,
-      slides: state.slides.concat(state.nextContent.ref)
-    };
-  }
-
-  if (action.type === 'extraLifeAccepted') {
-    return {
-      ...state,
-      lives: state.lives + 1,
-      remainingLifeRequests: state.remainingLifeRequests - 1
-    };
-  }
-
-  return state;
-};
-
-const decrementLivesOnIncorrectAnswer = (
-  action: PartialAction,
-  state: State | null
-): State | null => {
-  // Should only be used in a non-adaptive context
-  if (state && action && action.type === 'answer' && !action.payload.isCorrect) {
-    return {
-      ...state,
-      lives: state.lives - 1
-    };
-  }
-  return state;
-};
-
 export const prepareStateToSwitchChapters = (
   chapterRule: ChapterRule,
   state: State | null
@@ -253,11 +203,11 @@ const computeNextStep = (
   config: Config,
   _state: State | null,
   availableContent: AvailableContent,
-  action: PartialAction
+  action: Action | null
 ): Result => {
-  const isCorrect = !!action && action.type === 'answer' && action.payload.isCorrect;
+  const isCorrect = !!action && action.type === 'answer' && !!action.payload.isCorrect;
   const answer = (!!action && action.type === 'answer' && action.payload.answer) || [];
-  const state = applyActionToState(_state, action);
+  const state = !_state || !action ? _state : updateState(config, _state, [action]);
   const chapterContent = getChapterContent(config, availableContent, state);
 
   if (!chapterContent) {
@@ -316,10 +266,11 @@ const computeNextStep = (
     Array.isArray(nextChapterContent.slides) &&
     nextChapterContent.slides.length > 0
   ) {
-    const stateWithDecrementedLives = decrementLivesOnIncorrectAnswer(action, {
+    const stateWithDecrementedLives = {
       ...state,
       nextContent: temporaryNextContent
-    });
+    };
+
     const nextContent = computeNextSlide(config, nextChapterContent, stateWithDecrementedLives);
     return {
       nextContent,

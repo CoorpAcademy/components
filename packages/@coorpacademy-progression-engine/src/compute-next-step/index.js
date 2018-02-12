@@ -1,9 +1,7 @@
 // @flow
 import type {
-  Answer,
   AnswerAction,
   AvailableContent,
-  Content,
   Config,
   ExtraLifeAcceptedAction,
   ExtraLifeRefusedAction,
@@ -12,19 +10,7 @@ import type {
   Slide
 } from '../types';
 import checkAnswer from '../check-answer';
-import computeNextStep, {
-  type PartialAnswerActionWithIsCorrect,
-  type PartialExtraLifeAcceptedAction
-} from './compute-next-step';
-
-export type PartialAnswerAction = $ReadOnly<{
-  type: 'answer',
-  payload: {
-    answer: Answer,
-    content: Content,
-    godMode: boolean
-  }
-}>;
+import computeNextStep from './compute-next-step';
 
 export const computeInitialStep = (
   config: Config,
@@ -50,18 +36,20 @@ export const computeNextStepAfterAnswer = (
   state: State,
   availableContent: AvailableContent,
   currentSlide: Slide,
-  action: PartialAnswerAction
+  action: AnswerAction
 ): AnswerAction | null => {
   const answerIsCorrect =
     action.payload.godMode || checkAnswer(config, currentSlide.question, action.payload.answer);
 
-  const actionWithIsCorrect: PartialAnswerActionWithIsCorrect = {
+  const actionWithIsCorrect: AnswerAction = {
     type: 'answer',
     payload: {
       answer: action.payload.answer,
       content: action.payload.content,
+      nextContent: action.payload.content,
       godMode: action.payload.godMode,
-      isCorrect: answerIsCorrect
+      isCorrect: answerIsCorrect,
+      instructions: null
     }
   };
 
@@ -89,7 +77,14 @@ export const computeNextStepOnAcceptExtraLife = (
   state: State,
   availableContent: AvailableContent
 ): ExtraLifeAcceptedAction | null => {
-  const partialAnswerAction: PartialExtraLifeAcceptedAction = {type: 'extraLifeAccepted'};
+  const partialAnswerAction: ExtraLifeAcceptedAction = {
+    type: 'extraLifeAccepted',
+    payload: {
+      content: state.nextContent,
+      nextContent: state.nextContent,
+      instructions: null
+    }
+  };
   const stepResult = computeNextStep(config, state, availableContent, partialAnswerAction);
   if (!stepResult) {
     return null;
