@@ -144,7 +144,7 @@ const playerProps = (options, store) => state => {
             small: false,
             name: 'backToQuestionCTA',
             secondary: true,
-            disabled: ctaDisabled
+            disabled: false
           },
     help,
     answerType: {
