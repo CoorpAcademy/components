@@ -1,6 +1,7 @@
 // @flow
 import map from 'lodash/fp/map';
 import get from 'lodash/fp/get';
+import set from 'lodash/fp/set';
 import find from 'lodash/fp/find';
 import pipe from 'lodash/fp/pipe';
 import head from 'lodash/fp/head';
@@ -14,14 +15,15 @@ import includes from 'lodash/fp/includes';
 import findIndex from 'lodash/fp/findIndex';
 import intersection from 'lodash/fp/intersection';
 import type {
-  State,
-  Slide,
-  Content,
-  Config,
   Action,
+  Answer,
+  AnswerRecord,
   AvailableContent,
   ChapterContent,
-  AnswerRecord
+  Config,
+  Content,
+  Slide,
+  State
 } from '../types';
 import type {ChapterRule, Instruction, Condition} from '../rule-engine/types';
 import selectRule from '../rule-engine/select-rule';
@@ -40,6 +42,21 @@ const hasRulesToApply = (chapterContent: ChapterContent | null): boolean => {
     !isEmpty(chapterContent.rules)
   );
 };
+
+export type PartialAnswerActionWithIsCorrect = {
+  type: 'answer',
+  payload: {
+    answer: Answer,
+    content: Content,
+    godMode: boolean,
+    isCorrect: boolean
+  }
+};
+export type PartialExtraLifeAcceptedAction = {
+  type: 'extraLifeAccepted'
+};
+
+type PartialAction = PartialAnswerActionWithIsCorrect | PartialExtraLifeAcceptedAction | null;
 
 type ChapterContentSelection = {
   currentChapterContent: ChapterContent | null,
@@ -199,12 +216,29 @@ export const computeNextStepForNewChapter = (
   };
 };
 
+const extendPartialAction = (partialAction: PartialAction, state: State | null): Action | null => {
+  const currentNextContent = (state && state.nextContent) || {ref: ''};
+  const temporaryContent =
+    (partialAction && get('payload.content', partialAction)) || currentNextContent;
+
+  const action = !partialAction
+    ? null
+    : pipe(
+        set('payload.content', temporaryContent),
+        set('payload.nextContent', temporaryContent),
+        set('payload.instructions', null)
+      )(partialAction);
+
+  return action;
+};
+
 const computeNextStep = (
   config: Config,
   _state: State | null,
   availableContent: AvailableContent,
-  action: Action | null
+  partialAction: PartialAction
 ): Result => {
+  const action = extendPartialAction(partialAction, _state);
   const isCorrect = !!action && action.type === 'answer' && !!action.payload.isCorrect;
   const answer = (!!action && action.type === 'answer' && action.payload.answer) || [];
   const state = !_state || !action ? _state : updateState(config, _state, [action]);

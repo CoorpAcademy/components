@@ -5,8 +5,8 @@ import pipe from 'lodash/fp/pipe';
 import assign from 'lodash/fp/assign';
 import filter from 'lodash/fp/filter';
 import {getConfig} from '../../config';
-import type {AnswerAction, AvailableContent, Config, State, Slide} from '../../types';
-import {computeNextStepAfterAnswer} from '..';
+import type {AvailableContent, Config, State, Slide} from '../../types';
+import {computeNextStepAfterAnswer, type PartialAnswerAction} from '..';
 import allSlides from './fixtures/slides';
 import getSlide from './helpers/get-slide';
 import {firstState, stateBeforeGettingNextContent, oneLifeLeftState} from './fixtures/states';
@@ -26,15 +26,12 @@ const merge = arr2 => (arr: Array<Slide>): Array<Slide> => {
   });
 };
 
-const createPartialAction = (state: State): AnswerAction => ({
+const createPartialAction = (state: State): PartialAnswerAction => ({
   type: 'answer',
   payload: {
     answer: [],
     content: state.nextContent,
-    nextContent: state.nextContent,
-    godMode: false,
-    isCorrect: null,
-    instructions: null
+    godMode: false
   }
 });
 
@@ -58,14 +55,11 @@ test('should return the slide with the highest position if any slides have a pos
       rules: null
     }
   ];
-  const partialAction: AnswerAction = {
+  const partialAction: PartialAnswerAction = {
     type: 'answer',
     payload: {
       answer: [],
       content: state.nextContent,
-      nextContent: state.nextContent,
-      instructions: null,
-      isCorrect: null,
       godMode: true
     }
   };
@@ -104,7 +98,6 @@ test('should return the slide with the highest position if any slides have a pos
     currentSlide,
     partialAction
   );
-
   if (!result2) {
     throw new Error('action should not be falsy');
   }
@@ -124,14 +117,11 @@ test('should return the slide with the highest position if any slides have a pos
 test('should return a new slide when user is still alive', t => {
   const state: State = Object.freeze(stateBeforeGettingNextContent);
   const currentSlide = getSlide(allSlides, state.nextContent);
-  const partialAction: AnswerAction = {
+  const partialAction: PartialAnswerAction = {
     type: 'answer',
     payload: {
       answer: [],
       content: state.nextContent,
-      nextContent: state.nextContent,
-      instructions: null,
-      isCorrect: null,
       godMode: true
     }
   };
@@ -248,14 +238,11 @@ test('should return a new slide, when user has no more lives but lives are disab
 test('should return isCorrect=true when the answer is correct and godmode is false', t => {
   const state: State = Object.freeze(stateBeforeGettingNextContent);
   const currentSlide = getSlide(allSlides, state.nextContent);
-  const partialAction: AnswerAction = {
+  const partialAction: PartialAnswerAction = {
     type: 'answer',
     payload: {
       answer: ['foo', 'bar'],
       content: state.nextContent,
-      nextContent: state.nextContent,
-      instructions: null,
-      isCorrect: null,
       godMode: false
     }
   };
@@ -276,14 +263,11 @@ test('should return isCorrect=true when the answer is correct and godmode is fal
 test('should return isCorrect=false when the answer is incorrect and godmode is false', t => {
   const state: State = Object.freeze(stateBeforeGettingNextContent);
   const currentSlide = getSlide(allSlides, state.nextContent);
-  const partialAction: AnswerAction = {
+  const partialAction: PartialAnswerAction = {
     type: 'answer',
     payload: {
       answer: ['this is not the answer'],
       content: state.nextContent,
-      nextContent: state.nextContent,
-      instructions: null,
-      isCorrect: null,
       godMode: false
     }
   };
