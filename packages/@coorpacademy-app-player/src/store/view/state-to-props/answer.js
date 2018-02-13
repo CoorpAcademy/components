@@ -9,6 +9,7 @@ import __ from 'lodash/fp/__';
 import round from 'lodash/fp/round';
 import size from 'lodash/fp/size';
 import set from 'lodash/fp/set';
+import isEmpty from 'lodash/fp/isEmpty';
 import isNil from 'lodash/fp/isNil';
 import rangeStep from 'lodash/fp/rangeStep';
 import _toString from 'lodash/fp/toString';
@@ -124,7 +125,7 @@ const templateSelectProps = (options, store) => (state, slide, choice, index) =>
       updateTemplateAnswer(answers, index),
       editAnswerAction(options, store)(state, slide)
     ),
-    options: answer === undefined ? [temporaryOption].concat(selectOptions) : selectOptions
+    options: isEmpty(answer) ? [temporaryOption].concat(selectOptions) : selectOptions
   };
 };
 

@@ -1,5 +1,6 @@
 import includes from 'lodash/fp/includes';
 import isEmpty from 'lodash/fp/isEmpty';
+import some from 'lodash/fp/some';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import isNil from 'lodash/fp/isNil';
@@ -114,7 +115,10 @@ const playerProps = (options, store) => state => {
 
   const answers = getAnswerValues(slide, state);
   const ctaDisabled =
-    answers === undefined || isEmpty(answers) || (answers.length === 1 && isEmpty(answers[0]));
+    answers === undefined ||
+    isEmpty(answers) ||
+    some(isEmpty, answers) ||
+    (answers.length === 1 && isEmpty(answers[0]));
 
   return {
     typeClue: hasRoute ? 'answer' : route,
