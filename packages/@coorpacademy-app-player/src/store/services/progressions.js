@@ -140,16 +140,22 @@ export const requestClue = async (progressionId, payload) => {
   return addActionAndSaveProgression(progression, action);
 };
 
-export const postExtraLife = async (progressionId, payload) => {
+export const acceptExtraLife = async (progressionId, payload) => {
   const progression = await findById(progressionId);
   const config = getConfigForProgression(progression);
-  const action = payload.isAccepted
-    ? computeNextStepOnAcceptExtraLife(
-        config,
-        progression.state,
-        await getAvailableContent(progression.content)
-      )
-    : computeNextStepOnRefuseExtraLife(config, progression.state);
+  const action = computeNextStepOnAcceptExtraLife(
+    config,
+    progression.state,
+    await getAvailableContent(progression.content)
+  );
+
+  return addActionAndSaveProgression(progression, action);
+};
+
+export const refuseExtraLife = async (progressionId, payload) => {
+  const progression = await findById(progressionId);
+  const config = getConfigForProgression(progression);
+  const action = computeNextStepOnRefuseExtraLife(config, progression.state);
 
   return addActionAndSaveProgression(progression, action);
 };

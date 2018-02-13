@@ -56,11 +56,10 @@ test(
         t.is(ref, 'chapId');
         return 16;
       },
-      postExtraLife: (id, payload) => {
+      refuseExtraLife: (id, payload) => {
         t.is(id, 'foo');
         t.deepEqual(payload, {
-          content: {type: 'node', ref: 'extraLife'},
-          isAccepted: false
+          content: {type: 'node', ref: 'extraLife'}
         });
         return {
           content: {type: 'chapter', ref: 'chapId'},
@@ -214,11 +213,10 @@ test(
         t.is(ref, 'chapId');
         return 16;
       },
-      postExtraLife: (id, payload) => {
+      acceptExtraLife: (id, payload) => {
         t.is(id, 'foo');
         t.deepEqual(payload, {
-          content: {type: 'node', ref: 'extraLife'},
-          isAccepted: true
+          content: {type: 'node', ref: 'extraLife'}
         });
         return {
           content: {type: 'chapter', ref: 'chapId'},

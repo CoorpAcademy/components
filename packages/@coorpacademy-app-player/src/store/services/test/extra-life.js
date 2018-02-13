@@ -15,9 +15,8 @@ test('should add one extra life if call accept', async t => {
 
   t.is(progressionWithAnswer.state.nextContent.ref, 'extraLife');
 
-  const progressionWithAcceptedExtraLife = await Progressions.postExtraLife(progression._id, {
-    content: progressionWithAnswer.state.nextContent,
-    isAccepted: true
+  const progressionWithAcceptedExtraLife = await Progressions.acceptExtraLife(progression._id, {
+    content: progressionWithAnswer.state.nextContent
   });
 
   t.is(progressionWithAcceptedExtraLife.state.nextContent.type, 'slide');
@@ -33,9 +32,8 @@ test('should forward to failure if call refuse', async t => {
 
   t.is(progressionWithAnswer.state.nextContent.ref, 'extraLife');
 
-  const progressionWithAcceptedExtraLife = await Progressions.postExtraLife(progression._id, {
-    content: progressionWithAnswer.state.nextContent,
-    isAccepted: false
+  const progressionWithAcceptedExtraLife = await Progressions.refuseExtraLife(progression._id, {
+    content: progressionWithAnswer.state.nextContent
   });
 
   t.is(progressionWithAcceptedExtraLife.state.nextContent.type, 'failure');
