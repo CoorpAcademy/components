@@ -16,6 +16,7 @@ import {
   ENGINE_CONFIG_FETCH_REQUEST,
   ENGINE_CONFIG_FETCH_SUCCESS
 } from '../../api/progressions';
+import {UI_SELECT_ROUTE} from '../route';
 import {RANK_FETCH_START_REQUEST, RANK_FETCH_START_SUCCESS} from '../../api/rank';
 import {
   CONTENT_FETCH_REQUEST,
@@ -184,6 +185,11 @@ test(
     {
       type: CONTENT_FETCH_REQUEST,
       meta: {type: 'chapter', ref: 'chapId'}
+    },
+    {
+      type: UI_SELECT_ROUTE,
+      payload: 'answer',
+      meta: {progressionId: 'foo'}
     }
   ],
   12
@@ -341,6 +347,11 @@ test(
     {
       type: CONTENT_FETCH_REQUEST,
       meta: {type: 'chapter', ref: 'chapId'}
+    },
+    {
+      type: UI_SELECT_ROUTE,
+      payload: 'answer',
+      meta: {progressionId: 'foo'}
     }
   ],
   12

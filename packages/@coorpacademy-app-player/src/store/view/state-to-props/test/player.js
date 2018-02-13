@@ -63,6 +63,7 @@ test('should create player props for basic question and show coaches', t => {
   const state = {
     data,
     ui: {
+      route: {basic: 'answer'},
       current: {progressionId: 'basic'},
       coaches: {availableCoaches: 1}
     }
@@ -74,6 +75,7 @@ test('should create player props for basic question and show coaches', t => {
     props.answerType.media,
     '//static.coorpacademy.com/content/ijoinchanel/en/slides/1B2_Q6/1B2-Q6-canap-v1.jpg'
   );
+  t.is(props.typeClue, 'answer');
   t.is(props.question, "Écrivez le mot Text dans l'input.\n");
   t.is(props.answerType.model.type, 'freeText');
   t.true(isFunction(props.answerType.model.onChange));
@@ -90,6 +92,7 @@ test('should enable the validate button when there is an answer', t => {
   const state = {
     data,
     ui: {
+      route: {basic: 'answer'},
       current: {progressionId: 'basic'},
       answers: {basic: {value: ['foo']}}
     }
@@ -104,6 +107,7 @@ test('should disable the validate button when there the text answer has been del
   const state = {
     data,
     ui: {
+      route: {basic: 'answer'},
       current: {progressionId: 'basic'},
       answers: {basic: {value: ['']}}
     }
@@ -118,6 +122,7 @@ test('should disable the validate button when no answer is provided', t => {
   const state = {
     data,
     ui: {
+      route: {basic: 'answer'},
       current: {progressionId: 'basic'},
       answers: {}
     }
@@ -132,6 +137,7 @@ test('should disable the validate button when a previous selected answer has bee
   const state = {
     data,
     ui: {
+      route: {basic: 'answer'},
       current: {progressionId: 'basic'},
       answers: {basic: {value: []}}
     }

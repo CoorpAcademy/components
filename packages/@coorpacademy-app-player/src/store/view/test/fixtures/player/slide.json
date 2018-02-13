@@ -94,6 +94,9 @@
     }
   },
   "ui": {
+    "route": {
+      "0": "answer"
+    },
     "answers": {
       "0": {
         "isCorrect": false,

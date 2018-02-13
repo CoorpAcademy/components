@@ -205,6 +205,11 @@ test(
     {
       type: CONTENT_FETCH_REQUEST,
       meta: {type: 'chapter', ref: 'baz'}
+    },
+    {
+      type: UI_SELECT_ROUTE,
+      payload: 'answer',
+      meta: {progressionId: 'foo'}
     }
   ],
   9

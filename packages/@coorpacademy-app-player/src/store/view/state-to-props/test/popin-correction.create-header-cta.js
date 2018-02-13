@@ -43,6 +43,7 @@ import {
   NEXT_CONTENT_FETCH_SUCCESS
 } from '../../../actions/api/next-content';
 import {UI_SELECT_PROGRESSION, UI_PROGRESSION_UPDATED} from '../../../actions/ui/progressions';
+import {UI_SELECT_ROUTE} from '../../../actions/ui/route';
 import popinExtraLife from '../../test/fixtures/popin-correction/popin-extra-life';
 import popinFailure from '../../test/fixtures/popin-correction/popin-failure';
 import popinRevival from '../../test/fixtures/popin-correction/popin-revival';
@@ -137,7 +138,8 @@ test('should create a "Next" CTA when entering a success popin', async t => {
     CONTENT_INFO_FETCH_REQUEST,
     CONTENT_FETCH_REQUEST,
     CONTENT_FETCH_REQUEST,
-    CONTENT_FETCH_SUCCESS
+    CONTENT_FETCH_SUCCESS,
+    UI_SELECT_ROUTE
   ]);
 
   t.deepEqual(metaOf(PROGRESSION_FETCH_REQUEST, dispatched), {id: progressionId});
