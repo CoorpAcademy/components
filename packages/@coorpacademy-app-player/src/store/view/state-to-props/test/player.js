@@ -12,6 +12,7 @@ import {UI_SELECT_ROUTE} from '../../../actions/ui/route';
 import learnerProgressionStateFixture from '../../test/fixtures/progression-learner';
 import basicSlide from './fixtures/slides/basic';
 import contextSlide from './fixtures/slides/with-context';
+import templateSlide from './fixtures/slides/template';
 
 const options = {translate: mockTranslate};
 const store = {dispatch: identity};
@@ -54,7 +55,8 @@ const data = {
   progressions: {
     entities: {
       basic: createProgression(basicSlide),
-      context: createProgression(contextSlide)
+      context: createProgression(contextSlide),
+      template: createProgression(templateSlide)
     }
   }
 };
@@ -140,6 +142,33 @@ test('should disable the validate button when a previous selected answer has bee
       route: {basic: 'answer'},
       current: {progressionId: 'basic'},
       answers: {basic: {value: []}}
+    }
+  };
+
+  const props = playerProps(state);
+
+  t.is(props.cta.disabled, true);
+});
+
+test('should disable the validate button when a all answers have not been filled by user', t => {
+  const state = {
+    data,
+    ui: {
+      current: {progressionId: 'template'},
+      answers: {template: {value: ['', 'Test']}}
+    }
+  };
+
+  const props = playerProps(state);
+
+  t.is(props.cta.disabled, true);
+});
+
+test('should disable the validate button when no answer has been selected by user on template question', t => {
+  const state = {
+    data,
+    ui: {
+      current: {progressionId: 'template'}
     }
   };
 

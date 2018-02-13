@@ -114,11 +114,7 @@ const playerProps = (options, store) => state => {
   ];
 
   const answers = getAnswerValues(slide, state);
-  const ctaDisabled =
-    answers === undefined ||
-    isEmpty(answers) ||
-    some(isEmpty, answers) ||
-    (answers.length === 1 && isEmpty(answers[0]));
+  const ctaDisabled = isEmpty(answers) || some(isEmpty, answers);
 
   return {
     typeClue: hasRoute ? 'answer' : route,
