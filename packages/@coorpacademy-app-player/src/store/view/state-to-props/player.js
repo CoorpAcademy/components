@@ -24,7 +24,8 @@ import {startChat} from '../../actions/ui/coaches';
 import {createGetAnswerProps, createGetHelp} from './answer';
 import getResourcesProps from './resources';
 
-const ROUTES = ['media', 'clue', 'context'];
+const ROUTES = ['media', 'clue', 'context', 'answer'];
+
 const STARS_DIFF = {
   media: 'starsPerResourceViewed',
   clue: 'starsPerAskingClue'
@@ -57,7 +58,7 @@ const playerProps = (options, store) => state => {
   const help = createGetHelp(options, store)(slide);
   const notifyNewMedia = !hasSeenLesson(state);
   const starsDiff = get(STARS_DIFF[route], engineConfig) || 0;
-  const isAnswer = !includes(route, ROUTES);
+  const hasRoute = !includes(route, ROUTES);
   const clickClueHandler = () => dispatch(selectClue);
   const clickSeeClueHandler = () => dispatch(getClue);
   const clickBackToAnswerHandler = () => dispatch(selectRoute('answer'));
@@ -116,7 +117,7 @@ const playerProps = (options, store) => state => {
     answers === undefined || isEmpty(answers) || (answers.length === 1 && isEmpty(answers[0]));
 
   return {
-    typeClue: isAnswer ? 'answer' : route,
+    typeClue: hasRoute ? 'answer' : route,
     text: clue,
     onClickSeeClue: clickSeeClueHandler,
     question: get('question.header')(slide),
@@ -125,24 +126,26 @@ const playerProps = (options, store) => state => {
     verticalMargin: 260,
     starsDiff,
     resources,
-    cta: isAnswer
-      ? {
-          submitValue: translate('Validate'),
-          onClick: clickCTAHandler,
-          light: false,
-          small: false,
-          name: 'validateAnswerCTA',
-          secondary: false,
-          disabled: ctaDisabled
-        }
-      : {
-          submitValue: translate(route === 'context' ? 'Go to question' : 'Back to question'),
-          onClick: clickBackToAnswerHandler,
-          light: false,
-          small: false,
-          name: 'backToQuestionCTA',
-          secondary: true
-        },
+    cta:
+      route === 'answer'
+        ? {
+            submitValue: translate('Validate'),
+            onClick: clickCTAHandler,
+            light: false,
+            small: false,
+            name: 'validateAnswerCTA',
+            secondary: false,
+            disabled: ctaDisabled
+          }
+        : {
+            submitValue: translate(route === 'context' ? 'Go to question' : 'Back to question'),
+            onClick: clickBackToAnswerHandler,
+            light: false,
+            small: false,
+            name: 'backToQuestionCTA',
+            secondary: true,
+            disabled: ctaDisabled
+          },
     help,
     answerType: {
       model: answer,

@@ -134,7 +134,8 @@ test('should display loading clue', async t => {
     name: 'backToQuestionCTA',
     light: false,
     small: false,
-    secondary: true
+    secondary: true,
+    disabled: true
   });
   await t.notThrows(playerProps.cta.onClick);
   t.is(playerProps.help, 'Saisissez votre réponse.');
@@ -180,7 +181,8 @@ test('should display clue', async t => {
     name: 'backToQuestionCTA',
     light: false,
     small: false,
-    secondary: true
+    secondary: true,
+    disabled: true
   });
   await t.notThrows(playerProps.cta.onClick);
   t.is(playerProps.help, 'Saisissez votre réponse.');
@@ -210,7 +212,7 @@ test('should display clue', async t => {
   return Promise.all(map(button => t.notThrows(button.onClick), playerProps.buttons));
 });
 
-test('should disable clue button is slide has no clue', t => {
+test('should disable clue button if slide has no clue', t => {
   const vNode = mapStateToVNode(stateNoClue);
   testRendering(vNode);
   const {props: {player: playerProps}} = vNode;
