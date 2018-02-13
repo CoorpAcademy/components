@@ -8,7 +8,10 @@ import multiply from 'lodash/fp/multiply';
 import __ from 'lodash/fp/__';
 import round from 'lodash/fp/round';
 import size from 'lodash/fp/size';
+import constant from 'lodash/fp/constant';
+import times from 'lodash/fp/times';
 import set from 'lodash/fp/set';
+import isEmpty from 'lodash/fp/isEmpty';
 import isNil from 'lodash/fp/isNil';
 import rangeStep from 'lodash/fp/rangeStep';
 import _toString from 'lodash/fp/toString';
@@ -80,8 +83,10 @@ const qcmGraphicProps = (options, store) => (state, slide) => {
   };
 };
 
-const updateTemplateAnswer = (answers = [], index) => value =>
-  map(a => (isNil(a) ? '' : a), set(index, value, answers));
+const updateTemplateAnswer = (_answers, index, max) => value => {
+  const answers = !_answers ? times(constant(undefined), max) : _answers;
+  return map(a => (isNil(a) ? '' : a), set(index, value, answers));
+};
 
 const templateTextProps = (options, store) => (state, slide, choice, index) => {
   const {translate} = options;
@@ -116,15 +121,16 @@ const templateSelectProps = (options, store) => (state, slide, choice, index) =>
       selected: item.text === answer
     };
   });
+  const maxLength = get('question.content.choices.length', slide);
 
   return {
     type: choice.type,
     name: choice.name,
     onChange: pipe(
-      updateTemplateAnswer(answers, index),
+      updateTemplateAnswer(answers, index, maxLength),
       editAnswerAction(options, store)(state, slide)
     ),
-    options: answer === undefined ? [temporaryOption].concat(selectOptions) : selectOptions
+    options: isEmpty(answer) ? [temporaryOption].concat(selectOptions) : selectOptions
   };
 };
 
