@@ -1,4 +1,5 @@
 import Download from '../../../../molecule/brand-download-box/test/fixtures/default';
+import DownloadOneLoginTokens from '../../../../molecule/brand-download-box/test/fixtures/download-one-login-tokens';
 import Upload from '../../../../molecule/brand-upload-box/test/fixtures/default';
 
 const success = {
@@ -19,6 +20,10 @@ const error = {
 export default {
   props: {
     title: 'Import users list',
+    oneLoginTokens: {
+      title: 'Download one login token',
+      download: DownloadOneLoginTokens.props
+    },
     back: {
       desc: 'Back to users list',
       link: '/TemplateBackOffice/BrandUpdate/UsersList'
