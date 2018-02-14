@@ -1,7 +1,6 @@
 // @flow
 import map from 'lodash/fp/map';
 import get from 'lodash/fp/get';
-import set from 'lodash/fp/set';
 import find from 'lodash/fp/find';
 import pipe from 'lodash/fp/pipe';
 import head from 'lodash/fp/head';
@@ -216,20 +215,43 @@ export const computeNextStepForNewChapter = (
   };
 };
 
-const extendPartialAction = (partialAction: PartialAction, state: State | null): Action | null => {
-  const currentNextContent = (state && state.nextContent) || {ref: ''};
-  const temporaryContent =
-    (partialAction && get('payload.content', partialAction)) || currentNextContent;
+const extendPartialAction = (action: PartialAction, state: State | null): Action | null => {
+  if (!action) {
+    return null;
+  }
 
-  const action = !partialAction
-    ? null
-    : pipe(
-        set('payload.content', temporaryContent),
-        set('payload.nextContent', temporaryContent),
-        set('payload.instructions', null)
-      )(partialAction);
+  switch (action.type) {
+    case 'answer': {
+      const nextContent: Content =
+        action.payload.content || (state ? state.nextContent : {ref: '', type: 'node'});
+      return {
+        type: 'answer',
+        payload: {
+          answer: action.payload.answer,
+          godMode: action.payload.godMode,
+          isCorrect: action.payload.isCorrect,
+          content: nextContent,
+          nextContent,
+          instructions: null
+        }
+      };
+    }
 
-  return action;
+    case 'extraLifeAccepted': {
+      const nextContent = state ? state.nextContent : {ref: '', type: 'node'};
+      return {
+        type: 'extraLifeAccepted',
+        payload: {
+          content: nextContent,
+          nextContent,
+          instructions: null
+        }
+      };
+    }
+
+    default:
+      return null;
+  }
 };
 
 const computeNextStep = (
