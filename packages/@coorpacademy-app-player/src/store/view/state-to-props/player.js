@@ -32,12 +32,15 @@ const STARS_DIFF = {
   clue: 'starsPerAskingClue'
 };
 
+const isContentAdaptive = state => {
+  const content = getCurrentContent(state);
+  return getOr(false, 'isConditional', content);
+};
+
 const getProgressionStep = state => {
   const progression = getCurrentProgression(state);
-  const content = getCurrentContent(state);
-  const isAdaptive = getOr(false, 'isConditional', content);
 
-  return !isAdaptive
+  return !isContentAdaptive(state)
     ? {
         current: get('state.step.current')(progression),
         total: getNbSlides(state)
@@ -60,6 +63,7 @@ const playerProps = (options, store) => state => {
   const notifyNewMedia = !hasSeenLesson(state);
   const starsDiff = get(STARS_DIFF[route], engineConfig) || 0;
   const hasRoute = !includes(route, ROUTES);
+  const isAdaptive = isContentAdaptive(state);
   const clickClueHandler = () => dispatch(selectClue);
   const clickSeeClueHandler = () => dispatch(getClue);
   const clickBackToAnswerHandler = () => dispatch(selectRoute('answer'));
@@ -114,7 +118,12 @@ const playerProps = (options, store) => state => {
   ];
 
   const answers = getAnswerValues(slide, state);
-  const ctaDisabled = isEmpty(answers) || some(isEmpty, answers);
+  const ctaDisabled =
+    isEmpty(answers) ||
+    some(isEmpty, answers) ||
+    (isAdaptive &&
+      answers.length > 1 &&
+      ['qcm', 'qcmGraphic'].includes(get('question.type', slide)));
 
   return {
     typeClue: hasRoute ? 'answer' : route,
@@ -144,7 +153,7 @@ const playerProps = (options, store) => state => {
             small: false,
             name: 'backToQuestionCTA',
             secondary: true,
-            disabled: ctaDisabled
+            disabled: false
           },
     help,
     answerType: {

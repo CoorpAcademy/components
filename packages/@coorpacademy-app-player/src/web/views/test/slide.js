@@ -135,7 +135,7 @@ test('should display loading clue', async t => {
     light: false,
     small: false,
     secondary: true,
-    disabled: true
+    disabled: false
   });
   await t.notThrows(playerProps.cta.onClick);
   t.is(playerProps.help, 'Saisissez votre réponse.');
@@ -182,7 +182,7 @@ test('should display clue', async t => {
     light: false,
     small: false,
     secondary: true,
-    disabled: true
+    disabled: false
   });
   await t.notThrows(playerProps.cta.onClick);
   t.is(playerProps.help, 'Saisissez votre réponse.');

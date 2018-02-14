@@ -13,6 +13,9 @@ import learnerProgressionStateFixture from '../../test/fixtures/progression-lear
 import basicSlide from './fixtures/slides/basic';
 import contextSlide from './fixtures/slides/with-context';
 import templateSlide from './fixtures/slides/template';
+import qcmSlide from './fixtures/slides/qcm';
+import qcmDragSlide from './fixtures/slides/qcmDrag';
+import qcmGraphicSlide from './fixtures/slides/qcm-graphic';
 
 const options = {translate: mockTranslate};
 const store = {dispatch: identity};
@@ -20,16 +23,19 @@ const playerProps = createPlayer(options, store);
 
 const availableSlides = pipe(map(slide => [slide._id, slide]), fromPairs)([
   basicSlide,
+  qcmSlide,
+  qcmDragSlide,
+  qcmGraphicSlide,
   contextSlide
 ]);
 
-const createProgression = slide => ({
+const createProgression = (slide, contentRef) => ({
   engine: {
     ref: 'microlearning',
     version: '1'
   },
   content: {
-    ref: '1.B2',
+    ref: contentRef,
     type: 'chapter'
   },
   state: {
@@ -48,18 +54,47 @@ const createProgression = slide => ({
 
 const data = {
   contents: {
+    chapter: {
+      entities: {
+        nonAdaptiveContent: {
+          isConditional: false
+        },
+        adaptiveContent: {
+          isConditional: true
+        }
+      }
+    },
     slide: {
       entities: availableSlides
     }
   },
   progressions: {
     entities: {
-      basic: createProgression(basicSlide),
-      context: createProgression(contextSlide),
-      template: createProgression(templateSlide)
+      basic: createProgression(basicSlide, 'nonAdaptiveContent'),
+      qcm: createProgression(qcmSlide, 'nonAdaptiveContent'),
+      qcmDrag: createProgression(qcmDragSlide, 'nonAdaptiveContent'),
+      qcmGraphic: createProgression(qcmGraphicSlide, 'nonAdaptiveContent'),
+      template: createProgression(templateSlide, 'nonAdaptiveContent'),
+      context: createProgression(contextSlide, 'nonAdaptiveContent'),
+      adaptiveBasic: createProgression(basicSlide, 'adaptiveContent'),
+      adaptiveQcm: createProgression(qcmSlide, 'adaptiveContent'),
+      adaptiveQcmDrag: createProgression(qcmDragSlide, 'adaptiveContent'),
+      adaptiveQcmGraphic: createProgression(qcmGraphicSlide, 'adaptiveContent'),
+      adaptiveContext: createProgression(contextSlide, 'adaptiveContent'),
+      adaptiveTemplate: createProgression(templateSlide, 'adaptiveContent')
     }
   }
 };
+
+const isDisabledFor = (progressionId, answers) =>
+  playerProps({
+    data,
+    ui: {
+      route: {[progressionId]: 'answer'},
+      current: {progressionId},
+      answers: {[progressionId]: {value: answers}}
+    }
+  }).cta.disabled;
 
 test('should create player props for basic question and show coaches', t => {
   const state = {
@@ -83,7 +118,7 @@ test('should create player props for basic question and show coaches', t => {
   t.true(isFunction(props.answerType.model.onChange));
   t.is(props.slideContext, undefined);
   t.is(props.cta.submitValue, '__Validate');
-  t.is(props.cta.disabled, true);
+  t.true(props.cta.disabled);
 
   t.is(props.buttons.length, 3);
   t.is(props.buttons[2].title, '__Coach');
@@ -91,18 +126,35 @@ test('should create player props for basic question and show coaches', t => {
 });
 
 test('should enable the validate button when there is an answer', t => {
-  const state = {
-    data,
-    ui: {
-      route: {basic: 'answer'},
-      current: {progressionId: 'basic'},
-      answers: {basic: {value: ['foo']}}
-    }
-  };
+  t.true(isDisabledFor('basic', []));
+  t.false(isDisabledFor('basic', ['foo']));
+});
 
-  const props = playerProps(state);
+test('should enable the validate button when there are two answers in an non-adaptive content for all questions', t => {
+  const answers = ['foo', 'bar'];
 
-  t.is(props.cta.disabled, false);
+  t.false(isDisabledFor('basic', answers));
+  t.false(isDisabledFor('qcm', answers));
+  t.false(isDisabledFor('qcmGraphic', answers));
+  t.false(isDisabledFor('qcmDrag', answers));
+  t.false(isDisabledFor('context', answers));
+  t.false(isDisabledFor('template', answers));
+});
+
+test('should disable the validate button when there are several answers in an adaptive content for qcm questions', t => {
+  t.false(isDisabledFor('adaptiveBasic', ['foo', 'bar']));
+  t.true(isDisabledFor('adaptiveQcm', ['foo', 'bar']));
+  t.true(isDisabledFor('adaptiveQcmGraphic', ['foo', 'bar']));
+  t.false(isDisabledFor('adaptiveQcmDrag', ['foo', 'bar']));
+  t.false(isDisabledFor('adaptiveContext', ['foo', 'bar']));
+  t.false(isDisabledFor('adaptiveTemplate', ['foo', 'bar']));
+
+  t.false(isDisabledFor('adaptiveBasic', ['foo', 'bar', 'baz']));
+  t.true(isDisabledFor('adaptiveQcm', ['foo', 'bar', 'baz']));
+  t.true(isDisabledFor('adaptiveQcmGraphic', ['foo', 'bar', 'baz']));
+  t.false(isDisabledFor('adaptiveQcmDrag', ['foo', 'bar', 'baz']));
+  t.false(isDisabledFor('adaptiveContext', ['foo', 'bar', 'baz']));
+  t.false(isDisabledFor('adaptiveTemplate', ['foo', 'bar', 'baz']));
 });
 
 test('should disable the validate button when there the text answer has been deleted', t => {
@@ -117,7 +169,7 @@ test('should disable the validate button when there the text answer has been del
 
   const props = playerProps(state);
 
-  t.is(props.cta.disabled, true);
+  t.true(props.cta.disabled);
 });
 
 test('should disable the validate button when no answer is provided', t => {
@@ -132,7 +184,7 @@ test('should disable the validate button when no answer is provided', t => {
 
   const props = playerProps(state);
 
-  t.is(props.cta.disabled, true);
+  t.true(props.cta.disabled);
 });
 
 test('should disable the validate button when a previous selected answer has been unselected', t => {
@@ -147,13 +199,14 @@ test('should disable the validate button when a previous selected answer has bee
 
   const props = playerProps(state);
 
-  t.is(props.cta.disabled, true);
+  t.true(props.cta.disabled);
 });
 
-test('should disable the validate button when a all answers have not been filled by user', t => {
+test('should disable the validate button when some answer fields are empty', t => {
   const state = {
     data,
     ui: {
+      route: {template: 'answer'},
       current: {progressionId: 'template'},
       answers: {template: {value: ['', 'Test']}}
     }
@@ -161,20 +214,21 @@ test('should disable the validate button when a all answers have not been filled
 
   const props = playerProps(state);
 
-  t.is(props.cta.disabled, true);
+  t.true(props.cta.disabled);
 });
 
 test('should disable the validate button when no answer has been selected by user on template question', t => {
   const state = {
     data,
     ui: {
+      route: {template: 'answer'},
       current: {progressionId: 'template'}
     }
   };
 
   const props = playerProps(state);
 
-  t.is(props.cta.disabled, true);
+  t.true(props.cta.disabled);
 });
 
 test('should display context tab button if slide context is available', t => {
@@ -182,6 +236,7 @@ test('should display context tab button if slide context is available', t => {
   const state = {
     data,
     ui: {
+      route: {basic: 'answer'},
       current: {progressionId: 'context'}
     }
   };
