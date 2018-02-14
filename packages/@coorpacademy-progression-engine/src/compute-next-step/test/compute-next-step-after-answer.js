@@ -88,8 +88,6 @@ test('should return the slide with the highest position if any slides have a pos
 
   const stateWithAdditionalSlide: State = {
     ...firstState,
-    content: firstState.nextContent,
-    nextContent: result1.payload.nextContent,
     slides: [...firstState.slides, result1.payload.nextContent.ref]
   };
 

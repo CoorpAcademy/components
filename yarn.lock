@@ -120,6 +120,19 @@
     prettier "^1.7.4"
     requireindex "^1.1.0"
 
+"@coorpacademy/redux-history@^3.7.3":
+  version "3.7.3"
+  resolved "https://registry.npmjs.org/@coorpacademy/redux-history/-/redux-history-3.7.3.tgz#f938a913ea228c694be7ae1b1eef7a15f6a55001"
+  dependencies:
+    lodash "^4.14.1"
+
+"@coorpacademy/redux-router@5.3.10":
+  version "5.3.10"
+  resolved "https://registry.npmjs.org/@coorpacademy/redux-router/-/redux-router-5.3.10.tgz#7fb8d7cbfa9578cc0e085ea036b7ec24693e06ed"
+  dependencies:
+    lodash "^4.17.4"
+    path-match "^1.2.4"
+
 "@hypnosphi/fuse.js@^3.0.9":
   version "3.0.9"
   resolved "https://registry.npmjs.org/@hypnosphi/fuse.js/-/fuse.js-3.0.9.tgz#ea99f6121b4a8f065b4c71f85595db2714498807"

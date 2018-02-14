@@ -3,8 +3,8 @@ import type {
   Answer,
   AnswerAction,
   AvailableContent,
-  Content,
   Config,
+  Content,
   ExtraLifeAcceptedAction,
   ExtraLifeRefusedAction,
   MoveAction,
@@ -89,8 +89,10 @@ export const computeNextStepOnAcceptExtraLife = (
   state: State,
   availableContent: AvailableContent
 ): ExtraLifeAcceptedAction | null => {
-  const partialAnswerAction: PartialExtraLifeAcceptedAction = {type: 'extraLifeAccepted'};
-  const stepResult = computeNextStep(config, state, availableContent, partialAnswerAction);
+  const partialAction: PartialExtraLifeAcceptedAction = {type: 'extraLifeAccepted'};
+
+  const stepResult = computeNextStep(config, state, availableContent, partialAction);
+
   if (!stepResult) {
     return null;
   }

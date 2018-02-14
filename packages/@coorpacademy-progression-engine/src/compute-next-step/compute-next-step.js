@@ -14,18 +14,20 @@ import includes from 'lodash/fp/includes';
 import findIndex from 'lodash/fp/findIndex';
 import intersection from 'lodash/fp/intersection';
 import type {
-  State,
-  Slide,
-  Content,
-  Config,
+  Action,
   Answer,
+  AnswerRecord,
   AvailableContent,
   ChapterContent,
-  AnswerRecord
+  Config,
+  Content,
+  Slide,
+  State
 } from '../types';
 import type {ChapterRule, Instruction, Condition} from '../rule-engine/types';
 import selectRule from '../rule-engine/select-rule';
 import updateVariables from '../rule-engine/apply-instructions';
+import updateState from '../update-state';
 
 const hasNoMoreLives = (config: Config, state: State): boolean =>
   !config.livesDisabled && state.lives <= 0;
@@ -54,6 +56,7 @@ export type PartialExtraLifeAcceptedAction = {
 };
 
 type PartialAction = PartialAnswerActionWithIsCorrect | PartialExtraLifeAcceptedAction | null;
+
 type ChapterContentSelection = {
   currentChapterContent: ChapterContent | null,
   nextChapterContent: ChapterContent | null,
@@ -173,43 +176,6 @@ const computeNextSlide = (
   };
 };
 
-const applyActionToState = (state: State | null, action: PartialAction): State | null => {
-  if (!action || !state) {
-    return state;
-  }
-
-  if (action.type === 'answer') {
-    return {
-      ...state,
-      slides: state.slides.concat(state.nextContent.ref)
-    };
-  }
-
-  if (action.type === 'extraLifeAccepted') {
-    return {
-      ...state,
-      lives: state.lives + 1,
-      remainingLifeRequests: state.remainingLifeRequests - 1
-    };
-  }
-
-  return state;
-};
-
-const decrementLivesOnIncorrectAnswer = (
-  action: PartialAction,
-  state: State | null
-): State | null => {
-  // Should only be used in a non-adaptive context
-  if (state && action && action.type === 'answer' && !action.payload.isCorrect) {
-    return {
-      ...state,
-      lives: state.lives - 1
-    };
-  }
-  return state;
-};
-
 export const prepareStateToSwitchChapters = (
   chapterRule: ChapterRule,
   state: State | null
@@ -249,15 +215,55 @@ export const computeNextStepForNewChapter = (
   };
 };
 
+const extendPartialAction = (action: PartialAction, state: State | null): Action | null => {
+  if (!action) {
+    return null;
+  }
+
+  switch (action.type) {
+    case 'answer': {
+      const nextContent: Content =
+        action.payload.content || (state ? state.nextContent : {ref: '', type: 'node'});
+      return {
+        type: 'answer',
+        payload: {
+          answer: action.payload.answer,
+          godMode: action.payload.godMode,
+          isCorrect: action.payload.isCorrect,
+          content: nextContent,
+          nextContent,
+          instructions: null
+        }
+      };
+    }
+
+    case 'extraLifeAccepted': {
+      const nextContent = state ? state.nextContent : {ref: '', type: 'node'};
+      return {
+        type: 'extraLifeAccepted',
+        payload: {
+          content: nextContent,
+          nextContent,
+          instructions: null
+        }
+      };
+    }
+
+    default:
+      return null;
+  }
+};
+
 const computeNextStep = (
   config: Config,
   _state: State | null,
   availableContent: AvailableContent,
-  action: PartialAction
+  partialAction: PartialAction
 ): Result => {
-  const isCorrect = !!action && action.type === 'answer' && action.payload.isCorrect;
+  const action = extendPartialAction(partialAction, _state);
+  const isCorrect = !!action && action.type === 'answer' && !!action.payload.isCorrect;
   const answer = (!!action && action.type === 'answer' && action.payload.answer) || [];
-  const state = applyActionToState(_state, action);
+  const state = !_state || !action ? _state : updateState(config, _state, [action]);
   const chapterContent = getChapterContent(config, availableContent, state);
 
   if (!chapterContent) {
@@ -316,10 +322,11 @@ const computeNextStep = (
     Array.isArray(nextChapterContent.slides) &&
     nextChapterContent.slides.length > 0
   ) {
-    const stateWithDecrementedLives = decrementLivesOnIncorrectAnswer(action, {
+    const stateWithDecrementedLives = {
       ...state,
       nextContent: temporaryNextContent
-    });
+    };
+
     const nextContent = computeNextSlide(config, nextChapterContent, stateWithDecrementedLives);
     return {
       nextContent,
