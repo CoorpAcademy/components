@@ -25,7 +25,7 @@ import {startChat} from '../../actions/ui/coaches';
 import {createGetAnswerProps, createGetHelp} from './answer';
 import getResourcesProps from './resources';
 
-const ROUTES = ['media', 'clue', 'context', 'answer'];
+const ROUTES = ['media', 'clue', 'context'];
 
 const STARS_DIFF = {
   media: 'starsPerResourceViewed',
@@ -124,7 +124,6 @@ const playerProps = (options, store) => state => {
     (isAdaptive &&
       answers.length > 1 &&
       ['qcm', 'qcmGraphic'].includes(get('question.type', slide)));
-
   return {
     typeClue: hasRoute ? 'answer' : route,
     text: clue,
@@ -135,26 +134,25 @@ const playerProps = (options, store) => state => {
     verticalMargin: 260,
     starsDiff,
     resources,
-    cta:
-      route === 'answer'
-        ? {
-            submitValue: translate('Validate'),
-            onClick: clickCTAHandler,
-            light: false,
-            small: false,
-            name: 'validateAnswerCTA',
-            secondary: false,
-            disabled: ctaDisabled
-          }
-        : {
-            submitValue: translate(route === 'context' ? 'Go to question' : 'Back to question'),
-            onClick: clickBackToAnswerHandler,
-            light: false,
-            small: false,
-            name: 'backToQuestionCTA',
-            secondary: true,
-            disabled: false
-          },
+    cta: hasRoute
+      ? {
+          submitValue: translate('Validate'),
+          onClick: clickCTAHandler,
+          light: false,
+          small: false,
+          name: 'validateAnswerCTA',
+          secondary: false,
+          disabled: ctaDisabled
+        }
+      : {
+          submitValue: translate(route === 'context' ? 'Go to question' : 'Back to question'),
+          onClick: clickBackToAnswerHandler,
+          light: false,
+          small: false,
+          name: 'backToQuestionCTA',
+          secondary: true,
+          disabled: false
+        },
     help,
     answerType: {
       model: answer,
