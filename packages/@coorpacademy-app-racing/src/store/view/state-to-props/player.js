@@ -120,7 +120,6 @@ const playerProps = (options, store) => state => {
     text: clue,
     onClickSeeClue: clickSeeClueHandler,
     question: get('question.header')(slide),
-    step: getProgressionStep(state),
     slideContext,
     verticalMargin: 260,
     starsDiff,
@@ -147,9 +146,7 @@ const playerProps = (options, store) => state => {
     answerType: {
       model: answer,
       media: mediaQuestion
-    },
-    showNewMedia: (isNil(route) || route === 'answer') && notifyNewMedia,
-    buttons
+    }
   };
 };
 

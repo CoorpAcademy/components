@@ -1,5 +1,5 @@
 import Loading from '@coorpacademy/components/es/template/app-player/loading';
-import Player from '@coorpacademy/components/es/template/app-player/player';
+import Player from '@coorpacademy/components/es/template/app-player/player/slides/slides-player';
 import PopinCorrection from '@coorpacademy/components/es/template/app-player/popin-correction';
 import PopinEnd from '@coorpacademy/components/es/template/app-player/popin-end';
 import pipe from 'lodash/fp/pipe';
