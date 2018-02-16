@@ -12,6 +12,7 @@ import * as LeaderBoardService from './leaderboard';
 import * as LocationService from './location';
 import * as ProgressionsService from './progressions';
 import * as RecommendationsService from './recommendations';
+import * as UsersService from './users';
 
 const TIMEOUT = 0;
 const addTimeoutToService = mapValues(addTimeout(TIMEOUT));
@@ -28,3 +29,4 @@ export const Logger = console; // eslint-disable-line no-console
 export const Location = addTimeoutToService(LocationService); // eslint-disable-line no-shadow
 export const Progressions = addTimeoutToService(ProgressionsService);
 export const Recommendations = addTimeoutToService(RecommendationsService);
+export const Users = addTimeoutToService(UsersService);

@@ -33,14 +33,7 @@ const progressionStore = reduce(
   (progressionMap, progression) =>
     progressionMap.set(
       progression._id,
-      defaultsDeep(
-        {
-          state: {
-            remainingLifeRequests: getConfig(progression.engine).remainingLifeRequests
-          }
-        },
-        progression
-      )
+      progression
     ),
   new Map(),
   progressionsData

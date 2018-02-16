@@ -86,31 +86,6 @@ const playerProps = (options, store) => state => {
     : [];
 
   const availableCoaches = getCoaches(state);
-  const buttons = [
-    ...contextButton,
-    {
-      title: translate('Media'),
-      type: 'media',
-      selected: route === 'media',
-      disabled: isEmpty(slideLessons),
-      onClick: () => dispatch(selectRoute('media')),
-      notify: notifyNewMedia
-    },
-    {
-      title: translate('Clue'),
-      type: 'clue',
-      selected: route === 'clue',
-      disabled: !hasClue,
-      onClick: clickClueHandler
-    },
-    {
-      title: translate('Coach'),
-      type: 'coach',
-      disabled: availableCoaches === 0,
-      onClick: () => dispatch(startChat())
-    }
-  ];
-
   const answers = getAnswerValues(slide, state);
   const ctaDisabled =
     answers === undefined || isEmpty(answers) || (answers.length === 1 && isEmpty(answers[0]));
