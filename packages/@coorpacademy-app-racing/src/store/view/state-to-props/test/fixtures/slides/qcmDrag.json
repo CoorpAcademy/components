@@ -1,0 +1,56 @@
+{
+  "_id": "8.B2.2",
+  "klf": "Le smartphone est l'appareil le plus utilisé devant l'écran de télévision. Viennent ensuite l'ordinateur et la tablette.",
+  "tips": "En moyenne, les utilisateurs de smartphones passent 147 minutes chaque jour sur leur appareil.",
+  "chapter_id": "8.B2",
+  "chapter_ref": "8.B2",
+  "authors": [],
+  "lessons": [
+    {
+      "type": "video",
+      "mimeType": "application/vimeo",
+      "videoId": "127718777",
+      "description": "Chiffres-clés du multi-écran",
+      "poster": "//static.coorpacademy.com/content/digital/fr/miniatures/video_miniature.jpg",
+      "_id": "5978690b48a0ff240092f4a3",
+      "subtitles": [],
+      "posters": [],
+      "views": {
+        "fromList": 63,
+        "fromLesson": 20
+      },
+      "src": []
+    }
+  ],
+  "question": {
+    "type": "qcmDrag",
+    "header": "Classez ces appareils connectés du plus au moins utilisé devant la télévision.",
+    "explanation": "Cliquez sur les réponses dans le bon ordre.",
+    "clue": "clue",
+    "content": {
+      "matchOrder": true,
+      "maxTypos": null,
+      "choices": [
+        {
+          "label": "L'ordinateur",
+          "value": "sli_VyZmMYQCFWj.choice_01"
+        },
+        {
+          "label": "La tablette",
+          "value": "sli_VyZmMYQCFWj.choice_02"
+        },
+        {
+          "label": "Le smartphone",
+          "value": "sli_VyZmMYQCFWj.choice_03"
+        }
+      ]
+    },
+    "answers": [
+      [
+        "Le smartphone",
+        "L'ordinateur",
+        "La tablette"
+      ]
+    ]
+  }
+}
