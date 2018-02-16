@@ -33,17 +33,16 @@
   color: white;
 }
 
-.runners {
+.cars {
   display: flex;
   position: relative;
   width: 100%;
   flex: 710 1000;
   align-items: flex-end;
   justify-content: space-around;
+  overflow: hidden;
 }
 
-.runner {
-  position: relative;
+.car {
   width: 2em;
-  height: 50%;
 }

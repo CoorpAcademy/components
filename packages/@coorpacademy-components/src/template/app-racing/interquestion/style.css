@@ -1,3 +1,6 @@
+@value breakpoints: "../../../variables/breakpoints.css";
+@value desktop from breakpoints;
+
 .screen {
   position: absolute;
   top: 0;
