@@ -12,3 +12,4 @@ coverage.lcov
 .idea
 package-lock.json
 packages/@coorpacademy-components/src/**/test/fixtures.js
+.prettierrc
