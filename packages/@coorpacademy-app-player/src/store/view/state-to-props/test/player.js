@@ -236,7 +236,7 @@ test('should display context tab button if slide context is available', t => {
   const state = {
     data,
     ui: {
-      route: {basic: 'answer'},
+      route: {context: 'answer'},
       current: {progressionId: 'context'}
     }
   };
@@ -368,7 +368,7 @@ test('should not display new media notification for the other routes when user h
     }
   };
 
-  ['media', 'coach', 'clue', 'foo'].forEach(route => {
+  ['media', 'clue'].forEach(route => {
     const props = playerProps(set('ui.route.basic', route, state));
     t.false(props.showNewMedia);
   });
