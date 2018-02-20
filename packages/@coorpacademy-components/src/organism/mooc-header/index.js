@@ -14,6 +14,7 @@ import Cta from '../../atom/cta';
 import Select from '../../atom/select';
 import InputSwitch from '../../atom/input-switch';
 import Link from '../../atom/link';
+import Search from '../../molecule/search';
 import ImageSlider from '../mooc/image-slider';
 import style from './style.css';
 
@@ -153,7 +154,7 @@ class MoocHeader extends React.Component {
   }
 
   render() {
-    const {logo = {}, themes, pages, settings, user, slider, links} = this.props;
+    const {logo = {}, themes, pages, settings, user, slider, links, search} = this.props;
     if (isEmpty(this.props)) return null;
     const {translate, skin} = this.context;
 
@@ -444,6 +445,9 @@ class MoocHeader extends React.Component {
             </Link>
             {themesView}
           </div>
+          <div data-name='Search-Bar' className={style.searchBar} >
+            <Search  {...search} />
+          </div>
           <div className={style.menuWrapper}>
             {pagesView}
             {userView || linksView}
@@ -486,6 +490,7 @@ MoocHeader.propTypes = {
     srcMobile: PropTypes.string,
     href: PropTypes.string
   }),
+  search: Search.propTypes,
   themes: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,

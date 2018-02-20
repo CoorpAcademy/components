@@ -13,7 +13,7 @@ const Search = (props, context) => {
   const handleChange = e => onChange(e.target.value);
 
   return (
-    <div>
+    <div className={style.wrapperSearch}>
       <SearchIcon color={medium} className={style.icon} />
       <input
         className={style.search}

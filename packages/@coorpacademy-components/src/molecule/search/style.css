@@ -2,6 +2,14 @@
 @value medium from colors;
 @value light from colors;
 
+.wrapperSearch {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap:nowrap;
+  align-items: center;
+}
+
 .icon {
   position: relative;
   margin: 0 0 0 -20px;
@@ -14,10 +22,10 @@
   font-family: "Open Sans";
   text-transform: none;
   padding: 0 15px 0 45px;
-  border: solid 2px light;
+  border: 0;
   height: 50px;
-  border-radius: 3px;
+  border-radius: 0;
   font-size: 15px;
   color: medium;
-  width: 300px;
+  width: 100%;
 }
