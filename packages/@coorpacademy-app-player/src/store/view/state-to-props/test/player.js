@@ -1,6 +1,7 @@
 import test from 'ava';
 import map from 'lodash/fp/map';
 import get from 'lodash/fp/get';
+import isEmpty from 'lodash/fp/isEmpty';
 import set from 'lodash/fp/set';
 import pipe from 'lodash/fp/pipe';
 import fromPairs from 'lodash/fp/fromPairs';
@@ -346,9 +347,14 @@ test('should display new media notification for the answer/undefined route when 
     }
   };
 
-  [undefined, 'answer'].forEach(route => {
+  [undefined].forEach(route => {
     const props = playerProps(set('ui.route.basic', route, state));
-    t.true(props.showNewMedia);
+    t.true(isEmpty(props));
+  });
+
+  ['media', 'clue', 'context', 'answer'].forEach(route => {
+    const props = playerProps(set('ui.route.basic', route, state));
+    t.false(isEmpty(props));
   });
 });
 

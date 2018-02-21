@@ -48,14 +48,6 @@ const getProgressionStep = state => {
     : null;
 };
 
-const _getRoute = (state, slideContext) => {
-  const route = getRoute(state);
-  if (includes(route, ROUTES)) {
-    return route;
-  }
-  return slideContext ? 'context' : 'answer';
-};
-
 const playerProps = (options, store) => state => {
   const {translate} = options;
   const {dispatch} = store;
@@ -66,7 +58,7 @@ const playerProps = (options, store) => state => {
   const answer = createGetAnswerProps(options, store)(state, slide);
   const mediaQuestion = getQuestionMedia(state);
   const clue = getCurrentClue(state) || null;
-  const route = _getRoute(state, slideContext);
+  const route = getRoute(state);
   const resources = getResourcesProps(options, store)(state, slide);
   const help = createGetHelp(options, store)(slide);
   const notifyNewMedia = !hasSeenLesson(state);
@@ -131,6 +123,10 @@ const playerProps = (options, store) => state => {
     (isAdaptive &&
       answers.length > 1 &&
       ['qcm', 'qcmGraphic'].includes(get('question.type', slide)));
+
+  if (!includes(route, ROUTES)) {
+    return {};
+  }
   return {
     typeClue: route,
     text: clue,
