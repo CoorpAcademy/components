@@ -122,11 +122,12 @@ const playerProps = (options, store) => state => {
     some(isEmpty, answers) ||
     (isAdaptive &&
       answers.length > 1 &&
-      ['qcm', 'qcmGraphic'].includes(get('question.type', slide)));
+      includes(get('question.type', slide), ['qcm', 'qcmGraphic']));
 
   if (!includes(route, ROUTES)) {
     return {};
   }
+
   return {
     typeClue: route,
     text: clue,
