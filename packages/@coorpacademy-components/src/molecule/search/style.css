@@ -5,8 +5,8 @@
 .wrapperSearch {
   display: flex;
   width: 100%;
+  flex-flow: nowrap;
   flex-direction: row;
-  flex-wrap:nowrap;
   align-items: center;
 }
 

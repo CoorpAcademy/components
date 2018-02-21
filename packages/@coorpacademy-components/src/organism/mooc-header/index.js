@@ -445,8 +445,8 @@ class MoocHeader extends React.Component {
             </Link>
             {themesView}
           </div>
-          <div data-name='Search-Bar' className={style.searchBar} >
-            <Search  {...search} />
+          <div data-name="Search-Bar" className={style.searchBar}>
+            <Search {...search} />
           </div>
           <div className={style.menuWrapper}>
             {pagesView}
