@@ -7,12 +7,14 @@ import Provider from '../../atom/provider';
 import style from './style.css';
 
 const Search = (props, context) => {
-  const {value, placeholder, onChange} = props;
+  const {value, placeholder, onChange, onEnter} = props;
   const {skin} = context;
   const medium = get('common.medium', skin);
   const handleChange = e => onChange(e.target.value);
   const handleOnEnter = k => {
-    if (k.key === 'Enter') return console.log('yeay enter');
+    if (k.key === 'Enter' && onEnter) {
+      return onEnter();
+    }
   };
 
   return (
@@ -39,7 +41,8 @@ Search.contextTypes = {
 Search.propTypes = {
   value: PropTypes.string,
   placeholder: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
+  onEnter: PropTypes.func
 };
 
 export default Search;

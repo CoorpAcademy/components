@@ -5,8 +5,6 @@ export default {
     onChange: value => {
       console.log(value);
     },
-    onKeyPress: value => {
-      console.log(value);
-    }
+    onEnter: () => console.log('pressed enter')
   }
 };
