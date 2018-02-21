@@ -11,6 +11,9 @@ const Search = (props, context) => {
   const {skin} = context;
   const medium = get('common.medium', skin);
   const handleChange = e => onChange(e.target.value);
+  const handleOnEnter = k => {
+    if (k.key === 'Enter') return console.log('yeay enter');
+  };
 
   return (
     <div className={style.wrapperSearch}>
@@ -23,6 +26,7 @@ const Search = (props, context) => {
         value={value}
         onChange={noop}
         onInput={handleChange}
+        onKeyPress={handleOnEnter}
       />
     </div>
   );
