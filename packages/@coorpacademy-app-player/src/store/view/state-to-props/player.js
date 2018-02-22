@@ -25,7 +25,7 @@ import {startChat} from '../../actions/ui/coaches';
 import {createGetAnswerProps, createGetHelp} from './answer';
 import getResourcesProps from './resources';
 
-const ROUTES = ['media', 'clue', 'context'];
+const ROUTES = ['media', 'clue', 'context', 'answer'];
 
 const STARS_DIFF = {
   media: 'starsPerResourceViewed',
@@ -54,6 +54,7 @@ const playerProps = (options, store) => state => {
 
   const engineConfig = getEngineConfig(state);
   const slide = getCurrentSlide(state);
+  const slideContext = get('context', slide);
   const answer = createGetAnswerProps(options, store)(state, slide);
   const mediaQuestion = getQuestionMedia(state);
   const clue = getCurrentClue(state) || null;
@@ -62,7 +63,6 @@ const playerProps = (options, store) => state => {
   const help = createGetHelp(options, store)(slide);
   const notifyNewMedia = !hasSeenLesson(state);
   const starsDiff = get(STARS_DIFF[route], engineConfig) || 0;
-  const hasRoute = !includes(route, ROUTES);
   const isAdaptive = isContentAdaptive(state);
   const clickClueHandler = () => dispatch(selectClue);
   const clickSeeClueHandler = () => dispatch(getClue);
@@ -75,7 +75,6 @@ const playerProps = (options, store) => state => {
       })
     );
 
-  const slideContext = get('context', slide);
   const hasClue = get('hasClue', slide);
   const slideLessons = get('lessons', slide);
   const contextButton = get('title', slideContext)
@@ -125,8 +124,12 @@ const playerProps = (options, store) => state => {
       answers.length > 1 &&
       includes(get('question.type', slide), ['qcm', 'qcmGraphic']));
 
+  if (!includes(route, ROUTES)) {
+    return {};
+  }
+
   return {
-    typeClue: hasRoute ? 'answer' : route,
+    typeClue: route,
     text: clue,
     onClickSeeClue: clickSeeClueHandler,
     question: get('question.header')(slide),
@@ -135,25 +138,26 @@ const playerProps = (options, store) => state => {
     verticalMargin: 260,
     starsDiff,
     resources,
-    cta: hasRoute
-      ? {
-          submitValue: translate('Validate'),
-          onClick: clickCTAHandler,
-          light: false,
-          small: false,
-          name: 'validateAnswerCTA',
-          secondary: false,
-          disabled: ctaDisabled
-        }
-      : {
-          submitValue: translate(route === 'context' ? 'Go to question' : 'Back to question'),
-          onClick: clickBackToAnswerHandler,
-          light: false,
-          small: false,
-          name: 'backToQuestionCTA',
-          secondary: true,
-          disabled: false
-        },
+    cta:
+      route === 'answer'
+        ? {
+            submitValue: translate('Validate'),
+            onClick: clickCTAHandler,
+            light: false,
+            small: false,
+            name: 'validateAnswerCTA',
+            secondary: false,
+            disabled: ctaDisabled
+          }
+        : {
+            submitValue: translate(route === 'context' ? 'Go to question' : 'Back to question'),
+            onClick: clickBackToAnswerHandler,
+            light: false,
+            small: false,
+            name: 'backToQuestionCTA',
+            secondary: true,
+            disabled: false
+          },
     help,
     answerType: {
       model: answer,
