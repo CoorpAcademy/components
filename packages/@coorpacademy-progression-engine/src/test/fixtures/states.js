@@ -54,7 +54,7 @@ export const extraLifeProgressionState: State = {
     type: 'slide'
   },
   nextContent: {
-    ref: 'none',
+    ref: 'extraLife',
     type: 'node'
   },
   lives: 0,
