@@ -8,6 +8,7 @@
   flex-flow: nowrap;
   flex-direction: row;
   align-items: center;
+  overflow: hidden;
 }
 
 .icon {
@@ -29,13 +30,9 @@
   font-size: 15px;
   color: medium;
   width: 100%;
+  outline: none;
 }
 
-/* .clear {
-  display: block;
-  width: 10px;
-  height: 10px;
-  position: relative;
-  transform: rotate(45deg);
-  right: 24px;
-} */
+.search:focus {
+  outline: none;
+}

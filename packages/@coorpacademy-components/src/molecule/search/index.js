@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
 import noop from 'lodash/fp/noop';
 import SearchIcon from '@coorpacademy/nova-icons/composition/coorpacademy/search';
-// import SearchCancel from '@coorpacademy/nova-icons/composition/navigation/more';
 import Provider from '../../atom/provider';
 import style from './style.css';
 
@@ -11,7 +10,6 @@ const Search = (props, context) => {
   const {value, placeholder, onChange, onEnter} = props;
   const {skin} = context;
   const medium = get('common.medium', skin);
-  // const dark = get('common.dark', skin);
   const handleChange = e => onChange(e.target.value);
   const handleOnEnter = k => {
     if (k.key === 'Enter' && onEnter) {
