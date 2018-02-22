@@ -21,6 +21,7 @@
 .search {
   font-family: "Open Sans";
   text-transform: none;
+  margin: 0 3px;
   padding: 0 15px 0 45px;
   border: 0;
   height: 50px;
@@ -29,3 +30,12 @@
   color: medium;
   width: 100%;
 }
+
+/* .clear {
+  display: block;
+  width: 10px;
+  height: 10px;
+  position: relative;
+  transform: rotate(45deg);
+  right: 24px;
+} */
