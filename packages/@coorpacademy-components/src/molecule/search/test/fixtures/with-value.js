@@ -1,9 +1,10 @@
 export default {
   props: {
-    value: '',
+    value: 'big data - le retour',
     placeholder: 'Name, last name…',
     onChange: value => {
       console.log(value);
-    }
+    },
+    onEnter: () => console.log('pressed enter')
   }
 };

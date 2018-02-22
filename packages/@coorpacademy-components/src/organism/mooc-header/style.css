@@ -3,7 +3,6 @@
 @value colors: "../../variables/colors.css";
 @value light from colors;
 @value white from colors;
-@value dark from colors;
 @value medium from colors;
 @value brand from colors;
 @value black from colors;
@@ -28,6 +27,16 @@
   background-color: white;
 }
 
+.searchBar {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  border-right: solid 1px light;
+  border-left: solid 1px light;
+  background-color: white;
+}
+
 .open {
   composes: header;
 }
@@ -42,6 +51,10 @@
   display: flex;
   height: 100%;
   flex: 0 1 auto;
+  width: 232px;
+  padding-right: 20px;
+  box-sizing: border-box;
+  background-color: white;
 }
 
 .logo {
@@ -106,14 +119,14 @@
   transform: rotate(180deg);
 }
 
-.themesHovered {
+/* .themesHovered {
   composes: themes;
 }
 
 .themesHovered .optionsGroup {
   display: block;
   z-index: 3;
-}
+} */
 
 .themes .optionsGroup:hover {
   display: block;
@@ -455,11 +468,11 @@
 
 @media tablet {
   .header {
-    flex-direction: column;
+    flex-direction: row;
     padding: 0;
-    background-color: transparent;
+    background-color: white;
     justify-content: flex-start;
-    align-items: stretch;
+    align-items: flex-start;
   }
 
   .open {
@@ -467,11 +480,12 @@
   }
 
   .logoWrapper {
-    width: 100%;
+    width: 134px;
     height: 60px;
     justify-content: space-between;
     flex-shrink: 0;
-    padding: 0 20px;
+    padding: 0 4px 0 20px;
+    margin-right: 20px;
     box-sizing: border-box;
     background-color: white;
     z-index: 2;
@@ -491,6 +505,7 @@
     height: 100%;
     box-sizing: border-box;
     min-width: 120px;
+    background-color: white;
   }
 
   .logoMobile img {

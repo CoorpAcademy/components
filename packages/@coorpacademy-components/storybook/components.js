@@ -416,6 +416,7 @@ import ScopeContentFixtureWithOnclick from '../src/molecule/scope-content/test/f
 import ScopeTabsFixtureDefault from '../src/molecule/scope-tabs/test/fixtures/default';
 import ScopeTabsFixtureEmpty from '../src/molecule/scope-tabs/test/fixtures/empty';
 import SearchFixtureDefault from '../src/molecule/search/test/fixtures/default';
+import SearchFixtureWithValue from '../src/molecule/search/test/fixtures/with-value';
 import SetupSectionFixtureDefault from '../src/molecule/setup-section/test/fixtures/default';
 import SetupSectionFixtureFirst from '../src/molecule/setup-section/test/fixtures/first';
 import SetupSectionFixtureOther from '../src/molecule/setup-section/test/fixtures/other';
@@ -1169,7 +1170,8 @@ export const fixtures = {
       Empty: ScopeTabsFixtureEmpty
     },
     Search: {
-      Default: SearchFixtureDefault
+      Default: SearchFixtureDefault,
+      WithValue: SearchFixtureWithValue
     },
     SetupSection: {
       Default: SetupSectionFixtureDefault,

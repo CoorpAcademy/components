@@ -14,6 +14,7 @@ import Cta from '../../atom/cta';
 import Select from '../../atom/select';
 import InputSwitch from '../../atom/input-switch';
 import Link from '../../atom/link';
+import Search from '../../molecule/search';
 import ImageSlider from '../mooc/image-slider';
 import style from './style.css';
 
@@ -153,14 +154,14 @@ class MoocHeader extends React.Component {
   }
 
   render() {
-    const {logo = {}, themes, pages, settings, user, slider, links} = this.props;
+    const {logo = {}, themes, pages, settings, user, slider, links, search} = this.props;
     if (isEmpty(this.props)) return null;
     const {translate, skin} = this.context;
 
     const logoUrl = get('src', logo) || get('images.logo', skin);
     const logoMobileUrl = get('srcMobile', logo) || getOr(logoUrl, 'images.logo-mobile', skin);
 
-    let themesView = null;
+    // let themesView = null;
     let pagesView = null;
     let linksView = null;
     let userView = null;
@@ -175,32 +176,32 @@ class MoocHeader extends React.Component {
     const white = get('common.white', skin);
     const iconWrapperStyle = {backgroundColor: primaryColor};
 
-    const currentTheme = find({selected: true}, themes);
-    if (currentTheme && themes.length > 1) {
-      const optionsView = themes.map((theme, index) => {
-        return <Theme primaryColor={primaryColor} key={theme.name || index} {...theme} />;
-      });
+    // const currentTheme = find({selected: true}, themes);
+    // if (currentTheme && themes.length > 1) {
+    //   const optionsView = themes.map((theme, index) => {
+    //     return <Theme primaryColor={primaryColor} key={theme.name || index} {...theme} />;
+    //   });
 
-      themesView = (
-        <div
-          className={this.state.isThemeMenuOpen ? style.themesHovered : style.themes}
-          onMouseEnter={this.handleMenuThemeMouseEnter}
-          onMouseLeave={this.handleMenuThemeMouseLeave}
-          ref={this.setMenuThemes}
-        >
-          <div
-            className={style.currentOption}
-            onTouchStart={this.handleMenuThemeClick}
-            aria-haspopup="true"
-            data-name="thematique"
-          >
-            {currentTheme.title}
-            <ArrowDown color={mediumColor} className={style.caret} />
-          </div>
-          <div className={style.optionsGroup}>{optionsView}</div>
-        </div>
-      );
-    }
+    //   themesView = (
+    //     <div
+    //       className={this.state.isThemeMenuOpen ? style.themesHovered : style.themes}
+    //       onMouseEnter={this.handleMenuThemeMouseEnter}
+    //       onMouseLeave={this.handleMenuThemeMouseLeave}
+    //       ref={this.setMenuThemes}
+    //     >
+    //       <div
+    //         className={style.currentOption}
+    //         onTouchStart={this.handleMenuThemeClick}
+    //         aria-haspopup="true"
+    //         data-name="thematique"
+    //       >
+    //         {currentTheme.title}
+    //         <ArrowDown color={mediumColor} className={style.caret} />
+    //       </div>
+    //       <div className={style.optionsGroup}>{optionsView}</div>
+    //     </div>
+    //   );
+    // }
 
     if (pages) {
       const displayedPages = pages.displayed.map((page, index) => {
@@ -442,7 +443,10 @@ class MoocHeader extends React.Component {
             <Link className={style.logo} data-name="logo" href={logo.href}>
               <img src={logoUrl} />
             </Link>
-            {themesView}
+            {/* {themesView} */}
+          </div>
+          <div data-name="Search-Bar" className={style.searchBar}>
+            <Search {...search} />
           </div>
           <div className={style.menuWrapper}>
             {pagesView}
@@ -486,6 +490,7 @@ MoocHeader.propTypes = {
     srcMobile: PropTypes.string,
     href: PropTypes.string
   }),
+  search: Search.propTypes,
   themes: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
