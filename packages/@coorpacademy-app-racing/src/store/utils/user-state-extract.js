@@ -10,4 +10,6 @@ const userStateExtract = mapValues(getter => (userId, state) => {
   return getter(set(['data', 'progressions', 'entities', progressionId, 'state'], userState, state));
 }, stateExtract);
 
+export const getCurrentUserId = get(['ui', 'current', 'userId']);
+
 export default userStateExtract;
