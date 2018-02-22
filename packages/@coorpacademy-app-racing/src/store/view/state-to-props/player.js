@@ -7,7 +7,6 @@ const playerProps = (options, store) => state => {
   const {dispatch} = store;
   const {getCurrentSlide, getQuestionMedia} = userStateExtract;
   const currentUserId = getCurrentUserId(state);
-
   const slide = getCurrentSlide(currentUserId, state);
   const answer = createGetAnswerProps(options, store)(state, slide);
   const mediaQuestion = getQuestionMedia(currentUserId, state);
