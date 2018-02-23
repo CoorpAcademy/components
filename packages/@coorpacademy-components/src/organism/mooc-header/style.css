@@ -58,7 +58,7 @@
   flex: 0 1 auto;
   box-sizing: border-box;
   background-color: white;
-  margin: 0 10px 0 10px;
+  margin: 0 16px;
 }
 
 .logo {
@@ -83,15 +83,6 @@
   position: relative;
   display: flex;
   align-items: stretch;
-}
-
-.themes {
-  position: relative;
-  display: flex;
-  align-items: stretch;
-  margin-left: 20px;
-  border-left: 1px solid light;
-  border-right: 1px solid light;
 }
 
 .currentOption {
@@ -121,19 +112,6 @@
 .caretUp {
   composes: caret;
   transform: rotate(180deg);
-}
-
-/* .themesHovered {
-  composes: themes;
-}
-
-.themesHovered .optionsGroup {
-  display: block;
-  z-index: 3;
-} */
-
-.themes .optionsGroup:hover {
-  display: block;
 }
 
 .optionsGroup {
@@ -483,6 +461,7 @@
   .logoWrapper {
     background-color: white;
     z-index: 2;
+    margin: 0 8px;
   }
 
   .open .logoWrapper {
@@ -516,20 +495,6 @@
   .logoMobile .notifications {
     top: 5px;
     right: 10px;
-  }
-
-  .themes {
-    border: 0;
-    margin-left: 0;
-  }
-
-  .themes .currentOption {
-    padding: 0;
-  }
-
-  .themes .optionsGroup {
-    left: auto;
-    right: -20px;
   }
 
   .menuWrapper {
@@ -668,7 +633,8 @@
     padding: 0;
   }
 
-  .open .settingsGroup {
+  .open .settingsGroup,
+  .open .settings {
     width: 100%;
   }
 
