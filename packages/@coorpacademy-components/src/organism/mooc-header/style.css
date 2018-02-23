@@ -485,6 +485,10 @@
     z-index: 2;
   }
 
+  .open .logoWrapper {
+    height: 60px;
+  }
+
   .logo {
     display: none;
   }
