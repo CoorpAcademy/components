@@ -1,5 +1,18 @@
+import map from 'lodash/fp/map';
+import pipe from 'lodash/fp/pipe';
+import get from 'lodash/fp/get';
+import {getCurrentProgression} from '../../utils/state-extract';
+
+const getTeamsPoints = pipe(
+  getCurrentProgression,
+  get('state.teams'),
+  map(get('step'))
+);
+
 const raceProps = (options, store) => state => {
-  const props = {
+  const progression = getCurrentProgression(state);
+
+  return {
     header: {
       title: 'Bonne réponse !',
       success: true,
@@ -7,42 +20,15 @@ const raceProps = (options, store) => state => {
       pointsDescription: 'Vous faites avancer votre équipe d\'un pas'
     },
     race: {
-      length: 20,
-      teamsPoints: [7, 15, 5, 10, 10, 15]
+      length: get('state.goal', progression),
+      teamsPoints: getTeamsPoints(state)
     },
-    teamMembers: [
-      {
-        name: 'Angelina',
-        status: 'succeeded',
-        avatarUrl: 'http://blog.mozilla.org/hacks/files/2013/06/angelina.jpg',
-        statusDescription: 'A obtenu une bonne réponse',
-        points: 1
-      },
-      {
-        name: 'Edmund',
-        status: 'failed',
-        avatarUrl: 'https://i0.wp.com/zobra.ru/cache/p6280-610x-il_fullxfull-313300268.jpg',
-        statusDescription: 'A obtenu une mauvaise réponse',
-        points: -1
-      },
-      {
-        name: 'James',
-        status: 'answering',
-        avatarUrl: 'http://2012.lxjs.org/assets/images/speakers_substack.jpg',
-        statusDescription: 'A obtenu une mauvaise réponse',
-        points: -1
-      },
-    ],
     cta: {
       submitValue: 'Question suivante',
       disabled: true,
       primary: true
     }
   };
-
-  console.log('calling race props with', state, props)
-
-  return props;
 };
 
 export default raceProps;

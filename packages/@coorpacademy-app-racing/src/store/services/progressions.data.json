@@ -30,19 +30,20 @@
           "user_1",
           "user_2"
         ],
-        "step": 11
+        "step": 0
       },
       "1": {
         "players": [
           "user_3",
           "user_4"
         ],
-        "step": 8
+        "step": 0
       }
     },
     "users": {
       "user_1": {
-        "isCorrect": true,
+        "isCorrect": false,
+        "slides": [],
         "questionNum": 1,
         "nextContent": {
           "type": "slide",
@@ -51,14 +52,16 @@
       },
       "user_2": {
         "isCorrect": false,
-        "questionNum": 2,
+        "slides": [],
+        "questionNum": 1,
         "nextContent": {
           "type": "slide",
           "ref": "1.B2.4"
         }
       },
       "user_3": {
-        "isCorrect": true,
+        "isCorrect": false,
+        "slides": [],
         "questionNum": 1,
         "nextContent": {
           "type": "slide",
@@ -66,8 +69,9 @@
         }
       },
       "user_4": {
-        "isCorrect": true,
-        "questionNum": 2,
+        "isCorrect": false,
+        "slides": [],
+        "questionNum": 1,
         "nextContent": {
           "type": "slide",
           "ref": "1.B2.4"
