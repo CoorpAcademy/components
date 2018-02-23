@@ -15,8 +15,9 @@ test('should call onChange with new value when user try to change the input valu
     t.is(value, 'my name is murphy');
   };
 
-  const wrapper = shallow(<Search placeholder="say your name" value="my name is murph" onChange={onChange} />);
-  const instance = wrapper.instance();
+  const wrapper = shallow(
+    <Search placeholder="say your name" value="my name is murph" onChange={onChange} />
+  );
 
-  wrapper.find('input').simulate('change', {target: {value: 'y'}});
+  wrapper.find('input').simulate('input', {target: {value: 'my name is murphy'}});
 });

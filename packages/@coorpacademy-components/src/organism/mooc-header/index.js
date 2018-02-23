@@ -18,16 +18,11 @@ import ImageSlider from '../mooc/image-slider';
 import style from './style.css';
 
 class MoocHeader extends React.Component {
-  state = {
-    isSettingsOpen: false,
-    isMenuOpen: false
-  };
-
   constructor(props) {
     super(props);
     this.state = {
       isSettingsOpen: false,
-      isMenuOpen: false,
+      isMenuOpen: false
     };
 
     this.handleSettingsToggle = this.handleSettingsToggle.bind(this);
