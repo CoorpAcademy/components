@@ -7,6 +7,7 @@ import {
 } from '@coorpacademy/progression-engine';
 import defaultsDeep from 'lodash/fp/defaultsDeep';
 import map from 'lodash/fp/map';
+import concat from 'lodash/fp/concat';
 import toPairs from 'lodash/fp/toPairs';
 import groupBy from 'lodash/fp/groupBy';
 import uniqueId from 'lodash/fp/uniqueId';
@@ -22,6 +23,8 @@ import reduce from 'lodash/fp/reduce';
 import progressionsData from './progressions.data';
 import slidesData from './slides.data';
 
+let lastUserAnswerTime = Date.now();
+
 const slideStore = reduce(
   (slideMap, slide) => slideMap.set(slide._id, slide),
   new Map(),
@@ -29,7 +32,7 @@ const slideStore = reduce(
 );
 
 const generateId = () => uniqueId('progression');
-const progressionStore = reduce(
+let progressionStore = reduce(
   (progressionMap, progression) =>
     progressionMap.set(
       progression._id,
@@ -42,7 +45,20 @@ const progressionStore = reduce(
 // eslint-disable-next-line require-await
 export const findById = async id => {
   if (!progressionStore.has(id)) throw new Error('Progression not found');
-  return progressionStore.get(id);
+  let progression = progressionStore.get(id);
+
+
+  if (Date.now() - lastUserAnswerTime >= 2000 && get('users.user_1.questionNum', progression.state) !== get('users.user_2.questionNum', progression.state)) {
+    progression = set('state', pipe(
+      set('users.user_2.questionNum', get('users.user_2.questionNum', progression.state) + 1),
+      set('users.user_2.slides', get('users.user_1.slides', progression.state)),
+      set('teams.0.step', get('teams.0.step', progression.state) + 1),
+    )(progression.state), progression);
+
+    progressionStore.set(progressionId, progression);
+  }
+
+  return progression;
 };
 
 // eslint-disable-next-line require-await
@@ -69,68 +85,17 @@ export const findBestOf = (engineRef, contentRef, progressionId = null) => {
   return bestProgression || set('state.stars', 0, {});
 };
 
-let users = {
-  "user_1": {
-    "isCorrect": false,
-    "slides": [],
-    "questionNum": 1,
-    "nextContent": {
-      "type": "slide",
-      "ref": "1.B2.4"
-    }
-  },
-  "user_2": {
-    "isCorrect": false,
-    "slides": [],
-    "questionNum": 1,
-    "nextContent": {
-      "type": "slide",
-      "ref": "1.B2.4"
-    }
-  },
-  "user_3": {
-    "isCorrect": false,
-    "slides": [],
-    "questionNum": 1,
-    "nextContent": {
-      "type": "slide",
-      "ref": "1.B2.4"
-    }
-  },
-  "user_4": {
-    "isCorrect": false,
-    "slides": [],
-    "questionNum": 1,
-    "nextContent": {
-      "type": "slide",
-      "ref": "1.B2.4"
-    }
-  }
-};
-
-let teams = {
-  "0": {
-    "players": [
-      "user_1",
-      "user_2"
-    ],
-    "step": 0
-  },
-  "1": {
-    "players": [
-      "user_3",
-      "user_4"
-    ],
-    "step": 0
-  }
-};
-
 export const postAnswer = async (progressionId, payload) => {
-  users.user_1.questionNum++;
-  users.user_1.slides.push('slide');
-  teams['0'].step++;
+  const progression = progressionStore.get(progressionId);
+  const nextProgression = set('state', pipe(
+    set('users.user_1.questionNum', get('users.user_1.questionNum', progression.state) + 1),
+    set('users.user_1.slides', concat(get('users.user_1.slides', progression.state), [payload.content.ref])),
+    set('teams.0.step', get('teams.0.step', progression.state) + 1),
+  )(progression.state), progression);
 
-  return {state: {goal: 20, users, teams}};
+  progressionStore.set(progressionId, nextProgression);
+
+  return nextProgression;
 };
 
 export const requestClue = async (progressionId, payload) => {

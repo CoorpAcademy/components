@@ -22,8 +22,7 @@ export const fetchProgression = id => (dispatch, getState, {services}) => {
   const action = buildTask({
     types: [PROGRESSION_FETCH_REQUEST, PROGRESSION_FETCH_SUCCESS, PROGRESSION_FETCH_FAILURE],
     task: () => Progressions.findById(id),
-    meta: {id},
-    bailout: getProgression(id)
+    meta: {id}
   });
 
   return dispatch(action);
