@@ -10,6 +10,7 @@ import {
   getCurrentSlide,
   getPreviousSlide
 } from '../../utils/state-extract';
+import {getCurrentUserMergedState} from '../../utils/user-state-extract';
 
 export const PROGRESSION_FETCH_REQUEST = '@@progression/FETCH_REQUEST';
 export const PROGRESSION_FETCH_SUCCESS = '@@progression/FETCH_SUCCESS';
@@ -51,7 +52,8 @@ export const PROGRESSION_CREATE_ANSWER_FAILURE = '@@progression/CREATE_ANSWER_FA
 
 export const createAnswer = (progressionId, answer) => (dispatch, getState, {services}) => {
   const {Progressions} = services;
-  const progression = getProgression(progressionId)(getState());
+  const state = getCurrentUserMergedState(getState());
+  const progression = getProgression(progressionId)(state);
   const nextContent = progression.state.nextContent;
 
   const action = buildTask({

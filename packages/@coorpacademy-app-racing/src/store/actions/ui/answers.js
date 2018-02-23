@@ -55,30 +55,30 @@ export const editAnswer = (state, questionType, progressionId, newValue) => {
 
 export const validateAnswer = (progressionId, body) => async (dispatch, getState, {services}) => {
   const createAnswerResponse = await dispatch(createAnswer(progressionId, body.answer));
-  if (createAnswerResponse.error) return createAnswerResponse;
-
-  const payload = createAnswerResponse.payload;
-
-  const progressionState = get('state', payload);
-  const slideId = get('content.ref', progressionState);
-  const nextContentRef = get('nextContent.ref', progressionState);
-
-  const {isCorrect = false} = progressionState;
-
-  const state = getState();
-
-  if (get('nextContent.type', progressionState) === 'slide') {
-    await dispatch(fetchSlideChapter(nextContentRef));
-  }
-
-  if (isCorrect) {
-    await dispatch(toggleAccordion(ACCORDION_TIPS));
-  } else if (nextContentRef !== 'extraLife' && hasSeenLesson(state)) {
-    await dispatch(toggleAccordion(ACCORDION_KLF));
-  } else {
-    await dispatch(toggleAccordion(ACCORDION_LESSON));
-  }
-
-  await dispatch(progressionUpdated(progressionId));
-  return dispatch(fetchAnswer(progressionId, slideId, body.answer));
+  // if (createAnswerResponse.error) return createAnswerResponse;
+  //
+  // const payload = createAnswerResponse.payload;
+  //
+  // const progressionState = get('state', payload);
+  // const slideId = get('content.ref', progressionState);
+  // const nextContentRef = get('nextContent.ref', progressionState);
+  //
+  // const {isCorrect = false} = progressionState;
+  //
+  // const state = getState();
+  //
+  // if (get('nextContent.type', progressionState) === 'slide') {
+  //   await dispatch(fetchSlideChapter(nextContentRef));
+  // }
+  //
+  // if (isCorrect) {
+  //   await dispatch(toggleAccordion(ACCORDION_TIPS));
+  // } else if (nextContentRef !== 'extraLife' && hasSeenLesson(state)) {
+  //   await dispatch(toggleAccordion(ACCORDION_KLF));
+  // } else {
+  //   await dispatch(toggleAccordion(ACCORDION_LESSON));
+  // }
+  //
+  // await dispatch(progressionUpdated(progressionId));
+  // return dispatch(fetchAnswer(progressionId, slideId, body.answer));
 };

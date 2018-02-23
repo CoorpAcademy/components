@@ -16,19 +16,21 @@ const answerStore = reduce(
 // eslint-disable-next-line import/prefer-default-export
 export const findById = async (progressionId, slideId, givenAnswers = []) => {
   const progression = await ProgressionsService.findById(progressionId);
-  const {engine} = progression;
-  const slide = find({_id: slideId}, slidesData);
 
-  if (!includes(slideId, progression.state.slides)) throw new Error('Answer is not available');
-  const correctAnswer = answerStore.get(slideId);
-  const question = assign(slide.question, {
-    answers: [correctAnswer]
-  });
-
-  const {corrections} = checkAnswerCorrectness(engine, question, givenAnswers);
-
-  return {
-    correctAnswer,
-    corrections
-  };
+  return Promise.reject(new Error('nope'));
+  // const {engine} = progression;
+  // const slide = find({_id: slideId}, slidesData);
+  //
+  // if (!includes(slideId, progression.state.slides)) throw new Error('Answer is not available');
+  // const correctAnswer = answerStore.get(slideId);
+  // const question = assign(slide.question, {
+  //   answers: [correctAnswer]
+  // });
+  //
+  // const {corrections} = checkAnswerCorrectness(engine, question, givenAnswers);
+  //
+  // return {
+  //   correctAnswer,
+  //   corrections
+  // };
 };

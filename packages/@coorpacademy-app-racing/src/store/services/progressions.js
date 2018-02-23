@@ -69,29 +69,68 @@ export const findBestOf = (engineRef, contentRef, progressionId = null) => {
   return bestProgression || set('state.stars', 0, {});
 };
 
-export const postAnswer = async (progressionId, payload) => {
-  const userAnswer = getOr([''], 'answer', payload);
-  const slideId = payload.content.ref;
-  const slide = slideStore.get(slideId);
-  const progression = await findById(progressionId);
-  const slidePools = createSlidePools();
-  const {engine} = progression;
-
-  const action = pipe(
-    set('payload.isCorrect', checkAnswer(engine, slide.question, userAnswer)),
-    _action => {
-      let nextState = updateState(engine, progression.state, [_action]);
-      nextState = set('nextContent', nextState.content, nextState);
-      return set('payload.nextContent', computeNextStep(engine, slidePools, nextState))(_action);
+let users = {
+  "user_1": {
+    "isCorrect": false,
+    "slides": [],
+    "questionNum": 1,
+    "nextContent": {
+      "type": "slide",
+      "ref": "1.B2.4"
     }
-  )({
-    type: 'answer',
-    payload
-  });
+  },
+  "user_2": {
+    "isCorrect": false,
+    "slides": [],
+    "questionNum": 1,
+    "nextContent": {
+      "type": "slide",
+      "ref": "1.B2.4"
+    }
+  },
+  "user_3": {
+    "isCorrect": false,
+    "slides": [],
+    "questionNum": 1,
+    "nextContent": {
+      "type": "slide",
+      "ref": "1.B2.4"
+    }
+  },
+  "user_4": {
+    "isCorrect": false,
+    "slides": [],
+    "questionNum": 1,
+    "nextContent": {
+      "type": "slide",
+      "ref": "1.B2.4"
+    }
+  }
+};
 
-  return pipe(update('state', state => updateState(progression.engine, state, [action])), save)(
-    progression
-  );
+let teams = {
+  "0": {
+    "players": [
+      "user_1",
+      "user_2"
+    ],
+    "step": 0
+  },
+  "1": {
+    "players": [
+      "user_3",
+      "user_4"
+    ],
+    "step": 0
+  }
+};
+
+export const postAnswer = async (progressionId, payload) => {
+  users.user_1.questionNum++;
+  users.user_1.slides.push('slide');
+  teams['0'].step++;
+
+  return {state: {goal: 20, users, teams}};
 };
 
 export const requestClue = async (progressionId, payload) => {
