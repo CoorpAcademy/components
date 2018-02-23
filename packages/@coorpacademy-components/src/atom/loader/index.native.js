@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Animated, Easing} from 'react-native';
+import {View, Animated, Easing, StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
