@@ -668,6 +668,10 @@
     padding: 0;
   }
 
+  .open .settingsGroup {
+    width: 100%;
+  }
+
   .closeSettings {
     display: none;
   }
