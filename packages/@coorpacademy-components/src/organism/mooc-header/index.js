@@ -14,6 +14,7 @@ import Select from '../../atom/select';
 import InputSwitch from '../../atom/input-switch';
 import Link from '../../atom/link';
 import Search from '../../molecule/search';
+import SearchForm from '../../molecule/search-form';
 import ImageSlider from '../mooc/image-slider';
 import style from './style.css';
 
@@ -30,6 +31,7 @@ class MoocHeader extends React.Component {
     this._checkOnClose = this._checkOnClose.bind(this);
     this.handleLinkClick = this.handleLinkClick.bind(this);
     this.setMenuSettings = this.setMenuSettings.bind(this);
+    this.handleSubmitSearch = this.handleSubmitSearch.bind(this);
   }
 
   componentDidUpdate(prevProps, prevState, prevContext) {
@@ -69,6 +71,12 @@ class MoocHeader extends React.Component {
     this.setState(prevState => ({
       isMenuOpen: !prevState.isMenuOpen
     }));
+  }
+
+  handleSubmitSearch() {
+    if (this.props.onSubmitSearch) {
+      this.props.onSubmitSearch();
+    }
   }
 
   render() {
@@ -334,7 +342,7 @@ class MoocHeader extends React.Component {
             </Link>
           </div>
           <div data-name="Search-Bar" className={style.searchBar}>
-            <Search {...search} />
+            <SearchForm search={search} onSubmit={this.handleSubmitSearch} />
           </div>
           <div className={style.menuWrapper}>
             {pagesView}
@@ -379,6 +387,7 @@ MoocHeader.propTypes = {
     href: PropTypes.string
   }),
   search: Search.propTypes,
+  onSubmitSearch: PropTypes.func,
   pages: PropTypes.shape({
     displayed: PropTypes.arrayOf(
       PropTypes.shape({

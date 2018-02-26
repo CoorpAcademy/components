@@ -82,6 +82,7 @@ import ResourcePlayer from './../src/molecule/resource-player';
 import ScopeContent from './../src/molecule/scope-content';
 import ScopeTabs from './../src/molecule/scope-tabs';
 import Search from './../src/molecule/search';
+import SearchForm from './../src/molecule/search-form';
 import SetupSection from './../src/molecule/setup-section';
 import SetupSections from './../src/molecule/setup-sections';
 import SetupSlide from './../src/molecule/setup-slide';
@@ -417,6 +418,7 @@ import ScopeTabsFixtureDefault from '../src/molecule/scope-tabs/test/fixtures/de
 import ScopeTabsFixtureEmpty from '../src/molecule/scope-tabs/test/fixtures/empty';
 import SearchFixtureDefault from '../src/molecule/search/test/fixtures/default';
 import SearchFixtureWithValue from '../src/molecule/search/test/fixtures/with-value';
+import SearchFormFixtureDefault from '../src/molecule/search-form/test/fixtures/default';
 import SetupSectionFixtureDefault from '../src/molecule/setup-section/test/fixtures/default';
 import SetupSectionFixtureFirst from '../src/molecule/setup-section/test/fixtures/first';
 import SetupSectionFixtureOther from '../src/molecule/setup-section/test/fixtures/other';
@@ -703,6 +705,7 @@ export const components = {
     ScopeContent,
     ScopeTabs,
     Search,
+    SearchForm,
     SetupSection,
     SetupSections,
     SetupSlide,
@@ -1172,6 +1175,9 @@ export const fixtures = {
     Search: {
       Default: SearchFixtureDefault,
       WithValue: SearchFixtureWithValue
+    },
+    SearchForm: {
+      Default: SearchFormFixtureDefault
     },
     SetupSection: {
       Default: SetupSectionFixtureDefault,

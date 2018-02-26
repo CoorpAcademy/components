@@ -7,15 +7,10 @@ import Provider from '../../atom/provider';
 import style from './style.css';
 
 const Search = (props, context) => {
-  const {value, placeholder, onChange, onEnter} = props;
+  const {value, placeholder, onChange} = props;
   const {skin} = context;
   const medium = get('common.medium', skin);
   const handleChange = e => onChange(e.target.value);
-  const handleOnEnter = k => {
-    if (k.key === 'Enter' && onEnter) {
-      return onEnter();
-    }
-  };
 
   return (
     <div className={style.wrapperSearch}>
@@ -28,7 +23,6 @@ const Search = (props, context) => {
         value={value}
         onChange={noop}
         onInput={handleChange}
-        onKeyPress={handleOnEnter}
       />
     </div>
   );
@@ -41,8 +35,7 @@ Search.contextTypes = {
 Search.propTypes = {
   value: PropTypes.string,
   placeholder: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-  onEnter: PropTypes.func
+  onChange: PropTypes.func
 };
 
 export default Search;

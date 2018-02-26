@@ -13,6 +13,7 @@ export default {
       ...research,
       onChange: value => console.log(value)
     },
+    onSubmitSearch: () => console.log('onSubmitSearch'),
     themes: [
       {
         title: 'Digital',
