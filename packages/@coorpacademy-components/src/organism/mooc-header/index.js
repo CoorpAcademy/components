@@ -386,7 +386,7 @@ MoocHeader.propTypes = {
     srcMobile: PropTypes.string,
     href: PropTypes.string
   }),
-  search: Search.propTypes,
+  search: PropTypes.shape(Search.propTypes),
   onSubmitSearch: PropTypes.func,
   pages: PropTypes.shape({
     displayed: PropTypes.arrayOf(
