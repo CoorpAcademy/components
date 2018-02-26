@@ -607,6 +607,10 @@
     display: none;
   }
 
+  .settings div label {
+    margin-right: 0;
+  }
+
   .settingsWrapper {
     display: block;
     position: relative;
