@@ -37,7 +37,9 @@ test(
     },
     payload: null
   },
-  {}
+  {
+    foo: 'answer'
+  }
 );
 
 test(

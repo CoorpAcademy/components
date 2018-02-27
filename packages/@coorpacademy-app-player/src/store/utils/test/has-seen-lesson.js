@@ -5,12 +5,13 @@ import hasSeenAnyLesson from '../has-seen-lesson';
 import {getCurrentSlide} from '../state-extract';
 import slideFixture from '../../view/test/fixtures/player/slide';
 
-const setViewedResources = lessonId => state =>
+const setViewedResources = (lessonId, chapterId) => state =>
   set(
     ['data', 'progressions', 'entities', 0, 'state', 'viewedResources'],
     [
       {
-        ...state.data.progressions.entities[0].content,
+        type: 'chapter',
+        ref: chapterId,
         resources: [lessonId]
       }
     ],
@@ -47,7 +48,9 @@ test('should return true if slide lessons is an empty array', t => {
 test('should return true if at least one lesson has been seen', t => {
   const state = Object.freeze(slideFixture);
   const slide = getCurrentSlide(state);
-  const result = hasSeenAnyLesson(setViewedResources(slide.lessons[0].ref)(state));
+  const result = hasSeenAnyLesson(
+    setViewedResources(slide.lessons[0].ref, slide.chapter_id)(state)
+  );
 
   return t.is(result, true);
 });
@@ -62,7 +65,7 @@ test('should return true if side is at previous step and at least one lesson has
         type: 'slide',
         ref: slide._id
       }),
-      setViewedResources(slide.lessons[0].ref)
+      setViewedResources(slide.lessons[0].ref, slide.chapter_id)
     )(state)
   );
 

@@ -28,7 +28,7 @@ const uiRouteReducer = (state = {}, {type, payload, meta}) => {
     case UI_SELECT_ROUTE: {
       const route = payload;
       const {progressionId} = meta;
-      if (isNull(route)) return unset(progressionId, state);
+      if (isNull(route)) return set(progressionId, 'answer', state);
       return set(progressionId, route, state);
     }
     default:
