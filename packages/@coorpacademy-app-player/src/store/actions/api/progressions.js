@@ -6,7 +6,6 @@ import {
   getBestScore,
   getEngine,
   getEngineConfig,
-  getProgressionContent,
   getCurrentSlide,
   getPreviousSlide
 } from '../../utils/state-extract';
@@ -195,17 +194,17 @@ export const markResourceAsViewed = (progressionId, resource) => (
   const state = getState();
   const {_id, ref = _id, type} = resource;
   const slide = getCurrentSlide(state) || getPreviousSlide(state);
-  const progressionContent = getProgressionContent(state);
 
   const payload = {
     resource: {
-      _id,
       ref,
       type,
       version: '1'
     },
-    slide,
-    content: progressionContent
+    content: {
+      type: 'chapter',
+      ref: slide.chapter_id
+    }
   };
 
   const action = buildTask({

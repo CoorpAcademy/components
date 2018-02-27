@@ -25,8 +25,9 @@ export default function viewedResources(
           return concat(currentViewedResources)([
             {
               ref: contentRef,
-              resources: [resourceRef],
-              type: contentType
+              type: contentType,
+
+              resources: [resourceRef]
             }
           ]);
         }

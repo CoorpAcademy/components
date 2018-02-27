@@ -7,7 +7,6 @@ import {
   getConfig,
   getConfigForProgression
 } from '@coorpacademy/progression-engine';
-import defaultsDeep from 'lodash/fp/defaultsDeep';
 import uniqueId from 'lodash/fp/uniqueId';
 import update from 'lodash/fp/update';
 import pipe from 'lodash/fp/pipe';
@@ -17,6 +16,8 @@ import getOr from 'lodash/fp/getOr';
 import set from 'lodash/fp/set';
 import maxBy from 'lodash/fp/maxBy';
 import reduce from 'lodash/fp/reduce';
+import map from 'lodash/fp/map';
+import {find as findContent} from './content';
 import progressionsData from './fixtures/progressions';
 import chapterRulesData from './fixtures/chapter-rules';
 import slidesData from './fixtures/slides';
@@ -27,7 +28,7 @@ const slideStore = reduce(
   slidesData
 );
 
-const toMapByChapterRef = reduce((map, object) => map.set(object.chapterRef, object));
+const toMapByChapterRef = reduce((m, object) => m.set(object.chapterRef, object));
 const chapterRules = toMapByChapterRef(new Map(), chapterRulesData);
 
 const getChapterRulesByContent = ref => {
@@ -36,26 +37,11 @@ const getChapterRulesByContent = ref => {
 
 const generateId = () => uniqueId('progression');
 const progressionStore = reduce(
-  (progressionMap, progression) =>
-    progressionMap.set(
-      progression._id,
-      defaultsDeep(
-        {
-          state: {
-            remainingLifeRequests: getConfig(progression.engine).remainingLifeRequests
-          },
-          actions: [
-            {
-              type: 'move',
-              payload: {
-                nextContent: progression.state.nextContent
-              }
-            }
-          ]
-        },
-        progression
-      )
-    ),
+  (progressionMap, progression) => {
+    const newState = createState(progression);
+    progressionMap.set(progression._id, set('state', newState, progression));
+    return progressionMap;
+  },
   new Map(),
   progressionsData
 );
@@ -71,8 +57,15 @@ export const getEngineConfig = async engine => {
   return getConfig(engine);
 };
 
-const getAvailableContent = content => {
-  const chapters = [content];
+const getAvailableContent = async content => {
+  const chapters =
+    content.type === 'level'
+      ? map(
+          ref => ({type: 'chapter', ref}),
+          (await findContent(content.type, content.ref)).chapterIds
+        )
+      : [content];
+
   return Promise.all(
     chapters.map(async chapter => ({
       ref: chapter.ref,
@@ -91,7 +84,7 @@ export const findBestOf = (engineRef, contentRef, progressionId = null) => {
   const bestProgression = pipe(
     filter(p => get('content.ref', p) === contentRef && get('_id', p) !== progressionId),
     maxBy(p => p.state.stars || 0)
-  )(progressionsData);
+  )(Array.from(progressionStore.values()));
   return bestProgression || set('state.stars', 0, {});
 };
 
@@ -106,7 +99,7 @@ export const postAnswer = async (progressionId, payload) => {
   const slideId = payload.content.ref;
   const slide = slideStore.get(slideId);
   const progression = await findById(progressionId);
-  const state = createState(progression);
+  const state = progression.state;
 
   const partialAnswerAction = {
     type: 'answer',
@@ -160,16 +153,11 @@ export const refuseExtraLife = async (progressionId, payload) => {
   return addActionAndSaveProgression(progression, action);
 };
 
-// eslint-disable-next-line require-await
-export const create = async (engine, chapterRef) => {
+export const create = async (engine, content) => {
   const _id = generateId();
-  const chapter = {
-    ref: chapterRef,
-    type: 'chapter'
-  };
 
-  const availableContent = await getAvailableContent(chapter);
-  const newProgression = createProgression(engine, chapter, {}, availableContent);
+  const availableContent = await getAvailableContent(content);
+  const newProgression = createProgression(engine, content, {}, availableContent);
   const state = createState(newProgression);
 
   return save({

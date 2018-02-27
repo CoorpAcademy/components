@@ -86,7 +86,7 @@ test(
       ref: 'microlearning'
     }),
     set('data.progressions.entities.foo.content', content),
-    set('data.contents.slide.entities.slideRef', 'slide')
+    set('data.contents.slide.entities.slideRef.chapter_id', 'chapter')
   )({}),
   t => ({
     Analytics: {
@@ -103,13 +103,14 @@ test(
         t.is(progressionId, 'foo');
         t.deepEqual(payload, {
           resource: {
-            _id: 'resourceId',
             ref: 'resourceRef',
             type: 'video',
             version: '1'
           },
-          content,
-          slide: 'slide'
+          content: {
+            type: 'chapter',
+            ref: 'chapter'
+          }
         });
 
         return set('state.viewedResources', [content.ref], {});
@@ -160,6 +161,10 @@ test(
     set('ui.current.progressionId', 'foo'),
     set('ui.route.foo', 'media'),
     set('data.progressions.entities.foo._id', 'foo'),
+    set('data.progressions.entities.foo.state.content', {
+      type: 'slide',
+      ref: 'slideRef'
+    }),
     set('data.progressions.entities.foo.state.nextContent', {
       type: 'node',
       ref: 'extraLife'
@@ -169,7 +174,7 @@ test(
       ref: 'microlearning'
     }),
     set('data.progressions.entities.foo.content', content),
-    set('data.contents.slide.entities.slideRef', 'slide')
+    set('data.contents.slide.entities.slideRef._id', 'slide')
   )({}),
   t => ({
     Analytics: {

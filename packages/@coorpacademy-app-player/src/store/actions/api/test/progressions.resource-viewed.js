@@ -27,8 +27,8 @@ const initState = pipe(
   set('data.progressions.entities.foo.state.hasViewedAResourceAtThisStep', false),
   set('data.progressions.entities.foo.content', content),
   set('data.contents.chapter.entities.contentRef', 'chapterContent'),
-  set('data.contents.slide.entities.slideRef', 'slide1'),
-  set('data.contents.slide.entities.nextSlideRef', 'slide2')
+  set('data.contents.slide.entities.slideRef.chapter_id', 'chapter1'),
+  set('data.contents.slide.entities.nextSlideRef.chapter_id', 'chapter2')
 );
 
 test(
@@ -41,13 +41,14 @@ test(
         t.is(id, 'foo');
         t.deepEqual(payload, {
           resource: {
-            _id: 'resourceId',
             ref: 'resourceRef',
             type: 'video',
             version: '1'
           },
-          content,
-          slide: 'slide2'
+          content: {
+            type: 'chapter',
+            ref: 'chapter2'
+          }
         });
 
         return stateForViewedResource;
@@ -79,13 +80,14 @@ test(
         t.is(id, 'foo');
         t.deepEqual(payload, {
           resource: {
-            _id: 'resourceId',
             ref: 'resourceId',
             type: 'pdf',
             version: '1'
           },
-          content,
-          slide: 'slide2'
+          content: {
+            type: 'chapter',
+            ref: 'chapter2'
+          }
         });
 
         return stateForViewedResource;
@@ -121,13 +123,14 @@ test(
         t.is(id, 'foo');
         t.deepEqual(payload, {
           resource: {
-            _id: 'resourceId',
             ref: 'resourceRef',
             type: 'video',
             version: '1'
           },
-          content,
-          slide: 'slide1'
+          content: {
+            type: 'chapter',
+            ref: 'chapter1'
+          }
         });
 
         return stateForViewedResource;
@@ -164,13 +167,14 @@ test(
         t.is(id, 'foo');
         t.deepEqual(payload, {
           resource: {
-            _id: 'resourceId',
             ref: 'resourceRef',
             type: 'video',
             version: '1'
           },
-          content,
-          slide: 'slide2'
+          content: {
+            type: 'chapter',
+            ref: 'chapter2'
+          }
         });
         throw new Error('some error');
       }
