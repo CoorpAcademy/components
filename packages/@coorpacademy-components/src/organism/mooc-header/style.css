@@ -3,10 +3,10 @@
 @value colors: "../../variables/colors.css";
 @value light from colors;
 @value white from colors;
-@value dark from colors;
 @value medium from colors;
 @value brand from colors;
 @value black from colors;
+@value dark from colors;
 @value battle from colors;
 @value transparent from colors;
 
@@ -18,18 +18,32 @@
   position: fixed;
   width: 100%;
   height: 60px;
-  padding: 0 20px;
   box-sizing: border-box;
   border-bottom: 1px solid light;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   z-index: 10;
   background-color: white;
 }
 
+.searchBar {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  border-right: solid 1px light;
+  border-left: solid 1px light;
+  background-color: white;
+}
+
 .open {
   composes: header;
+}
+
+.open .searchBar {
+  border-left: none;
+  border-right: none;
 }
 
 .slider {
@@ -42,6 +56,9 @@
   display: flex;
   height: 100%;
   flex: 0 1 auto;
+  box-sizing: border-box;
+  background-color: white;
+  margin: 0 16px;
 }
 
 .logo {
@@ -66,15 +83,6 @@
   position: relative;
   display: flex;
   align-items: stretch;
-}
-
-.themes {
-  position: relative;
-  display: flex;
-  align-items: stretch;
-  margin-left: 20px;
-  border-left: 1px solid light;
-  border-right: 1px solid light;
 }
 
 .currentOption {
@@ -104,19 +112,6 @@
 .caretUp {
   composes: caret;
   transform: rotate(180deg);
-}
-
-.themesHovered {
-  composes: themes;
-}
-
-.themesHovered .optionsGroup {
-  display: block;
-  z-index: 3;
-}
-
-.themes .optionsGroup:hover {
-  display: block;
 }
 
 .optionsGroup {
@@ -160,7 +155,7 @@
 .pages {
   height: 100%;
   border-right: 1px solid light;
-  padding: 0 20px;
+  padding: 0 10px;
   display: flex;
   align-items: stretch;
 }
@@ -227,13 +222,10 @@
 
 .links {
   height: 100%;
-  padding-left: 20px;
   display: flex;
   align-items: center;
-}
-
-.links > div {
-  margin-left: 10px;
+  justify-content: space-around;
+  min-width: 15em;
 }
 
 .user {
@@ -338,11 +330,11 @@
 
 .settings {
   position: relative;
-  margin-left: 20px;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 40px;
 }
 
 .settingsToggle {
@@ -455,11 +447,11 @@
 
 @media tablet {
   .header {
-    flex-direction: column;
+    flex-direction: row;
     padding: 0;
-    background-color: transparent;
+    background-color: white;
     justify-content: flex-start;
-    align-items: stretch;
+    align-items: flex-start;
   }
 
   .open {
@@ -467,14 +459,13 @@
   }
 
   .logoWrapper {
-    width: 100%;
-    height: 60px;
-    justify-content: space-between;
-    flex-shrink: 0;
-    padding: 0 20px;
-    box-sizing: border-box;
     background-color: white;
     z-index: 2;
+    margin: 0 8px;
+  }
+
+  .open .logoWrapper {
+    height: 60px;
   }
 
   .logo {
@@ -487,10 +478,10 @@
     cursor: pointer;
     flex: 0 1 auto;
     position: relative;
-    padding: 10px 0;
     height: 100%;
     box-sizing: border-box;
     min-width: 120px;
+    background-color: white;
   }
 
   .logoMobile img {
@@ -504,20 +495,6 @@
   .logoMobile .notifications {
     top: 5px;
     right: 10px;
-  }
-
-  .themes {
-    border: 0;
-    margin-left: 0;
-  }
-
-  .themes .currentOption {
-    padding: 0;
-  }
-
-  .themes .optionsGroup {
-    left: auto;
-    right: -20px;
   }
 
   .menuWrapper {
@@ -630,6 +607,10 @@
     display: none;
   }
 
+  .settings div label {
+    margin-right: 0;
+  }
+
   .settingsWrapper {
     display: block;
     position: relative;
@@ -654,6 +635,11 @@
 
   .settingsGroup {
     padding: 0;
+  }
+
+  .open .settingsGroup,
+  .open .settings {
+    width: 100%;
   }
 
   .closeSettings {

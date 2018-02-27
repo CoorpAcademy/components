@@ -1,3 +1,7 @@
+import SearchBar from '../../../../molecule/search/test/fixtures/with-value';
+
+const research = SearchBar.props;
+
 export default {
   props: {
     logo: {
@@ -5,6 +9,11 @@ export default {
       srcMobile: 'https://static.coorpacademy.com/content/up/raw/logo_mobile-1491561428898.svg',
       href: '#'
     },
+    search: {
+      ...research,
+      onChange: value => console.log(value)
+    },
+    onSubmitSearch: () => console.log('onSubmitSearch'),
     themes: [
       {
         title: 'Digital',

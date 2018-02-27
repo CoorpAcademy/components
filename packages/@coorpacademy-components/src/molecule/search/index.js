@@ -13,7 +13,7 @@ const Search = (props, context) => {
   const handleChange = e => onChange(e.target.value);
 
   return (
-    <div>
+    <div className={style.wrapperSearch}>
       <SearchIcon color={medium} className={style.icon} />
       <input
         className={style.search}
@@ -35,7 +35,7 @@ Search.contextTypes = {
 Search.propTypes = {
   value: PropTypes.string,
   placeholder: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func
 };
 
 export default Search;

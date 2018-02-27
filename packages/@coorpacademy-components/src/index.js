@@ -80,6 +80,7 @@ export ResourcePlayer from './molecule/resource-player';
 export ScopeContent from './molecule/scope-content';
 export ScopeTabs from './molecule/scope-tabs';
 export Search from './molecule/search';
+export SearchForm from './molecule/search-form';
 export SetupSection from './molecule/setup-section';
 export SetupSections from './molecule/setup-sections';
 export SetupSlide from './molecule/setup-slide';
