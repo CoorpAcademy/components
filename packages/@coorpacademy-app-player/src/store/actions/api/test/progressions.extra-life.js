@@ -1,4 +1,5 @@
 import test from 'ava';
+import constant from 'lodash/fp/constant';
 import set from 'lodash/fp/set';
 import get from 'lodash/fp/get';
 import pipe from 'lodash/fp/pipe';
@@ -6,6 +7,7 @@ import macro from '../../test/helpers/macro';
 import {
   acceptExtraLife,
   refuseExtraLife,
+  PROGRESSION_MOVE_INTENT,
   PROGRESSION_EXTRALIFEACCEPTED_REQUEST,
   PROGRESSION_EXTRALIFEACCEPTED_SUCCESS,
   PROGRESSION_EXTRALIFEACCEPTED_FAILURE,
@@ -154,4 +156,56 @@ test(
     }
   ],
   3
+);
+
+test(
+  'should not execute a create extra life acceptance action if progression is currently moving',
+  macro,
+  initState({
+    ui: {
+      movingProgression: {
+        foo: true
+      }
+    }
+  }),
+  constant({}),
+  acceptExtraLife('foo'),
+  [
+    {
+      type: PROGRESSION_MOVE_INTENT,
+      intent: {
+        type: PROGRESSION_EXTRALIFEACCEPTED_REQUEST
+      },
+      meta: {
+        progressionId: 'foo'
+      }
+    }
+  ],
+  0
+);
+
+test(
+  'should not execute a create extra life refusal action if progression is currently moving',
+  macro,
+  initState({
+    ui: {
+      movingProgression: {
+        foo: true
+      }
+    }
+  }),
+  constant({}),
+  refuseExtraLife('foo'),
+  [
+    {
+      type: PROGRESSION_MOVE_INTENT,
+      intent: {
+        type: PROGRESSION_EXTRALIFEREFUSED_REQUEST
+      },
+      meta: {
+        progressionId: 'foo'
+      }
+    }
+  ],
+  0
 );

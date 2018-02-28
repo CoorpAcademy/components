@@ -7,8 +7,11 @@ import {
   getEngine,
   getEngineConfig,
   getCurrentSlide,
-  getPreviousSlide
+  getPreviousSlide,
+  isProgressionMoving
 } from '../../utils/state-extract';
+
+export const PROGRESSION_MOVE_INTENT = '@@progression/MOVE_INTENT';
 
 export const PROGRESSION_FETCH_REQUEST = '@@progression/FETCH_REQUEST';
 export const PROGRESSION_FETCH_SUCCESS = '@@progression/FETCH_SUCCESS';
@@ -49,8 +52,22 @@ export const PROGRESSION_CREATE_ANSWER_SUCCESS = '@@progression/CREATE_ANSWER_SU
 export const PROGRESSION_CREATE_ANSWER_FAILURE = '@@progression/CREATE_ANSWER_FAILURE';
 
 export const createAnswer = (progressionId, answer) => (dispatch, getState, {services}) => {
+  const state = getState();
+
+  if (isProgressionMoving(progressionId)(state)) {
+    return dispatch({
+      type: PROGRESSION_MOVE_INTENT,
+      intent: {
+        type: PROGRESSION_CREATE_ANSWER_REQUEST
+      },
+      meta: {
+        progressionId
+      }
+    });
+  }
+
   const {Progressions} = services;
-  const progression = getProgression(progressionId)(getState());
+  const progression = getProgression(progressionId)(state);
   const nextContent = progression.state.nextContent;
 
   const action = buildTask({
@@ -109,8 +126,22 @@ export const PROGRESSION_EXTRALIFEREFUSED_SUCCESS = '@@progression/EXTRALIFEREFU
 export const PROGRESSION_EXTRALIFEREFUSED_FAILURE = '@@progression/EXTRALIFEREFUSED_FAILURE';
 
 export const refuseExtraLife = progressionId => (dispatch, getState, {services}) => {
+  const state = getState();
+
+  if (isProgressionMoving(progressionId)(state)) {
+    return dispatch({
+      type: PROGRESSION_MOVE_INTENT,
+      intent: {
+        type: PROGRESSION_EXTRALIFEREFUSED_REQUEST
+      },
+      meta: {
+        progressionId
+      }
+    });
+  }
+
   const {Progressions} = services;
-  const progression = getProgression(progressionId)(getState());
+  const progression = getProgression(progressionId)(state);
   const nextContent = get('state.nextContent', progression);
 
   const action = buildTask({
@@ -134,8 +165,22 @@ export const PROGRESSION_EXTRALIFEACCEPTED_SUCCESS = '@@progression/EXTRALIFEACC
 export const PROGRESSION_EXTRALIFEACCEPTED_FAILURE = '@@progression/EXTRALIFEACCEPTED_FAILURE';
 
 export const acceptExtraLife = progressionId => (dispatch, getState, {services}) => {
+  const state = getState();
+
+  if (isProgressionMoving(progressionId)(state)) {
+    return dispatch({
+      type: PROGRESSION_MOVE_INTENT,
+      intent: {
+        type: PROGRESSION_EXTRALIFEACCEPTED_REQUEST
+      },
+      meta: {
+        progressionId
+      }
+    });
+  }
+
   const {Progressions} = services;
-  const progression = getProgression(progressionId)(getState());
+  const progression = getProgression(progressionId)(state);
   const nextContent = get('state.nextContent', progression);
 
   const action = buildTask({
