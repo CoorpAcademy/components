@@ -159,3 +159,9 @@ export const getLives = state => {
 };
 
 export const getCoaches = getOr(0, 'ui.coaches.availableCoaches');
+
+export const isCurrentProgressionMoving = state => {
+  const progressionId = getCurrentProgressionId(state);
+
+  return getOr(false, ['ui', 'movingProgression', progressionId], state);
+};

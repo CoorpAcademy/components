@@ -4,7 +4,12 @@ import get from 'lodash/fp/get';
 import isNil from 'lodash/fp/isNil';
 import isEqual from 'lodash/fp/isEqual';
 import pipe from 'lodash/fp/pipe';
-import {getStepContent, getCurrentProgression, getRoute} from '../utils/state-extract';
+import {
+  getStepContent,
+  getCurrentProgression,
+  getRoute,
+  isCurrentProgressionMoving
+} from '../utils/state-extract';
 import {popinCorrectionStateToProps} from './state-to-props/popin-correction';
 import popinEndStateToProps from './state-to-props/popin-end';
 import loadingStateToProps from './state-to-props/loading';
@@ -35,6 +40,7 @@ export const _selectMapStateToVNode = (
   return cond([
     [hasNoCurrentProgression, createStateToVNode(views.loading, stateToProps('loading'))],
     [hasNoContent, createStateToVNode(views.loading, stateToProps('loading'))],
+    [isCurrentProgressionMoving, createStateToVNode(views.loading, stateToProps('loading'))],
     [
       matchRoute('correction'),
       createStateToVNode(views.popinCorrection, stateToProps('popinCorrection'))

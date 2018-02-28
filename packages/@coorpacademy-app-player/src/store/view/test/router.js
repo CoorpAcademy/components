@@ -70,6 +70,33 @@ test('should open loading view when there is no current progression', t => {
   return t.is(createProps(stateWithoutCurrentProgression), props);
 });
 
+test('should open loading view when progression is currently moving forward', t => {
+  t.plan(3);
+
+  const props = {};
+  const stateWithMovingProgression = set(['ui', 'movingProgression', 0], true, slideStateFixture);
+
+  const createStateToProps = () => name => state => {
+    t.is(name, 'loading');
+    return props;
+  };
+
+  const createStateToVNode = (view, stateToProps) => state => {
+    t.is(view, 'loading');
+    return stateToProps(state);
+  };
+
+  const createProps = _selectMapStateToVNode(
+    null,
+    null,
+    views,
+    createStateToVNode,
+    createStateToProps
+  );
+
+  return t.is(createProps(stateWithMovingProgression), props);
+});
+
 test('should open popinEnd view when nextContent type is failure', t => {
   t.plan(3);
 
