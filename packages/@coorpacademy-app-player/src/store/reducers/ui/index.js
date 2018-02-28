@@ -4,6 +4,7 @@ import coaches from './coaches';
 import comments from './comments';
 import corrections from './corrections';
 import current from './current';
+import movingProgression from './moving-progression';
 import route from './route';
 
 export default combineReducers({
@@ -12,5 +13,6 @@ export default combineReducers({
   comments,
   corrections,
   current,
+  movingProgression,
   route
 });
