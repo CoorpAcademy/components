@@ -33,6 +33,7 @@ test(
       current: {
         progressionId: null
       },
+      movingProgression: {},
       route: {}
     }
   }
