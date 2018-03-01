@@ -130,8 +130,22 @@ export type Engine = {
   version: string
 };
 
+export type Config = {
+  version: string,
+  livesDisabled: boolean,
+  lives: number,
+  maxTypos: number,
+  slidesToComplete: number,
+  answerBoundaryLimit: number,
+  starsPerAskingClue: number,
+  starsPerCorrectAnswer: number,
+  starsPerResourceViewed: number,
+  remainingLifeRequests: number
+};
+
 export type EngineOptions = {
-  livesDisabled?: boolean
+  livesDisabled?: boolean,
+  lives?: number
 };
 
 export type Progression = {
@@ -217,19 +231,6 @@ export type Slide = {
   chapter_id: string,
   question: Question,
   position?: ?number
-};
-
-export type Config = {
-  version: string,
-  lives: number,
-  livesDisabled: boolean,
-  maxTypos: number,
-  slidesToComplete: number,
-  answerBoundaryLimit: number,
-  starsPerAskingClue: number,
-  starsPerCorrectAnswer: number,
-  starsPerResourceViewed: number,
-  remainingLifeRequests: number
 };
 
 export type ChapterContent = {
