@@ -2,10 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Picture from '../../atom/picture';
 import Link from '../../atom/link';
+import MenuList from '../../molecule/menu-list';
 import style from './style.css';
 
 const SetupHeader = props => {
-  const {logout, logoutValue, href, user = {}, logo, logoMobile} = props;
+  const {menuItems, href, user = {}, logo, logoMobile} = props;
 
   const {username = '', image = ''} = user;
 
@@ -24,15 +25,18 @@ const SetupHeader = props => {
         </Link>
       </div>
       <div className={style.logout}>
-        <Link href={logout}>{logoutValue}</Link>
+        <MenuList menuItems={menuItems} />
       </div>
     </div>
   );
 };
 
 SetupHeader.propTypes = {
-  logout: PropTypes.string,
-  logoutValue: PropTypes.string,
+  menuItems: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string
+    })
+  ),
   href: PropTypes.string,
   user: PropTypes.shape({
     username: PropTypes.string,

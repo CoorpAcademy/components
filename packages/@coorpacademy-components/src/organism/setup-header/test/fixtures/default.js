@@ -10,8 +10,12 @@ export default {
       username: 'Hi, John Doe',
       image: 'http://lorempixel.com/50/50/people/4'
     },
-    logoutValue: 'Log out',
-    href: '#',
-    logout: '#logout'
+    menuItems: [
+      {
+        href: 'Log out',
+        title: '#logout'
+      }
+    ],
+    href: '#'
   }
 };
