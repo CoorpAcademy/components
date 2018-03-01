@@ -13,7 +13,8 @@ export default {
     menuItems: [
       {
         href: '/dashboards',
-        title: 'Dashboards'
+        title: 'Dashboards',
+        type: 'primary'
       },
       {
         href: '#logout',

@@ -13,7 +13,8 @@ export default {
     menuItems: [
       {
         href: '/',
-        title: 'Platforms'
+        title: 'Platforms',
+        type: 'primary'
       },
       {
         href: '#logout',
