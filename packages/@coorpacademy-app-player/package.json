@@ -19,7 +19,7 @@
     "clean:build": "npm run clean:build:commonjs && npm run clean:build:es",
     "clean:static": "npm run static",
     "clean": "npm run clean:build && npm run clean:static",
-    "prepare": "npm run clean && npm run build --production",
+    "prepack": "npm run clean && npm run build --production",
     "static": "webpack --progress --output-path static/dist/ --config sandbox-web/webpack.config.js",
     "poststatic": "cp sandbox-web/index.html static/index.html",
     "start": "cross-env BABEL_ENV=es webpack-dev-server --config sandbox-web/webpack.config.js --content-base sandbox-web --host 0.0.0.0 --history-api-fallback true --hot true"

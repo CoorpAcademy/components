@@ -3,19 +3,9 @@ sudo: false
 node_js:
   - 8.9.4
 cache:
+  yarn: true
   directories:
-    - node_modules
-    - packages/@coorpacademy-app-player/node_modules
-    - packages/@coorpacademy-app-template/node_modules
-    - packages/@coorpacademy-components-bundler/node_modules
-    - packages/@coorpacademy-components/node_modules
-    - packages/@coorpacademy-history/node_modules
-    - packages/@coorpacademy-progression-engine/node_modules
-    - packages/@coorpacademy-redux-history/node_modules
-    - packages/@coorpacademy-translate/node_modules
-    - packages/@coorpacademy-treantjs-adapter-angular/node_modules
-    - packages/@coorpacademy-treantjs-adapter-dust/node_modules
-    - packages/@coorpacademy-webpack-config/node_modules
+    - node_modules/.cache
 install:
   - npm install -g yarn@`cat package.json | jq -r '.engines.yarn // "^1.2.1"'`
   - 'npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN'
