@@ -1,7 +1,6 @@
 {
   "private": true,
   "scripts": {
-    "prepare": "lerna run prepare",
     "preava": "npm run generate:fixtures",
     "ava": "cross-env NODE_ENV=test ava",
     "build": "lerna run build",
@@ -30,7 +29,7 @@
     "prestatic": "rimraf static",
     "static": "lerna run --scope @coorpacademy/components --scope @coorpacademy/app-player static -- --production",
     "poststatic": "mkdirp static && cp -r packages/@coorpacademy-components/static static/components && cp -r packages/@coorpacademy-app-player/static static/app-player",
-    "test": "npm run lint && npm run flow && npm run nyc"
+    "test": "npm run lint && npm run build && npm run nyc"
   },
   "engines": {
     "node": "^8.9.4",

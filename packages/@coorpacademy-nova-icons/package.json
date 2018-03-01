@@ -12,7 +12,7 @@
     "clean": "rm -rf src solid line composition",
     "generate-icons": "node scripts/generate-icons.js",
     "build": "cross-env BABEL_ENV=commonjs babel src/solid --out-dir solid && cross-env BABEL_ENV=commonjs babel src/line --out-dir line && cross-env BABEL_ENV=commonjs babel src/composition --out-dir composition",
-    "prepare": "npm run generate-icons && npm run build"
+    "prepack": "npm run generate-icons && npm run build"
   },
   "author": "CoorpAcademy",
   "dependencies": {

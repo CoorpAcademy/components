@@ -27,7 +27,7 @@
     "generate:storybook": "node scripts/storybook-index.js src storybook/components.js > storybook/components.js",
     "generate": "concurrently \"npm run generate:index\" \"npm run generate:storybook\" \"npm run generate:fixtures\"",
     "init-component": "node scripts/init-component.js",
-    "prepare": "npm run clean && npm run build --production",
+    "prepack": "npm run clean && npm run build --production",
     "prestart": "concurrently \"npm run generate:index\" \"npm run generate:storybook\"",
     "start": "npm run storybook:dev",
     "static": "npm run storybook:export",
