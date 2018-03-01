@@ -494,6 +494,7 @@ import SettingsFixtureFreemium from '../src/organism/settings/test/fixtures/free
 import SettingsFixturePremium from '../src/organism/settings/test/fixtures/premium';
 import SettingsFixturePromoCode from '../src/organism/settings/test/fixtures/promo-code';
 import SetupHeaderFixtureDefault from '../src/organism/setup-header/test/fixtures/default';
+import SetupHeaderFixtureFromDashboards from '../src/organism/setup-header/test/fixtures/fromDashboards';
 import SidebarFixtureAnalytics from '../src/organism/sidebar/test/fixtures/analytics';
 import SidebarFixtureCustom from '../src/organism/sidebar/test/fixtures/custom';
 import SidebarFixtureDashboards from '../src/organism/sidebar/test/fixtures/dashboards';
@@ -1401,7 +1402,8 @@ export const fixtures = {
       PromoCode: SettingsFixturePromoCode
     },
     SetupHeader: {
-      Default: SetupHeaderFixtureDefault
+      Default: SetupHeaderFixtureDefault,
+      FromDashboards: SetupHeaderFixtureFromDashboards
     },
     Sidebar: {
       Analytics: SidebarFixtureAnalytics,
