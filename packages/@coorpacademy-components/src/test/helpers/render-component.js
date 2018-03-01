@@ -1,7 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom/server';
+import {shallow, configure} from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import {mockTranslate} from '@coorpacademy/translate';
 import Provider from '../../atom/provider';
+
+configure({adapter: new Adapter()});
 
 const context = {
   skin: {
@@ -22,7 +25,7 @@ const renderComponent = (t, Component, fixture) => {
 
   const wrappedVTree = <Provider {...context}>{vTree}</Provider>;
 
-  return ReactDOM.renderToStaticMarkup(wrappedVTree);
+  return shallow(wrappedVTree);
 };
 
 export default renderComponent;
