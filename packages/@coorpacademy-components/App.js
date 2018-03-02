@@ -57,14 +57,14 @@
 //   },
 // });
 
- import React, { Component } from 'react';
+import * as React from 'react';
 import Loader from './src/atom/loader';
 import loaderProps from './src/atom/loader/test/fixtures/default';
 
-export default class App extends Component<Props> {
-  render() {
-    return (
-      <Loader {...loaderProps}/>
-    );
+// eslint-disable-next-line react/prefer-stateless-function
+export default class App extends React.Component<{}> {
+  // eslint-disable-next-line class-methods-use-this
+  render(): React.Node {
+    return <Loader {...loaderProps} />;
   }
 }

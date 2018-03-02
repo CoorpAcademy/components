@@ -318,6 +318,7 @@ const computeNextStep = (
   }
 
   if (
+    state !== null &&
     nextChapterContent &&
     Array.isArray(nextChapterContent.slides) &&
     nextChapterContent.slides.length > 0
