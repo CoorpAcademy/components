@@ -33,13 +33,13 @@ const SetupHeader = props => {
 
 SetupHeader.propTypes = {
   menuItems: MenuList.propTypes.menuItems,
-  href: PropTypes.string,
+  href: Link.propTypes.href,
   user: PropTypes.shape({
     username: PropTypes.string,
     image: PropTypes.string
   }),
-  logo: PropTypes.string,
-  logoMobile: PropTypes.string
+  logo: Picture.propTypes.src,
+  logoMobile: Picture.propTypes.src
 };
 
 export default SetupHeader;
