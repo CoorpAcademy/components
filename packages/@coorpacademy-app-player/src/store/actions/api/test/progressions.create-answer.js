@@ -1,12 +1,14 @@
 import test from 'ava';
 import set from 'lodash/fp/set';
 import pipe from 'lodash/fp/pipe';
+import constant from 'lodash/fp/constant';
 import macro from '../../test/helpers/macro';
 import {
   createAnswer,
   PROGRESSION_CREATE_ANSWER_REQUEST,
   PROGRESSION_CREATE_ANSWER_SUCCESS,
-  PROGRESSION_CREATE_ANSWER_FAILURE
+  PROGRESSION_CREATE_ANSWER_FAILURE,
+  PROGRESSION_MOVE_INTENT
 } from '../progressions';
 
 const getState = pipe(
@@ -73,4 +75,30 @@ test(
     }
   ],
   2
+);
+
+test(
+  'should not execute a create answer action if progression is currently moving',
+  macro,
+  getState({
+    ui: {
+      movingProgression: {
+        foo: true
+      }
+    }
+  }),
+  constant({}),
+  createAnswer('foo', ['baz']),
+  [
+    {
+      type: PROGRESSION_MOVE_INTENT,
+      intent: {
+        type: PROGRESSION_CREATE_ANSWER_REQUEST
+      },
+      meta: {
+        progressionId: 'foo'
+      }
+    }
+  ],
+  0
 );
