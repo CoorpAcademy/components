@@ -12,8 +12,8 @@ export default {
     },
     menuItems: [
       {
-        href: '/dashboards',
-        title: 'Dashboards',
+        href: '/',
+        title: 'Platforms',
         type: 'primary'
       },
       {
