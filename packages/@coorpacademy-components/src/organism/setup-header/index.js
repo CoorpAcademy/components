@@ -32,7 +32,7 @@ const SetupHeader = props => {
 };
 
 SetupHeader.propTypes = {
-  menuItems: PropTypes.shape(MenuList.propTypes.menuItems.propTypes),
+  menuItems: MenuList.propTypes.menuItems,
   href: PropTypes.string,
   user: PropTypes.shape({
     username: PropTypes.string,
