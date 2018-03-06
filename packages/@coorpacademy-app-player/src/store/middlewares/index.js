@@ -9,7 +9,7 @@ import ErrorLogger from './error-logger';
 const memoizeService = (options, keyPath) => {
   const service = get(keyPath, options);
 
-  return set(keyPath, memoizeTask(service), options);
+  return service ? set(keyPath, memoizeTask(service), options) : options;
 };
 
 const memoizeMoveTypeServices = options =>
