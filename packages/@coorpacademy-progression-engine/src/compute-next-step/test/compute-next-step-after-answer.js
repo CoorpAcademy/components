@@ -293,7 +293,7 @@ test('should return null if there is no available content', t => {
   t.is(computeNextStepAfterAnswer(config, state, [], currentSlide, partialAction), null);
 });
 
-test('should return success endpoint when user has failed to answer, has no more lives but can request lives and has answered `config.slidesToComplete` number of slides', t => {
+test('should return extralife endpoint when user has failed to answer, has no more lives but can request lives and has answered `config.slidesToComplete` number of slides', t => {
   const state: State = Object.freeze({
     ...stateBeforeGettingNextContent,
     slides: ['1.A1.1', '1.A1.2', '1.A1.3'],
@@ -301,6 +301,7 @@ test('should return success endpoint when user has failed to answer, has no more
       type: 'slide',
       ref: '1.A1.4'
     },
+    remainingLifeRequests: 1,
     lives: 1
   });
   const currentSlide = getSlide(allSlides, state.nextContent);
@@ -327,8 +328,52 @@ test('should return success endpoint when user has failed to answer, has no more
       content: state.nextContent,
       godMode: false,
       nextContent: {
-        ref: 'successExitNode',
-        type: 'success'
+        ref: 'extraLife',
+        type: 'node'
+      },
+      instructions: null,
+      isCorrect: false
+    }
+  });
+});
+
+test("should return success endpoint when user has failed to answer, has no more lives, can't request lives and has answered `config.slidesToComplete` number of slides", t => {
+  const state: State = Object.freeze({
+    ...stateBeforeGettingNextContent,
+    slides: ['1.A1.1', '1.A1.2', '1.A1.3'],
+    nextContent: {
+      type: 'slide',
+      ref: '1.A1.4'
+    },
+    remainingLifeRequests: 0,
+    lives: 1
+  });
+  const currentSlide = getSlide(allSlides, state.nextContent);
+  const partialAction = {
+    type: 'answer',
+    payload: {
+      answer: [],
+      content: state.nextContent,
+      godMode: false
+    }
+  };
+
+  const result = computeNextStepAfterAnswer(
+    config,
+    state,
+    availableContent,
+    currentSlide,
+    partialAction
+  );
+  t.deepEqual(result, {
+    type: 'answer',
+    payload: {
+      answer: [],
+      content: state.nextContent,
+      godMode: false,
+      nextContent: {
+        ref: 'failExitNode',
+        type: 'failure'
       },
       instructions: null,
       isCorrect: false
