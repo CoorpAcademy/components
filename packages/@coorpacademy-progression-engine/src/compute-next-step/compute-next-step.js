@@ -274,16 +274,38 @@ const computeNextStep = (
   const {currentChapterContent, nextChapterContent, temporaryNextContent} = chapterContent;
   const hasRules = hasRulesToApply(nextChapterContent);
 
-  // If user has answered all questions, return success endpoint
-  if (!hasRules && !nextChapterContent) {
-    return {
-      nextContent: {
-        type: 'success',
-        ref: 'successExitNode'
-      },
-      instructions: null,
-      isCorrect
-    };
+  if (!hasRules) {
+    if (state && hasNoMoreLives(config, state)) {
+      if (hasRemainingLifeRequests(state)) {
+        return {
+          nextContent: {
+            type: 'node',
+            ref: 'extraLife'
+          },
+          instructions: null,
+          isCorrect
+        };
+      } else {
+        return {
+          nextContent: {
+            type: 'failure',
+            ref: 'failExitNode'
+          },
+          instructions: null,
+          isCorrect
+        };
+      }
+    } else if (!nextChapterContent) {
+      // If user has answered all questions, return success endpoint
+      return {
+        nextContent: {
+          type: 'success',
+          ref: 'successExitNode'
+        },
+        instructions: null,
+        isCorrect
+      };
+    }
   }
 
   if (hasRules) {
