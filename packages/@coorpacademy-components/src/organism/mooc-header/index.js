@@ -281,6 +281,7 @@ class MoocHeader extends React.Component {
             const selectProps = {};
             selectProps.options = options.values;
             selectProps.title = '';
+            selectProps.theme = 'header';
             selectProps.onChange = options.onChange;
 
             settingView = (
