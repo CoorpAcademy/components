@@ -161,12 +161,6 @@ const computeNextSlide = (
   chapterContent: ChapterContent,
   state: State | null
 ): Content => {
-  if (state && hasNoMoreLives(config, state)) {
-    return !stepIsAlreadyExtraLife(state) && hasRemainingLifeRequests(state)
-      ? {type: 'node', ref: 'extraLife'}
-      : {type: 'failure', ref: 'failExitNode'};
-  }
-
   const remainingSlides = filter(
     pipe(get('_id'), (slideId: string) => !state || !includes(slideId, state.slides)),
     chapterContent.slides
@@ -276,25 +270,14 @@ const computeNextStep = (
 
   if (!hasRules) {
     if (state && hasNoMoreLives(config, state)) {
-      if (hasRemainingLifeRequests(state)) {
-        return {
-          nextContent: {
-            type: 'node',
-            ref: 'extraLife'
-          },
-          instructions: null,
-          isCorrect
-        };
-      } else {
-        return {
-          nextContent: {
-            type: 'failure',
-            ref: 'failExitNode'
-          },
-          instructions: null,
-          isCorrect
-        };
-      }
+      return {
+        nextContent:
+          !stepIsAlreadyExtraLife(state) && hasRemainingLifeRequests(state)
+            ? {type: 'node', ref: 'extraLife'}
+            : {type: 'failure', ref: 'failExitNode'},
+        instructions: null,
+        isCorrect
+      };
     } else if (!nextChapterContent) {
       // If user has answered all questions, return success endpoint
       return {
