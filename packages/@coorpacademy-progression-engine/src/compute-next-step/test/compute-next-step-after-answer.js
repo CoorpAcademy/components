@@ -337,7 +337,7 @@ test('should return extralife endpoint when user has failed to answer, has no mo
   });
 });
 
-test("should return success endpoint when user has failed to answer, has no more lives, can't request lives and has answered `config.slidesToComplete` number of slides", t => {
+test("should return failure endpoint when user has failed to answer, has no more lives, can't request lives and has answered `config.slidesToComplete` number of slides", t => {
   const state: State = Object.freeze({
     ...stateBeforeGettingNextContent,
     slides: ['1.A1.1', '1.A1.2', '1.A1.3'],
