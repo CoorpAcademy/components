@@ -31,8 +31,9 @@ import updateState from '../update-state';
 
 const hasNoMoreLives = (config: Config, state: State): boolean =>
   !config.livesDisabled && state.lives <= 0;
+const getContentRef: State => string = get('content.ref');
 const hasRemainingLifeRequests = (state: State): boolean => state.remainingLifeRequests > 0;
-const stepIsAlreadyExtraLife = (state: State): boolean => get('content.ref', state) === 'extraLife';
+const stepIsAlreadyExtraLife = (state: State): boolean => getContentRef(state) === 'extraLife';
 
 const hasRulesToApply = (chapterContent: ChapterContent | null): boolean => {
   return !!(
@@ -322,10 +323,12 @@ const computeNextStep = (
     Array.isArray(nextChapterContent.slides) &&
     nextChapterContent.slides.length > 0
   ) {
-    const stateWithDecrementedLives = {
-      ...state,
-      nextContent: temporaryNextContent
-    };
+    const stateWithDecrementedLives = state
+      ? {
+          ...state,
+          nextContent: temporaryNextContent
+        }
+      : state;
 
     const nextContent = computeNextSlide(config, nextChapterContent, stateWithDecrementedLives);
     return {
