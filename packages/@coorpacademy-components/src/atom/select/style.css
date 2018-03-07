@@ -411,6 +411,7 @@
   height: 54px;
   padding: 0 50px 0 0;
   box-sizing: border-box;
+  max-width: 100%;
 }
 
 .template .label {
@@ -433,4 +434,5 @@
   width: auto;
   margin-right: 0;
   height: 54px;
+  max-width: 100%;
 }
