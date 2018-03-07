@@ -1,6 +1,7 @@
 @value colors: "../../variables/colors.css";
 @value medium from colors;
 @value light from colors;
+@value white from colors;
 
 .wrapperSearch {
   display: flex;
@@ -40,7 +41,7 @@
 input:-webkit-autofill,
 textarea:-webkit-autofill,
 select:-webkit-autofill {
-    background-color: #fff;
-    background-image: none;
-    color: medium;
+  background-color: white;
+  background-image: none;
+  color: medium;
 }
