@@ -2,6 +2,7 @@
 @value lightGreen from colors;
 @value dark from colors;
 @value white from colors;
+@value light from colors;
 
 .wrapper {
   width: 100%;
@@ -12,6 +13,14 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 15px;
+}
+
+.searchWrapper {
+  display: flex;
+  border: 1px solid light;
+  margin: 0 8px;
+  height: 38px;
+  flex: 1;
 }
 
 .create a {

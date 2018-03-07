@@ -29,7 +29,7 @@ const BrandTable = props => {
         <div className={style.create}>
           <Link href={createHref}>+</Link>
         </div>
-        <div>
+        <div className={style.searchWrapper}>
           <Search {...search} />
         </div>
         <div>
