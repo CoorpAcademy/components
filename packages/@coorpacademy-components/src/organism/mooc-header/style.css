@@ -21,6 +21,7 @@
   box-sizing: border-box;
   border-bottom: 1px solid light;
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   z-index: 10;
@@ -53,20 +54,14 @@
 }
 
 .logoWrapper {
-  display: flex;
   height: 100%;
-  flex: 0 1 auto;
-  box-sizing: border-box;
   background-color: white;
-  margin: 0 16px;
+  padding: 10px 16px;
+  box-sizing: border-box;
 }
 
 .logo {
-  display: block;
-  flex: 0 1 auto;
   height: 100%;
-  padding: 10px 0;
-  box-sizing: border-box;
 }
 
 .logoMobile {
@@ -75,8 +70,10 @@
 
 .logo img {
   height: 100%;
-  width: auto;
+
+  /* width: auto; */
   display: block;
+  margin: 0;
 }
 
 .options {
@@ -335,6 +332,7 @@
   align-items: center;
   justify-content: center;
   width: 40px;
+  margin-left: 20px;
 }
 
 .settingsToggle {
