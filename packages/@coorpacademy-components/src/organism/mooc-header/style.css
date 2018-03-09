@@ -1,5 +1,6 @@
 @value breakpoints: "../../variables/breakpoints.css";
 @value tablet from breakpoints;
+@value desktop from breakpoints;
 @value colors: "../../variables/colors.css";
 @value light from colors;
 @value white from colors;
@@ -70,8 +71,6 @@
 
 .logo img {
   height: 100%;
-
-  /* width: auto; */
   display: block;
   margin: 0;
 }
@@ -441,6 +440,29 @@
 
 .closeSettings:hover {
   color: dark;
+}
+
+@media desktop {
+  .logoWrapper {
+    height: 100%;
+    background-color: white;
+    padding: 10px 16px;
+    box-sizing: border-box;
+  }
+
+  .logo {
+    height: 100%;
+  }
+
+  .logoMobile {
+    display: none;
+  }
+
+  .logo img {
+    height: 100%;
+    display: block;
+    margin: 0;
+  }
 }
 
 @media tablet {
