@@ -21,6 +21,7 @@ import type {
   ChapterContent,
   Config,
   Content,
+  RacingUser,
   Slide,
   State
 } from '../types';
@@ -259,7 +260,7 @@ const extendPartialAction = (action: PartialAction, state: State | null): Action
 
 const computeNextStep = (
   config: Config,
-  _state: State | null,
+  _state: State | RacingUser | null,
   availableContent: AvailableContent,
   partialAction: PartialAction
 ): Result => {
