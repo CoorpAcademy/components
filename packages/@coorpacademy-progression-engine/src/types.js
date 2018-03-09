@@ -185,6 +185,19 @@ export type Engine = {
   version: string
 };
 
+export type Config = {
+  version: string,
+  livesDisabled: boolean,
+  lives: number,
+  maxTypos: number,
+  slidesToComplete: number,
+  answerBoundaryLimit: number,
+  starsPerAskingClue: number,
+  starsPerCorrectAnswer: number,
+  starsPerResourceViewed: number,
+  remainingLifeRequests: number
+};
+
 export type EngineOptions = {
   livesDisabled?: boolean
 };
