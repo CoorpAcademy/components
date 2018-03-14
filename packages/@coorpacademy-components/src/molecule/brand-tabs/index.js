@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import snakeCase from 'lodash/fp/snakeCase';
 import Link from '../../atom/link';
 import style from './style.css';
 
@@ -9,7 +10,7 @@ const buildTab = (tab, index) => {
   const className = selected ? style.selected : style.tab;
 
   return (
-    <div className={className} key={index}>
+    <div data-name={`brand_tab_${snakeCase(title)}`} className={className} key={index}>
       <Link href={href}>{title}</Link>
     </div>
   );

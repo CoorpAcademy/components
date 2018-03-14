@@ -23,6 +23,7 @@ const BrandCreateForm = props => {
           <label>
             <input
               type="text"
+              data-name="brand_create_text_input"
               placeholder={field.placeholder}
               defaultValue={field.value}
               onInput={handleChange}
@@ -30,7 +31,12 @@ const BrandCreateForm = props => {
             {field.label}
           </label>
         </div>
-        <Button type="submit" disabled={disabled} submitValue={submitValue} />
+        <Button
+          data-name="brand_create_submit_button"
+          type="submit"
+          disabled={disabled}
+          submitValue={submitValue}
+        />
       </form>
     </div>
   );

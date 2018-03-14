@@ -13,12 +13,14 @@ const BrandCard = props => {
         <Picture className={style.picture} src={image} />
         <Description description={description} className={style.descriptionWrapper} />
       </div>
-      <div className={style.information}>
+      <div className={style.information} data-name={`info-${title}`}>
         <h3>{title}</h3>
         <div className={style.edit}>
-          <Link href={editHref}>{edit}</Link>
+          <Link href={editHref} data-name={`edit-${title}`}>
+            {edit}
+          </Link>
         </div>
-        <div className={style.see}>
+        <div className={style.see} data-name={`see-${title}`}>
           <Link target="_blank" href={seeHref}>
             {see}
           </Link>

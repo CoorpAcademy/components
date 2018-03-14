@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import snakeCase from 'lodash/fp/snakeCase';
 import Link from '../../atom/link';
 import {hoverFill} from '../../atom/button/hover-fill.css';
 import style from './style.css';
@@ -29,7 +30,12 @@ const buildLink = (link, index) => {
 
   return (
     <div className={className} key={index}>
-      <Link className={hoverFill} target="_blank" href={href}>
+      <Link
+        data-name={`${snakeCase(title)}_link`}
+        className={hoverFill}
+        target="_blank"
+        href={href}
+      >
         {title}
       </Link>
     </div>
