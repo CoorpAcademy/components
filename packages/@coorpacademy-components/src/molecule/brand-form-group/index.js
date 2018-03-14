@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import map from 'lodash/fp/map';
+import snakeCase from 'lodash/fp/snakeCase';
 import Select from '../../atom/select';
 import InputText from '../../atom/input-text';
 import InputColor from '../../atom/input-color';
@@ -71,7 +72,7 @@ const BrandFormGroup = props => {
 
   const fieldsList = map.convert({cap: false})(buildField, fields);
   return (
-    <div className={style.wrapper}>
+    <div data-name={`brand_form_group_${snakeCase(title)}`} className={style.wrapper}>
       <div className={style.title}>
         <h3>{title}</h3>
         <h4>{subtitle}</h4>

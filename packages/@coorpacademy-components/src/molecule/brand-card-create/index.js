@@ -12,7 +12,7 @@ const BrandCardCreate = props => {
       <div className={style.circle2} />
       <div className={style.circle3} />
       <div className={style.edit}>
-        <Link href={editHref}>
+        <Link data-name="brand_card_create_link" href={editHref}>
           <span>{edit}</span>
         </Link>
       </div>

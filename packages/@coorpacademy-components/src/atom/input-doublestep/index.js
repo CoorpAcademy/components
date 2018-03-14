@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import snakeCase from 'lodash/fp/snakeCase';
 import omit from 'lodash/fp/omit';
 import noop from 'lodash/fp/noop';
 import Loader from '../loader';
@@ -123,7 +124,9 @@ class InputDoublestep extends React.Component {
 
     return (
       <div className={style.wrapper}>
-        <div className={style.value}>{formView}</div>
+        <div data-name={`input_doublestep_${snakeCase(toggleValue)}`} className={style.value}>
+          {formView}
+        </div>
       </div>
     );
   }

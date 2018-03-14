@@ -9,6 +9,12 @@ const SetupHeader = props => {
   const {menuItems, href, user = {}, logo, logoMobile} = props;
 
   const {username = '', image = ''} = user;
+  const displayName =
+    username && username !== '' ? (
+      <div data-name="header-display-name" className={style.username}>
+        {username}
+      </div>
+    ) : null;
 
   return (
     <div className={style.wrapper}>
@@ -16,7 +22,7 @@ const SetupHeader = props => {
         <div className={style.avatar}>
           <img src={image} />
         </div>
-        <div className={style.username}>{username}</div>
+        {displayName}
       </div>
       <div className={style.logo}>
         <Link href={href}>
