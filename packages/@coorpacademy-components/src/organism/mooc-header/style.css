@@ -32,7 +32,7 @@
 .searchBar {
   display: flex;
   justify-content: flex-start;
-  width: 100%;
+  flex: 1 0 0%;
   height: 100%;
   border-right: solid 1px light;
   border-left: solid 1px light;
@@ -462,7 +462,6 @@
     height: 100%;
     display: block;
     margin: 0;
-    max-width: 200px;
   }
 }
 
