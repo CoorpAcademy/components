@@ -1,0 +1,64 @@
+@value breakpoints: "../../../variables/breakpoints.css";
+@value desktop from breakpoints;
+@value mobile from breakpoints;
+
+@value desktopWidth: 75vh;
+
+.screen {
+  overflow: hidden;
+  display: flex;
+  flex-flow: column;
+}
+
+.layoutSection {
+  width: 100%;
+}
+
+.sectionCTA {
+  display: flex;
+  height: 40%;
+  align-items: center;
+  justify-content: center;
+}
+
+.sectionCTA > .cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4em;
+  width: 70%;
+  height: 4em;
+}
+
+.screen {
+  display: flex;
+  width: desktopWidth;
+  height: 100vh;
+}
+
+.screenWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.sectionHeader {
+  height: 5em;
+}
+
+.sectionBody {
+  flex: 1 1;
+}
+
+.sectionRace {
+  height: 60%;
+}
+
+@media mobile {
+  .screen {
+    width: 100%;
+  }
+}

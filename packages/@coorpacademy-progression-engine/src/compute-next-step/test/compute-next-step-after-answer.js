@@ -28,6 +28,7 @@ const merge = arr2 => (arr: Array<Slide>): Array<Slide> => {
 
 const createPartialAction = (state: State): PartialAnswerAction => ({
   type: 'answer',
+  authors: ['foo'],
   payload: {
     answer: [],
     content: state.nextContent,
@@ -57,6 +58,7 @@ test('should return the slide with the highest position if any slides have a pos
   ];
   const partialAction: PartialAnswerAction = {
     type: 'answer',
+    authors: ['foo'],
     payload: {
       answer: [],
       content: state.nextContent,
@@ -76,6 +78,7 @@ test('should return the slide with the highest position if any slides have a pos
   }
   t.deepEqual(result1, {
     type: 'answer',
+    authors: ['foo'],
     payload: {
       answer: [],
       content: state.nextContent,
@@ -103,6 +106,7 @@ test('should return the slide with the highest position if any slides have a pos
   }
   t.deepEqual(omit(['payload.nextContent.ref'], result2), {
     type: 'answer',
+    authors: ['foo'],
     payload: {
       answer: [],
       content: state.nextContent,
@@ -119,6 +123,7 @@ test('should return a new slide when user is still alive', t => {
   const currentSlide = getSlide(allSlides, state.nextContent);
   const partialAction: PartialAnswerAction = {
     type: 'answer',
+    authors: ['foo'],
     payload: {
       answer: [],
       content: state.nextContent,
@@ -138,6 +143,7 @@ test('should return a new slide when user is still alive', t => {
   }
   t.deepEqual(omit(['payload.nextContent.ref'], result), {
     type: 'answer',
+    authors: ['foo'],
     payload: {
       answer: [],
       content: state.nextContent,
@@ -164,6 +170,7 @@ test("should return the fail endpoint when user has no more lives and can't requ
   );
   t.deepEqual(result, {
     type: 'answer',
+    authors: ['foo'],
     payload: {
       answer: [],
       content: state.nextContent,
@@ -189,6 +196,7 @@ test('should return the extraLife when user has no more lives but can request li
   );
   t.deepEqual(result, {
     type: 'answer',
+    authors: ['foo'],
     payload: {
       answer: [],
       content: state.nextContent,
@@ -219,6 +227,7 @@ test('should return a new slide, when user has no more lives but lives are disab
   }
   t.deepEqual(omit(['payload.nextContent.ref'], result), {
     type: 'answer',
+    authors: ['foo'],
     payload: {
       answer: [],
       content: state.nextContent,
@@ -240,6 +249,7 @@ test('should return isCorrect=true when the answer is correct and godmode is fal
   const currentSlide = getSlide(allSlides, state.nextContent);
   const partialAction: PartialAnswerAction = {
     type: 'answer',
+    authors: ['foo'],
     payload: {
       answer: ['foo', 'bar'],
       content: state.nextContent,
@@ -265,6 +275,7 @@ test('should return isCorrect=false when the answer is incorrect and godmode is 
   const currentSlide = getSlide(allSlides, state.nextContent);
   const partialAction: PartialAnswerAction = {
     type: 'answer',
+    authors: ['foo'],
     payload: {
       answer: ['this is not the answer'],
       content: state.nextContent,
@@ -307,6 +318,7 @@ test('should return extralife endpoint when user has failed to answer, has no mo
   const currentSlide = getSlide(allSlides, state.nextContent);
   const partialAction = {
     type: 'answer',
+    authors: ['foo'],
     payload: {
       answer: [],
       content: state.nextContent,
@@ -323,6 +335,7 @@ test('should return extralife endpoint when user has failed to answer, has no mo
   );
   t.deepEqual(result, {
     type: 'answer',
+    authors: ['foo'],
     payload: {
       answer: [],
       content: state.nextContent,
@@ -351,6 +364,7 @@ test("should return failure endpoint when user has failed to answer, has no more
   const currentSlide = getSlide(allSlides, state.nextContent);
   const partialAction = {
     type: 'answer',
+    authors: ['foo'],
     payload: {
       answer: [],
       content: state.nextContent,
@@ -367,6 +381,7 @@ test("should return failure endpoint when user has failed to answer, has no more
   );
   t.deepEqual(result, {
     type: 'answer',
+    authors: ['foo'],
     payload: {
       answer: [],
       content: state.nextContent,

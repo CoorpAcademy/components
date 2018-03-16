@@ -122,6 +122,7 @@ export SlidesPlayer from './template/app-player/player/slides/slides-player';
 export Player from './template/app-player/player';
 export PopinCorrection from './template/app-player/popin-correction';
 export PopinEnd from './template/app-player/popin-end';
+export Interquestion from './template/app-racing/interquestion';
 export BrandCreate from './template/back-office/brand-create';
 export BrandList from './template/back-office/brand-list';
 export BrandUpdate from './template/back-office/brand-update';
