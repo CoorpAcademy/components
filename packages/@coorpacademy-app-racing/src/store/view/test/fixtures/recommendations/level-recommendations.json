@@ -1,0 +1,75 @@
+{
+  "list": [
+    {
+      "view": "grid",
+      "image": "https://api-staging.coorpacademy.com/api-service-dev/medias?url=https://static.coorpacademy.com/content/page_discipline/1_recherche_en_ligne.jpg&h=300&w=300&q=90",
+      "time": "1h",
+      "adaptiv": false,
+      "freerun": false,
+      "certification": false,
+      "type": "cours",
+      "title": "La recherche en ligne",
+      "author": ", ",
+      "progress": 0,
+      "key": "17",
+      "disabled": false
+    },
+    {
+      "view": "grid",
+      "time": "1h",
+      "adaptiv": false,
+      "freerun": false,
+      "certification": false,
+      "type": "cours",
+      "title": "Panorama des acteurs globaux et locaux",
+      "author": "",
+      "progress": 0,
+      "key": "04",
+      "disabled": false
+    },
+    {
+      "view": "grid",
+      "time": "1h",
+      "adaptiv": false,
+      "freerun": false,
+      "certification": false,
+      "type": "cours",
+      "title": "Le phénomène Big Data",
+      "author": "",
+      "progress": 0,
+      "key": "10",
+      "disabled": false
+    }
+  ],
+  "nextLevel": {
+    "_id": "59ea157dff3eb820d4b67089",
+    "timeAlloted": 20,
+    "level": "advanced",
+    "levelTranslation": "Avancé",
+    "name": "La recherche en ligne",
+    "ref": "1.A",
+    "eligibleBattle": true,
+    "rewards": [],
+    "creditsToAccess": 0,
+    "infiniteLives": false,
+    "isConditional": false,
+    "data": [],
+    "stats": {
+      "userTriesCount": 0,
+      "userDoneCount": 0
+    },
+    "chapterIds": [
+      "1.A1",
+      "1.A2",
+      "1.A3"
+    ],
+    "acquiredSkills": [
+      "discipline_1.module_avance.skill1",
+      "discipline_1.module_avance.skill2",
+      "discipline_1.module_avance.skill3",
+      "discipline_1.module_avance.skill4",
+      "discipline_1.module_avance.skill5"
+    ],
+    "external_refs": []
+  }
+}

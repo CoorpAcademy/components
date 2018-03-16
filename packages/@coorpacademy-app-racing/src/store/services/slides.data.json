@@ -1,0 +1,1398 @@
+[
+  {
+    "_id": "1.B2.4",
+    "klf": "Nous devons chouchouter nos clientes et les mettre à l'aise pendant leur attente.",
+    "tips": "Avez-vous récemment consulté les iPads ou le magazine 31 rue Cambon ?",
+    "clue": "… Century Fox.",
+    "hasClue" : true,
+    "chapter_id": "5.C7",
+    "authors": [],
+    "context": {
+      "media": {
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      }
+    },
+    "meta": {
+      "updatedAt": "2017-06-13T12:15:40.321Z",
+      "createdAt": "2017-06-13T12:15:40.321Z"
+    },
+    "lessons": [
+      {
+        "type": "video",
+        "poster": "https://api-staging.coorpacademy.com/api-service/medias?h=230&w=230&q=90&url=https://static.coorpacademy.com/content/digital/miniatures_cours/base/1B2.png",
+        "description": "Anatomie d'une page de résultats",
+        "mimeType": "application/vimeo",
+        "videoId": "88393119\n",
+        "_id": "590b862e2e967f64333ad456",
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      },
+      {
+        "description": "Historique des moteurs de recherche",
+        "mimeType": "application/vimeo",
+        "poster": "https://api-staging.coorpacademy.com/api-service/medias?h=230&w=230&q=90&url=https://static.coorpacademy.com/content/digital/miniatures_cours/base/1B1.png",
+        "posters": [],
+        "src": [],
+        "subtitles": [],
+        "type": "video",
+        "videoId": "88546728\n",
+        "_id": "590b862e2e967f64333ad4fc"
+      },
+      {
+        "type": "video",
+        "mimeType": "video/mp4",
+        "mediaUrl": "https://simoocdigital.credit-agricole.fr/media/content/bigdata/159363386.mp4",
+        "description": "Qu'est-ce que la Data Science ?",
+        "poster": "https://api-staging.coorpacademy.com/api-service-dev/medias?url=https://simoocdigital.credit-agricole.fr/media/content/bigdata/11.jpg&h=250&w=250&q=90",
+        "_id": "5980934b7dfebe01618a57df",
+        "subtitles": [],
+        "posters": [],
+        "src": [],
+        "jwpOptions": {
+          "customProps": {
+            "aspectratio": "16:9",
+            "autostart": false,
+            "skin": {
+              "name": "bekle"
+            },
+            "width": "100%"
+          },
+          "file": "https://simoocdigital.credit-agricole.fr/media/content/bigdata/159363386.mp4",
+          "licenseKey": "yI8rSuuJ+fs7VdJzWjY4zGZU48UcOn+Gjg+FXZag16o=",
+          "playerId": "5980934b7dfebe01618a57df",
+          "playerScript": "https://up-staging.coorpacademy.com/libs/jwplayer/7.10.7/jwplayer.js"
+        }
+      },
+      {
+        "description": "La gestion du stress",
+        "mediaUrl": "https://www.performances.fr/formation-gestion-stress.html",
+        "mimeType": "application/pdf",
+        "poster": "//static.coorpacademy.com/content/CoorpAcademy/content-partnerships-institut-bocquet/cockpit-partner-institut-bocquet/poster/bocquet-1481283409059.jpg",
+        "posters": [],
+        "src": [],
+        "subtitles": [],
+        "type": "pdf",
+        "_id": "59a43ef725571101b488f1bb"
+      }
+    ],
+    "question": {
+      "type": "basic",
+      "header": "Écrivez le mot Text dans l'input.\n",
+      "explanation": "Saisissez votre réponse.",
+      "content": {
+        "label": "Saisissez votre réponse.",
+        "placeholder": " ",
+        "maxTypos": null,
+        "choices": [],
+        "answers": [["Text"]],
+        "media": {
+          "subtitles": [],
+          "posters": [],
+          "src": []
+        }
+      },
+      "medias": [
+        {
+          "type": "img",
+          "_id": "593eb72a187bd18c01283591",
+          "subtitles": [],
+          "posters": [],
+          "src": [
+            {
+              "mimeType": "image/jpeg",
+              "url": "https://api-staging.coorpacademy.com/api-service/medias?h=400&w=400&q=90&url=https://static.coorpacademy.com/content/ijoinchanel/en/slides/1B2_Q6/1B2-Q6-canap-v1.jpg",
+              "_id": "593eb72a187bd18c01283592"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "_id": "sli_VkcAWR-ZQ",
+    "klf": "Lire n'est pas difficile.",
+    "tips": "Il y a pas mal de gens qui se trompent sans lire.",
+    "hasClue" : false,
+    "chapter_id": "5.C8",
+    "authors": [],
+    "context": {
+      "media": {
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      }
+    },
+    "meta": {
+      "updatedAt": "2017-06-06T13:49:35.198Z",
+      "createdAt": "2017-06-06T13:49:35.198Z"
+    },
+    "lessons": [
+      {
+        "type": "video",
+        "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B2.png",
+        "description": "Anatomie d'une page de résultats",
+        "mimeType": "application/vimeo",
+        "videoId": "88393119\n",
+        "_id": "590b862e2e967f64333ad456",
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      },
+      {
+        "description": "Historique des moteurs de recherche",
+        "mimeType": "application/vimeo",
+        "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B1.png",
+        "posters": [],
+        "src": [],
+        "subtitles": [],
+        "type": "video",
+        "videoId": "88546728\n",
+        "_id": "590b862e2e967f64333ad4fc"
+      },
+      {
+        "_id": "59307529a2b39d0024eebff3",
+        "description": "Hierarchie",
+        "mediaUrl": "//static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/raw/hierachie-contenu-1496311207505.pdf",
+        "mimeType": "application/pdf",
+        "type": "pdf",
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      }
+    ],
+    "question": {
+      "type": "qcm",
+      "header": "Choisissez la bonne réponse.",
+      "explanation": "Sélectionnez la (les) bonne(s) réponse(s).",
+      "content": {
+        "maxTypos": null,
+        "choices": [
+          {
+            "_id": "59307529a2b39d0024eebff5",
+            "value": "sli_VkcAWR-ZQ.choice_E1RSGRu~m",
+            "label": "Bonne réponse",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            }
+          },
+          {
+            "_id": "59307529a2b39d0024eebff4",
+            "value": "sli_VkcAWR-ZQ.choice_4JwIM0u~7",
+            "label": "Mauvaise réponse",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            }
+          }
+        ],
+        "answers": [["Bonne réponse"]],
+        "media": {
+          "subtitles": [],
+          "posters": [],
+          "src": []
+        }
+      },
+      "medias": []
+    }
+  },
+  {
+    "_id": "sli_E1iEQRuZm",
+    "klf": "Indeed, c'est Free Run",
+    "tips": "Il y a aussi le mode classique qui s'appelle désormais Learner",
+    "clue": "clue",
+    "hasClue" : true,
+    "chapter_id": "5.C8",
+    "authors": [],
+    "context": {
+      "media": {
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      }
+    },
+    "meta": {
+      "updatedAt": "2017-06-06T13:49:35.220Z",
+      "createdAt": "2017-06-06T13:49:35.220Z"
+    },
+    "lessons": [
+      {
+        "type": "video",
+        "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B2.png",
+        "description": "Anatomie d'une page de résultats",
+        "mimeType": "application/vimeo",
+        "videoId": "88393119\n",
+        "_id": "590b862e2e967f64333ad456",
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      },
+      {
+        "description": "Historique des moteurs de recherche",
+        "mimeType": "application/vimeo",
+        "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B1.png",
+        "posters": [],
+        "src": [],
+        "subtitles": [],
+        "type": "video",
+        "videoId": "88546728\n",
+        "_id": "590b862e2e967f64333ad4fc"
+      },
+      {
+        "_id": "5930752aa2b39d0024eebff8",
+        "description": "Hierarchie",
+        "mediaUrl": "//static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/raw/hierachie-contenu-1496311207505.pdf",
+        "mimeType": "application/pdf",
+        "type": "pdf",
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      }
+    ],
+    "question": {
+      "type": "qcm",
+      "header": "Dans quel mode de jeux se trouve-t-on ?",
+      "explanation": "Sélectionnez la (les) bonne(s) réponse(s).",
+      "content": {
+        "maxTypos": null,
+        "choices": [
+          {
+            "_id": "5930752aa2b39d0024eebffa",
+            "value": "sli_E1iEQRuZm.choice_4kXwQAdb7",
+            "label": "Free Run",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            }
+          },
+          {
+            "_id": "5930752aa2b39d0024eebff9",
+            "value": "sli_E1iEQRuZm.choice_VklXvQAOZX",
+            "label": "Learner",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            }
+          }
+        ],
+        "answers": [["Free Run"]],
+        "media": {
+          "subtitles": [],
+          "posters": [],
+          "src": [
+            {
+              "mimeType": "image/jpeg",
+              "url": "https://api-staging.coorpacademy.com/api-service/medias?h=400&w=400&q=90&url=https://i2.kym-cdn.com/photos/images/facebook/000/437/645/a9d.jpg",
+              "_id": "593eb72a187bd18c01283592"
+            }
+          ]
+        }
+      },
+      "medias": []
+    }
+  },
+  {
+    "_id": "sli_4kl~7RubX",
+    "klf": "Oui oui oui !",
+    "tips": "Alors !",
+    "clue": "clue",
+    "hasClue" : true,
+    "chapter_id": "5.C8",
+    "authors": [],
+    "context": {
+      "media": {
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      }
+    },
+    "meta": {
+      "updatedAt": "2017-06-06T13:49:35.241Z",
+      "createdAt": "2017-06-06T13:49:35.241Z"
+    },
+    "lessons": [
+      {
+        "type": "video",
+        "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B2.png",
+        "description": "Anatomie d'une page de résultats",
+        "mimeType": "application/vimeo",
+        "videoId": "88393119\n",
+        "_id": "590b862e2e967f64333ad456",
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      },
+      {
+        "description": "Historique des moteurs de recherche",
+        "mimeType": "application/vimeo",
+        "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B1.png",
+        "posters": [],
+        "src": [],
+        "subtitles": [],
+        "type": "video",
+        "videoId": "88546728\n",
+        "_id": "590b862e2e967f64333ad4fc"
+      },
+      {
+        "_id": "59307529a2b39d0024eebfeb",
+        "description": "Hierarchie",
+        "mediaUrl": "//static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/raw/hierachie-contenu-1496311207505.pdf",
+        "mimeType": "application/pdf",
+        "type": "pdf",
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      }
+    ],
+    "question": {
+      "type": "qcm",
+      "header": "Choisissez la réponse vrai.",
+      "explanation": "Sélectionnez la (les) bonne(s) réponse(s).",
+      "content": {
+        "maxTypos": null,
+        "answers": [["Vrai"]],
+        "choices": [
+          {
+            "_id": "59307529a2b39d0024eebfed",
+            "value": "sli_4kl~7RubX.choice_VkYXQAOb7",
+            "label": "Vrai",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            }
+          },
+          {
+            "_id": "59307529a2b39d0024eebfec",
+            "value": "sli_4kl~7RubX.choice_VkcXXAdZm",
+            "label": "Faux",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            }
+          }
+        ],
+        "media": {
+          "subtitles": [],
+          "posters": [],
+          "src": []
+        }
+      },
+      "medias": [
+        {
+          "type": "img",
+          "_id": "593eb72a187bd18c01283591",
+          "subtitles": [],
+          "posters": [],
+          "src": [
+            {
+              "mimeType": "image/jpeg",
+              "url": "https://api-staging.coorpacademy.com/api-service/medias?h=400&w=400&q=90&url=https://static.coorpacademy.com/content/ijoinchanel/en/slides/1B2_Q6/1B2-Q6-canap-v1.jpg",
+              "_id": "593eb72a187bd18c01283592"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "_id": "sli_Vy88~R-bX",
+    "klf": "Difficile hein !",
+    "tips": "Que 1 X 1 n'est pas 2 !",
+    "clue": "clue",
+    "hasClue" : true,
+    "chapter_id": "5.C8",
+    "authors": [],
+    "context": {
+      "media": {
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      }
+    },
+    "meta": {
+      "updatedAt": "2017-06-06T13:49:35.256Z",
+      "createdAt": "2017-06-06T13:49:35.255Z"
+    },
+    "lessons": [
+      {
+        "type": "video",
+        "poster": "https://api-staging.coorpacademy.com/api-service/medias?h=230&w=230&q=90&url=https://static.coorpacademy.com/content/digital/miniatures_cours/base/1B2.png",
+        "description": "Anatomie d'une page de résultats",
+        "mimeType": "application/vimeo",
+        "videoId": "88393119\n",
+        "_id": "590b862e2e967f64333ad456",
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      },
+      {
+        "description": "Historique des moteurs de recherche",
+        "mimeType": "application/vimeo",
+        "poster": "https://api-staging.coorpacademy.com/api-service/medias?h=230&w=230&q=90&url=https://static.coorpacademy.com/content/digital/miniatures_cours/base/1B1.png",
+        "posters": [],
+        "src": [],
+        "subtitles": [],
+        "type": "video",
+        "videoId": "88546728\n",
+        "_id": "590b862e2e967f64333ad4fc"
+      },
+      {
+        "_id": "5930752aa2b39d0024eebffb",
+        "description": "Hierarchie",
+        "mediaUrl": "https://api-staging.coorpacademy.com/api-service/medias?h=230&w=230&q=90&url=https://static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/raw/hierachie-contenu-1496311207505.pdf",
+        "mimeType": "application/pdf",
+        "type": "pdf",
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      }
+    ],
+    "question": {
+      "type": "qcm",
+      "header": "Combien ça fait 1 + 1 ?",
+      "explanation": "Sélectionnez la (les) bonne(s) réponse(s).",
+      "content": {
+        "maxTypos": null,
+        "choices": [
+          {
+            "_id": "5930752aa2b39d0024eebffe",
+            "value": "sli_Vy88~R-bX.choice_EyWTW0O~X",
+            "label": "0",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            }
+          },
+          {
+            "_id": "5930752aa2b39d0024eebffd",
+            "value": "sli_Vy88~R-bX.choice_EJmabCuZX",
+            "label": "1",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            }
+          },
+          {
+            "_id": "5930752aa2b39d0024eebffc",
+            "value": "sli_Vy88~R-bX.choice_NyoT~C-~X",
+            "label": "2",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            }
+          }
+        ],
+        "answers": [["2"]],
+        "media": {
+          "subtitles": [],
+          "posters": [],
+          "src": []
+        }
+      },
+      "medias": []
+    }
+  },
+  {
+    "_id": "sli_EyinLfF~X",
+    "klf": "xxx",
+    "tips": "xxx",
+    "clue": "clue",
+    "hasClue" : true,
+    "chapter_id": "5.C8",
+    "__v": 0,
+    "authors": [],
+    "context": {
+      "media": {
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      }
+    },
+    "meta": {
+      "updatedAt": "2017-06-06T13:49:35.297Z",
+      "createdAt": "2017-06-06T13:49:35.297Z"
+    },
+    "lessons": [],
+    "question": {
+      "type": "qcm",
+      "header": "Répondez à cette question si difficile... 2 x 2 ?",
+      "explanation": "Sélectionnez la (les) bonne(s) réponse(s).",
+      "content": {
+        "maxTypos": null,
+        "choices": [
+          {
+            "_id": "59307529a2b39d0024eebff0",
+            "value": "sli_EyinLfF~X.choice_EyYRLMYWQ",
+            "label": "Je ne sais pas",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            }
+          },
+          {
+            "_id": "59307529a2b39d0024eebfef",
+            "value": "sli_EyinLfF~X.choice_V1M1wGFWm",
+            "label": "4",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            }
+          },
+          {
+            "_id": "59307529a2b39d0024eebfee",
+            "value": "sli_EyinLfF~X.choice_NJdkDfF~Q",
+            "label": "Demandez à Lucas !",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            }
+          }
+        ],
+        "answers": [["4"]],
+        "media": {
+          "subtitles": [],
+          "posters": [],
+          "src": []
+        }
+      },
+      "medias": [
+        {
+          "type": "img",
+          "_id": "593eb72a187bd18c01283591",
+          "subtitles": [],
+          "posters": [],
+          "src": [
+            {
+              "mimeType": "image/jpeg",
+              "url": "https://api-staging.coorpacademy.com/api-service/medias?h=400&w=400&q=90&url=http://europeantrips.org/wp-content/uploads/2012/03/Eiffel-Tower.jpg",
+              "_id": "593eb72a187bd18c01283592"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "_id": "sli_VktuuzFW7",
+    "klf": "xxx",
+    "tips": "xxx",
+    "clue": "clue",
+    "hasClue" : true,
+    "chapter_id": "5.C8",
+    "__v": 0,
+    "authors": [],
+    "context": {
+      "media": {
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      }
+    },
+    "meta": {
+      "updatedAt": "2017-06-06T13:49:35.330Z",
+      "createdAt": "2017-06-06T13:49:35.330Z"
+    },
+    "lessons": [],
+    "question": {
+      "type": "qcm",
+      "header": "Où se trouve Coorpacademy France ?",
+      "explanation": "Sélectionnez la (les) bonne(s) réponse(s).",
+      "content": {
+        "maxTypos": null,
+        "choices": [
+          {
+            "_id": "59307529a2b39d0024eebff7",
+            "value": "sli_VktuuzFW7.choice_Vyt9uGt~Q",
+            "label": "Rue d'Aboukir",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            }
+          },
+          {
+            "_id": "59307529a2b39d0024eebff6",
+            "value": "sli_VktuuzFW7.choice_E1cc-GFZQ",
+            "label": "Boulevard Poissonnière",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            }
+          }
+        ],
+        "answers": [["Boulevard Poissonnière"]],
+        "media": {
+          "subtitles": [],
+          "posters": [],
+          "src": []
+        }
+      },
+      "medias": [
+        {
+          "type": "img",
+          "_id": "593eb72a187bd18c01283591",
+          "subtitles": [],
+          "posters": [],
+          "src": [
+            {
+              "mimeType": "image/jpeg",
+              "url": "https://api-staging.coorpacademy.com/api-service/medias?h=400&w=400&q=90&url=https://user-images.githubusercontent.com/7602475/28273504-db1da18a-6b0e-11e7-97cd-b2e307fc51c7.png",
+              "_id": "593eb72a187bd18c01283592"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "_id": "sli_4ymMuMFb7",
+    "klf": "xxx",
+    "tips": "xxx",
+    "clue": "clue",
+    "hasClue" : true,
+    "chapter_id": "5.C8",
+    "__v": 0,
+    "authors": [],
+    "context": {
+      "media": {
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      }
+    },
+    "meta": {
+      "updatedAt": "2017-06-06T13:49:35.350Z",
+      "createdAt": "2017-06-06T13:49:35.350Z"
+    },
+    "lessons": [
+      {
+        "type": "video",
+        "poster": "https://api-staging.coorpacademy.com/api-service/medias?h=230&w=230&q=90&url=https://static.coorpacademy.com/content/digital/miniatures_cours/base/1B2.png",
+        "description": "Anatomie d'une page de résultats",
+        "mimeType": "application/vimeo",
+        "videoId": "88393119\n",
+        "_id": "590b862e2e967f64333ad456",
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      },
+      {
+        "description": "Historique des moteurs de recherche",
+        "mimeType": "application/vimeo",
+        "poster": "https://api-staging.coorpacademy.com/api-service/medias?h=230&w=230&q=90&url=https://static.coorpacademy.com/content/digital/miniatures_cours/base/1B1.png",
+        "posters": [],
+        "src": [],
+        "subtitles": [],
+        "type": "video",
+        "videoId": "88546728\n",
+        "_id": "590b862e2e967f64333ad4fc"
+      }
+    ],
+    "question": {
+      "type": "qcm",
+      "header": "Quelle est la capitale de la France ?",
+      "explanation": "Sélectionnez la (les) bonne(s) réponse(s).",
+      "content": {
+        "maxTypos": null,
+        "choices": [
+          {
+            "_id": "59307529a2b39d0024eebff2",
+            "value": "sli_4ymMuMFb7.choice_VJaHdMK~7",
+            "label": "C'est Paris !",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            }
+          },
+          {
+            "_id": "59307529a2b39d0024eebff1",
+            "value": "sli_4ymMuMFb7.choice_NkfU-MtbX",
+            "label": "Ce n'est pas Bogota !",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            }
+          }
+        ],
+        "answers": [["C'est Paris !"]],
+        "media": {
+          "subtitles": [],
+          "posters": [],
+          "src": []
+        }
+      },
+      "medias": []
+    }
+  },
+  {
+    "_id": "sli_V1zinOWt~",
+    "klf": "La révolution numérique a vu naître une nouvelle génération appelée génération Y. Les individus de cette génération ont vu Internet se démocratiser. Ils sont passionés par les outils numériques et avides d'information.",
+    "tips": "Certains affirment que la génération Y est appelée ainsi en référence à la forme des écouteurs portés par les jeunes Y.",
+    "chapter_id": "5.C8",
+    "clue": "clue",
+    "hasClue" : true,
+    "authors": [],
+    "context": {
+      "media": {
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      }
+    },
+    "meta": {
+      "updatedAt": "2017-07-25T20:59:31.925Z",
+      "createdAt": "2017-07-25T20:59:31.925Z"
+    },
+    "lessons": [
+      {
+        "_id": "59311efb7b2f920056a8ed5f",
+        "poster": "//static.coorpacademy.com/content/CoorpAcademy/content-partnerships-women-up/cockpit-partner-women-up/poster/vignette_womenup-1478108216371.png",
+        "description": "La révolution numérique",
+        "videoId": "189601796",
+        "mimeType": "application/vimeo",
+        "type": "video",
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      }
+    ],
+    "question": {
+      "type": "qcmGraphic",
+      "header": "La révolution numérique a permis l'émergence d'une nouvelle génération appelée génération Z. Vrai ou faux ?",
+      "explanation": "Sélectionnez la bonne réponse.",
+      "content": {
+        "maxTypos": null,
+        "choices": [
+          {
+            "_id": "59311efb7b2f920056a8ed62",
+            "value": "sli_V1zinOWt~.choice_41gQ8a-~K~",
+            "label": "Vrai",
+            "items": [],
+            "media": {
+              "type": "img",
+              "subtitles": [],
+              "posters": [],
+              "src": [
+                {
+                  "_id": "59311efb7b2f920056a8ed63",
+                  "url": "//static.coorpacademy.com/content/partner-women-up/fr/medias/img/choice/vrai_tick-1470664348611.png",
+                  "mimeType": "image/png"
+                }
+              ]
+            }
+          },
+          {
+            "_id": "59311efb7b2f920056a8ed60",
+            "value": "sli_V1zinOWt~.choice_4keY8T-~YZ",
+            "label": "Faux",
+            "items": [],
+            "media": {
+              "type": "img",
+              "subtitles": [],
+              "posters": [],
+              "src": [
+                {
+                  "_id": "59311efb7b2f920056a8ed61",
+                  "url": "//static.coorpacademy.com/content/partner-women-up/fr/medias/img/choice/faux_cross-1470664357972.png",
+                  "mimeType": "image/png"
+                }
+              ]
+            }
+          }
+        ],
+        "answers": [["Faux"]],
+        "media": {
+          "subtitles": [],
+          "posters": [],
+          "src": []
+        }
+      },
+      "medias": []
+    }
+  },
+  {
+    "_id": "sli_Nk2vje~E~",
+    "klf": "You can have multiple type of fields for a template question",
+    "tips": "Some tips",
+    "clue": "clue",
+    "hasClue" : true,
+    "chapter_id": "5.C7",
+    "question": {
+      "type": "template",
+      "header": "Enter 'Text' and 'Select'",
+      "explanation": "Type your answers",
+      "content": {
+        "template": "The answer is {{inp81438}} and {{sel31191}}",
+        "matchOrder": true,
+        "maxTypos": null,
+        "answers": [["Text", "Select"]],
+        "choices": [
+          {
+            "type": "text",
+            "name": "inp81438",
+            "label": " ",
+            "placeholder": " ",
+            "_id": "596338e04af4cb8a08a94495",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            }
+          },
+          {
+            "type": "select",
+            "name": "sel31191",
+            "label": " ",
+            "_id": "596338e04af4cb8a08a94492",
+            "items": [
+              {
+                "text": "Select",
+                "value": "sli_12345.choice_01",
+                "_id": "596338e04af4cb8a08a94494"
+              },
+              {
+                "text": "Text",
+                "value": "sli_12345.choice_02",
+                "_id": "596338e04af4cb8a08a94493"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "_id": "9.C7.6",
+    "klf": "Savoir cliquer sur les vrais réponses",
+    "tips": "Des tips",
+    "chapter_id": "5.C7",
+    "hasClue" : false,
+    "authors": [],
+    "context": {
+      "media": {
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      }
+    },
+    "meta": {
+      "updatedAt": "2016-06-30T13:52:16.648Z",
+      "createdAt": "2017-02-09T12:46:40.315Z"
+    },
+    "lessons": [
+      {
+        "type": "video",
+        "mimeType": "application/vimeo",
+        "videoId": "127157752",
+        "description": "Le paiment dématérialisé : dernière étape du rapprochement virtuel/réel",
+        "poster": "//static.coorpacademy.com/content/digital/fr/miniatures/video_miniature.jpg",
+        "_id": "5978690a48a0ff240092f3a5",
+        "subtitles": [],
+        "posters": [],
+        "views": {
+          "fromLesson": 4
+        },
+        "src": []
+      }
+    ],
+    "question": {
+      "type": "qcmDrag",
+      "header": "Cliquez sur les réponses vrais (n'importe quel ordre)",
+      "explanation": "Cliquez sur les bonnes réponses pour les déplacer dans la seconde colonne.",
+      "clue": "clue",
+      "content": {
+        "matchOrder": false,
+        "maxTypos": null,
+        "choices": [
+          {
+            "label": "Vrai 1",
+            "value": "sli_NkaegcmAY~o.choice_01"
+          },
+          {
+            "label": "Vrai 2",
+            "value": "sli_NkaegcmAY~o.choice_02"
+          },
+          {
+            "label": "Faux 1",
+            "value": "sli_NkaegcmAY~o.choice_03"
+          },
+          {
+            "label": "Faux 2",
+            "value": "sli_NkaegcmAY~o.choice_04"
+          },
+          {
+            "label": "Faux 3",
+            "value": "sli_NkaegcmAY~o.choice_05"
+          }
+        ],
+        "answers": [["Vrai 2", "Vrai 1"]],
+        "media": {
+          "subtitles": [],
+          "posters": [],
+          "src": []
+        }
+      },
+      "medias": []
+    }
+  },
+  {
+    "_id": "8.B2.2",
+    "klf": "Savoir cliquer sur les vrais réponses dans un ordre donné",
+    "tips": "Des tips",
+    "chapter_id": "5.C7",
+    "hasClue" : false,
+    "authors": [],
+    "lessons": [
+      {
+        "type": "video",
+        "mimeType": "application/vimeo",
+        "videoId": "127718777",
+        "description": "Chiffres-clés du multi-écran",
+        "poster": "//static.coorpacademy.com/content/digital/fr/miniatures/video_miniature.jpg",
+        "_id": "5978690b48a0ff240092f4a3",
+        "subtitles": [],
+        "posters": [],
+        "views": {
+          "fromList": 63,
+          "fromLesson": 20
+        },
+        "src": []
+      }
+    ],
+    "question": {
+      "type": "qcmDrag",
+      "header": "Cliquez sur les réponses vrais dans l'ordre des numéros",
+      "explanation": "Cliquez sur les réponses dans le bon ordre.",
+      "clue": "clue",
+      "content": {
+        "matchOrder": true,
+        "maxTypos": null,
+        "choices": [
+          {
+            "label": "Vrai 1",
+            "value": "sli_VyZmMYQCFWj.choice_01"
+          },
+          {
+            "label": "Vrai 2",
+            "value": "sli_VyZmMYQCFWj.choice_02"
+          },
+          {
+            "label": "Vrai 3",
+            "value": "sli_VyZmMYQCFWj.choice_03"
+          },
+          {
+            "label": "Faux 1",
+            "value": "sli_VyZmMYQCFWj.choice_04"
+          },
+          {
+            "label": "Faux 2",
+            "value": "sli_VyZmMYQCFWj.choice_05"
+          }
+        ],
+        "answers": [["Vrai 1", "Vrai 2", "Vrai 3"]]
+      }
+    }
+  },
+  {
+    "_id": "sli_41GXTiG8X",
+    "klf": "Il a connu les dinosaures.",
+    "tips": "Il a connu les dinosaures.",
+    "chapter_id": "5.C7",
+    "hasClue" : false,
+    "authors": [],
+    "context": {
+      "media": {
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      }
+    },
+    "meta": {
+      "updatedAt": "2017-07-31T15:36:55.393Z",
+      "createdAt": "2017-07-31T15:36:55.393Z"
+    },
+    "lessons": [
+      {
+        "type": "video",
+        "mimeType": "application/vimeo",
+        "videoId": "191200830",
+        "description": "Universal Searches",
+        "poster": "//static.coorpacademy.com/content/up/fr/medias/img/poster/miniature_bleue_up.jpg",
+        "_id": "597f2b044434a45a0184b385",
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      },
+      {
+        "type": "video",
+        "mimeType": "application/vimeo",
+        "videoId": "191168702",
+        "description": "A Short History of Search Engines",
+        "poster": "//static.coorpacademy.com/content/up/fr/medias/img/poster/miniature_bleue_up.jpg",
+        "_id": "597f2b044434a45a0184b384",
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      }
+    ],
+    "question": {
+      "type": "slider",
+      "header": "Quel est l'age d'Éric ?",
+      "explanation": "Déplacez le curseur.",
+      "content": {
+        "id": "sli_41GXTiG8X.id",
+        "min": 0,
+        "max": 1000,
+        "step": 100,
+        "defaultValue": 500,
+        "unitLabel": "an(s)",
+        "maxTypos": null,
+        "choices": [],
+        "media": {
+          "subtitles": [],
+          "posters": [],
+          "src": []
+        },
+        "answers": [
+          ["100"],
+          ["200"],
+          ["300"],
+          ["400"],
+          ["500"],
+          ["600"],
+          ["700"],
+          ["800"],
+          ["900"],
+          ["1000"]
+        ]
+      },
+      "medias": []
+    }
+  },
+  {
+    "_id": "1.B2.9",
+    "klf": "Some KLF",
+    "tips": "XXX",
+    "chapter_id": "5.C8",
+    "hasClue" : false,
+    "authors": [],
+    "context": {
+      "title": "Some context title",
+      "description": "Lorem ipsum dolor sit amet, vim ad probatus conceptam philosophia. Ea omnes forensibus elaboraret usu. Audire salutatus ex per. Ei vero ludus duo.\nTibique nominati sed ei, eripuit adipiscing intellegebat cu qui. Ne vim tale dicat, nec ut noluisse invidunt. Sit cu persecuti constituto delicatissimi. Vidisse expetenda eos eu, cum zril euripidis prodesset no.\nTe vix mollis accommodare, ad omnes deterruisset usu, ex eam diceret euismod. Rationibus complectitur ei vel, qui scribentur philosophia conclusionemque id, eius ullum nominavi est ad. Per prima simul accusata no. Eum quot tollit et. Eos in animal delicata, cum cu dicat vivendum.\nMel utinam aeterno singulis et, at has noster mentitum necessitatibus. Cu his alia senserit, putent dictas electram cu vel, tota dolore in ius. Nec semper partiendo hendrerit ei. Sit sonet eloquentiam no, qui id malorum graecis perfecto, offendit ponderum est ut. Vocent expetendis at pri.\nVocent accusata voluptatum ex per, per at esse debitis. Augue putent nonumes vel ea, et sale corrumpit voluptaria pri. Mei in ferri eligendi mediocrem. Nam justo homero facete ei. Ea eam inani scaevola, vel ad vidisse virtute. Qui quis habeo modus eu, laudem utamur complectitur vis eu, nec cibo incorrupte cu. Nibh semper commune sea cu, vix solum discere recteque in, eos eu atomorum accusamus similique.",
+      "media": {
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      }
+    },
+    "meta": {
+      "updatedAt": "2017-06-13T12:15:40.321Z",
+      "createdAt": "2017-06-13T12:15:40.321Z"
+    },
+    "lessons": [
+      {
+        "type": "video",
+        "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B2.png",
+        "description": "Anatomie d'une page de résultats",
+        "mimeType": "application/vimeo",
+        "videoId": "88393119\n",
+        "_id": "590b862e2e967f64333ad456",
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      }
+    ],
+    "question": {
+      "type": "basic",
+      "header": "Écrivez le mot Text dans l'input.\n",
+      "explanation": "Saisissez votre réponse.",
+      "content": {
+        "label": "Saisissez votre réponse.",
+        "placeholder": " ",
+        "maxTypos": null,
+        "choices": [],
+        "answers": [
+          [
+            "Text"
+          ]
+        ],
+        "media": {
+          "subtitles": [],
+          "posters": [],
+          "src": []
+        }
+      },
+      "medias": [
+        {
+          "type": "img",
+          "_id": "593eb72a187bd18c01283591",
+          "subtitles": [],
+          "posters": [],
+          "src": [
+            {
+              "mimeType": "image/jpeg",
+              "url": "//static.coorpacademy.com/content/ijoinchanel/en/slides/1B2_Q6/1B2-Q6-canap-v1.jpg",
+              "_id": "593eb72a187bd18c01283592"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "_id": "1.B2.10",
+    "klf": "Some KLF",
+    "tips": "XXX",
+    "chapter_id": "5.C8",
+    "hasClue" : false,
+    "authors": [],
+    "context": {
+      "title": "Some context title",
+      "description": "Lorem ipsum dolor sit amet, vim ad probatus conceptam philosophia. Ea omnes forensibus elaboraret usu. Audire salutatus ex per. Ei vero ludus duo.\nTibique nominati sed ei, eripuit adipiscing intellegebat cu qui. Ne vim tale dicat, nec ut noluisse invidunt. Sit cu persecuti constituto delicatissimi. Vidisse expetenda eos eu, cum zril euripidis prodesset no.\nTe vix mollis accommodare, ad omnes deterruisset usu, ex eam diceret euismod. Rationibus complectitur ei vel, qui scribentur philosophia conclusionemque id, eius ullum nominavi est ad. Per prima simul accusata no. Eum quot tollit et. Eos in animal delicata, cum cu dicat vivendum.\nMel utinam aeterno singulis et, at has noster mentitum necessitatibus. Cu his alia senserit, putent dictas electram cu vel, tota dolore in ius. Nec semper partiendo hendrerit ei. Sit sonet eloquentiam no, qui id malorum graecis perfecto, offendit ponderum est ut. Vocent expetendis at pri.\nVocent accusata voluptatum ex per, per at esse debitis. Augue putent nonumes vel ea, et sale corrumpit voluptaria pri. Mei in ferri eligendi mediocrem. Nam justo homero facete ei. Ea eam inani scaevola, vel ad vidisse virtute. Qui quis habeo modus eu, laudem utamur complectitur vis eu, nec cibo incorrupte cu. Nibh semper commune sea cu, vix solum discere recteque in, eos eu atomorum accusamus similique.",
+      "media": {
+        "type": "img",
+        "src": [
+          {
+            "_id": "5981f15f77c724d828e862e4",
+            "mimeType": "image/jpeg",
+            "url": "https://api-staging.coorpacademy.com/api-service/medias?h=400&w=400&q=90&url=http://static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/default/corbeau-1501504511632.jpg"
+          }
+        ]
+      }
+    },
+    "meta": {
+      "updatedAt": "2017-06-13T12:15:40.321Z",
+      "createdAt": "2017-06-13T12:15:40.321Z"
+    },
+    "lessons": [
+      {
+        "type": "video",
+        "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B2.png",
+        "description": "Anatomie d'une page de résultats",
+        "mimeType": "application/vimeo",
+        "videoId": "88393119\n",
+        "_id": "590b862e2e967f64333ad456",
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      }
+    ],
+    "question": {
+      "type": "basic",
+      "header": "Écrivez le mot Text dans l'input.\n",
+      "explanation": "Saisissez votre réponse.",
+      "content": {
+        "label": "Saisissez votre réponse.",
+        "placeholder": " ",
+        "maxTypos": null,
+        "choices": [],
+        "answers": [
+          [
+            "Text"
+          ]
+        ],
+        "media": {
+          "subtitles": [],
+          "posters": [],
+          "src": []
+        }
+      },
+      "medias": [
+        {
+          "type": "img",
+          "_id": "593eb72a187bd18c01283591",
+          "subtitles": [],
+          "posters": [],
+          "src": [
+            {
+              "mimeType": "image/jpeg",
+              "url": "//static.coorpacademy.com/content/ijoinchanel/en/slides/1B2_Q6/1B2-Q6-canap-v1.jpg",
+              "_id": "593eb72a187bd18c01283592"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "_id": "1.B2.11",
+    "klf": "Some KLF",
+    "tips": "XXX",
+    "hasClue" : false,
+    "chapter_id": "5.C8",
+    "authors": [],
+    "context": {
+      "title": "Some context title",
+      "description": "Lorem ipsum dolor sit amet, vim ad probatus conceptam philosophia. Ea omnes forensibus elaboraret usu. Audire salutatus ex per. Ei vero ludus duo.\nTibique nominati sed ei, eripuit adipiscing intellegebat cu qui. Ne vim tale dicat, nec ut noluisse invidunt. Sit cu persecuti constituto delicatissimi. Vidisse expetenda eos eu, cum zril euripidis prodesset no.\nTe vix mollis accommodare, ad omnes deterruisset usu, ex eam diceret euismod. Rationibus complectitur ei vel, qui scribentur philosophia conclusionemque id, eius ullum nominavi est ad. Per prima simul accusata no. Eum quot tollit et. Eos in animal delicata, cum cu dicat vivendum.\nMel utinam aeterno singulis et, at has noster mentitum necessitatibus. Cu his alia senserit, putent dictas electram cu vel, tota dolore in ius. Nec semper partiendo hendrerit ei. Sit sonet eloquentiam no, qui id malorum graecis perfecto, offendit ponderum est ut. Vocent expetendis at pri.\nVocent accusata voluptatum ex per, per at esse debitis. Augue putent nonumes vel ea, et sale corrumpit voluptaria pri. Mei in ferri eligendi mediocrem. Nam justo homero facete ei. Ea eam inani scaevola, vel ad vidisse virtute. Qui quis habeo modus eu, laudem utamur complectitur vis eu, nec cibo incorrupte cu. Nibh semper commune sea cu, vix solum discere recteque in, eos eu atomorum accusamus similique.",
+      "media": {
+        "type": "video",
+        "src": [
+          {
+            "_id": "5996ba9794cdfe4468eafe16",
+            "videoId": "91775232",
+            "mimeType": "application/vimeo"
+          }
+        ]
+      }
+    },
+    "meta": {
+      "updatedAt": "2017-06-13T12:15:40.321Z",
+      "createdAt": "2017-06-13T12:15:40.321Z"
+    },
+    "lessons": [
+      {
+        "type": "video",
+        "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B2.png",
+        "description": "Anatomie d'une page de résultats",
+        "mimeType": "application/vimeo",
+        "videoId": "88393119\n",
+        "_id": "590b862e2e967f64333ad456",
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      }
+    ],
+    "question": {
+      "type": "basic",
+      "header": "Écrivez le mot Text dans l'input.\n",
+      "explanation": "Saisissez votre réponse.",
+      "content": {
+        "label": "Saisissez votre réponse.",
+        "placeholder": " ",
+        "maxTypos": null,
+        "choices": [],
+        "answers": [
+          [
+            "Text"
+          ]
+        ],
+        "media": {
+          "subtitles": [],
+          "posters": [],
+          "src": []
+        }
+      },
+      "medias": [
+        {
+          "type": "img",
+          "_id": "593eb72a187bd18c01283591",
+          "subtitles": [],
+          "posters": [],
+          "src": [
+            {
+              "mimeType": "image/jpeg",
+              "url": "//static.coorpacademy.com/content/ijoinchanel/en/slides/1B2_Q6/1B2-Q6-canap-v1.jpg",
+              "_id": "593eb72a187bd18c01283592"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "_id": "1.B2.12",
+    "klf": "Some KLF",
+    "tips": "XXX",
+    "chapter_id": "5.C8",
+    "hasClue" : false,
+    "authors": [],
+    "context": {
+      "title": "Some context title",
+      "description": "Lorem ipsum dolor sit amet, vim ad probatus conceptam philosophia. Ea omnes forensibus elaboraret usu. Audire salutatus ex per. Ei vero ludus duo.\nTibique nominati sed ei, eripuit adipiscing intellegebat cu qui. Ne vim tale dicat, nec ut noluisse invidunt. Sit cu persecuti constituto delicatissimi. Vidisse expetenda eos eu, cum zril euripidis prodesset no.\nTe vix mollis accommodare, ad omnes deterruisset usu, ex eam diceret euismod. Rationibus complectitur ei vel, qui scribentur philosophia conclusionemque id, eius ullum nominavi est ad. Per prima simul accusata no. Eum quot tollit et. Eos in animal delicata, cum cu dicat vivendum.\nMel utinam aeterno singulis et, at has noster mentitum necessitatibus. Cu his alia senserit, putent dictas electram cu vel, tota dolore in ius. Nec semper partiendo hendrerit ei. Sit sonet eloquentiam no, qui id malorum graecis perfecto, offendit ponderum est ut. Vocent expetendis at pri.\nVocent accusata voluptatum ex per, per at esse debitis. Augue putent nonumes vel ea, et sale corrumpit voluptaria pri. Mei in ferri eligendi mediocrem. Nam justo homero facete ei. Ea eam inani scaevola, vel ad vidisse virtute. Qui quis habeo modus eu, laudem utamur complectitur vis eu, nec cibo incorrupte cu. Nibh semper commune sea cu, vix solum discere recteque in, eos eu atomorum accusamus similique.",
+      "media": {
+        "type": "pdf",
+        "description": "PDF description",
+        "mimeType": "application/pdf",
+        "mediaUrl": "https://static.coorpacademy.com/content/CoorpAcademy/content/cockpit-mooc-technique/raw/hierachie-contenu-1494494029567.pdf"
+      }
+    },
+    "meta": {
+      "updatedAt": "2017-06-13T12:15:40.321Z",
+      "createdAt": "2017-06-13T12:15:40.321Z"
+    },
+    "lessons": [
+      {
+        "type": "video",
+        "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B2.png",
+        "description": "Anatomie d'une page de résultats",
+        "mimeType": "application/vimeo",
+        "videoId": "88393119\n",
+        "_id": "590b862e2e967f64333ad456",
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      }
+    ],
+    "question": {
+      "type": "basic",
+      "header": "Écrivez le mot Text dans l'input.\n",
+      "explanation": "Saisissez votre réponse.",
+      "content": {
+        "label": "Saisissez votre réponse.",
+        "placeholder": " ",
+        "maxTypos": null,
+        "choices": [],
+        "answers": [
+          [
+            "Text"
+          ]
+        ],
+        "media": {
+          "subtitles": [],
+          "posters": [],
+          "src": []
+        }
+      },
+      "medias": [
+        {
+          "type": "img",
+          "_id": "593eb72a187bd18c01283591",
+          "subtitles": [],
+          "posters": [],
+          "src": [
+            {
+              "mimeType": "image/jpeg",
+              "url": "//static.coorpacademy.com/content/ijoinchanel/en/slides/1B2_Q6/1B2-Q6-canap-v1.jpg",
+              "_id": "593eb72a187bd18c01283592"
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,83 @@
+[
+  {
+  "_id": "0",
+  "userIds": [
+    "user_1",
+    "user_2",
+    "user_3",
+    "user_4"
+  ],
+  "content": {
+    "ref": "mod_N1qs~xDo",
+    "type": "level"
+  },
+  "meta": {
+    "updatedAt": "2018-02-09T14:43:57.921Z",
+    "createdAt": "2018-02-09T14:43:57.919Z"
+  },
+  "engineOptions": {
+    "goal": 20
+  },
+  "engine": {
+    "ref": "racing",
+    "version": "1"
+  },
+  "state": {
+    "goal": 20,
+    "teams": {
+      "0": {
+        "players": [
+          "user_1",
+          "user_2"
+        ],
+        "step": 0
+      },
+      "1": {
+        "players": [
+          "user_3",
+          "user_4"
+        ],
+        "step": 0
+      }
+    },
+    "users": {
+      "user_1": {
+        "isCorrect": false,
+        "slides": [],
+        "questionNum": 1,
+        "nextContent": {
+          "type": "slide",
+          "ref": "1.B2.4"
+        }
+      },
+      "user_2": {
+        "isCorrect": false,
+        "slides": [],
+        "questionNum": 1,
+        "nextContent": {
+          "type": "slide",
+          "ref": "1.B2.4"
+        }
+      },
+      "user_3": {
+        "isCorrect": false,
+        "slides": [],
+        "questionNum": 1,
+        "nextContent": {
+          "type": "slide",
+          "ref": "1.B2.4"
+        }
+      },
+      "user_4": {
+        "isCorrect": false,
+        "slides": [],
+        "questionNum": 1,
+        "nextContent": {
+          "type": "slide",
+          "ref": "1.B2.4"
+        }
+      }
+    }
+  }
+}
+]
