@@ -92,6 +92,7 @@ class MoocHeader extends React.Component {
     let userView = null;
     let settingsView = null;
     let notificationsView = null;
+    let searchFormView = null;
 
     const moreLabel = translate('More');
     const closeLabel = translate('Close');
@@ -256,7 +257,7 @@ class MoocHeader extends React.Component {
     }
 
     if (settings) {
-      settingsView = settings.map((setting, index) => {
+      const settingsElements = settings.map((setting, index) => {
         let settingView = null;
         const {options, type, title, name: settingName = index} = setting;
 
@@ -310,6 +311,33 @@ class MoocHeader extends React.Component {
 
         return settingView;
       });
+
+      settingsView = (
+        <div className={style.settings} ref={this.setMenuSettings}>
+          <CogIcon
+            data-name="settings-toggle"
+            color={darkColor}
+            className={style.settingsToggle}
+            onClick={this.handleSettingsToggle}
+          />
+          <div
+            className={
+              this.state.isSettingsOpen ? style.settingsWrapper : style.settingsWrapperHidden
+            }
+          >
+            <div data-name="settings" className={style.settingsGroup}>
+              {settingsElements}
+            </div>
+            <div className={style.closeSettings} onClick={this.handleSettingsToggle}>
+              {closeLabel}
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    if (search) {
+      searchFormView = <SearchForm search={search} onSubmit={this.handleSubmitSearch} />;
     }
 
     const sliderView = slider ? (
@@ -343,31 +371,12 @@ class MoocHeader extends React.Component {
             </Link>
           </div>
           <div data-name="Search-Bar" className={style.searchBar}>
-            <SearchForm search={search} onSubmit={this.handleSubmitSearch} />
+            {searchFormView}
           </div>
           <div className={style.menuWrapper}>
             {pagesView}
             {userView || linksView}
-            <div className={style.settings} ref={this.setMenuSettings}>
-              <CogIcon
-                data-name="settings-toggle"
-                color={darkColor}
-                className={style.settingsToggle}
-                onClick={this.handleSettingsToggle}
-              />
-              <div
-                className={
-                  this.state.isSettingsOpen ? style.settingsWrapper : style.settingsWrapperHidden
-                }
-              >
-                <div data-name="settings" className={style.settingsGroup}>
-                  {settingsView}
-                </div>
-                <div className={style.closeSettings} onClick={this.handleSettingsToggle}>
-                  {closeLabel}
-                </div>
-              </div>
-            </div>
+            {settingsView}
           </div>
         </div>
         {sliderView}

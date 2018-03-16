@@ -484,6 +484,7 @@ import MoocHeaderFixtureDefault from '../src/organism/mooc-header/test/fixtures/
 import MoocHeaderFixtureLogged from '../src/organism/mooc-header/test/fixtures/logged';
 import MoocHeaderFixtureSliderMultiple from '../src/organism/mooc-header/test/fixtures/slider-multiple';
 import MoocHeaderFixtureSlider from '../src/organism/mooc-header/test/fixtures/slider';
+import MoocHeaderFixtureUserChangePassword from '../src/organism/mooc-header/test/fixtures/user-change-password';
 import PopinFixtureDefault from '../src/organism/popin/test/fixtures/default';
 import ResourceBrowserFixtureJwplayer from '../src/organism/resource-browser/test/fixtures/jwplayer';
 import ResourceBrowserFixtureOneVideo from '../src/organism/resource-browser/test/fixtures/one-video';
@@ -1384,7 +1385,8 @@ export const fixtures = {
       Default: MoocHeaderFixtureDefault,
       Logged: MoocHeaderFixtureLogged,
       SliderMultiple: MoocHeaderFixtureSliderMultiple,
-      Slider: MoocHeaderFixtureSlider
+      Slider: MoocHeaderFixtureSlider,
+      UserChangePassword: MoocHeaderFixtureUserChangePassword
     },
     Popin: {
       Default: PopinFixtureDefault
