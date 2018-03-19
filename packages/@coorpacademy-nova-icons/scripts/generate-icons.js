@@ -70,12 +70,7 @@ const componentize = (basename, svgData) => {
   };
 
   const writeIndentedLine = line =>
-    writeLine(
-      `${Array(meta.indent)
-        .fill()
-        .map((_, i) => ' ')
-        .join('')}${line}`
-    );
+    writeLine(`${new Array(meta.indent).fill(' ').join('')}${line}`);
 
   const writeSVGTag = opts => {
     // eslint-disable-next-line no-shadow
