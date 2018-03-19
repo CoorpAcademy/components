@@ -2,7 +2,7 @@ import get from 'lodash/fp/get';
 import {getCurrentSlide, getCurrentProgressionId} from '../../utils/state-extract';
 import {fetchClue} from '../api/clues';
 import {requestClue} from '../api/progressions';
-import {progressionUpdated} from '../ui/progressions';
+import {progressionUpdated} from './progressions';
 import {selectRoute} from './route';
 
 const getId = get('_id');
