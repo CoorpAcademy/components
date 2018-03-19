@@ -28,6 +28,7 @@ class Player extends EventEmitter {
 
   /* eslint-disable class-methods-use-this */
   loadVideo() {}
+
   unload() {}
   /* eslint-enable class-methods-use-this */
 }
@@ -109,6 +110,7 @@ test('should update vimeo video', t => {
     loadVideo() {
       t.pass();
     }
+
     unload() {
       t.pass();
     }

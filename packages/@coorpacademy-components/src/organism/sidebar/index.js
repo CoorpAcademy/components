@@ -3,9 +3,9 @@ import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import noop from 'lodash/fp/noop';
 import getOr from 'lodash/fp/getOr';
-import Link from '../../atom/link/index';
+import Link from '../../atom/link';
 import Provider from '../../atom/provider';
-import Select from '../../atom/select/index';
+import Select from '../../atom/select';
 import style from './style.css';
 
 export const InputTextItem = props => {

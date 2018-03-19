@@ -2,7 +2,7 @@ import noop from 'lodash/fp/noop';
 import getOr from 'lodash/fp/getOr';
 import React from 'react';
 import PropTypes from 'prop-types';
-import Provider from '../../atom/provider';
+import Provider from '../provider';
 import style from './handle.css';
 
 const Hammer =

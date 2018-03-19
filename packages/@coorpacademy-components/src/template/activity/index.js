@@ -25,10 +25,12 @@ class Progression extends React.Component {
     const {onClick} = this.props.recommendation;
     onClick && onClick(e);
   };
+
   handleSelectTheme = e => {
     const {onChange} = this.props.themeFilter;
     onChange && onChange(e);
   };
+
   render() {
     const {
       mainTitle,

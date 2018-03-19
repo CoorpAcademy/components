@@ -187,7 +187,7 @@ const generateComponents = async ({novaPath, category}) => {
     const src = path.join(root, name);
     const subcat = path
       .basename(path.dirname(src))
-      .match(/^([0-9]+-)?(.*)$/)[2]
+      .match(/^(\d+-)?(.*)$/)[2]
       .toLowerCase()
       .replace('&', '-and-');
     const destDir = path.join(__dirname, '..', 'src', category.dest, subcat);

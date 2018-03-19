@@ -4,7 +4,7 @@ import uniqueId from 'lodash/fp/uniqueId';
 import get from 'lodash/fp/get';
 import UploadIcon from '@coorpacademy/nova-icons/solid/data-transfer/data-upload-1';
 import Provider from '../provider';
-import Loader from './../loader';
+import Loader from '../loader';
 import style from './style.css';
 
 class ImageUpload extends React.Component {

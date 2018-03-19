@@ -18,6 +18,7 @@ class AnimatedComponent extends React.Component {
       if (animated) onAnimationEnd();
     });
   }
+
   componentWillReceiveProps(nextProps) {
     const {animated: nextAnimated = false, onAnimationEnd = noop} = nextProps;
     const {animated = false} = this.props;
@@ -25,6 +26,7 @@ class AnimatedComponent extends React.Component {
       if (nextAnimated && animated !== nextAnimated) onAnimationEnd();
     });
   }
+
   render() {
     const {animated = false} = this.props;
     return <ul>{`${animated}`}</ul>;
