@@ -4532,6 +4532,10 @@ flow-bin@^0.62.0:
   version "0.62.0"
   resolved "https://registry.npmjs.org/flow-bin/-/flow-bin-0.62.0.tgz#14bca669a6e3f95c0bc0c2d1eb55ec4e98cb1d83"
 
+flow-bin@^0.68.0:
+  version "0.68.0"
+  resolved "https://registry.npmjs.org/flow-bin/-/flow-bin-0.68.0.tgz#86c2d14857d306eb2e85e274f2eebf543564f623"
+
 fn-name@^2.0.0:
   version "2.0.1"
   resolved "https://registry.npmjs.org/fn-name/-/fn-name-2.0.1.tgz#5214d7537a4d06a4a301c0cc262feb84188002e7"
