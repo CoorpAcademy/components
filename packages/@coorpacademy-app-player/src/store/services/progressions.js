@@ -84,7 +84,7 @@ export const findBestOf = (engineRef, contentRef, progressionId = null) => {
   const bestProgression = pipe(
     filter(p => get('content.ref', p) === contentRef && get('_id', p) !== progressionId),
     maxBy(p => p.state.stars || 0)
-  )(Array.from(progressionStore.values()));
+  )([...progressionStore.values()]);
   return bestProgression || set('state.stars', 0, {});
 };
 

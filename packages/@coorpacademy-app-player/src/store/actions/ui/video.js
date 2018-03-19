@@ -1,7 +1,7 @@
 import {sendMediaViewed} from '../api/analytics';
 import {markResourceAsViewed} from '../api/progressions';
-import {progressionUpdated} from './progressions';
 import {getCurrentProgressionId} from '../../utils/state-extract';
+import {progressionUpdated} from './progressions';
 
 export const UI_VIDEO_PAUSE = '@@ui/VIDEO_PAUSE';
 export const UI_VIDEO_RESUME = '@@ui/UI_VIDEO_RESUME';
