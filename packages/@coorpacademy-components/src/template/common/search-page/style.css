@@ -18,7 +18,6 @@
 
 .noresults {
   border-top: solid 1px xtraLightGrey;
-  min-height: 600px;
   box-sizing: border-box;
   padding: 16px 0;
   text-align: center;
