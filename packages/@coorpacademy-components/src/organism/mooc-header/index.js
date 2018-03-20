@@ -32,6 +32,7 @@ class MoocHeader extends React.Component {
     this.handleLinkClick = this.handleLinkClick.bind(this);
     this.setMenuSettings = this.setMenuSettings.bind(this);
     this.handleSubmitSearch = this.handleSubmitSearch.bind(this);
+    this.handleResetSearch = this.handleResetSearch.bind(this);
   }
 
   componentDidUpdate(prevProps, prevState, prevContext) {
@@ -76,6 +77,12 @@ class MoocHeader extends React.Component {
   handleSubmitSearch() {
     if (this.props.onSubmitSearch) {
       this.props.onSubmitSearch();
+    }
+  }
+
+  handleResetSearch() {
+    if (this.props.onResetSearch) {
+      this.props.onResetSearch();
     }
   }
 
@@ -337,7 +344,13 @@ class MoocHeader extends React.Component {
     }
 
     if (search) {
-      searchFormView = <SearchForm search={search} onSubmit={this.handleSubmitSearch} />;
+      searchFormView = (
+        <SearchForm
+          search={search}
+          onSubmit={this.handleSubmitSearch}
+          onReset={this.handleResetSearch}
+        />
+      );
     }
 
     const sliderView = slider ? (
@@ -398,6 +411,7 @@ MoocHeader.propTypes = {
   }),
   search: PropTypes.shape(Search.propTypes),
   onSubmitSearch: PropTypes.func,
+  onResetSearch: PropTypes.func,
   pages: PropTypes.shape({
     displayed: PropTypes.arrayOf(
       PropTypes.shape({

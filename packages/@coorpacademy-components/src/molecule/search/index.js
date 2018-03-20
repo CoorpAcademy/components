@@ -9,12 +9,12 @@ import style from './style.css';
 const Search = (props, context) => {
   const {value, placeholder, onChange} = props;
   const {skin} = context;
-  const medium = get('common.medium', skin);
+  const dark = get('common.dark', skin);
   const handleChange = e => onChange(e.target.value);
 
   return (
     <div className={style.wrapperSearch}>
-      <SearchIcon color={medium} className={style.icon} />
+      <SearchIcon color={dark} className={style.icon} />
       <input
         className={style.search}
         type="text"

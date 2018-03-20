@@ -14,6 +14,7 @@ export default {
       onChange: value => console.log(value)
     },
     onSubmitSearch: () => console.log('onSubmitSearch'),
+    onResetSearch: () => console.log('onResetSearch'),
     themes: [
       {
         title: 'Digital',
