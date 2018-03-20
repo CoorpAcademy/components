@@ -632,6 +632,7 @@ import DisciplineFixtureNoAuthor from '../src/template/common/discipline/test/fi
 import DisciplineFixtureNoVideo from '../src/template/common/discipline/test/fixtures/no-video';
 import DisciplineFixtureWithOnclick from '../src/template/common/discipline/test/fixtures/with-onclick';
 import SearchPageFixtureDefault from '../src/template/common/search-page/test/fixtures/default';
+import SearchPageFixtureNoResultWithRecommendations from '../src/template/common/search-page/test/fixtures/no-result-with-recommendations';
 import SearchPageFixtureNoResult from '../src/template/common/search-page/test/fixtures/no-result';
 
 export const components = {
@@ -1598,6 +1599,7 @@ export const fixtures = {
     },
     SearchPage: {
       Default: SearchPageFixtureDefault,
+      NoResultWithRecommendations: SearchPageFixtureNoResultWithRecommendations,
       NoResult: SearchPageFixtureNoResult
     }
   }

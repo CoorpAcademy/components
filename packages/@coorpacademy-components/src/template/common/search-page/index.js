@@ -6,24 +6,30 @@ import Provider from '../../../atom/provider';
 import Button from '../../../atom/button';
 import Filters from '../../../molecule/filters';
 import CardsGrid from '../../../organism/cards-grid';
+import CardsList from '../../../molecule/dashboard/cards-list';
 import style from './style.css';
 
 const SearchPage = (props, context) => {
-  const {title, searchFilters, cards, noresultsfound, clearFilters} = props;
+  const {title, searchFilters, cards, noresultsfound, clearFilters, recommendations} = props;
 
   const {skin} = context;
   const defaultColor = getOr('#00B0FF', 'common.primary', skin);
 
+  const recommendationsView = isEmpty(recommendations) ? null : <CardsList {...recommendations} />;
+
   const cardsView = isEmpty(cards.list) ? (
-    <div className={style.noresults}>
-      <div>{noresultsfound}</div>
-      <Button
-        data-name="searchPageClear"
-        className={style.clear}
-        style={{background: defaultColor}}
-        {...clearFilters}
-        type="link"
-      />
+    <div>
+      <div className={style.noresults}>
+        <div>{noresultsfound}</div>
+        <Button
+          data-name="searchPageClear"
+          className={style.clear}
+          style={{background: defaultColor}}
+          {...clearFilters}
+          type="link"
+        />
+      </div>
+      {recommendationsView}
     </div>
   ) : (
     <CardsGrid {...cards} />
@@ -49,7 +55,8 @@ SearchPage.propTypes = {
   title: PropTypes.string,
   searchFilters: PropTypes.shape(Filters.propTypes),
   cards: PropTypes.shape(CardsGrid.propTypes),
-  clearFilters: PropTypes.shape(Button.propTypes)
+  clearFilters: PropTypes.shape(Button.propTypes),
+  recommendations: PropTypes.shape(CardsList.propTypes)
 };
 
 export default SearchPage;
