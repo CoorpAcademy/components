@@ -31,15 +31,14 @@ class JWPlayer extends React.Component {
 
   render() {
     return (
-      <div className={style.wrapper}>
-        <ReactJWPlayer
-          onPlay={this.handlePlay}
-          onResume={this.handleResume}
-          onPause={this.handlePause}
-          onOneHundredPercent={this.handleEnded}
-          {...this.props.jwpOptions}
-        />
-      </div>
+      <ReactJWPlayer
+        className={style.wrapper}
+        onPlay={this.handlePlay}
+        onResume={this.handleResume}
+        onPause={this.handlePause}
+        onOneHundredPercent={this.handleEnded}
+        {...this.props.jwpOptions}
+      />
     );
   }
 }
