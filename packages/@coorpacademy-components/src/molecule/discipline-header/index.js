@@ -8,9 +8,12 @@ import style from './style.css';
 const Preview = ({image, video}) => {
   const mimeType = get('mimeType', video);
   const id = get('id', video);
+  const jwpOptions = get('jwpOptions', video);
 
   if (id) {
     return <VideoPlayer mimeType={mimeType} id={id} width="380px" height="250px" />;
+  } else if (jwpOptions) {
+    return <VideoPlayer {...video} />;
   } else {
     return <Picture className={style.image} src={image} />;
   }
