@@ -329,9 +329,11 @@ import StartBattleFixtureHref from '../src/molecule/dashboard/start-battle/test/
 import DisciplineCtaFixtureDefault from '../src/molecule/discipline-cta/test/fixtures/default';
 import DisciplineCtaFixtureNoStart from '../src/molecule/discipline-cta/test/fixtures/no-start';
 import DisciplineHeaderFixtureDefault from '../src/molecule/discipline-header/test/fixtures/default';
+import DisciplineHeaderFixtureJwplayer from '../src/molecule/discipline-header/test/fixtures/jwplayer';
 import DisciplineHeaderFixtureNoVideoNoImage from '../src/molecule/discipline-header/test/fixtures/no-video-no-image';
 import DisciplineHeaderFixtureNoVideo from '../src/molecule/discipline-header/test/fixtures/no-video';
 import DisciplineHeaderFixturePortaitRatio from '../src/molecule/discipline-header/test/fixtures/portait-ratio';
+import DisciplineHeaderFixtureVimeo from '../src/molecule/discipline-header/test/fixtures/vimeo';
 import DisciplinePartnersFixtureDefault from '../src/molecule/discipline-partners/test/fixtures/default';
 import DisciplinePartnersFixtureDoubleAuthors from '../src/molecule/discipline-partners/test/fixtures/double-authors';
 import DisciplinePartnersFixtureMoreInfo from '../src/molecule/discipline-partners/test/fixtures/more-info';
@@ -627,9 +629,11 @@ import DashboardFixtureEmptyRequests from '../src/template/common/dashboard/test
 import DisciplineFixtureDefault from '../src/template/common/discipline/test/fixtures/default';
 import DisciplineFixtureDoubleAuthor from '../src/template/common/discipline/test/fixtures/double-author';
 import DisciplineFixtureEmpty from '../src/template/common/discipline/test/fixtures/empty';
+import DisciplineFixtureJwplayer from '../src/template/common/discipline/test/fixtures/jwplayer';
 import DisciplineFixtureLoading from '../src/template/common/discipline/test/fixtures/loading';
 import DisciplineFixtureNoAuthor from '../src/template/common/discipline/test/fixtures/no-author';
 import DisciplineFixtureNoVideo from '../src/template/common/discipline/test/fixtures/no-video';
+import DisciplineFixtureVimeo from '../src/template/common/discipline/test/fixtures/vimeo';
 import DisciplineFixtureWithOnclick from '../src/template/common/discipline/test/fixtures/with-onclick';
 import SearchPageFixtureDefault from '../src/template/common/search-page/test/fixtures/default';
 import SearchPageFixtureNoResultWithRecommendations from '../src/template/common/search-page/test/fixtures/no-result-with-recommendations';
@@ -1085,9 +1089,11 @@ export const fixtures = {
     },
     DisciplineHeader: {
       Default: DisciplineHeaderFixtureDefault,
+      Jwplayer: DisciplineHeaderFixtureJwplayer,
       NoVideoNoImage: DisciplineHeaderFixtureNoVideoNoImage,
       NoVideo: DisciplineHeaderFixtureNoVideo,
-      PortaitRatio: DisciplineHeaderFixturePortaitRatio
+      PortaitRatio: DisciplineHeaderFixturePortaitRatio,
+      Vimeo: DisciplineHeaderFixtureVimeo
     },
     DisciplinePartners: {
       Default: DisciplinePartnersFixtureDefault,
@@ -1592,9 +1598,11 @@ export const fixtures = {
       Default: DisciplineFixtureDefault,
       DoubleAuthor: DisciplineFixtureDoubleAuthor,
       Empty: DisciplineFixtureEmpty,
+      Jwplayer: DisciplineFixtureJwplayer,
       Loading: DisciplineFixtureLoading,
       NoAuthor: DisciplineFixtureNoAuthor,
       NoVideo: DisciplineFixtureNoVideo,
+      Vimeo: DisciplineFixtureVimeo,
       WithOnclick: DisciplineFixtureWithOnclick
     },
     SearchPage: {
