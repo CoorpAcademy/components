@@ -9,7 +9,6 @@ const Preview = ({image, video}) => {
   const mimeType = get('mimeType', video);
   const id = get('id', video);
   const jwpOptions = get('jwpOptions', video);
-
   if (id) {
     return <VideoPlayer mimeType={mimeType} id={id} width="380px" height="250px" />;
   } else if (jwpOptions) {

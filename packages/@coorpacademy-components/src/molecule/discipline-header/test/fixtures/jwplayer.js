@@ -4,9 +4,9 @@ import video from '../../../video-player/test/fixtures/jwplayer';
 
 export default {
   props: {
-    title: 'Les nouveaux business',
+    title: 'Big Buck Bunny',
     description:
-      'La révolution numérique a tout accéléré : les communications, la récupération des données, la propagation de l’information et des innovations… On peut presque tout savoir instantanément : les bonnes pratiques d’une entreprise comme les mauvaises ; les goûts et les comportements de ses clients… Pour ne pas rater le coche, il faut être au fait des tendances et des changements qui se profilent. C’est ce que propose cette discipline nourrie d’exemples concrets.',
+      "Big Buck Bunny tells the story of a giant rabbit with a heart bigger than himself. When one sunny day three rodents rudely harass him, something snaps... and the rabbit ain't no bunny anymore! In the typical cartoon tradition he prepares the nasty rodents a comical revenge.",
     video: {
       ...video.props
     }
