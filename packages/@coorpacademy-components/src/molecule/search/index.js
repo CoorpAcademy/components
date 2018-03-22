@@ -14,10 +14,13 @@ const Search = (props, context) => {
 
   return (
     <div className={style.wrapperSearch}>
-      <SearchIcon color={dark} className={style.icon} />
+      <label htmlFor="search">
+        <SearchIcon color={dark} className={style.icon} />
+      </label>
       <input
         className={style.search}
         type="text"
+        id="search"
         name="search"
         placeholder={placeholder}
         value={value}
