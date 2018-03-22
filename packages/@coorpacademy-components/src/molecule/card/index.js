@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import get from 'lodash/fp/get';
-import noop from 'lodash/fp/noop';
 import keys from 'lodash/fp/keys';
 import isEmpty from 'lodash/fp/isEmpty';
 import pick from 'lodash/fp/pick';
@@ -54,6 +53,7 @@ const Card = (props, context) => {
   const mediumColor = get('common.medium', skin);
   const whiteColor = get('common.white', skin);
   const cardStyle = viewStyle[view];
+  const handleClick = () => !disabled && onClick();
 
   const myprogress = !empty ? (
     <div className={style.progressWrapper}>
@@ -85,6 +85,7 @@ const Card = (props, context) => {
       data-name="card"
       data-lock={disabled}
       data-type={freerun ? 'microlearning' : 'learner'}
+      onClick={handleClick}
     >
       <div className={lazyClass} disabled={disabled} data-type={disabled ? 'lock' : 'unlock'}>
         {disabled ? <div className={style.lockWrapper}>{lock}</div> : null}
@@ -96,7 +97,7 @@ const Card = (props, context) => {
               backgroundImage: image ? `url('${image}')` : 'none'
             }}
           >
-            <div data-name="cover" className={style.ctaWrapper} onClick={disabled ? noop : onClick}>
+            <div data-name="cover" className={style.ctaWrapper}>
               {freeRunIcon}
               {emptyIcon}
               {adaptivIcon}
@@ -104,7 +105,7 @@ const Card = (props, context) => {
             </div>
           </div>
           {myprogress}
-          <div data-name="info" className={style.infoWrapper} onClick={disabled ? noop : onClick}>
+          <div data-name="info" className={style.infoWrapper}>
             <div
               data-name="type"
               className={classnames(style.type, empty ? style.empty : null)}
