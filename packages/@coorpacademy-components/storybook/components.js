@@ -6,6 +6,7 @@ import CenteredText from './../src/atom/centered-text';
 import Checkbox from './../src/atom/checkbox';
 import Clue from './../src/atom/clue';
 import Cta from './../src/atom/cta';
+import ImageBlock from './../src/atom/image-block';
 import ImageUpload from './../src/atom/image-upload';
 import InputCheckbox from './../src/atom/input-checkbox';
 import InputColor from './../src/atom/input-color';
@@ -158,6 +159,8 @@ import CtaFixturePrimarySmall from '../src/atom/cta/test/fixtures/primary-small'
 import CtaFixturePrimary from '../src/atom/cta/test/fixtures/primary';
 import CtaFixtureSecondarySmall from '../src/atom/cta/test/fixtures/secondary-small';
 import CtaFixtureSecondary from '../src/atom/cta/test/fixtures/secondary';
+import ImageBlockFixturePng from '../src/atom/image-block/test/fixtures/png';
+import ImageBlockFixtureSvg from '../src/atom/image-block/test/fixtures/svg';
 import ImageUploadFixtureDesktop from '../src/atom/image-upload/test/fixtures/desktop';
 import ImageUploadFixtureEmail from '../src/atom/image-upload/test/fixtures/email';
 import ImageUploadFixtureLoading from '../src/atom/image-upload/test/fixtures/loading';
@@ -643,6 +646,7 @@ export const components = {
     Checkbox,
     Clue,
     Cta,
+    ImageBlock,
     ImageUpload,
     InputCheckbox,
     InputColor,
@@ -841,6 +845,10 @@ export const fixtures = {
       Primary: CtaFixturePrimary,
       SecondarySmall: CtaFixtureSecondarySmall,
       Secondary: CtaFixtureSecondary
+    },
+    ImageBlock: {
+      Png: ImageBlockFixturePng,
+      Svg: ImageBlockFixtureSvg
     },
     ImageUpload: {
       Desktop: ImageUploadFixtureDesktop,

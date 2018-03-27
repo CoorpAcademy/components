@@ -1,0 +1,10 @@
+.imageBlock {
+  height: 100%;
+  display: block;
+  box-sizing: border-box;
+}
+
+.imageBlock svg {
+  height: 100%;
+  width: auto;
+}
