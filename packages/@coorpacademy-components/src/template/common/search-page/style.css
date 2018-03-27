@@ -5,6 +5,7 @@
 @value colors: "../../../variables/colors.css";
 @value xtraLightGrey from colors;
 @value dark from colors;
+@value black from colors;
 @value white from colors;
 
 .cardsWrapper {
@@ -42,6 +43,10 @@
   height: 40px;
   line-height: 40px;
   width: auto;
+}
+
+.noresultstxt {
+  color: black;
 }
 
 @media mobile {

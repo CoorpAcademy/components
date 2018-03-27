@@ -11,6 +11,7 @@ import CogIcon from '@coorpacademy/nova-icons/composition/coorpacademy/cog';
 import Provider from '../../atom/provider';
 import Cta from '../../atom/cta';
 import Select from '../../atom/select';
+import ImageBlock from '../../atom/image-block';
 import InputSwitch from '../../atom/input-switch';
 import Link from '../../atom/link';
 import Search from '../../molecule/search';
@@ -32,6 +33,7 @@ class MoocHeader extends React.Component {
     this.handleLinkClick = this.handleLinkClick.bind(this);
     this.setMenuSettings = this.setMenuSettings.bind(this);
     this.handleSubmitSearch = this.handleSubmitSearch.bind(this);
+    this.handleResetSearch = this.handleResetSearch.bind(this);
   }
 
   componentDidUpdate(prevProps, prevState, prevContext) {
@@ -79,13 +81,23 @@ class MoocHeader extends React.Component {
     }
   }
 
+  handleResetSearch() {
+    if (this.props.onResetSearch) {
+      this.props.onResetSearch();
+    }
+  }
+
   render() {
     const {logo = {}, pages, settings, user, slider, links, search} = this.props;
     if (isEmpty(this.props)) return null;
     const {translate, skin} = this.context;
 
     const logoUrl = get('src', logo) || get('images.logo', skin);
+    const logoType = get('srcType', logo) || 'bitmap';
+    const logoSVG = get('srcSVG', logo);
     const logoMobileUrl = get('srcMobile', logo) || getOr(logoUrl, 'images.logo-mobile', skin);
+    const logoMobileType = get('srcMobileType', logo) || 'bitmap';
+    const logoMobileSVG = get('srcMobileSVG', logo);
 
     let pagesView = null;
     let linksView = null;
@@ -337,7 +349,13 @@ class MoocHeader extends React.Component {
     }
 
     if (search) {
-      searchFormView = <SearchForm search={search} onSubmit={this.handleSubmitSearch} />;
+      searchFormView = (
+        <SearchForm
+          search={search}
+          onSubmit={this.handleSubmitSearch}
+          onReset={this.handleResetSearch}
+        />
+      );
     }
 
     const sliderView = slider ? (
@@ -359,7 +377,11 @@ class MoocHeader extends React.Component {
               data-name="logo-mobile"
               onClick={this.handleMenuToggle}
             >
-              <img src={logoMobileUrl} />
+              <ImageBlock
+                type={logoMobileType}
+                svgContent={logoMobileSVG}
+                imageUrl={logoMobileUrl}
+              />
               {notificationsView}
               <ArrowDown
                 color={mediumColor}
@@ -367,7 +389,7 @@ class MoocHeader extends React.Component {
               />
             </div>
             <Link className={style.logo} data-name="logo" href={logo.href}>
-              <img src={logoUrl} />
+              <ImageBlock type={logoType} svgContent={logoSVG} imageUrl={logoUrl} />
             </Link>
           </div>
           <div data-name="Search-Bar" className={style.searchBar}>
@@ -398,6 +420,7 @@ MoocHeader.propTypes = {
   }),
   search: PropTypes.shape(Search.propTypes),
   onSubmitSearch: PropTypes.func,
+  onResetSearch: PropTypes.func,
   pages: PropTypes.shape({
     displayed: PropTypes.arrayOf(
       PropTypes.shape({
