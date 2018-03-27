@@ -96,7 +96,7 @@ test(
   {
     type: PROGRESSION_FETCH_BESTOF_SUCCESS,
     meta: {type: 'foo', ref: 'bar'},
-    payload: {state: {stars: 12}}
+    payload: {stars: 12}
   },
   {foo: {entities: {bar: {bestScore: 12}}}}
 );

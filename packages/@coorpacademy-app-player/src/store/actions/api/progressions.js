@@ -173,7 +173,7 @@ export const fetchBestProgression = (progressionContent, progressionId) => (
       PROGRESSION_FETCH_BESTOF_SUCCESS,
       PROGRESSION_FETCH_BESTOF_FAILURE
     ],
-    task: () => Progressions.findBestOf(engine.ref, ref, progressionId),
+    task: () => Progressions.findBestOf(engine.ref, type, ref, progressionId),
     bailout: getBestScore,
     meta: {type, ref}
   });

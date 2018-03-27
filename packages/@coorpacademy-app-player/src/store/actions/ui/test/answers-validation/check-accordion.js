@@ -85,7 +85,7 @@ const services = result => t => ({
       });
       return result;
     },
-    findBestOf: (type, ref, id) => {
+    findBestOf: (engineRef, type, ref, id) => {
       t.is(ref, 'chapId');
       return 16;
     },
