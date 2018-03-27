@@ -45,7 +45,7 @@ test(
       payload: 'baz'
     }
   ],
-  3
+  4
 );
 
 test(

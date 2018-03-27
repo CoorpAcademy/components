@@ -53,7 +53,8 @@ test(
         t.is(id, 'foo');
         throw new Error('some error');
       },
-      findBestOf: (type, ref, id) => {
+      findBestOf: (type, contentType, ref, id) => {
+        t.is(contentType, 'chapter');
         t.is(ref, 'chapId');
         return 16;
       },
@@ -192,7 +193,7 @@ test(
       meta: {progressionId: 'foo'}
     }
   ],
-  12
+  13
 );
 
 test(
@@ -215,7 +216,8 @@ test(
     },
     Content: mockContentService(t),
     Progressions: {
-      findBestOf: (type, ref, id) => {
+      findBestOf: (type, contentType, ref, id) => {
+        t.is(contentType, 'chapter');
         t.is(ref, 'chapId');
         return 16;
       },
@@ -354,5 +356,5 @@ test(
       meta: {progressionId: 'foo'}
     }
   ],
-  12
+  13
 );
