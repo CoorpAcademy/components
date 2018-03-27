@@ -17,7 +17,7 @@ const ImageBlock = props => {
 
 ImageBlock.propTypes = {
   type: PropTypes.oneOf(['bitmap', 'svg']).isRequired,
-  imageUrl: PropTypes.string.isRequired,
+  imageUrl: PropTypes.string,
   svgContent: PropTypes.string,
   className: PropTypes.string
 };
