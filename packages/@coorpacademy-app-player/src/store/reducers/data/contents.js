@@ -2,7 +2,6 @@ import set from 'lodash/fp/set';
 import update from 'lodash/fp/update';
 import isNull from 'lodash/fp/isNull';
 import get from 'lodash/fp/get';
-import getOr from 'lodash/fp/getOr';
 import unset from 'lodash/fp/unset';
 import pipe from 'lodash/fp/pipe';
 import {
@@ -38,9 +37,10 @@ const dataContentReducer = (state = {}, action) => {
       return set([type, 'entities', ref, 'info'], info, state);
     }
     case PROGRESSION_FETCH_BESTOF_SUCCESS: {
-      const {payload: progression, meta} = action;
+      const {payload, meta} = action;
       const {type, ref} = meta;
-      return set([type, 'entities', ref, 'bestScore'], getOr(0, 'state.stars', progression), state);
+      const {stars} = payload;
+      return set([type, 'entities', ref, 'bestScore'], stars, state);
     }
     default:
       return state;

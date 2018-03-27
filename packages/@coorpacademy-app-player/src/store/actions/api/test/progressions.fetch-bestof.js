@@ -24,9 +24,10 @@ test(
   state,
   t => ({
     Progressions: {
-      findBestOf: (engineRef, contentRef, id) => {
+      findBestOf: (engineRef, contentType, contentRef, id) => {
         t.is(engineRef, 'microlearning');
         t.is(contentRef, 'bar');
+        t.is(contentType, 'foo');
         t.is(id, 'foo');
         return 'baz';
       }
@@ -57,7 +58,7 @@ test(
   )({}),
   t => ({
     Progressions: {
-      findBestOf: (engineRef, contentRef, id) => {
+      findBestOf: (engineRef, contentType, contentRef, id) => {
         t.fail();
       }
     }
@@ -83,7 +84,7 @@ test(
       }
     },
     Progressions: {
-      findBestOf: (engineRef, contentRef, id) => {
+      findBestOf: (engineRef, contentType, contentRef, id) => {
         t.is(contentRef, 'bar');
         throw new Error('some error');
       }
