@@ -111,7 +111,8 @@ test(
           engine: {ref: 'qux', version: 'quux'}
         };
       },
-      findBestOf: (type, ref, id) => {
+      findBestOf: (type, contentType, ref, id) => {
+        t.is(contentType, 'chapter');
         t.is(ref, 'baz');
         return 16;
       },
@@ -212,7 +213,7 @@ test(
       meta: {progressionId: 'foo'}
     }
   ],
-  9
+  10
 );
 
 test(
@@ -232,7 +233,8 @@ test(
           engine: {ref: 'qux', version: 'quux'}
         };
       },
-      findBestOf: (type, ref, id) => {
+      findBestOf: (type, contentType, ref, id) => {
+        t.is(contentType, 'chapter');
         t.is(ref, 'baz');
         return 16;
       },
@@ -336,7 +338,7 @@ test(
       payload: 'context'
     }
   ],
-  9
+  10
 );
 
 test(
@@ -356,7 +358,8 @@ test(
           engine: {ref: 'qux', version: 'quux'}
         };
       },
-      findBestOf: (type, ref, id) => {
+      findBestOf: (type, contentType, ref, id) => {
+        t.is(contentType, 'chapter');
         t.is(ref, 'baz');
         return 16;
       },
@@ -483,7 +486,7 @@ test(
       payload: 'bar'
     }
   ],
-  10
+  11
 );
 
 const recommendationFixture = {
@@ -539,7 +542,8 @@ test(
           engine: {ref: 'learner', version: '1'}
         };
       },
-      findBestOf: (type, ref, id) => {
+      findBestOf: (type, contentType, ref, id) => {
+        t.is(contentType, 'level');
         t.is(type, 'learner');
         t.is(ref, '1B');
         t.is(id, 'foo');
@@ -688,5 +692,5 @@ test(
       payload: 'bar'
     }
   ],
-  15
+  16
 );
