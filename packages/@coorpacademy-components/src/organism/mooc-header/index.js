@@ -23,7 +23,8 @@ class MoocHeader extends React.Component {
     super(props);
     this.state = {
       isSettingsOpen: false,
-      isMenuOpen: false
+      isMenuOpen: false,
+      isFocus: false
     };
 
     this.handleSettingsToggle = this.handleSettingsToggle.bind(this);
@@ -33,6 +34,8 @@ class MoocHeader extends React.Component {
     this.setMenuSettings = this.setMenuSettings.bind(this);
     this.handleSubmitSearch = this.handleSubmitSearch.bind(this);
     this.handleResetSearch = this.handleResetSearch.bind(this);
+    this.handleOnFocus = this.handleOnFocus.bind(this);
+    this.handleOnBlur = this.handleOnBlur.bind(this);
   }
 
   componentDidUpdate(prevProps, prevState, prevContext) {
@@ -84,6 +87,18 @@ class MoocHeader extends React.Component {
     if (this.props.onResetSearch) {
       this.props.onResetSearch();
     }
+  }
+
+  handleOnFocus() {
+    this.setState(prevState => ({
+      isFocus: true
+    }));
+  }
+
+  handleOnBlur() {
+    this.setState(prevState => ({
+      isFocus: false
+    }));
   }
 
   render() {
@@ -175,7 +190,7 @@ class MoocHeader extends React.Component {
       });
 
       pagesView = (
-        <div className={style.pages}>
+        <div className={this.state.isFocus ? style.noPages : style.pages}>
           {displayedPages}
           <div className={style.more}>
             <div className={style.currentOption} aria-haspopup="true" data-name="page-more">
@@ -349,6 +364,8 @@ class MoocHeader extends React.Component {
           search={search}
           onSubmit={this.handleSubmitSearch}
           onReset={this.handleResetSearch}
+          onSearchFocus={this.handleOnFocus}
+          onSearchBlur={this.handleOnBlur}
         />
       );
     }

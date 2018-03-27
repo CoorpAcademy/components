@@ -7,25 +7,24 @@ import Provider from '../../atom/provider';
 import style from './style.css';
 
 const Search = (props, context) => {
-  const {value, placeholder, onChange} = props;
+  const {value, placeholder, onChange, onFocus, onBlur} = props;
   const {skin} = context;
   const dark = get('common.dark', skin);
   const handleChange = e => onChange(e.target.value);
 
   return (
     <div className={style.wrapperSearch}>
-      <label htmlFor="search">
-        <SearchIcon color={dark} className={style.icon} />
-      </label>
+      <SearchIcon color={dark} className={style.icon} />
       <input
         className={style.search}
         type="text"
-        id="search"
         name="search"
         placeholder={placeholder}
         value={value}
         onChange={noop}
         onInput={handleChange}
+        onFocus={onFocus}
+        onBlur={onBlur}
       />
     </div>
   );
@@ -38,7 +37,9 @@ Search.contextTypes = {
 Search.propTypes = {
   value: PropTypes.string,
   placeholder: PropTypes.string.isRequired,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  onFocus: PropTypes.func,
+  onBlur: PropTypes.func
 };
 
 export default Search;
