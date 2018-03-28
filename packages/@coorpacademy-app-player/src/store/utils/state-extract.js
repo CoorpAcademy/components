@@ -148,7 +148,24 @@ export const getBestScore = pipe(getCurrentContent, get('bestScore'));
 
 export const getQuestionMedia = state => {
   const slide = getCurrentSlide(state);
-  return get('question.medias.0.src.0.url', slide);
+  const media = get('question.medias.0', slide);
+  if (!media) {
+    return;
+  }
+  const {type} = media;
+  const resource = get('src.0', media);
+  switch (type) {
+    case 'img':
+      return {
+        type,
+        url: resource.url
+      };
+    case 'video':
+      return {
+        ...resource,
+        type
+      };
+  }
 };
 
 export const getResourceToPlay = state => get('ui.corrections.playResource', state);

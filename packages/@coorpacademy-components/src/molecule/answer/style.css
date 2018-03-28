@@ -19,6 +19,15 @@
   margin: 25px auto;
 }
 
+.video {
+  height: 343px;
+  width: 609px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
 @media mobile {
   .wrapper {
     margin: 0 8px;
@@ -26,5 +35,11 @@
 
   .media {
     margin: 0 auto 25px;
+  }
+
+  .video {
+    width: 100%;
+    min-width: 100vw;
+    height: 56.25vw;
   }
 }

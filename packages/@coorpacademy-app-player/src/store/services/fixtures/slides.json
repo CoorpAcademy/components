@@ -207,7 +207,15 @@
           "src": []
         }
       },
-      "medias": []
+      "medias": [{
+        "type": "video",
+        "src": [
+          {
+            "mimeType": "application/vimeo",
+            "videoId": "231095700"
+          }
+        ]
+      }]
     }
   },
   "sli_E1iEQRuZm": {
@@ -309,7 +317,15 @@
           ]
         }
       },
-      "medias": []
+      "medias": [{
+        "type": "video",
+        "src": [
+          {
+            "mimeType": "application/vimeo",
+            "videoId": "231095700"
+          }
+        ]
+      }]
     }
   },
   "sli_4kl~7RubX": {
