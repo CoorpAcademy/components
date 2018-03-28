@@ -1,4 +1,5 @@
 import get from 'lodash/fp/get';
+import pipe from 'lodash/fp/pipe';
 import includes from 'lodash/fp/includes';
 import buildTask from '@coorpacademy/redux-task';
 import {
@@ -174,7 +175,7 @@ export const fetchBestProgression = (progressionContent, progressionId) => (
       PROGRESSION_FETCH_BESTOF_FAILURE
     ],
     task: () => Progressions.findBestOf(engine.ref, type, ref, progressionId),
-    bailout: getBestScore,
+    bailout: pipe(getBestScore, score => score >= 0),
     meta: {type, ref}
   });
 
