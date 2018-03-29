@@ -20,12 +20,12 @@ const SearchPage = (props, context) => {
   const cardsView = isEmpty(cards.list) ? (
     <div>
       <div className={style.noresults}>
-        <div>{noresultsfound}</div>
+        <div className={style.noresultstxt}>{noresultsfound}</div>
         <Button
+          {...clearFilters}
           data-name="searchPageClear"
           className={style.clear}
           style={{background: defaultColor}}
-          {...clearFilters}
           type="link"
         />
       </div>

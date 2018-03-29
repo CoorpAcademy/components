@@ -2,6 +2,7 @@
 @value medium from colors;
 @value light from colors;
 @value white from colors;
+@value dark from colors;
 
 .wrapperSearch {
   display: flex;
@@ -29,9 +30,14 @@
   height: 50px;
   border-radius: 0;
   font-size: 15px;
-  color: medium;
+  color: dark;
   width: 100%;
   outline: none;
+  font-weight: bold;
+}
+
+.search:placeholder {
+  color: medium;
 }
 
 .search:focus {
@@ -43,5 +49,5 @@ textarea:-webkit-autofill,
 select:-webkit-autofill {
   background-color: white;
   background-image: none;
-  color: medium;
+  color: dark;
 }

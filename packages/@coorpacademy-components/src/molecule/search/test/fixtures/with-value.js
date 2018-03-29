@@ -1,10 +1,11 @@
 export default {
   props: {
     value: 'big data - le retour',
-    placeholder: 'Name, last name…',
+    placeholder: 'Search for a course',
     onChange: value => {
       console.log(value);
     },
-    onEnter: () => console.log('pressed enter')
+    onEnter: () => console.log('pressed enter'),
+    onFocus: () => console.log('onFocus')
   }
 };

@@ -11,9 +11,12 @@ export default {
     },
     search: {
       ...research,
-      onChange: value => console.log(value)
+      onChange: value => console.log(value),
+      onFocus: () => console.log('on Focus'),
+      onBlur: () => console.log('blur')
     },
     onSubmitSearch: () => console.log('onSubmitSearch'),
+    onResetSearch: () => console.log('onResetSearch'),
     themes: [
       {
         title: 'Digital',
