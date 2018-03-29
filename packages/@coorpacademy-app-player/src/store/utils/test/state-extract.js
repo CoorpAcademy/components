@@ -24,7 +24,8 @@ import {
   getBestScore,
   getResourceToPlay,
   getNextContent,
-  hasViewedAResourceAtThisStep
+  hasViewedAResourceAtThisStep,
+  getQuestionMedia
 } from '../state-extract';
 
 test('getChoices should get choices from state', t => {
@@ -308,4 +309,61 @@ test('getNextContent should return nextChapter if learner progression', t => {
   )({});
 
   t.deepEqual(getNextContent(state), {ref: '1.A'});
+});
+
+test('getQuestionMedia should return image media from state', t => {
+  const slide = {
+    _id: '0',
+    question: {
+      medias: [
+        {
+          type: 'img',
+          src: [
+            {
+              url: 'http://monimage.jpg'
+            }
+          ]
+        }
+      ]
+    }
+  };
+  const progression = {state: {nextContent: {ref: '0'}}};
+  const state = pipe(
+    set('ui.current.progressionId', '0'),
+    set('data.progressions.entities', {'0': progression}),
+    set('data.contents.slide.entities', {'0': slide})
+  )({});
+
+  t.deepEqual(getQuestionMedia(state), {type: 'img', url: 'http://monimage.jpg'});
+});
+
+test('getQuestionMedia should return video media from state', t => {
+  const slide = {
+    _id: '0',
+    question: {
+      medias: [
+        {
+          type: 'video',
+          src: [
+            {
+              mimeType: 'application/vimeo',
+              videoId: '231095700'
+            }
+          ]
+        }
+      ]
+    }
+  };
+  const progression = {state: {nextContent: {ref: '0'}}};
+  const state = pipe(
+    set('ui.current.progressionId', '0'),
+    set('data.progressions.entities', {'0': progression}),
+    set('data.contents.slide.entities', {'0': slide})
+  )({});
+
+  t.deepEqual(getQuestionMedia(state), {
+    type: 'video',
+    mimeType: 'application/vimeo',
+    videoId: '231095700'
+  });
 });

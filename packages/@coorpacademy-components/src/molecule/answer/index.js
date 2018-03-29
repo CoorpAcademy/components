@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Picture from '../../atom/picture';
+import VideoPlayer from '../video-player';
 import DropDown from '../questions/drop-down';
 import FreeText from '../questions/free-text';
 import QcmDrag from '../questions/qcm-drag';
@@ -10,12 +11,27 @@ import QuestionRange from '../questions/question-range';
 import Template from '../questions/template';
 import style from './style.css';
 
+export const TYPE_IMAGE = 'img';
+export const TYPE_VIDEO = 'video';
+
 const MediaView = ({media}) => {
-  return (
-    <div className={style.media}>
-      <Picture src={media} />
-    </div>
-  );
+  const {videoId, type, ...childProps} = media;
+  switch (type) {
+    case TYPE_IMAGE:
+      return (
+        <div className={style.media}>
+          <Picture src={media.url} />
+        </div>
+      );
+    case TYPE_VIDEO:
+      return (
+        <div className={style.video}>
+          <VideoPlayer {...childProps} id={videoId} height="100%" width="100%" />
+        </div>
+      );
+    default:
+      return null;
+  }
 };
 
 const Answer = props => {
@@ -51,6 +67,18 @@ const Answer = props => {
   );
 };
 
+const isType = name => PropTypes.oneOf([name]);
+
+const videoPropType = PropTypes.shape({
+  ...VideoPlayer.propTypes,
+  type: isType(TYPE_VIDEO).isRequired
+});
+
+const imgPropType = PropTypes.shape({
+  type: isType(TYPE_IMAGE).isRequired,
+  url: PropTypes.string.isRequired
+});
+
 Answer.propTypes = {
   model: PropTypes.shape({
     type: PropTypes.oneOf([
@@ -63,7 +91,7 @@ Answer.propTypes = {
       'template'
     ]).isRequired
   }),
-  media: PropTypes.string
+  media: PropTypes.oneOfType([videoPropType, imgPropType])
 };
 
 export default Answer;

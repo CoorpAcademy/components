@@ -268,6 +268,7 @@ import AnswerFixtureDefault from '../src/molecule/answer/test/fixtures/default';
 import AnswerFixtureDropDown from '../src/molecule/answer/test/fixtures/drop-down';
 import AnswerFixtureQcmDrag from '../src/molecule/answer/test/fixtures/qcm-drag';
 import AnswerFixtureQcmGraphic from '../src/molecule/answer/test/fixtures/qcm-graphic';
+import AnswerFixtureQcmShortVideo from '../src/molecule/answer/test/fixtures/qcm-short-video';
 import AnswerFixtureQcmShort from '../src/molecule/answer/test/fixtures/qcm-short';
 import AnswerFixtureQcm from '../src/molecule/answer/test/fixtures/qcm';
 import AnswerFixtureRange from '../src/molecule/answer/test/fixtures/range';
@@ -1023,6 +1024,7 @@ export const fixtures = {
       DropDown: AnswerFixtureDropDown,
       QcmDrag: AnswerFixtureQcmDrag,
       QcmGraphic: AnswerFixtureQcmGraphic,
+      QcmShortVideo: AnswerFixtureQcmShortVideo,
       QcmShort: AnswerFixtureQcmShort,
       Qcm: AnswerFixtureQcm,
       Range: AnswerFixtureRange,

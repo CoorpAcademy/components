@@ -109,10 +109,10 @@ test('should create player props for basic question and show coaches', t => {
 
   const props = playerProps(state);
 
-  t.is(
-    props.answerType.media,
-    '//static.coorpacademy.com/content/ijoinchanel/en/slides/1B2_Q6/1B2-Q6-canap-v1.jpg'
-  );
+  t.deepEqual(props.answerType.media, {
+    type: 'img',
+    url: '//static.coorpacademy.com/content/ijoinchanel/en/slides/1B2_Q6/1B2-Q6-canap-v1.jpg'
+  });
   t.is(props.typeClue, 'answer');
   t.is(props.question, "Écrivez le mot Text dans l'input.\n");
   t.is(props.answerType.model.type, 'freeText');
