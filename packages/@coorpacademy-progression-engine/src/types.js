@@ -2,6 +2,13 @@
 
 import type {Instruction, ChapterRule} from './rule-engine/types';
 
+export type User = {
+  id: string
+};
+
+export type Team = Array<User>;
+export type Teams = Array<Team>;
+
 export type Step = {
   current: number
 };
@@ -54,10 +61,43 @@ export type GenericState = {
   variables: Variables
 };
 
+export type RacingTeam = {
+  players: Array<string>,
+  step: number
+};
+
+export type RacingTeams = {
+  [teamId: string]: RacingTeam
+};
+
+export type RacingUser = {
+  id: string,
+  isCorrect: ?boolean,
+  questionNum: number,
+  content?: Content,
+  nextContent?: Content,
+  slides: Array<string>,
+  allAnswers: Array<AnswerRecord>,
+  team: number
+};
+
+export type RacingUsers = {
+  [userId: string]: RacingUser
+};
+
+export type RacingState = {
+  goal: number,
+  teams: RacingTeams,
+  users: RacingUsers
+};
+
 export type State = {
   nextContent: Content,
-  content?: Content
+  content?: Content,
+  users?: void
 } & GenericState;
+
+export type AnyState = RacingState | State;
 
 export type AskClueAction = {
   type: 'clue',
@@ -76,6 +116,7 @@ export type ContentResourceViewedAction = {
 
 export type AnswerAction = {
   type: 'answer',
+  authors: Array<string>,
   payload: {
     content: Content,
     nextContent: Content,
@@ -98,6 +139,16 @@ export type MoveAction = {
   }
 };
 
+export type RacingSetupAction = {
+  type: 'racing-setup',
+  authors: Array<string>,
+  payload: {
+    goal: number,
+    users: RacingUsers,
+    teams: RacingTeams
+  }
+};
+
 export type ExtraLifeAcceptedAction = {
   type: 'extraLifeAccepted',
   payload: {
@@ -117,13 +168,16 @@ export type ExtraLifeRefusedAction = {
 
 export type Action =
   | InitAction
+  | RacingSetupAction
   | MoveAction
   | AnswerAction
   | AskClueAction
   | ExtraLifeAcceptedAction
   | ExtraLifeRefusedAction
   | ContentResourceViewedAction
-  | MoveAction;
+  | MoveAction & {
+    authors?: Array<string> | void
+  };
 
 export type Engine = {
   ref: string,
@@ -232,6 +286,12 @@ export type Slide = {
   question: Question,
   position?: ?number
 };
+
+export type RacingConfig = Config & {
+  goal: number
+};
+
+export type GenericConfig = Config | RacingConfig;
 
 export type ChapterContent = {
   ref: string,
