@@ -13,6 +13,6 @@ test("should throw if the state's nextContent is not the same as the action's co
   const state = set('nextContent.ref', '123.x', stateForSecondSlide);
   t.throws(
     () => validate(config)(state, answerAction),
-    'The content of the progression state does not match the content of the given answer'
+    'The content of the progression state (123.x - slide) does not match the content (1.A1.2 - slide) of the given action (answer)'
   );
 });
