@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import isEqual from 'lodash/fp/isEqual';
+import {SrcPropType} from '../../util/proptypes';
 import VideoIframe from '../video-iframe';
 import JWPlayer from './jwplayer';
 import Vimeo from './vimeo';
@@ -76,6 +77,7 @@ VideoPlayer.propTypes = {
   id: PropTypes.string,
   width: PropTypes.string,
   height: PropTypes.string,
+  url: SrcPropType,
   onPlay: PropTypes.func,
   onResume: PropTypes.func,
   onPause: PropTypes.func,

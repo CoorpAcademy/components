@@ -12,7 +12,8 @@ export const TYPE_VIDEO = 'video';
 
 const ResourceElement = props => {
   const {resource} = props;
-  const {type, url, videoId, ...childProps} = omit('id', resource);
+  const {type, videoId, ...childProps} = omit('id', resource);
+  const {url} = childProps;
 
   switch (type) {
     case TYPE_IMAGE:
