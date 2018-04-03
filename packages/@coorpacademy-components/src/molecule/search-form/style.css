@@ -14,9 +14,13 @@
   position: relative;
   width: 10px;
   height: 10px;
-  right: 24px;
+  right: 12px;
   cursor: pointer;
   background: transparent;
+}
+
+.wrapperNoClear {
+  display: none;
 }
 
 .clear {
