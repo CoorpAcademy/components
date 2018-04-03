@@ -31,6 +31,7 @@
 
 .searchBar {
   display: flex;
+  align-items: stretch;
   justify-content: flex-start;
   flex: 1 0 0%;
   height: 100%;
@@ -39,8 +40,9 @@
   background-color: white;
 }
 
-.noPages {
-  display: none;
+.sideWrapper {
+  display: flex;
+  flex: 1 0 0;
 }
 
 .open {
@@ -153,7 +155,7 @@
   flex: 0 0 auto;
 }
 
-.pages {
+.pages, .noPages {
   height: 100%;
   border-right: 1px solid light;
   padding: 0 10px;
@@ -523,6 +525,10 @@
   .logoMobile .notifications {
     top: 5px;
     right: 10px;
+  }
+
+  .noPages {
+    display: none;
   }
 
   .menuWrapper {
