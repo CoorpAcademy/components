@@ -31,6 +31,7 @@
 
 .searchBar {
   display: flex;
+  align-items: stretch;
   justify-content: flex-start;
   flex: 1 0 0%;
   height: 100%;

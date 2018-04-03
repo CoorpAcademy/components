@@ -400,10 +400,10 @@ class MoocHeader extends React.Component {
               <img src={logoUrl} />
             </Link>
           </div>
-          <div data-name="Search-Bar" className={style.searchBar}>
-            {searchFormView}
-          </div>
           <div className={style.menuWrapper}>
+            <div data-name="Search-Bar" className={style.searchBar}>
+              {searchFormView}
+            </div>
             {pagesView}
             {userView || linksView}
             {settingsView}
