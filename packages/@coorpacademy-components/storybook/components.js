@@ -490,6 +490,7 @@ import MoocHeaderFixtureSlider from '../src/organism/mooc-header/test/fixtures/s
 import MoocHeaderFixtureUserChangePassword from '../src/organism/mooc-header/test/fixtures/user-change-password';
 import PopinFixtureDefault from '../src/organism/popin/test/fixtures/default';
 import ResourceBrowserFixtureJwplayer from '../src/organism/resource-browser/test/fixtures/jwplayer';
+import ResourceBrowserFixtureKontiki from '../src/organism/resource-browser/test/fixtures/kontiki';
 import ResourceBrowserFixtureOneVideo from '../src/organism/resource-browser/test/fixtures/one-video';
 import ResourceBrowserFixturePdfSelected from '../src/organism/resource-browser/test/fixtures/pdf-selected';
 import ResourceBrowserFixtureVideoSelected from '../src/organism/resource-browser/test/fixtures/video-selected';
@@ -1402,6 +1403,7 @@ export const fixtures = {
     },
     ResourceBrowser: {
       Jwplayer: ResourceBrowserFixtureJwplayer,
+      Kontiki: ResourceBrowserFixtureKontiki,
       OneVideo: ResourceBrowserFixtureOneVideo,
       PdfSelected: ResourceBrowserFixturePdfSelected,
       VideoSelected: ResourceBrowserFixtureVideoSelected
