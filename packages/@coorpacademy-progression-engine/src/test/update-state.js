@@ -444,7 +444,7 @@ test("should throw if the state's nextContent is not the same as the action's co
 
   t.throws(
     () => updateState(config, state, [action]),
-    'The content of the progression state (1.A1.2 - slide) does not match the content (1.A1.200 - slide) of the given action (answer)'
+    'The content of the progression state does not match the given answer action. State content: (1.A1.2) vs action (content - 1.A1.200 / nextContent - 1.A1.1)'
   );
 });
 
