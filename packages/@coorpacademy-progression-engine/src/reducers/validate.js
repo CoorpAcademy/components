@@ -12,15 +12,17 @@ export default function validate(config: Config): (State, Action) => void {
       case 'extraLifeRefused': {
         if (!isEqual(state.nextContent, action.payload.content)) {
           throw new Error(
-            `The content of the progression state (${getOr('', 'nextContent.ref', state)} - ${getOr(
+            `The content of the progression state does not match the given ${
+              action.type
+            } action. State content: (${getOr(
               '',
-              'nextContent.type',
+              'nextContent.ref',
               state
-            )}) does not match the content (${getOr('', 'payload.content.ref', action)} - ${getOr(
+            )}) vs action (content - ${getOr(
               '',
-              'payload.content.type',
+              'payload.content.ref',
               action
-            )}) of the given action (${action.type})`
+            )} / nextContent - ${getOr('', 'payload.nextContent.ref', action)})`
           );
         }
         break;
