@@ -63,5 +63,6 @@ export default function updateState(config: Config, state: State, actions: Array
   if (isEmpty(actions)) {
     return reduce(reduceAction(config), state, [{type: 'init'}]);
   }
+
   return reduce(reduceAction(config), state, actions);
 }
