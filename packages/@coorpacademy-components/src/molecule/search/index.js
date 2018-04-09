@@ -7,7 +7,7 @@ import Provider from '../../atom/provider';
 import style from './style.css';
 
 const Search = (props, context) => {
-  const {value, placeholder, onChange, onFocus, onBlur} = props;
+  const {value, placeholder, onChange = noop, onFocus, onBlur} = props;
   const {skin} = context;
   const dark = get('common.dark', skin);
   const handleChange = e => onChange(e.target.value);
