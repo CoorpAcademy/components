@@ -76,7 +76,6 @@
   .imgWrapper {
     flex: none;
     text-align: center;
-    height: auto;
     max-height: 30vh;
   }
 
