@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
-// import noop from 'lodash/fp/noop';
 import ClearIcon from '@coorpacademy/nova-icons/composition/navigation/more';
 import Search from '../search';
 import style from './style.css';
@@ -24,49 +23,6 @@ const SearchForm = (props, context) => {
     </form>
   );
 };
-
-// class SearchForm extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       isFocus: false
-//     };
-//
-//     this.handleOnSearchFocus = this.handleOnSearchFocus.bind(this);
-//     this.handleOnSearchBlur = this.handleOnSearchBlur.bind(this);
-//   }
-//
-//   handleOnSearchFocus() {
-//     this.setState(prevState => ({
-//       isFocus: true
-//     }));
-//   }
-//
-//   handleOnSearchBlur() {
-//     this.setState(prevState => ({
-//       isFocus: false
-//     }));
-//   }
-//
-//   render() {
-//     const {action, method, onChange, onSubmit, onReset, search} = this.props;
-//     const handleSubmit = evt => {
-//       evt.preventDefault();
-//       return onSubmit && onSubmit(evt);
-//     };
-//     const {skin} = this.context;
-//     const dark = get('common.dark', skin);
-//
-//     return (
-//       <form className={style.form} action={action} method={method} onSubmit={handleSubmit}>
-//         <Search {...search} onFocus={this.handleOnSearchFocus} onBlur={this.handleOnSearchBlur} />
-//         <div onClick={onReset} className={(search.value.length > 0) && this.state.isFocus  ? style.wrapperClear : style.wrapperNoClear}>
-//           <ClearIcon color={dark} className={style.clear} />
-//         </div>
-//       </form>
-//     );
-//   }
-// }
 
 SearchForm.propTypes = {
   action: PropTypes.string,
