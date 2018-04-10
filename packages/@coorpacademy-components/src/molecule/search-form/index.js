@@ -17,7 +17,7 @@ const SearchForm = (props, context) => {
   return (
     <form className={style.form} action={action} method={method} onSubmit={handleSubmit}>
       <Search {...search} onFocus={onSearchFocus} onBlur={onSearchBlur} />
-      <div onClick={onReset} className={style.wrapperClear}>
+      <div onClick={onReset} className={search.value ? style.wrapperClear : style.wrapperNoClear}>
         <ClearIcon color={dark} className={style.clear} />
       </div>
     </form>

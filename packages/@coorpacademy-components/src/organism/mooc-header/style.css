@@ -527,6 +527,7 @@
   }
 
   .menuWrapper {
+    align-items: flex-start;
     display: flex;
     position: fixed;
     flex-direction: column;
