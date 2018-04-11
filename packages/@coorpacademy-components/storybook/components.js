@@ -6,7 +6,6 @@ import CenteredText from './../src/atom/centered-text';
 import Checkbox from './../src/atom/checkbox';
 import Clue from './../src/atom/clue';
 import Cta from './../src/atom/cta';
-import ImageBlock from './../src/atom/image-block';
 import ImageUpload from './../src/atom/image-upload';
 import InputCheckbox from './../src/atom/input-checkbox';
 import InputColor from './../src/atom/input-color';
@@ -159,8 +158,6 @@ import CtaFixturePrimarySmall from '../src/atom/cta/test/fixtures/primary-small'
 import CtaFixturePrimary from '../src/atom/cta/test/fixtures/primary';
 import CtaFixtureSecondarySmall from '../src/atom/cta/test/fixtures/secondary-small';
 import CtaFixtureSecondary from '../src/atom/cta/test/fixtures/secondary';
-import ImageBlockFixturePng from '../src/atom/image-block/test/fixtures/png';
-import ImageBlockFixtureSvg from '../src/atom/image-block/test/fixtures/svg';
 import ImageUploadFixtureDesktop from '../src/atom/image-upload/test/fixtures/desktop';
 import ImageUploadFixtureEmail from '../src/atom/image-upload/test/fixtures/email';
 import ImageUploadFixtureLoading from '../src/atom/image-upload/test/fixtures/loading';
@@ -220,6 +217,7 @@ import NotificationFixtureWarning from '../src/atom/notification/test/fixtures/w
 import PictureFixtureDefault from '../src/atom/picture/test/fixtures/default';
 import PictureFixtureEmpty from '../src/atom/picture/test/fixtures/empty';
 import PictureFixtureSimpleSrc from '../src/atom/picture/test/fixtures/simple-src';
+import PictureFixtureSvg from '../src/atom/picture/test/fixtures/svg';
 import PictureBackgroundFixtureContain from '../src/atom/picture-background/test/fixtures/contain';
 import PictureBackgroundFixtureCover from '../src/atom/picture-background/test/fixtures/cover';
 import PictureBackgroundFixtureDefault from '../src/atom/picture-background/test/fixtures/default';
@@ -646,7 +644,6 @@ export const components = {
     Checkbox,
     Clue,
     Cta,
-    ImageBlock,
     ImageUpload,
     InputCheckbox,
     InputColor,
@@ -846,10 +843,6 @@ export const fixtures = {
       SecondarySmall: CtaFixtureSecondarySmall,
       Secondary: CtaFixtureSecondary
     },
-    ImageBlock: {
-      Png: ImageBlockFixturePng,
-      Svg: ImageBlockFixtureSvg
-    },
     ImageUpload: {
       Desktop: ImageUploadFixtureDesktop,
       Email: ImageUploadFixtureEmail,
@@ -937,7 +930,8 @@ export const fixtures = {
     Picture: {
       Default: PictureFixtureDefault,
       Empty: PictureFixtureEmpty,
-      SimpleSrc: PictureFixtureSimpleSrc
+      SimpleSrc: PictureFixtureSimpleSrc,
+      Svg: PictureFixtureSvg
     },
     PictureBackground: {
       Contain: PictureBackgroundFixtureContain,

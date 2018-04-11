@@ -11,7 +11,7 @@ import CogIcon from '@coorpacademy/nova-icons/composition/coorpacademy/cog';
 import Provider from '../../atom/provider';
 import Cta from '../../atom/cta';
 import Select from '../../atom/select';
-import ImageBlock from '../../atom/image-block';
+import Picture from '../../atom/picture';
 import InputSwitch from '../../atom/input-switch';
 import Link from '../../atom/link';
 import Search from '../../molecule/search';
@@ -86,11 +86,7 @@ class MoocHeader extends React.Component {
     const {translate, skin} = this.context;
 
     const logoUrl = get('src', logo) || get('images.logo', skin);
-    const logoType = get('srcType', logo) || 'bitmap';
-    const logoSVG = get('srcSVG', logo);
     const logoMobileUrl = get('srcMobile', logo) || getOr(logoUrl, 'images.logo-mobile', skin);
-    const logoMobileType = get('srcMobileType', logo) || 'bitmap';
-    const logoMobileSVG = get('srcMobileSVG', logo);
 
     let pagesView = null;
     let linksView = null;
@@ -252,7 +248,7 @@ class MoocHeader extends React.Component {
           <div className={style.avatarWrapper}>
             <div className={style.avatar} data-name="user-avatar">
               <Link href={user.href} className={style.userLink} onClick={this.handleLinkClick}>
-                <img src={user.picture} />
+                <Picture src={user.picture} />
               </Link>
             </div>
             {notificationsView}
@@ -364,11 +360,7 @@ class MoocHeader extends React.Component {
               data-name="logo-mobile"
               onClick={this.handleMenuToggle}
             >
-              <ImageBlock
-                type={logoMobileType}
-                svgContent={logoMobileSVG}
-                imageUrl={logoMobileUrl}
-              />
+              <Picture src={logoMobileUrl} />
               {notificationsView}
               <ArrowDown
                 color={mediumColor}
@@ -376,7 +368,7 @@ class MoocHeader extends React.Component {
               />
             </div>
             <Link className={style.logo} data-name="logo" href={logo.href}>
-              <ImageBlock type={logoType} svgContent={logoSVG} imageUrl={logoUrl} />
+              <Picture src={logoUrl} />
             </Link>
           </div>
           <div data-name="Search-Bar" className={style.searchBar}>

@@ -4,7 +4,6 @@ export CenteredText from './atom/centered-text';
 export Checkbox from './atom/checkbox';
 export Clue from './atom/clue';
 export Cta from './atom/cta';
-export ImageBlock from './atom/image-block';
 export ImageUpload from './atom/image-upload';
 export InputCheckbox from './atom/input-checkbox';
 export InputColor from './atom/input-color';
