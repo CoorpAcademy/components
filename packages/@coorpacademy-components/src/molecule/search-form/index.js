@@ -15,7 +15,13 @@ const SearchForm = (props, context) => {
   const dark = get('common.dark', skin);
 
   return (
-    <form className={style.form} action={action} method={method} onSubmit={handleSubmit}>
+    <form
+      className={style.form}
+      action={action}
+      method={method}
+      onSubmit={handleSubmit}
+      data-name="searchForm"
+    >
       <Search {...search} onFocus={onSearchFocus} onBlur={onSearchBlur} />
       <div onClick={onReset} className={search.value ? style.wrapperClear : style.wrapperNoClear}>
         <ClearIcon color={dark} className={style.clear} />
