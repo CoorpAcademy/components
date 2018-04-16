@@ -17,30 +17,10 @@ export default {
     },
     onSubmitSearch: () => console.log('onSubmitSearch'),
     onResetSearch: () => console.log('onResetSearch'),
-    themes: [
-      {
-        title: 'Digital',
-        selected: true
-      },
-      {
-        title: 'All',
-        href: '#',
-        selected: false
-      },
-      {
-        title: 'Esprit du temps',
-        href: '#',
-        selected: false
-      },
-      {
-        title: 'Gérer son épargne',
-        href: '#',
-        selected: false
-      }
-    ],
     pages: {
       displayed: [
         {
+          name: 'explore',
           title: 'Explore',
           href: '#',
           selected: true
@@ -53,22 +33,25 @@ export default {
       ],
       more: [
         {
-          title: 'News',
+          name: 'explorer',
+          title: 'Catalog',
           href: '#',
           selected: false
         },
         {
-          title: 'Médias',
-          href: '#',
-          selected: false
-        },
-        {
+          name: 'comments',
           title: 'Discussions',
           href: '#',
           selected: false
         },
         {
-          title: 'FAQ',
+          name: 'lessons',
+          title: 'Bibliothèque',
+          href: '#',
+          selected: false
+        },
+        {
+          title: 'Certifications',
           href: '#',
           selected: false
         }

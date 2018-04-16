@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
 import get from 'lodash/fp/get';
-import isEmpty from 'lodash/fp/isEmpty';
 import ArrowDown from '@coorpacademy/nova-icons/composition/navigation/arrow-down';
 import StarIcon from '@coorpacademy/nova-icons/composition/coorpacademy/star';
 import ChartsIcon from '@coorpacademy/nova-icons/composition/coorpacademy/charts';
@@ -33,8 +32,6 @@ class MoocHeader extends React.Component {
     this._checkOnClose = this._checkOnClose.bind(this);
     this.handleLinkClick = this.handleLinkClick.bind(this);
     this.setMenuSettings = this.setMenuSettings.bind(this);
-    this.handleSubmitSearch = this.handleSubmitSearch.bind(this);
-    this.handleResetSearch = this.handleResetSearch.bind(this);
     this.handleOnFocus = this.handleOnFocus.bind(this);
     this.handleOnBlur = this.handleOnBlur.bind(this);
   }
@@ -47,6 +44,11 @@ class MoocHeader extends React.Component {
       document.removeEventListener('click', this._checkOnClose);
       document.removeEventListener('touchstart', this._checkOnClose);
     }
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('click', this._checkOnClose);
+    document.removeEventListener('touchstart', this._checkOnClose);
   }
 
   setMenuSettings(el) {
@@ -78,18 +80,6 @@ class MoocHeader extends React.Component {
     }));
   }
 
-  handleSubmitSearch() {
-    if (this.props.onSubmitSearch) {
-      this.props.onSubmitSearch();
-    }
-  }
-
-  handleResetSearch() {
-    if (this.props.onResetSearch) {
-      this.props.onResetSearch();
-    }
-  }
-
   handleOnFocus() {
     this.setState(prevState => ({
       isFocus: true
@@ -104,7 +94,6 @@ class MoocHeader extends React.Component {
 
   render() {
     const {logo = {}, pages, settings, user, slider, links, search} = this.props;
-    if (isEmpty(this.props)) return null;
     const {translate, skin} = this.context;
 
     const logoUrl = get('src', logo) || get('images.logo', skin);
@@ -190,20 +179,19 @@ class MoocHeader extends React.Component {
         );
       });
 
-      pagesView = (
-        <div
-          className={this.props.search.value || this.state.isFocus ? style.noPages : style.pages}
-        >
-          {displayedPages}
-          <div className={style.more}>
-            <div className={style.currentOption} aria-haspopup="true" data-name="page-more">
-              {moreLabel}
-              <ArrowDown color={mediumColor} className={style.caret} />
+      pagesView =
+        this.props.search.value || this.state.isFocus ? null : (
+          <div className={style.pages}>
+            {displayedPages}
+            <div className={style.more}>
+              <div className={style.currentOption} aria-haspopup="true" data-name="page-more">
+                {moreLabel}
+                <ArrowDown color={mediumColor} className={style.caret} />
+              </div>
+              <div className={style.optionsGroup}>{optionsView}</div>
             </div>
-            <div className={style.optionsGroup}>{optionsView}</div>
           </div>
-        </div>
-      );
+        );
     }
 
     if (links) {
@@ -365,8 +353,8 @@ class MoocHeader extends React.Component {
       searchFormView = (
         <SearchForm
           search={search}
-          onSubmit={this.handleSubmitSearch}
-          onReset={this.handleResetSearch}
+          onSubmit={this.props.onSubmitSearch}
+          onReset={this.props.onResetSearch}
           onSearchFocus={this.handleOnFocus}
           onSearchBlur={this.handleOnBlur}
         />
