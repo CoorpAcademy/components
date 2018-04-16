@@ -217,6 +217,7 @@ import NotificationFixtureWarning from '../src/atom/notification/test/fixtures/w
 import PictureFixtureDefault from '../src/atom/picture/test/fixtures/default';
 import PictureFixtureEmpty from '../src/atom/picture/test/fixtures/empty';
 import PictureFixtureSimpleSrc from '../src/atom/picture/test/fixtures/simple-src';
+import PictureFixtureSvg from '../src/atom/picture/test/fixtures/svg';
 import PictureBackgroundFixtureContain from '../src/atom/picture-background/test/fixtures/contain';
 import PictureBackgroundFixtureCover from '../src/atom/picture-background/test/fixtures/cover';
 import PictureBackgroundFixtureDefault from '../src/atom/picture-background/test/fixtures/default';
@@ -935,7 +936,8 @@ export const fixtures = {
     Picture: {
       Default: PictureFixtureDefault,
       Empty: PictureFixtureEmpty,
-      SimpleSrc: PictureFixtureSimpleSrc
+      SimpleSrc: PictureFixtureSimpleSrc,
+      Svg: PictureFixtureSvg
     },
     PictureBackground: {
       Contain: PictureBackgroundFixtureContain,

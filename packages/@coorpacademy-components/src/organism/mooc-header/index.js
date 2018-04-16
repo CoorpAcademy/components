@@ -11,6 +11,7 @@ import CogIcon from '@coorpacademy/nova-icons/composition/coorpacademy/cog';
 import Provider from '../../atom/provider';
 import Cta from '../../atom/cta';
 import Select from '../../atom/select';
+import Picture from '../../atom/picture';
 import InputSwitch from '../../atom/input-switch';
 import Link from '../../atom/link';
 import Search from '../../molecule/search';
@@ -271,7 +272,7 @@ class MoocHeader extends React.Component {
           <div className={style.avatarWrapper}>
             <div className={style.avatar} data-name="user-avatar">
               <Link href={user.href} className={style.userLink} onClick={this.handleLinkClick}>
-                <img src={user.picture} />
+                <Picture src={user.picture} />
               </Link>
             </div>
             {notificationsView}
@@ -391,7 +392,7 @@ class MoocHeader extends React.Component {
               data-name="logo-mobile"
               onClick={this.handleMenuToggle}
             >
-              <img src={logoMobileUrl} />
+              <Picture src={logoMobileUrl} />
               {notificationsView}
               <ArrowDown
                 color={mediumColor}
@@ -399,7 +400,7 @@ class MoocHeader extends React.Component {
               />
             </div>
             <Link className={style.logo} data-name="logo" href={logo.href}>
-              <img src={logoUrl} />
+              <Picture src={logoUrl} />
             </Link>
           </div>
           <div data-name="Search-Bar" className={style.searchBar}>
