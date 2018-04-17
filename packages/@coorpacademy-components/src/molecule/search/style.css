@@ -1,6 +1,6 @@
 @value breakpoints: "../../variables/breakpoints.css";
-@value mobile from breakpoints;
 @value tablet from breakpoints;
+@value mobile from breakpoints;
 @value colors: "../../variables/colors.css";
 @value medium from colors;
 @value light from colors;
@@ -42,7 +42,7 @@
   text-overflow: ellipsis;
 }
 
-.search:placeholder {
+.search::placeholder {
   color: medium;
   font-size: 14px;
 }
@@ -56,15 +56,20 @@ textarea:-webkit-autofill,
 select:-webkit-autofill {
   background-color: white;
   background-image: none;
-  color: dark;
+  color: medium;
+}
+
+input::placeholder {
+  color: medium;
+  font-size: 14px;
 }
 
 @media tablet {
-  .search {
+  .search, input {
     font-size: 12px;
   }
 
-  .search:placeholder {
+  .search::placeholder {
     font-size: 12px;
   }
 }
@@ -74,7 +79,7 @@ select:-webkit-autofill {
     font-size: 12px;
   }
 
-  .search:placeholder {
+  .search::placeholder {
     font-size: 12px;
   }
 }
