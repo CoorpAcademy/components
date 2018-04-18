@@ -37,6 +37,7 @@ class ImageUpload extends React.Component {
     const idBox = uniqueId('drop-box-');
     const {
       title,
+      description,
       onChange,
       uploadLabel,
       previewLabel = '',
@@ -80,6 +81,7 @@ class ImageUpload extends React.Component {
             onDragLeave={this.handleDragStop}
           />
         </div>
+        {description && <div className={style.description}>{description}</div>}
       </div>
     );
   }
@@ -91,6 +93,7 @@ ImageUpload.contextTypes = {
 
 ImageUpload.propTypes = {
   title: PropTypes.string,
+  description: PropTypes.string,
   onChange: PropTypes.func,
   uploadLabel: PropTypes.string,
   previewLabel: PropTypes.string,
