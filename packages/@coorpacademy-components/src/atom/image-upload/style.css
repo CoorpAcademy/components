@@ -16,6 +16,15 @@
   margin-bottom: 20px;
 }
 
+.description {
+  font-family: 'Open Sans';
+  font-size: 13px;
+  font-weight: 400;
+  font-style: italic;
+  color: dark;
+  margin: 10px 0;
+}
+
 .previewWrapper {
   width: 100%;
   box-sizing: border-box;
