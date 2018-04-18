@@ -65,7 +65,8 @@ input::placeholder {
 }
 
 @media tablet {
-  .search, input {
+  .search,
+  input {
     font-size: 12px;
   }
 
