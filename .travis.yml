@@ -77,6 +77,15 @@ deploy:
       curl -s -X POST -H "Content-Type: application/json" -H "Accept:
       application/json" -H "Travis-API-Version: 3" -H "Authorization: token
       $TRAVIS_TOKEN" -d '{"request":{"branch":"master"}}'
+      https://api.travis-ci.com/repo/CoorpAcademy%2Fapp-backoffice/requests
+    'on':
+      tags: true
+  - provider: script
+    skip_cleanup: true
+    script: >-
+      curl -s -X POST -H "Content-Type: application/json" -H "Accept:
+      application/json" -H "Travis-API-Version: 3" -H "Authorization: token
+      $TRAVIS_TOKEN" -d '{"request":{"branch":"master"}}'
       https://api.travis-ci.com/repo/CoorpAcademy%2Fcoorpacademy-store/requests
     'on':
       tags: true
