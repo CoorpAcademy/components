@@ -31,16 +31,13 @@
 
 .searchBar {
   display: flex;
+  align-items: stretch;
   justify-content: flex-start;
   flex: 1 0 0%;
   height: 100%;
   border-right: solid 1px light;
   border-left: solid 1px light;
   background-color: white;
-}
-
-.noPages {
-  display: none;
 }
 
 .open {
@@ -153,14 +150,22 @@
   flex: 0 0 auto;
 }
 
-.pages {
+.pages, .noPages {
   height: 100%;
   border-right: 1px solid light;
   padding: 0 10px;
   display: flex;
   align-items: stretch;
-  opacity: 1;
 }
+
+/* .noPages {
+  width: 0;
+  opacity: 0;
+}
+
+.noPages a {
+  display: none;
+} */
 
 .page {
   position: relative;

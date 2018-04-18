@@ -25,7 +25,8 @@ class MoocHeader extends React.Component {
     this.state = {
       isSettingsOpen: false,
       isMenuOpen: false,
-      isFocus: false
+      isFocus: false,
+      menuWidth: ''
     };
 
     this.handleSettingsToggle = this.handleSettingsToggle.bind(this);
@@ -37,6 +38,11 @@ class MoocHeader extends React.Component {
     this.handleResetSearch = this.handleResetSearch.bind(this);
     this.handleOnFocus = this.handleOnFocus.bind(this);
     this.handleOnBlur = this.handleOnBlur.bind(this);
+  }
+
+  componentDidMount() {
+    const width = document.querySelector('#MenuWrapper').getBoundingClientRect().width;
+    this.setState({menuWidth: width});
   }
 
   componentDidUpdate(prevProps, prevState, prevContext) {
@@ -106,6 +112,8 @@ class MoocHeader extends React.Component {
     const {logo = {}, pages, settings, user, slider, links, search} = this.props;
     if (isEmpty(this.props)) return null;
     const {translate, skin} = this.context;
+
+    console.log("menuWidth", this.state.menuWidth);
 
     const logoUrl = get('src', logo) || get('images.logo', skin);
     const logoMobileUrl = get('srcMobile', logo) || getOr(logoUrl, 'images.logo-mobile', skin);
@@ -403,14 +411,15 @@ class MoocHeader extends React.Component {
               <Picture src={logoUrl} />
             </Link>
           </div>
-          <div data-name="Search-Bar" className={style.searchBar}>
-            {searchFormView}
-          </div>
-          <div className={style.menuWrapper}>
-            {pagesView}
-            {userView || linksView}
-            {settingsView}
-          </div>
+            <div data-name="Search-Bar" className={style.searchBar}>
+              {searchFormView}
+            </div>
+
+            <div className={style.menuWrapper} id="MenuWrapper">
+              {pagesView}
+              {userView || linksView}
+              {settingsView}
+            </div>
         </div>
         {sliderView}
       </div>
