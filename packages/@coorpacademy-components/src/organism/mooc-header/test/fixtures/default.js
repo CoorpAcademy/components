@@ -1,4 +1,4 @@
-import SearchBar from '../../../../molecule/search/test/fixtures/with-value';
+import SearchBar from '../../../../molecule/search/test/fixtures/default';
 
 const research = SearchBar.props;
 

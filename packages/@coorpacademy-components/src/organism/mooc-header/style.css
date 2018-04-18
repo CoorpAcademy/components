@@ -40,11 +40,6 @@
   background-color: white;
 }
 
-.sideWrapper {
-  display: flex;
-  flex: 1 0 0;
-}
-
 .open {
   composes: header;
 }
@@ -161,8 +156,16 @@
   padding: 0 10px;
   display: flex;
   align-items: stretch;
-  opacity: 1;
 }
+
+/* .noPages {
+  width: 0;
+  opacity: 0;
+}
+
+.noPages a {
+  display: none;
+} */
 
 .page {
   position: relative;
@@ -525,10 +528,6 @@
   .logoMobile .notifications {
     top: 5px;
     right: 10px;
-  }
-
-  .noPages {
-    display: none;
   }
 
   .menuWrapper {
