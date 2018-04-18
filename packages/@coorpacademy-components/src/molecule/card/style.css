@@ -13,6 +13,15 @@
   background-size: cover;
 }
 
+.card::before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.6;
+}
+
 .content {
   position: absolute;
   top: 48%;
@@ -50,4 +59,17 @@
 
 .progress > .value {
   height: 100%;
+}
+
+/*
+ * Background layout : cover
+ */
+
+.card.backgroundLayoutCover .content {
+  background-color: transparent;
+}
+
+.card.backgroundLayoutCover .title,
+.card.backgroundLayoutCover .author {
+  color: white;
 }

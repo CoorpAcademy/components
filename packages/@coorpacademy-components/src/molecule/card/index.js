@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import get from 'lodash/fp/get';
 import Provider from '../../atom/provider';
 import style from './style.css';
 
 const Card = (props, context) => {
-  const {author, title, image, progress} = props;
+  const {author, backgroundLayout, title, image, progress} = props;
   const {skin} = context;
 
   const primaryColor = get('common.primary', skin);
@@ -15,8 +16,15 @@ const Card = (props, context) => {
     width: `${progress * 100}%`
   };
 
+  const className = classnames(
+    style.card,
+    {
+      cover: style.backgroundLayoutCover
+    }[backgroundLayout]
+  );
+
   return (
-    <div className={style.card} style={inlineStyle}>
+    <div className={className} style={inlineStyle}>
       <div className={style.content}>
         <div className={style.title}>{title}</div>
         <div className={style.author}>{author}</div>
@@ -36,7 +44,8 @@ Card.propTypes = {
   author: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  progress: PropTypes.number.isRequired
+  progress: PropTypes.number.isRequired,
+  backgroundLayout: PropTypes.oneOf(['cover', 'top'])
 };
 
 export default Card;

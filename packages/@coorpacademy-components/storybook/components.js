@@ -310,6 +310,7 @@ import BrandUploadBoxFixtureDefault from '../src/molecule/brand-upload-box/test/
 import BrandUploadBoxFixtureLoading from '../src/molecule/brand-upload-box/test/fixtures/loading';
 import BrandUploadBoxFixtureSso from '../src/molecule/brand-upload-box/test/fixtures/sso';
 import BreadcrumbsFixtureDefault from '../src/molecule/breadcrumbs/test/fixtures/default';
+import CardFixtureCoverBackground from '../src/molecule/card/test/fixtures/cover-background';
 import CardFixtureDefault from '../src/molecule/card/test/fixtures/default';
 import CardFixtureHalfTopBackground from '../src/molecule/card/test/fixtures/half-top-background';
 import BattleRequestListFixtureDefault from '../src/molecule/dashboard/battle-request-list/test/fixtures/default';
@@ -1070,6 +1071,7 @@ export const fixtures = {
       Default: BreadcrumbsFixtureDefault
     },
     Card: {
+      CoverBackground: CardFixtureCoverBackground,
       Default: CardFixtureDefault,
       HalfTopBackground: CardFixtureHalfTopBackground
     },
