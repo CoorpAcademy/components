@@ -1,3 +1,3 @@
-import halfTop from './half-top-background';
+import topBackground from './top-background';
 
-export default halfTop;
+export default topBackground;

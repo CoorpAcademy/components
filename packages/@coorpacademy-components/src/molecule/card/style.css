@@ -73,3 +73,30 @@
 .card.backgroundLayoutCover .author {
   color: white;
 }
+
+/*
+ * Background layout : left
+ */
+
+.card.backgroundLayoutLeft {
+  width: 360px;
+  height: 120px;
+}
+
+.card.backgroundLayoutLeft .content {
+  top: 0;
+  left: 30%;
+}
+
+.card.backgroundLayoutLeft .title {
+  font-size: 15px;
+}
+
+.card.backgroundLayoutLeft .author {
+  font-size: 12px;
+}
+
+.card.backgroundLayoutLeft .progress {
+  left: 20px;
+  right: 24%;
+}

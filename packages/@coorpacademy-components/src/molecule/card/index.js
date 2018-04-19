@@ -19,7 +19,8 @@ const Card = (props, context) => {
   const className = classnames(
     style.card,
     {
-      cover: style.backgroundLayoutCover
+      cover: style.backgroundLayoutCover,
+      left: style.backgroundLayoutLeft
     }[backgroundLayout]
   );
 
@@ -45,7 +46,7 @@ Card.propTypes = {
   title: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   progress: PropTypes.number.isRequired,
-  backgroundLayout: PropTypes.oneOf(['cover', 'top'])
+  backgroundLayout: PropTypes.oneOf(['cover', 'top', 'left'])
 };
 
 export default Card;
