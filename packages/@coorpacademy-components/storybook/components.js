@@ -314,6 +314,7 @@ import CardFixtureCoverBackground from '../src/molecule/card/test/fixtures/cover
 import CardFixtureDefault from '../src/molecule/card/test/fixtures/default';
 import CardFixtureLeftBackground from '../src/molecule/card/test/fixtures/left-background';
 import CardFixtureTopBackground from '../src/molecule/card/test/fixtures/top-background';
+import CardFixtureUncertified from '../src/molecule/card/test/fixtures/uncertified';
 import BattleRequestListFixtureDefault from '../src/molecule/dashboard/battle-request-list/test/fixtures/default';
 import BattleRequestListFixtureEmpty from '../src/molecule/dashboard/battle-request-list/test/fixtures/empty';
 import CardsListFixtureDefault from '../src/molecule/dashboard/cards-list/test/fixtures/default';
@@ -1075,7 +1076,8 @@ export const fixtures = {
       CoverBackground: CardFixtureCoverBackground,
       Default: CardFixtureDefault,
       LeftBackground: CardFixtureLeftBackground,
-      TopBackground: CardFixtureTopBackground
+      TopBackground: CardFixtureTopBackground,
+      Uncertified: CardFixtureUncertified
     },
     DisciplineCta: {
       Default: DisciplineCtaFixtureDefault,

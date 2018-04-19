@@ -5,6 +5,7 @@ export default {
     title: 'Le phénomène Big Data',
     author: 'Coorpacademy',
     progress: 0.8,
-    backgroundLayout: 'cover'
+    backgroundLayout: 'cover',
+    certifiedAuthor: true
   }
 };
