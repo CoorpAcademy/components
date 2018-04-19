@@ -6,6 +6,7 @@ export default {
     author: 'Coorpacademy',
     progress: 0.8,
     backgroundLayout: 'left',
-    certifiedAuthor: true
+    certifiedAuthor: true,
+    adaptive: false
   }
 };

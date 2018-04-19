@@ -66,17 +66,33 @@
   height: 100%;
 }
 
+.adaptiveIcon {
+  position: absolute;
+  display: none;
+  fill: white;
+  width: 25px;
+  height: 25px;
+  left: 20px;
+  bottom: 100%;
+  transform-origin: center;
+  transform: translate(0, 50%);
+}
+
+.card.adaptive .adaptiveIcon {
+  display: block;
+}
+
 /*
  * Background layout : cover
  */
 
 .card.backgroundLayoutCover::before {
- position: absolute;
- content: '';
- width: 100%;
- height: 100%;
- background-color: black;
- opacity: 0.6;
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.6;
 }
 
 .card.backgroundLayoutCover .content {
