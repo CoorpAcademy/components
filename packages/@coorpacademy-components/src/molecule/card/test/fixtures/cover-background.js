@@ -7,6 +7,7 @@ export default {
     progress: 0.8,
     backgroundLayout: 'cover',
     certifiedAuthor: true,
-    adaptive: false
+    adaptive: false,
+    locked: false
   }
 };

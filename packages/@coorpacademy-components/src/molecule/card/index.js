@@ -4,11 +4,12 @@ import classnames from 'classnames';
 import get from 'lodash/fp/get';
 import AdaptivIcon from '@coorpacademy/nova-icons/composition/coorpacademy/adaptive';
 import CheckIcon from '@coorpacademy/nova-icons/solid/status/check-circle-2';
+import LockIcon from '@coorpacademy/nova-icons/solid/locks/lock-1';
 import Provider from '../../atom/provider';
 import Customer from './customer';
 import style from './style.css';
 
-const computeClassName = (backgroundLayout, adaptive) =>
+const computeClassName = (backgroundLayout, adaptive, locked) =>
   classnames(
     style.card,
     {
@@ -16,7 +17,8 @@ const computeClassName = (backgroundLayout, adaptive) =>
       left: style.backgroundLayoutLeft,
       top: style.backgroundLayoutTop
     }[backgroundLayout],
-    adaptive && style.adaptive
+    adaptive && style.adaptive,
+    locked && style.locked
   );
 
 const Card = (props, context) => {
@@ -27,6 +29,7 @@ const Card = (props, context) => {
     certifiedAuthor,
     customer,
     image,
+    locked,
     progress,
     title
   } = props;
@@ -41,7 +44,7 @@ const Card = (props, context) => {
   };
 
   return (
-    <div className={computeClassName(backgroundLayout, adaptive)} style={inlineStyle}>
+    <div className={computeClassName(backgroundLayout, adaptive, locked)} style={inlineStyle}>
       {customer && (
         <Customer className={style.customer} {...customer} textLayout={customerTextLayout} />
       )}
@@ -66,6 +69,9 @@ const Card = (props, context) => {
           borderWidth="inherit"
         />
       </div>
+      <div className={style.lockOverlay}>
+        <LockIcon color="inherit" className={style.icon} />
+      </div>
     </div>
   );
 };
@@ -85,7 +91,8 @@ Card.propTypes = {
   customer: PropTypes.shape({
     name: PropTypes.string,
     coorpOriginal: PropTypes.bool.isRequired
-  })
+  }),
+  locked: PropTypes.bool.isRequired
 };
 
 export default Card;

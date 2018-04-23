@@ -318,6 +318,7 @@ import CardFixtureDefault from '../src/molecule/card/test/fixtures/default';
 import CardFixtureLeftBackground from '../src/molecule/card/test/fixtures/left-background';
 import CardFixtureLeftbgCoorpOriginal from '../src/molecule/card/test/fixtures/leftbg-coorp-original';
 import CardFixtureLeftbgCustom from '../src/molecule/card/test/fixtures/leftbg-custom';
+import CardFixtureLocked from '../src/molecule/card/test/fixtures/locked';
 import CardFixtureTopBackground from '../src/molecule/card/test/fixtures/top-background';
 import CardFixtureTopbgCoorpOriginal from '../src/molecule/card/test/fixtures/topbg-coorp-original';
 import CardFixtureTopbgCustom from '../src/molecule/card/test/fixtures/topbg-custom';
@@ -1088,6 +1089,7 @@ export const fixtures = {
       LeftBackground: CardFixtureLeftBackground,
       LeftbgCoorpOriginal: CardFixtureLeftbgCoorpOriginal,
       LeftbgCustom: CardFixtureLeftbgCustom,
+      Locked: CardFixtureLocked,
       TopBackground: CardFixtureTopBackground,
       TopbgCoorpOriginal: CardFixtureTopbgCoorpOriginal,
       TopbgCustom: CardFixtureTopbgCustom,

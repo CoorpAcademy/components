@@ -10,6 +10,7 @@ export default {
     adaptive: false,
     customer: {
       coorpOriginal: true
-    }
+    },
+    locked: false
   }
 };

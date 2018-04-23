@@ -11,6 +11,7 @@ export default {
     customer: {
       name: 'Acme Creation',
       coorpOriginal: false
-    }
+    },
+    locked: false
   }
 };
