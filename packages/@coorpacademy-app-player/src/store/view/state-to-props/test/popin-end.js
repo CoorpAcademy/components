@@ -79,7 +79,6 @@ test('should create a "Next Level" CTA after success on learner progression', as
   ]);
 
   const comment = props.summary.comment;
-  t.is(comment.isSent, true);
   t.is(comment.edition.value, '');
   t.is(comment.edition.postDisabled, true);
 });
