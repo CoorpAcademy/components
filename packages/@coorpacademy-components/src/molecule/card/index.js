@@ -5,6 +5,7 @@ import get from 'lodash/fp/get';
 import AdaptivIcon from '@coorpacademy/nova-icons/composition/coorpacademy/adaptive';
 import CheckIcon from '@coorpacademy/nova-icons/solid/status/check-circle-2';
 import Provider from '../../atom/provider';
+import Customer from './customer';
 import style from './style.css';
 
 const computeClassName = (backgroundLayout, adaptive) =>
@@ -12,17 +13,28 @@ const computeClassName = (backgroundLayout, adaptive) =>
     style.card,
     {
       cover: style.backgroundLayoutCover,
-      left: style.backgroundLayoutLeft
+      left: style.backgroundLayoutLeft,
+      top: style.backgroundLayoutTop
     }[backgroundLayout],
     adaptive && style.adaptive
   );
 
 const Card = (props, context) => {
-  const {adaptive, author, backgroundLayout, certifiedAuthor, title, image, progress} = props;
+  const {
+    adaptive,
+    author,
+    backgroundLayout,
+    certifiedAuthor,
+    customer,
+    image,
+    progress,
+    title
+  } = props;
   const {skin} = context;
 
   const primaryColor = get('common.primary', skin);
   const inlineStyle = {backgroundImage: `url(${image})`};
+  const customerTextLayout = backgroundLayout === 'left' ? 'center' : 'top';
   const inlineProgressValueStyle = {
     backgroundColor: primaryColor,
     width: `${progress * 100}%`
@@ -30,6 +42,9 @@ const Card = (props, context) => {
 
   return (
     <div className={computeClassName(backgroundLayout, adaptive)} style={inlineStyle}>
+      {customer && (
+        <Customer className={style.customer} {...customer} textLayout={customerTextLayout} />
+      )}
       <div className={style.content}>
         <div className={style.title}>{title}</div>
         <div className={classnames(style.author, certifiedAuthor && style.certified)}>
@@ -66,7 +81,11 @@ Card.propTypes = {
   title: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   progress: PropTypes.number.isRequired,
-  backgroundLayout: PropTypes.oneOf(['cover', 'top', 'left'])
+  backgroundLayout: PropTypes.oneOf(['cover', 'top', 'left']),
+  customer: PropTypes.shape({
+    name: PropTypes.string,
+    coorpOriginal: PropTypes.bool.isRequired
+  })
 };
 
 export default Card;

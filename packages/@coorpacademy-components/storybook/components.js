@@ -312,9 +312,15 @@ import BrandUploadBoxFixtureSso from '../src/molecule/brand-upload-box/test/fixt
 import BreadcrumbsFixtureDefault from '../src/molecule/breadcrumbs/test/fixtures/default';
 import CardFixtureAdaptive from '../src/molecule/card/test/fixtures/adaptive';
 import CardFixtureCoverBackground from '../src/molecule/card/test/fixtures/cover-background';
+import CardFixtureCoverbgCoorpOriginal from '../src/molecule/card/test/fixtures/coverbg-coorp-original';
+import CardFixtureCoverbgCustom from '../src/molecule/card/test/fixtures/coverbg-custom';
 import CardFixtureDefault from '../src/molecule/card/test/fixtures/default';
 import CardFixtureLeftBackground from '../src/molecule/card/test/fixtures/left-background';
+import CardFixtureLeftbgCoorpOriginal from '../src/molecule/card/test/fixtures/leftbg-coorp-original';
+import CardFixtureLeftbgCustom from '../src/molecule/card/test/fixtures/leftbg-custom';
 import CardFixtureTopBackground from '../src/molecule/card/test/fixtures/top-background';
+import CardFixtureTopbgCoorpOriginal from '../src/molecule/card/test/fixtures/topbg-coorp-original';
+import CardFixtureTopbgCustom from '../src/molecule/card/test/fixtures/topbg-custom';
 import CardFixtureUncertified from '../src/molecule/card/test/fixtures/uncertified';
 import BattleRequestListFixtureDefault from '../src/molecule/dashboard/battle-request-list/test/fixtures/default';
 import BattleRequestListFixtureEmpty from '../src/molecule/dashboard/battle-request-list/test/fixtures/empty';
@@ -1076,9 +1082,15 @@ export const fixtures = {
     Card: {
       Adaptive: CardFixtureAdaptive,
       CoverBackground: CardFixtureCoverBackground,
+      CoverbgCoorpOriginal: CardFixtureCoverbgCoorpOriginal,
+      CoverbgCustom: CardFixtureCoverbgCustom,
       Default: CardFixtureDefault,
       LeftBackground: CardFixtureLeftBackground,
+      LeftbgCoorpOriginal: CardFixtureLeftbgCoorpOriginal,
+      LeftbgCustom: CardFixtureLeftbgCustom,
       TopBackground: CardFixtureTopBackground,
+      TopbgCoorpOriginal: CardFixtureTopbgCoorpOriginal,
+      TopbgCustom: CardFixtureTopbgCustom,
       Uncertified: CardFixtureUncertified
     },
     DisciplineCta: {
