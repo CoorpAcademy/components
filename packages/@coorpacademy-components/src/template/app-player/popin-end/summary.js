@@ -162,13 +162,7 @@ const CommentSection = props => {
 
 CommentSection.propTypes = {
   isSent: PropTypes.bool,
-  edition: PropTypes.shape({
-    title: Discussion.propTypes.title,
-    postDisabled: Discussion.propTypes.postDisabled,
-    value: Discussion.propTypes.value,
-    onPost: Discussion.propTypes.onPost,
-    onChange: Discussion.propTypes.onChange
-  }),
+  edition: PropTypes.shape(Discussion.propTypes),
   confirmation: PropTypes.shape({
     commentSectionTitle: CommentConfirmation.propTypes.commentSectionTitle,
     confirmationLinkText: CommentConfirmation.propTypes.confirmationLinkText,
