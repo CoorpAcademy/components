@@ -9,6 +9,7 @@ export default defaultsDeep(correct, {
         edition: {
           title: 'Donnez votre avis sur ce cours',
           value: '',
+          postDisabled: true,
           onPost: () => console.log('onPost'),
           onChange: () => console.log('onChange')
         }
