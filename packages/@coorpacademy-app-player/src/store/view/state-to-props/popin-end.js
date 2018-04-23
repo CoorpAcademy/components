@@ -4,6 +4,7 @@ import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import isArray from 'lodash/fp/isArray';
 import isEqual from 'lodash/fp/isEqual';
+import isEmpty from 'lodash/fp/isEmpty';
 import pick from 'lodash/fp/pick';
 import pipe from 'lodash/fp/pipe';
 import omit from 'lodash/fp/omit';
@@ -63,6 +64,7 @@ const comment = ({translate}, {dispatch}) => state => {
     edition: {
       title: translate('Share your opinion on this course'),
       value: get('ui.comments.text', state),
+      postDisabled: isEmpty(get('ui.comments.text', state)),
       onChange: e => dispatch(editComment(e.target.value)),
       onPost: e => dispatch(postComment(progressionId, content, message))
     }

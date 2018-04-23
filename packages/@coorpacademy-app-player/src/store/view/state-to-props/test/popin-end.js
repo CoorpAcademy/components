@@ -77,6 +77,9 @@ test('should create a "Next Level" CTA after success on learner progression', as
     LOCATION_NEXT_CONTENT_REQUEST,
     LOCATION_NEXT_CONTENT_SUCCESS
   ]);
+
+  const comment = props.summary.comment;
+  t.is(comment.edition.postDisabled, true);
 });
 
 test('should write, send, and go see a comment after success on learner progression', async t => {
@@ -91,6 +94,7 @@ test('should write, send, and go see a comment after success on learner progress
   const comment = props.summary.comment;
   t.is(comment.isSent, true);
   t.is(comment.edition.value, 'textToSend');
+  t.is(comment.edition.postDisabled, false);
 
   const onChange = comment.edition.onChange;
   t.true(isFunction(onChange));
