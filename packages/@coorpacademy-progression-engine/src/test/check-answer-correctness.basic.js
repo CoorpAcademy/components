@@ -20,6 +20,13 @@ function createQuestion(answers: AcceptedAnswers, maxTypos?: ?number): BasicQues
     }
   };
 }
+test('should return true when the accepted answer contain empty string', t => {
+  const question = createQuestion([['viral'], ['']]);
+
+  assertCorrect(t, config, question, ['']);
+  assertCorrect(t, config, question, [' ']);
+  assertCorrect(t, config, question, ['viral']);
+});
 
 test('should return true when the given answer is in the accepted answers', t => {
   const question = createQuestion([['guillaume tell'], ['tell'], ['guillaume'], ['tel']]);

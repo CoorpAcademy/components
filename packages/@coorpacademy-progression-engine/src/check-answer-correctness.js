@@ -43,7 +43,7 @@ function containsAnswer(config: Config, allowedAnswer: string, givenAnswer: stri
 
   // Get the non-space characters surrounding the answer and make sure that there are not too many.
   const limit = config.answerBoundaryLimit;
-  const [first, second] = givenAnswer.split(allowedAnswer);
+  const [first = '', second = ''] = givenAnswer.split(allowedAnswer);
   const indexOfSpaceInFirst = reverseString(first).indexOf(' ');
   const indexOfSpaceInSecond = second.indexOf(' ');
 
