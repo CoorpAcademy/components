@@ -485,6 +485,7 @@ import HeroFixtureTouch from '../src/organism/hero/test/fixtures/touch';
 import ImageSliderFixtureDefault from '../src/organism/mooc/image-slider/test/fixtures/default';
 import ImageSliderFixtureMultipleSlides from '../src/organism/mooc/image-slider/test/fixtures/multiple-slides';
 import MoocHeaderFixtureDefault from '../src/organism/mooc-header/test/fixtures/default';
+import MoocHeaderFixtureEmpty from '../src/organism/mooc-header/test/fixtures/empty';
 import MoocHeaderFixtureLogged from '../src/organism/mooc-header/test/fixtures/logged';
 import MoocHeaderFixtureSliderMultiple from '../src/organism/mooc-header/test/fixtures/slider-multiple';
 import MoocHeaderFixtureSlider from '../src/organism/mooc-header/test/fixtures/slider';
@@ -1395,6 +1396,7 @@ export const fixtures = {
     },
     MoocHeader: {
       Default: MoocHeaderFixtureDefault,
+      Empty: MoocHeaderFixtureEmpty,
       Logged: MoocHeaderFixtureLogged,
       SliderMultiple: MoocHeaderFixtureSliderMultiple,
       Slider: MoocHeaderFixtureSlider,

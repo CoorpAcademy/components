@@ -9,11 +9,21 @@ const {props} = Default;
 export default {
   props: defaultsDeep(props, {
     slider,
+    search: {
+      value: ''
+    },
     pages: {
       displayed: [
-        {},
+        {
+          selected: false
+        },
         {
           counter: 3
+        }
+      ],
+      more: [
+        {
+          selected: true
         }
       ]
     },

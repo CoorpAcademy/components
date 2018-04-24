@@ -39,10 +39,6 @@
   background-color: white;
 }
 
-.noPages {
-  display: none;
-}
-
 .open {
   composes: header;
 }
