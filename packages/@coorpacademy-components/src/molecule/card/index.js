@@ -9,7 +9,7 @@ import Provider from '../../atom/provider';
 import Customer from './customer';
 import style from './style.css';
 
-const computeClassName = (backgroundLayout, adaptive, locked) =>
+const computeClassName = (backgroundLayout, customClassName, adaptive, locked) =>
   classnames(
     style.card,
     {
@@ -18,7 +18,8 @@ const computeClassName = (backgroundLayout, adaptive, locked) =>
       top: style.backgroundLayoutTop
     }[backgroundLayout],
     adaptive && style.adaptive,
-    locked && style.locked
+    locked && style.locked,
+    customClassName
   );
 
 const Card = (props, context) => {
@@ -26,7 +27,9 @@ const Card = (props, context) => {
     adaptive,
     author,
     backgroundLayout,
+    badge,
     certifiedAuthor,
+    className: customClassName,
     customer,
     image,
     locked,
@@ -37,14 +40,16 @@ const Card = (props, context) => {
 
   const primaryColor = get('common.primary', skin);
   const inlineStyle = {backgroundImage: `url(${image})`};
+  const className = computeClassName(backgroundLayout, customClassName, adaptive, locked);
   const customerTextLayout = backgroundLayout === 'left' ? 'center' : 'top';
+  const inlineBadgeStyle = {color: primaryColor}
   const inlineProgressValueStyle = {
     backgroundColor: primaryColor,
     width: `${progress * 100}%`
   };
 
   return (
-    <div className={computeClassName(backgroundLayout, adaptive, locked)} style={inlineStyle}>
+    <div className={className} style={inlineStyle}>
       {customer && (
         <Customer className={style.customer} {...customer} textLayout={customerTextLayout} />
       )}
@@ -69,6 +74,9 @@ const Card = (props, context) => {
           borderWidth="inherit"
         />
       </div>
+      {badge && (
+        <div className={style.badge} style={inlineBadgeStyle}>{badge}</div>
+      )}
       <div className={style.lockOverlay}>
         <LockIcon color="inherit" className={style.icon} />
       </div>
@@ -83,7 +91,9 @@ Card.contextTypes = {
 Card.propTypes = {
   adaptive: PropTypes.bool.isRequired,
   author: PropTypes.string.isRequired,
+  badge: PropTypes.string,
   certifiedAuthor: PropTypes.bool.isRequired,
+  className: PropTypes.string,
   title: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   progress: PropTypes.number.isRequired,

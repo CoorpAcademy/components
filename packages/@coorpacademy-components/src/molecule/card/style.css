@@ -121,6 +121,13 @@
  * Background layout : cover
  */
 
+.card.backgroundLayoutCover .content {
+  min-height: 80px;
+  height: 52%;
+  bottom: 0;
+  top: initial;
+}
+
 .card.backgroundLayoutCover::before {
   position: absolute;
   content: '';
