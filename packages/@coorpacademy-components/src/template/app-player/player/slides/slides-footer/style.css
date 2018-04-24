@@ -46,7 +46,7 @@
 }
 
 .disabled .logo {
-  background-color: light;
+  color: xtraLightGrey;
 }
 
 .disabled .title {
@@ -67,11 +67,11 @@
   position: relative;
   width: 40px;
   height: 40px;
-  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: grey;
+  border-radius: 50%;
+  color: grey;
 }
 
 .highlighted {
