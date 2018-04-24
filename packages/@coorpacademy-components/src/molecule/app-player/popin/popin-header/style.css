@@ -39,7 +39,7 @@
   flex-wrap: wrap;
 }
 
-.exhaustedLifeHeader {
+/* .exhaustedLifeHeader {
   height: 100px;
   animation: biggerHeader 0.5s ease-in;
   animation-delay: 1.2s;
@@ -59,7 +59,7 @@
   animation: smallerHeader 0.5s ease-out;
   animation-fill-mode: forwards;
   animation-delay: 1.6s;
-}
+} */
 
 .headerTitle {
   display: flex;
@@ -350,7 +350,7 @@
   height: 22px;
 }
 
-.remainingLifeRequestsSentence {
+/* .remainingLifeRequestsSentence {
   display: block;
   background-color: negative;
   width: 100%;
@@ -364,9 +364,9 @@
   top: 100px;
   left: 0;
   z-index: 1;
-}
+} */
 
-.exhaustedLife {
+/* .exhaustedLife {
   top: 0;
   animation: remainingLifeRequests 0.5s ease-out;
   animation-delay: 1.2s;
@@ -385,7 +385,7 @@
   animation: addedLife 0.5s ease-in;
   animation-fill-mode: forwards;
   animation-delay: 1.6s;
-}
+} */
 
 @media tablet {
   .iconsWrapper {
@@ -500,7 +500,7 @@
     margin-left: 16px;
   }
 
-  .remainingLifeRequestsSentence {
+  /* .remainingLifeRequestsSentence {
     font-size: 12px;
     top: 0;
     position: relative;
@@ -511,9 +511,9 @@
     animation: mobileRemainingLifeRequests 0.5s ease-out;
     animation-delay: 1s;
     animation-fill-mode: forwards;
-  }
+  } */
 
-  .exhaustedLife {
+  /* .exhaustedLife {
     top: -100px;
     animation: mobileRemainingLifeRequests 0.5s ease-out;
     animation-delay: 1.2s;
@@ -524,7 +524,7 @@
     top: 0;
     animation: mobileAddedLife 0.5s ease-in;
     animation-fill-mode: forwards;
-  }
+  } */
 
   .wrapperNextSection {
     height: 54px;

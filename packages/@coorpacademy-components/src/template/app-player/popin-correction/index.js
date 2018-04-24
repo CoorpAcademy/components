@@ -7,6 +7,7 @@ import getOr from 'lodash/fp/getOr';
 import omit from 'lodash/fp/omit';
 import CheckIcon from '@coorpacademy/nova-icons/composition/coorpacademy/check';
 import Loader from '../../../atom/loader';
+import Link from '../../../atom/link';
 import ResourceBrowser from '../../../organism/resource-browser';
 import PopinHeader from '../../../molecule/app-player/popin/popin-header';
 import Accordion from '../../../organism/accordion/container';
@@ -94,12 +95,21 @@ class PopinCorrection extends Component {
   }
 
   render() {
-    const {header = {}, question, resources, klf, tips, onClick} = this.props;
+    const {header = {}, question, resources, klf, tips, onClick, joker} = this.props;
 
     const tabs = extractTabs({resources, klf, tips});
     const isLoading = isNil(header.fail);
     const className = this.state.open ? style.openOverlay : style.overlay;
 
+    const jokerCta = header.extraLife ? (
+      <div className={isLoading ? style.loadingContent : style.ctaJoker}>
+        <Link data-name="nextLink" href={joker.href}>
+          {joker.title}
+        </Link>
+      </div>
+    ) : null;
+
+console.log(header.extraLife);
     return (
       <div ref={this.initWrapper} className={className} data-name="popinCorrection">
         <div className={style.scrollWrapper}>
@@ -115,6 +125,7 @@ class PopinCorrection extends Component {
                 <SimpleText text={tips.value} />
               </Accordion>
             </div>
+            {jokerCta}
           </div>
           <Loader className={isLoading ? style.activeLoader : style.inactiveLoader} />
         </div>
@@ -130,6 +141,7 @@ PopinCorrection.propTypes = {
   klf: PropTypes.shape(SimpleText.propTypes),
   tips: PropTypes.shape(SimpleText.propTypes),
   onClick: PropTypes.func,
+  joker: PropTypes.shape({title: PropTypes.string, href: PropTypes.string}),
   onOpen: PropTypes.func
 };
 
