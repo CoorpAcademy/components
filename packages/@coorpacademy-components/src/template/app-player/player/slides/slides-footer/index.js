@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import keys from 'lodash/fp/keys';
-import MediaIcon from '@coorpacademy/nova-icons/composition/coorpacademy/filter-video2';
+import MediaIcon from '@coorpacademy/nova-icons/composition/coorpacademy/filter-video3';
 import ClueIcon from '@coorpacademy/nova-icons/composition/coorpacademy/clue';
 import ContextIcon from '@coorpacademy/nova-icons/composition/coorpacademy/map';
 import CoachIcon from '@coorpacademy/nova-icons/composition/coorpacademy/chat';
