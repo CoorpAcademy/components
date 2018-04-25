@@ -16,21 +16,24 @@ function CardsGrid(props) {
     </div>
   );
 
-  const cards = map(card => (
-    <div data-name="cardGrid" className={style.cardWrapper} key={card.key}>
-      <MediaQuery query={mobileQuery}>
-        {isMobile => {
-          if (card.type === 'cover') {
-            return <Card {...card} className={style.card} backgroundLayout="cover" />;
-          } else if (isMobile) {
-            return <Card {...card} className={style.card} backgroundLayout="left" />;
-          } else {
-            return <Card {...card} className={style.card} backgroundLayout="top" />;
-          }
-        }}
-      </MediaQuery>
-    </div>
-  ), list);
+  const cards = map(
+    card => (
+      <div data-name="cardGrid" className={style.cardWrapper} key={card.key}>
+        <MediaQuery query={mobileQuery}>
+          {isMobile => {
+            if (card.type === 'cover') {
+              return <Card {...card} className={style.card} backgroundLayout="cover" />;
+            } else if (isMobile) {
+              return <Card {...card} className={style.card} backgroundLayout="left" />;
+            } else {
+              return <Card {...card} className={style.card} backgroundLayout="top" />;
+            }
+          }}
+        </MediaQuery>
+      </div>
+    ),
+    list
+  );
 
   return (
     <div className={style.default}>

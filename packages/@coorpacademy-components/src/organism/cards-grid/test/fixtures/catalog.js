@@ -24,15 +24,6 @@ const itemCard = {
 
 export default {
   props: {
-    list: [
-      coverCard,
-      itemCard,
-      itemCard,
-      coverCard,
-      itemCard,
-      itemCard,
-      itemCard,
-      itemCard,
-    ]
+    list: [coverCard, itemCard, itemCard, coverCard, itemCard, itemCard, itemCard, itemCard]
   }
 };

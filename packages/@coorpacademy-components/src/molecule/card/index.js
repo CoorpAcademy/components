@@ -42,7 +42,7 @@ const Card = (props, context) => {
   const inlineStyle = {backgroundImage: `url(${image})`};
   const className = computeClassName(backgroundLayout, customClassName, adaptive, locked);
   const customerTextLayout = backgroundLayout === 'left' ? 'center' : 'top';
-  const inlineBadgeStyle = {color: primaryColor}
+  const inlineBadgeStyle = {color: primaryColor};
   const inlineProgressValueStyle = {
     backgroundColor: primaryColor,
     width: `${progress * 100}%`
@@ -74,9 +74,7 @@ const Card = (props, context) => {
           borderWidth="inherit"
         />
       </div>
-      {badge && (
-        <div className={style.badge} style={inlineBadgeStyle}>{badge}</div>
-      )}
+      {badge && <div style={inlineBadgeStyle}>{badge}</div>}
       <div className={style.lockOverlay}>
         <LockIcon color="inherit" className={style.icon} />
       </div>
