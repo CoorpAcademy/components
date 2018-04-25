@@ -60,7 +60,8 @@
     "qs": "6.5.0",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
-    "react-jw-player": "1.10.0"
+    "react-jw-player": "1.10.0",
+    "react-responsive": "4.1.0"
   },
   "devDependencies": {
     "@coorpacademy/css-modules-require-hook": "0.0.2",
@@ -96,7 +97,6 @@
     "path-match": "^1.2.4",
     "postcss-loader": "^2.0.5",
     "prop-types": "^15.6.0",
-    "react-responsive": "4.1.0",
     "react-test-renderer": "^16.1.1",
     "rimraf": "^2.6.1",
     "rxjs": "^5.5.2",
