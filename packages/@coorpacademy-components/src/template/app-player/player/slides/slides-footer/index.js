@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import keys from 'lodash/fp/keys';
-import MediaIcon from '@coorpacademy/nova-icons/solid/videos/video-clip-3';
-import ClueIcon from '@coorpacademy/nova-icons/solid/programming/programming-jigsaw';
-import ContextIcon from '@coorpacademy/nova-icons/solid/locations/compass-3';
-import CoachIcon from '@coorpacademy/nova-icons/solid/messages-and-chat/chat-bubbles-circle';
+import MediaIcon from '@coorpacademy/nova-icons/composition/coorpacademy/filter-video2';
+import ClueIcon from '@coorpacademy/nova-icons/composition/coorpacademy/clue';
+import ContextIcon from '@coorpacademy/nova-icons/composition/coorpacademy/map';
+import CoachIcon from '@coorpacademy/nova-icons/composition/coorpacademy/chat';
 import get from 'lodash/fp/get';
 import Provider from '../../../../../atom/provider';
 import style from './style.css';
@@ -29,7 +29,7 @@ const TABS = {
 const SlidesFooter = (props, context) => {
   const {skin} = context;
   const {buttons = []} = props;
-  const xtraLightGrey = get('common.xtraLightGrey', skin);
+  const grey = get('common.grey', skin);
 
   const buttonsView = buttons.map((button, key) => {
     const {disabled, notify, selected, highlighted, title, type, onClick} = button;
@@ -55,7 +55,7 @@ const SlidesFooter = (props, context) => {
       >
         <div className={highlighted ? style.highlighted : style.logo}>
           {notifyView}
-          <IconType color={xtraLightGrey} />
+          <IconType color={grey} size={30} />
         </div>
         <div data-name="title" className={style.title}>
           {title}
