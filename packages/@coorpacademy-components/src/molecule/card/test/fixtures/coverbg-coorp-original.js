@@ -12,6 +12,7 @@ export default {
       coorpOriginal: true
     },
     locked: false,
-    onClick: () => console.log('Click on card')
+    onClick: () => console.log('Click on card'),
+    badge: 'nouveau'
   }
 };

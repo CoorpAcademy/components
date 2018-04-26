@@ -19,6 +19,7 @@ const computeClassName = (backgroundLayout, customClassName, adaptive, locked) =
     }[backgroundLayout],
     adaptive && style.adaptive,
     locked && style.locked,
+    !locked && style.unlocked,
     customClassName
   );
 
@@ -41,7 +42,7 @@ const Card = (props, context) => {
 
   const handleClick = () => !locked && onClick && onClick();
   const primaryColor = get('common.primary', skin);
-  const inlineStyle = {backgroundImage: `url(${image})`};
+  const inlineBackgroundStyle = {backgroundImage: `url(${image})`};
   const className = computeClassName(backgroundLayout, customClassName, adaptive, locked);
   const customerTextLayout = backgroundLayout === 'left' ? 'center' : 'top';
   const inlineBadgeStyle = {color: primaryColor};
@@ -51,7 +52,10 @@ const Card = (props, context) => {
   };
 
   return (
-    <div className={className} style={inlineStyle} onClick={handleClick}>
+    <div className={className} onClick={handleClick}>
+      <div className={style.backgroundContainer}>
+        <div className={style.background} style={inlineBackgroundStyle} />
+      </div>
       {customer && (
         <Customer className={style.customer} {...customer} textLayout={customerTextLayout} />
       )}

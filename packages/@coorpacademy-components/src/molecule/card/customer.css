@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 12px 0 0 12px;
+  margin: 20px 0 0 12px;
   width: calc(100% - 24px);
   height: calc(100% - 24px);
   font-family: 'Open Sans';
