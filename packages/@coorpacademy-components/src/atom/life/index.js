@@ -20,6 +20,7 @@ const Life = (props, context) => {
     count = 3,
     fail = false,
     mode = 'default',
+    addLife = false,
     revival,
     className,
     style: customStyle
@@ -59,7 +60,8 @@ const Life = (props, context) => {
         </div>
       </div>
       <div className={style.multiplier}>
-        <div className={style.multiplierText}>x</div>
+        {addLife ? <div className={style.multiplierText}>+</div> : <div className={style.multiplierText}>x</div>}
+
       </div>
       <div className={fail && animated ? style.heartWrapperFail : style.heartWrapperDefault}>
         <HeartIcon outline={white} outlineWidth={5} className={style.heartOutline} color={white} />

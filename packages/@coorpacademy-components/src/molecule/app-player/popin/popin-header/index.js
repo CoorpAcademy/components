@@ -315,14 +315,8 @@ const PopinHeader = (props, context) => {
   const state = buildClass(fail, 'success', 'fail', null);
   const {active: isExtraLife, exhausted} = extraLife;
 
-  const nextLink = !(isExtraLife) ? (
-    <NextQuestionPart
-      cta={cta}
-      extraLife={extraLife}
-      revival={revival}
-      fail={fail}
-      lives={lives}
-    />
+  const nextLink = !isExtraLife ? (
+    <NextQuestionPart cta={cta} extraLife={extraLife} revival={revival} fail={fail} lives={lives} />
   ) : null;
 
   return (

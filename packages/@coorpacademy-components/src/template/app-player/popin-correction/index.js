@@ -109,7 +109,10 @@ class PopinCorrection extends Component {
       </div>
     ) : null;
 
-console.log(header.extraLife);
+    const jokerOverlay = header.extraLife ? (
+      <div className={style.jokerOverlay}>Bonus ! Récupérez une vie en regardant la leçon !</div>
+    ) : null;
+
     return (
       <div ref={this.initWrapper} className={className} data-name="popinCorrection">
         <div className={style.scrollWrapper}>

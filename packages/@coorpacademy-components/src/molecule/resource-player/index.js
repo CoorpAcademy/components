@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import omit from 'lodash/fp/omit';
 import Pdf from '../pdf';
 import VideoPlayer from '../video-player';
+import Life from '../../atom/life';
 import style from './style.css';
 
 export const TYPE_IMAGE = 'img';
@@ -26,7 +27,7 @@ const ResourceElement = props => {
 };
 
 const ResourcePlayer = props => {
-  const {className: customClassName, resource} = props;
+  const {className: customClassName, resource, isRevival} = props;
   const {type} = resource;
   const className = classnames(
     style.resourcePlayer,
@@ -36,9 +37,19 @@ const ResourcePlayer = props => {
     }[type],
     customClassName
   );
+  const gainJoker = isRevival ? (
+    <div className={style.jokerOverlay}>
+      <div className={style.jokerOverlayIllus}>
+        <Life count="1" addLife="true"/>
+      </div>
+      <p>Bonus !</p>
+      <div><p>Récupérez une vie en regardant la leçon !</p></div>
+    </div>
+  ) : null;
 
   return (
     <div className={className}>
+      {gainJoker}
       <ResourceElement {...props} />
     </div>
   );
@@ -66,7 +77,8 @@ const imgPropType = PropTypes.shape({
 
 ResourcePlayer.propType = {
   className: PropTypes.string,
-  resource: PropTypes.oneOfType([videoPropType, pdfPropType, imgPropType])
+  resource: PropTypes.oneOfType([videoPropType, pdfPropType, imgPropType]),
+  isRevival: PropTypes.bool
 };
 
 export default ResourcePlayer;

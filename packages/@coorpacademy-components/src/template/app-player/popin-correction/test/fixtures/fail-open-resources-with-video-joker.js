@@ -11,7 +11,6 @@ export default defaultsDeep(failClosed, {
         active: true
       }
     },
-    //jokerTitle: 'quit'
     joker: {
       title: 'quit',
       href: '#'

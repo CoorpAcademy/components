@@ -12,4 +12,28 @@
 
 .resourcePlayer.video {
   background-color: black;
+  position: relative;
+}
+
+.jokerOverlay {
+  background-color: rgba(0, 0, 0, .75);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  color: white;
+  align-items: center;
+  justify-content: center;
+}
+
+.jokerOverlay p {
+  display: flex;
+  width: 100%;
+  font-weight: bold;
+  line-height: 15px;
+  justify-content: center;
 }

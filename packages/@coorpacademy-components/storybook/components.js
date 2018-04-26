@@ -206,6 +206,7 @@ import LifeFixtureAnimatedFail from '../src/atom/life/test/fixtures/animated-fai
 import LifeFixtureDefault from '../src/atom/life/test/fixtures/default';
 import LifeFixtureFail from '../src/atom/life/test/fixtures/fail';
 import LifeFixtureNull from '../src/atom/life/test/fixtures/null';
+import LifeFixtureOverlayedExtraLife from '../src/atom/life/test/fixtures/overlayed-extra-life';
 import LifeFixtureSmall from '../src/atom/life/test/fixtures/small';
 import LinkFixtureDownload from '../src/atom/link/test/fixtures/download';
 import LinkFixtureHref from '../src/atom/link/test/fixtures/href';
@@ -413,6 +414,7 @@ import TemplateFixtureDefault from '../src/molecule/questions/template/test/fixt
 import TemplateFixtureMultiple from '../src/molecule/questions/template/test/fixtures/multiple';
 import ResourcePlayerFixtureImage from '../src/molecule/resource-player/test/fixtures/image';
 import ResourcePlayerFixturePdf from '../src/molecule/resource-player/test/fixtures/pdf';
+import ResourcePlayerFixtureVimeoWithJoker from '../src/molecule/resource-player/test/fixtures/vimeo-with-joker';
 import ResourcePlayerFixtureVimeo from '../src/molecule/resource-player/test/fixtures/vimeo';
 import ScopeContentFixtureDefault from '../src/molecule/scope-content/test/fixtures/default';
 import ScopeContentFixtureEmpty from '../src/molecule/scope-content/test/fixtures/empty';
@@ -920,6 +922,7 @@ export const fixtures = {
       Default: LifeFixtureDefault,
       Fail: LifeFixtureFail,
       Null: LifeFixtureNull,
+      OverlayedExtraLife: LifeFixtureOverlayedExtraLife,
       Small: LifeFixtureSmall
     },
     Link: {
@@ -1176,6 +1179,7 @@ export const fixtures = {
     ResourcePlayer: {
       Image: ResourcePlayerFixtureImage,
       Pdf: ResourcePlayerFixturePdf,
+      VimeoWithJoker: ResourcePlayerFixtureVimeoWithJoker,
       Vimeo: ResourcePlayerFixtureVimeo
     },
     ScopeContent: {
