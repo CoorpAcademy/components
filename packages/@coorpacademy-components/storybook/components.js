@@ -319,7 +319,7 @@ import CardFixtureLeftBackground from '../src/molecule/card/test/fixtures/left-b
 import CardFixtureLeftbgCoorpOriginal from '../src/molecule/card/test/fixtures/leftbg-coorp-original';
 import CardFixtureLeftbgCustom from '../src/molecule/card/test/fixtures/leftbg-custom';
 import CardFixtureLocked from '../src/molecule/card/test/fixtures/locked';
-import CardFixtureNewBadge from '../src/molecule/card/test/fixtures/newBadge';
+import CardFixtureNewBadge from '../src/molecule/card/test/fixtures/new-badge';
 import CardFixtureTopBackground from '../src/molecule/card/test/fixtures/top-background';
 import CardFixtureTopbgCoorpOriginal from '../src/molecule/card/test/fixtures/topbg-coorp-original';
 import CardFixtureTopbgCustom from '../src/molecule/card/test/fixtures/topbg-custom';

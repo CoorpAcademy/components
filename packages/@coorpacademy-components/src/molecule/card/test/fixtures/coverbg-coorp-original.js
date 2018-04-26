@@ -11,6 +11,7 @@ export default {
     customer: {
       coorpOriginal: true
     },
-    locked: false
+    locked: false,
+    onClick: () => console.log('Click on card')
   }
 };

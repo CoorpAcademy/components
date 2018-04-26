@@ -12,6 +12,7 @@ export default {
       name: 'Acme Creation',
       coorpOriginal: false
     },
-    locked: false
+    locked: false,
+    onClick: () => console.log('Click on card')
   }
 };

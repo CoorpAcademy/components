@@ -8,6 +8,7 @@ export default {
     backgroundLayout: 'top',
     certifiedAuthor: true,
     adaptive: false,
-    locked: false
+    locked: false,
+    onClick: () => console.log('Click on card')
   }
 };

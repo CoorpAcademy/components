@@ -33,11 +33,13 @@ const Card = (props, context) => {
     customer,
     image,
     locked,
+    onClick,
     progress,
     title
   } = props;
   const {skin} = context;
 
+  const handleClick = () => !locked && onClick && onClick();
   const primaryColor = get('common.primary', skin);
   const inlineStyle = {backgroundImage: `url(${image})`};
   const className = computeClassName(backgroundLayout, customClassName, adaptive, locked);
@@ -49,7 +51,7 @@ const Card = (props, context) => {
   };
 
   return (
-    <div className={className} style={inlineStyle}>
+    <div className={className} style={inlineStyle} onClick={handleClick}>
       {customer && (
         <Customer className={style.customer} {...customer} textLayout={customerTextLayout} />
       )}
@@ -74,7 +76,11 @@ const Card = (props, context) => {
           borderWidth="inherit"
         />
       </div>
-      {badge && <div style={inlineBadgeStyle}>{badge}</div>}
+      {badge && (
+        <div className={style.badge} style={inlineBadgeStyle}>
+          {badge}
+        </div>
+      )}
       <div className={style.lockOverlay}>
         <LockIcon color="inherit" className={style.icon} />
       </div>
