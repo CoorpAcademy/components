@@ -11,9 +11,11 @@ export default defaultsDeep(failClosed, {
         active: true
       }
     },
-    joker: {
-      title: 'quit',
-      href: '#'
+    quit: {
+      cta: {
+        title: 'Quit',
+        onClick: () => console.log('quit')
+      }
     }
   }
 });

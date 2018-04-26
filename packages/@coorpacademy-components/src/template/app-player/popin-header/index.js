@@ -17,13 +17,13 @@ import StarIcon from '@coorpacademy/nova-icons/composition/coorpacademy/star';
 import Heart from '@coorpacademy/nova-icons/solid/vote-and-rewards/vote-heart';
 import HeartBroken from '@coorpacademy/nova-icons/composition/coorpacademy/broken-heart';
 import classnames from 'classnames';
-import Loader from '../../../../atom/loader';
-import Life from '../../../../atom/life';
-import Link from '../../../../atom/link';
-import Animation, {EASE_OUT_CUBIC} from '../../../../hoc/animation';
-import Transition from '../../../../hoc/transition';
-import AnimationScheduler, {AnimationAdapter} from '../../../../hoc/animation-scheduler';
-import Provider from '../../../../atom/provider';
+import Loader from '../../../atom/loader';
+import Life from '../../../atom/life';
+import Link from '../../../atom/link';
+import Animation, {EASE_OUT_CUBIC} from '../../../hoc/animation';
+import Transition from '../../../hoc/transition';
+import AnimationScheduler, {AnimationAdapter} from '../../../hoc/animation-scheduler';
+import Provider from '../../../atom/provider';
 import style from './style.css';
 
 const separator = index => (

@@ -13,7 +13,7 @@ import {withKnobs, text, number, boolean, object, color} from '@storybook/addon-
 import createTranslate from '@coorpacademy/translate';
 import en from '../locales/en/global';
 import fr from '../locales/fr/global';
-import {Provider} from '../src';
+import Provider from '../es/atom/provider';
 import skin from './skin';
 import {components, fixtures} from './components';
 
@@ -58,7 +58,7 @@ const toKnobs = props =>
 forEach((folder, folderName) => {
   forEach((Component, componentName) => {
     const componentFixtures = get([folderName, componentName], fixtures);
-    const stories = storiesOf(`${folderName}.${componentName}`, module);
+    const stories = storiesOf(`${componentName}`, module);
     stories.addDecorator(withKnobs);
     forEach(({props, children}, fixtureName) => {
       stories.add(fixtureName, () => (

@@ -204,9 +204,10 @@
   }
 }
 
-/* Joker / extraLife -------------- */
+/* quit button -------------- */
 
-.ctaJoker {
+.quitCta {
+  composes: hoverFill from '../../../atom/button/hover-fill.css';
   display: block;
   padding: 40px 0;
   margin: 0 auto;
@@ -217,28 +218,13 @@
   text-align: center;
   color: brand;
   background-color: xtraLightGrey;
+  cursor: pointer;
 }
 
-.ctaJoker a {
+.quitCta a {
   color: brand;
   font-size: 16px;
   font-weight: bold;
   text-decoration: none;
   text-transform: uppercase;
-}
-
-.ctaJoker a:hover {
-  color: brand;
-  font-size: 16px;
-  font-weight: bold;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
-.jokerOverlay {
-  background: black;
-  opacity: .9;
-  display: flex;
-  width: 100%;
-  height: 100;
 }

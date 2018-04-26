@@ -9,8 +9,8 @@ import CheckIcon from '@coorpacademy/nova-icons/composition/coorpacademy/check';
 import Loader from '../../../atom/loader';
 import Link from '../../../atom/link';
 import ResourceBrowser from '../../../organism/resource-browser';
-import PopinHeader from '../../../molecule/app-player/popin/popin-header';
 import Accordion from '../../../organism/accordion/container';
+import Header from '../popin-header';
 import style from './style.css';
 
 const extractTabs = items =>
@@ -95,22 +95,19 @@ class PopinCorrection extends Component {
   }
 
   render() {
-    const {header = {}, question, resources, klf, tips, onClick, joker} = this.props;
+    const {header = {}, question, resources, klf, tips, onClick, quit = {}} = this.props;
 
     const tabs = extractTabs({resources, klf, tips});
     const isLoading = isNil(header.fail);
     const className = this.state.open ? style.openOverlay : style.overlay;
+    const {title, ...linkProps} = quit.cta || {};
 
-    const jokerCta = header.extraLife ? (
-      <div className={isLoading ? style.loadingContent : style.ctaJoker}>
-        <Link data-name="nextLink" href={joker.href}>
-          {joker.title}
+    const quitCta = header.extraLife ? (
+      <div className={isLoading ? style.loadingContent : style.quitCta}>
+        <Link data-name="quitLink" data-next="game-over-without-extra-life" {...linkProps}>
+          {title}
         </Link>
       </div>
-    ) : null;
-
-    const jokerOverlay = header.extraLife ? (
-      <div className={style.jokerOverlay}>Bonus ! Récupérez une vie en regardant la leçon !</div>
     ) : null;
 
     return (
@@ -118,7 +115,7 @@ class PopinCorrection extends Component {
         <div className={style.scrollWrapper}>
           <div className={isLoading ? style.loadingWrapper : style.wrapper}>
             <div className={isLoading ? style.loadingContent : style.content}>
-              <PopinHeader {...header} animated />
+              <Header {...header} animated />
               <Question {...question} />
               <Accordion tabProps={tabs} onClick={onClick} oneTabOnly>
                 {isEmpty(getOr([], 'value', resources)) ? null : (
@@ -128,7 +125,7 @@ class PopinCorrection extends Component {
                 <SimpleText text={tips.value} />
               </Accordion>
             </div>
-            {jokerCta}
+            {quitCta}
           </div>
           <Loader className={isLoading ? style.activeLoader : style.inactiveLoader} />
         </div>
@@ -139,12 +136,19 @@ class PopinCorrection extends Component {
 
 PopinCorrection.propTypes = {
   resources: PropTypes.shape(ResourceBrowser.propTypes),
-  header: PropTypes.shape(omit(['animated'], PopinHeader.propTypes)),
+  header: PropTypes.shape(omit(['animated'], Header.propTypes)),
   question: PropTypes.shape(Question.propTypes),
   klf: PropTypes.shape(SimpleText.propTypes),
   tips: PropTypes.shape(SimpleText.propTypes),
   onClick: PropTypes.func,
-  joker: PropTypes.shape({title: PropTypes.string, href: PropTypes.string}),
+  quit: {
+    cta: PropTypes.shape({
+      ...Link.propTypes,
+      title: PropTypes.string,
+      type: PropTypes.type,
+      nextStepTitle: PropTypes.string
+    })
+  },
   onOpen: PropTypes.func
 };
 
