@@ -8,7 +8,7 @@ import identity from 'lodash/fp/identity';
 import max from 'lodash/fp/max';
 import pipe from 'lodash/fp/pipe';
 import split from 'lodash/fp/split';
-import {ColorPropType} from '../../../../../util/proptypes';
+import {ColorPropType, SrcPropType} from '../../../../../util/proptypes';
 import Cta from '../../../../../atom/cta';
 import Picture from '../../../../../atom/picture';
 import Provider from '../../../../../atom/provider';
@@ -369,7 +369,8 @@ SlidesPlayer.contextTypes = {
 SlidesPlayer.propTypes = {
   step: Step.propTypes.step,
   buttons: SlidesFooter.propTypes.buttons,
-  showNewMedia: PropTypes.bool
+  showNewMedia: PropTypes.bool,
+  backgroundUrl: SrcPropType
 };
 
 export default SlidesPlayer;

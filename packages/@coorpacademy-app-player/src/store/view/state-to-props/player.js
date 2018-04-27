@@ -55,6 +55,7 @@ const playerProps = (options, store) => state => {
   const engineConfig = getEngineConfig(state);
   const slide = getCurrentSlide(state);
   const slideContext = get('context', slide);
+  const currentContent = getCurrentContent(state);
   const answer = createGetAnswerProps(options, store)(state, slide);
   const mediaQuestion = getQuestionMedia(state);
   const clue = getCurrentClue(state) || null;
@@ -135,6 +136,7 @@ const playerProps = (options, store) => state => {
     question: get('question.header')(slide),
     step: getProgressionStep(state),
     slideContext,
+    backgroundUrl: get('backgroundUrl')(currentContent),
     verticalMargin: 260,
     starsDiff,
     resources,
