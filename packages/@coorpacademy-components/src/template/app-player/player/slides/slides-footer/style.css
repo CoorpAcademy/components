@@ -7,6 +7,7 @@
 @value grey from colors;
 @value positive from colors;
 @value black from colors;
+@value medium from colors;
 
 .wrapper {
   width: 100%;
@@ -46,11 +47,13 @@
 }
 
 .disabled .logo {
-  color: xtraLightGrey;
+  color: medium;
+  opacity: 0.5;
 }
 
 .disabled .title {
-  color: light;
+  color: medium;
+  opacity: 0.5;
 }
 
 .notify {
