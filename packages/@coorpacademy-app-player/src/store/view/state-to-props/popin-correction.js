@@ -115,6 +115,9 @@ export const popinCorrectionStateToProps = (options, store) => state => {
   const isLoading = isNil(isCorrect);
   const isExtraLifeActive = get('state.nextContent.ref', progression) === 'extraLife';
   const isRevival = isExtraLifeActive && hasViewedAResourceAtThisStep(state);
+
+  console.dir({isExtraLifeActive, isRevival}, {depth: null});
+
   const exhausted = isExtraLifeAvailable && !isCorrect && remainingLifeRequests === 0;
   const header = isNil(answerResult)
     ? {}
@@ -132,6 +135,12 @@ export const popinCorrectionStateToProps = (options, store) => state => {
   };
 
   const resources = getResourcesProps(options, store)(state, slide);
+  const quit =
+    isExtraLifeActive && !isRevival
+      ? {
+          cta: createHeaderCTA(options, store)(state)
+        }
+      : null;
 
   return {
     header: isLoading
@@ -149,9 +158,10 @@ export const popinCorrectionStateToProps = (options, store) => state => {
               : translate('Bonus! Get an extra life by watching the lesson below!'),
             exhausted
           },
-          cta: createHeaderCTA(options, store)(state),
+          cta: isRevival && createHeaderCTA(options, store)(state),
           ...header
         },
+    quit,
     question,
     resources: {
       title: translate('Access the lesson'),
