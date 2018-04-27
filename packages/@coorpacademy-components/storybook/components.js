@@ -547,6 +547,7 @@ import SlidesPlayerFixtureQcm from '../src/template/app-player/player/slides/sli
 import SlidesPlayerFixtureRange from '../src/template/app-player/player/slides/slides-player/test/fixtures/range';
 import SlidesPlayerFixtureTemplate from '../src/template/app-player/player/slides/slides-player/test/fixtures/template';
 import SlidesPlayerFixtureWithMinHeight from '../src/template/app-player/player/slides/slides-player/test/fixtures/with-min-height';
+import PlayerFixtureBackground from '../src/template/app-player/player/test/fixtures/background';
 import PlayerFixtureClue from '../src/template/app-player/player/test/fixtures/clue';
 import PlayerFixtureContextWithImage from '../src/template/app-player/player/test/fixtures/context-with-image';
 import PlayerFixtureContextWithPdf from '../src/template/app-player/player/test/fixtures/context-with-pdf';
@@ -1449,6 +1450,7 @@ export const fixtures = {
       Default: LoadingFixtureDefault
     },
     Player: {
+      Background: PlayerFixtureBackground,
       Clue: PlayerFixtureClue,
       ContextWithImage: PlayerFixtureContextWithImage,
       ContextWithPdf: PlayerFixtureContextWithPdf,
