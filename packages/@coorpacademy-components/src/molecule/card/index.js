@@ -106,10 +106,7 @@ Card.propTypes = {
   image: PropTypes.string.isRequired,
   progress: PropTypes.number.isRequired,
   backgroundLayout: PropTypes.oneOf(['cover', 'top', 'left']),
-  customer: PropTypes.shape({
-    name: PropTypes.string,
-    coorpOriginal: PropTypes.bool.isRequired
-  }),
+  customer: PropTypes.shape(Customer.propTypes),
   locked: PropTypes.bool.isRequired
 };
 
