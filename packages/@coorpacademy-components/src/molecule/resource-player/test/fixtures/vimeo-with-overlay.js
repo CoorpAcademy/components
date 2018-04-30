@@ -17,6 +17,10 @@ export default {
       onResume: () => console.log('resume'),
       onEnded: () => console.log('end')
     },
-    isRevival: true
+    overlay: {
+      title: 'Bonus !',
+      text: 'Récupérez une vie en regardant la leçon !',
+      lifeAmount: 1
+    }
   }
 };

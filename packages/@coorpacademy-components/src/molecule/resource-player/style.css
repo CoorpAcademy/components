@@ -1,22 +1,23 @@
-.resourcePlayer.image {
+.image {
   overflow: hidden;
   display: flex;
 }
 
-.resourcePlayer.image .img {
+.image .img {
   height: 100%;
   width: 100%;
   background-size: cover;
   background-position: center;
 }
 
-.resourcePlayer.video {
+.video {
   background-color: black;
   position: relative;
 }
 
-.jokerOverlay {
+.overlay {
   background-color: rgba(0, 0, 0, .75);
+  transition: all 0.5s;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -28,12 +29,42 @@
   color: white;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
-.jokerOverlay p {
+.overlay:hover {
+  background-color: rgba(0, 0, 0, .65);
+}
+
+.playButton {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  z-index: 10;
+  bottom: 20px;
+  left: 20px;
+  background-color: white;
+  border-radius: 100%;
+  padding: 7px;
+  box-sizing: border-box;
+}
+
+.texts {
+  font-family: 'Open Sans';
+  font-size: 17px;
   display: flex;
   width: 100%;
-  font-weight: bold;
-  line-height: 15px;
+  margin: 0;
   justify-content: center;
+}
+
+.overlayTitle {
+  composes: texts;
+  margin-top: 19px;
+  font-weight: 200;
+}
+
+.overlayText {
+  composes: texts;
+  font-weight: 600;
 }

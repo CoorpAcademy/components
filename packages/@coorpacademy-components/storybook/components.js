@@ -404,8 +404,10 @@ import MoleculeQuestionsQuestionRangeFixtureDefault from '../src/molecule/questi
 import MoleculeQuestionsTemplateFixtureDefault from '../src/molecule/questions/template/test/fixtures/default';
 import MoleculeQuestionsTemplateFixtureMultiple from '../src/molecule/questions/template/test/fixtures/multiple';
 import MoleculeResourcePlayerFixtureImage from '../src/molecule/resource-player/test/fixtures/image';
+import MoleculeResourcePlayerFixtureJwplayerWithOverlay from '../src/molecule/resource-player/test/fixtures/jwplayer-with-overlay';
+import MoleculeResourcePlayerFixturePdfWithOverlay from '../src/molecule/resource-player/test/fixtures/pdf-with-overlay';
 import MoleculeResourcePlayerFixturePdf from '../src/molecule/resource-player/test/fixtures/pdf';
-import MoleculeResourcePlayerFixtureVimeoWithJoker from '../src/molecule/resource-player/test/fixtures/vimeo-with-joker';
+import MoleculeResourcePlayerFixtureVimeoWithOverlay from '../src/molecule/resource-player/test/fixtures/vimeo-with-overlay';
 import MoleculeResourcePlayerFixtureVimeo from '../src/molecule/resource-player/test/fixtures/vimeo';
 import MoleculeScopeContentFixtureDefault from '../src/molecule/scope-content/test/fixtures/default';
 import MoleculeScopeContentFixtureEmpty from '../src/molecule/scope-content/test/fixtures/empty';
@@ -1175,8 +1177,10 @@ export const fixtures = {
     },
     MoleculeResourcePlayer: {
       Image: MoleculeResourcePlayerFixtureImage,
+      JwplayerWithOverlay: MoleculeResourcePlayerFixtureJwplayerWithOverlay,
+      PdfWithOverlay: MoleculeResourcePlayerFixturePdfWithOverlay,
       Pdf: MoleculeResourcePlayerFixturePdf,
-      VimeoWithJoker: MoleculeResourcePlayerFixtureVimeoWithJoker,
+      VimeoWithOverlay: MoleculeResourcePlayerFixtureVimeoWithOverlay,
       Vimeo: MoleculeResourcePlayerFixtureVimeo
     },
     MoleculeScopeContent: {

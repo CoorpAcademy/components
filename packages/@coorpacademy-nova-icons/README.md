@@ -2,6 +2,14 @@
 
 Components bank based on nova svg icons
 
+## Adding an icon
+- find your `.svg` path within `/third-party` and add the path within `icons.json`.
+- generate the `.js`
+```
+npm run prepare
+```
+- by now your js file should be added within `/solid`, `/composition` or `/line` depending on your svg path.
+
 ## Usage
 
 ```jsx
