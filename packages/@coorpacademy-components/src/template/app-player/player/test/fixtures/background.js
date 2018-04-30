@@ -7,7 +7,9 @@ const playerProps = Context.props;
 export default {
   props: {
     header: headerProps,
-    player: playerProps,
-    backgroundImg: 'http://imagizer.imageshack.us/a/img924/9120/zxtxPV.jpg'
+    player: {
+      ...playerProps,
+      backgroundUrl: 'http://imagizer.imageshack.us/a/img924/9120/zxtxPV.jpg'
+    }
   }
 };

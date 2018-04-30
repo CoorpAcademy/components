@@ -5,12 +5,13 @@ import Header from './player-header';
 import style from './style.css';
 
 const SlidePlayer = props => {
-  const {header, player, backgroundImg} = props;
+  const {header, player} = props;
+  const backgroundImage = player.backgroundUrl ? `url(${player.backgroundUrl})` : null;
   return (
     <div data-name="slidePlayer" className={style.wrapper}>
       <Header {...header} />
       <div className={style.wrapperImg}>
-        <div className={style.img} style={{backgroundImage: `url(${backgroundImg})`}} />
+        <div className={style.img} style={{backgroundImage}} />
       </div>
       <div className={style.playerWrapper}>
         <SlidesPlayer {...player} />
@@ -21,8 +22,7 @@ const SlidePlayer = props => {
 
 SlidePlayer.propTypes = {
   header: PropTypes.shape(Header.propTypes),
-  player: PropTypes.shape(SlidesPlayer.propTypes),
-  backgroundImg: PropTypes.backgroundImg
+  player: PropTypes.shape(SlidesPlayer.propTypes)
 };
 
 export default SlidePlayer;
