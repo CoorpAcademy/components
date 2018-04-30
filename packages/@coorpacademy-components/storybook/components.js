@@ -485,11 +485,13 @@ import OrganismMoocHeaderFixtureSliderMultiple from '../src/organism/mooc-header
 import OrganismMoocHeaderFixtureSlider from '../src/organism/mooc-header/test/fixtures/slider';
 import OrganismMoocHeaderFixtureUserChangePassword from '../src/organism/mooc-header/test/fixtures/user-change-password';
 import OrganismPopinFixtureDefault from '../src/organism/popin/test/fixtures/default';
+import OrganismResourceBrowserFixtureJwplayerWithOverlay from '../src/organism/resource-browser/test/fixtures/jwplayer-with-overlay';
 import OrganismResourceBrowserFixtureJwplayer from '../src/organism/resource-browser/test/fixtures/jwplayer';
 import OrganismResourceBrowserFixtureKontiki from '../src/organism/resource-browser/test/fixtures/kontiki';
 import OrganismResourceBrowserFixtureOneVideo from '../src/organism/resource-browser/test/fixtures/one-video';
-import OrganismResourceBrowserFixturePdfSelected from '../src/organism/resource-browser/test/fixtures/pdf-selected';
-import OrganismResourceBrowserFixtureVideoSelected from '../src/organism/resource-browser/test/fixtures/video-selected';
+import OrganismResourceBrowserFixturePdf from '../src/organism/resource-browser/test/fixtures/pdf';
+import OrganismResourceBrowserFixtureVimeoWithOverlay from '../src/organism/resource-browser/test/fixtures/vimeo-with-overlay';
+import OrganismResourceBrowserFixtureVimeo from '../src/organism/resource-browser/test/fixtures/vimeo';
 import OrganismSettingsFixtureDefault from '../src/organism/settings/test/fixtures/default';
 import OrganismSettingsFixtureFreemium from '../src/organism/settings/test/fixtures/freemium';
 import OrganismSettingsFixturePremium from '../src/organism/settings/test/fixtures/premium';
@@ -1398,11 +1400,13 @@ export const fixtures = {
       Default: OrganismPopinFixtureDefault
     },
     OrganismResourceBrowser: {
+      JwplayerWithOverlay: OrganismResourceBrowserFixtureJwplayerWithOverlay,
       Jwplayer: OrganismResourceBrowserFixtureJwplayer,
       Kontiki: OrganismResourceBrowserFixtureKontiki,
       OneVideo: OrganismResourceBrowserFixtureOneVideo,
-      PdfSelected: OrganismResourceBrowserFixturePdfSelected,
-      VideoSelected: OrganismResourceBrowserFixtureVideoSelected
+      Pdf: OrganismResourceBrowserFixturePdf,
+      VimeoWithOverlay: OrganismResourceBrowserFixtureVimeoWithOverlay,
+      Vimeo: OrganismResourceBrowserFixtureVimeo
     },
     OrganismSettings: {
       Default: OrganismSettingsFixtureDefault,

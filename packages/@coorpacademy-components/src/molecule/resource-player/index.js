@@ -115,7 +115,7 @@ class ResourcePlayer extends React.Component {
   }
 }
 
-ResourcePlayer.propType = {
+ResourcePlayer.propTypes = {
   className: PropTypes.string,
   resource: PropTypes.oneOfType([videoPropType, pdfPropType, imgPropType]),
   overlay: {
