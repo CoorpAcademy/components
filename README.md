@@ -2,6 +2,13 @@
 [![Coverage Status](https://codecov.io/gh/CoorpAcademy/components/branch/master/graph/badge.svg)](https://codecov.io/gh/CoorpAcademy/components)
 [![GitPitch](https://gitpitch.com/assets/badge.svg)](https://gitpitch.com/coorpacademy/tekacademy/components?grs=github&t=night)
 
+# Add a new dependency
+
+Go to the target package, and add the dependency using 
+```
+yarn add myPackage
+``` 
+
 # Coorpacademy components
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/CoorpAcademy/components.svg)](https://greenkeeper.io/)
@@ -65,3 +72,12 @@ npm run publish:latest
 #### lerna
 Lerna is used to plug and publish all the packages in this repo.
 You may have to reset all `node_modules` : use `lerna clean` before performing `npm i` again.
+
+#### flow
+If you have any problem during an *npm run build* command related to flow:
+
+* Kill flow processes
+```
+pkill -f flow
+```
+* Check if the problem is related to a new installed dependency. In this case, exclude the dependency on the .flowconfig file.
