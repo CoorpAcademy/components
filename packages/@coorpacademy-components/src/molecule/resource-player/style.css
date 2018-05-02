@@ -1,6 +1,7 @@
 .image {
   overflow: hidden;
   display: flex;
+  height: 100%;
 }
 
 .image .img {
@@ -13,6 +14,11 @@
 .video {
   background-color: black;
   position: relative;
+  height: 100%;
+}
+
+.pdf {
+  composes: video;
 }
 
 .overlay {

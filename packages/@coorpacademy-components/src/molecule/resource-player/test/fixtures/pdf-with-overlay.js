@@ -11,6 +11,11 @@ export default {
       src: [],
       onClick: () => {},
       onPlay: () => console.log('viewed pdf!')
+    },
+    overlay: {
+      title: 'Bonus !',
+      text: 'Récupérez une vie en regardant la leçon !',
+      lifeAmount: 1
     }
   }
 };

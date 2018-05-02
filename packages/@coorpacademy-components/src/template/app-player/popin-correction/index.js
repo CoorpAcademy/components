@@ -99,7 +99,7 @@ class PopinCorrection extends Component {
 
     const tabs = extractTabs({resources, klf, tips});
     const isLoading = isNil(header.fail);
-    const className = this.state.open ? style.openOverlay : style.overlay;
+    const className = this.state.open ? style.finalBackground : style.initialBackground;
     const {title, ...linkProps} = quit.cta || {};
 
     const quitCta = header.extraLife ? (
@@ -135,7 +135,8 @@ class PopinCorrection extends Component {
 }
 
 PopinCorrection.propTypes = {
-  resources: PropTypes.shape(ResourceBrowser.propTypes),
+  resources: ResourceBrowser.propTypes.resources,
+  overlay: ResourceBrowser.propTypes.overlay,
   header: PropTypes.shape(omit(['animated'], Header.propTypes)),
   question: PropTypes.shape(Question.propTypes),
   klf: PropTypes.shape(SimpleText.propTypes),

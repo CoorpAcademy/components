@@ -7,17 +7,12 @@
 @value brand from colors;
 @value tablet from "../../../variables/breakpoints.css";
 
-@keyframes fadeInOverlay {
+@keyframes fadeInBackground {
   0% { opacity: 0; }
   100% { opacity: 1; }
 }
 
-@keyframes fadeOutOverlay {
-  0% { opacity: 1; }
-  100% { opacity: 0; }
-}
-
-.overlay {
+.initialBackground {
   position: fixed;
   top: 0;
   left: 0;
@@ -31,8 +26,8 @@
   opacity: 0;
 }
 
-.openOverlay {
-  composes: overlay;
+.finalBackground {
+  composes: initialBackground;
   opacity: 1;
 }
 
@@ -60,10 +55,6 @@
 
 .wrapper {
   composes: baseWrapper;
-  animation-name: bounceWrapper;
-  animation-duration: 0.3s;
-  animation-fill-mode: forwards;
-  animation-timing-function: ease-in-out;
 }
 
 .baseContent {
@@ -71,7 +62,6 @@
   width: 100%;
   overflow: hidden;
   transition: opacity 0.5s;
-  border-radius: 3px;
 }
 
 .content {
@@ -183,7 +173,7 @@
   }
 
   .wrapper {
-    animation-name: fadeInOverlay;
+    animation-name: fadeInBackground;
     animation-duration: 0.1s;
   }
 

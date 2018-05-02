@@ -55,14 +55,16 @@ ResourceElement.propTypes = {
 };
 
 const OverlayElement = (props = {}) => {
-  const {title, text, lifeAmount, onClick} = props;
+  const {title, text, lifeAmount, onClick, hidePlayIcon} = props;
   if (!title) {
     return null;
   }
 
+  const playIcon = hidePlayIcon ? null : <Play className={style.playButton} />;
+
   return (
     <div className={style.overlay} onClick={onClick}>
-      <Play className={style.playButton} />
+      {playIcon}
       <Life count={lifeAmount} addLife="true" />
       <p className={style.overlayTitle}>{title}</p>
       <p className={style.overlayText}>{text}</p>
@@ -71,10 +73,11 @@ const OverlayElement = (props = {}) => {
 };
 
 OverlayElement.propTypes = {
-  title: PropTypes.string,
-  text: PropTypes.string,
+  hidePlayIcon: PropTypes.bool,
   lifeAmount: PropTypes.number,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  text: PropTypes.string,
+  title: PropTypes.string
 };
 
 class ResourcePlayer extends React.Component {
@@ -101,6 +104,7 @@ class ResourcePlayer extends React.Component {
     const className = classnames(
       {
         [TYPE_IMAGE]: style.image,
+        [TYPE_PDF]: style.pdf,
         [TYPE_VIDEO]: style.video
       }[type],
       customClassName
@@ -108,7 +112,11 @@ class ResourcePlayer extends React.Component {
 
     return (
       <div className={className}>
-        <OverlayElement {...this.state.overlay} onClick={this.handleOverlay} />
+        <OverlayElement
+          {...this.state.overlay}
+          onClick={this.handleOverlay}
+          hidePlayIcon={type === TYPE_PDF}
+        />
         <ResourceElement {...this.props} autoplay={this.state.autoplay} />
       </div>
     );
