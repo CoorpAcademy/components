@@ -39,28 +39,6 @@
   flex-wrap: wrap;
 }
 
-/* .exhaustedLifeHeader {
-  height: 100px;
-  animation: biggerHeader 0.5s ease-in;
-  animation-delay: 1.2s;
-  animation-fill-mode: forwards;
-}
-
-.gameOverHeader {
-  height: 100px;
-  background-color: white;
-  animation: biggerHeader 0.5s ease-in;
-  animation-delay: 1s;
-  animation-fill-mode: forwards;
-}
-
-.revivalHeader {
-  height: 138px;
-  animation: smallerHeader 0.5s ease-out;
-  animation-fill-mode: forwards;
-  animation-delay: 1.6s;
-} */
-
 .headerTitle {
   display: flex;
   height: 100px;
@@ -318,6 +296,12 @@
   overflow: hidden;
 }
 
+.gameOverSubtitle {
+  composes: nextStepTitle;
+  color: white;
+  font-weight: 700;
+}
+
 /*
  * remainingLifeRequests Part
  */
@@ -341,51 +325,6 @@
     top: 0;
   }
 }
-
-.heart {
-  margin-right: 8px;
-  position: relative;
-  top: -1px;
-  width: 22px;
-  height: 22px;
-}
-
-/* .remainingLifeRequestsSentence {
-  display: block;
-  background-color: negative;
-  width: 100%;
-  padding: 8px;
-  box-sizing: border-box;
-  font-family: 'Open Sans';
-  font-size: 14px;
-  font-weight: 700;
-  color: white;
-  position: absolute;
-  top: 100px;
-  left: 0;
-  z-index: 1;
-} */
-
-/* .exhaustedLife {
-  top: 0;
-  animation: remainingLifeRequests 0.5s ease-out;
-  animation-delay: 1.2s;
-  animation-fill-mode: forwards;
-}
-
-.askLife {
-  top: 0;
-  animation: remainingLifeRequests 0.5s ease-out;
-  animation-delay: 1s;
-  animation-fill-mode: forwards;
-}
-
-.oneMoreLifegained {
-  top: 100px;
-  animation: addedLife 0.5s ease-in;
-  animation-fill-mode: forwards;
-  animation-delay: 1.6s;
-} */
 
 @media tablet {
   .iconsWrapper {
@@ -500,36 +439,11 @@
     margin-left: 16px;
   }
 
-  /* .remainingLifeRequestsSentence {
-    font-size: 12px;
-    top: 0;
-    position: relative;
-  }
-
-  .askLife {
-    top: -100px;
-    animation: mobileRemainingLifeRequests 0.5s ease-out;
-    animation-delay: 1s;
-    animation-fill-mode: forwards;
-  } */
-
-  /* .exhaustedLife {
-    top: -100px;
-    animation: mobileRemainingLifeRequests 0.5s ease-out;
-    animation-delay: 1.2s;
-    animation-fill-mode: forwards;
-  }
-
-  .oneMoreLifegained {
-    top: 0;
-    animation: mobileAddedLife 0.5s ease-in;
-    animation-fill-mode: forwards;
-  } */
-
   .wrapperNextSection {
     height: 54px;
   }
 
+  .gameOverSubtitle,
   .nextStepTitle {
     width: 177px;
   }

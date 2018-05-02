@@ -19,9 +19,9 @@ const extractTabs = items =>
     return {iconType: type, title: item.title, isOpen: item.open};
   });
 
-const Resources = ({resources}) => (
+const Resources = ({resources, overlay}) => (
   <div className={style.browserWrapper}>
-    <ResourceBrowser resources={resources.value} className={style.browser} />
+    <ResourceBrowser resources={resources.value} overlay={overlay} className={style.browser} />
   </div>
 );
 
@@ -95,14 +95,25 @@ class PopinCorrection extends Component {
   }
 
   render() {
-    const {header = {}, question, resources, klf, tips, onClick, quit = {}} = this.props;
+    const {
+      header = {},
+      extraLifeGranted,
+      gameOver,
+      question,
+      overlay,
+      resources,
+      klf,
+      tips,
+      onClick,
+      quit = {}
+    } = this.props;
 
     const tabs = extractTabs({resources, klf, tips});
-    const isLoading = isNil(header.fail);
+    const isLoading = isNil(header.failed);
     const className = this.state.open ? style.finalBackground : style.initialBackground;
     const {title, ...linkProps} = quit.cta || {};
 
-    const quitCta = header.extraLife ? (
+    const quitCta = quit.cta ? (
       <div className={isLoading ? style.loadingContent : style.quitCta}>
         <Link data-name="quitLink" data-next="game-over-without-extra-life" {...linkProps}>
           {title}
@@ -115,11 +126,16 @@ class PopinCorrection extends Component {
         <div className={style.scrollWrapper}>
           <div className={isLoading ? style.loadingWrapper : style.wrapper}>
             <div className={isLoading ? style.loadingContent : style.content}>
-              <Header {...header} animated />
+              <Header
+                {...header}
+                gameOver={gameOver}
+                extraLifeGranted={extraLifeGranted}
+                animated
+              />
               <Question {...question} />
               <Accordion tabProps={tabs} onClick={onClick} oneTabOnly>
                 {isEmpty(getOr([], 'value', resources)) ? null : (
-                  <Resources resources={resources} />
+                  <Resources resources={resources} overlay={overlay} />
                 )}
                 <SimpleText text={klf.value} />
                 <SimpleText text={tips.value} />
@@ -142,6 +158,8 @@ PopinCorrection.propTypes = {
   klf: PropTypes.shape(SimpleText.propTypes),
   tips: PropTypes.shape(SimpleText.propTypes),
   onClick: PropTypes.func,
+  extraLifeGranted: PropTypes.bool,
+  gameOver: PropTypes.bool,
   quit: {
     cta: PropTypes.shape({
       ...Link.propTypes,

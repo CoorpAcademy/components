@@ -18,7 +18,7 @@ const Life = (props, context) => {
   const {
     animated = false,
     count = 3,
-    fail = false,
+    failed = false,
     mode = 'default',
     addLife = false,
     revival,
@@ -32,10 +32,10 @@ const Life = (props, context) => {
     return null;
   }
 
-  const pickStyle = (successStyle, failStyle, animatedFailStyle, revivalStyle) => {
+  const pickStyle = (successStyle, failedStyle, animatedFailedStyle, revivalStyle) => {
     if (revival) return revivalStyle;
-    if (fail && animated) return animatedFailStyle;
-    if (fail) return failStyle;
+    if (failed && animated) return animatedFailedStyle;
+    if (failed) return failedStyle;
     return successStyle;
   };
 
@@ -46,7 +46,7 @@ const Life = (props, context) => {
           className={pickStyle(
             style.previousLivesCounterDefault,
             style.previousLivesCounterDefault,
-            style.previousLivesCounterFail,
+            style.previousLivesCounterFailed,
             style.previousLivesRevival
           )}
         >
@@ -54,22 +54,25 @@ const Life = (props, context) => {
         </div>
         <div
           data-name="counter"
-          className={fail ? style.livesCounterFail : style.livesCounterDefault}
+          className={failed ? style.livesCounterFailed : style.livesCounterDefault}
         >
           {count}
         </div>
       </div>
       <div className={style.multiplier}>
-        {addLife ? <div className={style.multiplierText}>+</div> : <div className={style.multiplierText}>x</div>}
-
+        {addLife ? (
+          <div className={style.multiplierText}>+</div>
+        ) : (
+          <div className={style.multiplierText}>x</div>
+        )}
       </div>
-      <div className={fail && animated ? style.heartWrapperFail : style.heartWrapperDefault}>
+      <div className={failed && animated ? style.heartWrapperFailed : style.heartWrapperDefault}>
         <HeartIcon outline={white} outlineWidth={5} className={style.heartOutline} color={white} />
         <HeartIcon
           className={pickStyle(
             style.heartNormalDefault,
-            style.heartNormalFail,
-            style.heartNormalAnimatedFail,
+            style.heartNormalFailed,
+            style.heartNormalAnimatedFailed,
             style.heartNormalRevival
           )}
           color={negativeColor}
@@ -77,8 +80,8 @@ const Life = (props, context) => {
         <HeartBrokenIcon
           className={pickStyle(
             style.heartBrokenDefault,
-            style.heartBrokenFail,
-            style.heartBrokenAnimatedFail,
+            style.heartBrokenFailed,
+            style.heartBrokenAnimatedFailed,
             style.heartBrokenRevival
           )}
           color={negativeColor}
@@ -97,7 +100,7 @@ Life.propTypes = {
   animated: PropTypes.bool,
   mode: PropTypes.oneOf(keys(MODES)),
   count: PropTypes.number,
-  fail: PropTypes.bool,
+  failed: PropTypes.bool,
   className: PropTypes.string
 };
 

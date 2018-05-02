@@ -150,7 +150,6 @@
 }
 
 @media tablet {
-  .overlay,
   .scrollWrapper {
     position: relative;
     width: 100%;
@@ -203,7 +202,7 @@
   margin: 0 auto;
   width: 100%;
   height: 22px;
-  font-family: OpenSans;
+  font-family: "Open Sans";
   font-size: 16px;
   text-align: center;
   color: brand;

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import compact from 'lodash/fp/compact';
-import isEmpty from 'lodash/fp/isEmpty';
 import flatten from 'lodash/fp/flatten';
 import get from 'lodash/fp/get';
 import isNil from 'lodash/fp/isNil';
@@ -14,8 +13,6 @@ import multiply from 'lodash/fp/multiply';
 import ArrowRight from '@coorpacademy/nova-icons/composition/navigation/arrow-right';
 import ChartsIcon from '@coorpacademy/nova-icons/composition/coorpacademy/charts';
 import StarIcon from '@coorpacademy/nova-icons/composition/coorpacademy/star';
-import Heart from '@coorpacademy/nova-icons/solid/vote-and-rewards/vote-heart';
-import HeartBroken from '@coorpacademy/nova-icons/composition/coorpacademy/broken-heart';
 import classnames from 'classnames';
 import Loader from '../../../atom/loader';
 import Life from '../../../atom/life';
@@ -67,9 +64,9 @@ AnswersCorrection.propTypes = {
 
 const formatPlusSign = value => (value >= 0 ? '+' : '') + value;
 
-const Rank = ({fail, rank, animated, onAnimationEnd}, {skin}) => {
+const Rank = ({failed, rank, animated, onAnimationEnd}, {skin}) => {
   const positive = get('common.positive', skin);
-  if (fail || isNil(rank)) return null;
+  if (failed || isNil(rank)) return null;
   return (
     <AnimationScheduler animated={animated} onAnimationEnd={onAnimationEnd}>
       <div className={style.centerContent}>
@@ -89,7 +86,7 @@ const Rank = ({fail, rank, animated, onAnimationEnd}, {skin}) => {
 };
 
 Rank.propTypes = {
-  fail: PropTypes.bool,
+  failed: PropTypes.bool,
   rank: PropTypes.string,
   animated: Animation.propTypes.animated,
   onAnimationEnd: Animation.propTypes.onAnimationEnd
@@ -99,9 +96,9 @@ Rank.contextTypes = {
   skin: Provider.childContextTypes.skin
 };
 
-const Stars = ({fail, stars, animated, onAnimationEnd}, {skin}) => {
+const Stars = ({failed, stars, animated, onAnimationEnd}, {skin}) => {
   const positive = get('common.positive', skin);
-  if (fail || isNil(stars)) return null;
+  if (failed || isNil(stars)) return null;
 
   return (
     <AnimationScheduler animated={animated} onAnimationEnd={onAnimationEnd}>
@@ -122,7 +119,7 @@ const Stars = ({fail, stars, animated, onAnimationEnd}, {skin}) => {
 };
 
 Stars.propTypes = {
-  fail: PropTypes.bool,
+  failed: PropTypes.bool,
   stars: PropTypes.string,
   animated: Animation.propTypes.animated,
   onAnimationEnd: Animation.propTypes.onAnimationEnd
@@ -132,33 +129,39 @@ Stars.contextTypes = {
   skin: Provider.childContextTypes.skin
 };
 
-const Lifes = ({lives, fail, animated, revival}) => {
+const Lifes = ({lives, failed, animated, revival}) => {
   if (isNil(lives)) return null;
 
   return (
-    <Life fail={fail} count={lives} animated={animated} revival={revival} className={style.life} />
+    <Life
+      failed={failed}
+      count={lives}
+      animated={animated}
+      revival={revival}
+      className={style.life}
+    />
   );
 };
 
 Lifes.propTypes = {
   lives: Life.propTypes.count,
-  fail: Life.propTypes.fail,
+  failed: Life.propTypes.failed,
   animated: Life.propTypes.animated,
   revival: Life.propTypes.revival
 };
 
 const IconsPart = props => {
-  const {lives, fail, stars, rank, animated, revival} = props;
+  const {lives, failed, stars, rank, animated, revival} = props;
   return (
     <AnimationScheduler animated>
       <div className={style.iconsWrapper}>
-        <Lifes lives={lives} fail={fail} animated={animated} revival={revival} />
+        <Lifes lives={lives} failed={failed} animated={animated} revival={revival} />
 
         <AnimationAdapter name="stars">
-          <Stars stars={stars} fail={fail} />
+          <Stars stars={stars} fail={failed} />
         </AnimationAdapter>
         <AnimationAdapter name="rank" after="stars">
-          <Rank rank={rank} fail={fail} />
+          <Rank rank={rank} fail={failed} />
         </AnimationAdapter>
       </div>
     </AnimationScheduler>
@@ -167,22 +170,22 @@ const IconsPart = props => {
 
 IconsPart.propTypes = {
   lives: Lifes.propTypes.lives,
-  fail: Lifes.propTypes.fail,
+  failed: Lifes.propTypes.failed,
   stars: Stars.propTypes.stars,
   rank: Rank.propTypes.rank,
   animated: AnimationScheduler.propTypes.animated,
   revival: PropTypes.bool
 };
 
-const buildClass = (value, success, fail, loading) => {
+const buildClass = (value, success, failed, loading) => {
   if (loading && isNil(value)) return loading;
-  return value ? fail : success;
+  return value ? failed : success;
 };
 
-const getLinkStyle = ({isGameOver, extraLife, revival}) => {
-  if (isEmpty(extraLife) || revival) {
+const getLinkStyle = ({gameOver, extraLifeGranted}) => {
+  if (extraLifeGranted) {
     return style.oneMoreLife;
-  } else if (isGameOver) {
+  } else if (gameOver) {
     return style.gameOver;
   } else {
     return null;
@@ -190,13 +193,12 @@ const getLinkStyle = ({isGameOver, extraLife, revival}) => {
 };
 
 const CorrectionPart = props => {
-  const {fail, corrections = [], title, subtitle, stars, rank, extraLife} = props;
-  const {active: isExtraLife} = extraLife;
-  const isLoading = isNil(fail);
+  const {failed, corrections = [], title, subtitle, stars, rank, gameOver} = props;
+  const isLoading = isNil(failed);
   const className = buildClass(
-    fail,
+    failed,
     stars && rank ? style.correctionSectionEndSuccess : style.correctionSectionSuccess,
-    isExtraLife ? style.correctionSectionFailGameOver : style.correctionSectionFail,
+    gameOver ? style.correctionSectionFailGameOver : style.correctionSectionFail,
     style.correctionSectionLoading
   );
 
@@ -208,7 +210,7 @@ const CorrectionPart = props => {
           {title}
         </h1>
         <h2 className={style.subtitle}>{subtitle}</h2>
-        {fail && corrections.length ? <AnswersCorrection corrections={corrections} /> : null}
+        {failed && corrections.length ? <AnswersCorrection corrections={corrections} /> : null}
       </div>
       <IconsPart {...props} />
     </div>
@@ -216,27 +218,20 @@ const CorrectionPart = props => {
 };
 
 const NextQuestionPart = (props, context) => {
-  const {cta, extraLife, revival, fail, lives} = props;
+  const {cta, extraLifeGranted, gameOver, failed, lives} = props;
   const {title, type = 'correction', nextStepTitle, ...linkProps} = cta || {};
-  const {active: isExtraLife} = extraLife;
-  const isGameOver = !lives && !revival && (fail || isExtraLife);
-
   let dataNext;
-  if (fail) {
+  if (failed) {
     if (!lives) {
-      if (isEmpty(extraLife)) {
+      if (!extraLifeGranted) {
         dataNext = 'redo-content';
-      } else if (revival) {
+      } else if (extraLifeGranted) {
         dataNext = 'continue-used-extra-life';
-      } else if (isExtraLife) {
-        dataNext = 'game-over-with-extra-life';
-      } else {
-        dataNext = 'game-over-without-extra-life';
       }
     } else {
       dataNext = 'continue-failure';
     }
-  } else if (isEmpty(extraLife)) {
+  } else if (extraLifeGranted) {
     if (type === 'next-level') {
       dataNext = 'next-level';
     } else {
@@ -247,12 +242,12 @@ const NextQuestionPart = (props, context) => {
   }
 
   const nextStep = nextStepTitle ? (
-    <div className={style.nextStepTitle}>{nextStepTitle}</div>
+    <div className={gameOver ? style.gameOverSubtitle : style.nextStepTitle}>{nextStepTitle}</div>
   ) : null;
 
   return (
     <Link
-      className={classnames(style.nextSection, getLinkStyle({isGameOver, extraLife, revival}))}
+      className={classnames(style.nextSection, getLinkStyle({gameOver, extraLifeGranted}))}
       data-name="nextLink"
       data-next={dataNext}
       {...linkProps}
@@ -268,39 +263,10 @@ const NextQuestionPart = (props, context) => {
   );
 };
 
-const RemainingLife = (props, {skin}) => {
-  const {extraLife, revival} = props;
-  const {sentence, active: isExtraLife, exhausted} = extraLife;
-  const negative = get('common.negative', skin);
-  const white = get('common.white', skin);
-
-  return (
-    <div
-      className={classnames(
-        style.remainingLifeRequestsSentence,
-        isExtraLife && style.askLife,
-        revival && style.oneMoreLifegained,
-        exhausted && style.exhaustedLife
-      )}
-    >
-      {exhausted ? (
-        <HeartBroken color={negative} outline={white} outlineWidth={3} className={style.heart} />
-      ) : (
-        <Heart color={negative} outline={white} outlineWidth={4} className={style.heart} />
-      )}
-      {sentence}
-    </div>
-  );
-};
-
-RemainingLife.contextTypes = {
-  skin: Provider.childContextTypes.skin
-};
-
 const PopinHeader = (props, context) => {
   const {
     animated,
-    fail,
+    failed,
     title,
     subtitle,
     lives,
@@ -308,24 +274,28 @@ const PopinHeader = (props, context) => {
     rank,
     corrections,
     cta,
-    revival,
-    extraLife = {}
+    extraLifeGranted,
+    gameOver = false
   } = props;
 
-  const state = buildClass(fail, 'success', 'fail', null);
-  const {active: isExtraLife, exhausted} = extraLife;
+  const state = buildClass(failed, 'success', 'failed', null);
 
-  const nextLink = !isExtraLife ? (
-    <NextQuestionPart cta={cta} extraLife={extraLife} revival={revival} fail={fail} lives={lives} />
+  const nextLink = cta ? (
+    <NextQuestionPart
+      cta={cta}
+      extraLifeGranted={extraLifeGranted}
+      failed={failed}
+      gameOver={gameOver}
+      lives={lives}
+    />
   ) : null;
 
   return (
     <div
       className={classnames(
         style.header,
-        isExtraLife && style.gameOverHeader,
-        revival && style.revivalHeader,
-        exhausted && style.exhaustedLifeHeader
+        gameOver && style.gameOverHeader,
+        extraLifeGranted && style.revivalHeader
       )}
       data-name="popinHeader"
       data-state={state}
@@ -338,9 +308,8 @@ const PopinHeader = (props, context) => {
           animated={animated}
           stars={stars}
           rank={rank}
-          fail={fail}
-          extraLife={extraLife}
-          revival={revival}
+          failed={failed}
+          gameOver={gameOver}
           corrections={corrections}
         />
         {nextLink}
@@ -354,14 +323,10 @@ PopinHeader.contextTypes = {
 };
 
 PopinHeader.propTypes = {
-  fail: Life.propTypes.fail,
-  extraLife: PropTypes.shape({
-    active: PropTypes.bool,
-    sentence: PropTypes.string,
-    exhausted: PropTypes.bool
-  }),
+  failed: Life.propTypes.failed,
+  gameOver: PropTypes.bool,
   lives: Life.propTypes.count,
-  revival: PropTypes.bool,
+  extraLifeGranted: PropTypes.bool,
   animated: Life.propTypes.animated,
   stars: PropTypes.string,
   rank: PropTypes.string,

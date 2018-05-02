@@ -4,7 +4,7 @@ import correctClosed from './correct-closed';
 export default defaultsDeep(correctClosed, {
   props: {
     header: {
-      fail: true,
+      failed: true,
       corrections: [
         {answer: 'Je ne sais pas et cela me rend vraiment triste ... sniff', isCorrect: false}
       ],

@@ -489,6 +489,7 @@ import OrganismResourceBrowserFixtureJwplayerWithOverlay from '../src/organism/r
 import OrganismResourceBrowserFixtureJwplayer from '../src/organism/resource-browser/test/fixtures/jwplayer';
 import OrganismResourceBrowserFixtureKontiki from '../src/organism/resource-browser/test/fixtures/kontiki';
 import OrganismResourceBrowserFixtureOneVideo from '../src/organism/resource-browser/test/fixtures/one-video';
+import OrganismResourceBrowserFixturePdfWithOverlay from '../src/organism/resource-browser/test/fixtures/pdf-with-overlay';
 import OrganismResourceBrowserFixturePdf from '../src/organism/resource-browser/test/fixtures/pdf';
 import OrganismResourceBrowserFixtureVimeoWithOverlay from '../src/organism/resource-browser/test/fixtures/vimeo-with-overlay';
 import OrganismResourceBrowserFixtureVimeo from '../src/organism/resource-browser/test/fixtures/vimeo';
@@ -569,11 +570,11 @@ import TemplateAppPlayerPopinCorrectionFixtureCorrectOpenResourcesWithVideo from
 import TemplateAppPlayerPopinCorrectionFixtureCorrectOpenTips from '../src/template/app-player/popin-correction/test/fixtures/correct-open-tips';
 import TemplateAppPlayerPopinCorrectionFixtureCorrectWithoutResources from '../src/template/app-player/popin-correction/test/fixtures/correct-without-resources';
 import TemplateAppPlayerPopinCorrectionFixtureFailClosed from '../src/template/app-player/popin-correction/test/fixtures/fail-closed';
-import TemplateAppPlayerPopinCorrectionFixtureFailJokerOpenKlf from '../src/template/app-player/popin-correction/test/fixtures/fail-joker-open-klf';
 import TemplateAppPlayerPopinCorrectionFixtureFailMultipleAnswers from '../src/template/app-player/popin-correction/test/fixtures/fail-multiple-answers';
 import TemplateAppPlayerPopinCorrectionFixtureFailOpenKlf from '../src/template/app-player/popin-correction/test/fixtures/fail-open-klf';
+import TemplateAppPlayerPopinCorrectionFixtureFailOpenResourcesWithPdfAndOverlay from '../src/template/app-player/popin-correction/test/fixtures/fail-open-resources-with-pdf-and-overlay';
 import TemplateAppPlayerPopinCorrectionFixtureFailOpenResourcesWithPdf from '../src/template/app-player/popin-correction/test/fixtures/fail-open-resources-with-pdf';
-import TemplateAppPlayerPopinCorrectionFixtureFailOpenResourcesWithVideoJoker from '../src/template/app-player/popin-correction/test/fixtures/fail-open-resources-with-video-joker';
+import TemplateAppPlayerPopinCorrectionFixtureFailOpenResourcesWithVideoAndOverlay from '../src/template/app-player/popin-correction/test/fixtures/fail-open-resources-with-video-and-overlay';
 import TemplateAppPlayerPopinCorrectionFixtureFailOpenResourcesWithVideo from '../src/template/app-player/popin-correction/test/fixtures/fail-open-resources-with-video';
 import TemplateAppPlayerPopinCorrectionFixtureFailOpenTips from '../src/template/app-player/popin-correction/test/fixtures/fail-open-tips';
 import TemplateAppPlayerPopinCorrectionFixtureLoading from '../src/template/app-player/popin-correction/test/fixtures/loading';
@@ -1404,6 +1405,7 @@ export const fixtures = {
       Jwplayer: OrganismResourceBrowserFixtureJwplayer,
       Kontiki: OrganismResourceBrowserFixtureKontiki,
       OneVideo: OrganismResourceBrowserFixtureOneVideo,
+      PdfWithOverlay: OrganismResourceBrowserFixturePdfWithOverlay,
       Pdf: OrganismResourceBrowserFixturePdf,
       VimeoWithOverlay: OrganismResourceBrowserFixtureVimeoWithOverlay,
       Vimeo: OrganismResourceBrowserFixtureVimeo
@@ -1532,11 +1534,11 @@ export const fixtures = {
       CorrectOpenTips: TemplateAppPlayerPopinCorrectionFixtureCorrectOpenTips,
       CorrectWithoutResources: TemplateAppPlayerPopinCorrectionFixtureCorrectWithoutResources,
       FailClosed: TemplateAppPlayerPopinCorrectionFixtureFailClosed,
-      FailJokerOpenKlf: TemplateAppPlayerPopinCorrectionFixtureFailJokerOpenKlf,
       FailMultipleAnswers: TemplateAppPlayerPopinCorrectionFixtureFailMultipleAnswers,
       FailOpenKlf: TemplateAppPlayerPopinCorrectionFixtureFailOpenKlf,
+      FailOpenResourcesWithPdfAndOverlay: TemplateAppPlayerPopinCorrectionFixtureFailOpenResourcesWithPdfAndOverlay,
       FailOpenResourcesWithPdf: TemplateAppPlayerPopinCorrectionFixtureFailOpenResourcesWithPdf,
-      FailOpenResourcesWithVideoJoker: TemplateAppPlayerPopinCorrectionFixtureFailOpenResourcesWithVideoJoker,
+      FailOpenResourcesWithVideoAndOverlay: TemplateAppPlayerPopinCorrectionFixtureFailOpenResourcesWithVideoAndOverlay,
       FailOpenResourcesWithVideo: TemplateAppPlayerPopinCorrectionFixtureFailOpenResourcesWithVideo,
       FailOpenTips: TemplateAppPlayerPopinCorrectionFixtureFailOpenTips,
       Loading: TemplateAppPlayerPopinCorrectionFixtureLoading

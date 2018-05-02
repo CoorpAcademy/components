@@ -1,18 +1,11 @@
 export default {
   props: {
-    fail: true,
+    failed: true,
+    extraLifeGranted: false,
     lives: 0,
     title: 'Aïe Aïe Aïe',
     animated: true,
-    extraLife: {
-      active: true, // remainingLifeRequests
-      sentence: 'Bonus ! Récupérez 1 vie en regardant la leçon !' // remainingLifeRequestsSentence
-    },
     subtitle: 'Mauvaise réponse',
-    corrections: [{answer: 'Je ne sais pas', isCorrect: false}],
-    cta: {
-      title: 'Game Over',
-      href: '#'
-    }
+    corrections: [{answer: 'Je ne sais pas', isCorrect: false}]
   }
 };

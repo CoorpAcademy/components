@@ -1,19 +1,18 @@
 export default {
   props: {
-    fail: true,
-    revival: false,
+    failed: true,
+    extraLifeGranted: false,
     animated: true,
     lives: 0,
     title: 'Aïe Aïe Aïe',
-    extraLife: {
-      active: false,
-      exhausted: true,
+    gameOver: {
       sentence: 'Désolé, vous avez utilisé votre bonus !'
     },
     subtitle: 'Mauvaise réponse',
     corrections: [{answer: 'Je ne sais pas', isCorrect: false}],
     cta: {
-      title: 'Next',
+      title: 'Game Over',
+      nextStepTitle: 'No more life left',
       href: '#'
     }
   }
