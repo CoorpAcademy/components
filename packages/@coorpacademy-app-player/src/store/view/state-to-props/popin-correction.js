@@ -80,7 +80,7 @@ const noExtraLifeCTAProps = ({translate}, {dispatch}) => state => {
   return {
     title: isDead ? translate('Game over') : chapterTitle,
     onClick: () => dispatch(selectProgression(progressionId)),
-    nextStepTitle: isDead ? null : getNextStepTitle(state)
+    nextStepTitle: isDead ? translate('Sorry, you have used your bonus!') : getNextStepTitle(state)
   };
 };
 
@@ -113,18 +113,23 @@ export const popinCorrectionStateToProps = (options, store) => state => {
   const corrections = get('corrections', answerResult) || [];
   const isCorrect = isNil(answerResult) ? null : get('state.isCorrect')(progression);
   const isLoading = isNil(isCorrect);
+
   const isExtraLifeActive = get('state.nextContent.ref', progression) === 'extraLife';
-  const isRevival = isExtraLifeActive && hasViewedAResourceAtThisStep(state);
+  const extraLifeGranted = isExtraLifeActive && hasViewedAResourceAtThisStep(state);
+  const mayAcceptExtraLife = isExtraLifeActive && !extraLifeGranted;
+  const noMoreExtraLife = isExtraLifeAvailable && !isCorrect && remainingLifeRequests === 0;
 
-  console.dir({isExtraLifeActive, isRevival}, {depth: null});
+  console.dir(
+    {isExtraLifeActive, mayAcceptExtraLife, noMoreExtraLife, extraLifeGranted},
+    {depth: null}
+  );
 
-  const exhausted = isExtraLifeAvailable && !isCorrect && remainingLifeRequests === 0;
   const header = isNil(answerResult)
     ? {}
     : {
         title: translate(isCorrect ? 'Good job' : 'Ouch'),
         subtitle: translate(isCorrect ? 'Good answer' : 'Wrong answer'),
-        fail: isLoading ? null : !isCorrect,
+        failed: isLoading ? null : !isCorrect,
         lives: getLives(state)
       };
 
@@ -135,12 +140,6 @@ export const popinCorrectionStateToProps = (options, store) => state => {
   };
 
   const resources = getResourcesProps(options, store)(state, slide);
-  const quit =
-    isExtraLifeActive && !isRevival
-      ? {
-          cta: createHeaderCTA(options, store)(state)
-        }
-      : null;
 
   return {
     header: isLoading
@@ -148,20 +147,21 @@ export const popinCorrectionStateToProps = (options, store) => state => {
       : {
           lives: 1,
           title: '',
-          revival: isRevival,
           subtitle: '',
           corrections,
-          extraLife: {
-            active: isExtraLifeActive,
-            sentence: exhausted
-              ? translate('Sorry, you have used your bonus!')
-              : translate('Bonus! Get an extra life by watching the lesson below!'),
-            exhausted
-          },
-          cta: isRevival && createHeaderCTA(options, store)(state),
+          cta: !mayAcceptExtraLife && createHeaderCTA(options, store)(state),
           ...header
         },
-    quit,
+    gameOver: noMoreExtraLife,
+    overlay: mayAcceptExtraLife && {
+      title: 'Bonus !',
+      text: 'Récupérez une vie en regardant la leçon !',
+      lifeAmount: 1
+    },
+    extraLifeGranted,
+    quit: mayAcceptExtraLife && {
+      cta: createHeaderCTA(options, store)(state)
+    },
     question,
     resources: {
       title: translate('Access the lesson'),
