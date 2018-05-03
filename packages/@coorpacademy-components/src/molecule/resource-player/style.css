@@ -22,7 +22,7 @@
 }
 
 .overlay {
-  background-color: rgba(0, 0, 0, .55);
+  background-color: rgba(0, 0, 0, 0.55);
   transition: all 0.5s;
   display: flex;
   width: 100%;
@@ -38,7 +38,7 @@
 }
 
 .overlay:hover {
-  background-color: rgba(0, 0, 0, .75);
+  background-color: rgba(0, 0, 0, 0.75);
 }
 
 .overlay:hover .life > * {

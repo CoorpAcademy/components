@@ -108,13 +108,17 @@ class ResourcePlayer extends React.Component {
       customClassName
     );
 
+    const overlayView = this.state.overlay ? (
+      <OverlayElement
+        {...this.state.overlay}
+        onClick={this.handleOverlay}
+        hidePlayIcon={type === TYPE_PDF}
+      />
+    ) : null;
+
     return (
       <div className={className}>
-        <OverlayElement
-          {...this.state.overlay}
-          onClick={this.handleOverlay}
-          hidePlayIcon={type === TYPE_PDF}
-        />
+        {overlayView}
         <ResourceElement {...this.props} autoplay={this.state.autoplay} />
       </div>
     );

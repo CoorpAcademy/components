@@ -119,11 +119,6 @@ export const popinCorrectionStateToProps = (options, store) => state => {
   const mayAcceptExtraLife = isExtraLifeActive && !extraLifeGranted;
   const noMoreExtraLife = isExtraLifeAvailable && !isCorrect && remainingLifeRequests === 0;
 
-  console.dir(
-    {isExtraLifeActive, mayAcceptExtraLife, noMoreExtraLife, extraLifeGranted},
-    {depth: null}
-  );
-
   const header = isNil(answerResult)
     ? {}
     : {

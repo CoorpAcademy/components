@@ -192,6 +192,7 @@
   0% {
     flex-grow: 0;
   }
+
   100% {
     flex-grow: 1;
   }
