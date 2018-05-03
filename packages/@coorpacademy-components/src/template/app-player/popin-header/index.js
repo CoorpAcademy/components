@@ -310,6 +310,7 @@ const PopinHeader = (props, context) => {
           rank={rank}
           failed={failed}
           gameOver={gameOver}
+          revival={extraLifeGranted}
           corrections={corrections}
         />
         {nextLink}
