@@ -16,6 +16,8 @@ const MODES = {
 const Life = (props, context) => {
   const {skin} = context;
   const {
+    bounce = null,
+    heartOnRight = false,
     animated = false,
     count = 3,
     failed = false,
@@ -37,6 +39,13 @@ const Life = (props, context) => {
     if (failed && animated) return animatedFailedStyle;
     if (failed) return failedStyle;
     return successStyle;
+  };
+
+  const heartWrapper = failed && animated ? style.heartWrapperFailed : style.heartWrapperDefault;
+  const bounceClass = bounce ? style.bounce : null;
+  const heartCustomStyle = {
+    animationDelay: bounce && bounce.delay,
+    left: heartOnRight && '70px'
   };
 
   return (
@@ -66,7 +75,7 @@ const Life = (props, context) => {
           <div className={style.multiplierText}>x</div>
         )}
       </div>
-      <div className={failed && animated ? style.heartWrapperFailed : style.heartWrapperDefault}>
+      <div className={classnames(heartWrapper, bounceClass)} style={heartCustomStyle}>
         <HeartIcon outline={white} outlineWidth={5} className={style.heartOutline} color={white} />
         <HeartIcon
           className={pickStyle(
@@ -98,6 +107,10 @@ Life.contextTypes = {
 Life.propTypes = {
   revival: PropTypes.bool,
   animated: PropTypes.bool,
+  bounce: PropTypes.shape({
+    delay: PropTypes.string
+  }),
+  heartOnRight: PropTypes.bool,
   mode: PropTypes.oneOf(keys(MODES)),
   count: PropTypes.number,
   failed: PropTypes.bool,
