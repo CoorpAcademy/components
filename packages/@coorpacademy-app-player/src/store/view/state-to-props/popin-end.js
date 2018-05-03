@@ -98,7 +98,7 @@ const summaryHeader = ({translate}, {dispatch}) => state => {
       () => ({
         title: getOr('', 'name')(getCurrentContent(state)),
         subtitle: translate('Congratulations!'),
-        fail: false,
+        failed: false,
         stars: extractStars(state),
         rank: extractRank(state),
         cta: successCta
@@ -109,7 +109,7 @@ const summaryHeader = ({translate}, {dispatch}) => state => {
       () => ({
         title: translate('Ooops'),
         subtitle: lives === 0 ? translate('You are out of lives!') : translate('Nice try!'),
-        fail: true,
+        failed: true,
         lives,
         rank: extractRank(state),
         stars: null,

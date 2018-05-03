@@ -575,7 +575,7 @@ import TemplateAppPlayerPopinCorrectionFixtureFailOpenKlf from '../src/template/
 import TemplateAppPlayerPopinCorrectionFixtureFailOpenResourcesWithPdfAndOverlay from '../src/template/app-player/popin-correction/test/fixtures/fail-open-resources-with-pdf-and-overlay';
 import TemplateAppPlayerPopinCorrectionFixtureFailOpenResourcesWithPdf from '../src/template/app-player/popin-correction/test/fixtures/fail-open-resources-with-pdf';
 import TemplateAppPlayerPopinCorrectionFixtureFailOpenResourcesWithVideoAndOverlay from '../src/template/app-player/popin-correction/test/fixtures/fail-open-resources-with-video-and-overlay';
-import TemplateAppPlayerPopinCorrectionFixtureFailOpenResourcesWithVideo from '../src/template/app-player/popin-correction/test/fixtures/fail-open-resources-with-video';
+import TemplateAppPlayerPopinCorrectionFixtureFailOpenResourcesWithVideoExtralifeGranted from '../src/template/app-player/popin-correction/test/fixtures/fail-open-resources-with-video-extralife-granted';
 import TemplateAppPlayerPopinCorrectionFixtureFailOpenTips from '../src/template/app-player/popin-correction/test/fixtures/fail-open-tips';
 import TemplateAppPlayerPopinCorrectionFixtureLoading from '../src/template/app-player/popin-correction/test/fixtures/loading';
 import TemplateAppPlayerPopinEndFixtureCommentIsLoading from '../src/template/app-player/popin-end/test/fixtures/comment-is-loading';
@@ -1539,7 +1539,7 @@ export const fixtures = {
       FailOpenResourcesWithPdfAndOverlay: TemplateAppPlayerPopinCorrectionFixtureFailOpenResourcesWithPdfAndOverlay,
       FailOpenResourcesWithPdf: TemplateAppPlayerPopinCorrectionFixtureFailOpenResourcesWithPdf,
       FailOpenResourcesWithVideoAndOverlay: TemplateAppPlayerPopinCorrectionFixtureFailOpenResourcesWithVideoAndOverlay,
-      FailOpenResourcesWithVideo: TemplateAppPlayerPopinCorrectionFixtureFailOpenResourcesWithVideo,
+      FailOpenResourcesWithVideoExtralifeGranted: TemplateAppPlayerPopinCorrectionFixtureFailOpenResourcesWithVideoExtralifeGranted,
       FailOpenTips: TemplateAppPlayerPopinCorrectionFixtureFailOpenTips,
       Loading: TemplateAppPlayerPopinCorrectionFixtureLoading
     },

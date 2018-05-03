@@ -1,8 +1,9 @@
 import defaultsDeep from 'lodash/fp/defaultsDeep';
-import failVideo from './fail-open-resources-with-video';
+import failVideo from './fail-open-resources-with-video-extralife-granted';
 
 export default defaultsDeep(failVideo, {
   props: {
+    extraLifeGranted: false,
     header: {
       cta: null
     },

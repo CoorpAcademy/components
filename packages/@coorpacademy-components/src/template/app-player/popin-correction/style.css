@@ -217,3 +217,10 @@
   text-decoration: none;
   text-transform: uppercase;
 }
+
+.hideQuitCta {
+  composes: quitCta;
+  height: 0px;
+  padding: 0;
+  transition: all 1s;
+}

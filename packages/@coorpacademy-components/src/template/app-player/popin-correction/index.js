@@ -113,13 +113,14 @@ class PopinCorrection extends Component {
     const className = this.state.open ? style.finalBackground : style.initialBackground;
     const {title, ...linkProps} = quit.cta || {};
 
-    const quitCta = quit.cta ? (
-      <div className={isLoading ? style.loadingContent : style.quitCta}>
-        <Link data-name="quitLink" data-next="game-over-without-extra-life" {...linkProps}>
-          {title}
-        </Link>
-      </div>
-    ) : null;
+    const quitCta =
+      quit.cta || extraLifeGranted ? (
+        <div className={extraLifeGranted ? style.hideQuitCta: style.quitCta}>
+          <Link data-name="quitLink" data-next="game-over-without-extra-life" {...linkProps}>
+            {title}
+          </Link>
+        </div>
+      ) : null;
 
     return (
       <div ref={this.initWrapper} className={className} data-name="popinCorrection">
