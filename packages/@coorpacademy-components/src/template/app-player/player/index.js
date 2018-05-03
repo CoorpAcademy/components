@@ -22,8 +22,7 @@ const SlidePlayer = props => {
 
 SlidePlayer.propTypes = {
   header: PropTypes.shape(Header.propTypes),
-  player: PropTypes.shape(SlidesPlayer.propTypes),
-  IsIE: PropTypes.bool
+  player: PropTypes.shape(SlidesPlayer.propTypes)
 };
 
 export default SlidePlayer;
