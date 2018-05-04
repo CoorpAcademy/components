@@ -6,10 +6,13 @@ import style from './style.css';
 
 const SlidePlayer = props => {
   const {header, player} = props;
-
+  const backgroundImage = player.backgroundUrl ? `url(${player.backgroundUrl})` : null;
   return (
     <div data-name="slidePlayer" className={style.wrapper}>
       <Header {...header} />
+      <div className={style.wrapperImg}>
+        <div className={style.img} style={{backgroundImage}} />
+      </div>
       <div className={style.playerWrapper}>
         <SlidesPlayer {...player} />
       </div>
