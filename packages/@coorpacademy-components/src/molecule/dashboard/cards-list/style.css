@@ -75,6 +75,7 @@
   box-sizing: border-box;
   padding: 8px;
   min-width: 274px;
+  transition: all 0.25s linear;
 }
 
 .arrow {
@@ -141,7 +142,9 @@
 
   .card {
     width: 100%;
-    flex: 0 0 272px;
+    flex: 0 0 210px;
+    min-width: 210px;
+    transition: all 0.25s linear;
   }
 
   .showMore {

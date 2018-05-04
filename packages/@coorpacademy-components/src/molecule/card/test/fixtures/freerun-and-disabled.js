@@ -7,8 +7,8 @@ export default {
   props: defaultsDeep(props, {
     disabled: true,
     type: 'chapter',
-    freerun: true,
-    time: '2h',
+    image:
+      'https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-marmiton/cockpit-marmiton/cover/shutterstock_520965634-1491986518210.jpg&h=500&w=500&q=90',
     progress: 0
   })
 };
