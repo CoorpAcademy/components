@@ -149,8 +149,8 @@ export const popinCorrectionStateToProps = (options, store) => state => {
         },
     gameOver: noMoreExtraLife,
     overlay: mayAcceptExtraLife && {
-      title: 'Bonus !',
-      text: 'Récupérez une vie en regardant la leçon !',
+      title: translate('Bonus!'),
+      text: translate('Get an extra life by watching the lesson.'),
       lifeAmount: 1
     },
     extraLifeGranted,

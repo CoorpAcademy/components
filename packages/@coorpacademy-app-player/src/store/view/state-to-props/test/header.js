@@ -2,6 +2,7 @@ import test from 'ava';
 import set from 'lodash/fp/set';
 import identity from 'lodash/fp/identity';
 import omit from 'lodash/fp/omit';
+import pipe from 'lodash/fp/pipe';
 import {mockTranslate} from '@coorpacademy/translate';
 import createHeader from '../header';
 import basicSlide from './fixtures/slides/basic';
@@ -41,6 +42,21 @@ const data = {
           name: 'some-title'
         }
       }
+    },
+    level: {
+      entities: {
+        '1.B': {
+          name: 'level-with-chapters',
+          chapterIds: ['1.B1', '1.B2', '1.B3']
+        }
+      }
+    },
+    slide: {
+      entities: {
+        [basicSlide._id]: {
+          chapter_id: '1.B2'
+        }
+      }
     }
   },
   progressions: {
@@ -66,6 +82,24 @@ test('should read title from the content when available', t => {
 
   t.deepEqual(omit('onClick', props.content), {
     title: 'some-title'
+  });
+});
+
+test('should find chapter details within learner.header.subcontent', t => {
+  const ui = {current: {progressionId: 'basic'}};
+  const state = {
+    data: pipe(
+      set('progressions.entities.basic.engine.ref', 'learner'),
+      set('progressions.entities.basic.content.type', 'level'),
+      set('progressions.entities.basic.content.ref', '1.B')
+    )(data),
+    ui
+  };
+  const props = headerProps(state);
+
+  t.deepEqual(props.subcontent, {
+    title: 'some-title',
+    details: '2/3'
   });
 });
 

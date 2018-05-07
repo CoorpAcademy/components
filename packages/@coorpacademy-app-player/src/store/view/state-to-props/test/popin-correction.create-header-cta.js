@@ -192,7 +192,7 @@ test('should create a "Game over" CTA when entering a failure exit popin', async
   t.deepEqual(omit('onClick', cta), {
     type: 'correction',
     title: '__Game over',
-    nextStepTitle: null
+    nextStepTitle: '__Sorry, you have used your bonus!'
   });
   const dispatched = await cta.onClick();
   t.deepEqual(actionTypes(dispatched), [
