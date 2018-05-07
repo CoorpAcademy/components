@@ -37,12 +37,12 @@
   color: dark;
 }
 
-.multiplier {
+.operatorWrapper {
   composes: counterText;
-  color: grey;
 }
 
-.multiplierText {
+.operator {
+  color: grey;
   margin-left: -14px;
 }
 
@@ -149,6 +149,10 @@
 
 .bounceTwice {
   composes: bounceTwice from '../../atom/css-animations/bounce-twice.css';
+}
+
+.bounceAndPause {
+  composes: bounceAndPause from '../../atom/css-animations/bounce-and-pause.css';
 }
 
 .heartWrapperFailed {
@@ -258,7 +262,7 @@
   line-height: 42px;
 }
 
-.small .multiplierText {
+.small .operator {
   margin-left: -10px;
 }
 

@@ -63,7 +63,7 @@ const OverlayElement = (props = {}) => {
         <Play className={style.playButton} />
         <Life
           count={lifeAmount}
-          addLife
+          operator="+"
           bounce={{
             type: 'bounceTwice'
           }}

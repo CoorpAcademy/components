@@ -1,7 +1,7 @@
 export default {
   props: {
     count: 1,
-    addLife: true,
+    operator: '+',
     style: {
       backgroundColor: '#90A4AE'
     }

@@ -13,6 +13,12 @@ const MODES = {
   small: style.small
 };
 
+const BOUNCES = {
+  bounce: style.bounce,
+  bounceTwice: style.bounceTwice,
+  bounceAndPause: style.bounceAndPause
+};
+
 const Life = (props, context) => {
   const {skin} = context;
   const {
@@ -22,7 +28,7 @@ const Life = (props, context) => {
     count = 3,
     failed = false,
     mode = 'default',
-    addLife = false,
+    operator = 'x',
     revival,
     className,
     style: customStyle
@@ -42,12 +48,14 @@ const Life = (props, context) => {
   };
 
   const heartWrapper = failed && animated ? style.heartWrapperFailed : style.heartWrapperDefault;
-  const bounceClass = bounce ? style[bounce.type] : null;
+  const bounceClass = bounce ? BOUNCES[bounce.type] : null;
   const heartCustomStyle = {
     animationDelay: bounce && bounce.delay,
     animationDuration: bounce && bounce.duration,
     left: heartOnRight && '70px'
   };
+
+  const countStyle = failed ? style.livesCounterFailed : style.livesCounterDefault;
 
   return (
     <div data-name="life" className={classnames(MODES[mode], className)} style={customStyle}>
@@ -62,19 +70,12 @@ const Life = (props, context) => {
         >
           {count + 1}
         </div>
-        <div
-          data-name="counter"
-          className={failed ? style.livesCounterFailed : style.livesCounterDefault}
-        >
+        <div data-name="counter" className={countStyle}>
           {count}
         </div>
       </div>
-      <div className={style.multiplier}>
-        {addLife ? (
-          <div className={style.multiplierText}>+</div>
-        ) : (
-          <div className={style.multiplierText}>x</div>
-        )}
+      <div className={style.operatorWrapper}>
+        <span className={style.operator}>{operator}</span>
       </div>
       <div className={classnames(heartWrapper, bounceClass)} style={heartCustomStyle}>
         <HeartIcon outline={white} outlineWidth={5} className={style.heartOutline} color={white} />
@@ -116,7 +117,8 @@ Life.propTypes = {
   mode: PropTypes.oneOf(keys(MODES)),
   count: PropTypes.number,
   failed: PropTypes.bool,
-  className: PropTypes.string
+  className: PropTypes.string,
+  operator: PropTypes.string
 };
 
 export default Life;
