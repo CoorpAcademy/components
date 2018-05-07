@@ -147,6 +147,10 @@
   composes: bounce from '../../atom/css-animations/bounce.css';
 }
 
+.bounceTwice {
+  composes: bounceTwice from '../../atom/css-animations/bounce-twice.css';
+}
+
 .heartWrapperFailed {
   composes: heartWrapper;
   animation-name: shakeHeart;

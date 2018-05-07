@@ -55,27 +55,33 @@ ResourceElement.propTypes = {
 };
 
 const OverlayElement = (props = {}) => {
-  const {lifeAmount, onClick, hidePlayIcon} = props;
-  const playIcon = hidePlayIcon ? null : <Play className={style.playButton} />;
+  const {title, text, lifeAmount, onClick} = props;
 
   return (
     <div className={style.overlay} onClick={onClick}>
-      {playIcon}
-      <Life
-        className={style.life}
-        count={lifeAmount}
-        addLife
-        bounce={{delay: '0.2s'}}
-        heartOnRight
-      />
+      <div className={style.icons}>
+        <Play className={style.playButton} />
+        <Life
+          count={lifeAmount}
+          addLife
+          bounce={{
+            type: 'bounceTwice'
+          }}
+          heartOnRight
+        />
+      </div>
+
+      <p className={style.overlayTitle}>{title}</p>
+      <p className={style.overlayText}>{text}</p>
     </div>
   );
 };
 
 OverlayElement.propTypes = {
-  hidePlayIcon: PropTypes.bool,
   lifeAmount: PropTypes.number,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  text: PropTypes.string,
+  title: PropTypes.string
 };
 
 class ResourcePlayer extends React.Component {
@@ -109,11 +115,7 @@ class ResourcePlayer extends React.Component {
     );
 
     const overlayView = this.state.overlay ? (
-      <OverlayElement
-        {...this.state.overlay}
-        onClick={this.handleOverlay}
-        hidePlayIcon={type === TYPE_PDF}
-      />
+      <OverlayElement {...this.state.overlay} onClick={this.handleOverlay} />
     ) : null;
 
     return (

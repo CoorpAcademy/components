@@ -42,9 +42,10 @@ const Life = (props, context) => {
   };
 
   const heartWrapper = failed && animated ? style.heartWrapperFailed : style.heartWrapperDefault;
-  const bounceClass = bounce ? style.bounce : null;
+  const bounceClass = bounce ? style[bounce.type] : null;
   const heartCustomStyle = {
     animationDelay: bounce && bounce.delay,
+    animationDuration: bounce && bounce.duration,
     left: heartOnRight && '70px'
   };
 
@@ -108,6 +109,7 @@ Life.propTypes = {
   revival: PropTypes.bool,
   animated: PropTypes.bool,
   bounce: PropTypes.shape({
+    type: PropTypes.oneOf(['bounce', 'bounceTwice', 'bounceAndPause']),
     delay: PropTypes.string
   }),
   heartOnRight: PropTypes.bool,
