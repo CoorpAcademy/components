@@ -545,6 +545,7 @@ import TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureQcm from '../src/template
 import TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureRange from '../src/template/app-player/player/slides/slides-player/test/fixtures/range';
 import TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureTemplate from '../src/template/app-player/player/slides/slides-player/test/fixtures/template';
 import TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureWithMinHeight from '../src/template/app-player/player/slides/slides-player/test/fixtures/with-min-height';
+import TemplateAppPlayerPlayerFixtureBackground from '../src/template/app-player/player/test/fixtures/background';
 import TemplateAppPlayerPlayerFixtureClue from '../src/template/app-player/player/test/fixtures/clue';
 import TemplateAppPlayerPlayerFixtureContextWithImage from '../src/template/app-player/player/test/fixtures/context-with-image';
 import TemplateAppPlayerPlayerFixtureContextWithPdf from '../src/template/app-player/player/test/fixtures/context-with-pdf';
@@ -1445,68 +1446,11 @@ export const fixtures = {
     }
   },
   TemplateAppPlayer: {
-<<<<<<< HEAD
-    Loading: {
-      Default: LoadingFixtureDefault
-    },
-    Player: {
-      Background: PlayerFixtureBackground,
-      Clue: PlayerFixtureClue,
-      ContextWithImage: PlayerFixtureContextWithImage,
-      ContextWithPdf: PlayerFixtureContextWithPdf,
-      ContextWithVideo: PlayerFixtureContextWithVideo,
-      Context: PlayerFixtureContext,
-      DropDown: PlayerFixtureDropDown,
-      Empty: PlayerFixtureEmpty,
-      Error: PlayerFixtureError,
-      FreeText: PlayerFixtureFreeText,
-      Media: PlayerFixtureMedia,
-      NoClue: PlayerFixtureNoClue,
-      OnlyClue: PlayerFixtureOnlyClue,
-      QcmDrag: PlayerFixtureQcmDrag,
-      QcmGraphic: PlayerFixtureQcmGraphic,
-      QcmShort: PlayerFixtureQcmShort,
-      Qcm: PlayerFixtureQcm,
-      Range: PlayerFixtureRange
-    },
-    PopinCorrection: {
-      CorrectClosed: PopinCorrectionFixtureCorrectClosed,
-      CorrectNextChapter: PopinCorrectionFixtureCorrectNextChapter,
-      CorrectOpenKlf: PopinCorrectionFixtureCorrectOpenKlf,
-      CorrectOpenResourcesWithPdf: PopinCorrectionFixtureCorrectOpenResourcesWithPdf,
-      CorrectOpenResourcesWithVideo: PopinCorrectionFixtureCorrectOpenResourcesWithVideo,
-      CorrectOpenTips: PopinCorrectionFixtureCorrectOpenTips,
-      CorrectWithoutResources: PopinCorrectionFixtureCorrectWithoutResources,
-      FailClosed: PopinCorrectionFixtureFailClosed,
-      FailJokerOpenKlf: PopinCorrectionFixtureFailJokerOpenKlf,
-      FailMultipleAnswers: PopinCorrectionFixtureFailMultipleAnswers,
-      FailOpenKlf: PopinCorrectionFixtureFailOpenKlf,
-      FailOpenResourcesWithPdf: PopinCorrectionFixtureFailOpenResourcesWithPdf,
-      FailOpenResourcesWithVideoJoker: PopinCorrectionFixtureFailOpenResourcesWithVideoJoker,
-      FailOpenResourcesWithVideo: PopinCorrectionFixtureFailOpenResourcesWithVideo,
-      FailOpenTips: PopinCorrectionFixtureFailOpenTips,
-      Loading: PopinCorrectionFixtureLoading
-    },
-    PopinEnd: {
-      CommentIsLoading: PopinEndFixtureCommentIsLoading,
-      CommentSent: PopinEndFixtureCommentSent,
-      Comment: PopinEndFixtureComment,
-      Correct: PopinEndFixtureCorrect,
-      Default: PopinEndFixtureDefault,
-      Fail: PopinEndFixtureFail,
-      Loading: PopinEndFixtureLoading,
-      NegativeRank: PopinEndFixtureNegativeRank,
-      NextCourse: PopinEndFixtureNextCourse,
-      NextLevelAdaptiveImg: PopinEndFixtureNextLevelAdaptiveImg,
-      SimpleAction: PopinEndFixtureSimpleAction,
-      Subscribe: PopinEndFixtureSubscribe,
-      WithLoadingRecommendations: PopinEndFixtureWithLoadingRecommendations,
-      WithRecommendations: PopinEndFixtureWithRecommendations
-=======
     TemplateAppPlayerLoading: {
       Default: TemplateAppPlayerLoadingFixtureDefault
     },
     TemplateAppPlayerPlayer: {
+      Background: TemplateAppPlayerPlayerFixtureBackground,
       Clue: TemplateAppPlayerPlayerFixtureClue,
       ContextWithImage: TemplateAppPlayerPlayerFixtureContextWithImage,
       ContextWithPdf: TemplateAppPlayerPlayerFixtureContextWithPdf,
@@ -1569,7 +1513,6 @@ export const fixtures = {
       NextChapter: TemplateAppPlayerPopinHeaderFixtureNextChapter,
       StarsRank: TemplateAppPlayerPopinHeaderFixtureStarsRank,
       Success: TemplateAppPlayerPopinHeaderFixtureSuccess
->>>>>>> moved popin-header; cleanup props
     }
   },
   TemplateAppPlayerPlayer: {

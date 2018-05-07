@@ -8,6 +8,7 @@ import omit from 'lodash/fp/omit';
 import CheckIcon from '@coorpacademy/nova-icons/composition/coorpacademy/check';
 import Loader from '../../../atom/loader';
 import Link from '../../../atom/link';
+import Provider from '../../../atom/provider';
 import ResourceBrowser from '../../../organism/resource-browser';
 import Accordion from '../../../organism/accordion/container';
 import Header from '../popin-header';
@@ -108,6 +109,9 @@ class PopinCorrection extends Component {
       quit = {}
     } = this.props;
 
+    const {skin} = this.context;
+    const primary = getOr('#f0f', 'common.primary', skin);
+
     const tabs = extractTabs({resources, klf, tips});
     const isLoading = isNil(header.failed);
     const className = this.state.open ? style.finalBackground : style.initialBackground;
@@ -115,11 +119,17 @@ class PopinCorrection extends Component {
 
     const quitCta =
       quit.cta || extraLifeGranted ? (
-        <div className={extraLifeGranted ? style.hideQuitCta : style.quitCta}>
-          <Link data-name="quitLink" data-next="game-over-without-extra-life" {...linkProps}>
-            {title}
-          </Link>
-        </div>
+        <Link
+          style={{
+            color: primary
+          }}
+          className={extraLifeGranted ? style.hideQuitCta : style.quitCta}
+          data-name="nextLink"
+          data-next="game-over-without-extra-life"
+          {...linkProps}
+        >
+          {title}
+        </Link>
       ) : null;
 
     return (
@@ -150,6 +160,10 @@ class PopinCorrection extends Component {
     );
   }
 }
+
+PopinCorrection.contextTypes = {
+  skin: Provider.childContextTypes.skin
+};
 
 PopinCorrection.propTypes = {
   resources: ResourceBrowser.propTypes.resources,
