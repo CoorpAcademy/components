@@ -3,6 +3,7 @@ export default {
     resource: {
       type: 'video',
       mimeType: 'video/mp4',
+      description: 'De l’éco-conception à l’innovation responsable',
       jwpOptions: {
         playerId: '12345',
         file: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
