@@ -64,6 +64,7 @@
   color: inherit;
   transition: color 0.3s;
   user-select: none;
+  pointer-events: none;
 }
 
 .openPDFButton:hover {
