@@ -219,7 +219,7 @@ test(
 );
 
 test(
-  'should see video opened during extra life, even if all lessons have been watched',
+  'should see lesson opened during extra life',
   macro,
   stateWithSlideAndManyResources,
   services(extraLifeAndViewedThreeLessons),

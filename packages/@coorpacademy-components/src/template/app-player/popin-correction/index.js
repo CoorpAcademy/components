@@ -118,7 +118,7 @@ class PopinCorrection extends Component {
     const {title, ...linkProps} = quit.cta || {};
 
     const quitCta =
-      quit.cta || extraLifeGranted ? (
+      title || extraLifeGranted ? (
         <Link
           style={{
             color: primary
@@ -166,7 +166,11 @@ PopinCorrection.contextTypes = {
 };
 
 PopinCorrection.propTypes = {
-  resources: ResourceBrowser.propTypes.resources,
+  resources: PropTypes.shape({
+    title: PropTypes.string,
+    value: ResourceBrowser.propTypes.resources,
+    open: PropTypes.bool
+  }),
   overlay: ResourceBrowser.propTypes.overlay,
   header: PropTypes.shape(omit(['animated'], Header.propTypes)),
   question: PropTypes.shape(Question.propTypes),
@@ -175,14 +179,12 @@ PopinCorrection.propTypes = {
   onClick: PropTypes.func,
   extraLifeGranted: PropTypes.bool,
   gameOver: PropTypes.bool,
-  quit: {
+  quit: PropTypes.shape({
     cta: PropTypes.shape({
       ...Link.propTypes,
-      title: PropTypes.string,
-      type: PropTypes.type,
-      nextStepTitle: PropTypes.string
+      title: PropTypes.string
     })
-  },
+  }),
   onOpen: PropTypes.func
 };
 

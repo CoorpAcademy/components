@@ -20,7 +20,7 @@ test('should put revival to true if current step is extra life and a lesson has 
   );
 
   t.true(get('extraLifeGranted', props));
-  t.false(get('quit', props));
+  t.is(props.quit, undefined);
 });
 
 test('should put revival to false if current step is extra life and a lesson has not been viewed', t => {
@@ -30,7 +30,7 @@ test('should put revival to false if current step is extra life and a lesson has
   );
 
   t.false(get('extraLifeGranted', props));
-  t.is(get('quit.cta.title', props), '__Game over');
+  t.is(get('quit.cta.title', props), '__Quit');
   t.deepEqual(get('overlay', props), {
     title: '__Bonus!',
     text: '__Get an extra life by watching the lesson.',
@@ -50,6 +50,6 @@ test('should put revival to false if current step is not extra life, even if les
   );
 
   t.false(get('extraLifeGranted', props));
-  t.false(get('quit', props));
-  t.falsy(get('overlay', props));
+  t.is(props.quit, undefined);
+  t.is(props.overlay, undefined);
 });

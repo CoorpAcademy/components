@@ -30,7 +30,7 @@ test('should set properties for success popin', t => {
   const {props} = vNode;
 
   t.is(props.header.lives, 1);
-  t.false(props.header.fail);
+  t.false(props.header.failed);
   t.is(props.header.title, '__Good job');
   t.is(props.header.subtitle, '__Good answer');
   t.is(props.question.answerPrefix, '__Correct answer');
@@ -59,7 +59,7 @@ test('should set properties to open resource tab if wrong answer and no resource
   const {props} = vNode;
 
   t.is(props.header.lives, 0);
-  t.true(props.header.fail);
+  t.true(props.header.failed);
   t.is(props.header.title, '__Ouch');
   t.is(props.header.subtitle, '__Wrong answer');
   t.deepEqual(props.question.answer, 'Text');
@@ -114,7 +114,7 @@ test('should set properties when selecting second resource', t => {
   const {props} = vNode;
 
   t.is(props.header.lives, 0);
-  t.true(props.header.fail);
+  t.true(props.header.failed);
   t.is(props.header.title, '__Ouch');
   t.is(props.header.subtitle, '__Wrong answer');
   t.deepEqual(props.header.corrections, [{answer: 'Toto', isCorrect: false}]);
@@ -189,7 +189,7 @@ test('should show correction on multiple answers for a slide', t => {
   const {props} = vNode;
 
   t.is(props.header.lives, 0);
-  t.true(props.header.fail);
+  t.true(props.header.failed);
   t.is(props.header.title, '__Ouch');
   t.is(props.header.subtitle, '__Wrong answer');
   t.deepEqual(props.question.answer, 'France, Suisse');
@@ -208,8 +208,9 @@ test('should show correction for extra life state', t => {
   const {props} = vNode;
 
   t.is(props.header.lives, 0);
-  t.true(props.header.fail);
-  t.is(props.header.cta.title, '__Game over');
+  t.true(props.header.failed);
+  t.is(props.gameOver, false);
+  t.is(props.quit.cta.title, '__Quit');
 });
 
 test('should show correction for revival state', t => {
@@ -218,6 +219,6 @@ test('should show correction for revival state', t => {
   const {props} = vNode;
 
   t.is(props.header.lives, 0);
-  t.true(props.header.fail);
+  t.true(props.header.failed);
   t.is(props.header.cta.title, '__Next');
 });

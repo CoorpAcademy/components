@@ -130,11 +130,11 @@ class ResourcePlayer extends React.Component {
 ResourcePlayer.propTypes = {
   className: PropTypes.string,
   resource: PropTypes.oneOfType([videoPropType, pdfPropType, imgPropType]),
-  overlay: {
+  overlay: PropTypes.shape({
     title: PropTypes.string,
     text: PropTypes.string,
     lifeAmount: PropTypes.number
-  }
+  })
 };
 
 export default ResourcePlayer;

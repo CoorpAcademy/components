@@ -17,5 +17,5 @@ test('should open popin-correction if current content ref is extraLife', t => {
   const props = mapStateToProps(statePopinExtraLife);
 
   t.is(get('header.lives', props), 0);
-  t.is(get('quit.cta.title', props), '__Game over');
+  t.is(get('quit.cta.title', props), '__Quit');
 });

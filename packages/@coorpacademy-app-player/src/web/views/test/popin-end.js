@@ -21,7 +21,7 @@ test('should set properties for success popin for microlearning', async t => {
   t.is(props.header.lives.count, 0);
   t.is(props.summary.header.title, '');
   t.is(props.summary.header.subtitle, '__Congratulations!');
-  t.is(props.summary.header.fail, false);
+  t.is(props.summary.header.failed, false);
   t.is(props.summary.header.stars, '+10');
   t.is(props.summary.header.rank, '+10');
 
@@ -57,7 +57,7 @@ test('should set properties for failure popin', async t => {
   t.is(props.header.lives.count, 0);
   t.is(props.summary.header.title, '__Ooops');
   t.is(props.summary.header.subtitle, '__You are out of lives!');
-  t.is(props.summary.header.fail, true);
+  t.is(props.summary.header.failed, true);
   t.is(props.summary.header.stars, null);
   t.is(props.summary.header.rank, null);
 
@@ -90,7 +90,7 @@ test('should set properties for failure popin when losing rank', async t => {
   t.is(props.header.lives.count, 0);
   t.is(props.summary.header.title, '__Ooops');
   t.is(props.summary.header.subtitle, '__You are out of lives!');
-  t.is(props.summary.header.fail, true);
+  t.is(props.summary.header.failed, true);
   t.is(props.summary.header.stars, null);
   t.is(props.summary.header.rank, '-10');
 
