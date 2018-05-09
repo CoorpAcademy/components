@@ -272,8 +272,7 @@
 
 .nextStepTitle {
   display: block;
-  min-width: 170px;
-  width: 200px;
+  max-width: 90%;
   min-height: 17px;
   height: auto;
   font-family: 'Open Sans';

@@ -80,7 +80,7 @@ const noExtraLifeCTAProps = ({translate}, {dispatch}) => state => {
   return {
     title: isDead ? translate('Game over') : chapterTitle,
     onClick: () => dispatch(selectProgression(progressionId)),
-    nextStepTitle: isDead ? translate('Sorry, you have used your bonus!') : getNextStepTitle(state)
+    nextStepTitle: isDead ? translate('Click to continue') : getNextStepTitle(state)
   };
 };
 

@@ -5,14 +5,12 @@ export default {
     animated: true,
     lives: 0,
     title: 'Aïe Aïe Aïe',
-    gameOver: {
-      sentence: 'Désolé, vous avez utilisé votre bonus !'
-    },
+    gameOver: true,
     subtitle: 'Mauvaise réponse',
     corrections: [{answer: 'Je ne sais pas', isCorrect: false}],
     cta: {
       title: 'Game Over',
-      nextStepTitle: 'No more life left',
+      nextStepTitle: 'Click to continue',
       href: '#'
     }
   }
