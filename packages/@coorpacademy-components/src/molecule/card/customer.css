@@ -1,0 +1,38 @@
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px 0 0 12px;
+  width: calc(100% - 24px);
+  height: calc(100% - 24px);
+  font-family: 'Open Sans';
+  text-align: center;
+  color: white;
+  text-transform: uppercase;
+  font-size: 12px;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.75);
+}
+
+.coorp,
+.original {
+  letter-spacing: 0.2em;
+}
+
+.coorp {
+  font-weight: normal;
+  margin-right: 0.4em;
+}
+
+.original {
+  font-weight: bold;
+}
+
+.customer.centerTextLayout .content {
+  align-items: center;
+  align-content: center;
+}
+
+.customer.topTextLayout .content {
+  align-items: flex-start;
+  align-content: flex-start;
+}

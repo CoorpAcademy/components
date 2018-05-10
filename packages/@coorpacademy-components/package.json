@@ -60,7 +60,8 @@
     "qs": "6.5.0",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
-    "react-jw-player": "1.10.0"
+    "react-jw-player": "1.10.0",
+    "react-responsive": "4.1.0"
   },
   "devDependencies": {
     "@coorpacademy/css-modules-require-hook": "0.0.2",

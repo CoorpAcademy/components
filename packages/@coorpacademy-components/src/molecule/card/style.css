@@ -1,315 +1,231 @@
-@value breakpoints: "../../variables/breakpoints.css";
-@value desktop from breakpoints;
-@value tablet from breakpoints;
-@value mobile from breakpoints;
 @value colors: "../../variables/colors.css";
-@value light from colors;
-@value grey from colors;
 @value dark from colors;
-@value xtraLightGrey from colors;
-@value white from colors;
+@value grey from colors;
+@value light from colors;
 
-.default[disabled] {
-  pointer-events: none;
-}
-
-.default {
-  display: inline-block;
-  box-sizing: border-box;
-  width: 258px;
-  vertical-align: top;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  background: white;
-  overflow: hidden;
-  height: 260px;
-  text-align: left;
-  transition: all 0.1s ease-in-out;
-  text-decoration: none;
+.card {
   position: relative;
-  opacity: 0;
-  animation: fadeIn 1s ease-out forwards;
-}
-
-.list.empty,
-.grid.empty {
-  opacity: 0.6;
-}
-
-.lazy {
-  composes: default;
-  pointer-events: none;
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-.default:hover {
-  background: light;
-  cursor: pointer;
-}
-
-.default[disabled] .imageWrapper {
-  opacity: 0.4;
-}
-
-.lockWrapper {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
+  width: 256px;
   height: 258px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10;
-  opacity: 0.4;
-  background: white;
-}
-
-.lock {
-  width: 45px;
-  height: 45px;
-}
-
-.imageWrapper {
-  height: 125px;
-  position: relative;
-  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid light;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.07);
   overflow: hidden;
-  background-position: 50%;
-  background-size: cover;
-}
-
-.imageWrapper a {
-  text-decoration: none;
   cursor: pointer;
+  transition: box-shadow 0.6s;
 }
 
-.timer {
+.card.unlocked:hover {
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.25);
+}
+
+.backgroundContainer,
+.background {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  padding: 3px 5px;
-  background: white;
-  border-radius: 100px;
-  font-size: 10px;
-  font-family: "Open Sans";
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: dark;
-}
-
-.clockIcon {
-  width: 12px;
-  height: 12px;
-  margin: -2px 2px 0 0;
-}
-
-.timer::before {
-  font: normal normal normal 14px/1 FontAwesome;
-  color: dark;
-  margin-right: 5px;
-}
-
-.adaptiv {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  top: 10px;
-  left: 10px;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.4);
-}
-
-.adaptivIcon {
-  margin-top: -2px;
-  width: 21px;
-  height: 21px;
-}
-
-.timerIconWrapper {
-  width: 50px;
-  height: 50px;
-  background-color: white;
-  border-radius: 50%;
-}
-
-.freerunIcon {
-  margin-top: 9px;
-  margin-left: -2px;
-  width: 50px;
-  height: 30px;
-}
-
-.ctaWrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  padding: 0 26px;
-}
-
-.imageWrapper img {
   width: 100%;
   height: 100%;
+}
+
+.background {
+  background-size: cover;
+  transition: transform 1s ease-in;
+}
+
+.card.unlocked:hover .background {
+  transform-origin: center;
+  transform: scale(2);
+  transition: transform 30s ease-out;
+}
+
+.card.locked {
+  cursor: initial;
+}
+
+.card.locked .lockOverlay {
+  display: flex;
+}
+
+.customer {
   position: absolute;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
 }
 
-.progressWrapper {
+.content {
   position: absolute;
+  top: 48%;
   left: 0;
-  width: 100%;
-  height: 5px;
-  background: xtraLightGrey;
+  right: 0;
+  padding: 10px 20px 0;
+  bottom: 0;
+  background-color: white;
+  transition: transform 2s;
 }
 
-.progress {
-  display: block;
-  height: 5px;
-  animation: progressbar 2s ease-in-out;
-}
-
-.infoWrapper {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 15px 20px;
-  height: 135px;
-}
-
-.type {
-  font-weight: 700;
-  font-size: 9px;
-  text-transform: uppercase;
-}
-
-.type.empty::before {
-  content: '▅▅▅▅▅▅▅▅▅';
-}
-
-.default[disabled] .type {
-  color: grey;
+.title,
+.author {
+  font-family: 'Open Sans';
 }
 
 .title {
-  margin-top: 5px;
   font-size: 18px;
+  margin-bottom: 5px;
   color: dark;
-  letter-spacing: 0;
-}
-
-.title.empty::before {
-  content: '▅▅▅▅▅▅▅▅▅▅▅  ▅▅▅▅▅▅▅▅▅';
-}
-
-.title a {
-  color: dark;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.default:hover .infoWrapper .title {
-  text-decoration: underline;
 }
 
 .author {
-  margin-top: 5px;
   font-size: 12px;
   color: grey;
-  width: 100%;
-  white-space: nowrap;
+}
+
+.author .icon {
+  display: none;
+  width: 12px;
+  height: 12px;
+  margin-left: 0.25em;
+  fill: grey;
+}
+
+.author.certified .icon {
+  display: inline;
+}
+
+.progress {
+  position: absolute;
+  bottom: 11%;
+  left: 40px;
+  right: 40px;
+  height: 2px;
+  background-color: light;
+  border-radius: 1px;
   overflow: hidden;
-  text-overflow: ellipsis;
 }
 
-.author.empty::before {
-  content: '▅▅▅▅▅▅▅▅▅';
+.progress > .value {
+  height: 100%;
 }
 
-.emptyIcon {
-  vertical-align: middle;
-  width: 80px;
-  height: 70px;
+.adaptiveIcon {
+  position: absolute;
+  display: none;
+  fill: white;
+  width: 25px;
+  height: 25px;
+  left: 20px;
+  bottom: 100%;
+  transform-origin: center;
+  transform: translate(0, 50%);
 }
 
-@keyframes progressbar {
-  0% {
-    width: 0;
-  }
+.lockOverlay {
+  position: absolute;
+  display: none;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  justify-content: center;
+  align-items: center;
 }
 
-@media mobile {
-  .grid .title a {
-    font-size: 15px;
-  }
+.lockOverlay .icon {
+  fill: white;
+  width: 36px;
+  height: 36px;
+}
 
-  .grid .author {
-    margin-top: 5px;
-  }
+.card.adaptive .adaptiveIcon {
+  display: block;
+}
 
-  .list {
-    width: 100%;
-  }
+.card.backgroundLayoutTop .customer {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 40%);
+}
 
-  .list .lockWrapper {
-    height: 120px;
-  }
+.badge {
+  position: absolute;
+  width: auto;
+  height: auto;
+  background-color: white;
+  padding: 2px 3px;
+  top: 0;
+  left: 0;
+  font-family: 'Open Sans';
+  text-transform: uppercase;
+  font-size: 8px;
+  font-weight: bold;
+  border-bottom-right-radius: 2px;
+  transition: transform .6s;
+}
 
-  .list .default {
-    width: 100%;
-    height: 120px;
-    display: flex;
-    flex-flow: row nowrap;
-    position: relative;
-  }
+.card.unlocked:hover .badge {
+  transform: translateY(-100%);
+}
 
-  .list .imageWrapper {
-    position: absolute;
-    width: 100px;
-    height: 100%;
-  }
+/*
+ * Background layout : cover
+ */
 
-  .list .timer {
-    top: 5px;
-    right: 5px;
-  }
+.card.backgroundLayoutCover .content {
+  min-height: 80px;
+  height: 52%;
+  bottom: 0;
+  top: initial;
+}
 
-  .list .adaptiv {
-    top: 5px;
-    left: 5px;
-  }
+.card.backgroundLayoutCover .backgroundContainer::after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.35;
+}
 
-  .list .progressWrapper {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-  }
+.card.backgroundLayoutCover .content {
+  background-color: transparent;
+}
 
-  .list .infoWrapper {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 8px 15px 8px 115px;
-    height: 100%;
-  }
+.card.backgroundLayoutCover .title,
+.card.backgroundLayoutCover .author {
+  color: white;
+}
 
-  .list .title {
-    margin: 12px 0;
-    font-size: 13px;
-    line-height: 15px;
-    font-weight: 700;
-  }
+.card.backgroundLayoutCover .author .icon {
+  fill: white;
+}
+
+/*
+ * Background layout : left
+ */
+
+.card.backgroundLayoutLeft {
+  width: 360px;
+  height: 120px;
+}
+
+.card.backgroundLayoutLeft .content {
+  top: 0;
+  left: 30%;
+}
+
+.card.backgroundLayoutLeft .title {
+  font-size: 15px;
+}
+
+.card.backgroundLayoutLeft .author {
+  font-size: 12px;
+}
+
+.card.backgroundLayoutLeft .progress {
+  left: 20px;
+  right: 24%;
+}
+
+.card.backgroundLayoutLeft .customer {
+  width: 30%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 20%, rgba(0, 0, 0, 0) 90%);
 }

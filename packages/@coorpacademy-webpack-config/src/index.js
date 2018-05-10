@@ -40,6 +40,7 @@ const createConfig = (NODE_ENV = 'development', additionalPlugins = []) => ({
       {
         test: /\.js$/,
         loader: 'babel-loader',
+        exclude: /node_modules/,
         options: {
           cacheDirectory: true,
           presets: [

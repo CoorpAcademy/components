@@ -310,14 +310,20 @@ import BrandUploadBoxFixtureDefault from '../src/molecule/brand-upload-box/test/
 import BrandUploadBoxFixtureLoading from '../src/molecule/brand-upload-box/test/fixtures/loading';
 import BrandUploadBoxFixtureSso from '../src/molecule/brand-upload-box/test/fixtures/sso';
 import BreadcrumbsFixtureDefault from '../src/molecule/breadcrumbs/test/fixtures/default';
-import CardFixtureAdaptivAndDisabled from '../src/molecule/card/test/fixtures/adaptiv-and-disabled';
-import CardFixtureAdaptiv from '../src/molecule/card/test/fixtures/adaptiv';
-import CardFixtureCatalogue from '../src/molecule/card/test/fixtures/catalogue';
+import CardFixtureAdaptive from '../src/molecule/card/test/fixtures/adaptive';
+import CardFixtureCoverBackground from '../src/molecule/card/test/fixtures/cover-background';
+import CardFixtureCoverbgCoorpOriginal from '../src/molecule/card/test/fixtures/coverbg-coorp-original';
+import CardFixtureCoverbgCustom from '../src/molecule/card/test/fixtures/coverbg-custom';
 import CardFixtureDefault from '../src/molecule/card/test/fixtures/default';
-import CardFixtureDisabled from '../src/molecule/card/test/fixtures/disabled';
-import CardFixtureEmpty from '../src/molecule/card/test/fixtures/empty';
-import CardFixtureFreerunAndDisabled from '../src/molecule/card/test/fixtures/freerun-and-disabled';
-import CardFixtureFreerun from '../src/molecule/card/test/fixtures/freerun';
+import CardFixtureLeftBackground from '../src/molecule/card/test/fixtures/left-background';
+import CardFixtureLeftbgCoorpOriginal from '../src/molecule/card/test/fixtures/leftbg-coorp-original';
+import CardFixtureLeftbgCustom from '../src/molecule/card/test/fixtures/leftbg-custom';
+import CardFixtureLocked from '../src/molecule/card/test/fixtures/locked';
+import CardFixtureNewBadge from '../src/molecule/card/test/fixtures/new-badge';
+import CardFixtureTopBackground from '../src/molecule/card/test/fixtures/top-background';
+import CardFixtureTopbgCoorpOriginal from '../src/molecule/card/test/fixtures/topbg-coorp-original';
+import CardFixtureTopbgCustom from '../src/molecule/card/test/fixtures/topbg-custom';
+import CardFixtureUncertified from '../src/molecule/card/test/fixtures/uncertified';
 import BattleRequestListFixtureDefault from '../src/molecule/dashboard/battle-request-list/test/fixtures/default';
 import BattleRequestListFixtureEmpty from '../src/molecule/dashboard/battle-request-list/test/fixtures/empty';
 import CardsListFixtureDefault from '../src/molecule/dashboard/cards-list/test/fixtures/default';
@@ -469,9 +475,6 @@ import BrandTableFixtureLoading from '../src/organism/brand-table/test/fixtures/
 import BrandUploadFixtureDefault from '../src/organism/brand-upload/test/fixtures/default';
 import BrandUploadFixtureLoading from '../src/organism/brand-upload/test/fixtures/loading';
 import CardsGridFixtureCatalog from '../src/organism/cards-grid/test/fixtures/catalog';
-import CardsGridFixtureEmpty from '../src/organism/cards-grid/test/fixtures/empty';
-import CardsGridFixtureLoading from '../src/organism/cards-grid/test/fixtures/loading';
-import CardsGridFixtureMany from '../src/organism/cards-grid/test/fixtures/many';
 import CartFixtureDefault from '../src/organism/cart/test/fixtures/default';
 import DiscussionFixtureDefault from '../src/organism/discussion/test/fixtures/default';
 import DiscussionFixtureLoadingMore from '../src/organism/discussion/test/fixtures/loading-more';
@@ -1080,14 +1083,20 @@ export const fixtures = {
       Default: BreadcrumbsFixtureDefault
     },
     Card: {
-      AdaptivAndDisabled: CardFixtureAdaptivAndDisabled,
-      Adaptiv: CardFixtureAdaptiv,
-      Catalogue: CardFixtureCatalogue,
+      Adaptive: CardFixtureAdaptive,
+      CoverBackground: CardFixtureCoverBackground,
+      CoverbgCoorpOriginal: CardFixtureCoverbgCoorpOriginal,
+      CoverbgCustom: CardFixtureCoverbgCustom,
       Default: CardFixtureDefault,
-      Disabled: CardFixtureDisabled,
-      Empty: CardFixtureEmpty,
-      FreerunAndDisabled: CardFixtureFreerunAndDisabled,
-      Freerun: CardFixtureFreerun
+      LeftBackground: CardFixtureLeftBackground,
+      LeftbgCoorpOriginal: CardFixtureLeftbgCoorpOriginal,
+      LeftbgCustom: CardFixtureLeftbgCustom,
+      Locked: CardFixtureLocked,
+      NewBadge: CardFixtureNewBadge,
+      TopBackground: CardFixtureTopBackground,
+      TopbgCoorpOriginal: CardFixtureTopbgCoorpOriginal,
+      TopbgCustom: CardFixtureTopbgCustom,
+      Uncertified: CardFixtureUncertified
     },
     DisciplineCta: {
       Default: DisciplineCtaFixtureDefault,
@@ -1369,10 +1378,7 @@ export const fixtures = {
       Loading: BrandUploadFixtureLoading
     },
     CardsGrid: {
-      Catalog: CardsGridFixtureCatalog,
-      Empty: CardsGridFixtureEmpty,
-      Loading: CardsGridFixtureLoading,
-      Many: CardsGridFixtureMany
+      Catalog: CardsGridFixtureCatalog
     },
     Cart: {
       Default: CartFixtureDefault
