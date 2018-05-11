@@ -1,7 +1,9 @@
 {
   "presets": [
-    "stage-1",
     "react"
+  ],
+  "plugins": [
+    "transform-object-rest-spread"
   ],
   "env": {
     "commonjs": {

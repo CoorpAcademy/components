@@ -26,6 +26,7 @@
     "babel-loader": "^7.0.0",
     "babel-plugin-css-modules-transform": "^1.2.7",
     "babel-plugin-istanbul": "^4.1.4",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.5",
     "babel-preset-env": "^1.5.2",
     "babel-preset-react": "^6.24.1",
