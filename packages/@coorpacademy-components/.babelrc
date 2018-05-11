@@ -1,6 +1,10 @@
 {
+  "plugins": [
+    "transform-export-extensions",
+    "transform-object-rest-spread",
+    "transform-class-properties"
+  ],
   "presets": [
-    "stage-1",
     "react"
   ],
   "env": {

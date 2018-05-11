@@ -12,9 +12,6 @@ coverage:
       appPlayer:
         target: 100%
         paths: "packages/@coorpacademy-app-player"
-      appTemplate:
-        target: auto
-        paths: "packages/@coorpacademy-app-template"
       components:
         target: auto
         paths: "packages/@coorpacademy-components"
