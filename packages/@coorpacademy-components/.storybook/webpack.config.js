@@ -2,8 +2,8 @@ const hash = '[folder]_[local]-[hash:base64:5]';
 const path = require('path');
 const webpack = require('webpack');
 
-module.exports = (storybookBaseConfig, configType) => {
-  storybookBaseConfig.module.rules = [
+module.exports = (baseConfig, env, defaultConfig) => {
+  baseConfig.module.rules = [
     {
       test: /\.(ttf|otf|eot|svg|woff)$/,
       loader: 'file-loader'
@@ -54,9 +54,5 @@ module.exports = (storybookBaseConfig, configType) => {
     }
   ];
 
-  storybookBaseConfig.plugins = storybookBaseConfig.plugins.filter(
-    plugin => !(plugin instanceof webpack.optimize.UglifyJsPlugin)
-  );
-
-  return storybookBaseConfig;
+  return baseConfig;
 };

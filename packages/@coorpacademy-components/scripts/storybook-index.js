@@ -1,5 +1,5 @@
 const {relative, dirname} = require('path');
-const {Observable, from, of} = require('rxjs');
+const {from, of} = require('rxjs');
 const {map, reduce, concatAll, concatMap} = require('rxjs/operators');
 const set = require('lodash/fp/set');
 const mapValues = require('lodash/fp/mapValues');

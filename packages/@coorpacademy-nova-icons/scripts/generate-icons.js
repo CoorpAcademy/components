@@ -160,7 +160,13 @@ export default ${componentName};`);
 const optimizeSVG = fileName =>
   new Promise((resolve, reject) =>
     readQueue.push({fileName}, (err, input) => {
-      const svgo = new SVGO();
+      const svgo = new SVGO({
+        plugins: [
+          {
+            removeViewBox: false
+          }
+        ]
+      });
 
       svgo
         .optimize(input)
