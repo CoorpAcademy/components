@@ -28,7 +28,7 @@
     "Julien Seren-Rosso <julien.seren-rosso@coorpacademy.com>"
   ],
   "dependencies": {
-    "@coorpacademy/redux-history": "^3.7.3",
+    "@coorpacademy/redux-history": "5.3.11",
     "lodash": "^4.17.4",
     "path-match": "^1.2.4"
   },
