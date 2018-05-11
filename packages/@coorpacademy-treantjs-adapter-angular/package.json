@@ -42,7 +42,6 @@
     "babel-plugin-istanbul": "^4.1.4",
     "babel-preset-env": "^1.5.2",
     "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-1": "^6.24.1",
     "browser-env": "^2.0.31",
     "cross-env": "^5.0.0",
     "express": "^4.15.3",

@@ -35,7 +35,7 @@
   "engines": {
     "node": "^8.11.1",
     "npm": "^5.6.0",
-    "yarn": "^1.2.1"
+    "yarn": "^1.6.0"
   },
   "workspaces": [
     "packages/*"
@@ -64,7 +64,7 @@
   "ava": {
     "concurrency": 8,
     "files": [
-      "**/test/**/*.js"
+      "packages/@coorpacademy-app-player/**/test/**/*.js"
     ],
     "require": [
       "babel-register",

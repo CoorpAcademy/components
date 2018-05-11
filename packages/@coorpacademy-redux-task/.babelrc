@@ -1,8 +1,5 @@
 {
-  "presets": [
-    "stage-1"
-  ],
-  "env": {
+"env": {
     "commonjs": {
       "presets": [
         [
