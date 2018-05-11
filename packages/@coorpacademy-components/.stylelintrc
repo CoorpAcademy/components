@@ -1,6 +1,9 @@
 {
   "extends": ["stylelint-config-standard"],
   "rules": {
+    "font-family-no-missing-generic-family-keyword": null,
+    "no-descending-specificity": null,
+    "no-duplicate-selectors": null,
     "selector-pseudo-class-no-unknown": [
       true,
       {

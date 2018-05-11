@@ -33,7 +33,7 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.5.2",
-    "browser-env": "^2.0.31",
+    "browser-env": "^3.2.5",
     "cross-env": "^5.0.0",
     "rimraf": "^2.6.1",
     "webpack": "^3.5.6",
