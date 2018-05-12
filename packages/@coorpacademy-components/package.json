@@ -26,7 +26,6 @@
     "generate:fixtures": "node scripts/fixture-tests.js src src/test/helpers/render-component.js",
     "generate:storybook": "node scripts/storybook-index.js src storybook/components.js > storybook/components.js",
     "generate": "concurrently \"npm run generate:index\" \"npm run generate:storybook\" \"npm run generate:fixtures\"",
-    "init-component": "node scripts/init-component.js",
     "prepare": "npm run clean && npm run build --production",
     "prestart": "concurrently \"npm run generate:index\" \"npm run generate:storybook\"",
     "start": "npm run storybook:run",

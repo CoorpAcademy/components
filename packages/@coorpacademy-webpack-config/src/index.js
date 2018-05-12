@@ -64,9 +64,8 @@ const createConfig = (NODE_ENV = 'development', additionalPlugins = []) => {
             {
               loader: 'css-loader',
               options: {
-                minimize: NODE_ENV === 'production',
+                minimize: isProduction,
                 modules: true,
-                importLoaders: 1,
                 localIdentName: hash
               }
             },
@@ -92,7 +91,7 @@ const createConfig = (NODE_ENV = 'development', additionalPlugins = []) => {
         additionalPlugins
       );
 
-      if (NODE_ENV === 'production')
+      if (isProduction)
         plugins.push(
           new CompressionPlugin({
             asset: '[path].gz',

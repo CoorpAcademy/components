@@ -12,7 +12,6 @@
     "generate": "lerna exec --scope @coorpacademy/components -- npm run generate",
     "generate:fixtures": "lerna exec --scope @coorpacademy/components -- npm run generate:fixtures",
     "generate:types": "node flow-typed/custom/lodash-fp.build.js",
-    "init-component": "lerna exec --scope @coorpacademy/components -- npm run init-component",
     "lerna": "lerna",
     "lint": "npm run eslint && npm run stylelint",
     "lint:fix": "npm run eslint:fix && npm run stylelint:fix",
