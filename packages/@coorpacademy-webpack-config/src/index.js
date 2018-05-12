@@ -3,7 +3,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CompressionPlugin from 'compression-webpack-plugin';
 import {BundleAnalyzerPlugin} from 'webpack-bundle-analyzer';
 
-const hash = '[folder]_[local]-[hash:base64:5]';
+const hash = '[local]-[hash:base64:5]';
 
 const createConfig = (NODE_ENV = 'development', additionalPlugins = []) => {
   const isProduction = NODE_ENV === 'production';
