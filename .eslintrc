@@ -40,6 +40,7 @@
     "no-shadow": ["error", {"builtinGlobals": true, "hoist": "all", "allow": ["Promise", "history", "location", "find", "name", "Notification", "Animation", "T"]}],
     "promise/no-native": "off",
     "react/jsx-no-bind": "off",
+    "react/no-deprecated": "warn",
     "react/prop-types": "off"
   },
   "settings": {
