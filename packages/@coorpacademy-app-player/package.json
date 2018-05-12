@@ -17,7 +17,7 @@
     "clean:build:commonjs": "rimraf lib",
     "clean:build:es": "rimraf es",
     "clean:build": "npm run clean:build:commonjs && npm run clean:build:es",
-    "clean:static": "npm run static",
+    "clean:static": "rimraf static",
     "clean": "npm run clean:build && npm run clean:static",
     "prepare": "npm run clean && npm run build --production",
     "static": "webpack --progress --output-path static/dist/ --config sandbox-web/webpack.config.js",
