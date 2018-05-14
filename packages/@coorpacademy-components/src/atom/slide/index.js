@@ -22,8 +22,12 @@ const Slide = props => {
           textAlign: alignment
         }}
       >
-        <h2 className={style.surtitle}>{surtitle}</h2>
-        <h1 className={style.title}>{title}</h1>
+        <h2 className={style.surtitle} data-name="surtitle">
+          {surtitle}
+        </h2>
+        <h1 className={style.title} data-name="title">
+          {title}
+        </h1>
         {ctaView}
       </div>
     </div>

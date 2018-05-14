@@ -54,7 +54,11 @@ class Progression extends React.Component {
       <ProgressionItem {...omit(['ref'], progression)} key={progression.ref} />
     ));
     const engineTabs = engines.map(engine => <EngineStars {...engine} key={engine.type} />);
-    const coreProgression = <div className={style.core}>{allProgressions}</div>;
+    const coreProgression = (
+      <div data-name="activityCore" className={style.core}>
+        {allProgressions}
+      </div>
+    );
     const themeSelect = !isEmpty(themeFilter.options) && (
       <Select
         borderClassName={style.selectBorder}
@@ -93,7 +97,7 @@ class Progression extends React.Component {
               {themeSelect}
               {recommendationSection}
             </div>
-            <div className={style.myStars}>
+            <div data-name="myStars" className={style.myStars}>
               <div className={style.allStars}>{engineTabs}</div>
               <div
                 className={style.totalStars}
@@ -110,7 +114,7 @@ class Progression extends React.Component {
             </div>
           </div>
         </div>
-        <div className={style.wrapperProgression} data-name="activity-list">
+        <div className={style.wrapperProgression} data-name="activityList">
           {coreProgression}
           {loader}
         </div>

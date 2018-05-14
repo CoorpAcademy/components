@@ -38,7 +38,7 @@ const ResourcePlayer = props => {
   );
 
   return (
-    <div className={className}>
+    <div data-name={type} className={className}>
       <ResourceElement {...props} />
     </div>
   );

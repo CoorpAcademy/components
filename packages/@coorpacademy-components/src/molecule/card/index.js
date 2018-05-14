@@ -57,7 +57,7 @@ const Card = (props, context) => {
   };
   const myprogress = !empty ? (
     <div className={style.progressWrapper}>
-      <div className={style.progress} style={inlineProgressValueStyle} />
+      <div data-name="progress" className={style.progress} style={inlineProgressValueStyle} />
     </div>
   ) : null;
 

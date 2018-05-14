@@ -187,6 +187,7 @@ const Footer = ({title, color, ...linkProps}) => (
     style={{
       color
     }}
+    data-name="footer"
     className={style.footer}
     {...linkProps}
   >

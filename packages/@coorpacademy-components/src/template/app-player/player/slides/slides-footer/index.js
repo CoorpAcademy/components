@@ -49,6 +49,7 @@ const SlidesFooter = (props, context) => {
         data-name="button"
         data-type={type}
         data-selected={selected}
+        data-disabled={disabled}
         className={className}
         key={key}
         onClick={onClick}
