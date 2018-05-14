@@ -231,7 +231,7 @@ const NextQuestionPart = (props, context) => {
     } else {
       dataNext = 'continue-failure';
     }
-  } else if (extraLifeGranted) {
+  } else if (!extraLifeGranted) {
     if (type === 'next-level') {
       dataNext = 'next-level';
     } else {

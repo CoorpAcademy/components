@@ -58,7 +58,7 @@ const OverlayElement = (props = {}) => {
   const {title, text, lifeAmount, onClick} = props;
 
   return (
-    <div className={style.overlay} onClick={onClick}>
+    <div className={style.overlay} onClick={onClick} data-name="overlay">
       <div className={style.icons}>
         <Play className={style.playButton} />
         <Life
