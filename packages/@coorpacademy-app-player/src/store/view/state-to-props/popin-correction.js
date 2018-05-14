@@ -154,7 +154,7 @@ export const popinCorrectionStateToProps = (options, store) => state => {
     overlay: mayAcceptExtraLife
       ? {
           title: translate('Bonus!'),
-          text: translate('Get an extra life by watching the lesson.'),
+          text: translate('Get an extra life by viewing the lesson.'),
           lifeAmount: 1
         }
       : undefined,

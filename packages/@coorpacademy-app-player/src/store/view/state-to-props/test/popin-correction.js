@@ -33,7 +33,7 @@ test('should put revival to false if current step is extra life and a lesson has
   t.is(get('quit.cta.title', props), '__Quit');
   t.deepEqual(get('overlay', props), {
     title: '__Bonus!',
-    text: '__Get an extra life by watching the lesson.',
+    text: '__Get an extra life by viewing the lesson.',
     lifeAmount: 1
   });
 });
