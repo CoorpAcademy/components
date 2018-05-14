@@ -75,8 +75,6 @@ class Vimeo extends React.Component {
         case 'autoplay':
           player.play();
           break;
-        default:
-        // Nothing
       }
     });
   }
