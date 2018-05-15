@@ -1,0 +1,45 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value colors: "../../variables/colors.css";
+@value white from colors;
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px 12px 0;
+  width: 100%;
+  font-family: 'Open Sans';
+  box-sizing: border-box;
+  text-align: center;
+  color: white;
+  text-transform: uppercase;
+  font-size: 12px;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.75);
+}
+
+.coorp,
+.original {
+  letter-spacing: 3px;
+}
+
+.coorp {
+  font-weight: 100;
+  margin-right: 5px;
+  letter-spacing: 4px;
+}
+
+.original {
+  font-weight: 600;
+}
+
+.content {
+  align-items: center;
+  align-content: center;
+}
+
+@media mobile {
+  .content {
+    padding: 14px 12px;
+  }
+}

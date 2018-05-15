@@ -18,21 +18,115 @@
   box-sizing: border-box;
   width: 258px;
   vertical-align: top;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  background: white;
+  border: solid 1px light;
+  background-color: white;
   overflow: hidden;
   height: 260px;
   text-align: left;
-  transition: all 0.1s ease-in-out;
+  transition: all 0.25s ease-in-out;
   text-decoration: none;
   position: relative;
   opacity: 0;
   animation: fadeIn 1s ease-out forwards;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.07);
+}
+
+.customer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.customer {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 40%);
 }
 
 .list.empty,
 .grid.empty {
   opacity: 0.6;
+}
+
+.course {
+  width: 256px;
+  height: 258px;
+}
+
+.course .imageWrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.default .image {
+  overflow: hidden;
+  background-position: 50%;
+  background-size: cover;
+  transition: all 0.25s linear;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 125px;
+}
+
+.default .image::after {
+  opacity: 0;
+  transition: opacity 0.25s linear;
+}
+
+.default:hover .image {
+  transform-origin: center;
+  transform: scale(1.1);
+  transition: all 1s linear;
+}
+
+.chapter:hover .progressWrapper {
+  background: white;
+}
+
+.default:hover .image::after {
+  opacity: 0.5;
+  transition: opacity 0.25s linear;
+}
+
+.default .image::after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.35;
+  top: 0;
+  left: 0;
+}
+
+.course .infoWrapper {
+  position: relative;
+  padding: 0 15px;
+  height: 110px;
+  margin-top: 134px;
+}
+
+.course .title {
+  text-align: left;
+  color: white;
+}
+
+.course .author {
+  font-size: 12px;
+  color: white;
+  text-align: left;
+}
+
+.course .adaptiv {
+  top: 100px;
+}
+
+.course .author .icon {
+  fill: white;
 }
 
 .lazy {
@@ -53,6 +147,7 @@
 .default:hover {
   background: light;
   cursor: pointer;
+  transition: background 0.25s linear;
 }
 
 .default[disabled] .imageWrapper {
@@ -68,14 +163,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 10;
-  opacity: 0.4;
-  background: white;
 }
 
-.lock {
-  width: 45px;
-  height: 45px;
+.lockWrapper::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  content: '';
+  opacity: 0.4;
+  background: black;
+}
+
+.lockIcon {
+  font-size: 40px;
+  z-index: 1;
 }
 
 .imageWrapper {
@@ -92,77 +195,14 @@
   cursor: pointer;
 }
 
-.timer {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  padding: 3px 5px;
-  background: white;
-  border-radius: 100px;
-  font-size: 10px;
-  font-family: "Open Sans";
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: dark;
-}
-
-.clockIcon {
-  width: 12px;
-  height: 12px;
-  margin: -2px 2px 0 0;
-}
-
-.timer::before {
-  font: normal normal normal 14px/1 FontAwesome;
-  color: dark;
-  margin-right: 5px;
-}
-
 .adaptiv {
   position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  top: 10px;
-  left: 10px;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.4);
+  left: 15px;
+  top: 90px;
+  font-size: 25px;
 }
 
-.adaptivIcon {
-  margin-top: -2px;
-  width: 21px;
-  height: 21px;
-}
-
-.timerIconWrapper {
-  width: 50px;
-  height: 50px;
-  background-color: white;
-  border-radius: 50%;
-}
-
-.freerunIcon {
-  margin-top: 9px;
-  margin-left: -2px;
-  width: 50px;
-  height: 30px;
-}
-
-.ctaWrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  padding: 0 26px;
-}
-
-.imageWrapper img {
+.image {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -171,38 +211,56 @@
 }
 
 .progressWrapper {
-  position: absolute;
+  position: relative;
   left: 0;
-  width: 100%;
-  height: 5px;
-  background: xtraLightGrey;
+  width: 180px;
+  height: 2px;
+  border-radius: 1px;
+  margin: 0 auto;
+  background: light;
+}
+
+.default[disabled] .progressWrapper {
+  display: none;
+}
+
+.default[disabled] .customer {
+  background: none;
 }
 
 .progress {
   display: block;
-  height: 5px;
+  height: 2px;
   animation: progressbar 2s ease-in-out;
+}
+
+.badge {
+  position: absolute;
+  width: auto;
+  height: auto;
+  background-color: white;
+  padding: 3px 11px;
+  top: 0;
+  left: 0;
+  font-family: 'Open Sans';
+  text-transform: uppercase;
+  font-size: 8px;
+  font-weight: bold;
+  border-bottom-right-radius: 7px;
+  transition: transform 0.5s linear;
+}
+
+.default:hover .badge {
+  transform-origin: center;
+  transform: scale(1.1);
+  transition: transform 0.5s linear;
 }
 
 .infoWrapper {
   width: 100%;
   box-sizing: border-box;
-  padding: 15px 20px;
-  height: 135px;
-}
-
-.type {
-  font-weight: 700;
-  font-size: 9px;
-  text-transform: uppercase;
-}
-
-.type.empty::before {
-  content: '▅▅▅▅▅▅▅▅▅';
-}
-
-.default[disabled] .type {
-  color: grey;
+  padding: 10px 20px;
+  height: 119px;
 }
 
 .title {
@@ -210,6 +268,9 @@
   font-size: 18px;
   color: dark;
   letter-spacing: 0;
+  font-family: 'Open Sans';
+  overflow: hidden;
+  max-height: 75px;
 }
 
 .title.empty::before {
@@ -222,18 +283,28 @@
   cursor: pointer;
 }
 
-.default:hover .infoWrapper .title {
-  text-decoration: underline;
-}
-
 .author {
   margin-top: 5px;
   font-size: 12px;
   color: grey;
   width: 100%;
+  font-family: 'Open Sans';
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-weight: 100;
+}
+
+.author.certified .icon {
+  display: inline;
+}
+
+.author .icon {
+  display: none;
+  width: 12px;
+  height: 12px;
+  margin-left: 0.25em;
+  fill: grey;
 }
 
 .author.empty::before {
@@ -257,12 +328,59 @@
     font-size: 15px;
   }
 
-  .grid .author {
+  .author {
     margin-top: 5px;
   }
 
   .list {
     width: 100%;
+    height: 120px;
+  }
+
+  .grid .default {
+    width: 200px;
+    height: 260px;
+  }
+
+  .grid .progressWrapper {
+    width: 150px;
+  }
+
+  .list.course .infoWrapper {
+    padding: 0 15px;
+    height: 42px;
+    margin-top: 42px;
+  }
+
+  .list .adaptiv {
+    top: 15px;
+  }
+
+  .title {
+    font-size: 15px;
+    overflow: hidden;
+  }
+
+  .author {
+    font-size: 12px;
+  }
+
+  .list.course .progressWrapper {
+    position: absolute;
+    left: 15px;
+    right: 15px;
+    bottom: 10px;
+    width: inherit;
+  }
+
+  .grid .customer {
+    padding-top: 10px;
+  }
+
+  .list.chapter .customer {
+    width: 100px;
+    display: flex;
+    height: 100%;
   }
 
   .list .lockWrapper {
@@ -277,26 +395,24 @@
     position: relative;
   }
 
-  .list .imageWrapper {
+  .list.chapter .imageWrapper {
     position: absolute;
     width: 100px;
     height: 100%;
   }
 
-  .list .timer {
-    top: 5px;
-    right: 5px;
-  }
-
-  .list .adaptiv {
-    top: 5px;
+  .list.chapter .adaptiv {
+    top: 85px;
     left: 5px;
+    fill: white;
   }
 
-  .list .progressWrapper {
+  .list.chapter .progressWrapper {
     position: absolute;
-    bottom: 0;
-    left: 0;
+    bottom: 10px;
+    left: 115px;
+    right: 15px;
+    width: inherit;
   }
 
   .list .infoWrapper {
@@ -306,10 +422,30 @@
     height: 100%;
   }
 
+  .list.chapter .infoWrapper {
+    position: absolute;
+  }
+
   .list .title {
-    margin: 12px 0;
+    margin: 12px 0 6px;
     font-size: 13px;
     line-height: 15px;
     font-weight: 700;
+  }
+
+  .list.chapter .title {
+    max-height: 60px;
+  }
+
+  .list.course .title {
+    max-height: 30px;
+  }
+
+  .grid.chapter .title {
+    max-height: 60px;
+  }
+
+  .grid.course .title {
+    max-height: 80px;
   }
 }
