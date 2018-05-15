@@ -5,11 +5,12 @@ import isEmpty from 'lodash/fp/isEmpty';
 import map from 'lodash/fp/map';
 import classnames from 'classnames';
 import Select from '../../atom/select';
+import RadioGroup from '../../atom/radio-group';
 import RangeSlider from '../../atom/range';
 import style from './filters-wapper.css';
 
 const FiltersWapper = (props, context) => {
-  const {thematic, timer, courses, authors, filters, className} = props;
+  const {thematic, timer, types, courses, authors, filters, className} = props;
 
   const buildFilter = (filter, idx) => {
     const {type, fieldName} = filter;
@@ -18,6 +19,13 @@ const FiltersWapper = (props, context) => {
         return (
           <div data-name="choice" data-filter-type={fieldName} className={style.choice} key={idx}>
             <Select {...filter} />
+          </div>
+        );
+      case 'radio':
+        return (
+          <div data-name="choice" data-filter-type={fieldName} className={style.choice} key={idx}>
+            <p className={style.title}>{filter.title}</p>
+            <RadioGroup {...filter} />
           </div>
         );
       case 'range':
@@ -29,7 +37,7 @@ const FiltersWapper = (props, context) => {
             key={idx}
           >
             <label>
-              <span className={style.timerTitle}>{filter.title}</span>
+              <span className={style.title}>{filter.title}</span>
               <p className={style.timerSubtitle}>{filter.subtitle}</p>
               <RangeSlider {...filter} />
             </label>
@@ -54,6 +62,10 @@ const FiltersWapper = (props, context) => {
     ? buildFilter({type: 'range', fieldName: 'Time', ...timer}, index++)
     : null;
 
+  const radioView = types
+    ? buildFilter({type: 'radio', fieldName: 'ContentFilter', ...types}, index++)
+    : null;
+
   const authorsView = authors
     ? buildFilter({type: 'select', fieldName: 'Author', ...authors}, index++)
     : null;
@@ -61,6 +73,7 @@ const FiltersWapper = (props, context) => {
   const emptyFilters =
     thematic === undefined &&
     timer === undefined &&
+    types === undefined &&
     courses === undefined &&
     authors === undefined &&
     isEmpty(filters);
@@ -68,6 +81,7 @@ const FiltersWapper = (props, context) => {
   return (
     <div className={classnames(className, emptyFilters ? style.wrapperNone : style.wrapper)}>
       {thematicView}
+      {radioView}
       {coursesView}
       {timerView}
       {authorsView}
@@ -80,6 +94,7 @@ FiltersWapper.propTypes = {
   className: PropTypes.string,
   thematic: PropTypes.shape(Select.propTypes),
   timer: PropTypes.shape(RangeSlider.propTypes),
+  types: PropTypes.shape(RadioGroup.propTypes),
   courses: PropTypes.shape(Select.propTypes),
   authors: PropTypes.shape(Select.propTypes),
   filters: PropTypes.arrayOf(

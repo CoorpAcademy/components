@@ -1,10 +1,10 @@
 import dropdownsFilter from '../../../../atom/select/test/fixtures/filter';
 import dropdownsSort from '../../../../atom/select/test/fixtures/sort';
-import rangeslider from '../../../../atom/range/test/fixtures/multi';
+import RadioGroup from '../../../../atom/radio-group/test/fixtures/default';
 
 const selectFilter = dropdownsFilter.props;
 const selectSort = dropdownsSort.props;
-const timer = rangeslider.props;
+const types = RadioGroup.props;
 
 export default {
   props: {
@@ -107,10 +107,10 @@ export default {
       ],
       onChange: value => console.log(value)
     },
-    timer: {
-      ...timer,
-      title: 'Time:',
-      subtitle: '2 mins - 3 hours +'
+    types: {
+      ...types,
+      title: 'Type:',
+      onChange: value => console.log(value)
     },
     onSearch: () => console.log('onSearch')
   }
