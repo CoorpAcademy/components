@@ -6,7 +6,7 @@ import getClassState from '../../util/get-class-state';
 import style from './style.css';
 
 const InputSwitch = props => {
-  const {title, id, value, disabled, onChange = noop, description, modified = false} = props;
+  const {title, name, id, value, disabled, onChange = noop, description, modified = false} = props;
 
   const idSwitch = id || uniqueId('input-switch-');
   const isDisabled = disabled ? 'disabled' : '';
@@ -25,7 +25,7 @@ const InputSwitch = props => {
       <input
         type="checkbox"
         id={idSwitch}
-        name={title}
+        name={name}
         onChange={handleChange}
         checked={value}
         disabled={isDisabled}
@@ -39,6 +39,7 @@ const InputSwitch = props => {
 
 InputSwitch.propTypes = {
   title: PropTypes.string,
+  name: PropTypes.string,
   id: PropTypes.string,
   value: PropTypes.bool,
   disabled: PropTypes.bool,

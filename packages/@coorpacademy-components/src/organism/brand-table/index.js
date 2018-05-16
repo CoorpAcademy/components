@@ -43,17 +43,9 @@ const BrandTable = props => {
 };
 
 BrandTable.propTypes = {
-  createHref: PropTypes.string.isRequired,
-  search: PropTypes.shape({
-    value: PropTypes.string,
-    placeholder: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired
-  }),
-  pagination: PropTypes.shape({
-    value: PropTypes.string.isRequired,
-    nextHref: PropTypes.string,
-    previousHref: PropTypes.string
-  }),
+  createHref: Link.propTypes.href.isRequired,
+  search: PropTypes.shape(Search.propTypes),
+  pagination: PropTypes.shape(Pagination.propTypes),
   emptyValue: PropTypes.string.isRequired,
   isPending: PropTypes.bool,
   rows: Table.propTypes.rows,

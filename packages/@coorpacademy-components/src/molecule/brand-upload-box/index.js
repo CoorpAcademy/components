@@ -36,7 +36,7 @@ class BrandUploadBox extends React.Component {
 
     let content;
 
-    const {description = '', browse = '', onLoad} = this.props;
+    const {description = '', browse = '', onLoad, name} = this.props;
     const brandColor = get('common.brand', skin);
 
     switch (this.props.status) {
@@ -59,6 +59,7 @@ class BrandUploadBox extends React.Component {
               </div>
               <input
                 type="file"
+                name={name}
                 className={style.inputFile}
                 onChange={onLoad}
                 onDragEnter={this.handleDragStart}
@@ -75,6 +76,7 @@ class BrandUploadBox extends React.Component {
 }
 
 BrandUploadBox.propTypes = {
+  name: PropTypes.string,
   description: PropTypes.string,
   browse: PropTypes.string,
   status: PropTypes.oneOf(['default', 'loading']),
