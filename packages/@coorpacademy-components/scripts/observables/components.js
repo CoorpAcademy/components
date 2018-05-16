@@ -4,6 +4,7 @@ const last = require('lodash/fp/last');
 const _join = require('lodash/fp/join');
 const slice = require('lodash/fp/slice');
 const split = require('lodash/fp/split');
+const {map} = require('rxjs/operators');
 const {pascalCase} = require('./string');
 const {readComponentFiles$} = require('./component-files');
 
@@ -20,7 +21,7 @@ const parse = cwd =>
     };
   });
 
-const readComponents$ = cwd => readComponentFiles$(cwd).map(parse(cwd));
+const readComponents$ = cwd => readComponentFiles$(cwd).pipe(map(parse(cwd)));
 
 module.exports.readComponents$ = readComponents$;
 

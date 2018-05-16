@@ -44,12 +44,13 @@ const ProgressionItem = (props, context) => {
         ) : (
           <TimerIcon className={style.iconType} color={dark} />
         )}
-        <div className={style.label} title={label}>
+        <div data-name="activityLabel" className={style.label} title={label}>
           {label}
           {adaptiveIcon}
         </div>
 
         <div
+          data-name="activityStars"
           className={style.stars}
           style={{
             color: primary

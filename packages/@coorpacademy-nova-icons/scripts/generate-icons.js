@@ -158,11 +158,20 @@ export default ${componentName};`);
 };
 
 const optimizeSVG = fileName =>
-  new Promise(resolve =>
+  new Promise((resolve, reject) =>
     readQueue.push({fileName}, (err, input) => {
-      const svgo = new SVGO();
+      const svgo = new SVGO({
+        plugins: [
+          {
+            removeViewBox: false
+          }
+        ]
+      });
 
-      svgo.optimize(input, ({data}) => resolve(data));
+      svgo
+        .optimize(input)
+        .then(({data}) => resolve(data))
+        .catch(reject);
     })
   );
 

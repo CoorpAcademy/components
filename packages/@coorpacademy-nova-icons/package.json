@@ -17,7 +17,7 @@
   "author": "CoorpAcademy",
   "dependencies": {
     "async": "^2.4.1",
-    "react": "^15.5.4",
+    "react": "^16.3.2",
     "react-icon-base": "^2.0.8"
   },
   "devDependencies": {
@@ -33,11 +33,11 @@
     "babel-preset-stage-1": "^6.24.1",
     "change-case": "^3.0.1",
     "cross-env": "^5.0.0",
-    "fs-extra": "^3.0.1",
+    "fs-extra": "^6.0.1",
     "minimist": "^1.2.0",
     "mkdirp-promise": "^5.0.1",
     "sax": "^1.2.2",
-    "svgo": "^0.7.2",
+    "svgo": "^1.0.5",
     "walk-promise": "^0.2.0"
   }
 }
