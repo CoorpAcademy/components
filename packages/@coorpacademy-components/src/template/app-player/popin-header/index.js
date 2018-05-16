@@ -221,11 +221,14 @@ const NextQuestionPart = (props, context) => {
   const {cta, extraLifeGranted, gameOver, failed, lives} = props;
   const {title, type = 'correction', nextStepTitle, ...linkProps} = cta || {};
   let dataNext;
-  if (failed) {
+
+  if (gameOver) {
+    dataNext = 'game-over';
+  } else if (failed) {
     if (!lives) {
       if (!extraLifeGranted) {
         dataNext = 'redo-content';
-      } else if (extraLifeGranted) {
+      } else {
         dataNext = 'continue-used-extra-life';
       }
     } else {
@@ -275,7 +278,8 @@ const PopinHeader = (props, context) => {
     corrections,
     cta,
     extraLifeGranted,
-    gameOver = false
+    gameOver = false,
+    type
   } = props;
 
   const state = buildClass(failed, 'success', 'failed', null);
@@ -283,6 +287,7 @@ const PopinHeader = (props, context) => {
   const nextLink = cta ? (
     <NextQuestionPart
       cta={cta}
+      type={type}
       extraLifeGranted={extraLifeGranted}
       failed={failed}
       gameOver={gameOver}
@@ -333,11 +338,11 @@ PopinHeader.propTypes = {
   rank: PropTypes.string,
   subtitle: PropTypes.string,
   title: PropTypes.string,
+  type: PropTypes.oneOf(['popin-correction', 'popin-end']).isRequired,
   corrections: AnswersCorrection.propTypes.corrections,
   cta: PropTypes.shape({
     ...Link.propTypes,
     title: PropTypes.string,
-    type: PropTypes.type,
     nextStepTitle: PropTypes.string
   })
 };

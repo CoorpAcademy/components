@@ -75,8 +75,7 @@ const summaryHeader = ({translate}, {dispatch}) => state => {
   const lives = getLives(state);
   const successCta = {
     title: translate('Back to home'),
-    href: '/',
-    type: 'home'
+    href: '/'
   };
 
   if (isCurrentEngineLearner(state)) {
@@ -87,7 +86,6 @@ const summaryHeader = ({translate}, {dispatch}) => state => {
         successCta.title = translate('Next level');
         successCta.href = null;
         successCta.onClick = () => dispatch(nextLevel);
-        successCta.type = 'next-level';
       }
     }
   }
@@ -96,6 +94,7 @@ const summaryHeader = ({translate}, {dispatch}) => state => {
     [
       pipe(get('type'), isEqual('success')),
       () => ({
+        type: 'popin-end',
         title: getOr('', 'name')(getCurrentContent(state)),
         subtitle: translate('Congratulations!'),
         failed: false,
@@ -107,6 +106,7 @@ const summaryHeader = ({translate}, {dispatch}) => state => {
     [
       pipe(get('type'), isEqual('failure')),
       () => ({
+        type: 'popin-end',
         title: translate('Ooops'),
         subtitle: lives === 0 ? translate('You are out of lives!') : translate('Nice try!'),
         failed: true,

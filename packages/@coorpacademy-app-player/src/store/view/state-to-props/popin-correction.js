@@ -96,7 +96,6 @@ export const createHeaderCTA = (options, store) => state => {
   return omitBy(isUndefined, {
     title,
     onClick,
-    type: 'correction',
     nextStepTitle
   });
 };
@@ -143,6 +142,7 @@ export const popinCorrectionStateToProps = (options, store) => state => {
     header: isLoading
       ? {}
       : {
+          type: 'popin-correction',
           lives: 1,
           title: '',
           subtitle: '',
