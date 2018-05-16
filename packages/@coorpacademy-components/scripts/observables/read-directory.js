@@ -1,13 +1,10 @@
 const {join} = require('path');
-const {Observable} = require('rxjs/Rx');
+const {of, from} = require('rxjs');
+const {map, concatMap} = require('rxjs/operators');
 const {readdirP} = require('./fs');
 
 const readDirectory$ = cwd =>
-  Observable.of(cwd)
-    .map(readdirP)
-    .concatMap(p => Observable.fromPromise(p))
-    .concatMap(Observable.from)
-    .map(f => join(cwd, f));
+  of(cwd).pipe(map(readdirP), concatMap(p => from(p)), concatMap(from), map(f => join(cwd, f)));
 
 module.exports.readDirectory$ = readDirectory$;
 

@@ -82,8 +82,8 @@ test(
     provider: ({tagName}) => createElement(tagName),
     template: '<coorp-title context="context"></coorp-title>',
     data: {
-      context: {tagName: 'blink'}
+      context: {tagName: 'section'}
     }
   },
-  '<blink></blink>'
+  '<section></section>'
 );

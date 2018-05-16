@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/progression-engine",
-  "version": "9.1.12",
+  "version": "9.1.13",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -46,7 +46,7 @@
     "babel-preset-flow": "^6.23.0",
     "concurrently": "^3.5.1",
     "cross-env": "^5.0.0",
-    "flow-bin": "^0.62.0",
+    "flow-bin": "^0.72.0",
     "rimraf": "^2.6.1"
   },
   "ava": {

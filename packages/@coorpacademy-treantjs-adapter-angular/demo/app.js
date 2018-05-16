@@ -64,15 +64,19 @@ createDirectives(app, BackgroundColorProvider, {
   DisplayValue
 });
 
-app.controller('main', ($scope, $interval) => {
-  $scope.props = {
-    children: '@treantjs'
-  };
+app.controller('main', [
+  '$scope',
+  '$interval',
+  ($scope, $interval) => {
+    $scope.props = {
+      children: '@treantjs'
+    };
 
-  $scope.context = {
-    backgroundColor: 'blue'
-  };
-  $interval(() => {
-    $scope.context.backgroundColor = $scope.context.backgroundColor === 'blue' ? 'red' : 'blue';
-  }, 1000);
-});
+    $scope.context = {
+      backgroundColor: 'blue'
+    };
+    $interval(() => {
+      $scope.context.backgroundColor = $scope.context.backgroundColor === 'blue' ? 'red' : 'blue';
+    }, 1000);
+  }
+]);

@@ -119,7 +119,7 @@ class ResourcePlayer extends React.Component {
     ) : null;
 
     return (
-      <div className={className}>
+      <div data-name={type} className={className}>
         {overlayView}
         <ResourceElement {...this.props} autoplay={this.state.autoplay} />
       </div>

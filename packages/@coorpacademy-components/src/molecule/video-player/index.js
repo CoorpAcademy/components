@@ -69,7 +69,11 @@ class VideoPlayer extends React.Component {
   }
 
   render() {
-    return <div className={style.wrapper}>{this.renderPlayer()}</div>;
+    return (
+      <div data-name="video-player" className={style.wrapper}>
+        {this.renderPlayer()}
+      </div>
+    );
   }
 }
 

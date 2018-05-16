@@ -1,9 +1,10 @@
 const minimatch = require('minimatch');
+const {filter} = require('rxjs/operators');
 const {walkDirectory$} = require('./walk-directory');
 
 const readFixtureFiles$ = cwd =>
-  walkDirectory$(cwd).filter(
-    minimatch.filter('**/+(atom|molecule|organism|template|hoc)/**/test/fixtures/*.js')
+  walkDirectory$(cwd).pipe(
+    filter(minimatch.filter('**/+(atom|molecule|organism|template|hoc)/**/test/fixtures/*.js'))
   );
 
 module.exports.readFixtureFiles$ = readFixtureFiles$;

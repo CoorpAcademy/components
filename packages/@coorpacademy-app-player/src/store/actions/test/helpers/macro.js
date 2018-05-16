@@ -18,7 +18,7 @@ const actionMacro = async (
   expectedNbAssertions
 ) => {
   if (isNumber(expectedNbAssertions)) {
-    t.plan(expectedNbAssertions + _expectedActions.length + 4);
+    t.plan(expectedNbAssertions + _expectedActions.length + 3);
   }
 
   const defaultServices = {
@@ -34,11 +34,12 @@ const actionMacro = async (
   const options = {
     services: defaultsDeep(defaultServices, createServices(t))
   };
-  const expectedActions = [{type: '@@redux/INIT'}, ..._expectedActions];
+  const expectedActions = [null, ..._expectedActions];
   let actionIndex = -1;
   const {dispatch} = createStore(
     (state, action) => {
       const expectedAction = expectedActions.shift();
+      if (expectedAction === null) return reducer(state, action);
       if (action.error && !isEqual(action, expectedAction)) {
         t.log(`Got unexpected error in action: ${action.payload.message}`);
       }

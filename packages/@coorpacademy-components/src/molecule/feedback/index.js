@@ -15,17 +15,22 @@ const Feedback = (props, context) => {
   return (
     ((resource || title || description) && (
       <div className={style.feedback} data-name="feedback">
-        <div className={style.title}>{title}</div>
+        <div className={style.title} data-name="title">
+          {title}
+        </div>
         <div className={style.descWrapper}>
           <div
             className={style.description}
+            data-name="description"
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{__html: description}}
           />
           {resource && (
             <div>
               <ResourcePlayer className={style.resourcePlayer} resource={resource} />
-              <div className={style.mediaDescription}>{mediaDescription}</div>
+              <div data-name="mediaDescription" className={style.mediaDescription}>
+                {mediaDescription}
+              </div>
             </div>
           )}
         </div>

@@ -7,16 +7,18 @@ import last from 'lodash/fp/last';
 import createTask from '..';
 
 const macro = async (t, input, expected) => {
-  t.plan(2 + size(expected));
+  t.plan(1 + size(expected));
   const task = createTask(input);
 
-  const expectedActions = [{type: '@@redux/INIT'}, ...expected];
+  const expectedActions = [null, ...expected];
   const options = 'options';
 
   const {dispatch} = createStore(
-    (_state, _action) => {
-      t.deepEqual(_action, expectedActions.shift());
-      return _state;
+    (state, action) => {
+      const _expected = expectedActions.shift();
+      if (_expected === null) return state;
+      t.deepEqual(action, _expected);
+      return state;
     },
     'state',
     applyMiddleware(ReduxThunk.withExtraArgument(options))

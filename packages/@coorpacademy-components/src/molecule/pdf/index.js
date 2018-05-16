@@ -16,7 +16,9 @@ const PDF = (props, context) => {
   return (
     <div className={style.pdfFrame}>
       <PDFIcon color={white} className={style.pdfIcon} />
-      <div className={style.pdfDescription}>{description}</div>
+      <div className={style.pdfDescription} data-name="pdfDescription">
+        {description}
+      </div>
       <Link href={mediaUrl} target="_blank" onClick={onPlay}>
         <div className={style.openPDFButton}>
           <div className={style.openPDFButtonBackground} style={{backgroundColor: primary}} />

@@ -144,7 +144,7 @@ const CONTEXT_MEDIA = {
 const ContextMedia = ({media}) => {
   const ContentType = CONTEXT_MEDIA[media.type];
   return (
-    <div className={style.contextWrapper}>
+    <div data-name="contextMedia" className={style.contextWrapper}>
       <ContentType {...media} />
     </div>
   );
@@ -172,6 +172,7 @@ const ContextContent = ({slideContext}) => {
   const paragraphs = descriptionParagraphs.map((paragraph, index) => (
     <p
       key={index}
+      data-name="contextDescription"
       className={style.contextDescription}
       // eslint-disable-next-line react/no-danger
       dangerouslySetInnerHTML={{

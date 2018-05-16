@@ -2,30 +2,39 @@ import {join} from 'path';
 import concat from 'lodash/fp/concat';
 import webpack from 'webpack';
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 const addHMR = entries => {
-  if (process.env.NODE_ENV === 'production') return entries;
+  if (isProduction) return entries;
   return concat(['webpack-hot-middleware/client'], entries);
 };
 
 const sandboxConfig = {
+  mode: isProduction ? 'production' : 'development',
+
   output: {
     publicPath: '/dist'
   },
 
   entry: {
-    angular: addHMR(join(__dirname, 'app'))
+    adapterAngular: addHMR(join(__dirname, 'app'))
   },
 
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
-        loader: 'babel-loader'
+        use: {
+          loader: 'babel-loader',
+          query: {
+            presets: ['react', 'env']
+          }
+        }
       }
     ]
   },
 
-  plugins: [new webpack.HotModuleReplacementPlugin(), new webpack.NoEmitOnErrorsPlugin()]
+  plugins: isProduction ? [] : [new webpack.HotModuleReplacementPlugin()]
 };
 
 export default sandboxConfig;
