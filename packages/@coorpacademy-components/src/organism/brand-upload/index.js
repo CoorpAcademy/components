@@ -78,8 +78,8 @@ BrandUpload.propTypes = {
   }),
   upload: PropTypes.shape(UploadBox.propTypes).isRequired,
   back: PropTypes.shape({
-    desc: PropTypes.string,
-    link: PropTypes.string
+    desc: Link.propTypes.children,
+    link: Link.propTypes.href
   }),
   notifications: PropTypes.arrayOf(
     PropTypes.shape({

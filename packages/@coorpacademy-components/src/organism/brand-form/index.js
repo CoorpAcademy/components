@@ -83,24 +83,17 @@ BrandForm.contextTypes = {
 };
 
 BrandForm.propTypes = {
-  groups: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      ssodescription: PropTypes.string,
-      disabled: PropTypes.bool,
-      fields: PropTypes.array
-    })
-  ).isRequired,
+  groups: PropTypes.arrayOf(PropTypes.shape(BrandFormGroup.propTypes)).isRequired,
   disabled: PropTypes.bool,
   isModified: PropTypes.bool,
   isPending: PropTypes.bool,
   onSubmit: PropTypes.func,
-  submitValue: PropTypes.string,
+  submitValue: Button.propTypes.submitValue,
   onReset: PropTypes.func,
-  resetValue: PropTypes.string,
+  resetValue: Button.propTypes.submitValue,
   back: PropTypes.shape({
-    desc: PropTypes.string,
-    link: PropTypes.string
+    desc: Link.propTypes.children,
+    link: Link.propTypes.href
   })
 };
 

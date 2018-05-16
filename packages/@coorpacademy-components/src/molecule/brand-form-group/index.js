@@ -87,9 +87,69 @@ BrandFormGroup.propTypes = {
   subtitle: PropTypes.string,
   fieldsLayout: PropTypes.string,
   fields: PropTypes.arrayOf(
-    PropTypes.shape({
-      type: PropTypes.string.isRequired
-    })
+    PropTypes.oneOfType([
+      PropTypes.shape({
+        type: PropTypes.oneOf(['color']),
+        ...InputColor.propTypes
+      }),
+      PropTypes.shape({
+        type: PropTypes.oneOf(['readonly']),
+        ...InputReadonly.propTypes
+      }),
+      PropTypes.shape({
+        type: PropTypes.oneOf(['switch']),
+        ...InputSwitch.propTypes
+      }),
+      PropTypes.shape({
+        type: PropTypes.oneOf(['textarea']),
+        ...InputTextarea.propTypes
+      }),
+      PropTypes.shape({
+        type: PropTypes.oneOf(['html']),
+        ...InputHTML.propTypes
+      }),
+      PropTypes.shape({
+        type: PropTypes.oneOf(['doublestep']),
+        ...InputDoublestep.propTypes
+      }),
+      PropTypes.shape({
+        type: PropTypes.oneOf(['select']),
+        ...Select.propTypes
+      }),
+      PropTypes.shape({
+        type: PropTypes.oneOf(['checkbox']),
+        ...InputCheckbox.propTypes
+      }),
+      PropTypes.shape({
+        type: PropTypes.oneOf(['image']),
+        ...ImageUpload.propTypes
+      }),
+      PropTypes.shape({
+        type: PropTypes.oneOf(['slider']),
+        ...SetupSlider.propTypes
+      }),
+      PropTypes.shape({
+        type: PropTypes.oneOf(['sections']),
+        ...SetupSections.propTypes
+      }),
+      PropTypes.shape({
+        type: PropTypes.oneOf(['text']),
+        ...InputText.propTypes
+      }),
+      PropTypes.shape({
+        type: PropTypes.oneOf(['downloadbox']),
+        ...BrandDownloadBox.propTypes
+      }),
+      PropTypes.shape({
+        type: PropTypes.oneOf(['uploadbox']),
+        ...BrandUploadBox.propTypes
+      }),
+      PropTypes.shape({
+        type: PropTypes.oneOf(['button']),
+        ...Button.propTypes
+      }),
+      PropTypes.shape(InputText.propTypes)
+    ])
   )
 };
 export default BrandFormGroup;
