@@ -1,5 +1,6 @@
 export default {
   props: {
+    type: 'popin-correction',
     failed: true,
     extraLifeGranted: false,
     animated: true,
@@ -11,7 +12,7 @@ export default {
     cta: {
       title: 'Game Over',
       nextStepTitle: 'Click to continue',
-      href: '#'
+      onClick: e => console.log(e.target)
     }
   }
 };

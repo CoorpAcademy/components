@@ -65,7 +65,8 @@ const OverlayElement = (props = {}) => {
           count={lifeAmount}
           operator="+"
           bounce={{
-            type: 'bounceTwice'
+            type: 'bounceTwice',
+            delay: '2.5s'
           }}
           heartOnRight
         />

@@ -44,6 +44,7 @@ const resourceValues = [
 export default defaultsDeep(loading, {
   props: {
     header: {
+      type: 'popin-correction',
       failed: false,
       corrections: [
         {

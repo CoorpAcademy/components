@@ -1,5 +1,6 @@
 export default {
   props: {
+    type: 'popin-correction',
     failed: true,
     extraLifeGranted: false,
     lives: 0,

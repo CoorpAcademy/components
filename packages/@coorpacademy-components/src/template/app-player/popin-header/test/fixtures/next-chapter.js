@@ -1,5 +1,6 @@
 export default {
   props: {
+    type: 'popin-correction',
     lives: 3,
     failed: false,
     title: 'Good job',

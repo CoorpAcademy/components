@@ -12,6 +12,7 @@ export default defaultsDeep(correct, {
         card: Card.props
       },
       header: {
+        type: 'popin-end',
         cta: {
           title: 'Home',
           type: 'home',

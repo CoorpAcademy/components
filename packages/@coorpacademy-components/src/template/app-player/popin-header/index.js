@@ -218,30 +218,35 @@ const CorrectionPart = props => {
 };
 
 const NextQuestionPart = (props, context) => {
-  const {cta, extraLifeGranted, gameOver, failed, lives} = props;
-  const {title, type = 'correction', nextStepTitle, ...linkProps} = cta || {};
+  const {cta, type, extraLifeGranted, gameOver, failed, lives = 0} = props;
+  const {title, nextStepTitle, showNextLevel = false, ...linkProps} = cta || {};
   let dataNext;
 
-  if (gameOver) {
-    dataNext = 'game-over';
-  } else if (failed) {
-    if (!lives) {
-      if (!extraLifeGranted) {
-        dataNext = 'redo-content';
+  switch (type) {
+    case 'popin-correction': {
+      if (gameOver) {
+        dataNext = 'game-over-without-extra-life';
+      } else if (failed) {
+        if (lives > 0) {
+          dataNext = 'continue-failure';
+        } else if (extraLifeGranted) {
+          dataNext = 'continue-used-extra-life';
+        }
       } else {
-        dataNext = 'continue-used-extra-life';
+        dataNext = 'continue-success';
       }
-    } else {
-      dataNext = 'continue-failure';
+      break;
     }
-  } else if (!extraLifeGranted) {
-    if (type === 'next-level') {
-      dataNext = 'next-level';
-    } else {
-      dataNext = 'home';
+
+    case 'popin-end': {
+      if (failed) {
+        dataNext = 'redo-content';
+      } else if (showNextLevel) {
+        dataNext = 'next-level';
+      } else {
+        dataNext = 'home';
+      }
     }
-  } else {
-    dataNext = 'continue-success';
   }
 
   const nextStep = nextStepTitle ? (
@@ -256,7 +261,7 @@ const NextQuestionPart = (props, context) => {
       {...linkProps}
     >
       <div className={style.wrapperNextSection}>
-        <div data-name="nextButton" data-next={dataNext} className={style.nextButton}>
+        <div className={style.nextButton}>
           {title}
           <ArrowRight color="inherit" className={style.nextButtonIcon} />
         </div>
@@ -343,7 +348,8 @@ PopinHeader.propTypes = {
   cta: PropTypes.shape({
     ...Link.propTypes,
     title: PropTypes.string,
-    nextStepTitle: PropTypes.string
+    nextStepTitle: PropTypes.string,
+    showNextLevel: PropTypes.bool
   })
 };
 

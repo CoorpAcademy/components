@@ -71,6 +71,7 @@
 
 .playButton {
   composes: bounceAndPause from '../../atom/css-animations/bounce-and-pause.css';
+  animation-delay: 2.5s;
   width: 50px;
   height: 50px;
   background-color: white;

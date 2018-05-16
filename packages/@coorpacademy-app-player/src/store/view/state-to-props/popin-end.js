@@ -86,6 +86,7 @@ const summaryHeader = ({translate}, {dispatch}) => state => {
         successCta.title = translate('Next level');
         successCta.href = null;
         successCta.onClick = () => dispatch(nextLevel);
+        successCta.showNextLevel = true;
       }
     }
   }
