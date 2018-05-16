@@ -9,7 +9,7 @@ const InputCheckbox = props => {
   const {checked, onChange = noop, error, disabled, required, modified = false} = props;
 
   const idCheckbox = uniqueId('input-checkbox-');
-  const title = `${props.title}${required ? '*' : ''} :`;
+  const title = `${props.title}${required ? '*' : ''}`;
   const handleChange = e => onChange(e.target.checked);
   const className = getClassState(style.default, style.modified, style.error, modified, error);
 
