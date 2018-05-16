@@ -95,7 +95,7 @@ const summaryHeader = ({translate}, {dispatch}) => state => {
     [
       pipe(get('type'), isEqual('success')),
       () => ({
-        type: 'popin-end',
+        type: 'popinEnd',
         title: getOr('', 'name')(getCurrentContent(state)),
         subtitle: translate('Congratulations!'),
         failed: false,
@@ -107,7 +107,7 @@ const summaryHeader = ({translate}, {dispatch}) => state => {
     [
       pipe(get('type'), isEqual('failure')),
       () => ({
-        type: 'popin-end',
+        type: 'popinEnd',
         title: translate('Ooops'),
         subtitle: lives === 0 ? translate('You are out of lives!') : translate('Nice try!'),
         failed: true,

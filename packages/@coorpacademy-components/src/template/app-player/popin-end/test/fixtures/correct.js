@@ -5,7 +5,7 @@ export default defaultsDeep(loading, {
   props: {
     summary: {
       header: {
-        type: 'popin-end',
+        type: 'popinEnd',
         title: 'Big Data - Avancé',
         subtitle: 'Félicitations !',
         fail: false,

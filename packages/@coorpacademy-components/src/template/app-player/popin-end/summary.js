@@ -187,9 +187,11 @@ const Footer = ({title, color, ...linkProps}) => (
     style={{
       color
     }}
-    data-name="footer"
     className={style.footer}
     {...linkProps}
+    data-name="nextLink"
+    data-popin="popinEnd"
+    data-next="home"
   >
     {title}
   </Link>

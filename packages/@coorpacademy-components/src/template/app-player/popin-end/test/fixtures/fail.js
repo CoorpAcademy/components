@@ -5,7 +5,7 @@ export default defaultsDeep(loading, {
   props: {
     summary: {
       header: {
-        type: 'popin-end',
+        type: 'popinEnd',
         title: 'Oups...',
         subtitle: "Vous n'avez plus de vie...",
         fail: true,

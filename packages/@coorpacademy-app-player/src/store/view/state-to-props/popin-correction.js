@@ -142,7 +142,7 @@ export const popinCorrectionStateToProps = (options, store) => state => {
     header: isLoading
       ? {}
       : {
-          type: 'popin-correction',
+          type: 'popinCorrection',
           lives: 1,
           title: '',
           subtitle: '',

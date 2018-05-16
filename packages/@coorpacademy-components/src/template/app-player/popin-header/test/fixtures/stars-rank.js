@@ -1,6 +1,6 @@
 export default {
   props: {
-    type: 'popin-end',
+    type: 'popinEnd',
     failed: false,
     remainingLifeRequests: 0,
     stars: '+30',

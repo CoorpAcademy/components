@@ -218,12 +218,12 @@ const CorrectionPart = props => {
 };
 
 const NextQuestionPart = (props, context) => {
-  const {cta, type, extraLifeGranted, gameOver, failed, lives = 0} = props;
+  const {cta, type, extraLifeGranted, gameOver, failed = false, lives = 0} = props;
   const {title, nextStepTitle, showNextLevel = false, ...linkProps} = cta || {};
   let dataNext;
 
   switch (type) {
-    case 'popin-correction': {
+    case 'popinCorrection': {
       if (gameOver) {
         dataNext = 'game-over-without-extra-life';
       } else if (failed) {
@@ -238,7 +238,7 @@ const NextQuestionPart = (props, context) => {
       break;
     }
 
-    case 'popin-end': {
+    case 'popinEnd': {
       if (failed) {
         dataNext = 'redo-content';
       } else if (showNextLevel) {
@@ -257,6 +257,7 @@ const NextQuestionPart = (props, context) => {
     <Link
       className={classnames(style.nextSection, getLinkStyle({gameOver, extraLifeGranted}))}
       data-name="nextLink"
+      data-popin={type}
       data-next={dataNext}
       {...linkProps}
     >
@@ -343,7 +344,7 @@ PopinHeader.propTypes = {
   rank: PropTypes.string,
   subtitle: PropTypes.string,
   title: PropTypes.string,
-  type: PropTypes.oneOf(['popin-correction', 'popin-end']).isRequired,
+  type: PropTypes.oneOf(['popinCorrection', 'popinEnd']).isRequired,
   corrections: AnswersCorrection.propTypes.corrections,
   cta: PropTypes.shape({
     ...Link.propTypes,
