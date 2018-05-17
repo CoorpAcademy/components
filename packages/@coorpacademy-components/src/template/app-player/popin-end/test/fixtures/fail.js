@@ -8,7 +8,7 @@ export default defaultsDeep(loading, {
         type: 'popinEnd',
         title: 'Oups...',
         subtitle: "Vous n'avez plus de vie...",
-        fail: true,
+        failed: true,
         corrections: [{answer: 'Correct', isCorrect: false}],
         lives: 0,
         cta: {
