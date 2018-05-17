@@ -225,7 +225,7 @@ const NextQuestionPart = (props, context) => {
   switch (type) {
     case 'popinCorrection': {
       if (gameOver) {
-        dataNext = 'game-over-without-extra-life';
+        dataNext = 'game-over';
       } else if (failed) {
         if (lives > 0) {
           dataNext = 'continue-failure';

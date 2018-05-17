@@ -126,7 +126,7 @@ class PopinCorrection extends Component {
           className={extraLifeGranted ? style.hideQuitCta : style.quitCta}
           data-name="nextLink"
           data-popin="popinCorrection"
-          data-next="game-over-with-extra-life"
+          data-next="quit-with-extra-life"
           {...linkProps}
         >
           {title}
