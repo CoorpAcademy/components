@@ -352,61 +352,23 @@
   }
 }
 
-@keyframes mobileRemainingLifeRequests {
-  0% {
-    top: -100px;
-  }
-
-  100% {
-    top: 0;
-  }
-}
-
-@keyframes mobileAddedLife {
-  0% {
-    top: 0;
-  }
-
-  100% {
-    top: -100px;
-  }
-}
-
-@keyframes mobilepushcontent {
-  0% {
-    margin-bottom: 0;
-  }
-
-  100% {
-    margin-bottom: 50px;
-  }
-}
-
 @media mobile {
   .header {
     flex-flow: column;
     flex-wrap: nowrap;
-    height: 153px;
     margin-bottom: 0;
+    height: 150px;
+  }
+
+  .headerWithoutCTA {
+    composes: header;
+    height: auto;
   }
 
   .headerTitle {
     display: block;
     height: auto;
     width: 100%;
-  }
-
-  .gameOverHeader {
-    height: 150px;
-    animation: mobilepushcontent 0.5s ease-out;
-    animation-delay: 1s;
-    animation-fill-mode: forwards;
-  }
-
-  .revivalHeader {
-    animation: mobilepushcontent 0.5s ease-out;
-    animation-delay: 1s;
-    animation-fill-mode: backwards;
   }
 
   .correctionSectionFailGameOver,

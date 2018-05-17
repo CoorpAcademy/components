@@ -67,6 +67,8 @@
 .overlayText {
   composes: texts;
   font-weight: 600;
+  width: 90%;
+  text-align: center;
 }
 
 .playButton {

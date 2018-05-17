@@ -34,7 +34,7 @@ test('should put revival to false if current step is extra life and a lesson has
   t.is(props.header.type, 'popinCorrection');
   t.deepEqual(get('overlay', props), {
     title: '__Bonus!',
-    text: '__Get an extra life by viewing the lesson.',
+    text: '__Get an extra life by viewing the lesson',
     lifeAmount: 1
   });
 });

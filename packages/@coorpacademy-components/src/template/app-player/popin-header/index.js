@@ -303,11 +303,7 @@ const PopinHeader = (props, context) => {
 
   return (
     <div
-      className={classnames(
-        style.header,
-        gameOver && style.gameOverHeader,
-        extraLifeGranted && style.revivalHeader
-      )}
+      className={cta ? style.header : style.headerWithoutCTA}
       data-name="popinHeader"
       data-state={state}
     >
