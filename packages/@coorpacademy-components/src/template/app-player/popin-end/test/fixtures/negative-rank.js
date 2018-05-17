@@ -8,7 +8,7 @@ export default defaultsDeep(loading, {
         type: 'popinEnd',
         title: 'Big Data - Avancé',
         subtitle: 'Félicitations !',
-        fail: false,
+        failed: false,
         corrections: [{answer: 'Correct', isCorrect: true}],
         stars: '+29',
         rank: '-5',
