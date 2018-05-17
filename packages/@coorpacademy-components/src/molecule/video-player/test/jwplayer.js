@@ -32,7 +32,7 @@ test.serial('should do nothing if autoplay is triggered and jwplayer script is n
   const props = {
     video: 'bar',
     jwpOptions: {
-      playerId: '1',
+      playerId: '2',
       file: 'https://simoocdigital.credit-agricole.fr/media/content/bigdata/159363386.mp4',
       playerScript: 'https://up-staging.coorpacademy.com/libs/jwplayer/7.10.7/jwplayer.js',
       licenseKey: 'yI8rSuuJ+fs7VdJzWjY4zGZU48UcOn+Gjg+FXZag16o='
@@ -88,5 +88,4 @@ test('should call handlers within props, then add autoplay props', t => {
   });
 
   video.setProps({autoplay: true});
-  video.unmount();
 });

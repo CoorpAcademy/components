@@ -4,6 +4,9 @@ import correct from './with-recommendations';
 export default defaultsDeep(correct, {
   props: {
     summary: {
+      header: {
+        type: 'popinEnd'
+      },
       comment: {
         confirmation: {
           commentSectionTitle: 'Merci pour votre avis !',

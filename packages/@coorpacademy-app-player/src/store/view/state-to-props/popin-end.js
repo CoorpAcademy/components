@@ -122,7 +122,7 @@ const summaryHeader = ({translate}, {dispatch}) => state => {
         }
       })
     ],
-    [constant(true), constant(null)]
+    [constant(true), constant({type: 'popinEnd'})]
   ]);
 };
 

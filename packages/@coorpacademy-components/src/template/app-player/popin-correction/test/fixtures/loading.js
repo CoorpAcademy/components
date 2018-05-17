@@ -1,6 +1,8 @@
 export default {
   props: {
-    header: {},
+    header: {
+      type: 'popinCorrection'
+    },
     question: {
       header: '',
       answer: ''

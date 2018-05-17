@@ -140,7 +140,7 @@ export const popinCorrectionStateToProps = (options, store) => state => {
 
   const props = {
     header: isLoading
-      ? {}
+      ? {type: 'popinCorrection'}
       : {
           type: 'popinCorrection',
           lives: 1,

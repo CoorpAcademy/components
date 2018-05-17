@@ -138,7 +138,7 @@ test('should display loading when correction is not still fetched', t => {
   testRendering(vNode);
   const {props} = vNode;
 
-  t.deepEqual(props.header, {});
+  t.deepEqual(props.header, {type: 'popinCorrection'});
   t.is(props.question.answer, '');
   t.false(props.resources.open);
   t.false(props.klf.open);
@@ -156,7 +156,7 @@ test("should display loading state when answer's result is not still received", 
   testRendering(vNode);
   const {props} = vNode;
 
-  t.deepEqual(props.header, {});
+  t.deepEqual(props.header, {type: 'popinCorrection'});
   t.is(props.question.answer, '2');
   t.false(props.resources.open);
   t.false(props.klf.open);

@@ -4,6 +4,11 @@ const headerProps = SlidesHeader.props;
 
 export default {
   props: {
-    header: headerProps
+    header: headerProps,
+    summary: {
+      header: {
+        type: 'popinEnd'
+      }
+    }
   }
 };
