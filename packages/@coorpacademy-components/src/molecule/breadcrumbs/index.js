@@ -59,15 +59,14 @@ const Breadcrumbs = props => {
 Breadcrumbs.propTypes = {
   breadcrumbs: PropTypes.arrayOf(
     PropTypes.shape({
-      icon: PropTypes.string,
       title: PropTypes.string.isRequired,
       href: PropTypes.string
     })
   ),
   links: PropTypes.arrayOf(
     PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      href: PropTypes.string.isRequired,
+      title: Link.propTypes.children,
+      href: Link.propTypes.href,
       type: PropTypes.string
     })
   )

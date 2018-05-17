@@ -37,6 +37,7 @@ class ImageUpload extends React.Component {
     const idBox = uniqueId('drop-box-');
     const {
       title,
+      name,
       description,
       onChange,
       uploadLabel,
@@ -72,6 +73,7 @@ class ImageUpload extends React.Component {
           <div className={style.uploadLabel}>{uploadLabel}</div>
           <input
             type="file"
+            name={name}
             accept="image/*"
             disabled={loading}
             className={style.input}
@@ -93,6 +95,7 @@ ImageUpload.contextTypes = {
 
 ImageUpload.propTypes = {
   title: PropTypes.string,
+  name: PropTypes.string,
   description: PropTypes.string,
   onChange: PropTypes.func,
   uploadLabel: PropTypes.string,

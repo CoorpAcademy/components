@@ -7,6 +7,7 @@ import style from './style.css';
 const InputColor = props => {
   const {
     title,
+    name,
     placeholder,
     value,
     defaultValue,
@@ -28,7 +29,7 @@ const InputColor = props => {
         <span className={style.title}>{`${title} `}</span>
         <input
           type="text"
-          name={title}
+          name={name}
           className={style.input}
           placeholder={placeholder}
           defaultValue={defaultValue}
@@ -45,6 +46,7 @@ const InputColor = props => {
 
 InputColor.propTypes = {
   title: PropTypes.string.isRequired,
+  name: PropTypes.string,
   placeholder: PropTypes.string.isRequired,
   defaultValue: PropTypes.string,
   value: PropTypes.string,

@@ -78,6 +78,7 @@ class InputHtml extends React.Component {
 }
 
 InputHtml.propTypes = {
+  title: PropTypes.string,
   placeholder: PropTypes.string,
   disabled: PropTypes.bool,
   value: PropTypes.string,

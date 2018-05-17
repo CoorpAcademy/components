@@ -19,7 +19,7 @@ const InputText = props => {
     modified = false
   } = props;
 
-  const title = `${props.title}${required ? '*' : ''} :`;
+  const title = `${props.title}${required ? '*' : ''}`;
   const handleChange = e => onChange(e.target.value);
   const className = getClassState(style.default, style.modified, style.error, modified, error);
 

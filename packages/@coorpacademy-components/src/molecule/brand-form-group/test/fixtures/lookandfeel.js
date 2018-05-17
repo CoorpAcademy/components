@@ -5,6 +5,7 @@ export default {
     fields: [
       {
         title: 'Primary color',
+        name: 'primary-color',
         value: '#ececec',
         placeholder: '#ffffff',
         type: 'color',
@@ -13,6 +14,7 @@ export default {
       },
       {
         title: 'Secondary color',
+        name: 'secondary-color',
         value: '#ececec',
         placeholder: '#ffffff',
         type: 'color',
@@ -21,6 +23,7 @@ export default {
       },
       {
         title: 'Tertirary color',
+        name: 'tertirary-color',
         value: '#ececec',
         placeholder: '#ffffff',
         type: 'color',
@@ -29,6 +32,7 @@ export default {
       },
       {
         title: 'Validation color',
+        name: 'validation-color',
         value: '#ececec',
         placeholder: '#ffffff',
         type: 'color',
@@ -37,6 +41,7 @@ export default {
       },
       {
         title: 'Error color',
+        name: 'error-color',
         value: '#ff0000',
         placeholder: '#ffffff',
         type: 'color',

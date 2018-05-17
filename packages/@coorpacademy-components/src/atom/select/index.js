@@ -24,6 +24,7 @@ const themeStyle = {
 
 const Select = (props, context) => {
   const {
+    name,
     options = [],
     className,
     borderClassName,
@@ -93,6 +94,7 @@ const Select = (props, context) => {
         {arrowView}
         <select
           title={selectedLabel}
+          name={name}
           onChange={handleChange}
           value={selected}
           multiple={multiple}
@@ -117,6 +119,7 @@ Select.contextTypes = {
 
 Select.propTypes = {
   title: PropTypes.string,
+  name: PropTypes.string,
   className: PropTypes.string,
   borderClassName: PropTypes.string,
   disabled: PropTypes.bool,

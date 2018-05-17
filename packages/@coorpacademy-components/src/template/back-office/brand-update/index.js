@@ -31,8 +31,6 @@ const BrandUpdate = Layout(props => {
         return <BrandTable {...cont} />;
       case 'upload':
         return <BrandUpload {...cont} />;
-      default:
-        return null;
     }
   };
 
@@ -51,37 +49,24 @@ const BrandUpdate = Layout(props => {
 });
 
 BrandUpdate.propTypes = {
-  notifications: PropTypes.arrayOf(
+  notifications: PropTypes.arrayOf(PropTypes.shape(Notification.propTypes)),
+  breadcrumbs: Breadcrumbs.propTypes.breadcrumbs,
+  links: Breadcrumbs.propTypes.links,
+  tabs: BrandTabs.propTypes.tabs,
+  content: PropTypes.oneOfType([
     PropTypes.shape({
-      type: PropTypes.string.isRequired,
-      message: PropTypes.string.isRequired,
-      onClose: PropTypes.func
-    })
-  ),
-  breadcrumbs: PropTypes.arrayOf(
+      type: PropTypes.oneOf(['form']),
+      ...BrandForm.propTypes
+    }),
     PropTypes.shape({
-      icon: PropTypes.string,
-      title: PropTypes.string.isRequired,
-      href: PropTypes.string
-    })
-  ),
-  links: PropTypes.arrayOf(
+      type: PropTypes.oneOf(['list']),
+      ...BrandTable.propTypes
+    }),
     PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      href: PropTypes.string.isRequired,
-      type: PropTypes.string
+      type: PropTypes.oneOf(['upload']),
+      ...BrandUpload.propTypes
     })
-  ),
-  tabs: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      href: PropTypes.string.isRequired,
-      selected: PropTypes.bool
-    })
-  ),
-  content: PropTypes.shape({
-    type: PropTypes.oneOf(['form', 'list', 'upload'])
-  })
+  ])
 };
 
 export default BrandUpdate;

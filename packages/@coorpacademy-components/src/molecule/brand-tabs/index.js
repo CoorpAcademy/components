@@ -27,8 +27,8 @@ const BrandTabs = props => {
 BrandTabs.propTypes = {
   tabs: PropTypes.arrayOf(
     PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      href: PropTypes.string.isRequired,
+      title: Link.propTypes.children,
+      href: Link.propTypes.href,
       selected: PropTypes.bool
     })
   )
