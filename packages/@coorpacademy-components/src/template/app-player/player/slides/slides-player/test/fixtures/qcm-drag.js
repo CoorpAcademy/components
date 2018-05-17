@@ -7,7 +7,7 @@ export default {
   props: {
     typeClue: 'answer',
     ...Default.props,
-    help: null,
+    help: 'test help',
     answerType
   }
 };

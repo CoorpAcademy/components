@@ -7,6 +7,7 @@ export default {
     model: {
       type: 'qcmDrag',
       ...answerProps
-    }
+    },
+    help: 'Help text will appear here'
   }
 };

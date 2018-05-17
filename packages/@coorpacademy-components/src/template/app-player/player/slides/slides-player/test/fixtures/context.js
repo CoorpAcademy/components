@@ -9,6 +9,9 @@ const resourceProps = ResourceBrowser.props;
 export default {
   props: {
     typeClue: 'context',
+    answerType: {
+      model: []
+    },
     showNewMedia: false,
     starsDiff: 4,
     step: {
