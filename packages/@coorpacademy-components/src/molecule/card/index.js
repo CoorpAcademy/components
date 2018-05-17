@@ -92,6 +92,8 @@ const Card = (props, context) => {
               </div>
             </div>
             <div
+              data-name="author"
+              title={author}
               className={classnames(
                 style.author,
                 certifiedAuthor && style.certified,
