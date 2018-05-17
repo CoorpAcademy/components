@@ -19,7 +19,8 @@ test('should put revival to true if current step is extra life and a lesson has 
     state
   );
 
-  t.true(get(['header', 'revival'], props));
+  t.true(get('extraLifeGranted', props));
+  t.is(props.quit, undefined);
 });
 
 test('should put revival to false if current step is extra life and a lesson has not been viewed', t => {
@@ -28,7 +29,14 @@ test('should put revival to false if current step is extra life and a lesson has
     state
   );
 
-  t.false(get(['header', 'revival'], props));
+  t.false(get('extraLifeGranted', props));
+  t.is(get('quit.cta.title', props), '__Quit');
+  t.is(props.header.type, 'popinCorrection');
+  t.deepEqual(get('overlay', props), {
+    title: '__Bonus!',
+    text: '__Get an extra life by viewing the lesson',
+    lifeAmount: 1
+  });
 });
 
 test('should put revival to false if current step is not extra life, even if lesson has been viewed', t => {
@@ -42,5 +50,8 @@ test('should put revival to false if current step is not extra life, even if les
     state
   );
 
-  t.false(get(['header', 'revival'], props));
+  t.false(get('extraLifeGranted', props));
+  t.is(props.header.type, 'popinCorrection');
+  t.is(props.quit, undefined);
+  t.is(props.overlay, undefined);
 });

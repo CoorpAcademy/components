@@ -1,0 +1,33 @@
+@keyframes bounceTwice {
+  0% {
+    transform: scale(1);
+  }
+
+  16% {
+    transform: scale(1);
+  }
+
+  20% {
+    transform: scale(1.3);
+  }
+
+  24% {
+    transform: scale(1);
+  }
+
+  28% {
+    transform: scale(1.3);
+  }
+
+  32% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.bounceTwice {
+  animation: bounceTwice 5s infinite;
+}

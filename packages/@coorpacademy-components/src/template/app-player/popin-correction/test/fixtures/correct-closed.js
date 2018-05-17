@@ -44,7 +44,8 @@ const resourceValues = [
 export default defaultsDeep(loading, {
   props: {
     header: {
-      fail: false,
+      type: 'popinCorrection',
+      failed: false,
       corrections: [
         {
           answer: "Grâce à des outils d'analyse et de surveillance",

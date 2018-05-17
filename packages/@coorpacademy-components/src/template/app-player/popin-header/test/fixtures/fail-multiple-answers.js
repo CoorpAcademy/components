@@ -1,6 +1,7 @@
 export default {
   props: {
-    fail: true,
+    type: 'popinCorrection',
+    failed: true,
     jokers: 0,
     lives: 2,
     title: 'Aïe Aïe Aïe',

@@ -1,19 +1,18 @@
 export default {
   props: {
-    fail: true,
-    revival: true,
+    type: 'popinCorrection',
+    failed: true,
+    extraLifeGranted: false,
     animated: true,
     lives: 0,
     title: 'Aïe Aïe Aïe',
-    extraLife: {
-      active: true,
-      sentence: 'Bonus ! Récupérez 1 vie en regardant la leçon !'
-    },
+    gameOver: true,
     subtitle: 'Mauvaise réponse',
     corrections: [{answer: 'Je ne sais pas', isCorrect: false}],
     cta: {
-      title: 'Next',
-      href: '#'
+      title: 'Game Over',
+      nextStepTitle: 'Click to continue',
+      onClick: e => console.log(e.target)
     }
   }
 };

@@ -10,8 +10,8 @@ const {readComponentFiles$} = require('./component-files');
 
 const parse = cwd =>
   pipe(file => relative(cwd, file), split('/'), slice(0, -1), folders => {
-    const title = pipe(last, pascalCase)(folders);
     const type = pipe(slice(0, -1), _join('-'), pascalCase)(folders);
+    const title = `${type}${pipe(last, pascalCase)(folders)}`;
     const path = join(cwd, ...folders);
 
     return {

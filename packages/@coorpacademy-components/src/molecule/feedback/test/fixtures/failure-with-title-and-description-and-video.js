@@ -7,6 +7,7 @@ export default {
     mediaDescription: 'Pour réussir ce module, nous pensons que cette video pourrait vous aider.',
     media: {
       type: 'video',
+      description: '',
       subtitles: [],
       posters: [],
       src: [

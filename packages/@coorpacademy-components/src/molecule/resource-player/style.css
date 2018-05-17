@@ -1,15 +1,84 @@
-.resourcePlayer.image {
+.image {
   overflow: hidden;
   display: flex;
+  height: 100%;
 }
 
-.resourcePlayer.image .img {
+.image .img {
   height: 100%;
   width: 100%;
   background-size: cover;
   background-position: center;
 }
 
-.resourcePlayer.video {
+.video {
   background-color: black;
+  position: relative;
+  height: 100%;
+}
+
+.pdf {
+  composes: video;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.8);
+  transition: all 0.5s;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.overlay:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.texts {
+  font-family: 'Open Sans';
+  animation: none;
+  font-size: 17px;
+  display: flex;
+  width: 100%;
+  margin: 0;
+  justify-content: center;
+}
+
+.overlayTitle {
+  composes: texts;
+  margin-top: 19px;
+  font-weight: 200;
+}
+
+.overlayText {
+  composes: texts;
+  font-weight: 600;
+  width: 90%;
+  text-align: center;
+}
+
+.playButton {
+  composes: bounceAndPause from '../../atom/css-animations/bounce-and-pause.css';
+  animation-delay: 2.5s;
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border-radius: 100%;
+  padding: 14px;
+  margin-right: -40px;
+  box-sizing: border-box;
 }

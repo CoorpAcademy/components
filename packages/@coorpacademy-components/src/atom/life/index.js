@@ -13,13 +13,22 @@ const MODES = {
   small: style.small
 };
 
+const BOUNCES = {
+  bounce: style.bounce,
+  bounceTwice: style.bounceTwice,
+  bounceAndPause: style.bounceAndPause
+};
+
 const Life = (props, context) => {
   const {skin} = context;
   const {
+    bounce = null,
+    heartOnRight = false,
     animated = false,
     count = 3,
-    fail = false,
+    failed = false,
     mode = 'default',
+    operator = 'x',
     revival,
     className,
     style: customStyle
@@ -31,12 +40,22 @@ const Life = (props, context) => {
     return null;
   }
 
-  const pickStyle = (successStyle, failStyle, animatedFailStyle, revivalStyle) => {
+  const pickStyle = (successStyle, failedStyle, animatedFailedStyle, revivalStyle) => {
     if (revival) return revivalStyle;
-    if (fail && animated) return animatedFailStyle;
-    if (fail) return failStyle;
+    if (failed && animated) return animatedFailedStyle;
+    if (failed) return failedStyle;
     return successStyle;
   };
+
+  const heartWrapper = failed && animated ? style.heartWrapperFailed : style.heartWrapperDefault;
+  const bounceClass = bounce ? BOUNCES[bounce.type] : null;
+  const heartCustomStyle = {
+    animationDelay: bounce && bounce.delay,
+    animationDuration: bounce && bounce.duration,
+    left: heartOnRight && '70px'
+  };
+
+  const countStyle = failed ? style.livesCounterFailed : style.livesCounterDefault;
 
   return (
     <div data-name="life" className={classnames(MODES[mode], className)} style={customStyle}>
@@ -45,29 +64,26 @@ const Life = (props, context) => {
           className={pickStyle(
             style.previousLivesCounterDefault,
             style.previousLivesCounterDefault,
-            style.previousLivesCounterFail,
+            style.previousLivesCounterFailed,
             style.previousLivesRevival
           )}
         >
           {count + 1}
         </div>
-        <div
-          data-name="counter"
-          className={fail ? style.livesCounterFail : style.livesCounterDefault}
-        >
+        <div data-name="counter" className={countStyle}>
           {count}
         </div>
       </div>
-      <div className={style.multiplier}>
-        <div className={style.multiplierText}>x</div>
+      <div className={style.operatorWrapper}>
+        <span className={style.operator}>{operator}</span>
       </div>
-      <div className={fail && animated ? style.heartWrapperFail : style.heartWrapperDefault}>
+      <div className={classnames(heartWrapper, bounceClass)} style={heartCustomStyle}>
         <HeartIcon outline={white} outlineWidth={5} className={style.heartOutline} color={white} />
         <HeartIcon
           className={pickStyle(
             style.heartNormalDefault,
-            style.heartNormalFail,
-            style.heartNormalAnimatedFail,
+            style.heartNormalFailed,
+            style.heartNormalAnimatedFailed,
             style.heartNormalRevival
           )}
           color={negativeColor}
@@ -75,8 +91,8 @@ const Life = (props, context) => {
         <HeartBrokenIcon
           className={pickStyle(
             style.heartBrokenDefault,
-            style.heartBrokenFail,
-            style.heartBrokenAnimatedFail,
+            style.heartBrokenFailed,
+            style.heartBrokenAnimatedFailed,
             style.heartBrokenRevival
           )}
           color={negativeColor}
@@ -93,10 +109,16 @@ Life.contextTypes = {
 Life.propTypes = {
   revival: PropTypes.bool,
   animated: PropTypes.bool,
+  bounce: PropTypes.shape({
+    type: PropTypes.oneOf(['bounce', 'bounceTwice', 'bounceAndPause']),
+    delay: PropTypes.string
+  }),
+  heartOnRight: PropTypes.bool,
   mode: PropTypes.oneOf(keys(MODES)),
   count: PropTypes.number,
-  fail: PropTypes.bool,
-  className: PropTypes.string
+  failed: PropTypes.bool,
+  className: PropTypes.string,
+  operator: PropTypes.string
 };
 
 export default Life;

@@ -13,3 +13,4 @@ coverage.lcov
 package-lock.json
 packages/@coorpacademy-components/src/**/test/fixtures.js
 .prettierrc
+yarn-error.log

@@ -55,6 +55,7 @@ test('should create a "Next Level" CTA after success on learner progression', as
   const header = props.summary.header;
   t.is(header.rank, '+1');
   t.is(header.stars, '+2');
+  t.is(header.type, 'popinEnd');
 
   const cta = header.cta;
   t.is(cta.title, '__Next level');
@@ -148,6 +149,7 @@ test('should create a "Back to Home" CTA after success on learner progression wi
   const header = props.summary.header;
   t.is(header.rank, '+1');
   t.is(header.stars, '+2');
+  t.is(header.type, 'popinEnd');
 
   const cta = header.cta;
   t.is(cta.title, '__Back to home');
@@ -170,6 +172,7 @@ test('should create a "Back to Home" CTA after success on learner progression wi
   const header = props.summary.header;
   t.is(header.rank, '+1');
   t.is(header.stars, '+2');
+  t.is(header.type, 'popinEnd');
 
   const cta = header.cta;
   t.is(cta.title, '__Back to home');
@@ -183,6 +186,7 @@ test('should create a "Retry Level" CTA after failure on learner progression', t
 
   const header = props.summary.header;
   t.is(header.rank, '-1');
+  t.is(header.type, 'popinEnd');
 
   const cta = props.summary.header.cta;
   t.is(cta.title, '__Retry level');
@@ -204,6 +208,7 @@ test('should create a "Retry Chapter" CTA after failure on microlearning progres
   const header = props.summary.header;
   t.falsy(header.rank);
   t.falsy(header.stars);
+  t.is(header.type, 'popinEnd');
 
   const cta = props.summary.header.cta;
   t.is(cta.title, '__Retry chapter');

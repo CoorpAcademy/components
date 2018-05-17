@@ -1,21 +1,19 @@
 @value colors: "../../../variables/colors.css";
 @value dark from colors;
+@value grey from colors;
+@value xtraLightGrey from colors;
 @value medium from colors;
 @value positive from colors;
 @value white from colors;
+@value brand from colors;
 @value tablet from "../../../variables/breakpoints.css";
 
-@keyframes fadeInOverlay {
+@keyframes fadeInBackground {
   0% { opacity: 0; }
   100% { opacity: 1; }
 }
 
-@keyframes fadeOutOverlay {
-  0% { opacity: 1; }
-  100% { opacity: 0; }
-}
-
-.overlay {
+.initialBackground {
   position: fixed;
   top: 0;
   left: 0;
@@ -29,8 +27,8 @@
   opacity: 0;
 }
 
-.openOverlay {
-  composes: overlay;
+.finalBackground {
+  composes: initialBackground;
   opacity: 1;
 }
 
@@ -58,10 +56,6 @@
 
 .wrapper {
   composes: baseWrapper;
-  animation-name: bounceWrapper;
-  animation-duration: 0.3s;
-  animation-fill-mode: forwards;
-  animation-timing-function: ease-in-out;
 }
 
 .baseContent {
@@ -69,7 +63,6 @@
   width: 100%;
   overflow: hidden;
   transition: opacity 0.5s;
-  border-radius: 3px;
 }
 
 .content {
@@ -158,7 +151,6 @@
 }
 
 @media tablet {
-  .overlay,
   .scrollWrapper {
     position: relative;
     width: 100%;
@@ -181,7 +173,7 @@
   }
 
   .wrapper {
-    animation-name: fadeInOverlay;
+    animation-name: fadeInBackground;
     animation-duration: 0.1s;
   }
 
@@ -200,4 +192,34 @@
     margin: 5px 0;
     width: 100%;
   }
+}
+
+/* quit button -------------- */
+
+.quitCta {
+  composes: hoverFill from '../../../atom/button/hover-fill.css';
+  font-family: 'Open Sans';
+  font-size: 16px;
+  font-weight: 700;
+  background-color: white;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.quitCta::after {
+  background-color: grey;
+  opacity: 0.15;
+}
+
+.hideQuitCta {
+  composes: quitCta;
+  height: 0;
+  padding: 0;
+  transition: all 1s;
 }

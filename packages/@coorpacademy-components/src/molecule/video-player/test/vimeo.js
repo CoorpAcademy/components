@@ -129,5 +129,9 @@ test('should update vimeo video', t => {
     id: null
   });
 
+  video.setProps({
+    autoplay: true
+  });
+
   video.unmount();
 });

@@ -24,13 +24,17 @@ const Resources = ({resources, className}) => {
 };
 
 const ResourceBrowser = props => {
-  const {resources, className} = props;
+  const {resources, className, overlay} = props;
   const selectedResource = find(({selected}) => selected, resources);
 
   return (
     <div data-name="resourceBrowser" className={classnames(style.default, className)}>
       {selectedResource && (
-        <ResourcePlayer className={style.resourcePlayer} resource={selectedResource} />
+        <ResourcePlayer
+          overlay={overlay}
+          className={style.resourcePlayer}
+          resource={selectedResource}
+        />
       )}
       <Resources resources={resources} className={className} />
     </div>
@@ -38,7 +42,9 @@ const ResourceBrowser = props => {
 };
 
 ResourceBrowser.propTypes = {
-  resources: PropTypes.arrayOf(ResourcePlayer.propType.resource)
+  className: PropTypes.string,
+  resources: PropTypes.arrayOf(ResourcePlayer.propTypes.resource),
+  overlay: ResourcePlayer.propTypes.overlay
 };
 
 export default ResourceBrowser;

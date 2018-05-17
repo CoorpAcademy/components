@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactJWPlayer from 'react-jw-player';
+import includes from 'lodash/fp/includes';
 import {SrcPropType} from '../../util/proptypes';
 import style from './jwplayer.css';
 
@@ -11,6 +12,16 @@ class JWPlayer extends React.Component {
     this.handleResume = this.handleResume.bind(this);
     this.handlePause = this.handlePause.bind(this);
     this.handleEnded = this.handleEnded.bind(this);
+  }
+
+  componentDidUpdate(prevProps) {
+    const changes = Object.keys(this.props).filter(_name => this.props[_name] !== prevProps[_name]);
+    const shouldStart = includes('autoplay', changes);
+    if (shouldStart) {
+      if (window.jwplayer) {
+        window.jwplayer().play();
+      }
+    }
   }
 
   handlePlay(e) {

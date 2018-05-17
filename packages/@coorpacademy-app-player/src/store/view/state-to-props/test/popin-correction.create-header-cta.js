@@ -119,9 +119,7 @@ test('should create a "Next" CTA when entering a success popin', async t => {
   const cta = createHeaderCTA({translate: mockTranslate}, {dispatch})(state);
 
   t.deepEqual(omit('onClick', cta), {
-    type: 'correction',
-    title: '__Next',
-    nextStepTitle: null
+    title: '__Next'
   });
   const dispatched = await cta.onClick();
   t.deepEqual(actionTypes(dispatched), [
@@ -152,9 +150,7 @@ test('should create a "Next" CTA when entering a success exit popin', async t =>
   const cta = createHeaderCTA({translate: mockTranslate}, {dispatch})(state);
 
   t.deepEqual(omit('onClick', cta), {
-    type: 'correction',
-    title: '__Next',
-    nextStepTitle: null
+    title: '__Next'
   });
   const dispatched = await cta.onClick();
   t.deepEqual(actionTypes(dispatched), [
@@ -190,9 +186,8 @@ test('should create a "Game over" CTA when entering a failure exit popin', async
   const cta = createHeaderCTA({translate: mockTranslate}, {dispatch})(state);
 
   t.deepEqual(omit('onClick', cta), {
-    type: 'correction',
     title: '__Game over',
-    nextStepTitle: null
+    nextStepTitle: '__Click to continue'
   });
   const dispatched = await cta.onClick();
   t.deepEqual(actionTypes(dispatched), [
@@ -219,16 +214,14 @@ test('should create a "Game over" CTA when entering a failure exit popin', async
   t.deepEqual(metaOf(PROGRESSION_FETCH_REQUEST, dispatched), {id: progressionId});
 });
 
-test('should create a "Refuse" CTA when entering an extra-life popin', async t => {
+test('should create a "Quit" CTA when entering an extra-life popin', async t => {
   const state = popinExtraLife;
   const progressionId = getCurrentProgressionId(state);
   const dispatch = createDispatch(state);
   const cta = createHeaderCTA({translate: mockTranslate}, {dispatch})(state);
 
   t.deepEqual(omit('onClick', cta), {
-    type: 'correction',
-    title: '__Game over',
-    nextStepTitle: null
+    title: '__Quit'
   });
   const dispatched = await cta.onClick();
   const actions = actionTypes(dispatched);
@@ -265,9 +258,7 @@ test('should create an "Accept" CTA when entering a revival popin', async t => {
   const cta = createHeaderCTA({translate: mockTranslate}, {dispatch})(state);
 
   t.deepEqual(omit('onClick', cta), {
-    type: 'correction',
-    title: '__Next',
-    nextStepTitle: null
+    title: '__Next'
   });
   const dispatched = await cta.onClick();
   t.deepEqual(actionTypes(dispatched), [
@@ -302,9 +293,7 @@ test('should return null for the next content title if the progression content i
   const cta = createHeaderCTA({translate: mockTranslate}, {dispatch})(state);
 
   t.deepEqual(omit('onClick', cta), {
-    type: 'correction',
-    title: '__Next',
-    nextStepTitle: null
+    title: '__Next'
   });
 });
 
@@ -318,20 +307,18 @@ test('should return null for the next content title if the previous and current 
   const cta = createHeaderCTA({translate: mockTranslate}, {dispatch})(state);
 
   t.deepEqual(omit('onClick', cta), {
-    type: 'correction',
-    title: '__Next',
-    nextStepTitle: null
+    title: '__Next'
   });
 });
 
-test('should return null for the next content title if slide, chapter or level content are not found', t => {
+test('should not set nextStepTitle for the next content title if slide, chapter or level content are not found', t => {
   const state = cloneDeep(popinNextLevel);
   const dispatch = createDispatch(state);
   const createHeader = createHeaderCTA({translate: mockTranslate}, {dispatch});
 
-  t.is(createHeader(set('data.contents.slide', {}, state)).nextStepTitle, null);
-  t.is(createHeader(set('data.contents.chapter', {}, state)).nextStepTitle, null);
-  t.is(createHeader(set('data.contents.level', {}, state)).nextStepTitle, null);
+  t.is(createHeader(set('data.contents.slide', {}, state)).nextStepTitle, undefined);
+  t.is(createHeader(set('data.contents.chapter', {}, state)).nextStepTitle, undefined);
+  t.is(createHeader(set('data.contents.level', {}, state)).nextStepTitle, undefined);
 });
 
 test('should return the index of the next chapter out of the total number of chapters along with its title', t => {
@@ -340,7 +327,6 @@ test('should return the index of the next chapter out of the total number of cha
   const cta = createHeaderCTA({translate: mockTranslate}, {dispatch})(state);
 
   t.deepEqual(omit('onClick', cta), {
-    type: 'correction',
     title: '__Next chapter',
     nextStepTitle: '2/4 Some chapter name'
   });
@@ -356,9 +342,7 @@ test('should return null for the next content title if next content is an exitno
 
   const ctaSuccess = createHeaderCTA({translate: mockTranslate}, {dispatch})(state);
   t.deepEqual(omit('onClick', ctaSuccess), {
-    type: 'correction',
-    title: '__Next chapter',
-    nextStepTitle: null
+    title: '__Next chapter'
   });
 
   state.data.progressions.entities[0].state.nextContent = {
@@ -367,9 +351,7 @@ test('should return null for the next content title if next content is an exitno
   };
   const ctaFailure = createHeaderCTA({translate: mockTranslate}, {dispatch})(state);
   t.deepEqual(omit('onClick', ctaFailure), {
-    type: 'correction',
-    title: '__Next chapter',
-    nextStepTitle: null
+    title: '__Next chapter'
   });
 });
 
@@ -383,8 +365,6 @@ test('should return null for the next content title if next content is an extral
 
   const cta = createHeaderCTA({translate: mockTranslate}, {dispatch})(state);
   t.deepEqual(omit('onClick', cta), {
-    type: 'correction',
-    title: '__Next chapter',
-    nextStepTitle: null
+    title: '__Next chapter'
   });
 });

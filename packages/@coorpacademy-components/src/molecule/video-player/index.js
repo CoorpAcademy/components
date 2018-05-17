@@ -86,6 +86,8 @@ VideoPlayer.propTypes = {
   onResume: PropTypes.func,
   onPause: PropTypes.func,
   onEnded: PropTypes.func,
+  autoplay: PropTypes.bool,
+  jwpOptions: JWPlayer.propTypes.jwpOptions,
   mimeType: PropTypes.oneOf([
     'application/kontiki',
     'application/vimeo',

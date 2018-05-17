@@ -12,7 +12,7 @@ import Loader from '../../../atom/loader';
 import Card from '../../../molecule/card';
 import Feedback from '../../../molecule/feedback';
 import CardsList from '../../../molecule/dashboard/cards-list';
-import PopinHeader from '../../../molecule/app-player/popin/popin-header';
+import PopinHeader from '../popin-header';
 import style from './summary.css';
 
 const Header = props => <PopinHeader {...props} />;
@@ -187,9 +187,11 @@ const Footer = ({title, color, ...linkProps}) => (
     style={{
       color
     }}
-    data-name="footer"
     className={style.footer}
     {...linkProps}
+    data-name="nextLink"
+    data-popin="popinEnd"
+    data-next="home"
   >
     {title}
   </Link>

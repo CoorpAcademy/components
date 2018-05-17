@@ -7,9 +7,11 @@ import getOr from 'lodash/fp/getOr';
 import omit from 'lodash/fp/omit';
 import CheckIcon from '@coorpacademy/nova-icons/composition/coorpacademy/check';
 import Loader from '../../../atom/loader';
+import Link from '../../../atom/link';
+import Provider from '../../../atom/provider';
 import ResourceBrowser from '../../../organism/resource-browser';
-import PopinHeader from '../../../molecule/app-player/popin/popin-header';
 import Accordion from '../../../organism/accordion/container';
+import Header from '../popin-header';
 import style from './style.css';
 
 const extractTabs = items =>
@@ -18,9 +20,9 @@ const extractTabs = items =>
     return {iconType: type, title: item.title, isOpen: item.open};
   });
 
-const Resources = ({resources}) => (
+const Resources = ({resources, overlay}) => (
   <div className={style.browserWrapper}>
-    <ResourceBrowser resources={resources.value} className={style.browser} />
+    <ResourceBrowser resources={resources.value} overlay={overlay} className={style.browser} />
   </div>
 );
 
@@ -94,27 +96,64 @@ class PopinCorrection extends Component {
   }
 
   render() {
-    const {header = {}, question, resources, klf, tips, onClick} = this.props;
+    const {
+      header = {},
+      extraLifeGranted,
+      gameOver,
+      question,
+      overlay,
+      resources,
+      klf,
+      tips,
+      onClick,
+      quit = {}
+    } = this.props;
+
+    const {skin} = this.context;
+    const primary = getOr('#f0f', 'common.primary', skin);
 
     const tabs = extractTabs({resources, klf, tips});
-    const isLoading = isNil(header.fail);
-    const className = this.state.open ? style.openOverlay : style.overlay;
+    const isLoading = isNil(header.failed);
+    const className = this.state.open ? style.finalBackground : style.initialBackground;
+    const {title, ...linkProps} = quit.cta || {};
+
+    const quitCta =
+      title || extraLifeGranted ? (
+        <Link
+          style={{
+            color: primary
+          }}
+          className={extraLifeGranted ? style.hideQuitCta : style.quitCta}
+          data-name="nextLink"
+          data-popin="popinCorrection"
+          data-next="quit-with-extra-life"
+          {...linkProps}
+        >
+          {title}
+        </Link>
+      ) : null;
 
     return (
       <div ref={this.initWrapper} className={className} data-name="popinCorrection">
         <div className={style.scrollWrapper}>
           <div className={isLoading ? style.loadingWrapper : style.wrapper}>
             <div className={isLoading ? style.loadingContent : style.content}>
-              <PopinHeader {...header} animated />
+              <Header
+                {...header}
+                gameOver={gameOver}
+                extraLifeGranted={extraLifeGranted}
+                animated
+              />
               <Question {...question} />
               <Accordion tabProps={tabs} onClick={onClick} oneTabOnly>
                 {isEmpty(getOr([], 'value', resources)) ? null : (
-                  <Resources resources={resources} />
+                  <Resources resources={resources} overlay={overlay} />
                 )}
                 <SimpleText text={klf.value} />
                 <SimpleText text={tips.value} />
               </Accordion>
             </div>
+            {quitCta}
           </div>
           <Loader className={isLoading ? style.activeLoader : style.inactiveLoader} />
         </div>
@@ -123,13 +162,30 @@ class PopinCorrection extends Component {
   }
 }
 
+PopinCorrection.contextTypes = {
+  skin: Provider.childContextTypes.skin
+};
+
 PopinCorrection.propTypes = {
-  resources: PropTypes.shape(ResourceBrowser.propTypes),
-  header: PropTypes.shape(omit(['animated'], PopinHeader.propTypes)),
+  resources: PropTypes.shape({
+    title: PropTypes.string,
+    value: ResourceBrowser.propTypes.resources,
+    open: PropTypes.bool
+  }),
+  overlay: ResourceBrowser.propTypes.overlay,
+  header: PropTypes.shape(omit(['animated'], Header.propTypes)),
   question: PropTypes.shape(Question.propTypes),
   klf: PropTypes.shape(SimpleText.propTypes),
   tips: PropTypes.shape(SimpleText.propTypes),
   onClick: PropTypes.func,
+  extraLifeGranted: PropTypes.bool,
+  gameOver: PropTypes.bool,
+  quit: PropTypes.shape({
+    cta: PropTypes.shape({
+      ...Link.propTypes,
+      title: PropTypes.string
+    })
+  }),
   onOpen: PropTypes.func
 };
 

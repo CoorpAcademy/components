@@ -37,12 +37,12 @@
   color: dark;
 }
 
-.multiplier {
+.operatorWrapper {
   composes: counterText;
-  color: grey;
 }
 
-.multiplierText {
+.operator {
+  color: grey;
   margin-left: -14px;
 }
 
@@ -76,7 +76,7 @@
   margin-top: -100%;
 }
 
-.previousLivesCounterFail {
+.previousLivesCounterFailed {
   composes: counterValue;
   animation-name: hidePreviousLivesCounter;
   animation-duration: 2s;
@@ -88,7 +88,7 @@
   margin-top: 0%;
 }
 
-.livesCounterFail {
+.livesCounterFailed {
   composes: counterValue;
   margin-top: 0%;
 }
@@ -143,7 +143,19 @@
   composes: heartWrapper;
 }
 
-.heartWrapperFail {
+.bounce {
+  composes: bounce from '../../atom/css-animations/bounce.css';
+}
+
+.bounceTwice {
+  composes: bounceTwice from '../../atom/css-animations/bounce-twice.css';
+}
+
+.bounceAndPause {
+  composes: bounceAndPause from '../../atom/css-animations/bounce-and-pause.css';
+}
+
+.heartWrapperFailed {
   composes: heartWrapper;
   animation-name: shakeHeart;
   animation-duration: 2s;
@@ -199,13 +211,13 @@
   animation-fill-mode: forwards;
 }
 
-.heartNormalFail {
+.heartNormalFailed {
   composes: heartIcon;
   opacity: 0;
 }
 
-.heartNormalAnimatedFail {
-  composes: heartNormalFail;
+.heartNormalAnimatedFailed {
+  composes: heartNormalFailed;
   animation-name: hideNormalHeart;
   animation-duration: 2s;
   animation-fill-mode: forwards;
@@ -221,13 +233,13 @@
   opacity: 1;
 }
 
-.heartBrokenFail {
+.heartBrokenFailed {
   composes: heartIcon;
   opacity: 1;
 }
 
-.heartBrokenAnimatedFail {
-  composes: heartBrokenFail;
+.heartBrokenAnimatedFailed {
+  composes: heartBrokenFailed;
   animation-name: showBrokenHeart;
   animation-duration: 2s;
   animation-fill-mode: forwards;
@@ -250,7 +262,7 @@
   line-height: 42px;
 }
 
-.small .multiplierText {
+.small .operator {
   margin-left: -10px;
 }
 

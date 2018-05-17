@@ -8,17 +8,57 @@ import JWPlayer from '../jwplayer';
 browserEnv();
 configure({adapter: new Adapter()});
 
-test('should call listeners within props, then remove them on willComponentUnmount', t => {
-  t.plan(4);
-
+test.serial('should update props and call componentDidUpdate successfully', t => {
   const props = {
     video: 'foo',
+    jwpOptions: {
+      playerId: '1',
+      file: 'https://simoocdigital.credit-agricole.fr/media/content/bigdata/159363386.mp4',
+      playerScript: 'https://up-staging.coorpacademy.com/libs/jwplayer/7.10.7/jwplayer.js',
+      licenseKey: 'yI8rSuuJ+fs7VdJzWjY4zGZU48UcOn+Gjg+FXZag16o='
+    }
+  };
+
+  window.jwplayer = null;
+  const component = <JWPlayer {...props} />;
+  const video = mount(component);
+
+  video.setProps({dummy: true});
+  video.unmount();
+  t.pass();
+});
+
+test.serial('should do nothing if autoplay is triggered and jwplayer script is not ready', t => {
+  const props = {
+    video: 'bar',
+    jwpOptions: {
+      playerId: '2',
+      file: 'https://simoocdigital.credit-agricole.fr/media/content/bigdata/159363386.mp4',
+      playerScript: 'https://up-staging.coorpacademy.com/libs/jwplayer/7.10.7/jwplayer.js',
+      licenseKey: 'yI8rSuuJ+fs7VdJzWjY4zGZU48UcOn+Gjg+FXZag16o='
+    }
+  };
+
+  window.jwplayer = null;
+  const component = <JWPlayer {...props} />;
+  const video = mount(component);
+
+  video.setProps({autoplay: true});
+  video.unmount();
+  t.pass();
+});
+
+test('should call handlers within props, then add autoplay props', t => {
+  t.plan(5);
+
+  const props = {
+    video: 'baz',
     onPause: () => t.pass(),
     onPlay: () => t.pass(),
     onResume: () => t.pass(),
     onEnded: () => t.pass(),
     jwpOptions: {
-      playerId: '5980934b7dfebe01618a57df',
+      playerId: '3',
       file: 'https://simoocdigital.credit-agricole.fr/media/content/bigdata/159363386.mp4',
       playerScript: 'https://up-staging.coorpacademy.com/libs/jwplayer/7.10.7/jwplayer.js',
       licenseKey: 'yI8rSuuJ+fs7VdJzWjY4zGZU48UcOn+Gjg+FXZag16o=',
@@ -43,5 +83,9 @@ test('should call listeners within props, then remove them on willComponentUnmou
   instance.handleResume();
   instance.handleEnded();
 
-  video.unmount();
+  window.jwplayer = () => ({
+    play: props.onPlay
+  });
+
+  video.setProps({autoplay: true});
 });

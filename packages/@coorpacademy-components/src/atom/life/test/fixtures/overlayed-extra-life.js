@@ -1,8 +1,7 @@
 export default {
   props: {
-    isExtraLife: true,
-    count: 3,
-    fail: false,
+    count: 1,
+    operator: '+',
     style: {
       backgroundColor: '#90A4AE'
     }

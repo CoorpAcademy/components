@@ -1,15 +1,11 @@
 export default {
   props: {
-    fail: true,
-    revival: false,
+    type: 'popinCorrection',
+    failed: true,
+    extraLifeGranted: true,
     animated: true,
     lives: 0,
     title: 'Aïe Aïe Aïe',
-    extraLife: {
-      active: false,
-      exhausted: true,
-      sentence: 'Désolé, vous avez utilisé votre bonus !'
-    },
     subtitle: 'Mauvaise réponse',
     corrections: [{answer: 'Je ne sais pas', isCorrect: false}],
     cta: {

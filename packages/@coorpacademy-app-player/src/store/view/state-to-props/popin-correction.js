@@ -3,6 +3,8 @@ import get from 'lodash/fp/get';
 import isNil from 'lodash/fp/isNil';
 import join from 'lodash/fp/join';
 import indexOf from 'lodash/fp/indexOf';
+import omitBy from 'lodash/fp/omitBy';
+import isUndefined from 'lodash/fp/isUndefined';
 import includes from 'lodash/fp/includes';
 import {
   getCurrentCorrection,
@@ -37,7 +39,7 @@ const getNextChapterTitle = (state, progression) => {
   const levelId = get('content.ref', progression);
   const chapterIds = get(['data', 'contents', 'level', 'entities', levelId, 'chapterIds'], state);
   if (!chapterIds) {
-    return null;
+    return undefined;
   }
   const currentSlide = getCurrentSlide(state);
   const currentChapterId = get('chapter_id', currentSlide);
@@ -46,7 +48,7 @@ const getNextChapterTitle = (state, progression) => {
     state
   );
   if (!currentChapterName) {
-    return null;
+    return undefined;
   }
   const indexChapter = indexOf(currentChapterId, chapterIds) + 1;
   return `${indexChapter}/${chapterIds.length} ${currentChapterName}`;
@@ -54,7 +56,7 @@ const getNextChapterTitle = (state, progression) => {
 
 const getNextStepTitle = state => {
   const progression = getCurrentProgression(state);
-  return isNewChapter(state, progression) ? getNextChapterTitle(state, progression) : null;
+  return isNewChapter(state, progression) ? getNextChapterTitle(state, progression) : undefined;
 };
 
 const extraLifeCTAProps = ({translate}, {dispatch}) => state => {
@@ -63,9 +65,8 @@ const extraLifeCTAProps = ({translate}, {dispatch}) => state => {
   const updateProgression = isRevival ? acceptExtraLifeAndReset : refuseExtraLifeAndReset;
 
   return {
-    title: translate(isRevival ? 'Next' : 'Game over'),
-    onClick: () => dispatch(updateProgression(progressionId)),
-    nextStepTitle: null
+    title: translate(isRevival ? 'Next' : 'Quit'),
+    onClick: () => dispatch(updateProgression(progressionId))
   };
 };
 
@@ -77,11 +78,13 @@ const noExtraLifeCTAProps = ({translate}, {dispatch}) => state => {
     ? translate('Next chapter')
     : translate('Next');
 
-  return {
+  const ctaProps = {
     title: isDead ? translate('Game over') : chapterTitle,
     onClick: () => dispatch(selectProgression(progressionId)),
-    nextStepTitle: isDead ? null : getNextStepTitle(state)
+    nextStepTitle: isDead ? translate('Click to continue') : getNextStepTitle(state)
   };
+
+  return omitBy(isUndefined, ctaProps);
 };
 
 export const createHeaderCTA = (options, store) => state => {
@@ -90,12 +93,11 @@ export const createHeaderCTA = (options, store) => state => {
   const ctaProps = isExtraLifeActive ? extraLifeCTAProps : noExtraLifeCTAProps;
   const {title, onClick, nextStepTitle} = ctaProps(options, store)(state);
 
-  return {
+  return omitBy(isUndefined, {
     title,
     onClick,
-    type: 'correction',
     nextStepTitle
-  };
+  });
 };
 
 export const popinCorrectionStateToProps = (options, store) => state => {
@@ -113,15 +115,18 @@ export const popinCorrectionStateToProps = (options, store) => state => {
   const corrections = get('corrections', answerResult) || [];
   const isCorrect = isNil(answerResult) ? null : get('state.isCorrect')(progression);
   const isLoading = isNil(isCorrect);
+
   const isExtraLifeActive = get('state.nextContent.ref', progression) === 'extraLife';
-  const isRevival = isExtraLifeActive && hasViewedAResourceAtThisStep(state);
-  const exhausted = isExtraLifeAvailable && !isCorrect && remainingLifeRequests === 0;
+  const extraLifeGranted = isExtraLifeActive && hasViewedAResourceAtThisStep(state);
+  const mayAcceptExtraLife = isExtraLifeActive && !extraLifeGranted;
+  const noMoreExtraLife = isExtraLifeAvailable && !isCorrect && remainingLifeRequests === 0;
+
   const header = isNil(answerResult)
     ? {}
     : {
         title: translate(isCorrect ? 'Good job' : 'Ouch'),
         subtitle: translate(isCorrect ? 'Good answer' : 'Wrong answer'),
-        fail: isLoading ? null : !isCorrect,
+        failed: isLoading ? null : !isCorrect,
         lives: getLives(state)
       };
 
@@ -133,25 +138,32 @@ export const popinCorrectionStateToProps = (options, store) => state => {
 
   const resources = getResourcesProps(options, store)(state, slide);
 
-  return {
+  const props = {
     header: isLoading
-      ? {}
+      ? {type: 'popinCorrection'}
       : {
+          type: 'popinCorrection',
           lives: 1,
           title: '',
-          revival: isRevival,
           subtitle: '',
           corrections,
-          extraLife: {
-            active: isExtraLifeActive,
-            sentence: exhausted
-              ? translate('Sorry, you have used your bonus!')
-              : translate('Bonus! Get an extra life by watching the lesson below!'),
-            exhausted
-          },
-          cta: createHeaderCTA(options, store)(state),
+          cta: !mayAcceptExtraLife ? createHeaderCTA(options, store)(state) : undefined,
           ...header
         },
+    gameOver: noMoreExtraLife,
+    overlay: mayAcceptExtraLife
+      ? {
+          title: translate('Bonus!'),
+          text: translate('Get an extra life by viewing the lesson'),
+          lifeAmount: 1
+        }
+      : undefined,
+    extraLifeGranted,
+    quit: mayAcceptExtraLife
+      ? {
+          cta: createHeaderCTA(options, store)(state)
+        }
+      : undefined,
     question,
     resources: {
       title: translate('Access the lesson'),
@@ -170,4 +182,6 @@ export const popinCorrectionStateToProps = (options, store) => state => {
     },
     onClick: toggleAccordionSection
   };
+
+  return props;
 };
