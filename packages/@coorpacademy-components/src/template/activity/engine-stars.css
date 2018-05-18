@@ -85,10 +85,11 @@
 @media tablet, mobile {
   .engineStars {
     width: auto;
-    height: 80px;
+    height: 70px;
     flex: 1 2;
     justify-content: flex-end;
     padding-bottom: 10px;
+    overflow-x: scroll;
   }
 
   .engineStars:first-child {
@@ -96,14 +97,14 @@
   }
 
   .engineIcon {
-    width: 27px;
-    height: 26px;
-    right: 8px;
+    width: 30px;
+    height: 23px;
+    right: 5px;
   }
 
   .score {
     height: 23px;
-    font-size: 17px;
+    font-size: 19px;
     display: flex;
     align-items: flex-end;
     align-content: flex-end;
@@ -130,7 +131,7 @@
   }
 
   .scoreTitle {
-    font-size: 11px;
+    font-size: 12px;
   }
 
   .iconHeader {
