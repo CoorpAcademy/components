@@ -248,6 +248,7 @@
   font-weight: bold;
   border-bottom-right-radius: 7px;
   transition: transform 0.5s linear;
+  z-index: 1;
 }
 
 .default:hover .badge {
@@ -315,6 +316,11 @@
   vertical-align: middle;
   width: 80px;
   height: 70px;
+  position: absolute;
+  z-index: 1;
+  right: 50%;
+  transform: translate(50%, 50%);
+  top: 0;
 }
 
 @keyframes progressbar {
@@ -357,7 +363,8 @@
   }
 
   .title {
-    font-size: 15px;
+    font-size: 16px;
+    font-weight: 600;
     overflow: hidden;
   }
 
@@ -427,8 +434,8 @@
   }
 
   .list .title {
-    margin: 12px 0 6px;
-    font-size: 13px;
+    margin: 12px 0 0;
+    font-size: 15px;
     line-height: 15px;
     font-weight: 700;
   }
@@ -438,7 +445,7 @@
   }
 
   .list.course .title {
-    max-height: 30px;
+    max-height: 35px;
   }
 
   .grid.chapter .title {
@@ -446,6 +453,6 @@
   }
 
   .grid.course .title {
-    max-height: 80px;
+    max-height: 70px;
   }
 }

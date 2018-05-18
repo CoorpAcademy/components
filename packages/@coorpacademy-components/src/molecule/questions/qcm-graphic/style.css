@@ -17,7 +17,7 @@
 .answer {
   color: black;
   background-color: white;
-  border: 1px solid light;
+  border: 1px solid color(black lightness(85%));
   border-radius: 3px;
   box-sizing: border-box;
   cursor: pointer;
@@ -40,10 +40,11 @@
 
 .titleWrapper {
   font-family: 'Open Sans';
-  font-size: 19px;
+  font-size: 17px;
   line-height: 20px;
   font-weight: 600;
   padding: 0 8px;
+  text-align: center;
   box-sizing: border-box;
 }
 
@@ -95,5 +96,7 @@
     white-space: wrap;
     overflow: hidden;
     padding: 0;
+    text-align: left;
+    font-size: 15px;
   }
 }

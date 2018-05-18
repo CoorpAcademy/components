@@ -9,8 +9,8 @@
   font-weight: 700;
   text-transform: none;
   padding: 0 15px;
-  border: solid 2px;
-  border-color: medium;
+  border: solid 1px;
+  border-color: color(black lightness(85%));
   height: 50px;
   border-radius: 2px;
   font-size: 14px;
@@ -19,7 +19,7 @@
 }
 
 .input::placeholder {
-  color: black;
+  color: medium;
 }
 
 .input:focus {

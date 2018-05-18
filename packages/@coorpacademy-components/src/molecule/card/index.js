@@ -27,7 +27,7 @@ const Card = (props, context) => {
     badge,
     adaptiv,
     disabled = false,
-    type = 'chapter',
+    type = 'course',
     title,
     author,
     customer,

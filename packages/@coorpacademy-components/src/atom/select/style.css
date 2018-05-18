@@ -422,11 +422,11 @@
 }
 
 .selected.template .label {
-  border: 2px solid;
+  border: 1px solid;
 }
 
 .unselected.template .label {
-  border: 2px solid medium;
+  border: 1px solid color(black lightness(85%));
 }
 
 .template label {

@@ -18,7 +18,7 @@
   font-size: 15px;
   font-weight: 600;
   background-color: white;
-  border: 1px solid light;
+  border: 1px solid color(black lightness(85%));
   border-radius: 3px;
   box-sizing: border-box;
   margin-bottom: 8px;
