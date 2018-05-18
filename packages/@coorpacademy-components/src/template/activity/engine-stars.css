@@ -15,7 +15,7 @@
   justify-content: flex-end;
   height: 153px;
   border-left: solid 1px light;
-  padding: 0 8px 21px 8px;
+  padding: 0 7px 21px 7px;
   box-sizing: border-box;
   position: relative;
   flex: 1 2;
@@ -45,7 +45,7 @@
   align-items: flex-end;
   align-content: flex-end;
   color: dark;
-  margin: 0 0 4px;
+  margin: 0 0 1px;
   padding: 0;
   box-sizing: border-box;
   height: 27px;
