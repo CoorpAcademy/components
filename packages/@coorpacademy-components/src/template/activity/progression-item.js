@@ -6,7 +6,7 @@ import ArrowRightIcon from '@coorpacademy/nova-icons/composition/navigation/arro
 import StarIcon from '@coorpacademy/nova-icons/composition/coorpacademy/star';
 import TimerIcon from '@coorpacademy/nova-icons/composition/coorpacademy/timer';
 import AdaptiveIcon from '@coorpacademy/nova-icons/composition/coorpacademy/adaptive';
-import GraduationIcon from '@coorpacademy/nova-icons/solid/school-and-science/graduation-hat';
+import LearnerIcon from '@coorpacademy/nova-icons/solid/content/content-book-1';
 import Provider from '../../atom/provider';
 import ProgressBar from '../../molecule/progress-bar';
 import Link from '../../atom/link';
@@ -40,7 +40,7 @@ const ProgressionItem = (props, context) => {
     <div>
       <div className={style.wrapperTitle}>
         {type === 'course' ? (
-          <GraduationIcon className={style.iconType} color={dark} />
+          <LearnerIcon className={style.iconType} color={dark} />
         ) : (
           <TimerIcon className={style.iconType} color={dark} />
         )}
