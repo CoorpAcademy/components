@@ -12,7 +12,9 @@ const QCMImage = (props, context) => {
     const {skin} = context;
 
     const primarySkinColor = getOr('#00B0FF', 'common.primary', skin);
-    const selectedStyle = selected ? {backgroundColor: primarySkinColor} : null;
+    const selectedStyle = selected
+      ? {backgroundColor: primarySkinColor, borderColor: primarySkinColor}
+      : null;
     return (
       <div
         className={selected ? style.selected : style.answer}
