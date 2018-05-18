@@ -505,6 +505,7 @@ import OrganismSidebarFixtureDashboards from '../src/organism/sidebar/test/fixtu
 import OrganismSidebarFixtureDefault from '../src/organism/sidebar/test/fixtures/default';
 import OrganismSliderFixtureDefault from '../src/organism/slider/test/fixtures/default';
 import OrganismSliderFixtureMultipleSlides from '../src/organism/slider/test/fixtures/multiple-slides';
+import TemplateActivityFixtureAllEngines from '../src/template/activity/test/fixtures/all-engines';
 import TemplateActivityFixtureDefault from '../src/template/activity/test/fixtures/default';
 import TemplateActivityFixtureEmpty from '../src/template/activity/test/fixtures/empty';
 import TemplateActivityFixtureNoEngines from '../src/template/activity/test/fixtures/no-engines';
@@ -1440,6 +1441,7 @@ export const fixtures = {
   },
   Template: {
     TemplateActivity: {
+      AllEngines: TemplateActivityFixtureAllEngines,
       Default: TemplateActivityFixtureDefault,
       Empty: TemplateActivityFixtureEmpty,
       NoEngines: TemplateActivityFixtureNoEngines

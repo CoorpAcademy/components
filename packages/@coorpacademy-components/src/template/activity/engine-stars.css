@@ -15,11 +15,11 @@
   justify-content: flex-end;
   height: 153px;
   border-left: solid 1px light;
-  padding: 0 8px 21px 16px;
+  padding: 0 8px 21px 8px;
   box-sizing: border-box;
   position: relative;
   flex: 1 2;
-  min-width: 126px;
+  min-width: 115px;
 }
 
 .engineIcon {
@@ -39,7 +39,7 @@
 .score {
   display: flex;
   font-family: 'Open Sans';
-  font-size: 24px;
+  font-size: 22px;
   font-weight: bold;
   text-align: left;
   align-items: flex-end;
@@ -52,9 +52,9 @@
 }
 
 .score p {
-  height: 27px;
+  height: 24px;
   padding: 0;
-  margin: 0 8px 0 0;
+  margin: 0 0 0 0;
   box-sizing: border-box;
 }
 
