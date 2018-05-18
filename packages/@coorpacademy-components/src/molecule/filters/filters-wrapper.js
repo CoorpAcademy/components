@@ -99,7 +99,7 @@ FiltersWapper.propTypes = {
   authors: PropTypes.shape(Select.propTypes),
   filters: PropTypes.arrayOf(
     PropTypes.shape({
-      type: PropTypes.oneOf(['select', 'range']).isRequired,
+      type: PropTypes.oneOf(['select', 'range', 'radio']).isRequired,
       fieldName: PropTypes.string.isRequired
     })
   )
