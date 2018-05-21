@@ -217,7 +217,7 @@
   position: relative;
   left: 0;
   width: 180px;
-  height: 2px;
+  height: 3px;
   border-radius: 1px;
   margin: 0 auto;
   background: light;
@@ -233,7 +233,7 @@
 
 .progress {
   display: block;
-  height: 2px;
+  height: 3px;
   animation: progressbar 2s ease-in-out;
 }
 
