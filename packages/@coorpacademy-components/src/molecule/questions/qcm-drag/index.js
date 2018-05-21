@@ -16,7 +16,7 @@ const AnswersPropTypes = PropTypes.arrayOf(
   })
 );
 
-const EmptyView = ({help}, {translate}) => <span className={style.emptySpan}>{help}</span>;
+const EmptyView = ({help}) => <span className={style.emptySpan}>{help}</span>;
 
 EmptyView.contextTypes = {
   translate: Provider.childContextTypes.translate

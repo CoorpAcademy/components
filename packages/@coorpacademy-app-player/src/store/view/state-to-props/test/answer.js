@@ -383,7 +383,7 @@ test('should create edited basic props', t => {
 
 test('should provide an help subtitle depending on question.type', t => {
   const help = getHelp(qcmDrag);
-  t.is(help, null);
+  t.is(help, 'Cliquez sur les réponses dans le bon ordre.');
   const help1 = getHelp(template);
   t.is(help1, 'Type your answers');
   const help2 = getHelp(qcm);
