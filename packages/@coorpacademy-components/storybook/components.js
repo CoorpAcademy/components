@@ -24,6 +24,7 @@ import AtomPicture from './../src/atom/picture';
 import AtomPictureBackground from './../src/atom/picture-background';
 import AtomPromoCode from './../src/atom/promo-code';
 import AtomProvider from './../src/atom/provider';
+import AtomRadioGroup from './../src/atom/radio-group';
 import AtomRange from './../src/atom/range';
 import AtomResourceMiniature from './../src/atom/resource-miniature';
 import AtomSelect from './../src/atom/select';
@@ -227,6 +228,9 @@ import AtomPromoCodeFixtureDefault from '../src/atom/promo-code/test/fixtures/de
 import AtomPromoCodeFixtureError from '../src/atom/promo-code/test/fixtures/error';
 import AtomPromoCodeFixtureSuccess from '../src/atom/promo-code/test/fixtures/success';
 import AtomProviderFixtureDefault from '../src/atom/provider/test/fixtures/default';
+import AtomRadioGroupFixtureDefault from '../src/atom/radio-group/test/fixtures/default';
+import AtomRadioGroupFixtureEmpty from '../src/atom/radio-group/test/fixtures/empty';
+import AtomRadioGroupFixtureLastSelected from '../src/atom/radio-group/test/fixtures/last-selected';
 import AtomRangeFixtureDefault from '../src/atom/range/test/fixtures/default';
 import AtomRangeFixtureMulti from '../src/atom/range/test/fixtures/multi';
 import AtomResourceMiniatureFixturePdf from '../src/atom/resource-miniature/test/fixtures/pdf';
@@ -347,6 +351,7 @@ import MoleculeFeedbackFixtureSuccessWithTitleAndDescription from '../src/molecu
 import MoleculeFiltersFixtureDefault from '../src/molecule/filters/test/fixtures/default';
 import MoleculeFiltersFixtureFiltersList from '../src/molecule/filters/test/fixtures/filters-list';
 import MoleculeFiltersFixtureOne from '../src/molecule/filters/test/fixtures/one';
+import MoleculeFiltersFixtureOnlyRadioGroup from '../src/molecule/filters/test/fixtures/only-radio-group';
 import MoleculeFiltersFixtureOnlyTimer from '../src/molecule/filters/test/fixtures/only-timer';
 import MoleculeFiltersFixtureOpenSorts from '../src/molecule/filters/test/fixtures/open-sorts';
 import MoleculeFiltersFixtureOpened from '../src/molecule/filters/test/fixtures/opened';
@@ -677,6 +682,7 @@ export const components = {
     AtomPictureBackground,
     AtomPromoCode,
     AtomProvider,
+    AtomRadioGroup,
     AtomRange,
     AtomResourceMiniature,
     AtomSelect,
@@ -961,6 +967,11 @@ export const fixtures = {
     AtomProvider: {
       Default: AtomProviderFixtureDefault
     },
+    AtomRadioGroup: {
+      Default: AtomRadioGroupFixtureDefault,
+      Empty: AtomRadioGroupFixtureEmpty,
+      LastSelected: AtomRadioGroupFixtureLastSelected
+    },
     AtomRange: {
       Default: AtomRangeFixtureDefault,
       Multi: AtomRangeFixtureMulti
@@ -1134,6 +1145,7 @@ export const fixtures = {
       Default: MoleculeFiltersFixtureDefault,
       FiltersList: MoleculeFiltersFixtureFiltersList,
       One: MoleculeFiltersFixtureOne,
+      OnlyRadioGroup: MoleculeFiltersFixtureOnlyRadioGroup,
       OnlyTimer: MoleculeFiltersFixtureOnlyTimer,
       OpenSorts: MoleculeFiltersFixtureOpenSorts,
       Opened: MoleculeFiltersFixtureOpened,

@@ -32,15 +32,17 @@
   padding-bottom: 24px;
 }
 
-.timerTitle {
+.title {
   color: dark;
+  margin: 0;
+  margin-bottom: 10px;
   display: block;
   font-family: "Open Sans";
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 700;
-  margin-bottom: 10px;
   text-transform: none;
   width: 100%;
+  user-select: none;
 }
 
 .timerSubtitle {
@@ -59,12 +61,6 @@
 
 .choice label {
   margin: 0;
-}
-
-.choice label span {
-  font-size: 13px;
-  color: dark;
-  user-select: none;
 }
 
 .choice select {

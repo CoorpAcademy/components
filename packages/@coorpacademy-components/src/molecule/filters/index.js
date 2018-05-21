@@ -62,6 +62,7 @@ class Filters extends React.Component {
   render() {
     const {
       timer,
+      types,
       thematic,
       authors,
       sorting,
@@ -122,6 +123,7 @@ class Filters extends React.Component {
             filters={filters}
             thematic={thematic}
             timer={timer}
+            types={types}
             courses={courses}
             authors={authors}
           />
@@ -170,6 +172,7 @@ Filters.propTypes = {
   openSorts: PropTypes.bool,
   thematic: FiltersWrapper.propTypes.thematic,
   timer: FiltersWrapper.propTypes.timer,
+  types: FiltersWrapper.propTypes.types,
   courses: FiltersWrapper.propTypes.courses,
   authors: FiltersWrapper.propTypes.authors,
   filters: FiltersWrapper.propTypes.filters,
