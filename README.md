@@ -1,65 +1,27 @@
 [![Build Status](https://travis-ci.org/CoorpAcademy/components.svg?branch=master)](https://travis-ci.org/CoorpAcademy/components)
 [![Coverage Status](https://codecov.io/gh/CoorpAcademy/components/branch/master/graph/badge.svg)](https://codecov.io/gh/CoorpAcademy/components)
 [![GitPitch](https://gitpitch.com/assets/badge.svg)](https://gitpitch.com/coorpacademy/tekacademy/components?grs=github&t=night)
-
-# Add a new dependency
-
-Go to the target package, and add the dependency using 
-```
-yarn add myPackage
-``` 
-
-# Coorpacademy components
-
 [![Greenkeeper badge](https://badges.greenkeeper.io/CoorpAcademy/components.svg)](https://greenkeeper.io/)
 
-This library provide sharable components for web applications, either :
-- as CommonJS components
-- as a minified library
+# Static demos
+- [Story book](http://coorpacademy.github.io/components/components)
+- [AppPlayer](http://coorpacademy.github.io/components/app-player)
 
-# Storybook
+# packages
+- [Components](./packages/@coorpacademy-components/README.md)
 
-[here](http://coorpacademy.github.io/components/components)
+# How to
+### Publish: [doc](./doc/publish.md)
 
-# AppPlayer
-
-[here](http://coorpacademy.github.io/components/app-player)
-
-### Goal
-
-- edit a component once, share it across all our platforms
-- provide a documentation referencing every component with its
-  - available states (disabled, selected)
-  - skinable properties
-- provide the smallest lib
-
-### Styleguide / component list
-
-![Components diagram](./packages/@coorpacademy-components/doc/components.png)
-
-# Development
-
-### Live sandbox
-
+### Add a new dependency:
+Go to the target package, and add the dependency using
 ```
-npm install
-npm run start:components
+yarn add myPackage
 ```
 
-Then open `http://localhost:3004`
-
-### Locally use `/lib` in an external project
-- use `npm link` to create a local `@coorpacademy/components` package
-- use `npm link @coorpacademy/components` in your project.
-
-### Unit Tests with eslint and ava
+### Unit Tests with eslint and ava:
 ```
 npm test
-```
-
-### Publish
-```
-npm run publish:latest
 ```
 
 ### Developing apps using HMR and components
