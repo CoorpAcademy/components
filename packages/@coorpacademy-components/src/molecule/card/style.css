@@ -113,16 +113,19 @@
 .course .title {
   text-align: left;
   color: white;
+  text-shadow: 1px 1px 2px black;
 }
 
 .course .author {
   font-size: 12px;
   color: white;
   text-align: left;
+  text-shadow: 1px 1px 2px black;
 }
 
 .course .adaptiv {
   top: 100px;
+  filter: drop-shadow(1px 1px 1px grey);
 }
 
 .course .author .icon {
