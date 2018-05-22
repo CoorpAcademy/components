@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import get from 'lodash/fp/get';
 import isEmpty from 'lodash/fp/isEmpty';
+import isUndefined from 'lodash/fp/isUndefined';
 import pick from 'lodash/fp/pick';
 import LockIcon from '@coorpacademy/nova-icons/solid/locks/lock-1';
 import AdaptivIcon from '@coorpacademy/nova-icons/composition/coorpacademy/adaptive';
 import CheckIcon from '@coorpacademy/nova-icons/solid/status/check-circle-2';
 import PicturesIcon from '@coorpacademy/nova-icons/composition/coorpacademy/pictures';
+import BookmarkIcon from '@coorpacademy/nova-icons/solid/bookmarks-and-tags/bookmark-3';
 import Provider from '../../atom/provider';
 import Customer from './customer';
 import style from './style.css';
@@ -33,7 +35,9 @@ const Card = (props, context) => {
     customer,
     certifiedAuthor,
     progress,
-    onClick
+    favorite,
+    onClick,
+    onFavoriteClick
   } = props;
 
   const lazyClass = title ? style.default : style.lazy;
@@ -42,6 +46,11 @@ const Card = (props, context) => {
   const whiteColor = get('common.white', skin);
   const cardStyle = viewStyle[`${view}_${type}`];
   const handleClick = () => !disabled && onClick();
+  const handleFavoviteClick = e => {
+    e.stopPropagation();
+    e.preventDefault();
+    return !disabled && onFavoriteClick(e);
+  };
   const emptyIcon = empty ? <PicturesIcon className={style.emptyIcon} color={whiteColor} /> : null;
   const adaptivIcon = adaptiv ? (
     <div className={style.adaptiv}>
@@ -49,7 +58,18 @@ const Card = (props, context) => {
     </div>
   ) : null;
   const lock = disabled ? <LockIcon className={style.lockIcon} color={whiteColor} /> : null;
-
+  const favoriteView = isUndefined(favorite) ? null : (
+    <div
+      data-name="favorite"
+      className={classnames(style.favorite, favorite && style.selected)}
+      onClick={handleFavoviteClick}
+      style={{
+        color: primaryColor
+      }}
+    >
+      <BookmarkIcon className={style.bookmarkIcon} color={null} stroke={null} />
+    </div>
+  );
   const inlineBadgeStyle = {color: primaryColor};
   const inlineProgressValueStyle = {
     backgroundColor: primaryColor,
@@ -83,6 +103,7 @@ const Card = (props, context) => {
               {emptyIcon}
             </div>
           </div>
+          {favoriteView}
           {adaptivIcon}
           {customer && <Customer className={style.customer} {...customer} />}
           <div data-name="info" className={style.infoWrapper}>
@@ -133,7 +154,9 @@ Card.propTypes = {
   certifiedAuthor: PropTypes.bool,
   customer: PropTypes.shape(Customer.propTypes),
   progress: PropTypes.number,
-  onClick: PropTypes.func
+  favorite: PropTypes.bool,
+  onClick: PropTypes.func,
+  onFavoriteClick: PropTypes.func
 };
 
 export default Card;

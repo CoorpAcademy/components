@@ -12,10 +12,12 @@ export default {
     cta: 'Continue Chapter',
     progress: 0.65,
     badge: 'new',
+    favorite: true,
     customer: {
       coorpOriginal: true,
       name: 'Decathlon creation'
     },
-    onClick: () => console.log('click everywhere')
+    onClick: () => console.log('click everywhere'),
+    onFavoriteClick: () => console.log('click Favorite')
   }
 };
