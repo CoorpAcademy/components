@@ -15,11 +15,11 @@
   justify-content: flex-end;
   height: 153px;
   border-left: solid 1px light;
-  padding: 0 8px 21px 16px;
+  padding: 0 7px 21px 7px;
   box-sizing: border-box;
   position: relative;
   flex: 1 2;
-  min-width: 126px;
+  min-width: 115px;
 }
 
 .engineIcon {
@@ -39,22 +39,22 @@
 .score {
   display: flex;
   font-family: 'Open Sans';
-  font-size: 24px;
+  font-size: 22px;
   font-weight: bold;
   text-align: left;
   align-items: flex-end;
   align-content: flex-end;
   color: dark;
-  margin: 0 0 4px;
+  margin: 0 0 1px;
   padding: 0;
   box-sizing: border-box;
   height: 27px;
 }
 
 .score p {
-  height: 27px;
+  height: 24px;
   padding: 0;
-  margin: 0 8px 0 0;
+  margin: 0 0 0 0;
   box-sizing: border-box;
 }
 
@@ -85,10 +85,11 @@
 @media tablet, mobile {
   .engineStars {
     width: auto;
-    height: 80px;
+    height: 70px;
     flex: 1 2;
     justify-content: flex-end;
     padding-bottom: 10px;
+    overflow-x: scroll;
   }
 
   .engineStars:first-child {
@@ -96,14 +97,14 @@
   }
 
   .engineIcon {
-    width: 27px;
-    height: 26px;
-    right: 8px;
+    width: 30px;
+    height: 25px;
+    right: 5px;
   }
 
   .score {
     height: 23px;
-    font-size: 17px;
+    font-size: 19px;
     display: flex;
     align-items: flex-end;
     align-content: flex-end;
@@ -130,11 +131,11 @@
   }
 
   .scoreTitle {
-    font-size: 11px;
+    font-size: 12px;
   }
 
   .iconHeader {
-    width: 13px;
-    height: 13px;
+    width: 18px;
+    height: 18px;
   }
 }

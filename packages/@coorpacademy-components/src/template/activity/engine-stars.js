@@ -4,14 +4,18 @@ import get from 'lodash/fp/get';
 import StarIcon from '@coorpacademy/nova-icons/composition/coorpacademy/star';
 import TimerIcon from '@coorpacademy/nova-icons/composition/coorpacademy/timer';
 import BoltIcon from '@coorpacademy/nova-icons/composition/coorpacademy/bolt';
-import GraduationIcon from '@coorpacademy/nova-icons/solid/school-and-science/graduation-hat';
+import CertificationIcon from '@coorpacademy/nova-icons/solid/school-and-science/graduation-hat';
+import LearnerIcon from '@coorpacademy/nova-icons/solid/content/content-book-1';
+import BonusIcon from '@coorpacademy/nova-icons/solid/vote-and-rewards/rewards-badge-1';
 import Provider from '../../atom/provider';
 import style from './engine-stars.css';
 
 const ICONS = {
   microlearning: TimerIcon,
-  learner: GraduationIcon,
-  battle: BoltIcon
+  learner: LearnerIcon,
+  battle: BoltIcon,
+  certifications: CertificationIcon,
+  bonus: BonusIcon
 };
 
 const EngineStars = (props, context) => {

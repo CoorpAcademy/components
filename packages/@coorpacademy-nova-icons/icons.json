@@ -29,6 +29,7 @@
   "@coorpacademy/nova-icons/line/login/key-1",
   "@coorpacademy/nova-icons/solid/audio/audio-control-play",
   "@coorpacademy/nova-icons/solid/content-edition/pencil-1",
+  "@coorpacademy/nova-icons/solid/content/content-book-1",
   "@coorpacademy/nova-icons/solid/data-transfer/data-upload-1",
   "@coorpacademy/nova-icons/solid/interface-feedback/interface-alert-circle",
   "@coorpacademy/nova-icons/solid/lights/lightbulb-4",
@@ -43,6 +44,7 @@
   "@coorpacademy/nova-icons/solid/videos/video-control-play",
   "@coorpacademy/nova-icons/solid/vote-and-rewards/rewards-trophy-5",
   "@coorpacademy/nova-icons/solid/vote-and-rewards/vote-heart",
+  "@coorpacademy/nova-icons/solid/vote-and-rewards/rewards-badge-1",
   "@coorpacademy/nova-icons/solid/school-and-science/graduation-hat",
   "@coorpacademy/nova-icons/solid/status/check-circle-2"
 ]
