@@ -4,7 +4,7 @@
     "klf": "Nous devons chouchouter nos clientes et les mettre à l'aise pendant leur attente.",
     "tips": "Avez-vous récemment consulté les iPads ou le magazine 31 rue Cambon ?",
     "clue": "… Century Fox.",
-    "hasClue" : true,
+    "hasClue": true,
     "chapter_id": "5.C7",
     "authors": [],
     "context": {
@@ -91,7 +91,11 @@
         "placeholder": " ",
         "maxTypos": null,
         "choices": [],
-        "answers": [["Text"]],
+        "answers": [
+          [
+            "Text"
+          ]
+        ],
         "media": {
           "subtitles": [],
           "posters": [],
@@ -119,7 +123,7 @@
     "_id": "sli_VkcAWR-ZQ",
     "klf": "Lire n'est pas difficile.",
     "tips": "Il y a pas mal de gens qui se trompent sans lire.",
-    "hasClue" : false,
+    "hasClue": false,
     "chapter_id": "5.C8",
     "authors": [],
     "context": {
@@ -200,22 +204,28 @@
             }
           }
         ],
-        "answers": [["Bonne réponse"]],
+        "answers": [
+          [
+            "Bonne réponse"
+          ]
+        ],
         "media": {
           "subtitles": [],
           "posters": [],
           "src": []
         }
       },
-      "medias": [{
-        "type": "video",
-        "src": [
-          {
-            "mimeType": "application/vimeo",
-            "videoId": "231095700"
-          }
-        ]
-      }]
+      "medias": [
+        {
+          "type": "video",
+          "src": [
+            {
+              "mimeType": "application/vimeo",
+              "videoId": "231095700"
+            }
+          ]
+        }
+      ]
     }
   },
   "sli_E1iEQRuZm": {
@@ -223,7 +233,7 @@
     "klf": "Indeed, c'est Free Run",
     "tips": "Il y a aussi le mode classique qui s'appelle désormais Learner",
     "clue": "clue",
-    "hasClue" : true,
+    "hasClue": true,
     "chapter_id": "5.C8",
     "authors": [],
     "context": {
@@ -304,7 +314,11 @@
             }
           }
         ],
-        "answers": [["Free Run"]],
+        "answers": [
+          [
+            "Free Run"
+          ]
+        ],
         "media": {
           "subtitles": [],
           "posters": [],
@@ -317,15 +331,17 @@
           ]
         }
       },
-      "medias": [{
-        "type": "video",
-        "src": [
-          {
-            "mimeType": "application/vimeo",
-            "videoId": "231095700"
-          }
-        ]
-      }]
+      "medias": [
+        {
+          "type": "video",
+          "src": [
+            {
+              "mimeType": "application/vimeo",
+              "videoId": "231095700"
+            }
+          ]
+        }
+      ]
     }
   },
   "sli_4kl~7RubX": {
@@ -333,7 +349,7 @@
     "klf": "Oui oui oui !",
     "tips": "Alors !",
     "clue": "clue",
-    "hasClue" : true,
+    "hasClue": true,
     "chapter_id": "5.C8",
     "authors": [],
     "context": {
@@ -390,7 +406,11 @@
       "explanation": "Sélectionnez la (les) bonne(s) réponse(s).",
       "content": {
         "maxTypos": null,
-        "answers": [["Vrai"]],
+        "answers": [
+          [
+            "Vrai"
+          ]
+        ],
         "choices": [
           {
             "_id": "59307529a2b39d0024eebfed",
@@ -443,7 +463,7 @@
     "klf": "Difficile hein !",
     "tips": "Que 1 X 1 n'est pas 2 !",
     "clue": "clue",
-    "hasClue" : true,
+    "hasClue": true,
     "chapter_id": "5.C8",
     "authors": [],
     "context": {
@@ -535,7 +555,11 @@
             }
           }
         ],
-        "answers": [["2"]],
+        "answers": [
+          [
+            "2"
+          ]
+        ],
         "media": {
           "subtitles": [],
           "posters": [],
@@ -550,7 +574,7 @@
     "klf": "xxx",
     "tips": "xxx",
     "clue": "clue",
-    "hasClue" : true,
+    "hasClue": true,
     "chapter_id": "5.C8",
     "__v": 0,
     "authors": [],
@@ -607,7 +631,11 @@
             }
           }
         ],
-        "answers": [["4"]],
+        "answers": [
+          [
+            "4"
+          ]
+        ],
         "media": {
           "subtitles": [],
           "posters": [],
@@ -636,7 +664,7 @@
     "klf": "xxx",
     "tips": "xxx",
     "clue": "clue",
-    "hasClue" : true,
+    "hasClue": true,
     "chapter_id": "5.C8",
     "__v": 0,
     "authors": [],
@@ -682,7 +710,11 @@
             }
           }
         ],
-        "answers": [["Boulevard Poissonnière"]],
+        "answers": [
+          [
+            "Boulevard Poissonnière"
+          ]
+        ],
         "media": {
           "subtitles": [],
           "posters": [],
@@ -711,7 +743,7 @@
     "klf": "xxx",
     "tips": "xxx",
     "clue": "clue",
-    "hasClue" : true,
+    "hasClue": true,
     "chapter_id": "5.C8",
     "__v": 0,
     "authors": [],
@@ -782,7 +814,11 @@
             }
           }
         ],
-        "answers": [["C'est Paris !"]],
+        "answers": [
+          [
+            "C'est Paris !"
+          ]
+        ],
         "media": {
           "subtitles": [],
           "posters": [],
@@ -798,7 +834,7 @@
     "tips": "Certains affirment que la génération Y est appelée ainsi en référence à la forme des écouteurs portés par les jeunes Y.",
     "chapter_id": "5.C8",
     "clue": "clue",
-    "hasClue" : true,
+    "hasClue": true,
     "authors": [],
     "context": {
       "media": {
@@ -869,7 +905,11 @@
             }
           }
         ],
-        "answers": [["Faux"]],
+        "answers": [
+          [
+            "Faux"
+          ]
+        ],
         "media": {
           "subtitles": [],
           "posters": [],
@@ -884,7 +924,7 @@
     "klf": "You can have multiple type of fields for a template question",
     "tips": "Some tips",
     "clue": "clue",
-    "hasClue" : true,
+    "hasClue": true,
     "chapter_id": "5.C7",
     "question": {
       "type": "template",
@@ -894,7 +934,12 @@
         "template": "The answer is {{inp81438}} and {{sel31191}}",
         "matchOrder": true,
         "maxTypos": null,
-        "answers": [["Text", "Select"]],
+        "answers": [
+          [
+            "Text",
+            "Select"
+          ]
+        ],
         "choices": [
           {
             "type": "text",
@@ -936,7 +981,7 @@
     "klf": "Savoir cliquer sur les vrais réponses",
     "tips": "Des tips",
     "chapter_id": "5.C7",
-    "hasClue" : false,
+    "hasClue": false,
     "authors": [],
     "context": {
       "media": {
@@ -996,7 +1041,12 @@
             "value": "sli_NkaegcmAY~o.choice_05"
           }
         ],
-        "answers": [["Vrai 2", "Vrai 1"]],
+        "answers": [
+          [
+            "Vrai 2",
+            "Vrai 1"
+          ]
+        ],
         "media": {
           "subtitles": [],
           "posters": [],
@@ -1011,7 +1061,7 @@
     "klf": "Savoir cliquer sur les vrais réponses dans un ordre donné",
     "tips": "Des tips",
     "chapter_id": "5.C7",
-    "hasClue" : false,
+    "hasClue": false,
     "authors": [],
     "lessons": [
       {
@@ -1061,7 +1111,13 @@
             "value": "sli_VyZmMYQCFWj.choice_05"
           }
         ],
-        "answers": [["Vrai 1", "Vrai 2", "Vrai 3"]]
+        "answers": [
+          [
+            "Vrai 1",
+            "Vrai 2",
+            "Vrai 3"
+          ]
+        ]
       }
     }
   },
@@ -1070,7 +1126,7 @@
     "klf": "Il a connu les dinosaures.",
     "tips": "Il a connu les dinosaures.",
     "chapter_id": "5.C7",
-    "hasClue" : false,
+    "hasClue": false,
     "authors": [],
     "context": {
       "media": {
@@ -1128,16 +1184,36 @@
           "src": []
         },
         "answers": [
-          ["100"],
-          ["200"],
-          ["300"],
-          ["400"],
-          ["500"],
-          ["600"],
-          ["700"],
-          ["800"],
-          ["900"],
-          ["1000"]
+          [
+            "100"
+          ],
+          [
+            "200"
+          ],
+          [
+            "300"
+          ],
+          [
+            "400"
+          ],
+          [
+            "500"
+          ],
+          [
+            "600"
+          ],
+          [
+            "700"
+          ],
+          [
+            "800"
+          ],
+          [
+            "900"
+          ],
+          [
+            "1000"
+          ]
         ]
       },
       "medias": []
@@ -1148,7 +1224,7 @@
     "klf": "Some KLF",
     "tips": "XXX",
     "chapter_id": "5.C8",
-    "hasClue" : false,
+    "hasClue": false,
     "authors": [],
     "context": {
       "title": "Some context title",
@@ -1219,7 +1295,7 @@
     "klf": "Some KLF",
     "tips": "XXX",
     "chapter_id": "5.C8",
-    "hasClue" : false,
+    "hasClue": false,
     "authors": [],
     "context": {
       "title": "Some context title",
@@ -1294,7 +1370,7 @@
     "_id": "1.B2.11",
     "klf": "Some KLF",
     "tips": "XXX",
-    "hasClue" : false,
+    "hasClue": false,
     "chapter_id": "5.C8",
     "authors": [],
     "context": {
@@ -1371,7 +1447,7 @@
     "klf": "Some KLF",
     "tips": "XXX",
     "chapter_id": "5.C8",
-    "hasClue" : false,
+    "hasClue": false,
     "authors": [],
     "context": {
       "title": "Some context title",
@@ -1438,7 +1514,6 @@
       ]
     }
   },
-
   "sli_41SKtnyqM": {
     "_id": "sli_41SKtnyqM",
     "universalRef": "sli_41SKtnyqM",
@@ -3259,5 +3334,915 @@
     "tips": "",
     "lessons": [],
     "chapter_id": "cha_N19MiQrYG"
+  },
+  "sli_41-K7u7hG": {
+    "_id": "sli_41-K7u7hG",
+    "universalRef": "sli_41-K7u7hG",
+    "klf": "Les outils tels que Trello, Slack ou encore Wunderlist permettent de faciliter la collaboration au sein de l'équipe. Ces outils sont largement utilisés par les entreprises qui travaillent en mode projet car ils permettent de remplir leurs objectifs de façon agile.",
+    "tips": "L'évolution de l'adoption du mode projet soutient un essor constant des logiciels en mode SaaS (accessibles via un navigateur Web) qui révolutionne les usages des professionnels. Grâce à ces outils, les équipes d'un même projet peuvent collaborer ensemble, qu'ils soient dans la même pièce ou sur des continents différents.",
+    "chapter_id": "cha_EyK53knwf",
+    "__v": 0,
+    "authors": [],
+    "context": {
+      "media": {
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      }
+    },
+    "meta": {
+      "updatedAt": "2018-05-22T10:18:57.586Z",
+      "createdAt": "2018-05-22T10:18:57.586Z"
+    },
+    "lessons": [
+      {
+        "_id": "5b03eb74e9103612bffbcfdc",
+        "poster": "//static.coorpacademy.com/content/CoorpAcademy/content-partnerships-fabernovel/cockpit-fabernovel/poster/vignette_fabernovel-1490717048772.png",
+        "description": "Le mode projet",
+        "videoId": "210233039",
+        "mimeType": "application/vimeo",
+        "ref": "les_4JRdudXhf",
+        "type": "video",
+        "subtitles": [],
+        "posters": [],
+        "src": [],
+        "id": "5b03eb74e9103612bffbcfdc"
+      }
+    ],
+    "question": {
+      "type": "template",
+      "header": "Des outils ont été développés pour faciliter le mode projet. Que permettent-ils ?",
+      "explanation": "Sélectionnez la bonne réponse dans les menus déroulants.",
+      "content": {
+        "template": "Pour faciliter {{sel57083}}, les équipes travaillant en mode projet peuvent utiliser des outils informatiques tels que Trello, Slack ou encore Wunderlist. Ces outils pourront leur permettre de remplir leurs objectifs de façon {{sel80320}}.",
+        "matchOrder": true,
+        "maxTypos": null,
+        "answers": [
+          [
+            "la collaboration",
+            "agile"
+          ]
+        ],
+        "choices": [
+          {
+            "_id": "5b03eb74e9103612bffbcfe1",
+            "label": " ",
+            "name": "sel57083",
+            "type": "select",
+            "items": [
+              {
+                "_id": "5b03eb74e9103612bffbcfe4",
+                "value": "sli_41-K7u7hG.choice_VylKhXOQ3z",
+                "text": "la collaboration",
+                "id": "5b03eb74e9103612bffbcfe4"
+              },
+              {
+                "_id": "5b03eb74e9103612bffbcfe3",
+                "value": "sli_41-K7u7hG.choice_Ey~F2m-72f",
+                "text": "l'autorégulation",
+                "id": "5b03eb74e9103612bffbcfe3"
+              },
+              {
+                "_id": "5b03eb74e9103612bffbcfe2",
+                "value": "sli_41-K7u7hG.choice_VJCpm-XnG",
+                "text": "le contrôle",
+                "id": "5b03eb74e9103612bffbcfe2"
+              }
+            ],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            },
+            "id": "5b03eb74e9103612bffbcfe1"
+          },
+          {
+            "_id": "5b03eb74e9103612bffbcfdd",
+            "label": " ",
+            "name": "sel80320",
+            "type": "select",
+            "items": [
+              {
+                "_id": "5b03eb74e9103612bffbcfe0",
+                "value": "sli_41-K7u7hG.choice_N1e3eVOQ3G",
+                "text": "imaginative",
+                "id": "5b03eb74e9103612bffbcfe0"
+              },
+              {
+                "_id": "5b03eb74e9103612bffbcfdf",
+                "value": "sli_41-K7u7hG.choice_NyZhxN-73f",
+                "text": "agile",
+                "id": "5b03eb74e9103612bffbcfdf"
+              },
+              {
+                "_id": "5b03eb74e9103612bffbcfde",
+                "value": "sli_41-K7u7hG.choice_Eyo74dm3z",
+                "text": "itérative",
+                "id": "5b03eb74e9103612bffbcfde"
+              }
+            ],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            },
+            "id": "5b03eb74e9103612bffbcfdd"
+          }
+        ],
+        "media": {
+          "subtitles": [],
+          "posters": [],
+          "src": []
+        }
+      },
+      "medias": []
+    },
+    "hasClue": true,
+    "id": "sli_41-K7u7hG"
+  },
+  "sli_41kQddm3z": {
+    "_id": "sli_41kQddm3z",
+    "universalRef": "sli_41kQddm3z",
+    "klf": "Le mode projet est une méthode de travail qui vise à rassembler des expertises complémentaires. Elle permet une approche transversale et efficace.",
+    "tips": "Les projets peuvent faire intervenir uniquement des services internes ou inclure des intervenants externes, disposer d'équipes locales ou multiculturelles. Un élément reste constant, le management en mode projet n’a qu’un seul but : puiser dans les ressources humaines de l’entreprise pour les faire travailler ensemble et de façon transversale.",
+    "chapter_id": "cha_EyK53knwf",
+    "__v": 0,
+    "authors": [],
+    "context": {
+      "media": {
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      }
+    },
+    "meta": {
+      "updatedAt": "2018-05-22T10:18:57.596Z",
+      "createdAt": "2018-05-22T10:18:57.596Z"
+    },
+    "lessons": [
+      {
+        "_id": "5b03eb74e9103612bffbcfe8",
+        "poster": "//static.coorpacademy.com/content/CoorpAcademy/content-partnerships-fabernovel/cockpit-fabernovel/poster/vignette_fabernovel-1490717048772.png",
+        "description": "Le mode projet",
+        "videoId": "210233039",
+        "mimeType": "application/vimeo",
+        "ref": "les_4JRdudXhf",
+        "type": "video",
+        "subtitles": [],
+        "posters": [],
+        "src": [],
+        "id": "5b03eb74e9103612bffbcfe8"
+      }
+    ],
+    "question": {
+      "type": "template",
+      "header": "Quelle est la caractéristique principale des équipes en mode projet ?",
+      "explanation": "Sélectionnez la bonne réponse dans les menus déroulants.",
+      "content": {
+        "template": "Elles sont {{sel75097}} pour permettre une approche {{sel41605}}",
+        "matchOrder": true,
+        "maxTypos": null,
+        "answers": [
+          [
+            "pluridisciplinaires",
+            "transversale"
+          ]
+        ],
+        "choices": [
+          {
+            "_id": "5b03eb74e9103612bffbcfec",
+            "label": " ",
+            "name": "sel75097",
+            "type": "select",
+            "items": [
+              {
+                "_id": "5b03eb74e9103612bffbcfee",
+                "value": "sli_41kQddm3z.choice_VyxBJCk1h7",
+                "text": "pluridisciplinaires",
+                "id": "5b03eb74e9103612bffbcfee"
+              },
+              {
+                "_id": "5b03eb74e9103612bffbcfed",
+                "value": "sli_41kQddm3z.choice_4ybBy0Jk27",
+                "text": "ultraspécialisées",
+                "id": "5b03eb74e9103612bffbcfed"
+              }
+            ],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            },
+            "id": "5b03eb74e9103612bffbcfec"
+          },
+          {
+            "_id": "5b03eb74e9103612bffbcfe9",
+            "label": " ",
+            "name": "sel41605",
+            "type": "select",
+            "items": [
+              {
+                "_id": "5b03eb74e9103612bffbcfeb",
+                "value": "sli_41kQddm3z.choice_4ygQCAJk2X",
+                "text": "ciblée",
+                "id": "5b03eb74e9103612bffbcfeb"
+              },
+              {
+                "_id": "5b03eb74e9103612bffbcfea",
+                "value": "sli_41kQddm3z.choice_VJWQ0Ckyn7",
+                "text": "transversale",
+                "id": "5b03eb74e9103612bffbcfea"
+              }
+            ],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            },
+            "id": "5b03eb74e9103612bffbcfe9"
+          }
+        ],
+        "media": {
+          "subtitles": [],
+          "posters": [],
+          "src": []
+        }
+      },
+      "medias": []
+    },
+    "hasClue": true,
+    "id": "sli_41kQddm3z"
+  },
+  "sli_4JE0EO73M": {
+    "_id": "sli_4JE0EO73M",
+    "universalRef": "sli_4JE0EO73M",
+    "klf": "Le pilotage par étape commence par l'assignation d'un objectif à chaque étape d'un projet. À la fin de chacune d'entre elles, le chef de projet fait un point avec son équipe sur la réalisation de l'objectif. En fonction de son avancement, des ressources supplémentaires peuvent être redéployées. C'est également l'occasion pour l'équipe d'échanger sur les difficultés et les bonnes pratiques.",
+    "tips": "Une équipe Agile travaille par itérations, c’est-à-dire une série de missions courtes volontairement limitées dans le temps (méthode du “timeboxing”). Chaque membre de l’équipe a un rôle clairement identifié et s’engage à fournir certains résultats à la fin de chaque itération.",
+    "chapter_id": "cha_EyK53knwf",
+    "__v": 0,
+    "authors": [],
+    "context": {
+      "media": {
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      }
+    },
+    "meta": {
+      "updatedAt": "2018-05-22T10:18:57.616Z",
+      "createdAt": "2018-05-22T10:18:57.616Z"
+    },
+    "lessons": [
+      {
+        "_id": "5b03eb74e9103612bffbd00e",
+        "poster": "//static.coorpacademy.com/content/CoorpAcademy/content-partnerships-fabernovel/cockpit-fabernovel/poster/vignette_fabernovel-1490717048772.png",
+        "description": "Le mode projet",
+        "videoId": "210233039",
+        "mimeType": "application/vimeo",
+        "ref": "les_4JRdudXhf",
+        "type": "video",
+        "subtitles": [],
+        "posters": [],
+        "src": [],
+        "id": "5b03eb74e9103612bffbd00e"
+      }
+    ],
+    "question": {
+      "type": "template",
+      "header": "Comment fonctionne un pilotage de projet par étape ?",
+      "explanation": "Sélectionnez la bonne réponse dans les menus déroulants.",
+      "content": {
+        "template": "Un {{sel10569}} est assigné à une étape. À la fin, l'équipe fait un point et des {{sel39510}} peuvent être redéployées.",
+        "matchOrder": true,
+        "maxTypos": null,
+        "answers": [
+          [
+            "objectif",
+            "ressources"
+          ]
+        ],
+        "choices": [
+          {
+            "_id": "5b03eb74e9103612bffbd013",
+            "label": " ",
+            "name": "sel10569",
+            "type": "select",
+            "items": [
+              {
+                "_id": "5b03eb74e9103612bffbd016",
+                "value": "sli_4JE0EO73M.choice_Vyl2brdX2G",
+                "text": "objectif",
+                "id": "5b03eb74e9103612bffbd016"
+              },
+              {
+                "_id": "5b03eb74e9103612bffbd015",
+                "value": "sli_4JE0EO73M.choice_VyW2WS-mnf",
+                "text": "manager",
+                "id": "5b03eb74e9103612bffbd015"
+              },
+              {
+                "_id": "5b03eb74e9103612bffbd014",
+                "value": "sli_4JE0EO73M.choice_NkiGrOXnM",
+                "text": "plan de facturation",
+                "id": "5b03eb74e9103612bffbd014"
+              }
+            ],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            },
+            "id": "5b03eb74e9103612bffbd013"
+          },
+          {
+            "_id": "5b03eb74e9103612bffbd00f",
+            "label": " ",
+            "name": "sel39510",
+            "type": "select",
+            "items": [
+              {
+                "_id": "5b03eb74e9103612bffbd012",
+                "value": "sli_4JE0EO73M.choice_EylmESuQhG",
+                "text": "ressources",
+                "id": "5b03eb74e9103612bffbd012"
+              },
+              {
+                "_id": "5b03eb74e9103612bffbd011",
+                "value": "sli_4JE0EO73M.choice_V1WQEB-Q2z",
+                "text": "expertises",
+                "id": "5b03eb74e9103612bffbd011"
+              },
+              {
+                "_id": "5b03eb74e9103612bffbd010",
+                "value": "sli_4JE0EO73M.choice_N12fLdQ3z",
+                "text": "compétences",
+                "id": "5b03eb74e9103612bffbd010"
+              }
+            ],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            },
+            "id": "5b03eb74e9103612bffbd00f"
+          }
+        ],
+        "media": {
+          "subtitles": [],
+          "posters": [],
+          "src": []
+        }
+      },
+      "medias": []
+    },
+    "hasClue": true,
+    "id": "sli_4JE0EO73M"
+  },
+  "sli_EJ15P-X3G": {
+    "_id": "sli_EJ15P-X3G",
+    "universalRef": "sli_EJ15P-X3G",
+    "klf": "Le chef de projet peut être comparé à un capitaine du bateau. Son rôle est essentiel car il impulse le rythme de la mission et il est garant du respect des délais et du budget. Plus qu'un chef, c'est un animateur. Il crée un environnement favorable pour faciliter la cohésion de l'équipe, favoriser les synergies entre les différents profils et valoriser les prises d'initiatives.",
+    "tips": "Un bon chef de projet cultive et partage une vision commune pour s'assurer de la cohérence du projet. Il maîtrise à la perfection \"soft skills\" : il est capable d'accorder la bonne dose d'attention au bon moment et à la bonne personne.",
+    "chapter_id": "cha_EyK53knwf",
+    "__v": 0,
+    "authors": [],
+    "context": {
+      "media": {
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      }
+    },
+    "meta": {
+      "updatedAt": "2018-05-22T10:18:57.623Z",
+      "createdAt": "2018-05-22T10:18:57.623Z"
+    },
+    "lessons": [
+      {
+        "_id": "5b03eb74e9103612bffbd079",
+        "poster": "//static.coorpacademy.com/content/CoorpAcademy/content-partnerships-fabernovel/cockpit-fabernovel/poster/vignette_fabernovel-1490717048772.png",
+        "description": "Le mode projet",
+        "videoId": "210233039",
+        "mimeType": "application/vimeo",
+        "ref": "les_4JRdudXhf",
+        "type": "video",
+        "subtitles": [],
+        "posters": [],
+        "src": [],
+        "id": "5b03eb74e9103612bffbd079"
+      }
+    ],
+    "question": {
+      "type": "qcm",
+      "header": "À quelle figure le chef de projet peut-il être assimilé ?",
+      "explanation": "Sélectionnez les bonnes réponses.",
+      "content": {
+        "maxTypos": null,
+        "answers": [
+          [
+            "Un capitaine de bateau",
+            "Un animateur"
+          ]
+        ],
+        "choices": [
+          {
+            "_id": "5b03eb74e9103612bffbd07d",
+            "value": "sli_EJ15P-X3G.choice_EyDnD-Qhz",
+            "label": "Un capitaine de bateau",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            },
+            "id": "5b03eb74e9103612bffbd07d"
+          },
+          {
+            "_id": "5b03eb74e9103612bffbd07c",
+            "value": "sli_EJ15P-X3G.choice_N102DuXhM",
+            "label": "Un président élu au suffrage universel",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            },
+            "id": "5b03eb74e9103612bffbd07c"
+          },
+          {
+            "_id": "5b03eb74e9103612bffbd07b",
+            "value": "sli_EJ15P-X3G.choice_V1N6Dd73f",
+            "label": "Un animateur",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            },
+            "id": "5b03eb74e9103612bffbd07b"
+          },
+          {
+            "_id": "5b03eb74e9103612bffbd07a",
+            "value": "sli_EJ15P-X3G.choice_Vy5av-m2M",
+            "label": "Un entrepreneur",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            },
+            "id": "5b03eb74e9103612bffbd07a"
+          }
+        ],
+        "media": {
+          "subtitles": [],
+          "posters": [],
+          "src": []
+        }
+      },
+      "medias": []
+    },
+    "hasClue": true,
+    "id": "sli_EJ15P-X3G"
+  },
+  "sli_EkCzQu73f": {
+    "_id": "sli_EkCzQu73f",
+    "universalRef": "sli_EkCzQu73f",
+    "klf": "À la différence de l'entreprise classique qui favorise le management hiérarchique, les entreprises travaillant en mode projet adoptent une méthode de travail dite transversale. Le management des équipes y est horizontal, c'est-à-dire que chacun porte ses responsabilités et participe aux prises de décision.",
+    "tips": "Chaque membre de l’équipe a un rôle clairement identifié. Les équipes sont auto-organisées : elles réfléchissent par elles-mêmes aux moyens de devenir plus efficace, en modifiant comportement et méthodologie en conséquence.",
+    "chapter_id": "cha_EyK53knwf",
+    "__v": 0,
+    "authors": [],
+    "context": {
+      "media": {
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      }
+    },
+    "meta": {
+      "updatedAt": "2018-05-22T10:18:57.631Z",
+      "createdAt": "2018-05-22T10:18:57.631Z"
+    },
+    "lessons": [
+      {
+        "_id": "5b03eb74e9103612bffbd08f",
+        "poster": "//static.coorpacademy.com/content/CoorpAcademy/content-partnerships-fabernovel/cockpit-fabernovel/poster/vignette_fabernovel-1490717048772.png",
+        "description": "Le mode projet",
+        "videoId": "210233039",
+        "mimeType": "application/vimeo",
+        "ref": "les_4JRdudXhf",
+        "type": "video",
+        "subtitles": [],
+        "posters": [],
+        "src": [],
+        "id": "5b03eb74e9103612bffbd08f"
+      }
+    ],
+    "question": {
+      "type": "template",
+      "header": "Comment qualifier le management dans le mode projet ?",
+      "explanation": "Sélectionnez la bonne réponse dans le menu déroulant.",
+      "content": {
+        "template": "{{sel71823}}",
+        "matchOrder": true,
+        "maxTypos": null,
+        "answers": [
+          [
+            "Horizontal"
+          ]
+        ],
+        "choices": [
+          {
+            "_id": "5b03eb74e9103612bffbd090",
+            "label": " ",
+            "name": "sel71823",
+            "type": "select",
+            "items": [
+              {
+                "_id": "5b03eb74e9103612bffbd093",
+                "value": "sli_EkCzQu73f.choice_V1eyIQdXhM",
+                "text": "Hiérarchique",
+                "id": "5b03eb74e9103612bffbd093"
+              },
+              {
+                "_id": "5b03eb74e9103612bffbd092",
+                "value": "sli_EkCzQu73f.choice_NkZJUQ-mhM",
+                "text": "Horizontal",
+                "id": "5b03eb74e9103612bffbd092"
+              },
+              {
+                "_id": "5b03eb74e9103612bffbd091",
+                "value": "sli_EkCzQu73f.choice_414wQdX3G",
+                "text": "Pyramidal",
+                "id": "5b03eb74e9103612bffbd091"
+              }
+            ],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            },
+            "id": "5b03eb74e9103612bffbd090"
+          }
+        ],
+        "media": {
+          "subtitles": [],
+          "posters": [],
+          "src": []
+        }
+      },
+      "medias": []
+    },
+    "hasClue": true,
+    "id": "sli_EkCzQu73f"
+  },
+  "sli_Ekzsbum3z": {
+    "_id": "sli_Ekzsbum3z",
+    "universalRef": "sli_Ekzsbum3z",
+    "klf": "Le mode projet est un mode de travail transversal qui permet de réunir une équipe pour la réussite d'un objectif commun. Le chef de projet est garant du respect des délais et du budget. Cette méthode permet aux entreprises d'être plus réactives, agiles et collaboratives.",
+    "tips": "De plus en plus d'entreprises traditionnelles s'organisent en mode projet, pour mieux innover. D'autres structures, qui agissent en situation d'urgence (militaires, médecins), adoptent des processus semblables au mode projet : des objectifs, un timing limité, des ressources définies et une perspective d'amélioration continue.",
+    "chapter_id": "cha_EyK53knwf",
+    "__v": 0,
+    "authors": [],
+    "context": {
+      "media": {
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      }
+    },
+    "meta": {
+      "updatedAt": "2018-05-22T10:18:57.636Z",
+      "createdAt": "2018-05-22T10:18:57.636Z"
+    },
+    "lessons": [
+      {
+        "_id": "5b03eb74e9103612bffbd09f",
+        "poster": "//static.coorpacademy.com/content/CoorpAcademy/content-partnerships-fabernovel/cockpit-fabernovel/poster/vignette_fabernovel-1490717048772.png",
+        "description": "Le mode projet",
+        "videoId": "210233039",
+        "mimeType": "application/vimeo",
+        "ref": "les_4JRdudXhf",
+        "type": "video",
+        "subtitles": [],
+        "posters": [],
+        "src": [],
+        "id": "5b03eb74e9103612bffbd09f"
+      }
+    ],
+    "question": {
+      "type": "qcmDrag",
+      "header": "Quels sont les ingrédients essentiels du mode projet ?",
+      "explanation": "Cliquez sur les bonnes réponses pour les déplacer dans la seconde colonne.",
+      "content": {
+        "matchOrder": false,
+        "maxTypos": null,
+        "answers": [
+          [
+            "Objectifs",
+            "Deadline",
+            "Chef de projet",
+            "Budget",
+            "Équipe",
+            "Collaboration"
+          ]
+        ],
+        "choices": [
+          {
+            "_id": "5b03eb74e9103612bffbd0a7",
+            "value": "sli_Ekzsbum3z.choice_4170buXhG",
+            "label": "Budget",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            },
+            "id": "5b03eb74e9103612bffbd0a7"
+          },
+          {
+            "_id": "5b03eb74e9103612bffbd0a6",
+            "value": "sli_Ekzsbum3z.choice_N1ACbdXhM",
+            "label": "Deadline",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            },
+            "id": "5b03eb74e9103612bffbd0a6"
+          },
+          {
+            "_id": "5b03eb74e9103612bffbd0a5",
+            "value": "sli_Ekzsbum3z.choice_NJP1f-mnM",
+            "label": "Collaboration",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            },
+            "id": "5b03eb74e9103612bffbd0a5"
+          },
+          {
+            "_id": "5b03eb74e9103612bffbd0a4",
+            "value": "sli_Ekzsbum3z.choice_EJZgfO7nM",
+            "label": "Objectifs",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            },
+            "id": "5b03eb74e9103612bffbd0a4"
+          },
+          {
+            "_id": "5b03eb74e9103612bffbd0a3",
+            "value": "sli_Ekzsbum3z.choice_VkKeGOmnG",
+            "label": "Espace dédié",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            },
+            "id": "5b03eb74e9103612bffbd0a3"
+          },
+          {
+            "_id": "5b03eb74e9103612bffbd0a2",
+            "value": "sli_Ekzsbum3z.choice_VJQWfuQ3M",
+            "label": "Chef de projet",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            },
+            "id": "5b03eb74e9103612bffbd0a2"
+          },
+          {
+            "_id": "5b03eb74e9103612bffbd0a1",
+            "value": "sli_Ekzsbum3z.choice_EkiWzOm2f",
+            "label": "Designer",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            },
+            "id": "5b03eb74e9103612bffbd0a1"
+          },
+          {
+            "_id": "5b03eb74e9103612bffbd0a0",
+            "value": "sli_Ekzsbum3z.choice_4yGMzdm2f",
+            "label": "Équipe",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            },
+            "id": "5b03eb74e9103612bffbd0a0"
+          }
+        ],
+        "media": {
+          "subtitles": [],
+          "posters": [],
+          "src": []
+        }
+      },
+      "medias": []
+    },
+    "hasClue": true,
+    "id": "sli_Ekzsbum3z"
+  },
+  "sli_NJenMOm2f": {
+    "_id": "sli_NJenMOm2f",
+    "universalRef": "sli_NJenMOm2f",
+    "klf": "Au sein de l'équipe, chacun est responsabilisé sur des missions et participe aux prises de décision. Pour autant, il ne s'agit pas d'autogestion. Le chef de projet est celui qui valorise les prises d'initiatives et impulse les directions à prendre.",
+    "tips": "La présence d'un chef de projet est essentielle, car il arrive parfois qu'une décision prise en groupe, même à l’unanimité, peut avoir un résultat paradoxal. La décision a bien été approuvée collectivement et pourtant individuellement aucun des membres ne l’a souhaitée. La présence du chef de projet permet d'assurer la direction adoptée.",
+    "chapter_id": "cha_EyK53knwf",
+    "__v": 0,
+    "authors": [],
+    "context": {
+      "media": {
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      }
+    },
+    "meta": {
+      "updatedAt": "2018-05-22T10:18:57.651Z",
+      "createdAt": "2018-05-22T10:18:57.651Z"
+    },
+    "lessons": [
+      {
+        "_id": "5b03eb74e9103612bffbd0e9",
+        "poster": "//static.coorpacademy.com/content/CoorpAcademy/content-partnerships-fabernovel/cockpit-fabernovel/poster/vignette_fabernovel-1490717048772.png",
+        "description": "Le mode projet",
+        "videoId": "210233039",
+        "mimeType": "application/vimeo",
+        "ref": "les_4JRdudXhf",
+        "type": "video",
+        "subtitles": [],
+        "posters": [],
+        "src": [],
+        "id": "5b03eb74e9103612bffbd0e9"
+      }
+    ],
+    "question": {
+      "type": "qcm",
+      "header": "En mode projet, de quelle façon est organisée la prise de décision ?",
+      "explanation": "Sélectionnez la bonne réponse.",
+      "content": {
+        "maxTypos": null,
+        "answers": [
+          [
+            "La prise de décision est collective au sein de l'équipe"
+          ]
+        ],
+        "choices": [
+          {
+            "_id": "5b03eb74e9103612bffbd0ec",
+            "value": "sli_NJenMOm2f.choice_VkzJ7uX2z",
+            "label": "La prise de décision est collective au sein de l'équipe",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            },
+            "id": "5b03eb74e9103612bffbd0ec"
+          },
+          {
+            "_id": "5b03eb74e9103612bffbd0eb",
+            "value": "sli_NJenMOm2f.choice_NJA1QO7nf",
+            "label": "Le membre de l'équipe avec le plus d'ancienneté est celui qui a le dernier mot",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            },
+            "id": "5b03eb74e9103612bffbd0eb"
+          },
+          {
+            "_id": "5b03eb74e9103612bffbd0ea",
+            "value": "sli_NJenMOm2f.choice_NyBg7umnM",
+            "label": "La personne étant le plus haut hiérarchiquement prend la décision finale",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            },
+            "id": "5b03eb74e9103612bffbd0ea"
+          }
+        ],
+        "media": {
+          "subtitles": [],
+          "posters": [],
+          "src": []
+        }
+      },
+      "medias": []
+    },
+    "hasClue": true,
+    "id": "sli_NJenMOm2f"
+  },
+  "sli_VkVuNOXnz": {
+    "_id": "sli_VkVuNOXnz",
+    "universalRef": "sli_VkVuNOXnz",
+    "klf": "Le mode projet encourage l'agilité à travers un pilotage par étape. L'objectif de ce type de pilotage est d'être au plus près des besoins pour être le plus réactif possible et générer de la vitesse.",
+    "tips": "Les principes de l’agilité sont donc parfaitement adaptés à un projet de pilotage de la performance, sous réserve que certaines conditions soient remplies. La première est liée à la disponibilité du métier. L’implication forte des utilisateurs est nécessaire tout au long du projet, y compris lors des sprints de développements.",
+    "chapter_id": "cha_EyK53knwf",
+    "__v": 0,
+    "authors": [],
+    "context": {
+      "media": {
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      }
+    },
+    "meta": {
+      "updatedAt": "2018-05-22T10:18:57.658Z",
+      "createdAt": "2018-05-22T10:18:57.658Z"
+    },
+    "lessons": [
+      {
+        "_id": "5b03eb75e9103612bffbd175",
+        "poster": "//static.coorpacademy.com/content/CoorpAcademy/content-partnerships-fabernovel/cockpit-fabernovel/poster/vignette_fabernovel-1490717048772.png",
+        "description": "Le mode projet",
+        "videoId": "210233039",
+        "mimeType": "application/vimeo",
+        "ref": "les_4JRdudXhf",
+        "type": "video",
+        "subtitles": [],
+        "posters": [],
+        "src": [],
+        "id": "5b03eb75e9103612bffbd175"
+      }
+    ],
+    "question": {
+      "type": "qcm",
+      "header": "Quel est l'objectif d'un pilotage de projet par étape ?",
+      "explanation": "Sélectionnez la bonne réponse.",
+      "content": {
+        "maxTypos": null,
+        "answers": [
+          [
+            "Être le plus réactif possible et générer de la vitesse"
+          ]
+        ],
+        "choices": [
+          {
+            "_id": "5b03eb75e9103612bffbd178",
+            "value": "sli_VkVuNOXnz.choice_NkSsN-m3z",
+            "label": "Ne pas revenir en arrière une fois une étape terminée",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            },
+            "id": "5b03eb75e9103612bffbd178"
+          },
+          {
+            "_id": "5b03eb75e9103612bffbd177",
+            "value": "sli_VkVuNOXnz.choice_E1Po4-XnG",
+            "label": "Être le plus réactif possible et générer de la vitesse",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            },
+            "id": "5b03eb75e9103612bffbd177"
+          },
+          {
+            "_id": "5b03eb75e9103612bffbd176",
+            "value": "sli_VkVuNOXnz.choice_4kk2NOXnf",
+            "label": "Permettre à différentes équipes de travailler sur le projet ",
+            "items": [],
+            "media": {
+              "subtitles": [],
+              "posters": [],
+              "src": []
+            },
+            "id": "5b03eb75e9103612bffbd176"
+          }
+        ],
+        "media": {
+          "subtitles": [],
+          "posters": [],
+          "src": []
+        }
+      },
+      "medias": []
+    },
+    "hasClue": true,
+    "id": "sli_VkVuNOXnz"
   }
 }

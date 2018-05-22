@@ -475,5 +475,50 @@
         }
       }
     ]
+  },
+  "partialAdaptive": {
+    "_id": "partialAdaptive",
+    "engine": {
+      "ref": "learner",
+      "version": "1"
+    },
+    "engineOptions": {},
+    "content": {
+      "ref": "mod_E15Bh1hDM",
+      "type": "level",
+      "version": "1"
+    },
+    "actions": [
+      {
+        "type": "move",
+        "payload": {
+          "nextContent": {
+            "type": "slide",
+            "ref": "sli_4JE0EO73M"
+          },
+          "instructions": null
+        }
+      },
+      {
+        "type": "answer",
+        "payload": {
+          "answer": [
+            "objectif",
+            "expertises"
+          ],
+          "content": {
+            "type": "slide",
+            "ref": "sli_4JE0EO73M"
+          },
+          "godMode": false,
+          "nextContent": {
+            "type": "slide",
+            "ref": "sli_NJenMOm2f"
+          },
+          "isCorrect": false,
+          "instructions": null
+        }
+      }
+    ]
   }
 }
