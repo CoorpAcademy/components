@@ -3,7 +3,14 @@
 Components bank based on nova svg icons
 
 ## Adding an icon
-- find your `.svg` path within `/third-party` and add the path within `icons.json`.
+- find your `.svg` path within `/third-party`:
+```
+/third-party/Nova-Icons/SVG/Solid icons/07-Users/user-shield-1.svg
+```
+- add the correponding path within `icons.json`:
+```
+  "@coorpacademy/nova-icons/solid/users/user-shield-1"
+```
 - generate the `.js`
 ```
 npm run prepare
