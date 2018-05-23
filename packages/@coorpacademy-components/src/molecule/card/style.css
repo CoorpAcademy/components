@@ -376,6 +376,7 @@
     font-size: 16px;
     font-weight: 600;
     overflow: hidden;
+    padding: 0 0 2px;
   }
 
   .author {
@@ -455,7 +456,7 @@
   }
 
   .list.course .title {
-    max-height: 35px;
+    max-height: 29px;
   }
 
   .grid.chapter .title {
@@ -463,6 +464,6 @@
   }
 
   .grid.course .title {
-    max-height: 70px;
+    max-height: 68px;
   }
 }
