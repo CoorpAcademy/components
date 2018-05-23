@@ -51,7 +51,7 @@
 }
 
 .favorite .bookmarkIcon {
-  color: light;
+  color: color(xtraLightGrey a(60%));
   stroke: light;
   transform: rotateZ(-45deg);
   transition: color 0.5s linear;
@@ -67,13 +67,8 @@
   transform: translateY(0);
 }
 
-.favorite,
-.favorite.selected:hover {
-  transform: translateY(-12px);
-}
-
 .favorite.selected:hover .bookmarkIcon {
-  color: light;
+  color: color(xtraLightGrey a(60%));
   stroke: white;
 }
 
