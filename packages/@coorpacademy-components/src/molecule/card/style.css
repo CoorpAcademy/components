@@ -252,6 +252,7 @@
   border-bottom-right-radius: 7px;
   transition: transform 0.5s linear;
   z-index: 1;
+  user-select: none;
 }
 
 .default:hover .badge {
@@ -275,6 +276,7 @@
   font-family: 'Open Sans';
   overflow: hidden;
   max-height: 75px;
+  user-select: none;
 }
 
 .title.empty::before {
@@ -297,6 +299,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   font-weight: 100;
+  user-select: none;
 }
 
 .author.certified .icon {
