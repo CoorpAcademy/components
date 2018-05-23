@@ -351,6 +351,10 @@
     height: 260px;
   }
 
+  .grid.course {
+    width: 200px;
+  }
+
   .grid .progressWrapper {
     width: 150px;
   }
