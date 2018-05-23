@@ -164,7 +164,7 @@
   left: 0;
   height: 258px;
   display: flex;
-  align-items: center;
+  padding-top: 50px;
   justify-content: center;
 }
 
