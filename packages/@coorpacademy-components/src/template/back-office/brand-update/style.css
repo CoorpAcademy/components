@@ -1,3 +1,6 @@
+@value colors: "../../../variables/colors.css";
+@value light from colors;
+
 .container {
   padding-bottom: 80px;
 }
@@ -16,4 +19,29 @@
 
 .contentWrapper {
   padding: 35px 120px 0;
+}
+
+.contentHandler {
+  padding: 10px 0 0;
+  overflow: hidden;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.dashboardAside {
+  min-width: 250px;
+  vertical-align: top;
+  padding: 20px 30px 20px;
+  margin-top: 20px;
+}
+
+.dashboardContent {
+  font-family: "Open Sans";
+  width: 100%;
+  text-align: center;
+  position: relative;
+  margin: 40px 30px 20px 5px;
+  border: 1px solid light;
 }

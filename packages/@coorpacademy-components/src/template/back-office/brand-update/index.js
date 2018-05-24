@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Breadcrumbs from '../../../molecule/breadcrumbs';
-import BrandTabs from '../../../molecule/brand-tabs';
+import Sidebar from '../../../organism/sidebar';
 import BrandForm from '../../../organism/brand-form';
 import BrandTable from '../../../organism/brand-table';
 import BrandUpload from '../../../organism/brand-upload';
@@ -12,6 +12,13 @@ import style from './style.css';
 
 const BrandUpdate = Layout(props => {
   const {notifications = [], links, breadcrumbs, tabs, content} = props;
+  const formattedTabs = tabs.map(el => ({
+    title: el.title,
+    type: 'link',
+    name: el.title,
+    selected: el.selected,
+    href: el.href
+  }));
 
   const notificationsList = notifications.map((notification, index) => {
     return (
@@ -39,11 +46,15 @@ const BrandUpdate = Layout(props => {
       <div>
         <Breadcrumbs links={links} breadcrumbs={breadcrumbs} />
       </div>
-      <div>
-        <BrandTabs tabs={tabs} />
-      </div>
       <div className={style.notifications}>{notificationsList}</div>
-      <div className={style.contentWrapper}>{contentView(content)}</div>
+      <div className={style.contentHandler}>
+        <div className={style.dashboardAside}>
+          <Sidebar items={formattedTabs} />
+        </div>
+        <div className={style.dashboardContent}>
+          <div className={style.contentWrapper}>{contentView(content)}</div>
+        </div>
+      </div>
     </div>
   );
 });
@@ -52,7 +63,13 @@ BrandUpdate.propTypes = {
   notifications: PropTypes.arrayOf(PropTypes.shape(Notification.propTypes)),
   breadcrumbs: Breadcrumbs.propTypes.breadcrumbs,
   links: Breadcrumbs.propTypes.links,
-  tabs: BrandTabs.propTypes.tabs,
+  tabs: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      href: PropTypes.string.isRequired,
+      selected: PropTypes.bool.isRequired
+    })
+  ).isRequired,
   content: PropTypes.oneOfType([
     PropTypes.shape({
       type: PropTypes.oneOf(['form']),
