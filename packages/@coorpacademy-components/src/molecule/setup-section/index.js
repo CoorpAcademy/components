@@ -5,6 +5,7 @@ import ArrowUpIcon from '@coorpacademy/nova-icons/composition/navigation/arrow-t
 import get from 'lodash/fp/get';
 import Provider from '../../atom/provider';
 import InputSwitch from '../../atom/input-switch';
+import RadioGroup from '../../atom/radio-group';
 import style from './style.css';
 
 const SetupSection = (props, context) => {
@@ -12,7 +13,7 @@ const SetupSection = (props, context) => {
   const brand = get('common.brand', skin);
   const medium = get('common.medium', skin);
 
-  const {title, onUp, onDown, display} = props;
+  const {title, onUp, onDown, display, contentTypes} = props;
   const colorUp = onDown ? brand : medium;
   const colorDown = onUp ? brand : medium;
 
@@ -20,6 +21,7 @@ const SetupSection = (props, context) => {
     <div className={style.wrapper}>
       <div className={style.title}>{title}</div>
       <div className={style.settings}>
+        <RadioGroup {...contentTypes} />
         <div className={style.label}>{translate('Show')}</div>
         <InputSwitch {...display} />
         <ArrowDownIcon
