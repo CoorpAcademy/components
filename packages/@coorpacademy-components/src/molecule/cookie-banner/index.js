@@ -34,6 +34,7 @@ const CookieBanner = ({href, onClick}, context) => {
       </p>
       <Button
         type="link"
+        data-name="cookie-banner-cta"
         className={style.button}
         submitValue={ok}
         onClick={handleOnClick}
