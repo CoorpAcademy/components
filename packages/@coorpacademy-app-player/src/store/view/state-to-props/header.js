@@ -1,13 +1,7 @@
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import indexOf from 'lodash/fp/indexOf';
-import {
-  getContent,
-  getCurrentChapterId,
-  getEngine,
-  getLives,
-  getCurrentContent
-} from '../../utils/state-extract';
+import {getCurrentChapter, getEngine, getLives, getCurrentContent} from '../../utils/state-extract';
 import {back} from '../../actions/ui/location';
 
 const headerContent = (engineRef, state) => {
@@ -30,13 +24,12 @@ const headerContent = (engineRef, state) => {
 const headerSubcontent = (engineRef, state) => {
   switch (engineRef) {
     case 'learner': {
-      const chapterId = getCurrentChapterId(state);
-      const chapter = getContent('chapter', chapterId)(state);
+      const chapter = getCurrentChapter(state);
       const level = getCurrentContent(state);
       const chapterIds = get('chapterIds', level);
       const details =
-        chapterId && chapterIds
-          ? `${1 + indexOf(chapterId, chapterIds)}/${chapterIds.length}`
+        chapter && chapterIds
+          ? `${1 + indexOf(chapter._id, chapterIds)}/${chapterIds.length}`
           : null;
 
       return {

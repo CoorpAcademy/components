@@ -27,6 +27,7 @@
       "chapter": {
         "entities": {
           "chapter2": {
+            "_id": "chapter2",
             "name": "chapter2!"
           }
         }

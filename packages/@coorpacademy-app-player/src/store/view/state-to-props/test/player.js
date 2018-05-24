@@ -58,9 +58,11 @@ const data = {
     chapter: {
       entities: {
         nonAdaptiveContent: {
+          _id: 'nonAdaptiveContent',
           isConditional: false
         },
         adaptiveContent: {
+          _id: 'adaptiveContent',
           isConditional: true
         }
       }
@@ -87,15 +89,39 @@ const data = {
   }
 };
 
-const isDisabledFor = (progressionId, answers) =>
-  playerProps({
-    data,
+const isDisabledFor = (slide, isConditional, answer) => {
+  const progressionId = 'progression';
+  const chapterId = 'chapter';
+  return playerProps({
+    data: {
+      contents: {
+        slide: {
+          entities: {
+            [slide._id]: {...slide, chapter_id: chapterId}
+          }
+        },
+        chapter: {
+          entities: {
+            [chapterId]: {
+              _id: chapterId,
+              isConditional
+            }
+          }
+        }
+      },
+      progressions: {
+        entities: {
+          [progressionId]: createProgression(slide, chapterId)
+        }
+      }
+    },
     ui: {
       route: {[progressionId]: 'answer'},
       current: {progressionId},
-      answers: {[progressionId]: {value: answers}}
+      answers: {[progressionId]: {value: answer}}
     }
   }).cta.disabled;
+};
 
 test('should create player props for basic question and show coaches', t => {
   const state = {
@@ -127,35 +153,35 @@ test('should create player props for basic question and show coaches', t => {
 });
 
 test('should enable the validate button when there is an answer', t => {
-  t.true(isDisabledFor('basic', []));
-  t.false(isDisabledFor('basic', ['foo']));
+  t.true(isDisabledFor(basicSlide, false, []));
+  t.false(isDisabledFor(basicSlide, false, ['foo']));
 });
 
 test('should enable the validate button when there are two answers in an non-adaptive content for all questions', t => {
   const answers = ['foo', 'bar'];
 
-  t.false(isDisabledFor('basic', answers));
-  t.false(isDisabledFor('qcm', answers));
-  t.false(isDisabledFor('qcmGraphic', answers));
-  t.false(isDisabledFor('qcmDrag', answers));
-  t.false(isDisabledFor('context', answers));
-  t.false(isDisabledFor('template', answers));
+  t.false(isDisabledFor(basicSlide, false, answers));
+  t.false(isDisabledFor(qcmSlide, false, answers));
+  t.false(isDisabledFor(qcmGraphicSlide, false, answers));
+  t.false(isDisabledFor(qcmDragSlide, false, answers));
+  t.false(isDisabledFor(contextSlide, false, answers));
+  t.false(isDisabledFor(templateSlide, false, answers));
 });
 
 test('should disable the validate button when there are several answers in an adaptive content for qcm questions', t => {
-  t.false(isDisabledFor('adaptiveBasic', ['foo', 'bar']));
-  t.true(isDisabledFor('adaptiveQcm', ['foo', 'bar']));
-  t.true(isDisabledFor('adaptiveQcmGraphic', ['foo', 'bar']));
-  t.false(isDisabledFor('adaptiveQcmDrag', ['foo', 'bar']));
-  t.false(isDisabledFor('adaptiveContext', ['foo', 'bar']));
-  t.false(isDisabledFor('adaptiveTemplate', ['foo', 'bar']));
+  t.false(isDisabledFor(basicSlide, true, ['foo', 'bar']));
+  t.true(isDisabledFor(qcmSlide, true, ['foo', 'bar']));
+  t.true(isDisabledFor(qcmGraphicSlide, true, ['foo', 'bar']));
+  t.false(isDisabledFor(qcmDragSlide, true, ['foo', 'bar']));
+  t.false(isDisabledFor(contextSlide, true, ['foo', 'bar']));
+  t.false(isDisabledFor(templateSlide, true, ['foo', 'bar']));
 
-  t.false(isDisabledFor('adaptiveBasic', ['foo', 'bar', 'baz']));
-  t.true(isDisabledFor('adaptiveQcm', ['foo', 'bar', 'baz']));
-  t.true(isDisabledFor('adaptiveQcmGraphic', ['foo', 'bar', 'baz']));
-  t.false(isDisabledFor('adaptiveQcmDrag', ['foo', 'bar', 'baz']));
-  t.false(isDisabledFor('adaptiveContext', ['foo', 'bar', 'baz']));
-  t.false(isDisabledFor('adaptiveTemplate', ['foo', 'bar', 'baz']));
+  t.false(isDisabledFor(basicSlide, true, ['foo', 'bar', 'baz']));
+  t.true(isDisabledFor(qcmSlide, true, ['foo', 'bar', 'baz']));
+  t.true(isDisabledFor(qcmGraphicSlide, true, ['foo', 'bar', 'baz']));
+  t.false(isDisabledFor(qcmDragSlide, true, ['foo', 'bar', 'baz']));
+  t.false(isDisabledFor(contextSlide, true, ['foo', 'bar', 'baz']));
+  t.false(isDisabledFor(templateSlide, true, ['foo', 'bar', 'baz']));
 });
 
 test('should disable the validate button when there the text answer has been deleted', t => {
@@ -424,7 +450,7 @@ test('should feed step prop in non-adaptive mode', t => {
 test('should not feed step prop in adaptive mode', t => {
   const state = pipe(
     set('data.contents.level.entities.1.info.nbSlides', 12),
-    set('data.contents.level.entities.1.isConditional', true)
+    set('data.contents.chapter.entities.chapter2.isConditional', true)
   )(learnerProgressionStateFixture);
 
   const props = playerProps(state);
@@ -436,4 +462,94 @@ test('should not send an id prop in resources', t => {
   const props = playerProps(learnerProgressionStateFixture);
 
   t.is(get('resources.0.id', props), undefined);
+});
+
+const createLearnerProgression = (slide, contentRef) => ({
+  engine: {
+    ref: 'learner',
+    version: '1'
+  },
+  content: {
+    ref: contentRef,
+    type: 'level'
+  },
+  state: {
+    nextContent: {
+      ref: slide._id,
+      type: 'slide'
+    },
+    lives: 1,
+    livesDisabled: false,
+    step: {
+      current: 1
+    },
+    viewedResources: []
+  }
+});
+
+test('should allow multi answers on adaptive level if the current chapter is not adaptive', t => {
+  const check = (slide, answer) => {
+    const progressionId = 'progression';
+    const levelId = 'level';
+    const chapterId = 'chapter';
+    return playerProps({
+      data: {
+        contents: {
+          slide: {
+            entities: {
+              [slide._id]: {...slide, chapter_id: chapterId}
+            }
+          },
+          level: {
+            entities: {
+              [levelId]: {
+                ref: levelId,
+                chapterIds: [chapterId],
+                isConditional: true
+              }
+            }
+          },
+          chapter: {
+            entities: {
+              [chapterId]: {
+                _id: chapterId,
+                isConditional: false
+              }
+            }
+          }
+        },
+        progressions: {
+          entities: {
+            [progressionId]: createLearnerProgression(slide, levelId)
+          }
+        }
+      },
+      ui: {
+        route: {[progressionId]: 'answer'},
+        current: {progressionId},
+        answers: {[progressionId]: {value: answer}}
+      }
+    }).cta.disabled;
+  };
+
+  t.true(check(basicSlide, []));
+  t.true(check(qcmSlide, []));
+  t.true(check(qcmGraphicSlide, []));
+  t.true(check(qcmDragSlide, []));
+  t.true(check(contextSlide, []));
+  t.true(check(templateSlide, []));
+
+  t.false(check(basicSlide, ['foo']));
+  t.false(check(qcmSlide, ['foo']));
+  t.false(check(qcmGraphicSlide, ['foo']));
+  t.false(check(qcmDragSlide, ['foo']));
+  t.false(check(contextSlide, ['foo']));
+  t.false(check(templateSlide, ['foo']));
+
+  t.false(check(basicSlide, ['foo', 'bar']));
+  t.false(check(qcmSlide, ['foo', 'bar']));
+  t.false(check(qcmGraphicSlide, ['foo', 'bar']));
+  t.false(check(qcmDragSlide, ['foo', 'bar']));
+  t.false(check(contextSlide, ['foo', 'bar']));
+  t.false(check(templateSlide, ['foo', 'bar']));
 });

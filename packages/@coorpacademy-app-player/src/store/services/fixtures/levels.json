@@ -58,5 +58,37 @@
       "src": []
     },
     "chapterIds": ["2.B1", "2.B2"]
+  },
+  "mod_E15Bh1hDM": {
+    "disciplineRef": "dis_VJE4ukhvf",
+    "name": "Devenez agile avec le Design Thinking",
+    "levelTranslation": "Coach",
+    "mediaUrl": "//static.coorpacademy.com/content/CoorpAcademy/content-partnerships-fabernovel/cockpit-fabernovel/cover/image-discipline-1491895213279.jpg",
+    "_id": "5b03eb74e9103612bffbcfd2",
+    "timeAlloted": 20,
+    "level": "coach",
+    "universalRef": "mod_E15Bh1hDM",
+    "ref": "mod_E15Bh1hDM",
+    "eligibleBattle": true,
+    "creditsToAccess": 1,
+    "infiniteLives": false,
+    "isConditional": true,
+    "data": [],
+    "stats": {
+      "userTriesCount": 0,
+      "userDoneCount": 0
+    },
+    "chapterIds": [
+      "cha_EyK53knwf",
+      "cha_4yE3nJ2wf",
+      "cha_4yADKSsiG"
+    ],
+    "acquiredSkills": [
+      "Comprendre les fondamentaux du mode projet",
+      "Appliquer l’approche utilisateur pour faire évoluer un produit ou service",
+      "Mettre en pratique les compétences acquises dans une mise en situation immersive"
+    ],
+    "version": "1",
+    "external_refs": []
   }
 }

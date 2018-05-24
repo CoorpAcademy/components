@@ -39,6 +39,7 @@ const data = {
     chapter: {
       entities: {
         '1.B2': {
+          _id: '1.B2',
           name: 'some-title'
         }
       }

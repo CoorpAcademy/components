@@ -71,6 +71,10 @@ export const getNbSlides = pipe(getContentInfo, get('nbSlides'));
 export const getStepContent = pipe(getCurrentProgression, get('state.nextContent'));
 export const getPrevStepContent = pipe(getCurrentProgression, get('state.content'));
 export const getCurrentChapterId = pipe(getCurrentSlide, getChapterId);
+export const getCurrentChapter = state => {
+  const chapterId = getCurrentChapterId(state);
+  return getContent('chapter', chapterId)(state);
+};
 export const hasViewedAResourceAtThisStep = pipe(
   getCurrentProgression,
   get('state.hasViewedAResourceAtThisStep')

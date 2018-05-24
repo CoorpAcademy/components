@@ -7,6 +7,7 @@ import isNil from 'lodash/fp/isNil';
 import {
   getCoaches,
   getCurrentContent,
+  getCurrentChapter,
   getCurrentProgression,
   getCurrentSlide,
   getCurrentProgressionId,
@@ -33,8 +34,8 @@ const STARS_DIFF = {
 };
 
 const isContentAdaptive = state => {
-  const content = getCurrentContent(state);
-  return getOr(false, 'isConditional', content);
+  const chapter = getCurrentChapter(state);
+  return getOr(false, 'isConditional', chapter);
 };
 
 const getProgressionStep = state => {
