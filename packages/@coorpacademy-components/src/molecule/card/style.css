@@ -31,6 +31,56 @@
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.07);
 }
 
+.favorite {
+  width: 25px;
+  height: 35px;
+  position: absolute;
+  right: 0;
+  top: -4px;
+  z-index: 1;
+  font-size: 27px;
+  overflow: hidden;
+  line-height: 20px;
+  transform: translateY(-12px);
+  transition: transform 0.5s linear;
+}
+
+.favorite:hover .bookmarkIcon {
+  color: inherit;
+  stroke: white;
+}
+
+.favorite .bookmarkIcon {
+  color: color(xtraLightGrey a(60%));
+  stroke: light;
+  transform: rotateZ(-45deg);
+  transition: color 0.5s linear;
+}
+
+.favorite.selected .bookmarkIcon {
+  color: inherit;
+  stroke: white;
+}
+
+.favorite.selected,
+.favorite:hover {
+  transform: translateY(0);
+}
+
+.favorite.selected:hover .bookmarkIcon {
+  color: color(xtraLightGrey a(60%));
+  stroke: white;
+}
+
+.favorite:hover .bookmarkIcon {
+  color: inherit;
+  stroke: white;
+}
+
+.default[disabled] .favorite {
+  z-index: 0;
+}
+
 .customer {
   position: absolute;
   top: 0;
