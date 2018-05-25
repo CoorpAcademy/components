@@ -1,4 +1,4 @@
-import ContentTypes from '../../../../atom/radio-group/test/fixtures/default';
+import ContentTypes from '../../../../atom/radio-group/test/fixtures/last-selected';
 
 const {props: contentTypes} = ContentTypes;
 

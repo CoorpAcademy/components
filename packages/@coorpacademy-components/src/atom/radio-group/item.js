@@ -12,8 +12,8 @@ const getTargetValueAndCall = fun => pipe(get('target.value'), fun);
 const Item = (props, context) => {
   const idRadioButton = uniqueId('inputRadioButton');
   const {skin} = context;
-  const {name, value, checked, label, onChange = identity} = props;
-  const defaultColor = get('common.primary', skin);
+  const {color, name, value, checked, label, onChange = identity} = props;
+  const defaultColor = color || get('common.primary', skin);
 
   return (
     <div
@@ -50,6 +50,7 @@ Item.contextTypes = {
   skin: Provider.childContextTypes.skin
 };
 Item.propTypes = {
+  color: PropTypes.String,
   value: PropTypes.string.isRequired,
   name: PropTypes.string,
   checked: PropTypes.bool,

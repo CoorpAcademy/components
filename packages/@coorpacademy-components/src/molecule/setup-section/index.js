@@ -21,7 +21,7 @@ const SetupSection = (props, context) => {
     <div className={style.wrapper}>
       <div className={style.title}>{title}</div>
       <div className={style.settings}>
-        <RadioGroup {...contentTypes} />
+        <RadioGroup color={brand} {...contentTypes} />
         <div className={style.label}>{translate('Show')}</div>
         <InputSwitch {...display} />
         <ArrowDownIcon
