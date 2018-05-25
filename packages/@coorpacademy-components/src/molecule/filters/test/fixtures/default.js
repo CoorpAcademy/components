@@ -112,6 +112,11 @@ export default {
       title: 'Type:',
       onChange: value => console.log(value)
     },
+    favorites: {
+      title: 'Favorites:',
+      checked: 'true',
+      onChange: value => console.log(value)
+    },
     onSearch: () => console.log('onSearch')
   }
 };

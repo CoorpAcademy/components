@@ -71,7 +71,8 @@ class Filters extends React.Component {
       filterTabLabel,
       sortCTALabel,
       sortTabLabel,
-      filters
+      filters,
+      favorites
     } = this.props;
 
     const {skin} = this.context;
@@ -126,6 +127,7 @@ class Filters extends React.Component {
             types={types}
             courses={courses}
             authors={authors}
+            favorites={favorites}
           />
           <div
             data-name="cta"
@@ -176,6 +178,7 @@ Filters.propTypes = {
   courses: FiltersWrapper.propTypes.courses,
   authors: FiltersWrapper.propTypes.authors,
   filters: FiltersWrapper.propTypes.filters,
+  favorites: FiltersWrapper.propTypes.favorites,
   sorting: PropTypes.shape(Select.propTypes),
   onSearch: PropTypes.func,
   onToggleFilters: PropTypes.func,

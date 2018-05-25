@@ -5,12 +5,13 @@ import isEmpty from 'lodash/fp/isEmpty';
 import map from 'lodash/fp/map';
 import classnames from 'classnames';
 import Select from '../../atom/select';
+import Checkbox from '../../atom/checkbox';
 import RadioGroup from '../../atom/radio-group';
 import RangeSlider from '../../atom/range';
 import style from './filters-wapper.css';
 
 const FiltersWapper = (props, context) => {
-  const {thematic, timer, types, courses, authors, filters, className} = props;
+  const {thematic, timer, types, courses, authors, filters, className, favorites} = props;
 
   const buildFilter = (filter, idx) => {
     const {type, fieldName} = filter;
@@ -43,6 +44,13 @@ const FiltersWapper = (props, context) => {
             </label>
           </div>
         );
+      case 'checkbox':
+        return (
+          <div data-name="choice" data-filter-type={fieldName} className={style.choice} key={idx}>
+            <p className={style.title}>{filter.title}</p>
+            <Checkbox {...filter} />
+          </div>
+        );
       default:
         return null;
     }
@@ -70,12 +78,17 @@ const FiltersWapper = (props, context) => {
     ? buildFilter({type: 'select', fieldName: 'Author', ...authors}, index++)
     : null;
 
+  const favoritesView = favorites
+    ? buildFilter({type: 'checkbox', fieldName: 'Favorites', ...favorites}, index++)
+    : null;
+
   const emptyFilters =
     thematic === undefined &&
     timer === undefined &&
     types === undefined &&
     courses === undefined &&
     authors === undefined &&
+    favorites === undefined &&
     isEmpty(filters);
 
   return (
@@ -86,6 +99,7 @@ const FiltersWapper = (props, context) => {
       {timerView}
       {authorsView}
       {filtersList}
+      {favoritesView}
     </div>
   );
 };
@@ -102,6 +116,10 @@ FiltersWapper.propTypes = {
       type: PropTypes.oneOf(['select', 'range', 'radio']).isRequired,
       fieldName: PropTypes.string.isRequired
     })
-  )
+  ),
+  favorites: {
+    title: PropTypes.string,
+    ...PropTypes.shape(Checkbox.propTypes)
+  }
 };
 export default FiltersWapper;
