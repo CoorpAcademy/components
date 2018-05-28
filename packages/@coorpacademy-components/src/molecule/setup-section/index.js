@@ -12,16 +12,19 @@ const SetupSection = (props, context) => {
   const {translate, skin} = context;
   const brand = get('common.brand', skin);
   const medium = get('common.medium', skin);
+  const orange = get('common.orange', skin);
 
   const {title, onUp, onDown, display, contentTypes} = props;
   const colorUp = onDown ? brand : medium;
   const colorDown = onUp ? brand : medium;
 
+  const contentTypesColor = contentTypes.modified ? orange : brand;
+
   return (
     <div className={style.wrapper}>
       <div className={style.title}>{title}</div>
       <div className={style.settings}>
-        <RadioGroup color={brand} {...contentTypes} />
+        <RadioGroup color={contentTypesColor} {...contentTypes} />
         <div className={style.label}>{translate('Show')}</div>
         <InputSwitch {...display} />
         <ArrowDownIcon

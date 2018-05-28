@@ -12,8 +12,12 @@ export default {
     },
     display: {
       value: true,
+      modified: true,
       onChange: value => console.log(value)
     },
-    contentTypes
+    contentTypes: {
+      ...contentTypes,
+      modified: true
+    }
   }
 };
