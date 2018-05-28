@@ -14,7 +14,7 @@ export default {
       {
         title: 'SSO',
         href: '#brand/samsung/sso',
-        selected: true
+        selected: false
       },
       {
         title: 'Users',
@@ -24,7 +24,7 @@ export default {
       {
         title: 'Analytics',
         href: '#brand/samsung/analytics',
-        selected: false
+        selected: true
       }
     ]
   }
