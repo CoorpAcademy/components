@@ -427,6 +427,7 @@ import MoleculeSearchFixtureWithValue from '../src/molecule/search/test/fixtures
 import MoleculeSearchFormFixtureDefault from '../src/molecule/search-form/test/fixtures/default';
 import MoleculeSetupSectionFixtureDefault from '../src/molecule/setup-section/test/fixtures/default';
 import MoleculeSetupSectionFixtureFirst from '../src/molecule/setup-section/test/fixtures/first';
+import MoleculeSetupSectionFixtureNoContentTypes from '../src/molecule/setup-section/test/fixtures/no-content-types';
 import MoleculeSetupSectionFixtureOther from '../src/molecule/setup-section/test/fixtures/other';
 import MoleculeSetupSectionsFixtureDefault from '../src/molecule/setup-sections/test/fixtures/default';
 import MoleculeSetupSectionsFixtureLoading from '../src/molecule/setup-sections/test/fixtures/loading';
@@ -1226,6 +1227,7 @@ export const fixtures = {
     MoleculeSetupSection: {
       Default: MoleculeSetupSectionFixtureDefault,
       First: MoleculeSetupSectionFixtureFirst,
+      NoContentTypes: MoleculeSetupSectionFixtureNoContentTypes,
       Other: MoleculeSetupSectionFixtureOther
     },
     MoleculeSetupSections: {

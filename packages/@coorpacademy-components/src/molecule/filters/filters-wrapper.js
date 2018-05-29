@@ -25,7 +25,7 @@ const FiltersWapper = (props, context) => {
         return (
           <div data-name="choice" data-filter-type={fieldName} className={style.choice} key={idx}>
             <p className={style.title}>{filter.title}</p>
-            <RadioGroup {...filter} />
+            <RadioGroup className={style.radioGroup} {...filter} />
           </div>
         );
       case 'range':

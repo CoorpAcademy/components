@@ -1,3 +1,7 @@
+import ContentTypes from '../../../../atom/radio-group/test/fixtures/default';
+
+const {props: contentTypes} = ContentTypes;
+
 export default {
   props: {
     id: 'aiz12ueaz97',
@@ -8,7 +12,12 @@ export default {
     },
     display: {
       value: true,
+      modified: true,
       onChange: value => console.log(value)
+    },
+    contentTypes: {
+      ...contentTypes,
+      modified: true
     }
   }
 };

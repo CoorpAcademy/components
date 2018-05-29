@@ -22,6 +22,7 @@ const list = [
 export default {
   props: {
     onChange: value => console.log(value),
+    color: '#f0f',
     list
   }
 };

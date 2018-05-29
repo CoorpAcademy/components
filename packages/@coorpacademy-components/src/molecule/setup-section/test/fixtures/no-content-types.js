@@ -1,11 +1,7 @@
-import ContentTypes from '../../../../atom/radio-group/test/fixtures/last-selected';
-
-const {props: contentTypes} = ContentTypes;
-
 export default {
   props: {
     id: '98e898748',
-    title: 'Recommended for you',
+    title: 'No content types',
     onUp: e => {
       console.log(e);
     },
@@ -15,7 +11,6 @@ export default {
     display: {
       value: true,
       onChange: value => console.log(value)
-    },
-    contentTypes
+    }
   }
 };
