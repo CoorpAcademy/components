@@ -50,7 +50,7 @@ Item.contextTypes = {
   skin: Provider.childContextTypes.skin
 };
 Item.propTypes = {
-  color: PropTypes.String,
+  color: PropTypes.string,
   value: PropTypes.string.isRequired,
   name: PropTypes.string,
   checked: PropTypes.bool,

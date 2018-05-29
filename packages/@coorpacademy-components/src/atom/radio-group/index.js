@@ -29,8 +29,8 @@ RadioGroup.contextTypes = {
 };
 
 RadioGroup.propTypes = {
-  color: PropTypes.String,
-  className: PropTypes.String,
+  color: PropTypes.string,
+  className: PropTypes.string,
   list: PropTypes.arrayOf(PropTypes.shape(Item.PropTypes)),
   onChange: PropTypes.func
 };
