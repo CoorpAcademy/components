@@ -32,7 +32,7 @@
   font-weight: 600;
   font-size: 14px;
   color: brand;
-  margin-left: 16px;
+  margin-left: 30px;
   margin-right: 16px;
 }
 
@@ -52,4 +52,8 @@
 .disabled {
   composes: arrow;
   pointer-events: none;
+}
+
+.contentTypeWrapper {
+  width: 310px;
 }
