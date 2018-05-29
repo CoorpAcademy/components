@@ -11,7 +11,7 @@ import RangeSlider from '../../atom/range';
 import style from './filters-wapper.css';
 
 const FiltersWapper = (props, context) => {
-  const {thematic, timer, types, courses, authors, filters, className, favorites} = props;
+  const {thematic, timer, types, courses, authors, filters, className} = props;
 
   const buildFilter = (filter, idx) => {
     const {type, fieldName} = filter;
@@ -44,7 +44,7 @@ const FiltersWapper = (props, context) => {
             </label>
           </div>
         );
-      case 'checkbox':
+      case 'switch':
         return (
           <div data-name="choice" data-filter-type={fieldName} className={style.choice} key={idx}>
             <p className={style.title}>{filter.title}</p>
@@ -80,17 +80,12 @@ const FiltersWapper = (props, context) => {
     ? buildFilter({type: 'select', fieldName: 'Author', ...authors}, index++)
     : null;
 
-  const favoritesView = favorites
-    ? buildFilter({type: 'checkbox', fieldName: 'Favorites', ...favorites}, index++)
-    : null;
-
   const emptyFilters =
     thematic === undefined &&
     timer === undefined &&
     types === undefined &&
     courses === undefined &&
     authors === undefined &&
-    favorites === undefined &&
     isEmpty(filters);
 
   return (
@@ -101,7 +96,6 @@ const FiltersWapper = (props, context) => {
       {timerView}
       {authorsView}
       {filtersList}
-      {favoritesView}
     </div>
   );
 };
@@ -115,13 +109,9 @@ FiltersWapper.propTypes = {
   authors: PropTypes.shape(Select.propTypes),
   filters: PropTypes.arrayOf(
     PropTypes.shape({
-      type: PropTypes.oneOf(['select', 'range', 'radio']).isRequired,
+      type: PropTypes.oneOf(['select', 'range', 'radio', 'switch']).isRequired,
       fieldName: PropTypes.string.isRequired
     })
-  ),
-  favorites: {
-    title: PropTypes.string,
-    display: PropTypes.shape(InputSwitch.propTypes)
-  }
+  )
 };
 export default FiltersWapper;

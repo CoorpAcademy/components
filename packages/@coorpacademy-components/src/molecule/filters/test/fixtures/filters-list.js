@@ -125,6 +125,15 @@ export default {
         fieldName: 'Time',
         title: 'Time:',
         subtitle: '2 mins - 3 hours +'
+      },
+      {
+        type: 'switch',
+        fieldName: 'Favorite',
+        title: 'Favorite:',
+        display: {
+          value: true,
+          onChange: () => console.log('onFavorites')
+        }
       }
     ],
     sorting: {

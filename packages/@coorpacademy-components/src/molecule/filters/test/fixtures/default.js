@@ -88,13 +88,6 @@ export default {
       title: 'Type:',
       onChange: value => console.log(value)
     },
-    favorites: {
-      title: 'My Favorites:',
-      display: {
-        value: true,
-        onChange: console.log('onFavorites')
-      }
-    },
     onSearch: () => console.log('onSearch')
   }
 };
