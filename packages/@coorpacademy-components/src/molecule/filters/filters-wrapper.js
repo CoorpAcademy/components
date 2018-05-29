@@ -5,7 +5,7 @@ import isEmpty from 'lodash/fp/isEmpty';
 import map from 'lodash/fp/map';
 import classnames from 'classnames';
 import Select from '../../atom/select';
-import Checkbox from '../../atom/checkbox';
+import InputSwitch from '../../atom/input-switch';
 import RadioGroup from '../../atom/radio-group';
 import RangeSlider from '../../atom/range';
 import style from './filters-wapper.css';
@@ -48,7 +48,9 @@ const FiltersWapper = (props, context) => {
         return (
           <div data-name="choice" data-filter-type={fieldName} className={style.choice} key={idx}>
             <p className={style.title}>{filter.title}</p>
-            <Checkbox {...filter} />
+            <div className={style.toggle}>
+              <InputSwitch {...filter.display} />
+            </div>
           </div>
         );
       default:
@@ -119,7 +121,7 @@ FiltersWapper.propTypes = {
   ),
   favorites: {
     title: PropTypes.string,
-    ...PropTypes.shape(Checkbox.propTypes)
+    display: PropTypes.shape(InputSwitch.propTypes)
   }
 };
 export default FiltersWapper;

@@ -34,30 +34,6 @@ export default {
       ],
       onChange: value => console.log(value)
     },
-    authors: {
-      ...selectFilter,
-      title: 'Authors:',
-      options: [
-        {
-          name: 'Coorpacademy',
-          value: 'Coorpacademy',
-          selected: false
-        },
-        {
-          name:
-            'World Health Organization - Mental Health Policy' +
-            'and Service Development, Michelle Funk and Nathalie Drew',
-          value: 'WHO',
-          selected: true
-        },
-        {
-          name: 'Elephant',
-          value: 'Elephant',
-          selected: false
-        }
-      ],
-      onChange: value => console.log(value)
-    },
     courses: {
       ...selectFilter,
       title: 'Learning Paths:',
@@ -113,9 +89,11 @@ export default {
       onChange: value => console.log(value)
     },
     favorites: {
-      title: 'Favorites:',
-      checked: 'true',
-      onChange: value => console.log(value)
+      title: 'My Favorites:',
+      display: {
+        value: true,
+        onChange: console.log('onFavorites')
+      }
     },
     onSearch: () => console.log('onSearch')
   }
