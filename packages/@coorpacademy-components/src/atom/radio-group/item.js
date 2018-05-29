@@ -40,7 +40,9 @@ const Item = (props, context) => {
         }}
         htmlFor={idRadioButton}
       >
-        <span className={style.labelSpan}> {label} </span>
+        <span className={style.labelSpan} title={label}>
+          {label}
+        </span>
       </label>
     </div>
   );
