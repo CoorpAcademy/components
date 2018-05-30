@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/app-player",
-  "version": "12.2.9",
+  "version": "12.2.10",
   "description": "CoorpAcademy player [freerun, learner, battles]",
   "main": "lib/web/index.js",
   "module": "es/web/index.js",
@@ -41,7 +41,7 @@
     "webpack-dev-server": "^3.1.4"
   },
   "dependencies": {
-    "@coorpacademy/components": "7.4.2",
+    "@coorpacademy/components": "7.4.3",
     "@coorpacademy/redux-task": "0.0.7",
     "@coorpacademy/translate": "5.3.12",
     "@coorpacademy/webpack-config": "7.0.1",
