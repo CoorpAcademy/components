@@ -11,13 +11,12 @@ const AnswersPropTypes = PropTypes.arrayOf(
     onClick: PropTypes.func,
     order: PropTypes.number,
     selected: PropTypes.bool,
-    title: PropTypes.string
+    title: PropTypes.string,
+    help: PropTypes.string
   })
 );
 
-const EmptyView = (props, {translate}) => (
-  <span className={style.emptySpan}>{translate('Select the correct option(s) below')}</span>
-);
+const EmptyView = ({help}) => <span className={style.emptySpan}>{help}</span>;
 
 EmptyView.contextTypes = {
   translate: Provider.childContextTypes.translate
@@ -47,7 +46,7 @@ Choices.propTypes = {
   answers: AnswersPropTypes
 };
 
-const SelectionBox = ({answers}) => {
+const SelectionBox = ({answers, help}) => {
   const selectedAnswers = pipe(filter('selected'), orderBy('order', 'asc'))(answers);
   const selectedAnswersViews = selectedAnswers.map((answer, key) => {
     const {onClick, title} = answer;
@@ -70,7 +69,7 @@ const SelectionBox = ({answers}) => {
   } else {
     return (
       <div className={style.emptyAnswers}>
-        <EmptyView />
+        <EmptyView help={help} />
       </div>
     );
   }
@@ -80,18 +79,14 @@ SelectionBox.propTypes = {
   answers: AnswersPropTypes
 };
 
-const QcmDrag = ({answers}, context) => (
+const QcmDrag = ({answers, help}, context) => (
   <div className={style.qcmDrag}>
-    <SelectionBox answers={answers} />
+    <SelectionBox answers={answers} help={help} />
     <div data-name="qcm-drag-answers" className={style.answers}>
       <Choices answers={answers} />
     </div>
   </div>
 );
-
-QcmDrag.contextTypes = {
-  translate: Provider.childContextTypes.translate
-};
 
 QcmDrag.propTypes = {
   answers: AnswersPropTypes

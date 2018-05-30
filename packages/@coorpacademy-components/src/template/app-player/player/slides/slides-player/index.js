@@ -69,10 +69,11 @@ NewMedia.contextTypes = {
   translate: Provider.childContextTypes.translate
 };
 
-const AnswerContent = ({answerType}) => <Answer {...answerType} />;
+const AnswerContent = ({answerType, help}) => <Answer {...answerType} help={help} />;
 
 AnswerContent.propTypes = {
-  answerType: PropTypes.shape(Answer.PropTypes)
+  answerType: PropTypes.shape(Answer.PropTypes),
+  help: PropTypes.string
 };
 
 const MediaContent = (props, context) => {
@@ -270,7 +271,7 @@ ValidateButton.propTypes = {
 };
 
 const ContentLayout = (props, context) => {
-  const {typeClue, question, help} = props;
+  const {typeClue, answerType: {model: {type} = {}} = {}, question, help} = props;
   const ContentType = CONTENT_TYPE[typeClue];
   const wrapperColor = typeClue === 'answer' ? 'white' : '#ECEFF1';
   const noPaddingRessources =
@@ -286,7 +287,7 @@ const ContentLayout = (props, context) => {
           __html: typeClue === 'context' ? props.slideContext.title : question
         }}
       />
-      {help && typeClue === 'answer' ? <Help help={help} /> : null}
+      {help && typeClue === 'answer' && type !== 'qcmDrag' ? <Help help={help} /> : null}
       <ContentType {...props} />
       <ValidateButton {...props} />
     </div>
@@ -301,7 +302,7 @@ ContentLayout.contextTypes = {
 ContentLayout.propTypes = {
   typeClue: PropTypes.oneOf(Object.keys(CONTENT_TYPE)),
   question: PropTypes.string,
-  cta: PropTypes.shape(Cta.propTypes)
+  ...ValidateButton.propTypes
 };
 
 /*

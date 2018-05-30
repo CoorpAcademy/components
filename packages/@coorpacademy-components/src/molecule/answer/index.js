@@ -35,14 +35,13 @@ const MediaView = ({media}) => {
 };
 
 const Answer = props => {
-  const {model, media} = props;
-
+  const {model, media, help} = props;
   const buildAnswer = () => {
     const {type} = model;
 
     switch (type) {
       case 'qcmDrag':
-        return <QcmDrag {...model} />;
+        return <QcmDrag {...model} help={help} />;
       case 'qcm':
         return <Qcm {...model} />;
       case 'qcmGraphic':
@@ -91,6 +90,7 @@ Answer.propTypes = {
       'template'
     ]).isRequired
   }),
+  help: PropTypes.string,
   media: PropTypes.oneOfType([videoPropType, imgPropType])
 };
 

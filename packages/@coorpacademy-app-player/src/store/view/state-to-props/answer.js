@@ -217,14 +217,7 @@ const createGetAnswerProps = (options, store) => (state, slide) => {
 
 const createGetHelp = (options, store) => slide => {
   const {translate} = options;
-  const type = getQuestionType(slide);
-  switch (type) {
-    case 'qcmDrag':
-      return null;
-
-    default:
-      return get('question.explanation', slide) || translate('Select something below');
-  }
+  return get('question.explanation', slide) || translate('Select something below');
 };
 
 export {createGetAnswerProps, createGetHelp};
