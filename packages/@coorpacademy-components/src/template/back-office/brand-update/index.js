@@ -12,12 +12,12 @@ import style from './style.css';
 
 const BrandUpdate = Layout(props => {
   const {notifications = [], links, breadcrumbs, tabs, content} = props;
-  const formattedTabs = tabs.map(el => ({
-    title: el.title,
+  const formattedTabs = tabs.map(({title, name, href, selected}) => ({
+    title,
     type: 'link',
-    name: el.title,
-    selected: el.selected,
-    href: el.href
+    name,
+    selected,
+    href
   }));
 
   const notificationsList = notifications.map((notification, index) => {
