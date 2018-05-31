@@ -41,8 +41,6 @@
   font-size: 27px;
   overflow: hidden;
   line-height: 20px;
-  transform: translateY(-12px);
-  transition: transform 0.5s linear;
 }
 
 .favorite:hover .bookmarkIcon {
@@ -51,30 +49,29 @@
 }
 
 .favorite .bookmarkIcon {
-  color: color(xtraLightGrey a(60%));
+  color: transparent;
   stroke: light;
+  stroke-dasharray: 1;
   transform: rotateZ(-45deg);
-  transition: color 0.5s linear;
+  transition: color 0.25s ease-in-out;
 }
 
 .favorite.selected .bookmarkIcon {
   color: inherit;
   stroke: white;
-}
-
-.favorite.selected,
-.favorite:hover {
-  transform: translateY(0);
+  stroke-dasharray: 0;
 }
 
 .favorite.selected:hover .bookmarkIcon {
-  color: color(xtraLightGrey a(60%));
+  color: transparent;
   stroke: white;
+  stroke-dasharray: 1;
 }
 
 .favorite:hover .bookmarkIcon {
   color: inherit;
   stroke: white;
+  stroke-dasharray: 0;
 }
 
 .default[disabled] .favorite {
@@ -90,7 +87,7 @@
 }
 
 .customer {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 40%);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 20%);
 }
 
 .list.empty,
@@ -115,7 +112,7 @@
   overflow: hidden;
   background-position: 50%;
   background-size: cover;
-  transition: all 0.25s linear;
+  transition: all 0.25s ease-in-out;
   display: inline-block;
   text-align: center;
   vertical-align: middle;
@@ -124,33 +121,28 @@
 
 .default .image::after {
   opacity: 0;
-  transition: opacity 0.25s linear;
+  transition: opacity 0.25s ease-in-out;
 }
 
 .default:hover .image {
   transform-origin: center;
   transform: scale(1.1);
-  transition: all 1s linear;
+  transition: all 1s ease-in-out;
 }
 
 .chapter:hover .progressWrapper {
   background: white;
 }
 
-.default:hover .image::after {
-  opacity: 0.5;
-  transition: opacity 0.25s linear;
-}
-
-.default .image::after {
+.course .image::after {
   position: absolute;
   content: '';
   width: 100%;
   height: 100%;
-  background-color: black;
-  opacity: 0.35;
+  opacity: 1;
   top: 0;
   left: 0;
+  background-image: linear-gradient(to bottom, transparent, transparent 40%, color(grey a(45%)) 62%, color(black a(50%)));
 }
 
 .course .infoWrapper {
@@ -175,11 +167,12 @@
 
 .course .adaptiv {
   top: 100px;
-  filter: drop-shadow(1px 1px 1px grey);
+  filter: drop-shadow(1px 1px 2px grey);
 }
 
 .course .author .icon {
   fill: white;
+  filter: drop-shadow(1px 1px 2px grey);
 }
 
 .lazy {
@@ -200,7 +193,7 @@
 .default:hover {
   background: light;
   cursor: pointer;
-  transition: background 0.25s linear;
+  transition: background 0.25s ease-in-out;
 }
 
 .default[disabled] .imageWrapper {
@@ -300,15 +293,8 @@
   font-size: 8px;
   font-weight: bold;
   border-bottom-right-radius: 7px;
-  transition: transform 0.5s linear;
   z-index: 1;
   user-select: none;
-}
-
-.default:hover .badge {
-  transform-origin: center;
-  transform: scale(1.1);
-  transition: transform 0.5s linear;
 }
 
 .infoWrapper {
