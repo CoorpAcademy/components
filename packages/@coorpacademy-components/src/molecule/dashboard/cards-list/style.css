@@ -10,6 +10,12 @@
   position: relative;
 }
 
+.icon {
+  padding-right: 5px;
+  margin: auto 0 3px 0;
+  height: 27px;
+}
+
 .list {
   position: relative;
   max-width: 1080px;
@@ -25,9 +31,10 @@
   font-family: 'Open Sans';
   font-size: 19px;
   font-weight: 600;
-  color: dark;
-  margin-bottom: 8px;
-  display: inline-block;
+  color: black;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
 }
 
 .titleLink {

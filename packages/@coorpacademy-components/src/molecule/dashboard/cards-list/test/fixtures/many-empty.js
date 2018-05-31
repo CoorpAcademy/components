@@ -4,6 +4,7 @@ export default {
     cards: [null, undefined, undefined, null, null, null, undefined],
     onScroll: (skip, limit) => {
       console.log(skip, limit);
-    }
+    },
+    contentType: 'course'
   }
 };

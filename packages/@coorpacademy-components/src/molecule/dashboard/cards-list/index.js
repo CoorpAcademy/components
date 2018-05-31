@@ -5,11 +5,13 @@ import getOr from 'lodash/fp/getOr';
 import head from 'lodash/fp/head';
 import map from 'lodash/fp/map';
 import sumBy from 'lodash/fp/sumBy';
-import isEqual from 'lodash/fp/isEqual';
 import last from 'lodash/fp/last';
+import isEqual from 'lodash/fp/isEqual';
 import PropTypes from 'prop-types';
 import ArrowLeft from '@coorpacademy/nova-icons/composition/navigation/arrow-left';
 import ArrowRight from '@coorpacademy/nova-icons/composition/navigation/arrow-right';
+import LearnerIcon from '@coorpacademy/nova-icons/solid/content/content-book-1';
+import TimerIcon from '@coorpacademy/nova-icons/composition/coorpacademy/timer';
 import Provider from '../../../atom/provider';
 import Card from '../../card';
 import style from './style.css';
@@ -26,8 +28,33 @@ const ShowMoreLink = (props, context) => {
     </div>
   );
 };
-
 ShowMoreLink.contextTypes = {
+  skin: Provider.childContextTypes.skin
+};
+
+const IconView = (props, context) => {
+  const {skin} = context;
+  const {contentType} = props;
+  const ICONS = {
+    chapter: TimerIcon,
+    course: LearnerIcon
+  };
+
+  if (!contentType) {
+    return null;
+  }
+
+  const black = get('common.black', skin);
+  const IconType = ICONS[contentType];
+
+  return (
+    <div>
+      <IconType color={black} className={style.icon} {...contentType} />
+    </div>
+  );
+};
+
+IconView.contextTypes = {
   skin: Provider.childContextTypes.skin
 };
 
@@ -193,11 +220,12 @@ class CardsList extends React.Component {
   }
 
   render() {
-    const {title, showMore, cards, onShowMore, dataName} = this.props;
+    const {title, showMore, cards, onShowMore, dataName, contentType} = this.props;
     const {skin} = this.context;
 
     const mediumColor = getOr('#90A4AE', 'common.medium', skin);
-
+    const titleStyle = title ? style.titleLink : style.title;
+    const titleOnClick = onShowMore ? {onShowMore} : null;
     const cardsView = map.convert({cap: false})((card, key) => {
       return (
         <div className={style.card} key={key} ref={this.setCards(key)}>
@@ -213,16 +241,14 @@ class CardsList extends React.Component {
     const rightArrowView = this.state.right.hidden ? null : (
       <ArrowRight color={mediumColor} className={style.right} onClick={this.handleOnRight} />
     );
-    const titleView =
-      title && onShowMore ? (
-        <span data-name="title" className={style.titleLink} onClick={onShowMore}>
-          {title}
-        </span>
-      ) : (
-        <span data-name="title" className={style.title}>
-          {title}
-        </span>
-      );
+
+    const titleView = (
+      <span data-name="title" className={titleStyle} onClick={titleOnClick}>
+        <IconView contentType={contentType} />
+        <span>{title}</span>
+      </span>
+    );
+
     const showMoreView =
       showMore && onShowMore ? <ShowMoreLink onShowMore={onShowMore} showMore={showMore} /> : null;
     return (
@@ -250,6 +276,7 @@ CardsList.contextTypes = {
 };
 
 CardsList.propTypes = {
+  contentType: PropTypes.string,
   dataName: PropTypes.string,
   title: PropTypes.string,
   showMore: PropTypes.string,

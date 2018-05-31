@@ -17,7 +17,8 @@ export default {
       defaultsDeep(props, {title: 'Seventh item'}),
       defaultsDeep(props, {title: 'Eigth item'}),
       defaultsDeep(props, {title: 'Ninth item'}),
-      defaultsDeep(props, {title: 'Tenth item'})
+      defaultsDeep(props, {title: 'Tenth item'}),
+      defaultsDeep(props, {type: 'chapter'})
     ],
     onScroll: (skip, limit) => {
       console.log(skip, limit);
