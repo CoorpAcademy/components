@@ -255,7 +255,7 @@ class CardsList extends React.Component {
       <div className={style.wrapper} data-name="cardsList">
         <div className={style.list}>
           <div className={style.listWrapper}>
-            <div data-name="header">
+            <div data-name="header" className={style.header}>
               {titleView}
               {showMoreView}
             </div>
