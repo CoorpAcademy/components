@@ -23,6 +23,11 @@
   box-sizing: border-box;
 }
 
+.header {
+  display: flex;
+  align-items: center;
+}
+
 .listWrapper {
   overflow: hidden;
 }
@@ -35,6 +40,7 @@
   margin-bottom: 12px;
   display: flex;
   align-items: center;
+  flex-grow: 1;
 }
 
 .titleLink {
@@ -55,7 +61,6 @@
   cursor: pointer;
   position: relative;
   margin-right: 15px;
-  margin-top: 10px;
 }
 
 .showMore:hover {
