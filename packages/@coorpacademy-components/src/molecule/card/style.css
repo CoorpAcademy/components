@@ -6,6 +6,7 @@
 @value light from colors;
 @value grey from colors;
 @value dark from colors;
+@value medium from colors;
 @value xtraLightGrey from colors;
 @value white from colors;
 
@@ -32,46 +33,42 @@
 }
 
 .favorite {
-  width: 25px;
-  height: 35px;
+  width: 20px;
+  height: 20px;
   position: absolute;
-  right: 0;
-  top: -4px;
+  right: 5px;
+  top: 5px;
   z-index: 1;
-  font-size: 27px;
+  font-size: 16px;
   overflow: hidden;
   line-height: 20px;
+  background: white;
+  border: 1px solid light;
+  box-sizing: border-box;
+  border-radius: 50%;
 }
 
 .favorite:hover .bookmarkIcon {
   color: inherit;
-  stroke: white;
 }
 
 .favorite .bookmarkIcon {
-  color: transparent;
-  stroke: light;
-  stroke-dasharray: 1;
-  transform: rotateZ(-45deg);
+  color: medium;
+  background: xtraLightGrey;
+  transform: rotate(-45deg) translate(2px, -1px);
   transition: color 0.25s ease-in-out;
 }
 
 .favorite.selected .bookmarkIcon {
   color: inherit;
-  stroke: white;
-  stroke-dasharray: 0;
 }
 
 .favorite.selected:hover .bookmarkIcon {
-  color: transparent;
-  stroke: white;
-  stroke-dasharray: 1;
+  color: grey;
 }
 
 .favorite:hover .bookmarkIcon {
   color: inherit;
-  stroke: white;
-  stroke-dasharray: 0;
 }
 
 .default[disabled] .favorite {
@@ -143,6 +140,23 @@
   top: 0;
   left: 0;
   background-image: linear-gradient(to bottom, transparent, transparent 40%, color(grey a(45%)) 62%, color(black a(50%)));
+}
+
+.default .image::before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  transition: opacity 0.25s ease-in-out;
+  background: black;
+}
+
+.default:hover .image::before {
+  opacity: 0.3;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .course .infoWrapper {
