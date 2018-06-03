@@ -61,12 +61,7 @@ class Filters extends React.Component {
 
   render() {
     const {
-      timer,
-      types,
-      thematic,
-      authors,
       sorting,
-      courses,
       filterCTALabel,
       filterTabLabel,
       sortCTALabel,
@@ -118,15 +113,7 @@ class Filters extends React.Component {
           data-name="filterWrapper"
           className={filtersActive ? style.activeWrapperFilters : style.wrapperFilters}
         >
-          <FiltersWrapper
-            className={style.wrapper}
-            filters={filters}
-            thematic={thematic}
-            timer={timer}
-            types={types}
-            courses={courses}
-            authors={authors}
-          />
+          <FiltersWrapper className={style.wrapper} filters={filters} />
           <div
             data-name="cta"
             className={style.CTAfilter}
@@ -170,11 +157,6 @@ Filters.propTypes = {
   sortTabLabel: PropTypes.string,
   openFilters: PropTypes.bool,
   openSorts: PropTypes.bool,
-  thematic: FiltersWrapper.propTypes.thematic,
-  timer: FiltersWrapper.propTypes.timer,
-  types: FiltersWrapper.propTypes.types,
-  courses: FiltersWrapper.propTypes.courses,
-  authors: FiltersWrapper.propTypes.authors,
   filters: FiltersWrapper.propTypes.filters,
   sorting: PropTypes.shape(Select.propTypes),
   onSearch: PropTypes.func,

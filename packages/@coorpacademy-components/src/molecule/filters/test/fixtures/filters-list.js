@@ -1,7 +1,9 @@
 import dropdownsFilter from '../../../../atom/select/test/fixtures/filter';
 import dropdownsSort from '../../../../atom/select/test/fixtures/sort';
 import rangeslider from '../../../../atom/range/test/fixtures/multi';
+import RadioGroup from '../../../../atom/radio-group/test/fixtures/default';
 
+const types = RadioGroup.props;
 const selectFilter = dropdownsFilter.props;
 const selectSort = dropdownsSort.props;
 const timer = rangeslider.props;
@@ -12,33 +14,6 @@ export default {
     filterCTALabel: 'Filter',
     sortTabLabel: 'Sort by',
     sortCTALabel: 'Sort',
-    courses: {
-      ...selectFilter,
-      title: 'Learning Paths2:',
-      options: [
-        {
-          name: 'All categories',
-          value: 'ALL',
-          selected: false
-        },
-        {
-          name: 'Innovations & Technologies',
-          value: 'Innovations',
-          selected: true
-        },
-        {
-          name: 'Management',
-          value: 'Management',
-          selected: false
-        },
-        {
-          name: 'Sustainable development',
-          value: 'Sustainable',
-          selected: false
-        }
-      ],
-      onChange: value => console.log(value)
-    },
     filters: [
       {
         type: 'select',
@@ -134,6 +109,13 @@ export default {
           value: true,
           onChange: () => console.log('onFavorites')
         }
+      },
+      {
+        type: 'radio',
+        fieldName: 'contentType',
+        ...types,
+        title: 'Type:',
+        onChange: value => console.log(value)
       }
     ],
     sorting: {

@@ -6,11 +6,15 @@ const timer = rangeslider.props;
 
 export default defaultsDeep(Default, {
   props: {
-    timer: {
-      ...timer,
-      title: 'Time:',
-      subTitle: '2 mins - 3 hours +'
-    },
+    filters: [
+      {
+        type: 'range',
+        ...timer,
+        fieldName: 'Time',
+        title: 'Time:',
+        subtitle: '2 mins - 3 hours +'
+      }
+    ],
     openFilters: true
   }
 });
