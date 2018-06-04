@@ -19,12 +19,12 @@ import style from './style.css';
 const ShowMoreLink = (props, context) => {
   const {onShowMore, showMore} = props;
   const {skin} = context;
-  const darkColor = get('common.dark', skin);
+  const black = get('common.black', skin);
 
   return (
     <div className={style.showMore} onClick={onShowMore}>
       {showMore}
-      <ArrowRight color={darkColor} className={style.showMoreIcon} />
+      <ArrowRight color={black} className={style.showMoreIcon} />
     </div>
   );
 };
@@ -224,7 +224,7 @@ class CardsList extends React.Component {
     const {skin} = this.context;
 
     const mediumColor = getOr('#90A4AE', 'common.medium', skin);
-    const titleStyle = title ? style.titleLink : style.title;
+    const titleStyle = onShowMore ? style.titleLink : style.title;
     const titleOnClick = onShowMore ? {onShowMore} : null;
     const cardsView = map.convert({cap: false})((card, key) => {
       return (
