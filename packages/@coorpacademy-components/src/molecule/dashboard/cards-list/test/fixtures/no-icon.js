@@ -7,6 +7,7 @@ chapterProps.type = 'chapter';
 export default {
   props: {
     title: 'Most popular',
+    showMore: 'See all',
     cards: [
       props,
       props,
@@ -26,6 +27,9 @@ export default {
     ],
     onScroll: (skip, limit) => {
       console.log(skip, limit);
+    },
+    onShowMore: () => {
+      console.log('show More');
     }
   }
 };

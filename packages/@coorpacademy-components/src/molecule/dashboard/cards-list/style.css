@@ -3,7 +3,7 @@
 @value mobile from breakpoints;
 @value tablet from breakpoints;
 @value desktop from breakpoints;
-@value dark from colors;
+@value black from colors;
 
 .wrapper {
   padding: 16px 30px 8px;
@@ -25,6 +25,7 @@
 
 .header {
   display: flex;
+  line-height: 20px;
   align-items: center;
 }
 
@@ -35,12 +36,12 @@
 .title {
   font-family: 'Open Sans';
   font-size: 19px;
+  line-height: 20px;
   font-weight: 600;
-  color: black;
-  margin-bottom: 12px;
   display: flex;
   align-items: center;
   flex-grow: 1;
+  color: black;
 }
 
 .titleLink {
@@ -53,14 +54,13 @@
 }
 
 .showMore {
-  float: right;
   font-family: 'Open Sans';
-  font-size: 12px;
-  font-weight: 100;
-  color: dark;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
   cursor: pointer;
-  position: relative;
-  margin-right: 15px;
+  display: flex;
+  align-items: center;
 }
 
 .showMore:hover {
@@ -68,12 +68,9 @@
 }
 
 .showMoreIcon {
-  position: absolute;
+  margin-left: 8px;
   width: 8px;
   height: 8px;
-  margin-top: -4px;
-  right: -15px;
-  top: 50%;
 }
 
 .cards {
