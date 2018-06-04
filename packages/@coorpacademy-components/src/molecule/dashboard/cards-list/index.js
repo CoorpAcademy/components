@@ -225,7 +225,6 @@ class CardsList extends React.Component {
 
     const mediumColor = getOr('#90A4AE', 'common.medium', skin);
     const titleStyle = onShowMore ? style.titleLink : style.title;
-    const titleOnClick = onShowMore ? {onShowMore} : null;
     const cardsView = map.convert({cap: false})((card, key) => {
       return (
         <div className={style.card} key={key} ref={this.setCards(key)}>
@@ -243,7 +242,7 @@ class CardsList extends React.Component {
     );
 
     const titleView = (
-      <span data-name="title" className={titleStyle} onClick={titleOnClick}>
+      <span data-name="title" className={titleStyle} onClick={onShowMore}>
         <IconView contentType={contentType} />
         <span>{title}</span>
       </span>
