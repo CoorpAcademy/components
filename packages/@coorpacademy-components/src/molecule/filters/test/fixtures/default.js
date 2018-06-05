@@ -12,55 +12,68 @@ export default {
     filterCTALabel: 'Filter',
     sortTabLabel: 'Sort by',
     sortCTALabel: 'Sort',
-    thematic: {
-      ...selectFilter,
-      title: 'Thematic:',
-      options: [
-        {
-          name: 'digital',
-          value: 'digital',
-          selected: false
-        },
-        {
-          name: 'Esprit du temps',
-          value: 'Esprit du temps',
-          selected: true
-        },
-        {
-          name: 'La troisième révolution industrielle',
-          value: 'La 3e révolution industrielle',
-          selected: false
-        }
-      ],
-      onChange: value => console.log(value)
-    },
-    courses: {
-      ...selectFilter,
-      title: 'Learning Paths:',
-      options: [
-        {
-          name: 'All categories',
-          value: 'ALL',
-          selected: false
-        },
-        {
-          name: 'Innovations & Technologies',
-          value: 'Innovations',
-          selected: true
-        },
-        {
-          name: 'Management',
-          value: 'Management',
-          selected: false
-        },
-        {
-          name: 'Sustainable development',
-          value: 'Sustainable',
-          selected: false
-        }
-      ],
-      onChange: value => console.log(value)
-    },
+    filters: [
+      {
+        type: 'select',
+        fieldName: 'Thematic',
+        ...selectFilter,
+        title: 'Thematic:',
+        options: [
+          {
+            name: 'digital',
+            value: 'digital',
+            selected: false
+          },
+          {
+            name: 'Esprit du temps',
+            value: 'Esprit du temps',
+            selected: true
+          },
+          {
+            name: 'La troisième révolution industrielle',
+            value: 'La 3e révolution industrielle',
+            selected: false
+          }
+        ],
+        onChange: value => console.log(value)
+      },
+      {
+        type: 'select',
+        ...selectFilter,
+        fieldName: 'Courses',
+        title: 'Learning Paths:',
+        options: [
+          {
+            name: 'All categories',
+            value: 'ALL',
+            selected: false
+          },
+          {
+            name: 'Innovations & Technologies',
+            value: 'Innovations',
+            selected: true
+          },
+          {
+            name: 'Management',
+            value: 'Management',
+            selected: false
+          },
+          {
+            name: 'Sustainable development',
+            value: 'Sustainable',
+            selected: false
+          }
+        ],
+        onChange: value => console.log(value)
+      },
+      {
+        type: 'radio',
+        fieldName: 'contentType',
+        ...types,
+        title: 'Type:',
+        onChange: value => console.log(value)
+      }
+    ],
     sorting: {
       ...selectSort,
       title: 'Sort by:',
@@ -81,11 +94,6 @@ export default {
           selected: false
         }
       ],
-      onChange: value => console.log(value)
-    },
-    types: {
-      ...types,
-      title: 'Type:',
       onChange: value => console.log(value)
     },
     onSearch: () => console.log('onSearch')

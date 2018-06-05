@@ -6,11 +6,15 @@ const types = RadioGroup.props;
 
 export default defaultsDeep(Default, {
   props: {
-    types: {
-      ...types,
-      title: 'Type:',
-      onChange: value => console.log(value)
-    },
+    filters: [
+      {
+        type: 'radio',
+        fieldName: 'contentType',
+        ...types,
+        title: 'Type:',
+        onChange: value => console.log(value)
+      }
+    ],
     openFilters: true
   }
 });
