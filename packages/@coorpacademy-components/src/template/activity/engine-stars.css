@@ -25,11 +25,10 @@
 .engineIcon {
   position: absolute;
   top: 0;
-  right: 15px;
+  left: 0;
   width: 50px;
   height: 48px;
   border-bottom-right-radius: 8px;
-  border-bottom-left-radius: 8px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -85,10 +84,10 @@
 @media tablet, mobile {
   .engineStars {
     width: auto;
-    height: 70px;
+    height: 75px;
     flex: 1 2;
     justify-content: flex-end;
-    padding-bottom: 10px;
+    padding-bottom: 8px;
     overflow-x: scroll;
   }
 
