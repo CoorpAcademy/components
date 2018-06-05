@@ -6,7 +6,6 @@
 @value light from colors;
 @value grey from colors;
 @value dark from colors;
-@value medium from colors;
 @value xtraLightGrey from colors;
 @value white from colors;
 
@@ -33,19 +32,15 @@
 }
 
 .favorite {
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 35px;
   position: absolute;
   right: 5px;
-  top: 5px;
+  top: -5px;
   z-index: 1;
-  font-size: 16px;
+  font-size: 30px;
   overflow: hidden;
   line-height: 20px;
-  background: white;
-  border: 1px solid light;
-  box-sizing: border-box;
-  border-radius: 50%;
 }
 
 .favorite:hover .bookmarkIcon {
@@ -53,9 +48,9 @@
 }
 
 .favorite .bookmarkIcon {
-  color: medium;
-  background: xtraLightGrey;
-  transform: rotate(-45deg) translate(2px, -1px);
+  color: color(black a(40%));
+  stroke: white;
+  transform: rotateZ(-45deg);
   transition: color 0.25s ease-in-out;
 }
 
@@ -64,7 +59,7 @@
 }
 
 .favorite.selected:hover .bookmarkIcon {
-  color: grey;
+  color: color(black a(20%));
 }
 
 .favorite:hover .bookmarkIcon {
