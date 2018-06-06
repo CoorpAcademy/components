@@ -55,8 +55,8 @@ class Race extends Component {
     return images ? (
       <App
         goal={20}
-        width={window.innerWidth}
-        height={window.innerWidth * 8 / 9}
+        width={window.innerWidth/2}
+        height={window.innerWidth /3}
         teams={[
           {step: 5},
           {step: 10},

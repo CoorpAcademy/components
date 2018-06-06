@@ -616,6 +616,7 @@ import TemplateAppPlayerPopinHeaderFixtureLoading from '../src/template/app-play
 import TemplateAppPlayerPopinHeaderFixtureNextChapter from '../src/template/app-player/popin-header/test/fixtures/next-chapter';
 import TemplateAppPlayerPopinHeaderFixtureStarsRank from '../src/template/app-player/popin-header/test/fixtures/stars-rank';
 import TemplateAppPlayerPopinHeaderFixtureSuccess from '../src/template/app-player/popin-header/test/fixtures/success';
+import TemplateAppRacingInterquestionFixtureAddOne from '../src/template/app-racing/interquestion/test/fixtures/add-one';
 import TemplateAppRacingInterquestionFixtureDefault from '../src/template/app-racing/interquestion/test/fixtures/default';
 import TemplateAppRacingRaceFixtureDefault from '../src/template/app-racing/race/test/fixtures/default';
 import TemplateBackOfficeBrandCreateFixtureDefault from '../src/template/back-office/brand-create/test/fixtures/default';
@@ -1603,6 +1604,7 @@ export const fixtures = {
   },
   TemplateAppRacing: {
     TemplateAppRacingInterquestion: {
+      AddOne: TemplateAppRacingInterquestionFixtureAddOne,
       Default: TemplateAppRacingInterquestionFixtureDefault
     },
     TemplateAppRacingRace: {
