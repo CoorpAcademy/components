@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Konva from 'konva';
-import {Image} from 'react-konva';
+import {Image as Img} from 'react-konva';
 
 const isVisible = removing => {
   if (!removing) {
@@ -10,13 +10,14 @@ const isVisible = removing => {
   const gap = removing.duration / 5;
 
   return Math.floor(removing.cursor / gap) % 2 === 0;
-}
+};
 
 class Block extends Component {
+  componentDidMount = this.cacheNode;
+
+  componentDidUpdate = this.cacheNode;
 
   cacheNode = () => this.node.cache();
-  componentDidMount = this.cacheNode;
-  componentDidUpdate = this.cacheNode;
 
   render() {
     const {image, color, x, y, size, removing} = this.props;
@@ -24,7 +25,7 @@ class Block extends Component {
     const visible = isVisible(removing);
 
     return (
-      <Image
+      <Img
         filters={[Konva.Filters.RGBA]}
         red={red}
         green={green}
@@ -37,12 +38,11 @@ class Block extends Component {
         y={y}
         visible={visible}
         ref={node => {
-          this.node = node
+          this.node = node;
         }}
       />
     );
   }
-
 }
 
 export default Block;

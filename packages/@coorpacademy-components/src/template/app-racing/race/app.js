@@ -18,14 +18,17 @@ const updateRemovingAnimation = dt => block => {
     return null;
   }
 
-  return set('removing', {
-    cursor,
-    duration: block.removing.duration
-  }, block);
+  return set(
+    'removing',
+    {
+      cursor,
+      duration: block.removing.duration
+    },
+    block
+  );
 };
 
 class App extends Component {
-
   state = {
     towers: [
       {
@@ -37,7 +40,7 @@ class App extends Component {
           {velocity: 0, stage: 2},
           {velocity: 0, stage: 3},
           {velocity: 0, stage: 40},
-          {velocity: 0, stage: 50},
+          {velocity: 0, stage: 50}
         ]
       },
       {
@@ -51,7 +54,7 @@ class App extends Component {
           {velocity: 0, stage: 4},
           {velocity: 0, stage: 5},
           {velocity: 0, stage: 6},
-          {velocity: 0, stage: 25},
+          {velocity: 0, stage: 25}
         ]
       },
       {
@@ -61,34 +64,52 @@ class App extends Component {
           {velocity: 0, stage: 0},
           {velocity: 0, stage: 25},
           {velocity: 0, stage: 30},
-          {velocity: 0, stage: 50},
+          {velocity: 0, stage: 50}
         ]
       }
     ]
   };
 
+  componentDidMount() {
+    this.requestAnimationFrame();
+  }
+
+  componentWillUnmount() {
+    window.cancelAnimationFrame(this.requestId);
+  }
 
   onAnimationFrame(dt) {
-    const nextState = set('towers', map(
-      tower => set('blocks', compact(mapNoCap((block, index) => {
-        const lastElementStage = index === 0 ? -1 : tower.blocks[index - 1].stage;
+    const nextState = set(
+      'towers',
+      map(
+        tower =>
+          set(
+            'blocks',
+            compact(
+              mapNoCap((block, index) => {
+                const lastElementStage = index === 0 ? -1 : tower.blocks[index - 1].stage;
 
-        let nextVelocity = block.velocity >= 0.1 ? 0.1 : block.velocity + 0.00006 * dt;
-        let nextStage = block.stage - nextVelocity * dt;
+                let nextVelocity = block.velocity >= 0.1 ? 0.1 : block.velocity + 0.00006 * dt;
+                let nextStage = block.stage - nextVelocity * dt;
 
-        if (nextStage < lastElementStage + 1) {
-          nextStage = lastElementStage + 1;
-          nextVelocity = 0;
-        }
+                if (nextStage < lastElementStage + 1) {
+                  nextStage = lastElementStage + 1;
+                  nextVelocity = 0;
+                }
 
-        return pipe(
-          set('stage', nextStage),
-          set('velocity', nextVelocity),
-          updateRemovingAnimation(dt)
-        )(block);
-      }, tower.blocks)), tower),
-      this.state.towers
-    ), this.state);
+                return pipe(
+                  set('stage', nextStage),
+                  set('velocity', nextVelocity),
+                  updateRemovingAnimation(dt)
+                )(block);
+              }, tower.blocks)
+            ),
+            tower
+          ),
+        this.state.towers
+      ),
+      this.state
+    );
 
     this.setState(nextState);
   }
@@ -103,18 +124,9 @@ class App extends Component {
     });
   }
 
-  componentDidMount() {
-    this.requestAnimationFrame();
-  }
-
-  componentWillUnmount() {
-    window.cancelAnimationFrame(this.requestId);
-  }
-
   render() {
     return <Race {...this.state} {...this.props} />;
   }
-
 }
 
 export default App;

@@ -1,6 +1,7 @@
 .car {
   position: relative;
   height: 100%;
+  background: url('https://user-images.githubusercontent.com/1039076/37212426-645a5426-23af-11e8-886c-8048b4461754.png');
   transition: transform 0.6s linear;
 }
 

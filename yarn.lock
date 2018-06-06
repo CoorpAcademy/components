@@ -9874,6 +9874,10 @@ redux-thunk@^2.2.0:
   version "2.2.0"
   resolved "https://registry.npmjs.org/redux-thunk/-/redux-thunk-2.2.0.tgz#e615a16e16b47a19a515766133d1e3e99b7852e5"
 
+redux-timer@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.npmjs.org/redux-timer/-/redux-timer-1.1.3.tgz#223d1b1c4b4ceb73c41b17e7e5f11d1f77e0e5f9"
+
 redux@^4.0.0:
   version "4.0.0"
   resolved "https://registry.npmjs.org/redux/-/redux-4.0.0.tgz#aa698a92b729315d22b34a0553d7e6533555cc03"
