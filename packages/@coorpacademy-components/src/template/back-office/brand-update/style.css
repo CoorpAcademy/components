@@ -1,8 +1,17 @@
 @value colors: "../../../variables/colors.css";
 @value light from colors;
+@value breakpoints: "../../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value tablet from breakpoints;
+@value desktop from breakpoints;
+@value wide from breakpoints;
 
 .container {
-  padding-bottom: 80px;
+  width: 94%;
+  max-width: 94%;
+  scroll-behavior: unset;
+  margin: 0 auto;
+  padding-bottom: 80px 20px;
 }
 
 .notifications {
@@ -17,31 +26,68 @@
   margin-bottom: 0;
 }
 
-.contentWrapper {
-  padding: 35px 120px 0;
-}
-
 .contentHandler {
-  padding: 10px 0 0;
-  overflow: hidden;
+  padding: 10px 40px;
   display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-around;
-  width: 100%;
+  justify-content: space-between;
 }
 
 .dashboardAside {
-  min-width: 250px;
-  vertical-align: top;
-  padding: 20px 30px 20px;
-  margin-top: 20px;
+  padding: 1rem;
+  padding-left: 0; 
 }
 
 .dashboardContent {
-  font-family: "Open Sans";
-  width: 100%;
+  flex-grow: 1;
+  padding: 1rem;
+  width: 980px;
   text-align: center;
   position: relative;
-  margin: 40px 30px 20px 5px;
+  margin:0 auto;
+  margin-top: 16px;
+  line-height: 1.4em;
   border: 1px solid light;
+}
+
+@media desktop {
+  .contentHandler {
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .contentHandler:first-child {
+    width: 80%;
+  }
+
+  .contentHandler:nth-child(2) {
+    width: 80%;
+  }
+
+  .dashboardContent {
+    width: 93%;
+    margin: 0 auto;
+  }
+}
+
+@media tablet {
+  .container {
+    scroll-behavior: unset;
+  }
+
+  .dashboardContent {
+    margin: 0 auto;
+  }
+}
+
+@media mobile {
+  .contentHandler:first-child {
+    width: 85%;
+  }
+
+  .notification {
+    margin: 0 auto;
+  }
 }
