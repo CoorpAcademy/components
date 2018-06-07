@@ -19,12 +19,12 @@ import style from './style.css';
 const ShowMoreLink = (props, context) => {
   const {onShowMore, showMore} = props;
   const {skin} = context;
-  const black = get('common.black', skin);
+  const dark = get('common.dark', skin);
 
   return (
     <div className={style.showMore} onClick={onShowMore}>
       {showMore}
-      <ArrowRight color={black} className={style.showMoreIcon} />
+      <ArrowRight color={dark} className={style.showMoreIcon} />
     </div>
   );
 };
@@ -44,12 +44,12 @@ const IconView = (props, context) => {
     return null;
   }
 
-  const black = get('common.black', skin);
+  const dark = get('common.dark', skin);
   const IconType = ICONS[contentType];
 
   return (
     <div>
-      <IconType color={black} className={style.icon} {...contentType} />
+      <IconType color={dark} className={style.icon} {...contentType} />
     </div>
   );
 };
