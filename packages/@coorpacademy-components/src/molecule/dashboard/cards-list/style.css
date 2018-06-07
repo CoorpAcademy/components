@@ -3,7 +3,7 @@
 @value mobile from breakpoints;
 @value tablet from breakpoints;
 @value desktop from breakpoints;
-@value black from colors;
+@value dark from colors;
 
 .wrapper {
   padding: 16px 30px 8px;
@@ -27,6 +27,8 @@
   display: flex;
   line-height: 20px;
   align-items: center;
+  margin-bottom: 8px;
+  margin-top: 16px;
 }
 
 .listWrapper {
@@ -41,7 +43,7 @@
   display: flex;
   align-items: center;
   flex-grow: 1;
-  color: black;
+  color: dark;
 }
 
 .titleLink {
@@ -61,6 +63,7 @@
   cursor: pointer;
   display: flex;
   align-items: center;
+  color: dark;
 }
 
 .showMore:hover {
