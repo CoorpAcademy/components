@@ -1,5 +1,5 @@
 @value breakpoints: "../../../../../variables/breakpoints.css";
-@value mobile from breakpoints;
+@value mobile, tablet from breakpoints;
 @value colors: "../../../../../variables/colors.css";
 @value medium from colors;
 @value dark from colors;
@@ -17,6 +17,7 @@
   flex-direction: column;
   flex-grow: inherit;
   overflow: hidden;
+  margin-bottom: 80px;
 }
 
 .contentWrapper {
@@ -210,10 +211,19 @@
   justify-content: center;
 }
 
+@media tablet {
+  .wrapper {
+    box-shadow: none;
+    border-radius: 0;
+    margin-bottom: 0;
+  }
+}
+
 @media mobile {
   .wrapper {
     box-shadow: none;
     border-radius: 0;
+    margin-bottom: 0;
   }
 
   .resourcesWrapper {

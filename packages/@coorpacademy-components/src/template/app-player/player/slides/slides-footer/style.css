@@ -1,5 +1,5 @@
 @value breakpoints: "../../../../../variables/breakpoints.css";
-@value mobile from breakpoints;
+@value mobile, tablet from breakpoints;
 @value colors: "../../../../../variables/colors.css";
 @value xtraLightGrey from colors;
 @value light from colors;
@@ -10,9 +10,18 @@
 @value medium from colors;
 
 .wrapper {
+  max-width: 900px;
+  position: fixed;
   width: 100%;
+  left: 50%;
+  bottom: 0;
   height: 80px;
   display: flex;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  transform: translateX(-50%);
+  overflow: hidden;
+  box-shadow: 0 0 4px 5px rgba(0, 0, 0, 0.04);
 }
 
 .button {
@@ -88,6 +97,14 @@
   font-weight: 700;
   font-size: 13px;
   color: black;
+}
+
+@media tablet {
+  .wrapper {
+    max-width: 100vw;
+    box-shadow: none;
+    border-radius: 0;
+  }
 }
 
 @media mobile {
