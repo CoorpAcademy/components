@@ -20,6 +20,11 @@ export default {
         title: 'Users',
         href: '#brand/samsung/users',
         selected: false
+      },
+      {
+        title: 'Analytics',
+        href: '#brand/samsung/analytics',
+        selected: false
       }
     ]
   }
