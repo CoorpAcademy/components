@@ -46,7 +46,6 @@
   display: flex;
   flex-direction: column;
   flex: 12;
-  z-index: 1;
 }
 
 @media tablet {
