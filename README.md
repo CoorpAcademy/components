@@ -39,6 +39,7 @@ You may have to reset all `node_modules` : use `lerna clean` before performing `
 If you have any problem during an *npm run build* command related to flow:
 
 * Kill flow processes
+
 ```
 pkill -f flow
 ```
