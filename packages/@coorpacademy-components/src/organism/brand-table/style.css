@@ -3,9 +3,12 @@
 @value dark from colors;
 @value white from colors;
 @value light from colors;
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value tablet from breakpoints;
 
 .wrapper {
-  width: 100%;
+  max-width: 100%;
 }
 
 .headerWrapper {

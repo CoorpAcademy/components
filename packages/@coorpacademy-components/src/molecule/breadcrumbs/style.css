@@ -5,6 +5,10 @@
 @value dark from colors;
 @value white from colors;
 @value xtraLightGrey from colors;
+@value breakpoints: "../../variables/breakpoints.css";
+@value tablet from breakpoints;
+@value mobile from breakpoints;
+@value desktop from breakpoints;
 
 .wrapper {
   width: 100%;
@@ -91,4 +95,29 @@
 
 .secondary a::before {
   background-color: color(lightGreen lightness(50%));
+}
+
+@media desktop {
+  .wrapper {
+    flex-direction: column;
+    padding: 0;
+    box-sizing: none;
+    background-color: white;
+  }
+
+  .link {
+    padding: 0;
+    padding-top: 10px;
+  }
+}
+
+@media mobile {
+  .wrapper {
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .link:first-child {
+    margin-left: 0;
+  }
 }
