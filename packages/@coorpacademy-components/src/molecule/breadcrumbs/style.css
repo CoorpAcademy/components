@@ -73,7 +73,6 @@
   font-weight: 700;
 }
 
-
 .primary {
   composes: link;
 }

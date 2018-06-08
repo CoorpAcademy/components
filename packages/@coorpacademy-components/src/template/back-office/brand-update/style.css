@@ -7,8 +7,8 @@
 @value wide from breakpoints;
 
 .container {
-  width: 94%;
-  max-width: 94%;
+  width: 100%;
+  max-width: 100%;
   scroll-behavior: unset;
   margin: 0 auto;
   padding-bottom: 80px 20px;
@@ -33,8 +33,8 @@
 }
 
 .dashboardAside {
-  padding: 1rem;
-  padding-left: 0; 
+  padding: 16px;
+  padding-left: 0;
 }
 
 .dashboardContent {
@@ -43,7 +43,7 @@
   width: 980px;
   text-align: center;
   position: relative;
-  margin:0 auto;
+  margin: 0 auto;
   margin-top: 16px;
   line-height: 1.4em;
   border: 1px solid light;
@@ -54,7 +54,7 @@
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
-    width: 100%;
+    width: 90%;
     margin: 0 auto;
   }
 
@@ -66,9 +66,16 @@
     width: 80%;
   }
 
+  .dashboardAside {
+    padding-right: 0;
+    padding-left: 18px;
+    width: 96%;
+  }
+
   .dashboardContent {
-    width: 93%;
+    width: 92.4%;
     margin: 0 auto;
+    margin-right: 17px;
   }
 }
 
@@ -79,6 +86,7 @@
 
   .dashboardContent {
     margin: 0 auto;
+    margin-right: 16px;
   }
 }
 

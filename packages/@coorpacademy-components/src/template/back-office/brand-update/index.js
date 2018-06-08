@@ -52,7 +52,7 @@ const BrandUpdate = Layout(props => {
           <Sidebar items={formattedTabs} />
         </div>
         <div className={style.dashboardContent}>
-          <div className={style.contentWrapper}>{contentView(content)}</div>
+          <div>{contentView(content)}</div>
         </div>
       </div>
     </div>
