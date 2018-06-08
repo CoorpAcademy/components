@@ -17,8 +17,8 @@
   height: 100%;
   position: absolute;
   overflow: hidden;
-  margin-top: 60px;
   top: 0;
+  background-position-x: 60px;
 }
 
 .img {
@@ -46,6 +46,8 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  flex: 12;
+  z-index: 1;
 }
 
 @media tablet {

@@ -7,6 +7,8 @@
   display: flex;
   justify-content: space-between;
   background-color: light;
+  flex: 1;
+  z-index: 1;
 }
 
 .backIcon {
