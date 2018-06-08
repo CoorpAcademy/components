@@ -47,7 +47,7 @@ export const initialState: RacingState = {
       allAnswers: [],
       nextContent: {
         type: 'slide',
-        ref: 'slideRef3'
+        ref: 'slideRef2'
       }
     },
     user_4: {

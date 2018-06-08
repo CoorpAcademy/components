@@ -23,7 +23,7 @@ const createTeams = (teams: Teams): RacingTeams => {
     teams,
     (acc, team, index): RacingTeams => {
       return {
-        [index]: {players: map(user => user.id, team), towers: []},
+        [index]: {players: map(user => user.id, team), tower: []},
         ...acc
       };
     },

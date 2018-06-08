@@ -53,6 +53,26 @@ const user2Answer = (isCorrect): AnswerAction =>
     }
   });
 
+const user3Answer = (isCorrect): AnswerAction =>
+  Object.freeze({
+    type: 'answer',
+    authors: ['user_3'],
+    payload: {
+      answer: ['foo'],
+      content: {
+        ref: 'slideRef2',
+        type: 'slide'
+      },
+      nextContent: {
+        ref: 'slideRef3',
+        type: 'slide'
+      },
+      isCorrect,
+      godMode: null,
+      instructions: null
+    }
+  });
+
 test('should throw an error when there are no actions and state is empty', t => {
   t.throws(
     // $FlowFixMe
@@ -109,7 +129,7 @@ test('should update both user_1 and user_2 state when answering the first questi
   t.is(isEqual(newState.teams['0'].tower, ['placed', 'placed', 'placed']), true);
 });
 
-test('should decrease 1 step when a user has a wrong answer', t => {
+test('should replace the first "placed" block by a "removed" one when a user has a wrong answer', t => {
   const state: RacingState = Object.freeze(initialState);
   const newState = updateState(config, state, [user1Answer(true), user2Answer(false)]);
 
@@ -130,16 +150,16 @@ test('should decrease 1 step when a user has a wrong answer', t => {
     slides: ['slideRef2']
   });
 
-  t.is(isEqual(newState.teams['0'].tower, ['placed', 'removed']), true);
+  t.is(isEqual(newState.teams['0'].tower, ['removed', 'placed']), true);
 });
 
-test('should not decrease steps below 0', t => {
+test('should not replace empty block by a "removed" one', t => {
   const state: RacingState = Object.freeze(initialState);
-  const newState = updateState(config, state, [user2Answer(false)]);
+  const newState = updateState(config, state, [user3Answer(false)]);
 
-  t.deepEqual(newState.users.user_2, {
-    id: 'user_2',
-    team: 0,
+  t.deepEqual(newState.users.user_3, {
+    id: 'user_3',
+    team: 1,
     questionNum: 2,
     content: {ref: 'slideRef2', type: 'slide'},
     allAnswers: [
@@ -154,5 +174,5 @@ test('should not decrease steps below 0', t => {
     slides: ['slideRef2']
   });
 
-  t.is(isEqual(newState.teams['0'].tower, ['removed']), true);
+  t.is(isEqual(newState.teams['1'].tower, []), true);
 });
