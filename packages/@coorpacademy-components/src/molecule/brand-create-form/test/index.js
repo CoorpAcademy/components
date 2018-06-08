@@ -10,6 +10,10 @@ browserEnv();
 configure({adapter: new Adapter()});
 
 test('should submit form', t => {
+  const context = {
+    translate: key => key
+  };
+
   t.plan(2);
   const props = {
     title: 'title',
@@ -26,7 +30,7 @@ test('should submit form', t => {
     submitValue: 'save',
     isModified: true
   };
-  const wrapper = mount(<BrandCreateForm {...props} />);
+  const wrapper = mount(<BrandCreateForm {...props} />, {context});
   t.is(wrapper.find('input[type="submit"]').length, 1);
   wrapper.find('input[type="submit"]').simulate('submit');
 });

@@ -105,6 +105,19 @@
   border-color: negative;
 }
 
+.loading {
+  min-height: 10px;
+  border: none;
+  position: relative;
+}
+
+.wait {
+  font-family: 'Open Sans';
+  font-size: 14px;
+  color: medium;
+  margin-bottom: 40px;
+}
+
 @media mobile {
   .content {
     padding: 20px;
