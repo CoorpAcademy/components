@@ -1,12 +1,8 @@
-import get from 'lodash/fp/get';
 import remove from 'lodash/fp/remove';
 import includes from 'lodash/fp/includes';
-import hasSeenLesson from '../../utils/has-seen-lesson';
 import {createAnswer} from '../api/progressions';
-import {fetchAnswer} from '../api/answers';
-import {fetchSlideChapter} from '../api/contents';
+import {selectRoute} from './route';
 import {progressionUpdated} from './progressions';
-import {toggleAccordion, ACCORDION_KLF, ACCORDION_TIPS, ACCORDION_LESSON} from './corrections';
 
 export const ANSWER_EDIT = {
   qcm: '@@answer/EDIT_QCM',
@@ -54,31 +50,7 @@ export const editAnswer = (state, questionType, progressionId, newValue) => {
 };
 
 export const validateAnswer = (progressionId, body) => async (dispatch, getState, {services}) => {
-  const createAnswerResponse = await dispatch(createAnswer(progressionId, body.answer));
-  // if (createAnswerResponse.error) return createAnswerResponse;
-  //
-  // const payload = createAnswerResponse.payload;
-  //
-  // const progressionState = get('state', payload);
-  // const slideId = get('content.ref', progressionState);
-  // const nextContentRef = get('nextContent.ref', progressionState);
-  //
-  // const {isCorrect = false} = progressionState;
-  //
-  // const state = getState();
-  //
-  // if (get('nextContent.type', progressionState) === 'slide') {
-  //   await dispatch(fetchSlideChapter(nextContentRef));
-  // }
-  //
-  // if (isCorrect) {
-  //   await dispatch(toggleAccordion(ACCORDION_TIPS));
-  // } else if (nextContentRef !== 'extraLife' && hasSeenLesson(state)) {
-  //   await dispatch(toggleAccordion(ACCORDION_KLF));
-  // } else {
-  //   await dispatch(toggleAccordion(ACCORDION_LESSON));
-  // }
-  //
-  // await dispatch(progressionUpdated(progressionId));
-  // return dispatch(fetchAnswer(progressionId, slideId, body.answer));
+  await dispatch(createAnswer(progressionId, body.answer));
+  await dispatch(progressionUpdated(progressionId));
+  return dispatch(selectRoute('race'));
 };

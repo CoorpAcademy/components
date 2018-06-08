@@ -61,9 +61,11 @@ export type GenericState = {
   variables: Variables
 };
 
+export type Tower = Array<'placed' | 'removed'>;
+
 export type RacingTeam = {
   players: Array<string>,
-  step: number
+  tower: Tower
 };
 
 export type RacingTeams = {

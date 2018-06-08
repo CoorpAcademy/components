@@ -22,8 +22,8 @@ const progression: Progression = {
       payload: {
         goal: 20,
         teams: {
-          '0': {players: ['user_1', 'user_2'], step: 0},
-          '1': {players: ['user_3', 'user_4'], step: 0}
+          '0': {players: ['user_1', 'user_2'], tower: []},
+          '1': {players: ['user_3', 'user_4'], tower: []}
         },
         users: {
           user_1: {

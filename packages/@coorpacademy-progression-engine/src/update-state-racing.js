@@ -1,16 +1,15 @@
 // @flow
 
-import users from './reducers/racing/users';
-import teams from './reducers/racing/teams';
-// import combineReducers from './combine-reducers';
-import type {Action, Config, RacingState} from './types';
-
 import isEmpty from 'lodash/fp/isEmpty';
 import update from 'lodash/fp/update';
 import map from 'lodash/fp/map';
 import pipe from 'lodash/fp/pipe';
 import reduce from 'lodash/fp/reduce';
 import validate from './reducers/validate';
+import users from './reducers/racing/users';
+import teams from './reducers/racing/teams';
+import type {Action, Config, RacingState} from './types';
+// import combineReducers from './combine-reducers';
 
 function combineReducers(
   fnMap: Array<{key?: string, fn: Function}> // eslint-disable-line flowtype/no-weak-types

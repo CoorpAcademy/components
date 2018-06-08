@@ -8,7 +8,7 @@ export default {
     },
     race: {
       goal: 15,
-      teams: [
+      towers: [
         ['removed', 'removed', 'new', 'new', 'new'],
         ['placed', 'placed', 'placed', 'placed', 'new', 'new', 'new'],
         ['removed', 'removed', 'placed', 'placed'],

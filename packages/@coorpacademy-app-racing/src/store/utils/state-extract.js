@@ -83,6 +83,10 @@ export const showQuestion = state => {
   return questionNum === 1 || ctaWasClicked;
 };
 
+export const showRace = state => {
+  return getRoute(state) === 'race';
+};
+
 // -----------------------------------------------------------------------------
 
 export const getAnswers = state => {

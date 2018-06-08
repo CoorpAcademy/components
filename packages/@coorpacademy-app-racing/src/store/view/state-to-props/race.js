@@ -9,7 +9,7 @@ import {
 } from '../../utils/state-extract';
 import {seeQuestion} from '../../actions/ui/location';
 
-const getTeamsPoints = pipe(getCurrentProgression, get('state.teams'), map(get('step')));
+const getTeams = pipe(getCurrentProgression, get('state.teams'));
 
 const raceProps = (options, {dispatch}) => state => {
   const progression = getCurrentProgression(state);
@@ -24,8 +24,8 @@ const raceProps = (options, {dispatch}) => state => {
       pointsDescription: `Your team ${success ? 'wins' : 'loses'} 1 point`
     },
     race: {
-      length: config.goal,
-      teamsPoints: getTeamsPoints(state)
+      goal: config.goal,
+      teams: getTeams(state)
     },
     cta: {
       submitValue: 'Next question',

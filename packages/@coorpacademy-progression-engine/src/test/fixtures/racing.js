@@ -6,11 +6,11 @@ export const initialState: RacingState = {
   teams: {
     '0': {
       players: ['user_1', 'user_2'],
-      step: 0
+      tower: ['placed']
     },
     '1': {
       players: ['user_3', 'user_4'],
-      step: 0
+      tower: []
     }
   },
   users: {

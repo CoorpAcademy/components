@@ -238,9 +238,9 @@
   dependencies:
     arrify "^1.0.1"
 
-"@coorpacademy/components@7.4.7":
-  version "7.4.7"
-  resolved "https://registry.npmjs.org/@coorpacademy/components/-/components-7.4.7.tgz#f96d4d5a171206eae8d243856b6f535509155065"
+"@coorpacademy/components@7.4.11":
+  version "7.4.11"
+  resolved "https://registry.npmjs.org/@coorpacademy/components/-/components-7.4.11.tgz#96d53141bd58c6bae0a503e02d2ebc01ed2e1eae"
   dependencies:
     "@coorpacademy/nova-icons" "1.2.3"
     autoprefixer "^8.4.1"
@@ -9589,13 +9589,6 @@ react-jw-player@1.18.0:
   version "1.18.0"
   resolved "https://registry.npmjs.org/react-jw-player/-/react-jw-player-1.18.0.tgz#a87021a436c68d85b7d60d35c4de62ae8146a83d"
 
-react-konva@^1.6.6:
-  version "1.6.6"
-  resolved "https://registry.npmjs.org/react-konva/-/react-konva-1.6.6.tgz#cc12f3f2b8d0b458b7089946d76cc7e1d5cbc8c0"
-  dependencies:
-    fbjs "^0.8.16"
-    react-reconciler "^0.7.0"
-
 react-lifecycles-compat@^3.0.0, react-lifecycles-compat@^3.0.2:
   version "3.0.4"
   resolved "https://registry.npmjs.org/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
@@ -9873,10 +9866,6 @@ reduce-function-call@^1.0.1:
 redux-thunk@^2.2.0:
   version "2.2.0"
   resolved "https://registry.npmjs.org/redux-thunk/-/redux-thunk-2.2.0.tgz#e615a16e16b47a19a515766133d1e3e99b7852e5"
-
-redux-timer@^1.1.3:
-  version "1.1.3"
-  resolved "https://registry.npmjs.org/redux-timer/-/redux-timer-1.1.3.tgz#223d1b1c4b4ceb73c41b17e7e5f11d1f77e0e5f9"
 
 redux@^4.0.0:
   version "4.0.0"
