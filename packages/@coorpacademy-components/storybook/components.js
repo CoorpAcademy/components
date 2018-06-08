@@ -582,7 +582,6 @@ import TemplateAppPlayerPlayerFixtureQcmGraphic from '../src/template/app-player
 import TemplateAppPlayerPlayerFixtureQcmShort from '../src/template/app-player/player/test/fixtures/qcm-short';
 import TemplateAppPlayerPlayerFixtureQcm from '../src/template/app-player/player/test/fixtures/qcm';
 import TemplateAppPlayerPlayerFixtureRange from '../src/template/app-player/player/test/fixtures/range';
-import TemplateAppPlayerPlayerFixtureStickyFooter from '../src/template/app-player/player/test/fixtures/sticky-footer';
 import TemplateAppPlayerPopinCorrectionFixtureCorrectClosed from '../src/template/app-player/popin-correction/test/fixtures/correct-closed';
 import TemplateAppPlayerPopinCorrectionFixtureCorrectNextChapter from '../src/template/app-player/popin-correction/test/fixtures/correct-next-chapter';
 import TemplateAppPlayerPopinCorrectionFixtureCorrectOpenKlf from '../src/template/app-player/popin-correction/test/fixtures/correct-open-klf';
@@ -1511,8 +1510,7 @@ export const fixtures = {
       QcmGraphic: TemplateAppPlayerPlayerFixtureQcmGraphic,
       QcmShort: TemplateAppPlayerPlayerFixtureQcmShort,
       Qcm: TemplateAppPlayerPlayerFixtureQcm,
-      Range: TemplateAppPlayerPlayerFixtureRange,
-      StickyFooter: TemplateAppPlayerPlayerFixtureStickyFooter
+      Range: TemplateAppPlayerPlayerFixtureRange
     },
     TemplateAppPlayerPopinCorrection: {
       CorrectClosed: TemplateAppPlayerPopinCorrectionFixtureCorrectClosed,
