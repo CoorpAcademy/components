@@ -43,7 +43,6 @@
   "See clue": "Побачити підказку",
   "See less": "Бачити менше",
   "Select a dashboard in the Sidebar": "Виберіть прикладну дошку на бічній панелі",
-  "Select the correct option(s) below": "Виберіть правильний(i)  варіант(и) нижче",
   "Show more": "Показати більше",
   "Show": "Показати",
   "Start battle": "Почати битву",
@@ -60,6 +59,7 @@
   "subscription_promo_code": "Тепер у вас є безкоштовний необмежений доступ до нашого каталогу поки на {{date}}. Щоб зберегти насолоджуватися вашим після цієї дати, будь ласка, підпишіться на",
   "This message has been removed by its author": "Це повідомлення було видалено його автором.",
   "unsubscribe": "Відмовитись від Coorpacademy",
+  "Wait_creation": "Платформа створюється. Це може тривати декілька секунд. Будь ласка, зачекай...",
   "Write something here": "Напишіть щось тут",
   "zuora_discount_code_submit": "Застосувати",
   "zuora_discount_code": "Промо-код"
