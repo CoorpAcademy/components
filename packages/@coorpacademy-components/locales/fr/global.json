@@ -59,6 +59,7 @@
   "subscription_promo_code": "Vous profitez d’un accès gratuit à tout le catalogue jusqu’au {{date}}. Passé cette date, nous vous invitons à souscrire l’abonnement sur",
   "This message has been removed by its author": "Ce message a été supprimé par son auteur.",
   "unsubscribe": "Se désabonner de Coorpacademy",
+  "Wait_creation": "La plateforme est en cours de création. Cela peut prendre plusieurs secondes. Veuillez patienter...",
   "Write something here": "Écrire ici",
   "zuora_discount_code_submit": "Appliquer",
   "zuora_discount_code": "Code promo"
