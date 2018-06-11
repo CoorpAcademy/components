@@ -27,6 +27,24 @@
   opacity: 0;
 }
 
+.titleLink {
+  color: white;
+  font-family: 'Open Sans';
+  font-size: 13px;
+}
+
+.wrapperAssistance {
+  display: flex;
+  margin-top: 16px;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+
+.alertIcon {
+  height: 11px;
+  margin: 3px 8px;
+}
+
 .finalBackground {
   composes: initialBackground;
   opacity: 1;
@@ -151,6 +169,14 @@
 }
 
 @media tablet {
+  .titleLink {
+    color: dark;
+  }
+
+  .wrapperAssistance {
+    justify-content: center;
+  }
+
   .scrollWrapper {
     position: relative;
     width: 100%;

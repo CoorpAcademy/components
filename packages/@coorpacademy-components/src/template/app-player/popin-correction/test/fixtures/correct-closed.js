@@ -80,6 +80,10 @@ export default defaultsDeep(loading, {
       value:
         '<a href="http://www.google.com" target="_blank">Les smart cities</a>, ou villes intelligentes, portent des solutions dans lesquelles se conjuguent les 3 types d’éco-innovations. En France, il en existait vingt début 2016, la plus grande étant Paris.'
     },
-    onClick: id => console.log(id)
+    onClick: id => console.log(id),
+    assistanceLink: {
+      title: 'Signaler un problème avec cette question ?',
+      onClick: () => console.log('test onClick')
+    }
   }
 });

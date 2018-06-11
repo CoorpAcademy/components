@@ -6,6 +6,10 @@ export default defaultsDeep(failClosed, {
     extraLifeGranted: true,
     resources: {
       open: true
+    },
+    assistanceLink: {
+      title: 'Signaler un problème avec cette question ?',
+      onClick: () => console.log('test onClick')
     }
   }
 });

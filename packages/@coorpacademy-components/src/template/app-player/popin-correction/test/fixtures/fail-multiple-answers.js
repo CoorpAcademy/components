@@ -22,6 +22,10 @@ export default defaultsDeep(failClosed, {
           isCorrect: false
         }
       ]
+    },
+    assistanceLink: {
+      title: 'Signaler un problème avec cette question ?',
+      onClick: () => console.log('test onClick')
     }
   }
 });

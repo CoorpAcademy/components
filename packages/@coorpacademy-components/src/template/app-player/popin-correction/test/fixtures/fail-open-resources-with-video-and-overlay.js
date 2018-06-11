@@ -17,6 +17,10 @@ export default defaultsDeep(failVideo, {
         title: 'Quit',
         onClick: () => console.log('quit!')
       }
+    },
+    assistanceLink: {
+      title: 'Signaler un problème avec cette question ?',
+      onClick: () => console.log('test onClick')
     }
   }
 });
