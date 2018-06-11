@@ -43,7 +43,6 @@
   "See clue": "Bekijk tip",
   "See less": "Minder zien",
   "Select a dashboard in the Sidebar": "Selecteer een dashboard in de zijbalk",
-  "Select the correct option(s) below": "Selecteer de juiste optie hieronder",
   "Show more": "Toon meer",
   "Show": "Toon",
   "Start battle": "Start battle",
@@ -60,6 +59,7 @@
   "subscription_promo_code": "Je hebt nu een gratis onbeperkte toegang tot onze winkel tot de {{date}}. Als u wilt blijven genieten van het na deze datum, kunt u zich abonneren op",
   "This message has been removed by its author": "Dit bericht is verwijderd door de auteur.",
   "unsubscribe": "Afmelden voor Coorpacademy",
+  "Wait_creation": "Het platform wordt gemaakt. Dit kan enkele seconden duren. Een ogenblik geduld...",
   "Write something here": "Schrijf hier iets",
   "zuora_discount_code_submit": "Toepassen",
   "zuora_discount_code": "Promo-code"
