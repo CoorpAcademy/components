@@ -23,12 +23,11 @@
         "payload": {
           "teams": {
             "0": {
-              "players": ["user_1"],
-              "step": 0
+              "tower": []
             },
             "1": {
               "players": ["user_3", "user_4"],
-              "step": 0
+              "tower": []
             }
           },
           "users": {
@@ -73,11 +72,11 @@
       "teams": {
         "0": {
           "players": ["user_1", "user_2"],
-          "step": 0
+          "tower": ["placed", "placed"]
         },
         "1": {
           "players": ["user_3", "user_4"],
-          "step": 0
+          "tower": ["removed", "placed", "placed", "placed"]
         }
       },
       "users": {

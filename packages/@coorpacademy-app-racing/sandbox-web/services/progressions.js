@@ -13,15 +13,12 @@ import uniqueId from 'lodash/fp/uniqueId';
 import update from 'lodash/fp/update';
 import pipe from 'lodash/fp/pipe';
 import sample from 'lodash/fp/sample';
-import get from 'lodash/fp/get';
 import set from 'lodash/fp/set';
 import reduce from 'lodash/fp/reduce';
 import filter from 'lodash/fp/filter';
 import {find as findContent} from './content';
 import progressionsData from './fixtures/progressions';
 import slidesData from './fixtures/slides';
-
-const lastUserAnswerTime = Date.now();
 
 const slideStore = reduce(
   (slideMap, slide) => slideMap.set(slide._id, slide),
@@ -47,33 +44,27 @@ const addActionAndSaveProgression = (progression, action) => {
   return pipe(set('state', newState), save)(newProgression);
 };
 
-// eslint-disable-next-line require-await
-export const findById = async id => {
+export const findById = id => {
   if (!progressionStore.has(id)) throw new Error('Progression not found');
-  let progression = progressionStore.get(id);
-
-  if (
-    Date.now() - lastUserAnswerTime >= 2000 &&
-    get('users.user_1.questionNum', progression.state) !==
-      get('users.user_2.questionNum', progression.state)
-  ) {
-    progression = set(
-      'state',
-      pipe(
-        set('users.user_2.questionNum', get('users.user_2.questionNum', progression.state) + 1),
-        set('users.user_2.slides', get('users.user_1.slides', progression.state)),
-        set('teams.0.step', get('teams.0.step', progression.state) + 1)
-      )(progression.state),
-      progression
-    );
-  }
-
+  const progression = progressionStore.get(id);
   return progression;
 };
 
-// eslint-disable-next-line require-await
-export const getEngineConfig = async engine => {
+export const getEngineConfig = engine => {
   return getConfig(engine);
+};
+
+export const waitForRefresh = progressionId => {
+  setTimeout(() => {
+    const teamIndex = 1;
+    const isCorrect = true;
+
+    return {
+      teamIndex,
+      isCorrect,
+      progression
+    };
+  }, 3000);
 };
 
 const getAvailableContent = async content => {

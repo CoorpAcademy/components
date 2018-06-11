@@ -1,8 +1,20 @@
 import buildTask from '@coorpacademy/redux-task';
-import {getProgressionContent, getCurrentContent} from '../../utils/state-extract';
+import {
+  getProgressionContent,
+  getCurrentContent,
+  getCurrentProgressionId
+} from '../../utils/state-extract';
 import {selectRoute} from './route';
 
-export const seeQuestion = dispatch => {
+export const UI_SEE_QUESTION = '@@location/SEE_QUESTION';
+
+export const seeQuestion = async (dispatch, getState) => {
+  const action = {
+    type: UI_SEE_QUESTION,
+    meta: {id: getCurrentProgressionId(getState())}
+  };
+
+  await dispatch(action);
   return dispatch(selectRoute('question'));
 };
 

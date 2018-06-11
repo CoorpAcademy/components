@@ -1,13 +1,18 @@
 # racing progression + app architecture
+
 https://www.lucidchart.com/documents/edit/279dfa79-9170-4b82-8586-465929c3b4e5
 
 ## IMPACTS
+
 ### api-progression
+
 https://github.com/CoorpAcademy/api-progression/pull/192
+
 - model progression.engineOptions.goal
 - model action.authors
 - model SetupSchema --> racing-setup Action
 - ISSUE : POST answers body = payload, authors added to body for now, should we split {authors, payload} = body
+
 ```
   progression.actions.push({
     type: 'answer',
@@ -15,18 +20,23 @@ https://github.com/CoorpAcademy/api-progression/pull/192
     payload: body
   });
 ```
+
 --> note about dynamical properties for maps https://github.com/Automattic/mongoose/issues/681
 
 #### issues
+
 ##### progression ownership
+
 `progression.userId : string` should become `progression.owners : [String]`.
 
 for now for racing progressions `isOwner()` checks userId within `action(type: 'racing-setup').authors`
 
 ### progression-engine
+
 - action.author
 - reducers
-state.users:
+  state.users:
+
 ```
 const _reducers = {
   questionNum,
@@ -41,15 +51,17 @@ const _reducers = {
 ```
 
 ### mooc --> team-builder
+
 - rooms admin/join/play
 - integrates @coorpacademy/app-racing
 
 ### @coorpacademy/app-racing
+
 https://github.com/CoorpAcademy/components/pull/1226
 
 - `/store/services` have been moved to `/sandbox-web/services`
 - service.users
- - fetchMe()
+- fetchMe()
 
 <details>
   <summary>front progression</summary>
@@ -77,16 +89,12 @@ https://github.com/CoorpAcademy/components/pull/1226
   "state": {
     "teams": {
       "0": {
-        "step": 0,
-        "players": [
-          "000000000000000000000509"
-        ]
+        "players": ["000000000000000000000509"],
+        "tower": ["placed", "placed"]
       },
       "1": {
-        "step": 0,
-        "players": [
-          "000000000000000000000346"
-        ]
+        "players": ["000000000000000000000346"],
+        "tower": ["removed", "placed", "placed", "placed"]
       }
     },
     "users": {
@@ -116,9 +124,39 @@ https://github.com/CoorpAcademy/components/pull/1226
   }
 }
 ```
+
+</details>
+
+<details>
+  <summary>progression.state.teama to ui.races</summary>
+
+```json
+"ui": {
+  "races": {
+    "entities": {
+      "5aec6da4bb01de7b9f2f82fc": {
+        "display": [
+          [
+            "placed",
+            "placed"
+          ],
+          [
+            "removed",
+            "placed",
+            "placed",
+            "placed"
+          ]
+        ]
+      }
+    }
+  }
+}
+```
+
 </details>
 
 ## install
+
 ```
 [api-progression] git checkout app-racing
 [lerna] git checkout app-racing
@@ -132,11 +170,13 @@ https://github.com/CoorpAcademy/components/pull/1226
 ```
 
 ## build
+
 ```
 [@coorpacademy-progression-engine] npm run build
 ```
+
 - may require `pkill flow`
-- used by $mooc/core/lib/engine/*
+- used by $mooc/core/lib/engine/\*
 - used by $api-progression/app/lib/progressions.js
 
 ```
@@ -146,6 +186,7 @@ https://github.com/CoorpAcademy/components/pull/1226
 ```
 
 ## run
+
 ```
 [mooc] docker-compose up -d
 [mooc] docker-compose stop progression
