@@ -8,8 +8,11 @@ import intersection from 'lodash/fp/intersection';
 import type {Action, AnswerAction, Config, RacingTeams, State, Tower} from '../../types';
 
 export default function _teams(config: Config): (RacingTeams, Action, State) => RacingTeams {
-  return (teams: RacingTeams = {}, action: Action, state: State): RacingTeams => {
+  return (teams: RacingTeams, action: Action, state: State): RacingTeams => {
     switch (action.type) {
+      case 'racing-setup': {
+        return action.payload.teams;
+      }
       case 'answer': {
         const _action = (action: AnswerAction);
         const teamToUpdate = findKey(

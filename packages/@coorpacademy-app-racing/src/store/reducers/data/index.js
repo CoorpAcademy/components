@@ -3,6 +3,7 @@ import answers from './answers';
 import configs from './configs';
 import contents from './contents';
 import exitNodes from './exit-nodes';
+import progressions from './progressions';
 import users from './users';
 
 export default combineReducers({
@@ -10,5 +11,6 @@ export default combineReducers({
   configs,
   contents,
   exitNodes,
+  progressions,
   users
 });

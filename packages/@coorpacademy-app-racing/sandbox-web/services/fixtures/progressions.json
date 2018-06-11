@@ -23,6 +23,7 @@
         "payload": {
           "teams": {
             "0": {
+              "players": ["user_1", "user_2"],
               "tower": []
             },
             "1": {
@@ -33,6 +34,17 @@
           "users": {
             "user_1": {
               "id": "user_1",
+              "team": 0,
+              "isCorrect": false,
+              "slides": [],
+              "questionNum": 1,
+              "nextContent": {
+                "type": "slide",
+                "ref": "1.B2.4"
+              }
+            },
+            "user_2": {
+              "id": "user_2",
               "team": 0,
               "isCorrect": false,
               "slides": [],
@@ -72,11 +84,11 @@
       "teams": {
         "0": {
           "players": ["user_1", "user_2"],
-          "tower": ["placed", "placed"]
+          "tower": []
         },
         "1": {
           "players": ["user_3", "user_4"],
-          "tower": ["removed", "placed", "placed", "placed"]
+          "tower": []
         }
       },
       "users": {

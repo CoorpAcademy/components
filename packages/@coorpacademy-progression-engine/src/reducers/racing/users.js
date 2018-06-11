@@ -48,6 +48,10 @@ const usersReducer = (config: RacingConfig) => (
     }, reducers);
   };
 
+  if (action.type === 'racing-setup') {
+    return action.payload.users;
+  }
+
   return mapValues(reduceProperties, users);
 };
 

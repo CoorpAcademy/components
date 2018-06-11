@@ -20,6 +20,12 @@ import {find as findContent} from './content';
 import progressionsData from './fixtures/progressions';
 import slidesData from './fixtures/slides';
 
+const delay = (t, v) => {
+  return new Promise(function(resolve) {
+    setTimeout(resolve.bind(null, v), t);
+  });
+};
+
 const slideStore = reduce(
   (slideMap, slide) => slideMap.set(slide._id, slide),
   new Map(),
@@ -41,7 +47,10 @@ export const save = progression => {
 const addActionAndSaveProgression = (progression, action) => {
   const newProgression = update('actions', actions => actions.concat(action), progression);
   const newState = createState(newProgression);
-  return pipe(set('state', newState), save)(newProgression);
+  return pipe(
+    set('state', newState),
+    save
+  )(newProgression);
 };
 
 export const findById = id => {
@@ -52,19 +61,6 @@ export const findById = id => {
 
 export const getEngineConfig = engine => {
   return getConfig(engine);
-};
-
-export const waitForRefresh = progressionId => {
-  setTimeout(() => {
-    const teamIndex = 1;
-    const isCorrect = true;
-
-    return {
-      teamIndex,
-      isCorrect,
-      progression
-    };
-  }, 3000);
 };
 
 const getAvailableContent = async content => {
@@ -86,13 +82,15 @@ const getAvailableContent = async content => {
 };
 
 const createSlidePools = () => {
-  return pipe(groupBy('chapter_id'), toPairs, map(([chapterId, slides]) => ({chapterId, slides})))(
-    slidesData
-  );
+  return pipe(
+    groupBy('chapter_id'),
+    toPairs,
+    map(([chapterId, slides]) => ({chapterId, slides}))
+  )(slidesData);
 };
 
-export const postAnswer = async (progressionId, payload) => {
-  const userId = 'user_1';
+export const postAnswer = async (progressionId, payload, forcedUser, godMode = false) => {
+  const userId = forcedUser || 'user_1';
   const userAnswer = getOr([''], 'answer', payload);
   const slideId = payload.content.ref;
   const slide = slideStore.get(slideId);
@@ -105,7 +103,7 @@ export const postAnswer = async (progressionId, payload) => {
     payload: {
       content: payload.content,
       answer: userAnswer,
-      godMode: false
+      godMode
     }
   };
 
@@ -124,8 +122,25 @@ export const postAnswer = async (progressionId, payload) => {
   }
 
   const nextProgression = addActionAndSaveProgression(progression, action);
-  progressionStore.set(progressionId, nextProgression);
   return nextProgression;
+};
+
+export const waitForRefresh = async progressionId => {
+  await delay(5000);
+  const user = 'user_2';
+  const progression = progressionStore.get(progressionId);
+  const content = progression.state.users[user].nextContent;
+
+  const nextProgression = await postAnswer(progressionId, {content}, user, true);
+
+  const teamIndex = 0;
+  const isCorrect = true;
+
+  return {
+    progression: nextProgression,
+    teamIndex,
+    isCorrect
+  };
 };
 
 // eslint-disable-next-line require-await

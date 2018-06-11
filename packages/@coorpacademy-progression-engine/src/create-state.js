@@ -20,7 +20,7 @@ const getUpdater = (progression: Progression): Updater => {
 
       return {
         updateState: updateStateRacing,
-        initialState: action.payload
+        initialState: {}
       };
     }
     case 'microlearning':

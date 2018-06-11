@@ -1,6 +1,6 @@
 import get from 'lodash/fp/get';
 import buildTask from '@coorpacademy/redux-task';
-import {getEngineConfig, getCurrentUserState} from '../../utils/state-extract';
+import {getEngineConfig, getCurrentUserId, getCurrentUserState} from '../../utils/state-extract';
 
 export const PROGRESSION_FETCH_REQUEST = '@@progression/FETCH_REQUEST';
 export const PROGRESSION_FETCH_SUCCESS = '@@progression/FETCH_SUCCESS';
@@ -41,7 +41,9 @@ export const PROGRESSION_CREATE_ANSWER_FAILURE = '@@progression/CREATE_ANSWER_FA
 
 export const createAnswer = (progressionId, answer) => (dispatch, getState, {services}) => {
   const {Progressions} = services;
-  const nextContent = getCurrentUserState(getState()).nextContent;
+  const state = getState();
+  const nextContent = getCurrentUserState(state).nextContent;
+  const author = getCurrentUserId(state);
 
   const action = buildTask({
     types: [
@@ -54,7 +56,7 @@ export const createAnswer = (progressionId, answer) => (dispatch, getState, {ser
         content: nextContent,
         answer
       }),
-    meta: {progressionId}
+    meta: {progressionId, author}
   });
 
   return dispatch(action);

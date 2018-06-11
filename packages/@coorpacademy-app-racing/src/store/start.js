@@ -2,6 +2,7 @@ import {waitForRefresh} from './actions/api/progressions';
 import {selectRoute} from './actions/ui/route';
 import {selectProgression} from './actions/ui/progressions';
 import {selectCurrentUser} from './actions/ui/users';
+import {showQuestion} from './utils/state-extract';
 
 const start = async ({progressionId}, {getState, dispatch}) => {
   /* istanbul ignore if  */
@@ -10,9 +11,12 @@ const start = async ({progressionId}, {getState, dispatch}) => {
   }
 
   await dispatch(selectCurrentUser());
-  await dispatch(waitForRefresh(progressionId));
   await dispatch(selectProgression(progressionId));
-  return dispatch(selectRoute('race'));
+
+  const startRoute = showQuestion(getState()) ? 'question' : 'race';
+  await dispatch(selectRoute(startRoute));
+
+  return dispatch(waitForRefresh(progressionId));
 };
 
 export default start;

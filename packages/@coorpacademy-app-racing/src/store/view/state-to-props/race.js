@@ -1,15 +1,15 @@
-import map from 'lodash/fp/map';
-import pipe from 'lodash/fp/pipe';
 import get from 'lodash/fp/get';
+import pipe from 'lodash/fp/pipe';
 import {getConfigForProgression} from '@coorpacademy/progression-engine';
 import {
   allUsersHaveAnswered,
   getCurrentProgression,
+  getCurrentRace,
   isLastAnswerCorrect
 } from '../../utils/state-extract';
 import {seeQuestion} from '../../actions/ui/location';
 
-const getTeams = pipe(getCurrentProgression, get('state.teams'));
+const getTowers = pipe(getCurrentRace, get('display'));
 
 const raceProps = (options, {dispatch}) => state => {
   const progression = getCurrentProgression(state);
@@ -25,7 +25,7 @@ const raceProps = (options, {dispatch}) => state => {
     },
     race: {
       goal: config.goal,
-      teams: getTeams(state)
+      towers: getTowers(state)
     },
     cta: {
       submitValue: 'Next question',

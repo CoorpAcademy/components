@@ -51,24 +51,24 @@ const Tower = ({team, blocks, blockSize}) => (
   </div>
 );
 
-const Towers = ({teams, goal}) => (
+const Towers = ({towers, goal}) => (
   <div className={style.towers}>
     {_map(
       (blocks, index) => (
         <Tower key={`tower-${index}`} team={index} blocks={blocks} blockSize={100 / goal} />
       ),
-      teams
+      towers
     )}
   </div>
 );
 
 const Race = props => {
-  const {goal, teams} = props;
+  const {goal, towers} = props;
 
   return (
     <div className={style.race}>
       <div className={style.arrival}>Arrival: {goal}</div>
-      <Towers teams={teams} goal={goal} />
+      <Towers towers={towers} goal={goal} />
       <div className={style.start}>Start</div>
     </div>
   );
