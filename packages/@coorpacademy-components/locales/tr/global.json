@@ -43,7 +43,6 @@
   "See clue": "İpucu görmek",
   "See less": "Daha az görürsünüz",
   "Select a dashboard in the Sidebar": "Kenar Çubuğu'nda bir Pano seçin",
-  "Select the correct option(s) below": "Aşağıda doğru seçenekleri seçin",
   "Show more": "Daha fazla göster",
   "Show": "Göster",
   "Start battle": "Mücadele başlatmak",
@@ -60,6 +59,7 @@
   "subscription_promo_code": "{{date}} kadar bizim katalog bir ücretsiz sınırsız erişim sahipsiniz. Bu tarihten sonra zevk almak için lütfen abone üzerinde",
   "This message has been removed by its author": "Bu ileti, yazarı tarafından kaldırıldı.",
   "unsubscribe": "Coorpacademy çıkmak",
+  "Wait_creation": "Platform oluşturuluyor. Bu birkaç saniye sürebilir. Lütfen bekleyin...",
   "Write something here": "Burada bir şey yazmak",
   "zuora_discount_code_submit": "Uygula",
   "zuora_discount_code": "Promosyon kodu"
