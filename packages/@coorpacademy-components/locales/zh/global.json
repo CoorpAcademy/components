@@ -43,7 +43,6 @@
   "See clue": "见索引",
   "See less": "看少了",
   "Select a dashboard in the Sidebar": "选择侧栏中的信息中心",
-  "Select the correct option(s) below": "选择下面的正确选项",
   "Show more": "展示更多",
   "Show": "显示",
   "Start battle": "开始战斗",
@@ -60,6 +59,7 @@
   "subscription_promo_code": "您现在可以免费无限制地访问我们的目录，直到{{date}}。 在此日期之后继续享受，请订阅",
   "This message has been removed by its author": "此消息已被其作者删除。",
   "unsubscribe": "取消订阅Coorpacademy",
+  "Wait_creation": "该平台正在创建。 这可能需要几秒钟的时间。 请稍候...",
   "Write something here": "在这里写点东西",
   "zuora_discount_code_submit": "应用",
   "zuora_discount_code": "促销代码"
