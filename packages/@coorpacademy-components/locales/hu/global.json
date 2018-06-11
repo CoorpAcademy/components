@@ -43,7 +43,6 @@
   "See clue": "Lásd a nyom",
   "See less": "Kevesebb látszik",
   "Select a dashboard in the Sidebar": "Jelöljön ki egy irányítópult a tálaló",
-  "Select the correct option(s) below": "Válassza ki az alábbi megfelelő opciót",
   "Show more": "Megjelenítése több",
   "Show": "Térkép",
   "Start battle": "Start battle",
@@ -60,6 +59,7 @@
   "subscription_promo_code": "Most van egy ingyenes korlátlan belépés a katalógusban, amíg a {{date}}. Eltartás élvez e dátum után, kérjük, iratkozzon a",
   "This message has been removed by its author": "Ez az üzenet a szerző eltávolította.",
   "unsubscribe": "Leiratkozás a Coorpacademy",
+  "Wait_creation": "A platform van lét teremtett. Ez eltarthat néhány másodpercig. várj, kérlek...",
   "Write something here": "Írni valamit",
   "zuora_discount_code_submit": "Alkalmazása",
   "zuora_discount_code": "Sétány kód"
