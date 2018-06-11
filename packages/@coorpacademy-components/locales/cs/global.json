@@ -43,7 +43,6 @@
   "See clue": "Viz Nápověda",
   "See less": "Zobrazit méně",
   "Select a dashboard in the Sidebar": "V postranním panelu vyberte řídicí panel",
-  "Select the correct option(s) below": "Vyberte správnou možnost níže",
   "Show more": "Zobrazit více",
   "Show": "Zobrazit",
   "Start battle": "Zahájení bitvy",
@@ -60,6 +59,7 @@
   "subscription_promo_code": "Nyní máte neomezený bezplatný vstup do našeho katalogu až {{date}}. Stále těší po tomto datu, prosím, přihlaste se na",
   "This message has been removed by its author": "Tato zpráva byla odebrána jeho autor.",
   "unsubscribe": "Odběr od Coorpacademy",
+  "Wait_creation": "Platforma je vytvářena. To může trvat několik sekund. Počkejte prosím...",
   "Write something here": "Něco sem napsat",
   "zuora_discount_code_submit": "Použít",
   "zuora_discount_code": "Promo kód"
