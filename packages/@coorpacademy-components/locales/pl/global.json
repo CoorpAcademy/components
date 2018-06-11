@@ -43,7 +43,6 @@
   "See clue": "Zobacz pojęcia",
   "See less": "Zobacz mniej",
   "Select a dashboard in the Sidebar": "Wybierz pulpit na pasku bocznym",
-  "Select the correct option(s) below": "Wybierz odpowiednie opcje poniżej",
   "Show more": "Pokaż więcej",
   "Show": "Pokaż",
   "Start battle": "Początek bitwy",
@@ -60,6 +59,7 @@
   "subscription_promo_code": "Teraz masz nieograniczony dostęp do naszego katalogu aż do {{date}}. Aby zachować cieszyłem się po tej dacie, proszę Zapisz się na",
   "This message has been removed by its author": "Ten komunikat został usunięty przez jego autora.",
   "unsubscribe": "Zrezygnować z Coorpacademy",
+  "Wait_creation": "Platforma jest tworzony. Może to potrwać kilka sekund. Czekaj...",
   "Write something here": "Coś tutaj napisać",
   "zuora_discount_code_submit": "Zastosowanie",
   "zuora_discount_code": "Kod promocyjny"
