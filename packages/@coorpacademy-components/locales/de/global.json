@@ -43,7 +43,6 @@
   "See clue": "Hinweis öffnen",
   "See less": "Weniger anzeigen",
   "Select a dashboard in the Sidebar": "Wählen Sie ein Dashboard in der Seitenleiste",
-  "Select the correct option(s) below": "Wählen Sie die richtige(n) Option(en) unten",
   "Show more": "Mehr anzeigen",
   "Show": "Zeigen",
   "Start battle": "Battle starten",
@@ -60,6 +59,7 @@
   "subscription_promo_code": "Sie haben jetzt einen kostenlosen unbegrenzten Zugang zu unserem Katalog bis {{date}}. Um es nach diesem Datum zu behalten, melden Sie sich bitte an",
   "This message has been removed by its author": "Diese Nachricht wurde von seinem Urheber gelöscht.",
   "unsubscribe": "Coorpacademy abbestellen",
+  "Wait_creation": "Die Plattform wird erstellt. Dies kann einige Sekunden dauern. Bitte warten...",
   "Write something here": "Schreiben Sie hier",
   "zuora_discount_code_submit": "Anwenden",
   "zuora_discount_code": "Promo-Code"
