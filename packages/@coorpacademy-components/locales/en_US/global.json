@@ -43,7 +43,6 @@
   "See clue": "See clue",
   "See less": "See less",
   "Select a dashboard in the Sidebar": "Select a dashboard in the Sidebar",
-  "Select the correct option(s) below": "Select the correct option(s) below",
   "Show more": "Show more",
   "Show": "Show",
   "Start battle": "Start battle",
@@ -60,6 +59,7 @@
   "subscription_promo_code": "You now have a free unlimited access to our catalog until the {{date}}. To keep enjoying it after this date, please subscribe on",
   "This message has been removed by its author": "This message has been removed by its author.",
   "unsubscribe": "Unsubscribe from Coorpacademy",
+  "Wait_creation": "The platform is being created. This can take several seconds. Please wait...",
   "Write something here": "Write something here",
   "zuora_discount_code_submit": "Apply",
   "zuora_discount_code": "Promo code"
