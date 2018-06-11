@@ -43,7 +43,6 @@
   "See clue": "단서를 참조",
   "See less": "적은 참조",
   "Select a dashboard in the Sidebar": "사이드바에서 대시보드를 선택",
-  "Select the correct option(s) below": "아래 정확한 옵션 선택",
   "Show more": "더 보기",
   "Show": "보기",
   "Start battle": "전투를 시작",
@@ -60,6 +59,7 @@
   "subscription_promo_code": "지금 당신은 우리의 카탈로그를 무료로 무제한 액세스는 {{date}}까지. 계속이 날짜 이후에 그것을 즐기고,에 가입 하시기 바랍니다",
   "This message has been removed by its author": "이 메시지의 저자에 의해 제거 되었습니다.",
   "unsubscribe": "Coorpacademy에서 탈퇴",
+  "Wait_creation": "플랫폼 생성 되고있다. 이 몇 초 정도 걸릴 수 있습니다. 기다리세요...",
   "Write something here": "여기에 뭔가 쓰기",
   "zuora_discount_code_submit": "적용",
   "zuora_discount_code": "프로 모션 코드"
