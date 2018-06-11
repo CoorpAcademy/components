@@ -43,7 +43,6 @@
   "See clue": "A se vedea indiciu",
   "See less": "Vezi mai puțin",
   "Select a dashboard in the Sidebar": "Selectaţi un tablou de bord în bara laterală",
-  "Select the correct option(s) below": "Selectaţi opţiunile corecte pe mai jos",
   "Show more": "Arată mai multe",
   "Show": "Afișare",
   "Start battle": "Începe bătălia",
@@ -60,6 +59,7 @@
   "subscription_promo_code": "Ai acum acces nelimitat gratuit la catalogul nostru până la {{date}}. Pentru a păstra se bucura de ea după această dată, vă rugăm să abona pe",
   "This message has been removed by its author": "Acest mesaj a fost eliminat de autorul său.",
   "unsubscribe": "Dezabonare de la Coorpacademy",
+  "Wait_creation": "Platforma este creat. Acest lucru poate dura câteva secunde. te rog să aştepţi...",
   "Write something here": "Scrieți ceva aici",
   "zuora_discount_code_submit": "Se aplică",
   "zuora_discount_code": "Cod Promo"
