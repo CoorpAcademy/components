@@ -9,6 +9,10 @@ export const selectRoute = route => (dispatch, getState) => {
 
   const nextRoute = currentRoute === route ? null : route;
 
+  if (route === 'answer') {
+    window.scrollTo(0, 0);
+  }
+
   return dispatch({
     type: UI_SELECT_ROUTE,
     payload: nextRoute,
