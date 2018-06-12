@@ -3,9 +3,12 @@ import PropTypes from 'prop-types';
 import defer from 'lodash/fp/defer';
 import isNil from 'lodash/fp/isNil';
 import isEmpty from 'lodash/fp/isEmpty';
+import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import omit from 'lodash/fp/omit';
+import {convert} from 'css-color-function';
 import CheckIcon from '@coorpacademy/nova-icons/composition/coorpacademy/check';
+import AlertIcon from '@coorpacademy/nova-icons/solid/interface-feedback/interface-alert-circle';
 import Loader from '../../../atom/loader';
 import Link from '../../../atom/link';
 import Provider from '../../../atom/provider';
@@ -37,6 +40,31 @@ const SimpleText = ({text}) => (
     />
   </div>
 );
+
+const AssistanceLink = (props, context) => {
+  if (isEmpty(props)) return null;
+  const {title, onClick} = props;
+  const {skin} = context;
+  const white = get('common.white', skin);
+  const dark = get('common.dark', skin);
+  const lightenDarkColor = convert(`color(${dark} lightness(30%))`);
+
+  return (
+    <div className={style.wrapperAssistance} onClick={onClick}>
+      <AlertIcon
+        className={style.alertIcon}
+        color={lightenDarkColor}
+        outline={white}
+        outlineWidth={3}
+      />
+      <span className={style.titleLink}> {title} </span>
+    </div>
+  );
+};
+
+AssistanceLink.contextTypes = {
+  skin: Provider.childContextTypes.skin
+};
 
 SimpleText.propTypes = {
   text: PropTypes.string
@@ -106,7 +134,8 @@ class PopinCorrection extends Component {
       klf,
       tips,
       onClick,
-      quit = {}
+      quit = {},
+      assistanceLink = {}
     } = this.props;
 
     const {skin} = this.context;
@@ -154,6 +183,7 @@ class PopinCorrection extends Component {
               </Accordion>
             </div>
             {quitCta}
+            <AssistanceLink {...assistanceLink} />
           </div>
           <Loader className={isLoading ? style.activeLoader : style.inactiveLoader} />
         </div>
@@ -171,6 +201,10 @@ PopinCorrection.propTypes = {
     title: PropTypes.string,
     value: ResourceBrowser.propTypes.resources,
     open: PropTypes.bool
+  }),
+  assistanceLink: PropTypes.shape({
+    title: PropTypes.string,
+    onClick: PropTypes.func
   }),
   overlay: ResourceBrowser.propTypes.overlay,
   header: PropTypes.shape(omit(['animated'], Header.propTypes)),

@@ -11,6 +11,10 @@ export default defaultsDeep(correctClosed, {
       ],
       title: 'Aïe Aïe Aïe',
       subtitle: 'Mauvaise réponse'
+    },
+    assistanceLink: {
+      title: 'Signaler un problème avec cette question ?',
+      onClick: () => console.log('test onClick')
     }
   }
 });
