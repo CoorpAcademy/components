@@ -11,7 +11,7 @@
   "chapters": "章",
   "Close": "閉じる",
   "clue_stars_to_loose_plural": "(あなたはそれを右に得る) の場合は、{{count}} によってこの質問に得ることができます星を減らす手がかりのロックを解除",
-  "clue_stars_to_loose": "ヒントを参照するにはスターが{{count}}つ必要です。",
+  "clue_stars_to_loose": "ヒントを参照するにはスターが{{count}}つ必要です。 ",
   "confirm_unsubscribe": "購読を中止するよろしいですか。",
   "cookies_details": "このウェブサイトはクッキーを使用しており、最高の学習体験を提供することができます。 私たちが使用しているクッキーとあなたのデータの使い方について詳しくは、",
   "cookies_policy": "プライバシーとクッキーポリシー",
