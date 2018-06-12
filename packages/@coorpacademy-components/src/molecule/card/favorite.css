@@ -1,0 +1,57 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value colors: "../../variables/colors.css";
+@value light from colors;
+@value grey from colors;
+@value dark from colors;
+@value white from colors;
+
+.favorite {
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  right: 0;
+  top: -5px;
+  z-index: 1;
+  font-size: 30px;
+  overflow: hidden;
+  line-height: 20px;
+}
+
+.favorite:hover .bookmarkIcon {
+  color: inherit;
+}
+
+.favorite .bookmarkIcon {
+  color: color(black a(40%));
+  stroke: white;
+  transition: color 0.25s ease-in-out;
+}
+
+.favorite.selected .bookmarkIcon {
+  color: inherit;
+}
+
+.favorite.selected:hover .bookmarkIcon {
+  color: color(black a(20%));
+}
+
+.favorite:hover .bookmarkIcon {
+  color: inherit;
+}
+
+@media (hover: none) {
+  .favorite:hover .bookmarkIcon {
+    color: color(black a(40%));
+  }
+
+  .favorite.selected:hover .bookmarkIcon {
+    color: inherit;
+  }
+}
+
+@media mobile {
+  .favorite {
+    font-size: 33px;
+  }
+}

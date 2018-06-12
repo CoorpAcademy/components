@@ -1,6 +1,5 @@
 @value breakpoints: "../../variables/breakpoints.css";
 @value desktop from breakpoints;
-@value tablet from breakpoints;
 @value mobile from breakpoints;
 @value colors: "../../variables/colors.css";
 @value light from colors;
@@ -29,41 +28,6 @@
   opacity: 0;
   animation: fadeIn 1s ease-out forwards;
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.07);
-}
-
-.favorite {
-  width: 25px;
-  height: 35px;
-  position: absolute;
-  right: 5px;
-  top: -5px;
-  z-index: 1;
-  font-size: 30px;
-  overflow: hidden;
-  line-height: 20px;
-}
-
-.favorite:hover .bookmarkIcon {
-  color: inherit;
-}
-
-.favorite .bookmarkIcon {
-  color: color(black a(40%));
-  stroke: white;
-  transform: rotateZ(-45deg);
-  transition: color 0.25s ease-in-out;
-}
-
-.favorite.selected .bookmarkIcon {
-  color: inherit;
-}
-
-.favorite.selected:hover .bookmarkIcon {
-  color: color(black a(20%));
-}
-
-.favorite:hover .bookmarkIcon {
-  color: inherit;
 }
 
 .default[disabled] .favorite {
@@ -377,6 +341,20 @@
 @keyframes progressbar {
   0% {
     width: 0;
+  }
+}
+
+@media (hover: none) {
+  .default:hover .image {
+    transform: scale(1);
+  }
+
+  .chapter:hover .progressWrapper {
+    background: light;
+  }
+
+  .default:hover .image::before {
+    opacity: 0;
   }
 }
 
