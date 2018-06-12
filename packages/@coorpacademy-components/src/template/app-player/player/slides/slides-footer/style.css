@@ -21,7 +21,6 @@
   border-top-right-radius: 3px;
   transform: translateX(-50%);
   overflow: hidden;
-  box-shadow: 0 0 4px 5px rgba(0, 0, 0, 0.04);
 }
 
 .button {
@@ -102,7 +101,6 @@
 @media tablet {
   .wrapper {
     max-width: 100vw;
-    box-shadow: none;
     border-radius: 0;
   }
 }
