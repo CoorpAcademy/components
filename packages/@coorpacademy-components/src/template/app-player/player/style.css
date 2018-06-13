@@ -17,7 +17,7 @@
   position: relative;
   box-sizing: border-box;
   width: 100%;
-  padding: 32px 30px;
+  padding: 32px 0;
   display: flex;
   flex-direction: column;
   background-size: 0;
