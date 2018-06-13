@@ -30,9 +30,9 @@ export const getCurrentRace = state => {
   return get(['ui', 'races', 'entities', id])(state);
 };
 
-export const hasStoppedPolling = state => {
+export const hasReceivedPollingData = state => {
   const id = getCurrentProgressionId(state);
-  return get(['ui', 'current', id, 'polling'], state) === false;
+  return get(['ui', 'current', id, 'polling'], state) !== null;
 };
 
 // -----------------------------------------------------------------------------

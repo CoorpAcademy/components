@@ -16,11 +16,11 @@ import update from 'lodash/fp/update';
 import {
   PROGRESSION_CREATE_ANSWER_SUCCESS,
   PROGRESSION_FETCH_SUCCESS,
-  PROGRESSION_FETCH_REQUEST,
-  PROGRESSION_WAIT_FOR_REFRESH_SUCCESS
+  PROGRESSION_FETCH_REQUEST
 } from '../../actions/api/progressions';
 
 import {UI_SEE_QUESTION} from '../../actions/ui/location';
+import {UI_REFRESH_RACE_ON_POLLING} from '../../actions/ui/progressions';
 
 const uiRacesReducer = (state = {entities: {}}, action) => {
   switch (action.type) {
@@ -34,7 +34,7 @@ const uiRacesReducer = (state = {entities: {}}, action) => {
         set(['entities', id, 'display'], towers)
       )(state);
     }
-    case PROGRESSION_WAIT_FOR_REFRESH_SUCCESS: {
+    case UI_REFRESH_RACE_ON_POLLING: {
       const {payload, meta} = action;
       const {id, currentView} = meta;
       const {teamIndex, isCorrect} = payload;
@@ -82,10 +82,9 @@ const uiRacesReducer = (state = {entities: {}}, action) => {
         get('team')
       )(progression.state);
 
-      if(isCorrect) {
+      if (isCorrect) {
         background[team].push('new');
-      }
-      else {
+      } else {
         const removedIndex = findIndex(isEqual('removed'), background[team]);
         background[team].splice(removedIndex, 1, 'lost');
       }

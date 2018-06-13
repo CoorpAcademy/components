@@ -21,12 +21,12 @@ const uiCurrentReducer = (state = {progressionId: null, userId: null}, action) =
     }
     case PROGRESSION_WAIT_FOR_REFRESH_REQUEST: {
       const {meta: {id}} = action;
-      return set([id, 'polling'], true, state);
+      return set([id, 'polling'], null, state);
     }
     case PROGRESSION_WAIT_FOR_REFRESH_FAILURE:
     case PROGRESSION_WAIT_FOR_REFRESH_SUCCESS: {
-      const {meta: {id}} = action;
-      return set([id, 'polling'], false, state);
+      const {meta: {id}, payload} = action;
+      return set([id, 'polling'], payload, state);
     }
     default:
       return state;

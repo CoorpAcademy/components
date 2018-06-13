@@ -1,3 +1,4 @@
+import get from 'lodash/fp/get';
 import {fetchProgression, fetchEngineConfig} from '../api/progressions';
 import {fetchContent} from '../api/contents';
 import {getEngine, getStepContent} from '../../utils/state-extract';
@@ -20,4 +21,18 @@ export const selectProgression = id => async (dispatch, getState) => {
 
   const {ref: slideRef} = getStepContent(getState());
   return dispatch(fetchContent('slide', slideRef));
+};
+
+export const UI_REFRESH_RACE_ON_POLLING = '@@ui/REFRESH_RACE_ON_POLLING';
+
+export const refreshStateOnPolling = id => (dispatch, getState, {services}) => {
+  const state = getState();
+  const currentView = get(['ui', 'route', id], state);
+  const payload = get(['ui', 'current', id, 'polling'], state);
+
+  return dispatch({
+    type: UI_REFRESH_RACE_ON_POLLING,
+    meta: {id, currentView},
+    payload
+  });
 };
