@@ -10,7 +10,7 @@
 @value medium from colors;
 
 .wrapper {
-  max-width: 900px;
+  max-width: 960px;
   position: fixed;
   width: 100%;
   left: 50%;
