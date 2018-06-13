@@ -18,6 +18,8 @@
   flex-grow: inherit;
   overflow: hidden;
   margin-bottom: 80px;
+  max-width: 960px;
+  align-self: center;
 }
 
 .contentWrapper {
@@ -70,9 +72,11 @@
   position: absolute;
   z-index: 1;
   height: 4px;
+  width: 0;
   border-radius: 3px;
   border-bottom-left-radius: 0;
   transition: width 0.3s ease-out;
+  transition-delay: 1s;
 }
 
 .infos {

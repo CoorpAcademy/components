@@ -10,10 +10,7 @@ const SlidePlayer = props => {
   return (
     <div data-name="slidePlayer" className={style.wrapper}>
       <Header {...header} />
-      <div className={style.wrapperImg}>
-        <div className={style.img} style={{backgroundImage}} />
-      </div>
-      <div className={style.playerWrapper}>
+      <div className={style.playerWrapper} style={{backgroundImage}}>
         <SlidesPlayer {...player} />
       </div>
     </div>
