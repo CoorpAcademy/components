@@ -19,6 +19,8 @@
   display: flex;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
+  border-left: 1px solid light;
+  border-right: 1px solid light;
   transform: translateX(-50%);
   overflow: hidden;
 }
