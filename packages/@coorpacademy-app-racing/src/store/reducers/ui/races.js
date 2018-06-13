@@ -4,6 +4,7 @@ import each from 'lodash/fp/each';
 import findIndex from 'lodash/fp/findIndex';
 import findLastIndex from 'lodash/fp/findLastIndex';
 import get from 'lodash/fp/get';
+import getOr from 'lodash/fp/getOr';
 import identity from 'lodash/fp/identity';
 import isEqual from 'lodash/fp/isEqual';
 import last from 'lodash/fp/last';
@@ -27,6 +28,11 @@ const uiRacesReducer = (state = {entities: {}}, action) => {
     case PROGRESSION_FETCH_SUCCESS: {
       const {meta, payload: progression} = action;
       const {id} = meta;
+
+      const currentDisplay = get(['entities', id, 'display'], state);
+      if (currentDisplay) {
+        return state;
+      }
       const towers = map(team => team.tower, progression.state.teams);
 
       return pipe(
@@ -34,6 +40,7 @@ const uiRacesReducer = (state = {entities: {}}, action) => {
         set(['entities', id, 'display'], towers)
       )(state);
     }
+
     case UI_REFRESH_RACE_ON_POLLING: {
       const {payload, meta} = action;
       const {id, currentView} = meta;
@@ -43,8 +50,11 @@ const uiRacesReducer = (state = {entities: {}}, action) => {
         if (isCorrect) {
           return concat(tower, ['new']);
         } else {
-          const lostIndex = findIndex(isEqual('placed'), tower);
-          tower.splice(lostIndex, 1, 'lost');
+          const goodBlock = currentView === 'question' ? 'new' : 'placed';
+          const lostIndex = findIndex(isEqual(goodBlock), tower);
+          if (lostIndex !== -1) {
+            tower.splice(lostIndex, 1, 'lost');
+          }
           return tower;
         }
       };
@@ -59,16 +69,19 @@ const uiRacesReducer = (state = {entities: {}}, action) => {
           return state;
       }
     }
+
     case PROGRESSION_FETCH_REQUEST: {
       const {meta} = action;
       const {id} = meta;
       return update(['entities', id], race => race || null, state);
     }
+
     case PROGRESSION_CREATE_ANSWER_SUCCESS: {
       const {payload: progression, meta} = action;
       const {progressionId, author} = meta;
 
       const background = get(['entities', progressionId, 'background'], state);
+      const backgroundWithCorrection = concat(background, []);
 
       const isCorrect = pipe(
         get(['users', author]),
@@ -77,28 +90,32 @@ const uiRacesReducer = (state = {entities: {}}, action) => {
         get('isCorrect')
       )(progression.state);
 
-      const team = pipe(
+      const teamNum = pipe(
         get(['users', author]),
         get('team')
       )(progression.state);
 
       if (isCorrect) {
-        background[team].push('new');
+        backgroundWithCorrection[teamNum].push('new');
       } else {
-        const removedIndex = findIndex(isEqual('removed'), background[team]);
-        background[team].splice(removedIndex, 1, 'lost');
+        const removedIndex = findIndex(isEqual('new'), background[teamNum]);
+        if (removedIndex !== -1) {
+          backgroundWithCorrection[teamNum].splice(removedIndex, 1, 'lost');
+        }
       }
 
-      const towersUpdate = map(countBy(identity), background);
+      const towersUpdate = map(countBy(identity), backgroundWithCorrection);
 
       const newDisplay = map.convert({cap: 0})((team, t) => {
-        const tower = team.tower;
-        const losts = range(0, towersUpdate[t].lost || 0);
-        const news = range(0, towersUpdate[t].new || 0);
+        const tower = concat([], team.tower);
+        const losts = range(0, getOr(0, [t, 'lost'], towersUpdate));
+        const news = range(0, getOr(0, [t, 'new'], towersUpdate));
 
         each(l => {
           const removedIndex = findIndex(isEqual('removed'), tower);
-          tower.splice(removedIndex, 1, 'lost');
+          if (removedIndex !== -1) {
+            tower.splice(removedIndex, 1, 'lost');
+          }
         }, losts);
 
         each(n => {
@@ -115,11 +132,13 @@ const uiRacesReducer = (state = {entities: {}}, action) => {
 
       return set(['entities', progressionId, 'display'], newDisplay, state);
     }
+
     case UI_SEE_QUESTION: {
       const {meta} = action;
       const {id} = meta;
       return set(['entities', id, 'background'], [], state);
     }
+
     default:
       return state;
   }

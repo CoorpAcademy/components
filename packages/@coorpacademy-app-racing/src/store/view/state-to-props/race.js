@@ -31,7 +31,7 @@ const raceProps = (options, {dispatch}) => state => {
       submitValue: 'Next question',
       disabled: !allUsersHaveAnswered(state),
       primary: true,
-      onClick: () => dispatch(seeQuestion(progression.id))
+      onClick: () => dispatch(seeQuestion)
     }
   };
 };

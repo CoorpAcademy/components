@@ -1,8 +1,7 @@
 import set from 'lodash/fp/set';
-import {UI_SELECT_PROGRESSION} from '../../actions/ui/progressions';
+import {UI_REFRESH_RACE_ON_POLLING, UI_SELECT_PROGRESSION} from '../../actions/ui/progressions';
 import {UI_SELECT_USER} from '../../actions/ui/users';
 import {
-  PROGRESSION_WAIT_FOR_REFRESH_REQUEST,
   PROGRESSION_WAIT_FOR_REFRESH_SUCCESS,
   PROGRESSION_WAIT_FOR_REFRESH_FAILURE
 } from '../../actions/api/progressions';
@@ -19,7 +18,7 @@ const uiCurrentReducer = (state = {progressionId: null, userId: null}, action) =
       const {id} = payload;
       return set('userId', id, state);
     }
-    case PROGRESSION_WAIT_FOR_REFRESH_REQUEST: {
+    case UI_REFRESH_RACE_ON_POLLING: {
       const {meta: {id}} = action;
       return set([id, 'polling'], null, state);
     }

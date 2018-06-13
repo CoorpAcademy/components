@@ -30,7 +30,7 @@ export default function _teams(config: Config): (RacingTeams, Action, State) => 
           newTower = concat(currentTower, ['placed']);
         } else {
           const index = findIndex(isEqual('placed'), currentTower);
-          if(index !== -1) {
+          if (index !== -1) {
             newTower.splice(index, 1, 'removed');
           }
         }

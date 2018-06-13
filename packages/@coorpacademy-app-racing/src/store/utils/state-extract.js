@@ -1,8 +1,9 @@
-import each from 'lodash/fp/each';
+import isNil from 'lodash/fp/isNil';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import last from 'lodash/fp/last';
 import pipe from 'lodash/fp/pipe';
+import reduce from 'lodash/fp/reduce';
 import _toString from 'lodash/fp/toString';
 
 const getId = get('_id');
@@ -32,7 +33,7 @@ export const getCurrentRace = state => {
 
 export const hasReceivedPollingData = state => {
   const id = getCurrentProgressionId(state);
-  return get(['ui', 'current', id, 'polling'], state) !== null;
+  return !isNil(get(['ui', 'current', id, 'polling'], state));
 };
 
 // -----------------------------------------------------------------------------
@@ -62,15 +63,17 @@ export const allUsersHaveAnswered = state => {
   const userQuestionNum = get('questionNum', userState);
   const team = get('team', userState);
   const players = get(['state', 'teams', team, 'players'], progression);
-  let sameQuestionNum = true;
+ 
+  return reduce(
+    (result, playerId) => {
+      const player = getUserState(playerId, state);
+      const questionNum = get('questionNum', player);
 
-  each(playerId => {
-    const player = getUserState(playerId, state);
-    const questionNum = get('questionNum', player);
-    sameQuestionNum = userQuestionNum === questionNum;
-  }, players);
-
-  return sameQuestionNum;
+      return result && userQuestionNum <= questionNum;
+    },
+    true,
+    players
+  );
 };
 
 export const isLastAnswerCorrect = pipe(
