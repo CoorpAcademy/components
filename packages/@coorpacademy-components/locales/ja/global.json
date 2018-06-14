@@ -20,7 +20,7 @@
   "Edit": "編集",
   "keep_subscription": "私のサブスクリプションを維持します。",
   "media_stars_to_win_plural": "もし、はじめてこのレッスンを受けた場合は{{count}}個のスターが追加で獲得できます。",
-  "media_stars_to_win": "{{count}} 追加レッスンを表示するこの章最初の時間で 3 つ星を獲得!",
+  "media_stars_to_win": "もし、はじめてこのレッスンを受けた場合は{{count}}個のスターが追加で獲得できます。",
   "More": "その他",
   "New media": "新しいレッスン",
   "No Selected Dashboard": "選択したダッシュ ボードもありません。",
