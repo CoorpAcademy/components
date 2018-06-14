@@ -18,7 +18,7 @@ import {
 } from '../../utils/state-extract';
 import {acceptExtraLifeAndReset, refuseExtraLifeAndReset} from '../../actions/ui/extra-life';
 import {toggleAccordion} from '../../actions/ui/corrections';
-import {selectProgression} from '../../actions/ui/progressions';
+import {selectProgression, openAssistance} from '../../actions/ui/progressions';
 import getResourcesProps from './resources';
 
 const isNewChapter = (state, progression) => {
@@ -100,6 +100,9 @@ export const createHeaderCTA = (options, store) => state => {
   });
 };
 
+export const openPopinAssistance = (dispatch, progression) => () =>
+  dispatch(openAssistance(progression));
+
 export const popinCorrectionStateToProps = (options, store) => state => {
   const {translate} = options;
   const {dispatch} = store;
@@ -180,7 +183,11 @@ export const popinCorrectionStateToProps = (options, store) => state => {
       value: getOr('', 'tips', slide),
       open: getOr(false, '2', accordion)
     },
-    onClick: toggleAccordionSection
+    onClick: toggleAccordionSection,
+    assistanceLink: {
+      title: translate('Need help? Found a bug? Report it here'),
+      onClick: openPopinAssistance(dispatch, progression)
+    }
   };
 
   return props;

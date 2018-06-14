@@ -57,6 +57,12 @@ export const getEngineConfig = async engine => {
   return getConfig(engine);
 };
 
+export const openAssistance = progression => {
+  // eslint-disable-next-line no-console
+  console.log('test progression', progression);
+  return progression;
+};
+
 const getAvailableContent = async content => {
   const chapters =
     content.type === 'level'

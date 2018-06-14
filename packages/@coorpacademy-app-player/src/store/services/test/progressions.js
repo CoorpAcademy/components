@@ -9,13 +9,19 @@ import {
   postAnswer,
   findBestOf,
   markResourceAsViewed,
-  getEngineConfig
+  getEngineConfig,
+  openAssistance
 } from '../progressions';
 
 const engine = {
   ref: 'microlearning',
   version: '1'
 };
+
+test('should call openAssistance function', t => {
+  const result = openAssistance({});
+  t.deepEqual(result, {});
+});
 
 test('should create progression for a non-adaptive chapter', async t => {
   const progression = await create(engine, {type: 'chapter', ref: '5.C7'});
