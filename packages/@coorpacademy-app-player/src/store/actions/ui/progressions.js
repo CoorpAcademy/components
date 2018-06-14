@@ -97,7 +97,7 @@ export const openAssistance = progression => (dispatch, getState, {services}) =>
   const action = buildTask({
     types: [OPEN_ASSISTANCE_REQUEST, OPEN_ASSISTANCE_SUCCESS, OPEN_ASSISTANCE_FAILURE],
     task: () => Progressions.openAssistance(progression),
-    meta: {progression, location}
+    meta: {progression}
   });
 
   return dispatch(action);

@@ -1,6 +1,12 @@
 import test from 'ava';
 import macro from '../../test/helpers/macro';
-import {selectProgression, UI_SELECT_PROGRESSION} from '../progressions';
+import {
+  selectProgression,
+  openAssistance,
+  UI_SELECT_PROGRESSION,
+  OPEN_ASSISTANCE_REQUEST,
+  OPEN_ASSISTANCE_SUCCESS
+} from '../progressions';
 import {
   PROGRESSION_FETCH_REQUEST,
   PROGRESSION_FETCH_SUCCESS,
@@ -56,6 +62,36 @@ const ContentService = (t, withContext) => ({
     return 'info';
   }
 });
+
+test(
+  'should dispatch openAssistance action',
+  macro,
+  {},
+  t => ({
+    Progressions: {
+      openAssistance: progression => {
+        t.deepEqual(progression, {foo: 'foo'});
+      }
+    }
+  }),
+  openAssistance({foo: 'foo'}),
+  [
+    {
+      type: OPEN_ASSISTANCE_REQUEST,
+      meta: {
+        progression: {foo: 'foo'}
+      }
+    },
+    {
+      type: OPEN_ASSISTANCE_SUCCESS,
+      meta: {
+        progression: {foo: 'foo'}
+      },
+      payload: undefined
+    }
+  ],
+  1
+);
 
 test(
   'should select progression and fail to fetch progression if progression could not be found',
