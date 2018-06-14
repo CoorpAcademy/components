@@ -18,8 +18,7 @@ import {
 } from '../../utils/state-extract';
 import {acceptExtraLifeAndReset, refuseExtraLifeAndReset} from '../../actions/ui/extra-life';
 import {toggleAccordion} from '../../actions/ui/corrections';
-import {selectProgression} from '../../actions/ui/progressions';
-import {openAssistance} from '../../services/progressions';
+import {selectProgression, openAssistance} from '../../actions/ui/progressions';
 import getResourcesProps from './resources';
 
 const isNewChapter = (state, progression) => {
@@ -184,7 +183,7 @@ export const popinCorrectionStateToProps = (options, store) => state => {
     onClick: toggleAccordionSection,
     assistanceLink: {
       title: translate('Need help? Found a bug? Report it here'),
-      onClick: openAssistance(progression)
+      onClick: () => dispatch(openAssistance(progression))
     }
   };
 

@@ -58,7 +58,7 @@ export const getEngineConfig = async engine => {
 };
 export const openAssistance = progression => {
   // eslint-disable-next-line no-console
-  return () => console.log('test progression', progression);
+  return console.log('test progression', progression);
 };
 
 const getAvailableContent = async content => {

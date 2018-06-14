@@ -17,6 +17,7 @@ import {
   getPrevStepContent,
   getSlide
 } from '../../utils/state-extract';
+import buildTask from '../../../../../@coorpacademy-redux-task/lib';
 import {selectRoute} from './route';
 
 export const UI_PROGRESSION_UPDATED = '@@ui/UI_PROGRESSION_UPDATED';
@@ -84,4 +85,20 @@ export const selectProgression = id => async (dispatch, getState) => {
       ]).then(last);
     }
   }
+};
+
+export const OPEN_ASSISTANCE_REQUEST = '@@progression/OPEN_ASSISTANCE_REQUEST';
+export const OPEN_ASSISTANCE_SUCCESS = '@@progression/OPEN_ASSISTANCE_SUCCESS';
+export const OPEN_ASSISTANCE_FAILURE = '@@progression/OPEN_ASSISTANCE_FAILURE';
+
+export const openAssistance = progression => (dispatch, getState, {services}) => {
+  const {Progressions} = services;
+
+  const action = buildTask({
+    types: [OPEN_ASSISTANCE_REQUEST, OPEN_ASSISTANCE_SUCCESS, OPEN_ASSISTANCE_FAILURE],
+    task: () => Progressions.openAssistance(progression),
+    meta: {progression, location}
+  });
+
+  return dispatch(action);
 };
