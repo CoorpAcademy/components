@@ -46,25 +46,18 @@ const uiRacesReducer = (state = {entities: {}}, action) => {
       const {id, currentView} = meta;
       const {teamIndex, isCorrect} = payload;
 
-      const updateTower = tower => {
-        if (isCorrect) {
-          return concat(tower, ['new']);
-        } else {
-          const goodBlock = currentView === 'question' ? 'new' : 'placed';
-          const lostIndex = findIndex(isEqual(goodBlock), tower);
-          if (lostIndex !== -1) {
-            tower.splice(lostIndex, 1, 'lost');
-          }
-          return tower;
-        }
-      };
+      const pushToRace = key =>
+        update(['entities', id, key, teamIndex], concat(isCorrect ? ['new'] : ['lost']), state);
 
       switch (currentView) {
         case 'question': {
-          return update(['entities', id, 'background', teamIndex], updateTower, state);
+          console.log('[pushToRace] ------> BG ' + (isCorrect ? 'new' : 'lost'));
+          return pushToRace('background');
         }
-        case 'race':
-          return update(['entities', id, 'display', teamIndex], updateTower, state);
+        case 'race': {
+          console.log('[pushToRace] ------> DISPLAY ' + (isCorrect ? 'new' : 'lost'));
+          return pushToRace('display');
+        }
         default:
           return state;
       }
@@ -80,8 +73,7 @@ const uiRacesReducer = (state = {entities: {}}, action) => {
       const {payload: progression, meta} = action;
       const {progressionId, author} = meta;
 
-      const background = get(['entities', progressionId, 'background'], state);
-      const backgroundWithCorrection = concat(background, []);
+      const background = concat([], get(['entities', progressionId, 'background'], state));
 
       const isCorrect = pipe(
         get(['users', author]),
@@ -96,16 +88,29 @@ const uiRacesReducer = (state = {entities: {}}, action) => {
       )(progression.state);
 
       if (isCorrect) {
-        backgroundWithCorrection[teamNum].push('new');
+        console.log('[BG] ------> push a NEW ');
+        background[teamNum].push('new');
       } else {
-        const removedIndex = findIndex(isEqual('new'), background[teamNum]);
-        if (removedIndex !== -1) {
-          backgroundWithCorrection[teamNum].splice(removedIndex, 1, 'lost');
+        const tower = background[teamNum];
+        const nbNews = countBy(identity, tower).new || 0;
+        const nbPlaced = countBy(identity, progression.state.teams[teamNum].tower).placed || 0;
+
+        console.log({
+          nbNews,
+          nbPlaced
+        });
+
+        if (nbNews > nbPlaced) {
+          const lostIndex = findIndex(isEqual('new'), background[teamNum]);
+          console.log('[BG] ------> replace by LOST at ' + lostIndex);
+          background[teamNum].splice(lostIndex, 1, 'lost');
+        } else {
+          console.log('[BG] ------> push a LOST ');
+          background[teamNum].push('lost');
         }
       }
 
-      const towersUpdate = map(countBy(identity), backgroundWithCorrection);
-
+      const towersUpdate = map(countBy(identity), background);
       const newDisplay = map.convert({cap: 0})((team, t) => {
         const tower = concat([], team.tower);
         const losts = range(0, getOr(0, [t, 'lost'], towersUpdate));
@@ -136,7 +141,8 @@ const uiRacesReducer = (state = {entities: {}}, action) => {
     case UI_SEE_QUESTION: {
       const {meta} = action;
       const {id} = meta;
-      return set(['entities', id, 'background'], [], state);
+
+      return update(['entities', id, 'background'], map(() => []), state);
     }
 
     default:

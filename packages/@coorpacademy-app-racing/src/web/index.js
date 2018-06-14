@@ -23,9 +23,12 @@ const createUpdate = (container, store, options) => _selectMapStateToVNode => {
     const progressionId = getCurrentProgressionId(state);
     const restartPolling = hasReceivedPollingData(state);
 
-    if (restartPolling && i++ < 2) {
+    if (restartPolling) {
       await dispatch(refreshStateOnPolling(progressionId));
-      dispatch(waitForRefresh(progressionId));
+
+      if (i++ < 2) {
+        dispatch(waitForRefresh(progressionId));
+      }
     }
 
     return render(view, container);
