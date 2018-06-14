@@ -1,6 +1,7 @@
 import get from 'lodash/fp/get';
 import last from 'lodash/fp/last';
 import isNil from 'lodash/fp/isNil';
+import buildTask from '@coorpacademy/redux-task';
 import {fetchProgression, fetchEngineConfig, fetchBestProgression} from '../api/progressions';
 import {fetchEndRank, fetchStartRank} from '../api/rank';
 import {fetchExitNode} from '../api/exit-nodes';
@@ -17,7 +18,6 @@ import {
   getPrevStepContent,
   getSlide
 } from '../../utils/state-extract';
-import buildTask from '../../../../../@coorpacademy-redux-task/lib';
 import {selectRoute} from './route';
 
 export const UI_PROGRESSION_UPDATED = '@@ui/UI_PROGRESSION_UPDATED';
