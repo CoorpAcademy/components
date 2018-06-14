@@ -7,7 +7,7 @@ import identity from 'lodash/fp/identity';
 import {mockTranslate} from '@coorpacademy/translate';
 import cloneDeep from 'lodash/fp/cloneDeep';
 import isFunction from 'lodash/fp/isFunction';
-import {createHeaderCTA} from '../popin-correction';
+import {createHeaderCTA, openPopinAssistance} from '../popin-correction';
 import {
   PROGRESSION_FETCH_REQUEST,
   PROGRESSION_FETCH_BESTOF_REQUEST,
@@ -42,7 +42,12 @@ import {
   NEXT_CONTENT_FETCH_REQUEST,
   NEXT_CONTENT_FETCH_SUCCESS
 } from '../../../actions/api/next-content';
-import {UI_SELECT_PROGRESSION, UI_PROGRESSION_UPDATED} from '../../../actions/ui/progressions';
+import {
+  UI_SELECT_PROGRESSION,
+  UI_PROGRESSION_UPDATED,
+  OPEN_ASSISTANCE_REQUEST,
+  OPEN_ASSISTANCE_SUCCESS
+} from '../../../actions/ui/progressions';
 import {UI_SELECT_ROUTE} from '../../../actions/ui/route';
 import popinExtraLife from '../../test/fixtures/popin-correction/popin-extra-life';
 import popinFailure from '../../test/fixtures/popin-correction/popin-failure';
@@ -64,7 +69,8 @@ const services = {
     findBestOf: identity,
     getEngineConfig: identity,
     acceptExtraLife: identity,
-    refuseExtraLife: identity
+    refuseExtraLife: identity,
+    openAssistance: identity
   },
   Content: {
     find: (type, ref) => {
@@ -111,6 +117,15 @@ const metaOf = (actionType, actions) => {
 
   return action && action.meta;
 };
+
+test('should open Assistance', async t => {
+  const state = popinSuccess;
+  const dispatch = createDispatch(state);
+  const linkAssistance = openPopinAssistance(dispatch, {});
+
+  const dispatched = await linkAssistance();
+  t.deepEqual(actionTypes(dispatched), [OPEN_ASSISTANCE_REQUEST, OPEN_ASSISTANCE_SUCCESS]);
+});
 
 test('should create a "Next" CTA when entering a success popin', async t => {
   const state = popinSuccess;

@@ -100,6 +100,9 @@ export const createHeaderCTA = (options, store) => state => {
   });
 };
 
+export const openPopinAssistance = (dispatch, progression) => () =>
+  dispatch(openAssistance(progression));
+
 export const popinCorrectionStateToProps = (options, store) => state => {
   const {translate} = options;
   const {dispatch} = store;
@@ -183,7 +186,7 @@ export const popinCorrectionStateToProps = (options, store) => state => {
     onClick: toggleAccordionSection,
     assistanceLink: {
       title: translate('Need help? Found a bug? Report it here'),
-      onClick: () => dispatch(openAssistance(progression))
+      onClick: openPopinAssistance(dispatch, progression)
     }
   };
 
