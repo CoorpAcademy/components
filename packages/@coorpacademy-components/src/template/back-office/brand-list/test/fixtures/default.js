@@ -7,6 +7,11 @@ export default {
   props: {
     header: Header.props,
     brands: [props, props, props, props, props],
+    search: {
+      value: '',
+      placeholder: 'Search brand',
+      onChange: () => {}
+    },
     create: {
       edit: 'Create a new platform',
       editHref: '#'
