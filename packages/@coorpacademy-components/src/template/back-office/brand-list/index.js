@@ -9,7 +9,8 @@ import style from './style.css';
 
 const BrandList = Layout(props => {
   const {brands = [], create, search} = props;
-  const filteredBrands = _brand => _brand.filter(brand => brand.title.includes(search.value));
+  const filteredBrands = brandsToFilter =>
+    brandsToFilter.filter(brand => brand.title.includes(search.value));
 
   const _brands = search.value ? filteredBrands(brands) : brands;
 
