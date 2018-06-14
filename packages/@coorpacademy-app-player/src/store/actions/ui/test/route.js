@@ -30,7 +30,7 @@ test(
     {
       type: UI_SELECT_ROUTE,
       meta: {progressionId: 'foo'},
-      payload: null
+      payload: 'clue'
     }
   ],
   0

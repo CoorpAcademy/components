@@ -6,6 +6,10 @@ export default {
         type: 'context'
       },
       {
+        title: 'Question',
+        type: 'question'
+      },
+      {
         title: 'Media',
         type: 'media'
       },

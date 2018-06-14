@@ -96,6 +96,11 @@ test('should display slide', async t => {
 
   t.deepEqual(map(omit('onClick'), playerProps.buttons), [
     {
+      title: '__Question',
+      type: 'question',
+      selected: true
+    },
+    {
       notify: true,
       disabled: false,
       title: '__Media',
@@ -142,6 +147,11 @@ test('should display loading clue', async t => {
   t.truthy(playerProps.answerType);
 
   t.deepEqual(map(omit('onClick'), playerProps.buttons), [
+    {
+      title: '__Question',
+      type: 'question',
+      selected: false
+    },
     {
       notify: true,
       disabled: false,
@@ -190,6 +200,11 @@ test('should display clue', async t => {
 
   t.deepEqual(map(omit('onClick'), playerProps.buttons), [
     {
+      title: '__Question',
+      type: 'question',
+      selected: false
+    },
+    {
       notify: true,
       disabled: false,
       title: '__Media',
@@ -218,6 +233,11 @@ test('should disable clue button if slide has no clue', t => {
   const {props: {player: playerProps}} = vNode;
 
   t.deepEqual(map(omit('onClick'), playerProps.buttons), [
+    {
+      title: '__Question',
+      type: 'question',
+      selected: true
+    },
     {
       notify: true,
       disabled: false,

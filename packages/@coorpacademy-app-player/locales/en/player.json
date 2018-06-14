@@ -18,7 +18,6 @@
   "Good job": "Good job!",
   "Key point": "Key point",
   "Media": "Lesson",
-  "Need help? Found a bug? Report it here": "Need help? Found a bug? Report it here",
   "Next chapter": "Next chapter",
   "Next chapter_": "Next chapter:",
   "Next level": "Next level",
@@ -26,8 +25,8 @@
   "Next": "Next",
   "Nice try!": "Nice try!",
   "Ooops": "Ooops...",
-  "Ouch": "Ouch...",
   "Question": "Question",
+  "Ouch": "Ouch...",
   "Quit": "Quit",
   "Related subjects": "Recommended for you:",
   "Retry chapter": "Retry chapter",
@@ -42,5 +41,6 @@
   "Type here": "Type here",
   "Validate": "Validate",
   "Wrong answer": "Wrong answer",
-  "You are out of lives!": "You are out of lives!"
+  "You are out of lives!": "You are out of lives!",
+  "Need help? Found a bug? Report it here": "Need help? Found a bug? Report it here"
 }
