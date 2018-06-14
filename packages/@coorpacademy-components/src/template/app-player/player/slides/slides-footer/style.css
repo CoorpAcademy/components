@@ -8,6 +8,7 @@
 @value positive from colors;
 @value black from colors;
 @value medium from colors;
+@value white from colors;
 
 .wrapper {
   max-width: 960px;
@@ -27,15 +28,15 @@
 }
 
 .button {
-  flex-grow: 1;
+  flex: 1;
   background-color: xtraLightGrey;
   cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-top: 1px solid light;
   border-right: 1px solid light;
+  border-top: 1px solid light;
   box-sizing: border-box;
 }
 
@@ -44,12 +45,14 @@
 }
 
 .button:hover {
-  background-color: light;
+  transition: all 0.15s ease-in-out;
+  border-top: 2px solid;
 }
 
 .selected {
   composes: button;
-  background-color: light;
+  background-color: white;
+  border-top: 2px solid;
 }
 
 .disabled {
@@ -109,18 +112,6 @@
 }
 
 @media mobile {
-  .button:hover {
-    background-color: xtraLightGrey;
-  }
-
-  .selected:hover {
-    background-color: light;
-  }
-
-  .disabled:hover {
-    background-color: xtraLightGrey;
-  }
-
   .coach {
     display: none;
   }

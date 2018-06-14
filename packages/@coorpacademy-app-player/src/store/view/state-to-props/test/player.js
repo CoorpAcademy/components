@@ -147,11 +147,10 @@ test('should create player props for basic question and show coaches', t => {
   t.is(props.cta.submitValue, '__Validate');
   t.true(props.cta.disabled);
 
-  t.is(props.buttons.length, 3);
-  t.is(props.buttons[2].title, '__Coach');
-  t.is(props.buttons[2].type, 'coach');
+  t.is(props.buttons.length, 4);
+  t.is(props.buttons[3].title, '__Coach');
+  t.is(props.buttons[3].type, 'coach');
 });
-
 test('should enable the validate button when there is an answer', t => {
   t.true(isDisabledFor(basicSlide, false, []));
   t.false(isDisabledFor(basicSlide, false, ['foo']));
@@ -284,7 +283,7 @@ test('should display context tab button if slide context is available', t => {
   t.is(props.slideContext.title, 'Some context title');
   t.is(typeof props.slideContext.description, 'string');
   t.is(props.slideContext.description, contextSlide.context.description);
-  t.is(props.buttons.length, 4);
+  t.is(props.buttons.length, 5);
   t.is(props.buttons[0].title, '__Context');
   t.is(props.buttons[0].type, 'context');
   t.false(props.buttons[0].selected);

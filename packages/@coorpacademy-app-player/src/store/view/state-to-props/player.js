@@ -96,6 +96,12 @@ const playerProps = (options, store) => state => {
   const buttons = [
     ...contextButton,
     {
+      title: translate('Question'),
+      type: 'question',
+      selected: route === 'answer',
+      onClick: clickBackToAnswerHandler
+    },
+    {
       title: translate('Media'),
       type: 'media',
       selected: route === 'media',
@@ -125,10 +131,29 @@ const playerProps = (options, store) => state => {
     (isAdaptive &&
       answers.length > 1 &&
       includes(get('question.type', slide), ['qcm', 'qcmGraphic']));
-
   if (!includes(route, ROUTES)) {
     return {};
   }
+
+  const ctaButtonValidate = {
+    submitValue: translate('Validate'),
+    onClick: clickCTAHandler,
+    light: false,
+    small: false,
+    name: 'validateAnswerCTA',
+    secondary: false,
+    disabled: ctaDisabled
+  };
+
+  const ctaButtonBackToQuestion = {
+    submitValue: translate(route === 'context' ? 'Go to question' : 'Back to question'),
+    onClick: clickBackToAnswerHandler,
+    light: false,
+    small: false,
+    name: 'backToQuestionCTA',
+    secondary: true,
+    disabled: false
+  };
 
   return {
     typeClue: route,
@@ -141,26 +166,7 @@ const playerProps = (options, store) => state => {
     verticalMargin: 260,
     starsDiff,
     resources,
-    cta:
-      route === 'answer'
-        ? {
-            submitValue: translate('Validate'),
-            onClick: clickCTAHandler,
-            light: false,
-            small: false,
-            name: 'validateAnswerCTA',
-            secondary: false,
-            disabled: ctaDisabled
-          }
-        : {
-            submitValue: translate(route === 'context' ? 'Go to question' : 'Back to question'),
-            onClick: clickBackToAnswerHandler,
-            light: false,
-            small: false,
-            name: 'backToQuestionCTA',
-            secondary: true,
-            disabled: false
-          },
+    cta: route === 'answer' ? ctaButtonValidate : ctaButtonBackToQuestion,
     help,
     answerType: {
       model: answer,

@@ -260,11 +260,17 @@ Help.propTypes = {
   help: PropTypes.string
 };
 
-const ValidateButton = ({cta}) => (
-  <div className={style.ctaWrapper}>
-    <Cta className={style.cta} {...cta} />
-  </div>
-);
+const ValidateButton = ({cta}) => {
+  if (!cta) {
+    return null;
+  }
+
+  return (
+    <div className={style.ctaWrapper}>
+      <Cta className={style.cta} {...cta} />
+    </div>
+  );
+};
 
 ValidateButton.propTypes = {
   cta: PropTypes.shape(Cta.propTypes)
@@ -273,12 +279,12 @@ ValidateButton.propTypes = {
 const ContentLayout = (props, context) => {
   const {typeClue, answerType: {model: {type} = {}} = {}, question, help} = props;
   const ContentType = CONTENT_TYPE[typeClue];
-  const wrapperColor = typeClue === 'answer' ? 'white' : '#ECEFF1';
+  // const wrapperColor = typeClue === 'answer' ? 'white' : '#ECEFF1';
   const noPaddingRessources =
     ContentType === MediaContent ? `${style.contentWrapperNoPadding}` : `${style.contentWrapper}`;
 
   return (
-    <div className={noPaddingRessources} style={{backgroundColor: wrapperColor}}>
+    <div className={noPaddingRessources} style={{backgroundColor: 'white'}}>
       <div
         data-name="question"
         className={style.question}
@@ -367,6 +373,7 @@ SlidesPlayer.contextTypes = {
 };
 
 SlidesPlayer.propTypes = {
+  cta: ValidateButton.propTypes.cta,
   step: Step.propTypes.step,
   buttons: SlidesFooter.propTypes.buttons,
   showNewMedia: PropTypes.bool,

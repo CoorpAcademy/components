@@ -6,7 +6,7 @@
 @value positive from colors;
 @value white from colors;
 @value brand from colors;
-@value tablet from "../../../variables/breakpoints.css";
+@value tablet, mobile from "../../../variables/breakpoints.css";
 
 @keyframes fadeInBackground {
   0% { opacity: 0; }
@@ -166,6 +166,12 @@
 .simpleText {
   composes: text;
   color: dark;
+}
+
+@media mobile {
+  .wrapperAssistance {
+    margin-bottom: 8px;
+  }
 }
 
 @media tablet {
