@@ -56,6 +56,10 @@ export const findById = async id => {
 export const getEngineConfig = async engine => {
   return getConfig(engine);
 };
+// eslint-disable no-console
+export const openAssistance = progression => {
+  return () => console.log('test progression', progression);
+};
 
 const getAvailableContent = async content => {
   const chapters =

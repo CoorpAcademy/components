@@ -19,6 +19,7 @@ import {
 import {acceptExtraLifeAndReset, refuseExtraLifeAndReset} from '../../actions/ui/extra-life';
 import {toggleAccordion} from '../../actions/ui/corrections';
 import {selectProgression} from '../../actions/ui/progressions';
+import {openAssistance} from '../../services/progressions';
 import getResourcesProps from './resources';
 
 const isNewChapter = (state, progression) => {
@@ -180,7 +181,11 @@ export const popinCorrectionStateToProps = (options, store) => state => {
       value: getOr('', 'tips', slide),
       open: getOr(false, '2', accordion)
     },
-    onClick: toggleAccordionSection
+    onClick: toggleAccordionSection,
+    assistanceLink: {
+      title: translate('Need help? Found a bug? Report it here'),
+      onClick: openAssistance(progression)
+    }
   };
 
   return props;
