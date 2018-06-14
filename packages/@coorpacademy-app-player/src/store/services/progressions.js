@@ -56,8 +56,8 @@ export const findById = async id => {
 export const getEngineConfig = async engine => {
   return getConfig(engine);
 };
-// eslint-disable no-console
 export const openAssistance = progression => {
+  // eslint-disable-next-line no-console
   return () => console.log('test progression', progression);
 };
 
