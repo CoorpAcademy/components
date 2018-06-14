@@ -9594,6 +9594,13 @@ react-textarea-autosize@^5.2.1:
   dependencies:
     prop-types "^15.6.0"
 
+react-tooltip@^3.6.1:
+  version "3.6.1"
+  resolved "https://registry.npmjs.org/react-tooltip/-/react-tooltip-3.6.1.tgz#2ca993baa50d7e0271b8d13c6024445a883842eb"
+  dependencies:
+    classnames "^2.2.5"
+    prop-types "^15.6.0"
+
 react-transition-group@^2.0.0:
   version "2.3.1"
   resolved "https://registry.npmjs.org/react-transition-group/-/react-transition-group-2.3.1.tgz#31d611b33e143a5e0f2d94c348e026a0f3b474b6"
