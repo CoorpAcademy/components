@@ -4,7 +4,6 @@ import pipe from 'lodash/fp/pipe';
 import Provider from '@coorpacademy/components/es/atom/provider';
 import {selectMapStateToVNode} from '../store/view';
 import {refreshStateOnPolling, selectProgression} from '../store/actions/ui/progressions';
-import {waitForRefresh} from '../store/actions/api/progressions';
 import {getCurrentProgressionId, hasReceivedPollingData} from '../store/utils/state-extract';
 import start from '../store/start';
 import createStore from '../store';
@@ -21,9 +20,10 @@ const createUpdate = (container, store, options) => _selectMapStateToVNode => {
     const progressionId = getCurrentProgressionId(state);
     const restartPolling = hasReceivedPollingData(state);
 
+    console.log('check restartPolling --> ', restartPolling);
     if (restartPolling) {
+      console.log('refreshStateOnPolling !');
       await dispatch(refreshStateOnPolling(progressionId));
-      dispatch(waitForRefresh(progressionId));
     }
 
     return render(view, container);

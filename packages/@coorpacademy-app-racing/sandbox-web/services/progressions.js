@@ -127,17 +127,19 @@ export const postAnswer = async (progressionId, payload, forcedUser, godMode = f
 
 export const waitForRefresh = async progressionId => {
   await delay(3000);
-  const user = 'user_2';
-  const progression = progressionStore.get(progressionId);
-  const content = progression.state.users[user].nextContent;
 
-  const nextProgression = await postAnswer(progressionId, {content}, user, true);
-
+  const userId = 'user_2';
   const teamIndex = 0;
   const isCorrect = true;
 
+  const progression = progressionStore.get(progressionId);
+  const content = progression.state.users[userId].nextContent;
+
+  const nextProgression = await postAnswer(progressionId, {content}, userId, true);
+
   return {
     progression: nextProgression,
+    userId,
     teamIndex,
     isCorrect
   };

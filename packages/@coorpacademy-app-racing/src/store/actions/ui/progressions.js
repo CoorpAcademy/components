@@ -1,7 +1,7 @@
 import get from 'lodash/fp/get';
-import {fetchProgression, fetchEngineConfig} from '../api/progressions';
+import {fetchProgression, fetchEngineConfig, waitForRefresh} from '../api/progressions';
 import {fetchContent} from '../api/contents';
-import {getEngine, getStepContent} from '../../utils/state-extract';
+import {getEngine, getStepContent, getCurrentUserId} from '../../utils/state-extract';
 
 export const UI_SELECT_PROGRESSION = '@@ui/SELECT_PROGRESSION';
 
@@ -24,15 +24,33 @@ export const selectProgression = id => async (dispatch, getState) => {
 };
 
 export const UI_REFRESH_RACE_ON_POLLING = '@@ui/REFRESH_RACE_ON_POLLING';
+export const UI_POLLING_RESET = '@@ui/POLLING_RESET';
 
-export const refreshStateOnPolling = id => (dispatch, getState, {services}) => {
+export const refreshStateOnPolling = id => async (dispatch, getState, {services}) => {
   const state = getState();
   const currentView = get(['ui', 'route', id], state);
   const payload = get(['ui', 'current', id, 'polling'], state);
 
-  return dispatch({
-    type: UI_REFRESH_RACE_ON_POLLING,
-    meta: {id, currentView},
-    payload
+  console.log('dispatch UI_POLLING_RESET');
+  await dispatch({
+    type: UI_POLLING_RESET,
+    meta: {id, currentView}
   });
+
+  if (getCurrentUserId(getState()) !== payload.userId) {
+    console.log('refreshing --> ', payload.userId);
+
+    console.log('dispatch UI_REFRESH_RACE_ON_POLLING');
+    await dispatch({
+      type: UI_REFRESH_RACE_ON_POLLING,
+      meta: {id, currentView},
+      payload
+    });
+  }
+  else {
+    console.log('NO refreshing --> ', payload.userId);
+  }
+
+  console.log('dispatch waitForRefresh');
+  return dispatch(waitForRefresh(id));
 };

@@ -42,6 +42,7 @@ const uiRacesReducer = (state = {entities: {}}, action) => {
     }
 
     case UI_REFRESH_RACE_ON_POLLING: {
+      console.log('--> UI_REFRESH_RACE_ON_POLLING');
       const {payload, meta} = action;
       const {id, currentView} = meta;
       const {teamIndex, isCorrect} = payload;
@@ -51,11 +52,11 @@ const uiRacesReducer = (state = {entities: {}}, action) => {
 
       switch (currentView) {
         case 'question': {
-          console.log('[pushToRace] ------> BG ' + (isCorrect ? 'new' : 'lost'));
+          console.log('[other pushToRace] ------> BG ' + (isCorrect ? 'new' : 'lost'));
           return pushToRace('background');
         }
         case 'race': {
-          console.log('[pushToRace] ------> DISPLAY ' + (isCorrect ? 'new' : 'lost'));
+          console.log('[other pushToRace] ------> DISPLAY ' + (isCorrect ? 'new' : 'lost'));
           return pushToRace('display');
         }
         default:
@@ -88,7 +89,7 @@ const uiRacesReducer = (state = {entities: {}}, action) => {
       )(progression.state);
 
       if (isCorrect) {
-        console.log('[BG] ------> push a NEW ');
+        console.log('[BG on reply] ------> push a NEW ');
         background[teamNum].push('new');
       } else {
         const tower = background[teamNum];
@@ -102,10 +103,10 @@ const uiRacesReducer = (state = {entities: {}}, action) => {
 
         if (nbNews > nbPlaced) {
           const lostIndex = findIndex(isEqual('new'), background[teamNum]);
-          console.log('[BG] ------> replace by LOST at ' + lostIndex);
+          console.log('[BG on reply] ------> replace by LOST at ' + lostIndex);
           background[teamNum].splice(lostIndex, 1, 'lost');
         } else {
-          console.log('[BG] ------> push a LOST ');
+          console.log('[BG on reply] ------> push a LOST ');
           background[teamNum].push('lost');
         }
       }
