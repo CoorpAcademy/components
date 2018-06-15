@@ -7,13 +7,13 @@ export default {
       pointsDescription: "Vous faites avancer votre équipe d'un pas"
     },
     race: {
-      goal: 15,
+      goal: 8,
       towers: [
         ['removed', 'lost', 'new', 'new', 'new'],
         ['placed', 'placed', 'placed', 'placed', 'new', 'new', 'new'],
-        ['removed', 'lost', 'placed', 'placed'],
+        ['removed', 'lost', 'lost', 'lost', 'placed', 'placed'],
         ['placed', 'placed'],
-        ['lost', 'placed', 'placed', 'new', 'new']
+        ['removed', 'placed', 'placed', 'new', 'new']
       ]
     },
     teamMembers: [

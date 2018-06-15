@@ -28,7 +28,7 @@
 
 @keyframes drop {
   0% {
-    bottom: 200%;
+    bottom: 150%;
   }
 
   10%,
@@ -53,6 +53,58 @@
   }
 }
 
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-30px);
+  }
+
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes hinge {
+  0% {
+    opacity: 1;
+    transform: rotate(0);
+    transform-origin: top left;
+    animation-timing-function: ease-in-out;
+  }
+
+  20%,
+  60% {
+    transform: rotate(80deg);
+    transform-origin: top left;
+    animation-timing-function: ease-in-out;
+  }
+
+  40% {
+    transform: rotate(60deg);
+    transform-origin: top left;
+    animation-timing-function: ease-in-out;
+  }
+
+  80% {
+    transform: rotate(60deg) translateY(0);
+    opacity: 1;
+    transform-origin: top left;
+    animation-timing-function: ease-in-out;
+  }
+
+  100% {
+    transform: translateY(700px);
+    opacity: 0;
+  }
+}
+
 .block {
   width: 100%;
   position: absolute;
@@ -62,13 +114,21 @@
 }
 
 .new {
-  animation: drop 15s;
+  animation: drop;
+}
+
+.lost {
+  opacity: 0;
+  transform: scale(0);
+  animation: hinge;
+}
+
+.placedAndMoved {
+  animation: bounce;
 }
 
 .removed {
   transform: scale(0);
-  z-index: 10;
-  transition: all 0.6s cubic-bezier(0.7, -0.8, 0.94, 0.76);
 }
 
 .lines {

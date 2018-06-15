@@ -15,18 +15,23 @@ const BLOCKS = [
   'https://user-images.githubusercontent.com/910636/41063881-3c957008-69da-11e8-83e4-374509a9c5ed.png'
 ];
 
-const Block = ({image, index, type, height, bottom}) => (
+const BLOCK_STYLES = {
+  new: style.new,
+  lost: style.lost,
+  removed: style.removed,
+  placedAndMoved: style.placedAndMoved
+};
+
+const Block = ({image, animationDuration, type, height, bottom}) => (
   <div
-    className={classnames([style.block, style[type], type === 'new' && style.shake])}
+    className={classnames([style.block, BLOCK_STYLES[type]])}
     style={{
       height,
       bottom,
       backgroundImage: `url(${image}`,
-      animationDuration: `${2000 + index * 200}ms`
+      animationDuration
     }}
-  >
-    {type}
-  </div>
+  />
 );
 
 Block.propTypes = {
@@ -35,19 +40,24 @@ Block.propTypes = {
 
 const Tower = ({team, blocks, blockSize}) => (
   <div className={style.tower}>
-    {_map(
-      (value, index) => (
+    {_map((value, index) => {
+      const count = countBy(identity, blocks);
+      const nbRemoved = (count.removed || 0) + (count.lost || 0);
+      const placedAndMoved = value === 'placed' && nbRemoved > 0;
+      const animationDuration = `${placedAndMoved ? 400 + index * 150 : 1400 + index * 200}ms`;
+
+      return (
         <Block
-          type={value}
+          type={placedAndMoved ? 'placedAndMoved' : value}
           image={BLOCKS[team]}
-          height={`${value === 'removed' ? null : blockSize}%`}
-          bottom={`${(index - (countBy(identity, blocks).removed || 0)) * blockSize}%`}
+          height={`${value === ('removed' || 'lost') ? null : blockSize}%`}
+          bottom={`${(index - nbRemoved) * blockSize}%`}
           index={index}
+          animationDuration={animationDuration}
           key={`block-${team}-${index}`}
         />
-      ),
-      blocks
-    )}
+      );
+    }, blocks)}
   </div>
 );
 
