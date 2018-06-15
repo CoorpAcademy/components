@@ -8,7 +8,7 @@
 
 .sectionCTA {
   display: flex;
-  height: 20%;
+  height: 15%;
   align-items: center;
   justify-content: center;
 }
@@ -36,26 +36,28 @@
     transform: translateX(-50%) translateY(-20px);
   }
 
-  70% {
+  80% {
     opacity: 1;
     transform: translateX(-50%) translateY(0);
   }
 
   100% {
     opacity: 0;
-    transform: translateX(250%) translateY(0);
+    transform: translateX(-50%) translateY(10px) scale(0.2);
   }
 }
 
 .message {
   position: absolute;
   font-family: 'Open Sans';
+  font-weight: 700px;
   font-size: 36px;
-  color: #ededed;
+  color: #0e3a3d;
+  transform: translateX(-50%);
+  opacity: 0;
   top: 20%;
   left: 50%;
-  transform: translateX(250%);
-  animation: fadeInDown 4s;
+  animation: fadeInDown 3s;
 }
 
 .sectionHeader {
@@ -67,7 +69,7 @@
 }
 
 .sectionRace {
-  height: 80%;
+  height: 85%;
 }
 
 @media mobile {

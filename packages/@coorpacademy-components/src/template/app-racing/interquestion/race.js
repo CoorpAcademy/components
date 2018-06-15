@@ -77,9 +77,9 @@ const Race = props => {
 
   return (
     <div className={style.race}>
-      <div className={style.arrival}>Arrival: {goal}</div>
+      <div className={style.arrival} />
       <Towers towers={towers} goal={goal} />
-      <div className={style.start}>Start</div>
+      <div className={style.start} />
     </div>
   );
 };
