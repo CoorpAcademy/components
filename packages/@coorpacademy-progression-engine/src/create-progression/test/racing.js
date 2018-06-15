@@ -43,7 +43,7 @@ test('should create a new progression with the latest version of the engine and 
     throw new Error('progression should not be falsy');
   }
 
-  t.plan(24);
+  t.plan(28);
 
   t.deepEqual(
     Object.keys(progression).sort(),
@@ -67,10 +67,11 @@ test('should create a new progression with the latest version of the engine and 
 
   each(
     map(_user => {
-      const {nextContent = {}, team, id} = users[_user.id];
+      const {nextContent = {}, team, id, questionNum} = users[_user.id];
       const teamIndex = findIndex(find({id: _user.id}), initialTeams);
       t.is(id, _user.id);
       t.is(team, teamIndex);
+      t.is(questionNum, 1);
       t.is(nextContent.type, 'slide');
       t.regex(nextContent.ref, /1.A1.*/);
     }),
@@ -80,7 +81,7 @@ test('should create a new progression with the latest version of the engine and 
   const teams = action.payload.teams;
 
   t.deepEqual(teams, {
-    '0': {players: ['user_1', 'user_2'], step: 0},
-    '1': {players: ['user_3', 'user_4'], step: 0}
+    '0': {players: ['user_1', 'user_2'], tower: []},
+    '1': {players: ['user_3', 'user_4'], tower: []}
   });
 });

@@ -10,8 +10,6 @@ import start from '../store/start';
 import createStore from '../store';
 import {createStateToVNode, views} from './views';
 
-let i = 0;
-
 const createUpdate = (container, store, options) => _selectMapStateToVNode => {
   const {getState, dispatch} = store;
   const mapStateToVNode = _selectMapStateToVNode(options, store, views, createStateToVNode);
@@ -25,10 +23,7 @@ const createUpdate = (container, store, options) => _selectMapStateToVNode => {
 
     if (restartPolling) {
       await dispatch(refreshStateOnPolling(progressionId));
-
-      if (i++ < 2) {
-        dispatch(waitForRefresh(progressionId));
-      }
+      dispatch(waitForRefresh(progressionId));
     }
 
     return render(view, container);

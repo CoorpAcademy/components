@@ -71,63 +71,62 @@ const progression: Progression = {
 test('should create a state from a racing progression just created', t => {
   const state = createState(progression);
   t.deepEqual(state, {
-    goal: 20,
     teams: {
       '0': {
         players: ['user_1', 'user_2'],
-        step: 0
+        tower: []
       },
       '1': {
         players: ['user_3', 'user_4'],
-        step: 0
+        tower: []
       }
     },
     users: {
       user_1: {
         id: 'user_1',
         isCorrect: true,
+        team: 0,
         questionNum: 1,
         nextContent: {
           type: 'slide',
           ref: '1.A1.1'
         },
-        content: undefined,
         slides: [],
         allAnswers: []
       },
       user_2: {
         id: 'user_2',
         isCorrect: true,
+        team: 0,
         questionNum: 1,
         nextContent: {
           type: 'slide',
           ref: '1.A1.2'
         },
-        content: undefined,
         slides: [],
         allAnswers: []
       },
       user_3: {
         id: 'user_3',
         isCorrect: true,
+        team: 1,
         questionNum: 1,
         nextContent: {
           type: 'slide',
           ref: '1.A1.3'
         },
-        content: undefined,
         slides: [],
         allAnswers: []
       },
       user_4: {
         id: 'user_4',
         isCorrect: true,
+        team: 1,
         questionNum: 1,
         nextContent: {
           type: 'slide',
           ref: '1.A1.4'
         },
-        content: undefined,
         slides: [],
         allAnswers: []
       }

@@ -48,6 +48,7 @@ const appendUser = (nextContent, initialTeams) => (users, user): RacingUsers => 
     [user.id]: {
       id: user.id,
       nextContent,
+      questionNum: 1,
       team
     }
   };
