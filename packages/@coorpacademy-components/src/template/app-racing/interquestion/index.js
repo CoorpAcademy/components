@@ -12,17 +12,15 @@ const RacingInterquestionScreen = props => {
   return (
     <div className={style.screenWrapper}>
       <div className={style.screen}>
-        <section className={sectionClassName(style.sectionHeader)}>
-          <Header {...header} />
-        </section>
         <section className={sectionClassName(style.sectionBody)}>
           <section className={sectionClassName(style.sectionRace)}>
             <Race {...race} />
           </section>
           <section className={sectionClassName(style.sectionCTA)}>
-            <Cta {...props.cta} className={style.cta} />
+            <Cta {...props.cta} />
           </section>
         </section>
+        <p className={style.message}>{header.title}</p>
       </div>
     </div>
   );

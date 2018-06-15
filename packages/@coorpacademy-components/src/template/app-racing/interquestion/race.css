@@ -1,6 +1,8 @@
+@value breakpoints: "../../../variables/breakpoints.css";
 @value colors: "../../../variables/colors.css";
 @value dark from colors;
 @value medium from colors;
+@value mobile from breakpoints;
 
 .race {
   position: relative;
@@ -20,7 +22,9 @@
 
 .towers {
   display: flex;
-  width: 70%;
+  width: 95%;
+  padding: 0 20%;
+  box-sizing: border-box;
   align-items: flex-end;
   justify-content: space-around;
   height: 100%;
@@ -101,7 +105,6 @@
 
   100% {
     transform: translateY(700px);
-    opacity: 0;
   }
 }
 
@@ -148,4 +151,10 @@
 .start {
   composes: lines;
   background-color: dark;
+}
+
+@media mobile {
+  .towers {
+    padding: 0;
+  }
 }

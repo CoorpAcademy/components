@@ -35,7 +35,7 @@ const Block = ({image, animationDuration, type, height, bottom}) => (
 );
 
 Block.propTypes = {
-  type: PropTypes.oneOf(['new', 'lost', 'placed', 'removed'])
+  type: PropTypes.oneOf(['new', 'lost', 'placed', 'placedAndMoved', 'removed'])
 };
 
 const Tower = ({team, blocks, blockSize}) => (
