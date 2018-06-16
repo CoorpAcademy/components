@@ -7,9 +7,9 @@ import pipe from 'lodash/fp/pipe';
 import {
   PROGRESSION_FETCH_SUCCESS,
   PROGRESSION_FETCH_REQUEST,
-  PROGRESSION_FETCH_FAILURE,
-  PROGRESSION_WAIT_FOR_REFRESH_SUCCESS
+  PROGRESSION_FETCH_FAILURE
 } from '../../actions/api/progressions';
+import {POLL_RECEPTION} from '../../middlewares/polling-saga';
 
 const dataProgressionsReducer = (state = {entities: {}}, action) => {
   switch (action.type) {
@@ -18,7 +18,7 @@ const dataProgressionsReducer = (state = {entities: {}}, action) => {
       const {id} = meta;
       return set(['entities', id], payload, state);
     }
-    case PROGRESSION_WAIT_FOR_REFRESH_SUCCESS: {
+    case POLL_RECEPTION: {
       const {payload, meta} = action;
       const {progression} = payload;
       const {id} = meta;

@@ -1,4 +1,4 @@
-import {waitForRefresh} from './actions/api/progressions';
+import {POLL_START} from './middlewares/polling-saga';
 import {selectRoute} from './actions/ui/route';
 import {selectProgression} from './actions/ui/progressions';
 import {selectCurrentUser} from './actions/ui/users';
@@ -16,7 +16,7 @@ const start = async ({progressionId}, {getState, dispatch}) => {
   const startRoute = showQuestion(getState()) ? 'question' : 'race';
   await dispatch(selectRoute(startRoute));
 
-  return dispatch(waitForRefresh(progressionId));
+  return dispatch({type: POLL_START, meta: {progressionId}});
 };
 
 export default start;

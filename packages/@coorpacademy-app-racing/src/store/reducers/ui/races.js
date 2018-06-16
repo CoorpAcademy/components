@@ -21,7 +21,7 @@ import {
 } from '../../actions/api/progressions';
 
 import {UI_SEE_QUESTION} from '../../actions/ui/location';
-import {UI_REFRESH_RACE_ON_POLLING} from '../../actions/ui/progressions';
+import {POLL_RECEPTION} from '../../middlewares/polling-saga';
 
 const uiRacesReducer = (state = {entities: {}}, action) => {
   switch (action.type) {
@@ -41,14 +41,14 @@ const uiRacesReducer = (state = {entities: {}}, action) => {
       )(state);
     }
 
-    case UI_REFRESH_RACE_ON_POLLING: {
-      console.log('--> UI_REFRESH_RACE_ON_POLLING');
+    case POLL_RECEPTION: {
+      console.log('--> POLL_RECEPTION');
       const {payload, meta} = action;
-      const {id, currentView} = meta;
+      const {progressionId, currentView} = meta;
       const {teamIndex, isCorrect} = payload;
 
       const pushToRace = key =>
-        update(['entities', id, key, teamIndex], concat(isCorrect ? ['new'] : ['lost']), state);
+        update(['entities', progressionId, key, teamIndex], concat(isCorrect ? ['new'] : ['lost']), state);
 
       switch (currentView) {
         case 'question': {

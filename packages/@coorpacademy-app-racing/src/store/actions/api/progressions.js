@@ -1,4 +1,3 @@
-import get from 'lodash/fp/get';
 import buildTask from '@coorpacademy/redux-task';
 import {getEngineConfig, getCurrentUserId, getCurrentUserState} from '../../utils/state-extract';
 
@@ -57,27 +56,6 @@ export const createAnswer = (progressionId, answer) => (dispatch, getState, {ser
         answer
       }),
     meta: {progressionId, author}
-  });
-
-  return dispatch(action);
-};
-
-export const PROGRESSION_WAIT_FOR_REFRESH_REQUEST = '@@progression/WAIT_FOR_REFRESH_REQUEST';
-export const PROGRESSION_WAIT_FOR_REFRESH_SUCCESS = '@@progression/WAIT_FOR_REFRESH_SUCCESS';
-export const PROGRESSION_WAIT_FOR_REFRESH_FAILURE = '@@progression/WAIT_FOR_REFRESH_FAILURE';
-
-export const waitForRefresh = id => (dispatch, getState, {services}) => {
-  const {Progressions} = services;
-  const currentView = get(['ui', 'route', id], getState());
-
-  const action = buildTask({
-    types: [
-      PROGRESSION_WAIT_FOR_REFRESH_REQUEST,
-      PROGRESSION_WAIT_FOR_REFRESH_SUCCESS,
-      PROGRESSION_WAIT_FOR_REFRESH_FAILURE
-    ],
-    task: () => Progressions.waitForRefresh(id),
-    meta: {id, currentView}
   });
 
   return dispatch(action);
