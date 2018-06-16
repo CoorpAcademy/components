@@ -1,11 +1,10 @@
 import React from 'react';
 import classnames from 'classnames';
 import Cta from '../../../atom/cta';
-import Header from './header';
-import Race from './race';
+import Towers from './towers';
 import style from './style.css';
 
-const RacingInterquestionScreen = props => {
+const Race = props => {
   const {header, race} = props;
   const sectionClassName = subStyle => classnames(style.layoutSection, subStyle);
 
@@ -14,7 +13,7 @@ const RacingInterquestionScreen = props => {
       <div className={style.screen}>
         <section className={sectionClassName(style.sectionBody)}>
           <section className={sectionClassName(style.sectionRace)}>
-            <Race {...race} />
+            <Towers {...race} />
           </section>
           <section className={sectionClassName(style.sectionCTA)}>
             <Cta {...props.cta} />
@@ -26,4 +25,4 @@ const RacingInterquestionScreen = props => {
   );
 };
 
-export default RacingInterquestionScreen;
+export default Race;

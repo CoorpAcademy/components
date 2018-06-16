@@ -1,6 +1,6 @@
 import Loading from '@coorpacademy/components/es/template/app-player/loading';
-import SlidesPlayer from '@coorpacademy/components/es/template/app-player/player/slides/slides-player';
-import RacingInterquestion from '@coorpacademy/components/es/template/app-racing/interquestion';
+import Question from '@coorpacademy/components/es/template/app-racing/question';
+import Race from '@coorpacademy/components/es/template/app-racing/race';
 import pipe from 'lodash/fp/pipe';
 import {createElement} from 'react';
 
@@ -9,6 +9,6 @@ export const createStateToVNode = (template, mapStateToProps) =>
 
 export const views = {
   loading: Loading,
-  player: SlidesPlayer,
-  race: RacingInterquestion
+  question: Question,
+  race: Race
 };

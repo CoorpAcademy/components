@@ -4,7 +4,7 @@ import map from 'lodash/fp/map';
 import React from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
-import style from './race.css';
+import style from './towers.css';
 
 const _map = map.convert({cap: false});
 const BLOCKS = [

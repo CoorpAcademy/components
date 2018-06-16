@@ -3,7 +3,7 @@ import constant from 'lodash/fp/constant';
 import isNil from 'lodash/fp/isNil';
 import pipe from 'lodash/fp/pipe';
 import {getCurrentProgression, showQuestion, showRace} from '../utils/state-extract';
-import createPlayerStateToProps from './state-to-props/player';
+import createQuestionStateToProps from './state-to-props/question';
 import loadingStateToProps from './state-to-props/loading';
 import createRaceStateToProps from './state-to-props/race';
 
@@ -13,7 +13,7 @@ const hasNotProgression = pipe(getCurrentProgression, isNil);
 export const selectMapStateToVNode = (options, store, views, createStateToVNode) =>
   cond([
     [hasNotProgression, createStateToVNode(views.loading, loadingStateToProps)],
-    [showQuestion, createStateToVNode(views.player, createPlayerStateToProps(options, store))],
+    [showQuestion, createStateToVNode(views.question, createQuestionStateToProps(options, store))],
     [showRace, createStateToVNode(views.race, createRaceStateToProps(options, store))],
     [constant(true), createStateToVNode(views.race, createRaceStateToProps(options, store))]
   ]);
