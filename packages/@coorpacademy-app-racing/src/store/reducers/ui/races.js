@@ -47,16 +47,43 @@ const uiRacesReducer = (state = {entities: {}}, action) => {
       const {progressionId, currentView} = meta;
       const {teamIndex, isCorrect} = payload;
 
-      const pushToRace = key =>
-        update(['entities', progressionId, key, teamIndex], concat(isCorrect ? ['new'] : ['lost']), state);
+      const pushToRace = key => {
+        console.log(`[other pushToRace] ------> ${key} `);
+        if (isCorrect) {
+          console.log('  --> push new');
+          return update(
+            ['entities', progressionId, key, teamIndex],
+            tower => concat(tower, ['new']),
+            state
+          );
+        } else {
+          console.log('  --> should push lost');
+          const tower = get(['entities', progressionId, key, teamIndex], state);
+          const removedIndex = findIndex(isEqual('placed'), tower);
+          const newIndex = findIndex(isEqual('new'), tower);
+
+          const index = removedIndex !== -1 ? removedIndex : newIndex;
+          console.log({
+            removedIndex,
+            newIndex,
+            index
+          });
+
+          console.log('before', tower);
+          if (index !== -1) {
+            console.log('  --> splice lost at ', index);
+            tower.splice(index, 1, 'lost');
+          }
+
+          return set(['entities', progressionId, key, teamIndex], tower, state);
+        }
+      };
 
       switch (currentView) {
         case 'question': {
-          console.log('[other pushToRace] ------> BG ' + (isCorrect ? 'new' : 'lost'));
           return pushToRace('background');
         }
         case 'race': {
-          console.log('[other pushToRace] ------> DISPLAY ' + (isCorrect ? 'new' : 'lost'));
           return pushToRace('display');
         }
         default:
@@ -118,7 +145,7 @@ const uiRacesReducer = (state = {entities: {}}, action) => {
         const news = range(0, getOr(0, [t, 'new'], towersUpdate));
 
         each(l => {
-          const removedIndex = findIndex(isEqual('removed'), tower);
+          const removedIndex = findLastIndex(isEqual('removed'), tower);
           if (removedIndex !== -1) {
             tower.splice(removedIndex, 1, 'lost');
           }

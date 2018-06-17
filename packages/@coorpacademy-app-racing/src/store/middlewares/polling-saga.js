@@ -4,6 +4,7 @@ import {put, call, race, take, select} from 'redux-saga/effects';
 export const POLL_START = '@@polling/start';
 export const POLL_STOP = '@@polling/stop';
 export const POLL_RECEPTION = '@@polling/reception';
+export const POLL_RECEPTION_MYSELF = '@@polling/reception-myself';
 export const POLL_FAILURE = '@@polling/failure';
 
 const pollingReceived = (progressionId, currentView, payload) => ({
@@ -29,9 +30,14 @@ function createWorker({services}) {
       while (true) {
         try {
           const payload = yield Progressions.waitForRefresh(progressionId);
+          const {userId} = payload;
           const currentView = yield select(get(['ui', 'route', progressionId]));
-
-          yield put(pollingReceived(progressionId, currentView, payload));
+          const currentUserId = yield select(get(['ui', 'current', 'userId']));
+          if (currentUserId === userId) {
+            yield put({type: POLL_RECEPTION_MYSELF});
+          } else {
+            yield put(pollingReceived(progressionId, currentView, payload));
+          }
         } catch (err) {
           yield put(pollingFailed(progressionId, err));
         }

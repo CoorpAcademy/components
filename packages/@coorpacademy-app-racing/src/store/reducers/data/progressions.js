@@ -21,8 +21,8 @@ const dataProgressionsReducer = (state = {entities: {}}, action) => {
     case POLL_RECEPTION: {
       const {payload, meta} = action;
       const {progression} = payload;
-      const {id} = meta;
-      return set(['entities', id], progression, state);
+      const {progressionId} = meta;
+      return set(['entities', progressionId], progression, state);
     }
     case PROGRESSION_FETCH_REQUEST: {
       const {meta} = action;
