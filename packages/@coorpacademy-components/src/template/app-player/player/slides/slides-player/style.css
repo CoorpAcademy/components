@@ -1,5 +1,5 @@
 @value breakpoints: "../../../../../variables/breakpoints.css";
-@value mobile from breakpoints;
+@value mobile, tablet from breakpoints;
 @value colors: "../../../../../variables/colors.css";
 @value medium from colors;
 @value dark from colors;
@@ -17,6 +17,10 @@
   flex-direction: column;
   flex-grow: inherit;
   overflow: hidden;
+  margin-bottom: 80px;
+  max-width: 960px;
+  width: 100%;
+  align-self: center;
 }
 
 .contentWrapper {
@@ -69,9 +73,11 @@
   position: absolute;
   z-index: 1;
   height: 4px;
+  width: 0;
   border-radius: 3px;
   border-bottom-left-radius: 0;
   transition: width 0.3s ease-out;
+  transition-delay: 1s;
 }
 
 .infos {
@@ -196,6 +202,7 @@
   width: 100%;
   margin: 24px 0;
   padding: 0 9px;
+  box-sizing: border-box;
 }
 
 .contextWrapper {
@@ -210,10 +217,18 @@
   justify-content: center;
 }
 
+@media tablet {
+  .wrapper {
+    box-shadow: none;
+    border-radius: 0;
+  }
+}
+
 @media mobile {
   .wrapper {
     box-shadow: none;
     border-radius: 0;
+    margin-bottom: 0;
   }
 
   .resourcesWrapper {
