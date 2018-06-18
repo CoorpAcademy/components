@@ -1,7 +1,9 @@
 import countBy from 'lodash/fp/countBy';
+import defer from 'lodash/fp/defer';
 import identity from 'lodash/fp/identity';
 import map from 'lodash/fp/map';
-import React from 'react';
+import React, {Component} from 'react';
+import {Motion, spring} from 'react-motion';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import style from './towers.css';
@@ -22,16 +24,22 @@ const BLOCK_STYLES = {
   placedAndMoved: style.placedAndMoved
 };
 
-const Block = ({image, animationDuration, type, height, bottom}) => (
-  <div
-    className={classnames([style.block, BLOCK_STYLES[type]])}
-    style={{
-      height,
-      bottom,
-      backgroundImage: `url(${image}`,
-      animationDuration
-    }}
-  />
+const Block = ({image, index, type, height, bottom}) => (
+  <Motion
+    defaultStyle={{x: 1000}}
+    style={{x: spring(bottom, {stiffness: 240 - index * 10, damping: 22})}}
+  >
+    {({x}) => (
+      <div
+        className={classnames([style.block, BLOCK_STYLES[type]])}
+        style={{
+          height,
+          bottom: x,
+          backgroundImage: `url(${image}`
+        }}
+      />
+    )}
+  </Motion>
 );
 
 Block.propTypes = {
@@ -43,17 +51,15 @@ const Tower = ({team, blocks, blockSize}) => (
     {_map((value, index) => {
       const count = countBy(identity, blocks);
       const nbRemoved = (count.removed || 0) + (count.lost || 0);
-      const placedAndMoved = value === 'placed' && nbRemoved > 0;
-      const animationDuration = `${placedAndMoved ? 400 + index * 150 : 1400 + index * 200}ms`;
+      const bottom = (index - nbRemoved) * blockSize;
 
       return (
         <Block
-          type={placedAndMoved ? 'placedAndMoved' : value}
+          type={value}
           image={BLOCKS[team]}
-          height={`${value === ('removed' || 'lost') ? null : blockSize}%`}
-          bottom={`${(index - nbRemoved) * blockSize}%`}
+          height={`${value === ('removed' || 'lost') ? null : blockSize}px`}
+          bottom={bottom}
           index={index}
-          animationDuration={animationDuration}
           key={`block-${team}-${index}`}
         />
       );
@@ -61,16 +67,49 @@ const Tower = ({team, blocks, blockSize}) => (
   </div>
 );
 
-const Towers = ({towers, goal}) => (
-  <div className={style.towers}>
-    {_map(
-      (blocks, index) => (
-        <Tower key={`tower-${index}`} team={index} blocks={blocks} blockSize={100 / goal} />
-      ),
-      towers
-    )}
-  </div>
-);
+class Towers extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {height: 0};
+    this.initWrapper = this.initWrapper.bind(this);
+  }
+
+  componentDidMount() {
+    this.deferOpen();
+  }
+
+  deferOpen() {
+    clearTimeout(this.deferedOpen);
+
+    this.deferedOpen = defer(() => {
+      const height = this.element.clientHeight;
+      this.setState({height});
+    });
+  }
+
+  initWrapper(element) {
+    this.element = element;
+  }
+
+  render() {
+    const {goal, towers} = this.props;
+    return (
+      <div ref={this.initWrapper} className={style.towers}>
+        {_map(
+          (blocks, index) => (
+            <Tower
+              key={`tower-${index}`}
+              team={index}
+              blocks={blocks}
+              blockSize={this.state.height / goal}
+            />
+          ),
+          towers
+        )}
+      </div>
+    );
+  }
+}
 
 const Race = props => {
   const {goal, towers} = props;
@@ -82,6 +121,10 @@ const Race = props => {
       <div className={style.start} />
     </div>
   );
+};
+
+Race.propTypes = {
+  goal: PropTypes.number.isRequired
 };
 
 Race.propTypes = {
