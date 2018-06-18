@@ -1,21 +1,21 @@
 {
   "Access the lesson": "Toegang tot de les",
   "Back to home": "Terug naar startpagina",
-  "Back to question": "Terug naar vraag",
+  "Back to question": "Terug naar de vraag",
   "Bonus!": "Bonus!",
   "Get an extra life by viewing the lesson": "Krijg een extra leven door de les te bekijken",
   "Check out the next chapter in this course!": "Bekijk het volgende hoofdstuk in deze cursus!",
   "Click to continue": "Klik om verder te gaan",
   "Clue": "Tip",
   "Coach": "Coach",
-  "Congratulations!": "Gefeliciteerd!",
+  "Congratulations!": "Proficiat!",
   "Context": "Context",
   "Correct answer": "Juiste antwoord",
   "Did you know that?": "Wist je dat?",
   "Game over": "Game over",
   "Go to question": "Ga naar vraag",
   "Good answer": "Goed antwoord",
-  "Good job": "Goed gedaan!",
+  "Good job": "Super!",
   "Key point": "Belangrijkste punt",
   "Media": "Les",
   "Next chapter": "Volgende hoofdstuk",
@@ -40,5 +40,6 @@
   "Type here": "Schrijf hier",
   "Validate": "Valideren",
   "Wrong answer": "Fout antwoord",
-  "You are out of lives!": "Je heb geen levens meer!"
+  "You are out of lives!": "Je heb geen levens meer!",
+  "Need help? Found a bug? Report it here": "Hulp nodig? Een bug gevonden? Rapporteer het hier"
 }
