@@ -12,7 +12,7 @@ const BrandList = Layout(props => {
 
   const brandCards = brands.map((brand, index) => {
     return (
-      <div key={index} className={style.brand}>
+      <div key={brand.title} className={style.brand}>
         <BrandCard {...brand} />
       </div>
     );

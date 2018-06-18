@@ -45,7 +45,9 @@
   }
 
   .searchBar {
-    width: 400px;
+    width: auto;
+    margin: 0 30px;
+    box-sizing: content-box;
   }
 }
 
@@ -56,9 +58,5 @@
 
   .brand {
     margin: 0 0 10px;
-  }
-
-  .searchBar {
-    width: 200px;
   }
 }
