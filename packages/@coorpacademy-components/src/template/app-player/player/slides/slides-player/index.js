@@ -354,9 +354,7 @@ const SlidesPlayer = (props, context) => {
       {step ? <Step step={step} color={stepColor} /> : null}
       {showNewMedia ? <NewMedia onClick={onClick} /> : null}
       <Content {...props} />
-      <div className={style.footer}>
-        <SlidesFooter buttons={buttons} />
-      </div>
+      <SlidesFooter buttons={buttons} />
     </div>
   );
 };
