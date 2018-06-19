@@ -1,10 +1,5 @@
 // @flow
 
-import update from 'lodash/fp/update';
-import map from 'lodash/fp/map';
-import pipe from 'lodash/fp/pipe';
-import reduce from 'lodash/fp/reduce';
-import isEmpty from 'lodash/fp/isEmpty';
 import allAnswers from './reducers/all-answers';
 import content from './reducers/content';
 import hasViewedAResourceAtThisStep from './reducers/has-viewed-a-resource-at-this-step';
@@ -17,30 +12,11 @@ import requestedClues from './reducers/requested-clues';
 import slides from './reducers/slides';
 import stars from './reducers/stars';
 import step from './reducers/step';
-import validate from './reducers/validate';
 import viewedResources from './reducers/viewed-resources';
 import variables from './reducers/variables';
+import combineReducers from './combine-reducers';
+import createUpdateState from './create-update-state';
 import type {Action, Config, State} from './types';
-
-function combineReducers(
-  fnMap: Array<{key?: string, fn: Function}> // eslint-disable-line flowtype/no-weak-types
-): Config => (State, Action) => State {
-  // eslint-disable-next-line flowtype/require-return-type
-  const fns = map(({fn, key}) => {
-    return (config: Config, action: Action) => (state: State): State => {
-      if (!key) return fn(config)(state, action);
-      const newState = update(key, value => fn(config)(value, action, state), state);
-      return (newState: State);
-    };
-  }, fnMap);
-
-  return (config: Config): ((State, Action) => State) => {
-    return (state: State, action: Action): State => {
-      validate(config)(state, action);
-      return pipe(...map(fn => fn(config, action), fns))(state);
-    };
-  };
-}
 
 const reduceAction = combineReducers([
   {key: 'livesDisabled', fn: livesDisabled},
@@ -59,10 +35,7 @@ const reduceAction = combineReducers([
   {fn: variables}
 ]);
 
-export default function updateState(config: Config, state: State, actions: Array<Action>): State {
-  if (isEmpty(actions)) {
-    return reduce(reduceAction(config), state, [{type: 'init'}]);
-  }
+export type UpdateStateLearner = (Config, State, Array<Action>) => State;
 
-  return reduce(reduceAction(config), state, actions);
-}
+const updateStateLearner: UpdateStateLearner = createUpdateState(reduceAction);
+export default updateStateLearner;
