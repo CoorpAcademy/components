@@ -35,6 +35,7 @@ test('should switch chapters when user has answered `config.slidesToComplete` nu
   const currentSlide = getSlide(allSlides, state.nextContent);
   const partialAction: PartialAnswerAction = {
     type: 'answer',
+    authors: ['foo'],
     payload: {
       answer: [],
       content: state.nextContent,
@@ -54,6 +55,7 @@ test('should switch chapters when user has answered `config.slidesToComplete` nu
   }
   t.deepEqual(omit(['payload.nextContent.ref'], result), {
     type: 'answer',
+    authors: ['foo'],
     payload: {
       answer: [],
       content: state.nextContent,
@@ -78,6 +80,7 @@ test('should return the success endpoint when user has answered `config.slidesTo
   const currentSlide = getSlide(allSlides, state.nextContent);
   const partialAction: PartialAnswerAction = {
     type: 'answer',
+    authors: ['foo'],
     payload: {
       answer: [],
       content: state.nextContent,
@@ -94,6 +97,7 @@ test('should return the success endpoint when user has answered `config.slidesTo
   );
   t.deepEqual(result, {
     type: 'answer',
+    authors: ['foo'],
     payload: {
       answer: [],
       content: state.nextContent,

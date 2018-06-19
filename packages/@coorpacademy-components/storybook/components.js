@@ -127,6 +127,8 @@ import TemplateAppPlayerPlayer from './../src/template/app-player/player';
 import TemplateAppPlayerPopinCorrection from './../src/template/app-player/popin-correction';
 import TemplateAppPlayerPopinEnd from './../src/template/app-player/popin-end';
 import TemplateAppPlayerPopinHeader from './../src/template/app-player/popin-header';
+import TemplateAppRacingQuestion from './../src/template/app-racing/question';
+import TemplateAppRacingRace from './../src/template/app-racing/race';
 import TemplateBackOfficeBrandCreate from './../src/template/back-office/brand-create';
 import TemplateBackOfficeBrandList from './../src/template/back-office/brand-list';
 import TemplateBackOfficeBrandUpdate from './../src/template/back-office/brand-update';
@@ -136,6 +138,7 @@ import TemplateCommonCoorpHeader from './../src/template/common/coorp-header';
 import TemplateCommonDashboard from './../src/template/common/dashboard';
 import TemplateCommonDiscipline from './../src/template/common/discipline';
 import TemplateCommonSearchPage from './../src/template/common/search-page';
+import TemplateTeamBuilder from './../src/template/team-builder';
 import AtomButtonFixtureA from '../src/atom/button/test/fixtures/a';
 import AtomButtonFixtureClassName from '../src/atom/button/test/fixtures/class-name';
 import AtomButtonFixtureClear from '../src/atom/button/test/fixtures/clear';
@@ -625,6 +628,8 @@ import TemplateAppPlayerPopinHeaderFixtureLoading from '../src/template/app-play
 import TemplateAppPlayerPopinHeaderFixtureNextChapter from '../src/template/app-player/popin-header/test/fixtures/next-chapter';
 import TemplateAppPlayerPopinHeaderFixtureStarsRank from '../src/template/app-player/popin-header/test/fixtures/stars-rank';
 import TemplateAppPlayerPopinHeaderFixtureSuccess from '../src/template/app-player/popin-header/test/fixtures/success';
+import TemplateAppRacingQuestionFixtureDefault from '../src/template/app-racing/question/test/fixtures/default';
+import TemplateAppRacingRaceFixtureDefault from '../src/template/app-racing/race/test/fixtures/default';
 import TemplateBackOfficeBrandCreateFixtureDefault from '../src/template/back-office/brand-create/test/fixtures/default';
 import TemplateBackOfficeBrandCreateFixtureError from '../src/template/back-office/brand-create/test/fixtures/error';
 import TemplateBackOfficeBrandCreateFixtureLoading from '../src/template/back-office/brand-create/test/fixtures/loading';
@@ -674,6 +679,7 @@ import TemplateCommonDisciplineFixtureWithOnclick from '../src/template/common/d
 import TemplateCommonSearchPageFixtureDefault from '../src/template/common/search-page/test/fixtures/default';
 import TemplateCommonSearchPageFixtureNoResultWithRecommendations from '../src/template/common/search-page/test/fixtures/no-result-with-recommendations';
 import TemplateCommonSearchPageFixtureNoResult from '../src/template/common/search-page/test/fixtures/no-result';
+import TemplateTeamBuilderFixtureDefault from '../src/template/team-builder/test/fixtures/default';
 
 export const components = {
   Atom: {
@@ -813,7 +819,8 @@ export const components = {
     OrganismMoocImageSlider
   },
   Template: {
-    TemplateActivity
+    TemplateActivity,
+    TemplateTeamBuilder
   },
   TemplateAppPlayer: {
     TemplateAppPlayerLoading,
@@ -828,6 +835,10 @@ export const components = {
   TemplateAppPlayerPlayerSlides: {
     TemplateAppPlayerPlayerSlidesSlidesFooter,
     TemplateAppPlayerPlayerSlidesSlidesPlayer
+  },
+  TemplateAppRacing: {
+    TemplateAppRacingQuestion,
+    TemplateAppRacingRace
   },
   TemplateBackOffice: {
     TemplateBackOfficeBrandCreate,
@@ -1496,6 +1507,9 @@ export const fixtures = {
       Default: TemplateActivityFixtureDefault,
       Empty: TemplateActivityFixtureEmpty,
       NoEngines: TemplateActivityFixtureNoEngines
+    },
+    TemplateTeamBuilder: {
+      Default: TemplateTeamBuilderFixtureDefault
     }
   },
   TemplateAppPlayer: {
@@ -1612,6 +1626,14 @@ export const fixtures = {
       Range: TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureRange,
       Template: TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureTemplate,
       WithMinHeight: TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureWithMinHeight
+    }
+  },
+  TemplateAppRacing: {
+    TemplateAppRacingQuestion: {
+      Default: TemplateAppRacingQuestionFixtureDefault
+    },
+    TemplateAppRacingRace: {
+      Default: TemplateAppRacingRaceFixtureDefault
     }
   },
   TemplateBackOffice: {
