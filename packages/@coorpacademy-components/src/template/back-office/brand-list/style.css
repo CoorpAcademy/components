@@ -1,4 +1,6 @@
+@value colors: "../../../variables/colors.css";
 @value breakpoints: "../../../variables/breakpoints.css";
+@value xtraLightGrey from colors;
 @value mobile from breakpoints;
 @value tablet from breakpoints;
 @value desktop from breakpoints;
@@ -16,15 +18,36 @@
   margin: 0 10px 20px;
 }
 
+.searchBar {
+  width: 800px;
+  margin: auto;
+  padding-bottom: 10px;
+}
+
+.searchBar div {
+  border: 2px solid xtraLightGrey;
+  border-radius: 2px;
+}
+
 @media desktop {
   .wrapper {
     width: 960px;
+  }
+
+  .searchBar {
+    width: 500px;
   }
 }
 
 @media tablet {
   .wrapper {
     width: 640px;
+  }
+
+  .searchBar {
+    width: auto;
+    margin: 0 30px;
+    box-sizing: content-box;
   }
 }
 

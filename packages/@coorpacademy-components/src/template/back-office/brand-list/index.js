@@ -3,15 +3,16 @@ import PropTypes from 'prop-types';
 import GridList from '../../../organism/grid-list';
 import BrandCard from '../../../molecule/brand-card';
 import BrandCardCreate from '../../../molecule/brand-card-create';
+import Search from '../../../molecule/search';
 import Layout from '../layout';
 import style from './style.css';
 
 const BrandList = Layout(props => {
-  const {brands = [], create} = props;
+  const {brands = [], create, search} = props;
 
   const brandCards = brands.map((brand, index) => {
     return (
-      <div key={index} className={style.brand}>
+      <div key={brand.title} className={style.brand}>
         <BrandCard {...brand} />
       </div>
     );
@@ -27,6 +28,9 @@ const BrandList = Layout(props => {
 
   return (
     <div className={style.container}>
+      <div className={style.searchBar}>
+        <Search {...search} />
+      </div>
       <div className={style.wrapper}>
         <GridList>{brandCards}</GridList>
       </div>
@@ -45,6 +49,7 @@ BrandList.propTypes = {
       image: PropTypes.string.isRequired
     })
   ),
+  search: PropTypes.shape(Search.propTypes),
   create: PropTypes.shape({
     edit: PropTypes.string.isRequired,
     editHref: PropTypes.string.isRequired
