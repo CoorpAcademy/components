@@ -1,0 +1,79 @@
+@value breakpoints: "../../../variables/breakpoints.css";
+@value desktop from breakpoints;
+@value mobile from breakpoints;
+
+.layoutSection {
+  width: 100%;
+}
+
+.sectionCTA {
+  display: flex;
+  height: 15%;
+  align-items: center;
+  justify-content: center;
+}
+
+.screen {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  flex-flow: column;
+}
+
+.screenWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+
+  80% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px) scale(0.2);
+  }
+}
+
+.message {
+  position: absolute;
+  font-family: 'Open Sans';
+  font-weight: 700px;
+  font-size: 36px;
+  color: #0e3a3d;
+  transform: translateX(-50%);
+  opacity: 0;
+  top: 20%;
+  left: 50%;
+  animation: fadeInDown 3s;
+}
+
+.sectionHeader {
+  height: 5em;
+}
+
+.sectionBody {
+  flex: 1 1;
+}
+
+.sectionRace {
+  height: 85%;
+}
+
+@media mobile {
+  .screen {
+    width: 100%;
+  }
+}

@@ -8,6 +8,7 @@ import type {
   ExtraLifeAcceptedAction,
   ExtraLifeRefusedAction,
   MoveAction,
+  RacingUser,
   State,
   Slide
 } from '../types';
@@ -19,6 +20,7 @@ import computeNextStep, {
 
 export type PartialAnswerAction = $ReadOnly<{
   type: 'answer',
+  authors: Array<string>,
   payload: {
     answer: Answer,
     content: Content,
@@ -57,6 +59,7 @@ export const computeNextStepAfterAnswer = (
 
   const actionWithIsCorrect: PartialAnswerActionWithIsCorrect = {
     type: 'answer',
+    authors: action.authors,
     payload: {
       answer: action.payload.answer,
       content: action.payload.content,
@@ -73,6 +76,60 @@ export const computeNextStepAfterAnswer = (
   const {nextContent, instructions, isCorrect} = stepResult;
   return {
     type: 'answer',
+    authors: action.authors,
+    payload: {
+      answer: action.payload.answer,
+      content: action.payload.content,
+      godMode: action.payload.godMode,
+      nextContent,
+      isCorrect,
+      instructions
+    }
+  };
+};
+
+export const computeNextStepAfterRacingAnswer = (
+  config: Config,
+  state: RacingUser,
+  availableContent: AvailableContent,
+  currentSlide: Slide,
+  action: PartialAnswerAction
+): AnswerAction | null => {
+  const answerIsCorrect =
+    action.payload.godMode || checkAnswer(config, currentSlide.question, action.payload.answer);
+
+  const actionWithIsCorrect: PartialAnswerActionWithIsCorrect = {
+    type: 'answer',
+    authors: action.authors,
+    payload: {
+      answer: action.payload.answer,
+      content: action.payload.content,
+      godMode: action.payload.godMode,
+      isCorrect: answerIsCorrect
+    }
+  };
+
+  const userState: State = {
+    lives: 999,
+    requestedClues: [],
+    viewedResources: [],
+    stars: 999,
+    step: {current: 1},
+    remainingLifeRequests: 999,
+    hasViewedAResourceAtThisStep: false,
+    variables: {unused: true},
+    ...state
+  };
+
+  const stepResult = computeNextStep(config, userState, availableContent, actionWithIsCorrect);
+  if (!stepResult) {
+    return null;
+  }
+
+  const {nextContent, instructions, isCorrect} = stepResult;
+  return {
+    type: 'answer',
+    authors: action.authors,
     payload: {
       answer: action.payload.answer,
       content: action.payload.content,
@@ -87,9 +144,13 @@ export const computeNextStepAfterAnswer = (
 export const computeNextStepOnAcceptExtraLife = (
   config: Config,
   state: State,
-  availableContent: AvailableContent
+  availableContent: AvailableContent,
+  authors: Array<string>
 ): ExtraLifeAcceptedAction | null => {
-  const partialAction: PartialExtraLifeAcceptedAction = {type: 'extraLifeAccepted'};
+  const partialAction: PartialExtraLifeAcceptedAction = {
+    type: 'extraLifeAccepted',
+    authors
+  };
 
   const stepResult = computeNextStep(config, state, availableContent, partialAction);
 
@@ -100,6 +161,7 @@ export const computeNextStepOnAcceptExtraLife = (
   const {nextContent, instructions} = stepResult;
   return {
     type: 'extraLifeAccepted',
+    authors,
     payload: {
       content: {ref: 'extraLife', type: 'node'},
       nextContent,
@@ -110,10 +172,12 @@ export const computeNextStepOnAcceptExtraLife = (
 
 export const computeNextStepOnRefuseExtraLife = (
   config: Config,
-  state: State
+  state: State,
+  authors: Array<string>
 ): ExtraLifeRefusedAction => {
   return {
     type: 'extraLifeRefused',
+    authors,
     payload: {
       content: {ref: 'extraLife', type: 'node'},
       nextContent: {ref: 'failExitNode', type: 'failure'}
