@@ -107,8 +107,8 @@
   font-family: 'Open Sans';
   font-size: 12px;
   width: 270px;
-  background-color: light;
-  border: 1px solid light;
+  background-color: white;
+  border: 1px solid white;
   color: dark;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 8px 3px 10px rgba(0, 0, 0, 0.23);
 }

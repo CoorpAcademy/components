@@ -30,11 +30,7 @@ const ToolTip = ({toolTip, id}, context) => {
   const {preMessage, endMessage, linkMessage, onClick} = toolTip;
   const primary = get('common.primary', skin);
 
-  const handleClick = e => {
-    e.stopPropagation();
-    e.preventDefault();
-    onClick(e);
-  };
+  const handleClick = onClick;
 
   return (
     <ReactTooltip
