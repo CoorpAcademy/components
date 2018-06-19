@@ -169,7 +169,11 @@ ContextMedia.propTypes = {
 };
 
 const ContextContent = ({slideContext}) => {
-  const descriptionParagraphs = pipe(getOr('', 'description'), split('\n'), compact)(slideContext);
+  const descriptionParagraphs = pipe(
+    getOr('', 'description'),
+    split('\n'),
+    compact
+  )(slideContext);
   const paragraphs = descriptionParagraphs.map((paragraph, index) => (
     <p
       key={index}
@@ -211,7 +215,7 @@ const Bar = ({total, color, current}) => {
     return null;
   }
 
-  const stepWidth = _current / total * 100;
+  const stepWidth = (_current / total) * 100;
 
   return (
     <div
@@ -277,7 +281,13 @@ ValidateButton.propTypes = {
 };
 
 const ContentLayout = (props, context) => {
-  const {typeClue, answerType: {model: {type} = {}} = {}, question, help} = props;
+  const {
+    typeClue,
+    answerType: {model: {type} = {}} = {},
+    question,
+    questionBackgroundColor,
+    help
+  } = props;
   const ContentType = CONTENT_TYPE[typeClue];
   const noPaddingRessources =
     ContentType === MediaContent ? `${style.contentWrapperNoPadding}` : `${style.contentWrapper}`;

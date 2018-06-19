@@ -11,6 +11,7 @@ import getSlide from './helpers/get-slide';
 const config: Config = getConfig({ref: 'learner', version: '1'});
 const partialAction = (state: State): PartialAnswerAction => ({
   type: 'answer',
+  authors: ['foo'],
   payload: {
     answer: [],
     content: state.nextContent,
@@ -321,6 +322,7 @@ test('should return a slide from the list of slides if the current chapter has n
   }
   t.deepEqual(omit(['payload.nextContent.ref'], resultAction), {
     type: 'answer',
+    authors: ['foo'],
     payload: {
       answer: [],
       content: state.nextContent,
@@ -346,6 +348,7 @@ test('should return the slide from the chapter rules matching the source with th
   );
   t.deepEqual(resultAction, {
     type: 'answer',
+    authors: ['foo'],
     payload: {
       answer: [],
       content: state.nextContent,
@@ -376,6 +379,7 @@ test('should match the rule with "*" source whatever state.nextContent may be', 
   );
   t.deepEqual(resultAction, {
     type: 'answer',
+    authors: ['foo'],
     payload: {
       answer: [],
       content: state.nextContent,
@@ -403,6 +407,7 @@ test("should only select a rule if it matches the rules's conditions", t => {
   );
   t.deepEqual(resultAction, {
     type: 'answer',
+    authors: ['foo'],
     payload: {
       answer: [],
       content: state.nextContent,
@@ -445,6 +450,7 @@ test('should return the slide of a new chapter when a rule requests to change to
   }
   t.deepEqual(omit(['payload.nextContent.ref'], resultAction), {
     type: 'answer',
+    authors: ['foo'],
     payload: {
       answer: [],
       content: state.nextContent,
@@ -473,6 +479,7 @@ test('should concatenate the instructions from all intermediary rules when switc
   );
   t.deepEqual(resultAction, {
     type: 'answer',
+    authors: ['foo'],
     payload: {
       answer: [],
       content: state.nextContent,
@@ -503,6 +510,7 @@ test("should apply the instructions from last chapter's rule before selecting a 
   );
   t.deepEqual(resultAction, {
     type: 'answer',
+    authors: ['foo'],
     payload: {
       answer: [],
       content: state.nextContent,
@@ -546,6 +554,7 @@ test('should be able to switch from a non-adaptive chapter to an adaptive chapte
   );
   t.deepEqual(result, {
     type: 'answer',
+    authors: ['foo'],
     payload: {
       answer: [],
       content: state.nextContent,
@@ -585,6 +594,7 @@ test('should use slide scoped instructions to select right rule', t => {
   );
   t.deepEqual(result, {
     type: 'answer',
+    authors: ['foo'],
     payload: {
       answer: [],
       content: state.nextContent,
@@ -623,6 +633,7 @@ test('should always use rules to select nextContent, even if the number of answe
   );
   t.deepEqual(result, {
     type: 'answer',
+    authors: ['foo'],
     payload: {
       answer: [],
       content: state.nextContent,
