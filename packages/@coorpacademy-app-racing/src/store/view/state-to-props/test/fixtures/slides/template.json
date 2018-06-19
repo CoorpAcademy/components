@@ -1,0 +1,49 @@
+{
+  "_id": "sli_Nk2vje~E~",
+  "klf": "Copyright represents a form of intellectual property granting the owner the exclusive right to use the work as desired.",
+  "tips": "Copyright is made up of 2 types of rights: the moral right to be recognized as the author of the work and maintain its integrity and the patrimonial rights granting exclusive economic exploitation rights to the work for a variable period.",
+  "chapter_id": "cha_EJRex7KQb",
+  "question": {
+    "type": "template",
+    "header": "What is copyright? ",
+    "explanation": "Type your answers",
+    "content": {
+      "template": "The answer is {{inp81438}} {{sel31191}}",
+      "matchOrder": true,
+      "maxTypos": null,
+      "choices": [
+        {
+          "type": "text",
+          "name": "inp81438",
+          "label": " ",
+          "placeholder": " ",
+          "_id": "596338e04af4cb8a08a94495",
+          "items": [],
+          "media": {
+            "subtitles": [],
+            "posters": [],
+            "src": []
+          }
+        },
+        {
+          "type": "select",
+          "name": "sel31191",
+          "label": " ",
+          "_id": "596338e04af4cb8a08a94492",
+          "items": [
+            {
+              "text": "temporary",
+              "value": "sli_Nk2vje~E~.choice_VyloJkDEUb",
+              "_id": "596338e04af4cb8a08a94494"
+            },
+            {
+              "text": "exclusive",
+              "value": "sli_Nk2vje~E~.choice_Ek~jJyPNUZ",
+              "_id": "596338e04af4cb8a08a94493"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

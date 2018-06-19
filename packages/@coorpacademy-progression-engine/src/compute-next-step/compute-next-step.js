@@ -21,13 +21,14 @@ import type {
   ChapterContent,
   Config,
   Content,
+  RacingUser,
   Slide,
   State
 } from '../types';
 import type {ChapterRule, Instruction, Condition} from '../rule-engine/types';
 import selectRule from '../rule-engine/select-rule';
 import updateVariables from '../rule-engine/apply-instructions';
-import updateState from '../update-state';
+import updateStateLearner from '../update-state-learner';
 
 const hasNoMoreLives = (config: Config, state: State): boolean =>
   !config.livesDisabled && state.lives <= 0;
@@ -45,6 +46,7 @@ const hasRulesToApply = (chapterContent: ChapterContent | null): boolean => {
 
 export type PartialAnswerActionWithIsCorrect = {
   type: 'answer',
+  authors: Array<string>,
   payload: {
     answer: Answer,
     content: Content,
@@ -53,7 +55,8 @@ export type PartialAnswerActionWithIsCorrect = {
   }
 };
 export type PartialExtraLifeAcceptedAction = {
-  type: 'extraLifeAccepted'
+  type: 'extraLifeAccepted',
+  authors: Array<string>
 };
 
 type PartialAction = PartialAnswerActionWithIsCorrect | PartialExtraLifeAcceptedAction | null;
@@ -221,6 +224,7 @@ const extendPartialAction = (action: PartialAction, state: State | null): Action
         action.payload.content || (state ? state.nextContent : {ref: '', type: 'node'});
       return {
         type: 'answer',
+        authors: action.authors,
         payload: {
           answer: action.payload.answer,
           godMode: action.payload.godMode,
@@ -258,7 +262,7 @@ const computeNextStep = (
   const action = extendPartialAction(partialAction, _state);
   const isCorrect = !!action && action.type === 'answer' && !!action.payload.isCorrect;
   const answer = (!!action && action.type === 'answer' && action.payload.answer) || [];
-  const state = !_state || !action ? _state : updateState(config, _state, [action]);
+  const state: State | null = !_state || !action ? _state : updateStateLearner(config, _state, [action]);
   const chapterContent = getChapterContent(config, availableContent, state);
 
   if (!chapterContent) {
