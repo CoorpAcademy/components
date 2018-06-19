@@ -3,11 +3,7 @@
 @value tablet from breakpoints;
 @value colors: "../../variables/colors.css";
 @value dark from colors;
-@value black from colors;
 @value light from colors;
-@value grey from colors;
-@value white from colors;
-@value xtraLightGrey from colors;
 
 .engineStars {
   display: flex;
@@ -80,6 +76,70 @@
   width: 25px;
   height: 25px;
 }
+
+/*  tooltip -------------------------------------------- */
+
+.disabled {
+  cursor: help;
+}
+
+.disabled .score,
+.disabled .scoreTitle,
+.disabled .engineIcon {
+  opacity: 0.4;
+}
+
+.toolTip {
+  opacity: 1 !important;
+  padding: 0;
+  pointer-events: all;
+  background-color: transparent !important;
+}
+
+.toolTip::after {
+  border-left-color: transparent !important;
+}
+
+.toolTipContent {
+  padding: 10px;
+  margin: 0;
+  border-radius: 3px;
+  font-family: 'Open Sans';
+  font-size: 12px;
+  width: 270px;
+  background-color: white;
+  border: 1px solid white;
+  color: dark;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 8px 3px 10px rgba(0, 0, 0, 0.23);
+}
+
+.toolTipContent > a {
+  margin-left: 5px;
+  margin-right: 5px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.toolTipContent > a:hover {
+  text-decoration: underline;
+}
+
+.toolTipContent::after {
+  content: '';
+  width: 0;
+  height: 0;
+  position: absolute;
+  border-left-color: inherit;
+  border-left-style: solid;
+  border-left-width: 6px;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  right: -6px;
+  top: 50%;
+  margin-top: -4px;
+}
+
+/* ------------------------------------------------------ */
 
 @media tablet, mobile {
   .engineStars {

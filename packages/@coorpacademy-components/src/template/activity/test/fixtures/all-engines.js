@@ -23,7 +23,15 @@ export default {
       {
         type: 'microlearning',
         title: 'Microlearning',
-        stars: 170
+        stars: 0,
+        disabled: true,
+        toolTip: {
+          preMessage:
+            'This feature is currently unavailable on your platform. If you want to activate it, contact your manager or',
+          linkMessage: 'click here',
+          endMessage: 'so we may pass the message on.',
+          onClick: console.log
+        }
       },
       {
         type: 'battle',
@@ -38,7 +46,15 @@ export default {
       {
         type: 'bonus',
         title: 'Bonus',
-        stars: 20
+        stars: 20,
+        disabled: true,
+        toolTip: {
+          preMessage:
+            'This feature is currently unavailable on your platform. If you want to activate it, contact your manager or',
+          linkMessage: 'click here',
+          endMessage: 'and we will pass the message on.',
+          onClick: console.log
+        }
       }
     ],
     progressions: [

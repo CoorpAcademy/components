@@ -56,7 +56,8 @@
     "postcss-modules-values-replace": "^3.0.1",
     "qs": "6.5.2",
     "react": "^16.3.2",
-    "react-jw-player": "1.18.0"
+    "react-jw-player": "1.18.0",
+    "react-tooltip": "^3.6.1"
   },
   "devDependencies": {
     "@coorpacademy/css-modules-require-hook": "1.0.0",
