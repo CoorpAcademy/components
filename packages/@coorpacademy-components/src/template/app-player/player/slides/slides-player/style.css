@@ -78,7 +78,7 @@
   border-radius: 3px;
   border-bottom-left-radius: 0;
   transition: width 0.3s ease-out;
-  transition-delay: 1s;
+  transition-delay: 0.2s;
 }
 
 .infos {
