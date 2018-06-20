@@ -54,6 +54,7 @@ const _reducers = {
 
 - rooms admin/join/play
 - integrates @coorpacademy/app-racing
+- proposal `skin {common, racing:{primary}}`
 
 ### @coorpacademy/app-racing
 
@@ -62,6 +63,7 @@ https://github.com/CoorpAcademy/components/pull/1226
 - `/store/services` have been moved to `/sandbox-web/services`
 - service.users
 - fetchMe()
+- react-motion
 
 <details>
   <summary>front progression</summary>
@@ -128,7 +130,7 @@ https://github.com/CoorpAcademy/components/pull/1226
 </details>
 
 <details>
-  <summary>progression.state.teama to ui.races</summary>
+  <summary>progression.state.teams to ui.races</summary>
 
 ```json
 "ui": {

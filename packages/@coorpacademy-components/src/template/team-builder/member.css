@@ -8,6 +8,7 @@
   justify-content: center;
   width: 100%;
   border: 1px solid medium;
+  border-bottom: none;
   height: 38px;
 }
 
