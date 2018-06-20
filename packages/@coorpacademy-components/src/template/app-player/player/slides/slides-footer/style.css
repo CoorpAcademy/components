@@ -23,6 +23,7 @@
   border-right: 1px solid light;
   transform: translateX(-50%);
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .button {
