@@ -85,7 +85,7 @@ const EngineStars = (props, context) => {
         <IconType className={style.iconHeader} color={dark} width="30" />
       </span>
       <div className={style.score}>
-        <p>{stars}</p>
+        <p data-name="star-counter">{stars}</p>
         <span>
           <StarIcon className={style.iconStar} color={dark} />
         </span>

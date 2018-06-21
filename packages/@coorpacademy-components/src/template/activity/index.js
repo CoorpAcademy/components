@@ -106,7 +106,7 @@ class Progression extends React.Component {
                 }}
               >
                 <span>{total.label}</span>
-                <p>{total.stars}</p>
+                <p data-name="star-counter">{total.stars}</p>
                 <div className={style.iconBubble}>
                   <StarIcon className={style.iconHeader} color={primary} />
                 </div>
