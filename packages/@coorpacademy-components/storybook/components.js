@@ -117,6 +117,7 @@ import OrganismSettings from './../src/organism/settings';
 import OrganismSetupHeader from './../src/organism/setup-header';
 import OrganismSidebar from './../src/organism/sidebar';
 import OrganismSlider from './../src/organism/slider';
+import OrganismUserPreferences from './../src/organism/user-preferences';
 import TemplateActivity from './../src/template/activity';
 import TemplateAppPlayerLoading from './../src/template/app-player/loading';
 import TemplateAppPlayerPlayerPlayerHeader from './../src/template/app-player/player/player-header';
@@ -523,6 +524,7 @@ import OrganismSidebarFixtureDashboards from '../src/organism/sidebar/test/fixtu
 import OrganismSidebarFixtureDefault from '../src/organism/sidebar/test/fixtures/default';
 import OrganismSliderFixtureDefault from '../src/organism/slider/test/fixtures/default';
 import OrganismSliderFixtureMultipleSlides from '../src/organism/slider/test/fixtures/multiple-slides';
+import OrganismUserPreferencesFixtureDefault from '../src/organism/user-preferences/test/fixtures/default';
 import TemplateActivityFixtureAllEngines from '../src/template/activity/test/fixtures/all-engines';
 import TemplateActivityFixtureDefault from '../src/template/activity/test/fixtures/default';
 import TemplateActivityFixtureEmpty from '../src/template/activity/test/fixtures/empty';
@@ -802,7 +804,8 @@ export const components = {
     OrganismSettings,
     OrganismSetupHeader,
     OrganismSidebar,
-    OrganismSlider
+    OrganismSlider,
+    OrganismUserPreferences
   },
   OrganismMooc: {
     OrganismMoocImageSlider
@@ -1472,6 +1475,9 @@ export const fixtures = {
     OrganismSlider: {
       Default: OrganismSliderFixtureDefault,
       MultipleSlides: OrganismSliderFixtureMultipleSlides
+    },
+    OrganismUserPreferences: {
+      Default: OrganismUserPreferencesFixtureDefault
     }
   },
   OrganismMooc: {
