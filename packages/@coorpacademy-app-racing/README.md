@@ -50,6 +50,8 @@ const _reducers = {
 };
 ```
 
+- config.infiniteSlides: boolean --> to restart slides picking
+
 ### mooc --> team-builder
 
 - rooms admin/join/play
