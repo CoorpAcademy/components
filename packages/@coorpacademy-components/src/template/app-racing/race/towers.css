@@ -38,15 +38,11 @@
   background-repeat: no-repeat;
   background-position: center;
 }
-
-.lost {
-  opacity: 0;
-  transform: scale(0);
-}
-
+/*
+.lost,
 .removed {
   transform: scale(0);
-}
+} */
 
 .arrival {
   height: 17px;
