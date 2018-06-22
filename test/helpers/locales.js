@@ -159,8 +159,7 @@ const localesUseMacro = (t, dirname, files, locales) => {
   const usedTranslationKeys = new Set(flatMap(traverseFile(t, locales, dirname), files));
   const unusedKeys = difference(Object.keys(locales), [...usedTranslationKeys]);
   const unusedKeysFilter = filter('Question', unusedKeys);
-  console.log('unusedKeys', unusedKeys);
-  console.log('unusedKeysFilter', unusedKeyFilter);
+
   // t.deepEqual(unusedKeys, [], `Some keys were not used: ${unusedKeys.join(', ')}`);
   t.true(isEqual(unusedKeysFilter, []));
 };
