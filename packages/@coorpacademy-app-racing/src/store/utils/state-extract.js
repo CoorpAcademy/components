@@ -63,7 +63,7 @@ export const allUsersHaveAnswered = state => {
   const userQuestionNum = get('questionNum', userState);
   const team = get('team', userState);
   const players = get(['state', 'teams', team, 'players'], progression);
- 
+
   return reduce(
     (result, playerId) => {
       const player = getUserState(playerId, state);
@@ -89,6 +89,12 @@ export const showQuestion = state => {
   const ctaWasClicked = getRoute(state) === 'question';
 
   return questionNum === 1 || ctaWasClicked;
+};
+
+export const isSpectator = state => {
+  if (!getCurrentUserState(state)) {
+    return true;
+  }
 };
 
 export const showRace = state => {
@@ -129,11 +135,26 @@ export const getCurrentContent = state => {
   return getContent(type, ref)(state);
 };
 
-export const getContentInfo = pipe(getCurrentContent, get('info'));
-export const getNbSlides = pipe(getContentInfo, get('nbSlides'));
-export const getStepContent = pipe(getCurrentUserState, get('nextContent'));
-export const getPrevStepContent = pipe(getCurrentUserState, get('content'));
-export const getCurrentChapterId = pipe(getCurrentSlide, getChapterId);
+export const getContentInfo = pipe(
+  getCurrentContent,
+  get('info')
+);
+export const getNbSlides = pipe(
+  getContentInfo,
+  get('nbSlides')
+);
+export const getStepContent = pipe(
+  getCurrentUserState,
+  get('nextContent')
+);
+export const getPrevStepContent = pipe(
+  getCurrentUserState,
+  get('content')
+);
+export const getCurrentChapterId = pipe(
+  getCurrentSlide,
+  getChapterId
+);
 
 export const getEngine = state => {
   return get('engine')(getCurrentProgression(state));

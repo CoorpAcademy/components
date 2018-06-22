@@ -5,7 +5,8 @@ import {
   allUsersHaveAnswered,
   getCurrentProgression,
   getCurrentRace,
-  isLastAnswerCorrect
+  isLastAnswerCorrect,
+  isSpectator
 } from '../../utils/state-extract';
 import {seeQuestion} from '../../actions/ui/location';
 
@@ -29,7 +30,7 @@ const raceProps = (options, {dispatch}) => state => {
     },
     cta: {
       submitValue: 'Next question',
-      disabled: !allUsersHaveAnswered(state),
+      disabled: isSpectator(state) || !allUsersHaveAnswered(state),
       primary: true,
       onClick: () => dispatch(seeQuestion)
     }
