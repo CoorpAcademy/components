@@ -10,8 +10,6 @@ import {
 } from '../../utils/state-extract';
 import {seeQuestion} from '../../actions/ui/location';
 
-const getTowers = pipe(getCurrentRace, get('display'));
-
 const raceProps = (options, {dispatch}) => state => {
   const progression = getCurrentProgression(state);
   const config = getConfigForProgression(progression);
@@ -26,7 +24,7 @@ const raceProps = (options, {dispatch}) => state => {
     },
     race: {
       goal: config.goal,
-      towers: getTowers(state)
+      towers: getCurrentRace(state)
     },
     cta: {
       submitValue: 'Next question',
