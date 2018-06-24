@@ -59,6 +59,7 @@ const Block = ({image, index, type, height, bottom, maxStiffness}) => {
               height={height}
               type={type}
               motionStyle={{
+                pointerEvents: 'none',
                 opacity: `${opacity / 100}`,
                 transform: `scale(${scale / 30})`
               }}
