@@ -18,6 +18,7 @@
   "Good job": "幹得好！",
   "Key point": "關鍵",
   "Media": "課",
+  "Need help? Found a bug? Report it here": "需要協助嗎？發現錯誤嗎？請在此回報",
   "Next chapter": "下一章",
   "Next chapter_": "下一章：",
   "Next level": "下一級",
@@ -26,6 +27,7 @@
   "Nice try!": "不錯的嘗試!",
   "Ooops": "噢...",
   "Ouch": "哦...",
+  "Question": "題",
   "Quit": "退出",
   "Related subjects": "推薦給您:",
   "Retry chapter": "重試章節",
@@ -40,6 +42,5 @@
   "Type here": "在此輸入",
   "Validate": "驗證",
   "Wrong answer": "錯誤的答案",
-  "You are out of lives!": "你是生命中的一生！",
-  "Need help? Found a bug? Report it here": "需要協助嗎？發現錯誤嗎？請在此回報"
+  "You are out of lives!": "你是生命中的一生！"
 }
