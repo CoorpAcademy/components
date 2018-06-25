@@ -18,6 +18,7 @@
   "Good job": "Cừ lắm!",
   "Key point": "Điểm quan trọng",
   "Media": "Bài học",
+  "Need help? Found a bug? Report it here": "Bạn cần trợ giúp? Tìm thấy lỗi? Hãy báo cáo tại đây",
   "Next chapter": "Chương tiếp theo",
   "Next chapter_": "Chương kế tiếp:",
   "Next level": "Cấp độ tiếp theo",
@@ -26,6 +27,7 @@
   "Nice try!": "Rất nỗ lực!",
   "Ooops": "Úi dà...",
   "Ouch": "Ui da...",
+  "Question": "Câu hỏi",
   "Quit": "Thoát",
   "Related subjects": "Thích hợp với bạn:",
   "Retry chapter": "Thử lại chương này",
@@ -40,6 +42,5 @@
   "Type here": "Viết vào đây",
   "Validate": "Xác nhận",
   "Wrong answer": "Đáp án sai",
-  "You are out of lives!": "Bạn đã hết mạng!",
-  "Need help? Found a bug? Report it here": "Bạn cần trợ giúp? Tìm thấy lỗi? Hãy báo cáo tại đây"
+  "You are out of lives!": "Bạn đã hết mạng!"
 }
