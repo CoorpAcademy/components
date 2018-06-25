@@ -18,6 +18,7 @@
   "Good job": "szép munka!",
   "Key point": "Lényeges pont",
   "Media": "Lecke",
+  "Need help? Found a bug? Report it here": "Segítségre szorulsz? Hibába ütköztél? Itt jelentheted",
   "Next chapter": "Következő fejezet",
   "Next chapter_": "Következő fejezet:",
   "Next level": "Következő szintre",
@@ -26,6 +27,7 @@
   "Nice try!": "Szép próbálkozás!",
   "Ooops": "Ooops...",
   "Ouch": "Jaj...",
+  "Question": "Kérdés",
   "Quit": "Lépjen ki a",
   "Related subjects": "Ajánlott:",
   "Retry chapter": "Próbálkozzon újra a fejezet",
@@ -40,6 +42,5 @@
   "Type here": "Írja be az itt",
   "Validate": "Érvényesít",
   "Wrong answer": "Rossz válasz",
-  "You are out of lives!": "Az életét!",
-  "Need help? Found a bug? Report it here": "Segítségre szorulsz? Hibába ütköztél? Itt jelentheted"
+  "You are out of lives!": "Az életét!"
 }
