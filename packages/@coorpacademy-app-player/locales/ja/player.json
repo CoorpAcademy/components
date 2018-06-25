@@ -18,6 +18,7 @@
   "Good job": "よく出来ました！",
   "Key point": "重要なポイント",
   "Media": "レッスン",
+  "Need help? Found a bug? Report it here": "お手伝いが必要ですか? バグを発見しましたか? こちらで報告しましょう",
   "Next chapter": "Next Chapter",
   "Next chapter_": "Next Chapter :",
   "Next level": "次のレベル",
@@ -26,6 +27,7 @@
   "Nice try!": "ちょっと惜しいですね！",
   "Ooops": "ゲームオーバー! ",
   "Ouch": "残念 !",
+  "Question": "質問",
   "Quit": "終了する",
   "Related subjects": "あなたへおすすめのコース",
   "Retry chapter": "章を再試行します。",
@@ -40,6 +42,5 @@
   "Type here": "ここに入力します。",
   "Validate": "回答",
   "Wrong answer": "不正解",
-  "You are out of lives!": "ライフがなくなりました。",
-  "Need help? Found a bug? Report it here": "お手伝いが必要ですか? バグを発見しましたか? こちらで報告しましょう"
+  "You are out of lives!": "ライフがなくなりました。"
 }
