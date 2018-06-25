@@ -1,5 +1,3 @@
-import get from 'lodash/fp/get';
-import pipe from 'lodash/fp/pipe';
 import {getConfigForProgression} from '@coorpacademy/progression-engine';
 import {
   allUsersHaveAnswered,
