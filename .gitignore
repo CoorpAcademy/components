@@ -8,6 +8,7 @@ dist
 .nyc_output
 coverage
 coverage.lcov
+.vs
 .vscode
 .idea
 package-lock.json
