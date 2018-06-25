@@ -18,6 +18,7 @@
   "Good job": "bună treabă!",
   "Key point": "Punct-cheie",
   "Media": "Lectia",
+  "Need help? Found a bug? Report it here": "Aveți nevoie de ajutor? Ați găsit un „bug”? Anunțați-ne aici",
   "Next chapter": "Capitolul următor",
   "Next chapter_": "Capitolul următor:",
   "Next level": "Urmatorul nivel",
@@ -26,6 +27,7 @@
   "Nice try!": "Frumoasa incercare!",
   "Ooops": "Ooops...",
   "Ouch": "Aoleu...",
+  "Question": "Întrebare",
   "Quit": "Renunţe la",
   "Related subjects": "Recomandat pentru tine:",
   "Retry chapter": "Reîncercați capitolul",
@@ -40,6 +42,5 @@
   "Type here": "Se tastează",
   "Validate": "Valida",
   "Wrong answer": "Răspuns greşit",
-  "You are out of lives!": "Tu eşti afară de vieţi!",
-  "Need help? Found a bug? Report it here": "Aveți nevoie de ajutor? Ați găsit un „bug”? Anunțați-ne aici"
+  "You are out of lives!": "Tu eşti afară de vieţi!"
 }
