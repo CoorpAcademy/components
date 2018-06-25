@@ -18,6 +18,7 @@
   "Good job": "做得好！",
   "Key point": "要点",
   "Media": "视频",
+  "Need help? Found a bug? Report it here": "需要帮助吗？发现漏洞了？在这里报告",
   "Next chapter": "下一章",
   "Next chapter_": "下一章：",
   "Next level": "下一级",
@@ -26,6 +27,7 @@
   "Nice try!": "不错的尝试！",
   "Ooops": "哎呀",
   "Ouch": "哎哟...",
+  "Question": "题",
   "Quit": "退出",
   "Related subjects": "为您推荐：",
   "Retry chapter": "重试章节",
@@ -40,6 +42,5 @@
   "Type here": "在此输入",
   "Validate": "检查",
   "Wrong answer": "错误的答案",
-  "You are out of lives!": "您的尝试机会已用完！",
-  "Need help? Found a bug? Report it here": "需要帮助吗？发现漏洞了？在这里报告"
+  "You are out of lives!": "您的尝试机会已用完！"
 }
