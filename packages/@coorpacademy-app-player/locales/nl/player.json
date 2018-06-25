@@ -18,6 +18,7 @@
   "Good job": "Super!",
   "Key point": "Belangrijkste punt",
   "Media": "Les",
+  "Need help? Found a bug? Report it here": "Hulp nodig? Een bug gevonden? Rapporteer het hier",
   "Next chapter": "Volgende hoofdstuk",
   "Next chapter_": "Volgende hoofdstuk:",
   "Next level": "Volgende niveau",
@@ -26,6 +27,7 @@
   "Nice try!": "Leuk geprobeerd!",
   "Ooops": "Oeps...",
   "Ouch": "Ouch...",
+  "Question": "Vraag",
   "Quit": "Ophouden",
   "Related subjects": "Aanbevolen voor jou: ",
   "Retry chapter": "Probeer hoofdstuk opnieuw",
@@ -40,6 +42,5 @@
   "Type here": "Schrijf hier",
   "Validate": "Valideren",
   "Wrong answer": "Fout antwoord",
-  "You are out of lives!": "Je heb geen levens meer!",
-  "Need help? Found a bug? Report it here": "Hulp nodig? Een bug gevonden? Rapporteer het hier"
+  "You are out of lives!": "Je heb geen levens meer!"
 }
