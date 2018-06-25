@@ -279,7 +279,6 @@ ValidateButton.propTypes = {
 const ContentLayout = (props, context) => {
   const {typeClue, answerType: {model: {type} = {}} = {}, question, help} = props;
   const ContentType = CONTENT_TYPE[typeClue];
-  // const wrapperColor = typeClue === 'answer' ? 'white' : '#ECEFF1';
   const noPaddingRessources =
     ContentType === MediaContent ? `${style.contentWrapperNoPadding}` : `${style.contentWrapper}`;
 
