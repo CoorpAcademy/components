@@ -18,6 +18,7 @@
   "Good job": "Гарна робота!",
   "Key point": "Ключовий момент",
   "Media": "Урок",
+  "Need help? Found a bug? Report it here": "Потрібна допомога? Знайшли помилку? Повідомте про це тут",
   "Next chapter": "Наступний розділ",
   "Next chapter_": "Наступний розділ:",
   "Next level": "Наступний рівень",
@@ -26,6 +27,7 @@
   "Nice try!": "Приємно спробувати!",
   "Ooops": "Опа...",
   "Ouch": "Ох...",
+  "Question": "Питання",
   "Quit": "Кинути",
   "Related subjects": "Рекомендується для вас:",
   "Retry chapter": "Повторити розділ",
@@ -40,6 +42,5 @@
   "Type here": "Введіть тут",
   "Validate": "Перевіряти",
   "Wrong answer": "Невірну відповідь",
-  "You are out of lives!": "У вас більше немає спроб!",
-  "Need help? Found a bug? Report it here": "Потрібна допомога? Знайшли помилку? Повідомте про це тут"
+  "You are out of lives!": "У вас більше немає спроб!"
 }
