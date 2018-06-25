@@ -18,6 +18,7 @@
   "Good job": "Dobrá práce!",
   "Key point": "Klíčový bod",
   "Media": "Lekce",
+  "Need help? Found a bug? Report it here": "Potřebujete pomoc? Našli jste chybu? Oznamte to zde",
   "Next chapter": "Další kapitola",
   "Next chapter_": "Další kapitola:",
   "Next level": "Další úroveň",
@@ -26,6 +27,7 @@
   "Nice try!": "Hezkej pokus!",
   "Ooops": "Ooops...",
   "Ouch": "Au...",
+  "Question": "Otázka",
   "Quit": "Přestat",
   "Related subjects": "Doporučeno pro vás: ",
   "Retry chapter": "Opakování kapitoly",
@@ -40,6 +42,5 @@
   "Type here": "Zadejte zde",
   "Validate": "Ověřit",
   "Wrong answer": "Špatná odpověď",
-  "You are out of lives!": "Jste mimo život!",
-  "Need help? Found a bug? Report it here": "Potřebujete pomoc? Našli jste chybu? Oznamte to zde"
+  "You are out of lives!": "Jste mimo život!"
 }
