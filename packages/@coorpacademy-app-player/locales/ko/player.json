@@ -18,6 +18,7 @@
   "Good job": "잘 했어요!",
   "Key point": "핵심 포인트",
   "Media": "레슨",
+  "Need help? Found a bug? Report it here": "도움이 필요하십니까? 버그를 발견하셨나요? 여기에서 해당 내용을 알려주십시오",
   "Next chapter": "다음 장",
   "Next chapter_": "다음 장:",
   "Next level": "다음 단계",
@@ -26,6 +27,7 @@
   "Nice try!": "열심히 했어!",
   "Ooops": "이런...",
   "Ouch": "아야...",
+  "Question": "질문",
   "Quit": "종료",
   "Related subjects": "당신을 위해 추천: ",
   "Retry chapter": "다시 시도 장",
@@ -40,6 +42,5 @@
   "Type here": "여기에 입력",
   "Validate": "유효성 검사",
   "Wrong answer": "틀린 답",
-  "You are out of lives!": "당신이 삶의 밖으로 있다!",
-  "Need help? Found a bug? Report it here": "도움이 필요하십니까? 버그를 발견하셨나요? 여기에서 해당 내용을 알려주십시오"
+  "You are out of lives!": "당신이 삶의 밖으로 있다!"
 }
