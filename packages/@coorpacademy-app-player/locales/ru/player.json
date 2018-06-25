@@ -18,6 +18,7 @@
   "Good job": "Отличная работа !",
   "Key point": "Ключевой момент",
   "Media": "Урок",
+  "Need help? Found a bug? Report it here": "Требуется помощь? Обнаружили ошибку? Сообщить об этом здесь",
   "Next chapter": "Следующая глава",
   "Next chapter_": "Следующая глава:",
   "Next level": "Следующий уровень",
@@ -26,6 +27,7 @@
   "Nice try!": "Хорошая попытка!",
   "Ooops": "Ой...",
   "Ouch": "Ох ...",
+  "Question": "Вопрос",
   "Quit": "Выход",
   "Related subjects": "Рекомендуется для вас:",
   "Retry chapter": "Повторите главу",
@@ -40,6 +42,5 @@
   "Type here": "Напечатайте здесь",
   "Validate": "Проверить",
   "Wrong answer": "Неправильный ответ",
-  "You are out of lives!": "У вас больше нет попыток!",
-  "Need help? Found a bug? Report it here": "Требуется помощь? Обнаружили ошибку? Сообщить об этом здесь"
+  "You are out of lives!": "У вас больше нет попыток!"
 }
