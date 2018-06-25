@@ -18,6 +18,7 @@
   "Good job": "Bravo !",
   "Key point": "Point-clé",
   "Media": "Leçon",
+  "Need help? Found a bug? Report it here": "Besoin d'aide ? Un bug ? Signalez-le ici",
   "Next chapter": "Chapitre suivant ",
   "Next chapter_": "Chapitre suivant :",
   "Next level": "Niveau suivant",
@@ -26,6 +27,7 @@
   "Nice try!": "Bien tenté !",
   "Ooops": "Oups...",
   "Ouch": "Aïe...",
+  "Question": "Question",
   "Quit": "Quitter",
   "Related subjects": "Recommandé pour vous : ",
   "Retry chapter": "Réessayez ce chapitre",
@@ -40,6 +42,5 @@
   "Type here": "Saisissez ici",
   "Validate": "Valider",
   "Wrong answer": "Mauvaise réponse",
-  "You are out of lives!": "Vous n'avez plus de vies !",
-  "Need help? Found a bug? Report it here": "Besoin d'aide ? Un bug ? Signalez-le ici"
+  "You are out of lives!": "Vous n'avez plus de vies !"
 }
