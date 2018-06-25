@@ -18,6 +18,7 @@
   "Good job": "Dobra robota!",
   "Key point": "Kluczowym punktem",
   "Media": "Lekcji",
+  "Need help? Found a bug? Report it here": "Potrzebujesz pomocy? Widzisz błąd? Zgłoś go tutaj",
   "Next chapter": "Następny rozdział",
   "Next chapter_": "Następny rozdział:",
   "Next level": "Następny poziom",
@@ -26,6 +27,7 @@
   "Nice try!": "Miły próbować!",
   "Ooops": "Ooops...",
   "Ouch": "Ojej...",
+  "Question": "Pytanie",
   "Quit": "Zamknij",
   "Related subjects": "Polecane dla Ciebie:",
   "Retry chapter": "Ponów próbę wykonania rozdziału",
@@ -40,6 +42,5 @@
   "Type here": "Wpisz tutaj",
   "Validate": "Sprawdzić poprawność",
   "Wrong answer": "Błędnej odpowiedzi",
-  "You are out of lives!": "Jesteś z życia!",
-  "Need help? Found a bug? Report it here": "Potrzebujesz pomocy? Widzisz błąd? Zgłoś go tutaj"
+  "You are out of lives!": "Jesteś z życia!"
 }
