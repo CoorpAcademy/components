@@ -80,7 +80,7 @@ class Button extends React.Component {
     const notifyView = notify ? <span className={style.notify} /> : null;
     return (
       <div
-        data-name={`button-${title}`}
+        data-name={`button`}
         data-type={type}
         data-selected={selected}
         data-disabled={disabled}
