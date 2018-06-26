@@ -3,8 +3,8 @@ import {showGameOver} from '../utils/state-extract';
 import {put, call, race, take, select} from 'redux-saga/effects';
 
 export const POLL_START = '@@polling/start';
-
 export const POLL_STOP = '@@polling/stop';
+export const POLL_TIMEOUT = '@@polling/timeout';
 export const POLL_RECEPTION = '@@polling/reception';
 export const POLL_RECEPTION_MYSELF = '@@polling/reception-myself';
 export const POLL_FAILURE = '@@polling/failure';
@@ -19,6 +19,11 @@ const pollingFailed = (progressionId, err) => ({
   type: POLL_FAILURE,
   meta: {progressionId},
   payload: err
+});
+
+const pollingTimeout = progressionId => ({
+  type: POLL_TIMEOUT,
+  meta: {progressionId, info: 'polling will restart automatically'}
 });
 
 function createWorker({services}) {
@@ -49,7 +54,11 @@ function createWorker({services}) {
             }
           }
         } catch (err) {
-          yield put(pollingFailed(progressionId, err));
+          if (err.status === -1) {
+            yield put(pollingTimeout(progressionId));
+          } else {
+            yield put(pollingFailed(progressionId, err));
+          }
         }
       }
     };
