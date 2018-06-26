@@ -1,9 +1,9 @@
 export default {
   props: {
     info: {
-      title: 'Bonne réponse !',
-      success: true,
-      gameOver: false
+      title: null,
+      success: null,
+      gameOver: true
     },
     race: {
       goal: 8,
@@ -12,12 +12,12 @@ export default {
         ['placed', 'placed', 'placed', 'placed', 'new', 'new', 'new'],
         ['removed', 'lost', 'lost', 'lost', 'placed', 'placed'],
         ['placed', 'placed'],
-        ['removed', 'placed', 'placed', 'new', 'new']
+        ['removed', 'placed', 'placed', 'placed', 'new', 'new', 'new', 'new', 'new']
       ]
     },
     cta: {
       submitValue: 'Question suivante',
-      disabled: false
+      disabled: true
     }
   }
 };

@@ -630,6 +630,7 @@ import TemplateAppPlayerPopinHeaderFixtureStarsRank from '../src/template/app-pl
 import TemplateAppPlayerPopinHeaderFixtureSuccess from '../src/template/app-player/popin-header/test/fixtures/success';
 import TemplateAppRacingQuestionFixtureDefault from '../src/template/app-racing/question/test/fixtures/default';
 import TemplateAppRacingRaceFixtureDefault from '../src/template/app-racing/race/test/fixtures/default';
+import TemplateAppRacingRaceFixtureGameOver from '../src/template/app-racing/race/test/fixtures/game-over';
 import TemplateBackOfficeBrandCreateFixtureDefault from '../src/template/back-office/brand-create/test/fixtures/default';
 import TemplateBackOfficeBrandCreateFixtureError from '../src/template/back-office/brand-create/test/fixtures/error';
 import TemplateBackOfficeBrandCreateFixtureLoading from '../src/template/back-office/brand-create/test/fixtures/loading';
@@ -1635,7 +1636,8 @@ export const fixtures = {
       Default: TemplateAppRacingQuestionFixtureDefault
     },
     TemplateAppRacingRace: {
-      Default: TemplateAppRacingRaceFixtureDefault
+      Default: TemplateAppRacingRaceFixtureDefault,
+      GameOver: TemplateAppRacingRaceFixtureGameOver
     }
   },
   TemplateBackOffice: {

@@ -16,13 +16,14 @@ const BLOCKS = [
   'https://user-images.githubusercontent.com/910636/41063881-3c957008-69da-11e8-83e4-374509a9c5ed.png'
 ];
 
-const Square = ({image, type, height, bottom, motionStyle}) => (
+const Square = ({image, type, index, height, bottom, motionStyle}) => (
   <div
     className={style.block}
     style={{
       height,
       bottom,
       backgroundImage: `url(${image}`,
+      transform: `rotate(${90 * index}deg)`,
       ...motionStyle
     }}
   />
@@ -36,12 +37,12 @@ const Block = ({image, index, type, height, bottom, maxStiffness}) => {
           defaultStyle={{y: 1000}}
           style={{y: spring(bottom, {stiffness: maxStiffness - index * 10, damping: 22})}}
         >
-          {({y}) => <Square image={image} bottom={y} height={height} type={type} />}
+          {({y}) => <Square image={image} bottom={y} height={height} type={type} index={index} />}
         </Motion>
       );
 
     case 'placed':
-      return <Square image={image} bottom={bottom} height={height} type={type} />;
+      return <Square image={image} bottom={bottom} height={height} type={type} index={index} />;
 
     case 'lost':
       return (
@@ -58,6 +59,7 @@ const Block = ({image, index, type, height, bottom, maxStiffness}) => {
               bottom={0}
               height={height}
               type={type}
+              index={index}
               motionStyle={{
                 pointerEvents: 'none',
                 opacity: `${opacity / 100}`,

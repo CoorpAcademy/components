@@ -4,21 +4,23 @@ import {
   getCurrentProgression,
   getCurrentRace,
   isLastAnswerCorrect,
-  isSpectator
+  isSpectator,
+  showGameOver
 } from '../../utils/state-extract';
 import {seeQuestion} from '../../actions/ui/location';
 
 const raceProps = (options, {dispatch}) => state => {
   const progression = getCurrentProgression(state);
   const config = getConfigForProgression(progression);
-  const success = isLastAnswerCorrect(state);
+  const gameOver = showGameOver(state);
+  const success = gameOver ? null : isLastAnswerCorrect(state);
+  const title = gameOver ? null : `${success ? 'Good' : 'Bad'} answer`;
 
   return {
-    header: {
-      title: `${success ? 'Good' : 'Bad'} answer`,
+    info: {
       success,
-      points: success ? 1 : -1,
-      pointsDescription: `Your team ${success ? 'wins' : 'loses'} 1 point`
+      title,
+      gameOver
     },
     race: {
       goal: config.goal,
@@ -26,7 +28,7 @@ const raceProps = (options, {dispatch}) => state => {
     },
     cta: {
       submitValue: 'Next question',
-      disabled: isSpectator(state) || !allUsersHaveAnswered(state),
+      disabled: gameOver || isSpectator(state) || !allUsersHaveAnswered(state),
       primary: true,
       onClick: () => dispatch(seeQuestion)
     }

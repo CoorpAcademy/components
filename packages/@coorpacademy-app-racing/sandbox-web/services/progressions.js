@@ -126,7 +126,7 @@ export const postAnswer = async (progressionId, payload, forcedUser, godMode = f
 };
 
 export const waitForRefresh = async progressionId => {
-  await delay(3000);
+  await delay(300);
 
   const userId = 'user_2';
   const teamIndex = 0;

@@ -50,7 +50,7 @@
 .message {
   position: absolute;
   font-family: 'Open Sans';
-  font-weight: 700px;
+  font-weight: 300;
   font-size: 36px;
   color: #0e3a3d;
   transform: translateX(-50%);
@@ -60,8 +60,36 @@
   animation: fadeInDown 3s;
 }
 
-.sectionHeader {
-  height: 5em;
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-50px) scale(0.1);
+  }
+
+  30% {
+    transform: translateX(-50%) translateY(-50px) scale(0.2) rotate(-180deg);
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-50%) scale(1) rotate(0deg);
+  }
+}
+
+.gameOver {
+  position: absolute;
+  font-family: 'Open Sans';
+  font-weight: 300;
+  font-size: 72px;
+  color: #0e3a3d;
+  transform: translateX(-50%);
+  opacity: 1;
+  top: 20%;
+  left: 50%;
+  animation: fadeIn 3s;
 }
 
 .sectionBody {

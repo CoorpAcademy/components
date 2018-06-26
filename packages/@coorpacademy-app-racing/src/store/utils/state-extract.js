@@ -1,6 +1,8 @@
 import isNil from 'lodash/fp/isNil';
+import countBy from 'lodash/fp/countBy';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
+import identity from 'lodash/fp/identity';
 import last from 'lodash/fp/last';
 import pipe from 'lodash/fp/pipe';
 import reduce from 'lodash/fp/reduce';
@@ -99,6 +101,23 @@ export const isSpectator = state => {
 
 export const showRace = state => {
   return getRoute(state) === 'race';
+};
+
+export const showGameOver = state => {
+  const race = getCurrentRace(state);
+  const progression = getCurrentProgression(state);
+  const goal = get('engineOptions.goal', progression);
+
+  return reduce(
+    (result, tower) => {
+      const towerCount = countBy(identity, tower);
+      const nbBlocks = (towerCount.new || 0) + (towerCount.placed || 0);
+
+      return result || nbBlocks >= goal;
+    },
+    false,
+    race
+  );
 };
 
 // -----------------------------------------------------------------------------

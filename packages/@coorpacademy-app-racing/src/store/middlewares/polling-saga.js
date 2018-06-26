@@ -1,7 +1,9 @@
 import get from 'lodash/fp/get';
+import {showGameOver} from '../utils/state-extract';
 import {put, call, race, take, select} from 'redux-saga/effects';
 
 export const POLL_START = '@@polling/start';
+
 export const POLL_STOP = '@@polling/stop';
 export const POLL_RECEPTION = '@@polling/reception';
 export const POLL_RECEPTION_MYSELF = '@@polling/reception-myself';
@@ -33,10 +35,18 @@ function createWorker({services}) {
           const {userId} = payload;
           const currentView = yield select(get(['ui', 'route', progressionId]));
           const currentUserId = yield select(get(['ui', 'current', 'userId']));
+
           if (currentUserId === userId) {
             yield put({type: POLL_RECEPTION_MYSELF});
           } else {
             yield put(pollingReceived(progressionId, currentView, payload));
+
+            const state = yield select();
+            const gameOver = showGameOver(state);
+
+            if (gameOver) {
+              yield put({type: POLL_STOP});
+            }
           }
         } catch (err) {
           yield put(pollingFailed(progressionId, err));

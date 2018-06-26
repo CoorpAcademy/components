@@ -5,8 +5,11 @@ import Towers from './towers';
 import style from './style.css';
 
 const Race = props => {
-  const {header, race} = props;
+  const {info, race, cta} = props;
   const sectionClassName = subStyle => classnames(style.layoutSection, subStyle);
+
+  const message = info.title && <p className={style.message}>{info.title}</p>;
+  const gameOver = info.gameOver && <p className={style.gameOver}>Game Over!</p>;
 
   return (
     <div className={style.screenWrapper}>
@@ -16,10 +19,12 @@ const Race = props => {
             <Towers {...race} />
           </section>
           <section className={sectionClassName(style.sectionCTA)}>
-            <Cta {...props.cta} />
+            <Cta {...cta} />
           </section>
         </section>
-        <p className={style.message}>{header.title}</p>
+        <p className={style.message}>{info.title}</p>
+        {message}
+        {gameOver}
       </div>
     </div>
   );
