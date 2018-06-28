@@ -11,6 +11,7 @@ import reverse from 'lodash/fp/reverse';
 import some from 'lodash/fp/some';
 import split from 'lodash/fp/split';
 import toLower from 'lodash/fp/toLower';
+import trim from 'lodash/fp/trim';
 import zip from 'lodash/fp/zip';
 import FuzzyMatching from 'fuzzy-matching';
 import type {
@@ -192,7 +193,7 @@ export default function checkAnswerCorrectness(
   question: Question,
   givenAnswer: Answer
 ): AnswerCorrection {
-  const matches = matchGivenAnswerToQuestion(config, question, givenAnswer);
+  const matches = matchGivenAnswerToQuestion(config, question, givenAnswer.map(trim));
   if (matches.length === 0) {
     return {
       isCorrect: false,

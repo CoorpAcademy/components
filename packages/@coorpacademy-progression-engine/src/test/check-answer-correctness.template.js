@@ -84,6 +84,21 @@ test('should allow typos in text inputs', t => {
   assertIncorrect(t, config, question, ['saut', 'parachutZZZe'], [true, false]);
 });
 
+test('should allow and ignore blank spaces in text inputs', t => {
+  const question = createQuestion(
+    [['2', 'un'], ['deux', 'un'], ['saut', 'parachute']],
+    ['text', 'text']
+  );
+
+  assertCorrect(t, config, question, ['saut  ', 'parachute']);
+  assertCorrect(t, config, question, ['  saut', 'parachute']);
+  assertCorrect(t, config, question, ['saut', '  parachute']);
+  assertCorrect(t, config, question, ['saut', 'parachute  ']);
+  assertCorrect(t, config, question, ['  saut  ', '  parachute  ']);
+  assertIncorrect(t, config, question, ['  sauZZZZZt', '  parachute'], [false, true]);
+  assertIncorrect(t, config, question, ['saut  ', 'parachutZZZe  '], [true, false]);
+});
+
 test('should use the maxTypos value from the question if available', t => {
   const questionWithTypos0 = createQuestion([['parachute']], ['text'], 0);
   const questionWithTypos3 = createQuestion([['parachute']], ['text'], 3);

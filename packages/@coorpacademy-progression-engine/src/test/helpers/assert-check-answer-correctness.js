@@ -1,6 +1,7 @@
 // @flow
 import map from 'lodash/fp/map';
 import pipe from 'lodash/fp/pipe';
+import trim from 'lodash/fp/trim';
 import zip from 'lodash/fp/zip';
 import checkAnswerCorrectness from '../../check-answer-correctness';
 import type {Question, Answer, Config} from '../../types';
@@ -11,7 +12,7 @@ export function assertCorrect(t: any, config: Config, question: Question, givenA
   t.true(result.isCorrect, 'Answer should have been considered as correct');
   t.deepEqual(
     result.corrections,
-    givenAnswer.map(answer => ({answer, isCorrect: true})),
+    givenAnswer.map(answer => ({answer: trim(answer), isCorrect: true})),
     'All sub-answers should be considered correct'
   );
 }
@@ -32,7 +33,7 @@ export function assertIncorrect(
   t.false(result.isCorrect, 'Answer should have been considered as incorrect');
   t.deepEqual(
     result.corrections,
-    pipe(zip(givenAnswer), map(([answer, isCorrect]) => ({answer, isCorrect})))(
+    pipe(zip(givenAnswer), map(([answer, isCorrect]) => ({answer: trim(answer), isCorrect})))(
       expectedCorrections
     ),
     'Some sub-answers were not correctly marked as correct'
