@@ -1,16 +1,15 @@
 import React from 'react';
+import getOr from 'lodash/fp/getOr';
 import Cta from '../../../atom/cta';
 import Provider from '../../../atom/provider';
 import Range from '../../../atom/range'; // eslint-disable-line no-shadow
 import Card from '../../../molecule/card';
-import SearchForm from '../../../molecule/search-form';
-import CardsGrid from '../../../organism/cards-grid';
 import style from './style.css';
 
 const RacingAdmin = (props, context) => {
-  const {cta, teamsSlider, playersSlider, searchForm, selectedCard, cards} = props;
-  const nbTeams = teamsSlider.value * 10;
-  const nbPlayers = playersSlider.value * 10;
+  const {cta, teamsSlider, playersSlider, selectedCard} = props;
+  const nbTeams = getOr(0, 'value', teamsSlider) * 10;
+  const nbPlayers = getOr(0, 'value', playersSlider) * 10;
 
   return (
     <div className={style.admin}>
@@ -33,17 +32,6 @@ const RacingAdmin = (props, context) => {
         </div>
         <div className={style.button}>
           <Cta {...cta} />
-        </div>
-      </section>
-
-      <section className={style.catalog}>
-        <p className={style.description}>Pick a content below:</p>
-        <div className={style.search}>
-          <SearchForm {...searchForm} />
-        </div>
-
-        <div className={style.cards}>
-          <CardsGrid {...cards} />
         </div>
       </section>
     </div>
