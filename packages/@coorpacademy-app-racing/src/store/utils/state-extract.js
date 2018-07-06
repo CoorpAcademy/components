@@ -103,6 +103,10 @@ export const showRace = state => {
   return getRoute(state) === 'race';
 };
 
+export const showLoading = state => {
+  return getRoute(state) === 'loading';
+};
+
 export const showGameOver = state => {
   const race = getCurrentRace(state);
   const progression = getCurrentProgression(state);

@@ -6,6 +6,7 @@ import {
   getCurrentProgression,
   isSpectator,
   showGameOver,
+  showLoading,
   showQuestion,
   showRace
 } from '../utils/state-extract';
@@ -24,6 +25,7 @@ export const selectMapStateToVNode = (options, store, views, createStateToVNode)
     [hasNotProgression, createStateToVNode(views.loading, loadingStateToProps)],
     [showGameOver, createStateToVNode(views.race, createRaceStateToProps(options, store))],
     [isSpectator, createStateToVNode(views.race, createRaceStateToProps(options, store))],
+    [showLoading, createStateToVNode(views.question, loadingStateToProps)],
     [showQuestion, createStateToVNode(views.question, createQuestionStateToProps(options, store))],
     [showRace, createStateToVNode(views.race, createRaceStateToProps(options, store))],
     [constant(true), createStateToVNode(views.race, createRaceStateToProps(options, store))]

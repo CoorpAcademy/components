@@ -683,6 +683,7 @@ import TemplateCommonSearchPageFixtureDefault from '../src/template/common/searc
 import TemplateCommonSearchPageFixtureNoResultWithRecommendations from '../src/template/common/search-page/test/fixtures/no-result-with-recommendations';
 import TemplateCommonSearchPageFixtureNoResult from '../src/template/common/search-page/test/fixtures/no-result';
 import TemplateTeamBuilderFixtureDefault from '../src/template/team-builder/test/fixtures/default';
+import TemplateTeamBuilderFixtureReadyToStart from '../src/template/team-builder/test/fixtures/ready-to-start';
 import TemplateTeamBuilderFixtureWaitForOthers from '../src/template/team-builder/test/fixtures/wait-for-others';
 
 export const components = {
@@ -1515,6 +1516,7 @@ export const fixtures = {
     },
     TemplateTeamBuilder: {
       Default: TemplateTeamBuilderFixtureDefault,
+      ReadyToStart: TemplateTeamBuilderFixtureReadyToStart,
       WaitForOthers: TemplateTeamBuilderFixtureWaitForOthers
     }
   },
