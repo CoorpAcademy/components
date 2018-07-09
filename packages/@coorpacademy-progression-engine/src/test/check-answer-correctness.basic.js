@@ -80,6 +80,16 @@ test('should trim the given answer before comparing', t => {
   assertIncorrect(t, configWithTypos, question, ['A foo'], [false]);
 });
 
+test('should trim the accepted answers before comparing', t => {
+  const question = createQuestion([[' foo ']], 0);
+
+  assertCorrect(t, configWithTypos, question, ['foo ']);
+  assertCorrect(t, configWithTypos, question, [' foo']);
+  assertCorrect(t, configWithTypos, question, ['     foo     ']);
+  assertIncorrect(t, configWithTypos, question, ['  fooo'], [false]);
+  assertIncorrect(t, configWithTypos, question, ['A foo'], [false]);
+});
+
 test('should be able to define the number of typos in the question', t => {
   const question = createQuestion([['foooooooooooo']], 3);
 

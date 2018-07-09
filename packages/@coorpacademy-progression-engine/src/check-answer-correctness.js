@@ -56,10 +56,11 @@ function containsAnswer(config: Config, allowedAnswer: string, givenAnswer: stri
 
 function isTextCorrect(
   config: Config,
-  allowedAnswers: Answer,
+  _allowedAnswers: Answer,
   answerWithCase: string,
   _maxTypos: ?number
 ): boolean {
+  const allowedAnswers = _allowedAnswers.map(trim);
   const fm = new FuzzyMatching(allowedAnswers);
   const maxTypos = _maxTypos === 0 ? _maxTypos : _maxTypos || config.maxTypos;
   const answer = toLower(answerWithCase);
@@ -161,7 +162,7 @@ function matchGivenAnswerToQuestion(
   question: Question,
   givenAnswer: Answer
 ): Array<Array<PartialCorrection>> {
-  const allowedAnswers = question.content.answers;
+  const allowedAnswers = question.content.answers.map(answer => answer.map(trim));
   switch (question.type) {
     case 'basic': {
       return matchAnswerForBasic(config, question, givenAnswer);
