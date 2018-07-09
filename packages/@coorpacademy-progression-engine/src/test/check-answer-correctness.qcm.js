@@ -98,3 +98,11 @@ test('should return false when there are no correct answers', t => {
   assertIncorrectEmptyAnswer(t, config, question, []);
   assertIncorrectEmptyAnswer(t, config, question, ['foo']);
 });
+
+test('should trim the given and accepted answers before comparing', t => {
+  const question = createQuestion([['  answer1', '  answer3   ']]);
+
+  assertCorrect(t, config, question, ['answer1', 'answer3']);
+  assertCorrect(t, config, question, ['answer1   ', '  answer3']);
+  assertIncorrect(t, config, question, ['answer2', 'answer3'], [false, true]);
+});
