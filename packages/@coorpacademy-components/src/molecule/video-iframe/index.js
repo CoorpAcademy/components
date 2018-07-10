@@ -2,29 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import qs from 'qs';
 import noop from 'lodash/fp/noop';
-import constant from 'lodash/fp/constant';
 import Provider from '../../atom/provider';
 import {SrcPropType} from '../../util/proptypes';
 import style from './style.css';
 
-const PROVIDERS = {
-  youtube: {
-    url: 'https://www.youtube.com/embed',
-    formatUrl({id, url, query = {}, opts = {}}) {
-      return `${url}/${id}?${qs.stringify({...query, ...opts})}`;
-    }
-  },
-  kontiki: {},
-  uptale: {
-    url: 'https://my.uptale.io/Experience/Launch?id=',
-    formatUrl({id, url, query = {}, opts = {}}) {
-      return `${url}${id}`;
-    }
+const getUrl = ({url, type, id, query = {}, opts = {}}) => {
+  switch (type) {
+    case 'youtube':
+      return `https://www.youtube.com/embed/${id}?${qs.stringify({...query, ...opts})}`;
+    case 'uptale':
+      return `https://my.uptale.io/Experience/Launch?id=${id}`;
+    default:
+      return url;
   }
 };
-
-const getUrl = ({type, id, ...opts}) =>
-  id && PROVIDERS[type] ? PROVIDERS[type].formatUrl({id, ...PROVIDERS[type], opts}) : null;
 
 class VideoIframe extends React.Component {
   componentDidMount() {
@@ -37,7 +28,7 @@ class VideoIframe extends React.Component {
 
   render() {
     const {type, id, url, autoplay = false, width = '100%', height = '400px'} = this.props;
-    const src = url || getUrl({type, id, autoplay});
+    const src = getUrl({url, type, id, autoplay});
 
     return (
       <iframe
@@ -57,7 +48,7 @@ VideoIframe.contextTypes = {
 };
 
 VideoIframe.propTypes = {
-  type: PropTypes.oneOf(Object.keys(PROVIDERS)),
+  type: PropTypes.oneOf(['youtube', 'uptale', 'kontiki']),
   width: PropTypes.string,
   height: PropTypes.string,
   url: SrcPropType,
