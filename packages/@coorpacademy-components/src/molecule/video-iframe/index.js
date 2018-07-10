@@ -14,11 +14,7 @@ const PROVIDERS = {
       return `${url}/${id}?${qs.stringify({...query, ...opts})}`;
     }
   },
-  kontiki: {
-    formatUrl() {
-      return constant(null);
-    }
-  },
+  kontiki: {},
   uptale: {
     url: 'https://my.uptale.io/Experience/Launch?id=',
     formatUrl({id, url, query = {}, opts = {}}) {

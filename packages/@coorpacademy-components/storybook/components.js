@@ -463,7 +463,6 @@ import MoleculeVideoIframeFixtureImagePlaceholder from '../src/molecule/video-if
 import MoleculeVideoIframeFixtureUptale from '../src/molecule/video-iframe/test/fixtures/uptale';
 import MoleculeVideoIframeFixtureYoutube from '../src/molecule/video-iframe/test/fixtures/youtube';
 import MoleculeVideoPlayerFixtureJwplayer from '../src/molecule/video-player/test/fixtures/jwplayer';
-import MoleculeVideoPlayerFixtureKontikiWithoutUrl from '../src/molecule/video-player/test/fixtures/kontiki-without-url';
 import MoleculeVideoPlayerFixtureKontiki from '../src/molecule/video-player/test/fixtures/kontiki';
 import MoleculeVideoPlayerFixtureUptale from '../src/molecule/video-player/test/fixtures/uptale';
 import MoleculeVideoPlayerFixtureVimeo from '../src/molecule/video-player/test/fixtures/vimeo';
@@ -1301,7 +1300,6 @@ export const fixtures = {
     },
     MoleculeVideoPlayer: {
       Jwplayer: MoleculeVideoPlayerFixtureJwplayer,
-      KontikiWithoutUrl: MoleculeVideoPlayerFixtureKontikiWithoutUrl,
       Kontiki: MoleculeVideoPlayerFixtureKontiki,
       Uptale: MoleculeVideoPlayerFixtureUptale,
       Vimeo: MoleculeVideoPlayerFixtureVimeo,
