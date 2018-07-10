@@ -2,22 +2,33 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import qs from 'qs';
 import noop from 'lodash/fp/noop';
+import constant from 'lodash/fp/constant';
 import Provider from '../../atom/provider';
 import {SrcPropType} from '../../util/proptypes';
 import style from './style.css';
 
 const PROVIDERS = {
   youtube: {
-    url: 'https://www.youtube.com/embed'
+    url: 'https://www.youtube.com/embed',
+    formatUrl({id, url, query = {}, opts = {}}) {
+      return `${url}/${id}?${qs.stringify({...query, ...opts})}`;
+    }
   },
-  kontiki: {}
+  kontiki: {
+    formatUrl() {
+      return constant(null);
+    }
+  },
+  uptale: {
+    url: 'https://my.uptale.io/Experience/Launch?id=',
+    formatUrl({id, url, query = {}, opts = {}}) {
+      return `${url}${id}`;
+    }
+  }
 };
 
-const formatUrl = ({id, url, query = {}, opts = {}}) =>
-  `${url}/${id}?${qs.stringify({...query, ...opts})}`;
-
 const getUrl = ({type, id, ...opts}) =>
-  id && PROVIDERS[type] ? formatUrl({id, ...PROVIDERS[type], opts}) : null;
+  id && PROVIDERS[type] ? PROVIDERS[type].formatUrl({id, ...PROVIDERS[type], opts}) : null;
 
 class VideoIframe extends React.Component {
   componentDidMount() {
