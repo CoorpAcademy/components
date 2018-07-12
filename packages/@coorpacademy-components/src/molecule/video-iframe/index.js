@@ -37,6 +37,8 @@ class VideoIframe extends React.Component {
         height={height}
         frameBorder={0}
         className={style.iframe}
+        allowvr={type === 'uptale'? 'yes': null}
+        scrolling={type === 'uptale'? 'no': null}
         allowFullScreen
       />
     );
