@@ -150,7 +150,7 @@ export const currentTeam = state => {
     return {
       name: get('name', player),
       avatar: get('avatar', player),
-      isCorrect: get(`allAnswers[${questionNumToWaitFor - 1}].isCorrect`, player)
+      isCorrect: getOr(null, `allAnswers[${questionNumToWaitFor - 1}].isCorrect`, player)
     };
   }, players);
 };

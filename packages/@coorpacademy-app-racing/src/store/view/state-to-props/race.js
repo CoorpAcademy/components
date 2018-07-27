@@ -18,10 +18,6 @@ const raceProps = (options, {dispatch}) => state => {
   const title = gameOver ? null : `${success ? 'Good' : 'Bad'} answer`;
   const team = currentTeam(state);
 
-  console.log('===================');
-  console.log(team);
-  console.log('===================');
-
   return {
     info: {
       success,
