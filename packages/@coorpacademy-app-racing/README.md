@@ -196,5 +196,5 @@ https://github.com/CoorpAcademy/components/pull/1226
 [mooc] docker-compose stop progression
 
 [api-progression] node app/index.js
-[mooc] npm start
+[mooc] PORT=3000 NODE_ENV=development node core/web.js
 ```

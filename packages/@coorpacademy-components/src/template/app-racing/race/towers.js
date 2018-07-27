@@ -29,13 +29,13 @@ const Square = ({image, type, index, height, bottom, motionStyle}) => (
   />
 );
 
-const Block = ({image, index, type, height, bottom, maxStiffness}) => {
+const Block = ({image, index, num, type, height, bottom, maxStiffness}) => {
   switch (type) {
     case 'new':
       return (
         <Motion
           defaultStyle={{y: 1000}}
-          style={{y: spring(bottom, {stiffness: maxStiffness - index * 10, damping: 22})}}
+          style={{y: spring(bottom, {stiffness: maxStiffness - num * 10, damping: 22})}}
         >
           {({y}) => <Square image={image} bottom={y} height={height} type={type} index={index} />}
         </Motion>
@@ -85,7 +85,8 @@ const Tower = ({team, blocks, blockSize, maxStiffness}) => (
     {_map((value, index) => {
       const count = countBy(identity, blocks);
       const nbRemoved = (count.removed || 0) + (count.lost || 0);
-      const bottom = (index - nbRemoved) * blockSize;
+      const num = index - nbRemoved;
+      const bottom = num * blockSize;
 
       return (
         <Block
@@ -94,6 +95,7 @@ const Tower = ({team, blocks, blockSize, maxStiffness}) => (
           height={`${value === ('removed' || 'lost') ? null : blockSize}px`}
           bottom={bottom}
           index={index}
+          num={num}
           key={`block-${team}-${index}`}
           maxStiffness={maxStiffness}
         />

@@ -12,12 +12,44 @@ export default {
         ['placed', 'placed', 'placed', 'placed', 'new', 'new', 'new'],
         ['removed', 'lost', 'lost', 'lost', 'placed', 'placed'],
         ['placed', 'placed'],
+        [
+          'lost',
+          'lost',
+          'lost',
+          'lost',
+          'lost',
+          'lost',
+          'lost',
+          'lost',
+          'lost',
+          'lost',
+          'lost',
+          'lost',
+          'lost',
+          'lost',
+          'lost',
+          'lost',
+          'lost',
+          'new',
+          'new',
+          'new',
+          'new',
+          'new',
+          'new',
+          'new',
+          'new'
+        ],
         ['removed', 'placed', 'placed', 'new', 'new']
       ]
     },
     cta: {
       submitValue: 'Question suivante',
       disabled: false
-    }
+    },
+    team: [
+      {name: 'Katrine', avatar: 'https://api.adorable.io/avatars/150/Katrine.png', isCorrect: true},
+      {name: 'Joe', avatar: 'https://api.adorable.io/avatars/150/Joe.png', isCorrect: false},
+      {name: 'Kim', avatar: 'https://api.adorable.io/avatars/150/Kim.png', isCorrect: null}
+    ]
   }
 };
