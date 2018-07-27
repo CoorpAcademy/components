@@ -5,6 +5,7 @@ import getOr from 'lodash/fp/getOr';
 import identity from 'lodash/fp/identity';
 import last from 'lodash/fp/last';
 import pipe from 'lodash/fp/pipe';
+import map from 'lodash/fp/map';
 import reduce from 'lodash/fp/reduce';
 import _toString from 'lodash/fp/toString';
 
@@ -59,25 +60,6 @@ export const getUserState = (userId, state) => {
 
 export const getCurrentUserState = state => getUserState(getCurrentUserId(state), state);
 
-export const allUsersHaveAnswered = state => {
-  const progression = getCurrentProgression(state);
-  const userState = getCurrentUserState(state);
-  const userQuestionNum = get('questionNum', userState);
-  const team = get('team', userState);
-  const players = get(['state', 'teams', team, 'players'], progression);
-
-  return reduce(
-    (result, playerId) => {
-      const player = getUserState(playerId, state);
-      const questionNum = get('questionNum', player);
-
-      return result && userQuestionNum <= questionNum;
-    },
-    true,
-    players
-  );
-};
-
 export const isLastAnswerCorrect = pipe(
   getCurrentUserState,
   get('allAnswers'),
@@ -126,6 +108,55 @@ export const showGameOver = state => {
 
 // -----------------------------------------------------------------------------
 
+export const allUsersHaveAnswered = state => {
+  const progression = getCurrentProgression(state);
+  const userState = getCurrentUserState(state);
+  const userQuestionNum = get('questionNum', userState);
+  const team = get('team', userState);
+  const players = get(['state', 'teams', team, 'players'], progression);
+
+  return reduce(
+    (result, playerId) => {
+      const player = getUserState(playerId, state);
+      const questionNum = get('questionNum', player);
+
+      return result && userQuestionNum <= questionNum;
+    },
+    true,
+    players
+  );
+};
+
+export const currentTeam = state => {
+  const progression = getCurrentProgression(state);
+  const userState = getCurrentUserState(state);
+
+  const team = get('team', userState);
+  const players = get(['state', 'teams', team, 'players'], progression);
+  const questionNumToWaitFor = reduce(
+    (result, playerId) => {
+      const player = getUserState(playerId, state);
+      const questionNum = get('questionNum', player);
+
+      return Math.min(result, questionNum);
+    },
+    1000000,
+    players
+  );
+
+  return map(playerId => {
+    const player = getUserState(playerId, state);
+
+    return {
+      name: get('name', player),
+      avatar: get('avatar', player),
+      isCorrect: get(`allAnswers[${questionNumToWaitFor - 1}].isCorrect`, player)
+    };
+  }, players);
+};
+
+// -----------------------------------------------------------------------------
+
 export const getAnswers = state => {
   const progressionId = getCurrentProgressionId(state);
   return getOr({}, ['ui', 'answers', progressionId])(state);
@@ -158,26 +189,11 @@ export const getCurrentContent = state => {
   return getContent(type, ref)(state);
 };
 
-export const getContentInfo = pipe(
-  getCurrentContent,
-  get('info')
-);
-export const getNbSlides = pipe(
-  getContentInfo,
-  get('nbSlides')
-);
-export const getStepContent = pipe(
-  getCurrentUserState,
-  get('nextContent')
-);
-export const getPrevStepContent = pipe(
-  getCurrentUserState,
-  get('content')
-);
-export const getCurrentChapterId = pipe(
-  getCurrentSlide,
-  getChapterId
-);
+export const getContentInfo = pipe(getCurrentContent, get('info'));
+export const getNbSlides = pipe(getContentInfo, get('nbSlides'));
+export const getStepContent = pipe(getCurrentUserState, get('nextContent'));
+export const getPrevStepContent = pipe(getCurrentUserState, get('content'));
+export const getCurrentChapterId = pipe(getCurrentSlide, getChapterId);
 
 export const getEngine = state => {
   return get('engine')(getCurrentProgression(state));

@@ -3,7 +3,9 @@
 import type {Instruction, ChapterRule} from './rule-engine/types';
 
 export type User = {
-  id: string
+  id: string,
+  name: string,
+  avatar: string
 };
 
 export type Team = Array<User>;

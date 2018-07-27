@@ -1,6 +1,7 @@
 import {getConfigForProgression} from '@coorpacademy/progression-engine';
 import {
   allUsersHaveAnswered,
+  currentTeam,
   getCurrentProgression,
   getCurrentRace,
   isLastAnswerCorrect,
@@ -15,6 +16,11 @@ const raceProps = (options, {dispatch}) => state => {
   const gameOver = showGameOver(state);
   const success = gameOver ? null : isLastAnswerCorrect(state);
   const title = gameOver ? null : `${success ? 'Good' : 'Bad'} answer`;
+  const team = currentTeam(state);
+
+  console.log('===================');
+  console.log(team);
+  console.log('===================');
 
   return {
     info: {
@@ -31,7 +37,8 @@ const raceProps = (options, {dispatch}) => state => {
       disabled: gameOver || isSpectator(state) || !allUsersHaveAnswered(state),
       primary: true,
       onClick: () => dispatch(seeQuestion)
-    }
+    },
+    team
   };
 };
 

@@ -8,7 +8,10 @@ import type {AvailableContent, Content, Engine, EngineOptions} from '../../types
 import createRacing from '../racing';
 import allSlides from '../../compute-next-step/test/fixtures/slides';
 
-const initialTeams = [[{id: 'user_1'}, {id: 'user_2'}], [{id: 'user_3'}, {id: 'user_4'}]];
+const initialTeams = [
+  [{id: 'user_1', name: 'foo', avatar: ''}, {id: 'user_2', name: 'foo', avatar: ''}],
+  [{id: 'user_3', name: 'foo', avatar: ''}, {id: 'user_4', name: 'foo', avatar: ''}]
+];
 
 const availableContent: AvailableContent = [
   {
