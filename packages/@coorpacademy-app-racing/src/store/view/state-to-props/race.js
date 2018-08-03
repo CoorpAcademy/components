@@ -1,38 +1,40 @@
-import get from 'lodash/fp/get';
-import pipe from 'lodash/fp/pipe';
 import {getConfigForProgression} from '@coorpacademy/progression-engine';
 import {
   allUsersHaveAnswered,
+  currentTeam,
   getCurrentProgression,
   getCurrentRace,
-  isLastAnswerCorrect
+  isLastAnswerCorrect,
+  isSpectator,
+  showGameOver
 } from '../../utils/state-extract';
 import {seeQuestion} from '../../actions/ui/location';
-
-const getTowers = pipe(getCurrentRace, get('display'));
 
 const raceProps = (options, {dispatch}) => state => {
   const progression = getCurrentProgression(state);
   const config = getConfigForProgression(progression);
-  const success = isLastAnswerCorrect(state);
+  const gameOver = showGameOver(state);
+  const success = gameOver ? null : isLastAnswerCorrect(state);
+  const title = gameOver ? null : `${success ? 'Good' : 'Bad'} answer`;
+  const team = currentTeam(state);
 
   return {
-    header: {
-      title: `${success ? 'Good' : 'Bad'} answer`,
+    info: {
       success,
-      points: success ? 1 : -1,
-      pointsDescription: `Your team ${success ? 'wins' : 'loses'} 1 point`
+      title,
+      gameOver
     },
     race: {
       goal: config.goal,
-      towers: getTowers(state)
+      towers: getCurrentRace(state)
     },
     cta: {
       submitValue: 'Next question',
-      disabled: !allUsersHaveAnswered(state),
+      disabled: gameOver || isSpectator(state) || !allUsersHaveAnswered(state),
       primary: true,
       onClick: () => dispatch(seeQuestion)
-    }
+    },
+    team
   };
 };
 

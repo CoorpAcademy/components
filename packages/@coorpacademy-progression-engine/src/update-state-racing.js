@@ -34,14 +34,14 @@ function combineReducers(
 type ReduceAction = Config => (RacingState, Action) => RacingState;
 export type UpdateStateRacing = (Config, RacingState, Array<Action>) => RacingState;
 
-const createUpdateState = (reduceAction: ReduceAction): UpdateStateRacing => {
+const createUpdateState = (_reduceAction: ReduceAction): UpdateStateRacing => {
   return (config: Config, state: RacingState, actions: Array<Action>): RacingState => {
     if (isEmpty(actions)) {
-      throw(new Error('racing progression must have at least one action: racing-setup'));
+      throw new Error('racing progression must have at least one action: racing-setup');
     }
-    return reduce(reduceAction(config), state, actions);
+    return reduce(_reduceAction(config), state, actions);
   };
-}
+};
 
 const reduceAction = combineReducers([{key: 'users', fn: users}, {key: 'teams', fn: teams}]);
 const updateStateRacing: UpdateStateRacing = createUpdateState(reduceAction);

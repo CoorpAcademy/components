@@ -1,0 +1,48 @@
+.admin {
+  padding: 10px;
+  background-image: url('https://user-images.githubusercontent.com/1039076/37212425-643044ba-23af-11e8-9c0f-37488f7c5f84.png');
+  background-size: cover;
+}
+
+.title {
+  font-family: 'Open Sans';
+  font-size: 25px;
+  font-weight: 700;
+  color: #0e3a3d;
+  margin: 0;
+  padding: 0;
+}
+
+.sliders {
+  display: flex;
+  width: 90%;
+  flex-direction: column;
+  padding: 20px 0px;
+  margin: 0px auto;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 480px;
+  margin: 0 auto;
+  padding: 40px 0px;
+}
+
+.slider {
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+
+.button {
+}
+
+.card {
+}
+
+.description {
+  font-family: 'Open Sans';
+  font-size: 15px;
+  color: #0e3a3d;
+}

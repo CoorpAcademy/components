@@ -4,7 +4,6 @@ import identity from 'lodash/fp/identity';
 import map from 'lodash/fp/map';
 import React, {Component} from 'react';
 import {Motion, spring} from 'react-motion';
-import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import style from './towers.css';
 
@@ -17,41 +16,77 @@ const BLOCKS = [
   'https://user-images.githubusercontent.com/910636/41063881-3c957008-69da-11e8-83e4-374509a9c5ed.png'
 ];
 
-const BLOCK_STYLES = {
-  new: style.new,
-  lost: style.lost,
-  removed: style.removed,
-  placedAndMoved: style.placedAndMoved
-};
-
-const Block = ({image, index, type, height, bottom}) => (
-  <Motion
-    defaultStyle={{x: 1000}}
-    style={{x: spring(bottom, {stiffness: 240 - index * 10, damping: 22})}}
-  >
-    {({x}) => (
-      <div
-        className={classnames([style.block, BLOCK_STYLES[type]])}
-        style={{
-          height,
-          bottom: x,
-          backgroundImage: `url(${image}`
-        }}
-      />
-    )}
-  </Motion>
+const Square = ({image, type, index, height, bottom, motionStyle}) => (
+  <div
+    className={style.block}
+    style={{
+      height,
+      bottom,
+      backgroundImage: `url(${image}`,
+      transform: `rotate(${90 * index}deg)`,
+      ...motionStyle
+    }}
+  />
 );
+
+const Block = ({image, index, num, type, height, bottom, maxStiffness}) => {
+  switch (type) {
+    case 'new':
+      return (
+        <Motion
+          defaultStyle={{y: 1000}}
+          style={{y: spring(bottom, {stiffness: maxStiffness - num * 10, damping: 22})}}
+        >
+          {({y}) => <Square image={image} bottom={y} height={height} type={type} index={index} />}
+        </Motion>
+      );
+
+    case 'placed':
+      return <Square image={image} bottom={bottom} height={height} type={type} index={index} />;
+
+    case 'lost':
+      return (
+        <Motion
+          defaultStyle={{scale: 1, opacity: 100}}
+          style={{
+            scale: spring(100, {stiffness: 200, damping: 32}),
+            opacity: spring(0, {stiffness: 30, damping: 12})
+          }}
+        >
+          {({scale, opacity}) => (
+            <Square
+              image={image}
+              bottom={0}
+              height={height}
+              type={type}
+              index={index}
+              motionStyle={{
+                pointerEvents: 'none',
+                opacity: `${opacity / 100}`,
+                transform: `scale(${scale / 30})`
+              }}
+            />
+          )}
+        </Motion>
+      );
+
+    case 'removed':
+    default:
+      return null;
+  }
+};
 
 Block.propTypes = {
   type: PropTypes.oneOf(['new', 'lost', 'placed', 'placedAndMoved', 'removed'])
 };
 
-const Tower = ({team, blocks, blockSize}) => (
+const Tower = ({team, blocks, blockSize, maxStiffness}) => (
   <div className={style.tower}>
     {_map((value, index) => {
       const count = countBy(identity, blocks);
       const nbRemoved = (count.removed || 0) + (count.lost || 0);
-      const bottom = (index - nbRemoved) * blockSize;
+      const num = index - nbRemoved;
+      const bottom = num * blockSize;
 
       return (
         <Block
@@ -60,7 +95,9 @@ const Tower = ({team, blocks, blockSize}) => (
           height={`${value === ('removed' || 'lost') ? null : blockSize}px`}
           bottom={bottom}
           index={index}
+          num={num}
           key={`block-${team}-${index}`}
+          maxStiffness={maxStiffness}
         />
       );
     }, blocks)}
@@ -102,6 +139,7 @@ class Towers extends Component {
               team={index}
               blocks={blocks}
               blockSize={this.state.height / goal}
+              maxStiffness={goal * 25}
             />
           ),
           towers
