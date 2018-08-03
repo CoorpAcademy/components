@@ -29,6 +29,8 @@ const reducers = {
   nextContent,
   slides,
   id: config => identity,
+  name: config => identity,
+  avatar: config => identity,
   team: config => identity
 };
 

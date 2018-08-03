@@ -238,26 +238,6 @@
   dependencies:
     arrify "^1.0.1"
 
-"@coorpacademy/components@7.4.17":
-  version "7.4.17"
-  resolved "https://registry.npmjs.org/@coorpacademy/components/-/components-7.4.17.tgz#4b80f2af1cbb9f3418574b476ee2f3c22aa87e05"
-  dependencies:
-    "@coorpacademy/nova-icons" "1.2.5"
-    autoprefixer "^8.4.1"
-    classnames "^2.2.5"
-    css-color-function "^1.3.0"
-    cubic-bezier "^0.1.2"
-    extended-proptypes "^1.3.0"
-    hammerjs "^2.0.8"
-    lodash "^4.17.4"
-    postcss-calc "^6.0.0"
-    postcss-color-function "^4.0.0"
-    postcss-easy-import "^3.0.0"
-    postcss-modules-values-replace "^3.0.1"
-    qs "6.5.2"
-    react "^16.3.2"
-    react-jw-player "1.18.0"
-
 "@coorpacademy/eslint-plugin-coorpacademy@^8.1.0":
   version "8.1.1"
   resolved "https://registry.npmjs.org/@coorpacademy/eslint-plugin-coorpacademy/-/eslint-plugin-coorpacademy-8.1.1.tgz#f4fa0d396c9549d11a0186571e106f174acb174b"

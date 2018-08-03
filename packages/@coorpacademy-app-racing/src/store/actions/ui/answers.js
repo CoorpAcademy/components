@@ -50,6 +50,7 @@ export const editAnswer = (state, questionType, progressionId, newValue) => {
 };
 
 export const validateAnswer = (progressionId, body) => async (dispatch, getState, {services}) => {
+  await dispatch(selectRoute('loading'));
   await dispatch(createAnswer(progressionId, body.answer));
   return dispatch(selectRoute('race'));
 };

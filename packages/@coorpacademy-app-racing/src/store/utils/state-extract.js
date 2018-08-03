@@ -1,8 +1,11 @@
 import isNil from 'lodash/fp/isNil';
+import countBy from 'lodash/fp/countBy';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
+import identity from 'lodash/fp/identity';
 import last from 'lodash/fp/last';
 import pipe from 'lodash/fp/pipe';
+import map from 'lodash/fp/map';
 import reduce from 'lodash/fp/reduce';
 import _toString from 'lodash/fp/toString';
 
@@ -57,25 +60,6 @@ export const getUserState = (userId, state) => {
 
 export const getCurrentUserState = state => getUserState(getCurrentUserId(state), state);
 
-export const allUsersHaveAnswered = state => {
-  const progression = getCurrentProgression(state);
-  const userState = getCurrentUserState(state);
-  const userQuestionNum = get('questionNum', userState);
-  const team = get('team', userState);
-  const players = get(['state', 'teams', team, 'players'], progression);
- 
-  return reduce(
-    (result, playerId) => {
-      const player = getUserState(playerId, state);
-      const questionNum = get('questionNum', player);
-
-      return result && userQuestionNum <= questionNum;
-    },
-    true,
-    players
-  );
-};
-
 export const isLastAnswerCorrect = pipe(
   getCurrentUserState,
   get('allAnswers'),
@@ -91,8 +75,84 @@ export const showQuestion = state => {
   return questionNum === 1 || ctaWasClicked;
 };
 
+export const isSpectator = state => {
+  if (!getCurrentUserState(state)) {
+    return true;
+  }
+};
+
 export const showRace = state => {
   return getRoute(state) === 'race';
+};
+
+export const showLoading = state => {
+  return getRoute(state) === 'loading';
+};
+
+export const showGameOver = state => {
+  const race = getCurrentRace(state);
+  const progression = getCurrentProgression(state);
+  const goal = get('engineOptions.goal', progression);
+
+  return reduce(
+    (result, tower) => {
+      const towerCount = countBy(identity, tower);
+      const nbBlocks = (towerCount.new || 0) + (towerCount.placed || 0);
+
+      return result || nbBlocks >= goal;
+    },
+    false,
+    race
+  );
+};
+
+// -----------------------------------------------------------------------------
+
+export const allUsersHaveAnswered = state => {
+  const progression = getCurrentProgression(state);
+  const userState = getCurrentUserState(state);
+  const userQuestionNum = get('questionNum', userState);
+  const team = get('team', userState);
+  const players = get(['state', 'teams', team, 'players'], progression);
+
+  return reduce(
+    (result, playerId) => {
+      const player = getUserState(playerId, state);
+      const questionNum = get('questionNum', player);
+
+      return result && userQuestionNum <= questionNum;
+    },
+    true,
+    players
+  );
+};
+
+export const currentTeam = state => {
+  const progression = getCurrentProgression(state);
+  const userState = getCurrentUserState(state);
+
+  const team = get('team', userState);
+  const players = get(['state', 'teams', team, 'players'], progression);
+  const questionNumToWaitFor = reduce(
+    (result, playerId) => {
+      const player = getUserState(playerId, state);
+      const questionNum = get('questionNum', player);
+
+      return Math.min(result, questionNum);
+    },
+    1000000,
+    players
+  );
+
+  return map(playerId => {
+    const player = getUserState(playerId, state);
+
+    return {
+      name: get('name', player),
+      avatar: get('avatar', player),
+      isCorrect: getOr(null, `allAnswers[${questionNumToWaitFor - 1}].isCorrect`, player)
+    };
+  }, players);
 };
 
 // -----------------------------------------------------------------------------

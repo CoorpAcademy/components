@@ -1,8 +1,10 @@
 import get from 'lodash/fp/get';
+import {showGameOver} from '../utils/state-extract';
 import {put, call, race, take, select} from 'redux-saga/effects';
 
 export const POLL_START = '@@polling/start';
 export const POLL_STOP = '@@polling/stop';
+export const POLL_TIMEOUT = '@@polling/timeout';
 export const POLL_RECEPTION = '@@polling/reception';
 export const POLL_RECEPTION_MYSELF = '@@polling/reception-myself';
 export const POLL_FAILURE = '@@polling/failure';
@@ -19,6 +21,11 @@ const pollingFailed = (progressionId, err) => ({
   payload: err
 });
 
+const pollingTimeout = progressionId => ({
+  type: POLL_TIMEOUT,
+  meta: {progressionId, info: 'polling will restart automatically'}
+});
+
 function createWorker({services}) {
   const {Progressions} = services;
 
@@ -33,13 +40,25 @@ function createWorker({services}) {
           const {userId} = payload;
           const currentView = yield select(get(['ui', 'route', progressionId]));
           const currentUserId = yield select(get(['ui', 'current', 'userId']));
+
           if (currentUserId === userId) {
             yield put({type: POLL_RECEPTION_MYSELF});
           } else {
             yield put(pollingReceived(progressionId, currentView, payload));
+
+            const state = yield select();
+            const gameOver = showGameOver(state);
+
+            if (gameOver) {
+              yield put({type: POLL_STOP});
+            }
           }
         } catch (err) {
-          yield put(pollingFailed(progressionId, err));
+          if (err.status === -1) {
+            yield put(pollingTimeout(progressionId));
+          } else {
+            yield put(pollingFailed(progressionId, err));
+          }
         }
       }
     };

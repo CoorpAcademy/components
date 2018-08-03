@@ -30,9 +30,7 @@ export default {
         ]
       }
     ],
-    cta: {
-      submitValue: 'Join a team',
-      onClick: () => console.log('Joined !')
-    }
+    cta: null,
+    title: 'Waiting for players...'
   }
 };
