@@ -281,7 +281,7 @@ const ContentLayout = (props, context) => {
     ContentType === MediaContent ? `${style.contentWrapperNoPadding}` : `${style.contentWrapper}`;
 
   return (
-    <div className={noPaddingRessources} style={{backgroundColor: 'white'}}>
+    <div className={noPaddingRessources}>
       <div
         data-name="question"
         className={style.question}

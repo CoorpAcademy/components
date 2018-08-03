@@ -50,10 +50,13 @@ const _reducers = {
 };
 ```
 
+- config.infiniteSlides: boolean --> to restart slides picking
+
 ### mooc --> team-builder
 
 - rooms admin/join/play
 - integrates @coorpacademy/app-racing
+- proposal `skin {common, racing:{primary}}`
 
 ### @coorpacademy/app-racing
 
@@ -62,6 +65,7 @@ https://github.com/CoorpAcademy/components/pull/1226
 - `/store/services` have been moved to `/sandbox-web/services`
 - service.users
 - fetchMe()
+- react-motion
 
 <details>
   <summary>front progression</summary>
@@ -128,7 +132,7 @@ https://github.com/CoorpAcademy/components/pull/1226
 </details>
 
 <details>
-  <summary>progression.state.teama to ui.races</summary>
+  <summary>progression.state.teams to ui.races</summary>
 
 ```json
 "ui": {
@@ -192,5 +196,5 @@ https://github.com/CoorpAcademy/components/pull/1226
 [mooc] docker-compose stop progression
 
 [api-progression] node app/index.js
-[mooc] npm start
+[mooc] PORT=3000 NODE_ENV=development node core/web.js
 ```
