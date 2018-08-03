@@ -129,6 +129,7 @@ import TemplateAppPlayerPlayer from './../src/template/app-player/player';
 import TemplateAppPlayerPopinCorrection from './../src/template/app-player/popin-correction';
 import TemplateAppPlayerPopinEnd from './../src/template/app-player/popin-end';
 import TemplateAppPlayerPopinHeader from './../src/template/app-player/popin-header';
+import TemplateAppRacingAdmin from './../src/template/app-racing/admin';
 import TemplateAppRacingQuestion from './../src/template/app-racing/question';
 import TemplateAppRacingRace from './../src/template/app-racing/race';
 import TemplateBackOfficeBrandCreate from './../src/template/back-office/brand-create';
@@ -641,8 +642,10 @@ import TemplateAppPlayerPopinHeaderFixtureLoading from '../src/template/app-play
 import TemplateAppPlayerPopinHeaderFixtureNextChapter from '../src/template/app-player/popin-header/test/fixtures/next-chapter';
 import TemplateAppPlayerPopinHeaderFixtureStarsRank from '../src/template/app-player/popin-header/test/fixtures/stars-rank';
 import TemplateAppPlayerPopinHeaderFixtureSuccess from '../src/template/app-player/popin-header/test/fixtures/success';
+import TemplateAppRacingAdminFixtureDefault from '../src/template/app-racing/admin/test/fixtures/default';
 import TemplateAppRacingQuestionFixtureDefault from '../src/template/app-racing/question/test/fixtures/default';
 import TemplateAppRacingRaceFixtureDefault from '../src/template/app-racing/race/test/fixtures/default';
+import TemplateAppRacingRaceFixtureGameOver from '../src/template/app-racing/race/test/fixtures/game-over';
 import TemplateBackOfficeBrandCreateFixtureDefault from '../src/template/back-office/brand-create/test/fixtures/default';
 import TemplateBackOfficeBrandCreateFixtureError from '../src/template/back-office/brand-create/test/fixtures/error';
 import TemplateBackOfficeBrandCreateFixtureLoading from '../src/template/back-office/brand-create/test/fixtures/loading';
@@ -694,6 +697,8 @@ import TemplateCommonSearchPageFixtureDefault from '../src/template/common/searc
 import TemplateCommonSearchPageFixtureNoResultWithRecommendations from '../src/template/common/search-page/test/fixtures/no-result-with-recommendations';
 import TemplateCommonSearchPageFixtureNoResult from '../src/template/common/search-page/test/fixtures/no-result';
 import TemplateTeamBuilderFixtureDefault from '../src/template/team-builder/test/fixtures/default';
+import TemplateTeamBuilderFixtureReadyToStart from '../src/template/team-builder/test/fixtures/ready-to-start';
+import TemplateTeamBuilderFixtureWaitForOthers from '../src/template/team-builder/test/fixtures/wait-for-others';
 
 export const components = {
   Atom: {
@@ -853,6 +858,7 @@ export const components = {
     TemplateAppPlayerPlayerSlidesSlidesPlayer
   },
   TemplateAppRacing: {
+    TemplateAppRacingAdmin,
     TemplateAppRacingQuestion,
     TemplateAppRacingRace
   },
@@ -1542,7 +1548,9 @@ export const fixtures = {
       NoEngines: TemplateActivityFixtureNoEngines
     },
     TemplateTeamBuilder: {
-      Default: TemplateTeamBuilderFixtureDefault
+      Default: TemplateTeamBuilderFixtureDefault,
+      ReadyToStart: TemplateTeamBuilderFixtureReadyToStart,
+      WaitForOthers: TemplateTeamBuilderFixtureWaitForOthers
     }
   },
   TemplateAppPlayer: {
@@ -1662,11 +1670,15 @@ export const fixtures = {
     }
   },
   TemplateAppRacing: {
+    TemplateAppRacingAdmin: {
+      Default: TemplateAppRacingAdminFixtureDefault
+    },
     TemplateAppRacingQuestion: {
       Default: TemplateAppRacingQuestionFixtureDefault
     },
     TemplateAppRacingRace: {
-      Default: TemplateAppRacingRaceFixtureDefault
+      Default: TemplateAppRacingRaceFixtureDefault,
+      GameOver: TemplateAppRacingRaceFixtureGameOver
     }
   },
   TemplateBackOffice: {

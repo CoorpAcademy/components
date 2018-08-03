@@ -46,7 +46,7 @@ const appendUser = (nextContent, initialTeams) => (users, user): RacingUsers => 
   return {
     ...users,
     [user.id]: {
-      id: user.id,
+      ...user,
       nextContent,
       questionNum: 1,
       team

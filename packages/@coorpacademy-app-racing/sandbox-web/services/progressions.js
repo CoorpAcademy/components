@@ -1,7 +1,7 @@
 import {
   createProgression,
   createState,
-  computeNextStepAfterRacingAnswer,
+  computeNextStepAfterAnswer,
   getConfig,
   getConfigForProgression
 } from '@coorpacademy/progression-engine';
@@ -109,7 +109,7 @@ export const postAnswer = async (progressionId, payload, forcedUser, godMode = f
 
   const availableContent = await getAvailableContent(progression.content);
   const config = getConfigForProgression(progression);
-  const action = computeNextStepAfterRacingAnswer(
+  const action = computeNextStepAfterAnswer(
     config,
     state.users[userId],
     availableContent,
@@ -126,7 +126,7 @@ export const postAnswer = async (progressionId, payload, forcedUser, godMode = f
 };
 
 export const waitForRefresh = async progressionId => {
-  await delay(3000);
+  await delay(300);
 
   const userId = 'user_2';
   const teamIndex = 0;

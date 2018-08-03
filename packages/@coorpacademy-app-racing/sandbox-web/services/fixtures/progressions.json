@@ -11,7 +11,7 @@
       "createdAt": "2018-02-09T14:43:57.919Z"
     },
     "engineOptions": {
-      "goal": 20
+      "goal": 10
     },
     "engine": {
       "ref": "racing",
@@ -23,17 +23,25 @@
         "payload": {
           "teams": {
             "0": {
-              "players": ["user_1", "user_2"],
+              "players": [
+                "user_1",
+                "user_2"
+              ],
               "tower": []
             },
             "1": {
-              "players": ["user_3", "user_4"],
+              "players": [
+                "user_3",
+                "user_4"
+              ],
               "tower": []
             }
           },
           "users": {
             "user_1": {
               "id": "user_1",
+              "name": "user_1",
+              "avatar": "https://api.adorable.io/avatars/120/user_1.png",
               "team": 0,
               "isCorrect": false,
               "slides": [],
@@ -45,6 +53,8 @@
             },
             "user_2": {
               "id": "user_2",
+              "name": "user_2",
+              "avatar": "https://api.adorable.io/avatars/120/user_2.png",
               "team": 0,
               "isCorrect": false,
               "slides": [],
@@ -56,6 +66,8 @@
             },
             "user_3": {
               "id": "user_3",
+              "name": "user_3",
+              "avatar": "https://api.adorable.io/avatars/120/user_3.png",
               "team": 1,
               "isCorrect": false,
               "slides": [],
@@ -67,6 +79,8 @@
             },
             "user_4": {
               "id": "user_4",
+              "name": "user_4",
+              "avatar": "https://api.adorable.io/avatars/120/user_4.png",
               "team": 1,
               "isCorrect": false,
               "slides": [],
@@ -83,17 +97,25 @@
     "state": {
       "teams": {
         "0": {
-          "players": ["user_1", "user_2"],
+          "players": [
+            "user_1",
+            "user_2"
+          ],
           "tower": []
         },
         "1": {
-          "players": ["user_3", "user_4"],
+          "players": [
+            "user_3",
+            "user_4"
+          ],
           "tower": []
         }
       },
       "users": {
         "user_1": {
           "id": "user_1",
+          "name": "user_1",
+          "avatar": "https://api.adorable.io/avatars/120/user_1.png",
           "team": 0,
           "isCorrect": false,
           "slides": [],
@@ -105,6 +127,8 @@
         },
         "user_2": {
           "id": "user_2",
+          "name": "user_2",
+          "avatar": "https://api.adorable.io/avatars/120/user_2.png",
           "team": 0,
           "isCorrect": false,
           "slides": [],
@@ -116,6 +140,8 @@
         },
         "user_3": {
           "id": "user_3",
+          "name": "user_3",
+          "avatar": "https://api.adorable.io/avatars/120/user_3.png",
           "team": 1,
           "isCorrect": false,
           "slides": [],
@@ -127,6 +153,8 @@
         },
         "user_4": {
           "id": "user_4",
+          "name": "user_4",
+          "avatar": "https://api.adorable.io/avatars/120/user_4.png",
           "team": 1,
           "isCorrect": false,
           "slides": [],

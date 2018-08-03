@@ -3,7 +3,9 @@
 import type {Instruction, ChapterRule} from './rule-engine/types';
 
 export type User = {
-  id: string
+  id: string,
+  name: string,
+  avatar: string
 };
 
 export type Team = Array<User>;
@@ -188,6 +190,7 @@ export type Engine = {
 export type Config = {
   version: string,
   livesDisabled: boolean,
+  infiniteSlides: boolean,
   lives: number,
   maxTypos: number,
   slidesToComplete: number,

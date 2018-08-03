@@ -24,21 +24,16 @@ export default function _teams(config: Config): (RacingTeams, Action, State) => 
         }
 
         const currentTower: Tower = teams[teamToUpdate].tower;
-        let newTower: Tower = concat([], currentTower);
+        const newTower: Tower = concat([], currentTower);
 
         if (_action.payload.isCorrect) {
-          console.log('[engine] ------> .push(placed);');
           newTower.push('placed');
         } else {
           const index = findIndex(isEqual('placed'), currentTower);
-          console.log('[engine] ------> replace by removed at ' + index);
           if (index !== -1) {
             newTower.splice(index, 1, 'removed');
           }
         }
-
-        console.log('[engine] ------> new tower');
-        console.log(newTower);
 
         return set([teamToUpdate, 'tower'], newTower, teams);
       }

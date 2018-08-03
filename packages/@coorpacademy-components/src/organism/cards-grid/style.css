@@ -1,5 +1,4 @@
 @value colors: "../../variables/colors.css";
-@value white from colors;
 @value breakpoints: "../../variables/breakpoints.css";
 @value desktop from breakpoints;
 @value tablet from breakpoints;
@@ -14,7 +13,7 @@
   align-content: flex-start;
   flex-wrap: wrap;
   justify-content: center;
-  background-color: white;
+  background-color: inherit;
 }
 
 .loader {

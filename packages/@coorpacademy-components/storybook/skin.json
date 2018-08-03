@@ -4,6 +4,9 @@
     "good": "#24B694",
     "bad": "#ED1C24"
   },
+  "racing": {
+    "primary": "#0e3a3d"
+  },
   "images": {
     "logo": "https://static.coorpacademy.com/content/superman/raw/mazars_logo_large-1499872170838.jpg",
     "logo-mobile": "https://up.coorpacademy.com/assets/css/skin/logos/logo_coorpacademy_zeitgeist_small.92e2b75dbe0.svg"
