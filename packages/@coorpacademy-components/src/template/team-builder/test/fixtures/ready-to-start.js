@@ -31,8 +31,9 @@ export default {
       }
     ],
     cta: {
-      submitValue: 'Join a team',
-      onClick: () => console.log('Joined !')
+      submitValue: 'Start',
+      animate: true,
+      onClick: () => console.log('start!')
     }
   }
 };

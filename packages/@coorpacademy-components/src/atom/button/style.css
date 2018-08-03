@@ -16,6 +16,7 @@
 .buttonContent {
   padding: 0 30px;
   display: block;
+  cursor: pointer;
   text-transform: inherit;
   background-color: orange;
   color: white;

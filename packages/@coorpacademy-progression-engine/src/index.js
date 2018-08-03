@@ -1,7 +1,6 @@
 // @flow
 import {
   computeNextStepAfterAnswer,
-  computeNextStepAfterRacingAnswer,
   computeNextStepOnAcceptExtraLife,
   computeNextStepOnRefuseExtraLife
 } from './compute-next-step';
@@ -18,7 +17,6 @@ export {
   checkAnswer,
   checkAnswerCorrectness,
   computeNextStepAfterAnswer,
-  computeNextStepAfterRacingAnswer,
   computeNextStepOnAcceptExtraLife,
   computeNextStepOnRefuseExtraLife,
   computeRacingSetup,

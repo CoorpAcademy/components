@@ -1,10 +1,9 @@
 export default {
   props: {
-    header: {
+    info: {
       title: 'Bonne réponse !',
       success: true,
-      points: 1,
-      pointsDescription: "Vous faites avancer votre équipe d'un pas"
+      gameOver: false
     },
     race: {
       goal: 8,
@@ -13,36 +12,44 @@ export default {
         ['placed', 'placed', 'placed', 'placed', 'new', 'new', 'new'],
         ['removed', 'lost', 'lost', 'lost', 'placed', 'placed'],
         ['placed', 'placed'],
+        [
+          'lost',
+          'lost',
+          'lost',
+          'lost',
+          'lost',
+          'lost',
+          'lost',
+          'lost',
+          'lost',
+          'lost',
+          'lost',
+          'lost',
+          'lost',
+          'lost',
+          'lost',
+          'lost',
+          'lost',
+          'new',
+          'new',
+          'new',
+          'new',
+          'new',
+          'new',
+          'new',
+          'new'
+        ],
         ['removed', 'placed', 'placed', 'new', 'new']
       ]
     },
-    teamMembers: [
-      {
-        name: 'Angelina',
-        status: 'succeeded',
-        avatarUrl: 'http://blog.mozilla.org/hacks/files/2013/06/angelina.jpg',
-        statusDescription: 'A obtenu une bonne réponse',
-        points: 1
-      },
-      {
-        name: 'Edmund',
-        status: 'failed',
-        avatarUrl: 'https://i0.wp.com/zobra.ru/cache/p6280-610x-il_fullxfull-313300268.jpg',
-        statusDescription: 'A obtenu une mauvaise réponse',
-        points: -1
-      },
-      {
-        name: 'James',
-        status: 'answering',
-        avatarUrl: 'http://2012.lxjs.org/assets/images/speakers_substack.jpg',
-        statusDescription: 'A obtenu une mauvaise réponse',
-        points: -1
-      }
-    ],
     cta: {
       submitValue: 'Question suivante',
-      disabled: true,
-      primary: true
-    }
+      disabled: false
+    },
+    team: [
+      {name: 'Katrine', avatar: 'https://api.adorable.io/avatars/150/Katrine.png', isCorrect: true},
+      {name: 'Joe', avatar: 'https://api.adorable.io/avatars/150/Joe.png', isCorrect: false},
+      {name: 'Kim', avatar: 'https://api.adorable.io/avatars/150/Kim.png', isCorrect: null}
+    ]
   }
 };

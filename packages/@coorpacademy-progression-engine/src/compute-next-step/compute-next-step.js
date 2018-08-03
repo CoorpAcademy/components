@@ -21,7 +21,6 @@ import type {
   ChapterContent,
   Config,
   Content,
-  RacingUser,
   Slide,
   State
 } from '../types';
@@ -168,9 +167,14 @@ const computeNextSlide = (
     pipe(get('_id'), (slideId: string) => !state || !includes(slideId, state.slides)),
     chapterContent.slides
   );
+
+  const restartPicking = config.infiniteSlides && remainingSlides.length === 0;
+  const slidesToPick = restartPicking ? chapterContent.slides : remainingSlides;
+  console.log({slidesToPick: slidesToPick.length});
+
   return {
     type: 'slide',
-    ref: pickNextSlide(remainingSlides)._id
+    ref: pickNextSlide(slidesToPick)._id
   };
 };
 
@@ -271,8 +275,10 @@ const computeNextStep = (
 
   const {currentChapterContent, nextChapterContent, temporaryNextContent} = chapterContent;
   const hasRules = hasRulesToApply(nextChapterContent);
+  const livesDisabled = config.livesDisabled;
+  console.log('----> livesDisabled', livesDisabled);
 
-  if (!hasRules) {
+  if (!hasRules && !livesDisabled) {
     if (state && hasNoMoreLives(config, state)) {
       return {
         nextContent:
@@ -339,7 +345,12 @@ const computeNextStep = (
         }
       : state;
 
+
+    console.log('----> computeNextSlide');
+    console.log({stateWithDecrementedLives});
     const nextContent = computeNextSlide(config, nextChapterContent, stateWithDecrementedLives);
+    console.log({nextContent});
+    console.log('computeNextSlide   <------');
     return {
       nextContent,
       instructions: null,
