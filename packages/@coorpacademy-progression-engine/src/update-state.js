@@ -51,11 +51,11 @@ const reduceAction = combineReducers([
   {key: 'stars', fn: stars},
   {key: 'requestedClues', fn: requestedClues},
   {key: 'viewedResources', fn: viewedResources},
-  {key: 'remainingLifeRequests', fn: remainingLifeRequests},
   {key: 'hasViewedAResourceAtThisStep', fn: hasViewedAResourceAtThisStep},
   {key: 'content', fn: content},
   {key: 'nextContent', fn: nextContent},
   {key: 'allAnswers', fn: allAnswers},
+  {key: 'remainingLifeRequests', fn: remainingLifeRequests},
   {fn: variables}
 ]);
 
