@@ -1,5 +1,6 @@
 import get from 'lodash/fp/get';
 import map from 'lodash/fp/map';
+import mapValues from 'lodash/fp/mapValues';
 import pipe from 'lodash/fp/pipe';
 import reduce from 'lodash/fp/reduce';
 import set from 'lodash/fp/set';
@@ -14,11 +15,12 @@ const slideStore = pipe(
   reduce((slideMap, slide) => slideMap.set(slide._id, slide), new Map())
 )(slidesData);
 
-const appendJWPOptions = lesson => {
-  if (get('mimeType', lesson) === 'video/mp4') {
+const appendJWPOptions = (path, opt) => media => {
+  console.log('-------> media ', {media});
+  if (get('mimeType', media) === 'video/mp4') {
     const options = {
-      playerId: get('_id', lesson),
-      file: get('mediaUrl', lesson),
+      playerId: get('_id', media),
+      file: get('mediaUrl', media),
       playerScript: 'https://up-staging.coorpacademy.com/libs/jwplayer/7.10.7/jwplayer.js',
       licenseKey: 'yI8rSuuJ+fs7VdJzWjY4zGZU48UcOn+Gjg+FXZag16o=',
       customProps: {
@@ -31,14 +33,22 @@ const appendJWPOptions = lesson => {
       }
     };
 
-    return set('jwpOptions', options, lesson);
+    const base = path ? `${path}.` : '';
+
+    return pipe(set(`${base}jwpOptions`, options), set(`${base}mimeType`, media.mimeType))(media);
   }
-  return lesson;
+  return media;
 };
 
 // eslint-disable-next-line import/prefer-default-export,require-await
 export const findById = async id => {
   if (!slideStore.has(id)) throw new Error(`Slide ${id} not found`);
   const slide = slideStore.get(id);
-  return update('lessons', map(appendJWPOptions), slide);
+  return pipe(
+    update('lessons', map(appendJWPOptions())),
+    update('question.medias', map(appendJWPOptions('src.0'))),
+    f => console.log('-------_> s', JSON.stringify(f, 0, 2)) || f,
+    update('context.media', appendJWPOptions('src.0')),
+    f => console.log('-------_> f', JSON.stringify(f, 0, 2)) || f
+  )(slide);
 };
