@@ -7,7 +7,7 @@ import createPlayerStateToProps from './player';
 // eslint-disable-next-line import/prefer-default-export
 export const createSlideStateToProps = (options, dispatch) => {
   return pipe(
-    state => mapStateToProps => console.log('-------->', state) || mapStateToProps(state),
+    state => mapStateToProps => mapStateToProps(state),
     mapValues(__, {
       header: createHeaderStateToProps(options, dispatch),
       player: createPlayerStateToProps(options, dispatch)

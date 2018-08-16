@@ -1,6 +1,5 @@
 import get from 'lodash/fp/get';
 import map from 'lodash/fp/map';
-import mapValues from 'lodash/fp/mapValues';
 import pipe from 'lodash/fp/pipe';
 import reduce from 'lodash/fp/reduce';
 import set from 'lodash/fp/set';
@@ -16,7 +15,6 @@ const slideStore = pipe(
 )(slidesData);
 
 const appendJWPOptions = (path, opt) => media => {
-  console.log('-------> media ', {media});
   if (get('mimeType', media) === 'video/mp4') {
     const options = {
       playerId: get('_id', media),
@@ -47,8 +45,6 @@ export const findById = async id => {
   return pipe(
     update('lessons', map(appendJWPOptions())),
     update('question.medias', map(appendJWPOptions('src.0'))),
-    f => console.log('-------_> s', JSON.stringify(f, 0, 2)) || f,
-    update('context.media', appendJWPOptions('src.0')),
-    f => console.log('-------_> f', JSON.stringify(f, 0, 2)) || f
+    update('context.media', appendJWPOptions('src.0'))
   )(slide);
 };

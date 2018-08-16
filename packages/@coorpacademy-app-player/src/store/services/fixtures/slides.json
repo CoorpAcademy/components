@@ -102,20 +102,7 @@
           "src": []
         }
       },
-      "medias": [
-        {
-          "ref": "159363386",
-          "type": "video",
-          "mimeType": "video/mp4",
-          "mediaUrl": "https://simoocdigital.credit-agricole.fr/media/content/bigdata/159363386.mp4",
-          "description": "Qu'est-ce que la Data Science ?",
-          "poster": "https://api-staging.coorpacademy.com/api-service-dev/medias?url=https://simoocdigital.credit-agricole.fr/media/content/bigdata/11.jpg&h=250&w=250&q=90",
-          "_id": "5980934b7dfebe01618a57df",
-          "subtitles": [],
-          "posters": [],
-          "src": []
-        }
-      ]
+      "medias": []
     }
   },
   "sli_VkcAWR-ZQ": {
@@ -126,7 +113,14 @@
     "chapter_id": "5.C8",
     "authors": [],
     "context": {
+      "title": "context withgrg jwplayer",
+      "description": "",
       "media": {
+        "type": "video",
+        "description": "mp4 description",
+        "mimeType": "video/mp4",
+        "_id": "5980934b7dfebe01618a57df",
+        "mediaUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
         "subtitles": [],
         "posters": [],
         "src": []
@@ -223,6 +217,18 @@
               "videoId": "231095700"
             }
           ]
+        },
+        {
+          "ref": "159363386",
+          "type": "video",
+          "mimeType": "video/mp4",
+          "mediaUrl": "https://simoocdigital.credit-agricole.fr/media/content/bigdata/159363386.mp4",
+          "description": "Qu'est-ce que la Data Science ?",
+          "poster": "https://api-staging.coorpacademy.com/api-service-dev/medias?url=https://simoocdigital.credit-agricole.fr/media/content/bigdata/11.jpg&h=250&w=250&q=90",
+          "_id": "5980934b7dfebe01618a57df",
+          "subtitles": [],
+          "posters": [],
+          "src": []
         }
       ]
     }

@@ -164,13 +164,11 @@ export const getQuestionMedia = state => {
         type,
         url: resource.url
       };
-    case 'video': {
-      console.log('-----------> video', resource);
+    case 'video':
       return {
         ...resource,
         type
       };
-    }
   }
 };
 
