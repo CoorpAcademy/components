@@ -28,12 +28,14 @@ const raceProps = (options, {dispatch}) => state => {
       goal: config.goal,
       towers: getCurrentRace(state)
     },
-    cta: {
-      submitValue: 'Next question',
-      disabled: gameOver || spectate || !allUsersHaveAnswered(state),
-      primary: true,
-      onClick: () => dispatch(seeQuestion)
-    },
+    cta: spectate
+      ? null
+      : {
+          submitValue: 'Next question',
+          disabled: gameOver || !allUsersHaveAnswered(state),
+          primary: true,
+          onClick: () => dispatch(seeQuestion)
+        },
     team
   };
 };

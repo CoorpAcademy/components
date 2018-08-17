@@ -51,6 +51,8 @@ const Race = props => {
   const message = info.title && <p className={style.message}>{info.title}</p>;
   const gameOver = info.gameOver && <p className={style.gameOver}>Game Over!</p>;
 
+  const button = cta ? <Cta {...cta} /> : null;
+
   return (
     <div className={style.screenWrapper}>
       <div className={style.screen}>
@@ -60,7 +62,7 @@ const Race = props => {
           </section>
           <section className={sectionClassName(style.sectionCTA)}>
             <Team {...team} />
-            <Cta {...cta} />
+            {button}
           </section>
         </section>
         <p className={style.message}>{info.title}</p>
