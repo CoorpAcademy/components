@@ -14,14 +14,14 @@ const raceProps = (options, {dispatch}) => state => {
   const progression = getCurrentProgression(state);
   const config = getConfigForProgression(progression);
   const gameOver = showGameOver(state);
+  const spectate = isSpectator(state);
   const success = gameOver ? null : isLastAnswerCorrect(state);
   const title = gameOver ? null : `${success ? 'Good' : 'Bad'} answer`;
   const team = currentTeam(state);
 
   return {
     info: {
-      success,
-      title,
+      title: spectate ? 'Spectating' : title,
       gameOver
     },
     race: {
@@ -30,7 +30,7 @@ const raceProps = (options, {dispatch}) => state => {
     },
     cta: {
       submitValue: 'Next question',
-      disabled: gameOver || isSpectator(state) || !allUsersHaveAnswered(state),
+      disabled: gameOver || spectate || !allUsersHaveAnswered(state),
       primary: true,
       onClick: () => dispatch(seeQuestion)
     },
