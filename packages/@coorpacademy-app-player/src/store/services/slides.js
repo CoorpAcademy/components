@@ -14,7 +14,7 @@ const slideStore = pipe(
   reduce((slideMap, slide) => slideMap.set(slide._id, slide), new Map())
 )(slidesData);
 
-const appendJWPOptions = (prefix, opt) => media => {
+const appendJWPOptions = prefix => media => {
   if (get('mimeType', media) === 'video/mp4') {
     const options = {
       playerId: get('_id', media),
