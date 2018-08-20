@@ -102,21 +102,7 @@
           "src": []
         }
       },
-      "medias": [
-        {
-          "type": "img",
-          "_id": "593eb72a187bd18c01283591",
-          "subtitles": [],
-          "posters": [],
-          "src": [
-            {
-              "mimeType": "image/jpeg",
-              "url": "https://api-staging.coorpacademy.com/api-service/medias?h=400&w=400&q=90&url=https://static.coorpacademy.com/content/ijoinchanel/en/slides/1B2_Q6/1B2-Q6-canap-v1.jpg",
-              "_id": "593eb72a187bd18c01283592"
-            }
-          ]
-        }
-      ]
+      "medias": []
     }
   },
   "sli_VkcAWR-ZQ": {
@@ -127,7 +113,14 @@
     "chapter_id": "5.C8",
     "authors": [],
     "context": {
+      "title": "context withgrg jwplayer",
+      "description": "",
       "media": {
+        "type": "video",
+        "description": "mp4 description",
+        "mimeType": "video/mp4",
+        "_id": "5980934b7dfebe01618a57df",
+        "mediaUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
         "subtitles": [],
         "posters": [],
         "src": []
@@ -224,6 +217,18 @@
               "videoId": "231095700"
             }
           ]
+        },
+        {
+          "ref": "159363386",
+          "type": "video",
+          "mimeType": "video/mp4",
+          "mediaUrl": "https://simoocdigital.credit-agricole.fr/media/content/bigdata/159363386.mp4",
+          "description": "Qu'est-ce que la Data Science ?",
+          "poster": "https://api-staging.coorpacademy.com/api-service-dev/medias?url=https://simoocdigital.credit-agricole.fr/media/content/bigdata/11.jpg&h=250&w=250&q=90",
+          "_id": "5980934b7dfebe01618a57df",
+          "subtitles": [],
+          "posters": [],
+          "src": []
         }
       ]
     }
@@ -1457,6 +1462,82 @@
         "description": "PDF description",
         "mimeType": "application/pdf",
         "mediaUrl": "https://static.coorpacademy.com/content/CoorpAcademy/content/cockpit-mooc-technique/raw/hierachie-contenu-1494494029567.pdf"
+      }
+    },
+    "meta": {
+      "updatedAt": "2017-06-13T12:15:40.321Z",
+      "createdAt": "2017-06-13T12:15:40.321Z"
+    },
+    "lessons": [
+      {
+        "ref": "88393119",
+        "type": "video",
+        "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B2.png",
+        "description": "Anatomie d'une page de résultats",
+        "mimeType": "application/vimeo",
+        "videoId": "88393119\n",
+        "_id": "590b862e2e967f64333ad456",
+        "subtitles": [],
+        "posters": [],
+        "src": []
+      }
+    ],
+    "question": {
+      "type": "basic",
+      "header": "Écrivez le mot Text dans l'input.\n",
+      "explanation": "Saisissez votre réponse.",
+      "content": {
+        "label": "Saisissez votre réponse.",
+        "placeholder": " ",
+        "maxTypos": null,
+        "choices": [],
+        "answers": [
+          [
+            "Text"
+          ]
+        ],
+        "media": {
+          "subtitles": [],
+          "posters": [],
+          "src": []
+        }
+      },
+      "medias": [
+        {
+          "type": "img",
+          "_id": "593eb72a187bd18c01283591",
+          "subtitles": [],
+          "posters": [],
+          "src": [
+            {
+              "mimeType": "image/jpeg",
+              "url": "//static.coorpacademy.com/content/ijoinchanel/en/slides/1B2_Q6/1B2-Q6-canap-v1.jpg",
+              "_id": "593eb72a187bd18c01283592"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "1.B2.13": {
+    "_id": "1.B2.13",
+    "klf": "Some KLF",
+    "tips": "XXX",
+    "chapter_id": "5.C8",
+    "hasClue": false,
+    "authors": [],
+    "context": {
+      "title": "context withgrg jwplayer",
+      "description": "",
+      "media": {
+        "type": "video",
+        "description": "mp4 description",
+        "mimeType": "video/mp4",
+        "_id": "5980934b7dfebe01618a57df",
+        "mediaUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+        "subtitles": [],
+        "posters": [],
+        "src": []
       }
     },
     "meta": {
