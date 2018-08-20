@@ -120,13 +120,7 @@ const ContextVideo = props => {
 };
 
 ContextVideo.propTypes = {
-  src: PropTypes.arrayOf(
-    PropTypes.shape({
-      _id: PropTypes.string,
-      mimeType: PropTypes.string,
-      url: PropTypes.string
-    })
-  )
+  src: PropTypes.arrayOf(PropTypes.shape(VideoPlayer.propTypes))
 };
 
 const CONTEXT_MEDIA = {

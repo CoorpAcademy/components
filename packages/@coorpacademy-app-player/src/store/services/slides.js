@@ -14,7 +14,7 @@ const slideStore = pipe(
   reduce((slideMap, slide) => slideMap.set(slide._id, slide), new Map())
 )(slidesData);
 
-const appendJWPOptions = (path, opt) => media => {
+const appendJWPOptions = (prefix, opt) => media => {
   if (get('mimeType', media) === 'video/mp4') {
     const options = {
       playerId: get('_id', media),
@@ -31,9 +31,9 @@ const appendJWPOptions = (path, opt) => media => {
       }
     };
 
-    const base = path ? `${path}.` : '';
-
-    return pipe(set(`${base}jwpOptions`, options), set(`${base}mimeType`, media.mimeType))(media);
+    return pipe(set(`${prefix}jwpOptions`, options), set(`${prefix}mimeType`, media.mimeType))(
+      media
+    );
   }
   return media;
 };
@@ -43,8 +43,8 @@ export const findById = async id => {
   if (!slideStore.has(id)) throw new Error(`Slide ${id} not found`);
   const slide = slideStore.get(id);
   return pipe(
-    update('lessons', map(appendJWPOptions())),
-    update('question.medias', map(appendJWPOptions('src.0'))),
-    update('context.media', appendJWPOptions('src.0'))
+    update('lessons', map(appendJWPOptions(''))),
+    update('question.medias', map(appendJWPOptions('src.0.'))),
+    update('context.media', appendJWPOptions('src.0.'))
   )(slide);
 };
