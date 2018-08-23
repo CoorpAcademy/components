@@ -14,11 +14,15 @@ const slideStore = pipe(
   reduce((slideMap, slide) => slideMap.set(slide._id, slide), new Map())
 )(slidesData);
 
-const appendJWPOptions = prefix => media => {
-  if (get('mimeType', media) === 'video/mp4') {
+export const appendJWPOptions = prefix => media => {
+  const mimeType = get('mimeType', media) || get(`${prefix}mimeType`, media);
+
+  if (mimeType === 'video/mp4') {
+    const playerId = get('_id', media) || get(`${prefix}_id`, media);
+    const file = get('mediaUrl', media) || get(`${prefix}mediaUrl`, media);
     const options = {
-      playerId: get('_id', media),
-      file: get('mediaUrl', media),
+      playerId,
+      file,
       playerScript: 'https://up-staging.coorpacademy.com/libs/jwplayer/7.10.7/jwplayer.js',
       licenseKey: 'yI8rSuuJ+fs7VdJzWjY4zGZU48UcOn+Gjg+FXZag16o=',
       customProps: {
@@ -30,10 +34,7 @@ const appendJWPOptions = prefix => media => {
         }
       }
     };
-
-    return pipe(set(`${prefix}jwpOptions`, options), set(`${prefix}mimeType`, media.mimeType))(
-      media
-    );
+    return pipe(set(`${prefix}jwpOptions`, options), set(`${prefix}mimeType`, mimeType))(media);
   }
   return media;
 };
