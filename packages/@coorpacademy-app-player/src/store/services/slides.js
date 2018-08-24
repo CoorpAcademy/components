@@ -3,6 +3,7 @@ import map from 'lodash/fp/map';
 import pipe from 'lodash/fp/pipe';
 import reduce from 'lodash/fp/reduce';
 import set from 'lodash/fp/set';
+import omit from 'lodash/fp/omit';
 import unset from 'lodash/fp/unset';
 import update from 'lodash/fp/update';
 import values from 'lodash/fp/values';
@@ -34,9 +35,13 @@ export const appendJWPOptions = prefix => media => {
         }
       }
     };
-    return pipe(set(`${prefix}jwpOptions`, options), set(`${prefix}mimeType`, mimeType))(media);
+    return pipe(
+      set(`${prefix}jwpOptions`, options),
+      set(`${prefix}mimeType`, mimeType),
+      omit(`${prefix}id`)
+    )(media);
   }
-  return media;
+  return omit(`${prefix}id`, media);
 };
 
 // eslint-disable-next-line import/prefer-default-export,require-await
