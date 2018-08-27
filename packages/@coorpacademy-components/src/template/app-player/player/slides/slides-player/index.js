@@ -4,6 +4,7 @@ import compact from 'lodash/fp/compact';
 import find from 'lodash/fp/find';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
+import omit from 'lodash/fp/omit';
 import identity from 'lodash/fp/identity';
 import max from 'lodash/fp/max';
 import pipe from 'lodash/fp/pipe';
@@ -114,7 +115,7 @@ ContextImage.propTypes = {
 
 const ContextVideo = props => {
   const videos = props.src.map(({videoId, ...childProps}) => (
-    <VideoPlayer id={videoId} key={videoId} autoplay={false} {...childProps} />
+    <VideoPlayer id={videoId} key={videoId} autoplay={false} {...omit('id', childProps)} />
   ));
   return <div>{videos}</div>;
 };
