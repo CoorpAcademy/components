@@ -44,7 +44,13 @@ const ResourceElement = props => {
       return <Pdf {...childProps} />;
     case TYPE_VIDEO:
       return (
-        <VideoPlayer autoplay={autoplay} id={videoId} height="100%" width="100%" {...childProps} />
+        <VideoPlayer
+          autoplay={autoplay}
+          id={videoId}
+          height="100%"
+          width="100%"
+          {...omit('id', childProps)}
+        />
       );
   }
 };

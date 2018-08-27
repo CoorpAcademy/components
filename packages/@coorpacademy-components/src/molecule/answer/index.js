@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import omit from 'lodash/fp/omit';
 import Picture from '../../atom/picture';
 import VideoPlayer from '../video-player';
 import DropDown from '../questions/drop-down';
@@ -26,7 +27,7 @@ const MediaView = ({media}) => {
     case TYPE_VIDEO:
       return (
         <div className={style.video}>
-          <VideoPlayer {...childProps} id={videoId} height="100%" width="100%" />
+          <VideoPlayer {...omit('id', childProps)} id={videoId} height="100%" width="100%" />
         </div>
       );
     default:
