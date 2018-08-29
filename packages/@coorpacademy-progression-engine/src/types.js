@@ -117,7 +117,6 @@ export type ExtraLifeRefusedAction = {
 
 export type Action =
   | InitAction
-  | MoveAction
   | AnswerAction
   | AskClueAction
   | ExtraLifeAcceptedAction
