@@ -14,7 +14,7 @@ const LinkUpload = ({onUploadLink, onChange, onInputChange, uploadedLink}) => (
       Upload
     </Button>
     <InputReadonly
-      title="Uploaded video link: "
+      title="Uploaded video link:"
       value={uploadedLink || 'will appear here'}
       type="readonly"
     />
@@ -29,7 +29,7 @@ const DragAndDrop = ({onUploadFile, onInputChange, uploadedLink}) => (
       Upload
     </Button>
     <InputReadonly
-      title="Uploaded video link: "
+      title="Uploaded video link:"
       value={uploadedLink || 'will appear here'}
       type="readonly"
     />
