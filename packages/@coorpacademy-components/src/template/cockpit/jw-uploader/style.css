@@ -7,16 +7,7 @@
   border: 1px solid #ddd;
 }
 
-.drag_drop {
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  justify-content: space-evenly;
-  margin: 0 auto;
-  width: 100%;
-}
-
-.link_upload {
+.wrapper {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;

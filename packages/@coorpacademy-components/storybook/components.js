@@ -131,6 +131,7 @@ import TemplateBackOfficeBrandCreate from './../src/template/back-office/brand-c
 import TemplateBackOfficeBrandList from './../src/template/back-office/brand-list';
 import TemplateBackOfficeBrandUpdate from './../src/template/back-office/brand-update';
 import TemplateBackOfficeDashboardPreview from './../src/template/back-office/dashboard-preview';
+import TemplateCockpitJwUploader from './../src/template/cockpit/jw-uploader';
 import TemplateCommonAuthors from './../src/template/common/authors';
 import TemplateCommonCoorpHeader from './../src/template/common/coorp-header';
 import TemplateCommonDashboard from './../src/template/common/dashboard';
@@ -656,6 +657,7 @@ import TemplateBackOfficeDashboardPreviewFixtureLoading from '../src/template/ba
 import TemplateBackOfficeDashboardPreviewFixtureSelectedError from '../src/template/back-office/dashboard-preview/test/fixtures/selected-error';
 import TemplateBackOfficeDashboardPreviewFixtureSelectedLoading from '../src/template/back-office/dashboard-preview/test/fixtures/selected-loading';
 import TemplateBackOfficeDashboardPreviewFixtureSelected from '../src/template/back-office/dashboard-preview/test/fixtures/selected';
+import TemplateCockpitJwUploaderFixtureDefault from '../src/template/cockpit/jw-uploader/test/fixtures/default';
 import TemplateCommonAuthorsFixtureDefault from '../src/template/common/authors/test/fixtures/default';
 import TemplateCommonAuthorsFixtureNoSocials from '../src/template/common/authors/test/fixtures/no-socials';
 import TemplateCommonCoorpHeaderFixtureProduction from '../src/template/common/coorp-header/test/fixtures/production';
@@ -834,6 +836,9 @@ export const components = {
     TemplateBackOfficeBrandList,
     TemplateBackOfficeBrandUpdate,
     TemplateBackOfficeDashboardPreview
+  },
+  TemplateCockpit: {
+    TemplateCockpitJwUploader
   },
   TemplateCommon: {
     TemplateCommonAuthors,
@@ -1653,6 +1658,11 @@ export const fixtures = {
       SelectedError: TemplateBackOfficeDashboardPreviewFixtureSelectedError,
       SelectedLoading: TemplateBackOfficeDashboardPreviewFixtureSelectedLoading,
       Selected: TemplateBackOfficeDashboardPreviewFixtureSelected
+    }
+  },
+  TemplateCockpit: {
+    TemplateCockpitJwUploader: {
+      Default: TemplateCockpitJwUploaderFixtureDefault
     }
   },
   TemplateCommon: {
