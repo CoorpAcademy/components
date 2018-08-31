@@ -1,10 +1,12 @@
+@value colors: "../../../variables/colors.css";
+@value xtraLightGrey from colors;
 
 .container {
   display: flex;
   height: 100%;
   flex-direction: row;
   margin: 20px;
-  border: 1px solid #ddd;
+  border: 1px solid xtraLightGrey;
 }
 
 .wrapper {

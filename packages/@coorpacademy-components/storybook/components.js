@@ -6,6 +6,7 @@ import AtomCenteredText from './../src/atom/centered-text';
 import AtomCheckbox from './../src/atom/checkbox';
 import AtomClue from './../src/atom/clue';
 import AtomCta from './../src/atom/cta';
+import AtomDragAndDrop from './../src/atom/drag-and-drop';
 import AtomImageUpload from './../src/atom/image-upload';
 import AtomInputCheckbox from './../src/atom/input-checkbox';
 import AtomInputColor from './../src/atom/input-color';
@@ -34,6 +35,7 @@ import AtomSpinner from './../src/atom/spinner';
 import AtomTab from './../src/atom/tab';
 import AtomTabContent from './../src/atom/tab-content';
 import AtomTitle from './../src/atom/title';
+import AtomVideoUpload from './../src/atom/video-upload';
 import HocAnimation from './../src/hoc/animation';
 import HocAnimationScheduler from './../src/hoc/animation-scheduler';
 import HocSwapper from './../src/hoc/swapper';
@@ -267,6 +269,11 @@ import AtomTabFixtureDefault from '../src/atom/tab/test/fixtures/default';
 import AtomTabContentFixtureDefault from '../src/atom/tab-content/test/fixtures/default';
 import AtomTabContentFixtureHideContentBackground from '../src/atom/tab-content/test/fixtures/hide-content-background';
 import AtomTitleFixtureFixture from '../src/atom/title/test/fixtures/fixture';
+import AtomVideoUploadFixtureDesktop from '../src/atom/video-upload/test/fixtures/desktop';
+import AtomVideoUploadFixtureLoading from '../src/atom/video-upload/test/fixtures/loading';
+import AtomVideoUploadFixtureModified from '../src/atom/video-upload/test/fixtures/modified';
+import AtomVideoUploadFixtureNoPreview from '../src/atom/video-upload/test/fixtures/no-preview';
+import AtomVideoUploadFixtureWithoutVideo from '../src/atom/video-upload/test/fixtures/without-video';
 import HocAnimationFixtureStart from '../src/hoc/animation/test/fixtures/start';
 import HocAnimationFixtureStop from '../src/hoc/animation/test/fixtures/stop';
 import HocAnimationSchedulerFixtureParallel from '../src/hoc/animation-scheduler/test/fixtures/parallel';
@@ -685,6 +692,7 @@ export const components = {
     AtomCheckbox,
     AtomClue,
     AtomCta,
+    AtomDragAndDrop,
     AtomImageUpload,
     AtomInputCheckbox,
     AtomInputColor,
@@ -712,7 +720,8 @@ export const components = {
     AtomSpinner,
     AtomTab,
     AtomTabContent,
-    AtomTitle
+    AtomTitle,
+    AtomVideoUpload
   },
   Hoc: {
     HocAnimation,
@@ -1048,6 +1057,13 @@ export const fixtures = {
     },
     AtomTitle: {
       Fixture: AtomTitleFixtureFixture
+    },
+    AtomVideoUpload: {
+      Desktop: AtomVideoUploadFixtureDesktop,
+      Loading: AtomVideoUploadFixtureLoading,
+      Modified: AtomVideoUploadFixtureModified,
+      NoPreview: AtomVideoUploadFixtureNoPreview,
+      WithoutVideo: AtomVideoUploadFixtureWithoutVideo
     }
   },
   Hoc: {

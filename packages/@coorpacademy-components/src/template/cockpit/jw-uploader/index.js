@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Button from '../../../atom/button';
 import Input from '../../../atom/input-text';
 import InputReadonly from '../../../atom/input-readonly';
-import ImageUpload from '../../../atom/image-upload';
+import VideoUpload from '../../../atom/video-upload';
 import Title from '../../../atom/title';
 import style from './style.css';
 
@@ -14,7 +14,7 @@ const JwVideoUploader = ({
   uploadedLink,
   inputTextValue,
   placeholder,
-  previewImage
+  previewContent
 }) => {
   return (
     <div className={style.container}>
@@ -25,13 +25,11 @@ const JwVideoUploader = ({
           onChange={e => onInputTextChange(e)}
           value={inputTextValue}
         />
-        <ImageUpload
+        <VideoUpload
+          title="Video Preview"
           onChange={e => onInputFileChange(e)}
           uploadLabel="Choose or drag & drop a file"
-          previewImage={
-            previewImage ||
-            'https://static.coorpacademy.com/content/up/raw/logo_coorp-1491560495763.svg'
-          }
+          previewContent={previewContent}
         />
         <Button submitValue="Upload" onClick={onUpload}>
           Upload
@@ -48,8 +46,8 @@ JwVideoUploader.propTypes = {
   onInputFileChange: PropTypes.func,
   uploadedLink: PropTypes.string,
   inputTextValue: PropTypes.string,
-  placeholder: PropTypes.string,
-  previewImage: PropTypes.string
+  previewContent: PropTypes.shape(VideoUpload.propTypes.previewContent),
+  placeholder: PropTypes.string
 };
 
 export default JwVideoUploader;

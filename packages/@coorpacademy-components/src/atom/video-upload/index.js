@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import DragAndDrop from '../drag-and-drop';
 import style from './style.css';
 
-const ImageUpload = ({
+const VideoUpload = ({
   title,
   description,
   previewLabel,
-  previewContent,
   uploadLabel,
+  previewContent,
   loading,
   modified,
   onChange,
@@ -20,15 +20,15 @@ const ImageUpload = ({
     title={title}
     description={description}
     previewLabel={previewLabel}
-    previewContent={previewContent}
     uploadLabel={uploadLabel}
+    previewContent={previewContent}
     loading={loading}
     modified={modified}
   >
     <input
       type="file"
       name={name}
-      accept="image/*"
+      accept="video/*"
       disabled={loading}
       className={style.input}
       onChange={onChange}
@@ -39,7 +39,7 @@ const ImageUpload = ({
   </DragAndDrop>
 );
 
-ImageUpload.propTypes = {
+VideoUpload.propTypes = {
   ...DragAndDrop.propTypes,
   name: PropTypes.string,
   onChange: PropTypes.func,
@@ -47,4 +47,4 @@ ImageUpload.propTypes = {
   onHandleDragStop: PropTypes.func
 };
 
-export default ImageUpload;
+export default VideoUpload;
