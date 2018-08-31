@@ -15,6 +15,11 @@ export default {
       multi: false,
       onChange: () => console.log('onChange playersSlider')
     },
+    goalSlider: {
+      value: 0.6,
+      multi: false,
+      onChange: () => console.log('onChange goalSlider')
+    },
     selectedCard: card.props
   }
 };

@@ -7,9 +7,10 @@ import Card from '../../../molecule/card';
 import style from './style.css';
 
 const RacingAdmin = (props, context) => {
-  const {cta, teamsSlider, playersSlider, selectedCard} = props;
+  const {cta, teamsSlider, playersSlider, goalSlider, selectedCard} = props;
   const nbTeams = getOr(0, 'value', teamsSlider) * 10;
   const nbPlayers = getOr(0, 'value', playersSlider) * 10;
+  const goal = getOr(0, 'value', goalSlider) * 20;
 
   return (
     <div className={style.admin}>
@@ -23,6 +24,10 @@ const RacingAdmin = (props, context) => {
         <span className={style.description}>{nbPlayers} players by team</span>
         <div className={style.slider}>
           <Range {...playersSlider} />
+        </div>
+        <span className={style.description}>goal: {goal}pts (min 3)</span>
+        <div className={style.slider}>
+          <Range {...goalSlider} />
         </div>
       </section>
 
