@@ -12,9 +12,7 @@ const ImageUpload = ({
   loading,
   modified,
   onChange,
-  name,
-  onHandleDragStart,
-  onHandleDragStop
+  name
 }) => (
   <DragAndDrop
     title={title}
@@ -25,26 +23,26 @@ const ImageUpload = ({
     loading={loading}
     modified={modified}
   >
-    <input
-      type="file"
-      name={name}
-      accept="image/*"
-      disabled={loading}
-      className={style.input}
-      onChange={onChange}
-      onDragEnter={onHandleDragStart}
-      onDrop={onHandleDragStop}
-      onDragLeave={onHandleDragStop}
-    />
+    {(onDragStart, onDragStop) => (
+      <input
+        type="file"
+        name={name}
+        accept="image/*"
+        disabled={loading}
+        className={style.input}
+        onChange={onChange}
+        onDragEnter={onDragStart}
+        onDrop={onDragStop}
+        onDragLeave={onDragStop}
+      />
+    )}
   </DragAndDrop>
 );
 
 ImageUpload.propTypes = {
   ...DragAndDrop.propTypes,
   name: PropTypes.string,
-  onChange: PropTypes.func,
-  onHandleDragStart: PropTypes.func,
-  onHandleDragStop: PropTypes.func
+  onChange: PropTypes.func
 };
 
 export default ImageUpload;

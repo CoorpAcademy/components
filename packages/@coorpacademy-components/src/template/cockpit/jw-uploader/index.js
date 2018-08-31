@@ -20,14 +20,10 @@ const JwVideoUploader = ({
     <div className={style.container}>
       <div className={style.wrapper}>
         <Title>Jw Video Upload</Title>
-        <Input
-          placeholder={placeholder}
-          onChange={e => onInputTextChange(e)}
-          value={inputTextValue}
-        />
+        <Input placeholder={placeholder} onChange={onInputTextChange} value={inputTextValue} />
         <VideoUpload
           title="Video Preview"
-          onChange={e => onInputFileChange(e)}
+          onChange={onInputFileChange}
           uploadLabel="Choose or drag & drop a file"
           previewContent={previewContent}
         />
@@ -41,12 +37,12 @@ const JwVideoUploader = ({
 };
 
 JwVideoUploader.propTypes = {
+  ...VideoUpload.propTypes,
   onUpload: PropTypes.func,
   onInputTextChange: PropTypes.func,
   onInputFileChange: PropTypes.func,
   uploadedLink: PropTypes.string,
   inputTextValue: PropTypes.string,
-  previewContent: PropTypes.shape(VideoUpload.propTypes.previewContent),
   placeholder: PropTypes.string
 };
 

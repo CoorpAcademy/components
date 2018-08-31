@@ -36,7 +36,7 @@ class DragAndDrop extends React.Component {
     const brandColor = get('common.brand', skin);
     const idBox = uniqueId('drop-box-');
     const {
-      children,
+      children = () => null,
       title,
       description,
       uploadLabel,
@@ -45,10 +45,6 @@ class DragAndDrop extends React.Component {
       loading = false,
       modified = false
     } = this.props;
-
-    const childrenWithProps = React.Children.map(children, child => (
-      <child onHandleDragStart={this.handleDragStart} onHandleDragStop={this.handleDragStop} />
-    ));
 
     let previewView = null;
 
@@ -81,7 +77,7 @@ class DragAndDrop extends React.Component {
         <div className={this.state.dragging ? style.dragging : style.inputWrapper} id={idBox}>
           <UploadIcon className={style.arrow} color={brandColor} />
           <div className={style.uploadLabel}>{uploadLabel}</div>
-          {childrenWithProps}
+          {children(this.handleDragStart, this.handleDragStop)}
         </div>
         {description && <div className={style.description}>{description}</div>}
       </div>

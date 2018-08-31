@@ -164,12 +164,15 @@ import AtomCtaFixturePrimarySmall from '../src/atom/cta/test/fixtures/primary-sm
 import AtomCtaFixturePrimary from '../src/atom/cta/test/fixtures/primary';
 import AtomCtaFixtureSecondarySmall from '../src/atom/cta/test/fixtures/secondary-small';
 import AtomCtaFixtureSecondary from '../src/atom/cta/test/fixtures/secondary';
+import AtomDragAndDropFixtureDefault from '../src/atom/drag-and-drop/test/fixtures/default';
+import AtomDragAndDropFixtureLoading from '../src/atom/drag-and-drop/test/fixtures/loading';
+import AtomDragAndDropFixtureWithChildren from '../src/atom/drag-and-drop/test/fixtures/with-children';
+import AtomDragAndDropFixtureWithImage from '../src/atom/drag-and-drop/test/fixtures/with-image';
+import AtomDragAndDropFixtureWithVideo from '../src/atom/drag-and-drop/test/fixtures/with-video';
 import AtomImageUploadFixtureDesktop from '../src/atom/image-upload/test/fixtures/desktop';
 import AtomImageUploadFixtureEmail from '../src/atom/image-upload/test/fixtures/email';
-import AtomImageUploadFixtureLoading from '../src/atom/image-upload/test/fixtures/loading';
 import AtomImageUploadFixtureMobile from '../src/atom/image-upload/test/fixtures/mobile';
 import AtomImageUploadFixtureModified from '../src/atom/image-upload/test/fixtures/modified';
-import AtomImageUploadFixtureNoPreview from '../src/atom/image-upload/test/fixtures/no-preview';
 import AtomImageUploadFixtureWithoutImage from '../src/atom/image-upload/test/fixtures/without-image';
 import AtomInputCheckboxFixtureChecked from '../src/atom/input-checkbox/test/fixtures/checked';
 import AtomInputCheckboxFixtureDefault from '../src/atom/input-checkbox/test/fixtures/default';
@@ -897,13 +900,18 @@ export const fixtures = {
       SecondarySmall: AtomCtaFixtureSecondarySmall,
       Secondary: AtomCtaFixtureSecondary
     },
+    AtomDragAndDrop: {
+      Default: AtomDragAndDropFixtureDefault,
+      Loading: AtomDragAndDropFixtureLoading,
+      WithChildren: AtomDragAndDropFixtureWithChildren,
+      WithImage: AtomDragAndDropFixtureWithImage,
+      WithVideo: AtomDragAndDropFixtureWithVideo
+    },
     AtomImageUpload: {
       Desktop: AtomImageUploadFixtureDesktop,
       Email: AtomImageUploadFixtureEmail,
-      Loading: AtomImageUploadFixtureLoading,
       Mobile: AtomImageUploadFixtureMobile,
       Modified: AtomImageUploadFixtureModified,
-      NoPreview: AtomImageUploadFixtureNoPreview,
       WithoutImage: AtomImageUploadFixtureWithoutImage
     },
     AtomInputCheckbox: {
