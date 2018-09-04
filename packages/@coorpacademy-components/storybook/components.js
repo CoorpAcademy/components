@@ -6,6 +6,7 @@ import AtomCenteredText from './../src/atom/centered-text';
 import AtomCheckbox from './../src/atom/checkbox';
 import AtomClue from './../src/atom/clue';
 import AtomCta from './../src/atom/cta';
+import AtomDragAndDrop from './../src/atom/drag-and-drop';
 import AtomImageUpload from './../src/atom/image-upload';
 import AtomInputCheckbox from './../src/atom/input-checkbox';
 import AtomInputColor from './../src/atom/input-color';
@@ -34,6 +35,7 @@ import AtomSpinner from './../src/atom/spinner';
 import AtomTab from './../src/atom/tab';
 import AtomTabContent from './../src/atom/tab-content';
 import AtomTitle from './../src/atom/title';
+import AtomVideoUpload from './../src/atom/video-upload';
 import HocAnimation from './../src/hoc/animation';
 import HocAnimationScheduler from './../src/hoc/animation-scheduler';
 import HocSwapper from './../src/hoc/swapper';
@@ -131,6 +133,7 @@ import TemplateBackOfficeBrandCreate from './../src/template/back-office/brand-c
 import TemplateBackOfficeBrandList from './../src/template/back-office/brand-list';
 import TemplateBackOfficeBrandUpdate from './../src/template/back-office/brand-update';
 import TemplateBackOfficeDashboardPreview from './../src/template/back-office/dashboard-preview';
+import TemplateCockpitJwUploader from './../src/template/cockpit/jw-uploader';
 import TemplateCommonAuthors from './../src/template/common/authors';
 import TemplateCommonCoorpHeader from './../src/template/common/coorp-header';
 import TemplateCommonDashboard from './../src/template/common/dashboard';
@@ -161,12 +164,15 @@ import AtomCtaFixturePrimarySmall from '../src/atom/cta/test/fixtures/primary-sm
 import AtomCtaFixturePrimary from '../src/atom/cta/test/fixtures/primary';
 import AtomCtaFixtureSecondarySmall from '../src/atom/cta/test/fixtures/secondary-small';
 import AtomCtaFixtureSecondary from '../src/atom/cta/test/fixtures/secondary';
+import AtomDragAndDropFixtureDefault from '../src/atom/drag-and-drop/test/fixtures/default';
+import AtomDragAndDropFixtureLoading from '../src/atom/drag-and-drop/test/fixtures/loading';
+import AtomDragAndDropFixtureWithChildren from '../src/atom/drag-and-drop/test/fixtures/with-children';
+import AtomDragAndDropFixtureWithImage from '../src/atom/drag-and-drop/test/fixtures/with-image';
+import AtomDragAndDropFixtureWithVideo from '../src/atom/drag-and-drop/test/fixtures/with-video';
 import AtomImageUploadFixtureDesktop from '../src/atom/image-upload/test/fixtures/desktop';
 import AtomImageUploadFixtureEmail from '../src/atom/image-upload/test/fixtures/email';
-import AtomImageUploadFixtureLoading from '../src/atom/image-upload/test/fixtures/loading';
 import AtomImageUploadFixtureMobile from '../src/atom/image-upload/test/fixtures/mobile';
 import AtomImageUploadFixtureModified from '../src/atom/image-upload/test/fixtures/modified';
-import AtomImageUploadFixtureNoPreview from '../src/atom/image-upload/test/fixtures/no-preview';
 import AtomImageUploadFixtureWithoutImage from '../src/atom/image-upload/test/fixtures/without-image';
 import AtomInputCheckboxFixtureChecked from '../src/atom/input-checkbox/test/fixtures/checked';
 import AtomInputCheckboxFixtureDefault from '../src/atom/input-checkbox/test/fixtures/default';
@@ -266,6 +272,11 @@ import AtomTabFixtureDefault from '../src/atom/tab/test/fixtures/default';
 import AtomTabContentFixtureDefault from '../src/atom/tab-content/test/fixtures/default';
 import AtomTabContentFixtureHideContentBackground from '../src/atom/tab-content/test/fixtures/hide-content-background';
 import AtomTitleFixtureFixture from '../src/atom/title/test/fixtures/fixture';
+import AtomVideoUploadFixtureDesktop from '../src/atom/video-upload/test/fixtures/desktop';
+import AtomVideoUploadFixtureLoading from '../src/atom/video-upload/test/fixtures/loading';
+import AtomVideoUploadFixtureModified from '../src/atom/video-upload/test/fixtures/modified';
+import AtomVideoUploadFixtureNoPreview from '../src/atom/video-upload/test/fixtures/no-preview';
+import AtomVideoUploadFixtureWithoutVideo from '../src/atom/video-upload/test/fixtures/without-video';
 import HocAnimationFixtureStart from '../src/hoc/animation/test/fixtures/start';
 import HocAnimationFixtureStop from '../src/hoc/animation/test/fixtures/stop';
 import HocAnimationSchedulerFixtureParallel from '../src/hoc/animation-scheduler/test/fixtures/parallel';
@@ -656,6 +667,7 @@ import TemplateBackOfficeDashboardPreviewFixtureLoading from '../src/template/ba
 import TemplateBackOfficeDashboardPreviewFixtureSelectedError from '../src/template/back-office/dashboard-preview/test/fixtures/selected-error';
 import TemplateBackOfficeDashboardPreviewFixtureSelectedLoading from '../src/template/back-office/dashboard-preview/test/fixtures/selected-loading';
 import TemplateBackOfficeDashboardPreviewFixtureSelected from '../src/template/back-office/dashboard-preview/test/fixtures/selected';
+import TemplateCockpitJwUploaderFixtureDefault from '../src/template/cockpit/jw-uploader/test/fixtures/default';
 import TemplateCommonAuthorsFixtureDefault from '../src/template/common/authors/test/fixtures/default';
 import TemplateCommonAuthorsFixtureNoSocials from '../src/template/common/authors/test/fixtures/no-socials';
 import TemplateCommonCoorpHeaderFixtureProduction from '../src/template/common/coorp-header/test/fixtures/production';
@@ -683,6 +695,7 @@ export const components = {
     AtomCheckbox,
     AtomClue,
     AtomCta,
+    AtomDragAndDrop,
     AtomImageUpload,
     AtomInputCheckbox,
     AtomInputColor,
@@ -710,7 +723,8 @@ export const components = {
     AtomSpinner,
     AtomTab,
     AtomTabContent,
-    AtomTitle
+    AtomTitle,
+    AtomVideoUpload
   },
   Hoc: {
     HocAnimation,
@@ -835,6 +849,9 @@ export const components = {
     TemplateBackOfficeBrandUpdate,
     TemplateBackOfficeDashboardPreview
   },
+  TemplateCockpit: {
+    TemplateCockpitJwUploader
+  },
   TemplateCommon: {
     TemplateCommonAuthors,
     TemplateCommonCoorpHeader,
@@ -883,13 +900,18 @@ export const fixtures = {
       SecondarySmall: AtomCtaFixtureSecondarySmall,
       Secondary: AtomCtaFixtureSecondary
     },
+    AtomDragAndDrop: {
+      Default: AtomDragAndDropFixtureDefault,
+      Loading: AtomDragAndDropFixtureLoading,
+      WithChildren: AtomDragAndDropFixtureWithChildren,
+      WithImage: AtomDragAndDropFixtureWithImage,
+      WithVideo: AtomDragAndDropFixtureWithVideo
+    },
     AtomImageUpload: {
       Desktop: AtomImageUploadFixtureDesktop,
       Email: AtomImageUploadFixtureEmail,
-      Loading: AtomImageUploadFixtureLoading,
       Mobile: AtomImageUploadFixtureMobile,
       Modified: AtomImageUploadFixtureModified,
-      NoPreview: AtomImageUploadFixtureNoPreview,
       WithoutImage: AtomImageUploadFixtureWithoutImage
     },
     AtomInputCheckbox: {
@@ -1043,6 +1065,13 @@ export const fixtures = {
     },
     AtomTitle: {
       Fixture: AtomTitleFixtureFixture
+    },
+    AtomVideoUpload: {
+      Desktop: AtomVideoUploadFixtureDesktop,
+      Loading: AtomVideoUploadFixtureLoading,
+      Modified: AtomVideoUploadFixtureModified,
+      NoPreview: AtomVideoUploadFixtureNoPreview,
+      WithoutVideo: AtomVideoUploadFixtureWithoutVideo
     }
   },
   Hoc: {
@@ -1653,6 +1682,11 @@ export const fixtures = {
       SelectedError: TemplateBackOfficeDashboardPreviewFixtureSelectedError,
       SelectedLoading: TemplateBackOfficeDashboardPreviewFixtureSelectedLoading,
       Selected: TemplateBackOfficeDashboardPreviewFixtureSelected
+    }
+  },
+  TemplateCockpit: {
+    TemplateCockpitJwUploader: {
+      Default: TemplateCockpitJwUploaderFixtureDefault
     }
   },
   TemplateCommon: {
