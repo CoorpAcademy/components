@@ -2,6 +2,8 @@ import countBy from 'lodash/fp/countBy';
 import defer from 'lodash/fp/defer';
 import identity from 'lodash/fp/identity';
 import map from 'lodash/fp/map';
+import sumBy from 'lodash/fp/sumBy';
+import includes from 'lodash/fp/includes';
 import React, {Component} from 'react';
 import {Motion, spring} from 'react-motion';
 import PropTypes from 'prop-types';
@@ -80,29 +82,42 @@ Block.propTypes = {
   type: PropTypes.oneOf(['new', 'lost', 'placed', 'placedAndMoved', 'removed'])
 };
 
-const Tower = ({team, blocks, blockSize, maxStiffness}) => (
-  <div className={style.tower}>
-    {_map((value, index) => {
-      const count = countBy(identity, blocks);
-      const nbRemoved = (count.removed || 0) + (count.lost || 0);
-      const num = index - nbRemoved;
-      const bottom = num * blockSize;
-
-      return (
-        <Block
-          type={value}
-          image={BLOCKS[team]}
-          height={`${value === ('removed' || 'lost') ? null : blockSize}px`}
-          bottom={bottom}
-          index={index}
-          num={num}
-          key={`block-${team}-${index}`}
-          maxStiffness={maxStiffness}
-        />
-      );
-    }, blocks)}
+const TeamAvatar = ({team, points, goal}) => (
+  <div className={style.teamAvatar}>
+    <img src={BLOCKS[team]} className={style.blockAvatar} />
+    <span>
+      {points} / {goal}
+    </span>
   </div>
 );
+
+const Tower = ({team, goal, blocks, blockSize, maxStiffness}) => {
+  const points = sumBy(block => includes(block, ['new', 'placed']), blocks);
+  return (
+    <div className={style.tower}>
+      {_map((value, index) => {
+        const count = countBy(identity, blocks);
+        const nbRemoved = (count.removed || 0) + (count.lost || 0);
+        const num = index - nbRemoved;
+        const bottom = num * blockSize;
+
+        return (
+          <Block
+            type={value}
+            image={BLOCKS[team]}
+            height={`${value === ('removed' || 'lost') ? null : blockSize}px`}
+            bottom={bottom}
+            index={index}
+            num={num}
+            key={`block-${team}-${index}`}
+            maxStiffness={maxStiffness}
+          />
+        );
+      }, blocks)}
+      <TeamAvatar key={`team-avatar-${team}`} team={team} points={points} goal={goal} />
+    </div>
+  );
+};
 
 class Towers extends Component {
   constructor(props) {
@@ -137,6 +152,7 @@ class Towers extends Component {
             <Tower
               key={`tower-${index}`}
               team={index}
+              goal={goal}
               blocks={blocks}
               blockSize={this.state.height / goal}
               maxStiffness={goal * 25}

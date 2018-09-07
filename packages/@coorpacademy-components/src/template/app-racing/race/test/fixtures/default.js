@@ -38,8 +38,7 @@ export default {
           'new',
           'new',
           'new'
-        ],
-        ['removed', 'placed', 'placed', 'new', 'new']
+        ]
       ]
     },
     cta: {

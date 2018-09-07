@@ -39,6 +39,8 @@
   background-position: center;
 }
 
+/*----------------------------------------------------------------------------*/
+
 .arrival {
   height: 34px;
   width: 100%;
@@ -51,6 +53,30 @@
   background-image: url('https://user-images.githubusercontent.com/1039076/37212444-67c0e27e-23af-11e8-9cc9-26f28e70485f.png');
   background-size: 32px;
 }
+
+/*----------------------------------------------------------------------------*/
+
+.teamAvatar {
+  display: flex;
+  position: absolute;
+  padding: 2px;
+  bottom: -25px;
+  width: 80px;
+  border: 2px solid #0e3a3d;
+  color: #0e3a3d;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 5px;
+  background-color: rgb(255,255,255,0.6);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.blockAvatar {
+  width: 25px;
+  height: 25px;
+}
+
+/*----------------------------------------------------------------------------*/
 
 @media mobile {
   .towers {
