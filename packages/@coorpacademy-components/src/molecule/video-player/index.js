@@ -49,6 +49,7 @@ class VideoPlayer extends React.Component {
       case 'application/youtube':
       case 'application/kontiki':
       case 'application/uptale':
+      case 'application/jwplayer':
         return (
           <VideoIframe
             type={mimeType.split('application/')[1]}
@@ -94,6 +95,7 @@ VideoPlayer.propTypes = {
     'application/uptale',
     'application/vimeo',
     'application/youtube',
+    'application/jwplayer',
     'video/mp4'
   ]).isRequired
 };
