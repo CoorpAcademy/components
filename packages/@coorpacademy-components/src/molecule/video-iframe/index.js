@@ -12,6 +12,8 @@ const getUrl = ({url, type, id, query = {}, opts = {}}) => {
       return `https://www.youtube.com/embed/${id}?${qs.stringify({...query, ...opts})}`;
     case 'uptale':
       return `https://my.uptale.io/Experience/Launch?id=${id}`;
+    case 'jwplayer':
+      return `https://content.jwplatform.com/players/${id}-fQOLObpQ.html`;
     default:
       return url;
   }
@@ -50,7 +52,7 @@ VideoIframe.contextTypes = {
 };
 
 VideoIframe.propTypes = {
-  type: PropTypes.oneOf(['youtube', 'uptale', 'kontiki']),
+  type: PropTypes.oneOf(['youtube', 'uptale', 'kontiki', 'jwplayer']),
   width: PropTypes.string,
   height: PropTypes.string,
   url: SrcPropType,
