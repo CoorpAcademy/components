@@ -7,16 +7,11 @@ import includes from 'lodash/fp/includes';
 import React, {Component} from 'react';
 import {Motion, spring} from 'react-motion';
 import PropTypes from 'prop-types';
+import TeamAvatar from '../team-avatar';
+import BLOCKS from '../blocks';
 import style from './towers.css';
 
 const _map = map.convert({cap: false});
-const BLOCKS = [
-  'https://user-images.githubusercontent.com/910636/41063327-a380f744-69d8-11e8-85da-a6f6f3d81a17.png',
-  'https://user-images.githubusercontent.com/910636/41063878-3c07c3ac-69da-11e8-967e-bf62657d57b3.png',
-  'https://user-images.githubusercontent.com/910636/41063879-3c37737c-69da-11e8-8f89-c5ecd5de9534.png',
-  'https://user-images.githubusercontent.com/910636/41063880-3c680cf8-69da-11e8-9d96-3bb6701ef9cf.png',
-  'https://user-images.githubusercontent.com/910636/41063881-3c957008-69da-11e8-83e4-374509a9c5ed.png'
-];
 
 const Square = ({image, type, index, height, bottom, motionStyle}) => (
   <div
@@ -82,15 +77,6 @@ Block.propTypes = {
   type: PropTypes.oneOf(['new', 'lost', 'placed', 'placedAndMoved', 'removed'])
 };
 
-const TeamAvatar = ({team, points, goal}) => (
-  <div className={style.teamAvatar}>
-    <img src={BLOCKS[team]} className={style.blockAvatar} />
-    <span>
-      {points} / {goal}
-    </span>
-  </div>
-);
-
 const Tower = ({team, goal, blocks, blockSize, maxStiffness}) => {
   const points = sumBy(block => includes(block, ['new', 'placed']), blocks);
   return (
@@ -114,7 +100,9 @@ const Tower = ({team, goal, blocks, blockSize, maxStiffness}) => {
           />
         );
       }, blocks)}
-      <TeamAvatar key={`team-avatar-${team}`} team={team} points={points} goal={goal} />
+      <div className={style.teamAvatarWrapper}>
+        <TeamAvatar key={`team-avatar-${team}`} team={team} points={points} goal={goal} />
+      </div>
     </div>
   );
 };
