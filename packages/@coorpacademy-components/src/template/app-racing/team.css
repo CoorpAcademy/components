@@ -1,0 +1,41 @@
+@value colors: "../../variables/colors.css";
+@value positive from colors;
+@value negative from colors;
+
+.team {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 60px;
+}
+
+.answered {
+  display: flex;
+  margin-right: 60px;
+}
+
+.waiting {
+  display: flex;
+}
+
+.avatar {
+  left: 20px;
+  width: 45px;
+  height: 45px;
+  margin-right: -10px;
+  border: 3px solid white;
+  border-radius: 50%;
+  background-size: contain;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.noAnswer {
+}
+
+.correct {
+  border: 3px solid positive;
+}
+
+.notCorrect {
+  border: 3px solid negative;
+}

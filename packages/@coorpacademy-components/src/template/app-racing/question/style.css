@@ -9,3 +9,16 @@
   background-image: url('https://user-images.githubusercontent.com/1039076/37212425-643044ba-23af-11e8-9c0f-37488f7c5f84.png');
   background-size: cover;
 }
+
+.gameStatus {
+  background: rgba(195, 195, 195, 0.3);
+}
+
+.teamWrapper {
+  padding: 10px;
+}
+
+.teamsWrapper {
+  display: flex;
+  justify-content: center;
+}
