@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import map from 'lodash/fp/map';
 import SlidesPlayer from '../../app-player/player/slides/slides-player';
 import Team from '../team';
-import TeamAvatar from '../team-avatar';
+import TeamScore from '../team-score';
 import style from './style.css';
 
 const GameStatus = ({team, towers, goal}) => (
@@ -11,10 +11,19 @@ const GameStatus = ({team, towers, goal}) => (
     <div className={style.teamWrapper}>
       <Team {...team} />
     </div>
-    <div className={style.teamsWrapper}>
+    <div className={style.scoresWrapper}>
       {map.convert({cap: false})((tower, index) => {
         const points = 3;
-        return <TeamAvatar key={`team-avatar-${index}`} team={index} points={points} goal={goal} />;
+        const isMyTeam = index === team.num;
+        return (
+          <TeamScore
+            key={`team-avatar-${index}`}
+            team={index}
+            points={points}
+            goal={goal}
+            isMyTeam={isMyTeam}
+          />
+        );
       }, towers)}
     </div>
   </div>

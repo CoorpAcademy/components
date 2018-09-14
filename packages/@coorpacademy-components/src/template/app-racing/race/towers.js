@@ -7,7 +7,7 @@ import includes from 'lodash/fp/includes';
 import React, {Component} from 'react';
 import {Motion, spring} from 'react-motion';
 import PropTypes from 'prop-types';
-import TeamAvatar from '../team-avatar';
+import TeamScore from '../team-score';
 import BLOCKS from '../blocks';
 import style from './towers.css';
 
@@ -101,7 +101,7 @@ const Tower = ({team, goal, blocks, blockSize, maxStiffness}) => {
         );
       }, blocks)}
       <div className={style.teamAvatarWrapper}>
-        <TeamAvatar key={`team-avatar-${team}`} team={team} points={points} goal={goal} />
+        <TeamScore key={`team-avatar-${team}`} team={team} points={points} goal={goal} />
       </div>
     </div>
   );

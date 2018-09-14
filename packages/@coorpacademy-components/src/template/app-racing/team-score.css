@@ -11,6 +11,11 @@
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
+.myTeam {
+  border: 3px solid #fff;
+  font-weight: 700;
+}
+
 .blockAvatar {
   width: 25px;
   height: 25px;

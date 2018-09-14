@@ -45,10 +45,17 @@ export default {
       submitValue: 'Question suivante',
       disabled: false
     },
-    team: [
-      {name: 'Katrine', avatar: 'https://api.adorable.io/avatars/150/Katrine.png', isCorrect: true},
-      {name: 'Joe', avatar: 'https://api.adorable.io/avatars/150/Joe.png', isCorrect: false},
-      {name: 'Kim', avatar: 'https://api.adorable.io/avatars/150/Kim.png', isCorrect: null}
-    ]
+    team: {
+      num: 1,
+      members: [
+        {
+          name: 'Katrine',
+          avatar: 'https://api.adorable.io/avatars/150/Katrine.png',
+          isCorrect: true
+        },
+        {name: 'Joe', avatar: 'https://api.adorable.io/avatars/150/Joe.png', isCorrect: false},
+        {name: 'Kim', avatar: 'https://api.adorable.io/avatars/150/Kim.png', isCorrect: null}
+      ]
+    }
   }
 };
