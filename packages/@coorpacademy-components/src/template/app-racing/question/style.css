@@ -16,9 +16,10 @@
 
 .teamWrapper {
   padding: 10px;
+  height: 45px;
 }
 
-.teamsWrapper {
+.scoresWrapper {
   display: flex;
   justify-content: center;
 }

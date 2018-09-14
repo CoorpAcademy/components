@@ -6,16 +6,11 @@
   position: relative;
   display: flex;
   justify-content: space-between;
-  margin-right: 60px;
+  margin: 0px 10px;
 }
 
-.answered {
-  display: flex;
-  margin-right: 60px;
-}
-
-.waiting {
-  display: flex;
+.player {
+  position: relative;
 }
 
 .avatar {
@@ -29,13 +24,74 @@
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
-.noAnswer {
-}
-
 .correct {
   border: 3px solid positive;
 }
 
 .notCorrect {
   border: 3px solid negative;
+}
+
+/* -------------------------------------------- */
+.player {
+  position: absolute;
+}
+
+@keyframes upAndOut {
+  0% {
+    opacity:1;
+    transform: scale(0);
+  }
+
+  13% {
+    opacity:1;
+    transform: scale(1.2);
+  }
+
+  17% {
+    opacity:1;
+    transform: scale(1.2);
+  }
+
+  60% {
+    opacity:1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity:0;
+    top: -30px;
+    transform: scale(1);
+  }
+}
+
+.responseResult {
+  animation: upAndOut 3.3s;
+  opacity: 0;
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  z-index: 10;
+  background: #ffff;
+  border: 1px solid #0e3a3d;
+  border-radius: 50%;
+  padding: 2px;
+  width: 32px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.textResult {
+  font-family: 'Open Sans';
+  font-size: 18px;
+  font-weight: 700;
+  color: #0e3a3d;
+}
+
+.textCorrect {
+  color: positive;
+}
+
+.textNotCorrect {
+  color: negative;
 }
