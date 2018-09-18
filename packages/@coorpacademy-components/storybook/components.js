@@ -29,6 +29,7 @@ import AtomRadioGroup from './../src/atom/radio-group';
 import AtomRange from './../src/atom/range';
 import AtomResourceMiniature from './../src/atom/resource-miniature';
 import AtomSelect from './../src/atom/select';
+import AtomSketchfab from './../src/atom/sketchfab';
 import AtomSlide from './../src/atom/slide';
 import AtomSocialLink from './../src/atom/social-link';
 import AtomSpinner from './../src/atom/spinner';
@@ -260,6 +261,7 @@ import AtomSelectFixtureSort from '../src/atom/select/test/fixtures/sort';
 import AtomSelectFixtureTemplate from '../src/atom/select/test/fixtures/template';
 import AtomSelectFixtureThematiquesLong from '../src/atom/select/test/fixtures/thematiques-long';
 import AtomSelectFixtureThematiques from '../src/atom/select/test/fixtures/thematiques';
+import AtomSketchfabFixturePikachu from '../src/atom/sketchfab/test/fixtures/pikachu';
 import AtomSlideFixtureDefault from '../src/atom/slide/test/fixtures/default';
 import AtomSlideFixtureLeft from '../src/atom/slide/test/fixtures/left';
 import AtomSlideFixtureLight from '../src/atom/slide/test/fixtures/light';
@@ -287,6 +289,7 @@ import MoleculeAnswerFixtureDefault from '../src/molecule/answer/test/fixtures/d
 import MoleculeAnswerFixtureDropDown from '../src/molecule/answer/test/fixtures/drop-down';
 import MoleculeAnswerFixtureQcmDrag from '../src/molecule/answer/test/fixtures/qcm-drag';
 import MoleculeAnswerFixtureQcmGraphic from '../src/molecule/answer/test/fixtures/qcm-graphic';
+import MoleculeAnswerFixtureQcmShortSketchfab from '../src/molecule/answer/test/fixtures/qcm-short-sketchfab';
 import MoleculeAnswerFixtureQcmShortVideo from '../src/molecule/answer/test/fixtures/qcm-short-video';
 import MoleculeAnswerFixtureQcmShort from '../src/molecule/answer/test/fixtures/qcm-short';
 import MoleculeAnswerFixtureQcm from '../src/molecule/answer/test/fixtures/qcm';
@@ -575,6 +578,7 @@ import TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureNoTotal from '../src/temp
 import TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureOnlyClue from '../src/template/app-player/player/slides/slides-player/test/fixtures/only-clue';
 import TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureQcmDrag from '../src/template/app-player/player/slides/slides-player/test/fixtures/qcm-drag';
 import TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureQcmGraphic from '../src/template/app-player/player/slides/slides-player/test/fixtures/qcm-graphic';
+import TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureQcmShortSketchfab from '../src/template/app-player/player/slides/slides-player/test/fixtures/qcm-short-sketchfab';
 import TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureQcmShort from '../src/template/app-player/player/slides/slides-player/test/fixtures/qcm-short';
 import TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureQcmTemplate from '../src/template/app-player/player/slides/slides-player/test/fixtures/qcm-template';
 import TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureQcm from '../src/template/app-player/player/slides/slides-player/test/fixtures/qcm';
@@ -720,6 +724,7 @@ export const components = {
     AtomRange,
     AtomResourceMiniature,
     AtomSelect,
+    AtomSketchfab,
     AtomSlide,
     AtomSocialLink,
     AtomSpinner,
@@ -1044,6 +1049,9 @@ export const fixtures = {
       ThematiquesLong: AtomSelectFixtureThematiquesLong,
       Thematiques: AtomSelectFixtureThematiques
     },
+    AtomSketchfab: {
+      Pikachu: AtomSketchfabFixturePikachu
+    },
     AtomSlide: {
       Default: AtomSlideFixtureDefault,
       Left: AtomSlideFixtureLeft,
@@ -1098,6 +1106,7 @@ export const fixtures = {
       DropDown: MoleculeAnswerFixtureDropDown,
       QcmDrag: MoleculeAnswerFixtureQcmDrag,
       QcmGraphic: MoleculeAnswerFixtureQcmGraphic,
+      QcmShortSketchfab: MoleculeAnswerFixtureQcmShortSketchfab,
       QcmShortVideo: MoleculeAnswerFixtureQcmShortVideo,
       QcmShort: MoleculeAnswerFixtureQcmShort,
       Qcm: MoleculeAnswerFixtureQcm,
@@ -1639,6 +1648,7 @@ export const fixtures = {
       OnlyClue: TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureOnlyClue,
       QcmDrag: TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureQcmDrag,
       QcmGraphic: TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureQcmGraphic,
+      QcmShortSketchfab: TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureQcmShortSketchfab,
       QcmShort: TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureQcmShort,
       QcmTemplate: TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureQcmTemplate,
       Qcm: TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureQcm,

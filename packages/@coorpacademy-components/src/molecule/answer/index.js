@@ -10,13 +10,15 @@ import Qcm from '../questions/qcm';
 import QcmGraphic from '../questions/qcm-graphic';
 import QuestionRange from '../questions/question-range';
 import Template from '../questions/template';
+import Sketchfab from '../../atom/sketchfab';
 import style from './style.css';
 
 export const TYPE_IMAGE = 'img';
 export const TYPE_VIDEO = 'video';
+export const TYPE_SKETCHFAB = 'sketchfab';
 
 const MediaView = ({media}) => {
-  const {videoId, type, ...childProps} = media;
+  const {videoId, modelId, type, ...childProps} = media;
   switch (type) {
     case TYPE_IMAGE:
       return (
@@ -28,6 +30,12 @@ const MediaView = ({media}) => {
       return (
         <div className={style.video}>
           <VideoPlayer {...omit('id', childProps)} id={videoId} height="100%" width="100%" />
+        </div>
+      );
+    case TYPE_SKETCHFAB:
+      return (
+        <div className={style.video}>
+          <Sketchfab modelId={modelId} />
         </div>
       );
     default:
@@ -74,6 +82,11 @@ const videoPropType = PropTypes.shape({
   type: isType(TYPE_VIDEO).isRequired
 });
 
+const sketchfabPropType = PropTypes.shape({
+  ...Sketchfab.propTypes,
+  type: isType(TYPE_SKETCHFAB).isRequired
+});
+
 const imgPropType = PropTypes.shape({
   type: isType(TYPE_IMAGE).isRequired,
   url: PropTypes.string.isRequired
@@ -92,7 +105,7 @@ Answer.propTypes = {
     ]).isRequired
   }),
   help: PropTypes.string,
-  media: PropTypes.oneOfType([videoPropType, imgPropType])
+  media: PropTypes.oneOfType([videoPropType, imgPropType, sketchfabPropType])
 };
 
 export default Answer;

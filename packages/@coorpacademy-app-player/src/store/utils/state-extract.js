@@ -169,6 +169,11 @@ export const getQuestionMedia = state => {
         ...resource,
         type
       };
+    case 'sketchfab':
+      return {
+        ...resource,
+        type
+      };
   }
 };
 
