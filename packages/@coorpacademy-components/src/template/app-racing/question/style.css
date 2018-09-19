@@ -14,11 +14,6 @@
   background: rgba(195, 195, 195, 0.3);
 }
 
-.teamWrapper {
-  padding: 10px;
-  height: 45px;
-}
-
 .scoresWrapper {
   display: flex;
   justify-content: center;

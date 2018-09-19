@@ -8,9 +8,7 @@ import style from './style.css';
 
 const GameStatus = ({team, towers, goal}) => (
   <div className={style.gameStatus}>
-    <div className={style.teamWrapper}>
-      <Team {...team} />
-    </div>
+    <Team {...team} />
     <div className={style.scoresWrapper}>
       {map.convert({cap: false})((tower, index) => {
         const points = 3;
