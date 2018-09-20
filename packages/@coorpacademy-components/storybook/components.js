@@ -643,6 +643,7 @@ import TemplateAppPlayerPopinHeaderFixtureNextChapter from '../src/template/app-
 import TemplateAppPlayerPopinHeaderFixtureStarsRank from '../src/template/app-player/popin-header/test/fixtures/stars-rank';
 import TemplateAppPlayerPopinHeaderFixtureSuccess from '../src/template/app-player/popin-header/test/fixtures/success';
 import TemplateAppRacingAdminFixtureDefault from '../src/template/app-racing/admin/test/fixtures/default';
+import TemplateAppRacingQuestionFixtureAllInMiddle from '../src/template/app-racing/question/test/fixtures/all-in-middle';
 import TemplateAppRacingQuestionFixtureDefault from '../src/template/app-racing/question/test/fixtures/default';
 import TemplateAppRacingRaceFixtureDefault from '../src/template/app-racing/race/test/fixtures/default';
 import TemplateAppRacingRaceFixtureGameOver from '../src/template/app-racing/race/test/fixtures/game-over';
@@ -1674,6 +1675,7 @@ export const fixtures = {
       Default: TemplateAppRacingAdminFixtureDefault
     },
     TemplateAppRacingQuestion: {
+      AllInMiddle: TemplateAppRacingQuestionFixtureAllInMiddle,
       Default: TemplateAppRacingQuestionFixtureDefault
     },
     TemplateAppRacingRace: {
