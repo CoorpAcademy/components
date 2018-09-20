@@ -26,16 +26,14 @@ export default {
         {
           name: 'Katrine',
           avatar: 'https://api.adorable.io/avatars/150/Katrine.png',
-          isCorrect: true
+          isCorrect: null
         },
-        {name: 'Bob', avatar: 'https://api.adorable.io/avatars/150/bob.png', isCorrect: false},
         {
-          name: 'Tim',
-          avatar: 'https://api.adorable.io/avatars/150/Tim.png',
-          isCorrect: false,
+          name: 'Joe',
+          avatar: 'https://api.adorable.io/avatars/150/Joe.png',
+          isCorrect: null,
           isMe: true
         },
-        {name: 'Joe', avatar: 'https://api.adorable.io/avatars/150/Joe.png', isCorrect: false},
         {name: 'Kim', avatar: 'https://api.adorable.io/avatars/150/Kim.png', isCorrect: null}
       ]
     },
